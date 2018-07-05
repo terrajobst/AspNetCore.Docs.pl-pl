@@ -1,33 +1,32 @@
 ---
 uid: web-pages/videos/aspnet-razor-pages/creating-a-consistent-look-part-2
-title: Tworzenie spójny wygląd (część 2) | Dokumentacja firmy Microsoft
+title: Tworzenie spójnego wyglądu (część 2) | Dokumentacja firmy Microsoft
 author: JoeStagner
-description: Dodatek wideo do tworzenie samouczek spójny wygląd (część 2)
+description: Dodatek wideo do tworzenie spójny wygląd samouczek (część 2)
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/25/2011
 ms.topic: article
 ms.assetid: 0998df70-d53f-404b-800d-1384eea8f932
 ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: /web-pages/videos/aspnet-razor-pages/creating-a-consistent-look-part-2
 msc.type: video
-ms.openlocfilehash: 6528f07817f4f9ccaddb4d3e783b6109d4805722
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 40712bc26f85da43ad211632f31865e48c19e2e0
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30899074"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37373555"
 ---
-<a name="creating-a-consistent-look-part-2"></a><span data-ttu-id="25302-103">Tworzenie spójny wygląd (część 2)</span><span class="sxs-lookup"><span data-stu-id="25302-103">Creating a Consistent Look (Part 2)</span></span>
+<a name="creating-a-consistent-look-part-2"></a><span data-ttu-id="11124-103">Tworzenie spójnego wyglądu (część 2)</span><span class="sxs-lookup"><span data-stu-id="11124-103">Creating a Consistent Look (Part 2)</span></span>
 ====================
-<span data-ttu-id="25302-104">przez [Stagner Jan](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="25302-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="11124-104">przez [Stagner Jan](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="11124-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="25302-105">Dodatek wideo do tworzenie samouczek spójny wygląd (część 2)</span><span class="sxs-lookup"><span data-stu-id="25302-105">Video accompaniment to the Creating a Consistent Look tutorial (Part 2)</span></span>
+<span data-ttu-id="11124-105">Dodatek wideo do tworzenie spójny wygląd samouczek (część 2)</span><span class="sxs-lookup"><span data-stu-id="11124-105">Video accompaniment to the Creating a Consistent Look tutorial (Part 2)</span></span>
 
-[<span data-ttu-id="25302-106">&#9654;Obejrzyj klip wideo (5 minut)</span><span class="sxs-lookup"><span data-stu-id="25302-106">&#9654; Watch video (5 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/creating-a-consistent-look-part-2)
+[<span data-ttu-id="11124-106">&#9654;Obejrzyj film wideo (5 minut)</span><span class="sxs-lookup"><span data-stu-id="11124-106">&#9654; Watch video (5 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/creating-a-consistent-look-part-2)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="25302-107">[Poprzednie](creating-a-consistent-look-part-1.md)
-> [dalej](working-with-forms-part-1.md)</span><span class="sxs-lookup"><span data-stu-id="25302-107">[Previous](creating-a-consistent-look-part-1.md)
+> <span data-ttu-id="11124-107">[Poprzednie](creating-a-consistent-look-part-1.md)
+> [dalej](working-with-forms-part-1.md)</span><span class="sxs-lookup"><span data-stu-id="11124-107">[Previous](creating-a-consistent-look-part-1.md)
 [Next](working-with-forms-part-1.md)</span></span>

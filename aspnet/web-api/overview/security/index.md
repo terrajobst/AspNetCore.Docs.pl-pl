@@ -9,28 +9,27 @@ ms.date: 12/11/2012
 ms.topic: article
 ms.assetid: bb38add0-5223-4b04-9b12-245911af865a
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/security
 msc.type: chapter
-ms.openlocfilehash: 2006e672aab83a508bcaf44b6c7c276d4b1f3342
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 325535ba6cd92fdf8c998b2a5108737f3193bb5b
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26566732"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37375042"
 ---
-<a name="security-authentication-and-authorization-in-aspnet-web-api"></a><span data-ttu-id="50aa8-103">Zabezpieczenia, uwierzytelnianie i autoryzacja w składniku ASP.NET Web API</span><span class="sxs-lookup"><span data-stu-id="50aa8-103">Security, Authentication, and Authorization in ASP.NET Web API</span></span>
+<a name="security-authentication-and-authorization-in-aspnet-web-api"></a><span data-ttu-id="fcb67-103">Zabezpieczenia, uwierzytelnianie i autoryzacja w składniku ASP.NET Web API</span><span class="sxs-lookup"><span data-stu-id="fcb67-103">Security, Authentication, and Authorization in ASP.NET Web API</span></span>
 ====================
-> <span data-ttu-id="50aa8-104">Problemy z bezpieczeństwem dotyczące interfejsu API sieci Web.</span><span class="sxs-lookup"><span data-stu-id="50aa8-104">Security issues for Web API.</span></span>
+> <span data-ttu-id="fcb67-104">Problemy z bezpieczeństwem dotyczące interfejsu API sieci Web.</span><span class="sxs-lookup"><span data-stu-id="fcb67-104">Security issues for Web API.</span></span>
 
 
-- [<span data-ttu-id="50aa8-105">Uwierzytelnianie i autoryzacja w składniku Web API</span><span class="sxs-lookup"><span data-stu-id="50aa8-105">Authentication and Authorization in Web API</span></span>](authentication-and-authorization-in-aspnet-web-api.md)
-- [<span data-ttu-id="50aa8-106">Zabezpieczanie interfejsu API z indywidualnych kont w składniku Web API 2.2 sieci Web</span><span class="sxs-lookup"><span data-stu-id="50aa8-106">Secure a Web API with Individual Accounts in Web API 2.2</span></span>](individual-accounts-in-web-api.md)
-- [<span data-ttu-id="50aa8-107">Zewnętrznych usług uwierzytelniania z interfejsu API sieci Web (C#)</span><span class="sxs-lookup"><span data-stu-id="50aa8-107">External Authentication Services with Web API (C#)</span></span>](external-authentication-services.md)
-- [<span data-ttu-id="50aa8-108">Zapobieganie Cross-Site (CSRF) Fałszerstwie żądania w składniku Web API</span><span class="sxs-lookup"><span data-stu-id="50aa8-108">Preventing Cross-Site Request Forgery (CSRF) Attacks in Web API</span></span>](preventing-cross-site-request-forgery-csrf-attacks.md)
-- [<span data-ttu-id="50aa8-109">Włączanie żądań Cross-Origin w składniku Web API 2</span><span class="sxs-lookup"><span data-stu-id="50aa8-109">Enabling Cross-Origin Requests in Web API 2</span></span>](enabling-cross-origin-requests-in-web-api.md)
-- [<span data-ttu-id="50aa8-110">Filtry uwierzytelniania w składniku Web API 2</span><span class="sxs-lookup"><span data-stu-id="50aa8-110">Authentication Filters in Web API 2</span></span>](authentication-filters.md)
-- [<span data-ttu-id="50aa8-111">Uwierzytelnianie podstawowe w składniku Web API</span><span class="sxs-lookup"><span data-stu-id="50aa8-111">Basic Authentication in Web API</span></span>](basic-authentication.md)
-- [<span data-ttu-id="50aa8-112">Uwierzytelnianie formularzy w składniku Web API</span><span class="sxs-lookup"><span data-stu-id="50aa8-112">Forms Authentication in Web API</span></span>](forms-authentication.md)
-- [<span data-ttu-id="50aa8-113">Zintegrowane uwierzytelnianie systemu Windows</span><span class="sxs-lookup"><span data-stu-id="50aa8-113">Integrated Windows Authentication</span></span>](integrated-windows-authentication.md)
-- [<span data-ttu-id="50aa8-114">Praca z protokołem SSL</span><span class="sxs-lookup"><span data-stu-id="50aa8-114">Working with SSL</span></span>](working-with-ssl-in-web-api.md)
+- [<span data-ttu-id="fcb67-105">Uwierzytelnianie i autoryzacja w interfejsie Web API</span><span class="sxs-lookup"><span data-stu-id="fcb67-105">Authentication and Authorization in Web API</span></span>](authentication-and-authorization-in-aspnet-web-api.md)
+- [<span data-ttu-id="fcb67-106">Zabezpieczanie interfejsu Web API za pomocą indywidualnych kont w interfejsie Web API 2.2</span><span class="sxs-lookup"><span data-stu-id="fcb67-106">Secure a Web API with Individual Accounts in Web API 2.2</span></span>](individual-accounts-in-web-api.md)
+- [<span data-ttu-id="fcb67-107">Zewnętrzne usługi uwierzytelniania dla interfejsu Web API (C#)</span><span class="sxs-lookup"><span data-stu-id="fcb67-107">External Authentication Services with Web API (C#)</span></span>](external-authentication-services.md)
+- [<span data-ttu-id="fcb67-108">Zapobieganie atakom polegającym na fałszowaniu żądań międzywitrynowych w interfejsie Web API</span><span class="sxs-lookup"><span data-stu-id="fcb67-108">Preventing Cross-Site Request Forgery (CSRF) Attacks in Web API</span></span>](preventing-cross-site-request-forgery-csrf-attacks.md)
+- [<span data-ttu-id="fcb67-109">Włączanie żądań Cross-Origin w interfejsie Web API 2</span><span class="sxs-lookup"><span data-stu-id="fcb67-109">Enabling Cross-Origin Requests in Web API 2</span></span>](enabling-cross-origin-requests-in-web-api.md)
+- [<span data-ttu-id="fcb67-110">Filtry uwierzytelniania w interfejsie Web API 2</span><span class="sxs-lookup"><span data-stu-id="fcb67-110">Authentication Filters in Web API 2</span></span>](authentication-filters.md)
+- [<span data-ttu-id="fcb67-111">Uwierzytelnianie podstawowe w interfejsie Web API</span><span class="sxs-lookup"><span data-stu-id="fcb67-111">Basic Authentication in Web API</span></span>](basic-authentication.md)
+- [<span data-ttu-id="fcb67-112">Uwierzytelnianie formularzy w interfejsie Web API</span><span class="sxs-lookup"><span data-stu-id="fcb67-112">Forms Authentication in Web API</span></span>](forms-authentication.md)
+- [<span data-ttu-id="fcb67-113">Zintegrowane uwierzytelnianie systemu Windows</span><span class="sxs-lookup"><span data-stu-id="fcb67-113">Integrated Windows Authentication</span></span>](integrated-windows-authentication.md)
+- [<span data-ttu-id="fcb67-114">Praca z protokołem SSL</span><span class="sxs-lookup"><span data-stu-id="fcb67-114">Working with SSL</span></span>](working-with-ssl-in-web-api.md)

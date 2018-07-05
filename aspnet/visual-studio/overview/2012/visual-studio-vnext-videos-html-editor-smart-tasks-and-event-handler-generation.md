@@ -1,28 +1,27 @@
 ---
 uid: visual-studio/overview/2012/visual-studio-vnext-videos-html-editor-smart-tasks-and-event-handler-generation
-title: 'Visual Studio vNext wideo: zadania inteligentnych edytora HTML i generowania programu obsługi zdarzeń | Dokumentacja firmy Microsoft'
+title: 'Visual Studio vNext wideo: panele inteligentne edytora HTML i generowanie programów obsługi zdarzeń | Dokumentacja firmy Microsoft'
 author: madskristensen
-description: Mads Kristensen to wideo pokazuje, ulepszenia w edytorze programu Visual Studio vNext HTML, co ułatwia wykonywanie typowych zadań.
+description: W tym filmie Mads Kristensen demonstruje ulepszenia w Edytorze Visual Studio vNext HTML, który ułatwia wykonywanie typowych zadań.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/30/2011
 ms.topic: article
 ms.assetid: 3aa5b073-1359-41ac-8f4f-b09c1c8cb4bd
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2012/visual-studio-vnext-videos-html-editor-smart-tasks-and-event-handler-generation
 msc.type: video
-ms.openlocfilehash: bcc3ea53470b4677c6b6735ce89ab37f1963e02b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4df0776a3ba575425f6b22cb63d93607de787819
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26566252"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37395412"
 ---
-<a name="visual-studio-vnext-videos-html-editor-smart-tasks-and-event-handler-generation"></a><span data-ttu-id="fcde9-103">Visual Studio vNext wideo: zadania inteligentnych edytora HTML i generowania programu obsługi zdarzeń</span><span class="sxs-lookup"><span data-stu-id="fcde9-103">Visual Studio vNext Videos: HTML Editor Smart Tasks and Event Handler Generation</span></span>
+<a name="visual-studio-vnext-videos-html-editor-smart-tasks-and-event-handler-generation"></a><span data-ttu-id="f0385-103">Visual Studio vNext wideo: panele inteligentne edytora HTML i generowanie programów obsługi zdarzeń</span><span class="sxs-lookup"><span data-stu-id="f0385-103">Visual Studio vNext Videos: HTML Editor Smart Tasks and Event Handler Generation</span></span>
 ====================
-<span data-ttu-id="fcde9-104">przez [Mads Kristensen](https://github.com/madskristensen)</span><span class="sxs-lookup"><span data-stu-id="fcde9-104">by [Mads Kristensen](https://github.com/madskristensen)</span></span>
+<span data-ttu-id="f0385-104">przez [: Mads Kristensen](https://github.com/madskristensen)</span><span class="sxs-lookup"><span data-stu-id="f0385-104">by [Mads Kristensen](https://github.com/madskristensen)</span></span>
 
-<span data-ttu-id="fcde9-105">Mads Kristensen to wideo pokazuje, ulepszenia w edytorze programu Visual Studio vNext HTML, co ułatwia wykonywanie typowych zadań.</span><span class="sxs-lookup"><span data-stu-id="fcde9-105">In this video, Mads Kristensen demonstrates improvements in the Visual Studio vNext HTML editor which simplifies performing common tasks.</span></span>
+<span data-ttu-id="f0385-105">W tym filmie Mads Kristensen demonstruje ulepszenia w Edytorze Visual Studio vNext HTML, który ułatwia wykonywanie typowych zadań.</span><span class="sxs-lookup"><span data-stu-id="f0385-105">In this video, Mads Kristensen demonstrates improvements in the Visual Studio vNext HTML editor which simplifies performing common tasks.</span></span>
 
-[<span data-ttu-id="fcde9-106">&#9654; Obejrzyj klip wideo (minuty 1)</span><span class="sxs-lookup"><span data-stu-id="fcde9-106">&#9654; Watch video (1 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/visual-studio-vnext-videos-html-editor-smart-tasks-and-event-handler-generation)
+[<span data-ttu-id="f0385-106">&#9654;Obejrzyj film wideo (1 min)</span><span class="sxs-lookup"><span data-stu-id="f0385-106">&#9654; Watch video (1 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/visual-studio-vnext-videos-html-editor-smart-tasks-and-event-handler-generation)

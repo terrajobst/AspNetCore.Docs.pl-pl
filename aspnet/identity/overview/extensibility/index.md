@@ -1,6 +1,6 @@
 ---
 uid: identity/overview/extensibility/index
-title: Rozszerzalność tożsamości ASP.NET | Dokumentacja firmy Microsoft
+title: Rozszerzalność produktu ASP.NET Identity | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Rozszerzalność
 ms.author: aspnetcontent
@@ -9,21 +9,20 @@ ms.date: 10/02/2013
 ms.topic: article
 ms.assetid: d1c6e7d0-ead9-4f08-a5b9-9d7a30be78e3
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /identity/overview/extensibility
 msc.type: chapter
-ms.openlocfilehash: 1f65c65e909081e52e253a1dfb151d17b8fe62ad
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0dfc47dd5e06113d7dc68b8378848fa56286bf34
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26563645"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37368080"
 ---
-<a name="aspnet-identity-extensibility"></a><span data-ttu-id="4555a-103">Rozszerzalność tożsamości platformy ASP.NET</span><span class="sxs-lookup"><span data-stu-id="4555a-103">ASP.NET Identity Extensibility</span></span>
+<a name="aspnet-identity-extensibility"></a><span data-ttu-id="598e5-103">Rozszerzalność produktu ASP.NET Identity</span><span class="sxs-lookup"><span data-stu-id="598e5-103">ASP.NET Identity Extensibility</span></span>
 ====================
-> <span data-ttu-id="4555a-104">Rozszerzalność</span><span class="sxs-lookup"><span data-stu-id="4555a-104">Extensibility</span></span>
+> <span data-ttu-id="598e5-104">Rozszerzalność</span><span class="sxs-lookup"><span data-stu-id="598e5-104">Extensibility</span></span>
 
 
-- [<span data-ttu-id="4555a-105">Przegląd dostawców magazynu niestandardowego dla tożsamości ASP.NET</span><span class="sxs-lookup"><span data-stu-id="4555a-105">Overview of Custom Storage Providers for ASP.NET Identity</span></span>](overview-of-custom-storage-providers-for-aspnet-identity.md)
-- [<span data-ttu-id="4555a-106">Implementacja dostawcy magazynu tożsamości ASP.NET MySQL niestandardowych</span><span class="sxs-lookup"><span data-stu-id="4555a-106">Implementing a Custom MySQL ASP.NET Identity Storage Provider</span></span>](implementing-a-custom-mysql-aspnet-identity-storage-provider.md)
-- [<span data-ttu-id="4555a-107">Należy zmienić wartość klucza podstawowego dla użytkowników w produkcie ASP.NET Identity</span><span class="sxs-lookup"><span data-stu-id="4555a-107">Change Primary Key for Users in ASP.NET Identity</span></span>](change-primary-key-for-users-in-aspnet-identity.md)
+- [<span data-ttu-id="598e5-105">Omówienie niestandardowych dostawców magazynu dla produktu ASP.NET Identity</span><span class="sxs-lookup"><span data-stu-id="598e5-105">Overview of Custom Storage Providers for ASP.NET Identity</span></span>](overview-of-custom-storage-providers-for-aspnet-identity.md)
+- [<span data-ttu-id="598e5-106">Implementowanie niestandardowego dostawcy magazynu MySQL dla produktu ASP.NET Identity</span><span class="sxs-lookup"><span data-stu-id="598e5-106">Implementing a Custom MySQL ASP.NET Identity Storage Provider</span></span>](implementing-a-custom-mysql-aspnet-identity-storage-provider.md)
+- [<span data-ttu-id="598e5-107">Zmiana klucza podstawowego dla użytkowników w produkcie ASP.NET Identity</span><span class="sxs-lookup"><span data-stu-id="598e5-107">Change Primary Key for Users in ASP.NET Identity</span></span>](change-primary-key-for-users-in-aspnet-identity.md)

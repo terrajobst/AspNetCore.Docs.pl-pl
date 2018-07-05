@@ -1,118 +1,185 @@
 ---
-title: Widoki częściowe w platformy ASP.NET Core
+title: Widoki częściowe w programie ASP.NET Core
 author: ardalis
-description: Dowiedz się, jak jest widok częściowy widoku, który jest umieszczony wewnątrz innego widoku i kiedy powinno się używać w aplikacji platformy ASP.NET Core.
+description: Dowiedz się, jak widok częściowy widoku, który jest renderowany w ramach innego widoku, a kiedy powinny być używane w aplikacji platformy ASP.NET Core.
 ms.author: riande
-ms.date: 03/14/2018
+ms.custom: mvc
+ms.date: 07/02/2018
 uid: mvc/views/partial
-ms.openlocfilehash: f3782961a63c08293a483ec7a75dadff2031b131
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 6e9a3dae613251e6580d0bbb314c11064d08f5ba
+ms.sourcegitcommit: 18339e3cb5a891a3ca36d8146fa83cf91c32e707
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36279535"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37433886"
 ---
-# <a name="partial-views-in-aspnet-core"></a><span data-ttu-id="95348-103">Widoki częściowe w platformy ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="95348-103">Partial Views in ASP.NET Core</span></span>
+# <a name="partial-views-in-aspnet-core"></a><span data-ttu-id="5e364-103">Widoki częściowe w programie ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="5e364-103">Partial views in ASP.NET Core</span></span>
 
-<span data-ttu-id="95348-104">Przez [Steve Smith](https://ardalis.com/), [Maher JENDOUBI](https://twitter.com/maherjend), [Rick Anderson](https://twitter.com/RickAndMSFT), i [Scott Sauber](https://twitter.com/scottsauber)</span><span class="sxs-lookup"><span data-stu-id="95348-104">By [Steve Smith](https://ardalis.com/), [Maher JENDOUBI](https://twitter.com/maherjend), [Rick Anderson](https://twitter.com/RickAndMSFT), and [Scott Sauber](https://twitter.com/scottsauber)</span></span>
+<span data-ttu-id="5e364-104">Przez [Steve Smith](https://ardalis.com/), [Maher JENDOUBI](https://twitter.com/maherjend), [Rick Anderson](https://twitter.com/RickAndMSFT), i [Scott Sauber](https://twitter.com/scottsauber)</span><span class="sxs-lookup"><span data-stu-id="5e364-104">By [Steve Smith](https://ardalis.com/), [Maher JENDOUBI](https://twitter.com/maherjend), [Rick Anderson](https://twitter.com/RickAndMSFT), and [Scott Sauber](https://twitter.com/scottsauber)</span></span>
 
-<span data-ttu-id="95348-105">Podstawowe ASP.NET MVC obsługuje widoki częściowe, które są przydatne w przypadku wielokrotnego użytku części stron sieci web, którą chcesz udostępnić między różne widoki.</span><span class="sxs-lookup"><span data-stu-id="95348-105">ASP.NET Core MVC supports partial views, which are useful when you have reusable parts of web pages you want to share between different views.</span></span>
+<span data-ttu-id="5e364-105">Platforma ASP.NET Core MVC obsługuje widoków częściowych, które są przydatne w przypadku udostępniania wielokrotnego użytku części strony sieci web w różnych widoków.</span><span class="sxs-lookup"><span data-stu-id="5e364-105">ASP.NET Core MVC supports partial views, which are useful for sharing reusable parts of web pages across different views.</span></span>
 
-<span data-ttu-id="95348-106">[Wyświetlić lub pobrać przykładowy kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/partial/sample) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))</span><span class="sxs-lookup"><span data-stu-id="95348-106">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/partial/sample) ([how to download](xref:tutorials/index#how-to-download-a-sample))</span></span>
+<span data-ttu-id="5e364-106">[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/partial/sample) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))</span><span class="sxs-lookup"><span data-stu-id="5e364-106">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/partial/sample) ([how to download](xref:tutorials/index#how-to-download-a-sample))</span></span>
 
-## <a name="what-are-partial-views"></a><span data-ttu-id="95348-107">Co to są widoki częściowe?</span><span class="sxs-lookup"><span data-stu-id="95348-107">What are Partial Views?</span></span>
+## <a name="what-are-partial-views"></a><span data-ttu-id="5e364-107">Co to są widoki częściowe</span><span class="sxs-lookup"><span data-stu-id="5e364-107">What are partial views</span></span>
 
-<span data-ttu-id="95348-108">Widok częściowy jest widok, w którym jest umieszczony wewnątrz innego widoku.</span><span class="sxs-lookup"><span data-stu-id="95348-108">A partial view is a view that's rendered within another view.</span></span> <span data-ttu-id="95348-109">Generowane, wykonując widoku częściowego danych wyjściowych HTML jest renderowany do widoku telefonicznej (lub nadrzędnej).</span><span class="sxs-lookup"><span data-stu-id="95348-109">The HTML output generated by executing the partial view is rendered into the calling (or parent) view.</span></span> <span data-ttu-id="95348-110">Jak widoki, widoki częściowe użyj *.cshtml* rozszerzenia pliku.</span><span class="sxs-lookup"><span data-stu-id="95348-110">Like views, partial views use the *.cshtml* file extension.</span></span>
+<span data-ttu-id="5e364-108">Widok częściowy jest widok, który jest renderowany w innym widoku.</span><span class="sxs-lookup"><span data-stu-id="5e364-108">A partial view is a view that's rendered within another view.</span></span> <span data-ttu-id="5e364-109">Dane wyjściowe HTML generowane przez wykonanie widoku częściowego jest renderowany w widoku telefonicznej (lub nadrzędnej).</span><span class="sxs-lookup"><span data-stu-id="5e364-109">The HTML output generated by executing the partial view is rendered into the calling (or parent) view.</span></span> <span data-ttu-id="5e364-110">Jak widoki, widoki częściowe używają *.cshtml* rozszerzenie pliku.</span><span class="sxs-lookup"><span data-stu-id="5e364-110">Like views, partial views use the *.cshtml* file extension.</span></span>
 
-## <a name="when-should-i-use-partial-views"></a><span data-ttu-id="95348-111">Kiedy należy używać widoki częściowe?</span><span class="sxs-lookup"><span data-stu-id="95348-111">When Should I Use Partial Views?</span></span>
+<span data-ttu-id="5e364-111">Na przykład platformy ASP.NET Core 2.1 **aplikacji sieci Web** szablonu projektu obejmuje *_CookieConsentPartial.cshtml* widoku częściowego.</span><span class="sxs-lookup"><span data-stu-id="5e364-111">For example, the ASP.NET Core 2.1 **Web Application** project template includes a *_CookieConsentPartial.cshtml* partial view.</span></span> <span data-ttu-id="5e364-112">Widok częściowy jest ładowany z poziomu *_Layout.cshtml*:</span><span class="sxs-lookup"><span data-stu-id="5e364-112">The partial view is loaded from within *_Layout.cshtml*:</span></span>
 
-<span data-ttu-id="95348-112">Widoki częściowe są efektywnym sposobem rozdzielanie dużych widoków na mniejsze części.</span><span class="sxs-lookup"><span data-stu-id="95348-112">Partial views are an effective way of breaking up large views into smaller components.</span></span> <span data-ttu-id="95348-113">Mogą zmniejszyć duplikatów zawartości widoku i Zezwalaj na wyświetlanie elementów zostanie ponownie.</span><span class="sxs-lookup"><span data-stu-id="95348-113">They can reduce duplication of view content and allow view elements to be reused.</span></span> <span data-ttu-id="95348-114">Typowe elementy układu powinny być określone w [_Layout.cshtml](layout.md).</span><span class="sxs-lookup"><span data-stu-id="95348-114">Common layout elements should be specified in [_Layout.cshtml](layout.md).</span></span> <span data-ttu-id="95348-115">Zawartość do ponownego użycia inne niż układu można hermetyzowany w widoki częściowe.</span><span class="sxs-lookup"><span data-stu-id="95348-115">Non-layout reusable content can be encapsulated into partial views.</span></span>
+[!code-cshtml[](partial/sample/PartialViewsSample/Views/Shared/_Layout.cshtml?name=snippet_CookieConsentPartial)]
 
-<span data-ttu-id="95348-116">Jeśli masz stronę złożone składają się z wielu części logiczne, może być przydatne do pracy z każdego z nich jako własnego widoku częściowego.</span><span class="sxs-lookup"><span data-stu-id="95348-116">If you have a complex page made up of several logical pieces, it can be helpful to work with each piece as its own partial view.</span></span> <span data-ttu-id="95348-117">Każda część strony można wyświetlić w izolacji od reszty strony, a widok, w którym sama strona jest znacznie prostsza, ponieważ zawiera ona tylko ogólną strukturę strony i wywołania do renderowania widoków częściowych.</span><span class="sxs-lookup"><span data-stu-id="95348-117">Each piece of the page can be viewed in isolation from the rest of the page, and the view for the page itself becomes much simpler since it only contains the overall page structure and calls to render the partial views.</span></span>
+## <a name="when-to-use-partial-views"></a><span data-ttu-id="5e364-113">Kiedy należy używać widoki częściowe</span><span class="sxs-lookup"><span data-stu-id="5e364-113">When to use partial views</span></span>
 
-<span data-ttu-id="95348-118">Porada: Wykonaj [nie powtarzaj samodzielnie zasady](http://deviq.com/don-t-repeat-yourself/) w widoków.</span><span class="sxs-lookup"><span data-stu-id="95348-118">Tip: Follow the [Don't Repeat Yourself Principle](http://deviq.com/don-t-repeat-yourself/) in your views.</span></span>
+<span data-ttu-id="5e364-114">Widoki częściowe są efektywnym sposobem rozdzielanie dużych widoki na mniejsze składniki.</span><span class="sxs-lookup"><span data-stu-id="5e364-114">Partial views are an effective way of breaking up large views into smaller components.</span></span> <span data-ttu-id="5e364-115">Mogą zmniejszyć dublowania wyświetlanie zawartości i elementy widoku ponowne użycie.</span><span class="sxs-lookup"><span data-stu-id="5e364-115">They can reduce duplication of view content and allow view elements to be reused.</span></span> <span data-ttu-id="5e364-116">Typowe elementy układu powinny być określone w [_Layout.cshtml](xref:mvc/views/layout).</span><span class="sxs-lookup"><span data-stu-id="5e364-116">Common layout elements should be specified in [_Layout.cshtml](xref:mvc/views/layout).</span></span> <span data-ttu-id="5e364-117">Zawartość do wielokrotnego użytku non układu są umieszczane na widoki częściowe.</span><span class="sxs-lookup"><span data-stu-id="5e364-117">Non-layout reusable content can be encapsulated into partial views.</span></span>
 
-## <a name="declaring-partial-views"></a><span data-ttu-id="95348-119">Deklarowanie widoki częściowe</span><span class="sxs-lookup"><span data-stu-id="95348-119">Declaring Partial Views</span></span>
+<span data-ttu-id="5e364-118">Na stronie złożonego składa się z wielu części logiczne jest przydatne do pracy z każdego z nich jako swój własny widok częściowy.</span><span class="sxs-lookup"><span data-stu-id="5e364-118">In a complex page composed of several logical pieces, it's helpful to work with each piece as its own partial view.</span></span> <span data-ttu-id="5e364-119">Każda część strony mogą być wyświetlane w izolacji od pozostałej części strony.</span><span class="sxs-lookup"><span data-stu-id="5e364-119">Each piece of the page can be viewed in isolation from the rest of the page.</span></span> <span data-ttu-id="5e364-120">Widok, w którym sama strona staje się prostszy, ponieważ zawiera on tylko ogólną strukturę strony i wywołań do renderowania widoków częściowych.</span><span class="sxs-lookup"><span data-stu-id="5e364-120">The view for the page itself becomes simpler, since it only contains the overall page structure and calls to render the partial views.</span></span>
 
-<span data-ttu-id="95348-120">Widoki częściowe są tworzone, podobnie jak inne widoki: tworzenia *.cshtml* pliku w ramach *widoków* folderu.</span><span class="sxs-lookup"><span data-stu-id="95348-120">Partial views are created like any other view: you create a *.cshtml* file within the *Views* folder.</span></span> <span data-ttu-id="95348-121">Nie ma żadnej semantycznego różnicy między widok częściowy i widokiem regularnych — jest po prostu renderowane inaczej.</span><span class="sxs-lookup"><span data-stu-id="95348-121">There's no semantic difference between a partial view and a regular view - they're just rendered differently.</span></span> <span data-ttu-id="95348-122">Masz widoku, który jest zwracany bezpośrednio z poziomu kontrolera `ViewResult`, i tego samego widoku mogą być używane jako widok częściowy.</span><span class="sxs-lookup"><span data-stu-id="95348-122">You can have a view that's returned directly from a controller's `ViewResult`, and the same view can be used as a partial view.</span></span> <span data-ttu-id="95348-123">Główną różnicą między sposobu renderowania widoku oraz widoku częściowego jest, że widoki częściowe, nie uruchamiaj *_ViewStart.cshtml* (gdy widoków Dowiedz się więcej o *_ViewStart.cshtml* w [układu ](layout.md)).</span><span class="sxs-lookup"><span data-stu-id="95348-123">The main difference between how a view and a partial view are rendered is that partial views don't run *_ViewStart.cshtml* (while views do - learn more about *_ViewStart.cshtml* in [Layout](layout.md)).</span></span>
+> [!TIP]
+> <span data-ttu-id="5e364-121">Postępuj zgodnie z [nie Powtórz samodzielnie zasady](https://deviq.com/don-t-repeat-yourself/) w widoków.</span><span class="sxs-lookup"><span data-stu-id="5e364-121">Follow the [Don't Repeat Yourself Principle](https://deviq.com/don-t-repeat-yourself/) in your views.</span></span>
 
-## <a name="referencing-a-partial-view"></a><span data-ttu-id="95348-124">Odwołuje się do widoku częściowego</span><span class="sxs-lookup"><span data-stu-id="95348-124">Referencing a Partial View</span></span>
+## <a name="declare-partial-views"></a><span data-ttu-id="5e364-122">Zadeklaruj widoki częściowe</span><span class="sxs-lookup"><span data-stu-id="5e364-122">Declare partial views</span></span>
 
-<span data-ttu-id="95348-125">Na stronie widoku istnieją z kilka sposobów, w których można renderowania widoku częściowego.</span><span class="sxs-lookup"><span data-stu-id="95348-125">From within a view page, there are several ways in which you can render a partial view.</span></span> <span data-ttu-id="95348-126">Najlepszym rozwiązaniem jest użycie `Html.PartialAsync`, która zwraca `IHtmlString` i może odwoływać się prefiksu to wywołanie `@`:</span><span class="sxs-lookup"><span data-stu-id="95348-126">The best practice is to use `Html.PartialAsync`, which returns an `IHtmlString` and can be referenced by prefixing the call with `@`:</span></span>
+<span data-ttu-id="5e364-123">Widoki częściowe są tworzone tak jak zwykły widoku&mdash;, tworząc *.cshtml* plików w ramach *widoków* folderu.</span><span class="sxs-lookup"><span data-stu-id="5e364-123">Partial views are created like a regular view&mdash;by creating a *.cshtml* file within the *Views* folder.</span></span> <span data-ttu-id="5e364-124">Nie ma żadnej różnicy semantycznego między widok częściowy i regularnego widoku; jednak są one renderowane inaczej.</span><span class="sxs-lookup"><span data-stu-id="5e364-124">There's no semantic difference between a partial view and a regular view; however, they're rendered differently.</span></span> <span data-ttu-id="5e364-125">Może mieć widoku, który jest zwracany bezpośrednio z poziomu kontrolera [ViewResult](/dotnet/api/microsoft.aspnetcore.mvc.viewresult), a tym samym widoku może służyć jako widok częściowy.</span><span class="sxs-lookup"><span data-stu-id="5e364-125">You can have a view that's returned directly from a controller's [ViewResult](/dotnet/api/microsoft.aspnetcore.mvc.viewresult), and the same view can be used as a partial view.</span></span> <span data-ttu-id="5e364-126">Główna różnica między sposób renderowania widoku oraz widoku częściowego jest, że widoki częściowe, nie uruchamiaj *_ViewStart.cshtml*.</span><span class="sxs-lookup"><span data-stu-id="5e364-126">The main difference between how a view and a partial view are rendered is that partial views don't run *_ViewStart.cshtml*.</span></span> <span data-ttu-id="5e364-127">Widoki regularne uruchamianie *_ViewStart.cshtml*.</span><span class="sxs-lookup"><span data-stu-id="5e364-127">Regular views do run *_ViewStart.cshtml*.</span></span> <span data-ttu-id="5e364-128">Dowiedz się więcej o *_ViewStart.cshtml* w [układ](xref:mvc/views/layout)).</span><span class="sxs-lookup"><span data-stu-id="5e364-128">Learn more about *_ViewStart.cshtml* in [Layout](xref:mvc/views/layout)).</span></span>
 
-[!code-cshtml[](partial/sample/src/PartialViewsSample/Views/Home/About.cshtml?range=8)]
+<span data-ttu-id="5e364-129">Konwencją nazw plików widoku częściowego często zaczynają się od `_`.</span><span class="sxs-lookup"><span data-stu-id="5e364-129">As a convention, partial view file names often begin with `_`.</span></span> <span data-ttu-id="5e364-130">To nie jest to wymagane, ale pomaga wizualnie odróżnienie widoki częściowe z regularnych widoków.</span><span class="sxs-lookup"><span data-stu-id="5e364-130">This isn't a requirement, but it helps to visually differentiate partial views from regular views.</span></span>
 
-<span data-ttu-id="95348-127">Można renderowania widoku częściowego z `RenderPartialAsync`.</span><span class="sxs-lookup"><span data-stu-id="95348-127">You can render a partial view with `RenderPartialAsync`.</span></span> <span data-ttu-id="95348-128">Ta metoda nie zwraca wyniku; jego strumieni przetworzonych wyników bezpośrednio do odpowiedzi.</span><span class="sxs-lookup"><span data-stu-id="95348-128">This method doesn't return a result; it streams the rendered output directly to the response.</span></span> <span data-ttu-id="95348-129">Ponieważ nie zwraca wyników, musi być wywoływana w bloku kodu Razor:</span><span class="sxs-lookup"><span data-stu-id="95348-129">Because it doesn't return a result, it must be called within a Razor code block:</span></span>
+## <a name="reference-a-partial-view"></a><span data-ttu-id="5e364-131">Odwołanie do widoku częściowego</span><span class="sxs-lookup"><span data-stu-id="5e364-131">Reference a partial view</span></span>
 
-[!code-cshtml[](partial/sample/src/PartialViewsSample/Views/Home/About.cshtml?range=11-13)]
+<span data-ttu-id="5e364-132">Na stronie widoku istnieje kilka sposobów wyświetlania widoku częściowego.</span><span class="sxs-lookup"><span data-stu-id="5e364-132">Within a view page, there are several ways to render a partial view.</span></span> <span data-ttu-id="5e364-133">Najlepszym rozwiązaniem jest do użycia renderowania asynchronicznego.</span><span class="sxs-lookup"><span data-stu-id="5e364-133">The best practice is to use asynchronous rendering.</span></span>
 
-<span data-ttu-id="95348-130">Ponieważ strumieni wynik bezpośrednio, `RenderPartialAsync` może działać lepiej w niektórych scenariuszach.</span><span class="sxs-lookup"><span data-stu-id="95348-130">Because it streams the result directly, `RenderPartialAsync` may perform better in some scenarios.</span></span> <span data-ttu-id="95348-131">Jednak zalecane jest, możesz użyć `PartialAsync`.</span><span class="sxs-lookup"><span data-stu-id="95348-131">However, it's recommended you use `PartialAsync`.</span></span>
+::: moniker range=">= aspnetcore-2.1"
 
-<span data-ttu-id="95348-132">Gdy są synchroniczne odpowiedniki `Html.PartialAsync` (`Html.Partial`) i `Html.RenderPartialAsync` (`Html.RenderPartial`), użyj odpowiedniki synchroniczne nie jest zalecane, ponieważ istnieją scenariusze, w którym zakleszczenie.</span><span class="sxs-lookup"><span data-stu-id="95348-132">While there are synchronous equivalents of `Html.PartialAsync` (`Html.Partial`) and `Html.RenderPartialAsync` (`Html.RenderPartial`), use of the synchronous equivalents isn't recommended because there are scenarios where they deadlock.</span></span> <span data-ttu-id="95348-133">Metod synchronicznych będzie niedostępna w przyszłych wersjach.</span><span class="sxs-lookup"><span data-stu-id="95348-133">The synchronous methods will be unavailable in future versions.</span></span>
+### <a name="partial-tag-helper"></a><span data-ttu-id="5e364-134">Pomocnik tagu częściowego</span><span class="sxs-lookup"><span data-stu-id="5e364-134">Partial Tag Helper</span></span>
 
-> [!NOTE]
-> <span data-ttu-id="95348-134">Jeśli widoków konieczne jest wykonanie kodu, wzorzec zalecane jest użycie [składnika widoku](view-components.md) zamiast widoku częściowego.</span><span class="sxs-lookup"><span data-stu-id="95348-134">If your views need to execute code, the recommended pattern is to use a [view component](view-components.md) instead of a partial view.</span></span>
+<span data-ttu-id="5e364-135">Częściowe Pomocnik tagu wymaga platformy ASP.NET Core 2.1 lub nowszej.</span><span class="sxs-lookup"><span data-stu-id="5e364-135">The Partial Tag Helper requires ASP.NET Core 2.1 or later.</span></span> <span data-ttu-id="5e364-136">On renderowany asynchronicznie i używa składni HTML:</span><span class="sxs-lookup"><span data-stu-id="5e364-136">It renders asynchronously and uses an HTML-like syntax:</span></span>
 
-### <a name="partial-view-discovery"></a><span data-ttu-id="95348-135">Widok częściowy odnajdywania</span><span class="sxs-lookup"><span data-stu-id="95348-135">Partial View Discovery</span></span>
+[!code-cshtml[](partial/sample/PartialViewsSample/Views/Home/Discovery.cshtml?name=snippet_PartialTagHelper)]
 
-<span data-ttu-id="95348-136">Podczas odwoływania się do widoku częściowego, mogą odwoływać się do lokalizacji na kilka sposobów:</span><span class="sxs-lookup"><span data-stu-id="95348-136">When referencing a partial view, you can refer to its location in several ways:</span></span>
+<span data-ttu-id="5e364-137">Aby uzyskać więcej informacji, zobacz <xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper>.</span><span class="sxs-lookup"><span data-stu-id="5e364-137">See <xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper> for more information.</span></span>
+
+::: moniker-end
+
+### <a name="asynchronous-html-helper"></a><span data-ttu-id="5e364-138">Asynchroniczne pomocnika kodu HTML</span><span class="sxs-lookup"><span data-stu-id="5e364-138">Asynchronous HTML Helper</span></span>
+
+<span data-ttu-id="5e364-139">Korzystając z Pomocnika kodu HTML, najlepszym rozwiązaniem jest użycie [PartialAsync](/dotnet/api/microsoft.aspnetcore.mvc.rendering.htmlhelperpartialextensions.partialasync#Microsoft_AspNetCore_Mvc_Rendering_HtmlHelperPartialExtensions_PartialAsync_Microsoft_AspNetCore_Mvc_Rendering_IHtmlHelper_System_String_).</span><span class="sxs-lookup"><span data-stu-id="5e364-139">When using an HTML Helper, the best practice is to use [PartialAsync](/dotnet/api/microsoft.aspnetcore.mvc.rendering.htmlhelperpartialextensions.partialasync#Microsoft_AspNetCore_Mvc_Rendering_HtmlHelperPartialExtensions_PartialAsync_Microsoft_AspNetCore_Mvc_Rendering_IHtmlHelper_System_String_).</span></span> <span data-ttu-id="5e364-140">Zwraca [IHtmlContent](/dotnet/api/microsoft.aspnetcore.html.ihtmlcontent) typu zapakowane w `Task`.</span><span class="sxs-lookup"><span data-stu-id="5e364-140">It returns an [IHtmlContent](/dotnet/api/microsoft.aspnetcore.html.ihtmlcontent) type wrapped in a `Task`.</span></span> <span data-ttu-id="5e364-141">Metoda odwołuje się do niej poprzedzania ich wywołania z `@`:</span><span class="sxs-lookup"><span data-stu-id="5e364-141">The method is referenced by prefixing the call with `@`:</span></span>
+
+[!code-cshtml[](partial/sample/PartialViewsSample/Views/Home/Discovery.cshtml?name=snippet_PartialAsync)]
+
+<span data-ttu-id="5e364-142">Alternatywnie można renderować widok częściowy przy użyciu [RenderPartialAsync](/dotnet/api/microsoft.aspnetcore.mvc.rendering.htmlhelperpartialextensions.renderpartialasync).</span><span class="sxs-lookup"><span data-stu-id="5e364-142">You can alternatively render a partial view with [RenderPartialAsync](/dotnet/api/microsoft.aspnetcore.mvc.rendering.htmlhelperpartialextensions.renderpartialasync).</span></span> <span data-ttu-id="5e364-143">Ta metoda nie zwraca wyniku.</span><span class="sxs-lookup"><span data-stu-id="5e364-143">This method doesn't return a result.</span></span> <span data-ttu-id="5e364-144">Strumieniowo wyniku renderowania bezpośrednio do odpowiedzi.</span><span class="sxs-lookup"><span data-stu-id="5e364-144">It streams the rendered output directly to the response.</span></span> <span data-ttu-id="5e364-145">Ponieważ metoda nie zwraca wyników, musi ona zostać wywołana w bloku kodu Razor:</span><span class="sxs-lookup"><span data-stu-id="5e364-145">Because the method doesn't return a result, it must be called within a Razor code block:</span></span>
+
+[!code-cshtml[](partial/sample/PartialViewsSample/Views/Home/Discovery.cshtml?name=snippet_RenderPartialAsync)]
+
+<span data-ttu-id="5e364-146">Ponieważ strumieniowo bezpośrednio, wynik `RenderPartialAsync` może działać lepiej w niektórych scenariuszach.</span><span class="sxs-lookup"><span data-stu-id="5e364-146">Since it streams the result directly, `RenderPartialAsync` may perform better in some scenarios.</span></span> <span data-ttu-id="5e364-147">Jednak zalecane jest, możesz użyć `PartialAsync`.</span><span class="sxs-lookup"><span data-stu-id="5e364-147">However, it's recommended you use `PartialAsync`.</span></span>
+
+### <a name="synchronous-html-helper"></a><span data-ttu-id="5e364-148">Synchroniczne pomocnika kodu HTML</span><span class="sxs-lookup"><span data-stu-id="5e364-148">Synchronous HTML Helper</span></span>
+
+<span data-ttu-id="5e364-149">[Częściowe](/dotnet/api/microsoft.aspnetcore.mvc.rendering.htmlhelperpartialextensions.partial) i [RenderPartial](/dotnet/api/microsoft.aspnetcore.mvc.rendering.htmlhelperpartialextensions.renderpartial) są synchroniczne odpowiedników `PartialAsync` i `RenderPartialAsync`, odpowiednio.</span><span class="sxs-lookup"><span data-stu-id="5e364-149">[Partial](/dotnet/api/microsoft.aspnetcore.mvc.rendering.htmlhelperpartialextensions.partial) and [RenderPartial](/dotnet/api/microsoft.aspnetcore.mvc.rendering.htmlhelperpartialextensions.renderpartial) are the synchronous equivalents of `PartialAsync` and `RenderPartialAsync`, respectively.</span></span> <span data-ttu-id="5e364-150">Użyj odpowiedników synchroniczne nie jest zalecane, ponieważ istnieją scenariusze, w których one zakleszczenie.</span><span class="sxs-lookup"><span data-stu-id="5e364-150">Use of the synchronous equivalents isn't recommended because there are scenarios in which they deadlock.</span></span> <span data-ttu-id="5e364-151">Przyszłe wersje nie będą zawierać metod synchronicznych.</span><span class="sxs-lookup"><span data-stu-id="5e364-151">Future releases won't contain the synchronous methods.</span></span>
+
+> [!IMPORTANT]
+> <span data-ttu-id="5e364-152">Jeśli widoków konieczne jest wykonanie kodu, należy użyć [widoku składnika](xref:mvc/views/view-components) zamiast widoku częściowego.</span><span class="sxs-lookup"><span data-stu-id="5e364-152">If your views need to execute code, use a [view component](xref:mvc/views/view-components) instead of a partial view.</span></span>
+
+## <a name="partial-view-discovery"></a><span data-ttu-id="5e364-153">Widok częściowy odnajdywania</span><span class="sxs-lookup"><span data-stu-id="5e364-153">Partial view discovery</span></span>
+
+<span data-ttu-id="5e364-154">Podczas odwoływania się do widoku częściowego, mogą odwoływać się do lokalizacji na kilka sposobów.</span><span class="sxs-lookup"><span data-stu-id="5e364-154">When referencing a partial view, you can refer to its location in several ways.</span></span> <span data-ttu-id="5e364-155">Na przykład:</span><span class="sxs-lookup"><span data-stu-id="5e364-155">For example:</span></span>
+
+::: moniker range=">= aspnetcore-2.1"
 
 ```cshtml
-// Uses a view in current folder with this name
-// If none is found, searches the Shared folder
-@await Html.PartialAsync("ViewName")
+// Uses a view in current folder with this name.
+// If none is found, searches the Shared folder.
+<partial name="_ViewName" />
 
 // A view with this name must be in the same folder
-@await Html.PartialAsync("ViewName.cshtml")
+<partial name="_ViewName.cshtml" />
 
-// Locate the view based on the application root
-// Paths that start with "/" or "~/" refer to the application root
-@await Html.PartialAsync("~/Views/Folder/ViewName.cshtml")
-@await Html.PartialAsync("/Views/Folder/ViewName.cshtml")
+// Locate the view based on the app root.
+// Paths that start with "/" or "~/" refer to the app root.
+<partial name="~/Views/Folder/_ViewName.cshtml" />
+<partial name="/Views/Folder/_ViewName.cshtml" />
 
-// Locate the view using relative paths
-@await Html.PartialAsync("../Account/LoginPartial.cshtml")
+// Locate the view using a relative path
+<partial name="../Account/_LoginPartial.cshtml" />
 ```
 
-<span data-ttu-id="95348-137">W folderach inny widok, może mieć różne widoki częściowe o takiej samej nazwie.</span><span class="sxs-lookup"><span data-stu-id="95348-137">You can have different partial views with the same name in different view folders.</span></span> <span data-ttu-id="95348-138">Podczas odwoływania się do widoków według nazwy (bez rozszerzenia), widoki w każdym folderze użyje widoku częściowego w tym samym folderze z nimi.</span><span class="sxs-lookup"><span data-stu-id="95348-138">When referencing the views by name (without file extension), views in each folder will use the partial view in the same folder with them.</span></span> <span data-ttu-id="95348-139">Można także określić domyślny widok częściowy do użycia, umieszczając go w *Shared* folderu.</span><span class="sxs-lookup"><span data-stu-id="95348-139">You can also specify a default partial view to use, placing it in the *Shared* folder.</span></span> <span data-ttu-id="95348-140">Udostępniony widoku częściowego będzie używany przez wszystkie widoki, które nie mają własnych wersji widoku częściowego.</span><span class="sxs-lookup"><span data-stu-id="95348-140">The shared partial view will be used by any views that don't have their own version of the partial view.</span></span> <span data-ttu-id="95348-141">Może mieć domyślny widok częściowy (w *Shared*), która zostanie zastąpiona przez widok częściowy o takiej samej nazwie, w tym samym folderze co widoku nadrzędnego.</span><span class="sxs-lookup"><span data-stu-id="95348-141">You can have a default partial view (in *Shared*), which is overridden by a partial view with the same name in the same folder as the parent view.</span></span>
+<span data-ttu-id="5e364-156">W poprzednim przykładzie użyto Pomocnik tagu częściowego wymaga platformy ASP.NET Core 2.1 lub nowszej.</span><span class="sxs-lookup"><span data-stu-id="5e364-156">The preceding example uses the Partial Tag Helper, which requires ASP.NET Core 2.1 or later.</span></span> <span data-ttu-id="5e364-157">W poniższym przykładzie użyto asynchronicznego pomocników HTML do zrealizowania tego samego zadania.</span><span class="sxs-lookup"><span data-stu-id="5e364-157">The following example uses asynchronous HTML Helpers to accomplish the same task.</span></span>
 
-<span data-ttu-id="95348-142">Widoki częściowe mogą być *łańcuchowej*.</span><span class="sxs-lookup"><span data-stu-id="95348-142">Partial views can be *chained*.</span></span> <span data-ttu-id="95348-143">Oznacza to widok częściowy można wywołać inny widok częściowy (o ile nie zostanie utworzona pętli).</span><span class="sxs-lookup"><span data-stu-id="95348-143">That is, a partial view can call another partial view (as long as you don't create a loop).</span></span> <span data-ttu-id="95348-144">W każdym widoku lub widok częściowy ścieżki względne są zawsze względem tego widoku, nie głównego lub nadrzędnej widoku.</span><span class="sxs-lookup"><span data-stu-id="95348-144">Within each view or partial view, relative paths are always relative to that view, not the root or parent view.</span></span>
+::: moniker-end
+
+```cshtml
+// Uses a view in current folder with this name.
+// If none is found, searches the Shared folder.
+@await Html.PartialAsync("_ViewName")
+
+// A view with this name must be in the same folder
+@await Html.PartialAsync("_ViewName.cshtml")
+
+// Locate the view based on the app root.
+// Paths that start with "/" or "~/" refer to the app root.
+@await Html.PartialAsync("~/Views/Folder/_ViewName.cshtml")
+@await Html.PartialAsync("/Views/Folder/_ViewName.cshtml")
+
+// Locate the view using a relative path
+@await Html.PartialAsync("../Account/_LoginPartial.cshtml")
+```
+
+<span data-ttu-id="5e364-158">Może mieć różne widoki częściowe o takiej samej nazwie pliku w folderach inny widok.</span><span class="sxs-lookup"><span data-stu-id="5e364-158">You can have different partial views with the same file name in different view folders.</span></span> <span data-ttu-id="5e364-159">Podczas odwoływania się do widoków, według nazwy (bez rozszerzenia pliku), widoki dla każdego folderu, użyj widoku częściowego w tym samym folderze, z nimi.</span><span class="sxs-lookup"><span data-stu-id="5e364-159">When referencing the views by name (without a file extension), views in each folder use the partial view in the same folder with them.</span></span> <span data-ttu-id="5e364-160">Można również określić domyślny widok częściowy do użycia, umieszczając go w *Shared* folderu.</span><span class="sxs-lookup"><span data-stu-id="5e364-160">You can also specify a default partial view to use, placing it in the *Shared* folder.</span></span> <span data-ttu-id="5e364-161">Udostępnione widoku częściowego, jest używany przez wszystkie widoki, które nie mają swoją własną wersję widoku częściowego.</span><span class="sxs-lookup"><span data-stu-id="5e364-161">The shared partial view is used by any views that don't have their own version of the partial view.</span></span> <span data-ttu-id="5e364-162">Może mieć domyślny widok częściowy (w *Shared*), który jest zastępowany przez widok częściowy przy użyciu tej samej nazwie, w tym samym folderze, co w widoku nadrzędnym.</span><span class="sxs-lookup"><span data-stu-id="5e364-162">You can have a default partial view (in *Shared*), which is overridden by a partial view with the same name in the same folder as the parent view.</span></span>
+
+<span data-ttu-id="5e364-163">Widoki częściowe mogą być *łańcuchowa*&mdash;widoku częściowego może wywołać inny widok częściowy (o ile nie utworzy pętli).</span><span class="sxs-lookup"><span data-stu-id="5e364-163">Partial views can be *chained*&mdash;a partial view can call another partial view (as long as you don't create a loop).</span></span> <span data-ttu-id="5e364-164">W każdym widoku lub widok częściowy ścieżki względne są zawsze względem tego widoku, a nie do katalogu głównego lub w widoku nadrzędnym.</span><span class="sxs-lookup"><span data-stu-id="5e364-164">Within each view or partial view, relative paths are always relative to that view, not to the root or parent view.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="95348-145">W przypadku [Razor](razor.md) `section` w widoku częściowego, nie będzie widoczny dla jego ją klas nadrzędnych; będzie ograniczony do widoku częściowego.</span><span class="sxs-lookup"><span data-stu-id="95348-145">If you declare a [Razor](razor.md) `section` in a partial view, it will not be visible to its parent(s); it will be limited to the partial view.</span></span>
+> <span data-ttu-id="5e364-165">A [Razor](xref:mvc/views/razor) `section` zdefiniowane w częściowym widok jest niewidoczne dla widoków elementów nadrzędnych.</span><span class="sxs-lookup"><span data-stu-id="5e364-165">A [Razor](xref:mvc/views/razor) `section` defined in a partial view is invisible to parents views.</span></span> <span data-ttu-id="5e364-166">`section` Jest widoczne tylko dla widoku częściowego, w którym jest zdefiniowany.</span><span class="sxs-lookup"><span data-stu-id="5e364-166">The `section` is only visible to the partial view in which it's defined.</span></span>
 
-## <a name="accessing-data-from-partial-views"></a><span data-ttu-id="95348-146">Uzyskiwanie dostępu do danych z częściowa widoków</span><span class="sxs-lookup"><span data-stu-id="95348-146">Accessing Data From Partial Views</span></span>
+## <a name="access-data-from-partial-views"></a><span data-ttu-id="5e364-167">Dostęp do danych z widoki częściowe</span><span class="sxs-lookup"><span data-stu-id="5e364-167">Access data from partial views</span></span>
 
-<span data-ttu-id="95348-147">W przypadku wystąpienia widoku częściowego, pobiera on kopię widoku nadrzędnego `ViewData` słownika.</span><span class="sxs-lookup"><span data-stu-id="95348-147">When a partial view is instantiated, it gets a copy of the parent view's `ViewData` dictionary.</span></span> <span data-ttu-id="95348-148">Aktualizacje wprowadzone do danych w widoku częściowego nie są zachowywane dla widoku nadrzędnego.</span><span class="sxs-lookup"><span data-stu-id="95348-148">Updates made to the data within the partial view are not persisted to the parent view.</span></span> <span data-ttu-id="95348-149">`ViewData` zmieniony w częściowym widoku zostaną utracone po powrocie z widoku częściowego.</span><span class="sxs-lookup"><span data-stu-id="95348-149">`ViewData` changed in a partial view is lost when the partial view returns.</span></span>
+<span data-ttu-id="5e364-168">Podczas tworzenia wystąpienia widoku częściowego otrzymuje kopię widoku nadrzędnego `ViewData` słownika.</span><span class="sxs-lookup"><span data-stu-id="5e364-168">When a partial view is instantiated, it gets a copy of the parent view's `ViewData` dictionary.</span></span> <span data-ttu-id="5e364-169">Aktualizacje wprowadzone do danych w widoku częściowego nie są utrwalane dla widoku nadrzędnego.</span><span class="sxs-lookup"><span data-stu-id="5e364-169">Updates made to the data within the partial view aren't persisted to the parent view.</span></span> <span data-ttu-id="5e364-170">`ViewData` zmiany w widoku częściowego zostaną utracone w przypadku, gdy zwraca widok częściowy.</span><span class="sxs-lookup"><span data-stu-id="5e364-170">`ViewData` changes in a partial view are lost when the partial view returns.</span></span>
 
-<span data-ttu-id="95348-150">Można przekazać wystąpienia `ViewDataDictionary` widoku częściowego:</span><span class="sxs-lookup"><span data-stu-id="95348-150">You can pass an instance of `ViewDataDictionary` to the partial view:</span></span>
-
-```cshtml
-@await Html.PartialAsync("PartialName", customViewData)
-```
-
-<span data-ttu-id="95348-151">Można również przekazać model do widoku częściowego.</span><span class="sxs-lookup"><span data-stu-id="95348-151">You can also pass a model into a partial view.</span></span> <span data-ttu-id="95348-152">Może to być modelu widoku strony lub niestandardowy obiekt.</span><span class="sxs-lookup"><span data-stu-id="95348-152">This can be the page's view model or a custom object.</span></span> <span data-ttu-id="95348-153">Można przekazać przy użyciu modelu `PartialAsync` lub `RenderPartialAsync`:</span><span class="sxs-lookup"><span data-stu-id="95348-153">You can pass a model to `PartialAsync` or `RenderPartialAsync`:</span></span>
+<span data-ttu-id="5e364-171">Można przekazać wystąpienia [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) widoku częściowego:</span><span class="sxs-lookup"><span data-stu-id="5e364-171">You can pass an instance of [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) to the partial view:</span></span>
 
 ```cshtml
-@await Html.PartialAsync("PartialName", viewModel)
+@await Html.PartialAsync("_PartialName", customViewData)
 ```
 
-<span data-ttu-id="95348-154">Można przekazać wystąpienia `ViewDataDictionary` i widok częściowy przy użyciu modelu widoku:</span><span class="sxs-lookup"><span data-stu-id="95348-154">You can pass an instance of `ViewDataDictionary` and a view model to a partial view:</span></span>
+<span data-ttu-id="5e364-172">Model można przekazać do widoku częściowego.</span><span class="sxs-lookup"><span data-stu-id="5e364-172">You can pass a model into a partial view.</span></span> <span data-ttu-id="5e364-173">Może on być modelu widoku strony lub niestandardowy obiekt.</span><span class="sxs-lookup"><span data-stu-id="5e364-173">The model can be the page's view model or a custom object.</span></span> <span data-ttu-id="5e364-174">Można przekazać model do `PartialAsync` lub `RenderPartialAsync`:</span><span class="sxs-lookup"><span data-stu-id="5e364-174">You can pass a model to `PartialAsync` or `RenderPartialAsync`:</span></span>
 
-[!code-cshtml[](partial/sample/src/PartialViewsSample/Views/Articles/Read.cshtml?range=15-16)]
+```cshtml
+@await Html.PartialAsync("_PartialName", viewModel)
+```
 
-<span data-ttu-id="95348-155">Kod znaczników, poniżej przedstawiono *Views/Articles/Read.cshtml* widoku, który zawiera dwa widoki częściowe.</span><span class="sxs-lookup"><span data-stu-id="95348-155">The markup below shows the *Views/Articles/Read.cshtml* view which contains two partial views.</span></span> <span data-ttu-id="95348-156">Przekazuje drugiego widoku częściowego w modelu i `ViewData` do widoku częściowego.</span><span class="sxs-lookup"><span data-stu-id="95348-156">The second partial view passes in a model and `ViewData` to the partial view.</span></span> <span data-ttu-id="95348-157">Można przekazać nowy `ViewData` słownika przy zachowaniu istniejących `ViewData` użycie przeładowania konstruktora z `ViewDataDictionary` wyróżniono poniżej:</span><span class="sxs-lookup"><span data-stu-id="95348-157">You can pass new `ViewData` dictionary while retaining the existing `ViewData` if you use the constructor overload of the `ViewDataDictionary` highlighted below:</span></span>
+<span data-ttu-id="5e364-175">Można przekazać wystąpienia `ViewDataDictionary` i model widoku częściowego widoku:</span><span class="sxs-lookup"><span data-stu-id="5e364-175">You can pass an instance of `ViewDataDictionary` and a view model to a partial view:</span></span>
 
-[!code-cshtml[](partial/sample/src/PartialViewsSample/Views/Articles/Read.cshtml)]
+[!code-cshtml[](partial/sample/PartialViewsSample/Views/Articles/Read.cshtml?name=snippet_PartialAsync)]
 
-<span data-ttu-id="95348-158">*Widoki/udostępnione/AuthorPartial*:</span><span class="sxs-lookup"><span data-stu-id="95348-158">*Views/Shared/AuthorPartial*:</span></span>
+<span data-ttu-id="5e364-176">Ilustruje poniższy kod znaczników *Views/Articles/Read.cshtml* widoku, który zawiera dwa widoki częściowe.</span><span class="sxs-lookup"><span data-stu-id="5e364-176">The following markup shows the *Views/Articles/Read.cshtml* view, which contains two partial views.</span></span> <span data-ttu-id="5e364-177">Drugi widoku częściowego przekazuje się w modelu i `ViewData` widoku częściowego.</span><span class="sxs-lookup"><span data-stu-id="5e364-177">The second partial view passes in a model and `ViewData` to the partial view.</span></span> <span data-ttu-id="5e364-178">Użyj wyróżnionych `ViewDataDictionary` przeciążenia konstruktora, aby przekazać nowy `ViewData` słownika przy zachowaniu istniejących `ViewData` słownika.</span><span class="sxs-lookup"><span data-stu-id="5e364-178">Use the highlighted `ViewDataDictionary` constructor overload to pass a new `ViewData` dictionary while retaining the existing `ViewData` dictionary.</span></span>
 
-[!code-cshtml[](partial/sample/src/PartialViewsSample/Views/Shared/AuthorPartial.cshtml)]
+[!code-cshtml[](partial/sample/PartialViewsSample/Views/Articles/Read.cshtml?name=snippet_ReadPartialView&highlight=17-20)]
 
-<span data-ttu-id="95348-159">*ArticleSection* częściowe:</span><span class="sxs-lookup"><span data-stu-id="95348-159">The *ArticleSection* partial:</span></span>
+<span data-ttu-id="5e364-179">*Widoki/udostępnione/_AuthorPartial*:</span><span class="sxs-lookup"><span data-stu-id="5e364-179">*Views/Shared/_AuthorPartial*:</span></span>
 
-[!code-cshtml[](partial/sample/src/PartialViewsSample/Views/Articles/ArticleSection.cshtml)]
+[!code-cshtml[](partial/sample/PartialViewsSample/Views/Shared/_AuthorPartial.cshtml)]
 
-<span data-ttu-id="95348-160">W czasie wykonywania, częściowe są renderowane w widoku nadrzędnym, które jest renderowany w ramach udostępnionego *_Layout.cshtml*</span><span class="sxs-lookup"><span data-stu-id="95348-160">At runtime, the partials are rendered into the parent view, which itself is rendered within the shared *_Layout.cshtml*</span></span>
+<span data-ttu-id="5e364-180">*_ArticleSection* częściowej:</span><span class="sxs-lookup"><span data-stu-id="5e364-180">The *_ArticleSection* partial:</span></span>
 
-![dane wyjściowe widok częściowy](partial/_static/output.png)
+[!code-cshtml[](partial/sample/PartialViewsSample/Views/Articles/_ArticleSection.cshtml)]
+
+<span data-ttu-id="5e364-181">W czasie wykonywania, częściowe są renderowane w widoku nadrzędnym, który sam jest renderowany w ramach udostępnionej *_Layout.cshtml*.</span><span class="sxs-lookup"><span data-stu-id="5e364-181">At runtime, the partials are rendered into the parent view, which itself is rendered within the shared *_Layout.cshtml*.</span></span>
+
+![dane wyjściowe widoku częściowego](partial/_static/output.png)
+
+## <a name="additional-resources"></a><span data-ttu-id="5e364-183">Dodatkowe zasoby</span><span class="sxs-lookup"><span data-stu-id="5e364-183">Additional resources</span></span>
+
+::: moniker range=">= aspnetcore-2.1"
+
+* <xref:mvc/views/razor>
+* <xref:mvc/views/tag-helpers/intro>
+* <xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper>
+* <xref:mvc/views/view-components>
+
+::: moniker-end
+
+::: moniker range="<= aspnetcore-2.0"
+
+* <xref:mvc/views/razor>
+* <xref:mvc/views/view-components>
+
+::: moniker-end

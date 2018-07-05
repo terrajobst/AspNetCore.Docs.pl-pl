@@ -1,6 +1,6 @@
 ---
 uid: visual-studio/overview/2012/visual-studio-2012-javascript-editor
-title: Visual Studio 2012 JavaScript Edytor | Dokumentacja firmy Microsoft
+title: Visual Studio 2012 — Edytor języka JavaScript | Dokumentacja firmy Microsoft
 author: shanselman
 description: ''
 ms.author: aspnetcontent
@@ -9,18 +9,17 @@ ms.date: 08/15/2012
 ms.topic: article
 ms.assetid: b7c029cf-3fe0-4528-beb4-f577514b48ef
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2012/visual-studio-2012-javascript-editor
 msc.type: video
-ms.openlocfilehash: f5c648389ccb42a5b4d36ce3c113bfd840188485
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4c526159427614ff59703486f9ab16169bab3a96
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26566228"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37369706"
 ---
-<a name="visual-studio-2012-javascript-editor"></a><span data-ttu-id="00c6c-102">Visual Studio 2012 JavaScript edytora</span><span class="sxs-lookup"><span data-stu-id="00c6c-102">Visual Studio 2012 JavaScript Editor</span></span>
+<a name="visual-studio-2012-javascript-editor"></a><span data-ttu-id="bdcdc-102">Visual Studio 2012 — Edytor języka JavaScript</span><span class="sxs-lookup"><span data-stu-id="bdcdc-102">Visual Studio 2012 JavaScript Editor</span></span>
 ====================
-<span data-ttu-id="00c6c-103">przez [Scott Hanselman](https://github.com/shanselman)</span><span class="sxs-lookup"><span data-stu-id="00c6c-103">by [Scott Hanselman](https://github.com/shanselman)</span></span>
+<span data-ttu-id="bdcdc-103">przez [Scotta Hanselmana](https://github.com/shanselman)</span><span class="sxs-lookup"><span data-stu-id="bdcdc-103">by [Scott Hanselman](https://github.com/shanselman)</span></span>
 
-[<span data-ttu-id="00c6c-104">&#9654; Obejrzyj klip wideo (5 minut)</span><span class="sxs-lookup"><span data-stu-id="00c6c-104">&#9654; Watch video (5 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/visual-studio-2012-javascript-editor)
+[<span data-ttu-id="bdcdc-104">&#9654;Obejrzyj film wideo (5 minut)</span><span class="sxs-lookup"><span data-stu-id="bdcdc-104">&#9654; Watch video (5 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/visual-studio-2012-javascript-editor)
