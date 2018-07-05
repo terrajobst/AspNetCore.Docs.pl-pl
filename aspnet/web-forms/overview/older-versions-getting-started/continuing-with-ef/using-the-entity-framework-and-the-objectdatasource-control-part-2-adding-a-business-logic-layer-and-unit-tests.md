@@ -1,86 +1,85 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests
-title: 'Przy użyciu programu Entity Framework 4.0 i kontrolki ObjectDataSource, część 2: Dodawanie warstwy logiki biznesowej i testów jednostkowych | Dokumentacja firmy Microsoft'
+title: 'Korzystając z programu Entity Framework 4.0 i kontrolka ObjectDataSource, część 2: Dodawanie warstwy logiki biznesowej i testów jednostkowych | Dokumentacja firmy Microsoft'
 author: tdykstra
-description: Ten samouczek serii opiera się na aplikację sieci web Contoso University jest tworzony przez wprowadzenie do samouczka serii Entity Framework 4.0. I...
+description: W tej serii samouczków opiera się na aplikacji sieci web firmy Contoso University, utworzony przez wprowadzenie do serii samouczków Entity Framework 4.0. CZY MOGĘ...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/26/2011
 ms.topic: article
 ms.assetid: efb0e677-10b8-48dc-93d3-9ba3902dd807
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests
 msc.type: authoredcontent
-ms.openlocfilehash: ecdfb2bdc546f55778ec4cc1f61aa66e129134ea
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 02f0b86203eb879ca618655b8956f22dc67858cd
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30888318"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37394245"
 ---
-<a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests"></a>Przy użyciu programu Entity Framework 4.0 i kontrolki ObjectDataSource, część 2: Dodawanie warstwy logiki biznesowej i testów jednostkowych
+<a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests"></a>Korzystając z programu Entity Framework 4.0 i kontrolka ObjectDataSource, część 2: Dodawanie warstwy logiki biznesowej i testów jednostkowych
 ====================
-Przez [Dykstra niestandardowy](https://github.com/tdykstra)
+przez [Tom Dykstra](https://github.com/tdykstra)
 
-> Ten samouczek serii opiera się na aplikację sieci web Contoso University jest tworzony przez [wprowadzenie do korzystania z programu Entity Framework 4.0](https://asp.net/entity-framework/tutorials#Getting%20Started) samouczka serii. Jeśli nie została ukończona wcześniejszych samouczki, jako punkt początkowy dla tego samouczka możesz [pobrać aplikację](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a) będzie utworzony. Możesz również [pobrać aplikację](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa) tworzone przez zakończenie samouczka serii. Jeśli masz pytania dotyczące samouczków, możesz zamieścić je do [forum ASP.NET Entity Framework](https://forums.asp.net/1227.aspx).
+> W tej serii samouczków jest oparta na Contoso University aplikacji sieci web, który jest tworzony przez [rozpoczęcie korzystania z programu Entity Framework 4.0](https://asp.net/entity-framework/tutorials#Getting%20Started) serii samouczków. Jeśli nie została ukończona wcześniej samouczki, jako punkt początkowy na potrzeby tego samouczka możesz [pobrać aplikację](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a) będzie utworzony. Możesz również [pobrać aplikację](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa) tworzone przez zakończenie serii samouczków. Jeśli masz pytania dotyczące samouczków, możesz zamieścić je do [forum ASP.NET Entity Framework](https://forums.asp.net/1227.aspx).
 
 
-W poprzednich samouczek utworzono aplikację sieci web n warstwowa przy użyciu programu Entity Framework i `ObjectDataSource` formantu. W tym samouczku przedstawiono sposób dodawania logiki biznesowej podczas oddzieleniu warstwy logiki biznesowej (logiki warstwy Biznesowej) oraz warstwa dostępu do danych (DAL), a widoczny jest sposób tworzenia testów jednostkowych automatycznych dla logiki warstwy Biznesowej.
+W poprzednim samouczku utworzono n warstwową aplikację internetową przy użyciu platformy Entity Framework i `ObjectDataSource` kontroli. W tym samouczku pokazano, jak dodawać logikę biznesową, przy zachowaniu oddzielne warstwy logiki biznesowej (LOGIKI) i warstwy dostępu do danych (DAL) i przedstawia sposób tworzenia zautomatyzowanych testów jednostek dla LOGIKI.
 
-W tym samouczku będziesz wykonywanie następujących zadań:
+W tym samouczku wykonasz następujące zadania:
 
-- Tworzenie interfejsu repozytorium, który deklaruje metody dostępu do danych, które są potrzebne.
+- Utwórz interfejs repozytorium, która deklaruje metody dostępu do danych, których potrzebujesz.
 - Zaimplementuj interfejs repozytorium w klasie repozytorium.
-- Utwórz klasę logiki biznesowej, który wywoła klasę repozytorium do wykonywania funkcji dostępu do danych.
-- Połącz `ObjectDataSource` formantu do klasy logiki biznesowej, a nie klasę repozytorium.
-- Tworzenie projektu testu jednostkowego i klasę repozytorium, która używa kolekcje w pamięci, do jego magazynu danych.
-- Tworzenie testu jednostkowego dla logiki biznesowej, które mają zostać dodane do klasy logiki biznesowej, a następnie uruchom test i zobaczyć ją zakończyć się niepowodzeniem.
-- Wdrożyć logikę biznesową w klasie logiki biznesowej, a następnie ponownie uruchom jednostki testu i zobaczyć ją przekazać.
+- Utwórz klasę logikę biznesową, która wywołuje klasę repozytorium do wykonywania funkcji dostępu do danych.
+- Połącz `ObjectDataSource` formantu do klasy logikę biznesową, zamiast klasę repozytorium.
+- Tworzenie projektu testu jednostkowego i klasa repozytorium, która korzysta z kolekcji w pamięci dla jego magazynu danych.
+- Tworzenie testu jednostkowego dla logiki biznesowej, które chcesz dodać do klasy logiki biznesowej, a następnie uruchom test i zobaczyć, jak to się nie powieść.
+- Implementują logikę biznesową w klasie logiki biznesowej, a następnie ponownie uruchom jednostki testowania i zobaczyć ją przekazać.
 
-Będzie współpracować *Departments.aspx* i *DepartmentsAdd.aspx* stron, które zostały utworzone w poprzednich instrukcji.
+Będziesz pracować *Departments.aspx* i *DepartmentsAdd.aspx* stron, które zostały utworzone w poprzednim samouczku.
 
-## <a name="creating-a-repository-interface"></a>Tworzenie interfejsu w repozytorium
+## <a name="creating-a-repository-interface"></a>Tworzenie interfejsu repozytorium
 
-Zostaną przez tworzenie interfejsu w repozytorium.
+Rozpocznie się przez utworzenie interfejsu repozytorium.
 
 [![Image08](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image2.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image1.png)
 
-W *DAL* folder, Utwórz nowy plik klasy, nadaj jej nazwę *ISchoolRepository.cs*i Zastąp istniejący kod następującym kodem:
+W *DAL* folderu, Utwórz nowy plik klasy, nadaj jej nazwę *ISchoolRepository.cs*i Zastąp istniejący kod następującym kodem:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample1.cs)]
 
-Interfejs definiuje jedną metodę dla każdego CRUD (tworzenia, odczytu, aktualizowanie i usuwanie) metod, które zostały utworzone w klasie repozytorium.
+Interfejs definiuje jedną metodę dla każdej operacji CRUD (Tworzenie, odczytywanie, aktualizowanie, usuwanie) metody, które zostały utworzone w klasie repozytorium.
 
-W `SchoolRepository` klasy w *SchoolRepository.cs*, wskazuje, że ta klasa implementuje `ISchoolRepository` interfejsu:
+W `SchoolRepository` klasy w *SchoolRepository.cs*, wskazują, że ta klasa implementuje `ISchoolRepository` interfejsu:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample2.cs)]
 
-## <a name="creating-a-business-logic-class"></a>Tworzenie klasy logika biznesowa
+## <a name="creating-a-business-logic-class"></a>Tworzenie klasy logiki biznesowej
 
-Następnie utworzysz klasy logiki biznesowej. Można to zrobić, w którym można dodawać logiki biznesowej, które będą wykonywane przez `ObjectDataSource` kontrolować, mimo że nie będzie który jeszcze zrobić. Teraz nową klasę logiki biznesowej tylko będzie wykonywać operacji CRUD, które jest repozytorium.
+Następnie utworzysz klasy logiki biznesowej. Można to zrobić, aby dodać logikę biznesową, która będzie wykonywana przez `ObjectDataSource` kontrolować, mimo że nie zrobimy to jeszcze. Na razie nowa klasa logikę biznesową wykona tylko tych samych operacji CRUD, które obsługuje repozytorium.
 
 [![Image09](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image4.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image3.png)
 
-Utwórz nowy folder i nadaj mu nazwę *logiki warstwy Biznesowej*. (W rzeczywistych aplikacjach, warstwy logiki biznesowej zazwyczaj są realizowane jako biblioteki klas — oddzielny projekt, ale do tego samouczka Zachowaj proste, klas logiki warstwy Biznesowej będą znajdować się w folderze projektu.)
+Utwórz nowy folder i nadaj mu nazwę *LOGIKI*. (W przypadku aplikacji rzeczywistych warstwy logiki biznesowej zazwyczaj będzie można zaimplementować jako bibliotekę klas — oddzielnego projektu — ale w celu uproszczenia w tym samouczku klasy LOGIKI będą znajdować się w folderze projektu.)
 
-W *logiki warstwy Biznesowej* folder, Utwórz nowy plik klasy, nadaj jej nazwę *SchoolBL.cs*i Zastąp istniejący kod następującym kodem:
+W *LOGIKI* folderu, Utwórz nowy plik klasy, nadaj jej nazwę *SchoolBL.cs*i Zastąp istniejący kod następującym kodem:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample3.cs)]
 
-Ten kod tworzy tych samych metod CRUD, który został wyświetlony wcześniej w klasie repozytorium, ale zamiast bezpośrednio dostęp do metody Entity Framework, wywołuje repozytorium metody klasy.
+Ten kod tworzy te same metody CRUD, które zostały użyte wcześniej w klasie repozytorium, ale zamiast bezpośrednio dostęp do metod programu Entity Framework, wywoływanych przez nią repozytorium metody klasy.
 
-Zmienna klasy, która zawiera odwołanie do klasy repozytorium jest zdefiniowany jako typ interfejsu i kod, który tworzy wystąpienie klasy repozytorium znajduje się w dwóch konstruktorów. Konstruktor bez parametrów, które będą używane przez `ObjectDataSource` formantu. Tworzy wystąpienie `SchoolRepository` klasy, który został utworzony wcześniej. Inne Konstruktor umożliwia niezależnie od kodu, który tworzy wystąpienie klasy logiki biznesowej do przekazania w każdym obiekcie, który implementuje interfejs repozytorium.
+Zmienna klasy, która zawiera odwołanie do klasy repozytorium jest zdefiniowany jako typ interfejsu i kod, który tworzy wystąpienie klasy repozytorium znajduje się w dwa konstruktory. Konstruktora bez parametrów, które będą używane przez `ObjectDataSource` kontroli. Tworzy wystąpienie `SchoolRepository` klasę, która została utworzona wcześniej. Innego konstruktora umożliwia niezależnie od kodu, która tworzy wystąpienie klasy logikę biznesową, aby przekazać dowolny obiekt, który implementuje interfejs repozytorium.
 
-Metody CRUD, które wywołują klasę repozytorium i dwa konstruktory umożliwiają użycie klasy logiki biznesowej z dowolnego magazynu danych zaplecza, możesz wybrać. Klasa logiki biznesowej nie musi wiedzieć, jak klasy, która wywołuje ona będzie się powtarzał danych. (Jest to często nazywane *nieznajomości trwałości*.) Ułatwia testowanie, jednostki, ponieważ klasa logiki biznesowej można nawiązać implementację repozytorium, która używa coś jako prosty jako w pamięci `List` kolekcje do przechowywania danych.
+Metody CRUD, które wywołują, klasę repozytorium i dwa konstruktory umożliwiają korzystanie z klasy logika biznesowa z magazynem danych zaplecza, niezależnie od wybranej. Klasa logiki biznesowej nie musi wiedzieć, jak klasa, która je wywołuje będzie się powtarzał danych. (Jest to często nazywane *nieznajomości trwałości*.) To ułatwia testy jednostkowe, połączyć ze klasy logikę biznesową do implementacji repozytorium, która używa coś prostego w pamięci `List` kolekcji do przechowywania danych.
 
 > [!NOTE]
-> Z technicznego punktu widzenia obiekt jednostki są nadal nie trwałości ignorujących, ponieważ są one utworzone z klasy, które dziedziczą z programu Entity Framework `EntityObject` klasy. Nieznajomości pełną trwałości, można użyć *zwykły stare obiekty CLR*, lub *POCOs*, zamiast obiektów, które dziedziczą z `EntityObject` klasy. Przy użyciu POCOs wykracza poza zakres tego samouczka. Aby uzyskać więcej informacji, zobacz [testowania i Entity Framework 4.0](https://msdn.microsoft.com/library/ff714955.aspx) w witrynie MSDN.)
+> Technicznie rzecz biorąc, obiekty jednostki są nadal nie trwałości zakresu, ponieważ są one tworzone z klas dziedziczących z programu Entity Framework `EntityObject` klasy. Nieznajomości pełną trwałości, można użyć *zwykłych starych obiektów CLR*, lub *POCOs*, zamiast obiektów, które dziedziczą z `EntityObject` klasy. Za pomocą POCOs wykracza poza zakres tego samouczka. Aby uzyskać więcej informacji, zobacz [testowania i Entity Framework 4.0](https://msdn.microsoft.com/library/ff714955.aspx) w witrynie MSDN.)
 
 
-Teraz możesz połączyć `ObjectDataSource` formantów z logiką biznesową klasa zamiast do repozytorium i sprawdź, czy wszystko działa tak jak poprzednio.
+Teraz możesz łączyć `ObjectDataSource` kontrolek z logiką biznesową klasy zamiast do repozytorium i sprawdź, czy wszystko działa tak jak poprzednio.
 
-W *Departments.aspx* i *DepartmentsAdd.aspx*, zmienić każde wystąpienie `TypeName="ContosoUniversity.DAL.SchoolRepository"` do `TypeName="ContosoUniversity.BLL.SchoolBL`". (Istnieją cztery wystąpienia we wszystkich.)
+W *Departments.aspx* i *DepartmentsAdd.aspx*, zmienić każde wystąpienie `TypeName="ContosoUniversity.DAL.SchoolRepository"` do `TypeName="ContosoUniversity.BLL.SchoolBL`". (Dostępne są cztery wystąpienia we wszystkich).
 
 Uruchom *Departments.aspx* i *DepartmentsAdd.aspx* strony, aby zweryfikować, że nadal działają tak samo jak przed.
 
@@ -88,13 +87,13 @@ Uruchom *Departments.aspx* i *DepartmentsAdd.aspx* strony, aby zweryfikować, ż
 
 [![Image02](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image8.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image7.png)
 
-## <a name="creating-a-unit-test-project-and-repository-implementation"></a>Tworzenie projektu testu jednostkowego i implementacja repozytorium
+## <a name="creating-a-unit-test-project-and-repository-implementation"></a>Tworzenie projektu testu jednostkowego i implementacji repozytorium
 
-Dodawanie nowego projektu do rozwiązania przy użyciu **projekt testowy** szablonu i nadaj mu nazwę `ContosoUniversity.Tests`.
+Dodaj nowy projekt do rozwiązania przy użyciu **projekt testowy** szablonu i nadaj mu nazwę `ContosoUniversity.Tests`.
 
-W projekcie testowym Dodaj odwołanie do `System.Data.Entity` i Dodaj odwołanie projektu do `ContosoUniversity` projektu.
+W projekcie testowym Dodaj odwołanie do `System.Data.Entity` i Dodaj odwołanie do `ContosoUniversity` projektu.
 
-Można teraz utworzyć klasę repozytorium, które będzie używane przy użyciu testów jednostkowych. Magazyn danych to repozytorium będzie należące do klasy.
+Można teraz utworzyć klasę repozytorium, które będzie używane z testami jednostkowymi. Magazyn danych dla tego repozytorium będzie w klasie.
 
 [![Image12](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image10.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image9.png)
 
@@ -102,17 +101,17 @@ W projekcie testowym, Utwórz nowy plik klasy, nadaj jej nazwę *MockSchoolRepos
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample4.cs)]
 
-Ta klasa repozytorium ma te same metody CRUD, która uzyskuje bezpośredni dostęp do programu Entity Framework, ale pracować z `List` kolekcji w pamięci, a nie z bazy danych. Ułatwia dla klasy testowej, konfigurowania i sprawdzania poprawności testów jednostkowych dla klasy logiki biznesowej.
+Ta klasa repozytorium ma te same metody CRUD, która uzyskuje dostęp do programu Entity Framework bezpośrednio, ale pracują z `List` kolekcji w pamięci, a nie z bazą danych. Ułatwia klasy testowej skonfigurować i zweryfikować testów jednostkowych dla klasy logiki biznesowej.
 
 ## <a name="creating-unit-tests"></a>Tworzenie testów jednostkowych
 
-**Test** szablonu projektu utworzony stub klasę testów jednostkowych i kolejnego zadania się modyfikowanie tej klasy, dodając do niego metody testowe jednostki dla logiki biznesowej, które mają zostać dodane do klasy logiki biznesowej.
+**Test** szablonu projektu utworzony klasę testu jednostkowego klasy zastępczej dla Ciebie i kolejnego zadania do modyfikowania tej klasy, dodając do niego metody testów jednostkowych dla logiki biznesowej, które chcesz dodać do klasy logiki biznesowej.
 
 [![Image13](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image12.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image11.png)
 
-Na uniwersytecie Contoso wszystkie poszczególne instruktora może być tylko administrator jednego działu i konieczne jest dodanie logiki biznesowej, aby wymusić tę regułę. Rozpoczęcia przez dodanie testy i uruchamiania testów, aby zobaczyć je zakończyć się niepowodzeniem. Następnie będzie Dodaj kod i ponownie uruchom testy, oczekiwana ich przekazać.
+Na uniwersytecie Contoso wszystkie poszczególne przez instruktorów, może być tylko administrator jednego działu, a następnie należy dodać logikę biznesową w celu wymuszają tę regułę. Rozpoczniesz Dodawanie testów, a następnie uruchamiając testy, aby zobaczyć je zakończyć się niepowodzeniem. Następnie dodaj kod i ponownie uruchom testy, oczekiwany będzie je przekazać.
 
-Otwórz *UnitTest1.cs* plik i dodać `using` instrukcje firm logikę i dane — dostęp warstw utworzonych w projekcie ContosoUniversity:
+Otwórz *UnitTest1.cs* pliku i Dodaj `using` instrukcji business Logic Apps i dostęp do danych warstw, które utworzono w projekcie ContosoUniversity:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample5.cs)]
 
@@ -120,95 +119,95 @@ Zastąp `TestMethod1` metody za pomocą następujących metod:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample6.cs)]
 
-`CreateSchoolBL` Metoda tworzy wystąpienie klasy repozytorium utworzonej dla projektu, który następnie przekazuje do nowego wystąpienia klasy logiki biznesowej testu jednostkowego. Metoda następnie używa do klasy logiki biznesowej Wstaw trzy działów, których można użyć w metodach.
+`CreateSchoolBL` Metoda tworzy wystąpienie klasy repozytorium, utworzonej dla projektu, który następnie przekazuje do nowego wystąpienia klasy logikę biznesową testów jednostkowych. Metody następnie używa klasy logikę biznesową, aby wstawić trzy działów, których można użyć metod testowych.
 
-Sprawdź metod klasy logiki biznesowej zgłasza wyjątek, jeśli ktoś spróbuje Wstaw nowy dział z tego samego konta administratora, jak istniejące działu lub jeśli ktoś spróbuje zaktualizować administratora działu ustawiając go na identyfikator osoby kto jest już administrator innego działu.
+Metody testowe Sprawdź klasy logikę biznesową zgłasza wyjątek, jeśli ktoś inny wstawić nowy dział przy użyciu tego samego konta administratora jako istniejące dział lub ktoś próbuje zaktualizować administratora działu, ustawiając dla niej identyfikator osoby kto jest już administratorem innego działu.
 
-Klasy wyjątków nie utworzono jeszcze, dlatego ten kod nie zostanie skompilowany. Aby pobrać go skompilować, kliknij prawym przyciskiem myszy `DuplicateAdministratorException` i wybierz **Generuj**, a następnie **klasy**.
+Klasy wyjątków nie utworzono jeszcze, dlatego ten kod nie zostanie skompilowany. Aby uzyskać go skompilować, kliknij prawym przyciskiem myszy `DuplicateAdministratorException` i wybierz **Generuj**, a następnie **klasy**.
 
 [![Image14](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image14.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image13.png)
 
-To tworzy klasę w projekcie testowym, które można usunąć po utworzeniu klasy wyjątków w projekcie głównym. i implementacji logiki biznesowej.
+To tworzy klasę w projekcie testowym, którego można usunąć po utworzeniu klasy wyjątku w głównym projektu. i zaimplementować logikę biznesową.
 
-Uruchom projekt testowy. Zgodnie z oczekiwaniami, testy zostaną zakończone niepowodzeniem.
+Uruchamianie projektu testowego. Zgodnie z oczekiwaniami, testy zostaną zakończone niepowodzeniem.
 
 [![Image03](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image16.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image15.png)
 
-## <a name="adding-business-logic-to-make-a-test-pass"></a>Dodawanie logiki biznesowej, aby przebiegu testowego
+## <a name="adding-business-logic-to-make-a-test-pass"></a>Dodawanie logiki biznesowej, aby przebieg testu
 
-Następnie będzie wdrożyć logikę biznesową, uniemożliwiający można ustawić jako administratora działu osoby, która jest już administratora innego działu. Zostanie zgłoszenia wyjątku z warstwy logiki biznesowej oraz catch go w warstwie prezentacji, jeśli użytkownik edytuje działu i klika **aktualizacji** po wybraniu osoby, która jest już uprawnienia administratora. (Można również usunąć instruktorów z listy rozwijanej, którzy są już Administratorzy przed renderowanie strony, ale w tym miejscu ma na celu pracy z warstwy logiki biznesowej).
+Następnie będzie implementować logikę biznesową, która uniemożliwia ustawiony jako administrator działu osobę, która jest już administratorem innego działu. Będzie zgłoszenie wyjątku z warstwy logiki biznesowej i przechwytywać go w warstwie prezentacji, jeśli użytkownik edytuje dział i klika **aktualizacji** po wybraniu osobą, która jest już administratorem. (Można również usunąć Instruktorzy z listy rozwijanej, którzy są już administratorami, zanim renderowania strony, ale w tym miejscu ma na celu pracy z warstwy logiki biznesowej).
 
-Rozpocznij od utworzenia klasy wyjątków, który będzie zgłaszać, gdy użytkownik próbuje nawiązać instruktora administratora działu więcej niż jeden. W projekcie głównym, Utwórz nowy plik klasy w *logiki warstwy Biznesowej* folderu, nadaj jej nazwę *DuplicateAdministratorException.cs*i Zastąp istniejący kod następującym kodem:
+Rozpocznij od utworzenia klasy wyjątku, który będzie throw, gdy użytkownik próbuje się z administratorem działu więcej niż jeden pod kierunkiem instruktora. W głównym projektu Utwórz nowy plik klasy w *LOGIKI* folderu, nadaj jej nazwę *DuplicateAdministratorException.cs*i Zastąp istniejący kod następującym kodem:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample7.cs)]
 
-Teraz usunąć tymczasowy *DuplicateAdministratorException.cs* utworzony plik w projekcie testowym wcześniej aby można było skompilować.
+Teraz usunąć tymczasowy *DuplicateAdministratorException.cs* pliku utworzonego w projekcie testowym wcześniej aby można było skompilować.
 
-W projekcie głównym, należy otworzyć *SchoolBL.cs* pliku i dodaj następującą metodę, która zawiera logikę weryfikacji. (Kod odwołuje się do metody, która będzie utworzyć później).
+W głównym projektu, otwórz *SchoolBL.cs* pliku i dodaj następującą metodę, która zawiera logikę weryfikacji. (Kod odwołuje się do metody, którą utworzysz później).
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample8.cs)]
 
-Ta metoda będzie jest wywoływana podczas wstawiania lub aktualizowania `Department` jednostek w celu sprawdzenia, czy innego działu ma już tego samego konta administratora.
+Wywołasz tę metodę podczas wstawiania lub aktualizowania `Department` jednostki w celu sprawdzenia, czy innego działu, ma już tego samego konta administratora.
 
-Kod wywołuje metodę wyszukiwania bazy danych dla `Department` jednostki, który ma taką samą `Administrator` wartości właściwości jako jednostki są wstawiane lub aktualizowane. Jeśli został znaleziony, kod zgłasza wyjątek. Bez sprawdzania poprawności jest wymagany, jeśli nie ma jednostki są wstawiane lub aktualizowane `Administrator` wartość i żaden wyjątek jest zgłaszany, jeśli metoda jest wywoływana podczas aktualizacji i `Department` znaleziono dopasowań jednostki `Department` jednostki aktualizowana.
+Kod wywołuje metodę wyszukiwania bazy danych dla `Department` jednostki, który ma taką samą `Administrator` wartości właściwości jako jednostki są wstawiane lub aktualizowane. Jeśli nie zostanie znalezione, kod zgłasza wyjątek. Sprawdzanie poprawności nie jest wymagany w przypadku, jeśli nie ma jednostki są wstawiane lub aktualizowane `Administrator` wartość i żaden wyjątek jest generowany, jeśli metoda jest wywoływana podczas aktualizacji i `Department` znaleziono dopasowania jednostki `Department` jednostki aktualizowana.
 
-Wywołaj metodę nowego z `Insert` i `Update` metod:
+Wywołaj metodę nowe z `Insert` i `Update` metody:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample9.cs)]
 
-W *ISchoolRepository.cs*, Dodaj następujące oświadczenie dla nowej metody dostępu do danych:
+W *ISchoolRepository.cs*, dodaj następującą deklarację dla nowej metody dostępu do danych:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample10.cs)]
 
-W *SchoolRepository.cs*, Dodaj następujący `using` instrukcji:
+W *SchoolRepository.cs*, Dodaj następujący kod `using` instrukcji:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample11.cs)]
 
-W *SchoolRepository.cs*, dodaj następującą metodę dostępu do danych nowego:
+W *SchoolRepository.cs*, dodaj następującą nową metodę dostępu do danych:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample12.cs)]
 
-Ten kod pobiera `Department` obiektów, które mają określony administratora. Tylko jeden dział powinien można znaleźć (jeśli istnieje). Jednak bez ograniczenia są wbudowane w bazie danych, typ zwrotny jest kolekcją w przypadku znalezienia wielu działów.
+Ten kod pobiera `Department` obiektów, które mają określoną administratora. Tylko jednego działu powinien można znaleźć (jeśli istnieje). Jednak ponieważ określono ograniczenia jest wbudowana w bazie danych, typ zwracany to kolekcja, w przypadku, gdy znajdują się wiele działów.
 
-Domyślnie gdy kontekst pobiera jednostki z bazy danych, jej przechowuje informacje o ich w jego Menedżer stanu obiektu. `MergeOption.NoTracking` Parametr określa, że to śledzenie nie zostanie wykonane dla tego zapytania. Jest to konieczne, ponieważ zapytanie może zwrócić dokładne jednostki, który próbujesz zaktualizować, a następnie nie będzie mógł dołączyć jednostkę. Na przykład edytować dział historii *Departments.aspx* strony i pozostawić bez zmian przez administratora, to zapytanie spowoduje zwrócenie działu historii. Jeśli `NoTracking` nie jest ustawione, kontekst już miałoby jednostki działu historii w jego Menedżer stanu obiektu. Po dołączeniu jednostki działu historii ponownie utworzona na podstawie stanu widoku, kontekst spowoduje zgłoszenie wyjątku z informacją, a następnie `"An object with the same key already exists in the ObjectStateManager. The ObjectStateManager cannot track multiple objects with the same key"`.
+Domyślnie jeśli kontekst pobiera jednostki z bazy danych, go przechowuje informacje o ich w jego menedżera stanu obiektu. `MergeOption.NoTracking` Parametr określa, że to śledzenie nie zostanie wykonane dla tego zapytania. Jest to konieczne, ponieważ zapytanie może zwrócić dokładnie jednostki, który próbujesz zaktualizować, a użytkownik nie będzie mógł dołączyć do tej jednostki. Na przykład, jeśli edytujesz dziale historii *Departments.aspx* strony i pozostaw bez zmian przez administratora, to zapytanie spowoduje zwrócenie działu historii. Jeśli `NoTracking` nie jest ustawiona, kontekst będzie już jednostki działu historii w jego menedżera stanu obiektów. Po dołączeniu jednostki działu historii, ponownie utworzona na podstawie stanu widoku kontekst zgłasza wyjątek, który jest wyświetlany komunikat, a następnie `"An object with the same key already exists in the ObjectStateManager. The ObjectStateManager cannot track multiple objects with the same key"`.
 
-(Zamiast określania `MergeOption.NoTracking`, można utworzyć nowy kontekst obiektu tylko dla tego zapytania. Ponieważ nowy kontekst byłyby własną Menedżer stanu obiektu, nie byłoby nie było konfliktu podczas wywoływania `Attach` metody. Nowy kontekst czy udostępnianie metadanych i bazy danych połączenia oryginalnego kontekst, więc spadek wydajności tego podejścia alternatywnego jest niewielka. Podejście pokazane, jednak wprowadza `NoTracking` opcję znajdującą się przydatne w innych kontekstach. `NoTracking` Opcja została szczegółowo opisana w późniejszym samouczku z tej serii.)
+(Zamiast określania `MergeOption.NoTracking`, można utworzyć nowy kontekst obiektu tylko dla tego zapytania. Ponieważ nowy kontekst obiektu będzie mieć swój własny Menedżer stanu obiektu, nie będzie żadnych konfliktów podczas wywoływania `Attach` metody. Nowy kontekst obiektu będzie Udostępnij połączenia metadanych i baza danych z oryginalnego kontekstu obiektu, aby spadek wydajności o tym alternatywnym podejściu będzie niewielki. To podejście pokazano poniżej, jednak wprowadza `NoTracking` opcję znajdującą się przydatne w innych kontekstach. `NoTracking` Opcji zostało omówione w dalszych samouczków w tej serii.)
 
-W projekcie testowym Dodawanie nowej metody dostępu do danych do *MockSchoolRepository.cs*:
+W projekcie testowym Dodaj nową metodę dostępu do danych w celu *MockSchoolRepository.cs*:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample13.cs)]
 
-Ten kod zawiera LINQ do wykonania tego samego wyboru danych który `ContosoUniversity` repozytorium projekt używa składnika LINQ to Entities dla.
+Ten kod używa LINQ do wykonania tych samych wybór danych, `ContosoUniversity` składnik LINQ to Entities dla korzysta z repozytorium projektu.
 
-Uruchom ponownie projekt testowy. Teraz testy zostały zaliczone pomyślnie.
+Uruchom ponownie projekt testowy. Teraz kod przechodzi testy.
 
 [![Image04](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image18.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image17.png)
 
-## <a name="handling-objectdatasource-exceptions"></a>Obsługa wyjątków w elemencie ObjectDataSource
+## <a name="handling-objectdatasource-exceptions"></a>Obsługa wyjątków ObjectDataSource
 
-W `ContosoUniversity` projektu, uruchom *Departments.aspx* strony, a następnie spróbuj zmienić administratora dla działu do osoby, która jest już administratora do innego działu. (Należy pamiętać, że można edytować tylko działów, które zostały dodane w tym samouczku, ponieważ w bazie danych jest wstępnie zainstalowany z nieprawidłowych danych). Można uzyskać stronie błąd serwera:
+W `ContosoUniversity` projektu, uruchom *Departments.aspx* strony, a następnie spróbuj zmienić administratora dla działu do osoby, która jest już administratorem innego działu. (Należy pamiętać, że możesz edytować tylko działów dodanych w ramach tego samouczka, ponieważ baza danych zawiera wstępnie załadowane z nieprawidłowe dane). Otrzymasz następującą stronę błąd serwera:
 
 [![Image05](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image20.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image19.png)
 
-Nie chcesz, aby użytkownicy widzieli tego rodzaju strony błędu, należy dodać kodu obsługi błędu. Otwórz *Departments.aspx* i określ obsługi dla `OnUpdated` zdarzenie `DepartmentsObjectDataSource`. `ObjectDataSource` Tagu początkowego teraz podobnego do następującego.
+Nie chcesz, aby użytkownikom na wyświetlanie tego rodzaju strony błędu, więc należy dodać kod obsługi błędów. Otwórz *Departments.aspx* i określ program obsługi `OnUpdated` zdarzenia `DepartmentsObjectDataSource`. `ObjectDataSource` Tagu początkowego teraz przypomina poniższy przykład.
 
 [!code-aspx[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample14.aspx)]
 
-W *Departments.aspx.cs*, Dodaj następujący `using` instrukcji:
+W *Departments.aspx.cs*, Dodaj następujący kod `using` instrukcji:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample15.cs)]
 
-Dodaj następujące obsługę `Updated` zdarzeń:
+Dodaj następujący program obsługi dla `Updated` zdarzeń:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample16.cs)]
 
-Jeśli `ObjectDataSource` kontroli przechwytuje Wystąpił wyjątek podczas próby przeprowadzenia aktualizacji, przekazuje wyjątek w argumencie zdarzenia (`e`) do tego programu obsługi. Kod obsługi sprawdza, jeśli wyjątek jest wyjątek zduplikowane administratora. Jeśli tak jest, kod tworzy kontrolkę modułu sprawdzania poprawności, która zawiera komunikat o błędzie `ValidationSummary` kontrolka do wyświetlenia.
+Jeśli `ObjectDataSource` kontroli wyłapuje wyjątek, gdy próbuje wykonać aktualizację, przekazuje wyjątek w argumencie zdarzeń (`e`) do tego programu obsługi. Kod obsługi sprawdza, jeśli wyjątek jest wyjątkiem zduplikowanych administratora. Jeśli tak jest, kod tworzy formant modułu sprawdzania poprawności, który zawiera komunikat o błędzie `ValidationSummary` kontrolka do wyświetlenia.
 
-Uruchom strony i nawiązania ktoś administrator dwóch działów ponownie. Teraz `ValidationSummary` kontroli wyświetla komunikat o błędzie.
+Uruchom stronę i próbować wykonać ktoś administrator dwóch działów ponownie. Tym razem `ValidationSummary` kontrolka wyświetla komunikat o błędzie.
 
 [![Image06](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image22.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image21.png)
 
-Podobne zmiany do *DepartmentsAdd.aspx* strony. W *DepartmentsAdd.aspx*, określ obsługi dla `OnInserted` zdarzenie `DepartmentsObjectDataSource`. Wynikowa znaczników będą podobne do następującego przykładu.
+Wprowadzić zmiany podobne do *DepartmentsAdd.aspx* strony. W *DepartmentsAdd.aspx*, określ program obsługi `OnInserted` zdarzenia `DepartmentsObjectDataSource`. Wynikowy kod znaczników będą podobne do następującego przykładu.
 
 [!code-aspx[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample17.aspx)]
 
@@ -216,15 +215,15 @@ W *DepartmentsAdd.aspx.cs*, dodania tego samego `using` instrukcji:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample18.cs)]
 
-Dodaj następujące programu obsługi zdarzeń:
+Dodaj następującą obsługę zdarzeń:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample19.cs)]
 
-Teraz możesz przetestować *DepartmentsAdd.aspx.cs* stronę, aby zweryfikować również poprawnie obsługi prób wprowadzenia jedną osobę administratora działu więcej niż jeden.
+Teraz możesz przetestować *DepartmentsAdd.aspx.cs* stronę, aby sprawdzić, czy również poprawnie obsługuje prób wprowadzenia jedna osoba administrator więcej niż jednego działu.
 
-Na tym kończy się wprowadzenie do implementacji wzorca repozytorium dla przy użyciu `ObjectDataSource` kontrolki z programu Entity Framework. Aby uzyskać więcej informacji na temat wzorca repozytorium i testowania, zobacz oficjalny dokument MSDN [testowania i Entity Framework 4.0](https://msdn.microsoft.com/library/ff714955.aspx).
+Na tym kończy się wprowadzenie do implementowania wzorca repozytorium dla przy użyciu `ObjectDataSource` kontrola przy użyciu platformy Entity Framework. Aby uzyskać więcej informacji na temat wzorca repozytorium i testowania, zobacz oficjalny dokument dotyczący MSDN [testowania i Entity Framework 4.0](https://msdn.microsoft.com/library/ff714955.aspx).
 
-W samouczku następujące zobaczysz sposób dodawania sortowania i filtrowania funkcje do aplikacji.
+W tym samouczku poniższy pokazano, jak dodać sortowanie i filtrowanie funkcji do aplikacji.
 
 > [!div class="step-by-step"]
 > [Poprzednie](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started.md)

@@ -1,40 +1,39 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v4/using-a-singleton-in-an-odata-endpoint-in-web-api-22
-title: Utwórz wzorzec Singleton w protokołu OData v4 używanie składnika Web API 2.2 | Dokumentacja firmy Microsoft
+title: Tworzenie pojedynczego wystąpienia w protokole OData v4 używanie składnika Web API 2.2 | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: W tym temacie przedstawiono sposób definiowania pojedynczą w punktu końcowego OData w wersji 2.2 interfejsu API sieci Web.
+description: W tym temacie przedstawiono sposób definiowania wzorzec singleton w punktu końcowego OData w sieci Web API 2.2.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/27/2014
 ms.topic: article
 ms.assetid: 4064ab14-26ee-4d5c-ae58-1bdda525ad06
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/using-a-singleton-in-an-odata-endpoint-in-web-api-22
 msc.type: authoredcontent
-ms.openlocfilehash: 92c5056548b1e39defb28ac36f83b001dd108f5f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3ae9b23fae356e387a011a190119d760dc46d022
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26566768"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37390930"
 ---
-<a name="create-a-singleton-in-odata-v4-using-web-api-22"></a>Utwórz wzorzec Singleton w protokołu OData v4 używanie składnika Web API 2.2
+<a name="create-a-singleton-in-odata-v4-using-web-api-22"></a>Tworzenie pojedynczego wystąpienia w protokole OData v4 używanie składnika Web API 2.2
 ====================
 przez Zoe Luo
 
-> Zazwyczaj z jednostką można uzyskać tylko go zostały hermetyzowany wewnątrz zestawu jednostek. Jednak protokołu OData v4 zapewnia dwie dodatkowe opcje Singleton i zawierania, które obsługuje WebAPI 2.2.
+> Tradycyjnie z jednostki może oceniony jedynie go zostały hermetyzowany wewnątrz zestawu jednostek. Jednak protokół OData 4 udostępnia dwie dodatkowe opcje pojedyncze i zawierania, które obsługuje WebAPI 2.2.
 
 
-W tym artykule przedstawiono sposób definiowania pojedynczą w punktu końcowego OData w wersji 2.2 interfejsu API sieci Web. Aby uzyskać informacje na jakie singleton jest i jak mogą korzystać z nim, zobacz [przy użyciu pojedynczego, aby zdefiniować szczególne jednostki](https://blogs.msdn.com/b/odatateam/archive/2014/03/05/use-singleton-to-define-your-special-entity.aspx). Aby utworzyć punkt końcowy protokołu OData V4 w składniku Web API, zobacz [utworzyć OData v4 punktu końcowego Using ASP.NET Web API 2.2](create-an-odata-v4-endpoint.md). 
+W tym artykule przedstawiono sposób definiowania wzorzec singleton w punktu końcowego OData w sieci Web API 2.2. Aby uzyskać informacji o jakie pojedyncze wystąpienie znajduje i jakie korzyści z korzystania z niego, zobacz [przy użyciu pojedynczego do definiowania jednostka specjalne](https://blogs.msdn.com/b/odatateam/archive/2014/03/05/use-singleton-to-define-your-special-entity.aspx). Aby utworzyć punkt końcowy protokołu OData V4 w interfejsie API sieci Web, zobacz [tworzenia protokołu OData v4 punktu końcowego Używanie wzorca ASP.NET Web API 2.2](create-an-odata-v4-endpoint.md). 
 
-Utworzymy pojedynczą w projekcie interfejsu API sieci Web przy użyciu następującego modelu danych:
+Utworzymy wzorzec singleton w projekcie interfejsu API sieci Web przy użyciu następujących modelu danych:
 
 ![Model danych](using-a-singleton-in-an-odata-endpoint-in-web-api-22/_static/image1.png)
 
-Pojedyncza o nazwie `Umbrella` będą zdefiniowane na podstawie typu `Company`i zestaw o nazwie jednostek `Employees` będzie można zdefiniować w zależności od typu `Employee`.
+Wzorzec singleton o nazwie `Umbrella` będzie można zdefiniować w zależności od typu `Company`oraz zestaw nazwanych jednostek `Employees` będzie można zdefiniować w zależności od typu `Employee`.
 
-Rozwiązanie używane w tym samouczku można pobrać z [CodePlex](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/WebApi/OData/v4/ODataSingletonSample/).
+Rozwiązanie używane w ramach tego samouczka można pobrać z [CodePlex](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/WebApi/OData/v4/ODataSingletonSample/).
 
 ## <a name="define-the-data-model"></a>Zdefiniowanie modelu danych
 
@@ -45,34 +44,34 @@ Rozwiązanie używane w tym samouczku można pobrać z [CodePlex](http://aspnet.
 
     [!code-csharp[Main](using-a-singleton-in-an-odata-endpoint-in-web-api-22/samples/sample2.cs)]
 
-    W tym miejscu `builder.Singleton<Company>("Umbrella")` informuje Konstruktor modelu, aby utworzyć pojedynczą o nazwie `Umbrella` w modelu EDM.
+    W tym miejscu `builder.Singleton<Company>("Umbrella")` informuje konstruktora modeli do utworzenia pojedynczego o nazwie `Umbrella` w modelu EDM.
 
     Wygenerowany metadanych będzie wyglądać następująco:
 
     [!code-xml[Main](using-a-singleton-in-an-odata-endpoint-in-web-api-22/samples/sample3.xml)]
 
-    Z metadanych możemy stwierdzić, że właściwość nawigacji `Company` w `Employees` zestawu jednostek jest powiązany z singleton `Umbrella`. Powiązanie odbywa się automatycznie przez `ODataConventionModelBuilder`, ponieważ tylko `Umbrella` ma `Company` typu. Jeśli istnieje niejednoznaczność modelu, możesz użyć `HasSingletonBinding` jawnie powiązać właściwość nawigacji z pojedynczym; `HasSingletonBinding` działa tak samo jak przy użyciu `Singleton` atrybutu w definicji typu CLR:
+    Z metadanych widać, że właściwość nawigacji `Company` w `Employees` powiązany zestaw jednostek w wzorzec singleton `Umbrella`. Powiązanie jest wykonywane automatycznie przez `ODataConventionModelBuilder`, ponieważ tylko `Umbrella` ma `Company` typu. Jeśli istnieje niejednoznaczność modelu, można użyć `HasSingletonBinding` można jawnie powiązać właściwość nawigacji z pojedynczym; `HasSingletonBinding` ma taki sam skutek jak użycie `Singleton` atrybutu w definicji typu CLR:
 
     [!code-csharp[Main](using-a-singleton-in-an-odata-endpoint-in-web-api-22/samples/sample4.cs)]
 
 ## <a name="define-the-singleton-controller"></a>Zdefiniuj kontrolera pojedynczego wystąpienia
 
-Jak kontroler EntitySet kontrolera singleton dziedziczy `ODataController`, oraz nazwy kontrolera singleton powinna być `[singletonName]Controller`.
+Takich jak kontroler obiektu EntitySet kontrolera pojedyncze dziedziczy `ODataController`, i nazwy kontrolera singleton powinna być `[singletonName]Controller`.
 
 [!code-csharp[Main](using-a-singleton-in-an-odata-endpoint-in-web-api-22/samples/sample5.cs)]
 
-Aby można było obsługiwać różne rodzaje żądań, akcje muszą być wstępnie zdefiniowane w kontrolerze. **Atrybut routingu** jest domyślnie włączona w wersji 2.2 WebApi. Na przykład, aby zdefiniować akcję do obsługi zapytań `Revenue` z `Company` przy użyciu atrybutu routingu, należy użyć następującego:
+Aby można było obsługiwać różne rodzaje żądań, akcje muszą być wstępnie zdefiniowane w kontrolerze. **Atrybut routingu** jest domyślnie włączone w WebApi 2.2. Na przykład, aby zdefiniować akcję w celu obsługi zapytań `Revenue` z `Company` przy użyciu atrybutu routingu, należy użyć następującego:
 
 [!code-csharp[Main](using-a-singleton-in-an-odata-endpoint-in-web-api-22/samples/sample6.cs)]
 
-Jeśli nie jest gotowa do definiowania atrybutów dla każdej akcji, wystarczy zdefiniować akcji po [Konwencji routingu OData](../odata-routing-conventions.md). Ponieważ klucz nie jest wymagane do wykonywania zapytań w pojedynczą, działania zdefiniowane w kontrolerze pojedynczego wystąpienia są nieco inne niż akcji określonych w kontrolerze obiektu entityset.
+Jeśli nie jesteś gotowy do definiowania atrybutów dla każdej akcji, wystarczy zdefiniować swoje działania zgodnie z [konwencje routingu OData](../odata-routing-conventions.md). Ponieważ klucz nie jest wymagane do wykonywania zapytań wzorzec singleton, akcji określonych w kontrolerze pojedyncze są nieco inne niż akcji określonych w kontrolerze obiektu entityset.
 
-Odwołania podpisy metod dla każdej definicji akcji w kontrolerze pojedynczego wystąpienia są wymienione poniżej.
+Podpisy metod dla każdej definicji akcji w kontrolerze pojedyncze odwołanie, znajduje się poniżej.
 
 [!code-csharp[Main](using-a-singleton-in-an-odata-endpoint-in-web-api-22/samples/sample7.cs)]
 
-Zasadniczo to wszystko, co należy zrobić po stronie usługi. [Przykładowy projekt](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/WebApi/OData/v4/ODataSingletonSample/) zawiera wszystkie kodu dla rozwiązania i klienta OData, który przedstawia sposób użycia wzorca singleton. Klient jest konstruowany przez zgodnie z krokami w [tworzenie aplikacji klienckich OData v4](create-an-odata-v4-client-app.md).
+Zasadniczo jest to wszystko, co należy zrobić po stronie usługi. [Przykładowy projekt](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/WebApi/OData/v4/ODataSingletonSample/) zawiera cały kod dla rozwiązania i klient OData, który pokazuje, jak użyć wzorca singleton. Klient jest wbudowana, wykonując kroki opisane w [tworzenie aplikacji klienckiej OData v4](create-an-odata-v4-client-app.md).
 
 . 
 
-*Dzięki użyciu Leo Hu oryginalnej zawartości w tym artykule.*
+*Dzięki rozłożeniu Leo Hu oryginalnej zawartości w tym artykule.*

@@ -1,31 +1,30 @@
 ---
 uid: web-forms/videos/aspnet-web-forms-vnext/aspnet-and-web-tools-20122
-title: ASP.NET i sieć Web narzędzi 2012.2 | Dokumentacja firmy Microsoft
+title: ASP.NET and Web Tools 2012.2 | Dokumentacja firmy Microsoft
 author: jongalloway
-description: Spełniają nową wersję platformy ASP.NET i 2012.2 narzędzia sieci Web! Ta wersja zawiera stos nowe, fantastyczne funkcje, w tym szablony projektów, narzędzia sieci web i inne. Jo...
+description: Poznaj nową wersję platformy ASP.NET i Web Tools 2012.2! Ta wersja obejmuje wiele wspaniałych nowych funkcji, w tym szablony projektów, narzędzia sieci web i innych. Jo...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2013
 ms.topic: article
 ms.assetid: ca7458bd-b238-4633-a8b4-468a4c300acc
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-web-forms-vnext/aspnet-and-web-tools-20122
 msc.type: video
-ms.openlocfilehash: 572b948ac869b4391d7c486d603146bf1f1812c7
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 72552278c54733908b647a3fff09bcd0c87f395c
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30881093"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37382390"
 ---
-<a name="aspnet-and-web-tools-20122"></a>ASP.NET i narzędzia sieci Web 2012.2
+<a name="aspnet-and-web-tools-20122"></a>ASP.NET and Web Tools 2012.2
 ====================
-przez [Galloway Jan](https://github.com/jongalloway)
+przez [Galloway'em Jon](https://github.com/jongalloway)
 
-Spełniają nową wersję platformy ASP.NET i 2012.2 narzędzia sieci Web! Ta wersja zawiera stos nowe, fantastyczne funkcje, w tym szablony projektów, narzędzia sieci web i inne. Pokazuje Wyłącz wszystkie top nowych funkcji w ramach pół godziny szczegółami dołączenia Galloway Jan!
+Poznaj nową wersję platformy ASP.NET i Web Tools 2012.2! Ta wersja obejmuje wiele wspaniałych nowych funkcji, w tym szablony projektów, narzędzia sieci web i innych. Dołącz do Galloway'em Jon pokazuje Wyłącz wszystkie najważniejsze nowe funkcje w obszarze pół godziny!
 
-[&#9654;Obejrzyj klip wideo (26 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-and-web-tools-20122)
+[&#9654;Obejrzyj film wideo (26 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-and-web-tools-20122)
 
 > [!div class="step-by-step"]
 > [Poprzednie](getting-started-with-the-next-version-of-aspnet.md)

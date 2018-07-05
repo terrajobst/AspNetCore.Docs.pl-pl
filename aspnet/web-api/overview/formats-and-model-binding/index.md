@@ -1,32 +1,31 @@
 ---
 uid: web-api/overview/formats-and-model-binding/index
-title: Serializacja i wiązania modelu w składniku ASP.NET Web API | Dokumentacja firmy Microsoft
+title: Serializacja i powiązanie modelu we wzorcu ASP.NET Web API | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: Jak składnika ASP.NET Web API wiąże wiadomości HTTP modeli domeny i jak pracować z nośnika formaty w interfejsie API sieci Web.
+description: Jak ASP.NET Web API wiąże wiadomości HTTP modeli domeny i sposób pracy z multimediami formatuje w interfejsie API sieci Web.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/17/2012
 ms.topic: article
 ms.assetid: 2d520763-3860-4b3f-8b99-ac71fb01cf37
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/formats-and-model-binding
 msc.type: chapter
-ms.openlocfilehash: 8aa061c2cdf4c65a1e0718e2ab146a0220fd8ee6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c7de9892985d8aed5c940f7d640ee30db2903003
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26566336"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37393142"
 ---
-<a name="serialization-and-model-binding-in-aspnet-web-api"></a>Serializacja i wiązania modelu w składniku ASP.NET Web API
+<a name="serialization-and-model-binding-in-aspnet-web-api"></a>Serializacja i powiązanie modelu we wzorcu ASP.NET Web API
 ====================
-> Jak składnika ASP.NET Web API wiąże wiadomości HTTP modeli domeny i jak pracować z nośnika formaty w interfejsie API sieci Web.
+> Jak ASP.NET Web API wiąże wiadomości HTTP modeli domeny i sposób pracy z multimediami formatuje w interfejsie API sieci Web.
 
 
-- [Programy formatujące multimedia w składniku Web API 2](media-formatters.md)
-- [JSON i serializacja XML w składniku Web API](json-and-xml-serialization.md)
-- [Obsługa formatu BSON w składniku Web API 2.1](bson-support-in-web-api-21.md)
-- [Negocjowanie zawartości w składniku Web API](content-negotiation.md)
-- [Weryfikacja modelu w składniku Web API](model-validation-in-aspnet-web-api.md)
-- [Parametr wiązania w składniku Web API](parameter-binding-in-aspnet-web-api.md)
+- [Programy formatujące multimedia w interfejsie Web API 2](media-formatters.md)
+- [Serializacja formatów JSON i XML w interfejsie Web API](json-and-xml-serialization.md)
+- [Obsługa formatu BSON w interfejsie Web API 2.1](bson-support-in-web-api-21.md)
+- [Negocjowanie zawartości w interfejsie Web API](content-negotiation.md)
+- [Weryfikacja modelu w interfejsie Web API](model-validation-in-aspnet-web-api.md)
+- [Wiązanie parametrów interfejsie Web API](parameter-binding-in-aspnet-web-api.md)

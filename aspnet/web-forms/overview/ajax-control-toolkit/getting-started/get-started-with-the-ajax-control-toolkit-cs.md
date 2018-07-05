@@ -1,68 +1,67 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/getting-started/get-started-with-the-ajax-control-toolkit-cs
-title: Wprowadzenie do zestawu narzędzi kontroli AJAX (C#) | Dokumentacja firmy Microsoft
+title: Rozpoczynanie pracy z usługą AJAX Control Toolkit (C#) | Dokumentacja firmy Microsoft
 author: microsoft
-description: Dowiedz się, musisz wiedzieć, aby rozpocząć korzystanie z zestawu narzędzi kontroli AJAX.
+description: Dowiedz się, wszystko, czego potrzebujesz, aby rozpocząć korzystanie z zestawu narzędzi AJAX Control Toolkit.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/12/2009
 ms.topic: article
 ms.assetid: 16dc5c11-65be-4eae-a818-9fad7f8259c6
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/getting-started/get-started-with-the-ajax-control-toolkit-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e6a7a8d45f32a33eaacf3c42b52a02d2ada1aab6
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 120213ce27858e2f0650b71c82f689ae4493d8a8
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30879182"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37399600"
 ---
-<a name="get-started-with-the-ajax-control-toolkit-c"></a>Wprowadzenie do zestawu narzędzi kontroli AJAX (C#)
+<a name="get-started-with-the-ajax-control-toolkit-c"></a>Rozpoczynanie pracy z usługą AJAX Control Toolkit (C#)
 ====================
 przez [firmy Microsoft](https://github.com/microsoft)
 
-> Dowiedz się, musisz wiedzieć, aby rozpocząć korzystanie z zestawu narzędzi kontroli AJAX.
+> Dowiedz się, wszystko, czego potrzebujesz, aby rozpocząć korzystanie z zestawu narzędzi AJAX Control Toolkit.
 
 
-Zestaw narzędzi kontroli AJAX zawiera ponad 30 wolnego kontrolki, których można używać w aplikacji ASP.NET. W tym samouczku Dowiedz się jak pobrać Toolkit kontroli AJAX i Dodaj formanty zestawu narzędzi do przybornika programu Visual Studio/Visual Web Developer Express.
+Zestawu narzędzi AJAX Control Toolkit zawiera ponad 30 bezpłatnych formantów, które można używać w aplikacjach ASP.NET. W tym samouczku dowiesz się, jak pobrać zestawu narzędzi AJAX Control Toolkit i dodawanie kontrolek zestawu narzędzi do usługi Visual Studio/Visual Web Developer Express przybornika.
 
-## <a name="downloading-the-ajax-control-toolkit"></a>Pobieranie zestawu narzędzi kontroli AJAX
+## <a name="downloading-the-ajax-control-toolkit"></a>Pobieranie zestawu narzędzi AJAX Control Toolkit
 
-[Toolkit kontroli AJAX](http://devexpress.com/act) jest projekt typu open source opracowany przez członków społeczności ASP.NET i zespołu programu ASP.NET. 
-
-
-[![Pobieranie zestawu narzędzi kontroli AJAX](get-started-with-the-ajax-control-toolkit-cs/_static/image1.jpg)](get-started-with-the-ajax-control-toolkit-cs/_static/image1.png)
-
-**Rysunek 01**: pobranie zestawu narzędzi kontroli AJAX ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](get-started-with-the-ajax-control-toolkit-cs/_static/image2.png))
+[Zestawu narzędzi AJAX Control Toolkit](http://devexpress.com/act) jest to projekt open source opracowany przez członków społeczności platformy ASP.NET i zespół programu ASP.NET. 
 
 
-Po pobraniu pliku należy odblokować plik. Kliknij plik prawym przyciskiem myszy, wybierz polecenie Właściwości, a następnie kliknij przycisk **Odblokuj** przycisk (patrz rysunek 2).
+[![Pobieranie zestawu narzędzi AJAX Control Toolkit](get-started-with-the-ajax-control-toolkit-cs/_static/image1.jpg)](get-started-with-the-ajax-control-toolkit-cs/_static/image1.png)
+
+**Rysunek 01**: pobranie zestawu narzędzi AJAX Control Toolkit ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](get-started-with-the-ajax-control-toolkit-cs/_static/image2.png))
 
 
-[![Odblokowanie pliku ZIP zestawu narzędzi kontroli AJAX](get-started-with-the-ajax-control-toolkit-cs/_static/image2.jpg)](get-started-with-the-ajax-control-toolkit-cs/_static/image3.png)
-
-**Rysunek 02**: odblokowywania pliku ZIP zestawu narzędzi kontroli AJAX ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](get-started-with-the-ajax-control-toolkit-cs/_static/image4.png))
+Po pobraniu pliku, musisz odblokować plik. Kliknij prawym przyciskiem myszy plik, wybierz polecenie Właściwości, a następnie kliknij przycisk **odblokowanie** przycisku (patrz rysunek 2).
 
 
-Po odblokowaniu plik można rozpakować plik: kliknij prawym przyciskiem myszy plik i wybierz **Wyodrębnij wszystkie** opcji menu. Teraz możemy dodać zestaw narzędzi do przybornika programu Visual Studio/Visual Web Developer.
+[![Odblokowanie pliku AJAX kontrolki zestawu narzędzi ZIP](get-started-with-the-ajax-control-toolkit-cs/_static/image2.jpg)](get-started-with-the-ajax-control-toolkit-cs/_static/image3.png)
 
-## <a name="adding-the-ajax-control-toolkit-to-the-toolbox"></a>Dodawanie do przybornika Toolkit kontroli AJAX
-
-Najprostszym sposobem użyj narzędzi kontroli AJAX jest dodanie zestawu narzędzi do przybornika programu Visual Studio/Visual Web Developer (patrz rysunek 3). W ten sposób można po prostu przeciągnąć kontroli zestawu narzędzi na stronie można z niego korzystać.
+**Rysunek 02**: odblokowanie pliku AJAX kontrolki zestawu narzędzi ZIP ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](get-started-with-the-ajax-control-toolkit-cs/_static/image4.png))
 
 
-[![Zestaw narzędzi kontroli AJAX pojawia się w przyborniku](get-started-with-the-ajax-control-toolkit-cs/_static/image3.jpg)](get-started-with-the-ajax-control-toolkit-cs/_static/image5.png)
+Po odblokowaniu plik można Rozpakuj plik: kliknij prawym przyciskiem myszy plik i wybierz **Wyodrębnij wszystkie** opcji menu. Teraz jesteśmy gotowi dodać zestawu narzędzi do przybornika Visual Studio/Visual Web Developer.
 
-**Rysunek 03**: AJAX kontroli Toolkit zostanie wyświetlony w przyborniku ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](get-started-with-the-ajax-control-toolkit-cs/_static/image6.png))
+## <a name="adding-the-ajax-control-toolkit-to-the-toolbox"></a>Dodawanie zestawu narzędzi AJAX Control Toolkit do przybornika
+
+Aby użyć zestawu narzędzi AJAX Control Toolkit najłatwiej można dodać zestawu narzędzi do zestawu swoich Visual Studio/Visual Web Developer (zobacz rysunek 3). W ten sposób można po prostu przeciągnąć kontrolki zestawu narzędzi na stronie go użyć.
 
 
-Najpierw należy dodać kartę Toolkit kontroli AJAX do przybornika. Wykonaj następujące kroki.
+[![Zestawu narzędzi AJAX Control Toolkit zostanie wyświetlone w przyborniku](get-started-with-the-ajax-control-toolkit-cs/_static/image3.jpg)](get-started-with-the-ajax-control-toolkit-cs/_static/image5.png)
 
-1. Utwórz nową witrynę sieci Web ASP.NET przez wybranie opcji menu Plik, nowej witryny sieci Web. Kliknij dwukrotnie plik Default.aspx w oknie Eksploratora rozwiązań, aby otworzyć plik w edytorze.
-2. Kliknij prawym przyciskiem myszy przybornika poniżej karta Ogólne i wybierz opcję menu **Dodaj kartę** (patrz rysunek 4).
-3. Wprowadź nową kartę o nazwie Toolkit kontroli AJAX.
+**Rysunek 03**: zestawu narzędzi AJAX Control Toolkit zostanie wyświetlone w przyborniku ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](get-started-with-the-ajax-control-toolkit-cs/_static/image6.png))
+
+
+Najpierw należy dodać kartę zestawu narzędzi AJAX Control Toolkit do przybornika. Wykonaj następujące kroki.
+
+1. Utwórz nową witrynę sieci Web platformy ASP.NET, wybierając opcję menu Plik, Nowa witryna. Kliknij dwukrotnie Default.aspx w oknie Eksploratora rozwiązań, aby otworzyć go w edytorze.
+2. Kliknij prawym przyciskiem myszy przybornika poniżej na karcie Ogólne, a następnie wybierz opcję menu **Dodaj zakładkę** (zobacz rysunek 4).
+3. Wprowadź nową kartę o nazwie zestawu narzędzi AJAX Control Toolkit.
 
 
 [![Dodawanie nowej karty](get-started-with-the-ajax-control-toolkit-cs/_static/image4.jpg)](get-started-with-the-ajax-control-toolkit-cs/_static/image7.png)
@@ -70,10 +69,10 @@ Najpierw należy dodać kartę Toolkit kontroli AJAX do przybornika. Wykonaj nas
 **Rysunek 04**: Dodawanie nowej karty ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](get-started-with-the-ajax-control-toolkit-cs/_static/image8.png))
 
 
-Następnie należy Dodaj formanty Toolkit kontroli AJAX na nowej karcie. Wykonaj następujące kroki:
+Następnie należy dodać kontrolki zestawu narzędzi AJAX Control Toolkit na nowej karcie. Wykonaj następujące kroki:
 
-- Kliknij prawym przyciskiem myszy poniżej karcie AJAX kontroli narzędzi i wybierz opcję menu **wybierz elementy (patrz rysunek 5)**.
-- Przejdź do lokalizacji, gdzie unzipped Toolkit kontroli AJAX i wybierz zestaw AjaxControlToolkit.dll.
+- Kliknij prawym przyciskiem myszy, poniżej na karcie zestawu narzędzi AJAX Control Toolkit, a następnie wybierz opcję menu **wybierz elementy (zobacz rysunek 5)**.
+- Przejdź do lokalizacji, w którym rozpakowano zestawu narzędzi AJAX Control Toolkit i wybierz zestaw AjaxControlToolkit.dll.
 
 
 [![Wybierz elementy do dodania do przybornika](get-started-with-the-ajax-control-toolkit-cs/_static/image5.jpg)](get-started-with-the-ajax-control-toolkit-cs/_static/image9.png)
@@ -81,14 +80,14 @@ Następnie należy Dodaj formanty Toolkit kontroli AJAX na nowej karcie. Wykonaj
 **Rysunek 05**: Wybierz elementy do dodania do przybornika ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](get-started-with-the-ajax-control-toolkit-cs/_static/image10.png))
 
 
-Po wykonaniu tych kroków, zostaną wyświetlone wszystkie formanty zestaw narzędzi z przybornika.
+Po wykonaniu tych kroków, zostaną wyświetlone wszystkie kontrolki zestawu narzędzi z przybornika.
 
-## <a name="upgrading-to-a-new-version-of-the-toolkit"></a>Uaktualnienie do nowej wersji zestawu narzędzi
+## <a name="upgrading-to-a-new-version-of-the-toolkit"></a>Uaktualnianie do nowej wersji zestawu narzędzi
 
-Jeśli zostały przy użyciu starszej wersji zestawu narzędzi, a teraz trzeba przenosić do nowszej wersji są zalecane kroki:
+Jeśli była używana starsza wersja zestawu narzędzi, a teraz konieczne przeniesienie do nowszej wersji są zalecane kroki:
 
-- Pliki binarne - usuń starą wersję zestawu AjaxControlToolkit.dll z folderu Bin witryny sieci Web.
-- Elementy przybornika — Usuń kartę Toolkit kontroli AJAX i wykonaj kroki opisane powyżej, aby ponownie utworzyć kartę w nowej wersji zestawu AjaxControlToolkit.dll.
+- Pliki binarne — usuń starą wersję zestawu AjaxControlToolkit.dll z folderu Bin witryny sieci Web.
+- Elementy przybornika — Usuń kartę zestawu narzędzi AJAX Control Toolkit i postępuj zgodnie z instrukcjami powyżej, aby ponownie utworzyć kartę w nowej wersji zestawu AjaxControlToolkit.dll.
 
 > [!div class="step-by-step"]
 > [Next](using-ajax-control-toolkit-controls-and-control-extenders-cs.md)

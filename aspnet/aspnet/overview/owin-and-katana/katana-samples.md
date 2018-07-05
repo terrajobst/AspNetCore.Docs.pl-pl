@@ -9,15 +9,14 @@ ms.date: 01/17/2014
 ms.topic: article
 ms.assetid: bec04f5d-2638-4417-b288-97c58c8d6379
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/katana-samples
 msc.type: authoredcontent
-ms.openlocfilehash: 815355c00c9c15cfefa5f98dc89da676743b0390
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: e81da1e650d8dfd24a3e0fda6aa42b7f360ce12d
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28034493"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37393322"
 ---
 <a name="katana-samples"></a>Przykłady Katana
 ====================
@@ -25,32 +24,32 @@ przez [firmy Microsoft](https://github.com/microsoft)
 
 ## <a name="katana-samples"></a>Przykłady Katana
 
-**ASP.NET kieruje próbki** | [kod źródłowy](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/Katana/AspNetRoutes/ReadMe.txt)  
-W niektórych aplikacjach ma Podłączanie składników OWIN w tabeli tras Asp.Net równolegle składniki z systemem innym niż OWIN. Ten przykład przedstawia sposób użycia metody rozszerzenia klasy RouteCollection MapOwinPath i MapOwinRoute dostarczonych przez Microsoft.Owin.Host.SystemWeb.
+**ASP.NET kieruje przykładowe** | [kodu źródłowego](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/Katana/AspNetRoutes/ReadMe.txt)  
+W niektórych aplikacjach można dołączyć składniki OWIN w tabeli trasy Asp.Net równolegle składniki bez OWIN. Ten przykład pokazuje, jak użyć metod rozszerzających RouteCollection MapOwinPath i udostępniane przez Microsoft.Owin.Host.SystemWeb MapOwinRoute.
 
-**Rozgałęzianie potoków próbki** | [kod źródłowy](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/Katana/BranchingPipelines/ReadMe.txt)  
-Potoki przetwarzania żądania OWIN zbędna, nie jest liniowa, można można rozgałęzić do przetwarzania żądań na różne sposoby. W tym przykładzie pokazano, jak utworzyć potok rozgałęziania na podstawie ścieżki żądania lub inne dane żądania, takich jak nagłówki. Składniki te są dostępne w pakiecie nuget Microsoft.Owin.Mapping.
+**Rozgałęzianie potoków przykładowe** | [kodu źródłowego](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/Katana/BranchingPipelines/ReadMe.txt)  
+Potoki przetwarzania żądania OWIN czy muszą być liniowego, może zostać rozgałęzione do przetwarzania żądań w różny sposób. W tym przykładzie pokazano, jak do budowy potoku rozgałęziania, na podstawie ścieżki żądania lub inne dane na żądanie, takich jak nagłówki. Te składniki są dostępne w pakiecie nuget Microsoft.Owin.Mapping.
 
-**Przykład niestandardowych Server** | [kod źródłowy](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/Katana/CustomServer/MyCustomServer/CustomServer.cs)   
-Przedstawia sposób użycia niestandardowego serwera OWIN, gdy hostingu samodzielnego OWIN.
+**Przykład niestandardowych Server** | [kodu źródłowego](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/Katana/CustomServer/MyCustomServer/CustomServer.cs)   
+Pokazuje, jak użyć niestandardowego serwera OWIN, gdy hostingu samodzielnego OWIN.
 
-**Osadzonego próbce** | [kod źródłowy](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/Katana/Embedded/ReadMe.txt)  
-Niektóre serwery OWIN mogą być uruchamiane wewnątrz własnego procesu (&quot;hosta samodzielnego&quot;). W tym przykładzie pokazano, jak rozpocząć korzystanie z narzędzi dostarczanych przez pakiet nuget Microsoft.Owin.Hosting aplikacji OWIN.
+**Przykładowy osadzony** | [kodu źródłowego](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/Katana/Embedded/ReadMe.txt)  
+Niektóre serwery OWIN mogą być uruchamiane wewnątrz własnego procesu (&quot;może być samodzielnie hostowane&quot;). W tym przykładzie pokazano, jak można uruchomić za pomocą narzędzi dostarczanych przez pakiet nuget Microsoft.Owin.Hosting aplikacji OWIN.
 
-**Przykładowe HelloWorld** | [kod źródłowy](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/Katana/HelloWorld/ReadMe.txt)  
-OWIN to serwer HTTP abstrakcji interfejsu API, zapewniające przenośność aplikacji na różnych serwerach. W tym przykładzie przedstawiono sposób tworzenia aplikacji Hello World niektórych **proste otoki** wokół pierwotnych abstrakcji OWIN i uruchom go na serwerze sieci web program ASP.NET.
+**Przykładowe HelloWorld** | [kodu źródłowego](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/Katana/HelloWorld/ReadMe.txt)  
+OWIN to serwer HTTP abstrakcji interfejsu API, który umożliwia przenoszenia aplikacji na różnych serwerach. W tym przykładzie pokazano, jak napisać aplikację Hello World w niektórych **proste otoki** wokół nieprzetworzone abstrakcji OWIN i uruchom go na serwerze sieci web takich jak ASP.NET.
 
-**Przykładowa aplikacja Hello World Raw OWIN** | [kod źródłowy](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/Katana/HelloWorldRawOwin/ReadMe.txt)  
-W tym przykładzie pokazano, jak aplikacja Hello World przy użyciu **raw** abstrakcji OWIN i uruchom go na serwerze sieci web, takich jak Asp.Net.
+**Przykładowa aplikacja Hello World pierwotne OWIN** | [kodu źródłowego](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/Katana/HelloWorldRawOwin/ReadMe.txt)  
+W tym przykładzie przedstawiono sposób pisania aplikacji Hello World za pomocą **pierwotne** abstrakcji OWIN i uruchom go na serwerze sieci web, takimi jak Asp.Net.
 
-**Przykładowe SignalR** | [kod źródłowy](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/Katana/SignalR/Program.cs)  
-Pokazuje, jak hosta samodzielnego SignalR za pomocą OWIN / Katana. Aby uzyskać więcej informacji na temat własnym hostingu SignalR, zobacz [samouczek: SignalR hosta samodzielnego](../../../signalr/overview/deployment/tutorial-signalr-self-host.md).
+**Przykładowe SignalR** | [kodu źródłowego](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/Katana/SignalR/Program.cs)  
+Pokazuje, jak na potrzeby samodzielnego hostowania SignalR przy użyciu OWIN / Katana. Aby uzyskać więcej informacji na temat biblioteki SignalR własnym hostingu, zobacz [samouczek: Host samodzielny SignalR](../../../signalr/overview/deployment/tutorial-signalr-self-host.md).
 
-**Przykładowe pliki statyczne** | [kod źródłowy](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/Katana/StaticFilesSample/Startup.cs)   
-Przedstawia sposób obsługi żądań HTTP dotyczących plików statycznych przy użyciu OWIN / Katana.
+**Statyczne pliki przykładowe** | [kodu źródłowego](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/Katana/StaticFilesSample/Startup.cs)   
+Pokazuje, jak do obsługi żądań HTTP dla plików statycznych przy użyciu OWIN / Katana.
 
-**Interfejs API sieci Web** | [kod źródłowy](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/Katana/WebApi/ReadMe.txt)   
-W tym przykładzie pokazano, jak udostępniać OWIN w usługach IIS i Dodaj interfejs API sieci Web do potoku OWIN.
+**Interfejs API sieci Web** | [kodu źródłowego](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/Katana/WebApi/ReadMe.txt)   
+W tym przykładzie pokazano, jak hostowanie OWIN w usługach IIS, a następnie Dodaj interfejs API sieci Web do potoku OWIN.
 
-**Sieci Web przykładowej gniazda** | [kod źródłowy](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/Katana/WebSocketSample/WebSocketServer/Startup.cs)   
-Przedstawia sposób obsługi gniazda sieci Web w OWIN za pomocą [System.Net.WebSockets.WebSocket](https://msdn.microsoft.com/library/system.net.websockets.websocket(v=vs.110).aspx) klasy.
+**Sieci Web przykładowej gniazda** | [kodu źródłowego](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/Katana/WebSocketSample/WebSocketServer/Startup.cs)   
+Pokazuje, jak do obsługi gniazda sieci Web w OWIN przy użyciu [System.Net.WebSockets.WebSocket](https://msdn.microsoft.com/library/system.net.websockets.websocket(v=vs.110).aspx) klasy.

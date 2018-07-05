@@ -1,31 +1,30 @@
 ---
 uid: signalr/overview/deployment/using-signalr-with-azure-web-sites
-title: Przy użyciu SignalR z aplikacjami sieci Web w usłudze Azure App Service | Dokumentacja firmy Microsoft
+title: Używanie SignalR z usługą Web Apps w usłudze Azure App Service | Dokumentacja firmy Microsoft
 author: pfletcher
-description: Ten dokument zawiera opis sposobu konfigurowania aplikacji SignalR, która działa w systemie Microsoft Azure. Wersje oprogramowania używany w samouczku Visual Studio 2013 lub Vis....
+description: W tym dokumencie opisano sposób konfigurowania aplikacji SignalR, która działa w systemie Microsoft Azure. Wersje oprogramowania używanego w tym samouczku, Visual Studio 2013 lub Vis....
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/01/2015
 ms.topic: article
 ms.assetid: 2a7517a0-b88c-4162-ade3-9bf6ca7062fd
 ms.technology: dotnet-signalr
-ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/deployment/using-signalr-with-azure-web-sites
 msc.type: authoredcontent
-ms.openlocfilehash: 8386441690a3fb479ffb941ebd7c0b2f83870781
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: dabf0f6cfed401e10d2c1134c260022d94c3ab92
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28043210"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37389578"
 ---
-<a name="using-signalr-with-web-apps-in-azure-app-service"></a>Przy użyciu SignalR z aplikacjami sieci Web w usłudze aplikacji Azure
+<a name="using-signalr-with-web-apps-in-azure-app-service"></a>Używanie SignalR z usługą Web Apps w usłudze Azure App Service
 ====================
 przez [Patrick Fletcher](https://github.com/pfletcher)
 
-> Ten dokument zawiera opis sposobu konfigurowania aplikacji SignalR, która działa w systemie Microsoft Azure.
+> W tym dokumencie opisano sposób konfigurowania aplikacji SignalR, która działa w systemie Microsoft Azure.
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>Używane w samouczku wersje oprogramowania
+> ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używanego w tym samouczku
 > 
 > 
 > - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads) lub Visual Studio 2012
@@ -37,83 +36,83 @@ przez [Patrick Fletcher](https://github.com/pfletcher)
 > 
 > ## <a name="questions-and-comments"></a>Pytania i komentarze
 > 
-> Wystaw opinię na jak zbędne tego samouczka i jakie firma Microsoft może poprawić w komentarze u dołu strony. Jeśli masz pytania, które nie są bezpośrednio związane z tego samouczka możesz zamieścić je do [forum ASP.NET SignalR](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR), [StackOverflow.com](http://stackoverflow.com/), lub [fora Microsoft Azure](https://social.msdn.microsoft.com/Forums/windowsazure/home?category=windowsazureplatform).
+> Jak się podoba w tym samouczku, i co można było ulepszyć proces w komentarzach u dołu strony, wystaw opinię. Jeśli masz pytania, na które nie są bezpośrednio związane z tego samouczka, możesz zamieścić je do [forum ASP.NET SignalR](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR), [StackOverflow.com](http://stackoverflow.com/), lub [fora Microsoft Azure](https://social.msdn.microsoft.com/Forums/windowsazure/home?category=windowsazureplatform).
 
 
 ## <a name="table-of-contents"></a>Spis treści
 
 - [Wprowadzenie](#introduction)
-- [Wdrażanie aplikacji sieci SignalR Web w usłudze Azure App Service](#deploying)
-- [Włączanie Websocket w usłudze aplikacji Azure](#websocket)
-- [Przy użyciu płyty montażowej pamięci podręcznej Azure Redis](#backplane)
+- [Wdrażanie aplikacji sieci Web SignalR w usłudze Azure App Service](#deploying)
+- [Włączanie funkcji WebSockets w usłudze Azure App Service](#websocket)
+- [Za pomocą systemu Backplane usługi Azure Redis Cache](#backplane)
 - [Następne kroki](#nextsteps)
 
 <a id="introduction"></a>
 ## <a name="introduction"></a>Wprowadzenie
 
-Biblioteka SignalR platformy ASP.NET można przełączyć nowy poziom interakcji między serwerami i sieci web lub klientów platformy .NET. Gdy hostowana na platformie Azure, aplikacji SignalR można korzystać z wysokiej dostępności, skalowalności i wydajności środowisko, która działa w chmurze zapewnia.
+Biblioteki SignalR platformy ASP.NET można przenieść na nowy poziom interakcji między serwerami i sieci web lub klientów programu .NET. W przypadku hostowanych na platformie Azure, aplikacji SignalR korzystać wysoko dostępnych, skalowalnych i wydajnych środowiska działające w chmurze zapewniająca.
 
 <a id="deploying"></a>
-## <a name="deploying-a-signalr-web-app-to-azure-app-service"></a>Wdrażanie aplikacji sieci SignalR Web w usłudze Azure App Service
+## <a name="deploying-a-signalr-web-app-to-azure-app-service"></a>Wdrażanie aplikacji sieci Web SignalR w usłudze Azure App Service
 
-SignalR nie dodaje żadnych komplikacji określonego do wdrażania aplikacji na platformie Azure i wdrażanie na serwerze lokalnym. Aplikację, która używa SignalR może być hostowana na platformie Azure, bez wprowadzania żadnych zmian w konfiguracji lub inne ustawienia (mimo że obsługę protokołu WebSockets, zobacz [włączenie Websocket w usłudze Azure App Service](#websocket) poniżej.) W tym samouczku utworzone w aplikacja zostanie wdrożona [Wprowadzenie — samouczek](../getting-started/tutorial-getting-started-with-signalr.md) na platformie Azure.
+SignalR nie dodaje żadnych konkretnej kompilacji do wdrażania aplikacji na platformie Azure i wdrażanie na serwerze lokalnym. Aplikacji korzystającej z biblioteki SignalR można hostować na platformie Azure bez konieczności wprowadzania zmian w konfiguracji lub innymi ustawieniami (mimo że obsługę funkcji WebSockets, zobacz [włączenie funkcji WebSockets w usłudze Azure App Service](#websocket) poniżej.) W tym samouczku wdrożysz aplikacja utworzona w [Samouczek wprowadzający](../getting-started/tutorial-getting-started-with-signalr.md) na platformie Azure.
 
 **Wymagania wstępne**
 
-- Visual Studio 2013. Jeśli nie masz programu Visual Studio, Visual Studio 2013 Express for Web znajduje się w instalacji zestawu SDK platformy Azure.
-- [Zestaw Azure SDK 2.3 dla programu Visual Studio 2013](https://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409) lub [Azure SDK 2.3 dla programu Visual Studio 2012](https://go.microsoft.com/fwlink/p/?linkid=323511).
-- Do ukończenia tego samouczka należy subskrypcji platformy Azure. Możesz [aktywować korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), lub [Załóż subskrypcji wersji próbnej](https://azure.microsoft.com/pricing/free-trial/).
+- Visual Studio 2013. Jeśli nie masz programu Visual Studio, Visual Studio 2013 Express for Web znajduje się w instalacji zestawu SDK usługi Azure.
+- [Zestaw Azure SDK 2.3 dla programu Visual Studio 2013](https://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409) lub [zestaw Azure SDK 2.3 dla programu Visual Studio 2012](https://go.microsoft.com/fwlink/p/?linkid=323511).
+- Do ukończenia tego samouczka, potrzebujesz subskrypcji platformy Azure. Możesz [aktywować korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), lub [logowania do subskrypcji wersji próbnej](https://azure.microsoft.com/pricing/free-trial/).
 
 ### <a name="deploying-a-signalr-web-app-to-azure"></a>Wdrażanie aplikacji sieci web SignalR na platformie Azure
 
-1. Zakończenie [Wprowadzenie — samouczek](../getting-started/tutorial-getting-started-with-signalr.md), lub pobrać gotowego projektu z [galerii kodu](https://code.msdn.microsoft.com/SignalR-Getting-Started-b9d18aa9).
-2. W programie Visual Studio, wybierz **kompilacji**, **publikowania rozmowę SignalR**.
+1. Wykonaj [Samouczek wprowadzający](../getting-started/tutorial-getting-started-with-signalr.md), lub pobrać gotowy projekt z [galerii kodów](https://code.msdn.microsoft.com/SignalR-Getting-Started-b9d18aa9).
+2. W programie Visual Studio, wybierz **kompilacji**, **publikowania SignalR Chat**.
 3. W oknie dialogowym "Publikowanie w sieci Web" Wybierz "Windows Azure Web Sites".
 
-    ![Wybierz witryny sieci Web Azure](using-signalr-with-azure-web-sites/_static/image1.png)
-4. Jeśli użytkownik nie jest obecnie zalogowany do konta Microsoft, kliknij przycisk **logowania...**  w oknie dialogowym "Wybierz istniejącą witrynę sieci Web" i zaloguj się.
+    ![Wybierz opcję Usługa witryny sieci Web](using-signalr-with-azure-web-sites/_static/image1.png)
+4. Jeśli użytkownik nie jest zalogowany do konta Microsoft, kliknij przycisk **Zaloguj...**  w oknie dialogowym "Wybieranie istniejącej witryny sieci Web" i zaloguj się.
 
     ![Wybierz istniejącą witrynę sieci Web](using-signalr-with-azure-web-sites/_static/image2.png)    ![Logowanie do platformy Azure](using-signalr-with-azure-web-sites/_static/image3.png)
-5. W oknie dialogowym "Wybierz istniejącą witrynę sieci Web", kliknij przycisk **nowy**.
+5. W oknie dialogowym "Wybieranie istniejącej witryny sieci Web" kliknij **New**.
 
     ![Nową witrynę sieci Web](using-signalr-with-azure-web-sites/_static/image4.png)
-6. W oknie dialogowym "Utwórz witrynę w systemie Windows Azure" Wprowadź unikatowej nazwy aplikacji. Wybierz region znajdujący się najbliżej użytkownika na liście rozwijanej regionu. Kliknij przycisk **Utwórz**.
+6. W oknie dialogowym "Tworzenie witryny na platformie Windows Azure" Wprowadź unikatową nazwę aplikacji. W menu rozwijanym Region, wybierz region najbliżej Ciebie. Kliknij przycisk **Utwórz**.
 
     ![Tworzenie witryny na platformie Azure](using-signalr-with-azure-web-sites/_static/image5.png)
-7. W oknie dialogowym "Publikowanie w sieci Web", kliknij przycisk **publikowania**.
+7. W oknie dialogowym "Publikowanie w sieci Web" kliknij **Publikuj**.
 
     ![Publikowanie witryny](using-signalr-with-azure-web-sites/_static/image6.png)
-8. Po ukończeniu publikowania aplikacji rozmów SignalR hostowanej aplikacji w aplikacji sieci Web usługi aplikacji Azure zostanie otwarty w przeglądarce.
+8. Po jej zakończeniu publikowania aplikacji rozmów SignalR, hostowana w usłudze Azure App Service Web Apps zostanie otwarta w przeglądarce.
 
-    ![Witryna otwierania w przeglądarce](using-signalr-with-azure-web-sites/_static/image7.png)
+    ![Otwieranie w przeglądarce witrynę](using-signalr-with-azure-web-sites/_static/image7.png)
 
 <a id="websocket"></a>
-### <a name="enabling-websockets-on-azure-app-service-web-apps"></a>Włączanie Websocket aplikacji sieci Web usługi aplikacji Azure
+### <a name="enabling-websockets-on-azure-app-service-web-apps"></a>Włączanie funkcji WebSockets w usłudze Azure App Service Web Apps
 
-Protokół WebSockets musi być jawnie włączone w aplikacji sieci web do użycia w aplikacji SignalR; w przeciwnym razie należy używać innych protokołów (zobacz [transportu i przejścia](../getting-started/introduction-to-signalr.md#transports) szczegółowe informacje).
+Gniazda Websocket musi być jawnie włączone w aplikacji sieci web ma być używany w aplikacji SignalR; w przeciwnym razie używać innych protokołów (zobacz [transportu i planów awaryjnych](../getting-started/introduction-to-signalr.md#transports) Aby uzyskać szczegółowe informacje).
 
-Aby można było używać Websocket aplikacji sieci Web usługi aplikacji Azure, należy ją włączyć w sekcji konfiguracji aplikacji sieci web. Aby to zrobić, Otwórz aplikację sieci web w [portalu zarządzania Azure](https://manage.windowsazure.com/)i wybierz pozycję Konfiguruj.
+Aby można było używać funkcji WebSockets w usłudze Azure App Service Web Apps, należy ją włączyć w sekcji Konfiguracja aplikacji sieci web. Aby to zrobić, Otwórz w aplikacji sieci web [portalu zarządzania systemu Azure](https://manage.windowsazure.com/)i wybierz pozycję Konfiguruj.
 
 ![Karta Konfigurowanie](using-signalr-with-azure-web-sites/_static/image8.png)
 
-W górnej części strony konfiguracji upewnij się, że programy .NET 4.5 jest używany przez aplikację sieci web.
+W górnej części strony konfiguracji upewnij się, że .NET 4.5 jest używana dla aplikacji sieci web.
 
-![Ustawienie wersji 4.5 programu .NET framework](using-signalr-with-azure-web-sites/_static/image9.png)
+![Ustawienia programu .NET framework w wersji 4.5](using-signalr-with-azure-web-sites/_static/image9.png)
 
-Na stronie konfiguracji w **Websocket** wybierz pozycję **na**.
+Na stronie konfiguracji w **WebSockets** ustawienie, wybierz **na**.
 
-![Ustawienie WebSockets: na](using-signalr-with-azure-web-sites/_static/image10.png)
+![Ustawienie funkcji WebSockets: na](using-signalr-with-azure-web-sites/_static/image10.png)
 
-W dolnej części strony konfiguracji, wybierz **zapisać** Aby zapisać zmiany.
+W dolnej części strony konfiguracji, wybierz **Zapisz** Aby zapisać zmiany.
 
 ![Zapisz ustawienia](using-signalr-with-azure-web-sites/_static/image11.png)
 
 <a id="backplane"></a>
-## <a name="using-the-azure-redis-cache-backplane"></a>Przy użyciu płyty montażowej pamięci podręcznej Azure Redis
+## <a name="using-the-azure-redis-cache-backplane"></a>Za pomocą systemu Backplane usługi Azure Redis Cache
 
-Jeśli używasz wielu wystąpień dla aplikacji sieci web i użytkowników z tych wystąpień konieczne współdziałać ze sobą (umożliwiając, na przykład wiadomości utworzone w jednym wystąpieniu może nawiązać połączenie użytkowników podłączonych do innych wystąpień), [pamięć podręczna Redis Azure płyty montażowej](../performance/scaleout-with-redis.md) musi zostać wdrożona w aplikacji.
+Jeśli wiele wystąpień jest używana dla aplikacji sieci web, a użytkownicy tych wystąpień, które muszą wchodzić w interakcje ze sobą, (umożliwiając, na przykład wiadomości na czacie utworzone w jednym wystąpieniu można dotrzeć do użytkowników podłączonych do innych wystąpień), [usługi Azure Redis Cache płyty montażowej](../performance/scaleout-with-redis.md) musi zostać wdrożona w aplikacji.
 
 <a id="nextsteps"></a>
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji dotyczących aplikacji sieci Web w usłudze Azure App Service, zobacz [Omówienie aplikacji sieci Web](https://azure.microsoft.com/documentation/articles/app-service-web-overview/).
+Aby uzyskać więcej informacji na temat aplikacji sieci Web w usłudze Azure App Service, zobacz [omówienia usługi Web Apps](https://azure.microsoft.com/documentation/articles/app-service-web-overview/).

@@ -1,184 +1,183 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application
-title: Elastyczność połączenia i przechwytywaniu polecenia Entity Framework w aplikacji platformy ASP.NET MVC | Dokumentacja firmy Microsoft
+title: Połączeń i przejmowanie poleceń z platformą Entity Framework w aplikacji ASP.NET MVC | Dokumentacja firmy Microsoft
 author: tdykstra
-description: Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 5 za pomocą Entity Framework 6 Code First i Visual Studio...
+description: Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 5 przy użyciu Entity Framework 6 Code First i programu Visual Studio...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/13/2015
 ms.topic: article
 ms.assetid: c89d809f-6c65-4425-a3fa-c9f6e8ac89f2
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 4a43a9120bf3fa69b00b234d65d0f59d3ce9975b
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: bacc49ff60b758b729c200f7943ff654f614ac4c
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30875347"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37394797"
 ---
-<a name="connection-resiliency-and-command-interception-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Elastyczność połączenia i przechwytywaniu polecenia Entity Framework w aplikacji platformy ASP.NET MVC
+<a name="connection-resiliency-and-command-interception-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Połączeń i przejmowanie poleceń z platformą Entity Framework w aplikacji ASP.NET MVC
 ====================
-Przez [Dykstra niestandardowy](https://github.com/tdykstra)
+przez [Tom Dykstra](https://github.com/tdykstra)
 
-[Pobieranie ukończone projektu](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8) lub [pobierania plików PDF](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20Entity%20Framework%206%20Code%20First%20using%20MVC%205.pdf)
+[Pobieranie ukończone projektu](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8) lub [Pobierz plik PDF](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20Entity%20Framework%206%20Code%20First%20using%20MVC%205.pdf)
 
-> Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 5 za pomocą Entity Framework 6 Code First i Visual Studio 2013. Informacje o samouczek serii, zobacz [pierwszy samouczek z tej serii](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
+> Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 5 przy użyciu Entity Framework 6 Code First i Visual Studio 2013. Aby uzyskać informacji na temat tej serii samouczka, zobacz [pierwszym samouczku tej serii](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
 
 
-Do tej pory aplikacja była uruchomiona lokalnie w usługach IIS Express na komputerze deweloperskim. Aby udostępnić rzeczywistej aplikacji dla innych osób do użycia w Internecie, należy wdrożyć ją do usługi hosta sieci web i jest wdrożenie bazy danych na serwerze bazy danych.
+Do tej pory aplikacja była uruchomiona lokalnie w usługach IIS Express na komputerze deweloperskim. Aby udostępnić rzeczywistej aplikacji innym osobom korzystanie przez Internet, należy wdrożyć je do dostawcy usług hosta sieci web, a trzeba wdrożyć bazę danych serwera bazy danych.
 
-W tym samouczku dowiesz się, jak używać dwóch funkcji Entity Framework 6, które są szczególnie przydatne w przypadku wdrażania w środowisku chmury: odporność połączenia (Automatyczne ponawianie prób przypadku błędów przejściowych) i przechwytywaniu polecenia (catch wszystkie zapytania SQL wysyłane do bazy danych w celu logowania się lub je zmienić).
+W tym samouczku dowiesz się, jak korzystać z dwóch funkcji programu Entity Framework 6, które są szczególnie przydatne w przypadku wdrażania w środowisku chmury: połączenia (Automatyczne ponawianie prób dla błędów przejściowych) i przejmowanie poleceń (catch, wszystkie zapytania SQL wysyłane do bazy danych, aby można było zalogować się lub je zmienić).
 
-W tym samouczku zatrzymania połączenia, jak odporność i polecenia jest opcjonalna. Jeśli pominiesz ten samouczek kilka niewielkich dostosowań będzie musiał zostać wprowadzone w kolejnych samouczkach.
+Ten samouczek przejmowanie połączenia, jak odporność i polecenia jest opcjonalne. Jeśli pominiesz ten samouczek kilku drobnych korekt musi nastąpić w kolejnych samouczkach.
 
-## <a name="enable-connection-resiliency"></a>Włącz elastyczność połączenia
+## <a name="enable-connection-resiliency"></a>Włączanie połączeń
 
-Podczas wdrażania aplikacji w systemie Windows Azure będzie wdrażania bazy danych do usługi Windows Azure SQL Database, usługa bazy danych w chmurze. Błędów przejściowych połączenia są zwykle częstsze podczas łączenia z usługą w chmurze bazy danych niż podczas serwera sieci web i serwer bazy danych są bezpośrednio połączone w tym samym centrum danych. Nawet jeśli serwer sieci web w chmurze i usługi w chmurze bazy danych znajdują się w tym samym centrum danych, istnieje więcej połączeń sieciowych między nimi, które mogą wystąpić problemy, takie jak moduły równoważenia obciążenia.
+Podczas wdrażania aplikacji na platformie Windows Azure to usługa bazy danych w chmurze dla systemu Windows Azure SQL Database będzie wdrożyć bazę danych. Błędy przejściowe połączenia są zazwyczaj częściej, po nawiązaniu połączenia z usługą bazy danych w chmurze niż gdy serwer sieci web i serwera bazy danych są bezpośrednio połączonych ze sobą w tym samym centrum danych. Nawet wtedy, gdy serwer sieci web w chmurze i usługi w chmurze bazy danych znajdują się w tym samym centrum danych, istnieje więcej połączeń sieciowych między nimi, które mogą mieć problemy, takie jak moduły równoważenia obciążenia.
 
-Również usługa w chmurze jest zwykle udostępnione przez innych użytkowników, co oznacza, że jego czasu odpowiedzi mogą mieć wpływ je. I dostęp do bazy danych mogą być narażone na ograniczania. Ograniczanie oznacza, że usługa bazy danych zgłasza wyjątków podczas próby dostępu do niego więcej często nie jest dozwolona w Twojej usługi Umowa dotycząca poziomu (SLA).
+Również usługi w chmurze jest zwykle udostępnione przez innych użytkowników, co oznacza, że jego czas reakcji mogą mieć wpływ je. A może podlegać ograniczania dostępu do bazy danych. Ograniczanie oznacza, że usługa bazy danych zgłasza wyjątek wyjątków podczas próby dostępu do niego więcej często nie jest dozwolona w Twojej umowy poziomu usług (SLA).
 
-Wiele lub większości problemów połączenia, gdy uzyskujesz dostęp do usługi w chmurze są przejściowe, czyli rozpoznają się w krótkim czasie. Dlatego podczas próby operacji bazy danych pobrać typu błędu, który jest zwykle charakter przejściowy, możesz można spróbuj ponownie wykonać operację po krótkim oczekiwania, a operacja może zakończyć się pomyślnie. Zapewnienie dużo lepsze środowisko dla użytkowników w przypadku obsługi błędów przejściowych podejmując automatycznie ponownie, ukrywanie większość z nich do klienta. Funkcji odporności połączenia w programie Entity Framework 6 automatyzuje proces ponawianie próby niepowodzeniu zapytania SQL.
+Wiele lub większości problemów z połączeniem gdy uzyskujesz dostęp do usługi w chmurze są przejściowe, czyli rozpoznają się w krótkim czasie. Dlatego kiedy sprawdzasz operacji bazy danych i uzyskać typ błędu, który jest zwykle charakter przejściowy, możesz spróbować ponownie wykonać operację po krótkim czasie oczekiwania, a operacja może zakończyć się pomyślnie. Zapewnienie znacznie lepsze środowisko dla użytkowników w przypadku obsługi błędów przejściowych, automatycznie podjęcie ponownej próby wykonania, ukrywanie większość z nich do klienta. Tej funkcji odporności połączenia w programie Entity Framework 6 automatyzuje proces podejmowania próby ponownego wykonywania zapytań SQL się niepowodzeniem.
 
-Funkcji odporności połączenia muszą być skonfigurowane odpowiednio dla usługi określona baza danych:
+Funkcji elastyczności połączenia musi być skonfigurowany odpowiednio dla konkretnej bazy danych usługi:
 
-- Musi wiedzieć, które wyjątki są może być przejściowy. Chcesz ponowić próbę błędy spowodowane do tymczasowej utraty w łączności sieciowej, nie błędy spowodowane przez błędy programu, na przykład.
-- Musi ona oczekiwać odpowiednią ilość czasu między kolejnymi próbami operacji nie powiodło się. Można poczekać już między kolejnymi próbami przetwarzania wsadowego niż jest to możliwe online strony sieci web, w którym użytkownik jest oczekiwania na odpowiedź.
-- Posiada ponowić próbę odpowiednią liczbę razy, zanim zrezygnuje. Możesz ponowić próbę więcej razy w przetwarzania wsadowego, które są w trybie online aplikacji.
+- Musi wiedzieć, które wyjątki są może być błędem przejściowym. Chcesz ponowić próbę błędy spowodowane do tymczasowej utraty w łączności sieciowej nie błędy spowodowane przez błędy programu, na przykład.
+- Ma czekać odpowiednią ilość czasu między kolejnymi próbami operacji nie powiodło się. Możesz poczekać już między kolejnymi próbami dla przetwarzania wsadowego nie można uzyskać online strony sieci web, w którym użytkownik jest oczekiwanie na odpowiedź.
+- Posiada ponowić próbę odpowiednią liczbę razy, zanim zrezygnuje. Być może chcesz ponowić próbę więcej razy w procesie przetwarzania wsadowego, który będzie w trybie online aplikacji.
 
-Można skonfigurować te ustawienia ręcznie w każdym środowisku bazy danych, obsługiwane przez dostawcy programu Entity Framework, ale zostały już skonfigurowane wartości domyślne, które zwykle działa dobrze w przypadku aplikacji online, która używa bazy danych SQL Azure z systemem Windows, a są to ustawienia, które będzie wdrożenia dla aplikacji Contoso University.
+Można skonfigurować te ustawienia ręcznie dla dowolnego środowiska bazy danych obsługiwane przez dostawcę programu Entity Framework, ale wartości domyślne, które zazwyczaj działają dobrze sprawdza się w trybie online aplikacji korzystającej z Windows Azure SQL Database zostały już skonfigurowane, i to są ustawienia które będzie implementowana dla aplikacji Contoso University.
 
-Wszystkie trzeba wykonać, aby włączyć elastyczności połączenia jest utworzyć klasę w używanego zestawu, która pochodzi z [DbConfiguration](https://msdn.microsoft.com/data/jj680699.aspx) klasy, a w tej klasie ustawić bazy danych SQL *strategia wykonywania*, która w EF jest inna nazwa *zasady ponawiania*.
+Wystarczy zrobić, aby włączyć elastyczność połączenia jest utworzyć klasę w swoim zestawie, która pochodzi od klasy [DbConfiguration](https://msdn.microsoft.com/data/jj680699.aspx) klasy, a w tej klasy należy ustawić bazy danych SQL *strategii wykonywania*, co w programie EF jest inna nazwa *zasady ponawiania*.
 
 1. W folderze DAL, Dodaj plik klasy o nazwie *SchoolConfiguration.cs*.
-2. Zastąp kod szablonu z następującym kodem:
+2. Zastąp kod szablonu poniższym kodem:
 
     [!code-csharp[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.cs)]
 
-    Entity Framework automatycznie uruchamia kod znajdzie się w klasie, która jest pochodną `DbConfiguration`. Można użyć `DbConfiguration` klasy do wykonywania zadań konfiguracji w kodzie, które w przeciwnym razie należy *Web.config* pliku. Aby uzyskać więcej informacji, zobacz [EntityFramework konfiguracji opartej na kodzie](https://msdn.microsoft.com/data/jj680699).
-3. W *StudentController.cs*, Dodaj `using` instrukcji dla `System.Data.Entity.Infrastructure`.
+    Entity Framework automatycznie uruchamia kod znajdzie się w klasie, która pochodzi od klasy `DbConfiguration`. Możesz użyć `DbConfiguration` klasie w celu wykonania zadania konfiguracji w kodzie, które w przeciwnym razie należy *Web.config* pliku. Aby uzyskać więcej informacji, zobacz [EntityFramework konfiguracja na podstawie kodu](https://msdn.microsoft.com/data/jj680699).
+3. W *StudentController.cs*, Dodaj `using` poufności informacji dotyczące `System.Data.Entity.Infrastructure`.
 
     [!code-csharp[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample2.cs)]
-4. Zmień wszystkie `catch` bloki catch tego `DataException` wyjątki, aby ich catch `RetryLimitExceededException` wyjątki zamiast tego. Na przykład:
+4. Zmienianie ich wszystkich `catch` bloki catch tego `DataException` wyjątki, aby ich catch `RetryLimitExceededException` wyjątków zamiast tego. Na przykład:
 
     [!code-csharp[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample3.cs?highlight=1)]
 
-    W przypadku używania `DataException` celu zidentyfikowania błędów, które mogą być przejściowy, aby zapewnić przyjazny komunikat "spróbuj ponownie". Ale teraz, gdy włączono zasady ponawiania tylko błędy, które mogą być przejściowy będzie już zostały nastąpiła i nie można wielokrotnie i faktyczny wyjątek, zwrócone zostaną opakowane w `RetryLimitExceededException` wyjątku.
+    Były używane `DataException` aby spróbować zidentyfikować błędy, które mogą być przejściowe, aby dać przyjazny komunikat "spróbuj ponownie". Ale teraz, gdy została włączona dla zasad ponawiania, tylko błędy, które mogą być przejściowe będzie już mieć próbowała i nie powiodło się kilka razy, a faktyczny wyjątek, zwrócone zostaną opakowane w `RetryLimitExceededException` wyjątku.
 
-Aby uzyskać więcej informacji, zobacz [Entity Framework połączenia odporności / ponów logiki](https://msdn.microsoft.com/data/dn456835).
+Aby uzyskać więcej informacji, zobacz [elastyczność połączenia programu Entity Framework / logika ponowień](https://msdn.microsoft.com/data/dn456835).
 
-## <a name="enable-command-interception"></a>Włącz polecenie zatrzymania
+## <a name="enable-command-interception"></a>Włącz przejmowanie poleceń
 
-Po włączeniu zasady ponawiania jak przetestowanie można zweryfikować, że działa zgodnie z oczekiwaniami? Nie jest tak proste wymusić Błąd przejściowy się stać, szczególnie gdy używasz lokalnie i być szczególnie trudne do integracji rzeczywiste błędów przejściowych testu jednostkowego automatyczne. Aby przetestować funkcje ochrony połączenia, należy przechwycić zapytań, które Entity Framework wysyła do serwera SQL i Zamień na typ wyjątku, który jest zwykle charakter przejściowy odpowiedź serwera SQL.
+Teraz, gdy została włączona dla zasad ponawiania, jak możesz przetestować Aby sprawdzić, czy działa ona zgodnie z oczekiwaniami? Nie jest tak proste wymusić Błąd przejściowy do wykonania, szczególnie gdy korzystasz lokalnie i może być szczególnie trudne do integracji rzeczywiste błędy przejściowe testów automatycznych jednostkowych. Aby przetestować połączenie funkcji odporności, potrzebujesz sposobu przechwycenia zapytań, które platformy Entity Framework wysyła do serwera SQL i Zamień na typ wyjątku, który jest zwykle charakter przejściowy odpowiedzi programu SQL Server.
 
-Przechwycenie zapytania można również użyć w celu wdrożenia najlepszym rozwiązaniem dla aplikacji w chmurze: [dziennika opóźnienia i powodzenie lub niepowodzenie wszystkie wywołania usług zewnętrznych](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry.md#log) takich jak usługi bazy danych. Udostępnia EF6 [rejestrowania interfejsu API w wersji dedykowanej](https://msdn.microsoft.com/data/dn469464) która może ułatwić do rejestrowania, ale w tej części samouczka dowiesz się, jak używać programu Entity Framework [funkcji zatrzymania](https://msdn.microsoft.com/data/dn469464) bezpośrednio, zarówno dla Rejestrowanie i symulowanie błędów przejściowych.
+Przejmowanie zapytania można również użyć w celu wdrożenia najlepszym rozwiązaniem dla aplikacji w chmurze: [Zaloguj się opóźnienie i powodzenie lub niepowodzenie wszystkie wywołania usług zewnętrznych](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry.md#log) takich jak bazy danych usługi. Udostępnia EF6 [rejestrowanie interfejsu API w wersji dedykowanej](https://msdn.microsoft.com/data/dn469464) która może ułatwić celu rejestrowania, ale w tej części samouczka dowiesz się, jak używać programu Entity Framework [funkcji przejmowanie](https://msdn.microsoft.com/data/dn469464) bezpośrednio, zarówno dla aplikacji Rejestrowanie i symulowania błędów przejściowych.
 
-### <a name="create-a-logging-interface-and-class"></a>Utwórz interfejs rejestrowania i klasy
+### <a name="create-a-logging-interface-and-class"></a>Tworzenie interfejsu rejestrowania i klasy
 
-A [najlepsze praktyki w zakresie rejestrowania](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry.md#log) jest to zrobić przy użyciu interfejsu zamiast kodować wywołania System.Diagnostics.Trace lub klasy rejestrowania. Który ułatwia zmień mechanizm z rejestrowania w później, jeśli trzeba to zrobić. Dlatego w tej sekcji utworzysz interfejs rejestrowania i klasę, aby zaimplementować z niej/p > 
+A [najlepszymi rozwiązaniami w zakresie rejestrowania](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry.md#log) jest zrobienie tego przy użyciu interfejsu zamiast kodować wywołania System.Diagnostics.Trace lub klasa rejestrowania. Ułatwia zmienić swoje mechanizmie rejestrowania później, jeśli kiedykolwiek trzeba to zrobić. Aby w tej sekcji utworzysz interfejs rejestrowania i klasy do zaimplementowania go/p > 
 
-1. Utwórz folder w projekcie i nadaj jej nazwę *rejestrowanie*.
-2. W *rejestrowanie* folderu, Utwórz plik klasy o nazwie *ILogger.cs*i Zastąp kod szablonu z następującym kodem:
+1. Utwórz folder w projekcie i nadaj mu nazwę *rejestrowania*.
+2. W *rejestrowania* folderze utwórz plik klasy o nazwie *ILogger.cs*i Zastąp kod szablonu poniższym kodem:
 
     [!code-csharp[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample4.cs)]
 
-    Interfejs zawiera trzy poziomy śledzenia, aby wskazać względną wagę dzienników i jedną zapewniają informacje opóźnienia w wywołaniach zewnętrznych usług takich jak kwerend bazy danych. Metody rejestrowania mają przeciążeń, które umożliwiają przekazywanie wyjątku. Jest tak, aby informacje o wyjątku, w tym wyjątki wewnętrzne i śledzenia stosu niezawodnie jest rejestrowane przez klasę, która implementuje interfejs, zdejmując to zadanie, na którym wykonywana w każdym wywołaniu metody rejestrowania w całej aplikacji.
+    Interfejs zawiera trzy poziomy śledzenia, aby wskazać względne znaczenie dzienniki i jeden zapewniają informacje opóźnienie do wywołań usług zewnętrznych, takich jak zapytania do bazy danych. Metody rejestrowania mają przeciążenia, które umożliwiają przekazywanie wyjątek. To dlatego, że informacje o wyjątku, w tym wyjątki wewnętrzne i ślad stosu jest niezawodny sposób będą rejestrowane przez klasę, która implementuje interfejs, zamiast polegać na tym wykonywana w każdym wywołaniu metody rejestrowania w całej aplikacji.
 
-    Metody TraceApi umożliwiają śledzenie opóźnień każde wywołanie zewnętrznej usługi takie jak bazy danych SQL.
-3. W *rejestrowanie* folderu, Utwórz plik klasy o nazwie *Logger.cs*i Zastąp kod szablonu z następującym kodem:
+    Metody TraceApi pozwalają śledzić czas oczekiwania na każde wywołanie usługi zewnętrznej, takich jak SQL Database.
+3. W *rejestrowania* folderze utwórz plik klasy o nazwie *Logger.cs*i Zastąp kod szablonu poniższym kodem:
 
     [!code-csharp[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample5.cs)]
 
-    Implementacja używa System.Diagnostics celu śledzenie. Jest to funkcja wbudowana platformy .NET, co ułatwia generowanie i używanie informacji śledzenia. Istnieje wiele "odbiorników" można użyć z włączonym śledzeniem System.Diagnostics, zapisywanie dzienników do plików, na przykład lub zapisać je do magazynu obiektów blob platformy Azure. Niektóre opcje i linki do innych zasobów, aby uzyskać więcej informacji, zobacz w [Rozwiązywanie problemów z witryn sieci Web platformy Azure w programie Visual Studio](https://docs.microsoft.com/azure/app-service-web/web-sites-dotnet-troubleshoot-visual-studio). Dla tego samouczka będziesz tylko przyjrzyj dzienniki w programie Visual Studio **dane wyjściowe** okna.
+    Implementacja używa System.Diagnostics celu śledzenie. Jest to wbudowana funkcja .NET, która ułatwia generowanie i używanie informacji śledzenia. Istnieje wiele "odbiorniki" za pomocą śledzenia System.Diagnostics na zapisywanie dzienników do przechowywania plików, na przykład lub zapisać je do magazynu obiektów blob na platformie Azure. Niektóre opcje i linki do innych zasobów, aby uzyskać więcej informacji, zobacz w [Rozwiązywanie problemów z witryn sieci Web platformy Azure w programie Visual Studio](https://docs.microsoft.com/azure/app-service-web/web-sites-dotnet-troubleshoot-visual-studio). W tym samouczku możesz tylko przyjrzymy się dzienników w programie Visual Studio **dane wyjściowe** okna.
 
-    W aplikacji produkcyjnej warto wziąć pod uwagę śledzenie pakietów innych niż System.Diagnostics i interfejs ILogger ułatwia stosunkowo przełączenie się do śledzenia inny mechanizm w przypadku podjęcia decyzji o tym.
+    W aplikacji produkcyjnej warto wziąć pod uwagę śledzenie pakietów innych niż System.Diagnostics i interfejs ILogger sprawia, że stosunkowo łatwo zmienić mechanizm śledzenia inny, jeśli zdecydujesz się to zrobić.
 
-### <a name="create-interceptor-classes"></a>Tworzenie klasy interceptora
+### <a name="create-interceptor-classes"></a>Tworzenie klas interceptor
 
-Następnie utworzysz klasy, które zostanie wywołany programu Entity Framework za każdym razem, gdy ma wysyłać kwerendy do bazy danych, aby symulować błędów przejściowych i jeden do rejestrowania. Te klasy interceptora musi pochodzić od `DbCommandInterceptor` klasy. W tych pisania zamienników metod, które są nazywane automatycznie, gdy zapytanie ma zostać wykonana. W tych metod można zbadać lub dziennika zapytań, który jest wysyłany do bazy danych i można zmienić zapytania przed wysłaniem ich do bazy danych lub powrócić coś do narzędzia Entity Framework samodzielnie bez nawet przekazywanie zapytania do bazy danych.
+Następnie utworzysz klas, które platformy Entity Framework będzie wywoływać za każdym razem, gdy będzie znajdował się wysłanie zapytania do bazy danych — jedną symulowanie błędów przejściowych, a jeden w celu rejestrowania. Te klasy interceptor muszą pochodzić od `DbCommandInterceptor` klasy. W tych można napisać zastąpienia metody, które automatycznie są wywoływane, gdy zapytanie ma zostać wykonana. W tych metodach można zbadać lub zaloguj się zapytanie, które są wysyłane do bazy danych i można zmienić kwerendę, przed wysłaniem ich do bazy danych lub zwrócić coś w programie Entity Framework samodzielnie bez nawet przekazywania zapytania do bazy danych.
 
-1. Aby utworzyć klasę interceptora, która będzie rejestrować co zapytanie SQL, które są wysyłane do bazy danych, należy utworzyć plik klasy o nazwie *SchoolInterceptorLogging.cs* w *DAL* folder i Zastąp szablon kodu z następujący kod:
+1. Aby utworzyć klasę interceptor, która zarejestruje każdego zapytania SQL, które są wysyłane do bazy danych, Utwórz plik klasy o nazwie *SchoolInterceptorLogging.cs* w *DAL* folder i Zastąp kod szablonu Poniższy kod:
 
     [!code-csharp[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample6.cs)]
 
-    Pomyślne zapytania lub polecenia ten kod zapisuje informacje dziennika z informacjami o opóźnienia. Wyjątki tworzy dziennik błędów.
-2. Aby utworzyć klasę interceptora generowany fikcyjny błędów przejściowych po wprowadzeniu "Throw" w **wyszukiwania** Utwórz plik klasy o nazwie *SchoolInterceptorTransientErrors.cs* w *DAL* folderu i Zastąp kod szablonu z następującym kodem:
+    Pomyślne zapytania lub polecenia ten kod zapisuje w dzienniku informacji z informacjami o opóźnieniu. Wyjątki tworzy dziennik błędów.
+2. Aby utworzyć klasę interceptor, który zostanie wygenerowany fikcyjnego błędów przejściowych, po wprowadzeniu "Throw" w **wyszukiwania** Utwórz plik klasy o nazwie *SchoolInterceptorTransientErrors.cs* w *DAL* folder i Zastąp kod szablonu poniższym kodem:
 
     [!code-csharp[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample7.cs)]
 
-    Ten kod tylko przesłonięcia `ReaderExecuting` metodę, która jest wywoływana dla zapytań zwracających wiele wierszy danych. Jeśli chcesz sprawdzić odporność połączenia dla innych typów kwerend, można także zastępować `NonQueryExecuting` i `ScalarExecuting` metod jako interceptora rejestrowania jest.
+    Ten kod tylko zastąpienia `ReaderExecuting` metody, która jest wywoływana dla zapytań zwracających wiele wierszy danych. Chcąc sprawdzić elastyczność połączenia dla innych typów zapytań, można także Przesłoń `NonQueryExecuting` i `ScalarExecuting` metod jako interceptor rejestrowania wykonuje.
 
-    Po uruchomieniu strony dla użytkowników domowych i wprowadź "Throw" jako ciąg wyszukiwania, ten kod tworzy fikcyjny wyjątek bazy danych SQL dla numer błędu 20, typem wiadomo, że są zwykle charakter przejściowy. Inne liczby błędów rozpoznanych jako przejściowy są 64, 233 10053, 10054, 10060, 10928, 10929, 40197, 40501 i 40613, ale te mogą ulec zmianie w nowej wersji bazy danych SQL.
+    Po uruchomieniu strony dla uczniów i wprowadź "Throw" w postaci ciągu wyszukiwania, ten kod tworzy fikcyjnego wyjątek bazy danych SQL, aby numer błędu 20, typem wiadomo, że są zwykle charakter przejściowy. Inne liczby błędów, obecnie jest rozpoznawany jako przejściowe są 64, 233, 10053, 10054, 10060, 10928, 10929, 40197, 40501 i 40613, ale te mogą ulec zmianie w nowych wersji bazy danych SQL.
 
-    Kod zwraca wyjątek do narzędzia Entity Framework zamiast uruchomienie zapytania i przekazywanie wyników zapytania Wstecz. Cztery razy zwracany jest wyjątek przejściowy, a następnie kod wraca do normalnej procedury przekazywania zapytania do bazy danych.
+    Kod zwraca wyjątek w programie Entity Framework zamiast uruchamiania zapytania i przekazywanie wyników zapytania Wstecz. Zwracany jest wyjątek przejściowy, cztery razy, a następnie kod wraca do normalnej procedury przekazywania zapytania do bazy danych.
 
-    Ponieważ wszystko, co jest rejestrowane, będzie można zobaczyć, że próbuje wykonać cztery razy zapytania przed finally pomyślne Entity Framework, a jedyną różnicą w aplikacji jest, że trwa dłużej do renderowania strony z wynikami zapytania.
+    Ponieważ wszystko jest rejestrowane, będzie można zobaczyć, że platformy Entity Framework próbuje wykonać zapytanie cztery razy przed na koniec pomyślne wykonanie, a jedyną różnicą w aplikacji, zajmuje więcej czasu renderowania strony z wynikami zapytania.
 
-    Ile razy ponowi programu Entity Framework jest konfigurowany; Kod określa cztery razy, ponieważ jest to wartość domyślna dla zasad wykonywania programu bazy danych SQL. W przypadku zmiany zasad wykonywania, trzeba było również zmiany tutaj kod, który określa, ile razy są generowane w przypadku błędów przejściowych. Można również zmienić kod można wygenerować więcej wyjątki, aby zgłosi Entity Framework `RetryLimitExceededException` wyjątku.
+    Liczba przypadków, gdy spróbuje ponowić operację platformy Entity Framework jest konfigurowany; Kod ten określa cztery razy, ponieważ jest to wartość domyślna dla zasad wykonywania programu bazy danych SQL. W przypadku zmiany zasad wykonywania programu, trzeba było również zmiany tutaj kod, który określa, ile razy są generowane błędy przejściowe. Można również zmienić kod można wygenerować więcej wyjątków, aby zgłosi Entity Framework `RetryLimitExceededException` wyjątku.
 
-    Wartość, należy wprowadzić w polu wyszukiwania będzie w `command.Parameters[0]` i `command.Parameters[1]` (jeden służy do imienia i jeden dla nazwy ostatniego). Gdy ma wartość "% Throw %", "Throw" zastępuje w tych parametrów "", aby niektóre studentów zostanie znaleziony i zwrócony.
+    Wartość wprowadzoną w polu wyszukiwania będą znajdować się w `command.Parameters[0]` i `command.Parameters[1]` (jeden służy do imienia i jeden dla nazwisko). Po znalezieniu wartość "% Throw %", "Throw" zastępuje w tych parametrów "", aby pewne studenci zostanie znalezione i zwrócony.
 
-    Jest to po prostu wygodny sposób do testowania połączenia odporności oparte na zmianę niektórych danych wejściowych do interfejsu użytkownika aplikacji. Można również napisać kod, który generuje błędów przejściowych dla wszystkich zapytań lub aktualizacji, jak wyjaśniono dalej w komentarze dotyczące *DbInterception.Add* metody.
-3. W *Global.asax*, Dodaj następujący `using` instrukcji:
+    Jest to po prostu wygodny sposób testowanie odporności połączenia, w zależności od zmieniających się dane wejściowe do aplikacji interfejsu użytkownika. Można także napisać kod, który generuje błędy przejściowe dla wszystkich zapytań lub aktualizacje, zgodnie z opisem w dalszej części komentarze dotyczące *DbInterception.Add* metody.
+3. W *Global.asax*, Dodaj następujący kod `using` instrukcji:
 
     [!code-csharp[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample8.cs)]
-4. Dodaj wyróżnione wiersze do `Application_Start` metody:
+4. Dodaj wyróżnione wiersze w celu `Application_Start` metody:
 
     [!code-csharp[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample9.cs?highlight=7-8)]
 
-    Te wiersze są, co powoduje interceptora kodu do uruchomienia, gdy Entity Framework wysyła zapytania do bazy danych. Należy zauważyć, że ponieważ utworzyć oddzielne interceptora klasy do symulacji błędu przejściowego i rejestrowania, można niezależnie włączyć i wyłączyć je.
+    Następujące wiersze kodu są na tym, co powoduje, że kod interceptor do uruchomienia programu Entity Framework wysyła zapytania do bazy danych. Należy zauważyć, że ponieważ utworzono oddzielne interceptor klas na potrzeby symulacji błędu przejściowego i rejestrowania, można niezależnie włączać i wyłączać je.
 
-    Można dodać przy użyciu interceptory `DbInterception.Add` metody w kodzie; nie ma w `Application_Start` — metoda. Inną możliwością jest wykonanie umieść ten kod w klasie DbConfiguration utworzonego wcześniej do konfigurowania zasad wykonywania.
+    Możesz dodać za pomocą interceptory `DbInterception.Add` metody dowolnym miejscu w kodzie; nie musi znajdować się w `Application_Start` metody. Innym rozwiązaniem jest umieszczenie tego kodu w klasie DbConfiguration, która została utworzona wcześniej do konfigurowania zasad wykonywania programu.
 
     [!code-csharp[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample10.cs?highlight=6-7)]
 
-    Wszędzie tam, gdzie możesz umieścić ten kod nie można wykonać `DbInterception.Add` dla tego samego interceptora więcej niż raz, lub uzyskać dodatkowe interceptora wystąpień. Na przykład jeśli dodasz interceptora rejestrowania dwa razy, zostanie wyświetlone dwa dzienniki dla każdego zapytania SQL.
+    Wszędzie tam, gdzie należy umieścić ten kod nie należy do wykonania `DbInterception.Add` dla tego samego interceptor więcej niż jeden raz lub możesz uzyskać interceptor dodatkowych wystąpień. Na przykład jeśli dodasz dwa razy interceptor rejestrowanie, zobaczysz dwa dzienniki dla każdego zapytania SQL.
 
-    Interceptory są wykonywane w kolejności rejestracji (w kolejności `DbInterception.Add` metoda jest wywoływana). Kolejność może być niezależnie od tego, w zależności od wykonywanych w interceptor. Na przykład interceptora może zmienić polecenie SQL, które otrzymuje w `CommandText` właściwości. Jeśli go zmienić polecenie SQL, dalej interceptora zostanie zmienione polecenia SQL nie oryginalnego polecenia SQL.
+    Interceptory są wykonywane zgodnie z kolejnością rejestracji (kolejność, w której `DbInterception.Add` wywoływana jest metoda). Kolejność może znaczenia, w zależności od tego, co robisz w interceptor. Na przykład interceptor mogą ulec zmianie polecenia SQL, które otrzymuje w `CommandText` właściwości. Jeśli zmienia się polecenia SQL, dalej interceptor zostanie zmienione polecenia SQL nie oryginalne polecenie SQL.
 
-    Kod symulacji błędu przejściowego napisanych w taki sposób, który umożliwia spowodować błędów przejściowych wprowadzając inną wartość w interfejsie użytkownika. Alternatywnie można napisać kod interceptora, aby zawsze Generuj sekwencji przejściowej wyjątków bez sprawdzania pod kątem wartość określonego parametru. Następnie można dodać interceptor tylko wtedy, gdy chcesz wygenerować błędów przejściowych. Jeśli to zrobisz, jednak nie należy dodawać interceptora dopiero po zakończeniu inicjowania bazy danych. Innymi słowy wykonaj co najmniej jedną bazę danych operacji, takiej jak zapytania na jednym z zestawów jednostek, przed rozpoczęciem generowania błędów przejściowych. Entity Framework wykonuje zapytania kilka podczas inicjowania bazy danych, a nie są wykonywane w ramach transakcji, dlatego błędy podczas inicjowania może spowodować, że kontekst do pobrania w niespójnym stanie.
+    Kodzie symulacji błędu przejściowego napisanych w taki sposób, że można spowodować błędy przejściowe, wprowadzając inną wartość w interfejsie użytkownika. Alternatywnie można napisać kod interceptor, aby zawsze Generuj sekwencji przejściowych wyjątków bez sprawdzania pod kątem wartości określonego parametru. Następnie można dodać interceptor tylko wtedy, gdy chcesz wygenerować błędów przejściowych. Jeśli to zrobisz, jednak nie dodać interceptor do momentu po ukończeniu inicjowania bazy danych. Innymi słowy należy wykonać co najmniej jedna baza danych operacji, takich jak zapytania na jednym z zestawów encji, przed rozpoczęciem generowania błędów przejściowych. Entity Framework wykonuje kilka zapytań podczas inicjowania bazy danych, a nie są one wykonywane w ramach transakcji, więc błędy podczas inicjowania może spowodować, że kontekst do pobrania w niespójnym stanie.
 
-## <a name="test-logging-and-connection-resiliency"></a>Test połączenia i rejestrowanie odporności
+## <a name="test-logging-and-connection-resiliency"></a>Test połączenia i rejestrowania odporności
 
 1. Naciśnij klawisz F5, aby uruchomić aplikację w trybie debugowania, a następnie kliknij przycisk **studentów** kartę.
-2. Szukaj w Visual Studio **dane wyjściowe** okno, aby wyświetlić dane wyjściowe śledzenia. Może być konieczne przewinięcie poza błędy JavaScript na uzyskanie dostępu do dzienników napisane przez użytkownika rejestratora.
+2. Przyjrzyj się programu Visual Studio **dane wyjściowe** okno, aby wyświetlić dane wyjściowe śledzenia. Może być konieczne przewinięcie ostatnie niektóre błędy języka JavaScript, aby uzyskać dostęp do dzienników napisany przez użytkownika rejestratora.
 
-    Zwróć uwagę, można wyświetlić rzeczywiste zapytania SQL wysyłane do bazy danych. Zostanie wyświetlony niektóre początkowej zapytań i poleceń, które Entity Framework jest aby rozpocząć, sprawdzanie wersji bazy danych i tabeli historii migracji (dowiesz się, migracje w następnym samouczku). Zobacz zapytanie dotyczące stronicowania, aby dowiedzieć się, jak wiele studentów, i na koniec Zobacz kwerendę, która pobiera dane dla użytkowników domowych.
+    Zwróć uwagę, możliwość wyświetlenia rzeczywiste zapytania SQL wysyłane do bazy danych. Zobaczysz niektóre początkowej zapytań i poleceń, które obsługuje platformy Entity Framework, aby rozpocząć pracę, sprawdzanie wersji bazy danych i tabeli historii migracji (poznasz migracji w następnym samouczku). Zobacz zapytanie dotyczące stronicowania, aby dowiedzieć się, jak wiele studentów, i na koniec zobaczysz zapytanie, które pobiera dane dla uczniów.
 
-    ![Rejestrowanie dla normalnej zapytania](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image1.png)
-3. W **studentów** strony, wprowadź "Throw" jako ciąg wyszukiwania, a następnie kliknij przycisk **wyszukiwania**.
+    ![Rejestrowanie dla kwerendy normalny](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image1.png)
+3. W **studentów** strony, wprowadź "Throw" w postaci ciągu wyszukiwania, a następnie kliknij przycisk **wyszukiwania**.
 
     ![Throw ciąg wyszukiwania](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image2.png)
 
-    Można zauważyć przeglądarki jest prawdopodobnie zawieszenie przez kilka sekund, podczas Entity Framework ponawia zapytanie kilka razy. Pierwsza próba odbywa się bardzo szybko, następnie oczekiwania przed zwiększa przed ponowną próbą wykonania każdy dodatkowego. Ten proces już oczekiwania przed wywołaniem kolejnymi próbami *wykładniczego wycofywania*.
+    Zauważysz, przeglądarka prawdopodobnie zawieszanie przez kilka sekund, natomiast Entity Framework ponawia próbę zapytanie kilka razy. Pierwszym ponowieniem próby odbywa się bardzo szybko, następnie czas oczekiwania przed zwiększa przed każdym dodatkowe ponowieniem próby. Ten proces jest już oczekiwania nosi nazwę każdego ponawiania *wykładniczego wycofywania*.
 
-    Gdy zostanie wyświetlona strona, przedstawiający uczniów lub studentów, którzy mają "jako" w ich nazw Obejrzyj w oknie danych wyjściowych i zobaczysz, że tego samego zapytania podjęto pięć razy, najpierw cztery razy zwróceniem przejściowej wyjątków. Dla każdego błędu przejściowego zobaczysz dziennik zapisu podczas generowania Błąd przejściowy w `SchoolInterceptorTransientErrors` klasy ("zwrócenie przejściowy błąd polecenia..."), aby zobaczyć dziennika, gdy zapisywane `SchoolInterceptorLogging` pobiera wyjątek.
+    Kiedy zostanie wyświetlona strona, przedstawiający uczniów, którzy mają "na" w nazwach, Przyjrzyj się w oknie danych wyjściowych, a zobaczysz, że tego samego zapytania podjęto pięciokrotnie pierwsze cztery razy zwróceniem przejściowych wyjątków. Dla każdego błędu przejściowego zostaną wyświetlone w dzienniku, który napiszesz podczas generowania błędu przejściowego w `SchoolInterceptorTransientErrors` klasy ("zwrócenie przejściowy błąd polecenia..."), aby zobaczyć dziennika zapisywane kiedy `SchoolInterceptorLogging` pobiera wyjątek.
 
-    ![Dane wyjściowe rejestrowania przedstawiający ponownych prób](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
+    ![Dane wyjściowe rejestrowanie przedstawiający liczbę ponownych prób](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
 
-    Ponieważ wprowadzony ciąg wyszukiwania jest sparametryzowane zapytania, która zwraca dane dla użytkowników domowych:
+    Zapytanie, które zwraca dane dla uczniów jest sparametryzowane, ponieważ wprowadzony ciąg wyszukiwania:
 
     [!code-sql[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample11.sql)]
 
-    Nie jest rejestrowanie wartości parametrów, ale możesz to zrobić. Jeśli chcesz zobaczyć wartości parametru, można napisać kod rejestrowanie w celu uzyskania wartości parametrów z `Parameters` właściwość `DbCommand` obiektu, który można pobrać metody interceptora.
+    Nie masz rejestruje wartości parametrów, ale można to zrobić. Jeśli chcesz wyświetlić wartości parametrów, można napisać kod rejestrowania, aby uzyskać wartości parametrów z `Parameters` właściwość `DbCommand` obiekt, który otrzymujesz za pomocą metod interceptor.
 
-    Należy pamiętać, że nie Powtórz ten test, chyba że Zatrzymaj aplikację i uruchom go ponownie. Jeśli chcesz mieć możliwość testowania połączenia odporności wiele razy w jednym przebiegu aplikacji, można napisać kod, aby zresetować licznik błędów w `SchoolInterceptorTransientErrors`.
-4. Różnice strategia wykonywania (zasady ponawiania) wystawia, komentarz `SetExecutionStrategy` wiersz w *SchoolConfiguration.cs*, a następnie ponownie uruchom strony studentów w trybie debugowania i ponowić wyszukiwanie "Throw".
+    Należy pamiętać, że nie Powtórz ten test, chyba że Zatrzymaj aplikację i uruchom go ponownie. Jeśli chcesz testować elastyczność połączenia wiele razy w jednym przebiegu aplikacji, można napisać kod, aby zresetować licznik błędów w `SchoolInterceptorTransientErrors`.
+4. Aby zobaczyć różnicę strategii wykonywania (zasady ponawiania) sprawia, że, komentarz `SetExecutionStrategy` linię *SchoolConfiguration.cs*, a następnie ponownie uruchom strony studentów w trybie debugowania i ponownie wyszukać "Throw".
 
-    Teraz debuger zatrzymuje na pierwszy wygenerowany wyjątek od razu, podczas próby wykonania zapytania po raz pierwszy.
+    Tym razem debuger zatrzymuje się na pierwszy wyjątek wygenerowane natychmiast, gdy próbuje wykonać zapytanie po raz pierwszy.
 
-    ![Wyjątek zastępczego](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image4.png)
-5. Usuń znaczniki komentarza *SetExecutionStrategy* wiersz w *SchoolConfiguration.cs*.
+    ![Fikcyjny wyjątku](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image4.png)
+5. Usuń znaczniki komentarza *SetExecutionStrategy* linię *SchoolConfiguration.cs*.
 
 ## <a name="summary"></a>Podsumowanie
 
-W tym samouczku przedstawiono Włączanie opcji elastyczności połączenia i dziennika poleceń SQL, które Entity Framework Redaguj i wysyła do bazy danych. W następnym samouczku przedstawiono wdrażania aplikacji z Internetem przy użyciu migracje Code First do wdrażania bazy danych.
+W tym samouczku pokazaliśmy już, jak dziennika poleceń SQL, które platformy Entity Framework Redaguj i wysyła do bazy danych i Włącz elastyczność połączenia. W następnym samouczku wdrożysz aplikację z Internetem, użycia migracje Code First na potrzeby wdrażania bazy danych.
 
-Wystaw opinię na jak zbędne tego samouczka i co można możemy ulepszyć. Możesz również poprosić o nowe tematy w [Pokaż mnie jak z kodu](http://aspnet.uservoice.com/forums/228522-show-me-how-with-code).
+Jak się podoba w tym samouczku, i co można było ulepszyć proces Wystaw opinię. Możesz również poprosić o nowe tematy w [Pokaż mi jak za pomocą kodu](http://aspnet.uservoice.com/forums/228522-show-me-how-with-code).
 
-Linki do innych zasobów programu Entity Framework, można znaleźć w [dostępu do danych programu ASP.NET - zalecane zasobów](../../../../whitepapers/aspnet-data-access-content-map.md).
+Linki do innych zasobów platformy Entity Framework można znaleźć w [dostęp do danych platformy ASP.NET — zalecane zasoby](../../../../whitepapers/aspnet-data-access-content-map.md).
 
 > [!div class="step-by-step"]
 > [Poprzednie](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application.md)

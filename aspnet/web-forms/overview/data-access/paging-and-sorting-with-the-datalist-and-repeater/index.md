@@ -1,30 +1,29 @@
 ---
 uid: web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/index
-title: Stronicowania i sortowania DataList i powtarzanego | Dokumentacja firmy Microsoft
+title: Stronicowanie i sortowanie za pomocą kontrolek DataList i Repeater | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: Te samouczki wyjaśniają, jak dodać obsługę stronicowania DataList lub elementu powtarzanego formantu do utworzenia bardzo elastyczne interfejsu użytkownika stronicowania i sortowania.
+description: Te samouczki pokazują, jak dodać obsługę stronicowania do kontrolki DataList lub Repeater utworzyć bardzo elastyczny w interfejsie użytkownika dla stronicowanie i sortowanie.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
 ms.topic: article
 ms.assetid: 8996b59e-042c-4395-b28a-f1ab95ac16af
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater
 msc.type: chapter
-ms.openlocfilehash: e05b1a691a3a6378859847d4530f11bbe4d8c1d3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b3c67a57ab4d6148ddb5a10941fe7008202f049d
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26568631"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37394195"
 ---
-<a name="paging-and-sorting-with-the-datalist-and-repeater"></a>Stronicowania i sortowania DataList i powtarzanego
+<a name="paging-and-sorting-with-the-datalist-and-repeater"></a>Stronicowanie i sortowanie za pomocą kontrolek DataList i Repeater
 ====================
-> Te samouczki wyjaśniają, jak dodać obsługę stronicowania DataList lub elementu powtarzanego formantu do utworzenia bardzo elastyczne interfejsu użytkownika stronicowania i sortowania.
+> Te samouczki pokazują, jak dodać obsługę stronicowania do kontrolki DataList lub Repeater utworzyć bardzo elastyczny w interfejsie użytkownika dla stronicowanie i sortowanie.
 
 
-- [Dane raportu stronicowania DataList lub w kontrolce elementu powtarzanego (C#)](paging-report-data-in-a-datalist-or-repeater-control-cs.md)
-- [Sortowanie danych w DataList lub w kontrolce elementu powtarzanego (C#)](sorting-data-in-a-datalist-or-repeater-control-cs.md)
-- [Dane raportu stronicowania DataList lub w kontrolce elementu powtarzanego (VB)](paging-report-data-in-a-datalist-or-repeater-control-vb.md)
-- [Sortowanie danych w kontrolce elementu powtarzanego (VB) lub DataList](sorting-data-in-a-datalist-or-repeater-control-vb.md)
+- [Stronicowanie danych raportu w kontrolce DataList lub Repeater (C#)](paging-report-data-in-a-datalist-or-repeater-control-cs.md)
+- [Sortowanie danych w kontrolce DataList lub Repeater (C#)](sorting-data-in-a-datalist-or-repeater-control-cs.md)
+- [Stronicowanie danych raportu w kontrolce DataList lub Repeater (VB)](paging-report-data-in-a-datalist-or-repeater-control-vb.md)
+- [Sortowanie danych w kontrolce DataList lub Repeater (VB)](sorting-data-in-a-datalist-or-repeater-control-vb.md)

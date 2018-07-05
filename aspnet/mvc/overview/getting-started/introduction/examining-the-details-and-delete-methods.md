@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/getting-started/introduction/examining-the-details-and-delete-methods
-title: Sprawdzenie szczegółów i usuwania metody | Dokumentacja firmy Microsoft
+title: Badanie metod Details i Delete | Dokumentacja firmy Microsoft
 author: Rick-Anderson
 description: ''
 ms.author: aspnetcontent
@@ -9,65 +9,64 @@ ms.date: 03/26/2015
 ms.topic: article
 ms.assetid: f1d2a916-626c-4a54-8df4-77e6b9fff355
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/examining-the-details-and-delete-methods
 msc.type: authoredcontent
-ms.openlocfilehash: f534080fe9aa22eb9092932babc74c5ab96aabbf
-ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
+ms.openlocfilehash: 30fafd228dd43624cb2e6886fe1c1dda5bbcb60e
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33962431"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37399493"
 ---
-<a name="examining-the-details-and-delete-methods"></a>Badanie informacji i metody Delete
+<a name="examining-the-details-and-delete-methods"></a>Badanie metod Details i Delete
 ====================
-przez [Rick Anderson](https://github.com/Rick-Anderson)
+Przez [Rick Anderson](https://github.com/Rick-Anderson)
 
 [!INCLUDE [Tutorial Note](sample/code-location.md)]
 
-W tej części samouczka będziesz należy zbadać automatycznie generowanych `Details` i `Delete` metody.
+W tej części samouczka możesz omówione automatycznie generowanych `Details` i `Delete` metody.
 
-## <a name="examining-the-details-and-delete-methods"></a>Badanie informacji i metody Delete
+## <a name="examining-the-details-and-delete-methods"></a>Badanie metod Details i Delete
 
-Otwórz `Movie` kontrolera i sprawdź, czy `Details` metody.
+Otwórz `Movie` kontrolera i zbadaj `Details` metody.
 
 ![](examining-the-details-and-delete-methods/_static/image1.png)
 
 [!code-csharp[Main](examining-the-details-and-delete-methods/samples/sample1.cs)]
 
-Aparat szkieletów MVC utworzony tą metodą akcji dodaje komentarz przedstawiający żądania HTTP, która wywołuje metodę. W tym przypadku jest `GET` żądania z trzech segmenty adresu URL, `Movies` kontrolera, `Details` — metoda i `ID` wartość.
+Aparat tworzenia szkieletów MVC, utworzony z tą metodą akcji dodaje komentarz przedstawiający żądania HTTP, który wywołuje tę metodę. W tym przypadku jest `GET` żądanie przy użyciu trzech segmenty adresu URL, `Movies` kontrolera, `Details` metody i `ID` wartość.
 
-Kod najpierw ułatwia wyszukiwanie danych przy użyciu `Find` metody. Jest to funkcja zabezpieczeń ważne wbudowanych w metodzie kod sprawdza, czy `Find` znaleziono metody filmu przed próbuje podejmować żadnych działań z nim kod. Na przykład haker może wprowadzić błędy do witryny, zmieniając adres URL utworzony przez łącza z `http://localhost:xxxx/Movies/Details/1` podobną `http://localhost:xxxx/Movies/Details/12345` (lub inne wartości nie reprezentuje rzeczywisty film). Jeśli nie zaznaczono filmu wartości null, null filmu spowoduje błąd bazy danych.
+Kod najpierw ułatwia wyszukiwanie danych przy użyciu `Find` metody. Ważna funkcja zabezpieczeń wbudowanych w metodzie jest kod sprawdza, czy `Find` znaleziono filmu metody, zanim kod próbuje wykonywać żadnych czynności z nim. Na przykład haker może spowodować błędy do witryny, zmieniając adres URL utworzony przez łącza z `http://localhost:xxxx/Movies/Details/1` na wartość podobną `http://localhost:xxxx/Movies/Details/12345` (lub inną wartość, która nie zawiera rzeczywistych filmu). Jeśli nie zaznaczono dla filmu o wartości null, null filmu spowoduje błąd bazy danych.
 
 Sprawdź `Delete` i `DeleteConfirmed` metody.
 
 [!code-csharp[Main](examining-the-details-and-delete-methods/samples/sample2.cs?highlight=17)]
 
-Należy pamiętać, że HTTP GET `Delete` — metoda nie powoduje usunięcia określonego filmu, zwraca widok filmu którego można przesłać (`HttpPost`) usunięcia. Wykonywanie operacji usuwania w odpowiedzi na polecenie GET żądania (lub dla tej sprawy wykonywania operacji edycji, Utwórz operację lub innej operacji, które zmienia dane) otwiera luka w zabezpieczeniach. Aby uzyskać więcej informacji na ten temat, zobacz wpis w blogu Stephen Walther [46 Porada # w programie ASP.NET MVC — nie używaj usunąć łącza, ponieważ mogą one tworzyć luk w zabezpieczeniach](http://stephenwalther.com/blog/archive/2009/01/21/asp.net-mvc-tip-46-ndash-donrsquot-use-delete-links-because.aspx).
+Należy zauważyć, że HTTP GET `Delete` metoda nie powoduje usunięcia określonego filmu, zwraca widok filmu w trakcie którego można przesłać (`HttpPost`) usuwania. Wykonywanie operacji usuwania w odpowiedzi na polecenie GET żądania (lub służącego wykonywania operacji Edytuj, Utwórz operacji lub innej operacji, które zmieniają dane) otwiera lukę w zabezpieczeniach. Aby uzyskać więcej informacji na ten temat, zobacz wpis w blogu Autor: Stephen Walther [46 Porada # w programie ASP.NET MVC — nie używaj usunąć łącza, ponieważ mogą tworzyć luki w zabezpieczeniach](http://stephenwalther.com/blog/archive/2009/01/21/asp.net-mvc-tip-46-ndash-donrsquot-use-delete-links-because.aspx).
 
-`HttpPost` Nosi nazwę metody, która powoduje usunięcie danych `DeleteConfirmed` umożliwiają metodą HTTP POST unikatowego podpisu lub nazwę. Poniżej przedstawiono podpisy dwóch metod:
+`HttpPost` Nosi nazwę metody, która powoduje usunięcie danych `DeleteConfirmed` zapewnienie metodą HTTP POST unikatowy podpis lub nazwy. Poniżej przedstawiono podpisy dwóch metod:
 
 [!code-csharp[Main](examining-the-details-and-delete-methods/samples/sample3.cs)]
 
-Środowisko uruchomieniowe języka wspólnego (CLR) wymaga przeciążonej metody ma unikatowy parametr podpisu (tej samej nazwy metody, ale lista różnych parametrów). Jednak w tym miejscu należy Delete sposobów — jeden dla GET - i jeden dla żądania POST czy mają tę samą sygnaturę parametru. (Oba muszą zaakceptować pojedynczego całkowitą jako parametr.)
+Środowisko uruchomieniowe języka wspólnego (CLR) wymaga przeciążonej metody ma unikatowy parametr podpisu (tej samej nazwie metoda, ale inną listę parametrów). Jednak w tym miejscu należy dwie metody usuwania — jeden dla GET--i jeden dla wpisu czy obie pozycje mają taki sam podpis parametru. (Obaj użytkownicy muszą zaakceptować pojedyncze liczby całkowite jako parametr.)
 
-Aby posortować tę możliwość, można wykonać kilka rzeczy. Jeden jest zapewniają różne nazwy metody. To mechanizm szkieletów został w poprzednim przykładzie. Jednak powstaje mały problem: ASP.NET mapuje segmentów adresu URL do metody akcji według nazwy i zmiana metody routingu zwykle nie będą mogli odnaleźć tej metody. Rozwiązanie, to zostanie wyświetlony w tym przykładzie jest dodanie `ActionName("Delete")` atrybutu `DeleteConfirmed` metody. To skutecznie wykonuje mapowania systemu routingu, aby adres URL, który zawiera */Delete/* POST znajdzie żądanie `DeleteConfirmed` metody.
+Aby posortować tę możliwość, można zrobić kilka rzeczy. Jeden to nadać różne nazwy metody. To mechanizm tworzenia szkieletów została w poprzednim przykładzie. Jednak wprowadza mały problem: ASP.NET mapuje segmentów adresu URL do metody akcji według nazwy i metodę w przypadku zmiany nazwy, routing zwykle nie będzie mógł odnaleźć tej metody. Rozwiązanie jest widoczny w tym przykładzie jest dodanie `ActionName("Delete")` atrybutu `DeleteConfirmed` metody. Skutecznie wykonuje to mapowanie systemu routingu, aby adres URL, który zawiera */Delete/* dla wpisu znajdzie żądanie `DeleteConfirmed` metody.
 
-Inny typowy sposób, aby uniknąć problemów z metod, które mają identyczne nazwy i podpisy jest sztucznie Zmiana podpisu metody POST, aby uwzględnić parametrem nieużywane. Na przykład, niektórzy deweloperzy dodać parametr typu `FormCollection` przekazanego do metody POST, a następnie po prostu nie używaj parametru:
+Innym typowym sposobem uniknięcia problemu z metod, które mają identyczne nazwy i wzory podpisów jest sztucznie Zmień podpis metody POST, aby uwzględnić Nieużywany parametr. Na przykład niektórzy deweloperzy dodać typ parametru `FormCollection` który jest przekazywany do metody POST, a następnie po prostu nie używaj parametru:
 
 [!code-csharp[Main](examining-the-details-and-delete-methods/samples/sample4.cs)]
 
 ## <a name="summary"></a>Podsumowanie
 
-Masz teraz kompletna aplikacja platformy ASP.NET MVC, która przechowuje dane w lokalnej bazie danych bazy danych. Można utworzyć, odczytu, aktualizacji, usuwania i wyszukiwać filmy.
+Masz teraz kompletnej aplikacji ASP.NET MVC, która przechowuje dane w lokalnej bazie danych bazy danych. Można utworzyć, Odczyt, aktualizowanie, usuwanie i wyszukaj filmy.
 
 ![](examining-the-details-and-delete-methods/_static/image2.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po utworzone i przetestowane aplikacji sieci web, następnym krokiem jest aby udostępnić ją innym użytkownikom za pośrednictwem Internetu. W tym celu należy wdrożyć ją do usługi hosta sieci web. Firma Microsoft oferuje usługi hostingu sieci web wolnego maksymalnie 10 witryn sieci web w [bezpłatnego konta wersji próbnej Azure](https://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A443DD604). I zasugerować dalej wykonaj Moje samouczek [wdrażanie aplikacji bezpiecznego ASP.NET MVC z członkostwa, OAuth i bazy danych SQL Azure](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data). Samouczek znakomity jest poziomu pośredniego Tomasz Dykstra [tworzenia modelu danych struktury jednostek dla aplikacji platformy ASP.NET MVC](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). [StackOverflow](http://stackoverflow.com/help) i [ASP.NET MVC forum](https://forums.asp.net/1146.aspx) jest doskonałym umieszcza zadawać pytania. Postępuj zgodnie z [mnie](https://twitter.com/RickAndMSFT) w serwisie twitter, aby aktualizacje na Moje najnowsze samouczki.
+Po skompilowane i przetestowane aplikacji sieci web, następnym krokiem jest udostępnić go innym osobom korzystanie przez Internet. Aby to zrobić, należy wdrożyć ją do dostawcy usług hosta sieci web. Firma Microsoft oferuje bezpłatny internetowy hostowanie do 10 witryn sieci web w [bezpłatne konto wersji próbnej platformy Azure](https://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A443DD604). Czy zasugerować obok wykonaj Moje samouczek [wdrażanie aplikacji platformy ASP.NET MVC Secure z członkostwa, uwierzytelnianiem OAuth i bazą danych SQL na platformie Azure](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data). Doskonałe samouczek jest poziomu pośredniego Tom Dykstra [Tworzenie modelu danych Entity Framework dla aplikacji ASP.NET MVC](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). [Witryna StackOverflow](http://stackoverflow.com/help) i [fora platformy ASP.NET MVC](https://forums.asp.net/1146.aspx) są doskonałym umieszcza zadawać pytania. Postępuj zgodnie z [mnie](https://twitter.com/RickAndMSFT) w serwisie twitter, dzięki czemu można uzyskać aktualizacje na Moje najnowsze samouczki.
 
-Opinie użytkowników są powitalnej.
+Opinia jest powitalnej.
 
 — [Rick Anderson](https://blogs.msdn.com/rickAndy) twitter: [@RickAndMSFT](https://twitter.com/RickAndMSFT)  
 — [Scott Hanselman](http://www.hanselman.com/blog/) twitter: [@shanselman](https://twitter.com/shanselman)

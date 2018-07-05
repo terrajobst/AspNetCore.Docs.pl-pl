@@ -1,135 +1,134 @@
 ---
 uid: mvc/overview/older-versions-1/models-data/performing-simple-validation-vb
-title: Sprawdzaniu poprawności proste (VB) | Dokumentacja firmy Microsoft
+title: Wykonywanie prostej weryfikacji (VB) | Dokumentacja firmy Microsoft
 author: StephenWalther
-description: Informacje o sposobie przeprowadzania weryfikacji w aplikacji platformy ASP.NET MVC. W tym samouczku Stephen Walther wprowadza do stanu modelu i pomocnika weryfikacji HTML...
+description: 'Informacje o sposobie przeprowadzania weryfikacji w aplikacji ASP.NET MVC. W tym samouczku Walther Autor: Stephen wprowadza do stanu modelu i pomocnika weryfikacji HTML...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/02/2009
 ms.topic: article
 ms.assetid: df6cf4b7-0bb3-4c4e-b17a-bd78a759a6bc
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/performing-simple-validation-vb
 msc.type: authoredcontent
-ms.openlocfilehash: efb98d87106e332fffb158e5f382d57fea778957
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 26900229630b25affe21a5bb801ef0247711d26b
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30869754"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37399464"
 ---
-<a name="performing-simple-validation-vb"></a>Sprawdzaniu poprawności proste (VB)
+<a name="performing-simple-validation-vb"></a>Wykonywanie prostej weryfikacji (VB)
 ====================
-przez [Stephen Walther](https://github.com/StephenWalther)
+przez [Walther Autor: Stephen](https://github.com/StephenWalther)
 
-> Informacje o sposobie przeprowadzania weryfikacji w aplikacji platformy ASP.NET MVC. W tym samouczku Stephen Walther wprowadza do stanu modelu i pomocników HTML sprawdzania poprawności.
+> Informacje o sposobie przeprowadzania weryfikacji w aplikacji ASP.NET MVC. W tym samouczku Walther Autor: Stephen wprowadza do stanu modelu i pomocników HTML sprawdzania poprawności.
 
 
-Celem tego samouczka jest wyjaśnienie sposobu wykonywania weryfikacji w aplikacji ASP.NET MVC. Na przykład zostanie przedstawiony sposób zapobiec ktoś przesyłania formularza, który nie zawiera wartości dla wymaganego pola. Jak używać stan modelu i sprawdzania poprawności pomocników HTML.
+Celem tego samouczka jest wyjaśniają, jak można wykonywać sprawdzanie poprawności w aplikacji ASP.NET MVC. Na przykład dowiesz się, jak zapobiec ktoś przesyłania formularza, który nie zawiera wartości dla wymaganego pola. Dowiesz się, jak używać stan modelu i sprawdzania poprawności pomocników HTML.
 
 ## <a name="understanding-model-state"></a>Opis stanu modelu
 
-Używasz stan modelu — lub dokładniej ze słownika stanu modelu — do reprezentowania błędy sprawdzania poprawności. Na przykład w akcji Create() wyświetlania 1 sprawdza właściwości klasy produktu przed dodaniem klasy produktu do bazy danych.
+Umożliwia stan modelu — lub dokładniej, ze słownika stanu modelu — reprezentują błędy sprawdzania poprawności. Na przykład akcja Create() w ofercie 1 sprawdza właściwości klasy produktu przed dodaniem klasy produktu do bazy danych.
 
 
-Nie mam I rekomendowania Dodaj logikę sprawdzania poprawności lub bazy danych do kontrolera. Kontroler powinien zawierać tylko logiki powiązane do sterowania działaniem aplikacji. Firma Microsoft trwa skrót do zachowania prostych czynności.
+Nie jestem I zalecania dodać logikę weryfikacji lub bazy danych do kontrolera. Kontroler może zawierać tylko logiki powiązane do sterowania działaniem aplikacji. Podejmujemy skrótów, aby zachować ich prostotę.
 
 
 **Wyświetlanie listy 1 - Controllers\ProductController.vb**
 
 [!code-vb[Main](performing-simple-validation-vb/samples/sample1.vb)]
 
-Wyświetlanie listy 1 Nazwa, opis i StanMagazynu właściwości klasy produktu są weryfikowane. Jeśli dowolne z tych właściwości test weryfikacji nie powiedzie się błędu jest dodawany do słownika stanu modelu (reprezentowane przez właściwość ModelState klasy Controller).
+W ofercie 1 Nazwa, opis i UnitsInStock właściwości klasy produktu są weryfikowane. Jeśli dowolne z tych właściwości testu sprawdzania poprawności zakończy się niepowodzeniem błąd zostanie dodany do słownika stanu modelu (reprezentowane przez właściwość ModelState klasy kontrolera).
 
-Jeśli wystąpią jakieś błędy w stanie modelu właściwość ModelState.IsValid zwraca wartość false. W takim przypadku formularza HTML służący do tworzenia nowego produktu zostanie wyświetlony ponownie. W przeciwnym razie jeśli nie ma żadnych błędów sprawdzania poprawności, nowego produktu jest dodawany do bazy danych.
+Jeśli istnieją błędy w stanie modelu ModelState.IsValid właściwość zwraca wartość false. W takim przypadku zostanie wyświetlony ponownie formularza HTML do tworzenia nowych produktów. W przeciwnym razie jeśli nie ma żadnych błędów sprawdzania poprawności, nowy produkt jest dodawany do bazy danych.
 
-## <a name="using-the-validation-helpers"></a>Przy użyciu pomocników sprawdzania poprawności
+## <a name="using-the-validation-helpers"></a>Za pomocą pomocników sprawdzania poprawności
 
-Platforma ASP.NET MVC zawiera dwa pomocników sprawdzania poprawności: pomocnika Html.ValidationMessage() i pomocnika Html.ValidationSummary(). Użyjesz tych dwóch pomocników w widoku wyświetlane komunikaty o błędach weryfikacji.
+Platforma ASP.NET MVC zawiera dwa pomocników sprawdzania poprawności: pomocnika Html.ValidationMessage() i pomocnika Html.ValidationSummary(). Użyjesz tych dwóch wątków w widoku do wyświetlania komunikatów o błędach weryfikacji.
 
-Pomocnicy Html.ValidationMessage() i Html.ValidationSummary() są używane w widokach tworzenie i edytowanie, które są generowane automatycznie przez funkcję szkieletów ASP.NET MVC. Wykonaj następujące kroki, aby wygenerować widok Utwórz:
+Pomocnicy Html.ValidationMessage() i Html.ValidationSummary() są używane w tworzenie i edytowanie widoków, które są generowane automatycznie przez szkieletu ASP.NET MVC. Wykonaj następujące kroki, aby wygenerować widok Utwórz:
 
-1. Kliknij prawym przyciskiem myszy w akcji Create() kontroler produktu i wybierz opcję menu **Dodaj widok** (zobacz rysunek 1).
-2. W **Dodaj widok** okno dialogowe, zaznacz pole wyboru z etykietą **utworzyć widok jednoznacznie** (patrz rysunek 2).
+1. Kliknij prawym przyciskiem myszy w akcji Create() kontroler produktu, a następnie wybierz opcję menu **Dodaj widok** (patrz rysunek 1).
+2. W **Dodaj widok** okno dialogowe, zaznacz pola wyboru **utworzyć widok silnie typizowane** (patrz rysunek 2).
 3. Z **wyświetlić klasy danych** listy rozwijanej wybierz klasy produktu.
-4. Z **wyświetlania zawartości** listy rozwijanej, wybierz opcję Utwórz.
+4. Z **wyświetlanie zawartości** listy rozwijanej, wybierz pozycję Utwórz.
 5. Kliknij przycisk **Dodaj** przycisku.
 
 
-Upewnij się, że można skompilować aplikację przed dodaniem widoku. W przeciwnym razie nie będą wyświetlane na liście klas w **wyświetlić klasy danych** listy rozwijanej.
+Upewnij się, czy kompilujesz aplikację przed dodaniem widoku. W przeciwnym razie lista klas nie będzie wyświetlane w **wyświetlić klasy danych** listy rozwijanej.
 
 
-[![Okno dialogowe nowego projektu](performing-simple-validation-vb/_static/image1.jpg)](performing-simple-validation-vb/_static/image1.png)
+[![Okno dialogowe Nowy projekt](performing-simple-validation-vb/_static/image1.jpg)](performing-simple-validation-vb/_static/image1.png)
 
 **Rysunek 01**: Dodawanie widoku ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](performing-simple-validation-vb/_static/image2.png))
 
 
-[![Okno dialogowe nowego projektu](performing-simple-validation-vb/_static/image2.jpg)](performing-simple-validation-vb/_static/image3.png)
+[![Okno dialogowe Nowy projekt](performing-simple-validation-vb/_static/image2.jpg)](performing-simple-validation-vb/_static/image3.png)
 
-**Rysunek 02**: tworzenia widoku jednoznacznie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](performing-simple-validation-vb/_static/image4.png))
+**Rysunek 02**: tworzenia silnie typizowane widoku ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](performing-simple-validation-vb/_static/image4.png))
 
 
-Po wykonaniu tych kroków w wersji 2 wyświetlania jest wyświetlany widok Utwórz.
+Po wykonaniu tych kroków, uzyskasz widoku Utwórz w ofercie 2.
 
 **Wyświetlanie listy 2 - Views\Product\Create.aspx**
 
 [!code-aspx[Main](performing-simple-validation-vb/samples/sample2.aspx)]
 
-Wyświetlanie listy 2 pomocnika Html.ValidationSummary() jest wywoływana natychmiast powyżej formularza HTML. Pomocnik ten służy do wyświetlania listę komunikatów o błędach weryfikacji. Pomocnik Html.ValidationSummary() renderuje błędy na liście punktowanej.
+W ofercie 2 pomocnika Html.ValidationSummary() jest wywoływana natychmiast powyżej formularza HTML. Tego pomocnika służy do wyświetlania listy komunikaty o błędach weryfikacji. Pomocnik Html.ValidationSummary() renderuje błędy na liście punktowanej.
 
-Pomocnik Html.ValidationMessage() nazywa się obok każdego pola formularza HTML. Pomocnik ten służy do wyświetlania komunikat o błędzie obok pola formularza. W przypadku wyświetlania 2 pomocnika Html.ValidationMessage() wyświetla gwiazdkę po wystąpieniu błędu.
+Pomocnik Html.ValidationMessage() nazywa się obok każdego pola formularza HTML. Pomocnik ten jest używany do wyświetlania komunikatu o błędzie w prawo obok pola formularza. W przypadku wyświetlania listy 2 pomocnika Html.ValidationMessage() wyświetla gwiazdkę, gdy występuje błąd.
 
-Strony na rysunku 3 przedstawiono komunikaty o błędach renderowana przez pomocników weryfikacji po przesłaniu formularza z brakujące pola i nieprawidłowe wartości.
-
-
-[![Okno dialogowe nowego projektu](performing-simple-validation-vb/_static/image3.jpg)](performing-simple-validation-vb/_static/image5.png)
-
-**Rysunek 03**: Tworzenie widoku przesłane z problemami ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](performing-simple-validation-vb/_static/image6.png))
+Strona na rysunku 3 przedstawiono komunikaty o błędach renderowany przez pomocników sprawdzania poprawności, gdy formularz zostanie przesłany z polami brakujących i nieprawidłowych wartości.
 
 
-Należy zauważyć, że pola są również zmodyfikowane w razie błędu sprawdzania poprawności danych wejściowych wygląd HTML. Renderuje pomocnika Html.TextBox() *klasy = "input błędzie sprawdzania poprawności"* atrybutu, gdy występuje błąd weryfikacji skojarzony z właściwością renderowana przez pomocnika Html.TextBox().
+[![Okno dialogowe Nowy projekt](performing-simple-validation-vb/_static/image3.jpg)](performing-simple-validation-vb/_static/image5.png)
 
-Istnieją trzy kaskadowych klasy arkusza stylów sterować wyglądem błędy sprawdzania poprawności:
+**Rysunek 03**: Create view, które są przesyłane z problemami ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](performing-simple-validation-vb/_static/image6.png))
 
-- dane wejściowe błędzie sprawdzania poprawności — są stosowane do &lt;wejściowych&gt; renderowana przez Html.TextBox() pomocnika tagów.
-- pole — błędzie sprawdzania poprawności — są stosowane do &lt;span&gt; renderowana przez pomocnika Html.ValidationMessage() tagu.
-- błędy — sprawdzania poprawności — podsumowanie — są stosowane do &lt;ul&gt; renderowana przez pomocnika Html.ValidationSumamry() tagu.
 
-Możesz zmodyfikować te kaskadowych klasy arkusza stylów i w związku z tym zmodyfikować wygląd błędy sprawdzania poprawności przez zmodyfikowanie pliku Site.css znajdujące się w folderze zawartości.
+Należy zauważyć, że pola również są modyfikowane, gdy występuje błąd weryfikacji danych wejściowych wygląd elementu HTML. Renderuje pomocnika Html.TextBox() *klasy = "danych wejściowych błędzie sprawdzania poprawności"* atrybutu, gdy występuje błąd weryfikacji skojarzony z właściwością renderowany przez pomocnika Html.TextBox().
+
+Istnieją trzy kaskadowych klasy arkusz stylów używany, aby sterować wyglądem błędy sprawdzania poprawności:
+
+- dane wejściowe błędzie sprawdzania poprawności — są stosowane do &lt;wejściowych&gt; renderowany przez Html.TextBox() pomocnika tagów.
+- pole — błędzie sprawdzania poprawności — są stosowane do &lt;span&gt; renderowany przez pomocnika Html.ValidationMessage() tagu.
+- błędy — sprawdzania poprawności podsumowanie — są stosowane do &lt;ul&gt; renderowany przez pomocnika Html.ValidationSumamry() tagu.
+
+Możesz zmodyfikować te kaskadowych klasy arkusza stylów i w związku z tym zmodyfikować wygląd błędy sprawdzania poprawności, modyfikując plik Site.css znajduje się w folderze zawartości.
 
 > [!NOTE] 
 > 
-> Klasa HtmlHelper zawiera statycznej właściwości tylko do odczytu podczas pobierania nazwy weryfikacji związanych z CSS klasy. Te właściwości statyczne są nazywane ValidationInputCssClassName, ValidationFieldCssClassName i ValidationSummaryCssClassName.
+> Klasa HtmlHelper obejmuje statycznych właściwości tylko do odczytu dla pobierania nazw weryfikacji powiązanych CSS klasy. Te właściwości statyczne są nazywane ValidationInputCssClassName ValidationFieldCssClassName i ValidationSummaryCssClassName.
 
 
 ## <a name="prebinding-validation-and-postbinding-validation"></a>Prebinding weryfikacji i sprawdzania poprawności Postbinding
 
-Jeśli przesyłania formularza HTML służący do tworzenia produktu i wprowadź nieprawidłową wartość dla pola Cena i bez wartości dla pola StanMagazynu, następnie otrzymasz komunikatów dotyczących sprawdzania poprawności wyświetlane na rysunku 4. Skąd pochodzą te komunikaty o błędach weryfikacji?
+Jeśli przesyłanie formularza HTML do tworzenia produktu i wprowadź nieprawidłową wartość dla pola Cena i bez wartości dla pola UnitsInStock, następnie otrzymasz komunikatów weryfikacji wyświetlanych na rysunku 4. Skąd pochodzą te komunikaty o błędach weryfikacji?
 
 
-[![Okno dialogowe nowego projektu](performing-simple-validation-vb/_static/image4.jpg)](performing-simple-validation-vb/_static/image7.png)
+[![Okno dialogowe Nowy projekt](performing-simple-validation-vb/_static/image4.jpg)](performing-simple-validation-vb/_static/image7.png)
 
 **Rysunek 04**: błędy sprawdzania poprawności Prebinding ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](performing-simple-validation-vb/_static/image8.png))
 
 
-Brak faktycznie dwa typy komunikatów o błędach weryfikacji - wygenerowanymi przed pola formularza HTML są powiązane z klasą i te wygenerowane po pola formularza jest powiązana z tej klasy. Innymi słowy, występują błędy sprawdzania poprawności prebinding i postbinding błędy sprawdzania poprawności.
+Istnieją faktycznie dwa typy komunikatów o błędach weryfikacji - wygenerowanymi przed pola formularza HTML są powiązane z klasą i te wygenerowane po pól formularza jest powiązana z tej klasy. Innymi słowy, istnieją prebinding błędy sprawdzania poprawności i postbinding błędy sprawdzania poprawności.
 
-Akcja Create() udostępnianych przez kontroler produktu w 1 Lista akceptuje wystąpienia klasy produktu. Podpis metody Create wygląda następująco:
+Akcja Create() udostępnianych przez kontroler produktu w ofercie 1 przyjmuje wystąpienie klasy produktu. Podpis metody Create wygląda następująco:
 
 [!code-vb[Main](performing-simple-validation-vb/samples/sample3.vb)]
 
-Wartości pól formularza HTML w formularzu Utwórz są powiązane z klasą productToCreate przez element zwany integratora modelu. Domyślny integrator modelu dodaje komunikat o błędzie do stanu modelu automatycznie, gdy nie można powiązać pole formularza właściwości formularza.
+Wartości pól formularza HTML w formularzu tworzenia związane są z klasą productToCreate coś, co jest nazywane integratora modelu. Domyślny integrator modelu komunikat o błędzie do stanu modelu automatycznie dodaje gdy go nie można powiązać pole formularza z właściwością formularza.
 
-Ciąg "apple" nie można powiązać właściwości cen klasy produktu domyślnego integratora modelu. Ciąg nie można przypisać do właściwości typu decimal. W związku z tym integratora modelu dodaje błąd do stanu modelu.
+Ciąg "apple" nie można powiązać właściwości cena klasy produktu domyślnego integratora modelu. Ciąg nie można przypisać do właściwości dziesiętnej. W związku z tym integratora modelu dodaje błąd do stanu modelu.
 
-Domyślny integrator modelu także nie można przypisać wartość Nothing do właściwości, która nie przyjmuje wartość Nothing. W szczególności integratora modelu nie można przypisać wartość Nothing StanMagazynu właściwości. Jeszcze raz integratora modelu zrezygnuje i dodaje komunikat o błędzie do stanu modelu.
+Domyślny integrator modelu również nie można przypisać wartość Nothing właściwość, która nie przyjmuje wartość Nothing. W szczególności integratora modelu nie można przypisać wartość Nothing właściwość UnitsInStock. Jeszcze raz integratora modelu rezygnuje i dodaje komunikat o błędzie do stanu modelu.
 
-Jeśli chcesz dostosować wygląd te komunikaty o błędach prebinding następnie musisz utworzyć ciągów zasobów dla tych wiadomości.
+Jeśli chcesz dostosować wygląd te prebinding komunikaty o błędach następnie należy utworzyć ciągów zasobów dla tych komunikatów.
 
 ## <a name="summary"></a>Podsumowanie
 
-Celem tego samouczka było do opisywania podstawowa mechanika weryfikacji platformy ASP.NET MVC. Przedstawiono sposób użycia stanu modelu i sprawdzania poprawności pomocników HTML. Omówiono także różnice między prebinding i postbinding sprawdzania poprawności. W innych samouczków omówiono różne strategie kod weryfikacji z kontrolerami poza i w klasach modeli.
+Celem tego samouczka było opisują podstawowa mechanika sprawdzania poprawności w platformę ASP.NET MVC. Przedstawiono sposób używania stanu modelu i pomocników HTML sprawdzania poprawności. Omówiono również rozróżnienie między prebinding i postbinding sprawdzania poprawności. W innych samouczków omówimy różnych strategii przenoszenia kod sprawdzania poprawności poza kontrolerach i w klasach modeli.
 
 > [!div class="step-by-step"]
 > [Poprzednie](displaying-a-table-of-database-data-vb.md)

@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/getting-started-with-aspnet-web-api/action-results
-title: Akcja powoduje składnika Web API 2 | Dokumentacja firmy Microsoft
+title: Akcja wyniki w interfejsie Web API 2 | Dokumentacja firmy Microsoft
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
@@ -9,45 +9,44 @@ ms.date: 02/03/2014
 ms.topic: article
 ms.assetid: 2fc4797c-38ef-4cc7-926c-ca431c4739e8
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/action-results
 msc.type: authoredcontent
-ms.openlocfilehash: d0db5c6d45020861d7295ab1db989caee525fff9
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 7726829ac9eba339ff3ac1c94c86132cb1090783
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28036469"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37395532"
 ---
-<a name="action-results-in-web-api-2"></a>Wyniki akcji w składniku Web API 2
+<a name="action-results-in-web-api-2"></a>Wyniki akcji w interfejsie Web API 2
 ====================
-przez [Wasson Jan](https://github.com/MikeWasson)
+przez [Mike Wasson](https://github.com/MikeWasson)
 
-W tym temacie opisano, jak składnika ASP.NET Web API konwertuje wartość zwracaną akcji kontrolera do komunikatu odpowiedzi HTTP.
+W tym temacie opisano, jak ASP.NET Web API konwertuje wartość zwracaną akcji kontrolera, do komunikatu odpowiedzi HTTP.
 
-Akcja kontrolera interfejsu API sieci Web może zwracać jedną z następujących czynności:
+Akcja kontrolera interfejsu API sieci Web może zwracać dowolne z następujących czynności:
 
 1. void
-2. **HttpResponseMessage**
+2. **Element HttpResponseMessage**
 3. **IHttpActionResult**
 4. Innego typu
 
-W zależności od tego, który z nich jest zwracany, interfejsu API sieci Web używa inny mechanizm do tworzenia odpowiedzi HTTP.
+W zależności od tego, który z nich jest zwracany, interfejsu API sieci Web używa innego mechanizmu do tworzenia odpowiedzi HTTP.
 
-| Zwracany typ | Jak interfejsu API sieci Web tworzy odpowiedzi |
+| Zwracany typ | Jak interfejs API sieci Web tworzy odpowiedź |
 | --- | --- |
-| void | Zwraca pusty 204 (bez zawartości) |
-| **HttpResponseMessage** | Konwertuj bezpośrednio do komunikatu odpowiedzi HTTP. |
-| **IHttpActionResult** | Wywołanie **ExecuteAsync** utworzyć **HttpResponseMessage**, następnie Konwertuj na komunikat odpowiedzi HTTP. |
-| Innego typu | Zapisywanie serializacji wartości zwracanej w treści odpowiedzi; Zwróć 200 (OK). |
+| void | Zwraca pusty 204 (Brak zawartości) |
+| **Element HttpResponseMessage** | Konwertuj bezpośrednio do komunikatu odpowiedzi HTTP. |
+| **IHttpActionResult** | Wywołaj **ExecuteAsync** utworzyć **obiektu HttpResponseMessage**, następnie przekonwertować komunikatu odpowiedzi HTTP. |
+| Inny typ | Zapisz wartość zwracaną serializacji do treści odpowiedzi; Zwraca 200 (OK). |
 
-Pozostała część tego tematu opisano poszczególne opcje więcej szczegółów.
+Pozostała część tego tematu opisano wszystkie opcje, które bardziej szczegółowo.
 
 ## <a name="void"></a>void
 
-Jeśli typem zwracanym jest `void`, interfejsu API sieci Web po prostu zwraca pustą odpowiedź HTTP z kodem stanu 204 (bez zawartości).
+Jeśli typ zwracany jest `void`, interfejs API sieci Web po prostu zwraca pustą odpowiedź HTTP z kodem stanu 204 (Brak zawartości).
 
-Przykład controller:
+Przykład kontrolera:
 
 [!code-csharp[Main](action-results/samples/sample1.cs)]
 
@@ -55,11 +54,11 @@ Odpowiedź HTTP:
 
 [!code-console[Main](action-results/samples/sample2.cmd)]
 
-## <a name="httpresponsemessage"></a>HttpResponseMessage
+## <a name="httpresponsemessage"></a>Element HttpResponseMessage
 
-Jeśli akcja zwraca [HttpResponseMessage](https://msdn.microsoft.com/library/system.net.http.httpresponsemessage.aspx), interfejsu API sieci Web konwertuje wartości zwracanej bezpośrednio na komunikat odpowiedzi HTTP przy użyciu właściwości **HttpResponseMessage** obiektu, aby wypełnić odpowiedź.
+Jeśli działanie zwróci [obiektu HttpResponseMessage](https://msdn.microsoft.com/library/system.net.http.httpresponsemessage.aspx), internetowy interfejs API konwertuje wartość zwracaną bezpośrednio na komunikat odpowiedzi HTTP przy użyciu właściwości **obiektu HttpResponseMessage** obiekt do wypełnienia odpowiedź.
 
-Ta opcja umożliwia szczegółową kontrolę nad komunikat odpowiedzi. Na przykład następująca Akcja kontrolera ustawia nagłówek Cache-Control.
+Ta opcja zapewnia wysoki poziom kontroli nad komunikat odpowiedzi. Na przykład następującej akcji kontrolera ustawia nagłówek Cache-Control.
 
 [!code-csharp[Main](action-results/samples/sample3.cs)]
 
@@ -67,27 +66,27 @@ Odpowiedź:
 
 [!code-console[Main](action-results/samples/sample4.cmd?highlight=2)]
 
-W przypadku przekazania modelu domeny do **CreateResponse** metoda, używa interfejsu API sieci Web [nośnika elementu formatującego](../formats-and-model-binding/media-formatters.md) do zapisania modelem serializacji w treści odpowiedzi.
+W przypadku przekazania model domeny, aby **CreateResponse** metody, interfejs API sieci Web używa [nośnika elementu formatującego](../formats-and-model-binding/media-formatters.md) do zapisania Zserializowany model na treść odpowiedzi.
 
 [!code-csharp[Main](action-results/samples/sample5.cs)]
 
-Interfejsu API sieci Web używa nagłówek Accept w żądaniu, aby wybrać element formatujący. Aby uzyskać więcej informacji, zobacz [negocjacje zawartości](../formats-and-model-binding/content-negotiation.md).
+Internetowy interfejs API używa nagłówek Accept w żądaniu, aby wybrać element formatujący. Aby uzyskać więcej informacji, zobacz [negocjacje zawartości](../formats-and-model-binding/content-negotiation.md).
 
 ## <a name="ihttpactionresult"></a>IHttpActionResult
 
-**IHttpActionResult** interfejs został wprowadzony w sieci Web API 2. Zasadniczo definiuje **HttpResponseMessage** fabryki. Oto niektóre korzyści wynikające z używania **IHttpActionResult** interfejsu:
+**IHttpActionResult** interfejsu została wprowadzona w sieci Web API 2. Zasadniczo definiuje **obiektu HttpResponseMessage** fabryki. Oto niektóre korzyści wynikające z używania **IHttpActionResult** interfejsu:
 
-- Upraszcza [testy jednostkowe](../testing-and-debugging/unit-testing-controllers-in-web-api.md) kontrolerów.
+- Upraszcza [testy jednostkowe](../testing-and-debugging/unit-testing-controllers-in-web-api.md) kontrolerach.
 - Przenosi wspólnej logiki do tworzenia odpowiedzi HTTP do osobnych klas.
-- Sprawia, że celem akcji kontrolera jaśniejszy, ukrywając szczegółów niskiego poziomu konstruowanie odpowiedzi.
+- Sprawia, że celem akcji kontrolera, bardziej zrozumiały, ukrywając niskopoziomowych szczegółów konstruowanie odpowiedzi.
 
-**IHttpActionResult** zawiera jedną metodę **ExecuteAsync**, które asynchronicznie tworzy **HttpResponseMessage** wystąpienia.
+**IHttpActionResult** zawiera jedną metodę **ExecuteAsync**, które asynchronicznie tworzy **obiektu HttpResponseMessage** wystąpienia.
 
 [!code-csharp[Main](action-results/samples/sample6.cs)]
 
-Jeśli akcja kontrolera zwraca **IHttpActionResult**, wywołania interfejsu API sieci Web **ExecuteAsync** metodę w celu utworzenia **HttpResponseMessage**. Następnie konwertuje **HttpResponseMessage** do komunikatu odpowiedzi HTTP.
+Jeśli akcja kontrolera zwraca **IHttpActionResult**, wywołań interfejsu API sieci Web **ExecuteAsync** metodę w celu utworzenia **obiektu HttpResponseMessage**. A następnie konwertuje **obiektu HttpResponseMessage** do komunikatu odpowiedzi HTTP.
 
-Oto prosty przewidujące z **IHttpActionResult** tworzącą odpowiedź jako zwykły tekst:
+Poniżej przedstawiono prosty przewidujące z **IHttpActionResult** tworząca odpowiedź jako zwykły tekst:
 
 [!code-csharp[Main](action-results/samples/sample7.cs)]
 
@@ -99,26 +98,26 @@ Odpowiedź:
 
 [!code-console[Main](action-results/samples/sample9.cmd)]
 
-Częściej, którego użyjesz **IHttpActionResult** zdefiniowane w implementacji  **[System.Web.Http.Results](https://msdn.microsoft.com/library/system.web.http.results.aspx)**  przestrzeni nazw. **Klasy ApiController** klasa definiuje metody pomocnicze, które zwracają wyniki tych działań wbudowanych.
+Częściej, użyjesz **IHttpActionResult** zdefiniowane w implementacji **[System.Web.Http.Results](https://msdn.microsoft.com/library/system.web.http.results.aspx)** przestrzeni nazw. **Klasy ApiController** klasa definiuje metody pomocnika, które zwracają wyniki tych wbudowanych akcji.
 
-W poniższym przykładzie, jeśli żądanie nie pasuje do istniejącego Identyfikatora produktu, kontrolera wywołuje [ApiController.NotFound](https://msdn.microsoft.com/library/system.web.http.apicontroller.notfound.aspx) do tworzenia odpowiedzi 404 (nie znaleziono). W przeciwnym razie wywołuje kontrolera [ApiController.OK](https://msdn.microsoft.com/library/dn314591.aspx), który utworzy odpowiedź 200 (OK) która zawiera produktu.
+W poniższym przykładzie, jeśli żądanie nie jest zgodny z istniejący identyfikator produktu, kontroler wywołuje [ApiController.NotFound](https://msdn.microsoft.com/library/system.web.http.apicontroller.notfound.aspx) do tworzenia odpowiedzi 404 (nie znaleziono). W przeciwnym razie kontroler wywołuje [ApiController.OK](https://msdn.microsoft.com/library/dn314591.aspx), która tworzy odpowiedź 200 (OK), zawiera produktu.
 
 [!code-csharp[Main](action-results/samples/sample10.cs)]
 
 ## <a name="other-return-types"></a>Inne typy zwracane
 
-Dla wszystkich innych typów zwracanych, używa interfejsu API sieci Web [nośnika elementu formatującego](../formats-and-model-binding/media-formatters.md) do serializacji wartości zwracanej. Interfejs API sieci Web zapisuje wartość zserializowana do treści odpowiedzi. Kod stanu odpowiedzi jest 200 (OK).
+Dla wszystkich innych typów zwrotu, korzysta z interfejsu API sieci Web [nośnika elementu formatującego](../formats-and-model-binding/media-formatters.md) serializować wartość zwracaną. Interfejs API sieci Web zapisuje wartość zserializowana do treści odpowiedzi. Kod stanu odpowiedzi to 200 (OK).
 
 [!code-csharp[Main](action-results/samples/sample11.cs)]
 
-Wadą tego podejścia to, że bezpośrednio nie może zwrócić kodu błędu, takie jak 404. Jednak może zgłosić **HttpResponseException** kodów błędów. Aby uzyskać więcej informacji, zobacz [obsługi wyjątków w ASP.NET Web API](../error-handling/exception-handling.md).
+Wadą tego podejścia jest, że bezpośrednio nie może zwrócić kod błędu, takie jak 404. Jednak może zgłosić **HttpResponseException** dla kodów błędów. Aby uzyskać więcej informacji, zobacz [Exception Handling in Web API platformy ASP.NET](../error-handling/exception-handling.md).
 
-Interfejsu API sieci Web używa nagłówek Accept w żądaniu, aby wybrać element formatujący. Aby uzyskać więcej informacji, zobacz [negocjacje zawartości](../formats-and-model-binding/content-negotiation.md).
+Internetowy interfejs API używa nagłówek Accept w żądaniu, aby wybrać element formatujący. Aby uzyskać więcej informacji, zobacz [negocjacje zawartości](../formats-and-model-binding/content-negotiation.md).
 
 Przykładowe żądanie
 
 [!code-console[Main](action-results/samples/sample12.cmd)]
 
-Przykład odpowiedzi:
+Przykładowa odpowiedź:
 
 [!code-console[Main](action-results/samples/sample13.cmd)]

@@ -1,31 +1,30 @@
 ---
 uid: mvc/videos/mvc-2/how-do-i/aspnet-mvc-2-areas
-title: Program ASP.NET MVC 2 - obszarów | Dokumentacja firmy Microsoft
+title: ASP.NET MVC 2 — obszary | Dokumentacja firmy Microsoft
 author: jongalloway
-description: W tym wideo dowiesz się, jak używać funkcji obszarów, aby ułatwić organizowanie dużych aplikacji ASP.NET MVC dzięki pozbyciu się je do różnych funct...
+description: W tym filmie wideo dowiesz się, jak za pomocą funkcji obszarów, aby ułatwić organizowanie większych aplikacji ASP.NET MVC, dzieląc je do różnych funct...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/22/2010
 ms.topic: article
 ms.assetid: 6ec738b6-c34c-4647-b8bf-9acb8d2a259d
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/aspnet-mvc-2-areas
 msc.type: video
-ms.openlocfilehash: 0abe3cf5b4c6bc11174a2470e222d1780ebbc4f8
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 4a0b16453837b6d3bb06b5eb08f44f16c9ac9ea6
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30872172"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37396562"
 ---
-<a name="aspnet-mvc-2---areas"></a>Program ASP.NET MVC 2 - obszarów
+<a name="aspnet-mvc-2---areas"></a>ASP.NET MVC 2 — obszary
 ====================
-przez [Galloway Jan](https://github.com/jongalloway)
+przez [Galloway'em Jon](https://github.com/jongalloway)
 
-W tym wideo dowiesz się, jak używać funkcji obszarów, aby ułatwić organizowanie dzięki pozbyciu się je do różnych obszarów funkcjonalnych dużych aplikacji ASP.NET MVC.
+W tym filmie wideo dowiesz się, jak za pomocą funkcji obszarów, aby ułatwić organizowanie większych aplikacji ASP.NET MVC, dzieląc je do różnych obszarów funkcjonalnych.
 
-[&#9654;Obejrzyj klip wideo (3 minuty)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-2-areas)
+[&#9654;Obejrzyj film wideo, (3 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-2-areas)
 
 > [!div class="step-by-step"]
 > [Poprzednie](mvc2-template-customization.md)

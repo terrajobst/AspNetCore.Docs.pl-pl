@@ -1,124 +1,123 @@
 ---
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-web-packages
-title: Wdrażanie pakietów sieci Web | Dokumentacja firmy Microsoft
+title: Wdrażanie pakietów internetowych | Dokumentacja firmy Microsoft
 author: jrjlee
-description: W tym temacie opisano, jak opublikować pakiety wdrażania w sieci web na serwerze zdalnym za pomocą usług Internet Information Services (IIS) Narzędzie Web Deployment (Web...
+description: W tym temacie opisano, jak opublikować pakiety wdrażania sieci web na serwerze zdalnym za pomocą usług Internet Information Services (IIS) Narzędzie Web Deployment (Web...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
 ms.topic: article
 ms.assetid: a5c5eed2-8683-40a5-a2e1-35c9f8d17c29
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-web-packages
 msc.type: authoredcontent
-ms.openlocfilehash: 5d3af0fdcc6e7ae20194ba658e0cf72ad22c1234
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: a660a9a5593d41064ab099296d4a7a675b206bb5
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30887506"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37392861"
 ---
-<a name="deploying-web-packages"></a>Wdrażanie pakietów sieci Web
+<a name="deploying-web-packages"></a>Wdrażanie pakietów internetowych
 ====================
-przez [Lewandowski Jason](https://github.com/jrjlee)
+przez [Jason Lee](https://github.com/jrjlee)
 
 [Pobierz plik PDF](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> W tym temacie opisano, jak opublikować pakiety wdrażania w sieci web na serwerze zdalnym za pomocą narzędzia wdrażania Internet Information Services (IIS) w sieci Web (Web Deploy) 2.0.
+> W tym temacie opisano, jak opublikować pakiety wdrażania sieci web na serwerze zdalnym za pomocą narzędzia wdrażania usług Internet Information Services (IIS) w sieci Web (Web Deploy) w wersji 2.0.
 > 
-> Istnieją dwa sposoby, w których można wdrożyć pakiet sieci web na serwerze zdalnym:
+> Istnieją dwa główne sposoby, w których można wdrożyć pakiet sieci web na serwerze zdalnym:
 > 
-> - Można użyć narzędzia wiersza polecenia programu MSDeploy.exe bezpośrednio.
-> - Można uruchomić *.deploy.cmd [Nazwa projektu]* plik, który generuje procesu kompilacji.
+> - Można użyć narzędzia wiersza polecenia MSDeploy.exe bezpośrednio.
+> - Możesz uruchomić *.deploy.cmd [Nazwa projektu]* plik, który generuje procesu kompilacji.
 > 
-> W rezultacie jest taka sama niezależnie od tego, które rozwiązanie używasz. Zasadniczo wszystkie *. pliku deploy.cmd* plik nie jest uruchomienie MSDeploy.exe z niektórych wartości ustalonej, dzięki czemu nie trzeba podać te informacje w celu wdrożenia pakietu. Upraszcza proces wdrażania. Z drugiej strony bezpośrednio za pomocą MSDeploy.exe zapewnia znacznie większą elastycznością za pośrednictwem dokładnie sposób wdrażania pakietu.
+> Efekt jest taki sam niezależnie od tego podejścia, którego używasz. Zasadniczo wszystkie *. pliku deploy.cmd* plik jest uruchomienie MSDeploy.exe z niektórych wstępnie zdefiniowanych wartości, dzięki czemu nie trzeba podać jak najwięcej informacji, aby wdrożyć pakiet. Upraszcza to proces wdrażania. Z drugiej strony bezpośrednio za pomocą MSDeploy.exe zapewnia znacznie większą elastyczność nad dokładnie sposób wdrażania pakietu.
 > 
-> Rozwiązania używasz zależy od wielu czynników, w tym poziom kontroli wymagają nad procesem wdrażania i czy docelowych usługi sieci Web wdrażanie agenta zdalnego lub obsługa wdrażania w sieci Web. W tym temacie wyjaśniono, jak używać każdego z podejść i identyfikuje podczas każdego z podejść jest odpowiedni.
+> Które rozwiązanie, możesz użyć będzie zależeć od wielu czynników, łącznie z jaką kontrolę wymagane przez proces wdrażania i tego, czy zostaną objęci usługa zdalnego agenta narzędzia Web Deploy lub program obsługi wdrażania sieci Web. W tym temacie wyjaśniono, jak używać każde podejście i umożliwia określenie, kiedy każde podejście jest odpowiednie.
 > 
-> Zadania i wskazówki, w tym temacie założono, że:
+> Zadania i wskazówki, w tym temacie przyjęto założenie, że:
 > 
-> - Został utworzony i spakowanej aplikacji sieci web, zgodnie z opisem w [budynku i projekty aplikacji sieci Web pakowania](building-and-packaging-web-application-projects.md).
-> - Zmodyfikowano *SetParameters.xml* plik, aby podać wartości odpowiednich parametrów środowiska docelowego zgodnie z opisem w [konfigurowania parametrów wdrażania pakietu sieci Web](configuring-parameters-for-web-package-deployment.md).
+> - Możesz już skompilowania i spakowania aplikację sieci web, zgodnie z opisem w [budowanie i projektów aplikacji sieci Web pakietu](building-and-packaging-web-application-projects.md).
+> - Zmodyfikowano *SetParameters.xml* plik, aby podać wartości parametrów odpowiednie dla danego środowiska docelowego, zgodnie z opisem w [konfigurowania parametrów wdrożenia pakietu internetowego](configuring-parameters-for-web-package-deployment.md).
 
 
-Uruchomiona [*Nazwa projektu*]*. pliku deploy.cmd* plik jest najprostszym sposobem, aby wdrożyć pakiet sieci web. W szczególności za pomocą *. pliku deploy.cmd* plików oferuje tych zalet w porównaniu z bezpośrednio za pomocą MSDeploy.exe:
+Uruchamianie [*Nazwa projektu*]*. pliku deploy.cmd* plik jest najprostszym sposobem wdrażania pakietu sieci web. W szczególności, za pomocą *. pliku deploy.cmd* pliku oferuje następujące korzyści za pośrednictwem bezpośrednio za pomocą MSDeploy.exe:
 
-- Nie musisz określić lokalizację pakietu wdrożeniowego sieci web&#x2014; *. pliku deploy.cmd* pliku zna już, gdzie jest.
-- Nie musisz określić lokalizację *SetParameters.xml* pliku&#x2014; *. pliku deploy.cmd* pliku zna już, gdzie jest.
-- Nie trzeba określać źródłowy i docelowy dostawców MSDeploy&#x2014; *. pliku deploy.cmd* pliku zna już wartości, które mają być używane.
-- Nie trzeba określać ustawienia działania MSDeploy&#x2014; *. pliku deploy.cmd* file dodaje najczęściej wymagane wartości polecenie MSDeploy.exe automatycznie.
+- Nie potrzebujesz określić lokalizację pakietu wdrażania sieci web&#x2014; *. pliku deploy.cmd* pliku wie już, gdzie jest.
+- Nie musisz określić lokalizację *SetParameters.xml* pliku&#x2014; *. pliku deploy.cmd* pliku wie już, gdzie jest.
+- Określ dostawców MSDeploy źródłowym i docelowym nie ma potrzeby&#x2014; *. pliku deploy.cmd* pliku już zna wartości, które mają być używane.
+- Nie należy określić ustawienia działania MSDeploy&#x2014; *. pliku deploy.cmd* pliku najczęściej wymaganych wartości do polecenia MSDeploy.exe automatycznie dodaje.
 
 Przed użyciem *. pliku deploy.cmd* plik, aby wdrożyć pakiet sieci web, należy upewnić się, że:
 
-- *. Pliku deploy.cmd* pliku [*Nazwa projektu*]. *SetParameters.xml* plików i pakietu sieci web ([*Nazwa projektu*]. *ZIP*) znajdują się w tym samym folderze.
-- Narzędzie Web Deploy (MSDeploy.exe) jest zainstalowany na komputerze z uruchomionym programem *. pliku deploy.cmd* pliku.
+- *. Pliku deploy.cmd* pliku [*Nazwa projektu*]. *SetParameters.xml* plików i pakiet sieci web ([*Nazwa projektu*]. *ZIP*) znajdują się w tym samym folderze.
+- Narzędzie Web Deploy (MSDeploy.exe) jest zainstalowany na komputerze z uruchomionym *. pliku deploy.cmd* pliku.
 
-*. Pliku deploy.cmd* plik obsługuje różne opcje wiersza polecenia. Po uruchomieniu pliku z wiersza polecenia jest to podstawowa składnia:
+*. Pliku deploy.cmd* pliku obsługuje różne opcje wiersza polecenia. Po uruchomieniu pliku w wierszu polecenia, jest to podstawowa składnia:
 
 
 [!code-console[Main](deploying-web-packages/samples/sample1.cmd)]
 
 
-Należy określić **/T** flagi lub **/Y** flagę, aby wskazać, czy chcesz wykonać odpowiednio próbnej lub wdrażania na żywo (nie używaj flagi zarówno w tym samym poleceniu). W następującej tabeli opisano przeznaczenie każdej z tych flag.
+Należy określić **/t** flagi lub **/Y** flagi, aby wskazać, czy chcesz przeprowadzić wdrożenie na żywo lub próbnej odpowiednio (nie używaj obie flagi w tym samym poleceniu). Ta tabela zawiera wyjaśnienie przeznaczenia każdego z tych flag.
 
 | Flaga | Opis |
 | --- | --- |
-| **/T** | Wywołuje MSDeploy.exe z **-whatif** flagę wskazującą, próbnej. Zamiast wdrażania pakietu, tworzy raport na temat tego, co się stanie, jeśli pakiet został wdrożony. |
-| **/Y** | Wywołuje MSDeploy.exe bez **-whatif** flagi. To wdrożenie pakietu na komputerze lokalnym lub wybrany serwer docelowy. |
-| **/M** | Wskazuje serwer docelowy nazwa lub adres URL usługi. Aby uzyskać więcej informacji o wartościach podanych tutaj zobacz **zagadnienia dotyczące punktu końcowego** w tym temacie. W przypadku pominięcia **/M** flagi, pakiet zostanie wdrożony na komputerze lokalnym. |
-| **/A** | Określa typ uwierzytelniania, która powinna być używana do wykonywania wdrożenia MSDeploy.exe. Możliwe wartości to **NTLM** i **podstawowe**. W przypadku pominięcia **/A** flagę domyślnie typ uwierzytelniania **NTLM** wdrożenia do usługi sieci Web wdrażanie agenta zdalnego oraz na **podstawowe** wdrożenia do narzędzia Web Deploy Program obsługi. |
+| **/T** | Wywołuje MSDeploy.exe z **whatif** flagę wskazującą uruchomienia próbnego. Zamiast wdrażania pakietu, tworzy raport co się stanie, jeśli pakiet został wdrożony. |
+| **/Y** | Wywołuje MSDeploy.exe bez **whatif** flagi. To wdrożenie pakietu na komputerze lokalnym lub wybrany serwer docelowy. |
+| **/M** | Określa serwer docelowy nazwę lub adres URL usługi. Aby uzyskać więcej informacji na podstawie wartości podanych tutaj zobaczyć **zagadnienia dotyczące punktu końcowego** w tym temacie. Jeżeli pominięto **/M** flagi, pakiet zostanie wdrożony na komputerze lokalnym. |
+| **/A** | Określa typ uwierzytelniania, która MSDeploy.exe powinna być używana do wykonywania wdrożenia. Możliwe wartości to **NTLM** i **podstawowe**. Jeżeli pominięto **/A** flagi, typ uwierzytelniania, który domyślnie przyjmuje wartość **NTLM** dla wdrożenia usługi zdalnego agenta narzędzia Web Deploy a do **podstawowe** wdrożenia do narzędzia Web Deploy Program obsługi. |
 | **/U** | Określa nazwę użytkownika. Dotyczy to tylko wtedy, gdy używasz uwierzytelniania podstawowego. |
 | **/P** | Określa hasło. Dotyczy to tylko wtedy, gdy używasz uwierzytelniania podstawowego. |
-| **/L** | Wskazuje, czy powinny zostać wdrożone pakiet do lokalnego wystąpienia usług IIS Express. |
-| **/G** | Określa, że pakiet jest wdrażany przy użyciu [ustawienie dostawcy tempAgent](https://technet.microsoft.com/library/ee517345(WS.10).aspx). W przypadku pominięcia **/G** flagi, domyślnie przyjmowana jest wartość **false**. |
+| **/L** | Wskazuje, że pakiet powinny być wdrażane z lokalnym wystąpieniem usług IIS Express. |
+| **/G** | Określa, że pakiet jest wdrażany za pomocą [ustawienie dostawcy tempAgent](https://technet.microsoft.com/library/ee517345(WS.10).aspx). Jeżeli pominięto **/G** flagi, przyjmowana jest wartość domyślna **false**. |
 
 > [!NOTE]
 > Za każdym razem, gdy proces kompilacji tworzy pakiet sieci web, również tworzy plik o nazwie *[Nazwa projektu] .deploy-readme.txt* objaśniający te opcje wdrażania.
 
 
-Oprócz tych flag, można określić ustawienia działania narzędzia Web Deploy jako dodatkowe *. pliku deploy.cmd* parametrów. Dodatkowe ustawienia, które określisz po prostu są przekazywane do podstawowej polecenie MSDeploy.exe. Aby uzyskać więcej informacji na temat tych ustawień, zobacz [ustawienia operację wdrażania w sieci Web](https://technet.microsoft.com/library/dd569089(WS.10).aspx).
+Oprócz tych flag można określić ustawienia działania narzędzia Web Deploy jako dodatkowe *. pliku deploy.cmd* parametrów. Dodatkowe ustawienia, które określisz po prostu są przekazywane do źródłowej polecenie MSDeploy.exe. Aby uzyskać więcej informacji na temat tych ustawień, zobacz [ustawienia operacji wdrażania w sieci Web](https://technet.microsoft.com/library/dd569089(WS.10).aspx).
 
-Załóżmy, że chcesz wdrożyć projekt aplikacji sieci web ContactManager.Mvc do środowiska testowego, uruchamiając *. pliku deploy.cmd* pliku. Środowiska testowego jest skonfigurowany do korzystania z usługi sieci Web wdrażanie agenta zdalnego, zgodnie z opisem w [Konfiguracja serwera sieci Web dla wdrożenia publikowania w sieci Web (agenta zdalnego)](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent.md). Aby wdrożyć aplikację sieci web, należy wykonać poniższe czynności.
+Załóżmy, że mają zostać wdrożone ContactManager.Mvc projektu aplikacji sieci web w środowisku testowym, uruchamiając *. pliku deploy.cmd* pliku. Środowiska testowego jest skonfigurowany do korzystania z usługi zdalnego agenta narzędzia Web Deploy, zgodnie z opisem w [Konfigurowanie serwera sieci Web dla wdrożenia publikowania w sieci Web (Agent zdalny)](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent.md). Aby wdrożyć aplikację sieci web, należy wykonać poniższe czynności.
 
-**Aby wdrożyć aplikację sieci web przy użyciu. plikiem deploy.cmd pliku**
+**Aby wdrożyć aplikację sieci web przy użyciu. pliku deploy.cmd pliku**
 
-1. Tworzenie i pakiet projektu aplikacji sieci web, zgodnie z opisem w [budynku i projekty aplikacji sieci Web pakowania](building-and-packaging-web-application-projects.md).
-2. Modyfikowanie *ContactManager.Mvc.SetParameters.xml* plik zawiera wartości odpowiedni parametr dla danego środowiska testowego zgodnie z opisem w [konfigurowania parametrów wdrażania pakietu sieci Web](configuring-parameters-for-web-package-deployment.md).
+1. Tworzenie i pakowanie projektu aplikacji sieci web, zgodnie z opisem w [budowanie i projektów aplikacji sieci Web pakietu](building-and-packaging-web-application-projects.md).
+2. Modyfikowanie *ContactManager.Mvc.SetParameters.xml* plik będzie zawierał wartości odpowiedni parametr dla danego środowiska testowego zgodnie z opisem w [konfigurowania parametrów wdrożenia pakietu internetowego](configuring-parameters-for-web-package-deployment.md).
 3. Otwórz okno wiersza polecenia i przejdź do lokalizacji *ContactManager.Mvc.deploy.cmd* pliku.
-4. Wpisz następujące polecenie, a następnie naciśnij klawisz Enter:
+4. Wpisz następujące polecenie i naciśnij klawisz Enter:
 
     [!code-console[Main](deploying-web-packages/samples/sample2.cmd)]
 
 W tym przykładzie:
 
-- **/Y** flaga wskazuje, że chcesz rzeczywiście wdrożony pakiet, a nie podczas korzystania z wersji próbnej Uruchom.
-- **/M** flaga wskazuje, że chcesz wdrożyć pakiet na serwerze o nazwie TESTWEB1. Od tej wartości MSDeploy.exe będzie podejmować próby wdrożenia pakietu z usługą sieci Web wdrażanie agenta zdalnego w http://TESTWEB1/MSDeployAgentService.
-- **/A** flaga wskazuje, czy chcesz korzystać z uwierzytelniania NTLM. Tak nie trzeba określić nazwę użytkownika i hasło.
+- **/Y** flaga wskazuje, że chcesz pakiet zostanie rzeczywiście wdrożony, a nie podczas korzystania z wersji próbnej Uruchom.
+- **/M** flaga wskazuje, że ma zostać wdrożony pakiet funkcji na serwerze o nazwie TESTWEB1. Z tej wartości MSDeploy.exe podejmie próbę wdrożyć pakiet usługi zdalnego agenta narzędzia Web Deploy na http://TESTWEB1/MSDeployAgentService.
+- **/A** flaga wskazuje, że chcesz użyć uwierzytelniania NTLM. W efekcie nie musisz określić nazwę użytkownika i hasło.
 
-Aby zilustrować jak polecenie *. pliku deploy.cmd* pliku upraszcza proces wdrażania, Przyjrzyjmy się polecenie MSDeploy.exe, które pobiera wygenerowany i wykonywane po uruchomieniu *ContactManager.Mvc.deploy.cmd* przy użyciu opcji wymienionych powyżej.
+Aby zilustrować, jak przy użyciu *. pliku deploy.cmd* pliku upraszcza proces wdrażania, Przyjrzyj się polecenie MSDeploy.exe, który pobiera wygenerowany i wykonać po uruchomieniu *ContactManager.Mvc.deploy.cmd* przy użyciu opcji wymienionych powyżej.
 
 
 [!code-console[Main](deploying-web-packages/samples/sample3.cmd)]
 
 
-Aby uzyskać więcej informacji na temat używania *. pliku deploy.cmd* plik, aby wdrożyć pakiet sieci web, zobacz [porady: Zainstaluj wdrażania pakietu przy użyciu pliku deploy.cmd pliku](https://msdn.microsoft.com/library/ff356104.aspx).
+Aby uzyskać więcej informacji na temat korzystania z *. pliku deploy.cmd* plik, aby wdrożyć pakiet sieci web, zobacz [porady: Instalowanie wdrażania pakietu przy użyciu pliku deploy.cmd pliku](https://msdn.microsoft.com/library/ff356104.aspx).
 
-## <a name="using-msdeployexe"></a>Przy użyciu MSDeploy.exe
+## <a name="using-msdeployexe"></a>Za pomocą MSDeploy.exe
 
-Mimo że używanie *. pliku deploy.cmd* pliku zazwyczaj upraszcza proces wdrażania, istnieje kilka sytuacji, gdy nie jest bezpośrednio użyć MSDeploy.exe. Na przykład:
+Mimo że używanie *. pliku deploy.cmd* pliku ogólnie upraszcza proces wdrażania, istnieje kilka sytuacji, gdy jest ona lepiej jest używać MSDeploy.exe bezpośrednio. Na przykład:
 
-- Jeśli chcesz wdrożyć do obsługi wdrażania sieci Web jako użytkownik bez uprawnień administratora, nie można użyć *. pliku deploy.cmd* pliku. Jest to spowodowane błędem w narzędziu Web Deploy 2.0, zgodnie z opisem w **zagadnienia dotyczące punktu końcowego**.
-- Jeśli chcesz ręcznie przełączać się między różnymi *SetParameters.xml* plików w różnych lokalizacjach, użytkownik może chcieć użyć MSDeploy.exe bezpośrednio.
-- Jeśli chcesz przesłonić kilka MSDeploy.exe argumenty wiersza polecenia, można użyć bezpośrednio MSDeploy.exe.
+- Jeśli chcesz wdrożyć do obsługi wdrażania sieci Web jako użytkownik bez uprawnień administratora, nie możesz użyć *. pliku deploy.cmd* pliku. Jest to spowodowane błędem w narzędziu Web Deploy 2.0, zgodnie z opisem w obszarze **zagadnienia dotyczące punktu końcowego**.
+- Jeśli chcesz ręcznie przełączać się między różnymi *SetParameters.xml* plików w różnych lokalizacjach, warto użyć MSDeploy.exe bezpośrednio.
+- Jeśli chcesz przesłonić kilka MSDeploy.exe argumenty wiersza polecenia, można użyć MSDeploy.exe bezpośrednio.
 
 Gdy używasz MSDeploy.exe, należy podać trzy kluczowe informacje:
 
-- A **— źródło** parametrem, który wskazuje, gdzie pochodzi z danych.
-- A **— dest** parametrem, który wskazuje, gdzie ma danych.
+- A **— źródło** parametrem, który wskazuje, skąd pochodzą dane.
+- A **— dest** parametrem, który wskazuje, gdzie dane.
 - A **— zlecenie** parametrem, który wskazuje [operacji](https://technet.microsoft.com/library/dd568989(WS.10).aspx) chcesz wykonać.
 
-Zależy od MSDeploy.exe [narzędzia Web Deploy dostawców](https://technet.microsoft.com/library/dd569040(WS.10).aspx) do przetwarzania danych źródłowych i docelowych. Narzędzie Web Deploy zawiera wiele dostawców reprezentujących zakresu źródeł danych i aplikacji może współpracować z&#x2014;na przykład istnieją dostawców dla baz danych programu SQL Server, serwery sieci web usług IIS, certyfikaty, zestawów (GAC) w pamięci podręcznej GAC, różnych pliki konfiguracji różnych i wiele innych typów danych. Zarówno **— źródło** parametru i **— dest** parametr musi określać dostawcy, w formularzu **— źródło**: [*providerName*] = [*lokalizacji*]. Podczas wdrażania pakietu sieci web do witryny sieci Web usług IIS, należy użyć tych wartości:
+MSDeploy.exe opiera się na [narzędzia Web Deploy dostawców](https://technet.microsoft.com/library/dd569040(WS.10).aspx) do przetwarzania danych źródłowych i docelowych. Narzędzie Web Deploy obejmuje wiele dostawców, które reprezentują zakres źródeł danych i aplikacji może pracować&#x2014;na przykład istnieją dostawców dla baz danych programu SQL Server, serwery sieci web usług IIS, certyfikaty i globalnej zestawów (GAC) w pamięci podręcznej, różne różnymi plikami konfiguracji, a wiele innych typów danych. Zarówno **— źródło** parametru i **— dest** parametr musi określać dostawcy, w postaci **— źródło**: [*providerName*] = [*lokalizacji*]. Podczas wdrażania pakietu sieci web w witrynie sieci Web usług IIS, należy użyć tych wartości:
 
 - **— Źródło** dostawcy jest zawsze [pakietu](https://technet.microsoft.com/library/dd569019(WS.10).aspx). Na przykład:
 
@@ -130,89 +129,89 @@ Zależy od MSDeploy.exe [narzędzia Web Deploy dostawców](https://technet.micro
 
     [!code-console[Main](deploying-web-packages/samples/sample6.cmd)]
 
-Ponadto należy określić różne inne [ustawień specyficznych dla dostawcy](https://technet.microsoft.com/library/dd569001(WS.10).aspx) i ogólne [ustawienia działania](https://technet.microsoft.com/library/dd569089(WS.10).aspx). Na przykład załóżmy, że chcesz wdrożyć aplikację sieci web ContactManager.Mvc w środowisku przemieszczania. Wdrożenia będzie obowiązywać obsługi wdrażania sieci Web i użyć uwierzytelniania podstawowego. Aby wdrożyć aplikację sieci web, należy wykonać poniższe czynności.
+Ponadto musisz określić różnych innych [ustawienia specyficzne dla dostawcy](https://technet.microsoft.com/library/dd569001(WS.10).aspx) i ogólne [ustawienia działania](https://technet.microsoft.com/library/dd569089(WS.10).aspx). Na przykład załóżmy, że chcesz wdrożyć aplikację sieci web ContactManager.Mvc w środowisku przejściowym. Wdrożenie będą ukierunkowane na program obsługi wdrażania sieci Web i muszą korzystać z uwierzytelniania podstawowego. Aby wdrożyć aplikację sieci web, należy wykonać poniższe czynności.
 
 **Aby wdrożyć aplikację sieci web przy użyciu MSDeploy.exe**
 
-1. Tworzenie i pakiet projektu aplikacji sieci web, zgodnie z opisem w [budynku i projekty aplikacji sieci Web pakowania](building-and-packaging-web-application-projects.md).
-2. Modyfikowanie *ContactManager.Mvc.SetParameters.xml* plik zawiera wartości odpowiedni parametr dla danego środowiska przemieszczania, zgodnie z opisem w [konfigurowania parametrów wdrażania pakietu sieci Web](configuring-parameters-for-web-package-deployment.md).
-3. Otwórz okno wiersza polecenia i przejdź do lokalizacji MSDeploy.exe. Jest to zazwyczaj na %PROGRAMFILES%\IIS\Microsoft V2\msdeploy.exe wdrażania w sieci Web.
-4. Wpisz następujące polecenie i naciśnij klawisz Enter (pominąć podziały):
+1. Tworzenie i pakowanie projektu aplikacji sieci web, zgodnie z opisem w [budowanie i projektów aplikacji sieci Web pakietu](building-and-packaging-web-application-projects.md).
+2. Modyfikowanie *ContactManager.Mvc.SetParameters.xml* plik będzie zawierał wartości odpowiedni parametr w środowisku przejściowym, zgodnie z opisem w [konfigurowania parametrów wdrożenia pakietu internetowego](configuring-parameters-for-web-package-deployment.md).
+3. Otwórz okno wiersza polecenia i przejdź do lokalizacji programu MSDeploy.exe. Jest to zazwyczaj na %PROGRAMFILES%\IIS\Microsoft V2\msdeploy.exe wdrażania sieci Web.
+4. Wpisz następujące polecenie i naciśnij klawisz Enter (Zignoruj podziały wiersza):
 
     [!code-console[Main](deploying-web-packages/samples/sample7.cmd)]
 
 W tym przykładzie:
 
-- **— Źródło** określa parametr **pakietu** dostawcy i wskazuje lokalizację pakietu sieci web.
-- **— Dest** określa parametr **automatycznie** dostawcy. **ComputerName** ustawienie zawiera adres URL usługi sieci Web obsługi wdrażania na serwerze docelowym. **Typ** ustawienie wskazuje, że chcesz użyć uwierzytelniania podstawowego i jako taki musisz podać **username** i **hasło**. Na koniec **includeAcls = "False"** ustawienie wskazuje, że nie chcesz kopiować listy kontroli dostępu (ACL) plików w aplikacji sieci web źródłowego na serwer docelowy.
-- **— Zlecenie: synchronizacja** argument wskazuje, że chcesz replikować zawartość źródłową na serwerze docelowym.
-- **— DisableLink** argumenty wskazują, że nie chcesz replikować pule aplikacji, katalogu wirtualnego konfiguracji lub certyfikatów Secure Sockets Layer (SSL) na serwerze docelowym. Aby uzyskać więcej informacji, zobacz [rozszerzeń łączy wdrażania w sieci Web](https://technet.microsoft.com/library/dd569028(WS.10).aspx).
-- **— SetParamFile** parametru zapewnia lokalizację *SetParameters.xml* pliku.
-- **— AllowUntrusted** przełącznika wskazuje, że narzędzia Web Deploy należy zaakceptować certyfikatów SSL, które nie zostały wystawione przez zaufany urząd certyfikacji. Jeśli wdrażasz do obsługi wdrażania sieci Web i certyfikatu z podpisem własnym był używany do zabezpieczania adres URL usługi, należy dołączyć ten przełącznik.
+- **— Źródło** parametr określa **pakietu** dostawcy i wskazuje lokalizację pakietu sieci web.
+- **— Dest** parametr określa **automatycznie** dostawcy. **ComputerName** ustawienie udostępnia adres URL usługi sieci Web wdrażanie obsługi na serwerze docelowym. **Authtype** ustawienie wskazuje, że chcesz użyć uwierzytelniania podstawowego, a w związku z tym należy podać **username** i **hasło**. Na koniec **includeAcls = "False"** ustawienie wskazuje, że nie chcesz skopiować listy kontroli dostępu (ACL) plików w aplikacji sieci web źródłowego na serwer docelowy.
+- **— Zlecenie: synchronizacja** argument wskazuje, czy chcesz replikować zawartość źródłową na serwerze docelowym.
+- **— DisableLink** argumenty wskazują, że nie chcesz replikować pul aplikacji, katalog wirtualny konfiguracji lub certyfikatów Secure Sockets Layer (SSL) na serwerze docelowym. Aby uzyskać więcej informacji, zobacz [rozszerzeń łączy wdrażania w sieci Web](https://technet.microsoft.com/library/dd569028(WS.10).aspx).
+- **— SetParamFile** parametr określa lokalizację *SetParameters.xml* pliku.
+- **— AllowUntrusted** przełącznika wskazuje, że narzędzie Web Deploy należy akceptować certyfikaty SSL, które nie zostały wystawione przez zaufany urząd certyfikacji. Jeśli wdrażasz do obsługi wdrażania sieci Web, a certyfikat z podpisem własnym został użyty do bezpiecznego adresu URL usługi, należy dołączyć ten przełącznik.
 
-## <a name="automating-web-package-deployment"></a>Automatyzacja wdrażania pakietu sieci Web
+## <a name="automating-web-package-deployment"></a>Automatyzowanie wdrażania pakietu sieci Web
 
-W wielu scenariuszach dla przedsiębiorstwa należy wdrożyć w ramach większych pojedynczy krok lub zautomatyzowanego wdrażania pakietów sieci web. Niezależnie od tego, czy użytkownik chce wdrożyć pakietów sieci web, uruchamiając *. pliku deploy.cmd* plików lub przy użyciu MSDeploy.exe bezpośrednio, parametryzacja poleceń i skontaktuj się z obiektem docelowym aparat kompilacji firmy Microsoft (MSBuild) plik projektu.
+W wielu scenariuszach dla przedsiębiorstw będzie można wdrożyć pakietów sieci web jako część większych pojedynczy krok lub automatycznego wdrażania. Niezależnie od tego, czy istnieje możliwość wdrażania pakietów usługi sieci web, uruchamiając *. pliku deploy.cmd* pliku lub bezpośrednio za pomocą MSDeploy.exe, można zdefiniować parametry poleceń i wywoływać je z obiektem docelowym aparatu Microsoft Build Engine (MSBuild) plik projektu.
 
-W rozwiązaniu próbki menedżera kontaktu, Przyjrzyjmy się **PublishWebPackages** obiektów docelowych w *Publish.proj* pliku. Ten element docelowy jest uruchamiane jeden raz dla każdego *. pliku deploy.cmd* identyfikowana na podstawie listy elementów o nazwie pliku **PublishPackages**. Obiekt docelowy używa właściwości i elementu metadanych do zbudowania pełny zestaw wartości argumentu dla każdego *. pliku deploy.cmd* pliku, a następnie używa **Exec** zadań, aby uruchomić to polecenie.
+W przykładowym rozwiązaniu Contact Manager, zapoznaj się z **PublishWebPackages** obiektów docelowych w systemie *Publish.proj* pliku. Ten element docelowy jest wykonywany jednokrotnie dla każdego *. pliku deploy.cmd* identyfikowane za pomocą listy elementów o nazwie pliku **PublishPackages**. Obiekt docelowy używa właściwości i metadanych elementu do utworzenia pełny zestaw wartości argumentu dla każdego *. pliku deploy.cmd* pliku, a następnie używa **Exec** zadania do uruchomienia polecenia.
 
 
 [!code-xml[Main](deploying-web-packages/samples/sample8.xml)]
 
 
 > [!NOTE]
-> Szersze omówienie modelu pliku projektu w przykładowe rozwiązanie i wprowadzenie do plików projektów niestandardowych w ogólności, zobacz [opis pliku projektu](understanding-the-project-file.md) i [opis procesu kompilacji](understanding-the-build-process.md).
+> Omówienie szerszej model pliku projektu w przykładowym rozwiązaniu i zapoznać się z wprowadzeniem do projektu niestandardowych plików ogólnie rzecz biorąc, zobacz [objaśnienie pliku projektu](understanding-the-project-file.md) i [objaśnienie procesu kompilacji](understanding-the-build-process.md).
 
 
 ## <a name="endpoint-considerations"></a>Zagadnienia dotyczące punktu końcowego
 
-Niezależnie od tego, czy wdrażania pakietu sieci web, uruchamiając *. pliku deploy.cmd* plików lub przy użyciu MSDeploy.exe bezpośrednio, należy określić nazwę komputera lub punkt końcowy usługi dla danego wdrożenia.
+Niezależnie od tego, czy wdrożyć pakiet usługi sieci web, uruchamiając *. pliku deploy.cmd* pliku lub bezpośrednio za pomocą MSDeploy.exe, należy określić nazwę komputera lub punkt końcowy usługi dla danego wdrożenia.
 
-Jeśli serwer sieci web docelowy został skonfigurowany dla wdrożenia przy użyciu usługi sieci Web wdrażanie agenta zdalnego, należy określić docelowy adres URL usługi jako lokalizacja docelowa.
+Jeśli serwer sieci web docelowy jest skonfigurowany do wdrożenia przy użyciu usługi zdalnego agenta narzędzia Web Deploy, można określić docelowy adres URL usługi jako lokalizacji docelowej.
 
 
 [!code-console[Main](deploying-web-packages/samples/sample9.cmd)]
 
 
-Alternatywnie można określić tylko nazwa serwera jako lokalizacja docelowa i Web Deploy wywnioskuje adres URL usługi agenta zdalnego.
+Alternatywnie można określić nazwę serwera, tylko jako lokalizacji docelowej i narzędzia Web Deploy wywnioskuje adres URL usługi agenta zdalnego.
 
 
 [!code-console[Main](deploying-web-packages/samples/sample10.cmd)]
 
 
-Jeśli serwer sieci web docelowy został skonfigurowany dla wdrożenia przy użyciu procedury obsługi wdrażania w sieci Web, należy określić adres punktu końcowego usługi IIS sieci Web zarządzania (WMSvc) jako lokalizacja docelowa. Domyślnie to ma postać:
+Jeśli serwer sieci web docelowy został skonfigurowany do wdrożenia przy użyciu obsługi wdrażania sieci Web, należy określić adres punktu końcowego usługi zarządzania siecią Web usług IIS (WMSvc) jako lokalizacji docelowej. Domyślnie ta ma postać:
 
 
 [!code-console[Main](deploying-web-packages/samples/sample11.cmd)]
 
 
-Możesz zastosować dowolną z tych punktów końcowych przy użyciu *. pliku deploy.cmd* pliku lub bezpośrednio MSDeploy.exe. Jednak jeśli chcesz wdrożyć program obsługi wdrażania sieci Web jako użytkownik bez uprawnień administratora, zgodnie z opisem w [Konfiguracja serwera sieci Web dla wdrożenia publikowania w sieci Web (Obsługa wdrażania w sieci Web)](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md), należy dodać ciąg zapytania do adresu punktu końcowego usługi.
+Można wskazać dowolne z tych punktów końcowych przy użyciu *. pliku deploy.cmd* pliku lub bezpośrednio MSDeploy.exe. Jednakże jeśli chcesz wdrożyć program obsługi wdrażania sieci Web jako użytkownik bez uprawnień administratora, zgodnie z opisem w [Konfigurowanie serwera sieci Web dla wdrożenia publikowania w sieci Web (Web wdrażanie obsługi)](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md), należy dodać ciąg zapytania do adresu punktu końcowego usługi.
 
 
 [!code-console[Main](deploying-web-packages/samples/sample12.cmd)]
 
 
-To dlatego użytkownik bez uprawnień administratora nie ma dostępu na poziomie serwera w usługach IIS; użytkownik ma dostęp tylko do określonej witryny sieci Web usług IIS. W tym czasie zapisu z powodu błędu w sieci Web potok publikowania (WPP), nie można uruchomić *. pliku deploy.cmd* plików przy użyciu adresu punktu końcowego, który zawiera ciąg zapytania. W tym scenariuszu należy wdrożyć pakiet sieci web przy użyciu MSDeploy.exe bezpośrednio.
+Jest to spowodowane użytkownik niebędący administratorem nie ma dostępu na poziomie serwera w usługach IIS; użytkownik ma dostęp tylko do określonej witryny sieci Web usług IIS. W czasie pisania, ze względu na usterkę w sieci Web potok publikowania (WPP), nie można uruchomić *. pliku deploy.cmd* plików przy użyciu adresu punktu końcowego, który zawiera ciąg zapytania. W tym scenariuszu należy wdrożyć pakiet usługi sieci web bezpośrednio za pomocą MSDeploy.exe.
 
 > [!NOTE]
-> Aby uzyskać więcej informacji dotyczących usługi sieci Web wdrażanie agenta zdalnego i program obsługi wdrażania sieci Web, zobacz [Wybieranie podejście prawo do wdrożenia w sieci Web](../configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment.md). Aby uzyskać wskazówki dotyczące sposobu konfigurowania plików projektu określonego środowiska do wdrożenia z tymi punktami końcowymi, zobacz [konfigurowania właściwości wdrożenia dla środowiska docelowego](../configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment.md).
+> Aby uzyskać więcej informacji na temat usługi zdalnego agenta narzędzia Web Deploy i obsługi wdrażania sieci Web, zobacz [Wybieranie podejścia prawo do wdrażania w Internecie](../configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment.md). Aby uzyskać wskazówki dotyczące sposobu konfigurowania plików projektu specyficznymi dla środowiska do wdrożenia z tymi punktami końcowymi, zobacz [Konfigurowanie właściwości wdrożenia dla środowiska docelowego](../configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment.md).
 
 
 ## <a name="authentication-considerations"></a>Zagadnienia dotyczące uwierzytelniania
 
-Niezależnie od tego, czy wdrażania pakietu sieci web, uruchamiając *. pliku deploy.cmd* plików lub przy użyciu MSDeploy.exe bezpośrednio, należy określić typ uwierzytelniania. Narzędzie Web Deploy akceptuje dwa możliwe wartości: **NTLM** lub **podstawowe**. Jeśli określisz uwierzytelnianie podstawowe, należy podać nazwę użytkownika i hasło. Istnieją różne czynniki, które należy znać po wybraniu typu uwierzytelniania:
+Niezależnie od tego, czy wdrożyć pakiet usługi sieci web, uruchamiając *. pliku deploy.cmd* pliku lub bezpośrednio za pomocą MSDeploy.exe, należy określić typ uwierzytelniania. Narzędzie Web Deploy akceptuje dwóch wartości: **NTLM** lub **podstawowe**. Jeśli określisz opcję Uwierzytelnianie podstawowe, należy podać nazwę użytkownika i hasło. Istnieją różne czynniki, które musisz wiedzieć, kiedy wybierz typ uwierzytelniania:
 
-- W przypadku instalowania usługi sieci Web wdrażanie agenta zdalnego, należy użyć uwierzytelniania NTLM. Usługa agenta zdalnego nie akceptuje podstawowe poświadczenia uwierzytelniania.
-- Jeśli wdrażasz do obsługi wdrażania w sieci Web, można użyć protokołu NTLM lub uwierzytelniania podstawowego. Ustawieniem domyślnym jest uwierzytelnianie podstawowe. Mimo że podstawowe uwierzytelnianie opiera się na nazwy użytkownika i hasła przesyłanych w postaci zwykłego tekstu, poświadczenia są chronione jako program obsługi wdrażania sieci Web zawsze używa szyfrowania SSL.
-- Jeśli pakiet sieci web zawiera bazę danych, a serwer sieci web i serwera bazy danych są osobne maszyny, nie będzie mógł wdrożyć bazę danych przy użyciu uwierzytelniania NTLM, ze względu na [ograniczenia uwierzytelniania NTLM "podwójnym przeskokiem"](https://go.microsoft.com/?linkid=9805120). Należy podać poświadczenia uwierzytelniania podstawowego do narzędzia Web Deploy albo użyj poświadczeń programu SQL Server w ciągu połączenia wdrożenia. Ten problem jest opisany bardziej szczegółowo w [wdrażanie baz danych członkostwa w środowiskach przedsiębiorstw](../advanced-enterprise-web-deployment/deploying-membership-databases-to-enterprise-environments.md).
+- Jeśli wdrażasz usługi zdalnego agenta narzędzia Web Deploy, należy użyć uwierzytelniania NTLM. Usługa agenta zdalnego nie akceptuje podstawowe poświadczenia uwierzytelniania.
+- Jeśli wdrażasz do obsługi wdrażania sieci Web, można użyć protokołu NTLM lub uwierzytelniania podstawowego. Ustawieniem domyślnym jest uwierzytelnianie podstawowe. Mimo że uwierzytelnianie podstawowe, zależy od nazwy użytkownika i hasła przesyłanych w postaci zwykłego tekstu, poświadczenia są chronione jako program obsługi wdrażania sieci Web zawsze używa szyfrowania protokołu SSL.
+- Jeśli pakiet sieci web zawiera bazę danych, a serwer sieci web a serwerem bazy danych są osobne maszyny, nie będzie mógł wdrożyć bazę danych przy użyciu uwierzytelniania NTLM, ze względu na [ograniczenia uwierzytelniania NTLM "podwójny przeskok"](https://go.microsoft.com/?linkid=9805120). Musisz podać poświadczenia uwierzytelniania podstawowego do narzędzia Web Deploy lub Użyj poświadczeń programu SQL Server w ciągu połączenia wdrożenia. Ten problem jest opisany bardziej szczegółowo w [wdrażanie baz danych członkostwa w środowiskach przedsiębiorstw](../advanced-enterprise-web-deployment/deploying-membership-databases-to-enterprise-environments.md).
 
 ## <a name="conclusion"></a>Wniosek
 
-W tym temacie opisano sposób wdrażania pakietu sieci web albo uruchamiając *. pliku deploy.cmd* plików lub przy użyciu MSDeploy.exe bezpośrednio. Wyjaśniono go, gdy każde podejście może być odpowiednie, a on opisany sposób parametryzacja i uruchom polecenie wdrożenia jako część większego procesu kompilacji pojedynczy krok lub automatyczne.
+W tym temacie opisano sposób wdrażania pakietu sieci web albo uruchamiając *. pliku deploy.cmd* pliku lub bezpośrednio za pomocą MSDeploy.exe. Wyjaśniono jej, gdy każde podejście może być odpowiednie, a on opisany sposób zdefiniować parametry i uruchom polecenie wdrożenia jako część większego procesu kompilacji pojedynczy krok i automatycznych.
 
 ## <a name="further-reading"></a>Dalsze informacje
 
-Aby uzyskać wskazówki dotyczące sposobu tworzenia i parametryzacja pakietu wdrożeniowego sieci web, zobacz [budynku i projekty aplikacji sieci Web pakowania](building-and-packaging-web-application-projects.md) i [konfigurowania parametrów wdrażania pakietu sieci Web](configuring-parameters-for-web-package-deployment.md). Aby uzyskać wskazówki dotyczące sposobu tworzenia i wdrażania pakietów sieci web z wystąpienia programu Team Foundation Server (TFS), zobacz [Konfigurowanie Team Foundation Server dla automatycznego wdrażania Web](../configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md). Aby uzyskać informacje na temat sposobu dostosowywania i rozwiązywanie problemów z procesu wdrażania, zobacz [z wyjątkiem plików i folderów z wdrożenia](../advanced-enterprise-web-deployment/excluding-files-and-folders-from-deployment.md).
+Aby uzyskać instrukcje dotyczące sposobu tworzenia i sparametryzuj pakiet wdrażania sieci web, zobacz [budowanie i projektów aplikacji sieci Web pakietu](building-and-packaging-web-application-projects.md) i [konfigurowania parametrów wdrożenia pakietu internetowego](configuring-parameters-for-web-package-deployment.md). Aby uzyskać wskazówki dotyczące sposobu tworzenia i wdrażania pakietów sieci web z wystąpienia programu Team Foundation Server (TFS), zobacz [Konfigurowanie serwera Team Foundation Server dla automatycznego wdrażania w Internecie](../configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md). Aby uzyskać informacje na temat sposobu dostosowywania i rozwiązywanie problemów z procesu wdrażania, zobacz [wykluczanie plików i folderów z wdrożenia](../advanced-enterprise-web-deployment/excluding-files-and-folders-from-deployment.md).
 
 > [!div class="step-by-step"]
 > [Poprzednie](configuring-parameters-for-web-package-deployment.md)

@@ -1,66 +1,65 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/popup/handling-postbacks-from-a-popup-control-with-an-updatepanel-vb
-title: Obsługa ogłaszania zwrotnego przez formant okna podręcznego o UpdatePanel (VB) | Dokumentacja firmy Microsoft
+title: Obsługa ogłaszania zwrotnego w kontrolce Popup z kontrolką UpdatePanel (VB) | Dokumentacja firmy Microsoft
 author: wenz
-description: Rozszerzenie PopupControl w zestawie narzędzi kontroli AJAX zapewnia prosty sposób do wyzwolenia menu podręcznego, gdy inny formant jest aktywny. Szczególną uwagę należy zwrócić...
+description: Urządzenia extender PopupControl zestawu narzędzi AJAX Control Toolkit oferuje prosty sposób wyzwalania okna podręcznego, po aktywowaniu wszelkimi innymi kontrolkami. Szczególną uwagę należy zwrócić...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
 ms.topic: article
 ms.assetid: ec9db57c-9f68-402a-bf4c-0d63d5f6908e
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/popup/handling-postbacks-from-a-popup-control-with-an-updatepanel-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 312927e01911ea705d0614eac462cd034820c7b4
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: cf17025219fbf24e749c172f2ddb47ec20980cdc
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30868480"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37395906"
 ---
-<a name="handling-postbacks-from-a-popup-control-with-an-updatepanel-vb"></a>Obsługa ogłaszania zwrotnego przez formant okna podręcznego o UpdatePanel (VB)
+<a name="handling-postbacks-from-a-popup-control-with-an-updatepanel-vb"></a>Obsługa ogłaszania zwrotnego w kontrolce Popup z kontrolką UpdatePanel (VB)
 ====================
-przez [Wenz Chrześcijańskie](https://github.com/wenz)
+przez [Christian Wenz](https://github.com/wenz)
 
-[Pobierz kod](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/PopupControl2.vb.zip) lub [pobierania plików PDF](http://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/popupcontrol2VB.pdf)
+[Pobierz program Code](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/PopupControl2.vb.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/popupcontrol2VB.pdf)
 
-> Rozszerzenie PopupControl w zestawie narzędzi kontroli AJAX zapewnia prosty sposób do wyzwolenia menu podręcznego, gdy inny formant jest aktywny. Szczególną uwagę brane odświeżania strony występuje w menu podręczne.
+> Urządzenia extender PopupControl zestawu narzędzi AJAX Control Toolkit oferuje prosty sposób wyzwalania okna podręcznego, po aktywowaniu wszelkimi innymi kontrolkami. Szczególną uwagę należy podjąć w przypadku ogłaszania zwrotnego w obrębie okna podręcznego.
 
 
 ## <a name="overview"></a>Omówienie
 
-Rozszerzenie PopupControl w zestawie narzędzi kontroli AJAX zapewnia prosty sposób do wyzwolenia menu podręcznego, gdy inny formant jest aktywny. Szczególną uwagę brane odświeżania strony występuje w menu podręczne.
+Urządzenia extender PopupControl zestawu narzędzi AJAX Control Toolkit oferuje prosty sposób wyzwalania okna podręcznego, po aktywowaniu wszelkimi innymi kontrolkami. Szczególną uwagę należy podjąć w przypadku ogłaszania zwrotnego w obrębie okna podręcznego.
 
 ## <a name="steps"></a>Kroki
 
-Korzystając z `PopupControl` z odświeżenie strony, `UpdatePanel` może uniemożliwić odświeżania strony spowodowane ogłaszania zwrotnego. Następujący kod definiuje kilka istotnych elementów:
+Korzystając z `PopupControl` z zwrotu `UpdatePanel` może uniemożliwić odświeżania strony spowodowane zwrotu. Następujące znaczniki definiuje kilka ważnych elementów:
 
-- A `ScriptManager` , aby działa w zestawie narzędzi programu ASP.NET AJAX formantu
-- Dwa `TextBox` formantów, które wyzwoli oba okna podręcznego
+- A `ScriptManager` kontrolki ASP.NET AJAX Control Toolkit działa
+- Dwa `TextBox` formanty, które wyzwolą oba okna podręcznego
 - A `Panel` formant, który będzie służyć jako menu podręcznego.
-- W panelu `Calendar` kontroli jest osadzony w `UpdatePanel` formantu
-- Dwa `PopupControlExtender` formantów, które przypisać panelu do pól tekstowych
+- W panelu `Calendar` kontroli jest osadzony w ramach `UpdatePanel` kontroli
+- Dwa `PopupControlExtender` mechanizmy przypisać panelu do pól tekstowych
 
 [!code-aspx[Main](handling-postbacks-from-a-popup-control-with-an-updatepanel-vb/samples/sample1.aspx)]
 
-Należy pamiętać, że `OnSelectionChanged` atrybutu `Calendar` kontrola została ustawiona. Tak, gdy użytkownik zaznaczy datę w kalendarzu, występuje odświeżenie strony, a także metoda po stronie serwera `c1_SelectionChanged()` jest wykonywana. W ramach tej metody należy pobrać i zapisywane w polu tekstowym bieżącą datę.
+Należy pamiętać, że `OnSelectionChanged` atrybutu `Calendar` kontrolki jest ustawiona. Tak, gdy użytkownik wybierze datę w kalendarzu, występuje odświeżenie strony, a także metoda po stronie serwera `c1_SelectionChanged()` jest wykonywany. W ramach tej metody należy pobrać i zapisywane z powrotem do pola tekstowego bieżącą datę.
 
-Poniżej przedstawiono składnię tego: obiekt przede wszystkim, serwer proxy dla `PopupControlExtender` na stronie musi zostać wygenerowany. Oferuje zestawie narzędzi programu ASP.NET AJAX kontroli `GetProxyForCurrentPopup()` metody. Ta metoda zwraca obiekt obsługuje `Commit()` metodę, która wysyła wartość do kontrolki, która wyzwoliła podręcznego (nie formantu wyzwalająca wywołanie metody!). Następujący kod stanowi wybranej daty jako argument dla `Commit()` metody powodują kod do zapisu zwrotnego wybrana data w polu tekstowym:
+Ma następującą składnię, w tym: po pierwsze, serwer proxy dla obiektu `PopupControlExtender` na stronie musi zostać wygenerowany. ASP.NET AJAX Control Toolkit oferuje `GetProxyForCurrentPopup()` metody. Obiekt, Metoda ta zwraca obsługuje `Commit()` metodę, która wysyła wartość do formantu, który wyzwolił menu podręczne (nie formant który wyzwolił wywołanie metody!). Poniższy kod zawiera wybranej daty jako argument dla `Commit()` metody, powodując kod w celu zapisania wybranej daty z powrotem do pola tekstowego:
 
 [!code-aspx[Main](handling-postbacks-from-a-popup-control-with-an-updatepanel-vb/samples/sample2.aspx)]
 
-Teraz przy każdym kliknięciu na datę w kalendarzu, wybrana data jest wyświetlana w polu tekstowym skojarzone tworzenie formant wyboru daty, które aktualnie znajdują się na wiele witryn sieci Web.
+Teraz po każdym kliknięciu datę w kalendarzu wybrana data pojawia się w polu tekstowym skojarzone tworzenie kontrolki selektora daty, które aktualnie znajdują się na wiele witryn sieci Web.
 
 
-[![Kalendarza jest wyświetlany, gdy użytkownik kliknie w polu tekstowym](handling-postbacks-from-a-popup-control-with-an-updatepanel-vb/_static/image2.png)](handling-postbacks-from-a-popup-control-with-an-updatepanel-vb/_static/image1.png)
+[![Kalendarz jest wyświetlany, gdy użytkownik kliknie w polu tekstowym](handling-postbacks-from-a-popup-control-with-an-updatepanel-vb/_static/image2.png)](handling-postbacks-from-a-popup-control-with-an-updatepanel-vb/_static/image1.png)
 
-Kalendarza jest wyświetlany, gdy użytkownik kliknie w polu tekstowym ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](handling-postbacks-from-a-popup-control-with-an-updatepanel-vb/_static/image3.png))
+Kalendarz jest wyświetlany, gdy użytkownik kliknie w polu tekstowym ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](handling-postbacks-from-a-popup-control-with-an-updatepanel-vb/_static/image3.png))
 
 
-[![Kliknij datę umieszcza je w polu tekstowym](handling-postbacks-from-a-popup-control-with-an-updatepanel-vb/_static/image5.png)](handling-postbacks-from-a-popup-control-with-an-updatepanel-vb/_static/image4.png)
+[![Klikając pozycję na wartość typu date umieszcza go w polu tekstowym](handling-postbacks-from-a-popup-control-with-an-updatepanel-vb/_static/image5.png)](handling-postbacks-from-a-popup-control-with-an-updatepanel-vb/_static/image4.png)
 
-Kliknij datę umieszcza je w polu tekstowym ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](handling-postbacks-from-a-popup-control-with-an-updatepanel-vb/_static/image6.png))
+Klikając pozycję na wartość typu date umieszcza go w polu tekstowym ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](handling-postbacks-from-a-popup-control-with-an-updatepanel-vb/_static/image6.png))
 
 > [!div class="step-by-step"]
 > [Poprzednie](using-multiple-popup-controls-vb.md)

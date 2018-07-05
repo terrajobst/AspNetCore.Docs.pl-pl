@@ -1,50 +1,49 @@
 ---
 uid: signalr/overview/older-versions/tutorial-getting-started-with-signalr-and-mvc-4
-title: 'Samouczek: Wprowadzenie do korzystania z SignalR 1.x a MVC 4 | Dokumentacja firmy Microsoft'
+title: 'Samouczek: Wprowadzenie do SignalR 1.x i MVC 4 | Dokumentacja firmy Microsoft'
 author: pfletcher
-description: Do tworzenia aplikacji rozmów w czasie rzeczywistym, należy użyć SignalR platformy ASP.NET i ASP.NET MVC 4.
+description: Użyj biblioteki SignalR platformy ASP.NET i ASP.NET MVC 4, aby utworzyć aplikację do rozmów w czasie rzeczywistym.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/29/2013
 ms.topic: article
 ms.assetid: eeef9f73-6de3-49f9-b50b-9af22108f2ce
 ms.technology: dotnet-signalr
-ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/older-versions/tutorial-getting-started-with-signalr-and-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 1ae330be5caf00c3cac7451f326398c0958538af
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: cced40f65700eff073aa4cff4560a137a50bbc5b
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30873722"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37399967"
 ---
-<a name="tutorial-getting-started-with-signalr-1x-and-mvc-4"></a>Samouczek: Wprowadzenie do korzystania z SignalR 1.x a MVC 4
+<a name="tutorial-getting-started-with-signalr-1x-and-mvc-4"></a>Samouczek: Wprowadzenie do SignalR 1.x i MVC 4
 ====================
-przez [Patrick Fletcher](https://github.com/pfletcher), [Teebken Timowi](https://github.com/timlt)
+przez [Patrick Fletcher](https://github.com/pfletcher), [Tim Teebken](https://github.com/timlt)
 
-> Ten samouczek pokazuje, jak używać ASP.NET SignalR do tworzenia aplikacji rozmów w czasie rzeczywistym. Spowoduje dodanie SignalR do aplikacji MVC 4 i utworzyć widok rozmów do wysyłania i wyświetlenie komunikatów.
+> W tym samouczku pokazano, jak używać biblioteki SignalR platformy ASP.NET do tworzenia aplikacji rozmowy w czasie rzeczywistym. Będzie dodać SignalR do aplikacji MVC 4 i utworzyć widok czatu do wysyłania i wyświetla komunikaty.
 
 
 ## <a name="overview"></a>Omówienie
 
-Ten samouczek stanowi wprowadzenie do programowania aplikacji sieci web w czasie rzeczywistym z biblioteki SignalR platformy ASP.NET i ASP.NET MVC 4. W samouczku ten sam kod aplikacji rozmów jako [SignalR Wprowadzenie — samouczek](tutorial-getting-started-with-signalr.md), ale pokazano, jak dodać go do aplikacji MVC 4, na podstawie szablonu Internet.
+Ten samouczek zawiera wprowadzenie do tworzenia aplikacji sieci web w czasie rzeczywistym przy użyciu biblioteki SignalR platformy ASP.NET i ASP.NET MVC 4. W tym samouczku użyto tego samego kodu aplikacji rozmów jako [samouczka Wprowadzenie do SignalR](tutorial-getting-started-with-signalr.md), ale pokazuje, jak dodać go do aplikacji MVC 4, na podstawie szablonu Internet.
 
-W tym temacie przedstawiono następujące zadania programowanie SignalR:
+W tym temacie dowiesz się, następujące zadania deweloperskie SignalR:
 
 - Dodawanie biblioteki SignalR do aplikacji MVC 4.
-- Tworzenie klasy koncentratora do dystrybuowania zawartości do klientów.
-- Za pomocą biblioteki jQuery SignalR na stronie sieci web można wysyłać wiadomości i wyświetlać aktualizacje z koncentratora.
+- Tworzenie klasy koncentratora, aby wypchnąć zawartości do klientów.
+- Przy użyciu biblioteki jQuery SignalR na stronie sieci web umożliwiają przesyłanie komunikatów oraz wyświetlania aktualizacji z koncentratora.
 
-Poniższy zrzut ekranu przedstawia aplikacji rozmów ukończone działającego w przeglądarce.
+Poniższy zrzut ekranu przedstawia zakończonych rozmów uruchomieniu aplikacji w przeglądarce.
 
-![Rozmowa wystąpień](tutorial-getting-started-with-signalr-and-mvc-4/_static/image2.png)
+![Wystąpienia rozmowy](tutorial-getting-started-with-signalr-and-mvc-4/_static/image2.png)
 
 Sekcje:
 
 - [Konfigurowanie projektu](#setup)
-- [Uruchom próbki](#run)
-- [Sprawdź kod](#code)
+- [Uruchamianie aplikacji przykładowej](#run)
+- [Poszukaj w kodzie](#code)
 - [Następne kroki](#next)
 
 <a id="setup"></a>
@@ -53,115 +52,115 @@ Sekcje:
 
 Wymagania wstępne:
 
-- Visual Studio 2010 z dodatkiem SP1, program Visual Studio 2012 lub Visual Studio 2012 Express. Jeśli nie masz programu Visual Studio, zobacz [pobiera ASP.NET](https://www.asp.net/downloads) uzyskać bezpłatne narzędzie Visual Studio 2012 Express programowanie.
-- Dla programu Visual Studio 2010, należy zainstalować [ASP.NET MVC 4](https://www.microsoft.com/download/details.aspx?id=30683).
+- Visual Studio 2010 SP1, program Visual Studio 2012 lub Visual Studio 2012 Express. Jeśli nie masz programu Visual Studio, zobacz [ASP.NET pliki do pobrania](https://www.asp.net/downloads) można pobrać bezpłatny program Visual Studio 2012 Express narzędzia programistyczne.
+- Dla programu Visual Studio 2010, należy zainstalować [platformy ASP.NET MVC 4](https://www.microsoft.com/download/details.aspx?id=30683).
 
-W tej sekcji przedstawiono sposób tworzenia aplikacji ASP.NET MVC 4, Dodaj bibliotekę SignalR i tworzenie aplikacji czatu.
+W tej sekcji przedstawiono sposób tworzenia aplikacji ASP.NET MVC 4, dodawanie biblioteki SignalR i tworzenie aplikacji czatu.
 
 1. 1. W programie Visual Studio tworzenie aplikacji ASP.NET MVC 4, nadaj jej nazwę SignalRChat, a następnie kliknij przycisk OK.
 
         > [!NOTE]
-        > VS 2010 wybierz **.NET Framework 4** za pomocą kontrolki rozwijanej wersji Framework. SignalR kod działa w wersji systemu .NET Framework 4 i 4.5.
+        > W programie VS 2010, wybrać **.NET Framework 4** z rozwijanej listy formantów wersji Framework. Wersje programu .NET Framework 4 i 4.5 działa kod SignalR.
 
         ![Tworzenie sieci web mvc](tutorial-getting-started-with-signalr-and-mvc-4/_static/image3.png)
-      2. Wybierz szablon aplikacji internetowych, usuń zaznaczenie opcji do **Utwórz jednostkowy projekt testowy**i kliknij przycisk OK.
+      2. Wybierz szablon aplikacji internetowych, wyczyść opcję **Tworzenie projektu testu jednostkowego**i kliknij przycisk OK.
 
          ![Tworzenie witryny internetowej mvc](tutorial-getting-started-with-signalr-and-mvc-4/_static/image4.png)
-      3. Otwórz **narzędzia | Menedżer pakietów biblioteki | Konsola Menedżera pakietów** i uruchom następujące polecenie. Ten krok powoduje dodanie do projektu zestawu plików skryptów i włączyć funkcję SignalR odwołań do zestawu.
+      3. Otwórz **narzędzia | Menedżer pakietów biblioteki | Konsola Menedżera pakietów** i uruchom następujące polecenie. Ten krok powoduje dodanie do projektu, zbiór plików skryptów i odwołania do zestawów, które umożliwiają funkcji SignalR.
 
          `install-package Microsoft.AspNet.SignalR -Version 1.1.3`
-      4. W **Eksploratora rozwiązań** rozwiń folder skryptów. Należy pamiętać, że skrypt biblioteki SignalR zostały dodane do projektu.
+      4. W **Eksploratora rozwiązań** rozwiń folder skryptów. Należy pamiętać, że biblioteki skryptów dla elementu SignalR zostały dodane do projektu.
 
-         ![Odwołania do biblioteki](tutorial-getting-started-with-signalr-and-mvc-4/_static/image6.png)
+         ![Odwołań do biblioteki](tutorial-getting-started-with-signalr-and-mvc-4/_static/image6.png)
       5. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt, wybierz **Dodaj | Nowy Folder**, i Dodaj nowy folder o nazwie **koncentratory**.
-      6. Kliknij prawym przyciskiem myszy **koncentratory** folderu, kliknij przycisk **Dodaj | Klasa**i Utwórz nową klasę C# o nazwie **ChatHub.cs**. Ta klasa będzie używany jako SignalR koncentratora serwera, który wysyła komunikaty do wszystkich klientów.
+      6. Kliknij prawym przyciskiem myszy **Hubs** folderu, kliknij przycisk **Dodaj | Klasa**i Utwórz nową klasę C# o nazwie **ChatHub.cs**. Ta klasa będzie używany jako koncentrator serwera SignalR, która wysyła komunikaty do wszystkich klientów.
 
 > [!NOTE]
-> Jeśli używasz programu Visual Studio 2012 i zainstalowano [ASP.NET i 2012.2 narzędzia sieci Web aktualizacji](../../../visual-studio/overview/2012/aspnet-and-web-tools-20122-release-notes-rtw.md#_Installation), nowy szablon elementu SignalR umożliwia tworzenie klasy koncentratora. W tym celu kliknij prawym przyciskiem myszy **koncentratory** folderu, kliknij przycisk **Dodaj | Nowy element**, wybierz pozycję **klasy koncentratora SignalR (wersja 1)**, a nazwa klasy **ChatHub.cs**.
+> Jeśli używasz programu Visual Studio 2012 i zainstalowano [aktualizacji platformy ASP.NET i Web Tools 2012.2](../../../visual-studio/overview/2012/aspnet-and-web-tools-20122-release-notes-rtw.md#_Installation), nowy szablon elementu SignalR można użyć do utworzenia klasy koncentratora. Aby to zrobić, kliknij prawym przyciskiem myszy **Hubs** folderu, kliknij przycisk **Dodaj | Nowy element**, wybierz opcję **klasa Centrum SignalR (v1)** i nazwę klasy **ChatHub.cs**.
 
 
-1. Zastąp kod w **ChatHub** klasy następującym kodem.
+1. Zastąp kod w **ChatHub** klasy z następującym kodem.
 
     [!code-csharp[Main](tutorial-getting-started-with-signalr-and-mvc-4/samples/sample1.cs)]
-2. Otwórz **Global.asax** pliku projektu, a następnie dodaj wywołanie do metody `RouteTable.Routes.MapHubs();` w pierwszym wierszu kodu w `Application_Start` metody. Ten kod rejestruje domyślną trasę dla koncentratorów SignalR i musi zostać wywołana przed zarejestrowaniem innych tras. Wypełniony `Application_Start` metody wygląda jak w następującym przykładzie.
+2. Otwórz **Global.asax** pliku projektu i dodaj wywołanie do metody `RouteTable.Routes.MapHubs();` jako pierwszy wiersz kodu w `Application_Start` metody. Ten kod rejestruje domyślną trasę dla centrów SignalR i musi zostać wywołana przed zarejestrowaniem jakichkolwiek innych tras. Gotowy `Application_Start` metoda wygląda podobnie jak w poniższym przykładzie.
 
     [!code-csharp[Main](tutorial-getting-started-with-signalr-and-mvc-4/samples/sample2.cs)]
-3. Edytuj `HomeController` znaleziono klasy w **Controllers/HomeController.cs** i dodaj następującą metodę do klasy. Ta metoda zwraca **rozmowę** widoku, który zostanie utworzony w kolejnym kroku.
+3. Edytuj `HomeController` klasy znalezione w **Controllers/HomeController.cs** i dodaj następującą metodę do klasy. Ta metoda zwraca **Chat** widok, który spowoduje utworzenie w późniejszym kroku.
 
     [!code-csharp[Main](tutorial-getting-started-with-signalr-and-mvc-4/samples/sample3.cs)]
-4. Kliknij prawym przyciskiem myszy w obrębie `Chat` metody możesz po prostu utworzyć i kliknij **Dodaj widok** do utworzenia nowego pliku widoku.
-5. W **Dodaj widok** okna dialogowego, upewnij się, że jest zaznaczone pole wyboru do **Użyj układ strony wzorcowej** (Usuń zaznaczenie pola wyboru), a następnie kliknij przycisk **Dodaj**.
+4. Kliknij prawym przyciskiem myszy w obrębie `Chat` metoda właśnie utworzony i kliknij przycisk **Dodaj widok** do utworzenia nowego pliku widoku.
+5. W **Dodaj widok** okna dialogowego, upewnij się, że zaznaczone jest pole wyboru do **Użyj układ strony wzorcowej** (Usuń zaznaczenie pola wyboru), a następnie kliknij przycisk **Dodaj**.
 
     ![Dodawanie widoku](tutorial-getting-started-with-signalr-and-mvc-4/_static/image8.png)
-6. Edytuj plik widok o nazwie **Chat.cshtml**. Po &lt;h2&gt; tagów, wklej następujący &lt;div&gt; sekcji i `@section scripts` blok kodu do strony. Ten skrypt umożliwia strony do wysyłania wiadomości rozmów i wyświetlenie komunikatów z serwera. Kompletny kod dla widoku rozmów pojawia się w następującym fragmencie kodu.
+6. Edytuj nowy plik widoku o nazwie **Chat.cshtml**. Po &lt;h2&gt; tag, wklej następujący kod &lt;div&gt; sekcji i `@section scripts` blok kodu do strony. Ten skrypt umożliwia strony Aby wysyłać wiadomości rozmów i wyświetlenie komunikatów z serwera. Kompletny kod dla widoku rozmowy pojawia się w następującym fragmencie kodu.
 
     > [!IMPORTANT]
-    > Po dodaniu SignalR i innych bibliotek skryptu do projektu programu Visual Studio Package Manager może zainstalować wersje skryptów, które są nowsze niż wersje przedstawiono w tym temacie. Upewnij się, że odwołań do skryptów w kodzie zgodne z wersjami bibliotek skryptu zainstalowanych w projekcie.
+    > Po dodaniu SignalR i inne biblioteki skryptu do projektu programu Visual Studio, Menedżera pakietów może zainstalować wersje skrypty, które są nowsze niż wersje przedstawione w tym temacie. Upewnij się, że odwołania do skryptu w kodzie są takie same wersje bibliotek skryptów zainstalowana w twoim projekcie.
 
     [!code-cshtml[Main](tutorial-getting-started-with-signalr-and-mvc-4/samples/sample4.cshtml)]
-7. **Zapisz wszystkie** dla projektu.
+7. **Zapisz wszystko** dla projektu.
 
 <a id="run"></a>
 
-## <a name="run-the-sample"></a>Uruchom próbki
+## <a name="run-the-sample"></a>Uruchamianie aplikacji przykładowej
 
 1. Naciśnij klawisz F5, aby uruchomić projekt w trybie debugowania.
-2. W wierszu adresu przeglądarki, dołącz **/home/rozmów** adres URL domyślnej strony dla projektu. Ładuje strony rozmów w wystąpieniu przeglądarki i wyświetla monit o nazwę użytkownika.
+2. W wierszu adresu przeglądarki, dołącz **/home/rozmowy** adres URL domyślnej strony dla projektu. Rozmowa strona ładuje się w wystąpieniu przeglądarki i wyświetla monit o nazwę użytkownika.
 
     ![Wprowadź nazwę użytkownika](tutorial-getting-started-with-signalr-and-mvc-4/_static/image9.png)
 3. Wprowadź nazwę użytkownika.
-4. Skopiuj adres URL w wierszu adresu przeglądarki i używać go otworzyć dwa kolejne wystąpienia przeglądarki. W każdym wystąpieniu przeglądarki wprowadź unikatową nazwę użytkownika.
-5. W każdym wystąpieniu przeglądarki dodać komentarz, a następnie kliknij przycisk **wysyłania**. Komentarze powinien być wyświetlany we wszystkich wystąpieniach przeglądarki.
+4. Skopiuj adres URL w wierszu adresu przeglądarki i użyj go, aby otworzyć dwóch większej liczby wystąpień przeglądarki. W każdym wystąpieniu przeglądarki wprowadź unikatową nazwę użytkownika.
+5. W każdym wystąpieniu przeglądarki Dodaj komentarz, a następnie kliknij przycisk **wysyłania**. Komentarze powinien być wyświetlany we wszystkich wystąpieniach przeglądarki.
 
     > [!NOTE]
-    > Tej aplikacji rozmów proste kontekstu dyskusji na serwerze nie są zachowywane. Koncentrator emituje komentarze do wszystkich bieżących użytkowników. Użytkownicy, którzy później dołączyć rozmowę zobaczą wiadomości dodane od czasu dołączenia.
-6. Poniższy zrzut ekranu przedstawia aplikacji czatu działającego w przeglądarce.
+    > Tej aplikacji rozmów prostego nie utrzymuje kontekst dyskusji na serwerze. Centrum emituje komentarzy do wszystkich bieżących użytkowników. Użytkownicy, którzy dołączają do czatu później zostanie wyświetlony komunikat o dodane od czasu dołączenia.
+6. Poniższy zrzut ekranu przedstawia aplikacji rozmów w przeglądarce.
 
     ![Rozmowa przeglądarki](tutorial-getting-started-with-signalr-and-mvc-4/_static/image11.png)
-7. W **Eksploratora rozwiązań**, sprawdź **dokumentów skryptu** węzła dla działającej aplikacji. Ten węzeł jest widoczny w trybie debugowania, jeśli używasz programu Internet Explorer jako przeglądarki. Brak pliku skryptu o nazwie **koncentratory** generujący biblioteki SignalR dynamicznie w czasie wykonywania. Ten plik zarządza komunikacji między skryptu jQuery i kod po stronie serwera. Jeśli używasz przeglądarki innej niż program Internet Explorer, można także przejść do dynamicznej **koncentratory** plików, przechodząc do niego bezpośrednio, na przykład http://mywebsite/signalr/hubs.
+7. W **Eksploratora rozwiązań**, zbadaj **dokumenty skryptów** węzła dla działającej aplikacji. Ten węzeł jest widoczny w trybie debugowania, jeśli używasz programu Internet Explorer jako przeglądarki. Brak pliku skryptu o nazwie **koncentratory** generujący biblioteki SignalR dynamicznie w czasie wykonywania. Ten plik zarządza komunikacji między jQuery skryptu i kod po stronie serwera. Jeśli używasz przeglądarki innej niż Internet Explorer, można także przejść do dynamicznego **hubs** plików, przechodząc do niego bezpośrednio, na przykład http://mywebsite/signalr/hubs.
 
     ![Wygenerowany Centrum skryptów](tutorial-getting-started-with-signalr-and-mvc-4/_static/image13.png)
 
 <a id="code"></a>
 
-## <a name="examine-the-code"></a>Sprawdź kod
+## <a name="examine-the-code"></a>Poszukaj w kodzie
 
-SignalR aplikacji czatu pokazano dwa podstawowe SignalR zadań związanych z projektowaniem: tworzenie koncentratora jako obiekt główny koordynacji na serwerze i używanie biblioteki jQuery SignalR do wysyłania i odbierania wiadomości.
+Aplikacji rozmów SignalR pokazuje dwa podstawowe zadania rozwoju SignalR: tworzenie koncentratora jako obiekt główny koordynacji na serwerze i za pomocą biblioteki jQuery SignalR do wysyłania i odbierania komunikatów.
 
 ### <a name="signalr-hubs"></a>Koncentratory SignalR
 
-W przykładowym kodzie **ChatHub** pochodną klasy **Microsoft.AspNet.SignalR.Hub** klasy. Wyprowadzanie z **Centrum** klasy jest to wygodny sposób utworzyć aplikację SignalR. Można utworzyć metody publiczne na klasy koncentratora, a następnie te metody dostępu wywołując ze skryptów jQuery na stronie sieci web.
+W przykładowym kodzie **ChatHub** klasa pochodzi od **Microsoft.AspNet.SignalR.Hub** klasy. Wyprowadzanie z **Centrum** klasy jest to wygodny sposób, aby skompilować aplikację SignalR. Można utworzyć metody publiczne na klasy koncentratora, a następnie uzyskać dostęp do tych metod, wywołując je z jQuery skrypty na stronie sieci web.
 
-W kodzie rozmów wywołać klientów **ChatHub.Send** metody do wysłania nowej wiadomości. Koncentrator z kolei wysyła wiadomość do wszystkich klientów przez wywołanie metody **Clients.All.addNewMessageToPage**.
+W kodzie Rozmowa klienci wywołują **ChatHub.Send** metodę, aby wysyłać nowy komunikat. Centrum z kolei wysyła wiadomość do wszystkich klientów, wywołując **Clients.All.addNewMessageToPage**.
 
-**Wysyłania** metody przedstawiono kilka pojęć Centrum:
+**Wysyłania** metoda pokazuje kilka koncepcji w Centrum:
 
-- Metody publiczne należy zadeklarować w koncentratorze tak, aby klienci mogą połączeń telefonicznych z nimi.
-- Użyj **Microsoft.AspNet.SignalR.Hub.Clients** właściwość, aby dostęp do wszystkich klientów podłączone do tego koncentratora.
-- Wywoływanie funkcji jQuery na kliencie (takich jak `addNewMessageToPage` funkcji) aby zaktualizować klientów.
+- Tak, aby je wywoływać klientów do deklarowania metod publicznych w koncentratorze.
+- Użyj **Microsoft.AspNet.SignalR.Hub.Clients** właściwość dostęp do wszystkich klientów podłączone do tego koncentratora.
+- Wywołaj funkcję jQuery na kliencie (takich jak `addNewMessageToPage` funkcji) aby zaktualizować klientów.
 
     [!code-csharp[Main](tutorial-getting-started-with-signalr-and-mvc-4/samples/sample5.cs)]
 
 ### <a name="signalr-and-jquery"></a>SignalR i jQuery
 
-**Chat.cshtml** widoku plik przykładowy kod przedstawia sposób użycia biblioteki jQuery SignalR do komunikowania się przy użyciu koncentratora SignalR. Podstawowe zadania w kodzie utworzenie odwołania do automatycznie generowanej serwera proxy dla koncentratora, deklarowanie funkcję serwera można wywołać w celu wypychania zawartości do klientów, a następnie uruchomić połączenie do wysyłania komunikatów do koncentratora.
+**Chat.cshtml** plik widoku w przykładzie kodu pokazano, jak użyć biblioteki jQuery SignalR do komunikowania się z Centrum SignalR. Podstawowe zadania w kodzie do utworzenia odwołania do automatycznego generowania serwera proxy koncentratora, deklarowania funkcji, która serwera można wywołać w celu wypychania zawartości do klientów i od połączenia do wysyłania komunikatów do Centrum.
 
-Poniższy kod deklaruje serwer proxy koncentratora.
+Poniższy kod deklaruje serwera proxy koncentratora.
 
 [!code-javascript[Main](tutorial-getting-started-with-signalr-and-mvc-4/samples/sample6.js)]
 
 > [!NOTE]
-> Odwołanie do klasy serwera i jej elementów członkowskich w jQuery znajduje camelcase. Przykładowy kod odwołuje się do języka C# **ChatHub** klasy w jQuery jako **chatHub**. Jeśli chcesz odwołać `ChatHub` klasy jQuery z konwencjonalnej Pascal wielkość liter jak w języku C#, Edytuj plik klasy ChatHub.cs. Dodaj `using` instrukcji, aby odwołać `Microsoft.AspNet.SignalR.Hubs` przestrzeni nazw. Następnie dodaj `HubName` atrybutu `ChatHub` klasy, na przykład `[HubName("ChatHub")]`. Na koniec zaktualizuj jQuery odwołania do `ChatHub` klasy.
+> Odwołanie do klasy serwera i jej elementów członkowskich w jQuery znajduje się w camelcase. Przykładowy kod odwołuje się do języka C# **ChatHub** klasy w jQuery jako **chatHub**. Jeśli chcesz, aby odwołać się do `ChatHub` klasy jQuery za pomocą konwencjonalnych Pascal wielkość liter jak w języku C#, Edytuj plik klasy ChatHub.cs. Dodaj `using` instrukcję, aby odwoływać się do `Microsoft.AspNet.SignalR.Hubs` przestrzeni nazw. Następnie dodaj `HubName` atrybutu `ChatHub` klasy, na przykład `[HubName("ChatHub")]`. Na koniec zaktualizuj użytkownikowi jQuery do `ChatHub` klasy.
 
 
-Poniższy kod przedstawia sposób tworzenia funkcję wywołania zwrotnego w skrypcie. Klasy koncentratora na serwerze wywołanie tej funkcji, aby wysyłać aktualizacje zawartości do każdego klienta. Opcjonalnie można wywołać `htmlEncode` funkcja pokazuje sposób HTML kodowanie zawartości komunikatu, przed wyświetleniem go na stronie, aby uniemożliwić uruchomienie skryptu.
+Poniższy kod przedstawia sposób tworzenia funkcji wywołania zwrotnego w skrypcie. Klasy koncentratora na serwerze wywołuje tę funkcję, aby wypchnąć aktualizacji zawartości dla każdego klienta. Opcjonalne wywołanie `htmlEncode` funkcja przedstawiono sposób HTML zakodować zawartość komunikatu przed wyświetleniem go na stronie, aby uniemożliwić uruchomienie skryptu.
 
 [!code-html[Main](tutorial-getting-started-with-signalr-and-mvc-4/samples/sample7.html)]
 
-Poniższy kod przedstawia sposób nawiązać połączenie z koncentratorem. Kod rozpoczyna połączenie, a następnie przekazuje on funkcję obsługi zdarzenia kliknij na **wysyłania** przycisku na stronie rozmów.
+Poniższy kod przedstawia sposób nawiązać połączenie z koncentratorem. Kod uruchamia połączenie i przekazuje go po funkcji do obsługi zdarzenia click na **wysyłania** przycisk na stronie rozmowy.
 
 > [!NOTE]
-> Takie podejście zapewnia, że połączenie zostanie nawiązane, przed wykonaniem programu obsługi zdarzeń.
+> Takie podejście zapewnia, że połączenie zostało nawiązane przed wykonaniem programu obsługi zdarzeń.
 
 
 [!code-javascript[Main](tutorial-getting-started-with-signalr-and-mvc-4/samples/sample8.js)]
@@ -170,10 +169,10 @@ Poniższy kod przedstawia sposób nawiązać połączenie z koncentratorem. Kod 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Wiesz, że SignalR to struktura służąca do tworzenia aplikacji sieci web w czasie rzeczywistym. Przedstawiono również kilka zadań związanych z projektowaniem SignalR: jak dodać do aplikacji ASP.NET SignalR, Tworzenie klasy koncentratora oraz sposobu wysyłania i odbierania wiadomości z koncentratora.
+Wiesz, że SignalR to architektura służąca do tworzenia aplikacji sieci web w czasie rzeczywistym. Pokazaliśmy również kilka zadań programistycznych SignalR: jak dodać SignalR do aplikacji ASP.NET, sposób tworzenia klasy koncentratora oraz jak wysyłać i odbierać komunikaty z Centrum.
 
-Aby uzyskać bardziej zaawansowane pojęcia rozwój SignalR, odwiedź następującą witrynę SignalR kod źródłowy i zasobów:
+Aby dowiedzieć się bardziej zaawansowanych pojęciach zmiany SignalR, odwiedź następującą witrynę dla SignalR kod źródłowy i zasobów:
 
 - [Projekt SignalR](http://signalr.net)
 - [SignalR Github i przykłady](https://github.com/SignalR/SignalR)
-- [Witryna typu Wiki biblioteki SignalR](https://github.com/SignalR/SignalR/wiki)
+- [Witryny typu Wiki biblioteki SignalR](https://github.com/SignalR/SignalR/wiki)

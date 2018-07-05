@@ -1,6 +1,6 @@
 ---
 uid: ajax/cdn/jquery-ui/cdnjqueryui1819
-title: jQuery 1.8.19 interfejsu użytkownika w sieci Microsoft Ajax CDN | Dokumentacja firmy Microsoft
+title: Interfejs użytkownika jQuery 1.8.19 w usłudze Microsoft Ajax CDN | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: ''
 ms.author: aspnetcontent
@@ -9,32 +9,31 @@ ms.date: 07/23/2014
 ms.topic: article
 ms.assetid: 9eceaea2-d218-4e1f-acf2-b65d60171252
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /ajax/cdn/jquery-ui/cdnjqueryui1819
 msc.type: content
-ms.openlocfilehash: 060eb21fd1448467d2a166e22a644ed7f11fd8d9
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: f4bfb97f52a2a14b364b021c40431aed4a550a7c
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30077043"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37379595"
 ---
-<a name="jquery-ui-1819-on-the-microsoft-ajax-cdn"></a>jQuery 1.8.19 interfejsu użytkownika w sieci Microsoft Ajax CDN
+<a name="jquery-ui-1819-on-the-microsoft-ajax-cdn"></a>Interfejs użytkownika jQuery 1.8.19 w usłudze Microsoft Ajax CDN
 ====================
-JQuery interfejsu użytkownika 1.8.19 biblioteka zawiera następujące pliki:
+Interfejs użytkownika jQuery 1.8.19 biblioteka zawiera następujące pliki:
 
 - https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.19/jquery-ui.js
 - https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.19/jquery-ui.min.js
 
 ## <a name="themes"></a>Motywy
 
-Wszystkie kompozycje interfejsu użytkownika jQuery standardowe znajdują się w tej sieci CDN.
+Wszystkie motywy interfejsu użytkownika jQuery standardowa znajdują się w tej sieci CDN.
 
-Kliknij jeden z obrazów motywu, aby wyświetlić zastosowany motyw na ThemeRoller interfejsu użytkownika jQuery.
+Kliknij dowolny z obrazów motywu, aby wyświetlić ten motyw w ThemeRoller interfejsu użytkownika jQuery.
 
-Kliknij dowolny pole wejściowe, aby wybrać pełny adres URL motywu użytkownika CDN hostowanej pliku CSS.
+Kliknij dowolne pole wejściowe, aby wybrać pełny adres URL do motywu w sieci CDN hostowanych pliku CSS.
 
-**Czarne rozwiązany**  
+**Czarny krawat**  
 [![Obraz](cdnjqueryui1819/_static/image1.png)](http://jqueryui.com/themeroller/#ffDefault=Verdana,+Arial,+sans-serif&amp;fwDefault=normal&amp;fsDefault=1.1em&amp;cornerRadius=4px&amp;bgColorHeader=333333&amp;bgTextureHeader=08_diagonals_thick.png&amp;bgImgOpacityHeader=8&amp;borderColorHeader=a3a3a3&amp;fcHeader=eeeeee&amp;iconColorHeader=bbbbbb&amp;bgColorContent=f9f9f9&amp;bgTextureContent=04_highlight_hard.png&amp;bgImgOpacityContent=100&amp;borderColorContent=cccccc&amp;fcContent=222222&amp;iconColorContent=222222&amp;bgColorDefault=111111&amp;bgTextureDefault=02_glass.png&amp;bgImgOpacityDefault=40&amp;borderColorDefault=777777&amp;fcDefault=e3e3e3&amp;iconColorDefault=ededed&amp;bgColorHover=1c1c1c&amp;bgTextureHover=02_glass.png&amp;bgImgOpacityHover=55&amp;borderColorHover=000000&amp;fcHover=ffffff&amp;iconColorHover=ffffff&amp;bgColorActive=ffffff&amp;bgTextureActive=01_flat.png&amp;bgImgOpacityActive=65&amp;borderColorActive=cccccc&amp;fcActive=222222&amp;iconColorActive=222222&amp;bgColorHighlight=ffeb80&amp;bgTextureHighlight=06_inset_hard.png&amp;bgImgOpacityHighlight=55&amp;borderColorHighlight=ffde2e&amp;fcHighlight=363636&amp;iconColorHighlight=4ca300&amp;bgColorError=cd0a0a&amp;bgTextureError=06_inset_hard.png&amp;bgImgOpacityError=45&amp;borderColorError=9e0505&amp;fcError=ffffff&amp;iconColorError=ffcf29&amp;bgColorOverlay=aaaaaa&amp;bgTextureOverlay=04_highlight_hard.png&amp;bgImgOpacityOverlay=40&amp;opacityOverlay=30&amp;bgColorShadow=aaaaaa&amp;bgTextureShadow=03_highlight_soft.png&amp;bgImgOpacityShadow=50&amp;opacityShadow=20&amp;thicknessShadow=8px&amp;offsetTopShadow=-8px&amp;offsetLeftShadow=-8px&amp;cornerRadiusShadow=8px)  
 - https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.19/themes/black-tie/jquery-ui.css
 
@@ -50,7 +49,7 @@ Kliknij dowolny pole wejściowe, aby wybrać pełny adres URL motywu użytkownik
 * * *
 
 
-**Dark-Hive**  
+**Ciemny gałęzi**  
 [![Obraz](cdnjqueryui1819/_static/image4.png)](http://jqueryui.com/themeroller/#ffDefault=Verdana%2C+Arial%2C+sans-serif&amp;fwDefault=normal&amp;fsDefault=1.1em&amp;cornerRadius=6px&amp;bgColorHeader=444444&amp;bgTextureHeader=03_highlight_soft.png&amp;bgImgOpacityHeader=44&amp;borderColorHeader=333333&amp;fcHeader=ffffff&amp;iconColorHeader=ffffff&amp;bgColorContent=000000&amp;bgTextureContent=14_loop.png&amp;bgImgOpacityContent=25&amp;borderColorContent=555555&amp;fcContent=ffffff&amp;iconColorContent=cccccc&amp;bgColorDefault=222222&amp;bgTextureDefault=03_highlight_soft.png&amp;bgImgOpacityDefault=35&amp;borderColorDefault=444444&amp;fcDefault=eeeeee&amp;iconColorDefault=cccccc&amp;bgColorHover=003147&amp;bgTextureHover=03_highlight_soft.png&amp;bgImgOpacityHover=33&amp;borderColorHover=0b93d5&amp;fcHover=ffffff&amp;iconColorHover=ffffff&amp;bgColorActive=0972a5&amp;bgTextureActive=04_highlight_hard.png&amp;bgImgOpacityActive=20&amp;borderColorActive=26b3f7&amp;fcActive=ffffff&amp;iconColorActive=222222&amp;bgColorHighlight=eeeeee&amp;bgTextureHighlight=03_highlight_soft.png&amp;bgImgOpacityHighlight=80&amp;borderColorHighlight=cccccc&amp;fcHighlight=2e7db2&amp;iconColorHighlight=4b8e0b&amp;bgColorError=ffc73d&amp;bgTextureError=02_glass.png&amp;bgImgOpacityError=40&amp;borderColorError=ffb73d&amp;fcError=111111&amp;iconColorError=a83300&amp;bgColorOverlay=5c5c5c&amp;bgTextureOverlay=01_flat.png&amp;bgImgOpacityOverlay=50&amp;opacityOverlay=80&amp;bgColorShadow=cccccc&amp;bgTextureShadow=01_flat.png&amp;bgImgOpacityShadow=30&amp;opacityShadow=60&amp;thicknessShadow=7px&amp;offsetTopShadow=-7px&amp;offsetLeftShadow=-7px&amp;cornerRadiusShadow=8px)  
 - https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.19/themes/dark-hive/jquery-ui.css
 
@@ -70,7 +69,7 @@ Kliknij dowolny pole wejściowe, aby wybrać pełny adres URL motywu użytkownik
 [![Obraz](cdnjqueryui1819/_static/image7.png)](http://jqueryui.com/themeroller/#ffDefault=segoe+ui,+Arial,+sans-serif&amp;fwDefault=bold&amp;fsDefault=1.1em&amp;cornerRadius=3px&amp;bgColorHeader=f9f9f9&amp;bgTextureHeader=03_highlight_soft.png&amp;bgImgOpacityHeader=100&amp;borderColorHeader=cccccc&amp;fcHeader=e69700&amp;iconColorHeader=5fa5e3&amp;bgColorContent=eeeeee&amp;bgTextureContent=06_inset_hard.png&amp;bgImgOpacityContent=100&amp;borderColorContent=aaaaaa&amp;fcContent=222222&amp;iconColorContent=0a82eb&amp;bgColorDefault=1484e6&amp;bgTextureDefault=08_diagonals_thick.png&amp;bgImgOpacityDefault=22&amp;borderColorDefault=ffffff&amp;fcDefault=ffffff&amp;iconColorDefault=fcdd4a&amp;bgColorHover=2293f7&amp;bgTextureHover=08_diagonals_thick.png&amp;bgImgOpacityHover=26&amp;borderColorHover=2293f7&amp;fcHover=ffffff&amp;iconColorHover=ffffff&amp;bgColorActive=e69700&amp;bgTextureActive=08_diagonals_thick.png&amp;bgImgOpacityActive=20&amp;borderColorActive=e69700&amp;fcActive=ffffff&amp;iconColorActive=ffffff&amp;bgColorHighlight=c5ddfc&amp;bgTextureHighlight=07_diagonals_small.png&amp;bgImgOpacityHighlight=25&amp;borderColorHighlight=ffffff&amp;fcHighlight=333333&amp;iconColorHighlight=0b54d5&amp;bgColorError=e69700&amp;bgTextureError=08_diagonals_thick.png&amp;bgImgOpacityError=20&amp;borderColorError=e69700&amp;fcError=ffffff&amp;iconColorError=ffffff&amp;bgColorOverlay=e6b900&amp;bgTextureOverlay=01_flat.png&amp;bgImgOpacityOverlay=0&amp;opacityOverlay=30&amp;bgColorShadow=e69700&amp;bgTextureShadow=01_flat.png&amp;bgImgOpacityShadow=0&amp;opacityShadow=20&amp;thicknessShadow=0px&amp;offsetTopShadow=6px&amp;offsetLeftShadow=6px&amp;cornerRadiusShadow=3px)  
 - https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.19/themes/excite-bike/jquery-ui.css
 
-**Szybki ruch**  
+**Szybkiego ruchu**  
 [![Obraz](cdnjqueryui1819/_static/image8.png)](http://jqueryui.com/themeroller/#ffDefault=Helvetica%2C+Arial%2C+sans-serif&amp;fwDefault=bold&amp;fsDefault=1.1em&amp;cornerRadius=2px&amp;bgColorHeader=dddddd&amp;bgTextureHeader=03_highlight_soft.png&amp;bgImgOpacityHeader=50&amp;borderColorHeader=dddddd&amp;fcHeader=444444&amp;iconColorHeader=0073ea&amp;bgColorContent=ffffff&amp;bgTextureContent=01_flat.png&amp;bgImgOpacityContent=75&amp;borderColorContent=dddddd&amp;fcContent=444444&amp;iconColorContent=ff0084&amp;bgColorDefault=f6f6f6&amp;bgTextureDefault=03_highlight_soft.png&amp;bgImgOpacityDefault=100&amp;borderColorDefault=dddddd&amp;fcDefault=0073ea&amp;iconColorDefault=666666&amp;bgColorHover=0073ea&amp;bgTextureHover=03_highlight_soft.png&amp;bgImgOpacityHover=25&amp;borderColorHover=0073ea&amp;fcHover=ffffff&amp;iconColorHover=ffffff&amp;bgColorActive=ffffff&amp;bgTextureActive=02_glass.png&amp;bgImgOpacityActive=65&amp;borderColorActive=dddddd&amp;fcActive=ff0084&amp;iconColorActive=454545&amp;bgColorHighlight=ffffff&amp;bgTextureHighlight=01_flat.png&amp;bgImgOpacityHighlight=55&amp;borderColorHighlight=cccccc&amp;fcHighlight=444444&amp;iconColorHighlight=0073ea&amp;bgColorError=ffffff&amp;bgTextureError=01_flat.png&amp;bgImgOpacityError=55&amp;borderColorError=ff0084&amp;fcError=222222&amp;iconColorError=ff0084&amp;bgColorOverlay=eeeeee&amp;bgTextureOverlay=01_flat.png&amp;bgImgOpacityOverlay=0&amp;opacityOverlay=80&amp;bgColorShadow=aaaaaa&amp;bgTextureShadow=01_flat.png&amp;bgImgOpacityShadow=0&amp;opacityShadow=60&amp;thicknessShadow=4px&amp;offsetTopShadow=-4px&amp;offsetLeftShadow=-4px&amp;cornerRadiusShadow=0px)  
 - https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.19/themes/flick/jquery-ui.css
 
@@ -102,7 +101,7 @@ Kliknij dowolny pole wejściowe, aby wybrać pełny adres URL motywu użytkownik
 [![Obraz](cdnjqueryui1819/_static/image13.png)](http://jqueryui.com/themeroller/#ffDefault=Trebuchet+MS%2C+Helvetica%2C+Arial%2C+sans-serif&amp;fwDefault=bold&amp;fsDefault=1.1em&amp;cornerRadius=6px&amp;bgColorHeader=dddddd&amp;bgTextureHeader=02_glass.png&amp;bgImgOpacityHeader=35&amp;borderColorHeader=bbbbbb&amp;fcHeader=444444&amp;iconColorHeader=999999&amp;bgColorContent=c9c9c9&amp;bgTextureContent=05_inset_soft.png&amp;bgImgOpacityContent=50&amp;borderColorContent=aaaaaa&amp;fcContent=333333&amp;iconColorContent=999999&amp;bgColorDefault=eeeeee&amp;bgTextureDefault=02_glass.png&amp;bgImgOpacityDefault=60&amp;borderColorDefault=cccccc&amp;fcDefault=3383bb&amp;iconColorDefault=70b2e1&amp;bgColorHover=f8f8f8&amp;bgTextureHover=02_glass.png&amp;bgImgOpacityHover=100&amp;borderColorHover=bbbbbb&amp;fcHover=599fcf&amp;iconColorHover=3383bb&amp;bgColorActive=999999&amp;bgTextureActive=06_inset_hard.png&amp;bgImgOpacityActive=75&amp;borderColorActive=999999&amp;fcActive=ffffff&amp;iconColorActive=454545&amp;bgColorHighlight=eeeeee&amp;bgTextureHighlight=01_flat.png&amp;bgImgOpacityHighlight=55&amp;borderColorHighlight=ffffff&amp;fcHighlight=444444&amp;iconColorHighlight=3383bb&amp;bgColorError=c0402a&amp;bgTextureError=01_flat.png&amp;bgImgOpacityError=55&amp;borderColorError=c0402a&amp;fcError=ffffff&amp;iconColorError=fbc856&amp;bgColorOverlay=eeeeee&amp;bgTextureOverlay=01_flat.png&amp;bgImgOpacityOverlay=0&amp;opacityOverlay=80&amp;bgColorShadow=aaaaaa&amp;bgTextureShadow=01_flat.png&amp;bgImgOpacityShadow=0&amp;opacityShadow=60&amp;thicknessShadow=4px&amp;offsetTopShadow=-4px&amp;offsetLeftShadow=-4px&amp;cornerRadiusShadow=0pxdow%3D0px)  
 - https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.19/themes/overcast/jquery-ui.css
 
-**Pieprz młynek**  
+**Młynek chili**  
 [![Obraz](cdnjqueryui1819/_static/image14.png)](http://jqueryui.com/themeroller/#ffDefault=Trebuchet+MS%2C+Tahoma%2C+Verdana%2C+Arial%2C+sans-serif&amp;fwDefault=bold&amp;fsDefault=1.1em&amp;cornerRadius=6px&amp;bgColorHeader=ffffff&amp;bgTextureHeader=23_fine_grain.png&amp;bgImgOpacityHeader=15&amp;borderColorHeader=d4d1bf&amp;fcHeader=453821&amp;iconColorHeader=b83400&amp;bgColorContent=eceadf&amp;bgTextureContent=23_fine_grain.png&amp;bgImgOpacityContent=10&amp;borderColorContent=d9d6c4&amp;fcContent=1f1f1f&amp;iconColorContent=222222&amp;bgColorDefault=f8f7f6&amp;bgTextureDefault=23_fine_grain.png&amp;bgImgOpacityDefault=10&amp;borderColorDefault=cbc7bd&amp;fcDefault=654b24&amp;iconColorDefault=b83400&amp;bgColorHover=654b24&amp;bgTextureHover=23_fine_grain.png&amp;bgImgOpacityHover=65&amp;borderColorHover=654b24&amp;fcHover=ffffff&amp;iconColorHover=ffffff&amp;bgColorActive=eceadf&amp;bgTextureActive=23_fine_grain.png&amp;bgImgOpacityActive=15&amp;borderColorActive=d9d6c4&amp;fcActive=140f06&amp;iconColorActive=8c291d&amp;bgColorHighlight=f7f3de&amp;bgTextureHighlight=23_fine_grain.png&amp;bgImgOpacityHighlight=15&amp;borderColorHighlight=b2a266&amp;fcHighlight=3a3427&amp;iconColorHighlight=3572ac&amp;bgColorError=b83400&amp;bgTextureError=23_fine_grain.png&amp;bgImgOpacityError=68&amp;borderColorError=681818&amp;fcError=ffffff&amp;iconColorError=fbdb93&amp;bgColorOverlay=6e4f1c&amp;bgTextureOverlay=16_diagonal_maze.png&amp;bgImgOpacityOverlay=20&amp;opacityOverlay=60&amp;bgColorShadow=000000&amp;bgTextureShadow=16_diagonal_maze.png&amp;bgImgOpacityShadow=40&amp;opacityShadow=60&amp;thicknessShadow=5px&amp;offsetTopShadow=0&amp;offsetLeftShadow=-10px&amp;cornerRadiusShadow=18px)  
 - https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.19/themes/pepper-grinder/jquery-ui.css
 
@@ -130,7 +129,7 @@ Kliknij dowolny pole wejściowe, aby wybrać pełny adres URL motywu użytkownik
 * * *
 
 
-**Sunny**  
+**Słoneczna**  
 [![Obraz](cdnjqueryui1819/_static/image19.png)](http://jqueryui.com/themeroller/#ffDefault=Segoe+UI%2C+Arial%2C+sans-serif&amp;fwDefault=bold&amp;fsDefault=1.1em&amp;cornerRadius=8px&amp;bgColorHeader=817865&amp;bgTextureHeader=12_gloss_wave.png&amp;bgImgOpacityHeader=45&amp;borderColorHeader=494437&amp;fcHeader=ffffff&amp;iconColorHeader=fadc7a&amp;bgColorContent=feeebd&amp;bgTextureContent=03_highlight_soft.png&amp;bgImgOpacityContent=100&amp;borderColorContent=8e846b&amp;fcContent=383838&amp;iconColorContent=d19405&amp;bgColorDefault=fece2f&amp;bgTextureDefault=12_gloss_wave.png&amp;bgImgOpacityDefault=60&amp;borderColorDefault=d19405&amp;fcDefault=4c3000&amp;iconColorDefault=3d3d3d&amp;bgColorHover=ffdd57&amp;bgTextureHover=12_gloss_wave.png&amp;bgImgOpacityHover=70&amp;borderColorHover=a45b13&amp;fcHover=381f00&amp;iconColorHover=bd7b00&amp;bgColorActive=ffffff&amp;bgTextureActive=05_inset_soft.png&amp;bgImgOpacityActive=30&amp;borderColorActive=655e4e&amp;fcActive=0074c7&amp;iconColorActive=eb990f&amp;bgColorHighlight=fff9e5&amp;bgTextureHighlight=12_gloss_wave.png&amp;bgImgOpacityHighlight=90&amp;borderColorHighlight=eeb420&amp;fcHighlight=1f1f1f&amp;iconColorHighlight=ed9f26&amp;bgColorError=d34d17&amp;bgTextureError=07_diagonals_medium.png&amp;bgImgOpacityError=20&amp;borderColorError=ffb73d&amp;fcError=ffffff&amp;iconColorError=ffe180&amp;bgColorOverlay=5c5c5c&amp;bgTextureOverlay=01_flat.png&amp;bgImgOpacityOverlay=50&amp;opacityOverlay=80&amp;bgColorShadow=cccccc&amp;bgTextureShadow=01_flat.png&amp;bgImgOpacityShadow=30&amp;opacityShadow=60&amp;thicknessShadow=7px&amp;offsetTopShadow=-7px&amp;offsetLeftShadow=-7px&amp;cornerRadiusShadow=8px)  
 - https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.19/themes/sunny/jquery-ui.css
 
@@ -146,7 +145,7 @@ Kliknij dowolny pole wejściowe, aby wybrać pełny adres URL motywu użytkownik
 * * *
 
 
-**Zaciemnienie interfejsu użytkownika**  
+**Ciemności interfejsu użytkownika**  
 [![Obraz](cdnjqueryui1819/_static/image22.png)](http://jqueryui.com/themeroller/#ffDefault=Segoe+UI%2C+Arial%2C+sans-serif&amp;fwDefault=bold&amp;fsDefault=1.1em&amp;cornerRadius=6px&amp;bgColorHeader=333333&amp;bgTextureHeader=12_gloss_wave.png&amp;bgImgOpacityHeader=25&amp;borderColorHeader=333333&amp;fcHeader=ffffff&amp;iconColorHeader=ffffff&amp;bgColorContent=000000&amp;bgTextureContent=05_inset_soft.png&amp;bgImgOpacityContent=25&amp;borderColorContent=666666&amp;fcContent=ffffff&amp;iconColorContent=cccccc&amp;bgColorDefault=555555&amp;bgTextureDefault=02_glass.png&amp;bgImgOpacityDefault=20&amp;borderColorDefault=666666&amp;fcDefault=eeeeee&amp;iconColorDefault=cccccc&amp;bgColorHover=0078a3&amp;bgTextureHover=02_glass.png&amp;bgImgOpacityHover=40&amp;borderColorHover=59b4d4&amp;fcHover=ffffff&amp;iconColorHover=ffffff&amp;bgColorActive=f58400&amp;bgTextureActive=05_inset_soft.png&amp;bgImgOpacityActive=30&amp;borderColorActive=ffaf0f&amp;fcActive=ffffff&amp;iconColorActive=222222&amp;bgColorHighlight=eeeeee&amp;bgTextureHighlight=03_highlight_soft.png&amp;bgImgOpacityHighlight=80&amp;borderColorHighlight=cccccc&amp;fcHighlight=2e7db2&amp;iconColorHighlight=4b8e0b&amp;bgColorError=ffc73d&amp;bgTextureError=02_glass.png&amp;bgImgOpacityError=40&amp;borderColorError=ffb73d&amp;fcError=111111&amp;iconColorError=a83300&amp;bgColorOverlay=5c5c5c&amp;bgTextureOverlay=01_flat.png&amp;bgImgOpacityOverlay=50&amp;opacityOverlay=80&amp;bgColorShadow=cccccc&amp;bgTextureShadow=01_flat.png&amp;bgImgOpacityShadow=30&amp;opacityShadow=60&amp;thicknessShadow=7px&amp;offsetTopShadow=-7px&amp;offsetLeftShadow=-7px&amp;cornerRadiusShadow=8px)  
 - https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.19/themes/ui-darkness/jquery-ui.css
 
@@ -159,6 +158,6 @@ Kliknij dowolny pole wejściowe, aby wybrać pełny adres URL motywu użytkownik
 - https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.19/themes/vader/jquery-ui.css
 
 
-## <a name="internationalizationlocalization"></a>Przystosowywanie do warunków międzynarodowych/lokalizacja
+## <a name="internationalizationlocalization"></a>Internacjonalizacja/lokalizacja
 
-I18n folder zawiera informacji o lokalizacji biblioteki interfejsu użytkownika jQuery.
+I18n folder zawiera informacji o lokalizacji dla biblioteki interfejsu użytkownika jQuery.

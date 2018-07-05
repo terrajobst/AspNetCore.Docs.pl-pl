@@ -1,31 +1,30 @@
 ---
 uid: web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-cascadingdropdown-control-extender
-title: '[Jak i.] Użyj rozszerzeń formantu CascadingDropDown AJAX ASP.NET? | Microsoft Docs'
+title: '[Jak mogę] Użyj rozszerzenie kontrolki CascadingDropDown ASP.NET AJAX? | Microsoft Docs'
 author: JoeStagner
-description: To wideo pokazuje, jak ASP. Standardowa DropDownList w sieci może stać się interfejsu AJAX przy użyciu rozszerzeń formantu CascadingDropDown z ASP.NET AJAX Contro...
+description: To wideo pokazuje, jak ASP. Standardowa DropDownList przez sieć może stać się włączoną obsługą technologii AJAX przy użyciu rozszerzenia kontrolki CascadingDropDown z Contro AJAX programu ASP.NET...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/24/2007
 ms.topic: article
 ms.assetid: 7dca3704-474b-4b0b-8294-5599279964d9
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-cascadingdropdown-control-extender
 msc.type: video
-ms.openlocfilehash: 01032a4239a6921490de3ba729c34996ba7f457e
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: e4589de3d7db2db27f528f91bf745eebcb33504c
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30883388"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37390737"
 ---
-<a name="how-do-i-use-the-aspnet-ajax-cascadingdropdown-control-extender"></a>[Jak i.] Użyj rozszerzeń formantu CascadingDropDown AJAX ASP.NET?
+<a name="how-do-i-use-the-aspnet-ajax-cascadingdropdown-control-extender"></a>[Jak mogę] Użyj rozszerzenie kontrolki CascadingDropDown ASP.NET AJAX?
 ====================
 przez [Stagner Jan](https://github.com/JoeStagner)
 
-To wideo pokazuje, jak ASP. Standardowa DropDownList w sieci może stać się interfejsu AJAX przy użyciu rozszerzeń formantu CascadingDropDown z zestawu ASP.NET AJAX kontroli narzędzi. Widoczne będzie także, jak łatwo jest formularza sieci web pobierać dane z usługi XML sieci Web.
+To wideo pokazuje, jak ASP. Standardowa DropDownList przez sieć może stać się włączoną obsługą technologii AJAX przy użyciu rozszerzenia kontrolki CascadingDropDown z ASP.NET AJAX Control Toolkit. Zobaczysz również, jak łatwo jest formularza sieci web narysować swoje dane z usługi sieci Web XML.
 
-[&#9654;Obejrzyj klip wideo (minuty 27)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-ajax-cascadingdropdown-control-extender)
+[&#9654;Obejrzyj film wideo (27 min)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-ajax-cascadingdropdown-control-extender)
 
 > [!div class="step-by-step"]
 > [Poprzednie](how-do-i-get-started-with-the-aspnet-ajax-control-toolkit.md)

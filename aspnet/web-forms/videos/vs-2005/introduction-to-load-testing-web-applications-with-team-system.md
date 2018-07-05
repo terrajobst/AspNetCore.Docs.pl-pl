@@ -1,31 +1,30 @@
 ---
 uid: web-forms/videos/vs-2005/introduction-to-load-testing-web-applications-with-team-system
-title: Wprowadzenie do załadowania testowania aplikacji sieci Web za pomocą Team System | Dokumentacja firmy Microsoft
+title: Wprowadzenie do testowania obciążeniowego aplikacji internetowych za pomocą systemu Team | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: To wideo przedstawiono, jak można załadować testu aplikacji sieci web za pomocą funkcji Visual Studio Team System testowania obciążenia.
+description: W tym filmie pokazano zobaczymy, jak załadować testów aplikacji sieci web przy użyciu funkcji testowania obciążenia w programie Visual Studio Team System.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/09/2007
 ms.topic: article
 ms.assetid: c2a80ef9-3dc4-4051-8103-495ddf1b8a46
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/vs-2005/introduction-to-load-testing-web-applications-with-team-system
 msc.type: video
-ms.openlocfilehash: 012eb24699da82bbf335e00e2cb92889704fd77a
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: bd67b66dda728656b5b087a0a488cea91ed765b9
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30894223"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37387260"
 ---
-<a name="introduction-to-load-testing-web-applications-with-team-system"></a>Wprowadzenie do załadowania testowania aplikacji sieci Web za pomocą Team System
+<a name="introduction-to-load-testing-web-applications-with-team-system"></a>Wprowadzenie do testowania obciążeniowego aplikacji internetowych za pomocą Team System
 ====================
-przez Lewandowski marek
+przez Eric Lee
 
-To wideo przedstawiono, jak można załadować testu aplikacji sieci web za pomocą funkcji Visual Studio Team System testowania obciążenia.
+W tym filmie pokazano zobaczymy, jak załadować testów aplikacji sieci web przy użyciu funkcji testowania obciążenia w programie Visual Studio Team System.
 
-[&#9654;Obejrzyj klip wideo (minuty 9)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/introduction-to-load-testing-web-applications-with-team-system)
+[&#9654;Obejrzyj film wideo (9 min)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/introduction-to-load-testing-web-applications-with-team-system)
 
 > [!div class="step-by-step"]
 > [Poprzednie](introduction-to-testing-web-applications-with-team-system.md)

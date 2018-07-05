@@ -1,31 +1,30 @@
 ---
 uid: web-forms/videos/aspnet-ajax/how-do-i-choose-between-methods-of-ajax-page-updates
-title: '[Jak i.] Wybierz jedną z metod AJAX strony aktualizacji? | Microsoft Docs'
+title: '[Jak mogę] Wybieranie spośród metod AJAX aktualizacji stron? | Microsoft Docs'
 author: JoeStagner
-description: W tym wideo Stagner Jan porównuje dwie podstawowe metody wykonywania aktualizacje stron stylu interfejsu AJAX w aplikacji ASP.NET. Pierwsza metoda ma używać Upd...
+description: W tym filmie pokazano Stagner Jan porównanie dwóch głównych metodach wykonywania aktualizacji stron stylu AJAX w aplikacji ASP.NET. Pierwsza metoda jest używać Upd...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/09/2007
 ms.topic: article
 ms.assetid: a5e33a7d-ccb2-483f-a955-3d39f72ba4ec
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-choose-between-methods-of-ajax-page-updates
 msc.type: video
-ms.openlocfilehash: b86471b93b7e3a1ed371288195f09fa28353ab36
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: c092a7dcaeeeec53e899bb1cdf12f9bb02a99597
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30885541"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37392055"
 ---
-<a name="how-do-i-choose-between-methods-of-ajax-page-updates"></a>[Jak i.] Wybierz jedną z metod AJAX strony aktualizacji?
+<a name="how-do-i-choose-between-methods-of-ajax-page-updates"></a>[Jak mogę] Wybieranie spośród metod AJAX aktualizacji stron?
 ====================
 przez [Stagner Jan](https://github.com/JoeStagner)
 
-W tym wideo Stagner Jan porównuje dwie podstawowe metody wykonywania aktualizacje stron stylu interfejsu AJAX w aplikacji ASP.NET. Pierwsza metoda jest Użyj elementu UpdatePanel, gdy żaden dodatkowy kod musi być zapisywane na po stronie klienta lub po stronie serwera. Zaletą używania UpdatePanel jest, że wszystko działa automatycznie. Kary jest to, że po stronie klienta wymaga dużą ilość danych, które mają zostać uwzględnione w technologii AJAX żądań i odpowiedzi, a na serwerze wymaga cykl całą stronę do wykonania. Druga metoda jest Użyj wywołania zwrotne sieci, których wymaga dodatkowego kodu do zapisania zarówno po stronie klienta i po stronie serwera. Zaletą używania sieci wywołania zwrotne jest u klienta wymaga bardzo mało danych do uwzględnienia w technologii AJAX żądań i odpowiedzi, czy na serwerze wymaga tylko metody o nazwie usługi do wykonania. Penality jest czas i nakładu pracy potrzebnego do pisania kodu niezbędne. Jan zawiera wideo przez dyskutować, co należy rozważyć w przypadku wybrania między dwie podstawowe metody AJAX stylu strony aktualizacji. (Ten film używa kodu z [jak zacząć korzystać z ASP.NET AJAX](how-do-i-get-started-with-aspnet-ajax.md) wideo i [jak dokonać po stronie klienta sieci wywołań zwrotnych z ASP.NET AJAX](how-do-i-make-client-side-network-callbacks-with-aspnet-ajax.md) wideo.)
+W tym filmie pokazano Stagner Jan porównanie dwóch głównych metodach wykonywania aktualizacji stron stylu AJAX w aplikacji ASP.NET. Pierwsza metoda jest używać kontrolki UpdatePanel z których żaden dodatkowy kod nie musi być napisany na po stronie klienta lub po stronie serwera. Zaletą używania kontrolki UpdatePanel to, że wszystko działa automatycznie. Kary jest to, że po stronie klienta wymaga dużej ilości danych, które mają zostać uwzględnione w technologii AJAX żądania i odpowiedzi, a na serwerze, wymaga on cykl życia pełnej strony do wykonania. Druga metoda jest używać wywołań zwrotnych sieci, w którym dodatkowy kod musi być napisany zarówno po stronie klienta, jak i po stronie serwera. Zaletą używania wywołań zwrotnych sieci jest, że u klienta wymaga bardzo małą ilością danych, które mają zostać uwzględnione w technologii AJAX żądania i odpowiedzi i na serwerze wymaga tylko metody o nazwie usługi do wykonania. Penality jest czas i nakład pracy potrzebny do pisania kodu, niezbędne. Jan kończy wideo od Omawiając, jakie należy rozważyć podczas wybierania pomiędzy dwóch głównych metodach aktualizacji stron AJAX stylu. (W tym wideo używa kodu z [jak rozpocząć pracę z ASP.NET AJAX](how-do-i-get-started-with-aspnet-ajax.md) wideo i [jak mogę utworzyć po stronie klienta wywołań zwrotnych sieci przy użyciu rozszerzeń ASP.NET AJAX](how-do-i-make-client-side-network-callbacks-with-aspnet-ajax.md) wideo.)
 
-[&#9654;Obejrzyj klip wideo (minuty 11)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-choose-between-methods-of-ajax-page-updates)
+[&#9654;Obejrzyj film wideo (11 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-choose-between-methods-of-ajax-page-updates)
 
 > [!div class="step-by-step"]
 > [Poprzednie](how-do-i-update-multiple-regions-of-a-page-with-aspnet-ajax.md)

@@ -1,99 +1,98 @@
 ---
 uid: aspnet/overview/owin-and-katana/enabling-windows-authentication-in-katana
-title: Włączanie uwierzytelniania systemu Windows w kolekcji Katana | Dokumentacja firmy Microsoft
+title: Włączanie uwierzytelniania Windows w projekcie Katana | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: 'W tym artykule pokazano, jak włączyć uwierzytelnianie systemu Windows w kolekcji Katana. Obejmuje dwa scenariusze: za pomocą usług IIS do hosta Katana i hosta samodzielnego Kat za pomocą HttpListener...'
+description: 'W tym artykule przedstawiono sposób włączania uwierzytelniania Windows w projekcie Katana. Poruszono w nim dwa scenariusze: Korzystanie z usług IIS do hosta Katana i za pomocą HttpListener na potrzeby samodzielnego hostowania Kat...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/30/2013
 ms.topic: article
 ms.assetid: 82324ef0-3b75-4f63-a217-76ef4036ec93
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/enabling-windows-authentication-in-katana
 msc.type: authoredcontent
-ms.openlocfilehash: 8a26d356f7abafba021199761f9a49dcb81765c5
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: e7fbe6af323ecdc09b4d79073f506c5ee056f30f
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28033973"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37391618"
 ---
-<a name="enabling-windows-authentication-in-katana"></a>Włączanie uwierzytelniania systemu Windows w kolekcji Katana
+<a name="enabling-windows-authentication-in-katana"></a>Włączanie uwierzytelniania Windows w projekcie Katana
 ====================
-przez [Wasson Jan](https://github.com/MikeWasson)
+przez [Mike Wasson](https://github.com/MikeWasson)
 
-> W tym artykule pokazano, jak włączyć uwierzytelnianie systemu Windows w kolekcji Katana. Obejmuje dwa scenariusze: za pomocą usług IIS do hosta Katana i za pomocą HttpListener hosta samodzielnego Katana niestandardowy proces. Dzięki użyciu Dorrans Marcin Matson Dominik i Krzysztof Roaming weryfikacji w tym artykule.
+> W tym artykule przedstawiono sposób włączania uwierzytelniania Windows w projekcie Katana. Poruszono w nim dwa scenariusze: Korzystanie z usług IIS do hosta Katana i za pomocą HttpListener na potrzeby samodzielnego hostowania Katana w procesie niestandardowym. Dziękujemy za Barry Dorrans David Matson i Chris Ross przeglądania w tym artykule.
 
 
-Katana to implementacja firmy Microsoft [OWIN](http://owin.org/), Otwórz interfejs sieci Web dla platformy .NET. Wprowadzenie do OWIN i Katana może odczytywać [tutaj](an-overview-of-project-katana.md). Architektura OWIN zawiera kilka warstw:
+Katana to implementacja firmy Microsoft [OWIN](http://owin.org/), Open Web Interface for .NET. Możesz przeczytać wprowadzenie do OWIN i Katana [tutaj](an-overview-of-project-katana.md). Architektura OWIN zawiera kilka warstw:
 
-- Host: Zarządza procesem, w której jest uruchamiana potoku OWIN.
-- Serwer: Otwiera gniazda sieci i nasłuchuje żądań.
+- Host: Zarządza proces, w którym jest uruchamiane w potoku OWIN.
+- Serwer: Otwiera gniazda sieciowego i nasłuchuje żądań.
 - Oprogramowanie pośredniczące: Przetwarza żądania HTTP i odpowiedzi.
 
-Katana obecnie zawiera dwa serwery, które obsługuje zintegrowane uwierzytelnianie systemu Windows:
+Katana aktualnie obsługuje dwa serwery, które obsługuje zintegrowane uwierzytelnianie Windows:
 
-- **Microsoft.Owin.Host.SystemWeb**. Korzysta z usług IIS z potoku ASP.NET.
-- **Microsoft.Owin.Host.HttpListener**. Uses [System.Net.HttpListener](https://msdn.microsoft.com/library/system.net.httplistener.aspx). Ten serwer jest obecnie opcją domyślną, gdy hostingu samodzielnego Katana.
+- **Microsoft.Owin.Host.SystemWeb**. Używa usług IIS przy użyciu potoku platformy ASP.NET.
+- **Microsoft.Owin.Host.HttpListener**. Uses [System.Net.HttpListener](https://msdn.microsoft.com/library/system.net.httplistener.aspx). Ten serwer obecnie jest to opcja domyślna, gdy hostingu samodzielnego Katana.
 
 > [!NOTE]
-> Katana nie jest aktualnie dostępny oprogramowanie pośredniczące OWIN do uwierzytelniania systemu Windows, ponieważ ta funkcja jest już dostępny na serwerach.
+> Katana nie jest aktualnie dostępny oprogramowanie pośredniczące OWIN do uwierzytelniania Windows, ponieważ ta funkcja jest już dostępne na serwerach.
 
 
-## <a name="windows-authentication-in-iis"></a>Uwierzytelnianie systemu Windows w usługach IIS
+## <a name="windows-authentication-in-iis"></a>Windows uwierzytelniania w usługach IIS
 
-Używając Microsoft.Owin.Host.SystemWeb, może po prostu włącz uwierzytelnianie systemu Windows w usługach IIS.
+Używając Microsoft.Owin.Host.SystemWeb, można po prostu włącz uwierzytelnianie Windows w usługach IIS.
 
-Zacznijmy od utworzenia nowej aplikacji ASP.NET przy użyciu szablonu projektu "Aplikacja sieci Web ASP.NET pusty".
+Zacznijmy od utworzenia nowej aplikacji platformy ASP.NET przy użyciu szablonu projektu "Aplikacja sieci Web ASP.NET pusty".
 
 ![](enabling-windows-authentication-in-katana/_static/image1.png)
 
-Następnie dodaj pakiety NuGet. Z **narzędzia** menu, wybierz opcję **Menedżer pakietów biblioteki**, a następnie wybierz pozycję **Konsola Menedżera pakietów**. W oknie Konsola Menedżera pakietów wprowadź następujące polecenie:
+Następnie dodaj pakiety NuGet. Z **narzędzia** menu, wybierz opcję **Menedżer pakietów biblioteki**, a następnie wybierz **Konsola Menedżera pakietów**. W oknie Konsola Menedżera pakietów wprowadź następujące polecenie:
 
 [!code-console[Main](enabling-windows-authentication-in-katana/samples/sample1.cmd)]
 
-Teraz Dodaj klasę o nazwie `Startup` z następującym kodem:
+Teraz Dodaj klasę o nazwie `Startup` następującym kodem:
 
 [!code-csharp[Main](enabling-windows-authentication-in-katana/samples/sample2.cs)]
 
-To wszystko, musisz utworzyć aplikację "Hello world" dla OWIN działającą na serwerze IIS. Naciśnij klawisz F5, aby debugować aplikację. Powinny pojawić się "Witaj świecie!" w oknie przeglądarki.
+To wszystko, czego potrzebujesz do tworzenia aplikacji "Hello world" dla OWIN, uruchomionych w usługach IIS. Naciśnij klawisz F5, aby debugować aplikację. Powinien zostać wyświetlony "Hello World!" w oknie przeglądarki.
 
 ![](enabling-windows-authentication-in-katana/_static/image2.png)
 
-Następnie firma Microsoft będzie włączyć uwierzytelnianie systemu Windows w usługach IIS Express. Z **widoku** menu, wybierz opcję **właściwości**. Kliknij nazwę projektu w Eksploratorze rozwiązań, aby wyświetlić właściwości projektu.
+Następnie firma Microsoft będzie włączyć uwierzytelnianie Windows w usługach IIS Express. Z **widoku** menu, wybierz opcję **właściwości**. Kliknij nazwę projektu w Eksploratorze rozwiązań, aby wyświetlić właściwości projektu.
 
-W **właściwości** ustaw **uwierzytelnianie anonimowe** do **wyłączone** i ustaw **uwierzytelniania systemu Windows** do  **Włączone**.
+W **właściwości** oknie **uwierzytelnianie anonimowe** do **wyłączone** i ustaw **uwierzytelniania Windows** do  **Włączone**.
 
 ![](enabling-windows-authentication-in-katana/_static/image3.png)
 
-Po uruchomieniu aplikacji w programie Visual Studio, usługi IIS Express wymaga poświadczeń użytkownika systemu Windows. Zobacz ten przy użyciu [Fiddler](http://fiddler2.com/home) lub innego protokołu HTTP, narzędzia debugowania. Oto przykład odpowiedzi HTTP:
+Po uruchomieniu aplikacji w programie Visual Studio, usług IIS Express będzie wymagać poświadczeń Windows. Widać to przy użyciu [Fiddler](http://fiddler2.com/home) lub innego protokołu HTTP, narzędzia debugowania. Poniżej przedstawiono przykład odpowiedzi HTTP:
 
 [!code-console[Main](enabling-windows-authentication-in-katana/samples/sample3.cmd?highlight=1,5-6)]
 
-Nagłówki WWW-Authenticate, w tej odpowiedzi wskazują, że serwer obsługuje [Negotiate](http://www.ietf.org/rfc/rfc4559.txt) protokołu, który korzysta z protokołu Kerberos lub NTLM.
+Nagłówki WWW-Authenticate, w tym odpowiedzi wskazują, że serwer obsługuje [Negotiate](http://www.ietf.org/rfc/rfc4559.txt) protokołu, który korzysta z protokołu Kerberos lub NTLM.
 
-Później, podczas wdrażania aplikacji na serwerze, wykonaj [te kroki](https://www.iis.net/configreference/system.webserver/security/authentication/windowsauthentication) Aby włączyć uwierzytelnianie systemu Windows w usługach IIS na tym serwerze.
+Później, podczas wdrażania aplikacji na serwerze, postępuj zgodnie z [te kroki](https://www.iis.net/configreference/system.webserver/security/authentication/windowsauthentication) Aby włączyć uwierzytelnianie Windows w usługach IIS na tym serwerze.
 
-## <a name="windows-authentication-in-httplistener"></a>Uwierzytelnianie systemu Windows w HttpListener
+## <a name="windows-authentication-in-httplistener"></a>Uwierzytelnianie Windows w HttpListener
 
-Jeśli używasz Microsoft.Owin.Host.HttpListener do hosta samodzielnego Katana, możesz je włączyć uwierzytelnianie systemu Windows bezpośrednio na **HttpListener** wystąpienia.
+Jeśli są używane na potrzeby samodzielnego hostowania Katana Microsoft.Owin.Host.HttpListener, można włączyć uwierzytelnianie Windows bezpośrednio na **HttpListener** wystąpienia.
 
-Najpierw utwórz nową aplikację konsoli. Następnie dodaj pakiety NuGet. Z **narzędzia** menu, wybierz opcję **Menedżer pakietów biblioteki**, a następnie wybierz pozycję **Konsola Menedżera pakietów**. W oknie Konsola Menedżera pakietów wprowadź następujące polecenie:
+Najpierw utwórz nową aplikację konsoli. Następnie dodaj pakiety NuGet. Z **narzędzia** menu, wybierz opcję **Menedżer pakietów biblioteki**, a następnie wybierz **Konsola Menedżera pakietów**. W oknie Konsola Menedżera pakietów wprowadź następujące polecenie:
 
 [!code-console[Main](enabling-windows-authentication-in-katana/samples/sample4.cmd)]
 
-Teraz Dodaj klasę o nazwie `Startup` z następującym kodem:
+Teraz Dodaj klasę o nazwie `Startup` następującym kodem:
 
 [!code-csharp[Main](enabling-windows-authentication-in-katana/samples/sample5.cs)]
 
-Ta klasa implementuje w tym samym przykładzie "Hello world" z przed, ale także ustawia uwierzytelniania systemu Windows jako schematu uwierzytelniania.
+Ta klasa implementuje w tym samym przykładzie "Hello world" z przed, ale także ustawia uwierzytelniania Windows jako schematu uwierzytelniania.
 
-Wewnątrz `Main` funkcji, Rozpocznij potoku OWIN:
+Wewnątrz `Main` funkcji, zacznij potoku OWIN:
 
 [!code-csharp[Main](enabling-windows-authentication-in-katana/samples/sample6.cs)]
 
-W narzędziu Fiddler, aby upewnić się, że aplikacja używa uwierzytelniania systemu Windows można wysyłać żądania:
+W narzędziu Fiddler, aby upewnić się, że aplikacja używa uwierzytelniania Windows można wysyłać żądania:
 
 [!code-console[Main](enabling-windows-authentication-in-katana/samples/sample7.cmd?highlight=1,4-5)]
 
@@ -103,4 +102,4 @@ W narzędziu Fiddler, aby upewnić się, że aplikacja używa uwierzytelniania s
 
 [System.Net.HttpListener](https://msdn.microsoft.com/library/system.net.httplistener.aspx)
 
-[Opis uwierzytelniania formularzy OWIN w nazwie wzorca MVC 5](https://blogs.msdn.com/b/webdev/archive/2013/07/03/understanding-owin-forms-authentication-in-mvc-5.aspx)
+[Omówienie uwierzytelniania formularzy OWIN w MVC 5](https://blogs.msdn.com/b/webdev/archive/2013/07/03/understanding-owin-forms-authentication-in-mvc-5.aspx)

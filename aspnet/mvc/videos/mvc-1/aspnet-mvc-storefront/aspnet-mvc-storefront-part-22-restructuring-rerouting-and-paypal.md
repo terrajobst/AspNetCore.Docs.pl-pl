@@ -1,31 +1,30 @@
 ---
 uid: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-22-restructuring-rerouting-and-paypal
-title: 'ASP.NET MVC sklepu część 22: Restrukturyzacji ponownego routingu i PayPal | Dokumentacja firmy Microsoft'
+title: 'ASP.NET MVC StoreFront — część 22: Restrukturyzacja, przekierowywanie i PayPal | Dokumentacja firmy Microsoft'
 author: robconery
-description: W tym epizodzie I restrukturyzacji bit, aby wyczyścić elementy trochę. Również zmienić tras jest znacznie prostsze. Na koniec dodać PayPal jako optio wyewidencjonowania...
+description: W tym odcinku I restrukturyzacja nieco, aby można było wyczyścić elementów, zwolnij trochę. Można również zmienić trasy jest znacznie prostsze. Na koniec dodać PayPal jako parametry opcji realizacji transakcji...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/16/2008
 ms.topic: article
 ms.assetid: 81190124-d0f6-4e4b-a48f-2613cc5a6aa7
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-22-restructuring-rerouting-and-paypal
 msc.type: video
-ms.openlocfilehash: 718e5f6abd38f51d7fb7c770be88cd38326eb236
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 3c35a5b3e4439c866b6c0addb691e35c4636f386
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30878402"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37369906"
 ---
-<a name="aspnet-mvc-storefront-part-22-restructuring-rerouting-and-paypal"></a>ASP.NET MVC sklepu część 22: Restrukturyzacji ponownego routingu i PayPal
+<a name="aspnet-mvc-storefront-part-22-restructuring-rerouting-and-paypal"></a>ASP.NET MVC StoreFront — część 22: Restrukturyzacja, przekierowywanie i PayPal
 ====================
 przez [Rob Conery](https://github.com/robconery)
 
-W tym epizodzie I restrukturyzacji bit, aby wyczyścić elementy trochę. Również zmienić tras jest znacznie prostsze. Na koniec dodać PayPal jako opcji realizacji transakcji.
+W tym odcinku I restrukturyzacja nieco, aby można było wyczyścić elementów, zwolnij trochę. Można również zmienić trasy jest znacznie prostsze. Na koniec dodać PayPal jako opcję wyewidencjonowania.
 
-[&#9654;Obejrzyj klip wideo (45 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-22-restructuring-rerouting-and-paypal)
+[&#9654;Obejrzyj film wideo (45 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-22-restructuring-rerouting-and-paypal)
 
 > [!div class="step-by-step"]
 > [Poprzednie](aspnet-mvc-storefront-part-21-order-manager-and-personalization.md)

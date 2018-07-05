@@ -1,28 +1,27 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-control-the-caching-of-an-aspnet-page-based-upon-custom-information
-title: '[Jak i.] Formant buforowanie strony ASP.NET na podstawie niestandardowych informacji | Dokumentacja firmy Microsoft'
+title: '[Jak mogę] Kontrolka buforowania strony ASP.NET na podstawie niestandardowych informacji | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: W tym wideo Pels Krzysztof pokazuje, jak do sterowania kryteriami buforowania na podstawie informacji niestandardowej strony ASP.NET. Przykładowa strona jest tworzony, a następnie ogram.
+description: W tym wideo pikseli Chris pokazuje, jak do sterowania kryteriami do buforowania strony ASP.NET na podstawie niestandardowych informacji. Przykładowa strona jest tworzony i następnie a...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/19/2009
 ms.topic: article
 ms.assetid: f230c316-1313-4b8f-967c-62f9684fe378
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-control-the-caching-of-an-aspnet-page-based-upon-custom-information
 msc.type: video
-ms.openlocfilehash: b785de4e1161ae82ee458148aee4b30820801147
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d2c8e2384d39255f66c11f1cc303398750229779
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26572744"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37376023"
 ---
-<a name="how-do-i-control-the-caching-of-an-aspnet-page-based-upon-custom-information"></a>[Jak i.] Formant buforowanie strony ASP.NET na podstawie niestandardowych informacji
+<a name="how-do-i-control-the-caching-of-an-aspnet-page-based-upon-custom-information"></a>[Jak mogę] Kontrolka buforowania strony ASP.NET na podstawie niestandardowych informacji
 ====================
-przez [Pels Krzysztof](https://twitter.com/chrispels)
+przez [Chris pikseli](https://twitter.com/chrispels)
 
-W tym wideo Pels Krzysztof pokazuje, jak do sterowania kryteriami buforowania na podstawie informacji niestandardowej strony ASP.NET. Przykładowa strona jest tworzony i następnie dyrektywy OutputCache jest używany przy użyciu atrybutu element VaryByCustom, zawierający wartość niestandardową. Następnie metoda GetVaryCustomByString() zostanie przesłonięta w module global.asax, która zapewnia obsługę atrybutu niestandardowego. W tej metodzie zostanie zwrócony ciąg unikatowo identyfikujący wersja buforowana strony. Na koniec jest dyskusji o jak buforowanie przy użyciu niestandardowej wartości można używać na kilka sposobów dla witryny sieci web.
+W tym wideo pikseli Chris pokazuje, jak do sterowania kryteriami do buforowania strony ASP.NET na podstawie niestandardowych informacji. Przykładowa strona jest tworzony i następnie dyrektywy OutputCache atrybutem Element VaryByCustom, który zawiera niestandardową wartość. Następnie metoda GetVaryCustomByString() zostanie przesłonięta w module global.asax, która zapewnia obsługę atrybutu niestandardowego. W tej metodzie ciąg zostaje zwrócony, który jednoznacznie identyfikuje zbuforowaną wersję strony. Na koniec jest dyskusji o tym jak buforowanie, przy użyciu niestandardowej wartości można używać na kilka sposobów dla witryny sieci web.
 
-[&#9654; Obejrzyj klip wideo (minuty 12)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-control-the-caching-of-an-aspnet-page-based-upon-custom-information)
+[&#9654;Obejrzyj film wideo (12 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-control-the-caching-of-an-aspnet-page-based-upon-custom-information)

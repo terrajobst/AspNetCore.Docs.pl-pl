@@ -2,22 +2,21 @@
 uid: mvc/overview/older-versions-1/nerddinner/create-a-new-aspnet-mvc-project
 title: Utwórz nowy projekt ASP.NET MVC | Dokumentacja firmy Microsoft
 author: microsoft
-description: Krok 1 przedstawiono sposób wprowadzone podstawowej struktury NerdDinner w aplikacji.
+description: Krok 1 pokazuje, jak umieścić podstawową strukturę aplikacji NerdDinner w miejscu.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
 ms.topic: article
 ms.assetid: 7e0e9928-8fdc-4b74-9882-55fac0976628
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/create-a-new-aspnet-mvc-project
 msc.type: authoredcontent
-ms.openlocfilehash: d15ca67f0ddd8db6842bc5112996ae2dee433536
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 9f5e0b3f82d113fc72ab4002ec8d06ad8444dceb
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30869260"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37374279"
 ---
 <a name="create-a-new-aspnet-mvc-project"></a>Utwórz nowy projekt ASP.NET MVC
 ====================
@@ -25,117 +24,117 @@ przez [firmy Microsoft](https://github.com/microsoft)
 
 [Pobierz plik PDF](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
-> Jest to krok 1 z bezpłatny ["NerdDinner" samouczek aplikacji](introducing-the-nerddinner-tutorial.md) który przeszukiwań przez proces kompilacji mały, ale ukończyć, aplikacji sieci web przy użyciu platformy ASP.NET MVC 1.
+> Jest to krok 1 z BEZPŁATNEJ [samouczek aplikacji "NerdDinner"](introducing-the-nerddinner-tutorial.md) , przeszukiwania — szczegółowe instrukcje dotyczące tworzenia małych, ale ukończyć, aplikacji sieci web przy użyciu platformy ASP.NET MVC 1.
 > 
-> Krok 1 przedstawiono sposób wprowadzone podstawowej struktury NerdDinner w aplikacji.
+> Krok 1 pokazuje, jak umieścić podstawową strukturę aplikacji NerdDinner w miejscu.
 > 
-> Jeśli używasz programu ASP.NET MVC 3, zaleca się wykonanie [pobierania uruchomiona z MVC 3](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) lub [magazynu utworów muzycznych MVC](../../older-versions/mvc-music-store/mvc-music-store-part-1.md) samouczki.
+> Jeśli używasz programu ASP.NET MVC 3, zaleca się wykonać [Rozpoczynanie pracy z MVC 3](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) lub [MVC Music Store](../../older-versions/mvc-music-store/mvc-music-store-part-1.md) samouczków.
 
 
 ## <a name="nerddinner-step-1-file-gtnew-project"></a>NerdDinner krok 1: Plik -&gt;nowy projekt
 
-Naszej aplikacji NerdDinner rozpocznie się po wybraniu **pliku -&gt;nowy projekt** elementu menu w programie Visual Studio 2008 lub wolnego Visual Web Developer 2008 Express.
+Firma Microsoft rozpocznie się naszej aplikacji NerdDinner, wybierając **plikach&gt;nowy projekt** element menu w programie Visual Studio 2008 lub bezpłatnego programu Visual Web Developer 2008 Express.
 
-Zostanie wyświetlone okno dialogowe "Nowego projektu". Aby utworzyć nową aplikację ASP.NET MVC, firma Microsoft, wybierz węzeł "Web" po lewej stronie okna dialogowego i wybierz szablon projektu "Aplikacji sieci Web platformy ASP.NET MVC" po prawej stronie:
+Zostanie wyświetlone okno dialogowe "Nowego projektu". Aby utworzyć nową aplikację ASP.NET MVC, firma Microsoft, wybierz węzeł "Web" po lewej stronie okna dialogowego i następnie wybierz szablon projektu "Aplikacja sieci Web platformy ASP.NET MVC" po prawej stronie:
 
 ![](create-a-new-aspnet-mvc-project/_static/image1.png)
 
-*Ważne: Upewnij się, zostały pobrane i zainstalowane ASP.NET MVC — w przeciwnym razie nie będą wyświetlane w oknie dialogowym Nowy projekt. Można użyć V2 z [Instalatora platformy sieci Web firmy Microsoft](https://www.microsoft.com/web/downloads/platform.aspx) , jeśli nie został on jeszcze zainstalowany (ASP.NET MVC jest dostępne w ramach "platformy sieci Web -&gt;struktury i środowisk uruchomieniowych" sekcji).*
+*Ważne: Upewnij się, że zostały pobrane i zainstalowane ASP.NET MVC — w przeciwnym razie nie będzie widoczna w oknie dialogowym Nowy projekt. Używasz wersji 2 z [Instalatora platformy sieci Web firmy Microsoft](https://www.microsoft.com/web/downloads/platform.aspx) Jeśli nie został on jeszcze zainstalowany (ASP.NET MVC jest dostępna w ramach "platformy sieci Web -&gt;środowisk uruchomieniowych i platform" sekcja).*
 
-Firma Microsoft będzie nazwę nowego projektu, któremu zamierzamy utworzyć "NerdDinner", a następnie kliknij przycisk "ok", aby go utworzyć.
+Firma Microsoft będzie nazwa nowego projektu, którą zamierzamy utworzyć "NerdDinner", a następnie kliknij przycisk "ok", aby go utworzyć.
 
-Po kliknięciu przycisku "ok" programu Visual Studio zostaną wyświetlone dodatkowe okno z monitem o nas można opcjonalnie utworzyć jednostkowy projekt testowy, jak również nowej aplikacji. Ten jednostkowy projekt testowy pozwala na tworzenie zautomatyzowanych testów, które pozwalają sprawdzić, funkcje i zachowanie aplikacji (coś omówione zostaną następujące czynności jak zadań do wykonania w dalszej części tego samouczka).
+Po kliknięciu przycisku "ok" Visual Studio zostanie wyświetlone okno dialogowe dodatkowe, które nam by opcjonalnie utworzyć projekt testu jednostkowego dla nowej aplikacji, a także wyświetla monit o. Ten projekt testu jednostkowego pozwala tworzyć zautomatyzowane testy weryfikujące funkcji i zachowań, naszej aplikacji (coś omówimy sposób zadań do wykonania w dalszej części tego samouczka).
 
 ![](create-a-new-aspnet-mvc-project/_static/image2.png)
 
-"Test" rozwijaną platform w oknie dialogowym powyżej jest wypełniana wszystkie dostępne szablony ASP.NET MVC jednostki testu projektu zainstalowane na komputerze. NUnit, MBUnit i XUnit można pobrać wersji. Obsługiwane jest również wbudowana struktura Visual Studio Test jednostki.
+Lista rozwijana "Test framework" w oknie dialogowym powyżej jest wypełniana wszystkie dostępne szablony ASP.NET MVC jednostki testu projektu zainstalowane na komputerze. Wersje mogą być pobierane do XUnit, NUnit i MBUnit. Obsługiwane jest również wbudowane środowiska testów jednostkowych w usłudze Visual Studio.
 
-*Uwaga: Platformy testów jednostkowych programu Visual Studio jest dostępne tylko z programu Visual Studio Professional 2008 i nowszych wersjach. Jeśli używasz programu VS 2008 Standard Edition lub Visual Web Developer 2008 Express musisz pobrać i zainstalować rozszerzenia NUnit, MBUnit lub XUnit dla platformy ASP.NET MVC w kolejności dla tego okna dialogowego, który będzie wyświetlany. Okno dialogowe nie będzie wyświetlany, jeśli nie ma żadnych platform testów zainstalowane.*
+*Uwaga: Środowiska testów jednostkowych programu Visual Studio jest dostępna tylko za pomocą programu Visual Studio Professional 2008 i nowszych wersji. Jeśli używasz programu VS 2008 Standard Edition lub Visual Web Developer 2008 Express musisz pobrać i zainstalować rozszerzenia NUnit, MBUnit lub XUnit dla platformy ASP.NET MVC w kolejności dla tego okna dialogowego do wyświetlenia. Okno dialogowe nie będzie wyświetlany, jeśli nie ma żadnych platform testów zainstalowane.*
 
-Firma Microsoft będzie używać domyślnej nazwy "NerdDinner.Tests" dla projektu testowego, tworzonej przez nas i użyj opcji "Programu Visual Studio testu jednostkowego" framework. Po kliknięciu przycisku przycisk "ok" programu Visual Studio utworzy rozwiązania dla nas z dwa projekty w nim — jeden dla aplikacji sieci web i jeden na potrzeby testów jednostkowych:
+Firma Microsoft będzie Użyj domyślnej nazwy "NerdDinner.Tests" dla projektu testowego, tworzonej przez nas, a następnie użyj opcji "Visual Studio testu jednostkowego" framework. Po kliknięciu przycisku "ok" Visual Studio Utwórz rozwiązanie dla nas przy użyciu dwóch projektów w nim — jeden dla naszej aplikacji internetowej i jeden dla testów jednostkowych:
 
 ![](create-a-new-aspnet-mvc-project/_static/image3.png)
 
-### <a name="examining-the-nerddinner-directory-structure"></a>Badanie NerdDinner struktury katalogów
+### <a name="examining-the-nerddinner-directory-structure"></a>Badanie struktury katalogów NerdDinner
 
-Podczas tworzenia nowej aplikacji ASP.NET MVC z programem Visual Studio, automatycznie dodaje liczbę plików i katalogów do projektu:
+Po utworzeniu nowej aplikacji platformy ASP.NET MVC z programem Visual Studio automatycznie dodaje wiele plików i katalogów do projektu:
 
 ![](create-a-new-aspnet-mvc-project/_static/image4.png)
 
-Projekty składnika ASP.NET MVC domyślnie ma sześć katalogów najwyższego poziomu:
+Projekty programu ASP.NET MVC domyślnie mają sześć katalogów najwyższego poziomu:
 
 | **Katalog** | **Cel** |
 | --- | --- |
-| **/ Kontrolerów** | Gdzie umieścić klasy kontrolera, które obsługuje adresu URL żądania |
-| **/ Modeli** | Gdzie umieścić klasy, które reprezentują i manipulowanie danymi |
-| **/ Widoków** | Gdzie umieścić plików szablonów interfejsu użytkownika, które są zobowiązani do renderowania danych wyjściowych |
-| **/ Skryptów** | Gdzie umieścić pliki bibliotek JavaScript i skrypty (js) |
-| **/Content** | Gdzie umieścić CSS i pliki obrazów i innej zawartości z systemem innym niż dynamic/z systemem innym niż — JavaScript |
-| **/ Aplikacji\_danych** | Gdzie można przechowywać pliki danych chcesz odczytu/zapisu. |
+| **/ Kontrolerów** | Gdzie umieścić klasy kontrolera, które obsługuje adres URL żądania |
+| **/ Modeli** | Gdzie umieścić klas, które reprezentują i manipulowanie danymi |
+| **/ Widoków** | Gdzie umieścić pliki szablonów interfejsu użytkownika, które są odpowiedzialne za renderowaniem w danych wyjściowych |
+| **/ Skryptów** | Gdzie umieścić pliki biblioteki JavaScript i skrypty (js) |
+| **/Content** | Gdzie umieścić CSS i pliki obrazów i innej zawartości innego niż dynamic/inne niż JavaScript |
+| **/ Aplikacji\_danych** | W przypadku, gdy są przechowywane pliki danych chcesz odczytu/zapisu. |
 
-ASP.NET MVC nie wymaga tej struktury. W rzeczywistości deweloperów pracujących w dużych aplikacji będzie zazwyczaj partycji aplikacji się w wielu projektach, aby była łatwiejsza w zarządzaniu (na przykład: klasy modelu danych często Przejdź w osobnej klasy biblioteki projektu z aplikacji sieci web). Jednak domyślnej struktury projektu, podaj nieuprzywilejowany domyślnej konwencji katalogu, które pomagają zachować wyczyść zastrzeżenia co do naszej aplikacji.
+ASP.NET MVC nie wymaga tej struktury. W rzeczywistości deweloperzy pracujący nad dużych aplikacji będzie zazwyczaj partycji aplikacji się w wielu projektach umożliwiają łatwiejsze w zarządzaniu (na przykład: klasy modelu danych często go w projekcie osobnej klasy biblioteki z aplikacji sieci web). Jednak domyślnej struktury projektu, zapewniają nieuprzywilejowany domyślnej konwencji katalogu, który możemy użyć, aby zachować czyste starannością aplikacji.
 
-Gdy firma Microsoft rozwiń katalog /Controllers możemy znaleźć, Visual Studio dodane dwie klasy kontrolera — HomeController i elementu AccountController — domyślnie do projektu:
+Podczas rozwijania katalogu /Controllers możemy znaleźć, Visual Studio dodaje dwie klasy kontrolera — HomeController i elementu AccountController — domyślnie do projektu:
 
 ![](create-a-new-aspnet-mvc-project/_static/image5.png)
 
-Gdy firma Microsoft rozwiń katalog /Views, znaleźliśmy trzy podkatalogów — /Home, /Account i /Shared —, a także kilka szablon, który domyślnie zawartych w nich plików również zostały dodane do projektu:
+Gdy firma Microsoft jest rozwiniesz katalogu /Views, znaleźliśmy trzy podkatalogi — /Home, / Account i /Shared —, a także kilka szablon, który domyślnie pliki znajdujące się w ich również zostały dodane do projektu:
 
 ![](create-a-new-aspnet-mvc-project/_static/image6.png)
 
-Gdy firma Microsoft rozwinąć argumencie / i/skrypty katalogów, możemy znajdziesz obsługę pliku Site.css, który służy do określania stylu HTML wszystkie w witrynie, a także biblioteki JavaScript, w których można włączyć, jQuery i ASP.NET AJAX w aplikacji:
+Podczas rozwijania argumencie / i katalogi/skrypty, możemy znaleźć obsługę pliku Site.css, który służy do nadawania stylu wszystkich HTML w witrynie, a także biblioteki JavaScript, umożliwiające ASP.NET AJAX i bibliotece jQuery w aplikacji:
 
 ![](create-a-new-aspnet-mvc-project/_static/image7.png)
 
-Gdy firma Microsoft rozwiń projekt NerdDinner.Tests znaleźliśmy dwie klasy zawierające testów jednostkowych dla naszej klasy kontrolera:
+Gdy firma Microsoft rozwiń projekt NerdDinner.Tests znaleźliśmy dwóch klas, które zawierają testy jednostkowe dla naszych zajęć kontrolera:
 
 ![](create-a-new-aspnet-mvc-project/_static/image8.png)
 
-Te pliki domyślne, dodawane przez program Visual Studio uzyskaliśmy podstawową strukturę dla działającą aplikację - wraz z strony głównej, strony, strony logowania/wylogowania/rejestracji konta i stronę błędu nieobsługiwany (wszystkie przewodowej w górę i jest uruchomiony bez) informacje.
+Te pliki domyślne, dodawane przez program Visual Studio Opisz podstawowa struktura dla działającej aplikacji — ze strony głównej o strony, strony logowania/wylogowania/rejestracja konta i na stronie nieobsługiwany błąd (wszystkie przewodowej w górę i działa poza pole).
 
 ### <a name="running-the-nerddinner-application"></a>Uruchomienie aplikacji NerdDinner
 
-Można uruchomić projektu, wybierając opcję **debugowania -&gt;Rozpocznij debugowanie** lub **debugowania -&gt;uruchomić bez debugowania** elementów menu:
+Można uruchomić projektu, wybierając opcję **debugowania -&gt;Rozpocznij debugowanie** lub **debugowania -&gt;Rozpocznij bez debugowania** elementy menu:
 
 ![](create-a-new-aspnet-mvc-project/_static/image9.png)
 
-Spowoduje to Uruchom wbudowane ASP.NET serwera sieci Web-dostarczonego z programem Visual Studio i uruchomić aplikację:
+To spowoduje uruchomienie wbudowanego serwera programu ASP.NET w sieci Web-dostarczanego z programem Visual Studio i uruchomić aplikację:
 
 ![](create-a-new-aspnet-mvc-project/_static/image10.png)
 
-Poniżej znajduje się Strona główna dla naszego nowego projektu (adres URL: "/") po uruchomieniu:
+Poniżej znajduje się Strona główna nasz nowy projekt (adres URL: "/") po uruchomieniu:
 
 ![](create-a-new-aspnet-mvc-project/_static/image11.png)
 
-Klikając kartę "Informacje o" Wyświetla o stronie (adres URL: "/ domowej/o"):
+Klikając kartę "About" Wyświetla informacje o stronie (adres URL: "/ Home/About"):
 
 ![](create-a-new-aspnet-mvc-project/_static/image12.png)
 
-Kliknięcie łącza "Logowanie" w prawym górnym rogu powoduje nam do strony logowania (adres URL: "/ Account/logowania")
+Kliknięcie linku "Logowanie" w prawym górnym rogu nam przejście do strony logowania (adres URL: "/ konta/logowania")
 
 ![](create-a-new-aspnet-mvc-project/_static/image13.png)
 
-Nie mamy konto logowania, firma Microsoft może kliknąć łącze rejestru (adres URL: "/ Account/Register") aby go utworzyć:
+Nie mamy konto logowania, możemy kliknąć link Zarejestruj (adres URL: "/ konto/Register") można utworzyć:
 
 ![](create-a-new-aspnet-mvc-project/_static/image14.png)
 
-Kod w celu zaimplementowania domu powyżej i wylogowania / register funkcja została dodana domyślnie, gdy utworzono naszego nowego projektu. Użyjemy go jako punkt początkowy aplikacji.
+Kod implementujący powyżej domu i wylogowania / register funkcja została dodana domyślnie podczas tworzenia nasz nowy projekt. Użyjemy jej jako punktu wyjścia naszej aplikacji.
 
 ### <a name="testing-the-nerddinner-application"></a>Testowanie aplikacji NerdDinner
 
-Jeśli użyto Professional Edition lub nowszej wersji programu Visual Studio 2008, możemy użyć wbudowanych jednostki testowania Obsługa środowiska IDE w programie Visual Studio do projektu testowego:
+Firma Microsoft korzystania z wersji Professional lub nowszej wersji programu Visual Studio 2008 możemy użyć wbudowaną jednostkę testowania Obsługa środowiska IDE programu Visual Studio, aby przetestować projekt:
 
 ![](create-a-new-aspnet-mvc-project/_static/image15.png)
 
-Wybranie jednej z powyższych opcji Otwórz okienko "Wyników testu" w środowisku IDE i uzyskaliśmy stanu przeszedł/nie przeszedł testów jednostkowych 27 uwzględnione w naszej nowego projektu, które obejmują wbudowanej funkcji:
+Wybranie jednej z powyższych opcji Otwórz okienko "Wyników testów" w środowisku IDE programu i przekazywania nam ze stanem Powodzenie/Niepowodzenie w ramach testów jednostkowych 27, zawarte w naszym nowym projektem, które obejmują wbudowane funkcje:
 
 ![](create-a-new-aspnet-mvc-project/_static/image16.png)
 
-W dalszej części tego samouczka nasz komunikować się więcej o automatycznych testów i dodać dodatkowych testów, które dotyczą funkcji aplikacji, które wprowadzania.
+W dalszej części tego samouczka będziemy mówić więcej informacji na temat automatycznego testowania i dodać testy jednostkowe dodatkowe, które obejmują funkcje aplikacji, które wdrażamy.
 
 ### <a name="next-step"></a>Następny krok
 
-Mamy teraz struktury aplikacji w warstwie podstawowa w miejscu. Umożliwia teraz [Utwórz bazę danych do przechowywania danych aplikacji](create-a-database.md).
+Teraz mamy struktury Podstawowa aplikacja w miejscu. Przejdźmy teraz [utworzyć bazę danych do przechowywania danych aplikacji](create-a-database.md).
 
 > [!div class="step-by-step"]
 > [Poprzednie](introducing-the-nerddinner-tutorial.md)

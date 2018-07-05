@@ -1,31 +1,30 @@
 ---
 uid: web-forms/videos/aspnet-35/aspnet-ajax/adonet-data-services-with-aspnet-ajax-support
-title: Usługi danych ADO.NET z obsługą technologii AJAX ASP.NET | Dokumentacja firmy Microsoft
+title: ADO.NET Data Services z obsługą rozszerzeń ASP.NET AJAX | Dokumentacja firmy Microsoft
 author: GrabYourPitchforks
-description: Dowiedz się, jak usług danych ADO.NET można zintegrować z obsługą środowiska ASP.NET AJAX bezproblemowo. Technologia usług ADP.NET danych jest dostępna w ASP.NET 3.5 E...
+description: Dowiedz się, jak architektury ADO.NET Data Services można zintegrować z obsługą ASP.NET AJAX bezproblemowo. Technologii usług ADP.NET danych jest dostępna w ASP.NET 3.5 E...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/20/2007
 ms.topic: article
 ms.assetid: c7aa9192-8859-403f-a9a8-c372081f75bd
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-35/aspnet-ajax/adonet-data-services-with-aspnet-ajax-support
 msc.type: video
-ms.openlocfilehash: f8e50a3802d932684617077d5b0473b6617e3f36
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 871c8bc01135a136e63b4837adaa58687a850220
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30880573"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37385343"
 ---
-<a name="adonet-data-services-with-aspnet-ajax-support"></a>Usługi danych ADO.NET z obsługą technologii AJAX ASP.NET
+<a name="adonet-data-services-with-aspnet-ajax-support"></a>ADO.NET Data Services z obsługą rozszerzeń ASP.NET AJAX
 ====================
 przez [Levi Broderick](https://github.com/GrabYourPitchforks)
 
-Dowiedz się, jak usług danych ADO.NET można zintegrować z obsługą środowiska ASP.NET AJAX bezproblemowo. **Technologia usług danych ADP.NET jest dostępna w [ASP.NET 3.5 rozszerzenia Podgląd](https://www.asp.net/downloads/35-sp1#find) (grudzień 2007).**
+Dowiedz się, jak architektury ADO.NET Data Services można zintegrować z obsługą ASP.NET AJAX bezproblemowo. **Technologia usługi danych ADP.NET jest dostępna w [(wersja zapoznawcza) w programie ASP.NET 3.5 rozszerzenia](https://www.asp.net/downloads/35-sp1#find) (grudnia 2007).**
 
-[&#9654;Obejrzyj klip wideo (minuty 12)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/adonet-data-services-with-aspnet-ajax-support)
+[&#9654;Obejrzyj film wideo (12 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/adonet-data-services-with-aspnet-ajax-support)
 
 > [!div class="step-by-step"]
 > [Poprzednie](aspnet-ajax-a-demonstration-of-aspnet-ajax.md)

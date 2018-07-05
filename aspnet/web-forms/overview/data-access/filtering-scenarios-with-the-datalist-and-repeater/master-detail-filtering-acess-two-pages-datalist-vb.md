@@ -1,56 +1,55 @@
 ---
 uid: web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-filtering-acess-two-pages-datalist-vb
-title: Wzorzec/szczegół filtrowania przez dwie strony (VB) | Dokumentacja firmy Microsoft
+title: Filtrowanie rekordu głównego/szczegółów na dwóch stronach (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: W ramach tego samouczka przyjrzymy się oddzielającego raportu wzorzec/szczegół między dwoma stronami. Na stronie "master" używamy kontrolce elementu powtarzanego do renderowania listę categ...
+description: W tym samouczku przyjrzymy się korzystania z oddzielnych raportu rekordu głównego/szczegółów na dwóch stronach. Na stronie "master" używamy kontrolką elementu powtarzanego do renderowania listę categ...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/30/2010
 ms.topic: article
 ms.assetid: f1a1be2c-6fd9-4a09-916e-aa1b98d5cf17
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-filtering-acess-two-pages-datalist-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 2afc216de3b6894cfdd112787ab92d7483198ecc
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 1c553332b2c6fb53b76d846365b33641ed99e99c
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30886235"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37373269"
 ---
-<a name="masterdetail-filtering-across-two-pages-vb"></a>Wzorzec/szczegół filtrowania przez dwie strony (VB)
+<a name="masterdetail-filtering-across-two-pages-vb"></a>Filtrowanie rekordu głównego/szczegółów na dwóch stronach (VB)
 ====================
 przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
-[Pobierz przykładową aplikację](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_34_VB.exe) lub [pobierania plików PDF](master-detail-filtering-acess-two-pages-datalist-vb/_static/datatutorial34vb1.pdf)
+[Pobierz przykładową aplikację](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_34_VB.exe) lub [Pobierz plik PDF](master-detail-filtering-acess-two-pages-datalist-vb/_static/datatutorial34vb1.pdf)
 
-> W ramach tego samouczka przyjrzymy się oddzielającego raportu wzorzec/szczegół między dwoma stronami. Na stronie "główny" używamy kontrolce elementu powtarzanego do renderowania listy kategorii, gdy kliknięto, potrwa użytkownika na stronie "szczegóły", gdzie DataList dwie kolumny zawiera tych produktów należących do wybranej kategorii.
+> W tym samouczku przyjrzymy się korzystania z oddzielnych raportu rekordu głównego/szczegółów na dwóch stronach. Na stronie "główną" używamy kontrolką elementu powtarzanego do renderowania listę kategorii, po kliknięciu spowoduje przejście użytkownikowi na stronie "szczegóły", gdzie DataList dwie kolumny pokazuje tych produktów należących do wybranej kategorii.
 
 
 ## <a name="introduction"></a>Wprowadzenie
 
-W [wzorzec/szczegół filtrowania między dwoma stronami](../masterdetail/master-detail-filtering-across-two-pages-vb.md) samouczek, możemy zbadać tego wzorca przy użyciu Element GridView w celu wyświetlenia wszystkich dostawców w systemie. Ten element GridView uwzględnione pole hiperłącza HyperLinkField, który odwzorowany jako łącze do drugiej strony, przekazywanie wzdłuż `SupplierID` w zmiennej querystring. Druga strona używany element GridView do tworzenia listy produktów dostarczone przez wybranego dostawcę.
+W [wzorzec/szczegół filtrowania na dwóch stronach](../masterdetail/master-detail-filtering-across-two-pages-vb.md) samouczku zbadaliśmy tego wzorca, korzystający z kontrolki GridView można wyświetlić wszystkich dostawców w systemie. Ta GridView uwzględnione pole hiperłącza HyperLinkField, co czyniło jako link do drugiej strony, przekazując wzdłuż `SupplierID` w zmiennej querystring. Drugiej stronie używane GridView, aby wyświetlić listę tych produktów, dostarczone przez wybranego dostawcę.
 
-Raporty takie dwustronicowy wzorzec/szczegół można osiągnąć za pomocą formantów DataList i elementu powtarzanego. Jedyna różnica polega na tym, że elementu DataList ani powtarzanego zapewnia obsługę dla formantu pole hiperłącza HyperLinkField. Zamiast tego, firma Microsoft lub należy dodać formant sieci Web hiperłącza element kotwicy HTML (`<a>`) w formancie `ItemTemplate`. HyperLink `NavigateUrl` właściwości lub zakotwiczenia `href` atrybut można następnie dostosować przy użyciu podejścia deklaratywne lub programowe.
+Raporty takie dwustronicowy wzorzec/szczegół można osiągnąć za pomocą kontrolek DataList i Repeater. Jedyna różnica polega na tym, że kontrolki DataList ani powtarzanego zapewnia obsługę kontroli pole hiperłącza HyperLinkField. Zamiast tego należy możemy dodać formantu sieci Web hiperłącze lub element kotwicy HTML (`<a>`) w kontrolce `ItemTemplate`. Hiperłącze `NavigateUrl` właściwości lub zakotwiczenia `href` atrybut może następnie być dostosowywany przy użyciu podejścia deklaratywnego lub programowy.
 
-W tym samouczku firma Microsoft będzie zapoznać się przykładem, który zawiera listę kategorii na liście punktowanej na jednej stronie przy użyciu kontrolce elementu powtarzanego. Każdy element tej listy będzie zawierać nazwę i opis, kategoria o nazwie kategorii wyświetlany jako łącze do drugiej strony. Kliknięcie tego łącza spowoduje whisk użytkownika do drugiej strony, gdzie DataList wyświetli te produkty, które należą do wybranej kategorii.
+W tym samouczku przyjrzymy się przykładowi, który wyświetla listę kategorii, na liście punktowanej na jednej stronie przy użyciu kontrolką elementu powtarzanego. Każdy element tej listy będzie zawierać nazwę i opis, kategorii z nazwą kategorii wyświetlany jako łącze do drugiej strony. Kliknięcie tego linku spowoduje whisk użytkownika do drugiej strony, gdzie kontrolką DataList pokaże tych produktów, które należą do wybranej kategorii.
 
 ## <a name="step-1-displaying-the-categories-in-a-bulleted-list"></a>Krok 1: Wyświetlanie kategorii na liście punktowanej
 
-Pierwszym krokiem tworzenia żadnych raportów wzorzec/szczegół jest można uruchomić za pomocą wyświetlania rekordów "master". W związku z tym naszym pierwszym zadaniem jest wyświetlone kategorii na stronie "master". Otwórz `CategoryListMaster.aspx` strony `DataListRepeaterFiltering` , Dodaj kontrolce elementu powtarzanego i, z tagu inteligentnego, należy wybrać opcję Dodaj nowy element ObjectDataSource. Skonfiguruj nowy element ObjectDataSource, dzięki czemu uzyskuje dostęp do danych z `CategoriesBLL` klasy `GetCategories` — metoda (zobacz rysunek 1).
+Pierwszym krokiem w tworzeniu dowolny raport wzorzec/szczegół jest uruchomienie przez wyświetlanie rekordów "główną". W związku z tym naszym pierwszym zadaniem jest wyświetlania kategorii na stronie "główną". Otwórz `CategoryListMaster.aspx` stronie `DataListRepeaterFiltering` folderu, Dodaj kontrolką elementu powtarzanego oraz z tagu inteligentnego, zoptymalizowany pod kątem można dodać nowego elementu ObjectDataSource. Skonfiguruj nowe kontrolki ObjectDataSource uzyskuje dostęp do swoich danych z `CategoriesBLL` klasy `GetCategories` — metoda (patrz rysunek 1).
 
 
-[![Skonfiguruj element ObjectDataSource przy użyciu metody GetCategories klasy CategoriesBLL](master-detail-filtering-acess-two-pages-datalist-vb/_static/image2.png)](master-detail-filtering-acess-two-pages-datalist-vb/_static/image1.png)
+[![Konfigurowanie kontrolki ObjectDataSource przy użyciu metody GetCategories klasy CategoriesBLL](master-detail-filtering-acess-two-pages-datalist-vb/_static/image2.png)](master-detail-filtering-acess-two-pages-datalist-vb/_static/image1.png)
 
-**Rysunek 1**: Konfigurowanie ObjectDataSource użyć `CategoriesBLL` klasy `GetCategories` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-acess-two-pages-datalist-vb/_static/image3.png))
+**Rysunek 1**: Konfigurowanie kontrolki ObjectDataSource do użycia `CategoriesBLL` klasy `GetCategories` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-acess-two-pages-datalist-vb/_static/image3.png))
 
 
-Następnie określ elemencie powtarzanym szablony w taki sposób, że wyświetlane jako element na liście punktowanej każdej kategorii, nazwę i opis. Teraz nie została jeszcze martwić o każdej kategorii łącze do strony szczegółów. Poniżej przedstawiono znaczników deklaratywne dla elementu powtarzanego i ObjectDataSource:
+Następnie zdefiniuj szablony elementu powtarzanego w taki sposób, aby wyświetlał każda nazwa i opis kategorii jako element na liście punktowanej. Spróbujmy jeszcze nie martwić o każdej kategorii link do strony szczegółów. Na poniższym obrazie przedstawiono oznaczeniu deklaracyjnym dla elementu powtarzanego i kontrolki ObjectDataSource:
 
 [!code-aspx[Main](master-detail-filtering-acess-two-pages-datalist-vb/samples/sample1.aspx)]
 
-Z tego znacznika pełną Poświęć chwilę, aby wyświetlić postęp naszych za pośrednictwem przeglądarki. Jak pokazano na rysunku 2, powtarzanego renderuje jako listy punktowane przedstawiający nazwę i opis każdej kategorii.
+Z tym pełną znaczników Poświęć chwilę, aby wyświetlić postępach za pośrednictwem przeglądarki. Jak pokazano na rysunku 2, powtarzanego renderuje jako listy punktowane przedstawiający nazwę i opis każdej z tych kategorii.
 
 
 [![Każda kategoria jest wyświetlany jako element listy punktowanej](master-detail-filtering-acess-two-pages-datalist-vb/_static/image5.png)](master-detail-filtering-acess-two-pages-datalist-vb/_static/image4.png)
@@ -58,130 +57,130 @@ Z tego znacznika pełną Poświęć chwilę, aby wyświetlić postęp naszych za
 **Rysunek 2**: każdej kategorii jest wyświetlany jako element listy punktowanej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-acess-two-pages-datalist-vb/_static/image6.png))
 
 
-## <a name="step-2-turning-the-category-name-into-a-link-to-the-details-page"></a>Krok 2: Włączanie nazwę kategorii w łącze do strony szczegółów
+## <a name="step-2-turning-the-category-name-into-a-link-to-the-details-page"></a>Krok 2: Włączanie nazwa kategorii do łącza do strony szczegółów
 
-Aby zezwolić użytkownikowi na wyświetlanie informacji "szczegóły" dla danej kategorii, należy dodać do każdej listy punktowanej elementu, gdy kliknięty, potrwa użytkownikowi na drugiej stronie łącza (`ProductsForCategoryDetails.aspx`). Ta druga strona będzie wyświetlana produktów dla wybranej kategorii przy użyciu elementu DataList. W celu określenia kategorii, którego łącze został kliknięty, należy przekazać klikniętej kategorii `CategoryID` do drugiej strony za pomocą mechanizmu. Najprostszy, najbardziej oczywistym sposobem transferu danych skalarnych z jednej strony do innego jest za pośrednictwem querystring, czyli opcji, które będą używane w tym samouczku. W szczególności `ProductsForCategoryDetails.aspx` strony będą oczekiwać wybranego *`categoryID`* wartości przekazywane querystring pole o nazwie `CategoryID`. Na przykład, aby wyświetlić produkty należące do tej kategorii, który ma `CategoryID` 1, użytkownik może odwiedzić `ProductsForCategoryDetails.aspx?CategoryID=1`.
+Aby zezwolić na użytkownika, aby wyświetlić informacje "szczegóły" dla danej kategorii, należy dodać do każdej listy punktowanej elementu, po kliknięciu spowoduje przejście użytkownikowi na drugiej stronie łącza (`ProductsForCategoryDetails.aspx`). Ta druga strona będzie wyświetlana produktów dla wybranej kategorii za pomocą kontrolek DataList. W celu określenia kategorii, w których link został kliknięty, należy przekazać kliknięto kategorii `CategoryID` do drugiej strony za pośrednictwem mechanizmu. Najprostszy, najbardziej skomplikowany sposób transferu danych skalarnych z jednej strony do innej jest za pośrednictwem ciąg zapytania, które opcji, których będziemy używać w ramach tego samouczka. W szczególności `ProductsForCategoryDetails.aspx` strony będą oczekiwać wybranego *`categoryID`* wartości, które mają być przekazane za pośrednictwem pole querystring o nazwie `CategoryID`. Na przykład, aby wyświetlić produktów do kategorii Beverages mającego `CategoryID` 1, użytkownik może odwiedzić `ProductsForCategoryDetails.aspx?CategoryID=1`.
 
-Aby utworzyć hiperłącze dla każdego elementu listy punktowanej w elemencie powtarzanym musimy albo Dodaj formant sieci HyperLink Web lub element kotwicy HTML (`<a>`) do `ItemTemplate`. W zastosowaniach hiperłącze wyświetlane takie same dla każdego wiersza, wystarczy albo podejście. Dla wzmacniaki wolę za pomocą elementu zakotwiczenia. Aby użyć elementu zakotwiczenia, zaktualizuj ItemTemplate elemencie powtarzanym do:
+Aby utworzyć hiperłącze dla każdego elementu listy punktowanej w elemencie powtarzanym musimy dodać formant Web hiperłącze lub element kotwicy HTML (`<a>`) do `ItemTemplate`. W scenariuszach, gdzie hiperłącze jest wyświetlane takie same dla każdego wiersza, każda z tych metod będzie wystarczająca. Aby uzyskać wzmacniaki wolę za pomocą elementu zakotwiczenia. Aby użyć elementu zakotwiczenia, zaktualizuj ItemTemplate elementu powtarzanego do:
 
 [!code-aspx[Main](master-detail-filtering-acess-two-pages-datalist-vb/samples/sample2.aspx)]
 
-Należy pamiętać, że `CategoryID` mogą zostać dodane bezpośrednio z poziomu elementu zakotwiczenia `href` atrybutu; jednak, aby tak Zadbaj ograniczyć `href` wartość atrybutu z apostrofów (i Uwaga cudzysłów), ponieważ `Eval` — metoda w ramach `href` atrybutu rozgranicza parametrach (`"CategoryID"`) w znaki cudzysłowu. Alternatywnie formant sieci Web hiperłącze można zamiast tego:
+Należy pamiętać, że `CategoryID` może wprowadzone bezpośrednio z poziomu elementu zakotwiczenia `href` atrybutu; jednak aby więc upewnij się, ograniczone czasowo `href` wartość atrybutu z apostrofy (i Uwaga cudzysłów), ponieważ `Eval` — metoda w ramach `href` atrybut rozgranicza jego ciągu (`"CategoryID"`) ze znakami cudzysłowu. Alternatywnie formantu sieci Web hiperłącza mogą być używane zamiast tego:
 
 [!code-aspx[Main](master-detail-filtering-acess-two-pages-datalist-vb/samples/sample3.aspx)]
 
-Uwaga jak statyczny część adresu URL — `ProductsForCategoryDetails.aspx?CategoryID` — jest dołączany do wyniku `Eval("CategoryID")` bezpośrednio z poziomu składnia wiązania z danymi przy użyciu ciągów.
+Uwaga jak statycznych część adresu URL — `ProductsForCategoryDetails.aspx?CategoryID` — jest dołączany do wyniku `Eval("CategoryID")` bezpośrednio z poziomu składnia wiązania z danymi za pomocą ciągów.
 
-Stosując kontrolki Hiperlinku jest, że można programowo dostęp do niej w elemencie powtarzanym `ItemDataBound` program obsługi zdarzeń, jeśli to konieczne. Na przykład można wyświetlić nazwę kategorii jako tekst, a nie jako łącze dla kategorii z ma skojarzone produktów. Tę operację można było wykonać programowo w `ItemDataBound` obsługi zdarzeń; dla kategorii bez skojarzone produktów, hiperłącze w `NavigateUrl` na pusty ciąg, powodując tę nazwę konkretnej kategorii można ustawić właściwości Renderowanie jako zwykły tekst (a nie jako łącze). Odwołaj się do [formatowania DataList i powtarzanego oparte na danych](../displaying-data-with-the-datalist-and-repeater/formatting-the-datalist-and-repeater-based-upon-data-vb.md) samouczek, aby uzyskać więcej informacji na formatowanie zawartości DataList i jego elementu powtarzanego oparte na logiki za pośrednictwem `ItemDataBound` programu obsługi zdarzeń.
+Jedną z zalet za pomocą kontrolki Hiperlinku jest, że programowego uzyskiwania z elementu powtarzanego `ItemDataBound` program obsługi zdarzeń, jeśli to konieczne. Na przykład można wyświetlić nazwę kategorii, jako tekst, a nie jako link do kategorii produktów skojarzone. Takie można programowo sprawdzić w `ItemDataBound` programu obsługi zdarzeń; dla kategorii bez skojarzonych produktów, hiperłącze firmy `NavigateUrl` można ustawić właściwości pusty ciąg, powodując wpisywanych określonej kategorii Renderowanie jako zwykły tekst (a nie jako link). Odwołaj się do [formatowanie elementów DataList i Repeater na podstawie od danych](../displaying-data-with-the-datalist-and-repeater/formatting-the-datalist-and-repeater-based-upon-data-vb.md) samouczka, aby uzyskać więcej informacji na temat formatowanie elementów DataList i Repeater na zawartość w oparciu logiki programowej za pośrednictwem `ItemDataBound` programu obsługi zdarzeń.
 
-Jeśli wykonujesz, możesz zająć się za pomocą elementu zakotwiczenia lub sposobów kontroli hiperłącze na stronie. Niezależnie od tego podejścia, podczas wyświetlania strony przy użyciu nazwy kategorii ma być renderowany jako łącze do przeglądarki `ProductsForCategoryDetails.aspx`, przekazując odpowiednie `CategoryID` wartość (patrz rysunek 3).
-
-
-[![Nazwy kategorii teraz łącze do ProductsForCategoryDetails.aspx](master-detail-filtering-acess-two-pages-datalist-vb/_static/image8.png)](master-detail-filtering-acess-two-pages-datalist-vb/_static/image7.png)
-
-**Rysunek 3**: Kategoria nazwy teraz łącze do `ProductsForCategoryDetails.aspx` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-acess-two-pages-datalist-vb/_static/image9.png))
+Jeśli wykonujesz możesz używać elementu zakotwiczenia albo podejście kontroli hiperłącze na stronie. Niezależnie od tego podejścia, podczas wyświetlania strony przy użyciu nazwy kategorii ma być renderowany jako link do przeglądarki `ProductsForCategoryDetails.aspx`, przekazując odpowiednie `CategoryID` wartość (patrz rysunek 3).
 
 
-## <a name="step-3-listing-the-products-that-belong-to-the-selected-category"></a>Krok 3: Listę produktów, które należą do wybranej kategorii
+[![Nazwy kategorii teraz połączyć się z ProductsForCategoryDetails.aspx](master-detail-filtering-acess-two-pages-datalist-vb/_static/image8.png)](master-detail-filtering-acess-two-pages-datalist-vb/_static/image7.png)
 
-Z `CategoryListMaster.aspx` strona kompletna, zdecydowaliśmy włączyć wymagające uwagi do wykonania na stronie "szczegóły" `ProductsForCategoryDetails.aspx`. Otwórz tę stronę, przeciągnij z przybornika do projektanta DataList i ustawić jej `ID` właściwości `ProductsInCategory`. Następnie wybierz z DataList tagów inteligentnych można dodać nowego elementu ObjectDataSource do strony, nadając mu nazwę `ProductsInCategoryDataSource`. Skonfiguruj ją tak, aby wywoływał `ProductsBLL` klasy `GetProductsByCategoryID(categoryID)` metod; Ustaw listy rozwijanej listy w kartach INSERT, UPDATE i DELETE na (Brak).
-
-
-[![Skonfiguruj element ObjectDataSource przy użyciu metody GetProductsByCategoryID(categoryID) klasy ProductsBLL](master-detail-filtering-acess-two-pages-datalist-vb/_static/image11.png)](master-detail-filtering-acess-two-pages-datalist-vb/_static/image10.png)
-
-**Rysunek 4**: Konfigurowanie ObjectDataSource użyć `ProductsBLL` klasy `GetProductsByCategoryID(categoryID)` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-acess-two-pages-datalist-vb/_static/image12.png))
+**Rysunek 3**: Kategoria nazwy teraz Link do `ProductsForCategoryDetails.aspx` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-acess-two-pages-datalist-vb/_static/image9.png))
 
 
-Ponieważ `GetProductsByCategoryID(categoryID)` metoda przyjmuje parametr wejściowy (*`categoryID`*), Kreator wybierz źródło danych umożliwia nam określone źródło wartości parametru. Ustaw źródło parametru QueryString za pomocą pole QueryStringField `CategoryID`.
+## <a name="step-3-listing-the-products-that-belong-to-the-selected-category"></a>Krok 3: Wyświetlanie listy produktów, które należą do wybranej kategorii
+
+Za pomocą `CategoryListMaster.aspx` strony ukończone, możemy przystąpić do naszej uwagi do wdrażania na stronie "szczegóły" Włącz `ProductsForCategoryDetails.aspx`. Otwórz tę stronę, przeciągnij kontrolką DataList z przybornika do projektanta i ustawić jej `ID` właściwość `ProductsInCategory`. Następnie wybierz z tagu inteligentnego DataList można dodać nowego elementu ObjectDataSource do strony, nadając mu nazwę `ProductsInCategoryDataSource`. Skonfiguruj ją w taki sposób wywoływanych przez nią `ProductsBLL` klasy `GetProductsByCategoryID(categoryID)` metody; zestaw z listy rozwijanej listy na kartach INSERT, UPDATE i DELETE (Brak).
 
 
-[![Użyj pola Querystring CategoryID jako źródło wartości parametru](master-detail-filtering-acess-two-pages-datalist-vb/_static/image14.png)](master-detail-filtering-acess-two-pages-datalist-vb/_static/image13.png)
+[![Konfigurowanie kontrolki ObjectDataSource przy użyciu metody GetProductsByCategoryID(categoryID) klasy ProductsBLL](master-detail-filtering-acess-two-pages-datalist-vb/_static/image11.png)](master-detail-filtering-acess-two-pages-datalist-vb/_static/image10.png)
 
-**Rysunek 5**: pole Querystring służy `CategoryID` jako źródło wartości parametru ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-acess-two-pages-datalist-vb/_static/image15.png))
+**Rysunek 4**: Konfigurowanie kontrolki ObjectDataSource do użycia `ProductsBLL` klasy `GetProductsByCategoryID(categoryID)` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-acess-two-pages-datalist-vb/_static/image12.png))
 
 
-Jak możemy opisane w poprzedniej samouczki, po zakończeniu pracy kreatora wybierz źródło danych programu Visual Studio automatycznie tworzy `ItemTemplate` dla elementu DataList listę poszczególnych nazwę pola danych i wartości. Zamień ten szablon, który wyświetla tylko produktu nazwy, dostawcy i cenę. Ponadto należy ustawić DataList `RepeatColumns` właściwości do 2. Po wprowadzeniu tych zmian DataList, a w elemencie ObjectDataSource znaczników deklaratywne powinien wyglądać podobnie do poniższej:
+Ponieważ `GetProductsByCategoryID(categoryID)` metoda akceptuje parametr wejściowy (*`categoryID`*), Kreator wybierz źródło danych umożliwia nam określić źródło parametru. Ustaw źródło parametru QueryString przy użyciu vlastnost QueryStringField `CategoryID`.
+
+
+[![Używanie CategoryID pole Querystring jako parametru źródła](master-detail-filtering-acess-two-pages-datalist-vb/_static/image14.png)](master-detail-filtering-acess-two-pages-datalist-vb/_static/image13.png)
+
+**Rysunek 5**: pole Querystring służy `CategoryID` jako źródło parametru ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-acess-two-pages-datalist-vb/_static/image15.png))
+
+
+Jak widzieliśmy w poprzednich samouczkach po zakończeniu pracy kreatora wybierz źródło danych, program Visual Studio automatycznie tworzy `ItemTemplate` dla kontrolki DataList zawierającego każdego dane nazwy i wartości pola. Zamień ten szablon, który wyświetla listę tylko w produkcie nazwę dostawcy i ceny. Ponadto należy ustawić DataList `RepeatColumns` właściwość 2. Po wprowadzeniu tych zmian swoje DataList i ObjectDataSource oznaczeniu deklaracyjnym powinien wyglądać podobnie do poniższej:
 
 [!code-aspx[Main](master-detail-filtering-acess-two-pages-datalist-vb/samples/sample4.aspx)]
 
-Aby wyświetlić tą stronę w akcji, Rozpocznij od `CategoryListMaster.aspx` strony; obok, kliknij łącze na liście kategorii. W ten sposób spowoduje przejście do `ProductsForCategoryDetails.aspx`, przechodzącą wzdłuż `CategoryID` przez ciąg zapytania. `ProductsInCategoryDataSource` ObjectDataSource w `ProductsForCategoryDetails.aspx` będą pobrania tylko tych produktów dla określonej kategorii i wyświetlić je w DataList, która renderuje dwóch produktów dla każdego wiersza. Rysunek 6 przedstawia zrzut ekranu przedstawiający `ProductsForCategoryDetails.aspx` podczas wyświetlania napoje.
+Aby wyświetlić tą stronę w działaniu, zacznij od `CategoryListMaster.aspx` stronie; następnie kliknąć łącze na liście kategorii. To spowoduje przejście do `ProductsForCategoryDetails.aspx`, przekazując wzdłuż `CategoryID` za pośrednictwem ciąg zapytania. `ProductsInCategoryDataSource` ObjectDataSource w `ProductsForCategoryDetails.aspx` zostanie następnie uzyskać tylko tych produktów dla określonej kategorii i wyświetlaj je w DataList, która renderuje dwa produkty każdego wiersza. Rysunek 6 przedstawia zrzut ekranu przedstawiający `ProductsForCategoryDetails.aspx` podczas wyświetlania Beverages.
 
 
-[![Napoje są wyświetlane dwa na jeden wiersz](master-detail-filtering-acess-two-pages-datalist-vb/_static/image17.png)](master-detail-filtering-acess-two-pages-datalist-vb/_static/image16.png)
+[![Beverages są wyświetlane, dwa na jeden wiersz](master-detail-filtering-acess-two-pages-datalist-vb/_static/image17.png)](master-detail-filtering-acess-two-pages-datalist-vb/_static/image16.png)
 
-**Rysunek 6**: napoje są wyświetlane dwa na jeden wiersz ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-acess-two-pages-datalist-vb/_static/image18.png))
-
-
-## <a name="step-4-displaying-category-information-on-productsforcategorydetailsaspx"></a>Krok 4: Wyświetlane informacje o kategorii na ProductsForCategoryDetails.aspx
-
-Gdy użytkownik kliknie ikonę kategorii w `CategoryListMaster.aspx`, podjęte w celu `ProductsForCategoryDetails.aspx` i wyświetlane produkty, które należą do wybranej kategorii. Jednak w `ProductsForCategoryDetails.aspx` nie ma żadnych wizualnych określające, jakie kategorii został wybrany. Użytkownik, który ma kliknij napoje, ale przypadkowo klikniętej przyprawy, nie ma możliwości programu realizująca ich błąd, po upływie `ProductsForCategoryDetails.aspx`. Celu rozwiązanie tego problemu, można wyświetlić informacji na temat wybranej kategorii — nazwy i opisu — w górnej części `ProductsForCategoryDetails.aspx` strony.
-
-W tym celu Dodaj FormView powyżej w kontrolce elementu powtarzanego `ProductsForCategoryDetails.aspx`. Następnie dodaj nowy element ObjectDataSource do strony z FormView tagów inteligentnych o nazwie `CategoryDataSource` i skonfigurować go do używania `CategoriesBLL` klasy `GetCategoryByCategoryID(categoryID)` metody.
+**Rysunek 6**: Beverages są wyświetlane, dwa na jeden wiersz ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-acess-two-pages-datalist-vb/_static/image18.png))
 
 
-[![Dostęp do informacji o kategorii za pomocą metody GetCategoryByCategoryID(categoryID) klasy CategoriesBLL](master-detail-filtering-acess-two-pages-datalist-vb/_static/image20.png)](master-detail-filtering-acess-two-pages-datalist-vb/_static/image19.png)
+## <a name="step-4-displaying-category-information-on-productsforcategorydetailsaspx"></a>Krok 4: Wyświetlanie informacji o kategorii na ProductsForCategoryDetails.aspx
 
-**Rysunek 7**: dostęp do informacji o kategorii za pośrednictwem `CategoriesBLL` klasy `GetCategoryByCategoryID(categoryID)` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-acess-two-pages-datalist-vb/_static/image21.png))
+Gdy użytkownik kliknie kategorii w `CategoryListMaster.aspx`, przekierowanie do `ProductsForCategoryDetails.aspx` i wyświetlane produkty, które należą do wybranej kategorii. Jednak w `ProductsForCategoryDetails.aspx` nie ma żadnych wizualnych do jakiej kategorii został wybrany. Użytkownik, który jest przeznaczony do kliknij Beverages, ale przypadkowo kliknięto Condiments nie ma możliwości realizacji ich błędu, gdy osiągną oni limit `ProductsForCategoryDetails.aspx`. Aby złagodzić to potencjalny problem, można też wyświetlać informacje o wybranej kategorii — jego nazwa i opis — u góry `ProductsForCategoryDetails.aspx` strony.
+
+Aby to osiągnąć, należy dodać FormView powyżej kontrolce elementu powtarzanego w `ProductsForCategoryDetails.aspx`. Następnie dodaj do strony nowego elementu ObjectDataSource z tagu inteligentnego FormView o nazwie `CategoryDataSource` i skonfigurować go do używania `CategoriesBLL` klasy `GetCategoryByCategoryID(categoryID)` metody.
 
 
-Za pomocą `ProductsInCategoryDataSource` ObjectDataSource dodanej w kroku 3 `CategoryDataSource`przez konfigurowanie źródła danych, Kreator wyświetli monit nam źródła dla `GetCategoryByCategoryID(categoryID)` wejściowych parametru metody. Użyj takich samych ustawień jak wcześniej, ustawienie źródło parametru na ciąg zapytania i wartość pole QueryStringField `CategoryID` (odwołują się do rysunek 5).
+[![Uzyskiwanie dostępu do informacji o kategorii za pośrednictwem metody GetCategoryByCategoryID(categoryID) klasy CategoriesBLL](master-detail-filtering-acess-two-pages-datalist-vb/_static/image20.png)](master-detail-filtering-acess-two-pages-datalist-vb/_static/image19.png)
 
-Po zakończeniu działania kreatora, program Visual Studio automatycznie tworzy `ItemTemplate`, `EditItemTemplate`, i `InsertItemTemplate` dla widoku FormView. Ponieważ udostępniamy interfejsu tylko do odczytu, możesz usunąć `EditItemTemplate` i `InsertItemTemplate`. Ponadto możesz dostosowywać FormView `ItemTemplate`. Po usunięciu zbędny szablony i dostosowywanie właściwości ItemTemplate, FormView, a w elemencie ObjectDataSource znaczników deklaratywne powinien wyglądać podobny do następującego:
+**Rysunek 7**: uzyskiwanie dostępu do informacji o kategorii za pośrednictwem `CategoriesBLL` klasy `GetCategoryByCategoryID(categoryID)` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-acess-two-pages-datalist-vb/_static/image21.png))
+
+
+Podobnie jak w przypadku `ProductsInCategoryDataSource` ObjectDataSource dodanych w kroku 3, `CategoryDataSource`firmy skonfigurować źródło danych monituje Kreator nam źródło `GetCategoryByCategoryID(categoryID)` metoda dane wejściowe podane przez parametr. Użyj dokładnie tych samych ustawień, ustawienie dla źródła parametru QueryString i wartość vlastnost QueryStringField `CategoryID` (odnoszą się do rysunek 5).
+
+Po zakończeniu działania kreatora, program Visual Studio automatycznie tworzy `ItemTemplate`, `EditItemTemplate`, i `InsertItemTemplate` dla widoku FormView. Ponieważ udostępniamy interfejsu tylko do odczytu, możesz usunąć `EditItemTemplate` i `InsertItemTemplate`. Ponadto możesz dostosować FormView `ItemTemplate`. Po usuwanie zbędnym szablonów i dostosowywanie właściwości ItemTemplate, Twoje FormView i ObjectDataSource oznaczeniu deklaracyjnym powinien wyglądać podobnie do poniższej:
 
 [!code-aspx[Main](master-detail-filtering-acess-two-pages-datalist-vb/samples/sample5.aspx)]
 
-Rysunek nr 8 przedstawia zrzut podczas wyświetlania tej strony za pośrednictwem przeglądarki ekranu.
+Rysunek 8 przedstawia ekranu zrzut podczas wyświetlania tej strony za pośrednictwem przeglądarki.
 
 > [!NOTE]
-> Oprócz FormView, zostały dodane również kontrolki Hiperlinku powyżej FormView prowadzące użytkownika do listy kategorii (`CategoryListMaster.aspx`). Możesz umieścić w innym miejscu tego łącza lub pominąć go całkowicie.
+> Oprócz FormView, również zostały dodane kontrolki Hiperlinku powyżej FormView prowadzące użytkownika do listy kategorii (`CategoryListMaster.aspx`). Możesz umieścić ten link w innym miejscu lub całkowicie z niego zrezygnować.
 
 
-[![Informacje o kategorii jest teraz wyświetlany w górnej części strony](master-detail-filtering-acess-two-pages-datalist-vb/_static/image23.png)](master-detail-filtering-acess-two-pages-datalist-vb/_static/image22.png)
+[![Informacje o kategorii jest teraz wyświetlane u góry strony](master-detail-filtering-acess-two-pages-datalist-vb/_static/image23.png)](master-detail-filtering-acess-two-pages-datalist-vb/_static/image22.png)
 
 **Rysunek 8**: informacje o kategorii jest teraz wyświetlany w górnej części strony ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-acess-two-pages-datalist-vb/_static/image24.png))
 
 
 ## <a name="step-5-displaying-a-message-if-no-products-belong-to-the-selected-category"></a>Krok 5: Wyświetlenie komunikatu, jeśli produkty nie należą do wybranej kategorii
 
-`CategoryListMaster.aspx` Strona zawiera listę wszystkich kategorii w systemie, bez względu na to czy istnieją skojarzone produktów. Jeśli użytkownik kliknie kategorię ma skojarzone produktów DataList w `ProductsForCategoryDetails.aspx` nie będą renderowane, jako źródła danych nie ma żadnych elementów. Jak możemy przedstawiono w ciągu ostatnich samouczkach, zapewnia widoku GridView `EmptyDataText` właściwość, która może służyć do określenia wiadomość SMS, aby wyświetlić, jeśli nie ma żadnych rekordów w jego źródle danych. Niestety DataList ani elementu powtarzanego nie posiada tych właściwości.
+`CategoryListMaster.aspx` Strona zawiera listę wszystkich kategorii w systemie, niezależnie od tego czy istnieją skojarzone produkty. Jeśli użytkownik kliknie kategorię nie skojarzone produkty DataList w `ProductsForCategoryDetails.aspx` nie będą renderowane, ponieważ źródło danych nie będzie żadnych elementów. Jak widzieliśmy w poprzednich samouczkach widoku GridView zapewnia `EmptyDataText` właściwość, która może służyć do określania wiadomość SMS, wyświetlany w sytuacji, gdy nie ma żadnych rekordów w jego źródle danych. Niestety DataList ani elementu powtarzanego ma taką właściwość.
 
-Aby wyświetlić komunikat informujący użytkownika, że brak pasujących produktów dla wybranej kategorii, należy dodać etykietę kontroli do strony którego `Text` właściwości przypisano komunikat wyświetlany w przypadku, gdy brak pasującego produktów. Następnie należy ustawić programowo jego `Visible` na czy elementu DataList zawiera wszystkie elementy na podstawie właściwości.
+W celu wyświetlenia komunikatu, informujący użytkownika, że brak pasującego produktów dla wybranej kategorii, należy dodać etykietę formant, do strony którego `Text` właściwość jest przypisana widomość do wyświetlenia w przypadku, gdy brak pasującego produktów. Następnie należy programowo ustawić jej `Visible` na informację, czy w kontrolce DataList zawiera jakiekolwiek elementy na podstawie właściwości.
 
-Aby to zrobić, Rozpocznij od dodania etykiety poniżej elementu DataList. Ustaw jego `ID` właściwości `NoProductsMessage` i jego `Text` dla właściwości "Brak produktów dla wybranej kategorii..." Następnie należy programowo ustawić tę etykietę `Visible` na podstawie właściwości na czy żadnych danych została powiązana z `ProductsInCategory` DataList. Musi być przydziału po danych została powiązana z elementu DataList. Dla widoku GridView, widoku DetailsView i FormView, można utworzyć programu obsługi zdarzeń dla formantu `DataBound` zdarzenie, które są generowane po zakończeniu wiązania z danymi. Jednak elementu DataList ani powtarzanego nie posiada `DataBound` zdarzeń dostępne.
+W tym celu najpierw Dodaj etykietę pod kontrolki DataList. Ustaw jego `ID` właściwości `NoProductsMessage` i jego `Text` właściwość "Brak produktów dla wybranej kategorii..." Następnie należy programowo ustawić tę etykietę `Visible` właściwość oparte na informację, czy wszystkie dane był powiązany z `ProductsInCategory` DataList. To przypisanie musi nastąpić po danych została powiązana z kontrolki DataList. Dla DetailsView, GridView i FormView możemy utworzyć program obsługi zdarzeń dla formantu `DataBound` zdarzenie, które są generowane po zakończeniu wiązania danych. Jednak w elemencie DataList ani powtarzanego posiada `DataBound` zdarzenia dostępne.
 
-W tym przykładzie firma Microsoft może przypisać etykietę `Visible` właściwości w `Page_Load` program obsługi zdarzeń, ponieważ dane zostanie przypisana do elementu DataList przed strony `Load` zdarzeń. Jednak ta metoda nie będzie działało w przypadku ogólnych, jak dane z ObjectDataSource może być powiązane z DataList później w cyklu życia strony. Na przykład, jeśli dane wyświetlane opiera się na wartość innego formantu, takie jak jest podczas wyświetlania raportu wzorzec/szczegół za pomocą DropDownList do przechowywania rekordów "główny", dane mogą nie odbitych do formantu danych sieci Web do `PreRender` etapie cykl życia strony.
+W tym przykładzie firma Microsoft może przypisać etykietę `Visible` właściwość `Page_Load` programu obsługi zdarzeń, ponieważ dane zostanie przypisany do kontrolki DataList przed strony `Load` zdarzeń. Jednak to podejście nie będzie działać w przypadku ogólnych, jak dane z kontrolki ObjectDataSource może być powiązane z DataList w dalszej części cyklu życia strony. Na przykład, jeśli dane wyświetlane opiera się na wartości w innej kontrolce, takie jak podczas wyświetlania raportu wzorzec/szczegół za pomocą kontrolki DropDownList do przechowywania rekordów "główną", dane mogą nie odbitych do formantu sieci Web danych, aż do `PreRender` etapie cykl życia strony.
 
-Jedno rozwiązanie, które będzie działać we wszystkich przypadkach jest przypisanie `Visible` właściwości `False` w DataList `ItemDataBound` (lub `ItemCreated`) program obsługi zdarzeń podczas wiązania z typem elementu `Item` lub `AlternatingItem`. W takim przypadku wiemy, że nie ma danych co najmniej jeden element w źródle danych i w związku z tym można ukryć `NoProductsMessage` etykiety. Oprócz tej obsługi zdarzeń dla DataList potrzebujemy jest także program obsługi zdarzeń `DataBinding` zdarzeń, w którym możemy zainicjować etykiety `Visible` właściwości `True`. Ponieważ `DataBinding` zdarzenia generowane przed `ItemDataBound` zdarzenia, etykiety w `Visible` właściwości początkowo zostanie ustawiona do `True`; Jeśli istnieją wszystkie elementy danych, jednak zostanie ustawiona `False`. Poniższy kod implementuje tę logikę:
+Jedno rozwiązanie, które będzie działać dla wszystkich przypadków jest przypisanie `Visible` właściwości `False` w DataList `ItemDataBound` (lub `ItemCreated`) program obsługi zdarzeń podczas tworzenia powiązania z typem elementu `Item` lub `AlternatingItem`. W takim przypadku wiemy, że nie ma danych co najmniej jeden element w źródle danych i w związku z tym można ukryć `NoProductsMessage` etykiety. Oprócz tej obsługi zdarzeń również potrzebujemy program obsługi zdarzeń do DataList `DataBinding` zdarzeń, w którym możemy zainicjować etykiety `Visible` właściwość `True`. Ponieważ `DataBinding` zdarzeń, który jest uruchamiany przed `ItemDataBound` zdarzenia, etykieta firmy `Visible` początkowo będzie można ustawić właściwości `True`; w przypadku jakichkolwiek elementów danych, jednak zostanie ustawiona `False`. Poniższy kod implementuje tę logikę:
 
 [!code-vb[Main](master-detail-filtering-acess-two-pages-datalist-vb/samples/sample6.vb)]
 
-Wszystkie kategorie w bazie danych Northwind są skojarzone z jednego lub więcej produktów. Do testowania tej funkcji, można ręcznie dostosowaniu bazy danych Northwind w tym samouczku, ponowne przypisywanie wszystkich produktów skojarzonych z kategorii produktu (`CategoryID` = 7) do kategorii ryby (`CategoryID` = 8). Można to zrobić z Eksploratora serwera przez wybranie nowego zapytania i użycie następujących `UPDATE` instrukcji:
+Wszystkie kategorie w bazie danych Northwind są skojarzone z co najmniej jednego produktu. Aby przetestować tę funkcję, czy mogę ręcznie dostosowaniu bazy danych Northwind w tym samouczku ponowne przypisywanie wszystkich produktów skojarzone z kategorii produktu (`CategoryID` = 7) do kategorii owoce morza (`CategoryID` = 8). Można to zrobić za pomocą Eksploratora serwera, wybierając nową kwerendę i za pomocą następujących `UPDATE` instrukcji:
 
 [!code-sql[Main](master-detail-filtering-acess-two-pages-datalist-vb/samples/sample7.sql)]
 
-Po zaktualizowaniu odpowiednio bazy danych, wróć do `CategoryListMaster.aspx` strony i kliknij łącze produktu. Ponieważ nie ma już żadnych produktów należących do tej kategorii produktów, powinna zostać wyświetlona "Brak produktów dla wybranej kategorii..." komunikat, jak pokazano na rysunku 9.
+Po zaktualizowaniu bazy danych w związku z tym, wróć do `CategoryListMaster.aspx` strony, a następnie kliknij łącze produktu. Ponieważ nie ma już wszystkie produkty należące do kategorii produktu, wyświetlony komunikat "Brak produktów dla wybranej kategorii...", jak pokazano na rysunku 9.
 
 
-[![Zostanie wyświetlony komunikat, jeśli istnieją nr produktów należących do wybranej kategorii](master-detail-filtering-acess-two-pages-datalist-vb/_static/image26.png)](master-detail-filtering-acess-two-pages-datalist-vb/_static/image25.png)
+[![Zostanie wyświetlony komunikat w przypadku nr produkty należące do wybranej kategorii](master-detail-filtering-acess-two-pages-datalist-vb/_static/image26.png)](master-detail-filtering-acess-two-pages-datalist-vb/_static/image25.png)
 
-**Rysunek 9**: komunikat jest wyświetlany w przypadku nr produktów należących do wybranej kategorii ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-acess-two-pages-datalist-vb/_static/image27.png))
+**Rysunek 9**: wyświetlany jest komunikat, jeśli nie produkty należące do wybranej kategorii ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-acess-two-pages-datalist-vb/_static/image27.png))
 
 
 ## <a name="summary"></a>Podsumowanie
 
-Gdy wzorzec/szczegół raporty można wyświetlić głównego i szczegółów rekordy na jednej stronie, w wiele witryn sieci Web one są rozdzielone przez dwie strony sieci web. W tym samouczku analizujemy sposobu wdrażania raportu wzorzec/szczegół za kategorii wymienionych na liście punktowanej przy użyciu elementu powtarzanego "główny" strony sieci web i skojarzone wymienionego na stronie "szczegóły". Każdy element tej listy na stronie głównej sieci web zawiera łącze do strony szczegółów, który przekazał wzdłuż wiersza `CategoryID` wartość.
+Gdy wzorzec/szczegół raporty można wyświetlić zarówno węzła głównego, jak i szczegóły rekordów na jednej stronie, w wielu witryn sieci Web one są rozdzielone na dwóch stronach sieci web. W tym samouczku zobaczyliśmy, jak wdrożyć raport wzorzec/szczegół za posiadające kategorie wymienione na liście punktowanej przy użyciu Repeater na stronie sieci web "główną" i skojarzone produkty wymienione na stronie "szczegóły". Każdy element tej listy na głównej stronie sieci web zawiera łącze do strony szczegółów, który jest przekazywany z wiersza `CategoryID` wartość.
 
-Na stronie szczegółów pobierania tych produktów dla określonego dostawcy zostało wykonane za pomocą `ProductsBLL` klasy `GetProductsByCategoryID(categoryID)` metody. *`categoryID`* Określono wartość parametru deklaratywnie przy użyciu `CategoryID` wartości querystring jako źródło parametru. Również Analizujemy sposób wyświetlania szczegółów kategorii na stronie szczegółów za pomocą FormView i wyświetli komunikat, jeśli nie było żadnych produktów należących do wybranej kategorii.
+Na stronie szczegółów pobierania tych produktów dla określonego dostawcy było wykonywane za pośrednictwem `ProductsBLL` klasy `GetProductsByCategoryID(categoryID)` metody. *`categoryID`* Wartość parametru została określona w sposób deklaratywny przy użyciu `CategoryID` wartości querystring jako źródło parametru. Zobaczyliśmy także sposób wyświetlania szczegółów kategorii na stronie szczegółów przy użyciu kontrolce FormView oraz wyświetlić komunikat, jeśli nie było żadnych produktów należących do wybranej kategorii.
 
-Programowanie przyjemność!
+Wszystkiego najlepszego programowania!
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor siedem ASP/ASP.NET książek i założycielem [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracował nad przy użyciu technologii Microsoft Web od 1998 r. Scott działa jako niezależny Konsultant, trainer i składnika zapisywania. Jego najnowszą książkę Stephena [ *Sams uczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). ADAM można z Tobą skontaktować w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blogu, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Specjalne podziękowania dla...
 
-Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Prowadzić osób dokonujących przeglądu, w tym samouczku zostały Kowalski Zack i Liz Shulok. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+W tej serii samouczków został zrecenzowany przez wielu recenzentów pomocne. Wiodące osób dokonujących przeglądu, w tym samouczku zostały Zack Jones i Liz Shulok. Zainteresowani zapoznaniem Moje kolejnych artykułów MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Poprzednie](master-detail-filtering-with-a-dropdownlist-datalist-vb.md)

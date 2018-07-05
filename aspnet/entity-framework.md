@@ -9,28 +9,27 @@ ms.date: 03/12/2010
 ms.topic: article
 ms.assetid: faa761a9-86b3-4859-b9c0-60d5c5bc5e93
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /entity-framework
 msc.type: content
-ms.openlocfilehash: 2647e3cb9455ca7efdbdce593df20a62d04f4ec3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 927025ea8088604b5ab80585b3143873145ddb8c
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26563693"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37374350"
 ---
 <a name="entity-framework"></a>Entity Framework
 ====================
-Entity Framework (EF) jest obiektów relacyjnych mapowania, który umożliwia deweloperom platformy .NET pracować z danych relacyjnych przy użyciu obiektów specyficznego dla domeny. Dzięki temu większa część kodu dostępu do danych, który programiści muszą zwykle tworzyć, nie jest już potrzebna.
+Entity Framework (EF) to maper obiektowo relacyjny, który umożliwia deweloperom platformy .NET pracować z danymi relacyjnymi przy użyciu obiektów specyficznych dla domeny. Dzięki temu większa część kodu dostępu do danych, który programiści muszą zwykle tworzyć, nie jest już potrzebna.
 
 
-- [Pobierz go:](https://msdn.com/data/ee712906) Dodaj ją do projektu i rozpocząć korzystanie z tego zaawansowanego O/Menedżera zasobów.
-- [Get Started:](https://msdn.com/data/ee712907) można znaleźć w podręczniku wideo i samouczków, które pomogą Ci w pełni wykorzystać danych.
-- [Get-Help:](https://msdn.com/data/hh913619) dowiedzieć się, jak uzyskać pomoc od ekspertów i przyczyniają się do danych społeczności w witrynie Stack Overflow.
-- [Współtworzenia:](https://github.com/aspnet/EntityFramework6) dowiedzieć się, jak możesz pomóc udoskonalić Entity Framework otwartemu modelowi projektowania, nawet w następującej witrynie GitHub.
+- [Pobierz:](https://msdn.com/data/ee712906) dodać to do projektu i Rozpocznij, korzystając z zalet tego zaawansowanego O/Menedżera zasobów.
+- [Rozpoczynanie pracy:](https://msdn.com/data/ee712907) można znaleźć w przewodniku dla filmów wideo i samouczki, które pomogą Ci w pełni wykorzystać swoje dane.
+- [Get-Help:](https://msdn.com/data/hh913619) dowiedzieć się, jak uzyskać pomoc od ekspertów i przyczynić się do społeczności danych w witrynie Stack Overflow.
+- [Współtworzenie:](https://github.com/aspnet/EntityFramework6) dowiedzieć się, jak możesz pomóc ulepszyć Entity Framework, otwarty model opracowywania, nawet przechodząc do witryny GitHub.
 
 
-Użyj programu Entity Framework ASP.NET
+Używać programu Entity Framework za pomocą platformy ASP.NET
 
 - [Samouczki formularzy sieci Web](web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1.md)
 - [Samouczki MVC](mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)

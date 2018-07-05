@@ -1,29 +1,28 @@
 ---
 uid: web-pages/overview/ui-layouts-and-themes/10-working-with-video
-title: Wyświetlanie wideo w sieci Web ASP.NET stron witryny (Razor) | Dokumentacja firmy Microsoft
+title: Wyświetlanie obrazu wideo we wzorcu ASP.NET Web Pages lokacji (Razor) | Dokumentacja firmy Microsoft
 author: tfitzmac
-description: W tym rozdziale opisano sposób wyświetlania wideo w stron ASP.NET Web Pages ze stroną składni Razor.
+description: W tym rozdziale wyjaśniono, jak wyświetlać wideo w stron ASP.NET Web Pages ze stroną składni Razor.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2014
 ms.topic: article
 ms.assetid: 332fb3da-e2a5-460d-bb90-dd911e1e2c95
 ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/10-working-with-video
 msc.type: authoredcontent
-ms.openlocfilehash: 4e7dc50fb60546d1e1f10a16ed863c0b812ec82b
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: d80fd8ab54bf1c049fa4ee6b7592925ebe0549f8
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/12/2018
-ms.locfileid: "29153683"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37369390"
 ---
-<a name="displaying-video-in-an-aspnet-web-pages-razor-site"></a>Wyświetlanie wideo w sieci Web platformy ASP.NET (Razor) stron witryny
+<a name="displaying-video-in-an-aspnet-web-pages-razor-site"></a>Wyświetlanie obrazu wideo w witrynie ASP.NET Web Pages (Razor)
 ====================
-przez [FitzMacken niestandardowy](https://github.com/tfitzmac)
+przez [Tom FitzMacken](https://github.com/tfitzmac)
 
-> W tym artykule opisano sposób użycia odtwarzacza wideo (nośników) w witrynie sieci Web platformy ASP.NET Web Pages (Razor), aby zezwolić użytkownikom na wyświetlanie filmów wideo, które są przechowywane w witrynie. Strony ASP.NET Web Pages o składni Razor umożliwia Flash (*SWF*), Media Player (*wmv*) i Silverlight (*XAP*) wideo.
+> W tym artykule wyjaśniono, jak na potrzeby odtwarzacz wideo (w przypadku nośników) w witrynie internetowej ASP.NET Web Pages (Razor) umożliwiają użytkownikom wyświetlanie filmów wideo, które są przechowywane w witrynie. Stron ASP.NET Web Pages o składni Razor umożliwia Flash (*SWF*), usługa Media Player (*wmv*) i Silverlight (*.xap*) filmów wideo.
 > 
 > Zawartość:
 > 
@@ -31,33 +30,33 @@ przez [FitzMacken niestandardowy](https://github.com/tfitzmac)
 > - Jak dodać wideo do strony sieci web.
 > - Jak ustawić atrybuty odtwarzacza wideo.
 > 
-> Są to ASP.NET Razor strony funkcje dodane w artykule:
+> Są one ASP.NET Razor strony funkcji wprowadzonych w artykule:
 > 
 > - `Video` Pomocnika.
 >   
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>Używane w samouczku wersje oprogramowania
+> ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używanego w tym samouczku
 > 
 > 
 > - ASP.NET Web Pages (Razor) 2
 > - WebMatrix 2
 >   
 > 
-> W tym samouczku współdziała również z 3 programu WebMatrix.
+> W tym samouczku współpracuje również z programu WebMatrix 3.
 
 
 ## <a name="introduction"></a>Wprowadzenie
 
-Możesz wyświetlić wideo w witrynie. Jednym ze sposobów w tym celu jest łącze do witryny, która ma już wideo, takich jak YouTube. Jeśli chcesz osadzenie klipu wideo w tych witrynach bezpośrednio w własne strony można zwykle uzyskać kod znaczników HTML z witryny i skopiuj go na stronie. Na przykład poniższy przykład przedstawia sposób osadzenia YouTube wideo:
+Możesz chcieć wyświetlić wideo w witrynie. Jednym sposobem wykonania tego zadania jest link do witryny, która ma już wideo, takich jak usługi YouTube. Jeśli chcesz osadzić wideo z tych lokacji bezpośrednio na własnych stronach, można zwykle uzyskać kod znaczników HTML z witryny i skopiuj go na swojej stronie. Na przykład poniższy przykład pokazuje, jak do usługi YouTube osadzania wideo:
 
 [!code-html[Main](10-working-with-video/samples/sample1.html?highlight=10-14)]
 
-Chcąc odtwarzania wideo w serwisie (a nie w publicznej witryny udostępniania wideo), nie można bezpośrednio połączyć za pomocą znacznika osadzonego następująco. Jednak odtwarzania wideo z witryny przy użyciu `Video` pomocnika, która renderuje Windows media player bezpośrednio na stronie.
+Jeśli chcesz odtworzyć film wideo, który jest we własnej witrynie internetowej (nie w publicznej witrynie udostępnianie wideo), nie można połączyć bezpośrednio do niego przy użyciu osadzonych znaczników następująco. Jednak odtwarzania wideo z witryny przy użyciu `Video` pomocnika, która renderuje bezpośrednio na stronie odtwarzacza multimedialnego.
 
 <a id="Choosing_a_Video_Player"></a>
-## <a name="choosing-a-video-player"></a>Wybieranie odtwarzacza wideo
+## <a name="choosing-a-video-player"></a>Wybór odtwarzacza wideo
 
-Istnieje wiele formatów plików wideo, a każdy format wymaga zwykle od innego i inny sposób, aby skonfigurować odtwarzacza. Strony ASP.NET Razor można odtwarzanie wideo na stronie sieci web za pomocą `Video` pomocnika. `Video` Pomocnika upraszcza proces osadzanie klipów wideo na stronie sieci web, ponieważ automatycznie generuje `object` i `embed` elementów HTML, które zwykle są używane do dodawania wideo do strony.
+Dostępnych jest wiele formatów plików wideo, a każdy format zwykle wymaga innego i inny sposób, aby skonfigurować odtwarzacza. Na stronach ASP.NET Razor można odtworzyć wideo na stronie sieci web za pomocą `Video` pomocnika. `Video` Pomocnika upraszcza proces osadzania filmów wideo na stronie sieci web, ponieważ automatycznie generuje `object` i `embed` elementów HTML, które zwykle są używane do dodawania wideo do strony.
 
 `Video` Pomocnika obsługuje następujące odtwarzacze multimedialne:
 
@@ -65,42 +64,42 @@ Istnieje wiele formatów plików wideo, a każdy format wymaga zwykle od innego 
 - Windows MediaPlayer
 - Microsoft Silverlight
 
-### <a name="the-flash-player"></a>Flash Player
+### <a name="the-flash-player"></a>Odtwarzacza w środowisku Flash
 
-`Flash` Odtwarzacza `Video` pomocnika umożliwiają odtwarzania wideo Flash (*SWF* pliki) na stronie sieci web. Co najmniej należy podać ścieżkę do pliku wideo. Jeśli określisz nic, ale ścieżka odtwarzacz korzysta z wartości domyślnych, które są ustawiane przez bieżącą wersję Flash. Typowy domyślne ustawienia są:
+`Flash` Odtwarzacza `Video` pomocnika pozwalają odtwarzania wideo Flash (*SWF* plików) na stronie sieci web. Jako minimum należy podać ścieżkę do pliku wideo. Jeśli określisz nic, ale ścieżka odtwarzacz używa wartości domyślnych, które są ustawiane przez bieżącą wersję programu Flash. Typowe domyślne ustawienia są następujące:
 
-- Przy użyciu domyślnej szerokości i wysokości wyświetlania wideo i bez kolor tła.
-- Odtwarzanie odbywa się automatycznie podczas ładowania strony.
-- Wideo wykonuje pętlę w sposób ciągły, dopóki nie zostanie jawnie zatrzymana.
-- Aby wyświetlić wszystkie wideo, a nie Przycinanie wideo do określonego rozmiaru skalowania wideo.
-- Odtwarzania wideo w oknie.
+- Film wideo jest wyświetlana, przy użyciu jego domyślnej szerokości i wysokości i bez kolor tła.
+- Odtwarzanie wideo odbywa się automatycznie po załadowaniu strony.
+- Wideo w pętli stale, dopóki nie zostanie jawnie zatrzymana.
+- Wideo jest skalowana, aby pokazać wszystkie wideo, a nie Przycinanie wideo do określonego rozmiaru.
+- W oknie odtwarzanie wideo odbywa się.
 
 ### <a name="the-mediaplayer-player"></a>Odtwarzacz MediaPlayer
 
-`MediaPlayer` Odtwarzacza `Video` pomocnika umożliwia odtwarzania wideo Windows Media (*wmv* plików), Windows Media audio (*.wma* plików) i MP3 (*MP3* pliki) na stronie sieci web. Musi zawierać ścieżkę do pliku multimediów do odtwarzania; wszystkie inne parametry są opcjonalne. Jeśli określisz tylko ścieżka odtwarzacz korzysta z domyślnych ustawień ustawić przez bieżącą wersję MediaPlayer, takich jak:
+`MediaPlayer` Odtwarzacza `Video` pomocnika umożliwia odtwarzanie filmów wideo Windows Media (*wmv* plików), Windows Media audio (*.wma* plików) i MP3 (*.mp3* pliki) na stronie sieci web. Musi zawierać ścieżkę do pliku multimediów do odtwarzania; wszystkie inne parametry są opcjonalne. Jeśli określisz tylko ścieżki, gracz używa ustawienia domyślne ustawione przez bieżącą wersję MediaPlayer, takich jak:
 
-- Zawartość wideo jest wyświetlana, przy użyciu domyślnej szerokości i wysokości.
-- Odtwarzanie odbywa się automatycznie podczas ładowania strony.
-- Wideo jest odtwarzany raz (go nie pętla).
-- Odtwarzacz przedstawia pełny zestaw kontrolek interfejsu użytkownika.
-- Odtwarzania wideo w oknie.
+- Film wideo jest wyświetlana, przy użyciu jego domyślnej szerokości i wysokości.
+- Odtwarzanie wideo odbywa się automatycznie po załadowaniu strony.
+- Odtwarzanie wideo odbywa się raz (go nie pętli).
+- Odtwarzacz wyświetla pełnego zestawu kontrolek interfejsu użytkownika.
+- W oknie odtwarzanie wideo odbywa się.
 
 ### <a name="the-silverlight-player"></a>Odtwarzacz Silverlight
 
-`Silverlight` Odtwarzacza `Video` pomocnika umożliwia odtwarzanie wideo Windows Media (*wmv* plików), Windows Media Audio (*.wma* plików) i MP3 (*MP3* pliki). Należy ustawić parametr path, aby wskazać pakiet aplikacji oparte na technologii Silverlight (*XAP* pliku). Należy również ustawić parametrów szerokości i wysokości. Wszystkie inne parametry są opcjonalne. Korzystając z Silverlight odtwarzacza wideo, jeśli ustawisz wymaganych parametrów, Silverlight wyświetlane wideo bez kolor tła.
+`Silverlight` Odtwarzacza `Video` pomocnika umożliwia Windows Media Video (*wmv* plików), Windows Media Audio (*.wma* plików) i MP3 (*.mp3* pliki). Należy ustawić parametr ścieżki, aby wskazać pakiet aplikacji opartych na technologii Silverlight (*.xap* pliku). Można również ustawić parametry szerokość i wysokość. Wszystkie inne parametry są opcjonalne. Gdy używasz odtwarzacz Silverlight dla filmów wideo, jeśli ustawisz tylko wymagane parametry, odtwarzacz Silverlight Wyświetla wideo bez kolor tła.
 
 > [!NOTE]
-> Jeśli nie znasz już program Silverlight: *XAP* pliku to skompresowany plik, który zawiera instrukcje układu w *.xaml* pliku kodu zarządzanego w zestawy i opcjonalne zasoby. Można utworzyć *XAP* pliku w programie Visual Studio jako projekt aplikacji Silverlight.
+> W przypadku, gdy nie znasz jeszcze programu Silverlight: *.xap* plik jest skompresowany plik, który zawiera układ zgodnie z instrukcjami w *.xaml* plik kodu zarządzanego w zestawach i opcjonalnych zasobów. Możesz utworzyć *.xap* pliku w programie Visual Studio jako projekt aplikacji Silverlight.
 
 
-`Silverlight` Odtwarzacza wideo używa zarówno ustawienia, które zapewniają odtwarzacza i ustawienia, które zostały opublikowane w *XAP* pliku.
+`Silverlight` Odtwarzacza wideo używa zarówno zapewniające dla gracza, ustawienia i ustawienia, które znajdują się w *.xap* pliku.
 
 > [!TIP] 
 > 
 > <a id="SB_MimeTypes"></a>
 > ### <a name="mime-types"></a>Typy MIME
 > 
-> Gdy przeglądarka pobierze plik, przeglądarka sprawdza, czy typ pliku zgodny typ MIME, który jest określony dla dokumentu, który jest renderowany. Typ MIME jest typu lub nośnik typ zawartości pliku. `Video` Pomocnika korzysta z następujących typów MIME:
+> Gdy przeglądarka pobierze plik, przeglądarka sprawia, że się, że typ pliku odpowiada typ MIME, który jest określony dla dokumentu, który jest renderowany. Typ MIME jest typu lub nośnik typ zawartości pliku. `Video` Pomocnika używa następujących typów MIME:
 > 
 > - `application/x-shockwave-flash`
 > - `application/x-mplayer2`
@@ -110,56 +109,56 @@ Istnieje wiele formatów plików wideo, a każdy format wymaga zwykle od innego 
 <a id="Playing_Flash"></a>
 ## <a name="playing-flash-swf-videos"></a>Odtwarzanie wideo Flash (SWF)
 
-Ta procedura pokazuje, jak odtwarzanie wideo Flash o nazwie *sample.swf*. W procedurze założono, że masz folder o nazwie *nośnika* w witrynie i *SWF* plik znajduje się w tym folderze.
+Ta procedura pokazuje, jak odtworzyć wideo Flash o nazwie *sample.swf*. W procedurze przyjęto założenie, że masz folder o nazwie *Media* na swojej witryny, która *SWF* plik znajduje się w tym folderze.
 
-1. Dodaj bibliotekę pomocników platformy ASP.NET sieci Web do witryny sieci Web, zgodnie z opisem w [pomocników instalowania w lokacji stron sieci Web ASP.NET](https://go.microsoft.com/fwlink/?LinkId=252372), jeśli jeszcze nie zostało dodane.
+1. Dodaj bibliotekę pomocników platformy ASP.NET sieci Web do witryny sieci Web, zgodnie z opisem w [instalowanie obiekty pomocnicze w witrynie ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=252372), jeśli jeszcze nie został dodany.
 2. W witrynie sieci Web, należy dodać stronę i nadaj mu nazwę *FlashVideo.cshtml*.
-3. Dodaj następujący kod do strony: 
+3. Na stronie, Dodaj następujący kod: 
 
     [!code-cshtml[Main](10-working-with-video/samples/sample2.cshtml)]
-4. Uruchom strony w przeglądarce. (Upewnij się, że strona jest zaznaczona w **pliki** obszar roboczy przed jej uruchomieniem.) Ta strona jest wyświetlana i odtwarzanie odbywa się automatycznie. 
+4. Uruchom stronę w przeglądarce. (Upewnij się, że strona jest zaznaczona w **pliki** obszaru roboczego przed jej uruchomieniem.) Ta strona jest wyświetlana, a odtwarzanie wideo odbywa się automatycznie. 
 
     ![[image]](10-working-with-video/_static/image1.jpg "ch08_video-1.jpg")
 
-Można ustawić `quality` parametr Flash wideo, aby `low`, `autolow`, `autohigh`, `medium`, `high`, i `best`:
+Możesz ustawić `quality` parametr Flash film wideo, aby `low`, `autolow`, `autohigh`, `medium`, `high`, i `best`:
 
 [!code-cshtml[Main](10-working-with-video/samples/sample3.cshtml)]
 
-Możesz zmienić Flash wideo, aby odtworzyć za pomocą określonego rozmiaru `scale` parametr, który można ustawić dla następujących:
+Możesz zmienić Flash odtworzenie filmu wideo o określonym rozmiarze przy użyciu `scale` parametr, który można ustawić następujące czynności:
 
-- `showall`. Spowoduje to uruchomienie całego wideo widoczne, zachowując jego oryginalny współczynnik proporcji. Jednak może być na końcu obramowań na każdej stronie.
-- `noorder`. To skaluje wideo, zachowując jego oryginalny współczynnik proporcji, ale może zostać obcięty.
-- `exactfit`. Spowoduje to uruchomienie całego wideo widoczne nie zachowując jego oryginalny współczynnik proporcji, ale mogą wystąpić zakłócenia.
+- `showall`. To sprawia, że całe wideo widoczne, zachowując jego oryginalny współczynnik proporcji. Jednak użytkownik może pozostać z obramowaniem na każdej stronie.
+- `noorder`. To jest skalowana w wideo, zachowując jego oryginalny współczynnik proporcji, ale mogą być przycięte.
+- `exactfit`. To sprawia, że całe wideo widoczna nie zachowując jego oryginalny współczynnik proporcji, ale mogą wystąpić zakłócenia.
 
-Jeśli nie określisz `scale` parametru całe wideo będzie widoczny i jego oryginalny współczynnik proporcji będzie przechowywany bez żadnych przycinania. Poniższy przykład przedstawia użycie `scale` parametru:
+Jeśli nie określisz `scale` parametru całe wideo będą widoczne, a jego oryginalny współczynnik proporcji zostaną zachowane bez żadnych przycinania. Poniższy przykład pokazuje, jak używać `scale` parametru:
 
 [!code-cshtml[Main](10-working-with-video/samples/sample4.cshtml)]
 
-Flash player obsługuje tryb wideo, ustawienie o nazwie `windowMode`. Możesz ustawić `window`, `opaque`, i `transparent`. Domyślnie `windowMode` ma ustawioną wartość `window`, które powoduje wyświetlenie wideo w osobnym oknie na stronie sieci web. `opaque` Ustawienie ukrywa wszystko za wideo na stronie sieci web. `transparent` Umożliwia ustawienie tła strony sieci web są widoczne wideo, zakładając, że wszystkie części klipu wideo jest niewidoczny.
+Flash player obsługuje tryb wideo, ustawienie o nazwie `windowMode`. Ustaw tę opcję na `window`, `opaque`, i `transparent`. Domyślnie `windowMode` ustawiono `window`, który zawiera wideo w osobnym oknie na stronie sieci web. `opaque` Ustawienie ukrywa wszystko, czego za wideo na stronie sieci web. `transparent` Ustawienie umożliwia tła strony sieci web są widoczne wideo, zakładając, że wszystkie części klipu wideo jest przezroczysty.
 
 <a id="Playing_MediaPlayer"></a>
-## <a name="playing-mediaplayer-wmv-videos"></a>Odtwarzanie MediaPlayer (*wmv*) wideo
+## <a name="playing-mediaplayer-wmv-videos"></a>Odtwarzanie MediaPlayer (*wmv*) filmów wideo
 
-Poniższej procedurze wyjaśniono, jak odtwarzanie wideo multimediów okna o nazwie *sample.wmv* w *nośnika* folderu.
+Poniższa procedura pokazuje sposób odtwarzania wideo multimediów okna o nazwie *sample.wmv* w *Media* folderu.
 
-1. Dodaj bibliotekę pomocników platformy ASP.NET sieci Web do witryny sieci Web, zgodnie z opisem w [pomocników instalowania w lokacji stron sieci Web ASP.NET](https://go.microsoft.com/fwlink/?LinkId=252372), jeśli nie jest jeszcze.
+1. Dodaj bibliotekę pomocników platformy ASP.NET sieci Web do witryny sieci Web, zgodnie z opisem w [instalowanie obiekty pomocnicze w witrynie ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=252372), jeśli jeszcze go.
 2. Utwórz nową stronę o nazwie *MediaPlayerVideo.cshtml*.
-3. Dodaj następujący kod do strony: 
+3. Na stronie, Dodaj następujący kod: 
 
     [!code-cshtml[Main](10-working-with-video/samples/sample5.cshtml)]
-4. Uruchom strony w przeglądarce. Wideo ładuje i odtwarzany automatycznie. 
+4. Uruchom stronę w przeglądarce. Film wideo ładuje i odtwarzany automatycznie. 
 
     ![[image]](10-working-with-video/_static/image2.jpg "ch08_video-2.jpg")
 
-Można ustawić `playCount` na liczbę całkowitą, która wskazuje, ile razy, aby automatycznie odtwarzania wideo:
+Możesz ustawić `playCount` do liczby całkowitej, która wskazuje, ile razy do odtwarzania wideo automatycznie:
 
 [!code-cshtml[Main](10-working-with-video/samples/sample6.cshtml)]
 
-`uiMode` Parametr umożliwia określenie, które kontrolki widoczne w interfejsie użytkownika. Można ustawić `uiMode` do `invisible`, `none`, `mini`, lub `full`. Jeśli nie określisz `uiMode` parametru wideo będą wyświetlane w oknie stanu, wyszukiwanie, kontrolować przycisków i głośności oprócz okna wideo. Formanty te będą również wyświetlane użycie odtwarzacza do odtwarzania pliku audio. Poniżej przedstawiono przykład sposobu użycia `uiMode` parametru:
+`uiMode` Parametr umożliwia określenie, które kontrolki pojawiają się w interfejsie użytkownika. Możesz ustawić `uiMode` do `invisible`, `none`, `mini`, lub `full`. Jeśli nie określisz `uiMode` parametru filmu wideo będzie wyświetlane w oknie stanu, wyszukiwanie pasku sterowania przyciski i formanty woluminie oprócz okna wideo. Te kontrolki będą również wyświetlane, jeśli używasz odtwarzacz do odtwarzania pliku audio. Oto przykład sposobu użycia `uiMode` parametru:
 
 [!code-cshtml[Main](10-working-with-video/samples/sample7.cshtml)]
 
-Domyślnie audio znajduje się na podczas odtwarzania wideo. Dźwięk można wyciszanie przez ustawienie `mute` parametru na wartość true:
+Domyślnie dźwięk jest odtwarzany film wideo. Możesz wyciszyć dźwięk, ustawiając `mute` parametru na wartość true:
 
 [!code-cshtml[Main](10-working-with-video/samples/sample8.cshtml)]
 
@@ -170,14 +169,14 @@ Można kontrolować poziom audio, wideo MediaPlayer przez ustawienie `volume` pa
 <a id="Playing_Silverlight"></a>
 ## <a name="playing-silverlight-videos"></a>Odtwarzanie wideo Silverlight
 
-Ta procedura pokazuje, jak odtwarzanie wideo zawarte w programie Silverlight *.xap* strony w folderze o nazwie *nośnika*.
+Ta procedura pokazuje, jak odtworzyć wideo znajdujących się w technologii Silverlight *.xap* strony w folderze o nazwie *Media*.
 
-1. Dodaj bibliotekę pomocników platformy ASP.NET sieci Web do witryny sieci Web, zgodnie z opisem w [pomocników instalowania w lokacji stron sieci Web ASP.NET](https://go.microsoft.com/fwlink/?LinkId=252372), jeśli nie jest jeszcze.
+1. Dodaj bibliotekę pomocników platformy ASP.NET sieci Web do witryny sieci Web, zgodnie z opisem w [instalowanie obiekty pomocnicze w witrynie ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=252372), jeśli jeszcze go.
 2. Utwórz nową stronę o nazwie *SilverlightVideo.cshtml*.
-3. Dodaj następujący kod do strony: 
+3. Na stronie, Dodaj następujący kod: 
 
     [!code-cshtml[Main](10-working-with-video/samples/sample10.cshtml)]
-4. Uruchom strony w przeglądarce. 
+4. Uruchom stronę w przeglądarce. 
 
     ![[image]](10-working-with-video/_static/image3.jpg "ch08_video-3.jpg")
 
@@ -187,6 +186,6 @@ Ta procedura pokazuje, jak odtwarzanie wideo zawarte w programie Silverlight *.x
 
 [Omówienie technologii Silverlight](https://msdn.microsoft.com/library/bb404700(VS.95).aspx)
 
-[Atrybuty tagu Flash obiekt i osadzania](http://kb2.adobe.com/cps/127/tn_12701.html)
+[Atrybuty znacznika obiektu i osadzania Flash](http://kb2.adobe.com/cps/127/tn_12701.html)
 
 [Windows Media Player 11 SDK PARAM tagów](https://msdn.microsoft.com/library/aa392321(VS.85).aspx)

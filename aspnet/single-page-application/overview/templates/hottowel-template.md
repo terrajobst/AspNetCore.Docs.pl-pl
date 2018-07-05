@@ -1,6 +1,6 @@
 ---
 uid: single-page-application/overview/templates/hottowel-template
-title: Szablon ręczników gorących | Dokumentacja firmy Microsoft
+title: Hot Towel szablonu | Dokumentacja firmy Microsoft
 author: madskristensen
 description: Szablon HotTowel
 ms.author: aspnetcontent
@@ -9,55 +9,54 @@ ms.date: 02/09/2013
 ms.topic: article
 ms.assetid: 75af2e17-6ed3-4d24-8ea1-bc340027c318
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /single-page-application/overview/templates/hottowel-template
 msc.type: authoredcontent
-ms.openlocfilehash: dbd037c2469d326a3d3248ca07492ed9eb93e225
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: de81f12f57d7f2fb7c6478bfa1f3a278ae905a39
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30875022"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37388552"
 ---
-<a name="hot-towel-template"></a>Hot ręczników szablonu
+<a name="hot-towel-template"></a>Szablon hot Towel
 ====================
-przez [Mads Kristensen](https://github.com/madskristensen)
+przez [: Mads Kristensen](https://github.com/madskristensen)
 
-> Gorących szablonu MVC ręczników została napisana przez Papa Jan
+> Szablon MVC Hot Towel została zapisana przy John Papa
 > 
-> Należy wybrać wersję, która do pobrania:
+> Wybierz wersję, która do pobrania:
 > 
-> [Szablon MVC ręczników dostępu dla programu Visual Studio 2012](https://visualstudiogallery.msdn.microsoft.com/1f68fbe8-b4e9-4968-9fd3-ddc7cbc52dca)
+> [Szablon MVC hot Towel dla programu Visual Studio 2012](https://visualstudiogallery.msdn.microsoft.com/1f68fbe8-b4e9-4968-9fd3-ddc7cbc52dca)
 > 
-> [Szablon MVC gorących ręczników dla programu Visual Studio 2013](https://visualstudiogallery.msdn.microsoft.com/1eb8780d-d522-4dcf-bf56-56f0eab305c2)
+> [Szablon MVC hot Towel dla programu Visual Studio 2013](https://visualstudiogallery.msdn.microsoft.com/1eb8780d-d522-4dcf-bf56-56f0eab305c2)
 > 
 > 
-> Gorących ręczników: Ponieważ nie chcesz przejść do SPA bez!
+> Hot Towel: Ponieważ nie chcesz przejść do SPA bez ani jednego!
 
 
-Chcesz tworzyć SPA, ale nie można zdecydować, jak zacząć? Użyj gorących ręczników i w sekundach będziesz mieć SPA i wszystkie narzędzia potrzebne do utworzenia na nim!
+Chcesz tworzyć SPA, ale nie można zdecydować, gdzie zacząć? Użyj Hot Towel i w ciągu kilku sekund będziesz mieć SPA i wszystkie narzędzia potrzebne do tworzenia na nim!
 
-Gorących ręczników tworzy doskonały punkt początkowy do tworzenia jednej strony aplikacji JEDNOSTRONICOWEJ ASP.NET. Poza pole użytkownik udostępnia modularna struktura do kodu, nawigacji widoku, powiązania danych, zarządzanie danymi sformatowanego i style proste, ale elegancki. Gorących ręczników zawiera wszystko, co jest potrzebne do tworzenia SPA, dzięki czemu można skoncentrować się na aplikacji, nie żmudne procesy.
+Hot Towel tworzy doskonałe punkt początkowy do tworzenia pojedynczej strony aplikacji (SPA) za pomocą platformy ASP.NET. Gotowych użytkownik udostępnia modularna struktura do kodu, nawigacji w widoku, powiązanie danych, zarządzania zaawansowanych danych i style proste, ale elegancki. Hot Towel zawiera wszystko, czego potrzebujesz do tworzenia SPA, dzięki czemu możesz skupić się na aplikacji, a nie podstawami.
 
-> Dowiedz się więcej o tworzeniu SPA z [Papa Jan wideo, samouczki i szkolenia Pluralsight](http://johnpapa.net/spa?vsix).
+> Dowiedz się więcej o tworzeniu SPA z [filmów wideo i samouczki John Papa, a także kursów Pluralsight](http://johnpapa.net/spa?vsix).
 
 
-## <a name="application-structure"></a>Struktura aplikacji
+## <a name="application-structure"></a>Struktury aplikacji
 
-Gorących SPA ręczników zawiera folder aplikacji zawierającej pliki JavaScript i HTML, które definiują aplikację.
+Hot Towel SPA zawiera folder aplikacji, który zawiera pliki JavaScript i HTML, które definiują aplikację.
 
-W folderze aplikacji:
+Znajdujące się w folderze aplikacji:
 
 - Durandal
 - usługi
-- viewmodels
+- modele widoków
 - widoki
 
-Folder aplikacji zawiera zbiór modułów. Te moduły Hermetyzowanie funkcjonalność i zadeklarować zależności w innych modułach. Folder widoków zawiera kod HTML dla aplikacji i viewmodels folder zawiera logikę prezentacji widoków (wspólnego wzorca MVVM). Folder usługi jest idealne rozwiązanie w przypadku których wspólne usługi, które mogą wymagać aplikacji, takie jak pobieranie danych protokołu HTTP lub interakcji lokalnej pamięci masowej. Jest typowe dla wielu viewmodels do ponownego użycia kodu z modułów usługi.
+Folder aplikacji zawiera zbiór modułów. Te moduły zapewniają funkcjonalność hermetyzacji i zadeklarować zależności w innych modułach. Folder widoków zawiera kod HTML dla aplikacji i modele widoków folder zawiera logikę prezentacji widoki (wspólny wzorzec MVVM). Folder usługi jest idealny dla obudowie wspólne usługi, których aplikacja może być konieczne takie jak pobieranie danych protokołu HTTP lub interakcji z magazynu lokalnego. Bardzo często modele wielu widoków do ponownego użycia kodu z modułów usługi.
 
-## <a name="aspnet-mvc-server-side-application-structure"></a>Struktura aplikacji po stronie serwera programu ASP.NET MVC
+## <a name="aspnet-mvc-server-side-application-structure"></a>Struktury aplikacji po stronie serwera platformy ASP.NET MVC
 
-Gorących ręczników opiera się na znanych i wydajnych struktury ASP.NET MVC.
+Hot Towel opiera się na znanych i wydajnych struktury ASP.NET MVC.
 
 - Aplikacja\_Start
 - Zawartość
@@ -66,51 +65,51 @@ Gorących ręczników opiera się na znanych i wydajnych struktury ASP.NET MVC.
 - Skrypty
 - Widoki
 
-## <a name="featured-libraries"></a>Promowanie bibliotek
+## <a name="featured-libraries"></a>Polecane bibliotek
 
 - ASP.NET MVC
 - ASP.NET Web API
-- Optymalizacja sieci Web platformy ASP.NET — tworzenie pakietów i minimalizowanie
-- [BREEZE.js](http://Breezejs.com) -zaawansowanych danych zarządzania
-- [Durandal.js](http://Durandaljs.com) -nawigacji i kompozycji widoku
-- [Knockout.js](http://Knockoutjs.com) -powiązania danych
-- [Require.js](http://requirejs.org) -Modułowość AMD i optymalizacji
+- Optymalizacja sieci Web ASP.NET - tworzenie pakietów i minimalizowanie
+- [BREEZE.js](http://Breezejs.com) — zarządzanie danymi zaawansowane
+- [Durandal.js](http://Durandaljs.com) -nawigacji i widoku kompozycji
+- [Struktura Knockout.js](http://Knockoutjs.com) -powiązania danych
+- [Require.js](http://requirejs.org) -Modułowość AMD i optymalizacja
 - [Toastr.js](http://jpapa.me/c7toastr) -komunikatów podręcznych
-- [W usłudze Twitter Bootstrap](http://twitter.github.com/bootstrap/) — niezawodny CSS Ustawianie stylów
+- [Twitter Bootstrap](http://twitter.github.com/bootstrap/) — niezawodne CSS style
 
-## <a name="installing-via-the-visual-studio-2012-hot-towel-spa-template"></a>Instalowanie przy użyciu szablonu SPA gorących ręczników programu Visual Studio 2012
+## <a name="installing-via-the-visual-studio-2012-hot-towel-spa-template"></a>Instalowanie za pośrednictwem SPA szablon Hot Towel programu Visual Studio 2012
 
-Ręczników dynamicznej można zainstalować jako szablon programu Visual Studio 2012. Po prostu kliknij `File`  |  `New Project` i wybierz polecenie `ASP.NET MVC 4 Web Application`. Następnie wybierz pozycję "gorących ręczników jednej strony aplikacji" szablonu i uruchom!
+Hot Towel można zainstalować jako szablon programu Visual Studio 2012. Po prostu kliknij `File`  |  `New Project` i wybierz polecenie `ASP.NET MVC 4 Web Application`. Następnie wybierz pozycję "Hot Towel aplikacji jednostronicowej" szablon i uruchom!
 
 ## <a name="installing-via-the-nuget-package"></a>Instalowanie za pośrednictwem pakietu NuGet
 
-Gorących ręczników jest również pakietu NuGet, który wspomaga istniejącego pustego projektu platformy ASP.NET MVC. Po prostu zainstaluj przy użyciu narzędzia Nuget, a następnie uruchom!
+Hot Towel jest również pakiet NuGet, który rozszerza istniejący pusty projekt platformy ASP.NET MVC. Po prostu zainstaluj za pomocą narzędzia Nuget, a następnie uruchom!
 
 [!code-powershell[Main](hottowel-template/samples/sample1.ps1)]
 
-## <a name="how-do-i-build-on-hot-towel"></a>Jak zbudować na gorąco ręczników?
+## <a name="how-do-i-build-on-hot-towel"></a>Jak tworzyć na Hot Towel
 
-Wystarczy uruchomić Dodawanie kodu!
+Po prostu Rozpocznij, dodając kod!
 
-1. Dodaj własny kod po stronie serwera, najlepiej Entity Framework i WebAPI (które są naprawdę widoczne z Breeze.js)
-2. Dodawanie widoków `App/views` folderu
-3. Dodaj viewmodels do `App/viewmodels` folderu
-4. Dodawanie nowych widoków HTML i odcinania powiązania danych
+1. Dodaj własny kod po stronie serwera, najlepiej Entity Framework i WebAPI (które tak naprawdę przykuć uwagę przy użyciu Breeze.js)
+2. Dodaj widoki `App/views` folderu
+3. Modele widoków, aby dodać `App/viewmodels` folderu
+4. Dodawanie powiązania danych HTML i Knockout do nowych widoków
 5. Aktualizowanie tras nawigacji w `shell.js`
 
-## <a name="walkthrough-of-the-htmljavascript"></a>Wskazówki HTML/JavaScript
+## <a name="walkthrough-of-the-htmljavascript"></a>Przewodnik po języku HTML/JavaScript
 
 ### <a name="viewshottowelindexcshtml"></a>Views/HotTowel/index.cshtml
 
-index.cshtml jest początkowy trasy i widoku dla aplikacji MVC. Zawiera wszystkie standardowe tagi meta, łącza css i JavaScript odwołania, których można oczekiwać. Treść zawiera jeden `<div>` czyli gdzie całej zawartości (widoki) zostaną umieszczone w przypadku żądania. `@Scripts.Render` Używa Require.js do uruchomienia punktu wejścia dla kodu aplikacji, która jest zawarta w `main.js` pliku. Ekran powitalny zapewnia pokazują, jak utworzyć ekranu powitalnego aplikacji ładowane.
+index.cshtml jest początkowy trasy i widok dla aplikacji MVC. Zawiera on wszystkich standardowych tagów meta, łączy css i JavaScript odwołań, czego można oczekiwać. Treść zawiera pojedynczy `<div>` czyli, gdzie całej zawartości (widoki) zostaną umieszczone w przypadku żądania. `@Scripts.Render` Używa Require.js do uruchomienia punktu wejścia dla kodu aplikacji, która jest zawarta w `main.js` pliku. Ekran powitalny jest udostępniane na pokazują, jak utworzyć ekran powitalny, podczas ładowania aplikacji.
 
 [!code-cshtml[Main](hottowel-template/samples/sample2.cshtml)]
 
 ### <a name="appmainjs"></a>App/main.js
 
-`main.js` Plik zawiera kod, który będzie uruchamiany natychmiast po załadowaniu aplikacji. Jest to, które chcesz zdefiniować trasy nawigacji, ustaw uruchamiania się widoki i wykonać wszelkie ustawienia/uruchamianie takich jak priming danych aplikacji.
+`main.js` Plik zawiera kod, który będzie uruchamiany natychmiast po załadowaniu aplikacji. Jest to, które chcesz zdefiniować trasy nawigacji, Ustaw użytkownika uruchamiania widoków i wykonać wszelkie ustawienia/uruchamianie takich jak zalewanie danych aplikacji.
 
-`main.js` Plik definiuje kilka modułów w durandal ułatwiające rozpoczęcie aplikacji start. Instrukcja Definiuj pomaga rozpoznać zależności modułów, aby były dostępne dla tej funkcji. Najpierw komunikaty debugowania są włączone, który wysyła komunikaty o zdarzeniach, jakie się, że aplikacja działa w oknie konsoli. Kod app.start informuje durandal framework do uruchomienia aplikacji. Konwencje są ustawiane tak, aby durandal zna wszystkie widoki i viewmodels są zawarte w tych samych folderach nazwanego, odpowiednio. Na koniec `app.setRoot` uruchamiane obciążenia `shell` przy użyciu wstępnie zdefiniowanej `entrance` animacji.
+`main.js` Plik definiuje kilka modułów durandal firmy, aby ułatwić rozpoczęcie aplikacji start. Zdefiniuj instrukcję pomaga rozpoznać zależności modułów, aby były dostępne dla tej funkcji. Najpierw komunikaty debugowania są włączone, który wysyłać wiadomości o jakie zdarzenia, że aplikacja działa w oknie konsoli. Kod app.start informuje durandal framework, aby uruchomić aplikację. Konwencje są ustawione tak, aby durandal zna wszystkie widoki i modele widoków są zawarte w tych samych folderach nazwanych, odpowiednio. Na koniec `app.setRoot` uruchamiane obciążenia `shell` przy użyciu wstępnie zdefiniowanej `entrance` animacji.
 
 [!code-javascript[Main](hottowel-template/samples/sample3.js)]
 
@@ -120,46 +119,46 @@ Widoki znajdują się w `App/views` folderu.
 
 ### <a name="shellhtml"></a>shell.html
 
-`shell.html` Zawiera głównego układu dla kodzie HTML. Wszystkie inne widoków będzie składać się gdzieś po stronie użytkownika `shell` widoku. Udostępnia ręczników gorących `shell` z trzech takich regionów: nagłówek, obszar zawartości i stopki. Każdy z tych obszarów z załadowanymi zawartość formularza innych widoków na żądanie.
+`shell.html` Zawiera układem głównym na kodzie HTML. Wszystkie inne widoków będzie składać się gdzieś po stronie usługi `shell` widoku. Udostępnia hot Towel `shell` z trzech takich regionów: nagłówek, obszarem zawartości i stopkę. Każda z tych regionów jest załadowana zawartość formularza inne widoki, gdy wymagane.
 
-`compose` Powiązania nagłówku i stopce występują ustalone w dynamicznej ręczników wskaż `nav` i `footer` widoków odpowiednio. Powiązanie compose dla sekcji `#content` jest powiązany z `router` aktywny element modułu. Innymi słowy po kliknięciu łącza nawigacji jest odpowiedni widok został załadowany w tym obszarze.
+`compose` Powiązania w nagłówku i stopce występują ustalone w Hot Towel, aby wskazywał `nav` i `footer` widoków, odpowiednio. Powiązanie compose sekcji `#content` jest powiązany z `router` aktywny element modułu. Innymi słowy po kliknięciu łącza nawigacji jest odpowiedni widok jest ładowany w tym obszarze.
 
 [!code-html[Main](hottowel-template/samples/sample4.html)]
 
 ### <a name="navhtml"></a>nav.html
 
-`nav.html` Zawiera łącza nawigacji, aby aplikacja JEDNOSTRONICOWA. Jest to struktura menu rozmieszczenia, np. Często jest to danymi powiązanymi (przy użyciu odcinania) do `router` modułu, aby wyświetlić nawigacji zdefiniowane w `shell.js`. Odcinania szuka wiązania danych atrybutów i wiąże tych `shell` viewmodel w celu wyświetlenia trasy nawigacji i wyświetlania elementu progressbar (przy użyciu Twitter Bootstrap) Jeśli `router` modułu jest w trakcie przechodzenia z jednego widoku do innego (patrz `router.isNavigating`).
+`nav.html` Zawiera łącza nawigacji dla SPA. Jest to, gdzie struktury menu mogą być umieszczane, na przykład. Często jest to dane powiązane (przy użyciu Knockout) do `router` modułu, aby wyświetlić nawigacji zdefiniowane w `shell.js`. Knockout wyszukuje wiązania danych atrybutów, a także tych, które mają powiązania `shell` viewmodel w celu wyświetlania tras nawigacji i wyświetlania elementu progressbar (przy użyciu usługi Twitter Bootstrap) Jeśli `router` modułu jest w trakcie przechodzenia z jednego widoku do innego (patrz `router.isNavigating`).
 
 [!code-html[Main](hottowel-template/samples/sample5.html)]
 
 ### <a name="homehtml-and-detailshtml"></a>Home.HTML i details.html
 
-Widoki te zawierają HTML, niestandardowe widoki. Gdy `home` łącze w `nav` kliknięciu menu widoku `home` widoku zostaną umieszczone w obszarze zawartości `shell` widoku. Widoki te można rozszerzony lub zastąpione własnych widoków niestandardowych.
+Widoki te zawierają HTML do widoków niestandardowych. Gdy `home` łącze w `nav` kliknięciu menu widoku `home` widoku zostaną umieszczone w obszarze zawartości `shell` widoku. Widoki te mogą rozszerzone lub zastąpić widoki niestandardowe.
 
 ### <a name="footerhtml"></a>footer.html
 
-`footer.html` Zawiera kod HTML, który jest wyświetlany w stopce strony, u dołu `shell` widoku.
+`footer.html` Zawiera kod HTML, który pojawia się w stopce w dolnej części `shell` widoku.
 
-## <a name="viewmodels"></a>ViewModels
+## <a name="viewmodels"></a>Modele widoków
 
-Znaleziono ViewModels `App/viewmodels` folderu.
+Modele widoków znajdują się w `App/viewmodels` folderu.
 
 ### <a name="shelljs"></a>shell.js
 
-`shell` Viewmodel zawiera właściwości i funkcje, które są powiązane z `shell` widoku. Często jest to, gdzie znajdują się powiązania z menu nawigacji (zobacz `router.mapNav` logiki).
+`shell` Viewmodel zawiera właściwości i funkcje, które są powiązane z `shell` widoku. Często jest to, gdzie znajdują się menu nawigacji powiązania (zobacz `router.mapNav` logiki).
 
 [!code-javascript[Main](hottowel-template/samples/sample6.js)]
 
 ### <a name="homejs-and-detailsjs"></a>Home.js i details.js
 
-Te viewmodels zawierają właściwości i funkcje, które są powiązane z `home` widoku. on również zawiera logikę prezentacji dla widoku i jest sklejki między danymi i widoku.
+Te modele widoków zawierają właściwości i funkcje, które są powiązane z `home` widoku. on również zawiera logikę prezentacji dla widoku i jest pośredniczącego między danymi a widoku.
 
 [!code-javascript[Main](hottowel-template/samples/sample7.js)]
 
 ## <a name="services"></a>Usługi
 
-Usługi znajdują się w folderze aplikacji i usług. W idealnym przypadku przyszłych usług takich jak moduł dataservice, która jest odpowiedzialna za uzyskanie i przesyłanie danych zdalnych, może zostać umieszczona.
+Usługi znajdują się w folderze aplikacji/usługi. Najlepiej przyszłych usług takich jak moduł usługi danych, który jest odpowiedzialny za uzyskanie i publikowanie danych zdalnych, można umieścić.
 
 ### <a name="loggerjs"></a>logger.js
 
-Udostępnia ręczników gorących `logger` modułu w folderze usługi. `logger` Modułu jest idealny dla rejestrowanie komunikatów do konsoli i użytkownikowi w wyświetlonym wyskakujące powiadomienia.
+Udostępnia hot Towel `logger` modułu w folderze usługi. `logger` Modułu jest idealny dla rejestrowanie komunikatów do konsoli i użytkownika w menu podręcznym wyskakujące powiadomienia.

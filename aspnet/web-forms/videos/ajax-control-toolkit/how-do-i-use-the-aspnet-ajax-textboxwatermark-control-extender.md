@@ -1,31 +1,30 @@
 ---
 uid: web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-textboxwatermark-control-extender
-title: '[Jak i.] Użyj rozszerzeń formantu TextBoxWatermark AJAX ASP.NET? | Microsoft Docs'
+title: '[Jak mogę] Użyj rozszerzenie kontrolki TextBoxWatermark ASP.NET AJAX? | Microsoft Docs'
 author: JoeStagner
-description: W tym wideo dowiesz sposobu korzystania z rozszerzeń formantu TextBoxWatermark z Toolkit kontrolki ASP.NET AJAX, który dodaje nowe właściwości znaku wodnego do...
+description: W tym filmie pokazano będzie dowiesz się, jak używać rozszerzenia kontrolki kontrolki TextBoxWatermark z ASP.NET AJAX Control Toolkit, który dodaje nowe właściwości znaku wodnego do...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/26/2007
 ms.topic: article
 ms.assetid: a43d175e-7526-4dd9-b8ed-9348c3c3dd39
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-textboxwatermark-control-extender
 msc.type: video
-ms.openlocfilehash: 09bcfccb5c27c446ea16d2f00eed224e37471162
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: c4e15ec5c0c1b8032aa20daf4e57292900e8c33d
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30881503"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37401756"
 ---
-<a name="how-do-i-use-the-aspnet-ajax-textboxwatermark-control-extender"></a>[Jak i.] Użyj rozszerzeń formantu TextBoxWatermark AJAX ASP.NET?
+<a name="how-do-i-use-the-aspnet-ajax-textboxwatermark-control-extender"></a>[Jak mogę] Użyj rozszerzenie kontrolki TextBoxWatermark ASP.NET AJAX?
 ====================
 przez [Stagner Jan](https://github.com/JoeStagner)
 
-W tym wideo dowiesz się, jak używać rozszerzeń formantu TextBoxWatermark z Toolkit kontrolki ASP.NET AJAX, który dodaje nowe właściwości znaku wodnego do standardowych kontrolek TextBox na stronie platformy ASP.NET.
+W tym filmie wideo dowiesz się, jak używać rozszerzenia kontrolki kontrolki TextBoxWatermark z ASP.NET AJAX Control Toolkit, który dodaje nowe właściwości znaku wodnego do standardowych kontrolek TextBox na stronie ASP.NET.
 
-[&#9654;Obejrzyj klip wideo (minuty 6)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-ajax-textboxwatermark-control-extender)
+[&#9654;Obejrzyj film wideo (6 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-ajax-textboxwatermark-control-extender)
 
 > [!div class="step-by-step"]
 > [Poprzednie](how-do-i-use-the-aspnet-ajax-cascadingdropdown-control-extender.md)

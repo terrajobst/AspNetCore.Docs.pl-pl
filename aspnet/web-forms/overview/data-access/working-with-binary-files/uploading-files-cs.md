@@ -2,45 +2,44 @@
 uid: web-forms/overview/data-access/working-with-binary-files/uploading-files-cs
 title: Przekazywanie plików (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: Dowiedz się, jak Zezwalaj użytkownikom na przekazywanie plików binarnych (takich jak dokumenty programu Word lub PDF) do witryny sieci Web, w którym mogą być przechowywane w systemu plików na serwerze...
+description: Dowiedz się, jak Zezwalaj użytkownikom na przekazywanie plików binarnych (takich jak dokumenty programu Word lub w formacie PDF) do witryny sieci Web, w których mogą być przechowywane w systemu plików na serwerze...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/27/2007
 ms.topic: article
 ms.assetid: b381b1da-feb3-4776-bc1b-75db53eb90ab
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/uploading-files-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 3c758e94311817d01b17d27083733f805caf600f
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: aaa81014a03fc04e68ea7b8014933cf87002af2e
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2018
-ms.locfileid: "30889202"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37388331"
 ---
 <a name="uploading-files-c"></a>Przekazywanie plików (C#)
 ====================
 przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
-[Pobierz przykładową aplikację](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_54_CS.exe) lub [pobierania plików PDF](uploading-files-cs/_static/datatutorial54cs1.pdf)
+[Pobierz przykładową aplikację](http://download.microsoft.com/download/4/a/7/4a7a3b18-d80e-4014-8e53-a6a2427f0d93/ASPNET_Data_Tutorial_54_CS.exe) lub [Pobierz plik PDF](uploading-files-cs/_static/datatutorial54cs1.pdf)
 
-> Dowiedz się, jak Zezwalaj użytkownikom na przekazywanie plików binarnych (takich jak dokumenty programu Word lub PDF) do witryny sieci Web, w którym mogą być przechowywane w systemie plików serwera lub bazy danych.
+> Dowiedz się, jak umożliwić użytkownikom przekazywanie plików binarnych (takich jak dokumenty programu Word lub w formacie PDF) do witryny sieci Web, w których mogą być przechowywane w systemie plików serwera lub bazy danych.
 
 
 ## <a name="introduction"></a>Wprowadzenie
 
-Wszystkie samouczków możemy stawienia zbadać wykonanej do tej pory pracy wyłącznie z danych tekstowych. Jednak wiele aplikacji ma modeli danych, które przechwytują tekst i danych binarnych. Witryny dating online mogą zezwalać użytkownikom na przekazywanie obrazu do skojarzenia z swój profil. Rekrutacji witryny sieci Web mogą zezwolić użytkownikom na przekazywanie ich wznowienia jako dokument programu Microsoft Word czy PDF.
+Wszystkie z samouczków firma ve badania do tej pory pracy wyłącznie z danych tekstowych. Jednak wiele aplikacji ma modeli danych, które przechwytują dane binarne i tekstowe. Witryna dating online może być Zezwalaj użytkownikom na przekazywanie obrazu do skojarzenia z swój profil. Rekrutacji witryny sieci Web mogą umożliwić użytkownikom przekazywanie ich wznowienia jako dokument programu Microsoft Word lub w formacie PDF.
 
-Praca z danych binarnych dodaje nowy zestaw wyzwania. Firma Microsoft należy określić sposób przechowywania danych binarnych w aplikacji. Interfejs używany do wstawianie nowych rekordów ma zostać zaktualizowany do Zezwalaj użytkownikom na przekazywanie pliku z komputera i dodatkowych czynności musi być przełączona do wyświetlania lub zapewniają sposób pobierania rekordu s skojarzone dane binarne. W tym samouczku i dalej trzech firma Microsoft będzie Poznaj jak hurdle te problemy. Na końcu tego samouczka będziesz nawiązaliśmy funkcjonalnej aplikacji, które kojarzy obrazów i plików PDF broszura z każdej kategorii. W tym samouczku określonego firma Microsoft będzie Spójrz na różnych technik do przechowywania danych binarnych i Eksploruj jak umożliwić użytkownikom na przekazywanie plików z komputera i zostały zapisane w systemie plików s serwera sieci web.
+Praca z danymi binarnymi dodaje nowy zestaw wyzwania. Firma Microsoft należy określić sposób przechowywania danych binarnych w aplikacji. Interfejs umożliwiający wstawianie nowych rekordów musi zostać zaktualizowane, aby umożliwić użytkownikowi do przekazywania plików z komputera, a dodatkowe kroki należy podjąć, aby wyświetlić lub udostępniają sposób pobierania rekord s skojarzone dane binarne. W tym samouczku i trzech dalej pokażemy, jak hurdle te wyzwania. Na końcu tego samouczka będziesz mieć dostosowaliśmy w pełni funkcjonalnych aplikacji, która kojarzy obrazów i plików PDF broszura z każdej kategorii. W tym samouczku określonego utworzymy Spójrz na różnych technik do przechowywania danych binarnych i Zbadaj, jak umożliwić użytkownikom przekazywanie plików z komputera i zostały zapisane w systemie plików s serwera sieci web.
 
 > [!NOTE]
-> Dane binarne, który jest częścią modelu danych s aplikacji jest czasami nazywany [obiektu BLOB](http://en.wikipedia.org/wiki/Binary_large_object), akronim dużego obiektu binarnego. W tych samouczkach I wybranego do użycia danych binarnych terminologii, mimo że termin obiektu BLOB jest równoważna.
+> Dane binarne, który jest częścią modelu danych s aplikacji jest czasami określane jako [BLOB](http://en.wikipedia.org/wiki/Binary_large_object), akronim duży obiekt binarny. W tych samouczkach I wybranego do użycia terminologii dane binarne, chociaż terminem jest równoznaczny obiektu BLOB.
 
 
-## <a name="step-1-creating-the-working-with-binary-data-web-pages"></a>Krok 1: Tworzenie pracy ze stronami sieci Web dane binarne
+## <a name="step-1-creating-the-working-with-binary-data-web-pages"></a>Krok 1: Tworzenie pracy ze stronami sieci Web danych binarnych
 
-Zanim zaczniemy Eksploruj wyzwania skojarzone z dodanie obsługi danych binarnych, umożliwiają s najpierw Poświęć chwilę, aby utworzyć w naszym projekt witryny sieci Web, które będą potrzebne dla tego samouczka i dalej trzy stron ASP.NET. Rozpocznij od dodania nowy folder o nazwie `BinaryData`. Następnie dodaj do tego folderu, upewniając się skojarzyć każdą stronę z następujących stron ASP.NET `Site.master` strony głównej:
+Zanim zaczniemy Poznaj wyzwania związane z dodaniem obsługi dla danych binarnych, niech s najpierw Poświęć chwilę, do tworzenia stron ASP.NET w naszym projektu witryny sieci Web, który będziemy potrzebować dla tego samouczka i trzy dalej. Rozpocznij od dodania nowy folder o nazwie `BinaryData`. Następnie dodaj następujące strony ASP.NET do tego folderu, upewniając się skojarzyć każdą stronę z `Site.master` strona główna:
 
 - `Default.aspx`
 - `FileUpload.aspx`
@@ -54,30 +53,30 @@ Zanim zaczniemy Eksploruj wyzwania skojarzone z dodanie obsługi danych binarnyc
 **Rysunek 1**: Dodawanie stron ASP.NET binarne samouczki związanych z danymi
 
 
-Podobnie jak w innych folderach `Default.aspx` w `BinaryData` folderu spowoduje wyświetlenie listy samouczków w sekcji. Odwołania, który `SectionLevelTutorialListing.ascx` kontrola użytkownika zapewnia tę funkcję. W związku z tym Dodaj formant użytkownika `Default.aspx` przeciągając je z Eksploratora rozwiązań na stronę s widoku Projekt.
+Podobnie jak w przypadku innych folderów `Default.aspx` w `BinaryData` folderu wyświetli listę samouczków w jego sekcji. Pamiętamy `SectionLevelTutorialListing.ascx` kontrolki użytkownika oferuje tę funkcję. W związku z tym, Dodaj ten formant użytkownika do `Default.aspx` , przeciągając go z poziomu Eksploratora rozwiązań na stronę s widoku projektu.
 
 
-[![Dodaj kontrolkę użytkownika SectionLevelTutorialListing.ascx do Default.aspx](uploading-files-cs/_static/image2.gif)](uploading-files-cs/_static/image1.png)
+[![Dodaj formant użytkownika SectionLevelTutorialListing.ascx na Default.aspx](uploading-files-cs/_static/image2.gif)](uploading-files-cs/_static/image1.png)
 
-**Rysunek 2**: Dodaj `SectionLevelTutorialListing.ascx` formantu użytkownika `Default.aspx` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](uploading-files-cs/_static/image2.png))
+**Rysunek 2**: Dodaj `SectionLevelTutorialListing.ascx` kontrolki użytkownika do `Default.aspx` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](uploading-files-cs/_static/image2.png))
 
 
-Na koniec Dodaj te strony jako wpisów `Web.sitemap` pliku. W szczególności, Dodaj następujący kod po Enhancing widoku GridView `<siteMapNode>`:
+Wreszcie, Dodaj te strony jako wpisy, aby `Web.sitemap` pliku. W szczególności należy dodać następujące znaczniki po Enhancing widoku GridView `<siteMapNode>`:
 
 
 [!code-xml[Main](uploading-files-cs/samples/sample1.xml)]
 
-Po zaktualizowaniu `Web.sitemap`, Poświęć chwilę, aby wyświetlić witrynę sieci Web samouczki, za pośrednictwem przeglądarki. Menu po lewej stronie zawiera teraz elementów pracy z samouczkami danych binarnych.
+Po zaktualizowaniu `Web.sitemap`, Poświęć chwilę, aby wyświetlić witrynę sieci Web w samouczkach, za pośrednictwem przeglądarki. Menu po lewej stronie zawiera teraz elementów do pracy z samouczkami danych binarnych.
 
 
-![Mapy witryny zawiera teraz wpisy dotyczące pracy z samouczkami dane binarne](uploading-files-cs/_static/image3.gif)
+![Mapa witryny zawiera teraz wpisy dotyczące pracy z samouczkami danych binarnych](uploading-files-cs/_static/image3.gif)
 
-**Rysunek 3**: mapy witryny zawiera teraz wpisy dotyczące pracy z samouczkami dane binarne
+**Rysunek 3**: mapy witryny zawiera teraz wpisy dotyczące pracy z samouczkami danych binarnych
 
 
-## <a name="step-2-deciding-where-to-store-the-binary-data"></a>Krok 2: Określanie miejsca do przechowywania danych binarnych
+## <a name="step-2-deciding-where-to-store-the-binary-data"></a>Krok 2: Decydowanie o Store danych binarnych
 
-Dane binarne skojarzone z modelem danych s aplikacji mogą być przechowywane w jednym z dwóch miejscach: w systemie plików serwera s sieci web z odwołaniem do plików przechowywanych w bazie danych. lub bezpośrednio z poziomu bazy danych (patrz rysunek 4). Każdy ma własny zestaw zalet i wad i uzasadnia szczegółowe omówienie.
+Dane binarne, który jest skojarzony z modelem danych s aplikacji mogą być przechowywane w jednym z dwóch miejsc: w systemie plików serwera s sieci web z odwołaniem do plików przechowywanych w bazie danych. lub bezpośrednio z poziomu samej bazy danych (zobacz rysunek 4). Każde podejście ma swój własny zestaw zalet i wad i uzasadnia uzyskać bardziej szczegółowe informacje.
 
 
 [![Dane binarne mogą być przechowywane w systemie plików lub bezpośrednio w bazie danych](uploading-files-cs/_static/image4.gif)](uploading-files-cs/_static/image3.png)
@@ -85,33 +84,33 @@ Dane binarne skojarzone z modelem danych s aplikacji mogą być przechowywane w 
 **Rysunek 4**: dane binarne mogą być przechowywane w systemie plików lub bezpośrednio w bazie danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](uploading-files-cs/_static/image4.png))
 
 
-Załóżmy, firma chce rozszerzyć bazę danych Northwind, aby skojarzyć obrazu z każdego produktu. Jedną z opcji będzie przechowywania plików obrazu w systemie plików serwera s sieci web i rejestrowania ścieżki w `Products` tabeli. Z tej metody, d dodamy `ImagePath` kolumny `Products` tabeli typu `varchar(200)`, np. Gdy użytkownik przekazać obraz dla Chai, obraz mogą być przechowywane w systemie plików serwera s sieci web w `~/Images/Tea.jpg`, gdzie `~` reprezentuje ścieżkę fizyczną aplikacji s. Oznacza to, że jeśli na ścieżkę fizyczną katalogu głównego witryny sieci web `C:\Websites\Northwind\`, `~/Images/Tea.jpg` jest odpowiednikiem `C:\Websites\Northwind\Images\Tea.jpg`. Po przekazaniu pliku obrazu, d modyfikacjom w rekordzie Chai `Products` tabeli, aby jego `ImagePath` ścieżka nowy obraz odwołania do kolumny. Firma Microsoft może używać `~/Images/Tea.jpg` lub po prostu `Tea.jpg` Jeśli zdecydowaliśmy się, że wszystkie obrazy produktu zostanie umieszczony w aplikacji s `Images` folderu.
+Wyobraź sobie, że Chcieliśmy, aby rozszerzyć bazy danych Northwind, aby skojarzyć obrazu z każdego produktu. Jedną z opcji będzie przechowywać te pliki obrazów w systemie plików serwera s sieci web i rejestrowania ścieżki w `Products` tabeli. W przypadku tej metody, d dodamy `ImagePath` kolumny `Products` tabelę typu `varchar(200)`, być może. Po użytkownik przekazany obraz dla Chai, ten obraz może być przechowywany w systemie plików serwera s sieci web w `~/Images/Tea.jpg`, gdzie `~` reprezentuje ścieżkę fizyczną s aplikacji. Oznacza to jeśli witryna sieci web jest ścieżką w ścieżce fizycznej `C:\Websites\Northwind\`, `~/Images/Tea.jpg` byłaby równoważna `C:\Websites\Northwind\Images\Tea.jpg`. Po przekazaniu pliku obrazu, d aktualizujemy rekordu Chai w `Products` tabeli, aby jego `ImagePath` ścieżkę obraz nowe odwołanie do kolumny. Moglibyśmy użyć `~/Images/Tea.jpg` lub po prostu `Tea.jpg` Jeśli zdecydowaliśmy się, że wszystkie obrazy produktów zostanie umieszczony w tym s aplikacji `Images` folderu.
 
-Główne zalety przechowywania danych binarnych w systemie plików są następujące:
+Dostępne są następujące główne zalety przechowywania danych binarnych w systemie plików:
 
-- **Łatwość wdrażania** jako zajmiemy się wkrótce, przechowywania i pobierania danych binarnych przechowywane bezpośrednio w bazie danych wymaga nieco większej ilości kodu niż podczas pracy z danymi za pomocą systemu plików. Ponadto w kolejności dla użytkownika wyświetlić lub pobrać dane binarne muszą one być przedstawione przy użyciu adresu URL do tych danych. Jeśli dane znajdują się w systemie plików s serwera sieci web, adres URL jest prosta. Jeśli dane są przechowywane w bazie danych, jednak strony sieci web potrzeb do utworzenia, które pobiera i zwracać dane z bazy danych.
-- **Szerszy dostęp do danych binarnych** danych binarnych mogą muszą być dostępne dla innych usług lub aplikacji, te, które nie pobierają dane z bazy danych. Na przykład obrazów skojarzonych z każdego produktu może również muszą być dostępne dla użytkowników za pomocą [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol), w którym to przypadku d chcemy, aby przechowywać dane binarne w systemie plików.
-- **Wydajność** Jeśli danych binarnych jest przechowywana w systemie plików, żądanie i sieci przeciążona między serwerem bazy danych i serwera sieci web będzie mniejsza niż Jeśli bezpośrednio w bazie danych są przechowywane dane binarne.
+- **Łatwość implementacji** jako zajmiemy się wkrótce, przechowywania i pobierania danych binarnych, które są przechowywane bezpośrednio w bazie danych wymaga nieco więcej kodu niż gdy praca z danymi za pomocą systemu plików. Ponadto w kolejności dla użytkownika wyświetlić lub pobrać dane binarne muszą one być przedstawione za pomocą adresu URL, do tych danych. Jeśli dane znajdują się w systemie plików s serwera sieci web, adres URL jest bardzo proste. Jeśli dane są przechowywane w bazie danych, jednak strony sieci web musi odbywać się, które pobierze i zwrócić dane z bazy danych.
+- **Szerszy dostęp do danych binarnych** danych binarnych mogą muszą być dostępne dla innych usług lub aplikacji, te, które nie może pobrać dane z bazy danych. Na przykład obrazów skojarzonych z każdego produktu może również muszą być dostępne dla użytkowników za pomocą [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol), w którym to przypadku d chcemy przechowywanie danych binarnych w systemie plików.
+- **Wydajność** Jeśli danych binarnych jest przechowywany w systemie plików, przeciążenie żądanie, jak i sieci między serwerem bazy danych i serwera sieci web będzie mniejsza niż Jeśli dane binarne są przechowywane bezpośrednio w bazie danych.
 
-Główną wadą przechowywania danych binarnych w systemie plików jest, że zapewnia oddzielenie danych z bazy danych. Usunięcie rekordu z `Products` tabeli, skojarzony plik w systemie plików serwera s sieci web nie zostanie automatycznie usunięta. Firma Microsoft musi zapisu dodatkowego kodu do usuwania pliku lub systemu plików będzie zapełnić nieużywane, oddzielone pliki. Ponadto podczas tworzenia kopii zapasowej bazy danych, firma Microsoft musi upewnij się, że tworzyć kopie zapasowe skojarzone dane binarne w systemie plików, a także. Przenoszenie bazy danych do innej lokacji lub serwera stwarza podobne wyzwania.
+Główną wadą przechowywanie danych binarnych w systemie plików jest, że są oddzieleni dane z bazy danych. Jeśli rekord zostanie usunięty z `Products` tabeli, skojarzony plik w systemie plików serwera s sieci web nie zostanie automatycznie usunięta. Firma Microsoft musi zapisać dodatkowego kodu można usunąć pliku lub systemu plików zostanie zapełnić nieużywane, oddzielone pliki. Ponadto podczas tworzenia kopii zapasowej bazy danych, firma Microsoft musi upewnij się utworzyć kopie zapasowe skojarzone dane binarne w systemie plików, a także. Przenoszenie bazy danych do innej lokacji lub serwera stwarza podobne problemy.
 
-Alternatywnie dane binarne mogą być przechowywane bezpośrednio w bazie danych programu Microsoft SQL Server 2005, tworząc kolumny typu `varbinary`. Podobnie jak z innymi typami danych o zmiennej długości, można określić maksymalną długość danych binarnych, jakie mogą być przechowywane w tej kolumnie. Na przykład zarezerwować maksymalnie 5000 bajtów użyć `varbinary(5000)`; `varbinary(MAX)` pozwala uzyskać maksymalny rozmiar około 2 GB.
+Alternatywnie danych binarnych mogą być przechowywane bezpośrednio w bazie danych programu Microsoft SQL Server 2005, tworząc kolumny typu `varbinary`. Podobnie jak przy użyciu innych typów danych o zmiennej długości, można określić maksymalną długość danych binarnych, które mogą być przechowywane w tej kolumnie. Na przykład aby zarezerwować maksymalnie 5000 bajtów użyć `varbinary(5000)`; `varbinary(MAX)` pozwala uzyskać maksymalny rozmiar około 2 GB.
 
-Główną zaletą przechowywania danych binarnych bezpośrednio w bazie danych jest ścisłej sprzężenie dane binarne rekordów bazy danych. To znacznie upraszcza zadania administracyjne bazy danych, takich jak tworzenie kopii zapasowych lub przenoszenie bazy danych do innej lokacji lub serwera. Ponadto usunięcie rekordu automatycznie usuwa odpowiednie dane binarne. Istnieje więcej niewielkie zalet przechowywania danych binarnych w bazie danych. Zobacz [przechowywania binarne pliki bezpośrednio w bazie danych przy użyciu składnika ASP.NET 2.0](http://aspnet.4guysfromrolla.com/articles/120606-1.aspx) dla bardziej szczegółowym omówieniem.
+Główną zaletą przechowywanie danych binarnych bezpośrednio w bazie danych jest ścisłego sprzężenia między danych binarnych i rekordu bazy danych. To znacznie upraszcza zadania administracyjne bazy danych, takich jak tworzenie kopii zapasowych, lub przenoszenia bazy danych do innej lokacji lub serwera. Ponadto usunięcie rekordu automatycznie usuwa odpowiadające im dane binarne. Istnieją również więcej subtelne zalety przechowywania danych binarnych w bazie danych. Zobacz [przechowywania binarnych plików bezpośrednio w bazie danych za pomocą programu ASP.NET 2.0](http://aspnet.4guysfromrolla.com/articles/120606-1.aspx) bardziej szczegółowe omówienie.
 
 > [!NOTE]
-> W programie Microsoft SQL Server 2000 i wcześniejszych wersjach `varbinary` maksymalny limit 8000 bajtów ma typ danych. Aby przechowywać maksymalnie 2 GB danych binarnych [ `image` — typ danych](https://msdn.microsoft.com/library/ms187993.aspx) należy zamiast tego należy użyć. Z dodatkiem `MAX` w programie SQL Server 2005, jednak `image` — typ danych jest przestarzała. Go s nadal obsługiwane dla zapewnienia zgodności, ale firma Microsoft poinformowała, który `image` — typ danych zostanie usunięta w przyszłych wersjach programu SQL Server.
+> W programie Microsoft SQL Server 2000 i wcześniejszych wersji `varbinary` — typ danych ma maksymalny limit 8000 bajtów. Do przechowywania maksymalnie 2 GB danych binarnych [ `image` — typ danych](https://msdn.microsoft.com/library/ms187993.aspx) musi być używane zamiast tego. Z dodatkiem `MAX` w programie SQL Server 2005, jednak `image` — typ danych jest przestarzała. Jego s nadal obsługiwane dla zapewnienia zgodności, ale firma Microsoft poinformowała o który `image` — typ danych zostanie usunięta w przyszłych wersjach programu SQL Server.
 
 
-Jeśli pracujesz z starsze modelu danych może zostać wyświetlony `image` — typ danych. Bazy danych Northwind s `Categories` tabela ma `Picture` kolumny, która może służyć do przechowywania danych binarnych z pliku obrazu dla kategorii. Ponieważ bazy danych Northwind ma jego katalogów głównych programu Microsoft Access i wcześniejszych wersjach programu SQL Server, ta kolumna jest typu `image`.
+Jeśli pracujesz z starszego modelu danych może zostać wyświetlony `image` typu danych. Bazy danych Northwind s `Categories` tabela ma `Picture` kolumny, która może służyć do przechowywania danych binarnych plik obrazu dla kategorii. Ponieważ bazy danych Northwind ma jego katalogów głównych programu Microsoft Access i wcześniejszych wersjach programu SQL Server, ta kolumna jest typu `image`.
 
-Dla tego samouczka i dalej trzech użyjemy obu podejść. `Categories` Tabela ma już `Picture` kolumny do przechowywania zawartości binarnej obrazu dla kategorii. Dodamy dodatkowe kolumny `BrochurePath`, do przechowywania w systemie plików serwera s sieci web, który może służyć do zapewnienia jakość wydruku, dopracowany Omówienie kategorii ścieżka do pliku PDF.
+W tym samouczku i dalej trzech użyjemy oba podejścia. `Categories` Tabela ma już `Picture` kolumny do przechowywania zawartości binarnej obrazu dla kategorii. Dodamy dodatkowe kolumny `BrochurePath`w celu przechowywania ścieżkę do pliku PDF w systemie plików serwera s sieci web, który może służyć do zapewnienia jakość wydruku, dopracowane Przegląd kategorii.
 
-## <a name="step-3-adding-thebrochurepathcolumn-to-thecategoriestable"></a>Krok 3: Dodawanie`BrochurePath`kolumnę`Categories`tabeli
+## <a name="step-3-adding-thebrochurepathcolumn-to-thecategoriestable"></a>Krok 3. Dodawanie`BrochurePath`kolumny`Categories`tabeli
 
-Obecnie ma tylko cztery kolumny w tabeli Kategorie: `CategoryID`, `CategoryName`, `Description`, i `Picture`. Oprócz tych pól należy dodać nowy wskazującą broszura kategorii s (jeśli istnieje). Aby dodać tę kolumnę, przejdź do Eksploratora serwera na przechodzenie do tabel, kliknij prawym przyciskiem myszy `Categories` tabeli i wybierz polecenie Otwórz definicji tabeli (patrz rysunek 5). Jeśli nie ma Eksploratora serwera, wywołaj, wybierając opcję Eksploratora serwera z menu Widok lub kliknij przycisk Ctrl + Alt + S.
+Obecnie ma tylko cztery kolumny w tabeli Kategorie: `CategoryID`, `CategoryName`, `Description`, i `Picture`. Oprócz tych pól należy dodać nowy, który będzie wskazywać broszura kategorii s (jeśli istnieje). Aby dodać tę kolumnę, przejdź do Eksploratora serwera, przejdź do szczegółów tabel, kliknij prawym przyciskiem myszy `Categories` tabeli, a następnie wybierz polecenie Otwórz definicję tabeli (zobacz rysunek 5). Jeśli Eksplorator serwera nie jest widoczny, wyświetlenie go, wybierając opcję Server Explorer z menu Widok lub naciśnij klawisze Ctrl + Alt + S.
 
-Dodaj nową `varchar(200)` kolumny `Categories` tabeli o nazwie `BrochurePath` i umożliwia `NULL` s i kliknij ikonę Zapisz (lub kliknij przycisk Ctrl + S).
+Dodaj nową `varchar(200)` kolumny `Categories` tabelę o nazwie `BrochurePath` i umożliwia `NULL` s i kliknij ikonę Zapisz (lub naciśnij klawisze Ctrl + S).
 
 
 [![Dodaj kolumnę BrochurePath do tabeli Kategorie](uploading-files-cs/_static/image5.gif)](uploading-files-cs/_static/image5.png)
@@ -119,58 +118,58 @@ Dodaj nową `varchar(200)` kolumny `Categories` tabeli o nazwie `BrochurePath` i
 **Rysunek 5**: Dodaj `BrochurePath` kolumny `Categories` tabeli ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](uploading-files-cs/_static/image6.png))
 
 
-## <a name="step-4-updating-the-architecture-to-use-thepictureandbrochurepathcolumns"></a>Krok 4: Aktualizowanie architektury do użycia`Picture`i`BrochurePath`kolumn
+## <a name="step-4-updating-the-architecture-to-use-thepictureandbrochurepathcolumns"></a>Krok 4: Aktualizowanie architektury w celu używania`Picture`i`BrochurePath`kolumn
 
-`CategoriesDataTable` w warstwie dostępu do danych (DAL) aktualnie ma cztery `DataColumn` s zdefiniowany: `CategoryID`, `CategoryName`, `Description`, i `NumberOfProducts`. Gdy firma Microsoft zaprojektowanych tego elementu DataTable w [tworzenie Warstwa dostępu do danych](../introduction/creating-a-data-access-layer-cs.md) samouczek, `CategoriesDataTable` miał tylko pierwsze trzy kolumny; `NumberOfProducts` kolumna została dodana w [wzorzec/szczegół za pomocą punktowane Lista rekordów wzorca z DataList szczegóły](../filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs.md) samouczka.
+`CategoriesDataTable` w warstwie dostępu do danych (DAL) obecnie ma cztery `DataColumn` s zdefiniowany: `CategoryID`, `CategoryName`, `Description`, i `NumberOfProducts`. Jeśli pierwotnie został zaprojektowany tego elementu DataTable w [Tworzenie warstwy dostępu do danych](../introduction/creating-a-data-access-layer-cs.md) samouczku `CategoriesDataTable` ustawiono tylko pierwsze trzy kolumny; `NumberOfProducts` została dodana kolumna w [wzorzec/szczegół za pomocą punktowane Lista rekordów głównych z kontrolką DataList szczegółów](../filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs.md) samouczka.
 
-Zgodnie z opisem w *tworzenie Warstwa dostępu do danych*, DataTables w zestawie danych wpisane tworzą obiektów biznesowych. TableAdapters są zobowiązani do komunikowania się z bazą danych i wypełniania obiektów biznesowych z wynikami zapytania. `CategoriesDataTable` Jest wypełniana `CategoriesTableAdapter`, który ma trzy metody pobierania danych:
+Zgodnie z opisem w *Tworzenie warstwy dostępu do danych*, DataTable w DataSet wpisane tworzą obiekty biznesowe. Elementów TableAdapter są odpowiedzialne za komunikację z bazą danych i wypełnianie obiektów biznesowych z wynikami zapytania. `CategoriesDataTable` Jest wypełniana przez `CategoriesTableAdapter`, która ma trzy metody pobierania danych:
 
-- `GetCategories()` wykonuje zapytanie głównego s TableAdapter i zwraca `CategoryID`, `CategoryName`, i `Description` pól wszystkich rekordów w `Categories` tabeli. Główne zapytanie jest używana przez generowanych automatycznie `Insert` i `Update` metody.
-- `GetCategoryByCategoryID(categoryID)` Zwraca `CategoryID`, `CategoryName`, i `Description` pola kategorii, których `CategoryID` jest równe *categoryID*.
-- `GetCategoriesAndNumberOfProducts()` -Zwraca `CategoryID`, `CategoryName`, i `Description` pól dla wszystkich rekordów w `Categories` tabeli. Używa również podzapytania w celu Zwróć liczbę skojarzone z każdej kategorii produktów.
+- `GetCategories()` wykonuje TableAdapter s główne zapytanie i zwraca `CategoryID`, `CategoryName`, i `Description` pola wszystkie rekordy w `Categories` tabeli. Główne zapytanie to, co jest używany przez wygenerowane automatycznie `Insert` i `Update` metody.
+- `GetCategoryByCategoryID(categoryID)` Zwraca `CategoryID`, `CategoryName`, i `Description` pola kategorii, której `CategoryID` jest równa *categoryID*.
+- `GetCategoriesAndNumberOfProducts()` -Zwraca `CategoryID`, `CategoryName`, i `Description` pól dla wszystkich rekordów w `Categories` tabeli. Używa również podzapytania do zwracają liczbę produktów skojarzonych z każdej kategorii.
 
-Powiadomienie, że żaden z tych zapytań powrotu `Categories` tabeli s `Picture` lub `BrochurePath` kolumn; ani ma `CategoriesDataTable` podaj `DataColumn` s dla tych pól. Aby pracować z obrazu i `BrochurePath` właściwości, należy najpierw dodać je do `CategoriesDataTable` , a następnie zaktualizować `CategoriesTableAdapter` służącą do zwracania tych kolumn.
+Zwróć uwagę, że żaden z tych zapytań powrotu `Categories` tabeli s `Picture` lub `BrochurePath` kolumny; ani ma `CategoriesDataTable` zapewniają `DataColumn` s dla tych pól. Aby pracować z obrazu i `BrochurePath` właściwości, należy najpierw dodać je do `CategoriesDataTable` , a następnie zaktualizuj `CategoriesTableAdapter` klasy w celu zwracania tych kolumn.
 
 ## <a name="adding-thepictureandbrochurepathdatacolumn-s"></a>Dodawanie`Picture`i`BrochurePath``DataColumn` s
 
-Rozpocznij od dodania tych dwóch kolumn, aby `CategoriesDataTable`. Kliknij prawym przyciskiem myszy `CategoriesDataTable` nagłówka s, z menu kontekstowego wybierz polecenie Dodaj, a następnie wybierz opcję kolumny. Spowoduje to utworzenie nowego `DataColumn` w elemencie DataTable o nazwie `Column1`. Zmień nazwę tej kolumny `Picture`. W oknie właściwości ustaw `DataColumn` s `DataType` właściwości `System.Byte[]` (nie jest to opcja na liście rozwijanej; należy go wpisać).
+Rozpocznij od dodania tych dwóch kolumn, aby `CategoriesDataTable`. Kliknij prawym przyciskiem myszy `CategoriesDataTable` s nagłówka, z menu kontekstowego wybierz polecenie Dodaj, a następnie wybierz opcję kolumny. Spowoduje to utworzenie nowego `DataColumn` w elemencie DataTable o nazwie `Column1`. Zmień nazwę tej kolumny na `Picture`. W oknie właściwości ustaw `DataColumn` s `DataType` właściwość `System.Byte[]` (nie jest to opcja na liście rozwijanej; należy go wpisać).
 
 
-[![Tworzenie obrazu o nazwie DataColumn, których typ danych jest System.Byte]](uploading-files-cs/_static/image6.gif)](uploading-files-cs/_static/image7.png)
+[![Tworzenie obrazu o nazwie DataColumn, którego typem danych jest System.Byte]](uploading-files-cs/_static/image6.gif)](uploading-files-cs/_static/image7.png)
 
-**Rysunek 6**: tworzenie `DataColumn` nazwane `Picture` których `DataType` jest `System.Byte[]` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](uploading-files-cs/_static/image8.png))
-
-
-Dodaj inny `DataColumn` do elementu DataTable, nazw `BrochurePath` przy użyciu domyślnego `DataType` wartość (`System.String`).
-
-## <a name="returning-thepictureandbrochurepathvalues-from-the-tableadapter"></a>Zwracanie`Picture`i`BrochurePath`wartości z TableAdapter
-
-Z tych dwóch `DataColumn` s dodane do `CategoriesDataTable`, możemy re gotowy do aktualizacji `CategoriesTableAdapter`. Firma Microsoft może mieć obie te wartości kolumny zwracane w głównym zapytaniu TableAdapter, ale to będzie przywrócić dane binarne zawsze `GetCategories()` wywołano metodę. Zamiast tego let s zaktualizować główne zapytanie TableAdapter, aby przywrócić `BrochurePath` i Utwórz metodę pobierania dodatkowych danych, która zwraca określonej kategorii s `Picture` kolumny.
-
-Aby zaktualizować główne zapytanie TableAdapter, kliknij prawym przyciskiem myszy `CategoriesTableAdapter` s nagłówka i wybierz opcję Konfiguruj z menu kontekstowego. Spowoduje to wyświetlenie Kreatora konfiguracji adaptera tabeli, które firma Microsoft Zapisz w liczbę ostatnich samouczki. Zaktualizuj zapytanie, aby przywrócić `BrochurePath` i kliknij przycisk Zakończ.
+**Rysunek 6**: tworzenie `DataColumn` nazwanych `Picture` którego `DataType` jest `System.Byte[]` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](uploading-files-cs/_static/image8.png))
 
 
-[![Aktualizacja listy kolumn w instrukcji SELECT również zwraca BrochurePath](uploading-files-cs/_static/image7.gif)](uploading-files-cs/_static/image9.png)
+Dodaj kolejną `DataColumn` do elementu DataTable, nadając mu nazwę `BrochurePath` przy użyciu domyślnego `DataType` wartość (`System.String`).
 
-**Rysunek 7**: Lista kolumn w aktualizacji `SELECT` instrukcji również zwraca `BrochurePath` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](uploading-files-cs/_static/image10.png))
+## <a name="returning-thepictureandbrochurepathvalues-from-the-tableadapter"></a>Zwracanie`Picture`i`BrochurePath`wartości z elementu TableAdapter
+
+Za pomocą tych dwóch `DataColumn` s dodane do `CategoriesDataTable`, możemy ponownie gotowe do aktualizacji `CategoriesTableAdapter`. Firma Microsoft może mieć obie te wartości kolumny zwracane w główne zapytanie TableAdapter, ale to może przywrócić dane binarne każdym `GetCategories()` metoda została wywołana. Zamiast tego umożliwiają s Zaktualizuj główne zapytanie TableAdapter przywrócić `BrochurePath` i Utwórz metodę pobierania dodatkowych danych, która zwraca określoną kategorię s `Picture` kolumny.
+
+Aby zaktualizować główne zapytanie TableAdapter, kliknij prawym przyciskiem myszy `CategoriesTableAdapter` nagłówka s i wybierz opcję Konfiguruj z menu kontekstowego. Otwarte Kreatora konfiguracji adaptera tabeli, które firma Microsoft ve widoczne w numerze z poprzednich samouczków. Aktualizuj zapytanie, aby przywrócić `BrochurePath` i kliknij przycisk Zakończ.
 
 
-Korzystając z instrukcji SQL ad hoc TableAdapter, aktualizowania listy kolumn w głównym zapytaniu aktualizuje listy kolumn dla wszystkich `SELECT` zapytania metody TableAdapter. Oznacza to, że `GetCategoryByCategoryID(categoryID)` metoda została zaktualizowana, aby zwrócić `BrochurePath` kolumny, która może być firma Microsoft przeznaczone. Jednak również zaktualizować listy kolumn w `GetCategoriesAndNumberOfProducts()` metody usunięcie podzapytania, która zwraca liczbę produktów dla każdej kategorii! W związku z tym należy zaktualizować tę metodę s `SELECT` zapytania. Kliknij prawym przyciskiem myszy `GetCategoriesAndNumberOfProducts()` metody, wybierz opcję Konfiguruj i przywrócić `SELECT` zapytania do oryginalnej wartości:
+[![Aktualizowanie listy kolumn w instrukcji SELECT również zwraca BrochurePath](uploading-files-cs/_static/image7.gif)](uploading-files-cs/_static/image9.png)
+
+**Rysunek 7**: aktualizowanie listy kolumn w `SELECT` instrukcji, aby również zwrócić `BrochurePath` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](uploading-files-cs/_static/image10.png))
+
+
+Korzystając z instrukcji SQL zapytań ad-hoc do TableAdapter, aktualizowanie listy kolumn w głównym zapytaniu aktualizuje listy kolumn dla wszystkich `SELECT` zapytania metody TableAdapter. Oznacza to, że `GetCategoryByCategoryID(categoryID)` metoda został zaktualizowany, aby zwrócić `BrochurePath` kolumny, która może być firma Microsoft przeznaczony. Jednak również zaktualizowane listy kolumn w `GetCategoriesAndNumberOfProducts()` metody, usunięcie podzapytania, która zwraca liczbę produktów dla każdej kategorii! W związku z tym, należy zaktualizować tę metodę s `SELECT` zapytania. Kliknij prawym przyciskiem myszy `GetCategoriesAndNumberOfProducts()` metody, wybierz opcję Konfiguruj i przywrócić `SELECT` zapytania do oryginalnej wartości:
 
 
 [!code-sql[Main](uploading-files-cs/samples/sample2.sql)]
 
-Następnie należy utworzyć nowej metody TableAdapter, która zwraca wartość określonej kategorii s `Picture` wartość w kolumnie. Kliknij prawym przyciskiem myszy `CategoriesTableAdapter` s nagłówka i wybierz opcję Dodaj zapytanie, aby uruchomić Kreatora konfiguracji zapytania TableAdapter. Pierwszym krokiem ten kreator zapyta, nam Jeśli chcemy danych zapytania przy użyciu instrukcji SQL ad hoc nowy przechowywane procedury lub jednego z istniejących. Wybierz instrukcji SQL użyj, a następnie kliknij przycisk Dalej. Ponieważ firma Microsoft będzie zwracać wiersza, wybierz polecenie SELECT, która zwraca wiersze opcja w drugim kroku.
+Następnie należy utworzyć nową metodę TableAdapter, która zwraca określoną kategorię s `Picture` wartości w kolumnie. Kliknij prawym przyciskiem myszy `CategoriesTableAdapter` nagłówka s i wybierz opcję Dodaj zapytanie, aby uruchomić Kreatora konfiguracji zapytań TableAdapter. Pierwszym krokiem tego kreatora pyta, czy nam chcemy zapytania o dane za pomocą instrukcji SQL zapytań ad-hoc nową przechowywaną procedurę lub istniejącą grupę. Użyj instrukcji SQL zaznaczyć, a następnie kliknij przycisk Dalej. Ponieważ firma Microsoft będzie zwracać wiersz, wybierz polecenie SELECT, która zwraca wiersze opcji w drugim kroku.
 
 
-[![Wybierz instrukcji SQL użyj opcji](uploading-files-cs/_static/image8.gif)](uploading-files-cs/_static/image11.png)
+[![Wybierz opcję Użyj instrukcji SQL — opcja](uploading-files-cs/_static/image8.gif)](uploading-files-cs/_static/image11.png)
 
-**Rysunek 8**: Wybierz instrukcji SQL użyj opcji ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](uploading-files-cs/_static/image12.png))
+**Rysunek 8**: wybierz opcję Użyj instrukcji SQL opcji ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](uploading-files-cs/_static/image12.png))
 
 
-[![Ponieważ zwraca rekord z tabeli Kategorie, wybierz OPCJĘ wybierz, która zwraca wiersze](uploading-files-cs/_static/image9.gif)](uploading-files-cs/_static/image13.png)
+[![Ponieważ zapytanie zwróci rekord z tabeli Kategorie, wybierz pozycję Wybierz, która zwraca wiersze](uploading-files-cs/_static/image9.gif)](uploading-files-cs/_static/image13.png)
 
-**Rysunek 9**: ponieważ zwraca rekord z tabeli Kategorie, wybierz pozycję Wybierz, która zwraca wiersze ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](uploading-files-cs/_static/image14.png))
+**Rysunek 9**: ponieważ zapytanie zwraca rekord z tabeli Kategorie, wybierz pozycję Wybierz, która zwraca wiersze ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](uploading-files-cs/_static/image14.png))
 
 
 W trzecim kroku wprowadź następujące zapytanie SQL, a następnie kliknij przycisk Dalej:
@@ -178,50 +177,50 @@ W trzecim kroku wprowadź następujące zapytanie SQL, a następnie kliknij przy
 
 [!code-sql[Main](uploading-files-cs/samples/sample3.sql)]
 
-Ostatnim krokiem jest wybranie nazwy dla nowej metody. Użyj `FillCategoryWithBinaryDataByCategoryID` i `GetCategoryWithBinaryDataByCategoryID` wypełnienia DataTable i przywrócenie elementu DataTable wzorców, odpowiednio. Kliknij przycisk Zakończ, aby zakończyć pracę kreatora.
+Ostatnim krokiem jest wybranie nazwy dla nowej metody. Użyj `FillCategoryWithBinaryDataByCategoryID` i `GetCategoryWithBinaryDataByCategoryID` wypełnienia DataTable i zwrócenia DataTable wzorców, odpowiednio. Kliknij przycisk Zakończ, aby zakończyć działanie kreatora.
 
 
-[![Wybierz nazwy dla metody TableAdapter s](uploading-files-cs/_static/image10.gif)](uploading-files-cs/_static/image15.png)
+[![Wybierz nazwy dla metody s TableAdapter](uploading-files-cs/_static/image10.gif)](uploading-files-cs/_static/image15.png)
 
-**Na rysunku nr 10**: Wybierz nazwy dla Obiekt TableAdapter s metod ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](uploading-files-cs/_static/image16.png))
+**Na rysunku nr 10**: Wybierz nazwy s TableAdapter metody ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](uploading-files-cs/_static/image16.png))
 
 
 > [!NOTE]
-> Po zakończeniu pracy Kreatora konfiguracji zapytania karty tabeli może wyświetlić okno dialogowe informujące, że nowy tekst polecenia zwraca dane ze schematem inny niż schemat głównego zapytania. Krótko mówiąc, Kreator jest zauważyć, że główne zapytanie TableAdapter s `GetCategories()` zwraca innym schematem niż ten, który został właśnie utworzony. Ale jest firma Microsoft ma, dlatego możesz pominąć ten komunikat.
+> Po zakończeniu pracy Kreatora konfiguracji zapytań adaptera tabeli zobaczysz okno dialogowe informujące o tym, że nowy tekst polecenia zwraca dane przy użyciu schematu inny niż schemat głównego zapytania. Krótko mówiąc, Kreator jest biorąc pod uwagę, że główne zapytanie TableAdapter s `GetCategories()` zwraca schemat innej niż ta, którą właśnie utworzyliśmy. Ale to chcemy, aby pominąć ten komunikat.
 
 
-Ponadto należy pamiętać, że jeśli używasz ad hoc instrukcji SQL i użyj kreatora, aby zmienić TableAdapter s główne zapytanie w pewnym momencie nowsze w czasie, zmodyfikuje ona `GetCategoryWithBinaryDataByCategoryID` metody s `SELECT` instrukcja s listy kolumn, aby zawierało tylko te kolumny z główne zapytanie (to znaczy spowoduje usunięcie `Picture` kolumny z kwerendy). Należy ręcznie zaktualizować listę kolumny, aby przywrócić `Picture` kolumny, podobnie jak robiliśmy z `GetCategoriesAndNumberOfProducts()` metody wcześniej w tym kroku.
+Ponadto należy pamiętać, że jeśli używasz instrukcji SQL zapytań ad-hoc, użyj kreatora, aby zmienić TableAdapter s główne zapytanie w pewnym momencie później w czasie jego zmodyfikuje `GetCategoryWithBinaryDataByCategoryID` metoda s `SELECT` instrukcja s listy kolumn, aby uwzględnić tylko te kolumny z główne zapytanie (czyli spowoduje usunięcie `Picture` kolumn z zapytania). Trzeba będzie ręcznie zaktualizować listę kolumn, aby przywrócić `Picture` kolumny, podobnie jak postępowanie z `GetCategoriesAndNumberOfProducts()` metoda wcześniej w tym kroku.
 
-Po dodaniu dwóch `DataColumn` s, aby `CategoriesDataTable` i `GetCategoryWithBinaryDataByCategoryID` metodę `CategoriesTableAdapter`, te klasy w Projektancie obiektów DataSet wpisane powinna wyglądać zrzut ekranu w rysunek 11.
+Po dodaniu dwóch `DataColumn` s `CategoriesDataTable` i `GetCategoryWithBinaryDataByCategoryID` metody `CategoriesTableAdapter`, te klasy w Projektancie obiektów DataSet wpisane powinien wyglądać zrzut ekranu w rysunek 11.
 
 
 ![Projektant obiektów DataSet zawiera nowe kolumny i — metoda](uploading-files-cs/_static/image11.gif)
 
-**Rysunek 11**: Projektant obiektów DataSet zawiera nowe kolumny i — metoda
+**Rysunek 11**: Projektanta obiektów DataSet zawiera nowe kolumny i — metoda
 
 
-## <a name="updating-the-business-logic-layer-bll"></a>Aktualizowanie warstwy logiki biznesowej (logiki warstwy Biznesowej)
+## <a name="updating-the-business-logic-layer-bll"></a>Aktualizowanie warstwy logiki biznesowej (LOGIKI)
 
-W przypadku DAL zaktualizowane, wszystkie te pozostaje jest rozszerzyć firm logiki warstwy (logiki warstwy Biznesowej) do uwzględnienia metody dla nowego `CategoriesTableAdapter` metody. Dodaj następującą metodę do `CategoriesBLL` klasy:
+Za pomocą warstwy DAL zaktualizowane pozostaje rozszerzyć warstwę logiki biznesowej (LOGIKI) do uwzględnienia metody dla nowego `CategoriesTableAdapter` metody. Dodaj następującą metodę do `CategoriesBLL` klasy:
 
 
 [!code-csharp[Main](uploading-files-cs/samples/sample4.cs)]
 
-## <a name="step-5-uploading-a-file-from-the-client-to-the-web-server"></a>Krok 5: Przekazywania plików z klienta do serwera sieci Web
+## <a name="step-5-uploading-a-file-from-the-client-to-the-web-server"></a>Krok 5: Przekazywanie plików z klienta do serwera sieci Web
 
-Podczas zbierania danych binarnych, często to dane są dostarczane przez użytkownika końcowego. Do przechwytywania te informacje, użytkownik musi mieć możliwość przekazywania plików z komputera z serwerem sieci web. Następnie dane przekazane musi można zintegrować z modelu danych, co może oznaczać zapisać plik w systemie plików s serwera sieci web i dodanie ścieżki do pliku w bazie danych lub zapisywanie zawartości binarnej bezpośrednio do bazy danych. W tym kroku wyjaśniono, jak zezwolić użytkownikowi na przekazywanie plików z komputera z serwerem. W następnym samouczku firma Microsoft będzie Włącz wymagające uwagi do integracji przekazanego pliku modelu danych.
+Podczas zbierania danych binarnych, często tych danych jest dostarczany przez użytkownika końcowego. Aby przechwytywać te informacje, użytkownik musi mieć możliwość przekazywania plików z komputera z serwerem sieci web. Przekazane dane musi być zintegrowane z modelu danych, który może oznaczać, że zapisywania pliku w systemie plików s serwera sieci web i dodając ścieżkę do pliku w bazie danych lub zapisując treść binarnych bezpośrednio do bazy danych. W tym kroku omówimy sposób zezwalający użytkownikowi na przekazywanie plików z komputera z serwerem. W następnym samouczku firma Microsoft będzie włączyć naszej uwagi do integracji przekazanego pliku przy użyciu modelu danych.
 
-Platforma ASP.NET 2.0 nowego [kontrolka sieci Web z przekazywaniem plików](https://msdn.microsoft.com/library/ms227677(VS.80).aspx) udostępnia mechanizm dla użytkowników wysłać plik z komputera z serwerem sieci web. Renderuje kontroli przekazywaniem plików jako `<input>` element którego `type` atrybut jest ustawiony w pliku, który przeglądarki wyświetlane jako pole tekstowe z przycisku Przeglądaj. Kliknięcie przycisku Przeglądaj wywołuje okno dialogowe, z którego użytkownik może wybrać plik. Gdy formularz jest przesyłana z powrotem, zawartość wybranego pliku s są wysyłane wraz z ogłaszania zwrotnego. Po stronie serwera informacje o przekazanego pliku jest dostępna za pośrednictwem właściwości s przekazywaniem plików.
+Program ASP.NET 2.0 nowego [formantu sieci Web FileUpload](https://msdn.microsoft.com/library/ms227677(VS.80).aspx) udostępnia mechanizm dla użytkowników wysłać plik z komputera z serwerem sieci web. Kontrolka FileUpload renderowany jako `<input>` elementu którego `type` atrybut jest ustawiony na plik, który przeglądarek wyświetlane jako pole tekstowe za pomocą przycisku przeglądania. Kliknięcie przycisku Przeglądaj otwiera okno dialogowe, w którym użytkownik może wybrać plik. Ponownie opublikowania formularza zawartość s wybranego pliku są wysyłane wraz z zwrotu. Po stronie serwera informacje o przekazany plik jest dostępny za pośrednictwem właściwości s FileUpload.
 
-Aby zademonstrować przekazywania plików, otwórz `FileUpload.aspx` strony `BinaryData` , przeciągnij formant przekazywaniem plików z przybornika do projektanta i ustaw kontrolę s `ID` właściwości `UploadTest`. Następnie dodaj kontrolkę przycisku Web ustawienie jej `ID` i `Text` właściwości, aby `UploadButton` i przekazywanie pliku wybrane, odpowiednio. Na koniec umieścić formantu etykiety Web poniżej przycisk Wyczyść jego `Text` właściwości i zestaw jej `ID` właściwości `UploadDetails`.
-
-
-[![Dodawanie formantu przekazywaniem plików do strony ASP.NET](uploading-files-cs/_static/image12.gif)](uploading-files-cs/_static/image17.png)
-
-**Rysunek 12**: Dodawanie formantu przekazywaniem plików do strony ASP.NET ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](uploading-files-cs/_static/image18.png))
+Aby zademonstrować przekazywanie plików, należy otworzyć `FileUpload.aspx` strony w `BinaryData` folderu, przeciągnij formant FileUpload z przybornika do projektanta i ustawić s `ID` właściwość `UploadTest`. Następnie dodaj kontrolkę przycisk w sieci Web, ustawianie jego `ID` i `Text` właściwości w celu `UploadButton` i przekaż plik wybrane odpowiednio. Na koniec, umieść formantu etykiety w sieci Web, poniżej przycisku wyczyścić jej `Text` właściwości i ustaw jego `ID` właściwość `UploadDetails`.
 
 
-Rysunek 13 przedstawiono tę stronę, podczas wyświetlania za pośrednictwem przeglądarki. Należy pamiętać, że kliknięcie przycisku Przeglądaj wywołuje okno dialogowe wyboru pliku, co pozwala na pobranie plików z komputera. Po wybraniu pliku kliknięcie przycisku przekazać wybranego pliku powoduje odświeżenie strony, która wysyła zawartość binarną s wybrany plik do serwera sieci web.
+[![Dodaj kontrolkę FileUpload do strony ASP.NET](uploading-files-cs/_static/image12.gif)](uploading-files-cs/_static/image17.png)
+
+**Rysunek 12**: Dodawanie formantu FileUpload do strony ASP.NET ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](uploading-files-cs/_static/image18.png))
+
+
+Rysunek 13 przedstawiono tej strony, podczas wyświetlania za pośrednictwem przeglądarki. Należy pamiętać, że kliknięcie przycisku Przeglądaj wywołuje okno dialogowe wyboru plików, co pozwala na pobranie pliku z komputera. Po wybraniu pliku kliknięcie przycisku przekazywania wybranego pliku powoduje odświeżenie strony, który przesyła zawartość binarną s wybrany plik do serwera sieci web.
 
 
 [![Użytkownik może wybrać plik do przekazania z komputera z serwerem](uploading-files-cs/_static/image13.gif)](uploading-files-cs/_static/image19.png)
@@ -229,70 +228,70 @@ Rysunek 13 przedstawiono tę stronę, podczas wyświetlania za pośrednictwem pr
 **Rysunek 13**: użytkownik może wybrać plik do przekazania z komputera z serwerem ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](uploading-files-cs/_static/image20.png))
 
 
-Strony przekazany plik można zapisać w systemie plików lub jego dane binarne mogą pracować z bezpośrednio za pomocą strumienia. Na przykład umożliwić tworzenie s `~/Brochures` folder i zapisać rozmiar przesłanego pliku. Rozpocznij od dodania `Brochures` folderu do lokacji jako podfolder katalogu głównego. Następnie należy utworzyć programu obsługi zdarzeń dla `UploadButton` s `Click` zdarzeń i Dodaj następujący kod:
+Odświeżenie strony przekazany plik można zapisać do systemu plików lub jego danych binarnych można by pracować bezpośrednio za pomocą Stream. W tym przykładzie umożliwiają tworzenie s `~/Brochures` folder i zapisać przekazany plik istnieje. Rozpocznij od dodania `Brochures` folderu do lokacji jako podfolder katalogu głównego. Następnie należy utworzyć program obsługi zdarzeń dla `UploadButton` s `Click` zdarzeń i Dodaj następujący kod:
 
 
 [!code-csharp[Main](uploading-files-cs/samples/sample5.cs)]
 
-Kontrola przekazywaniem plików zapewnia szereg właściwości przekazywane dane. Na przykład [ `HasFile` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.fileupload.hasfile.aspx) wskazuje, czy plik został przekazany przez użytkownika, gdy [ `FileBytes` właściwość](https://msdn.microsoft.com/library/system.web.ui.webcontrols.fileupload.filebytes.aspx) zapewnia dostęp do danych binarnych przekazane jako tablicę bajtów. `Click` Uruchamia program obsługi zdarzeń przez zapewnienie, że plik został przekazany. Jeśli plik został przekazany, etykieta zawiera nazwę przekazanego pliku, jego rozmiar w bajtach i jej typ zawartości.
+Formant FileUpload zapewnia szereg właściwości przekazane dane. Na przykład [ `HasFile` właściwość](https://msdn.microsoft.com/library/system.web.ui.webcontrols.fileupload.hasfile.aspx) wskazuje, czy plik został przekazany przez użytkownika, gdy [ `FileBytes` właściwość](https://msdn.microsoft.com/library/system.web.ui.webcontrols.fileupload.filebytes.aspx) zapewnia dostęp do danych binarnych przekazanych jako tablicę bajtów. `Click` Program obsługi zdarzeń, który rozpoczyna się poprzez zapewnienie, że plik został przekazany. Jeśli plik został przekazany, etykieta jest wyświetlana nazwa przekazanego pliku, jego rozmiar w bajtach i typu zawartości.
 
 > [!NOTE]
-> Aby upewnić się, że użytkownik przekazuje plik można sprawdzić `HasFile` właściwości i wyświetlić ostrzeżenie, jeśli jego s `false`, lub może używać [kontroli RequiredFieldValidator](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/validation/default.aspx) zamiast tego.
+> Aby upewnić się, że użytkownik służy do przekazywania pliku możesz sprawdzić `HasFile` właściwości i wyświetlić ostrzeżenie, jeśli jego s `false`, lub mogą używać [kontroli RequiredFieldValidator](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/validation/default.aspx) zamiast tego.
 
 
-Przekazywaniem plików s `SaveAs(filePath)` zapisuje przekazanego pliku do określonego *filePath*. *filePath* musi być *ścieżka fizyczna* (`C:\Websites\Brochures\SomeFile.pdf`) zamiast *wirtualnego* *ścieżki* (`/Brochures/SomeFile.pdf`). [ `Server.MapPath(virtPath)` Metody](https://msdn.microsoft.com/library/system.web.httpserverutility.mappath.aspx) przyjmuje ścieżkę wirtualną i zwraca jego odpowiedniego ścieżkę fizyczną. Ścieżka wirtualna jest w tym miejscu `~/Brochures/fileName`, gdzie *fileName* jest nazwą przekazanego pliku. Zobacz [przy użyciu Server.MapPath](http://www.4guysfromrolla.com/webtech/121799-1.shtml) Aby uzyskać więcej informacji na temat ścieżek wirtualnych i fizycznych `Server.MapPath`.
+FileUpload s `SaveAs(filePath)` zapisuje przekazany plik do określonego *filePath*. *filePath* musi być *ścieżkę fizyczną* (`C:\Websites\Brochures\SomeFile.pdf`) zamiast *wirtualnego* *ścieżki* (`/Brochures/SomeFile.pdf`). [ `Server.MapPath(virtPath)` Metoda](https://msdn.microsoft.com/library/system.web.httpserverutility.mappath.aspx) przyjmuje ścieżkę wirtualną i zwraca jego odpowiedniego ścieżka fizyczna. W tym miejscu, ścieżka wirtualna jest `~/Brochures/fileName`, gdzie *fileName* nazywa się przekazanego pliku. Zobacz [przy użyciu Server.MapPath](http://www.4guysfromrolla.com/webtech/121799-1.shtml) uzyskać więcej informacji na temat ścieżek wirtualnych i fizycznych i przy użyciu `Server.MapPath`.
 
-Po zakończeniu `Click` program obsługi zdarzeń, Poświęć chwilę, aby przetestować strony w przeglądarce. Kliknij przycisk Przeglądaj i wybierz plik z dysku twardego, a następnie kliknij przycisk Przekaż plik zaznaczony. Wysyła zawartość wybranego pliku ogłaszania zwrotnego do serwera sieci web, który następnie spowoduje wyświetlenie informacji o pliku przed zapisaniem do `~/Brochures` folderu. Po przekazaniu pliku, wróć do programu Visual Studio i kliknij przycisk Odśwież w Eksploratorze rozwiązań. Plik, który właśnie został przekazany w folderze ~/Brochures powinien być widoczny!
+Po zakończeniu `Click` procedura obsługi zdarzeń, Poświęć chwilę, aby przetestować stronę w przeglądarce. Kliknij przycisk Przeglądaj i wybierz plik z dysku twardego, a następnie kliknij przycisk Przekaż wybrany plik. Zwrot wyśle zawartość wybranego pliku do serwera sieci web, który następnie zostaną wyświetlone informacje o pliku przed jego zapisaniem `~/Brochures` folderu. Po przekazaniu pliku, wróć do programu Visual Studio, a następnie kliknij przycisk Odśwież w Eksploratorze rozwiązań. Powinien zostać wyświetlony plik, który właśnie został przekazany w folderze ~/Brochures!
 
 
-[![EvolutionValley.jpg plik został przekazany na serwer sieci Web](uploading-files-cs/_static/image14.gif)](uploading-files-cs/_static/image21.png)
+[![EvolutionValley.jpg plik został przekazany do serwera sieci Web](uploading-files-cs/_static/image14.gif)](uploading-files-cs/_static/image21.png)
 
-**Rysunek 14**: plik `EvolutionValley.jpg` został przekazany na serwer sieci Web ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](uploading-files-cs/_static/image22.png))
+**Rysunek 14**: plik `EvolutionValley.jpg` został przekazany do serwera sieci Web ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](uploading-files-cs/_static/image22.png))
 
 
 ![EvolutionValley.jpg został zapisany w folderze ~/Brochures](uploading-files-cs/_static/image15.gif)
 
-**Rysunek 15**: `EvolutionValley.jpg` zapisano `~/Brochures` folderu
+**Rysunek 15**: `EvolutionValley.jpg` został zapisany w `~/Brochures` folderu
 
 
-## <a name="subtleties-with-saving-uploaded-files-to-the-file-system"></a>Precyzyjnie z zapisywaniem przekazanych plików do systemu plików
+## <a name="subtleties-with-saving-uploaded-files-to-the-file-system"></a>Precyzyjnie z zapisywaniem przekazywanych plików do systemu plików
 
-Istnieje kilka precyzyjnie, które muszą być kierowane podczas zapisywania przekazywania plików do systemu plików s serwera sieci web. Pierwszy, że s problem zabezpieczeń. Aby zapisać plik w systemie plików, kontekstu zabezpieczeń, w którym jest wykonywany strony ASP.NET musi mieć uprawnienia do zapisu. Sieci Web ASP.NET Development Server działa w kontekście konta użytkownika. Jeśli używasz s Microsoft Internet Information Services (IIS) jako serwera sieci web, kontekst zabezpieczeń zależy od wersji usług IIS i jego konfiguracji.
+Istnieje kilka precyzyjnie, które muszą być kierowane przy zapisywaniu przekazywania plików do systemu plików s serwera sieci web. Po pierwsze, miejsca s problem zabezpieczeń. Aby zapisać plik w systemie plików, kontekstu zabezpieczeń, w którym jest wykonywany strony ASP.NET musi mieć uprawnienia do zapisu. Serwer sieci Web programu ASP.NET Development jest uruchamiany w kontekście bieżącego konta użytkownika. Jeśli używasz s Microsoft Internet Information Services (IIS) jako serwera sieci web, kontekstu zabezpieczeń zależy od wersji usług IIS i jego konfiguracji.
 
-Zapisywanie plików w systemie plików innym wyzwaniem problemem nazw plików. Obecnie naszą stronę zapisuje pliki przekazane do `~/Brochures` katalogu przy użyciu takiej samej nazwie jak plik na komputerze klienckim s. Jeśli użytkownik A prześle broszurę o nazwie `Brochure.pdf`, plik zostanie zapisany jako `~/Brochure/Brochure.pdf`. Ale co zrobić, jeśli jakimś nowsze B użytkownika przekazuje plik broszura różnych, która ma taką samą nazwę (`Brochure.pdf`)? Kod mamy teraz użytkownika s pliku zostaną zastąpione przekazywania s B użytkownika.
+Inne wyzwanie zapisywania plików w systemie plików problemem nazewnictwa plików. Obecnie nasza strona zapisuje przekazywanych plików do `~/Brochures` katalogu przy użyciu takiej samej nazwie jak plik na komputerze klienckim s. Jeśli użytkownik A prześle broszura o nazwie `Brochure.pdf`, plik zostanie zapisany jako `~/Brochure/Brochure.pdf`. Ale co zrobić, jeśli jakiś czas nowsze użytkownikowi B służy do przekazywania pliku broszura różnych zdarzeń ma taką samą nazwę (`Brochure.pdf`)? Z kodem mamy teraz użytkownika pliku s zostanie zastąpiony użytkownikowi B s przekazywania.
 
-Istnieje szereg technik rozwiązywania konfliktów nazw plików. Jedną z opcji jest zakazać przekazywania pliku, jeśli istnieje już jeden o takiej samej nazwie. Z tej metody, podczas próby przekazania pliku o nazwie użytkownika B `Brochure.pdf`, system nie będzie Zapisz plik i wyświetlany komunikat informujący użytkownika B, Zmień nazwę pliku i spróbuj ponownie. Innym rozwiązaniem jest zapisanie pliku przy użyciu unikatowej nazwy pliku, który może być [Unikatowy identyfikator globalny (GUID)](http://en.wikipedia.org/wiki/Globally_Unique_Identifier) lub wartość z odpowiedniej bazy danych kolumny klucza podstawowego s rekordów (przy założeniu, że przekazywanie jest skojarzony z określonego wiersza w modelu danych). W następnym samouczku firma Microsoft będzie Poznaj szczegółowo te opcje.
+Istnieje kilka technik rozwiązywania konfliktów nazw plików. Jedną z opcji jest ze Stanów Zjednoczonych zabraniają przekazywania pliku, jeśli istnieje już jeden o takiej samej nazwie. W przypadku tej metody, gdy użytkownik B podejmuje próbę przekazania pliku o nazwie `Brochure.pdf`, system nie będzie zapisać ich plik i zamiast tego wyświetli się komunikat z informacją, użytkownikowi B, aby zmienić nazwę pliku i spróbuj ponownie. Innym rozwiązaniem jest zapisanie pliku przy użyciu unikatową nazwę pliku, który może być [Unikatowy identyfikator globalny (GUID)](http://en.wikipedia.org/wiki/Globally_Unique_Identifier) lub wartość od odpowiadających im bazy danych rekordu s podstawowej kolumny klucza (przy założeniu, że przekazywanie jest skojarzony z określonego wiersza w modelu danych). W następnym samouczku przedstawimy tych opcji bardziej szczegółowo.
 
-## <a name="challenges-involved-with-very-large-amounts-of-binary-data"></a>Wyzwania związane z bardzo dużych ilości danych binarnych
+## <a name="challenges-involved-with-very-large-amounts-of-binary-data"></a>Wyzwania związane z bardzo dużymi ilościami danych binarnych
 
-Te samouczki zakładać, że dane binarne przechwycone jest niewielkie rozmiar. Praca z dużymi ilościami danych binarnych plików, które są kilka MB lub większy wprowadza wyzwania, które wykraczają poza zakres tego samouczka. Na przykład domyślnie ASP.NET odrzuci przekazywania więcej niż 4 MB, mimo że można również skonfigurować za pomocą [ `<httpRuntime>` elementu](https://msdn.microsoft.com/library/e1f13641.aspx) w `Web.config`. IIS nakłada za własną ograniczenia rozmiaru przekazywania plików. Zobacz [rozmiar pliku Przekaż IIS](http://vandamme.typepad.com/development/2005/09/iis_upload_file.html) Aby uzyskać więcej informacji. Ponadto czas potrzebny na przekazanie dużych plików może przekroczyć domyślny 110 sekund, przez program ASP.NET będzie czekać na żądanie. Istnieją problemy z pamięcią i wydajnością nasuwające się podczas pracy z dużymi plikami.
+Tych samouczków założono, że przechwycone dane binarne jest niewielkim rozmiarze. Korzysta z bardzo dużymi ilościami pliki danych binarnych, które są kilku megabajtów lub większych wprowadza wyzwania, które wykraczają poza zakres tego samouczka. Na przykład domyślnie ASP.NET odrzuci przekazywania więcej niż 4 MB, mimo że można również skonfigurować za pomocą [ `<httpRuntime>` elementu](https://msdn.microsoft.com/library/e1f13641.aspx) w `Web.config`. IIS nakłada ograniczenia rozmiaru przekazywania swój własny plik zbyt. Zobacz [rozmiar pliku przekazywania IIS](http://vandamme.typepad.com/development/2005/09/iis_upload_file.html) Aby uzyskać więcej informacji. Ponadto czas poświęcony na przekazywanie dużych plików może przekraczać domyślny 110 sekund, przez program ASP.NET będzie czekać na żądanie. Dostępne są także pamięć i wydajność problemy, które występują podczas pracy z dużymi plikami.
 
-Formant przekazywaniem plików jest niepraktyczne przekazywania dużych plików. Jak zawartość pliku s są ogłaszany z serwerem, użytkownik końcowy patiently oczekiwania bez żadnych potwierdzenia postępuje ich przekazywania. Nie jest zbyt duża, wystąpił problem podczas pracy nad mniejsze pliki, które mogą być przekazywane w ciągu kilku sekund, ale może być przyczyną problemów podczas pracy nad większych plików, które może potrwać do przekazania. Istnieje wiele innych firm pliku przekazywania formantów, które są lepiej dostosowane do obsługi dużych przekazywania i wiele z tych dostawców zapewniają wskaźniki postępu i ActiveX Przekaż menedżerów istnieje profesjonalny bardziej środowisko użytkownika.
+Kontrolka FileUpload jest niepraktyczne przekazywania plików o dużym rozmiarze. Jako zawartość pliku s są są ogłaszane na serwerze, użytkownik końcowy cierpliwie oczekiwania bez żadnych potwierdzeń postępuje ich przekazywania. Nie jest zbyt duża, wystąpił problem podczas pracy z mniejszych plików, które można przekazać w ciągu kilku sekund, ale może być problemem podczas zajmowania się większe pliki, które może potrwać do przekazania. Istnieje wiele innych firm pliku formantów przekazywania, które są lepiej dostosowane do obsługi przekazywania dużych i wiele z tych dostawców zapewniają wskaźniki postępu i ActiveX przekazywanie menedżerów, są one znacznie bardziej dopracowane środowiska użytkownika.
 
-Jeśli aplikacja wymaga do obsługi dużych plików, należy dokładnie zbadać wyzwania i Znajdź odpowiedniego rozwiązania do potrzeb.
+Jeśli Twoja aplikacja potrzebuje do obsługi dużych plików, należy dokładnie zbadać wyzwań i Znajdź odpowiednie rozwiązania dla Twoich konkretnych potrzeb.
 
 ## <a name="summary"></a>Podsumowanie
 
-Tworzenie aplikacji, która potrzebuje do przechwytywania danych binarnych zawiera wiele wyzwań. W tym samouczku będziemy przedstawione dwa pierwsze: Określanie miejsca do przechowywania danych binarnych, dzięki czemu użytkownika można przekazać zawartość binarną za pośrednictwem strony sieci web. W trzech kolejnych samouczki możemy Zobacz sposobu kojarzenia przekazywane dane z rekord w bazie danych, a także sposób wyświetlania danych binarnych obok pola danych jego tekstu.
+Tworzenie aplikacji, która ma przechwytywać dane binarne wprowadzono szereg wyzwań. W tym samouczku rozważyliśmy dwa pierwsze: Decydowanie o przechowywanie danych binarnych i pozwalając użytkownikom na przekazywanie zawartości binarnej za pośrednictwem strony sieci web. W ciągu trzech kolejnych samouczków zobaczymy, jak skojarzyć przekazane dane przy użyciu rekordu w bazie danych, a także sposób wyświetlania danych binarnych wraz z jej pól danych tekstowych.
 
-Programowanie przyjemność!
+Wszystkiego najlepszego programowania!
 
 ## <a name="further-reading"></a>Dalsze informacje
 
-Więcej informacji dotyczących tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
+Więcej informacji na tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
 
 - [Używanie typów danych dużych wartości](https://msdn.microsoft.com/library/ms178158.aspx)
-- [Przewodniki Szybki Start przekazywaniem plików sterowania](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/standard/fileupload.aspx)
-- [Kontrolka serwerowa ASP.NET 2.0 przekazywaniem plików](http://www.wrox.com/WileyCDA/Section/id-292158.html)
-- [Ciemny stronie przekazywania plików](http://www.aspnetresources.com/articles/dark_side_of_file_uploads.aspx)
+- [Przewodniki Szybki Start fileUpload kontroli](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/standard/fileupload.aspx)
+- [Formant serwera ASP.NET 2.0 FileUpload](http://www.wrox.com/WileyCDA/Section/id-292158.html)
+- [Ciemny boku przekazywania plików](http://www.aspnetresources.com/articles/dark_side_of_file_uploads.aspx)
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor siedem ASP/ASP.NET książek i założycielem [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracował nad przy użyciu technologii Microsoft Web od 1998 r. Scott działa jako niezależny Konsultant, trainer i składnika zapisywania. Jego najnowszą książkę Stephena [ *Sams uczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). ADAM można z Tobą skontaktować w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blogu, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
-Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Prowadzić osób dokonujących przeglądu, w tym samouczku zostały Teresa Murphy i Bernadette Leigh. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+W tej serii samouczków został zrecenzowany przez wielu recenzentów pomocne. Wiodące osób dokonujących przeglądu, w tym samouczku zostały Teresa Murphy i Bernadette Leigh. Zainteresowani zapoznaniem Moje kolejnych artykułów MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Next](displaying-binary-data-in-the-data-web-controls-cs.md)

@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-1
-title: 'Część 1: Omówienie i tworzenia projektu | Dokumentacja firmy Microsoft'
+title: 'Część 1: Omówienie i tworzenie projektu | Dokumentacja firmy Microsoft'
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
@@ -9,60 +9,59 @@ ms.date: 07/03/2012
 ms.topic: article
 ms.assetid: 94421d86-68c4-4471-bf5f-82d654a17252
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: f9cdff0cb0cad9adad546c8f8d46ba9b010e1079
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: f0616383fce2e92f7d1a0b63bf840208f7327bf7
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30873329"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37394064"
 ---
-<a name="part-1-overview-and-creating-the-project"></a>Część 1: Omówienie i tworzenia projektu
+<a name="part-1-overview-and-creating-the-project"></a>Część 1: Omówienie i tworzenie projektu
 ====================
-przez [Wasson Jan](https://github.com/MikeWasson)
+przez [Mike Wasson](https://github.com/MikeWasson)
 
 [Pobieranie ukończone projektu](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
 
-Entity Framework jest obiekt/relacyjne framework mapowania. Mapowania obiektów domeny w kodzie jednostek relacyjnej bazy danych. W większości przypadków nie masz martwić się o warstwie bazy danych, ponieważ Entity Framework zajmuje się go dla Ciebie. Kod manipuluje obiektami, a zmiany są umieszczone w bazie danych.
+Entity Framework to platforma mapowania obiektowo/relacyjny. Obiektów domeny w kodzie jest on mapowany do jednostek w relacyjnej bazie danych. W większości przypadków nie masz już martwić się o warstwy bazy danych, ponieważ Entity Framework zajmuje się go dla Ciebie. Twój kod manipuluje obiektami, a zmiany zostaną utrwalone w bazie danych.
 
-## <a name="about-the-tutorial"></a>Dotyczące samouczka
+## <a name="about-the-tutorial"></a>Samouczek — informacje
 
-W tym samouczku utworzysz aplikacją ze sklepu proste. Istnieją dwie główne części aplikacji. Normalne użytkownicy mogą wyświetlać produktów i tworzenie zleceń:
+W tym samouczku utworzysz aplikację sklepu proste. Istnieją dwie główne części aplikacji. Normalne użytkownicy mogą przeglądać produktów i tworzenie zamówień:
 
 ![](using-web-api-with-entity-framework-part-1/_static/image1.png)
 
-Administratorzy mogą tworzyć, usuwać lub edytować produktów:
+Administratorzy mogą tworzyć, usuń lub Edytuj produktów:
 
 ![](using-web-api-with-entity-framework-part-1/_static/image2.png)
 
-## <a name="skills-youll-learn"></a>Dowiesz się umiejętności
+## <a name="skills-youll-learn"></a>Umiejętności, których dowiesz się
 
-Oto dowiesz się:
+Oto, dowiesz się:
 
-- Jak korzystać z interfejsu API sieci Web platformy ASP.NET Entity Framework.
-- Jak używać knockout.js do tworzenia dynamicznego interfejsu użytkownika klienta.
+- Jak używać programu Entity Framework za pomocą interfejsu API sieci Web platformy ASP.NET.
+- Jak korzystać z użyciem knockout.js do tworzenia dynamicznego interfejsu użytkownika klienta.
 - Jak używać uwierzytelniania formularzy z interfejsu API sieci Web do uwierzytelniania użytkowników.
 
-Mimo że w tym samouczku są niezależne, warto najpierw przeczytać następujące samouczki:
+Mimo że w tym samouczku jest niezależny, warto najpierw przeczytać następujące samouczki:
 
-- [Pierwszy ASP.NET interfejsu API sieci Web](../../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md)
-- [Tworzenie składnika Web API obsługującego operacje CRUD](../creating-a-web-api-that-supports-crud-operations.md)
+- [Usługi pierwszego wzorca ASP.NET Web API](../../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md)
+- [Tworzenie internetowego interfejsu API obsługującego operacje CRUD](../creating-a-web-api-that-supports-crud-operations.md)
 
-Niektóre znajomość [ASP.NET MVC](../../../../mvc/index.md) jest również przydatne.
+Pewną wiedzę na temat [platformy ASP.NET MVC](../../../../mvc/index.md) jest również przydatna.
 
 ## <a name="overview"></a>Omówienie
 
-Na wysokim poziomie Oto architektury aplikacji:
+Na wysokim poziomie poniżej przedstawiono architekturę aplikacji:
 
 - ASP.NET MVC wygeneruje stron HTML dla klienta.
-- Interfejs API sieci Web ASP.NET udostępnia operacje CRUD na danych (produktów i zamówienia).
-- Entity Framework tłumaczy modeli C# używanych przez interfejs API sieci Web do bazy danych jednostki.
+- ASP.NET Web API udostępnia operacje CRUD na danych (produkty i zamówienia).
+- Entity Framework tłumaczy modeli języka C# używane przez interfejs API sieci Web do jednostek bazy danych.
 
 ![](using-web-api-with-entity-framework-part-1/_static/image3.png)
 
-Na poniższym diagramie przedstawiono, jak obiektów domeny znajdują się w różnych warstwach aplikacji: Warstwa bazy danych, model obiektów, a na końcu format danych przesyłanych w sieci, który jest używany do przesyłania danych do klienta za pośrednictwem protokołu HTTP.
+Na poniższym diagramie przedstawiono, jak obiekty domeny są reprezentowane w różnych warstwach aplikacji: Warstwa bazy danych, model obiektów, a na końcu formatu o komunikacji sieciowej, który jest używany do przesyłania danych do klienta za pośrednictwem protokołu HTTP.
 
 ![](using-web-api-with-entity-framework-part-1/_static/image4.png)
 
@@ -70,28 +69,28 @@ Na poniższym diagramie przedstawiono, jak obiektów domeny znajdują się w ró
 
 Można utworzyć projekt samouczka przy użyciu programu Visual Web Developer Express lub pełnej wersji programu Visual Studio.
 
-Z **Start** kliknij przycisk **nowy projekt**.
+Z **Start** kliknij **nowy projekt**.
 
-W **szablony** okienku wybierz **zainstalowane szablony** i rozwiń **Visual C#** węzła. W obszarze **Visual C#**, wybierz pozycję **Web**. Na liście szablony projektów, wybierz **aplikacji sieci Web programu ASP.NET MVC 4**. Nazwij projekt "ProductStore", a następnie kliknij przycisk **OK**.
+W **szablony** okienku wybierz **zainstalowane szablony** i rozwiń **Visual C#** węzła. W obszarze **Visual C#**, wybierz opcję **Web**. Na liście szablonów projektu wybierz **aplikacji sieci Web programu ASP.NET MVC 4**. Nadaj projektowi nazwę "ProductStore", a następnie kliknij przycisk **OK**.
 
 ![](using-web-api-with-entity-framework-part-1/_static/image5.png)
 
-W **nowy projekt programu ASP.NET MVC 4** okno dialogowe, wybierz opcję **aplikacji internetowej** i kliknij przycisk **OK**.
+W **nowego projektu programu ASP.NET MVC 4** okno dialogowe, wybierz opcję **aplikacji internetowej** i kliknij przycisk **OK**.
 
 ![](using-web-api-with-entity-framework-part-1/_static/image6.png)
 
-Szablon "Aplikacji internetowej" służy do tworzenia aplikacji platformy ASP.NET MVC, który obsługuje uwierzytelnianie formularzy. Jeśli uruchomisz aplikację teraz już niektóre funkcje:
+Szablon "Aplikacji internetowej" umożliwia utworzenie aplikacji platformy ASP.NET MVC, która obsługuje uwierzytelnianie formularzy. Jeśli uruchomisz aplikację teraz, jest już niektóre funkcje:
 
-- Nowi użytkownicy mogą zarejestrować, klikając łącze "Register" w prawym górnym rogu.
-- Zarejestrowani użytkownicy może się zalogować, klikając łącze "Zaloguj".
+- Nowi użytkownicy mogą zarejestrować, klikając link "Register" w prawym górnym rogu.
+- Zarejestrowani użytkownicy mogą się zalogować, klikając link "Zaloguj".
 
-Informacje o członkostwie jest zachowywane w bazie danych, który jest tworzony automatycznie. Aby uzyskać więcej informacji na temat uwierzytelniania formularzy w programie ASP.NET MVC, zobacz [wskazówki: używanie uwierzytelniania formularzy w programie ASP.NET MVC](https://msdn.microsoft.com/library/ff398049(VS.98).aspx).
+Informacje o członkostwie są utrwalane w bazie danych, która zostanie utworzona automatycznie. Aby uzyskać więcej informacji na temat uwierzytelniania formularzy we wzorcu ASP.NET MVC, zobacz [Instruktaż: używanie uwierzytelniania formularzy we wzorcu ASP.NET MVC](https://msdn.microsoft.com/library/ff398049(VS.98).aspx).
 
-## <a name="update-the-css-file"></a>Aktualizowanie pliku CSS
+## <a name="update-the-css-file"></a>Zaktualizuj plik CSS
 
-Ten krok jest bardzo drobny, ale spowoduje to, że strony renderowania jak wcześniej zrzutów ekranu.
+Ten krok jest kosmetycznych, ale spowoduje to, że strony renderowania, takich jak wcześniej zrzutów ekranu.
 
-W Eksploratorze rozwiązań rozwiń folder zawartości i Otwórz plik o nazwie Site.css. Dodaj następujące style CSS:
+W Eksploratorze rozwiązań rozwiń folder zawartości, a następnie otwórz plik o nazwie pliku Site.css. Dodaj następujące style CSS:
 
 [!code-css[Main](using-web-api-with-entity-framework-part-1/samples/sample1.css)]
 

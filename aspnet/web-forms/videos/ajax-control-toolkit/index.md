@@ -1,66 +1,65 @@
 ---
 uid: web-forms/videos/ajax-control-toolkit/index
-title: Zestaw narzędzi kontroli AJAX | Dokumentacja firmy Microsoft
+title: Zestawu narzędzi AJAX Control Toolkit | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: Jak utworzyć bardzo elastyczny sieci Web ASP.NET przy użyciu zestawu narzędzi kontroli Ajax stron.
+description: Jak utworzyć bardzo elastyczny sieci Web platformy ASP.NET przy użyciu zestawu narzędzi Ajax Control Toolkit stron.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
 ms.topic: article
 ms.assetid: 6f7b1c74-cc73-42f9-8ef0-8b3d058dabfa
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit
 msc.type: chapter
-ms.openlocfilehash: fad690c40cac7a344a445dae722ae2a1e89adf6b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4bdb0bd554d147909ca441a88db8c47e38737cbe
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26570854"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37385255"
 ---
 <a name="ajax-control-toolkit"></a>Ajax Control Toolkit
 ====================
-> Jak utworzyć bardzo elastyczny sieci Web ASP.NET przy użyciu zestawu narzędzi kontroli Ajax stron.
+> Jak utworzyć bardzo elastyczny sieci Web platformy ASP.NET przy użyciu zestawu narzędzi Ajax Control Toolkit stron.
 
 
-- [Rozpoczynanie pracy z zestawu ASP.NET AJAX kontroli narzędzi](how-do-i-get-started-with-the-aspnet-ajax-control-toolkit.md)
-- [Rozszerzenie kontrolki CascadingDropDown AJAX ASP.NET](how-do-i-use-the-aspnet-ajax-cascadingdropdown-control-extender.md)
-- [Rozszerzenie kontrolki TextBoxWatermark AJAX ASP.NET](how-do-i-use-the-aspnet-ajax-textboxwatermark-control-extender.md)
-- [Rozszerzeń kontrolki Popup AJAX ASP.NET](how-do-i-use-the-aspnet-ajax-popup-control-extender.md)
-- [Formant rozszerzający ModalPopup AJAX ASP.NET](how-do-i-use-the-aspnet-ajax-modalpopup-extender-control.md)
-- [Rozszerzenie kontrolki AlwaysVisible AJAX ASP.NET](how-do-i-use-the-aspnet-ajax-alwaysvisible-control-extender.md)
-- [Formant Harmonijka AJAX ASP.NET](how-do-i-use-the-aspnet-ajax-accordion-control.md)
-- [ASP.NET AJAX zwijane panelu rozszerzeń](how-do-i-use-the-aspnet-ajax-collapsable-panel-extender.md)
-- [ASP.NET AJAX możliwością przeciągania panelu rozszerzeń](how-do-i-use-the-aspnet-ajax-draggable-panel-extender.md)
-- [ASP.NET AJAX DynamicPopulate rozszerzeń](how-do-i-use-the-aspnet-ajax-dynamicpopulate-extender.md)
-- [ASP.NET AJAX FilteredTextbox rozszerzeń](how-do-i-use-the-aspnet-ajax-filteredtextbox-extender.md)
-- [ASP.NET AJAX HoverMenu rozszerzeń](how-do-i-use-the-aspnet-ajax-hovermenu-extender.md)
-- [ASP.NET AJAX ToggleButton rozszerzeń](how-do-i-use-the-aspnet-ajax-togglebutton-extender.md)
-- [ASP.NET AJAX cień rozszerzeń](how-do-i-use-the-aspnet-ajax-dropshadow-extender.md)
-- [ASP.NET AJAX PasswordStrength rozszerzeń](how-do-i-use-the-aspnet-ajax-passwordstrength-extender.md)
-- [Rozpoczynanie pracy za pomocą ASP.NET AJAX animacji rozszerzeń formantu](how-do-i-get-started-with-the-aspnet-ajax-animation-extender-control.md)
-- [ASP.NET AJAX ConfirmButton rozszerzeń](how-do-i-use-the-aspnet-ajax-confirmbutton-extender.md)
-- [Kontrolka suwaka AJAX ASP.NET](how-do-i-use-the-aspnet-ajax-slider-control.md)
-- [Formant autouzupełniania AJAX ASP.NET](how-do-i-use-the-aspnet-ajax-autocomplete-control.md)
-- [Skonfiguruj formant kalendarza AJAX ASP.NET](how-do-i-configure-the-aspnet-ajax-calendar-control.md)
-- [Kontrolka listy rozwijanej AJAX ASP.NET](how-do-i-use-the-aspnet-ajax-dropdown-control.md)
-- [Formanty MaskedEdit AJAX ASP.NET](how-do-i-use-the-aspnet-ajax-maskededit-controls.md)
-- [ASP.NET AJAX wyboru MutuallyExclusive rozszerzeń](how-do-i-use-the-aspnet-ajax-mutuallyexclusive-checkbox-extender.md)
-- [Formant NoBot AJAX ASP.NET](how-do-i-use-the-aspnet-ajax-nobot-control.md)
-- [ASP.NET AJAX ListSearch rozszerzeń](how-do-i-use-the-aspnet-ajax-listsearch-extender.md)
-- [Formant rozszerzający PagingBulletedList](how-do-i-use-the-pagingbulletedlist-extender-control.md)
-- [Formant rozszerzający NumericUpDown](how-do-i-use-the-numericupdown-extender-control.md)
-- [ASP.NET AJAX ValidatorCallout rozszerzeń](how-do-i-use-the-aspnet-ajax-validatorcallout-extender.md)
-- [ASP.NET AJAX ResizableControl rozszerzeń](how-do-i-use-the-aspnet-ajax-resizablecontrol-extender.md)
-- [Formant karty AJAX ASP.NET](how-do-i-use-the-aspnet-ajax-tabs-control.md)
-- [ASP.NET AJAX pokazu slajdów rozszerzeń](how-do-i-use-the-aspnet-ajax-slideshow-extender.md)
-- [ASP.NET AJAX UpdatePanelAnimation rozszerzeń](how-do-i-use-the-aspnet-ajax-updatepanelanimation-extender.md)
-- [Kontrolka AJAX zmiany kolejności Toolkit](how-do-i-the-ajax-toolkit-reorder-control.md)
-- [Korzystanie z technologii AJAX, Klasyfikacja formantu w zestawie narzędzi programu ASP.NET](utilize-the-ajax-rating-control-in-the-aspnet-toolkit.md)
-- [Rozszerzeń formantu](control-extenders.md)
+- [Wprowadzenie do zestawu narzędzi AJAX Control Toolkit platformy ASP.NET](how-do-i-get-started-with-the-aspnet-ajax-control-toolkit.md)
+- [Rozszerzenie kontrolki CascadingDropDown ASP.NET AJAX](how-do-i-use-the-aspnet-ajax-cascadingdropdown-control-extender.md)
+- [Rozszerzenie kontrolki TextBoxWatermark ASP.NET AJAX ](how-do-i-use-the-aspnet-ajax-textboxwatermark-control-extender.md)
+- [Rozszerzenie kontrolki Popup ASP.NET AJAX ](how-do-i-use-the-aspnet-ajax-popup-control-extender.md)
+- [Kontrolka rozszerzenia ModalPopup ASP.NET AJAX](how-do-i-use-the-aspnet-ajax-modalpopup-extender-control.md)
+- [Rozszerzenie kontrolki AlwaysVisible ASP.NET AJAX](how-do-i-use-the-aspnet-ajax-alwaysvisible-control-extender.md)
+- [Kontrolka Accordion ASP.NET AJAX](how-do-i-use-the-aspnet-ajax-accordion-control.md)
+- [Rozszerzenie panelu zwijanego ASP.NET AJAX](how-do-i-use-the-aspnet-ajax-collapsable-panel-extender.md)
+- [Rozszerzenie panelu przeciąganego ASP.NET AJAX](how-do-i-use-the-aspnet-ajax-draggable-panel-extender.md)
+- [Rozszerzenie DynamicPopulate ASP.NET AJAX](how-do-i-use-the-aspnet-ajax-dynamicpopulate-extender.md)
+- [Rozszerzenie FilteredTextbox ASP.NET AJAX](how-do-i-use-the-aspnet-ajax-filteredtextbox-extender.md)
+- [Rozszerzenie HoverMenu ASP.NET AJAX](how-do-i-use-the-aspnet-ajax-hovermenu-extender.md)
+- [Rozszerzenie ToggleButton ASP.NET AJAX](how-do-i-use-the-aspnet-ajax-togglebutton-extender.md)
+- [Rozszerzenie DropShadow ASP.NET AJAX](how-do-i-use-the-aspnet-ajax-dropshadow-extender.md)
+- [Rozszerzenie PasswordStrength ASP.NET AJAX](how-do-i-use-the-aspnet-ajax-passwordstrength-extender.md)
+- [Rozpoczynanie pracy z kontrolką rozszerzenia animacji ASP.NET AJAX](how-do-i-get-started-with-the-aspnet-ajax-animation-extender-control.md)
+- [Rozszerzenie ConfirmButton ASP.NET AJAX](how-do-i-use-the-aspnet-ajax-confirmbutton-extender.md)
+- [Kontrolka Slider ASP.NET AJAX](how-do-i-use-the-aspnet-ajax-slider-control.md)
+- [Kontrolka AutoComplete ASP.NET AJAX](how-do-i-use-the-aspnet-ajax-autocomplete-control.md)
+- [Konfigurowanie kontrolki Calendar ASP.NET AJAX](how-do-i-configure-the-aspnet-ajax-calendar-control.md)
+- [Kontrolka DropDown ASP.NET AJAX](how-do-i-use-the-aspnet-ajax-dropdown-control.md)
+- [Kontrolki MaskedEdit ASP.NET AJAX](how-do-i-use-the-aspnet-ajax-maskededit-controls.md)
+- [Rozszerzenie pola wyboru MutuallyExclusive ASP.NET AJAX](how-do-i-use-the-aspnet-ajax-mutuallyexclusive-checkbox-extender.md)
+- [Kontrolka NoBot ASP.NET AJAX](how-do-i-use-the-aspnet-ajax-nobot-control.md)
+- [Rozszerzenie ListSearch ASP.NET AJAX](how-do-i-use-the-aspnet-ajax-listsearch-extender.md)
+- [Kontrolka rozszerzenia PagingBulletedList](how-do-i-use-the-pagingbulletedlist-extender-control.md)
+- [Kontrolka rozszerzenia NumericUpDown](how-do-i-use-the-numericupdown-extender-control.md)
+- [Rozszerzenie ValidatorCallout ASP.NET AJAX](how-do-i-use-the-aspnet-ajax-validatorcallout-extender.md)
+- [Rozszerzenie ResizableControl ASP.NET AJAX](how-do-i-use-the-aspnet-ajax-resizablecontrol-extender.md)
+- [Kontrolka Tabs ASP.NET AJAX](how-do-i-use-the-aspnet-ajax-tabs-control.md)
+- [Rozszerzenie SlideShow ASP.NET AJAX](how-do-i-use-the-aspnet-ajax-slideshow-extender.md)
+- [Rozszerzenie UpdatePanelAnimation ASP.NET AJAX](how-do-i-use-the-aspnet-ajax-updatepanelanimation-extender.md)
+- [Kontrolka Reorder narzędzi AJAX Toolkit](how-do-i-the-ajax-toolkit-reorder-control.md)
+- [Korzystanie z kontrolki klasyfikacji AJAX w zestawie narzędzi platformy ASP.NET](utilize-the-ajax-rating-control-in-the-aspnet-toolkit.md)
+- [Rozszerzenia kontrolek](control-extenders.md)
 - [Selektor kolorów](color-picker.md)
-- [Pola kombi](combo-box.md)
-- [Edytor kontroli](editor-control.md)
-- [Edytor Kontrolki niestandardowe](editor-control-custom.md)
-- [Tworzenie nowych, niestandardowych rozszerzeń](create-a-new-custom-extender.md)
+- [Pole kombi](combo-box.md)
+- [Kontrolka edytora](editor-control.md)
+- [Niestandardowa kontrolka edytora](editor-control-custom.md)
+- [Tworzenie nowego niestandardowego rozszerzenia](create-a-new-custom-extender.md)

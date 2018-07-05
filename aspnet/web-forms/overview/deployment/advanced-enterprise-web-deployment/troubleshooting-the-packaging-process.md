@@ -1,85 +1,84 @@
 ---
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/troubleshooting-the-packaging-process
-title: Rozwiązywanie problemów z procesu tworzenia pakietów | Dokumentacja firmy Microsoft
+title: Rozwiązywanie problemów z procesem tworzenia pakietów | Dokumentacja firmy Microsoft
 author: jrjlee
-description: W tym temacie opisano, jak szczegółowe informacje na temat procesu tworzenia pakietów można zebrać za pomocą właściwości EnablePackageProcessLoggingAndAssert w M...
+description: W tym temacie opisano, jak zbierać szczegółowe informacje na temat procesu tworzenia pakietów za pomocą właściwości EnablePackageProcessLoggingAndAssert w M...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
 ms.topic: article
 ms.assetid: 794bd819-00fc-47e2-876d-fc5d15e0de1c
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/troubleshooting-the-packaging-process
 msc.type: authoredcontent
-ms.openlocfilehash: 816ab77c44b52c6449a139475f2ef8546bd38071
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 22086d3c154214457fe35794998accdf6109471c
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30892689"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37384147"
 ---
-<a name="troubleshooting-the-packaging-process"></a>Rozwiązywanie problemów z procesu tworzenia pakietów
+<a name="troubleshooting-the-packaging-process"></a>Rozwiązywanie problemów z procesem tworzenia pakietów
 ====================
-przez [Lewandowski Jason](https://github.com/jrjlee)
+przez [Jason Lee](https://github.com/jrjlee)
 
 [Pobierz plik PDF](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> W tym temacie opisano, jak szczegółowe informacje na temat procesu tworzenia pakietów można zebrać za pomocą **EnablePackageProcessLoggingAndAssert** właściwości w aparat kompilacji firmy Microsoft (MSBuild).
+> W tym temacie opisano, jak zbierać szczegółowe informacje na temat procesu tworzenia pakietów, za pomocą **EnablePackageProcessLoggingAndAssert** właściwość aparatu Microsoft Build Engine (MSBuild).
 > 
-> Podczas ustawiania **EnablePackageProcessLoggingAndAssert** właściwości **true**, będzie MSBuild:
+> Po ustawieniu **EnablePackageProcessLoggingAndAssert** właściwości **true**, program MSBuild będzie:
 > 
 > - Dodaj dodatkowe informacje na temat procesu tworzenia pakietów w dziennikach kompilacji.
-> - Dziennik błędów w niektórych warunkach, na przykład, jeśli zduplikowane pliki znajdują się na liście pakietów.
-> - Utwórz katalog dziennika w *ProjectName*\_pakietu folderze i używać go do rejestrowania informacji o plikach pakowane.
+> - Rejestruje błędy pod pewnymi warunkami, na przykład, jeśli zduplikowane pliki znajdują się na liście pakietu.
+> - Utwórz katalog dzienników w *ProjectName*\_pakietu folder i użyć go do rejestrowania informacji o plikach one pakowania.
 > 
-> Proces tworzenia pakietu kończy się niepowodzeniem, czy pakiety wdrażania sieci web nie mogą zawierać pliki, które powinny, można użyć tych informacji rozwiązywać procesu do punktu przyczepienia której elementy będą nieprawidłowe.
+> Jeśli proces pakowania, kończy się niepowodzeniem lub pakietów wdrażania sieci web nie zawierają pliki, których można oczekiwać, można użyć tych informacji rozwiązywać ten proces i pinpoint gdzie przebieg procesu problem.
 > 
 > > [!NOTE]
-> > **EnablePackageProcessLoggingAndAssert** właściwość działa tylko w przypadku tworzenia Twój projekt używający **debugowania** konfiguracji. Właściwość jest ignorowana w innych konfiguracji.
+> > **EnablePackageProcessLoggingAndAssert** właściwości tylko wtedy, gdy tworzysz projekt przy użyciu **debugowania** konfiguracji. Właściwość jest ignorowana w innych konfiguracjach.
 
 
-Ten temat jest częścią serii samouczków na podstawie tych wymagań związanych z przedsiębiorstwa wdrażaniem fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Przykładowe rozwiązanie korzysta z tego samouczka serii&#x2014; [rozwiązania kontaktów Menedżerze](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;do reprezentowania aplikacji sieci web z realistyczne poziom złożoności, w tym aplikacji ASP.NET MVC 3, Windows Communication Usługa Foundation (WCF), a projekt bazy danych.
+Ten temat jest częścią serii samouczków na podstawie wymagania dotyczące wdrażania enterprise fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Przykładowe rozwiązanie korzysta z tej serii samouczków&#x2014; [rozwiązania Contact Manager](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;do reprezentowania aplikacji sieci web przy użyciu realistycznej stopień złożoności, łącznie z aplikacją ASP.NET MVC 3 komunikacji Windows Usługa Foundation (WCF), a projekt bazy danych.
 
-Istotą te samouczki metody wdrażania opiera się na podejście pliku projektu podziału opisane w [opis pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md), w którym jest kontrolowany przez proces kompilacji dwa pliki projektu&#x2014;jeden zawierający Tworzenie instrukcji, które mają zastosowanie do każdego środowiska docelowego i dysk zawierający ustawienia kompilacji i wdrożenia określonego środowiska. W czasie kompilacji pliku projektu określonego środowiska jest scalany pliku projektu niezależny od środowiska pełny zestaw instrukcji kompilacji.
+Metody wdrażania w ramach tego samouczka opiera się na podejście pliku projektu Podziel opisane w [objaśnienie pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md), w którym proces kompilacji jest kontrolowana przez dwa pliki projektu&#x2014;jeden zawierający Tworzenie instrukcji, które mają zastosowanie do każdego środowiska docelowego i jeden zawierający ustawienia specyficzne dla środowiska kompilacji i wdrażania. W czasie kompilacji pliku projektu specyficznymi dla środowiska jest scalana w pliku projektu niezależnego od środowiska w celu utworzenia kompletny zestaw instrukcji kompilacji.
 
 ## <a name="understanding-the-enablepackageprocessloggingandassert-property"></a>Opis właściwości EnablePackageProcessLoggingAndAssert
 
-[Kompilowanie i projekty aplikacji sieci Web pakowania](../web-deployment-in-the-enterprise/building-and-packaging-web-application-projects.md) opisano, jak sieci Web potok publikowania (WPP) zapewnia zbiór docelowych elementów MSBuild, które zapewniają rozszerzenie funkcjonalności programu MSBuild i włącz ją zintegrować z sieci Web usług Internet Information Services (IIS) Narzędzia Deployment (Web Deploy). Podczas pakowania projektu aplikacji sieci web jest wywoływanie WPP elementów docelowych.
+[Budowanie i projektów aplikacji sieci Web pakietu](../web-deployment-in-the-enterprise/building-and-packaging-web-application-projects.md) opisano, jak Web potok publikowania (WPP) zawiera zbiór elementów docelowych MSBuild, które rozszerzają funkcjonalność programu MSBuild i włącz ją zintegrować z sieci Web usług Internet Information Services (IIS) Narzędzia Deployment (Web Deploy). Podczas pakowania projektu aplikacji sieci web wywoływania WPP elementów docelowych.
 
-Wiele z tych celów WPP obejmują logikę warunkową zaloguje się dodatkowe informacje podczas **EnablePackageProcessLoggingAndAssert** właściwość jest ustawiona na **true**. Na przykład, jeśli należy przejrzeć **pakietu** obiektu docelowego widać tworzy katalog dziennika dodatkowe i zapisuje do pliku tekstowego z listą plików, jeśli **EnablePackageProcessLoggingAndAssert** jest równa **true**.
+Wiele z tych celów WPP obejmują logikę warunkową, która rejestruje dodatkowe informacje podczas **EnablePackageProcessLoggingAndAssert** właściwość jest ustawiona na **true**. Na przykład, jeśli przejrzysz **pakietu** obiektu docelowego, widać tworzy katalog dziennika dodatkowe i zapisuje listę plików do pliku tekstowego, jeśli **EnablePackageProcessLoggingAndAssert** jest równa **true**.
 
 
 [!code-xml[Main](troubleshooting-the-packaging-process/samples/sample1.xml)]
 
 
 > [!NOTE]
-> Obiekty docelowe WPP są zdefiniowane w *Microsoft.Web.Publishing.targets* plików w folderze % PROGRAMFILES (x 86) %\MSBuild\Microsoft\VisualStudio\v10.0\Web. Możesz otworzyć ten plik i przejrzyj elementy docelowe w Visual Studio 2010 lub dowolnego edytora XML. Należy zadbać, aby nie modyfikować zawartość pliku.
+> Obiekty docelowe WPP są zdefiniowane w *Microsoft.Web.Publishing.targets* pliku w folderze % PROGRAMFILES (x 86) %\MSBuild\Microsoft\VisualStudio\v10.0\Web. Możesz otworzyć ten plik i przejrzyj obiekty docelowe w programie Visual Studio 2010 lub dowolnym edytorze XML. Należy zadbać, nie należy modyfikować zawartości pliku.
 
 
-## <a name="enabling-the-additional-logging"></a>Włączanie rejestrowania dodatkowe
+## <a name="enabling-the-additional-logging"></a>Włączanie dodatkowe rejestrowanie
 
-Należy podać wartość **EnablePackageProcessLoggingAndAssert** właściwości na różne sposoby, w zależności od tego, jak utworzyć projekt.
+Należy podać wartość **EnablePackageProcessLoggingAndAssert** właściwości na różne sposoby, w zależności od tego, jak skompilować projekt.
 
-W przypadku tworzenia projektu z poziomu wiersza polecenia, należy podać wartość **EnablePackageProcessLoggingAndAssert** właściwość jako argument wiersza polecenia:
+Jeśli tworzysz projekt w wierszu polecenia, należy podać wartość **EnablePackageProcessLoggingAndAssert** właściwość jako argument wiersza polecenia:
 
 
 [!code-console[Main](troubleshooting-the-packaging-process/samples/sample2.cmd)]
 
 
-Jeśli używasz pliku projektu niestandardowych do tworzenia projektów, możesz uwzględnić **EnablePackageProcessLoggingAndAssert** wartość w **właściwości** atrybutu **MSBuild**zadań:
+Jeśli używasz pliku niestandardowego projektu do tworzenia projektów, można dołączyć **EnablePackageProcessLoggingAndAssert** wartość w **właściwości** atrybutu **MSBuild**zadań:
 
 
 [!code-xml[Main](troubleshooting-the-packaging-process/samples/sample3.xml)]
 
 
-Jeśli używasz definicji kompilacji Team Foundation Server (TFS) do tworzenia projektów, należy podać wartość **EnablePackageProcessLoggingAndAssert** właściwości w **argumenty programu MSBuild** wiersza:![](troubleshooting-the-packaging-process/_static/image1.png)
+Jeśli używasz definicji kompilacji Team Foundation Server (TFS) do tworzenia projektów, należy podać wartość **EnablePackageProcessLoggingAndAssert** właściwość **argumenty MSBuild** wiersz:![](troubleshooting-the-packaging-process/_static/image1.png)
 
 > [!NOTE]
-> Aby uzyskać więcej informacji na temat tworzenia i konfigurowania definicje kompilacji, zobacz [tworzenie kompilacji definicji czy obsługuje wdrożenia](../configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment.md).
+> Aby uzyskać więcej informacji na temat tworzenia i konfigurowania definicji kompilacji, zobacz [tworzenie kompilacji definicji, obsługuje wdrożenia](../configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment.md).
 
 
-Alternatywnie, jeśli chcesz uwzględnić pakietu w każdej kompilacji, można zmodyfikować pliku projektu dla projektu aplikacji sieci web ustawić **EnablePackageProcessLoggingAndAssert** właściwości **true**. Właściwość należy dodać do pierwszej **PropertyGroup** elementu w pliku .csproj lub .vbproj.
+Alternatywnie, jeśli chcesz uwzględnić pakiet z każdą kompilacją, można zmodyfikować plik projektu dla projektu aplikacji sieci web ustawić **EnablePackageProcessLoggingAndAssert** właściwości **true**. Należy dodać właściwości do pierwszego **PropertyGroup** element w obrębie pliku .csproj lub .vbproj.
 
 
 [!code-xml[Main](troubleshooting-the-packaging-process/samples/sample4.xml)]
@@ -87,34 +86,34 @@ Alternatywnie, jeśli chcesz uwzględnić pakietu w każdej kompilacji, można z
 
 ## <a name="reviewing-the-log-files"></a>Przeglądanie plików dziennika
 
-Podczas tworzenia i pakietów z projektu aplikacji sieci web **EnablePackageProcessLoggingAndAssert** ustawioną **true**, MSBuild tworzy dodatkowy folder o nazwie logowania *ProjectName* \_Folderu pakietu. Folder dziennika zawiera różne pliki:
+Podczas kompilowania i projektu aplikacji sieci web za pomocą pakietu **EnablePackageProcessLoggingAndAssert** równa **true**, MSBuild tworzy dodatkowy folder o nazwie logowania *ProjectName* \_Folderu pakietu. Folder dziennika zawiera różne pliki:
 
 ![](troubleshooting-the-packaging-process/_static/image2.png)
 
-Lista plików, które są wyświetlane zależą od elementów w projekcie i procesu kompilacji. Jednak te pliki są zwykle używane do rejestrowania lista plików, które zbiera WPP dla na różnych etapach procesu tworzenia pakietów:
+Listę plików, które są wyświetlane będą się różnić zależnie od elementów w projekcie i proces kompilacji. Jednak te pliki są zwykle używane do rejestrowania listę plików, które zbiera potok WPP pakowania na różnych etapach procesu:
 
-- *PreExcludePipelineCollectFilesPhaseFileList.txt* plik zawiera listę plików, które zbiera MSBuild dla pakowania, zanim zostaną usunięte wszystkie pliki, które są określone do wykluczenia.
-- *AfterExcludeFilesFilesList.txt* plik zawiera listę zmodyfikowany plik po usunięciu wszystkie pliki, które są określone do wykluczenia.
+- *PreExcludePipelineCollectFilesPhaseFileList.txt* plik zawiera listę plików, które zbiera MSBuild do pakowania, zanim zostaną usunięte wszystkie pliki, które są określone do wykluczenia.
+- *AfterExcludeFilesFilesList.txt* plik zawiera listę zmodyfikowanych plików, po usunięciu wszystkie pliki, które są określone do wykluczenia.
 
     > [!NOTE]
-    > Aby uzyskać więcej informacji na wykluczanie plików i folderów z procesu tworzenia pakietów, zobacz [z wyjątkiem plików i folderów z wdrożenia](excluding-files-and-folders-from-deployment.md).
-- *AfterTransformWebConfig.txt* plik zawiera listę plików zbierane na potrzeby pakowania po dowolnym *Web.config* transformacje mogły zostać wykonane. Na tej liście żadnych konfiguracji specyficznych dla *Web.config* przekształcanie plików, takie jak *Web.Debug.config* i *Web.Release.config*, są wykluczane z listy plików dla Tworzenie pakietów. Pojedynczy przekształcone *Web.config* znajduje się w ich miejscu.
-- *PostAutoParameterizationWebConfigConnectionStrings.txt* plik zawiera listę plików po parametry połączenia w *Web.config* pliku została sparametryzowana. Jest to proces, który umożliwia wymianę parametry połączenia z odpowiednich ustawień dla środowiska docelowego podczas wdrażania pakietu.
-- *Prepackage.txt* plik zawiera ukończone prekompilacyjnego lista plików do uwzględnienia w pakiecie.
+    > Aby uzyskać więcej informacji na temat wykluczanie plików i folderów z procesem tworzenia pakietów, zobacz [wykluczanie plików i folderów z wdrożenia](excluding-files-and-folders-from-deployment.md).
+- *AfterTransformWebConfig.txt* plik listy plików zebranych pakowania po każdym *Web.config* przekształceń, które mogły zostać wykonane. Na tej liście, a wszelkie charakterystyczne dla konfiguracji *Web.config* przekształcanie plików, takie jak *Web.Debug.config* i *Web.Release.config*, są wykluczane z listy plików pakowanie. Pojedynczy przekształcane *Web.config* znajduje się w ich miejscu.
+- *PostAutoParameterizationWebConfigConnectionStrings.txt* plik zawiera listę plików po parametry połączenia w *Web.config* ustawiać parametry pliku. Jest to proces, który pozwala zastąpić parametry połączenia za pomocą odpowiednich ustawień w środowisku docelowym podczas wdrażania pakietu.
+- *Prepackage.txt* plik zawiera ukończone prekompilacyjne listę plików do uwzględnienia w pakiecie.
 
 > [!NOTE]
-> Nazwy plików dziennika dodatkowe zwykle odpowiadają WPP elementy docelowe. Możesz przejrzeć następujących elementów docelowych, sprawdzając *Microsoft.Web.Publishing.targets* plików w folderze % PROGRAMFILES (x 86) %\MSBuild\Microsoft\VisualStudio\v10.0\Web.
+> Nazwy dodatkowe pliki dziennika zwykle odpowiadają WPP elementów docelowych. Możesz przejrzeć te obiekty docelowe, sprawdzając *Microsoft.Web.Publishing.targets* pliku w folderze % PROGRAMFILES (x 86) %\MSBuild\Microsoft\VisualStudio\v10.0\Web.
 
 
-Jeśli zawartość pakietu sieci web nie odpowiadają oczekiwaniom, przeglądania tych plików może być wygodny sposób na określenie, jakie punktu w kwestii procesu poszło źle.
+Jeśli zawartość pakietu sieci web nie odpowiadają oczekiwaniom, przeglądania tych plików może być przydatny sposób identyfikacji w momencie w kwestii przetwarzania poszło źle.
 
 ## <a name="conclusion"></a>Wniosek
 
-W tym temacie opisano, jak używasz **EnablePackageProcessLoggingAndAssert** właściwości w programie MSBuild rozwiązywać proces tworzenia pakietu. Go wyjaśniono różne sposoby, w którym można podać wartość właściwości do procesu tworzenia i go opisane dodatkowe informacje, które są rejestrowane, gdy wartość właściwości **true**.
+W tym temacie opisano, jak można użyć **EnablePackageProcessLoggingAndAssert** właściwości w programie MSBuild rozwiązywania problemów z procesem tworzenia pakietów. Go opisano różne sposoby, w którym można podać wartości właściwości, aby proces kompilacji i jej opisano dodatkowe informacje, które są rejestrowane, gdy właściwość jest ustawiona **true**.
 
 ## <a name="further-reading"></a>Dalsze informacje
 
-Aby uzyskać więcej informacji na temat używania niestandardowe pliki projektu MSBuild kontrolować proces wdrażania, zobacz [opis pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md) i [opis procesu kompilacji](../web-deployment-in-the-enterprise/understanding-the-build-process.md). Aby uzyskać więcej informacji na WPP i jak zarządza proces tworzenia pakietu, zobacz [budynku i projekty aplikacji sieci Web pakowania](../web-deployment-in-the-enterprise/building-and-packaging-web-application-projects.md). Aby uzyskać wskazówki dotyczące sposobu wykluczenie określonych plików i folderów z sieci web pakiety wdrożeniowe, zobacz [z wyjątkiem plików i folderów z wdrożenia](excluding-files-and-folders-from-deployment.md).
+Aby uzyskać więcej informacji na temat korzystania z niestandardowych plików projektu MSBuild do kontrolowania procesu wdrażania, zobacz [objaśnienie pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md) i [objaśnienie procesu kompilacji](../web-deployment-in-the-enterprise/understanding-the-build-process.md). Aby uzyskać więcej informacji na temat potok WPP i jak zarządza procesem tworzenia pakietów, zobacz [budowanie i projektów aplikacji sieci Web pakietu](../web-deployment-in-the-enterprise/building-and-packaging-web-application-projects.md). Aby uzyskać wskazówki, jak wykluczyć określone pliki i foldery z pakiety wdrażania sieci web, zobacz [wykluczanie plików i folderów z wdrożenia](excluding-files-and-folders-from-deployment.md).
 
 > [!div class="step-by-step"]
 > [Poprzednie](running-windows-powershell-scripts-from-msbuild-project-files.md)
