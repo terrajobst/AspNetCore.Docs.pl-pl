@@ -1,78 +1,77 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/dynamicpopulate/dynamically-populating-a-control-cs
-title: Dynamicznie danymi formantu (C#) | Dokumentacja firmy Microsoft
+title: Dynamiczne wypełnianie kontrolki (C#) | Dokumentacja firmy Microsoft
 author: wenz
-description: Formant DynamicPopulate w zestawie narzędzi programu ASP.NET AJAX kontroli wywołania usługi sieci web (lub metoda strony) i wypełnia wartość wynikową w formancie docelowym t...
+description: Kontrolki DynamicPopulate w ASP.NET AJAX Control Toolkit wywołuje usługę sieci web (lub metody korzystającej ze strony) i wypełnia wynikowej wartości do formantu docelowego t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
 ms.topic: article
 ms.assetid: e1fec43e-1daf-49d2-b0c7-7f1b930455cc
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dynamicpopulate/dynamically-populating-a-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 113b8c043c14e4ebc476b021884dd1430757452a
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 560bcf261c7c621b130f4c3585d5d3df2f5eaf27
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30878610"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37392931"
 ---
-<a name="dynamically-populating-a-control-c"></a>Dynamicznie danymi formantu (C#)
+<a name="dynamically-populating-a-control-c"></a>Dynamiczne wypełnianie kontrolki (C#)
 ====================
-przez [Wenz Chrześcijańskie](https://github.com/wenz)
+przez [Christian Wenz](https://github.com/wenz)
 
-[Pobierz kod](http://download.microsoft.com/download/d/8/f/d8f2f6f9-1b7c-46ad-9252-e1fc81bdea3e/dynamicpopulate0.cs.zip) lub [pobierania plików PDF](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/dynamicpopulate0CS.pdf)
+[Pobierz program Code](http://download.microsoft.com/download/d/8/f/d8f2f6f9-1b7c-46ad-9252-e1fc81bdea3e/dynamicpopulate0.cs.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/dynamicpopulate0CS.pdf)
 
-> DynamicPopulate formantu w zestawie narzędzi programu ASP.NET AJAX kontroli wywołanie usługi sieci web (lub metoda strony) i wypełnia wynikowej wartości do formantu docelowego na stronie bez odświeżania strony.
+> Kontrolki DynamicPopulate w ASP.NET AJAX Control Toolkit wywołuje usługę sieci web (lub metody korzystającej ze strony) i wprowadza wartość wynikową do formantu docelowego na stronie bez odświeżania strony.
 
 
 ## <a name="overview"></a>Omówienie
 
-`DynamicPopulate` Formantu w zestawie narzędzi programu ASP.NET AJAX kontroli wywołania usługi sieci web (lub metoda strony) i wypełnia wynikowej wartości do formantu docelowego na stronie bez odświeżania strony. W tym samouczku przedstawiono sposób tej konfiguracji.
+`DynamicPopulate` Kontrola w ASP.NET AJAX Control Toolkit wywołuje usługę sieci web (lub metody korzystającej ze strony) i wprowadza wartość wynikową do formantu docelowego na stronie bez odświeżania strony. W tym samouczku pokazano, jak to skonfigurować.
 
 ## <a name="steps"></a>Kroki
 
-Przede wszystkim należy usługi sieci Web ASP.NET, która implementuje metodę do wywołania przez `DynamicPopulate`. Klasa usługi sieci web wymaga `ScriptService` atrybut, który jest zdefiniowany w ramach `Microsoft.Web.Script.Services`; w przeciwnym razie ASP.NET AJAX nie można utworzyć serwera proxy JavaScript po stronie klienta dla usługi sieci web, która z kolei jest wymagana przez `DynamicPopulate`.
+Po pierwsze, potrzebujesz usługi sieci Web ASP.NET, która implementuje metodę można wywoływać za pomocą `DynamicPopulate`. Klasa usługi sieci web wymaga `ScriptService` atrybutu, która jest zdefiniowana w ramach `Microsoft.Web.Script.Services`; w przeciwnym razie ASP.NET AJAX, nie można utworzyć serwera proxy JavaScript po stronie klienta dla usługi sieci web, która z kolei jest wymagana przez `DynamicPopulate`.
 
-Metoda sieci web należy spodziewać się jeden argument typu String, o nazwie `contextKey`, ponieważ `DynamicPopulate` kontroli wysyła jednej kontekstu informacji z każdego wywołania usługi sieci web. Następująca usługa sieci web zwraca bieżącą datę w formacie reprezentowany przez `contextKey` argumentu:
+Metoda sieci web należy oczekiwać jeden argument typu String, o nazwie `contextKey`, ponieważ `DynamicPopulate` kontroli wysyła jeden fragment informacje o kontekście przy każdym wywołaniem usługi sieci web. Następująca usługa sieci web zwraca bieżącą datę w formacie, reprezentowane przez `contextKey` argumentu:
 
 [!code-aspx[Main](dynamically-populating-a-control-cs/samples/sample1.aspx)]
 
-Usługi sieci web jest następnie zapisywana jako `DynamicPopulate.cs.asmx`. Alternatywnie można zaimplementować `getDate()` metody jako metodę strony w rzeczywistych strony ASP.NET z `DynamicPopulate` formantu.
+Usługa sieci web, następnie jest zapisywany jako `DynamicPopulate.cs.asmx`. Alternatywnie można zaimplementować `getDate()` metodę jako metodę stron w ciągu rzeczywistą stronę ASP.NET za pomocą `DynamicPopulate` kontroli.
 
-W następnym kroku utwórz nowy plik programu ASP.NET. Zawsze, pierwszym krokiem jest uwzględnienie `ScriptManager` na bieżącej stronie można załadować biblioteki ASP.NET AJAX i dla zapewnienia działania kontroli zestawu narzędzi:
+W następnym kroku utwórz nowy plik platformy ASP.NET. Jak zawsze, pierwszym krokiem jest uwzględnienie `ScriptManager` na bieżącej stronie, można załadować biblioteki ASP.NET AJAX i pracy zestaw narzędzi do sterowania:
 
 [!code-aspx[Main](dynamically-populating-a-control-cs/samples/sample2.aspx)]
 
-Następnie należy dodać formantu etykiety (na przykład za pomocą kontrolki HTML o takiej samej nazwie lub &lt; `asp:Label`  / &gt; formant sieci web) wykazujących później wynik wywołania usługi sieci web.
+Następnie dodaj kontrolkę typu etykieta (na przykład za pomocą kontrolki HTML o takiej samej nazwie lub &lt; `asp:Label`  / &gt; formant sieci web) będzie później przedstawiono w nich wynik wywołania usługi sieci web.
 
 [!code-aspx[Main](dynamically-populating-a-control-cs/samples/sample3.aspx)]
 
-Przycisk HTML (jako kontrolkę HTML, ponieważ nie wymaga ogłaszania zwrotnego na serwerze) zostanie następnie użyte do wyzwolenia dynamiczne wypełniania:
+Przycisk HTML (jako kontrolkę HTML, ponieważ nie wymaga zwrot do serwera), następnie będzie służyć do wyzwolenia dynamiczne wypełnianie:
 
 [!code-aspx[Main](dynamically-populating-a-control-cs/samples/sample4.aspx)]
 
-Na koniec należy `DynamicPopulateExtender` formantu do elementów danych przesyłanych w sieci w górę. Następujące atrybuty zostanie skonfigurowany (oprócz oczywiste te `ID` i `runat` = `"server"`):
+Na koniec musimy `DynamicPopulateExtender` kontroli coś o komunikacji sieciowej w górę. Następujące atrybuty zostaną ustawione (oprócz widocznych te `ID` i `runat` = `"server"`):
 
 - `TargetControlID` gdzie umieścić wyniki z wywołaniem usługi sieci web
 - `ServicePath` Ścieżka do usługi sieci web (pominąć, jeśli chcesz użyć metody strony)
-- `ServiceMethod` Nazwa metody sieci web lub strona — Metoda
+- `ServiceMethod` Nazwa metody sieci web lub metody korzystającej ze strony
 - `ContextKey` informacje o kontekście do wysłania do usługi sieci web
-- `PopulateTriggerControlID` element, który wyzwala wywołania usługi sieci web
-- `ClearContentsDuringUpdate` Czy pusty element docelowy podczas wywołania usługi sieci web
+- `PopulateTriggerControlID` element, co powoduje wyzwolenie wywołania usługi sieci web
+- `ClearContentsDuringUpdate` Czy chcesz opróżnić elementu docelowego podczas wywołania usługi sieci web
 
-Jak widać, formantu wymaga pewne informacje, ale przygotowania wszystko, co jest dość proste. Oto kod znaczników dla `DynamicPopulateExtender` formantu w tym scenariuszu:
+Jak widać, którego wymaga formant pewne informacje, ale umieszczenia wszystkiego w miejscu jest bardzo proste. Oto znaczniki dla `DynamicPopulateExtender` kontrolki, w tym scenariuszu:
 
 [!code-aspx[Main](dynamically-populating-a-control-cs/samples/sample5.aspx)]
 
-Uruchom strony ASP.NET w przeglądarce, a następnie kliknij przycisk; otrzymasz bieżącą datę w formacie dzień miesiąc rok.
+Uruchamianie jej w przeglądarce strony ASP.NET, a następnie kliknij przycisk; otrzymasz bieżącą datę w formacie dzień miesiąc rok.
 
 
-[![Kliknięcie przycisku pobiera daty z serwera](dynamically-populating-a-control-cs/_static/image2.png)](dynamically-populating-a-control-cs/_static/image1.png)
+[![Kliknięcie przycisku pobiera datę z serwera](dynamically-populating-a-control-cs/_static/image2.png)](dynamically-populating-a-control-cs/_static/image1.png)
 
-Kliknięcie przycisku pobiera daty z serwera ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](dynamically-populating-a-control-cs/_static/image3.png))
+Kliknięcie przycisku pobiera datę z serwera ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](dynamically-populating-a-control-cs/_static/image3.png))
 
 > [!div class="step-by-step"]
 > [Next](dynamically-populating-a-control-using-javascript-code-cs.md)

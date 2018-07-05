@@ -1,24 +1,23 @@
 ---
 uid: webhooks/receiving/index
-title: ASP.NET elementów Webhook — otrzymywanie i przetwarzania | Dokumentacja firmy Microsoft
+title: Elementy Webhook platformy ASP.NET — odbieranie i przetwarzanie | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: Artykuły dotyczące odbierania i przetwarzania elementów Webhook w programie ASP.NET
+description: 'Artykuły na temat odbieranie i przetwarzanie elementów Webhook w programie ASP.NET:'
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
 ms.assetid: b22046f9-c7a1-4d46-a80c-c7d2e35aad3b
 ms.technology: ''
-ms.prod: .net-framework
-ms.openlocfilehash: fde3b6c27bbb8f23be8df650637fd7c85f2f2285
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ea67a9b8e50a789715f951f700a4239f667547ba
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26573254"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37402249"
 ---
-# <a name="aspnet-webhooks---receiving-and-processing"></a>ASP.NET elementów Webhook — otrzymywanie i przetwarzania
+# <a name="aspnet-webhooks---receiving-and-processing"></a>Elementy Webhook platformy ASP.NET — odbieranie i przetwarzanie
 
 * [Odbiorniki elementu WebHook](receivers.md)
 * [Przetwarzanie elementów Webhook](handlers.md)
-* [Odbiornik zależności](dependencies.md)
+* [Zależności odbiornika](dependencies.md)

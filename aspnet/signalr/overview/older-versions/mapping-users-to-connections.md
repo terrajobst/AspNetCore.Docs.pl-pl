@@ -1,110 +1,109 @@
 ---
 uid: signalr/overview/older-versions/mapping-users-to-connections
-title: Mapowanie użytkowników SignalR do połączenia w SignalR 1.x | Dokumentacja firmy Microsoft
+title: Mapowanie użytkowników SignalR na połączenia w SignalR 1.x | Dokumentacja firmy Microsoft
 author: pfletcher
-description: W tym temacie przedstawiono sposób przechowywania informacji o użytkownikach i ich połączenia.
+description: W tym temacie przedstawiono sposób przechowywania informacji o użytkownikach i ich połączeń.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2013
 ms.topic: article
 ms.assetid: ebbc93a8-e6c4-4122-8e0d-3aa42293c747
 ms.technology: dotnet-signalr
-ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/older-versions/mapping-users-to-connections
 msc.type: authoredcontent
-ms.openlocfilehash: 896bf4142ce090e39ed5697ff053cd56728318ed
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 8c8c6ffbea92fac5da21ec268f6b805a40c5fd73
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28037019"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37395438"
 ---
-<a name="mapping-signalr-users-to-connections-in-signalr-1x"></a>Mapowanie użytkowników SignalR do połączenia w SignalR 1.x
+<a name="mapping-signalr-users-to-connections-in-signalr-1x"></a>Mapowanie użytkowników SignalR na połączenia w SignalR 1.x
 ====================
-przez [Patrick Fletcher](https://github.com/pfletcher), [FitzMacken niestandardowy](https://github.com/tfitzmac)
+przez [Patrick Fletcher](https://github.com/pfletcher), [Tom FitzMacken](https://github.com/tfitzmac)
 
-> W tym temacie przedstawiono sposób przechowywania informacji o użytkownikach i ich połączenia.
+> W tym temacie przedstawiono sposób przechowywania informacji o użytkownikach i ich połączeń.
 
 
 ## <a name="introduction"></a>Wprowadzenie
 
-Każdy klient nawiązywania połączenia z koncentratorem przekazuje identyfikator unikatowy połączenia. Możesz pobrać tę wartość w `Context.ConnectionId` właściwości kontekst koncentratora. Jeśli aplikacja wymaga do mapowania użytkownika identyfikator połączenia i utrwalić mapowania, można użyć jednej z następujących czynności:
+Każdy klient nawiązywania połączenia z koncentratorem przekazuje identyfikatora unikatowego połączenia. Możesz pobrać tę wartość w `Context.ConnectionId` właściwość kontekst koncentratora. Jeśli Twoja aplikacja potrzebuje do mapowania użytkownika identyfikator połączenia i utrwalić mapowania, można użyć jednej z następujących czynności:
 
-- [Magazyn w pamięci](#inmemory), takich jak słownik
-- [Grupy SignalR dla każdego użytkownika](#groups)
-- [Magazynu zewnętrznego, stałe](#database), na przykład tabeli bazy danych lub magazynu tabel platformy Azure
+- [Pojemność magazynu w pamięci](#inmemory), takich jak słownik
+- [Grupa SignalR dla każdego użytkownika](#groups)
+- [Magazynu zewnętrznego, stałe](#database), takich jak tabela bazy danych lub usługi Azure table storage
 
-Każda z tych implementacji jest wyświetlany w tym temacie. Możesz użyć `OnConnected`, `OnDisconnected`, i `OnReconnected` metody `Hub` klasy do śledzenia stanu połączenia użytkownika.
+Każda z tych implementacji jest wyświetlany w tym temacie. Możesz użyć `OnConnected`, `OnDisconnected`, i `OnReconnected` metody `Hub` klasy w celu śledzenia stanu połączenia użytkownika.
 
-Najlepszym rozwiązaniem dla twojej aplikacji jest zależna od:
+Najlepszym rozwiązaniem dla twojej aplikacji zależy od:
 
-- Liczba serwerów sieci web hostującego aplikację.
-- Czy trzeba uzyskać listę aktualnie połączonych użytkowników.
-- Określa, czy należy zachować informacje grup i użytkowników, po ponownym uruchomieniu aplikacji lub serwera.
-- Określa, czy opóźnienie wywoływania zewnętrznego serwera jest problem.
+- Liczba serwerów sieci web hostuje aplikację.
+- Czy należy uzyskać listę aktualnie połączonych użytkowników.
+- Czy musisz utrwalić informacje o grupie i użytkownika, po ponownym uruchomieniu aplikacji lub serwera.
+- Opóźnienie podczas wywoływania zewnętrznego serwera, czy jest problem.
 
-Poniższej tabeli rozwiązania działa te zagadnienia.
+Pokazano w poniższej tabeli podejście, które działa w przypadku tych zagadnień.
 
-|  | Więcej niż jednego serwera | Pobierz listę aktualnie połączonych użytkowników | Utrwalanie informacje po uruchomieniu | Optymalnej wydajności |
+|  | Więcej niż jeden serwer | Pobierz listę aktualnie połączonych użytkowników | Utrwalanie informacji po uruchomieniu | Uzyskania optymalnej wydajności |
 | --- | --- | --- | --- | --- |
 | W pamięci |  | ![](mapping-users-to-connections/_static/image1.png) |  | ![](mapping-users-to-connections/_static/image2.png) |
-| Grupy jednego użytkownika | ![](mapping-users-to-connections/_static/image3.png) |  |  | ![](mapping-users-to-connections/_static/image4.png) |
+| Grupy pojedynczego użytkownika | ![](mapping-users-to-connections/_static/image3.png) |  |  | ![](mapping-users-to-connections/_static/image4.png) |
 | Stałe, zewnętrzne | ![](mapping-users-to-connections/_static/image5.png) | ![](mapping-users-to-connections/_static/image6.png) | ![](mapping-users-to-connections/_static/image7.png) |  |
 
 <a id="inmemory"></a>
 
-## <a name="in-memory-storage"></a>Magazyn w pamięci
+## <a name="in-memory-storage"></a>Pojemność magazynu w pamięci
 
-Poniższe przykłady przedstawiają sposób przechowywania informacji i połączeń w słowniku, który jest przechowywany w pamięci. Słownik używa `HashSet` do przechowywania identyfikator połączenia. W dowolnym momencie użytkownik może mieć więcej niż jedno połączenie z aplikacji SignalR. Na przykład użytkownik, który jest połączony za pomocą wielu urządzeń lub więcej niż jedną kartę przeglądarki musi więcej niż jeden identyfikator połączenia.
+Poniższe przykłady pokazują, jak zachować połączenie i informacji o użytkownikach w słowniku, który jest przechowywany w pamięci. Słownik używa `HashSet` do przechowywania identyfikatora połączenia. W dowolnym momencie użytkownik może mieć więcej niż jednego połączenia do aplikacji SignalR. Na przykład użytkownik, który jest połączony za pośrednictwem wielu urządzeń lub więcej niż jedną kartę przeglądarki będzie mieć więcej niż jeden identyfikator połączenia.
 
-Jeśli aplikacja zostanie wyłączony, wszystkie informacje zostaną utracone, ale go ponownie różnią się jako użytkownicy ponownie ustanowić połączenia. Magazynu w pamięci nie działa, jeśli środowisko obejmuje więcej niż jeden serwer sieci web, ponieważ każdy serwer musi zbiór oddzielnego połączenia.
+Jeśli aplikacja zostanie wyłączony, wszystkie informacje zostaną utracone, ale jej ponownie różnią się jako użytkownicy ponownie ustanowić połączenia. Pojemność magazynu w pamięci nie działa, jeśli środowisko obejmuje więcej niż jeden serwer sieci web, ponieważ każdy serwer będzie mieć kolekcję osobnych połączeń.
 
-W pierwszym przykładzie klasa, która zarządza mapowanie użytkowników do połączeń. Klucz dla zestaw HashSet będzie nazwy użytkownika.
+W pierwszym przykładzie pokazano klasę, która zarządza mapowanie użytkowników do połączenia. Klucz dla hashset — będzie nazwa użytkownika.
 
 [!code-csharp[Main](mapping-users-to-connections/samples/sample1.cs)]
 
-Następnym przykładzie pokazano sposób użycia klasy mapowania połączenia z koncentratorem. Wystąpienie klasy są przechowywane w nazwie zmiennej `_connections`.
+Następny przykład pokazuje sposób użycia klasy mapowania połączenia z koncentratorem. Wystąpienie klasy są przechowywane w nazwie zmiennej `_connections`.
 
 [!code-csharp[Main](mapping-users-to-connections/samples/sample2.cs)]
 
 <a id="groups"></a>
 
-## <a name="single-user-groups"></a>Grupy jednego użytkownika
+## <a name="single-user-groups"></a>Grupy pojedynczego użytkownika
 
-Można utworzyć grupę dla każdego użytkownika, a następnie wyślij wiadomość do tej grupy, jeśli chcesz osiągnąć tylko ten użytkownik. Nazwa każdej grupy jest nazwa użytkownika. Jeśli użytkownik ma więcej niż jedno połączenie, każdy identyfikator połączenia jest dodawane do grupy użytkownika.
+Można utworzyć grupę dla każdego użytkownika, a następnie wyślij wiadomość do tej grupy, gdy chcesz się połączyć tylko ten użytkownik. Nazwa każdej grupy jest nazwa użytkownika. Jeśli użytkownik ma więcej niż jedno połączenie, każdy identyfikator połączenia zostanie dodany do grupy użytkowników.
 
-Nie należy ręcznie usuwać użytkownika z grupy po jego rozłączeniu. Ta akcja jest wykonywana automatycznie przez platformę SignalR.
+Nie należy ręcznie usuwać użytkowników z grupy, gdy użytkownik zamknie połączenie. Ta akcja jest wykonywana automatycznie przez strukturę SignalR.
 
-Poniższy przykład pokazuje, jak grupy pojedynczego użytkownika.
+Poniższy przykład pokazuje sposób implementacji grup pojedynczego użytkownika.
 
 [!code-csharp[Main](mapping-users-to-connections/samples/sample3.cs)]
 
 <a id="database"></a>
 
-## <a name="permanent-external-storage"></a>Stałe magazynu zewnętrznego
+## <a name="permanent-external-storage"></a>Magazynu zewnętrznego, stałe
 
-W tym temacie przedstawiono sposób korzystania z bazy danych lub magazynu tabel platformy Azure do przechowywania informacji o połączeniu. Ta metoda działa, gdy używanych jest wiele serwerów sieci web, ponieważ każdy serwer sieci web mogą prowadzić interakcję z tym samym repozytorium danych. Jeśli serwerów sieci web Zatrzymaj pracy lub ponownego uruchomienia aplikacji, `OnDisconnected` nie jest wywoływana metoda. W związku z tym jest to możliwe, że repozytorium danych rekordów identyfikatorów połączeń, które nie są już prawidłowe. Aby wyczyścić te rekordy oddzielone, możesz unieważnić dowolnego połączenia, który został utworzony poza przedział czasu, która ma zastosowanie do aplikacji. Przykłady w tej sekcji zawierają wartość śledzenia, gdy połączenie zostało utworzone, ale nie przedstawiają sposób wyczyścić stare rekordy, ponieważ chcesz to zrobić jako proces w tle.
+W tym temacie przedstawiono sposób korzystania z bazy danych lub usługi Azure table storage do przechowywania informacji o połączeniu. Ta metoda działa, gdy masz wiele serwerów sieci web, ponieważ każdy serwer sieci web mogą wchodzić w interakcje z tym samym repozytorium danych. Jeśli serwery sieci web zaprzestanie działania lub aplikacja uruchamia się ponownie, `OnDisconnected` nie jest wywoływana metoda. Dlatego jest to możliwe, że repozytorium danych rekordów dla identyfikatorów połączeń, które nie są już prawidłowe. Aby wyczyścić te rekordy oddzielone, możesz unieważnić dowolnego połączenia, który został utworzony poza przedział czasu, która jest odpowiednia dla aplikacji. Przykłady w tej sekcji zawierają wartość do śledzenia, gdy połączenie zostało utworzone, ale nie przedstawiają sposób wyczyścić stare rekordy, ponieważ może to zrobić jako proces w tle.
 
 ### <a name="database"></a>Baza danych
 
-Następujące przykłady przedstawiają sposób przechowywania informacji i połączeń w bazie danych. Można użyć dowolnego technologii dostępu do danych; Jednak w poniższym przykładzie pokazano sposób definiowania modeli używający narzędzia Entity Framework. Te modele jednostki odpowiadają tabele bazy danych i pola. Struktury danych może być bardzo zróżnicowana w zależności od wymagań aplikacji.
+Poniższe przykłady pokazują, jak zachować połączenie i informacji o użytkownikach w bazie danych. Możesz użyć dowolnej technologii dostępu do danych; Jednak w poniższym przykładzie pokazano sposób definiowania modeli za pomocą platformy Entity Framework. Modele te jednostki odpowiadają tabel bazy danych i pola. Do struktury danych może być bardzo zróżnicowana w zależności od wymagań aplikacji.
 
-Pierwszym przykładzie pokazano sposób definiowania jednostki użytkownika, który może być skojarzony z wielu obiektów połączenia.
+Pierwszy przykład pokazuje jak zdefiniować jednostki użytkownika, które mogą być skojarzone z wielu jednostek połączenia.
 
 [!code-csharp[Main](mapping-users-to-connections/samples/sample4.cs)]
 
-Następnie w Centrum, można śledzić stan każdego połączenia kodem przedstawionym poniżej.
+Następnie z poziomu Centrum można śledzić stan każdego połączenia przy użyciu kodu pokazany poniżej.
 
 [!code-csharp[Main](mapping-users-to-connections/samples/sample5.cs)]
 
-### <a name="azure-table-storage"></a>Magazyn tabel Azure
+### <a name="azure-table-storage"></a>Usługa Azure table storage
 
-W poniższym przykładzie magazynu tabel Azure jest podobny do bazy danych. Nie obejmują wszystkie informacje, że konieczne będzie wprowadzenie do usługi Magazyn tabel Azure. Aby uzyskać informacje, zobacz [jak używać magazynu tabel w .NET](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-tables/).
+W poniższym przykładzie magazynu tabel platformy Azure jest podobne do bazy danych. Nie obejmują wszystkich informacji, że konieczne będzie wprowadzenie do usługi Azure Table Storage. Aby uzyskać informacje, zobacz [jak używać magazynu tabel w języku .NET](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-tables/).
 
-W poniższym przykładzie przedstawiono jednostkę tabeli do przechowywania informacji o połączeniu. Dzieli dane według nazwy użytkownika i informacjami każdej jednostki według identyfikatora połączenia, dzięki czemu użytkownik może mieć wiele połączeń w dowolnym momencie.
+Poniższy przykład pokazuje jednostkę tabeli do przechowywania informacji o połączeniu. Dzieli dane według nazwy użytkownika i identyfikuje każdej jednostki według identyfikatora połączenia, dzięki czemu użytkownik może mieć wiele połączeń w dowolnym momencie.
 
 [!code-csharp[Main](mapping-users-to-connections/samples/sample6.cs)]
 
-Koncentrator służy do śledzenia stanu połączenia każdego użytkownika.
+W Centrum możesz śledzić stan połączenia każdego użytkownika.
 
 [!code-csharp[Main](mapping-users-to-connections/samples/sample7.cs)]

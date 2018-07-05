@@ -1,35 +1,34 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v3/working-with-entity-relations
-title: Obsługa relacjami jednostek w OData v3 z składnika Web API 2 | Dokumentacja firmy Microsoft
+title: Obsługa relacji jednostek w protokole OData v3 z interfejsu Web API 2 | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: 'Większość zestawów danych definiować relacje między obiektami: klienci mają zleceń; książki ma autorów; produkty mają dostawców. Używanie protokołu OData, klientów można przechodzić przez...'
+description: 'Większość zestawów danych zdefiniować relacje między jednostkami: klienci mają zamówienia; książki mają autorzy; Jeśli te produkty mają dostawców. Przy użyciu protokołu OData, klienci mogą przejść za pośrednictwem...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/26/2014
 ms.topic: article
 ms.assetid: 1e4c2eb4-b6cf-42ff-8a65-4d71ddca0394
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v3/working-with-entity-relations
 msc.type: authoredcontent
-ms.openlocfilehash: dec7e10e59cc2441c967afe062df227b105106a1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 311e84a2beb3ec7661fd650b277f23458bcb0cb2
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26566828"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37377480"
 ---
-<a name="supporting-entity-relations-in-odata-v3-with-web-api-2"></a>Obsługa relacjami jednostek w OData v3 z składnika Web API 2
+<a name="supporting-entity-relations-in-odata-v3-with-web-api-2"></a>Obsługa relacji jednostek w protokole OData v3 z interfejsu Web API 2
 ====================
-przez [Wasson Jan](https://github.com/MikeWasson)
+przez [Mike Wasson](https://github.com/MikeWasson)
 
 [Pobieranie ukończone projektu](http://code.msdn.microsoft.com/ASPNET-Web-API-OData-cecdb524)
 
-> Większość zestawów danych definiować relacje między obiektami: klienci mają zleceń; książki ma autorów; produkty mają dostawców. Używanie protokołu OData, klienci mogą przechodzić za pośrednictwem relacjami jednostek. Biorąc pod uwagę produktu, można znaleźć dostawcy. Można również utworzyć lub Usuń relacje. Na przykład można ustawić dostawcy produktu.
+> Większość zestawów danych zdefiniować relacje między jednostkami: klienci mają zamówienia; książki mają autorzy; Jeśli te produkty mają dostawców. Używanie protokołu OData, klienci mogą przejść za pośrednictwem relacji jednostek. Biorąc pod uwagę produktu, można znaleźć dostawcy. Można również tworzyć i usuwać relacje. Na przykład można ustawić dostawcę dla produktu.
 > 
-> W tym samouczku przedstawiono sposób obsługi tych operacji w interfejsie API sieci Web ASP.NET. Samouczek opiera się na samouczka [tworzenia punktu końcowego OData v3 z sieci Web API 2](creating-an-odata-endpoint.md).
+> W tym samouczku pokazano, jak obsługują te operacje w interfejsie API sieci Web platformy ASP.NET. Samouczek opiera się na samouczka [Tworzenie punktu końcowego OData v3 z sieci Web API 2](creating-an-odata-endpoint.md).
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>Używane w samouczku wersje oprogramowania
+> ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używanego w tym samouczku
 > 
 > 
 > - Składnik Web API 2
@@ -37,84 +36,84 @@ przez [Wasson Jan](https://github.com/MikeWasson)
 > - Entity Framework 6
 
 
-## <a name="add-a-supplier-entity"></a>Dodawanie jednostki dostawcy
+## <a name="add-a-supplier-entity"></a>Dodaj jednostkę dostawcy
 
-Najpierw należy dodać nowy typ jednostek do naszej źródła strumieniowego OData. Dodamy `Supplier` klasy.
+Najpierw musimy dodać nowy typ jednostek do naszych źródła danych OData. Dodamy `Supplier` klasy.
 
 [!code-csharp[Main](working-with-entity-relations/samples/sample1.cs)]
 
-Ta klasa korzysta z ciągiem klucza jednostki. W praktyce, która może być mniej typowych niż przy użyciu klucza. Jednak warto zobaczenia jak OData obsługuje innych typów kluczy oprócz liczb całkowitych.
+Ta klasa używa ciągu klucza jednostki. W praktyce, które mogą okazać się rzadziej niż przy użyciu klucza liczby całkowitej. Jednak warto widoczne, jak OData obsługuje inne typy kluczy, oprócz liczby całkowite.
 
-Następnie utworzymy relacji przez dodanie `Supplier` właściwości `Product` klasy:
+Następnie utworzymy relację, dodając `Supplier` właściwość `Product` klasy:
 
 [!code-csharp[Main](working-with-entity-relations/samples/sample2.cs)]
 
-Dodaj nową **DbSet** do `ProductServiceContext` klasy, tak aby uwzględni Entity Framework `Supplier` tabeli w bazie danych.
+Dodaj nową **DbSet** do `ProductServiceContext` klasy tak, aby Entity Framework będzie zawierać `Supplier` tabeli w bazie danych.
 
 [!code-csharp[Main](working-with-entity-relations/samples/sample3.cs?highlight=9)]
 
-W WebApiConfig.cs należy dodać do jednostki "Dostawcy" do modelu EDM:
+W WebApiConfig.cs należy dodać jednostki "Dostawcy" model EDM:
 
 [!code-csharp[Main](working-with-entity-relations/samples/sample4.cs?highlight=4)]
 
 ## <a name="navigation-properties"></a>Właściwości nawigacji
 
-Aby uzyskać dostawcę produktu, klient wysyła żądanie pobrania:
+Aby uzyskać dostawcy, produktu, klient wysyła żądanie pobrania:
 
 [!code-console[Main](working-with-entity-relations/samples/sample5.cmd)]
 
-W tym miejscu "Dostawca" jest właściwością nawigacji na `Product` typu. W takim przypadku `Supplier` odwołuje się do pojedynczego elementu, ale Nawigacja właściwości można także wrócić kolekcji (relacji jeden do wielu lub wiele do wielu).
+Poniżej przedstawiono właściwości nawigacji "Dostawca" na `Product` typu. W tym przypadku `Supplier` odnosi się do jednego elementu, ale nawigacji właściwość może również zwracać kolekcję (relacji jeden do wielu lub wiele do wielu).
 
 Aby zapewnić obsługę tego żądania, dodaj następującą metodę do `ProductsController` klasy:
 
 [!code-csharp[Main](working-with-entity-relations/samples/sample6.cs)]
 
-*Klucza* parametru jest klucz produktu. Metoda zwraca obiekt pokrewny & #8212 w takim przypadku `Supplier` wystąpienia. Nazwa metody i nazwa parametru są ważne. Ogólnie rzecz biorąc Jeśli właściwość nawigacji ma nazwę "X", należy dodać metodę o nazwie "GetX". Metoda przyjmuje parametr o nazwie "*klucza*" odpowiedniego dla typu danych klucza nadrzędnego.
+*Klucz* parametr jest klucz produktu. Metoda ta zwraca powiązanej jednostki & #8212 w tym przypadku `Supplier` wystąpienia. Nazwa metody i nazwa parametru są ważne. Ogólnie rzecz biorąc Jeśli właściwość nawigacji nosi nazwę "X", należy dodać metodę o nazwie "Metody GetX". Metoda przyjmuje parametr o nazwie "*klucz*" który jest zgodny z typem danych klucza nadrzędnego.
 
-Należy również uwzględnić **[FromOdataUri]** atrybutu w *klucza* parametru. Ten atrybut informuje interfejsu API sieci Web do używania reguły składni OData po przeanalizowaniu klucza z identyfikatora URI żądania.
+Warto również uwzględnić **[FromOdataUri]** atrybutu w *klucz* parametru. Ten atrybut informuje reguły składni OData używane, gdy jej analizuje klucza z identyfikatora URI żądania interfejsu API sieci Web.
 
 ## <a name="creating-and-deleting-links"></a>Tworzenie i usuwanie łącza
 
-OData obsługuje tworzenie lub usuwanie relacji między dwiema jednostkami. W terminologii OData relacji jest "link". Każde łącze ma identyfikator URI w formularzu *jednostki*/$links /*jednostki*. Na przykład link z produktu dostawcy wygląda następująco:
+OData obsługuje tworzenie lub usuwanie relacji między dwiema jednostkami. W terminologii OData relacja jest "Połącz". Każde połączenie ma identyfikator URI z formularzem *jednostki*/$links /*jednostki*. Na przykład łącze z produktu dostawcy wygląda następująco:
 
 [!code-console[Main](working-with-entity-relations/samples/sample7.cmd)]
 
-Aby utworzyć nowy link, klient wysyła żądanie POST do łącza identyfikatora URI. Treść żądania jest identyfikatorem URI obiektu docelowego. Na przykład załóżmy, że istnieje dostawcy z kluczem "CTSO". Aby utworzyć łącze z "Product(1)" do "Supplier('CTSO')", klient wysyła żądanie podobne do poniższych:
+Aby utworzyć nowy link, klient wysyła żądanie POST do identyfikator URI linku. Treść żądania jest identyfikator URI obiektu docelowego. Na przykład załóżmy, że istnieje dostawcy z kluczem "CTSO". Aby utworzyć łącze z "Product(1)" do "Supplier('CTSO')", klient wysyła żądanie, jak pokazano poniżej:
 
 [!code-console[Main](working-with-entity-relations/samples/sample8.cmd)]
 
-Aby usunąć łącza, klient wysyła żądanie usunięcia łącza identyfikatora URI.
+Aby usunąć łącze, klient wysyła żądanie usunięcia łącza identyfikatora URI.
 
-**Tworzenie łączy**
+**Tworzenie łączy główny**
 
-Aby włączyć klienta do utworzenia łącza dostawcy produktu, Dodaj następujący kod do `ProductsController` klasy:
+Aby włączyć klienta utworzyć łącza dostawcy produktu, Dodaj następujący kod, aby `ProductsController` klasy:
 
 [!code-csharp[Main](working-with-entity-relations/samples/sample9.cs)]
 
 Ta metoda przyjmuje trzy parametry:
 
-- *klucz*: klucz do obiektu nadrzędnego (product)
-- *Element navigationProperty*: Nazwa właściwości nawigacji. W tym przykładzie tylko prawidłową właściwością nawigacji jest "Dostawca".
-- *łącze*: identyfikator URI OData powiązanej jednostki. Ta wartość jest pobierana z treści żądania. Na przykład łącze identyfikatora URI może być "`http://localhost/odata/Suppliers('CTSO')`, co oznacza dostawcy o identyfikatorze ="CTSO".
+- *klucz*: klucz do obiektu nadrzędnego (produkt)
+- *Element navigationProperty*: Nazwa właściwości nawigacji. W tym przykładzie właściwość nawigacji z jedynymi prawidłowymi jest "Dostawca".
+- *Link*: identyfikatora URI OData powiązanej jednostki. Ta wartość jest pobierana z treści żądania. Na przykład łącze identyfikatora URI może być "`http://localhost/odata/Suppliers('CTSO')`, co oznacza dostawcy o identyfikatorze ="CTSO".
 
-Metoda używa łącze do wyszukania dostawcy. Jeśli zostanie znaleziony zgodnego dostawcę, Ustawia metodę `Product.Supplier` właściwości i zapisuje go w bazie danych.
+Metoda używa łącze do wyszukiwania dostawcy. Jeśli zostanie znalezione pasujące dostawcy, metoda ustawia `Product.Supplier` właściwości i zapisuje wynik w bazie danych.
 
-Część najtrudniejsze jest podczas analizowania łącza identyfikatora URI. Zasadniczo należy symulować działanie wysyłania żądania GET do tego identyfikatora URI. Następująca metoda pomocnika pokazano, jak to zrobić. Metoda wywołuje proces routingu interfejsu API sieci Web i otrzymuje w odpowiedzi **element ODataPath** wystąpienie reprezentującego przeanalizowany ścieżki OData. Łącza identyfikatora URI jednego z segmentów powinna być klucza jednostki. (Jeśli nie, klient wysłał nieprawidłowy identyfikator URI.)
+Część najtrudniejsze jest analizowanie identyfikator URI linku. Po prostu musisz symulować wynik wysyłającego żądanie GET do tego identyfikatora URI. Następującą metodę pomocnika pokazuje, jak to zrobić. Metoda wywołuje proces routingu internetowego interfejsu API i otrzymuje **element ODataPath** wystąpienia, która reprezentuje przeanalizowany ścieżki OData. Identyfikator URI linku jednego z segmentów powinna być kluczem jednostki. (Jeśli nie, klient wysłał nieprawidłowy identyfikator URI.)
 
 [!code-csharp[Main](working-with-entity-relations/samples/sample10.cs)]
 
-**Usunięcie łącza**
+**Usuwanie łącza**
 
-Aby usunąć łącza, Dodaj następujący kod do `ProductsController` klasy:
+Aby usunąć łącze, Dodaj następujący kod, aby `ProductsController` klasy:
 
 [!code-csharp[Main](working-with-entity-relations/samples/sample11.cs)]
 
-W tym przykładzie właściwość nawigacji jest jeden `Supplier` jednostki. Jeśli właściwość nawigacji jest kolekcją, identyfikator URI do usunięcia łącza musi zawierać klucz powiązanej jednostki. Na przykład:
+W tym przykładzie właściwość nawigacji jest pojedynczym `Supplier` jednostki. Jeśli właściwość nawigacji jest kolekcją, identyfikator URI do usunięcia łącza musi zawierać klucz dla obiektu pokrewnego. Na przykład:
 
 [!code-console[Main](working-with-entity-relations/samples/sample12.cmd)]
 
-To żądanie usuwa kolejności 1 klientów 1. W tym przypadku metoda DeleteLink będzie mieć następującą sygnaturą:
+To żądanie usuwa zamówienie 1 z klienta customer 1. W tym przypadku metoda DeleteLink mają następujący podpis:
 
 [!code-csharp[Main](working-with-entity-relations/samples/sample13.cs)]
 
-*RelatedKey* parametru zapewnia klucz powiązanej jednostki. Tak w Twojej `DeleteLink` metody wyszukiwania podstawowego jednostki według *klucza* parametru znaleźć obiektu pokrewnego przez *relatedKey* parametr, a następnie Usuń skojarzenie. W zależności od modelu danych, może być konieczne wdrożenie obie wersje `DeleteLink`. Interfejs API sieci Web będzie wywoływać poprawnej wersji oparte na identyfikator URI żądania.
+*RelatedKey* parametru udostępnia klucz dla obiektu pokrewnego. Tak w Twojej `DeleteLink` metody odnośnika podstawowej jednostki przez *klucz* parametru, Znajdź powiązanej jednostki przez *relatedKey* parametru, a następnie Usuń skojarzenie. W zależności od modelu danych, czasami trzeba zaimplementować obie wersje `DeleteLink`. Interfejs API sieci Web będzie wywoływać poprawnej wersji oparte na żądaniu identyfikatora URI.

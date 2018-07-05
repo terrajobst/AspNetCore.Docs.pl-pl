@@ -2,113 +2,112 @@
 uid: mvc/overview/older-versions-1/controllers-and-routing/asp-net-mvc-routing-overview-cs
 title: Omówienie routingu platformy ASP.NET MVC (C#) | Dokumentacja firmy Microsoft
 author: StephenWalther
-description: W tym samouczku Stephen Walther pokazuje sposób platforma ASP.NET MVC mapowania żądania przeglądarki akcji kontrolera.
+description: 'W tym samouczku Walther Autor: Stephen pokazuje, jak platforma ASP.NET MVC mapuje żądania przeglądarki do akcji kontrolera.'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/19/2008
 ms.topic: article
 ms.assetid: 5b39d2d5-4bf9-4d04-94c7-81b84dfeeb31
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/asp-net-mvc-routing-overview-cs
 msc.type: authoredcontent
-ms.openlocfilehash: fa565d2ef253539844f5224df00bdcdc047bb3f9
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: ff6d7a1540ee7e1de625f692bb5da2c28fdc57f7
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30868597"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37388782"
 ---
 <a name="aspnet-mvc-routing-overview-c"></a>Omówienie routingu platformy ASP.NET MVC (C#)
 ====================
-przez [Stephen Walther](https://github.com/StephenWalther)
+przez [Walther Autor: Stephen](https://github.com/StephenWalther)
 
-> W tym samouczku Stephen Walther pokazuje sposób platforma ASP.NET MVC mapowania żądania przeglądarki akcji kontrolera.
+> W tym samouczku Walther Autor: Stephen pokazuje, jak platforma ASP.NET MVC mapuje żądania przeglądarki do akcji kontrolera.
 
 
-W tym samouczku są wprowadzane do ważna cecha każda aplikacja platformy ASP.NET MVC wywołuje *routingu platformy ASP.NET*. Moduł routingu platformy ASP.NET jest odpowiedzialny za mapowanie przychodzących żądań przeglądarki do określonej akcji kontrolera MVC. Na koniec tego samouczka będzie zrozumiałe, jak tabela tras standardowe mapuje żądania do akcji kontrolera.
+W tym samouczku zostały wprowadzone do ważną funkcją każda aplikacja platformy ASP.NET MVC wywołuje *routingu platformy ASP.NET*. Moduł routingu platformy ASP.NET jest odpowiedzialny za mapowanie żądań przychodzących przeglądarki do określonej akcji kontrolera MVC. Do końca tego samouczka wiesz jak tabela tras standardowa mapuje żądania do akcji kontrolera.
 
-## <a name="using-the-default-route-table"></a>Korzystając z tabeli trasy domyślnej
+## <a name="using-the-default-route-table"></a>Za pomocą tabeli tras domyślne
 
-Podczas tworzenia nowej aplikacji ASP.NET MVC aplikacji jest już skonfigurowana do używania routingu platformy ASP.NET. ASP.NET Routing jest skonfigurowana w dwóch miejscach.
+Podczas tworzenia nowej aplikacji platformy ASP.NET MVC, aplikacja jest już skonfigurowana do użycia routingu platformy ASP.NET. Routingu platformy ASP.NET jest skonfigurowana w dwóch miejscach.
 
-Po pierwsze proces routingu platformy ASP.NET jest włączone w pliku konfiguracji aplikacji sieci Web (plik Web.config). Istnieją cztery sekcje w pliku konfiguracji, które mają zastosowanie do routingu: sekcja system.web.httpModules, sekcji system.web.httpHandlers sekcji system.webserver.modules i system.webserver.handlers sekcji. Uważaj, aby nie usunąć tych sekcji, ponieważ bez tych sekcji routingu przestanie działać.
+Po pierwsze routingu platformy ASP.NET jest włączone w pliku konfiguracji sieci Web aplikacji (plik Web.config). Istnieją cztery sekcje w pliku konfiguracji, które są istotne dla routingu: sekcja system.web.httpModules, sekcja system.web.httpHandlers, system.webserver.modules i system.webserver.handlers sekcji. Uważaj, aby nie usunąć te sekcje, ponieważ bez tych sekcji routingu nie będą już działać.
 
-Po drugie, a ważniejsze tabelę tras jest tworzony w pliku Global.asax aplikacji. Plik Global.asax to specjalny plik, który zawiera programy obsługi zdarzeń dla zdarzenia cyklu życia aplikacji ASP.NET. Tabela tras jest tworzona podczas zdarzenia uruchomić aplikacji.
+Po drugie, i co ważniejsze tabelę tras jest tworzony w pliku Global.asax aplikacji. Plik Global.asax to plik specjalny, który zawiera programy obsługi zdarzeń dla zdarzenia cyklu życia aplikacji ASP.NET. Tabela tras jest tworzony podczas zdarzenia rozpoczęcia aplikacji.
 
-Plik w 1 Lista zawiera domyślne pliku Global.asax aplikacji platformy ASP.NET MVC.
+Plik w ofercie 1 zawiera domyślny plik Global.asax dla aplikacji ASP.NET MVC.
 
 **Wyświetlanie listy 1 — Global.asax.cs**
 
 [!code-csharp[Main](asp-net-mvc-routing-overview-cs/samples/sample1.cs)]
 
-Gdy aplikacji MVC uruchomieniu aplikacji\_Start() metoda jest wywoływana. Ta metoda z kolei wywołuje metodę RegisterRoutes(). Metoda RegisterRoutes() tworzy tabelę tras.
+Gdy aplikacja MVC pierwszym uruchomieniu, aplikacja\_wywołanie metody Start(). Ta metoda z kolei wywołuje metodę RegisterRoutes(). Metoda RegisterRoutes() tworzy tabelę tras.
 
-Tabela tras domyślnych zawiera jedną trasę (o nazwie domyślnej). Trasa domyślna mapuje pierwszy segment adresu URL do nazwy kontrolera, drugi segment adresu URL do akcji kontrolera i segmentu trzeciego parametru o nazwie **identyfikator**.
+Tabela routingu domyślnego zawiera jedną trasę (o nazwie domyślnej). Trasa domyślna mapuje pierwszy segment adresu URL do nazwy kontrolera, drugi segment adresu URL do akcji kontrolera i segmentu trzeciego parametru o nazwie **identyfikator**.
 
 Wyobraź sobie, wprowadź następujący adres URL na pasku adresu przeglądarki sieci web:
 
-/ Głównej/indeks/3
+/ Home/Index/3
 
 Trasa domyślna mapuje ten adres URL do następujących parametrów:
 
-- Kontroler = Home
+- Kontroler = strona główna
 
 - Akcja = indeks
 
 - id = 3
 
-Gdy użytkownik żąda adresu URL /Home/indeks/3, jest wykonywany następujący kod:
+W przypadku żądania /Home adresu URL/indeksu/3, poniższy kod jest wykonywany:
 
 HomeController.Index(3)
 
-Trasa domyślna obejmuje ustawienia domyślne dla wszystkich trzech parametrów. Jeśli nie zostanie podane kontrolera, następnie parametr kontrolera domyślnie przyjmowana jest wartość **Home**. Jeśli akcja nie zostanie podane, parametr akcji domyślnie przyjmowana jest wartość **indeksu**. Ponadto jeśli identyfikator nie zostanie podane, parametru identyfikatora domyślnie pusty ciąg.
+Trasa domyślna obejmuje ustawienia domyślne dla wszystkich trzech parametrów. Jeśli nie podasz kontrolera, następnie kontrolera jest domyślnie wartość **Home**. Jeśli nie podasz akcję, parametr akcji wartość domyślna to wartość **indeksu**. Na koniec Jeśli nie podasz identyfikatora parametru identyfikatora wartość domyślna to ciąg pusty.
 
-Oto kilka przykładów sposobu trasy domyślnej mapowania adresów URL do akcji kontrolera. Wyobraź sobie, wprowadź następujący adres URL na pasku adresu przeglądarki:
+Spójrzmy na kilka przykładów jak trasa domyślna mapuje adresy URL do akcji kontrolera. Wyobraź sobie, wprowadź następujący adres URL w pasku adresu przeglądarki:
 
 Domowych
 
-Ze względu na wartości domyślne parametrów trasy domyślne wprowadzić ten adres URL spowoduje, że metoda indeks() klasy HomeController wyświetlania 2 do wywołania.
+Ze względu na wartości domyślne parametrów trasy domyślne wprowadzając ten adres URL spowoduje, że metoda indeks() klasy HomeController w ofercie 2 do wywołania.
 
 **Wyświetlanie listy 2 - HomeController.cs**
 
 [!code-csharp[Main](asp-net-mvc-routing-overview-cs/samples/sample2.cs)]
 
-Wyświetlanie 2 Klasa HomeController zawiera metodę o nazwie indeks(), który przyjmuje jeden parametr o nazwie identyfikatora. Adres URL /Home powoduje, że indeks() metodę można wywołać za pomocą ciągu pustego jako wartość parametru identyfikatora.
+W ofercie 2 Klasa HomeController zawiera metodę o nazwie indeks(), który akceptuje pojedynczy parametr o nazwie identyfikatora. /Home adres URL spowoduje, że metoda indeks() nelze volat pusty ciąg jako wartość parametru identyfikatora.
 
-Ze względu na sposób, że struktura MVC wywołuje akcji kontrolera /Home adres URL zgodna metoda indeks() klasy HomeController w 3 wyświetlania.
+Ze względu na sposób, że struktura MVC wywołuje akcji kontrolera /Home adresu URL dopasowuje metodę indeks() klasy HomeController w ofercie 3.
 
-**Wyświetlanie listy 3 - HomeController.cs (Akcja indeks parametru nie)**
+**Wyświetlanie listy 3 - HomeController.cs (indeks akcji w przypadku braku parametrów)**
 
 [!code-csharp[Main](asp-net-mvc-routing-overview-cs/samples/sample3.cs)]
 
-Metoda indeks() w 3 wyświetlania nie akceptuje żadnych parametrów. /Home adres URL spowoduje, że ta metoda indeks() do wywołania. Adres URL /Home/indeks/3 również wywołuje tę metodę (identyfikator zostanie zignorowana).
+Metoda indeks() w ofercie 3 nie przyjmuje żadnych parametrów. /Home adres URL spowoduje, że ta metoda indeks() do wywołania. /Home adresu URL/indeksu/3 również wywołuje tę metodę (identyfikator jest ignorowany).
 
-/Home adres URL zgodny metody indeks() klasy HomeController w listę 4.
+/Home adres URL zgodny metoda indeks() klasy HomeController w ofercie 4.
 
-**Wyświetlanie listy 4 - HomeController.cs (akcji indeksu z parametru dopuszczającego wartość null)**
+**Wyświetlanie listy 4 - HomeController.cs (Akcja indeksu za pomocą parametru dopuszczającego wartość null)**
 
 [!code-csharp[Main](asp-net-mvc-routing-overview-cs/samples/sample4.cs)]
 
-W przypadku wyświetlania 4 metoda indeks() ma jeden parametr. Ponieważ parametr ma wartość null parametru (może mieć wartości Null), indeks() można wywołać bez zgłaszania błędu.
+W ofercie 4 metoda indeks() ma jeden parametr liczby całkowitej. Ponieważ wartość parametru jest parametru dopuszczającego wartość null (może mieć wartości Null), indeks() mogą być wywoływane bez zgłaszania błędu.
 
-Na koniec wywołania metody indeks() listę 5 z /Home adres URL powoduje zgłoszenie wyjątku od parametru identyfikatora *nie jest* parametru dopuszczającego wartość null. Jeśli próba wywołania metody indeks() otrzymasz błąd wyświetlane na rysunku 1.
+Na koniec wywołania metody indeks() w ofercie 5 /Home adres URL powoduje wyjątek od parametru identyfikatora *nie* parametru dopuszczającego wartość null. Jeśli użytkownik podejmie próbę wywołania metody indeks() otrzymasz błąd wyświetlane na rysunku 1.
 
-**Wyświetlanie listy 5 - HomeController.cs (akcji indeksu z parametrem Id)**
+**Wyświetlanie listy 5 - HomeController.cs (Akcja indeksu za pomocą parametru Id)**
 
 [!code-csharp[Main](asp-net-mvc-routing-overview-cs/samples/sample5.cs)]
 
 
-[![Wywoływanie akcji kontrolera, która oczekuje wartości parametru](asp-net-mvc-routing-overview-cs/_static/image1.jpg)](asp-net-mvc-routing-overview-cs/_static/image1.png)
+[![Wywołanie akcji kontrolera, który oczekuje, że wartość parametru](asp-net-mvc-routing-overview-cs/_static/image1.jpg)](asp-net-mvc-routing-overview-cs/_static/image1.png)
 
-**Rysunek 01**: wywoływania akcji kontrolera, która oczekuje wartości parametru ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](asp-net-mvc-routing-overview-cs/_static/image2.png))
+**Rysunek 01**: wywołanie akcji kontrolera, który oczekuje, że wartość parametru ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](asp-net-mvc-routing-overview-cs/_static/image2.png))
 
 
-Adres URL /Home/indeks/3 z drugiej strony, działa bez problemu z akcji kontrolera indeksu w listę 5. /Home/Index/3 żądania powoduje, że metoda indeks() ma być wywoływana z parametru identyfikatora, który ma wartość 3.
+Adres URL /Home/indeksu/3 z drugiej strony, nadaje tylko przy użyciu akcji kontrolera indeksu w ofercie 5. /Home/Index/3 żądanie spowoduje, że metoda indeks() nelze volat parametru Id, który ma wartość 3.
 
 ## <a name="summary"></a>Podsumowanie
 
-Celem tego samouczka został dostarczają krótkie wprowadzenie do routingu platformy ASP.NET. Firma Microsoft zbadać tabeli trasy domyślnej, której można korzystać z nowej aplikacji ASP.NET MVC. Przedstawiono sposób trasy domyślnej mapowania adresów URL akcji kontrolera.
+Celem tego samouczka było udostępnić krótkie wprowadzenie do routingu platformy ASP.NET. Zbadaliśmy tabela routingu domyślnego, której można korzystać z nowej aplikacji platformy ASP.NET MVC. Pokazaliśmy ci, jak trasy domyślnej mapuje adresy URL do akcji kontrolera.
 
 > [!div class="step-by-step"]
 > [Next](understanding-action-filters-cs.md)

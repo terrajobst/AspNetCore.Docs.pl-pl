@@ -9,17 +9,16 @@ ms.date: 01/06/2011
 ms.topic: article
 ms.assetid: 9ded2fdb-ac4c-448f-9774-10bff657514c
 ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: ''
 msc.type: content
-ms.openlocfilehash: 1ca87090d6dc8f4050e8a017777edb530533218a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 12d22b4c064c210c75999931e0a00e300bf37401
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26573197"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37381075"
 ---
 <a name="webmatrix-readme"></a>Plik Readme programu WebMatrix
 ====================
 - [Plik Readme programu WebMatrix](overview.md)
-- [Macierzy sieci Web i plik Readme sieci Web ASP.NET w wersji Beta 3 stron (Razor)](beta3.md)
+- [Plik Readme dla programu WebMatrix i wzorca ASP.NET Web Pages (Razor) w wersji Beta 3](beta3.md)

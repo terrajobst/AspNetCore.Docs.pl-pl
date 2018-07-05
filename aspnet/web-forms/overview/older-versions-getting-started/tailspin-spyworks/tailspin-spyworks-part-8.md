@@ -2,69 +2,68 @@
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-8
 title: 'Część 8: Końcowe strony, obsługa wyjątków i zawarcia | Dokumentacja firmy Microsoft'
 author: JoeStagner
-description: Ta seria samouczek zawiera szczegóły dotyczące wszystkich kroków kompilacji Tailspin Spyworks przykładowej aplikacji. Część 8 dodaje kontaktu strony, strony i wyjątków — informacje...
+description: W tej serii samouczków zawiera szczegóły wszystkich kroków kompilacji Przykładowa aplikacja Tailspin Spyworks. Część 8 dodaje skontaktuj się z pomocą strony, strony i wyjątków — informacje...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/21/2010
 ms.topic: article
 ms.assetid: 5aeadf8f-39f3-4f07-a78f-1c310c64fb23
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-8
 msc.type: authoredcontent
-ms.openlocfilehash: f82294aab0616012393cf3e10f932f6d1ad0cdb6
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 3f1d855e157f6a58995d301a793e660925767fb4
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30886274"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37380256"
 ---
 <a name="part-8-final-pages-exception-handling-and-conclusion"></a>Część 8: Końcowe strony, obsługa wyjątków i zawarcia
 ====================
 przez [Stagner Jan](https://github.com/JoeStagner)
 
-> Tailspin Spyworks pokazano, jak bardzo proste jest tworzenie zaawansowanych, skalowalnych aplikacji dla platformy .NET. Przedstawia on poza jak nowe, fantastyczne funkcje programu ASP.NET 4 do tworzenia sklepu online, łącznie z zakupów, wyewidencjonowania i administracji.
+> Tailspin Spyworks pokazuje, jak bardzo łatwo jest tworzyć zaawansowane, skalowalne aplikacje dla platformy .NET. Przedstawia on poza sposób użycia wspaniałych nowych funkcjach w ASP.NET 4 do tworzenia sklep online, m.in. zakupy wyewidencjonowanie i Administracja.
 > 
-> Ta seria samouczek zawiera szczegóły dotyczące wszystkich kroków kompilacji Tailspin Spyworks przykładowej aplikacji. Część 8 dodaje kontaktu strony, strony i obsługa wyjątków — informacje. Jest to zawarcia serii.
+> W tej serii samouczków zawiera szczegóły wszystkich kroków kompilacji Przykładowa aplikacja Tailspin Spyworks. Część 8 dodaje kontaktu strony, strony i obsługa wyjątków — informacje. To jest zawarcie tej serii.
 
 
 ## <a id="_Toc260221680"></a>  Skontaktuj się z strony (wysyłanie wiadomości e-mail z platformy ASP.NET)
 
 Utwórz nową stronę o nazwie ContactUs.aspx
 
-Przy użyciu narzędzia Projektant, utwórz następującą postać uwzględnieniu specjalne ToolkitScriptManager i kontrolce edytora z AjaxdControlToolkit. .
+Za pomocą projektanta, utwórz następującą postać biorąc ważne, aby uwzględnić ToolkitScriptManager i kontrolka edytora z AjaxdControlToolkit. .
 
 ![](tailspin-spyworks-part-8/_static/image1.jpg)
 
-Kliknij dwukrotnie przycisk "Zatwierdź" Generowanie obsługi zdarzeń kliknięcia w kodzie pliku i zaimplementuj metodę można wysłać informacji kontaktowych jako wiadomości e-mail.
+Kliknij dwukrotnie przycisk "Prześlij", aby wygenerować obsługi zdarzeń kliknięcia w kodzie pliku i zaimplementować metodę, aby wysyłać informacje kontaktowe jako wiadomości e-mail.
 
 [!code-csharp[Main](tailspin-spyworks-part-8/samples/sample1.cs)]
 
-Ten kod wymaga, aby plik web.config zawiera wpis w sekcji konfiguracji, który określa serwer SMTP używany do wysyłania poczty.
+Ten kod wymaga, że plik web.config zawiera wpis w sekcji konfiguracji, który określa serwer SMTP używany do wysyłania wiadomości e-mail.
 
 [!code-xml[Main](tailspin-spyworks-part-8/samples/sample2.xml)]
 
-## <a id="_Toc260221681"></a>  Strona — informacje
+## <a id="_Toc260221681"></a>  Informacje o stronie
 
 Utwórz stronę o nazwie AboutUs.aspx i niezależnie od zawartości, które chcesz dodać.
 
 ## <a id="_Toc260221682"></a>  Globalnego programu obsługi wyjątków
 
-Ponadto w całej aplikacji ma możemy zgłaszane wyjątki i brak nieprzewidzianych okoliczności to zimnych również Przyczyna nieobsługiwanych wyjątków w naszej aplikacji sieci web.
+Na koniec w całej aplikacji firma Microsoft ma zgłaszane i nieprzewidzianych okoliczności oznacza zimnych także przyczyną braku obsługi wyjątków w naszej aplikacji sieci web.
 
-Firma Microsoft nigdy nie mają nieobsługiwany wyjątek ma być wyświetlony dla obiekt odwiedzający witrynę sieci web.
+Firma Microsoft nigdy nie ma nieobsługiwany wyjątek ma być wyświetlany obiekt odwiedzający witrynę sieci web.
 
 ![](tailspin-spyworks-part-8/_static/image2.jpg)
 
-Oprócz trwa olbrzymich użytkowników nieobsługiwanych wyjątków może być również problem z zabezpieczeniami.
+Oprócz trwa panowanie komfortu nieobsługiwanych wyjątków może być również problem z zabezpieczeniami.
 
-Aby rozwiązać ten problem wprowadzimy globalnego programu obsługi wyjątków.
+Aby rozwiązać ten problem wdrażamy globalnego programu obsługi wyjątków.
 
-Aby to zrobić, otwórz plik Global.asax i zanotuj następujące programu obsługi zdarzeń wstępnie wygenerowane.
+Aby to zrobić, otwórz plik Global.asax i zanotuj następującą obsługę zdarzeń wstępnie wygenerowane.
 
 [!code-csharp[Main](tailspin-spyworks-part-8/samples/sample3.cs)]
 
-Dodaj kod, aby wdrożyć aplikację\_program obsługi błędów w następujący sposób.
+Dodaj kod, aby wdrożyć aplikację\_procedurę obsługi błędów w następujący sposób.
 
 [!code-csharp[Main](tailspin-spyworks-part-8/samples/sample4.cs)]
 
@@ -72,15 +71,15 @@ Następnie dodaj stronę o nazwie Error.aspx do rozwiązania i Dodaj następują
 
 [!code-aspx[Main](tailspin-spyworks-part-8/samples/sample5.aspx)]
 
-Teraz na stronie\_załadować wyodrębniania programu obsługi zdarzeń komunikaty o błędach z obiektu żądanie.
+Teraz na stronie\_obciążenia wyodrębniania procedury obsługi zdarzeń, komunikaty o błędach z obiektu żądania.
 
 [!code-csharp[Main](tailspin-spyworks-part-8/samples/sample6.cs)]
 
-## <a id="_Toc260221683"></a>  Zawierania
+## <a id="_Toc260221683"></a>  Podsumowanie
 
-Firma Microsoft w tym samouczku czy ASP.NET WebForms można łatwo utworzyć zaawansowane witryny sieci Web z dostępem do bazy danych, członkostwa, AJAX, itp. bardzo szybko.
+Zobaczyliśmy, że formularzy sieci Web platformy ASP.NET można łatwo utworzyć zaawansowane witryny sieci Web z dostępu do bazy danych, członkostwo w technologii AJAX, itp. bardzo szybko.
 
-Miejmy nadzieję, że w tym samouczku przyznał Ci narzędzia, które należy rozpocząć tworzenie własnych formularzy sieci Web ASP.NET aplikacji!
+Miejmy nadzieję w tym samouczku przyznał Ci narzędzia, których potrzebujesz do rozpoczęcia tworzenia własnych WebForms ASP.NET aplikacji!
 
 > [!div class="step-by-step"]
 > [Poprzednie](tailspin-spyworks-part-7.md)

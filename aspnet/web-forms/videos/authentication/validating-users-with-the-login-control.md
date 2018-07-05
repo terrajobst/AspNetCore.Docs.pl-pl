@@ -1,31 +1,30 @@
 ---
 uid: web-forms/videos/authentication/validating-users-with-the-login-control
-title: Walidacja użytkowników za pomocą formantu logowania | Dokumentacja firmy Microsoft
+title: Weryfikowanie użytkowników za pomocą kontrolki logowania | Dokumentacja firmy Microsoft
 author: JoeStagner
-description: W tym wideo Stagner Jan Eksploruje alternatywną metodą uwierzytelniania użytkowników zamiast, a następnie tworzenie niestandardowego formularza i wywołanie interfejsu API do uwierzytelniania z użyciem...
+description: W tym filmie pokazano Jan Stagner odkrywa alternatywną metodę uwierzytelniania użytkowników, przeciwnie, a następnie tworzenie niestandardowego formularza i wywoływanie interfejsu API do użycia uwierzytelniania...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/22/2008
 ms.topic: article
 ms.assetid: 6c11816b-504a-4512-b67e-9bd15947a7f8
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/authentication/validating-users-with-the-login-control
 msc.type: video
-ms.openlocfilehash: 10b692957ab2e634674df9b90dea0aad05c0a751
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 9e08d09821f3c16c847a1a2d494b943f778cb2e7
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30883242"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37390666"
 ---
-<a name="validating-users-with-the-login-control"></a>Walidacja użytkowników za pomocą formantu logowania
+<a name="validating-users-with-the-login-control"></a>Weryfikowanie użytkowników za pomocą kontrolki logowania
 ====================
 przez [Stagner Jan](https://github.com/JoeStagner)
 
-W tym wideo Stagner Jan Eksploruje alternatywną metodą uwierzytelniania użytkowników, a nie, a następnie tworzenie niestandardowego formularza i wywołanie interfejsu API w celu uwierzytelnienia użytkownika. Piotr używa formantu logowania, który jest dostarczany z ASP.NET 2 lub nowszym. Aby uzyskać dodatkowe informacje o tym wideo, przeczytaj samouczek zabezpieczeń "Sprawdzanie poprawności poświadczeń przed członkostwa użytkownika magazynu użytkowników" ([C#](../../overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-cs.md), [VB](../../overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-vb.md)).
+W tym filmie Stagner Jan odkrywa alternatywną metodę uwierzytelniania użytkowników, przeciwnie, a następnie tworzenie niestandardowego formularza i wywoływania interfejsu API w celu uwierzytelnienia użytkownika. Używa kontrolki logowania, który jest dostarczany z ASP.NET 2 lub nowszym. Aby uzyskać dodatkowe informacje na temat ten film wideo, przeczytaj samouczek zabezpieczeń "Sprawdzanie poprawności użytkownika poświadczeń względem członkostwa użytkownika Store" ([C#](../../overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-cs.md), [VB](../../overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-vb.md)).
 
-[&#9654;Obejrzyj klip wideo (5 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/validating-users-with-the-login-control)
+[&#9654;Obejrzyj film wideo (5 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/validating-users-with-the-login-control)
 
 > [!div class="step-by-step"]
 > [Poprzednie](validating-users-manually.md)

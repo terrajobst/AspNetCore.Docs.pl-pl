@@ -2,30 +2,29 @@
 uid: mvc/videos/mvc-2/how-do-i/5-minute-introduction-to-aspnet-mvc
 title: 5 minut wprowadzenie do platformy ASP.NET MVC | Dokumentacja firmy Microsoft
 author: shanselman
-description: Scott Hanselman stanowi wprowadzenie 5 minut do platformy ASP.NET MVC.
+description: Scott Hanselman przedstawia wprowadzenie 5 minut do wzorca ASP.NET MVC.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/12/2011
 ms.topic: article
 ms.assetid: f9be608d-71e8-4d85-9d7c-092cc95f4cce
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/5-minute-introduction-to-aspnet-mvc
 msc.type: video
-ms.openlocfilehash: 869adb1a2f450d06fd966243f38d3584458717d6
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 6bbfc0ad0d472ce4a11975ae4abff935757c4bae
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30879650"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37401986"
 ---
 <a name="5-minute-introduction-to-aspnet-mvc"></a>5 minut wprowadzenie do platformy ASP.NET MVC
 ====================
-przez [Scott Hanselman](https://github.com/shanselman)
+przez [Scotta Hanselmana](https://github.com/shanselman)
 
-Scott Hanselman stanowi wprowadzenie 5 minut do platformy ASP.NET MVC.
+Scott Hanselman przedstawia wprowadzenie 5 minut do wzorca ASP.NET MVC.
 
-[&#9654;Obejrzyj klip wideo (minuty 8)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/5-minute-introduction-to-aspnet-mvc)
+[&#9654;Obejrzyj film wideo (8 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/5-minute-introduction-to-aspnet-mvc)
 
 > [!div class="step-by-step"]
 > [Poprzednie](aspnet-mvc-2-render-action.md)

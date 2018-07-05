@@ -1,28 +1,27 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-create-a-custom-user-control-in-aspnet
-title: '[Jak i.]  Tworzenie formantu użytkownika niestandardowego w programie ASP.NET? | Dokumentacja firmy Microsoft'
+title: '[Jak mogę]  Tworzenie niestandardowej kontrolki użytkownika w programie ASP.NET? | Microsoft Docs'
 author: rick-anderson
-description: To wideo Pels Krzysztof przedstawiono sposób tworzenia formantu użytkownika niestandardowego w ASP.NET, które mogą być używane w całej witryny sieci web lub w wielu witryn sieci web. Pozostaje tryb komórek jednowątkowych...
+description: W tym filmie pokazano pikseli Chris pokazano, jak utworzyć formant użytkownika niestandardowego na platformie ASP.NET, które mogą być używane w całej witryny sieci web lub w wielu witrynach sieci web. Komórce jednowątkowej...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/26/2007
 ms.topic: article
 ms.assetid: 76e0f17c-c31b-4237-89b5-a46efe602ece
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-create-a-custom-user-control-in-aspnet
 msc.type: video
-ms.openlocfilehash: a4c58579f074bf70efc7a0cb7adad3ebd91e5082
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8ca06fef4b04cacb98e142a39f50a4df59e58944
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26571814"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37381984"
 ---
-<a name="how-do-i--create-a-custom-user-control-in-aspnet"></a>[Jak i.]  Tworzenie formantu użytkownika niestandardowego w programie ASP.NET?
+<a name="how-do-i--create-a-custom-user-control-in-aspnet"></a>[Jak mogę]  Tworzenie niestandardowej kontrolki użytkownika w programie ASP.NET?
 ====================
-przez [Pels Krzysztof](https://twitter.com/chrispels)
+przez [Chris pikseli](https://twitter.com/chrispels)
 
-To wideo Pels Krzysztof przedstawiono sposób tworzenia formantu użytkownika niestandardowego w ASP.NET, które mogą być używane w całej witryny sieci web lub w wielu witryn sieci web. Uruchom limit przez uczenia tworzenie kontrolki użytkownika, który będzie używany na wielu stronach w tym sprawdzania poprawności, kontrolowanie formatowania za pomocą stylów elementów i ładowania/zapisywanie danych użytkownika elementów interfejsu. W całym wideo zagadnień dotyczących tworzenia użytkownika omówiono formantów, które można łatwo aktualizować i używana na wielu stronach.
+W tym filmie pokazano pikseli Chris pokazano, jak utworzyć formant użytkownika niestandardowego na platformie ASP.NET, które mogą być używane w całej witryny sieci web lub w wielu witrynach sieci web. Rozpocznij na zewnątrz nauka podstaw tworzenia kontrolki użytkownika, który będzie używany na wielu stronach w tym sprawdzania poprawności, kontrolowaniem formatowania, przy użyciu stylu elementów i ładowanie/zapisywanie danych użytkownika elementy interfejsu. W całym wideo dotyczące tworzenia użytkownika zostały omówione formantów, które można łatwo przechowywane i używane na wielu stronach.
 
-[&#9654; Obejrzyj klip wideo (minuty 27)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-create-a-custom-user-control-in-aspnet)
+[&#9654;Obejrzyj film wideo (27 min)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-create-a-custom-user-control-in-aspnet)

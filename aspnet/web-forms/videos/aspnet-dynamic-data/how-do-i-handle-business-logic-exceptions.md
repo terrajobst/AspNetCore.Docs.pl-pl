@@ -1,31 +1,30 @@
 ---
 uid: web-forms/videos/aspnet-dynamic-data/how-do-i-handle-business-logic-exceptions
-title: Jak obsługi wyjątków logiki biznesowej? | Microsoft Docs
+title: Jak mogę obsługi wyjątków logiki biznesowej? | Microsoft Docs
 author: shanselman
-description: To wideo pokazuje, jak dodać sprawdzania poprawności do modelu danych. Będzie można zobaczyć, jak logiki tego sprawdzania poprawności jest widoczny w Interfejsie użytkownika.
+description: Ten film pokazuje, jak dodać sprawdzanie poprawności do modelu danych. Będzie można zobaczyć, jak logiki tego sprawdzania poprawności jest odzwierciedlana w interfejsie użytkownika.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/08/2008
 ms.topic: article
 ms.assetid: f6c73522-4c77-4757-b1af-69f9d1db4fb1
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-dynamic-data/how-do-i-handle-business-logic-exceptions
 msc.type: video
-ms.openlocfilehash: 59b99913d8a8568bbc9ca86678b16d140c1cbc0d
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: bfe6ef34591665a62a2779a33eed9471f5c70f7d
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30886449"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37373961"
 ---
-<a name="how-do-i-handle-business-logic-exceptions"></a>Jak obsługi wyjątków logiki biznesowej?
+<a name="how-do-i-handle-business-logic-exceptions"></a>Jak mogę obsługi wyjątków logiki biznesowej?
 ====================
-przez [Scott Hanselman](https://github.com/shanselman)
+przez [Scotta Hanselmana](https://github.com/shanselman)
 
-To wideo pokazuje, jak dodać sprawdzania poprawności do modelu danych. Będzie można zobaczyć, jak logiki tego sprawdzania poprawności jest widoczny w Interfejsie użytkownika.
+Ten film pokazuje, jak dodać sprawdzanie poprawności do modelu danych. Będzie można zobaczyć, jak logiki tego sprawdzania poprawności jest odzwierciedlana w interfejsie użytkownika.
 
-[&#9654;Obejrzyj klip wideo (5 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-handle-business-logic-exceptions)
+[&#9654;Obejrzyj film wideo (5 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-handle-business-logic-exceptions)
 
 > [!div class="step-by-step"]
 > [Poprzednie](how-do-i-change-how-my-fields-render.md)

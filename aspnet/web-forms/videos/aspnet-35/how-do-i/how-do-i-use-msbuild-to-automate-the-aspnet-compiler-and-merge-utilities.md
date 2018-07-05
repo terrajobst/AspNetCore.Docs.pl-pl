@@ -1,31 +1,30 @@
 ---
 uid: web-forms/videos/aspnet-35/how-do-i/how-do-i-use-msbuild-to-automate-the-aspnet-compiler-and-merge-utilities
-title: '[Jak i.] Użyj programu MSBuild, aby zautomatyzować kompilatora ASP.NET i narzędzia do scalania | Dokumentacja firmy Microsoft'
+title: '[Jak mogę] Użyj programu MSBuild do zautomatyzowania ASP.NET Compiler i narzędzia do scalania | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: W tym wideo Pels Krzysztof przedstawiono sposób tworzenia projektu programu MSBuild, będąca aranżacją wykonywanie narzędzia aspnet_compiler i aspnet_merge ASP...
+description: W tym wideo pikseli Chris przedstawia sposób tworzenia projektu programu MSBuild, która zarządza procesem wykonywania aspnet_compiler i aspnet_merge narzędzia dla środowiska ASP...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/07/2008
 ms.topic: article
 ms.assetid: 14f2b333-59f5-4ae4-88db-2a78f809cef3
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-35/how-do-i/how-do-i-use-msbuild-to-automate-the-aspnet-compiler-and-merge-utilities
 msc.type: video
-ms.openlocfilehash: 50c72bfb6e9646c31b3bd99be3c0393309f2a677
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: b2803bbd9d63cb5e79ced227719e762eaf697aa6
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30885542"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37392114"
 ---
-<a name="how-do-i-use-msbuild-to-automate-the-aspnet-compiler-and-merge-utilities"></a>[Jak i.] Użyj programu MSBuild, aby zautomatyzować kompilatora ASP.NET i narzędzia do scalania
+<a name="how-do-i-use-msbuild-to-automate-the-aspnet-compiler-and-merge-utilities"></a>[Jak mogę] Użyj programu MSBuild do zautomatyzowania ASP.NET Compiler i narzędzia do scalania
 ====================
-przez [Pels Krzysztof](https://twitter.com/chrispels)
+przez [Chris pikseli](https://twitter.com/chrispels)
 
-W tym wideo Pels Krzysztof przedstawiono sposób tworzenia projektu programu MSBuild, będąca aranżacją wykonywania aspnet\_kompilatora i aspnet\_scalania narzędzia dla witryny sieci web ASP.NET. Najpierw Poznaj podstawowe informacje na temat procesu kompilacji dla witryny sieci web ASP.NET i roli narzędzia dwóch wiersza polecenia. Następnie możesz zapoznać się tworzenie pliku projektu MSBuild i podstawowe elementy, takie jak PropertyGroup i docelowej. Dowiedz się szczegóły dotyczące wykonania aspnet\_kompilatora i aspnet\_scalania narzędzia z projektu programu MSBuild. Ponadto omówiono kilka potencjalnych rozszerzenia podstawowe pojęcia.
+W tym filmie pokazano pikseli Chris przedstawia sposób tworzenia projektu programu MSBuild, która zarządza procesem wykonywania aspnet\_kompilatora i aspnet\_scalania programów narzędziowych dla witryny sieci web ASP.NET. Po pierwsze Dowiedz się, podstawy procesu kompilacji dla witryny sieci web platformy ASP.NET i roli narzędzia dwóch wiersza polecenia. Następnie zobacz, jak utworzyć plik projektu programu MSBuild i podstawowe elementy, takie jak PropertyGroup i docelowy. Następnie Dowiedz się, szczegółowe informacje o sposobie wykonania aspnet\_kompilatora i aspnet\_scalania narzędzia z projektu programu MSBuild. Ponadto omówiono kilka potencjalnych rozszerzenia z podstawowych pojęć.
 
-[&#9654;Obejrzyj klip wideo (minuty 31)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-msbuild-to-automate-the-aspnet-compiler-and-merge-utilities)
+[&#9654;Obejrzyj film wideo (minuty 31)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-msbuild-to-automate-the-aspnet-compiler-and-merge-utilities)
 
 > [!div class="step-by-step"]
 > [Poprzednie](how-do-i-serialize-a-graph-with-the-entity-framework.md)

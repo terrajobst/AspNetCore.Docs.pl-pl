@@ -1,219 +1,218 @@
 ---
 uid: web-forms/overview/moving-to-aspnet-20/the-asp-net-2-0-page-model
-title: Model 2.0 strony ASP.NET | Dokumentacja firmy Microsoft
+title: Modelu programu ASP.NET 2.0 strony | Dokumentacja firmy Microsoft
 author: microsoft
-description: W programie ASP.NET 1.x, deweloperzy ma wybór między kodu wbudowanego i modelu kodu związane z kodem. Związane z kodem można zaimplementować za pomocą Src attr...
+description: 'W programie ASP.NET: 1.x, deweloperzy ma wybór między wbudowany model kodu i model kodu związanego z kodem. Związane z kodem można zaimplementować przy użyciu Src attr...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2005
 ms.topic: article
 ms.assetid: af4575a3-0ae3-4638-ba4d-218fad7a1642
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/the-asp-net-2-0-page-model
 msc.type: authoredcontent
-ms.openlocfilehash: fda85ec03f845cafa7720382bf85652937932c44
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 9d62aee5e0754b1910b923ad9ae501ebed91097e
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30891298"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37379890"
 ---
-<a name="the-aspnet-20-page-model"></a>Model 2.0 strony ASP.NET
+<a name="the-aspnet-20-page-model"></a>Modelu programu ASP.NET 2.0 strony
 ====================
 przez [firmy Microsoft](https://github.com/microsoft)
 
-> W programie ASP.NET 1.x, deweloperzy ma wybór między kodu wbudowanego i modelu kodu związane z kodem. Związane z kodem można zaimplementować za pomocą atrybutu Src lub atrybut plik CodeBehind @Page dyrektywy. W programie ASP.NET 2.0 deweloperzy nadal mają wybór między kodu wbudowanego i związane z kodem, ale było istotne ulepszenia modelu związane z kodem.
+> W programie ASP.NET: 1.x, deweloperzy ma wybór między wbudowany model kodu i model kodu związanego z kodem. Związane z kodem można zaimplementować przy użyciu atrybutu Src lub atrybut CodeBehind @Page dyrektywy. W programie ASP.NET 2.0 deweloperzy nadal mają możliwość wyboru między wbudowany kod i związane z kodem, ale zostały znaczne ulepszenia do modelu związanym z kodem.
 
 
-W programie ASP.NET 1.x, deweloperzy ma wybór między kodu wbudowanego i modelu kodu związane z kodem. Związane z kodem można zaimplementować za pomocą atrybutu Src lub atrybut plik CodeBehind @Page dyrektywy. W programie ASP.NET 2.0 deweloperzy nadal mają wybór między kodu wbudowanego i związane z kodem, ale było istotne ulepszenia modelu związane z kodem.
+W programie ASP.NET: 1.x, deweloperzy ma wybór między wbudowany model kodu i model kodu związanego z kodem. Związane z kodem można zaimplementować przy użyciu atrybutu Src lub atrybut CodeBehind @Page dyrektywy. W programie ASP.NET 2.0 deweloperzy nadal mają możliwość wyboru między wbudowany kod i związane z kodem, ale zostały znaczne ulepszenia do modelu związanym z kodem.
 
-## <a name="improvements-in-the-code-behind-model"></a>Ulepszenia w modelu związane z kodem
+## <a name="improvements-in-the-code-behind-model"></a>Ulepszenia w modelu związanym z kodem
 
-Aby lepiej zrozumieć zmian w modelu kodu powiązanego w programie ASP.NET 2.0, zaleca się szybko przejrzeć modelu w postaci, w jakiej były dostępne w programie ASP.NET 1.x.
+Aby można było w pełni zapoznać się ze zmianami w modelu związanym z kodem w programie ASP.NET 2.0, jego najlepiej, aby szybko zapoznać się z modelu, ponieważ istniał w programie ASP.NET: 1.x.
 
-## <a name="the-code-behind-model-in-aspnet-1x"></a>Model kodu powiązanego w programie ASP.NET 1.x
+## <a name="the-code-behind-model-in-aspnet-1x"></a>Model związanym z kodem w programie ASP.NET: 1.x
 
-W programie ASP.NET 1.x, modelu CodeBehind składa się z plikiem ASPX (formularza sieci Web) i plik CodeBehind kodem programowania. Dwa pliki zostały połączone za pomocą @Page dyrektywy w pliku ASPX. Na stronie ASPX każdego formantu ma deklarację odpowiednie w pliku CodeBehind jako zmienna wystąpienia. Plik CodeBehind również zawiera kod dla wiązania zdarzeń i wygenerowanego kodu niezbędne do projektanta programu Visual Studio. Ten model stosunkowo dobrze działa, ale ponieważ ASP.NET, co element na stronie ASPX wymagane odpowiedni kod w pliku związanym z kodem, nie było żadnych true oddzielenie kodu i zawartości. Na przykład jeśli projektant dodany nowy formant serwera z plikiem ASPX poza środowiska IDE programu Visual Studio, aplikacji spowoduje przerwanie z powodu braku deklaracji dla tego formantu w pliku CodeBehind.
+W programie ASP.NET: 1.x, model związanym z kodem składa się z plikiem ASPX (formularz sieci Web) i pliku związanego z kodem, kodem programowania. Dwa pliki zostały połączone za pomocą @Page dyrektywy w pliku ASPX. Każdej kontrolki na stronie ASPX miały odpowiednich deklaracji w pliku związanym z kodem jako zmienna wystąpienia. Plik związany z kodem również zawiera kod dla powiązania zdarzeń i wygenerowanego kodu niezbędne do projektanta programu Visual Studio. Ten model jest dość dobrze działa, ale ponieważ wymaganego przez każdy element ASP.NET strony ASPX odpowiedni kod w pliku związanym z kodem wystąpił bez separacji true kodu i zawartości. Na przykład jeśli projektant dodany nowy formant serwera do pliku ASPX poza programem Visual Studio IDE, aplikacja zaburzyłaby z powodu braku deklarację dla tego formantu w pliku związanym z kodem.
 
-## <a name="the-code-behind-model-in-aspnet-20"></a>Model kodu powiązanego w programie ASP.NET 2.0
+## <a name="the-code-behind-model-in-aspnet-20"></a>Model związanym z kodem w programie ASP.NET 2.0
 
-Platforma ASP.NET 2.0 znacznie poprawia tego modelu. W programie ASP.NET 2.0, związane z kodem jest implementowane za pomocą nowej *klasy częściowe* dostępnych w programie ASP.NET 2.0. Klasy związane z kodem w programie ASP.NET 2.0 jest definiowane jako częściowej klasy, co oznacza, że zawiera on tylko część definicji klasy. Pozostała część definicji klasy dynamicznie jest generowany przez ASP.NET 2.0 za pomocą strony ASPX, w czasie wykonywania, lub gdy witryna sieci Web została wstępnie skompilowana. Skojarzenia między plik CodeBehind i strony ASPX nadal jest określana za pomocą dyrektywy @ Page. Jednak zamiast atrybutu plik CodeBehind lub Src, ASP.NET 2.0 teraz używa atrybut CodeFile. Atrybut Inherits umożliwia również określić nazwę klasy dla strony.
+Program ASP.NET 2.0 znacznie poprawia przy tym modelu. W programie ASP.NET 2.0 związanym z kodem jest implementowany przy użyciu nowego *klas częściowych* dostarczane w programie ASP.NET 2.0. Klasy związane z kodem w programie ASP.NET 2.0 jest definiowane jako klasę częściową, co oznacza, że zawiera on tylko część definicji klasy. Pozostała część definicji klasy jest generowana dynamicznie przy ASP.NET 2.0 przy użyciu strony ASPX, w czasie wykonywania lub witryny sieci Web są wstępnie skompilowane. Łącze między plikiem CodeBehind i strony ASPX nadal zostanie nawiązane, przy użyciu dyrektywy @ Page. Jednak zamiast atrybutu CodeBehind lub Src ASP.NET 2.0 używa teraz atrybut CodeFile. Atrybut Inherits umożliwia również określić nazwę klasy dla strony.
 
-Typowy dyrektywy @ Page może wyglądać następująco:
+Typowe dyrektywy @ Page może wyglądać następująco:
 
 [!code-aspx[Main](the-asp-net-2-0-page-model/samples/sample1.aspx)]
 
-Definicję typowej klasy w pliku CodeBehind ASP.NET 2.0 może wyglądać następująco:
+Definicję typowej klasy w pliku związanym z kodem programu ASP.NET 2.0 może wyglądać następująco:
 
 [!code-csharp[Main](the-asp-net-2-0-page-model/samples/sample2.cs)]
 
 > [!NOTE]
-> C# i Visual Basic są tylko języki zarządzanych, które obsługuje obecnie klas częściowych. W związku z tym deweloperzy przy użyciu J# nie będzie mógł używać modelu kodu powiązanego w programie ASP.NET 2.0.
+> C# i Visual Basic są tylko języki zarządzane, obsługujące klas częściowych. W związku z tym deweloperzy korzystający z języka J# nie będzie do korzystania z modelu związanym z kodem w programie ASP.NET 2.0.
 
 
-Nowy model zwiększa modelu związane z kodem, ponieważ deweloperzy mają teraz pliki kodu, które zawierają tylko kod, który zostały one utworzone. Zapewnia także true oddzielenie kodu i zawartości, ponieważ nie ma żadnych wystąpienia deklaracji zmiennych w pliku CodeBehind.
+Nowy model zwiększa modelu związanym z kodem, ponieważ deweloperzy będą teraz mieć plików kodu, które zawierają tylko kod, który zostały one utworzone. Zapewnia także true separacja kodu i zawartości, ponieważ nie ma żadnych wystąpienia deklaracji zmiennych w pliku związanym z kodem.
 
 > [!NOTE]
-> Ponieważ częściowej klasy strony ASPX Jeśli powiązanie zdarzeń ma miejsce, deweloperów języka Visual Basic osiągnąć wzrost wydajności nieznaczne przy użyciu słowa kluczowego dojść w związane z kodem powiązać zdarzenia. C# ma nie równoważne — słowo kluczowe.
+> Częściowe klasy dla strony ASPX jest, gdzie odbywa się powiązanie zdarzeń, deweloperów programu Visual Basic można weź pod uwagę wzrost niewielkim wzroście wydajności przy użyciu słowa kluczowego uchwytów w związanym z kodem można powiązać zdarzenia. C# ma nie równoważne słowa kluczowego.
 
 
 ## <a name="new--page-directive-attributes"></a>Nowe atrybuty @ Page — dyrektywa
 
-Platforma ASP.NET 2.0 dodaje wiele nowych atrybutów do dyrektywy @ Page. Następujące atrybuty są nowe w programie ASP.NET 2.0.
+Program ASP.NET 2.0 dodaje wiele nowych atrybutów do dyrektywy @ Page. Następujące atrybuty są nowością w programie ASP.NET 2.0.
 
 ## <a name="async"></a>Async
 
-Atrybut Async pozwala na skonfigurowanie strony, aby być wykonywane asynchronicznie. Obejmuje również asynchroniczne stron w dalszej części tego modułu.
+Atrybut Async pozwala skonfigurować stronę, aby być wykonywany asynchronicznie. Obejmuje również asynchronicznego stron w dalszej części tego modułu.
 
 ## <a name="asynctimeout"></a>AsyncTimeout
 
-Określony limit czasu asynchronicznego stron. Wartość domyślna wynosi 45 sekund.
+Określony limit czasu dla asynchronicznego stron. Wartość domyślna to 45 sekund.
 
 ## <a name="codefile"></a>CodeFile
 
-Atrybut CodeFile zastępuje atrybutu plik CodeBehind w programie Visual Studio 2002/2003.
+Atrybut CodeFile jest zastępczych dla atrybutu pliku CodeBehind w programie Visual Studio 2002/2003.
 
 ### <a name="codefilebaseclass"></a>CodeFileBaseClass
 
-Atrybut CodeFileBaseClass jest używany w przypadkach, w którym ma wiele stron pochodzić z jednej klasy podstawowej. Z powodu wykonania klas częściowych w ASP.NET, bez tego atrybutu klasę podstawową używaną do odwołują się do formantów zadeklarowany w strony ASPX współdzielonych pól wspólnej nie będzie działać prawidłowo ponieważ ASP. Aparat kompilacji sieci automatycznie utworzy nowe elementy członkowskie oparte na formanty na stronie. W związku z tym jeśli chcesz wspólna klasa podstawowa dla dwóch lub więcej stron w programie ASP.NET, należy zdefiniować Określ klasy podstawowej w atrybucie CodeFileBaseClass, a następnie pochodzi każdej klasy stron od tej klasy podstawowej. Atrybut CodeFile jest również wymagany, gdy jest używany ten atrybut.
+Atrybut CodeFileBaseClass jest używany w przypadkach, w którym ma się wiele stron pochodzić z jednej klasy bazowej. Ze względu na implementację klas częściowych w ASP.NET, bez tego atrybutu klasy bazowej, korzystającą z udostępnionych wspólnych pól w celu odwołują się do formantów zadeklarowanych w strony ASPX nie będzie działać poprawnie ponieważ ASP. Aparat kompilacji sieci automatycznie utworzy nowych elementów członkowskich na podstawie formantów na stronie. W związku z tym, jeśli mają wspólną klasę bazową dla dwóch lub więcej stron w programie ASP.NET: należy zdefiniować Określ klasę bazową w atrybucie CodeFileBaseClass, a następnie dziedziczyć po każdej klasy strony tej klasy bazowej. Atrybut CodeFile jest wymagany również w przypadku, gdy ten atrybut jest używany.
 
-## <a name="compilationmode"></a>właściwość compilationMode
+## <a name="compilationmode"></a>CompilationMode
 
-Ten atrybut umożliwia należy ustawić właściwość CompilationMode strony ASPX. Właściwość CompilationMode jest wyliczenie zawierające wartości **zawsze**, **automatycznie**, i **nigdy**. Wartość domyślna to **zawsze**. **Automatycznie** ustawienie uniemożliwi dynamicznie, jeśli to możliwe kompilowania strony ASP.NET. Zwiększa wydajność, z wyłączeniem stron z kompilacji dynamicznej. Jednak jeśli strony, który jest wykluczony zawiera ten kod, który musi być skompilowany, będzie można zgłoszony błąd podczas przeglądania strony.
+Ten atrybut umożliwia ustawienie właściwości CompilationMode strony ASPX. Właściwość CompilationMode jest wyliczeniem, zawierające wartości **zawsze**, **automatycznie**, i **nigdy**. Wartość domyślna to **zawsze**. **Automatycznie** ustawienie uniemożliwi ASP.NET dynamicznie kompilowania strony, jeśli jest to możliwe. Wyłączanie stron z kompilacji dynamicznej zwiększa wydajność. Jednakże, jeśli strona, która jest wykluczona zawiera ten kod, który musi być skompilowany, zostanie zwrócony błąd podczas przeglądania strony.
 
 ## <a name="enableeventvalidation"></a>EnableEventValidation
 
-Ten atrybut określa, czy są weryfikowane zdarzenia odświeżania strony i wywołania zwrotnego. Gdy ta opcja jest włączona, argumenty odświeżania lub wywołania zwrotnego zdarzenia są sprawdzane w celu zapewnienia, że pochodzą z formantu serwera, który pierwotnie je odwzorował.
+Ten atrybut określa, czy zdarzenia odświeżenie strony i wywołań zwrotnych do sprawdzania poprawności. Gdy ta opcja jest włączona, argumenty odświeżania lub zdarzenia wywołania zwrotnego jest sprawdzany w celu upewnij się, że pochodzą formant serwera, który pierwotnie ich renderowania.
 
-## <a name="enabletheming"></a>Właściwość EnableTheming
+## <a name="enabletheming"></a>EnableTheming
 
-Ten atrybut określa, czy kompozycji ASP.NET są używane na stronie. Wartość domyślna to **false**. Motywy ASP.NET są objęte [10 modułu](profiles-themes-and-web-parts.md).
+Ten atrybut określa, czy motywów programu ASP.NET są używane na stronie. Wartość domyślna to **false**. Motywy platformy ASP.NET zostały omówione w [10 modułu](profiles-themes-and-web-parts.md).
 
 ## <a name="linepragmas"></a>LinePragmas
 
-Ten atrybut określa, czy dyrektywy pragma linii powinny zostać dodane podczas kompilacji. Wyrażenia pragma wiersza są opcje używane przez debugery, aby oznaczyć określonych sekcji kodu.
+Ten atrybut określa, czy podczas kompilacji należy dodać wyrażenia pragma wiersza. Wyrażenia pragma wiersza są opcje używane przez debugery, aby oznaczyć określonych sekcji kodu.
 
 ## <a name="maintainscrollpositiononpostback"></a>MaintainScrollPositionOnPostback
 
-Ten atrybut określa, czy JavaScript jest wstrzykiwane do strony w celu utrzymania pozycji przewijania między odświeżeniami. Ten atrybut jest **false** domyślnie.
+Ten atrybut określa, czy języka JavaScript są wstrzykiwane do strony, aby zachować położenie przewijania między ogłoszeniami wstecznymi. Ten atrybut jest **false** domyślnie.
 
-Jeśli ten atrybut jest **true**, doda ASP.NET &lt;skryptu&gt; bloku odświeżania strony, która wygląda następująco:
+Jeśli ten atrybut jest **true**, ASP.NET spowoduje to dodanie &lt;skryptu&gt; bloku na odświeżenie strony, która wygląda w następujący sposób:
 
 [!code-html[Main](the-asp-net-2-0-page-model/samples/sample3.html)]
 
-Należy pamiętać, że src tego bloku skryptu WebResource.axd. Ten zasób nie jest ścieżką fizyczną. Po zażądaniu tego skryptu ASP.NET dynamicznie tworzy skrypt.
+Należy pamiętać, że src dla tego bloku skryptu WebResource.axd. Ten zasób nie jest ścieżką fizyczną. Zleconą ten skrypt ASP.NET dynamicznie tworzy skrypt.
 
 ### <a name="masterpagefile"></a>MasterPageFile
 
-Ten atrybut określa plik strony głównej dla bieżącej strony. Ścieżka może być względna lub bezwzględna. Strony główne są objęte [modułu 4](master-pages.md).
+Ten atrybut określa plik strony głównej dla bieżącej strony. Ścieżka może być względna lub bezwzględna. Strony wzorcowe są objęte [modułu 4](master-pages.md).
 
-## <a name="stylesheettheme"></a>Element StyleSheetTheme
+## <a name="stylesheettheme"></a>StyleSheetTheme
 
-Ten atrybut umożliwia zastąpienie interfejsu użytkownika wygląd właściwości zdefiniowane przez motyw programu ASP.NET 2.0. Motywy są objęte [10 modułu](profiles-themes-and-web-parts.md).
+Ten atrybut umożliwia zastąpienie właściwości wygląd interfejsu użytkownika zdefiniowane przez motywów programu ASP.NET 2.0. Motywy są objęte [10 modułu](profiles-themes-and-web-parts.md).
 
 ## <a name="theme"></a>Motyw
 
-Określa motyw dla strony. Jeśli nie określono wartości dla atrybutu element StyleSheetTheme, atrybutu motywu zastępuje wszystkie style stosowana do formantów na stronie.
+Określa motywu strony. Jeśli nie określono wartości dla atrybutu StyleSheetTheme, atrybut motywu zastępuje wszystkie style, które dotyczą kontrolki na stronie.
 
 ## <a name="title"></a>Tytuł
 
-Ustawia tytuł strony. Wartość określona w tym miejscu będą widoczne w &lt;tytuł&gt; element renderowanej strony.
+Ustawia tytuł strony. Wartość określona w tym miejscu będą wyświetlane w &lt;tytuł&gt; element renderowanej strony.
 
 ### <a name="viewstateencryptionmode"></a>ViewStateEncryptionMode
 
-Ustawia wartość wyliczenia ViewStateEncryptionMode. Dostępne wartości to **zawsze**, **automatycznie**, i **nigdy**. Wartość domyślna to **automatycznie**. Jeśli ten atrybut ma ustawioną wartość **automatycznie**, są szyfrowane, stan widoku jest formant żądania przez wywołanie metody **RegisterRequiresViewStateEncryption** — metoda.
+Ustawia wartość wyliczenia ViewStateEncryptionMode. Dostępne wartości to **zawsze**, **automatycznie**, i **nigdy**. Wartość domyślna to **automatycznie**. Gdy ten atrybut jest ustawiony na wartość **automatycznie**, stan widoku jest szyfrowany jest kontrolki go przez wywołanie metody **RegisterRequiresViewStateEncryption** metody.
 
 ## <a name="setting-public-property-values-via-the--page-directive"></a>Ustawianie wartości właściwości publicznej za pośrednictwem @ Page — dyrektywa
 
-Kolejna nowa możliwość dyrektywy @ Page, w programie ASP.NET 2.0 jest możliwość określenia początkowej wartości właściwości publicznej klasy podstawowej. Załóżmy na przykład, że masz właściwości publicznej o nazwie **SomeText** w klasie podstawowej i d podoba Ci się zostać zainicjowany do **Hello** po załadowaniu strony. Można to zrobić po prostu ustawiając wartość w dyrektywy @ Page w następujący sposób:
+Kolejna nowa możliwość dyrektywy @ Page w programie ASP.NET 2.0 jest możliwość ustawiania początkowa wartość właściwości publiczne klasy bazowej. Załóżmy na przykład, że masz właściwość publiczną o nazwie **SomeText** w swojej klasy bazowej i d podoba Ci się zostać zainicjowana do **Hello** po załadowaniu strony. Można to zrobić, po prostu ustawiając wartość w dyrektywy @ Page w następujący sposób:
 
 [!code-aspx[Main](the-asp-net-2-0-page-model/samples/sample4.aspx)]
 
-**SomeText** atrybutu dyrektywy @ Page ustawia początkowa wartość właściwości SomeText w klasie podstawowej, aby *Witaj!*. Poniższy klip wideo jest wskazówki ustawienia początkowej wartości właściwości publicznej w klasie podstawowej za pomocą dyrektywy @ Page.
+**SomeText** atrybutu dyrektywy @ Page ustawia początkowe wartości właściwości SomeText w klasie bazowej, aby *Hello!*. Poniższy klip wideo jest wskazówki dotyczące ustawiania wartości początkowej właściwość publiczna w klasie bazowej, przy użyciu dyrektywy @ Page.
 
 
 ![](the-asp-net-2-0-page-model/_static/image1.png)
 
 
-[Otwórz wideo na pełnym ekranie](the-asp-net-2-0-page-model/_static/setprop1.wmv)
+[Otwórz wideo pełnego ekranu](the-asp-net-2-0-page-model/_static/setprop1.wmv)
 
 
 ## <a name="new-public-properties-of-the-page-class"></a>Nowe właściwości publicznej klasy strony
 
-Następujące właściwości publiczne są nowe w programie ASP.NET 2.0.
+Następujące właściwości publiczne są nowością w programie ASP.NET 2.0.
 
 ## <a name="apprelativetemplatesourcedirectory"></a>AppRelativeTemplateSourceDirectory
 
-Zwraca ścieżkę względem aplikacji do strona lub kontrolka. Na przykład dla strony znajduje się w http://app/folder/page.aspx, zwraca właściwość ~ / folderu.
+Zwraca ścieżkę względem aplikacji do strony lub formant. Na przykład strony znajduje się w http://app/folder/page.aspx, zwraca właściwości ~ / folder /.
 
 ## <a name="apprelativevirtualpath"></a>AppRelativeVirtualPath
 
-Zwraca ścieżka względna katalogu wirtualnego do strony lub formantu. Na przykład dla strony znajduje się w http://app/folder/page.aspx, zwraca właściwość ~ / folder/page.aspx.
+Zwraca ścieżkę względną katalogu wirtualnego do strona lub kontrolka. Na przykład w przypadku strony znajduje się w http://app/folder/page.aspx, zwraca właściwości ~ / folder/page.aspx.
 
 ## <a name="asynctimeout"></a>AsyncTimeout
 
-Pobiera lub ustawia limit czasu używany do obsługi asynchroniczne strony. (Asynchroniczne strony zostaną uwzględnione w dalszej części tego modułu.)
+Pobiera lub ustawia limit czasu, używane do obsługi asynchronicznego strony. (Asynchronicznego strony będzie uwzględnione w dalszej części tego modułu).
 
 ## <a name="clientquerystring"></a>ClientQueryString
 
-Właściwość tylko do odczytu, która zwraca część ciągu zapytania żądanego adresu URL. Ta wartość jest zakodowane w adresie URL. Metoda UrlDecode klasy HttpServerUtility umożliwia zdekodować.
+Właściwość tylko do odczytu, która zwraca część ciągu zapytania żądanego adresu URL. Ta wartość jest zakodowane w adresie URL. Metoda UrlDecode klasy HttpServerUtility służy do zdekodowania go.
 
 ## <a name="clientscript"></a>ClientScript
 
-Ta właściwość zwraca obiekt ClientScriptManager, który może służyć do zarządzania emisji ASP.NETs skryptu po stronie klienta. (Klasa ClientScriptManager jest uwzględnione w dalszej części tego modułu).
+Ta właściwość zwraca obiekt ClientScriptManager, który może służyć do zarządzania emisji ASP.NETs skryptu po stronie klienta. (Klasy ClientScriptManager zostało opisane w dalszej części tego modułu).
 
 ## <a name="enableeventvalidation"></a>EnableEventValidation
 
-Ta właściwość określa, czy sprawdzanie poprawności zdarzenia jest włączony dla zdarzeń ogłaszania zwrotnego i wywołania zwrotnego. Po włączeniu argumentów odświeżania lub wywołania zwrotnego zdarzenia są weryfikowane i upewnij się, że pochodzą z formantu serwera, który pierwotnie je odwzorował.
+Ta właściwość określa, czy sprawdzanie poprawności zdarzenia jest włączony dla zdarzeń odświeżenie strony i wywołania zwrotnego. Po włączeniu argumentów odświeżania lub zdarzenia wywołania zwrotnego są weryfikowane i upewnij się, że pochodzą formant serwera, który pierwotnie ich renderowania.
 
-## <a name="enabletheming"></a>Właściwość EnableTheming
+## <a name="enabletheming"></a>EnableTheming
 
-Ta właściwość pobiera lub ustawia wartość logiczna określająca, czy motyw programu ASP.NET 2.0 jest stosowany do strony.
+Tej właściwości pobiera lub ustawia wartość logiczna określająca, czy motywów programu ASP.NET 2.0 jest stosowany do strony.
 
 ## <a name="form"></a>Formularz
 
-Ta właściwość zwraca formularza HTML na stronie ASPX jako obiekt HtmlForm.
+Ta właściwość zwraca formularza HTML strony ASPX jako obiekt HtmlForm.
 
 ## <a name="header"></a>nagłówek
 
-Ta właściwość zwraca odwołanie do obiektu HtmlHead, który zawiera nagłówek strony. Zwrócony obiekt HtmlHead służy do pobierania/ustawiania arkusze stylów, tagi Meta itp.
+Ta właściwość zwraca odwołanie do obiektu HtmlHead, która zawiera nagłówek strony. Zwrócony obiekt HtmlHead służy do pobierania/ustawiania, arkusze stylów, tagów Meta itp.
 
 ## <a name="idseparator"></a>IdSeparator
 
-Ta właściwość tylko do odczytu pobiera znak, który jest używany do oddzielania identyfikatory kontroli, gdy program ASP.NET tworzy unikatowy identyfikator dla formantów na stronie. Nie jest on przeznaczony do użycia bezpośrednio w kodzie.
+Ta właściwość tylko do odczytu pobiera lub ustawia znak używany do oddzielania identyfikatory kontroli, kompilując ASP.NET jest unikatowy identyfikator dla formantów na stronie. Nie jest on przeznaczony do użycia bezpośrednio w kodzie.
 
 ## <a name="isasync"></a>IsAsync
 
-Ta właściwość umożliwia asynchroniczne stron. Asynchroniczne stron zostały omówione w dalszej części tego modułu.
+Ta właściwość umożliwia asynchroniczne stron. Strony asynchroniczne zostały omówione w dalszej części tego modułu.
 
 ## <a name="iscallback"></a>IsCallback
 
-Ta właściwość tylko do odczytu zwraca **true** Jeśli strona jest wynikiem wywołania zwrotnego. Wywołań zwrotnych zostały omówione w dalszej części tego modułu.
+Ta właściwość tylko do odczytu zwraca **true** Jeśli strona jest wynikiem wywołania zwrotnego. Oddzwanianie zostały omówione w dalszej części tego modułu.
 
 ## <a name="iscrosspagepostback"></a>IsCrossPagePostBack
 
-Ta właściwość tylko do odczytu zwraca **true** Jeśli strona jest częścią odświeżania strony między stronami. Między stronami ogłaszania zwrotnego są uwzględnione w dalszej części tego modułu.
+Ta właściwość tylko do odczytu zwraca **true** Jeśli strona jest częścią ogłaszania zwrotnego między stronami. Ogłaszania zwrotnego między stronami zostały omówione w dalszej części tego modułu.
 
 ## <a name="items"></a>Elementy
 
-Zwraca odwołanie do wystąpienia IDictionary, który zawiera wszystkie obiekty przechowywane w kontekście strony. Można dodać elementy do tego obiektu IDictionary i będą one dostępne w okresie istnienia w kontekście.
+Zwraca odwołanie do wystąpienia element IDictionary zawierający wszystkie obiekty przechowywane w kontekście strony. Można dodać elementy do tego obiektu IDictionary i będą one dostępne w okresie istnienia w kontekście.
 
 ## <a name="maintainscrollpositiononpostback"></a>MaintainScrollPositionOnPostBack
 
-Ta właściwość określa, czy program ASP.NET emituje JavaScript, który utrzymuje się, że strony przewiń pozycji w przeglądarce po wystąpieniu odświeżania strony. (Szczegóły tej właściwości zostały opisanych wcześniej w tym module).
+Ta właściwość określa, czy program ASP.NET emituje języka JavaScript, który utrzymuje stron przewiń pozycji w przeglądarce, po wystąpieniu ogłaszania zwrotnego. (Szczegóły tej właściwości zostały omówione wcześniej w tym module).
 
-## <a name="master"></a>wzorzec
+## <a name="master"></a>Wzorzec
 
-Ta właściwość tylko do odczytu zwraca odwołanie do wystąpienia formantu MasterPage dla strony, do którego zastosowano strony wzorcowej.
+Ta właściwość tylko do odczytu zwraca odwołanie do wystąpienia na nich dla strony, do którego zastosowano strony wzorcowej.
 
 ## <a name="masterpagefile"></a>MasterPageFile
 
-Pobiera lub ustawia nazwę pliku strony wzorcowej dla strony. Tej właściwości można ustawić tylko w metodzie PreInit.
+Pobiera lub ustawia nazwę pliku strony wzorcowej strony. Tę właściwość można ustawić tylko w metodzie PreInit.
 
 ## <a name="maxpagestatefieldlength"></a>MaxPageStateFieldLength
 
-Ta właściwość pobiera lub ustawia maksymalną długość stanu stron w bajtach. Jeśli właściwość jest ustawiona na wartość dodatnią, stan widoku strony będzie być dzielone na wiele ukryte pola tak, aby nie przekraczała liczba bajtów określona. Jeśli właściwość jest liczbą ujemną, stan widoku nie będzie dzielony na fragmenty.
+Tej właściwości pobiera lub ustawia maksymalną długość stanu stron w bajtach. Jeśli właściwość jest ustawiona na wartość dodatnią, stan widoku strony będzie być dzielone na wiele ukryte pola tak, aby nie przekracza rozmiaru liczbę bajtów określoną. Jeśli właściwość jest liczbą ujemną, stan widoku nie można podzielić na fragmenty.
 
 ## <a name="pageadapter"></a>PageAdapter
 
@@ -221,63 +220,63 @@ Zwraca odwołanie do obiektu PageAdapter, który modyfikuje strony do przegląda
 
 ## <a name="previouspage"></a>PreviousPage
 
-Zwraca odwołanie do poprzedniej strony w przypadku metody Server.Transfer lub odświeżenie strony między stronami.
+Zwraca odwołanie do poprzedniej strony w przypadku Server.Transfer lub ogłaszania zwrotnego między stronami.
 
 ## <a name="skinid"></a>SkinID
 
-Określa karnacji ASP.NET 2.0 do zastosowania do strony.
+Określa skórki ASP.NET 2.0 do zastosowania do strony.
 
-## <a name="stylesheettheme"></a>Element StyleSheetTheme
+## <a name="stylesheettheme"></a>StyleSheetTheme
 
-Ta właściwość pobiera lub ustawia arkusza stylów, który jest stosowany do strony.
+Tej właściwości pobiera lub ustawia arkusza stylów, która jest stosowana do strony.
 
 ## <a name="templatecontrol"></a>TemplateControl
 
-Zwraca odwołanie do formantu zawierającego strony.
+Zwraca odwołanie do formantu zawierającego dla strony.
 
 ## <a name="theme"></a>Motyw
 
-Pobiera lub ustawia nazwę motywu ASP.NET 2.0 zastosowana do strony. Ta wartość musi być ustawiony przed metodą PreInit.
+Pobiera lub ustawia nazwę motywu ASP.NET 2.0 zastosowana do strony. Ta wartość musi być ustawiony przed metoda PreInit.
 
 ## <a name="title"></a>Tytuł
 
-Ta właściwość pobiera lub ustawia tytuł strony uzyskany w nagłówku strony.
+Tej właściwości pobiera lub ustawia tytuł strony, uzyskany w nagłówku strony.
 
 ## <a name="viewstateencryptionmode"></a>ViewStateEncryptionMode
 
-Pobiera lub ustawia ViewStateEncryptionMode strony. Zobacz szczegółowe omówienie tej właściwości wcześniej w tym module.
+Pobiera lub ustawia ViewStateEncryptionMode strony. Zobacz szczegółowe omówienie tej właściwości we wcześniejszej części tego modułu.
 
 ## <a name="new-protected-properties-of-the-page-class"></a>Nowe właściwości chronionego klasy strony
 
-Poniżej przedstawiono nowe właściwości chronionego klasy strony w programie ASP.NET 2.0.
+Poniżej przedstawiono nowe właściwości chronionego klasy strony programu ASP.NET 2.0.
 
 ## <a name="adapter"></a>Adapter
 
-Zwraca odwołanie do ControlAdapter, renderujący stronę na urządzeniu, które go zażądało.
+Zwraca odwołanie do ControlAdapter, który powoduje wyświetlenie strony na urządzeniu żądane go.
 
 ## <a name="asyncmode"></a>AsyncMode
 
-Ta właściwość wskazuje, czy strona jest wykonywane asynchronicznie. Służy do użytku przez środowisko uruchomieniowe i nie są bezpośrednio w kodzie.
+Ta właściwość wskazuje, czy strony są przetwarzane asynchronicznie. Jest przeznaczony do użytku przez środowisko wykonawcze, a nie bezpośrednio w kodzie.
 
 ## <a name="clientidseparator"></a>ClientIDSeparator
 
-Ta właściwość zwraca znak używany jako separator podczas tworzenia unikatowych klientów identyfikatorów dla formantów. Służy do użytku przez środowisko uruchomieniowe i nie są bezpośrednio w kodzie.
+Ta właściwość zwraca znak używany jako separator, podczas tworzenia unikatowych klientów identyfikatory dla formantów. Jest przeznaczony do użytku przez środowisko wykonawcze, a nie bezpośrednio w kodzie.
 
 ## <a name="pagestatepersister"></a>PageStatePersister
 
-Ta właściwość zwraca obiekt PageStatePersister dla strony. Ta właściwość jest używana głównie przez deweloperów platformy ASP.NET formantu.
+Ta właściwość zwraca obiekt PageStatePersister dla strony. Ta właściwość jest głównie używana przez deweloperów kontroli platformy ASP.NET.
 
 ## <a name="uniquefilepathsuffix"></a>UniqueFilePathSuffix
 
-Ta właściwość Zwraca unikatowy suffic, dołączany do ścieżki pliku dla pamięci podręcznej przeglądarki. Wartość domyślna to \_ \_ufps = i 6-cyfrowy numer.
+Ta właściwość Zwraca unikatowy suffic, która jest dołączana do ścieżki pliku do pamięci podręcznej przeglądarki. Wartość domyślna to \_ \_ufps = 6-cyfrowy numer.
 
 ## <a name="new-public-methods-for-the-page-class"></a>Nowych metod publicznych klasy strony
 
-Następujących metod publicznych dopiero zaczynasz korzystać z klasy strony w programie ASP.NET 2.0.
+Jesteś nowym użytkownikiem klasy strony programu ASP.NET 2.0 są następujące metody publiczne.
 
 ## <a name="addonprerendercompleteasync"></a>AddOnPreRenderCompleteAsync
 
-Ta metoda rejestruje delegatów obsługi zdarzeń do wykonywania asynchronicznych strony. Asynchroniczne stron zostały omówione w dalszej części tego modułu.
+Ta metoda rejestruje delegatów obsługi zdarzeń do wykonania asynchronicznej strony. Strony asynchroniczne zostały omówione w dalszej części tego modułu.
 
 ## <a name="applystylesheetskin"></a>ApplyStyleSheetSkin
 
@@ -285,19 +284,19 @@ Zastosowanie właściwości w arkuszu stylów strony do strony.
 
 ## <a name="executeregisteredasynctasks"></a>ExecuteRegisteredAsyncTasks
 
-Ta metoda istot zadanie asynchroniczne.
+Ta metoda żywych zadanie asynchroniczne.
 
 ### <a name="getvalidators"></a>GetValidators
 
-Zwraca kolekcję moduły weryfikacji dla grupy sprawdzania poprawności określonego lub domyślnego sprawdzania poprawności, jeśli nie jest określona.
+Zwraca kolekcję moduły weryfikacji dla grupy sprawdzania poprawności określonego lub sprawdzania poprawności domyślnej grupy, jeśli nie określono.
 
 ## <a name="registerasynctask"></a>RegisterAsyncTask
 
-Ta metoda rejestruje nowe zadanie asynchroniczne. Asynchroniczne strony są uwzględnione w dalszej części tego modułu.
+Ta metoda rejestruje nowe zadanie asynchroniczne. Strony asynchroniczne zostały omówione w dalszej części tego modułu.
 
 ## <a name="registerrequirescontrolstate"></a>RegisterRequiresControlState
 
-Ta metoda określa, że ASP.NET musi zostać utrwalony stanu kontroli stron.
+Ta metoda informuje ASP.NET stan formantu strony musi zostać utrwalone.
 
 ## <a name="registerrequiresviewstateencryption"></a>RegisterRequiresViewStateEncryption
 
@@ -305,275 +304,275 @@ Ta metoda informuje ASP.NET, czy stan wyświetlania stron wymaga szyfrowania.
 
 ## <a name="resolveclienturl"></a>ResolveClientUrl
 
-Zwraca względny adres URL, który może służyć do obsługi żądań klientów dla obrazów itd.
+Zwraca względny adres URL, który może służyć do obsługi żądań klientów, obrazy itp.
 
 ## <a name="setfocus"></a>Funkcja SetFocus
 
-Ta metoda ustawi fokus do formantu, który jest określony, podczas ładowania strony do.
+Ta metoda ustawi fokus do formantu, który jest określana podczas wczytywania strony.
 
 ## <a name="unregisterrequirescontrolstate"></a>UnregisterRequiresControlState
 
-Ta metoda wyrejestruje formant, który jest przekazywany do niego jako już wymagające trwałość stanu formantu.
+Ta metoda wyrejestruje formant, który jest przekazywany do niego jako już konieczności utrwalanie stanu kontrolki.
 
 ## <a name="changes-to-the-page-lifecycle"></a>Zmiany w cyklu życia strony
 
-Cyklu życia strony w programie ASP.NET 2.0 nie zmieniła się znacznie, ale istnieją pewne nowych metod, które należy zwrócić uwagę. Cyklu życia strony ASP.NET 2.0 jest opisane poniżej.
+Cyklu życia strony programu ASP.NET 2.0 nie zmieniło się drastycznie, ale istnieje kilka nowych metod, których należy wiedzieć. Cyklu życia strony ASP.NET 2.0 jest opisane poniżej.
 
-## <a name="preinit-new-in-aspnet-20"></a>PreInit (Nowość w programie ASP.NET 2.0)
+## <a name="preinit-new-in-aspnet-20"></a>PreInit (Nowość w ASP.NET 2.0)
 
-Zdarzenie PreInit jest najwcześniejszym etapie w cyklu życia, w których deweloper może uzyskać dostęp. Dodanie to zdarzenie umożliwia programowo zmienić kompozycji ASP.NET 2.0, stron wzorcowych, dostępu do właściwości profilu platformy ASP.NET 2.0 itp. Jeśli jesteś w stanie odświeżania strony, jego zdawać sobie sprawę, że stan widoku nie ma jeszcze zastosowane do formantów w tym momencie w cyklu życia. W związku z tym jeśli dewelopera właściwości formantu zmieni się na tym etapie, zostanie prawdopodobnie on zastąpiony później w cyklu życia strony.
+Zdarzenie PreInit jest najwcześniejszym etapie w cyklu życia, których deweloper może uzyskać dostęp. Dodanie to zdarzenie umożliwia programowe Zmienianie motywów programu ASP.NET 2.0, strony wzorcowe, uzyskiwanie dostępu do właściwości profilu platformy ASP.NET 2.0 itp. Jeśli jesteś w stanie ogłaszania wstecznego, istotne jest, aby należy pamiętać, że stan widoku nie ma jeszcze zastosowane do kontrolek na tym etapie w cyklu życia. W związku z tym jeśli deweloper zmienia właściwość kontrolki na tym etapie, zostanie prawdopodobnie on zastąpiony w dalszej części cyklu życia strony.
 
 ## <a name="init"></a>Init
 
-Zdarzeniu Init nie zmienił się z ASP.NET 1.x. Jest to miejscu do odczytu lub zainicjować właściwości formantów na stronie. Ten etap, stron wzorcowych, kompozycje itp. już są stosowane do strony.
+Zdarzenie inicjowania nie zmienił się z ASP.NET 1.x. Jest to miejscu do odczytu lub zainicjować właściwości formantów na stronie. Na tym etapie, strony wzorcowe, motywy itp., są już stosowane do strony.
 
 ## <a name="initcomplete-new-in-20"></a>InitComplete (Nowość w wersji 2.0)
 
-Zdarzenie InitComplete jest wywoływane po zakończeniu etapu inicjowania strony. W tym momencie cały cykl życia, dostępne kontrolki na stronie, ale nie została jeszcze wypełniona ich stan.
+Zdarzenie InitComplete jest wywoływane na końcu etapie inicjowania strony. Na tym etapie w cyklu życia, możesz uzyskać dostęp formantów na stronie, ale nie została jeszcze wypełniona ich stanu.
 
 ## <a name="preload-new-in-20"></a>Wstępne ładowanie (Nowość w wersji 2.0)
 
-To zdarzenie jest wywoływane po zastosowaniu wszystkich danych odświeżania strony i wcześniejszy niż strony\_obciążenia.
+To zdarzenie jest wywoływane po zastosowaniu wszystkich danych ogłaszania wstecznego i tuż przed strony\_obciążenia.
 
 ## <a name="load"></a>Ładowanie
 
-Zdarzenie obciążenia nie zmienił się z ASP.NET 1.x.
+Załadowane zdarzenie nie zmienił się z ASP.NET 1.x.
 
 ## <a name="loadcomplete-new-in-20"></a>LoadComplete (Nowość w wersji 2.0)
 
-Zdarzenie LoadComplete jest ostatnie zdarzenie w fazie ładowania stron. Na tym etapie wszystkie dane ogłaszania zwrotnego i stanu wyświetlania zostały zastosowane do strony.
+Zdarzenie LoadComplete jest ostatnie zdarzenie w fazie ładowania stron. Na tym etapie wszystkie dane ogłaszania zwrotnego i stanu wyświetlania zostały doliczone do strony.
 
 ## <a name="prerender"></a>PreRender
 
-Jeśli chcesz viewstate prawidłowo utrzymania dla formantów, które są dodawane dynamicznie do strony, zdarzenie PreRender jest to ostatnia możliwość je dodać.
+Jeśli chcesz uzyskać viewstate prawidłowo utrzymanie dla formantów, które są dodawane dynamicznie do strony, zdarzenie PreRender jest to ostatnia możliwość je dodać.
 
 ## <a name="prerendercomplete-new-in-20"></a>PreRenderComplete (Nowość w wersji 2.0)
 
-Na etapie PreRenderComplete zostały dodane wszystkie formanty do strony i jest gotowy do renderowania strony. Zdarzenie PreRenderComplete jest ostatnie zdarzenie wywoływane przed zapisaniem stanu widoku strony.
+Na etapie PreRenderComplete wszystkich kontrolek zostały dodane do strony, a strona jest gotowy do renderowania. Zdarzenie PreRenderComplete jest ostatnie zdarzenie zgłoszone przed zapisaniem stanu widoku strony.
 
 ## <a name="savestatecomplete-new-in-20"></a>SaveStateComplete (Nowość w wersji 2.0)
 
-Zdarzenie SaveStateComplete jest wywoływana natychmiast po zapisaniu wszystkie strony viewstate i kontroli stanu. Jest to ostatnie zdarzenie przed wyświetleniem strony faktycznie w przeglądarce.
+Zdarzenie SaveStateComplete nosi nazwę natychmiast, po zapisaniu wszystkich stanów strony viewstate i kontroli. Jest to ostatnie zdarzenie przed wyświetleniem strony faktycznie w przeglądarce.
 
 ## <a name="render"></a>Renderowanie
 
-Metoda renderowania nie zmienił się od ASP.NET 1.x. Jest to której zainicjowano HtmlTextWriter i realizacją strony w przeglądarce.
+Metody renderowania nie zmienił się od ASP.NET 1.x. Jest to, gdzie HtmlTextWriter jest inicjowany i wyrenderowaniu strony do przeglądarki.
 
-## <a name="cross-page-postback-in-aspnet-20"></a>Ogłaszania zwrotnego między stronami w programie ASP.NET 2.0
+## <a name="cross-page-postback-in-aspnet-20"></a>Ogłaszania zwrotnego między stronami, w programie ASP.NET 2.0
 
-W programie ASP.NET 1.x, ogłaszania zwrotnego były wymagane do wysłania do tej samej stronie. Między stronami ogłaszania zwrotnego są niedozwolone. Platforma ASP.NET 2.0 dodaje możliwość ogłosić innej strony za pomocą interfejsu IButtonControl. Żadnego formantu, który implementuje interfejs IButtonControl nowe (przycisk, LinkButton i ImageButton oprócz innych firm formantów niestandardowych) można korzystać z tej nowej funkcji przez użycie atrybutu PostBackUrl. Poniższy kod przedstawia kontrolkę przycisku, który dokonuje ogłoszenia drugiej stronie.
+W programie ASP.NET: 1.x, ogłaszania zwrotnego były wymagane do wysłania do tej samej stronie. Ogłaszania zwrotnego między stronami nie były dozwolone. Program ASP.NET 2.0 dodaje możliwość Opublikuj innej strony za pomocą interfejsu IButtonControl. Żadnego formantu, który implementuje nowy interfejs IButtonControl (Button, element LinkButton i ImageButton oprócz niestandardowe formanty innych firm) mogą korzystać z tej nowej funkcji przez użycie atrybutu PostBackUrl. Poniższy kod przedstawia formant przycisku, który publikuje drugiej strony.
 
 [!code-aspx[Main](the-asp-net-2-0-page-model/samples/sample5.aspx)]
 
-Jeśli strona jest przesyłana z powrotem, który inicjuje ogłaszania zwrotnego strony jest dostępny za pośrednictwem właściwości PreviousPage na drugiej stronie. Ta funkcja jest implementowany za pośrednictwem nowego formularza sieci Web\_DoPostBackWithOptions po stronie klienta funkcji, która renderuje ASP.NET 2.0 do strony, gdy formant dokonuje ogłoszenia innej strony. Ta funkcja JavaScript jest dostarczana przez nowy program obsługi WebResource.axd, który emituje skryptu do klienta.
+Gdy strona jest przesyłana z powrotem, Strona która inicjuje odświeżenie strony są dostępne przez właściwość PreviousPage na drugiej stronie. Ta funkcja jest zaimplementowana za pomocą nowego formularza sieci Web\_DoPostBackWithOptions po stronie klienta funkcji, która ASP.NET 2.0 renderuje do strony, gdy formant publikuje do innej strony. Ta funkcja JavaScript jest zapewniana przez nowy program obsługi WebResource.axd, który emituje skryptu do klienta.
 
-Poniższy klip wideo jest przewodnik odświeżania strony między stronami.
+Poniższy klip wideo jest przewodnik ogłaszania zwrotnego między stronami.
 
 
 ![](the-asp-net-2-0-page-model/_static/image2.png)
 
 
-[Otwórz wideo na pełnym ekranie](the-asp-net-2-0-page-model/_static/xpage1.wmv)
+[Otwórz wideo pełnego ekranu](the-asp-net-2-0-page-model/_static/xpage1.wmv)
 
 
-## <a name="more-details-on-cross-page-postbacks"></a>Więcej informacji na temat ogłaszania zwrotnego strony między
+## <a name="more-details-on-cross-page-postbacks"></a>Szczegółowe informacje na temat ogłaszania zwrotnego między stronami
 
 ### <a name="viewstate"></a>Stan widoku
 
-Może zażądano samodzielnie już o co stanie się stan od pierwszej strony w scenariuszu odświeżania strony między stronami. Po wszystkich żadnego formantu, który nie implementuje element IPostBackDataHandler pozostanie stanu za pośrednictwem elementu viewstate, więc dostęp do właściwości tego formantu na drugiej stronie odświeżania strony między stronami, musisz mieć dostęp do stanu widoku strony. Platforma ASP.NET 2.0 zajmuje się ten scenariusz przy użyciu nowego pola ukryte na drugiej stronie o nazwie \_ \_PREVIOUSPAGE. \_ \_PREVIOUSPAGE pole formularza zawiera stan dla pierwszej strony, dzięki czemu mają dostęp do właściwości wszystkich kontrolek na drugiej stronie.
+Może mieć monit samodzielnie już o co się dzieje z viewstate od pierwszej strony w przypadku zwrotu między stronami. Gdy wszystkie żadnego formantu, który nie implementuje element IPostBackDataHandler utrwali stanie za pośrednictwem stanu widoku, dlatego mają mieć dostęp do właściwości tej kontrolki na drugiej stronie ogłaszania zwrotnego między stronami, musi mieć dostęp do stanu widoku strony. Program ASP.NET 2.0 zajmuje się ten scenariusz przy użyciu nowego pola ukryte na drugiej stronie o nazwie \_ \_PREVIOUSPAGE. \_ \_PREVIOUSPAGE pole formularza zawiera viewstate dla pierwszej strony, dzięki czemu mają dostęp do właściwości wszystkich kontrolek na drugiej stronie.
 
-### <a name="circumventing-findcontrol"></a>Obejście metody FindControl
+### <a name="circumventing-findcontrol"></a>Obejście FindControl
 
-Przewodnik wideo odświeżania strony między stronami I użyć metody metody FindControl Aby pobrać odwołanie do formantu TextBox na pierwszej stronie. Ta metoda sprawdza się w przypadku tego celu, ale metody FindControl jest kosztowne i wymaga zapisywania dodatkowy kod. Na szczęście program ASP.NET 2.0 stanowi alternatywę dla metody FindControl dla tego celu, które będą działać w wielu scenariuszach. Dyrektywa PreviousPageType umożliwia zawierają jednoznacznie odwołanie do poprzedniej strony za pomocą TypeName lub VirtualPath atrybutu. Atrybut TypeName umożliwia określenie typu poprzedniej strony, gdy atrybut VirtualPath służy do odwoływania się do poprzedniej strony za pomocą ścieżki wirtualnej. Po ustawieniu dyrektywy PreviousPageType następnie musi ujawniać formantów, itp., do której chcesz zezwolić na dostęp za pomocą właściwości publiczne.
+Przewodnik wideo ogłaszania zwrotnego między stronami czy używana metoda FindControl można pobrać odwołania do kontrolki pola tekstowego na pierwszej stronie. Ta metoda sprawdza się w przypadku tego celu, ale FindControl jest kosztowne i wymaga on tworzenia dodatkowego kodu. Na szczęście ASP.NET 2.0 stanowi alternatywę dla FindControl w tym celu, który będzie działać w wielu scenariuszach. Dyrektywa PreviousPageType umożliwia silnie typizowane odwoływałby się do poprzedniej strony za pomocą TypeName lub atrybut VirtualPath. Atrybut TypeName umożliwia określenie typu poprzedniej strony, gdy atrybut VirtualPath zezwala na odnoszenie się do poprzedniej strony, przy użyciu ścieżki wirtualnej. Po ustawieniu dyrektywy PreviousPageType, należy następnie udostępnić formantów, itp., do której chcesz zezwolić na dostęp przy użyciu właściwości publiczne.
 
-## <a name="lab-1-cross-page-postback"></a>Ogłaszania zwrotnego strony między laboratorium 1
+## <a name="lab-1-cross-page-postback"></a>Ogłaszania zwrotnego między stronami laboratorium 1
 
-W tym laboratorium utworzysz aplikację, która korzysta z nowych funkcji odświeżania strony między stronami ASP.NET 2.0.
+W tym środowisku laboratoryjnym utworzysz aplikację, która korzysta z nowych funkcji zwrotu między stronami ASP.NET 2.0.
 
-1. Otwórz program Visual Studio 2005 i Utwórz nową witrynę sieci Web programu ASP.NET.
+1. Otwórz program Visual Studio 2005 i Utwórz nową witrynę sieci Web platformy ASP.NET.
 2. Dodaj nowy formularz sieci Web o nazwie page2.aspx.
-3. Otwórz plik Default.aspx w widoku projektu i Dodaj kontrolkę przycisku i kontrolki pola tekstowego. 
+3. Otwórz Default.aspx w widoku Projekt i Dodaj formant przycisku i formant pola tekstowego. 
 
-    1. Nadaj identyfikator formantu przycisku **SubmitButton** i identyfikator dla formantu pole tekstowe **UserName**.
-    2. Ustaw właściwość PostBackUrl przycisku do page2.aspx.
+    1. Nadaj formant przycisku o identyfikatorze **SubmitButton** i pole tekstowe kontrolować identyfikator **UserName**.
+    2. Ustaw właściwość PostBackUrl przycisku page2.aspx.
 4. Otwórz page2.aspx w widoku źródła.
 5. Dodaj dyrektywy @ PreviousPageType, jak pokazano poniżej:
-6. Dodaj następujący kod do strony\_obciążenia na page2.aspx kodem: 
+6. Dodaj następujący kod do strony\_obciążenia firmy page2.aspx związane z kodem: 
 
     [!code-csharp[Main](the-asp-net-2-0-page-model/samples/sample6.cs)]
-7. Skompiluj projekt, klikając w menu kompilacji podczas kompilacji.
+7. Skompiluj projekt, klikając menu kompilacji podczas kompilacji.
 8. Dodaj następujący kod do kodem Default.aspx: 
 
     [!code-csharp[Main](the-asp-net-2-0-page-model/samples/sample7.cs)]
-9. Zmień stronę\_obciążenia w page2.aspx do następującego: 
+9. Zmiany strony\_obciążenia w page2.aspx do następującego: 
 
     [!code-csharp[Main](the-asp-net-2-0-page-model/samples/sample8.cs)]
 10. Skompiluj projekt.
 11. Uruchom projekt.
-12. Wprowadź nazwę w polu tekstowym i kliknij przycisk.
-13. Co to jest wynik?
+12. Wprowadź nazwę w polu tekstowym, a następnie kliknij przycisk.
+13. Co to jest działanie?
 
 ## <a name="asynchronous-pages-in-aspnet-20"></a>Asynchroniczne stron w programie ASP.NET 2.0
 
-Wiele rywalizacji problemów w programie ASP.NET są spowodowane opóźnienia połączeniami zewnętrznymi (np. wywołań usługi lub bazy danych w sieci Web), opóźnienia we/wy pliku itp. Po wysłaniu żądania w odniesieniu do aplikacji ASP.NET, program ASP.NET korzysta z jednego z jego wątków roboczych do obsłużenia tego żądania. To żądanie jest właścicielem tego wątku zakończenie żądanie i odpowiedź została wysłana. Platforma ASP.NET 2.0 ma na celu rozwiązanie problemów opóźnienia z tego typu problemów przez dodanie możliwość wykonywania stron asynchronicznie. Oznacza to, że wątku roboczego można uruchomić żądania i następnie przekazują wykonywania dodatkowych do innego wątku, w tym samym zwracać do puli wątków dostępnych szybko. Po ukończeniu operacji We/Wy pliku, wywołania bazy danych itp., nowego wątku są uzyskiwane z puli wątków, aby zakończyć żądania.
+Wiele problemów rywalizacji o zasoby na platformie ASP.NET są spowodowane przez opóźnienia połączeniami zewnętrznymi (np. wywołań usługi lub bazy danych w sieci Web), czas oczekiwania operacji We/Wy plików itp. Po wysłaniu żądania w odniesieniu do aplikacji platformy ASP.NET, ASP.NET używa jednego z jego wątków roboczych do obsługi tego żądania. To żądanie jest właścicielem tego wątku zakończenie żądanie i odpowiedź została wysłana. Program ASP.NET 2.0 ma na celu rozwiązania problemów z opóźnieniem przy użyciu tego rodzaju problemy, dodając możliwość strony są wykonywane asynchronicznie. Oznacza to, czy wątku roboczego można uruchomić żądania, a następnie przekazać dodatkowe wykonywania do innego wątku, w tym samym szybko zwracać do puli dostępnych wątków. Po ukończeniu operacji We/Wy w pliku, wywołanie bazy danych itp. nowy wątek jest uzyskiwana z puli wątków, aby zakończyć żądania.
 
-Pierwszym krokiem w podejmowaniu stronę asynchroniczne jest skonfigurowanie **Async** atrybutu dyrektywy strony w następujący sposób:
+Pierwszym krokiem w podejmowaniu strony są wykonywane asynchronicznie jest można ustawić **Async** atrybut strony dyrektyw w następujący sposób:
 
 [!code-aspx[Main](the-asp-net-2-0-page-model/samples/sample9.aspx)]
 
-Ten atrybut informuje program ASP.NET do zaimplementowania IHttpAsyncHandler dla strony.
+Ten atrybut informuje platformę ASP.NET w celu zaimplementowania IHttpAsyncHandler dla strony.
 
-Następnym krokiem jest, aby wywołać metodę AddOnPreRenderCompleteAsync w punkcie w cyklu życia strony przed zdarzeniem PreRender. (Ta metoda jest zazwyczaj wywoływana na stronie\_obciążenia.) Metoda AddOnPreRenderCompleteAsync przyjmuje dwa parametry; BeginEventHandler i EndEventHandler. BeginEventHandler zwraca obiekt IAsyncResult, które są następnie przekazywane jako parametr EndEventHandler.
+Następnym krokiem jest wywołać metodę AddOnPreRenderCompleteAsync w punkcie w cyklu życia strony przed PreRender. (Ta metoda jest zwykle nazywany na stronie\_obciążenia.) Metoda AddOnPreRenderCompleteAsync przyjmuje dwa parametry; BeginEventHandler i EndEventHandler. BeginEventHandler zwraca obiekt IAsyncResult, który jest następnie przekazywany jako parametr EndEventHandler.
 
-Obraz poniżej jest wskazówki żądania asynchroniczne strony.
+Poniższy film jest przewodnik żądania asynchroniczne strony.
 
 
 ![](the-asp-net-2-0-page-model/_static/image3.png)
 
 
-[Otwórz wideo na pełnym ekranie](the-asp-net-2-0-page-model/_static/async1.wmv)
+[Otwórz wideo pełnego ekranu](the-asp-net-2-0-page-model/_static/async1.wmv)
 
 
 > [!NOTE]
-> Na stronie asynchronicznej nie renderowania w przeglądarce dopiero po ukończeniu EndEventHandler. Bez wątpienia, ale niektórzy deweloperzy będzie traktować żądań asynchronicznych jako zbliżone do asynchronicznego wywołania zwrotne. Należy koniecznie należy pamiętać, że nie są one. Korzyści żądań asynchronicznych jest, czy pierwszy wątku roboczego może być zwracany w puli wątków do obsługi nowych żądań, skracając rywalizacji z powodu jest powiązany we/wy, np.
+> Na stronie async nie renderowane w przeglądarce, dopóki nie zakończy się EndEventHandler. Bez wątpienia, ale niektórzy deweloperzy będą traktować żądań asynchronicznych jako zbliżone do wywołania zwrotne async. Należy weź pod uwagę, że nie są one. Korzyścią dla żądań asynchronicznych jest, że pierwszym wątku roboczego mogą być zwrócone do puli wątków do obsługi nowych żądań, zmniejszając w ten sposób rywalizacji o zasoby z powodu trwa operacji We/Wy, powiązany, etc.
 
 
-## <a name="script-callbacks-in-aspnet-20"></a>Wywołania zwrotne skryptu w programie ASP.NET 2.0
+## <a name="script-callbacks-in-aspnet-20"></a>Wywołania zwrotne skryptu, na platformie ASP.NET 2.0
 
-Sposób można zapobiec migotanie skojarzonych z wywołaniem zwrotnym zawsze sprawdzono deweloperów sieci Web. W programie ASP.NET 1.x, SmartNavigation był najbardziej typowa metoda uniknięcia migotanie, ale SmartNavigation przyczyną problemów dla deweloperów, niektóre ze względu na złożoność jej wdrożenia na kliencie. Platforma ASP.NET 2.0 rozwiązuje ten problem z wywołania zwrotne skryptu. Wywołania zwrotne skryptu wykorzystywać XMLHttp na wysyłanie żądań na serwerze sieci Web za pośrednictwem kodu JavaScript. Żądanie XMLHttp zwraca dane XML, który następnie może manipulować za pośrednictwem przeglądarki modelu DOM. Kod XMLHttp jest ukryty przez użytkownika przez nowy program obsługi WebResource.axd.
+Deweloperzy sieci Web zawsze sprawdzono, sposobów zapobiec migotanie skojarzonych z wywołaniem zwrotnym. W programie ASP.NET: 1.x, SmartNavigation był najbardziej typowa metoda unikanie migotanie, ale SmartNavigation przyczyną problemów dla deweloperów, niektóre ze względu na złożoność implementacji na komputerze klienckim. Program ASP.NET 2.0 rozwiązuje ten problem za pomocą wywołania zwrotne skryptu. Wywołania zwrotne skryptu wykorzystywać XMLHttp żądań na serwerze sieci Web przy użyciu języka JavaScript. Żądanie XMLHttp zwraca dane XML, które następnie mogą być zmieniane za pomocą przeglądarki modelu DOM. Kod XMLHttp są ukryte przed użytkownikiem przez nowy program obsługi WebResource.axd.
 
-Istnieje kilka czynności, które są niezbędne w celu skonfigurowania wywołanie zwrotne skryptu w programie ASP.NET 2.0.
+Istnieje kilka kroków, które są niezbędne w celu skonfigurowania wywołanie zwrotne skryptu w programie ASP.NET 2.0.
 
-## <a name="step-1--implement-the-icallbackeventhandler-interface"></a>Krok 1: Implementowanie interfejsu modułu ICallbackEventHandler
+## <a name="step-1--implement-the-icallbackeventhandler-interface"></a>Krok 1: Implementowanie interfejsu ICallbackEventHandler
 
-Aby ASP.NET rozpoznał strony jako należący do wywołania zwrotnego skryptu musi implementować interfejs modułu ICallbackEventHandler. Można to zrobić w pliku CodeBehind w następujący sposób:
+Aby ASP.NET rozpoznaje strony jako udział w wywołaniu zwrotnym skryptu musi implementować interfejs ICallbackEventHandler. Można to zrobić w pliku związanym z kodem w następujący sposób:
 
 [!code-csharp[Main](the-asp-net-2-0-page-model/samples/sample10.cs)]
 
-Można też to zrobić przy użyciu podobnych dyrektywy @ implementuje tak:
+Możesz też to zrobić przy użyciu notacji dyrektywy @ implementuje, więc:
 
 [!code-aspx[Main](the-asp-net-2-0-page-model/samples/sample11.aspx)]
 
-Dyrektywy @ Implements można skorzystać zazwyczaj, gdy przy użyciu kodu wbudowanego ASP.NET.
+Zazwyczaj używasz dyrektywa @ Implements, korzystając z wbudowanego kodu platformy ASP.NET.
 
 ## <a name="step-2--call-getcallbackeventreference"></a>Krok 2: Wywołanie GetCallbackEventReference
 
-Jak wspomniano wcześniej, wywołania XMLHttp jest hermetyzowany obsługi WebResource.axd. Podczas renderowania strony ASP.NET będzie Dodaj wywołanie do formularza sieci Web\_DoCallback, skrypt klientów zapewnianej przez WebResource.axd. Formularz sieci Web\_DoCallback funkcja zastępuje \_ \_doPostBack funkcja wywołania zwrotnego. Należy pamiętać, że \_ \_doPostBack programowo przesyła formularz na stronie. W przypadku wywołania zwrotnego, chcesz uniemożliwić odświeżenie strony, dlatego \_ \_doPostBack nie wystarczy.
+Jak wspomniano wcześniej, wywołanie XMLHttp jest hermetyzowany w obsłudze WebResource.axd. Po wyrenderowaniu strony ASP.NET spowoduje to dodanie wywołanie formularz sieci Web\_DoCallback, dostarczone przez WebResource.axd skryptu klienta. Formularz sieci Web\_DoCallBack — funkcja zastępuje \_ \_doPostBack funkcji wywołania zwrotnego. Należy pamiętać, że \_ \_doPostBack programowo przesyła formularz na stronie. W przypadku wywołania zwrotnego chcesz uniemożliwić odświeżenie strony, dlatego \_ \_doPostBack nie jest wystarczające.
 
 > [!NOTE]
-> \_\_doPostBack jest nadal renderowany do strony w przypadku wywołania zwrotnego skryptu klienta. Nie jest on jednak używany dla wywołania zwrotnego.
+> \_\_doPostBack była nadal renderowana do strony w przypadku wywołania zwrotnego skryptu klienta. Nie jest on jednak używany wywołania zwrotnego.
 
 
-Argumenty dla formularza sieci Web\_DoCallback funkcji po stronie klienta są udostępniane za pośrednictwem funkcji po stronie serwera GetCallbackEventReference, która będzie wywoływana zwykle na stronie\_obciążenia. Typowe wywołania GetCallbackEventReference może wyglądać następująco:
+Argumenty dla formularza sieci Web\_DoCallback, funkcja po stronie klienta są udostępniane za pośrednictwem funkcji po stronie serwera GetCallbackEventReference, która zwykle będzie wywoływana na stronie\_obciążenia. Typowe wywołanie GetCallbackEventReference może wyglądać następująco:
 
 [!code-csharp[Main](the-asp-net-2-0-page-model/samples/sample12.cs)]
 
 > [!NOTE]
-> W takim przypadku cm jest wystąpieniem ClientScriptManager. Klasa ClientScriptManager zostanie omówiona w dalszej części tego modułu.
+> W tym przypadku cm jest wystąpieniem ClientScriptManager. Klasa ClientScriptManager zostały omówione w dalszej części tego modułu.
 
 
-Istnieje kilka wersji przeciążone GetCallbackEventReference. W takim przypadku argumenty są następujące:
+Istnieje kilka przeciążone wersje GetCallbackEventReference. W tym przypadku argumenty są następujące:
 
 `this`
 
-Odwołanie do formantu, gdy jest wywoływana GetCallbackEventReference. W takim przypadku jest samej strony.
+Odwołanie do formantu, gdzie jest wywoływana GetCallbackEventReference. W tym przypadku jest sama strona.
 
 [!code-javascript[Main](the-asp-net-2-0-page-model/samples/sample13.js)]
 
-Argument ciągu, który zostanie przekazany z kodu po stronie klienta do zdarzenia po stronie serwera. W takim przypadku wiadomości błyskawicznych, przekazując wartość z listy rozwijanej o nazwie ddlCompany.
+Argument ciągu, który zostanie przekazany z kodu po stronie klienta do zdarzenia po stronie serwera. W tym przypadku wiadomości błyskawicznych, przekazując wartość z listy rozwijanej o nazwie ddlCompany.
 
 `ShowCompanyName`
 
-Nazwa funkcji po stronie klienta, która przyjmuje wartość zwracaną (jako ciąg) ze zdarzenia wywołania zwrotnego po stronie serwera. Tę funkcję można wywołać tylko po pomyślnym zakończeniu operacji wywołania zwrotnego po stronie serwera. W związku z tym dla niezawodności, ogólnie zaleca się użycie przeciążonej wersji GetCallbackEventReference, który przyjmuje argument dodatkowy ciąg określający nazwę funkcji do wykonania w przypadku wystąpienia błędu po stronie klienta.
+Nazwa funkcji po stronie klienta, która będzie akceptować wartości zwracanej (jako ciąg) ze zdarzenia wywołania zwrotnego po stronie serwera. Ta funkcja będzie wywoływana tylko, po pomyślnym zakończeniu operacji wywołania zwrotnego po stronie serwera. W związku ze względu na niezawodność, ogólnie zaleca się korzystać z przeciążoną wersją GetCallbackEventReference, która przyjmuje argument dodatkowy ciąg określający nazwę funkcję po stronie klienta do wykonania w przypadku wystąpienia błędu.
 
 `null`
 
-Ciąg reprezentujący funkcji po stronie klienta, która zainicjowane przed wywołania zwrotnego na serwerze. W takim przypadku nie żadnego skryptu więc argument ma wartość null.
+Ciąg reprezentujący funkcji po stronie klienta, który je zainicjował przed wywołania zwrotnego do serwera. W tym przypadku nie jest bez skryptu, argument ma wartość null.
 
 `true`
 
-Wartość logiczna określająca, czy należy przeprowadzić asynchronicznie metodę wywołania zwrotnego.
+Wartość logiczna określająca, czy należy przeprowadzić asynchroniczne wywołanie zwrotne.
 
-Wywołanie formularza sieci Web\_DoCallback na kliencie zostanie przekazany tych argumentów. W związku z tym, gdy ta strona jest renderowany na kliencie, ten kod będzie wyglądać w następujący sposób:
+Wywołanie metody formularza sieci Web\_DoCallback na komputerze klienckim przekazują tych argumentów. W związku z tym, gdy ta strona jest wyświetlana na komputerze klienckim, ten kod będzie wyglądać w następujący sposób:
 
 [!code-javascript[Main](the-asp-net-2-0-page-model/samples/sample14.js)]
 
-Należy zauważyć, że podpis funkcji na kliencie jest nieco inny. Funkcja klienta przekazuje ciągów 5 i wartość logiczną. Dodatkowy ciąg znaków (czyli null w powyższym przykładzie) zawiera funkcję po stronie klienta, która będzie obsługiwać błędy zwrotne po stronie serwera.
+Należy zauważyć, że podpis funkcji na komputerze klienckim jest nieco inna. Funkcja klienta przekazuje 5 parametrów i wartość logiczną. Dodatkowe parametry, (który ma wartość null w powyższym przykładzie) zawiera funkcję po stronie klienta, która będzie obsługiwać ewentualne błędy z wywołania zwrotnego po stronie serwera.
 
-## <a name="step-3--hook-the-client-side-control-event"></a>Krok 3: Utworzenie punktu zaczepienia zdarzenia formantu po stronie klienta
+## <a name="step-3--hook-the-client-side-control-event"></a>Krok 3: Obsługiwać zdarzenia formantu po stronie klienta
 
-Należy zauważyć, że wartość zwracana GetCallbackEventReference powyżej został przypisany do zmiennej ciągu. Ten ciąg jest używany do utworzenie punktu zaczepienia zdarzenie po stronie klienta dla formantu, który inicjuje wywołania zwrotnego. W tym przykładzie, wywołanie zwrotne jest inicjowane przez listy rozwijanej na stronie tak, chcę utworzenie punktu zaczepienia *OnChange* zdarzeń.
+Należy zauważyć, że wartość zwracana przez GetCallbackEventReference powyżej został przypisany do zmiennej ciągu. Ten ciąg jest używany do podłączania zdarzeń po stronie klienta, dla formantu, który inicjuje wywołanie zwrotne. W tym przykładzie wywołanie zwrotne jest inicjowane przez listę rozwijaną na stronie tak, chcę dołączyć *OnChange* zdarzeń.
 
-Aby przyłączyć zdarzeń po stronie klienta, po prostu Dodaj program obsługi do znacznika po stronie klienta w następujący sposób:
+Aby obsługiwać zdarzenia po stronie klienta, po prostu Dodaj program obsługi znaczników po stronie klienta w następujący sposób:
 
 [!code-csharp[Main](the-asp-net-2-0-page-model/samples/sample15.cs)]
 
-Odwołania, który *cbRef* jest wartość zwrotna z wywołania GetCallbackEventReference. Zawiera wywołanie formularza sieci Web\_DoCallback, który został przedstawionych powyżej.
+Pamiętamy *cbRef* jest wartością zwracaną z wywołania GetCallbackEventReference. Zawiera wywołanie metody formularza sieci Web\_DoCallback, który został wyświetlony powyżej.
 
 ## <a name="step-4--register-the-client-side-script"></a>Krok 4: Zarejestruj skryptu po stronie klienta
 
-Odwołania, które wywołanie GetCallbackEventReference określone, czy skrypt po stronie klienta jest nazywany **ShowCompanyName** może być wykonywana w przypadku pomyślnego wywołania zwrotnego po stronie serwera. Czy skrypt musi zostać dodany do strony przy użyciu wystąpienia ClientScriptManager. (W klasie ClientScriptManager będzie dicussed w dalszej części tego modułu). Tak zrobisz tego typu:
+Odwołania, które wywołanie GetCallbackEventReference określone, czy skrypt po stronie klienta o nazwie **ShowCompanyName** będzie wykonywany po pomyślnym zakończeniu wywołania zwrotnego po stronie serwera. Czy skrypt musi zostać dodane do strony, przy użyciu wystąpienia ClientScriptManager. (W klasie ClientScriptManager będzie dicussed w dalszej części tego modułu). Dlatego należy wykonać podobne do tego:
 
 [!code-javascript[Main](the-asp-net-2-0-page-model/samples/sample16.js)]
 
-## <a name="step-5--call-the-methods-of-the-icallbackeventhandler-interface"></a>Krok 5: Wywoływać metod interfejsu modułu ICallbackEventHandler
+## <a name="step-5--call-the-methods-of-the-icallbackeventhandler-interface"></a>Krok 5: Wywołanie metody interfejsu ICallbackEventHandler
 
-Modułu ICallbackEventHandler zawiera dwie metody, które są potrzebne do zaimplementowania w kodzie. Są one **RaiseCallbackEvent** i **GetCallbackEvent**.
+ICallbackEventHandler zawiera dwie metody, które są potrzebne do zaimplementowania w kodzie. Są one **RaiseCallbackEvent** i **GetCallbackEvent**.
 
-**RaiseCallbackEvent** jako argument ciąg znaków i nie zwraca żadnego. Argument ciągu jest przekazywany z wywołania po stronie klienta do formularza sieci Web\_DoCallback. W takim przypadku ta wartość jest *wartość* atrybutu o nazwie ddlCompany listy rozwijanej. W metodzie RaiseCallbackEvent powinna zostać umieszczona kodu po stronie serwera. Na przykład jeśli wywołanie zwrotne jest WebRequest przed zasób zewnętrzny, ten kod powinna zostać umieszczona w RaiseCallbackEvent.
+**RaiseCallbackEvent** przyjmuje ciąg jako argument i zwraca nothing. Argument ciągu jest przekazywany z wywołania po stronie klienta, aby formularz sieci Web\_DoCallback. W takim przypadku ta wartość jest *wartość* atrybutu z listy rozwijanej o nazwie ddlCompany. Kod po stronie serwera, należy umieścić w metodzie RaiseCallbackEvent. Na przykład jeśli wywołanie zwrotne WebRequest względem zewnętrznego zasobu, ten kod będzie umieszczona w RaiseCallbackEvent.
 
-**GetCallbackEvent** jest odpowiedzialna za przetwarzanie zwracany wywołania zwrotnego do klienta. Go nie przyjmuje żadnych argumentów i zwraca wartość typu ciąg. Ciąg, który zwraca zostaną przekazane jako argument do funkcji po stronie klienta, w tym przypadku *ShowCompanyName*.
+**GetCallbackEvent** jest odpowiedzialna za przetwarzanie zwracana wywołania zwrotnego do klienta. Go nie przyjmuje żadnych argumentów i zwraca wartość typu ciąg. Ciąg, który zwraca zostaną przekazane jako argument do funkcji po stronie klienta, w tym przypadku *ShowCompanyName*.
 
-Po wykonaniu powyższych czynności można przystąpić do wykonania wywołania zwrotnego skryptu w programie ASP.NET 2.0.
+Po wykonaniu powyższych czynności można przystąpić do wykonania skryptu wywołania zwrotnego w programie ASP.NET 2.0.
 
 
 ![](the-asp-net-2-0-page-model/_static/image4.png)
 
 
-[Otwórz wideo na pełnym ekranie](the-asp-net-2-0-page-model/_static/callback1.wmv)
+[Otwórz wideo pełnego ekranu](the-asp-net-2-0-page-model/_static/callback1.wmv)
 
 
-Wywołania zwrotne skryptu w programie ASP.NET są obsługiwane w dowolnej przeglądarki obsługującej wprowadzania wywołania XMLHttp. Która obejmuje wszystkie nowoczesne przeglądarki w użyciu dzisiaj. Program Internet Explorer używa obiektu XMLHttp ActiveX, podczas gdy obiekt wewnętrzny XMLHttp innych nowoczesnymi przeglądarkami (w tym nadchodzących IE 7). Aby określić programowo, jeśli przeglądarka obsługuje wywołań zwrotnych, możesz użyć **Request.Browser.SupportCallback** właściwości. Ta właściwość będzie zwracać **true** Jeśli klienta obsługuje wywołania zwrotne skryptu.
+Wywołania zwrotne skryptu, na platformie ASP.NET są obsługiwane w dowolnej przeglądarki obsługującej wprowadzania wywołania XMLHttp. Obejmuje to wszystkie nowoczesne przeglądarki używana już dziś. Program Internet Explorer używa obiektu XMLHttp ActiveX, podczas gdy inne nowoczesnych przeglądarek (w tym nadchodzących programu Internet Explorer 7) używają wewnętrzne obiektu XMLHttp. Aby programowo określić, jeśli przeglądarka obsługuje wywołania zwrotne, możesz użyć **Request.Browser.SupportCallback** właściwości. Właściwość ta zwróci **true** Jeśli żądanie klienta obsługuje wywołania zwrotne skryptu.
 
-## <a name="working-with-client-script-in-aspnet-20"></a>Praca z skrypt po stronie klienta w programie ASP.NET 2.0
+## <a name="working-with-client-script-in-aspnet-20"></a>Praca ze skryptem klienta w programie ASP.NET 2.0
 
-Skrypty klienta w programie ASP.NET 2.0 są zarządzane przez użycie klasy ClientScriptManager. Klasa ClientScriptManager przechowuje informacje o skrypty klienta przy użyciu typu i nazwy. Zapobiega to programowo wstawiane na stronie więcej niż jeden raz przez tego samego skryptu.
+Skrypty klienta w programie ASP.NET 2.0 są zarządzane przez użycie klasy ClientScriptManager. Klasa ClientScriptManager przechowuje informacje o skryptów klienta przy użyciu typu i nazwy. Zapobiega to programowo wstawiane na stronie więcej niż jeden raz przez tego samego skryptu.
 
 > [!NOTE]
-> Po skrypt został pomyślnie zarejestrowany na stronie, kolejne próby zarejestrowania tego samego skryptu, po prostu spowoduje skryptu nie jest zarejestrowany na drugim. Żadnych zduplikowanych skryptów są dodawane i wystąpi żaden wyjątek. Aby uniknąć niepotrzebnych obliczeń, istnieją metody, których można użyć w celu ustalenia, czy skrypt jest już zarejestrowany, tak aby nie należy go zarejestrować więcej niż raz.
+> Po skrypt został pomyślnie zarejestrowany na stronie, żadne kolejne próby, aby zarejestrować ten sam skrypt powoduje po prostu skrypt nie jest zarejestrowany po raz drugi. Nie zduplikowane skryptów są dodawane, a nie wystąpi wyjątek. Aby uniknąć niepotrzebnych obliczeń, istnieją metody, które można użyć w celu ustalenia, czy skrypt został już zarejestrowany, tak aby nie należy go zarejestrować więcej niż jeden raz.
 
 
 Metody ClientScriptManager powinny być znane wszystkie bieżące deweloperów platformy ASP.NET:
 
 ## <a name="registerclientscriptblock"></a>RegisterClientScriptBlock
 
-Ta metoda dodaje skrypt do góry renderowanej strony. Jest to przydatne w przypadku dodawania funkcji, które będą wywoływane jawnie na kliencie.
+Metoda ta umożliwia dodanie skryptu na początku renderowanej strony. Jest to przydatne, aby dodać funkcje, które będą wywoływane jawnie na komputerze klienckim.
 
-Istnieją dwie wersje przeciążenia tej metody. Trzy z czterech argumentów występują między nimi. Są to:
+Istnieją dwie przeciążone wersje tej metody. Trzy z czterech argumentów występują między nimi. Są to:
 
 `type (string)`
 
-***Typu*** argument określa typ skryptu. Zazwyczaj jest dobrym pomysłem jest typ strony, (this. GetType()) dla typu.
+***Typu*** argument określa typ skryptu. Zazwyczaj jest to dobry pomysł, aby użyć typu strony, (to. GetType()) dla typu.
 
 `key (string)`
 
-***Klucza*** argument jest zdefiniowane przez użytkownika klucza dla skryptu. Powinny to być unikatowe dla każdego skryptu. Jeśli próbujesz dodać skrypt za pomocą tego samego klucza i typ skryptu już dodany, nie można dodać.
+***Klucz*** argument jest zdefiniowane przez użytkownika klucza dla skryptu. Powinna to być unikatowy dla każdego skryptu. Jeśli spróbujesz dodać skrypt za pomocą tego samego klucza i typ skryptu dodane wcześniej, nie można dodać.
 
 `script (string)`
 
-***Skryptu*** argument jest ciąg zawierający faktyczny skrypt do dodania. Zaleca się używać StringBuilder utworzyć skrypt, a następnie użyć metodę ToString() na StringBuilder można przypisać ***skryptu*** argumentu.
+***Skryptu*** argument jest ciąg zawierający rzeczywiste skryptu, aby dodać. Zalecane jest, użyj klasy StringBuilder można utworzyć skrypt, a następnie zastosować metodę ToString() StringBuilder można przypisać ***skryptu*** argumentu.
 
-Użycie przeciążonej RegisterClientScriptBlock, który przyjmuje tylko trzech argumentów, musi zawierać elementy skryptu (&lt;skryptu&gt; i &lt;/script&gt;) w skrypcie.
+Jeśli używasz RegisterClientScriptBlock przeciążona, który tylko przyjmuje trzy argumenty, musi zawierać elementy skryptu (&lt;skryptu&gt; i &lt;/script&gt;) w skrypcie.
 
-Możesz użyć przeciążenia RegisterClientScriptBlock, który pobiera czwarty argument. Czwarty argument jest wartość logiczna określająca, czy ASP.NET, należy dodać elementy skryptu dla Ciebie. Jeśli ten argument jest **true**, skrypt nie może zawierać elementy skryptu jawnie.
+Można użyć przeciążenia RegisterClientScriptBlock, która przyjmuje czwarty argument. Czwarty argument jest wartość logiczna określająca, czy ASP.NET, należy dodać elementy skryptu dla Ciebie. Jeśli ten argument jest **true**, skrypt nie może zawierać elementy skryptu jawnie.
 
-Metoda IsClientScriptBlockRegistered ustalenie, jeśli skrypt został już zarejestrowany. Dzięki temu można uniknąć próba ponownego zarejestrowania skrypt, który został już zarejestrowany.
+Należy użyć metody IsClientScriptBlockRegistered, aby określić, jeśli skrypt został już zarejestrowany. Dzięki temu można uniknąć próba ponownego zarejestrowania skrypt, który został już zarejestrowany.
 
 ### <a name="registerclientscriptinclude-new-in-20"></a>RegisterClientScriptInclude (Nowość w wersji 2.0)
 
-RegisterClientScriptInclude tag tworzy blok skryptu, który stanowi łącze do zewnętrznego pliku skryptu. Ma on dwa przeciążenia. Wyższy klucza i adres URL. Drugi dodaje trzeci argument określenie typu.
+RegisterClientScriptInclude tag tworzy blok skryptu, który stanowi łącze do zewnętrznego pliku skryptu. Ma dwa przeciążenia. Przyjmuje jeden klucz i adres URL. Drugi dodaje trzeci argument określenie typu.
 
-Na przykład następujący kod generuje blok skryptu zawierającego łącze do jsfunctions.js w głównym folderze skryptów aplikacji:
+Na przykład, poniższy kod generuje blok skryptu zawierającego łącze do jsfunctions.js w katalogu głównym folderu skryptów aplikacji:
 
 [!code-csharp[Main](the-asp-net-2-0-page-model/samples/sample17.cs)]
 
@@ -585,27 +584,27 @@ Ten kod tworzy następujący kod na renderowanej stronie:
 > Blok skryptu jest renderowany w dolnej części strony.
 
 
-Metoda IsClientScriptIncludeRegistered ustalenie, jeśli skrypt został już zarejestrowany. Dzięki temu można uniknąć próba ponownego zarejestrowania skryptu.
+Należy użyć metody IsClientScriptIncludeRegistered, aby określić, jeśli skrypt został już zarejestrowany. Dzięki temu można uniknąć próba ponownego zarejestrowania skrypt.
 
 ## <a name="registerstartupscript"></a>RegisterStartupScript
 
-Metoda RegisterStartupScript przyjmuje te same argumenty co metoda RegisterClientScriptBlock. Skrypt w zarejestrowany RegisterStartupScript wykonuje po pobraniu strony, ale przed zdarzeniem OnLoad po stronie klienta. W 1.X, skrypty w zarejestrowany RegisterStartupScript zostały umieszczone bezpośrednio przed zamknięciem &lt;/form&gt; tagów, podczas gdy skryptów w zarejestrowany RegisterClientScriptBlock były umieszczane bezpośrednio po otwarciu &lt;formularza&gt; tagu. W programie ASP.NET 2.0, zarówno są umieszczane bezpośrednio przed tagiem zamykającym &lt;/form&gt; tagu.
+Metoda RegisterStartupScript przyjmuje te same argumenty co metoda RegisterClientScriptBlock. Zarejestrowane w usłudze RegisterStartupScript skrypt wykonuje po załadowaniu strony, ale przed zdarzeniem OnLoad po stronie klienta. W 1.X, zarejestrowane w usłudze RegisterStartupScript skrypty zostały umieszczone bezpośrednio przed zamykającym &lt;/form&gt; tagów podczas zarejestrowane w usłudze RegisterClientScriptBlock skrypty zostały umieszczone bezpośrednio po otwarciu &lt;formularza&gt; tagu. W programie ASP.NET 2.0, oba są umieszczane bezpośrednio przed tagiem zamykającym &lt;/form&gt; tagu.
 
 > [!NOTE]
-> Jeśli zarejestrowane przez funkcję RegisterStartupScript, ta funkcja nie zostanie wykonany, dopóki nie można jawnie wywołać w kodzie po stronie klienta.
+> Jeśli zarejestrowane przez funkcję RegisterStartupScript, tej funkcji nie będą wykonywane, dopóki nie zostanie jawnie wywołana w kodzie po stronie klienta.
 
 
-Użyj metody IsStartupScriptRegistered, aby ustalić, jeśli skrypt został już zarejestrowany i uniknąć próba ponownego zarejestrowania skryptu.
+Aby określić, jeśli skrypt został już zarejestrowany i uniknąć próba ponownego zarejestrowania skrypt, należy użyć metody IsStartupScriptRegistered.
 
 ## <a name="other-clientscriptmanager-methods"></a>Inne metody ClientScriptManager
 
-Oto niektóre przydatne metody klasy ClientScriptManager.
+Poniżej przedstawiono niektóre inne użyteczne metody klasy ClientScriptManager.
 
 
-|  <strong>GetCallbackEventReference</strong>   |                                                 Zobacz wywołania zwrotne skryptu wcześniej w tym module.                                                 |
+|  <strong>GetCallbackEventReference</strong>   |                                                 Zobacz wywołania zwrotne skryptu, we wcześniejszej części tego modułu.                                                 |
 |-----------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-|  <strong>GetPostBackClientHyperlink</strong>  |                Pobiera odwołanie JavaScript (javascript:&lt;wywołać&gt;) można post z zdarzeń po stronie klienta.                 |
-|  <strong>GetPostBackEventReference</strong>   |                                   Pobiera ciąg, który może służyć do zainicjowania post przez klienta.                                    |
+|  <strong>GetPostBackClientHyperlink</strong>  |                Pobiera odniesienie JavaScript (javascript:&lt;wywołania&gt;) który może służyć do opublikowania powrót po awarii z zdarzenia po stronie klienta.                 |
+|  <strong>GetPostBackEventReference</strong>   |                                   Pobiera ciąg, który może służyć do inicjowania wpis przez klienta.                                    |
 |      <strong>GetWebResourceUrl</strong>       | Zwraca adres URL do zasobu, który jest osadzony w zestawie. Należy używać w połączeniu z <strong>RegisterClientScriptResource</strong>. |
 | <strong>RegisterClientScriptResource</strong> |     Rejestruje zasobu sieci Web ze stroną. Są to zasoby osadzone w zestawie i obsługiwane przez nowy program obsługi WebResource.axd.      |
 |     <strong>RegisterHiddenField</strong>      |                                                 Rejestruje ukryte pole formularza ze stroną.                                                 |

@@ -1,175 +1,174 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-database-update
-title: 'Wdrażanie sieci Web ASP.NET przy użyciu programu Visual Studio: Wdrażanie aktualizacji bazy danych | Dokumentacja firmy Microsoft'
+title: 'Wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio: Wdrażanie aktualizacji bazy danych | Dokumentacja firmy Microsoft'
 author: tdykstra
-description: Ta seria samouczek pokazuje, jak wdrożyć platformy ASP.NET (publikowanie) aplikacji do aplikacji sieci Web usługi aplikacji Azure lub innego dostawcy hostingu sieci web przez używane...
+description: W tej serii samouczków dowiesz się, jak wdrożyć (opublikować) platformy ASP.NET sieci web aplikacji do usługi Azure App Service Web Apps lub dostawcy hostingu w innych firm, używane...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/15/2013
 ms.topic: article
 ms.assetid: 9cad0833-486a-4474-a7f3-7715542ec4ce
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-database-update
 msc.type: authoredcontent
-ms.openlocfilehash: 3020cfa19bf12f21c6d42a77ed257595431b4e86
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 37b996452dfa619ba1276a1aba562ed7efc579b5
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30892624"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37389192"
 ---
-<a name="aspnet-web-deployment-using-visual-studio-deploying-a-database-update"></a>Wdrażanie sieci Web ASP.NET przy użyciu programu Visual Studio: Wdrażanie aktualizacji bazy danych
+<a name="aspnet-web-deployment-using-visual-studio-deploying-a-database-update"></a>Wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio: Wdrażanie aktualizacji bazy danych
 ====================
-Przez [Dykstra niestandardowy](https://github.com/tdykstra)
+przez [Tom Dykstra](https://github.com/tdykstra)
 
-[Pobierz początkowego projektu](http://go.microsoft.com/fwlink/p/?LinkId=282627)
+[Pobieranie projektu startowego](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
-> Ta seria samouczek pokazuje, jak wdrożyć platformy ASP.NET (publikowanie) aplikacji do aplikacji sieci Web usługi aplikacji Azure lub innego dostawcy hostingu sieci web za pomocą programu Visual Studio 2012 lub Visual Studio 2010. Aby uzyskać informacje dotyczące serii, zobacz [pierwszy samouczek z tej serii](introduction.md).
+> W tej serii samouczków dowiesz się, jak wdrożyć (opublikować) platformy ASP.NET sieci web aplikacji do usługi Azure App Service Web Apps lub innych firm dostawcy hostingu za pomocą programu Visual Studio 2012 lub Visual Studio 2010. Aby uzyskać informacje na temat serii, zobacz [pierwszym samouczku tej serii](introduction.md).
 
 
 ## <a name="overview"></a>Omówienie
 
-W tym samouczku wprowadzić zmianę w bazie danych i zmiany kodu powiązanego przetestować zmiany w programie Visual Studio, a następnie wdrożyć aktualizację na środowiska testowego, tymczasową i produkcyjną.
+W tym samouczku, wprowadzić zmianę w bazie danych i zmian kodu powiązanego przetestować zmiany w programie Visual Studio, a następnie wdrożyć aktualizację w środowiskach testowych, przejściowych i produkcyjnych.
 
-Samouczek najpierw pokazano, jak zaktualizować bazę danych, który jest zarządzany przez migracje Code First, a następnie później go pokazano, jak zaktualizować bazę danych przy użyciu dostawcy dbDacFx narzędzia.
+Samouczek najpierw pokazano, jak można zaktualizować bazy danych, który jest zarządzany przez migracje Code First, a następnie później pokazano, jak zaktualizować bazę danych przy użyciu dostawcy dbDacFx.
 
-Przypomnienie: Jeśli coś nie działa podczas wykonywania kroków samouczka wyświetlony komunikat o błędzie, należy sprawdzić [Rozwiązywanie problemów z strony](troubleshooting.md).
+Przypomnienie: Jeśli otrzymujesz komunikat o błędzie lub coś nie działa podczas wykonywania kroków samouczka, upewnij się sprawdzić [strona rozwiązywania problemów](troubleshooting.md).
 
 ## <a name="deploy-a-database-update-by-using-code-first-migrations"></a>Wdrażanie aktualizacji bazy danych przy użyciu migracje Code First
 
-W tej sekcji, Dodaj kolumnę daty urodzenia `Person` klasę podstawową dla `Student` i `Instructor` jednostek. Następnie należy zaktualizować strona, wyświetlająca instruktora danych, tak aby wyświetlone nowej kolumny. Ponadto można wdrożyć zmiany do testu, tymczasową i produkcyjną.
+W tej sekcji Dodaj kolumnę daty urodzenia `Person` klasa podstawowa dla `Student` i `Instructor` jednostek. Następnie należy zaktualizować Strona która wyświetla dane przez instruktorów, tak, aby wyświetlał nowej kolumny. Na koniec wdrożysz zmiany do testowania, przejściowego i produkcji.
 
-### <a name="add-a-column-to-a-table-in-the-application-database"></a>Dodaj kolumnę do tabeli w bazie danych aplikacji
+### <a name="add-a-column-to-a-table-in-the-application-database"></a>Dodawanie kolumny do tabeli w bazie danych aplikacji
 
-1. W *ContosoUniversity.DAL* otwarciu projektu *Person.cs* i dodaj następującą właściwość na końcu `Person` klasy (powinny istnieć dwie zamykający nawias klamrowy następnego):
+1. W *ContosoUniversity.DAL* otwarty projekt *osoba.cs* i dodaj następującą właściwość na końcu `Person` klasy (powinny istnieć dwie zamykający nawias klamrowy następujący):
 
     [!code-csharp[Main](deploying-a-database-update/samples/sample1.cs)]
 
-    Następnie zaktualizuj `Seed` metodę, którą zawiera wartość dla nowej kolumny. Otwórz *Migrations\Configuration.cs* i Zastąp blok kodu, który rozpoczyna się `var instructors = new List<Instructor>` z następujący blok kodu, który obejmuje informacje daty urodzenia:
+    Następnie zaktualizuj `Seed` metodę, tak że zawiera wartość dla nowej kolumny. Otwórz *Migrations\Configuration.cs* i Zastąp blok kodu, który rozpoczyna się `var instructors = new List<Instructor>` z poniższy blok kodu, który zawiera informacje o dacie urodzenia:
 
     [!code-csharp[Main](deploying-a-database-update/samples/sample2.cs)]
-2. Skompiluj rozwiązanie, a następnie otwórz **Konsola Menedżera pakietów** okna. Upewnij się, że ContosoUniversity.DAL jest nadal wybrany jako **domyślny projekt**.
-3. W **Konsola Menedżera pakietów** wybierz **ContosoUniversity.DAL** jako **domyślny projekt**, a następnie wprowadź następujące polecenie:
+2. Skompiluj rozwiązanie, a następnie otwórz **Konsola Menedżera pakietów** okna. Upewnij się, że ContosoUniversity.DAL jest nadal wybrany jako **projekt domyślny**.
+3. W **Konsola Menedżera pakietów** wybierz **ContosoUniversity.DAL** jako **projekt domyślny**, a następnie wprowadź następujące polecenie:
 
     [!code-powershell[Main](deploying-a-database-update/samples/sample3.ps1)]
 
-    Po zakończeniu działania tego polecenia programu Visual Studio otwiera plik klasy, który definiuje nowy `DbMIgration` klasy, a następnie w `Up` — metoda zostanie wyświetlony kod, który tworzy nową kolumnę. `Up` Metoda tworzy kolumny, wprowadzając zmiany i `Down` — metoda usuwa kolumny, gdy użytkownik jest wycofywanie zmian.
+    Po zakończeniu tego polecenia, programu Visual Studio otwiera plik klasy, który definiuje nowy `DbMIgration` klasy, a następnie w `Up` metody zostanie wyświetlony kod, który tworzy nową kolumnę. `Up` Metoda tworzy kolumny, wprowadzając zmiany, a `Down` metoda usuwa kolumny, gdy użytkownik jest wycofywanie zmian.
 
     ![AddBirthDate_migration_code](deploying-a-database-update/_static/image1.png)
-4. Skompiluj rozwiązanie, a następnie wprowadź następujące polecenie w **Konsola Menedżera pakietów** okna (Upewnij się, nadal wybrano projektu ContosoUniversity.DAL):
+4. Skompiluj rozwiązanie, a następnie wprowadź następujące polecenie w **Konsola Menedżera pakietów** okna (Upewnij się, projekt ContosoUniversity.DAL została ona zaznaczona):
 
     [!code-powershell[Main](deploying-a-database-update/samples/sample4.ps1)]
 
     Uruchamia programu Entity Framework `Up` metody, a następnie uruchamia `Seed` metody.
 
-### <a name="display-the-new-column-in-the-instructors-page"></a>Wyświetlanie nowej kolumny, na stronie instruktorów
+### <a name="display-the-new-column-in-the-instructors-page"></a>Wyświetlanie nowych kolumn na stronie instruktorów
 
-1. W projekcie ContosoUniversity Otwórz *Instructors.aspx* i Dodaj nowe pole do szablonu, aby wyświetlić datę urodzenia. Dodaj go między te przypisania zatrudnienia daty i pakietu office:
+1. W projekcie ContosoUniversity Otwórz *Instructors.aspx* i dodać nowe pole do szablonu, aby wyświetlić datę urodzenia. Dodać go między tymi zatrudnienia przypisania daty i pakietu office:
 
     [!code-aspx[Main](deploying-a-database-update/samples/sample5.aspx?highlight=9-17)]
 
-    (Jeśli wcięcia kodu jest niezsynchronizowana, możesz nacisnąć klawisze CTRL-K, a następnie klawisz CTRL-D automatycznie sformatuj ponownie plik.)
-2. Uruchom aplikację, a następnie kliknij przycisk **instruktorów** łącza.
+    (Jeśli wcięcia kodu o szerokość jest niezsynchronizowana, można nacisnąć klawisze CTRL-K, a następnie CTRL-D do automatycznego ponownego sformatowania pliku.)
+2. Uruchom aplikację, a następnie kliknij przycisk **Instruktorzy** łącza.
 
-    Podczas ładowania strony widać, że ma nowy Data urodzenia.
+    Po załadowaniu strony zobaczysz, że ma nowe pole daty urodzenia.
 
-    ![Strona instruktorów z Data urodzenia](deploying-a-database-update/_static/image2.png)
+    ![Strona Instruktorzy z datę urodzenia](deploying-a-database-update/_static/image2.png)
 3. Zamknij przeglądarkę.
 
 ### <a name="deploy-the-database-update"></a>Wdrażanie aktualizacji bazy danych
 
 1. W **Eksploratora rozwiązań** wybierz projekt ContosoUniversity.
-2. W **jeden kliknij publikowania w sieci Web** narzędzi, kliknij przycisk **testu** profil publikowania, a następnie kliknij przycisk **publikowanie w sieci Web**. (Wyłączenie pasku narzędzi wybierz projekt ContosoUniversity **Eksploratora rozwiązań**.)
+2. W **Web publikacja w pojedynczym kliknięciem** narzędzi, kliknij przycisk **testu** profil publikowania, a następnie kliknij przycisk **publikowanie w sieci Web**. (Jeśli pasek narzędzi jest wyłączona, wybierz projekt ContosoUniversity **Eksploratora rozwiązań**.)
 
-    Program Visual Studio wdroży zaktualizowaną aplikację, a następnie otwiera przeglądarkę na stronę główną.
-3. Uruchom **instruktorów** stronę, aby sprawdzić, czy aktualizacja została pomyślnie wdrożona.
+    Program Visual Studio wdroży zaktualizowaną aplikację i otwarciu przeglądarki do strony głównej.
+3. Uruchom **Instruktorzy** stronę, aby sprawdzić, czy aktualizacja została wdrożona pomyślnie.
 
-    Gdy aplikacja podejmie próbę dostępu do bazy danych dla tej strony, Code First aktualizacje schematu bazy danych i uruchamia `Seed` metody. Gdy zostanie wyświetlona strona, można znaleźć oczekiwanej **Data urodzenia** kolumny zawierającej daty w nim.
-4. W **jeden kliknij publikowania w sieci Web** narzędzi, kliknij przycisk **przemieszczania** profil publikowania, a następnie kliknij przycisk **publikowanie w sieci Web**.
-5. Uruchom **instruktorów** strony w przejściowym można zweryfikować, że aktualizacja została pomyślnie wdrożona.
-6. W **jeden kliknij publikowania w sieci Web** narzędzi, kliknij przycisk **produkcji** profil publikowania, a następnie kliknij przycisk **publikowanie w sieci Web**.
-7. Uruchom **instruktorów** strony w środowisku produkcyjnym, aby zweryfikować, że aktualizacja została pomyślnie wdrożona.
+    Gdy aplikacja podejmie próbę dostępu do bazy danych dla tej strony, Code First aktualizuje schemat bazy danych i uruchamia `Seed` metody. Jeśli zostanie wyświetlona strona, zobaczysz oczekiwany **Data urodzenia** kolumnie znajdują się daty w nim.
+4. W **Web publikacja w pojedynczym kliknięciem** narzędzi, kliknij przycisk **przemieszczania** profil publikowania, a następnie kliknij przycisk **publikowanie w sieci Web**.
+5. Uruchom **Instruktorzy** strony na etapie wdrażania przejściowego, aby sprawdzić, czy aktualizacja została wdrożona pomyślnie.
+6. W **Web publikacja w pojedynczym kliknięciem** narzędzi, kliknij przycisk **produkcji** profil publikowania, a następnie kliknij przycisk **publikowanie w sieci Web**.
+7. Uruchom **Instruktorzy** strony w środowisku produkcyjnym, aby sprawdzić, czy aktualizacja została wdrożona pomyślnie.
 
-    Rzeczywistej produkcji aktualizacji aplikacji, która obejmuje zmianę w bazie danych przy użyciu również zwykle zajmie aplikacji w tryb offline podczas wdrażania *aplikacji\_offline.htm*, jak opisany w poprzednim samouczka.
+    Do rzeczywistej produkcji aktualizacji aplikacji, która obejmuje zmianę w bazie danych zwykle także wykonywane w aplikacji w trybie offline podczas wdrażania za pomocą *aplikacji\_offline.htm*, jak pokazano w poprzednim samouczku.
 
-## <a name="deploy-a-database-update-by-using-the-dbdacfx-provider"></a>Wdrażanie aktualizacji bazy danych przy użyciu dostawcy dbDacFx narzędzia
+## <a name="deploy-a-database-update-by-using-the-dbdacfx-provider"></a>Wdrażanie aktualizacji bazy danych przy użyciu dostawcy dbDacFx
 
-W tej sekcji możesz dodać *komentarze* kolumny *użytkownika* tabeli w bazie danych członkostwa i utworzyć stronę, która pozwala wyświetlić i edytować komentarze dla każdego użytkownika. Następnie możesz wdrożyć zmiany do testu, tymczasowych i produkcyjnych.
+W tej sekcji dodasz *komentarze* kolumny *użytkownika* tabeli w bazie danych członkostwa i utworzyć stronę, która umożliwia wyświetlanie i edytowanie komentarzy dla każdego użytkownika. Następnie możesz wdrożyć zmiany do testowania, przejściowego i produkcji.
 
-### <a name="add-a-column-to-a-table-in-the-membership-database"></a>Dodaj kolumnę do tabeli w bazie danych członkostwa
+### <a name="add-a-column-to-a-table-in-the-membership-database"></a>Dodawanie kolumny do tabeli w bazie danych członkostwa
 
-1. W programie Visual Studio Otwórz **Eksplorator obiektów SQL Server**.
-2. Rozwiń węzeł **(localdb) \v11.0**, rozwiń węzeł **baz danych**, rozwiń węzeł **aspnet ContosoUniversity** (nie **aspnet-ContosoUniversity-produkcyjną**) a następnie rozwiń węzeł **tabel**.
+1. W programie Visual Studio, otwórz **Eksplorator obiektów SQL Server**.
+2. Rozwiń **(localdb) \v11.0**, rozwiń węzeł **baz danych**, rozwiń węzeł **aspnet ContosoUniversity** (nie **aspnet-ContosoUniversity-Prod**) a następnie rozwiń węzeł **tabel**.
 
-    Jeśli nie widzisz **(localdb) \v11.0** w obszarze **programu SQL Server** węzła, kliknij prawym przyciskiem myszy **programu SQL Server** węzeł i kliknij przycisk **dodawania serwera SQL**. W **Połącz z serwerem** wprowadź okno dialogowe *(localdb) \v11.0* jako **nazwy serwera**, a następnie kliknij przycisk **Connect**.
+    Jeśli nie widzisz **(localdb) \v11.0** w obszarze **programu SQL Server** węzła, kliknij prawym przyciskiem myszy **programu SQL Server** węzła i kliknij przycisk **dodawania serwera SQL**. W **Połącz z serwerem** wprowadź okno dialogowe *(localdb) \v11.0* jako **nazwy serwera**, a następnie kliknij przycisk **Connect**.
 
-    Jeśli nie widzisz **aspnet ContosoUniversity**, uruchom projekt i zaloguj się za pomocą *admin* poświadczeń (hasło jest *devpwd*), a następnie Odśwież  **Eksplorator obiektów SQL Server** okna.
-3. Kliknij prawym przyciskiem myszy **użytkowników** tabeli, a następnie kliknij przycisk **Widok projektanta**.
+    Jeśli nie widzisz **aspnet ContosoUniversity**, uruchom projekt i zaloguj się przy użyciu *administratora* poświadczenia (hasło jest *devpwd*), a następnie Odśwież  **Eksplorator obiektów SQL Server** okna.
+3. Kliknij prawym przyciskiem myszy **użytkowników** tabeli, a następnie kliknij przycisk **Projektant widoków**.
 
     ![Projektant widoków SSOX](deploying-a-database-update/_static/image3.png)
-4. W projektancie, Dodaj *komentarze* kolumny i zapewnić ich *nvarchar(128)* i wartości null, a następnie kliknij przycisk **aktualizacji**.
+4. W projektancie, Dodaj *komentarze* kolumny i przypisz ją *nvarchar(128)* i dopuszcza wartości null, a następnie kliknij przycisk **aktualizacji**.
 
-    ![Dodawanie komentarzy kolumny](deploying-a-database-update/_static/image4.png)
-5. W **aktualizacje bazy danych w wersji zapoznawczej** kliknij **aktualizacji bazy danych**.
+    ![Dodawanie kolumny Comments](deploying-a-database-update/_static/image4.png)
+5. W **Podgląd aktualizacji bazy danych** kliknij **Aktualizuj bazę danych**.
 
-    ![Aktualizacje bazy danych w wersji zapoznawczej](deploying-a-database-update/_static/image5.png)
+    ![Podgląd aktualizacji bazy danych](deploying-a-database-update/_static/image5.png)
 
-### <a name="create-a-page-to-display-and-edit-the-new-column"></a>Utwórz stronę, aby wyświetlić i edytować nowej kolumny.
+### <a name="create-a-page-to-display-and-edit-the-new-column"></a>Utwórz stronę do wyświetlania i edytowania nowej kolumny
 
 1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy **konta** kliknij folder w projekcie ContosoUniversity **Dodaj**, a następnie kliknij przycisk **nowy element** .
-2. Utwórz nową **strona wzorcowa przy użyciu formularza sieci Web** i nadaj mu nazwę *UserInfo.aspx*. Zaakceptuj wartość domyślną *Site.Master* pliku jako strony wzorcowej.
-3. Skopiuj następujący kod do `MainContent` `Content` elementu (ostatni 3 `Content` elementy):
+2. Utwórz nową **strona wzorcowa za pomocą formularza sieci Web** i nadaj mu nazwę *UserInfo.aspx*. Zaakceptuj wartość domyślną *Site.Master* pliku strony wzorcowej.
+3. Skopiuj następujący kod do `MainContent` `Content` — element (ostatnie 3 `Content` elementy):
 
     [!code-aspx[Main](deploying-a-database-update/samples/sample6.aspx)]
-4. Kliknij prawym przyciskiem myszy *UserInfo.aspx* i kliknij przycisk **Wyświetl w przeglądarce**.
-5. Zaloguj się przy użyciu programu *admin* poświadczenia użytkownika (hasło jest *devpwd*) i Dodaj niektóre komentarze do użytkownika w celu zweryfikowania, że strony działa prawidłowo.
+4. Kliknij prawym przyciskiem myszy *UserInfo.aspx* strony, a następnie kliknij przycisk **Pokaż w przeglądarce**.
+5. Zaloguj się przy użyciu usługi *administratora* poświadczeń użytkownika (hasło jest *devpwd*) i Dodaj niektóre komentarze do użytkownika, aby sprawdzić, czy strona działa poprawnie.
 
     ![Strona informacje o użytkowniku](deploying-a-database-update/_static/image6.png)
 6. Zamknij przeglądarkę.
 
 ## <a name="deploy-the-database-update"></a>Wdrażanie aktualizacji bazy danych
 
-Aby wdrożyć przy użyciu dostawcy dbDacFx, wystarczy wybrać **aktualizacji bazy danych** opcji w profilu publikowania. Jednak dla pierwszego wdrożenia tej opcji należy również skonfigurowane niektóre dodatkowe na uruchamianie skryptów SQL: te są nadal w profilu i należy uniemożliwić ich ponowne uruchomienie.
+Aby wdrożyć przy użyciu dostawcy dbDacFx, wystarczy wybrać **Aktualizuj bazę danych** opcję w profilu publikowania. Jednak do początkowego wdrożenia przypadku użycia tej opcji możesz również skonfigurowana tak, niektóre dodatkowe skrypty SQL, aby uruchomić: są nadal w profilu i należy uniemożliwić ich ponowne uruchomienie.
 
-1. Otwórz **publikowanie w sieci Web** Kreator prawym przyciskiem myszy projekt ContosoUniversity, a następnie klikając polecenie **publikowania**.
+1. Otwórz **publikowanie w sieci Web** kreatora, kliknij prawym przyciskiem myszy projekt ContosoUniversity i klikając **Publikuj**.
 2. Wybierz **testu** profilu.
 3. Kliknij przycisk **ustawienia** kartę.
-4. W obszarze **połączenia DefaultConnection**, wybierz pozycję **aktualizacji bazy danych**.
-5. Wyłącz dodatkowych skryptów, skonfigurowanych do uruchamiania dla pierwszego wdrożenia:
+4. W obszarze **DefaultConnection**, wybierz opcję **Aktualizuj bazę danych**.
+5. Wyłącz dodatkowe skrypty, które skonfigurowano do uruchamiania do początkowego wdrożenia:
 
-    1. Kliknij przycisk **skonfigurować aktualizacje bazy danych**.
-    2. W **Konfigurowanie aktualizacji bazy danych** okno dialogowe, usuń zaznaczenie pola wyboru obok pozycji *Grant.sql* i *aspnet-data-dev.sql*.
+    1. Kliknij przycisk **Konfiguruj aktualizacje bazy danych**.
+    2. W **Konfiguruj aktualizacje bazy danych** okno dialogowe, usuń zaznaczenie pola wyboru obok pozycji *Grant.sql* i *aspnet-data-dev.sql*.
     3. Kliknij przycisk **Zamknij**.
 6. Kliknij przycisk **Podgląd** kartę.
-7. W obszarze **baz danych** i po prawej stronie **połączenia DefaultConnection**, kliknij przycisk **bazy danych w wersji zapoznawczej** łącza.
+7. W obszarze **baz danych** i po prawej stronie **DefaultConnection**, kliknij przycisk **bazy danych w wersji zapoznawczej** łącza.
 
     ![Podgląd bazy danych](deploying-a-database-update/_static/image7.png)
 
-    Okno podglądu pokazuje skrypt, które będą uruchamiane w docelowej bazie danych, ten schemat bazy danych pasuje do schematu źródłowej bazy danych. Skrypt zawiera polecenia ALTER TABLE, który dodaje nową kolumnę.
-8. Zamknij **Podgląd bazy danych** , a następnie kliknij przycisk **publikowania**.
+    Okno podglądu zawiera skrypt, który zostanie wykonany w docelowej bazie danych, że schemat bazy danych, które pasuje do schematu źródłowej bazy danych. Skrypt zawiera polecenia ALTER TABLE, który dodaje nową kolumnę.
+8. Zamknij **bazy danych w wersji zapoznawczej** okno dialogowe, a następnie kliknij przycisk **Publikuj**.
 
-    Program Visual Studio wdroży zaktualizowaną aplikację, a następnie otwiera przeglądarkę na stronę główną.
-9. Uruchom na stronie informacje o użytkowniku (Dodaj *Account/UserInfo.aspx* na adres URL strony głównej) można zweryfikować, że aktualizacja została pomyślnie wdrożona. Należy się zalogować, wprowadzając *admin* i *devpwd*.
+    Program Visual Studio wdroży zaktualizowaną aplikację i otwarciu przeglądarki do strony głównej.
+9. Uruchom na stronie informacje o użytkowniku (Dodaj *Account/UserInfo.aspx* na adres URL strony głównej) aby sprawdzić, czy aktualizacja została wdrożona pomyślnie. Musisz zalogować się, wprowadzając *administratora* i *devpwd*.
 
-    Dane w tabelach nie została wdrożona domyślna, a nie skonfigurowała skryptu wdrażania danych do uruchomienia, więc nie zostaną odnalezione komentarz, który został dodany do rozwoju. Można teraz dodać nowy komentarz w przejściowym, aby sprawdzić, czy zmiana została wdrożona do bazy danych i strony działa prawidłowo.
-10. Postępuj zgodnie z tą samą procedurą, aby wdrożyć tymczasową i produkcyjną.
+    Dane w tabelach nie są wdrażane domyślnie i nie skonfigurowała skryptu wdrażania danych, aby uruchomić, dzięki czemu nie odnajdzie komentarz, który dodaje w trakcie opracowywania. Możesz teraz dodać nowy komentarz na etapie wdrażania przejściowego, aby sprawdzić, czy zmiany zostały wdrożone względem bazy danych i strony działa prawidłowo.
+10. Wykonaj tę samą procedurę, aby wdrożyć przejściowym i produkcyjnym.
 
-    Należy pamiętać wyłączyć dodatkowych skryptów. Jedyną różnicą w porównaniu do profilu testu jest czy tylko jeden skrypt w tymczasowej spowoduje wyłączenie i produkcji profile, ponieważ zostały one skonfigurowane do działania tylko *aspnet produkcyjną data.sql*.
+    Należy pamiętać wyłączyć dodatkowe skrypty. Jedyną różnicą w porównaniu do profilu testowego jest czy spowoduje wyłączenie tylko jeden skrypt w tymczasowej i profile produkcyjnych, ponieważ zostały skonfigurowane do uruchamiania tylko *aspnet-prod-data.sql*.
 
-    Poświadczenia dla tymczasowych i produkcyjnych są administratora, jak i prodpwd.
+    Poświadczenia dla środowisk przejściowych i produkcyjnych są prodpwd i administratora.
 
-    Rzeczywistej produkcji aktualizacji aplikacji, która obejmuje zmianę w bazie danych aplikacji w tryb offline podczas wdrażania będzie również zwykle zajmują przekazując *aplikacji\_offline.htm* przed publikowania i usuwania później, jak przedstawiono w [poprzedniego samouczek](deploying-a-code-update.md).
+    Do rzeczywistej produkcji aktualizacji aplikacji, która obejmuje zmianę w bazie danych, przekazując także zazwyczaj zajęłoby aplikacji w trybie offline podczas wdrażania *aplikacji\_offline.htm* przed opublikowaniem i usuwając je później, jak przedstawiono w [poprzedniego samouczka](deploying-a-code-update.md).
 
 ## <a name="summary"></a>Podsumowanie
 
-Teraz wdrożeniu aktualizacji aplikacji, która obejmuje zmianę bazy danych przy użyciu zarówno migracje Code First i dostawcy dbDacFx narzędzia.
+Teraz udało Ci się wdrożyć aktualizację aplikacji, który się przy użyciu zarówno migracje Code First, jak i dostawcy dbDacFx zmianę w bazie danych.
 
-![Strona instruktorów z Data urodzenia](deploying-a-database-update/_static/image8.png)
+![Strona Instruktorzy z datę urodzenia](deploying-a-database-update/_static/image8.png)
 
 ![Strona informacje o użytkowniku](deploying-a-database-update/_static/image9.png)
 
-Następny samouczek pokazuje, jak wykonać wdrożenia przy użyciu wiersza polecenia.
+Następnym samouczku dowiesz się, jak wykonać wdrożenia przy użyciu wiersza polecenia.
 
 > [!div class="step-by-step"]
 > [Poprzednie](deploying-a-code-update.md)

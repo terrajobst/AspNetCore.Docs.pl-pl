@@ -1,198 +1,197 @@
 ---
 uid: web-forms/overview/older-versions-security/introduction/security-basics-and-asp-net-support-vb
-title: Podstawowe informacje o zabezpieczeniach i pomoc techniczna platformy ASP.NET (VB) | Dokumentacja firmy Microsoft
+title: Podstawy zabezpieczeń i Obsługa platformy ASP.NET (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: To jest pierwszy samouczek z serii samouczków przedstawiających technik w celu uwierzytelniania osoby odwiedzające za pomocą formularza sieci web autoryzowania dostępu do partic...
+description: To jest pierwszy samouczek z serii samouczków, przedstawiających technik w celu uwierzytelniania za pomocą formularza sieci web odwiedzających, autoryzowanie dostępu do partic...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/13/2008
 ms.topic: article
 ms.assetid: ab68a92b-fc81-40a4-a7dc-406625d2c5d4
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/security-basics-and-asp-net-support-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e62bb865e211a279b60f3120162ffc3c49cbdcc5
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 2213f2ac323e59fa67e51d6c9dcc8c2efdd2619e
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30890011"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37398514"
 ---
-<a name="security-basics-and-aspnet-support-vb"></a>Podstawowe informacje o zabezpieczeniach i pomoc techniczna platformy ASP.NET (VB)
+<a name="security-basics-and-aspnet-support-vb"></a>Podstawy zabezpieczeń i Obsługa platformy ASP.NET (VB)
 ====================
 przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 [Pobierz plik PDF](http://download.microsoft.com/download/2/F/7/2F705A34-F9DE-4112-BBDE-60098089645E/aspnet_tutorial01_Basics_vb.pdf)
 
-> To jest pierwszy samouczek z serii samouczków przedstawiających techniki odwiedzających za pomocą formularza sieci web uwierzytelniania, autoryzacji dostępu do konkretnej strony i funkcjonalność i zarządzanie kontami użytkowników w aplikacji ASP.NET.
+> To jest pierwszy samouczek z serii samouczków, przedstawiających techniki gości za pomocą formularza sieci web uwierzytelniania, autoryzacji dostępu do konkretnych stron oraz funkcji i zarządzanie kontami użytkowników w aplikacji ASP.NET.
 
 
 ## <a name="introduction"></a>Wprowadzenie
 
-Co to jest rzecz forów, witryn handlu elektronicznego, wiadomości e-mail witryn sieci Web, witryn sieci Web portalu i witrynami sieci społecznościowych, które wszystkie mają wspólną? Oferują one wszystkich *kont użytkowników*. Lokacje, które oferują kont użytkowników, musisz podać numer usług. Co najmniej nowej osoby odwiedzające muszą mieć możliwość tworzenia konta i zwracająca odwiedzający musi być w stanie się zalogować. Takich aplikacji sieci web mogą podejmować decyzje na podstawie zalogowanego użytkownika: niektóre strony lub akcji mogą być ograniczone do tylko zarejestrowane w użytkowników lub do określonej podgrupy użytkowników. inne strony mogą być wyświetlane informacje o określonych zalogowanego użytkownika lub mogą być wyświetlane mniej więcej informacji, w zależności od tego, jakie użytkownik wyświetla stronę.
+Co to jest jedno forów, witrynami handlu elektronicznego, e-mail online witryn sieci Web, witryn sieci Web w portalu i witryn sieci społecznościowych, w którym wszystkie mają wspólną? Oferują one wszystkie *kont użytkowników*. Witryn, które oferują kont użytkowników, należy podać liczbę usług. Jako minimum nowi odwiedzający muszą mieć możliwość tworzenia konta usługi i zwracanie odwiedzających musi być w stanie się zalogować. Takie aplikacje sieci web podejmować decyzje na podstawie zalogowanego użytkownika: niektóre strony lub akcji mogą być ograniczone do tylko zarejestrowane użytkowników lub do określonej podgrupy użytkowników. inne strony może wyświetlać informacje o określonych dla zalogowanego użytkownika lub może być pokazując więcej lub mniej informacji, w zależności od tego, jakie użytkownik wyświetla stronę.
 
-To jest pierwszy samouczek z serii samouczków przedstawiających techniki odwiedzających za pomocą formularza sieci web uwierzytelniania, autoryzacji dostępu do konkretnej strony i funkcjonalność i zarządzanie kontami użytkowników w aplikacji ASP.NET. W trakcie tego samouczka, zostaną omówione jak:
+To jest pierwszy samouczek z serii samouczków, przedstawiających techniki gości za pomocą formularza sieci web uwierzytelniania, autoryzacji dostępu do konkretnych stron oraz funkcji i zarządzanie kontami użytkowników w aplikacji ASP.NET. W trakcie tego samouczka zostanie omówiony sposób:
 
 - Identyfikowanie i logowania użytkowników w witrynie sieci Web
-- Użyj ASP. W NET framework członkostwa do zarządzania kontami użytkowników
+- Użyj ASP. W .NET framework członkostwa do zarządzania kontami użytkowników
 - Tworzenie, aktualizowanie i usuwanie kont użytkowników
-- Ograniczanie dostępu do strony sieci web, katalogu lub określonych funkcji, na podstawie zalogowanego użytkownika
-- Użyj ASP. W NET framework role do skojarzenia kont użytkowników z rolami
+- Ograniczanie dostępu do strony sieci web, katalogu lub określonych funkcji na podstawie zalogowanego użytkownika
+- Użyj ASP. W .NET framework role do skojarzenia kont użytkowników z rolami
 - Zarządzanie rolami użytkowników
-- Ograniczanie dostępu do strony sieci web, katalogu lub określonych funkcji, na podstawie roli zalogowanego użytkownika
+- Ograniczanie dostępu do strony sieci web, katalogu lub określonych funkcji na podstawie roli zalogowanego użytkownika
 - Dostosowywanie i rozszerzanie ASP. Określa, zabezpieczeń sieci w sieci Web
 
-Te samouczki są dostosowane do zwięzły i zawierają instrukcje krok po kroku z dużą ilością zrzuty ekranu wizualnie prowadzą użytkownika przez proces. Każdego samouczka jest dostępna w C# i Visual Basic wersji i obejmuje pobieranie pełny kod używany. (Ten pierwszy samouczek koncentruje się na koncepcji zabezpieczeń z punktu widzenia wysokiego poziomu i w związku z tym nie zawiera żadnych skojarzonego kodu).
+Te samouczki są dostosowane do być zwięzłe i zapewnić instrukcje krok po kroku z dużą ilością zrzuty ekranu wizualnie przeprowadzi Cię przez proces. Każdy samouczek jest dostępny w C# i Visual Basic wersji i obejmuje pobieranie kompletny kod używany. (Ten pierwszy samouczek koncentruje się na pojęcia dotyczące zabezpieczeń z punktu widzenia wysokiego poziomu i w związku z tym nie zawiera żadnych skojarzonego kodu)
 
-W tym samouczku omówimy zabezpieczeń ważne pojęcia i jakie urządzenia są dostępne w programie ASP.NET do pomocy w przypadku implementowania uwierzytelniania formularzy, autoryzacji, kont użytkowników i ról. Dzieła!
+W tym samouczku omówimy zabezpieczeń ważne pojęcia i jakie urządzenia są dostępne na platformie ASP.NET, aby pomóc we wdrażaniu uwierzytelniania formularzy, autoryzacji, konta użytkowników i ról. Zaczynajmy!
 
 > [!NOTE]
-> Zabezpieczenia są istotnym elementem z dowolnej aplikacji, która obejmuje fizyczne, technologicznych, a zasady decyzji i wymaga wysoki stopień wiedzy planowania i domeny. Tego samouczka serii nie jest przeznaczony do tworzenia aplikacji sieci web bezpiecznego jako przewodnika. Zamiast zespoły w szczególności na uwierzytelnianie formularzy, autoryzacji, kont użytkowników i ról. Gdy niektóre pojęcia dotyczące zabezpieczeń, obracanie wokół tych problemów są szczegółowo opisane w tej serii, inne są pozostawiane niezbadanego.
+> Zabezpieczenia są istotnym elementem każdej aplikacji, która obejmuje fizycznego, technologicznego i zasad decyzji i wymaga wysokiego stopnia wiedzę na temat planowania i domeny. W tej serii samouczków nie jest przeznaczony jako wskazówki dotyczące tworzenia zabezpieczaniu aplikacji internetowych. Zamiast koncentruje się ona szczegółowe informacje dotyczące uwierzytelniania formularzy, autoryzacji, konta użytkowników i ról. Podczas gdy niektóre pojęcia dotyczące zabezpieczeń obrotowymi te problemy zostały omówione w tej serii, inne są pozostawiane nieeksplorowanych.
 
 
-## <a name="authentication-authorization-user-accounts-and-roles"></a>Uwierzytelniania, autoryzacji, kont użytkowników i ról
+## <a name="authentication-authorization-user-accounts-and-roles"></a>Uwierzytelnianie, autoryzacja, kont użytkowników i ról
 
-Role uwierzytelniania, autoryzacji, kont użytkowników i są cztery warunki, które będą używane rzadko w całym tego samouczka serii tak, chcę szybkie chwilę do definiowania tych warunków w kontekście zabezpieczeń sieci web. W modelu klient serwer, na przykład Internetem istnieje wiele scenariuszy, w których serwer musi zidentyfikować klienta zgłoszenia żądania. *Uwierzytelnianie* to proces ustalenia tożsamości klienta. Klient, który został zidentyfikowany pomyślnie jest określany jako *uwierzytelniony*. Niezidentyfikowane klienta jest określany jako *nieuwierzytelnione* lub *anonimowych*.
+Są cztery terminów, które będą używane zbyt często w tej serii samouczków, więc chcę Poświęć chwilę szybki, aby zdefiniować te warunki w kontekście zabezpieczeń sieci web, uwierzytelnianie, autoryzacja, kont użytkowników i ról. W modelu klient serwer, na przykład Internet istnieje wiele scenariuszy, w których serwer musi zidentyfikować klienta wysyłającego żądanie. *Uwierzytelnianie* to proces ustalenia tożsamości klienta. Klient, który został pomyślnie zidentyfikowało jest nazywany *uwierzytelniony*. Niezidentyfikowany klienta jest nazywany *nieuwierzytelnione* lub *anonimowe*.
 
-Systemy bezpiecznego uwierzytelniania obejmować co najmniej jeden z następujących trzech aspektami: [coś wiesz, coś masz lub coś są](http://www.cs.cornell.edu/Courses/cs513/2005fa/NNLauthPeople.html). Większość aplikacji sieci web polegają na coś, co klient zna, takie jak hasła lub numeru PIN. Informacje używane do identyfikacji użytkownika - swojej nazwy użytkownika i hasła, na przykład - są określane jako *poświadczenia*. Ten samouczek seria skupia się wokół *uwierzytelnianie formularzy*, która jest model uwierzytelniania, gdy użytkownicy logują się do witryny przez podanie poświadczeń w formie strony sieci web. Firma Microsoft wszystkie wystąpił ten typ uwierzytelniania przed. Przejdź do dowolnej lokacji handlu elektronicznego. Gdy wszystko będzie gotowe do wyewidencjonowania zostanie wyświetlona prośba o zalogowanie się przez podanie nazwy użytkownika i hasła do pól tekstowych na stronie sieci web.
+Systemy bezpiecznego uwierzytelniania obejmują co najmniej jeden z następujących trzech zestawy reguł: [coś, co wiesz, coś, co masz lub coś są](http://www.cs.cornell.edu/Courses/cs513/2005fa/NNLauthPeople.html). Większość aplikacji sieci web opierają się na coś, co klient zna, takie jak hasła lub numeru PIN. Informacje używane do identyfikowania użytkownika — swojej nazwy użytkownika i hasła, na przykład — są określane jako *poświadczenia*. W tej serii samouczków skupia się na *uwierzytelnianie formularzy*, który jest model uwierzytelniania, w których użytkownicy logują się do witryny, podając ich poświadczenia w postaci strony sieci web. Wszystkie wystąpił ten typ uwierzytelniania przed. Przejdź do dowolnej witryny handlu elektronicznego. Gdy wszystko jest gotowe do wyewidencjonowania zostanie wyświetlony monit do logowania, wprowadzając nazwę użytkownika i hasło do pól tekstowych na stronie sieci web.
 
-Oprócz Identyfikacja klientów, serwer może być konieczne ograniczenie, jakie zasoby lub funkcje są dostępne w zależności od klienta zgłoszenia żądania. *Autoryzacji* to proces określania, czy dany użytkownik ma uprawnienia do dostępu do określonych zasobów lub funkcji.
+Oprócz identyfikowania klientów, serwer może być konieczne ograniczyć, jakie zasoby lub funkcje są dostępne w zależności od klienta wysyłającego żądanie. *Autoryzacja* jest proces określania, czy dany użytkownik ma uprawnienia dostępu do określonego zasobu lub funkcji.
 
-A *konta użytkownika* jest magazynem trwałych informacji na temat konkretnego użytkownika. Konta użytkowników muszą zawierać minimalny zestaw informacje, które jednoznacznie identyfikuje użytkownika, takie jak nazwa logowania użytkownika i hasło. Wraz z tym ważne informacje konta użytkowników mogą zawierać elementów, jak: adres e-mail użytkownika; Data i godzina utworzenia konta; Data i godzina ostatniego logowania, w; Imię i nazwisko; numer telefonu; i adres wysyłkowy. Podczas korzystania z uwierzytelniania formularzy, informacje o koncie użytkownika jest zazwyczaj przechowywane w relacyjnej bazie danych, takich jak Microsoft SQL Server.
+A *konta użytkownika* magazyn na potrzeby utrwalanie informacji na temat określonego użytkownika. Konta użytkowników, minimalny zestaw musi zawierać informacje, które jednoznacznie identyfikuje użytkownika, takie jak nazwa logowania użytkownika i hasło. Wraz z tym istotnymi informacjami, konta użytkowników mogą zawierać elementów, takich jak: adres e-mail użytkownika; Data i godzina utworzenia konta; Data i godzina ostatniego logowania, w; Imię i nazwisko; numer telefonu; i adres wysyłkowy. Korzystając z uwierzytelniania formularzy, informacje o koncie użytkownika są zazwyczaj przechowywane w relacyjnej bazy danych, takich jak Microsoft SQL Server.
 
-Aplikacje sieci Web, które obsługują kont użytkowników może opcjonalnie grupy użytkowników do *ról*. Rola to po prostu etykietę, która jest stosowana do użytkownika i udostępnia abstrakcję do definiowania reguł autoryzacji i funkcje na poziomie strony. Na przykład witryna sieci Web może obejmować rolę administratora przy użyciu reguł autoryzacji, które uniemożliwiają odbiorców administratorem, aby uzyskać dostępu do określonego zestawu stron sieci web. Ponadto różne strony, które są dostępne dla wszystkich użytkowników (w tym użytkowników niebędących administratorami) może wyświetlić dodatkowe dane lub oferują dodatkowe funkcje, gdy odwiedzanych przez użytkowników w roli administratora. Przy użyciu ról, możemy zdefiniować te reguły autoryzacji na podstawie roli roli zamiast przez użytkownika.
+Aplikacje sieci Web, które obsługują konta użytkowników mogą opcjonalnie grupie użytkowników do *role*. Rola to po prostu etykiety, która jest stosowana do użytkownika i udostępnia abstrakcję do definiowania reguł autoryzacji i funkcje na poziomie strony. Na przykład witryny sieci Web może obejmować rolę administratora przy użyciu reguł autoryzacji, które uniemożliwiają osób administratorowi na dostęp do określonego zestawu stron sieci web. Ponadto różne strony, które są dostępne dla wszystkich użytkowników (w tym użytkowników niebędących administratorami) mogą wyświetlać dodatkowe dane lub oferują dodatkowe funkcje, gdy odwiedzanych przez użytkowników w roli administratora. Przy użyciu ról, możemy zdefiniować te reguły autoryzacji na podstawie roli roli zamiast użytkownika według.
 
 ## <a name="authenticating-users-in-an-aspnet-application"></a>Uwierzytelnianie użytkowników w aplikacji ASP.NET
 
-Gdy użytkownik wpisze adres URL do okna adresu w przeglądarce lub kliknięć łącze, przeglądarki zapewnia [protokołu HTTP (Hypertext Transfer)](http://en.wikipedia.org/wiki/HTTP) żądanie do serwera sieci web dla określonej zawartości, można go ASP.NET strony obrazu, JavaScript plik, lub typ zawartości. Serwer sieci web jest zlecił ze zwracaniem żądanej zawartości. W ten sposób go określania liczby kwestii dotyczących żądania, w tym, który zgłosił żądanie i określa, czy tożsamość jest autoryzowany do pobierania żądanej zawartości.
+Kiedy użytkownik wprowadzi adres URL do okna adres lub kliknięć ich przeglądarki przez łącze, przeglądarka sprawia, że [protokołu HTTP (Hypertext Transfer)](http://en.wikipedia.org/wiki/HTTP) żądanie do serwera sieci web dla określonej zawartości, są to platformy ASP.NET stronie obrazu, JavaScript plik lub innego typu zawartości. Serwer sieci web jest nadzorowania ze zwracaniem żądanej zawartości. W ten sposób go określić kilka kwestii, o żądaniu, który wysłał żądanie i tego, czy tożsamość jest autoryzowany do pobierania żądanej zawartości.
 
-Domyślnie przeglądarki wysyłanie żądania HTTP, których brakuje dowolny rodzaj informacji identyfikacyjnych. A jeśli przeglądarka zawierają informacje dotyczące uwierzytelniania następnie serwera sieci web uruchamia się przepływ pracy uwierzytelniania, która podejmuje próbę identyfikacji klienta zgłoszenia żądania. Czynności przepływu pracy uwierzytelniania są zależne od typu uwierzytelniania używany przez aplikację sieci web. Program ASP.NET obsługuje trzy typy uwierzytelniania: systemu Windows, usługa Passport i formularze. Ta seria samouczek koncentruje się na uwierzytelnianie formularzy, ale umożliwia zająć kilka minut, aby porównać i kontrastu magazyny użytkowników uwierzytelniania systemu Windows i przepływ pracy.
+Domyślnie przeglądarek wysyłania żądań HTTP, które nie mają dowolny rodzaj informacje identyfikacyjne. Ale jeśli przeglądarka zawierają informacje o uwierzytelnianiu następnie serwer sieci web uruchamia przepływ pracy uwierzytelniania, która podejmuje próbę identyfikacji klienta wysyłającego żądanie. Kroki przepływu pracy uwierzytelniania zależą od typu uwierzytelniania używany przez aplikację sieci web. Program ASP.NET obsługuje trzy typy uwierzytelniania: Windows, usługi Passport i formularze. W tej serii samouczków skupia się na uwierzytelnianie formularzy, ale poświęćmy chwilę na Porównaj i zestaw Windows uwierzytelniania użytkownika magazynów i przepływ pracy.
 
-### <a name="authentication-via-windows-authentication"></a>Uwierzytelnianie za pomocą uwierzytelniania systemu Windows
+### <a name="authentication-via-windows-authentication"></a>Uwierzytelnianie za pośrednictwem uwierzytelniania Windows
 
-Przepływ uwierzytelniania systemu Windows korzysta z jednego z następujących metod uwierzytelniania:
+Przepływ pracy uwierzytelniania Windows używa jednego z następujących metod uwierzytelniania:
 
 - Uwierzytelnianie podstawowe
 - Uwierzytelnianie szyfrowane
-- Zintegrowane uwierzytelnianie systemu Windows
+- Zintegrowane uwierzytelnianie Windows
 
-Wszystkie trzy metody pracy mniej więcej tak samo jak: podczas nieautoryzowanego dociera do żądania od użytkowników anonimowych, serwer sieci web odsyła odpowiedź HTTP, która wskazuje, że autoryzacja jest wymagana, aby kontynuować. Następnie w przeglądarce pojawi się okno modalne okno dialogowe, które monituje użytkownika o swoją nazwę i hasło (zobacz rysunek 1). Te informacje jest następnie wysyłane do serwera sieci web za pośrednictwem nagłówka HTTP.
-
-
-![Modalne okno dialogowe użytkownik monituje o podanie swoich poświadczeń](security-basics-and-asp-net-support-vb/_static/image1.png)
-
-**Rysunek 1**: modalne okno dialogowe użytkownik monituje o podanie swoich poświadczeń
+Wszystkie trzy metody działają w przybliżeniu taki sam sposób: nieautoryzowanych nadejściu żądania od użytkowników anonimowych, serwer sieci web odsyła odpowiedź HTTP, która wskazuje, że autoryzacja jest wymagana, aby kontynuować. Następnie w przeglądarce pojawi się okno modalne okno dialogowe, który monituje użytkownika dla nazwy użytkownika i hasła (patrz rysunek 1). Te informacje są następnie wysyłane do serwera sieci web za pomocą nagłówka HTTP.
 
 
-Podane poświadczenia są sprawdzane w magazynie użytkownika systemu Windows serwer sieci web. Oznacza to, że każdy użytkownik uwierzytelniony w aplikacji sieci web musi mieć konto systemu Windows w Twojej organizacji. To jest typowe w intranecie. W rzeczywistości ustawienia sieci intranet przy użyciu zintegrowanego uwierzytelniania systemu Windows, przeglądarka automatycznie zapewnia serwer sieci web z poświadczenia używane do logowania się do sieci, a tym samym pomijanie okno dialogowe pokazany na rysunku 1. Podczas uwierzytelniania systemu Windows jest doskonały dla aplikacji sieci intranet, jest zazwyczaj będzie niemożliwe dla aplikacji internetowych, ponieważ nie chcesz utworzyć konta systemu Windows dla każdego użytkownika, która zarejestruje się w danej lokacji.
+![Modalne okno dialogowe monituje użytkownika o jego poświadczenia](security-basics-and-asp-net-support-vb/_static/image1.png)
+
+**Rysunek 1**: modalne okno dialogowe monituje użytkownika o jego poświadczenia
+
+
+Podane poświadczenia są weryfikowane względem Store użytkownika Windows serwer sieci web. Oznacza to, że każdy uwierzytelniony użytkownik w aplikacji sieci web, musisz mieć konto Windows w Twojej organizacji. To jest typowe w intranetowych. W rzeczywistości przy użyciu zintegrowanego uwierzytelniania Windows w środowisku sieci intranet, przeglądarka automatycznie zapewnia serwer sieci web przy użyciu poświadczeń, używane do logowania do sieci, w tym samym pominięcie okna dialogowego przedstawionej na rysunku 1. Podczas uwierzytelniania Windows to doskonałe rozwiązanie dla aplikacji intranetowych, jest zazwyczaj niecelowe dla aplikacji internetowych, ponieważ nie chcesz tworzyć konta Windows dla każdego użytkownika, która zarejestruje się w lokacji.
 
 ### <a name="authentication-via-forms-authentication"></a>Uwierzytelnianie za pomocą uwierzytelniania formularzy
 
-Z drugiej strony, uwierzytelnianie formularzy, jest odpowiedni dla aplikacji sieci web internetowych. Odwołania, który wchodzi w skład uwierzytelniania identyfikuje użytkownika za pomocą wyświetlania monitu o wprowadzenie poświadczeń za pomocą formularza sieci web. W związku z tym gdy użytkownik próbuje uzyskać dostęp do zasobu nieautoryzowanego, zostanie automatycznie przekierowany do strony logowania, w którym mogą oni wprowadzić swoje poświadczenia. Przesłane poświadczenia są następnie sprawdzane magazynu niestandardowego użytkowników — zwykle bazy danych.
+Z drugiej strony, uwierzytelnianie formularzy jest idealny dla aplikacji sieci web w Internecie. Odwołania, który wchodzi w skład uwierzytelniania identyfikuje użytkownika przez monitowania o wprowadzenie poświadczeń za pomocą formularza sieci web. W związku z tym gdy użytkownik próbuje uzyskać dostęp do zasobu nieautoryzowany, zostanie automatycznie przekierowany do strony logowania, w którym można wprowadzić swoje poświadczenia. Poświadczenia przesłane następnie są weryfikowane względem magazynu użytkowników niestandardowe — zwykle bazy danych.
 
-Po zweryfikowaniu poświadczeń przesłanych *biletu uwierzytelniania formularzy* jest tworzony dla użytkownika. Ten bilet wskazuje, czy użytkownik został uwierzytelniony i zawiera informacje identyfikacyjne, takie jak nazwa użytkownika. Biletu uwierzytelniania formularzy (zwykle) jest przechowywana jako plik cookie na komputerze klienckim. W związku z tym kolejnych wizytach witryny sieci Web obejmują biletu uwierzytelniania formularzy w żądaniu HTTP, umożliwiając w ten sposób identyfikowania użytkownika, gdy są zalogowani aplikacji sieci web.
+Po zweryfikowaniu poświadczeń przesłanych *biletu uwierzytelniania formularzy* jest tworzony dla użytkownika. Ten bilet wskazuje, że użytkownik został uwierzytelniony i zawiera informacje identyfikacyjne, takie jak nazwa użytkownika. Bilet uwierzytelniania formularzy (zazwyczaj) jest przechowywany jako plik cookie na komputerze klienckim. W związku z tym kolejne wizyty w witrynie sieci Web obejmują biletu uwierzytelniania formularzy w żądaniu HTTP, umożliwiając w ten sposób aplikacji sieci web zidentyfikować użytkownika, gdy wcześniejszego zalogowania.
 
-Rysunek 2 przedstawia przepływ pracy uwierzytelniania formularzy z punktu firmę vantage wysokiego poziomu. Zwróć uwagę, jak elementy uwierzytelnianie i autoryzacja w programie ASP.NET działa jako dwa osobne jednostki. System uwierzytelniania formularzy identyfikuje użytkownika (lub zgłasza, że są one anonimowego). System autoryzacji jest to, co określa, czy użytkownik ma dostęp do żądanego zasobu. Jeśli użytkownik nie ma autoryzacji (jak znajdują się na rysunku 2, próbując odwiedzić anonimowo ProtectedPage.aspx), system autoryzacji zgłasza, że użytkownik ma zabroniony, powoduje formularzy systemu uwierzytelniania automatyczne przekierowanie do strony logowania użytkownika.
+Na rysunku 2 przedstawiono przepływ pracy uwierzytelniania formularzy z punktu firmę vantage wysokiego poziomu. Zwróć uwagę, jak elementy uwierzytelnianie i autoryzacja w programie ASP.NET: działa jako dwa osobne jednostki. System uwierzytelniania formularzy identyfikację użytkownika lub zgłasza, że są anonimowe. System autoryzacji jest to, co określa, czy użytkownik ma dostęp do żądanego zasobu. Jeśli użytkownik nie ma autoryzacji (ponieważ znajdują się na rysunku 2, podczas próby anonimowo odwiedź ProtectedPage.aspx), system autoryzacji zgłasza, że użytkownik ma zabroniony, powodując formularzy systemu uwierzytelniania automatyczne przekierowanie użytkownika do strony logowania.
 
-Po pomyślnym zalogowaniu się użytkownika, kolejne żądania HTTP obejmują biletu uwierzytelniania formularzy. System uwierzytelniania formularzy jedynie identyfikuje użytkownika — jest to system autoryzacji, która określa, czy użytkownik może uzyskiwać dostęp do żądanego zasobu.
-
-
-![Przepływ uwierzytelniania formularzy](security-basics-and-asp-net-support-vb/_static/image2.png)
-
-**Rysunek 2**: przepływ uwierzytelniania formularzy
+Po pomyślnym zalogowaniu się użytkownika kolejnych żądań HTTP obejmują biletu uwierzytelniania formularzy. System uwierzytelniania formularzy jedynie identyfikuje użytkownika — jest system autoryzacji, który określa, czy użytkownik może uzyskać dostęp do żądanego zasobu.
 
 
-Firma Microsoft będzie odnajdywać do uwierzytelniania formularzy znacznie bardziej szczegółowo w dwóch następnych samouczków[omówienie uwierzytelniania formularzy](an-overview-of-forms-authentication-vb.md) i [konfiguracji uwierzytelniania formularzy i Tematy zaawansowane](forms-authentication-configuration-and-advanced-topics-vb.md). Aby uzyskać więcej informacji na temat ASP. Opcje uwierzytelniania w sieci, zobacz [Uwierzytelnianie ASP.NET](https://msdn.microsoft.com/library/eeyk640h.aspx).
+![Przepływ pracy uwierzytelniania formularzy](security-basics-and-asp-net-support-vb/_static/image2.png)
+
+**Rysunek 2**: przepływ pracy uwierzytelniania formularzy
+
+
+Omawiania do uwierzytelniania formularzy znacznie bardziej szczegółowo w dwóch następnych samouczków[omówienie uwierzytelniania formularzy](an-overview-of-forms-authentication-vb.md) i [Konfiguracja uwierzytelniania formularzy i Tematy zaawansowane](forms-authentication-configuration-and-advanced-topics-vb.md). Aby uzyskać więcej informacji na stronach ASP. Opcje uwierzytelniania w sieci, zobacz [Uwierzytelnianie ASP.NET](https://msdn.microsoft.com/library/eeyk640h.aspx).
 
 ## <a name="limiting-access-to-web-pages-directories-and-page-functionality"></a>Ograniczanie dostępu do stron sieci Web, katalogów i funkcji strony
 
-Program ASP.NET udostępnia dwa sposoby ustalić, czy dany użytkownik ma uprawnienia dostępu do określonego pliku lub katalogu:
+Program ASP.NET zawiera dwa sposoby, aby ustalić, czy dany użytkownik ma uprawnienia dostępu do określonego pliku lub katalogu:
 
-- **Plik autoryzacji** — ponieważ stron ASP.NET i usługi sieci web są zaimplementowane jako pliki, które znajdują się w systemie plików serwera sieci web, dostęp do tych plików można określić za pomocą listy kontroli dostępu (ACL). Autoryzacja pliku jest najczęściej używane z uwierzytelnianiem systemu Windows, ponieważ listy ACL są uprawnienia, które są stosowane do kont systemu Windows. Podczas korzystania z uwierzytelniania formularzy, wszystkie żądania systemowe systemu operacyjnego i plików są wykonywane przez to samo konto systemu Windows, niezależnie od użytkownika, w tej witrynie.
-- **Autoryzacja adresów URL**— z Autoryzacja adresów URL developer strony określa reguły autoryzacji w pliku Web.config. Te reguły autoryzacji Określ, co użytkownicy lub role mogą uzyskać dostęp lub odmówiono dostępu do określonych stron lub katalogów w aplikacji.
+- **Plik autoryzacji** — od strony ASP.NET i usług sieci web są implementowane jako pliki, które znajdują się w systemie plików serwera sieci web, dostęp do tych plików można określić za pomocą list kontroli dostępu (ACL). Plik autoryzacji jest najczęściej używana z uwierzytelnianiem Windows, ponieważ listy ACL są uprawnienia, które są stosowane do kont Windows. Korzystając z uwierzytelniania formularzy, wszystkie żądania systemu na poziomie systemu operacyjnego i pliku są wykonywane przez tego samego konta Windows, niezależnie od użytkownika w witrynie.
+- **Autoryzacja adresów URL**— z Autoryzacja adresów URL dla deweloperów strony określa reguły autoryzacji w pliku Web.config. Te reguły autoryzacji określają, co użytkowników lub ról mają zezwolenie na dostęp lub odmówiono dostępu do niektórych stron lub katalogów w aplikacji.
 
-Plik uwierzytelnianie i Autoryzacja adresów URL należy zdefiniować reguły autoryzacji do uzyskiwania dostępu do określonej strony ASP.NET dla wszystkich stron ASP.NET z określonego katalogu. Przy użyciu tych metod możemy poinstruuj ASP.NET odrzucanie żądań do określonej strony dla danego użytkownika, lub zezwolić na dostęp do zbioru użytkowników i odmowa dostępu do osoby. Co sytuacji, gdy wszyscy użytkownicy mogą uzyskiwać dostęp do strony, ale funkcjonalność strony zależy od użytkownika? Na przykład wiele witryn, które obsługują konta użytkowników mają stron z inną zawartością lub dane dla uwierzytelnionych użytkowników w zależności od użytkowników anonimowych. Użytkownik anonimowy napotkać łącze do logowania się w lokacji, podczas gdy uwierzytelniony użytkownik zobaczy zamiast tego komunikatu, takich jak, Witamy z powrotem, *Username* wraz z linkiem się wylogować. Inny przykład: podczas wyświetlania elementu na witryną Zobacz różne informacje w zależności od tego, czy oferta najwyższa lub jeden system aukcji elementu.
+Autoryzacja adresów URL i autoryzacji plików można zdefiniować reguły autoryzacji do uzyskiwania dostępu do określonej strony ASP.NET lub dla wszystkich stron ASP.NET w określonym katalogu. Korzystanie z tych technik firma Microsoft może wydać ASP.NET odmowę realizacji żądań na danej stronie dany użytkownik lub zezwolić na dostęp do zbioru użytkowników i nie zezwoli na dostęp wszystkim osobom. Jak wygląda sytuacjach, gdy wszyscy użytkownicy mogą uzyskać dostęp do strony, ale funkcjonalność strony zależy od użytkownika? Na przykład wiele witryn, które obsługują konta użytkowników mają stron, które wyświetlają różną zawartość lub dane uwierzytelnionych użytkowników, a użytkownicy anonimowi. Użytkownik anonimowy napotkać łącze, aby zalogować się do witryny, podczas gdy uwierzytelniony użytkownik będzie zamiast tego zostanie wyświetlony komunikat, na przykład, Witamy z powrotem, *Username* wraz z linkiem do wylogowania. Inny przykład: podczas wyświetlania elementu na witryną zobaczyć różne informacje w zależności od tego, czy jesteś oferta najwyższa lub jeden system aukcji elementu.
 
-Takie dostosowania na poziomie strony można osiągnąć deklaratywnie lub programowo. Aby wyświetlić różne zawartości dla anonimowego niż uwierzytelnionych użytkowników, po prostu przeciągania [formantu LoginView](https://msdn.microsoft.com/library/system.web.ui.webcontrols.loginview.aspx) na stronę, a następnie wprowadź odpowiednią zawartość do jego AnonymousTemplate i LoggedInTemplate szablonów. Alternatywnie, można programowo określić, czy bieżące żądanie jest uwierzytelniane, kto jest użytkownika oraz role należą one do (jeśli istnieje). Tych informacji umożliwia następnie Pokazywanie lub ukrywanie kolumn w siatce lub panele na stronie.
+Deklaratywne lub programowo, można wykonywać takie dostosowania na poziomie strony. Aby wyświetlić różną zawartość w przypadku anonimowych niż uwierzytelnionych użytkowników, po prostu przeciągnij [kontrolki widoku logowania](https://msdn.microsoft.com/library/system.web.ui.webcontrols.loginview.aspx) na stronę i wprowadź odpowiednią zawartość do jego szablony AnonymousTemplate i LoggedInTemplate. Alternatywnie, można programowo określić czy bieżące żądanie jest uwierzytelniane, kim jest użytkownik i jakie role należą one do (jeśli istnieje). Następnie pokazać lub ukryć kolumny w siatce lub paneli, na stronie, można użyć tych informacji.
 
-Ta seria zawiera trzy samouczków, z którymi się skupić na autoryzacji. ***Autoryzacji na podstawie użytkownika***sprawdza jak ograniczyć dostęp do stron w katalogu lub strony na określonych kont użytkowników; ***Autoryzacji na podstawie roli*** analizuje dostarczanie reguły autoryzacji w ramach roli poziomu; Ponadto ***wyświetlanie zawartości na podstawie obecnie zalogowany w użytkownika*** w tym samouczku przedstawiono modyfikacja szczególności zawartość i funkcje na podstawie użytkownika, odwiedzając stronę strony. Aby uzyskać więcej informacji na temat ASP. Opcje autoryzacji w sieci, zobacz [autoryzacji programu ASP.NET](https://msdn.microsoft.com/library/wce3kxhd.aspx).
+Ta seria zawiera trzy samouczków, które koncentrują się na autoryzacji. ***Autoryzacja oparta na użytkowniku***zbadamy, jak ograniczyć dostęp do stron w katalogu lub strony na określone konta użytkowników; ***Autoryzacji na podstawie roli*** patrzy na dostarczenie reguły autoryzacji w roli, poziom; Ponadto ***wyświetlanie zawartości na podstawie obecnie rejestrowane w użytkownika*** w tym samouczku przedstawiono, modyfikując określonego na stronie zawartość i funkcje na podstawie użytkownika, odwiedzając stronę. Aby uzyskać więcej informacji na stronach ASP. Opcje autoryzacji w sieci, zobacz [autoryzacji programu ASP.NET](https://msdn.microsoft.com/library/wce3kxhd.aspx).
 
 ## <a name="user-accounts-and-roles"></a>Konta użytkowników i ról
 
-ŚRODOWISKO ASP. W sieci, uwierzytelnianie formularzy zapewnia infrastrukturę użytkownikom zalogować się do witryny i ich stanu uwierzytelnionego zapamiętanych między wizyt strony. I Autoryzacja adresów URL oferuje framework ograniczania dostępu do określonych plików lub folderów w aplikacji ASP.NET. Żadna funkcja dostarcza jednak sposób przechowywania informacji o koncie użytkownika lub zarządzania rolami.
+ASP. W sieci, uwierzytelnianie formularzy zapewnia infrastrukturę dla użytkowników, zaloguj się do witryny i ich stan uwierzytelnionego zapamiętanych między odwiedzin strony. I Autoryzacja adresów URL oferuje umożliwiająca ograniczenie dostępu do określonych plików lub folderów w aplikacji ASP.NET. Żadna funkcja dostarcza jednak oznacza, że do przechowywania informacji o koncie użytkownika lub Zarządzanie rolami.
 
-Przed składnika ASP.NET 2.0 deweloperzy zostały odpowiedzialną za tworzenie własnych magazynów użytkownika i roli. Znajdowały się również w haku projektowanie interfejsów użytkownika i pisanie kodu dla użytkownika niezbędne stron związanych z kontem, takich jak strony logowania i stronę, aby utworzyć nowe konto, między innymi. Bez żadnych framework konto wbudowane użytkownika w programie ASP.NET, każdy Deweloper implementującej kont użytkowników musiały osiągnąć własnej decyzji projektowych na pytania, jak przechowywać hasła lub inne poufne informacje? i jakie wytyczne powinna nałożyć dotyczące długość hasła i siły?
+Przed ASP.NET 2.0 deweloperzy były odpowiedzialne za tworzenie własnych magazynów użytkownika i roli. Również znajdowały się w haku projektowanie interfejsów użytkownika i pisanie kodu dla użytkownika niezbędne stron związanych z kontem, takich jak strony logowania i strony Aby utworzyć nowe konto, między innymi. Bez dowolnej architektury konta wbudowanego użytkownika w programie ASP.NET: Każdy deweloper implementującej kont użytkowników było osiągnąć własnej decyzji projektowych na takie pytania, jak, jak przechowywać hasła lub inne poufne informacje? i jakie wytyczne powinny nakładać dotyczące długość hasła i siły?
 
-Obecnie implementacja kont użytkowników w aplikacji ASP.NET jest znacznie prostsze dzięki *framework członkostwa* i wbudowane formanty sieci Web logowania. W ramach członkostwa jest kilka klas w [System.Web.Security przestrzeni nazw](https://msdn.microsoft.com/library/system.web.security.aspx) które zapewniają funkcje do wykonywania zadań związanych z kontem użytkownika podstawowych. Klasa klucza w ramach członkostwa jest [klasy członkostwa](https://msdn.microsoft.com/library/system.web.security.membership.aspx), która zawiera metody, takie jak:
+Obecnie Implementowanie kont użytkowników w aplikacji ASP.NET jest znacznie prostsze dzięki *framework członkostwa* i wbudowanej kontrolki sieci Web logowania. W ramach członkostwa jest kilka klas w [przestrzeń nazw System.Web.Security](https://msdn.microsoft.com/library/system.web.security.aspx) dostarczające funkcje do wykonywania zadań związanych z kontem użytkownika niezbędne. Klasa klucza w ramach członkostwa jest [klasa członkowska](https://msdn.microsoft.com/library/system.web.security.membership.aspx), który ma metod, takich jak:
 
-- CreateUser
+- Tworzenie użytkownika
 - DeleteUser
 - GetAllUsers
 - GetUser
 - UpdateUser
 - ValidateUser
 
-Platforma członkostwa korzysta z [modelu dostawcy](http://aspnet.4guysfromrolla.com/articles/101905-1.aspx), który prawidłowo oddziela interfejsu API w ramach członkostwa od jego wykonania. Umożliwia deweloperom korzystanie ze wspólnego interfejsu API, ale upoważnia je, aby korzystać z implementacji zaspokoi potrzeby niestandardowych ich aplikacji. Krótko mówiąc klasa członkostwa definiuje podstawowych funkcji platformy (metody, właściwości i zdarzeń), ale faktycznie nie dostarcza żadnych szczegółów implementacji. Zamiast tego metody klasy członkostwa wywołania skonfigurowanego dostawcy, czyli co wykonuje całą pracę. Na przykład po wywołaniu metody włączenie klasa członkowska klasy członkostwa nie może ustalić szczegółowe informacje o magazynie użytkownika. Nie wiadomo, jeśli użytkownicy są obsługiwane w bazie danych lub w pliku XML lub w niektórych innym magazynie. Klasa członkowska sprawdza konfigurację aplikacji sieci web, aby ustalić, jakie dostawcy, aby delegować wywołanie i klasy dostawcy jest odpowiedzialny za faktycznie Tworzenie nowego konta użytkownika w magazynie odpowiedniego użytkownika. Rysunek 3 przedstawia interakcji.
+Zastosowano w ramach członkostwa [modelu dostawca](http://aspnet.4guysfromrolla.com/articles/101905-1.aspx), której nie pozostawia żadnych śladów oddziela interfejsu API w ramach członkostwa od implementacji. Umożliwia deweloperom korzystanie wspólny interfejs API, ale upoważnia do użycia z implementacją, który spełnia wymagania niestandardowe swoich aplikacji. Krótko mówiąc klasa członkowska określa podstawowe funkcje framework (metody, właściwości i zdarzenia), ale faktycznie nie dostarcza żadnych szczegółów implementacji. Zamiast tego metody klasy członkostwa wywołać skonfigurowany dostawca to, co wykonuje rzeczywistą pracę. Na przykład gdy wywoływana jest metoda Tworzenie użytkownika klasy członkostwa, klasa członkowska nie wie, szczegółowe informacje o magazynie użytkownika. Nie wie, jeśli użytkownicy są obsługiwane w bazie danych lub w pliku XML lub niektórych innych magazynu. Klasa członkostwa sprawdza konfigurację aplikacji sieci web, aby określić, jakie dostawcę, aby delegować wywołanie, a tej klasy dostawcy jest odpowiedzialny za faktycznie tworzenia nowego konta użytkownika w magazynie odpowiedniego użytkownika. Ta interakcja jest przedstawione na rysunku 3.
 
-Microsoft dwie klasy dostawcy członkostwa jest dostarczany w programie .NET Framework:
+Microsoft jest dostarczany dwie klasy dostawcy członkostwa w programie .NET Framework:
 
-- [ActiveDirectoryMembershipProvider](https://msdn.microsoft.com/library/system.web.security.activedirectorymembershipprovider.aspx) -implementuje interfejs API członkostwa w usłudze Active Directory i tryb aplikacji usługi Active Directory (ADAM) serwerów.
-- [SqlMembershipProvider](https://msdn.microsoft.com/library/system.web.security.sqlmembershipprovider.aspx) -implementuje interfejs API członkostwa w bazie danych programu SQL Server.
+- [ActiveDirectoryMembershipProvider](https://msdn.microsoft.com/library/system.web.security.activedirectorymembershipprovider.aspx) — implementuje interfejs API członkostwa w serwerów usługi Active Directory i trybu aplikacji usługi Active Directory (ADAM).
+- [SqlMembershipProvider](https://msdn.microsoft.com/library/system.web.security.sqlmembershipprovider.aspx) — implementuje interfejs API członkostwa w bazie danych programu SQL Server.
 
-Ta seria samouczek koncentruje się wyłącznie na SqlMembershipProvider.
-
-
-[![Dostawca modelu umożliwia różnych implementacje można bezproblemowo podłączony w ramach](security-basics-and-asp-net-support-vb/_static/image4.png)](security-basics-and-asp-net-support-vb/_static/image3.png)
-
-**Rysunek 03**: Dostawca modelu umożliwia różnych implementacji można bezproblemowo podłączony w ramach ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](security-basics-and-asp-net-support-vb/_static/image5.png))
+W tej serii samouczków skupia się wyłącznie na SqlMembershipProvider.
 
 
-Zaletą modelu dostawcy jest alternatywnych implementacji może być opracowane przez firmę Microsoft, dostawców innych firm lub indywidualnych deweloperów i bezproblemowo podłączony w ramach członkostwa. Na przykład firma Microsoft wydała [dostawcę członkostwa dla baz danych programu Microsoft Access](https://download.microsoft.com/download/5/5/b/55bc291f-4316-4fd7-9269-dbf9edbaada8/sampleaccessproviders.vsi). Aby uzyskać więcej informacji o dostawcach członkostwa, zapoznaj się [Toolkit dostawcy](https://msdn.microsoft.com/asp.net/aa336558.aspx), w tym instruktażu dostawców członkostwa, przykładowe dostawców niestandardowych, ponad 100 stron dokumentacji modelu dostawcy i uzupełnianie kodu źródłowego dla wbudowanego dostawcy członkostwa (to znaczy, ActiveDirectoryMembershipProvider i SqlMembershipProvider).
+[![Dostawca modelu umożliwia różne implementacje się bezproblemowo podłączone do Framework](security-basics-and-asp-net-support-vb/_static/image4.png)](security-basics-and-asp-net-support-vb/_static/image3.png)
 
-Platforma ASP.NET 2.0 wprowadzono również framework ról. Jak framework członkostwa w ramach ról została stworzona z modelu dostawcy. Jego interfejsu API jest udostępniane za pośrednictwem funkcji [klasy ról](https://msdn.microsoft.com/library/system.web.security.roles.aspx) i .NET Framework jest dostarczany z trzech klas dostawcy:
+**Rysunek 03**: Dostawca modelu umożliwia różne implementacje się bezproblemowo podłączone w ramach ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](security-basics-and-asp-net-support-vb/_static/image5.png))
 
-- [Element AuthorizationStoreRoleProvider](https://msdn.microsoft.com/library/system.web.security.authorizationstoreroleprovider.aspx) -zarządza informacje o rolach w magazynie zasad Menedżera autoryzacji, takich jak usługa Active Directory lub ADAM.
-- [SqlRoleProvider](https://msdn.microsoft.com/library/system.web.security.sqlroleprovider.aspx) -implementuje ról w bazie danych programu SQL Server.
-- [WindowsTokenRoleProvider](https://msdn.microsoft.com/library/system.web.security.windowstokenroleprovider.aspx) -kojarzy informacje o rolach oparte na odwiedzającego grupy systemu Windows. Ta metoda jest zwykle używana z uwierzytelnianiem systemu Windows.
 
-Ta seria samouczek koncentruje się wyłącznie na elementu SqlRoleProvider.
+Zaletą modelu dostawca jest, że alternatywnych implementacji może być opracowane przez firmę Microsoft, dostawców innych firm lub indywidualnych deweloperów i bezproblemowo podłączony do członkostwa w ramach. Na przykład firma Microsoft wydała [dostawcy członkostwa dla baz danych Microsoft Access](https://download.microsoft.com/download/5/5/b/55bc291f-4316-4fd7-9269-dbf9edbaada8/sampleaccessproviders.vsi). Aby uzyskać więcej informacji o dostawcach członkostwa, zobacz [Toolkit dostawcy](https://msdn.microsoft.com/asp.net/aa336558.aspx), który zawiera wskazówki dotyczące dostawców członkostwa, przykładowe dostawców niestandardowych, ponad 100 strony dokumentacji na podstawie modelu dostawcy i Wbudowani dostawcy członkostwa (to znaczy, ActiveDirectoryMembershipProvider i SqlMembershipProvider) należy wykonać kod źródłowy.
 
-Ponieważ model dostawcy zawiera jeden interfejs API skierowany do przodu (klasy członkostwo i role), jest możliwe utworzenie funkcji wokół tego interfejsu API, nie martwiąc się o szczegóły implementacji — te są obsługiwane przez dostawców wybranych przez strony Developer. Ten ujednolicony interfejs API umożliwia do formantów sieci Web interfejsu z członkostwa oraz ról platformy firmy Microsoft i innych dostawców. Program ASP.NET jest dostarczany z liczbą [formanty sieci Web logowania](https://msdn.microsoft.com/library/ms178329.aspx) stosowania wspólnych interfejsów użytkownika konta użytkownika. Na przykład [formantu logowania](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.aspx) monituje użytkownika o podanie poświadczeń, sprawdza je i rejestruje je za pomocą uwierzytelniania formularzy. [Formantu LoginView](https://msdn.microsoft.com/library/system.web.ui.webcontrols.loginview.aspx) udostępnia szablony do wyświetlania różnych znaczników do użytkowników anonimowych, a użytkownicy uwierzytelnieni lub różnych znaczników na podstawie roli użytkownika. I [formancie CreateUserWizard](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.aspx) udostępnia interfejs użytkownika krok po kroku dotyczące tworzenia nowego konta użytkownika.
+ASP.NET 2.0 wprowadzono także w ramach ról. Jak w ramach członkostwa w ramach ról jest kompilowanych na podstawie modelu dostawców. Jego interfejs API jest udostępniany za pośrednictwem [klasy ról](https://msdn.microsoft.com/library/system.web.security.roles.aspx) i .NET Framework, który jest dostarczany z trzech klas dostawcy:
 
-Poniżej obejmuje różne kontrolek logowania interakcji z platform członkostwa i ról. Większość kontrolek logowania można zaimplementować bez konieczności pisania pojedynczy wiersz kodu. Tych kontrolek bardziej szczegółowo omówione zostaną w przyszłości samouczki, w tym techniki rozszerzanie i dostosowywanie ich funkcje.
+- [Element AuthorizationStoreRoleProvider](https://msdn.microsoft.com/library/system.web.security.authorizationstoreroleprovider.aspx) — zarządza informacje o rolach w magazynie zasad Menedżera autoryzacji, takich jak usługi Active Directory lub ADAM.
+- [SqlRoleProvider](https://msdn.microsoft.com/library/system.web.security.sqlroleprovider.aspx) — implementuje role w bazie danych programu SQL Server.
+- [WindowsTokenRoleProvider](https://msdn.microsoft.com/library/system.web.security.windowstokenroleprovider.aspx) -kojarzy informacje o rolach oparte na grupie Windows gości. Ta metoda jest zwykle używany z uwierzytelnianiem Windows.
+
+W tej serii samouczków skupia się wyłącznie na SqlRoleProvider.
+
+Ponieważ model dostawcy zawiera pojedynczy interfejs API przedni (grupy członkostwa i ról), jest możliwe utworzenie funkcji wokół tego interfejsu API bez konieczności martwienia się o szczegóły implementacji — te są obsługiwane przez dostawców wybranych przez strony dla deweloperów. Ten ujednolicony interfejs API umożliwia firmy Microsoft i innych dostawców, do tworzenia kontrolki sieci Web, ten interfejs, za pomocą platform członkostwa i ról. ASP.NET jest dostarczana z liczbą [kontrolki sieci Web logowania](https://msdn.microsoft.com/library/ms178329.aspx) implementacji typowych interfejsów użytkownika konta użytkownika. Na przykład [kontrolka Login](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.aspx) monituje użytkownika o podanie poświadczeń, sprawdza poprawność ich i rejestruje je za pomocą uwierzytelniania formularzy. [Kontrolki widoku logowania](https://msdn.microsoft.com/library/system.web.ui.webcontrols.loginview.aspx) oferuje szablony na potrzeby wyświetlania różny kod znaczników dla użytkowników anonimowych, a użytkownicy uwierzytelnieni lub różny kod znaczników na podstawie roli użytkownika. I [kontroli CreateUserWizard](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.aspx) udostępnia interfejs użytkownika krok po kroku dotyczące tworzenia nowego konta użytkownika.
+
+Wewnętrznie różnych kontrolek logowania wchodzić w interakcje ze strukturami członkostwa i ról. Większość kontrolek logowania może być implementowany bez konieczności pisania nawet wiersza kodu. Będziemy sprawdzać te kontrolki większej liczby szczegółów przyszłych samouczków, w tym techniki rozszerzanie i dostosowywanie ich funkcje.
 
 ## <a name="summary"></a>Podsumowanie
 
-Wszystkie aplikacje sieci web, które obsługują kont użytkowników wymagają podobne funkcje, takie jak: przez użytkowników do logowania i ich dziennika w stan zapamiętanych między wizyty strony. strony sieci web dla nowych użytkowników do tworzenia konta; i umożliwia określenie, jakie zasobów, dane i funkcje są dostępne do jakiego użytkowników lub ról deweloperowi strony. Zadania, uwierzytelniania i autoryzacji użytkowników i zarządzanie kontami użytkowników i ról jest niezwykle łatwo wykonać w aplikacjach ASP.NET dzięki użyciu uwierzytelniania formularzy, autoryzacja adresu URL i platform członkostwa i ról.
+Wszystkie aplikacje sieci web, które obsługują konta użytkowników wymagają podobne funkcje, takie jak: możliwości dla użytkowników, zaloguj się i ich dziennika stanu zapamiętanych między odwiedzin strony; strony sieci web nowi odwiedzający utworzyć konto usługi; i możliwość określenia, jakie zasoby, danych i funkcje są dostępne do jakich użytkowników lub ról do deweloperów strony. Zadania, uwierzytelniania i autoryzowania użytkowników i zarządzanie kontami użytkowników i ról jest niezwykle łatwe w aplikacjach ASP.NET dzięki uwierzytelniania formularzy, Autoryzacja adresów URL i struktury członkostwa i ról.
 
-W ciągu następnej samouczki kilka zostaną omówione aspektami przez utworzenie działającą aplikację sieci web od podstaw w sposób krok po kroku. Następne dwa kroki samouczka przeanalizujemy uwierzytelnianie formularzy szczegółowo. Zostanie wyświetlone przepływu pracy uwierzytelniania formularzy w akcji, dissect biletu uwierzytelniania formularzy, omówimy zagadnienia dotyczące zabezpieczeń i zobacz, jak skonfigurować system uwierzytelniania formularzy — wszystkie podczas kompilowania aplikacji sieci web, która umożliwia zalogować się i wylogowania.
+W ciągu następnej kilka samouczków będziemy sprawdzać te aspekty przez utworzenie działającą aplikację sieci web od podstaw w sposób krok po kroku. W dwóch następnych samouczku omówimy uwierzytelniania formularzy szczegółowo. Zobaczymy, przepływ pracy uwierzytelniania formularzy w akcji, przeanalizujemy biletu uwierzytelniania formularzy, omówić problemy dotyczące zabezpieczeń i zobacz, jak skonfigurować system uwierzytelniania formularzy — wszystkie podczas tworzenia aplikacji sieci web, która umożliwia Zaloguj się i wylogowania.
 
-Programowanie przyjemność!
+Wszystkiego najlepszego programowania!
 
 ### <a name="further-reading"></a>Dalsze informacje
 
-Więcej informacji dotyczących tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
+Więcej informacji na tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
 
-- [Platforma ASP.NET 2.0 członkostwo, role, uwierzytelnianie formularzy i zabezpieczeń zasobów](https://weblogs.asp.net/scottgu/ASP.NET-2.0-Membership_2C00_-Roles_2C00_-Forms-Authentication_2C00_-and-Security-Resources-)
-- [Wytyczne dotyczące zabezpieczeń 2.0 ASP.NET](https://msdn.microsoft.com/library/ms998258.aspx)
+- [Program ASP.NET 2.0 członkostwo, role, uwierzytelnianie formularzy i zasoby dotyczące zabezpieczeń](https://weblogs.asp.net/scottgu/ASP.NET-2.0-Membership_2C00_-Roles_2C00_-Forms-Authentication_2C00_-and-Security-Resources-)
+- [Wytyczne dotyczące zabezpieczeń 2.0 platformy ASP.NET](https://msdn.microsoft.com/library/ms998258.aspx)
 - [Uwierzytelnianie ASP.NET](https://msdn.microsoft.com/library/eeyk640h.aspx)
 - [Autoryzacja w programie ASP.NET](https://msdn.microsoft.com/library/wce3kxhd.aspx)
-- [Omówienie kontrolki logowania programu ASP.NET](https://msdn.microsoft.com/library/ms178329.aspx)
-- [Badanie ASP.NET 2.0 na członkostwo, role i profilu](http://aspnet.4guysfromrolla.com/articles/120705-1.aspx)
-- [Jak I: zabezpieczyć przy użyciu członkostwo i role lokacji](https://asp.net/learn/videos/video-45.aspx) (Klip wideo)
+- [Logowanie do platformy ASP.NET określa — omówienie](https://msdn.microsoft.com/library/ms178329.aspx)
+- [Badanie programu ASP.NET 2.0 na członkostwo, role i profilu](http://aspnet.4guysfromrolla.com/articles/120705-1.aspx)
+- [Jak I: Zabezpieczanie witryny przy użyciu członkostwa i ról](https://asp.net/learn/videos/video-45.aspx) (Wideo)
 - [Wprowadzenie do członkostwa](https://msdn.microsoft.com/library/yh26yfzy.aspx)
-- [Centrum deweloperów zabezpieczeń MSDN](https://msdn.microsoft.com/security/default.aspx)
-- [Professional ASP.NET 2.0 zabezpieczeń, członkostwo i zarządzanie rolami](http://www.wrox.com/WileyCDA/WroxTitle/productCd-0764596985.html) (ISBN: 978-0-7645-9698-8)
+- [Centrum deweloperów zabezpieczeń w witrynie MSDN](https://msdn.microsoft.com/security/default.aspx)
+- [Profesjonalne platformy ASP.NET 2.0 zabezpieczeń, członkostwo i zarządzanie rolami](http://www.wrox.com/WileyCDA/WroxTitle/productCd-0764596985.html) (ISBN: 978-0-7645-9698-8)
 - [Zestaw narzędzi do dostawcy](https://msdn.microsoft.com/asp.net/aa336558.aspx)
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor siedem ASP/ASP.NET książek i założycielem [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracował nad przy użyciu technologii Microsoft Web od 1998 r. Scott działa jako niezależny Konsultant, trainer i składnika zapisywania. Jego najnowszą książkę Stephena [ *Sams uczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). ADAM można z Tobą skontaktować w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blogu, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
-Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Recenzenta realizacji w tym samouczku został w tym samouczku, który serii zostało sprawdzone przez wiele recenzentów przydatne. Prowadzić osób dokonujących przeglądu, w tym samouczku obejmują Alicja Maziarz, Jan Suru i Teresa Murphy. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+W tej serii samouczków został zrecenzowany przez wielu recenzentów pomocne. Weryfikacja potencjalnych klientów w ramach tego samouczka został w tym samouczku, który serii został zrecenzowany przez wielu recenzentów pomocne. Wiodące osób dokonujących przeglądu, w tym samouczku obejmują Alicja Maziarz, Jan Suru i Teresa Murphy. Zainteresowani zapoznaniem Moje kolejnych artykułów MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Poprzednie](forms-authentication-configuration-and-advanced-topics-cs.md)

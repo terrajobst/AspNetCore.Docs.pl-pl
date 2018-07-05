@@ -1,109 +1,108 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling
-title: Wystąpienia błędu przejściowego obsługi (Tworzenie aplikacji w chmurze rzeczywistych z platformy Azure) | Dokumentacja firmy Microsoft
+title: Obsługa (Tworzenie aplikacji w chmurze w rzeczywistych warunkach Dzięki platformie Azure) błędu przejściowego | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: Kompilowanie rzeczywistych World aplikacje w chmurze z Azure Książka elektroniczna jest oparta na prezentacji opracowane przez Scott Guthrie. Wyjaśniono 13 wzorców i rozwiązań, które może on...
+description: Tworzenie rzeczywistych aplikacji w chmurze za pomocą platformy Azure Książka elektroniczna jest oparta na prezentacji, opracowane przez Scotta Guthrie. Wyjaśniono 13 wzorców i praktyk, które może on...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/03/2015
 ms.topic: article
 ms.assetid: 7ead83bc-c08c-4b26-8617-00e07292e35c
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling
 msc.type: authoredcontent
-ms.openlocfilehash: 86bd67b04931ae2452f6e063e6475a434a0125bc
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 13ed8c2373c22070d21519bc495161e956b0ac4d
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30873082"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37398417"
 ---
-<a name="transient-fault-handling-building-real-world-cloud-apps-with-azure"></a>Obsługa (Tworzenie aplikacji w chmurze rzeczywistych z platformy Azure) wystąpienia błędu przejściowego
+<a name="transient-fault-handling-building-real-world-cloud-apps-with-azure"></a>Obsługa (Tworzenie aplikacji w chmurze w rzeczywistych warunkach Dzięki platformie Azure) błędu przejściowego
 ====================
-przez [Wasson Jan](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Dykstra niestandardowy](https://github.com/tdykstra)
+przez [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Tom Dykstra](https://github.com/tdykstra)
 
-[Pobieranie napraw projektu](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) lub [Pobierz książkę E](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
+[Pobierz go naprawić projektu](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) lub [Pobierz książkę elektroniczną](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
-> **Tworzenia rzeczywistych aplikacji w chmurze platformy Azure** Książka elektroniczna opiera się na prezentacji opracowane przez Scott Guthrie. Wyjaśniono 13 wzorców i wskazówki, które mogą pomóc Ci się pomyślnie, tworzenie aplikacji sieci web dla chmury. Informacje o Książka elektroniczna, zobacz [pierwszy rozdział](introduction.md).
+> **Tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure** Książka elektroniczna jest oparta na prezentacji opracowany przez Scotta Guthrie. Wyjaśniono 13 wzorców i praktyk, które mogą pomóc Ci odnieść sukces, tworzenie aplikacji sieci web w chmurze. Aby uzyskać informacji o książce elektronicznej, zobacz [pierwszy rozdział](introduction.md).
 
 
-Podczas projektowania aplikacji w chmurze rzeczywistych, jeden czynności, które trzeba myśleć o jest sposób obsługi przerw w działaniu usługi tymczasowego. Ten problem jest unikatowo ważne w aplikacji w chmurze, ponieważ jesteś tak zależny od połączenia sieciowego i usług zewnętrznych. Często można uzyskać małego błędami występującymi, które są zazwyczaj samonaprawiania i jeśli nie jest przygotowany do obsługi inteligentnie, będzie skutkować zły środowisko w dla klientów.
+Podczas projektowania aplikacji w chmurze świata rzeczywistego, jedną z rzeczy, które trzeba się zajmować jest sposób obsługi przerw w świadczeniu usługi tymczasowych. Ten problem jest jednoznacznie ważne w aplikacjach w chmurze, ponieważ jesteś więc zależne od usług zewnętrznych i połączeniem sieciowym. Często znajdziesz niewielkie błędy wyróżnienia, które są zazwyczaj samonaprawiania, a jeśli nie masz przygotowany do obsługi tych inteligentnie, powodują one, będzie złe doświadczenia klientom.
 
 ## <a name="causes-of-transient-failures"></a>Przyczyny błędów przejściowych
 
-W środowisku chmury, które można znaleźć, nie powiodło się i usunąć połączenia z bazą danych nastąpić okresowo. Wynika to z częściowo jest przechodzenia przez więcej usług równoważenia obciążenia w porównaniu do środowiska lokalnego, w której mają bezpośredniego połączenia fizycznego serwera sieci web i serwera bazy danych. Ponadto czasami w przypadku, gdy użytkownik jest zależna od usługi wielodostępne zobaczysz wywołania get service wolniej lub upłynął limit czasu ponieważ ktoś inny, który korzysta z usługi jest naciśnięcie silnie. W innych przypadkach może być użytkownik, który jest zbyt często naciśnięcie usługi, a usługa celowo ogranicza możesz — nie zezwala na połączenia — Aby uniknąć negatywnego wpływu na innych dzierżaw usługi.
+W środowisku chmurowym, które można znaleźć, które nie powiodło się i porzucić połączenia z bazą danych się zdarzyć, okresowo. Wynika to z częściowo one przechodzenia przez więcej modułów równoważenia obciążenia w porównaniu do środowiska lokalnego, w których serwera sieci web i serwera bazy danych mają bezpośrednie połączenie fizyczne. Ponadto czasami, gdy wszystko jest zależna od usługi wielodostępne zobaczysz wywołania usługi get wolniej lub przekraczają limit czasu ponieważ ktoś inny używa usługi powoduje osiągnięcie intensywnie. W innych przypadkach może być użytkownika, który wykorzystuje usługę zbyt często, a usługa celowo ogranicza możesz — nie zezwala na połączenia — aby zapobiec negatywnego wpływu na innych dzierżaw usługi.
 
-## <a name="use-smart-retryback-off-logic-to-mitigate-the-effect-of-transient-failures"></a>Użyj inteligentne logiki ponawiania/wycofania celu złagodzenia skutków błędów przejściowych
+## <a name="use-smart-retryback-off-logic-to-mitigate-the-effect-of-transient-failures"></a>Użyj inteligentne logikę ponawiania/wycofywania, aby zminimalizować wpływ błędów przejściowych
 
-Zamiast generowania wyjątku i wyświetlanie nie jest dostępna lub błąd strony do klienta, może rozpoznać błędów, które mają zwykle charakter przejściowy, i automatycznie ponów próbę wykonania operacji, które spowodowały błąd, w nadzieję który przed długo będzie pomyślnie. W większości przypadków operacji powiedzie się w drugim spróbuj i będzie można odzyskać z błąd bez klientów mających dotąd pamiętać, że wystąpił problem.
+Zamiast zgłaszać wyjątek i wyświetlanie strony błąd lub nie jest dostępna dla klienta, może rozpoznać błędów, które mają zwykle charakter przejściowy, i automatycznie ponów próbę wykonania operacji, które spowodowały błąd, w nadzieję, zanim czasu będzie pomyślnie. W większości przypadków operacja zostanie wykonana przy próbie drugiej, a będzie można odzyskać sprawność po błędzie bez klientów mających kiedykolwiek pamiętać, że wystąpił problem.
 
-Istnieje kilka metod, które można zaimplementować Logika ponawiania inteligentne.
+Istnieje kilka sposobów, które można zaimplementować logikę ponawiania inteligentne.
 
-- Microsoft Patterns &amp; grupa rozwiązań ma [bloku aplikacji obsługi błędów przejściowych](https://msdn.microsoft.com/library/dn440719(v=pandp.60).aspx) wykonuje wszystko dla Ciebie Jeśli używasz ADO.NET dla dostępu do bazy danych SQL (nie za pośrednictwem programu Entity Framework). Wystarczy ustawić zasady dla ponownych prób — ile razy, aby ponowić próbę wykonania kwerendy lub polecenia i jak długo czekać między prób — a zawijania programu SQL kodu w *przy użyciu* bloku.
+- Microsoft Patterns &amp; rozwiązania grupa ma [blok aplikacji obsługi błędów przejściowych](https://msdn.microsoft.com/library/dn440719(v=pandp.60).aspx) wykonujący wszystko, co dla Ciebie, jeśli używasz programu ADO.NET dla dostępu do bazy danych SQL, (nie przy użyciu platformy Entity Framework). Właśnie ustawiono zasadę ponownych prób — ile razy, aby ponowić próbę wykonania kwerendy lub polecenia oraz jak długo należy czekać między prób — i zawijania SQL możesz pisać kod w *przy użyciu* bloku.
 
     [!code-csharp[Main](transient-fault-handling/samples/sample1.cs)]
 
-    Obsługuje również TFH [pamięci podręcznej na roli Azure](https://msdn.microsoft.com/library/windowsazure/dn386103.aspx) i [usługi Service Bus](https://azure.microsoft.com/services/service-bus/).
-- Korzystając z programu Entity Framework zwykle nie są pracy bezpośrednio z połączeniami SQL, więc nie można użyć tego pakietu wzorców i rozwiązania, ale Entity Framework 6 kompilacje tego rodzaju Logika ponawiania bezpośrednio w ramach. W podobny sposób określić strategii ponownych prób, a następnie EF używa tej strategii zawsze, gdy uzyskuje dostęp do bazy danych.
+    Obsługuje również TFH [pamięć podręczna oparta na roli Azure](https://msdn.microsoft.com/library/windowsazure/dn386103.aspx) i [usługi Service Bus](https://azure.microsoft.com/services/service-bus/).
+- Korzystając z programu Entity Framework można zwykle nie działają bezpośrednio za pomocą połączenia SQL, więc nie można użyć tego pakietu Patterns and Practices, ale tego rodzaju Logika ponawiania platformy Entity Framework 6 opiera się bezpośrednio w ramach. W podobny sposób określić strategia ponawiania prób, a następnie EF używa tej strategii, zawsze wtedy, gdy uzyskuje dostęp do bazy danych.
 
-    Aby użyć tej funkcji w aplikacji rozwiązać, musimy wykonać jest dodać klasę pochodzącą z *DbConfiguration* i Włącz logiki ponawiania próby.
+    Aby użyć tej funkcji w aplikacji naprawić, musimy to zrobić wystarczy dodać klasę, która pochodzi od klasy *DbConfiguration* i Włącz Logika ponawiania.
 
     [!code-csharp[Main](transient-fault-handling/samples/sample2.cs)]
 
-    Wyjątki bazy danych SQL, identyfikujące w ramach jako błędy zwykle charakter przejściowy kodem przedstawionym nakazuje EF do maksymalnie 3 razy, ponów operację z wykładniczego wycofywania opóźnienia między ponownych prób i maksymalne opóźnienie 5 sekund. Wykładniczej wycofania oznacza, że po każdym nie powiodło się ponownej próbie go będzie oczekiwał na dłuższy okres czasu przed podjęciem ponownej próby. W przypadku awarii trzech prób w wierszu, zgłosi wyjątek. Poniższej sekcji o podziałów obwodu wyjaśnia, dlaczego chcesz wykładniczej wycofania i ograniczoną liczbę ponownych prób.
+    Wyjątki bazy danych SQL, które w ramach identyfikują jako błędy zwykle charakter przejściowy kod przedstawiony powoduje, że EF, aby ponowić próbę wykonania operacji maksymalnie 3 razy, za pomocą wykładniczego wycofywania opóźnienia między ponownych prób i maksymalnym opóźnieniem of 5 sekund. Wycofywanie wykładnicze oznacza, że po każdym ponawiania nie powiodło się po upływie dłuższy okres czasu przed podjęciem ponownej próby. Maksymalna liczba prób to trzy w wierszu nie powiedzie się, zgłosi wyjątek. Poniższa sekcja dotycząca wyłączników wyjaśnia, dlaczego chcesz wycofywanie wykładnicze i ograniczoną liczbę ponownych prób.
 
-    Może utrzymać podobne problemy, jeśli używasz usługi Azure Storage, zgodnie z aplikacji Usuń nie dla obiektów blob i interfejsu API programu .NET magazynu klienta już implementuje ten sam rodzaj logiki. Wystarczy określić zasady ponawiania lub jeszcze nie masz to zrobić w przypadku modyfikowania ustawień domyślnych.
+    Może mieć podobne problemy, gdy używasz usługi Azure Storage, jak aplikacja naprawić nie dla obiektów blob, a interfejs API z klienta .NET magazynu implementuje już tego samego rodzaju logiki. Wystarczy określić zasady ponawiania lub nawet nie trzeba tego robić, jeśli jesteś zadowolony z ustawień domyślnych.
 
 <a id="circuitbreakers"></a>
-## <a name="circuit-breakers"></a>Podziałów obwodu
+## <a name="circuit-breakers"></a>Wyłączniki
 
-Istnieje kilka przyczyn, dlaczego nie chcesz, aby ponowić próbę zbyt wiele razy za pośrednictwem zbyt długiego okresu:
+Istnieje kilka powodów dlaczego użytkownik nie chce ponowienie zbyt wiele razy zbyt długiego okresu:
 
-- Za dużo użytkowników trwale ponawianie żądań zakończonych niepowodzeniem może zostać obniżona obsługi innych użytkowników. Jeśli miliony osób są wszystkie wprowadzeniem powtarzane ponawiania żądań może być zajmowania kolejki wysyłania usług IIS i uniemożliwia obsługę żądań, które go w przeciwnym razie może obsłużyć pomyślnie aplikacji.
-- Jeśli ponawia Wszyscy z powodu błędu usługi może być tak wiele żądań w kolejce Usługa pobiera rozpływową, podczas jej uruchamiania odzyskać.
-- Jeśli istnieje okno czasu usługa używa do ograniczania jest błąd z powodu dławienia, ciągłego ponownych prób można Przenieś okno i spowodować, ograniczenie kontynuować.
-- Konieczne może być użytkownikiem oczekiwanie na stronie sieci web do renderowania. Wprowadzania osób oczekiwania zbyt długo może więcej irytujących tego stosunkowo szybko udzielanie porad je, aby spróbować ponownie później.
+- Zbyt wielu użytkowników trwale ponawianie żądań zakończonych niepowodzeniem może zostać obniżona innym użytkownikom środowiska. W przypadku milionów osób wszystko co powtarzanych ponawiania żądań można być zajmowania kolejki wysyłania usług IIS i uniemożliwia obsługę żądań, które go w przeciwnym razie może obsługiwać pomyślnie aplikacji.
+- Wszyscy ponawia próbę z powodu błędu usługi może być tak wiele żądań w kolejce, usługa pobiera propagowane podczas uruchamiania do odzyskania.
+- Ten błąd jest spowodowany ograniczania przepustowości, jeśli ma przedział czasu, w których usługa używa ograniczania, dalsze próby może przenieść to okno w i spowodować ograniczanie kontynuować.
+- Konieczne może być użytkownikiem oczekiwanie na stronie sieci web do renderowania. Podejmowanie osób oczekiwania jest za długa może być bardziej irytujących tego względnie szybko wniosku je, aby spróbować ponownie później.
 
-Wykładniczej wycofania rozwiązuje część tego problemu przez ograniczenie częstotliwości ponownych prób, które usługi można uzyskać z aplikacji. Ale również musi być *podziałów obwodu*: oznacza to, że w pewnym ponów próg aplikacji zatrzymuje ponawianie próby i przejście innych działań, takich jak jedną z następujących czynności:
+Wycofywanie wykładnicze rozwiązuje część tego problemu, ograniczając częstotliwość ponownych prób, które usługi można uzyskać z poziomu aplikacji. Ale także musiały mieć *wyłączniki*: oznacza to, że w pewnym ponów próg zatrzymuje, ponawianie próby i przyjmuje innych działań, takich jak jeden z następujących aplikacji:
 
-- Niestandardowe rezerwowego. Jeśli nie można pobrać giełdowy z Reuters, może być możesz pobrać go z Bloomberg; lub jeśli nie można pobrać danych z bazy danych, może być możesz pobrać go z pamięci podręcznej.
-- Nie w trybie dyskretnym. Jeśli potrzebujesz z usługi nie jest all-or-nothing dla aplikacji, po prostu zwracanie wartości null nie można pobrać danych. Jeśli wyświetlasz zadania napraw go, a usługa Blob nie odpowiada, można wyświetlić szczegóły zadania bez obrazu.
-- Szybko się niepowodzeniem. Błąd użytkownika, aby uniknąć przepełnienia usługę za pomocą ponów próbę wykonania żądania, które mogą powodować zakłócenia dla innych użytkowników lub rozszerzyć okna ograniczenia przepustowości. Można wyświetlić przyjazny komunikat ". Spróbuj ponownie później".
+- Niestandardowe rezerwowego. Jeśli cena akcji nie można pobrać z Reuters, być może należy pobrać go ze strony Bloomberg; lub jeśli nie można pobrać danych z bazy danych, może być możesz pobrać go z pamięci podręcznej.
+- Niepowodzenie dyskretnym. Jeśli potrzebujesz przy użyciu usługi nie jest sztywnego dla aplikacji, po prostu zwracać wartość null Jeśli nie można uzyskać danych. Jeśli wyświetlasz zadania rozwiązać go, a nie odpowiada na usługę Blob service, można wyświetlić szczegóły zadania bez obrazu.
+- Awaria następuje szybko. Błąd użytkownika, aby uniknąć przeciążenia usługi o ponów próbę wykonania żądania, które mogą spowodować przerwy w działaniu usługi dla innych użytkowników lub rozszerzyć oknem ograniczenia przepustowości. Możesz wyświetlić przyjazny komunikat "spróbuj ponownie później".
 
-Nie ma żadnych zasad ponawiania rozwiązanie. Można ponowić próbę więcej razy, a następnie zaczekaj już w procesie roboczym asynchroniczne tła niż w przypadku w aplikacji sieci web synchronicznego, gdy użytkownik jest oczekiwania na odpowiedź. Można poczekać już między kolejnymi próbami usługa relacyjnej bazy danych niż w przypadku dla usługi pamięć podręczna. Poniżej przedstawiono niektóre przykładowe zalecane ponów zasady dają pogląd, jak numery mogą się różnić. ("Fast pierwszy" oznacza brak opóźnienia przed pierwszym ponów próbę.
+Nie ma żadnych zasad ponawiania opracowanie. Możesz ponowić próbę razy i poczekać dłużej trwające procesu roboczego tła asynchronicznego mógłbyś w aplikacji sieci web synchroniczne, w którym użytkownik jest oczekiwanie na odpowiedź. Możesz poczekać dłużej między kolejnymi próbami usługa relacyjnej bazy danych niż w przypadku usługi pamięć podręczna. Poniżej przedstawiono niektóre przykładowe zalecane ponów próbę wykonania zasady, które umożliwiają oszacowanie jak numery może się różnić w. ("Szybkie First" oznacza nie opóźnienie przed pierwszym ponowieniem próby.
 
-![Zasady ponawiania próbki](transient-fault-handling/_static/image1.png)
+![Przykładowe zasady ponawiania prób](transient-fault-handling/_static/image1.png)
 
-Wskazówki zasady ponawiania bazy danych SQL, zobacz [Rozwiązywanie błędów przejściowych i błędów połączenia bazy danych SQL](https://azure.microsoft.com/documentation/articles/sql-database-connectivity-issues/).
+Wskazówki zasad ponawiania prób bazy danych SQL, zobacz [Rozwiązywanie problemów dotyczących błędów przejściowych i błędów połączenia do bazy danych SQL](https://azure.microsoft.com/documentation/articles/sql-database-connectivity-issues/).
 
 ## <a name="summary"></a>Podsumowanie
 
-Ponów próbę/wycofania strategii może sprawić, że tymczasowe błędy niewidoczne do odbiorcy w większości przypadków i firma Microsoft udostępnia struktury, których można zminimalizować pracy realizację strategii, czy używasz ADO.NET Entity Framework i platformy Azure Usługa magazynu.
+Strategia ponawiania prób/wycofywania sprawić, że tymczasowe błędy niewidoczne dla klienta w większości przypadków, a firma Microsoft udostępnia struktur, które można użyć, aby zminimalizować pracę realizację strategii, czy używasz programu ADO.NET Entity Framework i platformy Azure Usługi magazynu.
 
-W [następnego rozdziału](distributed-caching.md), wyjaśniono, jak poprawić wydajność i niezawodność przy użyciu rozproszonej pamięci podręcznej.
+W [następny rozdział](distributed-caching.md), omówimy sposób zwiększyć wydajność i niezawodność, za pomocą rozproszonej pamięci podręcznej.
 
-## <a name="resources"></a>Zasoby
+## <a name="resources"></a>Resources
 
 Aby uzyskać więcej informacji, zobacz następujące zasoby:
 
 Dokumentacja
 
-- [Najlepsze rozwiązania dotyczące projektowania usług na dużą skalę na usług w chmurze Azure](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). Oficjalny dokument przez moduły SIMM znaku i Michael Thomassy. Podobnie jak seria przed uszkodzeniami, ale przechodzi w szczegółowe instrukcje. Zobacz sekcję Telemetrii i informacji diagnostycznych.
-- [Przed uszkodzeniami: Wskazówki dotyczące architektury chmury odporność](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx). Oficjalny dokument Mercuri wytłoków, Ulrich Homann i Andrew Townhill. Wersja strony sieci Web seria filmów przed uszkodzeniami.
-- [Microsoft Patterns and Practices - Azure wskazówki](https://msdn.microsoft.com/library/dn568099.aspx). Zobacz ponawiania wzorzec, wzorzec przełożonego agenta harmonogramu.
-- [Odporność na uszkodzenia w bazie danych Azure SQL](https://blogs.msdn.com/b/windowsazure/archive/2012/07/30/fault-tolerance-in-windows-azure-sql-database.aspx). Wpis w blogu przez Tony Petrossian.
-- [Entity Framework - połączenia odporności / Logika ponawiania próby](https://msdn.microsoft.com/data/dn456835). Jak używać i dostosować błędu przejściowego obsługi funkcji programu Entity Framework 6.
-- [Elastyczność połączenia i przechwytywaniu polecenia Entity Framework w aplikacji platformy ASP.NET MVC](../../../../mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application.md). Czwarty w serii dziewięć części samouczka przedstawiono sposób ustawienia odporności funkcji Połączenia programów EF 6 dla bazy danych SQL.
+- [Najlepsze rozwiązania dotyczące projektowania usług na dużą skalę w usługach Azure Cloud Services](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). Oficjalny dokument — Markiem Simmsem i Michael Thomassy. Podobnie jak przed uszkodzeniami serii, ale zbliża się bardziej szczegółowe informacje z instrukcjami. W sekcji Telemetria i Diagnostyka.
+- [Przed uszkodzeniami: Wskazówki dotyczące architektury na temat odporności chmury](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx). Oficjalny dokument, Marc Mercuri, Ulrich Homann i Andrew Townhill. Wersja strony sieci Web przed uszkodzeniami serii filmów wideo.
+- [Microsoft Patterns and Practices — wskazówki dotyczące platformy Azure](https://msdn.microsoft.com/library/dn568099.aspx). Zobacz ponawiania wzorzec, wzorca nadzorcy agenta harmonogramu.
+- [Odporność na uszkodzenia w usłudze Azure SQL Database](https://blogs.msdn.com/b/windowsazure/archive/2012/07/30/fault-tolerance-in-windows-azure-sql-database.aspx). Wpis na blogu autorstwa Tony Petrossian.
+- [Entity Framework - elastyczność połączenia / logika ponowień](https://msdn.microsoft.com/data/dn456835). Jak dostosować Obsługa błędu przejściowego w funkcji programu Entity Framework 6.
+- [Połączeń i przejmowanie poleceń z platformą Entity Framework w aplikacji ASP.NET MVC](../../../../mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application.md). Czwarty w dziewięć części serii samouczków pokazano, jak skonfigurować funkcji odporności połączenia programów EF 6 dla bazy danych SQL.
 
 Wideo
 
-- [Przed uszkodzeniami: Tworzenie usługi w chmurze skalowalności, odporności](https://channel9.msdn.com/Series/FailSafe). Seria dziewięć części Ulrich Homann, Mercuri wytłoków i moduły SIMM znaku. Przedstawia informacje o szczegółowo pojęcia i architektury zasad w sposób bardzo dostępny i interesujące z wątków z doświadczenia zespół Advisory klienta firmy Microsoft (CAT) z konkretnymi klientami. Zawiera omówienie podziałów obwód w epizodu 3, zaczynając od 40:55.
-- [Kompilowanie Big: Wnioski uzyskane od klientów platformy Azure — część II](https://channel9.msdn.com/Events/Build/2012/3-030). Moduły SIMM znacznik omówiono projektowania dla błędu przejściowego odporność obsługi i wszystkie instrumentacji.
+- [Przed uszkodzeniami: Tworzenie usługi w chmurze skalowalne, odporne](https://channel9.msdn.com/Series/FailSafe). Dziewięć serii Ulrich Homann, Marc Mercuri i — Markiem Simmsem. Przedstawia informacje o szczegółowo pojęcia i zasady dotyczące architektury w sposób bardzo dostępny i interesujące z historii z doświadczenia zespołu doradczego klientów firmy Microsoft (CAT) z klientów. Zawiera omówienie wyłączników w odcinek 3 zaczynając od 40:55.
+- [Tworzenie Big: Wnioski wyciągnięte z klientów platformy Azure — część II](https://channel9.msdn.com/Events/Build/2012/3-030). — Markiem Simmsem opowiada o projektowanie pod kątem awarii przejściowych błędów, obsługi i instrumentacji wszystko.
 
 Przykładowy kod
 
-- [Podstawy usługi na platformie Azure w chmurze](https://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). Przykładowa aplikacja utworzone przez Microsoft Azure zespół doradczy klientów który demonstruje sposób użycia [Enterprise biblioteki przejściowy błąd obsługi bloku](http://nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/) (TFH). Aby uzyskać więcej informacji, zobacz [chmury usługi podstawy Warstwa dostępu do danych — Obsługa błędów przejściowych](https://social.technet.microsoft.com/wiki/contents/articles/18665.cloud-service-fundamentals-data-access-layer-transient-fault-handling.aspx). TFH jest zalecane dla dostępu do bazy danych za pomocą ADO.NET bezpośrednio (bez użycia programu Entity Framework).
+- [Podstawy usługi na platformie Azure w chmurze](https://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). Przykładowa aplikacja utworzona przez program Microsoft Azure zespół doradczy klientów, który demonstruje sposób skorzystania [Enterprise biblioteki przejściowych błędów obsługi bloku](http://nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/) (TFH). Aby uzyskać więcej informacji, zobacz [Cloud Service Fundamentals warstwy dostępu do danych — obsługi błędów przejściowych](https://social.technet.microsoft.com/wiki/contents/articles/18665.cloud-service-fundamentals-data-access-layer-transient-fault-handling.aspx). TFH jest zalecane w przypadku dostępu do bazy danych przy użyciu platformy ADO.NET bezpośrednio (bez używający narzędzia Entity Framework).
 
 > [!div class="step-by-step"]
 > [Poprzednie](monitoring-and-telemetry.md)

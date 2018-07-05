@@ -1,31 +1,30 @@
 ---
 uid: web-forms/videos/building-20-applications/lesson-5-debugging-and-tracing-your-website
-title: '[Lekcji 5:] Debugowanie i śledzenie witryny sieci Web | Dokumentacja firmy Microsoft'
+title: '[Lekcja 5:] Debugowanie i śledzenie witryny sieci Web | Dokumentacja firmy Microsoft'
 author: microsoft
-description: W tej lekcji dowiesz się, jak debugować i monitorowanie aplikacji sieci Web programu ASP.NET 2.0.
+description: W tej lekcji dowiesz się, jak debugowanie i monitorowanie aplikacji sieci Web programu ASP.NET 2.0.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/29/2005
 ms.topic: article
 ms.assetid: 923573b7-91aa-43d5-85d8-ea27a972d913
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/building-20-applications/lesson-5-debugging-and-tracing-your-website
 msc.type: video
-ms.openlocfilehash: cc7f610bef71831a46f4b93dc21843c23a370a3c
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 53525707f435bafa1b10874d29b869ddebaf2b1a
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30881925"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37401514"
 ---
-<a name="lesson-5-debugging-and-tracing-your-website"></a>[Lekcji 5:] Debugowanie i śledzenie witryny sieci Web
+<a name="lesson-5-debugging-and-tracing-your-website"></a>[Lekcja 5:] Debugowanie i śledzenie witryny sieci Web
 ====================
 przez [firmy Microsoft](https://github.com/microsoft)
 
-W tej lekcji dowiesz się, jak debugować i monitorowanie aplikacji sieci Web programu ASP.NET 2.0.
+W tej lekcji dowiesz się, jak debugowanie i monitorowanie aplikacji sieci Web programu ASP.NET 2.0.
 
-[&#9654;Obejrzyj klip wideo (minuty 29)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/lesson-5-debugging-and-tracing-your-website)
+[&#9654;Obejrzyj film wideo (minuty 29)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/lesson-5-debugging-and-tracing-your-website)
 
 > [!div class="step-by-step"]
 > [Poprzednie](lesson-4-understanding-web-application-state.md)

@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-10
-title: Publikowanie aplikacji w usłudze Azure Azure App Service | Dokumentacja firmy Microsoft
+title: Publikowanie aplikacji w usłudze Azure usługa Azure App Service | Dokumentacja firmy Microsoft
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
@@ -9,54 +9,53 @@ ms.date: 06/16/2014
 ms.topic: article
 ms.assetid: 10fd812b-94d6-4967-be97-a31ce9c45e2c
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-10
 msc.type: authoredcontent
-ms.openlocfilehash: cc8a9199144e9fac041435938ea8899374ea199f
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 0290b392c1b292d0f3cc080dbfa25ec6103b2751
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30867817"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37400807"
 ---
-<a name="publish-the-app-to-azure-azure-app-service"></a>Publikowanie aplikacji w usłudze Azure Azure App Service
+<a name="publish-the-app-to-azure-azure-app-service"></a>Publikowanie aplikacji w usłudze Azure App Service platformy Azure
 ====================
-przez [Wasson Jan](https://github.com/MikeWasson)
+przez [Mike Wasson](https://github.com/MikeWasson)
 
 [Pobieranie ukończone projektu](https://github.com/MikeWasson/BookService)
 
-Jako ostatni krok opublikuje aplikację na platformie Azure. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt i wybierz **publikowania**.
+W ostatnim kroku opublikujesz aplikację na platformie Azure. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt i wybierz **Publikuj**.
 
 ![](part-10/_static/image1.png)
 
-Kliknięcie przycisku **publikowania** wywołuje **publikowanie w sieci Web** okna dialogowego. Jeśli zaznaczono **Host w chmurze** po pierwszym tworzeniu projektu, a następnie połączenie i ustawienia są już skonfigurowane. W takim przypadku wystarczy kliknąć **ustawienia** i sprawdź &quot;wykonaj migracje Code First&quot;. (Jeśli nie została sprawdzona **Host w chmurze** na początku, a następnie wykonaj kroki opisane w [następnej sekcji](#new-website).)
+Klikając **Publikuj** wywołuje **publikowanie w sieci Web** okna dialogowego. Jeśli zaznaczono **Host w chmurze** podczas pierwszego utworzenia projektu, a następnie połączenie i ustawienia zostały już skonfigurowane. W takim przypadku należy po prostu kliknij **ustawienia** i sprawdź &quot;wykonaj migracje Code First&quot;. (Jeśli nie została sprawdzona **Host w chmurze** na początku, a następnie wykonaj kroki opisane w [następnej sekcji](#new-website).)
 
 [![](part-10/_static/image3.png)](part-10/_static/image2.png)
 
-Aby wdrożyć aplikację, kliknij przycisk **publikowania**. Możesz wyświetlić postęp publikowania w **aktywności publikowania w sieci Web** okna. (Z **widoku** menu, wybierz opcję **inne okna**, a następnie wybierz pozycję **aktywności publikowania w sieci Web**.)
+Aby wdrożyć aplikację, kliknij przycisk **Publikuj**. Możesz wyświetlić postęp publikowania **działania publikowania internetowego** okna. (Z **widoku** menu, wybierz opcję **Windows inne**, a następnie wybierz **działania publikowania internetowego**.)
 
 ![](part-10/_static/image4.png)
 
-Po zakończeniu pracy programu Visual Studio, wdrażania aplikacji, przeglądarka domyślna automatycznie otwiera adres URL wdrożonej witryny sieci Web, a utworzona aplikacja działa w chmurze. Adres URL na pasku adresu przeglądarki pokazuje, że lokacja jest ładowany z Internetu.
+Po zakończeniu wdrażania aplikacji programu Visual Studio przeglądarka domyślna automatycznie otwiera adres URL wdrożonych witryn sieci Web i aplikacji, który został utworzony, jest teraz uruchomiona w chmurze. Adres URL w pasku adresu przeglądarki pokazuje, że witryna jest ładowany z Internetu.
 
 [![](part-10/_static/image6.png)](part-10/_static/image5.png)
 
 <a id="new-website"></a>
 ## <a name="deploying-to-a-new-website"></a>Wdrożenie nowej witryny sieci Web
 
-Jeśli nie zaznaczono **Host w chmurze** podczas tworzenia projektu, możesz teraz skonfigurować nową aplikację sieci web. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt i wybierz **publikowania**. Wybierz **profilu** i kliknij polecenie **witryn sieci Web Microsoft Azure**. Jeśli użytkownik nie jest obecnie zalogowany na platformie Azure, pojawi się monit do logowania.
+Jeśli nie zaznaczono **Host w chmurze** podczas tworzenia projektu, możesz teraz skonfigurować nową aplikację sieci web. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt i wybierz **Publikuj**. Wybierz **profilu** kartę, a następnie kliknij przycisk **Microsoft Azure Websites**. Nie są obecnie zalogowano do platformy Azure, zostanie wyświetlony monit Zaloguj się.
 
 [![](part-10/_static/image8.png)](part-10/_static/image7.png)
 
-W **istniejących witryn sieci Web** okna dialogowego, kliknij przycisk **nowy**.
+W **istniejących witryn sieci Web** okno dialogowe, kliknij przycisk **New**.
 
 ![](part-10/_static/image9.png)
 
-Wprowadź nazwę lokacji. Wybierz subskrypcję platformy Azure i region. W obszarze **serwera bazy danych**, wybierz pozycję **Utwórz nowy serwer**, lub wybierz istniejący serwer. Kliknij przycisk **Utwórz**.
+Wprowadź nazwę lokacji. Wybierz subskrypcję platformy Azure i region. W obszarze **serwera bazy danych**, wybierz opcję **Utwórz nowy serwer**, lub wybierz istniejący serwer. Kliknij przycisk **Utwórz**.
 
 [![](part-10/_static/image11.png)](part-10/_static/image10.png)
 
-Kliknij przycisk **ustawienia** i sprawdź &quot;wykonaj migracje Code First&quot;. Następnie kliknij przycisk **publikowania**.
+Kliknij przycisk **ustawienia** i sprawdź &quot;wykonaj migracje Code First&quot;. Następnie kliknij przycisk **Publikuj**.
 
 > [!div class="step-by-step"]
 > [Poprzednie](part-9.md)

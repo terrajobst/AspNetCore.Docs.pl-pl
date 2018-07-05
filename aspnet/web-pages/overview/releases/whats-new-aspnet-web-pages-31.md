@@ -1,6 +1,6 @@
 ---
 uid: web-pages/overview/releases/whats-new-aspnet-web-pages-31
-title: What's New in ASP.NET Web Pages 3.1 | Dokumentacja firmy Microsoft
+title: Co nowego we wzorcu ASP.NET Web Pages 3.1 | Dokumentacja firmy Microsoft
 author: microsoft
 description: ''
 ms.author: aspnetcontent
@@ -9,30 +9,29 @@ ms.date: 01/20/2014
 ms.topic: article
 ms.assetid: 97ac3da0-2141-4904-aa05-27e280db1e4e
 ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/releases/whats-new-aspnet-web-pages-31
 msc.type: authoredcontent
-ms.openlocfilehash: 82f77e8481cb04a68d81c1ef78c65f0b033410ae
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3ccbe87e980acf7b11da1e4b54f8b2bb01157fe0
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26573158"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37400081"
 ---
-<a name="whats-new-in-aspnet-web-pages-31"></a>Nowości w produkcie ASP.NET Web Pages 3.1
+<a name="whats-new-in-aspnet-web-pages-31"></a>Co nowego we wzorcu ASP.NET Web Pages 3.1
 ====================
 przez [firmy Microsoft](https://github.com/microsoft)
 
-W tym temacie opisano nowe dla stron sieci Web ASP.NET w wersji 3.1.
+W tym temacie opisano what's new for ASP.NET Web Pages 3.1.
 
-Ta wersja poprawki błędów i nie zapewnia żadnych nowych funkcji.
+Ta wersja naprawia usterki i nie zapewnia żadnych nowych funkcji.
 
 <a id="download"></a>
 ## <a name="download"></a>Pobieranie
 
-Funkcje środowiska uruchomieniowego są wydawane jako pakietów NuGet w galerii NuGet. Wykonaj wszystkie pakiety środowiska uruchomieniowego [Wersjonowania semantycznego](http://semver.org/) specyfikacji. Najnowszy pakiet RTM programu ASP.NET Web Pages 3.1 ma następującą wersję: "3.1.2". Można zainstalować lub zaktualizować te pakiety za pośrednictwem [NuGet](http://www.nuget.org/packages/Microsoft.AspNet.WebPages/). Wydanie obejmuje również odpowiedniego zlokalizowane pakiety na NuGet.
+Funkcje środowiska uruchomieniowego są wydawane jako pakiety NuGet w galerii NuGet. Wykonaj wszystkie pakiety środowiska uruchomieniowego [Semantic Versioning](http://semver.org/) specyfikacji. Najnowszy pakiet RTM programu ASP.NET Web Pages 3.1 ma następującą wersję: "3.1.2". Możesz zainstalować lub zaktualizować te pakiety przy użyciu [NuGet](http://www.nuget.org/packages/Microsoft.AspNet.WebPages/). Wersja ta oferuje również odpowiedni zlokalizowanych pakietów dla narzędzia NuGet.
 
-Można zainstalować lub zaktualizować do pakietów NuGet wydanych przy użyciu konsoli Menedżera pakietów NuGet:
+Możesz zainstalować lub zaktualizować do wydanych pakietów NuGet za pomocą konsoli Menedżera pakietów NuGet:
 
 [!code-console[Main](whats-new-aspnet-web-pages-31/samples/sample1.cmd)]
 

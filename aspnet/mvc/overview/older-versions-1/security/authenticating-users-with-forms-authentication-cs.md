@@ -1,129 +1,128 @@
 ---
 uid: mvc/overview/older-versions-1/security/authenticating-users-with-forms-authentication-cs
-title: Uwierzytelniania użytkowników przy użyciu formularzy uwierzytelniania (C#) | Dokumentacja firmy Microsoft
+title: Uwierzytelnianie użytkowników za pomocą formularzy uwierzytelniania (C#) | Dokumentacja firmy Microsoft
 author: microsoft
-description: Dowiedz się, jak za pomocą atrybutu [Authorize] hasło ochrony określonej strony w aplikacji MVC. Możesz dowiedzieć się, jak Administracja witryny sieci Web za pomocą...
+description: Dowiedz się, jak używać atrybutu [Authorize] do hasła ochrony konkretnych stron w aplikacji MVC. Dowiesz się, jak Administracja witryny sieci Web za pomocą...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/27/2009
 ms.topic: article
 ms.assetid: 239fd3ca-5630-4b8d-bc4b-2f906b1d3504
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/security/authenticating-users-with-forms-authentication-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e1def84bbf48847339e89b239b026d053640b935
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 1d06c8f26421cc9859439f664578f75657903a9a
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30871262"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37391037"
 ---
 <a name="authenticating-users-with-forms-authentication-c"></a>Uwierzytelnianie użytkowników za pomocą uwierzytelniania formularzy (C#)
 ====================
 przez [firmy Microsoft](https://github.com/microsoft)
 
-> Dowiedz się, jak za pomocą atrybutu [Authorize] hasło ochrony określonej strony w aplikacji MVC. Jak używać narzędzia administrowania witryną sieci Web do tworzenia i zarządzania użytkownikami i rolami. Można również informacje o sposobie konfigurowania przechowywania informacji o kontach i roli użytkownika.
+> Dowiedz się, jak używać atrybutu [Authorize] do hasła ochrony konkretnych stron w aplikacji MVC. Dowiesz się, jak używać narzędzia do administrowania witryną sieci Web do tworzenia i zarządzania użytkownikami i rolami. Poznasz również sposób konfigurowania przechowywania informacji o kontach i roli użytkownika.
 
 
-Celem tego samouczka jest wyjaśniają, jak formularzy można używać uwierzytelniania hasła ochrona widoków w aplikacjach ASP.NET MVC. Jak używać narzędzia administrowania witryną sieci Web do tworzenia użytkowników i ról. Możesz również sposób zapobiec nieautoryzowanemu wywoływania akcji kontrolera. Na koniec zostanie przedstawiony sposób skonfigurowania, gdzie są przechowywane nazwy użytkowników i hasła.
+Celem tego samouczka jest wyjaśniają, jak można użyć formy uwierzytelniania do hasła ochrony widoków w aplikacjach ASP.NET MVC. Dowiesz się, jak używać narzędzia do administrowania witryną sieci Web do tworzenia użytkowników i ról. Poznasz również sposób zapobiegania nieautoryzowanemu dostępowi wywołanie akcji kontrolera. Na koniec dowiesz się, jak skonfigurować, gdzie są przechowywane nazwy użytkowników i hasła.
 
-#### <a name="using-the-web-site-administration-tool"></a>Za pomocą narzędzia administrowania witryną sieci Web
+#### <a name="using-the-web-site-administration-tool"></a>Za pomocą narzędzia do administrowania witryną sieci Web
 
-Zanim przejdziemy inaczej możemy należy zacząć od tworzenie niektórych użytkowników i ról. Najprostszym sposobem tworzenia nowych użytkowników i ról ma korzystać z narzędzia administrowania witryną sieci Web 2008 w usłudze Visual Studio. To narzędzie można uruchomić po wybraniu opcji menu **projektu, konfiguracji ASP.NET**. Alternatywnie możesz uruchomić narzędzie do administrowania witryną sieci Web, klikając ikonę (nieco przerażenie) młota naciśnięcie na świecie, który jest wyświetlany w górnej części okna Eksploratora rozwiązań (zobacz rysunek 1).
+Zanim przejdziemy czymkolwiek, powinien Zaczniemy, tworząc niektórych użytkowników i ról. Najprostszym sposobem utworzenia nowych użytkowników i ról jest korzystanie z zalet narzędzie Administratorskie witryny sieci Web 2008 w usłudze Visual Studio. To narzędzie można uruchomić, wybierając opcję menu **projektu, konfiguracja ASP.NET**. Alternatywnie, możesz uruchomić narzędzie Administratorskie witryny sieci Web, klikając ikonę (nieco scary) z młot osiągnięcia w świecie, która pojawia się w górnej części okna Eksploratora rozwiązań (patrz rysunek 1).
 
-**Rysunek 1 — Uruchamianie narzędzia administrowania witryną sieci Web**
+**Rysunek 1 — Uruchamianie narzędzia do administrowania witryną sieci Web**
 
 ![clip_image002](authenticating-users-with-forms-authentication-cs/_static/image1.jpg)
 
-W ramach narzędzia administrowania witryną sieci Web tworzenia nowych użytkowników i role, wybierając kartę Zabezpieczenia. Kliknij przycisk **tworzenia użytkownika** łącze, aby utworzyć nowego użytkownika o nazwie Stephen (patrz rysunek 2). Podaj użytkownika Stephen dowolnym hasłem, które mają (na przykład *klucz tajny*).
+W ramach narzędzia do administrowania witryną sieci Web należy utworzyć nowych użytkowników i ról, wybierając kartę zabezpieczeń. Kliknij przycisk **Utwórz użytkownika** link, aby utworzyć nowego użytkownika o nazwie Autor: Stephen (patrz rysunek 2). Podaj użytkownika Autor: Stephen dowolnym hasłem, który ma (na przykład *klucz tajny*).
 
 **Rysunek 2 — Tworzenie nowego użytkownika**
 
 ![clip_image004](authenticating-users-with-forms-authentication-cs/_static/image2.jpg)
 
-Pierwszy Włączanie ról i definiowanie co najmniej jedną rolę do tworzenia nowych ról. Włącz role, klikając **Włącz role** łącza. Następnie należy utworzyć rolę o nazwie *Administratorzy* klikając **Utwórz role lub zarządzaj nimi** link (patrz rysunek 3).
+Możesz utworzyć nowe role pierwszy włączając ról i definiując co najmniej jedną rolę. Povolit role, klikając **Włącz role** łącza. Następnie Utwórz rolę o nazwie *Administratorzy* , klikając **tworzyć ani nimi zarządzać rolami** link (zobacz rysunek 3).
 
 **Rysunek 3 — Tworzenie nowej roli**
 
 ![clip_image006](authenticating-users-with-forms-authentication-cs/_static/image3.jpg)
 
-Na koniec Utwórz nowego użytkownika o nazwie Zosi i skojarz Zosi z rolą Administratorzy klikając łącza tworzenia użytkownika i wybierając administratorów, podczas tworzenia Zosi (patrz rysunek 4).
+Na koniec Utwórz nowego użytkownika o nazwie Zosi i skojarz Zosi z rolą Administratorzy, klikając link Create User i wybierając Administratorzy, tworząc Zosi (zobacz rysunek 4).
 
 **Rysunek 4 — Dodawanie użytkownika do roli**
 
 ![clip_image008](authenticating-users-with-forms-authentication-cs/_static/image4.jpg)
 
-Gdy wszystkie jest nazywany i gotowe, powinien mieć dwóch nowych użytkowników o nazwie Stephen i Zosi. Nowa rola o nazwie Administratorzy powinni również mieć. Zosi jest członkiem roli Administratorzy i Stephen nie jest.
+Gdy wszystkie jest nazywany i gotowe, powinny mieć dwóch nowych użytkowników o nazwie Autor: Stephen i Zosi. Należy również nową rolę o nazwie Administratorzy. Zosi jest elementem członkowskim roli Administratorzy programu i Autor: Stephen nie.
 
 #### <a name="requiring-authorization"></a>Wymaganie autoryzacji
 
-Możesz wymagać użytkownika do uwierzytelnienia użytkownika wywołuje akcji kontrolera, dodając atrybut [Authorize] do akcji. Atrybut [Authorize] można zastosować do akcji kontrolera poszczególnych lub ten atrybut można stosować do klasy całego kontrolera.
+Może wymagać uwierzytelnienia użytkownik wywoła akcji kontrolera, dodając atrybut [Authorize] do akcji użytkownika. Można zastosować atrybutu [Authorize] do akcji kontrolera poszczególnych lub ten atrybut można zastosować do klasy całego kontrolera.
 
-Na przykład kontrolera 1 lista przedstawia akcji o nazwie CompanySecrets(). Ponieważ ta akcja ma atrybut [Authorize], chyba że użytkownik jest uwierzytelniany nie można wywołać tej akcji.
+Na przykład kontroler w ofercie 1 udostępnia akcję o nazwie CompanySecrets(). Ponieważ ta akcja zostanie nadany atrybut [Authorize], nie można wywołać tej akcji, chyba że użytkownik jest uwierzytelniany.
 
 **Wyświetlanie listy 1 – Controllers\HomeController.cs**
 
 [!code-csharp[Main](authenticating-users-with-forms-authentication-cs/samples/sample1.cs)]
 
-Jeśli wywołanie akcji CompanySecrets(), wprowadzając adres URL /Home/CompanySecrets na pasku adresu przeglądarki, a nie jesteś uwierzytelniony użytkownik, a następnie nastąpi przekierowanie do widoku logowania automatycznie (patrz rysunek 5).
+Jeśli możesz wywołać akcję CompanySecrets(), wprowadzając adres URL /Home/CompanySecrets na pasku adresu przeglądarki i nie jesteś uwierzytelniony użytkownik, a następnie nastąpi przekierowanie do widoku logowania automatycznie (patrz rysunek 5).
 
-**Rysunek 5 — widoku logowania**
+**Rysunek 5 — widok logowania**
 
 ![clip_image010](authenticating-users-with-forms-authentication-cs/_static/image5.jpg)
 
-Widok logowania umożliwia wprowadź nazwę użytkownika i hasło. Jeśli nie jesteś zarejestrowanym użytkownikiem, a następnie kliknięcie **zarejestrować** łącze, aby przejść do rejestru wyświetlania (patrz rysunek 6). Widok rejestru umożliwia utworzenie nowego konta użytkownika.
+Widok logowania umożliwia wprowadź nazwę użytkownika i hasło. Jeśli nie jesteś zarejestrowanym użytkownikiem, a następnie kliknięcie **zarejestrować** link, aby przejść do kasy wyświetlenia (patrz rysunek 6). Widok rejestru można użyć do utworzenia nowego konta użytkownika.
 
 **Rysunek 6 — widok rejestru**
 
 ![clip_image012](authenticating-users-with-forms-authentication-cs/_static/image6.jpg)
 
-Po pomyślnym zalogowaniu można wyświetlić CompanySecrets wyświetlania (patrz rysunek 7). Domyślnie możesz zalogować się do czasu zamknięcia okna przeglądarki.
+Po pomyślnym zalogowaniu zobaczysz CompanySecrets wyświetlenia (patrz rysunek 7). Domyślnie będziesz się zalogować, dopóki nie zamkniesz okna przeglądarki.
 
 **Rysunek 7 — widok CompanySecrets**
 
 ![clip_image014](authenticating-users-with-forms-authentication-cs/_static/image7.jpg)
 
-#### <a name="authorizing-by-user-name-or-user-role"></a>Autoryzowanie według nazwy użytkownika lub roli użytkownika
+#### <a name="authorizing-by-user-name-or-user-role"></a>Uwierzytelnianie przy użyciu nazwy użytkownika lub roli użytkownika
 
-Aby ograniczyć dostęp do akcji kontrolera do określonego zestawu użytkowników lub zestaw ról użytkownika, można użyć atrybutu [Authorize]. Na przykład zmodyfikowanych kontrolera głównej wyświetlania 2 zawiera dwa nowe akcje o nazwie StephenSecrets() i AdministratorSecrets().
+Można użyć atrybutu [Authorize] do ograniczania dostępu do akcji kontrolera do określonego zestawu użytkowników lub określonego zestawu ról użytkownika. Na przykład zmodyfikowane kontrolera głównego w ofercie 2 zawiera dwie nowe akcje o nazwie StephenSecrets() i AdministratorSecrets().
 
 **Wyświetlanie listy 2 — Controllers\HomeController.cs**
 
 [!code-csharp[Main](authenticating-users-with-forms-authentication-cs/samples/sample2.cs)]
 
-Tylko użytkownik z nazwą użytkownika Stephen może wywołać akcję StephenSecrets(). Przekierowanie do widoku logowania wszystkich innych użytkowników. Właściwość użytkowników akceptuje rozdzielana przecinkami lista nazw kont użytkowników.
+Tylko użytkownik z nazwą użytkownika Autor: Stephen wywołać akcję StephenSecrets(). Wszyscy pozostali użytkownicy uzyskać przekierowanie do widoku logowania. Właściwości użytkowników akceptuje listę rozdzielonych przecinkami nazw kont użytkowników.
 
-Tylko użytkownicy należący do roli Administratorzy mogą wywoływać Akcja AdministratorSecrets(). Na przykład ponieważ Zosi jest członkiem grupy Administratorzy, klika wywołanie akcji AdministratorSecrets(). Przekierowanie do widoku logowania wszystkich innych użytkowników. Właściwość role akceptuje rozdzielana przecinkami lista nazw ról.
+Tylko użytkownicy należący do roli Administratorzy programu mogą wywołać akcję AdministratorSecrets(). Na przykład ponieważ Zosi jest członkiem grupy Administratorzy, ona wywołać akcję AdministratorSecrets(). Wszyscy pozostali użytkownicy uzyskać przekierowanie do widoku logowania. Właściwości ról akceptuje rozdzielana przecinkami lista nazw ról.
 
 #### <a name="configuring-authentication"></a>Konfigurowanie uwierzytelniania
 
-W tym momencie możesz może się zastanawiać, gdzie jest przechowywana informacji o kontach i roli użytkownika. Domyślnie informacje są przechowywane w bazie danych (RANU) programu SQL Express nazwane ASPNETDB.mdf znajduje się w aplikacji MVC aplikacji\_folderem danych. Ta baza danych jest generowany przez platformę ASP.NET automatycznie podczas uruchamiania przy użyciu członkostwa.
+W tym momencie możesz się zastanawiać gdzie są przechowywane informacji o kontach i roli użytkownika. Domyślnie, informacje są przechowywane w bazie danych (RANU) programu SQL Express nazwane ASPNETDB.mdf znajduje się w aplikacji MVC App\_folderu danych. Ta baza danych jest generowany przez platformę ASP.NET automatycznie po uruchomieniu przy użyciu członkostwa.
 
-Aby wyświetlić ASPNETDB.mdf bazy danych w oknie Eksploratora rozwiązań, należy najpierw wybierz opcję menu projektu, Pokaż wszystkie pliki.
+Aby ASPNETDB.mdf baza danych zostanie wyświetlona w oknie Eksploratora rozwiązań, należy najpierw wybierz opcję menu projektu, Pokaż wszystkie pliki.
 
-Przy użyciu bazy danych SQL Express domyślny jest poprawnie przy tworzeniu aplikacji. Prawdopodobnie jednak nie chcesz użyć ASPNETDB.mdf domyślnej bazy danych w przypadku aplikacji produkcyjnej. W takim przypadku można zmienić przechowywania informacji o koncie użytkownika, wykonując następujące dwa kroki:
+Przy użyciu bazy danych programu SQL Express domyślny jest dobrym rozwiązaniem, podczas tworzenia aplikacji. Najprawdopodobniej jednak nie chcesz użyć ASPNETDB.mdf domyślnej bazy danych dla aplikacji produkcyjnych. W takim przypadku można zmienić sposób przechowywania informacji o koncie użytkownika, wykonując następujące dwa kroki:
 
-1. Dodawanie obiektów bazy danych usług aplikacji do produkcyjnej bazy danych — zmienić parametry połączenia aplikacji wskaż produkcyjnej bazy danych
+1. Dodaj obiekty bazy danych usługi aplikacji do produkcyjnej bazy danych — zmienić parametry połączenia aplikacji wskaż produkcyjnej bazy danych
 
-Pierwszym krokiem jest dodanie wszystkie niezbędne obiekty bazy danych (tabele i procedury składowane) do produkcyjnej bazy danych. Najprostszym sposobem, aby dodać te obiekty do nowej bazy danych jest wykorzystać Kreator konfiguracji ASP.NET SQL Server (patrz rysunek 8). To narzędzie można uruchomić, należy otworzyć wiersz polecenia 2008 programu Visual Studio z grupy programu Microsoft Visual Studio 2008 i wykonywania w wierszu polecenia następujące polecenie:
+Pierwszym krokiem jest dodanie wszystkie niezbędne obiekty bazy danych (tabel i procedur składowanych) do produkcyjnej bazy danych. Jest najprostszym sposobem dodania tych obiektów do nowej bazy danych, aby móc korzystać z Kreatora instalacji serwera SQL platformy ASP.NET (zobacz rysunek 8). To narzędzie można uruchomić, otwierając Visual Studio 2008 Command Prompt z grupy programów Microsoft Visual Studio 2008 i wykonując następujące polecenie w wierszu polecenia:
 
 aspnet\_regsql
 
-**Rysunek 8 — Kreator konfiguracji ASP.NET SQL Server**
+**Rysunek 8 — Kreator konfiguracji serwera SQL platformy ASP.NET**
 
 ![clip_image016](authenticating-users-with-forms-authentication-cs/_static/image8.jpg)
 
-Kreator konfiguracji ASP.NET SQL Server umożliwia wybierz bazę danych programu SQL Server w sieci i zainstalować wszystkie obiekty bazy danych wymaganych przez usługi aplikacji ASP.NET. Serwer bazy danych nie jest wymagane znajdować się na komputerze lokalnym.
+Kreator instalacji serwera SQL programu ASP.NET umożliwia wybierz bazę danych programu SQL Server w sieci i zainstaluj wszystkie obiekty bazy danych wymaganych przez usługi aplikacji ASP.NET. Serwer bazy danych nie jest wymagany znajdować się na komputerze lokalnym.
 
 > [!NOTE] 
 > 
-> Jeśli nie chcesz używać Kreator konfiguracji ASP.NET SQL Server można znaleźć skrypty SQL dodawania obiektów bazy danych usług aplikacji w następującym folderze:
+> Jeśli nie chcesz używać Kreatora instalacji serwera SQL programu ASP.NET, można znaleźć skrypty SQL, dodawania obiektów bazy danych usług aplikacji w następującym folderze:
 > 
 > > C:\Windows\Microsoft.NET\Framework\v2.0.50727
 
 
-Po utworzeniu niezbędne obiekty bazy danych, należy zmodyfikować połączenie z bazą danych używanych przez aplikację MVC. Zmodyfikuj ApplicationServices parametry połączenia w pliku konfiguracyjnym (web.config) w sieci web tak, aby wskazywało w produkcyjnej bazie danych. Na przykład modyfikacji połączenia do wyświetlania 3 wskazuje na bazie danych o nazwie MyProductionDB (oryginalny ciąg połączenia ApplicationServices ma zostały oznaczone komentarzami).
+Po utworzeniu niezbędne obiekty bazy danych, musisz zmodyfikować połączenie z bazą danych używanych przez aplikację MVC. Zmodyfikuj ApplicationServices parametry połączenia w pliku konfiguracji (web.config) w sieci web, które wskazuje w produkcyjnej bazie danych. Na przykład połączenie zmodyfikowane w ofercie 3 wskazuje bazę danych o nazwie MyProductionDB (oryginalny ciąg połączenia ApplicationServices została ujęta w poziomie).
 
 **Wyświetlanie listy 3 — pliku Web.config**
 
@@ -131,27 +130,27 @@ Po utworzeniu niezbędne obiekty bazy danych, należy zmodyfikować połączenie
 
 #### <a name="configuring-database-permissions"></a>Konfigurowanie uprawnień do bazy danych
 
-Jeśli używasz zintegrowane zabezpieczenia do połączenia z bazą danych następnie musisz dodać prawidłowe konto użytkownika systemu Windows jako identyfikatora logowania do bazy danych. Poprawne konto zależy od tego, czy używasz ASP.NET Development Server albo IIS jako serwera sieci web. Konto użytkownika zależy również od systemu operacyjnego.
+Jeśli używasz zintegrowanych zabezpieczeń do połączenia z bazą danych należy dodać prawidłowe konto użytkownika Windows jako identyfikatora logowania do bazy danych. Prawidłowe konto zależy od tego, czy używasz ASP.NET Development Server albo Internet Information Services jako serwer sieci web. Konto użytkownika zależy również od systemu operacyjnego.
 
-Jeśli używasz ASP.NET Development Server (serwer sieci web domyślne używane przez program Visual Studio) aplikacji będzie wykonywany w kontekście konta użytkownika systemu Windows. W takim przypadku należy dodać konto użytkownika systemu Windows jako logowanie do serwera bazy danych.
+Jeśli używasz ASP.NET Development Server (domyślny serwer sieci web używane przez program Visual Studio) aplikacja wykonuje w kontekście konta użytkownika Windows. W takim przypadku należy dodać konto użytkownika Windows podczas logowania do serwera bazy danych.
 
-Alternatywnie Jeśli używasz Internetowe usługi informacyjne należy dodać konto ASPNET lub konta NT urzędu/NETWORK SERVICE jako logowanie do serwera bazy danych. Jeśli używasz systemu Windows XP Dodaj konto ASPNET jako identyfikatora logowania do bazy danych. Jeśli używane są nowsze systemu operacyjnego, takich jak Windows Vista lub Windows Server 2008, Dodaj konto usługi NT urzędu i sieci, jako nazwy logowania bazy danych.
+Alternatywnie Jeśli używasz programu Internet Information Services następnie należy dodać konto ASPNET lub konta NT urzędu/NETWORK SERVICE podczas logowania do serwera bazy danych. Jeśli w systemie Windows XP, Dodaj konto ASPNET jako identyfikatora logowania do bazy danych. Jeśli używasz nowszego systemu operacyjnego, takich jak Windows Vista lub Windows Server 2008, Dodaj konta NT urzędu/NETWORK SERVICE podczas logowania do bazy danych.
 
-Można dodać nowego konta użytkownika do bazy danych przy użyciu programu Microsoft SQL Server Management Studio (patrz rysunek 9).
+Można dodać nowego konta użytkownika do bazy danych za pomocą programu Microsoft SQL Server Management Studio (patrz rysunek 9).
 
 **Rysunek 9 — Tworzenie nowego logowania programu Microsoft SQL Server**
 
 ![clip_image018](authenticating-users-with-forms-authentication-cs/_static/image9.jpg)
 
-Po utworzeniu wymagane logowania, należy do mapowania nazwy logowania użytkownika bazy danych z rolami właściwej bazy danych. Kliknij dwukrotnie nazwy logowania, a następnie wybierz kartę mapowania użytkowników. Wybierz co najmniej jedną rolę bazy danych usług aplikacji. Na przykład w celu uwierzytelniania użytkowników, należy włączyć aspnet\_członkostwa\_BasicAccess roli bazy danych. Aby można było utworzyć nowych użytkowników, musisz włączyć aspnet\_członkostwa\_FullAccess roli bazy danych (zobacz rysunek 10).
+Po utworzeniu wymagane do zalogowania, należy do mapowania nazwy logowania użytkownika bazy danych przy użyciu ról właściwej bazy danych. Kliknij dwukrotnie logowania, a następnie wybierz kartę mapowania użytkowników. Wybierz jedną lub więcej aplikacji, usług ról bazy danych. Na przykład w celu uwierzytelniania użytkowników, należy włączyć aspnet\_członkostwa\_BasicAccess roli bazy danych. Aby można było utworzyć nowych użytkowników, należy włączyć aspnet\_członkostwa\_FullAccess roli bazy danych (zobacz rysunek 10).
 
-**Rysunek 10 — Dodawanie ról bazy danych usług aplikacji**
+**Na rysunku nr 10 — Dodawanie ról bazy danych usługi aplikacji**
 
 ![clip_image020](authenticating-users-with-forms-authentication-cs/_static/image10.jpg)
 
 #### <a name="summary"></a>Podsumowanie
 
-W tym samouczku przedstawiono sposób użycia uwierzytelniania formularzy, podczas tworzenia aplikacji platformy ASP.NET MVC. Po pierwsze przedstawiono sposób tworzenia nowych użytkowników i role, korzystając z narzędzia administrowania witryną sieci Web. Następnie przedstawiono sposób użycia atrybutu [Authorize], aby zapobiec nieautoryzowanemu wywoływania akcji kontrolera. Ponadto przedstawiono sposób konfigurowania aplikacji MVC do użytkownika oraz informacje o rolach są przechowywane w produkcyjnej bazie danych.
+W tym samouczku przedstawiono sposób użycia uwierzytelniania formularzy, podczas tworzenia aplikacji ASP.NET MVC. Najpierw pokazaliśmy ci, jak utworzyć nowych użytkowników i ról, wykorzystując narzędzia do administrowania witryną sieci Web. Następnie pokazaliśmy ci, jak używać atrybutu [Authorize] do zapobiegania nieautoryzowanemu dostępowi wywołanie akcji kontrolera. Na koniec pokazaliśmy ci, jak skonfigurować aplikację MVC do przechowywania użytkownika oraz informacje o rolach w produkcyjnej bazie danych.
 
 > [!div class="step-by-step"]
 > [Next](authenticating-users-with-windows-authentication-cs.md)

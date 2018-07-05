@@ -1,83 +1,82 @@
 ---
 uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6
-title: 'Część 6: Korzystanie z adnotacji danych do sprawdzania poprawności modelu | Dokumentacja firmy Microsoft'
+title: 'Część 6: Przy użyciu adnotacje danych na potrzeby weryfikacji modelu | Dokumentacja firmy Microsoft'
 author: jongalloway
-description: Ten samouczek serii zawiera szczegóły dotyczące wszystkich kroków tworzenia przykładowej aplikacji ASP.NET MVC utworów muzycznych magazynu. Część 6 obejmuje za pomocą adnotacji danych dla modelu V...
+description: W tej serii samouczków szczegółowo opisuje wszystkie etapy, tworzenie przykładowej aplikacji platformy ASP.NET MVC Music Store. Część 6 obejmuje korzystanie z adnotacji danych dla modelu V...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/21/2011
 ms.topic: article
 ms.assetid: b3193d33-2d0b-4d98-9712-58bd897c62ec
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6
 msc.type: authoredcontent
-ms.openlocfilehash: 328eccb4324bb10a7e8dec819a70129fc14c42c4
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: ca0ac2ca909f838f1c91e6cc01b8aafa90c0b193
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30872419"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37397659"
 ---
-<a name="part-6-using-data-annotations-for-model-validation"></a>Część 6: Przy użyciu adnotacje danych na potrzeby sprawdzania poprawności modelu
+<a name="part-6-using-data-annotations-for-model-validation"></a>Część 6: Przy użyciu adnotacje danych na potrzeby weryfikacji modelu
 ====================
-przez [Galloway Jan](https://github.com/jongalloway)
+przez [Galloway'em Jon](https://github.com/jongalloway)
 
-> Magazyn utworów muzycznych MVC jest samouczek aplikacji, które wprowadzono i opisano krok po kroku, jak używać do tworzenia aplikacji sieci web platformy ASP.NET MVC i Visual Studio.  
+> MVC Music Store jest aplikacją z samouczka, który wprowadzono i opisano krok po kroku, jak używać platformy ASP.NET MVC i programu Visual Studio do tworzenia aplikacji internetowych.  
 >   
-> Magazyn utworów muzycznych MVC jest implementacja magazynu lekkie próbki, co sprzedaje albumów muzycznych w trybie online i implementuje podstawowej witryny administracji, logowania użytkownika i funkcje koszyka zakupów.  
+> MVC Music Store jest uproszczone przykładową implementację magazynu sprzedaje utworów muzycznych albumy online, która implementuje podstawowej witryny administracji, logowania użytkownika i funkcje koszyka zakupów.  
 >   
-> Ten samouczek serii zawiera szczegóły dotyczące wszystkich kroków tworzenia przykładowej aplikacji ASP.NET MVC utworów muzycznych magazynu. Część 6 obejmuje za pomocą adnotacji danych do weryfikacji modelu.
+> W tej serii samouczków szczegółowo opisuje wszystkie etapy, tworzenie przykładowej aplikacji platformy ASP.NET MVC Music Store. Część 6 obejmuje przy użyciu adnotacje danych na potrzeby weryfikacji modelu.
 
 
-Mamy problem główne z naszych tworzenie i edytowanie formularzy: nie robią wszystkich sprawdzania poprawności. Możemy czynności, takie jak pozostaw puste wymagane pola lub typu litery w polu Cena i jest pierwszy błąd, który zajmiemy się z bazy danych.
+Mamy poważnym problemem z naszych formularzami tworzyć i edytować: nie robią wszystkich sprawdzania poprawności. Możemy to zrobić na przykład pozostawić wymagane pola puste lub liter, wpisz w polu Cena, a pierwszy błąd, który zobaczymy to z bazy danych.
 
-Firma Microsoft łatwe dodawanie walidacji do naszej aplikacji przez dodanie adnotacji danych do naszej klasy modelu. Adnotacje danych umożliwiają opisano reguły, którą chcemy udostępnić stosowane do naszej właściwości modelu i ASP.NET MVC zajmie się ich wymuszania i wyświetlanie odpowiednie wiadomości do użytkowników.
+Firma Microsoft można łatwo dodać sprawdzanie poprawności do naszej aplikacji, dodając adnotacje danych do naszych zajęć modelu. Adnotacje danych umożliwiają nam opisano reguły, którą chcemy stosowane do naszych właściwości modelu i platformy ASP.NET MVC zajmie się ich wymuszania i wyświetlania odpowiednie komunikaty naszych użytkowników.
 
-## <a name="adding-validation-to-our-album-forms"></a>Dodawanie walidacji do naszej albumu formularzy
+## <a name="adding-validation-to-our-album-forms"></a>Dodawanie walidacji do naszych albumu formularzy
 
-Użyjemy następujące atrybuty adnotacji danych:
+Użyjemy następujących atrybutów danych adnotacji:
 
-- **Wymagane** — wskazuje, że właściwość jest polem obowiązkowym
-- **Nazwa wyświetlana** — definiuje tekstu, firma Microsoft ma być użyty na pola formularza i komunikatów dotyczących sprawdzania poprawności
+- **Wymagane** — wskazuje, że właściwość jest polem wymaganym
+- **DisplayName** — Określa tekst, chcemy, aby używane pola formularza i komunikatów dotyczących sprawdzania poprawności
 - **StringLength** — określa maksymalną długość pola ciągu
 - **Zakres** — zapewnia maksymalne i minimalne wartości pola numerycznego
-- **Powiąż** — zawiera listę pól do wykluczanie lub uwzględnianie podczas wiązania parametru lub formularza wartości właściwości modelu
-- **ScaffoldColumn** — umożliwia ukrywanie pól z edytora formularzy
+- **Powiąż** — zawiera listę pól, aby wykluczyć lub uwzględnić podczas tworzenia wiązania parametru lub formularz wartości do właściwości modelu
+- **ScaffoldColumn** — umożliwia ukrycie pola w edytorze formularzy
 
-*Uwaga: Więcej informacji o weryfikacji modelu przy użyciu adnotacji danych atrybutów, w dokumentacji MSDN w*[`https://go.microsoft.com/fwlink/?LinkId=159063`](https://go.microsoft.com/fwlink/?LinkId=159063)
+*Uwaga: Aby uzyskać więcej informacji o weryfikacji modelu przy użyciu adnotacji danych atrybutów, zobacz dokumentację MSDN w*[`https://go.microsoft.com/fwlink/?LinkId=159063`](https://go.microsoft.com/fwlink/?LinkId=159063)
 
-Otwórz klasy albumu i dodaj następujące *przy użyciu* instrukcje do góry.
+Otwórz klasę albumu i dodaj następującą *przy użyciu* instrukcji u góry.
 
 [!code-csharp[Main](mvc-music-store-part-6/samples/sample1.cs)]
 
-Następnie zaktualizuj właściwości, aby dodać atrybuty ekranu i sprawdzania poprawności, jak pokazano poniżej.
+Następnie zaktualizuj właściwości, aby dodać wyświetlanie i sprawdzanie poprawności atrybutów, jak pokazano poniżej.
 
 [!code-csharp[Main](mvc-music-store-part-6/samples/sample2.cs)]
 
-Są nam również zmieniono wykonawcy i Genre do właściwości wirtualnych. Dzięki temu Entity Framework do opóźnionego ładowania ich w razie potrzeby.
+Są nam również zmieniliśmy wykonawcy i gatunku do właściwości wirtualnego. Dzięki temu Entity Framework z opóźnieniem ładować je zgodnie z potrzebami.
 
 [!code-csharp[Main](mvc-music-store-part-6/samples/sample3.cs)]
 
-Po o dodać tych atrybutów do modelu albumu, naszych ekranu tworzenie i edytowanie natychmiast rozpocząć sprawdzanie poprawności pól i przy użyciu nazw wyświetlanych możemy wybraną (np. albumów graficznych adresu Url zamiast AlbumArtUrl). Uruchom aplikację i przejdź do /StoreManager/Create.
+Po mających te atrybuty są dodawane do nasz model fotograficzne, nasze ekranu tworzyć i edytować natychmiast rozpocząć sprawdzanie poprawności pól i przy użyciu nazw wyświetlanych Wybraliśmy (np. albumu grafikę adresu Url zamiast AlbumArtUrl). Uruchom aplikację, a następnie przejdź do /StoreManager/Create.
 
 ![](mvc-music-store-part-6/_static/image1.png)
 
-Następnie firma Microsoft będzie Podziel niektórych reguł sprawdzania poprawności. Wprowadź wartości 0 i tytuł jest pusta. Po kliknięciu przycisku Utwórz przycisk, zostanie wyświetlone wyświetlane komunikaty o błędach weryfikacji przedstawiający pola, które nie spełnia warunków reguły sprawdzania poprawności się, że ma zdefiniowanego formularza.
+Następnie możemy zepsuć niektórych reguł sprawdzania poprawności. Wprowadź cenie 0, a tytuł jest pusta. Po kliknięciu przycisku Utwórz widzimy formularzu wyświetlane przy użyciu komunikatów o błędach weryfikacji wyświetlane pola, które nie spełnia warunków reguły sprawdzania poprawności, gdy zdefiniowaliśmy.
 
 ![](mvc-music-store-part-6/_static/image2.png)
 
-## <a name="testing-the-client-side-validation"></a>Testowanie weryfikacji po stronie klienta
+## <a name="testing-the-client-side-validation"></a>Testowanie poprawności po stronie klienta
 
-Weryfikacja po stronie serwera jest bardzo ważne z perspektywy aplikacji, ponieważ użytkownicy mogą omijać weryfikacji po stronie klienta. Formularze sieci Web, które tylko zaimplementować weryfikację po stronie serwera mogą jednak zachowywać trzy istotne problemy.
+Weryfikacja po stronie serwera jest bardzo ważne z perspektywy aplikacji, ponieważ użytkownicy mogą omijać weryfikacji po stronie klienta. Jednakże formularze sieci Web, które tylko zaimplementować weryfikację po stronie serwera następującej liczby etapów stwierdzono trzy istotne problemy.
 
-1. Użytkownik będzie musiał odczekaj formularza do zaksięgowania zweryfikowane na serwerze, a odpowiedź do wysłania do przeglądarki.
-2. Użytkownik nie otrzymywać natychmiast uzyskuje opinie, podczas ich Popraw pola tak, aby teraz przekazuje reguł sprawdzania poprawności.
-3. Firma Microsoft tym jak zmarnowała zasobów serwera w celu wykonywania logiki sprawdzania poprawności zamiast korzystania z przeglądarki użytkownika.
+1. Użytkownik będzie musiał czekać do formularza, który ma zostać opublikowany, sprawdzania poprawności na serwerze, a odpowiedź do wysłania do przeglądarki.
+2. Użytkownik nie natychmiast otrzymać opinię podczas Popraw polem, tak, aby teraz przekazuje reguł sprawdzania poprawności.
+3. Firma Microsoft jest marnowania zasobów serwera, aby wykonać logikę weryfikacji zamiast korzystanie z przeglądarki użytkownika.
 
-Na szczęście szablony szkieletu ASP.NET MVC 3 mają weryfikacji po stronie klienta wbudowane, wymagających ani żadne dodatkowe czynności.
+Na szczęście szablony szkieletu ASP.NET MVC 3 mają weryfikacji po stronie klienta wbudowane, wymagania żadne dodatkowe czynności w inny sposób.
 
-Wpisz pojedyncze litery w polu Tytuł spełnia wymagań sprawdzania poprawności, więc komunikatu weryfikacji jest od razu usunięte.
+Wpisz pojedynczą literą, w polu Tytuł spełnia wymagania sprawdzania poprawności, więc komunikat sprawdzania poprawności jest od razu usunięte.
 
 ![](mvc-music-store-part-6/_static/image3.png)
 

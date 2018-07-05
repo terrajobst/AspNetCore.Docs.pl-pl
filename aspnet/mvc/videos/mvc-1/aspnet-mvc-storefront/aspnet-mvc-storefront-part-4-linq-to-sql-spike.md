@@ -1,31 +1,30 @@
 ---
 uid: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-4-linq-to-sql-spike
-title: 'Część sklepu platformy ASP.NET MVC 4: Linq do Sql kolekcji | Dokumentacja firmy Microsoft'
+title: 'ASP.NET MVC StoreFront — część 4: Linq To Sql kolekcji | Dokumentacja firmy Microsoft'
 author: robconery
-description: Tomasz tworzy kolekcji - bitowej funkcji testowania myśl lub inspirującymi — upewnij się, że Linq do Sql będzie działać w przypadku mojej wzorca dostępu do danych.
+description: Tomasz tworzy kolekcji - bitowej funkcji do testowania myślenia lub inspiracji —, aby upewnić się, że Linq do Sql będzie działać w przypadku mojej wzorzec dostępu do danych.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/27/2008
 ms.topic: article
 ms.assetid: 990262a5-4c06-472a-8083-ed11e14f1e5a
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-4-linq-to-sql-spike
 msc.type: video
-ms.openlocfilehash: 3f404156a8b801365a11539ffec578ec38ab624b
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 723a10b056b3f031916c06dd72293a17b7ce2797
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30871626"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37401169"
 ---
-<a name="aspnet-mvc-storefront-part-4-linq-to-sql-spike"></a>Część sklepu platformy ASP.NET MVC 4: Linq do Sql kolekcji
+<a name="aspnet-mvc-storefront-part-4-linq-to-sql-spike"></a>ASP.NET MVC StoreFront — część 4: Linq To Sql kolekcji
 ====================
 przez [Rob Conery](https://github.com/robconery)
 
-Tomasz tworzy "kolekcji" - bitowej funkcji testowania myśl lub inspirującymi — upewnij się, że Linq do Sql będzie działać w przypadku mojej wzorca dostępu do danych.
+Tomasz tworzy "Kolekcja" - bitowej funkcji do testowania myślenia lub inspiracji —, aby upewnić się, że Linq do Sql będzie działać w przypadku mojej wzorzec dostępu do danych.
 
-[&#9654;Obejrzyj klip wideo (14 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-4-linq-to-sql-spike)
+[&#9654;Obejrzyj film wideo (14 min)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-4-linq-to-sql-spike)
 
 > [!div class="step-by-step"]
 > [Poprzednie](aspnet-mvc-storefront-part-3-pipes-and-filters.md)

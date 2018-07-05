@@ -2,149 +2,148 @@
 uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/implementing-optimistic-concurrency-vb
 title: Implementowanie optymistycznej współbieżności (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: Dla aplikacji sieci web, która umożliwia wielu użytkownikom edytowanie danych istnieje ryzyko, że dwóch użytkowników może edytować tych samych danych w tym samym czasie. W tym tutori...
+description: Dla aplikacji sieci web, która umożliwia wielu użytkownikom edytowanie danych istnieje ryzyko, że dwaj użytkownicy mogą edytować tych samych danych w tym samym czasie. W tym tutori...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/17/2006
 ms.topic: article
 ms.assetid: 2646968c-2826-4418-b1d0-62610ed177e3
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/implementing-optimistic-concurrency-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 056d907e80b5bdfa1848b4b31cb03702ca823583
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 8bda9799661d3a2285e1a32f6d300831d8ca92e1
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30890947"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37395944"
 ---
 <a name="implementing-optimistic-concurrency-vb"></a>Implementowanie optymistycznej współbieżności (VB)
 ====================
 przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
-[Pobierz przykładową aplikację](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_21_VB.exe) lub [pobierania plików PDF](implementing-optimistic-concurrency-vb/_static/datatutorial21vb1.pdf)
+[Pobierz przykładową aplikację](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_21_VB.exe) lub [Pobierz plik PDF](implementing-optimistic-concurrency-vb/_static/datatutorial21vb1.pdf)
 
-> Dla aplikacji sieci web, która umożliwia wielu użytkownikom edytowanie danych istnieje ryzyko, że dwóch użytkowników może edytować tych samych danych w tym samym czasie. W tym samouczku będziesz wprowadzania optymistyczne sterowanie współbieżnością do obsługi tego ryzyka.
+> Dla aplikacji sieci web, która umożliwia wielu użytkownikom edytowanie danych istnieje ryzyko, że dwaj użytkownicy mogą edytować tych samych danych w tym samym czasie. W tym samouczku będziesz wdrażamy mechanizmu kontroli optymistycznej współbieżności do obsługi tego ryzyka.
 
 
 ## <a name="introduction"></a>Wprowadzenie
 
-Dla aplikacji sieci web, w których tylko użytkownicy mogą wyświetlać dane, lub takie, które zawierają tylko jeden użytkownik, który można modyfikować danych jest nie zagrożeń dwóch równoczesnych użytkowników przypadkowemu zastąpieniu zmiany siebie nawzajem. Dla aplikacji sieci web, które umożliwiają wielu użytkownikom aktualizować lub usuwać dane jednak istnieje możliwość modyfikacji jednego użytkownika mogą powodować konfliktów z współbieżnych przez innego użytkownika. Bez dowolne zasady współbieżność w miejscu dwóch użytkowników jednocześnie edycji pojedynczego rekordu użytkownika, który potwierdza swoje zmiany ostatnio zastępują zmiany wprowadzone przez pierwszy.
+Dla aplikacji sieci web, które Zezwalaj tylko użytkownikom na wyświetlanie danych, lub takie, które zawierają tylko pojedynczego użytkownika, kto może modyfikować danych nie ma żadnych zagrożeń dwóch jednoczesnych użytkowników przypadkowemu zastąpieniu zmiany siebie nawzajem. Dla aplikacji sieci web, które umożliwiają wielu użytkownikom aktualizować lub usuwać dane jednak istnieje możliwość modyfikacji jednego użytkownika mogą powodować konfliktów z jednoczesnych przez innego użytkownika. Bez żadnych zasad współbieżności w miejscu gdy dwóch użytkowników będzie jednocześnie edytować pojedynczy rekord użytkownika, który potwierdza jej zmiany ostatnio spowoduje zastąpienie zmian wprowadzonych przez pierwszy.
 
-Na przykład załóżmy, że dwóch użytkowników, Jisun i Sam, zostały zarówno odwiedzania strony w naszej aplikacji, która dozwolone osoby odwiedzające aktualizować i usuwać produktów za pomocą kontrolki widoku siatki. Zarówno kliknij przycisk Edytuj w widoku GridView zbliżonym do czasu. Jisun zmiany nazwy produktu "Chai Zepołowy" i klika przycisk Aktualizuj. Wynikiem jest `UPDATE` instrukcji, która jest wysyłane do bazy danych, która ustawia *wszystkie* pól można aktualizować produktu (nawet jeśli Jisun aktualizowana tylko jedno pole `ProductName`). W tym momencie baza danych ma wartość "Chai Zepołowy", kategoria Napoje, dostawca egzotycznych cieczy i tak dalej dla tego konkretnego produktu. Jednak na ekranie Sam w widoku GridView nadal zawiera nazwę produktu w można edytować wiersza elementu GridView jako "Chai". Kilka sekund po jego Jisun zmiany zostały przekazane, Sam aktualizacje kategorii przyprawy i klika aktualizacji. Powoduje to `UPDATE` instrukcji wysyłane do bazy danych, który określa nazwę produktu do "Chai," `CategoryID` na odpowiedni identyfikator kategorii napoje i tak dalej. Zostały zastąpione przez Jisun zmiany nazwy produktu. Rysunek 1 przedstawia graficznie ta sekwencja zdarzeń.
-
-
-[![Gdy dwóch użytkowników jednocześnie aktualizacja rekordów s występują możliwość zmiany jednego użytkownika do drugiego zastąpić](implementing-optimistic-concurrency-vb/_static/image2.png)](implementing-optimistic-concurrency-vb/_static/image1.png)
-
-**Rysunek 1**: gdy dwóch użytkowników jednoczesne aktualizowanie istnieje rekord s potencjalne jeden użytkownik zmienia na Zastąp drugiego ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-vb/_static/image3.png))
+Na przykład załóżmy, że dwóch użytkowników, Jisun i Sam, zostały oba odwiedzając strony w naszej aplikacji, które dozwolone osoby odwiedzające aktualizowanie i usuwanie produktów za pomocą kontrolki GridView. Zarówno kliknij przycisk edycji, w widoku GridView w tym samym czasie. Jisun zmiany nazwy produktu "Chai herbaty" i klika przycisk Aktualizuj. Wynikiem jest `UPDATE` instrukcji, które są wysyłane do bazy danych, która ustawia *wszystkich* pól można aktualizować produktu (mimo że Jisun aktualizowane tylko jedno pole `ProductName`). W tym momencie baza danych ma wartość "Chai herbaty," kategorii Beverages, dostawca egzotycznych płynów, i tak dalej dla tego konkretnego produktu. Jednak GridView na ekranie przez Sam nadal zawiera nazwy produktu w można edytować wiersza w widoku GridView jako "Chai". Kilka sekund po jego Jisun zmiany zostały zatwierdzone, Sam aktualizacje kategorii Condiments i klika aktualizacji. Skutkuje to `UPDATE` instrukcji wysyłane do bazy danych, która ustawia nazwę produktu, aby "Chai," `CategoryID` do odpowiedniego Identyfikatora kategorii Beverages i tak dalej. Zostały zastąpione przez Jisun zmiany nazwy produktu. Rysunek 1 przedstawia graficznie w tej serii zdarzeń.
 
 
-Podobnie gdy dwóch użytkowników odwiedzających stronę, co użytkownik może być pośrodku aktualizowania rekordu, gdy zostanie usunięta przez innego użytkownika. Lub między załadowanie użytkownika na stronie, a następnie klikając przycisk Usuń, może być zmodyfikowany przez innego użytkownika zawartość tego rekordu.
+[![Gdy dwóch użytkowników jednoczesne aktualizowanie rekordów s tam potencjalne zmiany jednego użytkownika do zastąpienia jej](implementing-optimistic-concurrency-vb/_static/image2.png)](implementing-optimistic-concurrency-vb/_static/image1.png)
 
-Istnieją trzy [sterowania współbieżnością](http://en.wikipedia.org/wiki/Concurrency_control) strategie dostępności:
+**Rysunek 1**: gdy dwóch użytkowników jednoczesne aktualizowanie istnieje rekord s potencjał dla jednego użytkownika zmieni się do zastąpienia jej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-vb/_static/image3.png))
 
-- **Nic nie rób** — liczba równoczesnych użytkowników modyfikowania ten sam rekord, let ostatniego zatwierdzenia win (domyślnie)
-- [**Optymistycznej współbieżności** ](http://en.wikipedia.org/wiki/Optimistic_concurrency_control) -założono, który może być współbieżności powoduje konflikt every teraz, a następnie, gdy przeważająca większość czasu takie konflikty nie będą występować; w związku z tym w przypadku wystąpienia konfliktu, po prostu Poinformuj użytkownika, który swoje zmiany Nie można zapisać, ponieważ inny użytkownik zmodyfikował tych samych danych
-- **Pesymistyczne współbieżności** -założono, że konfliktom współbieżności są typowe i że użytkownicy nie będą tolerować trwa informację, ich zmiany nie zostały zapisane z powodu równoczesnych działania innego użytkownika; w związku z tym podczas uruchamiania jednego użytkownika aktualizowania rekordu go zablokować , zapobiegając w ten sposób innych użytkowników lub usunięcie tego rekordu do momentu ich zmian zatwierdza użytkownika
 
-Wszystkich naszych samouczków dotychczasowych używanych strategię rozpoznawania współbieżności domyślny — mianowicie, zostały let ostatniego zapisu win. W tym samouczku zajmiemy się implementowania optymistyczne sterowanie współbieżnością.
+Podobnie gdy dwóch użytkowników odwiedzających stronę, jeden użytkownik może być podczas aktualizowania rekordu, gdy zostanie usunięty przez innego użytkownika. Lub między po użytkownik załaduje stronę, a po kliknięciu przycisku Usuń, inny użytkownik zmienił zawartość tego rekordu.
+
+Dostępne są trzy [kontroli współbieżności](http://en.wikipedia.org/wiki/Concurrency_control) strategie dostępności:
+
+- **Nic nie rób** -równoczesnych użytkowników modyfikowania ten sam rekord, umożliwić ostatniego zatwierdzenia, wygrać (zachowanie domyślne)
+- [**Optymistyczna współbieżność** ](http://en.wikipedia.org/wiki/Optimistic_concurrency_control) -przyjęto założenie, który może być współbieżności jest w konflikcie every teraz, a następnie, większość czasu nie będą występować takie konflikty; w związku z tym, jeśli wystąpić konflikt, po prostu informować użytkownika, ich zmiany Nie można zapisać, ponieważ inny użytkownik zmodyfikował te same dane
+- **Współbieżność pesymistyczna** -założono, że konfliktów współbieżności są powszechnie znanych i że użytkownicy nie będą tolerować zwrócenia informację, ich zmiany nie zostały zapisane, ze względu na jednoczesną aktywność innego użytkownika; w związku z tym, po uruchomieniu jednemu użytkownikowi aktualizowania rekordu je zablokować , zapobiegając w ten sposób inni użytkownicy, edycji lub usuwania tego rekordu, dopóki użytkownik zobowiązuje się ich modyfikacji
+
+Pory ma wszystkich naszych samouczków używany strategię rozpoznawania współbieżności domyślne — to znaczy, Otrzymaliśmy opinie zapisana jako ostatnia wygrać. W tym samouczku zajmiemy się, jak zaimplementować mechanizmu kontroli optymistycznej współbieżności.
 
 > [!NOTE]
-> Firma Microsoft nie będzie przyjrzeć się przykłady pesymistyczne współbieżności, w tym samouczku. Pesymistyczne współbieżności jest rzadko używana, ponieważ takie blokady, jeśli nie prawidłowo zwalniana, może uniemożliwić innym użytkownikom aktualizowanie danych. Na przykład jeśli użytkownik blokuje rekordu do edycji i pozostawia dzień przed jego odblokowaniem, żaden inny użytkownik będzie można zaktualizować tego rekordu do momentu pierwotnego użytkownika zwraca i zakończeniu jego aktualizacji. W związku z tym w sytuacjach, w których jest używany pesymistyczne współbieżności, jest zwykle limit czasu anulujące, jeśli osiągnięto, blokady. Bilet sprzedaży witryn sieci Web, które zablokować lokalizacji konkretnego miejsca krótki okres, gdy użytkownik kończy proces kolejności, jest przykładem formant pesymistyczne współbieżności.
+> Nie będzie przyjrzymy się Współbieżność pesymistyczna przykładów w tej serii samouczków. Współbieżność pesymistyczna jest rzadko używana, ponieważ takie blokady, w przeciwnym razie poprawnie opuści, może uniemożliwić innym użytkownikom aktualizowanie danych. Na przykład jeśli użytkownik blokuje rekord do edycji i pozostawia dzień przed trwa odblokowywanie, żaden inny użytkownik będzie na zaktualizowanie rekordu do momentu użytkownika oryginalnego zwraca i zakończeniu jego aktualizacji. Dlatego w sytuacjach, w których jest używana funkcja pesymistycznej współbieżności, ma zwykle limit czasu, który, jeśli osiągnięty, anuluje blokady. Bilet sprzedaży witryn sieci Web, których zablokować lokalizacji miejsc siedzących określonego przez krótki okres, gdy użytkownik kończy proces kolejności, jest przykładem mechanizm kontroli pesymistycznej współbieżności.
 
 
-## <a name="step-1-looking-at-how-optimistic-concurrency-is-implemented"></a>Krok 1: Patrzeć jak optymistycznej współbieżności jest zaimplementowana.
+## <a name="step-1-looking-at-how-optimistic-concurrency-is-implemented"></a>Krok 1: Patrząc jak Optymistyczna współbieżność jest zaimplementowana.
 
-Optymistyczne sterowanie współbieżnością działania przez zapewnienie im rekordu są zaktualizowane lub usunięte ma takie same wartości, jak podczas aktualizowania lub usuwania procesu uruchamiania. Na przykład po kliknięciu przycisku edycji w GridView edytowalny, wartości rekordu są do odczytu z bazy danych i wyświetlane w pola tekstowe i inne formanty sieci Web. Te oryginalne wartości są zapisywane w widoku GridView. Później po użytkownik wprowadza swoje zmiany i kliknie przycisk Aktualizuj, oryginalnych wartości oraz nowych wartości są wysyłane do warstwy logiki biznesowej, a następnie do warstwy dostępu do danych. Warstwa dostępu do danych, należy wygenerować instrukcji SQL, która będzie tylko zaktualizowania rekordu, jeśli oryginalne wartości, które użytkownik rozpoczął edycję są takie same jak wartości nadal w bazie danych. Rysunek 2 przedstawia to sekwencja zdarzeń.
-
-
-[![Dla aktualizacji lub usunięcia, które było poprawne oryginalnych wartości musi być równa wartości bieżącej bazy danych](implementing-optimistic-concurrency-vb/_static/image5.png)](implementing-optimistic-concurrency-vb/_static/image4.png)
-
-**Rysunek 2**: For Update lub Delete pomyślnie oryginalnej wartości musi być równa wartości bieżącej bazy danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-vb/_static/image6.png))
+Mechanizmu kontroli optymistycznej współbieżności działa przez zapewnienie im rekordu są zaktualizowane lub usunięte ma takie same wartości, tak jak podczas aktualizowania lub usuwania procesu uruchamiania. Na przykład po kliknięciu przycisku edycji w edycji kontrolki GridView wartości rekordu są odczytu z bazy danych i wyświetlane w polach tekstowych i innych formantów sieci Web. Te oryginalne wartości są zapisywane w widoku GridView. Później po użytkownik wprowadza swoje zmiany i kliknie przycisk Aktualizuj, oryginalne wartości, a także nowe wartości są wysyłane do warstwy logiki biznesowej, a następnie w dół do warstwy dostępu do danych. Warstwa dostępu do danych należy wydać instrukcji SQL, który będzie aktualizować jedynie rekord Jeśli oryginalne wartości, które użytkownik rozpoczął edycję są identyczne do wartości w bazie danych. Rysunek 2 przedstawia następująca sekwencja zdarzeń.
 
 
-Istnieją różne podejścia do wdrażania optymistycznej współbieżności (zobacz [Bromberg A. Peterowi](http://peterbromberg.net/)w [logikę aktualizowania współbieżności Optmistic](http://www.eggheadcafe.com/articles/20050719.asp) dla krótki opis wiele opcji). DataSet wpisane ADO.NET zapewnia jeden implementacji, który można skonfigurować za pomocą tylko znaczników wyboru. Włączanie optymistycznej współbieżności dla TableAdapter w zestawie danych wpisane wspomaga TableAdapter `UPDATE` i `DELETE` instrukcje, aby uwzględnić porównanie wszystkich oryginalnych wartości w `WHERE` klauzuli. Następujące `UPDATE` instrukcji, na przykład aktualizacje nazwy i cena produktu tylko wtedy, gdy bieżące wartości bazy danych są takie same wartości, które pierwotnie zostały pobrane podczas aktualizacji rekordu w widoku GridView. `@ProductName` i `@UnitPrice` parametrów zawiera nowe wartości wprowadzonej przez użytkownika, podczas gdy `@original_ProductName` i `@original_UnitPrice` zawierają wartości, które pierwotnie zostały załadowane w widoku GridView, gdy kliknięto przycisk Edytuj:
+[![Update lub Delete, które zakończyło się sukcesem oryginalne wartości, musi być równa wartości bieżącej bazy danych](implementing-optimistic-concurrency-vb/_static/image5.png)](implementing-optimistic-concurrency-vb/_static/image4.png)
+
+**Rysunek 2**: For Update lub Delete, aby odnieść sukces, oryginalnym wartości musi być równa wartości bieżącej bazy danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-vb/_static/image6.png))
+
+
+Istnieją różne metody Implementowanie optymistycznej współbieżności (zobacz [Peter A. Bromberg](http://peterbromberg.net/)firmy [Optmistic współbieżności aktualizowanie logiki](http://www.eggheadcafe.com/articles/20050719.asp) dla krótki przegląd szereg opcji). ADO.NET DataSet wpisane zapewnia co wdrożenia, które można skonfigurować tylko znaczników pola wyboru. Włączanie optymistycznej współbieżności dla TableAdapter w zestawie danych wpisane rozszerzają TableAdapter `UPDATE` i `DELETE` porównanie wszystkich oryginalnej wartości w instrukcji `WHERE` klauzuli. Następujące `UPDATE` instrukcji, na przykład aktualizuje nazwę i cena produktu tylko wtedy, gdy wartości bieżącej bazy danych są równe wartości, które zostały pierwotnie pobrany podczas aktualizowania rekordu w widoku GridView. `@ProductName` i `@UnitPrice` parametrów zawiera nowe wartości wprowadzonej przez użytkownika, natomiast `@original_ProductName` i `@original_UnitPrice` zawierają wartości, które zostały pierwotnie załadowane do kontrolki GridView kliknięcie przycisku Edytuj:
 
 
 [!code-sql[Main](implementing-optimistic-concurrency-vb/samples/sample1.sql)]
 
 > [!NOTE]
-> To `UPDATE` uproszczono instrukcji dla czytelności. W praktyce `UnitPrice` zaewidencjonować `WHERE` klauzuli będzie więcej wysiłku od `UnitPrice` może zawierać `NULL` s i sprawdzanie, czy `NULL = NULL` zawsze zwraca wartość False (zamiast tego należy użyć `IS NULL`).
+> To `UPDATE` instrukcji został uproszczony dla czytelności. W praktyce `UnitPrice` zaewidencjonować `WHERE` klauzuli byłoby bardziej skomplikowane, ponieważ `UnitPrice` może zawierać `NULL` s i sprawdzanie, czy gdy `NULL = NULL` zawsze zwraca wartość FAŁSZ (zamiast tego należy użyć `IS NULL`).
 
 
-Oprócz używania innego podstawowego `UPDATE` instrukcji, konfigurowanie TableAdapter, aby użyć optymistycznej współbieżności także modyfikuje podpis jego DB bezpośrednie metody. Wycofaj z naszym pierwszym samouczku [ *tworzenie Warstwa dostępu do danych*](../introduction/creating-a-data-access-layer-cs.md), metody bezpośredniego bazy danych zostały te, które akceptuje listę skalarną wartości parametrów wejściowych jako (zamiast DataRow jednoznacznie lub Wystąpienie elementu DataTable). Korzystając z optymistycznej współbieżności, bezpośrednie DB `Update()` i `Delete()` metod uwzględnić parametry wejściowe dla wartości początkowe. Ponadto kod w logiki warstwy Biznesowej dla przy użyciu partii zaktualizować wzorca ( `Update()` przeciążenia metody, które akceptują wierszy danych i DataTables zamiast wartości skalarnych) można także zmienić.
+Oprócz używania różnych podstawowych `UPDATE` metody bezpośrednie instrukcji konfigurowania TableAdapter, aby użyć optymistycznej współbieżności również modyfikowanie podpis jego bazy danych. Odwoływanie się z naszym pierwszym samouczku [ *Tworzenie warstwy dostępu do danych*](../introduction/creating-a-data-access-layer-cs.md), metod bezpośrednich DB były te, które akceptuje listę skalarną wartości parametrów jako danych wejściowych (zamiast elementu DataRow silnie typizowane lub Wystąpienie elementu DataTable). Gdy optymistycznej współbieżności, bezpośrednie DB `Update()` i `Delete()` metody obejmują parametry wejściowe dla wartości oryginalne. Ponadto kod LOGIKI dotyczące korzystania z usługi batch aktualizacji wzorca ( `Update()` przeciążenia metody, które akceptują dotyczy to również utworzeń i DataTable, a nie wartości skalarnych) można także zmienić.
 
-Zamiast niż rozszerzyć naszych istniejących TableAdapters DAL w celu możemy użyć optymistycznej współbieżności (które wymagałyby zmiany logiki warstwy Biznesowej w celu uwzględnienia), zamiast tego utworzyć nowe wpisane zestawu danych o nazwie `NorthwindOptimisticConcurrency`, do którego dodamy `Products` TableAdapter który używa optymistycznej współbieżności. Następujące, utworzymy `ProductsOptimisticConcurrencyBLL` klasy warstwy logiki biznesowej, która ma odpowiednie modyfikacje do obsługi optymistycznej współbieżności DAL. Po tym przygotowuje został utworzony, firma Microsoft będzie gotowy do utworzenia strony ASP.NET.
+Raczej niż rozszerzyć nasze istniejące TableAdapters przez warstwę DAL do możemy użyć optymistycznej współbieżności, (które wymagałyby zmiany LOGIKI w celu uwzględnienia), zamiast tego utworzyć nowy wpisany zestaw danych o nazwie `NorthwindOptimisticConcurrency`, do którego dodamy `Products` TableAdapter, używa optymistycznej współbieżności. Poniżej, utworzymy `ProductsOptimisticConcurrencyBLL` klasy warstwy logiki biznesowej, która ma odpowiednie modyfikacje Obsługa optymistycznej współbieżności warstwy DAL. Po tym podwaliny pod Projekt wdrożenia został utworzony, będziemy gotowi do utworzenia strony ASP.NET.
 
-## <a name="step-2-creating-a-data-access-layer-that-supports-optimistic-concurrency"></a>Krok 2: Tworzenie Warstwa dostępu do danych, które obsługuje optymistycznej współbieżności
+## <a name="step-2-creating-a-data-access-layer-that-supports-optimistic-concurrency"></a>Krok 2: Tworzenie warstwy dostępu do danych, który obsługuje optymistycznej współbieżności
 
-Aby utworzyć nowy zestaw danych o typie określonym, kliknij prawym przyciskiem myszy `DAL` folder w `App_Code` folderu i Dodaj nowy zestaw danych o nazwie `NorthwindOptimisticConcurrency`. Jak widzieliśmy w pierwszym samouczku spowoduje tak doda nowy obiekt TableAdapter wpisane DataSet, automatyczne uruchamianie Kreatora konfiguracji TableAdapter. Na pierwszym ekranie monit możemy bazy danych do nawiązania połączenia — Połącz na tym samym Northwind bazy danych za pomocą `NORTHWNDConnectionString` z `Web.config`.
-
-
-[![Łączenie w tej samej bazy danych Northwind](implementing-optimistic-concurrency-vb/_static/image8.png)](implementing-optimistic-concurrency-vb/_static/image7.png)
-
-**Rysunek 3**: nawiązać połączenia z tej samej bazy danych Northwind ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-vb/_static/image9.png))
+Aby utworzyć nowy zestaw danych wpisane, kliknij prawym przyciskiem myszy `DAL` folder wewnątrz `App_Code` folderze i Dodaj nowy zestaw danych o nazwie `NorthwindOptimisticConcurrency`. Jak widzieliśmy w pierwszym samouczku spowoduje więc doda nowy obiekt TableAdapter do wpisany zestaw danych, automatyczne uruchamianie Kreatora konfiguracji TableAdapter. Na pierwszym ekranie możemy monit Określ bazę danych, można połączyć się — connect do tego samego Northwind bazy danych przy użyciu `NORTHWNDConnectionString` z `Web.config`.
 
 
-Następnie możemy monit określające, jak wykonać zapytanie dotyczące danych: za pomocą instrukcji SQL ad hoc nową procedurę składowaną lub istniejącą procedurę składowaną. Ponieważ użyliśmy zapytań SQL ad hoc w naszym oryginalnego DAL również za pomocą tej opcji w tym miejscu.
+[![Nawiązać połączenie z tej samej bazy danych Northwind](implementing-optimistic-concurrency-vb/_static/image8.png)](implementing-optimistic-concurrency-vb/_static/image7.png)
+
+**Rysunek 3**: nawiązać połączenie z tej samej bazy danych Northwind ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-vb/_static/image9.png))
 
 
-[![Określ dane, aby pobrać za pomocą instrukcji SQL Ad Hoc](implementing-optimistic-concurrency-vb/_static/image11.png)](implementing-optimistic-concurrency-vb/_static/image10.png)
-
-**Rysunek 4**: Określ dane do pobrania przy użyciu instrukcji SQL Ad-Hoc ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-vb/_static/image12.png))
+Następnie możemy monit sposobów wysłać zapytanie dotyczące danych: za pomocą instrukcji SQL zapytań ad-hoc nową procedurę składowaną lub istniejącej procedury składowanej. Ponieważ użyliśmy zapytań SQL ad hoc w naszym oryginalnego DAL Użyj tej opcji w tym miejscu także.
 
 
-Na poniższym ekranie wprowadź zapytanie SQL do użycia w celu pobrania informacji o produkcie. Można użyć dokładnie tego samego zapytania SQL używane do `Products` TableAdapter z naszych DAL oryginalnej, która zwraca wszystkie `Product` kolumn oraz nazwy dostawcy i kategorii produktów:
+[![Określ dane, które można pobrać przy użyciu instrukcji SQL zapytań Ad-Hoc](implementing-optimistic-concurrency-vb/_static/image11.png)](implementing-optimistic-concurrency-vb/_static/image10.png)
+
+**Rysunek 4**: określenie danych, które można pobrać przy użyciu instrukcji SQL zapytań Ad-Hoc ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-vb/_static/image12.png))
+
+
+Na poniższym ekranie wprowadź zapytanie SQL, aby pobrać informacje o produkcie. Można użyć dokładnie tego samego zapytania SQL używany do `Products` TableAdapter z naszych oryginalnego warstwy DAL, które zwraca wszystkie `Product` kolumn wraz z nazwy dostawcy i Kategoria produktu:
 
 
 [!code-sql[Main](implementing-optimistic-concurrency-vb/samples/sample2.sql)]
 
 
-[![Użyj tego samego zapytania SQL z TableAdapter produktów w oryginalnym DAL](implementing-optimistic-concurrency-vb/_static/image14.png)](implementing-optimistic-concurrency-vb/_static/image13.png)
+[![Użyj tego samego zapytania SQL z TableAdapter produktów w oryginalnym warstwy DAL](implementing-optimistic-concurrency-vb/_static/image14.png)](implementing-optimistic-concurrency-vb/_static/image13.png)
 
 **Rysunek 5**: Użyj tego samego zapytania SQL z `Products` TableAdapter w oryginalnym DAL ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-vb/_static/image15.png))
 
 
-Przed przeniesieniem na następnym ekranie, kliknij przycisk Opcje zaawansowane. Aby tego formantu optymistycznej współbieżności u TableAdapter, po prostu zaznacz pole wyboru "Użyj optymistycznej współbieżności".
+Przed przejściem do następnego ekranu, kliknij przycisk Opcje zaawansowane. Aby tego mechanizmu kontroli optymistycznej współbieżności stosują TableAdapter, po prostu zaznacz pole wyboru "Użyj optymistycznej współbieżności".
 
 
-[![Włącz optymistyczne sterowanie współbieżnością za sprawdzanie &quot;użyć optymistycznej współbieżności&quot; wyboru](implementing-optimistic-concurrency-vb/_static/image17.png)](implementing-optimistic-concurrency-vb/_static/image16.png)
+[![Włącz kontrolę optymistycznej współbieżności, przez sprawdzanie &quot;używaj optymistycznej współbieżności&quot; pola wyboru](implementing-optimistic-concurrency-vb/_static/image17.png)](implementing-optimistic-concurrency-vb/_static/image16.png)
 
-**Rysunek 6**: Włącz optymistyczne sterowanie współbieżności, zaznaczając pole wyboru "Użyj optymistycznej współbieżności" ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-vb/_static/image18.png))
-
-
-Ponadto wskazują, że element TableAdapter powinien używać wzorce dostępu do danych, które zarówno wypełnienia DataTable i zwracać element DataTable; również wskazywać, należy utworzyć metody bezpośredniego bazy danych. Zmień nazwę metody zwrotu wzorzec DataTable z GetData na GetProducts, w celu utworzenia duplikatów konwencje nazewnictwa użytymi w naszym oryginalnego DAL.
+**Rysunek 6**: Włącz optymistyczne sterowanie współbieżnością, zaznaczając pole wyboru "Użyj optymistycznej współbieżności" ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-vb/_static/image18.png))
 
 
-[![Ma TableAdapter wykorzystywać wszystkie wzorce dostępu do danych](implementing-optimistic-concurrency-vb/_static/image20.png)](implementing-optimistic-concurrency-vb/_static/image19.png)
-
-**Rysunek 7**: ma TableAdapter wykorzystywać wszystkie dane wzorce dostępu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-vb/_static/image21.png))
+Na koniec wskazują, że wzorców dostępu do danych, które zwraca DataTable; i Wypełnij tabelę danych powinien używać TableAdapter również wskazywać, że metod bezpośrednich bazy danych powinny być tworzone. Zmień nazwę metody dotyczące zwracania wzorzec DataTable z GetData na GetProducts, w celu utworzenia duplikatów konwencji nazewnictwa użytymi w naszym oryginalnego warstwy DAL.
 
 
-Po zakończeniu pracy kreatora, Projektant obiektów DataSet zawiera silnie typizowanego `Products` DataTable i TableAdapter. Poświęć chwilę, aby zmienić nazwy elementu DataTable z `Products` do `ProductsOptimisticConcurrency`, co można zrobić, klikając prawym przyciskiem myszy na pasku tytułu tabeli DataTable i wybierając polecenie zmiany nazwy z menu kontekstowego.
+[![Masz TableAdapter wykorzystywać wszystkie wzorce dostępu do danych](implementing-optimistic-concurrency-vb/_static/image20.png)](implementing-optimistic-concurrency-vb/_static/image19.png)
+
+**Rysunek 7**: TableAdapter korzystanie z wszystkich danych programu Access wzorców ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-vb/_static/image21.png))
 
 
-[![Element DataTable i TableAdapter zostały dodane do Typizowanego obiektu DataSet](implementing-optimistic-concurrency-vb/_static/image23.png)](implementing-optimistic-concurrency-vb/_static/image22.png)
-
-**Rysunek 8**: element DataTable i DataSet wpisane zostały dodane TableAdapter ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-vb/_static/image24.png))
+Po ukończeniu kreatora, Projektant obiektów DataSet będzie zawierać silnie typizowanego `Products` DataTable i TableAdapter. Poświęć chwilę, aby zmienić nazwę elementu DataTable z `Products` do `ProductsOptimisticConcurrency`, co można zrobić, klikając prawym przyciskiem myszy pasek tytułu tabeli DataTable i wybierając zmiany nazwy z menu kontekstowego.
 
 
-Aby wyświetlić różnice między `UPDATE` i `DELETE` zapytań między `ProductsOptimisticConcurrency` TableAdapter (używający optymistycznej współbieżności) i produkty TableAdapter (który nie), kliknij TableAdapter i przejdź do okna właściwości. W `DeleteCommand` i `UpdateCommand` właściwości `CommandText` podrzędnych widać rzeczywistej składni SQL, który jest wysyłany do bazy danych, jeśli DAL aktualizacji lub usuń związane z metody są wywoływane. Aby uzyskać `ProductsOptimisticConcurrency` TableAdapter `DELETE` jest używana instrukcja:
+[![DataTable i TableAdapter zostały dodane do zestawu danych](implementing-optimistic-concurrency-vb/_static/image23.png)](implementing-optimistic-concurrency-vb/_static/image22.png)
+
+**Rysunek 8**: DataTable i TableAdapter zostały dodane do zestawu danych wpisane ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-vb/_static/image24.png))
+
+
+Aby zobaczyć różnice między `UPDATE` i `DELETE` zapytań między `ProductsOptimisticConcurrency` TableAdapter (używający optymistycznej współbieżności) i TableAdapter produktów, (które nie), kliknij na obiekt TableAdapter i przejdź do okna właściwości. W `DeleteCommand` i `UpdateCommand` właściwości `CommandText` właściwości podrzędnych widać rzeczywistej składni SQL, które są wysyłane do bazy danych, wywołana aktualizację DAL lub metody dotyczące usuwania. Aby uzyskać `ProductsOptimisticConcurrency` TableAdapter `DELETE` jest używana instrukcja:
 
 
 [!code-sql[Main](implementing-optimistic-concurrency-vb/samples/sample3.sql)]
 
-Natomiast `DELETE` instrukcji dla TableAdapter produktu w naszym oryginalnego DAL jest znacznie prostsza:
+Natomiast `DELETE` poufności informacji dotyczące TableAdapter produktu w naszym oryginalnego DAL jest znacznie prostsza:
 
 
 [!code-sql[Main](implementing-optimistic-concurrency-vb/samples/sample4.sql)]
 
-Jak widać, `WHERE` w klauzuli `DELETE` instrukcja dla Obiekt TableAdapter, która używa optymistycznej współbieżności zawiera porównanie między poszczególnymi `Product` tabeli do istniejących w chwili oryginalnej wartości i wartości w kolumnie Ostatnio wypełniono GridView (lub widoku DetailsView lub FormView). Ponieważ wszystkie pola innego niż `ProductID`, `ProductName`, i `Discontinued` może mieć `NULL` wartości, parametrów i kontroli są dołączone do porównania poprawnie `NULL` wartości w `WHERE` klauzuli.
+Jak widać, `WHERE` w klauzuli `DELETE` poufności informacji dotyczące TableAdapter, która używa optymistycznej współbieżności zawiera porównanie między poszczególnymi `Product` tabeli istniejącej wartości w kolumnie i oryginalne wartości w czasie Ostatniej chwili wypełniania kontrolki GridView (lub DetailsView lub FormView). Od wszystkich pól innych niż `ProductID`, `ProductName`, i `Discontinued` może mieć `NULL` wartości, dodatkowe parametry i kontrole są dołączone do porównania poprawnie `NULL` wartości w `WHERE` klauzuli.
 
-Firma Microsoft nie będzie można Dodawanie wszelkie dodatkowe DataTables optymistycznej współbieżności włączoną DataSet w tym samouczku jako strony ASP.NET zapewnia tylko aktualizowanie i usuwanie informacji o produkcie. Jednak nadal trzeba dodać `GetProductByProductID(productID)` metody `ProductsOptimisticConcurrency` TableAdapter.
+Firma Microsoft nie będzie dodawać żadnych dodatkowych DataTable optymistycznej współbieżności, włączone DataSet w tym samouczku jako tylko zapewnia strony ASP.NET, aktualizowanie i usuwanie informacji o produkcie. Jednak nadal musimy dodać `GetProductByProductID(productID)` metody `ProductsOptimisticConcurrency` TableAdapter.
 
-W tym celu kliknij prawym przyciskiem myszy pasek tytułu TableAdapter (prawo obszaru powyżej `Fill` i `GetProducts` nazwy metod) i wybierz polecenie Dodaj zapytanie z menu kontekstowego. Zostanie uruchomiony Kreator konfiguracji zapytania TableAdapter. Zgodnie z naszym TableAdapter konfiguracji początkowej, zdecydować się na tworzenie `GetProductByProductID(productID)` metody za pomocą instrukcji SQL ad-hoc (patrz rysunek 4). Ponieważ `GetProductByProductID(productID)` metoda zwraca informacje dotyczące konkretnego produktu, wskazuje, że jest to zapytanie `SELECT` zapytanie zwraca wiersze.
+W tym celu kliknij prawym przyciskiem myszy pasek tytułu TableAdapter (po prawej stronie obszaru powyżej `Fill` i `GetProducts` nazwy metod) i wybierz polecenie Dodaj zapytanie z menu kontekstowego. Spowoduje to uruchomienie Kreatora konfiguracji zapytań TableAdapter. Zgodnie z naszym TableAdapter wstępną konfigurację, wybrać opcję utworzenia `GetProductByProductID(productID)` metody za pomocą instrukcji SQL zapytań ad-hoc (zobacz rysunek 4). Ponieważ `GetProductByProductID(productID)` metoda zwraca informacje o konkretnym produktem, wskazują, że to zapytanie jest `SELECT` zapytania typu, która zwraca wiersze.
 
 
 [![Oznacz typ zapytania jako &quot;SELECT, która zwraca wiersze&quot;](implementing-optimistic-concurrency-vb/_static/image26.png)](implementing-optimistic-concurrency-vb/_static/image25.png)
@@ -152,38 +151,38 @@ W tym celu kliknij prawym przyciskiem myszy pasek tytułu TableAdapter (prawo ob
 **Rysunek 9**: Oznacz typ zapytania jako "`SELECT` która zwraca wiersze" ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-vb/_static/image27.png))
 
 
-Na następnym ekranie możemy wyświetlony monit o zapytanie SQL do użycia z wstępnie załadowane TableAdapter domyślne zapytanie. Rozszerzyć istniejącą kwerendę, aby uwzględnić w klauzuli `WHERE ProductID = @ProductID`, jak pokazano na rysunku nr 10.
+Na następnym ekranie możemy monit o podanie zapytanie SQL do użycia przy użyciu domyślnego zapytania TableAdapter wstępnie załadowane. Rozszerzaj istniejące zapytanie, aby uwzględnić w klauzuli `WHERE ProductID = @ProductID`, jak pokazano na rysunku nr 10.
 
 
-[![Dodaj WHERE klauzuli wstępnie załadowane zapytania w celu zwrócenia rekordu określonego produktu](implementing-optimistic-concurrency-vb/_static/image29.png)](implementing-optimistic-concurrency-vb/_static/image28.png)
+[![Dodaj WHERE — klauzula zapytania wstępnie załadowane w celu zwrócenia rekordu określonego produktu](implementing-optimistic-concurrency-vb/_static/image29.png)](implementing-optimistic-concurrency-vb/_static/image28.png)
 
-**Na rysunku nr 10**: Dodaj `WHERE` klauzuli Pre-Loaded zapytania do zwrócenia określonego rekordu produktu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-vb/_static/image30.png))
+**Na rysunku nr 10**: Dodaj `WHERE` klauzula zapytania Pre-Loaded w celu zwrócenia określonego rekordu produktu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-vb/_static/image30.png))
 
 
-Na koniec zmień nazwy metody wygenerowanego `FillByProductID` i `GetProductByProductID`.
+Na koniec zmień nazwy wygenerowana metoda `FillByProductID` i `GetProductByProductID`.
 
 
 [![Zmień nazwę metody FillByProductID i GetProductByProductID](implementing-optimistic-concurrency-vb/_static/image32.png)](implementing-optimistic-concurrency-vb/_static/image31.png)
 
-**Rysunek 11**: Zmień nazwę metody `FillByProductID` i `GetProductByProductID` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-vb/_static/image33.png))
+**Rysunek 11**: Zmień nazwę metody służące do `FillByProductID` i `GetProductByProductID` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-vb/_static/image33.png))
 
 
-Za pomocą tego kreatora pełną TableAdapter zawiera teraz dwie metody do pobierania danych: `GetProducts()`, która zwraca *wszystkie* produktów; i `GetProductByProductID(productID)`, która zwraca wartość określonego produktu.
+Za pomocą tego kreatora pełną TableAdapter zawiera teraz dwie metody do pobierania danych: `GetProducts()`, co powoduje zwrócenie *wszystkich* produktów; i `GetProductByProductID(productID)`, która zwraca określony produkt.
 
-## <a name="step-3-creating-a-business-logic-layer-for-the-optimistic-concurrency-enabled-dal"></a>Krok 3: Tworzenie warstwy logiki biznesowej dla optymistycznej współbieżności włączoną DAL
+## <a name="step-3-creating-a-business-logic-layer-for-the-optimistic-concurrency-enabled-dal"></a>Krok 3: Tworzenie warstwy logiki biznesowej dla optymistycznej współbieżności, włączone DAL
 
-Nasze istniejące `ProductsBLL` klasa ma przykłady przy użyciu aktualizacji partii i wzorce bezpośredniego bazy danych. `AddProduct` — Metoda i `UpdateProduct` przeciążenia obu Użyj wzorca aktualizacji partii, przekazując `ProductRow` wystąpienia metody aktualizacji TableAdapter. `DeleteProduct` Metoda, z drugiej strony, korzysta ze wzorca bezpośredniego bazy danych, wywoływania TableAdapter `Delete(productID)` metody.
+Nasze istniejące `ProductsBLL` klasa zawiera przykłady przy użyciu aktualizacji usługi batch i wzorce bezpośrednie bazy danych. `AddProduct` Metody i `UpdateProduct` przeciążenia obu użyć wzorca aktualizacji usługi batch, przekazując `ProductRow` wystąpienia metody aktualizacji TableAdapter. `DeleteProduct` Metody, z drugiej strony, używa wzorca bezpośrednie bazy danych, wywoływania TableAdapter `Delete(productID)` metody.
 
-Z nowym `ProductsOptimisticConcurrency` TableAdapter, bazę danych bezpośrednie metody wymagają teraz, czy oryginalne wartości również być przekazany. Na przykład `Delete` metoda oczekuje teraz dziesięciu parametry wejściowe: oryginalny `ProductID`, `ProductName`, `SupplierID`, `CategoryID`, `QuantityPerUnit`, `UnitPrice`, `UnitsInStock`, `UnitsOnOrder`, `ReorderLevel`, i `Discontinued`. Używa wartości tych parametrów wejściowych dodatkowe w `WHERE` klauzuli `DELETE` instrukcji wysłanych do bazy danych tylko do usuwania określonego rekordu, jeśli mapowanie wartości bieżącej bazy danych do oryginalnych.
+Przy użyciu nowego `ProductsOptimisticConcurrency` TableAdapter, baza danych bezpośrednie metody teraz wymagają, że oryginalne wartości zostać przekazany w. Na przykład `Delete` metoda oczekuje teraz dziesięciu parametry wejściowe: oryginalna `ProductID`, `ProductName`, `SupplierID`, `CategoryID`, `QuantityPerUnit`, `UnitPrice`, `UnitsInStock`, `UnitsOnOrder`, `ReorderLevel`, i `Discontinued`. Używa wartości te dodatkowe parametry wejściowe `WHERE` klauzuli `DELETE` instrukcji wysyłane do bazy danych tylko do usuwania określonego rekordu, jeśli mapowania wartości bieżącej bazy danych do oryginalnych.
 
-Podczas podpis metody dla Obiekt TableAdapter `Update` metodę we wzorcu wsadowe aktualizacji nie zmieniła się, ma kod niezbędne do rejestrowania oryginalnego i nowej wartości. Dlatego zamiast próbują użyć optymistycznej współbieżności włączoną DAL z naszych istniejącym `ProductsBLL` klasy, Utwórz nową klasę warstwy logiki biznesowej do pracy z naszej nowej warstwy DAL.
+Podczas gdy podpis metody dla TableAdapter `Update` metody używane we wzorcu aktualizacji wsadowych nie zmienił, zawiera kod potrzebny do rejestrowania wartości oryginalne i nowe. W związku z tym a nie próbują użyć optymistycznej współbieżności, włączone DAL z naszym istniejącym `ProductsBLL` klasy, Utwórz nową klasę warstwy logiki biznesowej do pracy z naszej nowej warstwy DAL.
 
-Dodaj klasę o nazwie `ProductsOptimisticConcurrencyBLL` do `BLL` folderze `App_Code` folderu.
+Dodaj klasę o nazwie `ProductsOptimisticConcurrencyBLL` do `BLL` folder wewnątrz `App_Code` folderu.
 
 
-![Dodaj klasę ProductsOptimisticConcurrencyBLL do folderu logiki warstwy Biznesowej](implementing-optimistic-concurrency-vb/_static/image34.png)
+![Dodaj klasę ProductsOptimisticConcurrencyBLL do folderu LOGIKI](implementing-optimistic-concurrency-vb/_static/image34.png)
 
-**Rysunek 12**: Dodaj `ProductsOptimisticConcurrencyBLL` klasy do folderu logiki warstwy Biznesowej
+**Rysunek 12**: Dodaj `ProductsOptimisticConcurrencyBLL` klasy do folderu LOGIKI
 
 
 Następnie dodaj następujący kod, aby `ProductsOptimisticConcurrencyBLL` klasy:
@@ -191,246 +190,246 @@ Następnie dodaj następujący kod, aby `ProductsOptimisticConcurrencyBLL` klasy
 
 [!code-vb[Main](implementing-optimistic-concurrency-vb/samples/sample5.vb)]
 
-Należy zwrócić uwagę przy użyciu `NorthwindOptimisticConcurrencyTableAdapters` instrukcji powyżej początku deklaracji klasy. `NorthwindOptimisticConcurrencyTableAdapters` Przestrzeń nazw zawiera `ProductsOptimisticConcurrencyTableAdapter` klasy, która udostępnia metody DAL. Również przed deklaracją klasy można znaleźć `System.ComponentModel.DataObject` atrybut, który powoduje, że Visual Studio, aby uwzględnić tej klasy w Kreatorze ObjectDataSource listy rozwijanej.
+Należy pamiętać używając `NorthwindOptimisticConcurrencyTableAdapters` instrukcji powyżej początku deklaracji klasy. `NorthwindOptimisticConcurrencyTableAdapters` Przestrzeń nazw zawiera `ProductsOptimisticConcurrencyTableAdapter` klasy, która zapewnia metody DAL. Ponadto przed deklaracją klasy znajdziesz `System.ComponentModel.DataObject` atrybut, który powoduje, że Visual Studio, rozszerzając tej klasy w Kreatorze ObjectDataSource listy rozwijanej.
 
-`ProductsOptimisticConcurrencyBLL`w `Adapter` właściwości zapewnia szybki dostęp do wystąpienia `ProductsOptimisticConcurrencyTableAdapter` klasy i jest zgodny ze wzorcem używane w naszych oryginalnej klasy logiki warstwy Biznesowej (`ProductsBLL`, `CategoriesBLL`i tak dalej). Na koniec `GetProducts()` metoda wywołuje po prostu DAL `GetProducts()` metodę i zwraca `ProductsOptimisticConcurrencyDataTable` obiektu wypełniane przy użyciu `ProductsOptimisticConcurrencyRow` wystąpienia dla każdego rekordu produktu w bazie danych.
+`ProductsOptimisticConcurrencyBLL`Firmy `Adapter` właściwości zapewnia szybki dostęp do wystąpienia `ProductsOptimisticConcurrencyTableAdapter` klasy i jest zgodna z wzorcem, używane w naszych oryginalnej klasy LOGIKI (`ProductsBLL`, `CategoriesBLL`i tak dalej). Na koniec `GetProducts()` metoda wywołuje po prostu DAL `GetProducts()` metodę i zwraca `ProductsOptimisticConcurrencyDataTable` object wypełniany `ProductsOptimisticConcurrencyRow` wystąpienia dla każdego rekordu produktu w bazie danych.
 
-## <a name="deleting-a-product-using-the-db-direct-pattern-with-optimistic-concurrency"></a>Usuwanie produktu przy użyciu wzorca bezpośredniego bazy danych z optymistycznej współbieżności
+## <a name="deleting-a-product-using-the-db-direct-pattern-with-optimistic-concurrency"></a>Usuwanie produktu przy użyciu wzorca bezpośrednie bazy danych za pomocą optymistycznej współbieżności
 
-Podczas korzystania z wzorca bezpośredniego bazy danych przed DAL, która używa optymistycznej współbieżności, metody muszą być przekazywane nowy i oryginalnych wartości. Do usuwania, nie znajdują się nowych wartości, więc oryginalnych wartości muszą być przekazywane w. W naszym logiki warstwy Biznesowej następnie możemy zaakceptować wszystkie parametry oryginalnego jako parametry wejściowe. Ta funkcja pozwala mieć `DeleteProduct` metody w `ProductsOptimisticConcurrencyBLL` klasy należy użyć metody bezpośredniego bazy danych. Oznacza to, że ta metoda musi wykonać we wszystkich polach danych dziesięć produktu jako parametry wejściowe i przekazać je do warstwy DAL, jak pokazano w poniższym kodzie:
+Korzystając z wzorca bezpośrednie bazy danych dla warstwy, która używa optymistycznej współbieżności, metody muszą być przekazywane wartości nowymi i oryginalnymi. Związanych z usuwaniem, istnieją nowe wartości, więc należy przekazać oryginalnych wartości. W naszym LOGIKI następnie firma Microsoft musi zaakceptować wszystkie parametry oryginalnego jako parametry wejściowe. Przyjrzyjmy się `DeleteProduct` method in Class metoda `ProductsOptimisticConcurrencyBLL` klasy należy użyć metody bezpośrednie bazy danych. Oznacza to, że ta metoda musi wykonać we wszystkich polach danych dziesięć produktu jako parametry wejściowe i przekazać je do warstwy DAL, jak pokazano w poniższym kodzie:
 
 
 [!code-vb[Main](implementing-optimistic-concurrency-vb/samples/sample6.vb)]
 
-Jeśli oryginalne wartości - tych wartości, które zostały ostatnio załadowane w widoku GridView (lub widoku DetailsView lub FormView) — różnią się od wartości w bazie danych, gdy użytkownik kliknie przycisk Usuń `WHERE` klauzuli nie będzie zgodny z dowolnego rekordu bazy danych i rekordów będzie to miało wpływu. W związku z tym TableAdapter `Delete` metoda zwróci `0` i logiki warstwy Biznesowej `DeleteProduct` metoda zwróci `false`.
+Jeżeli oryginalne wartości - tych wartości, które zostały ostatnio załadowane do kontrolki GridView (lub DetailsView lub FormView) — różnią się od wartości w bazie danych, gdy użytkownik kliknie przycisk Usuń `WHERE` klauzuli nie będzie zgodny z dowolnego rekordu bazy danych i żadnych rekordów będzie to miało wpływu. Dzięki temu TableAdapter `Delete` metoda zwróci `0` i LOGIKI `DeleteProduct` metoda zwróci `false`.
 
-## <a name="updating-a-product-using-the-batch-update-pattern-with-optimistic-concurrency"></a>Aktualizowanie produktu przy użyciu wzorca aktualizacji partii z optymistycznej współbieżności
+## <a name="updating-a-product-using-the-batch-update-pattern-with-optimistic-concurrency"></a>Aktualizowanie produktu przy użyciu wzorca aktualizacji usługi Batch za pomocą optymistycznej współbieżności
 
-Jak wspomniano wcześniej, TableAdapter `Update` metoda dla wzorca aktualizacji wsadowych ma taką samą sygnaturę metody niezależnie od tego, czy jest stosowane optymistycznej współbieżności. To znaczy `Update` metoda oczekuje DataRow, tablicę elementów DataRows, DataTable lub wpisany zestawu danych. Nie ma żadnych dodatkowych parametrów wejściowych służącą do oryginalnych wartości. Jest to możliwe, ponieważ element DataTable przechowuje informacje o wartości oryginalnej i zmodyfikowanych dla jego DataRow(s). Jeśli problemy z warstwy DAL jego `UPDATE` instrukcji, `@original_ColumnName` parametry są wypełniane przy użyciu oryginalnych wartości DataRow, podczas gdy `@ColumnName` parametry są wypełniane przy użyciu wartości zmodyfikowanych DataRow.
+Jak wspomniano wcześniej, TableAdapter `Update` metody wzorca aktualizacji usługi batch ma taki sam podpis metody, niezależnie od tego, czy jest zatrudniony optymistycznej współbieżności. To znaczy `Update` metoda oczekuje elementu DataRow, tablica dotyczy to również utworzeń, DataTable lub DataSet z kontrolą typów. Nie istnieją żadne dodatkowe parametry wejściowe do określania oryginalnych wartości. Jest to możliwe, ponieważ DataTable śledzi informacje o wartości oryginalnego i modyfikacji dla jego DataRow(s). Jeśli problemy z warstwy DAL jego `UPDATE` instrukcji, `@original_ColumnName` parametry są wypełniane przy użyciu oryginalnych wartości DataRow, natomiast `@ColumnName` parametry są wypełniane przy użyciu zmodyfikowane wartości DataRow.
 
-W `ProductsBLL` klasy (który używa naszego oryginalne, optymistycznej współbieżności DAL), podczas używania wzorca aktualizacji wsadowych można zaktualizować informacji o produkcie naszego kodu wykonuje następująca sekwencja zdarzeń:
+W `ProductsBLL` klasy (używający naszych oryginalny, optymistycznej współbieżności DAL), korzystając z wzorca aktualizacji usługi batch można zaktualizować informacji o produkcie, nasz kod wykonuje następująca sekwencja zdarzeń:
 
-1. Przeczytaj informacje bieżącego produktu bazy danych do `ProductRow` wystąpienie za pomocą TableAdapter `GetProductByProductID(productID)` — metoda
-2. Przypisanie nowych wartości `ProductRow` wystąpienia z kroku 1
-3. Wywołaj element TableAdapter `Update` metody, przekazując `ProductRow` wystąpienia
+1. Bieżące informacje o produkcie bazy danych do odczytu `ProductRow` przy użyciu TableAdapter `GetProductByProductID(productID)` — metoda
+2. Przypisz nowe wartości do `ProductRow` wystąpienia z kroku 1
+3. Wywołaj TableAdapter `Update` metody, przekazując `ProductRow` wystąpienia
 
-Ta sekwencja kroków, jednak nie będzie poprawnie obsługuje optymistycznej współbieżności, ponieważ `ProductRow` w kroku 1 jest wypełniana bezpośrednio z bazy danych, co oznacza, czy oryginalne wartości używane przez element DataRow to takie, które istnieje obecnie w bazy danych, a nie te, które były powiązane z widoku GridView na początku procesu edycji. Zamiast tego po użyciu optymistycznej współbieżności obsługą DAL, musimy alter `UpdateProduct` przeciążenia metody do, wykonaj następujące kroki:
+Tej sekwencji kroki, jednak nie będzie poprawnie obsługują optymistyczną współbieżność, ponieważ `ProductRow` wypełnione w kroku 1 jest wypełniana bezpośrednio z bazy danych, co oznacza, że oryginalne wartości, które są używane przez klasy DataRow te, które obecnie istnieje w bazy danych, a nie te, które były powiązane z GridView na początku procesu edycji. Zamiast tego po użyciu optymistycznej współbieżności obsługą warstwy DAL, musimy alter `UpdateProduct` przeciążeń metody, wykonaj następujące kroki:
 
-1. Przeczytaj informacje bieżącego produktu bazy danych do `ProductsOptimisticConcurrencyRow` wystąpienie za pomocą TableAdapter `GetProductByProductID(productID)` — metoda
-2. Przypisz *oryginalnego* wartości do `ProductsOptimisticConcurrencyRow` wystąpienia z kroku 1
-3. Wywołanie `ProductsOptimisticConcurrencyRow` wystąpienia `AcceptChanges()` metody, która powoduje obiektu DataRow, że jego bieżącymi wartościami są "oryginalnych"
-4. Przypisz *nowe* wartości do `ProductsOptimisticConcurrencyRow` wystąpienia
-5. Wywołaj element TableAdapter `Update` metody, przekazując `ProductsOptimisticConcurrencyRow` wystąpienia
+1. Bieżące informacje o produkcie bazy danych do odczytu `ProductsOptimisticConcurrencyRow` przy użyciu TableAdapter `GetProductByProductID(productID)` — metoda
+2. Przypisz *oryginalnego* wartości `ProductsOptimisticConcurrencyRow` wystąpienia z kroku 1
+3. Wywołaj `ProductsOptimisticConcurrencyRow` wystąpienia `AcceptChanges()` metody, która instruuje klasy DataRow, czy jego bieżące wartości są tymi, które "oryginalne"
+4. Przypisz *nowe* wartości `ProductsOptimisticConcurrencyRow` wystąpienia
+5. Wywołaj TableAdapter `Update` metody, przekazując `ProductsOptimisticConcurrencyRow` wystąpienia
 
-Krok 1 odczyty we wszystkich wartości bieżącej bazy danych dla określonego produktu rekordu. Ten krok jest zbędny w `UpdateProduct` przeciążenia, które aktualizuje *wszystkie* kolumn produktu (jak te wartości zostaną zastąpione w kroku 2), ale ma zasadnicze znaczenie dla tych przeciążenia, gdy tylko podzestaw wartości w kolumnach są przekazywane w jako Parametry wejściowe. Gdy oryginalne wartości zostały przypisane do `ProductsOptimisticConcurrencyRow` wystąpienia, `AcceptChanges()` wywoływana jest metoda, która oznacza bieżące wartości DataRow jako oryginalnych wartości, które mają być używane w `@original_ColumnName` parametrów w `UPDATE` instrukcji. Następnie nowe wartości parametrów są przypisane do `ProductsOptimisticConcurrencyRow` , a na koniec `Update` wywoływana jest metoda, przekazując obiektu DataRow.
+Krok 1 odczyty we wszystkich wartości bieżącej bazy danych dla rekordu określony produkt. Ten krok jest zbędny w `UpdateProduct` przeciążenia, które aktualizuje *wszystkich* kolumn produktu (jako wartości te zostaną zastąpione w kroku 2), ale ma zasadnicze znaczenie dla tych przeciążeń, gdzie podzbiorem wartości w kolumnach są przekazywane w jako Parametry wejściowe. Gdy oryginalne wartości zostały przypisane do `ProductsOptimisticConcurrencyRow` wypadku `AcceptChanges()` wywoływana jest metoda, która oznacza bieżące wartości DataRow jako oryginalnych wartości, które zostaną użyte w `@original_ColumnName` parametrów w `UPDATE` instrukcji. Następnie nowe wartości parametrów są przypisane do `ProductsOptimisticConcurrencyRow` i na koniec `Update` metoda jest wywoływana, przekazując klasy DataRow.
 
-Poniższy kod przedstawia `UpdateProduct` parametrów wejściowych jako pola przeciążenia, które akceptuje wszystkie dane produktu. Gdy nie są wyświetlane w tym miejscu `ProductsOptimisticConcurrencyBLL` klasy pobrany plik zawiera również znajduje się w tym samouczku `UpdateProduct` przeciążenia, które akceptuje tylko produktu nazwę i cen jako parametry wejściowe.
+Poniższy kod przedstawia `UpdateProduct` przeciążenie, które akceptuje wszystkie dane produktu pól parametrów jako danych wejściowych. Gdy nie są wyświetlane w tym miejscu `ProductsOptimisticConcurrencyBLL` oferowanego w pakiecie do pobrania dla ten samouczek zawiera również klasy `UpdateProduct` przeciążenia, które akceptuje tylko w produkcie nazwa i cena jako parametry wejściowe.
 
 
 [!code-vb[Main](implementing-optimistic-concurrency-vb/samples/sample7.vb)]
 
-## <a name="step-4-passing-the-original-and-new-values-from-the-aspnet-page-to-the-bll-methods"></a>Krok 4: Przekazywanie oryginalnego i nowej wartości ze strony ASP.NET do metod logiki warstwy Biznesowej
+## <a name="step-4-passing-the-original-and-new-values-from-the-aspnet-page-to-the-bll-methods"></a>Krok 4: Przekazywanie oryginalnego i nowych wartości ze strony programu ASP.NET do metod LOGIKI
 
-DAL i logiki warstwy Biznesowej pełne czy pozostaje jest utworzenie strony platformy ASP.NET, która może korzystać z logiką optymistycznej współbieżności wbudowanej w system. W szczególności danych formantu sieci Web (GridView, widoku DetailsView lub FormView) musi należy pamiętać, że jego oryginalnej wartości i ObjectDataSource sprawdzania oba zestawy wartości do warstwy logiki biznesowej. Ponadto strony ASP.NET musi być skonfigurowany, aby bezpiecznie obsłużyć naruszenia współbieżności.
+DAL i LOGIKI pełną pozostaje tylko do tworzenia strony ASP.NET, która może korzystać z logiką optymistycznej współbieżności wbudowanej w system. W szczególności danych formantu sieci Web (GridView, DetailsView lub FormView) musi Pamiętaj, że jego oryginalnej wartości i kontrolki ObjectDataSource musi przekazać oba zestawy wartości do warstwy logiki biznesowej. Ponadto strona ASP.NET musi być skonfigurowany do poprawnego działania obsługi naruszeń współbieżności.
 
-Uruchamianie przez otwarcie `OptimisticConcurrency.aspx` strony `EditInsertDelete` folderu i dodaniu Element GridView do projektanta, ustawienie jej `ID` właściwości `ProductsGrid`. Z tagu w widoku GridView wybrać do utworzenia nowego elementu ObjectDataSource o nazwie `ProductsOptimisticConcurrencyDataSource`. Ponieważ chcemy, aby ten element ObjectDataSource do użycia warstwy DAL, który obsługuje optymistycznej współbieżności, jest skonfigurowana do używania `ProductsOptimisticConcurrencyBLL` obiektu.
-
-
-[![Mają zastosowanie ObjectDataSource obiektu ProductsOptimisticConcurrencyBLL](implementing-optimistic-concurrency-vb/_static/image36.png)](implementing-optimistic-concurrency-vb/_static/image35.png)
-
-**Rysunek 13**: mogą używać elementu ObjectDataSource `ProductsOptimisticConcurrencyBLL` obiektu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-vb/_static/image37.png))
+Zacznij od otwarcia `OptimisticConcurrency.aspx` strony w `EditInsertDelete` folderu i dodaniu GridView do projektanta, ustawiając jego `ID` właściwość `ProductsGrid`. Z GridView tagu inteligentnego, wybrać opcję utworzenia nowego elementu ObjectDataSource, o nazwie `ProductsOptimisticConcurrencyDataSource`. Ponieważ chcemy, aby ta ObjectDataSource używać warstwy DAL, która obsługuje optymistycznej współbieżności, należy skonfigurować tak, aby użyć `ProductsOptimisticConcurrencyBLL` obiektu.
 
 
-Wybierz `GetProducts`, `UpdateProduct`, i `DeleteProduct` metody z list rozwijanych w kreatorze. W przypadku metody UpdateProduct Użyj przeciążenia, które akceptuje wszystkie pola danych tego produktu.
+[![Mogą używać kontrolki ObjectDataSource obiektu ProductsOptimisticConcurrencyBLL](implementing-optimistic-concurrency-vb/_static/image36.png)](implementing-optimistic-concurrency-vb/_static/image35.png)
 
-## <a name="configuring-the-objectdatasource-controls-properties"></a>Konfigurowanie właściwości kontrolki ObjectDataSource
+**Rysunek 13**: mogą używać kontrolki ObjectDataSource `ProductsOptimisticConcurrencyBLL` obiektu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-vb/_static/image37.png))
 
-Po zakończeniu działania kreatora znaczników deklaracyjne element ObjectDataSource powinna wyglądać następująco:
+
+Wybierz `GetProducts`, `UpdateProduct`, i `DeleteProduct` metody z listy rozwijanej w kreatorze. W przypadku metody UpdateProduct Użyj przeciążenia, które akceptuje wszystkie pola danych produktu.
+
+## <a name="configuring-the-objectdatasource-controls-properties"></a>Konfigurowanie właściwości formantu ObjectDataSource
+
+Po zakończeniu działania kreatora ObjectDataSource oznaczeniu deklaracyjnym powinien wyglądać następująco:
 
 
 [!code-aspx[Main](implementing-optimistic-concurrency-vb/samples/sample8.aspx)]
 
-Jak widać, `DeleteParameters` kolekcja zawiera `Parameter` wystąpienia dla każdego dziesięć parametry wejściowe w `ProductsOptimisticConcurrencyBLL` klasy `DeleteProduct` metody. Podobnie `UpdateParameters` kolekcja zawiera `Parameter` wystąpienia dla każdego parametry wejściowe w `UpdateProduct`.
+Jak widać, `DeleteParameters` kolekcja zawiera `Parameter` wystąpienia dla każdej z dziesięciu parametrów wejściowych w `ProductsOptimisticConcurrencyBLL` klasy `DeleteProduct` metody. Podobnie `UpdateParameters` kolekcja zawiera `Parameter` wystąpienia dla każdego z parametrów wejściowych w `UpdateProduct`.
 
-Te samouczki poprzedniej związane modyfikacji danych usuniemy ObjectDataSource `OldValuesParameterFormatString` właściwości na tym etapie, ponieważ ta właściwość wskazuje, że metoda logiki warstwy Biznesowej oczekuje wartości starego (lub oryginalnego), należy przesłać, jak również nowe wartości. Ponadto wartość tej właściwości wskazuje nazwy parametru wejściowego dla oryginalnych wartości. Ponieważ firma Microsoft przekazywanie w oryginalnych wartości do logiki warstwy Biznesowej czy *nie* Usuń tę właściwość.
+Dla tych, które zaangażowane modyfikacji danych poprzednich samouczkach usuniemy ObjectDataSource `OldValuesParameterFormatString` właściwość na tym etapie, ponieważ ta właściwość wskazuje, że metoda LOGIKI oczekuje wartości starego (lub oryginalnego) przekazać, a także nowe wartości. Ponadto wartość tej właściwości oznacza nazwy parametru wejściowego oryginalnych wartości. Ponieważ firma Microsoft przekazywania w oryginalnych wartości do LOGIKI tak *nie* Usuń tę właściwość.
 
 > [!NOTE]
-> Wartość `OldValuesParameterFormatString` właściwości musi być zamapowany na nazwy parametru wejściowego w logiki warstwy Biznesowej, które oczekują oryginalnych wartości. Ponieważ firma Microsoft o nazwie te parametry `original_productName`, `original_supplierID`i tak dalej, można pozostawić `OldValuesParameterFormatString` wartości właściwości jako `original_{0}`. Jeśli jednak parametry wejściowe metody logiki warstwy Biznesowej miał nazwy, jak `old_productName`, `old_supplierID`i tak dalej konieczne zaktualizowanie `OldValuesParameterFormatString` właściwości `old_{0}`.
+> Wartość `OldValuesParameterFormatString` właściwość musi być mapowane na nazwy parametru wejściowego w LOGIKI, które oczekują oryginalnych wartości. Ponieważ firma Microsoft o nazwie te parametry `original_productName`, `original_supplierID`i tak dalej, można pozostawić `OldValuesParameterFormatString` wartości właściwości jako `original_{0}`. Jeśli jednak z metodami LOGIKI wejściowych parametrów miały nazwy, jak `old_productName`, `old_supplierID`i tak dalej konieczne zaktualizowanie `OldValuesParameterFormatString` właściwość `old_{0}`.
 
 
-Brak jednego ustawienie właściwości końcowego, który musi być dokonywane w kolejności dla elementu ObjectDataSource poprawnie przekazywane oryginalnych wartości do metod logiki warstwy Biznesowej. Element ObjectDataSource ma [właściwości wartość ConflictDetection](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.conflictdetection.aspx) mogą być przypisane do [jedną z dwóch wartości](https://msdn.microsoft.com/library/system.web.ui.conflictoptions.aspx):
+Istnieje jeden ustawienie właściwości końcowego musi być dokonywane w kolejności dla elementu ObjectDataSource poprawnie przekazywane oryginalnych wartości do metod LOGIKI. Zawiera kontrolki ObjectDataSource [właściwość ConflictDetection](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.conflictdetection.aspx) mogą być przypisane do [jedną z dwóch wartości](https://msdn.microsoft.com/library/system.web.ui.conflictoptions.aspx):
 
-- `OverwriteChanges` — Wartość domyślna; nie przesyłają oryginalnych wartości parametrów wejściowych oryginalnej metody logiki warstwy Biznesowej
-- `CompareAllValues` — Wyślij oryginalne wartości do metod logiki warstwy Biznesowej; Wybierz tę opcję, używając optymistycznej współbieżności
+- `OverwriteChanges` — wartość domyślną; nie będzie przesyłał oryginalnych wartości do metody LOGIKI oryginalnego parametry wejściowe
+- `CompareAllValues` — wysłać oryginalnych wartości do metod LOGIKI; Wybierz tę opcję, gdy optymistycznej współbieżności
 
-Poświęć chwilę, aby ustawić `ConflictDetection` właściwości `CompareAllValues`.
+Poświęć chwilę, aby ustawić `ConflictDetection` właściwość `CompareAllValues`.
 
 ## <a name="configuring-the-gridviews-properties-and-fields"></a>Konfigurowanie właściwości i pola w widoku GridView
 
-Właściwości w elemencie ObjectDataSource prawidłowo skonfigurowane skupimy konfigurowanie widoku GridView. Najpierw ponieważ chcemy GridView do obsługi, edytowanie i usuwanie kliknij pozycję Włącz edytowanie i usuwanie włączyć pól wyboru w widoku GridView tagów inteligentnych. Spowoduje to dodanie CommandField których `ShowEditButton` i `ShowDeleteButton` są ustawione na `true`.
+Za pomocą właściwości ObjectDataSource prawidłowo skonfigurowane skupimy z konfigurowaniem widoku GridView. Najpierw ponieważ chcemy, aby GridView do obsługi, edytowania i usuwania, kliknij pozycję Włącz edytowanie i Włącz usuwanie pól wyboru z GridView tagu inteligentnego. Spowoduje to dodanie CommandField którego `ShowEditButton` i `ShowDeleteButton` są ustawione na `true`.
 
-Podczas wiązania z `ProductsOptimisticConcurrencyDataSource` ObjectDataSource, widoku GridView zawiera pole dla każdego pola danych tego produktu. Gdy taki widok siatki mogą być edytowane, wszystko, ale dopuszczalne jest środowisko użytkownika. `CategoryID` i `SupplierID` BoundFields spowoduje, że jako pola tekstowe, gdyż użytkownik musi wprowadzić odpowiednią kategorię i dostawcy jako identyfikatorów. Nie będzie bez formatowania dla pól liczbowych i nie formanty walidacji zapewnienie podano nazwę produktu i cenie jednostkowej jednostki w magazynie, jednostki w kolejności i wartości poziomu zmiany kolejności to odpowiednie wartości liczbowych i są większe niż lub równe od zera.
+Podczas wiązania z `ProductsOptimisticConcurrencyDataSource` ObjectDataSource, widoku GridView zawiera pole dla każdego pola danych produktu. Podczas edycji kontrolki GridView wszystko, ale dopuszczalne jest środowisko użytkownika. `CategoryID` i `SupplierID` BoundFields będą renderowane jako pola tekstowe, użytkownik musi wprowadzić odpowiednią kategorię i dostawcy, jako numery identyfikatorów. Nie będzie żadnych formatowania pól liczbowych i nie kontrolek weryfikacji, aby upewnić się, podano nazwę produktu i cenę jednostkową jednostek w magazynie, jednostki w kolejności, a której kolejność chcesz zmienić wartości poziomu obu odpowiednie wartości numeryczne i są większe niż lub równe od zera.
 
-Jak wspomniano w *dodawanie formantów weryfikacji do edycji i wstawianie interfejsy* i *Dostosowywanie interfejs modyfikacji danych* samouczki, interfejs użytkownika może zostać dostosowane przez zastępując BoundFields TemplateFields. Po modyfikacji tego widoku GridView i jego edycji interfejsu w następujący sposób:
+Tak jak Omówiliśmy to w *Dodawanie kontrolek weryfikacji do edycji i wstawiania interfejsy* i *Dostosowywanie interfejsu modyfikacji danych* samouczki i interfejsu użytkownika mogą być dostosowywane przez zastępując BoundFields kontrolek TemplateField. Po modyfikacji tego widoku GridView i jego edycji interfejs w następujący sposób:
 
 - Usunięte `ProductID`, `SupplierName`, i `CategoryName` BoundFields
-- Przekonwertować `ProductName` elementu BoundField na pole TemplateField i dodać RequiredFieldValidation formantu.
-- Przekonwertować `CategoryID` i `SupplierID` BoundFields do TemplateFields i dostosować interfejsu edycji, aby DropDownLists zamiast pól tekstowych. W tych TemplateFields `ItemTemplates`, `CategoryName` i `SupplierName` wyświetlania pól danych.
-- Przekonwertować `UnitPrice`, `UnitsInStock`, `UnitsOnOrder`, i `ReorderLevel` BoundFields TemplateFields i dodany CompareValidator kontrolek.
+- Przekonwertowany `ProductName` elementu BoundField do TemplateField i dodana kontrolka RequiredFieldValidation.
+- Przekonwertowany `CategoryID` i `SupplierID` BoundFields do kontrolek TemplateField i dostosowana interfejsu edycji, aby kontrolek DropDownList, a nie pola tekstowe. W tych kontrolek TemplateField `ItemTemplates`, `CategoryName` i `SupplierName` wyświetlania pól danych.
+- Przekonwertowany `UnitPrice`, `UnitsInStock`, `UnitsOnOrder`, i `ReorderLevel` BoundFields kontrolek TemplateField i dodano CompareValidator kontrolki.
 
-Ponieważ sposobu wykonywania tych zadań w poprzednim samouczki mamy już sprawdzane I będzie tylko listę tutaj końcowego składni deklaratywnej i pozostaw implementacji jako rozwiązaniem.
+Ponieważ sposobu wykonywania tych zadań w poprzednich samouczkach mamy już sprawdzane I będzie tylko listy w tym miejscu ostatecznego składni deklaratywnej i pozostaw implementacji rozwiązaniem.
 
 
 [!code-aspx[Main](implementing-optimistic-concurrency-vb/samples/sample9.aspx)]
 
-Bardzo jesteśmy zbliża się o przykład pełni pracy. Istnieją jednak kilka precyzyjnie, które będą pełzanie się i spowodować rozwiązywaniu problemów. Ponadto wciąż potrzebujemy niektórych interfejs, który powiadamia użytkownika, gdy nastąpiło naruszenie współbieżności.
+Jesteśmy bardzo blisko o w pełni praktyczny przykład. Istnieje jednak kilka precyzyjnie, które będą pełzanie się i spowodować, że nas problemów. Ponadto wciąż potrzebujemy niektórych interfejs, który powiadamia użytkownika, gdy wystąpiło naruszenie współbieżności.
 
 > [!NOTE]
-> Aby danych formantu sieci Web poprawnie przekazywane oryginalnych wartości do elementu ObjectDataSource, (które są następnie przekazywane do logiki warstwy Biznesowej), koniecznie który w widoku GridView `EnableViewState` właściwość jest ustawiona na `true` (ustawienie domyślne). Jeśli wyłączysz stan widoku, oryginalne wartości są utracone na ogłaszania zwrotnego.
+> Aby dane formantu sieci Web poprawnie przekazywane oryginalnych wartości do kontrolki ObjectDataSource (które są następnie przekazywane do LOGIKI), koniecznie, GridView `EnableViewState` właściwość jest ustawiona na `true` (ustawienie domyślne). Jeśli wyłączysz stan widoku, oryginalne wartości zostaną utracone na zwrot.
 
 
-## <a name="passing-the-correct-original-values-to-the-objectdatasource"></a>Przekazywanie poprawne oryginalnych wartości do elementu ObjectDataSource
+## <a name="passing-the-correct-original-values-to-the-objectdatasource"></a>Przekazywanie poprawne oryginalnych wartości do kontrolki ObjectDataSource
 
-Istnieje kilka problemów ze sposobem, w widoku GridView zostały skonfigurowane. Jeśli element ObjectDataSource `ConflictDetection` właściwość jest ustawiona na `CompareAllValues` (tak jak to nasza), gdy element ObjectDataSource `Update()` lub `Delete()` metody są wywoływane przez GridView (lub widoku DetailsView lub FormView), próbuje skopiować ObjectDataSource W widoku GridView oryginalnych wartości w jego odpowiednie `Parameter` wystąpień. Odwołują się do rysunku 2 dla graficzną reprezentację tego procesu.
+Istnieje kilka problemów ze sposobem, w widoku GridView zostały skonfigurowane. Jeśli ObjectDataSource `ConflictDetection` właściwość jest ustawiona na `CompareAllValues` (podobnie jak nasza jest), gdy ObjectDataSource `Update()` lub `Delete()` metody są wywoływane przez kontrolki GridView (lub DetailsView lub FormView), kontrolki ObjectDataSource próbuje skopiować GridView oryginalnych wartości w jego odpowiedniego `Parameter` wystąpień. Odwołaj się do rysunku 2 dla graficzną reprezentację tego procesu.
 
-W szczególności w widoku GridView oryginalne wartości są przypisane wartości w instrukcji dwukierunkowego wiązania z danymi zawsze danych jest powiązany z widoku GridView. W związku z tym ważne jest przechwytywania wymagane oryginalnych wartości wszystkich za pośrednictwem dwukierunkowego wiązania z danymi i że są one udostępniane w formacie do przekonwertowania.
+W szczególności GridView oryginalne wartości są przypisane wartości w instrukcjach dwukierunkowego wiązania danych, w każdym danych jest powiązany z kontrolki GridView. Dlatego jest istotne, że wymagane oryginalnych wartości wszystkich są przechwytywane za pośrednictwem dwukierunkowego wiązania danych i że są one udostępniane w postaci konwertowany.
 
-Aby zobaczyć, dlaczego jest to ważne, odwiedź naszą stronę w przeglądarce chwilę potrwać. Zgodnie z oczekiwaniami, w widoku GridView zawiera listę każdego produktu z edytowanie i usuwanie przycisku w kolumnie z lewej strony.
-
-
-[![Te produkty są wyświetlane w widoku GridView](implementing-optimistic-concurrency-vb/_static/image39.png)](implementing-optimistic-concurrency-vb/_static/image38.png)
-
-**Rysunek 14**: produkty są wyświetlane w widoku GridView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-vb/_static/image40.png))
+Aby zobaczyć, dlaczego jest to ważne, Poświęć chwilę, aby odwiedzić naszą stronę w przeglądarce. Zgodnie z oczekiwaniami, w widoku GridView zawiera listę każdego produktu z przyciskiem edytowania i usuwania w skrajnej lewej kolumnie.
 
 
-Jeśli klikniesz przycisk Usuń dla wszystkich produktów `FormatException` jest generowany.
+[![Produkty są wymienione w widoku GridView](implementing-optimistic-concurrency-vb/_static/image39.png)](implementing-optimistic-concurrency-vb/_static/image38.png)
+
+**Rysunek 14**: produkty są wymienione w kontrolce GridView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-vb/_static/image40.png))
 
 
-[![Próba usunięcia żadnych wyników z produktu w FormatException](implementing-optimistic-concurrency-vb/_static/image42.png)](implementing-optimistic-concurrency-vb/_static/image41.png)
-
-**Rysunek 15**: Podjęto próbę usunięcia wszystkich wyników produktu w `FormatException` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-vb/_static/image43.png))
+Jeśli klikniesz przycisk usuwania dla wszystkich produktów `FormatException` zgłaszany.
 
 
-`FormatException` Jest wywoływane, gdy element ObjectDataSource próbuje odczytać w oryginalnym `UnitPrice` wartość. Ponieważ `ItemTemplate` ma `UnitPrice` w formacie waluty (`<%# Bind("UnitPrice", "{0:C}") %>`), zawiera symbol waluty, takich jak cenie od 19,95 USD. `FormatException` Występuje jako element ObjectDataSource próbuje przekonwertować tego ciągu do `decimal`. Aby obejść ten problem, mamy kilka opcji:
+[![Podjęto próbę usunięcia wyniki dla dowolnego produktu w wyjątek FormatException](implementing-optimistic-concurrency-vb/_static/image42.png)](implementing-optimistic-concurrency-vb/_static/image41.png)
 
-- Usuń waluty formatowania `ItemTemplate`. Oznacza to, że zamiast `<%# Bind("UnitPrice", "{0:C}") %>`, po prostu użyć `<%# Bind("UnitPrice") %>`. Wadą interfejsu tego jest, że cena jest już sformatowany.
-- Wyświetl `UnitPrice` waluty w `ItemTemplate`, ale użyj `Eval` — słowo kluczowe, w tym celu. Odwołania, który `Eval` wykonuje jednokierunkowe wiązania z danymi. Nadal trzeba podać `UnitPrice` wartości oryginalnych wartości, więc wciąż potrzebujemy instrukcję dwukierunkowego wiązania z danymi w `ItemTemplate`, ale to można umieścić w sieci Web etykiety formantu którego `Visible` właściwość jest ustawiona na `false`. Firma Microsoft może używać następujący kod w szablonie ItemTemplate:
+**Rysunek 15**: Podjęto próbę usunięcia wszystkie wyniki dla produktu w `FormatException` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-vb/_static/image43.png))
+
+
+`FormatException` Jest zgłaszane w przypadku kontrolki ObjectDataSource podejmuje próbę odczytu w oryginalnym `UnitPrice` wartość. Ponieważ `ItemTemplate` ma `UnitPrice` w formacie waluty (`<%# Bind("UnitPrice", "{0:C}") %>`), zawiera symbol waluty, takich jak cenie od 19,95 USD. `FormatException` Wypada kontrolki ObjectDataSource stara się przekonwertować tego ciągu w `decimal`. Aby obejść ten problem, mamy kilka opcji:
+
+- Usuń formatowanie z waluty `ItemTemplate`. Oznacza to, że zamiast `<%# Bind("UnitPrice", "{0:C}") %>`, po prostu użyć `<%# Bind("UnitPrice") %>`. Wadą tego jest, że cena jest już sformatowany.
+- Wyświetlanie `UnitPrice` w formacie waluty w `ItemTemplate`, ale `Eval` — słowo kluczowe, w tym celu. Pamiętamy `Eval` wykonuje jednokierunkowe wiązania danych. Nadal należy podać `UnitPrice` wartość oryginalne wartości, dlatego nadal należy do instrukcji dwukierunkowego wiązania z danymi w `ItemTemplate`, ale to można umieścić w kontrolce etykiety Web którego `Visible` właściwość jest ustawiona na `false`. Moglibyśmy użyć następujące znaczniki ItemTemplate:
 
 
 [!code-aspx[Main](implementing-optimistic-concurrency-vb/samples/sample10.aspx)]
 
-- Usuń waluty formatowanie `ItemTemplate`za pomocą `<%# Bind("UnitPrice") %>`. W widoku GridView `RowDataBound` obsługi zdarzeń, programowego dostępu do sieci Web etykiety kontroli w ramach którego `UnitPrice` wartość jest wyświetlana i ustawić jej `Text` właściwości do sformatowanego wersji.
-- Pozostaw `UnitPrice` w formacie waluty. W widoku GridView `RowDeleting` program obsługi zdarzeń, Zastąp istniejące oryginalnej `UnitPrice` wartości (cenie od 19,95 USD) przy użyciu rzeczywistej wartości dziesiętnej `Decimal.Parse`. Widzieliśmy sposobu wykonywania podobny w `RowUpdating` obsługi zdarzeń w [ *obsługi logiki warstwy Biznesowej i wyjątków DAL na poziomie strony ASP.NET* ](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs.md) samouczka.
+- Usuń formatowanie z waluty `ItemTemplate`przy użyciu `<%# Bind("UnitPrice") %>`. W widoku GridView `RowDataBound` programu obsługi zdarzeń, programowo dostęp Web etykiety kontroli w ramach którego `UnitPrice` wartość jest wyświetlana i ustaw jego `Text` właściwości do wersji sformatowany.
+- Pozostaw `UnitPrice` sformatowane jako walutę. W widoku GridView `RowDeleting` procedura obsługi zdarzeń, zastąpić nim pierwotny istniejących `UnitPrice` wartość (cenie od 19,95 USD) z usługi za pomocą rzeczywistych wartości dziesiętnej `Decimal.Parse`. Widzieliśmy sposób wykonania coś podobnego na elemencie `RowUpdating` programu obsługi zdarzeń w [ *obsługi LOGIKI i wyjątki DAL na poziomie strony ASP.NET* ](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs.md) samouczka.
 
-Np. Moje wybrano z drugiej metody Dodawanie ukryte Web etykiety kontroli którego `Text` właściwość jest dwukierunkowe danymi powiązanymi niesformatowany `UnitPrice` wartość.
+Mój przykład został wybrany do korzystania z drugiego podejścia formant dodanie ukrytego Web etykiety, którego `Text` właściwość jest dwukierunkowe danymi powiązanymi niesformatowany `UnitPrice` wartość.
 
-Po rozwiązaniu tego problemu, spróbuj ponownie kliknięcie przycisku Usuń dla każdego produktu. Teraz otrzymasz `InvalidOperationException` próba wywołania logiki warstwy Biznesowej ObjectDataSource `UpdateProduct` metody.
-
-
-[![Element ObjectDataSource nie można odnaleźć metody o parametry wejściowe chce wysyłania](implementing-optimistic-concurrency-vb/_static/image45.png)](implementing-optimistic-concurrency-vb/_static/image44.png)
-
-**Rysunek 16**: element ObjectDataSource nie można odnaleźć metody o parametry wejściowe chce wysyłania ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-vb/_static/image46.png))
+Po rozwiązaniu tego problemu, spróbuj ponowne kliknięcie przycisku usuwania dla każdego produktu. Teraz otrzymasz `InvalidOperationException` podczas próby wywołania LOGIKI kontrolki ObjectDataSource `UpdateProduct` metody.
 
 
-Spojrzenie na komunikat o wyjątku, jest jasne, czy ObjectDataSource chce wywołania logiki warstwy Biznesowej `DeleteProduct` metodę, która obejmuje `original_CategoryName` i `original_SupplierName` parametrów wejściowych. Jest to spowodowane `ItemTemplate` s dla `CategoryID` i `SupplierID` TemplateFields zawiera obecnie dwukierunkowe instrukcje powiązania z `CategoryName` i `SupplierName` pola danych. Zamiast tego należy uwzględnić `Bind` instrukcji z `CategoryID` i `SupplierID` pola danych. W tym celu Zastąp istniejące instrukcje powiązania z `Eval` instrukcje, a następnie dodaj ukryta etykieta kontrolki, których `Text` właściwości są powiązane z `CategoryID` i `SupplierID` pola danych przy użyciu dwukierunkowego wiązania danych, jak pokazano poniżej:
+[![Kontrolki ObjectDataSource nie można odnaleźć metody o parametry wejściowe chce wysyłania](implementing-optimistic-concurrency-vb/_static/image45.png)](implementing-optimistic-concurrency-vb/_static/image44.png)
+
+**Rysunek 16**: kontrolki ObjectDataSource nie można odnaleźć metody o parametry wejściowe chce wysyłania ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-vb/_static/image46.png))
+
+
+Patrząc komunikat o wyjątku, to oczywiste, że kontrolki ObjectDataSource chce do wywołania LOGIKI `DeleteProduct` metodę, która obejmuje `original_CategoryName` i `original_SupplierName` parametrów wejściowych. Jest to spowodowane `ItemTemplate` pod kątem `CategoryID` i `SupplierID` kontrolek TemplateField aktualnie zawierają instrukcje powiązanie dwukierunkowe `CategoryName` i `SupplierName` pola danych. Zamiast tego należy dołączyć `Bind` instrukcje `CategoryID` i `SupplierID` pola danych. W tym celu Zastąp istniejące instrukcje powiązania z `Eval` instrukcji, a następnie dodaj ukryta etykieta kontrolki, których `Text` właściwości są powiązane z `CategoryID` i `SupplierID` pola danych za pomocą dwukierunkowego wiązania danych, jak pokazano poniżej:
 
 
 [!code-aspx[Main](implementing-optimistic-concurrency-vb/samples/sample11.aspx)]
 
-Wprowadzone zmiany możemy teraz pomyślnie usuwać i edytować informacje o produkcie! W kroku 5 wyjaśniono, jak sprawdzić, czy są wykrywane naruszenia współbieżności. Jednak obecnie potrwać kilka minut, spróbuj zaktualizować i usuwanie kilka rekordów, aby upewnić się, że aktualizowanie i usuwanie dla pojedynczego użytkownika działa zgodnie z oczekiwaniami.
+Za pomocą tych zmian możemy teraz pomyślnie usuwać i edytować informacje o produkcie! W kroku 5 omówimy sposób weryfikacji wykrycia naruszenia współbieżności. Ale teraz, po kilku minutach aktualizacji i usuwania rekordów kilka, aby upewnić się, że aktualizowanie i usuwanie dla pojedynczego użytkownika działa zgodnie z oczekiwaniami.
 
-## <a name="step-5-testing-the-optimistic-concurrency-support"></a>Krok 5: Testowanie obsługi optymistycznej współbieżności
+## <a name="step-5-testing-the-optimistic-concurrency-support"></a>Krok 5: Testowanie Obsługa optymistycznej współbieżności
 
-Aby zweryfikować naruszenia współbieżności zostanie wykryte (zamiast wynikowe w danych ślepo zastąpieniem), należy otworzyć dwa okna przeglądarki do tej strony. W obu przypadkach przeglądarki kliknij przycisk Edytuj Chai. Następnie tylko w jednej z przeglądarek, Zmień nazwę na "Chai Zepołowy" i kliknij przycisk Aktualizuj. Aktualizacja powinna powiedzie się i przywrócić stan wstępnie edycji, z "Chai Zepołowy" nową nazwę produktu widoku GridView.
+Aby sprawdzić, czy ich naruszenia współbieżności wykryte (zamiast wynikowe dane skutkować nieświadomym zastąpieniem), należy otworzyć dwa okna przeglądarki do tej strony. W obu przypadkach przeglądarki kliknij przycisk Edytuj, aby Chai. Następnie tylko w jednej z przeglądarki, Zmień nazwę na "Chai herbaty" i kliknij przycisk Aktualizuj. Aktualizacja powinna powiedzie się i przywrócić stan wstępnie edycji, za pomocą "Chai herbaty" nową nazwę produktu widoku GridView.
 
-W innych przeglądarki okna wystąpień, nazwa produktu pole tekstowe pozostanie "Chai". W tym drugim okno przeglądarki, należy zaktualizować `UnitPrice` do `25.00`. Bez obsługi optymistycznej współbieżności klikając polecenie update w drugiego wystąpienia przeglądarki zmieniłby nazwę produktu do "Chai", a tym samym zastępowanie zmiany wprowadzone przez pierwsze wystąpienie przeglądarki. Z zatrudnionych optymistycznej współbieżności, jednak kliknięcie przycisku Aktualizuj na drugie wystąpienie przeglądarki powoduje [DBConcurrencyException](https://msdn.microsoft.com/library/system.data.dbconcurrencyexception.aspx).
-
-
-[![Po wykryciu naruszenia współbieżności, jest zgłaszany DBConcurrencyException](implementing-optimistic-concurrency-vb/_static/image48.png)](implementing-optimistic-concurrency-vb/_static/image47.png)
-
-**Rysunek 17**: Wykryto naruszenie współbieżności podczas `DBConcurrencyException` zgłoszono ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-vb/_static/image49.png))
+W innych okien wystąpieniu przeglądarki jednak nazwa produktu TextBox nadal będzie widoczny "Chai". W tym drugim okno przeglądarki, należy zaktualizować `UnitPrice` do `25.00`. Bez obsługi optymistycznej współbieżności klikając polecenie update w drugim wystąpieniu przeglądarki zmieniłby się nazwa produktu do "Chai", a tym samym zastępowanie zmian wprowadzonych przez pierwsze wystąpienie przeglądarki. Za pomocą zatrudnionych optymistycznej współbieżności, jednak, klikając przycisk Aktualizuj w drugim wystąpieniu przeglądarki skutkuje [DBConcurrencyException](https://msdn.microsoft.com/library/system.data.dbconcurrencyexception.aspx).
 
 
-`DBConcurrencyException` Jest generowany tylko, gdy jest wykorzystywany DAL wsadowe aktualizacji wzorca. Wzorzec bezpośredniego DB nie zgłaszał wyjątku, jedynie wskazuje, że żadne wiersze nie zostały zainfekowane. Na przykład przywrócić GridView oba wystąpienia przeglądarki ich stan wstępnie edycji. Następnie w pierwszym wystąpieniu przeglądarki, kliknij przycisk Edytuj i Zmień nazwę produktu z "Chai Zepołowy" do "Chai" i kliknij przycisk Aktualizuj. W drugim oknie przeglądarki kliknij przycisk Usuń dla Chai.
+[![Po wykryciu naruszenia współbieżności zgłaszany DBConcurrencyException](implementing-optimistic-concurrency-vb/_static/image48.png)](implementing-optimistic-concurrency-vb/_static/image47.png)
 
-Po kliknięciu Delete, strony ogłoszeń Wstecz, widoku GridView wywołuje element ObjectDataSource `Delete()` — metoda i ObjectDataSource wywołuje w dół do `ProductsOptimisticConcurrencyBLL` klasy `DeleteProduct` jest metoda wzdłuż oryginalnych wartości. Oryginalna `ProductName` wartość dla drugiego wystąpienia przeglądarki jest "Zepołowy Chai", która nie jest zgodna z bieżącą `ProductName` wartość w bazie danych. W związku z tym `DELETE` instrukcji wystawiony dla bazy danych wpływa na żadnych wierszy, ponieważ nie ma rekordów w bazie danych który `WHERE` spełnia klauzuli. `DeleteProduct` Metoda zwraca `false` i ObjectDataSource danych jest odbitych do widoku GridView.
+**Rysunek 17**: Wykryto naruszenie współbieżności podczas `DBConcurrencyException` zgłaszany ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-vb/_static/image49.png))
 
-Z perspektywy użytkownika końcowego kliknij przycisk Usuń dla Zepołowy Chai w oknie przeglądarki drugi spowodowany ekran miga i, po powracające, produkt jest nadal istnieje, mimo że teraz jest wyświetlany jako "Chai" (zmiana nazwy produktu wprowadzone przez pierwszy przeglądarki wystąpienie). Gdy użytkownik kliknie przycisk Usuń ponownie, Usuń powiedzie się, jak oryginalny widoku GridView `ProductName` wartość ("Chai") teraz dopasowania z wartością w bazie danych.
 
-W obu przypadkach środowisko użytkownika jest daleko od stanu idealnego. Wyraźnie nie chcemy Pokaż szczegóły nitty-gritty użytkownika `DBConcurrencyException` wyjątek podczas używania wzorca aktualizacji wsadowych. A zachowaniem podczas używania wzorca bezpośredniego bazy danych jest nieco mylące polecenie użytkowników nie powiodło się, ale nie znaleziono żadnego wskazania dokładne, dlaczego.
+`DBConcurrencyException` Tylko jest generowany, gdy wzorzec aktualizacji wsadowych DAL jest wykorzystywany. Wzorzec bezpośrednie bazy danych nie zgłaszała wyjątek, tylko wskazuje, że żadne wiersze nie zostały zainfekowane. Na przykład zwraca GridView oba wystąpienia przeglądarki do stanu wstępnie edycji. Następnie w pierwszym wystąpieniu przeglądarki, kliknij przycisk Edytuj i zmienić nazwę produktu z "Chai herbaty" do "Chai" i kliknij przycisk Aktualizuj. W drugim oknie przeglądarki kliknij przycisk Usuń, aby Chai.
 
-Aby rozwiązać te problemy dwa, możemy utworzyć formantów sieci Web etykiety na stronie, które zapewniają wyjaśnienie, dlaczego aktualizacji lub usunięcia nie powiodła się. Dla partii wzorca aktualizacji, można określić, czy `DBConcurrencyException` Wystąpił wyjątek w obsłudze zdarzeń po poziomu w widoku GridView, Wyświetlanie etykiety ostrzeżenie w razie potrzeby. W przypadku metody bezpośredniego DB omówione można wartość zwracaną przez metodę logiki warstwy Biznesowej (czyli `true` Jeśli wywarła jeden wiersz, `false` w przeciwnym razie) i wyświetlić tylko komunikat informacyjny, zgodnie z potrzebami.
+Po kliknięciu Delete, strony publikuje Wstecz, widoku GridView wywołuje ObjectDataSource `Delete()` metoda i kontrolki ObjectDataSource wywoła `ProductsOptimisticConcurrencyBLL` klasy `DeleteProduct` jest metoda wzdłuż oryginalnych wartości. Oryginalny `ProductName` wartość dla drugiego wystąpienia przeglądarki jest "Herbaty Chai", który jest niezgodny z bieżącym `ProductName` wartość w bazie danych. W związku z tym `DELETE` oświadczenie wydane w bazie danych wpływa na zero wierszy, ponieważ nie ma rekordów w bazie danych, `WHERE` spełnia klauzuli. `DeleteProduct` Metoda zwraca `false` i ObjectDataSource danych jest odbitych do kontrolki GridView.
 
-## <a name="step-6-adding-informational-messages-and-displaying-them-in-the-face-of-a-concurrency-violation"></a>Krok 6: Dodawanie komunikaty informacyjne i wyświetlania ich w wypadku Naruszenie współbieżności
+Z perspektywy użytkownika końcowego kliknięcie na przycisk usuwania dla herbaty Chai w drugim oknie przeglądarki spowodowane ekranu, aby flash oraz od powracające, produkt jest nadal istnieje, mimo że teraz jest ona wyświetlana jako "Chai" (zmiana nazwy produktu przez pierwsze przeglądarki wystąpienie). Jeśli użytkownik kliknie przycisk Usuń ponownie, usuwania powiedzie się, jak oryginalny widoku GridView `ProductName` wartość ("Chai") teraz dopasowania z wartością w bazie danych.
 
-W przypadku naruszenia współbieżności działanie, wystawiane jest zależna od czy użyto DAL aktualizację partii lub bezpośredniego wzorca bazy danych. Naszym samouczku oba wzorce z wzorcem aktualizacji wsadowych używana do aktualizowania i wzorzec bezpośredniego bazy danych używane do usuwania. Aby rozpocząć, Dodajmy dwóch formantów etykiet w sieci Web do strony, który objaśnia, czy naruszenie współbieżności wystąpił podczas próby usunięcia lub aktualizowania danych. Ustawianie formantu etykiety `Visible` i `EnableViewState` właściwości `false`; to spowoduje ich ukryta na każdym odwiedź stronę z wyjątkiem tych określonej strony odwiedza where ich `Visible` programowo ustawioną właściwość `true`.
+W obu przypadkach środowisko użytkownika jest idealne rozwiązanie. Wyraźnie nie chcemy pokazać użytkownikowi szczegóły nitty-gritty `DBConcurrencyException` wyjątek podczas używania wzorca aktualizacji usługi batch. I zachowanie, gdy za pomocą wzorca bezpośrednie bazy danych jest nieco mylące jako polecenie użytkowników nie powiodło się, ale nie było żadnych dokładnie określić dlaczego.
+
+Aby rozwiązać te dwa problemy, możemy utworzyć formantów etykiet w sieci Web, na stronie, zapewniające wyjaśnienie, dlaczego aktualizacji lub usuwania nie powiodła się. Wzorzec aktualizacji usługi batch, określimy, czy `DBConcurrencyException` Wystąpił wyjątek w obsłudze zdarzeń po poziom GridView wyświetlania etykiety ostrzeżenie, zgodnie z potrzebami. Metody bezpośredniej bazy danych, firma Microsoft można sprawdzić wartość zwracaną metody LOGIKI (czyli `true` Jeśli miała wpływu na jeden wiersz, `false` inaczej) i wyświetlić komunikat informacyjny, zgodnie z potrzebami.
+
+## <a name="step-6-adding-informational-messages-and-displaying-them-in-the-face-of-a-concurrency-violation"></a>Krok 6: Dodawanie komunikaty informacyjne i wyświetlania ich w przypadku naruszenia współbieżności
+
+W przypadku naruszenia współbieżności działanie, wystawiane jest zależna od czy DAL aktualizacji usługi batch lub wzorzec bezpośrednie DB użyto. Nasz samouczek korzysta z obu wzorców, za pomocą wzorca aktualizacji usługi batch używanych na potrzeby wzorzec bezpośrednie bazy danych używane do usuwania i aktualizowania. Aby rozpocząć pracę, możemy dodać dwie kontrolki etykiety w sieci Web do strony, która wyjaśnia, czy naruszenie współbieżności podczas próby usunięcia lub aktualizacji danych. Ustaw formant etykiety `Visible` i `EnableViewState` właściwości w celu `false`; spowoduje ich ukryte na każdym odwiedź stronę z wyjątkiem tych określonej strony odwiedza miejsce ich `Visible` programowo ustawiono właściwość `true`.
 
 
 [!code-aspx[Main](implementing-optimistic-concurrency-vb/samples/sample12.aspx)]
 
-Oprócz ustawienia ich `Visible`, `EnabledViewState`, i `Text` właściwości, można również ustawiono `CssClass` właściwości `Warning`, co powoduje, że etykieta obiektu do wyświetlenia dużych czerwony, kursywa pogrubioną czcionką. Ta CSS `Warning` klasa została zdefiniowana i dodane do Styles.css w *badanie zdarzeń skojarzonych z Wstawianie, aktualizowanie i usuwanie* samouczka.
+Oprócz ustawienia ich `Visible`, `EnabledViewState`, i `Text` właściwości, czy też ustawiono `CssClass` właściwości `Warning`, co powoduje, że etykieta użytkownika będzie wyświetlana w dużych, czerwony, kursywy, pogrubioną czcionką. Ta CSS `Warning` klasy została zdefiniowana i dodane do Styles.css w *badanie zdarzeń skojarzonych z Wstawianie, aktualizowanie i usuwanie* samouczka.
 
-Po dodaniu tych etykiet, Projektant w programie Visual Studio powinien wyglądać podobnie do ilustracji 18.
+Po dodaniu tych etykiet, Projektant w programie Visual Studio powinien wyglądać podobnie jak rysunek 18.
 
 
-[![Dodano dwa formantów etykiet do strony](implementing-optimistic-concurrency-vb/_static/image51.png)](implementing-optimistic-concurrency-vb/_static/image50.png)
+[![Dwie kontrolki etykiety zostały dodane do strony](implementing-optimistic-concurrency-vb/_static/image51.png)](implementing-optimistic-concurrency-vb/_static/image50.png)
 
 **Rysunek 18**: dwie etykiety formantów zostały dodane do strony ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-vb/_static/image52.png))
 
 
-Z tych formantów sieci Web etykiety w miejscu już wszystko gotowe do sprawdzenia jak ustalić, kiedy Naruszenie współbieżności wystąpił, jaką odpowiednie etykiety punktu `Visible` ustawioną właściwość `true`, wyświetlanie komunikat informacyjny.
+Z tych formantów etykiet w sieci Web w miejscu, jesteśmy gotowi do sprawdzenia, jak ustalić, kiedy współbieżności nastąpiło naruszenie, jaką punktu odpowiednią etykietę `Visible` właściwość może być ustawiona na `true`, wyświetlając komunikat informacyjny.
 
-## <a name="handling-concurrency-violations-when-updating"></a>Obsługa naruszenia współbieżności podczas aktualizacji
+## <a name="handling-concurrency-violations-when-updating"></a>Obsługa współbieżności naruszeń podczas aktualizacji
 
-Najpierw Przyjrzyjmy się jak obsłużyć naruszenia współbieżności podczas używania wzorca aktualizacji wsadowych. Ponieważ takich naruszeń z instancją zaktualizować Przyczyna wzorzec `DBConcurrencyException` wyjątków, należy dodać kod do strony ASP.NET, aby określić, czy `DBConcurrencyException` Wystąpił wyjątek podczas procesu aktualizacji. Jeśli tak, powinien być wyświetlany komunikat do wyjaśniający użytkownika, który ich zmiany nie zostały zapisane, ponieważ inny użytkownik miał zmodyfikował tych samych danych między podczas ich uruchamiania, edytowania rekordu i kliknięcie przycisku Aktualizuj.
+Najpierw Spójrzmy na sposób obsługi naruszeń współbieżności, korzystając z wzorca aktualizacji usługi batch. Od czasu takiego naruszenia, za pomocą usługi batch aktualizacji Przyczyna wzorzec `DBConcurrencyException` zgłoszenie wyjątku, należy dodać kod do strony ASP.NET, aby określić, czy `DBConcurrencyException` Wystąpił wyjątek podczas procesu aktualizacji. Jeśli tak, powinien zostać wyświetlony komunikat wyjaśniający użytkownika, ich zmiany nie zostały zapisane, ponieważ ma zmodyfikowany przez innego użytkownika te same dane między podczas ich uruchamiania, edytowania rekordu i kliknięcie przycisku aktualizacji.
 
-Jak widzieliśmy w *obsługi logiki warstwy Biznesowej i wyjątków DAL na poziomie strony ASP.NET* samouczka takie wyjątki mogą być wykryte i pomijane w obsłudze zdarzeń po poziom kontroli danych w sieci Web. W związku z tym należy utworzyć program obsługi zdarzeń dla w widoku GridView `RowUpdated` zdarzeń, który umożliwia sprawdzenie, czy `DBConcurrencyException` zgłosił wyjątek. Ten program obsługi zdarzeń jest przekazywany odwołania do dowolnego wyjątek zgłoszony podczas procesu aktualizacji, jak pokazano w przypadku obsługi kodu poniżej:
+Jak widzieliśmy w *obsługi LOGIKI i wyjątki DAL na poziomie strony ASP.NET* samouczek takie wyjątki mogą być wykryte i pomijane w procedurze obsługi zdarzeń po poziomu danych kontrolki sieci Web. W związku z tym, należy utworzyć procedurę obsługi zdarzeń dla GridView `RowUpdated` zdarzenia, które sprawdza, czy `DBConcurrencyException` został zgłoszony wyjątek. Ta procedura obsługi zdarzeń jest przekazywany odwołanie do każdego wyjątku, który został zgłoszony podczas procesu aktualizacji, jak pokazano w poniższym kodzie procedury obsługi zdarzeń:
 
 
 [!code-vb[Main](implementing-optimistic-concurrency-vb/samples/sample13.vb)]
 
-Face z `DBConcurrencyException` wyświetla ten program obsługi zdarzeń wyjątku `UpdateConflictMessage` etykiety formantu i wskazuje, czy wyjątek został obsłużony. Z tego kodu w miejscu, po wystąpieniu Naruszenie współbieżności podczas aktualizacji rekordu, użytkownika zmiany zostaną utracone, ponieważ spowoduje zastąpienie modyfikacje innego użytkownika w tym samym czasie. W szczególności widoku GridView jest zwracana do stanu przed edycji i powiązany z bieżącym danych w bazie danych. Spowoduje to zaktualizowanie wiersza elementu GridView o zmiany wprowadzone przez użytkownika, które były wcześniej nie są widoczne. Ponadto `UpdateConflictMessage` formantu etykiety wyjaśni użytkownikowi, co wystąpił. Ta sekwencja zdarzeń została szczegółowo opisana w rysunek 19.
+Face z `DBConcurrencyException` wyjątku, ta procedura obsługi zdarzeń wyświetla `UpdateConflictMessage` kontrolka etykiety i wskazuje, czy wyjątek został obsłużony. Przy użyciu tego kodu w miejscu po Naruszenie współbieżności występuje podczas aktualizowania rekordu, zmiany wprowadzone przez użytkownika zostaną utracone, ponieważ będzie zastąpione modyfikacji przez innego użytkownika w tym samym czasie. W szczególności widoku GridView jest zwracany stan wstępnie edycji i powiązane z bieżącym danych w bazie danych. Spowoduje to zaktualizowanie wiersza w widoku GridView zmian przez innych użytkowników, które były wcześniej nie są widoczne. Ponadto `UpdateConflictMessage` formant etykiety wyjaśnią użytkownikowi, co stało. Następująca sekwencja zdarzeń została szczegółowo opisana w rysunek 19.
 
 
-[![Użytkownik s aktualizacje zostaną utracone w kroju Naruszenie współbieżności](implementing-optimistic-concurrency-vb/_static/image54.png)](implementing-optimistic-concurrency-vb/_static/image53.png)
+[![Użytkownik s aktualizacje zostaną utracone w twarz Naruszenie współbieżności](implementing-optimistic-concurrency-vb/_static/image54.png)](implementing-optimistic-concurrency-vb/_static/image53.png)
 
-**Rysunek 19**: s użytkownik aktualizacje zostaną utracone w kroju Naruszenie współbieżności ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-vb/_static/image55.png))
+**Rysunek 19**: s użytkownik aktualizacje zostaną utracone w twarz Naruszenie współbieżności ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-vb/_static/image55.png))
 
 
 > [!NOTE]
-> Możesz też zamiast zwracać widoku GridView wstępnie edycji stan, firma Microsoft może być widoku GridView w stanie edycji przez ustawienie `KeepInEditMode` właściwość przekazany do `GridViewUpdatedEventArgs` obiektu na wartość true. W przypadku zastosowania tego podejścia jednak mieć pewność ponownie powiązać dane do widoku GridView (za pomocą jego `DataBind()` metody) tak, aby wartości przez innego użytkownika są ładowane do edycji interfejsu. Dostępny do pobrania z tego samouczka kod ma następujące dwa wiersze kodu w `RowUpdated` obsługi zdarzeń w komentarzach; Usuń komentarz te wiersze kodu do widoku GridView ma pozostać w trybie edycji po Naruszenie współbieżności.
+> Alternatywnie zamiast zwracać widoku GridView wstępnie edycji stanu, można pozostawimy widoku GridView w stanie edycji, ustawiając `KeepInEditMode` właściwość przekazany do `GridViewUpdatedEventArgs` obiektu na wartość true. W przypadku zastosowania tego podejścia jednak mieć pewność ponownie powiązać dane do kontrolki GridView (przez wywołanie jego `DataBind()` metoda) tak, aby wartości przez innego użytkownika są ładowane do interfejsu edycji. Kod można pobrać za pomocą tego samouczka ma następujące dwa wiersze kodu w `RowUpdated` komentarzami programu obsługi zdarzeń; po prostu Usuń komentarz następujące wiersze kodu, widoku GridView po Naruszenie współbieżności pozostać w trybie edycji.
 
 
-## <a name="responding-to-concurrency-violations-when-deleting"></a>Odpowiada na naruszenia współbieżności podczas usuwania
+## <a name="responding-to-concurrency-violations-when-deleting"></a>Reagowanie na naruszenie współbieżności, podczas usuwania
 
-Przy użyciu wzorca bezpośredniego bazy danych nie istnieje żaden wyjątek zgłoszony w wypadku Naruszenie współbieżności. Zamiast tego instrukcji bazy danych po prostu wpływa na żadne rekordy jako klauzuli WHERE nie jest zgodny z rekordu. Wszystkie metody modyfikacji danych utworzonych w logiki warstwy Biznesowej zostały zaprojektowane tak, aby zwracały wartość logiczną wskazującą, czy wpływ na dokładnie jeden rekord. W związku z tym, aby ustalić, czy naruszenie współbieżności wystąpił podczas usuwania rekordu, można omówione wartość zwracaną logiki warstwy Biznesowej `DeleteProduct` metody.
+Za pomocą wzorca bezpośrednie bazy danych nie istnieje żaden wyjątek zgłaszany w przypadku naruszenia współbieżności. Zamiast tego instrukcja bazy danych po prostu ma wpływ na żadne rekordy, jako klauzuli WHERE nie jest zgodny z dowolnego rekordu. Wszystkie metody modyfikacji danych utworzonych w LOGIKI zostały zaprojektowane tak, aby zwracają wartość logiczną wskazującą, czy problem dotyczy dokładnie jeden rekord. W związku z tym, aby ustalić, czy naruszenie współbieżności wystąpił podczas usuwania rekordu, firma Microsoft można sprawdzić wartość zwracaną LOGIKI `DeleteProduct` metody.
 
-Wartość zwracana dla metody logiki warstwy Biznesowej można zbadać w obsłudze zdarzeń po poziom ObjectDataSource za pośrednictwem `ReturnValue` właściwość `ObjectDataSourceStatusEventArgs` obiekt przekazany do obsługi zdarzeń. Ponieważ Dbamy o określającą wartość zwrotną z elementu `DeleteProduct` metody, należy utworzyć program obsługi zdarzeń dla elementu ObjectDataSource `Deleted` zdarzeń. `ReturnValue` Właściwość jest typu `object` i może być `null` Jeśli zgłoszono wyjątek i metody zostało przerwane przed może zwracać wartości. W związku z tym możemy należy najpierw upewnij się, że `ReturnValue` właściwość nie jest `null` i jest wartością logiczną. Zakładając, że weryfikacja przebiegnie pomyślnie, zostanie przedstawiony `DeleteConflictMessage` etykiety formantu, jeśli `ReturnValue` jest `false`. Można to zrobić przy użyciu następującego kodu:
+Wartość zwracana dla metody LOGIKI można zbadać w obsłudze zdarzeń po poziomu ObjectDataSource za pośrednictwem `ReturnValue` właściwość `ObjectDataSourceStatusEventArgs` obiekt przekazany do procedury obsługi zdarzeń. Ponieważ jesteśmy zainteresowani określająca wartość zwrotną z elementu `DeleteProduct` metody, należy utworzyć procedurę obsługi zdarzeń dla elementu ObjectDataSource `Deleted` zdarzeń. `ReturnValue` Właściwość jest typu `object` i może być `null` Jeśli wystąpił wyjątek i metoda zostało przerwane przed jego może zwracać wartości. W związku z tym, możemy najpierw upewnij się, że `ReturnValue` właściwość nie jest `null` i jest wartością logiczną. Zakładając, że przekazuje ten test, pokazujemy `DeleteConflictMessage` kontrolka etykiety, jeśli `ReturnValue` jest `false`. Można to osiągnąć, używając następującego kodu:
 
 
 [!code-vb[Main](implementing-optimistic-concurrency-vb/samples/sample14.vb)]
 
-Naruszenie współbieżności w wypadku żądanie usunięcia użytkownika zostało anulowane. Widoku GridView jest odświeżany, pokazujący, że zmiany, które wystąpiły dla tego rekordu między czasem użytkownika załadowanych strony i po jego kliknięciu przycisk Usuń. Jeśli takie naruszenie wynika, `DeleteConflictMessage` jest wyświetlana etykieta wyjaśniający, co tak się stało (patrz rysunek 20).
+W przypadku naruszenia współbieżności żądanie usunięcia użytkownika zostało anulowane. Są odświeżane widoku GridView wskazuje, że zmiany, które wystąpiły dla tego rekordu w czasie między użytkownika załadować stronę i po jego kliknięciu przycisk Usuń. Jeśli takie naruszenie wynika, `DeleteConflictMessage` jest wyświetlana etykieta wyjaśniający, co właśnie wydarzyło się (zobacz rysunek 20).
 
 
-[![Użytkownik s Delete jest anulowane w wypadku Naruszenie współbieżności](implementing-optimistic-concurrency-vb/_static/image57.png)](implementing-optimistic-concurrency-vb/_static/image56.png)
+[![S usuwania użytkownika zostało anulowane w przypadku naruszenia współbieżności](implementing-optimistic-concurrency-vb/_static/image57.png)](implementing-optimistic-concurrency-vb/_static/image56.png)
 
-**Rysunek 20**: s użytkownik Usuń jest anulowane w wypadku Naruszenie współbieżności ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-vb/_static/image58.png))
+**Rysunek 20**: s użytkownik, Usuń zostało anulowane w przypadku naruszenia współbieżności ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](implementing-optimistic-concurrency-vb/_static/image58.png))
 
 
 ## <a name="summary"></a>Podsumowanie
 
-Możliwości naruszenia współbieżności istnieje w każdej aplikacji, która zezwala na wiele równoczesnych użytkowników, aby aktualizować lub usuwać dane. Jeśli takie naruszenie nie uwzględnia dla dwóch użytkowników jednocześnie aktualizacji tych samych danych, kto z ostatniego zapisu "wins", zastępowanie inny użytkownik zmieni się zmiany. Alternatywnie deweloperów można zaimplementować formantów optymistycznej lub pesymistyczne współbieżności. Optymistyczne sterowanie współbieżnością założeniu, że naruszenia współbieżności są rzadko i po prostu uniemożliwia aktualizacji lub usuwania polecenia, który będzie stanowić naruszenie współbieżności. Formant współbieżności pesymistyczne przyjęto założenie, że tego współbieżności naruszeń są często i po prostu odrzucenia jeden użytkownik zaktualizować lub usunąć polecenie nie jest akceptowane. Za pomocą formantu pesymistyczne współbieżności aktualizowania rekordu obejmuje blokowania, zapobiegając w ten sposób wszyscy inni użytkownicy z modyfikowania i usuwania rekordu, gdy jest on zablokowany.
+Możliwości naruszeń współbieżności istnieje w każdej aplikacji, która zezwala na wiele równoczesnych użytkowników, aby aktualizować lub usuwać dane. Jeśli takie naruszenie nie uwzględnia dla dwóch użytkowników jednocześnie aktualizacji tych samych danych, kto pobiera ostatniego zapisu "wins", zastępując to drugi użytkownik zmieni się zmiany. Alternatywnie deweloperzy mogą zaimplementować albo kontroli współbieżności optymistycznego lub pesymistycznego. Mechanizmu kontroli optymistycznej współbieżności przyjęto założenie, że współbieżności naruszeń są rzadkie i po prostu nie zezwala na aktualizację lub usunąć polecenie, które będzie stanowić naruszenie współbieżności. Mechanizm kontroli pesymistycznej współbieżności przyjęto założenie, że ten współbieżności naruszeń są często i po prostu odrzuca jednego użytkownika. Zaktualizuj lub Usuń polecenie nie jest akceptowane. Za pomocą kontroli pesymistycznej współbieżności aktualizowania rekordu obejmuje blokowania, zapobiegając w ten sposób inni użytkownicy, zmodyfikowanie lub usunięcie rekordu, gdy jest on zablokowany.
 
-Wpisane zestawu danych w środowisku .NET zapewnia funkcję obsługi optymistyczne sterowanie współbieżnością. W szczególności `UPDATE` i `DELETE` instrukcje wystawiony dla bazy danych zawiera wszystkich kolumn w tabeli, zapewniając, że update lub delete tylko wówczas, gdy dane bieżącego rekordu jest zgodny z danymi użytkownika kiedy miał wykonywanie ich update lub delete. Po warstwy DAL została skonfigurowana do obsługi optymistycznej współbieżności, muszą zostać zaktualizowane metody logiki warstwy Biznesowej. Ponadto strona ASP.NET, który odwołuje się do logiki warstwy Biznesowej w dół musi być skonfigurowany w taki sposób, że element ObjectDataSource pobiera oryginalnych wartości z kontroli danych w sieci Web i przekazuje je w dół do logiki warstwy Biznesowej.
+Wpisany zestaw danych na platformie .NET zapewnia funkcję obsługi mechanizmu kontroli optymistycznej współbieżności. W szczególności `UPDATE` i `DELETE` instrukcji wystawiony dla bazy danych obejmuje wszystkie kolumny tabeli, zapewniając, że update lub delete tylko wówczas, gdy dane bieżącego rekordu jest zgodna z oryginalnymi danymi użytkownik miał kiedy wykonywanie ich update lub delete. Gdy warstwy DAL została skonfigurowana obsługa optymistycznej współbieżności, należy zaktualizować metody LOGIKI. Ponadto strony ASP.NET, która wywołuje w dół do LOGIKI musi być skonfigurowany w taki sposób, że kontrolki ObjectDataSource pobiera oryginalnych wartości z formantu sieci Web swoje dane i przekazuje je w dół do LOGIKI.
 
-Jak widzieliśmy w tym samouczku, implementacja optymistyczne sterowanie współbieżnością w aplikacji sieci web ASP.NET polega na aktualizowanie warstwy DAL i logiki warstwy Biznesowej i dodanie obsługi na stronie platformy ASP.NET. Określa, czy dodano prac rozsądnego inwestycji czas i wysiłek zależy od aplikacji. Jeśli masz rzadko użytkownikom jednoczesne aktualizowanie danych lub dane, które aktualizują różni się od siebie, następnie sterowania współbieżnością nie jest podstawowym elementem. Jeśli jednak rutynowo masz wielu użytkowników w swojej witrynie, Praca z tych samych danych, sterowania współbieżnością mogą pomagać w zapobieganiu jeden użytkownik aktualizacji lub usuwania nieświadomie zastępowaniu innej firmy.
+Jak widzieliśmy w ramach tego samouczka, implementacja mechanizmu kontroli optymistycznej współbieżności w aplikacji sieci web ASP.NET obejmuje aktualizację DAL i logiki warstwy Biznesowej i dodanie obsługi na stronie ASP.NET. Określa, czy dodano prac jest poddanie inwestycji, czas i nakład pracy, zależy od aplikacji. Jeśli masz rzadko równoczesnych użytkowników, aktualizowanie danych lub dane, które aktualizują różni się od siebie nawzajem, następnie kontrola współbieżności nie jest kluczową kwestią. Jeśli jednak rutynowo masz wielu użytkowników w swojej witrynie stosowaniu tych samych danych, kontroli współbieżności może zapobiec jednego użytkownika, aktualizacji lub usuwania wirus zastępowaniu kogoś innego.
 
-Programowanie przyjemność!
+Wszystkiego najlepszego programowania!
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor siedem ASP/ASP.NET książek i założycielem [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracował nad przy użyciu technologii Microsoft Web od 1998 r. Scott działa jako niezależny Konsultant, trainer i składnika zapisywania. Jego najnowszą książkę Stephena [ *Sams uczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). ADAM można z Tobą skontaktować w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blogu, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 > [!div class="step-by-step"]
 > [Poprzednie](customizing-the-data-modification-interface-vb.md)

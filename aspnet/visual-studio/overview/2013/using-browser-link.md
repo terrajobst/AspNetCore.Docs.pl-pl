@@ -1,6 +1,6 @@
 ---
 uid: visual-studio/overview/2013/using-browser-link
-title: Przy użyciu Browser Link w programie Visual Studio 2013 | Dokumentacja firmy Microsoft
+title: W programie Visual Studio 2013 za pomocą łączność z przeglądarkami | Dokumentacja firmy Microsoft
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
@@ -9,54 +9,53 @@ ms.date: 10/04/2013
 ms.topic: article
 ms.assetid: 46cbfe20-b4dc-449b-9016-80657dd44fbe
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/using-browser-link
 msc.type: authoredcontent
-ms.openlocfilehash: e5a13405a303580ec8c1d4cdacafc26c6f8ff34a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 96add0de1c1e4366353137898f1ba102aec7f754
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28044113"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37399324"
 ---
-<a name="using-browser-link-in-visual-studio-2013"></a>Przy użyciu Browser Link w programie Visual Studio 2013
+<a name="using-browser-link-in-visual-studio-2013"></a>Za pomocą łącza przeglądarki w programie Visual Studio 2013
 ====================
-przez [Wasson Jan](https://github.com/MikeWasson)
+przez [Mike Wasson](https://github.com/MikeWasson)
 
-Łącze przeglądarki jest nową funkcją w programie Visual Studio 2013, tworzącym kanał komunikacji między Środowisko deweloperskie i co najmniej jeden przeglądarki sieci web. Można użyć łącze przeglądarki, aby odświeżyć aplikacji sieci web w wielu przeglądarkach jednocześnie, która jest przydatna przy testowaniu różnych przeglądarkach.
+Łącze przeglądarki jest nową funkcją w programie Visual Studio 2013, która tworzy kanał komunikacyjny między środowiska programistycznego i jeden lub więcej przeglądarek sieci web. Można użyć łącze przeglądarki, aby odświeżyć aplikację sieci web w kilku przeglądarkach jednocześnie, która jest przydatna przy testowaniu obsługiwania wielu przeglądarek.
 
-- [Odśwież przeglądarkę](#browser-refresh)
-- [Wyświetlanie pulpicie nawigacyjnym łącza przeglądarki](#dashboard)
-- [Włączanie łącze przeglądarki plików Statycznych](#static-html)
-- [Wyłączanie łącza przeglądarki](#disabling)
+- [Odśwież w przeglądarce](#browser-refresh)
+- [Wyświetlanie na pulpicie nawigacyjnym łącza przeglądarki](#dashboard)
+- [Włączanie łączność z przeglądarkami plików Statycznych](#static-html)
+- [Wyłączanie łączność z przeglądarkami](#disabling)
 - [Jak to działa?](#how-it-works)
 
 <a id="browser-refresh"></a>
-## <a name="browser-refresh"></a>Odśwież przeglądarkę
+## <a name="browser-refresh"></a>Odśwież w przeglądarce
 
-Z Odśwież przeglądarkę można odświeżyć wiele przeglądarek, które są połączone z programu Visual Studio za pośrednictwem łącza przeglądarki.
+Za pomocą odświeżyć przeglądarkę można odświeżyć wielu przeglądarek, które są podłączone do programu Visual Studio za pośrednictwem łącza przeglądarki.
 
-Aby użyć Odśwież przeglądarkę, należy najpierw utworzyć aplikacji ASP.NET przy użyciu tych szablonów projektu. Debugowanie aplikacji, naciskając klawisz F5 lub klikając ikonę strzałki na pasku narzędzi:
+Aby użyć, Odśwież przeglądarkę, należy najpierw utworzyć aplikację ASP.NET przy użyciu jednego z szablonów projektu. Debugowanie aplikacji, naciskając klawisz F5 lub klikając ikonę strzałki na pasku narzędzi:
 
 ![](using-browser-link/_static/image1.png)
 
-Można też użyć listy rozwijanej do wybrania określonej przeglądarki do debugowania.
+Umożliwia także listy rozwijanej do wybierz określonych przeglądarki dla debugowania.
 
 ![](using-browser-link/_static/image2.png)
 
-Aby debugować z różnych przeglądarkach, wybierz **przeglądanie za pomocą**. W **przeglądanie za pomocą** okna dialogowego, przytrzymaj klawisz CTRL, aby wybrać więcej niż jednej przeglądarki. Kliknij przycisk **Przeglądaj** do debugowania z wybranej przeglądarki. Łącze przeglądarki również działa, jeśli przeglądarki z zewnętrznego programu Visual Studio i przejdź do adresu URL aplikacji.
+Aby debugować za pomocą różnych przeglądarkach, wybierz **przeglądanie za pomocą**. W **przeglądanie za pomocą** okno dialogowe, przytrzymaj wciśnięty klawisz CTRL, aby wybrać więcej niż jednej przeglądarki. Kliknij przycisk **Przeglądaj** debugowania przy użyciu wybranej przeglądarki. Łączność z przeglądarkami współpracuje również jeśli przeglądarkę z poza programem Visual Studio i przejdź do adresu URL aplikacji.
 
 ![](using-browser-link/_static/image3.png)
 
-Formanty łączy przeglądarki znajdują się w ikoną cykliczne strzałkę listy rozwijanej. Ikona strzałki jest **Odśwież** przycisku.
+Formanty łączność z przeglądarkami znajdują się na liście rozwijanej ikoną strzałkę kolistą. Ikona strzałki jest **Odśwież** przycisku.
 
 ![](using-browser-link/_static/image4.png)
 
-Aby zobaczyć, które przeglądarki są połączone, umieść kursor myszy nad **Odśwież** przycisk podczas debugowania. Podłączonych przeglądarek są wyświetlane w oknie etykietka narzędzia.
+Aby zobaczyć, jakie przeglądarki są połączone, umieść kursor myszy nad **Odśwież** przycisk podczas debugowania. Połączonych przeglądarek są wyświetlane w oknie etykietki narzędzia.
 
 ![](using-browser-link/_static/image5.png)
 
-Aby odświeżyć podłączonych przeglądarek, kliknij przycisk **Odśwież** przycisk lub naciśnij klawisze CTRL + ALT + ENTER. Na przykład poniższy zrzut ekranu przedstawia projektu ASP.NET, który został utworzony za pomocą szablonu projektu MVC 5. Widać aplikacji działający w przeglądarkach dwóch u góry. Na dole projekt jest otwarty w programie Visual Studio.
+Aby odświeżyć połączonych przeglądarek, kliknij **Odśwież** przycisk lub naciśnij klawisze CTRL + ALT + ENTER. Na przykład poniższy zrzut ekranu przedstawia projektu ASP.NET, który został utworzony przy użyciu szablonu projektu MVC 5. Możesz zobaczyć aplikację uruchomioną w dwóch przeglądarek u góry. Na dole projekt jest otwarty w programie Visual Studio.
 
 ![](using-browser-link/_static/image6.png)
 
@@ -64,49 +63,49 @@ W programie Visual Studio po zmianie &lt;h1&gt; nagłówek strony głównej:
 
 ![](using-browser-link/_static/image7.png)
 
-Po kliknięciu **Odśwież** przycisk zmiany znajdowały się w oba okna przeglądarki:
+Po kliknięciu **Odśwież** przycisk, zmiana pojawiła się oba okna przeglądarki:
 
 ![](using-browser-link/_static/image8.png)
 
 **Uwagi**
 
-- Aby włączyć łącze przeglądarki, ustaw `debug=true` w [ &lt;kompilacji&gt; ](https://msdn.microsoft.com/library/s10awwz0(v=vs.85).aspx) elementu w pliku Web.config dla projektu.
-- Aplikacja musi być uruchomiona na hoście lokalnym.
-- Aplikacja musi wskazywać .NET 4.0 lub nowszy.
+- Aby włączyć łączność z przeglądarkami, ustaw `debug=true` w [ &lt;kompilacji&gt; ](https://msdn.microsoft.com/library/s10awwz0(v=vs.85).aspx) elementu w pliku Web.config projektu.
+- Aplikacja musi działać na hoście lokalnym.
+- Aplikacja musi być przeznaczony dla platformy .NET 4.0 lub nowszy.
 
 <a id="dashboard"></a>
-## <a name="viewing-the-browser-link-dashboard"></a>Wyświetlanie pulpicie nawigacyjnym łącza przeglądarki
+## <a name="viewing-the-browser-link-dashboard"></a>Wyświetlanie na pulpicie nawigacyjnym łącza przeglądarki
 
-Na pulpicie nawigacyjnym łącza przeglądarki zawiera informacje dotyczące połączeń łącze przeglądarki. Aby wyświetlić pulpit nawigacyjny, wybierz menu rozwijane łącze przeglądarki (małą strzałkę obok **Odśwież** przycisku). Następnie kliknij przycisk **nawigacyjnym łącza przeglądarki**.
+Pulpit nawigacyjny Browser Link zawiera informacje o połączeniach łączność z przeglądarkami. Aby wyświetlić pulpit nawigacyjny, wybierz menu rozwijane łączność z przeglądarkami (małą strzałkę obok pozycji **Odśwież** przycisk). Następnie kliknij przycisk **nawigacyjnym łącza przeglądarki**.
 
 ![](using-browser-link/_static/image9.png)
 
-Pulpit nawigacyjny zawiera listę podłączonych przeglądarek i adres URL, do którego nawigację każdą przeglądarkę.
+Pulpit nawigacyjny zawiera listę połączonych przeglądarek i adres URL, do którego nawigację każdą przeglądarkę.
 
 ![](using-browser-link/_static/image10.png)
 
-**Wymagania wstępne** sekcji przedstawiono wszystkie czynności, aby włączyć łącze przeglądarki dla tego projektu. Na przykład poniższy zrzut ekranu przedstawia projekt gdzie "debug" ma wartość false w pliku Web.config.
+**Wymagania wstępne** sekcja pokazuje wszystkie kroki wymagane do włączenia łączność z przeglądarkami dla tego projektu. Na przykład poniższy zrzut ekranu przedstawia projekt gdzie "debug" jest ustawiona na wartość false w pliku Web.config.
 
 ![](using-browser-link/_static/image11.png)
 
 <a id="static-html"></a>
-## <a name="enabling-browser-link-for-static-html-files"></a>Włączanie łącze przeglądarki plików Statycznych
+## <a name="enabling-browser-link-for-static-html-files"></a>Włączanie łączność z przeglądarkami plików Statycznych
 
-Aby włączyć łącze przeglądarki dla statyczne pliki HTML, należy dodać następujące do pliku Web.config.
+Aby włączyć łączność z przeglądarkami na statyczne pliki HTML, należy dodać następujące do pliku Web.config.
 
 [!code-xml[Main](using-browser-link/samples/sample1.xml)]
 
-Ze względu na wydajność Usuń to ustawienie podczas publikowania projektu.
+Ze względu na wydajność należy usunąć ustawienie podczas publikowania projektu.
 
 <a id="disabling"></a>
-## <a name="disabling-browser-link"></a>Wyłączanie łącza przeglądarki
+## <a name="disabling-browser-link"></a>Wyłączanie łączność z przeglądarkami
 
 Łącze przeglądarki jest domyślnie włączona. Istnieje kilka sposobów, aby ją wyłączyć:
 
-- W menu rozwijanym łącze przeglądarki, usuń zaznaczenie pola wyboru **Włącz łącze przeglądarki**. 
+- W menu rozwijanym łączność z przeglądarkami, usuń zaznaczenie pola wyboru **Włącz łącze przeglądarki**. 
 
     ![](using-browser-link/_static/image12.png)
-- W pliku Web.config Dodaj klucz o nazwie "vs: EnableBrowserLink" o wartości "false" w sekcji appSettings. 
+- W pliku Web.config Dodaj klucz o nazwie "vs: EnableBrowserLink" na wartość "false" w sekcji appSettings. 
 
     [!code-xml[Main](using-browser-link/samples/sample2.xml)]
 - W pliku Web.config należy ustawić debugowania na wartość false. 
@@ -116,10 +115,10 @@ Ze względu na wydajność Usuń to ustawienie podczas publikowania projektu.
 <a id="how-it-works"></a>
 ## <a name="how-does-it-work"></a>Jak to działa?
 
-Łącze przeglądarki używa [SignalR](../../../signalr/index.md) próba utworzenia kanału komunikacji między Visual Studio i przeglądarki. Po włączeniu łącze przeglądarki, programu Visual Studio działa jako wielu klientów (przeglądarki) mogą łączyć się z serwerem SignalR. Łącze przeglądarki rejestruje również moduł protokołu HTTP z programem ASP.NET. Ten moduł injects specjalne &lt;skryptu&gt; odwołań w każdym żądaniu strony z serwera. Zobacz z odwołań do skryptów, wybierając polecenie "Wyświetl źródło" w przeglądarce.
+Łączność z przeglądarkami używa [SignalR](../../../signalr/index.md) próba utworzenia kanału komunikacji między Visual Studio i przeglądarki. Po włączeniu łączność z przeglądarkami programu Visual Studio działa jako serwer biblioteki SignalR, wielu klientów (przeglądarki) można łączyć się. Łączność z przeglądarkami rejestruje także moduł HTTP za pomocą platformy ASP.NET. Ten moduł wprowadza specjalne &lt;skryptu&gt; odwołań w każdym żądaniu strony z serwera. Odwołania do skryptu można wyświetlić, wybierając pozycję "Wyświetl źródło" w przeglądarce.
 
 ![](using-browser-link/_static/image13.png)
 
-Plików źródłowych nie są modyfikowane. Moduł HTTP dynamicznie injects odwołań do skryptów.
+Plików źródłowych nie są modyfikowane. Moduł HTTP wprowadza odwołania do skryptu dynamicznie.
 
-Ponieważ kod po stronie przeglądarki jest kod JavaScript, działa na wszystkie przeglądarki który [SignalR obsługuje](../../../signalr/overview/getting-started/supported-platforms.md), bez konieczności wtyczki przeglądarki.
+Ponieważ kod po stronie przeglądarki jest kod JavaScript, działa we wszystkich przeglądarkach, [obsługuje SignalR](../../../signalr/overview/getting-started/supported-platforms.md), bez konieczności wtyczkę przeglądarki.

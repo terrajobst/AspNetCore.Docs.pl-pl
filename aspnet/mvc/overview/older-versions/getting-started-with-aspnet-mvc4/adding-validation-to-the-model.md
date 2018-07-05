@@ -1,118 +1,117 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-validation-to-the-model
-title: Dodawanie walidacji do modelu | Dokumentacja firmy Microsoft
+title: Dodawanie weryfikacji do modelu | Dokumentacja firmy Microsoft
 author: Rick-Anderson
-description: 'Uwaga: Zaktualizowaną wersję tego samouczka jest dostępnych tutaj używającej platformy ASP.NET MVC 5 i Visual Studio 2013. Jest bardziej bezpieczne, znacznie prostsza do wykonania i demonstracją...'
+description: 'Uwaga: Zaktualizowaną wersję w tym samouczku jest dostępna w tym miejscu używającej platformy ASP.NET MVC 5 i Visual Studio 2013. Jest bardziej bezpieczne, łatwiej stosować i pokaz...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/28/2012
 ms.topic: article
 ms.assetid: 5d9a2999-fcc4-4c45-a018-271fddf74a3b
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-validation-to-the-model
 msc.type: authoredcontent
-ms.openlocfilehash: 39d1d9d4cb8b11f7ce5a3a85c51f652115d79db7
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 47c3f16d4592d2f61c6f1c3c1988e3622cb84a00
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30874551"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37384806"
 ---
-<a name="adding-validation-to-the-model"></a>Dodawanie walidacji do modelu
+<a name="adding-validation-to-the-model"></a>Dodawanie weryfikacji do modelu
 ====================
-przez [Rick Anderson](https://github.com/Rick-Anderson)
+Przez [Rick Anderson](https://github.com/Rick-Anderson)
 
 > > [!NOTE]
-> > Dostępna jest zaktualizowana wersja tego samouczka [tutaj](../../getting-started/introduction/getting-started.md) używającej platformy ASP.NET MVC 5 i Visual Studio 2013. Jest bardziej bezpieczne, łatwiej wykonać i pokazuje więcej funkcji.
+> > Jest dostępna zaktualizowana wersja tego samouczka [tutaj](../../getting-started/introduction/getting-started.md) używającej platformy ASP.NET MVC 5 i Visual Studio 2013. Jest bardziej bezpieczne, łatwiej wykonać i pokazuje więcej funkcji.
 
 
-W tej sekcji dodasz logikę weryfikacji `Movie` modelu, a będzie wymusić reguł sprawdzania poprawności w dowolnym momencie, użytkownik próbuje do tworzenia lub edytowania filmu przy użyciu aplikacji.
+W tej sekcji dodasz logikę walidacji do `Movie` modelu, a będzie upewnij się, że reguły sprawdzania poprawności są wymuszane ilekroć użytkownik próbuje utworzyć lub edytować film przy użyciu aplikacji.
 
-## <a name="keeping-things-dry"></a>Utrzymywanie suchej rzeczy
+## <a name="keeping-things-dry"></a>Utrzymywanie susz rzeczy
 
-Jednym z podstawowych zasadach projektowania platformy ASP.NET MVC jest suchej (&quot;nie powtarzaj samodzielnie&quot;). ASP.NET MVC zachęca do określone funkcje lub działanie tylko raz, a następnie go wszędzie odzwierciedlone w aplikacji. Zmniejsza ilość kodu, które należy napisać i sprawia, że kod napisany mniej błędów podatnych na błędy i łatwiejsze w obsłudze.
+Jednym z podstawowych zasadach projektowania platformy ASP.NET MVC jest PRÓBNEGO (&quot;nie Powtórz samodzielnie&quot;). ASP.NET MVC zachęca można określić funkcji lub zachowanie tylko raz, a następnie go wszędzie, gdzie odzwierciedlone w aplikacji. Zmniejsza ilość kodu, który należy napisać i sprawia, że kod, który pisanie mniej błędów, podatne i łatwiejsze w utrzymaniu.
 
-Obsługa weryfikacji platformy ASP.NET MVC i Entity Framework Code First jest doskonałym przykładem suchej zasady w akcji. Reguły sprawdzania poprawności można określić deklaratywnie w jednym miejscu (w klasie modelu) i zasady są wymuszane wszędzie w aplikacji.
+Obsługa weryfikacji platformy ASP.NET MVC i Entity Framework Code First to świetny przykład susz zasady w akcji. Można deklaratywne określenie reguł sprawdzania poprawności w jednym miejscu (w klasie modelu), a zasady są wymuszane wszędzie, gdzie w aplikacji.
 
-Oto jak możliwość korzystania z tej obsługi sprawdzania poprawności w aplikacji filmu.
+Oto jak możesz korzystać z zalet tej obsługi weryfikacji w aplikacji filmu.
 
-## <a name="adding-validation-rules-to-the-movie-model"></a>Dodawanie reguł walidacji modelu film
+## <a name="adding-validation-rules-to-the-movie-model"></a>Dodawania reguł sprawdzania poprawności do modelu Movie
 
-Będzie rozpocząć, dodając logikę sprawdzania poprawności do `Movie` klasy.
+Rozpocznie się przez dodanie niektórych logikę walidacji do `Movie` klasy.
 
 Otwórz *Movie.cs* pliku. Dodaj `using` instrukcji w górnej części pliku, który odwołuje się do [ `System.ComponentModel.DataAnnotations` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) przestrzeni nazw:
 
 [!code-csharp[Main](adding-validation-to-the-model/samples/sample1.cs)]
 
-Zwróć uwagę, przestrzeń nazw nie zawiera `System.Web`. DataAnnotations zawiera zestaw wbudowanych atrybutów sprawdzania poprawności, które można zastosować deklaratywnie do klasy lub właściwości.
+Zwróć uwagę, przestrzeń nazw zawiera `System.Web`. DataAnnotations zawiera zestaw wbudowanych atrybutów sprawdzania poprawności, które są stosowane w sposób deklaratywny do dowolnej klasy lub właściwości.
 
-Teraz zaktualizować `Movie` klasy, aby móc korzystać z wbudowanych [ `Required` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.requiredattribute.aspx), [ `StringLength` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx), i [ `Range` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) atrybutów sprawdzania poprawności . Użyć poniższego kodu, na przykład gdzie stosować atrybutów.
+Teraz zaktualizować `Movie` klasy, aby skorzystać z wbudowanych [ `Required` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.requiredattribute.aspx), [ `StringLength` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx), i [ `Range` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) atrybutów sprawdzania poprawności . Użyj poniższego kodu, na przykład gdzie można zastosować atrybuty.
 
 [!code-csharp[Main](adding-validation-to-the-model/samples/sample2.cs?highlight=4,10,13,17)]
 
-Uruchom aplikację i ponownie zostanie wyświetlony następujący błąd czasu wykonywania:
+Uruchom aplikację i ponownie zostanie wyświetlony następujący błąd w czasie wykonywania:
 
-***Model kopii kontekstu "MovieDBContext" została zmieniona od czasu utworzenia bazy danych. Należy rozważyć użycie migracje Code First aktualizacji bazy danych ([https://go.microsoft.com/fwlink/?LinkId=238269](https://go.microsoft.com/fwlink/?LinkId=238269)).***
+***Model kopii kontekstu "MovieDBContext" została zmieniona od czasu utworzenia bazy danych. Należy rozważyć użycie migracje Code First w aktualizacji bazy danych ([https://go.microsoft.com/fwlink/?LinkId=238269](https://go.microsoft.com/fwlink/?LinkId=238269)).***
 
-Migracja zostanie wykorzystany do aktualizacji schematu. Skompiluj rozwiązanie, a następnie otwórz **Konsola Menedżera pakietów** okna i wprowadź następujące polecenia:
+Firma Microsoft użyje migracji do zaktualizowania schematu. Skompiluj rozwiązanie, a następnie otwórz **Konsola Menedżera pakietów** okna i wprowadź następujące polecenia:
 
 [!code-console[Main](adding-validation-to-the-model/samples/sample3.cmd)]
 
-Po zakończeniu działania tego polecenia programu Visual Studio otwiera plik klasy, który definiuje nowy `DbMIgration` pochodnej klasy o podanej nazwie (*AddDataAnnotationsMig*), a następnie w `Up` — metoda zostanie wyświetlony kod, który aktualizuje ograniczenia schematu. `Title` i `Genre` pola nie są już dopuszczające wartości zerowe (to znaczy, wprowadź wartość) i `Rating` pole ma maksymalną długość 5.
+Po zakończeniu tego polecenia, programu Visual Studio otwiera plik klasy, który definiuje nowy `DbMIgration` Klasa pochodna o podanej nazwie (*AddDataAnnotationsMig*), a następnie w `Up` metody zostanie wyświetlony kod, który aktualizuje ograniczenia schematu. `Title` i `Genre` pola nie są już dopuszcza wartości null (oznacza to, wprowadź wartość) i `Rating` pole ma maksymalną długość 5.
 
-Atrybuty weryfikacji Określ zachowanie, które mają zostać wymuszone we właściwościach modelu, które są stosowane do. `Required` Atrybut wskazuje, że właściwość musi mieć wartość; w tym przykładzie filmu musi mieć wartości `Title`, `ReleaseDate`, `Genre`, i `Price` właściwości, aby był prawidłowy. `Range` Atrybut ogranicza wartość do określonego zakresu. `StringLength` Atrybut pozwala określić maksymalną długość ciągu właściwości oraz opcjonalnie długości minimalnej. Typy wewnętrzne (takich jak `decimal, int, float, DateTime`) są wymagane domyślnie i nie wymagają `Required` atrybutu.
+Atrybuty weryfikacji określić zachowanie, które mają zostać wymuszone we właściwościach modelu, które są stosowane względem. `Required` Atrybut wskazuje, że właściwość musi mieć wartość; w tym przykładzie filmu musi mieć wartości `Title`, `ReleaseDate`, `Genre`, i `Price` właściwości, aby był prawidłowy. `Range` Atrybut ogranicza wartości do określonego zakresu. `StringLength` Atrybut pozwala ustawić maksymalną długość właściwości ciągu i opcjonalnie długości minimalnej. Typy wewnętrzne (takie jak `decimal, int, float, DateTime`) są wymagane domyślnie i nie ma potrzeby `Required` atrybutu.
 
-Kod najpierw gwarantuje, że reguły sprawdzania poprawności, wybrane na klasę modelu są wymuszane, zanim aplikacja zapisuje zmiany w bazie danych. Na przykład poniższy kod spowoduje zgłoszenie wyjątku podczas `SaveChanges` metoda jest wywoływana, ponieważ niektóre wymagane `Movie` brakuje wartości właściwości i cena wynosi zero (która jest poza prawidłowym zakresem).
+Kod najpierw gwarantuje, że reguł sprawdzania poprawności, które określisz w klasie modelu są wymuszane, zanim aplikacja zapisuje zmiany w bazie danych. Na przykład, poniższy kod spowoduje zgłoszenie wyjątku podczas `SaveChanges` metoda jest wywoływana, ponieważ niektóre wymagane `Movie` brakuje wartości właściwości, a cena jest równa zero, (która jest poza prawidłowym zakresem).
 
 [!code-csharp[Main](adding-validation-to-the-model/samples/sample4.cs?highlight=7-8)]
 
-O reguł sprawdzania poprawności, automatycznie są wymuszane przez program .NET Framework pomaga zwiększyć bezpieczeństwo aplikacji bardziej niezawodne. Gwarantuje również, że nie zapomnisz do sprawdzania poprawności coś i przypadkowo let złe dane do bazy danych.
+Posiadanie reguły sprawdzania poprawności, które automatycznie wymuszanych przez program .NET Framework ułatwia zapewnienie aplikacji bardziej niezawodne. Gwarantuje również, że nie pamiętasz do sprawdzania poprawności coś i przypadkowo umożliwiają złe dane do bazy danych.
 
-W tym miejscu jest kompletny kod dla zaktualizowanego *Movie.cs* pliku:
+Oto kompletny kod dla zaktualizowanego *Movie.cs* pliku:
 
 [!code-csharp[Main](adding-validation-to-the-model/samples/sample5.cs)]
 
-## <a name="validation-error-ui-in-aspnet-mvc"></a>Błąd sprawdzania poprawności interfejsu użytkownika na platformie ASP.NET MVC
+## <a name="validation-error-ui-in-aspnet-mvc"></a>Błąd sprawdzania poprawności UI we wzorcu ASP.NET MVC
 
-Ponownie uruchom aplikację i przejdź do */Movies* adresu URL.
+Uruchom ponownie aplikację i przejdź do */Movies* adresu URL.
 
-Kliknij przycisk **Utwórz nowy** łącze, aby dodać nowy filmu. Wypełnij formularz z niektóre nieprawidłowe wartości, a następnie kliknij przycisk **Utwórz** przycisku.
+Kliknij przycisk **Utwórz nowy** łącze, aby dodać nowy film. Wypełnij formularz z niektórych z nieprawidłowymi wartościami, a następnie kliknij przycisk **Utwórz** przycisku.
 
 ![8_validationErrors](adding-validation-to-the-model/_static/image1.png)
 
 > [!NOTE]
-> w celu obsługi weryfikacji jQuery dla ustawień regionalnych innych niż angielskie, które użyj przecinka (&quot;,&quot;) dla dziesiętnego, należy wprowadzić *globalize.js* i konkretnej *cultures/globalize.cultures.js* pliku (z [ https://github.com/jquery/globalize ](https://github.com/jquery/globalize) ) i JavaScript, aby użyć `Globalize.parseFloat`. Poniższy kod przedstawia zmiany w pliku Views\Movies\Edit.cshtml do pracy z &quot;fr-FR&quot; kultury:
+> do obsługi dotyczącą weryfikacji jQuery dla ustawień regionalnych innych niż angielski, które należy użyć przecinka (&quot;,&quot;) separator dziesiętny, musi zawierać *globalize.js* i konkretne *cultures/globalize.cultures.js* pliku (z [ https://github.com/jquery/globalize ](https://github.com/jquery/globalize) ) i języka JavaScript, aby użyć `Globalize.parseFloat`. Poniższy kod przedstawia zmiany w pliku Views\Movies\Edit.cshtml do pracy z &quot;fr-FR&quot; kultury:
 
 
 [!code-cshtml[Main](adding-validation-to-the-model/samples/sample6.cshtml)]
 
-Zwróć uwagę, jak formularz automatycznie został użyty kolorem czerwonym obramowaniem aby zaznaczyć wszystkie pola, które zawierają nieprawidłowe dane i ma wysyłanego odpowiedni komunikat o błędzie weryfikacji obok każdego z nich. Błędy są wymuszane zarówno po stronie klienta (przy użyciu języka JavaScript i jQuery) i po stronie serwera (w przypadku, gdy użytkownik ma JavaScript wyłączone).
+Zwróć uwagę, jak formularz został automatycznie umożliwia kolorem czerwonym obramowaniem Wyróżnij tekst zawiera nieprawidłowe dane, które ma wysyłanego komunikatu o błędzie weryfikacji odpowiednich obok każdej z nich. Błędy są wymuszane, zarówno po stronie klienta (przy użyciu języków JavaScript i jQuery) i po stronie serwera (w przypadku, gdy użytkownik ma Obsługa skryptów JavaScript wyłączona).
 
-Rzeczywiste korzyści jest nie potrzebuję zmienić pojedynczy wiersz kodu w `MoviesController` klasy lub *Create.cshtml* widoku w celu umożliwienia tej weryfikacji interfejsu użytkownika. Kontroler i widoki utworzone wcześniej w tym samouczku automatycznie pobierane up sprawdzania poprawności reguły, określona za pomocą atrybutów weryfikacji właściwości `Movie` klasa modelu.
+Korzyści z rzeczywistych jest, nie należy zmieniać jednego wiersza kodu w `MoviesController` klasy lub *Create.cshtml* widoku w celu włączenia tej weryfikacji interfejsu użytkownika. Kontrolera i widoki utworzone wcześniej w tym samouczku automatycznie wybrany w górę sprawdzania poprawności reguły określona za pomocą atrybutów weryfikacji właściwości `Movie` klasa modelu.
 
-Zwróć uwagę na właściwości `Title` i `Genre`, wymaganego atrybutu nie są wymuszane, dopóki nie można przesłać formularza (trafień **Utwórz** przycisk), lub wprowadź tekst do pola wejściowego i usunąć go. Dla pola które jest początkowo pusta (np. pola w widoku Create) i który ma wymaganego atrybutu i innych atrybutów sprawdzania poprawności, można wykonać następujące polecenie, aby wyzwolić sprawdzania poprawności:
+Być może Zauważyłeś, właściwości `Title` i `Genre`, wymaganego atrybutu nie jest wymuszana, dopóki nie można przesłać formularza (trafień **Utwórz** przycisku), lub wprowadź tekst do pola wejściowego, a on usunięty. Dla pola, które jest początkowo pusta (na przykład pola w widoku Create) i który ma wymaganego atrybutu i innych atrybutów sprawdzania poprawności, można wykonać następujące polecenie, aby wyzwolić sprawdzania poprawności:
 
 1. Karta do pola.
-2. Wprowadź tekst.
-3. Karta wychodzących.
-4. Karta wrócić do pola.
+2. Wprowadź jakiś tekst.
+3. Karta.
+4. Karta do pola.
 5. Usuń tekst.
-6. Karta wychodzących.
+6. Karta.
 
-Sekwencja powyżej wyzwoli wymaganej weryfikacji bez naciśnięcie przycisku Prześlij. Po prostu naciśnięcie przycisku Prześlij bez wprowadzania żadnego pola spowodują uruchomienie weryfikacji po stronie klienta. Dane nie są wysyłane do serwera, dopóki nie ma żadnych błędów weryfikacji po stronie klienta. Można to sprawdzić przez umieszczenie punktu przerwania w metodzie Post protokołu HTTP lub przy użyciu [narzędzie fiddler](http://fiddler2.com/fiddler2/) lub programu Internet Explorer 9 [narzędzi deweloperskich F12](https://msdn.microsoft.com/ie/aa740478).
+Powyższe sekwencji wyzwoli wymaganej weryfikacji bez naciśnięcie przycisku Prześlij. Po prostu naciśnięcie przycisku Prześlij bez żadnego pola wprowadzania wyzwoli weryfikacji po stronie klienta. Dane nie są wysyłane do serwera, aż nie wystąpią żadne błędy weryfikacji po stronie klienta. Można to sprawdzić przez umieszczenie punkt przerwania w metodzie Post protokołu HTTP lub przy użyciu [narzędzie fiddler](http://fiddler2.com/fiddler2/) lub programu Internet Explorer 9 [narzędzi deweloperskich F12](https://msdn.microsoft.com/ie/aa740478).
 
 ![](adding-validation-to-the-model/_static/image2.png)
 
-## <a name="how-validation-occurs-in-the-create-view-and-create-action-method"></a>W jaki sposób sprawdzanie poprawności jest wykonywane w tworzenia, wyświetlania i tworzenia metody akcji
+## <a name="how-validation-occurs-in-the-create-view-and-create-action-method"></a>W jaki sposób weryfikacji odbywa się w tworzenie wyświetlanie i Tworzenie metody akcji
 
-Może zastanawiasz się, jak weryfikacji interfejsu użytkownika został wygenerowany bez żadnych aktualizacji do kodu w kontrolerze lub widoków. Zawiera listę dalej, co `Create` metod w `MovieController` wygląd klasy. Są one takie same jak w sposób tworzenia we wcześniejszej części tego samouczka.
+Być może zastanawiasz się, jak sprawdzanie poprawności UI został wygenerowany bez wykonywania żadnych aktualizacji do kodu w kontrolerze lub widoków. Dalej prezentuje co `Create` metody `MovieController` jak wyglądają klasy. Są one w porównaniu z jak utworzone wcześniej w tym samouczku.
 
 [!code-csharp[Main](adding-validation-to-the-model/samples/sample7.cs?highlight=12,15)]
 
-Pierwszy (HTTP GET) `Create` formularza początkowego Utwórz Wyświetla metody akcji. Druga (`[HttpPost]`) wersja obsługuje post formularza. Drugi `Create` — metoda ( `HttpPost` wersji) wywołań `ModelState.IsValid` do sprawdzenia, czy film ma jakieś błędy sprawdzania poprawności. Wywołanie tej metody ocenia wszystkie atrybuty weryfikacji, które zostały zastosowane do tego obiektu. Jeśli obiekt ma błędy sprawdzania poprawności `Create` — metoda zostanie ponownie wyświetlony formularz. Jeśli nie ma żadnych błędów, metoda zapisuje nowe filmu w bazie danych. W naszym przykładzie filmu używamy **formularza nie jest opublikować na serwerze, gdy występują błędy sprawdzania poprawności wykryto po stronie klienta; druga** `Create` **nigdy wywoływana jest metoda**. Jeśli wyłączysz JavaScript w przeglądarce, sprawdzanie poprawności klienta jest wyłączony i HTTP POST `Create` wywołania metody `ModelState.IsValid` do sprawdzenia, czy film ma jakieś błędy sprawdzania poprawności.
+Pierwszy (HTTP GET) `Create` metody akcji Wyświetla początkowej formularza tworzenia. Drugi (`[HttpPost]`) wersja obsługuje post formularza. Drugi `Create` — metoda ( `HttpPost` wersji) wywołań `ModelState.IsValid` do sprawdzenia, czy ten film zawiera wszystkie błędy weryfikacji. Wywołanie tej metody ocenia wszelkie atrybuty weryfikacji, które zostały zastosowane do obiektu. Jeśli obiekt ma błędy sprawdzania poprawności `Create` metoda ponownie zostanie wyświetlony formularz. Jeśli nie ma żadnych błędów, metoda zapisuje ten nowy film w bazie danych. W naszym przykładzie filmu użyto **nie opublikowania formularza z serwerem, gdy występują błędy sprawdzania poprawności wykrywane po stronie klienta; drugi** `Create` **nigdy nie zostanie wywołana metoda**. Jeśli wyłączysz JavaScript w przeglądarce, sprawdzanie poprawności klienta jest wyłączona i HTTP POST `Create` wywołania metody `ModelState.IsValid` do sprawdzenia, czy ten film zawiera wszystkie błędy weryfikacji.
 
-Można ustawić punktu przerwania w `HttpPost Create` — metoda i sprawdź nigdy nie jest wywoływana metoda, weryfikacji po stronie klienta nie prześle dane formularza w przypadku wykrycia błędów sprawdzania poprawności. Jeśli musisz wyłączyć JavaScript w przeglądarce, a następnie przesłać formularza z błędami, nastąpi trafienie punktu przerwania. Nadal otrzymywać pełne sprawdzanie poprawności bez JavaScript. Na poniższej ilustracji przedstawiono sposób wyłączania JavaScript w przeglądarce Internet Explorer.
+Możesz ustawić punkt przerwania w `HttpPost Create` metody i sprawdź, nigdy nie jest wywoływana metoda, weryfikacji po stronie klienta nie prześle dane formularza w przypadku wykrycia błędów sprawdzania poprawności. Jeśli można wyłączyć języka JavaScript w przeglądarce, a następnie Prześlij formularz z błędami, punkt przerwania zostanie osiągnięty. Będzie nadal się pojawiać pełna Walidacja bez kodu JavaScript. Na poniższej ilustracji przedstawiono sposób wyłączania JavaScript w przeglądarce Internet Explorer.
 
 ![](adding-validation-to-the-model/_static/image3.png)
 
@@ -126,45 +125,45 @@ Na poniższej ilustracji przedstawiono sposób wyłączania JavaScript w przegl�
 
 ![](adding-validation-to-the-model/_static/image6.png)
 
-Poniżej znajduje się *Create.cshtml* Wyświetl szablon, który szkieletu wcześniej w samouczku. Jest on używany przez metody akcji pokazanym powyżej zarówno do wyświetlania formularza początkowego i wyświetl ją ponownie w przypadku wystąpienia błędu.
+Poniżej znajduje się *Create.cshtml* Wyświetl szablon, którego szkielet we wcześniejszej części tego samouczka. Jest on używany przez metody akcji, zarówno powyżej początkowy formularz wyświetlania i wyświetlić ją ponownie w przypadku wystąpienia błędu.
 
 [!code-cshtml[Main](adding-validation-to-the-model/samples/sample8.cshtml?highlight=22-23,30-31,38-39,46-47)]
 
-Zwróć uwagę, jak kod używa `Html.EditorFor` pomocnika do wyjściowego `<input>` elementu dla każdego `Movie` właściwości. Obok tego pomocnika jest wywołanie `Html.ValidationMessageFor` metody pomocnika. Te dwie metody pomocnika pracować z obiektu modelu, który jest przekazywany przez kontrolera do widoku (w tym przypadku `Movie` obiektu). Poszukaj one automatycznie sprawdzania poprawności atrybutów określonych dla modelu i wyświetlanie komunikatów o błędach zależnie od potrzeb.
+Zwróć uwagę, jak kod używa `Html.EditorFor` pomocnika służący do wypełniania wyjściowego `<input>` elementu dla każdego `Movie` właściwości. Obok tego pomocnika jest wywołaniem `Html.ValidationMessageFor` metody pomocnika. Te dwie metody pomocnika pracować obiekt modelu, który jest przekazywany przez kontrolera do widoku (w tym przypadku `Movie` obiektu). Poszukaj one automatycznie atrybutów sprawdzania poprawności, określone w modelu i wyświetlanie komunikatów o błędach zgodnie z potrzebami.
 
-Naprawdę nieuprzywilejowany o tej metody jest to, że kontroler ani Utwórz szablon widoku zna niczego dotyczące reguł rzeczywista weryfikacja wymuszany lub określone komunikaty o błędach wyświetlane. Reguły sprawdzania poprawności i ciągi błąd są określane tylko w `Movie` klasy. Te tej samej reguły sprawdzania poprawności automatycznie są stosowane do widoku edycji i wszelkie inne widoki szablonów, które można utworzyć które edytować model.
+Co to jest bardzo NAS cieszy się o to podejście jest, czy kontroler ani Utwórz szablon widoku nie wie, nic o regułach rzeczywista weryfikacja wymuszany ani o zbyt małą określone komunikaty o błędach wyświetlane. Reguł sprawdzania poprawności i ciągi błędów są określane tylko w `Movie` klasy. Te same zasady sprawdzania poprawności są automatycznie stosowane do widoku edycji i wszelkich innych widoków szablonach, które można utworzyć, które edytować model.
 
-Jeśli chcesz później zmienić logikę weryfikacji, możesz to zrobić w dokładnie jednego miejsca przez dodanie atrybutów sprawdzania poprawności modelu (w tym przykładzie `movie` klasy). Nie musisz martwić się o różnych częściach aplikacji jest niespójna z jak zasady są wymuszane — całą logikę sprawdzania poprawności zostanie zdefiniowana w jednym miejscu i używany wszędzie. Przechowuje kod bardzo czystą i ułatwia utrzymanie i rozwijać. I oznacza, że użytkownik będzie można pełni ramach suchej zasady.
+Jeśli chcesz zmienić logikę weryfikacji później, możesz to zrobić w dokładnie jednego miejsca przez dodanie atrybutów sprawdzania poprawności do modelu (w tym przykładzie `movie` klasy). Nie trzeba już martwić się o różnych części aplikacji jest niespójna z jak zasady są wymuszane — całą logikę weryfikacji będą zdefiniowane w jednym miejscu i użyć wszędzie. Zapewnia bardzo czystym kodzie i ułatwia utrzymanie i rozwój. I oznacza, że można będzie można w pełni zapewniane susz zasady.
 
-## <a name="adding-formatting-to-the-movie-model"></a>Dodanie formatowania do modelu film
+## <a name="adding-formatting-to-the-movie-model"></a>Dodanie formatowania do modelu Movie
 
-Otwórz *Movie.cs* pliku i sprawdź, czy `Movie` klasy. [ `System.ComponentModel.DataAnnotations` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) Przestrzeń nazw zawiera atrybuty formatowania oprócz wbudowanych zestaw atrybutów weryfikacji. Zastosowaliśmy już [ `DataType` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) wartość wyliczenia Data wydania i pola cen. Poniższy kod przedstawia `ReleaseDate` i `Price` właściwości z odpowiednią [ `DisplayFormat` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx) atrybutu.
+Otwórz *Movie.cs* plików i zbadaj `Movie` klasy. [ `System.ComponentModel.DataAnnotations` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) Przestrzeń nazw zawiera atrybuty formatowania, oprócz wbudowanych zestaw atrybutów weryfikacji. Firma Microsoft została już zastosowana [ `DataType` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) wartości wyliczenia, Data wydania i pola Cena. Poniższy kod przedstawia `ReleaseDate` i `Price` właściwości z odpowiednią [ `DisplayFormat` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx) atrybutu.
 
 [!code-csharp[Main](adding-validation-to-the-model/samples/sample9.cs)]
 
-[ `DataType` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) Atrybuty nie są atrybutów sprawdzania poprawności, są one używane do Poinformuj aparat widoku w sposób renderowania kodu HTML. W powyższym przykładzie `DataType.Date` atrybutu Wyświetla daty filmu jako daty, bez czasu. Na przykład następująca [ `DataType` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) atrybutów nie sprawdzania poprawności formatu danych:
+[ `DataType` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) Atrybuty nie są atrybutów sprawdzania poprawności, są one używane do Poinformuj aparat widoku w sposób renderowania kodu HTML. W powyższym przykładzie `DataType.Date` atrybut Wyświetla daty filmu jako tylko do daty bez godziny. Na przykład następująca [ `DataType` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) atrybutów nie sprawdzania poprawności formatu danych:
 
 [!code-csharp[Main](adding-validation-to-the-model/samples/sample10.cs)]
 
-Atrybuty wymienione powyżej zapewniają tylko wskazówki dotyczące aparatu widoku do formatowania danych (i podaj atrybutów, takich jak &lt;&gt; dla adresu URL i &lt;href =&quot;mailto:EmailAddress.com&quot; &gt; do obsługi poczty e-mail. Można użyć [wyrażenia regularnego](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx) atrybut do zweryfikowania formatu danych.
+Atrybuty wymienione powyżej zapewniają tylko wskazówki dotyczące aparatu widoku do formatowania danych (i podaj atrybutów, takich jak &lt;&gt; dla adresu URL i &lt;href =&quot;mailto:EmailAddress.com&quot; &gt; do obsługi poczty e-mail. Możesz użyć [wyrażenia regularnego](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx) atrybutu, aby sprawdzić poprawność formatu danych.
 
-Informacje o innym podejściu do przy użyciu `DataType` atrybutów, można jawnie ustawić [ `DataFormatString` ](https://msdn.microsoft.com/library/system.string.format.aspx) wartości. Poniższy kod przedstawia właściwość Data wydania zawierające ciąg formatu daty (to znaczy, &quot;d&quot;). Spowoduje to użyć do określenia, że nie chcesz czas jako część Data wydania.
+Innym sposobem przy użyciu `DataType` atrybutów, można jawnie ustawić [ `DataFormatString` ](https://msdn.microsoft.com/library/system.string.format.aspx) wartości. Poniższy kod pokazuje właściwości daty wydania z ciągiem formatu daty (to znaczy, &quot;d&quot;). Będzie to użyć, aby określić, że nie chcesz czas jako część daty wydania.
 
 [!code-csharp[Main](adding-validation-to-the-model/samples/sample11.cs)]
 
-Pełną `Movie` klasy są wyświetlane poniżej.
+Pełne `Movie` klasy znajdują się poniżej.
 
 [!code-csharp[Main](adding-validation-to-the-model/samples/sample12.cs)]
 
-Uruchom aplikację i przejdź do `Movies` kontrolera. Data wydania i ceny są dobrze sformatowane. Na poniższym obrazie pokazano Data wydania i cen za pomocą &quot;fr-FR&quot; kultury.
+Uruchom aplikację, a następnie przejdź do `Movies` kontrolera. Data wydania i ceny są dobrze sformatowane. Na poniższej ilustracji przedstawiono, Data wydania i cenę za pomocą &quot;fr-FR&quot; kultury.
 
 ![8_format_SM](adding-validation-to-the-model/_static/image7.png)
 
-Na poniższym obrazie przedstawiono te same dane z domyślną kulturę (angielskie US).
+Na poniższej ilustracji przedstawiono te same dane, które są wyświetlane przy użyciu domyślnej kultury (angielskie US).
 
 ![](adding-validation-to-the-model/_static/image8.png)
 
-W następnej części serii, firma Microsoft będzie Przejrzyj aplikacji i poprawiają do automatycznie generowanego `Details` i `Delete` metody.
+W następnej części serii, utworzymy aplikację i wprowadzić kilka ulepszeń do automatycznie generowanego `Details` i `Delete` metody.
 
 > [!div class="step-by-step"]
 > [Poprzednie](adding-a-new-field-to-the-movie-model-and-table.md)

@@ -2,27 +2,26 @@
 uid: aspnet/tutorials
 title: Samouczki platformy ASP.NET | Dokumentacja firmy Microsoft
 author: tdykstra
-description: Lista przewodniki krok po kroku umożliwiający projektowanie aplikacji ASP.NET.
+description: Lista przewodniki krok po kroku dotyczące tworzenia aplikacji ASP.NET.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/17/2012
 ms.topic: article
 ms.assetid: fddf8e5e-c055-4f81-b691-78deef871112
 ms.technology: ''
-ms.prod: .net-framework
-ms.openlocfilehash: 704285fe06e2ece0f6afdc117aedf98f6155ef87
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 7929a06fd7857237c2529aca34d36564c2a89f82
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28036768"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37389615"
 ---
 # <a name="aspnet-tutorials"></a>Samouczki platformy ASP.NET
 
-Dostępne są następujące Przewodniki krok po kroku umożliwiający projektowanie aplikacji ASP.NET.
+Dostępne są następujące Przewodniki krok po kroku dotyczące tworzenia aplikacji ASP.NET.
 
 > [!NOTE]
-> Szukasz samouczki platformy ASP.NET Core?  Je znaleźć [tutaj](https://docs.microsoft.com/aspnet/core/tutorials/).
+> Szukasz samouczki platformy ASP.NET Core?  Znajdź je [tutaj](https://docs.microsoft.com/aspnet/core/tutorials/).
 
 ## <a name="web-forms"></a>Formularze sieci Web
 
@@ -48,12 +47,13 @@ Dostępne są następujące Przewodniki krok po kroku umożliwiający projektowa
 
 ## <a name="mvc"></a>MVC
 
-* [Wprowadzenie do platformy ASP.NET MVC 5](mvc/overview/getting-started/introduction/index.md)
+* [Wprowadzenie do ASP.NET MVC 5 ](mvc/overview/getting-started/introduction/index.md)
 * [Wprowadzenie do korzystania z programów EF 6 i MVC 5](mvc/overview/getting-started/getting-started-with-ef-using-mvc/index.md)
 * [Podejście Database First w programie EF z wykorzystaniem wzorca ASP.NET MVC](mvc/overview/getting-started/database-first-development/index.md)
 * [Korzystanie z narzędzia Page Inspector we wzorcu ASP.NET MVC](mvc/overview/views/using-page-inspector-in-aspnet-mvc.md)
 * [Tworzenie aplikacji ASP.NET MVC 5 z logowaniem OAuth2 za pomocą poświadczeń usług Facebook, Twitter, LinkedIn i Google (C#)](mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md)
-* [Tworzenie bezpiecznej aplikacji ASP.NET MVC 5 z logowaniem, potwierdzeniem adresu e-mail i resetowaniem hasła (C#)](mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md)
+* 
+  [Tworzenie bezpiecznej aplikacji internetowej ASP.NET MVC 5 z logowaniem, potwierdzeniem adresu e-mail i resetowaniem hasła (C#)](mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md)
 * [Aplikacja ASP.NET MVC 5 z uwierzytelnianiem dwuskładnikowym za pomocą wiadomości SMS i wiadomości e-mail](mvc/overview/security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication.md)
 * [Zapobieganie atakom XSRF/CSRF we wzorcach ASP.NET MVC i Web Pages](mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages.md)
 * [Zapobieganie atakom na otwarte przekierowywanie (C#)](mvc/overview/security/preventing-open-redirection-attacks.md)
@@ -134,7 +134,8 @@ Dostępne są następujące Przewodniki krok po kroku umożliwiający projektowa
 * [Testowanie gęstości połączenia SignalR za pomocą funkcji Crank](signalr/overview/performance/signalr-connection-density-testing-with-crank.md)
 * [Korzystanie z liczników wydajności SignalR w roli sieci Web platformy Azure](signalr/overview/performance/using-signalr-performance-counters-in-an-azure-web-role.md)
 * [Samouczek: host samodzielny SignalR](signalr/overview/deployment/tutorial-signalr-self-host.md)
-* [Używanie SignalR z usługą Web Apps w usłudze Azure App Service](signalr/overview/deployment/using-signalr-with-azure-web-sites.md)
+* 
+  [Używanie SignalR z usługą Web Apps w usłudze Azure App Service](signalr/overview/deployment/using-signalr-with-azure-web-sites.md)
 
 
 ## <a name="aspnet-identity"></a>ASP.NET Identity

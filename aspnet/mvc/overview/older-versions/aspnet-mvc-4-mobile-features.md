@@ -2,141 +2,140 @@
 uid: mvc/overview/older-versions/aspnet-mvc-4-mobile-features
 title: Funkcje mobilne platformy ASP.NET MVC 4 | Dokumentacja firmy Microsoft
 author: Rick-Anderson
-description: Teraz jest wersją MVC 5 tego samouczka z przykładów kodu w Wdróż ASP.NET MVC 5 mobilnych aplikacji sieci Web w witrynach sieci Web platformy Azure.
+description: Teraz jest wersja MVC 5, po ukończeniu tego samouczka przy użyciu przykładów kodu w zasięgu Wdróż aplikację ASP.NET MVC 5 Mobile sieci Web w witrynach sieci Web platformy Azure.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/15/2012
 ms.topic: article
 ms.assetid: 27dc4fc8-1b51-43b0-933f-fc1b52476523
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/aspnet-mvc-4-mobile-features
 msc.type: authoredcontent
-ms.openlocfilehash: 5f38fcdd8e71ce12f7899214b6b2133e21f9910c
-ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
+ms.openlocfilehash: 5b029aa7e87f064622d72feacaf7e97ea4da5cca
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "30876842"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37384819"
 ---
 <a name="aspnet-mvc-4-mobile-features"></a>Funkcje mobilne platformy ASP.NET MVC 4
 ====================
-przez [Rick Anderson](https://github.com/Rick-Anderson)
+Przez [Rick Anderson](https://github.com/Rick-Anderson)
 
-> Teraz jest wersja MVC 5 tego samouczka z przykładów kodu w [wdrażania platformy ASP.NET MVC 5 mobilnych aplikacji sieci Web w witrynach sieci Web Azure](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/).
+> Teraz jest dostępna wersja MVC 5 tego samouczka przy użyciu przykładów kodu w zasięgu [wdrożyć aplikację ASP.NET MVC 5 Mobile sieci Web w usłudze Azure Web Sites](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/).
 
 
-W tym samouczku uczy podstaw dotyczących pracy z Funkcje mobilne w aplikacji sieci Web programu ASP.NET MVC 4. W tym samouczku, można użyć [programu Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/products/express) lub Visual Web Developer 2010 Express Service Pack 1 (&quot;Visual Web Developer lub VWD&quot;). Jeśli masz już który umożliwia professional wersji programu Visual Studio.
+Ta seria samouczków obejmuje podstawowe informacje dotyczące korzystania z funkcji mobilnych aplikacji sieci Web programu ASP.NET MVC 4. W tym samouczku użyjesz [Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/products/express) lub Visual Web Developer 2010 Express Service Pack 1 (&quot;Visual Web Developer lub VWD&quot;). Jeśli masz już, można użyć programu Visual Studio w wersji professional.
 
-Przed rozpoczęciem upewnij się, że po zainstalowaniu wymagania wstępne wymienione poniżej.
+Przed rozpoczęciem upewnij się, że po zainstalowaniu wymagań wstępnych wymienionych poniżej.
 
-- [Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/products/express) (zalecane) lub programu Visual Studio Web Developer Express z dodatkiem SP1. Program Visual Studio 2012 zawiera ASP.NET MVC 4. Jeśli używasz programu Visual Web Developer 2010, należy zainstalować [ASP.NET MVC 4](https://go.microsoft.com/fwlink/?LinkId=243392).
+- [Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/products/express) (zalecane) lub Visual Studio Web Developer Express z dodatkiem SP1. Program Visual Studio 2012 zawiera ASP.NET MVC 4. Jeśli używasz programu Visual Web Developer 2010 należy zainstalować [platformy ASP.NET MVC 4](https://go.microsoft.com/fwlink/?LinkId=243392).
 
-Należy również emulatora przeglądarkę dla telefonów. Działa jedną z następujących czynności:
+Należy również emulatora przeglądarce dla urządzeń przenośnych. Działają dowolne z następujących czynności:
 
-- [Emulator systemu Windows 7 Phone](https://msdn.microsoft.com/library/ff402563(VS.92).aspx). (Jest to emulator, który jest używany w większości zrzutów ekranu, w tym samouczku).
-- Zmień ciąg agenta użytkownika, co pozwoliłoby na emulowanie iPhone. Zobacz [to](http://www.howtogeek.com/113439/how-to-change-your-browsers-user-agent-without-installing-any-extensions/) wpis w blogu.
-- [Opera emulatorze przenośnym](http://www.opera.com/developer/tools/mobile/)
-- [Apple Safari](http://www.apple.com/safari/download/) z ustawioną iPhone agenta użytkownika. Aby uzyskać instrukcje na temat sposobu ustawiania agenta użytkownika w programie Safari na "iPhone", zobacz [jak umożliwić Safari podawać jest IE](http://www.davidalison.com/2008/05/how-to-let-safari-pretend-its-ie.html) na blogu Dominik Alison.
+- [Windows 7, Emulator telefonu](https://msdn.microsoft.com/library/ff402563(VS.92).aspx). (Jest to emulator, który jest używany w większości zrzutów ekranu w ramach tego samouczka).
+- Zmień ciąg agenta użytkownika w celu emulacji dla telefonu iPhone. Zobacz [to](http://www.howtogeek.com/113439/how-to-change-your-browsers-user-agent-without-installing-any-extensions/) wpis w blogu.
+- [Opera Mobile Emulator](http://www.opera.com/developer/tools/mobile/)
+- [Apple Safari](http://www.apple.com/safari/download/) za pomocą agenta użytkownika, ustaw na telefonie iPhone. Aby uzyskać instrukcje na temat sposobu ustawiania agenta użytkownika w programie Safari na "iPhone", zobacz [jak umożliwić Safari poudawać jest IE](http://www.davidalison.com/2008/05/how-to-let-safari-pretend-its-ie.html) na blogu David Alison.
 
-Powiązany z tym tematem dostępnych projektów programu Visual Studio z kodu źródłowego C#:
+Projektów programu Visual Studio z kodem źródłowym języka C# są dostępne powiązany z tym tematem:
 
-- [Początkowy projektem do pobrania](https://go.microsoft.com/fwlink/?linkid=228307&amp;clcid=0x409)
-- [Pobranie projektu zakończone](https://go.microsoft.com/fwlink/?linkid=228306&amp;clcid=0x409)
+- [Pobieranie projektu startowego](https://go.microsoft.com/fwlink/?linkid=228307&amp;clcid=0x409)
+- [Ukończono projektem do pobrania](https://go.microsoft.com/fwlink/?linkid=228306&amp;clcid=0x409)
 
-### <a name="what-youll-build"></a>Jakie będzie kompilacji
+### <a name="what-youll-build"></a>Jakie będziesz tworzyć
 
-W tym samouczku, warto Funkcje mobilne prostą aplikację konferencji listę, która znajduje się w [projektu starter](https://go.microsoft.com/fwlink/?LinkId=228307). Poniższy zrzut ekranu przedstawia strony tagi ukończona aplikacja, jak pokazano w [Emulator systemu Windows Phone 7](https://msdn.microsoft.com/library/ff402563(VS.92).aspx). Zobacz [klawiatury mapowania dla Windows Phone Emulator](https://msdn.microsoft.com/library/ff754352(v=vs.92).aspx) uprościć wprowadzanie z klawiatury.
+W tym samouczku dodasz Funkcje mobilne na prostej aplikacji listy konferencji, który znajduje się w [projekt startowy](https://go.microsoft.com/fwlink/?LinkId=228307). Poniższy zrzut ekranu przedstawia stronę tagów w ukończonej aplikacji, jak pokazano w [Windows 7 Phone Emulator](https://msdn.microsoft.com/library/ff402563(VS.92).aspx). Zobacz [klawiatury mapowania dla Windows Phone Emulator](https://msdn.microsoft.com/library/ff754352(v=vs.92).aspx) ułatwiają wprowadzanie z klawiatury.
 
 [![p1_Tags_CompletedProj](aspnet-mvc-4-mobile-features/_static/image2.png)](aspnet-mvc-4-mobile-features/_static/image1.png)
 
-Można użyć programu Internet Explorer w wersji 9 lub 10, FireFox lub Chrome, do opracowywania aplikacji mobilnej, ustawiając [ciąg agenta użytkownika](http://www.howtogeek.com/113439/how-to-change-your-browsers-user-agent-without-installing-any-extensions/). Na poniższej ilustracji przedstawiono ukończone samouczka przy użyciu programu Internet Explorer emulowanie iPhone. Korzystając z narzędzi deweloperskich programu Internet Explorer F-12 i [narzędzie Fiddler](http://www.fiddler2.com/fiddler2/) do debugowania aplikacji.
+Można użyć programu Internet Explorer w wersji 9 lub 10, FireFox i Chrome do tworzenia aplikacji mobilnych, ustawiając [ciąg agenta użytkownika](http://www.howtogeek.com/113439/how-to-change-your-browsers-user-agent-without-installing-any-extensions/). Na poniższej ilustracji przedstawiono ukończone samouczku, korzystając z programu Internet Explorer emulowanie dla telefonu iPhone. Możesz użyć narzędzi deweloperskich programu Internet Explorer F-12 i [narzędzie Fiddler](http://www.fiddler2.com/fiddler2/) aby pomóc w debugowaniu aplikacji.
 
 ![](aspnet-mvc-4-mobile-features/_static/image3.png)
 
-### <a name="skills-youll-learn"></a>Dowiesz się umiejętności
+### <a name="skills-youll-learn"></a>Umiejętności, których dowiesz się
 
-Oto dowiesz się:
+Oto, dowiesz się:
 
-- Jak szablony ASP.NET MVC 4 używać HTML5 `viewport` atrybut i renderowania adaptacyjną zwiększające wyświetlania na urządzeniach przenośnych.
+- Jak szablony platformy ASP.NET MVC 4 używają HTML5 `viewport` atrybut i renderowanie adaptacyjne w celu wyświetlania na urządzeniach przenośnych.
 - Jak tworzyć widoki specyficzne dla mobilnych.
-- Jak utworzyć przełącznik Widok ten umożliwia przełączania użytkowników między widokiem dla urządzeń przenośnych i stacjonarnych widoku aplikacji.
+- Jak utworzyć ten przełącznik użytkowników umożliwia między widokiem mobilnych i klasycznych aplikacji przełącznikiem widoku.
 
 ### <a name="getting-started"></a>Wprowadzenie
 
-Pobierz aplikację listy konferencji dla projektu starter, korzystając z następującego łącza: [Pobierz](https://go.microsoft.com/fwlink/?LinkId=228307). Następnie w Eksploratorze Windows, kliknij prawym przyciskiem myszy *MvcMobile.zip* plik i wybierz polecenie **właściwości**. W **właściwości MvcMobile.zip** oknie dialogowym wybierz **Odblokuj** przycisku. (Odblokowywania uniemożliwia ostrzeżenie występuje, gdy użytkownik próbuje użyć *.zip* pliku pobranym z sieci web.)
+Pobierz aplikację listy konferencji na projekt startowy, korzystając z następującego linku: [Pobierz](https://go.microsoft.com/fwlink/?LinkId=228307). Następnie w Eksploratorze Windows, kliknij prawym przyciskiem myszy *MvcMobile.zip* pliku, a następnie wybierz **właściwości**. W **właściwości MvcMobile.zip** okna dialogowego wybierz **odblokowanie** przycisku. (Odblokowywania zapobiega ostrzeżenie zabezpieczeń, który występuje podczas próby użycia *zip* plik pobrany z sieci web.)
 
 ![p1_unBlock](aspnet-mvc-4-mobile-features/_static/image4.png)
 
-Kliknij prawym przyciskiem myszy *MvcMobile.zip* plik i wybierz **Wyodrębnij wszystkie** aby rozpakować plik. W programie Visual Studio Otwórz *MvcMobile.sln* pliku.
+Kliknij prawym przyciskiem myszy *MvcMobile.zip* plik i wybierz **Wyodrębnij wszystkie** aby rozpakować plik. W programie Visual Studio, otwórz *MvcMobile.sln* pliku.
 
-Naciśnij klawisze CTRL + F5, aby uruchomić aplikację, którym będą wyświetlane w przeglądarce pulpitu. Uruchom z emulatora przeglądarkę dla telefonów, skopiuj adres URL dla aplikacji konferencji do emulatora, a następnie kliknij **Przeglądaj według znaczników** łącza. Jeśli używasz emulatora Windows Phone, kliknij na pasku adresu URL i naciśnij klawisz Wstrzymaj, aby uzyskać dostęp za pomocą klawiatury. Obraz poniżej przedstawia *alltags —* widoku (wybór **Przeglądaj według znaczników**).
+Naciśnij klawisze CTRL + F5, aby uruchomić aplikację, która zostanie ona wyświetlona w przeglądarce pulpitu. Uruchom emulator w swojej przeglądarce dla urządzeń przenośnych, skopiuj adres URL dla aplikacji konferencji do emulatora, a następnie kliknij **Przeglądaj według znaczników** łącza. Jeśli używasz emulatora Windows Phone, kliknij na pasku adresu URL i naciśnij klawisz Wstrzymaj, aby uzyskać dostęp za pomocą klawiatury. Obraz poniżej przedstawia *alltags —* widoku (wybór **Przeglądaj według znaczników**).
 
 [![p1_browseTag](aspnet-mvc-4-mobile-features/_static/image6.png)](aspnet-mvc-4-mobile-features/_static/image5.png)
 
-Ekran jest bardzo do odczytu na urządzeniu przenośnym. Wybierz łącze ASP.NET.
+Ekran jest bardzo czytelny na urządzeniu przenośnym. Wybierz łącze programu ASP.NET.
 
 [![p1_tagged_ASPNET](aspnet-mvc-4-mobile-features/_static/image8.png)](aspnet-mvc-4-mobile-features/_static/image7.png)
 
-Widok znaczników ASP.NET jest bardzo dużej liczby. Na przykład **data** kolumny jest bardzo trudne do odczytu. W dalszej części samouczka utworzysz wersję *alltags —* widoku dotyczy w szczególności przeglądarki dla urządzeń przenośnych i będzie odczytywać wyświetlania.
+Widok znaczników ASP.NET jest bardzo dużej liczby. Na przykład **data** kolumna jest bardzo trudne do odczytania. W dalszej części tego samouczka utworzysz wersję *alltags —* widoku dotyczy w szczególności przeglądarki dla urządzeń przenośnych i będzie odczytywać wyświetlania.
 
-Uwaga: Obecnie usterki istnieje w przenośnych aparat buforowania. Dla aplikacji produkcyjnych, należy zainstalować [stałym DisplayModes](http://nuget.org/packages/Microsoft.AspNet.Mvc.FixedDisplayModes) nugget pakietu. Zobacz [ASP.NET MVC 4 Mobile buforowanie usterki stałym](https://blogs.msdn.com/b/rickandy/archive/2012/09/17/asp-net-mvc-4-mobile-caching-bug-fixed.aspx) szczegółowe informacje na temat poprawki.
+Uwaga: Obecnie usterkę w istnieje przenośnych buforowania. W przypadku aplikacji produkcyjnych należy zainstalować [stały DisplayModes](http://nuget.org/packages/Microsoft.AspNet.Mvc.FixedDisplayModes) nugget pakietu. Zobacz [platformy ASP.NET MVC 4 Mobile buforowania usterki stały](https://blogs.msdn.com/b/rickandy/archive/2012/09/17/asp-net-mvc-4-mobile-caching-bug-fixed.aspx) szczegółowe informacje dotyczące poprawki.
 
 ## <a name="css-media-queries"></a>Zapytaniami multimediów CSS
 
-[Zapytaniami multimediów CSS](http://www.w3.org/TR/css3-mediaqueries/) są rozszerzeniem CSS do typów nośników. Umożliwiają one tworzenie reguł, które zastępują domyślne reguły CSS dla przeglądarki (agentów użytkownika). Typowe regułę CSS, przeznaczonego dla przeglądarki dla urządzeń przenośnych jest zdefiniowanie maksymalny rozmiar ekranu. *Content\Site.css* pliku, który jest tworzony podczas tworzenia nowego projektu platformy ASP.NET MVC 4 Internet zawiera następujące zapytanie o multimedia:
+[Zapytaniami multimediów CSS](http://www.w3.org/TR/css3-mediaqueries/) stanowią rozszerzenie do arkusza CSS dla typów nośników. Umożliwiają one tworzenie reguł, które zastępują domyślne reguły CSS dla określonych przeglądarek (agentów użytkownika). Typowe reguły CSS, który jest przeznaczony dla przeglądarki dla urządzeń przenośnych jest zdefiniowanie maksymalnego rozmiaru. *Content\Site.css* plik, który jest tworzony podczas tworzenia nowego projektu ASP.NET MVC 4 Internet zawiera następujące zapytanie o multimedia:
 
 [!code-css[Main](aspnet-mvc-4-mobile-features/samples/sample1.css)]
 
-Jeśli 850 pikseli szerokości okna przeglądarki, zostanie użyty reguły CSS wewnątrz tego bloku nośnika. Zapytaniami multimediów CSS, jak to umożliwia zapewniają lepsze wyświetlanie zawartości HTML w małych przeglądarek (na przykład przeglądarki dla urządzeń przenośnych) niż domyślne reguły CSS, które są przeznaczone dla szerszego Wyświetla przeglądarek pulpitu.
+Jeśli okno przeglądarki jest 850 pikseli szerokości, użyje reguły CSS wewnątrz bloku tego nośnika. CSS media kwerend, takich jak ta umożliwia zapewnia lepsze wyświetlanie zawartości HTML w małych przeglądarek (na przykład w przeglądarkach dla urządzeń przenośnych) niż reguły CSS domyślne, które są przeznaczone dla szerszego Wyświetla przeglądarek komputerowych.
 
 ## <a name="the-viewport-meta-tag"></a>Tag Meta okienka ekranu
 
-Szerokość okna przeglądarki wirtualnego zdefiniuj przeglądarki dla większości urządzeń przenośnych ( *okienka ekranu*) jest znacznie większą niż szerokość rzeczywistego urządzenia przenośnego. Dzięki temu przeglądarek urządzeń przenośnych pomieścić całą stronę sieci web wewnątrz wirtualnych wyświetlania. Użytkownicy mogą następnie powiększ interesujące zawartości. Jednak jeśli ustawisz szerokość okienka ekranu do szerokości rzeczywistego urządzenia powiększanie nie jest wymagane, ponieważ zawartość mieści się w przeglądarce przenośnych.
+Przeglądarki dla większości urządzeń przenośnych zdefiniować szerokość okna przeglądarki wirtualnej ( *okienka ekranu*) jest znacznie większa niż rzeczywista szerokość urządzenia przenośnego. Dzięki temu przeglądarki dla urządzeń przenośnych do rozmiaru całej strony sieci web wewnątrz wirtualnych wyświetlania. Użytkownicy mogą następnie powiększ interesującej zawartości. Jednak jeśli ustawisz szerokość okienka ekranu do szerokości rzeczywistego urządzenia nie powiększania jest wymagane, ponieważ zawartość mieści się w przeglądarce dla urządzeń przenośnych.
 
-Okienko ekranu `<meta>` znacznika w pliku układu ASP.NET MVC 4 Ustawia szerokość urządzenia okienka ekranu. Następujący wiersz zawiera okienka ekranu `<meta>` znacznika w pliku układu ASP.NET MVC 4.
+Okienko ekranu `<meta>` znacznika w pliku układu platformy ASP.NET MVC 4 Ustawia szerokość urządzenia okienka ekranu. Następujący wiersz zawiera okienka ekranu `<meta>` znacznika w pliku układu platformy ASP.NET MVC 4.
 
 [!code-html[Main](aspnet-mvc-4-mobile-features/samples/sample2.html)]
 
 ## <a name="examining-the-effect-of-css-media-queries-and-the-viewport-meta-tag"></a>Badanie wpływu zapytaniami multimediów CSS i metatag okienka ekranu
 
-Otwórz *Views\Shared\\_Layout.cshtml* plik w edytorze i komentarz dla okienka ekranu `<meta>` tagu. Następujący kod przedstawia wiersza poza komentarzem.
+Otwórz *Views\Shared\\_Layout.cshtml* plik w edytorze i komentarz dla okienka ekranu `<meta>` tagu. Poniższy kod przedstawia zakomentowany wiersz.
 
 [!code-cshtml[Main](aspnet-mvc-4-mobile-features/samples/sample3.cshtml)]
 
-Otwórz *MvcMobile\Content\Site.css* plik w edytorze i zmień maksymalną szerokość w zapytanie o multimedia zero pikseli. Uniemożliwi to reguły CSS używane w przeglądarkach dla urządzeń przenośnych. Następujący wiersz zawiera zapytanie o multimedia zmodyfikowane:
+Otwórz *MvcMobile\Content\Site.css* plik w edytorze, a następnie zmień maksymalną szerokość w zapytanie o multimedia na zero pikseli. Uniemożliwi to reguły CSS używany w przeglądarkach dla urządzeń przenośnych. Następujący wiersz zawiera zapytanie o multimedia zmodyfikowane:
 
 [!code-css[Main](aspnet-mvc-4-mobile-features/samples/sample4.css)]
 
-Zapisz zmiany i przejdź do aplikacji konferencji w emulatorze przenośnym przeglądarki. Niewielki rozmiar tekstu na poniższej ilustracji jest wynikiem usunięcia okienka ekranu `<meta>` tagu. Z ma okienka ekranu `<meta>` tagu przeglądarki zmniejszanie jest domyślną szerokość okienka ekranu (850 pikseli lub szerokość dla przeglądarki dla większości urządzeń przenośnych.)
+Zapisz zmiany i przejdź do aplikacji konferencji w emulatorze przeglądarce dla urządzeń przenośnych. Niewielki rozmiar tekstu na poniższej ilustracji jest wynikiem usunięcia okienka ekranu `<meta>` tagu. Z nie okienka ekranu `<meta>` tagu, przeglądarka oddalając jest domyślną szerokość okienka ekranu (850 pikseli lub szerokość dla najbardziej mobilnych przeglądarek.)
 
 [![p1_noViewPort](aspnet-mvc-4-mobile-features/_static/image10.png)](aspnet-mvc-4-mobile-features/_static/image9.png)
 
-Cofnij zmiany — usuń znaczniki komentarza okienka ekranu `<meta>` tagów w pliku układu i przywrócić zapytanie o multimedia do 850 pikseli *Site.css* pliku. Zapisz zmiany i odświeżyć przeglądarkę przenośnych, aby sprawdzić, czy wyświetlana przyjazna została przywrócona.
+Cofnij zmiany — Usuń komentarz z okienka ekranu `<meta>` tagów w pliku układu i przywrócić zapytanie o multimedia do 850 pikseli *Site.css* pliku. Zapisz zmiany i odświeżyć przeglądarkę mobilnych, aby sprawdzić, czy wyświetlanie przyjaznych dla urządzeń przenośnych została przywrócona.
 
-Okienko ekranu `<meta>` znacznika i zapytanie o multimedia CSS nie są specyficzne dla platformy ASP.NET MVC 4, a w dowolnej aplikacji sieci web mogą korzystać z tych funkcji. Ale są one obecnie wbudowane w pliki, które są generowane podczas tworzenia nowego projektu platformy ASP.NET MVC 4.
+Okienko ekranu `<meta>` tag i zapytanie o multimedia CSS nie są specyficzne dla platformy ASP.NET MVC 4 oraz korzystać z zalet tych funkcji, w dowolnej aplikacji sieci web. Ale teraz są one wbudowane w pliki, które są generowane, gdy utworzysz nowy projekt ASP.NET MVC 4.
 
 Aby uzyskać więcej informacji na temat okienka ekranu `<meta>` tagów, zobacz [wskaźnik dwa okienka ekranu — część druga](http://www.quirksmode.org/mobile/viewports2.html).
 
-W następnej sekcji pojawi się, jak zapewnić konkretnych widoków mobile przeglądarki.
+W następnej sekcji zobaczysz się, jak zapewnić określonych widoków w przeglądarce mobilnej.
 
-## <a name="overriding-views-layouts-and-partial-views"></a>Zastępowanie widoki, układów i widoki częściowe
+## <a name="overriding-views-layouts-and-partial-views"></a>Zastępowanie widoki i układy, widoki częściowe
 
-Znaczące nową funkcją w technologii ASP.NET MVC 4 jest prosty mechanizm, który pozwala na zastępowanie dowolnego widoku (w tym układy i widoki częściowe) dla przeglądarki dla urządzeń przenośnych ogólnie rzecz biorąc, poszczególne przeglądarkę dla telefonów lub dowolnej określonej przeglądarki. W celu zapewnienia przeglądu specyficzne dla mobilnych, skopiuj plik widoku i Dodaj *. Mobile* do nazwy pliku. Na przykład, aby utworzyć przenośnym *indeksu* wyświetlić, skopiować *Views\Home\Index.cshtml* do *Views\Home\Index.Mobile.cshtml*.
+Znaczące nową funkcją w ASP.NET MVC 4 jest prosty mechanizm, który pozwala na zastępowanie dowolny widok (w tym układy i widoki częściowe) do przeglądarek dla urządzeń przenośnych ogólnie rzecz biorąc, poszczególne przeglądarce dla urządzeń przenośnych lub dla dowolnej przeglądarki. Aby przedstawić widok specyficzne dla mobilnych, skopiuj plik widoku i Dodaj *. Mobile* do nazwy pliku. Na przykład, aby utworzyć urządzeń przenośnych *indeksu* wyświetlić, skopiować *Views\Home\Index.cshtml* do *Views\Home\Index.Mobile.cshtml*.
 
 W tej sekcji utworzysz plik układu specyficzne dla mobilnych.
 
-Aby rozpocząć, skopiuj *Views\Shared\\_Layout.cshtml* do *Views\Shared\\_Layout.Mobile.cshtml*. Otwórz  *\_Layout.Mobile.cshtml* i Zmień tytuł z **konferencji MVC4** do **konferencji (Mobile)**.
+Aby rozpocząć, skopiuj *Views\Shared\\_Layout.cshtml* do *Views\Shared\\_Layout.Mobile.cshtml*. Otwórz  *\_Layout.Mobile.cshtml* i Zmień tytuł z **konferencji MVC4** do **konferencji (dla urządzeń przenośnych)**.
 
-W każdym `Html.ActionLink` wywołać, Usuń "Przeglądaj według", w każdym odnośniku *ActionLink*. Poniższy kod przedstawia sekcji ukończone treści pliku przenośnych układu.
+W każdym `Html.ActionLink` wywołanie, Usuń "Przeglądaj według" w każdym odnośniku *ActionLink*. Poniższy kod przedstawia sekcję ukończone treści pliku układu dla urządzeń przenośnych.
 
 [!code-cshtml[Main](aspnet-mvc-4-mobile-features/samples/sample5.cshtml)]
 
-Kopiuj *Views\Home\AllTags.cshtml* pliku *Views\Home\AllTags.Mobile.cshtml*. Otwórz nowy plik i zmień `<h2>` element na podstawie "Tagi" do "tagi (M)":
+Kopiuj *Views\Home\AllTags.cshtml* plik *Views\Home\AllTags.Mobile.cshtml*. Otwórz nowy plik i zmień `<h2>` elementu z "Tags" do "tagi (M)":
 
 [!code-html[Main](aspnet-mvc-4-mobile-features/samples/sample6.html)]
 
-Przejdź do strony tagów za pomocą przeglądarki pulpitu i przy użyciu emulatora przeglądarkę dla telefonów. Emulator przeglądarkę dla telefonów zawiera dwa wprowadzone zmiany.
+Przejdź na stronę tagów za pomocą przeglądarki na komputerze i za pomocą emulatora w przeglądarce dla urządzeń przenośnych. Emulator przeglądarce dla urządzeń przenośnych zawiera dwa wprowadzone zmiany.
 
 [![p2m_layoutTags.mobile](aspnet-mvc-4-mobile-features/_static/image12.png)](aspnet-mvc-4-mobile-features/_static/image11.png)
 
@@ -146,226 +145,226 @@ Z kolei Monitor nie zmienił się.
 
 ## <a name="browser-specific-views"></a>Widoki specyficzne dla przeglądarki
 
-Oprócz mobile dotyczące pulpitu i widoki można tworzyć widoki dla poszczególnych przeglądarki. Na przykład można tworzyć widoki, które są przeznaczone dla przeglądarki iPhone. W tej sekcji utworzysz układu dla przeglądarki iPhone i wersji iPhone *alltags —* widoku.
+Oprócz przenośnych dotyczące pulpitu i widoki można tworzyć widoki dla poszczególnych przeglądarki. Na przykład można utworzyć widoków, które są przeznaczone dla przeglądarki dla telefonu iPhone. W tej sekcji utworzysz układ przeglądarki dla telefonu iPhone i wersję telefonu iPhone *alltags —* widoku.
 
-Otwórz *Global.asax* i Dodaj następujący kod do `Application_Start` metody.
+Otwórz *Global.asax* pliku i Dodaj następujący kod do `Application_Start` metody.
 
 [!code-csharp[Main](aspnet-mvc-4-mobile-features/samples/sample7.cs)]
 
-Ten kod definiuje nowy tryb wyświetlania o nazwie "iPhone" pasujących względem każdego żądania przychodzącego. Jeśli żądanie przychodzące odpowiada warunku, zdefiniowane przez użytkownika (jeśli agent użytkownika zawiera ciąg "iPhone"), platformy ASP.NET MVC sprawdza widoki, których nazwa zawiera sufiksu "iPhone".
+Ten kod definiuje nowy tryb wyświetlania o nazwie "iPhone", który dopasowywane każdego żądania przychodzącego. Jeśli przychodzące żądanie dopasowuje warunek, zdefiniowane przez użytkownika (to znaczy, jeśli agent użytkownika zawiera ciąg "iPhone"), platformy ASP.NET MVC sprawdza widoki, których nazwa zawiera sufiksu "iPhone".
 
-W kodzie, kliknij prawym przyciskiem myszy `DefaultDisplayMode`, wybierz **rozwiązać**, a następnie wybierz pozycję `using System.Web.WebPages;`. Spowoduje to dodanie odwołania do `System.Web.WebPages` przestrzeni nazw, czyli gdzie `DisplayModes` i `DefaultDisplayMode` typy zostały zdefiniowane.
+W kodzie, kliknij prawym przyciskiem myszy `DefaultDisplayMode`, wybierz **rozwiązać**, a następnie wybierz polecenie `using System.Web.WebPages;`. Spowoduje to dodanie odwołania do `System.Web.WebPages` przestrzeni nazw, czyli gdzie `DisplayModes` i `DefaultDisplayMode` są zdefiniowane typy.
 
 [![p2_resolve](aspnet-mvc-4-mobile-features/_static/image16.png)](aspnet-mvc-4-mobile-features/_static/image15.png)
 
-Alternatywnie można po prostu ręcznie dodaj następujący wiersz do `using` sekcji pliku.
+Alternatywnie, można po prostu ręcznie dodać następujący wiersz do `using` części pliku.
 
 [!code-csharp[Main](aspnet-mvc-4-mobile-features/samples/sample8.cs)]
 
-Pełna zawartość *Global.asax* plików są wyświetlane poniżej.
+Pełna zawartość *Global.asax* plików znajdują się poniżej.
 
 [!code-csharp[Main](aspnet-mvc-4-mobile-features/samples/sample9.cs)]
 
-Zapisz zmiany. Kopiuj *MvcMobile\Views\Shared\\_Layout.Mobile.cshtml* pliku *MvcMobile\Views\Shared\\_Layout.iPhone.cshtml*. Otwórz nowy plik, a następnie zmień `h1` nagłówek z `Conference (Mobile)` do `Conference (iPhone)`.
+Zapisz zmiany. Kopiuj *MvcMobile\Views\Shared\\_Layout.Mobile.cshtml* plik *MvcMobile\Views\Shared\\_Layout.iPhone.cshtml*. Otwórz nowy plik, a następnie zmień `h1` nagłówek z `Conference (Mobile)` do `Conference (iPhone)`.
 
-Kopiuj *MvcMobile\Views\Home\AllTags.Mobile.cshtml* pliku *MvcMobile\Views\Home\AllTags.iPhone.cshtml*. W nowym pliku zmienić `<h2>` element z "tagi (M)" do "Tagów (iPhone)".
+Kopiuj *MvcMobile\Views\Home\AllTags.Mobile.cshtml* plik *MvcMobile\Views\Home\AllTags.iPhone.cshtml*. W nowym pliku, należy zmienić `<h2>` elementu z "tagi (M)" do "Tagi (iPhone)".
 
-Uruchom aplikację. Uruchamianie emulatora przeglądarkę dla telefonów, upewnij się, że jego agenta użytkownika ma ustawioną wartość "iPhone" i przejdź do *alltags —* widoku. Poniższy zrzut ekranu przedstawia *alltags —* widok renderowany w [Safari](http://www.apple.com/safari/download/) przeglądarki. Safari dla systemu Windows można pobrać [tutaj](https://support.apple.com/kb/DL1531).
+Uruchom aplikację. Uruchamianie emulatora przeglądarce dla urządzeń przenośnych, upewnij się, że jej agent użytkownika jest ustawiona na "iPhone" i przejdź do *alltags —* widoku. Poniższy zrzut ekranu przedstawia *alltags —* widok renderowany w [Safari](http://www.apple.com/safari/download/) przeglądarki. Możesz pobrać Safari dla Windows [tutaj](https://support.apple.com/kb/DL1531).
 
 [![p2_iphoneView](aspnet-mvc-4-mobile-features/_static/image18.png)](aspnet-mvc-4-mobile-features/_static/image17.png)
 
-W tej sekcji możemy przedstawiono sposób tworzenia widoków i układy przenośnych oraz sposobu tworzenia widoków dla konkretnych urządzeń, takich jak telefonów iPhone i układów. W następnej sekcji pojawi się, jak korzystać z jQuery Mobile więcej atrakcyjnych widoków przenośnych.
+W tej sekcji zobaczyliśmy, jak tworzyć układy mobilnych i widoków oraz sposób tworzenia układy i widoki dla określonych urządzeń, takich jak telefon iPhone. W następnej sekcji pokazano, jak korzystać z jQuery Mobile więcej atrakcyjnych mobilnych widoków.
 
-## <a name="using-jquery-mobile"></a>Przy użyciu technologii jQuery Mobile
+## <a name="using-jquery-mobile"></a>Korzystanie z technologii jQuery Mobile
 
-[JQuery Mobile](http://jquerymobile.com/demos/1.0b3/#/demos/1.0b3/docs/about/intro.html) biblioteki zapewniają strukturę interfejsu użytkownika, która działa we wszystkich popularnych przeglądarkach dla urządzeń przenośnych. jQuery Mobile stosuje *stopniowym rozszerzaniu* do przeglądarek urządzeń przenośnych, które obsługują CSS i JavaScript. Stopniowym rozszerzaniu umożliwia wszystkie przeglądarki wyświetlić podstawowe elementy strony sieci web, podczas gdy większe możliwości przeglądarki i urządzenia wyświetlone bardziej zaawansowane funkcje. Pliki JavaScript i CSS, które są dołączone do jQuery Mobile stylów wiele elementów, aby dopasować przeglądarki dla urządzeń przenośnych bez wprowadzania żadnych zmian znaczników.
+[JQuery Mobile](http://jquerymobile.com/demos/1.0b3/#/demos/1.0b3/docs/about/intro.html) biblioteka zawiera struktura interfejsu użytkownika, który działa na wszystkich popularnych przeglądarkach dla urządzeń przenośnych. jQuery Mobile stosuje *stopniowym rozszerzaniu funkcji* do przeglądarki dla urządzeń przenośnych, które obsługują CSS i JavaScript. Stopniowym rozszerzaniu funkcji zezwala na wszystkie przeglądarki do wyświetlania podstawowa zawartość strony sieci web, zapewniając bardziej zaawansowane przeglądarek i urządzeń bardziej rozbudowane wyświetlone. Pliki JavaScript i CSS, które są dołączone do technologii jQuery Mobile stylu wiele elementów, aby dopasować przeglądarki dla urządzeń przenośnych bez wprowadzania żadnych zmian kodu znaczników.
 
-W tej sekcji nastąpi instalacja *jQuery.Mobile.MVC* pakietu NuGet, który instaluje jQuery Mobile i elementu widget tym przełącznikiem widoku.
+W tej sekcji zainstalujesz *jQuery.Mobile.MVC* pakiet NuGet, który instaluje jQuery Mobile i element widget o przełącznikiem widoku.
 
 Aby rozpocząć, należy usunąć *Shared\\_Layout.Mobile.cshtml* i *Shared\\_Layout.iPhone.cshtml* pliki, które zostały utworzone wcześniej.
 
-Zmień nazwę *Views\Home\AllTags.Mobile.cshtml* i *Views\Home\AllTags.iPhone.cshtml* plików do *Views\Home\AllTags.iPhone.cshtml.hide* i  *Views\Home\AllTags.Mobile.cshtml.Hide*. Ponieważ pliki nie muszą już *.cshtml* rozszerzenie, nie będą one używane przez środowisko uruchomieniowe programu ASP.NET MVC do renderowania *alltags —* widoku.
+Zmień nazwę *Views\Home\AllTags.Mobile.cshtml* i *Views\Home\AllTags.iPhone.cshtml* plików *Views\Home\AllTags.iPhone.cshtml.hide* i  *Views\Home\AllTags.Mobile.cshtml.Hide*. Ponieważ pliki nie będzie już *.cshtml* rozszerzenie, nie będą one używane przez środowisko uruchomieniowe programu ASP.NET MVC do renderowania *alltags —* widoku.
 
 Zainstaluj *jQuery.Mobile.MVC* pakietu NuGet w ten sposób:
 
-1. Z **narzędzia** menu, wybierz opcję **Menedżer pakietów biblioteki**, a następnie wybierz **Konsola Menedżera pakietów**.
+1. Z **narzędzia** menu, wybierz opcję **Menedżer pakietów biblioteki**, a następnie wybierz pozycję **Konsola Menedżera pakietów**.
 
     [![p3_packageMgr](aspnet-mvc-4-mobile-features/_static/image20.png)](aspnet-mvc-4-mobile-features/_static/image19.png)
 2. W **Konsola Menedżera pakietów**, wprowadź `Install-Package jQuery.Mobile.MVC -version 1.0.0`
 
-Na poniższej ilustracji przedstawiono pliki, dodawania i modyfikowania do projektu MvcMobile przez pakiet NuGet jQuery.Mobile.MVC. Pliki, które są dodawane [Dodaj] dołączane po nazwie pliku. Obraz nie jest wyświetlany plik GIF i PNG, pliki dodane do *Content\images* folderu.
+Na poniższej ilustracji przedstawiono pliki dodane i zmiany wprowadzone do projektu MvcMobile przez pakiet NuGet jQuery.Mobile.MVC. Pliki, które są dodawane [Dodaj] dołączany po nazwie pliku. Obraz, który nie jest wyświetlany plik GIF i dodawać pliki PNG *Content\images* folderu.
 
 ![](aspnet-mvc-4-mobile-features/_static/image21.png)
 
-Pakiet NuGet jQuery.Mobile.MVC instalowane są następujące:
+Pakiet NuGet jQuery.Mobile.MVC instaluje następujące czynności:
 
-- *Aplikacji\_Start\BundleMobileConfig.cs* pliku, który jest potrzebny do odwołania dodane pliki JavaScript i CSS jQuery. Należy postępuj zgodnie z instrukcjami poniżej i odwołać przenośnych pakietu zdefiniowane w tym pliku.
-- pliki Mobile CSS jQuery.
-- A `ViewSwitcher` widget kontrolera (*Controllers\ViewSwitcherController.cs*).
+- *Aplikacji\_Start\BundleMobileConfig.cs* pliku, który jest potrzebny do odwołania dodane pliki JavaScript i CSS jQuery. Należy postępuj zgodnie z instrukcjami poniżej, a następnie odwoływać się do pakietu przenośnych zdefiniowaną w tym pliku.
+- jQuery Mobile CSS pliki.
+- A `ViewSwitcher` widżet kontrolera (*Controllers\ViewSwitcherController.cs*).
 - jQuery Mobile JavaScript pliki.
-- Pliku jQuery Mobile, styl układu (*Views\Shared\\_Layout.Mobile.cshtml*).
-- Widok częściowy tym przełącznikiem widoku *(MvcMobile\Views\Shared\\_ViewSwitcher.cshtml*) zapewnia łącze na początku każdej strony, aby przełączyć się z widoku pulpitu widokiem dla urządzeń przenośnych i na odwrót.
+- Plik układu różne Mobile jQuery (*Views\Shared\\_Layout.Mobile.cshtml*).
+- Widok częściowy przełącznikiem widoku *(MvcMobile\Views\Shared\\_ViewSwitcher.cshtml*) zapewniającej link u góry każdej strony, aby przełączyć się z widok pulpitu na widok dla urządzeń przenośnych i na odwrót.
 - Kilka<em>.png</em> i <em>.gif</em> pliki obrazów w <em>Content\images</em> folderu.
 
-Otwórz *Global.asax* pliku i Dodaj następujący kod, jak ostatni wiersz `Application_Start` metody.
+Otwórz *Global.asax* pliku i Dodaj następujący kod jako ostatni wiersz `Application_Start` metody.
 
 [!code-csharp[Main](aspnet-mvc-4-mobile-features/samples/sample10.cs)]
 
-Poniższy kod przedstawia pełną *Global.asax* pliku.
+Poniższy kod przedstawia pełny *Global.asax* pliku.
 
 [!code-csharp[Main](aspnet-mvc-4-mobile-features/samples/sample11.cs?highlight=26)]
 
 > [!NOTE]
-> Jeśli korzystasz z programu Internet Explorer 9, a nie ma `BundleMobileConfig` wiersz powyżej w Wyróżnij żółty, kliknij przycisk [przycisk Widok zgodności](https://windows.microsoft.com/windows7/How-to-use-Compatibility-View-in-Internet-Explorer-9)![obraz przycisku widoku zgodności (wyłączone)] (http://res2.windows.microsoft.com/resbox/en/Windows 7/main/f080e77f-9b66-4ac8-9af0-803c4f8a859c_15.jpg " Obraz przycisku widoku zgodności (wyłączone)") w programie Internet Explorer, aby ikona zmiany z konspektu ![obraz przycisku widoku zgodności (wyłączone)](http://res2.windows.microsoft.com/resbox/en/Windows 7/main/f080e77f-9b66-4ac8-9af0-803c4f8a859c_15.jpg "obraz przycisku widoku zgodności (wyłączone) ") pełny kolor ![obraz przycisku widoku zgodności (na)](http://res1.windows.microsoft.com/resbox/en/Windows 7/main/156805ff-3130-481b-a12d-4d3a96470f36_14.jpg "obraz przycisku widoku zgodności (na)"). Alternatywnie można wyświetlić w tym samouczku w przeglądarki FireFox lub Chrome.
+> Jeśli używasz programu Internet Explorer 9, a nie widać `BundleMobileConfig` wiersz powyżej w Wyróżnij żółty, kliknij przycisk [przycisk Widok zgodności](https://windows.microsoft.com/windows7/How-to-use-Compatibility-View-in-Internet-Explorer-9)![obraz przycisku Widok zgodności (wyłączone)] (http://res2.windows.microsoft.com/resbox/en/Windows 7/main/f080e77f-9b66-4ac8-9af0-803c4f8a859c_15.jpg " Obraz przycisku Widok zgodności (wyłączone)") w programie Internet Explorer, aby ikona zmiany z konturem ![obraz przycisku Widok zgodności (wyłączone)](http://res2.windows.microsoft.com/resbox/en/Windows 7/main/f080e77f-9b66-4ac8-9af0-803c4f8a859c_15.jpg "obraz przycisku Widok zgodności (wyłączony) ") pełny kolor ![obraz przycisku Widok zgodności (funkcja włączona)](http://res1.windows.microsoft.com/resbox/en/Windows 7/main/156805ff-3130-481b-a12d-4d3a96470f36_14.jpg "obraz przycisku Widok zgodności (funkcja włączona)"). Alternatywnie można wyświetlić w tym samouczku w przeglądarce FireFox lub Chrome.
 
 
-Otwórz *MvcMobile\Views\Shared\\_Layout.Mobile.cshtml* i Dodaj następujący kod bezpośrednio po `Html.Partial` wywołania:
+Otwórz *MvcMobile\Views\Shared\\_Layout.Mobile.cshtml* pliku i Dodaj następujący kod bezpośrednio po `Html.Partial` wywołania:
 
 [!code-cshtml[Main](aspnet-mvc-4-mobile-features/samples/sample12.cshtml)]
 
-Pełną *MvcMobile\Views\Shared\\_Layout.Mobile.cshtml* pliku przedstawiono poniżej:
+Pełne *MvcMobile\Views\Shared\\_Layout.Mobile.cshtml* plików znajdują się poniżej:
 
 [!code-cshtml[Main](aspnet-mvc-4-mobile-features/samples/sample13.cshtml)]
 
-Tworzenie aplikacji i w Twojej emulatorze przenośnym przeglądarki przejdź do *alltags —* widoku. Zostanie wyświetlony poniżej:
+Skompiluj aplikację i w swojej przeglądarce dla urządzeń przenośnych emulatorze przejdź do *alltags —* widoku. Zostaną wyświetlone następujące czynności:
 
 [![p3_afterNuGet](aspnet-mvc-4-mobile-features/_static/image23.png)](aspnet-mvc-4-mobile-features/_static/image22.png)
 
 > [!NOTE]
-> Można debugować dostępu mobilnego określonych przez [ustawienie ciąg agenta użytkownika](http://www.howtogeek.com/113439/how-to-change-your-browsers-user-agent-without-installing-any-extensions/) dla programu Internet Explorer lub przeglądarki Chrome iPhone i przy użyciu narzędzia Projektant F-12. Jeśli przeglądarka przenośnych nie są wyświetlane **Home**, **prelegenta**, **Tag**, i **data** łącza jako przyciski, odwołania do jQuery Mobile skrypty i pliki CSS prawdopodobnie nie są prawidłowe.
+> Można debugować mobilnego określonych przez [ustawienie ciąg agenta użytkownika](http://www.howtogeek.com/113439/how-to-change-your-browsers-user-agent-without-installing-any-extensions/) dla programu Internet Explorer lub Chrome do telefonu iPhone, a następnie użyć narzędzia deweloperskie F-12. Jeśli w przeglądarce dla urządzeń przenośnych nie są wyświetlane **Home**, **osoby mówiącej**, **Tag**, i **data** łącza jako przyciski, odwołania do technologii jQuery Mobile skrypty i pliki CSS prawdopodobnie nie są prawidłowe.
 
 
-Oprócz zmian stylu, zobacz **wyświetlania widoku przenośnych** oraz łącze, które umożliwia przełączenie z widokiem dla urządzeń przenośnych do widoku pulpitu. Wybierz **widok pulpitu** łącza, a widok pulpitu jest wyświetlana.
+Oprócz zmian stylów zobaczysz **wyświetlanie widoku dla urządzeń przenośnych** i łącze, które umożliwia przechodzenie z widoku dla urządzeń przenośnych do widoku pulpitu. Wybierz **widok pulpitu** łącze i widok pulpitu są wyświetlane.
 
 [![p3_desktopView](aspnet-mvc-4-mobile-features/_static/image25.png)](aspnet-mvc-4-mobile-features/_static/image24.png)
 
-Widok pulpitu nie umożliwiają bezpośrednio przejść z powrotem do widokiem dla urządzeń przenośnych. Który będzie napraw teraz. Otwórz *Views\Shared\\_Layout.cshtml* pliku. Tylko w obszarze strony `body` elementu, Dodaj następujący kod, który renderuje element widget tym przełącznikiem widoku:
+Widok pulpitu nie umożliwiają bezpośrednie przejście do widoku dla urządzeń przenośnych. Można to naprawić teraz. Otwórz *Views\Shared\\_Layout.cshtml* pliku. Tuż poniżej strony `body` elementu, Dodaj następujący kod, który renderuje element widget przełącznikiem widoku:
 
 [!code-cshtml[Main](aspnet-mvc-4-mobile-features/samples/sample14.cshtml)]
 
-Odśwież *alltags —* Wyświetl w przeglądarce przenośnych. Teraz można przechodzić między widokami komputerów stacjonarnych i przenośnych.
+Odśwież *alltags —* Wyświetl w przeglądarce dla urządzeń przenośnych. Możesz teraz przechodzić między widokami pulpitu i na urządzeniach przenośnych.
 
 [![p3_desktopViewWithMobileLink](aspnet-mvc-4-mobile-features/_static/image27.png)](aspnet-mvc-4-mobile-features/_static/image26.png)
 
 > [!NOTE]
-> Debugowanie Uwaga: możesz Dodaj następujący kod na końcu Views\Shared\\_ViewSwitcher.cshtml debugować widoków ustawianą przy użyciu przeglądarki ciąg agenta użytkownika na urządzenie przenośne.
+> Debugowanie Uwaga: można dodać następujący kod na końcu Views\Shared\\_ViewSwitcher.cshtml, aby pomóc w debugowaniu widoki, gdy za pomocą przeglądarki ciąg agenta użytkownika ustawiony na urządzeniu przenośnym.
 > 
 > [!code-csharp[Main](aspnet-mvc-4-mobile-features/samples/sample15.cs)]
 > 
->  i dodawanie następujący nagłówek do *Views\Shared\\_Layout.cshtml* pliku.  
+>  i dodać następujący nagłówek do *Views\Shared\\_Layout.cshtml* pliku.  
 > 
 > [!code-html[Main](aspnet-mvc-4-mobile-features/samples/sample16.html)]
 
 
-Przejdź do *alltags —* strony w przeglądarce pulpitu. Widżet tym przełącznikiem widoku nie jest wyświetlana w przeglądarce pulpitu, ponieważ jest ono dodane tylko do strony układu przenośnych. Później w samouczku zobaczysz, jak dodać element widget tym przełącznikiem widoku do widoku pulpitu.
+Przejdź do *alltags —* strony w przeglądarce pulpitu. Widżet o przełącznikiem widoku nie jest wyświetlana w przeglądarce pulpitu, ponieważ jest ono dodane tylko do strony układu dla urządzeń przenośnych. W dalszej części tego samouczka zobaczysz, jak dodać element widget przełącznikiem widoku w widoku pulpitu.
 
 [![p3_desktopBrowser](aspnet-mvc-4-mobile-features/_static/image29.png)](aspnet-mvc-4-mobile-features/_static/image28.png)
 
-## <a name="improving-the-speakers-list"></a>Poprawa listy głośniki
+## <a name="improving-the-speakers-list"></a>Poprawa lista prelegentów
 
-W przeglądarce przenośnym, wybierz **głośniki** łącza. Ponieważ nie istnieje żadne widokiem dla urządzeń przenośnych (*AllSpeakers.Mobile.cshtml*), wyświetlanie głośniki domyślne (*AllSpeakers.cshtml*) jest renderowany przy użyciu widoku układu przenośnych ( *\_ Layout.Mobile.cshtml*).
+W przeglądarce mobilnej, wybierz **prelegentów** łącza. Ponieważ nie istnieje żadne widoku dla urządzeń przenośnych (*AllSpeakers.Mobile.cshtml*), Wyświetl prelegentów domyślne (*AllSpeakers.cshtml*) jest renderowany przy użyciu widoku układu dla urządzeń przenośnych ( *\_ Layout.Mobile.cshtml*).
 
 [![p3_speakersDeskTop](aspnet-mvc-4-mobile-features/_static/image31.png)](aspnet-mvc-4-mobile-features/_static/image30.png)
 
-Widok domyślny (nieprzenośnych) z renderowania w układzie przenośnych globalnie można wyłączyć, ustawiając `RequireConsistentDisplayMode` do `true` w *widoków\\_ViewStart.cshtml* pliku następująco:
+Domyślny widok (innych niż urządzenia przenośne) z renderowania wewnątrz układu dla urządzeń przenośnych można globalnie wyłączyć, ustawiając `RequireConsistentDisplayMode` do `true` w *widoków\\_ViewStart.cshtml* pliku następująco:
 
 [!code-cshtml[Main](aspnet-mvc-4-mobile-features/samples/sample17.cshtml)]
 
-Gdy `RequireConsistentDisplayMode` ma ustawioną wartość `true`, przenośne układu (<em>\_Layout.Mobile.cshtml</em>) jest używany tylko dla widoków przenośnych. (Plik widoku jest w formie <em>** ViewName</em><em>. Mobile.cshtml</em>.) Należy ustawić `RequireConsistentDisplayMode` do `true` Jeśli przenośnych układu nie działa prawidłowo w przypadku widoków przeznaczone dla urządzeń przenośnych. Zrzut ekranu poniżej przedstawiono sposób <em>głośniki</em> renderowania strony, gdy `RequireConsistentDisplayMode` ma ustawioną wartość `true`.
+Gdy `RequireConsistentDisplayMode` ustawiono `true`, układu dla urządzeń przenośnych (<em>\_Layout.Mobile.cshtml</em>) jest używany tylko dla mobilnych widoków. (To znaczy, Wyświetl plik ma postać <em>** Nazwa widoku</em><em>. Mobile.cshtml</em>.) Warto ustawić `RequireConsistentDisplayMode` do `true` Jeśli Twoje układu dla urządzeń przenośnych nie działa dobrze z widoków nieprzenośnych. Zrzut ekranu poniżej przedstawiono sposób, w jaki <em>prelegentów</em> renderowanie strony, gdy `RequireConsistentDisplayMode` ustawiono `true`.
 
 [![p3_speakersConsistent](aspnet-mvc-4-mobile-features/_static/image33.png)](aspnet-mvc-4-mobile-features/_static/image32.png)
 
-Spójnego trybu wyświetlania w widoku można wyłączyć, ustawiając `RequireConsistentDisplayMode` do `false` w pliku widoku. Następujący kod w *Views\Home\AllSpeakers.cshtml* plików zestawów `RequireConsistentDisplayMode` do `false`:
+Wyłącz spójnego trybu wyświetlania w widoku, ustawiając `RequireConsistentDisplayMode` do `false` w pliku widoku. Następujące znaczniki w *Views\Home\AllSpeakers.cshtml* plików zestawów `RequireConsistentDisplayMode` do `false`:
 
 [!code-cshtml[Main](aspnet-mvc-4-mobile-features/samples/sample18.cshtml)]
 
-## <a name="creating-a-mobile-speakers-view"></a>Tworzenie widoku głośniki przenośnych
+## <a name="creating-a-mobile-speakers-view"></a>Tworzenie widoku przenośnych prelegentów
 
-Jak został wyświetlony, *głośniki* widoku jest możliwy do odczytu, ale łącza są małe i są trudne do naciśnij na urządzeniu przenośnym. W tej sekcji utworzysz konkretnego mobile *głośniki* widoku prawdopodobnie nowoczesnych aplikacji mobilnej — Wyświetla dużych, łatwe wybranie łączy i zawiera pole wyszukiwania, aby szybko znaleźć głośniki.
+Ponieważ właśnie uruchomiliśmy, *prelegentów* widoku do odczytu, ale linki są małe i są trudne do naciśnij przycisk na urządzeniu przenośnym. W tej sekcji utworzysz konkretną mobile *prelegentów* widoku, który wygląda podobnie do nowoczesnych aplikacji mobilnej — Wyświetla dużych, łatwo naciśnij łączy i zawiera pole wyszukiwania, aby szybko znaleźć głośników.
 
 Kopiuj *AllSpeakers.cshtml* do *AllSpeakers.Mobile.cshtml*. Otwórz *AllSpeakers.Mobile.cshtml* pliku i usuwania `<h2>` element nagłówka.
 
-W `<ul>` tagów, Dodaj `data-role` atrybutu i ustaw dla niego wartość `listview`. Takich jak inne [ `data-*` atrybuty](http://html5doctor.com/html5-custom-data-attributes/), `data-role="listview"` sprawia, że elementy listy dużych łatwiej naciśnięcie przycisku. To jest ukończone znaczników wygląda następująco:
+W `<ul>` tagów, należy dodać `data-role` atrybut i ustawić jej wartość na `listview`. Jak inne [ `data-*` atrybuty](http://html5doctor.com/html5-custom-data-attributes/), `data-role="listview"` sprawia, że łatwiej elementów listy dużych naciśnięcie pozycji. Jest to ukończone znaczników wygląda następująco:
 
 [!code-cshtml[Main](aspnet-mvc-4-mobile-features/samples/sample19.cshtml)]
 
-Odśwież przeglądarkę dla telefonów. Widok zaktualizowanej wygląda następująco:
+Odśwież w przeglądarce mobilnej. Wyświetl zaktualizowane wygląda następująco:
 
 [![p3_updatedSpeakerView1](aspnet-mvc-4-mobile-features/_static/image35.png)](aspnet-mvc-4-mobile-features/_static/image34.png)
 
-Chociaż ulepszono widokiem dla urządzeń przenośnych, jest trudno długą listę głośniki. Aby rozwiązać ten problem, w `<ul>` tagów, Dodaj `data-filter` atrybutu i ustaw ją na `true`. Kod poniżej przedstawia `ul` znaczników.
+Mimo, że zostały udoskonalone w widoku dla urządzeń przenośnych, jest trudny do przejść długą listę prelegentów. Aby rozwiązać ten problem, w `<ul>` tagów, należy dodać `data-filter` atrybutu i ustaw ją na `true`. Poniższy kod przedstawia `ul` znaczników.
 
 [!code-html[Main](aspnet-mvc-4-mobile-features/samples/sample20.html)]
 
-Na poniższej ilustracji przedstawiono pola filtru wyszukiwania w górnej części strony, który jest wynikiem `data-filter` atrybutu.
+Na poniższej ilustracji przedstawiono okno filtr wyszukiwania w górnej części strony, która wynika z `data-filter` atrybutu.
 
 [![ps_Data_Filter](aspnet-mvc-4-mobile-features/_static/image37.png)](aspnet-mvc-4-mobile-features/_static/image36.png)
 
-Podczas wpisywania każdego litera w polu wyszukiwania, jQuery Mobile filtruje wyświetlonej listy, jak pokazano na poniższej ilustracji.
+Podczas wpisywania każdego literę w polu wyszukiwania, jQuery Mobile filtruje wyświetlonej listy, jak pokazano na poniższej ilustracji.
 
 [![ps_data_filter_SC](aspnet-mvc-4-mobile-features/_static/image39.png)](aspnet-mvc-4-mobile-features/_static/image38.png)
 
-## <a name="improving-the-tags-list"></a>Poprawa listy tagów
+## <a name="improving-the-tags-list"></a>Poprawa lista tagów
 
-Wartość domyślna, takich jak *głośniki* widoku *tagi* widoku jest możliwy do odczytu, ale łącza są małe i trudne do naciśnij na urządzeniu przenośnym. W tej sekcji, będzie można rozwiązać *tagi* wyświetlać ten sam sposób, został rozwiązany *głośniki* widoku.
+Wartość domyślna, takich jak *prelegentów* widoku *tagi* widok jest do odczytu, ale linki są małe i trudne do naciśnij przycisk na urządzeniu przenośnym. W tej sekcji naprawisz *tagi* wyświetlać ten sam sposób Naprawiono *prelegentów* widoku.
 
-Usuń &quot;Ukryj&quot; sufiks *Views\Home\AllTags.Mobile.cshtml.hide* pliku, tak aby nazwa *Views\Home\AllTags.Mobile.cshtml*. Otwórz plik o zmienionej nazwie i Usuń `<h2>` elementu.
+Usuń &quot;Ukryj&quot; sufiks *Views\Home\AllTags.Mobile.cshtml.hide* pliku, dzięki czemu jest nazwa *Views\Home\AllTags.Mobile.cshtml*. Otwórz plik o zmienionej nazwie i Usuń `<h2>` elementu.
 
-Dodaj `data-role` i `data-filter` atrybuty do `<ul>` tagów, jak pokazano poniżej:
+Dodaj `data-role` i `data-filter` atrybuty do `<ul>` tag, jak pokazano poniżej:
 
 [!code-html[Main](aspnet-mvc-4-mobile-features/samples/sample21.html)]
 
-Na poniższym obrazie pokazano stronie znaczników filtrowanie list `J`.
+Na poniższym obrazie przedstawiono stronę tagów i filtrowanie list `J`.
 
 [![p3_tags_J](aspnet-mvc-4-mobile-features/_static/image41.png)](aspnet-mvc-4-mobile-features/_static/image40.png)
 
-## <a name="improving-the-dates-list"></a>Poprawa listy dat
+## <a name="improving-the-dates-list"></a>Poprawianie listy daty
 
-Można zwiększyć *dat* wyświetlania, takich jak zwiększona możesz *głośniki* i *tagi* widoków, dzięki czemu możliwe jest łatwiejsze do użycia na urządzeniu przenośnym.
+Można zwiększyć *daty* wyświetlić, takie jak zwiększenie *prelegentów* i *tagi* widoki tak, aby ułatwić korzystanie na urządzeniu przenośnym.
 
-Kopiuj *Views\Home\AllDates.cshtml* pliku *Views\Home\AllDates.Mobile.cshtml*. Otwórz nowy plik i Usuń `<h2>` elementu.
+Kopiuj *Views\Home\AllDates.cshtml* plik *Views\Home\AllDates.Mobile.cshtml*. Otwórz nowy plik i Usuń `<h2>` elementu.
 
 Dodaj `data-role="listview"` do `<ul>` tag następująco:
 
 [!code-html[Main](aspnet-mvc-4-mobile-features/samples/sample22.html)]
 
-Na poniższym obrazie pokazano, co **data** prawdopodobnie strona z `data-role` atrybutu w miejscu.
+Na poniższym obrazie przedstawiono co **data** wygląda strona przy użyciu `data-role` atrybutu w miejscu.
 
 [![p3_dates1](aspnet-mvc-4-mobile-features/_static/image43.png)](aspnet-mvc-4-mobile-features/_static/image42.png) Zastąp zawartość *Views\Home\AllDates.Mobile.cshtml* pliku następującym kodem:
 
 [!code-cshtml[Main](aspnet-mvc-4-mobile-features/samples/sample23.cshtml)]
 
-Ten kod grupuje wszystkie sesje według dni. Tworzy linię podziału listy codziennie nowy i wyświetlane są wszystkie sesje dla poszczególnych dni w obszarze linii podziału. Oto, co wygląda po uruchomieniu tego kodu:
+Ten kod grupuje wszystkie sesje według dni. Tworzy separator listy na każdy dzień nowych i wyświetla listę wszystkich sesji dla poszczególnych dni w obszarze separator. Poniżej przedstawiono wygląda jak podczas wykonywania tego kodu:
 
 [![p3_dates2](aspnet-mvc-4-mobile-features/_static/image45.png)](aspnet-mvc-4-mobile-features/_static/image44.png)
 
-## <a name="improving-the-sessionstable-view"></a>Poprawa widoku SessionsTable
+## <a name="improving-the-sessionstable-view"></a>Poprawianie widoku SessionsTable
 
-W tej sekcji utworzysz widok mobile określonej sesji. Firma Microsoft zmiany będzie bardziej rozległych niż w innych widokach, który został utworzony.
+W tej sekcji utworzysz widok mobile określonej sesji. Zmiany, które firma Microsoft będzie bardziej rozbudowany niż w innych widokach, którą utworzyliśmy.
 
-W przeglądarce przenośnym, wybierz **prelegenta** przycisk, a następnie wprowadź `Sc` w polu wyszukiwania.
+W przeglądarce mobilnej naciśnij **osoby mówiącej** przycisk, a następnie wprowadź `Sc` w polu wyszukiwania.
 
 [![ps_data_filter_SC](aspnet-mvc-4-mobile-features/_static/image47.png)](aspnet-mvc-4-mobile-features/_static/image46.png)
 
-Wybierz **Scott Hanselman** łącza.
+Naciśnij pozycję **Scott Hanselman** łącza.
 
 [![p3_scottHa](aspnet-mvc-4-mobile-features/_static/image49.png)](aspnet-mvc-4-mobile-features/_static/image48.png)
 
-Jak widać, ekran jest trudne do odczytu w przeglądarce przenośnych. Data kolumny jest trudny do odczytania i kolumny znaczników leży poza widoku. Aby rozwiązać ten problem, skopiuj *Views\Home\SessionsTable.cshtml* do *Views\Home\SessionsTable.Mobile.cshtml*, a następnie zastąp zawartość pliku następującym kodem:
+Jak widać, ekran jest trudne do odczytania w przeglądarce dla urządzeń przenośnych. Kolumna dat jest trudny do odczytania i kolumny tagów jest poza widoku. Aby rozwiązać ten problem, skopiuj *Views\Home\SessionsTable.cshtml* do *Views\Home\SessionsTable.Mobile.cshtml*, a następnie zastąp zawartość pliku następującym kodem:
 
 [!code-cshtml[Main](aspnet-mvc-4-mobile-features/samples/sample24.cshtml)]
 
-Kod usuwa pomieszczeniu znaczniki kolumn i formatuje tytuł, prelegenta i daty w pionie, tak, aby te informacje są przeznaczone do odczytu w przeglądarce przenośnych. Na poniższym obrazie odzwierciedla zmiany kodu.
+Kod usuwa pokoju tagów, kolumny i formatuje tytuł, osoby mówiącej i datę w pionie, tak, aby wszystkie te informacje są do odczytu w przeglądarce dla urządzeń przenośnych. Na poniższej ilustracji odzwierciedla zmian w kodzie.
 
 [![ps_SessionsByScottHa](aspnet-mvc-4-mobile-features/_static/image51.png)](aspnet-mvc-4-mobile-features/_static/image50.png)
 
-## <a name="improving-the-sessionbycode-view"></a>Poprawa widoku SessionByCode
+## <a name="improving-the-sessionbycode-view"></a>Poprawianie widoku SessionByCode
 
-Na koniec utworzysz widok specyficzne dla mobile *SessionByCode* widoku. W przeglądarce przenośnym, wybierz **prelegenta** przycisk, a następnie wprowadź `Sc` w polu wyszukiwania.
+Na koniec utworzymy widok specyficzne dla mobile *SessionByCode* widoku. W przeglądarce mobilnej naciśnij **osoby mówiącej** przycisk, a następnie wprowadź `Sc` w polu wyszukiwania.
 
 [![ps_data_filter_SC](aspnet-mvc-4-mobile-features/_static/image53.png)](aspnet-mvc-4-mobile-features/_static/image52.png)
 
-Wybierz **Scott Hanselman** łącza. Scott Hanselman sesji są wyświetlane.
+Naciśnij pozycję **Scott Hanselman** łącza. Scott Hanselman sesje są wyświetlane.
 
 [![ps_SessionsByScottHa](aspnet-mvc-4-mobile-features/_static/image55.png)](aspnet-mvc-4-mobile-features/_static/image54.png)
 
@@ -373,30 +372,30 @@ Wybierz **omówienie stosu sieci Web MS Love** łącza.
 
 [![ps_love](aspnet-mvc-4-mobile-features/_static/image57.png)](aspnet-mvc-4-mobile-features/_static/image56.png)
 
-Domyślny widok pulpitu działa poprawnie, ale można ją udoskonalać.
+Domyślny widok pulpitu jest w dobrym stanie, ale można ją ulepszyć.
 
-Kopiuj *Views\Home\SessionByCode.cshtml* do *Views\Home\SessionByCode.Mobile.cshtml* i Zastąp zawartość *Views\Home\SessionByCode.Mobile.cshtml*pliku z następujący kod:
+Kopiuj *Views\Home\SessionByCode.cshtml* do *Views\Home\SessionByCode.Mobile.cshtml* i Zastąp zawartość *Views\Home\SessionByCode.Mobile.cshtml*pliku następującym kodem:
 
 [!code-cshtml[Main](aspnet-mvc-4-mobile-features/samples/sample25.cshtml)]
 
-Używa nowego znacznika `data-role` atrybutu zwiększające układ widoku.
+Korzysta z nowych znaczników `data-role` atrybutu, aby poprawić układ widoku.
 
-Odśwież przeglądarkę dla telefonów. Poniższa ilustracja odzwierciedla zmiany kodu, które zostały wykonane:
+Odśwież w przeglądarce mobilnej. Poniższa ilustracja odzwierciedla zmian w kodzie, które zostały wykonane:
 
 [![p3_love2](aspnet-mvc-4-mobile-features/_static/image59.png)](aspnet-mvc-4-mobile-features/_static/image58.png)
 
-## <a name="wrapup-and-review"></a>Wrapup i przejrzyj
+## <a name="wrapup-and-review"></a>Wrapup i przeglądu
 
-Ten samouczek ma wprowadzono nowe funkcje mobilne platformy ASP.NET MVC 4 Developer Preview. Funkcje mobilne obejmują:
+W tym samouczku wprowadził nowe funkcje mobilnych programu ASP.NET MVC 4 dla deweloperów w wersji zapoznawczej. Funkcje mobilne obejmują:
 
-- Możliwość zastępowania układu, widoków i widoki częściowe, globalnie i dla poszczególnych widoku.
-- Sterowanie układu i częściowe zastąpienie wymuszania przy użyciu `RequireConsistentDisplayMode` właściwości.
-- Element widget z tym przełącznikiem widoku dla urządzeń przenośnych widoków nie mogą być także wyświetlane w widokach pulpitu.
-- Obsługa pomocniczych przeglądarki, takich jak przeglądarki iPhone.
+- Możliwość przesłaniania układ, widoki i widoki częściowe, globalnie i dla poszczególnych widoku.
+- Kontroluje układ i za pomocą wymuszania częściowe zastąpienie `RequireConsistentDisplayMode` właściwości.
+- Element widget o przełącznikiem widoku dla urządzeń przenośnych widoki nie mogą być także wyświetlane w widokach pulpitu.
+- Obsługa do obsługi określonych przeglądarki, takich jak przeglądarki dla telefonu iPhone.
 
 ## <a name="see-also"></a>Zobacz też
 
 - [jQuery Mobile](http://jquerymobile.com) lokacji.
 - [jQuery Mobile — omówienie](http://jquerymobile.com/demos/1.0b3/docs/about/intro.html)
-- [W3C zalecenie przenośnych sieci Web aplikacji najlepsze rozwiązania](http://www.w3.org/TR/mwabp/)
-- [Zalecenie Candidate W3C zapytaniami multimediów](http://www.w3.org/TR/css3-mediaqueries/)
+- [W3C zalecenie mobilne stosowanie najlepszych rozwiązań](http://www.w3.org/TR/mwabp/)
+- [W3C zalecenie Release Candidate dla zapytaniami multimediów](http://www.w3.org/TR/css3-mediaqueries/)

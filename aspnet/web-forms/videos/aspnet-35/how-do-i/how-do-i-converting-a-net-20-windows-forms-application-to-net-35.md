@@ -1,31 +1,30 @@
 ---
 uid: web-forms/videos/aspnet-35/how-do-i/how-do-i-converting-a-net-20-windows-forms-application-to-net-35
-title: '[Jak i.] Konwertowanie .NET 2.0 aplikacji .NET 3.5 formularzy systemu Windows | Dokumentacja firmy Microsoft'
+title: '[Jak mogę] Konwertowanie .NET 2.0 Windows Forms aplikacji na .NET 3.5 | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: Przy użyciu nowej funkcji wielowersyjności kodu programu Visual Studio 2008, I zostaną przedstawione uaktualniania projektu z .NET 2.0, .NET 3.5. W tym wideo teraz nastąpi przekierowanie...
+description: Za pomocą nowa funkcja wielowersyjności kodu programu Visual Studio 2008, I zademonstruje uaktualniania projektu .NET 2.0 programu .NET 3.5. W tym filmie pokazano pobierzemy...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/14/2008
 ms.topic: article
 ms.assetid: 30274ca7-8dc8-41b2-b5b4-40881046079a
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-35/how-do-i/how-do-i-converting-a-net-20-windows-forms-application-to-net-35
 msc.type: video
-ms.openlocfilehash: c7f3034091a10c3074aece80312cb98ade67926f
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: acced2a3c9c96736bbb27525767f5464af3c97ae
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30886462"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37385301"
 ---
-<a name="how-do-i-converting-a-net-20-windows-forms-application-to-net-35"></a>[Jak i.] Konwertowanie aplikacji .NET 2.0 Windows Forms do .NET 3.5
+<a name="how-do-i-converting-a-net-20-windows-forms-application-to-net-35"></a>[Jak mogę] Konwertowanie aplikacji programu .NET 2.0 Windows Forms na .NET 3.5
 ====================
 przez Asli Bilgin
 
-Przy użyciu nowej funkcji wielowersyjności kodu programu Visual Studio 2008, I zostaną przedstawione uaktualniania projektu z .NET 2.0, .NET 3.5. To wideo możemy otrzymuje aplikacji formularzy systemu Windows programu .NET 2.0 i uaktualnić ją do .NET 3.5.
+Za pomocą nowa funkcja wielowersyjności kodu programu Visual Studio 2008, I zademonstruje uaktualniania projektu .NET 2.0 programu .NET 3.5. W tym filmie pokazano Rozpoczniemy nastavit aplikaci formularzy Windows w wersji 2.0 platformy .NET i uaktualnić ją do platformy .NET 3.5.
 
-[&#9654;Obejrzyj klip wideo (minuty 8)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-converting-a-net-20-windows-forms-application-to-net-35)
+[&#9654;Obejrzyj film wideo (8 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-converting-a-net-20-windows-forms-application-to-net-35)
 
 > [!div class="step-by-step"]
 > [Poprzednie](how-do-i-advance-cascading-style-sheet-features-and-management.md)

@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-4
-title: Obsługa relacjami jednostek | Dokumentacja firmy Microsoft
+title: Obsługa relacji jednostek | Dokumentacja firmy Microsoft
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
@@ -9,109 +9,108 @@ ms.date: 06/16/2014
 ms.topic: article
 ms.assetid: d2f5710c-23c7-40a5-9cd9-5d0516570cba
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-4
 msc.type: authoredcontent
-ms.openlocfilehash: 3c82724739b8ccb7c6b13788a5420af1e61c990b
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 7759b828068d99f9975d56671e427ccf6e94aef6
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30872692"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37400956"
 ---
-<a name="handling-entity-relations"></a>Obsługa relacjami jednostek
+<a name="handling-entity-relations"></a>Obsługa relacji jednostek
 ====================
-przez [Wasson Jan](https://github.com/MikeWasson)
+przez [Mike Wasson](https://github.com/MikeWasson)
 
 [Pobieranie ukończone projektu](https://github.com/MikeWasson/BookService)
 
-W tej sekcji opisano niektóre szczegółowe informacje, jak EF ładuje powiązanych jednostek i sposób obsługi właściwości nawigacji cykliczne w klasach modeli. (Ta sekcja zawiera tła wiedzy i nie jest wymagane do ukończenia tego samouczka. Jeśli wolisz, przejdź do [część 5.](part-5.md).)
+W tej sekcji opisano niektóre szczegóły, jak EF ładuje powiązanych jednostek i sposób obsługi właściwości nawigacji cykliczne w klasach modeli. (Ta sekcja zawiera wiedzę i nie jest wymagane do ukończenia tego samouczka. Jeśli wolisz, przejdź do [część 5.](part-5.md).)
 
-## <a name="eager-loading-versus-lazy-loading"></a>Eager ładowania i opóźnionego ładowania
+## <a name="eager-loading-versus-lazy-loading"></a>Eager, ładowania i ładowania z opóźnieniem
 
-Jeśli używasz EF z relacyjnej bazy danych, jest zrozumieć, jak EF ładuje dane dotyczące.
+Przy użyciu programu EF z relacyjnej bazy danych, jest ważne, aby zrozumieć, jak EF ładuje powiązanych danych.
 
-Jest również zobaczyć zapytań SQL, które generuje EF. Śledzenie SQL, Dodaj następujący wiersz kodu w celu `BookServiceContext` konstruktora:
+Jest to również przydatne wyświetlić zapytania SQL, które generuje EF. Śledzenie SQL, Dodaj następujący wiersz kodu, aby `BookServiceContext` Konstruktor:
 
 [!code-csharp[Main](part-4/samples/sample1.cs)]
 
-Po wysłaniu żądania GET do /api/books zwraca JSON podobne do poniższych:
+Jeśli wyślesz żądanie GET do /api/books zwraca JSON podobne do następującego:
 
 [!code-console[Main](part-4/samples/sample2.cmd)]
 
-Widać, właściwość Autor jest pusty, nawet jeśli książce zawiera prawidłową wartość IDAutora. Wynika to z EF nie ładuje powiązanych jednostek autora. Dziennik śledzenia zapytania SQL potwierdza to:
+Widać, że właściwość Autor ma wartość null, mimo że książka zawiera prawidłową wartość IDAutora. Wynika to z programów EF nie trwa ładowanie powiązanych jednostek autora. Zapytanie SQL w dzienniku śledzenia potwierdza to:
 
 [!code-console[Main](part-4/samples/sample3.sql)]
 
-Instrukcja SELECT przyjmuje z tabeli książki i nie odwołuje się do tabeli autora.
+Instrukcja SELECT przyjmuje z tabeli książki, a nie odwołuje się do tabeli autora.
 
-Odwołanie, w tym miejscu jest metoda `BooksController` klasy, która zwraca listy książek.
+Odwołanie, Oto metoda `BooksController` klasę, która zwraca listę książki.
 
 [!code-csharp[Main](part-4/samples/sample4.cs)]
 
-Zobaczmy, jak zostanie zwrócona autora w ramach dane JSON. Istnieją trzy sposoby załadować powiązanych danych w programie Entity Framework: wczesny ładowania opóźnionego ładowania i jawnego ładowania. Istnieją kompromis każdego technika, dlatego ważne jest, aby zrozumieć, jak działają.
+Zobaczmy, jak firma Microsoft może zwracać autora jako część danych JSON. Istnieją trzy sposoby ładowanie powiązanych danych platformy Entity Framework: wczesne ładowanie, powolne ładowanie i jawne ładowanie. Ma wad i zalet z każdą z technik, więc jest ważne zrozumieć, jak działają.
 
-### <a name="eager-loading"></a>Ładowanie wczesny
+### <a name="eager-loading"></a>Wczesne ładowanie
 
-Z *wczesny ładowania*, EF ładuje powiązanych jednostek jako część zapytania początkowej bazy danych. Aby przeprowadzić ładowanie wczesny, użyj **System.Data.Entity.Include** — metoda rozszerzenia.
+Za pomocą *wczesne ładowanie*, EF ładuje powiązanych jednostek jako część zapytania początkowej bazy danych. Aby wykonać wczesne ładowanie, użyj **System.Data.Entity.Include** — metoda rozszerzenia.
 
 [!code-csharp[Main](part-4/samples/sample5.cs)]
 
-Ta wartość informuje EF, aby dołączyć dane autora w zapytaniu. Jeśli chcesz wprowadzić tę zmianę i uruchomić aplikację, teraz danych JSON wygląda następująco:
+Informuje EF, aby dołączyć dane autora w zapytaniu. Jeśli chcesz wprowadzić tę zmianę i uruchomić aplikację, dane JSON wygląda teraz następująco:
 
 [!code-console[Main](part-4/samples/sample6.cmd)]
 
-Dziennik śledzenia pokazuje EF wykonanie sprzężenia w tabelach książki i autora.
+W dzienniku śledzenia pokazuje, że EF wykonywane sprzężenia w tabelach książki i autora.
 
 [!code-console[Main](part-4/samples/sample7.cmd)]
 
-### <a name="lazy-loading"></a>Powolne ładowanie
+### <a name="lazy-loading"></a>Ładowanie z opóźnieniem
 
-Z opóźnieniem ładowania EF automatycznie ładuje obiektu pokrewnego, gdy jest wyłuskiwany właściwości nawigacji dla danej jednostki. Aby włączyć ładowanie opóźnieniem, Tworzenie wirtualnego właściwości nawigacji. Na przykład w klasie książki:
+Przy użyciu ładowania z opóźnieniem EF automatycznie ładuje powiązanej jednostki, kiedy jest wyłuskiwany właściwości nawigacji dla danej jednostki. Aby włączyć powolne ładowanie, Tworzenie wirtualnego właściwości nawigacji. Na przykład w klasie książki:
 
 [!code-csharp[Main](part-4/samples/sample8.cs?highlight=6)]
 
-Teraz Rozważmy następujący kod:
+Teraz należy wziąć pod uwagę następujący kod:
 
 [!code-csharp[Main](part-4/samples/sample9.cs)]
 
-Podczas ładowania opóźnieniem jest włączone, dostęp do `Author` właściwość `books[0]` powoduje, że EF dla autora kwerendy bazy danych.
+Po włączeniu ładowania z opóźnieniem, uzyskiwanie dostępu do `Author` właściwość `books[0]` powoduje, że EF dla autora kwerendy bazy danych.
 
-Powolne ładowanie wymaga wiele rund bazy danych, ponieważ EF wysyła zapytanie zawsze pobiera powiązanej jednostki. Ogólnie rzecz biorąc ma powolne ładowanie wyłączone dla obiektów, które można serializować. Serializator musi odczytywać wszystkie właściwości w modelu, który wyzwala ładowanie powiązanych jednostek. Na przykład poniżej przedstawiono zapytania SQL podczas EF serializuje listy książek z opóźnieniem ładowania włączone. Widać, że EF udostępnia trzy oddzielne zapytania dla trzech autorów.
+Powolne ładowanie wymaga wielu rund bazy danych, ponieważ EF wysyła zapytanie każdorazowo pobiera powiązanej jednostki. Ogólnie rzecz biorąc ma powolne ładowanie wyłączone dla obiektów, które można serializować. Serializator musi odczytywać wszystkie właściwości w modelu, który wyzwala ładowanie powiązanych jednostek. Na przykład poniżej przedstawiono zapytania SQL podczas EF serializuje listy książek przy użyciu ładowania z opóźnieniem włączone. Aby zobaczyć, że EF sprawia, że trzy oddzielne zapytania dla trzech autorów.
 
 [!code-console[Main](part-4/samples/sample10.sql)]
 
-Nadal istnieją razy podczas możesz chcieć użyć opóźnionego ładowania. Ładowanie wczesny może spowodować EF do generowania bardzo złożonych sprzężenia. Powiązanych jednostek mogą być wymagane do małego podzbioru danych i bardziej efektywne byłoby opóźnionego ładowania.
+Czas, kiedy warto korzystać z opóźnieniem ładowania nadal istnieją. Wczesne ładowanie może spowodować EF do generowania bardzo złożone sprzężenia. Lub możesz potrzebować powiązanych jednostek dla małego podzbioru danych i powolne ładowanie będzie bardziej wydajne.
 
-Jest jednym ze sposobów uniknąć problemów serializacji do serializacji obiektów transfer danych (DTOs) zamiast obiektów jednostek. Ta metoda będzie wyświetlić w dalszej części tego artykułu.
+Jednym ze sposobów, aby uniknąć problemów z serializacji jest do wykonywania serializacji obiektów transferu danych (dto) zamiast obiektów jednostek. Zaprezentuję, to podejście w dalszej części tego artykułu.
 
-### <a name="explicit-loading"></a>Ładowanie jawne
+### <a name="explicit-loading"></a>Jawne ładowanie
 
-Jawne ładowania jest podobny do opóźnionego ładowania, z wyjątkiem jawnie pobrać powiązanych danych w kodzie; go nie jest realizowane automatycznie podczas dostępu do właściwości nawigacji. Ładowanie jawne zapewnia deweloperom większą kontrolę nad tym, kiedy można załadować dane dotyczące, ale wymaga dodatkowego kodu. Aby uzyskać więcej informacji na temat jawnego ładowania, zobacz [ładowanie powiązanych jednostek](https://msdn.microsoft.com/data/jj574232#explicit).
+Jawne ładowanie jest podobny do ładowania z opóźnieniem, chyba że jawnie uzyskać powiązanych danych w kodzie nie będzie automatycznie gdy uzyskujesz dostęp do właściwości nawigacji. Jawne ładowanie daje większą kontrolę nad tym, kiedy ładowanie powiązanych danych, ale wymaga dodatkowego kodu. Aby uzyskać więcej informacji na temat jawne ładowanie zobacz [ładowanie powiązanych jednostek](https://msdn.microsoft.com/data/jj574232#explicit).
 
-## <a name="navigation-properties-and-circular-references"></a>Właściwości nawigacji oraz odwołania cykliczne
+## <a name="navigation-properties-and-circular-references"></a>Właściwości nawigacji i odwołania cykliczne
 
-Po zdefiniowaniu I modele książki i autora, na jest zdefiniowana właściwość nawigacji `Book` klasy relacji Autor księgi, ale nie zdefiniowano I właściwości nawigacji w innym kierunku.
+Po zdefiniowaniu książki i tworzenie modeli I na jest zdefiniowana właściwość nawigacji `Book` klasy relacji autor książki, ale nie mogę definiują właściwości nawigacji w drugą stronę.
 
 Co się stanie po dodaniu odpowiednią właściwość nawigacji do `Author` klasy?
 
 [!code-csharp[Main](part-4/samples/sample11.cs?highlight=7)]
 
-Niestety tworzy to problem podczas serializacji modeli. Po załadowaniu powiązanych danych tworzy wykres obiektu cykliczne.
+Niestety spowoduje to utworzenie problem podczas serializacji modeli. Jeśli załadujesz powiązanych danych, tworzy wykres obiektu cykliczne.
 
 ![](part-4/_static/image1.png)
 
-Próba serializować wykresu przez program formatujący JSON i XML zgłosi wyjątek. Dwa elementy formatujące generują komunikaty o różnych wyjątku. Oto przykład dla elementu formatującego JSON:
+Próba serializacji grafu przez program formatujący JSON lub XML zgłosi wyjątek. Dwa elementy formatujące generują komunikaty o wyjątkach różne. Oto przykład dla elementu formatującego JSON:
 
 [!code-console[Main](part-4/samples/sample12.cmd)]
 
-Oto element formatujący XML:
+Poniżej przedstawiono program formatujący kod XML:
 
 [!code-xml[Main](part-4/samples/sample13.xml)]
 
-Rozwiązanie polega na Użyj DTOs, opisujące w następnej sekcji. Alternatywnie można skonfigurować JSON i XML programów formatujących do obsługi cykle wykresu. Aby uzyskać więcej informacji, zobacz [obsługi odwołań cyklicznych obiektu](../../formats-and-model-binding/json-and-xml-serialization.md#handling_circular_object_references).
+Jedno rozwiązanie ma używać dto, zawierające w następnej sekcji. Alternatywnie można skonfigurować formatami JSON i XML elementy formatujące do obsługi cykle wykresu. Aby uzyskać więcej informacji, zobacz [obsługi odwołań cyklicznych obiektu](../../formats-and-model-binding/json-and-xml-serialization.md#handling_circular_object_references).
 
-W tym samouczku, nie potrzebujesz `Author.Book` właściwość nawigacji, więc możesz go Opuść.
+Na potrzeby tego samouczka nie ma potrzeby `Author.Book` właściwość nawigacji, dzięki czemu możesz pozostawić.
 
 > [!div class="step-by-step"]
 > [Poprzednie](part-3.md)

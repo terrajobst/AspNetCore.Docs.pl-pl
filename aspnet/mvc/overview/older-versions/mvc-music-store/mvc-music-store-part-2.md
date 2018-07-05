@@ -1,145 +1,144 @@
 ---
 uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-2
-title: 'Część 2: Kontrolerów | Dokumentacja firmy Microsoft'
+title: 'Część 2: Kontrolery | Dokumentacja firmy Microsoft'
 author: jongalloway
-description: Ten samouczek serii zawiera szczegóły dotyczące wszystkich kroków tworzenia przykładowej aplikacji ASP.NET MVC utworów muzycznych magazynu. Część 2 obejmuje kontrolerów.
+description: W tej serii samouczków szczegółowo opisuje wszystkie etapy, tworzenie przykładowej aplikacji platformy ASP.NET MVC Music Store. Część 2 obejmuje kontrolerów.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/21/2011
 ms.topic: article
 ms.assetid: 998ce4e1-9d72-435b-8f1c-399a10ae4360
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: 680cdea388d9b01961bd626643c0fd91c9205ed7
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: a854feff675cae302b9927d209808257b7d087cb
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30878701"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37381806"
 ---
-<a name="part-2-controllers"></a>Część 2: kontrolerów
+<a name="part-2-controllers"></a>Część 2: kontrolery
 ====================
-przez [Galloway Jan](https://github.com/jongalloway)
+przez [Galloway'em Jon](https://github.com/jongalloway)
 
-> Magazyn utworów muzycznych MVC jest samouczek aplikacji, które wprowadzono i opisano krok po kroku, jak używać do tworzenia aplikacji sieci web platformy ASP.NET MVC i Visual Studio.  
+> MVC Music Store jest aplikacją z samouczka, który wprowadzono i opisano krok po kroku, jak używać platformy ASP.NET MVC i programu Visual Studio do tworzenia aplikacji internetowych.  
 >   
-> Magazyn utworów muzycznych MVC jest implementacja magazynu lekkie próbki, co sprzedaje albumów muzycznych w trybie online i implementuje podstawowej witryny administracji, logowania użytkownika i funkcje koszyka zakupów.  
+> MVC Music Store jest uproszczone przykładową implementację magazynu sprzedaje utworów muzycznych albumy online, która implementuje podstawowej witryny administracji, logowania użytkownika i funkcje koszyka zakupów.  
 >   
-> Ten samouczek serii zawiera szczegóły dotyczące wszystkich kroków tworzenia przykładowej aplikacji ASP.NET MVC utworów muzycznych magazynu. Część 2 obejmuje kontrolerów.
+> W tej serii samouczków szczegółowo opisuje wszystkie etapy, tworzenie przykładowej aplikacji platformy ASP.NET MVC Music Store. Część 2 obejmuje kontrolerów.
 
 
-Web tradycyjnych struktur przychodzących adresów URL są zwykle mapowane do plików na dysku. Na przykład: żądanie dla danego adresu URL, takich jak "/ Products.aspx" lub "/ Products.php" mogą być przetwarzane przez plik "Products.aspx" lub "Products.php".
+Za pomocą platform sieci web tradycyjnych przychodzących adresów URL są zwykle mapowane na pliki na dysku. Na przykład: żądania dla adresu URL, takich jak "/ Products.aspx" lub "/ Products.php" mogą być przetwarzane przez plik "Products.aspx" lub "Products.php".
 
-Oparte na sieci Web platformy MVC adresy URL są mapowane na kod serwera w nieco inny sposób. Zamiast mapowania przychodzących adresów URL do plików, zamiast tego mapują adresy URL do metody klasy. Klasy te są nazywane "Kontrolerów" i są one odpowiedzialna za przetwarzanie przychodzących żądań HTTP w celu obsługi danych wejściowych użytkownika, pobieranie i zapisywanie danych i określania odpowiedź do wysłania z powrotem do klienta (wyświetlania kodu HTML, Pobierz plik, przekierowanie na inny Adres URL itp.).
+Oparte na sieci Web platformy MVC adresy URL są mapowane na kod serwera w nieco inny sposób. Zamiast mapowania przychodzących adresów URL do plików, zamiast tego mapowania ich adresy URL do metod w klasach. Te klasy są nazywane "Kontrolerów" i są one odpowiedzialne za przetwarzanie przychodzących żądań HTTP, Obsługa danych wejściowych użytkownika, pobierania i zapisywania danych i określania odpowiedź do wysłania z powrotem do klienta (wyświetlania kodu HTML, Pobierz plik, przekierowanie na inny Adres URL itp.).
 
 ## <a name="adding-a-homecontroller"></a>Dodawanie HomeController
 
-Naszej aplikacji MVC utworów muzycznych magazynu rozpocznie się przez dodanie klasy kontrolera, który będzie obsługiwać adresy URL do strony głównej witryny firmy Microsoft. Firma Microsoft będzie wykonaj domyślnych konwencji nazewnictwa platformy ASP.NET MVC i wywołać go HomeController.
+Nasza aplikacja MVC Music Store rozpocznie się przez dodawanie klasy kontrolera, który będzie obsługiwać adresy URL do strony głównej witryny firmy Microsoft. Firma Microsoft będzie zgodne z konwencjami nazewnictwa domyślnego platformy ASP.NET MVC i wywołać go HomeController.
 
-Kliknij prawym przyciskiem myszy folder "Kontrolerów" w Eksploratorze rozwiązań i wybierz opcję "Dodaj" i "Kontrolera..." polecenie:
+Kliknij prawym przyciskiem myszy folder "Kontrolerów" w Eksploratorze rozwiązań i wybierz pozycję "Dodaj", a następnie polecenie "Kontrolera...":
 
 ![](mvc-music-store-part-2/_static/image1.jpg)
 
-Zostanie wyświetlone okno dialogowe "Dodaj kontroler". Nazwa kontrolera "HomeController" i naciśnij przycisk Dodaj.
+Zostanie wyświetlone okno dialogowe "Dodaj kontroler". Nazwa kontrolera "HomeController", a następnie naciśnij przycisk Dodaj.
 
 ![](mvc-music-store-part-2/_static/image1.png)
 
-Spowoduje to utworzenie nowego pliku HomeController.cs, z następującym kodem:
+Spowoduje to utworzenie nowego pliku HomeController.cs, używając następującego kodu:
 
 [!code-csharp[Main](mvc-music-store-part-2/samples/sample1.cs)]
 
-Aby uruchomić ułatwianiu, umożliwia Zamień metody indeksu prosta metoda, która po prostu zwraca ciąg. Wybierzemy dwie zmiany:
+Aby rozpocząć ułatwianiu, Przyjrzyjmy zastąpić Index — metoda prostą metodę, która po prostu zwraca ciąg. My sprawiamy, żeby dwie zmiany:
 
-- Zmień metodę zwraca ciąg zamiast element ActionResult
+- Zmiana metody w celu zwrócenia ciągu zamiast element ActionResult
 - Zmień instrukcję return powrót do "Hello z domu"
 
-Metoda powinna wyglądać następująco:
+Metoda powinna teraz wyglądać następująco:
 
 [!code-csharp[Main](mvc-music-store-part-2/samples/sample2.cs)]
 
 ## <a name="running-the-application"></a>Uruchamianie aplikacji
 
-Teraz załóżmy uruchamiania witryny. Możemy uruchomić naszych serwera sieci web i wypróbować lokacji przy użyciu następujących::
+Teraz uruchommy lokacji. Możemy start Nasz serwer sieci web i wypróbować lokacji przy użyciu dowolnej z następujących czynności:
 
-- Wybierz element menu Rozpocznij debugowanie ⇨ debugowania
+- Wybierz element menu Start Debugging ⇨ debugowania
 - Kliknij przycisk zieloną strzałkę na pasku narzędzi ![](mvc-music-store-part-2/_static/image2.jpg)
 - Użyj skrótu klawiaturowego, F5.
 
-Przy użyciu dowolnego z powyższych kroków będzie skompilować naszych projektu, a następnie spowodować ASP.NET Development Server jest wbudowane Visual Web Developer można uruchomić. Powiadomienia będą wyświetlane w dolnym rogu ekranu, aby wskazać, że ASP.NET Development Server rozpoczęła i będzie wyświetlany numer portu, czy działa w ramach.
+Przy użyciu dowolnej z powyższych kroków spowoduje kompilacji w projekcie i spowodować, że ASP.NET Development Server, która jest wbudowana w Visual Web Developer można uruchomić. Powiadomienie pojawi się w dolnym rogu ekranu, aby wskazać, że ASP.NET Development Server została uruchomiona i wyświetli numer portu, że jest on uruchomiony pod.
 
 ![](mvc-music-store-part-2/_static/image2.png)
 
-Visual Web Developer następnie zostanie automatycznie Otwórz okno przeglądarki, w których adres URL wskazuje naszych serwera sieci web. Pozwoli to nam możesz szybko wypróbować usługę naszej aplikacji sieci web:
+Visual Web Developer następnie zostanie automatycznie otwarte okno przeglądarki, w którego adres URL wskazuje na naszym serwerze sieci web. Pozwoli to nam możesz szybko wypróbować usługę naszej aplikacji sieci web:
 
 ![](mvc-music-store-part-2/_static/image3.png)
 
-OK, który był dość szybki — utworzyliśmy nową witrynę sieci Web, dodać funkcję trzech linii i mamy tekstu w przeglądarce. Nie okazji nauki, ale jest rozpoczęcia.
+Porządku, to było całkiem szybkiego — utworzyliśmy nową witrynę sieci Web, dodane trzy śródwierszową i mamy tekstu w przeglądarce. Nie okazji do analizy, ale jest rozpoczęcia.
 
-*Uwaga: Visual Web Developer zawiera ASP.NET Development Server, co spowoduje uruchomienie witryny sieci Web na liczby losowe wolnego "port". Na zrzucie ekranu powyżej, witryna jest uruchomiona na `http://localhost:26641/`, dlatego używa portu 26641. Numer portu będzie różna. Przy omawianiu /Store/Browse podobnego adresy URL, w tym samouczku, które przechodzą po numer portu. Zakładając, że numer portu z 26641, przechodząc do sklepu/Przeglądaj oznacza przeglądania `http://localhost:26641/Store/Browse`.*
+*Uwaga: Visual Web Developer obejmuje ASP.NET Development Server, co spowoduje uruchomienie witryny sieci Web na wielu bezpłatnych losowy "port". Na powyższym zrzucie ekranu, witryna działa na `http://localhost:26641/`, więc używa portu 26641. Numer portu będzie różna. Odnosimy /Store/Browse like adresy URL w tym samouczku, które zaczną po numer portu. Zakładając, że numer portu w danych 26641, przechodząc do/Store/przeglądania oznacza przejście do `http://localhost:26641/Store/Browse`.*
 
 ## <a name="adding-a-storecontroller"></a>Dodawanie StoreController
 
-Dodaliśmy HomeController proste, który implementuje strony głównej witryny. Teraz Dodajmy innego kontrolera, które będą używane do implementowania przeglądania naszych magazynu utworów muzycznych. Kontrolera magazynu obsługuje trzy scenariusze:
+Dodaliśmy HomeController prostego, który implementuje strony głównej witryny firmy Microsoft. Teraz Dodajmy inny kontroler, który użyjemy do implementacji funkcji przeglądania naszego sklepu music. Kontrolera magazynu obsługuje trzy scenariusze:
 
-- Strony listę gatunkami muzyki utworów muzycznych w naszym magazynie utworów muzycznych
-- Strona przeglądania, która zawiera listę wszystkich albumów muzycznych określonego rodzaju
-- Strona szczegółów, która zawiera informacje o albumu określonych utworów muzycznych
+- Strona listy gatunki muzyki w naszym Sklepie utworów muzycznych
+- Strony przeglądania, który wymienia wszystkie albumów muzycznych określonego rodzaju
+- Strona zawierająca szczegóły informacji na temat albumu określonych utworów muzycznych
 
-Zaczniemy przez dodanie nowych klas StoreController... Jeśli nie jest jeszcze zatrzymać uruchomienie aplikacji przez zamknięcie przeglądarki lub wybranie ⇨ debugowania Zatrzymaj debugowanie elementu menu.
+Rozpoczniemy pracę, dodając nową klasę StoreController... Nie jest jeszcze można zatrzymać aplikacji przez zamknięcie przeglądarki lub wybierając element menu Zatrzymaj debugowanie ⇨ debugowania.
 
-Teraz Dodaj nowe StoreController. Tak samo, jak robiliśmy z HomeController, firma Microsoft będzie to zrobić przez kliknięcie prawym przyciskiem myszy folder "Kontrolerów" w Eksploratorze rozwiązań i wybierając Add -&gt;kontrolera elementu menu
+Teraz można dodać nowe StoreController. Tak samo, jak postępowanie z HomeController, możemy to zrobić, klikając prawym przyciskiem myszy w folderze "Kontrolerów" w Eksploratorze rozwiązań i wybierając Add -&gt;kontrolera elementu menu.
 
 ![](mvc-music-store-part-2/_static/image4.png)
 
-Naszej nowej StoreController już ma metodę "Index". Aby zaimplementować stronę dotyczącą listę zawierającą wszystkie genres w naszym magazynie utworów muzycznych użyjemy tej metody "Index". Dodamy również dwie dodatkowe metody służące do implementacji dwa inne scenariusze chcemy naszych StoreController do obsługi: przeglądania i szczegóły.
+Nasz nowy StoreController ma już metodę "Index". Użyjemy tej metody "Index", aby zaimplementować naszą stronę listy, który zawiera listę wszystkich gatunki w naszym music store —. Dodamy również dwie dodatkowe metody do zaimplementowania dwa inne scenariusze chcemy, aby nasz StoreController do obsługi: Przeglądaj i szczegółowe informacje.
 
-Te metody (indeks, przeglądania i szczegóły) w ramach kontrolera są nazywane "Akcji kontrolera" i jako już zapoznaniu się z metodą akcji HomeController.Index (), ich zadanie ma odpowiadać na żądania adresu URL i (ogólnie rzecz biorąc) określenie zawartości ma zostać odesłana do przeglądarki lub użytkownik, który wywołał adres URL.
+Te metody (indeks i przeglądania szczegółów) w ramach kontrolera są nazywane "Akcji kontrolera", a jako już przeczytane z metodą akcji HomeController.Index (), swojej pracy ma odpowiadać na żądania adres URL i (ogólnie rzecz biorąc) określić zawartość powinny być wysyłane z powrotem do przeglądarki lub użytkownik, który wywołał adresu URL.
 
-Zaczniemy implementacja naszej StoreController zmieniając theIndex() metoda zwraca ciąg "Hello z Store.Index()" i Browse() i Details() dodamy podobnych metod:
+Zaczniemy naszej implementacji StoreController, zmieniając theIndex() metoda zwraca ciąg "Hello z Store.Index()" i dodamy podobne metody Browse() i Details():
 
 [!code-csharp[Main](mvc-music-store-part-2/samples/sample3.cs)]
 
-Uruchom ponownie projekt, a następnie przejdź do następujących adresów URL:
+Uruchom projekt ponownie i Przeglądaj następujące adresy URL:
 
 - / Store
-- / Magazynu/przeglądania
-- / / Szczegóły magazynu
+- / Store/przeglądania
+- / Store/Details
 
-Uzyskiwanie dostępu do tych adresów URL wywołania metody akcji w obrębie kontrolera i zwraca ciąg odpowiedzi:
+Uzyskiwanie dostępu do tych adresów URL wywołania metody akcji w ramach kontrolera i zwracania odpowiedzi ciąg:
 
 ![](mvc-music-store-part-2/_static/image5.png)
 
-To świetnie, ale są tylko stałe ciągów. Można wprowadzić je dynamiczny, aby pobrać informacje z adresu URL i wyświetl ją w danych wyjściowych strony.
+To doskonałe rozwiązanie, ale są tylko stałe ciągi. Upewnijmy się, ich dynamiczny, dzięki czemu pobierają informacje z adresu URL i wyświetlania ich w danych wyjściowych strony.
 
-Najpierw zmienimy metody akcji przeglądania można pobrać wartości querystring w adresie URL. Firma Microsoft można to zrobić przez dodanie parametru "rodzaju" do naszej metody akcji. W takim przypadku to ASP.NET MVC automatycznie przejdzie żadnych parametrów post formularza lub ciągu kwerendy o nazwie "rodzaju" do naszej metody akcji, gdy jest wywoływana.
+Pierwsze zmienimy metody akcji przeglądania można pobrać wartości querystring w adresie URL. Możemy to zrobić, dodając parametr "gatunku" do naszych metody akcji. W takim przypadku to ASP.NET MVC automatycznie przekazują żadnych parametrów post formularza lub ciągu kwerendy o nazwie "gatunku" do naszych metody akcji, gdy jest wywoływana.
 
 [!code-csharp[Main](mvc-music-store-part-2/samples/sample4.cs)]
 
-*Uwaga: Firma Microsoft korzysta z metody narzędzie HttpUtility.HtmlEncode do oczyszczenia danych wejściowych użytkownika. Zapobiega to wstrzykiwania Javascript do naszej widoku z łączem, takich jak /Store/Browse użytkowników? Genre =&lt;skryptu&gt;window.location= "http://hackersite.com"&lt;/script&gt;.*
+*Uwaga: Firma Microsoft za pomocą metody narzędzie HttpUtility.HtmlEncode oczyszczają danych wejściowych użytkownika. Uniemożliwia to użytkownikom wprowadzanie Javascript do naszych widoku z linkiem, takich jak /Store/Browse? Gatunku =&lt;skryptu&gt;window.location= "http://hackersite.com"&lt;/script&gt;.*
 
-Teraz załóżmy przejdź do sklepu/Przeglądaj? Genre = Disco
+Teraz możemy przejść do/Store/przeglądania? Gatunku = Najdywania
 
 ![](mvc-music-store-part-2/_static/image6.png)
 
-Zmieńmy obok akcji Details do odczytu i wyświetlanie parametru wejściowego o nazwie identyfikatora. W przeciwieństwie do naszej poprzedniej — metoda firma Microsoft nie będzie można osadzanie wartość Identyfikatora jako parametr querystring. Zamiast tego firma Microsoft będzie osadź go bezpośrednio w ramach samego adresu. Na przykład: /Store/Details/5.
+Następnie zmienimy akcji Details do odczytywania i wyświetlić parametr wejściowy identyfikator. W odróżnieniu od naszych Poprzednia metoda firma Microsoft nie będzie można osadzanie wartość Identyfikatora jako parametr ciągu kwerendy. Zamiast tego osadzimy, go bezpośrednio z poziomu samego adresu. Na przykład: /Store/Details/5.
 
-ASP.NET MVC umożliwia nam to łatwo zrobić bez konieczności konfigurowania. ASP.NET MVC domyślnej konwencji routingu jest Traktuj segment adresu URL po nazwy metody akcji, jako parametr o nazwie "ID". Jeśli stosowana metoda akcji ma parametr o nazwie identyfikator platformy ASP.NET MVC zostanie automatycznie przekazuj segment adresu URL do użytkownika jako parametr.
+ASP.NET MVC pozwala nam to łatwo zrobić bez konieczności nic konfigurować. Konwencji routingu domyślnego platformy ASP.NET MVC jest segment adresu URL po nazwie metody akcji jako parametr o nazwie "ID". Jeśli metoda akcji zawiera parametr o nazwie identyfikator następnie platformy ASP.NET MVC zostanie automatycznie przekazać segment adresu URL dla Ciebie jako parametr.
 
 [!code-csharp[Main](mvc-music-store-part-2/samples/sample5.cs)]
 
-Uruchom aplikację i przejdź do /Store/Details/5:
+Uruchom aplikację, a następnie przejdź do /Store/Details/5:
 
 ![](mvc-music-store-part-2/_static/image7.png)
 
-Załóżmy recap, co możemy wykonane wykonanej do tej pory:
+Przypomnijmy przedstawiające wprowadzone aktualizacje do tej pory:
 
-- W programie Visual Web Developer utworzyliśmy nowy projekt ASP.NET MVC
-- Zostały omówione struktury folderów podstawowe aplikacji platformy ASP.NET MVC
-- Zostały dowiedzieliśmy się, jak uruchomić naszą witrynę sieci Web za pomocą programu ASP.NET Development Server
-- Utworzyliśmy dwa klasy kontrolera: HomeController i StoreController
-- Dodaliśmy metod akcji do naszej kontrolerów, które odpowiadają na żądania adresu URL i zwrócić tekst do przeglądarki
+- Utworzyliśmy nowy projekt ASP.NET MVC w Visual Web Developer
+- Wiemy już struktury folderów podstawowych aplikacji ASP.NET MVC
+- Nauczyliśmy się sposobu uruchamiania naszej witryny sieci Web za pomocą programu ASP.NET Development Server
+- Utworzyliśmy dwie klasy kontrolera: HomeController i StoreController
+- Dodaliśmy metod akcji do naszych kontrolery, które odpowiadają na żądania adres URL i zwracają tekst w przeglądarce
 
 
 > [!div class="step-by-step"]

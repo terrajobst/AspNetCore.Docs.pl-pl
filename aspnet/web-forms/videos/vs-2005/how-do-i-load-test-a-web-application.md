@@ -1,31 +1,30 @@
 ---
 uid: web-forms/videos/vs-2005/how-do-i-load-test-a-web-application
-title: '[Jak i.] Test aplikacji sieci Web obciążenia? | Microsoft Docs'
+title: '[Jak mogę] Ładowanie testów aplikacji sieci Web? | Microsoft Docs'
 author: rick-anderson
-description: Ten film przeprowadzi Cię przez proces rejestrowania testu sieci Web i odtwarzanie go jako testu obciążenia, która symuluje wielu użytkowników. Przedstawiono sposób w jaki Visual Studio...
+description: W tym wideo przeprowadzi Cię przez proces rejestrowania testu sieci Web i odtwarzanie go jako Test obciążenia, która symuluje wielu użytkowników. Zobaczymy, jak Visual Studio...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/01/2007
 ms.topic: article
 ms.assetid: 2b0649d3-d072-446a-9918-b2648de26472
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/vs-2005/how-do-i-load-test-a-web-application
 msc.type: video
-ms.openlocfilehash: 582c0f2feef6d1086aba8c443309516043bff7e8
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 2efe8beddbe369f047e1e81467f4d48b5bcde333
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30894002"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37393809"
 ---
-<a name="how-do-i-load-test-a-web-application"></a>[Jak i.] Test aplikacji sieci Web obciążenia?
+<a name="how-do-i-load-test-a-web-application"></a>[Jak mogę] Ładowanie testów aplikacji sieci Web?
 ====================
-przez [Menegay Krzysztof](https://twitter.com/CMenegay)
+przez [Chris Menegay](https://twitter.com/CMenegay)
 
-Ten film przeprowadzi Cię przez proces rejestrowania testu sieci Web i odtwarzanie go jako testu obciążenia, która symuluje wielu użytkowników. Przedstawiono, jak Visual Studio Team System można ustawić wartości progowe ostrzegawcze i krytyczne wykorzystanie zasobów serwera, który definiuje, czy aplikacja sieci Web przekazuje czy niepowodzenia testu obciążenia.
+W tym wideo przeprowadzi Cię przez proces rejestrowania testu sieci Web i odtwarzanie go jako Test obciążenia, która symuluje wielu użytkowników. Zobaczymy, jak Visual Studio Team System można ustawić wartości progowe ostrzeżenia i krytyczne wykorzystanie zasobów serwerów, która określa, czy aplikacja sieci Web pomyślnie lub niepowodzeniem testu obciążeniowego.
 
-[&#9654;Obejrzyj klip wideo (minuty 8)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-load-test-a-web-application)
+[&#9654;Obejrzyj film wideo (8 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-load-test-a-web-application)
 
 > [!div class="step-by-step"]
 > [Poprzednie](how-do-i-practice-test-driven-development.md)

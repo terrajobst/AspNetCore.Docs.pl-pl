@@ -1,31 +1,30 @@
 ---
 uid: web-forms/videos/aspnet-web-forms-vnext/aspnet-vnext-videos-model-binding-part-2-filtering
-title: 'ASP.NET vNext wideo: część powiązanie modelu 2 - filtrowania | Dokumentacja firmy Microsoft'
+title: 'Środowiska ASP.NET vNext wideo: wiązanie modelu — część 2 — filtrowanie | Dokumentacja firmy Microsoft'
 author: DamianEdwards
-description: W tym wideo Dyszkiewicz Damianowi nadal pokazu wiązania modelu przez wyjaśniający filtrowania.
+description: W tym filmie Damianem Edwardsem nadal pokazu wiązania modelu wyjaśniając, filtrowania.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/12/2011
 ms.topic: article
 ms.assetid: b1d73fae-57c9-4b06-b5df-d68dc3b3cf5e
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-web-forms-vnext/aspnet-vnext-videos-model-binding-part-2-filtering
 msc.type: video
-ms.openlocfilehash: 1eac6de4280c439d4c5c637e927af92c2f938b7f
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 9e9ce6d2a3d2347a02a857172c75f241af760401
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30884392"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37393905"
 ---
-<a name="aspnet-vnext-videos-model-binding-part-2---filtering"></a>ASP.NET vNext wideo: część powiązanie modelu 2 - filtrowania
+<a name="aspnet-vnext-videos-model-binding-part-2---filtering"></a>Środowiska ASP.NET vNext wideo: wiązanie modelu — część 2 — filtrowanie
 ====================
-przez [Damianowi Dyszkiewicz](https://github.com/DamianEdwards)
+przez [Damianem Edwardsem](https://github.com/DamianEdwards)
 
-W tym wideo Dyszkiewicz Damianowi nadal pokazu wiązania modelu przez wyjaśniający filtrowania.
+W tym filmie Damianem Edwardsem nadal pokazu wiązania modelu wyjaśniając, filtrowania.
 
-[&#9654;Obejrzyj klip wideo (minuty 1)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-vnext-videos-model-binding-part-2-filtering)
+[&#9654;Obejrzyj film wideo (1 min)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-vnext-videos-model-binding-part-2-filtering)
 
 > [!div class="step-by-step"]
 > [Poprzednie](aspnet-vnext-videos-model-binding-part-1-selecting-data.md)

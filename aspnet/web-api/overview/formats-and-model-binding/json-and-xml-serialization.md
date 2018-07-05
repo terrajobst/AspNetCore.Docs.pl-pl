@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/formats-and-model-binding/json-and-xml-serialization
-title: JSON i serializacja XML w składniku ASP.NET Web API | Dokumentacja firmy Microsoft
+title: JSON i serializacji XML we wzorcu ASP.NET Web API | Dokumentacja firmy Microsoft
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
@@ -9,68 +9,67 @@ ms.date: 05/30/2012
 ms.topic: article
 ms.assetid: 1cd7525d-de5e-4ab6-94f0-51480d3255d1
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/formats-and-model-binding/json-and-xml-serialization
 msc.type: authoredcontent
-ms.openlocfilehash: b1fcaf70cc38d73da0a454764520197b97f34b26
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: e7fbcd41d64651255763c7629f0232788dcb3d30
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28038104"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37400924"
 ---
-<a name="json-and-xml-serialization-in-aspnet-web-api"></a>JSON i serializacja XML w składniku ASP.NET Web API
+<a name="json-and-xml-serialization-in-aspnet-web-api"></a>JSON i serializacji XML we wzorcu ASP.NET Web API
 ====================
-przez [Wasson Jan](https://github.com/MikeWasson)
+przez [Mike Wasson](https://github.com/MikeWasson)
 
-W tym artykule opisano elementy formatujące JSON i XML w interfejsie API sieci Web ASP.NET.
+W tym artykule opisano elementy formatujące formatami JSON i XML w interfejsie API sieci Web platformy ASP.NET.
 
-W interfejsie API sieci Web ASP.NET *program formatujący typ nośnika* jest obiekt, który można:
+W programie ASP.NET Web API *program formatujący typ nośnika* jest obiektem, który można:
 
-- Treść komunikatu obiektów CLR odczytu z protokołu HTTP
-- Zapis obiektów CLR w treści komunikatu HTTP
+- Treść komunikatu obiektów CLR odczytu z HTTP
+- Zapisywanie obiektów CLR w treści komunikatu HTTP
 
-Interfejs API sieci Web udostępnia programy formatujące typy nośnika dla formatu JSON i XML. Platformę wstawia te elementy formatujące do potoku domyślnie. Klienci mogą żądać JSON i XML w nagłówku Accept żądania HTTP.
+Internetowy interfejs API udostępnia programy formatujące typy nośnika dla formatu JSON i XML. Struktura wstawia te elementy formatujące do potoku domyślnie. Klienci mogą żądać JSON lub XML w nagłówku Accept żądania HTTP.
 
 ## <a name="contents"></a>Spis treści
 
-- [Program formatujący typ nośnika JSON](#json_media_type_formatter)
+- [Element formatujący typu nośnika JSON](#json_media_type_formatter)
 
     - [Właściwości tylko do odczytu](#json_readonly)
     - [Daty](#json_dates)
     - [Wcięcia](#json_indenting)
-    - [Mieszanej wielkości liter](#json_camelcasing)
-    - [Anonimowe i słabą — obiekty](#json_anon)
-- [Program formatujący typ nośnika XML](#xml_media_type_formatter)
+    - [Camelcase](#json_camelcasing)
+    - [Anonimowy i ze słabą kontrolą typów obiektów](#json_anon)
+- [Element formatujący typu nośnika XML](#xml_media_type_formatter)
 
     - [Właściwości tylko do odczytu](#xml_readonly)
     - [Daty](#xml_dates)
     - [Wcięcia](#xml_indenting)
     - [Ustawienie na typ XML serializatorów](#xml_pertype)
-- [Usunięcie elementu formatującego XML lub JSON](#removing_the_json_or_xml_formatter)
-- [Obsługa odwołań do obiektów cykliczne](#handling_circular_object_references)
-- [Testowanie serializacji obiektu](#testing_object_serialization)
+- [Usuwanie formatu JSON czy element formatujący XML](#removing_the_json_or_xml_formatter)
+- [Obsługa odwołania do obiektu cykliczne](#handling_circular_object_references)
+- [Testowanie odpowiedzialność za serializację obiektu](#testing_object_serialization)
 
 <a id="json_media_type_formatter"></a>
-## <a name="json-media-type-formatter"></a>Program formatujący typ nośnika JSON
+## <a name="json-media-type-formatter"></a>Element formatujący typu nośnika JSON
 
-Formatowanie JSON jest zapewniana przez **JsonMediaTypeFormatter** klasy. Domyślnie **JsonMediaTypeFormatter** używa [Json.NET](https://github.com/JamesNK/Newtonsoft.Json) biblioteki do wykonywania serializacji. Struktury Json.NET to projekt typu open source innych firm.
+Formatowanie JSON jest udostępniany przez **JsonMediaTypeFormatter** klasy. Domyślnie **JsonMediaTypeFormatter** używa [Json.NET](https://github.com/JamesNK/Newtonsoft.Json) biblioteki do wykonywania serializacji. Na składnik Json.NET to projekt typu open source innych firm.
 
-Jeśli wolisz, możesz skonfigurować **JsonMediaTypeFormatter** klasę, aby użyć **klasa DataContractJsonSerializer** zamiast struktury Json.NET. Aby to zrobić, ustaw **UseDataContractJsonSerializer** właściwości **true**:
+Jeśli wolisz, możesz skonfigurować **JsonMediaTypeFormatter** klasy **klasa DataContractJsonSerializer** zamiast struktury Json.NET. Aby to zrobić, należy ustawić **UseDataContractJsonSerializer** właściwości **true**:
 
 [!code-csharp[Main](json-and-xml-serialization/samples/sample1.cs)]
 
 ### <a name="json-serialization"></a>Serializacja JSON
 
-W tej sekcji opisano niektóre konkretne zachowania programu formatującego JSON, przy użyciu domyślnego [Json.NET](https://github.com/JamesNK/Newtonsoft.Json) serializatora. To jest nie należy traktować jako pełna dokumentacja biblioteki Json.NET; Aby uzyskać więcej informacji, zobacz [dokumentacji struktury Json.NET](http://james.newtonking.com/projects/json/help/).
+W tej sekcji opisano niektóre zachowania określonego programu formatującego JSON, przy użyciu domyślnego [Json.NET](https://github.com/JamesNK/Newtonsoft.Json) serializatora. To jest nie należy traktować jako pełną dokumentację biblioteki na składnik Json.NET; Aby uzyskać więcej informacji, zobacz [dokumentacji na składnik Json.NET](http://james.newtonking.com/projects/json/help/).
 
-#### <a name="what-gets-serialized"></a>Co to jest serializowana?
+#### <a name="what-gets-serialized"></a>Co to jest serializowana z jego?
 
-Domyślnie wszystkie właściwości publiczne i pola są uwzględnione w serializacji JSON. Aby pominąć właściwości lub pola, dekoracji go przy użyciu **JsonIgnore** atrybutu.
+Domyślnie wszystkie właściwości publiczne i pola są uwzględnione w serializacji JSON. Aby pominąć właściwość lub pole, dekoracji ją za pomocą **JsonIgnore** atrybutu.
 
 [!code-csharp[Main](json-and-xml-serialization/samples/sample2.cs)]
 
-Jeśli wolisz &quot;opcjonalnych&quot; podejścia, dekoracji klasy z **DataContract** atrybutu. Jeśli ten atrybut jest obecny, elementy członkowskie są ignorowane, chyba że mają one **DataMember**. Można również użyć **DataMember** do serializacji prywatne elementy członkowskie.
+Jeśli użytkownik sobie tego życzy &quot;uczestnictwo&quot; podejście, dekoracji klasy za pomocą **DataContract** atrybutu. Jeśli ten atrybut jest obecny, elementy członkowskie są ignorowane, chyba że mają **DataMember**. Można również użyć **DataMember** serializować prywatnych elementów członkowskich.
 
 [!code-csharp[Main](json-and-xml-serialization/samples/sample3.cs)]
 
@@ -80,167 +79,167 @@ Jeśli wolisz &quot;opcjonalnych&quot; podejścia, dekoracji klasy z **DataContr
 Właściwości tylko do odczytu są serializowane domyślnie.
 
 <a id="json_dates"></a>
-### <a name="dates"></a>daty
+### <a name="dates"></a>Daty
 
-Domyślnie program Json.NET zapisuje dat [ISO 8601](http://www.w3.org/TR/NOTE-datetime) format. Daty w formacie UTC (Coordinated Universal Time) są zapisywane z sufiksem "Z". Daty według czasu lokalnego, to przesunięcie strefy czasowej. Na przykład:
+Domyślnie program Json.NET zapisuje dat [ISO 8601](http://www.w3.org/TR/NOTE-datetime) formatu. Daty w formacie UTC (Coordinated Universal Time) są zapisywane z sufiksem "Z". Daty w czasie lokalnym obejmują przesunięcia strefy czasowej. Na przykład:
 
 [!code-console[Main](json-and-xml-serialization/samples/sample4.cmd)]
 
-Domyślnie program Json.NET zachowuje strefę czasową. Można to zmienić, ustawiając właściwość DateTimeZoneHandling:
+Domyślnie program Json.NET zachowuje strefy czasowej. Możesz przesłonić to przez ustawienie właściwości DateTimeZoneHandling:
 
 [!code-csharp[Main](json-and-xml-serialization/samples/sample5.cs)]
 
-Jeśli wolisz korzystać [format daty Microsoft JSON](https://msdn.microsoft.com/library/bb299886.aspx#intro_to_json_sidebarb) (`"\/Date(ticks)\/"`) zamiast ISO 8601, ustaw **DateFormatHandling** właściwość ustawienia serializatora:
+Jeśli wolisz używać [format daty Microsoft JSON](https://msdn.microsoft.com/library/bb299886.aspx#intro_to_json_sidebarb) (`"\/Date(ticks)\/"`) zamiast ISO 8601, ustaw **DateFormatHandling** właściwości ustawienia serializatora:
 
 [!code-csharp[Main](json-and-xml-serialization/samples/sample6.cs)]
 
 <a id="json_indenting"></a>
 ### <a name="indenting"></a>Wcięcia
 
-Aby napisać wcięta JSON, ustaw **formatowanie** ustawienie **Formatting.Indented**:
+Aby napisać JSON z wcięciami, należy ustawić **formatowanie** ustawienie **Formatting.Indented**:
 
 [!code-csharp[Main](json-and-xml-serialization/samples/sample7.cs)]
 
 <a id="json_camelcasing"></a>
-### <a name="camel-casing"></a>Mieszanej wielkości liter
+### <a name="camel-casing"></a>Camelcase
 
-Aby napisać nazwy właściwości JSON z mieszanej wielkości liter, bez zmiany modelu danych, ustaw **CamelCasePropertyNamesContractResolver** na serializator:
+Aby zapisać nazwy właściwości JSON zawierające camelcase, bez wprowadzania zmian w modelu danych, należy ustawić **CamelCasePropertyNamesContractResolver** na element serializujący:
 
 [!code-csharp[Main](json-and-xml-serialization/samples/sample8.cs)]
 
 <a id="json_anon"></a>
-### <a name="anonymous-and-weakly-typed-objects"></a>Anonimowe i słabą — obiekty
+### <a name="anonymous-and-weakly-typed-objects"></a>Anonimowy i ze słabą kontrolą typów obiektów
 
-Metody akcji można zwracać obiekt anonimowy i serializować go na format JSON. Na przykład:
+Metody akcji można zwrócić obiektu anonimowego i serializować go do formatu JSON. Na przykład:
 
 [!code-csharp[Main](json-and-xml-serialization/samples/sample9.cs)]
 
-Treść komunikatu odpowiedzi będzie zawierać następujące JSON:
+Treści komunikatu odpowiedzi zawiera następujące dane JSON:
 
 [!code-json[Main](json-and-xml-serialization/samples/sample10.json)]
 
-Jeśli sieci web interfejsu API odbiera słabo strukturę obiektów JSON od klientów, może wykonywać deserializację treści żądania do **Newtonsoft.Json.Linq.JObject** typu.
+Jeśli internetowy interfejs API odbiera luźno struktura obiektów JSON od klientów, może wykonywać deserializację treści żądania, aby **Newtonsoft.Json.Linq.JObject** typu.
 
 [!code-csharp[Main](json-and-xml-serialization/samples/sample11.cs)]
 
-Jednak jest zazwyczaj lepiej jest użyć danych silnie typizowanych obiektów. Nie należy przeanalizować dane użytkownika i uzyskać korzyści wynikające z weryfikacją modelu.
+Jednak zazwyczaj lepiej jest używać obiektów silnie typizowanych danych. Nie jest potrzebny do analizowania danych, użytkownika i uzyskać korzyści wynikające z weryfikacją modelu.
 
-Element serializujący XML nie obsługuje typy anonimowe lub **JObject** wystąpień. Jeśli dla danych JSON korzystanie z tych funkcji, należy usunąć element formatujący XML z potoku, zgodnie z opisem w dalszej części tego artykułu.
+Serializator XML nie obsługuje typów anonimowych lub **JObject** wystąpień. Jeśli używasz tych funkcji dla danych JSON, należy usunąć program formatujący kod XML z potoku, zgodnie z opisem w dalszej części tego artykułu.
 
 <a id="xml_media_type_formatter"></a>
-## <a name="xml-media-type-formatter"></a>Program formatujący typ nośnika XML
+## <a name="xml-media-type-formatter"></a>Element formatujący typu nośnika XML
 
 Formatowanie XML są dostarczane przez **XmlMediaTypeFormatter** klasy. Domyślnie **XmlMediaTypeFormatter** używa **DataContractSerializer** klasy do wykonywania serializacji.
 
-Jeśli wolisz, możesz skonfigurować **XmlMediaTypeFormatter** do używania **XmlSerializer** zamiast **DataContractSerializer**. Aby to zrobić, ustaw **UseXmlSerializer** właściwości **true**:
+Jeśli wolisz, możesz skonfigurować **XmlMediaTypeFormatter** używać **XmlSerializer** zamiast **DataContractSerializer**. Aby to zrobić, należy ustawić **UseXmlSerializer** właściwości **true**:
 
 [!code-csharp[Main](json-and-xml-serialization/samples/sample12.cs)]
 
-**XmlSerializer** klasa obsługuje mniejszą niż zestaw typów niż **DataContractSerializer**, ale zapewnia większą kontrolę nad wynikowy kod XML. Należy rozważyć użycie **XmlSerializer** Jeśli należy dopasować schematu XML.
+**XmlSerializer** klasa obsługuje mniejszą niż zestaw typów niż **DataContractSerializer**, ale zapewnia większą kontrolę nad wynikowy kod XML. Należy rozważyć użycie **XmlSerializer** Jeśli potrzebujesz do dopasowania istniejącego schematu XML.
 
 ### <a name="xml-serialization"></a>Serializacji XML
 
-W tej sekcji opisano niektóre konkretne zachowania element formatujący XML przy użyciu domyślnego **DataContractSerializer**.
+W tej sekcji opisano niektóre zachowania określonego programu formatującego XML, przy użyciu domyślnego **DataContractSerializer**.
 
-Domyślnie elementu DataContractSerializer działa w następujący sposób:
+Domyślnie DataContractSerializer zachowuje się w następujący sposób:
 
-- Wszystkie właściwości publiczne odczytu/zapisu i pola są serializowane. Aby pominąć właściwości lub pola, dekoracji go przy użyciu **IgnoreDataMember** atrybutu.
-- Prywatnych i chronionych elementów członkowskich nie są serializowane.
+- Wszystkie właściwości publiczne odczytu/zapisu i pola są serializowane. Aby pominąć właściwość lub pole, dekoracji ją za pomocą **IgnoreDataMember** atrybutu.
+- Prywatnych i chronionych składowych nie są serializowane.
 - Właściwości tylko do odczytu nie są serializowane. (Jednak zawartość właściwości kolekcji tylko do odczytu są serializowane.)
-- Nazwy klas i element członkowski są zapisywane w pliku XML, dokładnie tak, jak pojawiają się one w deklaracji klasy.
-- Używany jest domyślny obszar nazw XML.
+- Nazwy klas i składowych są zapisywane w pliku XML, dokładnie tak, jak pojawiają się w deklaracji klasy.
+- Domyślny obszar nazw XML jest używany.
 
-Aby uzyskać większą kontrolę nad serializacji można dekoracji klasy z **DataContract** atrybutu. Gdy obecny jest atrybut tej klasy jest serializowany w następujący sposób:
+Jeśli potrzebujesz większej kontroli nad serializacji, można dekoracji klasy za pomocą **DataContract** atrybutu. Jeśli ten atrybut jest obecny, klasa jest serializowana w następujący sposób:
 
-- &quot;Zgódź się&quot; podejście: pola i właściwości nie są serializowane domyślnie. Można serializować właściwości lub pola, dekoracji go przy użyciu **DataMember** atrybutu.
-- Można serializować elementu członkowskiego prywatne lub chronione, dekoracji go przy użyciu **DataMember** atrybutu.
+- &quot;Zgódź&quot; podejście: właściwości i pola nie są szeregowane domyślnie. Do serializacji, właściwość lub pole, dekoracji ją za pomocą **DataMember** atrybutu.
+- Do serializacji Członkowskich prywatnych ani chronionych, dekoracji ją za pomocą **DataMember** atrybutu.
 - Właściwości tylko do odczytu nie są serializowane.
-- Aby zmienić sposób wyświetlania nazwę klasy w pliku XML, ustaw *nazwa* parametru w **DataContract** atrybutu.
-- Aby zmienić sposób wyświetlania nazwę elementu członkowskiego w pliku XML, ustaw *nazwa* parametru w **DataMember** atrybutu.
-- Aby zmienić przestrzeni nazw XML, ustaw *Namespace* parametru w **DataContract** klasy.
+- Aby zmienić sposób wyświetlania nazwy klasy w pliku XML, należy ustawić *nazwa* parametru w **DataContract** atrybutu.
+- Aby zmienić sposób wyświetlania nazwę elementu członkowskiego w pliku XML, należy ustawić *nazwa* parametru w **DataMember** atrybutu.
+- Aby zmienić obszar nazw XML, należy ustawić *Namespace* parametru w **DataContract** klasy.
 
 <a id="xml_readonly"></a>
 ### <a name="read-only-properties"></a>Właściwości tylko do odczytu
 
-Właściwości tylko do odczytu nie są serializowane. Jeśli właściwość jest tylko do odczytu zapasowego pole prywatne, można oznaczyć pole prywatne z **DataMember** atrybutu. Ta metoda wymaga **DataContract** atrybut klasy.
+Właściwości tylko do odczytu nie są serializowane. Jeśli właściwość jest tylko do odczytu zapasowego pola prywatnego, można oznaczyć pola prywatnego przy użyciu **DataMember** atrybutu. Takie podejście wymaga **DataContract** atrybut w klasie.
 
 [!code-csharp[Main](json-and-xml-serialization/samples/sample13.cs)]
 
 <a id="xml_dates"></a>
-### <a name="dates"></a>daty
+### <a name="dates"></a>Daty
 
 Daty są zapisywane w formacie ISO 8601. Na przykład &quot;2012-05-23T20:21:37.9116538Z&quot;.
 
 <a id="xml_indenting"></a>
 ### <a name="indenting"></a>Wcięcia
 
-Aby napisać wcięta XML, ustaw **wcięcie** właściwości **true**:
+Aby zapisać XML z wcięciami, należy ustawić **wcięcie** właściwości **true**:
 
 [!code-csharp[Main](json-and-xml-serialization/samples/sample14.cs)]
 
 <a id="xml_pertype"></a>
 ## <a name="setting-per-type-xml-serializers"></a>Ustawienie na typ XML serializatorów
 
-Możesz ustawić inny serializatorów XML dla różnych typów CLR. Na przykład może mieć obiektu danych, która wymaga **XmlSerializer** zgodności z poprzednimi wersjami. Można użyć **XmlSerializer** dla tego obiektu i nadal używać **DataContractSerializer** dla innych typów.
+Możesz ustawić różne serializatory XML dla różnych typów CLR. Na przykład, może mieć obiektu danych, który wymaga **XmlSerializer** zgodności z poprzednimi wersjami. Możesz użyć **XmlSerializer** dla tego obiektu i dalej używaj **DataContractSerializer** dla innych typów.
 
 Aby ustawić element serializujący XML dla określonego typu, należy wywołać **SetSerializer**.
 
 [!code-csharp[Main](json-and-xml-serialization/samples/sample15.cs)]
 
-Można określić **XmlSerializer** lub dowolnego obiektu, która jest pochodną **XmlObjectSerializer**.
+Można określić **XmlSerializer** lub dowolnego obiektu, który pochodzi od klasy **XmlObjectSerializer**.
 
 <a id="removing_the_json_or_xml_formatter"></a>
-## <a name="removing-the-json-or-xml-formatter"></a>Usunięcie elementu formatującego XML lub JSON
+## <a name="removing-the-json-or-xml-formatter"></a>Usuwanie formatu JSON czy element formatujący XML
 
-Program formatujący JSON lub element formatujący XML można usunąć z listy elementów formatujących, jeśli nie chcesz ich używać. Są główne powody to zrobić:
+Program formatujący JSON lub element formatujący XML można usunąć z listy elementów formatujących, jeśli nie chcesz ich używać. Główne przyczyny, w tym celu są następujące:
 
-- Aby ograniczyć Twojej odpowiedzi interfejsu API sieci web do określonego typu nośnika. Na przykład można zdecydować obsługuje tylko JSON odpowiedzi, a następnie usuń element formatujący XML.
-- Aby zastąpić domyślny element formatujący niestandardowego elementu formatującego. Na przykład można zastąpić elementu formatującego JSON z implementacją niestandardowego elementu formatującego JSON.
+- Aby ograniczyć odpowiedzi interfejsu API sieci web na określonego typu nośnika. Na przykład można zdecydować, do obsługi tylko odpowiedzi JSON i Usuń program formatujący kod XML.
+- Aby zastąpić domyślny element formatujący niestandardowego elementu formatującego. Na przykład można zastąpić elementu formatującego JSON, za pomocą niestandardowych implementacji elementu formatującego JSON.
 
-Poniższy kod przedstawia sposób usuwania programów formatujących domyślne. Wywołaj ten element z Twojej **aplikacji\_Start** metody zdefiniowane w pliku Global.asax.
+Poniższy kod przedstawia sposób usuwania domyślne elementy formatujące. Wywołania od usługi **aplikacji\_Start** metoda, zdefiniowana w pliku Global.asax.
 
 [!code-csharp[Main](json-and-xml-serialization/samples/sample16.cs)]
 
 <a id="handling_circular_object_references"></a>
-## <a name="handling-circular-object-references"></a>Obsługa odwołań do obiektów cykliczne
+## <a name="handling-circular-object-references"></a>Obsługa odwołania do obiektu cykliczne
 
-Domyślnie elementy formatujące JSON i XML zapisania wszystkich obiektów jako wartości. Jeśli dwie właściwości odwołują się do tego samego obiektu lub ten sam obiekt występuje dwa razy w kolekcji, program formatujący zostanie dwukrotnie serializacji obiektu. Jest to konkretnych problemów Jeśli Twoje wykres obiektu zawiera cykle, ponieważ serializator spowoduje zgłoszenie wyjątku, gdy wykryje pętlę na wykresie.
+Domyślnie elementy formatujące formatami JSON i XML zapisania wszystkich obiektów jako wartości. Jeśli dwie właściwości odnoszą się do tego samego obiektu lub tego samego obiektu, który pojawia się dwa razy w kolekcji, program formatujący będzie dwa razy serializacji obiektu. Jest to konkretnych problemów Jeśli grafu obiektów zawiera cykle, ponieważ element serializujący spowoduje zgłoszenie wyjątku w przypadku wykrycia pętli na wykresie.
 
 Należy wziąć pod uwagę następujące modele obiektów i kontrolera.
 
 [!code-csharp[Main](json-and-xml-serialization/samples/sample17.cs)]
 
-Wywoływanie ta akcja spowoduje, że element formatujący zgłosił wyjątek, co oznacza stan kodu 500 (wewnętrzny błąd serwera) odpowiedź do klienta.
+Wywoływanie tej akcji spowoduje, że element formatujący zgłoszony wyjątek, co przekłada się na stan kodu 500 (wewnętrzny błąd serwera) odpowiedź do klienta.
 
 Aby zachować odwołania do obiektów w formacie JSON, Dodaj następujący kod do **aplikacji\_Start** metody w pliku Global.asax:
 
 [!code-csharp[Main](json-and-xml-serialization/samples/sample18.cs)]
 
-Teraz akcji kontrolera zwróci JSON, który wygląda następująco:
+Teraz akcji kontrolera zwróci JSON, który wygląda w następujący sposób:
 
 [!code-json[Main](json-and-xml-serialization/samples/sample19.json)]
 
-Należy zauważyć, że serializator dodaje &quot;$id&quot; właściwości zarówno do obiektów. Ponadto wykryje, że właściwość Employee.Department tworzy pętlę, zastępuje on wartość odwołania do obiektu: {&quot;$ref&quot;:&quot;1&quot;}.
+Należy zauważyć, że serializator dodaje &quot;$id&quot; właściwości do obu obiektów. Ponadto wykryje, czy właściwość Employee.Department tworzy pętli, a więc zastępuje wartość odwołania do obiektu: {&quot;$ref&quot;:&quot;1&quot;}.
 
 > [!NOTE]
-> Odwołania do obiektów nie są standardowe w formacie JSON. Przed użyciem tej funkcji, należy rozważyć, czy klienci będą mogli przeanalizować wyniki. Może być lepiej po prostu usuń cykle z wykresu. Na przykład łącze od pracownika do działu nie jest naprawdę potrzebne w tym przykładzie.
+> Odwołania do obiektu nie są standardowe w formacie JSON. Przed użyciem tej funkcji, należy rozważyć, czy klienci będą mogli przeanalizować wyniki. Może być lepiej po prostu usunąć cykle z wykresu. Na przykład łącze z pracowników do działu nie jest naprawdę potrzebne w tym przykładzie.
 
 
-Aby zachować odwołania do obiektów w formacie XML, masz dwie opcje. Prostsze opcją jest dodanie `[DataContract(IsReference=true)]` do własnej klasy modelu. *IsReference* parametru zapewnia odwołania do obiektów. Należy pamiętać, że **DataContract** sprawia, że serializacji zdecydować się na, więc należy również dodać **DataMember** atrybuty do właściwości:
+Aby zachować odwołania do obiektów w formacie XML, masz dwie opcje. Prostsze opcją jest dodanie `[DataContract(IsReference=true)]` do klasy modelu. *IsReference* parametr umożliwia odwołania do obiektu. Należy pamiętać, że **DataContract** sprawia, że serializacji uczestnictwo, więc należy również dodać **DataMember** atrybuty do właściwości:
 
 [!code-csharp[Main](json-and-xml-serialization/samples/sample20.cs)]
 
-Teraz program formatujący utworzy XML podobne do następujących:
+Teraz program formatujący dadzą XML podobne do następujących:
 
 [!code-xml[Main](json-and-xml-serialization/samples/sample21.xml)]
 
-Jeśli chcesz uniknąć atrybuty klasy modelu, jest inną opcją: Tworzenie nowego typu **DataContractSerializer** wystąpienia i ustaw *preserveObjectReferences* do **true**  w konstruktorze. Następnie ustaw tego wystąpienia jako serializator dla typu na typ nośnika elementu formatującego XML. Poniższy kod pokazują, jak to zrobić:
+Jeśli chcesz uniknąć atrybuty w klasie modelu jest inną opcją: Tworzenie nowego typu **DataContractSerializer** wystąpienia i ustaw *preserveObjectReferences* do **true**  w konstruktorze. Następnie ustaw tego wystąpienia jako element serializujący-type na typ nośnika elementu formatującego XML. Następujący kod pokazuje, jak to zrobić:
 
 [!code-csharp[Main](json-and-xml-serialization/samples/sample22.cs?highlight=3)]
 
 <a id="testing_object_serialization"></a>
-## <a name="testing-object-serialization"></a>Testowanie serializacji obiektu
+## <a name="testing-object-serialization"></a>Testowanie odpowiedzialność za serializację obiektu
 
-Podczas projektowania interfejsu API sieci web, warto przetestować, jak można serializować obiektów danych. Można to zrobić bez tworzenia kontrolera lub wywoływania akcji kontrolera.
+Podczas projektowania internetowego interfejsu API jest przydatne do testowania, jak można serializować obiektów danych. Można to zrobić bez tworzenia kontrolera lub wywołanie akcji kontrolera.
 
 [!code-csharp[Main](json-and-xml-serialization/samples/sample23.cs)]

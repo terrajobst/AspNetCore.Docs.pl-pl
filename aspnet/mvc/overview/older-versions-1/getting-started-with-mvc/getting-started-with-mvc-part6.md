@@ -1,70 +1,69 @@
 ---
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part6
-title: Dodawanie metody i tworzenie widoku | Dokumentacja firmy Microsoft
+title: Dodawanie metody Create i tworzenie widoku | Dokumentacja firmy Microsoft
 author: shanselman
-description: Jest to samouczek początkujących przedstawiający podstawowe informacje o platformie ASP.NET MVC. Utwórz prostą aplikację sieci web odczytuje i zapisuje z bazy danych.
+description: Jest to samouczek dla początkujących, która przedstawia podstawy platformy ASP.NET MVC. Utwórz prostą aplikację sieci web wykonującej Odczyt i zapis z bazy danych.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/14/2010
 ms.topic: article
 ms.assetid: a3a90963-0286-4fa0-9b3d-c230cc18b0a3
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part6
 msc.type: authoredcontent
-ms.openlocfilehash: 48e656a0c394b9db5baaec9c557ec38c4020d41b
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 976df78ea22c30c094f70a57792d287f15d2c62d
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2018
-ms.locfileid: "30867986"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37400911"
 ---
-<a name="adding-a-create-method-and-create-view"></a>Dodawanie metody i tworzenie widoku
+<a name="adding-a-create-method-and-create-view"></a>Dodawanie metody Create i tworzenie widoku
 ====================
-przez [Scott Hanselman](https://github.com/shanselman)
+przez [Scotta Hanselmana](https://github.com/shanselman)
 
-> Jest to samouczek początkujących przedstawiający podstawowe informacje o platformie ASP.NET MVC. Utworzysz prostą aplikację sieci web odczytuje i zapisuje z bazy danych. Odwiedź stronę [Centrum szkoleniowe programu ASP.NET MVC](../../../index.md) można znaleźć inne platformy ASP.NET MVC, samouczki i przykłady.
+> Jest to samouczek dla początkujących, która przedstawia podstawy platformy ASP.NET MVC. Utworzysz prostą aplikację sieci web wykonującej Odczyt i zapis z bazy danych. Odwiedź stronę [Centrum szkoleniowe programu ASP.NET MVC](../../../index.md) można znaleźć inne platformy ASP.NET MVC, samouczków i przykładów.
 
 
-W tej sekcji zamierzamy Obsługa niezbędne umożliwić użytkownikom tworzenie nowości w naszej bazie danych. Firma Microsoft będzie w tym celu wykonania akcji filmów/Utwórz adres URL.
+W tej sekcji użyjemy do zaimplementowania obsługi, które są niezbędne umożliwić użytkownikom tworzenie nowych filmów w naszej bazie danych. Możemy to zrobić poprzez Implementowanie akcji filmy/tworzenia adresu URL.
 
-Implementowanie filmów/Utwórz adres URL jest procesem dwóch kroku. Gdy użytkownik odwiedza najpierw filmów/Utwórz adres URL chcemy ich wyświetlania formularza HTML, który można wypełnić wprowadzenia nowych filmu. Następnie gdy użytkownik przesyła formularz i wpisów, które dane z powrotem do serwera, chcemy się pobrać oczekujących na opublikowanie zawartość i zapisz go w naszej bazie danych.
+Implementowanie filmy/tworzenia adresu URL jest procesem dwóch kroków. Gdy użytkownik odwiedzi najpierw filmy/tworzenia adresu URL chcemy je pokazać formularza HTML, który można wypełnić aby wprowadzić nowy film. Następnie gdy użytkownik przesyła formularz i wpisy, dane z powrotem do serwera, chcemy pobrać przesłanych zawartość i zapisz go w naszej bazie danych.
 
-W naszym klasy MoviesController będzie wprowadzania tych dwóch kroków w ramach dwóch metod Create(). Przedstawia jedną metodę &lt;formularza&gt; czy użytkownik powinien wypełnić do utworzenia nowego filmu. Druga metoda obsługi przetwarzania przesłane dane, gdy użytkownik przesyła &lt;formularza&gt; z powrotem do serwera, a następnie zapisz nowy filmu w naszej bazie danych.
+Firma Microsoft będzie implementowana następujące dwa kroki w ramach dwóch metod Create() w ramach naszych klasy MoviesController. Jedną z metod będzie wyświetlana &lt;formularza&gt; , użytkownik powinien Wypełnij do utworzenia nowego filmu. Druga metoda będzie obsługiwać przetwarzanie przesłane dane, gdy użytkownik przesyła &lt;formularza&gt; z powrotem do serwera, a następnie zapisz nowy film w naszej bazie danych.
 
-Poniżej znajduje się kod zostanie dodany do naszej klasy MoviesController implementacji:
+Poniżej znajduje się kod zostanie dodany do naszych klasy MoviesController implementacji:
 
 [!code-csharp[Main](getting-started-with-mvc-part6/samples/sample1.cs)]
 
-Powyższy kod zawiera wszystkie kodu, który będą potrzebne w ramach kontrolera.
+Powyższy kod zawiera cały kod, który będziemy potrzebować w ramach kontrolera.
 
-Umożliwia teraz wdrożyć szablon tworzenia widoku, który zostanie użyta do wyświetlania formularza do użytkownika. Firma Microsoft będzie pierwszy metody Create kliknij prawym przyciskiem myszy i wybierz "Dodaj widok", aby utworzyć szablon widoku dla naszego formularza filmu.
+Przejdźmy teraz wdrożyć szablon Utwórz widok, który użyjemy, aby wyświetlić formularz do użytkownika. Firma Microsoft będzie w przypadku pierwszej metody tworzenia kliknij prawym przyciskiem myszy i wybierz pozycję "Dodaj widok", aby utworzyć szablon widoku dla naszego formularza filmu.
 
-Wybierzemy możemy są, przechodząc do przekazania Wyświetl szablon "Filmu" jak jego Klasa danych widoku, które wskazują, że chcemy "utworzyć szkielet" szablon "Utwórz".
+Wybierzemy, firma Microsoft zamierza przekazać Wyświetl szablon "Filmu" jako klasą danych widoku i wskazują, że chcemy "tworzenia szkieletu" szablon "Utwórz".
 
-[![Dodaj widok](getting-started-with-mvc-part6/_static/image2.png)](getting-started-with-mvc-part6/_static/image1.png)
+[![Dodawanie widoku](getting-started-with-mvc-part6/_static/image2.png)](getting-started-with-mvc-part6/_static/image1.png)
 
-Po kliknięciu przycisku Dodaj \Movies\Create.aspx wyświetlanie szablonu zostaną utworzone automatycznie. Ponieważ wybrano "Utwórz" z listy rozwijanej "Wyświetl zawartość", okno dialogowe dodawania widoku automatycznie "szkieletu" zawartość domyślne firmie Microsoft. Rusztowania utworzone HTML &lt;formularza&gt;, miejsce na błąd sprawdzania poprawności komunikaty Przejdź, i ponieważ szkieletów obsługującemu filmów, dla każdej właściwości klasy Nasze utworzony etykiety i pola.
+Po kliknięciu przycisku Dodaj zostanie utworzony szablon widoku \Movies\Create.aspx dla Ciebie. Ponieważ Wybraliśmy "Utwórz" z menu rozwijanego "Wyświetl zawartość" okno dialogowe dodawania widoku automatycznie "szkieletu" niektóre domyślnej zawartości dla nas. Szkieletu utworzone HTML &lt;formularza&gt;, miejsce na błąd sprawdzania poprawności wiadomości do i od tworzenia szkieletów obsługującemu filmów, dla każdej właściwości klasy Nasze go utworzone etykiety i pola.
 
 [!code-aspx[Main](getting-started-with-mvc-part6/samples/sample2.aspx)]
 
-Ponieważ naszej bazie danych jest automatycznie daje filmu Identyfikatora, umożliwia usunięcie tego modelu referencyjnego. Identyfikator z naszych tworzenia widoku. Usuń 7 wierszy po &lt;legendy&gt;pola&lt;/legend&gt; zgodnie z ich pokazać w polu Identyfikatora firma Microsoft nie ma.
+Ponieważ identyfikator naszej bazie danych automatycznie daje filmu, usuńmy tych pól modelu odniesienia. Identyfikator z widoku nasze Utwórz. Usuń wiersze 7 po &lt;legendy&gt;pola&lt;/legend&gt; którzy pokazują, pole ID, nie chcemy.
 
-Umożliwia teraz tworzenie nowych filmu i dodaj go do bazy danych. Firma Microsoft będzie to zrobić, uruchamiając ponownie aplikację i odwiedź "/ filmy" adres URL i kliknij przycisk "Utwórz" łącze do dodawania nowych filmu.
+Załóżmy teraz utworzyć nowy film i dodać go do bazy danych. Utworzymy to zrobić, uruchamiając ponownie aplikację i odwiedź stronę "/ filmy" adres URL i kliknij przycisk "Utwórz" link można dodać nowy film.
 
-[![Tworzenie - Windows Internet Explorer](getting-started-with-mvc-part6/_static/image4.png)](getting-started-with-mvc-part6/_static/image3.png)
+[![Tworzenie — Windows Internet Explorer](getting-started-with-mvc-part6/_static/image4.png)](getting-started-with-mvc-part6/_static/image3.png)
 
-Kliknięcie przycisku Utwórz, firma Microsoft będzie można zamieszczając Wstecz (za pośrednictwem protokołu HTTP POST) danych w tym formularzu do metody /Movies/Create, którą właśnie utworzyliśmy. Podobnie jak podczas system automatycznie trwało parametru "numTimes" i "name" poza adres URL i mechanizmowi parametry dla metody wcześniej system automatycznie pobrać pola formularza z ogłoszenie (POST) i mapować je do obiektu. W tym przypadku wartości pól w formacie HTML, takie jak "ReleaseDate" i "Title", zostaną automatycznie wprowadzone w prawidłowe właściwości nowe wystąpienie klasy filmu.
+Po kliknięciu przycisku Utwórz, firma Microsoft będzie można księgowania Wstecz (za pośrednictwem protokołu HTTP POST) danych w tym formularzu metodę /Movies/Create, który właśnie utworzyliśmy. Podobnie jak podczas systemu trwało parametr "numTimes" i "name" spoza adres URL i automatycznie mechanizmowi parametrów dla metody wcześniej system będzie automatycznie umieść pola formularza z WPIS i mapować je do obiektu. W tym przypadku wartości z pól w formacie HTML, takich jak "ReleaseDate" i "Title", będą automatycznie umieszczone prawidłowe właściwości nowe wystąpienie klasy filmu.
 
-Przyjrzyjmy się drugi metody Create z naszych MoviesController ponownie. Zwróć uwagę, jak zajmuje obiektu "Filmu" jako argumentu:
+Przyjrzyjmy się druga metoda tworzenia z naszych MoviesController ponownie. Zwróć uwagę, jak zajmuje się obiekt "Filmu" jako argumentu:
 
 [!code-csharp[Main](getting-started-with-mvc-part6/samples/sample3.cs)]
 
-Ten obiekt filmu następnie został przekazany do wersji [HttpPost] naszych Utwórz metody akcji i firma Microsoft zapisany w bazie danych, a następnie przekierowany użytkownika z powrotem do metody akcji indeks(), który będzie widoczny zapisane wyniki w listy filmów:
+Ten obiekt filmu następnie został przekazany do naszych Utwórz metody akcji w wersji [HttpPost], a firma Microsoft zapisany w bazie danych, a następnie przekierowanie użytkownika z powrotem do metody akcji indeks(), z którym będą wyświetlane zapisany wynik na liście filmów:
 
-[![Listy filmów - Windows Internet Explorer](getting-started-with-mvc-part6/_static/image6.png)](getting-started-with-mvc-part6/_static/image5.png)
+[![Lista filmu — Windows Internet Explorer](getting-started-with-mvc-part6/_static/image6.png)](getting-started-with-mvc-part6/_static/image5.png)
 
-Firma Microsoft nie są sprawdzania, jeśli naszych filmów są poprawne, ale i bazy danych nie zezwalają na Zapisz film z bez tytułu. Byłoby nieuprzywilejowany możemy podać użytkownik, który wygenerował błąd przed bazy danych. Firma Microsoft zrobić dalej to przez dodanie obsługi sprawdzania poprawności do naszej aplikacji.
+Firma Microsoft nie są ewidencjonowane nasze filmy są poprawne, jednak i bazy danych nie pozwalają na zapisywanie filmu przy użyciu bez tytułu. Dobrze byłoby, jeśli firma Microsoft może Monituj użytkownika, że przed bazy danych Zgłoszono błąd. Robimy to dalej przez dodanie obsługi sprawdzania poprawności do naszej aplikacji.
 
 > [!div class="step-by-step"]
 > [Poprzednie](getting-started-with-mvc-part5.md)

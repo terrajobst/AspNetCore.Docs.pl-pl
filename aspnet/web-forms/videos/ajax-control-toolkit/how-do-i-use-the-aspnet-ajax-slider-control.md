@@ -1,31 +1,30 @@
 ---
 uid: web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-slider-control
-title: '[Jak i.] Korzystać z ASP.NET AJAX suwaka? | Microsoft Docs'
+title: '[Jak mogę] Użyj kontrolka Slider ASP.NET AJAX? | Microsoft Docs'
 author: JoeStagner
-description: Suwak z zestawu ASP.NET AJAX kontroli narzędzi umożliwia proste i przejrzyste dla użytkownika wybrać wartość liczbową. To wideo pokazuje, jak ad...
+description: Kontrolka suwaka z ASP.NET AJAX Control Toolkit umożliwia proste i przejrzyste użytkownika wybierz wartość liczbową. Ten film pokazuje, jak ad...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/13/2007
 ms.topic: article
 ms.assetid: 958e1bc8-65a8-4fe0-ad2d-f98691d5fdf1
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-slider-control
 msc.type: video
-ms.openlocfilehash: e8959cedec283b852c63a4f70bdb532dbeed70fd
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: f97142a44d3a925d08311a7d301d9bb8aa81a47d
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30880053"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37401730"
 ---
-<a name="how-do-i-use-the-aspnet-ajax-slider-control"></a>[Jak i.] Korzystać z ASP.NET AJAX suwaka?
+<a name="how-do-i-use-the-aspnet-ajax-slider-control"></a>[Jak mogę] Użyj kontrolka Slider ASP.NET AJAX?
 ====================
 przez [Stagner Jan](https://github.com/JoeStagner)
 
-Suwak z zestawu ASP.NET AJAX kontroli narzędzi umożliwia proste i przejrzyste dla użytkownika wybrać wartość liczbową. To wideo pokazuje, jak dodać kontrolki suwaka do strony sieci Web oraz konfigurowania orientacja zakres wartości i zwiększa rozmiar.
+Kontrolka suwaka z ASP.NET AJAX Control Toolkit umożliwia proste i przejrzyste użytkownika wybierz wartość liczbową. Ten film pokazuje, jak dodać kontrolkę suwaka do strony sieci Web i sposobie konfigurowania orientacji, zakres wartości, a rozmiar zwiększa.
 
-[&#9654;Obejrzyj klip wideo (10 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-ajax-slider-control)
+[&#9654;Obejrzyj film wideo (10 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-ajax-slider-control)
 
 > [!div class="step-by-step"]
 > [Poprzednie](how-do-i-use-the-aspnet-ajax-confirmbutton-extender.md)

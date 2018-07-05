@@ -1,38 +1,37 @@
 ---
 uid: web-api/overview/data/index
-title: Praca z danymi w składniku ASP.NET Web API | Dokumentacja firmy Microsoft
+title: Praca z danymi w interfejsie Web API platformy ASP.NET | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: Jak program CRUD (tworzenia, odczytu, aktualizowanie i usuwanie) operacje interfejsu API sieci Web.
+description: Jak program CRUD (Tworzenie, odczytywanie, aktualizowanie, usuwanie) operacji w interfejsie API sieci Web.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/23/2014
 ms.topic: article
 ms.assetid: 995cbe38-7dbd-4c36-a5d0-a761944c7636
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data
 msc.type: chapter
-ms.openlocfilehash: d10b37ffcbaf4124bab05045f0c0608e437bd74d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 36ea23fdba6e28a45a598340d29afe7156e26ade
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26566303"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37381741"
 ---
-<a name="working-with-data-in-aspnet-web-api"></a>Praca z danymi w składniku ASP.NET Web API
+<a name="working-with-data-in-aspnet-web-api"></a>Praca z danymi we wzorcu ASP.NET Web API
 ====================
-> Jak program CRUD (tworzenia, odczytu, aktualizowanie i usuwanie) operacje interfejsu API sieci Web.
+> Jak program CRUD (Tworzenie, odczytywanie, aktualizowanie, usuwanie) operacji w interfejsie API sieci Web.
 
 
-- [Używanie składnika Web API 2 z programu Entity Framework 6](using-web-api-with-entity-framework/index.md)
+- [Używanie interfejsu Web API 2 z programem Entity Framework 6](using-web-api-with-entity-framework/index.md)
 
     - [Tworzenie projektu](using-web-api-with-entity-framework/part-1.md)
-    - [Dodaj modele i kontrolerów](using-web-api-with-entity-framework/part-2.md)
-    - [Inicjatora bazy danych](using-web-api-with-entity-framework/part-3.md)
-    - [Obsługa relacjami jednostek](using-web-api-with-entity-framework/part-4.md)
-    - [Tworzenie obiektów Transfer danych (DTOs)](using-web-api-with-entity-framework/part-5.md)
+    - [Dodawanie modeli i kontrolerów](using-web-api-with-entity-framework/part-2.md)
+    - [Inicjowanie bazy danych](using-web-api-with-entity-framework/part-3.md)
+    - [Obsługa relacji jednostek](using-web-api-with-entity-framework/part-4.md)
+    - [Tworzenie obiektów transferu danych (DTO)](using-web-api-with-entity-framework/part-5.md)
     - [Tworzenie klienta JavaScript](using-web-api-with-entity-framework/part-6.md)
-    - [Tworzenie widoku (UI)](using-web-api-with-entity-framework/part-7.md)
-    - [Wyświetl szczegóły elementu](using-web-api-with-entity-framework/part-8.md)
-    - [Dodaj nowy element do bazy danych](using-web-api-with-entity-framework/part-9.md)
+    - [Tworzenie widoku (interfejs użytkownika)](using-web-api-with-entity-framework/part-7.md)
+    - [Wyświetlanie szczegółów elementu](using-web-api-with-entity-framework/part-8.md)
+    - [Dodawanie nowego elementu do bazy danych](using-web-api-with-entity-framework/part-9.md)
     - [Publikowanie aplikacji w usłudze Azure Websites](using-web-api-with-entity-framework/part-10.md)

@@ -1,31 +1,30 @@
 ---
 uid: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-21-order-manager-and-personalization
-title: 'Częścią sklepu platformy ASP.NET MVC 21: Menedżer zlecenia i personalizacji | Dokumentacja firmy Microsoft'
+title: 'ASP.NET MVC StoreFront — część 21: Menedżer zamówień i personalizacja | Dokumentacja firmy Microsoft'
 author: robconery
-description: W tym epizodzie I Utwórz stronę menedżera zlecenia i porozmawiać na temat różnych zagadnień dotyczących realizacji order. Ponadto można wprowadzić funkcji personalizacji...
+description: W tym odcinku I utworzyć stronę Menedżer zamówień i omówiono różne problemy z odnoszące się do realizacji zamówienia. Ponadto można wprowadzać personalizacji funkcje...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/16/2008
 ms.topic: article
 ms.assetid: f1490fdc-ee7d-4fee-a4e5-25d141d88478
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-21-order-manager-and-personalization
 msc.type: video
-ms.openlocfilehash: 31027dbede77e1b14509ac321a4e73a89486627f
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: c0f135fc677345d22be719e96d8e3083faf55915
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30878480"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37391463"
 ---
-<a name="aspnet-mvc-storefront-part-21-order-manager-and-personalization"></a>Częścią sklepu platformy ASP.NET MVC 21: Menedżer zlecenia i personalizacji
+<a name="aspnet-mvc-storefront-part-21-order-manager-and-personalization"></a>ASP.NET MVC StoreFront — część 21: Menedżer zamówień i personalizacja
 ====================
 przez [Rob Conery](https://github.com/robconery)
 
-W tym epizodzie I Utwórz stronę menedżera zlecenia i porozmawiać na temat różnych zagadnień dotyczących realizacji order. Ponadto I wprowadzić personalizacji funkcje w środowisku bardziej przyjazna dla użytkownika.
+W tym odcinku I utworzyć stronę Menedżer zamówień i omówiono różne problemy z odnoszące się do realizacji zamówienia. Ponadto mogę wprowadzać funkcje personalizacji się środowisko nieco bardziej przyjazny dla użytkownika.
 
-[&#9654;Obejrzyj klip wideo (minuty 43)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-21-order-manager-and-personalization)
+[&#9654;Obejrzyj film wideo (43 w minutach)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-21-order-manager-and-personalization)
 
 > [!div class="step-by-step"]
 > [Poprzednie](aspnet-mvc-storefront-part-20-logging.md)

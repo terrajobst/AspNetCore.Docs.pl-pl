@@ -2,30 +2,29 @@
 uid: web-forms/videos/iis/bit-rate-throttling
 title: Bit Rate Throttling | Dokumentacja firmy Microsoft
 author: JoeStagner
-description: Ten film udzieli jak zainstalować i skonfigurować doskonałe IIS7 nowością — Bit Rate Throttling. Z BRT może obsługiwać pliki multimedialne lub withou duże pliki do pobrania...
+description: W tym wideo nauczy sposobu instalowania i konfigurowania nowej atrakcyjnej IIS7 funkcji — Bit Rate Throttling. Za pomocą BRT może obsługiwać pliki multimedialne lub withou dużych plików do pobrania...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/09/2009
 ms.topic: article
 ms.assetid: 8dc90862-97d6-48d1-8bfc-79c70d622474
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/iis/bit-rate-throttling
 msc.type: video
-ms.openlocfilehash: 65511ccc49bda216b422334787cc6e0e032117d4
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 7eed091306f157c71a9a8d46fcfb3a21814c3e51
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30881178"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37402543"
 ---
-<a name="bit-rate-throttling"></a>Bit Rate Throttling
+<a name="bit-rate-throttling"></a>Ograniczanie szybkości transmisji bitów
 ====================
 przez [Stagner Jan](https://github.com/JoeStagner)
 
-Ten film udzieli jak zainstalować i skonfigurować doskonałe IIS7 nowością — Bit Rate Throttling. Z BRT bez ruining wydajność witryny interfejsu użytkownika może obsługiwać pliki multimedialne lub duże pliki do pobrania.
+W tym wideo nauczy sposobu instalowania i konfigurowania nowej atrakcyjnej IIS7 funkcji — Bit Rate Throttling. Za pomocą BRT bez ruining wydajności interfejsu użytkownika witryny może obsługiwać pliki multimedialne lub dużych plików do pobrania.
 
-[&#9654;Obejrzyj klip wideo (minuty 6)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/bit-rate-throttling)
+[&#9654;Obejrzyj film wideo (6 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/bit-rate-throttling)
 
 > [!div class="step-by-step"]
 > [Poprzednie](installing-ftp7.md)
