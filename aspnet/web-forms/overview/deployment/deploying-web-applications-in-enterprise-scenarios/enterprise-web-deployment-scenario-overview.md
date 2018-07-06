@@ -1,127 +1,126 @@
 ---
 uid: web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview
-title: 'Wdrożenia sieci Web w przedsiębiorstwie: Omówienie scenariusza | Dokumentacja firmy Microsoft'
+title: 'Wdrażania sieci Web w przedsiębiorstwie: Omówienie scenariusza | Dokumentacja firmy Microsoft'
 author: jrjlee
-description: Ten zestaw samouczki używa przykładowe rozwiązanie z realistyczne poziom złożoności, oraz scenariusz wdrażania fikcyjnej organizacji, aby zapewnić ref...
+description: Tego zestawu samouczków używa przykładowe rozwiązanie przy użyciu realistycznej stopień złożoności, wraz z scenariusz wdrażania fikcyjnej organizacji, aby zapewnić odwołanie...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/03/2012
 ms.topic: article
 ms.assetid: aa862153-4cd8-4e33-beeb-abf502c6664f
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview
 msc.type: authoredcontent
-ms.openlocfilehash: 20f6e206d6aa4bebb4936246468f5ada0e213236
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
-ms.translationtype: MT
+ms.openlocfilehash: 47bd0a0f7b71a6069d573f1454583cdb832f6b4c
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30890024"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37366080"
 ---
-<a name="enterprise-web-deployment-scenario-overview"></a>Wdrożenia sieci Web w przedsiębiorstwie: Omówienie scenariusza
+<a name="enterprise-web-deployment-scenario-overview"></a>Wdrażanie sieci Web w przedsiębiorstwie: Omówienie scenariusza
 ====================
-przez [Lewandowski Jason](https://github.com/jrjlee)
+przez [Jason Lee](https://github.com/jrjlee)
 
 [Pobierz plik PDF](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> Ten zestaw samouczki używa przykładowe rozwiązanie z realistyczne poziom złożoności, oraz scenariusz wdrażania fikcyjnej organizacji do implementacji odwołania i zadania i wskazówki dotyczące typowych kontekstu. W tym temacie opisano samouczek scenariusza i przedstawiono przykładowe rozwiązanie.
+> Tego zestawu samouczków używa przykładowe rozwiązanie z realistyczne stopień złożoności, wraz z fikcyjnego wdrożenia zrealizować scenariusz przedsiębiorstwa, zapewniają implementację referencyjną i wydawanie zadania i wskazówki dotyczące typowych kontekstu. W tym temacie opisano scenariusz samouczka i wprowadza przykładowe rozwiązanie.
 
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
-Fikcyjnej firmy Fabrikam, Inc. tworzy rozwiązanie umożliwiający zdalne zespoły przechowywania i pobierania informacji kontaktowych z interfejsem sieci web.
+Fikcyjnej firmy Fabrikam, Inc. jest utworzenie rozwiązania, które umożliwia zdalne zespoły sprzedaży, przechowywać i pobierać dane kontaktowe z interfejsem sieci web.
 
-Procesy zarządzania cyklem życia aplikacji (ALM) w firmie Fabrikam, Inc. wymagają rozwiązania można wdrożyć na trzy środowiska serwera na różnych etapach procesu tworzenia oprogramowania:
+Procesy zarządzania cyklem życia aplikacji (ALM) w firmie Fabrikam, Inc. wymagają, jakie rozwiązanie będzie można wdrożyć trzy środowiska serwera na różnych etapach procesu tworzenia oprogramowania:
 
 - Test lub "piaskownicy" środowiska deweloperskiego.
-- Intranetowego środowiska przemieszczania.
-- Internetowy środowiska produkcyjnego.
+- Oparte na sieci intranet środowiska przejściowego.
+- Środowisko produkcyjne dostępnego z Internetu.
 
-Każdy z tych środowisk ma inną konfigurację i wymagania dotyczące zabezpieczeń, a każdy stanowi związane z wdrożeniem unikatowych.
+Każdy z tych środowisk ma inną konfigurację i wymagań dotyczących zabezpieczeń, a każda stwarza wyzwania związane z wdrożeniem unikatowy.
 
 ### <a name="the-fabrikam-inc-server-infrastructure"></a>The Fabrikam, Inc. Serwer infrastruktury
 
-Jest to ogólny opracowywania i wdrażania infrastruktury w firmie Fabrikam, Inc.
+Jest to wysokiego poziomu procesu projektowania i wdrażania infrastruktury w firmie Fabrikam, Inc.
 
 ![](enterprise-web-deployment-scenario-overview/_static/image1.png)
 
-Stacje robocze developer, infrastruktury kontroli źródła, deweloperów środowiska testowego i środowisko przejściowe, które wszystkie znajdują się w sieci intranet w obrębie domeny Fabrikam.net. W środowisku produkcyjnym znajduje się w sieci obwodowej (znanej także jako strefa DMZ, strefą zdemilitaryzowaną i podsiecią ekranowaną), która jest odizolowana od sieci intranet przez zaporę. Jest to typowy scenariusz wdrażania: zwykle izolowanie serwerów sieci web skierowane do Internetu z wewnętrznego serwera infrastruktury za pośrednictwem zapór lub serwerów bram.
+Stacje robocze deweloperów, infrastruktura kontroli źródła, środowisku testowym dla deweloperów i środowisko przejściowe, który znajduje się w sieci intranet w domenie Fabrikam.net. W środowisku produkcyjnym znajduje się w sieci obwodowej (znany także jako DMZ, strefa zdemilitaryzowana i podsieć ekranowana), która jest odizolowana od sieci intranet przez zaporę. Jest to typowy scenariusz wdrażania: zazwyczaj izolowanie serwerów sieci web dostępnym z Internetu z wewnętrznego serwera infrastruktury przy użyciu zapór lub serwerów bram.
 
 W tym przykładzie:
 
-- Serwer Team Foundation Server (TFS) 2010 z serwerem kompilacji oddzielne zapewnia kontroli źródła i funkcje ciągłej integracji (CI).
-- Środowisko testowe developer obejmuje serwer sieci web usług Internet Information usług (IIS) 7.5 i serwer bazy danych programu SQL Server 2008 R2.
-- W środowisku produkcyjnym zawiera wiele serwerów sieci web usług IIS 7.5 synchronizowane przez serwer kontrolera Framework kolektywu serwerów sieci Web (WFF) wraz z serwerem bazy danych programu SQL Server 2008 R2. W praktyce serwer bazy danych może użyć klastrowania lub dublowania poprawiające skalowalność i dostępność.
-- Środowisko przejściowe zaprojektowano w celu zreplikowania możliwie konfiguracji środowiska produkcyjnego.
+- Serwer Team Foundation Server (TFS) 2010 z serwerem kompilacji oddzielne zapewnia kontroli źródła i funkcji ciągłej integracji (CI).
+- Środowisko testowe dla deweloperów zawiera Internet Information Services (IIS) 7.5 serwera sieci web i serwera bazy danych programu SQL Server 2008 R2.
+- W środowisku produkcyjnym obejmuje wiele serwerów sieci web usług IIS 7.5 synchronizowane przez serwer kontrolera w ramach farmy sieci Web (WFF), wraz z serwerem bazy danych programu SQL Server 2008 R2. W praktyce serwer bazy danych może używać klastrowania lub dublowania w celu poprawy skalowalności i dostępności.
+- Środowisko przejściowe jest przeznaczony do możliwie najdokładniej replikować konfigurację środowiska produkcyjnego.
 - Zasady izolacji zapory i sieci nie zezwalają na direct, automatyczne wdrażanie z sieci intranet w sieci obwodowej.
 
-Konfigurację wszystkich tych środowisk opisano szczegółowo w drugi samouczka [Konfigurowanie środowiska serwera sieci Web wdrożenia](../configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment.md).
+Konfigurację wszystkich tych środowisk jest opisany bardziej szczegółowo w drugim samouczku [Konfigurowanie środowisk serwera wdrażania sieci Web](../configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment.md).
 
-### <a name="team-roles-for-alm"></a>Role zespołu dla ALM
+### <a name="team-roles-for-alm"></a>Role dla ALM
 
-Ci użytkownicy są zaangażowane w tworzenie, zarządzanie, tworzenie i publikowanie rozwiązania z menedżerem skontaktuj się z pomocą:
+Ci użytkownicy są zaangażowane w tworzenie, zarządzanie, tworzenie i publikowanie rozwiązania Contact Manager:
 
-- Matt Hink jest deweloperem aplikacji sieci web w firmie Fabrikam, Inc. Jest on częścią zespołu, który opracowany rozwiązania Contact Manager przy użyciu programu Visual Studio 2010. Matt ma pełne uprawnienia administracyjne na serwerach w środowisku testowym developer umożliwia mu skonfiguruj środowisko do swoich potrzeb. Ma on także użytkownikowi dostęp do wystąpienia programu Visual Studio 2010 TFS, gdzie przechowuje on kodu źródłowego rozwiązania kontaktów Menedżerze.
-- Tomasz Tomasz jest administratorem serwera dla firmy Fabrikam, Inc. zespół deweloperów. Tomasz ma dostęp administracyjny na serwerze TFS, dzięki czemu on można skonfigurować wszystkie aspekty TFS i Team Build. Tomasz również ma dostęp administracyjny do badania i przemieszczania serwerów sieci web, a także pełni rolę administratora bazy danych (DBA) dla serwerów baz danych w środowisk testowych i przejściowych. Tomasz skonfigurował Team Build na serwerze TFS, aby wykonać te zadania:
+- Matt Hink jest programistą aplikacji sieci web w firmie Fabrikam, Inc. Jest on częścią zespołu, która opracowała rozwiązanie Contact Manager przy użyciu programu Visual Studio 2010. Matt ma pełne uprawnienia administracyjne na serwerach w środowisku testowym dla deweloperów, co pozwala mu skonfiguruj środowisko do swoich potrzeb. Ma on także użytkownikom dostęp do wystąpienia programu Visual Studio 2010 TFS, gdzie przechowuje on kod źródłowy rozwiązania Contact Manager.
+- Tomasz Tomasz jest administratorem serwera dla zespołu deweloperów firmy Fabrikam, Inc. Rob ma dostęp administratora na serwerze TFS, więc on można skonfigurować z wszystkimi aspektami programu TFS i kompilacji zespołowej. Rob również ma dostęp administracyjny do testowego i przejściowego serwerów sieci web i działa jako administrator bazy danych (DBA) dotyczące serwerów bazy danych w środowisk testowych i przejściowych. Tomasz skonfigurował Team Build na serwerze TFS, aby wykonać te zadania:
 
-    - Tworzenie i Uruchamianie testów jednostek dla aplikacji, gdy użytkownik sprawdza się w pliku do programu TFS. Jest to elementu konfiguracji.
-    - Wdrażanie aplikacji Contact Manager do środowiska testowego automatycznie po aplikacji przekazuje testów jednostkowych. W tym publikowania bazy danych na serwery testu w początkowym wdrożeniu i wszelkie aktualizacje bazy danych po początkowym wdrożeniu.
-    - Wdrażanie aplikacji Contact Manager do środowiska pomostowego w jednym kroku procesu.
-    - Utwórz pakiet sieci Web, który administrator serwera sieci Web i Administrator służy do publikowania aplikacji do środowiska produkcyjnego.
-- Andrews Ewa jest odpowiedzialny za wdrażanie aplikacji na serwerach produkcyjnych firmy Fabrikam, Inc. administratora serwera. Użytkownik ma dostęp do odczytu do udziału, w których TFS Team Build przechowują pakietu wdrożeniowego sieci web po tworzenia aplikacji skontaktuj się z Menedżera. Użytkownik ma również dostęp administracyjny do produkcyjnych serwerów sieci web, dzięki czemu użytkownik może wdrożyć aplikację w środowisku produkcyjnym. Ponadto użytkownik działa jako administrator, który wdraża baz danych i aktualizacje bazy danych na serwerze bazy danych w środowisku produkcyjnym.
+    - Skompiluj i uruchom testy jednostkowe na aplikacji, zawsze wtedy, gdy użytkownik ewidencjonuje plik do programu TFS. Jest to nazywane ciągłej integracji.
+    - Wdrażanie aplikacji Contact Manager do środowiska testowego automatycznie, gdy aplikacja przekazuje testów jednostkowych. W tym publikowania bazy danych na serwerach testów na początkowego wdrożenia wraz z wszelkimi aktualizacjami bazy danych po początkowym wdrożeniu.
+    - Wdrażanie aplikacji Contact Manager w środowisku przejściowym w procesie pojedynczy krok.
+    - Utwórz pakiet sieci Web, który administrator serwera sieci Web oraz administratorem baz danych można użyć do publikowania aplikacji do środowiska produkcyjnego.
+- Lisa Andrews jest odpowiedzialny za wdrażanie aplikacji na serwerach produkcyjnych firmy Fabrikam, Inc. administrator serwera. Ma ona dostęp do odczytu do udziału, w którym programu TFS Team Build przechowuje pakiet wdrażania sieci web, gdy zbudował aplikacji Contact Manager. Również ma ona dostęp administracyjny do produkcyjnych serwerów sieci web, dzięki czemu użytkownik może wdrożyć aplikację do środowiska produkcyjnego. Ponadto działa ona jako administrator bazy danych, który służy do wdrażania baz danych i aktualizowanie bazy danych na serwerze bazy danych w środowisku produkcyjnym.
 
 <a id="_The_Contact_Manager"></a>
 
-### <a name="the-contact-manager-solution"></a>Rozwiązania z menedżerem kontaktu
+### <a name="the-contact-manager-solution"></a>Rozwiązanie Contact Manager
 
-Skontaktuj się z Menedżera rozwiązanie zezwala użytkownikom na zarejestrowanym, zalogowany dodawać i edytować informacje kontaktowe za pośrednictwem interfejsu sieci web. Rozwiązanie kontaktów Menedżerze składa się z czterech poszczególnych projektów:
+Rozwiązanie Contact Manager jest przeznaczony do powiadomić użytkowników zarejestrowanych, zalogowany, dodawać i edytować informacje kontaktowe za pośrednictwem interfejsu sieci web. Rozwiązanie Contact Manager składa się z czterech poszczególnych projektów:
 
 ![](enterprise-web-deployment-scenario-overview/_static/image2.png)
 
-- **ContactManager.Mvc**. Jest to projekt aplikacji sieci web ASP.NET MVC 3, który reprezentuje punkt wejścia dla rozwiązania. Zapewnia ona niektórych funkcji aplikacji sieci web podstawowych, takich jak zapewniając użytkownikom możliwość można tworzyć i wyświetlać szczegóły dotyczące kontaktu. Aplikacja korzysta z usługi Windows Communication Foundation (WCF) do zarządzania kontaktów i aplikacji usługi bazy danych programu ASP.NET do zarządzania, uwierzytelniania i autoryzacji.
+- **ContactManager.Mvc**. Jest to projektu aplikacji sieci web wzorca ASP.NET MVC 3, który reprezentuje punkt wejścia dla rozwiązania. Oferuje ona niektóre funkcje aplikacji web podstawowych, takich jak zapewniając użytkownikom możliwość tworzenia i wyświetlania szczegółów dotyczących kontaktu ds. Aplikacja korzysta z usługi Windows Communication Foundation (WCF) do zarządzania kontaktami i aplikacji usługi bazy danych programu ASP.NET, aby zarządzać uwierzytelnianiem i autoryzacją.
 - **ContactManager.Database**. Jest to projekt bazy danych programu Visual Studio 2010. Projekt definiuje schemat bazy danych, dane kontaktowe magazynów.
-- **ContactManager.Service**. Jest to projekt usługi sieci web WCF. Ujawnia WCF utworzyć punktu końcowego, który umożliwia obiekty wywołujące do wykonania, pobrać, aktualizowania i usuwania (CRUD) operations Manager skontaktuj się z bazy danych. Usługa zależy od tego, skontaktuj się z Menedżera bazy danych i zestaw ContactManager.Common.dll.
-- **ContactManager.Common**. Jest to projektu biblioteki klas. Usługi WCF, zależy od typów zdefiniowanych w tym zestawie.
+- **ContactManager.Service**. Jest to projekt usługi sieci web WCF. Udostępnia usługi WCF, utworzyć punkt końcowy, który umożliwia obiektom wywołującym do wykonania, pobieranie, aktualizowanie i usuwanie operacji (CRUD) w bazie danych Contact Manager. Usługa zależy od tego, Contact Manager bazy danych i zestaw ContactManager.Common.dll.
+- **ContactManager.Common**. Jest to projekt biblioteki klas. Usługa WCF opiera się na typy zdefiniowane w tym zestawie.
 
-Pełny przegląd rozwiązania i jej wymagań dotyczących wdrożenia znajduje się w pierwszym samouczku tej serii [Web Deployment w przedsiębiorstwie](../web-deployment-in-the-enterprise/web-deployment-in-the-enterprise.md).
+Pełny przegląd rozwiązania i jego wymagania dotyczące wdrażania znajduje się w pierwszym samouczku tej serii [wdrażanie w Internecie w przedsiębiorstwie](../web-deployment-in-the-enterprise/web-deployment-in-the-enterprise.md).
 
 <a id="_Deployment_Tasks"></a>
 
-## <a name="deployment-tasks"></a>Zadania wdrażania
+## <a name="deployment-tasks"></a>Zadania związane z wdrażaniem
 
-Istnieje kilka różnych zadań związanych z wdrażaniem aplikacji w różnych środowiskach w dużych organizacjach. Są to kluczowe zadania, obejmujące samouczków:
+Istnieje kilka zadań distinct związanych z wdrażaniem aplikacji w różnych środowiskach w dużych organizacjach. Oto kluczowe zadania, które obejmują samouczków:
 
 ![](enterprise-web-deployment-scenario-overview/_static/image3.png)
 
-Poniżej przedstawiono listę każdego kroku w procesie wdrożenia z punktu widzenia użytkowników opisanego wcześniej w tym dokumencie:
+Poniżej przedstawiono listę każdego kroku w procesie wdrożenia z punktu widzenia użytkowników opisane wcześniej w tym dokumencie:
 
-1. Wszyscy członkowie zespołu Przejrzyj rozwiązania menedżera kontaktu w Visual Studio 2010, aby określić wymagania dotyczące wdrażania klucza i problemy.
-2. Matt Hink może wdrożyć rozwiązanie kontaktów Menedżerze bezpośrednio ze stacji roboczej developer do deweloperów środowiska testowego, przeprowadzenie wstępnym teście logiki wdrożenia.
+1. Wszyscy członkowie zespołu Przejrzyj rozwiązanie Contact Manager w Visual Studio 2010, aby określić wymagania dotyczące wdrażania klucza i problemów.
+2. Matt Hink mogą wdrażać rozwiązania Contact Manager bezpośrednio z poziomu stacji roboczej dewelopera do środowiska testowego dla deweloperów, do przeprowadzenia testu wstępnego, logiki wdrożenia.
 3. Matt Hink dodaje aplikację do kontroli źródła w programie TFS.
-4. Tomasz Tomasz tworzy różne definicje kompilacji dla rozwiązania Menedżera skontaktuj się z Team Build. Jedna definicja kompilacji używa elementu konfiguracji do wdrożenia rozwiązania do środowiska testowego developer zawsze, gdy użytkownik sprawdza w nowy kod. Inną definicję kompilacji umożliwia użytkownikom wyzwalacza wdrożenia do środowiska pomostowego zgodnie z potrzebami.
-5. Za każdym razem, gdy zaewidencjonowaniu nowy kod, Team Build automatycznie tworzy składniki rozwiązania, uruchamia testy jednostkowe i wdraża rozwiązanie na deweloperów środowiska testowego, jeśli kompilacja zakończyła się pomyślnie i przebiegu testów jednostkowych.
-6. Gdy użytkownik uruchamia wdrożenia do środowiska pomostowego, rozwiązanie spakowanego i wdrożone w jednym kroku procesu. Ten proces generuje również pakietów ręcznego wdrażania do środowiska produkcyjnego.
-7. Ewa Andrews wdraża aplikację w środowisku produkcyjnym przez ręczne zaimportowanie pakietu sieci web utworzony w kroku 6.
+4. Tomasz Rob tworzy różnych definicji kompilacji dla rozwiązania Contact Manager w programie Team Build. Jedną definicję kompilacji używa ciągłej integracji, aby wdrożyć to rozwiązanie do środowiska testowego dla deweloperów w każdym przypadku, gdy użytkownik zaewidencjonuje nowy kod. Inną definicję kompilacji pozwala użytkownikom Wyzwalaj wdrożenia do środowiska pomostowego, zgodnie z potrzebami.
+5. Za każdym razem, gdy użytkownik zaewidencjonuje nowy kod, Team Build automatycznie tworzy składników rozwiązania, przeprowadza testy jednostkowe i wdraża to rozwiązanie do środowiska testowego dla deweloperów, jeśli kompilacja zakończyła się pomyślnie i przebieg testów jednostkowych.
+6. Po użytkownik wyzwala wdrożenia do środowiska pomostowego, rozwiązanie jest w pakiecie i wdrożone w ramach jednego kroku procesu. Ten proces generuje również pakiet ręcznego wdrażania do środowiska produkcyjnego.
+7. Lisa Andrews wdrażania aplikacji w środowisku produkcyjnym przy ręcznym importowaniu definicji pakietu sieci web utworzonej w kroku 6.
 
 ### <a name="key-deployment-issues"></a>Problemy z wdrażaniem klucza
 
-Rozwiązanie kontaktów Menedżerze i scenariusz firmy Fabrikam, Inc. Zaznacz różnych najczęściej występujących problemów i wyzwania, które mogą wystąpić podczas wdrażania złożone, rozwiązań w skali przedsiębiorstwa. Na przykład:
+Rozwiązanie Contact Manager i scenariusz firmy Fabrikam, Inc. wyróżnienia różnych najczęściej występujących problemów i wyzwania, które mogą wystąpić podczas wdrażania złożonych, rozwiązania w skali przedsiębiorstwa. Na przykład:
 
-- Musisz mieć możliwość wdrażanie projektów w wielu środowiskach, takich jak dewelopera lub testowania środowisk, przemieszczania platform i serwerów produkcyjnych. Rozwiązanie musi być wdrażane z różnych ustawień konfiguracji dla każdego środowiska.
-- Należy wdrożyć wiele projektów zależnych jednocześnie jako część pojedynczy krok lub zautomatyzowanych procesów kompilacji i wdrożenia.
-- Musisz być możliwe do wdrożenia na dysku z zautomatyzowanego procesu. Na przykład chcesz użyć do wdrożenia aplikacji sieci web w środowisku przemieszczania po zaewidencjonowaniu nowy kod procesu CI.
-- Musisz być w stanie kontrolować proces wdrażania i ustaw zmienne wdrożenia z zewnętrznego programu Visual Studio, jak deweloperzy prawdopodobnie nie ma ustawienia prawidłowej konfiguracji lub niezbędnych poświadczeń dla każdego środowiska docelowego.
-- Należy wdrożyć projekty oparte na schemacie bazy danych i Zachowaj istniejące dane na kolejne wdrożenia.
-- Należy wdrożyć bazy danych członkostwa na zasadzie ad hoc bez wdrażania danych konta użytkownika. Ponadto może być konieczne zaktualizowanie schematu bazy danych członkostwa wdrożonej bez utraty danych istniejącego konta użytkownika.
+- Musisz mieć możliwość wdrażania projektów w wielu środowiskach, takich jak deweloper lub testowym, przemieszczania platform i obsługi serwerów produkcyjnych. Rozwiązanie musi zostać wdrożone za pomocą różnych ustawień konfiguracji dla każdego środowiska.
+- Należy wdrożyć wiele projektów zależnych jednocześnie w ramach pojedynczy krok i automatycznych procesu kompilowania i wdrażania.
+- Musisz być w stanie do wdrożenia na dysku z zautomatyzowanego procesu. Na przykład chcesz korzystać z procesu ciągłej integracji do wdrożenia aplikacji sieci web w środowisku przejściowym, gdy nowy kod jest zaewidencjonowany.
+- Musisz być w stanie kontrolować proces wdrażania i Ustawianie zmiennych wdrożenia z poza programem Visual Studio, jak deweloperzy prawdopodobnie nie ma ustawienia prawidłowej konfiguracji lub niezbędnych poświadczeń dla każdego środowiska docelowego.
+- Należy wdrożyć projekty oparte na schemacie bazy danych i zachować istniejące dane na kolejne wdrożenia.
+- Należy wdrożyć baz danych członkostwa na zasadzie ad hoc, bez konieczności wdrażania danych konta użytkownika. Również może być konieczne zaktualizowanie schematu członkostwa wdrożonej bazy danych bez utraty danych istniejącego konta użytkownika.
 - Należy wykluczyć pewne pliki lub foldery, podczas wdrażania zawartości w różnych środowiskach docelowych.
 
-Ponadto zarządzanie wdrożenia, kiedy aktualizacje są często i przyrostowych zgłasza się pewne wyzwania dodatkowe. Na przykład:
+Ponadto Zarządzanie wdrożeniem, kiedy aktualizacje są często i przyrostowe zgłasza się niektóre wyzwania, dodatkowe. Na przykład:
 
-- Uruchom testy jednostkowe, zawsze dewelopera sprawdza w nowy kod. Chcesz wdrożyć rozwiązanie, jeśli kod pomyślnie przejdzie testy jednostkowe.
-- Podczas wdrażania aplikacji sieci web w środowisku tymczasowym czy produkcyjnym, należy przekierowywać użytkowników *aplikacji\_offline.htm* pliku na czas trwania procesu wdrażania.
-- Chcesz rejestrować działań wdrożenia. Proces wdrażania należy wysłać powiadomienia e-mail o pomyślnym lub niepomyślnym wdrożeń do wyznaczonych odbiorców.
-- W przypadku niepowodzenia automatycznego wdrażania procesu wdrażania należy ponów próbę wykonania bieżącego wdrożenia lub wdrożyć poprzedniego pakietu sieci web zamiast tego.
+- Uruchamianie testów jednostkowych, za każdym razem, gdy programista zaewidencjonuje nowy kod. Chcesz wdrożyć rozwiązanie, jeśli kod przekazuje testów jednostkowych.
+- Podczas wdrażania aplikacji sieci web w środowisku tymczasowym lub produkcyjnym chcesz przekierować użytkowników do *aplikacji\_offline.htm* pliku na czas trwania procesu wdrażania.
+- Chcesz rejestrować działań wdrożenia. Proces wdrażania należy wysłać pocztą e-mail powiadomienia dotyczące wdrożenia z powodzeniem lub niepowodzeniem do wyznaczonych odbiorców.
+- W przypadku niepowodzenia automatycznego wdrażania procesu wdrażania należy ponów próbę wykonania bieżącego wdrożenia lub zamiast tego wdrożenia poprzedniej pakietu sieci web.
 
 > [!div class="step-by-step"]
 > [Poprzednie](deploying-web-applications-in-enterprise-scenarios.md)

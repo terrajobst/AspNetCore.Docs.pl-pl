@@ -1,56 +1,55 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/getting-started/using-ajax-control-toolkit-controls-and-control-extenders-vb
-title: Za pomocą technologii AJAX kontroli zestawu narzędzi kontrolek i rozszerzeń formantu (VB) | Dokumentacja firmy Microsoft
+title: Za pomocą technologii AJAX kontrolki zestawu narzędzi kontrolek i rozszerzeń (VB) | Dokumentacja firmy Microsoft
 author: microsoft
-description: Dowiedz się, jak dodać kontrolki AJAX kontroli narzędzi i rozszerzeń do stron ASP.NET.
+description: Dowiedz się, jak dodać do stron ASP.NET AJAX Control Toolkit kontrolek i rozszerzeń.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/12/2009
 ms.topic: article
 ms.assetid: 763650a9-ffde-46a9-b779-7a9145dd5d88
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/getting-started/using-ajax-control-toolkit-controls-and-control-extenders-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 080dd65677d80fb75ab37a20f6c385a38af4e353
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
-ms.translationtype: MT
+ms.openlocfilehash: 1fa23eb878bec3266441c092038befd08fdaa11a
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30873043"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37361917"
 ---
-<a name="using-ajax-control-toolkit-controls-and-control-extenders-vb"></a>Za pomocą technologii AJAX kontroli zestawu narzędzi kontrolek i rozszerzeń formantu (VB)
+<a name="using-ajax-control-toolkit-controls-and-control-extenders-vb"></a>Za pomocą technologii AJAX kontrolki zestawu narzędzi kontrolek i rozszerzeń (VB)
 ====================
 przez [firmy Microsoft](https://github.com/microsoft)
 
-> Dowiedz się, jak dodać kontrolki AJAX kontroli narzędzi i rozszerzeń do stron ASP.NET.
+> Dowiedz się, jak dodać do stron ASP.NET AJAX Control Toolkit kontrolek i rozszerzeń.
 
 
-Zestaw narzędzi kontroli AJAX zawiera zestaw kontrolek i rozszerzeń formantu. W tym samouczku krótkie możesz Dowiedz się, jak dodać kontrolki i rozszerzeń formantu strony ASP.NET.
+Zestawu narzędzi AJAX Control Toolkit zawiera zestaw kontrolek i rozszerzeń. W tym samouczku krótki dowiesz się, jak dodać zarówno kontrolek i rozszerzeń do strony ASP.NET.
 
 > [!NOTE] 
 > 
-> Aby uzyskać instrukcje na temat instalowania narzędzi kontroli AJAX i dodawanie Toolkit kontroli AJAX do przybornika programu Visual Studio/Visual Web Developer zobacz samouczek [wprowadzenie do zestawu narzędzi kontroli AJAX](get-started-with-the-ajax-control-toolkit-vb.md).
+> Aby uzyskać instrukcje dotyczące instalowania zestawu narzędzi AJAX Control Toolkit i dodawanie zestawu narzędzi AJAX Control Toolkit do przybornika Visual Studio/Visual Web Developer, zapoznaj się z samouczkiem [wprowadzenie do zestawu narzędzi AJAX Control Toolkit](get-started-with-the-ajax-control-toolkit-vb.md).
 
 
-## <a name="using-ajax-control-toolkit-controls"></a>Za pomocą technologii AJAX kontroli zestawu narzędzi formantów
+## <a name="using-ajax-control-toolkit-controls"></a>Korzystanie z kontrolek zestawu narzędzi kontrolka AJAX
 
-Formant AJAX kontroli narzędzi działa tak, jak normalne formant ASP.NET. Można przeciągnij formant z przybornika do strony programu ASP.NET. Można dodać kontrolki na stronie w widoku projektu lub źródła.
+Kontrolka w postaci zestawu narzędzi AJAX Control Toolkit działa tak samo jak normalne formant ASP.NET. Możesz przeciągnąć kontrolki z przybornika na stronie ASP.NET. Można dodać kontrolki do strony w widoku projektu lub źródła.
 
-Istnieje jedno wymaganie specjalne, gdy za pomocą formantów z zestawu narzędzi kontroli AJAX. Strona musi zawierać formantu ScriptManager. Formantu ScriptManager jest odpowiedzialny za tym wszystkie niezbędne języka JavaScript wymagane przez formanty Toolkit kontroli AJAX.
+Istnieje jedno wymaganie dotyczące specjalne, gdy za pomocą kontrolek z zestawu narzędzi AJAX Control Toolkit. Strona musi zawierać formantu ScriptManager. Formantu ScriptManager jest odpowiedzialny za oraz wszystkie niezbędne języka JavaScript, wymagane przez formanty zestawu narzędzi AJAX Control Toolkit.
 
-Na przykład karta AJAX kontroli Toolkit zawiera formant o nazwie kontrolce edytora. Ten formant Wyświetla Zaawansowany edytor HTML. Wykonaj następujące kroki, aby dodać kontrolki edytora do strony:
+Na przykład karta zestawu narzędzi AJAX Control Toolkit zawiera kontrolki o nazwie kontrolka edytora. Ta kontrolka Wyświetla Zaawansowany edytor kodu HTML. Wykonaj następujące kroki, aby dodać kontrolkę edytora do strony:
 
-1. Utwórz nową stronę ASP.NET o nazwie ShowEditor.aspx
-2. Wybierz formantu ScriptManager from beneath karta rozszerzenia AJAX w przyborniku i przeciągnij kontrolki na stronie.
-3. Wybierz kontrolkę Edytor from beneath karcie Toolkit kontroli AJAX w przyborniku i przeciągnij kontrolki na stronie (zobacz rysunek 1). Projektant powinien wyglądać na rysunku 2.
-4. Uruchom witrynę sieci web, wybierając opcję menu **debugowania i Rozpocznij debugowanie** lub naciśnięcie klawisza F5.
-5. Powinna zostać wyświetlona strona na rysunku 3.
+1. Tworzenie nowej strony programu ASP.NET o nazwie ShowEditor.aspx
+2. Wybierz formantu ScriptManager from beneath na karcie rozszerzenia AJAX w przyborniku, a następnie przeciągnij go na stronę.
+3. Zaznacz formant edytora from beneath kartę zestawu narzędzi AJAX Control Toolkit w przyborniku, a następnie przeciągnij formant na stronie (patrz rysunek 1). Projektant powinien wyglądać jak rysunek 2.
+4. Uruchom witrynę sieci web, wybierając opcję menu **debugowania i Rozpocznij debugowanie** lub naciskając klawisz F5.
+5. Powinna zostać wyświetlona strona, na rysunku 3.
 
 
-[![Wybranie kontrolki edytora HTML](using-ajax-control-toolkit-controls-and-control-extenders-vb/_static/image1.jpg)](using-ajax-control-toolkit-controls-and-control-extenders-vb/_static/image1.png)
+[![Wybieranie kontrolka edytora HTML](using-ajax-control-toolkit-controls-and-control-extenders-vb/_static/image1.jpg)](using-ajax-control-toolkit-controls-and-control-extenders-vb/_static/image1.png)
 
-**Rysunek 01**: Wybieranie kontrolce edytora HTML ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-ajax-control-toolkit-controls-and-control-extenders-vb/_static/image2.png))
+**Rysunek 01**: Wybieranie kontrolka edytora HTML ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-ajax-control-toolkit-controls-and-control-extenders-vb/_static/image2.png))
 
 
 [![Projektanta Visual Studio za pomocą formantu ScriptManager i edytowanie](using-ajax-control-toolkit-controls-and-control-extenders-vb/_static/image2.jpg)](using-ajax-control-toolkit-controls-and-control-extenders-vb/_static/image3.png)
@@ -60,42 +59,42 @@ Na przykład karta AJAX kontroli Toolkit zawiera formant o nazwie kontrolce edyt
 
 [![Na stronie DisplayEditor.aspx](using-ajax-control-toolkit-controls-and-control-extenders-vb/_static/image3.jpg)](using-ajax-control-toolkit-controls-and-control-extenders-vb/_static/image5.png)
 
-**Rysunek 03**: DisplayEditor.aspx strony ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-ajax-control-toolkit-controls-and-control-extenders-vb/_static/image6.png))
+**Rysunek 03**: strona DisplayEditor.aspx ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-ajax-control-toolkit-controls-and-control-extenders-vb/_static/image6.png))
 
 
-## <a name="using-ajax-control-toolkit-control-extenders"></a>Przy użyciu rozszerzeń kontroli zestawu narzędzi kontroli AJAX
+## <a name="using-ajax-control-toolkit-control-extenders"></a>Za pomocą rozszerzeń kontrolki zestawu narzędzi AJAX
 
-Zestaw narzędzi kontroli AJAX zawiera także rozszerzeń formantu. Zgodnie z sugestią, jego nazwa, rozszerzający kontroli rozszerza funkcjonalność formant. Na przykład rozszerzeń formantu ConfirmButton rozszerza standardowe formantu przycisku ASP.NET. Extender zmienia zachowanie s formantu przycisku Tak, aby przycisk wyświetla okno dialogowe potwierdzenia, gdy zostanie kliknięty.
+Zestawu narzędzi AJAX Control Toolkit zawiera także kontrolek. Jak sugeruje nazwa, rozszerzenia kontrolki zestawu narzędzi rozszerza funkcjonalność istniejącej kontrolki. Na przykład rozszerzenie kontrolki ConfirmButton rozszerza standardowe kontrolki przycisku ASP.NET. Urządzenia extender zmienia zachowanie s kontrolki przycisku Tak, aby przycisk powoduje wyświetlenie okna dialogowego potwierdzenia, po jego kliknięciu.
 
-Rozszerzeń formantu, podobnie jak kontroli zestawu narzędzi kontroli AJAX wymaga formantu ScriptManager. Należy dodać formantu ScriptManager do strony przed rozpoczęciem korzystania z rozszerzeń kontrolki na stronie.
+Rozszerzenia kontrolki zestawu narzędzi, podobnie jak kontrolka w postaci zestawu narzędzi AJAX Control Toolkit wymaga formantu ScriptManager. Przed rozpoczęciem korzystania z kontrolek na stronie, należy dodać do strony formantu ScriptManager.
 
-Wykonaj następujące kroki, aby użyć rozszerzeń formantu ConfirmButton:
+Wykonaj następujące kroki, aby użyć rozszerzenia kontrolki ConfirmButton:
 
-1. Utwórz nową stronę ASP.NET o nazwie ShowConfirmButton.aspx
-2. Dodawanie formantu ScriptManager na stronie przeciągając kontrolki na stronie from beneath karta rozszerzenia AJAX.
-3. Dodawanie formantu standardowego przycisku do strony przeciągając przycisk from beneath standardową kartę w przyborniku na powierzchnię projektanta.
-4. Kliknij przycisk **Dodawanie rozszerzeń** zadań opcji (zobacz rysunek 4).
-5. W oknie dialogowym Wybieranie rozszerzeń, wybierz ConfirmButtonExtender (patrz rysunek 5) i kliknij przycisk OK.
-6. Wybierz kontrolkę przycisku w projektancie, a następnie rozwiń węzeł rozszerzenia, Button1\_ConfirmButtonExtender węzeł w oknie właściwości (patrz rysunek 6). Przypisuje wartość *naprawdę?* właściwości ConfirmText.
-7. Uruchom strony przez wybranie opcji menu **debugowania i Rozpocznij debugowanie** lub naciśnij klawisz F5.
-
-
-[![Opcja zadań Dodawanie rozszerzeń](using-ajax-control-toolkit-controls-and-control-extenders-vb/_static/image4.jpg)](using-ajax-control-toolkit-controls-and-control-extenders-vb/_static/image7.png)
-
-**Rysunek 04**: Dodawanie rozszerzeń zadań opcji ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-ajax-control-toolkit-controls-and-control-extenders-vb/_static/image8.png))
+1. Tworzenie nowej strony programu ASP.NET o nazwie ShowConfirmButton.aspx
+2. Dodawanie formantu ScriptManager do strony, przeciągając kontrolki na stronie from beneath na karcie rozszerzenia AJAX.
+3. Dodaj kontrolkę przycisk standardowy do strony, przeciągnij przycisk from beneath standardowa karta w przyborniku na powierzchnię projektanta.
+4. Kliknij przycisk **Dodaj Extender** zadań opcji (zobacz rysunek 4).
+5. W oknie dialogowym Wybierz rozszerzenia, wybierz ConfirmButtonExtender (zobacz rysunek 5) i kliknij przycisk OK.
+6. Zaznacz formant przycisku w projektancie, a następnie rozwiń węzeł urządzenia Extender, Button1\_ConfirmButtonExtender węzła w oknie dialogowym właściwości (patrz rysunek 6). Przypisz wartość *naprawdę?* właściwości ConfirmText.
+7. Uruchom stronę, wybierając opcję menu **debugowania i Rozpocznij debugowanie** lub naciśnij klawisz F5.
 
 
-[![Wybieranie rozszerzeń formantu ConfirmButton](using-ajax-control-toolkit-controls-and-control-extenders-vb/_static/image5.jpg)](using-ajax-control-toolkit-controls-and-control-extenders-vb/_static/image9.png)
+[![Dodawanie opcji urządzenia Extender zadania](using-ajax-control-toolkit-controls-and-control-extenders-vb/_static/image4.jpg)](using-ajax-control-toolkit-controls-and-control-extenders-vb/_static/image7.png)
 
-**Rysunek 05**: Wybieranie rozszerzeń formantu ConfirmButton ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-ajax-control-toolkit-controls-and-control-extenders-vb/_static/image10.png))
-
-
-[![Ustawienie właściwości ConfirmButton](using-ajax-control-toolkit-controls-and-control-extenders-vb/_static/image6.jpg)](using-ajax-control-toolkit-controls-and-control-extenders-vb/_static/image11.png)
-
-**Rysunek 06**: ustawienie właściwości ConfirmButton ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-ajax-control-toolkit-controls-and-control-extenders-vb/_static/image12.png))
+**Rysunek 04**: opcja zadania dodawania rozszerzeń ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-ajax-control-toolkit-controls-and-control-extenders-vb/_static/image8.png))
 
 
-Po otwarciu strony, powinien być widoczny przycisk. Po kliknięciu przycisku zostaną wyświetlone okno dialogowe potwierdzenia na rysunku 7.
+[![Wybierając rozszerzenie kontrolki ConfirmButton](using-ajax-control-toolkit-controls-and-control-extenders-vb/_static/image5.jpg)](using-ajax-control-toolkit-controls-and-control-extenders-vb/_static/image9.png)
+
+**Rysunek 05**: Wybieranie rozszerzenie kontrolki ConfirmButton ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-ajax-control-toolkit-controls-and-control-extenders-vb/_static/image10.png))
+
+
+[![Ustawienie właściwości kontrolki ConfirmButton](using-ajax-control-toolkit-controls-and-control-extenders-vb/_static/image6.jpg)](using-ajax-control-toolkit-controls-and-control-extenders-vb/_static/image11.png)
+
+**Rysunek 06**: Ustawianie właściwości kontrolki ConfirmButton ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-ajax-control-toolkit-controls-and-control-extenders-vb/_static/image12.png))
+
+
+Po otwarciu strony, powinien zostać wyświetlony przycisk. Po kliknięciu przycisku, otrzymasz okno dialogowe potwierdzenia na rysunku 7.
 
 
 [![Wyświetlanie okna dialogowego potwierdzenia](using-ajax-control-toolkit-controls-and-control-extenders-vb/_static/image7.jpg)](using-ajax-control-toolkit-controls-and-control-extenders-vb/_static/image13.png)
@@ -103,9 +102,9 @@ Po otwarciu strony, powinien być widoczny przycisk. Po kliknięciu przycisku zo
 **Rysunek 07**: wyświetlanie okna dialogowego potwierdzenia ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-ajax-control-toolkit-controls-and-control-extenders-vb/_static/image14.png))
 
 
-Zwróć uwagę, że zwykle nie przeciągania rozszerzeń kontrolki na stronie. Zamiast tego należy użyć **Dodawanie rozszerzeń** zadań opcję, aby dodać rozszerzeń do formantu, który już został dodany do strony. Zwróć uwagę, ponadto ustawienie sterowania właściwości rozszerzeń po otwarciu arkusza właściwości rozszerzanego formantu.
+Należy zauważyć, że zwykle nie przeciągniesz rozszerzenia kontrolki na stronie. Zamiast tego należy użyć **Dodaj Extender** zadań opcję, aby dodać rozszerzenie do kontrolki, które zostało już dodane do strony. Zwróć uwagę, ponadto ustawienie sterowania właściwości rozszerzeń, otwierając arkusz właściwości kontrolki zostanie przedłużony.
 
-Jeden formant ASP.NET można rozszerzyć przez wiele rozszerzeń formantu. Arkusz właściwości formantu rozszerzaną spowoduje wyświetlenie listy wszystkich rozszerzeń formantu skojarzony z formantem.
+Jeden formant ASP.NET można rozszerzyć przez wiele kontrolek. Arkusz właściwości kontrolki zostanie przedłużony spowoduje wyświetlenie listy wszystkich kontrolek skojarzonego z kontrolką.
 
 > [!div class="step-by-step"]
 > [Poprzednie](get-started-with-the-ajax-control-toolkit-vb.md)

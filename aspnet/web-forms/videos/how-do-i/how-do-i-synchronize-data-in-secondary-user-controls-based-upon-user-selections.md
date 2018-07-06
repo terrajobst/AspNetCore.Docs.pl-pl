@@ -1,28 +1,27 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-synchronize-data-in-secondary-user-controls-based-upon-user-selections
-title: '[Jak]: synchronizacja danych w dodatkowej użytkownika doświadczeniach kontrolnych oparte na wybór użytkownika | Dokumentacja firmy Microsoft'
+title: '[How Do I]: Synchronize Data in Secondary User Control(s) Based Upon User Selections | Microsoft Docs'
 author: rick-anderson
-description: W tym wideo Pels Krzysztof pokazano, jak utworzyć dwa formanty DropDownList gdy zaznaczenie elementu z pierwszej listy elementów na liście drugi wypełnia. Firs...
+description: W tym wideo pikseli Chris przedstawia sposób tworzenia dwóch kontrolek DropDownList, w którym zaznaczenie elementu na pierwszej liście wypełnia elementów na drugiej liście. Firs...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/06/2009
 ms.topic: article
 ms.assetid: 55eadf85-3a2b-4993-8444-494cd2c92d65
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-synchronize-data-in-secondary-user-controls-based-upon-user-selections
 msc.type: video
-ms.openlocfilehash: a4ecabd641af9d5810cf23344c42b097a0ec00f6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.openlocfilehash: 60961347ea54ab601554bab417b008cef194a722
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26572237"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37374785"
 ---
-<a name="how-do-i-synchronize-data-in-secondary-user-controls-based-upon-user-selections"></a>[Jak]: synchronizacja danych w dodatkowej użytkownika doświadczeniach kontrolnych oparte na wybór użytkownika
+<a name="how-do-i-synchronize-data-in-secondary-user-controls-based-upon-user-selections"></a>[Jak]: synchronizowanie danych w dodatkowych kontrolkach użytkownika na podstawie wyborów użytkownika
 ====================
-przez [Pels Krzysztof](https://twitter.com/chrispels)
+przez [Chris pikseli](https://twitter.com/chrispels)
 
-W tym wideo Pels Krzysztof pokazano, jak utworzyć dwa formanty DropDownList gdy zaznaczenie elementu z pierwszej listy elementów na liście drugi wypełnia. Po pierwsze strony ASP.NET jest tworzony z dwóch formantów DropDownList, jeden dla klienta, a druga do Państwa, w którym klient prowadzi działalność. Następnie zapełnieniu listy klienta w kodzie. Następnie w SelectedIndexChanged zdarzeń listy odbiorców, jakie elementy na liście stanu są oparte na zaznaczenie. Na koniec jest omówienie sposobu tej metody można zastosować do innych typów formantów oraz danych.
+W tym wideo pikseli Chris przedstawia sposób tworzenia dwóch kontrolek DropDownList, w którym zaznaczenie elementu na pierwszej liście wypełnia elementów na drugiej liście. Po pierwsze strona ASP.NET jest tworzona za pomocą dwóch kontrolek DropDownList, jeden dla klientów i inne stany, w których klient prowadzi działalność. Lista klientów jest następnie wypełniana w kodzie. Następnie w selectedindexchanged zdarzenie listy klienta, której elementy na liście stanie są wypełniane na podstawie zaznaczenia. Na koniec jest dyskusję na temat sposobu to podejście można zastosować do innych typów formantów oraz danych.
 
-[&#9654; Obejrzyj klip wideo (minuty 22)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-synchronize-data-in-secondary-user-controls-based-upon-user-selections)
+[&#9654;Obejrzyj film wideo (22 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-synchronize-data-in-secondary-user-controls-based-upon-user-selections)

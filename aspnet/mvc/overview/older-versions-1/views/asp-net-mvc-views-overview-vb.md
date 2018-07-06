@@ -1,56 +1,55 @@
 ---
 uid: mvc/overview/older-versions-1/views/asp-net-mvc-views-overview-vb
-title: ASP.NET MVC widoków — omówienie (VB) | Dokumentacja firmy Microsoft
+title: Widoków ASP.NET MVC (VB) — omówienie | Dokumentacja firmy Microsoft
 author: StephenWalther
-description: Co to jest widok ASP.NET MVC i jak go różni się od strony HTML? W tym samouczku Stephen Walther stanowi wprowadzenie do widoków i pokazuje, jak można t...
+description: 'Co to jest widok ASP.NET MVC i jak różni się on ze strony HTML? W tym samouczku Walther Autor: Stephen stanowi wprowadzenie do widoków i pokazuje, jak można t...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/16/2008
 ms.topic: article
 ms.assetid: c28ba88d-3a93-47f5-a306-049bd766714d
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/views/asp-net-mvc-views-overview-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a64c70851d13b923964dfd1cf3bad55612ae0d0f
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
-ms.translationtype: MT
+ms.openlocfilehash: 12039a799b71c88e012831f6eefb01c668142a75
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30870859"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37369276"
 ---
-<a name="aspnet-mvc-views-overview-vb"></a>ASP.NET MVC, widoki (VB) — omówienie
+<a name="aspnet-mvc-views-overview-vb"></a>Widoków ASP.NET MVC — omówienie (VB)
 ====================
-przez [Stephen Walther](https://github.com/StephenWalther)
+przez [Walther Autor: Stephen](https://github.com/StephenWalther)
 
-> Co to jest widok ASP.NET MVC i jak go różni się od strony HTML? W tym samouczku Stephen Walther stanowi wprowadzenie do widoków i pokazuje, jak można korzystać z danych widoku i pomocników HTML w widoku.
+> Co to jest widok ASP.NET MVC i jak różni się on ze strony HTML? W tym samouczku Walther Autor: Stephen stanowi wprowadzenie do widoków i pokazuje, jak możesz korzystać z zalet danych widoku i pomocników HTML w widoku.
 
 
-Celem tego samouczka jest dostarczają krótkie wprowadzenie do platformy ASP.NET MVC widoków danych widoku i pomocników HTML. Na koniec tego samouczka należy wiedzieć, jak utworzyć nowe widoki, przekazać dane z kontrolera do widoku i używać pomocników HTML do generowania zawartości w widoku.
+Celem tego samouczka jest zapewnienie krótkie wprowadzenie do widoków ASP.NET MVC, wyświetlanie danych i pomocników HTML. Do końca tego samouczka należy wiedzieć, jak tworzenie nowych widoków, przekazać dane z kontrolera do widoku i użyć pomocników HTML do generowania zawartości w widoku.
 
-## <a name="understanding-views"></a>Opis widoków
+## <a name="understanding-views"></a>Objaśnienie widoków
 
-W przeciwieństwie do programu ASP.NET lub Active Server Pages platformy ASP.NET MVC nie zawiera wszystko, co odpowiada bezpośrednio do strony. W aplikacji platformy ASP.NET MVC nie istnieje strona na dysku, który odpowiada ścieżki w adresie URL można wpisać w pasku adresu przeglądarki. Najbliższy co do strony w aplikacji platformy ASP.NET MVC to element o nazwie *widoku*.
+W przeciwieństwie do programu ASP.NET lub Active Server Pages platformy ASP.NET MVC nie obejmuje wszystko, co odnosi się bezpośrednio do strony. W aplikacji ASP.NET MVC nie istnieje strona na dysku, który odnosi się do ścieżki na adres URL, który można wpisać w pasku adresu przeglądarki. Najbliższy rzeczą do strony w aplikacji ASP.NET MVC jest coś, co o nazwie *widoku*.
 
-W aplikacji platformy ASP.NET MVC przychodzących żądań przeglądarki są mapowane do akcji kontrolera. Akcja kontrolera może zwrócić widok. Jednak akcji kontrolera może wykonywać innego typu akcji, takie jak przekierowywanie należy do innej akcji kontrolera.
+W aplikacji ASP.NET MVC przychodzących żądań przeglądarki są mapowane do akcji kontrolera. Akcja kontrolera może zwrócić widok. Akcja kontrolera może jednak wykonać inny rodzaj akcje, takie jak przekierowywanie do kolejnej akcji kontrolera.
 
-Wyświetlanie listy 1 zawiera proste kontrolerze o nazwie HomeController. HomeController przedstawia o nazwie indeks() i Details() dwóch akcji kontrolera.
+Wyświetlanie listy 1 zawiera proste o nazwie HomeController kontrolera. HomeController udostępnia dwie akcje kontroler o nazwie indeks() i Details().
 
 **Wyświetlanie listy 1 - HomeController.vb**
 
 [!code-vb[Main](asp-net-mvc-views-overview-vb/samples/sample1.vb)]
 
-Wprowadź następujący adres URL na pasku adresu przeglądarki, można wywołać pierwszą akcją akcji indeks():
+Możesz wywołać pierwszą akcję działania indeks(), wpisując następujący adres URL w pasku adresu przeglądarki:
 
-/ Głównej/indeksu
+/ Home/Index
 
-Drugą akcję, akcja Details() można wywoływać, wpisując ten adres w przeglądarce:
+Możesz wywołać drugiej akcji, akcja Details(), wpisując ten adres w przeglądarce:
 
-/ Głównej/szczegółów
+/ Home/Details
 
-Akcja indeks() zwraca widok. Większość akcji, które możesz utworzyć zwróci widoków. Jednak akcja może zwrócić innych typów wyników akcji. Na przykład akcja Details() zwraca RedirectToActionResult, który przekierowuje żądania przychodzące do działania indeks().
+Akcja indeks() zwraca widok. Większość czynności, które tworzysz zwróci widoków. Jednak działanie może zwrócić inne typy wyników akcji. Na przykład akcja Details() zwraca RedirectToActionResult, który przekierowuje żądania przychodzące do działania indeks().
 
-Akcja indeks() zawiera jednym następującego kodu:
+Akcja indeks() zawiera następujące jednego wiersza kodu:
 
 View()
 
@@ -58,100 +57,100 @@ Ten wiersz kodu zwraca widok, który musi znajdować się w następującej ście
 
 \Views\Home\Index.aspx
 
-Ścieżka do widoku jest wywnioskowany na podstawie nazwy kontrolera i nazwy akcji kontrolera.
+Ścieżka widoku wynika z nazwy kontrolera i nazwy akcji kontrolera.
 
-Jeśli wolisz, może być jawne dotyczące widoku. Następujący wiersz kodu zwraca widok o nazwie Krzysztof:
+Jeśli wolisz, może być wyraźnie widoku. Następujący wiersz kodu zwraca widok o nazwie Fred:
 
-Widok (Krzysztof)
+Widok (Fred)
 
-Po wykonaniu ten wiersz kodu widoku jest zwracana z następującej ścieżki:
+Po wykonaniu ten wiersz kodu widok jest zwracana z następującą ścieżkę:
 
 \Views\Home\Fred.aspx
 
 > [!NOTE] 
 > 
-> Jeśli planujesz tworzenia testów jednostkowych dla aplikacji ASP.NET MVC istnieje dobrze jawne o nazwy widoku. W ten sposób można utworzyć testu jednostkowego, aby sprawdzić widok oczekiwanego zwróciło akcji kontrolera.
+> Jeśli planujesz utworzenie testów jednostkowych dla aplikacji ASP.NET MVC jest dobry pomysł, aby była niejawna przy korzystaniu nazwy widoku. W ten sposób można utworzyć test jednostkowy, aby sprawdzić, czy oczekiwany widok został zwrócony przez akcji kontrolera.
 
 
 ## <a name="adding-content-to-a-view"></a>Dodawanie zawartości do widoku
 
-Widok jest standardem (dokument HTML, który może zawierać skryptów X). Skrypty umożliwia dodanie do widoku zawartości dynamicznej.
+Widok jest standardowego (dokumentu HTML, który może zawierać skryptów X). Skrypty umożliwia dodawanie zawartości dynamicznej do widoku.
 
-Na przykład widok wyświetlania 2 Wyświetla bieżącą datę i godzinę.
+Na przykład widok w ofercie 2 Wyświetla bieżącą datę i godzinę.
 
 **Wyświetlanie listy 2 - \Views\Home\Index.aspx**
 
 [!code-aspx[Main](asp-net-mvc-views-overview-vb/samples/sample2.aspx)]
 
-Zwróć uwagę, że strony HTML w wyświetlania 2 zawiera następujący skrypt:
+Zwróć uwagę, że treść strony HTML znajdującej się w ofercie 2 zawiera następujący skrypt:
 
 &lt;% Response.Write(DateTime.Now)%&gt;
 
-Użyj ograniczników skryptu &lt;% i %&gt; aby oznaczyć początek i koniec skryptu. Ten skrypt jest napisany w języku Visual basic. Wyświetla bieżącą datę i godzinę, wywołując metodę metody Response.Write() do renderowania zawartości w przeglądarce. Ograniczniki skryptu &lt;% i %&gt; może służyć do wykonywania instrukcji jeden lub więcej.
+Możesz użyć ograniczników skryptu &lt;% i %&gt; do oznaczania początku i końcu skryptu. Ten skrypt został napisany w języku Visual basic. Wyświetla bieżącą datę i godzinę, wywołując metodę Response.Write() do renderowania zawartości do przeglądarki. Ograniczniki skryptu &lt;% i %&gt; można wykonać jedną lub więcej instrukcji.
 
-Ponieważ często wywołania metody Response.Write(), firma Microsoft umożliwia skrót dla wywołania metody Response.Write() metody. Widok w 3 wyświetlania używa ograniczniki &lt;% = i %&gt; jako skrót do wywołania metody Response.Write().
+Ponieważ wywołujesz Response.Write() tak często, firma Microsoft umożliwia skrót do wywoływania metody Response.Write(). Wyświetl w ofercie 3 korzysta z ogranicznikami &lt;% = i %&gt; jako skrót do wywoływania Response.Write().
 
 **Wyświetlanie listy 3 - Views\Home\Index2.aspx**
 
 [!code-aspx[Main](asp-net-mvc-views-overview-vb/samples/sample3.aspx)]
 
-Można użyć dowolnego języka .NET do generowania zawartości dynamicznej w widoku. Zwykle pojawi Użyj Visual Basic .NET lub C# do zapisu, widoków i kontrolerów.
+Można użyć dowolnego języka platformy .NET do generowania zawartości dynamicznej w widoku. Zwykle ll możesz użyć Visual Basic .NET lub C# do pisania widoków i kontrolerów.
 
-## <a name="using-html-helpers-to-generate-view-content"></a>Wyświetl zawartość przy użyciu pomocników HTML
+## <a name="using-html-helpers-to-generate-view-content"></a>Wyświetlanie zawartości przy użyciu pomocników HTML
 
-Aby ułatwić dodawanie zawartości do widoku, można korzystać z coś o nazwie *pomocnika kodu HTML*. Pomocnika kodu HTML, zazwyczaj jest to metoda, która generuje ciąg. Pomocników HTML służy do generowania standardowych elementów HTML, takich jak pola tekstowe, łącza, listy rozwijane i pola listy.
+Aby ułatwić dodawanie zawartości do widoku, możesz korzystać z zalet coś, co jest nazywane *pomocnika kodu HTML*. Pomocnik kodu HTML, zazwyczaj jest metodą, która generuje ciąg. Pomocników HTML można użyć do wygenerowania standardowych elementów HTML, takich jak pola tekstowe, linki, listy rozwijane i pola listy.
 
-Na przykład widok listę 4 wykorzystuje trzy pomocników HTML — pomocników BeginForm(), TextBox() i Password() — można wygenerować identyfikatora logowania formularza (zobacz rysunek 1).
+Na przykład widok w ofercie 4 wykorzystuje trzy pomocników HTML — pomocnicy BeginForm() TextBox() i Password() — do generowania nazwy logowania formularza (patrz rysunek 1).
 
 **Wyświetlanie listy 4 – \Views\Home\Login.aspx**
 
 [!code-aspx[Main](asp-net-mvc-views-overview-vb/samples/sample4.aspx)]
 
 
-[![Okno dialogowe nowego projektu](asp-net-mvc-views-overview-vb/_static/image1.jpg)](asp-net-mvc-views-overview-vb/_static/image1.png)
+[![Okno dialogowe Nowy projekt](asp-net-mvc-views-overview-vb/_static/image1.jpg)](asp-net-mvc-views-overview-vb/_static/image1.png)
 
 **Rysunek 01**: standardowy formularz logowania ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](asp-net-mvc-views-overview-vb/_static/image2.png))
 
 
-Wszystkie metody pomocników HTML są nazywane we właściwości Html widoku. Na przykład że pole tekstowe przez wywołanie metody Html.TextBox().
+Wszystkie metody pomocników HTML są nazywane we właściwości Html widoku. Na przykład przez wywołanie metody Html.TextBox() renderowanie pole tekstowe.
 
-Powiadomienie, że używasz ograniczników skryptu &lt;% = i %&gt; podczas wywoływania metody pomocników Html.TextBox() i Html.Password(). Te pomocników po prostu zwraca ciąg. Należy wywołać metody Response.Write() do renderowania ciąg do przeglądarki.
+Zwróć uwagę, że używasz ograniczników skryptu &lt;% = i %&gt; podczas wywoływania Html.TextBox() i Html.Password() pomocników. Pomocnicy te po prostu zwrócenia ciągu. Należy wywołać Response.Write() do wyświetlenia ciągu do przeglądarki.
 
-Przy użyciu metody pomocnika kodu HTML jest opcjonalna. One ułatwiać pracę dzięki zmniejszeniu ilości HTML i skryptu, który należy napisać. Wyświetl listę 5 renderuje dokładnie tego samego formularza jako widok na listę 4 bez użycia pomocników HTML.
+Użycie metody pomocnika kodu HTML jest opcjonalne. One ułatwiać pracę dzięki zmniejszeniu ilości kodu HTML i skryptu, który należy napisać. Wyświetl listę 5 renderuje dokładnie tego samego formularza jako widok w ofercie 4 bez użycia pomocników HTML.
 
 **Wyświetlanie listy 5 — \Views\Home\Login.aspx**
 
 [!code-aspx[Main](asp-net-mvc-views-overview-vb/samples/sample5.aspx)]
 
-Istnieje również możliwość utworzenia własnych pomocników HTML. Na przykład można utworzyć metody pomocnika GridView(), która automatycznie wyświetla zestaw rekordów bazy danych w tabeli HTML. W tym temacie firma Microsoft Eksplorowanie w samouczku **Tworzenie niestandardowych pomocników HTML**.
+Istnieje również możliwość tworzenia własnych pomocników HTML. Na przykład można utworzyć metody pomocnika GridView(), który automatycznie wyświetla zestaw rekordów bazy danych w tabeli HTML. W tym samouczku dowiesz się w tym temacie **Tworzenie niestandardowych pomocników HTML**.
 
-## <a name="using-view-data-to-pass-data-to-a-view"></a>Przy użyciu widoku danych do przekazywania danych do widoku
+## <a name="using-view-data-to-pass-data-to-a-view"></a>Za pomocą widoku danych, aby przekazać dane do widoku
 
-Wyświetlanie danych służy do przekazywania danych z kontrolera do widoku. Należy traktować danych widoku, takich jak pakiet, który możesz wysłać pocztą. Należy wysłać wszystkie dane przekazane z kontrolera do widoku przy użyciu tego pakietu. Na przykład kontroler na wyświetlanie 6 dodaje komunikat, aby wyświetlić dane.
+Wyświetlanie danych służy do przekazywania danych za pomocą kontrolera do widoku. Traktuj dane widoku, takie jak pakiet wysyłanych za pośrednictwem wiadomości e-mail. Wszystkie dane przekazane za pomocą kontrolera do widoku musi zostać wysłany za pomocą tego pakietu. Na przykład kontroler w ofercie 6 dodaje komunikat do wyświetlania danych.
 
 **Wyświetlanie listy 6 - ProductController.vb**
 
 [!code-vb[Main](asp-net-mvc-views-overview-vb/samples/sample6.vb)]
 
-Kontroler właściwości ViewData reprezentuje kolekcję par nazw i wartości. Wyświetlanie listy 6 metody indeks() dodaje element do widoku zbierania danych o nazwie komunikat z wartością Hello World!. Gdy widok jest zwracany przez metodę indeks(), dane widoku są automatycznie przekazywane do widoku.
+Kontroler ViewData właściwość reprezentuje kolekcję par nazw i wartości. W ofercie 6 metoda indeks() dodaje element do widoku zbierania danych o nazwie message wartością Hello World!. Gdy widok jest zwracany przez metodę indeks(), dane widoku są automatycznie przekazywane do widoku.
 
-Widok w wyświetlania 7 pobiera wiadomość z danymi widoku i renderuje komunikat do przeglądarki.
+Wyświetl w ofercie 7 pobiera komunikat z danymi widoku i renderuje komunikat do przeglądarki.
 
-**Wyświetlanie listy 7 — \Views\Product\Index.aspx**
+**Wyświetlanie listy 7 – \Views\Product\Index.aspx**
 
 [!code-aspx[Main](asp-net-mvc-views-overview-vb/samples/sample7.aspx)]
 
-Należy zauważyć, że widok wykorzystuje metody pomocnika kodu HTML Html.Encode() podczas renderowania komunikatu. Pomocnik kodu HTML Html.Encode() koduje znaki specjalne, takie jak &lt; i &gt; na znaki, które są bezpieczne wyświetlić na stronie sieci web. Zawsze, gdy renderowania zawartości, którą użytkownik prześle do witryny sieci Web, należy zakodować zawartości, aby zapobiec atakom iniekcji JavaScript.
+Należy zauważyć, że widok wykorzystuje metody pomocnika kodu HTML Html.Encode() podczas renderowania komunikatu. Pomocnik kodu HTML Html.Encode() koduje znaki specjalne, takie jak &lt; i &gt; na znaki, które są bezpieczne wyświetlić na stronie sieci web. Zawsze, gdy renderowanie zawartości, który użytkownik prześle do witryny sieci Web należy zakodować zawartość, aby uniemożliwić ataki przez iniekcję kodu JavaScript.
 
-(Ponieważ utworzone komunikat nad ProductController, możemy ADAM t naprawdę potrzebne do kodowania komunikatu. Jednak jest dobrym nawyk zawsze wywołać metody Html.Encode(), podczas wyświetlania zawartości pobranej z danych widoku w widoku).
+(Ponieważ utworzyliśmy komunikat osoby w ProductController, firma Microsoft don t naprawdę potrzebne do zakodowania komunikatu. Jednak jest dobry sposób zawsze wywołuj metody Html.Encode() podczas wyświetlania zawartości pobranej z wyświetlanie danych w widoku).
 
-Wyświetlanie listy 7 Wybraliśmy zaletą danych widoku do przekazywania wiadomości prostego ciągu z kontrolera do widoku. Również umożliwia wyświetlanie danych przekazywania innych typów danych, takich jak kolekcja rekordów bazy danych, z kontrolera do widoku. Na przykład jeśli chcesz wyświetlenia zawartości tabeli Produkty bazy danych w widoku, a następnie przejdzie kolekcji bazy danych rejestruje w widoku danych.
+W ofercie 7 Firma Microsoft skorzystała z widoku danych komunikatu prosty ciąg znaków za pomocą kontrolera do widoku. Również służy widok danych do przekazania innych typów danych, takich jak zbiór rekordów bazy danych, za pomocą kontrolera do widoku. Na przykład jeśli chcesz wyświetlić zawartość tabeli Produkty bazy danych w widoku, a następnie przejdzie kolekcji bazy danych rejestruje w widoku danych.
 
-Istnieje również opcja przekazywania danych silnie typizowanego widoku z kontrolera do widoku. W tym temacie firma Microsoft Eksplorowanie w samouczku **opis silnie Typizowanej danych widoku i widoki**.
+Istnieje również opcja przekazywania silnie typizowanego widoku danych za pomocą kontrolera do widoku. W tym samouczku dowiesz się w tym temacie **widoków i zrozumienia silnie Typizowane dane widoku**.
 
 ## <a name="summary"></a>Podsumowanie
 
-W tym samouczku podać krótkie wprowadzenie do platformy ASP.NET MVC widoków danych widoku i pomocników HTML. W pierwszej sekcji przedstawiono sposób dodawania nowych widoków do projektu. Wiesz, że należy dodać widok do prawidłowego folderu celu wywołania go z danego kontrolera. Następnie Rozmawialiśmy temat pomocników HTML. Przedstawiono sposób pomocników HTML umożliwiają łatwe generowanie standardowe zawartość HTML. Ponadto przedstawiono sposób korzystać z danych widoku do przekazywania danych z kontrolera do widoku.
+W tym samouczku pod warunkiem krótkie wprowadzenie do widoków ASP.NET MVC, wyświetlanie danych i pomocników HTML. W pierwszej sekcji przedstawiono sposób dodawania nowych widoków do projektu. Wiesz, że należy dodać widok prawidłowego folderu w celu wywoływania go z określonego kontrolera. Następnie omówiono temat pomocników HTML. Pokazaliśmy ci, jak pomocników HTML umożliwiają łatwe generowanie standardowych zawartość HTML. Na koniec pokazaliśmy ci, jak korzystać z zalet danych widoku, aby przekazać dane z kontrolera do widoku.
 
 > [!div class="step-by-step"]
 > [Poprzednie](passing-data-to-view-master-pages-cs.md)
