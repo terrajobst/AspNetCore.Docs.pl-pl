@@ -4,19 +4,16 @@ title: .NET 4 | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Nowe funkcje platformy ASP.NET i funkcje dostępne w programie .NET Framework 4.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/05/2011
-ms.topic: article
 ms.assetid: bac10aee-6731-4a0f-84d7-9eef5e560ae5
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/net-4
 msc.type: chapter
-ms.openlocfilehash: 974863b850b8ad1fb70dfa1f8a05f3ba0c26fffb
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 696d727e70a47e75670c8583723df401b737d052
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37375825"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37828629"
 ---
 <a name="net-4"></a>.NET 4
 ====================

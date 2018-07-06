@@ -4,19 +4,16 @@ title: Uzyskiwanie dostępu do danych modelu za pomocą kontrolera | Dokumentacj
 author: Rick-Anderson
 description: 'Uwaga: Zaktualizowaną wersję w tym samouczku jest dostępna w tym miejscu używającej platformy ASP.NET MVC 5 i Visual Studio 2013. Jest bardziej bezpieczne, łatwiej stosować i pokaz...'
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/28/2012
-ms.topic: article
 ms.assetid: 61e0206d-7f32-4018-992d-0a51b48b37dc
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/accessing-your-models-data-from-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: fb052b85d033f2c60f1fab6f5d5a1773aad22d35
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: cf1d27088c1e65d55a6820825eebe63f7fdcb515
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37368615"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37804940"
 ---
 <a name="accessing-your-models-data-from-a-controller"></a>Uzyskiwanie dostępu do danych modelu za pomocą kontrolera
 ====================

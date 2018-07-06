@@ -4,19 +4,16 @@ title: Tworzenie aplikacji w wersji 2.0 | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Kompilowanie programu ASP.NET 2.0 aplikacji
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/05/2011
-ms.topic: article
 ms.assetid: ea40322d-2e77-4c37-8227-e650b286e373
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/building-20-applications
 msc.type: chapter
-ms.openlocfilehash: b0fa26d451963e11c2817b31c5992d58795a6021
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: a2e78d9d48c95f9d52e6a38abca90bb03925080f
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37398749"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37806266"
 ---
 <a name="building-20-applications"></a>Tworzenie aplikacji w wersji 2.0
 ====================

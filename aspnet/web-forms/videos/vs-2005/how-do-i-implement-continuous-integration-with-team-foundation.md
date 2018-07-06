@@ -4,19 +4,16 @@ title: '[Jak mogę] Implementowanie ciągłej integracji z Team Foundation? | Mi
 author: rick-anderson
 description: Istnieje wiele narzędzi ciągłej integracji, które działają na serwerze Team Foundation Server, a w tym filmie pokazano przyjrzymy się wolne wstrzymanej narzędzie Norton TeamCI...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/01/2007
-ms.topic: article
 ms.assetid: 525c3f23-586a-4594-a2cf-efb5a1ef6898
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/vs-2005/how-do-i-implement-continuous-integration-with-team-foundation
 msc.type: video
-ms.openlocfilehash: 5b91f802af672302ec400c5d2ed7305359e8a2c5
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 1bb90b2d3c37558f7917eff1a4889a196fbe40bb
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37380218"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37807488"
 ---
 <a name="how-do-i-implement-continuous-integration-with-team-foundation"></a>[Jak mogę] Implementowanie ciągłej integracji z Team Foundation?
 ====================

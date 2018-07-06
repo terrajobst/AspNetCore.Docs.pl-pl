@@ -4,19 +4,16 @@ title: Jak mogę Upewnij wywołań Ajax przy użyciu jQuery? | Microsoft Docs
 author: rick-anderson
 description: W tym wideo pikseli Chris przedstawiono sposób wykonywania wywołań Ajax przy użyciu biblioteki jQuery. Utworzono przykładową witrynę sieci web, która zawiera prostej usługi internetowej zwracające...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/12/2010
-ms.topic: article
 ms.assetid: 112b6255-ec37-4311-b967-c1aacce78bc8
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/jquery/how-do-i-make-ajax-calls-using-jquery
 msc.type: video
-ms.openlocfilehash: 5e47921071fe3e7b0dbf94b814befadd3cf4e7e0
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 2ae43ad45fd823a814156ab1f863484e2d113a63
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37385920"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37807206"
 ---
 <a name="how-do-i-make-ajax-calls-using-jquery"></a>Jak mogę Upewnij wywołań Ajax przy użyciu jQuery?
 ====================

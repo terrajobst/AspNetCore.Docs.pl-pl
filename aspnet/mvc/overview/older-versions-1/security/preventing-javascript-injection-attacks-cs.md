@@ -4,19 +4,16 @@ title: Zapobieganie atakom iniekcji JavaScript (C#) | Dokumentacja firmy Microso
 author: StephenWalther
 description: 'Zapobiec atakom iniekcji JavaScript i atakami skryptów między witrynami dla Ciebie. W tym samouczku Walther Autor: Stephen wyjaśnia, jak można łatwo de...'
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/19/2008
-ms.topic: article
 ms.assetid: d0136da6-81a4-4815-b002-baa84744c09e
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/security/preventing-javascript-injection-attacks-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 2d307e1034dca4893cd45baf7d54edb7544829e3
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 0b0257eaef29c8e538fde92044cbc8cf2abe77f0
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37381893"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37808269"
 ---
 <a name="preventing-javascript-injection-attacks-c"></a>Zapobieganie atakom iniekcji JavaScript (C#)
 ====================

@@ -4,19 +4,16 @@ title: Praca z grupami w SignalR | Dokumentacja firmy Microsoft
 author: pfletcher
 description: W tym temacie opisano, jak można utrwalić informacje o członkostwie w grupie przy użyciu interfejsu API Centrum.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/10/2014
-ms.topic: article
 ms.assetid: cd378ecd-3e9e-4236-b902-65916d85a048
-ms.technology: dotnet-signalr
 msc.legacyurl: /signalr/overview/guide-to-the-api/working-with-groups
 msc.type: authoredcontent
-ms.openlocfilehash: b4ac3053a5b324de11d69865c92c6783aadab7f8
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: c1df772c19bfa89c1d780d09d56c6bc4a79967c6
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37378261"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37806196"
 ---
 <a name="working-with-groups-in-signalr"></a>Praca z grupami w SignalR
 ====================
