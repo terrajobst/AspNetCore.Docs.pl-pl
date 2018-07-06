@@ -4,19 +4,16 @@ title: Obsługa wyjątków LOGIKI i poziom warstwy DAL (VB) | Dokumentacja firmy
 author: rick-anderson
 description: W tym samouczku opisano jak przeczucie obsługiwać wyjątki zgłoszone podczas aktualizowania przepływu pracy można edytować DataList.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/30/2006
-ms.topic: article
 ms.assetid: ca665073-b379-4239-9404-f597663ca65e
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/handling-bll-and-dal-level-exceptions-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0655f73b63f3eae72a866c912589779a8ccc7664
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 1aee5c26bfbbbc46c2151a56fed60057930cba80
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37400567"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37814255"
 ---
 <a name="handling-bll--and-dal-level-exceptions-vb"></a>Obsługa wyjątków LOGIKI i poziom warstwy DAL (VB)
 ====================

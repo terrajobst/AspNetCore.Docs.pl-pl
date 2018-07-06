@@ -4,19 +4,16 @@ title: 'Część 9: Rejestracja i finalizacja zakupu | Dokumentacja firmy Micros
 author: jongalloway
 description: W tej serii samouczków szczegółowo opisuje wszystkie etapy, tworzenie przykładowej aplikacji platformy ASP.NET MVC Music Store. Część 9 obejmuje Rejestracja i finalizacja zakupu.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/21/2011
-ms.topic: article
 ms.assetid: d65c5c2b-a039-463f-ad29-25cf9fb7a1ba
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-9
 msc.type: authoredcontent
-ms.openlocfilehash: 935729be0dce790c6fce2e2e982ee063318d64dd
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: e521e30cb820d834d57c87538b869861a536657b
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37367013"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37812876"
 ---
 <a name="part-9-registration-and-checkout"></a>Część 9: Rejestracja i finalizacja zakupu
 ====================

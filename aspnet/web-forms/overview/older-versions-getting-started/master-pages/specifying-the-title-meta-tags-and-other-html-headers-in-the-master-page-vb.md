@@ -4,19 +4,16 @@ title: Określanie tytułu, tagów Meta i innych nagłówków HTML na stronie wz
 author: rick-anderson
 description: Patrzy na różnych technik do definiowania asortymentach &lt;head&gt; elementów na stronie wzorcowej, z poziomu strony zawartości.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/21/2008
-ms.topic: article
 ms.assetid: ea8196f5-039d-43ec-8447-8997ad4d3900
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 139fe0f67ddc067e0e23eed99569d7f6de533482
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: a34b11f5ec8836cfdffc3a08c9cae847232dfcd8
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37380710"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37833433"
 ---
 <a name="specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb"></a>Określanie tytułu, tagów Meta i innych nagłówków HTML na stronie wzorcowej (VB)
 ====================

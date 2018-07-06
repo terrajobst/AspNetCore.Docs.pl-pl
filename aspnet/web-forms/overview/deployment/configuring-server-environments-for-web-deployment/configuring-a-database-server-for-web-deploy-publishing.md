@@ -4,19 +4,16 @@ title: Konfigurowanie serwera bazy danych dla sieci Web wdrażanie, publikowanie
 author: jrjlee
 description: W tym temacie opisano sposób konfigurowania serwera bazy danych programu SQL Server 2008 R2 do obsługi wdrażania w Internecie i publikowania. Zadania opisane w tym temacie są co...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/04/2012
-ms.topic: article
 ms.assetid: e7c447f9-eddf-4bbe-9f18-3326d965d093
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-database-server-for-web-deploy-publishing
 msc.type: authoredcontent
-ms.openlocfilehash: 5563b737e3fd200070951f8d281ed8015137ae35
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 9ec938298ea63609c276aed807a67722bf9bd66d
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37384462"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37841982"
 ---
 <a name="configuring-a-database-server-for-web-deploy-publishing"></a>Konfigurowanie serwera bazy danych dla usługi publikowania Web Deploy
 ====================

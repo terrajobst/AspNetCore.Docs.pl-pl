@@ -4,19 +4,16 @@ title: '[Jak mogę] Użyj rozszerzenie pola wyboru MutuallyExclusive ASP.NET AJA
 author: JoeStagner
 description: Kontrolka MutuallyExclusive z ASP.NET AJAX Control Toolkit umożliwia dla deweloperów skonfigurować liczbę pól wyboru jako wzajemnie się wykluczających, które e...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/04/2007
-ms.topic: article
 ms.assetid: 808a89d3-4a98-4abe-83b5-0aa01f749048
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-mutuallyexclusive-checkbox-extender
 msc.type: video
-ms.openlocfilehash: 29b07af7e09bd72227e2ca8893f7bd4d424e32aa
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 0a06ffc397a596159404740d65683fc2b54ec248
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37392502"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37812967"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-mutuallyexclusive-checkbox-extender"></a>[Jak mogę] Użyj rozszerzenie pola wyboru MutuallyExclusive ASP.NET AJAX?
 ====================

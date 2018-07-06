@@ -4,19 +4,16 @@ title: Praca z formularzami HTML w witrynach sieci Web Pages (Razor) platformy A
 author: tfitzmac
 description: Formularz jest sekcja dokumentu HTML, gdzie umieścić kontrolki danych wejściowych użytkownika, takie jak pola tekstowe, pola wyboru, listy rozwijane i przyciski opcji. Używanie formularzy pytania "Wh"...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/10/2014
-ms.topic: article
 ms.assetid: f3f4b8c8-e8f6-4474-ad94-69228a6c01ee
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/4-working-with-forms
 msc.type: authoredcontent
-ms.openlocfilehash: 8d52cb6406859c77687622b7a101cf67781b863d
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 4658e80d63c9c3665f197071f3f3d1420362e4a3
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37380350"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37820288"
 ---
 <a name="working-with-html-forms-in-aspnet-web-pages-razor-sites"></a>Praca z formularzami HTML w witrynach ASP.NET Web Pages (Razor)
 ====================

@@ -4,19 +4,16 @@ title: Tworzenie akcji (C#) | Dokumentacja firmy Microsoft
 author: microsoft
 description: Dowiedz się, jak dodać nową akcję do Kontroler składnika ASP.NET MVC. Dowiedz się więcej o wymaganiach dotyczących metodę jako akcję.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/02/2009
-ms.topic: article
 ms.assetid: cb33b28c-3025-4bd1-a1fa-eaa3af7bb56f
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-an-action-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d6f981201b93e3650b18f112dd9330f1470aa573
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: bc85e1439bfa0a89d60271dda53829e921b26f55
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37372501"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37812228"
 ---
 <a name="creating-an-action-c"></a>Tworzenie akcji (C#)
 ====================

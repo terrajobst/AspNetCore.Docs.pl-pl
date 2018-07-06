@@ -4,19 +4,16 @@ title: Pozycjonowanie kontrolki ModalPopup (VB) | Dokumentacja firmy Microsoft
 author: wenz
 description: Kontrolki ModalPopup na zestawu narzędzi AJAX Control Toolkit oferuje prosty sposób utworzyć modalnego okna podręcznego, za pomocą oznacza, że po stronie klienta. Jednak formant nie oferuje...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: 8a07210c-eb0e-485e-9ee8-82a101520e65
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/modalpopup/positioning-a-modalpopup-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 1578a1bd6d5e3b595eba526552b8723daefb2ba1
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: e36d22b5c2f503ed849f373153e263bdd9546452
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37387835"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37821764"
 ---
 <a name="positioning-a-modalpopup-vb"></a>Pozycjonowanie kontrolki ModalPopup (VB)
 ====================

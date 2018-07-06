@@ -4,19 +4,16 @@ title: Konfigurowanie serwera sieci Web dla sieci Web wdrażanie, publikowanie (
 author: jrjlee
 description: W tym temacie opisano sposób konfigurowania serwera sieci web usług IIS do obsługi publikowania w sieci web w trybie offline i wdrażania. Podczas pracy z Internet Information Services (I...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/04/2012
-ms.topic: article
 ms.assetid: ba92788f-9f03-44b1-b6b2-af8413e6a35d
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 555b4b3c79d8efc641b1c179482993371735dbe2
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 048cd1855e3f03a6f348521c00acb03ddee8c630
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37397580"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37824677"
 ---
 <a name="configuring-a-web-server-for-web-deploy-publishing-offline-deployment"></a>Konfigurowanie serwera sieci Web dla usługi publikowania (wdrożenie w trybie Offline) Web Deploy
 ====================

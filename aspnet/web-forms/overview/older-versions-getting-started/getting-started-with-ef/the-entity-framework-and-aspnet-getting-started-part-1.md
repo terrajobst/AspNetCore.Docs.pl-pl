@@ -4,19 +4,16 @@ title: Wprowadzenie do bazy danych programu Entity Framework 4.0 First i platfor
 author: tdykstra
 description: Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji formularzy sieci Web ASP.NET za pomocą programu Entity Framework 4.0 i Visual Studio 2010...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 12/03/2010
-ms.topic: article
 ms.assetid: 5cb00916-8f46-491f-be25-4739a615d619
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: fbfbc667b4031c67827dc158ffca4d1b4dbfb23e
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: b5c2ad33452cacdc1d3aca99c13b8c51e8b58b7c
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37394297"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37810579"
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms"></a>Wprowadzenie do bazy danych programu Entity Framework 4.0 First i platformy ASP.NET 4 formularzy sieci Web
 ====================

@@ -4,19 +4,16 @@ title: Wykres | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Ten zbiór wideo pokazuje, jak używać formantu wykresu programu ASP.NET w celu utworzenia atrakcyjnych wizualnie wyświetlania danych.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/14/2011
-ms.topic: article
 ms.assetid: c7ec18e5-45a1-4c18-b2d9-31f377d23a3f
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/net-4/chart
 msc.type: chapter
-ms.openlocfilehash: 3bd8ec2305a62caf83d0ad088e1bc02bf0d75fce
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: c5e00f49b486758b4e611444e48327891af134fb
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37380152"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37810386"
 ---
 <a name="chart"></a>Wykres
 ====================

@@ -4,19 +4,16 @@ title: Magazyn obiektów Blob bez struktury (tworzenie rzeczywistych aplikacji w
 author: MikeWasson
 description: Tworzenie rzeczywistych aplikacji w chmurze za pomocą platformy Azure Książka elektroniczna jest oparta na prezentacji, opracowane przez Scotta Guthrie. Wyjaśniono 13 wzorców i praktyk, które może on...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/30/2015
-ms.topic: article
 ms.assetid: 9f05ccb1-2004-4661-ad8b-c370e6c09c8e
-ms.technology: ''
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage
 msc.type: authoredcontent
-ms.openlocfilehash: 1840bea3b4183838ffdfe710e987b864a05d53fb
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 55937854546fe02c36b15b7141d90b4c0785f32b
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37364187"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37823465"
 ---
 <a name="unstructured-blob-storage-building-real-world-cloud-apps-with-azure"></a>Magazyn obiektów Blob bez struktury (tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure)
 ====================

@@ -4,19 +4,16 @@ title: 'Korzystając z programu Entity Framework 4.0 i kontrolka ObjectDataSourc
 author: tdykstra
 description: W tej serii samouczków opiera się na aplikacji sieci web University firmy Contoso, utworzony przez wprowadzenie do tej serii samouczka platformy Entity Framework. Jeśli yo...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/26/2011
-ms.topic: article
 ms.assetid: 244278c1-fec8-4255-8a8a-13bde491c4f5
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started
 msc.type: authoredcontent
-ms.openlocfilehash: ba3b65dededeca3534b9273bfd3ae48429711fce
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 9eb39d0cf57e114537c76f33e2f4647196b0ff30
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37369761"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37837681"
 ---
 <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-1-getting-started"></a>Korzystając z programu Entity Framework 4.0 i kontrolka ObjectDataSource, część 1: wprowadzenie
 ====================

@@ -4,19 +4,16 @@ title: Przy użyciu szablony widoku FormView (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: W odróżnieniu od DetailsView FormView nie składa się z pól. Zamiast tego widoku FormView jest renderowany przy użyciu szablonów. W tym samouczku zajmiemy się przy użyciu F....
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/31/2010
-ms.topic: article
 ms.assetid: d3f062af-88cf-426d-af44-e41f32c41672
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/using-the-formview-s-templates-cs
 msc.type: authoredcontent
-ms.openlocfilehash: cea8cad7c3e049ac5b608a51840bde98c825a90f
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 637f0778bd959d2bae52edccb5c5ac259f4d3644
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37366731"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37824020"
 ---
 <a name="using-the-formviews-templates-c"></a>Przy użyciu szablony widoku FormView (C#)
 ====================

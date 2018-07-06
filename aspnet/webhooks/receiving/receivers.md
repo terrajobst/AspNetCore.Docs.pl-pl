@@ -4,17 +4,14 @@ title: Odbiorniki elementów Webhook programu ASP.NET | Dokumentacja firmy Micro
 author: rick-anderson
 description: Odbiorniki elementów Webhook programu ASP.NET
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/17/2012
-ms.topic: article
 ms.assetid: 6cdea089-15b2-4732-8c68-921ca561a8f1
-ms.technology: ''
-ms.openlocfilehash: be1f7dcef60642231af9c593eb7329ede7c2094f
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: b4b995d5d781576b2b22db51d78e0e303bfdccc4
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37374746"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37812148"
 ---
 # <a name="aspnet-webhooks-receivers"></a>Odbiorniki elementów Webhook programu ASP.NET
 

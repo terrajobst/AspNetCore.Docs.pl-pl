@@ -4,19 +4,16 @@ title: Strony wzorcowe i ASP.NET AJAX (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: W tym artykule omówiono opcje przy użyciu rozszerzeń ASP.NET AJAX i stron wzorcowych. Analizuje przy użyciu klasy serwera proxy menedżera skryptów; w tym artykule omówiono, jak różne pliki JS są ładowane dependi...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/11/2008
-ms.topic: article
 ms.assetid: 0c55eb66-ba44-4d49-98e8-5c87fd9b1111
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/master-pages-and-asp-net-ajax-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 6fceed046ead6c8129d55aa4e4272cfef0ebe184
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: e8a4f9780b41c5ff77b996894d9f91a532877245
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37390911"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37842487"
 ---
 <a name="master-pages-and-aspnet-ajax-c"></a>Strony wzorcowe i ASP.NET AJAX (C#)
 ====================

@@ -4,19 +4,16 @@ title: '[Jak mogę] Implementowanie ogłaszania zwrotnego między stronami w pro
 author: rick-anderson
 description: W tym wideo pikseli Chris przedstawia sposób tworzenia Cross ogłaszania zwrotnego strony w programie ASP.NET, w którym formantu na stronie źródło wywołuje zdarzenia zwrotu, inny element docelowy...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/10/2008
-ms.topic: article
 ms.assetid: cd88fa45-8f51-48f5-b642-5021acddec40
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-implement-a-cross-page-postback-in-aspnet
 msc.type: video
-ms.openlocfilehash: 562fdafd25f4d8ac259a57989f2a42aa979591cc
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 51097f9444721e2af86ac4c3d5d37f7aaba83e67
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37378543"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37815424"
 ---
 <a name="how-do-i-implement-a-cross-page-postback-in-aspnet"></a>[Jak mogę] Implementowanie ogłaszania zwrotnego między stronami, w programie ASP.NET:
 ====================

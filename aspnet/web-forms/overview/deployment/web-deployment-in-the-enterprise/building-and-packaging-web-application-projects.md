@@ -4,19 +4,16 @@ title: Kompilowanie i tworzenie pakietów projektów aplikacji sieci Web | Dokum
 author: jrjlee
 description: Wdrażanie projektu aplikacji sieci web w środowisku serwera zdalnego, należy najpierw jest skompilować projekt i generować pakiety wdrażania sieci web...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/04/2012
-ms.topic: article
 ms.assetid: 94e92f80-a7e3-4d18-9375-ff8be5d666ac
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/building-and-packaging-web-application-projects
 msc.type: authoredcontent
-ms.openlocfilehash: ff8312d16dff2a9eec9ae909bca5e72d52f17094
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: b5342443fefd712aa95ac08a8edf708d55253816
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37382611"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37810520"
 ---
 <a name="building-and-packaging-web-application-projects"></a>Kompilowanie i tworzenie pakietów projektów aplikacji sieci Web
 ====================

@@ -4,19 +4,16 @@ title: Rejestrowanie użytkowników w systemie członkostwa | Dokumentacja firmy
 author: JoeStagner
 description: W tym filmie Stagner Jan pokazuje, jak użytkownicy logują się systemu członkostwa programu ASP.NET.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/29/2010
-ms.topic: article
 ms.assetid: 39a7142b-8228-4dae-8578-c26d70e3ae71
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/authentication/logging-users-into-your-membership-system
 msc.type: video
-ms.openlocfilehash: f58fedf6f77805cebf6363393799b969d9b823e9
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 33a46a7ac302d82c5b3184ed4ac4fe6eeda46112
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37383626"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37813737"
 ---
 <a name="logging-users-into-your-membership-system"></a>Rejestrowanie użytkowników w systemie członkostwa
 ====================

@@ -4,19 +4,16 @@ title: Hot Towel szablonu | Dokumentacja firmy Microsoft
 author: madskristensen
 description: Szablon HotTowel
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/09/2013
-ms.topic: article
 ms.assetid: 75af2e17-6ed3-4d24-8ea1-bc340027c318
-ms.technology: ''
 msc.legacyurl: /single-page-application/overview/templates/hottowel-template
 msc.type: authoredcontent
-ms.openlocfilehash: de81f12f57d7f2fb7c6478bfa1f3a278ae905a39
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 6145a34286ef113002b92d722e227005657098d9
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37388552"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37825140"
 ---
 <a name="hot-towel-template"></a>Szablon hot Towel
 ====================

@@ -4,19 +4,16 @@ title: Starsze wersje — dostęp do danych | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Instrukcje wykonywania różnych zadań związanych z danymi, za pomocą kontrolki danych wzorca ASP.NET Web Forms.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/05/2011
-ms.topic: article
 ms.assetid: cf54a6fb-a362-4481-b967-c158b98092f7
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access
 msc.type: chapter
-ms.openlocfilehash: a4b49b001e38bcb5d1d0fd9a23c09d69a1d6c27e
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 27a73db8984c2e0a12b4372d0a783f2deca786ac
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37375013"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37824550"
 ---
 <a name="older-versions---data-access"></a>Starsze wersje — dostęp do danych
 ====================

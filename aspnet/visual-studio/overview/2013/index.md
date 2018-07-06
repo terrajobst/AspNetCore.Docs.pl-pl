@@ -4,19 +4,16 @@ title: Program ASP.NET i programu Visual Studio 2013 | Dokumentacja firmy Micros
 author: rick-anderson
 description: Visual Studio 2013
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/25/2013
-ms.topic: article
 ms.assetid: 646edfc7-dc62-4fa0-84c2-926996c92aeb
-ms.technology: ''
 msc.legacyurl: /visual-studio/overview/2013
 msc.type: chapter
-ms.openlocfilehash: fb80ba2657e9a43b6cc7c0669f823fba1882eca5
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: ee9ab35b48eb72c3e80bd98fc0759575d5ea7033
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37370842"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37822666"
 ---
 <a name="aspnet-and-visual-studio-2013"></a>Program ASP.NET i programu Visual Studio 2013
 ====================

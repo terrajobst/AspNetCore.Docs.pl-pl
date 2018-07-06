@@ -4,19 +4,16 @@ title: Program ASP.NET MVC 3 Music Store | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Jak utworzyć aplikację MVC Music Store, przykładową aplikację, która sprzedaje utworów muzycznych albumy online i implementującej administrowania lokacją w użytkownika logowania...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 09/28/2011
-ms.topic: article
 ms.assetid: f016a6b4-2a38-4e83-8c34-f6d7f2b49ba2
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store
 msc.type: chapter
-ms.openlocfilehash: 90bde36af9f30634218e024dc18a35376fab9bfe
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 999907293e1b11ca207ae937b104381796ab1717
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37363952"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37815498"
 ---
 <a name="aspnet-mvc-3-music-store"></a>Program ASP.NET MVC 3 Music Store
 ====================

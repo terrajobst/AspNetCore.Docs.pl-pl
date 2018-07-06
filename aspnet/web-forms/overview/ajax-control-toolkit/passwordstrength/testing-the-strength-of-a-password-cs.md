@@ -4,19 +4,16 @@ title: Testowanie siły hasła (C#) | Dokumentacja firmy Microsoft
 author: wenz
 description: Hasła są wymagane praktycznie dowolnym miejscu, tak aby użytkownicy z opóźnieniem często wybierz prostych haseł, które są łatwe do przerwania. Kontrolka PasswordStrength w ASP. RZECZOWNIK...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: cb4afbae-9b8f-483d-9729-476d4b9f85fc
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/passwordstrength/testing-the-strength-of-a-password-cs
 msc.type: authoredcontent
-ms.openlocfilehash: faee15f78f411333796c2b072983a7b7c3d2ff2c
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 2eec810a0e37347059d3e82a37b25d5663eab987
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37373181"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37839807"
 ---
 <a name="testing-the-strength-of-a-password-c"></a>Testowanie siły hasła (C#)
 ====================

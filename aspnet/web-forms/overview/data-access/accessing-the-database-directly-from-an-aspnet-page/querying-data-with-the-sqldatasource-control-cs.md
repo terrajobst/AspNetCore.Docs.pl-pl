@@ -4,19 +4,16 @@ title: Wykonywanie zapytania o dane przy użyciu kontrolki SqlDataSource (C#) | 
 author: rick-anderson
 description: W poprzednich samouczkach użyliśmy kontrolka ObjectDataSource, aby w pełni rozdzielić warstwy prezentacji z warstwy dostępu do danych. Począwszy od tej instruktora...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/20/2007
-ms.topic: article
 ms.assetid: 60512d6a-b572-4b7a-beb3-3e44b4d2020c
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/querying-data-with-the-sqldatasource-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 0bde7d76db2da71b3f12fc9ead2baa4b2028206d
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 6b9ca474b7a085302d287a223c08abe2fa5336b0
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37369812"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37815294"
 ---
 <a name="querying-data-with-the-sqldatasource-control-c"></a>Wykonywanie zapytania o dane przy użyciu kontrolki SqlDataSource (C#)
 ====================

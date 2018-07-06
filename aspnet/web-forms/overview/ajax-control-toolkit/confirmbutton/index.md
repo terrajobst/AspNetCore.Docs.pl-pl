@@ -4,19 +4,16 @@ title: Kontrolki ConfirmButton | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: W tym samouczku pokazano, jak używać kontrolki ConfirmButton, które wyświetla tak/nie okna podręcznego, kiedy użytkownik kliknie przycisk.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/14/2011
-ms.topic: article
 ms.assetid: 338c4fd9-0e9b-4dab-a92b-4b88bd403d49
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/confirmbutton
 msc.type: chapter
-ms.openlocfilehash: de8379088e6d26c0b077d3b591fe276132ade2f2
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: acb23c4726b75ec0253d56c16c7875c7f2e649c1
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37375436"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37823253"
 ---
 <a name="confirmbutton"></a>Kontrolki ConfirmButton
 ====================

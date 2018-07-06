@@ -4,19 +4,16 @@ title: Interfejs użytkownika jQuery 1.8.11 w usłudze Microsoft Ajax CDN | Doku
 author: rick-anderson
 description: ''
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/23/2014
-ms.topic: article
 ms.assetid: d41d4ae6-a5a5-4615-b567-23f9ace4c80a
-ms.technology: ''
 msc.legacyurl: /ajax/cdn/jquery-ui/cdnjqueryui1811
 msc.type: content
-ms.openlocfilehash: bdcef0d7dd2e597f1268fa888e2d54962240eab9
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 8fadedc1cfb5d1e945dc4ac6749491619038d693
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37374491"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37808878"
 ---
 <a name="jquery-ui-1811-on-the-microsoft-ajax-cdn"></a>Interfejs użytkownika jQuery 1.8.11 w usłudze Microsoft Ajax CDN
 ====================

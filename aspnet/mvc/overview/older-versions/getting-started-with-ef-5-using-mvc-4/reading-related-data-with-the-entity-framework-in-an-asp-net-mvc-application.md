@@ -4,19 +4,16 @@ title: Odczytywanie danych powiązanych z platformą Entity Framework w aplikacj
 author: tdykstra
 description: Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 4 przy użyciu Entity Framework 5 Code First i programu Visual Studio...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/30/2013
-ms.topic: article
 ms.assetid: 0d6fb83b-71f7-425d-8dec-981197d7ec42
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 6fa85f561c85d1761ddcbc7167aa4b39a6c6eda3
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 750c49572e99c6ab8c84d65e4c18f8da9b5d304c
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37374328"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37835249"
 ---
 <a name="reading-related-data-with-the-entity-framework-in-an-aspnet-mvc-application-5-of-10"></a>Odczytywanie powiązanych danych, za pomocą programu Entity Framework w aplikacji ASP.NET MVC (5, 10)
 ====================

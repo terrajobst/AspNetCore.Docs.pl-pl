@@ -4,19 +4,16 @@ title: Zabezpieczenia | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: W tym samouczku Ustaw omawia jak hasło, chronić niektóre strony w aplikacji ASP.NET MVC oraz jak utworzyć i zarządzać użytkownikami i rolami.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 09/28/2011
-ms.topic: article
 ms.assetid: 346c6b44-0ff4-49af-ac94-6e74d952b4eb
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/security
 msc.type: chapter
-ms.openlocfilehash: 7ca3ea0d635eae1b5660cdab2f8145c75620c4f5
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: e8316f0fdac7edbfd8d15a22ac2bd01cf4a92e6c
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37372250"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37835620"
 ---
 <a name="security"></a>Zabezpieczenia
 ====================

@@ -4,19 +4,16 @@ title: Tworzenie nowych procedur składowanych dla elementów TableAdapter Typiz
 author: rick-anderson
 description: W samouczkach wcześniej możemy utworzeniu instrukcji języka SQL w naszym kodzie i przekazywane instrukcje w bazie danych do wykonania. Alternatywnym podejściem jest używać s...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/18/2007
-ms.topic: article
 ms.assetid: 751282ca-5870-4d66-84e4-6cefae23eb4a
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c17cc0bd6cb97ddf21e2f8d6b177b7f97a28575d
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 420c4f33a6df2d7d99daeaac7682ede12adfb122
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37368774"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37824773"
 ---
 <a name="creating-new-stored-procedures-for-the-typed-datasets-tableadapters-c"></a>Tworzenie nowych procedur składowanych dla elementów TableAdapter Typizowanego zestawu danych (C#)
 ====================

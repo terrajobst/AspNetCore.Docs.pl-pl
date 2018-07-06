@@ -4,19 +4,16 @@ title: 'Samouczek: Emisje serwera z SignalR 2 | Dokumentacja firmy Microsoft'
 author: tdykstra
 description: W tym samouczku przedstawiono sposób tworzenia aplikacji sieci web korzystającą z signalr2 na platformie ASP.NET w celu zapewnienia funkcji emisji serwera. Server emisji oznacza że commun...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/13/2014
-ms.topic: article
 ms.assetid: 1568247f-60b5-4eca-96e0-e661fbb2b273
-ms.technology: dotnet-signalr
 msc.legacyurl: /signalr/overview/getting-started/tutorial-server-broadcast-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: ff1eeee407ac7628afd587ca8b9102d0191ea356
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 0e86fbea9c5668e20fce7a494c76c52f9c089c09
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37367931"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37820700"
 ---
 <a name="tutorial-server-broadcast-with-signalr-2"></a>Samouczek: Emisje serwera z SignalR 2
 ====================
@@ -196,7 +193,7 @@ Ma tylko jedno wystąpienie klasy StockTicker do uruchomienia na serwerze, więc
 
 ### <a name="register-the-signalr-route"></a>Zarejestruj trasy SignalR
 
-Serwer musi znać adres URL, który można przechwycić i kierują je bezpośrednio z SignalR. Czy, jaki dodasz i klasy początkowej OWIN.
+Serwer musi znać adres URL, który można przechwycić i kierują je bezpośrednio z SignalR. Aby to zrobić, Dodaj klasę początkową OWIN:
 
 1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt, a następnie kliknij przycisk **Dodaj | Klasa początkowa OWIN**. Nazwa klasy **Startup.cs**.
 2. Zastąp kod w **Startup.cs** następującym kodem.

@@ -4,19 +4,16 @@ title: Wprowadzenie do programowania dla sieci Web platformy ASP.NET używająca
 author: JoeStagner
 description: Dodatek wideo do wprowadzenia do platformy ASP.NET sieci Web programowania przy użyciu samouczka składni Razor
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/25/2011
-ms.topic: article
 ms.assetid: 22947987-9b02-4595-9e83-3d54ae013796
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages/videos/aspnet-razor-pages/introduction-to-aspnet-web-programming-using-the-razor-syntax
 msc.type: video
-ms.openlocfilehash: 133faaf0471ec75ec7ae07a4ea7cac7d73b0e38d
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 239e9d208735216a77a07c609c55ee390d671072
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37379997"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37823200"
 ---
 <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax"></a>Wprowadzenie do programowania dla sieci Web platformy ASP.NET używająca składni Razor
 ====================

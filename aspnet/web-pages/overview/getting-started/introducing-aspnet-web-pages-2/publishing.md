@@ -4,19 +4,16 @@ title: Wprowadzenie do składnika ASP.NET Web Pages — publikowanie witryny za 
 author: tfitzmac
 description: Niniejszy samouczek jest ostateczny PAYG w zestawie samouczków, która wprowadza stron ASP.NET Web Pages i programu Microsoft WebMatrix. Omówiono w nim sposób publikowania witryny t...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/28/2015
-ms.topic: article
 ms.assetid: 7e85c70e-1a88-4408-8b3d-29611c7713ed
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/publishing
 msc.type: authoredcontent
-ms.openlocfilehash: c6fa7692527b7aa65e93cd57ed5bd56f42e54bd6
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: a20adc0b42d39424abf301e0b0f4094ef04932fb
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37373490"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37836988"
 ---
 <a name="introducing-aspnet-web-pages---publishing-a-site-by-using-webmatrix"></a>Wprowadzenie do wzorca ASP.NET Web Pages — publikowanie witryny za pomocą programu WebMatrix
 ====================

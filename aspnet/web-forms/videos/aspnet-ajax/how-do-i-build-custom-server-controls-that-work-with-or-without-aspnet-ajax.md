@@ -4,19 +4,16 @@ title: '[Jak mogę] Tworzenie niestandardowych kontrolek serwera współpracują
 author: rick-anderson
 description: Masz pomysł na niestandardowy formant serwera powinien mieć możliwość pracy bez rozszerzeń ASP.NET AJAX, jeszcze może korzystać z ASP.NET AJAX, jeśli jest on dostępny...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 09/01/2007
-ms.topic: article
 ms.assetid: db9e13d3-c8f5-4051-ad9d-dc5649b1c41f
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-build-custom-server-controls-that-work-with-or-without-aspnet-ajax
 msc.type: video
-ms.openlocfilehash: 27d87970ca253a41e01745a60c59306a5c8cf955
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 68edaa6f0f46a76f848a905e0787fdb16634a8b6
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37376190"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37811494"
 ---
 <a name="how-do-i-build-custom-server-controls-that-work-with-or-without-aspnet-ajax"></a>[Jak mogę] Tworzenie niestandardowych kontrolek serwera współpracujących z lub bez rozszerzeń ASP.NET AJAX?
 ====================

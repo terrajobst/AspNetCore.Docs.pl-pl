@@ -4,19 +4,16 @@ title: Obsługa wyjątków LOGIKI i warstwy DAL poziomu strony ASP.NET (VB) | Do
 author: rick-anderson
 description: W tym samouczku widzimy sposób wyświetlania przyjazny szczegółowy komunikat o błędzie, wystąpi wyjątek podczas wstawiania, aktualizacji lub operacji usuwania...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/17/2006
-ms.topic: article
 ms.assetid: 129d4338-1315-4f40-89b5-2b84b807707d
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 41a0ec0db4cb2093d7fadd2de7e65ee4874f0063
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: de181391a074ec837d2f9d98d55f912883d76be2
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37394686"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37808995"
 ---
 <a name="handling-bll--and-dal-level-exceptions-in-an-aspnet-page-vb"></a>Obsługa wyjątków LOGIKI i warstwy DAL poziomu strony ASP.NET (VB)
 ====================

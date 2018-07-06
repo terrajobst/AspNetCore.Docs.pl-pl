@@ -4,19 +4,16 @@ title: Zabezpieczenia, uwierzytelnianie i autoryzacja w formularzach sieci Web p
 author: rick-anderson
 description: Jak umożliwić użytkownikom, aby zalogować się do witryny (i opcjonalnie można przypisać do ról) za pomocą formularza logowania lub uwierzytelniania Windows.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/08/2011
-ms.topic: article
 ms.assetid: 24eab207-f69c-4eab-bfae-06725050452d
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/security
 msc.type: chapter
-ms.openlocfilehash: 6f7f561948f6e0eac6f2a04ffc7711e3ed0dccb9
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 574c586128ab3990d8724b9568089ac7399900ff
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37395103"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37840052"
 ---
 <a name="security-authentication-and-authorization-in-aspnet-web-forms"></a>Zabezpieczenia, uwierzytelnianie i autoryzacja w wzorca ASP.NET Web Forms
 ====================

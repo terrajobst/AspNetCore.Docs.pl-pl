@@ -4,19 +4,16 @@ title: Wydajność SignalR | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Jak zwiększyć wydajność aplikacji SignalR.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 09/19/2014
-ms.topic: article
 ms.assetid: fda81611-b67b-4c62-915e-8adc1924a401
-ms.technology: dotnet-signalr
 msc.legacyurl: /signalr/overview/performance
 msc.type: chapter
-ms.openlocfilehash: 2f3aa65cbd8336da82637ee30fc10bbefdc76aad
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 40809f00beb1608f1856a6122f422e843bf685cf
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37375210"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37811962"
 ---
 <a name="signalr-performance"></a>Wydajność SignalR
 ====================

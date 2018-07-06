@@ -4,19 +4,16 @@ title: Wyświetlanie map we wzorcu ASP.NET Web Pages (Razor) lokacji | Dokumenta
 author: tfitzmac
 description: W tym artykule opisano sposób wyświetlania mapy interaktywne na stronach w witrynie internetowej ASP.NET Web Pages (Razor) na podstawie związane z mapowaniem usług udostępnianych przez usługi Bing, Google, Ma...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/20/2014
-ms.topic: article
 ms.assetid: b5c268dd-ca6a-4562-b94c-a220fcf01f58
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/displaying-maps-in-an-aspnet-web-pages-site
 msc.type: authoredcontent
-ms.openlocfilehash: 210cc37427024a4e8cae309634141900bb28b55e
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 4c64791a77f2a72c227ce74e796340c6d8c7316c
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37368838"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37812785"
 ---
 <a name="displaying-maps-in-an-aspnet-web-pages-razor-site"></a>Wyświetlanie map w witrynie ASP.NET Web Pages (Razor)
 ====================

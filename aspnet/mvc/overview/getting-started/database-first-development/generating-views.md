@@ -4,19 +4,16 @@ title: 'EF bazy danych, najpierw z platformą ASP.NET MVC: generowanie widoków 
 author: tfitzmac
 description: Za pomocą MVC, platformy Entity Framework i funkcja tworzenia szkieletu ASP.NET, można utworzyć aplikację internetową, która zapewnia interfejs do istniejącej bazy danych. Ten samouczek seri...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 12/29/2014
-ms.topic: article
 ms.assetid: 669367cf-8e30-4eb6-821d-10a7d9bb906c
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/generating-views
 msc.type: authoredcontent
-ms.openlocfilehash: 58f8be181f80f5b27353e9ef5cafe48bcb370e29
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 9c85b330ac415d8c73d58b31a5108197b754669f
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37399613"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37835331"
 ---
 <a name="ef-database-first-with-aspnet-mvc-generating-views"></a>EF bazy danych, najpierw z platformą ASP.NET MVC: generowanie widoków
 ====================

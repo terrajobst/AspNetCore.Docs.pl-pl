@@ -4,19 +4,16 @@ title: '[Jak mogę] Implementowanie obsługi błędów podczas wysyłania wiadom
 author: rick-anderson
 description: Chris pikseli pokazuje, jak zaimplementować obsługę błędów podczas wysyłania wiadomości e-mail za pomocą platformy ASP.NET. ADAM tworzy stronę sieci web ASP.NET do wysyłania wiadomości e-mail, pokazuje, jak skonfigurować & lt....
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/06/2008
-ms.topic: article
 ms.assetid: c02ffd50-aa19-4cdc-b1bf-760989979a61
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-implement-error-handling-when-sending-email-with-aspnet
 msc.type: video
-ms.openlocfilehash: 9a49e51ccdb3781e6c77e815d74202755eca7a3e
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: ebe6f451cad2ba4a9311b5882337b637de7f381e
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37384855"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37814730"
 ---
 <a name="how-do-i-implement-error-handling-when-sending-email-with-aspnet"></a>[Jak mogę] Implementowanie obsługi błędów podczas wysyłania wiadomości E-mail za pomocą platformy ASP.NET
 ====================

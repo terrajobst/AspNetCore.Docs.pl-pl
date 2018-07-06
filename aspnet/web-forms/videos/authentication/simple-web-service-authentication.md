@@ -4,19 +4,16 @@ title: Proste uwierzytelnianie usługi internetowej | Dokumentacja firmy Microso
 author: JoeStagner
 description: W tym filmie Stagner Jan pokazuje różne mechanizmy, które można dodać do aplikacji ASP.NET w celu ograniczenia przed nieautoryzowanym dostępem do usług sieci web ASMX...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 09/16/2010
-ms.topic: article
 ms.assetid: 3b186578-16be-4e4f-a296-233df0381411
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/authentication/simple-web-service-authentication
 msc.type: video
-ms.openlocfilehash: e80b9ed1220aaa1c9d6303a6e737ad59bbe0989e
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 4f14bbc0cc2dd6dbd6f6af8aad15d1aab91c1341
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37395321"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37814707"
 ---
 <a name="simple-web-service-authentication"></a>Proste uwierzytelnianie usługi internetowej
 ====================

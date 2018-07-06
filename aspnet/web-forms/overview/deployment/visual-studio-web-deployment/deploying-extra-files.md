@@ -4,19 +4,16 @@ title: 'Wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual 
 author: tdykstra
 description: W tej serii samouczków dowiesz się, jak wdrożyć (opublikować) platformy ASP.NET sieci web aplikacji do usługi Azure App Service Web Apps lub dostawcy hostingu w innych firm, używane...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/23/2015
-ms.topic: article
 ms.assetid: 1cd91055-84bc-42c6-9d80-646f41429d4d
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-extra-files
 msc.type: authoredcontent
-ms.openlocfilehash: 41bea625a53afbf7b39c03a2e8a92a03ce144289
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 609c0be968e8f38d7be6e5f5c96a569a9a35c2eb
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37371823"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37820853"
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-extra-files"></a>Wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio: Wdrażanie dodatkowych plików
 ====================

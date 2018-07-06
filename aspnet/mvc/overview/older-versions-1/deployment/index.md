@@ -4,19 +4,16 @@ title: Wdrażanie | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: W tym samouczku dowiesz się, jak używać platformy ASP.NET MVC i routing z różnymi wersjami usług IIS.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 09/28/2011
-ms.topic: article
 ms.assetid: 1e9204db-664c-4376-aa50-1fb9e245a4d9
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/deployment
 msc.type: chapter
-ms.openlocfilehash: a3ea5290f7dc462706e5d5735f4bb0bace8b54a5
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 366fe6993c16ce6869cfc645d3324b09790d71b7
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37369943"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37814348"
 ---
 <a name="deployment"></a>wdrażania
 ====================

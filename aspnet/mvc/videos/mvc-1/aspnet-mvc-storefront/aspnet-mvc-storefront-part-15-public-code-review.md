@@ -4,19 +4,16 @@ title: 'ASP.NET MVC StoreFront — część 15: Przegląd kodu publicznego | Dok
 author: robconery
 description: W tym odcinku Rob Conery wykonuje Przegląd kodu publicznego w aplikacji sklepu, na podstawie opinii użytkowników. Rob Conery stosuje udokumentowany każdy krok w rozwoju...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/10/2008
-ms.topic: article
 ms.assetid: c06b991f-b1d8-4315-9bc7-d17bc644cbd3
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-15-public-code-review
 msc.type: video
-ms.openlocfilehash: 1191b92176dc5b052a7cb7e107cab4be71bf32de
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 06253386aed8da4b487509e6893dd909fcb2266f
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37363123"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37821813"
 ---
 <a name="aspnet-mvc-storefront-part-15-public-code-review"></a>ASP.NET MVC StoreFront — część 15: Przegląd kodu publicznego
 ====================

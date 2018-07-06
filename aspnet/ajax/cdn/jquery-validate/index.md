@@ -4,19 +4,16 @@ title: jQuery Validate | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: ''
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/14/2017
-ms.topic: article
 ms.assetid: a266cc44-f514-4913-9768-5b382380184d
-ms.technology: ''
 msc.legacyurl: /ajax/cdn/jquery-validate
 msc.type: folder
-ms.openlocfilehash: 009e993225bd75f11f142ee0870f875f20c30b01
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: d8b8c96bad5db0b386aa6023042369d4be8a68d4
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37363897"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37837093"
 ---
 <a name="jquery-validate"></a>Sprawdź poprawność jQuery
 ====================

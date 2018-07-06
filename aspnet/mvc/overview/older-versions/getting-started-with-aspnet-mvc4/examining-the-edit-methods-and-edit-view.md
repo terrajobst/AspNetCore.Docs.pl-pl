@@ -4,19 +4,16 @@ title: Badanie metod edycji i widoku edycji | Dokumentacja firmy Microsoft
 author: Rick-Anderson
 description: 'Uwaga: Zaktualizowaną wersję w tym samouczku jest dostępna w tym miejscu używającej platformy ASP.NET MVC 5 i Visual Studio 2013. Jest bardziej bezpieczne, łatwiej stosować i pokaz...'
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/28/2012
-ms.topic: article
 ms.assetid: 41eb99ca-e88f-4720-ae6d-49a958da8116
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
-ms.openlocfilehash: 61db62d138be8234db0c5b04373e7cb25acc5d3c
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: f8d66343ad74e45f167701f405c5e6e2fef0dd13
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37365740"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37824377"
 ---
 <a name="examining-the-edit-methods-and-edit-view"></a>Badanie metod edycji i widoku edycji
 ====================

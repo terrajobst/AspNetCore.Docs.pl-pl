@@ -4,19 +4,16 @@ title: '[Jak mogę] Tworzenie i używanie sekcji niestandardowej konfiguracji w 
 author: rick-anderson
 description: W tym filmie pokazano pikseli Chris pokazują, jak rozszerzyć standardowy zestaw ustawień konfiguracji platformy ASP.NET za pomocą własne elementy konfiguracji XML. Najpierw Zobacz jak...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/16/2008
-ms.topic: article
 ms.assetid: fa9ed773-cceb-49d0-a939-5a9e6bbae00f
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-create-and-use-a-custom-configuration-section-in-an-aspnet-configuration-file
 msc.type: video
-ms.openlocfilehash: 2061a47ffe17b9f637104923bfea962e30f0b537
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 75621262205fae79c09e9a14900e7de6fb53c3e1
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37384923"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37810611"
 ---
 <a name="how-do-i-create-and-use-a-custom-configuration-section-in-an-aspnet-configuration-file"></a>[Jak mogę] Tworzenie i używanie sekcji niestandardowej konfiguracji w pliku konfiguracji platformy ASP.NET
 ====================

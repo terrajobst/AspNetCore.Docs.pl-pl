@@ -4,19 +4,16 @@ title: ASP.NET 3.5 — członkostwo | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: W tej serii samouczków sprawdza techniki przy użyciu systemu członkostwa wbudowane (zabezpieczenia) do tworzenia kont użytkowników i konfigurowania reguł autoryzacji.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/05/2011
-ms.topic: article
 ms.assetid: 96fc5552-05cd-4547-909f-9bb3176e44d6
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-security/membership
 msc.type: chapter
-ms.openlocfilehash: 0a78b0fc89cd64cfa19588bfac3972b052dac7dc
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: c9453801d0e0b2d3cbf3494a5e7fc08a9f52886e
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37397446"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37822087"
 ---
 <a name="aspnet-35---membership"></a>ASP.NET 3.5 — członkostwo
 ====================

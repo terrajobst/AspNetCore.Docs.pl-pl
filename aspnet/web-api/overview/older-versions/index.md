@@ -4,19 +4,16 @@ title: Dokumentacja w starszych wersjach interfejsu API sieci Web | Dokumentacja
 author: rick-anderson
 description: Dokumentacja w starszych wersjach interfejsu API sieci Web.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/23/2014
-ms.topic: article
 ms.assetid: f5bc7426-27c6-492c-914f-b9d2eb49753d
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/overview/older-versions
 msc.type: chapter
-ms.openlocfilehash: 3d060226f284bbb3cd4870e1d124aeccd33bdd47
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 940446dca2cb1ec87d044d683969ba5ecc57a078
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37391588"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37823438"
 ---
 <a name="documentation-on-older-versions-of-web-api"></a>Dokumentacja w starszych wersjach interfejsu API sieci Web
 ====================

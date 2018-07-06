@@ -4,19 +4,16 @@ title: Wprowadzenie do MVC | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Jest to serii samouczków dla początkujących, wprowadzających do platformy ASP.NET MVC. Utwórz prostą aplikację sieci web wykonującej Odczyt i zapis z bazy danych.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/08/2011
-ms.topic: article
 ms.assetid: 057f01bf-0ad9-488a-ae75-c8f85b8e1f23
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc
 msc.type: chapter
-ms.openlocfilehash: 6739ab5aab5afb77cf2c389edeabd5357800383c
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 4c6da3646a71ebbe42c59f6c90cb0beb48e87a4a
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37378237"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37814079"
 ---
 <a name="getting-started-with-mvc"></a>Wprowadzenie do MVC
 ====================

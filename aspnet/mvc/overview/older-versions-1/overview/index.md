@@ -4,19 +4,16 @@ title: Omówienie | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Dowiedz się, MVC to, jak różni się od formularzy sieci Web oraz sposób tworzenia aplikacji ASP.NET.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 09/28/2011
-ms.topic: article
 ms.assetid: ccca4b85-2f32-4d81-9ae5-a876f84497a7
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/overview
 msc.type: chapter
-ms.openlocfilehash: 057d9ee88abda3f00b5d7984757a819e080a6145
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 682bb4db9d52d40f55aa24b7ca40bb5e3b09a587
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37369945"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37825187"
 ---
 <a name="overview"></a>Omówienie
 ====================

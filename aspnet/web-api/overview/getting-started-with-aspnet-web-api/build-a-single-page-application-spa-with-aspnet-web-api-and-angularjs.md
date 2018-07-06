@@ -4,19 +4,16 @@ title: 'Ćwiczenia praktyczne: Tworzenie aplikacji jednostronicowej (SPA) przy u
 author: rick-anderson
 description: W aplikacji sieci web tradycyjnych klienta (przeglądarki) inicjuje komunikację z serwerem, żądając strony. Serwer następnie przetwarza żądania...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 09/30/2015
-ms.topic: article
 ms.assetid: 719727b7-bef3-45ad-bfe9-ba5bcdb2305f
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs
 msc.type: authoredcontent
-ms.openlocfilehash: 174084d6923cf1fa445485b7c0dc639a240720a5
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 8e9cc082d982aec0a4385a3cefecd118c937e641
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37370866"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37811523"
 ---
 <a name="hands-on-lab-build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs"></a>Ćwiczenia praktyczne: Tworzenie aplikacji jednostronicowej (SPA) przy użyciu wzorca ASP.NET Web API i platformy Angular.js
 ====================

@@ -4,19 +4,16 @@ title: '[Jak mogę] Implementowanie nawigacji po witrynie na platformie ASP.NET?
 author: rick-anderson
 description: W tym filmie pokazano możemy Dowiedz się, jak zdefiniować mapy witryny i używać jej z formantami serwera Menu widoku drzewa i mapy witryny. Zobaczymy, jak używać mapy witryny na stronę wzorcową...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/18/2007
-ms.topic: article
 ms.assetid: 889e8100-a80c-41c0-bfeb-7d466c754548
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-implement-site-navigation-in-aspnet
 msc.type: video
-ms.openlocfilehash: dd11d5b44e44f56e6268838c918dd12e448cdb19
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 1995ce735698f0c7827e2721c07c1d98922a7ba3
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37374772"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37822434"
 ---
 <a name="how-do-i-implement-site-navigation-in-aspnet"></a>[Jak mogę] Implementowanie nawigacji po witrynie na platformie ASP.NET?
 ====================

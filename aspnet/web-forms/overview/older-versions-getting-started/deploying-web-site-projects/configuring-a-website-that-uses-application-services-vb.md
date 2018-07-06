@@ -4,19 +4,16 @@ title: Konfigurowanie witryny sieci Web, która korzysta z usług aplikacji (VB)
 author: rick-anderson
 description: Verze technologie ASP.NET 2.0 wprowadzono szereg usług aplikacji, które są częścią programu .NET Framework i będzie służyć jako zestaw bloków konstrukcyjnych usługi, których yo...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/23/2009
-ms.topic: article
 ms.assetid: 9c31a42f-d8bb-4c0f-9ccc-597d4f70ac42
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-a-website-that-uses-application-services-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 69c8bb4061c2ed7fcc44038aa3bf0268ac86c9ab
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 6d4852fe4a8589ddcb23c7afa4ed5c5e74ef0af1
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37387497"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37841695"
 ---
 <a name="configuring-a-website-that-uses-application-services-vb"></a>Konfigurowanie witryny sieci Web, która korzysta z usług aplikacji (VB)
 ====================

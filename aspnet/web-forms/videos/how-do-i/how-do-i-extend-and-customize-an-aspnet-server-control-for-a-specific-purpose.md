@@ -4,19 +4,16 @@ title: '[Jak mogę] Rozszerzanie i dostosowywanie kontrolki serwera platformy AS
 author: rick-anderson
 description: W tym wideo pikseli Chris pokazują, jak rozszerzyć standardowy formant serwera ASP.NET i dostosować go do określonego celu. Specjalne elementy sterujące udostępniają c...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/20/2008
-ms.topic: article
 ms.assetid: ed460e6b-8f4e-4fcb-83c4-2495180c1f14
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-extend-and-customize-an-aspnet-server-control-for-a-specific-purpose
 msc.type: video
-ms.openlocfilehash: 2fbe4da52f59801438bf9f0b46506f6bfafaa52c
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: e0642e094592b858bd0932f5f5b6374591b4262b
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37375924"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37841519"
 ---
 <a name="how-do-i-extend-and-customize-an-aspnet-server-control-for-a-specific-purpose"></a>[Jak mogę] Rozszerzanie i dostosowywanie kontrolki serwera platformy ASP.NET w konkretnym celu
 ====================

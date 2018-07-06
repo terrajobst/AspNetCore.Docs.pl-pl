@@ -4,19 +4,16 @@ title: Microsoft Ajax Content Delivery Network | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: ''
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/14/2017
-ms.topic: article
 ms.assetid: fc98bde7-484a-4191-bba2-04d29551cb8f
-ms.technology: ''
 msc.legacyurl: ''
 msc.type: content
-ms.openlocfilehash: 7d72ab0e28927a16cfd4ea58f0e52019f6477b0d
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 3998f864f11199eadd191b5e4429bc8ab987c928
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37364534"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37824511"
 ---
 <a name="microsoft-ajax-content-delivery-network"></a>Microsoft Ajax Content Delivery Network
 ====================
