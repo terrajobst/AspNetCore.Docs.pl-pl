@@ -1,6 +1,6 @@
 ---
 uid: web-pages/overview/releases/aspnet-web-pages-2-developer-preview-readme
-title: ReadMe Podgląd dewelopera 2 stron sieci Web programu ASP.NET | Dokumentacja firmy Microsoft
+title: ASP.NET Web Pages 2 Developer (wersja zapoznawcza) ReadMe | Dokumentacja firmy Microsoft
 author: microsoft
 description: ''
 ms.author: aspnetcontent
@@ -9,70 +9,69 @@ ms.date: 09/14/2011
 ms.topic: article
 ms.assetid: 159a92e2-e011-4da7-b61d-2edde2a967da
 ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/releases/aspnet-web-pages-2-developer-preview-readme
 msc.type: authoredcontent
-ms.openlocfilehash: 1a43b2b12af9cd223d8a3622239743f7c431f617
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
-ms.translationtype: MT
+ms.openlocfilehash: 914e99491908294cea1e04dd23ccdb66c1dc05a3
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30899093"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37364433"
 ---
-<a name="aspnet-web-pages-2-developer-preview-readme"></a>ASP.NET Web Pages 2 Developer Preview ReadMe
+<a name="aspnet-web-pages-2-developer-preview-readme"></a>ASP.NET Web Pages 2 Developer (wersja zapoznawcza) w pliku ReadMe
 ====================
 przez [firmy Microsoft](https://github.com/microsoft)
 
-## <a name="aspnet-web-pages-2-developer-preview-readme"></a>ASP.NET Web Pages 2 Developer Preview ReadMe
+## <a name="aspnet-web-pages-2-developer-preview-readme"></a>ASP.NET Web Pages 2 Developer (wersja zapoznawcza) w pliku ReadMe
 
 14 września 2011
 
 ### <a name="contents"></a>Spis treści
 
-#### <a id="_Toc303701284"></a>  Informacje o instalacji
+#### <a id="_Toc303701284"></a>  Uwagi dotyczące instalacji
 
-Do zainstalowania programu Web Pages 2 Developer Preview, masz następujące opcje:
+Aby zainstalować Web Pages 2 Developer Preview, masz następujące opcje:
 
-- Instalacja wersji Beta 2 programu WebMatrix za pomocą [Instalatora platformy sieci Web](https://go.microsoft.com/fwlink/?LinkId=226883). Program WebMatrix to zestaw narzędzi programistycznych wolnej sieci web, który zawiera strony sieci Web ASP.NET. Aby uzyskać więcej informacji, zobacz sekcję instalacja w [funkcji Top w programie ASP.NET Web Pages 2 Developer Preview](https://go.microsoft.com/fwlink/?LinkID=227824).
+- Instalowane przy użyciu programu WebMatrix 2 Beta [Instalatora platformy sieci Web](https://go.microsoft.com/fwlink/?LinkId=226883). Program WebMatrix jest zestaw bezpłatnych narzędzi do programowania, który zawiera strony sieci Web ASP.NET. Aby uzyskać więcej informacji, zobacz sekcję dotyczącą instalacji w [funkcji Top w ASP.NET Web Pages 2 Developer Preview](https://go.microsoft.com/fwlink/?LinkID=227824).
 
-- Zainstaluj stron sieci Web 2 Developer Preview bezpośrednio za pomocą [pobrać link](https://go.microsoft.com/fwlink/?LinkID=226335). Tej metody należy użyć, jeśli chcesz tworzyć aplikacje stron sieci Web przy użyciu tekstu edytora, takiego jak Notatnik. Aby uruchamiać aplikacje sieci Web Pages 2, należy skonfigurować IIS Express 7.5. (Jest to dołączone automatycznie za pomocą programu WebMatrix.) Aby porady na temat testowania stronę stron sieci Web za pomocą usług IIS Express, zobacz "Tworzenie i testowanie ASP.NET strony za pomocą własnych tekst edytora" paska bocznego w [wprowadzenie do korzystania z programu WebMatrix i stron ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=202889).
+- Zainstaluj Web Pages 2 Developer Preview bezpośrednio przy użyciu [link pobierania](https://go.microsoft.com/fwlink/?LinkID=226335). Tej metody należy użyć, jeśli chcesz tworzyć aplikacje stron sieci Web, za pomocą tekstu edytora, takiego jak Notatnik. Aby można było uruchamiać aplikacje sieci Web Pages 2, konieczne jest posiadanie usług IIS 7.5 Express. (To jest uwzględniane automatycznie za pomocą programu WebMatrix). Porady na temat testowania strony stron sieci Web za pomocą usług IIS Express, można znaleźć w pasku bocznym "Tworzenie i testowanie ASP.NET stron przy użyciu Your własnego tekstu Editor" [wprowadzenie do programu WebMatrix i stron ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=202889).
 
-Strony ASP.NET Web Pages 2 Developer Preview można zainstalować i uruchomić side-by-side z 1 stron sieci Web programu ASP.NET. <a id="a"></a>Aby uzyskać więcej informacji, zobacz sekcję "Uruchomiona stron sieci Web aplikacji Side-by-Side" w [funkcji Top w stron sieci Web 2 Developer Preview](https://go.microsoft.com/fwlink/?LinkID=227824).
+ASP.NET Web Pages 2 Developer Preview można zainstalować i uruchomić side-by-side z 1 stron sieci Web platformy ASP.NET. <a id="a"></a>Aby uzyskać szczegółowe informacje, zobacz sekcję "Uruchamianie stron sieci Web aplikacji Side-by-Side" w [funkcje górnej programu Web Pages 2 Developer Preview](https://go.microsoft.com/fwlink/?LinkID=227824).
 
 #### <a id="_Toc303701285"></a>  Dokumentacja
 
-Samouczki i inne informacje o produkcie ASP.NET Web Pages są dostępne na stronie stron sieci Web, witryny sieci Web platformy ASP.NET ([https://www.asp.net/web-pages/](../../index.md)). Aby uzyskać informacje o nowych funkcjach i rozszerzeniach w wersji 2 stron sieci Web, zobacz [funkcji Top w stron sieci Web 2 Developer Preview](https://go.microsoft.com/fwlink/?LinkID=227824).
+W samouczkach i innych informacji dotyczących stron ASP.NET Web Pages są dostępne na stronie stron sieci Web, witryny sieci Web platformy ASP.NET ([https://www.asp.net/web-pages/](../../index.md)). Aby uzyskać informacje o nowych funkcjach oraz ulepszeniach platform Web Pages 2, zobacz [funkcje górnej programu Web Pages 2 Developer Preview](https://go.microsoft.com/fwlink/?LinkID=227824).
 
 #### <a id="_Toc303701286"></a>  Obsługa
 
-<a id="_Toc209852135"></a><a id="_Toc255833657"></a> To jest wersja preview i nie jest oficjalnie obsługiwana. Jeśli masz pytania dotyczące pracy z tej wersji zamieścić je na forum stron ASP.NET Web Pages ([ https://forums.asp.net/1224.aspx/1?WebMatrix ](https://forums.asp.net/1224.aspx/1?WebMatrix) ), gdzie są często można zapewnić obsługę nieformalne członkami społeczności programu ASP.NET.
+<a id="_Toc209852135"></a><a id="_Toc255833657"></a> To jest wersja zapoznawcza i nie jest oficjalnie obsługiwana. Jeśli masz pytania na temat pracy z tej wersji, opublikuj je na forum stron ASP.NET Web Pages ([ https://forums.asp.net/1224.aspx/1?WebMatrix ](https://forums.asp.net/1224.aspx/1?WebMatrix) ), gdzie są często w stanie zapewnić obsługę nieformalne członków społeczności platformy ASP.NET.
 
 #### <a id="_Toc303701287"></a>  Wymagania dotyczące oprogramowania
 
-Strony ASP.NET Web Pages 2 wymaga programu .NET Framework 4. Działa także w wersji .NET Framework 4.5 Developer Preview.
+Strony ASP.NET Web Pages 2 wymaga programu .NET Framework 4. Działa w wersji .NET Framework 4.5 dla deweloperów w wersji zapoznawczej.
 
 <a id="_Toc303701288"></a><a id="_Breaking_Changes"></a>
 
-#### <a name="fixes-known-issues-and-breaking-changes"></a>Poprawki, znanych problemów i zmian podziału
+#### <a name="fixes-known-issues-and-breaking-changes"></a>Poprawki, znane problemy i przełomowe zmiany
 
 <a id="_Toc224729061"></a><a id="_Toc238051347"></a>
 
-- **Jest\* metody (na przykład IsDateTime) teraz poprawne wartości zwracane dla wszystkich języków.** W przypadku niektórych metod, takich jak *IsDateTime* wcześniej zostały zwrócone *false* po powinny być zwracane *true* ponieważ wcześniej były one wykonuje testy specyficzne dla kultury. Te metody Naprawiono uwzględnienie teraz kultury. Jest to istotne zmiany; Jeśli poprzednie działanie zależy od aplikacji, zostaną przerwane.
-- **Zachowanie metody Href zostało zmienione.** Wcześniej wywoływania Href("~/SomeFile") zwróci adres URL względem obecnie wykonywanym pliku. Teraz Href("~/SomeFile") zawsze zwraca ścieżkę bezwzględną z katalogu głównego aplikacji. W większości przypadków takie zachowanie nie należy różnica w wartości zwracanej. Ta zmiana została wprowadzona w celu rozwiązania niektórych scenariuszach interfejsu Ajax. Rozważmy na przykład następujący przykładowy kod: 
+- **Jest\* metod (na przykład IsDateTime) teraz poprawne wartości zwracane dla wszystkich języków.** Niektóre metody, takie jak *IsDateTime* wcześniej zwrócony *false* po powinny mieć zwrócone *true* ponieważ wcześniej wykonywały testy specyficzne dla kultury. Te metody zostały naprawione uwzględnienie teraz kultury. To jest zmianą przerywającą; Jeśli aplikacja zależy od starego zachowania, spowoduje awarię.
+- **Zachowanie metody Href został zmieniony.** Wcześniej wywoływania Href("~/SomeFile") zwróci adres URL względem obecnie wykonywanym pliku. Teraz Href("~/SomeFile") zawsze zwraca ścieżkę bezwzględną z katalogu głównego aplikacji. W większości przypadków to zachowanie nie reagować w wartości zwracanej. Ta zmiana została wprowadzona, aby rozwiązać problem w niektórych scenariuszach interfejsu Ajax. Na przykład rozważmy poniższy przykład kodu: 
 
     [!code-cshtml[Main](aspnet-web-pages-2-developer-preview-readme/samples/sample1.cshtml)]
 
-    Ten kod wcześniej może prowadzić do Images/Logo.jpg, będą niepoprawne dla żądania Ajax do tej strony. Teraz zostanie rozwiązany w katalogu głównym (/ MySite/Images/Logo.jpg).
-- **Metoda HttpContext.RedirectLocal zmieniona**. Ta metoda jest teraz akceptuje tylko adresy URL, które są względem bieżącej aplikacji. W pełni kwalifikowana adresy URL są odrzucane.
-- **Metoda ModelState.IsValid teraz wymaga, należy najpierw wywołać Validate**. Jeśli zmieniasz aplikacji umożliwiająca użycie nowych metod sprawdzania poprawności danych wejściowych i wywoływania *ModelState.IsValid* metody, należy teraz wywołać *Validation.Validate* wcześniej. Na przykład należy teraz wykonać tego wzorca: 
+    Ten kod wcześniej może prowadzić do Images/Logo.jpg, które byłyby nieprawidłowe dla żądania Ajax do tej strony. Teraz zostanie rozwiązany w katalogu głównym (/ MySite/Images/Logo.jpg).
+- **Metoda HttpContext.RedirectLocal zmieniona**. Ta metoda będzie teraz akceptować tylko adresy URL, które są względne wobec bieżącej aplikacji. W pełni kwalifikowana adresy URL są odrzucane.
+- **Metoda ModelState.IsValid teraz, musisz najpierw wywołaj proces weryfikacji**. Jeśli konwertujesz aplikacja korzysta z nowych metod sprawdzania poprawności danych wejściowych, a wywołania dotyczą *ModelState.IsValid* metody, należy teraz wywołać *Validation.Validate* wcześniej. Na przykład musisz teraz wykonać tego wzorca: 
 
     [!code-csharp[Main](aspnet-web-pages-2-developer-preview-readme/samples/sample2.cs)]
 
-  Jednak zaleca się użycie nowych metod sprawdzania poprawności danych wejściowych nie wykorzystujące *ModelState.IsValid*. Zamiast tego struktury kodu następująco: 
+  Jednak zaleca się, korzystając z nowych metod sprawdzania poprawności danych wejściowych, nie używaj *ModelState.IsValid*. Zamiast tego struktury kodu następująco: 
 
     [!code-csharp[Main](aspnet-web-pages-2-developer-preview-readme/samples/sample3.cs)]
-- **W programie Internet Explorer 7 i programu Internet Explorer 8, weryfikacji po stronie klienta nie działa**. Weryfikacji po stronie klienta nie działa z powodu niezgodności z jQuery 1.6.2, która jest uwzględniona w domyślnym szablonie projektu. (Weryfikacji po stronie serwera działa.).
+- **Weryfikacja po stronie klienta w programie Internet Explorer 7 oraz programu Internet Explorer 8, nie działa.**. Weryfikacja po stronie klienta nie działa z powodu niezgodności z jQuery 1.6.2, który jest dołączony do domyślnego szablonu projektu. (Weryfikacji po stronie serwera działa.).
 
 #### <a id="_Toc303701289"></a>  Zrzeczenie odpowiedzialności
 
-© 2011 Microsoft Corporation. Wszelkie prawa zastrzeżone. Niniejszy dokument jest udostępniany "jako — jest." Informacje i poglądy wyrażone w tym dokumencie, w tym adresy URL i inne odsyłacze do witryn internetowych, mogą ulec zmianie bez uprzedzenia. Użytkownik ponosi ryzyko związane z użyciem jej.
+© 2011 Microsoft Corporation. Wszelkie prawa zastrzeżone. Niniejszy dokument jest udostępniany "jako-to." Informacje i poglądy wyrażone w tym dokumencie, w tym adresy URL i inne odniesienia do witryn internetowych, mogą ulec zmianie bez powiadomienia. Użytkownik jest odpowiedzialny za jej pomocą.
