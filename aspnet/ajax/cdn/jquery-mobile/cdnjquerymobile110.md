@@ -4,23 +4,20 @@ title: jQuery Mobile 1.1.0 w usłudze Microsoft Ajax CDN | Dokumentacja firmy Mi
 author: rick-anderson
 description: ''
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/23/2014
-ms.topic: article
 ms.assetid: 4d64c460-248c-4d52-97b8-a556ab1b576d
-ms.technology: ''
 msc.legacyurl: /ajax/cdn/jquery-mobile/cdnjquerymobile110
 msc.type: content
-ms.openlocfilehash: 79a79fe99492e3b452df1233d57d7328015c1179
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 5b4173d0a9b9de13c4bbb6720fcd85e6ae7a660b
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37368153"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37827103"
 ---
-<a name="jquery-mobile-110-on-the-microsoft-ajax-cdn"></a><span data-ttu-id="c0419-102">jQuery Mobile 1.1.0 w usłudze Microsoft Ajax CDN</span><span class="sxs-lookup"><span data-stu-id="c0419-102">jQuery Mobile 1.1.0 on the Microsoft Ajax CDN</span></span>
+<a name="jquery-mobile-110-on-the-microsoft-ajax-cdn"></a><span data-ttu-id="0635f-102">jQuery Mobile 1.1.0 w usłudze Microsoft Ajax CDN</span><span class="sxs-lookup"><span data-stu-id="0635f-102">jQuery Mobile 1.1.0 on the Microsoft Ajax CDN</span></span>
 ====================
-<span data-ttu-id="c0419-103">Biblioteka jQuery Mobile 1.1.0 zawiera następujące pliki:</span><span class="sxs-lookup"><span data-stu-id="c0419-103">The jQuery Mobile 1.1.0 library includes the following files:</span></span>
+<span data-ttu-id="0635f-103">Biblioteka jQuery Mobile 1.1.0 zawiera następujące pliki:</span><span class="sxs-lookup"><span data-stu-id="0635f-103">The jQuery Mobile 1.1.0 library includes the following files:</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.0/jquery.mobile.structure-1.1.0.css
 - https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.0/jquery.mobile.structure-1.1.0.min.css
