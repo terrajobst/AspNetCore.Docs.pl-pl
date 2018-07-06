@@ -4,23 +4,20 @@ title: Data | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Ten film pokazuje nowe funkcje kontroli danych platformy ASP.NET 4.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/14/2011
-ms.topic: article
 ms.assetid: fdc32a00-aab5-458b-8303-67147cbd9277
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/net-4/data
 msc.type: chapter
-ms.openlocfilehash: a76fdcd212e4aeefc78db771534396cab4ddb3a4
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 6ba137aaf7e97cbc7d93c9f2f5a32822c37100b5
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37398328"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37824756"
 ---
-<a name="data"></a><span data-ttu-id="70356-103">Dane</span><span class="sxs-lookup"><span data-stu-id="70356-103">Data</span></span>
+<a name="data"></a><span data-ttu-id="553dd-103">Dane</span><span class="sxs-lookup"><span data-stu-id="553dd-103">Data</span></span>
 ====================
-> <span data-ttu-id="70356-104">Ten film pokazuje nowe funkcje kontroli danych platformy ASP.NET 4.</span><span class="sxs-lookup"><span data-stu-id="70356-104">This video shows you new features for ASP.NET 4 data controls.</span></span>
+> <span data-ttu-id="553dd-104">Ten film pokazuje nowe funkcje kontroli danych platformy ASP.NET 4.</span><span class="sxs-lookup"><span data-stu-id="553dd-104">This video shows you new features for ASP.NET 4 data controls.</span></span>
 
 
-- [<span data-ttu-id="70356-105">Trwały wybór wiersza w widoku GridView</span><span class="sxs-lookup"><span data-stu-id="70356-105">Persistent GridView Row Selection</span></span>](aspnet-4-quick-hit-persistent-gridview-row-selection.md)
+- [<span data-ttu-id="553dd-105">Trwały wybór wiersza w widoku GridView</span><span class="sxs-lookup"><span data-stu-id="553dd-105">Persistent GridView Row Selection</span></span>](aspnet-4-quick-hit-persistent-gridview-row-selection.md)
