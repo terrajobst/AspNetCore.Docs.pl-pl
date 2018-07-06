@@ -4,19 +4,16 @@ title: Wyświetlanie danych na wykresie przy użyciu stron ASP.NET Web Pages (Ra
 author: microsoft
 description: W tym rozdziale wyjaśniono sposób wyświetlania danych na wykresie. W poprzednich akapitach pokazaliśmy ci, jak wyświetlać dane ręcznie, jak i w siatce. W tym rozdziale wyjaśniono...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/22/2012
-ms.topic: article
 ms.assetid: f889fd46-4dac-4ecb-83d8-60e64c22036e
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages/overview/data/7-displaying-data-in-a-chart
 msc.type: authoredcontent
-ms.openlocfilehash: 41af8ac4dba0ba5ad478df7075628186a96f48c4
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 161dfa1b2c0676c79baebb00e303e8cb9df1d4e8
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37393759"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37812584"
 ---
 <a name="displaying-data-in-a-chart-with-aspnet-web-pages-razor"></a>Wyświetlanie danych na wykresie przy użyciu wzorca ASP.NET Web Pages (Razor)
 ====================

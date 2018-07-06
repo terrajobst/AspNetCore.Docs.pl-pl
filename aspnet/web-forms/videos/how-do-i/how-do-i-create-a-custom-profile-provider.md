@@ -4,19 +4,16 @@ title: '[Jak mogę] Tworzenie niestandardowego dostawcy profilu? | Microsoft Doc
 author: rick-anderson
 description: W tym filmie wideo, firma Microsoft informacje dotyczące tworzenia niestandardowego dostawcy profilu do przechowywania i pobierania danych skojarzonych z profilem użytkownika w tabelach programu SQL Server należy oddzielić od t...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/05/2007
-ms.topic: article
 ms.assetid: a776a0fc-f34b-47fe-a24a-3311100f34a5
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-create-a-custom-profile-provider
 msc.type: video
-ms.openlocfilehash: 70d25fdc79e97de47240b93d06ae2a620a61c485
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: bf616aa97c3ca9f3308cb39c6d54193cb17103cf
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37396074"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37836493"
 ---
 <a name="how-do-i-create-a-custom-profile-provider"></a>[Jak mogę] Tworzenie niestandardowego dostawcy profilu?
 ====================

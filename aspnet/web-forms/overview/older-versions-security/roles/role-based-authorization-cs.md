@@ -4,19 +4,16 @@ title: Autoryzacja oparta na rolach (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Ten samouczek rozpoczyna się od przyjrzeć się jak w ramach ról kojarzy ról użytkownika z jego kontekstu zabezpieczeń. Następnie sprawdza, czy sposobu stosowania opartej na rolach adres URL...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/24/2008
-ms.topic: article
 ms.assetid: 4d9b63fa-c3d4-4e85-82b1-26ae3ba3ca1c
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-security/roles/role-based-authorization-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c8c22f140478deddc2e44f0933edfe0e499bb471
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 243a386bf682d63e3095a4e90ca0a0f08d24b503
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37397166"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37839950"
 ---
 <a name="role-based-authorization-c"></a>Autoryzacja oparta na rolach (C#)
 ====================

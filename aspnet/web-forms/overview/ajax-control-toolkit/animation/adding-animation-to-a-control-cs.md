@@ -4,19 +4,16 @@ title: Dodawanie animacji do kontrolki (C#) | Dokumentacja firmy Microsoft
 author: wenz
 description: Kontrolki animacji w programie ASP.NET AJAX Control Toolkit nie jest po prostu kontrolki, ale cała struktura Dodawanie animacji do kontrolki. Ten samouczek pokazuje, jak...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: 0f1fc1f5-9dbd-44e7-931e-387d42f0342b
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/adding-animation-to-a-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 80c982e041af2d0b9ee789665613ced0311dfcc9
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 10e541bc7e8a9a72d27909d7b37cfaf1860fe369
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37396575"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37832953"
 ---
 <a name="adding-animation-to-a-control-c"></a>Dodawanie animacji do kontrolki (C#)
 ====================

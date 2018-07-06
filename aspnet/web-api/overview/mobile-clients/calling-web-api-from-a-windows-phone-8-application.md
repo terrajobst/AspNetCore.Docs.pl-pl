@@ -4,19 +4,16 @@ title: Wywoływanie interfejsu API sieci Web z Windows Phone 8 aplikacji (C#) | 
 author: rmcmurray
 description: Utwórz całego scenariusza end-to-end, składający się z aplikacji interfejsu API sieci Web platformy ASP.NET, która zawiera katalog książek do aplikacji Windows Phone 8.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/09/2013
-ms.topic: article
 ms.assetid: b9775f41-352a-4f82-baa6-23e95b342e20
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/overview/mobile-clients/calling-web-api-from-a-windows-phone-8-application
 msc.type: authoredcontent
-ms.openlocfilehash: 40be2935c52e7dcab9e682d4d15e9e75c0260223
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 6b7a833818424cbf3a3bf9e1e14e5b2864742c38
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37388425"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37805045"
 ---
 <a name="calling-web-api-from-a-windows-phone-8-application-c"></a>Wywoływanie interfejsu API sieci Web z aplikacji Windows Phone 8 (C#)
 ====================

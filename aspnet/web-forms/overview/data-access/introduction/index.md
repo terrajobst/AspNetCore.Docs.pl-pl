@@ -4,19 +4,16 @@ title: Wprowadzenie | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Ten zestaw wprowadzających samouczków opisano procedurę tworzenia warstwy dostępu do danych (DAL), warstwy logiki biznesowej (LOGIKI) i spójnego wyglądu w lokacji.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/11/2011
-ms.topic: article
 ms.assetid: 74f3a86b-81fa-4d64-820a-304613f72caa
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/introduction
 msc.type: chapter
-ms.openlocfilehash: 9ff8cdf53481ccfd5f1f02bdd99890a39e9ee0f7
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 87afeb5d573b84e9e20fbe84cf1cee3cc2c7f9bc
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37373070"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37810555"
 ---
 <a name="introduction"></a>Wprowadzenie
 ====================

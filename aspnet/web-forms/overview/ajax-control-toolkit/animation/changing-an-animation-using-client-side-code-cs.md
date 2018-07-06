@@ -4,19 +4,16 @@ title: Zmienianie animacji przy użyciu kodu po stronie klienta (C#) | Dokumenta
 author: wenz
 description: Kontrolki animacji w programie ASP.NET AJAX Control Toolkit nie jest po prostu kontrolki, ale cała struktura Dodawanie animacji do kontrolki. Animacji można również...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: 2bfbc5cc-f942-44b7-a62d-a29520f1da9a
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/changing-an-animation-using-client-side-code-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4bf480401e244661e2c316adcde3cbde647a6dc3
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 9711e93ee6f119ec1825e32bdad64535435970c9
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37393077"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37808959"
 ---
 <a name="changing-an-animation-using-client-side-code-c"></a>Zmienianie animacji przy użyciu kodu po stronie klienta (C#)
 ====================

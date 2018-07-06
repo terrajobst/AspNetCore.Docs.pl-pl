@@ -4,19 +4,16 @@ title: Interfejs użytkownika jQuery 1.8.20 w usłudze Microsoft Ajax CDN | Doku
 author: rick-anderson
 description: ''
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/23/2014
-ms.topic: article
 ms.assetid: ff624296-c95a-48eb-a832-14959097cebf
-ms.technology: ''
 msc.legacyurl: /ajax/cdn/jquery-ui/cdnjqueryui1820
 msc.type: content
-ms.openlocfilehash: bef8aa6a4eee1b71216b36f111532471c907c6e8
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 039da520d0e883c86bd85f5a36af3aeb2ce91bcc
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37365559"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37812241"
 ---
 <a name="jquery-ui-1820-on-the-microsoft-ajax-cdn"></a>Interfejs użytkownika jQuery 1.8.20 w usłudze Microsoft Ajax CDN
 ====================

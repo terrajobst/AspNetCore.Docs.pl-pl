@@ -4,19 +4,16 @@ title: Starsze wersje — wprowadzenie formularze sieci Web | Dokumentacja firmy
 author: rick-anderson
 description: Dokumentacja platformy ASP.NET Web Forms 4 i starszych wersji.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/18/2014
-ms.topic: article
 ms.assetid: e03585c2-80bf-4083-99ba-9fcbc883ccd8
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started
 msc.type: chapter
-ms.openlocfilehash: 38a6560688deeee966fb060a26102a70204ecd69
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 08d8b12016d801ec64f553665477e5b9c44ece8f
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37376195"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37825190"
 ---
 <a name="older-versions---web-forms-getting-started"></a>Starsze wersje — wprowadzenie formularze sieci Web
 ====================

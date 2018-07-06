@@ -4,19 +4,16 @@ title: Wyświetlanie wielu rekordów w wierszu za pomocą kontrolki DataList (VB
 author: rick-anderson
 description: Temu krótkiemu samouczkowi Przedstawimy sposób dostosowywania układu DataList za pośrednictwem jego właściwości RepeatColumns i RepeatDirection.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 09/13/2006
-ms.topic: article
 ms.assetid: f555c531-bf33-4699-9987-42dbfef23c1f
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/showing-multiple-records-per-row-with-the-datalist-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: cad9967d35ed870ae18579e65eb866b794866aad
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 55e07159fd9d0f4c750a2522feb0538a1cfb4bea
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37393937"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37831890"
 ---
 <a name="showing-multiple-records-per-row-with-the-datalist-control-vb"></a>Wyświetlanie wielu rekordów w wierszu za pomocą kontrolki DataList (VB)
 ====================

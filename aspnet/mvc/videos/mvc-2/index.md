@@ -4,19 +4,16 @@ title: ASP.NET MVC 2 | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: ASP.NET MVC 2
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/14/2011
-ms.topic: article
 ms.assetid: 68968b8a-4f60-449e-8639-978fc40aed70
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/videos/mvc-2
 msc.type: chapter
-ms.openlocfilehash: 7e2439eb2a926325d11497e55ba0364cccadb9f6
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 8ef45bcd884d3d14fcef60c229baba2a8fd3a692
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37385371"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37823681"
 ---
 <a name="aspnet-mvc-2"></a>ASP.NET MVC 2
 ====================

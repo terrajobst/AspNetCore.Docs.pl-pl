@@ -4,19 +4,16 @@ title: Formatowanie elementów DataList i Repeater na podstawie danych (VB) | Do
 author: rick-anderson
 description: W tym samouczku będziemy czynności przykładów jak możemy formatowanie wyglądu kontrolki DataList i Repeater, albo za pomocą funkcji formatowania za pomocą...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 09/13/2006
-ms.topic: article
 ms.assetid: e2f401ae-37bb-4b19-aa97-d6b385d40f88
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/formatting-the-datalist-and-repeater-based-upon-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 42a7861c4a9665d5c2596ba9bf3f5185bfaf043d
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 428438b2bae062c09d13c002f4729c3c394975a1
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37397684"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37807713"
 ---
 <a name="formatting-the-datalist-and-repeater-based-upon-data-vb"></a>Formatowanie elementów DataList i Repeater na podstawie danych (VB)
 ====================

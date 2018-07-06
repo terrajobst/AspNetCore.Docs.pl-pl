@@ -4,19 +4,16 @@ title: Umożliwia dostęp do bazy danych programu ASP.NET AJAX kontrolki kaskado
 author: JoeStagner
 description: To wideo pokazuje, jak ASP. Standardowa DropDownList przez sieć może stać się włączoną obsługą technologii AJAX przy użyciu rozszerzenia kontrolki CascadingDropDown z Contro AJAX programu ASP.NET...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/13/2008
-ms.topic: article
 ms.assetid: 3c21fefc-6858-40e1-8307-22f68cbd0e31
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-ajax/use-aspnet-ajax-cascading-drop-down-control-to-access-a-database
 msc.type: video
-ms.openlocfilehash: dd8aea88447072bc33e5612b065da70c29689dcb
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 5c1d9676f7d3771eac79e0d2fcf644f4902d7211
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37398744"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37842795"
 ---
 <a name="use-aspnet-ajax-cascading-drop-down-control-to-access-a-database"></a>Umożliwia dostęp do bazy danych programu ASP.NET AJAX kontrolki kaskadowej listy rozwijanej
 ====================

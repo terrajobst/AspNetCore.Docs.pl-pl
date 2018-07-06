@@ -4,19 +4,16 @@ title: Zapobieganie atakom iniekcji JavaScript | Dokumentacja firmy Microsoft
 author: StephenWalther
 description: 'Zapobiec atakom iniekcji JavaScript i atakami skryptów między witrynami dla Ciebie. W tym samouczku Walther Autor: Stephen wyjaśnia, jak można łatwo de...'
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/20/2008
-ms.topic: article
 ms.assetid: 012a91e7-fd88-4d4f-8f95-57a9043c47d9
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/preventing-javascript-injection-attacks
 msc.type: video
-ms.openlocfilehash: 49f9138a4b1c5d17b3e0abf7bfea8f07c0f024b9
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: a6c082db671eea7627481bca383c6d1d7e98554c
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37381906"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37813503"
 ---
 <a name="preventing-javascript-injection-attacks"></a>Zapobieganie atakom iniekcji JavaScript
 ====================

@@ -4,19 +4,16 @@ title: 'Jak: Tworzenie niestandardowego pomocnika HTML dla aplikacji MVC | Micro
 author: rick-anderson
 description: W tym filmie pokazano pikseli Chris przedstawia sposób tworzenia niestandardowych HtmlHelper, która nie jest dostępna w standardowy zestaw w aplikacji MVC. Pierwszy, aplika MVC przykładowe...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 12/11/2009
-ms.topic: article
 ms.assetid: 58b5eb15-4160-4ce2-ae70-6ba94262ea73
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/how-do-i-create-a-custom-html-helper-for-an-mvc-application
 msc.type: video
-ms.openlocfilehash: 87e74ade0182589d22aeaf66a608165df7ea2ee6
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: d3acd32a951ecc9968c42932cdc0daac6e4c4d8a
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37380144"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37807742"
 ---
 <a name="how-do-i-create-a-custom-html-helper-for-an-mvc-application"></a>Jak: Tworzenie niestandardowego pomocnika HTML dla aplikacji MVC
 ====================

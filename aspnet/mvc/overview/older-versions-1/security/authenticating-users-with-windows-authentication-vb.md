@@ -4,19 +4,16 @@ title: Uwierzytelnianie użytkowników za pomocą uwierzytelniania Windows (VB) 
 author: microsoft
 description: Dowiedz się, jak używać uwierzytelniania Windows w kontekście aplikacji MVC. Dowiesz się, jak włączyć uwierzytelnianie Windows w ramach Twojej aplikacji sieci web co...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/27/2009
-ms.topic: article
 ms.assetid: 532fa051-7d5c-4d6d-87f6-339ce4b84c44
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/security/authenticating-users-with-windows-authentication-vb
 msc.type: authoredcontent
-ms.openlocfilehash: fd14ae32c286fb67cf75cc103f6a7969c4b5a731
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: c3c7f7bfc15483451ede5382bf3fc02db47dea0e
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37396692"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37811691"
 ---
 <a name="authenticating-users-with-windows-authentication-vb"></a>Uwierzytelnianie użytkowników za pomocą uwierzytelniania Windows (VB)
 ====================

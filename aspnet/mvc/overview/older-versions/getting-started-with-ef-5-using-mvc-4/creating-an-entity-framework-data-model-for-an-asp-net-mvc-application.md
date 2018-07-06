@@ -4,19 +4,16 @@ title: Tworzenie modelu danych Entity Framework dla aplikacji ASP.NET MVC (1, 10
 author: tdykstra
 description: Nowsza wersja tej serii samouczków jest dostępne dla programu Visual Studio 2013, platformy Entity Framework 6 i MVC 5. De aplikacji sieci web przykładowej firmy Contoso University...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/30/2013
-ms.topic: article
 ms.assetid: 4ba029b6-ee7c-4e45-a0e7-b703c37e5d9a
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 68b74d1e1d13aa4ee080913bfd8219d1a9189bb7
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: ae9a4f0f13b01d8e093030bb1def2f21580a9e48
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37377223"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37815162"
 ---
 <a name="creating-an-entity-framework-data-model-for-an-aspnet-mvc-application-1-of-10"></a>Tworzenie modelu danych Entity Framework dla aplikacji ASP.NET MVC (1, 10)
 ====================

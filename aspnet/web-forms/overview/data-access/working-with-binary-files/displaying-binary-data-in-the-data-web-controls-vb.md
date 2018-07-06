@@ -4,19 +4,16 @@ title: Wyświetlanie danych binarnych w sieci Web Data kontrolki (VB) | Dokument
 author: rick-anderson
 description: W tym samouczku przyjrzymy się opcji do prezentowania danych binarnych na stronie sieci Web, w tym wyświetlania pliku obrazu i zapewnić link "Pobierania" f...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/27/2007
-ms.topic: article
 ms.assetid: 9201656a-e1c2-4020-824b-18fb632d2925
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/displaying-binary-data-in-the-data-web-controls-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a9d298ef328e951f235a6cfcd41b73fafefb0dfb
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: fe6a16a3ee601eb58ae9d51b599684b47392eba2
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37373110"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37810297"
 ---
 <a name="displaying-binary-data-in-the-data-web-controls-vb"></a>Wyświetlanie danych binarnych w kontrolkach internetowych danych (VB)
 ====================

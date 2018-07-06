@@ -4,19 +4,16 @@ title: Wybieranie właściwego podejścia do wdrażania w Internecie | Dokumenta
 author: jrjlee
 description: Podczas pracy z Internet Information Services (IIS) Narzędzie Web Deployment (Web Deploy) 2.0 lub nowszej, istnieją trzy główne metody można użyć, aby uzyskać...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/04/2012
-ms.topic: article
 ms.assetid: 787a53fd-9901-4a11-9d58-61e0509cda45
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: f1c3a09d9e960a53a25e0dd0b953224204a9ba7b
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: eb1b7d50e5d7461d760ad7a963cc70369b7a4513
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37367748"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37807054"
 ---
 <a name="choosing-the-right-approach-to-web-deployment"></a>Wybieranie właściwego podejścia do wdrażania w Internecie
 ====================

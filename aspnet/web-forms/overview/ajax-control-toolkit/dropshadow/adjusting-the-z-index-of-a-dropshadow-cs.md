@@ -4,19 +4,16 @@ title: Dostosowywanie indeksu z kontrolki DropShadow (C#) | Dokumentacja firmy M
 author: wenz
 description: Kontrolki DropShadow na zestawu narzędzi AJAX Control Toolkit rozszerza panelu z cienia. Jednak to w tle czasami powoduje konflikt z innych formantów, aby uzyskać Zainstaluj...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: 14133833-e518-4347-87b9-6b6f71f14a77
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dropshadow/adjusting-the-z-index-of-a-dropshadow-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 22732bc44a56819a2ec73346dc32659d027eaee0
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 2470972e038b0bb58601e100dd568a17281e2abe
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37369573"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37827440"
 ---
 <a name="adjusting-the-z-index-of-a-dropshadow-c"></a>Dostosowywanie indeksu z kontrolki DropShadow (C#)
 ====================

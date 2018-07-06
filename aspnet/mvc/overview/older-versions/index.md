@@ -4,19 +4,16 @@ title: Starsze wersje — MVC 3 i 4 | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Zawiera łącza do zasobów do nauki, jak używać starszych wersji programu ASP.NET MVC.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/09/2014
-ms.topic: article
 ms.assetid: 151cd274-3daa-4f88-ad3b-bffb99a9d545
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions
 msc.type: chapter
-ms.openlocfilehash: e1e4339d6ef3dce19ce03dd35e6ac273f945dc75
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 488c87f72889e22c0d2898742300132d4c9f2399
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37369193"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37836254"
 ---
 <a name="older-versions---mvc-3-and-4"></a>Starsze wersje — MVC 3 i 4
 ====================

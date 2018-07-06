@@ -4,19 +4,16 @@ title: Jak mogę | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Ta wieloczęściowa seria artykułów wideo pokazuje, jak korzystać z zalet nowych funkcji w programie ASP.NET 3.5 i Visual Studio 2008.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/14/2011
-ms.topic: article
 ms.assetid: 6a25069b-c80f-45f3-a901-4548442c37b6
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-35/how-do-i
 msc.type: chapter
-ms.openlocfilehash: 5493bba533090c7897b2b4593c444cf6b762f5e9
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 69d75570bfeae9a5cc223883626faf218e2e5cc9
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37392060"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37837048"
 ---
 <a name="how-do-i"></a>Jak to zrobić
 ====================

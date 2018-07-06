@@ -4,19 +4,16 @@ title: Dodawanie sieci społecznościowych w sieci Web platformy ASP.NET stron w
 author: tfitzmac
 description: W tym rozdziale wyjaśniono, jak zintegrowanie witryny z usługami sieci społecznościowych. W tym rozdziale dowiesz się, jak umożliwić użytkownikom/łącze zakładki witryny sieci Web...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/21/2014
-ms.topic: article
 ms.assetid: 03c342f9-b35c-4d7c-b9ed-cd9aaaffedb6
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages/overview/getting-started/13-adding-social-networking-to-your-web-site
 msc.type: authoredcontent
-ms.openlocfilehash: 4f987c9022056ddfa3cdcac746f688f562d9003e
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: e50a35d9770da247d18bbe1b3660b7bd5d46d8e9
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37398404"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37822447"
 ---
 <a name="adding-social-networking-to-aspnet-web-pages-razor-sites"></a>Dodawanie sieci społecznościowych do wzorca ASP.NET Web Pages (Razor) witryn
 ====================

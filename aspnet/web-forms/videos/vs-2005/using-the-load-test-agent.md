@@ -4,19 +4,16 @@ title: Za pomocą Agent testu obciążeniowego | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: W tym filmie pokazano omówiony sposób dodawania Agent testu obciążeniowego w testowaniu, którą robimy za pomocą programu Visual Studio Team System. Agent testu obciążeniowego jest częścią "...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/08/2007
-ms.topic: article
 ms.assetid: 4a262984-ab29-4bf7-a8b6-707d66cde011
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/vs-2005/using-the-load-test-agent
 msc.type: video
-ms.openlocfilehash: a6a22538b850ce297380723f83972139de40cb1b
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: cf6f95b9e06ee6471c1db0a36b684944e71291a9
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37384189"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37812798"
 ---
 <a name="using-the-load-test-agent"></a>Przy użyciu agenta testu obciążenia
 ====================

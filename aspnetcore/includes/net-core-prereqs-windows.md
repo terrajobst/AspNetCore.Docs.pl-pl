@@ -1,6 +1,8 @@
-[Visual Studio dla systemu Windows](https://www.microsoft.com/net/download/windows).  
-Wybierz **ASP.NET i sieć web development** obciążenia.
+[Visual Studio 2017 w wersji 15.7.3 lub nowszej](https://www.microsoft.com/net/download/windows) z następującymi pakietami roboczymi:
+
+* **ASP.NET i tworzenie aplikacji internetowych**
+* **Programowanie dla wielu platform .NET core**
 
 ::: moniker range=">= aspnetcore-2.1"
-[.NET core 2.1 SDK](https://www.microsoft.com/net/download/dotnet-core/sdk-2.1.300)
+[Zestaw SDK programu .NET core 2.1 lub nowszej](https://www.microsoft.com/net/download/windows)
 ::: moniker-end

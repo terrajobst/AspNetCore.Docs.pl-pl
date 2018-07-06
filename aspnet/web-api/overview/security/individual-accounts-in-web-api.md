@@ -4,19 +4,16 @@ title: Zabezpieczanie interfejsu API sieci Web za pomocą indywidualnych kont i 
 author: MikeWasson
 description: W tym temacie pokazano, jak zabezpieczyć internetowy interfejs API za pomocą protokołu OAuth2, do uwierzytelniania względem bazy danych członkostwa. Wersje oprogramowania używany w samouczku Visual 201 Studio...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/15/2014
-ms.topic: article
 ms.assetid: 92c84846-f0ea-4b5e-94b6-5004874eb060
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/overview/security/individual-accounts-in-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: f37cb206b78fd46835bb59bede5920f8e5acd3fd
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 0a520333492a60014f7e9f9182a16f0ce514ba1d
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37399941"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37842088"
 ---
 <a name="secure-a-web-api-with-individual-accounts-and-local-login-in-aspnet-web-api-22"></a>Zabezpieczanie interfejsu API sieci Web za pomocą indywidualnych kont i logowania lokalnego we wzorcu ASP.NET Web API 2.2
 ====================

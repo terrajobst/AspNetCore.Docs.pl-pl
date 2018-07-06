@@ -4,19 +4,16 @@ title: Jak zmienić sposobu renderowania pól | Microsoft Docs
 author: shanselman
 description: W tym filmie wideo dowiesz się, jak zmienić sposób, w jaki są renderowane pola danych. Formanty innych firm, w przypadku niektórych pól będzie dodatku.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/08/2008
-ms.topic: article
 ms.assetid: f99da654-2148-4e66-867c-6e837b84e9d0
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-dynamic-data/how-do-i-change-how-my-fields-render
 msc.type: video
-ms.openlocfilehash: 09c602f5a5de015e195731fb4f59082417892c74
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 6fad628748abeaa878051093af921d1ce966b7b7
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37372916"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37822289"
 ---
 <a name="how-do-i-change-how-my-fields-render"></a>Jak zmienić sposobu renderowania pól
 ====================

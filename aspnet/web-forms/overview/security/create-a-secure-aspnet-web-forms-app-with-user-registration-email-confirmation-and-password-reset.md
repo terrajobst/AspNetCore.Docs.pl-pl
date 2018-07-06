@@ -4,19 +4,16 @@ title: Tworzenie bezpiecznej aplikacji ASP.NET Web Forms z rejestracją użytkow
 author: Erikre
 description: W tym samouczku przedstawiono sposób tworzenia aplikacji formularzy sieci Web ASP.NET za pomocą rejestracji użytkowników, potwierdzenie adresu e-mail i resetowania haseł za pomocą elementu członkowskiego produktu ASP.NET Identity...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/02/2014
-ms.topic: article
 ms.assetid: 0a8d6044-5fab-4213-82d6-5618d5601358
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/security/create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset
 msc.type: authoredcontent
-ms.openlocfilehash: 79755282f5f146ac6969c3adfeb285610db530ee
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 1c230c3f33bd8261312485e9d77f6f88adb49e9e
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37391281"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37812772"
 ---
 <a name="create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset-c"></a>Tworzenie bezpiecznej aplikacji ASP.NET Web Forms z rejestracją użytkownika wiadomości e-mail z potwierdzeniem i resetowaniem hasła (C#)
 ====================

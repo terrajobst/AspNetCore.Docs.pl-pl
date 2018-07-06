@@ -4,19 +4,16 @@ title: '[Jak mogę] Użyj rozszerzenie kontrolki TextBoxWatermark ASP.NET AJAX? 
 author: JoeStagner
 description: W tym filmie pokazano będzie dowiesz się, jak używać rozszerzenia kontrolki kontrolki TextBoxWatermark z ASP.NET AJAX Control Toolkit, który dodaje nowe właściwości znaku wodnego do...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/26/2007
-ms.topic: article
 ms.assetid: a43d175e-7526-4dd9-b8ed-9348c3c3dd39
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-textboxwatermark-control-extender
 msc.type: video
-ms.openlocfilehash: c4e15ec5c0c1b8032aa20daf4e57292900e8c33d
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 7475da83fceb892550872d20a49e46a3051f5765
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37401756"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37808356"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-textboxwatermark-control-extender"></a>[Jak mogę] Użyj rozszerzenie kontrolki TextBoxWatermark ASP.NET AJAX?
 ====================

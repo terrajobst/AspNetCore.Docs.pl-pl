@@ -4,19 +4,16 @@ title: Odzyskiwanie i zmienianie haseł (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Program ASP.NET zawiera dwie kontrolki sieci Web ułatwiających Odzyskiwanie i zmienianie haseł. Formant PasswordRecovery umożliwia obiekt odwiedzający do odzyskania jego zgubienia pa...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/01/2008
-ms.topic: article
 ms.assetid: f9adcb5d-6d70-4885-a3bf-ed95efb4da1a
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/recovering-and-changing-passwords-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 68b70708904a46e31639331bbfd0dd31240ea421
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: bb52204b58bcdbb3d03390868e52b8a6f74df5e4
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37393999"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37822917"
 ---
 <a name="recovering-and-changing-passwords-vb"></a>Odzyskiwanie i zmienianie haseł (VB)
 ====================

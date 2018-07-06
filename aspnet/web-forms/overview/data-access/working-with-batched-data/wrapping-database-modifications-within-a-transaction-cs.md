@@ -4,19 +4,16 @@ title: OPAKOWYWANIE modyfikacji bazy danych w ramach transakcji (C#) | Dokumenta
 author: rick-anderson
 description: Ten samouczek jest pierwszą czterech, który sprawdza, aktualizowanie, usuwanie i wstawianie partie danych. W tym samouczku będziemy Dowiedz się, jak zezwolić transakcji bazy danych...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/26/2007
-ms.topic: article
 ms.assetid: b45fede3-c53a-4ea1-824b-20200808dbae
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/wrapping-database-modifications-within-a-transaction-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5bddf8aaee20b072e703ecc907aedfd5bb58450d
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: a87ba758abd6b3e89be4f5aa64d658b734f99d9e
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37363931"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37810933"
 ---
 <a name="wrapping-database-modifications-within-a-transaction-c"></a>OPAKOWYWANIE modyfikacji bazy danych w ramach transakcji (C#)
 ====================

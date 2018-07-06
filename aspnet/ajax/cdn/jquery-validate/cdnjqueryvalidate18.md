@@ -4,19 +4,16 @@ title: jquery.Validate wersja 1.8 | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: ''
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/23/2014
-ms.topic: article
 ms.assetid: 68fa43ec-b976-49ca-8e0f-fe317a0e598c
-ms.technology: ''
 msc.legacyurl: /ajax/cdn/jquery-validate/cdnjqueryvalidate18
 msc.type: content
-ms.openlocfilehash: 68050596a74e79c0b928fb568142d760ef512d25
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: bacc48dfd2fa4236037ab7f612078b6022f063be
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37373438"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37836713"
 ---
 <a name="jqueryvalidate-version-18"></a>jquery.Validate wersja 1.8
 ====================

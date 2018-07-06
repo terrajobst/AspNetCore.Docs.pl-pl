@@ -4,19 +4,16 @@ title: Interakcja ze stroną zawartości z poziomu strony wzorcowej (VB) | Dokum
 author: rick-anderson
 description: Zbadamy, jak wywoływać metody, ustaw właściwości, itd. z poziomu strony zawartości z poziomu kodu na stronie wzorcowej.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/11/2008
-ms.topic: article
 ms.assetid: a6e2e1a0-c925-43e9-b711-1f178fdd72d7
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/interacting-with-the-content-page-from-the-master-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 2222cb67c1d327e43f6bb54b34a3241fbbcdaaa4
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 41cfd5e65fbe0a5ef4930ce3a4c84556cedcdfd6
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37381312"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37807651"
 ---
 <a name="interacting-with-the-content-page-from-the-master-page-vb"></a>Interakcja ze stroną zawartości z poziomu strony wzorcowej (VB)
 ====================

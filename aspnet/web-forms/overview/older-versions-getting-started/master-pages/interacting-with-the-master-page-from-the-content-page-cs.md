@@ -4,19 +4,16 @@ title: Interakcja ze stroną wzorcową z poziomu strony zawartości (C#) | Dokum
 author: rick-anderson
 description: Zbadamy, jak wywoływać metody, ustaw właściwości, itp. strona wzorcowa z kodu na stronie zawartości.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/11/2008
-ms.topic: article
 ms.assetid: 32d54638-71b2-491d-81f4-f7417a13a62f
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/interacting-with-the-master-page-from-the-content-page-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c86014e2a6d6c8b451b9ad05eb401ba8f3fcaeaf
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 2aa2ba4443a2bad248b0d2cd2a140dc828fd7747
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37365032"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37842879"
 ---
 <a name="interacting-with-the-master-page-from-the-content-page-c"></a>Interakcja ze stroną wzorcową z poziomu strony zawartości (C#)
 ====================

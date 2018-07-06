@@ -4,19 +4,16 @@ title: Zapobieganie XSRF/CSRF w ASP.NET MVC i Web Pages | Dokumentacja firmy Mic
 author: Rick-Anderson
 description: Fałszowanie żądań między witrynami (znany także jako XSRF lub CSRF) jest ataku na aplikacje hostowane w sieci web, według której złośliwych witryn sieci web mogą mieć wpływ na interakcyjne...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/14/2013
-ms.topic: article
 ms.assetid: aadc5fa4-8215-4fc7-afd5-bcd2ef879728
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages
 msc.type: authoredcontent
-ms.openlocfilehash: 454b98cc1b6b20349cfb17789fa878d6fb2a8bd9
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: be0e8ebe521e9952d7525b581f9b91af6edca1da
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37371661"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37820259"
 ---
 <a name="xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages"></a>Zapobieganie XSRF/CSRF w ASP.NET MVC i Web Pages
 ====================

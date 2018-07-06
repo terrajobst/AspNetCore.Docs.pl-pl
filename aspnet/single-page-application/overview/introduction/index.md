@@ -4,19 +4,16 @@ title: Wprowadzenie do aplikacji ASP.NET pojedynczego | Dokumentacja firmy Micro
 author: rick-anderson
 description: Dowiedz się, o ASP.NET jednej strony aplikacji ASP.NET jednej strony aplikacji (SPA) pomaga w tworzeniu aplikacji, które zawierają istotne interakcyjne po stronie klienta...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/14/2012
-ms.topic: article
 ms.assetid: f0643c61-c310-4906-a238-dfc86f09b940
-ms.technology: ''
 msc.legacyurl: /single-page-application/overview/introduction
 msc.type: chapter
-ms.openlocfilehash: 43ec285143dd5673783cebc59fe53176bf20055e
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: d59cf5aeaee683dd6a89d5c5a62442e24b464944
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37389048"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37813862"
 ---
 <a name="introduction-to-aspnet-single-page-application"></a>Wprowadzenie do ASP.NET pojedynczej strony aplikacji
 ====================

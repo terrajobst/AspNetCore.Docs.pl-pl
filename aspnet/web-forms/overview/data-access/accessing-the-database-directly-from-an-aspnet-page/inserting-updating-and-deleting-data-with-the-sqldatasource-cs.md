@@ -4,19 +4,16 @@ title: Wstawianie, aktualizowanie i usuwanie danych przy użyciu kontrolki SqlDa
 author: rick-anderson
 description: W poprzednich samouczkach dowiedzieliśmy się, jak kontrolka ObjectDataSource dozwolone w przypadku wstawiania, aktualizowania i usuwania danych. Kontrolki SqlDataSource obsługuje t...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/20/2007
-ms.topic: article
 ms.assetid: a526f0ec-779e-4a2b-a476-6604090d25ce
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/inserting-updating-and-deleting-data-with-the-sqldatasource-cs
 msc.type: authoredcontent
-ms.openlocfilehash: b3037cfdc9a6b27b1f87e0b323b9ae59235cc27c
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: d2958cb9cb0dd5ed89988a969663022a920a3dca
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37385813"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37812850"
 ---
 <a name="inserting-updating-and-deleting-data-with-the-sqldatasource-c"></a>Wstawianie, aktualizowanie i usuwanie danych przy użyciu kontrolki SqlDataSource (C#)
 ====================

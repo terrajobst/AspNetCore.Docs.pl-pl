@@ -4,19 +4,16 @@ title: Wdrażanie projektów baz danych | Dokumentacja firmy Microsoft
 author: jrjlee
 description: 'Uwaga: W wiele scenariuszy wdrażania w przedsiębiorstwie, niezbędna jest możliwość publikowania aktualizacji przyrostowych wdrożonej bazy danych. Alternatywą jest ponownie utworzyć...'
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/04/2012
-ms.topic: article
 ms.assetid: 832f226a-1aa3-4093-8c29-ce4196793259
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-database-projects
 msc.type: authoredcontent
-ms.openlocfilehash: 3d261acbd6f8dab60a02c21546d8bc276de486ba
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 1e5af29a91f5f432f9241dc3ba0c8fc0bfcf773f
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37374966"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37804986"
 ---
 <a name="deploying-database-projects"></a>Wdrażanie projektów baz danych
 ====================

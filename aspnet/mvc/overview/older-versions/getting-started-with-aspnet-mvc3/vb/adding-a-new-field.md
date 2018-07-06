@@ -4,19 +4,16 @@ title: Dodawanie nowego pola do modelu Movie i tabeli bazy danych (VB) | Dokumen
 author: Rick-Anderson
 description: Ta seria samouczków obejmuje podstawy tworzenia aplikacji sieci Web platformy ASP.NET MVC przy użyciu programu Microsoft Visual Web Developer 2010 Express Service Pack 1, czyli...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/12/2011
-ms.topic: article
 ms.assetid: 28970e1b-1845-4015-86ef-121e52a6c397
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-a-new-field
 msc.type: authoredcontent
-ms.openlocfilehash: 06d9f08ea3e1a85327083639adc6aa0f2cfbaa48
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: cd178b36e1554c9521e0a001568ba41ec13fcef0
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37382948"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37839667"
 ---
 <a name="adding-a-new-field-to-the-movie-model-and-database-table-vb"></a>Dodawanie nowego pola do modelu Movie i tabeli bazy danych (VB)
 ====================

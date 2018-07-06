@@ -4,19 +4,16 @@ title: Uaktualnianie aplikacji ASP.NET MVC 1.0 do ASP.NET MVC 2 | Dokumentacja f
 author: rick-anderson
 description: W tym dokumencie opisano sposób uaktualniania ręcznie i za pomocą Kreatora aplikacji ASP.NET MVC 1.0 do ASP.NET MVC 2. Ten dokument jest również dostępna dla d...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/08/2010
-ms.topic: article
 ms.assetid: f1a01759-d251-4b09-8835-e112e336c6dd
-ms.technology: ''
 msc.legacyurl: /whitepapers/aspnet-mvc2-upgrade-notes
 msc.type: content
-ms.openlocfilehash: 354dbab3057068eb13b16c9aa31f66c72371ce7e
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: fe1696cd8f98f2ff253d385b62a6bcd74b536d33
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37381919"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37823874"
 ---
 <a name="upgrading-an-aspnet-mvc-10-application-to-aspnet-mvc-2"></a>Uaktualnianie aplikacji ASP.NET MVC 1.0 do ASP.NET MVC 2
 ====================

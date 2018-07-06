@@ -4,19 +4,16 @@ title: '[Jak mogę]  Tworzenie niestandardowej kontrolki użytkownika w programi
 author: rick-anderson
 description: W tym filmie pokazano pikseli Chris pokazano, jak utworzyć formant użytkownika niestandardowego na platformie ASP.NET, które mogą być używane w całej witryny sieci web lub w wielu witrynach sieci web. Komórce jednowątkowej...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/26/2007
-ms.topic: article
 ms.assetid: 76e0f17c-c31b-4237-89b5-a46efe602ece
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-create-a-custom-user-control-in-aspnet
 msc.type: video
-ms.openlocfilehash: 8ca06fef4b04cacb98e142a39f50a4df59e58944
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: a8b8d528e1aa569798ae892ba3a41dd9d61ca702
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37381984"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37808450"
 ---
 <a name="how-do-i--create-a-custom-user-control-in-aspnet"></a>[Jak mogę]  Tworzenie niestandardowej kontrolki użytkownika w programie ASP.NET?
 ====================

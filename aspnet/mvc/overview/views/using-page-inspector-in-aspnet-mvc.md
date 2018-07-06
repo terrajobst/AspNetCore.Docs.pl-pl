@@ -4,19 +4,16 @@ title: Za pomocą narzędzia Page Inspector we wzorcu ASP.NET MVC | Dokumentacja
 author: rick-anderson
 description: Narzędzie Page Inspector w programie Visual Studio 2012 jest narzędziem do projektowania sieci web za pomocą zintegrowanej przeglądarki. Wybierz dowolny element w zintegrowanej przeglądarki i narzędzie Page Inspector i...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/15/2012
-ms.topic: article
 ms.assetid: c7e4e1ab-4932-4614-9f53-aaf7c706d498
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/views/using-page-inspector-in-aspnet-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 032be78e744bdf2c74337c72afb4efb7471ae4f9
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: e3a6b79811cae15ec69ba3c5babe38b117b697a5
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37399146"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37806089"
 ---
 <a name="using-page-inspector-in-aspnet-mvc"></a>Za pomocą narzędzia Page Inspector we wzorcu ASP.NET MVC
 ====================

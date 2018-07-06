@@ -4,19 +4,16 @@ title: Kontrolowanie identyfikator nazewnictwa na stronach zawartości (C#) | Do
 author: rick-anderson
 description: Ilustruje sposób kontrolek ContentPlaceHolder służą jako kontener nazewnictwa i w związku z tym upewnij się, programowo Praca z formantem trudne (za pośrednictwem FindConrol)...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/10/2008
-ms.topic: article
 ms.assetid: 1c7d0916-0988-4b4f-9a03-935e4b5af6af
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/control-id-naming-in-content-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 0ad9224e4cb580e9ef671f39bbd3da39df692a56
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: b7ae15095b972a456f274e1326221d168f323256
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37377301"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37805878"
 ---
 <a name="control-id-naming-in-content-pages-c"></a>Nazewnictwo identyfikatorów kontrolek na stronach zawartości (C#)
 ====================

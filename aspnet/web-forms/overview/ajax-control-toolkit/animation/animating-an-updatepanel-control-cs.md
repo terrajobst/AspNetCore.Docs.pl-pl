@@ -4,19 +4,16 @@ title: Animowanie kontrolki UpdatePanel (C#) | Dokumentacja firmy Microsoft
 author: wenz
 description: Kontrolki animacji w programie ASP.NET AJAX Control Toolkit nie jest po prostu kontrolki, ale cała struktura Dodawanie animacji do kontrolki. Dla zawartości...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: e57f8c7c-3940-4bc0-9468-3a0ca69158ea
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/animating-an-updatepanel-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 9907af3349cd1d3c8a4e3dbdf7a96960982a2e5d
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 3214ef85938c374a8fb083bc075bd9390e37a209
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37395243"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37808256"
 ---
 <a name="animating-an-updatepanel-control-c"></a>Animowanie kontrolki UpdatePanel (C#)
 ====================

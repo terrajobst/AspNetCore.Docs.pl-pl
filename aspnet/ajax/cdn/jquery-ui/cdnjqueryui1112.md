@@ -4,19 +4,16 @@ title: Interfejs użytkownika jQuery 1.11.2 w usłudze Microsoft Ajax CDN | Doku
 author: rick-anderson
 description: ''
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/11/2014
-ms.topic: article
 ms.assetid: b458470f-ed44-4c2d-9c81-f1976daf7fad
-ms.technology: ''
 msc.legacyurl: /ajax/cdn/jquery-ui/cdnjqueryui1112
 msc.type: content
-ms.openlocfilehash: 199ca38d2d88f8975d83537814936ec2db924efb
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 44dc799900aa10557f45320216b3a35b09ae09f4
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37366744"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37806470"
 ---
 <a name="jquery-ui-1112-on-the-microsoft-ajax-cdn"></a>Interfejs użytkownika jQuery 1.11.2 w usłudze Microsoft Ajax CDN
 ====================

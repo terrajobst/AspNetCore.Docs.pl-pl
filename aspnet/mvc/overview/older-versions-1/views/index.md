@@ -4,19 +4,16 @@ title: Widoków ASP.NET MVC | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Tego zestawu samouczków zawiera krótkie wprowadzenie do widoków ASP.NET MVC, danych widoków i pomocników HTML.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 09/28/2011
-ms.topic: article
 ms.assetid: c2dea264-0d8c-4216-bbe5-70d2421597b0
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/views
 msc.type: chapter
-ms.openlocfilehash: 6846d346e77665a732e99a5f78bc76dfba29434e
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 7ace21d40c43838326400a274d8fa8af1c82495b
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37375248"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37823072"
 ---
 <a name="aspnet-mvc-views"></a>Widoki ASP.NET MVC
 ====================

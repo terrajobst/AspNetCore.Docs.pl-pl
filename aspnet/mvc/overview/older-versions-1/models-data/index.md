@@ -4,19 +4,16 @@ title: Modele (dane) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: W tej serii samouczków dowiesz się, jak używać platformy ASP.NET MVC z programem Microsoft Entity Framework. W trakcie tego samouczka utworzysz aplikację sieci web...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 09/28/2011
-ms.topic: article
 ms.assetid: 9086d8a8-7952-4a7e-82a7-724d48178555
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/models-data
 msc.type: chapter
-ms.openlocfilehash: e8607a9b310c0fc7d1ec6b5fc5e3774739805b02
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 7aa787de8a519ef2b383dbdb0f77ea7eb5bc986b
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37393104"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37815241"
 ---
 <a name="models-data"></a>Modele (dane)
 ====================

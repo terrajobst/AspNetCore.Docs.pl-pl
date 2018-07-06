@@ -4,19 +4,16 @@ title: Migrowanie istniejącej witryny sieci Web z członkostwa SQL do produktu 
 author: Rick-Anderson
 description: W tym samouczku przedstawiono kroki, aby migrować istniejącą aplikację sieci web z użytkownika i dane roli utworzone za pomocą członkostwa SQL do nowego produktu ASP.NET Identity s...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 12/19/2014
-ms.topic: article
 ms.assetid: 220d3d75-16b2-4240-beae-a5b534f06419
-ms.technology: ''
 msc.legacyurl: /identity/overview/migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 7df2c9a6cccefd3c4f3022c14627394557543258
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 4acb8c82c9b05de9d587466170f8fac4ef9b6dde
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37389140"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37812254"
 ---
 <a name="migrating-an-existing-website-from-sql-membership-to-aspnet-identity"></a>Migrowanie istniejącej witryny sieci Web z członkostwa SQL do produktu ASP.NET Identity
 ====================

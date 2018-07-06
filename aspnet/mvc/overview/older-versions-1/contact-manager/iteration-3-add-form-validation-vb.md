@@ -4,19 +4,16 @@ title: 'Iteracja #3 — Dodawanie weryfikacji formularza (VB) | Dokumentacja fir
 author: microsoft
 description: W trzecim iteracji dodamy weryfikacji formularza podstawowego. Firma Microsoft ochronić przed przesłaniem formularza nie kończą działania wymaganych pól formularza. Możemy sprawdzić, czy emai...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/20/2009
-ms.topic: article
 ms.assetid: 4805e75a-7911-46e3-b11b-229a6eed245e
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-3-add-form-validation-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 3d4a1806742caf13f4778ef3588710136814c993
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: e9099b669fd809d27a06f333345e7d6feb7b800d
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37368722"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37824664"
 ---
 <a name="iteration-3--add-form-validation-vb"></a>Iteracja #3 — Dodawanie weryfikacji formularza (VB)
 ====================

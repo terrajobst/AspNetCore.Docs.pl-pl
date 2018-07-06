@@ -4,19 +4,16 @@ title: Wdrażanie | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Jak wdrożyć projekty ASP.NET Web Forms z serwerem.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/18/2011
-ms.topic: article
 ms.assetid: 05e4c88f-5101-4277-a323-b6774d98f69e
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/deployment
 msc.type: chapter
-ms.openlocfilehash: 46b605b1739dfabf0ab3105a898b040fdd4e606d
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 808e61c25438b631b30e2b5c83f9e21a1151e809
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37366655"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37806624"
 ---
 <a name="deployment"></a>wdrażania
 ====================

@@ -4,19 +4,16 @@ title: Autoryzacja oparta na użytkownikach (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: W tym samouczku przyjrzymy się ograniczenie dostępu do stron i ograniczenie funkcji na poziomie strony za pomocą różnych technik.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/18/2008
-ms.topic: article
 ms.assetid: 3c815a9e-2296-4b9b-b945-776d54989daa
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/user-based-authorization-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5ab8fb2782cf9d29c9912fa81158c50a9d8d8af5
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 2fe1dbc7e5fd609870975fbf41849522bbeed534
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37396792"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37823994"
 ---
 <a name="user-based-authorization-c"></a>Autoryzacja oparta na użytkownikach (C#)
 ====================

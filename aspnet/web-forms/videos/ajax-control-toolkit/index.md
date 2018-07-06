@@ -4,19 +4,16 @@ title: Zestawu narzędzi AJAX Control Toolkit | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Jak utworzyć bardzo elastyczny sieci Web platformy ASP.NET przy użyciu zestawu narzędzi Ajax Control Toolkit stron.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/05/2011
-ms.topic: article
 ms.assetid: 6f7b1c74-cc73-42f9-8ef0-8b3d058dabfa
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit
 msc.type: chapter
-ms.openlocfilehash: 4bdb0bd554d147909ca441a88db8c47e38737cbe
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 65a56658d3be2b57daa6452c9bb3b66217f1f3c1
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37385255"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37825416"
 ---
 <a name="ajax-control-toolkit"></a>Ajax Control Toolkit
 ====================

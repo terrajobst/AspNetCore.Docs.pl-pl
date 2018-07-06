@@ -4,19 +4,16 @@ title: ASP.NET MVC 1 | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: ASP.NET MVC 1
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/14/2011
-ms.topic: article
 ms.assetid: a780d06b-36cd-410a-b95a-b6b935b5a7fa
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/videos/mvc-1
 msc.type: chapter
-ms.openlocfilehash: f78eccf536e5be30d574fa2306b2f498b81c77ff
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: b32a4c6861e8a4e52bed083a7441677545021af7
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37381782"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37830835"
 ---
 <a name="aspnet-mvc-1"></a>ASP.NET MVC 1
 ====================

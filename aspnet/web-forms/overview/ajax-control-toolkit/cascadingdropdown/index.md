@@ -4,19 +4,16 @@ title: Kontrolki CascadingDropdown | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: W tym samouczku pokazano, jak używać kontrolki CascadingDropDown, aby utworzyć powiązane listy rozwijanej Wyświetla listę tej aktualizacji, gdy użytkownicy dokonać wyboru.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/14/2011
-ms.topic: article
 ms.assetid: 5cc304e2-0013-4c26-8fe6-e897a533809f
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/cascadingdropdown
 msc.type: chapter
-ms.openlocfilehash: a4d2fc0730938b0ed8e0cca4f06880da3aef22b3
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: ac113c845d4dd462eabbe0aa044263317274492f
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37368827"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37814680"
 ---
 <a name="cascadingdropdown"></a>CascadingDropdown
 ====================

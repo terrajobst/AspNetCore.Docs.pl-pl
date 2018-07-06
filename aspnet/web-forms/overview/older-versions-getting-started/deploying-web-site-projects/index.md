@@ -4,19 +4,16 @@ title: Wdrażanie projektów witryn internetowych w programie Visual Studio 2008
 author: rick-anderson
 description: Aplikacje sieci web platformy ASP.NET zwykle nie mają utworzony i testowane w lokalne Środowisko deweloperskie i muszą zostać wdrożone do o środowisku produkcyjnym...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/16/2012
-ms.topic: article
 ms.assetid: 6f72bde8-f2f1-4e4a-94e5-494c3c153c14
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects
 msc.type: chapter
-ms.openlocfilehash: 1325dacbf37bf8ffcad330316759a987bb910e9a
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 8416c863a9fd8fbb1d043aeec6fd0452dfc59cf5
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37368792"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37812558"
 ---
 <a name="deploying-web-site-projects-in-visual-studio-2008-and-earlier"></a>Wdrażanie projektów witryn internetowych w programie Visual Studio 2008 i starszych wersji
 ====================

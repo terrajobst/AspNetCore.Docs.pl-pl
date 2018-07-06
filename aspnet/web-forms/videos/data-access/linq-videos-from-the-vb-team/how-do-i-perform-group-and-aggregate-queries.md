@@ -4,19 +4,16 @@ title: '[Jak mogę] Wykonuje grupie i zapytania zagregowane? | Microsoft Docs'
 author: bethmassi
 description: W programowaniu w języku Visual Basic pokażemy sposób wykonują grupy i zapytania zagregowane z kolekcji obiektów biznesowych oraz wyświetlać je w siatkach powiązane.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/15/2007
-ms.topic: article
 ms.assetid: 8d07ae36-c4f3-48d7-87d3-cfe9a5bb336e
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/data-access/linq-videos-from-the-vb-team/how-do-i-perform-group-and-aggregate-queries
 msc.type: video
-ms.openlocfilehash: 34a9ae7c035126ca8d868f0fc18ebfce5f967bf4
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 7fe1ee787e367616bcfd26e70cb37be9cf2eb95b
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37390507"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37822265"
 ---
 <a name="how-do-i-perform-group-and-aggregate-queries"></a>[Jak mogę] Wykonuje grupie i zapytania zagregowane?
 ====================
