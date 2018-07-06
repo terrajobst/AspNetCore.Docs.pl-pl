@@ -4,29 +4,26 @@ title: Konfiguracja niestandardowa kluczy logowania formularzy | Dokumentacja fi
 author: JoeStagner
 description: Jan Stagner zbada ustawienie klucza maszyny w aplikacji programu ASP.NET. Aby uzyskać więcej informacji na temat tej wersji demonstracyjnej samouczek znajduje się w tym miejscu.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/16/2008
-ms.topic: article
 ms.assetid: 6310b458-5e6e-497e-9989-9fbdf0ba9db4
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/authentication/forms-login-custom-key-configuration
 msc.type: video
-ms.openlocfilehash: 1366aeda365056b77aa03cc9a36e327b2af6825c
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 0efeae0bc7ec17e7cee8ae9af17a637c8c36f267
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37361581"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37809319"
 ---
-<a name="forms-login-custom-key-configuration"></a><span data-ttu-id="19638-104">Konfiguracja niestandardowa kluczy logowania formularzy</span><span class="sxs-lookup"><span data-stu-id="19638-104">Forms Login Custom Key Configuration</span></span>
+<a name="forms-login-custom-key-configuration"></a><span data-ttu-id="161b1-104">Konfiguracja niestandardowa kluczy logowania formularzy</span><span class="sxs-lookup"><span data-stu-id="161b1-104">Forms Login Custom Key Configuration</span></span>
 ====================
-<span data-ttu-id="19638-105">przez [Stagner Jan](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="19638-105">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="161b1-105">przez [Stagner Jan](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="161b1-105">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="19638-106">Jan Stagner zbada ustawienie klucza maszyny w aplikacji programu ASP.NET.</span><span class="sxs-lookup"><span data-stu-id="19638-106">Joe Stagner will examine the machine key setting in your ASP.NET application.</span></span> <span data-ttu-id="19638-107">Aby uzyskać więcej informacji na temat tej wersji demonstracyjnej, znajduje się zapoznać się z samouczkiem [tutaj](../../overview/older-versions-security/introduction/forms-authentication-configuration-and-advanced-topics-vb.md).</span><span class="sxs-lookup"><span data-stu-id="19638-107">For more information on this demo, a tutorial is located [here](../../overview/older-versions-security/introduction/forms-authentication-configuration-and-advanced-topics-vb.md).</span></span>
+<span data-ttu-id="161b1-106">Jan Stagner zbada ustawienie klucza maszyny w aplikacji programu ASP.NET.</span><span class="sxs-lookup"><span data-stu-id="161b1-106">Joe Stagner will examine the machine key setting in your ASP.NET application.</span></span> <span data-ttu-id="161b1-107">Aby uzyskać więcej informacji na temat tej wersji demonstracyjnej, znajduje się zapoznać się z samouczkiem [tutaj](../../overview/older-versions-security/introduction/forms-authentication-configuration-and-advanced-topics-vb.md).</span><span class="sxs-lookup"><span data-stu-id="161b1-107">For more information on this demo, a tutorial is located [here](../../overview/older-versions-security/introduction/forms-authentication-configuration-and-advanced-topics-vb.md).</span></span>
 
-[<span data-ttu-id="19638-108">&#9654;Obejrzyj film wideo (minuty 7)</span><span class="sxs-lookup"><span data-stu-id="19638-108">&#9654; Watch video (7 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/forms-login-custom-key-configuration)
+[<span data-ttu-id="161b1-108">&#9654;Obejrzyj film wideo (minuty 7)</span><span class="sxs-lookup"><span data-stu-id="161b1-108">&#9654; Watch video (7 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/forms-login-custom-key-configuration)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="19638-109">[Poprzednie](asp-forms-login-relocation.md)
-> [dalej](add-custom-data-to-the-authentication-method.md)</span><span class="sxs-lookup"><span data-stu-id="19638-109">[Previous](asp-forms-login-relocation.md)
+> <span data-ttu-id="161b1-109">[Poprzednie](asp-forms-login-relocation.md)
+> [dalej](add-custom-data-to-the-authentication-method.md)</span><span class="sxs-lookup"><span data-stu-id="161b1-109">[Previous](asp-forms-login-relocation.md)
 [Next](add-custom-data-to-the-authentication-method.md)</span></span>
