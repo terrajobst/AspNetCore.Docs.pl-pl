@@ -4,19 +4,16 @@ title: Buforowanie danych | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Ten samouczek zestaw wyjaśnia, buforowanie, co może zwiększyć wydajność witryny i jak stosować buforowania do warstwy prezentacji za pomocą kontrolki ObjectDataSource...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/05/2011
-ms.topic: article
 ms.assetid: 7d7ee56c-a867-4777-9407-ec8f73a605a3
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/caching-data
 msc.type: chapter
-ms.openlocfilehash: 85e12a06c8d38620f3659e07d2e4b5ac49f43e71
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 524282da59081b486a650a3644733364db8376bc
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37369514"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37801141"
 ---
 <a name="caching-data"></a>Buforowanie danych
 ====================

@@ -4,19 +4,16 @@ title: 'Iteracja 4 # — wprowadzić luźne sprzężenie aplikacji (C#) | Dokume
 author: microsoft
 description: W tym trzeci iteracji możemy skorzystać z kilku wzorców projektowych oprogramowania, aby ułatwić konserwację i modyfikowanie aplikacji Contact Manager. Aby uzyskać...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/20/2009
-ms.topic: article
 ms.assetid: 829f589f-e201-4f6e-9ae6-08ae84322065
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-4-make-the-application-loosely-coupled-cs
 msc.type: authoredcontent
-ms.openlocfilehash: b440508a245c1db0c85693f8f8d2b60acf63472f
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 8eff8088398d0f7afc020b2bbdf41526ae51591a
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37372530"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37829502"
 ---
 <a name="iteration-4--make-the-application-loosely-coupled-c"></a>Iteracja 4 # — wprowadzić luźne sprzężenie aplikacji (C#)
 ====================

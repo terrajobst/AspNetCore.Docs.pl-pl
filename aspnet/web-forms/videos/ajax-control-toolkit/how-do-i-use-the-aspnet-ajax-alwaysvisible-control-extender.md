@@ -4,19 +4,16 @@ title: '[Jak mogę] Użyj rozszerzenie kontrolki AlwaysVisible ASP.NET AJAX? | M
 author: JoeStagner
 description: Zobacz, jak łatwo jest zakotwiczenia elementu strony do pozycji na ekranie, w którym zawsze pozostaje widoczna niezależnie od tego, jak daleko użytkownik może przewijać dokumentu. ...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/26/2007
-ms.topic: article
 ms.assetid: 1126e173-733e-437f-abdd-81784f47b7f0
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-alwaysvisible-control-extender
 msc.type: video
-ms.openlocfilehash: 26d81d37d39320ed81f9daceca764f62ee61e6b5
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 9c2e5c15b88106758194f6ecb37b11dacdd341c7
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37387463"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37802438"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-alwaysvisible-control-extender"></a>[Jak mogę] Użyj rozszerzenie kontrolki AlwaysVisible ASP.NET AJAX?
 ====================

@@ -4,19 +4,16 @@ title: 'ASP.NET Web API, część 1: Twój pierwszy interfejs Web API | Dokument
 author: jongalloway
 description: 'Uwaga: To wideo zawiera informacje z wersji wstępnej programu ASP.NET Web API'
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/15/2012
-ms.topic: article
 ms.assetid: fda768fb-50f5-4046-8fda-6f199d27bce7
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/videos/getting-started/your-first-web-api
 msc.type: video
-ms.openlocfilehash: 2b92b3a9ab378d09c84dbf3778f104a128ebc658
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 9123c92a31828687fedb6c70c19ca6ac429ee525
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37383665"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37839769"
 ---
 <a name="aspnet-web-api-part-1-your-first-web-api"></a>ASP.NET Web API, część 1: Twój pierwszy interfejs Web API
 ====================

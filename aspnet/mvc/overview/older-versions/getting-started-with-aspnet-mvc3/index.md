@@ -4,19 +4,16 @@ title: Wprowadzenie do wzorca ASP.NET MVC 3 | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Podstawy tworzenia aplikacji sieci Web platformy ASP.NET MVC przy użyciu programu Microsoft Visual Web Developer 2010 Express.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 09/28/2011
-ms.topic: article
 ms.assetid: 67bdeec1-5301-4756-8615-cd9e8c5749e0
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3
 msc.type: chapter
-ms.openlocfilehash: 53768968b4a046e326d3bed0b18f404391f8687e
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 176578d924862a9b6a6e6495032d637637b2cdb1
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37399313"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37829430"
 ---
 <a name="getting-started-with-aspnet-mvc3"></a>Wprowadzenie do wzorca ASP.NET MVC 3
 ====================

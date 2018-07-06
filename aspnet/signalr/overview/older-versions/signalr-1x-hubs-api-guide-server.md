@@ -4,19 +4,16 @@ title: Podręcznik interfejsu API centrów SignalR platformy ASP.NET — serwer 
 author: pfletcher
 description: Ten dokument zawiera wprowadzenie do programowania po stronie serwera interfejsu API centrów SignalR platformy ASP.NET dla elementu SignalR w wersji 1.1, za pomocą demonstratin przykładów kodu...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/17/2013
-ms.topic: article
 ms.assetid: 03e4b9f5-0fea-4d94-959f-014b2762a301
-ms.technology: dotnet-signalr
 msc.legacyurl: /signalr/overview/older-versions/signalr-1x-hubs-api-guide-server
 msc.type: authoredcontent
-ms.openlocfilehash: 5597b89688382ab7eb2c2c724baf9a32abee49c9
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 15d2f4e9eaff0d47a3bdce489dfc1d19177423f8
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37396669"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37826416"
 ---
 <a name="aspnet-signalr-hubs-api-guide---server-signalr-1x"></a>Podręcznik interfejsu API centrów SignalR platformy ASP.NET — serwer (SignalR 1.x)
 ====================

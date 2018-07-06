@@ -4,19 +4,16 @@ title: '[Jak mogę] Pobieranie wartości z kontrolek AJAX po stronie serwera | D
 author: JoeStagner
 description: W tym filmie wideo I pokazano, jak można pobrać wartości z kontrolek AJAX po stronie serwera, podobnie jak w przypadku zestawu narzędzi AJAX toolkit.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/21/2008
-ms.topic: article
 ms.assetid: 9d770bb5-fd76-4ae9-a11b-9783f394a24f
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-retrieve-values-from-server-side-ajax-controls
 msc.type: video
-ms.openlocfilehash: 49d4e86b6dd71e99fe6801795fde8d4e9f132655
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 6d03c429336e66eec58d8f3e547b173f42e7351d
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37367499"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37828985"
 ---
 <a name="how-do-i-retrieve-values-from-server-side-ajax-controls"></a>[Jak mogę] Pobieranie wartości z kontrolek AJAX po stronie serwera
 ====================

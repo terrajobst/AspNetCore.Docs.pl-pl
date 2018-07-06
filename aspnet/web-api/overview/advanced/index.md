@@ -4,19 +4,16 @@ title: Tematy zaawansowane Web API platformy ASP.NET | Dokumentacja firmy Micros
 author: rick-anderson
 description: Bardziej zaawansowane tematy dotyczące projektowania interfejsu API sieci Web platformy ASP.NET, gdy znasz podstawy.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/23/2014
-ms.topic: article
 ms.assetid: 7404a0f1-52f7-410c-abd0-c96bab52d217
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/overview/advanced
 msc.type: chapter
-ms.openlocfilehash: ae17bdbebf1d8fc0c6e42da2bbe96e260b0523ae
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 49c6f7b4efd824f2fe5382894c78bb7d13f7a27a
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37381569"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37833580"
 ---
 <a name="advanced-topics-for-aspnet-web-api"></a>Tematy zaawansowane Web API platformy ASP.NET
 ====================

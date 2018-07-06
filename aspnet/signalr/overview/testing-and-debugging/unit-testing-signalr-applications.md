@@ -4,19 +4,16 @@ title: Testowanie aplikacji SignalR jednostek | Dokumentacja firmy Microsoft
 author: pfletcher
 description: W tym artykule opisano, jak używać funkcji testów jednostkowych SignalR w wersji 2.0.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/10/2014
-ms.topic: article
 ms.assetid: d1983524-e0d5-4ee6-9d87-1f552f7cb964
-ms.technology: dotnet-signalr
 msc.legacyurl: /signalr/overview/testing-and-debugging/unit-testing-signalr-applications
 msc.type: authoredcontent
-ms.openlocfilehash: b058e8a05e50c2841b6272743f00dcd5b73b1460
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: f46c6edd2002bcc6e62f4e4fe313c9e50e35aaff
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37366190"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37840916"
 ---
 <a name="unit-testing-signalr-applications"></a>Testowanie jednostkowe aplikacji SignalR
 ====================

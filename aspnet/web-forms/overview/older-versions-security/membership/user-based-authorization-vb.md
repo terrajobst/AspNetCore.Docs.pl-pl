@@ -4,19 +4,16 @@ title: Autoryzacja oparta na użytkownikach (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: W tym samouczku przyjrzymy się ograniczenie dostępu do stron i ograniczenie funkcji na poziomie strony za pomocą różnych technik.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/18/2008
-ms.topic: article
 ms.assetid: bc937e9d-5c14-4fc4-aec7-440da924dd18
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/user-based-authorization-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c23e67d1a32ffb5115c76bee25ed8b82f44ae8d3
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 107983494350ddc06b6d3a20557baff4f4e6f9f4
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37376365"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37834377"
 ---
 <a name="user-based-authorization-vb"></a>Autoryzacja oparta na użytkownikach (VB)
 ====================

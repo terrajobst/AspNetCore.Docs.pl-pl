@@ -4,19 +4,16 @@ title: Przeciąganie i upuszczanie za pomocą kontrolki ReorderList (C#) | Dokum
 author: wenz
 description: Kontrolki kontrolki ReorderList na zestawu narzędzi AJAX Control Toolkit zawiera listy, które można zmienić kolejności przez użytkownika za pomocą przeciągania i upuszczania. Bieżący kolejność listy jest...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: 6350ee8e-11d6-4aff-b51c-942878014835
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/reorderlist/drag-and-drop-via-reorderlist-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 59f88787e7794e9c7bd391ae3e8cea538b446f7d
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 6c31e1e9b88d07fb4fe2881ac24b7c9c10126c96
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37389114"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37803722"
 ---
 <a name="drag-and-drop-via-reorderlist-c"></a>Przeciąganie i upuszczanie za pomocą kontrolki ReorderList (C#)
 ====================

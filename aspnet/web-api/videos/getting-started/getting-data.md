@@ -4,19 +4,16 @@ title: 'ASP.NET Web API, część 2: Pobieranie danych | Dokumentacja firmy Micr
 author: jongalloway
 description: 'Uwaga: To wideo zawiera informacje z wersji wstępnej programu ASP.NET Web API'
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/15/2012
-ms.topic: article
 ms.assetid: 0fed43a5-4703-41ff-8da9-15917cbc0944
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/videos/getting-started/getting-data
 msc.type: video
-ms.openlocfilehash: baba1a0408dbfd5f000b3e286e9f1b5d2abf0273
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 3389a82c8a0f1cb5ede4dba4a02dfb61007dccdd
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37370435"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37831521"
 ---
 <a name="aspnet-web-api-part-2-getting-data"></a>ASP.NET Web API, część 2: Pobieranie danych
 ====================

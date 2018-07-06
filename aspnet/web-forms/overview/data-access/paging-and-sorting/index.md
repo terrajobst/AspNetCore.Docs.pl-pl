@@ -4,19 +4,16 @@ title: Stronicowanie i sortowanie | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: W tych samouczkach dodasz niektóre początkowej sortowania i stronicowania funkcji danych raportów.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/05/2011
-ms.topic: article
 ms.assetid: d45a8c0c-e8ec-46d3-bc1c-ce446df005c8
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting
 msc.type: chapter
-ms.openlocfilehash: 8c311157330031c1046e11e25caf8593c1db682f
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 05763816921d1681020da83bda317adf8e7024c8
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37361922"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37830142"
 ---
 <a name="paging-and-sorting"></a>Stronicowanie i sortowanie
 ====================

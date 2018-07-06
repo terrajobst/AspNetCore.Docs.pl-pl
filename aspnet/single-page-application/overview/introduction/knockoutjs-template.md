@@ -4,19 +4,16 @@ title: 'Aplikacja jednostronicowa: Szablon KnockoutJS | Dokumentacja firmy Micro
 author: MikeWasson
 description: Szablon knockout
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/30/2013
-ms.topic: article
 ms.assetid: f9c07af0-4b20-4b08-af8f-47fc3df169a2
-ms.technology: ''
 msc.legacyurl: /single-page-application/overview/introduction/knockoutjs-template
 msc.type: authoredcontent
-ms.openlocfilehash: 75169836d1d9a647bdd4ac3742cb1dc1f31f2a32
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 9e48c7033cefe8b6e4c456577b7a6448f9815d0b
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37377905"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37832532"
 ---
 <a name="single-page-application-knockoutjs-template"></a>Aplikacja jednostronicowa: Szablon KnockoutJS
 ====================

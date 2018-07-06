@@ -4,19 +4,16 @@ title: Konfigurowanie serwera sieci Web dla sieci Web wdrażanie, publikowanie (
 author: jrjlee
 description: W tym temacie opisano sposób konfigurowania serwera sieci web usług Internet Information Services (IIS) do obsługi publikowania w sieci web i wdrażanie przy użyciu Hanowi wdrażania w sieci Web usług IIS...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/04/2012
-ms.topic: article
 ms.assetid: 90ebf911-1c46-4470-b876-1335bd0f590f
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler
 msc.type: authoredcontent
-ms.openlocfilehash: 2d262aab8fd6e755330acbaffa6d18c29688666f
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 3296bb9b6460bbe80782746c9d398aa67815dcee
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37394219"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37833338"
 ---
 <a name="configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler"></a>Konfigurowanie serwera sieci Web dla sieci Web wdrażanie, publikowanie (Web Deploy obsługi)
 ====================

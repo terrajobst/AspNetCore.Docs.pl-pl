@@ -4,19 +4,16 @@ title: Technologie dostępu do danych w programie ASP.NET, wprowadzenie do LINQ 
 author: JoeStagner
 description: LINQ to deweloperów platformy ASP.NET preferowane mechanizm dostępu do danych. Ten film stanowi wprowadzenie do programowania w języku LINQ i porównuje betwee dostępu prostych danych...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/13/2009
-ms.topic: article
 ms.assetid: e6792c2a-02db-440a-9070-40a0c0952b27
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/aspnet-data-access-technologies-an-introduction-to-linq
 msc.type: video
-ms.openlocfilehash: 4b73ccdd73c019e109f1a3c60095928f4e2ed8bc
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 662fbe5688158e38644ce78ee90b1e51fc6c28b3
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37383594"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37801418"
 ---
 <a name="aspnet-data-access-technologies-an-introduction-to-linq"></a>Technologie dostępu do danych w programie ASP.NET, wprowadzenie do LINQ
 ====================

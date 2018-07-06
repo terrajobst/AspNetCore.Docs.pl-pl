@@ -4,19 +4,16 @@ title: ASP.NET Web Pages | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Pobierz program WebMatrix i Dowiedz się, jak szybkiego tworzenia stron sieci web w uproszczone sposób łączenia kodu serwera z kodem HTML.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/18/2012
-ms.topic: article
 ms.assetid: 5418ba96-ff49-4a43-9cbb-09dea4949d23
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages
 msc.type: categoryindex
-ms.openlocfilehash: 9384ec1c2c32f6cd5f64a5dec2f2b2886749ef52
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: efd61b01102c4bdcd05253da4f59177db2d57c3b
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37400295"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37828139"
 ---
 <a name="aspnet-web-pages"></a>ASP.NET Web Pages
 ====================

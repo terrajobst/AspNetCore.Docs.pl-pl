@@ -4,19 +4,16 @@ title: Zagnieżdżone dane sieci Web kontrolki (VB) | Dokumentacja firmy Microso
 author: rick-anderson
 description: W tym samouczku, który przeanalizujemy sposób używania Repeater zagnieżdżone wewnątrz innego elementu powtarzanego. Przykłady przedstawiają sposobu wypełniania wewnętrzny elementu powtarzanego zarówno d...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 09/13/2006
-ms.topic: article
 ms.assetid: 8b7fcf7b-722b-498d-a4e4-7c93701e0c95
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/nested-data-web-controls-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 2f7980d22d6ebc15a033cca321644a2bf1d4e3bb
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 45e460edb09fe9398d204e0f280dfb088a44946d
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37390036"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37803181"
 ---
 <a name="nested-data-web-controls-vb"></a>Zagnieżdżone kontrolki internetowe danych (VB)
 ====================

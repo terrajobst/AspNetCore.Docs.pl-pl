@@ -4,19 +4,16 @@ title: Wyświetlanie danych za pomocą kontrolek DataList i Repeater | Dokumenta
 author: rick-anderson
 description: W tych samouczkach przedstawiono alternatywnych sposobów, aby wyświetlić dane za pomocą kontrolek DataList i Repeater.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/05/2011
-ms.topic: article
 ms.assetid: 3005174a-ba3d-4937-8b3e-b913ee4172ac
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater
 msc.type: chapter
-ms.openlocfilehash: e0b351e409f85d78aad8efff364f8bd656b13129
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: e14f6b6afb40edc9fa96e748b57f1cca8068de8b
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37393725"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37832871"
 ---
 <a name="displaying-data-with-the-datalist-and-repeater"></a>Wyświetlanie danych za pomocą kontrolek DataList i Repeater
 ====================

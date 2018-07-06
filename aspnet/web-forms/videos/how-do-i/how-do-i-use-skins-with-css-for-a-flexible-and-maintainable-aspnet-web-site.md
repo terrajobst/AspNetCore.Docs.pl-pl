@@ -4,19 +4,16 @@ title: '[Jak mogę] Używanie skórek ze CSS dla witryny sieci Web ASP.NET elast
 author: rick-anderson
 description: W tym wideo pikseli Chris pokazuje, jak utworzyć skórki kontrolek serwera ASP.NET, a następnie używanie style CSS, aby sterować wyglądem stosowanie skórek zysk...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/07/2008
-ms.topic: article
 ms.assetid: aaada05a-5735-4d90-b52d-b58e746a1074
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-skins-with-css-for-a-flexible-and-maintainable-aspnet-web-site
 msc.type: video
-ms.openlocfilehash: 074c9e37b155add737afb7d2628f466a3de64bec
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 0515cd707911b2ea444f02baf9999a72e7c8107a
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37402567"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37837120"
 ---
 <a name="how-do-i-use-skins-with-css-for-a-flexible-and-maintainable-aspnet-web-site"></a>[Jak mogę] Używanie skórek ze CSS dla witryny sieci Web platformy ASP.NET elastyczny i łatwy w obsłudze
 ====================

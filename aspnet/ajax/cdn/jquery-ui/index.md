@@ -4,19 +4,16 @@ title: Interfejs użytkownika jQuery | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: ''
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/21/2014
-ms.topic: article
 ms.assetid: bd72bb7e-bdcb-490b-8bc1-9b669329632b
-ms.technology: ''
 msc.legacyurl: /ajax/cdn/jquery-ui
 msc.type: folder
-ms.openlocfilehash: ac94229376b77934f39ad32b811b5be4d6778a8a
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: f08e2c2985377a32f4b724785c28345c2f318627
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37391597"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37801878"
 ---
 <a name="jquery-ui"></a>Interfejs użytkownika jQuery
 ====================

@@ -4,19 +4,16 @@ title: 'Środowiska ASP.NET vNext wideo: wiązanie modelu — część 3 — akt
 author: DamianEdwards
 description: W tym filmie Damianem Edwardsem kończy Przegląd wiązanie modelu poprzez zademonstrowanie, jak dane są aktualizowane.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/22/2011
-ms.topic: article
 ms.assetid: 63c42590-08ac-44da-91f8-bd79489b9ecc
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-web-forms-vnext/aspnet-vnext-videos-model-binding-part-3-updating
 msc.type: video
-ms.openlocfilehash: 881f09edc81d70a364d6c2800edb25180343d96b
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 124405cdc01b3722eb07dac21a43da31d90c143a
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37392043"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37827119"
 ---
 <a name="aspnet-vnext-videos-model-binding-part-3---updating"></a>Środowiska ASP.NET vNext wideo: wiązanie modelu — część 3 — aktualizowanie
 ====================

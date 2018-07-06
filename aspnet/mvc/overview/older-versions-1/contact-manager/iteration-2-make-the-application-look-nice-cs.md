@@ -4,19 +4,16 @@ title: 'Iteracja #2 — zastosować Szukaj nieuprzywilejowany (C#) | Dokumentacj
 author: microsoft
 description: W tej iteracji możemy poprawić wygląd aplikacji przez zmodyfikowanie domyślnych strony wzorcowej widoku platformy ASP.NET MVC i kaskadowych arkuszy stylów.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/20/2009
-ms.topic: article
 ms.assetid: f1173feb-11ee-4017-8f3f-86599ea6ae13
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-2-make-the-application-look-nice-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e78383516c752748da67f058c37aeb66d7004707
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 7385756d6ae362f8e39d56bb3f0e68caa89329b2
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37377933"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37826342"
 ---
 <a name="iteration-2--make-the-application-look-nice-c"></a>Iteracja #2 — zastosować Szukaj nieuprzywilejowany (C#)
 ====================

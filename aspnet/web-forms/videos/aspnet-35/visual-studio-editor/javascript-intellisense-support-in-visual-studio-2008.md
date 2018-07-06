@@ -4,19 +4,16 @@ title: Obsługa funkcji Intellisense języka JavaScript w programie Visual Studi
 author: JoeStagner
 description: W tym filmie pokazano, które będą wyróżnić niektóre JavaScript Intellisense wbudowane w program Visual Studio 2008. Pokażę sposobów poprawy featu Intellisense JavaScript...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/15/2007
-ms.topic: article
 ms.assetid: a4429553-d43e-4169-9fb3-086405ec9c93
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-35/visual-studio-editor/javascript-intellisense-support-in-visual-studio-2008
 msc.type: video
-ms.openlocfilehash: 85876bb04c847fb512b68b6e8233477f5d2a8837
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 69932bf4a8621a63492718c14f5b02ee77aff454
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37381250"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37835722"
 ---
 <a name="javascript-intellisense-support-in-visual-studio-2008"></a>Obsługa funkcji Intellisense języka JavaScript w programie Visual Studio 2008
 ====================

@@ -4,19 +4,16 @@ title: Dodawanie kontrolek weryfikacji do edycji interfejsów i wstawiania (VB) 
 author: rick-anderson
 description: W tym samouczku zobaczymy, jak łatwo jest dodawanie kontrolek weryfikacji do EditItemTemplate i InsertItemTemplate danych formantu sieci Web, aby zapewnić bardziej...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/17/2006
-ms.topic: article
 ms.assetid: e3d7028a-7a22-4a4f-babe-d53afc41c0e2
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a2fc00426022513c6e2adc49b0df30f943403302
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: a9527cad45e506268a9d5f19a445cae939345540
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37366232"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37839979"
 ---
 <a name="adding-validation-controls-to-the-editing-and-inserting-interfaces-vb"></a>Dodawanie kontrolek weryfikacji do edycji interfejsów i wstawiania (VB)
 ====================

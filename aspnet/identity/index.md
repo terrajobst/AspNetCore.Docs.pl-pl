@@ -4,19 +4,16 @@ title: ASP.NET Identity | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: ''
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/02/2013
-ms.topic: article
 ms.assetid: 0c2df5d4-c2dd-486d-b0ed-fe831c6b596c
-ms.technology: ''
 msc.legacyurl: /identity
 msc.type: categoryindex
-ms.openlocfilehash: f3903b0597a8a553cbbf216a1fd618c4ae4a9879
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: c72f40822dd122dc6f3c56ad1994091e6a991740
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37375634"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37804075"
 ---
 <a name="aspnet-identity"></a>ASP.NET Identity
 ====================

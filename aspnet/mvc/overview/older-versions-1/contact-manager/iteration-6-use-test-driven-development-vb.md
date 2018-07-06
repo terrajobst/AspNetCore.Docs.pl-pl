@@ -4,19 +4,16 @@ title: 'Iteracja #6 — korzystanie z projektowania opartego na testach (VB) | D
 author: microsoft
 description: W tym szóstego iteracji dodamy nowe funkcje do naszej aplikacji, najpierw pisanie testów jednostkowych i pisanie kodu dla testów jednostkowych. W tym iteracji...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/20/2009
-ms.topic: article
 ms.assetid: e1fd226f-3f8e-4575-a179-5c75b240333d
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-6-use-test-driven-development-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 3b55bb689a5a6dfdb07b02a7d595244f886f0fd2
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: f5ef03c76d1ecc72cffdeed6f8dcd1b5e39d859d
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37377249"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37829275"
 ---
 <a name="iteration-6--use-test-driven-development-vb"></a>Iteracja #6 — korzystanie z projektowania opartego na testach (VB)
 ====================

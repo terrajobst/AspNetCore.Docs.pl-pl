@@ -4,19 +4,16 @@ title: Autoryzacja oparta na rolach (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Ten samouczek rozpoczyna się od przyjrzeć się jak w ramach ról kojarzy ról użytkownika z jego kontekstu zabezpieczeń. Następnie sprawdza, czy sposobu stosowania opartej na rolach adres URL...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/24/2008
-ms.topic: article
 ms.assetid: 83b4f5a4-4f5a-4380-ba33-f0b5c5ac6a75
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-security/roles/role-based-authorization-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b8cf8cc5fa802eb812482b236c8b2825423027e7
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 6bf9e1f0832b811ce8e2033dd45f94dc3baaeea6
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37390988"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37829648"
 ---
 <a name="role-based-authorization-vb"></a>Autoryzacja oparta na rolach (VB)
 ====================

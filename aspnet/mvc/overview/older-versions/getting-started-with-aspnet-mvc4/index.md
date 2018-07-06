@@ -4,19 +4,16 @@ title: Wprowadzenie do platformy ASP.NET MVC 4 | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: W tej serii samouczków obejmuje podstawy tworzenia aplikacji sieci Web platformy ASP.NET MVC przy użyciu programu Microsoft Visual Web Developer 2010 Express Service Pack 1, w...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/15/2012
-ms.topic: article
 ms.assetid: a35183ac-cbcb-4070-9233-6331cde921ad
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4
 msc.type: chapter
-ms.openlocfilehash: 5081700ec2995f176526e1421ab5f40d6fb9a83d
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 24ff01474044a7b9053a313c80b915dc198fdae5
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37369856"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37830579"
 ---
 <a name="getting-started-with-aspnet-mvc-4"></a>Wprowadzenie do platformy ASP.NET MVC 4
 ====================

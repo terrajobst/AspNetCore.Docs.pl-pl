@@ -4,19 +4,16 @@ title: 'Samouczek: Wprowadzenie do SignalR 2 | Dokumentacja firmy Microsoft'
 author: pfletcher
 description: Ten samouczek pokazuje, jak utworzyć aplikację do obsługi rozmów w czasie rzeczywistym przy użyciu SignalR. Będzie dodać SignalR do pustych aplikacji sieci web ASP.NET i utworzyć pa HTML...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/10/2014
-ms.topic: article
 ms.assetid: a8b3b778-f009-4369-85c7-e90f9878d8b4
-ms.technology: dotnet-signalr
 msc.legacyurl: /signalr/overview/getting-started/tutorial-getting-started-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: fcd00419de77a380e004cbe306eb46910655a355
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 798838af099cceb12652b7c6c66633a03a73e538
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37398187"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37841845"
 ---
 <a name="tutorial-getting-started-with-signalr-2"></a>Samouczek: Wprowadzenie do SignalR 2
 ====================

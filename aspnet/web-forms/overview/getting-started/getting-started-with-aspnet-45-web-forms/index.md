@@ -4,19 +4,16 @@ title: Wprowadzenie do wzorca ASP.NET 4.5 Web Forms i programu Visual Studio 201
 author: rick-anderson
 description: W tej serii samouczków obejmuje podstawy tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu platformy ASP.NET 4.5 i programu Visual Studio 2013 Express for Web. Integrujące...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/09/2012
-ms.topic: article
 ms.assetid: dc6aa59a-9cb0-4a81-b5f3-ec545a0e958d
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms
 msc.type: chapter
-ms.openlocfilehash: 954c51b42747ee6c53a702b300881a13c46a4a5a
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: fed23ec48e31ed63554cdfbd316b39b336eee7a4
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37365180"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37803754"
 ---
 <a name="getting-started-with-aspnet-45-web-forms-and-visual-studio-2013"></a>Wprowadzenie do wzorca ASP.NET 4.5 Web Forms i programu Visual Studio 2013
 ====================

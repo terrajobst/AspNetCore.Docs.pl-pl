@@ -4,19 +4,16 @@ title: Powiązanie danych z kontrolką Accordion (C#) | Dokumentacja firmy Micro
 author: wenz
 description: Kontrolki właściwości Accordion na zestawu narzędzi AJAX Control Toolkit zawiera wiele okienek i umożliwia użytkownikowi wyświetlanie jednego z nich jednocześnie. Panele zwykle są deklarowane w...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: 9c8f0054-e319-46f8-80c0-35b606d2fbd4
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/accordion/databinding-to-an-accordion-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8441eb15d369085b93297ae896d595a40d4099fd
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 05adc7158725bd5a6ba276b81222de04158d3c64
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37394025"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37833543"
 ---
 <a name="databinding-to-an-accordion-c"></a>Powiązanie danych z kontrolką Accordion (C#)
 ====================

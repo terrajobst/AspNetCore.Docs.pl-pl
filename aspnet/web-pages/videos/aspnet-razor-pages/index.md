@@ -4,19 +4,16 @@ title: Strony Razor aplikacji ASP.NET | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Które pliki wideo można wyświetlić na przechodzenie do stron sieci Web i programu WebMatrix.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/18/2012
-ms.topic: article
 ms.assetid: ffad842d-548c-40c6-84c5-10858133e972
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages/videos/aspnet-razor-pages
 msc.type: chapter
-ms.openlocfilehash: 3a35f2f3f93c2eba976a636e07bf4d6fdee6d691
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 67bd93d5c6bdc9b4f6fef73f7ea3894d224d7c07
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37390315"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37832252"
 ---
 <a name="aspnet-web-pages"></a>ASP.NET Web Pages
 =================

@@ -4,19 +4,16 @@ title: 'Środowiska ASP.NET vNext wideo: tworzenie pakietów i minimalizowanie |
 author: madskristensen
 description: ': Mads Kristensen pokazano, jak środowiska ASP.NET vNext może automatycznie pakietu i modyfikowania zasobów JavaScript i CSS, aby zwiększyć wydajność.'
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 09/29/2011
-ms.topic: article
 ms.assetid: 8d04a9db-fa17-4233-bc74-6c040fd1c17a
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-web-forms-vnext/aspnet-vnext-videos-bundling-and-minification
 msc.type: video
-ms.openlocfilehash: a5ab6cd1e38405ece6cdb05546f109f4e840af48
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 69333f448e9724c35f3066cfb1021cb28225a7ff
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37383555"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37838322"
 ---
 <a name="aspnet-vnext-videos-bundling-and-minification"></a>Środowiska ASP.NET vNext wideo: tworzenie pakietów i minimalizowanie
 ====================

@@ -4,19 +4,16 @@ title: '[Jak mogę] Wybieranie spośród metod AJAX aktualizacji stron? | Micros
 author: JoeStagner
 description: W tym filmie pokazano Stagner Jan porównanie dwóch głównych metodach wykonywania aktualizacji stron stylu AJAX w aplikacji ASP.NET. Pierwsza metoda jest używać Upd...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/09/2007
-ms.topic: article
 ms.assetid: a5e33a7d-ccb2-483f-a955-3d39f72ba4ec
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-choose-between-methods-of-ajax-page-updates
 msc.type: video
-ms.openlocfilehash: c092a7dcaeeeec53e899bb1cdf12f9bb02a99597
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 226fb0423ea05ad9034c909037358331918f2892
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37392055"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37838442"
 ---
 <a name="how-do-i-choose-between-methods-of-ajax-page-updates"></a>[Jak mogę] Wybieranie spośród metod AJAX aktualizacji stron?
 ====================

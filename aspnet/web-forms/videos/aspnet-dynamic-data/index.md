@@ -4,19 +4,16 @@ title: Dane dynamiczne ASP.NET | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Jak korzystać z ASP.NET Dynamic Data do tworzenia szkieletu aplikacji, które automatycznie uzyskać dostęp do danych.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/05/2011
-ms.topic: article
 ms.assetid: cd51e6c4-6ff9-419d-8ac8-a39b79d63c78
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-dynamic-data
 msc.type: chapter
-ms.openlocfilehash: 41af0473822efb6cdde5087df317b30126dc0bc8
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: c847b8de7e45447be337940e71b87d57911d17f5
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37374790"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37841482"
 ---
 <a name="aspnet-dynamic-data"></a>Dane dynamiczne ASP.NET
 ====================

@@ -4,19 +4,16 @@ title: '[Jak mogę] Użyj rozszerzenie Panelu zwijanego ASP.NET AJAX? | Microsof
 author: JoeStagner
 description: W tym filmie wideo dowiesz się, jak umożliwić użytkownikowi dynamicznie Pokaż lub Ukryj zawartość na stronie sieci web za pomocą rozszerzeń ASP.NET AJAX zwijanego panelu.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/31/2007
-ms.topic: article
 ms.assetid: d54549cd-e832-4bfa-b490-52e58a8a03c4
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-collapsable-panel-extender
 msc.type: video
-ms.openlocfilehash: 0b2e8aacc24d31ccbc769f6bf76f5ae333cfd2a9
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: c30051437902136997e89da2f25c5307960acb6a
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37387624"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37826662"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-collapsable-panel-extender"></a>[Jak mogę] Użyj rozszerzenie Panelu zwijanego ASP.NET AJAX?
 ====================

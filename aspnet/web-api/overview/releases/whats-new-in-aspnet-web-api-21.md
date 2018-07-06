@@ -4,19 +4,16 @@ title: Co nowego we wzorcu ASP.NET Web API 2.1 | Dokumentacja firmy Microsoft
 author: microsoft
 description: ''
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/20/2014
-ms.topic: article
 ms.assetid: b6721bba-38c8-48c4-acbf-274c1a34e817
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/overview/releases/whats-new-in-aspnet-web-api-21
 msc.type: authoredcontent
-ms.openlocfilehash: 8e0501570e6dc6a9a6f69a642f9ab031c5497b5b
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 7952614456b1de24e4c618b9e7ba8448b2a01741
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37385703"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37838406"
 ---
 <a name="whats-new-in-aspnet-web-api-21"></a>Co nowego we wzorcu ASP.NET Web API 2.1
 ====================

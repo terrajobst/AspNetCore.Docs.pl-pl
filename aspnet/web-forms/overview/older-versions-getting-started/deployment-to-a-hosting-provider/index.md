@@ -4,19 +4,16 @@ title: ASP.NET 4 — wdrażanie w Internecie przy użyciu programu SQL Server Co
 author: rick-anderson
 description: W tej serii samouczków pokazano, jak utworzyć aplikację sieci web platformy ASP.NET, która używa programu SQL Server Compact dostępne za pośrednictwem Internetu przez wdrożenie jej h firm...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/29/2011
-ms.topic: article
 ms.assetid: 6798c7e4-f08e-4802-9fa5-443f67d5df62
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider
 msc.type: chapter
-ms.openlocfilehash: 899c55526eec068663e390e11973afc300828b6b
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 7a41221e4e7327659ffd6822d5ce61500ced70a6
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37368161"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37829507"
 ---
 <a name="aspnet-4---web-deployment-with-sql-server-compact-using-visual-studio"></a>ASP.NET 4 — wdrażanie w Internecie przy użyciu programu SQL Server Compact przy użyciu programu Visual Studio
 ====================

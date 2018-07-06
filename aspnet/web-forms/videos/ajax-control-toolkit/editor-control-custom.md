@@ -4,19 +4,16 @@ title: Niestandardowa kontrolka edytora | Dokumentacja firmy Microsoft
 author: JoeStagner
 description: W tym Jan wideo pokazuje, jak utworzyć nową klasę pochodną kontrolka edytora AJAX Control Toolkit firmy i wdrażanie "prosta" użytkownika.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/13/2009
-ms.topic: article
 ms.assetid: c688f8c3-0d0d-4ff2-a32b-f93e05fc826b
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/editor-control-custom
 msc.type: video
-ms.openlocfilehash: 481150d39af21eeb4847b507490688b424df1cd8
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 1f256e867043bd25aef68412dd6b3863dd8ab0cc
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37392688"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37830033"
 ---
 <a name="editor-control-custom"></a>Niestandardowa kontrolka edytora
 ====================

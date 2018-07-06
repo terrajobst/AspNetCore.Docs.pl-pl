@@ -4,19 +4,16 @@ title: Uruchamianie skryptów programu Windows PowerShell z plików projektu MSB
 author: jrjlee
 description: W tym temacie opisano sposób uruchamiania skryptu programu Windows PowerShell jako część procesu kompilacji i wdrażania. Skrypt można uruchomić lokalnie (innymi słowy, na komputerze b...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/04/2012
-ms.topic: article
 ms.assetid: 55f1ae45-fcb5-43a9-8415-fa5b935fc9c9
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/running-windows-powershell-scripts-from-msbuild-project-files
 msc.type: authoredcontent
-ms.openlocfilehash: ddb658d8a8f224a7c417321df3e17ce0610d2473
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: faedcee480b6c50dc560055206fedbe7af4d5f67
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37362898"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37803152"
 ---
 <a name="running-windows-powershell-scripts-from-msbuild-project-files"></a>Uruchamianie skryptów programu Windows PowerShell z plików projektu MSBuild
 ====================
@@ -59,7 +56,7 @@ W tym temacie pokazują sposób wykonania tych procedur. Zadania i wskazówki, w
 Zadania przedstawione w tym temacie Użyj przykładowy skrypt programu Windows PowerShell o nazwie **LogDeploy.ps1** ilustruje sposób uruchamiania skryptów z programu MSBuild. **LogDeploy.ps1** skrypt zawiera prostej funkcji, która zapisuje wpis jeden wiersz w pliku dziennika:
 
 
-[!code-javascript[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample1.js)]
+[!code-powershell[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample1.ps1)]
 
 
 **LogDeploy.ps1** skrypt akceptuje dwa parametry. Pierwszy parametr reprezentuje pełną ścieżkę do pliku dziennika, do którego chcesz dodać wpis, a drugi parametr reprezentuje miejsce docelowe wdrożenia, które mają być rejestrowane w pliku dziennika. Po uruchomieniu skryptu, dodaje wiersz do pliku dziennika w następującym formacie:

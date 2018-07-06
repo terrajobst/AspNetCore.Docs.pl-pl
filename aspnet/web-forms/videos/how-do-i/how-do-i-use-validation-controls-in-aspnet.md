@@ -4,19 +4,16 @@ title: '[Jak mogę]  Korzystanie z kontrolek walidacji na platformie ASP.NET? | 
 author: rick-anderson
 description: W tym filmie pokazano Dowiedz się, jak zaimplementować weryfikację stron sieci web za pomocą kontrolek weryfikacji dostępnych w programie ASP.NET. Wszystkie główne weryfikacji kontroluje takich...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/26/2007
-ms.topic: article
 ms.assetid: 1f2e5f5b-8be1-4acc-ae36-a2e0d140251a
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-validation-controls-in-aspnet
 msc.type: video
-ms.openlocfilehash: accaa482e80aacf0a00dbc5f8eadf741f0cbd91c
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: c1556438a386e20b62a3ac02ebefecf0e9bc3be0
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37384884"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37826734"
 ---
 <a name="how-do-i--use-validation-controls-in-aspnet"></a>[Jak mogę]  Korzystanie z kontrolek walidacji na platformie ASP.NET?
 ====================

@@ -4,19 +4,16 @@ title: Kontrolki z szablonami bez tabeli | Dokumentacja firmy Microsoft
 author: JoeStagner
 description: W tym filmie zaprezentowano RenderOuterTable renderowania właściwości formantów oparte na szablonach, co pozwala na kontrolowanie, czy jest zewnętrzne tabeli...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/16/2009
-ms.topic: article
 ms.assetid: 3d8c871d-7e00-4f13-937c-aa1f9b5a7dba
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/net-4/markup-control/aspnet-4-quick-hit-table-free-templated-controls
 msc.type: video
-ms.openlocfilehash: 55e24fc59bac7ca0e926126d573f0e4db6c1e0e1
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: f3afb933bc3b576b3c15ef17185b6f4c4faffff9
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37385852"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37835702"
 ---
 <a name="aspnet-4-quick-hit--table-free-templated-controls"></a>ASP.NET 4 "Szybkie strzał" — Tabela kontrolki z szablonami bez
 ====================

@@ -4,19 +4,16 @@ title: Badanie zdarzeń skojarzonych z Wstawianie, aktualizowanie i usuwanie (C#
 author: rick-anderson
 description: W tym samouczku zajmiemy się przy użyciu zdarzeń występujących przed, podczas i po wstawiania aktualizowania lub usuwania operacji danych ASP.NET formantu sieci Web. W...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/17/2006
-ms.topic: article
 ms.assetid: dab291a0-a8b5-46fa-9dd8-3d35b249201f
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/examining-the-events-associated-with-inserting-updating-and-deleting-cs
 msc.type: authoredcontent
-ms.openlocfilehash: cec25809038cbe6a114b0e36ef7265d84bbe9b92
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 003d71bd05fcc3462b73c9c8c4bc5d63764b82ba
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37363303"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37836175"
 ---
 <a name="examining-the-events-associated-with-inserting-updating-and-deleting-c"></a>Badanie zdarzeń powiązanych ze wstawianiem, aktualizowania i usuwania (C#)
 ====================

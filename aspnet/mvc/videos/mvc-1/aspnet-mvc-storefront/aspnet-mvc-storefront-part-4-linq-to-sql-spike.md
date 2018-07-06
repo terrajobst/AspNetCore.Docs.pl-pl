@@ -4,19 +4,16 @@ title: 'ASP.NET MVC StoreFront — część 4: Linq To Sql kolekcji | Dokumentac
 author: robconery
 description: Tomasz tworzy kolekcji - bitowej funkcji do testowania myślenia lub inspiracji —, aby upewnić się, że Linq do Sql będzie działać w przypadku mojej wzorzec dostępu do danych.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/27/2008
-ms.topic: article
 ms.assetid: 990262a5-4c06-472a-8083-ed11e14f1e5a
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-4-linq-to-sql-spike
 msc.type: video
-ms.openlocfilehash: 723a10b056b3f031916c06dd72293a17b7ce2797
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 3c2cba0bb65180c0fbbb5b930a0123ed4671124e
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37401169"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37831586"
 ---
 <a name="aspnet-mvc-storefront-part-4-linq-to-sql-spike"></a>ASP.NET MVC StoreFront — część 4: Linq To Sql kolekcji
 ====================

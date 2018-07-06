@@ -4,19 +4,16 @@ title: 'Środowiska ASP.NET vNext wideo: silnie Typizowane kontrolki danych | Do
 author: DamianEdwards
 description: W tym filmie Damianem Edwardsem pokazuje silnie typizowane kontrolki danych w programie Visual Studio vNext, które dostarczyć IntelliSense i skompilować kontrola czasu.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/22/2011
-ms.topic: article
 ms.assetid: 4eda33a1-54f8-4cb6-8cc4-4be78f5fdc00
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-web-forms-vnext/aspnet-vnext-videos-strongly-typed-data-controls
 msc.type: video
-ms.openlocfilehash: 3cede9b88684f2f26841eb377e2222643ed89ef4
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: bcd03f87b85782cd2b8de70370557ed628608925
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37364633"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37803937"
 ---
 <a name="aspnet-vnext-videos-strongly-typed-data-controls"></a>Środowiska ASP.NET vNext wideo: silnie Typizowane kontrolki danych
 ====================

@@ -4,19 +4,16 @@ title: Użyj widoków i kontrolerów, aby zaimplementować interfejs użytkownik
 author: microsoft
 description: Krok 4 pokazano, jak dodać kontroler do aplikacji, która korzysta z zalet nasz model, aby zapewnić użytkownikom środowisko nawigacji lista/szczegóły danych...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/27/2010
-ms.topic: article
 ms.assetid: 64116e56-1c9a-4f07-8097-bb36cbb6e57f
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-controllers-and-views-to-implement-a-listingdetails-ui
 msc.type: authoredcontent
-ms.openlocfilehash: 4fe065e29950a076de07d73205a97399f82f07d6
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 7a0a057efb52a869a72722b24d7283cb883db858
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37377879"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37838588"
 ---
 <a name="use-controllers-and-views-to-implement-a-listingdetails-ui"></a>Użyj widoków i kontrolerów, aby zaimplementować interfejs użytkownika lista/szczegóły
 ====================

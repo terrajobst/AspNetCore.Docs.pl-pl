@@ -4,19 +4,16 @@ title: Migrowanie | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Migrowanie do platformy ASP.NET
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/05/2011
-ms.topic: article
 ms.assetid: baa03541-3f84-4e46-8a2c-2395e64f484d
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/migrating
 msc.type: chapter
-ms.openlocfilehash: 10b721a896246b069241030f175446f6de8fa406
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 7c262a8166405343d4bee9d0d236e9f62ac567ee
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37380245"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37842816"
 ---
 <a name="migrating"></a>Migracja
 ====================

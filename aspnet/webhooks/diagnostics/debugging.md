@@ -4,17 +4,14 @@ title: Elementy Webhook ASP.NET debugowanie | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Jak debugować elementów Webhook programu ASP.NET.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/17/2012
-ms.topic: article
 ms.assetid: 467da78b-3c35-4c51-8b08-77a32379e4a8
-ms.technology: ''
-ms.openlocfilehash: 5c567fb51db008526f59e09fce5bb60b66f6e479
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 25fa47202dd31d6ebd7a0e179075333108515274
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37389062"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37801991"
 ---
 # <a name="aspnet-webhooks-debugging"></a>Elementy Webhook ASP.NET debugowania  
 

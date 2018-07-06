@@ -4,19 +4,16 @@ title: Wydajność | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Jak buforowanie zawartości, aby zwiększyć wydajność i sposób mierzenia ruchu w witrynie.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 09/08/2014
-ms.topic: article
 ms.assetid: ce798572-e7dc-44c1-a7fe-a029820e195e
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages/overview/performance-and-traffic
 msc.type: chapter
-ms.openlocfilehash: 166006527757828d0b586e380beaee8549826fce
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: b6a4c8e9419ab0897041a3173290ae676a9fd0ba
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37394604"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37826379"
 ---
 <a name="performance"></a>Wydajność
 ====================

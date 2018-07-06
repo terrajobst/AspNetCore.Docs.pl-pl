@@ -4,19 +4,16 @@ title: Tematy zaawansowane SignalR | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Dokumentacja biblioteki SignalR — Tematy zaawansowane.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 09/19/2014
-ms.topic: article
 ms.assetid: d8f5d0e8-1ddd-4005-a7aa-50ae87f9f9f3
-ms.technology: dotnet-signalr
 msc.legacyurl: /signalr/overview/advanced
 msc.type: chapter
-ms.openlocfilehash: 4fb7e972fd175bf66320a2580348ba5e62628cd0
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 909b9a07ee48e081b8ab71e12dc0a11227eb6c6f
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37371955"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37837099"
 ---
 <a name="signalr-advanced-topics"></a>SignalR Tematy zaawansowane
 ====================

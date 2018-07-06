@@ -4,19 +4,16 @@ title: 'Część 5: Logika biznesowa | Dokumentacja firmy Microsoft'
 author: JoeStagner
 description: W tej serii samouczków zawiera szczegóły wszystkich kroków kompilacji Przykładowa aplikacja Tailspin Spyworks. Część 5 dodaje niektóre logiki biznesowej.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/21/2010
-ms.topic: article
 ms.assetid: eaef475a-ca91-47ea-a4a7-d074005ed80c
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-5
 msc.type: authoredcontent
-ms.openlocfilehash: 719d56e0764e2f66b8813c9487119bbc700d738c
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: fdb73c01d7b6076bc292c640376aa35cc5f52ea6
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37377989"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37827051"
 ---
 <a name="part-5-business-logic"></a>Część 5: Logika biznesowa
 ====================

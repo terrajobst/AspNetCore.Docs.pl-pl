@@ -4,19 +4,16 @@ title: Konfiguracja uwierzytelniania formularzy i Tematy zaawansowane (C#) | Dok
 author: rick-anderson
 description: W tym samouczku Zapoznamy zbadania różnych ustawień uwierzytelniania formularzy i dowiedzieć się, jak ich modyfikacji przez element formularzy. Wiąże się to szczegółowe...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/14/2008
-ms.topic: article
 ms.assetid: b9c29865-a34e-48bb-92c0-c443a72cb860
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/forms-authentication-configuration-and-advanced-topics-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 707c47917450bad409a04b3b5b80edc560b7c756
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 3bdbcd5e8f8890fe3fae2063d6f8a44aa8bb5b1e
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37372777"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37833274"
 ---
 <a name="forms-authentication-configuration-and-advanced-topics-c"></a>Konfiguracja uwierzytelniania formularzy i Tematy zaawansowane (C#)
 ====================

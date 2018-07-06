@@ -4,19 +4,16 @@ title: jQuery Mobile | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: ''
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/23/2014
-ms.topic: article
 ms.assetid: c13785b6-5538-4511-92de-4afdb4a1d0f1
-ms.technology: ''
 msc.legacyurl: /ajax/cdn/jquery-mobile
 msc.type: folder
-ms.openlocfilehash: 338ff62220df7cbecfdd66175b233a1ba501818d
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 34da6871a249359c10715083bfa005f71da6dc4c
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37387980"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37826214"
 ---
 <a name="jquery-mobile"></a>jQuery Mobile
 ====================

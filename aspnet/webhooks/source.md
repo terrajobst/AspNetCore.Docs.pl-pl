@@ -4,17 +4,14 @@ title: Kod źródłowy elementów Webhook programu ASP.NET i pakiety NuGet | Dok
 author: rick-anderson
 description: Łącza do elementów Webhook programu ASP.NET w kodzie źródłowym oraz pakietów NuGet
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/17/2012
-ms.topic: article
 ms.assetid: 91a62bfa-ea3a-41f9-a2e1-e90d2c8fc8ca
-ms.technology: ''
-ms.openlocfilehash: 49a6d3e92e8d6365bea6594a616922aff9d0b4ac
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 1ee4adc2a28054ed1f856d7e4e991b34972a70e8
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37375852"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37802186"
 ---
 # <a name="aspnet-webhooks-source-code-and-nuget-packages"></a>Kod źródłowy elementów Webhook programu ASP.NET i pakiety NuGet
 

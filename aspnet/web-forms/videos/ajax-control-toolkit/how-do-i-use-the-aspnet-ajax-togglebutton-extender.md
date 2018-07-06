@@ -4,19 +4,16 @@ title: '[Jak mogę] Użyj rozszerzenie ToggleButton ASP.NET AJAX? | Microsoft Do
 author: JoeStagner
 description: Pokazuje, za pomocą między ToggleButton rozszerzenie formantu do modyfikowania zachowania i wyglądu zwiększenia użytkownik standardowy formant ASP.NET CheckBox...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/01/2007
-ms.topic: article
 ms.assetid: 3116e9bc-681c-48f9-813e-1bcfcec145da
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-togglebutton-extender
 msc.type: video
-ms.openlocfilehash: 89f8d1783e60ccad823ad58d3ca0d7542fca2e6b
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: bd1b58d843839a60b24513796359d0bd502e5e6f
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37386397"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37802953"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-togglebutton-extender"></a>[Jak mogę] Użyj rozszerzenie ToggleButton ASP.NET AJAX?
 ====================

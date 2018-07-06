@@ -4,19 +4,16 @@ title: ASP.NET MVC 2 — obszary | Dokumentacja firmy Microsoft
 author: jongalloway
 description: W tym filmie wideo dowiesz się, jak za pomocą funkcji obszarów, aby ułatwić organizowanie większych aplikacji ASP.NET MVC, dzieląc je do różnych funct...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/22/2010
-ms.topic: article
 ms.assetid: 6ec738b6-c34c-4647-b8bf-9acb8d2a259d
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/aspnet-mvc-2-areas
 msc.type: video
-ms.openlocfilehash: 4a0b16453837b6d3bb06b5eb08f44f16c9ac9ea6
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 95f3ea6a054d1e02cca2902fd6eea54ef33d347d
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37396562"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37827582"
 ---
 <a name="aspnet-mvc-2---areas"></a>ASP.NET MVC 2 — obszary
 ====================

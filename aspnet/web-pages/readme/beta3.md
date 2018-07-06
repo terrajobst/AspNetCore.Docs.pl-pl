@@ -4,19 +4,16 @@ title: I plik Readme programu ASP.NET Web Pages (Razor) w wersji Beta 3 | Dokume
 author: rick-anderson
 description: Macierz sieci Web i plik Readme ASP.NET Web Pages (Razor) w wersji Beta 3
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/10/2011
-ms.topic: article
 ms.assetid: ffa3d5c9-91e5-4da3-b409-560b0c7fbbf0
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages/readme/beta3
 msc.type: content
-ms.openlocfilehash: 5aa609bf31499485dc7a1298fa689f3a7cee4774
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 16b324e555b5450fc1e05c63e7e19985a2d02b89
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37363536"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37831835"
 ---
 <a name="web-matrix-and-aspnet-web-pages-razor-beta-3-release-readme"></a>Macierz sieci Web i plik Readme ASP.NET Web Pages (Razor) w wersji Beta 3
 ====================

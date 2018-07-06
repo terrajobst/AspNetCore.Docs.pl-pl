@@ -4,19 +4,16 @@ title: Rejestrowanie szczegółów błędów za pomocą biblioteki ELMAH (C#) | 
 author: rick-anderson
 description: Błąd rejestrowania moduły i programy obsługi (ELMAH) oferuje innego podejścia do rejestrowania błędów środowiska uruchomieniowego w środowisku produkcyjnym. ELMAH błędu bezpłatnej, typu open source...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/09/2009
-ms.topic: article
 ms.assetid: 11f6fe44-64ef-4a38-a3b4-35c7bb992352
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-elmah-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 0b9b91b54f50ddd86e102fea3b0dfd5505e3f594
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 2432b22bd5dec1668fdb134eaeb92e372062ddda
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37388480"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37834141"
 ---
 <a name="logging-error-details-with-elmah-c"></a>Rejestrowanie szczegółów błędów za pomocą biblioteki ELMAH (C#)
 ====================

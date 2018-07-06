@@ -4,19 +4,16 @@ title: Integrowanie selektora daty interfejsu użytkownika JQuery z wiązania mo
 author: tfitzmac
 description: W tej serii samouczków pokazano podstawowych aspektów projektu formularzy sieci Web ASP.NET przy użyciu wiązania modelu. Wiązanie modelu sprawia, że dane interakcji więcej proste —...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/27/2014
-ms.topic: article
 ms.assetid: 3cbab37b-fb0f-4751-9ec4-74e068c3f380
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/integrating-jquery-ui
 msc.type: authoredcontent
-ms.openlocfilehash: 7d60d2945dbf9daca33422ab82b9265fedc2ba31
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: fc278575615e63af2fc7284e51814cf318165110
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37393837"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37807580"
 ---
 <a name="integrating-jquery-ui-datepicker-with-model-binding-and-web-forms"></a>Integrowanie selektora daty interfejsu użytkownika JQuery z wiązania modelu i formularzy sieci web
 ====================

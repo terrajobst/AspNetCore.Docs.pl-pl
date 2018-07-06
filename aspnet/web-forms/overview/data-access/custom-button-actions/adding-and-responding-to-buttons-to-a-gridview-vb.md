@@ -4,19 +4,16 @@ title: Dodawanie przycisków i reagowanie na w kontrolce GridView (VB) | Dokumen
 author: rick-anderson
 description: W tym samouczku omówimy sposób dodawania niestandardowych przycisków do szablonu i pola formantu GridView lub DetailsView. W szczególności firma Microsoft będzie lecenia...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 09/13/2006
-ms.topic: article
 ms.assetid: 06c6bbd2-4bdc-435b-87a3-df2c868f4baa
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/custom-button-actions/adding-and-responding-to-buttons-to-a-gridview-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 458f90bf70d6f10402583623ef62bf1572040ce4
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 1e35c6655506b5ec79efe8a5000e136e865854f2
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37365061"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37831696"
 ---
 <a name="adding-and-responding-to-buttons-to-a-gridview-vb"></a>Dodawanie przycisków i reagowanie na w kontrolce GridView (VB)
 ====================

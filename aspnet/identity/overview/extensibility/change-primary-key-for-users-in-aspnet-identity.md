@@ -4,19 +4,16 @@ title: Zmiana klucza podstawowego dla użytkowników w produkcie ASP.NET Identit
 author: tfitzmac
 description: W programie Visual Studio 2013 domyślnej aplikacji sieci web używa wartość ciągu dla klucza dla kont użytkowników. ASP.NET Identity umożliwia zmianę typu...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 09/30/2014
-ms.topic: article
 ms.assetid: 44925849-5762-4504-a8cd-8f0cd06f6dc3
-ms.technology: ''
 msc.legacyurl: /identity/overview/extensibility/change-primary-key-for-users-in-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 20e6b86f50a6ea62f188ae592e0b302c7ef77177
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 688a0dc09297a63bcf510aae9c25f303a5627df7
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37373331"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37808045"
 ---
 <a name="change-primary-key-for-users-in-aspnet-identity"></a>Zmiana klucza podstawowego dla użytkowników w produkcie ASP.NET Identity
 ====================

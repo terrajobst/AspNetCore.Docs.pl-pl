@@ -4,19 +4,16 @@ title: Praca z protokołem SSL w składniku Web API | Dokumentacja firmy Microso
 author: MikeWasson
 description: Pokazuje, jak używać protokołu SSL przy użyciu interfejsu API sieci Web platformy ASP.NET, w tym o korzystaniu z certyfikatów klientów SSL.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 12/12/2012
-ms.topic: article
 ms.assetid: 97f6164f-59cf-45c0-b820-e4aa29b45396
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/overview/security/working-with-ssl-in-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 4e14607f11fcd376b4ceca4bf7862259abe015e6
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 0e0ca75c6ff1af397fce91079bcd8e9304b025ef
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37396633"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37829813"
 ---
 <a name="working-with-ssl-in-web-api"></a>Praca z protokołem SSL w składniku Web API
 ====================

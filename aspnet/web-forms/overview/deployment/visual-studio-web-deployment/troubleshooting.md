@@ -4,19 +4,16 @@ title: 'Wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual 
 author: tdykstra
 description: W tej serii samouczków dowiesz się, jak wdrożyć (opublikować) platformy ASP.NET sieci web aplikacji do usługi Azure App Service Web Apps lub dostawcy hostingu w innych firm, używane...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/01/2015
-ms.topic: article
 ms.assetid: c0090595-ab3b-4b9b-9e16-7a1891e8cb2f
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/troubleshooting
 msc.type: authoredcontent
-ms.openlocfilehash: 0b57a91c29ba15463e6c534693b951aee8286ad2
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: b2be5d2f5aa0b7628f7b9338c860593660ef5893
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37364005"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37830895"
 ---
 <a name="aspnet-web-deployment-using-visual-studio-troubleshooting"></a>Wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio: Rozwiązywanie problemów
 ====================

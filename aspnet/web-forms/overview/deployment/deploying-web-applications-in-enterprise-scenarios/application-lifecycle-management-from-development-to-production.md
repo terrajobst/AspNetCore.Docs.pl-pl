@@ -4,19 +4,16 @@ title: 'Zarządzanie cyklem życia aplikacji: Od projektowania do produkcji | Do
 author: jrjlee
 description: W tym temacie przedstawiono sposób fikcyjnej firmy zarządzania wdrożenia aplikacji sieci web ASP.NET za pomocą środowisk testowania, przejściowego i produkcji jako par...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/04/2012
-ms.topic: article
 ms.assetid: f97a1145-6470-4bca-8f15-ccfb25fb903c
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/application-lifecycle-management-from-development-to-production
 msc.type: authoredcontent
-ms.openlocfilehash: fdd51d2b6836c7fed04132f7c05bbede772d21e0
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 47af9504bdef294b987cdd23ab1bcefbeadd4681
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37362813"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37808982"
 ---
 <a name="application-lifecycle-management-from-development-to-production"></a>Zarządzanie cyklem życia aplikacji: Od projektowania do produkcji
 ====================

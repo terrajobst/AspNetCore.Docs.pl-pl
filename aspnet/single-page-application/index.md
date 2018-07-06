@@ -4,19 +4,16 @@ title: ASP.NET pojedynczej strony aplikacji | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Pobierz aktualizację 2012 Fall ASP.NET i są lepiej obsługiwani end-to-end do tworzenia aplikacji za pomocą znaczące interakcji po stronie klienta, za pomocą JavaScrip...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/14/2012
-ms.topic: article
 ms.assetid: 4760328c-3d73-4757-a36f-ab80a5b3f611
-ms.technology: ''
 msc.legacyurl: /single-page-application
 msc.type: categoryindex
-ms.openlocfilehash: e625bdecf185ef6eed74e40d10429c3956aea1de
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 0c2108d168195d272119ec51f518f632eb673ba3
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37369769"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37804204"
 ---
 <a name="aspnet-single-page-application"></a>ASP.NET pojedynczej strony aplikacji
 ====================

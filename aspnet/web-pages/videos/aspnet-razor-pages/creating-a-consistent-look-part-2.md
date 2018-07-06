@@ -4,19 +4,16 @@ title: Tworzenie spójnego wyglądu (część 2) | Dokumentacja firmy Microsoft
 author: JoeStagner
 description: Dodatek wideo do tworzenie spójny wygląd samouczek (część 2)
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/25/2011
-ms.topic: article
 ms.assetid: 0998df70-d53f-404b-800d-1384eea8f932
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages/videos/aspnet-razor-pages/creating-a-consistent-look-part-2
 msc.type: video
-ms.openlocfilehash: 40712bc26f85da43ad211632f31865e48c19e2e0
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: ebde08ff93812fd973a3db5054a8d601a0df63aa
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37373555"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37839847"
 ---
 <a name="creating-a-consistent-look-part-2"></a>Tworzenie spójnego wyglądu (część 2)
 ====================

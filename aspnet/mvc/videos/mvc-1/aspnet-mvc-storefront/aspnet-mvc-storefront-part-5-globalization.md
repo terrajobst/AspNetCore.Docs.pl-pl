@@ -4,19 +4,16 @@ title: 'ASP.NET MVC StoreFront — część 5: Globalizacja | Dokumentacja firmy
 author: robconery
 description: Rob Conery współpracuje z Damien Guard do refaktoryzacji bazy danych, aby poradzić sobie z problemami z danymi i globalizacji testu.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/27/2008
-ms.topic: article
 ms.assetid: ec659d9f-8172-4c9e-9dd0-f5743bb27d4b
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-5-globalization
 msc.type: video
-ms.openlocfilehash: c2322c20c7f3040ab684ab15d8c2bdd7d8240bac
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 5f0e6e4c91c9cc39270df7801c47bce947433845
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37375305"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37827417"
 ---
 <a name="aspnet-mvc-storefront-part-5-globalization"></a>ASP.NET MVC StoreFront — część 5: globalizacja
 ====================

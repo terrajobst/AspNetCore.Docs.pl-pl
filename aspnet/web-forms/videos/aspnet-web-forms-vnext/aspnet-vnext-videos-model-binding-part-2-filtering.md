@@ -4,19 +4,16 @@ title: 'Środowiska ASP.NET vNext wideo: wiązanie modelu — część 2 — fil
 author: DamianEdwards
 description: W tym filmie Damianem Edwardsem nadal pokazu wiązania modelu wyjaśniając, filtrowania.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/12/2011
-ms.topic: article
 ms.assetid: b1d73fae-57c9-4b06-b5df-d68dc3b3cf5e
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-web-forms-vnext/aspnet-vnext-videos-model-binding-part-2-filtering
 msc.type: video
-ms.openlocfilehash: 9e9ce6d2a3d2347a02a857172c75f241af760401
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 077e4b23a9b73ee36ae931148f65437e5612beca
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37393905"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37836621"
 ---
 <a name="aspnet-vnext-videos-model-binding-part-2---filtering"></a>Środowiska ASP.NET vNext wideo: wiązanie modelu — część 2 — filtrowanie
 ====================

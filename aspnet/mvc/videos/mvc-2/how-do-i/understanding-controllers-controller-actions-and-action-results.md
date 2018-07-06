@@ -4,19 +4,16 @@ title: Objaśnienie kontrolerów, akcji kontrolerów i wyników akcji | Dokument
 author: StephenWalther
 description: 'W tym samouczku Walther Autor: Stephen przedstawiono kontrolery ASP.NET MVC. Dowiesz się, jak utworzyć nowe kontrolery i zwracać różne typy akcji res...'
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/20/2008
-ms.topic: article
 ms.assetid: 2456a5da-d376-4d45-8275-9e0dc46bf7dd
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/understanding-controllers-controller-actions-and-action-results
 msc.type: video
-ms.openlocfilehash: 0038408f028a56bdcdf5b972e9d2e69e6d89a0e2
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 7a9172a09d9be23cd5b83121cbaebdfb03386fcf
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37393189"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37837558"
 ---
 <a name="understanding-controllers-controller-actions-and-action-results"></a>Objaśnienie kontrolerów, akcji kontrolerów i wyników akcji
 ====================

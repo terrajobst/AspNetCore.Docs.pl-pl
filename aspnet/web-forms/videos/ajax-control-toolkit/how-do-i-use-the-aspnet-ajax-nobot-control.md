@@ -4,19 +4,16 @@ title: '[Jak mogę] Użyj kontrolka NoBot ASP.NET AJAX? | Microsoft Docs'
 author: JoeStagner
 description: Kontrolka NoBot z ASP.NET AJAX Control Toolkit zapobiega niektórych rodzajów nieautoryzowanego dostępu do aplikacji sieci Web. W tym filmie pokazano widzimy, jak...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/29/2007
-ms.topic: article
 ms.assetid: 15282963-2ec5-4013-b6bc-f1fcf272818e
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-nobot-control
 msc.type: video
-ms.openlocfilehash: 6b0fb59988b69746514c56bad148da036aedc303
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 56276b427197459c916361c3f5652491e1f175c5
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37398987"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37811863"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-nobot-control"></a>[Jak mogę] Użyj kontrolka NoBot ASP.NET AJAX?
 ====================

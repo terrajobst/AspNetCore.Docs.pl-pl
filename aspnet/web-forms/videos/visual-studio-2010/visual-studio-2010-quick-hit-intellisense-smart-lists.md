@@ -4,19 +4,16 @@ title: Visual Studio 2010 szybkie trafień — listy inteligentne funkcji Intell
 author: JoeStagner
 description: W tym filmie wideo dowiesz się o liście filtrowania przez funkcję IntelliSense programu Visual Studio.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/11/2009
-ms.topic: article
 ms.assetid: b70a252d-fc5c-4711-b7d0-cd3228e21e12
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/visual-studio-2010/visual-studio-2010-quick-hit-intellisense-smart-lists
 msc.type: video
-ms.openlocfilehash: 1ee8961e8220d612367c2e3bd34d03479b3e5d2b
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 614b7f2093b8d71ab12f9d25dc28ddf2d3fcff5d
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37372569"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37838546"
 ---
 <a name="visual-studio-2010-quick-hit---intellisense-smart-lists"></a>Wyświetla listę w programie Visual Studio 2010 "Szybkie strzał" — inteligentne funkcji IntelliSense
 ====================

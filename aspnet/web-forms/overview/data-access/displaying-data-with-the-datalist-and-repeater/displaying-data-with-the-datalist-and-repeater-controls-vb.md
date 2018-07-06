@@ -4,19 +4,16 @@ title: Wyświetlanie danych za pomocą kontrolek DataList i Repeater (VB) | Doku
 author: rick-anderson
 description: W poprzednich samouczkach użyliśmy kontrolki GridView do wyświetlania danych. Począwszy od w tym samouczku przyjrzymy się tworzenia typowych wzorców raportowania za pomocą...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 09/13/2006
-ms.topic: article
 ms.assetid: 58618954-a9ed-4ca0-8c2d-95a5ffd9c03e
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/displaying-data-with-the-datalist-and-repeater-controls-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 9c6e4f8588fb8da2e9703f5de0032e6a21bb5a28
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 2a6674036500d766e48b33b58f7d7829ea1da28c
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37397668"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37840335"
 ---
 <a name="displaying-data-with-the-datalist-and-repeater-controls-vb"></a>Wyświetlanie danych za pomocą kontrolek DataList i Repeater (VB)
 ====================

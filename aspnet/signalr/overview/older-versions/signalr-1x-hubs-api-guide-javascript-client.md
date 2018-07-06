@@ -4,19 +4,16 @@ title: Podręcznik interfejsu API centrów SignalR 1.x — klient JavaScript | D
 author: pfletcher
 description: Ten dokument zawiera wprowadzenie do korzystania z interfejsu API centrów dla elementu SignalR w wersji 1.1 w klientów języka JavaScript, takie jak przeglądarki i Windows Store (WinJS) applic...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/17/2013
-ms.topic: article
 ms.assetid: dcd4593b-1118-418a-af71-d12ff33fb36d
-ms.technology: dotnet-signalr
 msc.legacyurl: /signalr/overview/older-versions/signalr-1x-hubs-api-guide-javascript-client
 msc.type: authoredcontent
-ms.openlocfilehash: 3467d7e76180017e811e52c35325f45b3a124ca2
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 17b1088ca71f206e08bec62f3b13c43ad4bcc158
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37363432"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37828935"
 ---
 <a name="signalr-1x-hubs-api-guide---javascript-client"></a>Podręcznik interfejsu API centrów SignalR 1.x — klient JavaScript
 ====================

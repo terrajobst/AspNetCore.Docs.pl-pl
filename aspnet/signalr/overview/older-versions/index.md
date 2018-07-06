@@ -4,19 +4,16 @@ title: Starsze wersje biblioteki SignalR | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Dokumentacja, które odnoszą się do starszych wersji biblioteki SignalR.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 09/19/2014
-ms.topic: article
 ms.assetid: 607f4617-380f-41fa-bf46-147e82bb8124
-ms.technology: dotnet-signalr
 msc.legacyurl: /signalr/overview/older-versions
 msc.type: chapter
-ms.openlocfilehash: 8a539ee1784b4168a1ce0482fa63d69ed5a761ab
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 37874ae3e1898cb845ccb6a25ec5d86c76458f6b
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37382782"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37831344"
 ---
 <a name="signalr-older-versions"></a>Starsze wersje biblioteki SignalR
 ====================

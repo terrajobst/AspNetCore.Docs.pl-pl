@@ -4,19 +4,16 @@ title: Wprowadzenie do składnika ASP.NET Web Pages — wyświetlanie danych | D
 author: tfitzmac
 description: W tym samouczku dowiesz się, jak utworzyć bazę danych w programie WebMatrix oraz jak wyświetlać dane z bazy danych na stronie, gdy używasz stron ASP.NET Web Pages (Razor). Przyjęto założenie, y...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/28/2015
-ms.topic: article
 ms.assetid: b3a006a0-3ea2-4d45-b833-e20e3a3c0a1a
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/displaying-data
 msc.type: authoredcontent
-ms.openlocfilehash: de4ed9df2c65a1aaa4548b035c619cfa9bae7a8e
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: eeceb08e3aa281c45a2cfe35af4f23b76a5b1d25
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37384972"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37834300"
 ---
 <a name="introducing-aspnet-web-pages---displaying-data"></a>Wprowadzenie do wzorca ASP.NET Web Pages — wyświetlanie danych
 ====================

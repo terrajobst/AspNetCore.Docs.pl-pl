@@ -4,19 +4,16 @@ title: Jak używać kontrolka edytora HTML? (VB) | Dokumentacja firmy Microsoft
 author: microsoft
 description: HTMLEditor to kontrolka AJAX programu ASP.NET, która pozwala na łatwe tworzenie i edytowanie zawartości HTML za pomocą przycisków na pasku narzędzi.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/12/2009
-ms.topic: article
 ms.assetid: 32ec9321-7c8c-4b0f-8234-99acb56df6b5
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/htmleditor/how-do-i-use-the-html-editor-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 4b3882f631799eb99f3c63da89097daba1fca3ff
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: bff352161693c5e3871c20b8b469fb09f473686e
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37401970"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37801531"
 ---
 <a name="how-do-i-use-the-html-editor-control-vb"></a>Jak używać kontrolka edytora HTML? (VB)
 ====================

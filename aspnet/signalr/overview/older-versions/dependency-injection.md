@@ -4,19 +4,16 @@ title: Wstrzykiwanie zależności w SignalR 1.x | Dokumentacja firmy Microsoft
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/15/2013
-ms.topic: article
 ms.assetid: eaa206c4-edb3-487e-8fcb-54a3261fed36
-ms.technology: dotnet-signalr
 msc.legacyurl: /signalr/overview/older-versions/dependency-injection
 msc.type: authoredcontent
-ms.openlocfilehash: 51775fe2ba7acf6527bff2a2635ba30f97682096
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: ff96b4958652dac5109648974770abf3a9b6ae0c
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37397879"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37802399"
 ---
 <a name="dependency-injection-in-signalr-1x"></a>Wstrzykiwanie zależności w SignalR 1.x
 ====================

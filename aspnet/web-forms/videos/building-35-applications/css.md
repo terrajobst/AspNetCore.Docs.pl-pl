@@ -4,19 +4,16 @@ title: CSS | Dokumentacja firmy Microsoft
 author: JoeStagner
 description: Kaskadowe arkusze stylów są integralną częścią tworzenie nowoczesnych aplikacji internetowych i Visual Web Developer 2008 zawiera kolekcję CSS zaawansowanych urządzeń, aby ułatwić tworzenie...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/30/2009
-ms.topic: article
 ms.assetid: 50a55e3b-3f5c-429b-baf9-730221e9ef4c
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/building-35-applications/css
 msc.type: video
-ms.openlocfilehash: 8a17f80aa9fc09664a380b0d18c0553a302d8929
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 48054d646e58c09452660067ffd52133fb011976
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37362125"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37833984"
 ---
 <a name="css"></a>CSS
 ====================

@@ -4,19 +4,16 @@ title: Dane wyjściowe poprawa wydajności dzięki pamięci podręcznej (C#) | D
 author: microsoft
 description: W tym samouczku dowiesz się, jak można znacznie zwiększyć wydajność aplikacji sieci web platformy ASP.NET MVC, korzystając z buforowania danych wyjściowych. Możesz...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/27/2009
-ms.topic: article
 ms.assetid: 521c9117-81cd-4d8d-9d96-0256dc7bf50f
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/improving-performance-with-output-caching-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 81349f37d861e79ff4d95962c275a96576d0455b
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 26e65cb5f0e256d4ca819dfde4a748f00d56f08e
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37372488"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37832545"
 ---
 <a name="improving-performance-with-output-caching-c"></a>Poprawa wydajności dzięki buforowaniu (C#) danych wyjściowych
 ====================

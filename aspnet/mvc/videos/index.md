@@ -4,19 +4,16 @@ title: Filmy wideo | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: ''
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/24/2011
-ms.topic: article
 ms.assetid: e618c37c-68f3-49aa-9fda-f86cb3b578b9
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/videos
 msc.type: book
-ms.openlocfilehash: df273de2c2d4499995ae022240fa8e37402216e9
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 8b36acc4195c17b912c7e923cf6ab8e8204bd352
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37383758"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37829145"
 ---
 <a name="videos"></a>Wideo
 ====================

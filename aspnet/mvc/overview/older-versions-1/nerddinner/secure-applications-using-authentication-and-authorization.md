@@ -4,19 +4,16 @@ title: Zabezpieczanie aplikacji przy użyciu uwierzytelniania i autoryzacji | Do
 author: microsoft
 description: Krok 9 przedstawiono sposób dodawania uwierzytelniania i autoryzacji, aby zabezpieczyć naszej aplikacji NerdDinner, dzięki czemu użytkownicy będą musieli zarejestrować i zaloguj się do witryny w celu utworzenia...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/27/2010
-ms.topic: article
 ms.assetid: 9e4d5cac-b071-440c-b044-20b6d0c964fb
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/secure-applications-using-authentication-and-authorization
 msc.type: authoredcontent
-ms.openlocfilehash: d28102c8b80433b58a42cadc70b26c9fb5bc4404
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 0005b99dbf7d59e96313f025880c46cdec4838b6
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37369887"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37801395"
 ---
 <a name="secure-applications-using-authentication-and-authorization"></a>Zabezpieczanie aplikacji przy użyciu uwierzytelniania i autoryzacji
 ====================

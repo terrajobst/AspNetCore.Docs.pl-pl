@@ -4,19 +4,16 @@ title: '[Jak mogę] LINQ to SQL: modelu danych | Dokumentacja firmy Microsoft'
 author: scottstanfield
 description: LINQ do SQL korzysta z zestawu modelu obiektu do relacyjnego klas, które mapują do tabel bazy danych. Program Visual Studio 2008 obejmuje visual powierzchni projektowej ORM...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/15/2007
-ms.topic: article
 ms.assetid: 24282199-9edf-4211-ac6e-f05df68cccbe
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-data-model
 msc.type: video
-ms.openlocfilehash: 1f86bfc78829f18d61d2cb82afe4f1bbbcfd4163
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: bf0e94aa149aa7aa614d75c4f85fb6ab676e07d3
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37391971"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37839861"
 ---
 <a name="how-do-i-linq-to-sql-data-model"></a>[Jak mogę] LINQ to SQL: modelu danych
 ====================

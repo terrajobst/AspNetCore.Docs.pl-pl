@@ -4,19 +4,16 @@ title: Program Visual Studio 2008 i zagnieżdżone strony wzorcowe | Dokumentacj
 author: JoeStagner
 description: Czy mogę użyje szablonu sieci web z oswd.org do prezentują korzystanie ze stron wzorcowych i jak są one obsługiwane w programie Visual Studio 2008. W szczególności pokażę th...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/15/2007
-ms.topic: article
 ms.assetid: 18637656-3733-4549-b365-94652c596a7b
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-35/visual-studio-designer/visual-studio-2008-and-nested-masterpages
 msc.type: video
-ms.openlocfilehash: 6ba439392bdf7c4ad1bc6dc1c171f05fa994c4fb
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: b31e75e2b1a70054964eee77941e6a30ca119d0c
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37400593"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37833740"
 ---
 <a name="visual-studio-2008-and-nested-masterpages"></a>Program Visual Studio 2008 i zagnieżdżone strony wzorcowe
 ====================

@@ -4,19 +4,16 @@ title: Implementowanie optymistycznej współbieżności (VB) | Dokumentacja fir
 author: rick-anderson
 description: Dla aplikacji sieci web, która umożliwia wielu użytkownikom edytowanie danych istnieje ryzyko, że dwaj użytkownicy mogą edytować tych samych danych w tym samym czasie. W tym tutori...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/17/2006
-ms.topic: article
 ms.assetid: 2646968c-2826-4418-b1d0-62610ed177e3
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/implementing-optimistic-concurrency-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 8bda9799661d3a2285e1a32f6d300831d8ca92e1
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 63b5a274103851b4b60c92d5fe46125cc4a1b0be
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37395944"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37832969"
 ---
 <a name="implementing-optimistic-concurrency-vb"></a>Implementowanie optymistycznej współbieżności (VB)
 ====================

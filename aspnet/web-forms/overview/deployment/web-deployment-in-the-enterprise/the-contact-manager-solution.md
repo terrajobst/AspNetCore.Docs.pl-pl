@@ -4,19 +4,16 @@ title: Rozwiązanie Contact Manager | Dokumentacja firmy Microsoft
 author: jrjlee
 description: Przykładowe rozwiązanie korzysta z tej serii samouczków&#x2014;rozwiązania Contact Manager&#x2014;do reprezentowania aplikacji skali przedsiębiorstwa przy użyciu realistycznej leve...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/04/2012
-ms.topic: article
 ms.assetid: 4d8c8d19-055b-4b70-9ee1-f748f0db3a01
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/the-contact-manager-solution
 msc.type: authoredcontent
-ms.openlocfilehash: 8187766190da43ded52359892601f8129b9940ce
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: c8044c37738e9d23ca83648a6b571059338dc1a3
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37388111"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37835162"
 ---
 <a name="the-contact-manager-solution"></a>Rozwiązanie Contact Manager
 ====================

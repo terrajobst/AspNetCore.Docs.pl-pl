@@ -4,19 +4,16 @@ title: ASP.NET 4 i Visual Studio 2010 w sieci Web Development — omówienie | D
 author: rick-anderson
 description: Ten dokument zawiera omówienie wiele nowych funkcji dla platformy ASP.NET, które są uwzględnione w ramach platformy.NET Framework 4 i w programie Visual Studio 2010.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/10/2010
-ms.topic: article
 ms.assetid: d7729af4-1eda-4ff2-8b61-dbbe4fc11d10
-ms.technology: ''
 msc.legacyurl: /whitepapers/aspnet4
 msc.type: content
-ms.openlocfilehash: 7a75b0c39c923bb500368dbb2304b534d8ed994d
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 5c7aa95b18bc0a97f42cc981476c110830286fa5
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37380782"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37829046"
 ---
 <a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a>ASP.NET 4 i omówienie projektowania aplikacji internetowych programu Visual Studio 2010
 ====================

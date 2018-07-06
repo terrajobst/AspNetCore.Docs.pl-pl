@@ -4,19 +4,16 @@ title: Dodawanie widoku | Dokumentacja firmy Microsoft
 author: Rick-Anderson
 description: 'Uwaga: Zaktualizowaną wersję w tym samouczku jest dostępna w tym miejscu używającej platformy ASP.NET MVC 5 i Visual Studio 2013. Jest bardziej bezpieczne, łatwiej stosować i pokaz...'
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/28/2012
-ms.topic: article
 ms.assetid: dde851d7-882e-4d99-9b96-cf96daed81cc
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-a-view
 msc.type: authoredcontent
-ms.openlocfilehash: 0974cd2e06ed86c736214944a29a5a1eab8af50b
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 7c7179419a126eaa998252e75ac38b3b1a2b23d9
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37391512"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37830989"
 ---
 <a name="adding-a-view"></a>Dodawanie widoku
 ====================

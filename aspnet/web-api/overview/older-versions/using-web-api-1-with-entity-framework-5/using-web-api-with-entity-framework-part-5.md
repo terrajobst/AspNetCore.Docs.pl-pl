@@ -4,19 +4,16 @@ title: 'Część 5: Tworzenie dynamicznego interfejsu użytkownika z użyciem Kn
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/04/2012
-ms.topic: article
 ms.assetid: 9d9cb3b0-f4a7-434e-a508-9fc0ad0eb813
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-5
 msc.type: authoredcontent
-ms.openlocfilehash: 1f645b853fba999ade11c420eceba1b310f80ca3
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 7d8bd4732ecf73c14251ceebfd667310f6e197b4
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37368431"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37801696"
 ---
 <a name="part-5-creating-a-dynamic-ui-with-knockoutjs"></a>Część 5: Tworzenie dynamicznego interfejsu użytkownika z użyciem Knockout.js
 ====================

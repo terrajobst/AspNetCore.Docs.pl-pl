@@ -4,19 +4,16 @@ title: Kontrolki powiązania danych | Dokumentacja firmy Microsoft
 author: microsoft
 description: Większość aplikacji ASP.NET, zależy od pewien stopień prezentację danych ze źródła danych zaplecza. Formanty powiązane z danymi zostały pivotal część w interakcje...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/20/2005
-ms.topic: article
 ms.assetid: 0e23ff32-646d-43f3-8bec-6b2313d3abd6
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/data-bound-controls
 msc.type: authoredcontent
-ms.openlocfilehash: adaf8a40c1877db4181e1b1c7a74a2ecbaa373ad
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: bfee5ed9c786cc8799da108b99781ff6eb508477
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37368262"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37833222"
 ---
 <a name="data-bound-controls"></a>Kontrolki powiązania danych
 ====================

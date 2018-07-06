@@ -4,19 +4,16 @@ title: Wykonywanie zapytania o dane przy użyciu kontrolki SqlDataSource (VB) | 
 author: rick-anderson
 description: W poprzednich samouczkach użyliśmy kontrolka ObjectDataSource, aby w pełni rozdzielić warstwy prezentacji z warstwy dostępu do danych. Począwszy od tej instruktora...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/20/2007
-ms.topic: article
 ms.assetid: b12f752d-3502-40a4-b695-fc7b7d08cfd3
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/querying-data-with-the-sqldatasource-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d7ec182325d609877ac0d3603a5124b5fbe5a229
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 2fa26eeb640ddf096d5002b9bffbb48a87cfccd9
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37365714"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37830535"
 ---
 <a name="querying-data-with-the-sqldatasource-control-vb"></a>Wykonywanie zapytania o dane przy użyciu kontrolki SqlDataSource (VB)
 ====================

@@ -4,19 +4,16 @@ title: Tworzenie testów jednostkowych dla aplikacji ASP.NET MVC (C#) | Dokument
 author: StephenWalther
 description: 'Informacje o sposobie tworzenia testów jednostkowych dla akcji kontrolera. W tym samouczku Walther Autor: Stephen pokazuje, jak sprawdzić, czy akcja kontrolera zwraca częśći...'
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/19/2008
-ms.topic: article
 ms.assetid: d3a270b9-d7b1-47f2-8775-fc3beb518b5c
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/unit-testing/creating-unit-tests-for-asp-net-mvc-applications-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4c88024a85d418befc9b2a111d96643ca0249ff4
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: f9e6945a379d37f1539c7135041f50dcc7041750
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37396620"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37826682"
 ---
 <a name="creating-unit-tests-for-aspnet-mvc-applications-c"></a>Tworzenie testów jednostkowych dla aplikacji ASP.NET MVC (C#)
 ====================

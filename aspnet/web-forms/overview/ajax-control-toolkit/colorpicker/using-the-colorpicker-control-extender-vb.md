@@ -4,19 +4,16 @@ title: Za pomocą rozszerzenie kontrolki ColorPicker (VB) | Dokumentacja firmy M
 author: microsoft
 description: ColorPicker jest rozszerzeń ASP.NET AJAX, który udostępnia funkcjonalność pobrania kolor po stronie klienta za pomocą interfejsu użytkownika w kontrolce popup. Będzie można dołączyć do dowolnej platformy ASP.NET...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/12/2009
-ms.topic: article
 ms.assetid: 577ae07b-a872-4818-a804-bca489b40ad0
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/colorpicker/using-the-colorpicker-control-extender-vb
 msc.type: authoredcontent
-ms.openlocfilehash: cad012dd1ce93714ecb127bf3543d5c65803aba9
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: e7375dcfc354e931f30d2250081f424bd2149953
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37374182"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37828134"
 ---
 <a name="using-the-colorpicker-control-extender-vb"></a>Za pomocą rozszerzenie kontrolki ColorPicker (VB)
 ====================

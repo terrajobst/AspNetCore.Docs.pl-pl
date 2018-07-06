@@ -4,19 +4,16 @@ title: Wdrażanie | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Jak wdrożyć projektach ASP.NET MVC do serwera.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/18/2011
-ms.topic: article
 ms.assetid: 31922c31-59df-4399-99d2-e935a476f16a
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/deployment
 msc.type: chapter
-ms.openlocfilehash: f06005c668c45d588da7f2f9dc08d3dfe3a66d92
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 041b8fec1db66a0bb64c0e052f912048239c046b
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37363089"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37801446"
 ---
 # <a name="aspnet-mvc-deployment"></a>Wdrażanie platformy ASP.NET MVC
 

@@ -4,19 +4,16 @@ title: jQuery DataTables | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: ''
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/23/2014
-ms.topic: article
 ms.assetid: c3d609b5-ad52-4ff8-a79d-58a815efdb63
-ms.technology: ''
 msc.legacyurl: /ajax/cdn/jquery-datatables
 msc.type: folder
-ms.openlocfilehash: 91e7974325635dd58f9843403a99a2b3759773ee
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 0368ca4f8436f7726fb3af92082e19f9c3448257
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37363395"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37827558"
 ---
 <a name="jquery-datatables"></a>jQuery DataTables
 ====================

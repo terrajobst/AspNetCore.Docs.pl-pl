@@ -4,19 +4,16 @@ title: Używanie metod asynchronicznych we wzorcu ASP.NET MVC 4 | Dokumentacja f
 author: Rick-Anderson
 description: Ta seria samouczków obejmuje podstawy tworzenia asynchronicznych aplikacji sieci Web platformy ASP.NET MVC przy użyciu programu Visual Studio Express 2012 for Web, która jest bezpłatna ve...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/06/2012
-ms.topic: article
 ms.assetid: a56572ba-81c3-47af-826d-941e9c4775ec
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 6e9d23e4bf0ebbe3c7c8b52c550e0dfa1e6dbb52
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 5eb1b6dc3e9166c1ecb8e0d1968e12e8fa07f985
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37364352"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37826403"
 ---
 <a name="using-asynchronous-methods-in-aspnet-mvc-4"></a>Używanie metod asynchronicznych we wzorcu ASP.NET MVC 4
 ====================

@@ -4,19 +4,16 @@ title: Baza danych filmów | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Jak utworzyć aplikację bazy danych filmów w ciągu 15 minut.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/08/2011
-ms.topic: article
 ms.assetid: c4b945de-bb5c-4858-8a36-7662e02887fe
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/movie-database
 msc.type: chapter
-ms.openlocfilehash: 94403be9f8a4b6f7d7a4a9c39ecf8fe12ef8587e
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 1a78e300f2975f391c02d773c05aa4b175f567be
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37371533"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37838162"
 ---
 <a name="movie-database"></a>Baza danych filmów
 ====================

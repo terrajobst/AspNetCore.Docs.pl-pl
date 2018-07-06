@@ -4,19 +4,16 @@ title: Jak uaktualnić platformy ASP.NET MVC 4 oraz projektu interfejsu API plat
 author: Rick-Anderson
 description: ASP.NET MVC 5 i Web API 2 Przenieś hosta z nowych funkcji, takich jak trasowanie atrybutów, filtry uwierzytelniania i wiele więcej.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/17/2013
-ms.topic: article
 ms.assetid: db0d02d9-58e8-4a0b-8d7d-b8df8ea97b88
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: 7ccdc1bf7a1b1b8d5d9c5906eeeab9535b26df6c
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 8a50c188a2283af46789739e710be69159799695
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37369250"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37826747"
 ---
 <a name="how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2"></a>Jak uaktualnić platformy ASP.NET MVC 4 i projektu interfejsu Web API platformy ASP.NET MVC 5 i Web API 2
 ====================

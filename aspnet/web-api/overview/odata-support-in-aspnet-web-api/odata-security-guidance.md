@@ -4,19 +4,16 @@ title: Wskazówki dotyczące zabezpieczeń dla wzorca ASP.NET Web API 2 OData | 
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/06/2013
-ms.topic: article
 ms.assetid: b91e6424-1544-4747-bd0b-d1f8418c9653
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-security-guidance
 msc.type: authoredcontent
-ms.openlocfilehash: 72aee37e715fa11ccfe5d02eef4e450dd747095a
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 41f8a84285579e4aea35b8b1ed7aeb5cc8d5e385
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37378034"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37806606"
 ---
 <a name="security-guidance-for-aspnet-web-api-2-odata"></a>Wskazówki dotyczące zabezpieczeń dla wzorca ASP.NET Web API 2 OData
 ====================

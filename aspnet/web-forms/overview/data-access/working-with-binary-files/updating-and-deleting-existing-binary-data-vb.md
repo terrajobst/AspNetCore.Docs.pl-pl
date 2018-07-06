@@ -4,19 +4,16 @@ title: Aktualizowanie i usuwanie istniejących danych binarnych (VB) | Dokumenta
 author: rick-anderson
 description: W samouczkach wcześniej widzieliśmy, jak w kontrolce GridView umożliwia łatwe edytowanie i usuwanie danych tekstowych. W tym samouczku zobaczymy, jak również wprowadzić w kontrolce GridView...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/27/2007
-ms.topic: article
 ms.assetid: 3a052ced-9cf5-47b8-a400-934f0b687c26
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/updating-and-deleting-existing-binary-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: eac5d4da253e3553b50a22fc48fa710a99ee030b
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: dd5aea4bfc1a38dc3364cdf2657d3dca2b82022c
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37386643"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37830458"
 ---
 <a name="updating-and-deleting-existing-binary-data-vb"></a>Aktualizowanie i usuwanie istniejących danych binarnych (VB)
 ====================

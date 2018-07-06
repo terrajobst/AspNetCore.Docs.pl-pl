@@ -4,19 +4,16 @@ title: 'Środowiska ASP.NET vNext wideo: wiązanie modelu — część 1 — Wyb
 author: DamianEdwards
 description: W tym filmie Damianem Edwardsem rozpoczyna się wiązanie modelu poprzez zademonstrowanie wybór danych.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/12/2011
-ms.topic: article
 ms.assetid: 744d229b-a109-4692-a58d-1b2445bee54e
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-web-forms-vnext/aspnet-vnext-videos-model-binding-part-1-selecting-data
 msc.type: video
-ms.openlocfilehash: 06d29667995c713c8d250cc716f890906966093c
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 981e18d4a7c60f2ffba211975008a852b8afb8d6
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37376164"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37802209"
 ---
 <a name="aspnet-vnext-videos-model-binding-part-1---selecting-data"></a>Środowiska ASP.NET vNext wideo: wiązanie modelu — część 1 — Wybieranie danych
 ====================

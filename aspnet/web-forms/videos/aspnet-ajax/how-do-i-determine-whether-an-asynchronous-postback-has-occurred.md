@@ -4,19 +4,16 @@ title: '[Jak mogę] Ustal, czy asynchroniczne ogłaszania zwrotnego wystąpił? 
 author: JoeStagner
 description: Podczas standardowych zwrotu postać lub zwrotu stron częściowych asychnronous wykona się metody Page_Load formularza sieci Web platformy ASP.NET. W tym filmie wideo...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/25/2007
-ms.topic: article
 ms.assetid: aabc168b-582a-4668-90b1-3d700285aa1a
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-determine-whether-an-asynchronous-postback-has-occurred
 msc.type: video
-ms.openlocfilehash: d4776444587f3c31f6107783bf740d8f263e28d4
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: f2d6e00521937b1bf31b9e5111260ab588c23e5e
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37386477"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37830059"
 ---
 <a name="how-do-i-determine-whether-an-asynchronous-postback-has-occurred"></a>[Jak mogę] Ustal, czy asynchroniczne ogłaszania zwrotnego wystąpił?
 ====================

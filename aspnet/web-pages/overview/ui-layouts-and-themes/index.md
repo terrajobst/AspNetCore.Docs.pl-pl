@@ -4,19 +4,16 @@ title: Interfejs użytkownika, układy i motywy | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Jak dostosować interfejs użytkownika witryny w aplikacji ASP.NET Web Pages.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 09/08/2014
-ms.topic: article
 ms.assetid: d7ec6e8a-3e05-4c0d-9207-d17a49f9a64d
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes
 msc.type: chapter
-ms.openlocfilehash: 2cbb72f376a6a1e8bc7f12306331fbba3f1f94af
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 3204ad6c68cfd8ab7c90c4a7e8a43d5d31d0e5fc
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37393327"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37833616"
 ---
 <a name="ui-layouts-and-themes"></a>Interfejs użytkownika, układy i motywy
 ====================

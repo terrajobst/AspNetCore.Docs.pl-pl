@@ -4,19 +4,16 @@ title: '[Jak mogę] Używanie elementu ObjectDataSource z klasą dostępu do dan
 author: rick-anderson
 description: W tym filmie pokazano pikseli Chris pokazują, jak używać kontrolki ObjectDataSource jako pośredniego warstwy między elementy interfejsu użytkownika powiązane z danymi i niestandardowe dane konto...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/21/2008
-ms.topic: article
 ms.assetid: 8a47e438-3d8c-4a70-803c-56536a868bd9
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-the-objectdatasource-with-a-data-access-class-and-business-object
 msc.type: video
-ms.openlocfilehash: 93a1bfb88ac1306f38e9781d8976daddf6628a05
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 582d656efe4ec0f33c24c8c217b7f834fb4d5b78
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37381211"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37804624"
 ---
 <a name="how-do-i-use-the-objectdatasource-with-a-data-access-class-and-business-object"></a>[Jak mogę] Używanie elementu ObjectDataSource z klasą dostępu do danych i obiektem biznesowym
 ====================

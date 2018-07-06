@@ -4,19 +4,16 @@ title: Uwierzytelnianie | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Jak implementować oraz zarządzanie zabezpieczeniami (uwierzytelnianie) w aplikacji ASP.NET.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/05/2011
-ms.topic: article
 ms.assetid: 4a365e58-9b18-4bd2-bfd5-6981e7f2e179
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/authentication
 msc.type: chapter
-ms.openlocfilehash: 43bab1123e93b6c4d2d142650ec330c8e032b7f3
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 340b3c807abd8a1fa026d79971303bf29e4aedf3
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37386463"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37833910"
 ---
 <a name="authentication"></a>Uwierzytelnianie
 ====================

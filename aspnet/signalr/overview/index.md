@@ -4,19 +4,16 @@ title: Wskazówki dotyczące SignalR | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: ''
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/24/2012
-ms.topic: article
 ms.assetid: e57da75a-1d98-4e3c-8787-f1d7e1eb2d86
-ms.technology: dotnet-signalr
 msc.legacyurl: /signalr/overview
 msc.type: book
-ms.openlocfilehash: 72ede3ad792daa4aaf59142f49ff5224b7bd75fd
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 668e01838f887fdfb732fcf960ecd36127dc8769
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37370855"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37827561"
 ---
 <a name="signalr-guidance"></a>Wskazówki dotyczące SignalR
 ====================

@@ -4,19 +4,16 @@ title: Obsługa ogłaszania zwrotnego w kontrolce ModalPopup (C#) | Dokumentacja
 author: wenz
 description: Kontrolki ModalPopup na zestawu narzędzi AJAX Control Toolkit oferuje prosty sposób utworzyć modalnego okna podręcznego, za pomocą oznacza, że po stronie klienta. Specjalne należy zachować ostrożność podczas pos...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: 7963890b-4ea3-4a1c-b65d-6098a3d56f62
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/modalpopup/handling-postbacks-from-a-modalpopup-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 2c5c3b573b62d779ab09caad22b0c0e3a6995634
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 0f27d28b9851f8e26c207a6bc495e98ad70577a2
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37399071"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37838125"
 ---
 <a name="handling-postbacks-from-a-modalpopup-c"></a>Obsługa ogłaszania zwrotnego w kontrolce ModalPopup (C#)
 ====================

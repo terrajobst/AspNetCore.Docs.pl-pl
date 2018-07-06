@@ -4,19 +4,16 @@ title: Formanty serwera | Dokumentacja firmy Microsoft
 author: microsoft
 description: Program ASP.NET 2.0 zwiększa formantów serwera na wiele sposobów. W tym module omówimy niektóre zmiany w architekturze sposób ASP.NET 2.0 i Visual Studio 200...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/20/2005
-ms.topic: article
 ms.assetid: 43f6ac47-76fc-4cf7-8e9f-c18ce673dfd8
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/server-controls
 msc.type: authoredcontent
-ms.openlocfilehash: 989986c45e76a65582f35172c7d837a78484d09a
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: da06429f3949a47a02fccef45666d1220781e473
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37374227"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37837072"
 ---
 <a name="server-controls"></a>Formanty serwera
 ====================

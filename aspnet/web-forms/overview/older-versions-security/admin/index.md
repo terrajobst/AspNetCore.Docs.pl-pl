@@ -4,19 +4,16 @@ title: ASP.NET 3.5 — administrowanie zabezpieczeniami | Dokumentacja firmy Mic
 author: rick-anderson
 description: W tej serii samouczków pokazano jeden ze sposobów tworzenia strony administracji, które umożliwiają zarządzanie użytkownikami i rolami.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/05/2011
-ms.topic: article
 ms.assetid: b715c4ec-6f4b-4f7e-8ee3-b1613477ce61
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-security/admin
 msc.type: chapter
-ms.openlocfilehash: d5e8119cec657a0796e4b5d73e642f644b8988ce
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 0eecf858d6db678537bedd68f72a216a25d69280
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37398927"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37837042"
 ---
 <a name="aspnet-35---security-administration"></a>ASP.NET 3.5 — administrowanie zabezpieczeniami
 ====================

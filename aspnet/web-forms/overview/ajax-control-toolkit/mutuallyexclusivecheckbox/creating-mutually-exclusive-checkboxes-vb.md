@@ -4,19 +4,16 @@ title: Tworzenie wzajemnie wykluczających się pól wyboru (VB) | Dokumentacja 
 author: wenz
 description: 'Jeżeli można wybrać tylko jeden zestaw opcji, przyciski radiowe zwykle są używane. Istnieje jednak wadą: po wybraniu jednego przycisku radiowego w grupie...'
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: e9dd1d5a-a1db-4114-981d-6a91acb1d709
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/mutuallyexclusivecheckbox/creating-mutually-exclusive-checkboxes-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c71ba157a52335078a01dc8419370db33a37c43e
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 6badd005ed4775cb248784f3e9991132db1b3969
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37391382"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37828802"
 ---
 <a name="creating-mutually-exclusive-checkboxes-vb"></a>Tworzenie wzajemnie wykluczających się pól wyboru (VB)
 ====================
