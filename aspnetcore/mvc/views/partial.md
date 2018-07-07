@@ -4,14 +4,14 @@ author: ardalis
 description: Dowiedz się, jak widok częściowy widoku, który jest renderowany w ramach innego widoku, a kiedy powinny być używane w aplikacji platformy ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/02/2018
+ms.date: 07/06/2018
 uid: mvc/views/partial
-ms.openlocfilehash: 6e9a3dae613251e6580d0bbb314c11064d08f5ba
-ms.sourcegitcommit: 18339e3cb5a891a3ca36d8146fa83cf91c32e707
+ms.openlocfilehash: 9f90ce39929d0dbc216b47d76d652c1fca866ec2
+ms.sourcegitcommit: a09820f91e71a7d98b7347bf93210abb9e995e22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37433886"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37889119"
 ---
 # <a name="partial-views-in-aspnet-core"></a>Widoki częściowe w programie ASP.NET Core
 
@@ -42,7 +42,7 @@ Na stronie złożonego składa się z wielu części logiczne jest przydatne do 
 
 Widoki częściowe są tworzone tak jak zwykły widoku&mdash;, tworząc *.cshtml* plików w ramach *widoków* folderu. Nie ma żadnej różnicy semantycznego między widok częściowy i regularnego widoku; jednak są one renderowane inaczej. Może mieć widoku, który jest zwracany bezpośrednio z poziomu kontrolera [ViewResult](/dotnet/api/microsoft.aspnetcore.mvc.viewresult), a tym samym widoku może służyć jako widok częściowy. Główna różnica między sposób renderowania widoku oraz widoku częściowego jest, że widoki częściowe, nie uruchamiaj *_ViewStart.cshtml*. Widoki regularne uruchamianie *_ViewStart.cshtml*. Dowiedz się więcej o *_ViewStart.cshtml* w [układ](xref:mvc/views/layout)).
 
-Konwencją nazw plików widoku częściowego często zaczynają się od `_`. To nie jest to wymagane, ale pomaga wizualnie odróżnienie widoki częściowe z regularnych widoków.
+Konwencją nazw plików widoku częściowego często zaczynają się od `_`. Konwencja nazewnictwa nie jest to wymagane, ale pomaga wizualnie odróżnienie widoki częściowe z regularnych widoków.
 
 ## <a name="reference-a-partial-view"></a>Odwołanie do widoku częściowego
 
@@ -70,7 +70,7 @@ Alternatywnie można renderować widok częściowy przy użyciu [RenderPartialAs
 
 [!code-cshtml[](partial/sample/PartialViewsSample/Views/Home/Discovery.cshtml?name=snippet_RenderPartialAsync)]
 
-Ponieważ strumieniowo bezpośrednio, wynik `RenderPartialAsync` może działać lepiej w niektórych scenariuszach. Jednak zalecane jest, możesz użyć `PartialAsync`.
+Ponieważ strumieniowo bezpośrednio, wynik `RenderPartialAsync` może działać lepiej w niektórych scenariuszach. Jednak zaleca się, że używasz `PartialAsync`.
 
 ### <a name="synchronous-html-helper"></a>Synchroniczne pomocnika kodu HTML
 
@@ -78,6 +78,16 @@ Ponieważ strumieniowo bezpośrednio, wynik `RenderPartialAsync` może działać
 
 > [!IMPORTANT]
 > Jeśli widoków konieczne jest wykonanie kodu, należy użyć [widoku składnika](xref:mvc/views/view-components) zamiast widoku częściowego.
+
+::: moniker range=">= aspnetcore-2.1"
+
+W programie ASP.NET Core 2.1 lub nowszej, wywołanie `Partial` lub `RenderPartial` skutkuje to ostrzeżenie analizatora. Na przykład użycie `Partial` pojawi się następujący komunikat ostrzegawczy:
+
+> Użyj IHtmlHelper.Partial może spowodować zakleszczenia aplikacji. Należy rozważyć użycie `<partial>` Pomocnik tagu lub `IHtmlHelper.PartialAsync`.
+
+Zastępują wywołania `@Html.Partial` z `@await Html.PartialAsync` lub częściowe Pomocnik tagu. Aby uzyskać więcej informacji na temat migracji Pomocnik tagu częściowego, zobacz [migracja z usługi pomocnika kodu HTML](xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper#migrate-from-an-html-helper).
+
+::: moniker-end
 
 ## <a name="partial-view-discovery"></a>Widok częściowy odnajdywania
 

@@ -5,12 +5,12 @@ description: Dowiedz się, jak skonfigurować niestandardowi dostawcy magazynu d
 ms.author: riande
 ms.date: 05/24/2017
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: d7baa8ed142a7d3337adceff2dc93274604bde4c
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: bdde9b93449c2f3f8d43cc4ff86472ed8a60ed1c
+ms.sourcegitcommit: a09820f91e71a7d98b7347bf93210abb9e995e22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37831339"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37889171"
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>Niestandardowi dostawcy magazynu dla produktu ASP.NET Core Identity
 
@@ -51,7 +51,7 @@ Aby utworzyć dostawcę magazynu niestandardowego, należy utworzyć źródło d
 
 Podczas tworzenia nowego wystąpienia klasy `UserManager` lub `RoleManager` udostępniają typ klasy użytkownika i przekazać wystąpienia klasy magazynu jako argument. Takie podejście umożliwia Podłącz Twoich zajęciach dostosowane do platformy ASP.NET Core. 
 
-[Ponownie skonfigurować aplikację do używania nowego dostawcę magazynu](#reconfigure-app-to-use-new-storage-provider) pokazuje, jak utworzyć `UserManager` i `RoleManager` ze sklepem dostosowane.
+[Ponownie skonfigurować aplikację do używania nowego dostawcę magazynu](#reconfigure-app-to-use-a-new-storage-provider) pokazuje, jak utworzyć `UserManager` i `RoleManager` ze sklepem dostosowane.
 
 ## <a name="aspnet-core-identity-stores-data-types"></a>Typy danych są przechowywane tożsamości platformy ASP.NET Core
 

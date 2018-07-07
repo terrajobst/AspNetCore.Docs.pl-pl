@@ -1,80 +1,68 @@
 ---
-title: Rozwiązywanie problemów z projektów platformy ASP.NET Core
+title: Rozwiązywanie problemów z projektami ASP.NET Core
 author: Rick-Anderson
-description: Omówienie i rozwiązywanie problemów ostrzeżeń i błędów z projektów platformy ASP.NET Core.
+description: Omówienie i rozwiązywanie problemów, ostrzeżenia i błędy w projektach programu ASP.NET Core.
 ms.author: riande
 ms.date: 04/05/2018
 uid: test/troubleshoot
-ms.openlocfilehash: ae4e6f191d8f856de60ecf21cb882b5ee9b02064
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: b4d90f541a4cda2d41b49101b7ea39af87a4dcb4
+ms.sourcegitcommit: a09820f91e71a7d98b7347bf93210abb9e995e22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274596"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37889015"
 ---
-# <a name="troubleshoot-aspnet-core-projects"></a>Rozwiązywanie problemów z projektów platformy ASP.NET Core
+# <a name="troubleshoot-aspnet-core-projects"></a>Rozwiązywanie problemów z projektami ASP.NET Core
 
-przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Poniższe łącza zawierają wskazówki dotyczące rozwiązywania problemów:
+Poniższe łącza zapewniają wskazówki dotyczące rozwiązywania problemów:
 
 * [Rozwiązywanie problemów z platformą ASP.NET Core w usłudze Azure App Service](xref:host-and-deploy/azure-apps/troubleshoot)
 * [Rozwiązywanie problemów z platformą ASP.NET Core w usługach IIS](xref:host-and-deploy/iis/troubleshoot)
-* [Typowe błędy odwołania dla usługi Azure App Service i IIS z platformy ASP.NET Core](xref:host-and-deploy/azure-iis-errors-reference)
-* [Konferencja NDC (Londynie 2018): Diagnozowanie problemów w aplikacjach ASP.NET Core](https://www.youtube.com/watch?v=RYI0DHoIVaA)
-* [Blog platformy ASP.NET: Rozwiązywanie problemów z platformy ASP.NET Core problemy z wydajnością](https://blogs.msdn.microsoft.com/webdev/2018/05/23/asp-net-core-performance-improvements/)
+* [Dokumentacja typowych błędów dla usługi Azure App Service i IIS za pomocą programu ASP.NET Core](xref:host-and-deploy/azure-iis-errors-reference)
+* [Ndc Developers Conference (2018 r. Londyn;): Diagnozowanie problemów w aplikacji programu ASP.NET Core](https://www.youtube.com/watch?v=RYI0DHoIVaA)
+* [Blog platformy ASP.NET: Rozwiązywanie problemów z problemów z wydajnością programu ASP.NET Core](https://blogs.msdn.microsoft.com/webdev/2018/05/23/asp-net-core-performance-improvements/)
 
-## <a name="net-core-sdk-warnings"></a>Ostrzeżenia .NET core SDK
+## <a name="net-core-sdk-warnings"></a>Ostrzeżenia dotyczące zestawu .NET core SDK
 
-### <a name="both-the-32-bit-and-64-bit-versions-of-the-net-core-sdk-are-installed"></a>Zainstalowano 32-bitowe i 64-bitowe wersje .NET Core SDK
+### <a name="both-the-32-bit-and-64-bit-versions-of-the-net-core-sdk-are-installed"></a>32- i 64-bitowe wersje programu .NET Core SDK są instalowane.
 
-W **nowy projekt** okna dialogowego dla platformy ASP.NET Core, mogą pojawić się następujące ostrzeżenie:
+W **nowy projekt** okno dla platformy ASP.NET Core, może zostać wyświetlony następujące ostrzeżenie:
 
-> Zarówno 32- i 64 bitowych wersji zestawu SDK .NET Core są zainstalowane. Tylko szablony z wersje 64-bitowym zainstalowany na "C:\\Program Files\\dotnet\\sdk\\" będą wyświetlane.
+> Zarówno 32- i 64 bitowych wersjach programu .NET Core SDK są instalowane. Tylko szablony z wersji 64-bitowych zainstalowanej w lokalizacji "C:\\Program Files\\dotnet\\sdk\\" będą wyświetlane.
 
-![Zrzut ekranu przedstawiający komunikat ostrzegawczy okna dialogowego OneASP.NET](troubleshoot/_static/both32and64bit.png)
+![Zrzut ekranu okna dialogowego OneASP.NET przedstawiający komunikat ostrzegawczy](troubleshoot/_static/both32and64bit.png)
 
-To ostrzeżenie jest wyświetlane, gdy zarówno wersji 64-bitowej (x 64), jak i 32-bitowych (x86) [.NET Core SDK](https://www.microsoft.com/net/download/all) są zainstalowane. Typowe przyczyny mogą być zainstalowane obie wersje obejmują:
+To ostrzeżenie jest wyświetlane, gdy zarówno wersji 64-bitowych (x 64), jak i 32-bitowych (x86) [zestawu .NET Core SDK](https://www.microsoft.com/net/download/all) są zainstalowane. Typowe przyczyny, które można zainstalować obie wersje obejmują:
 
-* Pierwotnie pobrany Instalator zestawu SDK programu .NET Core za pomocą komputera 32-bitowego, ale następnie skopiowana między i instalować go na komputerze 64-bitowych.
-* 32-bitowej platformy .NET Core SDK został zainstalowany przez inną aplikację.
-* Nieprawidłowa wersja została pobrana i zainstalowana.
+* Pierwotnie pobrany przy użyciu komputera z 32-bitowy Instalator zestawu .NET Core SDK, ale następnie skopiować go na i zainstalować je na komputerze 64-bitowym.
+* 32-bitowych .NET Core SDK został zainstalowany przez inną aplikację.
+* Niewłaściwa wersja został pobrany i zainstalowany.
 
-Odinstaluj 32-bitowej platformy .NET Core SDK, aby uniknąć tego ostrzeżenia. Odinstaluj z **Panelu sterowania** > **programy i funkcje** > **Odinstaluj lub zmień program**. Jeśli wiesz, dlaczego występuje ostrzeżenie i jej wpływ, można zignorować to ostrzeżenie.
+Odinstaluj 32-bitowych .NET Core SDK, aby uniknąć tego ostrzeżenia. Odinstaluj z **Panelu sterowania** > **programy i funkcje** > **Odinstaluj lub zmień program**. Jeśli zrozumiesz, dlaczego występuje ostrzeżenie i jego skutków, możesz zignorować to ostrzeżenie.
 
 ### <a name="the-net-core-sdk-is-installed-in-multiple-locations"></a>.NET Core SDK jest zainstalowany w wielu lokalizacjach
 
-W **nowy projekt** okna dialogowego dla platformy ASP.NET Core, mogą pojawić się następujące ostrzeżenie:
+W **nowy projekt** okno dla platformy ASP.NET Core, może zostać wyświetlony następujące ostrzeżenie:
 
-> Zestaw SDK .NET Core zainstalowano w wielu lokalizacjach. Tylko szablony z zestawów SDK zainstalowany w "C:\\Program Files\\dotnet\\sdk\\" będą wyświetlane.
+> .NET Core SDK jest zainstalowany w wielu lokalizacjach. Tylko szablony z zestawów SDK zainstalowanych na "C:\\Program Files\\dotnet\\sdk\\" będą wyświetlane.
 
-![Zrzut ekranu przedstawiający komunikat ostrzegawczy okna dialogowego OneASP.NET](troubleshoot/_static/multiplelocations.png)
+![Zrzut ekranu okna dialogowego OneASP.NET przedstawiający komunikat ostrzegawczy](troubleshoot/_static/multiplelocations.png)
 
-Ten komunikat zostanie wyświetlony, jeśli masz co najmniej jedna instalacja zestawu SDK .NET Core w katalogu poza *C:\\Program Files\\dotnet\\sdk\\*. Zazwyczaj dzieje się tak podczas .NET Core SDK został wdrożony na komputerze za pomocą kopiowania i wklejania zamiast Instalatora MSI.
+Ten komunikat jest wyświetlany, gdy masz co najmniej jedna instalacja zestawu SDK programu .NET Core w katalogu, poza *C:\\Program Files\\dotnet\\sdk\\*. Zwykle dzieje się tak w przypadku zestawu .NET Core SDK został wdrożony na maszynie za pomocą kopiowania/wklejania zamiast Instalatora MSI.
 
-Odinstaluj 32-bitowej platformy .NET Core SDK, aby uniknąć tego ostrzeżenia. Odinstaluj z **Panelu sterowania** > **programy i funkcje** > **Odinstaluj lub zmień program**. Jeśli wiesz, dlaczego występuje ostrzeżenie i jej wpływ, można zignorować to ostrzeżenie.
+Odinstaluj 32-bitowych .NET Core SDK, aby uniknąć tego ostrzeżenia. Odinstaluj z **Panelu sterowania** > **programy i funkcje** > **Odinstaluj lub zmień program**. Jeśli zrozumiesz, dlaczego występuje ostrzeżenie i jego skutków, możesz zignorować to ostrzeżenie.
 
-### <a name="no-net-core-sdks-were-detected"></a>Nie wykryto nie .NET Core SDK
+### <a name="no-net-core-sdks-were-detected"></a>Nie wykryto żadnych zestawów .NET Core SDK
 
-W **nowy projekt** okna dialogowego dla platformy ASP.NET Core, mogą pojawić się następujące ostrzeżenie:
+W **nowy projekt** okno dla platformy ASP.NET Core, może zostać wyświetlony następujące ostrzeżenie:
 
-> Nie wykryto nie .NET Core SDK, upewnij się, że są one uwzględnione w zmiennej środowiskowej "PATH".
+> Nie wykryto żadnych zestawów .NET Core SDK, upewnij się, że są one uwzględnione w zmiennej środowiskowej "PATH".
 
-![Zrzut ekranu przedstawiający komunikat ostrzegawczy okna dialogowego OneASP.NET](troubleshoot/_static/NoNetCore.png)
+![Zrzut ekranu okna dialogowego OneASP.NET przedstawiający komunikat ostrzegawczy](troubleshoot/_static/NoNetCore.png)
 
-To ostrzeżenie jest wyświetlane, gdy zmienna środowiskowa `PATH` nie wskazuje na żadnych zestawów SDK Core .NET na tym komputerze. Aby rozwiązać ten problem:
+To ostrzeżenie jest wyświetlane, gdy zmienna środowiskowa `PATH` nie wskazuje na żadnych zestawów .NET Core SDK na maszynie. Aby rozwiązać ten problem:
 
-* Zainstaluj lub sprawdź, czy jest zainstalowany zestaw SDK .NET Core.
-* Sprawdź `PATH` zmiennej środowiskowej wskazuje lokalizację, jest zainstalowany zestaw SDK. Instalator zwykle ustawia `PATH`.
-
-::: moniker range=">= aspnetcore-2.1"
-
-### <a name="use-of-ihtmlhelperpartial-may-result-in-app-deadlocks"></a>Użyj IHtmlHelper.Partial może spowodować zakleszczenie aplikacji
-
-Wywołanie platformy ASP.NET Core 2.1 i nowsze, `Html.Partial` powoduje analizatora ostrzeżenie ze względu na możliwe zakleszczenie. Komunikat ostrzegawczy jest:
-
-> Użyj IHtmlHelper.Partial może spowodować zakleszczenie aplikacji. Należy rozważyć użycie `<partial>` pomocnika tagów lub `IHtmlHelper.PartialAsync`.
-
-Wywołuje się `@Html.Partial` powinna zostać zastąpiona `@await Html.PartialAsync` lub pomocnika częściowe tagu `<partial name="_Partial" />`.
-
-::: moniker-end
+* Zainstaluj lub sprawdzić, czy jest zainstalowany zestaw .NET Core SDK.
+* Upewnij się, że `PATH` zmienna środowiskowa wskazuje lokalizację, w którym jest zainstalowany zestaw SDK. Instalator zwykle ustawia `PATH`.

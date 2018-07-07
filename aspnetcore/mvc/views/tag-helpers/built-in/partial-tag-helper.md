@@ -5,14 +5,14 @@ description: Dowiedz się, ASP.NET Core częściowe Tag pomocnika i rolę każde
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 04/13/2018
+ms.date: 07/06/2018
 uid: mvc/views/tag-helpers/builtin-th/partial-tag-helper
-ms.openlocfilehash: 0a8caf09d1764278da4a0566844b0efaf4eeb567
-ms.sourcegitcommit: 18339e3cb5a891a3ca36d8146fa83cf91c32e707
+ms.openlocfilehash: 2272b2ecdd6f2b0a759356b1f03dd5c495ea1c91
+ms.sourcegitcommit: a09820f91e71a7d98b7347bf93210abb9e995e22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37433873"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37889106"
 ---
 # <a name="partial-tag-helper-in-aspnet-core"></a>Pomocnik tagu częściowego w programie ASP.NET Core
 
@@ -81,7 +81,17 @@ W poprzednim kodzie `IsNumberReadOnly` wartość klucza jest równa `true` i dod
 
 W tym przykładzie wartość `ViewData["IsNumberReadOnly"]` Określa, czy *numer* pole jest wyświetlane jako tylko do odczytu.
 
+## <a name="migrate-from-an-html-helper"></a>Migracja z Pomocnika kodu HTML
+
+Rozważmy następujący przykład pomocnika kodu HTML, asynchronicznego. Zbiór produktów postanowiliśmy i wyświetlić. Na `PartialAsync` pierwszy parametr metody *_ProductPartial.cshtml* załadowaniu widoku częściowego. Wystąpienie `Product` modelu są przekazywane do widoku częściowego do powiązania.
+
+[!code-cshtml[](samples/TagHelpersBuiltIn/Pages/Products.cshtml?name=snippet_HtmlHelper&highlight=3)]
+
+Następujące Pomocnik tagu częściowego uzyskuje takie samo zachowanie renderowania asynchronicznego jako `PartialAsync` pomocnika kodu HTML. `model` Przypisano atrybut `Product` wystąpienie modelu do powiązania do widoku częściowego.
+
+[!code-cshtml[](samples/TagHelpersBuiltIn/Pages/Products.cshtml?name=snippet_TagHelper&highlight=3)]
+
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Widoki częściowe](xref:mvc/views/partial)
-* [Słabo wpisanych danych (ViewData, atrybut ViewData i obiekt ViewBag)](xref:mvc/views/overview#weakly-typed-data-viewdata-viewdata-attribute-and-viewbag)
+* <xref:mvc/views/partial>
+* <xref:mvc/views/overview#weakly-typed-data-viewdata-viewdata-attribute-and-viewbag>
