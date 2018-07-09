@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/30/2018
 uid: test/integration-tests
-ms.openlocfilehash: 2893ff41a104b4bef1277675afaf7dd1c758ecd6
-ms.sourcegitcommit: 79d2457989fc5b08925582dab0f1511ab11ad741
+ms.openlocfilehash: e18c5704c9d4db9669d8f831f1b556d1723a0fc1
+ms.sourcegitcommit: ea7ec8d47f94cfb8e008d771f647f86bbb4baa44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347255"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37894169"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>Testy integracji w programie ASP.NET Core
 
@@ -71,7 +71,7 @@ Testy integracji wykonaj sekwencję zdarzeń, które zawierają zwykle *Rozmieś
 1. Klient serwera test jest tworzony do przesyłania żądań do aplikacji.
 1. *Rozmieść* krok testu jest wykonywany: Aplikacja testowa przygotowuje żądania.
 1. *Act* krok testu jest wykonywany: klient przesyła żądanie i odbiera odpowiedź.
-1. *Asercja* krok testu jest wykonywany: *rzeczywiste* odpowiedzi jest zweryfikowany jako *przekazać* lub *się nie powieść* na podstawie *oczekiwano*  odpowiedzi.
+1. *Asercja* krok testu jest wykonywany: *rzeczywiste* odpowiedzi jest zweryfikowany jako *przekazać* lub *się nie powieść* na podstawie *oczekiwano * odpowiedzi.
 1. Proces jest kontynuowany, dopóki wszystkie testy są wykonywane.
 1. Wyniki testu są zgłaszane.
 
@@ -96,10 +96,16 @@ Praktycznie nie ma różnic między aplikacjami MVC i konfiguracji testów aplik
 
 Projekt testowy musi:
 
-* Odwołania do pakietu dla [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App/).
-* Użyj zestawu SDK sieci Web w pliku projektu (`<Project Sdk="Microsoft.NET.Sdk.Web">`).
+* Odwołać się do następujących pakietów:
+  - [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App/)
+  - [Microsoft.AspNetCore.Mvc.Testing](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Testing/)
+* Określ zestaw SDK sieci Web w pliku projektu (`<Project Sdk="Microsoft.NET.Sdk.Web">`). Zestaw SDK sieci Web jest wymagany podczas odwoływania się do [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app).
 
-Prerequesities te są widoczne w [przykładową aplikację](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/integration-tests/samples/). Sprawdzanie *tests/RazorPagesProject.Tests/RazorPagesProject.Tests.csproj* pliku.
+Te wymagania wstępne są widoczne w [przykładową aplikację](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/integration-tests/samples/). Sprawdzanie *tests/RazorPagesProject.Tests/RazorPagesProject.Tests.csproj* pliku. Ta aplikacja używa przykładowych [xUnit](https://xunit.github.io/) struktury testowej i [AngleSharp](https://anglesharp.github.io/) Biblioteka analizator, więc Przykładowa aplikacja również odwołuje się do:
+
+* [xunit](https://www.nuget.org/packages/xunit/)
+* [xunit.Runner.VisualStudio](https://www.nuget.org/packages/xunit.runner.visualstudio/)
+* [AngleSharp](https://www.nuget.org/packages/AngleSharp/)
 
 ## <a name="basic-tests-with-the-default-webapplicationfactory"></a>Podstawowe testy przy użyciu domyślnego WebApplicationFactory
 

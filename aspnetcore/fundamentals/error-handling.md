@@ -1,102 +1,119 @@
 ---
-title: Obsługa błędów w ASP.NET Core
+title: Obsługa błędów w programie ASP.NET Core
 author: ardalis
-description: Wykryj sposób obsługi błędów w aplikacji platformy ASP.NET Core.
+description: Dowiedz się, jak do obsługi błędów w aplikacji platformy ASP.NET Core.
 ms.author: tdykstra
-ms.custom: H1Hack27Feb2017
-ms.date: 11/30/2016
+ms.custom: mvc
+ms.date: 07/05/2018
 uid: fundamentals/error-handling
-ms.openlocfilehash: 2fe46ecc32d61a7fafb2ad6e2a35456476608251
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 126a782bfd32f9ecd0596045218371ef5ccc82f2
+ms.sourcegitcommit: ea7ec8d47f94cfb8e008d771f647f86bbb4baa44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273712"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37894143"
 ---
-# <a name="handle-errors-in-aspnet-core"></a>Obsługa błędów w ASP.NET Core
+# <a name="handle-errors-in-aspnet-core"></a>Obsługa błędów w programie ASP.NET Core
 
-Przez [Steve Smith](https://ardalis.com/) i [Dykstra niestandardowy](https://github.com/tdykstra/)
+Przez [Steve Smith](https://ardalis.com/) i [Tom Dykstra](https://github.com/tdykstra/)
 
-W tym artykule omówiono typowe appoaches do obsługi błędów w aplikacji platformy ASP.NET Core.
+W tym artykule opisano typowe metody obsługi błędów w aplikacji platformy ASP.NET Core.
 
-[Wyświetlić lub pobrać przykładowy kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/sample) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples/2.x/ErrorHandlingSample) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
 
-## <a name="the-developer-exception-page"></a>Strona wyjątek dewelopera
+## <a name="the-developer-exception-page"></a>Na stronie wyjątków dla deweloperów
 
-Aby skonfigurować aplikację do wyświetlenia strony, który zawiera szczegółowe informacje dotyczące wyjątków, zainstaluj `Microsoft.AspNetCore.Diagnostics` NuGet pakiet, a następnie dodaj wiersz do [skonfigurować metodę w klasie uruchamiania](xref:fundamentals/startup):
+::: moniker range=">= aspnetcore-2.1"
 
-[!code-csharp[](error-handling/sample/Startup.cs?name=snippet_DevExceptionPage&highlight=7)]
+Aby skonfigurować aplikację tak, aby wyświetlić stronę, która zawiera szczegółowe informacje o wyjątkach, należy użyć *stronie wyjątków deweloperów*. Strona udostępnione przez [Microsoft.AspNetCore.Diagnostics](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics/) pakiet, który jest dostępny w [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app). Dodaj wiersz w celu `Startup.Configure` metody:
 
-Umieść `UseDeveloperExceptionPage` przed wszystkich programów pośredniczących chcesz przechwytywać wyjątki, takich jak `app.UseMvc`.
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
+Aby skonfigurować aplikację tak, aby wyświetlić stronę, która zawiera szczegółowe informacje o wyjątkach, należy użyć *stronie wyjątków deweloperów*. Strona jest udostępniana przez [Microsoft.AspNetCore.Diagnostics](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics/) pakiet, który jest dostępny w [pakiet meta Microsoft.aspnetcore.all](xref:fundamentals/metapackage). Dodaj wiersz w celu `Startup.Configure` metody:
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+Aby skonfigurować aplikację tak, aby wyświetlić stronę, która zawiera szczegółowe informacje o wyjątkach, należy użyć *stronie wyjątków deweloperów*. Strona jest udostępniana przez dodanie odwołania do pakietu dla [Microsoft.AspNetCore.Diagnostics](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics/) pakietu w pliku projektu. Dodaj wiersz w celu `Startup.Configure` metody:
+
+::: moniker-end
+
+[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_DevExceptionPage&highlight=7)]
+
+Umieść wywołanie [UseDeveloperExceptionPage](/dotnet/api/microsoft.aspnetcore.builder.developerexceptionpageextensions.usedeveloperexceptionpage) przed dowolnego oprogramowania pośredniczącego, którym chcesz przechwytywać wyjątków, takie jak `app.UseMvc`.
 
 >[!WARNING]
-> Włącz stronę wyjątek developer **tylko, gdy aplikacja jest uruchomiona w środowisku programistycznym**. Nie chcesz udostępniać informacje szczegółowe wyjątek publicznie, po uruchomieniu aplikacji w środowisku produkcyjnym. [Dowiedz się więcej o konfigurowaniu środowisk](xref:fundamentals/environments).
+> Włącz na stronie wyjątków dla deweloperów **tylko wtedy, gdy aplikacja jest uruchomiona w środowisku programistycznym**. Nie chcesz publicznie udostępnić szczegółowe informacje o wyjątku, gdy aplikacja jest uruchamiana w środowisku produkcyjnym. [Dowiedz się więcej na temat konfigurowania środowisk](xref:fundamentals/environments).
 
-Aby wyświetlić stronę wyjątek developer, uruchom przykładową aplikację ze środowiskiem ustawioną `Development`i Dodaj `?throw=true` do podstawowego adresu URL aplikacji. Strona zawiera kilka kart, informacje o wyjątku i żądania. Karta pierwszy zawiera ślad stosu. 
+Aby wyświetlić stronę wyjątek dla deweloperów, uruchom przykładową aplikację w środowisku równa `Development`i Dodaj `?throw=true` do podstawowego adresu URL aplikacji. Strona zawiera kilka kart zawierających informacje o wyjątku i żądanie. Na pierwszej karcie znajdują się ślad stosu:
 
 ![Ślad stosu](error-handling/_static/developer-exception-page.png)
 
-Następna karta zawiera zapytanie parametrów ciągu ewentualne.
+Następna karta przedstawia zapytanie parametry ciągu ewentualne:
 
 ![Parametry ciągu zapytania](error-handling/_static/developer-exception-page-query.png)
 
-To żądanie nie ma żadnych plików cookie, ale jeśli jak, będą widoczne w **plików cookie** kartę. Nagłówki, które zostały przekazane na karcie ostatniego jest widoczny.
+Jeśli żądanie ma pliki cookie, są wyświetlane na **plików cookie** kartę. Nagłówki są widoczne na karcie ostatnich:
 
 ![Nagłówki](error-handling/_static/developer-exception-page-headers.png)
 
 ## <a name="configuring-a-custom-exception-handling-page"></a>Konfigurowanie niestandardowych wyjątków, Obsługa strony
 
-Konfigurowanie strony obsługi wyjątków do użycia, gdy aplikacja nie jest uruchomiona `Development` środowiska.
+Strona obsługi wyjątków do użycia, gdy aplikacja nie jest uruchomiona konfiguracji `Development` środowiska:
 
-[!code-csharp[](error-handling/sample/Startup.cs?name=snippet_DevExceptionPage&highlight=11)]
+[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_DevExceptionPage&highlight=11)]
 
-W aplikacji stron Razor [dotnet nowe](/dotnet/core/tools/dotnet-new) stron Razor szablon zawiera stronę błędu i `ErrorModel` strony klasy modelu w *stron* folderu.
+W aplikacji stron Razor [dotnet nowe](/dotnet/core/tools/dotnet-new) stron Razor szablon zawiera stronę błędu i `ErrorModel` stronie klasy modelu w *stron* folderu.
 
-W aplikacji MVC nie dekoracji metody akcji programu obsługi błędu z atrybutami metody HTTP, takie jak `HttpGet`. Jawne zleceń zapobiec osiągnięciu metody niektórych żądań. Zezwala na dostęp anonimowy do metody, aby mogły otrzymywać widoku błędów nieuwierzytelnionym użytkownikom.
+W aplikacji MVC nie dekoracji metody akcji programu obsługi błędów z atrybutami metody HTTP, takich jak `HttpGet`. Jawne zleceń uniemożliwić metody osiągając niektórych żądań. Zezwalaj na anonimowy dostęp do metody, aby były nieuwierzytelnionym użytkownikom możliwość odbierania widoku błędów.
 
-Na przykład następujące metody obsługi błędów są dostarczane przez [dotnet nowe](/dotnet/core/tools/dotnet-new) szablonu MVC i pojawia się w kontrolerze głównej:
+Na przykład, następujące metody obsługi błędów są dostarczane przez [dotnet nowe](/dotnet/core/tools/dotnet-new) szablon MVC i pojawia się na kontrolerze głównej:
 
 ```csharp
 [AllowAnonymous]
 public IActionResult Error()
 {
-    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+    return View(new ErrorViewModel 
+        { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
 }
 ```
 
 ## <a name="configuring-status-code-pages"></a>Konfigurowanie stanu strony kodowe
 
-Domyślnie aplikacja nie zapewnia strona kodowa sformatowanego stan kodów stanu HTTP, takich jak *404 — Nie znaleziono*. Aby zapewnić stan stron kodowych, należy skonfigurować oprogramowanie pośredniczące strony kod stanu przez dodanie wiersza do `Startup.Configure` metody:
+Domyślnie aplikacji nie zapewnia stronę kodową sformatowanego stanu dla kodów stanu HTTP, takich jak *404 Nie znaleziono*. Aby zapewnić stan stron kodowych, należy skonfigurować oprogramowanie pośredniczące strony kod stanu przez dodanie wiersza do `Startup.Configure` metody:
 
 ```csharp
 app.UseStatusCodePages();
 ```
 
-Domyślnie oprogramowanie pośredniczące strony kod stanu dodaje prosty, tekstowy obsługi wspólnej kodów stanu, na przykład 404:
+Domyślnie oprogramowanie pośredniczące strony kod stanu dodaje tekstowy programy obsługi dla typowych kodów stanu, takie jak 404:
 
 ![strona 404](error-handling/_static/default-404-status-code.png)
 
 Oprogramowanie pośredniczące obsługuje kilka metod rozszerzenia. Jedna metoda przyjmuje wyrażenia lambda:
 
-[!code-csharp[](error-handling/sample/Startup.cs?name=snippet_StatusCodePages)]
+[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePages)]
 
-Inna metoda przyjmuje ciąg zawartości typu i formatu:
+Inna metoda przyjmuje zawartości typu i formatu ciągu:
 
 ```csharp
 app.UseStatusCodePages("text/plain", "Status code page, status code: {0}");
 ```
 
-Istnieją również przekierować, a następnie wykonaj ponownie metody rozszerzenia. Metoda przekierowania wysyła kod stanu 302 do klienta:
+Istnieje również przekierować, a następnie wykonaj ponownie metody rozszerzenia. Metoda przekierowania wysyła *302 Found* kod stanu do klienta:
 
-[!code-csharp[](error-handling/sample/Startup.cs?name=snippet_StatusCodePagesWithRedirect)]
+[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePagesWithRedirect)]
 
-Wykonaj ponownie metoda zwraca oryginalnego kodu stanu do klienta, ale również wykonuje program obsługi dla adresu URL przekierowania:
+Wykonaj ponownie metoda zwraca oryginalny kod stanu do klienta, ale wykonuje również obsługę dla adresu URL przekierowania:
 
 ```csharp
 app.UseStatusCodePagesWithReExecute("/error/{0}");
 ```
 
-Strony kodowe stanu można wyłączyć dla określonych żądań w metoda obsługi stron Razor lub kontroler MVC. Aby wyłączyć stron kodowych stanu, próba pobrania [IStatusCodePagesFeature](/dotnet/api/microsoft.aspnetcore.diagnostics.istatuscodepagesfeature) w żądaniu [HttpContext.Features](/dotnet/api/microsoft.aspnetcore.http.httpcontext.features) kolekcji i wyłączanie funkcji, jeśli jest dostępna:
+Strony kodowe stanu można wyłączyć dla określonych żądań w metodzie obsługi stron Razor lub kontroler MVC. Aby wyłączyć stron kodowych stanu, próba pobrania [IStatusCodePagesFeature](/dotnet/api/microsoft.aspnetcore.diagnostics.istatuscodepagesfeature) w żądaniu [HttpContext.Features](/dotnet/api/microsoft.aspnetcore.http.httpcontext.features) kolekcji i wyłączyć tę funkcję, jeśli jest dostępna:
 
 ```csharp
 var statusCodePagesFeature = HttpContext.Features.Get<IStatusCodePagesFeature>();
@@ -107,7 +124,7 @@ if (statusCodePagesFeature != null)
 }
 ```
 
-Jeśli przy użyciu `UseStatusCodePages*` przeciążenia, że wskazuje punkt końcowy w aplikacji, Utwórz MVC widoku lub strony Razor dla punktu końcowego. Na przykład [dotnet nowe](/dotnet/core/tools/dotnet-new) szablonu aplikacji dla stron Razor tworzy następującą stronę i klasy modelu strony:
+Jeśli przy użyciu `UseStatusCodePages*` przeciążenia, że wskazuje punkt końcowy w ramach aplikacji, Utwórz widoku MVC lub strona Razor dla punktu końcowego. Na przykład [dotnet nowe](/dotnet/core/tools/dotnet-new) szablonu dla aplikacji stron Razor tworzy następującą stronę i klasy modelu strony:
 
 *Error.cshtml*:
 
@@ -130,10 +147,15 @@ Jeśli przy użyciu `UseStatusCodePages*` przeciążenia, że wskazuje punkt ko�
 
 <h3>Development Mode</h3>
 <p>
-    Swapping to <strong>Development</strong> environment will display more detailed information about the error that occurred.
+    Swapping to <strong>Development</strong> environment will display more detailed 
+    information about the error that occurred.
 </p>
 <p>
-    <strong>Development environment should not be enabled in deployed applications</strong>, as it can result in sensitive information from exceptions being displayed to end users. For local debugging, development environment can be enabled by setting the <strong>ASPNETCORE_ENVIRONMENT</strong> environment variable to <strong>Development</strong>, and restarting the application.
+    <strong>Development environment should not be enabled in deployed applications
+    </strong>, as it can result in sensitive information from exceptions being 
+    displayed to end users. For local debugging, development environment can be 
+    enabled by setting the <strong>ASPNETCORE_ENVIRONMENT</strong> environment 
+    variable to <strong>Development</strong>, and restarting the application.
 </p>
 ```
 
@@ -146,7 +168,8 @@ public class ErrorModel : PageModel
 
     public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
 
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, 
+        NoStore = true)]
     public void OnGet()
     {
         RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
@@ -156,21 +179,21 @@ public class ErrorModel : PageModel
 
 ## <a name="exception-handling-code"></a>Kod obsługi wyjątków
 
-Kod w stronach obsługi wyjątków można zgłaszają wyjątki. Często jest dobrym rozwiązaniem dla stron błędów produkcji ma zawierać wyłącznie statyczne.
+Kod obsługi stron wyjątków może zgłaszać wyjątki. Często jest dobrym rozwiązaniem dla stron błędów produkcyjnych, które ma zawierać zawartość statyczną wyłącznie.
 
-Ponadto należy pamiętać, że po wysłaniu nagłówków odpowiedzi kod stanu odpowiedzi nie można zmienić ani żadnych stron wyjątek lub obsługi uruchomić. Odpowiedzi muszą być wypełnione lub połączenie zostało przerwane.
+Ponadto należy pamiętać, że nie można zmienić kod stanu odpowiedzi po wysłaniu nagłówki odpowiedzi, ponieważ wszystkie strony wyjątków lub obsługi uruchomić. Odpowiedzi muszą być wypełnione albo połączenie zostało przerwane.
 
 ## <a name="server-exception-handling"></a>Obsługa wyjątków serwera
 
-Oprócz obsługi logikę w aplikacji, wyjątków [serwera](xref:fundamentals/servers/index) hosting aplikacji wykonuje niektóre obsługi wyjątków. Jeśli serwer przechwytuje wyjątek przed wysłaniem nagłówki, serwer wysyła *500 Wewnętrzny błąd serwera* odpowiedzi nie jednostki. Jeśli serwer przechwytuje wyjątek po wysłaniu nagłówków, serwer zamyka połączenie. Żądania, które nie są obsługiwane przez aplikację są obsługiwane przez serwer. Wszystkie wyjątki, która występuje jest obsługiwany przez wyjątek serwera obsługi. Wszelkie skonfigurowane niestandardowe strony błędów lub oprogramowanie pośredniczące obsługi wyjątków lub filtrów nie mają wpływu na tego zachowania.
+Oprócz logiki aplikacji, obsługi wyjątków [serwera](xref:fundamentals/servers/index) hostującego twoją aplikację wykonuje niektóre obsługi wyjątków. Jeśli serwer wyłapuje wyjątek, zanim nagłówki są wysyłane, serwer wysyła *500 Wewnętrzny błąd serwera* odpowiedzi z bez treści. Jeśli serwer wyłapuje wyjątek po wysłaniu nagłówków, serwer zamyka połączenie. Żądania, które nie są obsługiwane przez aplikację są obsługiwane przez serwer. Każdy wyjątek, który występuje odbywa się przez wyjątek serwera obsługi. Oprogramowanie pośredniczące obsługi wyjątków lub filtry nie wpływają na to zachowanie lub dowolne skonfigurowane strony błędów niestandardowych.
 
 ## <a name="startup-exception-handling"></a>Obsługa wyjątków uruchamiania
 
-Tylko warstwę hostingu może obsługiwać wyjątki, które mają miejsce podczas uruchamiania aplikacji. Przy użyciu [hosta sieci Web](xref:fundamentals/host/web-host), możesz [Konfigurowanie zachowania hosta w odpowiedzi na błędy podczas uruchamiania](xref:fundamentals/host/web-host#detailed-errors) z `captureStartupErrors` i `detailedErrors` kluczy.
+Tylko warstwa hostingu może obsługiwać wyjątki, które mają miejsce podczas uruchamiania aplikacji. Za pomocą [hosta sieci Web](xref:fundamentals/host/web-host), możesz [Konfigurowanie zachowania hosta w odpowiedzi na błędy podczas uruchamiania](xref:fundamentals/host/web-host#detailed-errors) z `captureStartupErrors` i `detailedErrors` kluczy.
 
-Jeśli błąd pojawia się po adres/port hosta powiązanie hosting można wyświetlić tylko stronę błędu dla błędu uruchomienia przechwycony. Jeśli żadnego powiązania nie powiedzie się z jakiegokolwiek powodu, hostingu warstwy loguje wyjątek krytyczny dotnet awarie procesów, a żadna strona błędu jest wyświetlane, gdy aplikacja jest uruchomiona [Kestrel](xref:fundamentals/servers/kestrel) serwera.
+Jeśli wystąpi błąd, po adresem/port hosta powiązania hostingu można wyświetlić tylko stronę błędu dla błędów uruchamiania przechwycone. Jeśli wszystkie powiązania nie powiedzie się z jakiegokolwiek powodu, hostingu warstwy rejestruje wyjątek krytyczny dotnet awarii procesów, i stronę błędu, nie jest wyświetlane, gdy aplikacja jest uruchomiona na [Kestrel](xref:fundamentals/servers/kestrel) serwera.
 
-Podczas uruchamiania [IIS](/iis) lub [usług IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview), *502.5 awarii procesu* zwróconego przez [moduł platformy ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) Jeśli proces nie może być Rozpoczęto. Wykonaj porady dotyczące rozwiązywania problemów w [Rozwiązywanie problemów z platformy ASP.NET Core w usługach IIS](xref:host-and-deploy/iis/troubleshoot) tematu.
+Podczas uruchamiania na [IIS](/iis) lub [usług IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview), *502.5 niepowodzenia procesu* jest zwracany przez [modułu ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) , jeśli proces nie może być pracę. Postępuj zgodnie z porady dotyczące rozwiązywania problemów w [Rozwiązywanie problemów z platformą ASP.NET Core w usługach IIS](xref:host-and-deploy/iis/troubleshoot) tematu.
 
 ## <a name="aspnet-mvc-error-handling"></a>Obsługa błędów platformy ASP.NET MVC
 
@@ -178,13 +201,18 @@ Podczas uruchamiania [IIS](/iis) lub [usług IIS Express](/iis/extensions/introd
 
 ### <a name="exception-filters"></a>Filtry wyjątków
 
-Filtry wyjątków można skonfigurować globalnie lub na podstawie-controller lub -action w aplikacji MVC. Te filtry obsługi nieobsługiwanego wyjątku, który występuje podczas wykonywania akcji kontrolera lub inny filtr, a nie są nazywane inaczej. Dowiedz się więcej na temat filtrów wyjątków na [filtry](xref:mvc/controllers/filters).
+Filtry wyjątków można skonfigurować globalnie lub na zasadzie na kontroler lub akcję w aplikacji MVC. Te filtry obsługi nieobsługiwanego wyjątku, który występuje podczas wykonywania akcji kontrolera lub inny filtr. Te filtry nie są wywoływane w przeciwnym razie. Aby dowiedzieć się więcej, zobacz [filtry](xref:mvc/controllers/filters).
 
 > [!TIP]
-> Filtry wyjątków są dobrym zalewania wyjątków, które występują w ramach działań MVC, ale nie są one tak elastyczne jako błąd obsługi oprogramowania pośredniczącego. Preferowane jest oprogramowanie pośredniczące w przypadku ogólnych i za pomocą filtrów, tylko gdy należy wykonywać obsługi błędów *inaczej* oparte na Akcja kontrolera MVC, który został wybrany.
+> Filtry wyjątków są dobre zalewania wyjątków występujących w ramach akcji MVC, ale nie jest tak elastyczna jak błąd obsługi oprogramowania pośredniczącego. Zazwyczaj preferują użycie oprogramowania pośredniczącego i używania filtrów, tylko gdy potrzebujesz do obsługi błędów *inaczej* oparte na akcję MVC, która jest wybierany.
 
-### <a name="handling-model-state-errors"></a>Stan modelu obsługi błędów
+### <a name="handling-model-state-errors"></a>Obsługa błędy stanu modelu
 
-[Sprawdzanie poprawności modelu](xref:mvc/models/validation) występuje przed wywołaniem akcji każdego kontrolera i odpowiada metoda akcji sprawdzić `ModelState.IsValid` i odpowiednio zareagować.
+[Walidacja modelu](xref:mvc/models/validation) występuje przed wywołaniem akcji każdego kontrolera i odpowiada metoda akcji sprawdzić `ModelState.IsValid` i odpowiednio reagują.
 
-Niektóre aplikacje wybierze wykonać standardowej konwencji zajmujących się błędy sprawdzania poprawności modelu, w którym to przypadku [filtru](xref:mvc/controllers/filters) może być odpowiednie miejsce do wdrożenia tych zasad. Należy przetestować zachowanie akcji stanów nieprawidłowy model. Dowiedz się więcej w [logikę kontrolera testu](xref:mvc/controllers/testing).
+Niektóre aplikacje chce wykonać standardowej Konwencji za zajmowanie się błędy sprawdzania poprawności modelu, w którym to przypadku [filtru](xref:mvc/controllers/filters) może być w odpowiednim miejscu, aby zaimplementować takie zasady. Należy sprawdzić, jak Twoje działania zachowują się ze Stanami nieprawidłowy model. Dowiedz się więcej w [logikę kontrolera testu](xref:mvc/controllers/testing).
+
+## <a name="additional-resources"></a>Dodatkowe zasoby
+
+* <xref:host-and-deploy/azure-iis-errors-reference>
+* <xref:host-and-deploy/azure-apps/troubleshoot>

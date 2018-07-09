@@ -4,19 +4,16 @@ title: Programowe Ustawianie wartości parametrów elementu ObjectDataSource (VB
 author: rick-anderson
 description: W tym samouczku Zapoznamy się dodanie metody do naszych DAL i LOGIKI, która przyjmuje jeden parametr wejściowy i zwraca dane. Ten parametr zostanie ustawiony przykład...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/31/2010
-ms.topic: article
 ms.assetid: 0ecb03b6-52a0-4731-8c7a-436391d36838
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting/programmatically-setting-the-objectdatasource-s-parameter-values-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e2d0afa6616d936d2c8a2c76ca51ee1995040644
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: d779de4f5bd0d03f413237689e5a64330fcb491d
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37396271"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37825785"
 ---
 <a name="programmatically-setting-the-objectdatasources-parameter-values-vb"></a>Programowe Ustawianie wartości parametrów elementu ObjectDataSource (VB)
 ====================
