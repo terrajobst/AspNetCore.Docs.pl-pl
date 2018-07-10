@@ -132,7 +132,7 @@ Zwróć uwagę, że żaden z tych zapytań powrotu `Categories` tabeli s `Pictur
 Rozpocznij od dodania tych dwóch kolumn, aby `CategoriesDataTable`. Kliknij prawym przyciskiem myszy `CategoriesDataTable` s nagłówka, z menu kontekstowego wybierz polecenie Dodaj, a następnie wybierz opcję kolumny. Spowoduje to utworzenie nowego `DataColumn` w elemencie DataTable o nazwie `Column1`. Zmień nazwę tej kolumny na `Picture`. W oknie właściwości ustaw `DataColumn` s `DataType` właściwość `System.Byte[]` (nie jest to opcja na liście rozwijanej; należy go wpisać).
 
 
-[![Tworzenie obrazu o nazwie DataColumn, którego typem danych jest System.Byte]](uploading-files-cs/_static/image6.gif)](uploading-files-cs/_static/image7.png)
+[![Tworzenie obrazu o nazwie DataColumn, którego typem danych jest System.Byte](uploading-files-cs/_static/image6.gif)](uploading-files-cs/_static/image7.png)
 
 **Rysunek 6**: tworzenie `DataColumn` nazwanych `Picture` którego `DataType` jest `System.Byte[]` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](uploading-files-cs/_static/image8.png))
 

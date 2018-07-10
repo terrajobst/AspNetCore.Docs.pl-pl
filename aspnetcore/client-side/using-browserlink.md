@@ -1,65 +1,67 @@
 ---
-title: Łącze przeglądarki w platformy ASP.NET Core
+title: Łączność z przeglądarkami w programie ASP.NET Core
 author: ncarandini
-description: Wyjaśnia, jak łącze przeglądarki funkcja Visual Studio, która łączy środowiska programistycznego z co najmniej jeden przeglądarki sieci web.
+description: Wyjaśnia, jak Browser Link jest funkcja programu Visual Studio, która łączy środowisko projektowe z jednej lub kilku przeglądarkach sieci web.
 ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 09/22/2017
 uid: client-side/using-browserlink
-ms.openlocfilehash: 8808dc705ec87ebf6e7874ad69616ed5bbf61576
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 5ab15c841c472e6c9d47bad70fcf5e0c6dc3010f
+ms.sourcegitcommit: ea7ec8d47f94cfb8e008d771f647f86bbb4baa44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274095"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37894182"
 ---
-# <a name="browser-link-in-aspnet-core"></a>Łącze przeglądarki w platformy ASP.NET Core
+# <a name="browser-link-in-aspnet-core"></a>Łączność z przeglądarkami w programie ASP.NET Core
 
-Przez [Nicolò Carandini](https://github.com/ncarandini), [Wasson Jan](https://github.com/MikeWasson), i [Dykstra niestandardowy](https://github.com/tdykstra)
+Przez [Nicolò Carandini](https://github.com/ncarandini), [Mike Wasson](https://github.com/MikeWasson), i [Tom Dykstra](https://github.com/tdykstra)
 
-Łącze przeglądarki jest funkcją w programie Visual Studio, tworzącym kanał komunikacji między Środowisko deweloperskie i co najmniej jeden przeglądarki sieci web. Można użyć łącze przeglądarki, aby odświeżyć aplikacji sieci web w wielu przeglądarkach jednocześnie, która jest przydatna przy testowaniu różnych przeglądarkach.
+Łącze przeglądarki jest funkcją w programie Visual Studio tworzy kanał komunikacyjny między środowiska programistycznego i jeden lub więcej przeglądarek sieci web. Można użyć łącze przeglądarki, aby odświeżyć aplikację sieci web w kilku przeglądarkach jednocześnie, która jest przydatna przy testowaniu obsługiwania wielu przeglądarek.
 
-## <a name="browser-link-setup"></a>Ustawienia Linku przeglądarki
-
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
-ASP.NET Core 2.0 **aplikacji sieci Web**, **pusty**, i **interfejsu API sieci Web** szablonów projektów użyj [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All/) metapackage , który zawiera odwołania do pakietu dla [Microsoft.VisualStudio.Web.BrowserLink](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.BrowserLink/). W związku z tym przy użyciu `Microsoft.AspNetCore.All` metapackage nie wymaga żadnych dodatkowych czynności, aby udostępnić łącze przeglądarki do użycia.
+## <a name="browser-link-setup"></a>Konfigurowanie Linku przeglądarki
 
 ::: moniker range=">= aspnetcore-2.1"
 
-Podczas konwersji projektu programu ASP.NET 2.0 podstawowej platformy ASP.NET Core 2.1 i przechodzenia do [Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) metapackage, musisz zainstalować [Microsoft.VisualStudio.Web.BrowserLink](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.BrowserLink/) pakiet ręcznie dla funkcji BrowserLink.
+Podczas konwersji projektu programu ASP.NET Core 2.0 platformy ASP.NET Core 2.1 i przechodzenie do [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app), zainstaluj [Microsoft.VisualStudio.Web.BrowserLink](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.BrowserLink/) pakietu dla Funkcje BrowserLink. Użyj szablonów projektów platformy ASP.NET Core 2.1 `Microsoft.AspNetCore.App` meta Microsoft.aspnetcore.all domyślnie.
 
 ::: moniker-end
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+::: moniker range="= aspnetcore-2.0"
 
-Platformy ASP.NET Core 1.x **aplikacji sieci Web** szablon projektu zawiera odwołania do pakietu dla [Microsoft.VisualStudio.Web.BrowserLink](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.BrowserLink/) pakietu. **Pusty** lub **interfejsu API sieci Web** szablonów projektów trzeba dodać odwołanie do pakietu `Microsoft.VisualStudio.Web.BrowserLink`.
+ASP.NET Core 2.0 **aplikacji sieci Web**, **pusty**, i **interfejsu API sieci Web** Użyj szablonów projektu [pakiet meta Microsoft.aspnetcore.all](xref:fundamentals/metapackage) , który zawiera odwołania do pakietu dla [Microsoft.VisualStudio.Web.BrowserLink](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.BrowserLink/). W związku z tym, za pomocą `Microsoft.AspNetCore.All` meta Microsoft.aspnetcore.all nie wymaga żadnych dodatkowych czynności, aby udostępnić łącze przeglądarki do użycia.
 
-Ponieważ jest najprostszym sposobem funkcja programu Visual Studio, aby dodać pakiet do **pusty** lub **interfejsu API sieci Web** szablonu projektu, należy otworzyć **Konsola Menedżera pakietów** (**Widoku** > **inne okna** > **Konsola Menedżera pakietów**) i uruchom następujące polecenie:
+::: moniker-end
+
+::: moniker range="<= aspnetcore-1.1"
+
+ASP.NET Core 1.x **aplikacji sieci Web** szablon projektu zawiera odwołania do pakietu dla [Microsoft.VisualStudio.Web.BrowserLink](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.BrowserLink/) pakietu. **Pusty** lub **interfejsu API sieci Web** wymagają szablonów projektów, można dodać odwołania do pakietu do `Microsoft.VisualStudio.Web.BrowserLink`.
+
+Ponieważ jest najprostszym sposobem to funkcja programu Visual Studio, aby dodać pakiet do **pusty** lub **interfejsu API sieci Web** szablon projektu, należy otworzyć **Konsola Menedżera pakietów** (**Widoku** > **Windows inne** > **Konsola Menedżera pakietów**) i uruchom następujące polecenie:
 
 ```console
 install-package Microsoft.VisualStudio.Web.BrowserLink
 ```
 
-Alternatywnie można użyć **Menedżera pakietów NuGet**. Kliknij prawym przyciskiem myszy nazwę projektu w **Eksploratora rozwiązań** i wybierz polecenie **Zarządzaj pakietami NuGet**:
+Alternatywnie, można użyć **Menedżera pakietów NuGet**. Kliknij prawym przyciskiem myszy nazwę projektu w **Eksploratora rozwiązań** i wybierz polecenie **Zarządzaj pakietami NuGet**:
 
 ![Menedżer pakietów NuGet Otwórz](using-browserlink/_static/open-nuget-package-manager.png)
 
 Znajdź i zainstaluj pakiet:
 
-![Dodaj pakiet Menedżera pakietów NuGet](using-browserlink/_static/add-package-with-nuget-package-manager.png)
+![Dodaj pakiet przy użyciu Menedżera pakietów NuGet](using-browserlink/_static/add-package-with-nuget-package-manager.png)
 
----
+::: moniker-end
 
 ### <a name="configuration"></a>Konfiguracja
 
-W `Configure` metody *Startup.cs* pliku:
+W `Startup.Configure` metody:
 
 ```csharp
 app.UseBrowserLink();
 ```
 
-Zazwyczaj kod znajduje się wewnątrz `if` bloku umożliwiającą tylko łącze przeglądarki w środowisku programistycznym, jak pokazano poniżej:
+Zazwyczaj kod znajduje się wewnątrz `if` blok, który umożliwia łączność z przeglądarkami jedynie w środowisku deweloperskim, jak pokazano poniżej:
 
 ```csharp
 if (env.IsDevelopment())
@@ -69,77 +71,77 @@ if (env.IsDevelopment())
 }
 ```
 
-Aby uzyskać więcej informacji, zobacz [używać wiele środowisk](xref:fundamentals/environments).
+Aby uzyskać więcej informacji, zobacz [używanie wielu środowisk](xref:fundamentals/environments).
 
 ## <a name="how-to-use-browser-link"></a>Jak używać łączy przeglądarki
 
-Jeśli projekt platformy ASP.NET Core, Otwórz, Visual Studio zawiera formantu toolbar Browser Link obok pozycji **docelowego debugowania** formantu paska narzędzi:
+Mając otwarty projekt platformy ASP.NET Core, Visual Studio wyświetla obok pozycji formantu paska narzędzi łącza przeglądarki **Debuguj element docelowy** formantu paska narzędzi:
 
 ![Menu rozwijane łącza przeglądarki](using-browserlink/_static/browserLink-dropdown-menu.png)
 
-Z formantem paska narzędzi łącze przeglądarki możesz:
+Z formantem paska narzędzi łącza przeglądarki możesz wykonywać następujące czynności:
 
-* Odświeżanie aplikacji sieci web w wielu przeglądarkach jednocześnie.
+* Odświeżanie aplikacji sieci web w kilku przeglądarkach naraz.
 * Otwórz **nawigacyjnym łącza przeglądarki**.
-* Włącz lub wyłącz **łącze przeglądarki**. Uwaga: Łącze przeglądarki jest domyślnie wyłączona w programie Visual Studio 2017 (15 ustęp 3).
-* Włącz lub wyłącz [automatyczna synchronizacja CSS](#enable-or-disable-css-auto-sync).
+* Włączanie lub wyłączanie **łączność z przeglądarkami**. Uwaga: Łącze przeglądarki jest domyślnie wyłączona w programie Visual Studio 2017 (15.3).
+* Włączanie lub wyłączanie [automatyczna synchronizacja CSS](#enable-or-disable-css-auto-sync).
 
 > [!NOTE]
-> Niektóre Visual Studio dodatków plug-in, głównie *2015 pakiet rozszerzenia sieci Web* i *2017 pakiet rozszerzenia sieci Web*, oferują rozszerzoną funkcjonalność łącza przeglądarki, ale niektóre dodatkowe funkcje nie działają w aplikacji ASP. Projekty sieci podstawowej.
+> Niektóre dodatki plug-in programu Visual Studio, głównie *2015 pakietu rozszerzenia sieci Web* i *2017 pakietu rozszerzenia sieci Web*, oferują rozszerzoną funkcjonalność na łączność z przeglądarkami, ale niektóre dodatkowe funkcje nie działają z ASP. Projekty .NET Core.
 
-## <a name="refresh-the-web-application-in-several-browsers-at-once"></a>Odświeżanie aplikacji sieci web w wielu przeglądarkach jednocześnie
+## <a name="refresh-the-web-app-in-several-browsers-at-once"></a>Odśwież aplikację sieci web w kilku przeglądarkach jednocześnie
 
-Aby wybrać jeden przeglądarki do uruchomienia przy uruchamianiu projektu, użyj menu rozwijanego w **docelowego debugowania** formantu paska narzędzi:
+Aby wybrać przeglądarkę jednej sieci web do uruchamiania podczas uruchamiania projektu, użyj menu rozwijane w **Debuguj element docelowy** formantu paska narzędzi:
 
 ![Menu rozwijane F5](using-browserlink/_static/debug-target-dropdown-menu.png)
 
-Aby otworzyć jednocześnie wiele przeglądarek, wybierz **przeglądania przy użyciu...**  z tej samej listy rozwijanej. Naciśnij i przytrzymaj klawisz CTRL, aby wybrać przeglądarki ma, a następnie kliknij przycisk **Przeglądaj**:
+Aby otworzyć jednocześnie wiele przeglądarek, wybierz **przeglądania przy użyciu...**  z tej samej listy rozwijanej. Naciśnij i przytrzymaj klawisz CTRL, aby wybrać przeglądarek ma, a następnie kliknij przycisk **Przeglądaj**:
 
 ![Otwórz jednocześnie wiele przeglądarek](using-browserlink/_static/open-many-browsers-at-once.png)
 
-Poniżej przedstawiono zrzut ekranu przedstawiający open Visual Studio z widokiem indeksu i otwórz przeglądarek:
+Poniżej przedstawiono zrzut ekranu przedstawiający otwarte programu Visual Studio przy użyciu widoku indeksu i otwórz przeglądarek:
 
-![Synchronizacja przykład przeglądarek](using-browserlink/_static/sync-with-two-browsers-example.png)
+![Synchronizuj z przykład przeglądarek](using-browserlink/_static/sync-with-two-browsers-example.png)
 
-Umieść kursor nad formantem paska narzędzi łącze przeglądarki do Zobacz przeglądarki, które są podłączone do projektu:
+Zatrzymaj wskaźnik myszy nad formant paska narzędzi łącza przeglądarki, aby przeglądarki, które są podłączone do projektu:
 
-![Umieść kursor Porada](using-browserlink/_static/hoover-tip.png)
+![Porada po wskazaniu wskaźnikiem](using-browserlink/_static/hoover-tip.png)
 
-Zmień widok indeksu i wszystkich podłączonych przeglądarek są aktualizowane po kliknięciu przycisku Odśwież łącze przeglądarki:
+Zmień widok indeksu i wszystkich połączonych przeglądarek są aktualizowane, po kliknięciu przycisku odświeżania łączność z przeglądarkami:
 
 ![przeglądarki synchronizacji do zmiany](using-browserlink/_static/browsers-sync-to-changes.png)
 
-Łącze przeglądarki działa także w przypadku przeglądarek, które uruchamianie z zewnętrznego programu Visual Studio i przejdź do adresu URL aplikacji.
+Łączność z przeglądarkami współpracuje również z przeglądarki, które Uruchom z poza programem Visual Studio i przejdź do adresu URL aplikacji.
 
-### <a name="the-browser-link-dashboard"></a>Na pulpicie nawigacyjnym łącza przeglądarki
+### <a name="the-browser-link-dashboard"></a>Pulpicie nawigacyjnym łącza przeglądarki
 
-Otwórz pulpicie nawigacyjnym łącza przeglądarki z menu Zarządzanie połączenia z przeglądarkami Otwórz rozwijanego łącze przeglądarki:
+Otwórz pulpicie nawigacyjnym łącza przeglądarki z przeglądarkami rozwijanego menu, aby zarządzać połączeniem z przeglądarkami Otwórz:
 
-![Open — browserslink-pulpit nawigacyjny](using-browserlink/_static/open-browserlink-dashboard.png)
+![Open — browserslink — pulpit nawigacyjny](using-browserlink/_static/open-browserlink-dashboard.png)
 
-Jeśli przeglądarka nie jest połączona, można uruchomić sesji z systemem innym niż debugowanie, wybierając *Wyświetl w przeglądarce* łącza:
+Jeśli przeglądarka nie jest połączony, można uruchomić sesji bez debugowania, wybierając *Pokaż w przeglądarce* łącza:
 
-![browserlink-pulpit nawigacyjny — nie połączenia](using-browserlink/_static/browserlink-dashboard-no-connections.png)
+![nie połączenia, browserlink pulpitu nawigacyjnego w-](using-browserlink/_static/browserlink-dashboard-no-connections.png)
 
-W przeciwnym razie podłączonych przeglądarek są wyświetlane ze ścieżką do strony, która pokazuje każdą przeglądarkę:
+W przeciwnym razie połączonych przeglądarek są wyświetlane ze ścieżką do strony, która jest wyświetlane w każdej przeglądarce:
 
-![browserlink-pulpit nawigacyjny — dwa połączenia](using-browserlink/_static/browserlink-dashboard-two-connections.png)
+![dwa połączenia, browserlink pulpitu nawigacyjnego w-](using-browserlink/_static/browserlink-dashboard-two-connections.png)
 
-Jeśli chcesz możesz kliknąć nazwę wymienionych przeglądarki, aby odświeżyć jednego przeglądarka.
+Jeśli chcesz możesz kliknąć nazwę listy przeglądarki, aby odświeżyć tego jednej przeglądarki.
 
-### <a name="enable-or-disable-browser-link"></a>Włącz lub Wyłącz łącza przeglądarki
+### <a name="enable-or-disable-browser-link"></a>Włączanie lub wyłączanie łączność z przeglądarkami
 
-Po ponownym włączeniu łącze przeglądarki po jej wyłączeniu, należy odświeżyć przeglądarki dla podłącz je ponownie.
+Po ponownym włączeniu łączność z przeglądarkami po wyłączeniu go, należy odświeżyć przeglądarek, podłącz je ponownie.
 
 ### <a name="enable-or-disable-css-auto-sync"></a>Włączanie lub wyłączanie automatycznej synchronizacji CSS
 
-Po włączeniu automatycznej synchronizacji CSS podłączonych przeglądarek są automatycznie odświeżane przy wprowadzaniu zmian do plików CSS.
+Po włączeniu automatycznej synchronizacji CSS połączonych przeglądarek są automatycznie odświeżane, gdy wprowadzać zmian w plikach CSS.
 
-## <a name="how-does-it-work"></a>Jak to działa?
+## <a name="how-it-works"></a>Jak to działa
 
-Łącze przeglądarki używa SignalR do utworzenia kanału komunikacyjnego między Visual Studio i przeglądarki. Po włączeniu łącze przeglądarki, programu Visual Studio działa jako wielu klientów (przeglądarki) mogą łączyć się z serwerem SignalR. Łącze przeglądarki rejestruje również składnik oprogramowania pośredniczącego w potoku żądania ASP.NET. Ten składnik injects specjalne `<script>` odwołań w każdym żądaniu strony z serwera. Widać odwołań do skryptów, wybierając **Wyświetl źródło** w przeglądarce i przewijania na końcu `<body>` tagu zawartości:
+Łączność z przeglądarkami używa SignalR w celu utworzenia kanał komunikacyjny między Visual Studio i przeglądarki. Po włączeniu łączność z przeglądarkami programu Visual Studio działa jako serwer biblioteki SignalR, wielu klientów (przeglądarki) można łączyć się. Łączność z przeglądarkami rejestruje również składnik oprogramowania pośredniczącego w potoku żądania ASP.NET. Ten składnik wprowadza specjalne `<script>` odwołań w każdym żądaniu strony z serwera. Odwołania do skryptu można wyświetlić, wybierając **Wyświetl źródło** w przeglądarce i przewijając do końca `<body>` tagować zawartość:
 
-```javascript
+```html
     <!-- Visual Studio Browser Link -->
     <script type="application/json" id="__browserLink_initializationData">
         {"requestId":"a717d5a07c1741949a7cefd6fa2bad08","requestMappingFromServer":false}
@@ -149,6 +151,6 @@ Po włączeniu automatycznej synchronizacji CSS podłączonych przeglądarek są
 </body>
 ```
 
-Plików źródłowych nie jest modyfikowany. Składnik oprogramowania pośredniczącego dynamicznie injects odwołań do skryptów. 
+Nie modyfikować plików źródłowych. Składnik oprogramowania pośredniczącego, które dynamicznie wprowadza odwołania do skryptu.
 
-Ponieważ kod po stronie przeglądarki jest kod JavaScript, działa na wszystkich przeglądarek obsługiwanych przez SignalR bez konieczności dodatek plug-in dla przeglądarki.
+Ponieważ kod po stronie przeglądarki jest kod JavaScript, działa we wszystkich przeglądarkach obsługiwanych przez SignalR bez konieczności wtyczkę przeglądarki.

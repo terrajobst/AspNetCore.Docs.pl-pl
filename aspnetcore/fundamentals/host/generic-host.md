@@ -7,18 +7,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/16/2018
 uid: fundamentals/host/generic-host
-ms.openlocfilehash: ce2a540cc7a63f61075c9c01759f67531171e1e1
-ms.sourcegitcommit: a09820f91e71a7d98b7347bf93210abb9e995e22
-ms.translationtype: HT
+ms.openlocfilehash: 879f31a5916646a4d63f9f503173dc9ff4c53434
+ms.sourcegitcommit: ea7ec8d47f94cfb8e008d771f647f86bbb4baa44
+ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/06/2018
-ms.locfileid: "37889158"
+ms.locfileid: "37894156"
 ---
 # <a name="net-generic-host"></a>Ogólny hosta platformy .NET
 
 Przez [Luke Latham](https://github.com/guardrex)
 
-Konfigurowanie aplikacji platformy .NET i uruchamiania *hosta*. Host jest odpowiedzialny za zarządzanie uruchamiania i czasu życia aplikacji. W tym temacie omówiono Host rodzajowego Core ASP.NET ([HostBuilder](/dotnet/api/microsoft.extensions.hosting.hostbuilder)), co jest przydatne do hostowania aplikacji, które nie przetwarzają żądania HTTP. Pokrycia hosta sieci Web ([WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder)), zobacz [hosta sieci Web](xref:fundamentals/host/web-host) tematu.
+Konfigurowanie aplikacji platformy .NET i uruchamiania *hosta*. Host jest odpowiedzialny za zarządzanie uruchamiania i czasu życia aplikacji. W tym temacie omówiono Host rodzajowego Core ASP.NET ([HostBuilder](/dotnet/api/microsoft.extensions.hosting.hostbuilder)), co jest przydatne do hostowania aplikacji, które nie przetwarzają żądania HTTP. Pokrycia hosta sieci Web ([WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder)), zobacz <xref:fundamentals/host/web-host>.
 
 Celem ogólnego hosta jest rozdzielenie potoku HTTP z hosta internetowego interfejsu API, umożliwiające szersze gamę scenariuszy hosta. Komunikaty, zadania w tle i innych obciążeń innych niż HTTP oparte na korzyść ogólnego hosta z przekrojowe możliwości, takich jak konfiguracja, wstrzykiwanie zależności (DI) i rejestrowania.
 
@@ -58,7 +58,7 @@ Konfiguracja Konstruktora hosta jest tworzony przez wywołanie [ConfigureHostCon
 
 Zmienne konfiguracji środowiska nie jest dodawany domyślnie. Wywołaj [AddEnvironmentVariables](/dotnet/api/microsoft.extensions.configuration.environmentvariablesextensions.addenvironmentvariables) na Konstruktor hosta, aby skonfigurować hosta ze zmiennych środowiskowych. `AddEnvironmentVariables` akceptuje opcjonalny prefiks zdefiniowany przez użytkownika. Przykładowa aplikacja korzysta z prefiksem `PREFIX_`. Prefiks jest usuwany, gdy zmienne środowiskowe są odczytywane. Po skonfigurowaniu hostów przykładową aplikację, wartość zmiennej środowiskowej, aby uzyskać `PREFIX_ENVIRONMENT` staje się wartość konfiguracji hosta `environment` klucza.
 
-Podczas programowania, korzystając z [programu Visual Studio](https://www.visualstudio.com/) lub uruchamianie aplikacji za pomocą `dotnet run`, zmienne środowiskowe, może być ustawiona w *Properties/launchSettings.json* pliku. W [programu Visual Studio Code](https://code.visualstudio.com/), zmienne środowiskowe, może być ustawiona w *.vscode/launch.json* pliku podczas programowania. Aby uzyskać więcej informacji, zobacz [używanie wielu środowisk](xref:fundamentals/environments).
+Podczas programowania, korzystając z [programu Visual Studio](https://www.visualstudio.com/) lub uruchamianie aplikacji za pomocą `dotnet run`, zmienne środowiskowe, może być ustawiona w *Properties/launchSettings.json* pliku. W [programu Visual Studio Code](https://code.visualstudio.com/), zmienne środowiskowe, może być ustawiona w *.vscode/launch.json* pliku podczas programowania. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/environments>.
 
 `ConfigureHostConfiguration` można wywołać wiele razy z wynikami dodatku. Host używa jednego z tych opcji ustawia wartość ostatniego.
 
@@ -76,6 +76,21 @@ Przykład `HostBuilder` konfiguracji przy użyciu `ConfigureHostConfiguration`:
 ### <a name="extension-method-configuration"></a>Konfiguracja metody rozszerzenia
 
 Metody rozszerzenia są wywoływane na `IHostBuilder` implementacji, aby skonfigurować zawartość katalogu głównego i środowiska.
+
+#### <a name="application-key-name"></a>Klucz aplikacji (nazwa)
+
+[IHostingEnvironment.ApplicationName](/dotnet/api/microsoft.extensions.hosting.ihostingenvironment.applicationname) właściwość ma wartość z konfiguracji hosta podczas konstruowania hosta. Aby jawnie ustawić wartość, użyj [HostDefaults.ApplicationKey](/dotnet/api/microsoft.extensions.hosting.hostdefaults.applicationkey):
+
+**Klucz**: applicationName  
+**Typ**: *ciągu*  
+**Domyślne**: Nazwa zestawu zawierającego punkt wejścia aplikacji.  
+**Można ustawić przy użyciu**: `UseSetting`  
+**Zmienna środowiskowa**: `<PREFIX_>APPLICATIONKEY` (`<PREFIX_>` jest [opcjonalne i zdefiniowane przez użytkownika](#configuration-builder))
+
+```csharp
+WebHost.CreateDefaultBuilder(args)
+    .UseSetting(WebHostDefaults.ApplicationKey, "CustomApplicationName")
+```
 
 #### <a name="content-root"></a>Zawartość katalogu głównego
 
@@ -140,7 +155,7 @@ Aby przenieść pliki ustawień do katalogu wyjściowego, określ pliki ustawie�
 
 [ConfigureServices](/dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.configureservices) dodaje usług do aplikacji [wstrzykiwanie zależności](xref:fundamentals/dependency-injection) kontenera. `ConfigureServices` można wywołać wiele razy z wynikami dodatku.
 
-Usługa hostowana jest klasą z logiką zadań tła, który implementuje [pomocą interfejsu IHostedService](/dotnet/api/microsoft.extensions.hosting.ihostedservice) interfejsu. Aby uzyskać więcej informacji, zobacz [zadania z usługami hostowanymi w tle](xref:fundamentals/host/hosted-services) tematu.
+Usługa hostowana jest klasą z logiką zadań tła, który implementuje [pomocą interfejsu IHostedService](/dotnet/api/microsoft.extensions.hosting.ihostedservice) interfejsu. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/host/hosted-services>.
 
 [Przykładową aplikację](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/host/generic-host/samples/) używa `AddHostedService` metodę rozszerzenia, aby dodać usługę do zdarzenia okresu istnienia `LifetimeEventsHostedService`i zadania w tle czasu `TimedHostedService`, do aplikacji:
 
@@ -390,7 +405,7 @@ public class MyClass
 }
 ```
 
-Aby uzyskać więcej informacji, zobacz [używanie wielu środowisk](xref:fundamentals/environments).
+Aby uzyskać więcej informacji, zobacz <xref:fundamentals/environments>.
 
 ## <a name="iapplicationlifetime-interface"></a>Interfejs IApplicationLifetime
 
@@ -429,5 +444,5 @@ public class MyClass
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Zadania w tle z usługami hostowanymi](xref:fundamentals/host/hosted-services)
+* <xref:fundamentals/host/hosted-services>
 * [Hosting repozytorium przykładów w witrynie GitHub](https://github.com/aspnet/Hosting/tree/release/2.1/samples)
