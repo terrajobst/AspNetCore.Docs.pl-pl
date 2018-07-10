@@ -4,19 +4,16 @@ title: ASP.NET MVC 4 — podstawy | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: W tym laboratorium praktyczne opiera się na MVC (Model View Controller) Music Store, samouczek aplikacji, która wprowadza i wyjaśnia instrukcje krok po kroku, jak używać ASP.NET MV...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/18/2013
-ms.topic: article
 ms.assetid: b7dba543-73c3-4534-a9a0-ba70fa2c6a8a
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-fundamentals
 msc.type: authoredcontent
-ms.openlocfilehash: 3a282d02ba929eb86571e92f190550614962524d
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 2b3f8916bdca1df0dd2855f02ae46f5e5d13311a
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37386578"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37819974"
 ---
 # <a name="aspnet-mvc-4-fundamentals"></a>ASP.NET MVC 4 — podstawy
 
@@ -376,7 +373,7 @@ W tym ćwiczeniu dowiesz się, jak dodać stronę wzorcową układu, aby skonfig
 Plik **~/Views/Shared/\_layout.cshtml** służy do konfiguracji szablonu dla wspólnego kodu HTML do użycia w całej witryny sieci Web. W tym zadaniu dodasz stroną wzorcową układu z nagłówkiem wspólnej wraz z łączami do obszar strony głównej i Store.
 
 1. Jeśli nie już jest otwarty, uruchom **VS Express for Web**.
-2. W **pliku** menu, wybierz **Otwórz projekt**. W oknie dialogowym otwierania projektu, przejdź do **Source\Ex05 CreatingAViewModel\Begin**, wybierz opcję **Begin.sln** i kliknij przycisk **Otwórz**. Alternatywnie możesz nadal z rozwiązaniem uzyskany po ukończeniu poprzedniego ćwiczenia.
+2. W **pliku** menu, wybierz **Otwórz projekt**. W oknie dialogowym otwierania projektu, przejdź do **Source\Ex04 CreatingAView\Begin**, wybierz opcję **Begin.sln** i kliknij przycisk **Otwórz**. Alternatywnie możesz nadal z rozwiązaniem uzyskany po ukończeniu poprzedniego ćwiczenia.
 
    1. Jeśli został otwarty dołączonym **rozpocząć** rozwiązania, należy pobrać niektóre brakujące pakiety NuGet przed kontynuowaniem. Aby to zrobić, kliknij przycisk **projektu** menu, a następnie wybierz **Zarządzaj pakietami NuGet**.
    2. W **Zarządzaj pakietami NuGet** okno dialogowe, kliknij przycisk **przywrócić** Aby pobrać brakujące pakiety.
@@ -384,99 +381,99 @@ Plik **~/Views/Shared/\_layout.cshtml** służy do konfiguracji szablonu dla wsp
 
       > [!NOTE]
       > Jedną z zalet za pomocą narzędzia NuGet jest, że nie masz do wysłania wszystkie biblioteki w projekcie, zmniejszenie rozmiaru projektu. Za pomocą narzędzi NuGet Power Tools, określając wersji pakietu w pliku Packages.config można pobrać wymaganych bibliotek podczas pierwszego uruchomienia projektu. Jest to, dlaczego należy uruchomić następujące kroki, po otwarciu istniejącego rozwiązania, w tym środowisku laboratoryjnym.
-3. Tworzenie <strong>modele widoków\_ folder przechowujący ViewModel. Aby to zrobić, kliknij prawym przyciskiem myszy najwyższego poziomu <strong>MvcMusicStore&lt; projektu, wybierz opcję &gt;Dodaj</strong> i następnie <strong>nowy Folder&lt;. <strong>@RenderBodyDodawanie nowego folderu@RenderBody</strong>dodanie nowego folderu
+3. Plik  <strong>\_layout.cshtml</strong> zawiera układ kontenera HTML na wszystkich stronach w witrynie. Zawiera on <strong>&lt;html&gt;</strong> element dla odpowiedzi HTML, jak również <strong>&lt;head&gt;</strong> i <strong>&lt;treści&gt;</strong> elementów. <strong>@RenderBody()</strong> w kodzie HTML treści regiony rozpoznać widoku szablonów będzie można wypełnić przy użyciu zawartości dynamicznej.
    (C#)
 
     [!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample6.cshtml)]
-4. Dodawanie nowego folderu Nazwa folderu &lt;modele widoków&gt;.
+4. Dodaj nagłówek wspólnej wraz z łączami do strony głównej i Store obszaru na wszystkich stronach w witrynie. Aby to zrobić, Dodaj następujący kod poniżej &lt;treści&gt; instrukcji.
    (C#)
 
     [!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample7.cshtml)]
-5. Modele widoków folder w Eksploratorze rozwiązańmodele widoków folder w Eksploratorze rozwiązań Modele widoków folder w Eksploratorze rozwiązań
+5. Obejmują div renderować tę sekcję treści każdej strony. Zastąp  <strong>@RenderBody()</strong> następującym kodem higlighted: (C#)
 
     [!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample8.cshtml)]
 
     > [!NOTE]
-    > Tworzenie ViewModel klasy. Aby to zrobić, kliknij prawym przyciskiem myszy modele widoków niedawno utworzony folder wybierz Dodaj i następnie nowy element. W obszarze **kodu&lt;, wybierz &gt;klasy** elementu i nazwij plik **StoreIndexViewModel.cs**, następnie kliknij przycisk **Dodaj**.
+    > Czy wiesz? Program Visual Studio 2012 zawiera fragmenty kodu, które ułatwiają Dodaj kod często używane w formacie HTML, pliki kodu i innych! Wypróbuj to wpisując **&lt;div&gt;** i naciskając klawisz **kartę** dwa razy, aby wstawić kompletna **div** tagu.
 
 <a id="Ex4Task2"></a>
 
 <a id="Task_2_-_Adding_CSS_Stylesheet"></a>
-#### <a name="task-2---adding-css-stylesheet"></a>Dodawanie nowej klasyDodawanie nowej klasy
+#### <a name="task-2---adding-css-stylesheet"></a>Zadanie 2 — Dodawanie arkusza stylów CSS
 
-Dodawanie nowej klasy Tworzenie klasy StoreIndexViewModelStoreIndexViewModel Tworzenie klasy
+Szablonu pusty projekt zawiera bardzo usprawnione pliku CSS, zawierającą tylko style używane do wyświetlania podstawowych formularzy i komunikatów dotyczących sprawdzania poprawności. Aby poprawić wygląd i działanie witryny użyje dodatkowe CSS i obrazów (potencjalnie udostępnione przez projektanta).
 
-Tworzenie klasy StoreIndexViewModel
+W tym zadaniu należy dodać arkusz stylów CSS do definiowania stylów witryny.
 
-1. Zadanie 2 — Dodawanie właściwości do klas ViewModel Istnieją dwa parametry do przekazania z StoreController do szablonu widoku w celu wygenerowania oczekiwanego odpowiedzi HTML: liczba gatunki w magazynie oraz lista tych gatunki.
+1. Plik CSS i obrazów, które są uwzględnione w **Source\Assets\Content** folder w tym laboratorium. Aby dodać je do aplikacji, przeciągnij ich zawartość z **Eksplorator Windows** okna do **Eksploratora rozwiązań** w programie Visual Studio Express for Web, jak pokazano poniżej:
 
-    ![W ramach tego zadania spowoduje dodanie tych 2 właściwości w celu ![StoreIndexViewModel] klasy: (aspnet-mvc-4-fundamentals/_static/image12.png "NumberOfGenres") (liczba całkowita) i gatunki (lista ciągów znaków).")
+    ![Przeciąganie zawartość stylu](aspnet-mvc-4-fundamentals/_static/image12.png "przeciąganie zawartość stylu")
 
-    *Dodaj *NumberOfGenres* i gatunki właściwości StoreIndexViewModel klasy.*
-2. Aby to zrobić, Dodaj następujące wiersze 2 do definicji klasy: (Code Snippet — **platformy ASP.NET MVC 4 podstawowe - właściwości Ex5 StoreIndexViewModel**)
+    *Przeciąganie zawartość stylu*
+2. Ostrzeżenie zostanie wyświetlone okno dialogowe, pytaniem o potwierdzenie zamiaru zastąpienia **Site.css** plików i niektórych istniejących obrazów. Sprawdź **Zastosuj do wszystkich elementów** i kliknij przycisk **tak**.
 
 <a id="Ex4Task3"></a>
 
 <a id="Task_3_-_Adding_a_View_Template"></a>
-#### <a name="task-3---adding-a-view-template"></a>{Pobierz; Ustaw;}  notacji sprawia, że korzystanie z języka C# w funkcji właściwości zaimplementowane automatycznie.
+#### <a name="task-3---adding-a-view-template"></a>Zadanie 3 — Dodawanie szablonu widoku
 
-Zapewnia korzyści wynikające z właściwością bez konieczności NAS zadeklarować pole zapasowe.
+W tym zadaniu doda Wyświetl szablon do generowania odpowiedzi HTML, który będzie używał układ strony wzorcowej i CSS dodane w tym ćwiczeniu.
 
-1. Zadanie 3 — aktualizowanie StoreController używać StoreIndexViewModel **StoreIndexViewModel** klasa hermetyzuje informacje wymagane do przekazywania z **StoreController**firmy **indeksu** metody Wyświetl szablon w celu wygenerowania odpowiedzi .
+1. Aby użyć szablonu widoku podczas przeglądania strony głównej, najpierw należy wskazać, że zamiast zwracać ciąg, **indeksu HomeController** metoda zwróci **widoku**. Otwórz **HomeController** klasy i zmień jego **indeksu** metodę, aby zwrócić **ActionResult**, i zwraca **View()**.
 
-    To zadanie zaktualizuje *StoreController* używać StoreIndexViewModel.
+    (Code Snippet — *podstawy platformy ASP.NET MVC 4 — indeks HomeController Ex4*)
 
     [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample9.cs)]
-2. Otwieranie klasy StoreControllerStoreController otwierający, klasa Otwieranie StoreController klasy Zostanie wyświetlone okno **Dodaj widok** okna dialogowego.
+2. Teraz należy dodać odpowiedni szablon widoku. Aby to zrobić, **kliknij prawym przyciskiem myszy** wewnątrz **indeksu** metody akcji i wybierz **Dodaj widok**. Zostanie wyświetlone okno **Dodaj widok** okna dialogowego.
 
-    ![Aby można było używać ![StoreIndexViewModel] klasy z (aspnet-mvc-4-fundamentals/_static/image13.png "StoreController"), Dodaj następujące przestrzeni nazw w górnej części StoreController kodu:")
+    ![Dodawanie widoku z wewnątrz metody indeksu](aspnet-mvc-4-fundamentals/_static/image13.png "Dodawanie widoku z wewnątrz metody indeksu")
 
-    *(Code Snippet — *platformy ASP.NET MVC 4 podstawowe - StoreIndexViewModel Ex5 przy użyciu modele widoków*)*
-3. Zmiana **StoreController**firmy indeksu metody akcji tak, że utworzenie i wypełnienie StoreIndexViewModel obiektu i przekazuje je do szablonu widoku w celu Generowanie odpowiedzi HTML z nim. W laboratorium platformy ASP.NET MVC modele i dostęp do danych trzeba napisać kod, który umożliwia pobranie listy gatunki magazynu z bazy danych. W poniższym kodzie zostanie utworzony **listy** gatunków fikcyjnymi danymi, które zostanie wypełniony **StoreIndexViewModel**. Kliknij przycisk **Dodaj**.
+    *Dodawanie widoku z wewnątrz metody indeksu*
+3. **Dodaj widok** zostanie wyświetlone okno dialogowe, aby wygenerować plik szablonu widoku. Domyślnie to okno dialogowe wstępnie wypełnia nazwę szablonu widoku, aby był zgodny z metody akcji, która będzie go używać. Ponieważ użyto **Dodaj widok** menu kontekstowe w obrębie **indeksu** metody akcji w obrębie HomeController **Dodaj widok** okno dialogowe ma indeks jako domyślnej nazwy widoku. Kliknij przycisk **Dodaj**.
 
-    ![Po utworzeniu i konfigurowania ![StoreIndexViewModel] obiektu zostanie przekazany jako argument do (aspnet-mvc-4-fundamentals/_static/image14.png "widoku") metody.")
+    ![Okno dialogowe dodawania widoku](aspnet-mvc-4-fundamentals/_static/image14.png "okno dialogowe dodawania widoku")
 
-    *Oznacza to, że szablon widoku będzie używać tego obiektu do generowania odpowiedzi HTML z nim.*
-4. Zastąp **indeksu** metoda następującym kodem:
+    *Okno dialogowe dodawania widoku*
+4. Program Visual Studio generuje **Index.cshtml** Wyświetl szablon wewnątrz **Views\Home** folder i następnie otwiera go.
 
-    ![(Code Snippet — ![platformy ASP.NET MVC 4 podstawowe - metoda indeksu StoreController Ex5])")
+    ![Strona główna widok indeksu utworzony](aspnet-mvc-4-fundamentals/_static/image15.png "widok Home Indeks utworzony")
 
-    *Jeśli jesteś zaznajomiony z C#, mogą zakładać, że to przy użyciu *var* oznacza, że viewModel zmienna jest z późnym wiązaniem.*
+    *Utworzony widok indeks strony głównej*
 
     > [!NOTE]
-    > Nie jest prawidłowe — kompilator języka C# używa wnioskowanie typów w oparciu o przypisania do zmiennej do określenia, który **viewModel** typu StoreIndexViewModel.
+    > Nazwa i lokalizacja **Index.cshtml** plików ma zastosowanie i jest zgodna z konwencjami nazewnictwa platformy ASP.NET MVC domyślne.
     > 
-    > Ponadto, kompilując lokalnej \*viewModel*zmiennej jako*StoreIndexViewModel** typ sprawdzania kompilacji get i obsługa Edytor kodu programu Visual Studio. Zadanie 4 — tworzenie Wyświetl szablon, który używa StoreIndexViewModel
+    > \Views folderu\**Home** jest zgodna z nazwą kontrolera (**Home** kontrolera). Nazwa szablonu widoku (**indeksu**), pasuje do metody akcji kontrolera, które będą wyświetlane w widoku.
     > 
-    > W tym zadaniu utworzysz Wyświetl szablon, który będzie używany obiekt StoreIndexViewModel przekazywane z kontrolera do wyświetlania listy gatunki.
-5. Przed utworzeniem nowego szablonu widoku, utworzymy projekt tak, aby **dialogowe dodawania widoku\_ obsługującemu** StoreIndexViewModel klasy. Utwórz nowy szablon widoku.
+    > W ten sposób platformy ASP.NET MVC pozwala uniknąć konieczności jawnego określania nazwy lub lokalizacji szablonu widoku, używając tę konwencję nazewnictwa do zwrócenia widoku.
+5. Wygenerowany szablon widoku opiera się na  **\_layout.cshtml** wcześniej zdefiniowanego szablonu. Aktualizowanie właściwości ViewBag.Title **Home**i zmień głównej zawartości do **jest stroną główną**, jak pokazano w poniższym kodzie:
 
     [!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample10.cshtml)]
-6. Aby to zrobić, kliknij prawym przyciskiem myszy wewnątrz **indeksu** i wybierz opcję **Dodaj widok**.
+6. Wybierz **MvcMusicStore** projekt w Eksploratorze rozwiązań, a następnie naciśnij klawisz **F5** do uruchomienia aplikacji.
 
 <a id="Ex4Task4"></a>
 
 <a id="Task_4_Verification"></a>
-#### <a name="task-4-verification"></a>Dodawanie widokuDodawanie widoku
+#### <a name="task-4-verification"></a>Zadanie 4: Weryfikacja
 
-Ponieważ dialogowe dodawania widoku została wywołana z StoreController, spowoduje to dodanie Wyświetl szablon domyślny \Views\Store\Index.cshtml pliku.
+Aby sprawdzić, czy poprawnie wykonano wszystkie kroki opisane w poprzednim ćwiczeniu kontynuować:
 
-Sprawdź tworzenia silnie typizowane — widoku pole wyboru, a następnie wybierz StoreIndexViewModel jako klasa modelu.
+Z aplikacją otwierane w przeglądarce należy zauważyć, że:
 
-1. Ponadto upewnij się, że aparat widoku, wybrane jest **Razor**.
-2. **\Views\Store\Index.cshtml** plik szablonu widok zostanie utworzony i otwarty.
-3. Oparte na informacjach dostarczonych do **Dodaj widok\_ okna dialogowego w ostatnim kroku, Wyświetl szablon będzie oczekiwać** StoreIndexViewModel wystąpienia jako dane w celu wygenerowania odpowiedzi HTML.
+1. Metody akcji indeksu HomeController znalezione i wyświetlane **\Views\Home\Index.cshtml** wyświetlić szablon, mimo że kod wywołuje **zwracają View()**, ponieważ szablon widoku, a następnie standardowej konwencji nazewnictwa.
+2. Na stronie głównej wyświetli komunikat powitalny, zdefiniowany w ramach **\Views\Home\Index.cshtml** szablon widoku.
+3. Strona główna używa  **\_layout.cshtml** szablonu, a zatem komunikat powitalny znajduje się w układzie standardowej witrynie HTML.
 
-    ![Zauważysz, że szablon dziedziczy ![ w języku C#.")
+    ![Strona główna widoku indeksu przy użyciu zdefiniowanych LayoutPage i styl](aspnet-mvc-4-fundamentals/_static/image16.png "Home widoku indeksu przy użyciu zdefiniowanych LayoutPage i style")
 
-    *Zadanie 5 aktualizowanie szablonu widoku.*
+    *Widok strony głównej indeksu przy użyciu zdefiniowanych LayoutPage i style*
 
 <a id="Exercise5"></a>
 
 <a id="Exercise_5_Creating_a_View_Model"></a>
 ### <a name="exercise-5-creating-a-view-model"></a>Ćwiczenie 5: Tworzenie modelu widoku
 
-W tym zadaniu zostanie zaktualizowana Wyświetl szablon utworzony w poprzednim zadaniu można pobrać liczby gatunki i ich nazwy na stronie. Użyjesz @ składni (często nazywany **kodu nuggets**) do wykonywania kodu w ramach szablonu widoku.
+Do tej pory wprowadzono widoków wyświetlić zapisane na stałe HTML, ale aby można było utworzyć dynamicznych aplikacji sieci web, Wyświetl szablon powinien zostać wyświetlony informacji od kontrolera. Jedną z typowych technik posłuży do tego celu jest **ViewModel** wzorzec, co pozwala kontroler spakowanie wszystkie informacje potrzebne do generowania odpowiednich odpowiedzi HTML.
 
 W tym ćwiczeniu zostanie dowiesz się, jak utworzyć klasę ViewModel i dodać wymagane właściwości: liczba gatunki w magazynie oraz lista tych gatunki. Zostanie również zaktualizować StoreController do użycia utworzonej ViewModel, a na koniec utworzysz nowy szablon widoku, który spowoduje wyświetlenie właściwości wymienionego na stronie.
 
@@ -587,9 +584,9 @@ W tym zadaniu utworzysz Wyświetl szablon, który będzie używany obiekt StoreI
     *Dodawanie widoku*
 3. Ponieważ **dialogowe dodawania widoku** została wywołana z **StoreController**, spowoduje to dodanie Wyświetl szablon domyślny **\Views\Store\Index.cshtml** pliku. Sprawdź **tworzenia silnie typizowane — widoku** pole wyboru, a następnie wybierz **StoreIndexViewModel** jako **klasa modelu**. Ponadto upewnij się, że aparat widoku, wybrane jest **Razor**. Kliknij przycisk **Dodaj**.
 
-    ![Po utworzeniu i konfigurowania ![StoreIndexViewModel] obiektu zostanie przekazany jako argument do (aspnet-mvc-4-fundamentals/_static/image24.png "widoku") metody.")
+    ![Okno dialogowe dodawania widoku](aspnet-mvc-4-fundamentals/_static/image24.png "okno dialogowe dodawania widoku")
 
-    *Oznacza to, że szablon widoku będzie używać tego obiektu do generowania odpowiedzi HTML z nim.*
+    *Okno dialogowe dodawania widoku*
 
     **\Views\Store\Index.cshtml** plik szablonu widok zostanie utworzony i otwarty. Oparte na informacjach dostarczonych do **Dodaj widok** okna dialogowego w ostatnim kroku, Wyświetl szablon będzie oczekiwać **StoreIndexViewModel** wystąpienia jako dane w celu wygenerowania odpowiedzi HTML. Zauważysz, że szablon dziedziczy `ViewPage<musicstore.viewmodels.storeindexviewmodel>` w języku C#.
 

@@ -4,19 +4,16 @@ title: Tworzenie projektów sieci Web platformy ASP.NET, w programie Visual Stud
 author: tdykstra
 description: W tym temacie wyjaśniono, że opcje tworzenia projektów sieci web platformy ASP.NET w programie Visual Studio 2013 z aktualizacją Update 3 w tym miejscu przedstawiono niektóre nowe funkcje dla języka c development sieci web...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 12/01/2014
-ms.topic: article
 ms.assetid: 61941e64-0c0d-4996-9270-cb8ccfd0cabc
-ms.technology: ''
 msc.legacyurl: /visual-studio/overview/2013/creating-web-projects-in-visual-studio
 msc.type: authoredcontent
-ms.openlocfilehash: 6033163b7b8e9e1d0524935217dc53f938470cb6
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: b57492a51f65e7ca861a7c354ded6ab170a92488
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37363471"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37814523"
 ---
 <a name="creating-aspnet-web-projects-in-visual-studio-2013"></a>Tworzenie projektów sieci Web platformy ASP.NET w programie Visual Studio 2013
 ====================
@@ -82,37 +79,37 @@ Poniższe kroki pokazują jak utworzyć projekt sieci web:
 Visual Studio zawiera funkcje, które ułatwiają pracę z usługami platformy Azure do hostowania aplikacji sieci web. Możesz na przykład, wykonaj wszystkie poniższe bezpośrednio w środowisku IDE programu Visual Studio:
 
 - Tworzenie i zarządzanie nimi, aplikacje sieci web lub maszyn wirtualnych, które aplikacji dostępne za pośrednictwem Internetu.
-- Aby uzyskać więcej informacji na temat ładowania początkowego zobacz Bootstrap witryny.
-- Jeśli używany jest Projektant formularzy sieci Web w programie Visual Studio, należy pamiętać, że projektant nie obsługuje CSS3, dlatego dokładnie nie pokazuje wszystkie efekty Bootstrap motywy lub zmiany układu dynamicznego.
-- Jednak stron formularzy sieci Web będą wyświetlane poprawnie, podczas wyświetlania w przeglądarce.
+- Wyświetl dzienniki utworzone przez aplikację podczas jej działania w chmurze.
+- Zdalnie korzystać z trybu debugowania podczas działania aplikacji w chmurze.
+- Viiew i zarządzać innymi usługami platformy Azure, takich jak bazy danych SQL.
 
-Dodano obsługę dodatkowych platform 
+Możesz [utworzyć konto platformy Azure](https://www.windowsazure.com/pricing/free-trial/) za darmo zawierającej podstawowych usług, takich jak aplikacje sieci web, a jeśli jesteś subskrybentem MSDN możesz [aktywować korzyści](https://azure.microsoft.com/pricing/member-offers/visual-studio-subscriptions/) które podają miesięczne środki na korzystanie z usług Azure dodatkowe usługi. 
 
-Po wybraniu szablonu, automatycznie zaznaczono pole wyboru dla framework(s) używany przez szablon. Na przykład w przypadku wybrania **formularzy sieci Web** szablonu, formularzy sieci Web pole wyboru jest zaznaczone i nie można jej wyczyścić.
+Domyślnie **nowy projekt ASP.NET** okno dialogowe pozwala na tworzenie aplikacji sieci web lub maszyny wirtualnej do nowego projektu sieci web. Jeśli nie chcesz utworzyć nową aplikację sieci web lub maszyny wirtualnej, należy wyczyścić **Hostuj w chmurze** pole wyboru.
 
-![Można wybrać pole wyboru dla strukturę, która nie jest zawarta w szablonie, aby można było dodać obsługę tej struktury, gdy projekt zostanie utworzony.](creating-web-projects-in-visual-studio/_static/image8.png)
+![Utwórz zasoby zdalne](creating-web-projects-in-visual-studio/_static/image8.png)
 
-Na przykład, aby umożliwić korzystanie z formularzy sieci Web **.aspx** stron po wybraniu szablonu MVC wybierz **formularzy sieci Web** pole wyboru. Lub aby włączyć MVC, podczas korzystania z szablonów formularzy sieci Web, kliknij przycisk MVC pole wyboru. Dodanie platforma umożliwia pomocy technicznej czasu projektowania, jak również w czasie wykonywania. Na przykład jeśli dodasz Obsługa MVC do projektu formularzy sieci Web można tworzyć szkielety, widoków i kontrolerów. Jeśli łączenie MVC i formularzy sieci Web w projekcie i Włącz przyjazne adresy URL w formularzach sieci Web, mogą istnieć nieoczekiwany routing problemów, gdzie jeden adres URL ma wiele elementów docelowych to możliwe. Najpierw tras, które są zdefiniowane będą miały pierwszeństwo.
+Podpis pole wyboru musi być **Hostuj w chmurze** lub **Utwórz zasoby zdalne**, a w obu przypadkach efekt jest taki sam. Jeśli pole jest zaznaczone pole wyboru, Visual Studio tworzy aplikację internetową w usłudze Azure App Service domyślnie. Można użyć listy rozwijanej, aby zmienić tę instrukcję na **maszyny wirtualnej** Jeśli użytkownik sobie tego życzy. Jeśli jeszcze nie zalogowano do platformy Azure, zostanie wyświetlony monit o poświadczenia platformy Azure. Po zalogowaniu, okno dialogowe umożliwia konfigurowanie zasobów, które program Visual Studio zostanie utworzona w projekcie. Na poniższej ilustracji przedstawiono okno dialogowe dla aplikacji sieci web; Jeśli zdecydujesz się utworzyć maszynę wirtualną, zostaną wyświetlone różne opcje.
 
-![Na przykład, jeśli masz  kontrolera i Home.aspx stronie  adres URL zostanie umieszczona na Home.aspx Jeśli wywołasz  metoda przed wywołaniem method in Class metoda RouteConfig.cs, lub ten sam adres URL będzie przejdź do widoku domyślnego dla usługi  kontrolera, jeśli wywołasz  przed .](creating-web-projects-in-visual-studio/_static/image9.png)
+![Konfigurowanie ustawień aplikacji platformy Azure](creating-web-projects-in-visual-studio/_static/image9.png)
 
-Dodawanie struktury nie dodaje żadnych funkcji aplikacji przykładowej.
+Aby uzyskać więcej informacji na temat tego procesu należy używać do tworzenia zasobów platformy Azure, zobacz [Rozpoczynanie pracy z platformą Azure i programu ASP.NET](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet) i [tworzenia maszyny wirtualnej dla witryny sieci web za pomocą programu Visual Studio](https://azure.microsoft.com/documentation/articles/virtual-machines-dotnet-create-visual-studio-powershell/).
 
-Na przykład jeśli dodasz formularzy sieci Web pomocy technicznej po wybraniu szablonu MVC nie Default.aspx zostanie utworzony plik strony głównej. Tylko folderów, plików i odwołań wymagane do obsługi w ramach są dodawane.
+W dalszej części tego artykułu zawiera więcej informacji na temat dostępnych szablonów i ich opcji. Artykuł przedstawia również Bootstrap, układ i motywów framework wykorzystywany w szablonach.
 
 <a id="vs2013"></a>
-## <a name="visual-studio-2013-web-project-templates"></a>Z tego powodu dodawanie struktur nie zmienia opcje uwierzytelniania, które są implementowane przez kod w przykładowe aplikacje utworzone za pomocą szablonów.
+## <a name="visual-studio-2013-web-project-templates"></a>Szablony projektów sieci Web programu Visual Studio 2013
 
-Na przykład, jeśli wybierzesz pusty szablon i Dodaj formularzy sieci Web lub MVC obsługuje, Konfigurowanie uwierzytelniania przycisk nadal będzie wyłączony. W poniższych sekcjach krótko opisano wpływ każdego pola wyboru. Dodanie obsługi formularzy sieci Web
+Program Visual Studio używa szablony do tworzenia projektów sieci web. Szablon projektu można tworzyć pliki i foldery w nowym projekcie, instalowanie pakietów NuGet i zapewnienia przykładowy kod z prostymi działającą aplikację. Szablony wdrożenia najnowszych standardów sieci web i służą do zademonstrowania, że najważniejsze wskazówki dotyczące sposobu korzystają z technologii ASP.NET, a także umożliwiają szybkie uruchomienie na tworzenie własnych aplikacji.
 
-Tworzy pusty aplikacjidanych i modeli folderów i Global.asax pliku.
+Visual Studio 2013 udostępnia następujące opcje dla szablonów projektu sieci web dla projektów przeznaczonych dla platformy .NET 4.5 lub nowsze wersje programu .NET framework:
 
-- [Są one już tworzone przez wszystkie szablony innych niż pustego szablonu, więc zaznaczenie pola wyboru formularzy sieci Web nie ma wpływu na inne szablony.](#empty)
-- [Szablon formularzy sieci Web włącza przyjazne adresy URL, domyślnie, ale po dodaniu obsługi formularzy sieci Web do innych szablonów przez zaznaczenie pola wyboru formularzy sieci Web, który przyjazne adresy URL nie są automatycznie włączane.](#wf)
-- [Dodanie obsługi MVC](#mvc)
-- [Instaluje pakiety MVC Razor i NuGet stron sieci Web, tworzy pustą [aplikacji](#webapi)danych, kontrolerów, modeli, i widokówfolderów, tworzy aplikacjiStart folder z RouteConfig.cs pliku i tworzy Global.asax pliku.](#webapi)
-- [Dodanie obsługi interfejsu API sieci Web](#spa)
-- [Aby uzyskać więcej informacji o korzystaniu z programu Visual Studio do tworzenia aplikacji internetowych, zobacz [ ](https://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/) .](https://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/)
+- [Pusty szablon](#empty)
+- [Szablon formularzy sieci Web](#wf)
+- [Szablon MVC](#mvc)
+- [Szablon sieci Web interfejsu API](#webapi)
+- [Pojedynczy szablon aplikacji](#spa)
+- [Szablon usługi mobilnej platformy Azure](https://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/)
 - [Szablony programu Visual Studio 2012](#vs2012)
 
 Można także zainstalować rozszerzenia programu Visual Studio, która zapewnia [szablonu usługi Facebook](#facebook).
