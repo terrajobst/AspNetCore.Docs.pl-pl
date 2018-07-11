@@ -1,3 +1,3 @@
-Skopiuj wwwroot z... /Cu/ lub nowy projekt stron Razor.
+Skopiuj wwwroot z... /Cu/ lub z nowym projektem stron Razor.
 
-Uruchom`dotnet ef database update`
+Uruchom `dotnet ef database update`

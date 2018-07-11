@@ -1,3 +1,3 @@
-# <a name="aspnet-core-logging-sample-application"></a>Platformy ASP.NET Core rejestrowania przykładowej aplikacji
+# <a name="aspnet-core-logging-sample-application"></a>Platforma ASP.NET Core rejestrowanie przykładowej aplikacji
 
-Jest to przykładowa aplikacja dla [platformy ASP.NET Core rejestrowania](https://docs.microsoft.com/aspnet/core/fundamentals/logging/index) artykułu i opierają się na przykład utworzone dla [pierwszy interfejsu API sieci Web z platformą ASP.NET MVC Core](https://docs.microsoft.com/aspnet/core/tutorials/first-web-api) samouczka.
+Ta przykładowa aplikacja jest [rejestrowania programu ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging/index) artykuł i opiera się na przykład utworzone dla [pierwszego interfejsu API sieci Web platformy ASP.NET Core MVC](https://docs.microsoft.com/aspnet/core/tutorials/first-web-api) samouczka.

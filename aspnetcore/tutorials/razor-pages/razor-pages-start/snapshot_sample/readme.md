@@ -1,1 +1,1 @@
-Kod w tym folderze jest migawek w czasie z serii stron Razor.
+Kod w tym folderze jest migawki w czasie z serii stron Razor.

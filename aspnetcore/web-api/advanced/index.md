@@ -1,18 +1,18 @@
 ---
-title: Tematy zaawansowane interfejsu API platformy ASP.NET Core sieci Web
+title: Zaawansowane tematy związane z internetowego interfejsu API platformy ASP.NET Core
 author: scottaddie
-description: Wykryj Tematy zaawansowane do tworzenia aplikacji interfejsu API platformy ASP.NET Core sieci Web.
+description: Odnajdywanie zaawansowane tematy dotyczące projektowania internetowego interfejsu API platformy ASP.NET Core.
 ms.author: scaddie
 ms.date: 04/25/2018
 uid: web-api/advanced/index
-ms.openlocfilehash: 5932ff8445b7924f526c65eca3bd2435e5ce8bf7
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: bf979d51fb0a50faf9dc8e28f471d228b7945a8d
+ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36279145"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37938449"
 ---
-# <a name="advanced-topics-for-aspnet-core-web-api"></a>Tematy zaawansowane interfejsu API platformy ASP.NET Core sieci Web
+# <a name="advanced-topics-for-aspnet-core-web-api"></a>Zaawansowane tematy związane z internetowego interfejsu API platformy ASP.NET Core
 
 * [Niestandardowe elementy formatujące](xref:web-api/advanced/custom-formatters)
 * [Formatowanie danych odpowiedzi](xref:web-api/advanced/formatting)

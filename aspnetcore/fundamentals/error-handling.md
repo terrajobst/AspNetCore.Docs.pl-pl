@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 07/05/2018
 uid: fundamentals/error-handling
-ms.openlocfilehash: 126a782bfd32f9ecd0596045218371ef5ccc82f2
-ms.sourcegitcommit: ea7ec8d47f94cfb8e008d771f647f86bbb4baa44
+ms.openlocfilehash: 6aded9525a0abd31dec8441c7fba60d8845c7d93
+ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37894143"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37938244"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>Obsługa błędów w programie ASP.NET Core
 
@@ -193,7 +193,7 @@ Tylko warstwa hostingu może obsługiwać wyjątki, które mają miejsce podczas
 
 Jeśli wystąpi błąd, po adresem/port hosta powiązania hostingu można wyświetlić tylko stronę błędu dla błędów uruchamiania przechwycone. Jeśli wszystkie powiązania nie powiedzie się z jakiegokolwiek powodu, hostingu warstwy rejestruje wyjątek krytyczny dotnet awarii procesów, i stronę błędu, nie jest wyświetlane, gdy aplikacja jest uruchomiona na [Kestrel](xref:fundamentals/servers/kestrel) serwera.
 
-Podczas uruchamiania na [IIS](/iis) lub [usług IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview), *502.5 niepowodzenia procesu* jest zwracany przez [modułu ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) , jeśli proces nie może być pracę. Postępuj zgodnie z porady dotyczące rozwiązywania problemów w [Rozwiązywanie problemów z platformą ASP.NET Core w usługach IIS](xref:host-and-deploy/iis/troubleshoot) tematu.
+Podczas uruchamiania na [IIS](/iis) lub [usług IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview), *502.5 niepowodzenia procesu* jest zwracany przez [modułu ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) , jeśli proces nie może być pracę. Aby uzyskać informacje na temat rozwiązywania problemów problemy z uruchamianiem w przypadku hostowania za pomocą programu IIS, zobacz <xref:host-and-deploy/iis/troubleshoot>. Aby uzyskać informacje na temat rozwiązywania problemów z uruchamianiem przy użyciu usługi Azure App Service, zobacz <xref:host-and-deploy/azure-apps/troubleshoot>.
 
 ## <a name="aspnet-mvc-error-handling"></a>Obsługa błędów platformy ASP.NET MVC
 
@@ -215,4 +215,5 @@ Niektóre aplikacje chce wykonać standardowej Konwencji za zajmowanie się bł�
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * <xref:host-and-deploy/azure-iis-errors-reference>
+* <xref:host-and-deploy/iis/troubleshoot>
 * <xref:host-and-deploy/azure-apps/troubleshoot>

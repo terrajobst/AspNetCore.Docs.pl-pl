@@ -1,5 +1,5 @@
-Ostateczną wersją... /Cu i... /cuFinal zawiera więcej kompletny kod.
+Ostateczna wersja... /Cu i... /cuFinal zawierają bardziej kompletny kod.
 
-Skopiuj wwwroot z... /Cu/ lub nowy projekt stron Razor.
+Skopiuj wwwroot z... /Cu/ lub z nowym projektem stron Razor.
 
 Uruchom `dotnet ef database update`

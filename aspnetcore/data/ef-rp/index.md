@@ -1,20 +1,20 @@
 ---
-title: Strony ASP.NET Core Razor, EF podstawowych — samouczek serii
+title: Stronami ASP.NET Core Razor z programem EF Core — seria samouczków
 author: rick-anderson
 description: ''
 ms.author: riande
 ms.date: 03/15/2017
 uid: data/ef-rp/index
-ms.openlocfilehash: 56d317e4334ee006c8b52163594e2850c11d23d7
-ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
+ms.openlocfilehash: 1e8d38ba3db014c68717f90b7216dc84a9c496a8
+ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36960869"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37938368"
 ---
-# <a name="aspnet-core-razor-pages-with-ef-core---tutorial-series"></a>Strony ASP.NET Core Razor, EF podstawowych — samouczek serii
+# <a name="aspnet-core-razor-pages-with-ef-core---tutorial-series"></a>Stronami ASP.NET Core Razor z programem EF Core — seria samouczków
 
-Tej serii samouczków pokazuje sposób tworzenia aplikacji sieci web platformy ASP.NET Core Razor strony, które używają Core Entity Framework (EF) dla dostępu do danych.
+Tej serii samouczków pokazano, jak tworzyć aplikacje sieci web stron Razor programu ASP.NET Core, korzystających z podstawowych Entity Framework (EF) uzyskać dostęp do danych.
 
 1. [Wprowadzenie](xref:data/ef-rp/intro)
 1. [Operacje tworzenia, odczytu, aktualizowania i usuwania](xref:data/ef-rp/crud)

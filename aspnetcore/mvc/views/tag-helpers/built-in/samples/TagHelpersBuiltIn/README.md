@@ -1,6 +1,6 @@
 # <a name="aspnet-core-built-in-tag-helpers-sample"></a>Przykładowe pomocników wbudowany Tag platformy ASP.NET Core
 
-W tym przykładzie przedstawiono różnice wbudowanych pomocników tagów z MVC i stron Razor:
+W tym przykładzie pokazano odmiany wbudowanych pomocników tagów za pomocą MVC i stron Razor:
 
 - [Pomocnik tagu kotwicy](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/anchor-tag-helper)
     - [asp-action](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/anchor-tag-helper#asp-action)
@@ -14,7 +14,7 @@ W tym przykładzie przedstawiono różnice wbudowanych pomocników tagów z MVC 
     - [Protokół ASP](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/anchor-tag-helper#asp-protocol)
     - [asp-route](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/anchor-tag-helper#asp-route)
     - [asp-route-{value}](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/anchor-tag-helper#asp-route-value)
-- [Pomocnik Tag częściowe](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/partial-tag-helper)
+- [Pomocnik tagu częściowego](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/partial-tag-helper)
     - [for](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/partial-tag-helper#for)
     - [Model](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/partial-tag-helper#model)
     - [Nazwa](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/partial-tag-helper#name)

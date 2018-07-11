@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/04/2018
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: bce09a500160f0bf13926786d277f8b1e88c1bf8
-ms.sourcegitcommit: ea7ec8d47f94cfb8e008d771f647f86bbb4baa44
+ms.openlocfilehash: e9e10b0bc99b2c54bf342121b1a454be5dac66c6
+ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37894260"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37938200"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Host platformy ASP.NET Core w usłudze Windows
 
@@ -19,7 +19,7 @@ Przez [Luke Latham](https://github.com/guardrex) i [Tom Dykstra](https://github.
 
 Aplikacji ASP.NET Core może być hostowana na Windows bez korzystania z usług IIS jako [usługi Windows](/dotnet/framework/windows-services/introduction-to-windows-service-applications). Gdy hostowany jako usługa Windows, aplikacja może automatycznie po ponownym uruchomieniu i ulega awarii, nie wymagając interwencji człowieka.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/windows-service/sample) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/windows-service/samples) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="get-started"></a>Wprowadzenie
 
@@ -28,12 +28,40 @@ Następujące minimalne zmiany są wymagane do skonfigurowania istniejący proje
 1. W pliku projektu:
 
    1. Potwierdzić obecność identyfikator środowiska uruchomieniowego, albo dodaj go do  **\<PropertyGroup >** zawierający platforma docelowa:
+
+      ::: moniker range=">= aspnetcore-2.1"
+
       ```xml
       <PropertyGroup>
         <TargetFramework>netcoreapp2.1</TargetFramework>
         <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
       </PropertyGroup>
       ```
+
+      ::: moniker-end
+
+      ::: moniker range="= aspnetcore-2.0"
+
+      ```xml
+      <PropertyGroup>
+        <TargetFramework>netcoreapp2.0</TargetFramework>
+        <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
+      </PropertyGroup>
+      ```
+
+      ::: moniker-end
+
+      ::: moniker range="< aspnetcore-2.0"
+
+      ```xml
+      <PropertyGroup>
+        <TargetFramework>netcoreapp1.1</TargetFramework>
+        <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
+      </PropertyGroup>
+      ```
+
+      ::: moniker-end
+
    1. Dodaj odwołania do pakietu dla [Microsoft.AspNetCore.Hosting.WindowsServices](https://www.nuget.org/packages/Microsoft.AspNetCore.Hosting.WindowsServices/).
 
 1. Wprowadź następujące zmiany w `Program.Main`:
@@ -44,13 +72,13 @@ Następujące minimalne zmiany są wymagane do skonfigurowania istniejący proje
 
      ::: moniker range=">= aspnetcore-2.0"
 
-     [!code-csharp[](windows-service/sample/Program.cs?name=ServiceOnly&highlight=3-4,7,11)]
+     [!code-csharp[](windows-service/samples/2.x/AspNetCoreService/Program.cs?name=ServiceOnly&highlight=8-9,12)]
 
      ::: moniker-end
 
      ::: moniker range="< aspnetcore-2.0"
 
-     [!code-csharp[](windows-service/sample_snapshot/Program.cs?name=ServiceOnly&highlight=3-4,8,13)]
+     [!code-csharp[](windows-service/samples_snapshot/1.x/AspNetCoreService/Program.cs?name=ServiceOnly&highlight=3-4,8,13)]
 
      ::: moniker-end
 
@@ -77,7 +105,7 @@ Następujące minimalne zmiany są wymagane do skonfigurowania istniejący proje
    Otwórz powłokę wiersza polecenia z uprawnieniami administracyjnymi i uruchom następujące polecenie:
 
    ```console
-   sc create MyService binPath= "c:\my_services\aspnetcoreservice\bin\release\<TARGET_FRAMEWORK>\publish\aspnetcoreservice.exe"
+   sc create MyService binPath= "c:\my_services\AspNetCoreService\bin\Release\<TARGET_FRAMEWORK>\publish\AspNetCoreService.exe"
    ```
    
    > [!IMPORTANT]
@@ -143,15 +171,18 @@ Znacznie łatwiej testować i debugować podczas uruchamiania spoza niej, więc 
 
 ::: moniker range=">= aspnetcore-2.0"
 
-[!code-csharp[](windows-service/sample/Program.cs?name=ServiceOrConsole)]
+[!code-csharp[](windows-service/samples/2.x/AspNetCoreService/Program.cs?name=ServiceOrConsole)]
 
 Ponieważ konfiguracja platformy ASP.NET Core wymaga pary nazwa wartość dla argumentów wiersza polecenia `--console` przełącznik został usunięty, zanim argumenty są przekazywane do [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder).
+
+> [!NOTE]
+> `isService` nie jest przekazywane z `Main` do `CreateWebHostBuilder` ponieważ podpis `CreateWebHostBuilder` musi być `CreateWebHostBuilder(string[])` aby [Testowanie integracji](xref:test/integration-tests) działało poprawnie.
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.0"
 
-[!code-csharp[](windows-service/sample_snapshot/Program.cs?name=ServiceOrConsole)]
+[!code-csharp[](windows-service/samples_snapshot/1.x/AspNetCoreService/Program.cs?name=ServiceOrConsole)]
 
 ::: moniker-end
 
@@ -161,29 +192,32 @@ Aby obsłużyć [OnStarting](/dotnet/api/microsoft.aspnetcore.hosting.windowsser
 
 1. Utwórz klasę, która pochodzi od klasy [WebHostService](/dotnet/api/microsoft.aspnetcore.hosting.windowsservices.webhostservice):
 
-   [!code-csharp[](windows-service/sample/CustomWebHostService.cs?name=NoLogging)]
+   [!code-csharp[](windows-service/samples/2.x/AspNetCoreService/CustomWebHostService.cs?name=NoLogging)]
 
 2. Tworzenie metody rozszerzenia dla [IWebHost](/dotnet/api/microsoft.aspnetcore.hosting.iwebhost) niestandardowego, który przekazuje `WebHostService` do [ServiceBase.Run](/dotnet/api/system.serviceprocess.servicebase.run):
 
-   [!code-csharp[](windows-service/sample/WebHostServiceExtensions.cs?name=ExtensionsClass)]
+   [!code-csharp[](windows-service/samples/2.x/AspNetCoreService/WebHostServiceExtensions.cs?name=ExtensionsClass)]
 
 3. W `Program.Main`, wywołanie nowej metody rozszerzenia `RunAsCustomService`, zamiast [RunAsService](/dotnet/api/microsoft.aspnetcore.hosting.windowsservices.webhostwindowsserviceextensions.runasservice):
 
    ::: moniker range=">= aspnetcore-2.0"
 
-   [!code-csharp[](windows-service/sample/Program.cs?name=HandleStopStart&highlight=27)]
+   [!code-csharp[](windows-service/samples/2.x/AspNetCoreService/Program.cs?name=HandleStopStart&highlight=14)]
+
+   > [!NOTE]
+   > `isService` nie jest przekazywane z `Main` do `CreateWebHostBuilder` ponieważ podpis `CreateWebHostBuilder` musi być `CreateWebHostBuilder(string[])` aby [Testowanie integracji](xref:test/integration-tests) działało poprawnie.
 
    ::: moniker-end
 
    ::: moniker range="< aspnetcore-2.0"
 
-   [!code-csharp[](windows-service/sample_snapshot/Program.cs?name=HandleStopStart&highlight=27)]
+   [!code-csharp[](windows-service/samples_snapshot/1.x/AspNetCoreService/Program.cs?name=HandleStopStart&highlight=27)]
 
    ::: moniker-end
 
 Jeśli niestandardowa `WebHostService` kod wymaga usługi z wstrzykiwanie zależności (np. Rejestrator), Uzyskaj ją z [IWebHost.Services](/dotnet/api/microsoft.aspnetcore.hosting.iwebhost.services) właściwości:
 
-[!code-csharp[](windows-service/sample/CustomWebHostService.cs?name=Logging&highlight=7)]
+[!code-csharp[](windows-service/samples/2.x/AspNetCoreService/CustomWebHostService.cs?name=Logging&highlight=7-8)]
 
 ## <a name="proxy-server-and-load-balancer-scenarios"></a>Serwer proxy i scenariuszy usługi równoważenia obciążenia
 

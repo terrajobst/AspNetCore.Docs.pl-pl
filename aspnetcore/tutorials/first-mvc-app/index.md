@@ -1,28 +1,28 @@
 ---
-title: Tworzenie aplikacji sieci web z platformą ASP.NET MVC Core w systemie Windows z programem Visual Studio
+title: Tworzenie aplikacji internetowej ASP.NET Core MVC na Windows z programem Visual Studio
 author: rick-anderson
-description: Zobacz spisu treści, aby obejrzeć wprowadzenie do platformy ASP.NET Core MVC za pomocą programu Visual Studio w systemie Windows.
+description: Zobacz spis treści, wprowadzenie do ASP.NET Core MVC za pomocą programu Visual Studio na Windows.
 ms.author: riande
 ms.date: 10/26/2017
 uid: tutorials/first-mvc-app/index
-ms.openlocfilehash: 78d567589933b641bf5202d230b25034ff06943c
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: bd6bc5ba77da506527ddc024f73b4eb195401e46
+ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36276337"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37938125"
 ---
-# <a name="create-a-web-app-with-aspnet-core-mvc-on-windows-with-visual-studio"></a>Tworzenie aplikacji sieci web z platformą ASP.NET MVC Core w systemie Windows z programem Visual Studio
+# <a name="create-a-web-app-with-aspnet-core-mvc-on-windows-with-visual-studio"></a>Tworzenie aplikacji internetowej ASP.NET Core MVC na Windows z programem Visual Studio
 
 [!INCLUDE [consider RP](~/includes/razor.md)]
 
 Istnieją 3 wersje tego samouczka:
 
-* Systemu Windows: Ta seria
-* System macOS: [tworzenie aplikacji platformy ASP.NET Core MVC za pomocą programu Visual Studio dla komputerów Mac](xref:tutorials/first-mvc-app-mac/start-mvc)
-* System macOS, Linux i Windows: [tworzenie aplikacji platformy ASP.NET Core MVC z kodem Visual Studio](xref:tutorials/first-mvc-app-xplat/start-mvc)
+* Windows: W tej serii
+* System macOS: [tworzenie aplikacji ASP.NET Core MVC za pomocą programu Visual Studio dla komputerów Mac](xref:tutorials/first-mvc-app-mac/start-mvc)
+* System macOS, Linux i Windows: [tworzenie aplikacji ASP.NET Core MVC za pomocą programu Visual Studio Code](xref:tutorials/first-mvc-app-xplat/start-mvc)
 
-Seria samouczek obejmuje następujące funkcje:
+Seria samouczków obejmuje następujące funkcje:
 
 1. [Wprowadzenie](start-mvc.md)
 1. [Dodawanie kontrolera](adding-controller.md)
