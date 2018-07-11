@@ -7,11 +7,11 @@ ms.custom: mvc
 ms.date: 05/31/2018
 uid: getting-started
 ms.openlocfilehash: 22e9c982921cc03d89506e18ff99bf481027dda6
-ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
+ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37077663"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38216216"
 ---
 # <a name="get-started-with-aspnet-core"></a>Wprowadzenie do platformy ASP.NET Core
 
@@ -19,7 +19,7 @@ ms.locfileid: "37077663"
 
 1. Zainstaluj [!INCLUDE [](~/includes/2.1-SDK.md)].
 
-2. Tworzenie projektu platformy ASP.NET Core. Otwórz powłokę wiersza polecenia i wprowadź następujące polecenie:
+2. Tworzenie projektu platformy ASP.NET Core. Otwórz powłokę wiersza polecenia i wpisz następujące polecenie:
 
     ```console
     dotnet new webapp -o aspnetcoreapp
@@ -27,7 +27,7 @@ ms.locfileid: "37077663"
 
     [! OBEJMUJĄ [] (~/includes/webapp-alias-notice.md) [](~/includes/webapp-alias-notice.md)]
 
-3. Ufać certyfikatowi programowanie HTTPS:
+3. Zaufanie certyfikatu deweloperskiego HTTPS:
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
@@ -68,7 +68,7 @@ ms.locfileid: "37077663"
     dotnet run
     ```
 
-5. Przejdź do [ http://localhost:5001 ](http://localhost:5001).  Kliknij przycisk **Akceptuj** do Zaakceptuj zasady ochrony prywatności i plików cookie. Ta aplikacja nie zachowanie poufności informacji osobistych.
+5. Przejdź do [ http://localhost:5001 ](http://localhost:5001).  Kliknij przycisk **Akceptuj** zaakceptować zasady ochrony prywatności i plików cookie. Ta aplikacja nie zachowuje informacji osobistych.
 
 6. Otwórz *Pages/About.cshtml* i modyfikować strony z następujący wyróżniony kod znaczników:
 
@@ -84,9 +84,9 @@ ms.locfileid: "37077663"
 
 1. Zainstaluj [!INCLUDE [](~/includes/net-core-sdk-download-link.md)].
 
-2. Utwórz nowy projekt platformy ASP.NET Core.
+2. Utwórz nowy projekt ASP.NET Core.
 
-   Otwórz powłokę poleceń. Wprowadź następujące polecenie:
+   Otwórz powłokę wiersza polecenia. Wprowadź następujące polecenie:
 
     ```console
     dotnet new razor -o aspnetcoreapp
@@ -105,7 +105,7 @@ ms.locfileid: "37077663"
 
     [!code-cshtml[](sample/getting-started/about.cshtml?highlight=9&range=1-9)]
 
-6. Przejdź do [ http://localhost:5000/About ](http://localhost:5000/About) i zweryfikować zmiany.
+6. Przejdź do [ http://localhost:5000/About ](http://localhost:5000/About) a następnie zweryfikować zmiany.
 
 [!INCLUDE [next steps](~/includes/getting-started/next-steps.md)]
 
@@ -113,18 +113,18 @@ ms.locfileid: "37077663"
 
 ::: moniker range="<= aspnetcore-1.1"
 
-1. Zainstaluj oprogramowanie .NET Core **Instalator zestawu SDK** dla zestawu SDK 1.0.4 z [.NET Core wszystkie pliki do pobrania strony](https://www.microsoft.com/net/download/all).
+1. Zainstaluj program .NET Core **Instalator zestawu SDK** dla zestawu SDK 1.0.4 z [.NET Core wszystkie strony plików do pobrania](https://www.microsoft.com/net/download/all).
 
-2. Utwórz folder dla nowego projektu platformy ASP.NET Core.
+2. Utwórz folder dla nowego projektu ASP.NET Core.
 
-   Otwórz powłokę poleceń. Wprowadź następujące polecenia:
+   Otwórz powłokę wiersza polecenia. Wprowadź następujące polecenia:
 
    ```console
    mkdir aspnetcoreapp
    cd aspnetcoreapp
    ```
 
-3. Jeśli na komputerze zainstalowano nowszej wersji zestawu SDK, utworzyć *global.json* pliku, aby wybrać 1.0.4 zestawu SDK.
+3. Jeśli na komputerze zainstalowano nowszej wersji zestawu SDK, utworzyć *global.json* plik, aby zaznaczyć 1.0.4 zestawu SDK.
 
    ```json
    {
@@ -132,13 +132,13 @@ ms.locfileid: "37077663"
    }
    ```
 
-4. Utwórz nowy projekt platformy ASP.NET Core.
+4. Utwórz nowy projekt ASP.NET Core.
 
    ```console
    dotnet new web
    ```
 
-5. Przywracanie pakietów.
+5. Przywróć pakiety.
 
     ```console
     dotnet restore
@@ -150,7 +150,7 @@ ms.locfileid: "37077663"
    dotnet run
    ```
 
-   [Dotnet Uruchom](/dotnet/core/tools/dotnet-run) polecenie tworzy najpierw aplikacji, jeśli to konieczne.
+   [Dotnet, uruchom](/dotnet/core/tools/dotnet-run) polecenie tworzy najpierw aplikacji, jeśli to konieczne.
 
 7. Przejdź do `http://localhost:5000`.
 

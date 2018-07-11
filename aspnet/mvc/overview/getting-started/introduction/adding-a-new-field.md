@@ -9,11 +9,11 @@ ms.assetid: 4085de68-d243-4378-8a64-86236ea8d2da
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-new-field
 msc.type: authoredcontent
 ms.openlocfilehash: a4eb759646fc77bbba687d8b4914465d58cd3aaa
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37819854"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38151460"
 ---
 <a name="adding-a-new-field"></a>Dodawanie nowego pola
 ====================

@@ -1,38 +1,38 @@
 ---
-title: Stron razor podstawowych EF w platformy ASP.NET Core - sortowanie, filtrowanie, stronicowania - 3 8
+title: Strony razor z programem EF Core w programie ASP.NET Core — sortowanie, filtrowanie, stronicowania - 3, 8
 author: rick-anderson
-description: W tym samouczku zostanie dodana sortowanie, filtrowanie i stronicowania funkcji na stronę przy użyciu programu Entity Framework Core i ASP.NET Core.
+description: W tym samouczku dodasz, sortowanie, filtrowanie i stronicowanie funkcjonalność do strony, przy użyciu platformy ASP.NET Core i Entity Framework Core.
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/sort-filter-page
 ms.openlocfilehash: fce524a5cb386fbf286907be42e920be13115ca6
-ms.sourcegitcommit: 1faf2525902236428dae6a59e375519bafd5d6d7
+ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37089870"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38216281"
 ---
-# <a name="razor-pages-with-ef-core-in-aspnet-core---sort-filter-paging---3-of-8"></a>Stron razor podstawowych EF w platformy ASP.NET Core - sortowanie, filtrowanie, stronicowania - 3 8
+# <a name="razor-pages-with-ef-core-in-aspnet-core---sort-filter-paging---3-of-8"></a>Strony razor z programem EF Core w programie ASP.NET Core — sortowanie, filtrowanie, stronicowania - 3, 8
 
 [!INCLUDE[2.0 version](~/includes/RP-EF/20-pdf.md)]
 
 ::: moniker range=">= aspnetcore-2.1"
 
-Przez [Dykstra Tomasz](https://github.com/tdykstra), [Rick Anderson](https://twitter.com/RickAndMSFT), i [Jan Kowalski P](https://twitter.com/thereformedprog)
+Przez [Tom Dykstra](https://github.com/tdykstra), [Rick Anderson](https://twitter.com/RickAndMSFT), i [Jan Kowalski P](https://twitter.com/thereformedprog)
 
 [!INCLUDE [about the series](~/includes/RP-EF/intro.md)]
 
-Ten samouczek, sortowanie, filtrowanie, grupowanie i stronicowania funkcje jest dodane.
+Ten samouczek, sortowanie, filtrowanie, grupowanie i stronicowania funkcje dodawana jest.
 
-Na poniższej ilustracji przedstawiono ukończone strony. Nagłówki kolumn są aktywne łącza, aby posortować kolumnę. Kliknięcie nagłówka wielokrotnie kolumny przełącza między kolumny sortowania.
+Poniższa ilustracja przedstawia strony ukończone. Nagłówki kolumn odnoszą się łącza możesz klikać, aby posortować kolumnę. Klikając kolumnę nagłówka wielokrotnie przełącza między malejącą i rosnącą porządek sortowania.
 
-![Strona indeksu uczniów lub studentów](sort-filter-page/_static/paging.png)
+![Strona indeksu uczniów](sort-filter-page/_static/paging.png)
 
-Jeśli wystąpiły problemy, nie można rozwiązać, Pobierz [ukończonej aplikacji](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples).
+Jeśli napotkasz problemy, nie można rozwiązać, Pobierz [ukończonej aplikacji](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples).
 
 ## <a name="add-sorting-to-the-index-page"></a>Dodaj sortowanie do strony indeksu
 
-Dodawanie ciągów *Students/Index.cshtml.cs* `PageModel` zawiera parametry sortowania:
+Dodaj parametry do *Students/Index.cshtml.cs* `PageModel` zawierać parametry sortowania:
 
 [!code-csharp[](intro/samples/cu21/Pages/Students/Index.cshtml.cs?name=snippet1&highlight=10-13)]
 
@@ -40,56 +40,56 @@ Aktualizacja *Students/Index.cshtml.cs* `OnGetAsync` następującym kodem:
 
 [!code-csharp[](intro/samples/cu21/Pages/Students/Index.cshtml.cs?name=snippet_SortOnly)]
 
-Poprzedni kod odbiera `sortOrder` parametr ciągu zapytania w adresie URL. Adres URL (w tym ciągu zapytania) jest generowany przez [pomocnika Tag kotwicy](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper
+Powyższy kod odbiera `sortOrder` parametr ciągu zapytania w adresie URL. Adres URL (w tym ciągu zapytania) jest generowany przez [Pomocnik tagu kotwicy](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper
 )
 
-`sortOrder` Parametr ma wartość "Name" lub "Date". `sortOrder` Parametr opcjonalnie następuje "_desc", aby określić w kolejności malejącej. Domyślna kolejność sortowania jest rosnąca.
+`sortOrder` Parametr jest "Name" i "Date". `sortOrder` Parametr opcjonalnie następuje "_desc", aby określić w kolejności malejącej. Domyślna kolejność sortowania jest rosnąca.
 
-Gdy zażąda strony indeksu **studentów** połączyć, jest nie ciągu zapytania. Studenci są wyświetlane w porządku rosnącym według nazwiska. Porządku rosnącym według nazwisko jest ustawieniem domyślnym (fall-through przypadek) w `switch` instrukcji. Gdy użytkownik kliknie łącze nagłówek kolumny, odpowiedni `sortOrder` wartość jest podana w wartości ciągu zapytania.
+Po żądaniu strony indeksu z **studentów** połączyć, nie ma żadnych ciągu zapytania. Studenci są wyświetlane w kolejności rosnącej według nazwiska. Kolejności rosnącej według nazwiska jest ustawieniem domyślnym ("należą do wielkości liter) w `switch` instrukcji. Kiedy użytkownik kliknie łącze nagłówek kolumny, odpowiednie `sortOrder` wartość znajduje się w wartości ciągu zapytania.
 
-`NameSort` i `DateSort` są używane przez stronę Razor skonfigurowanie hiperłącza nagłówek kolumny z wartości typu QueryString odpowiednie:
+`NameSort` i `DateSort` są używane przez stronę Razor do skonfigurowania hiperłącza nagłówek kolumny przy użyciu wartości ciągu zapytania odpowiednie:
 
 [!code-csharp[](intro/samples/cu21/Pages/Students/Index.cshtml.cs?name=snippet_SortOnly&highlight=3-4)]
 
-Poniższy kod zawiera warunkowego C# [?: operator](https://docs.microsoft.com/dotnet/csharp/language-reference/operators/conditional-operator):
+Poniższy kod zawiera warunkowe C# [?: operator](https://docs.microsoft.com/dotnet/csharp/language-reference/operators/conditional-operator):
 
 [!code-csharp[](intro/samples/cu21/Pages/Students/Index.cshtml.cs?name=snippet_Ternary)]
 
-Pierwszy wiersz określa, że w przypadku `sortOrder` ma wartość null lub jest pusta, `NameSort` ma ustawioną wartość "name_desc." Jeśli `sortOrder` jest **nie** wartości null ani być pusta, `NameSort` jest ustawiony na pusty ciąg.
+Pierwszy wiersz określa, że w przypadku `sortOrder` ma wartość null lub jest pusta, `NameSort` jest ustawiona na "name_desc." Jeśli `sortOrder` jest **nie** o wartości null lub jest pusty, `NameSort` jest ustawiony na pusty ciąg.
 
 `?: operator` Jest także znana jako operator trójargumentowy.
 
-Te dwie instrukcje włączyć stronę, aby ustawić hiperłącza nagłówek kolumny w następujący sposób:
+Te dwie instrukcje Włącz strony Aby ustawić hiperłącza nagłówek kolumny w następujący sposób:
 
-| Bieżącej kolejności sortowania | Ostatnia nazwa hiperłącza | Data hiperłącza |
+| Bieżący kolejność sortowania | Ostatnia nazwa hiperłącza | Data hiperłącza |
 |:--------------------:|:-------------------:|:--------------:|
-| Ostatni nazwy, rosnąco | descending        | ascending      |
-| Ostatni nazwy, malejąco | ascending           | ascending      |
-| Data w kolejności rosnącej       | ascending           | descending     |
+| Ostatnie nazwy, rosnąco | descending        | ascending      |
+| Ostatnie nazwy, malejąco | ascending           | ascending      |
+| Data, w kolejności rosnącej       | ascending           | descending     |
 | Data, malejąco      | ascending           | ascending      |
 
-Metoda używa do składnika LINQ to Entities Określ kolumny, aby posortować według. Inicjuje kod `IQueryable<Student>` przed instrukcją switch i modyfikuje je w instrukcji switch:
+Metoda używa składnik LINQ to Entities, aby określić kolumnę sortowania. Inicjuje kod `IQueryable<Student>` przed instrukcją switch i modyfikuje go w instrukcji switch:
 
 [!code-csharp[](intro/samples/cu21/Pages/Students/Index.cshtml.cs?name=snippet_SortOnly&highlight=6-999)]
 
- Gdy`IQueryable` tworzenia lub modyfikowania, nie zapytanie jest wysyłane do bazy danych. Zapytanie nie jest wykonywane przed `IQueryable` obiektu jest konwertowany na kolekcję. `IQueryable` są konwertowane na kolekcję przez wywołanie metody, takie jak `ToListAsync`. W związku z tym `IQueryable` kodu wyników w ramach jednego zapytania, który nie jest wykonywany do momentu następująca instrukcja:
+ Gdy`IQueryable` zostanie utworzony lub zmodyfikowany, bez określenia zapytania są wysyłane do bazy danych. Zapytanie nie jest wykonywane aż do `IQueryable` obiekt jest konwertowany na kolekcję. `IQueryable` są konwertowane do kolekcji przez wywołanie metody, takie jak `ToListAsync`. W związku z tym `IQueryable` kodu wyników w ramach jednego zapytania, który nie jest wykonywane, dopóki następującą instrukcję:
 
 [!code-csharp[](intro/samples/cu21/Pages/Students/Index.cshtml.cs?name=snippet_SortOnlyRtn)]
 
-`OnGetAsync` można pobrać verbose z dużą liczbą kolumn można sortować.
+`OnGetAsync` można pobrać pełny z dużą liczbą sortowalne kolumny.
 
-### <a name="add-column-heading-hyperlinks-to-the-student-index-page"></a>Dodawanie hiperłączy nagłówek kolumny do strony indeksu dla użytkowników domowych
+### <a name="add-column-heading-hyperlinks-to-the-student-index-page"></a>Dodawanie hiperłączy nagłówek kolumny do strony indeksu dla uczniów
 
 Zastąp kod w *Students/Index.cshtml*, z następującymi wyróżniony kod:
 
 [!code-html[](intro/samples/cu21/Pages/Students/Index2.cshtml?highlight=17-19,25-27)]
 
-Poprzedni kod:
+Powyższy kod:
 
 * Dodaje hiperłącza do `LastName` i `EnrollmentDate` nagłówki kolumn.
-* Używa tych informacji w `NameSort` i `DateSort` do skonfigurowania hiperłącza bieżącymi wartościami kolejności sortowania.
+* Używa tych informacji w `NameSort` i `DateSort` skonfigurować hiperłącza bieżącymi wartościami kolejności sortowania.
 
-Aby sprawdzić, który działa sortowania:
+Aby sprawdzić, które działa sortowania:
 
 * Uruchom aplikację i wybierz **studentów** kartę.
 * Kliknij przycisk **nazwisko**.
@@ -98,17 +98,17 @@ Aby sprawdzić, który działa sortowania:
 Aby uzyskać lepsze zrozumienie kodu:
 
 * W *Student/Index.cshtml.cs*, ustaw punkt przerwania na `switch (sortOrder)`.
-* Dodaj wyrażenie kontrolne dla `NameSort` i `DateSort`.
+* Dodaj wyrażenie kontrolne, aby uzyskać `NameSort` i `DateSort`.
 * W *Student/Index.cshtml*, ustaw punkt przerwania na `@Html.DisplayNameFor(model => model.Student[0].LastName)`.
 
-Kroków opisanych w debugerze.
+Przejść przez debuger.
 
-## <a name="add-a-search-box-to-the-students-index-page"></a>Dodaj pole wyszukiwania do strony indeksu uczniów lub studentów
+## <a name="add-a-search-box-to-the-students-index-page"></a>Dodaj pole wyszukiwania do strony indeksu uczniów
 
 Aby dodać filtrowanie do strony indeksu studentów:
 
-* Pole tekstowe i przycisk Prześlij jest dodawany do strony Razor. Pole tekstowe dostarcza wyszukiwany ciąg na imię lub nazwisko.
-* Aby użyć wartości pole tekstowe zaktualizowania modelu strony.
+* Pole tekstowe i przycisk przesyłania, zostanie dodany do strony Razor. Pole tekstowe dostarcza wyszukiwany ciąg na imię lub nazwisko.
+* Modelu strony jest aktualizowana, aby użyć wartości pola tekstowe.
 
 ### <a name="add-filtering-functionality-to-the-index-method"></a>Dodawanie funkcji filtrowania do Index — metoda
 
@@ -116,64 +116,64 @@ Aktualizacja *Students/Index.cshtml.cs* `OnGetAsync` następującym kodem:
 
 [!code-csharp[](intro/samples/cu21/Pages/Students/Index.cshtml.cs?name=snippet_SortFilter&highlight=1,5,9-13)]
 
-Poprzedni kod:
+Powyższy kod:
 
-* Dodaje `searchString` parametr `OnGetAsync` metody. Wartość ciągu wyszukiwania są odebrane z pola tekstowego, który jest dodawany w następnej sekcji.
-* Dodane do instrukcji LINQ `Where` klauzuli. `Where` Klauzuli wybiera tylko studentów, w których imię lub nazwisko zawiera ciąg wyszukiwania. Instrukcja LINQ jest wykonywana tylko wtedy, gdy wartość do wyszukania.
+* Dodaje `searchString` parametr `OnGetAsync` metody. Wartość ciągu wyszukiwania są odebrane z pola tekstowego, który zostanie dodany do następnej sekcji.
+* Dodane do instrukcji LINQ `Where` klauzuli. `Where` Klauzuli wybiera tylko uczniowie, w których imię lub nazwisko zawiera ciąg wyszukiwania. Instrukcji LINQ jest wykonywany tylko wtedy, gdy wartość do wyszukania.
 
-Uwaga: Poprzedniego wywołania kodu `Where` metoda `IQueryable` obiektu, a filtr jest przetwarzane na serwerze. W niektórych scenariuszach może być wywołanie aplikacji `Where` metody jako metodę rozszerzenie w kolekcji w pamięci. Załóżmy na przykład, `_context.Students` zmieni się z podstawowej EF `DbSet` do metody repozytorium, która zwraca `IEnumerable` kolekcji. Wynik zazwyczaj będzie taki sam, ale w niektórych przypadkach może się różnić.
+Uwaga: Poprzedni kod wywołuje `Where` metody `IQueryable` obiektu i filtr jest przetwarzany na serwerze. W niektórych scenariuszach może być wywołanie aplikacji `Where` metodę jako metodę rozszerzenia w kolekcji w pamięci. Na przykład, załóżmy, że `_context.Students` zmieni się z programem EF Core `DbSet` metody repozytorium, które zwraca `IEnumerable` kolekcji. Wynik będzie zazwyczaj taki sam, ale w niektórych przypadkach może być inna.
 
-Na przykład, .NET Framework wykonania `Contains` wykonuje domyślnie porównania z uwzględnieniem wielkości liter. W programie SQL Server `Contains` uwzględnianie wielkości liter, jest określany przez ustawienie sortowania wystąpienia programu SQL Server. SQL Server domyślnie do bez uwzględniania wielkości liter. `ToUpper` może być wywołane w celu należy jawnie bez uwzględniania wielkości liter testu:
+Na przykład implementacji .NET Framework z `Contains` wykonuje porównania uwzględniającego wielkość liter, domyślnie. W programie SQL Server `Contains` uwzględnianie wielkości liter, jest określany przez ustawienie sortowania wystąpienia programu SQL Server. Program SQL Server domyślnie do bez uwzględniania wielkości liter. `ToUpper` może być wywoływana się jawnie bez uwzględniania wielkości liter testu:
 
 `Where(s => s.LastName.ToUpper().Contains(searchString.ToUpper())`
 
-Poprzedni kod będzie upewnij się, że wyniki są bez uwzględniania wielkości liter w przypadku zmiany kodu do użycia `IEnumerable`. Gdy `Contains` jest wywoływana na `IEnumerable` kolekcji .NET Core implementacji jest używany. Gdy `Contains` jest wywoływana na `IQueryable` obiektu, jest używana implementacja bazy danych. Zwracanie `IEnumerable` z repozytorium może mieć penality znaczne wydajności:
+Powyższy kod będzie upewnij się, że wyniki bez uwzględniania wielkości liter w przypadku zmian kodu, aby użyć `IEnumerable`. Gdy `Contains` jest wywoływana w `IEnumerable` kolekcji, implementacja jest użyta w programie .NET Core. Gdy `Contains` jest wywoływana w `IQueryable` obiektu jest używana implementacja bazy danych. Zwracanie `IEnumerable` z repozytorium może mieć penality istotnie poprawiającą wydajność:
 
-1. Zwracane są wszystkie wiersze z serwera bazy danych.
-1. Filtr jest stosowane do wszystkich wierszy zwracanych w aplikacji.
+1. Wszystkie wiersze są zwracane z serwera bazy danych.
+1. Filtr jest stosowany do wszystkich wierszy zwróconych w aplikacji.
 
-Brak zmniejszenie wydajności dla wywołania `ToUpper`. `ToUpper` Kod dodaje funkcję w klauzuli WHERE instrukcji TSQL SELECT. Funkcja dodana zapobiega Optymalizator przy użyciu indeksu. Biorąc pod uwagę, że program SQL jest zainstalowany jako bez uwzględniania wielkości liter, jest unikanie `ToUpper` wywołania, gdy nie jest wymagana.
+Występuje spadek wydajności, do wywoływania `ToUpper`. `ToUpper` Kod dodaje funkcję w klauzuli WHERE w instrukcji TSQL SELECT. Dodano funkcję zapobiega Optymalizator przy użyciu indeksu. Biorąc pod uwagę, że SQL jest zainstalowany jako bez uwzględniania wielkości liter, zaleca się unikać `ToUpper` wywołania, gdy nie jest potrzebna.
 
-### <a name="add-a-search-box-to-the-student-index-page"></a>Dodaj pole wyszukiwania do strony indeksu dla użytkowników domowych
+### <a name="add-a-search-box-to-the-student-index-page"></a>Dodaj pole wyszukiwania do strony indeksu dla uczniów
 
-W *Pages/Students/Index.cshtml*, Dodaj następujący wyróżniony kod do utworzenia **wyszukiwania** przycisk i różne chrome.
+W *Pages/Students/Index.cshtml*, Dodaj następujący wyróżniony kod, aby utworzyć **wyszukiwania** przycisku i są formatowane przy chrome.
 
 [!code-html[](intro/samples/cu21/Pages/Students/Index3.cshtml?highlight=14-23&range=1-25)]
 
-W poprzednim kodzie użyto `<form>` [pomocnika tagów](xref:mvc/views/tag-helpers/intro) można dodać pola tekstowego wyszukiwania i przycisku. Domyślnie `<form>` pomocnika tagów przesyła dane formularza z ogłoszenie (POST). Przy użyciu metody POST parametry są przekazywane w treści wiadomości HTTP, a nie w adresie URL. W przypadku HTTP GET dane formularza jest przekazywany jako ciągi zapytania w adresie URL. Przekazywanie danych z ciągami zapytań umożliwia użytkownikom zakładki adres URL. [Wytyczne W3C](https://www.w3.org/2001/tag/doc/whenToUseGet.html) zaleca się, że GET powinny być używane, gdy akcja nie powoduje aktualizacji.
+W poprzednim kodzie użyto `<form>` [pomocnika tagów](xref:mvc/views/tag-helpers/intro) można dodać pole tekstowe wyszukiwania i przycisku. Domyślnie `<form>` Pomocnik tagu przesyła dane formularza z WPISEM. Wpis parametry są przekazywane w treści komunikatu HTTP, a nie w adresie URL. W przypadku HTTP GET dane formularza jest przekazywany w adresie URL jako ciągi zapytań. Przekazywanie danych z ciągami zapytań umożliwia użytkownikom utworzyć zakładkę ma adres URL. [Wytycznych W3C](https://www.w3.org/2001/tag/doc/whenToUseGet.html) zaleca się, że GET powinny być używane w przypadku, gdy akcja nie powoduje aktualizacji.
 
 Testowanie aplikacji:
 
-* Wybierz **studentów** karcie, a następnie wprowadź ciąg wyszukiwania.
+* Wybierz **studentów** kartę, a następnie wprowadź ciąg wyszukiwania.
 * Wybierz **wyszukiwania**.
 
-Zwróć uwagę, że adres URL zawiera ciąg wyszukiwania.
+Należy zauważyć, że adres URL zawiera ciąg wyszukiwania.
 
 ```html
 http://localhost:5000/Students?SearchString=an
 ```
 
-Jeśli strona jest zakładki, zakładki zawiera adres URL strony i `SearchString` ciągu zapytania. `method="get"` w `form` tag jest przyczyn ciąg zapytania do wygenerowania.
+Jeśli strona jest zakładek, zakładki zawiera adres URL strony i `SearchString` ciągu zapytania. `method="get"` w `form` tag jest, co spowodowało ciąg zapytania do wygenerowania.
 
-Obecnie, gdy łącze sortowania nagłówka kolumny jest zaznaczona, wartość filtru z **wyszukiwania** pole zostało utracone. Wartość filtru utracone zostanie rozwiązany w następnej sekcji.
+Obecnie po wybraniu łącza sortowania nagłówka kolumny filtru z wartości **wyszukiwania** pole zostanie utracony. Wartość filtru utracone został rozwiązany w następnej sekcji.
 
-## <a name="add-paging-functionality-to-the-students-index-page"></a>Dodawanie funkcji stronicowania do strony indeksu uczniów lub studentów
+## <a name="add-paging-functionality-to-the-students-index-page"></a>Dodawanie funkcji stronicowania do strony indeksu uczniów
 
-W tej sekcji `PaginatedList` utworzeniu klasy do obsługi stronicowania. `PaginatedList` Klasy używa `Skip` i `Take` instrukcje, aby filtrować dane na serwerze zamiast pobierania wszystkie wiersze w tabeli. Na poniższej ilustracji przedstawiono przyciski stronicowania.
+W tej sekcji `PaginatedList` klasa jest tworzona do obsługi stronicowania. `PaginatedList` Klasy używa `Skip` i `Take` instrukcje, aby filtrować dane na serwerze, zamiast pobierać wszystkie wiersze z tabeli. Poniższa ilustracja przedstawia przyciski stronicowania.
 
-![Strona zawierająca linki stronicowania indeksu uczniów lub studentów](sort-filter-page/_static/paging.png)
+![Studenci indeksu stronę linkami stronicowania](sort-filter-page/_static/paging.png)
 
-W folderze projektu Utwórz `PaginatedList.cs` następującym kodem:
+W folderze projektu, należy utworzyć `PaginatedList.cs` następującym kodem:
 
 [!code-csharp[](intro/samples/cu21/PaginatedList.cs)]
 
-`CreateAsync` w powyższym kodzie metody ma rozmiar strony i numer strony i stosuje odpowiednie `Skip` i `Take` instrukcje `IQueryable`. Gdy `ToListAsync` jest wywoływana na `IQueryable`, zwraca listę zawierającą tylko żądanej strony. Właściwości `HasPreviousPage` i `HasNextPage` są używane, aby włączyć lub wyłączyć **Wstecz** i **dalej** stronicowania przycisków.
+`CreateAsync` Metoda powyższy kod przyjmuje rozmiaru strony i numer strony i stosuje odpowiednie `Skip` i `Take` instrukcje `IQueryable`. Gdy `ToListAsync` jest wywoływana w `IQueryable`, funkcja zwraca listę zawierającą żądanej strony. Właściwości `HasPreviousPage` i `HasNextPage` są używane do włączania lub wyłączania **Wstecz** i **dalej** stronicowania przycisków.
 
-`CreateAsync` Metoda służy do tworzenia `PaginatedList<T>`. Nie można utworzyć konstruktora `PaginatedList<T>` obiekt konstruktorów nie można uruchomić kod asynchroniczny.
+`CreateAsync` Metoda służy do tworzenia `PaginatedList<T>`. Nie można utworzyć konstruktora `PaginatedList<T>` obiektu konstruktory nie można uruchomić kod asynchroniczny.
 
 ## <a name="add-paging-functionality-to-the-index-method"></a>Dodawanie funkcji stronicowania do Index — metoda
 
-W *Students/Index.cshtml.cs*, zaktualizować typu `Student` z `IList<Student>` do `PaginatedList<Student>`:
+W *Students/Index.cshtml.cs*, zaktualizuj typ `Student` z `IList<Student>` do `PaginatedList<Student>`:
 
 [!code-csharp[](intro/samples/cu21/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPageType)]
 
@@ -181,44 +181,44 @@ Aktualizacja *Students/Index.cshtml.cs* `OnGetAsync` następującym kodem:
 
 [!code-csharp[](intro/samples/cu21/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPage&highlight=1-4,7-14,41-999)]
 
-Poprzedni kod dodaje bieżącego indeksu strony `sortOrder`i `currentFilter` w podpisie metody.
+Poprzedzający kod dodaje indeks strony bieżącego `sortOrder`i `currentFilter` w podpisie metody.
 
 [!code-csharp[](intro/samples/cu21/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPage2)]
 
-Wszystkie parametry mają wartość null podczas:
+Wszystkie parametry mają wartość null jeśli:
 
 * Strona jest wywoływana z **studentów** łącza.
-* Użytkownik nie kliknął stronicowania i sortowania łącza.
+* Użytkownik nie kliknie stronicowanie i sortowanie łącze.
 
-Po kliknięciu łącza stronicowania, zmienna index strony zawiera numer strony do wyświetlenia.
+Po kliknięciu łącza stronicowania, zmienna indeks strony zawiera numer strony, aby wyświetlić.
 
-`CurrentSort` zapewnia stronę Razor bieżącej kolejności sortowania. Bieżący porządek sortowania musi być uwzględniona w łączach stronicowania, aby zachować kolejność sortowania podczas stronicowania.
+`CurrentSort` zawiera strony Razor za pomocą bieżącej kolejności sortowania. Bieżącej kolejności sortowania muszą być uwzględnione w linkach stronicowania, aby zachować porządek sortowania podczas stronicowania.
 
-`CurrentFilter` zapewnia stronę Razor bieżącego ciąg filtru. `CurrentFilter` Wartość:
+`CurrentFilter` Strona Razor zapewnia bieżący ciąg filtru. `CurrentFilter` Wartość:
 
-* Muszą być zawarte w łącza stronicowania w celu utrzymania ustawień filtru podczas stronicowania.
-* Muszą być przywrócone do pola tekstowego, gdy strona zostanie wyświetlony ponownie.
+* Aby zachować ustawienia filtru podczas stronicowania, muszą być zawarte w łącza stronicowania.
+* Konieczne jest przywrócenie do pola tekstowego po stronie zostanie wyświetlony ponownie.
 
-Jeśli ciąg wyszukiwania została zmieniona podczas stronicowania, strony jest ustawiony na 1. Strona ma zresetowanie do 1 nowy filtr może powodować różnych danych do wyświetlenia. Po wprowadzeniu wartości wyszukiwania i **przesyłania** wybrano:
+Jeśli ciąg wyszukiwania została zmieniona podczas stronicowania, strona jest resetowany do 1. Strona musi można zresetować do 1, ponieważ nowy filtr może spowodować różnych danych do wyświetlenia. Po wprowadzeniu wartości wyszukiwania i **przesyłania** wybrano:
 
-* Ciąg wyszukiwania zostanie zmieniona.
-* `searchString` Parametr nie ma wartości null.
+* Ciąg wyszukiwania została zmieniona.
+* `searchString` Parametru nie ma wartości null.
 
 [!code-csharp[](intro/samples/cu21/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPage3)]
 
-`PaginatedList.CreateAsync` Metoda konwertuje zapytania uczniów do pojedynczej strony studentów w typ kolekcji, który obsługuje stronicowanie. Tej stronie studentów są przekazywane do strony Razor.
+`PaginatedList.CreateAsync` Metoda konwertuje zapytań dla uczniów na pojedynczej strony uczniów na typ kolekcji, który obsługuje stronicowanie. Tego jednostronicowej studentów są przekazywane do stron Razor.
 
 [!code-csharp[](intro/samples/cu21/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPage4)]
 
-Dwa znaki zapytania w `PaginatedList.CreateAsync` reprezentują [łączenie null operator](https://docs.microsoft.com/ dotnet/csharp/language-reference/operators/null-conditional-operator). Operator łączenie null określa wartość domyślną dla typu dopuszczającego wartość null. Wyrażenie `(pageIndex ?? 1)` sposób zwracania wartości `pageIndex` jeśli ma ona wartość. Jeśli `pageIndex` nie ma wartości, zwraca 1.
+Dwa znaki zapytania w `PaginatedList.CreateAsync` reprezentują [operatorem łączenia wartości null](https://docs.microsoft.com/ dotnet/csharp/language-reference/operators/null-conditional-operator). Operator łączenia wartości null określa wartość domyślną dla typu dopuszczającego wartość null. Wyrażenie `(pageIndex ?? 1)` oznacza, że zwracają wartość `pageIndex` ma wartość. Jeśli `pageIndex` nie ma wartości, zwraca 1.
 
-## <a name="add-paging-links-to-the-student-razor-page"></a>Dodawanie łączy stronicowania do uczniów Razor strony
+## <a name="add-paging-links-to-the-student-razor-page"></a>Dodawanie stronicowania łączy do uczniów strony Razor
 
 Aktualizowanie kodu znaczników w *Students/Index.cshtml*. Zmiany są wyróżnione:
 
 [!code-html[](intro/samples/cu21/Pages/Students/Index.cshtml?highlight=28-31,37-40,68-999)]
 
-Łącza nagłówka kolumny Użyj ciągu zapytania do przekazania aktualnie wyszukiwanego ciągu do `OnGetAsync` metody, dzięki czemu użytkownik może sortować w wynikach filtrowania:
+Linki nagłówek kolumny, użyj ciągu zapytania do przekazania aktualnie wyszukiwanego ciągu do `OnGetAsync` metody, dzięki czemu użytkownik może sortować w ramach wyników filtrowania:
 
 [!code-html[](intro/samples/cu21/Pages/Students/Index.cshtml?range=28-31)]
 
@@ -226,63 +226,63 @@ Przyciski stronicowania są wyświetlane przez pomocników tagów:
 
 [!code-html[](intro/samples/cu21/Pages/Students/Index.cshtml?range=72-)]
 
-Uruchom aplikację i przejdź do strony studenta.
+Uruchom aplikację i przejdź do strony studentów.
 
 * Aby upewnić się, że działa stronicowania, po kliknięciu łączy stronicowania w poszczególnych kolejności sortowania.
-* Aby sprawdzić, czy stronicowania działa poprawnie z sortowania i filtrowania, wprowadź ciąg wyszukiwania, a następnie spróbuj stronicowania.
+* Aby sprawdzić, czy stronicowania działa poprawnie przy użyciu sortowania i filtrowania, wprowadź ciąg wyszukiwania, a następnie spróbuj stronicowania.
 
-![Strona indeksu studentów z łączami stronicowania](sort-filter-page/_static/paging.png)
+![Strona indeksu studentów wraz z łączami stronicowania](sort-filter-page/_static/paging.png)
 
 Aby uzyskać lepsze zrozumienie kodu:
 
 * W *Student/Index.cshtml.cs*, ustaw punkt przerwania na `switch (sortOrder)`.
-* Dodaj wyrażenie kontrolne dla `NameSort`, `DateSort`, `CurrentSort`, i `Model.Student.PageIndex`.
+* Dodaj wyrażenie kontrolne, aby uzyskać `NameSort`, `DateSort`, `CurrentSort`, i `Model.Student.PageIndex`.
 * W *Student/Index.cshtml*, ustaw punkt przerwania na `@Html.DisplayNameFor(model => model.Student[0].LastName)`.
 
-Kroków opisanych w debugerze.
+Przejść przez debuger.
 
-## <a name="update-the-about-page-to-show-student-statistics"></a>Zaktualizuj strony informacje, aby wyświetlić statystyki dla użytkowników domowych
+## <a name="update-the-about-page-to-show-student-statistics"></a>Aktualizuj stronę informacje, aby wyświetlić statystyki dla uczniów
 
-W tym kroku *Pages/About.cshtml* jest aktualizowana w celu wyświetlenia liczby studentów zostały zarejestrowane dla każdego dnia rejestracji. Aktualizacja używa grupowania i obejmuje następujące kroki:
+W tym kroku *Pages/About.cshtml* zostanie zaktualizowany w celu wyświetlenia liczby studentów zostały zarejestrowane dla każdego dnia rejestracji. Aktualizacja używa grupowania i obejmuje następujące kroki:
 
-* Utwórz model widoku dla danych używanych przez **o** strony.
-* Zaktualizuj strony informacje do korzystania z modelu widoku.
+* Tworzenie modelu widoku dla danych używanych przez **o** strony.
+* Aktualizuj stronę informacje, aby korzystać z modelu widoku.
 
 ### <a name="create-the-view-model"></a>Tworzenie modelu widoku
 
-Utwórz *SchoolViewModels* folderu w *modele* folderu.
+Tworzenie *SchoolViewModels* folderu w *modeli* folderu.
 
 W *SchoolViewModels* folderu, Dodaj *EnrollmentDateGroup.cs* następującym kodem:
 
 [!code-csharp[](intro/samples/cu21/Models/SchoolViewModels/EnrollmentDateGroup.cs)]
 
-### <a name="update-the-about-page-model"></a>Aktualizacja modelu strony informacje
+### <a name="update-the-about-page-model"></a>Aktualizowanie modelu strony informacje
 
 Aktualizacja *Pages/About.cshtml.cs* pliku następującym kodem:
 
 [!code-csharp[](intro/samples/cu21/Pages/About.cshtml.cs)]
 
-Instrukcja LINQ grupy jednostek uczniowie według daty rejestracji oblicza liczbę jednostek w każdej grupie i przechowuje wyniki w kolekcji z `EnrollmentDateGroup` wyświetlić obiekty modelu.
+Instrukcji LINQ grup jednostek uczniów według daty rejestracji, oblicza liczbę jednostek w każdej grupie i przechowuje wyniki w zbiorze `EnrollmentDateGroup` wyświetlić obiekty w modelu.
 
-Uwaga: LINQ `group` polecenia nie jest obecnie obsługiwany przez EF rdzeń. W powyższym kodzie zwracane są wszystkie rekordy uczniów z programu SQL Server. `group` Polecenia jest stosowany w aplikacji stron Razor, nie na serwerze SQL. Podstawowe EF 2.1 będzie obsługiwać ten LINQ `group` operatora i grupowanie występuje na serwerze SQL. Zobacz [relacyjne: obsługuje tłumaczenia GroupBy() SQL](https://github.com/aspnet/EntityFrameworkCore/issues/2341). [Podstawowe EF 2.1](https://github.com/aspnet/EntityFrameworkCore/wiki/roadmap) zostanie wydana przy użyciu zestawu .NET Core 2.1. Aby uzyskać więcej informacji, zobacz [.NET Core plan](https://github.com/dotnet/core/blob/master/roadmap.md).
+Uwaga: LINQ `group` polecenia nie jest obecnie obsługiwane przez platformę EF Core. W poprzednim kodzie najpierw zwracane są wszystkie rekordy dla uczniów, a z programu SQL Server. `group` Poleceń jest stosowany w aplikacji stron Razor, nie na serwerze SQL. EF Core 2.1 obejmie to LINQ `group` operator i grupowanie występuje w programie SQL Server. Zobacz [relacyjne: Obsługa translacji GroupBy() do bazy danych SQL](https://github.com/aspnet/EntityFrameworkCore/issues/2341). [EF Core 2.1](https://github.com/aspnet/EntityFrameworkCore/wiki/roadmap) zostaną wydane przy użyciu platformy .NET Core 2.1. Aby uzyskać więcej informacji, zobacz [harmonogram działania dla platformy .NET Core](https://github.com/dotnet/core/blob/master/roadmap.md).
 
-### <a name="modify-the-about-razor-page"></a>Modyfikowanie o stronie aparatu Razor
+### <a name="modify-the-about-razor-page"></a>Modyfikowanie dotyczące strony Razor
 
 Zastąp kod w *Pages/About.cshtml* pliku następującym kodem:
 
 [!code-html[](intro/samples/cu21/Pages/About.cshtml)]
 
-Uruchom aplikację i przejdź do strony informacje. Liczba studentów dla każdego dnia rejestracji jest wyświetlane w formie tabeli.
+Uruchom aplikację i przejdź do strony informacje. Liczba studentów każdej daty rejestracji jest wyświetlany w tabeli.
 
-Jeśli wystąpiły problemy, nie można rozwiązać, Pobierz [ukończonej aplikacji dla tego etapu](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part3-sorting).
+Jeśli napotkasz problemy, nie można rozwiązać, Pobierz [ukończonej aplikacji dla tego etapu](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part3-sorting).
 
-![Strona — informacje](sort-filter-page/_static/about.png)
+![Informacje o stronie](sort-filter-page/_static/about.png)
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Debugowanie ASP.NET Core 2.x źródła](https://github.com/aspnet/Docs/issues/4155)
 
-W następnym samouczku aplikacja używa migracji można zaktualizować modelu danych.
+W następnym samouczku aplikacja używa migracji do aktualizacji modelu danych.
 ::: moniker-end
 
 > [!div class="step-by-step"]

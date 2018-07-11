@@ -9,11 +9,11 @@ ms.assetid: 52a4d5fe-aa31-4471-b3cb-a064f82cb791
 msc.legacyurl: /mvc/overview/getting-started/introduction/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
 ms.openlocfilehash: a166f6c4450c72adc23f7d36113ceba7e04f1929
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37820892"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38170277"
 ---
 <a name="examining-the-edit-methods-and-edit-view"></a>Badanie metod edycji i widoku edycji
 ====================
@@ -97,7 +97,7 @@ Jeśli używasz komputera angielski, można pominąć tę sekcję i przejdź do 
 
 
 > [!NOTE]
-> do obsługi dotyczącą weryfikacji jQuery dla ustawień regionalnych innych niż angielski, które należy użyć przecinka (&quot;,&quot;) dla punktu dziesiętnego i formaty daty inne niż angielski, należy wprowadzić *globalize.js* i konkretne  *cultures/globalize.cultures.js* pliku (z [ https://github.com/jquery/globalize ](https://github.com/jquery/globalize) ) i języka JavaScript, aby użyć `Globalize.parseFloat`. Możesz uzyskać weryfikacji innej niż angielska jQuery z pakietów NuGet. (Nie należy instalować Globalize Jeśli używasz angielskie ustawienia regionalne.)
+> Do obsługi dotyczącą weryfikacji jQuery dla ustawień regionalnych innych niż angielski, które należy użyć przecinka (&quot;,&quot;) dla punktu dziesiętnego i formaty daty inne niż angielski, należy wprowadzić *globalize.js* i konkretne  *cultures/globalize.cultures.js* pliku (z [ https://github.com/jquery/globalize ](https://github.com/jquery/globalize) ) i języka JavaScript, aby użyć `Globalize.parseFloat`. Możesz uzyskać weryfikacji innej niż angielska jQuery z pakietów NuGet. (Nie należy instalować Globalize Jeśli używasz angielskie ustawienia regionalne.)
 
 
 1. Z **narzędzia** kliknij menu **Menedżera pakietów NuGetLibrary**, a następnie kliknij przycisk **Zarządzaj pakietami NuGet dla rozwiązania**.  

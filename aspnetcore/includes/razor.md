@@ -1,7 +1,7 @@
-Ten samouczek zawiera projektowanie witryn sieci web platformy ASP.NET Core MVC z widoków i kontrolerów. Nowe alternatywą w programie ASP.NET Core 2.0 lub nowszy, na stronie modelu programowania, który sprawia, że tworzenie interfejsu użytkownika sieci web łatwiejsze i bardziej wydajnej pracy jest stron razor. Firma Microsoft zaleca próby [stron Razor](xref:tutorials/razor-pages/razor-pages-start) samouczka przed wersji platformy MVC. Samouczek Razor strony:
+W tym samouczku pokazano programowania dla sieci web platformy ASP.NET Core MVC za pomocą kontrolerów i widoków. Strony razor jest nowy alternatywą w ASP.NET Core 2.0 i nowszych opartej na stronach model programowania, który sprawia, że tworzenie interfejsu użytkownika sieci web łatwiejsze i bardziej wydajne. Zalecamy wypróbowanie [stron Razor](xref:tutorials/razor-pages/razor-pages-start) samouczek przed wersją platformy MVC. Samouczek stron Razor:
 
-* Jest to preferowane rozwiązanie w przypadku nowych wdrożeń aplikacji.
-* Łatwiej wykonać.
+* Jest preferowanym podejściem w przypadku nowych wdrożeń aplikacji.
+* Łatwiej jest je wykonać.
 * Obejmuje więcej funkcji.
 
-Jeśli w tym samouczku za pośrednictwem [stron Razor](xref:tutorials/razor-pages/razor-pages-start) wersji, poinformować nas, dlatego w [ten problem GitHub](https://github.com/aspnet/Docs/issues/6146).
+Jeśli wybrana w tym samouczku za pośrednictwem [stron Razor](xref:tutorials/razor-pages/razor-pages-start) wersji dać nam znać, dlaczego w [problem w usłudze GitHub](https://github.com/aspnet/Docs/issues/6146).

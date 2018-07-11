@@ -1,30 +1,30 @@
 ---
-title: Wprowadzenie do platformy ASP.NET Core MVC i Visual Studio
+title: Wprowadzenie do ASP.NET Core MVC i programu Visual Studio
 author: rick-anderson
-description: Dowiedz się, jak rozpocząć pracę z platformy ASP.NET Core MVC i Visual Studio.
+description: Dowiedz się, jak rozpocząć pracę z ASP.NET Core MVC i programu Visual Studio.
 ms.author: riande
 ms.date: 10/07/2017
 uid: tutorials/first-mvc-app/start-mvc
 ms.openlocfilehash: 1fb3947023843341403f4355c6ae1e61d7e4f6b1
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36275555"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38217981"
 ---
-# <a name="get-started-with-aspnet-core-mvc-and-visual-studio"></a>Wprowadzenie do platformy ASP.NET Core MVC i Visual Studio
+# <a name="get-started-with-aspnet-core-mvc-and-visual-studio"></a>Wprowadzenie do ASP.NET Core MVC i programu Visual Studio
 
-przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [!INCLUDE [consider RP](~/includes/razor.md)]
 
 Istnieją 3 wersje tego samouczka:
 
-* System macOS: [tworzenie aplikacji platformy ASP.NET Core MVC za pomocą programu Visual Studio dla komputerów Mac](xref:tutorials/first-mvc-app-mac/start-mvc)
-* System Windows: [utworzyć platformy ASP.NET Core aplikacji MVC za pomocą programu Visual Studio](xref:tutorials/first-mvc-app/start-mvc)
-* System macOS, Linux i Windows: [tworzenie aplikacji platformy ASP.NET Core MVC z kodem Visual Studio](xref:tutorials/first-mvc-app-xplat/start-mvc)
+* System macOS: [tworzenie aplikacji ASP.NET Core MVC za pomocą programu Visual Studio dla komputerów Mac](xref:tutorials/first-mvc-app-mac/start-mvc)
+* Windows: [tworzenie aplikacji MVC platformy ASP.NET Core z programem Visual Studio](xref:tutorials/first-mvc-app/start-mvc)
+* System macOS, Linux i Windows: [tworzenie aplikacji ASP.NET Core MVC za pomocą programu Visual Studio Code](xref:tutorials/first-mvc-app-xplat/start-mvc)
 
-## <a name="install-visual-studio-and-net-core"></a>Zainstaluj oprogramowanie .NET Core i Visual Studio
+## <a name="install-visual-studio-and-net-core"></a>Instalowanie programu Visual Studio i .NET Core
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -36,46 +36,46 @@ W programie Visual Studio, wybierz **Plik > Nowy > Projekt**.
 
 ![Plik > Nowy > Projekt](start-mvc/_static/alt_new_project.png)
 
-Zakończenie **nowy projekt** okna dialogowego:
+Wykonaj **nowy projekt** okno dialogowe:
 
-* W okienku po lewej stronie wybierz **.NET Core**
-* W środkowym okienku wybierz **aplikacji sieci Web platformy ASP.NET Core (.NET Core)**
-* Nazwa projektu "MvcMovie" (należy nazwa projektu "MvcMovie", po skopiowaniu kodu przestrzeni nazw będą zgodne.)
-* Wybierz **OK**
+* W okienku po lewej stronie wybierz **platformy .NET Core**
+* W środkowym okienku wybierz **aplikacja sieci Web programu ASP.NET Core (.NET Core)**
+* Nazwij projekt "MvcMovie" (warto nazwij projekt "MvcMovie", dzięki czemu podczas kopiowania kodu przestrzeni nazw będą zgodne.)
+* Naciśnij pozycję **OK**
 
 ![Okno dialogowe nowego projektu, .net core w okienku po lewej stronie sieci web platformy ASP.NET Core ](start-mvc/_static/new_project2-21.png)
 
-Zakończenie **nowej platformy ASP.NET Core aplikacji sieci Web (.NET Core) — MvcMovie** okna dialogowego:
+Wykonaj **nowa Core aplikacja internetowa ASP.NET (.NET Core) — MvcMovie** okno dialogowe:
 
-* W polu listy rozwijanej selektora wersja wybierz **platformy ASP.NET Core 2.1**
+* W polu listy rozwijanej selektora wersji wybierz **platformy ASP.NET Core 2.1**
 * Wybierz **Application(Model-View-Controller) w sieci Web**
-* Wybierz **OK**.
+* Naciśnij pozycję **OK**.
 
 ![Okno dialogowe nowego projektu, .net core w okienku po lewej stronie sieci web platformy ASP.NET Core ](start-mvc/_static/new_project22-21.png)
 
-Visual Studio używany domyślny szablon projektu MVC, który został utworzony. Masz aplikację pracy z teraz wpisując nazwę projektu i wybierając kilka opcji. Jest to projekt starter podstawowe i jest dobrym miejscem do rozpoczęcia,
+Visual Studio używał domyślnego szablonu projektu MVC, który został utworzony. Masz działającą aplikację z chwili, wprowadzając nazwę projektu i wybraniu kilku opcji. Jest to projekt startowy podstawowe i jest dobrym miejscem do rozpoczęcia,
 
-Wybierz **F5** do uruchomienia aplikacji w trybie debugowania lub **Ctrl-F5** w trybie bez debugowania.
+Naciśnij pozycję **F5** do uruchomienia aplikacji w trybie debugowania lub **Ctrl-F5** w trybie bez debugowania.
 <!-- These images are also used by uid: tutorials/first-mvc-app-xplat/start-mvc -->
-![uruchomionej aplikacji](start-mvc/_static/1.png)
+![uruchamianie aplikacji](start-mvc/_static/1.png)
 
-* Uruchamia program Visual Studio [usług IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) i uruchamia aplikację. Należy zauważyć, że na pasku adresu `localhost:port#` i nie coś, takich jak `example.com`. Jest to spowodowane tym `localhost` jest standardowa nazwa hosta komputera lokalnego. Gdy program Visual Studio tworzy projekt sieci web, losowy port jest używany dla serwera sieci web. Powyższy obraz numer portu to 5000. Adres URL w przeglądarce przedstawiono `localhost:5000`. Po uruchomieniu aplikacji zostanie wyświetlony inny numer portu.
-* Uruchamianie aplikacji z **Ctrl + F5** (tryb-debug) pozwala wprowadzać zmiany kodu, Zapisz plik, Odśwież przeglądarkę i zobaczyć zmiany kodu. Wielu deweloperów preferowane jest w trybie bez debugowania szybko uruchomić aplikację i zobaczyć zmiany.
-* Możesz uruchomić aplikację w trybie bez debugowania z lub debugowania **debugowania** element menu:
+* Program Visual Studio uruchamia [usług IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) i uruchamia aplikację. Należy zauważyć, że na pasku adresu `localhost:port#` i nie mielibyśmy mieć czegoś podobnego `example.com`. To dlatego, że `localhost` jest standardowa nazwa hosta komputera lokalnego. Gdy program Visual Studio tworzy projekt sieci web, losowy port jest używany dla serwera sieci web. Na powyższej ilustracji numer portu to 5000. Adres URL w pokazuje przeglądarki `localhost:5000`. Po uruchomieniu aplikacji, zobaczysz inny numer portu.
+* Uruchamianie aplikacji za pomocą **kombinację klawiszy Ctrl + F5** (bez debugowania w trybie) pozwala wprowadzać zmiany kodu, Zapisz plik, Odśwież przeglądarkę i zobaczyć zmiany kodu. Wielu programistów łatwiej jest w trybie bez debugowania szybko uruchomić aplikację i wyświetlić zmiany.
+* Możesz uruchomić aplikację w debugowaniu lub trybie bez debugowania z **debugowania** element menu:
 
 ![Debugowanie menu](start-mvc/_static/debug_menu.png)
 
-* Można debugować aplikacji, naciskając pozycję **usług IIS Express** przycisku
+* Można debugować aplikację, naciskając pozycję **usług IIS Express** przycisku
 
 ![IIS Express](start-mvc/_static/iis_express.png)
 
-Domyślny szablon umożliwia pracy **macierzystego o** i **skontaktuj się z** łącza. Powyższy obraz przeglądarki nie wyświetla tych łączy. W zależności od rozmiaru przeglądarki konieczne może być kliknij ikonę nawigacji, aby je wyświetlić.
+Domyślny szablon umożliwia pracę **domu o** i **skontaktuj się z pomocą** łącza. Na powyższej ilustracji przeglądarki nie wyświetla tych łączy. W zależności od rozmiaru przeglądarki może być konieczne kliknij ikonę nawigacji, aby je wyświetlić.
 
-![Ikona nawigacji w prawym górnym rogu](start-mvc/_static/2.png)
+![Ikona Nawigacja w prawym górnym rogu](start-mvc/_static/2.png)
 
-Podczas uruchamiania w trybie debugowania, naciśnij przycisk **Shift-F5** można zatrzymać debugowania.
+Podczas uruchamiania w trybie debugowania, naciśnij **Shift-F5** Aby zatrzymać debugowanie.
 
-W następnej części tego samouczka możemy Dowiedz się więcej o MVC i rozpocząć pisanie kodu.
+W następnej części tego samouczka będziemy Dowiedz się więcej o MVC i rozpocząć pisanie kodu.
 
 ::: moniker-end
 
@@ -87,18 +87,18 @@ W następnej części tego samouczka możemy Dowiedz się więcej o MVC i rozpoc
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 
-Install Visual Studio Community 2017. Wybierz pobieranie społeczności. Jeśli masz program Visual Studio 2017 r zainstalowany, Pomiń ten krok.
+Install Visual Studio Community 2017. Wybierz pakiet do pobrania społeczności. Pomiń ten krok, jeśli masz program Visual Studio 2017.
 
-* [Visual Studio 2017 głównej strony Instalatora](https://www.visualstudio.com/)
+* [Instalator programu Visual stronę główną programu Studio 2017](https://www.visualstudio.com/)
 
-Uruchom Instalatora, a następnie wybierz następujące obciążenia:
+Uruchom Instalatora i wybierz następujące obciążenia:
 
-* **ASP.NET i sieć web development** (w obszarze **sieci Web & chmurze**)
-* **Programowanie wieloplatformowych .NET core** (w obszarze **inne procesami**)
+* **ASP.NET i tworzenie aplikacji internetowych** (w obszarze **sieć Web i chmura**)
+* **Programowanie dla wielu platform .NET core** (w obszarze **inne zestawy narzędzi**)
 
-![**ASP.NET i sieci web development ** (w obszarze ** & sieci Web chmury **)](start-mvc/_static/web_workload.png)
+![**ASP.NET i web development ** (w obszarze ** sieć Web i chmura **)](start-mvc/_static/web_workload.png)
 
-![* *.NET core cross-cross-platfrom Programowanie ** (w obszarze ** inne procesami **)](start-mvc/_static/x_plat_wl.png)
+![* *.NET core cross-cross-platfrom rozwoju ** (w obszarze ** inne zestawy narzędzi **)](start-mvc/_static/x_plat_wl.png)
 
 ---
 
@@ -108,61 +108,61 @@ W programie Visual Studio, wybierz **Plik > Nowy > Projekt**.
 
 ![Plik > Nowy > Projekt](start-mvc/_static/alt_new_project.png)
 
-Zakończenie **nowy projekt** okna dialogowego:
+Wykonaj **nowy projekt** okno dialogowe:
 
-* W okienku po lewej stronie wybierz **.NET Core**
-* W środkowym okienku wybierz **aplikacji sieci Web platformy ASP.NET Core (.NET Core)**
-* Nazwa projektu "MvcMovie" (należy nazwa projektu "MvcMovie", po skopiowaniu kodu przestrzeni nazw będą zgodne.)
-* Wybierz **OK**
+* W okienku po lewej stronie wybierz **platformy .NET Core**
+* W środkowym okienku wybierz **aplikacja sieci Web programu ASP.NET Core (.NET Core)**
+* Nazwij projekt "MvcMovie" (warto nazwij projekt "MvcMovie", dzięki czemu podczas kopiowania kodu przestrzeni nazw będą zgodne.)
+* Naciśnij pozycję **OK**
 
 ![Okno dialogowe nowego projektu, .net core w okienku po lewej stronie sieci web platformy ASP.NET Core ](start-mvc/_static/new_project2.png)
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-Zakończenie **nowej platformy ASP.NET Core aplikacji sieci Web (.NET Core) — MvcMovie** okna dialogowego:
+Wykonaj **nowa Core aplikacja internetowa ASP.NET (.NET Core) — MvcMovie** okno dialogowe:
 
-* W polu listy rozwijanej selektora wersja wybierz **platformy ASP.NET Core 2.-**
+* W polu listy rozwijanej selektora wersji wybierz **ASP.NET Core 2.-**
 * Wybierz **Application(Model-View-Controller) w sieci Web**
-* Wybierz **OK**.
+* Naciśnij pozycję **OK**.
 
 ![Okno dialogowe nowego projektu, .net core w okienku po lewej stronie sieci web platformy ASP.NET Core ](start-mvc/_static/new_project22.png)
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-Zakończenie **nowej platformy ASP.NET Core aplikacji sieci Web (.NET Core) — MvcMovie** okna dialogowego:
+Wykonaj **nowa Core aplikacja internetowa ASP.NET (.NET Core) — MvcMovie** okno dialogowe:
 
-* W naciśnij pola rozwijanego selektora wersji **ASP.NET Core 1.1**
-* Wybierz **aplikacji sieci Web**
-* Zachowaj ustawienie domyślne **bez uwierzytelniania**
-* Wybierz **OK**.
+* We wzorcu tap pole listy rozwijanej selektora wersji **ASP.NET Core 1.1**
+* Naciśnij pozycję **aplikacji sieci Web**
+* Zachowaj wartość domyślną **bez uwierzytelniania**
+* Naciśnij pozycję **OK**.
 
 ![Nowa aplikacja sieci web platformy ASP.NET Core](start-mvc/_static/p3.png)
 
 ---
 
-Visual Studio używany domyślny szablon projektu MVC, który został utworzony. Masz aplikację pracy z teraz wpisując nazwę projektu i wybierając kilka opcji. Jest to projekt starter podstawowe i jest dobrym miejscem do rozpoczęcia,
+Visual Studio używał domyślnego szablonu projektu MVC, który został utworzony. Masz działającą aplikację z chwili, wprowadzając nazwę projektu i wybraniu kilku opcji. Jest to projekt startowy podstawowe i jest dobrym miejscem do rozpoczęcia,
 
-Wybierz **F5** do uruchomienia aplikacji w trybie debugowania lub **Ctrl-F5** w trybie bez debugowania.
+Naciśnij pozycję **F5** do uruchomienia aplikacji w trybie debugowania lub **Ctrl-F5** w trybie bez debugowania.
 <!-- These images are also used by uid: tutorials/first-mvc-app-xplat/start-mvc -->
-![uruchomionej aplikacji](start-mvc/_static/1.png)
+![uruchamianie aplikacji](start-mvc/_static/1.png)
 
-* Uruchamia program Visual Studio [usług IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) i uruchamia aplikację. Należy zauważyć, że na pasku adresu `localhost:port#` i nie coś, takich jak `example.com`. Jest to spowodowane tym `localhost` jest standardowa nazwa hosta komputera lokalnego. Gdy program Visual Studio tworzy projekt sieci web, losowy port jest używany dla serwera sieci web. Powyższy obraz numer portu to 5000. Adres URL w przeglądarce przedstawiono `localhost:5000`. Po uruchomieniu aplikacji zostanie wyświetlony inny numer portu.
-* Uruchamianie aplikacji z **Ctrl + F5** (tryb-debug) pozwala wprowadzać zmiany kodu, Zapisz plik, Odśwież przeglądarkę i zobaczyć zmiany kodu. Wielu deweloperów preferowane jest w trybie bez debugowania szybko uruchomić aplikację i zobaczyć zmiany.
-* Możesz uruchomić aplikację w trybie bez debugowania z lub debugowania **debugowania** element menu:
+* Program Visual Studio uruchamia [usług IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) i uruchamia aplikację. Należy zauważyć, że na pasku adresu `localhost:port#` i nie mielibyśmy mieć czegoś podobnego `example.com`. To dlatego, że `localhost` jest standardowa nazwa hosta komputera lokalnego. Gdy program Visual Studio tworzy projekt sieci web, losowy port jest używany dla serwera sieci web. Na powyższej ilustracji numer portu to 5000. Adres URL w pokazuje przeglądarki `localhost:5000`. Po uruchomieniu aplikacji, zobaczysz inny numer portu.
+* Uruchamianie aplikacji za pomocą **kombinację klawiszy Ctrl + F5** (bez debugowania w trybie) pozwala wprowadzać zmiany kodu, Zapisz plik, Odśwież przeglądarkę i zobaczyć zmiany kodu. Wielu programistów łatwiej jest w trybie bez debugowania szybko uruchomić aplikację i wyświetlić zmiany.
+* Możesz uruchomić aplikację w debugowaniu lub trybie bez debugowania z **debugowania** element menu:
 
 ![Debugowanie menu](start-mvc/_static/debug_menu.png)
 
-* Można debugować aplikacji, naciskając pozycję **usług IIS Express** przycisku
+* Można debugować aplikację, naciskając pozycję **usług IIS Express** przycisku
 
 ![IIS Express](start-mvc/_static/iis_express.png)
 
-Domyślny szablon umożliwia pracy **macierzystego o** i **skontaktuj się z** łącza. Powyższy obraz przeglądarki nie wyświetla tych łączy. W zależności od rozmiaru przeglądarki konieczne może być kliknij ikonę nawigacji, aby je wyświetlić.
+Domyślny szablon umożliwia pracę **domu o** i **skontaktuj się z pomocą** łącza. Na powyższej ilustracji przeglądarki nie wyświetla tych łączy. W zależności od rozmiaru przeglądarki może być konieczne kliknij ikonę nawigacji, aby je wyświetlić.
 
-![Ikona nawigacji w prawym górnym rogu](start-mvc/_static/2.png)
+![Ikona Nawigacja w prawym górnym rogu](start-mvc/_static/2.png)
 
-Podczas uruchamiania w trybie debugowania, naciśnij przycisk **Shift-F5** można zatrzymać debugowania.
+Podczas uruchamiania w trybie debugowania, naciśnij **Shift-F5** Aby zatrzymać debugowanie.
 
-W następnej części tego samouczka możemy Dowiedz się więcej o MVC i rozpocząć pisanie kodu.
+W następnej części tego samouczka będziemy Dowiedz się więcej o MVC i rozpocząć pisanie kodu.
 
 ::: moniker-end
 > [!div class="step-by-step"]

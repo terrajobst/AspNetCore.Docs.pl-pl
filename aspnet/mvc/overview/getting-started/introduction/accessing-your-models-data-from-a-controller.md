@@ -9,11 +9,11 @@ ms.assetid: caa1ba4a-f9f0-4181-ba21-042e3997861d
 msc.legacyurl: /mvc/overview/getting-started/introduction/accessing-your-models-data-from-a-controller
 msc.type: authoredcontent
 ms.openlocfilehash: a3f3f4a030650ff65b070528c5efa1605be764a0
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
-ms.translationtype: HT
+ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37817554"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38120156"
 ---
 <a name="accessing-your-models-data-from-a-controller"></a>Uzyskiwanie dostępu do danych modelu za pomocą kontrolera
 ====================

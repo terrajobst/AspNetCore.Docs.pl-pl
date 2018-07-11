@@ -1,152 +1,152 @@
 ---
-title: Platformy ASP.NET Core MVC podstawowych EF - odczytanie danych powiązanych — 6 10
+title: Platforma ASP.NET Core MVC z programem EF Core — odczytywanie powiązanych danych - 6 10
 author: rick-anderson
-description: W tym samouczku będziesz odczytu i wyświetlanie powiązanych danych — to znaczy dane programu Entity Framework wczytywane właściwości nawigacji.
+description: W tym samouczku należy przeczytać i wyświetlanie powiązanych danych — oznacza to, że dane programu Entity Framework wczytywane właściwości nawigacji.
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/read-related-data
 ms.openlocfilehash: d5c9b665a80003ef5029754d7ad1780b3254e97e
-ms.sourcegitcommit: c6ed2f00c7a08223d79090396b85793718b0dd69
+ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37092987"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38216297"
 ---
-# <a name="aspnet-core-mvc-with-ef-core---read-related-data---6-of-10"></a>Platformy ASP.NET Core MVC podstawowych EF - odczytanie danych powiązanych — 6 10
+# <a name="aspnet-core-mvc-with-ef-core---read-related-data---6-of-10"></a>Platforma ASP.NET Core MVC z programem EF Core — odczytywanie powiązanych danych - 6 10
 
 [!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
 
 ::: moniker range="= aspnetcore-2.0"
 
-Przez [Dykstra Tomasz](https://github.com/tdykstra) i [Rick Anderson](https://twitter.com/RickAndMSFT)
+Przez [Tom Dykstra](https://github.com/tdykstra) i [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji sieci web platformy ASP.NET Core MVC przy użyciu programu Entity Framework Core i Visual Studio. Informacje o samouczek serii, zobacz [pierwszy samouczek z tej serii](intro.md).
+Przykładową aplikację sieci web firmy Contoso University pokazuje, jak tworzyć aplikacje sieci web platformy ASP.NET Core MVC za pomocą platformy Entity Framework Core i Visual Studio. Aby uzyskać informacji na temat tej serii samouczka, zobacz [pierwszym samouczku tej serii](intro.md).
 
-W samouczku poprzedniej została ukończona modelu danych służbowych. W tym samouczku możesz przeczytać i wyświetlanie powiązanych danych — to znaczy dane programu Entity Framework wczytywane właściwości nawigacji.
+W poprzednim samouczku można wykonać modelu danych służbowych. W tym samouczku należy przeczytać i wyświetlanie powiązanych danych — oznacza to, że dane programu Entity Framework wczytywane właściwości nawigacji.
 
-Na poniższych ilustracjach przedstawiono stron, że będzie działać z.
+Na poniższych ilustracjach przedstawiono strony, którą będziesz pracować.
 
-![Strona indeksu kursy](read-related-data/_static/courses-index.png)
+![Kursy strony indeksu](read-related-data/_static/courses-index.png)
 
 ![Strona indeksu instruktorów](read-related-data/_static/instructors-index.png)
 
-## <a name="eager-explicit-and-lazy-loading-of-related-data"></a>Wczesny jawne i opóźnionego ładowania powiązanych danych
+## <a name="eager-explicit-and-lazy-loading-of-related-data"></a>Zapoznamy wyraźne i powolne ładowanie powiązanych danych
 
-Istnieje kilka sposobów oprogramowania obiektów relacyjnych mapowania (ORM), takie jak Entity Framework można załadować powiązanych danych do właściwości nawigacji jednostki:
+Istnieje kilka sposobów oprogramowanie obiektowo-relacyjny mapowanie (ORM), takie jak Entity Framework można załadować powiązane dane do właściwości nawigacji jednostki:
 
-* Ładowanie wczesny. Podczas odczytywania jednostki powiązane dane są pobierane wraz z jej. Powoduje to zwykle w zapytaniu sprzężenia jednej, która pobiera wszystkie dane potrzebne. Określ wczesny ładowania w Entity Framework Core za pomocą `Include` i `ThenInclude` metody.
+* Wczesne ładowanie. Podczas odczytywania jednostki powiązane dane są pobierane wraz z jej. Powoduje to zwykle w zapytaniu sprzężenia jednego, który pobiera wszystkie dane potrzebne. Możesz określić wczesne ładowanie w Entity Framework Core przy użyciu `Include` i `ThenInclude` metody.
 
-  ![Przykład wczesny ładowania](read-related-data/_static/eager-loading.png)
+  ![Przykład wczesne ładowanie](read-related-data/_static/eager-loading.png)
 
-  Możesz pobrać niektóre dane w oddzielne zapytania, a EF "rozwiązuje" właściwości nawigacji.  Oznacza to EF automatycznie doda oddzielnie pobrane jednostek, w których one należą do właściwości nawigacji jednostek wcześniej pobrane. Dla zapytania, które pobiera dane powiązane, można użyć `Load` metody zamiast metody, która zwraca listy lub obiektu, takie jak `ToList` lub `Single`.
+  Możesz pobrać dane w oddzielne zapytania, a EF termin "poprawki" właściwości nawigacji.  Oznacza to EF automatycznie doda jednostki pobrane oddzielnie, których one należą do właściwości nawigacji jednostek wcześniej pobrane. Dla zapytania, które pobiera dane powiązane, możesz użyć `Load` metody zamiast metody, która zwraca listę lub obiektów, takich jak `ToList` lub `Single`.
 
   ![Przykład oddzielne zapytania](read-related-data/_static/separate-queries.png)
 
-* Jawne ładowania. Gdy obiekt jest najpierw przeczytać artykuł, pobrać nie jest powiązane dane. Możesz pisania kodu, który pobiera dane powiązane, jeśli jest to potrzebne. Tak jak w przypadku eager ładowania z oddzielne zapytania jawne, ładowanie wyników w kwerendach wielu wysyłane do bazy danych. Różnica polega na z jawnego ładowania kodu określa właściwości nawigacji do załadowania. W Entity Framework Core 1.1 można użyć `Load` metody w celu jawnego ładowania. Na przykład:
+* Jawne ładowanie. Podczas odczytywania jednostki powiązane dane nie są pobierane. Jeśli jest konieczne, piszesz kod, który pobiera powiązanych danych Tak jak w przypadku eager ładowanie za pomocą oddzielne zapytania jawne ładowanie wyników w wielu zapytań wysyłanych do bazy danych. Różnica polega na tym, za pomocą jawne ładowanie kod określa właściwości nawigacji, aby go załadować. Entity Framework Core 1.1 umożliwia `Load` celu jawne ładowanie metodę. Na przykład:
 
-  ![Przykład jawnego ładowania](read-related-data/_static/explicit-loading.png)
+  ![Przykład jawne ładowanie](read-related-data/_static/explicit-loading.png)
 
-* Powolne ładowanie. Gdy obiekt jest najpierw przeczytać artykuł, pobrać nie jest powiązane dane. Jednak podczas pierwszej próby dostępu do właściwości nawigacji wymagane dane dla tej właściwości nawigacji jest automatycznie pobierany. Zapytanie jest wysyłane do bazy danych zawsze próbować pobierać dane z właściwości nawigacji, po raz pierwszy. Entity Framework Core 1.0 nie obsługuje ładowania opóźnieniem.
+* Ładowanie z opóźnieniem. Podczas odczytywania jednostki powiązane dane nie są pobierane. Jednak użytkownik podejmie próbę dostępu do właściwości nawigacji po raz pierwszy wymagane dane dla tej właściwości nawigacji jest automatycznie pobierany. Zapytanie jest wysyłane do bazy danych zawsze próbować pobierać dane z właściwości nawigacji, po raz pierwszy. Entity Framework Core 1.0 nie obsługuje ładowania z opóźnieniem.
 
 ### <a name="performance-considerations"></a>Zagadnienia dotyczące wydajności
 
-Jeśli znasz potrzebne dane dotyczące dla każdej jednostki pobrać wczesny ładowania często oferuje najlepszą wydajność, ponieważ pojedynczego zapytania wysyłane do bazy danych jest zazwyczaj bardziej efektywne niż oddzielne zapytania dla każdej jednostki pobrać. Na przykład załóżmy, że każdy dział ma dziesięć Kursy pokrewne. Ładowanie wczesny wszystkich powiązanych danych spowoduje tylko zapytania jednym (połączenie) i jeden obiegu do bazy danych. Oddzielne zapytania kursów dla każdego działu spowoduje 11 rund do bazy danych. Dodatkowe rund do bazy danych są szczególnie szkodliwe dla wydajności, gdy dużych opóźnieniach.
+Jeśli znasz powiązane dane potrzebne dla każdej jednostki pobrać eager podczas ładowania często oferuje najlepszą wydajność, ponieważ pojedynczego zapytania wysłanego do bazy danych jest zazwyczaj bardziej efektywne niż oddzielne zapytania, dla każdej jednostki pobierane. Na przykład załóżmy, że każdy dział ma dziesięć Kursy pokrewne. Wczesne ładowanie wszystkich powiązanych danych mogłoby spowodować tylko zapytania do jednego (Połącz) i jeden obiegu do bazy danych. Oddzielnego zapytania dla kursy dla każdego działu mogłoby spowodować jedenaście rund do bazy danych. Dodatkowe rund do bazy danych są szczególnie szkodliwa dla wydajności, gdy opóźnienie jest wysokie.
 
-Z drugiej strony w niektórych scenariuszach oddzielne zapytania jest bardziej wydajny. Ładowanie wczesny wszystkich powiązanych danych w jednym zapytaniu może spowodować sprzężenia bardzo skomplikowane, zostanie wygenerowany, której program SQL Server nie może przetworzyć wydajnie. Lub jeśli potrzebujesz dostępu do właściwości nawigacji jednostki tylko przez podzbiór zestawu jednostek, który jest przetwarzanie, oddzielne zapytania mogą działać lepiej ponieważ wczesny ładowania wszystkich elementów na początku czy pobrać więcej danych niż trzeba. Jeśli wydajność jest szczególnie ważne, najlepiej testowanie wydajności w obu kierunkach, aby ustawić najlepszym rozwiązaniem.
+Z drugiej strony w niektórych scenariuszach oddzielne zapytania jest bardziej wydajne. Wczesne ładowanie wszystkich powiązanych danych w jednym zapytaniu może spowodować bardzo złożone sprzężenia zostanie wygenerowany, której program SQL Server nie może przetworzyć wydajnie. Lub jeśli potrzebujesz dostępu do właściwości nawigacji jednostki, tylko dla podzbioru zestaw jednostek, które one przetwarzanie, oddzielne zapytania może działać lepiej ponieważ wczesne ładowanie wszystkich elementów na początku spowoduje pobieranie większej ilości danych niż jest Ci potrzebne. Jeśli wydajność ma kluczowe znaczenie, najlepiej testowania wydajności w obu kierunkach, aby można było dokonanie najlepszego wyboru.
 
-## <a name="create-a-courses-page-that-displays-department-name"></a>Utwórz stronę kursy Wyświetla nazwę działu
+## <a name="create-a-courses-page-that-displays-department-name"></a>Tworzenie strony kursów, który wyświetla nazwy działu
 
-Jednostka kursu obejmuje zawierającym jednostkę działu działu kursu przypisane do właściwości nawigacji. Aby wyświetlić nazwę działu przypisane na liście kursów, należy uzyskać właściwość Name z jednostki działu, który znajduje się w `Course.Department` właściwości nawigacji.
+Jednostki kurs zawiera właściwość nawigacji, która zawiera jednostkę działu działu, przypisana do kursu. Aby wyświetlić nazwę działu przypisany na liście kursy, musisz pobrać właściwości nazwy jednostki działu, która znajduje się w `Course.Department` właściwości nawigacji.
 
-Tworzenie kontrolera o nazwie CoursesController dla porach typu jednostki, przy użyciu tych samych opcji dla **kontroler MVC z widokami używający narzędzia Entity Framework** tworzenia szkieletu, która została wcześniej kontrolera studentów, jak pokazano w poniższej ilustracji:
+Utworzyć kontroler o nazwie CoursesController dla typu jednostki kurs przy użyciu tych samych opcji dla **kontroler MVC z widokami używający narzędzia Entity Framework** Generator szkieletu wykonanego wcześniej dla kontrolera studentów, jak pokazano w na poniższej ilustracji:
 
-![Dodawanie kontrolera kursy](read-related-data/_static/add-courses-controller.png)
+![Dodawanie kontrolera kursów](read-related-data/_static/add-courses-controller.png)
 
-Otwórz *CoursesController.cs* i sprawdź, czy `Index` metody. Automatyczne szkieletów określono wczesny ładowania dla `Department` właściwość nawigacji za pomocą `Include` metody.
+Otwórz *CoursesController.cs* i zbadaj `Index` metody. Automatyczne tworzenie szkieletów określono wczesne ładowanie dla `Department` właściwość nawigacji za pomocą `Include` metody.
 
-Zastąp `Index` metodę z następującym kodem, który używa bardziej odpowiednie nazwy dla `IQueryable` zwracającą kursu jednostek (`courses` zamiast `schoolContext`):
+Zastąp `Index` metoda następującym kodem, który używa bardziej odpowiednie nazwy dla `IQueryable` zwracającego kurs jednostki (`courses` zamiast `schoolContext`):
 
 [!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_RevisedIndexMethod)]
 
-Otwórz *Views/Courses/Index.cshtml* i Zastąp kod szablonu z następującym kodem. Zmiany są wyróżnione:
+Otwórz *Views/Courses/Index.cshtml* i Zastąp kod szablonu poniższym kodem. Zmiany są wyróżnione:
 
 [!code-html[](intro/samples/cu/Views/Courses/Index.cshtml?highlight=4,7,15-17,34-36,44)]
 
-Wprowadzono następujące zmiany do szkieletu kodu:
+Utworzony szkielet kodu zostały wprowadzone następujące zmiany:
 
-* Zmieniony nagłówek od indeksu do kursów.
+* Zmienić nagłówek z indeksu do kursów.
 
-* Dodaje **numer** kolumny, która zawiera `CourseID` wartości właściwości. Domyślnie nie są szkieletu kluczy podstawowych, ponieważ zwykle są bezużyteczne dla użytkowników końcowych. Jednak w takim przypadku klucza podstawowego ma znaczenie i chcesz je wyświetlić.
+* Dodano **numer** kolumna, która pokazuje `CourseID` wartości właściwości. Domyślnie klucze podstawowe nie są szkieletu, ponieważ zwykle są bez znaczenia dla użytkowników końcowych. Jednak w takim przypadku klucz podstawowy ma znaczenie i chcą ją wyświetlić.
 
-* Zmienione **działu** kolumny, aby wyświetlić nazwę działu. Wyświetla kod `Name` właściwości jednostki działu, który jest ładowany do `Department` właściwość nawigacji:
+* Zmienione **działu** kolumny, aby wyświetlić nazwę działu. Ten kod wyświetla `Name` właściwości jednostki działu, który jest ładowany do `Department` właściwość nawigacji:
 
   ```html
   @Html.DisplayFor(modelItem => item.Department.Name)
   ```
 
-Uruchom aplikację i wybierz **kursów** kartę, aby wyświetlić listę z nazwami działu.
+Uruchom aplikację i wybierz **kursów** kartę, aby wyświetlić listę nazw działów.
 
-![Strona indeksu kursy](read-related-data/_static/courses-index.png)
+![Kursy strony indeksu](read-related-data/_static/courses-index.png)
 
-## <a name="create-an-instructors-page-that-shows-courses-and-enrollments"></a>Utwórz stronę instruktorów kursów i rejestracji
+## <a name="create-an-instructors-page-that-shows-courses-and-enrollments"></a>Utwórz stronę instruktorów, pokazujący kursów i rejestracji
 
-W tej sekcji utworzysz kontrolera i widoku dla obiekt instruktora w celu wyświetlenia strony instruktorów:
+W tej sekcji utworzysz kontroler i widok dla jednostki przez instruktorów, aby wyświetlić stronę Instruktorzy:
 
 ![Strona indeksu instruktorów](read-related-data/_static/instructors-index.png)
 
 Ta strona odczytuje i wyświetla powiązanych danych w następujący sposób:
 
-* Na liście instruktorów zostaną wyświetlone dane powiązane z OfficeAssignment jednostki. Jednostki instruktora i OfficeAssignment znajdują się w relacji jeden do zero lub jeden. Ładowanie wczesny będzie używany dla jednostek OfficeAssignment. Zgodnie z opisem, wczesny ładowania jest zazwyczaj bardziej wydajne, gdy potrzebne są powiązane dane dla wszystkich pobranych wierszy w tabeli podstawowej. W takim przypadku mają być wyświetlane przypisań pakietu office dla wszystkich wyświetlanych instruktorów.
+* Lista Instruktorzy wyświetli powiązane dane z jednostki OfficeAssignment. Jednostki przez instruktorów i OfficeAssignment znajdują się w relacji jeden do zero lub jeden. Wczesne ładowanie użyjemy dla jednostek OfficeAssignment. Jak wyjaśniono wcześniej, wczesne ładowanie jest zazwyczaj bardziej efektywne, gdy będziesz potrzebować powiązanych danych we wszystkich wierszach pobrane w tabeli podstawowej. W tym przypadku chcesz wyświetlić przypisania pakietu office dla wszystkich wyświetlanych instruktorów.
 
-* Po wybraniu instruktora powiązanych jednostek kursu są wyświetlane. Jednostki instruktora i kursu znajdują się w relacji wiele do wielu. Użyjesz wczesny ładowanie obiektów kursu i ich powiązanych jednostek działu. W takim przypadku oddzielne zapytania może być bardziej wydajne, ponieważ należy kursy tylko dla wybranego instruktora. Jednak ten przykład przedstawia sposób użycia wczesny ładowania dla właściwości nawigacji w ramach jednostkami, którymi na właściwości nawigacji.
+* Gdy użytkownik wybierze pod kierunkiem instruktora, są wyświetlane z powiązanymi obiektami kursu. Jednostki przez instruktorów i kurs znajdują się w relacji wiele do wielu. Wczesne ładowanie służący do celów kursu jednostek i ich powiązanych jednostek działu. W tym przypadku oddzielne zapytania może być bardziej efektywne, ponieważ należy kursy tylko dla wybranych przez instruktorów. Jednak w tym przykładzie pokazano, jak używać wczesne ładowanie dla właściwości nawigacji w ramach jednostek, które znajdują się w oknie właściwości nawigacji.
 
-* Gdy użytkownik wybierze kursu, są wyświetlane powiązane dane z zestawu jednostek rejestracji. Jednostki przebiegu i rejestracji są w relacji jeden do wielu. Użyjesz oddzielne zapytania rejestracji obiektów i ich powiązanych jednostek studenta.
+* Gdy użytkownik wybierze kurs, dane związane z zestawu jednostek rejestracji jest wyświetlany. Jednostki kurs i rejestracji znajdują się w relacji jeden do wielu. Oddzielne zapytania służący do celów rejestracji jednostek i ich powiązanych jednostek dla uczniów.
 
-### <a name="create-a-view-model-for-the-instructor-index-view"></a>Utwórz model widoku dla widoku indeksu instruktora
+### <a name="create-a-view-model-for-the-instructor-index-view"></a>Tworzenie modelu widoku dla widoku indeksu przez instruktorów
 
-Na stronie instruktorów znajdują się dane z trzech różnych tabel. W związku z tym utworzysz modelu widoku, który zawiera trzy właściwości, zawierający dane z tabel.
+Na stronie Instruktorzy wyświetlane dane z trzech różnych tabelach. W związku z tym utworzysz zawiera trzy właściwości zawierający dane dla jednej z tabel, model widoku.
 
-W *SchoolViewModels* folderu, Utwórz *InstructorIndexData.cs* i Zastąp istniejący kod następującym kodem:
+W *SchoolViewModels* folderze utwórz *InstructorIndexData.cs* i Zastąp istniejący kod następującym kodem:
 
 [!code-csharp[](intro/samples/cu/Models/SchoolViewModels/InstructorIndexData.cs)]
 
-### <a name="create-the-instructor-controller-and-views"></a>Tworzenie kontrolera instruktora i widoków
+### <a name="create-the-instructor-controller-and-views"></a>Tworzenie widoków i kontrolerów przez instruktorów
 
-Tworzenie kontrolera instruktorów z akcjami odczytu/zapisu EF, jak pokazano na poniższej ilustracji:
+Utworzyć kontroler Instruktorzy z akcjami odczytu/zapisu EF, jak pokazano na poniższej ilustracji:
 
 ![Dodawanie kontrolera instruktorów](read-related-data/_static/add-instructors-controller.png)
 
-Otwórz *InstructorsController.cs* i dodać za pomocą instrukcji dla przestrzeni nazw ViewModels:
+Otwórz *InstructorsController.cs* i Dodaj nazwę za pomocą instrukcji dla przestrzeni nazw modele widoków:
 
 [!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_Using)]
 
-Zastąp następujący kod do czy ładowanie wczesny powiązanych danych i umieść go w modelu widoku metody indeksu.
+Zastąp metodę indeksu następujący kod, aby nie wczesne ładowanie powiązanych danych i umieść ją w modelu widoku.
 
 [!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_EagerLoading)]
 
-Metoda akceptuje dane trasy opcjonalne (`id`) i parametr ciągu zapytania (`courseID`) umożliwiające wartości Identyfikatora wybranym instruktorze i wybranego kursu. Parametry są dostarczane przez **wybierz** hiperłącza, na stronie.
+Metoda akceptuje dane opcjonalne trasy (`id`) i parametr ciągu zapytania (`courseID`), podaj wartości identyfikator wybranego przez instruktorów i wybranych kursów. Parametry są dostarczane przez **wybierz** hiperlinków na stronie.
 
-Kod rozpoczyna się przez utworzenie wystąpienia modelu widoku i umieszczenie w nim listy instruktorów. Kod określa wczesny ładowania dla `Instructor.OfficeAssignment` i `Instructor.CourseAssignments` właściwości nawigacji. W ramach `CourseAssignments` właściwość `Course` właściwość jest załadowany oraz w ramach, `Enrollments` i `Department` właściwości są załadowane, a w ramach każdej `Enrollment` jednostki `Student` właściwości jest załadowany.
+Kod rozpoczyna się od tworzenia wystąpienia obiektu modelu widoku i umieszczenie w nim listy instruktorów. Kod ten określa wczesne ładowanie dla `Instructor.OfficeAssignment` i `Instructor.CourseAssignments` właściwości nawigacji. W ramach `CourseAssignments` właściwości `Course` właściwość jest załadowany oraz w ramach, `Enrollments` i `Department` właściwości są załadowane, a w ramach każdej `Enrollment` jednostki `Student` właściwość jest ładowany.
 
 [!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ThenInclude)]
 
-Ponieważ widok wymaga zawsze OfficeAssignment jednostki, jest bardziej wydajne, można pobrać który w jednym zapytaniu. Jednostek kursu są wymagane w przypadku instruktora jest zaznaczona na stronie sieci web, więc pojedynczego zapytania jest lepszym rozwiązaniem niż wielu zapytań tylko wtedy, gdy strona jest wyświetlana częściej z kursu wybrane niż bez.
+Ponieważ widoku zawsze wymaga jednostki OfficeAssignment, jest bardziej wydajne, można pobrać, w tym samym zapytaniu. Kurs jednostki są wymagane, gdy pod kierunkiem instruktora jest zaznaczona na stronie sieci web, więc pojedynczego zapytania jest lepsze niż wielu zapytań, tylko wtedy, gdy ta strona jest wyświetlana częściej kurs wybrana niż bez.
 
 Kod jest powtarzany `CourseAssignments` i `Course` ponieważ potrzebne dwie właściwości z `Course`. Pierwszy ciąg `ThenInclude` wywołuje pobiera `CourseAssignment.Course`, `Course.Enrollments`, i `Enrollment.Student`.
 
 [!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ThenInclude&highlight=3-6)]
 
-W tym momencie w kodzie innego `ThenInclude` do właściwości nawigacji `Student`, który nie jest potrzebny. Ale wywoływania `Include` rozpoczyna się od za pośrednictwem `Instructor` właściwości, więc musisz przejść przez łańcuch ponownie, ten czas, określając `Course.Department` zamiast `Course.Enrollments`.
+W tym momencie w kodzie inny `ThenInclude` byłoby dla właściwości nawigacji `Student`, który nie jest potrzebny. Ale wywołanie `Include` zaczyna się od ciągu `Instructor` właściwości, dzięki czemu będą musiały przejść przez łańcuch ponownie, określając ten czas `Course.Department` zamiast `Course.Enrollments`.
 
 [!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ThenInclude&highlight=7-9)]
 
-Poniższy kod wykonuje się, gdy wybrano instruktora. Wybranym instruktorze są pobierane z listy instruktorów w modelu widoku. Model widoku `Courses` właściwości jest następnie ładowany z kursu jednostek z tego instruktora `CourseAssignments` właściwości nawigacji.
+Poniższy kod wykonuje, gdy wybrano pod kierunkiem instruktora. Wybrane przez instruktorów są pobierane z listy w modelu widoku instruktorów. Model widoku `Courses` właściwość jest następnie ładowany z jednostkami kurs z tym instruktora `CourseAssignments` właściwości nawigacji.
 
 [!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?range=56-62)]
 
-`Where` Metoda zwraca kolekcję, ale w takim przypadku kryteria przekazany do tej metody powodują tylko do jednej instruktora jednostki zostały zwrócone. `Single` Metoda konwertuje kolekcję do pojedynczej jednostki instruktora, która umożliwia dostęp do tej jednostki `CourseAssignments` właściwości. `CourseAssignments` Właściwość zawiera `CourseAssignment` jednostek, z których chcesz tylko powiązane `Course` jednostek.
+`Where` Metoda zwraca kolekcję, ale w takim przypadku kryteria przekazany do tej metody powodują tylko do jednej przez instruktorów jednostki zwracanego. `Single` Metoda konwertuje kolekcję na pojedynczej jednostki przez instruktorów, która zapewnia dostęp do tej jednostki `CourseAssignments` właściwości. `CourseAssignments` Właściwość zawiera `CourseAssignment` jednostek, z których mają tylko powiązane `Course` jednostek.
 
-Możesz użyć `Single` metoda w kolekcji, gdy wiesz, Kolekcja będzie mieć tylko jeden element. Pojedyncza metoda zgłasza wyjątek, jeśli kolekcja przekazywania jest pusta lub jeśli istnieje więcej niż jeden element. Alternatywą jest `SingleOrDefault`, która zwraca wartość domyślną (wartość null, w tym przypadku), jeśli kolekcja jest pusta. Jednak w takim przypadku który nadal spowoduje powstanie wyjątku (z próby znalezienia `Courses` właściwości na odwołanie o wartości null), a komunikat o wyjątku mniej wyraźnie wskazuje przyczynę problemu. Podczas wywoływania `Single` metody, można również przekazać Where warunku zamiast wywoływać metodę `Where` metody oddzielnie:
+Możesz użyć `Single` metody w kolekcji, gdy wiadomo, Kolekcja będzie mieć tylko jeden element. Pojedyncza metoda zgłasza wyjątek, jeśli kolekcja wymagał jest pusta lub ma więcej niż jeden element. Alternatywą jest `SingleOrDefault`, która zwraca wartość domyślną (wartość null, w tym przypadku) Jeśli kolekcja jest pusta. Jednak w takim przypadku, będzie nadal prowadzić do wyjątku (z próby znalezienia `Courses` właściwość odwołanie o wartości null), a komunikat o wyjątku mniej wyraźnie wskazuje przyczynę problemu. Podczas wywoływania `Single` metody, można również przekazać kiedy warunek, zamiast wywoływać metodę `Where` metoda oddzielnie:
 
 ```csharp
 .Single(i => i.ID == id.Value)
@@ -158,13 +158,13 @@ Zamiast:
 .Where(I => i.ID == id.Value).Single()
 ```
 
-Obok Jeśli wybrano kursu, wybranego kursu są pobierane z listy kursy w modelu widoku. Następnie widok modelu `Enrollments` właściwości jest załadowana rejestracji jednostek z tego kursu `Enrollments` właściwości nawigacji.
+Następnie jeśli kurs został wybrany, wybranych kursów jest pobierana z Lista kursów model widoku. Następnie Wyświetl modelu `Enrollments` właściwość jest ładowany z jednostkami rejestracji z danego kursu `Enrollments` właściwości nawigacji.
 
 [!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?range=64-69)]
 
-### <a name="modify-the-instructor-index-view"></a>Zmodyfikuj widok indeksu instruktora
+### <a name="modify-the-instructor-index-view"></a>Zmodyfikuj widok indeksu przez instruktorów
 
-W *Views/Instructors/Index.cshtml*, Zastąp kod szablonu z następującym kodem. Zmiany zostały wyróżnione.
+W *Views/Instructors/Index.cshtml*, Zastąp kod szablonu poniższym kodem. Zmiany są wyróżnione.
 
 [!code-html[](intro/samples/cu/Views/Instructors/Index1.cshtml?range=1-64&highlight=1,3-7,15-19,24,26-31,41-54,56)]
 
@@ -172,9 +172,9 @@ Następujące zmiany wprowadzone do istniejącego kodu:
 
 * Klasa modelu, aby zmienić `InstructorIndexData`.
 
-* Zmienić tytuł strony z **indeksu** do **instruktorów**.
+* Zmienić tytuł strony z **indeksu** do **Instruktorzy**.
 
-* Dodaje **Office** kolumnę wyświetlającą `item.OfficeAssignment.Location` tylko wtedy, gdy `item.OfficeAssignment` nie ma wartości null. (Ponieważ jest to relacji jeden do zero lub jeden, być może obiekt pokrewny OfficeAssignment.)
+* Dodano **Office** kolumnę wyświetlającą `item.OfficeAssignment.Location` tylko wtedy, gdy `item.OfficeAssignment` nie ma wartości null. (Ponieważ jest to relacja jeden do zero lub jeden, nie może być powiązana jednostka OfficeAssignment.)
 
   ```html
   @if (item.OfficeAssignment != null)
@@ -183,9 +183,9 @@ Następujące zmiany wprowadzone do istniejącego kodu:
   }
   ```
 
-* Dodaje **kursów** kolumnę wyświetlającą kursy nauczanych przy każdym instruktora. Zobacz [jawne przejścia wiersza z `@:` ](xref:mvc/views/razor#explicit-line-transition-with-) więcej informacji o tej składni razor.
+* Dodano **kursów** kolumnę wyświetlającą kursy prowadzone przez instruktora każdego. Zobacz [jawne przejście wiersza z `@:` ](xref:mvc/views/razor#explicit-line-transition-with-) więcej informacji na temat tej składni razor.
 
-* Dodano kod, który dynamicznie dodaje `class="success"` do `tr` elementu wybranego instruktora. To ustawia kolor tła dla wybranego wiersza za pomocą klasy ładowania początkowego.
+* Dodano kod, w której są dodawane dynamicznie `class="success"` do `tr` elementu wybranego przez instruktorów. To ustawienie jako kolor tła wybranego wiersza przy użyciu ładowania klasy.
 
   ```html
   string selectedRow = "";
@@ -196,51 +196,51 @@ Następujące zmiany wprowadzone do istniejącego kodu:
   <tr class="@selectedRow">
   ```
 
-* Dodano nowe hiperłącze etykietą **wybierz** bezpośrednio przed innymi łączy w każdym wierszu, co powoduje, że identyfikator wybranego instruktora do wysłania do `Index` metody.
+* Dodano nowe hiperłącze etykietą **wybierz** bezpośrednio przed innych linków w każdym wierszu, co powoduje, że identyfikator wybranego przez instruktorów do wysłania do `Index` metody.
 
   ```html
   <a asp-action="Index" asp-route-id="@item.ID">Select</a> |
   ```
 
-Uruchom aplikację i wybierz **instruktorów** kartę. Zostaje wyświetlona strona właściwości Location powiązanych jednostek OfficeAssignment i puste komórki po nie powiązanych jednostek OfficeAssignment.
+Uruchom aplikację i wybierz **Instruktorzy** kartę. Strony wyświetla Właściwość Location elementu komórki pustej tabeli i powiązanymi jednostkami OfficeAssignment po nie powiązanej jednostki OfficeAssignment.
 
-![Strona indeksu instruktorów nic nie wybrane](read-related-data/_static/instructors-index-no-selection.png)
+![Strona indeksu instruktorów, którą nic nie zaznaczone](read-related-data/_static/instructors-index-no-selection.png)
 
-W *Views/Instructors/Index.cshtml* plik, po zamknięcia tabeli elementu (na końcu pliku), Dodaj następujący kod. Ten kod wyświetla listę kursów związane z instruktora po wybraniu instruktora.
+W *Views/Instructors/Index.cshtml* pliku po zamykającym table — element (na końcu pliku), Dodaj następujący kod. Ten kod wyświetla listę kursów związane z kierunkiem instruktora, po wybraniu pod kierunkiem instruktora.
 
 [!code-html[](intro/samples/cu/Views/Instructors/Index1.cshtml?range=66-101)]
 
-Ten kod odczytuje `Courses` właściwości modelu widoku, aby wyświetlić listę kursów. Zapewnia także **wybierz** hiperłącze, które wysyła identyfikator wybranego kursu do `Index` metody akcji.
+Ten kod odczytuje `Courses` właściwości modelu widoku, aby wyświetlić listę kursów. Zapewnia także **wybierz** hiperłącze, które wysyła identyfikator wybranego kurs, aby `Index` metody akcji.
 
-Odśwież stronę i wybierz instruktora. Spowoduje to wyświetlenie Siatka wyświetla kursy przypisane do wybranych instruktora i dla każdego kursu wyświetlona nazwa przypisanej działu.
+Odśwież stronę, a następnie wybierz pozycję pod kierunkiem instruktora. Spowoduje to wyświetlenie siatce, która wyświetla kursy przypisane do wybranego przez instruktorów i każdego kursu możesz zobaczyć nazwę tego działu przypisane.
 
-![Instruktora strony indeksu instruktorów wybrane](read-related-data/_static/instructors-index-instructor-selected.png)
+![Wybrane przez instruktorów indeks strony instruktorów](read-related-data/_static/instructors-index-instructor-selected.png)
 
-Po bloku kodu, który właśnie został dodany Dodaj następujący kod. Lista zawiera studentów, którzy są zarejestrowane w toku w przypadku wybrania tego kursu.
+Po bloku kodu, który właśnie został dodany Dodaj następujący kod. Spowoduje to wyświetlenie listy uczniów, którzy są rejestrowane kursu, po wybraniu danego kursu.
 
 [!code-html[](intro/samples/cu/Views/Instructors/Index1.cshtml?range=103-125)]
 
-Ten kod odczytuje właściwości rejestracji modelu widoku, aby wyświetlić listę studentów zarejestrowane w trakcie.
+Ten kod odczytuje właściwość rejestracji modelu widoku, aby wyświetlić listę uczniów zarejestrowane w ramach tego kursu.
 
-Ponownie Odśwież stronę i wybierz instruktora. Następnie wybierz plan, aby wyświetlić listę zarejestrowanych studentów i ich klas.
+Ponownie Odśwież stronę, a następnie wybierz pozycję pod kierunkiem instruktora. Następnie wybierz kurs, aby wyświetlić listę zarejestrowanych studentów i ich klas.
 
-![Instruktora strony indeksu instruktorów i kursów wybranych](read-related-data/_static/instructors-index.png)
+![Instruktorzy indeks strony instruktora oraz przypisane kursów wybranych](read-related-data/_static/instructors-index.png)
 
-## <a name="explicit-loading"></a>Ładowanie jawne
+## <a name="explicit-loading"></a>Jawne ładowanie
 
-Po pobraniu listy w instruktorów *InstructorsController.cs*, określony wczesny ładowania dla `CourseAssignments` właściwości nawigacji.
+Po pobraniu listy Instruktorzy w *InstructorsController.cs*, określony wczesne ładowanie dla `CourseAssignments` właściwości nawigacji.
 
-Załóżmy, że oczekiwany użytkownikom rzadko mają być wyświetlane rejestracji w wybranym instruktorze oraz przebiegu. W takim przypadku można załadować danych rejestrowania, tylko wtedy, gdy żądanie. Aby wyświetlić przykład sposobu wykonania jawnego ładowania, Zastąp `Index` metodę z następującym kodem, który usuwa wczesny ładowania dla rejestracji i ładuje jawnie tej właściwości. Zmiany kodu zostały wyróżnione.
+Załóżmy, że oczekiwany użytkownikom tylko rzadko mają być wyświetlane rejestracje w wybrany przez instruktorów i kursów. W takim przypadku można załadować danych rejestracji, tylko wtedy, gdy jest żądany. Aby zobaczyć przykład sposobu wykonania jawne ładowanie, Zastąp `Index` metoda poniższym kodem, co spowoduje usunięcie wczesne ładowanie na potrzeby rejestracji i ładuje jawnie tej właściwości. Zmiany kodu są wyróżnione.
 
 [!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ExplicitLoading&highlight=23-29)]
 
-Nowy kod porzuca *ThenInclude* metoda wywołuje danych rejestracji z kod, który pobiera instruktora jednostki. Jeśli nie wybrano instruktora oraz przebiegu, wyróżniony kod pobiera jednostek rejestracji dla porach wybranych i uczniów jednostki dla każdej rejestracji.
+Nowy kod spada *ThenInclude* metoda wywołuje danych rejestracji z kodu, która pobiera jednostki instruktora. Jeśli wybrano przez instruktorów i kursów, wyróżniony kod pobiera jednostki rejestracji dla wybranych kursów i uczniów jednostki dla każdej rejestracji.
 
-Uruchom aplikację, przejdź do strony indeksu instruktorów teraz i będzie żadnej widocznej różnicy w wyświetlanych na stronie, mimo że zostały zmienione, jak dane są pobierane.
+Uruchom aplikację, przejdź do strony indeksu Instruktorzy teraz i będzie żadnej widocznej różnicy w wyświetlanych na stronie, mimo że zostało zmienione, jak dane są pobierane.
 
 ## <a name="summary"></a>Podsumowanie
 
-Teraz wczesny ładowanie z jednego zapytania i używane z wieloma zapytaniami do wczytania powiązanych danych do właściwości nawigacji. W następnym samouczku nauczysz się, jak zaktualizować powiązanych danych.
+Wczesne ładowanie została obecnie używany za pomocą jednego zapytania i z wieloma zapytaniami, aby odczytać powiązanych danych właściwości nawigacji. W następnym samouczku dowiesz się, jak zaktualizować powiązane dane.
 
 ::: moniker-end
 

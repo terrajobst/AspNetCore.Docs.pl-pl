@@ -1,28 +1,28 @@
 ---
-title: W przypadku platformy ASP.NET Core przekazywania plików
+title: Przekazywanie plików z platformy ASP.NET Core
 author: ardalis
-description: Jak używać wiązania modelu i przesyłania strumieniowego przekazywania plików w programie ASP.NET MVC Core.
+description: Jak używać wiązania modelu i przesyłania strumieniowego do przekazywania plików na platformie ASP.NET Core MVC.
 ms.author: riande
 ms.date: 07/05/2017
 uid: mvc/models/file-uploads
 ms.openlocfilehash: 771e22ca01c67f2b6bbee780324d9d08759b3279
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272546"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38201735"
 ---
-# <a name="file-uploads-in-aspnet-core"></a>W przypadku platformy ASP.NET Core przekazywania plików
+# <a name="file-uploads-in-aspnet-core"></a>Przekazywanie plików z platformy ASP.NET Core
 
 Przez [Steve Smith](https://ardalis.com/)
 
-Akcje ASP.NET MVC obsługuje przekazywanie jednego lub więcej plików za pomocą prostego modelu powiązanie mniejsze pliki lub przesyłanie strumieniowe do większych plików.
+Akcje programu ASP.NET MVC obsługuje przekazywanie jeden lub więcej plików przy użyciu prostego modelu binding na mniejsze pliki lub przesyłania strumieniowego większe pliki.
 
-[Przykładowy widok lub pobrania z witryny GitHub](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/models/file-uploads/sample/FileUploadSample)
+[Wyświetlanie lub pobieranie przykładowy z serwisu GitHub](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/models/file-uploads/sample/FileUploadSample)
 
 ## <a name="uploading-small-files-with-model-binding"></a>Przekazywanie małych plików z wiązania modelu
 
-Aby przekazać małych plików, można użyć formularza HTML wieloczęściowej lub utworzenia żądania POST przy użyciu języka JavaScript. Formularz przykład przy użyciu Razor, który obsługuje wielu przekazanych plików, przedstawiono poniżej:
+Aby przekazać małych plików, możesz użyć formularza HTML wieloczęściowej lub utworzyć żądanie POST, przy użyciu języka JavaScript. Przykładowego formularza przy użyciu Razor, który obsługuje wiele plików przekazanych, znajdują się poniżej:
 
 ```html
 <form method="post" enctype="multipart/form-data" asp-controller="UploadFiles" asp-action="Index">
@@ -40,11 +40,11 @@ Aby przekazać małych plików, można użyć formularza HTML wieloczęściowej 
 </form>
 ```
 
-Aby zapewnić obsługę przekazywania plików, należy określić formularzy HTML `enctype` z `multipart/form-data`. `files` Elementu wejściowego pokazanym powyżej obsługuje przekazywania wielu plików. Pomiń `multiple` atrybut w tym elemencie wejściowych, aby zezwolić tylko pojedynczy plik do przekazania. Renderuje kod znaczników powyżej w przeglądarce jako:
+Aby zapewnić obsługę przekazywania plików, należy określić formularzy HTML `enctype` z `multipart/form-data`. `files` Elementu wejściowego powyżej obsługuje przekazywania wielu plików. Pomiń `multiple` atrybut ten element input, aby zezwolić na pojedynczy plik do przekazania. Powyższe znaczników powoduje wyświetlenie w przeglądarce jako:
 
 ![Formularz przekazywania pliku](file-uploads/_static/upload-form.png)
 
-Poszczególnych przekazany na serwer plików jest możliwy za pośrednictwem [powiązanie modelu](xref:mvc/models/model-binding) przy użyciu [IFormFile](/dotnet/api/microsoft.aspnetcore.http.iformfile) interfejsu. `IFormFile` ma następującą strukturę:
+Poszczególnych plików, które są przekazywane do serwera jest możliwy za pośrednictwem [powiązań modelu](xref:mvc/models/model-binding) przy użyciu [IFormFile](/dotnet/api/microsoft.aspnetcore.http.iformfile) interfejsu. `IFormFile` ma następującą strukturę:
 
 ```csharp
 public interface IFormFile
@@ -62,17 +62,17 @@ public interface IFormFile
 ```
 
 > [!WARNING]
-> Nie zależą od lub zaufania `FileName` właściwości bez sprawdzania poprawności. `FileName` Właściwość powinna być używana tylko w celach wyświetlania.
+> Nie należy polegać na ani zaufania `FileName` właściwości bez sprawdzania poprawności. `FileName` Właściwość powinna być używana tylko w celach wyświetlania.
 
-Podczas przekazywania plików przy użyciu wiązania modelu i `IFormFile` interfejsu, metoda akcji może akceptować pojedyncze `IFormFile` lub `IEnumerable<IFormFile>` (lub `List<IFormFile>`) reprezentujący kilka plików. Poniższy przykład jeden lub więcej plików przekazanego w pętli, zapisuje je w lokalnym systemie plików, a następnie zwraca całkowitą liczbę i rozmiar przekazywanych plików.
+Podczas przekazywania plików przy użyciu wiązania modelu i `IFormFile` interfejsu, metoda akcji może akceptować może to być pojedynczy `IFormFile` lub `IEnumerable<IFormFile>` (lub `List<IFormFile>`) reprezentujący kilka plików. Poniższy przykład jeden lub więcej plików przekazanych w pętli, zapisuje je w lokalnym systemie plików i zwraca całkowitą liczbę i rozmiar przekazywanych plików.
 
 [!INCLUDE [GetTempFileName](../../includes/GetTempFileName.md)]
 
 [!code-csharp[](file-uploads/sample/FileUploadSample/Controllers/UploadFilesController.cs?name=snippet1)]
 
-Pliki przesłane za pomocą `IFormFile` technika są buforowane w pamięci lub na dysku na serwerze sieci web przed przetworzeniem. Wewnątrz metody akcji `IFormFile` zawartość jest dostępna jako strumień. Oprócz lokalnego systemu plików, pliki mogą być przesyłane strumieniowo do [magazynu obiektów Blob Azure](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-blobs/) lub [Entity Framework](https://docs.microsoft.com/ef/core/index).
+Przekazane przy użyciu `IFormFile` technika są buforowane w pamięci lub na dysku na serwerze sieci web przed przetworzeniem. Wewnątrz metody akcji `IFormFile` zawartość jest dostępna jako strumień. Oprócz lokalnego systemu plików, pliki mogą być przesłana strumieniowo do [usługi Azure Blob storage](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-blobs/) lub [Entity Framework](https://docs.microsoft.com/ef/core/index).
 
-Aby przechowywać dane pliku binarnego w bazie danych przy użyciu programu Entity Framework, Zdefiniuj właściwość typu `byte[]` jednostki:
+Aby przechowywać dane plik binarny w bazie danych przy użyciu platformy Entity Framework, należy zdefiniować właściwości typu `byte[]` jednostki:
 
 ```csharp
 public class ApplicationUser : IdentityUser
@@ -93,9 +93,9 @@ public class RegisterViewModel
 ```
 
 > [!NOTE]
-> `IFormFile` można bezpośrednio jako parametr metody akcji lub właściwością viewmodel, jak pokazano powyżej.
+> `IFormFile` można bezpośrednio jako parametru metody akcji lub właściwością viewmodel jak pokazano powyżej.
 
-Kopiuj `IFormFile` do strumienia i zapisać go do tablicy typu byte:
+Kopiuj `IFormFile` do strumienia, a następnie zapisz go do tablicy typu byte:
 
 ```csharp
 // POST: /Account/Register
@@ -124,18 +124,18 @@ public async Task<IActionResult> Register(RegisterViewModel model)
 ```
 
 > [!NOTE]
-> Należy zachować ostrożność podczas zapisywania danych binarnych w relacyjnych baz danych, zgodnie z jego może niekorzystnie wpłynąć na wydajność.
+> Należy zachować ostrożność podczas zapisywania danych binarnych w relacyjnych baz danych, zgodnie z jego jest niekorzystnie wpłynąć na wydajność.
 
-## <a name="uploading-large-files-with-streaming"></a>Przekazywanie dużych plików z przesyłania strumieniowego
+## <a name="uploading-large-files-with-streaming"></a>Przekazywanie dużych plików za pomocą przesyłania strumieniowego
 
-Jeśli rozmiar i częstotliwość wysyłania plików powoduje problemy zasobów dla aplikacji, należy wziąć pod uwagę przesyłania strumieniowego przekazywania pliku, a nie buforowanie go w całości, tak jak w powyższym podejście powiązania modelu. Podczas używania `IFormFile` i wiązania modelu jest dużo prostsze rozwiązania, przesyłanie strumieniowe wymaga kilku kroków, aby prawidłowo zaimplementować.
+Jeśli rozmiar lub częstotliwość wysyłania plików powoduje problemy z zasobami dla aplikacji, należy wziąć pod uwagę przesyłania strumieniowego przekazywania pliku, a nie buforowania go w całości, tak jak powyżej podejście powiązania modelu. Podczas korzystania z `IFormFile` i wiązania modelu jest dużo prostsze rozwiązaniem, przesyłanie strumieniowe wymaga kilku kroków dotyczących implementacji prawidłowo.
 
 > [!NOTE]
-> Pojedynczy plik buforowany przekraczającej 64KB zostaną przeniesione z pamięci RAM do tymczasowego pliku na dysku na serwerze. Zasoby (dysk, pamięci RAM) używany przez przekazywania plików są zależne od liczby i rozmiaru przekazywania plików współbieżnych. Przesyłania strumieniowego nie jest tak wiele o wydajności, chodzi o skali. Jeśli spróbujesz buforu przekazywania zbyt wiele lokacji ulegnie awarii, gdy zabraknie mu pamięci lub miejsca na dysku.
+> Pojedynczy plik buforowany przekraczającym 64KB zostanie przeniesiony z pamięci RAM w pliku tymczasowym na dysku, na serwerze. Zasoby (dysk, pamięci RAM) używany przez operacje przekazywania plików zależą od liczby i rozmiaru współbieżne przekazania plików. Przesyłanie strumieniowe nie jest tak wiele dotyczące wydajności, chodzi o skali. Jeśli spróbujesz buforu przekazywania zbyt wiele lokacji ulegnie awarii, gdy zabraknie mu pamięci lub miejsca na dysku.
 
-W poniższym przykładzie pokazano, przy użyciu języka JavaScript/kątową do strumienia do akcji kontrolera. Token antiforgery pliku jest generowany przy użyciu atrybutu niestandardowego filtru i przekazywane w nagłówkach HTTP zamiast w treści żądania. Ponieważ metoda akcji przetwarza dane przekazane bezpośrednio, tworzenia powiązania modelu została wyłączona przez inny filtr. W ramach tej akcji, zawartość formularza są odczytywane przy użyciu `MultipartReader`, która odczytuje na poszczególnych `MultipartSection`, przetwarzanie pliku lub zapisywanie zawartości zgodnie z potrzebami. Po przeczytaniu wszystkie sekcje akcję wykonuje wiązaniu modelu.
+Poniższy przykład pokazuje, przy użyciu języka JavaScript/Angular do przesyłania strumieniowego do akcji kontrolera. Token antiforgery pliku jest generowana za pomocą niestandardowego atrybutu filtru i przekazywane w nagłówkach HTTP, a nie w treści żądania. Ponieważ metody akcji, które bezpośrednio przetwarza dane przekazane, wiązanie modelu została wyłączona przez inny filtr. W akcji, zawartość formularza są odczytywane przy użyciu `MultipartReader`, która odczytuje poszczególnym `MultipartSection`, przetwarzanie pliku lub zawartość jest przechowywana zgodnie z potrzebami. Po przeczytaniu wszystkie sekcje akcji wykonuje swoje własne powiązania modelu.
 
-Pierwsze załaduje formularz i antiforgery token jest zapisywany w pliku cookie (za pośrednictwem `GenerateAntiforgeryTokenCookieForAjax` atrybut):
+Akcja początkowa ładuje formularz i tokenu antiforgery są zapisywane w pliku cookie (za pośrednictwem `GenerateAntiforgeryTokenCookieForAjax` atrybutu):
 
 ```csharp
 [HttpGet]
@@ -146,11 +146,11 @@ public IActionResult Index()
 }
 ```
 
-Atrybut korzysta z wbudowanej platformy ASP.NET Core [Antiforgery](xref:security/anti-request-forgery) pomocy technicznej, aby ustawić pliku cookie z żądania tokenu:
+Ten atrybut używa wbudowanego platformy ASP.NET Core [Antiforgery](xref:security/anti-request-forgery) pomocy technicznej można ustawić pliku cookie z token żądania:
 
 [!code-csharp[](file-uploads/sample/FileUploadSample/Filters/GenerateAntiforgeryTokenCookieForAjaxAttribute.cs?name=snippet1)]
 
-Kątową automatycznie przekazuje antiforgery tokenu w nagłówku żądania o nazwie `X-XSRF-TOKEN`. Aplikacji platformy ASP.NET Core MVC jest skonfigurowany do odwoływania się do tego nagłówka w jej konfiguracji w *Startup.cs*:
+Platformy Angular automatycznie przekazuje antiforgery token w nagłówku żądania, o nazwie `X-XSRF-TOKEN`. Aplikacja ASP.NET Core MVC jest skonfigurowana do odwoływania się do tego pliku nagłówkowego w jej konfiguracji w *Startup.cs*:
 
 [!code-csharp[](file-uploads/sample/FileUploadSample/Startup.cs?name=snippet1)]
 
@@ -158,9 +158,9 @@ Kątową automatycznie przekazuje antiforgery tokenu w nagłówku żądania o na
 
 [!code-csharp[](file-uploads/sample/FileUploadSample/Filters/DisableFormValueModelBindingAttribute.cs?name=snippet1)]
 
-Wiązanie modelu jest wyłączona, `Upload` metody akcji nie akceptuje parametrów. Działa on bezpośrednio z `Request` właściwość `ControllerBase`. A `MultipartReader` jest używany do odczytu każdej sekcji. Plik zostanie zapisany pod nazwą identyfikator GUID i dane klucza i wartości są przechowywane w `KeyValueAccumulator`. Po przeczytaniu wszystkie sekcje zawartości `KeyValueAccumulator` są używane dla wiązania danych formularza typu modelu.
+Ponieważ wiązania modelu jest wyłączona, `Upload` metody akcji nie akceptuje parametrów. Współpracuje bezpośrednio z `Request` właściwość `ControllerBase`. A `MultipartReader` służy do odczytywania każdej sekcji. Plik zostanie zapisany pod nazwą identyfikator GUID i dane klucz wartość są przechowywane w `KeyValueAccumulator`. Po przeczytaniu wszystkie sekcje zawartości `KeyValueAccumulator` są używane do powiązania danych formularza typu modelu.
 
-Pełną `Upload` metody jest pokazany poniżej:
+Pełne `Upload` metoda znajdują się poniżej:
 
 [!INCLUDE [GetTempFileName](../../includes/GetTempFileName.md)]
 
@@ -170,9 +170,9 @@ Pełną `Upload` metody jest pokazany poniżej:
 
 Poniżej przedstawiono niektóre typowe problemy występujące podczas pracy z przekazywania plików i ich możliwe rozwiązania.
 
-### <a name="unexpected-not-found-error-with-iis"></a>Nieoczekiwany błąd nie znaleziono z usługami IIS
+### <a name="unexpected-not-found-error-with-iis"></a>Nieoczekiwany błąd nie znaleziono za pomocą programu IIS
 
-Następujący błąd wskazuje przekazania pliku przekracza serwera skonfigurowana `maxAllowedContentLength`:
+Następujący błąd wskazuje, przekazywanie pliku przekracza serwera skonfigurowany przez `maxAllowedContentLength`:
 
 ```
 HTTP 404.13 - Not Found
@@ -192,8 +192,8 @@ Ustawieniem domyślnym jest `30000000`, czyli około 28.6 MB. Wartość można d
 </system.webServer>
 ```
 
-To ustawienie dotyczy tylko programu IIS. To zachowanie nie występuje domyślnie odnośnie do hostowania na Kestrel. Aby uzyskać więcej informacji, zobacz [limity żądań \<requestLimits\>](/iis/configuration/system.webServer/security/requestFiltering/requestLimits/).
+To ustawienie dotyczy tylko usług IIS. Zachowanie nie występuje domyślnie w przypadku hostowania w Kestrel. Aby uzyskać więcej informacji, zobacz [limity żądań \<requestLimits\>](/iis/configuration/system.webServer/security/requestFiltering/requestLimits/).
 
-### <a name="null-reference-exception-with-iformfile"></a>Wyjątek odwołania zerowego z IFormFile
+### <a name="null-reference-exception-with-iformfile"></a>Wyjątek odwołania o wartości null z IFormFile
 
-Jeśli kontroler jest akceptują przekazać pliki przy użyciu `IFormFile` , ale możesz znaleźć wartość zawsze ma wartość null, upewnij się, że formularza HTML jest określenie `enctype` wartość `multipart/form-data`. Jeśli ten atrybut nie jest ustawiony na `<form>` elementu przekazywania plików nie zostanie przeprowadzone i wszelkie powiązane z `IFormFile` argumentów będzie mieć wartość null.
+Jeśli kontroler jest przyjmuje przekazane pliki przy użyciu `IFormFile` , ale możesz znaleźć, wartość jest zawsze wartość null, upewnij się, że formularza HTML jest określenie `enctype` wartość `multipart/form-data`. Jeśli ten atrybut nie jest ustawiony na `<form>` element nie zostanie wykonana, przekazanie pliku i wszystkie powiązane z `IFormFile` argumenty będą miały wartość null.

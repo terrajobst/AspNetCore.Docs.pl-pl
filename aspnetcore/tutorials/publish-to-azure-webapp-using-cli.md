@@ -1,18 +1,18 @@
 ---
 title: Publikowanie aplikacji platformy ASP.NET Core na platformie Azure za pomocą narzędzia wiersza polecenia
 author: camsoper
-description: Dowiedz się, jak opublikować aplikację platformy ASP.NET Core w usłudze Azure App Service przy użyciu klienta wiersza polecenia Git.
+description: Dowiedz się, jak opublikować aplikację platformy ASP.NET Core w usłudze Azure App Service za pomocą klienta wiersza polecenia usługi Git.
 ms.author: casoper
 ms.custom: mvc
 ms.date: 11/03/2017
 services: multiple
 uid: tutorials/publish-to-azure-webapp-using-cli
 ms.openlocfilehash: 526ceef469d473706f39cdc3ee645280e99315b1
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36279249"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38126963"
 ---
 # <a name="publish-an-aspnet-core-app-to-azure-with-command-line-tools"></a>Publikowanie aplikacji platformy ASP.NET Core na platformie Azure za pomocą narzędzia wiersza polecenia
 
@@ -20,13 +20,13 @@ Przez [Soper kamery](https://twitter.com/camsoper)
 
 [!INCLUDE [Azure App Service Preview Notice](../includes/azure-apps-preview-notice.md)]
 
-Ten samouczek przedstawia sposób tworzenia i wdrażania aplikacji platformy ASP.NET Core w usłudze Microsoft Azure App Service przy użyciu narzędzia wiersza polecenia. Po zakończeniu będziesz mieć stron Razor, aplikacji sieci web platformy ASP.NET Core wbudowane hostowany jako aplikacji sieci Web platformy Azure App Service. W tym samouczku zostały utworzone za pomocą narzędzia wiersza polecenia systemu Windows, ale można zastosować do macOS i środowisk Linux, jak również.
+W tym samouczku będzie pokazują, jak tworzenie i wdrażanie aplikacji platformy ASP.NET Core w usłudze Microsoft Azure App Service przy użyciu narzędzia wiersza polecenia. Po zakończeniu będziesz mieć stron Razor, aplikację sieci web w programie ASP.NET Core jest hostowany jako aplikacja sieci Web usługi Azure App Service. W tym samouczku są zapisywane przy użyciu narzędzia wiersza polecenia Windows, ale mogą być stosowane do systemu macOS i Linux środowisk, jak również.
 
-Z tego samouczka, dowiesz się, jak:
+W tym samouczku dowiesz się, jak:
 
 > [!div class="checklist"]
-> * Utwórz witrynę sieci Web Azure App Service przy użyciu wiersza polecenia platformy Azure
-> * Wdrażanie aplikacji platformy ASP.NET Core w usłudze Azure App Service przy użyciu narzędzia wiersza polecenia Git
+> * Tworzenie witryny sieci Web usługi Azure App Service przy użyciu wiersza polecenia platformy Azure
+> * Wdrażanie aplikacji ASP.NET Core w usłudze Azure App Service przy użyciu narzędzia wiersza polecenia usługi Git
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -34,11 +34,11 @@ Do ukończenia tego samouczka będą potrzebne:
 
 * A [subskrypcji Microsoft Azure](https://azure.microsoft.com/free/)
 * [!INCLUDE [](~/includes/net-core-sdk-download-link.md)]
-* [Git](https://www.git-scm.com/) klient wiersza polecenia
+* [Git](https://www.git-scm.com/) klienta wiersza polecenia
 
 ## <a name="create-a-web-app"></a>Tworzenie aplikacji sieci web
 
-Utwórz nowy katalog dla aplikacji sieci web, Utwórz nową aplikację ASP.NET Core Razor strony, a następnie uruchom witrynę sieci Web lokalnie.
+Utwórz nowy katalog dla aplikacji sieci web, Utwórz nową aplikację ASP.NET Core Razor strony, a następnie uruchom lokalnie witryny sieci Web.
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
@@ -116,9 +116,9 @@ Testowanie aplikacji, przechodząc do `http://localhost:5000`.
 
 ![Witryny sieci Web uruchomionej na komputerze lokalnym](publish-to-azure-webapp-using-cli/_static/app_test.png)
 
-## <a name="create-the-azure-app-service-instance"></a>Utwórz wystąpienie usługi aplikacji Azure
+## <a name="create-the-azure-app-service-instance"></a>Tworzenie wystąpienia usługi Azure App Service
 
-Przy użyciu [powłoki chmury Azure](/azure/cloud-shell/quickstart), Utwórz grupę zasobów, plan usługi aplikacji i aplikacji sieci web usługi aplikacji.
+Za pomocą [usługi Azure Cloud Shell](/azure/cloud-shell/quickstart), Utwórz grupę zasobów, plan usługi App Service i aplikację sieci web usługi App Service.
 
 ```azurecli-interactive
 # Generate a unique Web App name
@@ -135,13 +135,13 @@ az appservice plan create --name $webappname --resource-group DotNetAzureTutoria
 az webapp create --name $webappname --resource-group DotNetAzureTutorial --plan $webappname
 ```
 
-Przed przystąpieniem do wdrożenia należy ustawić poświadczenia wdrażania na poziomie konta przy użyciu następującego polecenia:
+Przed przystąpieniem do wdrożenia należy ustawić poświadczenia wdrażania na poziomie konta, za pomocą następującego polecenia:
 
 ```azurecli-interactive
 az webapp deployment user set --user-name <desired user name> --password <desired password>
 ```
 
-Adres URL wdrożenia jest wymagany do wdrażania aplikacji przy użyciu narzędzia Git. Pobiera adres URL podobny do tego.
+Adres URL wdrożenia jest wymagane do wdrażania aplikacji przy użyciu narzędzia Git. Pobierz adres URL następująco.
 
 ```azurecli-interactive
 az webapp deployment source config-local-git -n $webappname -g DotNetAzureTutorial --query [url] -o tsv
@@ -151,10 +151,10 @@ Zanotuj adres URL wyświetlany w `.git`. Jest on używany w następnym kroku.
 
 ## <a name="deploy-the-app-using-git"></a>Wdrażanie aplikacji przy użyciu narzędzia Git
 
-Wszystko jest gotowe do wdrożenia z komputera lokalnego przy użyciu narzędzia Git.
+Wszystko gotowe do wdrożenia na maszynie lokalnej przy użyciu narzędzia Git.
 
 > [!NOTE]
-> Jest bezpiecznie zignorować ostrzeżenia z repozytorium Git o zakończenia wierszy.
+> Jest to bezpieczne Zignoruj wszelkie ostrzeżenia z repozytorium Git o zakończeniu linii.
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
@@ -196,13 +196,13 @@ git push azure master
 
 ---
 
-Git wyświetla monit o poświadczenia wdrażania, które zostały określone wcześniej. Po uwierzytelnieniu aplikacji będzie można przeniesiony do lokalizacji zdalnej, wbudowane i wdrożone.
+Git wyświetla monit o poświadczenia wdrażania, które zostały ustawione wcześniej. Po uwierzytelnieniu, aplikacja będzie można wypchnięte do lokalizacji zdalnej, utworzone i wdrożone.
 
-![Dane wyjściowe wdrażanie Git](publish-to-azure-webapp-using-cli/_static/post_deploy.png)
+![Dane wyjściowe wdrożenia narzędzia Git](publish-to-azure-webapp-using-cli/_static/post_deploy.png)
 
 ## <a name="test-the-app"></a>Testowanie aplikacji
 
-Testowanie aplikacji, przechodząc do `https://<web app name>.azurewebsites.net`. Aby wyświetlić adres w chmurze powłoki (lub wiersza polecenia platformy Azure), użyj następującego polecenia:
+Testowanie aplikacji, przechodząc do `https://<web app name>.azurewebsites.net`. Aby wyświetlić adres w usłudze Cloud Shell (lub wiersza polecenia platformy Azure), użyj następujących opcji:
 
 ```azurecli-interactive
 az webapp show -n $webappname -g DotNetAzureTutorial --query defaultHostName -o tsv
@@ -212,7 +212,7 @@ az webapp show -n $webappname -g DotNetAzureTutorial --query defaultHostName -o 
 
 ## <a name="clean-up"></a>Czyszczenie
 
-Po zakończeniu testowania aplikacji i zapoznanie się z kodu i zasobów, należy usunąć aplikacji sieci web i planu poprzez usunięcie grupy zasobów.
+Po zakończeniu testowania aplikacji i zapoznanie się z kodu i zasobów aplikacji internetowej i planu można usunąć przez usunięcie grupy zasobów.
 
 ```azurecli-interactive
 az group delete -n DotNetAzureTutorial
@@ -223,10 +223,10 @@ az group delete -n DotNetAzureTutorial
 W tym samouczku przedstawiono sposób:
 
 > [!div class="checklist"]
-> * Utwórz witrynę sieci Web Azure App Service przy użyciu wiersza polecenia platformy Azure
-> * Wdrażanie aplikacji platformy ASP.NET Core w usłudze Azure App Service przy użyciu narzędzia wiersza polecenia Git
+> * Tworzenie witryny sieci Web usługi Azure App Service przy użyciu wiersza polecenia platformy Azure
+> * Wdrażanie aplikacji ASP.NET Core w usłudze Azure App Service przy użyciu narzędzia wiersza polecenia usługi Git
 
-Następnie Dowiedz się, jak wdrożyć istniejącej aplikacji sieci web, która używa CosmosDB za pomocą wiersza polecenia.
+Dowiedz się używać wiersza polecenia do wdrażania istniejącej aplikacji sieci web, która używa bazy danych cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Wdrażanie na platformie Azure z poziomu wiersza polecenia z platformą .NET Core](/dotnet/azure/dotnet-quickstart-xplat)
+> [Wdrażanie na platformie Azure z poziomu wiersza polecenia za pomocą programu .NET Core](/dotnet/azure/dotnet-quickstart-xplat)

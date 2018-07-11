@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 05/30/2018
 uid: tutorials/razor-pages/razor-pages-start
 ms.openlocfilehash: 10e9174b0bf094f7a4ea820a5afcf2705f900327
-ms.sourcegitcommit: 18339e3cb5a891a3ca36d8146fa83cf91c32e707
+ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37433909"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38157175"
 ---
 # <a name="get-started-with-razor-pages-in-aspnet-core"></a>Rozpoczynanie pracy ze stronami Razor w programie ASP.NET Core
 

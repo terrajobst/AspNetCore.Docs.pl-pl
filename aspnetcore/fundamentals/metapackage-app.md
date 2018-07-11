@@ -1,41 +1,41 @@
 ---
-title: Metapackage Microsoft.AspNetCore.App dla platformy ASP.NET Core 2.1 i nowsze
+title: Microsoft.AspNetCore.App meta Microsoft.aspnetcore.all, dla platformy ASP.NET Core 2.1 lub nowszych
 author: Rick-Anderson
-description: Microsoft.AspNetCore.App metapackage obejmuje wszystkie obsługiwane pakiety Entity Framework Core i ASP.NET Core.
+description: Meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App obejmuje wszystkie obsługiwane pakiety platformy ASP.NET Core i Entity Framework Core.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 09/20/2017
 uid: fundamentals/metapackage-app
-ms.openlocfilehash: 4840d0a7536b1e9d8da835690b285ac2074967f5
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: e82c219635bbbebe1d6f5639308490c37361b286
+ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36277475"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952958"
 ---
-# <a name="microsoftaspnetcoreapp-metapackage-for-aspnet-core-21"></a>Metapackage Microsoft.AspNetCore.App dla platformy ASP.NET Core 2.1
+# <a name="microsoftaspnetcoreapp-metapackage-for-aspnet-core-21"></a>Meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App, dla platformy ASP.NET Core 2.1
 
-Ta funkcja wymaga platformy ASP.NET Core 2.1 i nowsze, przeznaczonych dla platformy .NET Core 2.1 i nowszymi.
+Ta funkcja wymaga platformy ASP.NET Core 2.1 i nowsze, przeznaczonych dla platformy .NET Core 2.1 lub nowszy.
 
-[Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App) [metapackage](/dotnet/core/packages#metapackages) dla platformy ASP.NET Core:
+[Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App) [meta Microsoft.aspnetcore.all](/dotnet/core/packages#metapackages) dla platformy ASP.NET Core:
 
-* Nie ma zależności innych firm, z wyjątkiem [Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/), [Remotion.Linq](https://www.nuget.org/packages/Remotion.Linq/), i [Async Popraw](https://www.nuget.org/packages/System.Interactive.Async/). Te zależności 3rd firm uważa za zapewnienie struktur głównych funkcji.
-* Zawiera wszystkie pakiety obsługiwanych przez zespół platformy ASP.NET Core, z wyjątkiem tych, które zawierają zależności innych firm (inne niż wymienione wcześniej).
-* Zawiera wszystkie pakiety obsługiwanych przez zespół Entity Framework Core, z wyjątkiem tych, które zawierają zależności innych firm (inne niż wymienione wcześniej).
+* Nie ma zależności innych firm, z wyjątkiem [Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/), [Remotion.Linq](https://www.nuget.org/packages/Remotion.Linq/), i [IX Async](https://www.nuget.org/packages/System.Interactive.Async/). Te zależności innych firm 3 będą konieczne zapewnienie struktury główne funkcje działają.
+* Zawiera wszystkie pakiety obsługiwanych przez zespół programu ASP.NET Core, z wyjątkiem tych, które zawierają zależności innych firm (innych niż wymienione wcześniej).
+* Zawiera wszystkie pakiety obsługiwanych przez zespół programu Entity Framework Core, z wyjątkiem tych, które zawierają zależności innych firm (innych niż wymienione wcześniej).
 
-Obejmuje wszystkie funkcje platformy ASP.NET Core 2.1 i nowsze i Entity Framework Core 2.1 i nowsze `Microsoft.AspNetCore.App` pakietu. Domyślne szablony przeznaczonych dla platformy ASP.NET Core 2.1 projektu i później użyć tego pakietu. Firma Microsoft zaleca aplikacji przeznaczonych dla platformy ASP.NET Core 2.1 i nowsze oraz Entity Framework Core 2.1 i później użyć `Microsoft.AspNetCore.App` pakietu.
+Wszystkie funkcje platformy ASP.NET Core 2.1 lub nowszy i Entity Framework Core 2.1 i nowsze, są uwzględnione w `Microsoft.AspNetCore.App` pakietu. Domyślne szablony przeznaczone dla platformy ASP.NET Core 2.1 projektu, a później użyć tego pakietu. Firma Microsoft zaleca, aby aplikacje przeznaczone na platformy ASP.NET Core 2.1 lub nowszy i Entity Framework Core 2.1 i później użyć `Microsoft.AspNetCore.App` pakietu.
 
-Numer wersji `Microsoft.AspNetCore.App` metapackage reprezentuje wersji platformy ASP.NET Core i wersji programu Entity Framework Core.
+Numer wersji `Microsoft.AspNetCore.App` meta Microsoft.aspnetcore.all reprezentuje wersję platformy ASP.NET Core i Entity Framework Core wersji.
 
-Przy użyciu `Microsoft.AspNetCore.App` metapackage zapewnia ograniczenia wersji, służących do ochrony aplikacji:
+Za pomocą `Microsoft.AspNetCore.App` meta Microsoft.aspnetcore.all zapewnia ograniczenia wersji, które chronią aplikację:
 
-* Jeśli pakiet jest uwzględniony w pakiecie w mający przechodnie zależności (bezpośrednich nie) `Microsoft.AspNetCore.App`i tych numerów wersji są różne, NuGet spowoduje wystąpienie błędu.
-* Inne pakiety dodany do aplikacji nie można zmienić wersji pakietów zawarte w `Microsoft.AspNetCore.App`.
-* Spójność wersji zapewnia niezawodne środowisko. `Microsoft.AspNetCore.App` została zaprojektowana w celu zapobiegania kombinacji wersji zastosowaniem bitów powiązane ze sobą używany w tej samej aplikacji.
+* Jeśli jest dołączony pakiet, który ma przechodnie zależności (nie bezpośrednie) w pakiecie w `Microsoft.AspNetCore.App`i różnią się w tych numerów wersji, NuGet zostanie wygenerowany błąd.
+* Inne pakiety dodane do Twojej aplikacji nie można zmienić wersję pakietów objęte `Microsoft.AspNetCore.App`.
+* Spójność wersji zapewnia niezawodne środowisko. `Microsoft.AspNetCore.App` zaprojektowano tak, aby zapobiec kombinacji wersji nieprzetestowanych powiązane bitów, które są używane razem w ramach tej samej aplikacji.
 
-Aplikacje używające `Microsoft.AspNetCore.App` metapackage automatycznie korzystać udostępnionego platformy ASP.NET Core. Jeśli używasz `Microsoft.AspNetCore.App` metapackage, **nie** zasobów, z którym związane są odwołania pakietów platformy ASP.NET Core NuGet zostały wdrożone za pomocą aplikacji &mdash; framework udostępnionego platformy ASP.NET Core zawiera te zasoby. Zasoby w ramach udostępnionego są wstępnie skompilowana zwiększające czasu uruchomienia aplikacji. Aby uzyskać więcej informacji, zobacz "udostępnionego framework" w [pakowania dystrybucji .NET Core](/dotnet/core/build/distribution-packaging).
+Aplikacje, które używają `Microsoft.AspNetCore.App` meta Microsoft.aspnetcore.all automatycznie skorzystaj z udostępnionej platformy ASP.NET Core. Kiedy używasz `Microsoft.AspNetCore.App` meta Microsoft.aspnetcore.all, **nie** zasoby z pakietów platformy ASP.NET Core NuGet, do którego istnieje odwołanie, są wdrażane przy użyciu aplikacji&mdash;udostępnionej platformy ASP.NET Core zawiera te zasoby. Zasoby w ramach udostępnionego są wstępnie skompilowane, aby poprawić czas uruchamiania aplikacji. Aby uzyskać więcej informacji, zobacz "udostępnione framework" w [tworzenie pakietów dystrybucji platformy .NET Core](/dotnet/core/build/distribution-packaging).
 
-Następujące *.csproj* odwołania do pliku projektu `Microsoft.AspNetCore.App` metapackage dla platformy ASP.NET Core:
+Następujące projektu odwołania do pliku `Microsoft.AspNetCore.App` meta Microsoft.aspnetcore.all dla platformy ASP.NET Core i przedstawia typowy platformy ASP.NET Core 2.1 szablonu:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -45,25 +45,14 @@ Następujące *.csproj* odwołania do pliku projektu `Microsoft.AspNetCore.App` 
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.1" />
   </ItemGroup>
 
 </Project>
-
 ```
 
-Poprzedni kod znaczników reprezentuje typowy platformy ASP.NET Core 2.1 i nowsze szablonu. Nie określono numeru wersji `Microsoft.AspNetCore.App` odwołanie do pakietu. Jeśli nie określono wersji, [niejawne](https://github.com/dotnet/core/blob/master/release-notes/1.0/sdk/1.0-rc3-implicit-package-refs.md) wersja jest określona przez zestaw SDK, czyli `Microsoft.NET.Sdk.Web`. Firma Microsoft zaleca polegania na niejawne wersja określona przez zestaw SDK i nie jawne ustawienie numer wersji na odwołanie do pakietu. Możesz pozostawić komentarz GitHub w [dyskusji dla wersji niejawne Microsoft.AspNetCore.App](https://github.com/aspnet/Docs/issues/6430).
+Numer wersji na `Microsoft.AspNetCore.App` odwołania jest **nie** gwarantuje daną wersję udostępnionego framework, który będzie używany. Na przykład, załóżmy, że wersja `2.1.1` jest określony, ale `2.1.3` jest zainstalowany. W takim przypadku aplikacja używa `2.1.3`. Chociaż nie jest to zalecane, możesz wyłączyć zachowanie przodu (poprawki i/lub pomocnicze). Aby uzyskać więcej informacji na temat zachowania przodu wersji pakietu, zobacz [dotnet hosta przenoszenia do przodu](https://github.com/dotnet/core-setup/blob/master/Documentation/design-docs/roll-forward-on-no-candidate-fx.md).
 
-Niejawne wersji ma ustawioną wartość `major.minor.0` dla aplikacji przenośnej. Mechanizm przewijaniem do udostępnionego framework uruchomi aplikacji z najnowszą wersją zgodne między zainstalowanych platform udostępnionego. Aby zagwarantować, że ta sama wersja jest używana w rozwoju, testów i produkcji, upewnij się, że ta sama wersja programu udostępnionego framework jest zainstalowana we wszystkich środowiskach. Aplikacje samodzielną numer wersji niejawne ustawiono `major.minor.patch` powiązane zainstalowanego zestawu SDK platformy udostępnionego.
+`Microsoft.AspNetCore.App` [Meta Microsoft.aspnetcore.all](/dotnet/core/packages#metapackages) nie są tradycyjny pakiet, który jest aktualizowany z pakietów NuGet. Podobnie jak `Microsoft.NETCore.App`, `Microsoft.AspNetCore.App` reprezentuje udostępnionego środowiska uruchomieniowego, który ma semantykę specjalne versioning obsługiwane poza NuGet. Aby uzyskać więcej informacji, zobacz [pakiety, metapakiety i struktury](/dotnet/core/packages).
 
-Określenie numeru wersji w `Microsoft.AspNetCore.App` odwołania jest **nie** zagwarantować tej wersji udostępnionego framework zostanie wybrany. Na przykład załóżmy, że określono wersji "2.1.1", ale "2.1.3" jest zainstalowany. W takim przypadku aplikacja będzie używać "2.1.3". Chociaż nie jest to zalecane, można wyłączyć przenoszenia do przodu (poprawki i/lub pomocniczej). Aby uzyskać więcej informacji dotyczących hosta dotnet przewijaniem do i konfigurowanie zachowania, zobacz [dotnet hosta przenoszenia do przodu](https://github.com/dotnet/core-setup/blob/master/Documentation/design-docs/roll-forward-on-no-candidate-fx.md).
-
-`Microsoft.AspNetCore.App` [Metapackage](/dotnet/core/packages#metapackages) nie jest tradycyjnych pakietów, które są aktualizowane z pakietu NuGet. Podobnie jak `Microsoft.NETCore.App`, `Microsoft.AspNetCore.App` reprezentuje udostępnionego środowiska uruchomieniowego, którego ma semantykę specjalne versioning obsługiwane poza NuGet. Aby uzyskać więcej informacji, zobacz [pakietów, metapackages i platform](/dotnet/core/packages).
-
-`<Project Sdk` należy wybrać opcję `Microsoft.NET.Sdk.Web` korzysta z wersji niejawne `Microsoft.AspNetCore.App`.  Gdy `<Project Sdk="Microsoft.NET.Sdk">` jest używana, są generowane następujące ostrzeżenia:
-
-*Ostrzeżenie NU1604: Zależności projektu Microsoft.AspNetCore.App nie zawiera włącznie dolnej granicy. Dolna granica należy uwzględnić w wersji zależności, aby zapewnić wyniki przywracania na poziomie.*
-
-*Ostrzeżenie NU1602: [Nazwa projektu] nie przewiduje włącznie dolna granica Microsoft.AspNetCore.App zależności. Przybliżony najlepsze dopasowanie Microsoft.AspNetCore.App 2.1.0 został rozwiązany.*
-
-Jeśli wcześniej używana aplikacja `Microsoft.AspNetCore.All`, zobacz [migrowania Microsoft.AspNetCore.All do Microsoft.AspNetCore.App](xref:fundamentals/metapackage#migrate).
+Jeśli wcześniej używano aplikacji `Microsoft.AspNetCore.All`, zobacz [migrowany pakiet do Microsoft.AspNetCore.App](xref:fundamentals/metapackage#migrate).

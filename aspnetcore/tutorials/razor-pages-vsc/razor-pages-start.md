@@ -1,23 +1,23 @@
 ---
-title: Wprowadzenie do platformy ASP.NET Core Razor stron w programie Visual Studio Code
+title: Rozpoczynanie pracy ze stronami ASP.NET Core Razor w programie Visual Studio Code
 author: rick-anderson
-description: Poznaj podstawy tworzenia aplikacji sieci web platformy ASP.NET Core Razor strony z kodem Visual Studio.
+description: Poznaj podstawy tworzenia aplikacji sieci web stron Razor programu ASP.NET Core za pomocą programu Visual Studio Code.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 08/27/2017
 uid: tutorials/razor-pages-vsc/razor-pages-start
 ms.openlocfilehash: b1f1dcc1401d707cff79f3269ab70b900e9fc21c
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36275944"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38123386"
 ---
-# <a name="get-started-with-aspnet-core-razor-pages-in-visual-studio-code"></a>Wprowadzenie do platformy ASP.NET Core Razor stron w programie Visual Studio Code
+# <a name="get-started-with-aspnet-core-razor-pages-in-visual-studio-code"></a>Rozpoczynanie pracy ze stronami ASP.NET Core Razor w programie Visual Studio Code
 
-przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Ten samouczek zawiera podstawowe informacje dotyczące tworzenia aplikacji sieci web platformy ASP.NET Core Razor strony. Firma Microsoft zaleca, należy wykonać [wprowadzenie do stron Razor](xref:razor-pages/index) przed rozpoczęciem tego samouczka. Stron razor jest zalecanym sposobem tworzenia interfejsu użytkownika dla aplikacji sieci web w ASP.NET Core.
+W tym samouczku pokazano podstawy tworzenia aplikacji sieci web programu ASP.NET Core Razor strony. Firma Microsoft zaleca, po ukończeniu [wprowadzenie do stron Razor](xref:razor-pages/index) przed rozpoczęciem tego samouczka. Strony razor jest zalecany sposób tworzenia interfejsu użytkownika dla aplikacji sieci web w programie ASP.NET Core.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -49,7 +49,7 @@ dotnet run
 
 ::: moniker-end
 
-Poprzednie polecenia użyj [interfejsu wiersza polecenia platformy .NET Core](https://docs.microsoft.com/dotnet/core/tools/dotnet) do tworzenia i uruchamiania projektu stron Razor. Otwórz w przeglądarce http://localhost:5000 Aby wyświetlić aplikację.
+Poprzednie polecenia użyj [interfejsu wiersza polecenia platformy .NET Core](https://docs.microsoft.com/dotnet/core/tools/dotnet) do tworzenia i uruchamiania projektów stron Razor. Otwórz w przeglądarce http://localhost:5000 Aby wyświetlić aplikację.
 
 ![Strona główna lub indeks](../razor-pages/razor-pages-start/_static/home.png)
 
@@ -59,16 +59,16 @@ Poprzednie polecenia użyj [interfejsu wiersza polecenia platformy .NET Core](ht
 
 Naciśnij klawisze Ctrl + C, aby zamknąć aplikację.
 
-Z programu Visual Studio (kod VS), wybierz **Plik > Otwórz Folder**, a następnie wybierz *RazorPagesMovie* folderu.
+W programie Visual Studio Code (VS Code) wybierz **Plik > Otwórz Folder**, a następnie wybierz pozycję *RazorPagesMovie* folderu.
 
-- Wybierz **tak** do **Ostrzegaj** komunikatu "zasoby wymagane do tworzenia i debugowania brakuje"RazorPagesMovie". Dodaj je?"
-- Wybierz **przywrócić** do **informacji** komunikatu "Istnieją nierozwiązane zależności".
+- Wybierz **tak** do **Ostrzegaj** komunikat "wymagane zasoby do tworzenia i debugowania brakuje"RazorPagesMovie". Dodane?"
+- Wybierz **przywrócić** do **informacje** komunikatu "Istnieją nierozwiązane zależności".
 
 ### <a name="launch-the-app"></a>Uruchom aplikację
 
-Naciśnij klawisze Ctrl + F5, aby uruchomić aplikację bez debugowania. Alternatywnie z **debugowania** menu, wybierz opcję **uruchomić bez debugowania**.
+Naciśnij kombinację klawiszy Ctrl + F5, aby uruchomić aplikację bez debugowania. Alternatywnie z **debugowania** menu, wybierz opcję **Rozpocznij bez debugowania**.
 
-W następnym samouczku modelu dodania do projektu. 
+W następnym samouczku dodamy modelu do projektu. 
 
 > [!div class="step-by-step"]
 > [Następnie: Dodawanie modelu](xref:tutorials/razor-pages-vsc/model)  

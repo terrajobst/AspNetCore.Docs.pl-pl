@@ -1,29 +1,29 @@
 ---
-title: Aktualizowanie wygenerowanego stron w aplikacji platformy ASP.NET Core
+title: Aktualizowanie stron wygenerowane w aplikacji ASP.NET Core
 author: rick-anderson
-description: Dowiedz się, jak zaktualizować strony wygenerowane w aplikacji platformy ASP.NET Core.
+description: Dowiedz się, jak zaktualizować wygenerowanych stron w aplikacji ASP.NET Core.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 05/30/2018
 uid: tutorials/razor-pages/da1
 ms.openlocfilehash: 55ff98712da314e28e50a1b1b1e04530d5b3fedd
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278073"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38186234"
 ---
-# <a name="update-the-generated-pages-in-an-aspnet-core-app"></a>Aktualizowanie wygenerowanego stron w aplikacji platformy ASP.NET Core
+# <a name="update-the-generated-pages-in-an-aspnet-core-app"></a>Aktualizowanie stron wygenerowane w aplikacji ASP.NET Core
 
-przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Mamy dobry początek aplikacji film, ale prezentacji nie jest najlepszym rozwiązaniem. Nie chcemy zobaczyć czas (00:00:00: 00 w obrazie poniżej) i **ReleaseDate** powinien być **Data wydania** (dwa wyrazy).
+Mamy dobry początek aplikacji filmu, ale prezentacji nie jest najlepszym rozwiązaniem. Nie chcemy wyświetlić czas (12:00:00 AM na ilustracji poniżej) i **ReleaseDate** powinien być **Data wydania** (dwa słowa).
 
-![Otwórz w przeglądarce Chrome danych Film przedstawiający aplikacji film](sql/_static/m55.png)
+![Otwórz w przeglądarce Chrome danych Film przedstawiający aplikacji filmów](sql/_static/m55.png)
 
 ## <a name="update-the-generated-code"></a>Aktualizacja wygenerowanego kodu
 
-Otwórz *Models/Movie.cs* i Dodaj wyróżnione wiersze poniższym kodem:
+Otwórz *Models/Movie.cs* pliku i Dodaj wyróżnione wiersze pokazano w poniższym kodzie:
 
 ::: moniker range="= aspnetcore-2.0"
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Models/MovieDate.cs?name=snippet_1&highlight=10-11)]
@@ -33,18 +33,18 @@ Otwórz *Models/Movie.cs* i Dodaj wyróżnione wiersze poniższym kodem:
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie21/Models/MovieDate.cs?name=snippet_1&highlight=10-11,15)]
 ::: moniker-end
 
-Kliknij prawym przyciskiem myszy na linii o dowolnym kształcie red > **szybkie akcje i Refaktoryzacje**.
+Kliknij prawym przyciskiem myszy czerwona linia falista > **szybkie akcje i Refaktoryzacje**.
 
   ![Pokazuje menu kontekstowe ** > Szybkie akcje i Refaktoryzacje **.](da1/qa.png)
 
-Wybierz `using System.ComponentModel.DataAnnotations;`
+Wybierz pozycję `using System.ComponentModel.DataAnnotations;`
 
-  ![przy użyciu System.ComponentModel.DataAnnotations u góry listy](da1/da.png)
+  ![za pomocą System.ComponentModel.DataAnnotations u góry listy](da1/da.png)
 
-  Dodaje programu Visual studio `using System.ComponentModel.DataAnnotations;`.
+  Program Visual studio dodaje `using System.ComponentModel.DataAnnotations;`.
 
 [!INCLUDE [model1](~/includes/RP/da2.md)]
 
 > [!div class="step-by-step"]
-> [Poprzedni: Praca z bazy danych LocalDB programu SQL Server](xref:tutorials/razor-pages/sql)
-> [Dodaj wyszukiwania](xref:tutorials/razor-pages/search)
+> [Poprzedni: Praca z SQL Server LocalDB](xref:tutorials/razor-pages/sql)
+> [Dodawanie wyszukiwania](xref:tutorials/razor-pages/search)

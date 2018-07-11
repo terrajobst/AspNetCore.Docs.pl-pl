@@ -13,43 +13,43 @@
 
 --> 
 
-Teraz podczas przesyłania wyszukiwania adres URL zawiera ciąg zapytania wyszukiwania. Wyszukiwanie będzie także przejść do `HttpGet Index` metody akcji, nawet jeśli masz `HttpPost Index` metody.
+Teraz gdy prześlesz wyszukiwania, adres URL zawiera ciąg zapytania wyszukiwania. Wyszukiwanie będzie także przejść do `HttpGet Index` metody akcji, nawet jeśli masz `HttpPost Index` metody.
 
-![Okno przeglądarki, przedstawiające parametru Wyszukiwany_ciąg = widma w adres Url i zwracany, filmy Ghostbusters i Ghostbusters 2 zawierają widma programu word](~/tutorials/first-mvc-app/search/_static/search_get.png)
+![Okno przeglądarki, przedstawiające Ciągwyszukiwania = ghost w adresie Url i filmów, zwrócone, Ghostbusters i Ghostbusters 2, zawierają ghost programu word](~/tutorials/first-mvc-app/search/_static/search_get.png)
 
-Następujący kod przedstawia zmiany `form` tagu:
+Następujący kod przedstawia zmiany `form` tag:
 
 ```html
 <form asp-controller="Movies" asp-action="Index" method="get">
    ```
 
-## <a name="adding-search-by-genre"></a>Dodawanie wyszukiwania według rodzaju
+## <a name="adding-search-by-genre"></a>Dodawanie wyszukiwania według gatunku
 
-Dodaj następujące `MovieGenreViewModel` klasy do *modele* folderu:
+Dodaj następujący kod `MovieGenreViewModel` klasy *modeli* folderu:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieGenreViewModel.cs)]
 
-Model widoku genre film będzie zawierać:
+Model widoku gatunku filmu będzie zawierać:
 
    * Lista filmów.
-   * A `SelectList` zawierający listę gatunkami muzyki. Dzięki temu użytkownikowi na wybranie określonego rodzaju z listy.
-   * `movieGenre`, zawierającą wybranego rodzaju.
+   * A `SelectList` zawierającego listę gatunki. Umożliwi to użytkownikowi na wybranie określonego rodzaju z listy.
+   * `movieGenre`, zawierającą wybrane gatunku.
 
-Zastąp `Index` metoda `MoviesController.cs` następującym kodem:
+Zastąp `Index` method in Class metoda `MoviesController.cs` następującym kodem:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_SearchGenre)]
 
-Następujący kod jest `LINQ` kwerendę, która pobiera wszystkie genres z bazy danych.
+Poniższy kod jest `LINQ` zapytania, który pobiera wszystkie gatunki z bazy danych.
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_LINQ)]
 
-`SelectList` Gatunkami muzyki jest tworzony przez projekcji różne gatunki (nie chcemy naszej listy wyboru mają zduplikowane genres).
+`SelectList` Gatunków jest tworzona przy wyświetlaniu distinct gatunki (nie chcemy naszej listy wyboru mają zduplikowane gatunki).
 
 ```csharp
 movieGenreVM.genres = new SelectList(await genreQuery.Distinct().ToListAsync())
    ```
 
-## <a name="adding-search-by-genre-to-the-index-view"></a>Dodawanie wyszukiwania według rodzaju do widoku indeksu
+## <a name="adding-search-by-genre-to-the-index-view"></a>Dodawanie wyszukiwania według gatunku do widoku indeksu
 
 Aktualizacja `Index.cshtml` w następujący sposób:
 
@@ -59,6 +59,6 @@ Sprawdź wyrażenie lambda, używane w następujących pomocnika kodu HTML:
 
 `@Html.DisplayNameFor(model => model.movies[0].Title)`
  
-W powyższym kodzie `DisplayNameFor` przeprowadzający pomocnika kodu HTML `Title` właściwości, do którego odwołuje się wyrażenie lambda, aby ustalić nazwę wyświetlaną. Ponieważ wyrażenie lambda jest sprawdzana zamiast obliczone, nie otrzyma naruszenia zasad dostępu podczas `model`, `model.movies`, lub `model.movies[0]` są `null` lub jest pusty. Podczas oceny wyrażenia lambda (na przykład `@Html.DisplayFor(modelItem => item.Title)`), wartości właściwości modelu.
+W poprzednim kodzie `DisplayNameFor` sprawdza pomocnika kodu HTML `Title` właściwość, do którego odwołuje się wyrażenie lambda, aby ustalić nazwę wyświetlaną. Ponieważ wyrażenie lambda jest kontrolowane zamiast oceniane, nie otrzymasz naruszenie zasad dostępu podczas `model`, `model.movies`, lub `model.movies[0]` są `null` lub jest pusty. Kiedy jest obliczane wyrażenie lambda (na przykład `@Html.DisplayFor(modelItem => item.Title)`), są oceniane wartości właściwości modelu.
 
-Aby przetestować aplikację, wyszukiwanie według rodzaju, tytuł filmu i obu.
+Testowanie aplikacji przez wyszukiwanie według gatunku, tytuł filmu i obu.

@@ -1,26 +1,26 @@
 ---
-title: Metod kontrolera oraz widoki dla platformy ASP.NET Core
+title: Metody kontrolera i widoki w programie ASP.NET Core
 author: rick-anderson
-description: Dowiedz się, jak pracować z metod kontrolera, widoków i DataAnnotations w ASP.NET Core.
+description: Dowiedz się, jak pracować z metody kontrolera, widoków i DataAnnotations w programie ASP.NET Core.
 ms.author: riande
 ms.date: 03/07/2017
 uid: tutorials/first-mvc-app/controller-methods-views
 ms.openlocfilehash: e94cb877576a68540a565225b2b3d79f9be53327
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274817"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38194017"
 ---
-# <a name="controller-methods-and-views-in-aspnet-core"></a>Metod kontrolera oraz widoki dla platformy ASP.NET Core
+# <a name="controller-methods-and-views-in-aspnet-core"></a>Metody kontrolera i widoki w programie ASP.NET Core
 
-przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Mamy dobry początek aplikacji film, ale prezentacji nie jest najlepszym rozwiązaniem. Nie chcemy zobaczyć czas (00:00:00: 00 w obrazie poniżej) i **ReleaseDate** powinna być dwa wyrazy.
+Mamy dobry początek aplikacji filmu, ale prezentacji nie jest najlepszym rozwiązaniem. Nie chcemy wyświetlić czas (12:00:00 AM na ilustracji poniżej) i **ReleaseDate** powinna być dwa słowa.
 
-![Indeksuj zawartości widoku: Data wydania jest jednego słowa (bez spacji) i co data wydania film zawiera godzinę 00: 00](working-with-sql/_static/m55.png)
+![Indeks widoku: Data wydania jest jedno słowo (bez spacji) i każdy film Data wydania zawiera godzinę 12: 00](working-with-sql/_static/m55.png)
 
-Otwórz *Models/Movie.cs* i Dodaj wyróżnione wiersze, pokazano poniżej:
+Otwórz *Models/Movie.cs* pliku i Dodaj wyróżnione wiersze, które przedstawiono poniżej:
 
 ::: moniker range=">= aspnetcore-2.1"
 [!code-csharp[](start-mvc/sample/MvcMovie21/Models/MovieDateFixed.cs?name=snippet_1&highlight=2,3,12-13,17)]
