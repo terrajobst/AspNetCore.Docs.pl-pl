@@ -4,19 +4,16 @@ title: 'Część 3: Układ i Menu kategorii | Dokumentacja firmy Microsoft'
 author: JoeStagner
 description: W tej serii samouczków zawiera szczegóły wszystkich kroków kompilacji Przykładowa aplikacja Tailspin Spyworks. Część 3 obejmuje dodawanie układ i menu kategorii.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/21/2010
-ms.topic: article
 ms.assetid: 94ea1a70-a9bc-4241-8f36-08366d64bab9
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-3
 msc.type: authoredcontent
-ms.openlocfilehash: 72642610c203127b431e03214b2f1bc85a85b5fb
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 3047c53e21a418aef8617bd772a247bc46edb98f
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37366650"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37817528"
 ---
 <a name="part-3-layout-and-category-menu"></a>Część 3: Układ i Menu kategorii
 ====================

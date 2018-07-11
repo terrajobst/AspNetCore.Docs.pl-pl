@@ -4,19 +4,16 @@ title: Wykluczanie plików i folderów z wdrożenia | Dokumentacja firmy Microso
 author: jrjlee
 description: W tym temacie opisano, jak można wykluczyć pliki i foldery z pakietu wdrożeniowego sieci web podczas kompilacji i pakietów projektu aplikacji sieci web.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/04/2012
-ms.topic: article
 ms.assetid: f4cc2d40-6a78-429b-b06f-07d000d4caad
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/excluding-files-and-folders-from-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: c50352d423f41f84677dbf048e74088214340f3a
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 33eecfea86842a93eac705e7823f1eba9519670e
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37382585"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37816681"
 ---
 <a name="excluding-files-and-folders-from-deployment"></a>Wykluczanie plików i folderów z wdrożenia
 ====================

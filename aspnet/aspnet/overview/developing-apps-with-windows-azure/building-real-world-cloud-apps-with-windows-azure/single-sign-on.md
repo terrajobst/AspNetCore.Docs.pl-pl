@@ -4,19 +4,16 @@ title: Logowanie jednokrotne (tworzenie rzeczywistych aplikacji w chmurze dzięk
 author: MikeWasson
 description: Tworzenie rzeczywistych aplikacji w chmurze za pomocą platformy Azure Książka elektroniczna jest oparta na prezentacji, opracowane przez Scotta Guthrie. Wyjaśniono 13 wzorców i praktyk, które może on...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/12/2014
-ms.topic: article
 ms.assetid: 7d82d5e9-0619-4f22-9e03-32a6d52940a5
-ms.technology: ''
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/single-sign-on
 msc.type: authoredcontent
-ms.openlocfilehash: 213b8fe091bcac7f55fd62ab305c77fcbc5a77ad
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: c988b4864ce7096de7f3ad69b845d3961b7dbc9e
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37374383"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37819117"
 ---
 <a name="single-sign-on-building-real-world-cloud-apps-with-azure"></a>Logowanie jednokrotne (tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure)
 ====================

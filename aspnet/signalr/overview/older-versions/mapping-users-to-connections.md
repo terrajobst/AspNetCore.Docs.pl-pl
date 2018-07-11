@@ -4,19 +4,16 @@ title: Mapowanie użytkowników SignalR na połączenia w SignalR 1.x | Dokument
 author: pfletcher
 description: W tym temacie przedstawiono sposób przechowywania informacji o użytkownikach i ich połączeń.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/17/2013
-ms.topic: article
 ms.assetid: ebbc93a8-e6c4-4122-8e0d-3aa42293c747
-ms.technology: dotnet-signalr
 msc.legacyurl: /signalr/overview/older-versions/mapping-users-to-connections
 msc.type: authoredcontent
-ms.openlocfilehash: 8c8c6ffbea92fac5da21ec268f6b805a40c5fd73
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 02ee9468ae4198af47226cdd5c22243f16e20da4
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37395438"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37818116"
 ---
 <a name="mapping-signalr-users-to-connections-in-signalr-1x"></a>Mapowanie użytkowników SignalR na połączenia w SignalR 1.x
 ====================

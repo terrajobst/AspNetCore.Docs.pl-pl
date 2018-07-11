@@ -4,19 +4,16 @@ title: Buforowanie danych za pomocą kontrolki ObjectDataSource (VB) | Dokumenta
 author: rick-anderson
 description: Buforowanie może oznaczać różnicę między wolnej i szybkie aplikacji sieci Web. W tym samouczku jest to pierwsza z czterema, które Przyjrzyj się szczegółowe buforowanie na platformie ASP.NET...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/30/2007
-ms.topic: article
 ms.assetid: 2e56a733-5512-48a6-9276-70a65bbe4d5d
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-with-the-objectdatasource-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 9db4811687af3b029b7011763f9b5af0a8c1daec
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: aa2af934a45ebd7e23d5d2ccf5a80f4949f1ec4f
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37365000"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37817541"
 ---
 <a name="caching-data-with-the-objectdatasource-vb"></a>Buforowanie danych za pomocą kontrolki ObjectDataSource (VB)
 ====================

@@ -4,19 +4,16 @@ title: Odblokowywanie i zatwierdzanie kont użytkowników (C#) | Dokumentacja fi
 author: rick-anderson
 description: W tym samouczku przedstawiono sposób tworzenia strony sieci web dla administratorów do zarządzania zablokowane i zatwierdzone stanów użytkowników. Firma Microsoft pojawi się także nowych użytkowników o zatwierdzaniu...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/01/2008
-ms.topic: article
 ms.assetid: 5346aab1-9974-489f-a065-ae3883b8a350
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/unlocking-and-approving-user-accounts-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f6bf76579898a8ff36b18380100ce4ab2e74fc8d
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: ab6fa1b460de671559dc16ca85f2a4df1e3d5922
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37392717"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37818307"
 ---
 <a name="unlocking-and-approving-user-accounts-c"></a>Odblokowywanie i zatwierdzanie kont użytkowników (C#)
 ====================

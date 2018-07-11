@@ -4,19 +4,16 @@ title: Konfigurowanie właściwości wdrożenia dla środowiska docelowego | Dok
 author: jrjlee
 description: W tym temacie opisano sposób konfigurowania właściwości specyficzne dla środowiska, aby wdrożyć przykładowe rozwiązanie Contact Manager do danego środowiska docelowego...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/04/2012
-ms.topic: article
 ms.assetid: b5b86e03-b8ed-46e6-90fa-e1da88ef34e9
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment
 msc.type: authoredcontent
-ms.openlocfilehash: 8e0a050b2fec272fec3922d1c2f3afff4aee7fca
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 205a60ee8695f84054bf2139baa3eeb88728d28a
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37387689"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37817768"
 ---
 <a name="configuring-deployment-properties-for-a-target-environment"></a>Konfigurowanie właściwości wdrożenia dla środowiska docelowego
 ====================

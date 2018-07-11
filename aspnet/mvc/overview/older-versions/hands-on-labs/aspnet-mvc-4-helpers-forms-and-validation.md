@@ -4,19 +4,16 @@ title: ASP.NET MVC 4 — pomocnicy, formularze i Walidacja | Dokumentacja firmy 
 author: rick-anderson
 description: ASP.NET MVC 4 modeli i danych programu Access warsztatów możesz zostały ładowanie i wyświetlanie danych z bazy danych. W tym laboratorium praktyczne zostanie dodany do...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/18/2013
-ms.topic: article
 ms.assetid: 187ee9cd-bc70-479b-bfed-f568b8da96eb
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-helpers-forms-and-validation
 msc.type: authoredcontent
-ms.openlocfilehash: f2eb624e72d6f52d1694b5753ee2b1f8117c2851
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: a84e35695fa08ac1bd4834d2803d2be76f863e5b
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37376740"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37815924"
 ---
 # <a name="aspnet-mvc-4-helpers-forms-and-validation"></a>ASP.NET MVC 4 — pomocnicy, formularze i Walidacja
 
@@ -163,7 +160,7 @@ W tym zadaniu zostanie utworzony szablon widoku indeksu, aby wyświetlić listę
 
     ![Dodaj widok](aspnet-mvc-4-helpers-forms-and-validation/_static/image2.png "Dodawanie widoku")
 
-    *(Code Snippet — *platformy ASP.NET MVC 4 podstawowe - StoreIndexViewModel Ex5 przy użyciu modele widoków*)*
+    *Dodawanie widoku z wewnątrz metody indeksu*
 3. W oknie dialogowym Dodaj widok, sprawdź, czy nazwa widoku jest **indeksu**. Wybierz **utworzyć widok silnie typizowane** opcji, a następnie wybierz **albumu (MvcMusicStore.Models)** z **klasa modelu** listy rozwijanej. Wybierz **listy** z **szablonu szkieletu** listy rozwijanej. Pozostaw **aparat widoku** do **Razor** i inne pola z ich domyślną wartość, a następnie kliknij przycisk **Dodaj**.
 
     ![Dodawanie widoku indeksu](aspnet-mvc-4-helpers-forms-and-validation/_static/image3.png "Dodawanie widoku indeksu")

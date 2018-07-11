@@ -4,19 +4,16 @@ title: Wdrażanie aplikacji sieci Web w scenariuszach dla przedsiębiorstw przy 
 author: jrjlee
 description: Tego zestawu samouczków opisano narzędzia i techniki, które służy do wdrażania aplikacji sieci web w różnych scenariuszach dla przedsiębiorstw. Wyjaśniono, jak najlepiej wykorzystać...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/03/2012
-ms.topic: article
 ms.assetid: 48cfe378-d62a-48c6-a4db-6be3cead6898
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios
 msc.type: authoredcontent
-ms.openlocfilehash: 8412000e150f59911bb38f0147b1a487bef60c18
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: b55aeb863694ca3ac71f2a1a46d11981e178dcb4
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37376841"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37816590"
 ---
 <a name="deploying-web-applications-in-enterprise-scenarios-using-visual-studio-2010"></a>Wdrażanie aplikacji sieci Web w scenariuszach dla przedsiębiorstw przy użyciu programu Visual Studio 2010
 ====================

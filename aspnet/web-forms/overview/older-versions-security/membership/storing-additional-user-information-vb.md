@@ -4,19 +4,16 @@ title: Przechowywanie dodatkowych informacji dotyczących użytkowników (VB) | 
 author: rick-anderson
 description: W tym samouczku odpowiemy na to pytanie, tworząc aplikację bardzo podstawowe księgi gości. W ten sposób przyjrzymy się różnych opcji dla modeli...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/18/2008
-ms.topic: article
 ms.assetid: ee4b924e-8002-4dc3-819f-695fca1ff867
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/storing-additional-user-information-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 06e28653b281461eff6548de6951f8463c827754
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 2ea731012f8c053d1e1eac293fdbeaec66db23bf
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37381873"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37816041"
 ---
 <a name="storing-additional-user-information-vb"></a>Przechowywanie dodatkowych informacji dotyczących użytkowników (VB)
 ====================

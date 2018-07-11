@@ -4,19 +4,16 @@ title: Niestandardowe formatowanie na podstawie danych (C#) | Dokumentacja firmy
 author: rick-anderson
 description: Dostosowywanie formatu GridView, DetailsView lub FormView w oparciu o dane powiązane z nim można przeprowadzić na wiele sposobów. W tym samouczku będziemy l...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/31/2010
-ms.topic: article
 ms.assetid: 871a4574-f89c-4214-b786-79253ed3653b
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/custom-formatting-based-upon-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 505081890ac0eb7a1f248569fda1b14351119275
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 05f83fc178cb3f79a86638d0159e692aef4410ca
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37397987"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37819276"
 ---
 <a name="custom-formatting-based-upon-data-c"></a>Niestandardowe formatowanie na podstawie danych (C#)
 ====================

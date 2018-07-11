@@ -4,19 +4,16 @@ title: Wydajność SignalR (SignalR 1.x) | Dokumentacja firmy Microsoft
 author: pfletcher
 description: Wydajność SignalR
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/03/2013
-ms.topic: article
 ms.assetid: 9594d644-66b6-4223-acdd-23e29a6e4c46
-ms.technology: dotnet-signalr
 msc.legacyurl: /signalr/overview/older-versions/signalr-performance
 msc.type: authoredcontent
-ms.openlocfilehash: bb5bc29306ad94597239fa6d366be231ab1e86e1
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 1f43b8258051d853019f8537f37bdadb6b37ddc6
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37362479"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37817067"
 ---
 <a name="signalr-performance-signalr-1x"></a>Wydajność SignalR (SignalR 1.x)
 ====================

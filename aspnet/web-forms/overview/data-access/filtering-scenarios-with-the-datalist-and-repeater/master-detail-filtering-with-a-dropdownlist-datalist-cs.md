@@ -4,19 +4,16 @@ title: Filtrowanie rekordu głównego/szczegółów przy użyciu kontrolki DropD
 author: rick-anderson
 description: W tym samouczku zobaczymy, jak wyświetlać raporty wzorzec/szczegół w pojedynczej strony sieci web za pomocą kontrolek DROPDOWNLIST do wyświetlania rekordów "master" i kontrolką DataList displ...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/18/2007
-ms.topic: article
 ms.assetid: 07fa47ae-e491-4a2f-b265-d342b9ddef46
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-filtering-with-a-dropdownlist-datalist-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8af99dec92050f6d3b64919d06e7bc0ddc19e083
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: ed2631e49786c81075099cca6941d98ba3b67e37
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37389677"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37818255"
 ---
 <a name="masterdetail-filtering-with-a-dropdownlist-c"></a>Filtrowanie rekordu głównego/szczegółów przy użyciu kontrolki DropDownList (C#)
 ====================

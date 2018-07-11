@@ -4,19 +4,16 @@ title: '[Jak mogę] Praca z zagnieżdżonymi stronami wzorcowymi w celu tworzeni
 author: rick-anderson
 description: W tym wideo pikseli Chris pokazują, jak używać zagnieżdżone strony wzorcowe do tworzenia indywidualnych strony wzorcowe, które reprezentują różne standardowych układów zawartości w...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/19/2008
-ms.topic: article
 ms.assetid: c9af2298-7b95-4a5d-af1c-4f3589a2a8da
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-work-with-nested-master-pages-to-create-standard-content-layouts
 msc.type: video
-ms.openlocfilehash: a216e0cf0cce9f83abd3b228e290d20ab6c5aa20
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: ed99a390d076298761a2982c44ff14253eeb6a32
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37364565"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37816908"
 ---
 <a name="how-do-i-work-with-nested-master-pages-to-create-standard-content-layouts"></a>[Jak mogę] Praca z zagnieżdżonymi stronami wzorcowymi w celu tworzenia standardowych układów zawartości
 ====================
