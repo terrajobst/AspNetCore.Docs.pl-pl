@@ -1,29 +1,29 @@
 ---
-title: Szkieletu Razor strony platformy ASP.NET Core
+title: Strony razor ze szkieletami w programie ASP.NET Core
 author: rick-anderson
-description: W tym artykule wyjaśniono stron Razor generowane przez funkcję szkieletów.
+description: W tym artykule wyjaśniono stron Razor, generowane przez tworzenie szkieletów.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 09/27/2017
 uid: tutorials/razor-pages/page
 ms.openlocfilehash: 65d3b045d831621ec4f8b385b2aba16722809f67
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278974"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38214918"
 ---
 [!INCLUDE [model1](../../includes/RP/page1.md)]
 
-<span data-ttu-id="66356-103">Wyświetla programu Visual Studio `<form method="post">` tag w charakterystyczne czcionkę dla pomocników tagów:</span><span class="sxs-lookup"><span data-stu-id="66356-103">Visual Studio displays the `<form method="post">` tag in a distinctive font used for Tag Helpers:</span></span> 
+<span data-ttu-id="30ac0-103">Visual Studio Wyświetla `<form method="post">` tagu w szczególne czcionki używanej dla pomocników tagów:</span><span class="sxs-lookup"><span data-stu-id="30ac0-103">Visual Studio displays the `<form method="post">` tag in a distinctive font used for Tag Helpers:</span></span> 
 
 ![VS17 widok Create.cshtml strony](page/_static/th.png)
 
 [!INCLUDE [model1](../../includes/RP/page2.md)]
 
-<span data-ttu-id="66356-105">Następny samouczek wyjaśnia bazy danych LocalDB programu SQL Server i wstępne wypełnianie bazy danych.</span><span class="sxs-lookup"><span data-stu-id="66356-105">The next tutorial explains SQL Server LocalDB and seeding the database.</span></span>
+<span data-ttu-id="30ac0-105">Następny samouczek wyjaśnia, SQL Server LocalDB i wstępne wypełnianie bazy danych.</span><span class="sxs-lookup"><span data-stu-id="30ac0-105">The next tutorial explains SQL Server LocalDB and seeding the database.</span></span>
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="66356-106">[Poprzedni: Dodawanie modelu](xref:tutorials/razor-pages/model)
-> [dalej: bazy danych LocalDB programu SQL Server](xref:tutorials/razor-pages/sql)</span><span class="sxs-lookup"><span data-stu-id="66356-106">[Previous: Adding a model](xref:tutorials/razor-pages/model)
+> <span data-ttu-id="30ac0-106">[Poprzedni: Dodawanie modelu](xref:tutorials/razor-pages/model)
+> [dalej: SQL Server LocalDB](xref:tutorials/razor-pages/sql)</span><span class="sxs-lookup"><span data-stu-id="30ac0-106">[Previous: Adding a model](xref:tutorials/razor-pages/model)
 [Next: SQL Server LocalDB](xref:tutorials/razor-pages/sql)</span></span>
