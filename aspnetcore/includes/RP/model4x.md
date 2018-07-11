@@ -1,5 +1,5 @@
 <a name="scaffold"></a>
-### <a name="scaffold-the-movie-model"></a>Tworzenie szkieletu modelu film
+### <a name="scaffold-the-movie-model"></a>Tworzenie szkieletu modelu Movie
 
 * Uruchom następujące polecenie w wierszu polecenia (w katalogu projektu, który zawiera *Program.cs*, *Startup.cs*, i *.csproj* plików):
 
@@ -12,4 +12,4 @@ Jeśli zostanie wyświetlony błąd:
 No executable found matching command "dotnet-aspnet-codegenerator"
   ```
 
-Otwórz powłokę poleceń do katalogu projektu (katalog, który zawiera *Program.cs*, *Startup.cs*, i *.csproj* plików).
+Otwórz powłokę wiersza polecenia do katalogu projektu (katalog, który zawiera *Program.cs*, *Startup.cs*, i *.csproj* plików).

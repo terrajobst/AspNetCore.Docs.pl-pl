@@ -1,7 +1,7 @@
-Dostępna jest zaktualizowana wersja tego samouczka [tutaj](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app/start-mvc) przy użyciu najnowszej wersji [programu Visual Studio.](https://www.visualstudio.com) Samouczek nowej używa [platformy ASP.NET Core MVC](https://docs.microsoft.com/aspnet/core/mvc/), co umożliwia **wiele** ulepszenia w tym samouczku.
+Jest dostępna zaktualizowana wersja tego samouczka [tutaj](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app/start-mvc) przy użyciu najnowszej wersji [programu Visual Studio.](https://www.visualstudio.com) Nowe samouczku [ASP.NET Core MVC](https://docs.microsoft.com/aspnet/core/mvc/), zapewniającą **wiele** ulepszenia w porównaniu z tego samouczka.
 
-Ten samouczek zawiera ASP.NET Core MVC z widoków i kontrolerów. Stron razor jest alternatywą nowe w programie ASP.NET 2.0 Core, na stronie modelu programowania, który sprawia, że tworzenie interfejsu użytkownika sieci web łatwiejsze i bardziej wydajnej pracy. Firma Microsoft zaleca próby [stron Razor](https://docs.microsoft.com/aspnet/core/mvc/razor-pages) samouczka przed wersji platformy MVC. Samouczek Razor strony:
+W tym samouczku pokazano ASP.NET Core MVC za pomocą kontrolerów i widoków. Strony razor jest alternatywą nowe w programie ASP.NET Core 2.0, opartej na stronach model programowania, który sprawia, że tworzenie interfejsu użytkownika sieci web łatwiejsze i bardziej wydajne. Zalecamy wypróbowanie [stron Razor](https://docs.microsoft.com/aspnet/core/mvc/razor-pages) samouczek przed wersją platformy MVC. Samouczek stron Razor:
 
-* Łatwiej wykonać.
+* Łatwiej jest je wykonać.
 * Obejmuje więcej funkcji.
-* Jest to preferowane rozwiązanie w przypadku nowych wdrożeń aplikacji.
+* Jest preferowanym podejściem w przypadku nowych wdrożeń aplikacji.

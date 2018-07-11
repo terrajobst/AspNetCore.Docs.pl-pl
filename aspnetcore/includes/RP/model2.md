@@ -1,14 +1,14 @@
-Dodaj następujące właściwości `Movie` klasy:
+Dodaj następujące właściwości do `Movie` klasy:
 
 [!code-csharp[](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Models/MovieNoEF.cs?name=snippet_MovieNoEF)]
 
 `ID` Pole jest wymagane przez bazę danych dla klucza podstawowego.
 
 <a name="dc"></a>
-### <a name="add-a-database-context-class"></a>Dodaj klasę kontekstu bazy danych
+### <a name="add-a-database-context-class"></a>Dodawanie klasy kontekstu bazy danych
 
-Dodaj następujące *MovieContext.cs* klasy do *modele* folderu:  
+Dodaj następujący kod *MovieContext.cs* klasy *modeli* folderu:  
 
 [!code-csharp[](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Models/MovieContext.cs)]
 
-Poprzedni kod tworzy `DbSet` właściwości dla zestawu jednostek. W terminologii programu Entity Framework zwykle zestawu jednostek odnosi się do tabeli bazy danych, a jednostka odpowiada wiersza w tabeli.
+Powyższy kod tworzy `DbSet` właściwość zestawu jednostek. W terminologii programu Entity Framework zwykle zestaw jednostek odnosi się do tabeli bazy danych, a jednostka odnosi się do wiersza w tabeli.
