@@ -5,12 +5,12 @@ description: Dowiedz się, jak kontrolować zachowanie aplikacji w wielu środow
 ms.author: riande
 ms.date: 07/03/2018
 uid: fundamentals/environments
-ms.openlocfilehash: b0e001b50ada85a183590fbee1ad1f3b895004d5
-ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
+ms.openlocfilehash: 3394113de37da2571ab6398405751961117f12d2
+ms.sourcegitcommit: 19cbda409bdbbe42553dc385ea72d2a8e246509c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37938436"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38992876"
 ---
 # <a name="use-multiple-environments-in-aspnet-core"></a>Używanie wielu środowisk w programie ASP.NET Core
 
@@ -204,19 +204,50 @@ set ASPNETCORE_ENVIRONMENT=Development
 $Env:ASPNETCORE_ENVIRONMENT = "Development"
 ```
 
-Te polecenia tylko obowiązywać w przypadku bieżącego okna. Po zamknięciu okna `ASPNETCORE_ENVIRONMENT` przywraca ustawienie domyślne ustawienie lub wartość maszyny. Aby ustawić wartość globalnie w Windows, otwórz **Panelu sterowania** > **systemu** > **Zaawansowane ustawienia systemu** i Dodaj lub Edytuj `ASPNETCORE_ENVIRONMENT`wartość:
+Te polecenia tylko obowiązywać w przypadku bieżącego okna. Po zamknięciu okna `ASPNETCORE_ENVIRONMENT` przywraca ustawienie domyślne ustawienie lub wartość maszyny.
 
-![Zaawansowane właściwości systemu](environments/_static/systemsetting_environment.png)
+Aby ustawić wartość globalnie w Windows, użyj jednej z następujących metod:
 
-![Zmienna środowiskowa Core ASPNET](environments/_static/windows_aspnetcore_environment.png)
+* Otwórz **Panelu sterowania** > **systemu** > **Zaawansowane ustawienia systemu** i Dodaj lub Edytuj `ASPNETCORE_ENVIRONMENT` wartość:
+
+  ![Zaawansowane właściwości systemu](environments/_static/systemsetting_environment.png)
+
+  ![Zmienna środowiskowa Core ASPNET](environments/_static/windows_aspnetcore_environment.png)
+
+* Otwórz administracyjny wiersz polecenia i użyj `setx` polecenia lub Otwórz administracyjny wiersz polecenia programu PowerShell i użyj `[Environment]::SetEnvironmentVariable`:
+
+  **Wiersz polecenia**
+
+  ```console
+  setx ASPNETCORE_ENVIRONMENT=Development /M
+  ```
+
+  `/M` Przełącznika wskazuje, aby ustawić zmienną środowiskową na poziomie systemu. Jeśli `/M` przełącznik nie jest używany, zmienna środowiskowa jest ustawiona dla konta użytkownika.
+
+  **Program PowerShell**
+
+  ```powershell
+  [Environment]::SetEnvironmentVariable("ASPNETCORE_ENVIRONMENT", "Development", "Machine")
+  ```
+
+  `Machine` Wskazuje wartość opcji, aby ustawić zmienną środowiskową na poziomie systemu. Jeżeli wartość opcji została zmieniona na `User`, zmienna środowiskowa jest ustawiona dla konta użytkownika.
+
+Gdy `ASPNETCORE_ENVIRONMENT` zmienna środowiskowa jest ustawiona globalnie, wprowadzone `dotnet run` w dowolnym oknie polecenia otwarte po ustawieniu wartości.
 
 **web.config**
 
-Zobacz *Ustawianie zmiennych środowiskowych* części [informacje o konfiguracji modułu ASP.NET Core](xref:host-and-deploy/aspnet-core-module#setting-environment-variables) tematu.
+Aby ustawić `ASPNETCORE_ENVIRONMENT` zmiennej środowiskowej *web.config*, zobacz *Ustawianie zmiennych środowiskowych* części <xref:host-and-deploy/aspnet-core-module#setting-environment-variables>. Gdy `ASPNETCORE_ENVIRONMENT` zmienna środowiskowa została ustawiona za pomocą *web.config*, jego wartość zastępuje ustawienie poziomie systemu.
 
 **Na pulę aplikacji usług IIS**
 
-Aby ustawić zmienne środowiskowe dla poszczególnych aplikacji działających w izolowanej pulach aplikacji (obsługiwane w usługach IIS 10.0 +), zobacz *polecenia AppCmd.exe* części [zmienne środowiskowe &lt; environmentVariables&gt; ](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe) tematu.
+Aby ustawić `ASPNETCORE_ENVIRONMENT` zmienną środowiskową dla aplikacji uruchomionej w izolowanej puli aplikacji (obsługiwane w usługach IIS 10.0 lub nowszy), zobacz *polecenia AppCmd.exe* części [zmienne środowiskowe &lt; environmentVariables&gt; ](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe) tematu. Gdy `ASPNETCORE_ENVIRONMENT` zmienna środowiskowa jest ustawiona dla puli aplikacji, jego wartość zastępuje ustawienie poziomie systemu.
+
+> [!IMPORTANT]
+> Hostowanie aplikacji w usługach IIS i dodawania lub zmieniania `ASPNETCORE_ENVIRONMENT` środowiska, użycie zmiennej zbliża się jedną z następujących ma nowej wartości, które są pobierane przez aplikacje:
+>
+> * Ponowne uruchomienie puli aplikacji w aplikacji.
+> * Wykonaj `net stop was /y` następuje `net start w3svc` z poziomu wiersza polecenia.
+> * Uruchom ponownie serwer.
 
 ### <a name="macos"></a>macOS
 
@@ -244,7 +275,7 @@ Dystrybucje systemu Linux, można użyć `export` polecenie w wierszu polecenia 
 
 ### <a name="configuration-by-environment"></a>Konfiguracja według środowiska
 
-Zobacz [konfiguracji przez środowisko](xref:fundamentals/configuration/index#configuration-by-environment) Aby uzyskać więcej informacji.
+Zobacz *konfiguracji przez środowisko* części <xref:fundamentals/configuration/index#configuration-by-environment>.
 
 ## <a name="environment-based-startup-class-and-methods"></a>Klasa początkowa oparte na środowisku i metody
 

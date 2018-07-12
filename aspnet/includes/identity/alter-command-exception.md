@@ -2,4 +2,4 @@
 >
 > "System.NotSupportedException: SQLite nie obsługuje tej operacji migracji." 
 >
-> Jako obejście należy uruchomić migracje Code First w bazie danych można zmienić w tabelach.
+> Jako obejście Uruchom migracje Code First na bazę danych do tabel zmian.

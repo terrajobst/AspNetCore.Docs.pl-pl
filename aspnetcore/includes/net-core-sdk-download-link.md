@@ -1,1 +1,1 @@
-[Oprogramowanie .NET core SDK 2.0 lub nowszy](https://www.microsoft.com/net/download)
+[.NET core SDK 2.0 lub nowszej](https://www.microsoft.com/net/download)
