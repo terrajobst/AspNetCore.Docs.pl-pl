@@ -4,19 +4,16 @@ title: '[How Do I]: Synchronize Data in Secondary User Control(s) Based Upon Use
 author: rick-anderson
 description: W tym wideo pikseli Chris przedstawia sposób tworzenia dwóch kontrolek DropDownList, w którym zaznaczenie elementu na pierwszej liście wypełnia elementów na drugiej liście. Firs...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/06/2009
-ms.topic: article
 ms.assetid: 55eadf85-3a2b-4993-8444-494cd2c92d65
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-synchronize-data-in-secondary-user-controls-based-upon-user-selections
 msc.type: video
-ms.openlocfilehash: 60961347ea54ab601554bab417b008cef194a722
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 1b8bd8c32de0174b6c40185904e2a675c621652a
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37374785"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37818434"
 ---
 <a name="how-do-i-synchronize-data-in-secondary-user-controls-based-upon-user-selections"></a>[Jak]: synchronizowanie danych w dodatkowych kontrolkach użytkownika na podstawie wyborów użytkownika
 ====================
