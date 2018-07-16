@@ -1,26 +1,26 @@
 ---
-title: Tworzenie aplikacji platformy ASP.NET Core za pomocą monitora plików
+title: Tworzenie aplikacji platformy ASP.NET Core za pomocą obserwator plików
 author: rick-anderson
-description: Ten samouczek pokazuje, jak zainstalować i używać narzędzia obserwatora (dotnet czujki) pliku .NET Core CLI w aplikacji platformy ASP.NET Core.
+description: W tym samouczku pokazano, jak zainstalować i używać narzędzia obserwatora (dotnet watch) plików .NET Core interfejsu wiersza polecenia w aplikacji ASP.NET Core.
 ms.author: riande
 ms.date: 05/31/2018
 uid: tutorials/dotnet-watch
-ms.openlocfilehash: 2a59267b36faf1e00ea2f0cc7e2b9ceb9828f791
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: fc08efa433f688a0b9009aed35fdee2b0c228619
+ms.sourcegitcommit: e12f45ddcbe99102a74d4077df27d6c0ebba49c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278856"
+ms.lasthandoff: 07/15/2018
+ms.locfileid: "39063302"
 ---
-# <a name="develop-aspnet-core-apps-using-a-file-watcher"></a>Tworzenie aplikacji platformy ASP.NET Core za pomocą monitora plików
+# <a name="develop-aspnet-core-apps-using-a-file-watcher"></a>Tworzenie aplikacji platformy ASP.NET Core za pomocą obserwator plików
 
-Przez [Rick Anderson](https://twitter.com/RickAndMSFT) i [Hurdugaci zwycięzcę](https://twitter.com/victorhurdugaci)
+Przez [Rick Anderson](https://twitter.com/RickAndMSFT) i [Victor Hurdugaci](https://twitter.com/victorhurdugaci)
 
-`dotnet watch` to narzędzie, które uruchamia [interfejsu wiersza polecenia platformy .NET Core](/dotnet/core/tools) poleceń podczas zmiany plików źródłowych. Na przykład zmianę pliku może wyzwolić kompilację, wykonywania testów lub wdrożenia.
+`dotnet watch` to narzędzie, które uruchamia [interfejsu wiersza polecenia platformy .NET Core](/dotnet/core/tools) polecenia, gdy zmiany plików źródłowych. Na przykład zmianę pliku może wyzwalać kompilacja, wykonywanie testów lub wdrożenia.
 
-W tym samouczku korzysta z istniejącej interfejsu API sieci web z dwa punkty końcowe:, który zwraca sumę i zwracające produktu. Metoda produktu ma usterki, które zawartych w tym samouczku.
+W tym samouczku jest używany istniejący interfejs API sieci web z dwoma punktami końcowymi: taki, który zwraca sumę i jedną, która zwraca produktu. Metoda produktu zawiera usterkę, zostanie rozwiązany w ramach tego samouczka.
 
-Pobierz [Przykładowa aplikacja](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/dotnet-watch/sample). Zawiera dwa projekty: *aplikacji sieci Web* (platformy ASP.NET Core interfejsu API sieci web) i *WebAppTests* (testów jednostkowych dla interfejsu API sieci web).
+Pobierz [przykładową aplikację](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/dotnet-watch/sample). Obejmuje dwa projekty: *WebApp* (Platforma ASP.NET Core internetowego interfejsu API) i *WebAppTests* (testy jednostkowe dla interfejsu API sieci web).
 
 W powłoce poleceń, przejdź do *aplikacji sieci Web* folderu. Uruchom następujące polecenie:
 
@@ -28,7 +28,7 @@ W powłoce poleceń, przejdź do *aplikacji sieci Web* folderu. Uruchom następu
 dotnet run
 ```
 
-Dane wyjściowe konsoli przedstawia komunikaty podobne do następujących (co oznacza, że aplikacja jest uruchomiona i oczekujące na żądania):
+Dane wyjściowe konsoli zawierają komunikaty podobne do następujących (co oznacza, że aplikacja działa i oczekujące na żądania):
 
 ```console
 $ dotnet run
@@ -38,15 +38,15 @@ Now listening on: http://localhost:5000
 Application started. Press Ctrl+C to shut down.
 ```
 
-W przeglądarce sieci web, przejdź do `http://localhost:<port number>/api/math/sum?a=4&b=5`. Należy sprawdzić działanie `9`.
+W przeglądarce internetowej przejdź do `http://localhost:<port number>/api/math/sum?a=4&b=5`. Powinien zostać wyświetlony wynik `9`.
 
-Przejdź do produktu interfejsu API (`http://localhost:<port number>/api/math/product?a=4&b=5`). Zwraca `9`, a nie `20` zgodnie z regułami. Ten problem został rozwiązany później w samouczku.
+Przejdź do produktu API (`http://localhost:<port number>/api/math/product?a=4&b=5`). Zwraca `9`, a nie `20` zgodnie z regułami. Ten problem został rozwiązany w dalszej części tego samouczka.
 
 ::: moniker range="<= aspnetcore-2.0"
 
 ## <a name="add-dotnet-watch-to-a-project"></a>Dodaj `dotnet watch` do projektu
 
-`dotnet watch` Narzędzia obserwatora plików są dołączone do wersji 2.1.300 zestawu SDK .NET Core. Poniższe kroki są wymagane w przypadku wcześniejszych wersji programu .NET Core SDK.
+`dotnet watch` Pliku obserwatora narzędzie jest dołączone do wersji 2.1.300 .NET Core SDK. Poniższe kroki są wymagane, gdy przy użyciu wcześniejszej wersji programu .NET Core SDK.
 
 1. Dodaj `Microsoft.DotNet.Watcher.Tools` odwołanie do pakietu *.csproj* pliku:
 
@@ -64,24 +64,24 @@ Przejdź do produktu interfejsu API (`http://localhost:<port number>/api/math/pr
 
 ::: moniker-end
 
-## <a name="run-net-core-cli-commands-using-dotnet-watch"></a>Uruchom przy użyciu polecenia interfejsu wiersza polecenia platformy .NET Core `dotnet watch`
+## <a name="run-net-core-cli-commands-using-dotnet-watch"></a>Za pomocą poleceń interfejsu wiersza polecenia platformy .NET Core. `dotnet watch`
 
-Wszelkie [polecenia interfejsu wiersza polecenia platformy .NET Core](/dotnet/core/tools#cli-commands) może być uruchamiane przy `dotnet watch`. Na przykład:
+Wszelkie [polecenia interfejsu wiersza polecenia platformy .NET Core](/dotnet/core/tools#cli-commands) mogą być uruchamiane za pomocą `dotnet watch`. Na przykład:
 
-| Polecenie | Polecenie z czujki |
+| Polecenie | Polecenie z zegarkiem |
 | ---- | ----- |
-| Uruchom DotNet | Uruchom czujki DotNet |
-| Uruchom netcoreapp2.0 -f DotNet | Uruchom netcoreapp2.0 -f czujki DotNet |
-| Uruchom netcoreapp2.0 -f - DotNet — arg1 | Obejrzyj DotNet Uruchom netcoreapp2.0 -f ---arg1 |
-| DotNet test | test czujki DotNet |
+| Uruchom polecenia DotNet | Obejrzyj DotNet, uruchom |
+| polecenia DotNet, uruchom netcoreapp2.0 -f | Obejrzyj DotNet, uruchom netcoreapp2.0 -f |
+| Uruchom netcoreapp2.0 -f - DotNet-arg1 | Obejrzyj DotNet, uruchom netcoreapp2.0 -f — — arg1 |
+| polecenia DotNet test | polecenia DotNet test wyrażenie kontrolne |
 
 Uruchom `dotnet watch run` w *aplikacji sieci Web* folderu. Dane wyjściowe konsoli wskazuje `watch` została uruchomiona.
 
-## <a name="make-changes-with-dotnet-watch"></a>Wprowadź zmiany z `dotnet watch`
+## <a name="make-changes-with-dotnet-watch"></a>Wprowadzić zmiany za pomocą `dotnet watch`
 
 Upewnij się, że `dotnet watch` jest uruchomiona.
 
-Napraw błąd w `Product` metody *MathController.cs* tak aby zwracało produktu, a nie ich sumę:
+Naprawienie usterki w poleceniu `Product` metody *MathController.cs* tak aby zwracało poprawnie produktu i nie o sumę wartości:
 
 ```csharp
 public static int Product(int a, int b)
@@ -92,33 +92,33 @@ public static int Product(int a, int b)
 
 Zapisz plik. Dane wyjściowe konsoli wskazuje, że `dotnet watch` Wykryto zmianę pliku i ponownym uruchomieniu aplikacji.
 
-Sprawdź `http://localhost:<port number>/api/math/product?a=4&b=5` zwraca prawidłowego wyniku.
+Sprawdź `http://localhost:<port number>/api/math/product?a=4&b=5` zwraca odpowiedni wynik.
 
 ## <a name="run-tests-using-dotnet-watch"></a>Uruchom testy przy użyciu `dotnet watch`
 
-1. Zmień `Product` metody *MathController.cs* do zwracania suma. Zapisz plik.
+1. Zmiana `Product` metody *MathController.cs* do zwracania sumy. Zapisz plik.
 1. W powłoce poleceń, przejdź do *WebAppTests* folderu.
-1. Uruchom [przywracania dotnet](/dotnet/core/tools/dotnet-restore).
-1. Run `dotnet watch test`. Dane wyjściowe wskazuje, że testowanie nie powiodło się i że obserwatora oczekuje na zmiany w pliku:
+1. Uruchom [dotnet restore](/dotnet/core/tools/dotnet-restore).
+1. Uruchom `dotnet watch test`. Dane wyjściowe wskazuje, że test nie powiódł się i o obserwatora oczekujących na zmiany w plikach:
 
      ```console
      Total tests: 2. Passed: 1. Failed: 1. Skipped: 0.
      Test Run Failed.
      ```
 
-1. Usuń `Product` metody kod, tak aby zwracało produktu. Zapisz plik.
+1. Napraw `Product` metoda kodu, tak aby zwracało poprawnie produktu. Zapisz plik.
 
-`dotnet watch` wykrywa zmiany pliku i zwracające testy. Dane wyjściowe konsoli wskazuje testy zostały zakończone pomyślnie.
+`dotnet watch` wykrywa zmianę pliku i uruchomienia testów. Dane wyjściowe konsoli wskazuje testy zostały zakończone pomyślnie.
 
-## <a name="customize-files-list-to-watch"></a>Dostosowywanie listy plików do monitorowania
+## <a name="customize-files-list-to-watch"></a>Dostosuj listę plików, aby obejrzeć
 
-Domyślnie `dotnet-watch` śledzi wszystkie pliki następujące wzorce glob dopasowywania:
+Domyślnie `dotnet-watch` śledzi wszystkich plików zgodnych z następujących wzorców glob:
 
 * `**/*.cs`
 * `*.csproj`
 * `**/*.resx`
 
-Można dodać więcej elementów do listy czujki, edytując *.csproj* pliku. Można określić elementów pojedynczo lub za pomocą glob wzorce.
+Można dodać więcej elementów do listy obserwowanych przez edycję *.csproj* pliku. Elementy można określić osobno lub za pomocą glob wzorców.
 
 ```xml
 <ItemGroup>
@@ -127,9 +127,9 @@ Można dodać więcej elementów do listy czujki, edytując *.csproj* pliku. Mo�
 </ItemGroup>
 ```
 
-## <a name="opt-out-of-files-to-be-watched"></a>Wypisz pliki, aby być monitorowane
+## <a name="opt-out-of-files-to-be-watched"></a>Zoptymalizowany pod kątem na poziomie plików, aby być obserwowane
 
-`dotnet-watch` można skonfigurować tak, aby zignorować jego domyślnych ustawień. Ignorowanie określonych plików, dodawanie `Watch="false"` atrybutu do definicji elementu w *.csproj* pliku:
+`dotnet-watch` można skonfigurować tak, aby zignorować jego domyślnych ustawień. Aby zignorować określonych plików, należy dodać `Watch="false"` atrybutu do definicji przedmiotu w *.csproj* pliku:
 
 ```xml
 <ItemGroup>
@@ -144,15 +144,15 @@ Można dodać więcej elementów do listy czujki, edytując *.csproj* pliku. Mo�
 </ItemGroup>
 ```
 
-## <a name="custom-watch-projects"></a>Projekty niestandardowych czujki
+## <a name="custom-watch-projects"></a>Obejrzyj niestandardowych projektów
 
-`dotnet-watch` nie jest ograniczony do projektów C#. Można tworzyć projektów niestandardowych czujki do obsługi różnych scenariuszy. Należy wziąć pod uwagę następujące układ projektu:
+`dotnet-watch` nie jest ograniczony do projektów C#. Obejrzyj niestandardowe projekty mogą być tworzone do obsługi różnych scenariuszy. Należy wziąć pod uwagę następujące układ projektu:
 
-* **Testowanie /**
+* **Test /**
   * *UnitTests/UnitTests.csproj*
   * *IntegrationTests/IntegrationTests.csproj*
 
-Jeśli celem jest Obejrzyj oba projekty, Utwórz plik projektu niestandardowe skonfigurowane do wykrywania oba projekty:
+Jeśli celem jest, aby obejrzeć oba projekty, należy utworzyć plik projektu niestandardowe skonfigurowane do obu projektów:
 
 ```xml
 <Project>
@@ -169,14 +169,14 @@ Jeśli celem jest Obejrzyj oba projekty, Utwórz plik projektu niestandardowe sk
 </Project>
 ```
 
-Aby uruchomić plik obserwowanie na obu projektów, zmienić *test* folderu. Uruchom następujące polecenie:
+Aby uruchomić plik oglądania na obu projektów, zmienić *test* folderu. Wykonaj następujące polecenie:
 
 ```console
 dotnet watch msbuild /t:Test
 ```
 
-VSTest wykonuje po zmianie dowolnego pliku w każdym projekcie testowym.
+VSTest wykonuje, gdy wszelkich zmian w plikach w dowolnym projekcie testowym.
 
-## <a name="dotnet-watch-in-github"></a>`dotnet-watch` w witrynie GitHub
+## <a name="dotnet-watch-in-github"></a>`dotnet-watch` w usłudze GitHub
 
-`dotnet-watch` wchodzi w skład GitHub [repozytorium DotNetTools](https://github.com/aspnet/DotNetTools/tree/dev/src/dotnet-watch).
+`dotnet-watch` jest częścią usługi GitHub [repozytorium DotNetTools](https://github.com/aspnet/DotNetTools/tree/master/src/dotnet-watch).

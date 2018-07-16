@@ -5,12 +5,12 @@ description: W tym samouczku należy przeczytać i wyświetlanie powiązanych da
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: d5c9b665a80003ef5029754d7ad1780b3254e97e
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: a310c9e4b9cec6e2ab2477461f395c9bbd3fa364
+ms.sourcegitcommit: e12f45ddcbe99102a74d4077df27d6c0ebba49c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38216297"
+ms.lasthandoff: 07/15/2018
+ms.locfileid: "39063289"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---read-related-data---6-of-10"></a>Platforma ASP.NET Core MVC z programem EF Core — odczytywanie powiązanych danych - 6 10
 
@@ -155,7 +155,7 @@ Możesz użyć `Single` metody w kolekcji, gdy wiadomo, Kolekcja będzie mieć t
 Zamiast:
 
 ```csharp
-.Where(I => i.ID == id.Value).Single()
+.Where(i => i.ID == id.Value).Single()
 ```
 
 Następnie jeśli kurs został wybrany, wybranych kursów jest pobierana z Lista kursów model widoku. Następnie Wyświetl modelu `Enrollments` właściwość jest ładowany z jednostkami rejestracji z danego kursu `Enrollments` właściwości nawigacji.

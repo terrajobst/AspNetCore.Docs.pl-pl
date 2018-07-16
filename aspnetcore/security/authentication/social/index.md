@@ -5,12 +5,12 @@ description: W tym samouczku przedstawiono sposób tworzenia platformy ASP.NET C
 ms.author: riande
 ms.date: 11/01/2016
 uid: security/authentication/social/index
-ms.openlocfilehash: b3fbd98215537fad7b283d1bf96ebd259e0b980a
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: b2176ef40faaee02c5ef53dbb92a802212e58e8b
+ms.sourcegitcommit: e12f45ddcbe99102a74d4077df27d6c0ebba49c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37366278"
+ms.lasthandoff: 07/15/2018
+ms.locfileid: "39063328"
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Facebook, Google i zewnętrznego dostawcy uwierzytelniania w programie ASP.NET Core
 
@@ -24,7 +24,7 @@ W tym samouczku przedstawiono sposób tworzenia platformy ASP.NET Core 2.x aplik
 
 Umożliwienie użytkownikom logowania się za pomocą istniejących poświadczeń jest wygodne w przypadku użytkowników i przenosi wiele złożoności zarządzania procesu logowania na innej. Aby przykładów jak społecznościowych nazw logowania, może zapewnić konwersje typów ruchu i klienta, zobacz przypadków przez [Facebook](https://www.facebook.com/unsupportedbrowser) i [Twitter](https://dev.twitter.com/resources/case-studies).
 
-Uwaga: Pakiety przedstawionych w tym miejscu abstrakcji dużym stopniem złożoności przepływu uwierzytelniania OAuth, ale zrozumienie szczegóły mogą okazać się niezbędne podczas rozwiązywania problemów. Wiele zasobów są dostępne; na przykład zobacz [wprowadzenie do protokołu OAuth 2](https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2) lub [opis protokołu OAuth 2](http://www.bubblecode.net/2016/01/22/understanding-oauth2/). Niektóre problemy można rozwiązać, analizując [kod źródłowy platformy ASP.NET Core pakiety dostawcy](https://github.com/aspnet/Security/tree/dev/src).
+Uwaga: Pakiety przedstawionych w tym miejscu abstrakcji dużym stopniem złożoności przepływu uwierzytelniania OAuth, ale zrozumienie szczegóły mogą okazać się niezbędne podczas rozwiązywania problemów. Wiele zasobów są dostępne; na przykład zobacz [wprowadzenie do protokołu OAuth 2](https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2) lub [opis protokołu OAuth 2](http://www.bubblecode.net/2016/01/22/understanding-oauth2/). Niektóre problemy można rozwiązać, analizując [kod źródłowy platformy ASP.NET Core pakiety dostawcy](https://github.com/aspnet/Security/tree/master/src).
 
 ## <a name="create-a-new-aspnet-core-project"></a>Utwórz nowy projekt platformy ASP.NET Core
 

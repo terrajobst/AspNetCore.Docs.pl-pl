@@ -5,12 +5,12 @@ description: W tym samouczku należy przeczytać i wyświetlanie powiązanych da
 ms.author: riande
 ms.date: 11/05/2017
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: 4e0aa7151cc54f666202458ba60500a7c04f5ebb
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: fa3147cc4ad121784911eef802e04ca91f16448f
+ms.sourcegitcommit: e12f45ddcbe99102a74d4077df27d6c0ebba49c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38138257"
+ms.lasthandoff: 07/15/2018
+ms.locfileid: "39063315"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>Strony razor z programem EF Core w programie ASP.NET Core — odczytanie powiązanych danych — 6 8
 
@@ -74,19 +74,11 @@ Aby wyświetlić listę kursów nazwa działu przypisane:
 * Uruchom następujące polecenie:
 
   ```console
+  dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 2.1.0
   dotnet aspnet-codegenerator razorpage -m Course -dc SchoolContext -udl -outDir Pages\Courses --referenceScriptLibraries
   ```
 
 Poprzedni szkielety mechanizmów polecenia `Course` modelu. Otwórz projekt w programie Visual Studio.
-
-Skompiluj projekt. Kompilacja generuje błędy podobne do następującego:
-
-`1>Pages/Courses/Index.cshtml.cs(26,37,26,43): error CS1061: 'SchoolContext' does not
- contain a definition for 'Course' and no extension method 'Course' accepting a first
- argument of type 'SchoolContext' could be found (are you missing a using directive or
- an assembly reference?)`
-
- Globalnie zmienić `_context.Course` do `_context.Courses` (oznacza to, Dodaj znak "s" do `Course`). 7 wystąpień są znaleźć i zaktualizować.
 
 Otwórz *Pages/Courses/Index.cshtml.cs* i zbadaj `OnGetAsync` metody. Aparat tworzenia szkieletów określony wczesne ładowanie dla `Department` właściwości nawigacji. `Include` Metody określa wczesne ładowanie.
 

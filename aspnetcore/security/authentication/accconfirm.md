@@ -5,89 +5,82 @@ description: Dowiedz się, jak utworzyć aplikację platformy ASP.NET Core za po
 ms.author: riande
 ms.date: 2/11/2018
 uid: security/authentication/accconfirm
-ms.openlocfilehash: 12265903f60ff6d62befc445434db025c244c178
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 8e175cd19ca4a9de1e7cf6b330b3d82f309b6501
+ms.sourcegitcommit: e12f45ddcbe99102a74d4077df27d6c0ebba49c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37803275"
+ms.lasthandoff: 07/15/2018
+ms.locfileid: "39063341"
 ---
+::: moniker range="<= aspnetcore-2.0"
+
+Zobacz [plik PDF](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/asp.net_repo_pdf_1-16-18.pdf) dla platformy ASP.NET Core 1.1 i wersja 2.1.
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
+
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>Potwierdzenie konta i odzyskiwanie hasła w programie ASP.NET Core
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT) i [Audette Jan](https://twitter.com/joeaudette)
 
 W tym samouczku przedstawiono sposób kompilowania aplikacji platformy ASP.NET Core za pomocą poczty e-mail potwierdzenia i resetowaniem hasła. Niniejszy samouczek jest **nie** początku tematu. Należy zapoznać się z:
 
-* [ASP.NET Core](xref:tutorials/first-mvc-app/start-mvc)
+* [ASP.NET Core](xref:tutorials/razor-pages/razor-pages-start)
 * [Uwierzytelnianie](xref:security/authentication/index)
 * [Entity Framework Core](xref:data/ef-mvc/intro)
 
-Zobacz [plik PDF](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/asp.net_repo_pdf_1-16-18.pdf) dla wersji platformy ASP.NET Core MVC 1.1 i 2.x.
+<!-- see C:/Dropbox/wrk/Code/SendGridConsole/Program.cs -->
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-[!INCLUDE [](~/includes/net-core-prereqs.md)]
+[! Dołącz [] (~ / includes/2.1-SDK.md) [](~/includes/2.1-SDK.md)]
 
-## <a name="create-a-new-aspnet-core-project-with-the-net-core-cli"></a>Utwórz nowy projekt ASP.NET Core przy użyciu interfejsu wiersza polecenia platformy .NET Core
+## <a name="create-a-web--app-and-scaffold-identity"></a>Tworzenie aplikacji sieci web i tworzenia szkieletu tożsamości
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
-::: moniker range=">= aspnetcore-2.1"
-
-```console
-dotnet new webapp --auth Individual -o WebPWrecover
-cd WebPWrecover
-```
-
-[!INCLUDE[](~/includes/webapp-alias-notice.md)]
-
-::: moniker-end
-
-::: moniker range="= aspnetcore-2.0"
-
-```console
-dotnet new razor --auth Individual -o WebPWrecover
-cd WebPWrecover
-```
-
-::: moniker-end
-
-* `--auth Individual` Określa szablon projektu indywidualnych kont użytkowników.
-* Windows, Dodaj `-uld` opcji. Określa, że LocalDB powinny być używane zamiast bazy danych SQLite.
-* Uruchom `new mvc --help` Aby uzyskać pomoc dotyczącą tego polecenia.
-
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
-Jeśli używasz interfejsu wiersza polecenia lub bazy danych SQLite, uruchom następujące polecenie w oknie polecenia:
-
-```console
-dotnet new mvc --auth Individual
-```
-
-* `--auth Individual` Określa szablon projektu indywidualnych kont użytkowników.
-* Windows, Dodaj `-uld` opcji. Określa, że LocalDB powinny być używane zamiast bazy danych SQLite.
-* Uruchom `new mvc --help` Aby uzyskać pomoc dotyczącą tego polecenia.
-
----
-
-Alternatywnie można utworzyć nowy projekt ASP.NET Core z programem Visual Studio:
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
 
 * W programie Visual Studio Utwórz nowy **aplikacji sieci Web** projektu.
-* Wybierz **platformy ASP.NET Core 2.0**. **.NET core** jest zaznaczona na poniższej ilustracji, ale można wybrać **.NET Framework**.
-* Wybierz **Zmień uwierzytelnianie** i ustaw **indywidualne konta użytkowników**.
-* Zachowaj wartość domyślną **Store użytkownika konta w aplikacji**.
+* Wybierz **platformy ASP.NET Core 2.1**.
+* Zachowaj wartość domyślną **uwierzytelniania** równa **bez uwierzytelniania**. Uwierzytelnianie jest dodawany w następnym kroku.
 
-![Okno dialogowe nowego projektu przedstawiający "Indywidualne konta użytkowników radio" wybrana](accconfirm/_static/2.png)
+W następnym kroku:
+
+* Ustaw układ strony *~/Pages/Shared/_Layout.cshtml*
+* Wybierz *konta/rejestrowanie*
+* Utwórz nową **klasa kontekstu danych**
+
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+
+```console
+dotnet new webapp -o WebPWrecover
+cd WebPWrecover
+dotnet tool install -g dotnet-aspnet-codegenerator
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
+dotnet restore
+dotnet aspnet-codegenerator identity -fi Account.Register -dc WebPWrecover.Models.WebPWrecoverContext
+dotnet ef migrations add CreateIdentitySchema
+dotnet ef database drop -f
+dotnet ef database update
+dotnet build
+```
+
+Uruchom `dotnet aspnet-codegenerator identity --help` Aby uzyskać pomoc na temat narzędzia do tworzenia szkieletów.
+
+------
+
+Postępuj zgodnie z instrukcjami w [Włącz uwierzytelnianie](xref:security/authentication/scaffold-identity#useauthentication):
+
+* Dodaj `app.UseAuthentication();` do `Startup.Configure`
+* Dodaj `<partial name="_LoginPartial" />` do pliku układu.
 
 ## <a name="test-new-user-registration"></a>Rejestrowanie nowego użytkownika testowego
 
-Uruchom aplikację, wybierz **zarejestrować** łącze, a następnie zarejestrować użytkownik. Postępuj zgodnie z instrukcjami, aby uruchomić migracje platformy Entity Framework Core. W tym momencie jest tylko sprawdzanie poprawności w wiadomości e-mail z [[EmailAddress]](/dotnet/api/system.componentmodel.dataannotations.emailaddressattribute) atrybutu. Po przesłaniu rejestracji, użytkownik jest zalogowany do aplikacji. W dalszej części samouczka kod jest aktualizowana, dzięki czemu nowi użytkownicy nie mogą zalogować, dopóki nie został zweryfikowany poczty e-mail.
+Uruchom aplikację, wybierz **zarejestrować** łącze, a następnie zarejestrować użytkownik. W tym momencie jest tylko sprawdzanie poprawności w wiadomości e-mail z [[EmailAddress]](/dotnet/api/system.componentmodel.dataannotations.emailaddressattribute) atrybutu. Po przesłaniu rejestracji, użytkownik jest zalogowany do aplikacji. W dalszej części samouczka kod jest aktualizowana, dzięki czemu nowi użytkownicy nie mogą zalogować, dopóki nie zostanie zweryfikowana poczty e-mail.
 
 ## <a name="view-the-identity-database"></a>Widok bazy danych tożsamości
 
-Zobacz [Praca z SQLite w projektach programu ASP.NET Core MVC](xref:tutorials/first-mvc-app-xplat/working-with-sql) instrukcje dotyczące sposobu wyświetlania bazy danych SQLite.
-
-Dla programu Visual Studio:
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
 
 * Z **widoku** menu, wybierz opcję **Eksplorator obiektów SQL Server** (SSOX).
 * Przejdź do **(localdb) MSSQLLocalDB (SQL Server 13)**. Kliknij prawym przyciskiem myszy **dbo. AspNetUsers** > **wyświetlania danych**:
@@ -98,39 +91,45 @@ Należy pamiętać, tabeli `EmailConfirmed` pole jest `False`.
 
 Można używać tego adresu e-mail ponownie w następnym kroku, gdy aplikacja wysyła wiadomość e-mail z potwierdzeniem. Kliknij prawym przyciskiem myszy na wiersz i wybierz **Usuń**. Usuwanie aliasu adresu e-mail ułatwia w poniższych krokach.
 
----
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
-## <a name="require-https"></a>Wymaganie protokołu HTTPS
+Zobacz [Praca z SQLite w projektach programu ASP.NET Core MVC](xref:tutorials/first-mvc-app-xplat/working-with-sql) instrukcje dotyczące sposobu wyświetlania bazy danych SQLite.
 
-Zobacz [wymagania protokołu HTTPS](xref:security/enforcing-ssl).
+------
 
 <a name="prevent-login-at-registration"></a>
 ## <a name="require-email-confirmation"></a>Wymagaj potwierdzenie adresu e-mail
 
-Jest najlepszym rozwiązaniem, aby potwierdzić adres e-mail rejestrowanie nowego użytkownika. Wiadomość e-mail potwierdzenia pomaga sprawdzić, mogą one nie personifikuje kogoś innego (oznacza to one nie zostały zarejestrowane przy użyciu adresu e-mail osoby). Załóżmy, że trzeba było forum dyskusyjnego i chcesz uniemożliwić "yli@example.com"z rejestracją jako"nolivetto@contoso.com". Bez potwierdzenia e-mail "nolivetto@contoso.com" może otrzymywać niechciane wiadomości e-mail z aplikacji. Załóżmy, że użytkownik przypadkowo zarejestrowana jako "ylo@example.com" i nie zostało już słowa "yli". W takich sytuacjach przydałaby się mogli używać hasła odzyskiwania, ponieważ aplikacja nie ma ich prawidłowy adres e-mail. Potwierdzenie adresu e-mail zawiera tylko ograniczoną ochronę, od botów. Potwierdzenie adresu e-mail nie zapewniają ochronę przed złośliwymi użytkownikami z wieloma kontami e-mail.
+Jest najlepszym rozwiązaniem, aby potwierdzić adres e-mail rejestrowanie nowego użytkownika. Wiadomość e-mail potwierdzenia pomaga sprawdzić, mogą one nie personifikuje kogoś innego (oznacza to one nie zostały zarejestrowane przy użyciu adresu e-mail osoby). Załóżmy, że trzeba było forum dyskusyjnego i chcesz uniemożliwić "yli@example.com"z rejestracją jako"nolivetto@contoso.com". Bez potwierdzenia e-mail "nolivetto@contoso.com" może otrzymywać niechciane wiadomości e-mail z aplikacji. Załóżmy, że użytkownik przypadkowo zarejestrowana jako "ylo@example.com" i nie zostało już słowa "yli". W takich sytuacjach przydałaby się mogli używać hasła odzyskiwania, ponieważ aplikacja nie ma ich prawidłowy adres e-mail. Potwierdzenie adresu e-mail zapewnia ograniczoną ochronę, od botów. Potwierdzenie adresu e-mail nie zapewniają ochronę przed złośliwymi użytkownikami z wieloma kontami e-mail.
 
 Zazwyczaj chcesz uniemożliwić nowym użytkownikom publikowanie żadnych danych do witryny sieci web, zanim potwierdzone pocztą e-mail.
 
-Aktualizacja `ConfigureServices` będą musieli potwierdzony adres e-mail:
+Aktualizacja *Areas/Identity/IdentityHostingStartup.cs* będą musieli potwierdzony adres e-mail:
 
-[!code-csharp[](accconfirm/sample/WebPWrecover/Startup.cs?name=snippet1&highlight=12-17)]
+[!code-csharp[](accconfirm/sample/WebPWrecover21/Areas/Identity/IdentityHostingStartup.cs?name=snippet1&highlight=10-13)]
 
 `config.SignIn.RequireConfirmedEmail = true;` zarejestrowani użytkownicy uniemożliwia logowanie do momentu ich adres e-mail został potwierdzony.
 
 ### <a name="configure-email-provider"></a>Konfigurowanie dostawcy poczty e-mail
 
-W tym samouczku SendGrid umożliwia wysyłanie wiadomości e-mail. Potrzebujesz konta SendGrid i klucz do wysyłania wiadomości e-mail. Można użyć innych dostawców poczty e-mail. Platforma ASP.NET Core 2.x obejmuje `System.Net.Mail`, co pozwala na wysyłanie wiadomości e-mail z aplikacji. Zaleca się, że używasz usługi SendGrid lub innej usługi poczty e-mail do wysyłania wiadomości e-mail. SMTP jest trudne do zabezpieczania i poprawnie skonfigurowane.
+W tym samouczku [SendGrid](https://sendgrid.com) służy do wysyłania wiadomości e-mail. Potrzebujesz konta SendGrid i klucz do wysyłania wiadomości e-mail. Można użyć innych dostawców poczty e-mail. Platforma ASP.NET Core 2.x obejmuje `System.Net.Mail`, co pozwala na wysyłanie wiadomości e-mail z aplikacji. Zaleca się, że używasz usługi SendGrid lub innej usługi poczty e-mail do wysyłania wiadomości e-mail. SMTP jest trudne do zabezpieczania i poprawnie skonfigurowane.
 
 [Wzorzec opcje](xref:fundamentals/configuration/options) umożliwia dostęp do ustawień konta i klucza użytkownika. Aby uzyskać więcej informacji, zobacz [konfiguracji](xref:fundamentals/configuration/index).
 
-Utwórz klasę, można pobrać klucza zabezpieczanie poczty e-mail. W tym przykładzie `AuthMessageSenderOptions` klasa jest tworzona w *Services/AuthMessageSenderOptions.cs* pliku:
+Utwórz klasę, można pobrać klucza zabezpieczanie poczty e-mail. W tym przykładzie należy utworzyć *Services/AuthMessageSenderOptions.cs*:
 
-[!code-csharp[](accconfirm/sample/WebPWrecover/Services/AuthMessageSenderOptions.cs?name=snippet1)]
+[!code-csharp[](accconfirm/sample/WebPWrecover21/Services/AuthMessageSenderOptions.cs?name=snippet1)]
+
+#### <a name="configure-sendgrid-user-secrets"></a>Konfigurowanie wpisami tajnymi użytkowników usługi SendGrid
+
+Dodaj unikatowy `<UserSecretsId>` wartość `<PropertyGroup>` elementu w pliku projektu:
+
+[!code-xml[](accconfirm/sample/WebPWrecover21/WebPWrecover.csproj?highlight=5)]
 
 Ustaw `SendGridUser` i `SendGridKey` z [narzędzie Menedżer klucz tajny](xref:security/app-secrets). Na przykład:
 
 ```console
-C:\WebAppl\src\WebApp1>dotnet user-secrets set SendGridUser RickAndMSFT
+C:/WebAppl>dotnet user-secrets set SendGridUser RickAndMSFT
 info: Successfully saved SendGridUser = RickAndMSFT to the secret store.
 ```
 
@@ -145,57 +144,49 @@ Zawartość *secrets.json* pliku nie są szyfrowane. *Secrets.json* plików znaj
   }
   ```
 
-### <a name="configure-startup-to-use-authmessagesenderoptions"></a>Konfigurowanie uruchamiania, aby użyć AuthMessageSenderOptions
-
-Dodaj `AuthMessageSenderOptions` do kontenera usługi na końcu `ConfigureServices` method in Class metoda *Startup.cs* pliku:
-
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
-
-[!code-csharp[](accconfirm/sample/WebPWrecover/Startup.cs?name=snippet2&highlight=28)]
-
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
-
-[!code-csharp[](accconfirm/sample/WebApp1/Startup.cs?name=snippet1&highlight=26)]
-
----
-
-### <a name="configure-the-authmessagesender-class"></a>Konfigurowanie klasy AuthMessageSender
+### <a name="install-sendgrid"></a>Instalowanie usługi SendGrid
 
 W tym samouczku przedstawiono sposób dodawania powiadomienia e-mail za pośrednictwem [SendGrid](https://sendgrid.com/), ale możesz wysłać wiadomość e-mail przy użyciu SMTP i innych mechanizmów.
 
 Zainstaluj `SendGrid` pakietu NuGet:
 
-* W wierszu polecenia:
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
 
-    `dotnet add package SendGrid`
+W konsoli Menedżera pakietów wprowadź następujące polecenie:
 
-* W konsoli Menedżera pakietów wprowadź następujące polecenie:
+``` PMC
+Install-Package SendGrid
+```
 
-  `Install-Package SendGrid`
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+
+Z poziomu konsoli wprowadź następujące polecenie:
+
+```cli
+dotnet add package SendGrid
+```
+
+------
 
 Zobacz [bezpłatnie Rozpocznij pracę za pomocą usługi SendGrid](https://sendgrid.com/free/) zarejestrować o utworzenie bezpłatnego konta SendGrid.
+### <a name="implement-iemailsender"></a>Implementowanie IEmailSender
 
-#### <a name="configure-sendgrid"></a>Konfigurowanie usługi SendGrid
+Zaimplementowanie `IEmailSender`, Utwórz *Services/EmailSender.cs* kodem podobny do następującego:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+[!code-csharp[](accconfirm/sample/WebPWrecover21/Services/EmailSender.cs)]
 
-Aby skonfigurować usługi SendGrid, Dodaj kod, które są podobne do następującego *Services/EmailSender.cs*:
+### <a name="configure-startup-to-support-email"></a>Konfigurowanie uruchamiania do obsługi poczty e-mail
 
-[!code-csharp[](accconfirm/sample/WebPWrecover/Services/EmailSender.cs)]
+Dodaj następujący kod do `ConfigureServices` method in Class metoda *Startup.cs* pliku:
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+* Dodaj `EmailSender` jako usługi singleton.
+* Zarejestruj `AuthMessageSenderOptions` wystąpienia konfiguracji.
 
-* Dodaj kod w *Services/MessageServices.cs* podobne do następujących czynności, aby skonfigurować usługi SendGrid:
-
-[!code-csharp[](accconfirm/sample/WebApp1/Services/MessageServices.cs)]
-
----
+[!code-csharp[](accconfirm/sample/WebPWrecover21/Startup.cs?name=snippet2&highlight=12-99)]
 
 ## <a name="enable-account-confirmation-and-password-recovery"></a>Włącz odzyskiwanie potwierdzenia i hasło konta
 
-Szablon zawiera kod odzyskiwania potwierdzenia i hasło konta. Znajdź `OnPostAsync` method in Class metoda *Pages/Account/Register.cshtml.cs*.
-
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+Szablon zawiera kod odzyskiwania potwierdzenia i hasło konta. Znajdź `OnPostAsync` method in Class metoda *Areas/Identity/Pages/Account/Register.cshtml.cs*.
 
 Uniemożliwić nowym użytkownikom zalogowanie się automatycznie, zakomentowując następujący wiersz:
 
@@ -205,29 +196,7 @@ await _signInManager.SignInAsync(user, isPersistent: false);
 
 Za pomocą zmieniony wiersz wyróżniony pokazano całą metodę:
 
-[!code-csharp[](accconfirm/sample/WebPWrecover/Pages/Account/Register.cshtml.cs?highlight=16&name=snippet_Register)]
-
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
-
-Aby włączyć potwierdzenie konta, usuń znaczniki komentarza z następującego kodu:
-
-[!code-csharp[](accconfirm/sample/WebApp1/Controllers/AccountController.cs?highlight=16-25&name=snippet_Register)]
-
-**Uwaga:** kodu uniemożliwia nowo zarejestrowanego użytkownika z logowaniem się automatycznie, zakomentowując następujący wiersz:
-
-```csharp
-//await _signInManager.SignInAsync(user, isPersistent: false);
-```
-
-Włącz odzyskiwanie hasła przez kod w uncommenting `ForgotPassword` akcji *Controllers/AccountController.cs*:
-
-[!code-csharp[](accconfirm/sample/WebApp1/Controllers/AccountController.cs?highlight=17-23&name=snippet_ForgotPassword)]
-
-Usuń znaczniki komentarza element formularza w *Views/Account/ForgotPassword.cshtml*. Możesz chcieć usunąć `<p> For more information on how to enable reset password ... </p>` element, który zawiera łącze do tego artykułu.
-
-[!code-cshtml[](accconfirm/sample/WebApp1/Views/Account/ForgotPassword.cshtml?highlight=7-10,12,28)]
-
----
+[!code-csharp[](accconfirm/sample/WebPWrecover21/Areas/Identity/Pages/Account/Register.cshtml.cs?highlight=22&name=snippet_Register)]
 
 ## <a name="register-confirm-email-and-reset-password"></a>Rejestrowania i resetowania hasła oraz Potwierdź adres e-mail
 
@@ -250,18 +219,7 @@ Może być konieczne Rozwiń pasek nawigacyjny, aby wyświetlić nazwę użytkow
 
 ![pasek nawigacyjny](accconfirm/_static/x.png)
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
 Zostanie wyświetlona strona zarządzania, z **profilu** wybraną kartą. **E-mail** przedstawia pole wyboru, wskazujący adres e-mail został potwierdzony.
-
-![Zarządzanie stroną](accconfirm/_static/rick2.png)
-
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
-Jest to opisane w dalszej części tego samouczka.
-![Strona Zarządzanie](accconfirm/_static/rick2.png)
-
----
 
 ### <a name="test-password-reset"></a>Resetowanie hasła testu
 
@@ -276,7 +234,8 @@ Jest to opisane w dalszej części tego samouczka.
 
 Jeśli nie można rozpocząć pracę poczty e-mail:
 
-* Tworzenie [aplikacji konsoli, aby wysłać wiadomość e-mail](https://sendgrid.com/docs/Integrate/Code_Examples/v2_Mail/csharp.html).
+* Ustaw punkt przerwania `EmailSender.Execute` Aby zweryfikować `SendGridClient.SendEmailAsync` jest wywoływana.
+* Tworzenie [aplikacji konsoli, aby wysłać wiadomość e-mail](https://sendgrid.com/docs/Integrate/Code_Examples/v2_Mail/csharp.html) przy użyciu kodu podobne do `EmailSender.Execute`.
 * Przegląd [działania pocztą E-mail](https://sendgrid.com/docs/User_Guide/email_activity.html) strony.
 * Sprawdź folder wiadomości-śmieci.
 * Spróbuj inny alias poczty e-mail na innego dostawcy poczty e-mail (Microsoft Yahoo, Gmail, itp.)
@@ -308,3 +267,5 @@ Włączanie potwierdzenie konta w witrynie użytkownikom blokuje istniejących u
 
 * Aktualizuj bazę danych, aby oznaczyć wszyscy istniejący użytkownicy, co zostało potwierdzone.
 * Upewnij się, użytkownicy istniejącej. Na przykład usługi batch — wysyłanie wiadomości e-mail przy użyciu linki do potwierdzenia.
+
+::: moniker-end

@@ -5,12 +5,12 @@ description: Pokazuje, jak tworzyć, odczytywać, aktualizować, usuwać z progr
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/crud
-ms.openlocfilehash: dfc79964cc4f15851b42822bb97d14800f54b878
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 0a8d386104d9c62f37d0a94e66344d3f1e23bae9
+ms.sourcegitcommit: e12f45ddcbe99102a74d4077df27d6c0ebba49c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38216369"
+ms.lasthandoff: 07/15/2018
+ms.locfileid: "39063354"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---crud---2-of-8"></a>Strony razor z programem EF Core w programie ASP.NET Core — CRUD - 2, 8
 
@@ -236,9 +236,9 @@ Przetestuj Delete.
 
 ## <a name="common-errors"></a>Typowe błędy
 
-Nie działają dla uczniów/Home lub inne łącza:
+Nie działają dla uczniów/Index lub inne łącza:
 
-Sprawdź stronę Razor zawiera poprawny `@page` dyrektywy. Na przykład należy strony Razor dla uczniów/głównej **nie** zawiera szablon trasy:
+Sprawdź stronę Razor zawiera poprawny `@page` dyrektywy. Na przykład strony Razor dla uczniów/indeksu powinna **nie** zawiera szablon trasy:
 
 ```cshtml
 @page "{id:int}"
