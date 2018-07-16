@@ -258,6 +258,8 @@
 ### [Interfejs JavaScript API](/javascript/api/?view=signalr-js-latest)
 
 ## [Konfiguracja](xref:signalr/configuration)
+## [Uwierzytelnianie i autoryzacja](xref:signalr/authn-and-authz)
+## [Zagadnienia dotyczące bezpieczeństwa](xref:signalr/security)
 ## [Protokół centrum MessagePack](xref:signalr/messagepackhubprotocol)
 ## [Przesyłanie strumieniowe](xref:signalr/streaming)
 ## [Różnice między wersjami usługi SignalR](xref:signalr/version-differences)
