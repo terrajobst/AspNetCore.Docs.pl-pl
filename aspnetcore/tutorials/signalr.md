@@ -1,22 +1,20 @@
 ---
 title: Wprowadzenie do SignalR platformy ASP.NET Core
-author: rachelappel
+author: tdykstra
 description: W tym samouczku utworzysz aplikację dla platformy ASP.NET Core przy użyciu SignalR.
 monikerRange: '>= aspnetcore-2.1'
-ms.author: rachelap
+ms.author: tdykstra
 ms.custom: mvc
 ms.date: 05/22/2018
 uid: tutorials/signalr
-ms.openlocfilehash: 6b8222ee04573ca7157b4e1125ed5a4453b2b9a9
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 83be28b30cf06eeea37e8d76b3f6444ffd9a10e8
+ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37830558"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39095494"
 ---
 # <a name="get-started-with-signalr-on-aspnet-core"></a>Wprowadzenie do SignalR platformy ASP.NET Core
-
-Przez [Rachel Appel](https://twitter.com/rachelappel)
 
 W tym samouczku pokazano podstawowe informacje dotyczące tworzenia aplikacji w czasie rzeczywistym przy użyciu biblioteki SignalR dla platformy ASP.NET Core.
 
@@ -39,14 +37,14 @@ Zainstaluj następujące oprogramowanie:
 
 * [.NET core SDK 2.1 lub nowszej](https://www.microsoft.com/net/download/all)
 * [Program Visual Studio 2017](https://www.visualstudio.com/downloads/) wersji 15.7.3 lub nowszy z **ASP.NET i tworzenie aplikacji internetowych** obciążenia
-* [npm](https://www.npmjs.com/get-npm)
+* [npm](https://www.npmjs.com/get-npm) (Menedżer pakietów dla środowiska Node.js)
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * [.NET core SDK 2.1 lub nowszej](https://www.microsoft.com/net/download/all)
 * [Visual Studio Code](https://code.visualstudio.com/download)
 * [Środowisko C# dla programu Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
-* [npm](https://www.npmjs.com/get-npm)
+* [npm](https://www.npmjs.com/get-npm) (Menedżer pakietów dla środowiska Node.js)
 
 -----
 
@@ -71,7 +69,7 @@ Program Visual Studio obejmuje `Microsoft.AspNetCore.SignalR` pakietu zawierają
     npm install @aspnet/signalr
     ```
 
-4. Utwórz nowy folder o nazwie "signalr" wewnątrz *lib* folder w projekcie. Kopiuj *signalr.js* plik wchodzącej w skład *node_modules\\ @aspnet\signalr\dist\browser*  do tego folderu.
+4. Utwórz nowy folder o nazwie "signalr" wewnątrz *wwwroot/lib* folder w projekcie. Kopiuj *signalr.js* plik wchodzącej w skład *node_modules\\ @aspnet\signalr\dist\browser*  do tego folderu.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
 

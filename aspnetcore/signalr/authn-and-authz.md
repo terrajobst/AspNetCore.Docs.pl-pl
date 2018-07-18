@@ -1,18 +1,18 @@
 ---
 title: Uwierzytelnianie i autoryzacja w biblioteki SignalR platformy ASP.NET Core
-author: rachelappel
+author: tdykstra
 description: Dowiedz się, jak używać uwierzytelniania i autoryzacji w biblioteki SignalR platformy ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: anurse
 ms.custom: mvc
 ms.date: 06/29/2018
 uid: signalr/authn-and-authz
-ms.openlocfilehash: 32e5fcf2fd3f888e0e131fa47bd9a74eede3c26d
-ms.sourcegitcommit: 32626efaa7316c9b283c96be6516e637d548c5e5
+ms.openlocfilehash: d4259e04a0e3bb9ff517a10465323ccb5e2895a5
+ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39028519"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39095174"
 ---
 # <a name="authentication-and-authorization-in-aspnet-core-signalr"></a>Uwierzytelnianie i autoryzacja w biblioteki SignalR platformy ASP.NET Core
 
@@ -54,7 +54,7 @@ var connection = new HubConnectionBuilder()
 
 W standardowych interfejsów API sieci web tokenów elementu nośnego, są wysyłane w nagłówku HTTP. Nie można ustawić tych nagłówków w przeglądarkach, korzystając z niektórych transportu jest jednak SignalR. Korzystając z funkcji WebSockets i zdarzenia Server-Sent, token jest przekazywany jako parametr ciągu zapytania. Aby to umożliwić, na serwerze, wymagana jest dodatkowa konfiguracja:
 
-[!code-csharp[Configure Server to accept access token from Query String](authn-and-authz/sample/Startup.cs?range=33-34,42-80,90)]
+[!code-csharp[Configure Server to accept access token from Query String](authn-and-authz/sample/Startup.cs?name=snippet)]
 
 ### <a name="windows-authentication"></a>Uwierzytelnianie systemu Windows
 

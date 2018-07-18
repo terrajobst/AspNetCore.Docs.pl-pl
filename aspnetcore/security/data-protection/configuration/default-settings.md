@@ -1,51 +1,52 @@
 ---
-title: Zarządzanie kluczami ochrony danych i okres istnienia w ASP.NET Core
+title: Zarządzanie kluczami ochrony danych i okres istnienia w programie ASP.NET Core
 author: rick-anderson
-description: Więcej informacji na temat zarządzania kluczami ochrony danych i okres istnienia w ASP.NET Core.
+description: Więcej informacji na temat ochrony danych zarządzania kluczami i okresem istnienia w programie ASP.NET Core.
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/configuration/default-settings
-ms.openlocfilehash: 54259b1e2f37cdbbd551038e80f2b0fa1d77f196
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: beff17dd81143db02a0cbc79fa7cb3a6a4deeda6
+ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36277816"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39095102"
 ---
-# <a name="data-protection-key-management-and-lifetime-in-aspnet-core"></a>Zarządzanie kluczami ochrony danych i okres istnienia w ASP.NET Core
+# <a name="data-protection-key-management-and-lifetime-in-aspnet-core"></a>Zarządzanie kluczami ochrony danych i okres istnienia w programie ASP.NET Core
 
-przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ## <a name="key-management"></a>Zarządzanie kluczami
 
-Aplikacja próbuje wykryć jego środowisku operacyjnym i obsługiwać klucza konfiguracji samodzielnie.
+Aplikacja próbuje wykrywanie jego środowisku operacyjnym i usuwanie konfiguracji klucza samodzielnie.
 
-1. Jeśli aplikacja jest hostowana w [aplikacji Azure](https://azure.microsoft.com/services/app-service/), klucze są utrwalane w *%HOME%\ASP.NET\DataProtection-Keys* folderu. Ten folder nie jest obsługiwana przez sieć magazynu i jest synchronizowane na wszystkich komputerach hosting aplikacji.
-   * Klucze chronione nie są w stanie spoczynku.
-   * *DataProtection klucze* folderu dostarcza pierścień klucza do wszystkich wystąpień aplikacji w miejscu pojedynczego wdrożenia.
-   * Miejsc oddzielne wdrożenia, takich jak przemieszczania i produkcji, nie należy współużytkować pierścień klucza. Podczas wymiany między miejscami wdrożenia, na przykład wymiany przemieszczania do środowiska produkcyjnego lub za pomocą / B, testowanie, dowolną aplikację przy użyciu ochrony danych nie można odszyfrować przechowywanych danych przy użyciu pierścień klucza w poprzednim miejsca. Prowadzi to do użytkowników rejestrowane poza aplikacji, która używa standardowego uwierzytelniania plików cookie platformy ASP.NET Core, ponieważ używa ona ochrony danych do ochrony jego plików cookie. Jeśli konieczna jest niezależny od miejsca klucza sygnałów, używa dostawcy zewnętrznego pierścień klucza, takie jak magazyn obiektów Blob Azure, usługa Azure Key Vault magazynu SQL, lub pamięci podręcznej Redis.
+1. Jeśli aplikacja jest hostowana w [Azure Apps](https://azure.microsoft.com/services/app-service/), kluczy zostaną utrwalone w *%HOME%\ASP.NET\DataProtection-Keys* folderu. Ten folder jest wspierana przez sieć, Magazyn, które jest synchronizowane na wszystkich maszynach hostingu aplikacji.
+   * Klucze nie są chronione w stanie spoczynku.
+   * *DataProtection klucze* folderu dostarcza pierścień klucza do wszystkich wystąpień aplikacji w gnieździe pojedynczego wdrożenia.
+   * Gniazda wdrażane pojedynczo, takich jak przejściowe i produkcyjne, nie udostępniaj klucza pierścień. Podczas zamiany między miejscami wdrożenia, na przykład zamianę przejściowe i produkcyjne lub za pomocą / B, testowanie do odszyfrowywania danych przechowywanych w poprzednim miejsca przy użyciu pierścień klucza nie będzie można dowolną aplikację przy użyciu ochrony danych. Prowadzi to do użytkowników rejestrowane poza aplikację, która używa standardowego uwierzytelniania plików cookie programu ASP.NET Core, ponieważ używa ona ochrony danych, aby chronić swoje pliki cookie. W razie potrzeby pierścieni klucz niezależnie od miejsca, użyj dostawcę zewnętrznego pierścienia klucza, takich jak Azure Blob Storage, Azure Key Vault, magazynu SQL, lub pamięci podręcznej redis Cache.
 
-1. Jeśli profil użytkownika jest dostępna, klucze są utrwalane w *%LOCALAPPDATA%\ASP.NET\DataProtection-Keys* folderu. Jeśli system operacyjny Windows, klucze są szyfrowane, gdy przy użyciu DPAPI.
+1. Jeśli profil użytkownika jest dostępna, kluczy zostaną utrwalone w *%LOCALAPPDATA%\ASP.NET\DataProtection-Keys* folderu. W przypadku systemu operacyjnego Windows kluczy są szyfrowane za pomocą DPAPI.
 
-1. Jeśli aplikacja jest obsługiwana w usługach IIS, klucze są zachowywane w rejestrze HKLM w kluczu rejestru specjalne, który ma ACLed tylko konta procesu roboczego. Klucze są szyfrowane, gdy przy użyciu DPAPI.
+1. Jeśli aplikacja jest hostowana w usługach IIS, klucze są zachowywane do rejestru HKLM w kluczu rejestru specjalne, który ma ACLed tylko proces roboczy. Klucze są szyfrowane za pomocą DPAPI.
 
-1. Jeśli żadna z tych warunków, klucze nie są trwałe poza bieżącym procesie. Podczas procesu zamykania, wszystkie wygenerowane klucze zostaną utracone.
+1. Jeśli żadna z tych warunków, klucze nie są zachowywane poza bieżącym procesie. Podczas procesu zamykania, wszystkich wygenerowanych kluczy zostaną utracone.
 
-Deweloper zawsze ma pełną kontrolę, można zmienić, jak i gdzie są przechowywane klucze. Pierwsze trzy opcje powyżej powinno zapewniać dobrej wartości domyślne dla większości aplikacji, podobnie jak ASP.NET  **\<machineKey >** działał automatycznego generowania procedur. Opcja końcowym, rezerwowego jest tylko scenariusz, który wymaga developer określić [konfiguracji](xref:security/data-protection/configuration/overview) góry, jeśli chcą trwałości klucza, ale ta powrotu występuje tylko w rzadkich przypadkach.
+Deweloper zawsze ma pełną kontrolę, można zmienić, jak i, w którym są przechowywane klucze. Pierwszych trzech powyższych opcji powinny zapewnić dobre wartości domyślne to większość aplikacji, podobnie jak ASP.NET  **\<machineKey >** procedury Autogenerowanie działały w przeszłości. Opcja ostateczną, rezerwowy jest tylko scenariusz, który wymaga dla deweloperów określić [konfiguracji](xref:security/data-protection/configuration/overview) ponoszonych z góry, jeśli chcą trwałość klucza, ale ta rezerwowe występuje tylko w rzadkich sytuacjach.
 
-Odnośnie do hostowania w kontenerze Docker, kluczy powinien utrwalone w folderze, który jest woluminem Docker (udostępnionego woluminu lub wolumin zainstalowany w hoście będzie się powtarzać, poza okres istnienia kontenera) lub zewnętrznego dostawcy, takich jak [usługi Azure Key Vault](https://azure.microsoft.com/services/key-vault/) lub [Redis](https://redis.io/). Zewnętrznego dostawcy jest również przydatne w scenariuszach kolektywu serwerów sieci web, jeśli aplikacje nie może uzyskać dostęp do woluminu udostępnionego sieci (zobacz [PersistKeysToFileSystem](xref:security/data-protection/configuration/overview#persistkeystofilesystem) Aby uzyskać więcej informacji).
+W przypadku hostowania w kontenerze platformy Docker, kluczy powinny zostać utrwalona, w folderze, który jest woluminem platformy Docker (udostępnionego woluminu lub wolumin zainstalowany host będzie się powtarzać, poza okres istnienia kontenera) lub zewnętrznego dostawcy, takich jak [usługi Azure Key Vault](https://azure.microsoft.com/services/key-vault/) lub [Redis](https://redis.io/). Zewnętrznego dostawcy jest również przydatne w scenariuszach z farmami internetowymi, jeśli aplikacje nie mogą uzyskać dostęp do woluminu udostępnioną w sieci (zobacz [PersistKeysToFileSystem](xref:security/data-protection/configuration/overview#persistkeystofilesystem) Aby uzyskać więcej informacji).
 
 > [!WARNING]
-> Jeśli dewelopera reguł opisanych powyżej zastąpień i punktów systemu ochrony danych w określonym repozytorium klucza, automatycznego szyfrowania tych kluczy w stanie spoczynku jest wyłączone. W pozostałych ochrony można ją ponownie włączyć za pomocą [konfiguracji](xref:security/data-protection/configuration/overview).
+> Jeśli Deweloper zastępuje zasadom opisanym powyżej i wskazuje system ochrony danych w określonym repozytorium klucza, automatycznego szyfrowania kluczy w stanie spoczynku jest wyłączone. Ochrona magazynowanych można ją ponownie włączyć, za pośrednictwem [konfiguracji](xref:security/data-protection/configuration/overview).
 
 ## <a name="key-lifetime"></a>Okres istnienia klucza
 
-Domyślnie klucze mają 90-dniowy okres istnienia. Po wygaśnięciu klucz aplikacji automatycznie generuje nowy klucz i ustawia nowy klucz jako aktywnego klucza. Tak długo, jak klucze wycofane pozostają w systemie, aplikacja może odszyfrować wszystkie dane chronione za pomocą ich. Zobacz [zarządzanie kluczami](xref:security/data-protection/implementation/key-management#key-expiration-and-rolling) Aby uzyskać więcej informacji.
+Domyślnie klucze mają 90-dniowy okres istnienia. Po wygaśnięciu klucza, aplikacja automatycznie generuje nowy klucz i ustawia nowego klucza jako aktywnego klucza. Tak długo, jak wycofane klucze pozostają w systemie, aplikacja może odszyfrować dowolne dane, chronione przy użyciu ich. Zobacz [zarządzanie kluczami](xref:security/data-protection/implementation/key-management#key-expiration-and-rolling) Aby uzyskać więcej informacji.
 
-## <a name="default-algorithms"></a>Algorytmy domyślne
+## <a name="default-algorithms"></a>Domyślne algorytmy
 
-Domyślnym algorytmem ochrony ładunku używany jest AES-256-CBC poufności oraz HMACSHA256 autentyczności. Klucz główny 512-bitowe, zmienić co 90 dni, jest używany do uzyskania dwa klucze podrzędne używane dla tych algorytmów na podstawie na ładunku. Zobacz [podkluczy pochodnym](xref:security/data-protection/implementation/subkeyderivation#additional-authenticated-data-and-subkey-derivation) Aby uzyskać więcej informacji.
+Domyślny ładunek ochrony algorytm to AES-256-CBC poufności oraz HMACSHA256 autentyczności. 512-bitowy klucz główny, zmienić co 90 dni, jest używany do uzyskania dwa klucze podrzędne używane dla tych algorytmów na podstawie poszczególnych ładunku. Zobacz [podklucza pochodnym](xref:security/data-protection/implementation/subkeyderivation#additional-authenticated-data-and-subkey-derivation) Aby uzyskać więcej informacji.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Rozszerzalność zarządzania kluczami](xref:security/data-protection/extensibility/key-management)
+* <xref:security/data-protection/extensibility/key-management>
+* <xref:host-and-deploy/web-farm>

@@ -1,43 +1,43 @@
 ---
-title: Wiązania modelu w platformy ASP.NET Core
-author: rachelappel
-description: Dowiedz się, jak wiązanie modelu w programie ASP.NET MVC Core mapuje dane z żądania HTTP parametrami metody akcji.
+title: Wiązanie modelu w programie ASP.NET Core
+author: tdykstra
+description: Dowiedz się, jak wiązanie modelu programu ASP.NET Core MVC mapuje dane z żądań HTTP na parametry metody akcji.
 ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
-ms.author: rachelap
+ms.author: tdykstra
 ms.date: 01/22/2018
 uid: mvc/models/model-binding
-ms.openlocfilehash: 4c1cfddf82e077e22e9069777393bc5e6086de83
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 200e2c22e02ec9e24b7cdb3883cf6f2f93f2f4b7
+ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278388"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39095736"
 ---
-# <a name="model-binding-in-aspnet-core"></a>Wiązania modelu w platformy ASP.NET Core
+# <a name="model-binding-in-aspnet-core"></a>Wiązanie modelu w programie ASP.NET Core
 
 Przez [Rachel Appel](https://github.com/rachelappel)
 
-## <a name="introduction-to-model-binding"></a>Wprowadzenie do modelu powiązania
+## <a name="introduction-to-model-binding"></a>Wprowadzenie do wiązanie modelu
 
-Wiązania modelu w programie ASP.NET MVC Core mapuje dane z żądania HTTP do parametrów metody akcji. Parametry mogą być typu prostego przykład ciągów, liczb całkowitych lub elementów przestawnych lub mogą być typy złożone. Jest funkcją dużą MVC, ponieważ mapowanie danych przychodzących z odpowiednikiem jest często powtarzane scenariusz, niezależnie od tego, czy rozmiar lub złożoność elementu danych. MVC rozwiązuje ten problem, optymalizacji abstrakcyjność powiązanie tak programiści nie muszą zachować ponowne zapisywanie nieco inna wersja tego samego kodu, w każdej aplikacji. Zapisywanie tekstu do typu konwertera kodu jest niewygodny i błąd podatnych na błędy.
+Wiązanie modelu programu ASP.NET Core MVC mapuje dane z żądań HTTP na parametry metody akcji. Parametry mogą być proste typy, takie jak ciągi, liczby całkowite lub wartości zmiennoprzecinkowe lub mogą one być typów złożonych. Jest to atrakcyjną funkcją MVC, ponieważ mapowanie danych przychodzących z odpowiednikiem jest w przypadku często powtarzane, niezależnie od tego, rozmiarze i poziomie złożoności danych. MVC rozwiązuje ten problem przez troszczyć powiązania, dzięki którym deweloperzy nie muszą zachować poprawiania nieco inna wersja tego samego kodu w każdej aplikacji. Zapisywanie tekstu do typu konwertera kodu jest niewygodna i występowania błędów.
 
-## <a name="how-model-binding-works"></a>Jak działa wiązania modelu
+## <a name="how-model-binding-works"></a>Jak działa powiązanie modelu
 
-Gdy MVC odbiera żądanie HTTP, kieruje go do metody określonej akcji kontrolera. Określa, która metoda akcji do uruchomienia w oparciu o nowościach w danych trasy, a następnie wiąże wartości z żądania HTTP do parametrów tej metody akcji. Rozważmy na przykład następujący adres URL:
+Gdy MVC odbiera żądanie HTTP, kieruje je do metody określonej akcji kontrolera. Określa, która metoda akcji do uruchomienia w oparciu o na tym, co w danych trasy, a następnie powiąże wartości z żądania HTTP do parametrów tej metody akcji. Na przykład rozważmy następujący adres URL:
 
 `http://contoso.com/movies/edit/2`
 
-Ponieważ szablon trasy wygląda tak, `{controller=Home}/{action=Index}/{id?}`, `movies/edit/2` kieruje do `Movies` kontrolera, a jego `Edit` metody akcji. Przyjmuje opcjonalny parametr o nazwie `id`. Kod dla metody akcji powinna wyglądać mniej więcej tak:
+Ponieważ szablon trasy wyglądają następująco, `{controller=Home}/{action=Index}/{id?}`, `movies/edit/2` kieruje do `Movies` kontrolera, a jego `Edit` metody akcji. Akceptuje także opcjonalny parametr o nazwie `id`. Kod dla metody akcji powinna wyglądać mniej więcej tak:
 
 ```csharp
 public IActionResult Edit(int? id)
    ```
 
-Uwaga: Ciągów w trasy adresu URL nie jest uwzględniana.
+Uwaga: Ciągi w trasy adresu URL nie jest uwzględniana.
 
-MVC spróbuje powiązać dane żądania z parametrami akcji według nazwy. MVC sprawdza wartości dla każdego parametru przy użyciu nazwy parametru i nazwy jej do ustawienia właściwości publiczne. W powyższym przykładzie parametr akcji tylko o nazwie `id`, który MVC wiąże wartość z tej samej nazwie w wartości trasy. Oprócz wartości trasy MVC zostanie wiązanie danych z różnych części żądania i kopiuje je w kolejności zestawu. Poniżej znajduje się lista źródeł danych w kolejności wiązania modelu przegląda je:
+MVC podejmie próbę żądania danych można powiązać parametry akcji według nazwy. MVC będzie szukać wartości dla każdego parametru przy użyciu nazwy parametrów i nazwy publicznej właściwości do ustawienia. W powyższym przykładzie nosi nazwę parametru jedyną akcją `id`, który MVC wiąże wartość z tej samej nazwie w wartości trasy. Oprócz wartości trasy MVC powiąże dane z różnych części żądania, a następnie robi to w ustalonej kolejności. Poniżej znajduje się lista źródeł danych, w kolejności wiązania modelu przegląda je:
 
-1. `Form values`: Są to wartości formularza, które go w programie żądań HTTP używających metody POST. (włącznie z żądaniami POST jQuery).
+1. `Form values`: Są to wartości formularza, które bardziej szczegółowo w żądaniu HTTP przy użyciu metody POST. (w tym żądania POST jQuery).
 
 2. `Route values`: Zestaw wartości trasy udostępniane przez [routingu](xref:fundamentals/routing)
 
@@ -49,67 +49,67 @@ The link works but generates an error when building with DocFX
 [Routing](xref:fundamentals/routing)
 -->
 
-Uwaga: Formularza, wartości, dane trasy i zapytania się, że parametry są przechowywane jako pary nazwa wartość.
+Uwaga: Formularz wartości danych trasy i kwerend ciągów są przechowywane jako pary nazwa wartość.
 
-Ponieważ wiązania modelu wyświetlony monit o podanie klucz o nazwie `id` i nie ma niczego o nazwie `id` w wartości formularza on przeniesiony wartości trasy wyszukiwania dla tego klucza. W naszym przykładzie jest dopasowanie. Powiązaniem, a wartość jest konwertowana na liczbę całkowitą 2. Tym samym żądanie za pomocą edycji (identyfikator ciągu) czy przekonwertować na ciąg "2".
+Ponieważ wiązania modelu o podanie klucza o nazwie `id` i nie ma nic o nazwie `id` wartości formularza go następnie przeszedł do obozów szuka klucza, wartości trasy. W naszym przykładzie jest zgodny. Powiązaniem i wartością jest konwertowany na liczbę całkowitą 2. Tego samego żądania za pomocą edycji (identyfikator ciągu) czy przekonwertować na ciąg "2".
 
-W przykładzie użyto do tej pory typów prostych. W nazwie wzorca MVC proste typy są dowolnego typu pierwotnego .NET lub typu dla konwertera typu ciąg. Jeśli parametr metody akcji takich jak zostały klasy `Movie` typu, który zawiera zarówno proste i złożone typy właściwości, nadal będą powiązanie modelu MVC jego obsługa dobrze. Przechodzenie właściwości typów złożonych wyszukiwanie dopasowań używa odbicia i rekursji. Wiązanie modelu szuka wzorzec *parameter_name.property_name* powiązać wartości właściwości. Jeśli nie znajdzie pasujących wartości formularza, podejmie można powiązać, przy użyciu po prostu nazwę właściwości. Dla tych typów, takie jak `Collection` typów wiązania modelu szuka dopasowań, który ma *nazwa_parametru [Indeks]* lub po prostu *[Indeks]*. Traktuje powiązanie modelu `Dictionary` podobnie typy pytania o *nazwa_parametru [klucz]* lub po prostu *[klucz]*, tak długo, jak klucze są typów prostych. Klucze, które są obsługiwane zgodne, nazwy pola HTML i pomocników tagów wygenerowany dla tego samego typu modelu. Dzięki temu wartości dwustronną komunikację tak, aby pola formularza pozostają wypełniony przy użyciu danych wejściowych użytkownika udogodnienie, na przykład, gdy dane powiązane z Tworzenie lub edytowanie nie przeszedł pomyślnie weryfikacji.
+Do tej pory w przykładzie użyto typów prostych. W MVC proste typy są dowolnego typu pierwotnego .NET lub typu dla konwertera typu ciąg. Gdyby parametru metody akcji klasy takie jak `Movie` typ, który zawiera proste i złożone typy, właściwości nadal będą powiązanie modelu MVC go obsłużyć dobrze. Używa odbicia i rekursji przechodzenia właściwości typów złożonych szuka dopasowania. Wiązanie modelu wyszukuje wzorzec *parameter_name.property_name* do powiązania wartości właściwości. Jeśli nie znajdzie dopasowania wartości tego formularza podejmie można powiązać, przy użyciu tylko nazwy właściwości. Dla tych typów, takich jak `Collection` typów, wiązanie modelu szuka dopasowań, który ma *parameter_name [index]* lub po prostu *[index]*. Model traktuje powiązania `Dictionary` podobnie, typów, pytanie o *parameter_name [klucz]* lub po prostu *[klucz]*, tak długo, jak klucze są typy proste. Klucze, które są obsługiwane pasuje do nazwy pola HTML i pomocnicy tagów generowane dla tego samego typu modelu. Dzięki temu obustronne konwertowanie wartości tak, aby pola formularza pozostają wypełniony przy użyciu danych wejściowych użytkownika do ich zapewnienia wygody, na przykład, gdy powiązane dane z Utwórz lub zmodyfikuj nie przeszły pomyślnie sprawdzania poprawności.
 
-Aby powiązanie nastąpić klasy musi mieć publicznego konstruktora domyślnego i element członkowski może być powiązane musi być zapisywalny właściwości publiczne. W przypadku wiązania modelu się, że klasa będzie można wdrożyć tylko, przy użyciu domyślnego publicznego konstruktora właściwości można ustawić.
+Dla powiązania odbywały się klasy musi mieć publicznego konstruktora domyślnego i powiązać element członkowski musi być publicznymi właściwościami zapisywalny. W sytuacji, będzie tylko można utworzyć wystąpienia klasy przy użyciu publicznego konstruktora domyślnego wiązania modelu właściwości można ustawić.
 
-Wiązania parametru wiązania modelu zatrzyma się wyszukiwanie wartości o takiej nazwie i powoduje przeniesienie powiązać parametr dalej. W przeciwnym razie domyślne zachowanie wiązania modelu ustawia parametry z wartościami domyślnymi, w zależności od ich typu:
+Podczas wiązania parametru wiązania modelu zatrzymuje wyszukiwanie wartości o takiej nazwie i powoduje przeniesienie do powiązania następny parametr. W przeciwnym razie domyślne zachowanie wiązania modelu ustawia parametry domyślne wartości w zależności od ich typu:
 
 * `T[]`: Z wyjątkiem produktów tablic typu `byte[]`, powiązanie ustawia parametry typu `T[]` do `Array.Empty<T>()`. Tablice typu `byte[]` są ustawione na `null`.
 
-* Typy odwołań: Powiązanie tworzy wystąpienie klasy przy użyciu domyślnego konstruktora bez ustawienia właściwości. Jednak model ustawia powiązanie `string` parametry `null`.
+* Typy odwołań: Powiązanie tworzy instancję klasy przy użyciu domyślnego konstruktora bez konieczności ustawiania właściwości. Jednak model powiązania zestawów `string` parametry `null`.
 
-* Typy dopuszczające wartości zerowe: Typy dopuszczające wartości null są ustawione na `null`. W powyższym przykładzie modelu powiązania zestawów `id` do `null` , ponieważ jest on typu `int?`.
+* Typy dopuszczające wartości null: Typy dopuszczające wartości zerowe są ustawione na `null`. W powyższym przykładzie modelu powiązania zestawów `id` do `null` , ponieważ jest on typu `int?`.
 
-* Typy wartości: Wartości null typów wartości typu `T` są ustawione na `default(T)`. Na przykład powiązanie modelu spowoduje ustawienie parametru `int id` na 0. Należy wziąć pod uwagę przy użyciu weryfikacji modelu lub typ zerowalny zamiast polegania na wartości domyślne.
+* Typów wartości: Typy niedopuszczające wartości typu `T` są ustawione na `default(T)`. Na przykład powiązanie modelu spowoduje ustawienie parametru `int id` na 0. Należy wziąć pod uwagę przy użyciu sprawdzania poprawności modelu lub typy dopuszczające wartości null, a nie opierając się na wartości domyślne.
 
-Jeśli powiązanie kończy się niepowodzeniem, MVC nie Zgłoś błąd. Należy sprawdzić wszystkie akcje, które akceptuje dane wejściowe użytkownika `ModelState.IsValid` właściwości.
+Jeśli powiązanie kończy się niepowodzeniem, MVC nie wyrzuca błąd. Należy sprawdzić wszystkie akcje, które akceptuje dane wejściowe użytkownika `ModelState.IsValid` właściwości.
 
-Uwaga: Każdy wpis na kontrolerze `ModelState` właściwość jest `ModelStateEntry` zawierający `Errors` właściwości. Rzadko należy samodzielnie zapytania tej kolekcji. Zamiast nich należy używać słów kluczowych `ModelState.IsValid`.
+Uwaga: Każdy wpis na kontrolerze `ModelState` właściwość `ModelStateEntry` zawierający `Errors` właściwości. Rzadko należy zbadać tę kolekcję, samodzielnie. Zamiast nich należy używać słów kluczowych `ModelState.IsValid`.
 
-Istnieją ponadto niektóre typy specjalne danych, które MVC należy wziąć pod uwagę podczas tworzenia powiązania modelu:
+Ponadto istnieją pewne specjalne typy danych, które MVC należy wziąć pod uwagę podczas wiązania modelu:
 
-* `IFormFile`, `IEnumerable<IFormFile>`: Jeden lub więcej plików przekazanego, które są częścią żądania HTTP.
+* `IFormFile`, `IEnumerable<IFormFile>`: Jeden lub więcej plików przekazanych, będące częścią żądania HTTP.
 
-* `CancellationToken`: Używany do anulowania działania w asynchronicznej kontrolerów.
+* `CancellationToken`: Służy do anulować działanie w asynchronicznej kontrolerów.
 
-Te typy może być powiązana do parametrów akcji lub właściwości w typie klasy.
+Te typy można powiązać parametry akcji lub właściwości w typie klasy.
 
-Po zakończeniu wiązania modelu [weryfikacji](validation.md) występuje. Świetnie dla większość scenariuszy programowania sprawdza się w domyślnej wiązania modelu. Jest również rozszerzonego, więc mają unikatowe potrzeby można dostosować zachowanie wbudowanych.
+Po zakończeniu wiązania modelu [weryfikacji](validation.md) występuje. Wiązanie modelu domyślne działa doskonale nadaje się do większość scenariuszy projektowych. Jest również extensible, więc jeśli masz unikatowych potrzeb można dostosować wbudowane zachowanie.
 
-## <a name="customize-model-binding-behavior-with-attributes"></a>Dostosowywać zachowanie wiązania modelu z atrybutami
+## <a name="customize-model-binding-behavior-with-attributes"></a>Dostosowywanie zachowania wiązania modelu za pomocą atrybutów
 
-MVC zawiera kilka atrybutów, które umożliwia bezpośrednie jego domyślne zachowanie wiązania modelu z innym źródłem. Na przykład można określić, czy powiązanie jest wymagany dla właściwości Jeśli go powinno nigdy się wydarzyć w ogóle przy użyciu `[BindRequired]` lub `[BindNever]` atrybutów. Alternatywnie można zastąpić domyślne źródło danych i określ źródło danych integratora modelu. Poniżej przedstawiono listę atrybutów powiązanie modelu:
+MVC zawiera kilka atrybutów, które można użyć do kierowania jego domyślne zachowanie wiązania modelu do innego źródła. Na przykład można określić czy powiązania dla właściwości jest wymagana, czy jego powinno nigdy się wydarzyć na wszystkich przy użyciu `[BindRequired]` lub `[BindNever]` atrybutów. Alternatywnie można zastąpić domyślne źródło danych i określ źródło danych integratora modelu. Poniżej przedstawiono listę atrybutów powiązania modelu:
 
 * `[BindRequired]`: Ten atrybut dodaje błąd stanu modelu, jeśli nie można powiązać.
 
-* `[BindNever]`: Określa, że nigdy nie powiązać ten parametr integratora modelu.
+* `[BindNever]`: Zawiera informacje dla integratora modelu, który nigdy nie można powiązać ten parametr.
 
-* `[FromHeader]`, `[FromQuery]`, `[FromRoute]`, `[FromForm]`: Ich używać do określ źródło powiązania dokładne chcesz zastosować.
+* `[FromHeader]`, `[FromQuery]`, `[FromRoute]`, `[FromForm]`: Służą do określania źródło wiążące dokładnie, który chcesz zastosować.
 
-* `[FromServices]`: Ten atrybut używa [iniekcji zależności](../../fundamentals/dependency-injection.md) by powiązać parametry z usług.
+* `[FromServices]`: Ten atrybut używa [wstrzykiwanie zależności](../../fundamentals/dependency-injection.md) by powiązać parametry z usług.
 
-* `[FromBody]`: Użyj skonfigurowanych elementy formatujące wiązanie danych z treści żądania. Program formatujący jest zaznaczone, na podstawie typu zawartości żądania.
+* `[FromBody]`: Służy elementy formatujące skonfigurowane wiązanie danych z treści żądania. Element formatujący jest zaznaczone, na podstawie typu zawartości żądania.
 
-* `[ModelBinder]`: Służy do zastępowania domyślnego integratora modelu, źródle powiązania i nazwę.
+* `[ModelBinder]`: Służy do zastępowania domyślnego integratora modelu i źródło powiązania nazwy.
 
-Atrybuty są bardzo przydatne narzędzia, gdy chcesz zastąpić domyślne zachowanie wiązania modelu.
+Atrybuty są bardzo przydatne narzędzia, gdy trzeba zastąpić domyślne zachowanie wiązania modelu.
 
-## <a name="bind-formatted-data-from-the-request-body"></a>Wiązanie danych sformatowany z treści żądania
+## <a name="bind-formatted-data-from-the-request-body"></a>Powiąż sformatowanych danych z treści żądania
 
-Dane żądania są dostępne w różnych formatach, w tym JSON, XML i wiele innych. Użycie atrybutu [FromBody] Aby wskazać, że chcesz powiązać parametr z danymi w treści żądania, MVC używa skonfigurowany zestaw programów formatujących do obsługi danych żądania na podstawie jego typu zawartości. Domyślnie platforma MVC zawiera `JsonInputFormatter` klasy do obsługi danych JSON, ale można dodać dodatkowe elementy formatujące obsługi XML i inne niestandardowe formaty.
-
-> [!NOTE]
-> Może istnieć co najwyżej jeden parametr w każdej akcji ozdobione `[FromBody]`. Środowiska wykonawczego platformy ASP.NET Core MVC deleguje odpowiedzialność odczytywania strumienia żądania do elementu formatującego. Gdy dla parametru jest odczytać strumienia żądania, zwykle nie jest możliwe można odczytać strumienia żądania ponownie przez inne powiązanie `[FromBody]` parametrów.
+Dane żądania mogą pochodzić w różnych formatach, takich jak JSON, XML i wiele innych. Użycie atrybutu [FromBody] Aby wskazać, że chcesz powiązać parametr z danymi w treści żądania, są używane skonfigurowany zestaw programów formatujących do obsługi danych żądania na podstawie jego typu zawartości. Domyślnie MVC zawiera `JsonInputFormatter` klasy do obsługi danych JSON, ale można dodać dodatkowe elementy formatujące do obsługi kodu XML i innych formatów niestandardowych.
 
 > [!NOTE]
-> `JsonInputFormatter` Jest domyślny element formatujący i jest oparty na [Json.NET](https://www.newtonsoft.com/json).
+> Może być co najwyżej jeden parametr poszczególnych działań ozdobione `[FromBody]`. Wykonawczej programu ASP.NET Core MVC deleguje odpowiedzialność odczytywania strumienia żądania do elementu formatującego. Po strumienia żądania jest do odczytu dla parametru, zazwyczaj nie jest możliwe do odczytu strumienia żądania ponownie przez powiązanie inne `[FromBody]` parametrów.
 
-ASP.NET zaznacza programy formatujące wejściowych, na podstawie [Content-Type](https://www.w3.org/Protocols/rfc1341/4_Content-Type.html) nagłówka i typ parametru, chyba że jest atrybutem stosowanym do go przez określenie, w przeciwnym razie wartość. Jeśli chcesz użyć XML lub innego formatu należy skonfigurować je w *Startup.cs* pliku, ale najpierw trzeba uzyskać odwołania do `Microsoft.AspNetCore.Mvc.Formatters.Xml` przy użyciu narzędzia NuGet. Kod uruchomienia powinien wyglądać mniej więcej tak:
+> [!NOTE]
+> `JsonInputFormatter` Jest domyślny element formatujący i opiera się na [Json.NET](https://www.newtonsoft.com/json).
+
+ASP.NET wybiera elementy formatujące danych wejściowych, na podstawie [Content-Type](https://www.w3.org/Protocols/rfc1341/4_Content-Type.html) nagłówka i typu parametru, chyba że jest atrybutem zastosowanym określającą inny sposób. Jeśli chcesz użyć kodu XML lub innego formatu należy skonfigurować je w *Startup.cs* plik, ale najpierw musisz uzyskać odwołanie do `Microsoft.AspNetCore.Mvc.Formatters.Xml` za pomocą narzędzia NuGet. Kod startowy powinien wyglądać mniej więcej tak:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -119,8 +119,8 @@ public void ConfigureServices(IServiceCollection services)
    }
 ```
 
-Kod w *Startup.cs* plik zawiera `ConfigureServices` metody z `services` argumentu można użyć do tworzenia usług dla aplikacji ASP.NET. W przykładzie dodajemy formatujący XML jako usługa, która określi MVC dla tej aplikacji. `options` Argument przekazany do `AddMvc` metoda pozwala na dodawanie i zarządzanie filtrów, elementy formatujące i inne opcje systemu z MVC podczas uruchamiania aplikacji. Następnie Zastosuj `Consumes` do klasy kontrolera lub metody akcji do pracy z formatem ma atrybut.
+Możesz pisać kod w *Startup.cs* plik zawiera `ConfigureServices` metody z `services` argumentu można użyć do utworzenia usługi dla aplikacji ASP.NET. W tym przykładzie dodamy element formatujący XML jako usługa, która zapewni MVC dla tej aplikacji. `options` Argument przekazany do `AddMvc` metoda umożliwia dodawanie oraz zarządzanie nimi filtry, elementy formatujące i inne opcje systemu z MVC podczas uruchamiania aplikacji. Następnie Zastosuj `Consumes` atrybutów do klasy kontrolera lub metody akcji do pracy z żądany format.
 
-### <a name="custom-model-binding"></a>Wiązania niestandardowe modelu
+### <a name="custom-model-binding"></a>Niestandardowe wiązanie modelu
 
-Pisanie własnych integratorów modeli niestandardowych można rozszerzyć wiązania modelu. Dowiedz się więcej o [wiązania niestandardowego modelu](../advanced/custom-model-binding.md).
+Wiązanie modelu można rozszerzyć przez napisanie własnego integratorów modelu niestandardowego. Dowiedz się więcej o [niestandardowe wiązanie modelu](../advanced/custom-model-binding.md).

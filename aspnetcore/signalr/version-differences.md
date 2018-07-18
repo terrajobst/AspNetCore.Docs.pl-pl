@@ -1,43 +1,43 @@
 ---
 title: Różnice między SignalR i SignalR platformy ASP.NET Core
-author: rachelappel
+author: tdykstra
 description: Różnice między SignalR i SignalR platformy ASP.NET Core
 monikerRange: '>= aspnetcore-2.1'
-ms.author: rachelap
+ms.author: tdykstra
 ms.date: 06/30/2018
 uid: signalr/version-differences
-ms.openlocfilehash: fd314d93333bd159aef4bb4863be50c646809cf0
-ms.sourcegitcommit: 1faf2525902236428dae6a59e375519bafd5d6d7
+ms.openlocfilehash: 6ed7e2e1ecadef08d71c4d7a7c3469738d07bcda
+ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37090178"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39095011"
 ---
 # <a name="differences-between-signalr-and-aspnet-core-signalr"></a>Różnice między SignalR i SignalR platformy ASP.NET Core
 
-SignalR platformy ASP.NET Core nie jest zgodny z klientów lub serwerów dla produktu ASP.NET SignalR. Ten artykuł zawiera szczegóły dotyczące funkcji, które zostały usunięte lub zmienione w ASP.NET Core SignalR.
+SignalR platformy ASP.NET Core nie jest zgodny z klientami lub serwerami na potrzeby biblioteki SignalR platformy ASP.NET. Ten artykuł szczegółowo opisuje funkcje, które zostały usunięte lub zmienione w SignalR platformy ASP.NET Core.
 
 ## <a name="feature-differences"></a>Różnice w funkcjach
 
 ### <a name="automatic-reconnects"></a>Automatyczne ponowne podłączenia
 
-Automatyczne ponowne podłączenia nie są już obsługiwane. Wcześniej SignalR próby połączenia z serwerem, jeśli połączenie zostało przerwane. Teraz, jeśli klient został odłączony, użytkownik musi jawnie uruchamiane jest nowe połączenie, aby połączyć się ponownie.
+Automatyczne ponowne podłączenia nie są już obsługiwane. Wcześniej SignalR próbował ponownie połączyć z serwerem, jeśli połączenie zostało przerwane. Jeśli klient został odłączony teraz użytkownik musi jawnie uruchomić nowe połączenie, jeśli chcą ponownie połączyć.
 
-### <a name="protocol-support"></a>Obsługa protokołu
+### <a name="protocol-support"></a>Obsługa protokołów
 
-Biblioteka SignalR platformy ASP.NET Core obsługuje JSON, a także nowy protokół binarny na podstawie [MessagePack](xref:signalr/messagepackhubprotocol). Ponadto można tworzyć niestandardowe protokołów.
+Biblioteki SignalR platformy ASP.NET Core obsługuje JSON, a także nowy protokół binarny na podstawie [MessagePack](xref:signalr/messagepackhubprotocol). Ponadto protokoły niestandardowe, mogą być tworzone.
 
 ## <a name="differences-on-the-server"></a>Różnice na serwerze
 
-Biblioteki SignalR po stronie serwera znajdują się w `Microsoft.AspNetCore.App` pakietu, który jest częścią **aplikacji sieci Web platformy ASP.NET Core** szablonów dla projektów MVC jak Razor.
+SignalR biblioteki po stronie serwera są zawarte w `Microsoft.AspNetCore.App` pakiet, który jest częścią **aplikacji sieci Web programu ASP.NET Core** szablonów dla projektów MVC i Razor.
 
-SignalR to pośredniczące platformy ASP.NET Core, musi być skonfigurowany przez wywołanie metody `AddSignalR` w `Startup.ConfigureServices`.
+SignalR to pośredniczące platformy ASP.NET Core, dlatego musi być skonfigurowany, wywołując `AddSignalR` w `Startup.ConfigureServices`.
 
 ```csharp
 services.AddSignalR();
 ```
 
-Aby skonfigurować routing, mapować trasy koncentratory wewnątrz `UseSignalR` wywołanie metody `Startup.Configure` metody.
+Aby skonfigurować routing, mapy trasy do koncentratorów wewnątrz `UseSignalR` wywołania metody, w `Startup.Configure` metody.
 
 ```csharp
 app.UseSignalR(routes =>
@@ -46,44 +46,44 @@ app.UseSignalR(routes =>
 });
 ```
 
-### <a name="sticky-sessions-now-required"></a>Trwałe sesje teraz wymagane
+### <a name="sticky-sessions-now-required"></a>Trwałych sesji teraz wymagany
 
-Ze względu na sposób skalowania w poziomie działał w poprzednich wersjach programu SignalR klientów można ponownie połączyć i wysyłanie komunikatów do dowolnego serwera w farmie. Z powodu zmiany modelu skalowalnego w poziomie, jak również nie obsługuje ponowne podłączenia to nie jest już obsługiwana. Teraz gdy klient łączy się z serwerem musi interakcję z tym samym serwerze, na czas trwania połączenia.
+Ze względu na sposób skalowania w poziomie pracy w poprzedniej wersji biblioteki SignalR klientów może ponownie połączyć, a następnie wysyłać komunikaty do dowolnego serwera w farmie. Ze względu na zmiany modelu skalowalnego w poziomie, jak również nie obsługuje ponowne podłączenia to nie jest już obsługiwana. Teraz gdy klient łączy się z serwerem musi korzystać z tego samego serwera dla czas trwania połączenia.
 
-### <a name="single-hub-per-connection"></a>Jednego koncentratora połączenia dla
+### <a name="single-hub-per-connection"></a>Jedno centrum dla połączenia
 
-W programie ASP.NET SignalR Core został uproszczony model połączenia. Połączenia są nawiązywane bezpośrednio do jednego koncentratora, a nie jedno połączenie używane do udostępniania dostęp do wielu centrów.
+W bibliotece SignalR platformy ASP.NET Core został uproszczony model połączenia. Połączenia są nawiązywane bezpośrednio z jednym Centrum, zamiast jednego połączenia używany do udostępnienia w wielu centrach.
 
 ### <a name="streaming"></a>Przesyłanie strumieniowe
 
-Obsługuje teraz SignalR [przesyłanie strumieniowe danych](xref:signalr/streaming) z koncentratora do klienta.
+Obsługuje teraz SignalR [danych przesyłanych strumieniowo](xref:signalr/streaming) z koncentratora do klienta.
 
 ### <a name="state"></a>Stan
 
-Możliwość przekazywania stan dowolnego między klientami a koncentratora (często nazywane HubState) została usunięta, a także obsługę wiadomości dotyczące postępu. Nie ma odpowiednika serwerów proxy Centrum w tej chwili.
+Możliwość przekazywania dowolny stan między klientami a Centrum (często nazywanej HubState) zostało usunięte, a także obsługę wiadomości dotyczące postępu. Nie ma odpowiednika serwerów proxy koncentratora, w tym momencie.
 
-## <a name="differences-on-the-client"></a>Różnice na kliencie
+## <a name="differences-on-the-client"></a>Różnice na komputerze klienckim
 
 ### <a name="typescript"></a>TypeScript
 
-Wersja platformy ASP.NET Core SignalR są zapisywane [TypeScript](https://www.typescriptlang.org/). Można pisać w JavaScript i TypeScript, korzystając z [JavaScript klienta](xref:signalr/javascript-client).
+Wersja SignalR platformy ASP.NET Core jest zapisywany [TypeScript](https://www.typescriptlang.org/). Można napisać w JavaScript lub TypeScript, korzystając z [klienta JavaScript](xref:signalr/javascript-client).
 
-### <a name="the-javascript-client-is-hosted-at-npmhttpswwwnpmjscom"></a>Klient JavaScript jest obsługiwany w [npm](https://www.npmjs.com/)
+### <a name="the-javascript-client-is-hosted-at-npmhttpswwwnpmjscom"></a>Klient JavaScript znajduje się w [npm](https://www.npmjs.com/)
 
-W poprzednich wersjach klienta JavaScript uzyskano za pośrednictwem pakietu NuGet w programie Visual Studio. W przypadku wersji Core [ @aspnet/signalr pakietu npm](https://www.npmjs.com/package/@aspnet/signalr) zawiera biblioteki JavaScript. Ten pakiet nie jest zawarty w **aplikacji sieci Web platformy ASP.NET Core** szablonu. Użyj programu npm, aby uzyskać i zainstalować `@aspnet/signalr` pakietu npm.
+W poprzednich wersjach klienta JavaScript uzyskano za pośrednictwem pakietu NuGet w programie Visual Studio. Dla wersji podstawowej [ @aspnet/signalr pakietu npm](https://www.npmjs.com/package/@aspnet/signalr) zawiera biblioteki języka JavaScript. Ten pakiet nie jest zawarty w **aplikacji sieci Web programu ASP.NET Core** szablonu. Aby uzyskać i zainstalować za pomocą usługi npm `@aspnet/signalr` pakietów Menedżera npm.
 
 ```console
 npm init -y
 npm install @aspnet/signalr
 ```
 
-### <a name="jquery"></a>JQuery
+### <a name="jquery"></a>jQuery
 
-Zależność od jQuery została usunięta, jednak projekty można nadal używać jQuery.
+Zależność od jQuery zostało usunięte, jednak projekty można nadal używać jQuery.
 
-### <a name="javascript-client-method-syntax"></a>Składnia metody JavaScript klienta
+### <a name="javascript-client-method-syntax"></a>Składnia metody klient JavaScript
 
-Składnia języka JavaScript został zmieniony z poprzedniej wersji programu SignalR. Zamiast przy użyciu `$connection` obiektów, tworzenia połączenia za pomocą `HubConnectionBuilder` interfejsu API.
+Składnia języka JavaScript został zmieniony względem poprzedniej wersji biblioteki SignalR. Zamiast używania `$connection` obiektów, tworzenia połączenia za pomocą `HubConnectionBuilder` interfejsu API.
 
 ```javascript
 const connection = new signalR.HubConnectionBuilder()
@@ -91,7 +91,7 @@ const connection = new signalR.HubConnectionBuilder()
     .build();
 ```
 
-Użyj `connection.on` do określenia metod klienta, które można wywołać koncentratora.
+Użyj `connection.on` do określenia metody klienta, które można wywołać Centrum.
 
 ```javascript
 connection.on("ReceiveMessage", (user, message) => {
@@ -101,7 +101,7 @@ connection.on("ReceiveMessage", (user, message) => {
 });
 ```
 
-Po utworzeniu metody klienta, uruchom połączenie koncentratora. Łańcuch `catch` metoda logowania lub obsługi błędów.
+Po utworzeniu metody klienta, uruchom połączenie koncentratora. Łańcuch `catch` metodę, aby zalogować się lub obsługiwać błędy.
 
 ```javascript
 connection.start().catch(err => console.error(err.toString()));
@@ -109,13 +109,13 @@ connection.start().catch(err => console.error(err.toString()));
 
 ### <a name="hub-proxies"></a>Serwery proxy Centrum
 
-Nie będzie automatycznie generowanych proxy koncentratora. Zamiast tego w nazwie metody jest przekazywany do `invoke` interfejsu API w postaci ciągu.
+Nie będzie automatycznie są generowane, serwery proxy koncentratora. Zamiast tego Nazwa metody jest przekazywana do `invoke` API jako ciąg.
 
 ### <a name="net-and-other-clients"></a>.NET i innych klientów
 
-`Microsoft.AspNetCore.SignalR.Client` Pakietu NuGet zawiera biblioteki klienta .NET dla produktu ASP.NET SignalR Core.
+`Microsoft.AspNetCore.SignalR.Client` Pakietu NuGet zawiera biblioteki klienckie .NET dla biblioteki SignalR platformy ASP.NET Core.
 
-Użyj `HubConnectionBuilder` do tworzenia i tworzenie wystąpienia połączenia z koncentratorem.
+Użyj `HubConnectionBuilder` utworzyć i skompilować wystąpienie połączenia z koncentratorem.
 
 ```csharp
 connection = new HubConnectionBuilder()

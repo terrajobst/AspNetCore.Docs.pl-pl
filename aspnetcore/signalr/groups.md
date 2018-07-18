@@ -1,18 +1,18 @@
 ---
 title: Zarządzanie użytkownikami i grupami w SignalR
-author: rachelappel
+author: tdykstra
 description: Omówienie platformy ASP.NET Core SignalR użytkowników i grup zarządzania.
 monikerRange: '>= aspnetcore-2.1'
-ms.author: rachelap
+ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/04/2018
 uid: signalr/groups
-ms.openlocfilehash: 3e5e310c84bc3ed5790d5b67a917bd54162ea163
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: d54ab2a113345f98e26425a88cad165d67b8d456
+ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37402528"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39095024"
 ---
 # <a name="manage-users-and-groups-in-signalr"></a>Zarządzanie użytkownikami i grupami w SignalR
 

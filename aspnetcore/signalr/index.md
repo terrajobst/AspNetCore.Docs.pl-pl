@@ -1,17 +1,17 @@
 ---
 title: SignalR platformy ASP.NET Core
-author: rachelappel
+author: tdykstra
 description: Dowiedz się, tematy, które odnoszą się do biblioteki SignalR platformy ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
-ms.author: rachelap
+ms.author: tdykstra
 ms.date: 07/03/2018
 uid: signalr/index
-ms.openlocfilehash: 5c5c8c9af159a187cdb5c6be38dc3249addae597
-ms.sourcegitcommit: 32626efaa7316c9b283c96be6516e637d548c5e5
+ms.openlocfilehash: b150ec08638503db5b377b4357516d64e49ed653
+ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39025475"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39095369"
 ---
 # <a name="aspnet-core-signalr"></a>SignalR platformy ASP.NET Core
 
@@ -31,7 +31,7 @@ ms.locfileid: "39025475"
 
 * [Konfiguracja](xref:signalr/configuration)
 * [Uwierzytelnianie i autoryzacja](xref:signalr/authn-and-authz)
-* [Zagadnienia dotyczące zabezpieczeń](xref:signalr/security)
+* [Zagadnienia dotyczące bezpieczeństwa](xref:signalr/security)
 * [Protokół centrum MessagePack](xref:signalr/messagepackhubprotocol)
 * [Przesyłanie strumieniowe](xref:signalr/streaming)
 * [Różnice między wersjami usługi SignalR](xref:signalr/version-differences)

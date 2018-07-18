@@ -1,18 +1,18 @@
 ---
 title: Klient modelu .NET SignalR platformy ASP.NET Core
-author: rachelappel
+author: tdykstra
 description: Informacje na temat klienta .NET SignalR platformy ASP.NET Core
 monikerRange: '>= aspnetcore-2.1'
-ms.author: rachelap
+ms.author: tdykstra
 ms.custom: mvc
 ms.date: 05/29/2018
 uid: signalr/dotnet-client
-ms.openlocfilehash: 35dc1d3abf0d35e17d1835ec462f8cc4feb728eb
-ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
+ms.openlocfilehash: ce5be911e67831cbf6c09e24744111e73ffdbe63
+ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37938257"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39095037"
 ---
 # <a name="aspnet-core-signalr-net-client"></a>Klient modelu .NET SignalR platformy ASP.NET Core
 
