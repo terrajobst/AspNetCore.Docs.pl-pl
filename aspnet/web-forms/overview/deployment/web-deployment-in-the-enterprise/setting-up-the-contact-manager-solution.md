@@ -4,19 +4,16 @@ title: Konfigurowanie rozwiązania Contact Manager | Dokumentacja firmy Microsof
 author: jrjlee
 description: W tym temacie opisano, jak pobrać i skonfigurować rozwiązanie Contact Manager, aby uruchomić lokalnie na stacji roboczej dewelopera.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/04/2012
-ms.topic: article
 ms.assetid: 200b973c-776b-4a9b-9e82-39fda6120a52
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/setting-up-the-contact-manager-solution
 msc.type: authoredcontent
-ms.openlocfilehash: a7675a793909ec4d95164ee47a3a43f73600c5bc
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 479dbb8d2edbe9fb953ea9e1312ffb8fdbd3e2fe
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37366692"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37802134"
 ---
 <a name="setting-up-the-contact-manager-solution"></a>Konfigurowanie rozwiązania Contact Manager
 ====================
@@ -64,7 +61,7 @@ Dalszej części tej sekcji zawiera więcej wskazówek na temat sposobu ukończe
     [!code-console[Main](setting-up-the-contact-manager-solution/samples/sample1.cmd)]
 
     1. Użyj **– C** przełącznik, aby określić parametry połączenia dla serwera bazy danych.
-    2. Użyj **** przełącznika, usługi aplikacji funkcji, które chcesz dodać do bazy danych. W tym przypadku **m** wskazuje, że dodanie obsługi dostawcy członkostwa i **r** wskazuje, że chcesz dodać obsługę menedżera ról.
+    2. Użyj **–A** przełącznika, usługi aplikacji funkcji, które chcesz dodać do bazy danych. W tym przypadku **m** wskazuje, że dodanie obsługi dostawcy członkostwa i **r** wskazuje, że chcesz dodać obsługę menedżera ról.
     3. Użyj **– d** przełącznika, aby określić nazwę bazy danych usług aplikacji. Jeśli ta opcja zostanie pominięta, narzędzie utworzy bazę danych z domyślną nazwą **aspnetdb**.
 3. Gdy baza danych została utworzona pomyślnie, wiersz polecenia zostanie wyświetlone potwierdzenie.
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/13/2018
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 96a4403653e474bb056374909b3ee66998bc99be
-ms.sourcegitcommit: 19cbda409bdbbe42553dc385ea72d2a8e246509c
+ms.openlocfilehash: 607bdb7ee830c9a3bbb83ca2aec4661772a285b2
+ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38992818"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39095843"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host platformy ASP.NET Core na Windows za pomocą programu IIS
 
@@ -168,9 +168,8 @@ Włącz **Konsola zarządzania usługami IIS** i **usługi World Wide Web**.
 
 1. Zainstaluj *hostingu pakietu programu .NET Core* przez system operacyjny. Pakiet instaluje .NET Core środowisko uruchomieniowe, biblioteki platformy .NET Core i [modułu ASP.NET Core](xref:fundamentals/servers/aspnet-core-module). Moduł tworzy zwrotny serwer proxy między usługami IIS a Kestrel server. Jeśli system nie ma dostępu do Internetu, należy uzyskać i zainstalować [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840) przed zainstalowaniem pakietu hostingu platformy .NET Core.
 
-   1. Przejdź do [.NET pobiera wszystkie strony](https://www.microsoft.com/net/download/all).
-   1. W **środowiska uruchomieniowego** kolumnie tabeli, z listy wybierz najnowsze środowisko uruchomieniowe platformy .NET Core — wersja zapoznawcza (**X.Y środowiska uruchomieniowego (vX.Y.Z) pliki do pobrania**). Najnowsze środowisko uruchomieniowe ma **bieżącego** etykiety. O ile nie zamierzasz pracować (wersja zapoznawcza), należy unikać środowisko uruchomieniowe z wyrazem "Podgląd" lub "rc" (Wersja Release Candidate) w tekście linku.
-   1. W środowisku uruchomieniowym .NET Core strony w obszarze pobierania **Windows**, wybierz opcję **hostingu Instalatora pakietu** link, aby pobrać *hostingu pakietu programu .NET Core* Instalatora.
+   1. Przejdź do [strony pobierania .NET](https://www.microsoft.com/net/download/windows).
+   1. W obszarze **platformy .NET Core**, wybierz opcję **Pobierz podstawowe środowisko uruchomieniowe platformy .NET** znajdujący się obok **Uruchom aplikacje** etykiety. Plik wykonywalny Instalatora zawiera słowa "hostingu" w nazwie pliku (na przykład *dotnet hostingu-2.1.2-win.exe*).
    1. Uruchom Instalatora na serwerze.
 
    **Ważne!** Po zainstalowaniu pakietu hostowanie usług IIS wcześniejsze instalacji pakietu musi zostać naprawiony. Uruchom Instalatora pakietu hostingu ponownie po zainstalowaniu usług IIS.
