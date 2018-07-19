@@ -8,12 +8,12 @@ ms.date: 08/23/2012
 ms.assetid: 5894dc13-5d45-4dad-8096-136499120f1d
 msc.legacyurl: /mvc/overview/performance/bundling-and-minification
 msc.type: authoredcontent
-ms.openlocfilehash: 090bb58f762302e0f58db7b8c005fe584e5ec419
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 4e72804593c07318af8cc577f9d43ab96be4de05
+ms.sourcegitcommit: cb0c27fa0184f954fce591d417e6ab2a51d8bb22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37827378"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39123791"
 ---
 <a name="bundling-and-minification"></a>Tworzenie pakietów i minimalizowanie
 ====================
@@ -69,7 +69,7 @@ W poniższej tabeli przedstawiono kilka istotnych różnic między ofercie wszys
 | **Odebrano KB** | 388.51 | 530 | 36% |
 | **Czas ładowania** | 510 MS | 780 MS | 53% |
 
-Wysłane bajty ma znacznego zmniejszenia za pomocą tworzenia pakietów, ponieważ przeglądarki są dość pełne przy użyciu nagłówków HTTP, które stosują w odpowiedzi na żądania. Redukcja odebranych bajtów nie jest tak duży, ponieważ największych plików (*Scripts\jquery-ui-1.8.11.min.js* i *Scripts\jquery-1.7.1.min.js*) są już zminimalizowany. Uwaga: Chronometrażu w przykładowy program używany [Fiddler](http://www.fiddler2.com/fiddler2/) narzędzie, aby symulować wolną sieć. (Z programu Fiddler **reguły** menu, wybierz opcję **wydajności** następnie **symulować szybkości modemu**.)
+Wysłane bajty ma znacznego zmniejszenia za pomocą tworzenia pakietów, ponieważ przeglądarki są dość pełne przy użyciu nagłówków HTTP, które stosują w odpowiedzi na żądania. Redukcja odebranych bajtów nie jest tak duży, ponieważ największych plików (*skrypty\\jquery-ui-1.8.11.min.js* i *skrypty\\jquery 1.7.1.min.js*) są już zminimalizowany . Uwaga: Chronometrażu w przykładowy program używany [Fiddler](http://www.fiddler2.com/fiddler2/) narzędzie, aby symulować wolną sieć. (Z programu Fiddler **reguły** menu, wybierz opcję **wydajności** następnie **symulować szybkości modemu**.)
 
 ## <a name="debugging-bundled-and-minified-javascript"></a>Debugowanie powiązane i zminimalizowania JavaScript
 
@@ -79,7 +79,7 @@ Wysłane bajty ma znacznego zmniejszenia za pomocą tworzenia pakietów, poniewa
 2. Wybierz pakiet zawierający funkcja języka JavaScript, który chcesz debugować za pomocą przycisku zasoby.  
     ![](bundling-and-minification/_static/image4.png)
 3. Formatowanie zminimalizowanego JavaScript, wybierając **przycisk Konfiguracja** ![](bundling-and-minification/_static/image5.png), a następnie wybierając **formatu JavaScript**.
-4. W **skryptu wyszukiwania** t pole wejściowe, wybierz nazwę funkcji, który chcesz debugować. Na poniższej ilustracji **AddAltToImg** została wprowadzona w **skryptu wyszukiwania** t pola wejściowego.  
+4. W **skryptu wyszukiwania** pole wprowadzania, wybierz nazwę funkcji, który chcesz debugować. Na poniższej ilustracji **AddAltToImg** została wprowadzona w **skryptu wyszukiwania** pola wejściowego.  
     ![](bundling-and-minification/_static/image6.png)
 
 Aby uzyskać więcej informacji na temat debugowania przy użyciu narzędzi deweloperskich F12, zobacz artykuł w witrynie MSDN [przy użyciu narzędzi deweloperskich F12, aby debugować błędy JavaScript](https://msdn.microsoft.com/library/ie/gg699336(v=vs.85).aspx).
@@ -107,15 +107,15 @@ Aby włączyć tworzenie pakietów i minimalizowanie, ustaw `debug` wartość "f
 
 W tej sekcji utworzymy platformy ASP.NET MVC projekt, aby sprawdzić, tworzenie pakietów i minimalizowanie. Najpierw utwórz nowy projekt ASP.NET MVC, internetowe o nazwie **MvcBM** bez wprowadzania zmian w dowolnej wartości domyślne.
 
-Otwórz *aplikacji\_Start\BundleConfig.cs* plików i zbadaj `RegisterBundles` metodę, która umożliwia tworzenie, rejestrowanie i konfigurowanie pakiety. Poniższy kod ilustruje część `RegisterBundles` metody.
+Otwórz *aplikacji\\\_Start\\BundleConfig.cs* plików i zbadaj `RegisterBundles` metodę, która umożliwia tworzenie, rejestrowanie i konfigurowanie pakiety. Poniższy kod ilustruje część `RegisterBundles` metody.
 
 [!code-csharp[Main](bundling-and-minification/samples/sample5.cs)]
 
 Powyższy kod powoduje utworzenie nowego pakietu języka JavaScript o nazwie *~/bundles/jquery* zawierającą wszystkie odpowiednie (które debugowania lub zminimalizowany, ale nie. *vsdoc*) pliki *skrypty* folder, który pasuje do ciągu z symbolami wieloznacznymi "js ~/Scripts/jquery-{version}". Dla platformy ASP.NET MVC 4, oznacza to, z konfiguracji debugowania, plik *jquery 1.7.1.js* zostaną dodane do pakietu. W konfiguracji wydania *jquery 1.7.1.min.js* zostaną dodane. Tworzenie pakietu framework zgodna z konwencjami kilka typowych takich jak:
 
-- Wybieranie pliku ".min" dla wersji, gdy istnieją "FileX.min.js" i "FileX.js".
+- Wybieranie pliku ".min" dla wersji, gdy *FileX.min.js* i *FileX.js* istnieje.
 - Wybieranie wersji niż ".min" do debugowania.
-- Ignorowanie "-vsdoc" (np. jquery-1.7.1-vsdoc.js), pliki, które są używane tylko przez technologię IntelliSense.
+- Ignorowanie "-vsdoc" plików (takich jak *jquery-1.7.1-vsdoc.js*), które są używane tylko przez technologię IntelliSense.
 
 `{version}` Symbol wieloznaczny dopasowania powyżej jest używane do automatycznego tworzenia pakietu jQuery z odpowiednią wersją jQuery w swojej *skrypty* folderu. W tym przykładzie za pomocą symbolu wieloznacznego zapewnia następujące korzyści:
 
@@ -134,7 +134,7 @@ W powyższym kodzie jQuery zostanie zażądany z sieci CDN, natomiast w wersji t
 
 ## <a name="creating-a-bundle"></a>Tworzenie pakietu
 
-[Pakietu](https://msdn.microsoft.com/library/system.web.optimization.bundle(v=VS.110).aspx) klasy `Include` metoda przyjmuje tablicę ciągów, gdzie każdy ciąg jest ścieżką wirtualną do zasobu. Poniższy kod w metodzie RegisterBundles w *aplikacji\_Start\BundleConfig.cs* plik pokazuje, jak wiele plików są dodawane do pakietu:
+[Pakietu](https://msdn.microsoft.com/library/system.web.optimization.bundle(v=VS.110).aspx) klasy `Include` metoda przyjmuje tablicę ciągów, gdzie każdy ciąg jest ścieżką wirtualną do zasobu. Poniższy kod z `RegisterBundles` method in Class metoda *aplikacji\\\_Start\\BundleConfig.cs* plik pokazuje, jak wiele plików są dodawane do pakietu:
 
 [!code-csharp[Main](bundling-and-minification/samples/sample8.cs)]
 
@@ -142,7 +142,7 @@ W powyższym kodzie jQuery zostanie zażądany z sieci CDN, natomiast w wersji t
 
 [!code-csharp[Main](bundling-and-minification/samples/sample9.cs)]
 
-Pakiety są określone w widokach przy użyciu metody renderowania ( `Styles.Render` CSS i `Scripts.Render` dla języka JavaScript). Następujące znaczniki z *Views\Shared\\_Layout.cshtml* plik pokazuje, jak domyślne widoki projektów internetowych ASP.NET odwoływać się do pakietów CSS i JavaScript.
+Pakiety są określone w widokach przy użyciu metody renderowania (`Styles.Render` CSS i `Scripts.Render` dla języka JavaScript). Następujące znaczniki z *widoków\\Shared\\\_Layout.cshtml* plik pokazuje, jak domyślne widoki projektów internetowych ASP.NET odwoływać się do pakietów CSS i JavaScript.
 
 [!code-cshtml[Main](bundling-and-minification/samples/sample10.cshtml?highlight=5-6,11)]
 
@@ -156,10 +156,10 @@ Zwróć uwagę, metody renderowania przyjmuje tablicę ciągów, dzięki czemu m
 
 Za pomocą następujących plików JavaScript, należy wziąć pod uwagę projekt:
 
-- *Scripts\Common\AddAltToImg.js*
-- *Scripts\Common\ToggleDiv.js*
-- *Scripts\Common\ToggleImg.js*
-- *Scripts\Common\Sub1\ToggleLinks.js*
+- *Skrypty\\typowe\\AddAltToImg.js*
+- *Skrypty\\typowe\\ToggleDiv.js*
+- *Skrypty\\typowe\\ToggleImg.js*
+- *Skrypty\\typowe\\Sub1\\ToggleLinks.js*
 
 ![dir imag](bundling-and-minification/_static/image7.png)
 
@@ -167,13 +167,13 @@ W poniższej tabeli przedstawiono pliki dodane do pakietu za pomocą symbolu wie
 
 | **Call** | **Pliki dodane lub zgłoszony wyjątek** |
 | --- | --- |
-| Obejmują ("~/Scripts/Common/\*js") | *AddAltToImg.js, ToggleDiv.js, ToggleImg.js* |
+| Obejmują ("~/Scripts/Common/\*js") | *AddAltToImg.js*, *ToggleDiv.js*, *ToggleImg.js* |
 | Include("~/Scripts/Common/T\*.js") | Nieprawidłowy wzorzec wyjątek. Symbol wieloznaczny jest dozwolona tylko na prefiksu lub sufiksu. |
 | Obejmują ("~/Scripts/Common/\*og.\*") | Nieprawidłowy wzorzec wyjątek. Dozwolone jest tylko jeden symbol wieloznaczny. |
-| "Obejmują (" ~/Scripts/Common/T\*") | *ToggleDiv.js, ToggleImg.js* |
-| "Obejmują (" ~/Scripts/Common/\*") | Nieprawidłowy wzorzec wyjątek. Segment czystego symbolu wieloznacznego nie jest prawidłowy. |
-| IncludeDirectory ("~/Scripts/Common", "T\*") | *ToggleDiv.js, ToggleImg.js* |
-| IncludeDirectory ("~/Scripts/Common", "T\*", true) | *ToggleDiv.js, ToggleImg.js, ToggleLinks.js* |
+| Obejmują ("~/Scripts/Common/T\*") | *ToggleDiv.js*, *ToggleImg.js* |
+| Obejmują ("~/Scripts/Common/\*") | Nieprawidłowy wzorzec wyjątek. Segment czystego symbolu wieloznacznego nie jest prawidłowy. |
+| IncludeDirectory ("~/Scripts/Common", "T\*") | *ToggleDiv.js*, *ToggleImg.js* |
+| IncludeDirectory ("~/Scripts/Common", "T\*", true) | *ToggleDiv.js*, *ToggleImg.js*, *ToggleLinks.js* |
 
 Jawne Dodawanie każdego pliku do pakietu jest ogólnie metoda preferowana nad ładowania symboli wieloznacznych plików z następujących powodów:
 
@@ -183,7 +183,7 @@ Jawne Dodawanie każdego pliku do pakietu jest ogólnie metoda preferowana nad �
 
     [!code-csharp[Main](bundling-and-minification/samples/sample12.cs)]
 
-  Selektor symbol wieloznaczny "\*CSS" łączy w każdym pliku CSS w folderze, w tym *Content\themes\base\jquery.ui.all.css* pliku. *Jquery.ui.all.css* plik importuje inne pliki CSS.
+  Selektor symbol wieloznaczny "\*CSS" łączy w każdym pliku CSS w folderze, w tym *zawartości\\motywy\\podstawowy\\jquery.ui.all.css* pliku. *Jquery.ui.all.css* plik importuje inne pliki CSS.
 
 ## <a name="bundle-caching"></a>Pakietu, buforowaniu
 
@@ -195,7 +195,7 @@ Na poniższej ilustracji przedstawiono **Caching** karty okienku odpowiedzi prog
 
 Żądanie   
 `http://localhost/MvcBM_time/bundles/AllMyScripts?v=r0sLDicvP58AIXN_mc3QdyVvVj5euZNzdsa2N1PKvb81`  
- dotyczy pakietu **AllMyScripts** i zawiera pary ciągu zapytania **v = r0sLDicvP58AIXN\_mc3QdyVvVj5euZNzdsa2N1PKvb81**. Ciąg zapytania **v** ma wartość tokenu oznacza to unikatowy identyfikator używany do buforowania. Tak długo, jak pakietu nie zmienia się, aplikacja ASP.NET będzie żądać **AllMyScripts** pakietu przy użyciu tego tokenu. Jeśli zmieni się dowolny plik w pakiecie, struktura optymalizacji ASP.NET spowoduje wygenerowanie nowego tokenu, gwarantując, że żądania przeglądarki dla pakietu otrzyma najnowsze pakietu.
+ dotyczy pakietu **AllMyScripts** i zawiera pary ciągu zapytania **v = r0sLDicvP58AIXN\\\_mc3QdyVvVj5euZNzdsa2N1PKvb81**. Ciąg zapytania **v** ma wartość tokenu oznacza to unikatowy identyfikator używany do buforowania. Tak długo, jak pakietu nie zmienia się, aplikacja ASP.NET będzie żądać **AllMyScripts** pakietu przy użyciu tego tokenu. Jeśli zmieni się dowolny plik w pakiecie, struktura optymalizacji ASP.NET spowoduje wygenerowanie nowego tokenu, gwarantując, że żądania przeglądarki dla pakietu otrzyma najnowsze pakietu.
 
 Jeśli uruchomienie narzędzia programistyczne F12 programem IE9 lub nowszym, przejdź do strony wcześniej załadowanych IE niepoprawnie pokazuje warunkowego żądania GET do każdego pakietu i serwera, zwracając HTTP 304. Może odczytywać, dlaczego programem IE9 lub nowszym ma problemy z określania, czy żądanie warunkowego została wprowadzona w wpis w blogu [przy użyciu usługi CDN i wygasa, aby zwiększyć wydajność witryny sieci Web](https://blogs.msdn.com/b/rickandy/archive/2011/05/21/using-cdns-to-improve-web-site-performance.aspx).
 
@@ -203,13 +203,13 @@ Jeśli uruchomienie narzędzia programistyczne F12 programem IE9 lub nowszym, pr
 
 Tworzenie pakietów i minimalizowanie kryptograficznymi zapewnia mechanizm do przetworzenia pośrednich języków takich jak [SCSS](http://sass-lang.com/), [Sass](http://sass-lang.com/), [mniej](http://www.dotlesscss.org/) lub [Coffeescript ](http://coffeescript.org/)i Zastosuj transformacje, takie jak minimalizację do pakietu wynikowego. Na przykład, aby dodać [.less](http://www.dotlesscss.org/) pliki do projektu MVC 4:
 
-1. Utwórz folder dla mniej zawartości. W poniższym przykładzie użyto *Content\MyLess* folderu.
+1. Utwórz folder dla mniej zawartości. W poniższym przykładzie użyto *zawartości\\MyLess* folderu.
 2. Dodaj [.less](http://www.dotlesscss.org/) pakietu NuGet **bez kropek** do projektu.  
     ![Bez kropek install NuGet](bundling-and-minification/_static/image9.png)
 3. Dodaj klasę, która implementuje [IBundleTransform](https://msdn.microsoft.com/library/system.web.optimization.ibundletransform(VS.110).aspx) interfejsu. Przekształcenia .less Dodaj następujący kod do projektu.
 
     [!code-csharp[Main](bundling-and-minification/samples/sample13.cs)]
-4. Tworzenie pakietu mniej plików za pomocą `LessTransform` i [CssMinify](https://msdn.microsoft.com/library/system.web.optimization.cssminify(VS.110).aspx) przekształcania. Dodaj następujący kod do `RegisterBundles` method in Class metoda *aplikacji\_Start\BundleConfig.cs* pliku.
+4. Tworzenie pakietu mniej plików za pomocą `LessTransform` i [CssMinify](https://msdn.microsoft.com/library/system.web.optimization.cssminify(VS.110).aspx) przekształcania. Dodaj następujący kod do `RegisterBundles` method in Class metoda *aplikacji\\_uruchom\\BundleConfig.cs* pliku.
 
     [!code-csharp[Main](bundling-and-minification/samples/sample14.cs)]
 5. Dodaj następujący kod, do których odwołuje się mniej pakietu widoków.
@@ -228,7 +228,7 @@ Ograniczenie przeglądarki sześć jednoczesnych połączeń dla każdej nazwy h
 
 Zestawy powinny być dzielone według stron, które ich potrzebują. Na przykład domyślnego szablonu platformy ASP.NET MVC dla aplikacji internetowych tworzy zbiór weryfikacji jQuery oddzielnie od jQuery. Widoki tworzone mają nie dane wejściowe, a nie publikowały wartości, dlatego nie obejmują one pakietu sprawdzania poprawności.
 
-`System.Web.Optimization` Przestrzeni nazw jest zaimplementowana w System.Web.Optimization.DLL. Wykorzystuje bibliotekę WebGrease (WebGrease.dll) minimalizacji możliwości, który z kolei używa Antlr3.Runtime.dll.
+`System.Web.Optimization` Przestrzeni nazw jest zaimplementowana w *System.Web.Optimization.dll*. Jest przeprowadzana z zastosowaniem biblioteki WebGrease (*WebGrease.dll*) minimalizacji możliwości, który z kolei używa *Antlr3.Runtime.dll*.
 
 *Używam Twitter utworzyć wpisy szybki i udostępnić łącza. Moje uchwyt Twitter jest*: [@RickAndMSFT](http://twitter.com/RickAndMSFT)
 

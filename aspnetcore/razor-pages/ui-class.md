@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 07/21/2018
 uid: razor-pages/ui-class
-ms.openlocfilehash: 8190302a15670b0a7474445f7b11d4cba46981db
-ms.sourcegitcommit: 19cbda409bdbbe42553dc385ea72d2a8e246509c
+ms.openlocfilehash: 4252cfc5824b6078012cf9ff34968977229faf0d
+ms.sourcegitcommit: cb0c27fa0184f954fce591d417e6ab2a51d8bb22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38992852"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39123780"
 ---
 # <a name="create-reusable-ui-using-the-razor-class-library-project-in-aspnet-core"></a>Tworzenie interfejsu użytkownika wielokrotnego użytku, używając projektu biblioteki klas Razor w programie ASP.NET Core.
 
@@ -46,7 +46,7 @@ Aby uzyskać więcej informacji, zobacz [dotnet nowe](/dotnet/core/tools/dotnet-
 ------
 Dodaj pliki Razor do RCL.
 
-Firma Microsoft zaleca RCL zawartości go w *obszarów* folderu.
+Szablony ASP.NET Core przyjęto założenie, zawartość RCL znajduje się w *obszarów* folderu. Zobacz [układ stron RCL](#afs) utworzyć RCL, który udostępnia zawartość `~/Pages` zamiast `~/Areas/Pages`.
 
 ## <a name="referencing-razor-class-library-content"></a>Odwoływanie się do zawartości biblioteki klas Razor
 
@@ -203,3 +203,22 @@ Gdy widoku, widoku częściowego lub strona Razor znajduje się w aplikacji siec
 Do pobrania próbki, Zmień nazwę *WebApp1/obszarów/MyFeature2* do *WebApp1/obszarów/MyFeature* do testowania pierwszeństwo.
 
 Kopiuj *RazorUIClassLib/Areas/MyFeature/Pages/Shared/_Message.cshtml* widoku częściowego do *WebApp1/Areas/MyFeature/Pages/Shared/_Message.cshtml*. Zaktualizuj znaczników, aby wskazać nowej lokalizacji. Skompiluj i uruchom aplikację, aby sprawdzić, czy jest używana wersja aplikacji częściowego.
+
+<a name="afs"></a>
+
+### <a name="rcl-pages-layout"></a>Układ stron RCL
+
+Aby odwołać RCL zawartości, jakby była częścią folderu stron aplikacji sieci web, należy utworzyć projekt RCL o następującej strukturze pliku:
+
+* *RazorUIClassLib/stron*
+* *RazorUIClassLib/stron/udostępnione*
+
+Załóżmy, że *RazorUIClassLib/stron/Shared* zawiera dwa pliki częściowe, *_Header.cshtml* i *_Footer.cshtml*. <partial> Tagów może zostać dodany do *_Layout.cshtml* pliku: 
+  
+```
+  <body>
+    <partial name="_Header">
+    @RenderBody()
+    <partial name="_Footer">
+  </body>
+```
