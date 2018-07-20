@@ -71,7 +71,7 @@ Testy integracji wykonaj sekwencję zdarzeń, które zawierają zwykle *Rozmieś
 1. Klient serwera test jest tworzony do przesyłania żądań do aplikacji.
 1. *Rozmieść* krok testu jest wykonywany: Aplikacja testowa przygotowuje żądania.
 1. *Act* krok testu jest wykonywany: klient przesyła żądanie i odbiera odpowiedź.
-1. *Asercja* krok testu jest wykonywany: *rzeczywiste* odpowiedzi jest zweryfikowany jako *przekazać* lub *się nie powieść* na podstawie *oczekiwano * odpowiedzi.
+1. *Asercja* krok testu jest wykonywany: *rzeczywiste* odpowiedzi jest zweryfikowany jako *przekazać* lub *się nie powieść* na podstawie *oczekiwano*  odpowiedzi.
 1. Proces jest kontynuowany, dopóki wszystkie testy są wykonywane.
 1. Wyniki testu są zgłaszane.
 
