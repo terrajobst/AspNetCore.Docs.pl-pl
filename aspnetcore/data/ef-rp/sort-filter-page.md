@@ -5,12 +5,12 @@ description: W tym samouczku dodasz, sortowanie, filtrowanie i stronicowanie fun
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: fce524a5cb386fbf286907be42e920be13115ca6
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 86321538f02ccf1a36ee9e50729e63e007f10327
+ms.sourcegitcommit: ee2b26c7d08b38c908c668522554b52ab8efa221
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38216281"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39146900"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---sort-filter-paging---3-of-8"></a>Strony razor z programem EF Core w programie ASP.NET Core — sortowanie, filtrowanie, stronicowania - 3, 8
 
@@ -210,7 +210,7 @@ Jeśli ciąg wyszukiwania została zmieniona podczas stronicowania, strona jest 
 
 [!code-csharp[](intro/samples/cu21/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPage4)]
 
-Dwa znaki zapytania w `PaginatedList.CreateAsync` reprezentują [operatorem łączenia wartości null](https://docs.microsoft.com/ dotnet/csharp/language-reference/operators/null-conditional-operator). Operator łączenia wartości null określa wartość domyślną dla typu dopuszczającego wartość null. Wyrażenie `(pageIndex ?? 1)` oznacza, że zwracają wartość `pageIndex` ma wartość. Jeśli `pageIndex` nie ma wartości, zwraca 1.
+Dwa znaki zapytania w `PaginatedList.CreateAsync` reprezentują [operatorem łączenia wartości null](/dotnet/csharp/language-reference/operators/null-conditional-operator). Operator łączenia wartości null określa wartość domyślną dla typu dopuszczającego wartość null. Wyrażenie `(pageIndex ?? 1)` oznacza, że zwracają wartość `pageIndex` ma wartość. Jeśli `pageIndex` nie ma wartości, zwraca 1.
 
 ## <a name="add-paging-links-to-the-student-razor-page"></a>Dodawanie stronicowania łączy do uczniów strony Razor
 

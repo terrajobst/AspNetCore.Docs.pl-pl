@@ -1,93 +1,93 @@
 ---
-title: Visual Studio Tools for Docker z platformy ASP.NET Core
+title: Visual Studio Tools for Docker z platformą ASP.NET Core
 author: spboyer
-description: Dowiedz się, jak containerize aplikacji platformy ASP.NET Core za pomocą narzędzi Visual Studio 2017 i Docker dla systemu Windows.
+description: Dowiedz się, jak za pomocą narzędzi Visual Studio 2017 i platformy Docker for Windows konteneryzowanie aplikacji ASP.NET Core.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 12/12/2017
+ms.date: 07/18/2018
 uid: host-and-deploy/docker/visual-studio-tools-for-docker
-ms.openlocfilehash: fd485416ff0fab2508ab8ffd3f0ad309be338723
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: afa7b05820ba021c50d9c23804095f7edd8b71f1
+ms.sourcegitcommit: ee2b26c7d08b38c908c668522554b52ab8efa221
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36276857"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39146887"
 ---
-# <a name="visual-studio-tools-for-docker-with-aspnet-core"></a>Visual Studio Tools for Docker z platformy ASP.NET Core
+# <a name="visual-studio-tools-for-docker-with-aspnet-core"></a>Visual Studio Tools for Docker z platformą ASP.NET Core
 
-[Visual Studio 2017](https://www.visualstudio.com/) obsługuje kompilowania, debugowania i uruchamiania aplikacji przeznaczonych dla platformy .NET Core konteneryzowanych platformy ASP.NET Core. Kontenery w systemach Windows i Linux są obsługiwane.
+[Program Visual Studio 2017](https://www.visualstudio.com/) obsługuje kompilowania, debugowania i uruchamiania konteneryzowanych platformy ASP.NET Core z aplikacji przeznaczonych dla platformy .NET Core. Są obsługiwane kontenerów systemów Windows i Linux.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Visual Studio 2017](https://www.visualstudio.com/) z **aplikacji dla wielu platform .NET Core** obciążenia
-* [Docker dla systemu Windows](https://docs.docker.com/docker-for-windows/install/)
+* [Program Visual Studio 2017](https://www.visualstudio.com/) z **programowanie dla wielu platform .NET Core** obciążenia
+* [Docker for Windows](https://docs.docker.com/docker-for-windows/install/)
 
 ## <a name="installation-and-setup"></a>Instalacja i Konfiguracja
 
-Docker instalacji, przejrzyj informacje w [Docker dla systemu Windows: co należy wiedzieć przed zainstalowaniem](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install) i zainstaluj [Docker dla systemu Windows](https://docs.docker.com/docker-for-windows/install/).
+Instalacja platformy Docker, zapoznaj się z informacjami o [Docker for Windows: co należy wiedzieć przed zainstalowaniem](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install) i zainstaluj [Docker For Windows](https://docs.docker.com/docker-for-windows/install/).
 
-**[Udostępnione dyski](https://docs.docker.com/docker-for-windows/#shared-drives)**  Docker dla systemu Windows musi być skonfigurowana do obsługi mapowania woluminu i debugowanie. Kliknij prawym przyciskiem myszy ikonę Docker pasku zadań, zaznacz **ustawień...** i wybierz **udostępnione dyski**. Wybierz dysk, gdzie są przechowywane pliki Docker. Wybierz **zastosować**.
+**[Udostępnione dyski](https://docs.docker.com/docker-for-windows/#shared-drives)**  w Docker for Windows musi być skonfigurowana do obsługi mapowania woluminu i debugowania. Kliknij prawym przyciskiem myszy ikonę platformy Docker w zasobniku systemowym, wybierz **ustawień...** i wybierz **udostępnione dyski**. Wybierz dysk, na którym Docker przechowuje pliki. Wybierz **zastosować**.
 
 ![Dyski udostępnione](./visual-studio-tools-for-docker/_static/settings-shared-drives-win.png)
 
 > [!TIP]
-> Monitowanie w Visual Studio 2017 wersji 15.6 lub nowszej, gdy **udostępnione dyski** nie są skonfigurowane.
+> Visual Studio 2017 w wersji 15.6 lub nowszej monitowanie, gdy **udostępnione dyski** nie są skonfigurowane.
 
-## <a name="add-docker-support-to-an-app"></a>Dodaj obsługę Docker do aplikacji
+## <a name="add-docker-support-to-an-app"></a>Dodaj obsługę platformy Docker do aplikacji
 
-Aby dodać obsługę Docker do projektu platformy ASP.NET Core, projektu muszą wskazywać .NET Core. Kontenery zarówno systemu Linux i Windows są obsługiwane.
+Aby dodać obsługę platformy Docker do projektu programu ASP.NET Core, projekt musi przeznaczony dla platformy .NET Core. Są obsługiwane kontenerów systemów Linux i Windows.
 
-Podczas dodawania obsługi Docker do projektu, wybierz systemu Windows lub Linux kontenera. Na hoście Docker musi być uruchomiony ten sam typ kontenera. Aby zmienić typ kontenera w uruchomione wystąpienie Docker, kliknij prawym przyciskiem myszy ikonę Docker pasku zadań i wybierz polecenie **przełączyć się do kontenerów Windows...**  lub **przełączyć się do kontenerów Linux...** .
+Podczas dodawania obsługi programu Docker do projektu, wybierz kontener systemu Linux lub Windows. Hosta platformy Docker musi działać ten sam typ kontenera. Aby zmienić typ kontenera, na uruchomione wystąpienie platformy Docker, kliknij prawym przyciskiem myszy ikonę platformy Docker w zasobniku systemowym, a następnie wybierz **przełączyć się do kontenerów Windows...**  lub **przełączyć się do kontenerów systemu Linux...** .
 
 ### <a name="new-app"></a>Nowa aplikacja
 
-Podczas tworzenia nowej aplikacji z **aplikacji sieci Web platformy ASP.NET Core** szablony projektów, wybierz opcję **Włącz obsługę Docker** wyboru:
+Podczas tworzenia nowej aplikacji za pomocą **aplikacji sieci Web programu ASP.NET Core** szablonów projektu wybierz **włączyć obsługę platformy Docker** pole wyboru:
 
-![Włącz obsługę Docker wyboru](visual-studio-tools-for-docker/_static/enable-docker-support-checkbox.png)
+![Zaznacz pole wyboru obsługę platformy Docker](visual-studio-tools-for-docker/_static/enable-docker-support-check box.png)
 
-W przypadku platformy docelowej .NET Core **OS** listy rozwijanej umożliwia wybór typu kontenera.
+W przypadku platformy docelowej platformy .NET Core **OS** listy rozwijanej umożliwia wybór typu kontenera.
 
-### <a name="existing-app"></a>Istniejącej aplikacji
+### <a name="existing-app"></a>Istniejąca aplikacja
 
-Visual Studio Tools for Docker nie obsługuje dodawania Docker do istniejącego projektu platformy ASP.NET Core przeznaczonych dla platformy .NET Framework. Dla platformy ASP.NET Core projektów przeznaczonych dla platformy .NET Core istnieją dwie opcje do dodawania obsługi Docker za pomocą narzędzi. Otwórz projekt w programie Visual Studio i wybierz jedną z następujących opcji:
+Visual Studio Tools for Docker nie jest obsługiwane dodawanie platformy Docker do istniejącego projektu platformy ASP.NET Core przeznaczone dla .NET Framework. Dla projektów ASP.NET Core przeznaczone dla platformy .NET Core istnieją dwa sposoby dodawania obsługę platformy Docker za pomocą narzędzi. Otwórz projekt w programie Visual Studio i wybierz jedną z następujących opcji:
 
-* Wybierz **Obsługa Docker** z **projektu** menu.
-* Kliknij prawym przyciskiem myszy projekt w Eksploratorze rozwiązań i wybierz **Dodaj** > **Obsługa Docker**.
+* Wybierz **obsługę platformy Docker** z **projektu** menu.
+* Kliknij prawym przyciskiem myszy projekt w Eksploratorze rozwiązań i wybierz **Dodaj** > **obsługę platformy Docker**.
 
-## <a name="docker-assets-overview"></a>Omówienie zasoby docker
+## <a name="docker-assets-overview"></a>Przegląd zasobów platformy docker
 
-Dodaj Visual Studio Tools for Docker *docker-tworzą* projektu do rozwiązania, które zawierają:
+Dodaj program Visual Studio Tools for Docker *docker-compose* projekt do rozwiązania zawierającego następujące pliki:
 
-* *.dockerignore*: zawiera listę wzorców plików i katalogów, które mają zostać wykluczone podczas generowania kontekst kompilacji.
-* *docker-compose.yml*: base [rozwiązania Docker Compose](https://docs.docker.com/compose/overview/) plik używany do definiowania kolekcją obrazów, wbudowane i uruchom z `docker-compose build` i `docker-compose run`odpowiednio.
-* *docker compose.override.yml*: opcjonalny plik odczytywane przez rozwiązania Docker Compose, zawierający konfigurację zastąpień dla usług. Wykonuje program Visual Studio `docker-compose -f "docker-compose.yml" -f "docker-compose.override.yml"` scalenie tych plików.
+* *.dockerignore*: zawiera listę wzorców plików i katalogów, które mają zostać wykluczone podczas generowania kontekstu kompilacji.
+* *docker-compose.yml*: Podstawa [narzędzia Docker Compose](https://docs.docker.com/compose/overview/) umożliwiają zdefiniowanie kolekcji obrazów można skompilować i uruchomić przy użyciu pliku `docker-compose build` i `docker-compose run`odpowiednio.
+* *docker-compose.override.yml*: opcjonalny plik odczytany przez narzędzia Docker Compose, zawierający konfigurację wartości zastąpień dla usług. Visual Studio wykonuje `docker-compose -f "docker-compose.yml" -f "docker-compose.override.yml"` do scalenia tych plików.
 
-A *plik Dockerfile*, przepisu tworzenia finalnego obrazu Docker, jest dodawany do katalogu głównym projektu. Zapoznaj się [odwołania plik Dockerfile](https://docs.docker.com/engine/reference/builder/) dla zrozumienia poleceń w niej. Tego określonego *plik Dockerfile* używa [kompilacji wieloetapowym](https://docs.docker.com/engine/userguide/eng-image/multistage-build/) zawierający cztery różne, o nazwie etapy kompilacji:
+A *pliku Dockerfile*, przepisu do utworzenia końcowej obrazu platformy Docker, zostanie dodany do katalogu głównego projektu. Zapoznaj się [odwołanie do pliku Dockerfile](https://docs.docker.com/engine/reference/builder/) dla zrozumienia poleceń w nim. Tej konkretnej *pliku Dockerfile* używa [kompilacji wieloetapowych](https://docs.docker.com/engine/userguide/eng-image/multistage-build/) zawierający cztery różne, o nazwie etapy kompilacji generują:
 
 [!code-dockerfile[](visual-studio-tools-for-docker/samples/HelloDockerTools/HelloDockerTools/Dockerfile?highlight=1,5,14,17)]
 
-*Plik Dockerfile* opiera się na [microsoft/aspnetcore](https://hub.docker.com/r/microsoft/aspnetcore) obrazu. Ten obraz podstawowy obejmuje pakiety platformy ASP.NET Core NuGet, które zostały wstępnie przy użyciu kompilatora JIT do zwiększenia wydajności uruchamiania.
+*Pliku Dockerfile* opiera się na [microsoft/aspnetcore](https://hub.docker.com/r/microsoft/aspnetcore) obrazu. Tego obrazu podstawowego obejmuje pakiety platformy ASP.NET Core NuGet, które zostały wstępnie trybie JIT na zwiększeniu wydajności uruchamiania.
 
-*Docker-compose.yml* plik zawiera nazwę obrazu, który jest tworzona po uruchomieniu projektu:
+*Docker-compose.yml* plik zawiera nazwę obrazu, który jest tworzony po uruchomieniu projektu:
 
 [!code-yaml[](visual-studio-tools-for-docker/samples/HelloDockerTools/docker-compose.yml?highlight=5)]
 
-W powyższym przykładzie `image: hellodockertools` generuje obraz `hellodockertools:dev` po uruchomieniu aplikacji **debugowania** tryb. `hellodockertools:latest` Obraz jest generowany, gdy aplikacja jest uruchamiana **wersji** tryb.
+W powyższym przykładzie `image: hellodockertools` generuje obraz `hellodockertools:dev` uruchamiania aplikacji **debugowania** trybu. `hellodockertools:latest` Obraz jest generowany, gdy aplikacja jest uruchamiana **wersji** trybu.
 
-Nazwa obrazu z prefiksu [Centrum Docker](https://hub.docker.com/) nazwy użytkownika (na przykład `dockerhubusername/hellodockertools`) Jeśli obrazu zostanie przekazany do rejestru. Możesz też zmienić nazwę obrazu uwzględnienie rejestru prywatny adres URL (na przykład `privateregistry.domain.com/hellodockertools`) w zależności od konfiguracji.
+Nazwa obrazu przy użyciu prefiksu [usługi Docker Hub](https://hub.docker.com/) nazwy użytkownika (na przykład `dockerhubusername/hellodockertools`) Jeśli obraz, który zostanie przekazany do rejestru. Alternatywnie Zmień nazwę obrazu, aby zawierały adres URL rejestru prywatnego (na przykład `privateregistry.domain.com/hellodockertools`) w zależności od konfiguracji.
 
 ## <a name="debug"></a>Debugowanie
 
-Wybierz **Docker** z listy rozwijanej w pasku narzędzi i rozpoczęcia debugowania aplikacji debugowania. **Docker** widoku **dane wyjściowe** oknie wyświetlane są następujące akcje zachodzące:
+Wybierz **Docker** z poziomu pozycji Debuguj listy rozwijanej w pasku narzędzi, a następnie uruchamiania, debugowania aplikacji. **Docker** widoku **dane wyjściowe** oknie wyświetlane są następujące akcje miejsce:
 
-* *Microsoft/aspnetcore* obraz środowiska uruchomieniowego są uzyskiwane (Jeśli nie jest jeszcze w pamięci podręcznej).
-* *Aspnetcore-microsoft Zbuduj* kompilacji/publikowania obrazu są uzyskiwane (Jeśli nie jest jeszcze w pamięci podręcznej).
+* *Microsoft/aspnetcore* obraz środowiska uruchomieniowego jest uzyskiwany (Jeśli nie są już w pamięci podręcznej).
+* *Microsoft/aspnetcore-build* kompilacji/publikowania obrazu jest uzyskiwany (Jeśli nie są już w pamięci podręcznej).
 * *ASPNETCORE_ENVIRONMENT* ustawiono zmiennej środowiskowej `Development` w kontenerze.
-* Port 80 jest widoczne i zamapowane do portu przypisywane dynamicznie hosta lokalnego. Port jest określana przez hosta Docker i mogą być przeszukiwane przy `docker ps` polecenia.
-* Aplikacja jest kopiowany do kontenera.
-* Domyślna przeglądarka jest uruchamiana w debugerze kontenera przy użyciu portu przypisywane dynamicznie. 
+* Port 80 jest udostępniane i mapowane na port dynamicznie przypisywanej nazwy localhost. Numer portu jest określany przez hosta platformy Docker i może być odpytywana za pomocą `docker ps` polecenia.
+* Aplikacja jest kopiowana do kontenera.
+* W debugerze do kontenera przy użyciu portu przypisywany dynamicznie, uruchamiana jest domyślna przeglądarka.
 
-Wynikowy obraz Docker jest *deweloperów* obrazu w aplikacji przy użyciu *microsoft/aspnetcore* obrazów jako obrazu podstawowego. Uruchom `docker images` w **Konsola Menedżera pakietów** okna (PMC). Wyświetlane są obrazy na komputerze:
+Wynikowy obraz platformy Docker jest *dev* obrazu aplikacji za pomocą *microsoft/aspnetcore* obrazów jako obrazu podstawowego. Uruchom `docker images` polecenia w pliku **Konsola Menedżera pakietów** okna (PMC). Wyświetlane są obrazy na komputerze:
 
 ```console
 REPOSITORY                   TAG                   IMAGE ID            CREATED             SIZE
@@ -98,9 +98,9 @@ microsoft/aspnetcore         2.0-nanoserver-1709   8872347d7e5d        40 hours 
 ```
 
 > [!NOTE]
-> Zawartość aplikacji nie ma obrazu deweloperów jako **debugowania** konfiguracje Użyj zamontowania woluminu, aby zapewnić środowisko iteracji. Aby wypchnąć obrazu, należy użyć **wersji** konfiguracji.
+> Obraz dev brakuje zawartość aplikacji jako **debugowania** konfiguracje używają instalowania woluminów oferują środowisko o iteracyjne. Aby wypchnąć obraz, należy użyć **wersji** konfiguracji.
 
-Uruchom `docker ps` w kryterium. Należy zauważyć, że aplikacja zostanie uruchomiona przy użyciu kontenera:
+Uruchom `docker ps` polecenia w konsoli zarządzania Pakietami. Zwróć uwagę, że aplikacja jest uruchomiona przy użyciu kontenera:
 
 ```console
 CONTAINER ID        IMAGE                  COMMAND                   CREATED             STATUS              PORTS                   NAMES
@@ -109,20 +109,20 @@ baf9a678c88d        hellodockertools:dev   "C:\\remote_debugge..."   21 seconds 
 
 ## <a name="edit-and-continue"></a>Edytuj i Kontynuuj
 
-Zmiany pliki statyczne i widokami Razor są automatycznie aktualizowane bez konieczności kroku kompilacji. Wprowadzić zmiany, Zapisz i Odśwież przeglądarkę, aby wyświetlić tę aktualizację.  
+Zmiany plików statycznych i widokami Razor są automatycznie aktualizowane bez konieczności kroku kompilacji. Wprowadzić zmiany, Zapisz i Odśwież przeglądarkę, aby wyświetlić tę aktualizację.
 
-Modyfikacje plików kodu wymaga, kompilowania i ponownego uruchomienia Kestrel w kontenerze. Po wprowadzeniu zmian, użyj CTRL + F5, aby wykonać proces i uruchomić aplikację w kontenerze. Kontener Docker nie jest ponownie skompilowany lub zatrzymana. Uruchom `docker ps` w kryterium. Począwszy od 10 minut temu nadal działa powiadomienia oryginalnego kontenera:
+Modyfikacje plików kodu wymagają kompilacja i ponowne uruchomienie Kestrel w kontenerze. Po wprowadzeniu zmian, należy użyć `CTRL+F5` na wykonanie procesu i uruchomić aplikację w kontenerze. Kontener platformy Docker nie jest ponownie skompilowany lub zatrzymana. Uruchom `docker ps` polecenia w konsoli zarządzania Pakietami. Zwróć uwagę, oryginalnym kontenerze jest nadal uruchomiona od 10 minut temu:
 
 ```console
 CONTAINER ID        IMAGE                  COMMAND                   CREATED             STATUS              PORTS                   NAMES
 baf9a678c88d        hellodockertools:dev   "C:\\remote_debugge..."   10 minutes ago      Up 10 minutes       0.0.0.0:37630->80/tcp   dockercompose4642749010770307127_hellodockertools_1
 ```
 
-## <a name="publish-docker-images"></a>Publikowanie obrazy usługi Docker
+## <a name="publish-docker-images"></a>Publikowanie obrazów platformy Docker
 
-Po zakończeniu cyklu opracowanie i debugowania aplikacji Visual Studio Tools for Docker pomagają w tworzenie obrazu produkcyjnej aplikacji. Zmień konfigurację listy rozwijanej **wersji** i kompilowania aplikacji. Narzędzia tworzy obraz z *najnowsze* tagu, który może zostać przeniesiony do rejestru prywatnych lub Centrum Docker. 
+Po zakończeniu cyklu programowanie i debugowanie aplikacji Visual Studio Tools for Docker pomagać w tworzeniu obraz produkcyjnych aplikacji. Zmień konfigurację menu rozwijane **wersji** i kompilowania aplikacji. Narzędzi tworzy obraz z *najnowsze* znacznik, który może zostać przeniesiony do prywatnego rejestru lub usługi Docker Hub.
 
-Uruchom `docker images` w kryterium, aby wyświetlić listę obrazów:
+Uruchom `docker images` polecenia w konsoli zarządzania Pakietami, aby wyświetlić listę obrazów:
 
 ```console
 REPOSITORY                   TAG                   IMAGE ID            CREATED             SIZE
@@ -133,6 +133,11 @@ microsoft/aspnetcore         2.0-nanoserver-1709   8872347d7e5d        40 hours 
 ```
 
 > [!NOTE]
-> `docker images` Polecenie zwraca pośredniczące obrazów za pomocą nazwy repozytorium i tagi zidentyfikowane jako  *\<Brak >* (nie są wymienione powyżej). Te bez nazwy obrazów są produkowane przez [kompilacji wieloetapowym](https://docs.docker.com/engine/userguide/eng-image/multistage-build/) *plik Dockerfile*. Poprawiają wydajność tworzenia obrazu końcowego&mdash;tylko niezbędne warstwy są również przebudowany w przypadku wystąpienia zmian. Gdy pośredniczące obrazy nie są już potrzebne, usuń je przy użyciu [docker rmi](https://docs.docker.com/engine/reference/commandline/rmi/) polecenia.
+> `docker images` Polecenie zwraca pośrednie obrazów za pomocą nazwy repozytorium i tagi zidentyfikowane jako  *\<Brak >* (niewymienione na liście powyżej). Te obrazy nienazwane są produkowane przez [kompilacji wieloetapowych](https://docs.docker.com/engine/userguide/eng-image/multistage-build/) *pliku Dockerfile*. Poprawiają wydajność tworzenia finalnego obrazu&mdash;tylko niezbędne warstwy są ponownie skompilowany, gdy wystąpią zmiany. Gdy pośrednie obrazy nie są już potrzebne, usuń je przy użyciu [docker rmi](https://docs.docker.com/engine/reference/commandline/rmi/) polecenia.
 
-Może być oczekiwanie środowisko produkcyjne lub wersji obrazu na mniejszy rozmiar w porównaniu do *deweloperów* obrazu. Z powodu mapowania woluminu debugera i aplikacji były uruchomione na komputerze lokalnym, a nie w kontenerze. *Najnowsze* obraz ma spakowane kodu aplikacji niezbędne do uruchomienia aplikacji na komputerze hosta. W związku z tym delta jest rozmiar kodu aplikacji.
+Może to być oczekiwanie produkcji lub wersji obrazu na mniejszy rozmiar w porównaniu do *dev* obrazu. Ze względu na mapowanie woluminu, debuger i aplikacji były uruchamiane z komputera lokalnego, a nie w kontenerze. *Najnowsze* obraz ma spakowane kodu aplikacji niezbędnych do uruchomienia aplikacji na komputerze hosta. Dlatego delta jest rozmiar kodu aplikacji.
+
+## <a name="additional-resources"></a>Dodatkowe zasoby
+
+* [Rozwiązywanie problemów z programowania Visual Studio 2017 przy użyciu rozwiązania Docker](/azure/vs-azure-tools-docker-troubleshooting-docker-errors)
+* [Visual Studio Tools dla repozytorium GitHub platformy Docker](https://github.com/Microsoft/DockerTools)
