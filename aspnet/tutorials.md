@@ -50,8 +50,7 @@ Dostępne są następujące Przewodniki krok po kroku dotyczące tworzenia aplik
 * [Podejście Database First w programie EF z wykorzystaniem wzorca ASP.NET MVC](mvc/overview/getting-started/database-first-development/index.md)
 * [Korzystanie z narzędzia Page Inspector we wzorcu ASP.NET MVC](mvc/overview/views/using-page-inspector-in-aspnet-mvc.md)
 * [Tworzenie aplikacji ASP.NET MVC 5 z logowaniem OAuth2 za pomocą poświadczeń usług Facebook, Twitter, LinkedIn i Google (C#)](mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md)
-* 
-  [Tworzenie bezpiecznej aplikacji internetowej ASP.NET MVC 5 z logowaniem, potwierdzeniem adresu e-mail i resetowaniem hasła (C#)](mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md)
+* [Tworzenie bezpiecznej aplikacji internetowej ASP.NET MVC 5 z logowaniem, potwierdzeniem adresu e-mail i resetowaniem hasła (C#)](mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md)
 * [Aplikacja ASP.NET MVC 5 z uwierzytelnianiem dwuskładnikowym za pomocą wiadomości SMS i wiadomości e-mail](mvc/overview/security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication.md)
 * [Zapobieganie atakom XSRF/CSRF we wzorcach ASP.NET MVC i Web Pages](mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages.md)
 * [Zapobieganie atakom na otwarte przekierowywanie (C#)](mvc/overview/security/preventing-open-redirection-attacks.md)

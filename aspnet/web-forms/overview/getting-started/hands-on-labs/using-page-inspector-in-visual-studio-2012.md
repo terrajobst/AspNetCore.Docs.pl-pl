@@ -333,7 +333,7 @@ W tym zadaniu dowiesz się, jak używać funkcji narzędzia Page Inspector w kon
     ![Sprawdzanie elementów](using-page-inspector-in-visual-studio-2012/_static/image29.png "Sprawdzanie elementów")
 
     *Sprawdzanie elementów*
-7. Kliknij przycisk **Przełącz tryb inspekcji** przycisku (![Select-the-HTML-tab-to-display-the-HTML-code-rendered-in-the-Page-Inspector-browser.] (using-page-inspector-in-visual-studio-2012/_static/image30.png "Select-the-HTML-tab-to-display-the-HTML-code-rendered-in-the-Page-Inspector-browser.") ), znajdujący się na kartach Narzędzia Page Inspector, aby wyłączyć kursora.
+7. Kliknij przycisk **Przełącz tryb inspekcji** przycisku (![Select-the-HTML-tab-to-display-the-HTML-code-rendered-in-the-Page-Inspector-browser.](using-page-inspector-in-visual-studio-2012/_static/image30.png "Select-the-HTML-tab-to-display-the-HTML-code-rendered-in-the-Page-Inspector-browser.") ), znajdujący się na kartach Narzędzia Page Inspector, aby wyłączyć kursora.
 8. Wybierz **HTML** kartę, aby wyświetlić kod HTML w przeglądarce narzędzia Page Inspector.
 9. W kodzie HTML Znajdź element listy z linkiem Koala i zaznacz je.
 
