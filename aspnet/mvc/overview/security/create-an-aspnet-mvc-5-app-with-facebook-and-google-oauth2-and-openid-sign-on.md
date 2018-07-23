@@ -8,12 +8,12 @@ ms.date: 04/03/2015
 ms.assetid: 81ee500f-fc37-40d6-8722-f1b64720fbb6
 msc.legacyurl: /mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on
 msc.type: authoredcontent
-ms.openlocfilehash: 6af4990f726bfcd0c45eb6991418661f9b8ccbf6
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: f36b73aac2e7844367e1e52b2c721bfe6b3575e2
+ms.sourcegitcommit: 7097dba14d5b858e82758ee031ac62dbe3611339
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37824709"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39138522"
 ---
 <a name="create-an-aspnet-mvc-5-app-with-facebook-twitter-linkedin-and-google-oauth2-sign-on-c"></a>Tworzenie aplikacji ASP.NET MVC 5 z usługi Facebook, Twitter, LinkedIn i Google OAuth2 logowania jednokrotnego (C#)
 ====================
@@ -162,55 +162,6 @@ Aby połączyć z dostawców uwierzytelniania, takich jak serwis Google czy Face
 > [!WARNING]
 > Bieżący Facebook OAuth2 uwierzytelniania instrukcje można znaleźć [uwierzytelnianie Konfigurowanie serwisu Facebook](/aspnet/core/security/authentication/social/facebook-logins)
 
-Dla uwierzytelniania serwisu Facebook OAuth2 należy skopiować do projektu niektórych ustawień z aplikacji utworzonej w serwisie Facebook.
-
-1. W przeglądarce przejdź do [ https://developers.facebook.com/apps ](https://developers.facebook.com/apps) i zaloguj się, wprowadzając swoje poświadczenia usługi Facebook.
-2. Jeśli nie są jeszcze zarejestrowana jako deweloper usługi Facebook, kliknij przycisk **Zarejestruj się jako deweloper** i postępuj zgodnie z instrukcjami, aby zarejestrować.
-3. Na **aplikacje** kliknij pozycję **Utwórz nową aplikację**.
-
-    ![Utwórz nową aplikację](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image22.png)
-4. Wprowadź **nazwy aplikacji** i **kategorii**, następnie kliknij przycisk **tworzenie aplikacji**.
-
-    <strong>Namespace aplikacji</strong> jest częścią adresu URL, który Twoja aplikacja będzie używać do uzyskania dostępu do aplikacji usługi Facebook do uwierzytelniania (np. https\://apps.facebook.com/{App Namespace}). Jeśli nie określisz <strong>Namespace aplikacji</strong>, <strong>Identyfikatora aplikacji</strong> będzie służyć jako adres URL. <strong>Identyfikatora aplikacji</strong> jest liczbą długo generowanych przez system, będą widoczne w następnym kroku.
-
-    ![Utwórz nową aplikację w oknie dialogowym](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image23.png)
-5. Prześlij wyboru standardowych zabezpieczeń.
-
-    ![Sprawdzanie zabezpieczeń](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image24.png)
-6. Wybierz **ustawienia** paska menu po lewej stronie![ Pasek menu dewelopera usługi Facebook](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image25.png)
-7. Na **podstawowe** ustawienia części strony wybierz **Dodaj platformy** do określenia, czy dodajesz aplikację witryny sieci Web. ![Ustawienia podstawowe](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image26.png)
-8. Wybierz **witryny sieci Web** z możliwości platformy.  
-  
-    ![Możliwości platformy](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image27.png)
-9. Zwróć uwagę na Twoje **Identyfikatora aplikacji** i **klucz tajny aplikacji** tak, aby można było dodać zarówno do aplikacji MVC w dalszej części tego samouczka. Ponadto Dodaj adres URL witryny (`https://localhost:44300/`) do testowania aplikacji MVC. Ponadto Dodaj **E-mail kontaktowy**. Następnie wybierz **Zapisz zmiany**.   
-
-    ![Strona szczegółów aplikacji w warstwie podstawowa](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image28.png)
-
-    > [!NOTE]
-    > Należy zauważyć, że tylko można przeprowadzić uwierzytelniania za pomocą aliasu adresu e-mail, które zostały zarejestrowane. Innym użytkownikom i testowe konta nie będzie można zarejestrować. Można udzielić dostępu dla kont usługi Facebook innych aplikacji w usłudze Facebook **ról dla deweloperów** kartę.
-10. W programie Visual Studio, otwórz *aplikacji\_Start\Startup.Auth.cs*.
-11. Skopiuj i Wklej **AppId** i **klucz tajny aplikacji** do `UseFacebookAuthentication` metody. **AppId** i **klucz tajny aplikacji** wartości podanych poniżej są przykłady i nie będzie działać.
-
-    [!code-csharp[Main](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/samples/sample3.cs?highlight=33-35,38-39)]
-12. Kliknij przycisk **Zapisz zmiany**.
-13. Naciśnij klawisz **kombinację klawiszy CTRL + F5** do uruchomienia aplikacji.
-
-
-Wybierz **Zaloguj** można wyświetlić strony logowania. Kliknij przycisk **Facebook** w obszarze **Zaloguj się za pomocą innej usługi.**
-
-Wprowadź swoje poświadczenia usługi Facebook.
-
-![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image29.png)
-
-Użytkownik jest monitowany o udzielenie uprawnień dla aplikacji, aby uzyskać dostęp do Twojego profilu publicznego i list znajomych.
-
-![Szczegóły aplikacji usługi Facebook](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image30.png)
-
-Obecnie zalogowano Cię. Możesz teraz zarejestrować tego konta z aplikacją.
-
-![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image31.png)
-
-Po zarejestrowaniu, wpis jest dodawany do *użytkowników* tabeli członkostwa bazy danych.
 
 <a id="mdb"></a>
 ## <a name="examine-the-membership-data"></a>Sprawdzanie danych członkostwa

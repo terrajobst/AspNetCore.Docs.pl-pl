@@ -1,6 +1,6 @@
 W tym samouczku pokazano programowania dla sieci web platformy ASP.NET Core MVC za pomocą kontrolerów i widoków. Strony razor jest funkcją Framework ASP.NET Core MVC, która ułatwia tworzenie i testowanie internetowego interfejsu użytkownika, łatwiejsze i bardziej wydajne. Można użyć stron Razor wraz z widoków i kontrolerów, w tym samym projekcie.
 
-Po zakończeniu korzystania z stron Razor wielu programistów preferowanie go za pośrednictwem widoków i kontrolerów. Zalecamy wypróbowanie [stron Razor](xref:tutorials/razor-pages/razor-pages-start) samouczek przed wersją widoków-MVC/kontrolera. Samouczek stron Razor:
+Zalecamy wypróbowanie [stron Razor](xref:tutorials/razor-pages/razor-pages-start) samouczek przed wersją widoków-MVC/kontrolera. Samouczek stron Razor:
 
 * Jest preferowanym podejściem w przypadku nowych wdrożeń aplikacji.
 * Łatwiej jest je wykonać.
