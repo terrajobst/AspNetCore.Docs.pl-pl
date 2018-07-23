@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/30/2018
 uid: signalr/configuration
-ms.openlocfilehash: fac0226c939f4cf446c876b1c0b359d6c5b9dfd3
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: f5a345795f17dafd482e359e77a151d5b0a15688
+ms.sourcegitcommit: 8b68e144aab75374af52605a71717c77345a28b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095405"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39182593"
 ---
 # <a name="aspnet-core-signalr-configuration"></a>Konfiguracja Core SignalR platformy ASP.NET
 
@@ -62,7 +62,7 @@ W poniższej tabeli opisano opcje dotyczące konfigurowania centrów SignalR:
 
 | Opcja | Opis |
 | ------ | ----------- |
-| `HandshakeTimeout` | Jeśli klient nie wysyła komunikat uzgadniania połączenia początkowego, w tym przedziale czasu, połączenie jest zamknięte. |
+| `HandshakeTimeout` | Jeśli klient nie wysyła komunikat uzgadniania połączenia początkowego, w tym przedziale czasu, połączenie jest zamknięte. To ustawienie Zaawansowane, które powinny być modyfikowane tylko, jeśli występują błędy przekroczenia limitu czasu uzgadnianie ze względu na opóźnienie sieci poważne. Aby uzyskać więcej szczegółów na temat procesu uzgadniania, zobacz [specyfikacji protokołu Centrum SignalR](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md). |
 | `KeepAliveInterval` | Jeśli serwer nie wysłał wiadomości, w tym przedziale czasu, wiadomość ping są wysyłane automatycznie do utrzymanie otwartego połączenia. |
 | `SupportedProtocols` | Protokoły obsługiwane przez tego koncentratora. Domyślnie są dozwolone wszystkie protokoły zarejestrowany na serwerze, ale protokoły mogą być usunięte z tej listy, aby wyłączyć określone protokoły dla poszczególnych centrów. |
 | `EnableDetailedErrors` | Jeśli `true`, szczegółowe komunikaty o wyjątkach są zwracane do klientów, gdy wyjątek jest zgłaszany w przypadku metody koncentratora. Wartość domyślna to `false`, jak te komunikaty o wyjątkach mogą zawierać poufne informacje. |
@@ -216,10 +216,10 @@ Dodatkowe opcje dotyczące konfigurowania limitu czasu i zachowanie keep-alive s
 
 | .NET — opcja | Opcja języka JavaScript | Opis |
 | ----------- | ----------------- | ----------- |
-| `ServerTimeout` | `serverTimeoutInMilliseconds` | Limit czasu aktywności serwera. Jeśli serwer nie wysłał żadnego komunikatu w tym interwał, klient traktuje serwera odłączona i wyzwalacza `Closed` zdarzeń (`onclose` w języku JavaScript). |
-| `HandshakeTimeout` | Nie można konfigurować | Limit czasu dla serwera początkowego uzgadniania. Jeśli serwer nie wysyłać odpowiedzi uzgadniania, w tym interwał, klient anuluje uzgadnianiu i wyzwalacza `Closed` zdarzeń (`onclose` w języku JavaScript). |
+| `ServerTimeout` | `serverTimeoutInMilliseconds` | Limit czasu aktywności serwera. Jeśli serwer nie wysłał wiadomości, w tym interwał, klient traktuje serwera odłączona i wyzwalacze `Closed` zdarzeń (`onclose` w języku JavaScript). |
+| `HandshakeTimeout` | Nie można konfigurować | Limit czasu dla serwera początkowego uzgadniania. Jeśli serwer nie wysyłać odpowiedzi uzgadniania, w tym interwał, klient anuluje uzgadnianiu i wyzwalacze `Closed` zdarzeń (`onclose` w języku JavaScript). To ustawienie Zaawansowane, które powinny być modyfikowane tylko, jeśli występują błędy przekroczenia limitu czasu uzgadnianie ze względu na opóźnienie sieci poważne. Aby uzyskać więcej szczegółów na temat procesu uzgadniania, zobacz [specyfikacji protokołu Centrum SignalR](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md). |
 
-W kliencie programu .NET wartości limitu czasu są określane jako `TimeSpan` wartości. W kliencie JavaScript wartości limitu czasu są określone jako liczby. Liczby reprezentują wartości czasu w milisekundach.
+W kliencie programu .NET wartości limitu czasu są określane jako `TimeSpan` wartości. W kliencie JavaScript wartości limitu czasu są określane jako liczba wskazująca czas trwania (w milisekundach).
 
 ### <a name="configure-additional-options"></a>Konfigurowanie opcji dodatkowych
 

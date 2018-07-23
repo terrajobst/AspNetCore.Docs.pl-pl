@@ -5,14 +5,14 @@ author: tdykstra
 description: Lista przewodniki krok po kroku dotyczące tworzenia aplikacji ASP.NET.
 ms.assetid: fddf8e5e-c055-4f81-b691-78deef871112
 ms.author: aspnetcontent
-ms.date: 01/17/2012
+ms.date: 09/20/2017
 ms.technology: aspnet
-ms.openlocfilehash: 6b5dfcd77799c52bea2953f21d73d2dd08435a7d
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: d14d00a4a517395591fec160b582dca9e043fcfd
+ms.sourcegitcommit: 8b68e144aab75374af52605a71717c77345a28b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37835579"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39182580"
 ---
 # <a name="aspnet-tutorials"></a>Samouczki platformy ASP.NET
 
