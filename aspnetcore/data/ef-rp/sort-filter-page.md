@@ -5,12 +5,12 @@ description: W tym samouczku dodasz, sortowanie, filtrowanie i stronicowanie fun
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: 86321538f02ccf1a36ee9e50729e63e007f10327
-ms.sourcegitcommit: ee2b26c7d08b38c908c668522554b52ab8efa221
+ms.openlocfilehash: ee5a0dae41ba0afba518f0bd6fbd379fdbbfb1c1
+ms.sourcegitcommit: a3675f9704e4e73ecc7cbbbf016a13d2a5c4d725
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39146900"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39202617"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---sort-filter-paging---3-of-8"></a>Strony razor z programem EF Core w programie ASP.NET Core — sortowanie, filtrowanie, stronicowania - 3, 8
 
@@ -161,7 +161,7 @@ Obecnie po wybraniu łącza sortowania nagłówka kolumny filtru z wartości **w
 
 W tej sekcji `PaginatedList` klasa jest tworzona do obsługi stronicowania. `PaginatedList` Klasy używa `Skip` i `Take` instrukcje, aby filtrować dane na serwerze, zamiast pobierać wszystkie wiersze z tabeli. Poniższa ilustracja przedstawia przyciski stronicowania.
 
-![Studenci indeksu stronę linkami stronicowania](sort-filter-page/_static/paging.png)
+![Strona indeksu studentów wraz z łączami stronicowania](sort-filter-page/_static/paging.png)
 
 W folderze projektu, należy utworzyć `PaginatedList.cs` następującym kodem:
 
@@ -263,8 +263,6 @@ Aktualizacja *Pages/About.cshtml.cs* pliku następującym kodem:
 [!code-csharp[](intro/samples/cu21/Pages/About.cshtml.cs)]
 
 Instrukcji LINQ grup jednostek uczniów według daty rejestracji, oblicza liczbę jednostek w każdej grupie i przechowuje wyniki w zbiorze `EnrollmentDateGroup` wyświetlić obiekty w modelu.
-
-Uwaga: LINQ `group` polecenia nie jest obecnie obsługiwane przez platformę EF Core. W poprzednim kodzie najpierw zwracane są wszystkie rekordy dla uczniów, a z programu SQL Server. `group` Poleceń jest stosowany w aplikacji stron Razor, nie na serwerze SQL. EF Core 2.1 obejmie to LINQ `group` operator i grupowanie występuje w programie SQL Server. Zobacz [relacyjne: Obsługa translacji GroupBy() do bazy danych SQL](https://github.com/aspnet/EntityFrameworkCore/issues/2341). [EF Core 2.1](https://github.com/aspnet/EntityFrameworkCore/wiki/roadmap) zostaną wydane przy użyciu platformy .NET Core 2.1. Aby uzyskać więcej informacji, zobacz [harmonogram działania dla platformy .NET Core](https://github.com/dotnet/core/blob/master/roadmap.md).
 
 ### <a name="modify-the-about-razor-page"></a>Modyfikowanie dotyczące strony Razor
 

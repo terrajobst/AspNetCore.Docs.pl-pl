@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 08/07/2017
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: 0d35de827ca6fea530229f1ef263ea7b9351e5ad
-ms.sourcegitcommit: 19cbda409bdbbe42553dc385ea72d2a8e246509c
+ms.openlocfilehash: ea3f26f9377715ea27f19908932d2dcf3cfcbea6
+ms.sourcegitcommit: a3675f9704e4e73ecc7cbbbf016a13d2a5c4d725
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38992831"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39202604"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>Dodawanie walidacji do strony ASP.NET Core Razor
 
@@ -38,7 +38,7 @@ Aktualizacja `Movie` klasy, aby korzystać z zalet `Required`, `StringLength`, `
 
 ::: moniker range=">= aspnetcore-2.1"
 
-[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie21/Models/MovieDateRatingDA.cs)]
+[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie21/Models/MovieDateRatingDA.cs?name=snippet1)]
 
 ::: moniker-end
 
@@ -157,7 +157,7 @@ Poniższy kod pokazuje atrybuty łączenie w jednym wierszu:
 
 Zobacz [publikowania aplikacji sieci web ASP.NET Core w usłudze Azure App Service przy użyciu programu Visual Studio](xref:tutorials/publish-to-azure-webapp-using-vs) instrukcje na temat publikowania tej aplikacji na platformie Azure.
 
-Dziękujemy za wypełnienie tego wprowadzenia do stron Razor. Dziękujemy za opinię. [Wprowadzenie do MVC i programem EF Core](xref:data/ef-mvc/intro) jest doskonałym uzupełnianie w tym samouczku.
+Dziękujemy za wypełnienie tego wprowadzenia do stron Razor. Dziękujemy za opinię. [Rozpoczynanie pracy ze stronami Razor i programem EF Core](xref:data/ef-rp/intro) jest doskonałym uzupełnianie w tym samouczku.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

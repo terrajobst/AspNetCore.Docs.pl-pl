@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 07/02/2018
 uid: fundamentals/index
-ms.openlocfilehash: 33786bf78567a1aa12a1ac97d44d1a596ec4c3be
-ms.sourcegitcommit: 08f1a9baa97060da5168840b332c9c0805b5f901
+ms.openlocfilehash: 30c456685ce26522faff9b58fbd2977ad2f2869a
+ms.sourcegitcommit: a3675f9704e4e73ecc7cbbbf016a13d2a5c4d725
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37144979"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39202630"
 ---
 # <a name="aspnet-core-fundamentals"></a>Podstawy platformy ASP.NET Core
 
@@ -191,6 +191,12 @@ Aby uzyskać więcej informacji, zobacz [żądania funkcji](xref:fundamentals/re
 Zadania w tle są implementowane jako *usługi hostowane*. Usługa hostowana jest klasą z logiką zadań tła, który implementuje [pomocą interfejsu IHostedService](/dotnet/api/microsoft.extensions.hosting.ihostedservice) interfejsu.
 
 Aby uzyskać więcej informacji, zobacz [zadania z usługami hostowanymi w tle](xref:fundamentals/host/hosted-services).
+
+## <a name="access-httpcontext"></a>Dostęp do obiektu HttpContext
+
+Dostęp do `HttpContext` za pośrednictwem [IHttpContextAccessor](/dotnet/api/microsoft.aspnetcore.http.ihttpcontextaccessor) interfejsu i jego domyślna implementacja [HttpContextAccessor](/dotnet/api/microsoft.aspnetcore.http.httpcontextaccessor).
+
+Aby uzyskać więcej informacji, zobacz <xref:fundamentals/httpcontext>.
 
 ## <a name="open-web-interface-for-net-owin"></a>Otwarty interfejs internetowy dla platformy .NET (OWIN)
 

@@ -5,15 +5,13 @@ description: W tym samouczku przedstawiono sposób obsługi konfliktów, gdy wie
 ms.author: riande
 ms.date: 11/15/2017
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: c6ec07eb7bf484490bd7730edc44bf2d89e8fb2a
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: ff9e52df63f9c9f47ee659a68beb28b773a114a1
+ms.sourcegitcommit: a3675f9704e4e73ecc7cbbbf016a13d2a5c4d725
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38150486"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39202695"
 ---
-en-us /
-
 # <a name="razor-pages-with-ef-core-in-aspnet-core---concurrency---8-of-8"></a>Strony razor z programem EF Core w programie ASP.NET Core — współbieżności — 8 8
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT), [Tom Dykstra](https://github.com/tdykstra), i [Jan Kowalski P](https://twitter.com/thereformedprog)
@@ -54,17 +52,21 @@ Optymistyczna współbieżność obejmuje następujące opcje:
 
 * Można zachować informacje o właściwości, które użytkownik zmodyfikował i aktualizować tylko odpowiednie kolumny bazy danych.
 
-  W tym scenariuszu zostałyby utracone żadne dane. Inne właściwości zostały zaktualizowane przez dwóch użytkowników. Przy następnym ktoś przegląda angielskiej działu, zobaczy Joanny i John's zmiany. Ta metoda aktualizacji może zmniejszyć liczbę konfliktów, które może spowodować utratę danych. To podejście: * nie można uniknąć utraty danych, jeśli konkurencyjnych zmiany zostaną wprowadzone do tej samej właściwości.
-        * Jest zwykle nie jest praktyczne w aplikacji sieci web. Wymaga to zachowanie stanu znaczne w celu śledzenia wszystkich pobrano oraz nowych wartości. Obsługa dużych ilości stan może mieć wpływ na wydajność aplikacji.
-        * Może zwiększyć złożoność aplikacji w porównaniu do wykrywania współbieżności w jednostce.
+  W tym scenariuszu zostałyby utracone żadne dane. Inne właściwości zostały zaktualizowane przez dwóch użytkowników. Przy następnym ktoś przegląda angielskiej działu, zobaczy Joanny i John's zmiany. Ta metoda aktualizacji może zmniejszyć liczbę konfliktów, które może spowodować utratę danych. To podejście:
+ 
+  * Nie można uniknąć utraty danych, jeśli konkurencyjnych zmiany zostaną wprowadzone do tej samej właściwości.
+  * Zwykle nie jest praktyczne w aplikacji sieci web. Wymaga to zachowanie stanu znaczne w celu śledzenia wszystkich pobrano oraz nowych wartości. Obsługa dużych ilości stan może mieć wpływ na wydajność aplikacji.
+  * Może zwiększyć złożoność aplikacji w porównaniu do wykrywania współbieżności w jednostce.
 
 * Można pozwolić, aby zmiana John's zastąpienie Joanny zmian.
 
   Przy następnym ktoś przegląda angielskiej działu, zobaczy 9/1/2013 i pobrano wartość $350,000.00. To podejście jest nazywane *Wins klienta* lub *ostatnie w usłudze Wins* scenariusza. (Wszystkie wartości z klienta pierwszeństwo co znajduje się w magazynie danych.) Jeśli nie możesz tworzyć jakiegokolwiek kodu do obsługi współbieżności, Wins klienta odbywa się automatycznie.
 
-* Aby uniemożliwić zmiany John's aktualizowane w bazie danych. Zwykle, czy aplikacja: * wyświetlony komunikat o błędzie.
-        * Umożliwia wyświetlenie bieżącego stanu danych.
-        * Umożliwia użytkownikowi ponownie zastosować zmiany.
+* Aby uniemożliwić zmiany John's aktualizowane w bazie danych. Zazwyczaj aplikacja będzie:
+
+  * Wyświetl komunikat o błędzie.
+  * Umożliwia wyświetlenie bieżącego stanu danych.
+  * Zezwalaj użytkownikowi ponownie zastosować zmiany.
 
   Jest to nazywane *Store Wins* scenariusza. (Wartości magazynu danych pierwszeństwo wartości przesłany przez klienta.) W tym samouczku jest zaimplementowania scenariusza Store Wins. Ta metoda zapewnia, że żadne zmiany nie zostaną zastąpione bez użytkownika, w tym celu.
 
@@ -144,7 +146,7 @@ Poprzedniego polecenia:
 * Dodaje *migracje / {stamp}_RowVersion.cs czasu* pliku migracji.
 * Aktualizacje *Migrations/SchoolContextModelSnapshot.cs* pliku. Aktualizacja dodaje następujący wyróżniony kod do `BuildModel` metody:
 
-[!code-csharp[](intro/samples/cu/Migrations/SchoolContextModelSnapshot2.cs?name=snippet&highlight=14-16)]
+  [!code-csharp[](intro/samples/cu/Migrations/SchoolContextModelSnapshot2.cs?name=snippet&highlight=14-16)]
 
 * Uruchamia migracji można zaktualizować bazy danych.
 
