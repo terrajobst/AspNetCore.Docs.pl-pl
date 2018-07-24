@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/13/2018
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 607bdb7ee830c9a3bbb83ca2aec4661772a285b2
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: 1a7769e12728b09b04749a124c50366ddb1374d7
+ms.sourcegitcommit: a3675f9704e4e73ecc7cbbbf016a13d2a5c4d725
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095843"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39202669"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host platformy ASP.NET Core na Windows za pomocą programu IIS
 
@@ -292,7 +292,7 @@ Aby skonfigurować ochronę danych w środowisku usług IIS, aby utrwalić pier�
 
   Klucze ochrony danych używane przez aplikacje platformy ASP.NET Core są przechowywane w rejestrze systemu zewnętrznego do aplikacji. Aby zachować klucze dla danej aplikacji, należy utworzyć klucze rejestru dla puli aplikacji.
 
-  Dla autonomicznej, bez webfarm instalacji usług IIS, [skrypt programu PowerShell do aprowizacji AutoGenKeys.ps1 ochrony danych](https://github.com/aspnet/DataProtection/blob/dev/Provision-AutoGenKeys.ps1) może służyć do każdej puli aplikacji używana z aplikacji ASP.NET Core. Ten skrypt tworzy klucz rejestru w rejestrze HKLM, który jest dostępny tylko dla konta procesu roboczego puli aplikacji w aplikacji. Klucze są szyfrowane za pomocą DPAPI za pomocą klucza komputera.
+  Dla autonomicznej, bez webfarm instalacji usług IIS, [skrypt programu PowerShell do aprowizacji AutoGenKeys.ps1 ochrony danych (ASP.NET Core 2.2)](https://github.com/aspnet/DataProtection/blob/release/2.2/Provision-AutoGenKeys.ps1) może służyć do każdej puli aplikacji używana z aplikacji ASP.NET Core. Ten skrypt tworzy klucz rejestru w rejestrze HKLM, który jest dostępny tylko dla konta procesu roboczego puli aplikacji w aplikacji. Klucze są szyfrowane za pomocą DPAPI za pomocą klucza komputera.
 
   W scenariuszach z farmami internetowymi można skonfigurować aplikację można użyć ścieżki UNC do przechowywania jego pierścień klucz ochrony danych. Domyślnie klucze ochrony danych nie są szyfrowane. Upewnij się, że uprawnienia do udziału sieciowego są ograniczone do konta Windows, którego aplikacja działa. X509 certyfikatu może służyć do ochrony kluczy w stanie spoczynku. Należy wziąć pod uwagę mechanizmu, aby zezwolić użytkownikom na przekazywanie certyfikatów: miejsce certyfikatów do zaufanego certyfikatu przez użytkownika, przechowywania i upewnij się, są one dostępne na wszystkich komputerach, którym jest uruchamiany aplikacji użytkownika. Zobacz [konfiguracji ochrony danych platformy ASP.NET Core](xref:security/data-protection/configuration/overview) Aby uzyskać szczegółowe informacje.
 

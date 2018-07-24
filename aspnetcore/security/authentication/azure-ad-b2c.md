@@ -5,12 +5,12 @@ description: Dowiedz się, jak skonfigurować uwierzytelnianie usługi Azure Act
 ms.date: 01/25/2018
 ms.custom: mvc
 uid: security/authentication/azure-ad-b2c
-ms.openlocfilehash: bb146804d9491dea168ddcdfc8fb2cfeaae83700
-ms.sourcegitcommit: 7097dba14d5b858e82758ee031ac62dbe3611339
+ms.openlocfilehash: 731b25cac6f0d56fd34d12114a73e5cb5265dda6
+ms.sourcegitcommit: a3675f9704e4e73ecc7cbbbf016a13d2a5c4d725
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39138587"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39202643"
 ---
 # <a name="cloud-authentication-with-azure-active-directory-b2c-in-aspnet-core"></a>Uwierzytelnianie w chmurze za pomocą usługi Azure Active Directory B2C w programie ASP.NET Core
 
@@ -19,7 +19,7 @@ Przez [Soper kamery](https://twitter.com/camsoper)
 [Usługa Azure Active Directory B2C](/azure/active-directory-b2c/active-directory-b2c-overview) (Azure AD B2C) to rozwiązanie zarządzania tożsamością w chmurze dla aplikacji internetowych i mobilnych. Usługa zapewnia uwierzytelnianie dla aplikacji hostowanych w chmurze i lokalnych. Typy uwierzytelniania obejmują indywidualnych kont, kont sieci społecznościowych i federacyjnych konta przedsiębiorstwa. Ponadto usługa Azure AD B2C zapewniają uwierzytelnianie wieloskładnikowe z minimalną konfiguracją.
 
 > [!TIP]
-> Usługa Azure Active Directory (Azure AD) usługi Azure AD B2C są oddzielny produkt. Dzierżawy usługi Azure AD organizacja, podczas gdy dzierżawy usługi Azure AD B2C reprezentuje kolekcję tożsamości do użycia z aplikacjami danej firmy. Aby dowiedzieć się więcej, zobacz [usługi Azure AD B2C: często zadawane pytania (FAQ)](/azure/active-directory-b2c/active-directory-b2c-faqs).
+> Usługa Azure Active Directory (Azure AD) i Azure AD B2C są osobne oferty. Dzierżawy usługi Azure AD organizacja, podczas gdy dzierżawy usługi Azure AD B2C reprezentuje kolekcję tożsamości do użycia z aplikacjami danej firmy. Aby dowiedzieć się więcej, zobacz [usługi Azure AD B2C: często zadawane pytania (FAQ)](/azure/active-directory-b2c/active-directory-b2c-faqs).
 
 W tym samouczku pokazano, jak:
 
