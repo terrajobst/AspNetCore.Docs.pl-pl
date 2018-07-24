@@ -1,108 +1,133 @@
 ---
-title: Szyfrowanie kluczy przechowywanych w ASP.NET Core
+title: Szyfrowanie kluczy podczas magazynowania w programie ASP.NET Core
 author: rick-anderson
-description: Szczegóły dotyczące wykonania szyfrowania kluczy platformy ASP.NET Core do ochrony danych magazynowanych.
+description: Dowiedz się, szczegóły implementacji ochrony danych programu ASP.NET Core szyfrowanie kluczy podczas magazynowania.
 ms.author: riande
-ms.date: 10/14/2016
+ms.date: 07/16/2018
 uid: security/data-protection/implementation/key-encryption-at-rest
-ms.openlocfilehash: c733540bbee2d48ab45cf2b230b7be1ee07fb146
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 52c3137dbe467096364b42430c92aecc7c15e313
+ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274703"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219293"
 ---
-# <a name="key-encryption-at-rest-in-aspnet-core"></a><span data-ttu-id="bea02-103">Szyfrowanie kluczy przechowywanych w ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="bea02-103">Key encryption at rest in ASP.NET Core</span></span>
+# <a name="key-encryption-at-rest-in-aspnet-core"></a><span data-ttu-id="c7bf8-103">Szyfrowanie kluczy podczas magazynowania w programie ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="c7bf8-103">Key encryption at rest in ASP.NET Core</span></span>
 
-<a name="data-protection-implementation-key-encryption-at-rest"></a>
+<span data-ttu-id="c7bf8-104">System ochrony danych [wykorzystuje mechanizm wykrywania domyślnie](xref:security/data-protection/configuration/default-settings) ustalenie, jak kryptograficzne klucze powinny być szyfrowane podczas przechowywania.</span><span class="sxs-lookup"><span data-stu-id="c7bf8-104">The data protection system [employs a discovery mechanism by default](xref:security/data-protection/configuration/default-settings) to determine how cryptographic keys should be encrypted at rest.</span></span> <span data-ttu-id="c7bf8-105">Deweloper można zastąpić mechanizm odnajdywania i ręcznie określić, jak klucze powinny być szyfrowane podczas przechowywania.</span><span class="sxs-lookup"><span data-stu-id="c7bf8-105">The developer can override the discovery mechanism and manually specify how keys should be encrypted at rest.</span></span>
 
-<span data-ttu-id="bea02-104">Domyślnie system ochrony danych [wykorzystuje heurystyki](xref:security/data-protection/configuration/default-settings) ustalenie, jak kryptograficznych materiału klucza powinny być szyfrowane, gdy.</span><span class="sxs-lookup"><span data-stu-id="bea02-104">By default, the data protection system [employs a heuristic](xref:security/data-protection/configuration/default-settings) to determine how cryptographic key material should be encrypted at rest.</span></span> <span data-ttu-id="bea02-105">Deweloper może zastąpić heurystyki i ręcznie określić, jak klucze powinny być szyfrowane, gdy.</span><span class="sxs-lookup"><span data-stu-id="bea02-105">The developer can override the heuristic and manually specify how keys should be encrypted at rest.</span></span>
+> [!WARNING]
+> <span data-ttu-id="c7bf8-106">Jeśli określisz jawnego [klucza lokalizacji trwałości](xref:security/data-protection/implementation/key-storage-providers), system ochrony danych deregisters domyślne szyfrowanie kluczy podczas mechanizm rest.</span><span class="sxs-lookup"><span data-stu-id="c7bf8-106">If you specify an explicit [key persistence location](xref:security/data-protection/implementation/key-storage-providers), the data protection system deregisters the default key encryption at rest mechanism.</span></span> <span data-ttu-id="c7bf8-107">W związku z tym klucze nie są szyfrowane, gdy.</span><span class="sxs-lookup"><span data-stu-id="c7bf8-107">Consequently, keys are no longer encrypted at rest.</span></span> <span data-ttu-id="c7bf8-108">Zaleca się, że możesz [mechanizm jawne klucza szyfrowania określony](xref:security/data-protection/implementation/key-encryption-at-rest) we wdrożeniach produkcyjnych.</span><span class="sxs-lookup"><span data-stu-id="c7bf8-108">We recommend that you [specify an explicit key encryption mechanism](xref:security/data-protection/implementation/key-encryption-at-rest) for production deployments.</span></span> <span data-ttu-id="c7bf8-109">Opcje mechanizmu szyfrowania podczas spoczynku są opisane w tym temacie.</span><span class="sxs-lookup"><span data-stu-id="c7bf8-109">The encryption-at-rest mechanism options are described in this topic.</span></span>
 
-> [!NOTE]
-> <span data-ttu-id="bea02-106">Jeśli określisz jawne klucza szyfrowania w mechanizmu reszta systemu ochrony danych będą wyrejestrowania domyślnego mechanizmu magazynu kluczy heurystyki podane.</span><span class="sxs-lookup"><span data-stu-id="bea02-106">If you specify an explicit key encryption at rest mechanism, the data protection system will deregister the default key storage mechanism that the heuristic provided.</span></span> <span data-ttu-id="bea02-107">Należy [Określ mechanizmu magazynowania kluczy jawne](xref:security/data-protection/implementation/key-storage-providers#data-protection-implementation-key-storage-providers), w przeciwnym razie system ochrony danych nie powiedzie się.</span><span class="sxs-lookup"><span data-stu-id="bea02-107">You must [specify an explicit key storage mechanism](xref:security/data-protection/implementation/key-storage-providers#data-protection-implementation-key-storage-providers), otherwise the data protection system will fail to start.</span></span>
+::: moniker range=">= aspnetcore-2.1"
 
-<a name="data-protection-implementation-key-encryption-at-rest-providers"></a>
+## <a name="azure-key-vault"></a><span data-ttu-id="c7bf8-110">Usługa Azure Key Vault</span><span class="sxs-lookup"><span data-stu-id="c7bf8-110">Azure Key Vault</span></span>
 
-<span data-ttu-id="bea02-108">System ochrony danych jest dostarczany z trzech mechanizmów szyfrowania w polu.</span><span class="sxs-lookup"><span data-stu-id="bea02-108">The data protection system ships with three in-box key encryption mechanisms.</span></span>
-
-## <a name="windows-dpapi"></a><span data-ttu-id="bea02-109">DPAPI systemu Windows</span><span class="sxs-lookup"><span data-stu-id="bea02-109">Windows DPAPI</span></span>
-
-<span data-ttu-id="bea02-110">*Ten mechanizm jest dostępna tylko w systemie Windows.*</span><span class="sxs-lookup"><span data-stu-id="bea02-110">*This mechanism is available only on Windows.*</span></span>
-
-<span data-ttu-id="bea02-111">W przypadku systemu Windows DPAPI materiału klucza będą szyfrowane za pomocą [CryptProtectData](https://msdn.microsoft.com/library/windows/desktop/aa380261(v=vs.85).aspx) przed jest utrwalana w magazynie.</span><span class="sxs-lookup"><span data-stu-id="bea02-111">When Windows DPAPI is used, key material will be encrypted via [CryptProtectData](https://msdn.microsoft.com/library/windows/desktop/aa380261(v=vs.85).aspx) before being persisted to storage.</span></span> <span data-ttu-id="bea02-112">DPAPI to mechanizm szyfrowania odpowiednie dane, które nigdy nie będzie można odczytać poza bieżącym komputerze (mimo że można utworzyć kopię tych kluczy do usługi Active Directory, zobacz [DPAPI i profili mobilnych](https://support.microsoft.com/kb/309408/#6)).</span><span class="sxs-lookup"><span data-stu-id="bea02-112">DPAPI is an appropriate encryption mechanism for data that will never be read outside of the current machine (though it's possible to back these keys up to Active Directory; see [DPAPI and Roaming Profiles](https://support.microsoft.com/kb/309408/#6)).</span></span> <span data-ttu-id="bea02-113">Na przykład skonfigurować szyfrowanie klucza na rest DPAPI.</span><span class="sxs-lookup"><span data-stu-id="bea02-113">For example to configure DPAPI key-at-rest encryption.</span></span>
+<span data-ttu-id="c7bf8-111">Do przechowywania kluczy w [usługi Azure Key Vault](https://azure.microsoft.com/services/key-vault/), skonfiguruj system z [ProtectKeysWithAzureKeyVault](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.protectkeyswithazurekeyvault) w `Startup` klasy:</span><span class="sxs-lookup"><span data-stu-id="c7bf8-111">To store keys in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/), configure the system with [ProtectKeysWithAzureKeyVault](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.protectkeyswithazurekeyvault) in the `Startup` class:</span></span>
 
 ```csharp
-sc.AddDataProtection()
-    // only the local user account can decrypt the keys
-    .ProtectKeysWithDpapi();
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddDataProtection()
+        .PersistKeysToAzureBlobStorage(new Uri("<blobUriWithSasToken>"))
+        .ProtectKeysWithAzureKeyVault("<keyIdentifier>", "<clientId>", "<clientSecret>");
+}
 ```
 
-<span data-ttu-id="bea02-114">Jeśli `ProtectKeysWithDpapi` jest wywoływana bez parametrów, tylko konta użytkownika systemu Windows można odszyfrować utrwalonego materiału klucza.</span><span class="sxs-lookup"><span data-stu-id="bea02-114">If `ProtectKeysWithDpapi` is called with no parameters, only the current Windows user account can decipher the persisted key material.</span></span> <span data-ttu-id="bea02-115">Opcjonalnie możesz określić dowolne konto użytkownika na komputerze (nie tylko bieżące konto użytkownika) należy stanie odszyfrować materiał kluczy, jak pokazano w poniższym przykładzie.</span><span class="sxs-lookup"><span data-stu-id="bea02-115">You can optionally specify that any user account on the machine (not just the current user account) should be able to decipher the key material, as shown in the below example.</span></span>
+<span data-ttu-id="c7bf8-112">Aby uzyskać więcej informacji, zobacz [konfiguracji ochrony danych platformy ASP.NET Core: ProtectKeysWithAzureKeyVault](xref:security/data-protection/configuration/overview#protectkeyswithazurekeyvault).</span><span class="sxs-lookup"><span data-stu-id="c7bf8-112">For more information, see [Configure ASP.NET Core Data Protection: ProtectKeysWithAzureKeyVault](xref:security/data-protection/configuration/overview#protectkeyswithazurekeyvault).</span></span>
+
+::: moniker-end
+
+## <a name="windows-dpapi"></a><span data-ttu-id="c7bf8-113">Windows DPAPI</span><span class="sxs-lookup"><span data-stu-id="c7bf8-113">Windows DPAPI</span></span>
+
+<span data-ttu-id="c7bf8-114">**Dotyczy tylko wdrożenia Windows.**</span><span class="sxs-lookup"><span data-stu-id="c7bf8-114">**Only applies to Windows deployments.**</span></span>
+
+<span data-ttu-id="c7bf8-115">Gdy jest używany Windows DPAPI, materiału klucza jest szyfrowana za pomocą [CryptProtectData](/windows/desktop/api/dpapi/nf-dpapi-cryptprotectdata) przed są utrwalane w magazynie.</span><span class="sxs-lookup"><span data-stu-id="c7bf8-115">When Windows DPAPI is used, key material is encrypted with [CryptProtectData](/windows/desktop/api/dpapi/nf-dpapi-cryptprotectdata) before being persisted to storage.</span></span> <span data-ttu-id="c7bf8-116">DPAPI to mechanizm szyfrowania odpowiednie dla danych, które nie jest nigdy odczytywana poza bieżącej maszyny (choć jest możliwe utworzyć kopię tych kluczy do usługi Active Directory; zobacz [profilów mobilnych i interfejsu DPAPI](https://support.microsoft.com/kb/309408/#6)).</span><span class="sxs-lookup"><span data-stu-id="c7bf8-116">DPAPI is an appropriate encryption mechanism for data that's never read outside of the current machine (though it's possible to back these keys up to Active Directory; see [DPAPI and Roaming Profiles](https://support.microsoft.com/kb/309408/#6)).</span></span> <span data-ttu-id="c7bf8-117">Aby skonfigurować szyfrowanie klucza magazynowanych DPAPI, należy wywołać jedną z [ProtectKeysWithDpapi](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.protectkeyswithdpapi) metody rozszerzenia:</span><span class="sxs-lookup"><span data-stu-id="c7bf8-117">To configure DPAPI key-at-rest encryption, call one of the [ProtectKeysWithDpapi](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.protectkeyswithdpapi) extension methods:</span></span>
 
 ```csharp
-sc.AddDataProtection()
-    // all user accounts on the machine can decrypt the keys
-    .ProtectKeysWithDpapi(protectToLocalMachine: true);
+public void ConfigureServices(IServiceCollection services)
+{
+    // Only the local user account can decrypt the keys
+    services.AddDataProtection()
+        .ProtectKeysWithDpapi();
+}
 ```
 
-## <a name="x509-certificate"></a><span data-ttu-id="bea02-116">Certyfikat X.509</span><span class="sxs-lookup"><span data-stu-id="bea02-116">X.509 certificate</span></span>
-
-<span data-ttu-id="bea02-117">*Ten mechanizm nie jest dostępna w `.NET Core 1.0` lub `1.1`.*</span><span class="sxs-lookup"><span data-stu-id="bea02-117">*This mechanism isn't available on `.NET Core 1.0` or `1.1`.*</span></span>
-
-<span data-ttu-id="bea02-118">Jeśli aplikacja zostanie rozmieszczona na wielu komputerach, może być wygodne rozpowszechniają udostępnionego certyfikatu X.509 maszyn i konfiguracji aplikacji, aby użyć tego certyfikatu do szyfrowania kluczy w stanie spoczynku.</span><span class="sxs-lookup"><span data-stu-id="bea02-118">If your application is spread across multiple machines, it may be convenient to distribute a shared X.509 certificate across the machines and to configure applications to use this certificate for encryption of keys at rest.</span></span> <span data-ttu-id="bea02-119">Poniżej znajduje się przykład.</span><span class="sxs-lookup"><span data-stu-id="bea02-119">See below for an example.</span></span>
+<span data-ttu-id="c7bf8-118">Jeśli `ProtectKeysWithDpapi` jest wywoływana bez parametrów, tylko bieżącego konta użytkownika Windows, może odszyfrować utrwalonych pierścień klucza.</span><span class="sxs-lookup"><span data-stu-id="c7bf8-118">If `ProtectKeysWithDpapi` is called with no parameters, only the current Windows user account can decipher the persisted key ring.</span></span> <span data-ttu-id="c7bf8-119">Opcjonalnie możesz określić, że dowolne konto użytkownika na komputerze (nie tylko bieżącego konta użytkownika) można odszyfrować pierścień klucza:</span><span class="sxs-lookup"><span data-stu-id="c7bf8-119">You can optionally specify that any user account on the machine (not just the current user account) be able to decipher the key ring:</span></span>
 
 ```csharp
-sc.AddDataProtection()
-    // searches the cert store for the cert with this thumbprint
-    .ProtectKeysWithCertificate("3BCE558E2AD3E0E34A7743EAB5AEA2A9BD2575A0");
+public void ConfigureServices(IServiceCollection services)
+{
+    // All user accounts on the machine can decrypt the keys
+    services.AddDataProtection()
+        .ProtectKeysWithDpapi(protectToLocalMachine: true);
+}
 ```
 
-<span data-ttu-id="bea02-120">Obsługiwane są tylko certyfikatów z kluczami prywatnymi CAPI ze względu na ograniczenia .NET Framework.</span><span class="sxs-lookup"><span data-stu-id="bea02-120">Due to .NET Framework limitations only certificates with CAPI private keys are supported.</span></span> <span data-ttu-id="bea02-121">Zobacz [szyfrowania opartego na certyfikatach z DPAPI NG Windows](#data-protection-implementation-key-encryption-at-rest-dpapi-ng) poniżej dla możliwe obejścia tych ograniczeń.</span><span class="sxs-lookup"><span data-stu-id="bea02-121">See [Certificate-based encryption with Windows DPAPI-NG](#data-protection-implementation-key-encryption-at-rest-dpapi-ng) below for possible workarounds to these limitations.</span></span>
+::: moniker range=">= aspnetcore-2.0"
 
-<a name="data-protection-implementation-key-encryption-at-rest-dpapi-ng"></a>
+## <a name="x509-certificate"></a><span data-ttu-id="c7bf8-120">Certyfikat X.509</span><span class="sxs-lookup"><span data-stu-id="c7bf8-120">X.509 certificate</span></span>
 
-## <a name="windows-dpapi-ng"></a><span data-ttu-id="bea02-122">Windows DPAPI-NG</span><span class="sxs-lookup"><span data-stu-id="bea02-122">Windows DPAPI-NG</span></span>
-
-<span data-ttu-id="bea02-123">*Ten mechanizm jest dostępna tylko w systemie Windows 8 / Windows Server 2012 lub nowszym.*</span><span class="sxs-lookup"><span data-stu-id="bea02-123">*This mechanism is available only on Windows 8 / Windows Server 2012 and later.*</span></span>
-
-<span data-ttu-id="bea02-124">Począwszy od systemu Windows 8, system operacyjny obsługuje DPAPI-NG (nazywanych również CNG DPAPI).</span><span class="sxs-lookup"><span data-stu-id="bea02-124">Beginning with Windows 8, the operating system supports DPAPI-NG (also called CNG DPAPI).</span></span> <span data-ttu-id="bea02-125">Microsoft wychodzi poza jego scenariusz użycia w następujący sposób.</span><span class="sxs-lookup"><span data-stu-id="bea02-125">Microsoft lays out its usage scenario as follows.</span></span>
-
-   <span data-ttu-id="bea02-126">Rozwiązań w chmurze, często wymaga tej zawartości zaszyfrowane na jednym komputerze można odszyfrować na innym.</span><span class="sxs-lookup"><span data-stu-id="bea02-126">Cloud computing, however, often requires that content encrypted on one computer be decrypted on another.</span></span> <span data-ttu-id="bea02-127">W związku z tym począwszy od systemu Windows 8, Microsoft rozszerzony pomysł obejmują scenariusze chmury przy użyciu stosunkowo prosta interfejsu API.</span><span class="sxs-lookup"><span data-stu-id="bea02-127">Therefore, beginning with Windows 8, Microsoft extended the idea of using a relatively straightforward API to encompass cloud scenarios.</span></span> <span data-ttu-id="bea02-128">Ten nowy interfejs API, nazywany DPAPI NG, umożliwia bezpieczne udostępnianie kluczy tajnych (klucze, hasła, materiału klucza) i komunikaty, aby chronić je do zestawu podmiotów zabezpieczeń, które mogą służyć do usunięcia ochrony je na różnych komputerach po odpowiedniego uwierzytelnienia i autoryzacji.</span><span class="sxs-lookup"><span data-stu-id="bea02-128">This new API, called DPAPI-NG, enables you to securely share secrets (keys, passwords, key material) and messages by protecting them to a set of principals that can be used to unprotect them on different computers after proper authentication and authorization.</span></span>
-
-   <span data-ttu-id="bea02-129">Z [o CNG DPAPI](https://msdn.microsoft.com/library/windows/desktop/hh706794(v=vs.85).aspx)</span><span class="sxs-lookup"><span data-stu-id="bea02-129">From [About CNG DPAPI](https://msdn.microsoft.com/library/windows/desktop/hh706794(v=vs.85).aspx)</span></span>
-
-<span data-ttu-id="bea02-130">Podmiot zabezpieczeń został zakodowany jako regułę ochrony deskryptora.</span><span class="sxs-lookup"><span data-stu-id="bea02-130">The principal is encoded as a protection descriptor rule.</span></span> <span data-ttu-id="bea02-131">Należy wziąć pod uwagę poniższym przykładzie, który szyfruje materiału klucza tak, aby tylko przyłączonych do domeny użytkownika z określonym identyfikatorem SID może odszyfrować materiału klucza.</span><span class="sxs-lookup"><span data-stu-id="bea02-131">Consider the below example, which encrypts key material such that only the domain-joined user with the specified SID can decrypt the key material.</span></span>
+<span data-ttu-id="c7bf8-121">Aplikacja jest rozłożona się między wieloma maszynami, mogą być wygodne rozdystrybuować udostępnionego certyfikat X.509 używany przez maszyny i konfigurowanie aplikacji hostowanych na używanie certyfikatu do szyfrowania kluczy w stanie spoczynku:</span><span class="sxs-lookup"><span data-stu-id="c7bf8-121">If the app is spread across multiple machines, it may be convenient to distribute a shared X.509 certificate across the machines and configure the hosted apps to use the certificate for encryption of keys at rest:</span></span>
 
 ```csharp
-sc.AddDataProtection()
-    // uses the descriptor rule "SID=S-1-5-21-..."
-    .ProtectKeysWithDpapiNG("SID=S-1-5-21-...",
-    flags: DpapiNGProtectionDescriptorFlags.None);
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddDataProtection()
+        .ProtectKeysWithCertificate("3BCE558E2AD3E0E34A7743EAB5AEA2A9BD2575A0");
+}
 ```
 
-<span data-ttu-id="bea02-132">Istnieje też bezparametrowy przeciążenia `ProtectKeysWithDpapiNG`.</span><span class="sxs-lookup"><span data-stu-id="bea02-132">There's also a parameterless overload of `ProtectKeysWithDpapiNG`.</span></span> <span data-ttu-id="bea02-133">Jest to metoda wygody służącą do reguły "identyfikatora SID = min", gdzie analizę jest identyfikator SID konta użytkownika systemu Windows.</span><span class="sxs-lookup"><span data-stu-id="bea02-133">This is a convenience method for specifying the rule "SID=mine", where mine is the SID of the current Windows user account.</span></span>
+<span data-ttu-id="c7bf8-122">Ze względu na ograniczenia systemu .NET Framework obsługiwane są tylko certyfikatów z kluczami prywatnymi CAPI.</span><span class="sxs-lookup"><span data-stu-id="c7bf8-122">Due to .NET Framework limitations, only certificates with CAPI private keys are supported.</span></span> <span data-ttu-id="c7bf8-123">Zobacz poniższą zawartość możliwe obejścia tych ograniczeń.</span><span class="sxs-lookup"><span data-stu-id="c7bf8-123">See the content below for possible workarounds to these limitations.</span></span>
+
+::: moniker-end
+
+## <a name="windows-dpapi-ng"></a><span data-ttu-id="c7bf8-124">Windows DPAPI-NG</span><span class="sxs-lookup"><span data-stu-id="c7bf8-124">Windows DPAPI-NG</span></span>
+
+<span data-ttu-id="c7bf8-125">**Ten mechanizm jest dostępna tylko w systemie Windows 8/Windows Server 2012 lub nowszy.**</span><span class="sxs-lookup"><span data-stu-id="c7bf8-125">**This mechanism is available only on Windows 8/Windows Server 2012 or later.**</span></span>
+
+<span data-ttu-id="c7bf8-126">Począwszy od systemu Windows 8, systemu operacyjnego Windows obsługuje DPAPI-NG (nazywane również CNG DPAPI).</span><span class="sxs-lookup"><span data-stu-id="c7bf8-126">Beginning with Windows 8, Windows OS supports DPAPI-NG (also called CNG DPAPI).</span></span> <span data-ttu-id="c7bf8-127">Aby uzyskać więcej informacji, zobacz [o DPAPI CNG](/windows/desktop/SecCNG/cng-dpapi).</span><span class="sxs-lookup"><span data-stu-id="c7bf8-127">For more information, see [About CNG DPAPI](/windows/desktop/SecCNG/cng-dpapi).</span></span>
+
+<span data-ttu-id="c7bf8-128">Podmiot zabezpieczeń jest zakodowane jako regułę ochrony deskryptora.</span><span class="sxs-lookup"><span data-stu-id="c7bf8-128">The principal is encoded as a protection descriptor rule.</span></span> <span data-ttu-id="c7bf8-129">W poniższym przykładzie, który wywołuje [ProtectKeysWithDpapiNG](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.protectkeyswithdpaping)tylko użytkownika przyłączone do domeny przy użyciu określonego identyfikatora SID może odszyfrować pierścień klucza:</span><span class="sxs-lookup"><span data-stu-id="c7bf8-129">In the following example that calls [ProtectKeysWithDpapiNG](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.protectkeyswithdpaping), only the domain-joined user with the specified SID can decrypt the key ring:</span></span>
 
 ```csharp
-sc.AddDataProtection()
-    // uses the descriptor rule "SID={current account SID}"
-    .ProtectKeysWithDpapiNG();
-```
-
-<span data-ttu-id="bea02-134">W tym scenariuszu kontroler domeny usługi AD jest odpowiedzialna za dystrybucję kluczy szyfrowania używanych przez operacje DPAPI NG.</span><span class="sxs-lookup"><span data-stu-id="bea02-134">In this scenario, the AD domain controller is responsible for distributing the encryption keys used by the DPAPI-NG operations.</span></span> <span data-ttu-id="bea02-135">Użytkownik docelowy będzie można odszyfrować zaszyfrowanego ładunku z dowolnego komputera przyłączonych do domeny (pod warunkiem, że proces jest uruchomiony w ramach ich tożsamości).</span><span class="sxs-lookup"><span data-stu-id="bea02-135">The target user will be able to decipher the encrypted payload from any domain-joined machine (provided that the process is running under their identity).</span></span>
-
-## <a name="certificate-based-encryption-with-windows-dpapi-ng"></a><span data-ttu-id="bea02-136">Na podstawie certyfikatu szyfrowania z DPAPI NG systemu Windows</span><span class="sxs-lookup"><span data-stu-id="bea02-136">Certificate-based encryption with Windows DPAPI-NG</span></span>
-
-<span data-ttu-id="bea02-137">Jeśli pracujesz na Windows 8.1 / Windows Server 2012 R2 lub później, umożliwia Windows DPAPI-NG szyfrowanie oparte na certyfikatach, nawet wtedy, gdy aplikacja jest uruchomiona na .NET Core.</span><span class="sxs-lookup"><span data-stu-id="bea02-137">If you're running on Windows 8.1 / Windows Server 2012 R2 or later, you can use Windows DPAPI-NG to perform certificate-based encryption, even if the application is running on .NET Core.</span></span> <span data-ttu-id="bea02-138">Aby skorzystać z tego, użyj ciągu deskryptora reguły "certyfikatu = HashId:thumbprint", gdzie odcisk palca jest kodowany w formacie hex SHA1 odcisk palca certyfikatu do użycia.</span><span class="sxs-lookup"><span data-stu-id="bea02-138">To take advantage of this, use the rule descriptor string "CERTIFICATE=HashId:thumbprint", where thumbprint is the hex-encoded SHA1 thumbprint of the certificate to use.</span></span> <span data-ttu-id="bea02-139">Poniżej znajduje się przykład.</span><span class="sxs-lookup"><span data-stu-id="bea02-139">See below for an example.</span></span>
-
-```csharp
-sc.AddDataProtection()
-    // searches the cert store for the cert with this thumbprint
-    .ProtectKeysWithDpapiNG("CERTIFICATE=HashId:3BCE558E2AD3E0E34A7743EAB5AEA2A9BD2575A0",
+public void ConfigureServices(IServiceCollection services)
+{
+    // Uses the descriptor rule "SID=S-1-5-21-..."
+    services.AddDataProtection()
+        .ProtectKeysWithDpapiNG("SID=S-1-5-21-...",
         flags: DpapiNGProtectionDescriptorFlags.None);
+}
 ```
 
-<span data-ttu-id="bea02-140">Dowolnej aplikacji, która jest wskazywana w tym repozytorium musi być uruchomiona na Windows 8.1 / Windows Server 2012 R2 lub nowszej, aby być w stanie odszyfrować tego klucza.</span><span class="sxs-lookup"><span data-stu-id="bea02-140">Any application which is pointed at this repository must be running on Windows 8.1 / Windows Server 2012 R2 or later to be able to decipher this key.</span></span>
+<span data-ttu-id="c7bf8-130">Istnieje również przeciążenie bez parametrów `ProtectKeysWithDpapiNG`.</span><span class="sxs-lookup"><span data-stu-id="c7bf8-130">There's also a parameterless overload of `ProtectKeysWithDpapiNG`.</span></span> <span data-ttu-id="c7bf8-131">Określ reguły przy użyciu tej metody jako udogodnienie "identyfikator SID = {CURRENT_ACCOUNT_SID}", gdzie *CURRENT_ACCOUNT_SID* jest identyfikator SID bieżącego konta użytkownika Windows:</span><span class="sxs-lookup"><span data-stu-id="c7bf8-131">Use this convenience method to specify the rule "SID={CURRENT_ACCOUNT_SID}", where *CURRENT_ACCOUNT_SID* is the SID of the current Windows user account:</span></span>
 
-## <a name="custom-key-encryption"></a><span data-ttu-id="bea02-141">Niestandardowe klucza szyfrowania</span><span class="sxs-lookup"><span data-stu-id="bea02-141">Custom key encryption</span></span>
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    // Use the descriptor rule "SID={current account SID}"
+    services.AddDataProtection()
+        .ProtectKeysWithDpapiNG();
+}
+```
 
-<span data-ttu-id="bea02-142">Jeśli mechanizmów w polu nie są odpowiednie, deweloper można określić własnych mechanizmów szyfrowania zapewniając niestandardowego `IXmlEncryptor`.</span><span class="sxs-lookup"><span data-stu-id="bea02-142">If the in-box mechanisms are not appropriate, the developer can specify their own key encryption mechanism by providing a custom `IXmlEncryptor`.</span></span>
+<span data-ttu-id="c7bf8-132">W tym scenariuszu kontroler domeny usługi AD jest odpowiedzialna za dystrybucję kluczy szyfrowania używany przez operacje DPAPI NG.</span><span class="sxs-lookup"><span data-stu-id="c7bf8-132">In this scenario, the AD domain controller is responsible for distributing the encryption keys used by the DPAPI-NG operations.</span></span> <span data-ttu-id="c7bf8-133">Użytkownik docelowy może odszyfrować zaszyfrowanego ładunku z maszyn przyłączonych do domeny (pod warunkiem, że proces jest uruchomiony w ramach ich tożsamości).</span><span class="sxs-lookup"><span data-stu-id="c7bf8-133">The target user can decipher the encrypted payload from any domain-joined machine (provided that the process is running under their identity).</span></span>
+
+## <a name="certificate-based-encryption-with-windows-dpapi-ng"></a><span data-ttu-id="c7bf8-134">Na podstawie certyfikatu szyfrowania przy użyciu interfejsu DPAPI NG Windows</span><span class="sxs-lookup"><span data-stu-id="c7bf8-134">Certificate-based encryption with Windows DPAPI-NG</span></span>
+
+<span data-ttu-id="c7bf8-135">Jeśli aplikacja jest uruchomiona w systemie Windows 8.1 / Windows Server 2012 R2 lub nowszy, można użyć Windows DPAPI-NG do szyfrowania opartego na certyfikatach.</span><span class="sxs-lookup"><span data-stu-id="c7bf8-135">If the app is running on Windows 8.1/Windows Server 2012 R2 or later, you can use Windows DPAPI-NG to perform certificate-based encryption.</span></span> <span data-ttu-id="c7bf8-136">Użyj ciągu deskryptora reguły "certyfikat = HashId:THUMBPRINT", gdzie *odcisk PALCA* jest zakodowany w formacie szesnastkowy SHA1 odcisk palca certyfikatu:</span><span class="sxs-lookup"><span data-stu-id="c7bf8-136">Use the rule descriptor string "CERTIFICATE=HashId:THUMBPRINT", where *THUMBPRINT* is the hex-encoded SHA1 thumbprint of the certificate:</span></span>
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddDataProtection()
+        .ProtectKeysWithDpapiNG("CERTIFICATE=HashId:3BCE558E2...B5AEA2A9BD2575A0",
+            flags: DpapiNGProtectionDescriptorFlags.None);
+}
+```
+
+<span data-ttu-id="c7bf8-137">Dowolna aplikacja wskazany w tym repozytorium musi działać na Windows 8.1 / Windows Server 2012 R2 lub nowszej, aby odszyfrować kluczy.</span><span class="sxs-lookup"><span data-stu-id="c7bf8-137">Any app pointed at this repository must be running on Windows 8.1/Windows Server 2012 R2 or later to decipher the keys.</span></span>
+
+## <a name="custom-key-encryption"></a><span data-ttu-id="c7bf8-138">Szyfrowanie klucza niestandardowego</span><span class="sxs-lookup"><span data-stu-id="c7bf8-138">Custom key encryption</span></span>
+
+<span data-ttu-id="c7bf8-139">Jeśli mechanizmy wewnętrzne nie są odpowiednie, deweloper może określić ich własny mechanizm szyfrowania, podając własne [IXmlEncryptor](/dotnet/api/microsoft.aspnetcore.dataprotection.xmlencryption.ixmlencryptor).</span><span class="sxs-lookup"><span data-stu-id="c7bf8-139">If the in-box mechanisms aren't appropriate, the developer can specify their own key encryption mechanism by providing a custom [IXmlEncryptor](/dotnet/api/microsoft.aspnetcore.dataprotection.xmlencryption.ixmlencryptor).</span></span>
