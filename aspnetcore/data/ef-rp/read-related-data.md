@@ -5,12 +5,12 @@ description: W tym samouczku należy przeczytać i wyświetlanie powiązanych da
 ms.author: riande
 ms.date: 11/05/2017
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: bcea6aa6018a937979b8e0aaa2edcdd96da41559
-ms.sourcegitcommit: a3675f9704e4e73ecc7cbbbf016a13d2a5c4d725
+ms.openlocfilehash: bb1d087a5449c6e26c40e572d161dd9644ac2323
+ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39202682"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219345"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>Strony razor z programem EF Core w programie ASP.NET Core — odczytanie powiązanych danych — 6 8
 
@@ -69,14 +69,19 @@ Aby wyświetlić listę kursów nazwa działu przypisane:
 <a name="scaffold"></a>
 ### <a name="scaffold-the-course-model"></a>Tworzenie szkieletu modelu kursu
 
-* Zamknij program Visual Studio.
-* Otwórz okno polecenia w katalogu projektu (katalog, który zawiera *Program.cs*, *Startup.cs*, i *.csproj* plików).
-* Uruchom następujące polecenie:
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
+
+Postępuj zgodnie z instrukcjami w [tworzenia szkieletu modelu uczniów](xref:data/ef-rp/intro#scaffold-the-student-model) i użyj `Course` dla klasy modelu.
+
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+
+ Uruchom następujące polecenie:
 
   ```console
-  dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 2.1.0
   dotnet aspnet-codegenerator razorpage -m Course -dc SchoolContext -udl -outDir Pages\Courses --referenceScriptLibraries
   ```
+
+------
 
 Poprzedni szkielety mechanizmów polecenia `Course` modelu. Otwórz projekt w programie Visual Studio.
 
@@ -150,21 +155,21 @@ W *SchoolViewModels* folderze utwórz *InstructorIndexData.cs* następującym ko
 
 ### <a name="scaffold-the-instructor-model"></a>Tworzenie szkieletu modelu przez instruktorów
 
-* Zamknij program Visual Studio.
-* Otwórz okno polecenia w katalogu projektu (katalog, który zawiera *Program.cs*, *Startup.cs*, i *.csproj* plików).
-* Uruchom następujące polecenie:
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
+
+Postępuj zgodnie z instrukcjami w [tworzenia szkieletu modelu uczniów](xref:data/ef-rp/intro#scaffold-the-student-model) i użyj `Instructor` dla klasy modelu.
+
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+
+ Uruchom następujące polecenie:
 
   ```console
   dotnet aspnet-codegenerator razorpage -m Instructor -dc SchoolContext -udl -outDir Pages\Instructors --referenceScriptLibraries
   ```
 
-Poprzedni szkielety mechanizmów polecenia `Instructor` modelu. Otwórz projekt w programie Visual Studio.
+------
 
-Skompiluj projekt. Kompilacja generuje błędy.
-
-Globalnie zmienić `_context.Instructor` do `_context.Instructors` (oznacza to, Dodaj znak "s" do `Instructor`). 7 wystąpień są znaleźć i zaktualizować.
-
-Uruchom aplikację i przejdź do strony instruktorów.
+Poprzedni szkielety mechanizmów polecenia `Instructor` modelu. Uruchom aplikację i przejdź do strony instruktorów.
 
 Zastąp *Pages/Instructors/Index.cshtml.cs* następującym kodem:
 

@@ -5,12 +5,12 @@ description: W tym samouczku należy dodać większą liczbę jednostek i relacj
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 6888df174e92ab2ddf8add7b8927250be320bff8
-ms.sourcegitcommit: a3675f9704e4e73ecc7cbbbf016a13d2a5c4d725
+ms.openlocfilehash: 88d727b0545f1dacb56ea889e45b02f947867b19
+ms.sourcegitcommit: 6425baa92cec4537368705f8d27f3d0e958e43cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39202656"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39220602"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>Strony razor z programem EF Core w programie ASP.NET Core — Model danych — 5 8
 
@@ -400,7 +400,7 @@ W razie potrzeby reguły biznesowe `InstructorID` właściwości nie dopuszcza, 
 
 Powyższy kod wyłącza usuwanie kaskadowe relacji przez instruktorów działu.
 
-## <a name="update-the-enrollment-entityupdate-the-enrollment-entity"></a>Aktualizowanie rejestracji entityUpdate jednostki rejestracji
+## <a name="update-the-enrollment-entity"></a>Aktualizacja jednostki rejestracji
 
 Rekord rejestracji dotyczy jednego kursu podjęte przez jeden dla uczniów.
 
