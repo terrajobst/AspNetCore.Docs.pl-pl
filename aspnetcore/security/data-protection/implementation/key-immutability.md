@@ -1,32 +1,32 @@
 ---
-title: Immutability kluczy i kluczy ustawień w programie ASP.NET Core
+title: Niezmienność kluczy i kluczy ustawień w programie ASP.NET Core
 author: rick-anderson
-description: Dowiedz się szczegóły implementacji immutability klucza ochrony danych platformy ASP.NET Core interfejsów API.
+description: Dowiedz się, szczegóły implementacji systemu niezmienność kluczy ochrony danych programu ASP.NET Core interfejsów API.
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/implementation/key-immutability
-ms.openlocfilehash: 45460e0bdf6ad0a978f984d55b64f562c13fb575
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 7796cb102c0f6f03809704016fd36b28c7a82438
+ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36279457"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219306"
 ---
-# <a name="key-immutability-and-key-settings-in-aspnet-core"></a>Immutability kluczy i kluczy ustawień w programie ASP.NET Core
+# <a name="key-immutability-and-key-settings-in-aspnet-core"></a>Niezmienność kluczy i kluczy ustawień w programie ASP.NET Core
 
-Gdy obiekt jest utrwalone w magazynie zapasowy, jego reprezentacja zawsze jest stała. Nowe dane mogą zostać dodane do magazynu zapasowego, ale istniejące dane nigdy nie mogą ulegać mutacjom. Głównym celem to zachowanie jest aby zapobiec uszkodzeniu danych.
+Gdy obiekt jest utrwalone w magazynie pomocniczym, jego reprezentację w postaci zawsze jest stała. Nowe dane mogą zostać dodane do magazynu zapasowego, ale istniejące dane nigdy nie można zmutować. Głównym celem to zachowanie jest, aby zapobiec uszkodzeniu danych.
 
-W wyniku tego zachowania po klucz są zapisywane jako magazynu zapasowego, jest niezmienialny. Jego daty utworzenia, aktywacji i wygaśnięcia można nigdy zmieniać, chociaż może on odwołany za pomocą `IKeyManager`. Ponadto jego podstawowych informacji algorytmicznego, materiał klucza głównego i szyfrowanie właściwości rest również są niezmienne.
+W wyniku tego zachowania, jest napisana klucz do magazynu zapasowego niezmienne. Jego daty utworzenia, aktywacji i wygaśnięcia nigdy nie można zmienić, chociaż mogą odwoływane za pomocą `IKeyManager`. Ponadto jego podstawowych informacji algorytmicznego, materiał klucza głównego i szyfrowania we właściwościach rest również są niezmienne.
 
-Zmiana każdego ustawienia, które ma wpływ na klucza trwałości, deweloper tych zmian nie zaczynają obowiązywać po ponownym wygenerowaniu klucza, albo za pomocą jawnego wywołania `IKeyManager.CreateNewKey` lub za pośrednictwem danych ochrony systemu własnych [automatyczne klucza Generowanie](xref:security/data-protection/implementation/key-management#data-protection-implementation-key-management) zachowanie. Dostępne są następujące ustawienia, które mają wpływ na trwałości klucza:
+Jeśli Deweloper zmienia każdego ustawienia, które ma wpływ na trwałość klucza, te zmiany nie zaczną obowiązywać po ponownym wygenerowaniu klucza, za pośrednictwem jawnym wywołaniem `IKeyManager.CreateNewKey` lub za pośrednictwem danych ochrony systemu własnych [automatyczne klucza Generowanie](xref:security/data-protection/implementation/key-management#data-protection-implementation-key-management) zachowanie. Dostępne są następujące ustawienia, które wpływają na trwałość klucza:
 
 * [Domyślny okres istnienia klucza](xref:security/data-protection/implementation/key-management#data-protection-implementation-key-management)
 
-* [Szyfrowanie klucza w mechanizm rest](xref:security/data-protection/implementation/key-encryption-at-rest#data-protection-implementation-key-encryption-at-rest)
+* [Szyfrowanie kluczy podczas mechanizm rest](xref:security/data-protection/implementation/key-encryption-at-rest)
 
-* [Algorytmicznego informacje zawarte w kluczu](xref:security/data-protection/configuration/overview#changing-algorithms-with-usecryptographicalgorithms)
+* [Konsolidatorze informacji zawartych w kluczu](xref:security/data-protection/configuration/overview#changing-algorithms-with-usecryptographicalgorithms)
 
-Te ustawienia do wcześniejszej niż klawisza Następna automatyczne stopniowych czasu zaczną działać, należy wziąć pod uwagę jawnego wywołania do `IKeyManager.CreateNewKey` wymusić Tworzenie nowego klucza. Pamiętaj, aby określić datę aktywację jawnym ({teraz + 2 dni} jest regułą umożliwia czasu, dla której zmiana obejmie) oraz datę wygaśnięcia w wywołaniu.
+Jeśli potrzebujesz tych ustawień, aby uruchamiać starszych niż kluczowi automatyczne stopniowe czasu, należy wziąć pod uwagę jawnego wywołania do `IKeyManager.CreateNewKey` Aby wymusić utworzenie nowego klucza. Pamiętaj, aby określić datę aktywacji jawne ({teraz + 2 dni} jest regułą aby był czas na której zmiana obejmie) i datę wygaśnięcia w wywołaniu.
 
 >[!TIP]
-> Wszystkie aplikacje dotknięcie repozytorium należy określić te same ustawienia `IDataProtectionBuilder` metody rozszerzenia. W przeciwnym razie wartość właściwości klucza utrwalonego będzie zależna od określonej aplikacji, która wywołała procedury generowania kluczy.
+> Wszystkie aplikacje, dotknięcie repozytorium należy określić te same ustawienia `IDataProtectionBuilder` metody rozszerzenia. W przeciwnym razie właściwości klucza utrwalonych będzie zależny od określonej aplikacji, która wywołała procedury generowania kluczy.

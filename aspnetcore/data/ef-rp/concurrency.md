@@ -5,12 +5,12 @@ description: W tym samouczku przedstawiono sposób obsługi konfliktów, gdy wie
 ms.author: riande
 ms.date: 11/15/2017
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: ff9e52df63f9c9f47ee659a68beb28b773a114a1
-ms.sourcegitcommit: a3675f9704e4e73ecc7cbbbf016a13d2a5c4d725
+ms.openlocfilehash: a010e2ed660bea56b112799e850f2fb0ff37579e
+ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39202695"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219397"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---concurrency---8-of-8"></a>Strony razor z programem EF Core w programie ASP.NET Core — współbieżności — 8 8
 
@@ -153,24 +153,23 @@ Poprzedniego polecenia:
 <a name="scaffold"></a>
 ## <a name="scaffold-the-departments-model"></a>Tworzenie szkieletu modelu działów
 
-* Zamknij program Visual Studio.
-* Otwórz okno polecenia w katalogu projektu (katalog, który zawiera *Program.cs*, *Startup.cs*, i *.csproj* plików).
-* Uruchom następujące polecenie:
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
+
+Postępuj zgodnie z instrukcjami w [tworzenia szkieletu modelu uczniów](xref:data/ef-rp/intro#scaffold-the-student-model) i użyj `Department` dla klasy modelu.
+
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+
+ Uruchom następujące polecenie:
 
   ```console
   dotnet aspnet-codegenerator razorpage -m Department -dc SchoolContext -udl -outDir Pages\Departments --referenceScriptLibraries
   ```
 
+------
+
 Poprzedni szkielety mechanizmów polecenia `Department` modelu. Otwórz projekt w programie Visual Studio.
 
-Skompiluj projekt. Kompilacja generuje błędy podobne do następującego:
-
-`1>Pages/Departments/Index.cshtml.cs(26,37,26,43): error CS1061: 'SchoolContext' does not
- contain a definition for 'Department' and no extension method 'Department' accepting a first
- argument of type 'SchoolContext' could be found (are you missing a using directive or
- an assembly reference?)`
-
- Globalnie zmienić `_context.Department` do `_context.Departments` (oznacza to, Dodaj znak "s" do `Department`). 7 wystąpień są znaleźć i zaktualizować.
+Skompiluj projekt.
 
 ### <a name="update-the-departments-index-page"></a>Zaktualizuj strony działy indeksu
 
