@@ -142,7 +142,7 @@ W tym zadaniu dowiesz się, jak używać narzędzia Page Inspector w kontekście
     ![Inspectingelements](using-page-inspector-in-visual-studio-2012/_static/image6.png)
 
     *Sprawdzanie elementów*
-7. Kliknij przycisk **Przełącz tryb inspekcji** przycisku (![wybierz kartę HTML, aby wyświetlić kod HTML w przeglądarce narzędzia Page Inspector.] (using-page-inspector-in-visual-studio-2012/_static/image7.png "Wybierz kartę HTML, aby wyświetlić kod HTML w przeglądarce narzędzia Page Inspector.") ) można wyłączyć kursora.
+7. Kliknij przycisk **Przełącz tryb inspekcji** przycisku (![wybierz kartę HTML, aby wyświetlić kod HTML w przeglądarce narzędzia Page Inspector.](using-page-inspector-in-visual-studio-2012/_static/image7.png "Wybierz kartę HTML, aby wyświetlić kod HTML w przeglądarce narzędzia Page Inspector.") ) można wyłączyć kursora.
 8. Wybierz **HTML** kartę, aby wyświetlić kod HTML w przeglądarce narzędzia Page Inspector.
 9. W kod znaczników HTML Znajdź element listy z linkiem Koala i zaznacz je.
 
