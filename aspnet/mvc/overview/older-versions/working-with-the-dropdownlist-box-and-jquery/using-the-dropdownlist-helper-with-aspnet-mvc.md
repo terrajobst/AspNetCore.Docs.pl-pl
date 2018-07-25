@@ -8,12 +8,12 @@ ms.date: 01/12/2012
 ms.assetid: 53767e05-c8ab-42e1-a94b-22d906195200
 msc.legacyurl: /mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/using-the-dropdownlist-helper-with-aspnet-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 9f16c01515bde80d3994618d26818c2d93f69d87
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 6dbffe715990de5c0b3b834e354379e414925816
+ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37828380"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219059"
 ---
 <a name="using-the-dropdownlist-helper-with-aspnet-mvc"></a>Używanie Pomocnika DropDownList na platformie ASP.NET MVC
 ====================
@@ -190,7 +190,7 @@ Otwórz *Views\Home\MultiSelectCountry.cshtml* pliku i Dodaj `htmlAttributes` pa
 
 [!code-cshtml[Main](using-the-dropdownlist-helper-with-aspnet-mvc/samples/sample12.cshtml)]
 
-W powyższym kodzie dodajemy atrybutu w kodzie HTML i wartością atrybutu `class = "chzn-select"`. Znak @ poprzedzających klasy nie ma nic wspólnego z aparatu widoku Razor. `class` jest [— słowo kluczowe języka C#](https://msdn.microsoft.com/library/x53a06bb.aspx). Nie można użyć słowa kluczowe języka C# jako identyfikatory, chyba że zawierają one jako prefiksu. W powyższym przykładzie `@class` jest prawidłowym identyfikatorem, ale **klasy** jest niezgodny, ponieważ **klasy** jest słowem kluczowym.
+W powyższym kodzie dodajemy atrybutu w kodzie HTML i wartością atrybutu `class = "chzn-select"`. \@ Znak poprzedniego klasa ma nic wspólnego z aparatu widoku Razor. `class` jest [— słowo kluczowe języka C#](https://msdn.microsoft.com/library/x53a06bb.aspx). Słowa kluczowe języka C# nie można używać jako identyfikatorów, o ile nie obejmują one \@ jako prefiksu. W powyższym przykładzie `@class` jest prawidłowym identyfikatorem, ale **klasy** jest niezgodny, ponieważ **klasy** jest słowem kluczowym.
 
 Dodaj odwołania do *Chosen/chosen.jquery.js* i *Chosen/chosen.css* plików. *Chosen/chosen.jquery.js* i implementuje funkcjonalnie z wtyczki wybrane. *Chosen/chosen.css* plik zawiera stylu. Dodaj te odwołania do dołu *Views\Home\MultiSelectCountry.cshtml* pliku. Poniższy kod pokazuje, jak odwoływać się do wtyczki wybrane.
 
