@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/19/2017
 uid: security/cookie-sharing
-ms.openlocfilehash: f8347b52f68165cdbe4ab77a76664e4767bc4cdf
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: ed3496db3f7a63a704f0e57faef6b2f6c085a8bd
+ms.sourcegitcommit: b4c7b1a4c48dec0865f27874275c73da1f75e918
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095480"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39228601"
 ---
 # <a name="share-cookies-among-apps-with-aspnet-and-aspnet-core"></a>Udostępnianie plików cookie między aplikacjami ASP.NET i ASP.NET Core
 
@@ -51,6 +51,12 @@ W `ConfigureServices` metody, użyj [ConfigureApplicationCookie](/dotnet/api/mic
 
 Klucze ochrony danych i nazwę aplikacji musi być współużytkowany przez aplikacje. W przykładowym aplikacjom oraz `GetKeyRingDirInfo` zwraca wspólnej lokalizacji magazynu kluczy w celu [PersistKeysToFileSystem](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.persistkeystofilesystem) metody. Użyj [SetApplicationName](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.setapplicationname) skonfigurować nazwę pospolitą udostępnionej aplikacji (`SharedCookieApp` w przykładzie). Aby uzyskać więcej informacji, zobacz [konfigurowania ochrony danych](xref:security/data-protection/configuration/overview).
 
+Hostowania aplikacji, które udostępnianie plików cookie między domenami podrzędnymi, należy określić w typowych domeny [Cookie.Domain](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.domain) właściwości. Udostępnianie plików cookie między aplikacjami na `contoso.com`, takich jak `first_subdomain.contoso.com` i `second_subdomain.contoso.com`, określ `Cookie.Domain` jako `.contoso.com`:
+
+```csharp
+options.Cookie.Domain = ".contoso.com";
+```
+
 Zobacz *CookieAuthWithIdentity.Core* projektu w [przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/cookie-sharing/sample/) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample)).
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
@@ -89,7 +95,13 @@ W przypadku używania plików cookie bezpośrednio:
 
 [!code-csharp[](cookie-sharing/sample/CookieAuth.Core/Startup.cs?name=snippet1)]
 
-Klucze ochrony danych i nazwę aplikacji musi być współużytkowany przez aplikacje. W przykładowym aplikacjom oraz `GetKeyRingDirInfo` zwraca wspólnej lokalizacji magazynu kluczy w celu [PersistKeysToFileSystem](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.persistkeystofilesystem) metody. Użyj [SetApplicationName](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.setapplicationname) skonfigurować nazwę pospolitą udostępnionej aplikacji (`SharedCookieApp` w przykładzie). Aby uzyskać więcej informacji, zobacz [konfigurowania ochrony danych](xref:security/data-protection/configuration/overview). 
+Klucze ochrony danych i nazwę aplikacji musi być współużytkowany przez aplikacje. W przykładowym aplikacjom oraz `GetKeyRingDirInfo` zwraca wspólnej lokalizacji magazynu kluczy w celu [PersistKeysToFileSystem](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.persistkeystofilesystem) metody. Użyj [SetApplicationName](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.setapplicationname) skonfigurować nazwę pospolitą udostępnionej aplikacji (`SharedCookieApp` w przykładzie). Aby uzyskać więcej informacji, zobacz [konfigurowania ochrony danych](xref:security/data-protection/configuration/overview).
+
+Hostowania aplikacji, które udostępnianie plików cookie między domenami podrzędnymi, należy określić w typowych domeny [Cookie.Domain](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.domain) właściwości. Udostępnianie plików cookie między aplikacjami na `contoso.com`, takich jak `first_subdomain.contoso.com` i `second_subdomain.contoso.com`, określ `Cookie.Domain` jako `.contoso.com`:
+
+```csharp
+options.Cookie.Domain = ".contoso.com";
+```
 
 Zobacz *CookieAuth.Core* projektu w [przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/cookie-sharing/sample/) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample)).
 
