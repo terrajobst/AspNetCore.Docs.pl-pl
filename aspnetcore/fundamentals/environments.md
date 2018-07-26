@@ -5,12 +5,12 @@ description: Dowiedz się, jak kontrolować zachowanie aplikacji w wielu środow
 ms.author: riande
 ms.date: 07/03/2018
 uid: fundamentals/environments
-ms.openlocfilehash: 3394113de37da2571ab6398405751961117f12d2
-ms.sourcegitcommit: 19cbda409bdbbe42553dc385ea72d2a8e246509c
+ms.openlocfilehash: eaa6fa44ed90d0c85a11f5e67a4bb9a91e84c196
+ms.sourcegitcommit: c8e62aa766641aa55105f7db79cdf2b27a6e5977
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38992876"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39254873"
 ---
 # <a name="use-multiple-environments-in-aspnet-core"></a>Używanie wielu środowisk w programie ASP.NET Core
 
@@ -219,7 +219,7 @@ Aby ustawić wartość globalnie w Windows, użyj jednej z następujących metod
   **Wiersz polecenia**
 
   ```console
-  setx ASPNETCORE_ENVIRONMENT=Development /M
+  setx ASPNETCORE_ENVIRONMENT Development /M
   ```
 
   `/M` Przełącznika wskazuje, aby ustawić zmienną środowiskową na poziomie systemu. Jeśli `/M` przełącznik nie jest używany, zmienna środowiskowa jest ustawiona dla konta użytkownika.

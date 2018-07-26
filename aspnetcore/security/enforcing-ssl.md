@@ -5,12 +5,12 @@ description: Pokazuje, jak HTTPS/TLS w programie ASP.NET Core wymagają aplikacj
 ms.author: riande
 ms.date: 2/9/2018
 uid: security/enforcing-ssl
-ms.openlocfilehash: 331c17de33b5c13221385ffb4282bc16bde32289
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: c3d92994c0331b1408e246953454910ca1f4dc43
+ms.sourcegitcommit: c8e62aa766641aa55105f7db79cdf2b27a6e5977
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095720"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39254834"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>Wymuszanie protokołu HTTPS w programie ASP.NET Core
 
@@ -37,6 +37,11 @@ Firma Microsoft zaleca wszystkich aplikacji sieci web platformy ASP.NET Core wyw
 Poniższy kod wywoła `UseHttpsRedirection` w `Startup` klasy:
 
 [!code-csharp[](enforcing-ssl/sample/Startup.cs?name=snippet1&highlight=13)]
+
+Wyróżniony kod:
+
+* Używa domyślnej [HttpsRedirectionOptions.RedirectStatusCode](/dotnet/api/microsoft.aspnetcore.httpspolicy.httpsredirectionoptions.redirectstatuscode) (`Status307TemporaryRedirect`). Aplikacje produkcyjne powinny wywoływać [UseHsts](#hsts).
+* Używa domyślnej [HttpsRedirectionOptions.HttpsPort](/dotnet/api/microsoft.aspnetcore.httpspolicy.httpsredirectionoptions.httpsport) (443).
 
 Poniższy kod wywoła [AddHttpsRedirection](/dotnet/api/microsoft.aspnetcore.builder.httpsredirectionservicesextensions.addhttpsredirection) skonfigurować opcje oprogramowania pośredniczącego:
 

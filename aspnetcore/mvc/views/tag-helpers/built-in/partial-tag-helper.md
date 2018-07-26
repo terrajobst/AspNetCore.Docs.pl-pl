@@ -5,14 +5,14 @@ description: Dowiedz się, ASP.NET Core częściowe Tag pomocnika i rolę każde
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 07/06/2018
+ms.date: 07/25/2018
 uid: mvc/views/tag-helpers/builtin-th/partial-tag-helper
-ms.openlocfilehash: a289a946a6d3eb491a08103dcefdd688eab52072
-ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
+ms.openlocfilehash: cb63357b1859c3709b2eae9f4e380c4a74e5e448
+ms.sourcegitcommit: c8e62aa766641aa55105f7db79cdf2b27a6e5977
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37938342"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39254756"
 ---
 # <a name="partial-tag-helper-in-aspnet-core"></a>Pomocnik tagu częściowego w programie ASP.NET Core
 
@@ -43,7 +43,7 @@ Spis atrybutów Pomocnik tagu częściowego poniżej.
 
 ## <a name="name"></a>nazwa
 
-`name` Atrybut jest wymagany. Wskazuje nazwę lub ścieżkę widoku częściowego do renderowania. Gdy została podana nazwa widoku częściowego, [widok odnajdywania](xref:mvc/views/overview#view-discovery) proces jest inicjowany. Ten proces jest pomijany, gdy została podana jawna ścieżka.
+`name` Atrybut jest wymagany. Wskazuje nazwę lub ścieżkę widoku częściowego do renderowania. Gdy została podana nazwa widoku częściowego, [widok odnajdywania](xref:mvc/views/overview#view-discovery) proces jest inicjowany. Ten proces jest pomijany, gdy została podana jawna ścieżka. Dla wszystkich dopuszczalne `name` wartości, zobacz [odnajdywania widoku częściowego](xref:mvc/views/partial#partial-view-discovery).
 
 Następujące znaczniki jest używana jawna ścieżka, co oznacza, że *_ProductPartial.cshtml* ma zostać załadowane z *Shared* folderu. Za pomocą [dla](#for) atrybut modelu są przekazywane do widoku częściowego do powiązania.
 
