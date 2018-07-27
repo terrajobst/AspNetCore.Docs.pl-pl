@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 07/23/2018
 uid: fundamentals/http-requests
-ms.openlocfilehash: 0aca2b260e787f9b8aa0846bcccef2b33f372ee6
-ms.sourcegitcommit: 6425baa92cec4537368705f8d27f3d0e958e43cd
+ms.openlocfilehash: 87424eaea499ba7ece1e5ef88649fcbb2e297635
+ms.sourcegitcommit: 516d0645c35ea784a3ae807be087ae70446a46ee
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39220589"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39320658"
 ---
 # <a name="initiate-http-requests"></a>Inicjowanie żądań HTTP
 
@@ -24,6 +24,8 @@ Przez [Glenn Condron](https://github.com/glennc), [Ryan Nowak](https://github.co
 * Określa zasady koncepcji wychodzących oprogramowania pośredniczącego za pośrednictwem Delegowanie obsługi w `HttpClient` i zapewnia rozszerzenia na podstawie Polly oprogramowaniu pośredniczącym, aby korzystać z zalet, który.
 * Zarządza buforowanie i okresem istnienia bazowego `HttpClientMessageHandler` wystąpienia, aby uniknąć problemów DNS, które występują, gdy ręcznego zarządzania `HttpClient` okresy istnienia.
 * Dodanie obsługi można skonfigurować rejestrowania (za pośrednictwem `ILogger`) dla wszystkich żądań wysłanych przez klientów utworzonych przez fabrykę.
+
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/http-requests/samples) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

@@ -1,46 +1,46 @@
 ---
-title: Publikowanie aplikacji platformy ASP.NET Core dla platformy Azure z programem Visual Studio
+title: Publikowanie aplikacji platformy ASP.NET Core na platformie Azure z programem Visual Studio
 author: rick-anderson
-description: Dowiedz się, jak opublikować aplikację platformy ASP.NET Core w usłudze Azure App Service przy użyciu programu Visual Studio.
+description: Dowiedz się, jak opublikować aplikację ASP.NET Core w usłudze Azure App Service przy użyciu programu Visual Studio.
 ms.author: riande
 ms.date: 12/16/2017
 uid: tutorials/publish-to-azure-webapp-using-vs
-ms.openlocfilehash: b6ff7d4873e6863fe2c64f48952e59fe3593bd9e
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 7211da268c1c52e7b859e6f98ce433fd19b218ff
+ms.sourcegitcommit: 516d0645c35ea784a3ae807be087ae70446a46ee
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273900"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39320729"
 ---
-# <a name="publish-an-aspnet-core-app-to-azure-with-visual-studio"></a>Publikowanie aplikacji platformy ASP.NET Core dla platformy Azure z programem Visual Studio
+# <a name="publish-an-aspnet-core-app-to-azure-with-visual-studio"></a>Publikowanie aplikacji platformy ASP.NET Core na platformie Azure z programem Visual Studio
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT), [Silveira Blum Cesarowi](https://github.com/cesarbs), i [Rachel Appel](https://twitter.com/rachelappel)
 
 [!INCLUDE [Azure App Service Preview Notice](../includes/azure-apps-preview-notice.md)]
 
-Zobacz [publikowania na platformie Azure w programie Visual Studio for Mac](https://blog.xamarin.com/publish-azure-visual-studio-mac/) Jeśli pracujesz nad macOS.
+Zobacz [Opublikuj na platformie Azure z programu Visual Studio dla komputerów Mac](https://blog.xamarin.com/publish-azure-visual-studio-mac/) Jeśli pracujesz w systemie macOS.
 
-Aby rozwiązać problem wdrażania usługi aplikacji, zobacz [Rozwiązywanie problemów z platformy ASP.NET Core w usłudze Azure App Service](xref:host-and-deploy/azure-apps/troubleshoot).
+Aby rozwiązać problem wdrożenia usługi App Service, zobacz [Rozwiązywanie problemów z platformą ASP.NET Core w usłudze Azure App Service](xref:host-and-deploy/azure-apps/troubleshoot).
 
 ## <a name="set-up"></a>Konfigurowanie
 
-* Otwórz [bezpłatne konto platformy Azure](https://aka.ms/K5y5yh) Jeśli nie masz. 
+* Otwórz [bezpłatne konto platformy Azure](https://azure.microsoft.com/free/dotnet/) Jeśli nie masz. 
 
 ## <a name="create-a-web-app"></a>Tworzenie aplikacji sieci web
 
-W Visual Studio — strona początkowa, wybierz **Plik > Nowy > Projekt...**
+W programie Visual Studio strony początkowej, wybierz **Plik > Nowy > Projekt...**
 
 ![menu Plik](publish-to-azure-webapp-using-vs/_static/file_new_project.png)
 
-Zakończenie **nowy projekt** okna dialogowego:
+Wykonaj **nowy projekt** okno dialogowe:
 
-* W okienku po lewej stronie wybierz **.NET Core**.
-* W środkowym okienku wybierz **aplikacji sieci Web platformy ASP.NET Core**.
+* W okienku po lewej stronie wybierz **platformy .NET Core**.
+* W środkowym okienku wybierz **aplikacji sieci Web programu ASP.NET Core**.
 * Wybierz **OK**.
 
 ![Okno dialogowe nowego projektu](publish-to-azure-webapp-using-vs/_static/new_prj.png)
 
-W **nową aplikację sieci Web Core ASP.NET** okna dialogowego:
+W **Nowa aplikacja internetowa ASP.NET Core** okno dialogowe:
 
 * Wybierz **aplikacji sieci Web**.
 * Wybierz **Zmień uwierzytelnianie**.
@@ -50,114 +50,114 @@ W **nową aplikację sieci Web Core ASP.NET** okna dialogowego:
 **Zmień uwierzytelnianie** zostanie wyświetlone okno dialogowe. 
 
 * Wybierz **indywidualne konta użytkowników**.
-* Wybierz **OK** aby powrócić do **nową aplikację sieci Web Core ASP.NET**, a następnie wybierz pozycję **OK** ponownie.
+* Wybierz **OK** aby powrócić do **Nowa aplikacja internetowa ASP.NET Core**, a następnie wybierz **OK** ponownie.
 
-![Okno dialogowe nowego uwierzytelniania sieci Web platformy ASP.NET Core](publish-to-azure-webapp-using-vs/_static/new_prj_auth.png) 
+![Nowe okno dialogowe uwierzytelniania sieci Web platformy ASP.NET Core](publish-to-azure-webapp-using-vs/_static/new_prj_auth.png) 
 
 Program Visual Studio tworzy rozwiązanie.
 
 ## <a name="run-the-app"></a>Uruchamianie aplikacji
 
 * Naciśnij klawisze CTRL + F5, aby uruchomić projekt.
-* Test **o** i **skontaktuj się z** łącza.
+* Test **o** i **skontaktuj się z pomocą** łącza.
 
 ![Aplikacja sieci Web otwórz w programie Microsoft Edge na hoście lokalnym](publish-to-azure-webapp-using-vs/_static/show.png)
 
-### <a name="register-a-user"></a>Zarejestruj użytkownika
+### <a name="register-a-user"></a>Rejestrowanie użytkownika
 
-* Wybierz **zarejestrować** i zarejestrować nowego użytkownika. Można użyć adresu e-mail fikcyjne. Podczas przesyłania, zostanie wyświetlona strona następujący błąd:
+* Wybierz **zarejestrować** i rejestrowanie nowego użytkownika. Można użyć adresu e-mail fikcyjne. Podczas przesyłania, zostanie wyświetlona strona następujący błąd:
 
-    *"Wewnętrzny błąd serwera: Operacja bazy danych nie powiodło się podczas przetwarzania żądania. Wyjątku SQL: nie można otworzyć bazy danych. Stosowanie istniejących migracje dla kontekst bazy danych aplikacji może rozwiązać ten problem."*
-* Wybierz **zastosować migracje** i po aktualizacji strony, Odśwież stronę.
+    *"Wewnętrzny błąd serwera: Operacja bazy danych nie powiodło się podczas przetwarzania żądania. Wyjątek SQL: nie można otworzyć bazy danych. Stosowanie migracji istniejących w kontekście bazy danych aplikacji może rozwiązać ten problem."*
+* Wybierz **zastosować migracje** i, po aktualizacji strony, Odśwież stronę.
 
-![Wewnętrzny błąd serwera: Operacja bazy danych nie powiodła się podczas przetwarzania żądania. Wyjątku SQL: nie można otworzyć bazy danych. Stosowanie istniejących migracje dla kontekst bazy danych aplikacji może rozwiązać ten problem.](publish-to-azure-webapp-using-vs/_static/mig.png)
+![Wewnętrzny błąd serwera: Operacja bazy danych nie powiodło się podczas przetwarzania żądania. Wyjątek SQL: nie można otworzyć bazy danych. Stosowanie migracji istniejących w kontekście bazy danych aplikacji może rozwiązać ten problem.](publish-to-azure-webapp-using-vs/_static/mig.png)
 
-Aplikacja wyświetla wiadomości e-mail używany do rejestrowania nowego użytkownika i **Wyloguj się** łącza.
+Aplikacja wyświetla adres e-mail używany do rejestrowania nowych użytkowników i **Wyloguj** łącza.
 
-![Otwórz aplikację sieci Web w programie Microsoft Edge. Link rejestrowania zastępuje tekst Hello email@domain.com!](publish-to-azure-webapp-using-vs/_static/hello.png)
+![Otwórz aplikację sieci Web w programie Microsoft Edge. Link Zarejestruj jest zastępowana przez tekst powitania email@domain.com!](publish-to-azure-webapp-using-vs/_static/hello.png)
 
 ## <a name="deploy-the-app-to-azure"></a>Wdrażanie aplikacji na platformie Azure
 
 Kliknij prawym przyciskiem myszy projekt w Eksploratorze rozwiązań i wybierz **publikowania...** .
 
-![Menu kontekstowe Otwórz za pomocą łącza publikowania wyróżnione](publish-to-azure-webapp-using-vs/_static/pub.png)
+![Menu kontekstowe jest otwarte z wyróżnionym linkiem publikowania](publish-to-azure-webapp-using-vs/_static/pub.png)
 
-W **publikowania** okna dialogowego:
+W **Publikuj** okno dialogowe:
 
-* Wybierz **usługi Microsoft Azure App Service**.
-* Wybierz ikonę Koło zębate, a następnie wybierz **Utwórz profil**.
+* Wybierz **platformy Microsoft Azure App Service**.
+* Wybierz ikonę koła zębatego, a następnie wybierz pozycję **Utwórz profil**.
 * Wybierz **Utwórz profil**.
 
-![Okno dialogowe publikowania](publish-to-azure-webapp-using-vs/_static/maas1.png)
+![Okno dialogowe publikowanie](publish-to-azure-webapp-using-vs/_static/maas1.png)
 
-### <a name="create-azure-resources"></a>Utworzenie zasobów platformy Azure
+### <a name="create-azure-resources"></a>Tworzenie zasobów platformy Azure
 
 **Tworzenie usługi App Service** zostanie wyświetlone okno dialogowe:
 
 * Wprowadź swoją subskrypcję.
-* **Nazwa aplikacji**, **grupy zasobów**, i **planu usługi App Service** pola wejścia zostaną wypełnione. Można zachować te nazwy lub je zmienić.
+* **Nazwy aplikacji**, **grupy zasobów**, i **planu usługi App Service** zostaną wypełnione pola wprowadzania. Można zachować te nazwy lub je zmienić.
 
-![Usługi aplikacji — okno dialogowe](publish-to-azure-webapp-using-vs/_static/newrg1.png)
+![Okno dialogowe usługi App Service](publish-to-azure-webapp-using-vs/_static/newrg1.png)
 
 * Wybierz **usług** kartę, aby utworzyć nową bazę danych.
 
-* Wybierz zielonego **+** ikonę, aby utworzyć nową bazę danych SQL
+* Zaznacz zielony **+** ikonę, aby utworzyć nową bazę danych SQL
 
-![Nowej bazy danych SQL](publish-to-azure-webapp-using-vs/_static/sql.png)
+![Nowa baza danych SQL](publish-to-azure-webapp-using-vs/_static/sql.png)
 
-* Wybierz **nowych...**  na **Konfigurowanie bazy danych SQL** okna dialogowego, aby utworzyć nową bazę danych.
+* Wybierz **nowy...**  na **Konfigurowanie bazy danych SQL** okno dialogowe, aby utworzyć nową bazę danych.
 
-![Nowe bazy danych SQL i serwera](publish-to-azure-webapp-using-vs/_static/conf.png)
+![Nowe bazy danych SQL Database i serwera](publish-to-azure-webapp-using-vs/_static/conf.png)
 
 **Konfiguruj serwer SQL** zostanie wyświetlone okno dialogowe.
 
 * Wprowadź nazwę użytkownika administratora i hasło, a następnie wybierz **OK**. Domyślne można zachować **nazwy serwera**. 
 
 > [!NOTE]
-> "Administrator" nie jest dozwolona jako nazwa użytkownika administratora.
+> "admin" nie jest dozwolona jako nazwa użytkownika administratora.
 
-![Konfigurowanie okna dialogowego programu SQL Server](publish-to-azure-webapp-using-vs/_static/conf_servername.png)
+![Konfigurowanie programu SQL Server w oknie dialogowym](publish-to-azure-webapp-using-vs/_static/conf_servername.png)
 
 * Wybierz **OK**.
 
-Visual Studio zwraca do **Tworzenie usługi App Service** okna dialogowego.
+Program Visual Studio zwraca **Tworzenie usługi App Service** okna dialogowego.
 
 * Wybierz **Utwórz** na **Tworzenie usługi App Service** okna dialogowego.
 
-![Konfigurowanie bazy danych SQL w oknie dialogowym](publish-to-azure-webapp-using-vs/_static/conf_final.png)
+![Konfigurowanie okna dialogowego baza danych SQL](publish-to-azure-webapp-using-vs/_static/conf_final.png)
 
-Visual Studio tworzy aplikację sieci Web i programu SQL Server na platformie Azure. Ten krok może potrwać kilka minut. Aby uzyskać informacji na temat tworzenia zasobów, zobacz [zasoby dodatkowe](#additonal-resources).
+Visual Studio tworzy aplikację sieci Web i SQL Server na platformie Azure. Może to potrwać kilka minut. Aby uzyskać informacji na temat tworzenia zasobów, zobacz [zasoby dodatkowe](#additonal-resources).
 
-Po zakończeniu wdrożenia, wybierz **ustawienia**:
+Po zakończeniu wdrażania wybierz **ustawienia**:
 
-![Konfigurowanie okna dialogowego programu SQL Server](publish-to-azure-webapp-using-vs/_static/set.png)
+![Konfigurowanie programu SQL Server w oknie dialogowym](publish-to-azure-webapp-using-vs/_static/set.png)
 
-Na **ustawienia** strony **publikowania** okna dialogowego:
+Na **ustawienia** strony **Publikuj** okno dialogowe:
 
-  * Rozwiń węzeł **baz danych** i sprawdź **Użyj tych parametrów połączenia w czasie wykonywania**.
-  * Rozwiń węzeł **Entity Framework migracje** i sprawdź **Zastosuj publikowania tej migracji na**.
+  * Rozwiń **baz danych** i sprawdź **Użyj tych parametrów połączenia w czasie wykonywania**.
+  * Rozwiń **migracją architektury jednostek** i sprawdź **Zastosuj tej migracji na publikowanie**.
 
-* Wybierz **zapisać**. Visual Studio zwraca do **publikowania** okna dialogowego. 
+* Wybierz **Zapisz**. Program Visual Studio zwraca **Publikuj** okna dialogowego. 
 
-![Okno dialogowe publikowania: panel ustawień](publish-to-azure-webapp-using-vs/_static/pubs.png)
+![Okno dialogowe publikowanie: panel ustawień](publish-to-azure-webapp-using-vs/_static/pubs.png)
 
-Kliknij przycisk **publikowania**. Visual Studio publishs aplikacji na platformie Azure. Po zakończeniu wdrożenia aplikacji jest otwarty w przeglądarce.
+Kliknij przycisk **publikowania**. Visual Studio publishs aplikacji na platformie Azure. Po zakończeniu wdrażania aplikacji jest otwarty w przeglądarce.
 
-### <a name="test-your-app-in-azure"></a>Testowanie aplikacji na platformie Azure
+### <a name="test-your-app-in-azure"></a>Przetestuj swoją aplikację na platformie Azure
 
-* Test **o** i **skontaktuj się z** łącza
+* Test **o** i **skontaktuj się z pomocą** łącza
 
-* Zarejestruj nowy użytkownik
+* Rejestrowanie nowego użytkownika
 
-![Aplikacja sieci Web otworzyć w programie Microsoft Edge w usłudze Azure App Service](publish-to-azure-webapp-using-vs/_static/register.png)
+![Aplikacja sieci Web otwarte w programie Microsoft Edge w usłudze Azure App Service](publish-to-azure-webapp-using-vs/_static/register.png)
 
 ### <a name="update-the-app"></a>Aktualizowanie aplikacji
 
-* Edytuj *Pages/About.cshtml* Razor strony i zmienić jego zawartość. Na przykład można zmodyfikować akapitu znaczy "Hello platformy ASP.NET Core!": [!code-html[About](publish-to-azure-webapp-using-vs/sample/about.cshtml?highlight=9&range=1-9)]
+* Edytuj *Pages/About.cshtml* Razor strony i zmienić jego zawartość. Na przykład można zmodyfikować akapitu powiedzieć "Hello platformy ASP.NET Core!": [!code-html[About](publish-to-azure-webapp-using-vs/sample/about.cshtml?highlight=9&range=1-9)]
 
-* Kliknij prawym przyciskiem myszy na projekt i wybierz **publikowania...**  ponownie.
+* Kliknij prawym przyciskiem myszy projekt i wybierz pozycję **publikowania...**  ponownie.
 
-![Menu kontekstowe Otwórz za pomocą łącza publikowania wyróżnione](publish-to-azure-webapp-using-vs/_static/pub.png)
+![Menu kontekstowe jest otwarte z wyróżnionym linkiem publikowania](publish-to-azure-webapp-using-vs/_static/pub.png)
 
 * Po opublikowaniu aplikacji, sprawdź, czy dokonane zmiany są dostępne na platformie Azure.
 
@@ -165,25 +165,25 @@ Kliknij przycisk **publikowania**. Visual Studio publishs aplikacji na platformi
 
 ### <a name="clean-up"></a>Czyszczenie
 
-Po zakończeniu testowania aplikacji, przejdź do [portalu Azure](https://portal.azure.com/) i usuwania aplikacji.
+Po zakończeniu testowania aplikacji, przejdź do [witryny Azure portal](https://portal.azure.com/) i usunąć aplikację.
 
 * Wybierz **grup zasobów**, następnie wybierz utworzoną grupę zasobów.
 
-![Portalu Azure: Grupy zasobów w menu bocznym](publish-to-azure-webapp-using-vs/_static/portalrg.png)
+![Witrynie Azure Portal: Grup zasobów w menu bocznym](publish-to-azure-webapp-using-vs/_static/portalrg.png)
 
-* W **grup zasobów** wybierz pozycję **usunąć**.
+* W **grup zasobów** wybierz opcję **Usuń**.
 
-![Portalu Azure: Strona grup zasobów](publish-to-azure-webapp-using-vs/_static/rgd.png)
+![Witrynie Azure Portal: Strony grup zasobów](publish-to-azure-webapp-using-vs/_static/rgd.png)
 
-* Wprowadź nazwę grupy zasobów i wybierz **usunąć**. Aplikacji i innych zasobów utworzonej w tym samouczku są teraz usuwane z platformy Azure.
+* Wprowadź nazwę grupy zasobów, a następnie wybierz pozycję **Usuń**. Aplikacja i inne zasoby utworzone w ramach tego samouczka, teraz są usuwane z usługi Azure.
 
 ### <a name="next-steps"></a>Następne kroki
 
-* [Ciągłe wdrażanie na platformie Azure za pomocą programu Visual Studio i Git](xref:host-and-deploy/azure-apps/azure-continuous-deployment)
+* [Ciągłe wdrażanie na platformie Azure przy użyciu programu Visual Studio i Git](xref:host-and-deploy/azure-apps/azure-continuous-deployment)
 
 ## <a name="additonal-resources"></a>Zasoby dodatkowe
 
-* [Usługa aplikacji Azure](https://docs.microsoft.com/azure/app-service/app-service-web-overview)
-* [Grup zasobów platformy Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups)
-* [Baza danych Azure SQL](https://docs.microsoft.com/azure/sql-database/)
+* [Usługa Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-overview)
+* [Grupy zasobów platformy Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups)
+* [Usługa Azure SQL Database](https://docs.microsoft.com/azure/sql-database/)
 * [Rozwiązywanie problemów z platformą ASP.NET Core w usłudze Azure App Service](xref:host-and-deploy/azure-apps/troubleshoot)
