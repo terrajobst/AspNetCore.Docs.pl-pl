@@ -7,10 +7,10 @@ ms.custom: H1Hack27Feb2017
 ms.date: 02/14/2017
 uid: mvc/views/working-with-forms
 ms.openlocfilehash: 34a553c7ff8a18c367bf5e8079e2ea71f968bf3b
-ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
+ms.sourcegitcommit: 75bf5fdbfdcb6a7cfe8fe207b9ff37655ccbacd4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2018
+ms.lasthandoff: 07/27/2018
 ms.locfileid: "39219423"
 ---
 # <a name="tag-helpers-in-forms-in-aspnet-core"></a>Pomocnicy tagów w formularzach w programie ASP.NET Core
