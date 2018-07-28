@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 07/05/2018
 uid: fundamentals/error-handling
-ms.openlocfilehash: 6aded9525a0abd31dec8441c7fba60d8845c7d93
-ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
+ms.openlocfilehash: d7e60c0f615841461a17b093bffe5fb3f82f8616
+ms.sourcegitcommit: 506a199274e9fe5fb4070b273ba94f29f14cb619
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37938244"
+ms.lasthandoff: 07/28/2018
+ms.locfileid: "39332278"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>Obsługa błędów w programie ASP.NET Core
 
@@ -103,11 +103,11 @@ Inna metoda przyjmuje zawartości typu i formatu ciągu:
 app.UseStatusCodePages("text/plain", "Status code page, status code: {0}");
 ```
 
-Istnieje również przekierować, a następnie wykonaj ponownie metody rozszerzenia. Metoda przekierowania wysyła *302 Found* kod stanu do klienta:
+Istnieją również przekierować, a następnie wykonaj ponownie metody rozszerzenia. Metoda przekierowania wysyła *302 Found* kod stanu dla klienta i przekierowuje klienta do szablonu adresu URL podanej lokalizacji. Szablon może obejmować `{0}` symbol zastępczy dla kodu stanu. Adresy URL, począwszy od `~` ma ścieżki podstawowej, dołączony. Adres URL, który nie zaczyna się od `~` jest używany jako jest.
 
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePagesWithRedirect)]
 
-Wykonaj ponownie metoda zwraca oryginalny kod stanu do klienta, ale wykonuje również obsługę dla adresu URL przekierowania:
+Wykonaj ponownie metoda zwraca oryginalny kod stanu do klienta i określa, czy treść odpowiedzi powinny być generowane ponownie, wykonując Potok żądań przy użyciu ścieżki alternatywnej. Ta ścieżka może zawierać `{0}` symbol zastępczy kod stanu:
 
 ```csharp
 app.UseStatusCodePagesWithReExecute("/error/{0}");
