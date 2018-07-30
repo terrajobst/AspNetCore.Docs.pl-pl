@@ -5,12 +5,12 @@ description: Więcej informacji na temat struktury rejestrowania w programie ASP
 ms.author: tdykstra
 ms.date: 07/24/2018
 uid: fundamentals/logging/index
-ms.openlocfilehash: 0181566aeab1fa055435ac90887c019eef52878c
-ms.sourcegitcommit: b4c7b1a4c48dec0865f27874275c73da1f75e918
+ms.openlocfilehash: f629b062afb5c17cd05040a9ef0281aa7121aabc
+ms.sourcegitcommit: 516d0645c35ea784a3ae807be087ae70446a46ee
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39228640"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39320755"
 ---
 # <a name="logging-in-aspnet-core"></a>Rejestrowanie w programie ASP.NET Core
 
@@ -56,7 +56,7 @@ Aby korzystać z dostawcy, należy wywołać dostawcy `Add<ProviderName>` metody
 
 [!code-csharp[](index/sample2/Program.cs?name=snippet_ExpandDefault&highlight=16,17)]
 
-Domyślny szablon projektu umożliwia rejestrowanie za pomocą [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder?view=aspnetcore-2.0#Microsoft_AspNetCore_WebHost_CreateDefaultBuilder_System_String___) metody:
+Domyślny szablon projektu umożliwia dostawcom rejestrowania w konsoli i debugowania, z wywołaniem [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) metody rozszerzenia w *Program.cs*:
 
 [!code-csharp[](index/sample2/Program.cs?name=snippet_TemplateCode&highlight=7)]
 
@@ -77,11 +77,21 @@ Platforma ASP.NET Core [wstrzykiwanie zależności](xref:fundamentals/dependency
 
 ::: moniker-end
 
-Znajdziesz informacje o poszczególnych [wbudowane funkcje rejestrowania dostawcy](#built-in-logging-providers) opinii i linkami do [rejestrowania innych dostawców](#third-party-logging-providers) w dalszej części artykułu.
+Dowiedz się więcej o [wbudowane funkcje rejestrowania dostawców](#built-in-logging-providers) i łącza do [rejestrowania innych dostawców](#third-party-logging-providers) w dalszej części artykułu.
 
-## <a name="settings-file-configuration"></a>Ustawienia pliku konfiguracji
+## <a name="configuration"></a>Konfiguracja
 
-Każdego z powyższych przykładach w [sposobu dodawania dostawcy](#how-to-add-providers) sekcji ładuje rejestrowania dostawcy konfiguracji z `Logging` części plików ustawień aplikacji. W poniższym przykładzie pokazano zawartość typowej *appsettings. Development.JSON* pliku:
+Rejestrowanie dostawcy konfiguracji jest dostarczane przez przynajmniej jednego dostawcy konfiguracji:
+
+* Formaty plików (INI, JSON i XML).
+* Argumenty wiersza polecenia.
+* Zmienne środowiskowe.
+* Obiekty .NET w pamięci.
+* Niezaszyfrowane [Menedżera klucz tajny](xref:security/app-secrets) magazynu.
+* Użytkownik zaszyfrowanych przechowywanych informacji, takich jak [usługi Azure Key Vault](xref:security/key-vault-configuration).
+* Dostawcy niestandardowi (zainstalowane lub utworzone).
+
+Na przykład konfiguracja rejestrowania są często dostarczane przez `Logging` części plików ustawień aplikacji. W poniższym przykładzie pokazano zawartość typowej *appsettings. Development.JSON* pliku:
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -122,6 +132,8 @@ Każdego z powyższych przykładach w [sposobu dodawania dostawcy](#how-to-add-p
 `LogLevel` klucze reprezentują nazwy dziennika. `Default` Klucz ma zastosowanie do dzienników, które nie zostały jawnie wymienione. Reprezentuje wartość [poziom dziennika](#log-level) stosowane do danego dziennika.
 
 ::: moniker-end
+
+Aby uzyskać informacje dotyczące implementowania dostawcy konfiguracji, zobacz <xref:fundamentals/configuration/index>.
 
 ## <a name="sample-logging-output"></a>Przykładowe dane wyjściowe z rejestrowania
 
@@ -436,7 +448,7 @@ Poniższy kod umożliwia zakresy dla dostawcy konsoli:
 > [!NOTE]
 > Konfigurowanie `IncludeScopes` opcja rejestratora konsoli jest wymagana, aby włączyć rejestrowanie zakresu.
 >
-> `IncludeScopes` mogą być konfigurowane przez *appsettings* plików konfiguracyjnych. Aby uzyskać więcej informacji, zobacz [ustawień pliku konfiguracji](#settings-file-configuration) sekcji.
+> Aby uzyskać informacji na temat konfigurowania, zobacz [konfiguracji](#Configuration) sekcji.
 
 ::: moniker-end
 
