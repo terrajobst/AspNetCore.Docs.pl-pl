@@ -1,29 +1,29 @@
 ---
-title: Autoryzacji opartej na widoku w programie ASP.NET MVC Core
+title: Autoryzacja oparta na widok w programie ASP.NET Core MVC
 author: rick-anderson
-description: Ten dokument przedstawia sposób wstrzyknąć i korzystać z usługi autoryzacji wewnątrz widoku Razor aplikacji ASP.NET Core.
+description: W tym dokumencie pokazano, jak wprowadzić i korzystanie z usługi autoryzacji w widoku platformy ASP.NET Core Razor.
 ms.author: riande
 ms.date: 10/30/2017
 uid: security/authorization/views
-ms.openlocfilehash: f25bab61afc93ff14bfd9c36d95a6d2e54b06dfb
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: e497c41d4dca29fed8733f18cf727804e3f06d8c
+ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36277826"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39342539"
 ---
-# <a name="view-based-authorization-in-aspnet-core-mvc"></a>Autoryzacji opartej na widoku w programie ASP.NET MVC Core
+# <a name="view-based-authorization-in-aspnet-core-mvc"></a>Autoryzacja oparta na widok w programie ASP.NET Core MVC
 
-Deweloper chce często Pokaż, Ukryj lub modyfikację interfejsu użytkownika na podstawie bieżącej tożsamości użytkownika. Można uzyskać dostępu do usługi autoryzacji w obrębie widoków MVC za pomocą [iniekcji zależności](xref:fundamentals/dependency-injection#fundamentals-dependency-injection). Aby wstawić usługi autoryzacji do widoku Razor, użyj `@inject` dyrektywy:
+Deweloper chce często Pokazywanie, ukrywanie i inny sposób modyfikować interfejsu użytkownika na podstawie bieżącej tożsamości użytkownika. Aby uzyskać dostęp usługi autoryzacji w obrębie widoków MVC za pomocą [wstrzykiwanie zależności](xref:fundamentals/dependency-injection). Aby wstawić usługi autoryzacji do widoku Razor, należy użyć `@inject` dyrektywy:
 
 ```cshtml
 @using Microsoft.AspNetCore.Authorization
 @inject IAuthorizationService AuthorizationService
 ```
 
-Jeśli ma usługi autoryzacji w każdym widoku `@inject` dyrektywy do *_ViewImports.cshtml* pliku *widoków* katalogu. Aby uzyskać więcej informacji, zobacz [iniekcji zależności do widoków](xref:mvc/views/dependency-injection).
+Jeśli chcesz, aby usługi autoryzacji w każdym widoku, należy umieścić `@inject` dyrektywy do *_ViewImports.cshtml* pliku *widoków* katalogu. Aby uzyskać więcej informacji, zobacz [wstrzykiwanie zależności do widoków](xref:mvc/views/dependency-injection).
 
-Korzystania z usługi wprowadzony autoryzacji do wywołania `AuthorizeAsync` w taki sam sposób czy sprawdzania podczas [autoryzacji na podstawie zasobów](xref:security/authorization/resourcebased#security-authorization-resource-based-imperative):
+Użyj usługi wprowadzonego kodu autoryzacji do wywołania `AuthorizeAsync` dokładnie tak samo jak zaznaczysz podczas [autoryzacja na podstawie zasobów](xref:security/authorization/resourcebased#security-authorization-resource-based-imperative):
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
@@ -45,7 +45,7 @@ Korzystania z usługi wprowadzony autoryzacji do wywołania `AuthorizeAsync` w t
 
 ---
 
-W niektórych przypadkach zasób zostanie model widoku. Wywołanie `AuthorizeAsync` w taki sam sposób czy sprawdzania podczas [autoryzacji na podstawie zasobów](xref:security/authorization/resourcebased#security-authorization-resource-based-imperative):
+W niektórych przypadkach zasób zostanie modelu widoku. Wywoływanie `AuthorizeAsync` dokładnie tak samo jak zaznaczysz podczas [autoryzacja na podstawie zasobów](xref:security/authorization/resourcebased#security-authorization-resource-based-imperative):
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
@@ -69,7 +69,7 @@ W niektórych przypadkach zasób zostanie model widoku. Wywołanie `AuthorizeAsy
 
 ---
 
-W powyższym kodzie modelu jest przekazywany jako zasób, które należy wykonać oceny zasad pod uwagę.
+W poprzednim kodzie modelu jest przekazywany jako zasób, który powinno zająć oceny zasad pod uwagę.
 
 > [!WARNING]
-> Nie należy polegać na przełączanie widoczność elementów interfejsu użytkownika aplikacji, jak wyboru wyłącznie autoryzacji. Ukrywanie elementu interfejsu użytkownika może nie całkowicie uniemożliwić dostęp do jego działania skojarzonego kontrolera. Rozważmy na przykład przycisk w poprzednim fragmentu kodu. Użytkownik może wywołać `Edit` metody akcji, jeśli użytkownik zna względną zasobów adres URL jest */Document/Edit/1*. Z tego powodu `Edit` metody akcji należy sprawdzić jego własnej autoryzacji.
+> Nie należy polegać na przełączanie widoczność elementów interfejsu użytkownika aplikacji, jak wyboru jedyny autoryzacji. Ukrywanie elementu interfejsu użytkownika może nie całkowicie uniemożliwić dostęp do jego działania skojarzonego kontrolera. Rozważmy na przykład przycisk w poprzednim fragmencie kodu. Użytkownik może wywołać `Edit` metody akcji, jeśli użytkownik zna względną zasobu Adres URL jest */Document/Edit/1*. Z tego powodu `Edit` metody akcji, należy wykonać swoje własne sprawdzenie autoryzacji.

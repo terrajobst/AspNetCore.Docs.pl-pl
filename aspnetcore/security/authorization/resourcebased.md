@@ -1,35 +1,35 @@
 ---
-title: Oparte na zasobach autoryzacji w ASP.NET Core
+title: Autoryzacja oparta na zasób w programie ASP.NET Core
 author: scottaddie
-description: Dowiedz się, jak zaimplementuj autoryzacji na podstawie zasobów w aplikacji platformy ASP.NET Core, gdy atrybut autoryzacji nie będą wystarczające.
+description: Dowiedz się, jak zaimplementować autoryzacja na podstawie zasobów w aplikacji ASP.NET Core, gdy atrybut autoryzacji nie wystarczyć.
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 11/07/2017
 uid: security/authorization/resourcebased
-ms.openlocfilehash: 577af3ba45361aec715a49fa59b9ec9869ced851
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 6a110a69c58d5e20a15198378510486daec3d452
+ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273350"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39342292"
 ---
-# <a name="resource-based-authorization-in-aspnet-core"></a>Oparte na zasobach autoryzacji w ASP.NET Core
+# <a name="resource-based-authorization-in-aspnet-core"></a>Autoryzacja oparta na zasób w programie ASP.NET Core
 
-Strategia autoryzacji zależy od zasobu, do której uzyskuje dostęp. Należy wziąć pod uwagę dokumentu, który ma właściwość autora. Tylko autor może zaktualizować dokumentu. W rezultacie dokument musi zostać pobrana z magazynu danych, zanim nastąpi ocena autoryzacji.
+Strategia autoryzacji zależy od zasobu, do którego uzyskiwany jest dostęp. Należy wziąć pod uwagę dokumentu, który ma właściwość autora. Tylko autor może zaktualizować dokumentu. W związku z tym dokument musi zostać pobrany z magazynu danych, zanim nastąpi oceny autoryzacji.
 
-Atrybut oceny występuje przed wiązania z danymi i przed realizacją strony obsługi lub akcji, który jest ładowany dokument. Z tego względu deklaratywne autoryzacji z `[Authorize]` atrybutu nie będą wystarczające. Zamiast tego można wywołać metody autoryzacji niestandardowej&mdash;stylu znany jako imperatywnych autoryzacji.
+Atrybut występuje przed powiązanie danych oraz przed wykonaniem tej procedury obsługi strony lub akcji, która ładuje dokumentu. Z tego względu deklaratywne autoryzacją za pomocą `[Authorize]` atrybutu nie wystarczyć. Zamiast tego należy wywołać metodę autoryzacja niestandardowa&mdash;stylu, znane jako imperatywne autoryzacji.
 
 Użyj [przykładowe aplikacje](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/resourcebased/samples) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample)) aby poznać funkcje opisane w tym temacie.
 
-[Tworzenie aplikacji platformy ASP.NET Core z danych użytkownika chronione przez autoryzacji](xref:security/authorization/secure-data) zawiera przykładową aplikację korzystającą autoryzacji na podstawie zasobów.
+[Tworzenie aplikacji platformy ASP.NET Core przy użyciu danych użytkownika chronionych przez autoryzację](xref:security/authorization/secure-data) zawiera przykładową aplikację, która używa autoryzacja na podstawie zasobów.
 
 ## <a name="use-imperative-authorization"></a>Użycie imperatywnych autoryzacji
 
-Autoryzacja jest zaimplementowany jako [IAuthorizationService](/dotnet/api/microsoft.aspnetcore.authorization.iauthorizationservice) usługi i jest zarejestrowane w kolekcji usługi w ramach `Startup` klasy. Usługa ma zostać udostępnione za pośrednictwem [iniekcji zależności](xref:fundamentals/dependency-injection#fundamentals-dependency-injection) do obsługi strony lub akcji.
+Autoryzacja jest implementowany jako [IAuthorizationService](/dotnet/api/microsoft.aspnetcore.authorization.iauthorizationservice) usługi i nie jest zarejestrowany w kolekcji usługi w ramach `Startup` klasy. Usługa jest udostępniana za pośrednictwem [wstrzykiwanie zależności](xref:fundamentals/dependency-injection) do obsługi strony lub akcji.
 
 [!code-csharp[](resourcebased/samples/ResourceBasedAuthApp2/Controllers/DocumentController.cs?name=snippet_IAuthServiceDI&highlight=6)]
 
-`IAuthorizationService` zawiera dwa `AuthorizeAsync` przeciążenia metody: przyjmuje jeden zasób i nazwę zasady i innych akceptowanie zasobu oraz listę wymagań dotyczących oceny.
+`IAuthorizationService` ma dwa `AuthorizeAsync` przeciążenia metody: przyjmuje jeden zasób i nazwę zasady i innych akceptowanie zasobu i zawiera listę wymagań do oceny.
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
@@ -57,10 +57,10 @@ Task<bool> AuthorizeAsync(ClaimsPrincipal user,
 
 <a name="security-authorization-resource-based-imperative"></a>
 
-W poniższym przykładzie zasobów być zabezpieczone jest ładowany do niestandardowego `Document` obiektu. `AuthorizeAsync` Przeciążenia jest wywoływane w celu ustalenia, czy bieżący użytkownik może edytować dokument podana. Niestandardowe zasady autoryzacji "EditPolicy" jest brana pod uwagę w decyzji. Zobacz [autoryzacji na podstawie zasad niestandardowych](xref:security/authorization/policies) Aby uzyskać więcej informacji na temat tworzenia zasad autoryzacji.
+W poniższym przykładzie zasobu, który ma zostać zabezpieczony jest ładowany do niestandardowego `Document` obiektu. `AuthorizeAsync` Przeciążenie jest wywoływane w celu ustalenia, czy bieżący użytkownik może edytować podany dokument. Niestandardowe zasady autoryzacji "EditPolicy" jest brane pod uwagę decyzji. Zobacz [niestandardowego na podstawie zasad autoryzacji](xref:security/authorization/policies) Aby uzyskać więcej informacji na temat tworzenia zasad autoryzacji.
 
 > [!NOTE]
-> Poniższy kod przykładów założono uwierzytelniania zostało uruchomione i zestaw `User` właściwości.
+> Poniższy kod przykładów przyjęto założenie, uwierzytelnianie zostało uruchomione i ustaw `User` właściwości.
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 
@@ -72,9 +72,9 @@ W poniższym przykładzie zasobów być zabezpieczone jest ładowany do niestand
 
 ---
 
-## <a name="write-a-resource-based-handler"></a>Pisanie programu obsługi opartych na zasobach
+## <a name="write-a-resource-based-handler"></a>Pisanie programu obsługi opartego na zasobach
 
-Pisanie programu obsługi dla autoryzacji na podstawie zasobu nie jest znacznie różni się od [pisanie programu obsługi wymagań zwykły](xref:security/authorization/policies#security-authorization-policies-based-authorization-handler). Tworzenie klasy niestandardowej wymaganie i zaimplementować klasę programu obsługi wymagań. Klasa obsługi określa wymaganie i typu zasobu. Na przykład program obsługi przy użyciu `SameAuthorRequirement` wymaganie i `Document` zasobów wygląda następująco:
+Pisanie programu obsługi, do autoryzacji opartej na zasób nie jest znacznie różni się od [pisanie programu obsługi wymagań zwykły](xref:security/authorization/policies#security-authorization-policies-based-authorization-handler). Utwórz niestandardowe wymagania klasę i zaimplementować klasę programu obsługi wymagań. Klasy obsługi określa wymagań i typu zasobu. Na przykład program obsługi przy użyciu `SameAuthorRequirement` wymagań i `Document` zasobów wygląda następująco:
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 
@@ -86,17 +86,17 @@ Pisanie programu obsługi dla autoryzacji na podstawie zasobu nie jest znacznie 
 
 ---
 
-Zarejestruj wymagania oraz procedury obsługi w `Startup.ConfigureServices` metody:
+Zarejestruj wymagania oraz program obsługi w `Startup.ConfigureServices` metody:
 
 [!code-csharp[](resourcebased/samples/ResourceBasedAuthApp2/Startup.cs?name=snippet_ConfigureServicesSample&highlight=3-7,9)]
 
-### <a name="operational-requirements"></a>Wymagań operacyjnych
+### <a name="operational-requirements"></a>Wymagania operacyjne
 
-Jeśli wprowadzasz decyzji, w oparciu o wyniki operacji CRUD (tworzenia, odczytu, aktualizacji, usuwania), użyj [OperationAuthorizationRequirement](/dotnet/api/microsoft.aspnetcore.authorization.infrastructure.operationauthorizationrequirement) Klasa pomocy. Ta klasa umożliwia pisanie pojedynczego obsługi zamiast poszczególnych klas dla każdego typu operacji. Aby go użyć, należy podać niektóre nazwy operacji:
+Jeśli wprowadzasz decyzji w oparciu o wyniki operacji CRUD (tworzenia, odczytu, Update, Delete), użyj [OperationAuthorizationRequirement](/dotnet/api/microsoft.aspnetcore.authorization.infrastructure.operationauthorizationrequirement) Klasa pomocy. Ta klasa umożliwia pisanie pojedynczy program obsługi, a nie poszczególnych klas dla każdego typu operacji. Aby go użyć, należy podać nazwy niektórych operacji:
 
 [!code-csharp[](resourcebased/samples/ResourceBasedAuthApp2/Services/DocumentAuthorizationCrudHandler.cs?name=snippet_OperationsClass)]
 
-Program obsługi jest implementowane, za pomocą `OperationAuthorizationRequirement` wymaganie i `Document` zasobów:
+Program obsługi jest implementowana w następujący sposób, przy użyciu `OperationAuthorizationRequirement` wymagań i `Document` zasobów:
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 
@@ -108,23 +108,23 @@ Program obsługi jest implementowane, za pomocą `OperationAuthorizationRequirem
 
 ---
 
-Powyższej procedury obsługi weryfikuje operację, używając zasobu, tożsamość użytkownika i wymaganie `Name` właściwości.
+Poprzedni program obsługi sprawdza poprawność tej operacji z użyciem zasobu, tożsamość użytkownika i wymogów `Name` właściwości.
 
-Aby wywołać obsługi operacyjne zasobów, określ podczas wywoływania operacji `AuthorizeAsync` w obsługi strony lub akcji. Poniższy przykład określa, czy uwierzytelniony użytkownik będzie mógł wyświetlić dokument podana.
+Aby wywołać procedurę obsługi operacyjnej zasobów, określać podczas wywoływania operacji `AuthorizeAsync` obsługi strony lub akcji. Poniższy przykład określa, czy uwierzytelniony użytkownik jest uprawniony do wyświetlenia podany dokument.
 
 > [!NOTE]
-> Poniższy kod przykładów założono uwierzytelniania zostało uruchomione i zestaw `User` właściwości.
+> Poniższy kod przykładów przyjęto założenie, uwierzytelnianie zostało uruchomione i ustaw `User` właściwości.
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 
 [!code-csharp[](resourcebased/samples/ResourceBasedAuthApp2/Pages/Document/View.cshtml.cs?name=snippet_DocumentViewHandler&highlight=10-11)]
 
-Jeśli autoryzacji zakończy się powodzeniem, zwracany jest strona do wyświetlania dokumentu. Jeśli autoryzacji kończy się niepowodzeniem, ale użytkownik jest uwierzytelniony, zwracając `ForbidResult` informuje oprogramowanie pośredniczące uwierzytelniania, która Autoryzacja nie powiodła się. A `ChallengeResult` jest zwracany, gdy uwierzytelnianie odbywa się. Dla klientów w przeglądarkach interaktywne można spróbować przekieruje użytkownika do strony logowania.
+Jeśli autoryzacja zakończy się powodzeniem, zwracany jest strona do wyświetlania dokumentu. Jeśli autoryzacji kończy się niepowodzeniem, ale użytkownik jest uwierzytelniony, zwracając `ForbidResult` informuje oprogramowanie pośredniczące uwierzytelniania, który Autoryzacja nie powiodła się. Element `ChallengeResult` jest zwracana, gdy można dokonać uwierzytelnienia. Dla klientów w przeglądarkach interaktywne jego może być przekierowanie użytkownika do strony logowania.
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 
 [!code-csharp[](resourcebased/samples/ResourceBasedAuthApp1/Controllers/DocumentController.cs?name=snippet_DocumentViewAction&highlight=11-12)]
 
-Jeśli autoryzacji zakończy się pomyślnie, zostanie zwrócony widok dokumentu. W przypadku niepowodzenia autoryzacji zwracanie `ChallengeResult` informuje o wszystkich programów pośredniczących uwierzytelnienia Autoryzacja nie powiodła się, czy oprogramowanie pośredniczące może zająć właściwą odpowiedź. Właściwą odpowiedź może zwracać kod stanu 401 lub 403. Dla klientów w przeglądarkach interaktywne to może oznaczać przekierowanie użytkownika do strony logowania.
+Jeśli autoryzacja zakończy się powodzeniem, zwracany jest widok dla dokumentu. W przypadku niepowodzenia autoryzacji zwracanie `ChallengeResult` dowolnego oprogramowania pośredniczącego uwierzytelniania informuje, że autoryzacja nie powiodła się, a oprogramowanie pośredniczące może potrwać właściwą odpowiedź. Właściwa odpowiedź może zwracać kod stanu 401 lub 403. Dla klientów w przeglądarkach interaktywne może oznaczać, że przekierowanie użytkownika do strony logowania.
 
 ---

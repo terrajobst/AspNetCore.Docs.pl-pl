@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/16/2018
 uid: fundamentals/host/generic-host
-ms.openlocfilehash: 879f31a5916646a4d63f9f503173dc9ff4c53434
-ms.sourcegitcommit: ea7ec8d47f94cfb8e008d771f647f86bbb4baa44
+ms.openlocfilehash: 0f3b548c2065245f6ed8a6a6f981ece4eb78535e
+ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37894156"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39342058"
 ---
 # <a name="net-generic-host"></a>Ogólny hosta platformy .NET
 
@@ -84,12 +84,15 @@ Metody rozszerzenia są wywoływane na `IHostBuilder` implementacji, aby skonfig
 **Klucz**: applicationName  
 **Typ**: *ciągu*  
 **Domyślne**: Nazwa zestawu zawierającego punkt wejścia aplikacji.  
-**Można ustawić przy użyciu**: `UseSetting`  
+**Można ustawić przy użyciu**: `HostBuilderContext.HostingEnvironment.ApplicationName`  
 **Zmienna środowiskowa**: `<PREFIX_>APPLICATIONKEY` (`<PREFIX_>` jest [opcjonalne i zdefiniowane przez użytkownika](#configuration-builder))
 
 ```csharp
-WebHost.CreateDefaultBuilder(args)
-    .UseSetting(WebHostDefaults.ApplicationKey, "CustomApplicationName")
+var host = new HostBuilder()
+    .ConfigureAppConfiguration((hostContext, configApp) =>
+    {
+        hostContext.HostingEnvironment.ApplicationName = "CustomApplicationName";
+    })
 ```
 
 #### <a name="content-root"></a>Zawartość katalogu głównego

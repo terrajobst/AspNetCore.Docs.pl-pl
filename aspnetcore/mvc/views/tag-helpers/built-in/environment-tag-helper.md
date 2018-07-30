@@ -1,32 +1,32 @@
 ---
-title: Pomocnik Tag środowiska w platformy ASP.NET Core
+title: Pomocnik tagu środowiska w programie ASP.NET Core
 author: pkellner
-description: Pomocnika Tag środowiska ASP.NET Core zdefiniowane w tym wszystkie właściwości
+description: Pomocnik tagu środowiska ASP.NET Core zdefiniowane w tym wszystkie właściwości
 ms.author: riande
 ms.date: 07/14/2017
 uid: mvc/views/tag-helpers/builtin-th/environment-tag-helper
-ms.openlocfilehash: 05c07b06a4fedac0b0ff39d168807f5e2e6996cf
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 4a283a3a03aa6cac228ec6effd02e3f1095be260
+ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36276919"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39342227"
 ---
-# <a name="environment-tag-helper-in-aspnet-core"></a>Pomocnik Tag środowiska w platformy ASP.NET Core
+# <a name="environment-tag-helper-in-aspnet-core"></a>Pomocnik tagu środowiska w programie ASP.NET Core
 
-Przez [Kellner Peterowi](http://peterkellner.net) i [Ateya Hisham Bin](https://twitter.com/hishambinateya)
+Przez [Peter Kellner](http://peterkellner.net) i [Ateya Hisham pojemnika](https://twitter.com/hishambinateya)
 
-Pomocnik Tag środowiska warunkowo renderuje zawartość objętego na podstawie bieżącego środowiska hostingu. Jego pojedynczy atrybut `names` jest rozdzielana przecinkami lista środowiska nazw, które, gdy dowolne pasuje do bieżącego środowiska wyzwoli objętego zawartości do renderowania.
+Pomocnik tagu środowiska warunkowo renderuje zawartość ujęty na podstawie bieżącego środowiska hostingu. Jego jeden atrybut `names` jest rozdzielana przecinkami lista środowiska nazwy, że jeśli dowolny pasuje do bieżącego środowiska, wywoła ujęty zawartości do renderowania.
 
-## <a name="environment-tag-helper-attributes"></a>Atrybuty pomocnika Tag środowiska
+## <a name="environment-tag-helper-attributes"></a>Atrybuty Pomocnik tagu środowiska
 
 ### <a name="names"></a>nazwy
 
-Akceptuje pojedynczą nazwą Środowisko hostingu lub rozdzielaną przecinkami listę hosting nazwy środowiska, wyzwalających renderowania zawartości zamknięte.
+Akceptuje pojedynczą nazwą środowiska hostingu lub rozdzielaną przecinkami listę hostingu nazwy środowiska, które mogą powodować renderowania ujęty zawartości.
 
-Te wartości są porównywane z bieżącą wartość zwracana z właściwości statycznej platformy ASP.NET Core `HostingEnvironment.EnvironmentName`.  Ta wartość jest jedną z następujących: **przemieszczania**; **Programowanie** lub **produkcji**. Porównanie ignoruje wielkość liter.
+Te wartości są porównywane z bieżącą wartość zwracana z właściwości statycznej platformy ASP.NET Core `HostingEnvironment.EnvironmentName`.  Ta wartość jest jedną z następujących: **przemieszczania**; **Rozwoju** lub **produkcji**. Porównanie, ignoruje wielkość liter.
 
-Przykład prawidłowego `environment` pomocnika tagów jest:
+Przykładem prawidłowego `environment` Pomocnik tagu:
 
 ```cshtml
 <environment names="Staging,Production">
@@ -34,13 +34,13 @@ Przykład prawidłowego `environment` pomocnika tagów jest:
 </environment>
 ```
 
-## <a name="include-and-exclude-attributes"></a>Dołącz i Wyklucz atrybutów
+## <a name="include-and-exclude-attributes"></a>Dołączanie i wykluczanie atrybutów
 
-Platformy ASP.NET Core dodaje 2.x `include`  &  `exclude` atrybutów. Te atrybuty kontrolują renderowania objętego zawartości na podstawie dołączone lub wykluczone hostingu środowiska nazw.
+Platforma ASP.NET Core 2.x dodaje `include`  &  `exclude` atrybutów. Te atrybuty kontrolują renderowania zawartości ujęty na podstawie dołączone lub wykluczone hostingu środowiska nazw.
 
-### <a name="include-aspnet-core-20-and-later"></a>obejmują platformy ASP.NET Core 2.0 lub nowszy
+### <a name="include-aspnet-core-20-and-later"></a>obejmują platformy ASP.NET Core 2.0 i nowsze wersje
 
-`include` Właściwość ma podobne zachowania `names` atrybutu w ASP.NET Core 1.0.
+`include` Właściwość ma podobne zachowanie `names` atrybutu w programie ASP.NET Core 1.0.
 
 ```cshtml
 <environment include="Staging,Production">
@@ -48,9 +48,9 @@ Platformy ASP.NET Core dodaje 2.x `include`  &  `exclude` atrybutów. Te atrybut
 </environment>
 ```
 
-### <a name="exclude-aspnet-core-20-and-later"></a>Wyklucz platformy ASP.NET Core 2.0 lub nowszy
+### <a name="exclude-aspnet-core-20-and-later"></a>Wyklucz platformy ASP.NET Core 2.0 i nowsze wersje
 
-Z kolei `exclude` umożliwia właściwości `EnvironmentTagHelper` renderowanie objętego zawartości dla wszystkich nazw Środowisko hostingu, z wyjątkiem wskaż, określony.
+Z kolei `exclude` właściwości `EnvironmentTagHelper` renderowania ujęty zawartości dla wszystkich nazw środowiska hostingu, z wyjątkiem wskaż, który określiłeś.
 
 ```cshtml
 <environment exclude="Development">
@@ -61,4 +61,3 @@ Z kolei `exclude` umożliwia właściwości `EnvironmentTagHelper` renderowanie 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * <xref:fundamentals/environments>
-* <xref:fundamentals/dependency-injection#service-lifetimes-and-registration-options>

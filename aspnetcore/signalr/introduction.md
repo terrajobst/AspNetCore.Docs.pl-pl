@@ -7,20 +7,18 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 04/25/2018
 uid: signalr/introduction
-ms.openlocfilehash: bc6f25c3f35e7fb0c2c68220697f2e0fdc6a9958
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: 2fff24609caf7592bad763a077288990a29617aa
+ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095392"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39342552"
 ---
 # <a name="introduction-to-aspnet-core-signalr"></a>Wprowadzenie do SignalR platformy ASP.NET Core
 
-Przez [Rachel Appel](https://twitter.com/rachelappel)
-
 ## <a name="what-is-signalr"></a>Co to jest SignalR?
 
-SignalR platformy ASP.NET Core to bibliotekę, która ułatwia dodawanie funkcji internetowych w czasie rzeczywistym do aplikacji. Funkcje sieci web w czasie rzeczywistym umożliwia kodu po stronie serwera do wypychania zawartości do klientów natychmiast.
+SignalR platformy ASP.NET Core to biblioteka typu open source, która ułatwia dodawanie funkcji internetowych w czasie rzeczywistym do aplikacji. Funkcje sieci web w czasie rzeczywistym umożliwia kodu po stronie serwera do wypychania zawartości do klientów natychmiast.
 
 Dobrymi kandydatami do SignalR:
 
@@ -31,27 +29,32 @@ Dobrymi kandydatami do SignalR:
 
 Biblioteka SignalR udostępnia interfejs API do tworzenia klienta serwera [zdalnych wywołań procedur (RPC)](https://wikipedia.org/wiki/Remote_procedure_call). Zdalnych wywołań procedury wywołują funkcje JavaScript na komputerach klienckich z kodu platformy .NET Core po stronie serwera.
 
-Biblioteka SignalR dla programu ASP.NET Core:
+Poniżej przedstawiono niektóre funkcje SignalR dla platformy ASP.NET Core:
 
 * Automatycznie obsługuje zarządzanie połączeniami.
-* Włącza emituje komunikaty do wszystkich połączonych klientów jednocześnie. Na przykład pokoju rozmów.
-* Umożliwia wysyłanie komunikatów do określonych klientów lub grup klientów.
-* To open source w [GitHub](https://github.com/aspnet/signalr).
-* Skalowalność.
+* Wysyła komunikaty do wszystkich połączonych klientów jednocześnie. Na przykład pokoju rozmów.
+* Wysyła komunikaty do określonych klientów lub grup klientów.
+* Możliwość skalowania do obsługi ruchu rosnąca.
 
-Połączenie między klientem i serwerem jest trwała, w przeciwieństwie do połączeń HTTP.
+Źródło znajduje się w [SignalR repozytorium w serwisie GitHub](https://github.com/aspnet/signalr).
 
 ## <a name="transports"></a>Transporty
 
-Abstract SignalR kilka technik do tworzenia aplikacji internetowych w czasie rzeczywistym. [Gniazda Websocket](https://tools.ietf.org/html/rfc7118) jest optymalne transportu, ale można użyć innych technik, takich jak zdarzenia Server-Sent i długi sondowania, gdy te nie są dostępne. SignalR automatycznie wykryje i zainicjować odpowiednie transportu, oparte na funkcji serwera i klienta są obsługiwane.
+SignalR obsługuje kilka technik do obsługi komunikacji w czasie rzeczywistym:
+
+* [Obiekty WebSocket](https://tools.ietf.org/html/rfc7118)
+* Zdarzenia wysłanego przez serwer
+* Długiego sondowania
+
+SignalR automatycznie wybiera najlepszą metodę transportu, który znajduje się w funkcji serwera i klienta.
 
 ## <a name="hubs"></a>Koncentratory
 
-SignalR używa koncentratory do komunikacji między klientami a serwerami.
+Korzysta z biblioteki SignalR *koncentratory* do komunikacji między klientami a serwerami.
 
-Centrum to wysokiego poziomu potok, który umożliwia klienta i serwera, wywoływanie metod na siebie nawzajem. SignalR obsługuje wysyłania w granicach maszyny automatycznie, umożliwiając klientom wywoływać metody na serwerze, jak łatwo jako metody lokalne i na odwrót. Koncentratory umożliwiają przekazywania silnie typizowane parametry do metod, co pozwala wiązania modelu. Biblioteka SignalR udostępnia dwa protokoły wbudowanych Centrum: protokół tekstowy dostępny na podstawie JSON i binarny protokołu, na podstawie [MessagePack](https://msgpack.org/).  MessagePack zazwyczaj tworzy wiadomości mniejszych niż przy użyciu formatu JSON. Starsze przeglądarki musi obsługiwać [XHR poziom 2](https://caniuse.com/#feat=xhr2) do obsługi protokołu MessagePack.
+Centrum to wysokiego poziomu potok, który umożliwia klientowi i serwerowi wywoływać metody dla siebie nawzajem. SignalR obsługuje wysyłania w granicach maszyny automatycznie, umożliwiając klientom wywoływać metody na serwerze i na odwrót. Silnie typizowane parametry można przekazać do metody, które umożliwia wiązania modelu. Biblioteka SignalR udostępnia dwa protokoły wbudowanych Centrum: protokół tekstowy dostępny na podstawie JSON i binarny protokołu, na podstawie [MessagePack](https://msgpack.org/).  MessagePack zazwyczaj tworzy mniejsze wiadomości w porównaniu do formatu JSON. Starsze przeglądarki musi obsługiwać [XHR poziom 2](https://caniuse.com/#feat=xhr2) do obsługi protokołu MessagePack.
 
-Koncentratory wywołać kod po stronie klienta, wysyłając komunikatów za pomocą aktywny transport. Komunikaty zawierają nazwę i parametry metody po stronie klienta. Wysyłane jako parametry metody obiekty są deserializacji za pomocą skonfigurowanego protokołu. Klient próbuje dopasować nazwę metody w kodzie po stronie klienta. W przypadku dopasowania metoda klienta uruchamia się przy użyciu danych zdeserializowany parametrów.
+Koncentratory wywołać kod po stronie klienta, wysyłając komunikaty, które zawierają nazwę i parametry metody po stronie klienta. Wysyłane jako parametry metody obiekty są deserializacji za pomocą skonfigurowanego protokołu. Klient próbuje dopasować nazwę metody w kodzie po stronie klienta. Jeśli klient znajdzie dopasowanie, wywołuje metodę i przekazuje do niego dane parametru po deserializacji.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

@@ -1,42 +1,42 @@
 ---
-title: Zapobiegaj krzyżowe skryptów (XSS) w platformy ASP.NET Core
+title: Zapobiegaj Cross-Site skrypty (XSS) w programie ASP.NET Core
 author: rick-anderson
-description: Więcej informacji na temat skryptów między witrynami (XSS) i techniki adresowania tę lukę w zabezpieczeniach w aplikacji platformy ASP.NET Core.
+description: Więcej informacji na temat skryptów między witrynami (XSS) i technik do adresowania tę lukę w zabezpieczeniach w aplikacji ASP.NET Core.
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/cross-site-scripting
-ms.openlocfilehash: ce6bb273034c56890e0cd98b890436602b5acc69
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 4784b1775d955f0ef00526e50b960fc873ea218d
+ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272451"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39342214"
 ---
-# <a name="prevent-cross-site-scripting-xss-in-aspnet-core"></a>Zapobiegaj krzyżowe skryptów (XSS) w platformy ASP.NET Core
+# <a name="prevent-cross-site-scripting-xss-in-aspnet-core"></a>Zapobiegaj Cross-Site skrypty (XSS) w programie ASP.NET Core
 
-przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Wykonywanie skryptów między witrynami (XSS) jest luki w zabezpieczeniach, która umożliwia osobie atakującej umieść skrypty po stronie klienta (zazwyczaj JavaScript) na stronach sieci web. Gdy inni użytkownicy załadować dotyczy stron, które zostaną uruchomione skrypty osoby atakujące, włączanie atakującemu wykradać pliki cookie i tokenów sesji zmiany zawartości strony sieci web za pośrednictwem manipulowania modelu DOM lub przekierowania przeglądarki do innej strony. Luki w zabezpieczeniach XSS ogólnie występują, jeśli aplikacja ma danych wprowadzonych przez użytkownika i zapisuje go na stronie bez konieczności sprawdzania poprawności, kodowanie i anulowanie go.
+Wykonywanie skryptów między witrynami (XSS) jest luki w zabezpieczeniach, która umożliwia osobie atakującej umieszcza skrypty po stronie klienta (zazwyczaj JavaScript) w stronach sieci web. Gdy inni użytkownicy załadować dotyczy stron, które zostaną uruchomione skrypty osoby atakujące, włączanie atakującemu kradzieży plików cookie i tokenów sesji zmiany zawartości strony sieci web za pomocą modelu DOM, manipulowanie lub przekierować przeglądarkę do innej strony. XSS luk w zabezpieczeniach są zazwyczaj wykonywane, gdy aplikacja akceptuje dane wejściowe użytkownika i wyświetla go na stronie bez weryfikowanie, kodowanie i jej anulowania zapewnianego element.
 
 ## <a name="protecting-your-application-against-xss"></a>Ochrona aplikacji przed XSS
 
-At podstawowe XSS poziomu działa przez aplikację na wstawianie oszukanie `<script>` tag do renderowanej strony lub przez wstawienie `On*` zdarzeń do elementu. Deweloperzy należy używać czynności związanych z zapobieganiem, aby uniknąć wprowadzenia XSS do swojej aplikacji.
+Co podstawowa XSS poziomu polega na oszukanie aplikacji do wstawiania `<script>` tag na renderowanej stronie lub przez wstawienie `On*` zdarzeń do elementu. Deweloperzy należy używać następujące czynności prewencyjnych, aby uniknąć wprowadzenia XSS do swojej aplikacji.
 
-1. Nigdy nie poddane niezaufanych danych Twojej input języka HTML, chyba że wykonaj pozostałe czynności. Niezaufane dane są wszystkie dane, które mogą być kontrolowane przez osoba atakująca, dane wejściowe formularza HTML, ciągi zapytań, nagłówki HTTP, nawet danych pochodzących z bazy danych, osoba atakująca może być w stanie naruszenia bazy danych, nawet jeśli ich nie może naruszyć aplikacji.
+1. Nigdy nie umieść niezaufane dane swojej input języka HTML, chyba że wykonaj pozostałe czynności. Niezaufane dane są wszelkie dane, które mogą być kontrolowane przez osobę atakującą, danych wejściowych z formularza HTML, ciągi zapytań, nagłówki HTTP, a nawet danych, skąd pochodzi z bazy danych, jak osoba atakująca może mieć możliwość naruszenia zabezpieczeń bazy danych, nawet wtedy, gdy nie można ich naruszenia zabezpieczeń aplikacji.
 
-2. Przed wprowadzeniem niezaufanych danych wewnątrz elementu HTML upewnij się, że jest zakodowany w formacie HTML. Kodowanie HTML przyjmuje takie jak znaki &lt; i zmiany ich w formie bezpieczne, takich jak &amp;lt;
+2. Przed wprowadzeniem niezaufanych danych wewnątrz elementu HTML upewnij się, że jest zakodowany w formacie HTML. Kodowanie HTML przyjmuje znaków takich jak &lt; i zmiany ich do bezpiecznego formularza, takich jak &amp;lt;
 
-3. Przed wprowadzeniem niezaufanych danych do atrybutu HTML upewnij się, że jest zakodowany atrybutu HTML. Kodowanie atrybutu HTML jest podzbiorem kodowanie HTML i koduje dodatkowe znaki, takie jak "i".
+3. Przed wprowadzeniem niezaufane dane do atrybutu HTML upewnij się, że jest zakodowany atrybutu w kodzie HTML. Kodowanie atrybutu HTML jest podzbiorem kodowanie HTML i koduje znaki dodatkowe, takie jak "a".
 
-4. Przed wprowadzeniem niezaufanych danych w JavaScript Umieść dane w elemencie HTML, którego zawartość można pobrać w czasie wykonywania. Jeśli to nie jest możliwe, upewnij się, dane są zakodowane JavaScript. Kodowanie JavaScript przyjmuje niebezpiecznych znaków dla języka JavaScript i zastępuje je ich hex, na przykład &lt; będą zakodowane jako `\u003C`.
+4. Przed wprowadzeniem niezaufane dane w JavaScript należy umieścić dane w elemencie HTML, którego zawartość, możesz pobrać w czasie wykonywania. Jeśli to nie jest możliwe, upewnij się, dane są kodowane języka JavaScript. Kodowanie JavaScript przyjmuje niebezpiecznych znaków dla języka JavaScript i zastępuje je ich hex, na przykład &lt; mogłoby być kodowany jako `\u003C`.
 
-5. Przed wprowadzeniem niezaufanych danych w ciągu kwerendy adresu URL upewnij się, że jest zakodowane w adresie URL.
+5. Przed wprowadzeniem niezaufanych danych w ciągu zapytania adresu URL upewnij się, że jest zakodowany w adresie URL.
 
 ## <a name="html-encoding-using-razor"></a>Kodowanie HTML przy użyciu Razor
 
-Używane w nazwie wzorca MVC automatycznie aparatu Razor koduje wszystkie dane wyjściowe pochodzących z zmiennych, chyba że naprawdę twardego pracy zapobiegania w ten sposób. Używa atrybutu HTML reguły kodowania przy każdym użyciu *@* dyrektywy. Jako HTML kodowanie atrybutu jest nadzbiorem kodowanie HTML, który oznacza to, że nie trzeba samodzielnie dotyczą z tego, czy należy użyć kodowanie HTML lub kodowanie atrybutu HTML. Należy się upewnić, czy używać tylko w kontekście HTML nie podczas próby wstawienia niezaufanych danych wejściowych bezpośrednio na język JavaScript. Pomocników tagów będzie również kodowanie danych wejściowych używanych w tagu parametrów.
+Używane w MVC automatycznie aparatu Razor koduje wszystkie dane wyjściowe źródło zmiennych, chyba że użytkownik pracuje się naprawdę trudne do zapobiegania jego zresetowanie. Używa atrybutu HTML reguły kodowania, zawsze gdy używasz *@* dyrektywy. Jako HTML kodowanie atrybutu jest nadzbiorem kodowanie HTML, oznacza to, że nie masz obawy samodzielnie za pomocą tego, czy należy używać kodowania HTML lub kodowanie atrybutu HTML. Należy się upewnić, że używasz tylko w kontekście HTML nie, podczas próby wstawienia niezaufane dane wejściowe bezpośrednio na język JavaScript. Pomocnicy tagów będzie również kodowania danych wejściowych używanych w parametrów tag.
 
-Podejmij następujące widoku Razor;
+Wykonaj następujący widok Razor;
 
 ```none
 @{
@@ -46,18 +46,18 @@ Podejmij następujące widoku Razor;
    @untrustedInput
    ```
 
-Ten widok wyświetla zawartość *untrustedInput* zmiennej. Ta zmienna zawiera niektóre znaki, które są używane w atakom XSS, czyli &lt;, "i &gt;. Badanie źródło zawiera renderowanych zakodowane jako dane wyjściowe:
+Ten widok wyświetla zawartość *untrustedInput* zmiennej. Ta zmienna zawiera niektóre znaki, które są używane w atakom XSS, a mianowicie &lt;, "i &gt;. Badanie źródła pokazuje wyniku renderowania zakodowanymi w formacie:
 
 ```html
 &lt;&quot;123&quot;&gt;
    ```
 
 >[!WARNING]
-> Program ASP.NET Core MVC udostępnia `HtmlString` klasy, które nie jest automatycznie kodowane po danych wyjściowych. Tej opcji należy nigdy używać w połączeniu z niezaufanych danych wejściowych, ponieważ spowoduje to ujawnienie luki w zabezpieczeniach XSS.
+> ASP.NET Core MVC udostępnia `HtmlString` klasę, która automatycznie nie jest kodowany na dane wyjściowe. To nie mogą być używane w połączeniu z niezaufane dane wejściowe zgodnie z tym umożliwia wyświetlenie luk w zabezpieczeniach XSS.
 
-## <a name="javascript-encoding-using-razor"></a>Kodowanie JavaScript za pomocą Razor
+## <a name="javascript-encoding-using-razor"></a>JavaScript, kodowanie, za pomocą Razor
 
-Może to być razy wstawiona wartość na język JavaScript do przetworzenia w danym widoku. Istnieją dwa sposoby, w tym celu. Jest to najbezpieczniejszy sposób, aby wstawić wartości umieścić wartości w atrybucie danych tagu i pobrać go w sieci JavaScript. Na przykład:
+Mogą wystąpić sytuacje, które chcesz wstawić wartość na język JavaScript do przetworzenia w danym widoku. Istnieją dwa sposoby, aby to zrobić. Najbezpieczniejszy sposób wstawiania wartości jest umieszczenie wartości w atrybucie dane tagu i pobierać Twój kod JavaScript. Na przykład:
 
 ```none
 @{
@@ -85,7 +85,7 @@ Może to być razy wstawiona wartość na język JavaScript do przetworzenia w d
    </script>
    ```
 
-Spowoduje to utworzenie poniższy kod HTML
+Pozwoli to osiągnąć, poniższy kod HTML
 
 ```html
 <div
@@ -107,7 +107,7 @@ Spowoduje to utworzenie poniższy kod HTML
    </script>
    ```
 
-Które, po uruchomieniu spowoduje, że następujące czynności:
+Który, po jego uruchomieniu, spowoduje, że następujące czynności:
 
 ```none
 <"123">
@@ -129,7 +129,7 @@ Można również bezpośrednio wywołać kodera JavaScript
    </script>
    ```
 
-To spowoduje, że w przeglądarce
+To spowoduje, że w przeglądarce w następujący sposób;
 
 ```html
 <script>
@@ -138,13 +138,13 @@ To spowoduje, że w przeglądarce
    ```
 
 >[!WARNING]
-> Nie należy łączyć niezaufanych danych wejściowych w języku JavaScript do tworzenia elementów modelu DOM. Należy używać `createElement()` i odpowiednio takich jak przypisywanie wartości właściwości `node.TextContent=`, lub użyj `element.SetAttribute()` / `element[attribute]=` w przeciwnym razie ujawnia siebie na podstawie DOM XSS.
+> Nie należy łączyć niezaufane dane wejściowe w języku JavaScript do tworzenia elementów DOM w LICZBIE. Należy używać `createElement()` i odpowiednio takich jak przypisywanie wartości właściwości `node.TextContent=`, lub użyj `element.SetAttribute()` / `element[attribute]=` w przeciwnym razie można się narazić na opartej na modelu DOM XSS.
 
-## <a name="accessing-encoders-in-code"></a>Uzyskiwanie dostępu do koderów w kodzie
+## <a name="accessing-encoders-in-code"></a>Uzyskiwanie dostępu do kodery w kodzie
 
-Kodery HTML, JavaScript i adres URL są dostępne do kodu na dwa sposoby, można wprowadzić je przy użyciu [iniekcji zależności](xref:fundamentals/dependency-injection#fundamentals-dependency-injection) lub skorzystać z koderów domyślne zawarte w `System.Text.Encodings.Web` przestrzeni nazw. Jeśli używasz koderów domyślne, a następnie żadnego stosowane do zakres znaków należy traktować jako bezpieczne nie odniesie żadnego skutku — koderów domyślne Użyj najbezpieczniejszy reguł kodowania możliwe.
+Kodery HTML, JavaScript i adres URL są dostępne w kodzie na dwa sposoby, można wstawić je przy użyciu [wstrzykiwanie zależności](xref:fundamentals/dependency-injection) lub można użyć koderów domyślne zawarte w `System.Text.Encodings.Web` przestrzeni nazw. Użycia kodery domyślne, a następnie dowolne został zastosowany do zakresy znaków należy traktować jako bezpieczne zaczyna obowiązywać — koderów domyślne używane najbezpieczniejszy możliwe reguły kodowania.
 
-Do użycia można konfigurować koderów za pośrednictwem Podpisane z konstruktorów powinno zająć *HtmlEncoder*, *JavaScriptEncoder* i *UrlEncoder* parametru zależnie od potrzeb. Na przykład;
+Aby użyć koderów można konfigurować za pośrednictwem DI z konstruktorów powinno zająć *HtmlEncoder*, *JavaScriptEncoder* i *UrlEncoder* parametru, zgodnie z potrzebami. Na przykład;
 
 ```csharp
 public class HomeController : Controller
@@ -164,43 +164,43 @@ public class HomeController : Controller
    }
    ```
 
-## <a name="encoding-url-parameters"></a>Kodowanie parametry adresu URL
+## <a name="encoding-url-parameters"></a>Kodowanie parametrów adresu URL
 
-Jeśli chcesz utworzyć ciągu adresu URL zapytania z niezaufanych danych wejściowych jako Użyj wartości `UrlEncoder` do kodowania wartość. Na przykład
+Jeśli chcesz utworzyć ciągu zapytania adresu URL, za pomocą niezaufane dane wejściowe jako wartość wykorzystanie `UrlEncoder` zakodować wartości. Na przykład
 
 ```csharp
 var example = "\"Quoted Value with spaces and &\"";
    var encodedValue = _urlEncoder.Encode(example);
    ```
 
-Po kodowaniu encodedValue zmienna będzie zawierać `%22Quoted%20Value%20with%20spaces%20and%20%26%22`. Spacje, cudzysłowy, znaki interpunkcyjne i innych znaków niebezpieczny będzie procent kodowane w celu ich wartość szesnastkowa, na przykład znak spacji staną się % 20.
+Po zakodowaniu encodedValue będzie zawierać zmienną `%22Quoted%20Value%20with%20spaces%20and%20%26%22`. Miejsca do magazynowania, oferty, znaki interpunkcyjne i inne znaki niebezpieczne będzie procent zakodowany w celu ich wartość szesnastkową, na przykład znak spacji staną się % 20.
 
 >[!WARNING]
-> Nie używaj danych wejściowych niezaufanych jako część ścieżki adresu URL. Zawsze przekazywać niezaufanych danych wejściowych jako wartość ciągu zapytania.
+> Nie używaj niezaufane dane wejściowe jako część ścieżki adresu URL. Zawsze należy przekazać niezaufane dane wejściowe jako wartość ciągu zapytania.
 
 <a name="security-cross-site-scripting-customization"></a>
 
 ## <a name="customizing-the-encoders"></a>Dostosowywanie koderów
 
-Domyślnie koderów przy użyciu listy bezpiecznych ograniczone do zakresu podstawowe Unicode alfabetu łacińskiego, a wszystkie znaki poza tym zakresem jako odpowiedniki kod znaku kodowania. To zachowanie dotyczy również pomocnika tagów Razor i HtmlHelper renderowania zgodnie z koderów zostanie użyty do danych wyjściowych z ciągów.
+Domyślnie koderów, użyj listy bezpiecznych ograniczone do zakresu podstawowe alfabetu łacińskiego Unicode i kodowanie wszystkie znaki spoza tego zakresu jako ich odpowiedników kodów znaku. To zachowanie wpływa również na renderowanie pomocnika tagów Razor i HtmlHelper jak w przypadku koderów zostanie użyty do wyprowadzenia Twoimi ciągami.
 
-Jest to uzasadnienie do ochrony przed usterki nieznany lub przyszłe przeglądarki (poprzednie błędy przeglądarki ma zwracać się podczas analizowania oparte na przetwarzanie znaków innych niż angielska). Jeśli witryny sieci web umożliwia użycie znaków innych niż łacińskie, takich jak angielski, chiński, cyrylica lub innych to prawdopodobnie nie jest zachowanie, które mają.
+Uzasadnienie to jest ochrona przed błędami nieznany lub przyszłe przeglądarki (poprzednie błędy przeglądarki ma wysyłać, zwracać się podczas analizowania oparte na przetwarzanie znaków innych niż angielski). Jeśli witryna sieci web sprawia, że intensywne użycie znaków innych niż łacińskie, takich jak chińskich, cyrylica lub inne osoby prawdopodobnie nie jest zachowanie, które chcesz.
 
-Można dostosować bezpieczne listy kodera uwzględnienie Unicode zakresów odpowiednie do aplikacji podczas uruchamiania w `ConfigureServices()`.
+Można dostosować list bezpiecznych kodera obejmujący Unicode zakresów odpowiednimi dla aplikacji, podczas uruchamiania w `ConfigureServices()`.
 
-Na przykład użycie domyślnej konfiguracji można użyć Razor HtmlHelper, takich jak;
+Na przykład przy użyciu domyślnej konfiguracji można użyć Razor HtmlHelper w następujący sposób;
 
 ```html
 <p>This link text is in Chinese: @Html.ActionLink("汉语/漢語", "Index")</p>
    ```
 
-Po wyświetleniu źródło strony sieci web pojawi się, że ma zostało wyrenderowane w następujący sposób tekstem chińskiej wersji językowej zakodowane;
+Po wyświetleniu źródło strony sieci web pojawi się go zrenderowaniu w następujący sposób, przy użyciu chińskiego tekstu zakodowane;
 
 ```html
 <p>This link text is in Chinese: <a href="/">&#x6C49;&#x8BED;/&#x6F22;&#x8A9E;</a></p>
    ```
 
-Aby poszerzyć znaki traktowane jako bezpieczne przez koder jak w przypadku wstawiania następujący wiersz do `ConfigureServices()` metody w `startup.cs`;
+Aby poszerzyć znaki traktowane jako bezpieczne przez koder jak w przypadku wstawiania następujący wiersz do `ConfigureServices()` method in Class metoda `startup.cs`;
 
 ```csharp
 services.AddSingleton<HtmlEncoder>(
@@ -208,21 +208,21 @@ services.AddSingleton<HtmlEncoder>(
                                                UnicodeRanges.CjkUnifiedIdeographs }));
    ```
 
-W tym przykładzie rozszerzenie listy bezpiecznych, aby uwzględnić CjkUnifiedIdeographs zakres Unicode. Staje się teraz przetworzonych wyników
+W tym przykładzie rozszerzenie listy bezpiecznych, aby uwzględnić CjkUnifiedIdeographs zakresu Unicode. Staje się teraz wyniku renderowania
 
 ```html
 <p>This link text is in Chinese: <a href="/">汉语/漢語</a></p>
    ```
 
-Listy bezpiecznych zakresy są określone jako wykresów kodu Unicode nie języków. [Unicode standard](http://unicode.org/) zawiera listę [kodu wykresy](http://www.unicode.org/charts/index.html) umożliwia znalezienie wykresu zawierające znaki. Każdy kodera, Html, JavaScript i adres Url, muszą zostać skonfigurowane osobno.
+Listy bezpiecznych zakresy są określane jako wykresy kodu Unicode i nie języków. [Standardu Unicode](http://unicode.org/) zawiera listę [kodu wykresy](http://www.unicode.org/charts/index.html) umożliwia znalezienie wykresów zawierających znaki. Każdy encoder, Html, JavaScript i adres Url, musi być skonfigurowany oddzielnie.
 
 > [!NOTE]
-> Dostosowanie listy bezpiecznych dotyczy tylko koderów powierzając jej ich konserwację za pośrednictwem Podpisane. Jeśli bezpośredni dostęp do kodera za pośrednictwem `System.Text.Encodings.Web.*Encoder.Default` następnie domyślna, podstawowa alfabetu łacińskiego tylko bezpiecznej liście będzie używany.
+> Dostosowywanie listy bezpiecznych dotyczy tylko koderów źródło za pośrednictwem DI. Jeśli bezpośrednio uzyskać dostęp za pośrednictwem koder `System.Text.Encodings.Web.*Encoder.Default` następnie domyślnie Łaciński podstawowy tylko bezpiecznej liście będzie używany.
 
-## <a name="where-should-encoding-take-place"></a>Gdzie należy umieścić podjęcia kodowania
+## <a name="where-should-encoding-take-place"></a>Gdzie należy umieścić take kodowania
 
-Ogólne zaakceptowane rozwiązaniem jest, że kodowanie odbywa się w punkcie danych wyjściowych i wartości zakodowanej nigdy nie powinny być przechowywane w bazie danych. Kodowanie w punkcie wyjścia umożliwia zmianę wykorzystanie danych, na przykład z kodu HTML na ciąg zapytania. Również umożliwia łatwe wyszukiwanie danych bez konieczności kodowania wartości przed wyszukiwaniem i pozwala korzystać z wszelkie zmiany i poprawki dotyczące koderów.
+Ogólne zaakceptowane praktyką jest, czy kodowanie odbywa się w punkcie danych wyjściowych i wartości zakodowany nigdy nie powinny być przechowywane w bazie danych. Kodowanie w punkcie wyjścia umożliwia zmianę użycie danych, na przykład z kodu HTML do wartości ciągu zapytania. Ponadto pozwala na łatwe wyszukiwanie danych bez konieczności kodowania wartości przed wyszukiwaniem i pozwala na korzystanie z zalet zmiany lub poprawki wprowadzone koderów.
 
 ## <a name="validation-as-an-xss-prevention-technique"></a>Sprawdzanie poprawności jako technikę zapobiegania XSS
 
-Sprawdzanie poprawności mogą być przydatne narzędzie ograniczanie atakom XSS. Na przykład liczbowych ciąg zawierający tylko znaki 0-9, nie spowoduje wyzwolenia atak XSS. Sprawdzanie poprawności staje się bardziej skomplikowany, powinien chcesz zaakceptować HTML w danych wejściowych użytkownika - analiza input języka HTML jest trudne lub niemożliwe. Składni języka markDown i innych formatach tekstowych będą bezpieczniejsze dla zaawansowanych danych wejściowych. Nigdy nie należy polegać na samych sprawdzania poprawności. Zawsze kodowania niezaufanych dane wejściowe przed danych wyjściowych, niezależnie od tego, jakie walidacji mogły być wykonane.
+Sprawdzanie poprawności może być przydatne narzędzie ograniczanie atakom XSS. Na przykład ciągów liczbowych, zawierający tylko znaki 0 – 9 nie spowoduje wyzwolenia ataku XSS. Sprawdzanie poprawności staje się bardziej skomplikowane, jeśli użytkownik chce zaakceptować HTML w danych wejściowych użytkownika — analiza input języka HTML jest trudne lub niemożliwe. MarkDown i innych formatów tekstu będzie bezpieczniejsze dla zaawansowanych danych wejściowych. Nigdy nie należy polegać na sprawdzanie poprawności samodzielnie. Zawsze należy zakodować niezaufane dane wejściowe, zanim dane wyjściowe, niezależnie od tego, jakie sprawdzania poprawności, kiedy została wykonana.
