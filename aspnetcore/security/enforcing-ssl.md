@@ -5,12 +5,12 @@ description: Pokazuje, jak HTTPS/TLS w programie ASP.NET Core wymagają aplikacj
 ms.author: riande
 ms.date: 2/9/2018
 uid: security/enforcing-ssl
-ms.openlocfilehash: c3d92994c0331b1408e246953454910ca1f4dc43
-ms.sourcegitcommit: c8e62aa766641aa55105f7db79cdf2b27a6e5977
+ms.openlocfilehash: a4ab91ef23a798c919a23a44f5a050bd3c09d56a
+ms.sourcegitcommit: d99a8554c91f626cf5e466911cf504dcbff0e02e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39254834"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39356691"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>Wymuszanie protokołu HTTPS w programie ASP.NET Core
 
@@ -64,11 +64,17 @@ Automatycznie Ustaw port przez następujących mechanizmów:
 > [!NOTE]
 > Gdy aplikacja jest uruchamiana za zwrotny serwer proxy (na przykład, IIS, usługi IIS Express), `IServerAddressesFeature` jest niedostępna. Numer portu musi być skonfigurowany ręcznie. Jeśli port nie jest ustawiony, przekierowanie nie nastąpi żądań.
 
-Przez ustawienie można skonfigurować port:
+Można skonfigurować port, ustawiając [ustawienia konfiguracji hosta sieci Web https_port](xref:fundamentals/host/web-host#https-port):
 
-* `ASPNETCORE_HTTPS_PORT` zmiennej środowiskowej.
-* `http_port` Klucz konfiguracji hosta (na przykład za pośrednictwem *hostsettings.json* lub argument wiersza polecenia).
-* [HttpsRedirectionOptions.HttpsPort](/dotnet/api/microsoft.aspnetcore.httpspolicy.httpsredirectionoptions.httpsport). Zobacz poprzedni przykład, który pokazuje, jak i Ustaw port 5001.
+**Klucz**: https_port **typu**: *ciąg*
+**domyślne**: nie ustawiono wartość domyślną.
+**Można ustawić przy użyciu**: `UseSetting` 
+ **zmiennej środowiskowej**: `<PREFIX_>HTTPS_PORT` (prefiks jest `ASPNETCORE_` przy użyciu hosta sieci Web.)
+
+```csharp
+WebHost.CreateDefaultBuilder(args)
+    .UseSetting("https_port", "8080")
+```
 
 > [!NOTE]
 > Port można skonfigurować pośrednio przez ustawienie adresu URL z `ASPNETCORE_URLS` zmiennej środowiskowej. Zmienna środowiskowa konfiguruje serwer, a następnie oprogramowanie pośredniczące pośrednio odnajduje portu HTTPS za pośrednictwem `IServerAddressesFeature`.

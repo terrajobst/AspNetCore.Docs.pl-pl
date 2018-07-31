@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 4/13/2018
 uid: fundamentals/startup
-ms.openlocfilehash: 285d74c0d12e3aca4d8c33d39467dfda02712993
-ms.sourcegitcommit: e12f45ddcbe99102a74d4077df27d6c0ebba49c1
+ms.openlocfilehash: a576f3840e66fc4ed877f7575aa3f3e36b37ae4d
+ms.sourcegitcommit: d99a8554c91f626cf5e466911cf504dcbff0e02e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/15/2018
-ms.locfileid: "39063263"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39356753"
 ---
 # <a name="application-startup-in-aspnet-core"></a>Uruchamianie aplikacji w programie ASP.NET Core
 
@@ -34,10 +34,13 @@ Określ `Startup` klasy [WebHostBuilderExtensions](/dotnet/api/Microsoft.AspNetC
 
 [!code-csharp[](../common/samples/WebApplication1DotNetCore2.0App/Program.cs?name=snippet_Main&highlight=10)]
 
-`Startup` Konstruktora klasy akceptuje zależności zdefiniowanym przez hosta. Typowym zastosowaniem [wstrzykiwanie zależności](xref:fundamentals/dependency-injection) do `Startup` klasa jest do dodania:
+Host sieci web udostępnia kilka usług, które są dostępne do `Startup` konstruktora klasy. Aplikacja dodaje dodatkowe usługi za pośrednictwem `ConfigureServices`. Usługi aplikacji i hostów będą dostępne w `Configure` i w całej aplikacji.
+
+Typowym zastosowaniem [wstrzykiwanie zależności](xref:fundamentals/dependency-injection) do `Startup` klasa jest do dodania:
 
 * [IHostingEnvironment](/dotnet/api/Microsoft.AspNetCore.Hosting.IHostingEnvironment) do skonfigurowania usług przez środowisko.
-* [Wartości IConfiguration](/dotnet/api/microsoft.extensions.configuration.iconfiguration) do skonfigurowania aplikacji podczas uruchamiania.
+* [Wartości IConfiguration](/dotnet/api/microsoft.extensions.configuration.iconfiguration) można odczytać konfiguracji.
+* [Element ILoggerFactory](/dotnet/api/microsoft.extensions.logging.iloggerfactory) można utworzyć rejestratora w `Startup.ConfigureServices`.
 
 [!code-csharp[](startup/snapshot_sample/Startup2.cs)]
 
@@ -65,7 +68,7 @@ W przypadku funkcji, które wymagają znacznej Instalatora, istnieją `Add[Servi
 
 <a name="setcompatibilityversion"></a>
 
-### <a name="setcompatibilityversion-for-aspnet-core-mvc"></a>SetCompatibilityVersion dla platformy ASP.NET Core MVC 
+### <a name="setcompatibilityversion-for-aspnet-core-mvc"></a>SetCompatibilityVersion dla platformy ASP.NET Core MVC
 
 `SetCompatibilityVersion` Metody umożliwia aplikacji opcjonalnych lub zrezygnować z potencjalnie przełomowe zmiany zachowania wprowadzone w programie ASP.NET MVC Core 2.1 +. Istotne zmiany zachowania w potencjalnie są zazwyczaj w jak działa w podsystemie MVC i jak **kodu** jest wywoływana w czasie wykonywania. Przez zgodzie na rozwiązanie, możesz korzystać z najnowszych zachowanie i długoterminowe zachowanie platformy ASP.NET Core.
 
@@ -73,14 +76,14 @@ Poniższy kod ustawia tryb zgodności ASP.NET Core 2.1:
 
 [!code-csharp[Main](startup/sampleCompatibility/Startup.cs?name=snippet1)]
 
-Zaleca się przetestowanie aplikacji przy użyciu najnowszej wersji (`CompatibilityVersion.Version_2_1`). Przewidujemy, że większość aplikacji nie będzie miało przełomowe zmiany zachowania przy użyciu najnowszej wersji. 
+Zaleca się przetestowanie aplikacji przy użyciu najnowszej wersji (`CompatibilityVersion.Version_2_1`). Przewidujemy, że większość aplikacji nie będziesz mieć istotne zmiany zachowania przy użyciu najnowszej wersji.
 
 Aplikacje, które wywołują `SetCompatibilityVersion(CompatibilityVersion.Version_2_0)` są chronione przed potencjalnie przełomowe zmiany zachowania wprowadzone w programie ASP.NET Core 2.1 MVC i nowszych wersji 2.x. Ta ochrona:
 
 * Nie ma zastosowania do wszystkich zmian 2.1 i nowsze, jest on skierowany do potencjalnie przełomowe zmiany zachowania środowiska uruchomieniowego platformy ASP.NET Core w podsystemie MVC.
 * Nie jest rozszerzana następnej wersji głównej.
 
-Zgodność domyślnego platformy ASP.NET Core 2.1 i nowsze 2.x aplikacji, które są **nie** wywołania `SetCompatibilityVersion` jest zgodność 2.0. Oznacza to, nie wywołuje metody `SetCompatibilityVersion` jest taka sama jak wywołania `SetCompatibilityVersion(CompatibilityVersion.Version_2_0)`.
+Zgodność domyślny dla platformy ASP.NET Core 2.1 i nowsze aplikacje 2.x, które obsługują **nie** wywołania `SetCompatibilityVersion` jest zgodność 2.0. Oznacza to, nie wywołuje metody `SetCompatibilityVersion` jest taka sama jak wywołania `SetCompatibilityVersion(CompatibilityVersion.Version_2_0)`.
 
 Poniższy kod ustawia tryb zgodności ASP.NET Core 2.1, z wyjątkiem następujących problemów:
 
@@ -99,10 +102,6 @@ W przypadku aplikacji, wystąpić przełomowe zmiany zachowania, za pomocą prze
 W przyszłości, będzie istnieć [wersji platformy ASP.NET Core 3.0](https://github.com/aspnet/Home/wiki/Roadmap). Starego zachowania obsługiwany przez przełączniki zgodności zostaną usunięte w wersji 3.0. Uważamy, że są to dodatnia zmian niemal wszystkich użytkowników korzystających. Wprowadzenie do tych zmian, większość aplikacji mogą teraz korzystać i innych będzie miał czas na aktualizację aplikacji.
 
 ::: moniker-end
-
-## <a name="services-available-in-startup"></a>Dostępne w uruchamiania usługi
-
-Host sieci web udostępnia kilka usług, które są dostępne do `Startup` konstruktora klasy. Aplikacja dodaje dodatkowe usługi za pośrednictwem `ConfigureServices`. Usługi aplikacji i hostów będą dostępne w `Configure` i w całej aplikacji.
 
 ## <a name="the-configure-method"></a>Metoda Konfiguruj
 
@@ -161,9 +160,9 @@ Oprogramowanie pośredniczące kolejność wykonywania jest ustawiona według ko
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Hosting](xref:fundamentals/host/index)
-* [Używanie wielu środowisk](xref:fundamentals/environments)
-* [Oprogramowanie pośredniczące](xref:fundamentals/middleware/index)
-* [Rejestrowanie](xref:fundamentals/logging/index)
-* [Konfiguracja](xref:fundamentals/configuration/index)
+* <xref:fundamentals/host/index>
+* <xref:fundamentals/environments>
+* <xref:fundamentals/middleware/index>
+* <xref:fundamentals/logging/index>
+* <xref:fundamentals/configuration/index>
 * [Klasa StartupLoader: metoda FindStartupType (źródło odwołania)](https://github.com/aspnet/Hosting/blob/rel/2.0.0/src/Microsoft.AspNetCore.Hosting/Internal/StartupLoader.cs#L66-L116)
