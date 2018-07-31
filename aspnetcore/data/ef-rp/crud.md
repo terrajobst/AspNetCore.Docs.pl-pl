@@ -5,12 +5,12 @@ description: Pokazuje, jak tworzyć, odczytywać, aktualizować, usuwać z progr
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/crud
-ms.openlocfilehash: 0a8d386104d9c62f37d0a94e66344d3f1e23bae9
-ms.sourcegitcommit: e12f45ddcbe99102a74d4077df27d6c0ebba49c1
+ms.openlocfilehash: e3a0ec2e21ae9e9eeaae1eb7c17f1604897fb6f9
+ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/15/2018
-ms.locfileid: "39063354"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39342461"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---crud---2-of-8"></a>Strony razor z programem EF Core w programie ASP.NET Core — CRUD - 2, 8
 
@@ -24,7 +24,7 @@ Przez [Tom Dykstra](https://github.com/tdykstra), [Jan Kowalski P](https://twitt
 
 W tym samouczku szkieletu CRUD (Tworzenie, odczytywanie, aktualizowanie, usuwanie) przejrzeniu i dostosowywać kod.
 
-Aby zminimalizować złożoność, zachowując tych samouczków skupia się na programu EF Core, kod programem EF Core jest używany w modelach strony. Niektórzy deweloperzy Użyj wzorca usługi warstwy lub repozytorium, w, aby utworzyć warstwę abstrakcji między interfejsu użytkownika (Razor strony) i warstwy dostępu do danych.
+Aby zminimalizować złożoność, zachowując tych samouczków skupia się na programu EF Core, kod programem EF Core jest używany w modelach strony. Niektórzy deweloperzy Użyj warstwy usług lub [wzorca repozytorium](xref:fundamentals/repository-pattern) Aby utworzyć warstwę abstrakcji między interfejsu użytkownika (Razor strony) i warstwy dostępu do danych.
 
 W tym samouczku, Utwórz, Edytuj, Usuń i szczegóły stron Razor w *uczniów* są sprawdzane w folderze.
 
