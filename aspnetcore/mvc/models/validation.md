@@ -3,14 +3,14 @@ title: Weryfikacja modelu w programie ASP.NET Core MVC
 author: tdykstra
 description: Więcej informacji o weryfikacji modelu w aplikacji ASP.NET Core MVC.
 ms.author: riande
-ms.date: 12/18/2016
+ms.date: 07/31/2018
 uid: mvc/models/validation
-ms.openlocfilehash: 9c2ba1c1fad3ac077a886b3465142acfd4d639af
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: f407903577e40b6501737ef5b78d90e1e3e60c06
+ms.sourcegitcommit: e955a722c05ce2e5e21b4219f7d94fb878e255a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095830"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39378670"
 ---
 # <a name="model-validation-in-aspnet-core-mvc"></a>Weryfikacja modelu w programie ASP.NET Core MVC
 
@@ -118,7 +118,7 @@ Konieczne jest posiadanie widoku przy użyciu prawidłowego odwołania do skrypt
 
 [!code-cshtml[](validation/sample/Views/Shared/_ValidationScriptsPartial.cshtml)]
 
-[JQuery sprawdzania poprawności dyskretnego kodu](https://github.com/aspnet/jquery-validation-unobtrusive) skrypt jest niestandardową biblioteką frontonu firmy Microsoft, która jest oparta na popularnej [jQuery weryfikacji](https://jqueryvalidation.org/) wtyczki. Bez sprawdzania poprawności dyskretnego kodu jQuery, trzeba by code tę samą logikę weryfikacji w dwóch miejscach: jeden raz w atrybuty weryfikacji po stronie serwera we właściwościach modelu, a następnie ponownie w skryptach po stronie klienta (przykłady jQuery weryfikacji [ `validate()` ](https://jqueryvalidation.org/validate/) metoda ma pokazać, jak złożone to może stać się). Zamiast tego MVC [pomocników tagów](xref:mvc/views/tag-helpers/intro) i [pomocników HTML](xref:mvc/views/overview) będą mogli używać atrybutów sprawdzania poprawności, a następnie wpisz metadane z właściwości modelu do renderowania kodu HTML 5 [atrybuty danych](http://w3c.github.io/html/dom.html#embedding-custom-non-visible-data-with-the-data-attributes) w elementy formularza, wymagające weryfikacji. Generuje MVC `data-` atrybutów dla atrybutów niestandardowe i wbudowane. jQuery sprawdzania poprawności dyskretnego kodu następnie analizuje te `data-` atrybutów, a następnie przekazuje logikę do technologii jQuery sprawdzania poprawności, efektywnie "kopiowanie" logiki weryfikacji po stronie serwera do klienta. Błędy sprawdzania poprawności można wyświetlać na kliencie, używanie pomocników tagów istotne, jak pokazano poniżej:
+[JQuery sprawdzania poprawności dyskretnego kodu](https://github.com/aspnet/jquery-validation-unobtrusive) skrypt jest niestandardową biblioteką frontonu firmy Microsoft, która jest oparta na popularnej [jQuery weryfikacji](https://jqueryvalidation.org/) wtyczki. Bez sprawdzania poprawności dyskretnego kodu jQuery, trzeba by code tę samą logikę weryfikacji w dwóch miejscach: jeden raz w atrybuty weryfikacji po stronie serwera we właściwościach modelu, a następnie ponownie w skryptach po stronie klienta (przykłady jQuery weryfikacji [ `validate()` ](https://jqueryvalidation.org/validate/) metoda ma pokazać, jak złożone to może stać się). Zamiast tego MVC [pomocników tagów](xref:mvc/views/tag-helpers/intro) i [pomocników HTML](xref:mvc/views/overview) będą mogli używać atrybutów sprawdzania poprawności, a następnie wpisz metadane z właściwości modelu do renderowania kodu HTML 5 [atrybuty danych](http://w3c.github.io/html/dom.html#embedding-custom-non-visible-data-with-the-data-attributes) w elementy formularza, wymagające weryfikacji. Generuje MVC `data-` atrybutów dla atrybutów niestandardowe i wbudowane. następnie analizuje jQuery sprawdzania poprawności dyskretnego kodu `data-` atrybutów, a następnie przekazuje logikę do technologii jQuery sprawdzania poprawności, efektywnie "kopiowanie" logiki weryfikacji po stronie serwera do klienta. Błędy sprawdzania poprawności można wyświetlać na kliencie, używanie pomocników tagów istotne, jak pokazano poniżej:
 
 [!code-cshtml[](validation/sample/Views/Movies/Create.cshtml?highlight=4,5&range=19-25)]
 
@@ -208,11 +208,11 @@ Atrybuty, które implementują ten interfejs, można dodać atrybuty HTML do wyg
     id="ReleaseDate" name="ReleaseDate" value="" />
 ```
 
-Sprawdzania poprawności dyskretnego kodu używa tych danych w `data-` atrybutów, które mają być wyświetlane komunikaty o błędach. Jednak jQuery nie wie o regułach lub wiadomości do momentu dodania do technologii jQuery firmy `validator` obiektu. Jest to pokazane w poniższym przykładzie, który dodaje metodę o nazwie `classicmovie` zawierający Klient niestandardowy kod walidacji do jQuery `validator` obiektu. Znajdują się objaśnienia dotyczące metody unobtrusive.adapters.add [tutaj](http://bradwilson.typepad.com/blog/2010/10/mvc3-unobtrusive-validation.html)
+Sprawdzania poprawności dyskretnego kodu używa tych danych w `data-` atrybutów, które mają być wyświetlane komunikaty o błędach. Jednak jQuery nie wie o regułach lub wiadomości do momentu dodania do technologii jQuery firmy `validator` obiektu. Jest to pokazane w poniższym przykładzie, który dodaje niestandardową `classicmovie` metody sprawdzania poprawności klienta jQuery `validator` obiektu. Wyjaśnienie `unobtrusive.adapters.add` metody, zobacz [dyskretny kod weryfikacji klienta we wzorcu ASP.NET MVC](http://bradwilson.typepad.com/blog/2010/10/mvc3-unobtrusive-validation.html).
 
-[!code-javascript[](validation/sample/Views/Movies/Create.cshtml?range=71-93)]
+[!code-javascript[](validation/sample/Views/Movies/Create.cshtml?name=snippet_UnobtrusiveValidation)]
 
-Teraz jQuery ma informacje o do wykonywania niestandardowego sprawdzania poprawności języka JavaScript, a także komunikat o błędzie wyświetlany, jeśli kod sprawdzania poprawności zwróci wartość false.
+Poprzedni kod `classicmovie` metoda przeprowadza weryfikację po stronie klienta filmu daty wydania. Wyświetla komunikat o błędzie, jeśli metoda zwraca `false`.
 
 ## <a name="remote-validation"></a>Zdalnej weryfikacji
 
@@ -222,11 +222,14 @@ W procesie dwóch kroków można zaimplementować weryfikację zdalną. Najpierw
 
 [!code-csharp[](validation/sample/User.cs?range=7-8)]
 
-Drugim krokiem jest umieszczenie kodu sprawdzania poprawności w odpowiedniej metody akcji, zgodnie z definicją w `[Remote]` atrybutu. Zgodnie z jQuery weryfikacji [ `remote()` ](https://jqueryvalidation.org/remote-method/) dokumentacji metody:
+Drugim krokiem jest umieszczenie kodu sprawdzania poprawności w odpowiedniej metody akcji, zgodnie z definicją w `[Remote]` atrybutu. Zgodnie z jQuery weryfikacji [zdalnego](https://jqueryvalidation.org/remote-method/) dokumentacji metoda odpowiedź serwera musi być ciąg JSON, który jest albo:
 
-> Odpowiedź serverside musi być ciąg JSON, który musi być `"true"` prawidłowe elementy i może być `"false"`, `undefined`, lub `null` dla nieprawidłowe elementy przy użyciu domyślnego komunikatu o błędzie. Jeśli odpowiedź serverside jest ciągiem, np. `"That name is already taken, try peter123 instead"`, te parametry, które będą wyświetlane jako niestandardowy komunikat o błędzie zamiast domyślnego.
+* `"true"` Aby uzyskać prawidłowe elementy.
+* `"false"`, `undefined`, lub `null` dla nieprawidłowe elementy przy użyciu domyślnego komunikatu o błędzie.
 
-Definicja `VerifyEmail()` metoda obowiązują następujące reguły, jak pokazano poniżej. Zwraca błąd sprawdzania poprawności komunikat, jeśli jest pobierana w wiadomości e-mail lub `true` Jeśli wiadomość e-mail jest bezpłatny i otacza wynik w `JsonResult` obiektu. Następnie po stronie klienta można użyć zwracanej wartości, aby kontynuować, lub wyświetla błąd, jeśli to konieczne.
+Jeśli odpowiedź serwera to ciąg (na przykład `"That name is already taken, try peter123 instead"`), ciąg jest wyświetlany jako niestandardowy komunikat o błędzie zamiast domyślnego ciągu.
+
+Definicja `VerifyEmail` metoda obowiązują następujące reguły, jak pokazano poniżej. Zwraca błąd sprawdzania poprawności komunikat, jeśli jest pobierana w wiadomości e-mail lub `true` Jeśli wiadomość e-mail jest bezpłatny i otacza wynik w `JsonResult` obiektu. Następnie po stronie klienta można użyć zwracanej wartości, aby kontynuować, lub wyświetla błąd, jeśli to konieczne.
 
 [!code-csharp[](validation/sample/UsersController.cs?range=19-28)]
 
@@ -243,7 +246,7 @@ Teraz gdy użytkownicy wprowadzają wiadomość e-mail, JavaScript, w widoku wyw
 Teraz gdy użytkownicy wprowadzają imię i nazwisko JavaScript:
 
 * Umożliwia zdalne wywołanie, aby zobaczyć, że pary nazw jest już zajęta.
-* Jeśli zostanie podjęta pary, jest wyświetlany komunikat o błędzie. 
+* Jeśli zostanie podjęta pary, jest wyświetlany komunikat o błędzie.
 * Jeśli nie zostanie podjęte, użytkownik może przesłać formularza.
 
 Jeśli musisz zweryfikować co najmniej dwa dodatkowe pola z `[Remote]` atrybutu one podawane jako listę rozdzielonych przecinkami. Na przykład, aby dodać `MiddleName` właściwością modelu, `[Remote]` atrybutu, jak pokazano w poniższym kodzie:

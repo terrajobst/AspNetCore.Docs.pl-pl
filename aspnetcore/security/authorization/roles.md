@@ -1,28 +1,35 @@
 ---
-title: Autoryzacji opartej na rolach w ASP.NET Core
+title: Autoryzacja oparta na rolach w programie ASP.NET Core
 author: rick-anderson
-description: Dowiedz się, jak ograniczyć dostęp kontroler i akcja MVC ASP.NET Core przez przekazanie do atrybutu autoryzacji ról.
+description: Dowiedz się, jak ograniczyć dostęp do akcji i kontrolerów platformy ASP.NET Core, przekazując ról z atrybutem autoryzacji.
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/authorization/roles
-ms.openlocfilehash: 0d39a457782061a57779bacb0d3a255be352bd2d
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 59753b90d3196b0bc16d4963f45b995f5108bc8b
+ms.sourcegitcommit: d99a8554c91f626cf5e466911cf504dcbff0e02e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36276435"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39356678"
 ---
-# <a name="role-based-authorization-in-aspnet-core"></a>Autoryzacji opartej na rolach w ASP.NET Core
+# <a name="role-based-authorization-in-aspnet-core"></a>Autoryzacja oparta na rolach w programie ASP.NET Core
 
 <a name="security-authorization-role-based"></a>
 
-Po utworzeniu tożsamości może należeć do jednej lub więcej ról. Na przykład Tracy może należeć do ról administratora i użytkownika, przy jednoczesnym Scott może należeć tylko do roli użytkownika. Jak te role są tworzone i zarządzane zależy od magazynu zapasowego procesu autoryzacji. Role są widoczne dla projektanta za pośrednictwem [IsInRole](/dotnet/api/system.security.principal.genericprincipal.isinrole) metoda [ClaimsPrincipal](/dotnet/api/system.security.claims.claimsprincipal) klasy.
+Po utworzeniu tożsamości może on należeć do co najmniej jedną rolę. Na przykład Tracy mogą należeć do ról administratora i użytkownika, o ile Scott może wyłącznie należeć do roli użytkownika. Jak te role są tworzone i zarządzane zależy od magazyn zapasowy procesu autoryzacji. Role są widoczne dla deweloperów za pośrednictwem [IsInRole](/dotnet/api/system.security.principal.genericprincipal.isinrole) metody [ClaimsPrincipal](/dotnet/api/system.security.claims.claimsprincipal) klasy.
 
-## <a name="adding-role-checks"></a>Dodawanie ról kontroli
+::: moniker range=">= aspnetcore-2.0"
 
-Sprawdzanie autoryzacji opartej na rolach są deklaratywne&mdash;dewelopera umieszcza je w ramach ich kodu, kontrolera lub akcji w obrębie kontrolera, określanie ról, które bieżący użytkownik musi należeć do dostępu do żądanego zasobu.
+> [!IMPORTANT]
+> W tym temacie jest **nie** dotyczą stron Razor. Strony razor obsługuje [IPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter) i [IAsyncPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.iasyncpagefilter). Aby uzyskać więcej informacji, zobacz [metody filtrowania dla stron Razor](xref:razor-pages/filter).
 
-Na przykład następujący kod ogranicza dostęp do wszystkich akcji w `AdministrationController` dla użytkowników, którzy są członkami `Administrator` roli:
+::: moniker-end
+
+## <a name="adding-role-checks"></a>Dodawanie kontroli roli
+
+Sprawdzanie autoryzacji opartej na rolach są deklaratywne&mdash;Deweloper umieszcza je w ramach ich kodować, kontrolera lub akcji w kontrolerze, określając role, które bieżący użytkownik musi należeć do dostępu do żądanego zasobu.
+
+Na przykład, poniższy kod ogranicza dostęp do wszystkich działań na `AdministrationController` dla użytkowników, którzy są członkami `Administrator` roli:
 
 ```csharp
 [Authorize(Roles = "Administrator")]
@@ -31,7 +38,7 @@ public class AdministrationController : Controller
 }
 ```
 
-Możesz określić wiele ról rozdzielana przecinkami lista:
+Można określić wiele ról jako listę rozdzielonych przecinkami:
 
 ```csharp
 [Authorize(Roles = "HRManager,Finance")]
@@ -40,9 +47,9 @@ public class SalaryController : Controller
 }
 ```
 
-Ten kontroler będą tylko przez użytkowników, którzy są członkami dostępne z `HRManager` roli lub `Finance` roli.
+Ten kontroler będą tylko dostępne przez użytkowników, którzy są członkami z `HRManager` roli lub `Finance` roli.
 
-W przypadku zastosowania wielu atrybutów podczas uzyskiwania dostępu do użytkownika musi być członkiem wszystkich ról określony; Poniższy przykład wymaga, aby użytkownik musi być elementem członkowskim `PowerUser` i `ControlPanelUser` roli.
+Jeśli zastosujesz wiele atrybutów, a następnie uzyskiwanie dostępu do użytkownika musi być członkiem wszystkich ról, które są określone; Poniższy przykład wymaga, że użytkownik musi być członkiem zarówno `PowerUser` i `ControlPanelUser` roli.
 
 ```csharp
 [Authorize(Roles = "PowerUser")]
@@ -52,7 +59,7 @@ public class ControlPanelController : Controller
 }
 ```
 
-Można jeszcze bardziej ograniczyć dostęp przez zastosowanie dodatkowych ról autoryzacji atrybuty na poziomie akcji:
+Można zawęzić dostęp przez zastosowanie dodatkowych ról autoryzacji atrybuty na poziomie akcji:
 
 ```csharp
 [Authorize(Roles = "Administrator, PowerUser")]
@@ -69,7 +76,7 @@ public class ControlPanelController : Controller
 }
 ```
 
-W poprzednich członków fragment kodu z `Administrator` roli lub `PowerUser` roli mogą uzyskiwać dostęp do kontrolera i `SetTime` akcji, ale tylko członkowie `Administrator` dostęp `ShutDown` akcji.
+W poprzednich składowych fragment kodu z `Administrator` roli lub `PowerUser` rola umożliwia dostęp do kontrolera i `SetTime` akcji, ale tylko członkowie `Administrator` rola umożliwia dostęp do `ShutDown` akcji.
 
 Można również zablokować kontrolerem, ale zezwalaj na anonimowe, nieuwierzytelnione dostęp do poszczególnych działań.
 
@@ -90,9 +97,9 @@ public class ControlPanelController : Controller
 
 <a name="security-authorization-role-policy"></a>
 
-## <a name="policy-based-role-checks"></a>Sprawdza rolę oparte na zasadach
+## <a name="policy-based-role-checks"></a>Uprawnienia ról oparte na zasadach
 
-Wymaganiami dotyczącymi roli można również wyrazić za pomocą nowej składni zasady, których projektant rejestruje zasad podczas uruchamiania w ramach konfiguracji usługi autoryzacji. Zwykle występuje to `ConfigureServices()` w Twojej *Startup.cs* pliku.
+Wymagania roli można również wyrazić za pomocą nowej składni zasad, których Deweloper rejestruje zasady przy uruchomieniu jako część konfiguracji usługi autoryzacji. Zwykle dzieje się to `ConfigureServices()` w swojej *Startup.cs* pliku.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -116,11 +123,11 @@ public IActionResult Shutdown()
 }
 ```
 
-Jeśli chcesz określić wiele ról dozwolonych w wymaganie, określ je jako parametry `RequireRole` metody:
+Jeśli chcesz określić wiele ról dozwolonych w zapotrzebowania, a następnie określić je jako parametry `RequireRole` metody:
 
 ```csharp
 options.AddPolicy("ElevatedRights", policy =>
                   policy.RequireRole("Administrator", "PowerUser", "BackupAdministrator"));
 ```
 
-W tym przykładzie autoryzuje użytkowników, którzy należą do `Administrator`, `PowerUser` lub `BackupAdministrator` ról.
+W tym przykładzie autoryzowania użytkowników, którzy należą do `Administrator`, `PowerUser` lub `BackupAdministrator` ról.

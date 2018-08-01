@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 6/16/2018
 uid: security/authentication/add-user-data
-ms.openlocfilehash: ecd0e6d1c71b24309fab70fbb06af7731463bb0e
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 6f583d65460803c816bf1ccd314216952710cd55
+ms.sourcegitcommit: e955a722c05ce2e5e21b4219f7d94fb878e255a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38215938"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39378618"
 ---
 # <a name="add-download-and-delete-custom-user-data-to-identity-in-an-aspnet-core-project"></a>Dodawanie, pobieranie i usuwanie danych niestandardowych użytkownika w tożsamości w projektach programu ASP.NET Core
 
@@ -61,8 +61,8 @@ dotnet new webapp -o WebApp1
   * Wybierz następujące pliki do zastąpienia:
     * **Konto/rejestrowanie**
     * **Konto zarządzania/indeks**
-  * Wybierz **+** przycisk, aby utworzyć nową **klasa kontekstu danych**. Akceptuje typu (**WebApp1.Models.WebApp1Context** Jeśli nazwę projektu **WebApp1**).
-  * Wybierz **+** przycisk, aby utworzyć nową **klasy użytkownika**. Akceptuje typu (**WebApp1User** Jeśli nazwę projektu **WebApp1**) > **Dodaj**.
+  * Wybierz **+** przycisk, aby utworzyć nową **klasa kontekstu danych**. Akceptuje typu (**WebApp1.Models.WebApp1Context** Jeśli projekt nazwano **WebApp1**).
+  * Wybierz **+** przycisk, aby utworzyć nową **klasy użytkownika**. Akceptuje typu (**WebApp1User** Jeśli projekt nazwano **WebApp1**) > **Dodaj**.
 * Wybierz **Dodaj**.
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
@@ -108,7 +108,7 @@ Postępuj zgodnie z instrukcjami w [migracje, UseAuthentication i układ](xref:s
 
 ## <a name="add-custom-user-data-to-the-identity-db"></a>Dodawanie danych niestandardowych użytkownika do bazy danych tożsamości
 
-Aktualizacja `IdentityUser` pochodne klasy przy użyciu właściwości niestandardowych. Jeśli nazwa projektu WebApp1 ma nazwę pliku *Areas/Identity/Data/WebApp1User.cs*. Aktualizowanie pliku następującym kodem:
+Aktualizacja `IdentityUser` pochodne klasy przy użyciu właściwości niestandardowych. Jeśli nazwę projektu WebApp1, plik nosi *Areas/Identity/Data/WebApp1User.cs*. Aktualizowanie pliku następującym kodem:
 
 [!code-csharp[Main](add-user-data/sample/Areas/Identity/Data/WebApp1User.cs)]
 

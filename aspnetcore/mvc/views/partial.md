@@ -6,18 +6,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/06/2018
 uid: mvc/views/partial
-ms.openlocfilehash: 983f3caae34b21b46d8f556e70673cf3c97abbd3
-ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
+ms.openlocfilehash: 7cb20fc30609adad83cb40e91316da115817f035
+ms.sourcegitcommit: e955a722c05ce2e5e21b4219f7d94fb878e255a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37938462"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39378686"
 ---
 # <a name="partial-views-in-aspnet-core"></a>Widoki częściowe w programie ASP.NET Core
 
 Przez [Steve Smith](https://ardalis.com/), [Maher JENDOUBI](https://twitter.com/maherjend), [Rick Anderson](https://twitter.com/RickAndMSFT), i [Scott Sauber](https://twitter.com/scottsauber)
 
-Platforma ASP.NET Core MVC obsługuje widoków częściowych, które są przydatne w przypadku udostępniania wielokrotnego użytku części strony sieci web w różnych widoków.
+Platforma ASP.NET Core obsługuje widoki częściowe. Widoki częściowe umożliwiają udostępnianie wielokrotnego użytku części strony sieci web w różnych widoków.
 
 [Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/partial/sample) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
 
@@ -35,8 +35,7 @@ Widoki częściowe są efektywnym sposobem rozdzielanie dużych widoki na mniejs
 
 Na stronie złożonego składa się z wielu części logiczne jest przydatne do pracy z każdego z nich jako swój własny widok częściowy. Każda część strony mogą być wyświetlane w izolacji od pozostałej części strony. Widok, w którym sama strona staje się prostszy, ponieważ zawiera on tylko ogólną strukturę strony i wywołań do renderowania widoków częściowych.
 
-> [!TIP]
-> Postępuj zgodnie z [nie Powtórz samodzielnie zasady](https://deviq.com/don-t-repeat-yourself/) w widoków.
+Kontrolery ASP.NET Core MVC mają [PartialView](/dotnet/api/microsoft.aspnetcore.mvc.controller.partialview#Microsoft_AspNetCore_Mvc_Controller_PartialView) metodę, która jest wywoływana z metody akcji. Strony razor nie mają odpowiednika `PartialView` metody.
 
 ## <a name="declare-partial-views"></a>Zadeklaruj widoki częściowe
 

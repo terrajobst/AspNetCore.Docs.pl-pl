@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 07/21/2018
 uid: razor-pages/ui-class
-ms.openlocfilehash: 4252cfc5824b6078012cf9ff34968977229faf0d
-ms.sourcegitcommit: cb0c27fa0184f954fce591d417e6ab2a51d8bb22
+ms.openlocfilehash: 1f0ef59ce3f3294d6a3bde015ca34800770b1be4
+ms.sourcegitcommit: e955a722c05ce2e5e21b4219f7d94fb878e255a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39123780"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39378675"
 ---
 # <a name="create-reusable-ui-using-the-razor-class-library-project-in-aspnet-core"></a>Tworzenie interfejsu użytkownika wielokrotnego użytku, używając projektu biblioteki klas Razor w programie ASP.NET Core.
 
@@ -32,6 +32,10 @@ Ta funkcja wymaga [!INCLUDE[](~/includes/2.1-SDK.md)]
 * Nazwa biblioteki (na przykład "RazorClassLib") > **OK**. Aby uniknąć kolizji nazw plików, za pomocą biblioteki wygenerowany widok, upewnij się, nazwa biblioteki nie kończy się w `.Views`.
 * Sprawdź **platformy ASP.NET Core 2.1** lub nowszej jest zaznaczone.
 * Wybierz **biblioteki klas Razor** > **OK**.
+
+Biblioteki klas Razor ma następujący plik projektu:
+
+[!code-xml[Main](ui-class/samples/cli/RazorUIClassLib/RazorUIClassLib.csproj)]
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
