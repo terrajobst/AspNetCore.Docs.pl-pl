@@ -5,12 +5,12 @@ description: Więcej informacji na temat struktury rejestrowania w programie ASP
 ms.author: tdykstra
 ms.date: 07/24/2018
 uid: fundamentals/logging/index
-ms.openlocfilehash: 5d31c5609c0e98a81d76ce0581f1c63f349d14d0
-ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
+ms.openlocfilehash: 60777d4f8664b7f02c806abb6ca40a29602d207f
+ms.sourcegitcommit: e955a722c05ce2e5e21b4219f7d94fb878e255a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39342474"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39378654"
 ---
 # <a name="logging-in-aspnet-core"></a>Rejestrowanie w programie ASP.NET Core
 
@@ -448,7 +448,7 @@ Poniższy kod umożliwia zakresy dla dostawcy konsoli:
 > [!NOTE]
 > Konfigurowanie `IncludeScopes` opcja rejestratora konsoli jest wymagana, aby włączyć rejestrowanie zakresu.
 >
-> Aby uzyskać informacji na temat konfigurowania, zobacz [konfiguracji](#Configuration) sekcji.
+> Aby uzyskać informacji na temat konfigurowania, zobacz [konfiguracji](#configuration) sekcji.
 
 ::: moniker-end
 
