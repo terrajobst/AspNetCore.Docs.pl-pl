@@ -5,12 +5,12 @@ description: Dowiedz się, jak platforma ASP.NET Core oferuje usługi oraz oprog
 ms.author: riande
 ms.date: 01/14/2017
 uid: fundamentals/localization
-ms.openlocfilehash: 9647b605d4b9a23b365085e3677fb0e9b93f0da4
-ms.sourcegitcommit: 18339e3cb5a891a3ca36d8146fa83cf91c32e707
+ms.openlocfilehash: 87df1b8cf57509ddf80ce845d85a9b3f30673c35
+ms.sourcegitcommit: a25b572eaed21791230c85416f449f66a405ec19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37434016"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39396237"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalizacja i lokalizacja w programie ASP.NET Core
 
@@ -29,6 +29,8 @@ Lokalizacja aplikacji obejmuje następujące czynności:
 2. Podaj zlokalizowane zasoby dla języków i kultur, która jest obsługiwana
 
 3. Wdrożenie strategii, aby wybrać język/kulturę dla każdego żądania
+
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/localization/sample/Localization) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="make-the-apps-content-localizable"></a>Wprowadź nazwę zawartości aplikacji możliwych do zlokalizowania
 

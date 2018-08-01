@@ -2,18 +2,18 @@
 uid: mvc/overview/older-versions-1/contact-manager/iteration-4-make-the-application-loosely-coupled-cs
 title: 'Iteracja 4 # — wprowadzić luźne sprzężenie aplikacji (C#) | Dokumentacja firmy Microsoft'
 author: microsoft
-description: W tym trzeci iteracji możemy skorzystać z kilku wzorców projektowych oprogramowania, aby ułatwić konserwację i modyfikowanie aplikacji Contact Manager. Aby uzyskać...
+description: W tym czwarty iteracji możemy korzystać z kilku wzorców projektowych oprogramowania, aby ułatwić konserwację i modyfikowanie aplikacji Contact Manager. Aby uzyskać...
 ms.author: aspnetcontent
 ms.date: 02/20/2009
 ms.assetid: 829f589f-e201-4f6e-9ae6-08ae84322065
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-4-make-the-application-loosely-coupled-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8eff8088398d0f7afc020b2bbdf41526ae51591a
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 7c06609afd6f1adf930a377c99d66937885f78e7
+ms.sourcegitcommit: a25b572eaed21791230c85416f449f66a405ec19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37829502"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39396039"
 ---
 <a name="iteration-4--make-the-application-loosely-coupled-c"></a>Iteracja 4 # — wprowadzić luźne sprzężenie aplikacji (C#)
 ====================
@@ -21,7 +21,7 @@ przez [firmy Microsoft](https://github.com/microsoft)
 
 [Pobierz program Code](iteration-4-make-the-application-loosely-coupled-cs/_static/contactmanager_4_cs1.zip)
 
-> W tym trzeci iteracji możemy skorzystać z kilku wzorców projektowych oprogramowania, aby ułatwić konserwację i modyfikowanie aplikacji Contact Manager. Na przykład możemy refaktoryzować naszej aplikacji do korzystania z wzorca repozytorium i wzorzec iniekcji zależności.
+> W tym czwarty iteracji możemy korzystać z kilku wzorców projektowych oprogramowania, aby ułatwić konserwację i modyfikowanie aplikacji Contact Manager. Na przykład możemy refaktoryzować naszej aplikacji do korzystania z wzorca repozytorium i wzorzec iniekcji zależności.
 
 
 ## <a name="building-a-contact-management-aspnet-mvc-application-c"></a>Tworzenie aplikacji zarządzania kontaktami platformy ASP.NET MVC (C#)
@@ -36,7 +36,7 @@ Firma Microsoft tworzy aplikację za pośrednictwem wiele iteracji. Z każdą it
 
 - Iteracja #3 — Dodawanie weryfikacji formularza. W trzecim iteracji dodamy weryfikacji formularza podstawowego. Firma Microsoft ochronić przed przesłaniem formularza nie kończą działania wymaganych pól formularza. Możemy zweryfikować adresy e-mail oraz numerów telefonów.
 
-- Iteracja 4 # — należy luźne sprzężenie aplikacji. W tym trzeci iteracji możemy skorzystać z kilku wzorców projektowych oprogramowania, aby ułatwić konserwację i modyfikowanie aplikacji Contact Manager. Na przykład możemy refaktoryzować naszej aplikacji do korzystania z wzorca repozytorium i wzorzec iniekcji zależności.
+- Iteracja 4 # — należy luźne sprzężenie aplikacji. W tym czwarty iteracji możemy korzystać z kilku wzorców projektowych oprogramowania, aby ułatwić konserwację i modyfikowanie aplikacji Contact Manager. Na przykład możemy refaktoryzować naszej aplikacji do korzystania z wzorca repozytorium i wzorzec iniekcji zależności.
 
 - Iteracja #5 — Tworzenie testów jednostkowych. W piątej iteracji ułatwiamy naszej aplikacji ułatwia konserwację i modyfikowanie, dodając testów jednostkowych. Firma Microsoft testowanie naszych zajęć modelu danych i tworzenie testów jednostkowych dla naszych kontrolery i logikę weryfikacji.
 
