@@ -8,12 +8,12 @@ ms.date: 02/20/2009
 ms.assetid: f1b0809e-8909-444e-b6bb-a5cd1dea3f72
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-7-add-ajax-functionality-cs
 msc.type: authoredcontent
-ms.openlocfilehash: b7214a419b841f6814c3c37834b8ecd40e141926
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 9b7a3acefbfeef9da5e45b40f03809b00364de05
+ms.sourcegitcommit: a25b572eaed21791230c85416f449f66a405ec19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37823300"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39396159"
 ---
 <a name="iteration-7--add-ajax-functionality-c"></a>Iteracja #7 — dodawanie funkcji Ajax (C#)
 ====================
@@ -36,7 +36,7 @@ Firma Microsoft tworzy aplikację za pośrednictwem wiele iteracji. Z każdą it
 
 - Iteracja #3 — Dodawanie weryfikacji formularza. W trzecim iteracji dodamy weryfikacji formularza podstawowego. Firma Microsoft ochronić przed przesłaniem formularza nie kończą działania wymaganych pól formularza. Możemy zweryfikować adresy e-mail oraz numerów telefonów.
 
-- Iteracja 4 # — należy luźne sprzężenie aplikacji. W tym trzeci iteracji możemy skorzystać z kilku wzorców projektowych oprogramowania, aby ułatwić konserwację i modyfikowanie aplikacji Contact Manager. Na przykład możemy refaktoryzować naszej aplikacji do korzystania z wzorca repozytorium i wzorzec iniekcji zależności.
+- Iteracja 4 # — należy luźne sprzężenie aplikacji. W tym czwarty iteracji możemy korzystać z kilku wzorców projektowych oprogramowania, aby ułatwić konserwację i modyfikowanie aplikacji Contact Manager. Na przykład możemy refaktoryzować naszej aplikacji do korzystania z wzorca repozytorium i wzorzec iniekcji zależności.
 
 - Iteracja #5 — Tworzenie testów jednostkowych. W piątej iteracji ułatwiamy naszej aplikacji ułatwia konserwację i modyfikowanie, dodając testów jednostkowych. Firma Microsoft testowanie naszych zajęć modelu danych i tworzenie testów jednostkowych dla naszych kontrolery i logikę weryfikacji.
 

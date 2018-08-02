@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/04/2018
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: 4aded0b87ca14a5c09844cc378efb1ac0c12a289
-ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
+ms.openlocfilehash: b156cd0755d7918d5f8433fcbe5c870ad04ac13e
+ms.sourcegitcommit: a25b572eaed21791230c85416f449f66a405ec19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39342159"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39396224"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Host platformy ASP.NET Core w usłudze Windows
 
@@ -225,6 +225,10 @@ Jeśli niestandardowa `WebHostService` kod wymaga usługi z wstrzykiwanie zależ
 ## <a name="proxy-server-and-load-balancer-scenarios"></a>Serwer proxy i scenariuszy usługi równoważenia obciążenia
 
 Usługi wchodzić w interakcje z żądaniami z Internetu lub sieci firmowej i znajdują się za serwerem proxy lub moduł równoważenia obciążenia, które mogą wymagać dodatkowej konfiguracji. Aby uzyskać więcej informacji, zobacz <xref:host-and-deploy/proxy-load-balancer>.
+
+## <a name="configure-https"></a>Konfigurowanie protokołu HTTPS
+
+Określ [konfiguracji punktu końcowego HTTPS serwera Kestrel](xref:fundamentals/servers/kestrel#endpoint-configuration).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
