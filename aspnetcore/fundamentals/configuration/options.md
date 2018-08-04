@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/28/2017
 uid: fundamentals/configuration/options
-ms.openlocfilehash: aa9c490aff873d12c9417e7b611991617207c0d3
-ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
+ms.openlocfilehash: fd3e55ec821be336501f523550f547f6049c9937
+ms.sourcegitcommit: 4e34ce61e1e7f1317102b16012ce0742abf2cca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39342448"
+ms.lasthandoff: 08/04/2018
+ms.locfileid: "39514755"
 ---
 # <a name="options-pattern-in-aspnet-core"></a>Wzorzec opcje w programie ASP.NET Core
 
@@ -294,10 +294,17 @@ services.PostConfigureAll<MyOptions>("named_options_1", myOptions =>
 
 ## <a name="accessing-options-during-startup"></a>Uzyskiwanie dostępu do opcji podczas uruchamiania
 
-`IOptions` mogą być używane w `Configure`, ponieważ usługi są kompilowane przed `Configure` metoda jest wykonywana. Jeśli dostawca usług jest wbudowana `ConfigureServices` uzyskać dostęp do opcji, go nie ma zawierać opcje konfiguracjami dostarczonymi po utworzeniu dostawcy usługi. W związku z tym do stanu opcje niezgodne może istnieć z powodu zamawiania rejestracji usługi.
+`IOptions` mogą być używane w `Startup.Configure`, ponieważ usługi są kompilowane przed `Configure` metoda jest wykonywana.
 
-Ponieważ opcje są zwykle ładowane z konfiguracji, konfiguracji mogą być używane w uruchamiania w obu `Configure` i `ConfigureServices`. Przykłady korzystania z konfiguracji podczas uruchamiania, zobacz [uruchamiania aplikacji](xref:fundamentals/startup) tematu.
+```csharp
+public void Configure(IApplicationBuilder app, IOptions<MyOptions> optionsAccessor)
+{
+    var option1 = optionsAccessor.Value.Option1;
+}
+```
 
-## <a name="see-also"></a>Zobacz także
+`IOptions` nie powinny być używane w `Startup.ConfigureServices`. Stan opcje niezgodne mogą występować z powodu zamawiania rejestracji usługi.
 
-* [Konfiguracja](xref:fundamentals/configuration/index)
+## <a name="additional-resources"></a>Dodatkowe zasoby
+
+* <xref:fundamentals/configuration/index>

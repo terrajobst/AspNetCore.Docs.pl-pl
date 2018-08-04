@@ -5,12 +5,12 @@ description: Dowiedz się, jak ASP.NET Core MVC używa routingu oprogramowania p
 ms.author: riande
 ms.date: 03/14/2017
 uid: mvc/controllers/routing
-ms.openlocfilehash: 081332fd1007db5292a8812fc6ae934cb07dffb5
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 0d328d930ecb932c22fec524babb1c856b656b95
+ms.sourcegitcommit: 4e34ce61e1e7f1317102b16012ce0742abf2cca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952984"
+ms.lasthandoff: 08/04/2018
+ms.locfileid: "39514781"
 ---
 # <a name="routing-to-controller-actions-in-aspnet-core"></a>Routing do akcji kontrolera, w programie ASP.NET Core
 
@@ -589,13 +589,14 @@ Powyższe przykłady wykazały, za pomocą `IUrlHelper` w kontrolerze, gdy najba
 `ControllerBase` i `Controller` klas bazowych udostępniające podręczne metody dla wyników akcji, odwołujące się do innej akcji. Jeden typowy jest przekierowania po zaakceptowaniu dane wejściowe użytkownika.
 
 ```csharp
-public Task<IActionResult> Edit(int id, Customer customer)
+public IActionResult Edit(int id, Customer customer)
 {
     if (ModelState.IsValid)
     {
         // Update DB with new details.
         return RedirectToAction("Index");
     }
+    return View(customer);
 }
 ```
 
