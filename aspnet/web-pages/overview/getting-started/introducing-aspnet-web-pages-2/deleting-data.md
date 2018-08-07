@@ -134,7 +134,7 @@ Drugi warunek ma `!Request["buttonDelete"].IsEmpty()`, co oznacza, że żądanie
   
  AND  
   
-** `buttonDelete` *Przycisk został przycisku, który formularz został przesłany.*
+*`buttonDelete`Przycisk został przycisku,* *który formularz został przesłany.*
 
 Ten formularz (w rzeczywistości ta strona) zawiera tylko jeden przycisk, więc dodatkowy test na `buttonDelete` technicznie nie jest wymagane. Nadal którą zamierzasz wykonać operacji, która spowoduje to trwałe usunięcie danych. Dlatego należy się, jak to możliwe, że wykonujesz operację tylko wtedy, gdy użytkownik jawnie zgłosił żądanie. Załóżmy na przykład, możesz później rozszerzyć tę stronę i do niej dodać inny przycisk. Nawet, kod, który usuwa film zostanie uruchomione tylko wtedy, gdy `buttonDelete` kliknięcia przycisku.
 
