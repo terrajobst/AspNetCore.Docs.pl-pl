@@ -1,19 +1,19 @@
 ---
-title: Tworzenie internetowego interfejsu API platformy ASP.NET Core i programu Visual Studio dla Windows
+title: Tworzenie internetowego interfejsu API za pomocą platformy ASP.NET Core i Visual Studio
 author: rick-anderson
-description: Tworzenie internetowego interfejsu API platformy ASP.NET Core MVC i programu Visual Studio for Windows
+description: Tworzenie internetowego interfejsu API platformy ASP.NET Core MVC i programu Visual Studio w Windows
 ms.author: riande
 ms.custom: mvc
 ms.date: 05/17/2018
 uid: tutorials/first-web-api
-ms.openlocfilehash: 3da22cbbbe0db7771656997a13587521e182fb2a
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 2694388324cdbd246aad6c88d8439171704dfe89
+ms.sourcegitcommit: 29dfe436f54a27fbb4f6494bc639d16c75001fab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38164603"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39722519"
 ---
-# <a name="create-a-web-api-with-aspnet-core-and-visual-studio-for-windows"></a>Tworzenie internetowego interfejsu API platformy ASP.NET Core i programu Visual Studio dla Windows
+# <a name="create-a-web-api-with-aspnet-core-and-visual-studio"></a>Tworzenie internetowego interfejsu API za pomocą platformy ASP.NET Core i Visual Studio
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT) i [Mike Wasson](https://github.com/mikewasson)
 
@@ -21,7 +21,7 @@ Ten samouczek opiera się internetowego interfejsu API do zarządzania listę el
 
 Istnieją trzy wersje tego samouczka:
 
-* Windows: Web API za pomocą programu Visual Studio for Windows (w tym samouczku)
+* Windows: Web API za pomocą programu Visual Studio w Windows (w tym samouczku)
 * System macOS: [interfejsu API sieci Web z programem Visual Studio dla komputerów Mac](xref:tutorials/first-web-api-mac)
 * macOS i Linux, Windows: [interfejsu API sieci Web za pomocą programu Visual Studio Code](xref:tutorials/web-api-vsc)
 

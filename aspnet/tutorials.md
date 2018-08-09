@@ -1,5 +1,5 @@
 ---
-uid: aspnet/tutorials
+uid: tutorials
 title: Samouczki platformy ASP.NET | Dokumentacja firmy Microsoft
 author: tdykstra
 description: Lista przewodniki krok po kroku dotyczące tworzenia aplikacji ASP.NET.
@@ -7,12 +7,12 @@ ms.assetid: fddf8e5e-c055-4f81-b691-78deef871112
 ms.author: aspnetcontent
 ms.date: 09/20/2017
 ms.technology: aspnet
-ms.openlocfilehash: d14d00a4a517395591fec160b582dca9e043fcfd
-ms.sourcegitcommit: 8b68e144aab75374af52605a71717c77345a28b2
+ms.openlocfilehash: 76fd235b63df5ca763993e3ecf1a10c3431e8afd
+ms.sourcegitcommit: 028ad28c546de706ace98066c76774de33e4ad20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39182580"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39655222"
 ---
 # <a name="aspnet-tutorials"></a>Samouczki platformy ASP.NET
 

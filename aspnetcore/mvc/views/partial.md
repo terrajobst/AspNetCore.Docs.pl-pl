@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/06/2018
 uid: mvc/views/partial
-ms.openlocfilehash: 7cb20fc30609adad83cb40e91316da115817f035
-ms.sourcegitcommit: e955a722c05ce2e5e21b4219f7d94fb878e255a6
+ms.openlocfilehash: 2223f3c6e42927def4b91ff9da58c228e5904756
+ms.sourcegitcommit: 028ad28c546de706ace98066c76774de33e4ad20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39378686"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39655326"
 ---
 # <a name="partial-views-in-aspnet-core"></a>Widoki częściowe w programie ASP.NET Core
 
@@ -35,7 +35,7 @@ Widoki częściowe są efektywnym sposobem rozdzielanie dużych widoki na mniejs
 
 Na stronie złożonego składa się z wielu części logiczne jest przydatne do pracy z każdego z nich jako swój własny widok częściowy. Każda część strony mogą być wyświetlane w izolacji od pozostałej części strony. Widok, w którym sama strona staje się prostszy, ponieważ zawiera on tylko ogólną strukturę strony i wywołań do renderowania widoków częściowych.
 
-Kontrolery ASP.NET Core MVC mają [PartialView](/dotnet/api/microsoft.aspnetcore.mvc.controller.partialview#Microsoft_AspNetCore_Mvc_Controller_PartialView) metodę, która jest wywoływana z metody akcji. Strony razor nie mają odpowiednika `PartialView` metody.
+Kontrolery ASP.NET Core MVC mają [PartialView](/dotnet/api/microsoft.aspnetcore.mvc.controller.partialview#Microsoft_AspNetCore_Mvc_Controller_PartialView) metodę, która jest wywoływana z metody akcji. Strony razor nie mają odpowiednika `PartialView` metody [PageModel](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel).
 
 ## <a name="declare-partial-views"></a>Zadeklaruj widoki częściowe
 

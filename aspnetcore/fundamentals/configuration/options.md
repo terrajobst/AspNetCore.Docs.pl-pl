@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/28/2017
 uid: fundamentals/configuration/options
-ms.openlocfilehash: fd3e55ec821be336501f523550f547f6049c9937
-ms.sourcegitcommit: 4e34ce61e1e7f1317102b16012ce0742abf2cca6
+ms.openlocfilehash: ef6b0117b88c4c79771f0280267bd99993028ac8
+ms.sourcegitcommit: 028ad28c546de706ace98066c76774de33e4ad20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2018
-ms.locfileid: "39514755"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39655423"
 ---
 # <a name="options-pattern-in-aspnet-core"></a>Wzorzec opcje w programie ASP.NET Core
 
@@ -116,11 +116,11 @@ Przykładowe *appsettings.json* plik definiuje `subsection` członka za pomocą 
 
 [!code-json[](options/sample/appsettings.json?highlight=4-7)]
 
-`MySubOptions` Klasy definiuje właściwości, `SubOption1` i `SubOption2`, do przechowywania wartości opcji podrzędnych (*Models/MySubOptions.cs*):
+`MySubOptions` Klasy definiuje właściwości, `SubOption1` i `SubOption2`, aby przechowywać wartości opcji (*Models/MySubOptions.cs*):
 
 [!code-csharp[](options/sample/Models/MySubOptions.cs?name=snippet1)]
 
-Model strony `OnGet` metoda zwraca ciąg zawierający wartości opcji podrzędnych (*Pages/Index.cshtml.cs*):
+Model strony `OnGet` metoda zwraca ciąg zawierający wartości opcji (*Pages/Index.cshtml.cs*):
 
 [!code-csharp[](options/sample/Pages/Index.cshtml.cs?range=11)]
 
@@ -150,7 +150,7 @@ Do bezpośredniej iniekcji należy wstrzyknąć `IOptions<MyOptions>` z `@inject
 
 [!code-cshtml[](options/sample/Pages/Index.cshtml?range=1-10&highlight=5)]
 
-Gdy aplikacja jest uruchamiana, wartości opcji są wyświetlane na renderowanej stronie:
+Gdy aplikacja jest uruchamiana, wartości opcje są wyświetlane na renderowanej stronie:
 
 ![Opcje wartości opcja1: value1_from_json i opcja2: -1 są ładowane z modelu, jak również iniekcję do widoku.](options/_static/view.png)
 
@@ -249,6 +249,70 @@ named_options_2: option1 = ConfigureAll replacement value, option2 = 5
 > [!NOTE]
 > Wszystkie opcje są nazwane wystąpienia. Istniejące `IConfigureOption` wystąpienia są traktowane jako docelowy `Options.DefaultName` wystąpienia, co jest `string.Empty`. `IConfigureNamedOptions` implementuje również `IConfigureOptions`. Domyślna implementacja klasy [IOptionsFactory&lt;TOptions&gt; ](/dotnet/api/microsoft.extensions.options.ioptionsfactory-1) ([źródło odwołania](https://github.com/aspnet/Options/blob/release/2.0/src/Microsoft.Extensions.Options/IOptionsFactory.cs) zawiera logikę w celu używania każdego odpowiednio. `null` Nazwane opcja jest używana do Docieraj do wszystkich wystąpień nazwanych, zamiast określonego nazwanego wystąpienia ([ConfigureAll](/dotnet/api/microsoft.extensions.dependencyinjection.optionsservicecollectionextensions.configureall) i [PostConfigureAll](/dotnet/api/microsoft.extensions.dependencyinjection.optionsservicecollectionextensions.postconfigureall) ta Konwencja).
 
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
+
+## <a name="options-validation"></a>Opcje weryfikacji
+
+Opcje weryfikacji umożliwia sprawdzenie poprawności opcji, po skonfigurowaniu opcji. Wywołaj `Validate` przy użyciu metody sprawdzania poprawności, która zwraca `true` Jeśli opcje są prawidłowe i `false` Jeśli nie są prawidłowe:
+
+```csharp
+// Registration
+services.AddOptions<MyOptions>("optionalOptionsName")
+    .Configure(o => { }) // Configure the options
+    .Validate(o => YourValidationShouldReturnTrueIfValid(o), 
+        "custom error");
+        
+// Consumption
+var monitor = services.BuildServiceProvider()
+    .GetService<IOptionsMonitor<MyOptions>>();
+  
+try
+{
+    var options = monitor.Get("optionalOptionsName");
+} 
+catch (OptionsValidationException e) 
+{
+   // e.OptionsName returns "optionalOptionsName"
+   // e.OptionsType returns typeof(MyOptions)
+   // e.Failures returns a list of errors, which would contain 
+   //     "custom error"
+}
+```
+
+Poprzedni przykład ustawia wystąpienia nazwanego opcji `optionalOptionsName`. Wystąpienie domyślne opcje to `Options.DefaultName`.
+
+Sprawdzanie poprawności jest uruchamiany, gdy tworzone jest wystąpienie opcji. Wystąpienie opcji jest gwarantowane do przekazania razem pierwszego sprawdzania poprawności, gdy jest on dostępny.
+
+> [!IMPORTANT]
+> Opcje sprawdzania poprawności nie je przed nieprzewidzianymi uniemożliwiającą modyfikacje opcje po opcji są wstępnie skonfigurowane i zweryfikowane.
+
+`Validate` Metoda przyjmuje `Func<TOptions, bool>`. Aby w pełni dostosować sprawdzanie poprawności, należy zaimplementować `IValidateOptions<TOptions>`, co umożliwia:
+
+* Sprawdzanie poprawności wielu typów opcji: `class ValidateTwo : IValidateOptions<Option1>, IValidationOptions<Option2>`
+* Sprawdzanie poprawności, który jest zależny od innego typu opcji: `public DependsOnAnotherOptionValidator(IOptions<AnotherOption> options)`
+
+`IValidateOptions` sprawdza poprawność:
+
+* Określonego nazwanego wystąpienia opcje.
+* Wszystkie opcje, kiedy `name` jest `null`.
+
+Zwróć `ValidateOptionsResult` z implementacji interfejsu:
+
+```csharp
+public interface IValidateOptions<TOptions> where TOptions : class
+{
+    ValidateOptionsResult Validate(string name, TOptions options);
+}
+```
+
+Weryfikacja eager (po awarii szybkie przy uruchamianiu) i sprawdzanie poprawności danych na podstawie adnotacji są planowane w przyszłej wersji.
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.0"
+
 ## <a name="ipostconfigureoptions"></a>IPostConfigureOptions
 
 Ustaw postconfiguration z [IPostConfigureOptions&lt;TOptions&gt;](/dotnet/api/microsoft.extensions.options.ipostconfigureoptions-1). Postconfiguration jest uruchamiany po wszystkich [IConfigureOptions&lt;TOptions&gt; ](/dotnet/api/microsoft.extensions.options.iconfigureoptions-1) występuje konfiguracji:
@@ -272,7 +336,7 @@ services.PostConfigure<MyOptions>("named_options_1", myOptions =>
 Użyj [PostConfigureAll&lt;TOptions&gt; ](/dotnet/api/microsoft.extensions.dependencyinjection.optionsservicecollectionextensions.postconfigureall) po Konfiguracja wszystkich nazwanego wystąpienia konfiguracji:
 
 ```csharp
-services.PostConfigureAll<MyOptions>("named_options_1", myOptions =>
+services.PostConfigureAll<MyOptions>(myOptions =>
 {
     myOptions.Option1 = "post_configured_option1_value";
 });

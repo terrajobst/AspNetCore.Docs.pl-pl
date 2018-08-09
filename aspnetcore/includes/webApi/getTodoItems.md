@@ -39,7 +39,7 @@ Poniżej przedstawiono przykład odpowiedzi HTTP dla `GetAll` metody:
 ]
 ```
 
-W dalszej części tego samouczka I pokazano, jak mogą być wyświetlane odpowiedzi HTTP z [Postman](https://www.getpostman.com/) lub [curl](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/curl.1.html).
+W dalszej części tego samouczka I pokazano, jak mogą być wyświetlane odpowiedzi HTTP z [Postman](https://www.getpostman.com/) lub [curl](https://curl.haxx.se/docs/manpage.html).
 
 ### <a name="routing-and-url-paths"></a>Ścieżki routingu i adres URL
 

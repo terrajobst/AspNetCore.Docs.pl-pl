@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 07/31/2018
 uid: signalr/configuration
-ms.openlocfilehash: 32c0ad94fba09fa099c2ab4a6b1d6d79a5542d7f
-ms.sourcegitcommit: a25b572eaed21791230c85416f449f66a405ec19
+ms.openlocfilehash: eac1202828edbcd295d7e52aa424cd625ee70e34
+ms.sourcegitcommit: 29dfe436f54a27fbb4f6494bc639d16c75001fab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39396065"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39722467"
 ---
 # <a name="aspnet-core-signalr-configuration"></a>Konfiguracja Core SignalR platformy ASP.NET
 
@@ -234,7 +234,7 @@ Dodatkowe opcje można skonfigurować w `WithUrl` (`withUrl` w języku JavaScrip
 | `Credentials` | Nie można skonfigurować * | Pusty | Poświadczenia, aby wysłać z każdym żądaniem HTTP. |
 | `CloseTimeout` | Nie można skonfigurować * | 5 sekund | Tylko WebSockets. Maksymalna ilość czasu klient odczekuje po zamknięciu dla serwera potwierdzić żądanie zamknięcia. Jeśli serwer nie potwierdzenia zamknięcia w tej chwili, klient odłączy się. |
 | `Headers` | Nie można skonfigurować * | Pusty | Słownik zawierający dodatkowe nagłówki HTTP ma wysłać z każdym żądaniem HTTP. |
-| `HttpMessageHandlerFactory` | Nie można skonfigurować * | `null` | Delegat, który może służyć do konfigurowania lub Zastąp `HttpMessageHandler` używane do wysyłania żądań HTTP. Nie są używane dla połączeń protokołu WebSocket. Ten delegat musi zwracać wartość inną niż null i otrzymuje wartość domyślna, jako parametr. Zmodyfikować ustawienia na tej wartości domyślne i przywrócić go lub zwróć zupełnie nowe `HttpMessageHandler` wystąpienia. |
+| `HttpMessageHandlerFactory` | Nie można skonfigurować * | `null` | Delegat, który może służyć do konfigurowania lub Zastąp `HttpMessageHandler` używane do wysyłania żądań HTTP. Nie są używane dla połączeń protokołu WebSocket. Ten delegat musi zwracać wartość inną niż null i otrzymuje wartość domyślna, jako parametr. Albo zmodyfikować ustawienia na tej wartości domyślne i przywrócić go albo zwraca nową `HttpMessageHandler` wystąpienia. **Podczas zastępowania programu obsługi upewnij się, że Skopiuj ustawienia które mają być przechowywane z podanego programu obsługi, w przeciwnym razie skonfigurowanych opcji (takich jak pliki cookie i nagłówki) nie zostaną zastosowane do nowego programu obsługi.** |
 | `Proxy` | Nie można skonfigurować * | `null` | Serwer proxy HTTP do użycia podczas wysyłania żądań HTTP. |
 | `UseDefaultCredentials` | Nie można skonfigurować * | `false` | Ustaw ten atrybut typu wartość logiczna do wysyłania poświadczeń domyślnych dla żądań HTTP i Websocket. Umożliwia to korzystanie z uwierzytelniania Windows. |
 | `WebSocketConfiguration` | Nie można skonfigurować * | `null` | Delegat, który można skonfigurować dodatkowe opcje protokołu WebSocket. Otrzymuje wystąpienie elementu [ClientWebSocketOptions](/dotnet/api/system.net.websockets.clientwebsocketoptions) można skonfigurować opcje. |

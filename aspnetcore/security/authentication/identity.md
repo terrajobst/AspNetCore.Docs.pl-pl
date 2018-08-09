@@ -1,72 +1,88 @@
 ---
 title: Wprowadzenie do tożsamości programu ASP.NET Core
 author: rick-anderson
-description: Tożsamość za pomocą aplikacji ASP.NET Core. Zawiera wymagania dotyczące hasła ustawienie (RequireDigit, RequiredLength, RequiredUniqueChars i inne).
+description: Tożsamość za pomocą aplikacji ASP.NET Core. Dowiedz się, jak ustawić wymagania dotyczące hasła (RequireDigit, RequiredLength, RequiredUniqueChars i inne).
 ms.author: riande
-ms.date: 01/24/2018
+ms.date: 08/08/2018
 uid: security/authentication/identity
-ms.openlocfilehash: 50ddb96000e6a3f9e1762e9bb3e1f215f20d4356
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: 6a23dd4ad78c0695b5724a78204abf6752dfe67d
+ms.sourcegitcommit: 028ad28c546de706ace98066c76774de33e4ad20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095642"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39655313"
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>Wprowadzenie do tożsamości programu ASP.NET Core
 
-Przez [autorem jest Pranav Rastogi](https://github.com/rustd), [Rick Anderson](https://twitter.com/RickAndMSFT), [Tom Dykstra](https://github.com/tdykstra), Galloway'em Jon [Erik Reitan](https://github.com/Erikre), i [Steve Smith](https://ardalis.com/)
+Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Tożsamość platformy ASP.NET Core jest systemu członkostwa, co pozwala na dodawanie funkcji logowania do aplikacji. Użytkownicy mogą tworzyć konta usługi i zaloguj się przy użyciu nazwy użytkownika i hasło lub można użyć dostawcy logowania zewnętrznego, takich jak Facebook, Google, Microsoft Account, Twitter lub inne osoby.
+Tożsamość platformy ASP.NET Core jest systemu członkostwa, który dodaje funkcje logowania do aplikacji platformy ASP.NET Core. Użytkownicy mogą tworzyć konta informacje logowania, przechowywane w tożsamość lub używają dostawcy logowania zewnętrznego. Dostawcy logowania zewnętrznego obsługiwanych obejmują [Facebook, Google, Account Microsoft i Twitter](xref:security/authentication/social/index).
 
-Można skonfigurować tożsamości platformy ASP.NET Core używać bazy danych programu SQL Server do przechowywania nazwy użytkownika, hasła i dane profilu. Alternatywnie można użyć własnego magazynu trwałego na przykład Azure Table Storage. Ten dokument zawiera instrukcje dotyczące programu Visual Studio, a także uzyskać za pomocą interfejsu wiersza polecenia.
+Tożsamości można skonfigurować przy użyciu bazy danych programu SQL Server do przechowywania nazwy użytkownika, hasła i dane profilu. Alternatywnie innego magazynu trwałego można, na przykład usługa Azure Table Storage.
 
 [Wyświetlanie lub pobieranie przykładowego kodu.](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/identity/sample/src/ASPNETCore-IdentityDemoComplete/) [(Jak pobrać)](xref:tutorials/index#how-to-download-a-sample)
 
-## <a name="overview-of-identity"></a>Przegląd tożsamości
+W tym temacie możesz dowiedzieć się, jak zarejestrować, zaloguj się za pomocą tożsamości i wylogowania użytkownika. Aby uzyskać bardziej szczegółowe instrukcje dotyczące tworzenia aplikacji korzystających z tożsamości zobacz sekcję następne kroki na końcu tego artykułu.
 
-W tym temacie będziesz Dowiedz się, jak dodać funkcje, aby zarejestrować, zaloguj się za pomocą tożsamości platformy ASP.NET Core i wylogowania użytkownika. Aby uzyskać bardziej szczegółowe instrukcje dotyczące tworzenia aplikacji za pomocą tożsamości platformy ASP.NET Core zobacz sekcję następne kroki na końcu tego artykułu.
+## <a name="create-a-web-app-with-authentication"></a>Tworzenie aplikacji sieci Web z uwierzytelnianiem
 
-1. Tworzenie projektu aplikacji sieci Web programu ASP.NET Core z indywidualnymi kontami użytkowników.
+Tworzenie projektu aplikacji sieci Web programu ASP.NET Core z indywidualnymi kontami użytkowników.
 
-   # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-   W programie Visual Studio, wybierz **pliku** > **New** > **projektu**. Wybierz **aplikacji sieci Web programu ASP.NET Core** i kliknij przycisk **OK**.
+* Wybierz **pliku** > **nowe** > **projektu**. 
+* Wybierz **aplikacji sieci Web platformy ASP.NET Core**. Nadaj projektowi nazwę **WebApp1** mieć tej samej przestrzeni nazw jako do pobrania projektu. Kliknij przycisk **OK**.
+* Wybierz platformy ASP.NET Core **aplikacji sieci Web** platformy ASP.NET Core 2.1, następnie wybierz **Zmień uwierzytelnianie**.
+* Wybierz **indywidualne konta użytkowników** i kliknij przycisk **OK**.
 
-   ![Okno dialogowe nowego projektu](identity/_static/01-new-project.png)
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
-   Wybierz platformy ASP.NET Core **aplikacji sieci Web (Model-View-Controller)** dla platformy ASP.NET Core 2.x, a następnie wybierz **Zmień uwierzytelnianie**.
+```cli
+dotnet new webapp --auth Individual -o WebApp1
+```
 
-   ![Okno dialogowe nowego projektu](identity/_static/02-new-project.png)
+---
 
-   Zostanie wyświetlone okno dialogowe oferty opcje uwierzytelniania. Wybierz **indywidualne konta użytkowników** i kliknij przycisk **OK** aby powrócić do poprzedniego okna dialogowego.
+Wygenerowany projekt zawiera [tożsamości platformy ASP.NET Core](xref:security/authentication/identity) jako [biblioteki klas Razor](xref:razor-pages/ui-class).
 
-   ![Okno dialogowe nowego projektu](identity/_static/03-new-project-auth.png)
+### <a name="test-register-and-login"></a>Rejestrowanie testu i zaloguj się
 
-   Wybieranie **indywidualne konta użytkowników** kieruje programu Visual Studio do tworzenia modeli, modele widoków, widoki, kontrolery i innych zasobów wymaganych do uwierzytelniania w ramach szablonu projektu.
+Uruchom aplikację i zarejestrować użytkownik. Zależności od wielkości ekranu, może być konieczne wybrać przycisk przełączania nawigacji, aby wyświetlić **zarejestrować** i **logowania** łącza.
 
-   # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+![Przełącz pasek nawigacyjny przycisku](identity/_static/navToggle.png)
 
-   Jeśli używasz interfejsu wiersza polecenia platformy .NET Core, Utwórz nowy projekt za pomocą `dotnet new mvc --auth Individual`. To polecenie tworzy nowy projekt za pomocą tego samego kodu szablonu tożsamości, tworzonych w programie Visual Studio.
+[!INCLUDE[](~/includes/view-identity-db.md)]
 
-   Utworzono projekt zawiera `Microsoft.AspNetCore.Identity.EntityFrameworkCore` pakiet, który będzie się powtarzać, dane tożsamości i schematów do programu SQL Server przy użyciu [Entity Framework Core](https://docs.microsoft.com/ef/).
+<a name="pw"></a>
+### <a name="configure-identity-services"></a>Konfigurowanie usługi zarządzania tożsamościami
 
-   ---
+Usługi są dodawane w `ConfigureServices`.
 
-2. Konfigurowanie usługi zarządzania tożsamościami i Dodaj oprogramowanie pośredniczące w `Startup`.
+::: moniker range=">= aspnetcore-2.1"
 
-   Usługi tożsamości są dodawane do aplikacji w `ConfigureServices` method in Class metoda `Startup` klasy:
+   [!code-csharp[](identity/sample/src/ASPNETv2.1-IdentityDemo/Startup.cs?name=snippet_configureservices)]
 
-   # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+Powyższy kod konfiguruje tożsamości przy użyciu wartości opcji domyślnych. Usługi są dostępne dla aplikacji za pomocą [wstrzykiwanie zależności](xref:fundamentals/dependency-injection).
+
+   Tożsamość jest włączona, wywołując [UseAuthentication](/dotnet/api/microsoft.aspnetcore.builder.authappbuilderextensions.useauthentication#Microsoft_AspNetCore_Builder_AuthAppBuilderExtensions_UseAuthentication_Microsoft_AspNetCore_Builder_IApplicationBuilder_). `UseAuthentication` dodaje uwierzytelniania [oprogramowania pośredniczącego](xref:fundamentals/middleware/index) do potoku żądania.
+
+   [!code-csharp[](identity/sample/src/ASPNETv2.1-IdentityDemo/Startup.cs?name=snippet_configure&highlight=18)]
+
+::: moniker-end
+
+::: moniker range="<= aspnetcore-2.0"
 
    [!code-csharp[](identity/sample/src/ASPNETv2-IdentityDemo/Startup.cs?name=snippet_configureservices&highlight=7-9,11-28,30-42)]
 
-   Te usługi są dostępne dla aplikacji za pomocą [wstrzykiwanie zależności](xref:fundamentals/dependency-injection).
+   Usługi są dostępne dla aplikacji za pomocą [wstrzykiwanie zależności](xref:fundamentals/dependency-injection).
 
    Tożsamość jest włączone dla aplikacji, wywołując `UseAuthentication` w `Configure` metody. `UseAuthentication` dodaje uwierzytelniania [oprogramowania pośredniczącego](xref:fundamentals/middleware/index) do potoku żądania.
 
    [!code-csharp[](identity/sample/src/ASPNETv2-IdentityDemo/Startup.cs?name=snippet_configure&highlight=17)]
 
-   # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+::: moniker-end
+
+::: moniker range="= aspnetcore-1.1"
 
    [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo/Startup.cs?name=snippet_configureservices&highlight=7-9,13-33)]
 
@@ -76,122 +92,136 @@ W tym temacie będziesz Dowiedz się, jak dodać funkcje, aby zarejestrować, za
 
    [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo/Startup.cs?name=snippet_configure&highlight=21)]
 
-   ---
+::: moniker-end
 
-   Aby uzyskać więcej informacji na temat uruchamiania aplikacji, zobacz [uruchamiania aplikacji](xref:fundamentals/startup).
+Aby uzyskać więcej informacji, zobacz [klasy IdentityOptions](/dotnet/api/microsoft.aspnetcore.identity.identityoptions) i [uruchamiania aplikacji](xref:fundamentals/startup).
 
-3. Utwórz użytkownika.
+## <a name="scaffold-register-login-and-logout"></a>Zarejestruj szkieletu, logowania i wylogowania
 
-   Uruchom aplikację, a następnie kliknij polecenie **zarejestrować** łącza.
+Postępuj zgodnie z [tworzenia szkieletu tożsamości do projektu Razor z autoryzacją](xref:security/authentication/scaffold-identity#) instrukcje.
 
-   Jeśli wykonujesz tę akcję po raz pierwszy, może być wymagane do uruchamiania migracji. Aplikacja wyświetli monit o **zastosować migracje**. Jeśli to konieczne, należy odświeżyć stronę.
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-   ![Zastosuj migracje strony sieci Web](identity/_static/apply-migrations.png)
+Dodaj pliki rejestru, logowania i wylogowania.
 
-   Alternatywnie można przetestować za pomocą tożsamości platformy ASP.NET Core z aplikacją, bez trwałego bazy danych przy użyciu bazy danych w pamięci. Aby użyć bazy danych w pamięci, należy dodać `Microsoft.EntityFrameworkCore.InMemory` pakietu z aplikacją i zmodyfikuj wywołanie aplikacji `AddDbContext` w `ConfigureServices` w następujący sposób:
 
-   ```csharp
-   services.AddDbContext<ApplicationDbContext>(options =>
-       options.UseInMemoryDatabase(Guid.NewGuid().ToString()));
-   ```
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
-   Kiedy użytkownik kliknie **zarejestrować** łącza, `Register` jest wywoływana Akcja `AccountController`. `Register` Akcja powoduje utworzenie użytkownika, wywołując `CreateAsync` na `_userManager` obiektu (udostępniane `AccountController` przez wstrzykiwanie zależności):
+Jeśli utworzono projekt o nazwie **WebApp1**, uruchom następujące polecenia. W przeciwnym razie użyj poprawną przestrzeń nazw dla `ApplicationDbContext`:
+
+
+```cli
+dotnet aspnet-codegenerator identity -dc WebApp1.Data.ApplicationDbContext --files "Account.Register;Account.Login;Account.Logout"
+
+```
+
+PowerShell używa średnika jako separatora polecenia. Przy użyciu programu PowerShell, ucieczki średnikami, na liście plików lub umieścić na liście plików w podwójnym cudzysłowie, jak w poprzednim przykładzie.
+
+---
+
+### <a name="examine-register"></a>Sprawdź Rejestr
+
+::: moniker range=">= aspnetcore-2.1"
+
+   Kiedy użytkownik kliknie **zarejestrować** linku `RegisterModel.OnPostAsync` akcja jest wywoływana. Użytkownik jest tworzony przez [CreateAsync](/dotnet/api/microsoft.aspnetcore.identity.usermanager-1.createasync#Microsoft_AspNetCore_Identity_UserManager_1_CreateAsync__0_System_String_) na `_userManager` obiektu. `_userManager` znajduje się przez wstrzykiwanie zależności):
+
+   [!code-csharp[](identity/sample/src/ASPNETv2.1-IdentityDemo/Register.cshtml.cs?name=snippet&highlight=7,22)]
+
+::: moniker-end
+::: moniker range="= aspnetcore-2.0"
+
+   Kiedy użytkownik kliknie **zarejestrować** linku `Register` jest wywoływana Akcja `AccountController`. `Register` Akcja powoduje utworzenie użytkownika, wywołując `CreateAsync` na `_userManager` obiektu (udostępniane `AccountController` przez wstrzykiwanie zależności):
 
    [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=snippet_register&highlight=11)]
+
+::: moniker-end
 
    Jeśli użytkownik został pomyślnie utworzony, użytkownik jest zalogowany przez wywołanie `_signInManager.SignInAsync`.
 
    **Uwaga:** zobacz [konta potwierdzenia](xref:security/authentication/accconfirm#prevent-login-at-registration) kroki uniknąć natychmiastowego logowania podczas rejestracji.
 
-4. Zaloguj się.
+### <a name="log-in"></a>Zaloguj się
 
-   Użytkownicy mogą się logować, klikając **Zaloguj** link u góry strony, lub może być nastąpi przejście do strony logowania, gdy próbują uzyskać dostęp do części witryny, która wymaga autoryzacji. Gdy użytkownik przesyła formularz na stronie logowania `AccountController` `Login` nosi nazwę akcji.
+::: moniker range=">= aspnetcore-2.1"
 
-   `Login` Wywołania akcji `PasswordSignInAsync` na `_signInManager` obiektu (udostępniane `AccountController` przez wstrzykiwanie zależności).
+Zostanie wyświetlony formularz logowania po:
 
-   [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=snippet_login&highlight=13-14)]
+* **Zaloguj** łącze jest zaznaczone.
+* Gdy użytkownik uzyskuje dostęp do strony, gdzie one nie są uwierzytelniane **lub** autoryzacji nastąpi przekierowanie do strony logowania. 
+
+Po przesłaniu formularza na stronie logowania `OnPostAsync` nosi nazwę akcji. `PasswordSignInAsync` jest wywoływana w `_signInManager` obiektu (udostępnione przez wstrzykiwanie zależności).
+
+   [!code-csharp[](identity/sample/src/ASPNETv2.1-IdentityDemo/Login.cshtml.cs?name=snippet&highlight=10-11)]
 
    Podstawa `Controller` klasy ujawnia `User` właściwość, której będziesz mieć dostęp z metody kontrolera. Na przykład, można wyliczyć `User.Claims` i podejmowania decyzji dotyczących autoryzacji. Aby uzyskać więcej informacji, zobacz [autoryzacji](xref:security/authorization/index).
 
-5. Zaloguj.
+::: moniker-end
+::: moniker range="= aspnetcore-2.0"
 
+Formularz logowania jest wyświetlane, gdy użytkownicy wybiorą **Zaloguj** połączenia lub nastąpi przekierowanie podczas uzyskiwania dostępu do strony, która wymaga uwierzytelnienia. Gdy użytkownik przesyła formularz na stronie logowania `AccountController` `Login` nosi nazwę akcji.
+
+`Login` Wywołania akcji `PasswordSignInAsync` na `_signInManager` obiektu (udostępniane `AccountController` przez wstrzykiwanie zależności).
+
+[!code-csharp[](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=snippet_login&highlight=13-14)]
+
+Podstawa (`Controller` lub `PageModel`) klasy ujawnia `User` właściwości. Na przykład `User.Claims` mogą być wyliczane w celu podejmowania decyzji dotyczących autoryzacji.
+
+::: moniker-end
+
+### <a name="log-out"></a>Wyloguj
+
+::: moniker range=">= aspnetcore-2.1"
+
+**Wyloguj** wywołana `LogoutModel.OnPost` akcji. 
+
+[!code-csharp[](identity/sample/src/ASPNETv2.1-IdentityDemo/Logout.cshtml.cs)]
+
+[SignOutAsync](/dotnet/api/microsoft.aspnetcore.identity.signinmanager-1.signoutasync#Microsoft_AspNetCore_Identity_SignInManager_1_SignOutAsync) czyści oświadczenia użytkownika przechowywane w pliku cookie. Nie przekierowania po wywołaniu `SignOutAsync` lub użytkownik będzie **nie** wylogowanie.
+
+Wpis jest określona w *Pages/Shared/_LoginPartial.cshtml*:
+
+[!code-csharp[](identity/sample/src/ASPNETv2.1-IdentityDemo/_LoginPartial.cshtml?highlight=10)]
+
+::: moniker-end
+::: moniker range="= aspnetcore-2.0"
    Klikając **Wyloguj** link wywołania `LogOut` akcji.
 
    [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=snippet_logout&highlight=7)]
 
-   Powyższy kod powyżej wywołania `_signInManager.SignOutAsync` metody. `SignOutAsync` Metoda czyści oświadczenia użytkownika przechowywane w pliku cookie.
+   Poprzedni kod wywołuje `_signInManager.SignOutAsync` metody. `SignOutAsync` Metoda czyści oświadczenia użytkownika przechowywane w pliku cookie.
+::: moniker-end
 
-<a name="pw"></a>
-6. Konfiguracja.
+## <a name="test-identity"></a>Testowanie tożsamości
 
-   Tożsamość ma niektóre zachowania domyślne, które mogą zostać zastąpione w klasie uruchamiania aplikacji. `IdentityOptions` nie należy skonfigurować, korzystając z zachowania domyślnego. Poniższy kod ustawia kilka opcji siły hasła:
+Domyślne szablony projektów sieci web zezwolić na dostęp anonimowy do strony głównej. Aby sprawdzić tożsamość, należy dodać [ `[Authorize]` ](/dotnet/api/microsoft.aspnetcore.authorization.authorizeattribute) do strony informacje.
 
-   # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+[!code-csharp[](identity/sample/src/ASPNETv2.1-IdentityDemo/About.cshtml.cs)]
 
-   [!code-csharp[](identity/sample/src/ASPNETv2-IdentityDemo/Startup.cs?name=snippet_configureservices&highlight=7-9,11-28,30-42)]
+Jeśli użytkownik jest zalogowany, wyloguj się. Uruchom aplikację i wybierz **o** łącza. Nastąpi przekierowanie do strony logowania.
 
-   # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+::: moniker range=">= aspnetcore-2.1"
 
-   [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo/Startup.cs?name=snippet_configureservices&highlight=13-33)]
+### <a name="explore-identity"></a>Zapoznaj się z tożsamości
 
-   ---
+Aby bardziej szczegółowo zapoznać się z tożsamości:
 
-   Aby uzyskać więcej informacji o sposobie konfigurowania tożsamości, zobacz [konfigurowania tożsamości](xref:security/authentication/identity-configuration).
+* [Tworzenie pełnej tożsamości interfejsu użytkownika źródła](xref:security/authentication/scaffold-identity#create-full-identity-ui-source)
+* Sprawdź źródła poszczególnych stron i krok po kroku debugera.
 
-   Można także skonfigurować typ danych klucza podstawowego, zobacz [konfigurowania tożsamości kluczy podstawowych danych typu](xref:security/authentication/identity-primary-key-configuration).
-
-7. Wyświetl bazy danych.
-
-   Jeśli aplikacja używa bazy danych programu SQL Server (ustawienie domyślne dla Windows i dla użytkowników programu Visual Studio), możesz wyświetlić aplikacja utworzona w bazie danych. Możesz użyć **SQL Server Management Studio**. W programie Visual Studio, wybierz opcję **widoku** > **Eksplorator obiektów SQL Server**. Połączyć się z **(localdb) \MSSQLLocalDB**. Bazy danych z nazwą pasującą `aspnet-<name of your project>-<guid>` jest wyświetlana.
-
-   ![Menu kontekstowe w tabeli bazy danych AspNetUsers](identity/_static/04-db.png)
-
-   Rozwiń bazę danych i jego **tabel**, kliknij prawym przyciskiem myszy **dbo. AspNetUsers** tabeli, a następnie wybierz pozycję **dane widoku**.
-
-8. Sprawdź, czy działa tożsamości
-
-    Wartość domyślna *aplikacji sieci Web programu ASP.NET Core* szablon projektu umożliwia użytkownikom uzyskiwanie dostępu do żadnych działań w aplikacji bez konieczności do logowania. Aby sprawdzić, czy produktu ASP.NET Identity działa, Dodaj`[Authorize]` atrybutu `About` akcji `Home` kontrolera.
-
-    ```csharp
-    [Authorize]
-    public IActionResult About()
-    {
-        ViewData["Message"] = "Your application description page.";
-        return View();
-    }
-    ```
-
-    # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
-
-    Uruchom projekt za pomocą **Ctrl** + **F5** i przejdź do **o** strony. Tylko uwierzytelnieni użytkownicy mogą uzyskiwać dostęp do **o** teraz strony ASP.NET przekieruje Cię do strony logowania, aby zalogować się lub zarejestruj.
-
-    # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
-
-    Otwórz okno polecenia i przejdź do katalogu głównego projektu katalogu zawierającego `.csproj` pliku. Uruchom [dotnet, uruchom](/dotnet/core/tools/dotnet-run) polecenia do uruchomienia aplikacji:
-
-    ```csharp
-    dotnet run 
-    ```
-
-    Przejdź do adresu URL określonego w danych wyjściowych [dotnet, uruchom](/dotnet/core/tools/dotnet-run) polecenia. Adres URL powinien wskazywać `localhost` za pomocą wygenerowanego numeru portu. Przejdź do **o** strony. Tylko uwierzytelnieni użytkownicy mogą uzyskiwać dostęp do **o** teraz strony ASP.NET przekieruje Cię do strony logowania, aby zalogować się lub zarejestruj.
-
-    ---
+::: moniker-end
 
 ## <a name="identity-components"></a>Składniki tożsamości
 
-Zestaw odwołanie podstawowe dla systemu tożsamości jest `Microsoft.AspNetCore.Identity`. Ten pakiet zawiera podstawowy zestaw interfejsów dla produktu ASP.NET Core Identity i jest dołączony przez `Microsoft.AspNetCore.Identity.EntityFrameworkCore`.
+::: moniker range=">= aspnetcore-2.1"
 
-Te zależności są niezbędne do używania systemu tożsamości w aplikacji platformy ASP.NET Core:
+Wszystkie tożsamości zależne pakiety NuGet są objęte [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app).
+::: moniker-end
 
-* `Microsoft.AspNetCore.Identity.EntityFrameworkCore` -Zawiera wymaganych typów tożsamości za pomocą platformy Entity Framework Core.
-
-* `Microsoft.EntityFrameworkCore.SqlServer` -Entity Framework Core jest technologii dostępu do danych zalecane przez firmę Microsoft dla relacyjnych baz danych, takich jak program SQL Server. W przypadku testowania można użyć `Microsoft.EntityFrameworkCore.InMemory`.
-
-* `Microsoft.AspNetCore.Authentication.Cookies` -Oprogramowania pośredniczącego, które umożliwia aplikacji korzystanie z uwierzytelniania na podstawie plików cookie.
+Pakiet podstawowego dla tożsamości jest [Microsoft.AspNetCore.Identity](https://www.nuget.org/packages/Microsoft.AspNetCore.Identity/). Ten pakiet zawiera podstawowy zestaw interfejsów dla produktu ASP.NET Core Identity i jest dołączony przez `Microsoft.AspNetCore.Identity.EntityFrameworkCore`.
 
 ## <a name="migrating-to-aspnet-core-identity"></a>Migrowanie tożsamości platformy ASP.NET Core
 
-Dla dodatkowe informacje i wskazówki dotyczące migrowania istniejących tożsamości ze sklepu zobacz [migracji uwierzytelnianie i tożsamość](xref:migration/identity).
+Aby uzyskać więcej informacji oraz wskazówki dotyczące migrowania istniejących sklepu tożsamości, zobacz [migracji uwierzytelnianie i tożsamość](xref:migration/identity).
 
 ## <a name="setting-password-strength"></a>Ustawianie siły hasła
 
@@ -199,8 +229,12 @@ Zobacz [konfiguracji](#pw) przykład określająca wymagania dotyczące minimaln
 
 ## <a name="next-steps"></a>Następne kroki
 
+* [Konfigurowanie tożsamości](xref:security/authentication/identity-configuration)
+* <xref:security/authorization/secure-data>
+* <xref:security/authentication/add-user-data>
+* <xref:security/authentication/identity-enable-qrcodes>
+* [Konfigurowanie tożsamości kluczy podstawowych danych typu](xref:security/authentication/identity-primary-key-configuration).
 * <xref:migration/identity>
 * <xref:security/authentication/accconfirm>
 * <xref:security/authentication/2fa>
-* <xref:security/authentication/social/index>
 * <xref:host-and-deploy/web-farm>
