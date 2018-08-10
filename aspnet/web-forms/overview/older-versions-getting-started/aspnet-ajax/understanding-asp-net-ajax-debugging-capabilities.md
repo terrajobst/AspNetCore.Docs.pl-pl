@@ -8,12 +8,12 @@ ms.date: 03/28/2008
 ms.assetid: 7f9380c6-19f7-4c82-a019-916ec6dffc9c
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-debugging-capabilities
 msc.type: authoredcontent
-ms.openlocfilehash: 9d420a41f50d06541d04a1dd3cb78a2e6beaaa9a
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 95c2487f26109cbdd8c76dc6f269f37264f5e34b
+ms.sourcegitcommit: 028ad28c546de706ace98066c76774de33e4ad20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37813831"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39655449"
 ---
 <a name="understanding-aspnet-ajax-debugging-capabilities"></a>Opis funkcji debugowania kodu ASP.NET AJAX
 ====================
@@ -55,8 +55,8 @@ Rysunek 1 przedstawia jakie programu Internet Explorer okno dialogowe Zaawansowa
 
 Po debugowanie zostało włączone, zostanie wyświetlony nowy element menu są wyświetlane w menu Widok o nazwie debugera skryptów. Posiada dwie opcje dostępne w tym Open i podziału na następną instrukcję. Po wybraniu Open zostanie wyświetlony monit do debugowania na stronie w programie Visual Studio 2008 (należy zauważyć, że Visual Web Developer Express może również służyć do debugowania). Visual Studio .NET jest obecnie uruchomiona. Możesz użyć tego wystąpienia lub Utwórz nowe wystąpienie. Po wybraniu podziału w następnej instrukcji zostanie wyświetlony monit do debugowania na stronie, gdy kod JavaScript jest wykonywana. Jeśli kod JavaScript jest wykonywana zdarzenia onLoad strony możesz odświeżyć stronę, aby wyzwolić sesji debugowania. Jeśli kod JavaScript jest uruchamiane po kliknięciu przycisku debuger będzie działać natychmiast, po kliknięciu przycisku.
 
-> *> [!NOTE] Jeśli są uruchomione w systemie Windows Vista z dostępu do kontroli użytkownika (UAC) włączone, a masz program Visual Studio 2008 do uruchamiania jako administrator, programu Visual Studio nie będzie można dołączyć do procesu, po wyświetleniu monitu, aby dołączyć. Aby obejść ten problem, najpierw uruchom program Visual Studio i debugowanie przy użyciu tego wystąpienia.*
-
+> [!NOTE]
+> Jeśli pracujesz w systemie Windows Vista z dostępu do kontroli użytkownika (UAC) włączone, a masz program Visual Studio 2008 do uruchamiania jako administrator, programu Visual Studio nie będzie można dołączyć do procesu, po wyświetleniu monitu, aby dołączyć. Aby obejść ten problem, najpierw uruchom program Visual Studio i debugowanie przy użyciu tego wystąpienia.
 
 Mimo że w następnej sekcji pokazano, jak można debugować strony ASP.NET AJAX, bezpośrednio z w ramach programu Visual Studio 2008, przy użyciu opcji debugera skryptów programu Internet Explorer jest przydatne, gdy strona jest już otwarty, a chcesz dokładniej go sprawdzić.
 
@@ -98,8 +98,8 @@ Po uruchomieniu sesji debugowania i rozpoczęciem Instruktaż kodu przy użyciu 
 
 To okno dialogowe jest wyświetlane, ponieważ program Visual Studio .NET nie ma pewności, jak uzyskać dostęp do kodu źródłowego w niektórych skryptów odwołuje się na stronie. Chociaż może to być całkiem irytujące na początku jest proste poprawki. Po rozpoczął sesję debugowania i Traf punkt przerwania, przejdź do okna programu debugowania Eksplorator skryptów Windows z menu programu Visual Studio 2008, lub użyj skrótu Ctrl + Alt + N.
 
-> *> [!NOTE] Jeśli nie widzisz menu Eksplorator skryptów, na liście, przejdź do pozycji narzędzia* *Dostosuj* *poleceń w menu programu Visual Studio .NET. Zlokalizuj wpis debugowania w sekcji kategorie, a następnie kliknij go, aby wyświetlić wszystkie wpisy dostępne menu. Na liście poleceń, przewiń w dół, Eksplorator skryptów, a następnie przeciągnij go do debugowania* *Windows menu wspomnianych wcześniej. W ten sposób będzie udostępniać wpis menu Eksplorator skryptów każdorazowo, gdy uruchamiasz program Visual Studio .NET.*
-
+> [!NOTE]
+> Jeśli nie widzisz menu Eksplorator skryptów, na liście, przejdź do strony **narzędzia** > **Dostosuj** > **polecenia** menu programu Visual Studio .NET. Znajdź **debugowania** wpis w kategoriach sekcji, a następnie kliknij go, aby wyświetlić wszystkie wpisy dostępne menu. Na liście polecenia przewiń w dół, Eksplorator skryptów i przeciągnij go na debugowanie Windows, w menu wspomnianych wcześniej. W ten sposób będzie udostępniać wpis menu Eksplorator skryptów każdorazowo, gdy uruchamiasz program Visual Studio .NET.
 
 Eksplorator skryptów może służyć do wyświetlania wszystkich skryptów na stronie i otwórz je w edytorze kodu. Po otwarciu Eksplorator skryptów, kliknij dwukrotnie strony .aspx aktualnie debugowanych aby otworzyć go w oknie edytora kodu. Wykonaj tę samą akcję dla wszystkich innych skryptów wyświetlane w Eksploratorze skryptów. Gdy wszystkie skrypty są otwarte w oknie kodu, możesz naciśnij klawisz F11 (i użyj innych klawisze dostępu debugowania), aby przejść przez kod. Rysunek 3 przedstawia przykład Eksplorator skryptów. Wyświetla listę bieżącego pliku debugowany (Demo.aspx) oraz dwa skrypty niestandardowe i dwa skrypty wstrzykuje dynamiczne strony przez Menedżera skryptów AJAX programu ASP.NET.
 

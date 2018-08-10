@@ -5,12 +5,12 @@ description: Pokazuje, jak HTTPS/TLS w programie ASP.NET Core wymagają aplikacj
 ms.author: riande
 ms.date: 2/9/2018
 uid: security/enforcing-ssl
-ms.openlocfilehash: d8bf11d7d2df8d8b197f001570a8fab1f3262814
-ms.sourcegitcommit: 4e34ce61e1e7f1317102b16012ce0742abf2cca6
+ms.openlocfilehash: 3bea8661e17fec5128e822d98741d1f8ed7434e5
+ms.sourcegitcommit: 028ad28c546de706ace98066c76774de33e4ad20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2018
-ms.locfileid: "39514807"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39655501"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>Wymuszanie protokołu HTTPS w programie ASP.NET Core
 
@@ -112,7 +112,10 @@ Globalnie wymagania protokołu HTTPS (`options.Filters.Add(new RequireHttpsAttri
 <a name="hsts"></a>
 ## <a name="http-strict-transport-security-protocol-hsts"></a>Protokół zabezpieczeń Strict transportu HTTP (HSTS)
 
-Na [OWASP](https://www.owasp.org/index.php/About_The_Open_Web_Application_Security_Project), [zabezpieczeń transportu HTTP ograniczeniami (HSTS)](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet) jest ulepszeniem zabezpieczeń zgłoszenie zgody na uczestnictwo w określonym przez aplikację sieci web przy użyciu nagłówka odpowiedzi specjalne. Gdy przeglądarka, która obsługuje HSTS otrzymuje tego pliku nagłówkowego, przechowuje konfigurację dla domeny, która uniemożliwia wysłanie Każde powiadomienie za pośrednictwem protokołu HTTP i zamiast tego wymuszenie całą komunikację za pośrednictwem protokołu HTTPS. Uniemożliwia także użytkownikowi z korzystania z certyfikatów niezaufanych lub jest nieprawidłowy, wyłączenie monitów przeglądarki, które umożliwiają użytkownikowi tymczasowo ufać takiego certyfikatu.
+Na [OWASP](https://www.owasp.org/index.php/About_The_Open_Web_Application_Security_Project), [zabezpieczeń transportu HTTP ograniczeniami (HSTS)](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet) jest ulepszeniem zabezpieczeń zgłoszenie zgody na uczestnictwo w określonym przez aplikację sieci web przy użyciu nagłówka odpowiedzi. Gdy przeglądarka, która obsługuje HSTS odbiera tego nagłówka:
+
+* Przeglądarka przechowuje konfigurację dla domeny, która uniemożliwia wysłanie Każde powiadomienie za pośrednictwem protokołu HTTP. Przeglądarka wymusza całą komunikację za pośrednictwem protokołu HTTPS. 
+* Przeglądarka uniemożliwia użytkownikowi za pomocą certyfikatów niezaufanych lub jest nieprawidłowy. Przeglądarka wyłącza monity, które umożliwiają użytkownikowi tymczasowo ufać takiego certyfikatu.
 
 Platforma ASP.NET Core 2.1 lub nowszej implementuje HSTS z `UseHsts` — metoda rozszerzenia. Poniższy kod wywoła `UseHsts` gdy aplikacja nie jest [trybu opracowywania](xref:fundamentals/environments):
 
