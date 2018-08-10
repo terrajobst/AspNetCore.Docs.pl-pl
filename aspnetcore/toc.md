@@ -35,7 +35,7 @@
 ## [Tworzenie interfejsów API sieci Web](xref:web-api/index)
 ### [Tworzenie internetowego interfejsu API w programie Visual Studio Code](xref:tutorials/web-api-vsc)
 ### [Tworzenie internetowego interfejsu API w programie Visual Studio dla komputerów Mac](xref:tutorials/first-web-api-mac)
-### [Tworzenie internetowego interfejsu API w programie Visual Studio dla systemu Windows](xref:tutorials/first-web-api)
+### [Tworzenie internetowego interfejsu API w programie Visual Studio](xref:tutorials/first-web-api)
 ### [Tworzenie usług zaplecza dla natywnych aplikacji mobilnych](xref:mobile/native-mobile-backend)
 ### [Strony pomocy korzystające z programu Swagger](xref:tutorials/web-api-help-pages-using-swagger)
 #### [Wprowadzenie do łańcucha narzędzi NSwag](xref:tutorials/get-started-with-nswag)
@@ -218,7 +218,7 @@
 ## [Debugowanie migawki w programie Visual Studio](/visualstudio/debugger/debug-live-azure-applications)
 ## [Rozwiązywanie problemów](xref:test/troubleshoot)
 
-# [Dostęp do danych przy użyciu programu EF Core i platformy Azure](data/index.md)
+# [Dostęp do danych przy użyciu programu EF Core](xref:data/index)
 ## [Rozpoczynanie pracy ze stronami Razor i programem EF Core przy użyciu programu Visual Studio](xref:data/ef-rp/intro)
 ## [Rozpoczynanie pracy z platformą ASP.NET Core i programem EF Core przy użyciu programu Visual Studio](data/ef-mvc/index.md)
 ## [Platforma ASP.NET Core z programem EF Core — nowa baza danych](https://docs.microsoft.com/ef/core/get-started/aspnetcore/new-db)
@@ -229,6 +229,15 @@
 ### [Wprowadzenie do korzystania z usługi Blob Storage i usług połączonych programu Visual Studio](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-blobs/)
 ### [Wprowadzenie do korzystania z usługi Queue Storage i usług połączonych programu Visual Studio](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-queues/)
 ### [Wprowadzenie do korzystania z usługi Table Storage i usług połączonych programu Visual Studio](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-tables/)
+
+# [Wskazówki dotyczące platformy Azure](xref:azure/index)
+## Metodyka DevOps z platformami ASP.NET Core i Azure
+### [Wprowadzenie](xref:azure/devops/index)
+### [Narzędzia i pliki do pobrania](xref:azure/devops/tools-and-downloads)
+### [Wdrażanie w usłudze App Service](xref:azure/devops/deploy-to-app-service)
+### [Ciągła integracja i ciągłe wdrażanie](xref:azure/devops/cicd)
+### [Monitorowanie i rozwiązywanie problemów](xref:azure/devops/monitor)
+### [Następne kroki](xref:azure/devops/next-steps)
 
 # [Programowanie po stronie klienta](xref:client-side/index)
 ## [Korzystanie z Gulp](xref:client-side/using-gulp)
