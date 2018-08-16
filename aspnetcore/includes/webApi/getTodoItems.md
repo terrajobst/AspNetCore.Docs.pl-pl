@@ -6,7 +6,12 @@ Powyższy kod definiuje klasę kontrolera interfejsu API bez metody. W kolejnych
 ::: moniker range=">= aspnetcore-2.1"
 [!code-csharp[](../../tutorials/first-web-api/samples/2.1/TodoApi/Controllers/TodoController2.cs?name=snippet_todo1)]
 
-Powyższy kod definiuje klasę kontrolera interfejsu API bez metody. W kolejnych sekcjach metody są dodawane do implementacji interfejsu API. Klasa jest oznaczona za pomocą `[ApiController]` atrybutu, aby włączyć funkcje wygodne. Aby uzyskać informacji na temat funkcji włączone za pomocą atrybutu, zobacz [dodawać adnotacje do klasy za pomocą ApiControllerAttribute](xref:web-api/index#annotate-class-with-apicontrollerattribute).
+Powyższy kod:
+
+* Definiuje klasę kontrolera interfejsu API bez metody.
+* Tworzy nowy Todo elementu, gdy `TodoItems` jest pusty. Nie można usunąć wszystkie elementy zadań do wykonania, ponieważ Konstruktor tworzy nowy Jeśli jeden `TodoItems` jest pusty.
+
+W kolejnych sekcjach metody są dodawane do implementacji interfejsu API. Klasa jest oznaczona za pomocą `[ApiController]` atrybutu, aby włączyć funkcje wygodne. Aby uzyskać informacji na temat funkcji włączone za pomocą atrybutu, zobacz [dodawać adnotacje do klasy za pomocą ApiControllerAttribute](xref:web-api/index#annotate-class-with-apicontrollerattribute).
 ::: moniker-end
 
 Używa kontrolera Konstruktor [wstrzykiwanie zależności](xref:fundamentals/dependency-injection) iniekcję kontekst bazy danych (`TodoContext`) do kontrolera. Kontekst bazy danych jest używany we wszystkich [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) metodami w kontrolerze. Konstruktor dodaje element do bazy danych w pamięci, jeśli nie istnieje.

@@ -9,7 +9,7 @@ ms.date: 05/29/2018
 uid: signalr/javascript-client
 ms.openlocfilehash: c13c41b0344b0c880e842f2799d6ee97bd7fff7e
 ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/17/2018
 ms.locfileid: "39095427"
@@ -31,7 +31,7 @@ Biblioteka klienta SignalR JavaScript jest dostarczana jako [npm](https://www.np
    npm install @aspnet/signalr
   ```
 
-Npm instaluje zawartość pakietu w *node_modules\\ @aspnet\signalr\dist\browser*  folderu. Utwórz nowy folder o nazwie *signalr* w obszarze *wwwroot\\lib* folderu. Kopiuj *signalr.js* plik *wwwroot\lib\signalr* folderu.
+Npm instaluje zawartość pakietu w *node_modules\\ @aspnet\signalr\dist\browser* folderu. Utwórz nowy folder o nazwie *signalr* w obszarze *wwwroot\\lib* folderu. Kopiuj *signalr.js* plik *wwwroot\lib\signalr* folderu.
 
 ## <a name="use-the-signalr-javascript-client"></a>Używanie klienta SignalR JavaScript
 
