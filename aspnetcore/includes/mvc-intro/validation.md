@@ -6,7 +6,7 @@ W tej sekcji dodasz logikę walidacji do `Movie` modelu, a będzie upewnij się,
 
 ## <a name="keeping-things-dry"></a>Utrzymywanie rzeczy PRÓBNEGO
 
-Jednym z założenia projektowania MVC jest [susz](https://wikipedia.org/wiki/Don%27t_repeat_yourself) ("nie należy powtórzyć samodzielnie"). ASP.NET MVC zachęca można określić funkcji lub zachowanie tylko raz, a następnie go wszędzie, gdzie odzwierciedlone w aplikacji. Zmniejsza ilość kodu, który trzeba było pisać i sprawia, że kod, który pisanie mniej błędów, podatne, łatwiejsze testowanie i łatwiejsze w utrzymaniu.
+Jednym z założenia projektowania MVC jest [susz](https://wikipedia.org/wiki/Don%27t_repeat_yourself) ("nie należy powtórzyć samodzielnie"). Platforma ASP.NET Core MVC zachęca można określić funkcji lub zachowanie tylko raz, a następnie go wszędzie, gdzie odzwierciedlone w aplikacji. Zmniejsza ilość kodu, który trzeba było pisać i sprawia, że kod, który pisanie mniej błędów, podatne, łatwiejsze testowanie i łatwiejsze w utrzymaniu.
 
 Obsługa sprawdzania poprawności, dostarczone przez MVC i Entity Framework Core Code First jest dobrym przykładem susz zasady w akcji. Można deklaratywne określenie reguł sprawdzania poprawności w jednym miejscu (w klasie modelu), a zasady są wymuszane wszędzie, gdzie w aplikacji.
 
@@ -25,7 +25,7 @@ Aktualizacja `Movie` klasy, aby skorzystać z wbudowanych `Required`, `StringLen
 
 Atrybuty weryfikacji określić zachowanie, które mają zostać wymuszone we właściwościach modelu, w których są one stosowane do. `Required` i `MinimumLength` atrybuty wskazuje, że właściwość musi mieć wartość, ale nic nie uniemożliwia użytkownikowi wprowadzanie odstępów do zaspokojenia tej weryfikacji. `RegularExpression` Atrybut jest używany do ograniczania znaków, które można danych wejściowych. W powyższym kodzie `Genre` i `Rating` należy używać tylko liter (pierwsze litery wielkie litery, białe miejsca, cyfry i znaki specjalne są niedozwolone). `Range` Atrybut ogranicza wartości do określonego zakresu. `StringLength` Atrybut pozwala ustawić maksymalną długość właściwości ciągu i opcjonalnie długości minimalnej. Typy wartości (takie jak `decimal`, `int`, `float`, `DateTime`) są założenia wymagane i nie ma potrzeby `[Required]` atrybutu.
 
-Posiadanie reguły sprawdzania poprawności automatycznie wymuszanych przez ASP.NET pomaga upewnij swojej aplikacji, które są bardziej niezawodne. Gwarantuje również, że nie pamiętasz do sprawdzania poprawności coś i przypadkowo umożliwiają złe dane do bazy danych.
+Posiadanie reguły sprawdzania poprawności, które automatycznie wymuszanych przez platformy ASP.NET Core ułatwia zapewnienie Twojej aplikacji bardziej niezawodne. Gwarantuje również, że nie pamiętasz do sprawdzania poprawności coś i przypadkowo umożliwiają złe dane do bazy danych.
 
 ## <a name="validation-error-ui-in-mvc"></a>Błąd sprawdzania poprawności UI platformie MVC
 

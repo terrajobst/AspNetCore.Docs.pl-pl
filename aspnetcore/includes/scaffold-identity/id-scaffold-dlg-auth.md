@@ -19,7 +19,7 @@ Uwaga: Jeśli tworzysz nowy kontekst użytkownika, nie trzeba wybrać plik do za
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
-Jeśli nie zainstalowano wcześniej Generator szkieletu ASP.NET, zainstalowanie go teraz:
+Jeśli nie zainstalowano wcześniej Generator szkieletu ASP.NET Core, zainstalowanie go teraz:
 
 ```cli
 dotnet tool install -g dotnet-aspnet-codegenerator
