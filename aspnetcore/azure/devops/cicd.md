@@ -7,7 +7,7 @@ ms.date: 08/07/2018
 uid: azure/devops/cicd
 ms.openlocfilehash: 9127f26fc4e3f78ec745fa1e342de137228f484e
 ms.sourcegitcommit: 29dfe436f54a27fbb4f6494bc639d16c75001fab
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/09/2018
 ms.locfileid: "39722679"
