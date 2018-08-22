@@ -10,7 +10,7 @@ msc.legacyurl: /signalr/overview/deployment
 msc.type: chapter
 ms.openlocfilehash: 82f3a6523efd052f34f7c9cdafdc32bd697f76f9
 ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/05/2018
 ms.locfileid: "37841362"
@@ -20,6 +20,5 @@ ms.locfileid: "37841362"
 > Jak wdrożyć i hostowanie aplikacji SignalR.
 
 
-- [Samouczek: host samodzielny SignalR](tutorial-signalr-self-host.md)
-- 
-  [Używanie SignalR z usługą Web Apps w usłudze Azure App Service](using-signalr-with-azure-web-sites.md)
+- [Samouczek: host samodzielny SignalR](tutorial-signalr-self-host.md) 
+- [Używanie SignalR z usługą Web Apps w usłudze Azure App Service](using-signalr-with-azure-web-sites.md) 
