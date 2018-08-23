@@ -3,17 +3,17 @@ uid: web-forms/videos/aspnet-ajax/how-do-i-implement-dynamic-partial-page-update
 title: '[Jak mogę] Implementowanie dynamicznych aktualizacji stron częściowych przy użyciu rozszerzeń ASP.NET AJAX? | Microsoft Docs'
 author: JoeStagner
 description: W tym filmie wideo dowiesz się, jak dodać dynamicznych aktualizacji stron częściowych do aplikacji platformy ASP.NET za pomocą programu Microsoft ASP.NET AJAX. W szczególności zostanie wyświetlony ho...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/25/2007
 ms.assetid: 7559a912-2753-4866-a140-a4c6cefee00c
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-implement-dynamic-partial-page-updates-with-aspnet-ajax
 msc.type: video
-ms.openlocfilehash: 5eb178edc60a379fd960bee3ca86a73b931e36fe
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 626f103c59afc0843f821d6475393b61347492f8
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37803697"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755653"
 ---
 <a name="how-do-i-implement-dynamic-partial-page-updates-with-aspnet-ajax"></a>[Jak mogę] Implementowanie dynamicznych aktualizacji stron częściowych przy użyciu rozszerzeń ASP.NET AJAX?
 ====================

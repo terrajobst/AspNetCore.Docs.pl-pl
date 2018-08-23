@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/master-pages/master-pages
 title: Strony wzorcowe i ASP.NET AJAX (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: W tym artykule omówiono opcje przy użyciu rozszerzeń ASP.NET AJAX i stron wzorcowych. Analizuje przy użyciu klasy serwera proxy menedżera skryptów; w tym artykule omówiono, jak różne pliki JS są ładowane dependi...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/11/2008
 ms.assetid: 0ee9318c-29bb-4d58-b1dc-94e575b8ae10
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/master-pages-and-asp-net-ajax-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e0ec5359c83bf13398a8a935921cc2a319638ef1
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: aa511b8bd2f4d739cbe1f04b2a9cf03bf6928182
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37803301"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756184"
 ---
 <a name="master-pages-and-aspnet-ajax-vb"></a>Strony wzorcowe i ASP.NET AJAX (VB)
 ====================

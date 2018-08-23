@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-security/roles/creating-and-managing-role
 title: Tworzenie ról i zarządzanie nimi (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Ten samouczek analizuje kroki niezbędne do skonfigurowania w ramach ról. Poniżej utworzymy stron sieci web do tworzenia i usuwania ról.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/24/2008
 ms.assetid: 113f10b3-a19a-471b-8ff6-db3c79ce8a91
 msc.legacyurl: /web-forms/overview/older-versions-security/roles/creating-and-managing-roles-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 84b9624aaae0cc98f1908b4521cee43bce6e856d
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 41cd8cef2582b730391e5221629e9bb35794c159
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37806875"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756329"
 ---
 <a name="creating-and-managing-roles-c"></a>Tworzenie ról i zarządzanie nimi (C#)
 ====================

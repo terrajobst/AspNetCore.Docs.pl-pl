@@ -3,17 +3,17 @@ uid: web-forms/videos/aspnet-35/index
 title: ASP.NET 3.5 | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Jak tworzyć aplikacje ASP.NET 3.5, z naciskiem na nowe funkcje.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: 2e6e9c24-bb97-446a-b05e-1bd88824d352
 msc.legacyurl: /web-forms/videos/aspnet-35
 msc.type: chapter
-ms.openlocfilehash: 2f09c4eec77da36b5b130e58cc939aaec2cc27a1
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 331298981c89e83e7ef9ac260c4da6e38acb97ab
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37822397"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755654"
 ---
 <a name="aspnet-35"></a>ASP.NET 3.5
 ====================

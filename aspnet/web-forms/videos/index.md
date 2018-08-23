@@ -3,17 +3,17 @@ uid: web-forms/videos/index
 title: Filmy wideo | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: ''
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/08/2011
 ms.assetid: f215d6b9-8a84-4bd8-8881-e9527d814950
 msc.legacyurl: /web-forms/videos
 msc.type: book
-ms.openlocfilehash: cfc2d88cfdb2c32165299c17282c9928bb514396
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 15ab12404daf45a6876facd20fad924996b527a3
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37809081"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753927"
 ---
 <a name="videos"></a>Wideo
 ====================

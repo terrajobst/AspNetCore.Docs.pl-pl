@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projec
 title: Konfigurowanie produkcyjnej aplikacji internetowej do użycia z produkcyjnej bazy danych (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Zgodnie z opisem w samouczkach wcześniej, nie jest niczym niezwykłym, aby uzyskać informacje o konfiguracji mogą się różnić między środowiskami deweloperskim i produkcyjnym. Jest to es...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/23/2009
 ms.assetid: 0177dabd-d888-449f-91b2-24190cf5e842
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-the-production-web-application-to-use-the-production-database-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 559697a08200e43e955697a7ad8613f1a495c073
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: e2560ae7a845c27f7fa5f420eaf1d89618397c60
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37803019"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754063"
 ---
 <a name="configuring-the-production-web-application-to-use-the-production-database-c"></a>Konfigurowanie produkcyjnej aplikacji internetowej do użycia z produkcyjnej bazy danych (C#)
 ====================

@@ -3,17 +3,17 @@ uid: visual-studio/overview/2013/creating-web-projects-in-visual-studio
 title: Tworzenie projektów sieci Web platformy ASP.NET, w programie Visual Studio 2013 | Dokumentacja firmy Microsoft
 author: tdykstra
 description: W tym temacie wyjaśniono, że opcje tworzenia projektów sieci web platformy ASP.NET w programie Visual Studio 2013 z aktualizacją Update 3 w tym miejscu przedstawiono niektóre nowe funkcje dla języka c development sieci web...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 12/01/2014
 ms.assetid: 61941e64-0c0d-4996-9270-cb8ccfd0cabc
 msc.legacyurl: /visual-studio/overview/2013/creating-web-projects-in-visual-studio
 msc.type: authoredcontent
-ms.openlocfilehash: b57492a51f65e7ca861a7c354ded6ab170a92488
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 3d96d796d22c3511fedc45c024274300143b119b
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37814523"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754223"
 ---
 <a name="creating-aspnet-web-projects-in-visual-studio-2013"></a>Tworzenie projektów sieci Web platformy ASP.NET w programie Visual Studio 2013
 ====================

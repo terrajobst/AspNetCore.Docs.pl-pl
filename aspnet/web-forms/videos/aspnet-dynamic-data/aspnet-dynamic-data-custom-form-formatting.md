@@ -3,17 +3,17 @@ uid: web-forms/videos/aspnet-dynamic-data/aspnet-dynamic-data-custom-form-format
 title: ASP.NET Dynamic Data — niestandardowe formatowanie formularzy | Dokumentacja firmy Microsoft
 author: JoeStagner
 description: W tym filmie pokazano w nim uzyskać niektóre szczegółowe informacje, w jaki skonfigurujesz visual wyglądu aplikacji danych dynamicznych do bardzo szczegółowe informacje na temat każdego pliku...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 12/11/2008
 ms.assetid: acd329de-7676-41b4-8638-189f3e1039f7
 msc.legacyurl: /web-forms/videos/aspnet-dynamic-data/aspnet-dynamic-data-custom-form-formatting
 msc.type: video
-ms.openlocfilehash: f5998ef697fa0b3249e016f482c6360fa147ddf4
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 4969ad4ff4c804d78fe6deeed5ccb9ed8d1faae8
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37825525"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755941"
 ---
 <a name="aspnet-dynamic-data-custom-form-formatting"></a>ASP.NET Dynamic Data — niestandardowe formatowanie formularzy
 ====================

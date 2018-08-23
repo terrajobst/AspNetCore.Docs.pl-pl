@@ -3,17 +3,17 @@ uid: mvc/overview/getting-started/introduction/index
 title: Wprowadzenie do ASP.NET MVC 5 | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Wprowadzenie do platformy ASP.NET MVC 5
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/10/2013
 ms.assetid: 9afe7454-f1bd-4e81-8ecf-12fe54d080c1
 msc.legacyurl: /mvc/overview/getting-started/introduction
 msc.type: chapter
-ms.openlocfilehash: e348faca0dbe8ffa0ad270dc384404f07755eb22
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 3e124e96d192e95d65084f00332c42961d883f70
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38155273"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754017"
 ---
 <a name="getting-started-with-aspnet-mvc-5"></a>Wprowadzenie do korzystania z wzorca ASP.NET MVC 5
 ====================

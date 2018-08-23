@@ -3,17 +3,17 @@ uid: whitepapers/ms03-32-issue
 title: Poprawka dla błędu "Aplikacja serwera niedostępna" po zastosowaniu aktualizacji zabezpieczeń dla programu Internet Explorer | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: W tym dokumencie opisano poprawkę, która rozwiązuje problem z MS03 32 Aktualizacja zabezpieczeń programu Internet Explorer, który wpływa na aplikacje programu ASP.NET 1.0 systemem Wi...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/10/2010
 ms.assetid: 1365eebb-bdf7-4a05-8d18-7f200531be55
 msc.legacyurl: /whitepapers/ms03-32-issue
 msc.type: content
-ms.openlocfilehash: 1a289379229335a9841dec48e577c19173419891
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: ce2d705a93577b0c6d28f86069873c6ecd891db6
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37836726"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41757353"
 ---
 <a name="fix-for-server-application-unavailable-error-after-applying-security-update-for-ie"></a>Naprawiono błąd "Aplikacja serwera niedostępna" po zastosowaniu aktualizacji zabezpieczeń dla programu Internet Explorer
 ====================

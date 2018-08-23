@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projec
 title: Podstawowe różnice między usługami IIS a programem ASP.NET Development Server (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Podczas testowania aplikacji programu ASP.NET w środowisku lokalnym, jest szansa, że używasz serwera sieci Web programu ASP.NET Development. Jednak w produkcyjnej witrynie internetowej jest najprawdopodobniej pow...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/01/2009
 ms.assetid: 090e9205-52f3-4d72-ae31-44775b8b8421
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/core-differences-between-iis-and-the-asp-net-development-server-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 586bc45a44e773c3097de0959411a2d27098459a
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: aa20def6568d44b589099af6ecf829789fb06231
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37821093"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754119"
 ---
 <a name="core-differences-between-iis-and-the-aspnet-development-server-vb"></a>Podstawowe różnice między usługami IIS a programem ASP.NET Development Server (VB)
 ====================

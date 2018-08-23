@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/controllers-and-routing/index
 title: Kontrolery i Routing | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: W tym zestawie samouczków dowiesz się o routingu platformy ASP.NET, która mapuje żądania przeglądarki do akcji kontrolera ASP.NET MVC.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 09/28/2011
 ms.assetid: 124df537-428c-4861-b6c2-4830c094fe0c
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing
 msc.type: chapter
-ms.openlocfilehash: 48c79835c7fbe1aca5ac5c7a035bdddd1f0680a0
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 5da0db768aaf39dc67bb2344e645c491c78a03a1
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37804725"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756182"
 ---
 <a name="controllers-and-routing"></a>Kontrolery i Routing
 ====================

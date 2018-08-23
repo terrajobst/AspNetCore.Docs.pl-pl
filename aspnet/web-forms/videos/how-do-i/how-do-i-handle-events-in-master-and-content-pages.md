@@ -3,17 +3,17 @@ uid: web-forms/videos/how-do-i/how-do-i-handle-events-in-master-and-content-page
 title: '[Jak mogę] Obsługa zdarzeń na stronach wzorcowych i stronach zawartości | Dokumentacja firmy Microsoft'
 author: rick-anderson
 description: W tym filmie pokazano Chris pikseli pokaże, sposób obsługi zdarzeń w głównych i poszczególnych stron zawartości. Mimo że wynik końcowy ntekstowe głównego i dla indywidualnych...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/21/2008
 ms.assetid: 9b5f1ca6-b394-4b33-8b60-fd0587341482
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-handle-events-in-master-and-content-pages
 msc.type: video
-ms.openlocfilehash: 97eb3aa4c02ec5cdaf2a401050ca9e9f3aff8cbf
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 5f1711aed761c012663a2c3c17623eddbf53a99b
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37809213"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41757349"
 ---
 <a name="how-do-i-handle-events-in-master-and-content-pages"></a>[Jak mogę] Obsługa zdarzeń na stronach wzorcowych i stronach zawartości
 ====================

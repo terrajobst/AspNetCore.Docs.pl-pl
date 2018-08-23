@@ -3,17 +3,17 @@ uid: web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-dynamicp
 title: '[Jak mogę] Użyj rozszerzenie DynamicPopulate ASP.NET AJAX? | Microsoft Docs'
 author: JoeStagner
 description: Obejrzyj pokaz dynamiczne wypełnianie obszar strony sieci web z wynikami asynchronicznego urzędu certyfikacji przy użyciu rozszerzeń ASP.NET AJAX DynamicPopulate...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/31/2007
 ms.assetid: 1c83e543-3f56-42ed-9d10-ac3f8dd26093
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-dynamicpopulate-extender
 msc.type: video
-ms.openlocfilehash: 90980785b3c56fbe6a88396b7251fc52d6970805
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: c14c18f28a513de0dd85b34fc3ab548086fd9855
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37834825"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41752396"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-dynamicpopulate-extender"></a>[Jak mogę] Użyj rozszerzenie DynamicPopulate ASP.NET AJAX?
 ====================
