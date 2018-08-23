@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/models-data/validating-with-the-idataerrorinf
 title: Weryfikowanie z użyciem interfejsu IDataErrorInfo (VB) | Dokumentacja firmy Microsoft
 author: StephenWalther
 description: 'Autor: Stephen Walther dowiesz się, jak wyświetlać komunikaty o błędach niestandardowego sprawdzania poprawności poprzez implementację interfejsu IDataErrorInfo w klasie modelu.'
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/02/2009
 ms.assetid: 3a8a9d9f-82dd-4959-b7c6-960e9ce95df1
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/validating-with-the-idataerrorinfo-interface-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 55716b48a7991424a4d03bbbc7d96f8f12f8dabb
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: e9b989d0110c3947583fd70bd38b29dcb2bb5c31
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37834022"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754935"
 ---
 <a name="validating-with-the-idataerrorinfo-interface-vb"></a>Weryfikowanie z użyciem interfejsu IDataErrorInfo (VB)
 ====================
