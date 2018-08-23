@@ -3,17 +3,17 @@ uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms
 title: Członkostwo i Administracja | Dokumentacja firmy Microsoft
 author: Erikre
 description: Tej serii samouczków obejmuje podstawy tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu platformy ASP.NET 4.5 i programu Microsoft Visual Studio Express 2013 for firma Microsoft...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 09/08/2014
 ms.assetid: 732a2316-e49f-4f72-becd-0cd72f14457e
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/membership-and-administration
 msc.type: authoredcontent
-ms.openlocfilehash: cdd67b946f58d5a6543bb2443dbf193e21751c48
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 23d08d5a05a8321fbc794e2c9b54cc39c9b5baf6
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37829797"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41752058"
 ---
 <a name="membership-and-administration"></a>Członkostwo i Administracja
 ====================

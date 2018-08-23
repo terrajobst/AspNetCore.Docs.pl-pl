@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/controllers-and-routing/creating-custom-route
 title: Tworzenie tras niestandardowych (C#) | Dokumentacja firmy Microsoft
 author: microsoft
 description: Dowiedz się, jak dodać trasy niestandardowe do aplikacji ASP.NET MVC. W tym samouczku dowiesz się, jak zmodyfikować tabela routingu domyślnego w pliku Global.asax.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/16/2009
 ms.assetid: 3cd08f02-8763-490a-b625-2ac96a24b73f
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-custom-routes-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c8ba653579c5f983a7086d15cf6245eff527bfcf
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 1d7a25f9d257320c252408ae251e2f9f620930d8
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37827666"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755750"
 ---
 <a name="creating-custom-routes-c"></a>Tworzenie tras niestandardowych (C#)
 ====================

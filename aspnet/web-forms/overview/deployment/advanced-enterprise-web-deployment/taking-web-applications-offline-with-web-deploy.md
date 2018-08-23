@@ -3,17 +3,17 @@ uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/taking-web
 title: Tworzenie aplikacji sieci Web w trybie Offline za pomocą sieci Web wdrażanie | Dokumentacja firmy Microsoft
 author: jrjlee
 description: W tym temacie opisano sposób wykonania aplikacji sieci web w trybie offline na czas trwania zautomatyzowanego wdrażania z użyciem alert Wdr sieci Web usług Internet Information Services (IIS)...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: 3e9f6e7d-8967-4586-94d5-d3a122f12529
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/taking-web-applications-offline-with-web-deploy
 msc.type: authoredcontent
-ms.openlocfilehash: b8dc1ff26bbbe7dee1ee90fd929b2e98de5360db
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 9b18a48914a74a7fea85278d0e601f6f84376b23
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37829518"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756771"
 ---
 <a name="taking-web-applications-offline-with-web-deploy"></a>Wdrażanie przełączanie aplikacji internetowej w trybie Offline z sieci Web
 ====================

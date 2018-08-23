@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/07/2018
 uid: host-and-deploy/iis/troubleshoot
-ms.openlocfilehash: cbbdee6849768004476d94c58be4a0e7cc2d6f9e
-ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
+ms.openlocfilehash: f22914c9b0d6d1902dd37c9b21b80a18894c97e7
+ms.sourcegitcommit: d1c4580f56656b503cf528ec9f5ba570d790b57d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37938475"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41752256"
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a>Rozwiązywanie problemów z platformą ASP.NET Core w usługach IIS
 
@@ -97,6 +97,7 @@ Włączanie i wyświetlanie dzienników stdout:
 1. Przejdź do folderu wdrożenia witryny w systemie hostingu.
 1. Jeśli *dzienniki* folder nie jest obecny, Utwórz folder. Aby uzyskać instrukcje dotyczące włączania MSBuild tworzenia *dzienniki* folderu we wdrożeniu automatycznie, zobacz [strukturę katalogów](xref:host-and-deploy/directory-structure) tematu.
 1. Edytuj *web.config* pliku. Ustaw **stdoutLogEnabled** do `true` i zmień **stdoutLogFile** ścieżki, aby wskazywał *dzienniki* folderu (na przykład `.\logs\stdout`). `stdout` w ścieżce jest prefiks nazwy pliku dziennika. Sygnatura czasowa, identyfikator procesu i rozszerzenie pliku są dodawane automatycznie, gdy zostanie utworzony dziennik. Za pomocą `stdout` jako prefiks nazwy pliku, plik dziennika typowe o nazwie *stdout_20180205184032_5412.log*. 
+1. Upewnij się, tożsamość puli aplikacji ma uprawnienia do zapisu *dzienniki* folderu.
 1. Zapisz zaktualizowany *web.config* pliku.
 1. Wysłać żądanie do aplikacji.
 1. Przejdź do *dzienniki* folderu. Znajdowanie i otwieranie najnowszych dziennika stdout.

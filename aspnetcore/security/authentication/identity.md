@@ -5,12 +5,12 @@ description: Tożsamość za pomocą aplikacji ASP.NET Core. Dowiedz się, jak u
 ms.author: riande
 ms.date: 08/08/2018
 uid: security/authentication/identity
-ms.openlocfilehash: 6a23dd4ad78c0695b5724a78204abf6752dfe67d
-ms.sourcegitcommit: 028ad28c546de706ace98066c76774de33e4ad20
+ms.openlocfilehash: fd5fa2fd1e069bf10f3baea38b1fe9f951dc4a7d
+ms.sourcegitcommit: fd461c60b5e36c7019f81da0138cc859d0fddaa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39655313"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41751848"
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>Wprowadzenie do tożsamości programu ASP.NET Core
 
@@ -98,7 +98,7 @@ Aby uzyskać więcej informacji, zobacz [klasy IdentityOptions](/dotnet/api/micr
 
 ## <a name="scaffold-register-login-and-logout"></a>Zarejestruj szkieletu, logowania i wylogowania
 
-Postępuj zgodnie z [tworzenia szkieletu tożsamości do projektu Razor z autoryzacją](xref:security/authentication/scaffold-identity#) instrukcje.
+Postępuj zgodnie z [tworzenia szkieletu tożsamości do projektu Razor z autoryzacją](xref:security/authentication/scaffold-identity#scaffold-identity-into-a-razor-project-with-authorization) instrukcje.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 

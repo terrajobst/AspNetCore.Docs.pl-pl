@@ -3,17 +3,17 @@ uid: visual-studio/overview/2013/using-browser-link
 title: W programie Visual Studio 2013 za pomocą łączność z przeglądarkami | Dokumentacja firmy Microsoft
 author: MikeWasson
 description: ''
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/04/2013
 ms.assetid: 46cbfe20-b4dc-449b-9016-80657dd44fbe
 msc.legacyurl: /visual-studio/overview/2013/using-browser-link
 msc.type: authoredcontent
-ms.openlocfilehash: 9da93c279bfa2af614733e3234ba62429abf688a
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: f470aa7e425d16aec3f67d2a0ebb664a3e7eac41
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37822198"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751863"
 ---
 <a name="using-browser-link-in-visual-studio-2013"></a>Za pomocą łącza przeglądarki w programie Visual Studio 2013
 ====================

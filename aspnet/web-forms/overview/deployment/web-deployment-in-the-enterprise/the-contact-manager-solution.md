@@ -3,17 +3,17 @@ uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/the-contact-
 title: Rozwiązanie Contact Manager | Dokumentacja firmy Microsoft
 author: jrjlee
 description: Przykładowe rozwiązanie korzysta z tej serii samouczków&#x2014;rozwiązania Contact Manager&#x2014;do reprezentowania aplikacji skali przedsiębiorstwa przy użyciu realistycznej leve...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: 4d8c8d19-055b-4b70-9ee1-f748f0db3a01
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/the-contact-manager-solution
 msc.type: authoredcontent
-ms.openlocfilehash: c8044c37738e9d23ca83648a6b571059338dc1a3
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: bc2fe88f4566d9fa144abcd2239f9008a1aefe83
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37835162"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753088"
 ---
 <a name="the-contact-manager-solution"></a>Rozwiązanie Contact Manager
 ====================

@@ -3,17 +3,17 @@ uid: web-forms/videos/building-35-applications/intellisense
 title: Funkcja IntelliSense | Dokumentacja firmy Microsoft
 author: JoeStagner
 description: Funkcja IntelliSense jest wartościowych funkcji programu Visual Studio dla platformy .NET zarówno uczenie programowania, a także przyspieszanie wydajność kodowania. Zostaną wprowadzone w tym wideo...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/09/2009
 ms.assetid: 541d38fd-2d62-4db5-bb9f-182163829326
 msc.legacyurl: /web-forms/videos/building-35-applications/intellisense
 msc.type: video
-ms.openlocfilehash: 93509582cde45004e2e6fd5bd1d5bae4b787c6db
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: c22af32efe940b75e9d84341ab729b7b83bf8fd5
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37805252"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41752054"
 ---
 <a name="intellisense"></a>IntelliSense
 ====================

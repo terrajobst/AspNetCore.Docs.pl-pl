@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-validat
 title: Dodawanie weryfikacji do modelu | Dokumentacja firmy Microsoft
 author: Rick-Anderson
 description: 'Uwaga: Zaktualizowaną wersję w tym samouczku jest dostępna w tym miejscu używającej platformy ASP.NET MVC 5 i Visual Studio 2013. Jest bardziej bezpieczne, łatwiej stosować i pokaz...'
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/28/2012
 ms.assetid: 5d9a2999-fcc4-4c45-a018-271fddf74a3b
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-validation-to-the-model
 msc.type: authoredcontent
-ms.openlocfilehash: 50911920ed80f09033cfc53a137a6bbba3fc62f3
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 01190b7bffc0258649373f3be0c75c41af80921d
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37834494"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41752668"
 ---
 <a name="adding-validation-to-the-model"></a>Dodawanie weryfikacji do modelu
 ====================

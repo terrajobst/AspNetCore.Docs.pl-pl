@@ -3,17 +3,17 @@ uid: web-forms/videos/iis/index
 title: Ogólne porady usług IIS | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Jak skonfigurować usługi IIS do pracy z aplikacjami ASP.NET.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: 0078ceb6-3447-4ce4-90c2-d0e013ebc000
 msc.legacyurl: /web-forms/videos/iis
 msc.type: chapter
-ms.openlocfilehash: 525a506f7733d80e158d0c0669b05bc169e4e25a
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: febbe4e6cc00241246cb4a8d212bb86d1adccf23
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37811907"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754331"
 ---
 <a name="general-iis-tips"></a>Ogólne porady usług IIS
 ====================

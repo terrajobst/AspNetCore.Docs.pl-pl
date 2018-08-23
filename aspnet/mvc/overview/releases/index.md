@@ -3,17 +3,17 @@ uid: mvc/overview/releases/index
 title: Wersje | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: What's new in najnowsze wersje platformy MVC.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/09/2014
 ms.assetid: a1e9ec42-700a-49a6-b91e-8cf9ef6d027b
 msc.legacyurl: /mvc/overview/releases
 msc.type: chapter
-ms.openlocfilehash: 31b7ea55186a961f7c3069ac9fc3a067b09f50f2
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 133ad3398af6562738db288dc532f5831d2c0c27
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37824943"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754341"
 ---
 <a name="releases"></a>Wersje
 ====================

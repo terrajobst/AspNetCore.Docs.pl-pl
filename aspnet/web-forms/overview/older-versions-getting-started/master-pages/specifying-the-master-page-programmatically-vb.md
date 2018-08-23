@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/master-pages/specifying-t
 title: Programowe określanie strony wzorcowej (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Patrzy na ustawienie poziomu strony zawartości strony wzorcowej programowo za pośrednictwem programu obsługi zdarzeń PreInit.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/28/2008
 ms.assetid: 0edcd653-f24a-41aa-aef4-75f868fe5ac2
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/specifying-the-master-page-programmatically-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0c84462487426fc50888708baeedd2fb50983ce3
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: a89964749ce8e127207ada6944a3d2ba513d3547
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37814844"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754582"
 ---
 <a name="specifying-the-master-page-programmatically-vb"></a>Programowe określanie strony wzorcowej (VB)
 ====================

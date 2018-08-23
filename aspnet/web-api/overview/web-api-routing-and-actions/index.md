@@ -3,17 +3,17 @@ uid: web-api/overview/web-api-routing-and-actions/index
 title: Internetowy interfejs API routingu | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: ASP.NET Web API kierowanie żądań HTTP do kontrolerów i akcji.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/26/2012
 ms.assetid: 8447679a-2556-4411-b758-bbe55cfa4805
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions
 msc.type: chapter
-ms.openlocfilehash: a7690c4dbaa345ce61431a03fbb03c758801a687
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: cb38906e33d5c32dada35d72bb646aad1e5a0907
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37817170"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755045"
 ---
 <a name="web-api-routing"></a>Internetowy interfejs API routingu
 ====================

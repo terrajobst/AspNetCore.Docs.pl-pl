@@ -3,17 +3,17 @@ uid: web-forms/videos/tailspin-spyworks/tailspin-spyworks-display-the-product-li
 title: Tailspin Spyworks — wyświetlanie listy produktów | Dokumentacja firmy Microsoft
 author: JoeStagner
 description: Jan Stagner pokazuje, jak wyświetlanie listy produktów w Tailspin Spyworks przykładowej aplikacji formularzy sieci Web.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/09/2010
 ms.assetid: 4c0d920f-e80a-445d-a9da-b603e25d49c4
 msc.legacyurl: /web-forms/videos/tailspin-spyworks/tailspin-spyworks-display-the-product-list
 msc.type: video
-ms.openlocfilehash: 4f77a5c52719df7a524264bed4fb7f476fdec933
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: a78ef58cc6481f2d9429501e38a7da576c1b38f3
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37812759"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756688"
 ---
 <a name="tailspin-spyworks---display-the-product-list"></a>Tailspin Spyworks — wyświetlanie listy produktów
 ====================

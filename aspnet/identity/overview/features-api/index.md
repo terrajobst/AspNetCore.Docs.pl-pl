@@ -3,17 +3,17 @@ uid: identity/overview/features-api/index
 title: Funkcje produktu ASP.NET Identity i interfejsu API | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Funkcje i interfejs API
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/09/2014
 ms.assetid: 70f7c0ac-aeb9-4e21-ae05-deb10640b1b3
 msc.legacyurl: /identity/overview/features-api
 msc.type: chapter
-ms.openlocfilehash: 36ed871fb6b87b234eaa77b94c417be2f14de524
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 39d8029c577cc3af742d33c974ad6fcfc826f130
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37832061"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755463"
 ---
 <a name="aspnet-identity-features--api"></a>Funkcje produktu ASP.NET Identity i interfejs API
 ====================

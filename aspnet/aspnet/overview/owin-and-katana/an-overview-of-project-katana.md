@@ -3,17 +3,17 @@ uid: aspnet/overview/owin-and-katana/an-overview-of-project-katana
 title: Omówienie projektu Katana | Dokumentacja firmy Microsoft
 author: howarddierking
 description: Środowiska ASP.NET Framework została wokół ponad dziesięć lat, a platformę włączył rozwoju niezliczonych witryn sieci Web i usług. Jako aplikacji sieci Web...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/30/2013
 ms.assetid: 0ee21741-c1bf-4025-a9b0-24580cae24bc
 msc.legacyurl: /aspnet/overview/owin-and-katana/an-overview-of-project-katana
 msc.type: authoredcontent
-ms.openlocfilehash: a4c7d6cb5dc40ad68280a87acd89f60106a260a8
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 52007eba109de28c6d178505b82b1d5ff2883b47
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37803097"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756030"
 ---
 <a name="an-overview-of-project-katana"></a>Omówienie projektu Katana
 ====================

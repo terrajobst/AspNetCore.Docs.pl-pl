@@ -3,17 +3,17 @@ uid: web-forms/videos/how-do-i/how-do-i-implement-an-httpmodule
 title: '[Jak mogę] Wdrażanie modułu HttpModule? | Microsoft Docs'
 author: scottgolightly
 description: W tym wideo Scott Golightly przedstawia sposób implementowania prostego HttpModule, korzystającą z BeginRequest i EndRequest zdarzeń w celu przechowywania danych o dpowiedzi...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/12/2007
 ms.assetid: 45daf6e2-c652-49c0-a9b4-2263f4ceada8
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-implement-an-httpmodule
 msc.type: video
-ms.openlocfilehash: da4d9e5167801eb0fa79e59abeb1322c25f859e7
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 7955fdc72c0b2ee4481062d11a2d1e5134cad8c0
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37838490"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41752679"
 ---
 <a name="how-do-i-implement-an-httpmodule"></a>[Jak mogę] Wdrażanie modułu HttpModule?
 ====================

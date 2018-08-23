@@ -3,17 +3,17 @@ uid: ajax/cdn/jquery-validate/index
 title: jQuery Validate | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: ''
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/14/2017
 ms.assetid: a266cc44-f514-4913-9768-5b382380184d
 msc.legacyurl: /ajax/cdn/jquery-validate
 msc.type: folder
-ms.openlocfilehash: d8b8c96bad5db0b386aa6023042369d4be8a68d4
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: d7990cf52fedd10d09b1edcfb1dfb05df367a5eb
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37837093"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755760"
 ---
 <a name="jquery-validate"></a>Sprawdź poprawność jQuery
 ====================

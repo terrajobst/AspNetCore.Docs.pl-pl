@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projec
 title: Wdrażanie witryny przy użyciu klienta FTP (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Najprostszym sposobem wdrażania aplikacji ASP.NET jest ręcznie skopiuj niezbędne pliki ze środowiska projektowego w środowisku produkcyjnym. Ten...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/01/2009
 ms.assetid: 09279194-bcf9-4b59-a09d-c68e5926a758
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-your-site-using-an-ftp-client-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 9b4d39ceb19e1a916775948c531c3e017e2d1a2d
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: ea6d2deaaad1112f4a5ce4e4ea5534c6eab35a8d
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37835991"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753496"
 ---
 <a name="deploying-your-site-using-an-ftp-client-vb"></a>Wdrażanie witryny przy użyciu klienta FTP (VB)
 ====================

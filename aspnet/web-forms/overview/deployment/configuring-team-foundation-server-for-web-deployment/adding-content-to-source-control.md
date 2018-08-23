@@ -3,17 +3,17 @@ uid: web-forms/overview/deployment/configuring-team-foundation-server-for-web-de
 title: Dodawanie zawartości do kontroli źródła | Dokumentacja firmy Microsoft
 author: jrjlee
 description: W tym temacie opisano sposób dodawania zawartości do kontroli źródła w Team Foundation Server (TFS) 2010. Opisano w nim sposób dodawania rozwiązań i projektów do projek zespołu...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: 86c14aab-c2dd-4f73-b40c-c6d52fa44950
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/adding-content-to-source-control
 msc.type: authoredcontent
-ms.openlocfilehash: 9fdb2e37f2925273b457157b634865d93e865098
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 2119705a75d0717d05d4a7db69b3f5d38b1cdd45
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37838374"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753283"
 ---
 <a name="adding-content-to-source-control"></a>Dodawanie zawartości do kontroli źródła
 ====================

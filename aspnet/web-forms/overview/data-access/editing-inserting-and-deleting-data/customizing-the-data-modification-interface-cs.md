@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/customiz
 title: Dostosowywanie interfejsu modyfikacji danych (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: W tym samouczku przyjrzymy Dostosowywanie interfejsu edycji kontrolki GridView, zastępując standardowego pola tekstowego, a pola wyboru steruje się za pomocą Adres alternaty...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/17/2006
 ms.assetid: 22e99600-8d18-4a94-a20e-a3a62bb63798
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/customizing-the-data-modification-interface-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 6e04d9c09d9c359c223c70b11ab0f7909182bb46
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: f7004192edd636f4660f3184c3e725a6bfda865c
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37808745"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756906"
 ---
 <a name="customizing-the-data-modification-interface-c"></a>Dostosowywanie interfejsu modyfikacji danych (C#)
 ====================

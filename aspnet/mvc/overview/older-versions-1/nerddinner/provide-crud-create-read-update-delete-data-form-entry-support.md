@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/nerddinner/provide-crud-create-read-update-de
 title: Operacji CRUD (Tworzenie, odczytywanie, aktualizowanie, usuwanie) danych tworzą wpis pomocy technicznej | Dokumentacja firmy Microsoft
 author: microsoft
 description: Krok 5 pokazuje, jak korzystać z naszych DinnersController klasą znajdującą się, Włącz obsługę edycji, tworzenie i usuwanie kolacji z nim także.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/27/2010
 ms.assetid: bbb976e5-6150-4283-a374-c22fbafe29f5
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/provide-crud-create-read-update-delete-data-form-entry-support
 msc.type: authoredcontent
-ms.openlocfilehash: bfb8446ec8b39ad6fc88a0d5b747f0cec33bbd25
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 45d74249a34fc7e37e9776a398615d2f613a7582
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37817639"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41752681"
 ---
 <a name="provide-crud-create-read-update-delete-data-form-entry-support"></a>Operacji CRUD (Tworzenie, odczytywanie, aktualizowanie, usuwanie) obsługi formularzach danych
 ====================

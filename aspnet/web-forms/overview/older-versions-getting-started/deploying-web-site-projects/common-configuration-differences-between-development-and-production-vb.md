@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projec
 title: Typowe różnice konfiguracji między środowiskami deweloperskim i produkcyjnym (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: W samouczkach wcześniej wdrożyliśmy naszej witryny sieci Web, kopiując wszystkie odpowiednie pliki ze środowiska projektowego do środowiska produkcyjnego. Jednak po...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/01/2009
 ms.assetid: 548e75f6-4d6c-4cb4-8da8-417915eb8393
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/common-configuration-differences-between-development-and-production-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 083c07a42fab1f655798f8cfb444ed0e6aa38ff0
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: ec1d575fac4527db8f5bcab5f0d84e1f17eac46b
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37842808"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753714"
 ---
 <a name="common-configuration-differences-between-development-and-production-vb"></a>Typowe różnice konfiguracji między środowiskami deweloperskim i produkcyjnym (VB)
 ====================

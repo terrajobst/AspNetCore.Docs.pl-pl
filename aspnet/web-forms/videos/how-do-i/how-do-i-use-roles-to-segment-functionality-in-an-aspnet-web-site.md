@@ -3,17 +3,17 @@ uid: web-forms/videos/how-do-i/how-do-i-use-roles-to-segment-functionality-in-an
 title: '[Jak mogę] Używanie ról do segmentacji funkcji w witrynie sieci Web ASP.NET | Dokumentacja firmy Microsoft'
 author: rick-anderson
 description: W tym filmie pokazano pikseli Chris zostanie przedstawiony sposób zmaksymalizowania użycia ról w witrynie sieci web ASP.NET po skonfigurowaniu członkostwa ASP.NET. Po pierwsze Dowiedz się, jak skonfigurować roli...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/29/2008
 ms.assetid: 9ac277a9-2149-4a51-b61b-a44ad0535267
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-roles-to-segment-functionality-in-an-aspnet-web-site
 msc.type: video
-ms.openlocfilehash: 5cb5e14310761f6b01009af82f6f9f2370f28d63
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 47019ea016b7bd5cddbae12ff4b463669518db48
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37820165"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755756"
 ---
 <a name="how-do-i-use-roles-to-segment-functionality-in-an-aspnet-web-site"></a>[Jak mogę] Używanie ról do segmentacji funkcji w witrynie sieci Web ASP.NET
 ====================

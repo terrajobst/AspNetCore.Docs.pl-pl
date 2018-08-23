@@ -3,17 +3,17 @@ uid: web-forms/videos/vs-2005/introduction-to-load-testing-web-applications-with
 title: Wprowadzenie do testowania obciążeniowego aplikacji internetowych za pomocą systemu Team | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: W tym filmie pokazano zobaczymy, jak załadować testów aplikacji sieci web przy użyciu funkcji testowania obciążenia w programie Visual Studio Team System.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/09/2007
 ms.assetid: c2a80ef9-3dc4-4051-8103-495ddf1b8a46
 msc.legacyurl: /web-forms/videos/vs-2005/introduction-to-load-testing-web-applications-with-team-system
 msc.type: video
-ms.openlocfilehash: 7146d8c2bae0ef6d5bbe9a4dfffdbb3df5cf998d
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 80cdacade368e4daa9bfeef02f08794aa51973e3
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37803529"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41752259"
 ---
 <a name="introduction-to-load-testing-web-applications-with-team-system"></a>Wprowadzenie do testowania obciążeniowego aplikacji internetowych za pomocą Team System
 ====================

@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-3
 title: 'Część 3: Widoki i modele widoków | Dokumentacja firmy Microsoft'
 author: jongalloway
 description: W tej serii samouczków szczegółowo opisuje wszystkie etapy, tworzenie przykładowej aplikacji platformy ASP.NET MVC Music Store. Część 3 obejmuje, widoki i modele widoków.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/21/2011
 ms.assetid: 94297aa0-1f2d-4d72-bbcb-63f64653e0c0
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-3
 msc.type: authoredcontent
-ms.openlocfilehash: 8fd89c2a448877bf13a7828f545ffcd400f63bb1
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 828ff18abcc5932f82be71a45ebde589eeb051fa
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37837413"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754336"
 ---
 <a name="part-3-views-and-viewmodels"></a>Część 3: Widoki i modele widoków
 ====================
@@ -214,7 +214,7 @@ Zwróć uwagę, że mamy już pełną obsługą technologii IntelliSense możemy
 
 ![](mvc-music-store-part-3/_static/image18.png)
 
-W ramach naszych pętlę "foreach" Visual Web Developer wie, że każdy element jest typu gatunku, więc widzimy IntelliSence dla każdego typu gatunku.
+W ramach naszych pętlę "foreach" Visual Web Developer wie, że każdy element jest typu gatunku, więc widzimy technologii IntelliSense dla każdego typu gatunku.
 
 ![](mvc-music-store-part-3/_static/image19.png)
 

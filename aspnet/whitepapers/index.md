@@ -3,17 +3,17 @@ uid: whitepapers/index
 title: Oficjalne dokumenty | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Na tej stronie znajdziesz oficjalne dokumenty ułatwiające Instalowanie i konfigurowanie programu ASP.NET, a także ułatwiają do pisania aplikacji platformy ASP.NET bezpieczne, szybkie i elastyczne.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 11/15/2011
 ms.assetid: 3824e2d7-446f-406b-9c8b-5a1634359a78
 msc.legacyurl: ''
 msc.type: content
-ms.openlocfilehash: 2bf12fd606a2afafa8ac047abb54b8ebb79112f4
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 3e463e0fb8e6af228480fc4795e1bd0ee5badac9
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37824762"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41752267"
 ---
 <a name="whitepapers"></a>Dodatkowe informacje
 ====================

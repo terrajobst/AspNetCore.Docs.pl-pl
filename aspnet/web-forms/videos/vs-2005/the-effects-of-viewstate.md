@@ -3,17 +3,17 @@ uid: web-forms/videos/vs-2005/the-effects-of-viewstate
 title: Efekty funkcji ViewState | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Środowiska ASP.NET framework zapewnia mechanizm ViewState automatycznie zarządzania stanem aplikacji, wykonując danych do przodu i do tyłu między wymagane przeglądarki...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/26/2007
 ms.assetid: 112e3efc-6865-4296-80a0-35910c4b3b12
 msc.legacyurl: /web-forms/videos/vs-2005/the-effects-of-viewstate
 msc.type: video
-ms.openlocfilehash: e03eba9f1f9ae300c6bb1a4efbde39a2715e6fd2
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: fcca0f533a77bf794644adb8879966f26a452ff8
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37802383"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756430"
 ---
 <a name="the-effects-of-viewstate"></a>Efekty funkcji ViewState
 ====================

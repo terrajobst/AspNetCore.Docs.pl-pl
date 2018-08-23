@@ -3,17 +3,17 @@ uid: web-api/overview/advanced/dependency-injection
 title: Wstrzykiwanie zależności we wzorcu ASP.NET Web API 2 | Dokumentacja firmy Microsoft
 author: MikeWasson
 description: W tym samouczku pokazano, jak wstrzykiwanie zależności do poziomu kontrolera interfejsu API sieci Web platformy ASP.NET. Wersje oprogramowania używanych w samouczek zablokowanych witryn sieci Web API 2 Unity aplikacji...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/20/2014
 ms.assetid: e3d3e7ba-87f0-4032-bdd3-31f3c1aa9d9c
 msc.legacyurl: /web-api/overview/advanced/dependency-injection
 msc.type: authoredcontent
-ms.openlocfilehash: a470c778fd5998006a0bf8edb08b62a75d72c48c
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 41db1af79ed63ff4dd12be37e9cc76e16f1bf5e4
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37802678"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755460"
 ---
 <a name="dependency-injection-in-aspnet-web-api-2"></a>Wstrzykiwanie zależności we wzorcu ASP.NET Web API 2
 ====================

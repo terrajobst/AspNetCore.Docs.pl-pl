@@ -3,17 +3,17 @@ uid: web-forms/overview/moving-to-aspnet-20/improvements-in-visual-studio-2005
 title: Ulepszenia w programie Visual Studio 2005 | Dokumentacja firmy Microsoft
 author: microsoft
 description: Visual Studio 2005 zawiera twórcom długą listę usprawnień i ulepszeń do projektów sieci Web w aplikacji sieci Web.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/20/2005
 ms.assetid: 72d90cd0-b3d9-454c-b2eb-ed0d9812f32c
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/improvements-in-visual-studio-2005
 msc.type: authoredcontent
-ms.openlocfilehash: 0a42699381fd326891898e01b4e98662e9ce22bf
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 60259ceb99de536410aa5f53db64fb2dca68bf66
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37811373"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754333"
 ---
 <a name="improvements-in-visual-studio-2005"></a>Ulepszenia w programie Visual Studio 2005
 ====================

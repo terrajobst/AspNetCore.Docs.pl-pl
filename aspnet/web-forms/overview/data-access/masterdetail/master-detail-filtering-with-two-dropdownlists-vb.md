@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/masterdetail/master-detail-filtering-with-tw
 title: Filtrowanie rekordu głównego/szczegółów przy użyciu dwóch kontrolek DROPDOWNLIST (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: W tym samouczku rozwija relacji wzorzec/szczegół, aby dodać warstwę trzeci, za pomocą dwóch kontrolek DropDownList wybrać żądaną recor nadrzędne i nadrzędnych...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/31/2010
 ms.assetid: 11ae4f64-01ba-4823-95f4-a2fe1f84f7d7
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-filtering-with-two-dropdownlists-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 17bbaa346925585b5b184127fa80fd2203869492
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 20df98f1aacb046bb9ec9fa5ad03e008dc234509
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37805288"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751868"
 ---
 <a name="masterdetail-filtering-with-two-dropdownlists-vb"></a>Filtrowanie rekordu głównego/szczegółów przy użyciu dwóch kontrolek DROPDOWNLIST (VB)
 ====================

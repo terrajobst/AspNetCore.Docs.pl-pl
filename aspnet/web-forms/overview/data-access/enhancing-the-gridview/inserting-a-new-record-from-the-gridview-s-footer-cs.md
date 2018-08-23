@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/enhancing-the-gridview/inserting-a-new-recor
 title: Wstawianie nowego rekordu w stopce kontrolki GridView (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Podczas kontrolki GridView nie zapewnia wbudowaną obsługę do wstawiania nowego rekordu danych, w tym samouczku pokazano, jak rozszerzyć GridView obejmujący...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/06/2007
 ms.assetid: 49545652-98af-46ba-9dbc-9ab529805d9b
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview/inserting-a-new-record-from-the-gridview-s-footer-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 3ce1c1ea83d2fc50d7cf9ab6cb64d1e76307c74b
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: ae27b25a0a7f37cc273d88d7165c8be33ce2f6cc
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37830506"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754344"
 ---
 <a name="inserting-a-new-record-from-the-gridviews-footer-c"></a>Wstawianie nowego rekordu w stopce kontrolki GridView (C#)
 ====================

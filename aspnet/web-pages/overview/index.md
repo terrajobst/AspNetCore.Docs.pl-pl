@@ -3,17 +3,17 @@ uid: web-pages/overview/index
 title: Wskazówki dotyczące stron sieci Web | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: ''
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/18/2012
 ms.assetid: 1a2ed0e8-63da-4110-9896-e2731d86f7c4
 msc.legacyurl: /web-pages/overview
 msc.type: book
-ms.openlocfilehash: afffd847fc21aff2ca8744d0dc2aa9fb822c05e5
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: f95d998b838e262dd1843c882dae466a88c23ad5
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37830291"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756697"
 ---
 <a name="web-pages-guidance"></a>Wskazówki dotyczące stron sieci Web
 ====================

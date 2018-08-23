@@ -3,17 +3,17 @@ uid: web-forms/overview/ajax-control-toolkit/animation/disabling-actions-during-
 title: Wyłączanie akcji podczas animacji (C#) | Dokumentacja firmy Microsoft
 author: wenz
 description: Kontrolki animacji w programie ASP.NET AJAX Control Toolkit nie jest po prostu kontrolki, ale cała struktura Dodawanie animacji do kontrolki. Obsługuje ona również działanie...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: 918026b4-2f63-421d-8546-df12856960a8
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/disabling-actions-during-animation-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 396411332735503d1781e171bead8ab6aaed6efa
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 4315f06ea1599bacb93a23a3759610e19754cfba
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37828198"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751858"
 ---
 <a name="disabling-actions-during-animation-c"></a>Wyłączanie akcji podczas animacji (C#)
 ====================

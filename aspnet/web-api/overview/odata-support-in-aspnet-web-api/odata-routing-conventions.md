@@ -3,17 +3,17 @@ uid: web-api/overview/odata-support-in-aspnet-web-api/odata-routing-conventions
 title: Konwencje routingu we wzorcu ASP.NET Web API 2 Odata | Dokumentacja firmy Microsoft
 author: MikeWasson
 description: W tym artykule opisano konwencje routingu, które korzysta z interfejsu API sieci Web dla punktów końcowych OData.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/31/2013
 ms.assetid: adbc175a-14eb-4ab2-a441-d056ffa8266f
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-routing-conventions
 msc.type: authoredcontent
-ms.openlocfilehash: 645e820d3b03d1e3d2ac088973f6296efa5c2f40
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 0199ccde100c8c3ab70db912b8ab984e0617f9dd
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37818268"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41752469"
 ---
 <a name="routing-conventions-in-aspnet-web-api-2-odata"></a>Konwencje routingu we wzorcu ASP.NET Web API 2 Odata
 ====================

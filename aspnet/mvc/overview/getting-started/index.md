@@ -3,17 +3,17 @@ uid: mvc/overview/getting-started/index
 title: ASP.NET MVC wprowadzenie | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Dowiedz się więcej o platformy ASP.NET MVC platformy ASP.NET MVC zapewnia zaawansowany, bazujący na wzorcach sposób tworzenia dynamicznych witryn sieci Web, która umożliwia wyraźne oddzielenie obaw i że g...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/31/2011
 ms.assetid: d916dbe0-1895-491b-8bb6-93f4594ce757
 msc.legacyurl: /mvc/overview/getting-started
 msc.type: chapter
-ms.openlocfilehash: f1929a6245b3a2b173ff668a761ab872db55b572
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: c815a98c536159df44b775fd5130029446e1ad73
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37822174"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756428"
 ---
 <a name="aspnet-mvc-getting-started"></a>ASP.NET MVC, rozpoczęcie
 ====================

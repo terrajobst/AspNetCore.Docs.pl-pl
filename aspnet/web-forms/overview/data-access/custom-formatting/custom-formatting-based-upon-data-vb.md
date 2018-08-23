@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/custom-formatting/custom-formatting-based-up
 title: Niestandardowe formatowanie na podstawie danych (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Dostosowywanie formatu GridView, DetailsView lub FormView w oparciu o dane powiązane z nim można przeprowadzić na wiele sposobów. W tym samouczku będziemy l...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/31/2010
 ms.assetid: df5a1525-386f-4632-972c-57b199870bc3
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/custom-formatting-based-upon-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d55a9ece22805d7f5d248e81a01d059dbde0ee18
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: d902fd6d042783c036bb42a11b7e469f6dd2b5b6
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37809592"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41757137"
 ---
 <a name="custom-formatting-based-upon-data-vb"></a>Niestandardowe formatowanie na podstawie danych (VB)
 ====================

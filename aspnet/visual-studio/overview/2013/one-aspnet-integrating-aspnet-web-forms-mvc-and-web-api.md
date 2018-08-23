@@ -3,17 +3,17 @@ uid: visual-studio/overview/2013/one-aspnet-integrating-aspnet-web-forms-mvc-and
 title: 'Warsztaty: One ASP.NET: integrowanie wzorca ASP.NET Web Forms, MVC i interfejs API sieci Web | Dokumentacja firmy Microsoft'
 author: rick-anderson
 description: ASP.NET to architektura służąca do tworzenia witryn sieci Web, aplikacji i usług przy użyciu technologii specjalne, np. MVC, interfejs API sieci Web i innych. Przy użyciu rozszerzeń ASP.NET h...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/16/2014
 ms.assetid: 4fe2558d-67cc-4d12-a5c1-6fb9f6f16137
 msc.legacyurl: /visual-studio/overview/2013/one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 276207a6e7d2388ce53778928665c35de9327318
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: b6ac0dca92ab3d75eb871099882dcea549264354
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37837308"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755056"
 ---
 <a name="hands-on-lab-one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api"></a>Warsztaty: One ASP.NET: integrowanie wzorca ASP.NET Web Forms, MVC i Web API
 ====================

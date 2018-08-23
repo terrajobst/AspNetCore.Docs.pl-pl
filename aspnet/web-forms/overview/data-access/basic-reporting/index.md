@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/basic-reporting/index
 title: Podstawowe raportowanie | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Tym zestawie samouczków pokazano, jak używać formantu ObjectDataSource do pracy z danymi pobieranymi z LOGIKI, wszystkie bez konieczności pisania kodu.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: cbd98d24-8281-4415-87df-8365f0fbe7fc
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting
 msc.type: chapter
-ms.openlocfilehash: 36df7eaf81cb7b10f0d42bbeb9705aedc13cf770
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 9323886ed50df775ac587b0473126fbdc28a7a19
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37825303"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756889"
 ---
 <a name="basic-reporting"></a>Podstawowe raportowanie
 ====================

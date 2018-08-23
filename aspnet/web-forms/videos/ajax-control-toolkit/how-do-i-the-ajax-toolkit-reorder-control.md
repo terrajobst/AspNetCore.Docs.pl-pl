@@ -3,17 +3,17 @@ uid: web-forms/videos/ajax-control-toolkit/how-do-i-the-ajax-toolkit-reorder-con
 title: '[Jak mogę] Kontrolka Reorder narzędzi AJAX | Dokumentacja firmy Microsoft'
 author: JoeStagner
 description: W tym filmie wideo I zademonstruje sterowaniu której kolejność chcesz zmienić, który jest dostarczany za pomocą zestawu narzędzi AJAX toolkit. Kontrolka reorder umożliwia prezentowanie użytkowników o listę...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/21/2008
 ms.assetid: 1bc7e41a-633c-4ade-ba7a-486c9484a0ba
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-the-ajax-toolkit-reorder-control
 msc.type: video
-ms.openlocfilehash: 09e435b0c34bd889f0d7d320a6f6ca3a0e219c7a
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: d16ecfca0783622e4616863e680b3de78c445762
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37839454"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41757145"
 ---
 <a name="how-do-i-the-ajax-toolkit-reorder-control"></a>[Jak mogę] Kontrolka Reorder narzędzi AJAX
 ====================

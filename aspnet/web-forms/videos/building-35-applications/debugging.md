@@ -3,17 +3,17 @@ uid: web-forms/videos/building-35-applications/debugging
 title: Debugowanie | Dokumentacja firmy Microsoft
 author: JoeStagner
 description: 'Opis: Visual Web Developer oferuje bogate środowisko debugowania dla początkujących i ekspertów dla deweloperów, które są podobne. W tym filmie pokazano Jan będzie poznasz możesz za pomocą VW...'
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/30/2009
 ms.assetid: d17389d8-3824-4900-9309-92d49bb756b1
 msc.legacyurl: /web-forms/videos/building-35-applications/debugging
 msc.type: video
-ms.openlocfilehash: 75cd2dee09fecabef4b1825e204cbf0e0f91d407
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: a9e8d6ebaf9d72463a6f67b11a28db32df5cd46f
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37835377"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754348"
 ---
 <a name="debugging"></a>Debugowanie
 ====================

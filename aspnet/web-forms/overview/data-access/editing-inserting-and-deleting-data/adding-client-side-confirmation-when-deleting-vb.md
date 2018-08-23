@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/adding-c
 title: Dodawanie potwierdzenia po stronie klienta podczas usuwania (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: W interfejsach, którą utworzyliśmy, do tej pory użytkownik może przypadkowo usunąć dane, klikając przycisk Usuń, gdy są one przeznaczone do kliknij przycisk Edytuj. W tym t...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/17/2006
 ms.assetid: 6331e02e-c465-4cdf-bd3f-f07680c289d6
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/adding-client-side-confirmation-when-deleting-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 2318018b20841038ebb7a6e4900cf9849057d941
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: deae088d1daa63e2936aedf80eded18588b1ec60
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37802500"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756441"
 ---
 <a name="adding-client-side-confirmation-when-deleting-vb"></a>Dodawanie potwierdzenia po stronie klienta podczas usuwania (VB)
 ====================

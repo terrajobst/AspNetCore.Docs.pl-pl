@@ -3,17 +3,17 @@ uid: whitepapers/aspnet4/breaking-changes
 title: ASP.NET 4 przełomowych zmianach | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: W tym dokumencie opisano zmiany, które zostały wprowadzone dla wersji .NET Framework w wersji 4, która może wpłynąć na aplikacje, które zostały utworzone przy użyciu...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/10/2010
 ms.assetid: d601c540-f86b-4feb-890c-20c806b3da6c
 msc.legacyurl: /whitepapers/aspnet4/breaking-changes
 msc.type: content
-ms.openlocfilehash: e6d7972c333e302bb8b6b2d23ea7123b8757b2f4
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 112483abdd920649fb530959a538b1d5ed6064d7
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37842523"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756444"
 ---
 <a name="aspnet-4-breaking-changes"></a>ASP.NET 4 fundamentalne zmiany
 ====================

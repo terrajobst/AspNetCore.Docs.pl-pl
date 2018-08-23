@@ -5,14 +5,14 @@ description: Omówienie platformy ASP.NET Core SignalR JavaScript klienta.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 05/29/2018
+ms.date: 08/14/2018
 uid: signalr/javascript-client
-ms.openlocfilehash: c13c41b0344b0c880e842f2799d6ee97bd7fff7e
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
-ms.translationtype: HT
+ms.openlocfilehash: 639c30f1d145a3da5e4f5857f32c1b573c1bfce2
+ms.sourcegitcommit: 2c158fcfd325cad97ead608a816e525fe3dcf757
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095427"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41753072"
 ---
 # <a name="aspnet-core-signalr-javascript-client"></a>ASP.NET Core SignalR JavaScript klienta
 
@@ -27,11 +27,11 @@ Biblioteki klienta platformy ASP.NET Core SignalR JavaScript umożliwia dewelope
 Biblioteka klienta SignalR JavaScript jest dostarczana jako [npm](https://www.npmjs.com/) pakietu. Jeśli używasz programu Visual Studio, uruchom `npm install` z **Konsola Menedżera pakietów** podczas gdy w folderze głównym. Dla programu Visual Studio Code, uruchom polecenie **zintegrowany Terminal**.
 
   ```console
-   npm init -y
-   npm install @aspnet/signalr
+  npm init -y
+  npm install @aspnet/signalr
   ```
 
-Npm instaluje zawartość pakietu w *node_modules\\@aspnet\signalr\dist\browser* folderu. Utwórz nowy folder o nazwie *signalr* w obszarze *wwwroot\\lib* folderu. Kopiuj *signalr.js* plik *wwwroot\lib\signalr* folderu.
+npm instaluje zawartość pakietu w *node_modules\\ @aspnet\signalr\dist\browser*  folderu. Utwórz nowy folder o nazwie *signalr* w obszarze *wwwroot\\lib* folderu. Kopiuj *signalr.js* plik *wwwroot\lib\signalr* folderu.
 
 ## <a name="use-the-signalr-javascript-client"></a>Używanie klienta SignalR JavaScript
 
@@ -57,50 +57,51 @@ Aby zapobiec złośliwych witryn odczytywanie poufnych danych z innej lokacji [p
 
 ## <a name="call-hub-methods-from-client"></a>Wywoływanie metod koncentratora z klienta
 
-Klientów JavaScript wywołanie metod publicznych w centrach przez przy użyciu `connection.invoke`. `invoke` Metoda przyjmuje dwa argumenty:
+Klientów JavaScript wywołania metod publicznych w centrach za pośrednictwem [wywołania](/javascript/api/%40aspnet/signalr/hubconnection#invoke) metody [HubConnection](/javascript/api/%40aspnet/signalr/hubconnection). `invoke` Metoda przyjmuje dwa argumenty:
 
-* Nazwa metody koncentratora. W poniższym przykładzie jest nazwa centrum `SendMessage`.
+* Nazwa metody koncentratora. W poniższym przykładzie jest nazwa metody koncentratora `SendMessage`.
 * Argumenty zdefiniowane w metody koncentratora. W poniższym przykładzie jest nazwa argumentu `message`.
 
-[!code-javascript[Call hub methods](javascript-client/sample/wwwroot/js/chat.js?range=24)]
+  [!code-javascript[Call hub methods](javascript-client/sample/wwwroot/js/chat.js?range=24)]
 
 ## <a name="call-client-methods-from-hub"></a>Wywoływanie metody klienta z Centrum
 
-Aby odbierać komunikaty z Centrum, definiowanie metody przy użyciu `connection.on` metody.
+Aby odbierać komunikaty z Centrum, definiowanie metody przy użyciu [na](/javascript/api/%40aspnet/signalr/hubconnection#on) metody `HubConnection`.
 
 * Nazwa metody klienta JavaScript. W poniższym przykładzie nazwa metody jest `ReceiveMessage`.
 * Argumenty Centrum przekazuje do metody. W poniższym przykładzie wartość argumentu jest `message`.
 
 [!code-javascript[Receive calls from hub](javascript-client/sample/wwwroot/js/chat.js?range=14-19)]
 
-Powyższy kod w `connection.on` jest uruchamiany, gdy wywołuje kod po stronie serwera, za pomocą `SendAsync` metody.
+Powyższy kod w `connection.on` jest uruchamiany, gdy wywołuje kod po stronie serwera, za pomocą [SendAsync](/dotnet/api/microsoft.aspnetcore.signalr.clientproxyextensions.sendasync) metody.
 
 [!code-csharp[Call client-side](javascript-client/sample/hubs/chathub.cs?range=8-11)]
 
 Określa SignalR, jakiej metody klienta do wywołania, dopasowując nazwy metody i argumenty zdefiniowane w `SendAsync` i `connection.on`.
 
 > [!NOTE]
-> Najlepszym rozwiązaniem, należy wywołać `connection.start` po `connection.on` , dzięki czemu inne programy obsługi są rejestrowane, zanim jakiekolwiek komunikaty są odbierane.
+> Najlepszym rozwiązaniem, należy wywołać [start](/javascript/api/%40aspnet/signalr/hubconnection#start) metody `HubConnection` po `on`. Daje to pewność, że inne programy obsługi są rejestrowane, zanim jakiekolwiek komunikaty są odbierane.
 
 ## <a name="error-handling-and-logging"></a>Rejestrowanie i obsługa błędów
 
-Łańcuch `catch` metody do końca `connection.start` metodę, aby obsługiwać błędy po stronie klienta. Użyj `console.error` błędy dane wyjściowe do konsoli w przeglądarce.
+Łańcuch `catch` metody do końca `start` metodę, aby obsługiwać błędy po stronie klienta. Użyj `console.error` błędy dane wyjściowe do konsoli w przeglądarce.
 
 [!code-javascript[Error handling](javascript-client/sample/wwwroot/js/chat.js?range=28)]
 
 Konfiguracja po stronie klienta dziennika śledzenia, przekazując rejestratora i typu zdarzenia logowania, gdy połączenie zostało nawiązane. Komunikaty są rejestrowane, z poziomu określonego dziennika lub nowszy. Poziomy dziennika dostępne są następujące:
 
-* `signalR.LogLevel.Error` : Komunikaty o błędach. Dzienniki `Error` tylko komunikaty.
-* `signalR.LogLevel.Warning` : Ostrzeżenie komunikaty o potencjalnych błędów. Dzienniki `Warning`, i `Error` wiadomości.
-* `signalR.LogLevel.Information` : Komunikaty o stanie bez błędów. Dzienniki `Information`, `Warning`, i `Error` wiadomości.
-* `signalR.LogLevel.Trace` : Komunikaty śledzenia. Rejestruje wszystkim, łącznie z danych przesyłanych między Centrum a klientem.
+* `signalR.LogLevel.Error` &ndash; Komunikaty o błędach. Dzienniki `Error` tylko komunikaty.
+* `signalR.LogLevel.Warning` &ndash; Komunikaty ostrzegawcze o potencjalnych błędów. Dzienniki `Warning`, i `Error` wiadomości.
+* `signalR.LogLevel.Information` &ndash; Komunikaty o stanie bez błędów. Dzienniki `Information`, `Warning`, i `Error` wiadomości.
+* `signalR.LogLevel.Trace` &ndash; Komunikaty śledzenia. Rejestruje wszystkim, łącznie z danych przesyłanych między Centrum a klientem.
 
-Użyj `configureLogging` metody `HubConnectionBuilder` skonfigurować poziom dziennika. Komunikaty są rejestrowane w konsoli przeglądarki.
+Użyj [configureLogging](/javascript/api/%40aspnet/signalr/hubconnectionbuilder#configurelogging) metody [HubConnectionBuilder](/javascript/api/%40aspnet/signalr/hubconnectionbuilder) skonfigurować poziom dziennika. Komunikaty są rejestrowane w konsoli przeglądarki.
 
 [!code-javascript[Logging levels](javascript-client/sample/wwwroot/js/chat.js?range=9-12)]
 
 ## <a name="related-resources"></a>Powiązane zasoby
 
+* [Dokumentacja interfejsu API języka JavaScript](/javascript/api/)
 * [Centra](xref:signalr/hubs)
 * [Klient .NET](xref:signalr/dotnet-client)
 * [Publikowanie na platformie Azure](xref:signalr/publish-to-azure-web-app)

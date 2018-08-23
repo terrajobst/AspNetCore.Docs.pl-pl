@@ -3,17 +3,17 @@ uid: ajax/cdn/jquery-ui/cdnjqueryui1103
 title: Interfejs użytkownika jQuery 1.10.3 w usłudze Microsoft Ajax CDN | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: ''
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/22/2014
 ms.assetid: a37291db-e0ed-4257-b212-6912e423980d
 msc.legacyurl: /ajax/cdn/jquery-ui/cdnjqueryui1103
 msc.type: content
-ms.openlocfilehash: 76228d126edf00d59ce2707753d5e61581140bb8
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: ad2718a7dad16bc49d237f850554a32aa534d8de
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37805798"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41757139"
 ---
 <a name="jquery-ui-1103-on-the-microsoft-ajax-cdn"></a>Interfejs użytkownika jQuery 1.10.3 w usłudze Microsoft Ajax CDN
 ====================

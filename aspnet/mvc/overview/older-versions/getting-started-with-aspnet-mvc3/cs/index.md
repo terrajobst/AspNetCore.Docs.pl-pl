@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/index
 title: Wprowadzenie do platformy ASP.NET MVC 3 (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Podstawy tworzenia aplikacji sieci Web platformy ASP.NET MVC przy użyciu programu Microsoft Visual Web Developer 2010 Express przy użyciu języka C#.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/12/2012
 ms.assetid: 807b50ae-2e7c-450c-b559-e04bd56457bd
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs
 msc.type: chapter
-ms.openlocfilehash: 8d54f32e0a87b4df2aa81bb40121f57b99b9c31c
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: ee3b9f323a8d5a58d1ecdd7d7e664934ac5fec58
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37806635"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41752064"
 ---
 <a name="getting-started-with-aspnet-mvc-3-c"></a>Wprowadzenie do platformy ASP.NET MVC 3 (C#)
 ====================

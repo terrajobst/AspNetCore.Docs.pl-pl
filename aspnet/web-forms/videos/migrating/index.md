@@ -3,17 +3,17 @@ uid: web-forms/videos/migrating/index
 title: Migrowanie | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Migrowanie do platformy ASP.NET
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: baa03541-3f84-4e46-8a2c-2395e64f484d
 msc.legacyurl: /web-forms/videos/migrating
 msc.type: chapter
-ms.openlocfilehash: 7c262a8166405343d4bee9d0d236e9f62ac567ee
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 9daf2ad20dee8b544cf9874d345d9879955d75bc
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37842816"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754841"
 ---
 <a name="migrating"></a>Migracja
 ====================

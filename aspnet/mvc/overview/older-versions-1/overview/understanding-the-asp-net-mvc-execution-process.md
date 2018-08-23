@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/overview/understanding-the-asp-net-mvc-execut
 title: Objaśnienie procesu wykonywania platformy ASP.NET MVC | Dokumentacja firmy Microsoft
 author: microsoft
 description: Dowiedz się, jak platforma ASP.NET MVC przetwarza żądanie przeglądarkę krok po kroku.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/27/2009
 ms.assetid: d1608db3-660d-4079-8c15-f452ff01f1db
 msc.legacyurl: /mvc/overview/older-versions-1/overview/understanding-the-asp-net-mvc-execution-process
 msc.type: authoredcontent
-ms.openlocfilehash: 34699c314eb862e91ecba8831c5092af9d47dc70
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 3a3bcf4b78e3b19fb4d293f67b68c3a790d05221
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37823738"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756042"
 ---
 <a name="understanding-the-aspnet-mvc-execution-process"></a>Objaśnienie procesu wykonywania platformy ASP.NET MVC
 ====================

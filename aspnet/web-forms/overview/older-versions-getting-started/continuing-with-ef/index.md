@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/continuing-with-ef/index
 title: ASP.NET4 — kontynuowanie pracy z programem Entity Framework 4 i formularzy sieci Web | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Jak utworzyć aplikację Contoso U jako aplikacji n warstwowa przy użyciu formantu ObjectDataSource oraz sposób obsługi współbieżności i zmaksymalizować wydajność.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: 25a6b7ba-e374-4c3f-9e53-83f665cfdd21
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef
 msc.type: chapter
-ms.openlocfilehash: bae24a976bdd4c6be2c736c7e48c0d3c1c754417
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 7866827440b16cdee1af923b9a1597a659c0f443
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37839507"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754578"
 ---
 <a name="aspnet-4---continuing-with-entity-framework-4-and-web-forms"></a>ASP.NET4 — kontynuowanie pracy z programem Entity Framework 4 i formularzy sieci Web
 ====================

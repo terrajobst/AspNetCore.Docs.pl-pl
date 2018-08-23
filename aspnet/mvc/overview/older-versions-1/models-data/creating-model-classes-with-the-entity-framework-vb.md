@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/models-data/creating-model-classes-with-the-e
 title: Tworzenie klas modelu za pomocą platformy Entity Framework (VB) | Dokumentacja firmy Microsoft
 author: microsoft
 description: W tym samouczku dowiesz się, jak używać platformy ASP.NET MVC z programem Microsoft Entity Framework. Dowiesz się, jak używać Kreator modelu Entity do tworzenia aplikacji rozproszonej programu ADO.NET Entity...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/27/2009
 ms.assetid: ff8322c9-12f3-4e24-aba6-a38046b9bb0d
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/creating-model-classes-with-the-entity-framework-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 15415547763cfcd48dc845827d8c6b12afd18d75
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: c1f64f57d4c23fe225a8268042104254e17dc456
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37810407"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41752057"
 ---
 <a name="creating-model-classes-with-the-entity-framework-vb"></a>Tworzenie klas modelu za pomocą platformy Entity Framework (VB)
 ====================

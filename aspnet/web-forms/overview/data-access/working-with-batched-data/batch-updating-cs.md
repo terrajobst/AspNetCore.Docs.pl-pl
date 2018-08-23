@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/working-with-batched-data/batch-updating-cs
 title: Batch aktualizowanie (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Dowiedz się, jak aktualizowanie wielu rekordów bazy danych w ramach jednej operacji. W warstwie interfejsu użytkownika, firma Microsoft tworzy GridView, gdzie każdy wiersz jest edytowalny. W danych...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/26/2007
 ms.assetid: 4e849bcc-c557-4bc3-937e-f7453ee87265
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-updating-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 0cb55689ac3a6dc36ed18459ecece82ff0b073b7
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: c878056273ea821e4dd4481fa1b6f7690f22b285
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37842195"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755254"
 ---
 <a name="batch-updating-c"></a>Batch aktualizowanie (C#)
 ====================

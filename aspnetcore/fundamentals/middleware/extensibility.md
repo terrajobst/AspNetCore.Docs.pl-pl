@@ -1,84 +1,85 @@
 ---
-title: Aktywacji opartej na fabryki oprogramowanie pośredniczące w ASP.NET Core
+title: Oprogramowanie pośredniczące oparte na fabryce aktywacji w programie ASP.NET Core
 author: guardrex
-description: Dowiedz się, jak użyć jednoznacznie oprogramowania pośredniczącego z aktywacji opartej na fabryki implementacja platformy ASP.NET Core.
+description: Dowiedz się, jak używać silnie typizowane oprogramowania pośredniczącego z implementacją oparte na fabryce aktywacji w programie ASP.NET Core.
+monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/29/2018
+ms.date: 08/14/2018
 uid: fundamentals/middleware/extensibility
-ms.openlocfilehash: 44987dbc20b0419865a23e64b60a5dc3f436743a
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 346f5e7b28a9cd17a03a864772ed8b2e4be9455b
+ms.sourcegitcommit: 2c158fcfd325cad97ead608a816e525fe3dcf757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36277075"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41752664"
 ---
-# <a name="factory-based-middleware-activation-in-aspnet-core"></a>Aktywacji opartej na fabryki oprogramowanie pośredniczące w ASP.NET Core
+# <a name="factory-based-middleware-activation-in-aspnet-core"></a>Oprogramowanie pośredniczące oparte na fabryce aktywacji w programie ASP.NET Core
 
 Przez [Luke Latham](https://github.com/guardrex)
 
-[IMiddlewareFactory](/dotnet/api/microsoft.aspnetcore.http.imiddlewarefactory)/[IMiddleware](/dotnet/api/microsoft.aspnetcore.http.imiddleware) punkt rozszerzalności dla [oprogramowanie pośredniczące](xref:fundamentals/middleware/index) aktywacji.
+[IMiddlewareFactory](/dotnet/api/microsoft.aspnetcore.http.imiddlewarefactory)/[IMiddleware](/dotnet/api/microsoft.aspnetcore.http.imiddleware) jest punktem rozszerzalności dla [oprogramowania pośredniczącego](xref:fundamentals/middleware/index) aktywacji.
 
-`UseMiddleware` metody rozszerzenia, sprawdź, czy oprogramowanie pośredniczące w zarejestrowany typ implementuje `IMiddleware`. Jeśli tak, `IMiddlewareFactory` wystąpienia zarejestrowany w kontenerze jest używany do rozpoznawania `IMiddleware` implementacji zamiast logiki aktywacji opartych na konwencjach oprogramowania pośredniczącego. Oprogramowanie pośredniczące jest zarejestrowany jako usługa zakresie lub przejściowej w kontenerze usługi aplikacji.
+`UseMiddleware` metody rozszerzenia, sprawdź, jeśli oprogramowanie pośredniczące, zarejestrowany typ implementuje `IMiddleware`. Jeśli tak jest, `IMiddlewareFactory` wystąpieniu zarejestrowana w kontenerze jest używany do rozpoznawania `IMiddleware` implementacji zamiast przy użyciu logiki aktywacji oprogramowanie pośredniczące oparte na Konwencji. Oprogramowanie pośredniczące jest zarejestrowany jako usługa o określonym zakresie lub przejściowy w kontenerze usługi aplikacji.
 
 Korzyści:
 
-* Aktywacja na żądanie (iniekcji usługi w zakresie)
+* Aktywacja na żądanie (iniekcji usługi o określonym zakresie)
 * Silne wpisywanie oprogramowania pośredniczącego
 
-`IMiddleware` została aktywowana na żądanie, i usługi w zakresie mogą zostać dodane do konstruktora oprogramowania pośredniczącego.
+`IMiddleware` aktywowano na żądanie, dzięki czemu usługi o określonym zakresie można wstrzyknięte do konstruktora oprogramowania pośredniczącego.
 
-[Wyświetlić lub pobrać przykładowy kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/middleware/extensibility/sample) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/middleware/extensibility/sample) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
 
-Przykładowa aplikacja ilustruje aktywowany przez oprogramowanie pośredniczące:
+Przykładowa aplikacja pokazuje aktywowany przez oprogramowanie pośredniczące:
 
-* Konwencji. Aby uzyskać więcej informacji o aktywacji z konwencjonalnej oprogramowanie pośredniczące, zobacz [oprogramowanie pośredniczące](xref:fundamentals/middleware/index) tematu.
+* Konwencja. Aby uzyskać więcej informacji na temat aktywacji są konwencjonalne funkcje oprogramowania pośredniczącego, zobacz [oprogramowania pośredniczącego](xref:fundamentals/middleware/index) tematu.
 * [IMiddleware](/dotnet/api/microsoft.aspnetcore.http.imiddleware) implementacji. Wartość domyślna [klasy MiddlewareFactory](/dotnet/api/microsoft.aspnetcore.http.middlewarefactory) aktywuje oprogramowania pośredniczącego.
 
-Implementacje oprogramowania pośredniczącego działają tak samo i rejestrowanie podana wartość parametru ciągu zapytania (`key`). Middlewares Użyj kontekstu wprowadzony bazy danych (zakresie usługa), aby zapisać wartość ciągu kwerendy w bazie danych w pamięci.
+Implementacje oprogramowania pośredniczącego działać identycznie i Zapisz wartość dostarczona przez parametr ciągu zapytania (`key`). Middlewares użyć kontekstu wprowadzonego bazy danych (usługi o określonym zakresie) do rejestrowania wartości ciągu zapytania w bazie danych w pamięci.
 
 ## <a name="imiddleware"></a>IMiddleware
 
-[IMiddleware](/dotnet/api/microsoft.aspnetcore.http.imiddleware) definiuje oprogramowanie pośredniczące do potoku żądania aplikacji. [InvokeAsync (Element HttpContext, RequestDelegate)](/dotnet/api/microsoft.aspnetcore.http.imiddleware.invokeasync#Microsoft_AspNetCore_Http_IMiddleware_InvokeAsync_Microsoft_AspNetCore_Http_HttpContext_Microsoft_AspNetCore_Http_RequestDelegate_) metoda obsługuje żądania i zwraca `Task` reprezentujący wykonywanie oprogramowania pośredniczącego.
+[IMiddleware](/dotnet/api/microsoft.aspnetcore.http.imiddleware) definiuje oprogramowanie pośredniczące do potoku żądania aplikacji. [InvokeAsync (HttpContext, RequestDelegate)](/dotnet/api/microsoft.aspnetcore.http.imiddleware.invokeasync#Microsoft_AspNetCore_Http_IMiddleware_InvokeAsync_Microsoft_AspNetCore_Http_HttpContext_Microsoft_AspNetCore_Http_RequestDelegate_) metoda obsługuje żądania i zwraca `Task` reprezentujący wykonywania oprogramowania pośredniczącego.
 
-Oprogramowanie pośredniczące aktywowany przez Konwencję:
+Oprogramowanie pośredniczące aktywowane zgodnie z Konwencją:
 
 [!code-csharp[](extensibility/sample/Middleware/ConventionalMiddleware.cs?name=snippet1)]
 
 Oprogramowanie pośredniczące aktywowany przez `MiddlewareFactory`:
 
-[!code-csharp[](extensibility/sample/Middleware/IMiddlewareMiddleware.cs?name=snippet1)]
+[!code-csharp[](extensibility/sample/Middleware/FactoryActivatedMiddleware.cs?name=snippet1)]
 
 Rozszerzenia są tworzone dla middlewares:
 
 [!code-csharp[](extensibility/sample/Middleware/MiddlewareExtensions.cs?name=snippet1)]
 
-Nie można przekazać obiektów do oprogramowania pośredniczącego aktywowany fabryki z `UseMiddleware`:
+Nie można przekazać obiekty do aktywacji fabryki oprogramowania pośredniczącego z `UseMiddleware`:
 
 ```csharp
-public static IApplicationBuilder UseIMiddlewareMiddleware(
+public static IApplicationBuilder UseFactoryActivatedMiddleware(
     this IApplicationBuilder builder, bool option)
 {
     // Passing 'option' as an argument throws a NotSupportedException at runtime.
-    return builder.UseMiddleware<IMiddlewareMiddleware>(option);
+    return builder.UseMiddleware<FactoryActivatedMiddleware>(option);
 }
 ```
 
-Oprogramowanie pośredniczące aktywowany fabryki jest dodawany do kontenera wbudowanych w *Startup.cs*:
+Oprogramowanie pośredniczące aktywacji fabryki jest dodawany do kontenerze wbudowane w *Startup.cs*:
 
 [!code-csharp[](extensibility/sample/Startup.cs?name=snippet1&highlight=12)]
 
 Zarówno middlewares są rejestrowane w potoku przetwarzania żądań w `Configure`:
 
-[!code-csharp[](extensibility/sample/Startup.cs?name=snippet2&highlight=13-14)]
+[!code-csharp[](extensibility/sample/Startup.cs?name=snippet2&highlight=14-15)]
 
 ## <a name="imiddlewarefactory"></a>IMiddlewareFactory
 
 [IMiddlewareFactory](/dotnet/api/microsoft.aspnetcore.http.imiddlewarefactory) udostępnia metody do tworzenia oprogramowania pośredniczącego. Wdrożenie fabryki oprogramowanie pośredniczące jest zarejestrowany w kontenerze w zakresie usługi.
 
-Wartość domyślna `IMiddlewareFactory` implementacji [MiddlewareFactory](/dotnet/api/microsoft.aspnetcore.http.middlewarefactory), znajduje się w [Microsoft.AspNetCore.Http](https://www.nuget.org/packages/Microsoft.AspNetCore.Http/) pakietu ([źródło odwołania](https://github.com/aspnet/HttpAbstractions/blob/release/2.0/src/Microsoft.AspNetCore.Http/MiddlewareFactory.cs)).
+Wartość domyślna `IMiddlewareFactory` implementacji [MiddlewareFactory](/dotnet/api/microsoft.aspnetcore.http.middlewarefactory), znajduje się w [Microsoft.AspNetCore.Http](https://www.nuget.org/packages/Microsoft.AspNetCore.Http/) pakietu.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Oprogramowanie pośredniczące](xref:fundamentals/middleware/index)
-* [Oprogramowanie pośredniczące aktywacji z kontenerem innych firm](xref:fundamentals/middleware/extensibility-third-party-container)
+* <xref:fundamentals/middleware/index>
+* <xref:fundamentals/middleware/extensibility-third-party-container>

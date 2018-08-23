@@ -3,17 +3,17 @@ uid: web-forms/overview/security/create-an-aspnet-web-forms-app-with-sms-two-fac
 title: Tworzenie internetowego interfejsu platformy ASP.NET aplikacja formularzy przy użyciu uwierzytelniania dwuskładnikowego wiadomości SMS (C#) | Dokumentacja firmy Microsoft
 author: Erikre
 description: W tym samouczku przedstawiono sposób tworzenia aplikacji formularzy sieci Web ASP.NET za pomocą uwierzytelniania dwuskładnikowego. W tym samouczku został zaprojektowany jako uzupełnienie samouczek pod tytułem Cr...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/09/2014
 ms.assetid: 716264ae-ab72-45de-bfc5-53a6237089cf
 msc.legacyurl: /web-forms/overview/security/create-an-aspnet-web-forms-app-with-sms-two-factor-authentication
 msc.type: authoredcontent
-ms.openlocfilehash: 16045b116ca5c797e7840f2ee5944e5f2c6282eb
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 7ad3b7a453a40f2708902ae5b9e5cb75b931d54d
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37803552"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754591"
 ---
 <a name="create-an-aspnet-web-forms-app-with-sms-two-factor-authentication-c"></a>Tworzenie internetowego interfejsu platformy ASP.NET aplikacja formularzy przy użyciu uwierzytelniania dwuskładnikowego wiadomości SMS (C#)
 ====================

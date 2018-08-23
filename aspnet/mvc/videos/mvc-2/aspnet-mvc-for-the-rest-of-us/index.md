@@ -3,17 +3,17 @@ uid: mvc/videos/mvc-2/aspnet-mvc-for-the-rest-of-us/index
 title: ASP.NET MVC dla każdego | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: ASP.NET MVC dla każdego
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 09/28/2011
 ms.assetid: b57141fa-8903-4afe-8c8c-d965204001e2
 msc.legacyurl: /mvc/videos/mvc-2/aspnet-mvc-for-the-rest-of-us
 msc.type: chapter
-ms.openlocfilehash: b411b573645e37d3e1e70ce085b01bd01f90266c
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: f0a686f36bdd3b7d534f7d00965e8057f48cdf84
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37834573"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756900"
 ---
 <a name="aspnet-mvc-for-the-rest-of-us"></a>ASP.NET MVC dla każdego
 ====================

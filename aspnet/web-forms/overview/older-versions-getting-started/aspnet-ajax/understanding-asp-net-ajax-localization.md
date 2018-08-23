@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding
 title: Informacje o lokalizacji kodu ASP.NET AJAX | Dokumentacja firmy Microsoft
 author: scottcate
 description: Lokalizacja to proces projektowania i integracji pomocy technicznej dla określonego języka i kultury aplikacji lub składnika aplikacji. Mic...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/14/2008
 ms.assetid: c1a35f18-bab9-41f7-8497-15530c37a09d
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-localization
 msc.type: authoredcontent
-ms.openlocfilehash: ce6404ce4faa1018a4f8118f6167a4f93956abd3
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 86cbf150708f1db711b40ccbc25345afeb3e542a
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37815014"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755744"
 ---
 <a name="understanding-aspnet-ajax-localization"></a>Informacje o lokalizacji kodu ASP.NET AJAX
 ====================
