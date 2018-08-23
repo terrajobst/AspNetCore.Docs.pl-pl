@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/24/2018
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: ece61a3e362ec5e2ff8f415351a0f9257fc72098
-ms.sourcegitcommit: b4c7b1a4c48dec0865f27874275c73da1f75e918
+ms.openlocfilehash: 9a7d20378cac597b748d8a60eb0f0bf17c9ba082
+ms.sourcegitcommit: d27317c16f113e7c111583042ec7e4c5a26adf6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39228614"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41756217"
 ---
 # <a name="host-aspnet-core-on-azure-app-service"></a>Host platformy ASP.NET Core w usłudze Azure App Service
 
@@ -99,7 +99,7 @@ Aby uzyskać więcej informacji, zobacz [dostawcy magazynu kluczy](xref:security
 Platforma ASP.NET Core w wersji zapoznawczej aplikacji można wdrożyć w usłudze Azure App Service przy użyciu następujących metod:
 
 * [Zainstalować rozszerzenie witryny usługi (wersja zapoznawcza)](#install-the-preview-site-extension)
-* [Wdróż aplikację, która jest niezależna](#deploy-the-app-self-contained)
+<!-- * [Deploy the app self-contained](#deploy-the-app-self-contained) -->
 * [Używać platformy Docker z funkcją Web Apps for containers](#use-docker-with-web-apps-for-containers)
 
 Jeśli wystąpi problem, za pomocą rozszerzenia witryny (wersja zapoznawcza), otwórz problem w [GitHub](https://github.com/aspnet/azureintegration/issues/new).
@@ -130,7 +130,7 @@ Jeśli wersja `2.1.300-preview1-008174` jest najnowsza wersja zapoznawcza, uzysk
 
 Wersja platformy ASP.NET Core na poprzednim obrazie `2.1.300-preview1-008174`, znajduje się przykład. Od najnowszej wersji wstępnej programu ASP.NET Core w momencie skonfigurowano rozszerzenie witryny pojawia się podczas wykonywania `dotnet --info`.
 
-`dotnet --info` Zawiera ścieżkę do rozszerzenia witryny, w którym zainstalowano wersję zapoznawczą. Pokazuje, aplikacja zostanie uruchomiona z poziomu rozszerzenia lokacji zamiast z domyślnej *ProgramFiles* lokalizacji. Jeśli widzisz *ProgramFiles*, uruchom ponownie lokację i uruchom `dotnet --info`.
+`dotnet --info` Wyświetla ścieżkę do rozszerzenia witryny, w którym zainstalowano wersję zapoznawczą. Pokazuje, aplikacja zostanie uruchomiona z poziomu rozszerzenia lokacji zamiast z domyślnej *ProgramFiles* lokalizacji. Jeśli widzisz *ProgramFiles*, uruchom ponownie lokację i uruchom `dotnet --info`.
 
 **Rozszerzenie witryny (wersja zapoznawcza) za pomocą szablonu usługi ARM**
 
@@ -138,14 +138,16 @@ Jeśli szablon ARM jest używany do tworzenia i wdrażania aplikacji, `siteexten
 
 [!code-json[Main](index/sample/arm.json?highlight=2)]
 
-### <a name="deploy-the-app-self-contained"></a>Wdróż aplikację, która jest niezależna
+<!--
+### Deploy the app self-contained
 
-A [aplikację samodzielną](/dotnet/core/deploying/#self-contained-deployments-scd) można wdrożyć, niesie ze sobą w środowisku uruchomieniowym w wersji zapoznawczej we wdrożeniu. W przypadku wdrażania aplikacja samodzielna:
+A [self-contained app](/dotnet/core/deploying/#self-contained-deployments-scd) can be deployed that carries the preview runtime in the deployment. When deploying a self-contained app:
 
-* Witryna nie muszą być przygotowane.
-* Inaczej niż podczas publikowania dla wdrożenia zależny od struktury za pomocą udostępnionego środowiska uruchomieniowego i hosta na serwerze można opublikować aplikacji.
+* The site doesn't need to be prepared.
+* The app must be published differently than when publishing for a framework-dependent deployment with the shared runtime and host on the server.
 
-Aplikacje samodzielne są opcję dla wszystkich aplikacji platformy ASP.NET Core.
+Self-contained apps are an option for all ASP.NET Core apps.
+-->
 
 ### <a name="use-docker-with-web-apps-for-containers"></a>Używać platformy Docker z funkcją Web Apps for containers
 

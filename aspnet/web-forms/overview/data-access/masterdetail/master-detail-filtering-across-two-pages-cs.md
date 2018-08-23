@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/masterdetail/master-detail-filtering-across-
 title: Filtrowanie rekordu głównego/szczegółów na dwóch stronach (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: W tym samouczku będziesz wdrażamy tego wzorca przy użyciu GridView, aby wyświetlić listę dostawców w bazie danych. Każdy wiersz dostawcy w widoku GridView będzie zawierać Vie...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/31/2010
 ms.assetid: 552d2d50-fe73-4153-9a7f-2b379bec4625
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-filtering-across-two-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 13f5a13ac33ec9dfbff1952bc3bbb4dc951ab139
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 69e5f010507784229360f71cf6f570b342f5ff46
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37823985"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41757138"
 ---
 <a name="masterdetail-filtering-across-two-pages-c"></a>Filtrowanie rekordu głównego/szczegółów na dwóch stronach (C#)
 ====================

@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-security/membership/creating-the-membersh
 title: Tworzenie schematu członkostwa w programie SQL Server (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Ten samouczek rozpoczyna się przez badanie metod dodawania niezbędne schematu do bazy danych, aby można było używać SqlMembershipProvider. Poniżej firma Microsoft wi...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/18/2008
 ms.assetid: 112a674d-716f-41a6-99b8-4074d65a54c0
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/creating-the-membership-schema-in-sql-server-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 1fa1e3f57c1218af6fec8bddeed6cdcbdffe1965
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 62a6113c9ddad1722160c7092308939cf7883588
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37831848"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755660"
 ---
 <a name="creating-the-membership-schema-in-sql-server-vb"></a>Tworzenie schematu członkostwa w programie SQL Server (VB)
 ====================

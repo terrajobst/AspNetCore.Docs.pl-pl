@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions/using-oauth-providers-with-mvc
 title: Przy użyciu dostawców uwierzytelniania OAuth w MVC 4 | Dokumentacja firmy Microsoft
 author: tfitzmac
 description: W tym samouczku dowiesz się, jak utworzyć aplikację sieci web platformy ASP.NET MVC 4, która umożliwia użytkownikom logowanie się przy użyciu poświadczeń z zewnętrznego dostawcy, takich jak Facebo...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/19/2013
 ms.assetid: 7a87f16f-0e19-4f15-a88a-094ae866c4a2
 msc.legacyurl: /mvc/overview/older-versions/using-oauth-providers-with-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 15f6b45706c0711d68b0780a7474d4c939a85fba
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 9b0db2775db5c74762bdc55328ad44ef7ebe75ce
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37823329"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754372"
 ---
 <a name="using-oauth-providers-with-mvc-4"></a>Przy użyciu dostawców uwierzytelniania OAuth w MVC 4
 ====================
@@ -195,7 +195,7 @@ Jeśli jesteś nowym użytkownikiem witryny jest użytkownik, będzie pobrać ni
 
 [!code-csharp[Main](using-oauth-providers-with-mvc/samples/sample8.cs)]
 
-W tym:
+w tym:
 
 [!code-csharp[Main](using-oauth-providers-with-mvc/samples/sample9.cs)]
 
