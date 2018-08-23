@@ -3,17 +3,17 @@ uid: web-forms/overview/ajax-control-toolkit/mutuallyexclusivecheckbox/creating-
 title: Tworzenie wzajemnie wykluczających się pól wyboru (C#) | Dokumentacja firmy Microsoft
 author: wenz
 description: 'Jeżeli można wybrać tylko jeden zestaw opcji, przyciski radiowe zwykle są używane. Istnieje jednak wadą: po wybraniu jednego przycisku radiowego w grupie...'
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: 8e11b813-ba0d-4c29-b0f8-f65db6dbef1e
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/mutuallyexclusivecheckbox/creating-mutually-exclusive-checkboxes-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 1bce8cd94ed11551f75e48b19cd9cc50b9d023c9
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 3d80771081a7aefefa115e68827c52092c6559bb
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37818070"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41752791"
 ---
 <a name="creating-mutually-exclusive-checkboxes-c"></a>Tworzenie wzajemnie wykluczających się pól wyboru (C#)
 ====================

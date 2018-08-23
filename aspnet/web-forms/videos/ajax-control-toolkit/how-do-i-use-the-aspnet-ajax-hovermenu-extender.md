@@ -3,17 +3,17 @@ uid: web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-hovermen
 title: '[Jak mogę] Użyj rozszerzenie HoverMenu ASP.NET AJAX? | Microsoft Docs'
 author: JoeStagner
 description: Dowiedz się, jak używać kontrolki HoverMenu rozszerzenie formantu do tworzenia menu kontekstowego, która pojawia się w każdym przypadku, gdy użytkownik zatrzyma wskaźnik myszy element możemy...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/31/2007
 ms.assetid: 61086ed8-ad8b-499a-84d2-5b6b68ede15a
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-hovermenu-extender
 msc.type: video
-ms.openlocfilehash: 6197ed000fe2d4515c3eb6368200e51506d02739
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 5ce3beb7610630c6f8b82c67304caf8b6900af63
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37825914"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755059"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-hovermenu-extender"></a>[Jak mogę] Użyj rozszerzenie HoverMenu ASP.NET AJAX?
 ====================

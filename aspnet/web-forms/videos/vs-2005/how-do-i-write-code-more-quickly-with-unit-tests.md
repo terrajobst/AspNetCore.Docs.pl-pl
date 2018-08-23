@@ -3,17 +3,17 @@ uid: web-forms/videos/vs-2005/how-do-i-write-code-more-quickly-with-unit-tests
 title: '[Jak mogę] Pisać kod szybciej przy użyciu testów jednostkowych? | Microsoft Docs'
 author: rick-anderson
 description: W tym filmie pokazano dowie się, jak testy jednostkowe mogą zwiększyć produktywność za ułatwianie debugowania procesu. Zobaczymy, jak Visual Studio Team System może wygenerować U....
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/21/2007
 ms.assetid: 4618499e-1925-414e-a432-16952bb967f4
 msc.legacyurl: /web-forms/videos/vs-2005/how-do-i-write-code-more-quickly-with-unit-tests
 msc.type: video
-ms.openlocfilehash: c2ba4f3433d19654ff1dfe543cabec1673bdc5c5
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: d0950ec711e85435c5a25028e357d9519817f7b9
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37840413"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754618"
 ---
 <a name="how-do-i-write-code-more-quickly-with-unit-tests"></a>[Jak mogę] Pisać kod szybciej przy użyciu testów jednostkowych?
 ====================

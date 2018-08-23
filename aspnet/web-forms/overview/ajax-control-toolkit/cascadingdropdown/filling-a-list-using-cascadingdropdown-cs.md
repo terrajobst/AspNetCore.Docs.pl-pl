@@ -3,17 +3,17 @@ uid: web-forms/overview/ajax-control-toolkit/cascadingdropdown/filling-a-list-us
 title: Wypełnianie listy przy użyciu kontrolki CascadingDropDown (C#) | Dokumentacja firmy Microsoft
 author: wenz
 description: Kontrolki CascadingDropDown w zestawu narzędzi AJAX Control Toolkit rozszerza formant DropDownList, tak aby zmiany w jednej metody DropDownList ładowania skojarzone wartości w anoth...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: f949aafa-fe57-43b0-b722-f0dd33a900be
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/cascadingdropdown/filling-a-list-using-cascadingdropdown-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f48343e811bd41a8fa8ba6965f1e53643bef7fcb
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 795b2a2ee80d3d2bed6f752887d5f9d974151a56
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37806641"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753183"
 ---
 <a name="filling-a-list-using-cascadingdropdown-c"></a>Wypełnianie listy przy użyciu kontrolki CascadingDropDown (C#)
 ====================

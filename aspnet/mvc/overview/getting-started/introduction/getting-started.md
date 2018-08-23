@@ -3,17 +3,17 @@ uid: mvc/overview/getting-started/introduction/getting-started
 title: Wprowadzenie do ASP.NET MVC 5 | Dokumentacja firmy Microsoft
 author: Rick-Anderson
 description: 'Uwaga: Zaktualizowaną wersję w tym samouczku jest dostępna, w tym miejscu przy użyciu programu Visual Studio 2015. Nowe samouczku platformy ASP.NET Core MVC 6, która oferuje wiele improvem...'
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/28/2015
 ms.assetid: f3d8adbe-55e7-4fd4-84a8-7155bc45c676
 msc.legacyurl: /mvc/overview/getting-started/introduction/getting-started
 msc.type: authoredcontent
-ms.openlocfilehash: 85d5d3292ff99ade6995c710e2728c41255def4c
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 8417be945e16ed99e655f628134c9190429f1d67
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38211751"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754729"
 ---
 <a name="getting-started-with-aspnet-mvc-5"></a>Wprowadzenie do korzystania z wzorca ASP.NET MVC 5
 ====================

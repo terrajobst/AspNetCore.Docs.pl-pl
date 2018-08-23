@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/editing-and-deleting-data-through-the-datali
 title: Wykonywanie aktualizacji wsadowych (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Dowiedz się, jak utworzyć w pełni edytowalne DataList, gdzie wszystkie jego elementy znajdują się w edycji tryb i którego wartości można zapisać, klikając przycisk "Aktualizuj wszystkie"...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/30/2006
 ms.assetid: 57743ca7-5695-4e07-aed1-44b297f245a9
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/performing-batch-updates-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 3528444269a3595681696251d3906a204090410c
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 2ca91baa87d5bb748695b56bb8bf19698b0858f2
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37807808"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755357"
 ---
 <a name="performing-batch-updates-c"></a>Wykonywanie aktualizacji wsadowych (C#)
 ====================

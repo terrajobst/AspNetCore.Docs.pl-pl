@@ -3,17 +3,17 @@ uid: web-forms/videos/tailspin-spyworks/tailspin-spyworks-display-per-product-de
 title: Tailspin Spyworks — wyświetlanie szczegółów dla produktu | Dokumentacja firmy Microsoft
 author: JoeStagner
 description: Jan Stagner Wyświetla szczegóły produktu w Tailspin Spyworks przykładowej aplikacji formularzy sieci Web.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/09/2010
 ms.assetid: cc1ae79f-69ff-445a-a789-b5da2b255cb6
 msc.legacyurl: /web-forms/videos/tailspin-spyworks/tailspin-spyworks-display-per-product-details
 msc.type: video
-ms.openlocfilehash: 98c7829d8c25dd2646a6359f9e55df33cbda9285
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 6973091e97614f17c9ca96ed7587ad438f90df9d
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37820976"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754366"
 ---
 <a name="tailspin-spyworks---display-per-product-details"></a>Tailspin Spyworks — wyświetlanie szczegółów dla produktu
 ====================

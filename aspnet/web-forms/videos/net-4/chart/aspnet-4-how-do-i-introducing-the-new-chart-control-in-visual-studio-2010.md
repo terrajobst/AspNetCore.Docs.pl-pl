@@ -3,17 +3,17 @@ uid: web-forms/videos/net-4/chart/aspnet-4-how-do-i-introducing-the-new-chart-co
 title: Jak mogę Wprowadzenie nowej kontrolki wykresu w programie Visual Studio 2010 | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Istnieje wiele ekscytację wokół nadchodzącym wydaniem programu Microsoft Visual Studio 2010 oraz programu .NET Framework 4.0. Między wieloma nowymi funkcjami jest ASP.NET...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/08/2010
 ms.assetid: 77b9f76c-0c38-4525-bf1b-581c19e127ab
 msc.legacyurl: /web-forms/videos/net-4/chart/aspnet-4-how-do-i-introducing-the-new-chart-control-in-visual-studio-2010
 msc.type: video
-ms.openlocfilehash: 59fc7080fd521fec0a6617e1875266d34f5e466b
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: acd3033d4865ed45ab369f5fa3839c4ed536f6ac
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37812203"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755618"
 ---
 <a name="how-do-i-introducing-the-new-chart-control-in-visual-studio-2010"></a>Jak mogę Wprowadzenie nowej kontrolki wykresu w programie Visual Studio 2010
 ====================

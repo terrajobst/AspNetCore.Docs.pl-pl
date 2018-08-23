@@ -3,15 +3,15 @@ uid: webhooks/index
 title: Omówienie elementów Webhook programu ASP.NET | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Wprowadzenie do elementów Webhook programu ASP.NET.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/17/2012
 ms.assetid: 5e2843f0-f499-448f-a712-33d4e9858321
-ms.openlocfilehash: 1dbac40847aa0eb7733c480f182ae3e4c51a925c
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 702cc0bf0d0bb887c64bec19e1faf249bd96617a
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37810377"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756056"
 ---
 # <a name="aspnet-webhooks-overview"></a>Omówienie elementów Webhook programu ASP.NET
 

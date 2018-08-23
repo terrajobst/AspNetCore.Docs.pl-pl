@@ -3,17 +3,17 @@ uid: web-forms/overview/ajax-control-toolkit/collapsiblepanel/collapsing-and-exp
 title: Rozwijanie i zwijanie panelu z poziomu języka JavaScript (VB) | Dokumentacja firmy Microsoft
 author: wenz
 description: Rozszerzenie panelu i zapewnia możliwość Zwiń jego zawartość i rozwiń go kontrolki CollapsiblePanel w ASP.NET AJAX Control Toolkit...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: 298789b4-2964-49f5-a0a8-d4dbeb9ff2c2
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/collapsiblepanel/collapsing-and-expanding-a-panel-from-javascript-vb
 msc.type: authoredcontent
-ms.openlocfilehash: da1bc6958dba99ffc5ef54fbfbc003bb26050495
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 1f80a6979966a887db0557b4f1b98570e10b1ab7
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37812508"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755785"
 ---
 <a name="collapsing-and-expanding-a-panel-from-javascript-vb"></a>Rozwijanie i zwijanie panelu z poziomu języka JavaScript (VB)
 ====================

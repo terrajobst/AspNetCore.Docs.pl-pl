@@ -3,17 +3,17 @@ uid: aspnet/overview/owin-and-katana/index
 title: OWIN i Katana | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Katana jest elastyczny zestaw składników do tworzenia i hostowania Open Web Interface dla aplikacji sieci web opartych na .NET OWIN.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/30/2013
 ms.assetid: 37e005e9-2f1c-4039-b6ef-15612e0fdbc9
 msc.legacyurl: /aspnet/overview/owin-and-katana
 msc.type: chapter
-ms.openlocfilehash: 6063b49347e0a9b83f92fc70dfedaa4e116fa65f
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: e528bbfb4513d25b6a77fa2263dc744fb5e52df6
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37827010"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756146"
 ---
 <a name="owin-and-katana"></a>OWIN i Katana
 ====================

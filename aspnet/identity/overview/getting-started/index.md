@@ -3,17 +3,17 @@ uid: identity/overview/getting-started/index
 title: Wprowadzenie do produktu ASP.NET Identity | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: System produktu ASP.NET Identity zaprojektowano w celu zastąpienia starszych systemów członkostwa ASP.NET i członkostwa prostego. Obejmuje obsługę profilu, integracji OAuth...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/02/2013
 ms.assetid: 72bb0051-a696-437e-a4e6-ca1225a6e271
 msc.legacyurl: /identity/overview/getting-started
 msc.type: chapter
-ms.openlocfilehash: d6e2a1cbcffee8eb5b14ab5a60dc14f8c7e56973
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 5e124c3ae59cabcdb90872bbf5470964aed148c8
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37813176"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755178"
 ---
 <a name="getting-started-with-aspnet-identity"></a>Wprowadzenie do produktu ASP.NET Identity
 ====================

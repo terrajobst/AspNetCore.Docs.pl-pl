@@ -3,17 +3,17 @@ uid: web-forms/overview/deployment/visual-studio-web-deployment/index
 title: Wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: W tej serii samouczków pokazano, jak utworzyć aplikację sieci web platformy ASP.NET, która używa programu SQL Server (nie SQL Server Compact) dostępnych za pośrednictwem Internetu przez wdrożenie jej t...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/15/2013
 ms.assetid: e733027a-525f-47ae-b1c0-2e5ecf6677aa
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment
 msc.type: chapter
-ms.openlocfilehash: 1bba3984b8e412938d5678206ac15d1df8793afb
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: a91de204f821cd8301485330518170e458f5da4d
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37806938"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753731"
 ---
 <a name="aspnet-web-deployment-using-visual-studio"></a>Wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio
 ====================

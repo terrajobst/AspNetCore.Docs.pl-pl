@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/contact-manager/iteration-1-create-the-applic
 title: 'Iteracja #1 — Tworzenie aplikacji (C#) | Dokumentacja firmy Microsoft'
 author: microsoft
 description: 'W pierwszej iteracji utworzymy Contact Manager w najprostszym sposobem możliwe. Dodano obsługę operacji podstawowej bazy danych: tworzenia, odczytu, aktualizacji i D...'
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/20/2009
 ms.assetid: db0f160b-901c-46d3-865e-7ab6cd4ed68d
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-1-create-the-application-cs
 msc.type: authoredcontent
-ms.openlocfilehash: cecb295a54ac8bdfb63a3fee7ea0693c6998748b
-ms.sourcegitcommit: a25b572eaed21791230c85416f449f66a405ec19
+ms.openlocfilehash: 78b488263fbb0c646d9bf6ee8c4ace2ff63ccf9d
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39395948"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41752901"
 ---
 <a name="iteration-1--create-the-application-c"></a>Iteracja #1 — Tworzenie aplikacji (C#)
 ====================

@@ -3,17 +3,17 @@ uid: mvc/overview/security/index
 title: Zabezpieczenia, uwierzytelnianie i autoryzację przy użyciu wzorca ASP.NET MVC | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Jak zabezpieczyć witryny ASP.NET i sposób implementacji uwierzytelniania i autoryzacji.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/10/2011
 ms.assetid: 1c1aa6a6-82f4-4553-8495-dc99814162df
 msc.legacyurl: /mvc/overview/security
 msc.type: chapter
-ms.openlocfilehash: 4fd1d1b9f8bef0fe9087fca71b8fcd5a0866bfd4
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
-ms.translationtype: HT
+ms.openlocfilehash: 74808405e15f5bf230c5dd77e8603f4982cd78d7
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37804819"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41752694"
 ---
 <a name="security-authentication-and-authorization-with-aspnet-mvc"></a>Zabezpieczenia, uwierzytelnianie i autoryzację przy użyciu wzorca ASP.NET MVC
 ====================

@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/editing-and-deleting-data-through-the-datali
 title: Dostosowywanie kontrolki DataList jego edytowania interfejsu (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: W tym samouczku utworzymy bogatsze interfejsu edycji kontrolki DataList, zawierającej kontrolek DROPDOWNLIST i pola wyboru.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/30/2006
 ms.assetid: 718628e2-224c-455f-b33a-a41efd48d5a0
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/customizing-the-datalist-s-editing-interface-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 78001e977a4696e905317eab35604518d059e66d
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 8105d2d118bdaa7e6c826479fbd8ed18f5aeaac1
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37828760"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754717"
 ---
 <a name="customizing-the-datalists-editing-interface-vb"></a>Dostosowywanie interfejsu edycji DataList (VB)
 ====================

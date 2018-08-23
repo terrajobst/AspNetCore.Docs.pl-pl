@@ -3,17 +3,17 @@ uid: web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-dropdown
 title: '[Jak mogę] Użyj kontrolka DropDown ASP.NET AJAX? | Microsoft Docs'
 author: JoeStagner
 description: Z listy rozwijanej rozszerzenia kontrolki z ASP.NET AJAX Control Toolkit można przedstawić użytkownikowi z listy rozwijanej Opcje, które mogą powodować partial-pa...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/30/2007
 ms.assetid: a997a9f8-9f71-4b9e-b7ed-f8e3a0daa576
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-dropdown-control
 msc.type: video
-ms.openlocfilehash: 6394818f52509a8784c8d12b54965710f4ece057
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 8e253f4213af4a1ffe5e5ee133dec931fcf4a46d
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37833200"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751958"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-dropdown-control"></a>[Jak mogę] Użyj kontrolka DropDown ASP.NET AJAX?
 ====================

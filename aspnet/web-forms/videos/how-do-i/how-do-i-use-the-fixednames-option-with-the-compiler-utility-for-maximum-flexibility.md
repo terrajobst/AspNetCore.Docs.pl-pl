@@ -3,17 +3,17 @@ uid: web-forms/videos/how-do-i/how-do-i-use-the-fixednames-option-with-the-compi
 title: '[Jak mogę] Używanie opcji Fixednames w narzędziu kompilatora, aby zapewnić maksymalną elastyczność | Dokumentacja firmy Microsoft'
 author: rick-anderson
 description: W tym wideo pikseli Chris pokazują, jak używanie opcji fixednames za pomocą narzędzia aspnet_compiler.exe w celu utworzenia spójnej nazwami w jednostce organizacyjnej kompilacji...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/24/2008
 ms.assetid: e332a1e0-226d-40ad-be99-96f13ecaec24
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-the-fixednames-option-with-the-compiler-utility-for-maximum-flexibility
 msc.type: video
-ms.openlocfilehash: 456e495aba5d705a6d8c29eb4742e649a6b41679
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 07fa077f75034e5bb52e85e202b26b32e3822b77
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37837629"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756168"
 ---
 <a name="how-do-i-use-the-fixednames-option-with-the-compiler-utility-for-maximum-flexibility"></a>[Jak mogę] Używanie opcji Fixednames w narzędziu kompilatora, aby zapewnić maksymalną elastyczność
 ====================

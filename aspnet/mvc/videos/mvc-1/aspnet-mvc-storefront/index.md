@@ -3,17 +3,17 @@ uid: mvc/videos/mvc-1/aspnet-mvc-storefront/index
 title: ASP.NET MVC Storefront | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: ASP.NET MVC StoreFront — Starter Kit
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 09/28/2011
 ms.assetid: 296b3a7a-483d-4937-ba2f-3f9c1319616a
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront
 msc.type: chapter
-ms.openlocfilehash: 26620c4a4c2dff774bd87bbecf2a9ae2416f7b53
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: b6030c14980bfe86b04284160d2c1e4a5ccc8bf7
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37830013"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41752084"
 ---
 <a name="aspnet-mvc-storefront"></a>ASP.NET MVC Storefront
 ====================

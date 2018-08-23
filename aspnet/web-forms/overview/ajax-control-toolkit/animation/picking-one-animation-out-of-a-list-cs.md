@@ -3,17 +3,17 @@ uid: web-forms/overview/ajax-control-toolkit/animation/picking-one-animation-out
 title: Wybieranie jednej animacji spoza listy (C#) | Dokumentacja firmy Microsoft
 author: wenz
 description: Kontrolki animacji w programie ASP.NET AJAX Control Toolkit nie jest po prostu kontrolki, ale cała struktura Dodawanie animacji do kontrolki. Struktura również zez...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: 06a776fe-7c73-4ca7-8e02-5260a86edc03
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/picking-one-animation-out-of-a-list-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7ef2c5d37c32150d17b798e22290f33b5619a14c
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 9cbbfaefca43a2fb25eec30115bcc4b5112754a9
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37834675"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751882"
 ---
 <a name="picking-one-animation-out-of-a-list-c"></a>Wybieranie jednej animacji spoza listy (C#)
 ====================

@@ -3,17 +3,17 @@ uid: web-api/overview/data/index
 title: Praca z danymi w interfejsie Web API platformy ASP.NET | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Jak program CRUD (Tworzenie, odczytywanie, aktualizowanie, usuwanie) operacji w interfejsie API sieci Web.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/23/2014
 ms.assetid: 995cbe38-7dbd-4c36-a5d0-a761944c7636
 msc.legacyurl: /web-api/overview/data
 msc.type: chapter
-ms.openlocfilehash: f35d47da7930ec49260a0ef997b83757ca3c76fb
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: e926c82e84b7cac2ba69a8baa62d2719647523d2
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37829854"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755930"
 ---
 <a name="working-with-data-in-aspnet-web-api"></a>Praca z danymi we wzorcu ASP.NET Web API
 ====================

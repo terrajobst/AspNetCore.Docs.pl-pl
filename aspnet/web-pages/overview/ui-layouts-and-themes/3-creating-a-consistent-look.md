@@ -3,17 +3,17 @@ uid: web-pages/overview/ui-layouts-and-themes/3-creating-a-consistent-look
 title: Tworzenie spójnego układu we wzorcu ASP.NET Web Pages (Razor) witryn | Dokumentacja firmy Microsoft
 author: tfitzmac
 description: Aby umożliwić bardziej efektywne tworzenie stron sieci web, można utworzyć wielokrotnego użytku bloki zawartości (na przykład nagłówków i stopek) dla witryny sieci Web, a użytkownik c...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/10/2014
 ms.assetid: d7bd001b-6db2-4422-9b78-f3d08b743b00
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/3-creating-a-consistent-look
 msc.type: authoredcontent
-ms.openlocfilehash: d27cdc70417f380d596f4d07384a615586427643
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 82d55bb8eee6c8121a5e4d3d8121bf2b075e3df8
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37821217"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755367"
 ---
 <a name="creating-a-consistent-layout-in-aspnet-web-pages-razor-sites"></a>Tworzenie spójnego układu w witrynach ASP.NET Web Pages (Razor)
 ====================

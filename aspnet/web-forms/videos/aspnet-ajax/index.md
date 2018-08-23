@@ -3,17 +3,17 @@ uid: web-forms/videos/aspnet-ajax/index
 title: ASP.NET AJAX | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Sposoby pracy z ASP.NET AJAX do tworzenia stron o wysokiej dynamice, nawet jeśli nie jesteś ekspertem języka JavaScript.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: 754b8c66-cefc-42d6-9f02-685efabdfcc6
 msc.legacyurl: /web-forms/videos/aspnet-ajax
 msc.type: chapter
-ms.openlocfilehash: 1d72997d6a501eefae45124eefddb9fbedffefae
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: c8084dedc89bc2fcab6bee03b1a65911d42435b3
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37801682"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754612"
 ---
 <a name="aspnet-ajax"></a>ASP.NET AJAX
 ====================

@@ -3,17 +3,17 @@ uid: web-forms/videos/how-do-i/how-do-i-implement-url-rewriting
 title: '[Jak mogę] Implementowanie ponownego zapisywania adresów URL? | Microsoft Docs'
 author: scottgolightly
 description: W tym wideo Scott Golightly przedstawia sposób tworzenia HttpModule ASP.NET "ponownego wpisywania" adres URL, gdy żądanie dla strony sieci web jest dostępna w. Może zajść potrzeba ponownego zapisywania...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/01/2007
 ms.assetid: aa0c328c-edff-4908-b052-31b6b06f8555
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-implement-url-rewriting
 msc.type: video
-ms.openlocfilehash: 91a5e9c5aa78688b7845e5081c6d0dec23e5c561
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: da4b3e5c77a2863a9e50a6c68617f1fd748ec665
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37836882"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753735"
 ---
 <a name="how-do-i-implement-url-rewriting"></a>[Jak mogę] Implementowanie ponownego zapisywania adresów URL?
 ====================

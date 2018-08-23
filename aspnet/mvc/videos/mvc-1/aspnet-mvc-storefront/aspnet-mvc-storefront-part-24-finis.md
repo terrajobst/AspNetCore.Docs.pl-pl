@@ -3,17 +3,17 @@ uid: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-24-finis
 title: 'ASP.NET MVC StoreFront — część 24: Koniec | Dokumentacja firmy Microsoft'
 author: robconery
 description: Jest to ostatni odcinek z serii MVC Storefront, a to może się wydawać nieco dziwne. Zdecydowanie nie jest ostatni zrzut ekranu, który mogę to zrobić w odniesieniu do programu ASP.NET...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/28/2009
 ms.assetid: 160d6dde-1a19-4822-963b-cd936fb8afa0
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-24-finis
 msc.type: video
-ms.openlocfilehash: c731ac3e8706806924900da1e431ac76f5fd7dec
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 37509c68d129162fd497032ade3d47edf982b12f
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37833701"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754360"
 ---
 <a name="aspnet-mvc-storefront-part-24-finis"></a>ASP.NET MVC StoreFront — część 24: koniec
 ====================

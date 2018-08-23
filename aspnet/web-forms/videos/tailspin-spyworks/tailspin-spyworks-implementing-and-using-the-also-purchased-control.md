@@ -3,17 +3,17 @@ uid: web-forms/videos/tailspin-spyworks/tailspin-spyworks-implementing-and-using
 title: Tailspin Spyworks — Implementowanie i używanie kontrolki również zakupione | Dokumentacja firmy Microsoft
 author: JoeStagner
 description: Jan Stagner implementuje i używa kontrolki również zakupione w Tailspin Spyworks przykładowej aplikacji formularzy sieci Web.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/26/2010
 ms.assetid: a95daf2f-aae4-4ad5-a142-8c58cc7a056d
 msc.legacyurl: /web-forms/videos/tailspin-spyworks/tailspin-spyworks-implementing-and-using-the-also-purchased-control
 msc.type: video
-ms.openlocfilehash: 3857b9eb2f9a603a7bd3fb30e1acf468cbbbe956
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: ff26ac8639e9fc77010dcc61a685fd28fb795ee0
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37840958"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41752700"
 ---
 <a name="tailspin-spyworks---implementing-and-using-the-also-purchased-control"></a>Tailspin Spyworks — Implementowanie i używanie kontrolki również zakupione
 ====================

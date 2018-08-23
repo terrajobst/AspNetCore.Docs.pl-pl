@@ -3,17 +3,17 @@ uid: web-forms/overview/ajax-control-toolkit/hovermenu/using-hovermenu-with-a-re
 title: Używanie kontrolki HoverMenu z kontrolką elementu powtarzanego (VB) | Dokumentacja firmy Microsoft
 author: wenz
 description: 'Na formant kontrolki HoverMenu z zestawu narzędzi AJAX Control Toolkit zawiera efekt proste okno podręczne: po zatrzymaniu wskaźnika myszy nad elementem, okno wyskakujące pojawia się na specifi...'
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: 7f07c112-cd4f-4427-9699-57cfab2791fd
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/hovermenu/using-hovermenu-with-a-repeater-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a00d2c610696672a36ebbb78b80abec6c5150101
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: ef2481b93a8bbe16b79edb8c93c02e24fc9890f3
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37821346"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755592"
 ---
 <a name="using-hovermenu-with-a-repeater-control-vb"></a>Używanie kontrolki HoverMenu z kontrolką elementu powtarzanego (VB)
 ====================

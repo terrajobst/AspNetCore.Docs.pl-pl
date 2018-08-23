@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/improving-t
 title: Ulepszanie metod Details i Delete (C#) | Dokumentacja firmy Microsoft
 author: Rick-Anderson
 description: Ta seria samouczków obejmuje podstawy tworzenia aplikacji sieci Web platformy ASP.NET MVC przy użyciu programu Microsoft Visual Web Developer 2010 Express Service Pack 1, czyli...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/12/2011
 ms.assetid: 3f42edd9-c5b8-4712-9055-970f7d38e350
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/improving-the-details-and-delete-methods
 msc.type: authoredcontent
-ms.openlocfilehash: 17789aa9e9388f3b05ece953cfc0f50ffa510f52
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 5dc786a05822328bc4317c582d135f26fb168dfb
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37803775"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756910"
 ---
 <a name="improving-the-details-and-delete-methods-c"></a>Ulepszanie metod Details i Delete (C#)
 ====================

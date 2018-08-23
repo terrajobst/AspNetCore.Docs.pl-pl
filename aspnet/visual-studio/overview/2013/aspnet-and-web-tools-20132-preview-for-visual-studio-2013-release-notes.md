@@ -3,17 +3,17 @@ uid: visual-studio/overview/2013/aspnet-and-web-tools-20132-preview-for-visual-s
 title: ASP.NET and Web Tools Tools 2013.2 dla programu Visual Studio 2013 Release Notes | Dokumentacja firmy Microsoft
 author: microsoft
 description: ''
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/06/2014
 ms.assetid: 7ef5f73c-ca60-43c1-bdb2-702800347e7e
 msc.legacyurl: /visual-studio/overview/2013/aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes
 msc.type: authoredcontent
-ms.openlocfilehash: fb36d9f469265be60a7e40ed7e317d8da6560bf9
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 2a22c5b686cb8e02054f421f78a8fc910af7ce28
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37824500"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751885"
 ---
 <a name="aspnet-and-web-tools-20132--for-visual-studio-2013-release-notes"></a>Program ASP.NET i narzędzia Web Tools 2013.2 dla programu Visual Studio 2013 Release Notes
 ====================

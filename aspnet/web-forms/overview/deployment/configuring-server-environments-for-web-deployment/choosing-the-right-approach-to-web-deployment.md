@@ -3,17 +3,17 @@ uid: web-forms/overview/deployment/configuring-server-environments-for-web-deplo
 title: Wybieranie właściwego podejścia do wdrażania w Internecie | Dokumentacja firmy Microsoft
 author: jrjlee
 description: Podczas pracy z Internet Information Services (IIS) Narzędzie Web Deployment (Web Deploy) 2.0 lub nowszej, istnieją trzy główne metody można użyć, aby uzyskać...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: 787a53fd-9901-4a11-9d58-61e0509cda45
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: eb1b7d50e5d7461d760ad7a963cc70369b7a4513
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 0b21852a1db2862a8452e332021b55ce7f1db423
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37807054"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754936"
 ---
 <a name="choosing-the-right-approach-to-web-deployment"></a>Wybieranie właściwego podejścia do wdrażania w Internecie
 ====================
@@ -36,7 +36,7 @@ W poniższej tabeli przedstawiono główne zalety i wady każdej metody wdrożen
 | Podejście | Zalety | Wady | Typowe scenariusze |
 | --- | --- | --- | --- |
 | Zdalny Agent | Jest łatwy w konfiguracji. Nadaje się do regularnych aktualizacji zawartości i aplikacji sieci web. | Użytkownik musi być administratorem na serwerze docelowym. użytkownik nie może podać alternatywne poświadczenia. | Środowisk deweloperskich. Środowiska testowe. |
-| Agent tymczasowego | Nie ma potrzeby instalowania narzędzia Web Deploy na komputerze docelowym. Najnowszą wersję narzędzia Web Deploy automatycznie jest używany. | Użytkownik musi być administratorem na serwerze docelowym. Użytkownik nie może podać alternatywne poświadczenia. | Środowisk deweloperskich. Środowiska testowe. |
+| Agent tymczasowego | Nie ma potrzeby instalowania narzędzia Web Deploy na komputerze docelowym. Najnowszą wersję narzędzia Web Deploy automatycznie jest używany. | Użytkownik musi być administratorem na serwerze docelowym. użytkownik nie może podać alternatywne poświadczenia. | Środowisk deweloperskich. Środowiska testowe. |
 | Program obsługi narzędzia Web Deploy | Użytkownicy niebędący administratorami mogą wdrożyć zawartość. Nadaje się do regularnych aktualizacji zawartości i aplikacji sieci web. | Jest znacznie bardziej złożone, aby skonfigurować. | Środowiska przejściowe. Intranet środowisk produkcyjnych. Obsługiwanych środowiskach. |
 | Wdrożenie w trybie offline | Jest bardzo łatwe do skonfigurowania. Nadaje się do środowiska izolowanego. | Administrator serwera, należy ręcznie skopiować i zaimportować pakiet za każdym razem, gdy. | Połączone z Internetem środowisk produkcyjnych. Środowiska izolowane sieci. |
   

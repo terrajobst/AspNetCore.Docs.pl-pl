@@ -3,17 +3,17 @@ uid: mvc/overview/security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authen
 title: Aplikacja ASP.NET MVC 5 z wiadomości SMS i wiadomości e-mail uwierzytelniania dwuskładnikowego | Dokumentacja firmy Microsoft
 author: Rick-Anderson
 description: W tym samouczku dowiesz się, jak utworzyć aplikację internetową platformy ASP.NET MVC 5 przy użyciu uwierzytelniania dwuskładnikowego. Należy wykonać tworzenie bezpiecznej platformy ASP.NET MVC 5 aplikacji internetowej za pomocą...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/20/2015
 ms.assetid: f50a5cdb-c06a-46ed-aa14-fc5b049dc8dc
 msc.legacyurl: /mvc/overview/security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication
 msc.type: authoredcontent
-ms.openlocfilehash: 4fd0091effcf2cc0517da91922981e49ef0eef5a
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: f31015f5ebd660d0f95a2e978b305c1d272293d5
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37803210"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41752493"
 ---
 <a name="aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication"></a>Aplikacja ASP.NET MVC 5 z wiadomości SMS i wiadomości e-mail uwierzytelniania dwuskładnikowego
 ====================

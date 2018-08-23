@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/master-pages/creating-a-s
 title: Tworzenie układu dla całej witryny za pomocą stron wzorcowych (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Ten samouczek przedstawia podstawowe informacje dotyczące strony wzorcowej. To znaczy, jakie są strony wzorcowe, jak działa jeden Tworzenie strony wzorcowej, co to są posiadacze miejscu zawartości, jak działa jeden cr...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/21/2008
 ms.assetid: 78f8d194-03b9-44a5-8255-90e7cd1c2ee1
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/creating-a-site-wide-layout-using-master-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: cf9264f6569fe1a5c0369b17a2358c5207cad6ad
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 3bdb533c1cb724d57152e676a75af8067a6828d8
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37829282"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753604"
 ---
 <a name="creating-a-site-wide-layout-using-master-pages-c"></a>Tworzenie układu dla całej witryny za pomocą stron wzorcowych (C#)
 ====================

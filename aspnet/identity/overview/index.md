@@ -3,17 +3,17 @@ uid: identity/overview/index
 title: Omówienie produktu ASP.NET Identity | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: ''
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/02/2013
 ms.assetid: d3972a0e-9ff6-4de1-bf4d-c94943cab048
 msc.legacyurl: /identity/overview
 msc.type: book
-ms.openlocfilehash: 4387d4cb035ba53060a9d56fe0b0f23b7f527a52
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 1b3d3e5eb153c4c311dfa426b1d5bed3c1d6c590
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37812696"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41752905"
 ---
 <a name="aspnet-identity-overview"></a>Omówienie produktu ASP.NET Identity
 ====================

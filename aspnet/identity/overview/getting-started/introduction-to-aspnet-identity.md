@@ -3,17 +3,17 @@ uid: identity/overview/getting-started/introduction-to-aspnet-identity
 title: Wprowadzenie do produktu ASP.NET Identity | Dokumentacja firmy Microsoft
 author: jongalloway
 description: Systemu członkostwa programu ASP.NET została wprowadzona w systemach kopii programu ASP.NET 2.0 w wersji 2005 i od czasu, a następnie typicall aplikacji sieci web sposoby miały miejsce wiele zmian...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/17/2013
 ms.assetid: 38717fc1-5989-43cf-952d-4007cc1dd923
 msc.legacyurl: /identity/overview/getting-started/introduction-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 3cefefc85857c3e3e295789dfa9d9f4789de4602
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 24674adf1f28b3ffc0822a4b112c972d1e7ed5b4
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37811584"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755068"
 ---
 <a name="introduction-to-aspnet-identity"></a>Wprowadzenie do produktu ASP.NET Identity
 ====================

@@ -3,17 +3,17 @@ uid: single-page-application/overview/introduction/knockoutjs-template
 title: 'Aplikacja jednostronicowa: Szablon KnockoutJS | Dokumentacja firmy Microsoft'
 author: MikeWasson
 description: Szablon knockout
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/30/2013
 ms.assetid: f9c07af0-4b20-4b08-af8f-47fc3df169a2
 msc.legacyurl: /single-page-application/overview/introduction/knockoutjs-template
 msc.type: authoredcontent
-ms.openlocfilehash: 9e48c7033cefe8b6e4c456577b7a6448f9815d0b
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 328046363666944f121dedc1883bbe83f5b079d2
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37832532"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753596"
 ---
 <a name="single-page-application-knockoutjs-template"></a>Aplikacja jednostronicowa: Szablon KnockoutJS
 ====================

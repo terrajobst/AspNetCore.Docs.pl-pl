@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projec
 title: Użytkownicy i role w produkcyjnej witrynie internetowej (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: ASP.NET witryny sieci Web Administracja narzędzia (WSAT) udostępnia interfejs użytkownika oparty na sieci web do konfigurowania ustawień członkostwo i role oraz do tworzenia, edytowania,...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/09/2009
 ms.assetid: dbc54313-5d05-4285-98b3-726edea6d0c9
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/users-and-roles-on-the-production-website-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f8e714aea2839cc654dac0da310db779f632a26c
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: f08afe5f4ab379d1532f50267299892829c95dcc
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37802461"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754358"
 ---
 <a name="users-and-roles-on-the-production-website-c"></a>Użytkownicy i role w produkcyjnej witrynie internetowej (C#)
 ====================

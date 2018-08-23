@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/master-pages/index
 title: ASP.NET 3.5 — strony wzorcowe formularzy sieci Web | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Jak utworzyć i umożliwia tworzenie spójnego układu w aplikacji formularzy sieci Web platformy ASP.NET, stron wzorcowych i stronach zawartości.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 11/04/2011
 ms.assetid: bc30f0ec-cf8f-4a33-9eee-513be872ac9c
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages
 msc.type: chapter
-ms.openlocfilehash: bd927779f800e46d93af0cd0f61e969a3a090eaf
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 129d1992d702e8f3deeaa29ed089f04999cd1e5f
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37842684"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753726"
 ---
 <a name="aspnet-35---web-forms-master-pages"></a>ASP.NET 3.5 — strony wzorcowe formularzy sieci Web
 ====================

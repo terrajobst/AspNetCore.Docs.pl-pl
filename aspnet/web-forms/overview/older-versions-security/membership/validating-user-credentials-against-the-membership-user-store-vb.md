@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-security/membership/validating-user-crede
 title: Sprawdzanie poprawności poświadczeń użytkownika względem Store użytkownika członkostwa (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: W tym samouczku zostanie omówiony sposób sprawdzania poprawności poświadczeń użytkownika względem magazynu użytkowników członkostwa przy użyciu zarówno programowy sposób, jak i kontrolka Login...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/18/2008
 ms.assetid: 17772912-b47b-4557-9ce9-80f22df642f7
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c5eeb67c8d175173f38ffcbc1b01fd5a5931866e
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: f5f1121bacdf287e346419d70ac155f47bc826ac
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37821407"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41752587"
 ---
 <a name="validating-user-credentials-against-the-membership-user-store-vb"></a>Sprawdzanie poprawności poświadczeń użytkownika względem Store użytkownika członkostwa (VB)
 ====================

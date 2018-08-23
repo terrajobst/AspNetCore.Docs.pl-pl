@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/introduction/creating-a-data-access-layer-cs
 title: Tworzenie warstwy dostępu do danych (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: W tym samouczku utworzymy zacząć od samego początku wymuszał i tworzenie danych warstwy dostępu (DAL), przy użyciu typizowanych zestawów danych, aby uzyskać dostęp do informacji w bazie danych.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/05/2010
 ms.assetid: cfe2a6a0-1e56-4dc8-9537-c8ec76ba96a4
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-data-access-layer-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 556771994fd80773ec1e86bcbab0f60f2bb821e4
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: fca6119b2e78c246724d6dd7277d5c4dc521f49c
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37838757"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755568"
 ---
 <a name="creating-a-data-access-layer-c"></a>Tworzenie warstwy dostępu do danych (C#)
 ====================

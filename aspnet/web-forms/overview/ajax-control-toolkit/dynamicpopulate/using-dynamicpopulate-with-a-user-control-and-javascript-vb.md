@@ -3,17 +3,17 @@ uid: web-forms/overview/ajax-control-toolkit/dynamicpopulate/using-dynamicpopula
 title: Używanie kontrolki DynamicPopulate z kontrolką użytkownika i kodu JavaScript (VB) | Dokumentacja firmy Microsoft
 author: wenz
 description: Kontrolki DynamicPopulate w ASP.NET AJAX Control Toolkit wywołuje usługę sieci web (lub metody korzystającej ze strony) i wypełnia wynikowej wartości do formantu docelowego t...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: 778b9009-76f2-4665-940e-afc0e35bc917
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dynamicpopulate/using-dynamicpopulate-with-a-user-control-and-javascript-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c2fe7fbe0d57c6cf64fe31607215c920e67ed736
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: a275eed17552d26b63f98762c6c870bd53dd455d
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37841318"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753963"
 ---
 <a name="using-dynamicpopulate-with-a-user-control-and-javascript-vb"></a>Używanie kontrolki DynamicPopulate z kontrolką użytkownika i kodu JavaScript (VB)
 ====================

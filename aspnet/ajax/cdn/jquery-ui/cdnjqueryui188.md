@@ -3,17 +3,17 @@ uid: ajax/cdn/jquery-ui/cdnjqueryui188
 title: Interfejs użytkownika jQuery 1.8.8 w usłudze Microsoft Ajax CDN | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: ''
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/23/2014
 ms.assetid: 437b0347-c5d6-4525-9208-39239f2d1ecd
 msc.legacyurl: /ajax/cdn/jquery-ui/cdnjqueryui188
 msc.type: content
-ms.openlocfilehash: 253a09b1649532d52ef4af5ffb0d209e9f5ba699
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 885c056be09353d5943fed5d84d7128ef8c46ae3
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37815097"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756221"
 ---
 <a name="jquery-ui-188-on-the-microsoft-ajax-cdn"></a>Interfejs użytkownika jQuery 1.8.8 w usłudze Microsoft Ajax CDN
 ====================

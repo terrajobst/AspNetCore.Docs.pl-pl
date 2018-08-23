@@ -3,17 +3,17 @@ uid: web-forms/videos/aspnet-web-forms-vnext/index
 title: PROGRAM ASP.NET 4.5 | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: O nowych funkcjach formularzy sieci Web, wprowadzona w programie ASP.NET 4.5.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: 98c78dad-22bf-45cd-807e-c2f3f59011b9
 msc.legacyurl: /web-forms/videos/aspnet-web-forms-vnext
 msc.type: chapter
-ms.openlocfilehash: 002682d2ebb7629f12aab7f0f586c6210589aa48
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: acf0e31e487733a99b1c7b02a1a773c61ffc12b9
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37812649"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756135"
 ---
 <a name="aspnet-45"></a>ASP.NET 4.5
 ====================

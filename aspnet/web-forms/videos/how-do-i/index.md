@@ -3,17 +3,17 @@ uid: web-forms/videos/how-do-i/index
 title: Jak mogę? | Microsoft Docs
 author: rick-anderson
 description: Jak przeprowadzić szereg typowych zadań.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: 27591afa-3c14-47e6-8323-573f8f7aa862
 msc.legacyurl: /web-forms/videos/how-do-i
 msc.type: chapter
-ms.openlocfilehash: 2c16199287614e7b7fd3722031618c37b03034f0
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: d53304d60888de55ad474f5be8c0cfe6f8b122bb
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37829148"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753317"
 ---
 <a name="how-do-i"></a>Jak mogę?
 ====================

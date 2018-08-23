@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projec
 title: Konfigurowanie witryny sieci Web, która korzysta z usług aplikacji (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Verze technologie ASP.NET 2.0 wprowadzono szereg usług aplikacji, które są częścią programu .NET Framework i będzie służyć jako zestaw bloków konstrukcyjnych usługi, których yo...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/23/2009
 ms.assetid: 1e33d1c6-3f9f-4c26-81e2-2a8f8907bb05
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-a-website-that-uses-application-services-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 9bbf6d84c3ca25a3476901ec3d7996d5ca197446
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 4cec939795c2b3abfd51c894f985dfd2eb7bc361
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37837655"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756588"
 ---
 <a name="configuring-a-website-that-uses-application-services-c"></a>Konfigurowanie witryny sieci Web, która korzysta z usług aplikacji (C#)
 ====================

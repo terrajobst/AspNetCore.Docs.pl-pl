@@ -3,17 +3,17 @@ uid: web-forms/overview/index
 title: Wskazówki dotyczące formularzy sieci Web ASP.NET | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: ''
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/08/2011
 ms.assetid: b3fb4480-0f41-495b-add6-163ca92dc8a3
 msc.legacyurl: /web-forms/overview
 msc.type: book
-ms.openlocfilehash: 2b857a93f95029f7dc4a072d3d3a9ff0ce55c1ae
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 0c29a844bd227a79e6df5231e0903129e306742e
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37839033"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753512"
 ---
 <a name="aspnet-web-forms-guidance"></a>Wskazówki dotyczące formularzy sieci Web ASP.NET
 ====================

@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-security/roles/creating-and-managing-role
 title: Tworzenie ról i zarządzanie nimi (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Ten samouczek analizuje kroki niezbędne do skonfigurowania w ramach ról. Poniżej utworzymy stron sieci web do tworzenia i usuwania ról.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/24/2008
 ms.assetid: 83af9f5f-9a00-4f83-8afc-e98bdd49014e
 msc.legacyurl: /web-forms/overview/older-versions-security/roles/creating-and-managing-roles-vb
 msc.type: authoredcontent
-ms.openlocfilehash: cbfa06ec50693f9640c813288e7c9175db670351
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: e51fa6de3d2fe7b5c9cd84900d154070eb1960b9
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37819607"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41752690"
 ---
 <a name="creating-and-managing-roles-vb"></a>Tworzenie ról i zarządzanie nimi (VB)
 ====================

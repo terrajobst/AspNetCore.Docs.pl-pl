@@ -3,17 +3,17 @@ uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-
 title: Wprowadzenie do programu Entity Framework 6 Code First wykorzystaniem MVC 5 | Dokumentacja firmy Microsoft
 author: tdykstra
 description: 'Dostępna jest nowsza wersja tej serii samouczków: rozpoczynanie pracy z platformą ASP.NET Core i Entity Framework Core przy użyciu programu Visual Studio 2015. Contoso Universi...'
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/22/2015
 ms.assetid: 00bc8b51-32ed-4fd3-9745-be4c2a9c1eaf
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: f03ddcf7dcc8b5d20c5459a7fb0015ab20f340c5
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 29004ec2271dbf77395f07e030533e23662b67c1
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37837172"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41752293"
 ---
 <a name="getting-started-with-entity-framework-6-code-first-using-mvc-5"></a>Wprowadzenie do podejścia Code First w programie Entity Framework 6 z wykorzystaniem MVC 5
 ====================

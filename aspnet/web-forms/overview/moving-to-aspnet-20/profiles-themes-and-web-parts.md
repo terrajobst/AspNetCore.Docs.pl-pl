@@ -3,17 +3,17 @@ uid: web-forms/overview/moving-to-aspnet-20/profiles-themes-and-web-parts
 title: Profile, motywy i składniki Web Part | Dokumentacja firmy Microsoft
 author: microsoft
 description: Istnieją istotne zmiany w konfiguracji i instrumentacji w programie ASP.NET 2.0. Nowy interfejs API konfiguracji ASP.NET umożliwia na żądanie ściągnięcia wprowadzanie zmian w konfiguracji...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/20/2005
 ms.assetid: 92df4051-77c6-492c-bd34-23d24189cea4
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/profiles-themes-and-web-parts
 msc.type: authoredcontent
-ms.openlocfilehash: fa4405302f5b813dc3b99f612ef8efc8793cd6c8
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 98559c2a378c72bc5664faafe5436753050b574f
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37815691"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753534"
 ---
 <a name="profiles-themes-and-web-parts"></a>Profile, motywy i składniki Web Part
 ====================

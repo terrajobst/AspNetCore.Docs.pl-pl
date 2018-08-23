@@ -3,17 +3,17 @@ uid: web-forms/overview/ajax-control-toolkit/cascadingdropdown/presetting-list-e
 title: Wstępne Ustawianie pozycji listy przy użyciu kontrolki CascadingDropDown (C#) | Dokumentacja firmy Microsoft
 author: wenz
 description: Kontrolki CascadingDropDown w zestawu narzędzi AJAX Control Toolkit rozszerza formant DropDownList, tak aby zmiany w jednej metody DropDownList ładowania skojarzone wartości w anoth...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: 04c79748-0f21-4a3b-aba5-e1ce3161c32e
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/cascadingdropdown/presetting-list-entries-with-cascadingdropdown-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7797aa91452bfbed2695fd26e3b9d2a5783dd216
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 2599b5015f288b2e8d02577a0865252a862574a4
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37825092"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41757007"
 ---
 <a name="presetting-list-entries-with-cascadingdropdown-c"></a>Wstępne Ustawianie pozycji listy przy użyciu kontrolki CascadingDropDown (C#)
 ====================

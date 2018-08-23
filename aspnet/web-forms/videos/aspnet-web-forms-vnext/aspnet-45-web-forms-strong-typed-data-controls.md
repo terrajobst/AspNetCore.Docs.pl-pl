@@ -3,17 +3,17 @@ uid: web-forms/videos/aspnet-web-forms-vnext/aspnet-45-web-forms-strong-typed-da
 title: Program ASP.NET 4.5 Web Forms silnie Typizowane kontrolki danych | Dokumentacja firmy Microsoft
 author: shanselman
 description: Scott Hanselman pokazuje nowych ASP.NET 4.5 Web formularzy silne wpisanych danych formantów.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/15/2012
 ms.assetid: 9fe1858e-23a1-4cd8-aa69-6eadbb249612
 msc.legacyurl: /web-forms/videos/aspnet-web-forms-vnext/aspnet-45-web-forms-strong-typed-data-controls
 msc.type: video
-ms.openlocfilehash: 986ed495ea6f47d61c54b37d086ec15e887acba8
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 8fd194828db09ea2806040981e82ae861bc098fe
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37821589"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755796"
 ---
 <a name="aspnet-45-web-forms-strong-typed-data-controls"></a>Program ASP.NET 4.5 Web Forms silnie Typizowane kontrolki danych
 ====================

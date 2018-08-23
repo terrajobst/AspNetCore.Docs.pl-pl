@@ -3,17 +3,17 @@ uid: signalr/overview/guide-to-the-api/hubs-api-guide-javascript-client
 title: Podręcznik interfejsu API centrów SignalR platformy ASP.NET — klient JavaScript | Dokumentacja firmy Microsoft
 author: pfletcher
 description: Ten dokument zawiera wprowadzenie do korzystania z interfejsu API centrów dla elementu SignalR w wersji 2 w klientów języka JavaScript, takie jak przeglądarki i applicat Windows Store (WinJS)...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 09/28/2015
 ms.assetid: a9fd4dc0-1b96-4443-82ca-932a5b4a8ea4
 msc.legacyurl: /signalr/overview/guide-to-the-api/hubs-api-guide-javascript-client
 msc.type: authoredcontent
-ms.openlocfilehash: ed25843f5eb6145d29ef90f6205715bdd341d1a4
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: de47593e7f54757d4f91a6e92485567e74b829ed
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37839729"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756466"
 ---
 <a name="aspnet-signalr-hubs-api-guide---javascript-client"></a>Podręcznik interfejsu API centrów SignalR platformy ASP.NET — klient JavaScript
 ====================

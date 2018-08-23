@@ -3,17 +3,17 @@ uid: visual-studio/overview/2013/index
 title: Program ASP.NET i programu Visual Studio 2013 | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Visual Studio 2013
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/25/2013
 ms.assetid: 646edfc7-dc62-4fa0-84c2-926996c92aeb
 msc.legacyurl: /visual-studio/overview/2013
 msc.type: chapter
-ms.openlocfilehash: ee9ab35b48eb72c3e80bd98fc0759575d5ea7033
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 74793becba663d163a31cb1b02654b7b6cb021af
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37822666"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41752086"
 ---
 <a name="aspnet-and-visual-studio-2013"></a>Program ASP.NET i programu Visual Studio 2013
 ====================

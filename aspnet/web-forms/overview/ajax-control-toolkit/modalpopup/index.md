@@ -3,17 +3,17 @@ uid: web-forms/overview/ajax-control-toolkit/modalpopup/index
 title: Kontrolki ModalPopup | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: W tym samouczku pokazano, jak używać kontrolki ModalPopup, które pozwala tworzyć wielokrotność modalne okno dialogowe.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 11/14/2011
 ms.assetid: db4eca5d-b625-4e67-8e5b-a844639d4354
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/modalpopup
 msc.type: chapter
-ms.openlocfilehash: 4ffff071dc6efc6f99ebe9ac52d3d7cf7ae2b1ec
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 3b859ce51df5b55b236fb8fbafa94ab2530558b1
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37836796"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754369"
 ---
 <a name="modalpopup"></a>Kontrolki ModalPopup
 ====================

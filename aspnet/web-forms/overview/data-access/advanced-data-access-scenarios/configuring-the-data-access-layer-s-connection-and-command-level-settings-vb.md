@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/advanced-data-access-scenarios/configuring-t
 title: Konfigurowanie ustawienia na poziomie połączenia i poleceń warstwy dostępu do danych (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: TableAdapter w zestawie danych wpisane automatycznie zajmie się z bazą danych, wydawanie polecenia i wypełnianie DataTable z wynikami...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/03/2007
 ms.assetid: d57dfa2b-d627-45cb-b5b1-abbf3159d770
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/configuring-the-data-access-layer-s-connection-and-command-level-settings-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6d8f5aa0e114d22a3192b89f190baa83315bfa8c
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: d44372ef3eaf7634d3bf3a82bd2c1eb1d710f786
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37818294"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753111"
 ---
 <a name="configuring-the-data-access-layers-connection--and-command-level-settings-vb"></a>Konfigurowanie ustawienia na poziomie połączenia i poleceń warstwy dostępu do danych (VB)
 ====================

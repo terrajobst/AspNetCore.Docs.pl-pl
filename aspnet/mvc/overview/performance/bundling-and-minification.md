@@ -3,17 +3,17 @@ uid: mvc/overview/performance/bundling-and-minification
 title: Tworzenie pakietów i minimalizowanie | Dokumentacja firmy Microsoft
 author: Rick-Anderson
 description: Tworzenie pakietów i minimalizowanie są dwie metody można użyć w programie ASP.NET 4.5, aby poprawić czas ładowania żądań. Tworzenie pakietów i minimalizowanie poprawia czas ładowania przez reducin...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/23/2012
 ms.assetid: 5894dc13-5d45-4dad-8096-136499120f1d
 msc.legacyurl: /mvc/overview/performance/bundling-and-minification
 msc.type: authoredcontent
-ms.openlocfilehash: 4e72804593c07318af8cc577f9d43ab96be4de05
-ms.sourcegitcommit: cb0c27fa0184f954fce591d417e6ab2a51d8bb22
+ms.openlocfilehash: 7e54bdd2f50edb5001982ada9b6ce023584ce5b0
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39123791"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756531"
 ---
 <a name="bundling-and-minification"></a>Tworzenie pakietów i minimalizowanie
 ====================

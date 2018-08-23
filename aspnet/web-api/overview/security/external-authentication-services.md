@@ -3,17 +3,17 @@ uid: web-api/overview/security/external-authentication-services
 title: Zewnętrznych usług uwierzytelniania przy użyciu interfejsu API sieci Web platformy ASP.NET (C#) | Dokumentacja firmy Microsoft
 author: rmcmurray
 description: W tym artykule opisano korzystanie z zewnętrznych usług uwierzytelniania w Web API platformy ASP.NET.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/26/2013
 ms.assetid: 3bb8eb15-b518-44f5-a67d-a27e051aedc6
 msc.legacyurl: /web-api/overview/security/external-authentication-services
 msc.type: authoredcontent
-ms.openlocfilehash: fe821384a195e69c102aad95e534d543de705a00
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 0b23baac7eca0297e063c682a8ae199f9543d75e
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37822797"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754929"
 ---
 <a name="external-authentication-services-with-aspnet-web-api-c"></a>Zewnętrznych usług uwierzytelniania przy użyciu interfejsu API sieci Web platformy ASP.NET (C#)
 ====================

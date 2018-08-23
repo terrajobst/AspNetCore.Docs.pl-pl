@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions/aspnet-mvc-4-mobile-features
 title: Funkcje mobilne platformy ASP.NET MVC 4 | Dokumentacja firmy Microsoft
 author: Rick-Anderson
 description: Teraz jest wersja MVC 5, po ukończeniu tego samouczka przy użyciu przykładów kodu w zasięgu Wdróż aplikację ASP.NET MVC 5 Mobile sieci Web w witrynach sieci Web platformy Azure.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/15/2012
 ms.assetid: 27dc4fc8-1b51-43b0-933f-fc1b52476523
 msc.legacyurl: /mvc/overview/older-versions/aspnet-mvc-4-mobile-features
 msc.type: authoredcontent
-ms.openlocfilehash: c852f4a853d14badb6c9a1c2c1ddb7b069bc3441
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: a3cb2414775b2c29617296dcf0c2dc5729153cdd
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37806590"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755077"
 ---
 <a name="aspnet-mvc-4-mobile-features"></a>Funkcje mobilne platformy ASP.NET MVC 4
 ====================
@@ -212,7 +212,7 @@ Poniższy kod przedstawia pełny *Global.asax* pliku.
 [!code-csharp[Main](aspnet-mvc-4-mobile-features/samples/sample11.cs?highlight=26)]
 
 > [!NOTE]
-> Jeśli używasz programu Internet Explorer 9, a nie widać `BundleMobileConfig` wiersz powyżej w Wyróżnij żółty, kliknij przycisk [przycisk Widok zgodności](https://windows.microsoft.com/windows7/How-to-use-Compatibility-View-in-Internet-Explorer-9)![obraz przycisku Widok zgodności (wyłączone)] (http://res2.windows.microsoft.com/resbox/en/Windows 7/main/f080e77f-9b66-4ac8-9af0-803c4f8a859c_15.jpg " Obraz przycisku Widok zgodności (wyłączone)") w programie Internet Explorer, aby ikona zmiany z konturem ![obraz przycisku Widok zgodności (wyłączone)](http://res2.windows.microsoft.com/resbox/en/Windows 7/main/f080e77f-9b66-4ac8-9af0-803c4f8a859c_15.jpg "obraz przycisku Widok zgodności (wyłączony) ") pełny kolor ![obraz przycisku Widok zgodności (funkcja włączona)](http://res1.windows.microsoft.com/resbox/en/Windows 7/main/156805ff-3130-481b-a12d-4d3a96470f36_14.jpg "obraz przycisku Widok zgodności (funkcja włączona)"). Alternatywnie można wyświetlić w tym samouczku w przeglądarce FireFox lub Chrome.
+> Jeśli używasz programu Internet Explorer 9, a nie widać `BundleMobileConfig` wiersz powyżej w Wyróżnij żółty, kliknij przycisk [przycisk Widok zgodności](https://windows.microsoft.com/windows7/How-to-use-Compatibility-View-in-Internet-Explorer-9)![obraz przycisku Widok zgodności (wyłączone)](http://res2.windows.microsoft.com/resbox/en/Windows 7/main/f080e77f-9b66-4ac8-9af0-803c4f8a859c_15.jpg " Obraz przycisku Widok zgodności (wyłączone)") w programie Internet Explorer, aby ikona zmiany z konturem ![obraz przycisku Widok zgodności (wyłączone)](http://res2.windows.microsoft.com/resbox/en/Windows 7/main/f080e77f-9b66-4ac8-9af0-803c4f8a859c_15.jpg "obraz przycisku Widok zgodności (wyłączony) ") pełny kolor ![obraz przycisku Widok zgodności (funkcja włączona)](http://res1.windows.microsoft.com/resbox/en/Windows 7/main/156805ff-3130-481b-a12d-4d3a96470f36_14.jpg "obraz przycisku Widok zgodności (funkcja włączona)"). Alternatywnie można wyświetlić w tym samouczku w przeglądarce FireFox lub Chrome.
 
 
 Otwórz *MvcMobile\Views\Shared\\_Layout.Mobile.cshtml* pliku i Dodaj następujący kod bezpośrednio po `Html.Partial` wywołania:

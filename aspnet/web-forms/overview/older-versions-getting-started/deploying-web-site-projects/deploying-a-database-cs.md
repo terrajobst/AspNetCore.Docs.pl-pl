@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projec
 title: Wdrażanie bazy danych (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Wdrażanie aplikacji sieci web ASP.NET pociąga za sobą pobieranie niezbędnych plików i zasobów środowiska programowania do środowiska produkcyjnego. Dla aplikacji rozproszonej...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/23/2009
 ms.assetid: ff537a10-9f1f-43fe-9bcb-3dda161ba8f5
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-a-database-cs
 msc.type: authoredcontent
-ms.openlocfilehash: baab10b8752af8c971f65df6e67cb77d9ad6518e
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: ca9ce2b41cfd10504304c30bc965e446a7188120
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37834339"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753102"
 ---
 <a name="deploying-a-database-c"></a>Wdrażanie bazy danych (C#)
 ====================

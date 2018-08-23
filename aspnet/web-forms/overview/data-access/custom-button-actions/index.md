@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/custom-button-actions/index
 title: Niestandardowe akcje przycisków | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Ten krótki zestawie samouczków pokazano, jak dodawanie przycisków do kontrolki GridView lub DetailsView, które może wykonywać wszystkie akcje, które Twoja aplikacja potrzebuje.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: d062986e-9d2e-4de4-94e8-ea83ec76fef2
 msc.legacyurl: /web-forms/overview/data-access/custom-button-actions
 msc.type: chapter
-ms.openlocfilehash: 542cbfa847f40789b5dd36257802152f220dc83a
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 716d67945340554f867e5c5319aecbf3967c75f6
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37831876"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756225"
 ---
 <a name="custom-button-actions"></a>Niestandardowe akcje przycisków
 ====================

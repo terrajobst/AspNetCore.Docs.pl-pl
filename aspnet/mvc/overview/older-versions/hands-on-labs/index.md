@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions/hands-on-labs/index
 title: Platforma ASP.NET MVC 4 — Ćwiczenia praktyczne | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Dowiedz się, jak tworzyć aplikacje za pomocą platformy ASP.NET MVC za pomocą tych Labs w ręce
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/18/2013
 ms.assetid: eb23eb99-bfca-4043-9b48-2cf7838dd754
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs
 msc.type: chapter
-ms.openlocfilehash: 137b889ac9896d67429c5bcf559a9e52223e4e1a
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 02ef51cd3320df200920cba19a59d8ab23836c95
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37813492"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756911"
 ---
 # <a name="aspnet-mvc-4-hands-on-labs"></a>Platforma ASP.NET MVC 4 — Ćwiczenia praktyczne
 

@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/master-pages/nested-maste
 title: Zagnieżdżone strony wzorcowe (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Pokazuje, jak można zagnieżdżać jedną stronę wzorcową w innym.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/28/2008
 ms.assetid: 14d9aa1b-4dca-43a0-aa9d-a6e891fee019
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/nested-master-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e58eef87afce7d1b7e29445bdbf48baf5f65d3e2
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 86507c92b531898db1c9d29ba2ac28cc35d5d284
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37836265"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751981"
 ---
 <a name="nested-master-pages-vb"></a>Zagnieżdżone strony wzorcowe (VB)
 ====================

@@ -3,17 +3,17 @@ uid: web-forms/videos/authentication/creating-user-accounts-programmatically
 title: Programowe tworzenie kont użytkowników | Dokumentacja firmy Microsoft
 author: JoeStagner
 description: W tym filmie pokazano, jak utworzenie niestandardowego Stagner Jan programistyczne tworzenie formularza sieci web użytkownika podczas nie za pomocą Kreatora tworzenia użytkownika. Aby uzyskać dodatkowe i...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/22/2008
 ms.assetid: 33087707-9876-4575-9042-42e0d0947fa5
 msc.legacyurl: /web-forms/videos/authentication/creating-user-accounts-programmatically
 msc.type: video
-ms.openlocfilehash: 8d99f769f6bf04fa05b3dd85dec6dc3a2e5618fc
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 0bdddac1e470e7b9eac79013aebd3f6d1e05c589
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37813422"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753411"
 ---
 <a name="creating-user-accounts-programmatically"></a>Programowe tworzenie kont użytkowników
 ====================

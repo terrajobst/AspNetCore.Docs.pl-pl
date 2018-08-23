@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/working-with-binary-files/including-a-file-u
 title: W tym pliku przekazywania opcji podczas dodawania nowego rekordu (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: W tym samouczku pokazano, jak utworzyć interfejs sieci Web, który umożliwia użytkownikowi wprowadzanie tekstu danych i przekaż pliki binarne. Aby zilustrować t dostępne opcje...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/27/2007
 ms.assetid: 5776281d-4637-4d1e-a65b-2621d2cade44
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/including-a-file-upload-option-when-adding-a-new-record-vb
 msc.type: authoredcontent
-ms.openlocfilehash: eac86318136d6f28ecf6551b8b8a6b691a8969d7
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 22ca0d85fac598b2f845be4bd5c18fdcbd3bc3a8
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37807755"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753845"
 ---
 <a name="including-a-file-upload-option-when-adding-a-new-record-vb"></a>Dołączanie opcji przekazywania pliku podczas dodawania nowego rekordu (VB)
 ====================

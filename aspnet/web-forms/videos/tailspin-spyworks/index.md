@@ -3,17 +3,17 @@ uid: web-forms/videos/tailspin-spyworks/index
 title: Tailspin Spyworks | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Jak korzystać z nowych funkcji programu ASP.NET 4, Tworzenie sklepu internetowego, w tym zakupów, finalizacja zakupu i Administracja.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: 8aa371f8-913c-4ed2-98b0-f76abf15669d
 msc.legacyurl: /web-forms/videos/tailspin-spyworks
 msc.type: chapter
-ms.openlocfilehash: c280130cd7697ba453e06f5f719193a7090fb09a
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 0fbbc6e0ca1d13effe5d7f157e3f0dc5502578c6
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37804198"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756464"
 ---
 <a name="tailspin-spyworks"></a>Tailspin Spyworks
 ====================

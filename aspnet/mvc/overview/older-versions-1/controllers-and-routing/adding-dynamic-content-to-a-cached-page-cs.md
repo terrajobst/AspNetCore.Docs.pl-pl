@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/controllers-and-routing/adding-dynamic-conten
 title: Dodawanie zawartości dynamicznej do buforowanej strony (C#) | Dokumentacja firmy Microsoft
 author: microsoft
 description: Dowiedz się, jak łączyć zawartości dynamicznej i pamięci podręcznej w tej samej stronie. Podstawianie po pamięci podręcznej umożliwia wyświetlanie zawartości dynamicznej, takiej jak transparent anonsów o...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/27/2009
 ms.assetid: 2ddd4407-d143-4a94-877c-21771bfb97a6
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/adding-dynamic-content-to-a-cached-page-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5c6d5a223a465a00a08f58a188a16cbf3c310431
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: a03f943b936c68215d65dca92e62431642226993
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37805584"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753508"
 ---
 <a name="adding-dynamic-content-to-a-cached-page-c"></a>Dodawanie zawartości dynamicznej do buforowanej strony (C#)
 ====================

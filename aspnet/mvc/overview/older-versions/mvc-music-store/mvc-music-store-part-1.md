@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-1
 title: 'Część 1: Omówienie i plik -> Nowy projekt | Dokumentacja firmy Microsoft'
 author: jongalloway
 description: W tej serii samouczków szczegółowo opisuje wszystkie etapy, tworzenie przykładowej aplikacji platformy ASP.NET MVC Music Store. Część 1 obejmuje omówienie i plik -> Nowy projekt.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/21/2011
 ms.assetid: bd356ca3-5bdb-4067-9dac-c9e9923a86e8
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: 57856a4a78a650e4abe872004e5be5f8f3b2dbcd
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: d84a525221e40b79853be55069367134d17fb5ec
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37816346"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754012"
 ---
 <a name="part-1-overview-and-file-new-project"></a>Część 1: Omówienie i plik -> Nowy projekt
 ====================

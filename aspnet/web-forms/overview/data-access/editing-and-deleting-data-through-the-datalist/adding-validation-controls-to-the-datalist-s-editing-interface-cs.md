@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/editing-and-deleting-data-through-the-datali
 title: Dodawanie kontrolek weryfikacji do elementu DataList przez edytowanie interfejsu (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: W tym samouczku zobaczymy, jak łatwo jest dodawanie kontrolek weryfikacji do DataList EditItemTemplate zapewnić bardziej niezawodne edycji int. użytkownika...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/30/2006
 ms.assetid: 3ecc21c5-da0e-40ab-abb4-fac1e47398ad
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/adding-validation-controls-to-the-datalist-s-editing-interface-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8a9fe298b7b9cc9fadc4dfd131a7a61d6029da04
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 2fe85d6513a229f11b3aad7c7cc6c7124c94d70f
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37842708"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756292"
 ---
 <a name="adding-validation-controls-to-the-datalists-editing-interface-c"></a>Dodawanie kontrolek weryfikacji do interfejsu edycji DataList (C#)
 ====================

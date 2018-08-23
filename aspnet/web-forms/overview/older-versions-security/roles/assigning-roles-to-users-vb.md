@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-security/roles/assigning-roles-to-users-v
 title: Przypisywanie ról do użytkowników (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: W tym samouczku utworzymy dwie strony ASP.NET, aby ułatwić zarządzanie, jakie użytkownicy należą do jakich ról. Pierwsza strona będzie zawierać urządzenia, aby zobaczyć, co...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/24/2008
 ms.assetid: fd208ee9-69cc-4467-9783-b4e039bdd1d3
 msc.legacyurl: /web-forms/overview/older-versions-security/roles/assigning-roles-to-users-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 41b73ec54ec2f174bca1d0ee2965ff8e0438ccba
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 334440f514e94927e428aef8fdba53f0b99e4460
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37839781"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756044"
 ---
 <a name="assigning-roles-to-users-vb"></a>Przypisywanie ról do użytkowników (VB)
 ====================

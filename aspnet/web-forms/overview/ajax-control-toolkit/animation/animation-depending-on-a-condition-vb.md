@@ -3,17 +3,17 @@ uid: web-forms/overview/ajax-control-toolkit/animation/animation-depending-on-a-
 title: Animacja w zależności od warunku (VB) | Dokumentacja firmy Microsoft
 author: wenz
 description: Kontrolki animacji w programie ASP.NET AJAX Control Toolkit nie jest po prostu kontrolki, ale cała struktura Dodawanie animacji do kontrolki. Czy animacja jest...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: 1b87d8d6-b3f7-4126-b51c-d41442fbf947
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/animation-depending-on-a-condition-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 4b815d7000d94ceec8864b29f0dddf0171344de1
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: be43b68ce77819cdcd09d8e875604db90e8a8d96
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37836291"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41757168"
 ---
 <a name="animation-depending-on-a-condition-vb"></a>Animacja w zależności od warunku (VB)
 ====================

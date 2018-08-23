@@ -3,17 +3,17 @@ uid: mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmatio
 title: Tworzenie bezpiecznej aplikacji sieci web ASP.NET MVC 5 z logowaniem, wiadomości e-mail z potwierdzeniem i resetowaniem hasła (C#) | Dokumentacja firmy Microsoft
 author: Rick-Anderson
 description: W tym samouczku dowiesz się, jak utworzyć aplikację sieci web ASP.NET MVC 5 z potwierdzenie adresu e-mail i resetowania haseł za pomocą systemu członkostwa ASP.NET Identity. Możesz urzędu certyfikacji...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/26/2015
 ms.assetid: d4911cb3-1afb-4805-b860-10818c4b1280
 msc.legacyurl: /mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset
 msc.type: authoredcontent
-ms.openlocfilehash: 1387c3e9c03e011b610a070aa0c273ded23b463e
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: e15595cab2d1f51374d4577a67f0f190a531acb5
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37823550"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41752291"
 ---
 <a name="create-a-secure-aspnet-mvc-5-web-app-with-log-in-email-confirmation-and-password-reset-c"></a>Tworzenie bezpiecznej aplikacji sieci web ASP.NET MVC 5 z logowaniem, wiadomości e-mail z potwierdzeniem i resetowaniem hasła (C#)
 ====================

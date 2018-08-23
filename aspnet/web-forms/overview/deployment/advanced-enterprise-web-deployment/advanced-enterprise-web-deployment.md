@@ -3,17 +3,17 @@ uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/advanced-e
 title: Zaawansowane wdrażanie w Internecie Enterprise | Dokumentacja firmy Microsoft
 author: jrjlee
 description: Ten samouczek przedstawia sposób wykonywania różnych zadań, które są wymagane lub pożądane wiele scenariuszy wdrażania w przedsiębiorstwie. Dla włoskiego translati...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: 7dcaba80-f2ec-4db3-ad98-daadc3afdb49
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/advanced-enterprise-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: adadd921a96b5643eb54cd6f6384ef881ca6ba50
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 34f1bf3bc2c37afc66f458a60a29fe5ce8f6c018
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37835083"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41752074"
 ---
 <a name="advanced-enterprise-web-deployment"></a>Wdrażanie w Internecie zaawansowane przedsiębiorstwa
 ====================

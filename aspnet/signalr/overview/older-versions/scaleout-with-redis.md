@@ -3,17 +3,17 @@ uid: signalr/overview/older-versions/scaleout-with-redis
 title: SignalR — skalowanie w poziomie z pamięcią podręczną Redis (SignalR 1.x) | Dokumentacja firmy Microsoft
 author: MikeWasson
 description: ''
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/01/2013
 ms.assetid: 6abecf80-8ffa-41ba-b0d9-1d9edbe7687b
 msc.legacyurl: /signalr/overview/older-versions/scaleout-with-redis
 msc.type: authoredcontent
-ms.openlocfilehash: 1aa391aadfada85f90fe37a70a983b2efa3fbb62
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 4f587b129a1a22e64625d2ab0fc7655984262ebe
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37833115"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755554"
 ---
 <a name="signalr-scaleout-with-redis-signalr-1x"></a>SignalR — skalowanie w poziomie z pamięcią podręczną Redis (SignalR 1.x)
 ====================

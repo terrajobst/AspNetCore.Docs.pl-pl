@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeat
 title: Zagnieżdżone dane sieci Web kontrolki (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: W tym samouczku, który przeanalizujemy sposób używania Repeater zagnieżdżone wewnątrz innego elementu powtarzanego. Przykłady przedstawiają sposobu wypełniania wewnętrzny elementu powtarzanego zarówno d...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 09/13/2006
 ms.assetid: ad3cb0ec-26cf-42d7-b81b-184a34ec9f86
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/nested-data-web-controls-cs
 msc.type: authoredcontent
-ms.openlocfilehash: bed7d3772d86b897cafc38a424723da6adf08f97
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 032321b5cf5323058c114e652512854f9866d447
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37839386"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753738"
 ---
 <a name="nested-data-web-controls-c"></a>Zagnieżdżone kontrolki internetowe danych (C#)
 ====================

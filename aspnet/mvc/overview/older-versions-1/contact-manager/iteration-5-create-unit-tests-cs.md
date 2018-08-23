@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/contact-manager/iteration-5-create-unit-tests
 title: 'Iteracja #5 — Tworzenie testów jednostkowych (C#) | Dokumentacja firmy Microsoft'
 author: microsoft
 description: W piątej iteracji ułatwiamy naszej aplikacji ułatwia konserwację i modyfikowanie, dodając testów jednostkowych. Firma Microsoft testowanie naszych zajęć modelu danych i tworzenie testów jednostkowych dla o...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/20/2009
 ms.assetid: 28ad8f80-b8a5-444e-b478-8b15a846060c
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-5-create-unit-tests-cs
 msc.type: authoredcontent
-ms.openlocfilehash: bd0d9efce178235128453c218222533d1fb11f73
-ms.sourcegitcommit: a25b572eaed21791230c85416f449f66a405ec19
+ms.openlocfilehash: 68d0ae15db115685b3e1a44f8b3b5b7e33674a8b
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39395977"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755587"
 ---
 <a name="iteration-5--create-unit-tests-c"></a>Iteracja #5 — Tworzenie testów jednostkowych (C#)
 ====================

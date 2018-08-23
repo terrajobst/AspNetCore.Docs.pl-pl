@@ -3,17 +3,17 @@ uid: web-forms/videos/net-4/routing/index
 title: Routing | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Ten film pokazuje, jak utworzyć intuicyjne i przyjaznych dla aparatów wyszukiwania adresów URL w aplikacji formularzy sieci Web.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 11/14/2011
 ms.assetid: 8a1cfb18-df04-4607-ae93-2bebd2d3fa31
 msc.legacyurl: /web-forms/videos/net-4/routing
 msc.type: chapter
-ms.openlocfilehash: 785d58f405002845c1e1a5ee96e20846bff5b9ee
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: f9ac951d9ea8153d95b57e8053749db76de0d0c7
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37813440"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753186"
 ---
 <a name="routing"></a>Routing
 ====================

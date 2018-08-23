@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/models-data/displaying-a-table-of-database-da
 title: Wyświetlanie tabeli danych bazy danych (VB) | Dokumentacja firmy Microsoft
 author: microsoft
 description: W tym samouczku pokazują I, wyświetlany jest zestaw rekordów bazy danych na dwa sposoby. Czy mogę Pokaż dwie metody formatowania zestaw rekordów bazy danych w formacie HTML danych...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/07/2008
 ms.assetid: 5bb4587f-5bcd-44f5-b368-3c1709162b35
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/displaying-a-table-of-database-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0b796c424cfe3fb03f3d6eddd8812438ceea2026
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: d96f574c9284ab259b8733b3b8109ecd0b689aa8
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37830276"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756469"
 ---
 <a name="displaying-a-table-of-database-data-vb"></a>Wyświetlanie tabeli danych bazy danych (VB)
 ====================

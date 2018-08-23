@@ -3,17 +3,17 @@ uid: ajax/cdn/jquery-validate/cdnjqueryvalidate155
 title: Sprawdź poprawność 1.5.5 jQuery | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: ''
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/23/2014
 ms.assetid: d1c0bb58-4450-464c-8db7-8ddaf2283ffa
 msc.legacyurl: /ajax/cdn/jquery-validate/cdnjqueryvalidate155
 msc.type: content
-ms.openlocfilehash: 6bd741b85a525532c85b1c723cbd40a0f65666db
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 7f20c76acd35237cc0be677c10d5f422a76e4469
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37809732"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753416"
 ---
 <a name="jquery-validate-155"></a>Sprawdź poprawność 1.5.5 jQuery
 ====================

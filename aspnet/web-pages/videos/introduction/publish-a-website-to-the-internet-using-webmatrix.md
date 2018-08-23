@@ -3,17 +3,17 @@ uid: web-pages/videos/introduction/publish-a-website-to-the-internet-using-webma
 title: Publikowanie witryny sieci Web w Internecie przy użyciu programu WebMatrix | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Część 9 dowiesz się, jak opublikować witryny w Internecie przy użyciu programu WebMatrix.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/12/2011
 ms.assetid: 090f5500-1124-49a7-a295-db97ef739c6a
 msc.legacyurl: /web-pages/videos/introduction/publish-a-website-to-the-internet-using-webmatrix
 msc.type: video
-ms.openlocfilehash: ed68075a350493e0c74553cfbde4b4504930b55f
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 1b269ae0ff6dc9bf74748e31b7bdd2fbae78858b
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37803816"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755483"
 ---
 <a name="publish-a-website-to-the-internet-using-webmatrix"></a>Publikowanie witryny sieci Web w Internecie przy użyciu programu WebMatrix
 ====================

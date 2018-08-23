@@ -3,17 +3,17 @@ uid: web-forms/videos/aspnet-35/visual-studio-editor/index
 title: Edytor programu Visual Studio | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Ta seria wideo przedstawiono nowe funkcje edytora programu Visual Studio 2008, w tym ulepszoną obsługę języka JavaScript i CSS.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 11/14/2011
 ms.assetid: 8d424d7b-5206-4790-a068-36d01c05ceb0
 msc.legacyurl: /web-forms/videos/aspnet-35/visual-studio-editor
 msc.type: chapter
-ms.openlocfilehash: f95d82d65f41436576741c1dc5ea4279ac086193
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: f28695d13a8fee29816955813bbf34739ebc936b
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37834046"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41752385"
 ---
 <a name="visual-studio-editor"></a>Edytor programu Visual Studio
 ====================

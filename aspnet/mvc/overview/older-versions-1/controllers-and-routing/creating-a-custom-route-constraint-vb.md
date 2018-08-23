@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/controllers-and-routing/creating-a-custom-rou
 title: Tworzenie niestandardowego ograniczenia trasy (VB) | Dokumentacja firmy Microsoft
 author: StephenWalther
 description: 'Autor: Stephen Walther pokazuje, jak można utworzyć ograniczenia trasy niestandardowej. Wdrożymy prosty niestandardowe ograniczenia, które uniemożliwia trasę dopasowywane w...'
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/16/2009
 ms.assetid: 892edb27-1cc2-4eaf-8314-dbc2efc6228a
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-a-custom-route-constraint-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 72389d11467cbf7baea4cc9452266edb8ab81125
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: d088380152adcb025857176b4396cab48fa64b66
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37840478"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753393"
 ---
 <a name="creating-a-custom-route-constraint-vb"></a>Tworzenie niestandardowego ograniczenia trasy (VB)
 ====================

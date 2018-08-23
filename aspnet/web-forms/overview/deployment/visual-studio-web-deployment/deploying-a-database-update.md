@@ -3,17 +3,17 @@ uid: web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-data
 title: 'Wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio: Wdrażanie aktualizacji bazy danych | Dokumentacja firmy Microsoft'
 author: tdykstra
 description: W tej serii samouczków dowiesz się, jak wdrożyć (opublikować) platformy ASP.NET sieci web aplikacji do usługi Azure App Service Web Apps lub dostawcy hostingu w innych firm, używane...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/15/2013
 ms.assetid: 9cad0833-486a-4474-a7f3-7715542ec4ce
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-database-update
 msc.type: authoredcontent
-ms.openlocfilehash: 88652a33d5367241fec4d442e9deb15d88a096c9
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 5c9b0c71e2e0d35645e975e9adb7086e65bcf4c3
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37817626"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756568"
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-a-database-update"></a>Wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio: Wdrażanie aktualizacji bazy danych
 ====================

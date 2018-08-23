@@ -3,17 +3,17 @@ uid: web-forms/overview/ajax-control-toolkit/rating/creating-a-rating-control-vb
 title: Tworzenie kontrolki Rating (VB) | Dokumentacja firmy Microsoft
 author: wenz
 description: Wiele witryn sieci Web z handlu elektronicznego do witryn społeczności, oferują użytkownikom na szybkość artykuły lub elementów. Zwykle wymaga to pewnych wysiłków związanych z kodowaniem, ale mamy...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: 6d0d70f4-725e-4258-8ae8-24a6ba1ddbf7
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/rating/creating-a-rating-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: cb8bd8ab400bf5633b8218e724ad86cf7271699d
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: b229d0155fbab0437c644b41424164e4c655f5e5
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37811976"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41752282"
 ---
 <a name="creating-a-rating-control-vb"></a>Tworzenie kontrolki Rating (VB)
 ====================

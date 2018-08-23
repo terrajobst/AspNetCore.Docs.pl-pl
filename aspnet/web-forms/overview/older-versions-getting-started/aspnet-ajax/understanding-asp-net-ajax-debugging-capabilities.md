@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding
 title: Opis funkcji debugowania kodu ASP.NET AJAX | Dokumentacja firmy Microsoft
 author: scottcate
 description: Możliwość debugowania kodu jest umiejętności, które każdy Deweloper powinien mieć w ich Arsenał, niezależnie od użytej technologii używane. Wielu programistów są...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/28/2008
 ms.assetid: 7f9380c6-19f7-4c82-a019-916ec6dffc9c
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-debugging-capabilities
 msc.type: authoredcontent
-ms.openlocfilehash: 95c2487f26109cbdd8c76dc6f269f37264f5e34b
-ms.sourcegitcommit: 028ad28c546de706ace98066c76774de33e4ad20
+ms.openlocfilehash: 13fd8f05cd994ff1c902bd067fb4ed425010d64e
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39655449"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755570"
 ---
 <a name="understanding-aspnet-ajax-debugging-capabilities"></a>Opis funkcji debugowania kodu ASP.NET AJAX
 ====================

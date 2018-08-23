@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/master-pages/multiple-con
 title: Wiele kontrolek ContentPlaceHolder i zawartość domyślna (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Sprawdza, czy sposób dodawania wielu posiadaczy zawartości miejsce na stronę wzorcową, a także sposobu określania domyślnej zawartości w posiadaczy miejscu zawartości.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/21/2008
 ms.assetid: 866a7177-6884-451e-88f4-c934b1dd1af5
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/multiple-contentplaceholders-and-default-content-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 98cb78e03f9f7aff4a36625416188aba04512f6a
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 18e2dfdf5cf3d5802bf94d797795fc0f12bdc95b
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37839703"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41752580"
 ---
 <a name="multiple-contentplaceholders-and-default-content-vb"></a>Wiele kontrolek ContentPlaceHolder i zawartość domyślna (VB)
 ====================

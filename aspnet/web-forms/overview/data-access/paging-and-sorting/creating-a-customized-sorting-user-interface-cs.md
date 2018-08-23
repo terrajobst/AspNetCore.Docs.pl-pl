@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/paging-and-sorting/creating-a-customized-sor
 title: Tworzenie dostosowanego interfejsu użytkownika sortowania (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Podczas wyświetlania długą listę posortowanych danych, może być bardzo przydatny do grupowania powiązanych danych dzięki zastosowaniu separator wierszy. W tym samouczku zobaczymy, jak poświadczeń...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/15/2006
 ms.assetid: 6f81b633-9d01-4e52-ae4a-2ea6bc109475
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/creating-a-customized-sorting-user-interface-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 96f52b3caf812fcfe82012c2de091acb91b8e0ae
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 28926276e183ae7cf7ed4087d8c73044741389e5
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37842335"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754357"
 ---
 <a name="creating-a-customized-sorting-user-interface-c"></a>Tworzenie dostosowanego interfejsu użytkownika sortowania (C#)
 ====================

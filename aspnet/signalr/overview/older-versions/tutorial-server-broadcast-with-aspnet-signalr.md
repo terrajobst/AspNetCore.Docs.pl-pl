@@ -3,17 +3,17 @@ uid: signalr/overview/older-versions/tutorial-server-broadcast-with-aspnet-signa
 title: 'Samouczek: Emisje serwera z użyciem ASP.NET SignalR 1.x | Dokumentacja firmy Microsoft'
 author: pfletcher
 description: W tym samouczku przedstawiono sposób tworzenia aplikacji sieci web, która używa biblioteki SignalR platformy ASP.NET, aby zapewnić funkcjonalność emisji serwera. Oznacza to communic emisje serwera...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/10/2013
 ms.assetid: ab7b2554-956a-4f6d-b2a0-4ae0c62e8580
 msc.legacyurl: /signalr/overview/older-versions/tutorial-server-broadcast-with-aspnet-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 1f98b35236812aac1362f1e36e60971ff8d896bc
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 76dc2f4d54f6ab4cebbde06dfd611a9b5ee5ae64
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37816197"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755553"
 ---
 <a name="tutorial-server-broadcast-with-aspnet-signalr-1x"></a>Samouczek: Emisje serwera z użyciem ASP.NET SignalR 1.x
 ====================

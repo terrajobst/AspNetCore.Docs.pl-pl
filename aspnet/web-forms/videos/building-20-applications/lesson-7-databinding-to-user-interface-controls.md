@@ -3,17 +3,17 @@ uid: web-forms/videos/building-20-applications/lesson-7-databinding-to-user-inte
 title: '[Lekcja 7:] Powiązanie danych z kontrolkami interfejsu użytkownika | Dokumentacja firmy Microsoft'
 author: microsoft
 description: W tej lekcji nauczysz się wyświetlać dane w swoich aplikacjach ASP.NET&#160;aplikacji za pośrednictwem niektóre z nowych formantów powiązanych z danymi w sieci web w wersji 2.0.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 11/29/2005
 ms.assetid: 49625de7-06c3-484c-bd76-d322b9ca41ea
 msc.legacyurl: /web-forms/videos/building-20-applications/lesson-7-databinding-to-user-interface-controls
 msc.type: video
-ms.openlocfilehash: 868072c6a3ccc8d461cd86d2092b5b8c82ed7fc9
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: a166b3386bb4b2ce7d8215a1fb312d9d255c249d
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37802232"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754721"
 ---
 <a name="lesson-7-databinding-to-user-interface-controls"></a>[Lekcja 7:] Powiązanie danych z kontrolkami interfejsu użytkownika
 ====================

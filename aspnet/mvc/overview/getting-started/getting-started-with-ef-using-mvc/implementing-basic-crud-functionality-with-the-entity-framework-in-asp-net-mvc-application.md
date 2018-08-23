@@ -3,17 +3,17 @@ uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing
 title: Implementowanie podstawowych funkcji CRUD z platformą Entity Framework w aplikacji ASP.NET MVC | Dokumentacja firmy Microsoft
 author: tdykstra
 description: Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 5 przy użyciu Entity Framework 6 Code First i programu Visual Studio...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/09/2015
 ms.assetid: a2f70ba4-83d1-4002-9255-24732726c4f2
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 20c4ec6835f65c267245c5b37cdd5648e9787c71
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: fd718cfe0f257bbf97f5ef3fdbdedecc88fc4e98
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37837704"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754443"
 ---
 <a name="implementing-basic-crud-functionality-with-the-entity-framework-in-aspnet-mvc-application"></a>Implementowanie podstawowych funkcji CRUD z platformą Entity Framework w aplikacji ASP.NET MVC
 ====================

@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/custom-button-actions-with-the-datalist-and-
 title: Przyciski niestandardowe w kontrolkach DataList i Repeater (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: W tym samouczku utworzymy interfejs, który używa Repeater, aby wyświetlić listę kategorii w systemie, z każdej kategorii, zapewniając przycisku, aby wyświetlał jego associ...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 11/13/2006
 ms.assetid: 1afdb14d-6e49-4e1f-aead-2934730d472e
 msc.legacyurl: /web-forms/overview/data-access/custom-button-actions-with-the-datalist-and-repeater/custom-buttons-in-the-datalist-and-repeater-vb
 msc.type: authoredcontent
-ms.openlocfilehash: ab580a706b76325fc4c0eccfc130ffa7db22fbd3
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: c88c3c01dc641d5076ac99f4e1cf2b2fb1681ffd
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37812954"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754933"
 ---
 <a name="custom-buttons-in-the-datalist-and-repeater-vb"></a>Przyciski niestandardowe w kontrolkach DataList i Repeater (VB)
 ====================

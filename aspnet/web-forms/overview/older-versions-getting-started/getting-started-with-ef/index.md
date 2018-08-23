@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/i
 title: ASP.NET4 — wprowadzenie do programu Entity Framework 4 i formularzy sieci Web | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Podstawowe informacje dotyczące wyświetlania i edytowania danych w aplikacji formularzy sieci Web ASP.NET przy użyciu platformy Entity Framework.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: c801eeab-1469-42d7-a961-082dbbf4683e
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef
 msc.type: chapter
-ms.openlocfilehash: 645baea942df9672ad2e4399a25fb0efa14cbcfe
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 1a9fbd49d3d8fc54076efccfba9541287ad68f5b
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37806446"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756532"
 ---
 <a name="aspnet-4---getting-started-with-entity-framework-4-and-web-forms"></a>ASP.NET4 — wprowadzenie do programu Entity Framework 4 i formularzy sieci Web
 ====================

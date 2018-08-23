@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/introduction/creating-a-business-logic-layer
 title: Tworzenie warstwy logiki biznesowej (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: W tym samouczku zobaczymy, jak centralizować własne reguły biznesowe do Business Logic warstwy (LOGIKI) służąca jako pośrednik wymianę danych między t...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/31/2010
 ms.assetid: 142e5181-29ce-4bb9-907b-2a0becf7928b
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-business-logic-layer-vb
 msc.type: authoredcontent
-ms.openlocfilehash: eaa91cc46f0d043983c252c1d0adfc413f3b582d
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 345f4981ebdd5384068bd42bce0581f94866ad1d
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37832357"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751951"
 ---
 <a name="creating-a-business-logic-layer-vb"></a>Tworzenie warstwy logiki biznesowej (VB)
 ====================

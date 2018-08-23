@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/controllers-and-routing/asp-net-mvc-routing-o
 title: Omówienie routingu platformy ASP.NET MVC (C#) | Dokumentacja firmy Microsoft
 author: StephenWalther
 description: 'W tym samouczku Walther Autor: Stephen pokazuje, jak platforma ASP.NET MVC mapuje żądania przeglądarki do akcji kontrolera.'
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/19/2008
 ms.assetid: 5b39d2d5-4bf9-4d04-94c7-81b84dfeeb31
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/asp-net-mvc-routing-overview-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 2b43c3dca1587d79a60c5a89a451dda989403d56
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 188490c5ca075710dcbdcd1c325808f7c1d383bc
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37819150"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753313"
 ---
 <a name="aspnet-mvc-routing-overview-c"></a>Omówienie routingu platformy ASP.NET MVC (C#)
 ====================

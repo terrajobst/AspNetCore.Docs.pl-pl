@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/masterdetail/master-detail-filtering-with-a-
 title: Filtrowanie rekordu głównego/szczegółów przy użyciu kontrolki DropDownList (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: W tym samouczku opisano sposób wyświetlania rekordy główne w kontrolki DropDownList i szczegóły wybranego elementu listy w GridView.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/31/2010
 ms.assetid: ea44717e-ab2e-46cd-a692-e4a9c0de194c
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-filtering-with-a-dropdownlist-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a1bd1a20950376244c1d461d139f3eee6bc9a9cc
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: d9d50da7f11d1494d49fbeaa18a45991e577cdb3
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37816259"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41752088"
 ---
 <a name="masterdetail-filtering-with-a-dropdownlist-vb"></a>Filtrowanie rekordu głównego/szczegółów przy użyciu kontrolki DropDownList (VB)
 ====================

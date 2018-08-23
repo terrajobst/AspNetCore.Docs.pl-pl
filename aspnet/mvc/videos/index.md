@@ -3,17 +3,17 @@ uid: mvc/videos/index
 title: Filmy wideo | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: ''
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/24/2011
 ms.assetid: e618c37c-68f3-49aa-9fda-f86cb3b578b9
 msc.legacyurl: /mvc/videos
 msc.type: book
-ms.openlocfilehash: 8b36acc4195c17b912c7e923cf6ab8e8204bd352
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 1f284bb52bb45880d656592f173b3e57fbc47118
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37829145"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41757038"
 ---
 <a name="videos"></a>Wideo
 ====================

@@ -3,17 +3,17 @@ uid: web-pages/overview/security/using-a-catpcha-to-prevent-automated-programs-b
 title: Korzystanie z mechanizmu CAPTCHA, aby uniemożliwić Boty przy użyciu usługi sieci Web platformy ASP.NET Razor) lokacji | Dokumentacja firmy Microsoft
 author: microsoft
 description: W tym artykule wyjaśniono, jak użyć ReCaptcha (miara zabezpieczeń), aby uniemożliwić automatyczne programom (robotom) z wykonywania zadań w stron ASP.NET Web Pages (Razor) firma Microsoft...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/21/2012
 ms.assetid: 2b381a41-2cb3-40c0-8545-1d393e22877f
 msc.legacyurl: /web-pages/overview/security/using-a-catpcha-to-prevent-automated-programs-bots-from-using-your-aspnet-web-site
 msc.type: authoredcontent
-ms.openlocfilehash: f67eb60c23e0eec46089ceea9b04779492dfa15e
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: dc014f42490327743764787d58c613b7caa89f1f
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37803074"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756816"
 ---
 <a name="using-a-captcha-to-prevent-bots-from-using-your-aspnet-web-razor-site"></a>Korzystanie z mechanizmu CAPTCHA, aby uniemożliwić Boty przy użyciu usługi sieci Web platformy ASP.NET Razor) lokacji
 ====================

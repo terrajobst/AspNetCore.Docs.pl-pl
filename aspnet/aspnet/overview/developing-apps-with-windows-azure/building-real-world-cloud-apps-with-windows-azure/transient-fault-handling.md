@@ -3,17 +3,17 @@ uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-clou
 title: Obsługa (Tworzenie aplikacji w chmurze w rzeczywistych warunkach Dzięki platformie Azure) błędu przejściowego | Dokumentacja firmy Microsoft
 author: MikeWasson
 description: Tworzenie rzeczywistych aplikacji w chmurze za pomocą platformy Azure Książka elektroniczna jest oparta na prezentacji, opracowane przez Scotta Guthrie. Wyjaśniono 13 wzorców i praktyk, które może on...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 11/03/2015
 ms.assetid: 7ead83bc-c08c-4b26-8617-00e07292e35c
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling
 msc.type: authoredcontent
-ms.openlocfilehash: e67f3106f060d52f90ba56d6684af64779009e39
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 26f1d040e4857899ddcff79b778d0af62b66134d
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37823381"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754694"
 ---
 <a name="transient-fault-handling-building-real-world-cloud-apps-with-azure"></a>Obsługa (Tworzenie aplikacji w chmurze w rzeczywistych warunkach Dzięki platformie Azure) błędu przejściowego
 ====================

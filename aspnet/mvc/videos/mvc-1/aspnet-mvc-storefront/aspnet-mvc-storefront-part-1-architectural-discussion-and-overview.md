@@ -3,17 +3,17 @@ uid: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-1-archite
 title: 'ASP.NET MVC StoreFront — część 1: Omówienie architektury i — omówienie | Dokumentacja firmy Microsoft'
 author: robconery
 description: Rob Conery omówiono architekturę początkowej w tym miejscu, w części 1, gdzie omówi wzorca repozytorium z Ayende Rahien i Steve Harman. Krzysztof również prosi...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/27/2008
 ms.assetid: 194a163b-2aad-4cad-bf1f-e9ce3f80add0
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-1-architectural-discussion-and-overview
 msc.type: video
-ms.openlocfilehash: 340bf6f5d5bb9c4a4737429c6518c959d18d2c87
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: e23a5b742c4a3a89c4d5c923b49f4a50cb1aecf6
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37838144"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755766"
 ---
 <a name="aspnet-mvc-storefront-part-1-architectural-discussion-and-overview"></a>ASP.NET MVC StoreFront — część 1: Omówienie architektury i — omówienie
 ====================

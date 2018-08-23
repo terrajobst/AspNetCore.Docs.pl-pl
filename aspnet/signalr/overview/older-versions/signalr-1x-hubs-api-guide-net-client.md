@@ -3,17 +3,17 @@ uid: signalr/overview/older-versions/signalr-1x-hubs-api-guide-net-client
 title: Podręcznik interfejsu API centrów SignalR platformy ASP.NET — klient modelu .NET (SignalR 1.x) | Dokumentacja firmy Microsoft
 author: pfletcher
 description: Ten dokument zawiera wprowadzenie do korzystania z interfejsu API centrów dla elementu SignalR w wersji 2 w przypadku klientów programu .NET, takich jak Windows Store (WinRT), WPF, Silverlight i wad...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/17/2013
 ms.assetid: c334adc3-d6dc-44f3-9f06-f7634475aad3
 msc.legacyurl: /signalr/overview/older-versions/signalr-1x-hubs-api-guide-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: 64d4f16dfcd121bc73f05cf8d320dc6ff2488f9a
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 5889429645ea1c682ea43c4b17afb3745318e32d
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37834691"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41757344"
 ---
 <a name="aspnet-signalr-hubs-api-guide---net-client-signalr-1x"></a>Podręcznik interfejsu API centrów SignalR platformy ASP.NET — klient modelu .NET (SignalR 1.x)
 ====================

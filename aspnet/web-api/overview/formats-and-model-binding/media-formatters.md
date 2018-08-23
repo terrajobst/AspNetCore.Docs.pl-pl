@@ -3,17 +3,17 @@ uid: web-api/overview/formats-and-model-binding/media-formatters
 title: Programy formatujące multimedia we wzorcu ASP.NET Web API 2 | Dokumentacja firmy Microsoft
 author: MikeWasson
 description: ''
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/20/2014
 ms.assetid: 4c56f64a-086a-44ce-99c2-4c69604cd7fd
 msc.legacyurl: /web-api/overview/formats-and-model-binding/media-formatters
 msc.type: authoredcontent
-ms.openlocfilehash: 9776adee19a62be4be38a4fb963c4978da3ed912
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 7b7ba2fb3f1bba0447e700c84a017266cba305e6
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37803288"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754980"
 ---
 <a name="media-formatters-in-aspnet-web-api-2"></a>Programy formatujące multimedia we wzorcu ASP.NET Web API 2
 ====================

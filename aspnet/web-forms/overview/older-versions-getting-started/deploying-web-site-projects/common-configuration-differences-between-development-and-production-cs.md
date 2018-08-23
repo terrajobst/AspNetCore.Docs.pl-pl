@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projec
 title: Typowe różnice konfiguracji między środowiskami deweloperskim i produkcyjnym (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: W samouczkach wcześniej wdrożyliśmy naszej witryny sieci Web, kopiując wszystkie odpowiednie pliki ze środowiska projektowego do środowiska produkcyjnego. Jednak po...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/01/2009
 ms.assetid: 721a5c37-7e21-48e0-832e-535c6351dcae
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/common-configuration-differences-between-development-and-production-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5b3476cdb25a0fc87ce233d7e26de094a0b7b17c
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 47060b45cad0e2f15a3c314d608b88c7c1d30809
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37808911"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756240"
 ---
 <a name="common-configuration-differences-between-development-and-production-c"></a>Typowe różnice konfiguracji między środowiskami deweloperskim i produkcyjnym (C#)
 ====================

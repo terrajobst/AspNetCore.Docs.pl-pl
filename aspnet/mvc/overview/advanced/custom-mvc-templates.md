@@ -3,17 +3,17 @@ uid: mvc/overview/advanced/custom-mvc-templates
 title: Niestandardowy szablon MVC | Dokumentacja firmy Microsoft
 author: joeloff
 description: Utwórz szablon jako rozszerzenia VSIX.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 12/10/2012
 ms.assetid: b0a214c7-2f38-4dbc-b47f-bd7bd9df97bd
 msc.legacyurl: /mvc/overview/advanced/custom-mvc-templates
 msc.type: authoredcontent
-ms.openlocfilehash: 67cb01e0fae036f01b1851695ae5a4358136d28e
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 3c14bc6feb144a52773bf7bd4c23df24966a9ebb
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37809780"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41752701"
 ---
 <a name="custom-mvc-template"></a>Niestandardowy szablon MVC
 ====================

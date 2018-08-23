@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projec
 title: Przetwarzanie nieobsługiwanych wyjątków (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Gdy wystąpi błąd środowiska uruchomieniowego w aplikacji sieci web w środowisku produkcyjnym ważne jest, by powiadomić dewelopera i się błąd, dzięki czemu mogą być zdiagnozować w a la...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/09/2009
 ms.assetid: 051296f0-9519-4e78-835c-d868da13b0a0
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/processing-unhandled-exceptions-vb
 msc.type: authoredcontent
-ms.openlocfilehash: f925a2e2a8cf2785aa2df89c82d2a29965a543d9
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 29ea7f376f61c242ab93cfb71e1a7b435c575482
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37835233"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41752774"
 ---
 <a name="processing-unhandled-exceptions-vb"></a>Przetwarzanie nieobsługiwanych wyjątków (VB)
 ====================

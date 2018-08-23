@@ -3,17 +3,17 @@ uid: aspnet/mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs
 title: Tworzenie niestandardowych pomocników HTML (C#) | Dokumentacja firmy Microsoft
 author: microsoft
 description: Celem tego samouczka jest pokazują sposób tworzenia niestandardowych pomocników HTML używanego w ramach widoków MVC. Dzięki wykorzystaniu pomocnika kodu HTML...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/07/2008
 ms.assetid: e454c67d-a86e-4119-a858-eb04bbec2dff
 msc.legacyurl: /mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 0606ec3b5595fbe73918b82e32b393871e8533a1
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: a6a684e01b67c2ea139a50b568098d2dcf594272
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37839412"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41752780"
 ---
 <a name="creating-custom-html-helpers-c"></a>Tworzenie niestandardowych pomocników HTML (C#)
 ====================

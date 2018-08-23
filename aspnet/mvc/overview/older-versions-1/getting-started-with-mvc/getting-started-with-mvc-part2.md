@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with
 title: Dodawanie kontrolera | Dokumentacja firmy Microsoft
 author: shanselman
 description: Zaktualizowaną wersję, jeśli w tym samouczku jest dostępna w tym miejscu za pomocą programu Visual Studio 2013. Nowe samouczku ASP.NET MVC 5, która udostępnia wiele ulepszeń w porównaniu z t...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/14/2010
 ms.assetid: ff03dcc0-da97-458d-838f-0823e7482642
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part2
 msc.type: authoredcontent
-ms.openlocfilehash: afe1182bca0fe58e1df162c5027df35992eeef38
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 856b7d98ac8bd30982d81b0609bb9c1288e07e49
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37809913"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753310"
 ---
 <a name="adding-a-controller"></a>Dodawanie kontrolera
 ====================

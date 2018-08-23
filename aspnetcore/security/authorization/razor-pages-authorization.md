@@ -1,90 +1,118 @@
 ---
-title: Konwencje autoryzacji stron razor w ASP.NET Core
+title: Konwencje autoryzacja stron razor, w programie ASP.NET Core
 author: guardrex
-description: Informacje o sposobie kontrolowania dostępu do stron z konwencjami autoryzacji użytkowników, które użytkownicy anonimowego dostępu do stron lub folderów stron.
+description: Dowiedz się, jak kontrolować dostęp do stron z konwencjami, które autoryzować użytkowników i zezwolić anonimowym użytkownikom dostępu do strony lub foldery stron.
 ms.author: riande
 ms.custom: mvc
 ms.date: 10/27/2017
 uid: security/authorization/razor-pages-authorization
-ms.openlocfilehash: 8856520bf43f2f62cc12c7e883485babdb43fb3e
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: d3ecb41765da912df68aeb829350d27e4d087e3a
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272678"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755646"
 ---
-# <a name="razor-pages-authorization-conventions-in-aspnet-core"></a>Konwencje autoryzacji stron razor w ASP.NET Core
+# <a name="razor-pages-authorization-conventions-in-aspnet-core"></a>Konwencje autoryzacja stron razor, w programie ASP.NET Core
 
 Przez [Luke Latham](https://github.com/guardrex)
 
-Jednym ze sposobów kontroli dostępu w aplikacji stron Razor ma używać konwencji autoryzacji podczas uruchamiania. Konwencje te pozwalają na autoryzowanie użytkowników i anonimowe użytkownicy mogą uzyskiwać dostęp do poszczególnych stron lub folderów stron. Konwencje opisanych w tym temacie automatycznie zastosować [filtry autoryzacji](xref:mvc/controllers/filters#authorization-filters) do kontroli dostępu.
+Jednym ze sposobów w celu kontroli dostępu w aplikacji stron Razor jest używać konwencji autoryzacji podczas uruchamiania. Konwencje te umożliwiają autoryzować użytkowników i zezwolić anonimowym użytkownikom dostępu do poszczególnych stron lub foldery stron. Stosuje się konwencje opisane w tym temacie automatycznie [filtry autoryzacji](xref:mvc/controllers/filters#authorization-filters) celu kontroli dostępu.
 
-[Wyświetlić lub pobrać przykładowy kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/razor-pages-authorization/samples) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/razor-pages-authorization/samples) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
 
-Przykładowe zastosowania aplikacji [uwierzytelniania plików Cookie bez ASP.NET Core Identity](xref:security/authentication/cookie). Konto użytkownika dla użytkownika hipotetyczny, Maria Rodriguez jest zapisane na stałe w aplikacji. Użyj nazwy użytkownika wiadomości E-mail "maria.rodriguez@contoso.com" i wszelkich hasło do logowania użytkownika. Użytkownik jest uwierzytelniany w `AuthenticateUser` metody w *Pages/Account/Login.cshtml.cs* pliku. W przykładzie rzeczywistych użytkownik będzie uwierzytelniony w bazie danych. Aby korzystać z ASP.NET Core Identity, postępuj zgodnie ze wskazówkami w [wprowadzenie do tożsamości na platformy ASP.NET Core](xref:security/authentication/identity) tematu. Koncepcje i przykłady zamieszczone w tym temacie stosowane jednakowo do aplikacji, które używają ASP.NET Core Identity.
+Ta aplikacja używa przykładowych [uwierzytelniania plików Cookie bez użycia produktu ASP.NET Core Identity](xref:security/authentication/cookie). Konto użytkownika dla hipotetycznego użytkownika Maria Rodriguez jest ustalona w aplikacji. Użyj nazwy użytkownika wiadomości E-mail "maria.rodriguez@contoso.com" i wszystkie hasła do logowania użytkownika. Użytkownik jest uwierzytelniany w `AuthenticateUser` method in Class metoda *Pages/Account/Login.cshtml.cs* pliku. Przykład rzeczywistych użytkownika może być uwierzytelniani względem bazy danych. Aby korzystać z tożsamości platformy ASP.NET Core, postępuj zgodnie ze wskazówkami w [wprowadzenie do tożsamości programu ASP.NET Core](xref:security/authentication/identity) tematu. Pojęcia i przykłady przedstawione w tym temacie stosuje się jednakowo do aplikacji, które używają tożsamości platformy ASP.NET Core.
 
 ## <a name="require-authorization-to-access-a-page"></a>Wymaga autoryzacji do dostępu do strony
 
-Użyj [AuthorizePage](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.authorizepage) Konwencji za pośrednictwem [AddRazorPagesOptions](/dotnet/api/microsoft.extensions.dependencyinjection.mvcrazorpagesmvcbuilderextensions.addrazorpagesoptions) można dodać [AuthorizeFilter](/dotnet/api/microsoft.aspnetcore.mvc.authorization.authorizefilter) do strony w określonej ścieżce:
+Użyj [AuthorizePage](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.authorizepage) Konwencji za pośrednictwem [AddRazorPagesOptions](/dotnet/api/microsoft.extensions.dependencyinjection.mvcrazorpagesmvcbuilderextensions.addrazorpagesoptions) dodać [AuthorizeFilter](/dotnet/api/microsoft.aspnetcore.mvc.authorization.authorizefilter) do strony w określonej ścieżce:
 
 [!code-csharp[](razor-pages-authorization/samples/2.x/AuthorizationSample/Startup.cs?name=snippet1&highlight=2,4)]
 
-Określona ścieżka jest ścieżki aparat widoku, która jest ścieżką względną głównego stron Razor bez rozszerzenia i zawierający tylko kreskami ukośnymi.
+Określona ścieżka jest ścieżka aparat widoku, która jest ścieżką względną głównego stron Razor bez rozszerzenia i zawierający tylko ukośników.
 
-[Przeciążenia AuthorizePage](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.authorizepage#Microsoft_Extensions_DependencyInjection_PageConventionCollectionExtensions_AuthorizePage_Microsoft_AspNetCore_Mvc_ApplicationModels_PageConventionCollection_System_String_System_String_) jest dostępna, gdy konieczne jest określenie zasad autoryzacji.
+[Przeciążenia AuthorizePage](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.authorizepage#Microsoft_Extensions_DependencyInjection_PageConventionCollectionExtensions_AuthorizePage_Microsoft_AspNetCore_Mvc_ApplicationModels_PageConventionCollection_System_String_System_String_) jest dostępna, jeśli chcesz określić zasady autoryzacji.
 
 ::: moniker range=">= aspnetcore-2.1"
 
 > [!NOTE]
-> `AuthorizeFilter` Może odnosić się do strony klasy modelu z `[Authorize]` atrybutu filtru. Aby uzyskać więcej informacji, zobacz [atrybutu filtru autoryzacji](xref:razor-pages/filter#authorize-filter-attribute).
+> `AuthorizeFilter` Mogą być stosowane do klasy modelu strony z `[Authorize]` atrybutu filtru. Aby uzyskać więcej informacji, zobacz [atrybutu filtru autoryzacji](xref:razor-pages/filter#authorize-filter-attribute).
 
 ::: moniker-end
 
 ## <a name="require-authorization-to-access-a-folder-of-pages"></a>Wymaga zezwolenia na dostęp do folderu stron
 
-Użyj [AuthorizeFolder](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.authorizefolder) Konwencji za pośrednictwem [AddRazorPagesOptions](/dotnet/api/microsoft.extensions.dependencyinjection.mvcrazorpagesmvcbuilderextensions.addrazorpagesoptions) można dodać [AuthorizeFilter](/dotnet/api/microsoft.aspnetcore.mvc.authorization.authorizefilter) do wszystkich stron w folderze w określonej ścieżce:
+Użyj [AuthorizeFolder](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.authorizefolder) Konwencji za pośrednictwem [AddRazorPagesOptions](/dotnet/api/microsoft.extensions.dependencyinjection.mvcrazorpagesmvcbuilderextensions.addrazorpagesoptions) dodać [AuthorizeFilter](/dotnet/api/microsoft.aspnetcore.mvc.authorization.authorizefilter) do wszystkich stron w folderze w określonej ścieżce:
 
 [!code-csharp[](razor-pages-authorization/samples/2.x/AuthorizationSample/Startup.cs?name=snippet1&highlight=2,5)]
 
-Określona ścieżka jest ścieżki aparat widoku, która jest ścieżką względną głównego stron Razor.
+Określona ścieżka jest ścieżka aparat widoku, która jest ścieżką względną głównego stron Razor.
 
-[Przeciążenia AuthorizeFolder](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.authorizefolder#Microsoft_Extensions_DependencyInjection_PageConventionCollectionExtensions_AuthorizeFolder_Microsoft_AspNetCore_Mvc_ApplicationModels_PageConventionCollection_System_String_System_String_) jest dostępna, gdy konieczne jest określenie zasad autoryzacji.
+[Przeciążenia AuthorizeFolder](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.authorizefolder#Microsoft_Extensions_DependencyInjection_PageConventionCollectionExtensions_AuthorizeFolder_Microsoft_AspNetCore_Mvc_ApplicationModels_PageConventionCollection_System_String_System_String_) jest dostępna, jeśli chcesz określić zasady autoryzacji.
+
+::: moniker range=">= aspnetcore-2.1"
+
+## <a name="require-authorization-to-access-an-area-page"></a>Wymaga zezwolenia na dostęp do strony obszaru
+
+Użyj [AuthorizeAreaPage](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.authorizeareapage) Konwencji za pośrednictwem [AddRazorPagesOptions](/dotnet/api/microsoft.extensions.dependencyinjection.mvcrazorpagesmvcbuilderextensions.addrazorpagesoptions) dodać [AuthorizeFilter](/dotnet/api/microsoft.aspnetcore.mvc.authorization.authorizefilter) na stronie obszaru w określonej ścieżce:
+
+```csharp
+options.Conventions.AuthorizeAreaPage("Identity", "/Manage/Accounts");
+```
+
+Nazwa strony jest ścieżkę do pliku bez rozszerzenia względem katalogu głównego stron dla określonego obszaru. Na przykład nazwa strony dla pliku *Areas/Identity/Pages/Manage/Accounts.cshtml* jest */Zarządzanie/kont*.
+
+[Przeciążenia AuthorizeAreaPage](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.authorizeareapage#Microsoft_Extensions_DependencyInjection_PageConventionCollectionExtensions_AuthorizeAreaPage_Microsoft_AspNetCore_Mvc_ApplicationModels_PageConventionCollection_System_String_System_String_System_String_) jest dostępna, jeśli chcesz określić zasady autoryzacji.
+
+## <a name="require-authorization-to-access-a-folder-of-areas"></a>Wymaga zezwolenia na dostęp do folderu obszarów
+
+Użyj [AuthorizeAreaFolder](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.authorizeareafolder) Konwencji za pośrednictwem [AddRazorPagesOptions](/dotnet/api/microsoft.extensions.dependencyinjection.mvcrazorpagesmvcbuilderextensions.addrazorpagesoptions) dodać [AuthorizeFilter](/dotnet/api/microsoft.aspnetcore.mvc.authorization.authorizefilter) do wszystkich obszarów, w folderze w określonej ścieżce:
+
+```csharp
+options.Conventions.AuthorizeAreaFolder("Identity", "/Manage");
+```
+
+Ścieżka folderu jest ścieżka do folderu względem katalogu głównego stron dla określonego obszaru. Na przykład ścieżka folderu plików w obszarze *obszarów/tożsamość/stron/zarządzanie/* jest *i zarządzanie nim*.
+
+[Przeciążenia AuthorizeAreaFolder](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.authorizeareafolder#Microsoft_Extensions_DependencyInjection_PageConventionCollectionExtensions_AuthorizeAreaFolder_Microsoft_AspNetCore_Mvc_ApplicationModels_PageConventionCollection_System_String_System_String_System_String_) jest dostępna, jeśli chcesz określić zasady autoryzacji.
+
+::: moniker-end
 
 ## <a name="allow-anonymous-access-to-a-page"></a>Zezwalaj na dostęp anonimowy do strony
 
-Użyj [AllowAnonymousToPage](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.allowanonymoustopage) Konwencji za pośrednictwem [AddRazorPagesOptions](/dotnet/api/microsoft.extensions.dependencyinjection.mvcrazorpagesmvcbuilderextensions.addrazorpagesoptions) można dodać [AllowAnonymousFilter](/dotnet/api/microsoft.aspnetcore.mvc.authorization.allowanonymousfilter) do strony w określonej ścieżce:
+Użyj [AllowAnonymousToPage](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.allowanonymoustopage) Konwencji za pośrednictwem [AddRazorPagesOptions](/dotnet/api/microsoft.extensions.dependencyinjection.mvcrazorpagesmvcbuilderextensions.addrazorpagesoptions) dodać [AllowAnonymousFilter](/dotnet/api/microsoft.aspnetcore.mvc.authorization.allowanonymousfilter) do strony w określonej ścieżce:
 
 [!code-csharp[](razor-pages-authorization/samples/2.x/AuthorizationSample/Startup.cs?name=snippet1&highlight=2,6)]
 
-Określona ścieżka jest ścieżki aparat widoku, która jest ścieżką względną głównego stron Razor bez rozszerzenia i zawierający tylko kreskami ukośnymi.
+Określona ścieżka jest ścieżka aparat widoku, która jest ścieżką względną głównego stron Razor bez rozszerzenia i zawierający tylko ukośników.
 
 ## <a name="allow-anonymous-access-to-a-folder-of-pages"></a>Zezwalaj na dostęp anonimowy do folderu stron
 
-Użyj [AllowAnonymousToFolder](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.allowanonymoustofolder) Konwencji za pośrednictwem [AddRazorPagesOptions](/dotnet/api/microsoft.extensions.dependencyinjection.mvcrazorpagesmvcbuilderextensions.addrazorpagesoptions) można dodać [AllowAnonymousFilter](/dotnet/api/microsoft.aspnetcore.mvc.authorization.allowanonymousfilter) do wszystkich stron w folderze w określonej ścieżce:
+Użyj [AllowAnonymousToFolder](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.allowanonymoustofolder) Konwencji za pośrednictwem [AddRazorPagesOptions](/dotnet/api/microsoft.extensions.dependencyinjection.mvcrazorpagesmvcbuilderextensions.addrazorpagesoptions) dodać [AllowAnonymousFilter](/dotnet/api/microsoft.aspnetcore.mvc.authorization.allowanonymousfilter) do wszystkich stron w folderze w określonej ścieżce:
 
 [!code-csharp[](razor-pages-authorization/samples/2.x/AuthorizationSample/Startup.cs?name=snippet1&highlight=2,7)]
 
-Określona ścieżka jest ścieżki aparat widoku, która jest ścieżką względną głównego stron Razor.
+Określona ścieżka jest ścieżka aparat widoku, która jest ścieżką względną głównego stron Razor.
 
-## <a name="note-on-combining-authorized-and-anonymous-access"></a>Uwaga na łączenie uprawnień i dostępu anonimowego
+## <a name="note-on-combining-authorized-and-anonymous-access"></a>Uwaga dotycząca łączenie uprawnień i dostępu anonimowego
 
-Jest on idealnie prawidłowy, aby określić, że folder stron wymaga autoryzacji i określić, że strony w tym folderze zezwala na dostęp anonimowy:
+Jest on doskonale prawidłowy, aby określić, że folder stron wymaga autoryzacji i określić strony, w tym folderze zezwala na dostęp anonimowy:
 
 ```csharp
 // This works.
 .AuthorizeFolder("/Private").AllowAnonymousToPage("/Private/Public")
 ```
 
-Odwrotnie, jednak nie jest spełniony. Nie można zadeklarować folderu stron dla dostępu anonimowego i określ strony na potrzeby autoryzacji:
+Odwrotnej kolejności, jednak nie jest spełniony. Nie można zadeklarować folderu stron dla dostępu anonimowego i określanie strony w celu autoryzacji:
 
 ```csharp
 // This doesn't work!
 .AllowAnonymousToFolder("/Public").AuthorizePage("/Public/Private") 
 ```
 
-Wymaganie autoryzacji na stronie prywatnych nie będą działać, ponieważ podczas zarówno `AllowAnonymousFilter` i `AuthorizeFilter` filtry są stosowane do strony, `AllowAnonymousFilter` wins i kontrolujących dostęp.
+Wymaga autoryzacji na stronie prywatnych nie będą działać, ponieważ gdy zarówno `AllowAnonymousFilter` i `AuthorizeFilter` filtry są stosowane do strony, `AllowAnonymousFilter` wins i kontrolujących dostęp.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Razor strony trasy i strony modelu dostawców niestandardowych](xref:razor-pages/razor-pages-conventions)
-* [PageConventionCollection](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageconventioncollection) — klasa
+* [Razor strony trasy i strony modelu dostawcy niestandardowi](xref:razor-pages/razor-pages-conventions)
+* [PageConventionCollection](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageconventioncollection) klasy

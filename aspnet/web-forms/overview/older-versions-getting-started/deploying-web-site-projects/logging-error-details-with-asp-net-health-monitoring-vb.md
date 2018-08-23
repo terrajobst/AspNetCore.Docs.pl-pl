@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projec
 title: Rejestrowanie szczegółów błędu za pomocą (VB) do monitorowania kondycji ASP.NET | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: System monitorowania kondycji przez firmę Microsoft umożliwia łatwe i możliwe do dostosowania do rejestrowania różnych zdarzeń w sieci web, łącznie z nieobsługiwanych wyjątków. W tym samouczku przedstawiono t...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/09/2009
 ms.assetid: 09a6c74e-936a-4c04-8547-5bb313a4e4a3
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-asp-net-health-monitoring-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a19c1dc6ad5b3b45501befded4d8f14f7549b019
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: f9aeeb0b3d21707324d239efad4deffcf0f7fead
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37809926"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756304"
 ---
 <a name="logging-error-details-with-aspnet-health-monitoring-vb"></a>Rejestrowanie szczegółów błędów za pomocą programu Health ASP.NET Monitoring (VB)
 ====================

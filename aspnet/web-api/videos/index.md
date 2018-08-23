@@ -3,17 +3,17 @@ uid: web-api/videos/index
 title: ASP.NET Web API wideo | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: ''
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/16/2012
 ms.assetid: 8ed7e133-707b-43e6-bce4-e9d266935573
 msc.legacyurl: /web-api/videos
 msc.type: book
-ms.openlocfilehash: a4652995ec6199fb94dbfab4de3b85c9eb780e5c
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 5de9b4b44fbfe436eb507c86b16849b00bbc376a
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37821685"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756994"
 ---
 <a name="aspnet-web-api-videos"></a>ASP.NET Web API, filmy wideo
 ====================

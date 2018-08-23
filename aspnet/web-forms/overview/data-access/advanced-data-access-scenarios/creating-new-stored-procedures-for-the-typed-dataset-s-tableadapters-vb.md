@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/advanced-data-access-scenarios/creating-new-
 title: Tworzenie nowych procedur składowanych dla elementów TableAdapter Typizowanego zestawu danych (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: W samouczkach wcześniej możemy utworzeniu instrukcji języka SQL w naszym kodzie i przekazywane instrukcje w bazie danych do wykonania. Alternatywnym podejściem jest używać s...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/18/2007
 ms.assetid: a5a4a9ba-d18d-489a-a6b0-a3c26d6b0274
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 601883ea0e0bbea08e564d77eea5ce7d19956cb7
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: bc640564cfb67f0c1512bc7f4fae9ea7e6bc981f
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37829616"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755794"
 ---
 <a name="creating-new-stored-procedures-for-the-typed-datasets-tableadapters-vb"></a>Tworzenie nowych procedur składowanych dla elementów TableAdapter Typizowanego zestawu danych (VB)
 ====================

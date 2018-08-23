@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/contact-manager/iteration-3-add-form-validati
 title: 'Iteracja #3 — Dodawanie weryfikacji formularza (C#) | Dokumentacja firmy Microsoft'
 author: microsoft
 description: W trzecim iteracji dodamy weryfikacji formularza podstawowego. Firma Microsoft ochronić przed przesłaniem formularza nie kończą działania wymaganych pól formularza. Możemy sprawdzić, czy emai...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/20/2009
 ms.assetid: 51a0d175-913b-43d8-95e3-840fb96ad1a9
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-3-add-form-validation-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d7f5d183b98ea123a780714dec2d806e4e794c2d
-ms.sourcegitcommit: a25b572eaed21791230c85416f449f66a405ec19
+ms.openlocfilehash: 4115b3898415d63ffb122f3d0fea93022f2baa02
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39396079"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41757346"
 ---
 <a name="iteration-3--add-form-validation-c"></a>Iteracja #3 — Dodawanie weryfikacji formularza (C#)
 ====================

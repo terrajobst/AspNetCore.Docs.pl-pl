@@ -3,17 +3,17 @@ uid: web-forms/overview/ajax-control-toolkit/slider/databinding-the-slider-contr
 title: Powiązanie danych kontrolki Slider (VB) | Dokumentacja firmy Microsoft
 author: wenz
 description: Kontrolka suwaka w zestawu narzędzi AJAX Control Toolkit oferuje graficzny suwaka, które mogą być kontrolowane za pomocą myszy. Istnieje możliwość powiązania bieżące położenie...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: 4f3ba53f-d166-422d-b29c-403348057836
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/slider/databinding-the-slider-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c55ba530bbe7eee7c02e5dfb2e80dddafabc9325
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 284a650d1b63ceed887deb3ddd639fe9fd27019f
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37836431"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753925"
 ---
 <a name="databinding-the-slider-control-vb"></a>Powiązanie danych kontrolki Slider (VB)
 ====================

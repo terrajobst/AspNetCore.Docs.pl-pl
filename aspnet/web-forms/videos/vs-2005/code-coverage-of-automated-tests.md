@@ -3,17 +3,17 @@ uid: web-forms/videos/vs-2005/code-coverage-of-automated-tests
 title: Pokrycie testów automatycznych kodu | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: To wideo pokazuje, jak użycie pokrycia kodu jako metryki, określić, jak efektywna Nasze testy aplikacji sieci Web platformy ASP.NET. Po zakończeniu testu ma com...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/23/2007
 ms.assetid: b1a7fbfc-523f-473e-a454-8e6b90099b1e
 msc.legacyurl: /web-forms/videos/vs-2005/code-coverage-of-automated-tests
 msc.type: video
-ms.openlocfilehash: 78ebddc2535384657d03ba6f79cf6dbb22457507
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 557cfa59aa64839aa9339a3c5ccc82ac3f3c12bf
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37822211"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754676"
 ---
 <a name="code-coverage-of-automated-tests"></a>Pokrycie kodu testów automatycznych
 ====================

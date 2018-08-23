@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/contact-manager/index
 title: Contact Manager | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Jak utworzyć całej aplikacji zarządzania skontaktuj się z od początku do zakończenia.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 09/28/2011
 ms.assetid: 6b0f1fd7-6768-4549-ae9c-be9131103c4d
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager
 msc.type: chapter
-ms.openlocfilehash: e98aa08b88bdc028bd77b4698833bf464ee66920
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 164aeba48e0cf9af036d5e2c1146060f3ae3879f
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37825193"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751988"
 ---
 <a name="contact-manager"></a>Contact Manager
 ====================
