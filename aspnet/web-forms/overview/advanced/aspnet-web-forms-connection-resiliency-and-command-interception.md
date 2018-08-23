@@ -3,17 +3,17 @@ uid: web-forms/overview/advanced/aspnet-web-forms-connection-resiliency-and-comm
 title: Elastyczność połączenia formularzy sieci Web platformy ASP.NET i przejmowanie poleceń | Dokumentacja firmy Microsoft
 author: Erikre
 description: W tym samouczku opisano sposób modyfikowania przykładowej aplikacji do obsługi połączeń i przejmowanie poleceń.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/31/2014
 ms.assetid: 6d497001-fa80-4765-b4cc-181fe90b894e
 msc.legacyurl: /web-forms/overview/advanced/aspnet-web-forms-connection-resiliency-and-command-interception
 msc.type: authoredcontent
-ms.openlocfilehash: 9a66b297608a5a8cd536b9af2a9ae4bb600a6bbb
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 039923a91d957765fa8b2c0cfe11abc8790c1e88
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37807092"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754135"
 ---
 <a name="aspnet-web-forms-connection-resiliency-and-command-interception"></a>Elastyczność połączenia formularzy sieci Web platformy ASP.NET i przejmowanie poleceń
 ====================

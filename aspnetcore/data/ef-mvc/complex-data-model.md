@@ -5,12 +5,12 @@ description: W tym samouczku należy dodać większą liczbę jednostek i relacj
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: 1d3c69c8c658b5ca2f0253b790b0dc75d44d3064
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: c97acd2b943e1d4c466c060247220b3b8bab6d6b
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38194094"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756216"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---data-model---5-of-10"></a>Platforma ASP.NET Core MVC z programem EF Core — Model danych — 5, 10
 
@@ -66,7 +66,7 @@ Uruchom aplikację, przejdź do strony indeksu studentów i zwróć uwagę, nie 
 
 ### <a name="the-stringlength-attribute"></a>Atrybut StringLength
 
-Można również określić reguły sprawdzania poprawności danych i komunikatów o błędach weryfikacji przy użyciu atrybutów. `StringLength` Atrybut Ustawia maksymalną długość w bazie danych i zapewnia po stronie klienta i po stronie serwera sprawdzania poprawności dla platformy ASP.NET MVC. Minimalna długość ciągu można również określić, w tym atrybucie, ale wartość minimalna nie ma wpływu na schemat bazy danych.
+Można również określić reguły sprawdzania poprawności danych i komunikatów o błędach weryfikacji przy użyciu atrybutów. `StringLength` Atrybut Ustawia maksymalną długość w bazie danych i zapewnia po stronie klienta i po stronie serwera sprawdzania poprawności dla platformy ASP.NET Core MVC. Minimalna długość ciągu można również określić, w tym atrybucie, ale wartość minimalna nie ma wpływu na schemat bazy danych.
 
 Załóżmy, że chcesz upewnić się, że użytkownicy nie wprowadzić więcej niż 50 znaków dla nazwy. Aby dodać to ograniczenie `StringLength` atrybuty do `LastName` i `FirstMidName` właściwości, jak pokazano w poniższym przykładzie:
 

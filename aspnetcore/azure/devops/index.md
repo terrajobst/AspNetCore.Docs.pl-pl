@@ -1,30 +1,38 @@
 ---
-title: Metodyka DevOps z platformą ASP.NET Core i platformy Azure
+title: Metodyka DevOps z platformami ASP.NET Core i Azure
 author: CamSoper
 description: Przewodnik, który dostarcza wskazówki end-to-end na tworzeniu potoku metodyki DevOps dla aplikacji ASP.NET Core hostowanych na platformie Azure.
 ms.author: casoper
 ms.date: 08/07/2018
 uid: azure/devops/index
-ms.openlocfilehash: 09ca835e908e81c6f38f9430fb40638ba6dc3350
-ms.sourcegitcommit: 29dfe436f54a27fbb4f6494bc639d16c75001fab
+ms.openlocfilehash: f2eb2499a61ce639457f30f4d182dac6ff677a0f
+ms.sourcegitcommit: 6d02e26748a09eabeb0e11740a398cc2bc90b098
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39722671"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41757311"
 ---
-# <a name="devops-with-aspnet-core-and-azure"></a>Metodyka DevOps z platformą ASP.NET Core i platformy Azure
+# <a name="devops-with-aspnet-core-and-azure"></a>Metodyka DevOps z platformami ASP.NET Core i Azure
+
+[![Obraz okładki](./media/cover-large.png)](https://aka.ms/devopsbook)
+
+Przez [Soper kamera](https://twitter.com/camsoper) i [Scott Addie](https://twitter.com/scottaddie)
+
+Ten przewodnik jest dostępny jako [do pobrania plików PDF Książka elektroniczna](https://aka.ms/devopsbook).
+
+## <a name="welcome"></a>Witaj 
 
 Przewodnik cyklu tworzenia oprogramowania platformy Azure dla platformy .NET — Zapraszamy! Ten przewodnik wprowadzenie podstawowych pojęć dotyczących tworzenia cyklu życia na platformie Azure przy użyciu platformy .NET, narzędziami i procesami. Po zakończeniu tego przewodnika, możesz czerpać korzyści dojrzała łańcucha narzędzi DevOps.
 
 ## <a name="who-this-guide-is-for"></a>Kto ten przewodnik jest przeznaczony dla
 
-Powinno być doświadczonym deweloperom platformy ASP.NET (poziom 200-300). Nie trzeba nic wiedzieć o platformie Azure, jak omówimy to w ramach tego wprowadzenia. Ten przewodnik może być również przydatne w przypadku inżynierom DevOps, którzy są bardziej skupia się na operacje niż rozwoju.
+Powinno być doświadczonym deweloperom platformy ASP.NET Core (poziom 200-300). Nie trzeba nic wiedzieć o platformie Azure, jak omówimy to w ramach tego wprowadzenia. Ten przewodnik może być również przydatne w przypadku inżynierom DevOps, którzy są bardziej skupia się na operacje niż rozwoju.
 
 Ten przewodnik jest przeznaczony dla deweloperów Windows. Jednak z systemami Linux i macOS są w pełni obsługiwane przez .NET Core. Można dostosować ten przewodnik dla systemu Linux/macOS, obserwuj objaśnienia na różnice Linux/macOS.
 
 ## <a name="what-this-guide-doesnt-cover"></a>Co ten przewodnik nie obejmuje
 
-Ten przewodnik koncentruje się na środowisko end-to-end ciągłego wdrażania dla deweloperów platformy .NET. Nie jest wyczerpująca przewodnik wszystkimi aspektami platformy Azure, a jej nie skupić często interfejsów API platformy .NET dla usług platformy Azure. Jest nacisk na całym ciągłej integracji i wdrażania, monitorowania i debugowania. Pod koniec przewodnika są oferowane zalecenia dotyczące następnych kroków. Sugestie obejmuje usług platformy Azure, które są przydatne dla deweloperów platformy ASP.NET.
+Ten przewodnik koncentruje się na środowisko end-to-end ciągłego wdrażania dla deweloperów platformy .NET. Nie jest wyczerpująca przewodnik wszystkimi aspektami platformy Azure, a jej nie skupić często interfejsów API platformy .NET dla usług platformy Azure. Jest nacisk na całym ciągłej integracji i wdrażania, monitorowania i debugowania. Pod koniec przewodnika są oferowane zalecenia dotyczące następnych kroków. Sugestie obejmuje usług platformy Azure, które są przydatne dla deweloperów platformy ASP.NET Core.
 
 ## <a name="whats-in-this-guide"></a>Co to jest w tym przewodniku
 
@@ -48,18 +56,9 @@ Narzędzia platformy Azure umożliwia monitorowanie, rozwiązywanie problemów i
 
 Inne ścieżki szkoleniowe dla deweloperów platformy ASP.NET Core poznawania platformy Azure.
 
-## <a name="acknowledgments"></a>Potwierdzenia
+## <a name="additional-introductory-reading"></a>Dodatkowe materiały wprowadzające
 
-Dziękujemy wszystkim w społeczności platformy .NET, które przyczyniły się do tego przewodnika z sugestiami przydatne! Chcielibyśmy szczególnie podziękować następujących członków społeczności, które przyczyniły się do końcowej oceny tego materiału:
-
-* [Sam Wronski](https://www.youtube.com/c/worldofzerodevelopment)
-* [Jeffrey Palermo](https://twitter.com/jeffreypalermo)
-
-## <a name="conclusion"></a>Wniosek
-
-Ten przewodnik samodzielnie przygotowuje Cię do kompilacji ciągłej integracji cyklu tworzenia oprogramowania, korzystające z platformy ASP.NET Core i usługi Azure App Service.
-
-## <a name="additional-reading"></a>Materiały uzupełniające
+Jeśli jest to pierwszy narażenia na przetwarzanie w chmurze, artykuły te wyjaśniają zasady podstawowe.
 
 * [Co to jest chmura obliczeniowa?](https://azure.microsoft.com/overview/what-is-cloud-computing/)
 * [Przykłady chmury obliczeniowej](https://azure.microsoft.com/overview/examples-of-cloud-computing/)

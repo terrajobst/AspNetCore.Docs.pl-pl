@@ -3,17 +3,17 @@ uid: web-api/overview/security/basic-authentication
 title: Uwierzytelnianie podstawowe w interfejsie Web API platformy ASP.NET | Dokumentacja firmy Microsoft
 author: MikeWasson
 description: W tym artykule opisano, w interfejsie API sieci Web platformy ASP.NET przy użyciu uwierzytelniania podstawowego.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/02/2014
 ms.assetid: 41423767-0021-47c3-9e53-0021b457c39f
 msc.legacyurl: /web-api/overview/security/basic-authentication
 msc.type: authoredcontent
-ms.openlocfilehash: 035baec7c56c0bf6eaacd26ea5192faf2ed6e932
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 7afafb6b7851f0d955d1f4292318f64d2a068a45
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37829590"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754086"
 ---
 <a name="basic-authentication-in-aspnet-web-api"></a>Uwierzytelnianie podstawowe we wzorcu ASP.NET Web API
 ====================

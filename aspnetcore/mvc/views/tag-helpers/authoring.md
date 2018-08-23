@@ -1,75 +1,75 @@
 ---
-title: Autor pomocników tagów w platformy ASP.NET Core
+title: Tworzenie pomocników tagów w programie ASP.NET Core
 author: rick-anderson
-description: Dowiedz się, jak tworzyć pomocników tagów w ASP.NET Core.
+description: Dowiedz się, jak tworzenie pomocników tagów w programie ASP.NET Core.
 ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.date: 01/19/2018
+ms.date: 08/20/2018
 uid: mvc/views/tag-helpers/authoring
-ms.openlocfilehash: 5873c6dbdeba1b5f2bf7ac85d8992480228b7125
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 2d39488caeea0c87d2efc79f265de7feb200f096
+ms.sourcegitcommit: 15d7bd0b2c4e6fe9ac335d658bab71a45ca5bc72
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36275320"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41753644"
 ---
-# <a name="author-tag-helpers-in-aspnet-core"></a>Autor pomocników tagów w platformy ASP.NET Core
+# <a name="author-tag-helpers-in-aspnet-core"></a>Tworzenie pomocników tagów w programie ASP.NET Core
 
-przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[Wyświetlić lub pobrać przykładowy kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/tag-helpers/authoring/sample) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/tag-helpers/authoring/sample) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
 
-## <a name="get-started-with-tag-helpers"></a>Rozpoczynanie pracy z pomocników tagów
+## <a name="get-started-with-tag-helpers"></a>Rozpoczynanie pracy z usługą pomocnicy tagów
 
-Ten samouczek zawiera wprowadzenie do programowania pomocników tagów. [Wprowadzenie do pomocników tagów](intro.md) opisuje korzyści, które zapewniają pomocników tagów.
+Ten samouczek zawiera wprowadzenie do programowania pomocników tagów. [Wprowadzenie do pomocników tagów](intro.md) opisuje korzyści, które dają pomocników tagów.
 
-Obiekt pomocnika tagów jest każda klasa implementująca `ITagHelper` interfejsu. Jednak podczas tworzenia pomocnika tagów można zwykle pochodzi od `TagHelper`, wykonanie tak zapewnia dostęp do `Process` metody.
+Pomocnik tagu jest każda klasa implementująca `ITagHelper` interfejsu. Jednak podczas tworzenia pomocnika tagów ogólnie klasy wyprowadzonej z `TagHelper`, dlatego zapewnia dostęp do wykonywania `Process` metody.
 
-1. Utwórz nowy projekt platformy ASP.NET Core o nazwie **AuthoringTagHelpers**. Dla tego projektu nie ma potrzeby uwierzytelniania.
+1. Utwórz nowy projekt ASP.NET Core o nazwie **AuthoringTagHelpers**. Nie wymaga uwierzytelniania dla tego projektu.
 
-2. Utwórz folder do przechowywania pomocników tagu o nazwie *TagHelpers*. *TagHelpers* folder jest *nie* wymagane, ale jest uzasadnione Konwencję. Teraz do dzieła pisania pomocników niektórych prostych tagów.
+2. Utwórz folder do przechowywania pomocnicy tagów, o nazwie *TagHelpers*. *TagHelpers* folder jest *nie* wymagane, ale jest to uzasadnione Konwencji. Teraz Rozpocznijmy od pisania pomocników kilka prostych tagów.
 
 ## <a name="a-minimal-tag-helper"></a>Minimalny pomocnika tagów
 
-W tej sekcji możesz zapisać pomocnika tagów, która aktualizuje tag poczty e-mail. Na przykład:
+W tej sekcji możesz zapisanie pomocnika tagów, która aktualizuje tag wiadomości e-mail. Na przykład:
 
 ```html
 <email>Support</email>
-   ```
+```
 
-Nasze pomocnika tagów poczty e-mail będzie używany przez serwer programu można przekonwertować tego znacznika do następujących czynności:
+Serwer zastosuje nasze Pomocnik tagu wiadomości e-mail do konwertowania tego znacznika do następujących czynności:
 
 ```html
 <a href="mailto:Support@contoso.com">Support@contoso.com</a>
 ```
 
-Oznacza to, że tag kotwicy dzięki temu to łącze w wiadomości e-mail. Można to zrobić, jeśli pisania aparat blogu i potrzebny do wysyłania wiadomości e-mail sprzedaży, pomocy technicznej i inne kontaktów wszystko do tej samej domenie.
+Oznacza to, że tag kotwicy temu to łącze w wiadomości e-mail. Można to zrobić, jeśli piszesz aparatu blogu i potrzebny do wysyłania wiadomości e-mail, marketing, pomocy technicznej i inne kontakty wszystkie do tej samej domenie.
 
-1. Dodaj następujące `EmailTagHelper` klasy do *TagHelpers* folderu.
+1. Dodaj następujący kod `EmailTagHelper` klasy *TagHelpers* folderu.
 
    [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1EmailTagHelperCopy.cs)]
     
    **Uwagi:**
     
-   * Pomocników tagów używać konwencji nazewnictwa, która dotyczy elementów Nazwa klasy głównym (minus *pomocnika tagów* część nazwy klasy). W tym przykładzie nazwa głównego **E-mail**pomocnika tagów jest *e-mail*, więc `<email>` tag będą stosowane. Konwencja nazewnictwa powinien działać w przypadku większości pomocników tagów, później zostanie omówiony sposób jej zastąpienie.
+   * Pomocnicy tagów używać konwencji nazewnictwa, który jest przeznaczony dla elementów główna nazwa klasy (minus *pomocnika tagów* część nazwy klasy). W tym przykładzie nazwa głównego **wiadomości E-mail**pomocnika tagów jest *wiadomości e-mail*, więc `<email>` zostaną objęte tagu. Konwencja nazewnictwa powinny działać dla większości pomocnicy tagów, później zaprezentuję, jak go zastąpić.
     
-   * `EmailTagHelper` Pochodną klasy `TagHelper`. `TagHelper` Klasa udostępnia metody i właściwości do pisania pomocników tagów.
+   * `EmailTagHelper` Klasa pochodzi od `TagHelper`. `TagHelper` Klasa udostępnia metody i właściwości do pisania pomocników tagów.
     
-   * Zastąpione `Process` kontrolki metody pomocnika tagów czego po wykonaniu. `TagHelper` Klasa udostępnia także asynchroniczną wersję (`ProcessAsync`) z takimi samymi parametrami.
+   * Zastąpione `Process` metoda kontroluje Pomocnik tagu działania podczas wykonywania. `TagHelper` Klasa udostępnia także asynchroniczna wersja (`ProcessAsync`) z tymi samymi parametrami.
     
    * Parametr kontekstowy do `Process` (i `ProcessAsync`) zawiera informacje związane z wykonywaniem bieżącego tagu HTML.
     
-   * Parametr wyjściowy do `Process` (i `ProcessAsync`) zawiera element HTML stanowe reprezentatywny z oryginalnego źródła służącego do generowania tagu HTML i zawartości.
+   * Parametr wyjściowy do `Process` (i `ProcessAsync`) zawiera element HTML stanowych językiem oryginalne źródło, które są używane do generowania tagu HTML i zawartości.
     
-   * Nasze Nazwa klasy zawiera sufiks **pomocnika tagów**, który jest *nie* wymagane, ale uwzględniono Konwencji najlepsze praktyki. Można zadeklarować tej klasy jako:
+   * Nasze Nazwa klasy ma sufiks **pomocnika tagów**, czyli *nie* wymagane, ale ma on uznawany za Konwencję najlepszym rozwiązaniem. Można zadeklarować klasy jako:
     
    ```csharp
    public class Email : TagHelper
    ```
 
-2. Aby `EmailTagHelper` klasy dostępne dla wszystkich naszych widokami Razor, Dodaj `addTagHelper` dyrektywy do *Views/_ViewImports.cshtml* pliku: [!code-html[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopyEmail.cshtml?highlight=2,3)]
+2. Aby `EmailTagHelper` klasy dostępne dla wszystkich naszych widokami Razor, należy dodać `addTagHelper` dyrektywę *Views/_ViewImports.cshtml* pliku: [!code-html[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopyEmail.cshtml?highlight=2,3)]
     
-   Powyższy kod używa składni symboli wieloznacznych do określenia tagów pomocników w naszym zestawie będą dostępne. Pierwszy ciąg po `@addTagHelper` określa pomocnika tagów można załadować (Użyj "*" dla pomocników tagów), a drugi ciąg "AuthoringTagHelpers" Określa zestaw Pomocnik ten tag. Należy również zauważyć, że drugi wiersz zaimportowanie pomocników tagów platformy ASP.NET Core MVC przy użyciu składni symbolu wieloznacznego (pomocników te zostały omówione w [wprowadzenie do pomocników tagów](intro.md).) Jest `@addTagHelper` dyrektywy, która udostępnia pomocnika tagów do widoku Razor. Alternatywnie można podać w pełni kwalifikowana nazwa (FQN) pomocniczych znaczników, jak pokazano poniżej:
+   Powyższy kod używa składni symbolu wieloznacznego do określania, że wszystkie pomocników tagów w naszym zestawie będą dostępne. Pierwszy ciąg po `@addTagHelper` określa Pomocnik tagu, można załadować (Użyj "*" dla pomocników tagów), i drugi ciąg "AuthoringTagHelpers" Określa zestaw Pomocnik tagu. Należy również zauważyć, że drugi wiersz wiąże pomocników tagów ASP.NET Core MVC za pomocą składni symboli wieloznacznych (pomocników te zostały omówione w [wprowadzenie do pomocników tagów](intro.md).) Jest `@addTagHelper` dyrektywy, która udostępnia Pomocnik tagu w widoku Razor. Alternatywnie można podać w pełni kwalifikowana nazwa (FQN) pomocnika tagów, jak pokazano poniżej:
     
 ```csharp
 @using AuthoringTagHelpers
@@ -82,17 +82,17 @@ the following snippet uses TagHelpers3 and should use TagHelpers (not the 3)
     [!code-html[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImports.cshtml?highlight=3&range=1-3)]
 -->
     
-Aby dodać pomocnika tagów do widoku, używając FQN, należy najpierw dodać FQN (`AuthoringTagHelpers.TagHelpers.EmailTagHelper`), a następnie nazwy zestawu (*AuthoringTagHelpers*). Większość deweloperów będzie wolą używać składni symboli wieloznacznych. [Wprowadzenie do pomocników tagów](intro.md) określa szczegółowo składni Dodawanie, usuwanie, hierarchii i symboli wieloznacznych pomocnika tagów.
+Aby dodać pomocnika tagów do widoku, używając FQN, należy najpierw dodać FQN (`AuthoringTagHelpers.TagHelpers.EmailTagHelper`), a następnie nazwę zestawu (*AuthoringTagHelpers*). Większość programistów będą najpierw użyj składni symboli wieloznacznych. [Wprowadzenie do pomocników tagów](intro.md) określa szczegółowo składni dodawania, usuwania, hierarchii i symboli wieloznacznych pomocnika tagów.
     
-3. Aktualizowanie kodu znaczników w *Views/Home/Contact.cshtml* pliku z tych zmian:
+3. Aktualizowanie kodu znaczników w *Views/Home/Contact.cshtml* plików za pomocą tych zmian:
 
    [!code-html[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/Contact.cshtml?highlight=15,16&range=1-17)]
 
-4. Uruchom aplikację i użyj ulubionej przeglądarce, aby wyświetlić źródło HTML, aby zweryfikować tagi poczty e-mail są zastępowane znacznika zakotwiczenia (na przykład `<a>Support</a>`). *Pomocy technicznej* i *Marketing* są renderowane jako łącza, ale nie mają `href` atrybutu w celu zapewnienia ich funkcjonalności. Firma Microsoft będzie rozwiązać ten problem w następnej sekcji.
+4. Uruchom aplikację i użyj ulubionej przeglądarce, aby wyświetlić źródło HTML, aby można było sprawdzić tagi wiadomości e-mail są zastępowane znaczników zakotwiczenia (na przykład `<a>Support</a>`). *Pomocy technicznej* i *marketingu* są renderowane jako linki, ale nie mają `href` atrybutu, aby stały się funkcjonalne. Naprawimy, w następnej sekcji.
 
 ## <a name="setattribute-and-setcontent"></a>SetAttribute i SetContent
 
-W tej sekcji, będziemy informować `EmailTagHelper` tak, aby tworzy tag kotwicy prawidłowy do obsługi poczty e-mail. Będziemy informować podjęcia informacji z widoku Razor (w postaci `mail-to` atrybut) i używać go do generowania zakotwiczenia.
+W tej sekcji dodamy `EmailTagHelper` tak, aby go utworzy tag kotwicy prawidłowy do obsługi poczty e-mail. Zaktualizujemy go, aby pobierał informacje z widoku Razor (w postaci `mail-to` atrybutu) i używać go podczas generowania zakotwiczenia.
 
 Aktualizacja `EmailTagHelper` klasy następującym kodem:
 
@@ -100,236 +100,218 @@ Aktualizacja `EmailTagHelper` klasy następującym kodem:
 
 **Uwagi:**
 
-* Pascal — z uwzględnieniem wielkości liter nazwy klasy i właściwości pomocników tagów są przekształcane na ich [obniżyć przypadku kebab](https://stackoverflow.com/questions/11273282/whats-the-name-for-dash-separated-case/12273101). W związku z tym Aby użyć `MailTo` użyjesz atrybutu, `<email mail-to="value"/>` równoważne.
+* Pascal — z uwzględnieniem wielkości liter nazwy klasy i właściwości pomocników tagów są tłumaczone na ich [obniżyć przypadek kebab](https://stackoverflow.com/questions/11273282/whats-the-name-for-dash-separated-case/12273101). W związku z tym Aby użyć `MailTo` użyjemy atrybutu `<email mail-to="value"/>` równoważne.
 
-* Ostatni wiersz ustawia ukończone zawartość dla naszych pomocnika tag minimalny funkcjonalności.
+* Ostatni wiersz ustawia ukończone zawartości dla naszych Pomocnik tagu minimalny zestaw funkcjonalności.
 
-* Wyróżniony wiersz przedstawiono składnię dodawania atrybutów:
+* Wyróżniony wiersz pokazuje składnię na dodawanie atrybutów:
 
 [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/EmailTagHelperMailTo.cs?highlight=6&range=14-21)]
 
-Takie podejście działa dla atrybutu "href", tak długo, jak obecnie nie istnieje w kolekcji atrybutów. Można również użyć `output.Attributes.Add` metody, aby dodać atrybut pomocnika tagów do końca kolekcji atrybutów tagu.
+Takie podejście działa dla atrybutu "href", tak długo, jak obecnie nie istnieje w kolekcji atrybutów. Można również użyć `output.Attributes.Add` metodę, aby dodać atrybut pomocnika tagów na końcu kolekcji atrybutów tagu.
 
-1. Aktualizowanie kodu znaczników w *Views/Home/Contact.cshtml* pliku z tych zmian: [!code-html[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/ContactCopy.cshtml?highlight=15,16)]
+1. Aktualizowanie kodu znaczników w *Views/Home/Contact.cshtml* plików za pomocą tych zmian: [!code-html[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/ContactCopy.cshtml?highlight=15,16)]
 
-2. Uruchom aplikację i sprawdź generuje poprawne łącza.
+2. Uruchom aplikację i sprawdzić generuje poprawne linki.
     
    > [!NOTE]
-   > Gdyby zapisu poczty e-mail tag własnym zamknięcia (`<email mail-to="Rick" />`), również będą samozamykającego ostateczne dane wyjściowe. Aby włączyć możliwość zapisu tag z tagiem początkowym (`<email mail-to="Rick">`) musi dekoracji klasy następującym kodem:
+   > Gdyby można zapisać wiadomość e-mail tag samozamykający (`<email mail-to="Rick" />`), końcowych danych wyjściowych będą również samozamykającego. Aby włączyć możliwość pisania tag z tagu początkowego (`<email mail-to="Rick">`) musi dekoracji klasy następującym kodem:
    > 
    > [!code-csharp[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/EmailTagHelperMailVoid.cs?highlight=1&range=6-10)]
     
-   Z samozamykającego pomocnika tagów poczty e-mail, dane wyjściowe będą `<a href="mailto:Rick@contoso.com" />`. Samozamykającego Tag kotwicy nie są prawidłowe HTML, więc nie chcesz utworzyć, ale warto utworzyć pomocnika tag, który jest samozamykającego. Pomocników tagów Ustaw typ `TagMode` właściwości po odczytaniu tag.
+   Za pomocą samozamykającego pomocnika tagów poczty e-mail, dane wyjściowe będą `<a href="mailto:Rick@contoso.com" />`. Samozamykającego zakotwiczenia tagi nie są prawidłowe HTML, co nie byłoby dobrze, utwórz ją, ale możesz chcieć utworzyć pomocnika tagów, który jest samozamykającego. Pomocnicy tagów Ustaw typ `TagMode` właściwości po przeczytaniu tag.
     
 ### <a name="processasync"></a>ProcessAsync
 
-W tej sekcji firma Microsoft będzie zapisu pomocnika asynchroniczne poczty e-mail.
+W tej sekcji będziemy pisać pomocnika asynchronicznego wiadomości e-mail.
 
-1. Zastąp `EmailTagHelper` klasy następującym kodem:
+1. Zastąp `EmailTagHelper` klasy z następującym kodem:
 
    [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/EmailTagHelper.cs?range=6-17)]
 
    **Uwagi:**
 
-   * Ta wersja używa asynchroniczną `ProcessAsync` metody. Asynchroniczną `GetChildContentAsync` zwraca `Task` zawierający `TagHelperContent`.
+   * Ta wersja wykorzystuje asynchroniczną `ProcessAsync` metody. Asynchroniczną `GetChildContentAsync` zwraca `Task` zawierający `TagHelperContent`.
 
-   * Użyj `output` parametr, aby pobrać zawartość elementu HTML.
+   * Użyj `output` parametru, aby pobrać zawartość elementu HTML.
 
-2. Wprowadź następujące zmiany do *Views/Home/Contact.cshtml* plików, dlatego pomocnika tagów można pobrać docelowych wiadomości e-mail.
+2. Wprowadź następującą zmianę w celu *Views/Home/Contact.cshtml* pliku, dzięki czemu pomocnika tagów można pobrać adresu e-mail docelowej.
 
    [!code-html[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/Contact.cshtml?highlight=15,16&range=1-17)]
 
-3. Uruchom aplikację i sprawdź, czy generuje łącza prawidłowy adres e-mail.
+3. Uruchom aplikację i sprawdzić generuje łącza prawidłowy adres e-mail.
 
 ### <a name="removeall-precontentsethtmlcontent-and-postcontentsethtmlcontent"></a>RemoveAll, PreContent.SetHtmlContent and PostContent.SetHtmlContent
 
-1. Dodaj następujące `BoldTagHelper` klasy do *TagHelpers* folderu.
+1. Dodaj następujący kod `BoldTagHelper` klasy *TagHelpers* folderu.
 
    [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/BoldTagHelper.cs)]
 
    **Uwagi:**
     
-   * `[HtmlTargetElement]` Atrybutu przekazuje parametr atrybutu, który określa, czy dowolnego elementu HTML zawierającego atrybut HTML o nazwie "bold" jest zgodny, i `Process` metoda przesłonięcia w klasie zostanie uruchomiony. W naszym przykładzie `Process` metoda usuwa atrybut "bold" i otaczający zawierającego znaczników z `<strong></strong>`.
+   * `[HtmlTargetElement]` Atrybutu przekazuje parametr atrybutu, który określa, czy dowolnego elementu HTML zawierającego atrybut HTML o nazwie "bold" będą zgodne, a `Process` uruchomi metoda przesłonięcia w klasie. W naszym przykładzie `Process` metoda usuwa atrybut "bold" i otacza zawierającego znaczników przy użyciu `<strong></strong>`.
     
-   * Ponieważ nie chcesz zastąpić istniejący znacznik zawartości, należy napisać otwarcia `<strong>` tagu z `PreContent.SetHtmlContent` — metoda i zamykania `</strong>` Oznacz za pomocą `PostContent.SetHtmlContent` — metoda.
+   * Ponieważ nie chcesz zastąpić istniejący znacznik zawartości, należy napisać otwarcia `<strong>` oznaczyć za pomocą `PreContent.SetHtmlContent` metody i zamknięcie `</strong>` oznaczyć za pomocą `PostContent.SetHtmlContent` metody.
     
 2. Modyfikowanie *About.cshtml* widok ma zawierać `bold` wartość atrybutu. Poniżej przedstawiono kompletny kod.
 
    [!code-html[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/AboutBoldOnly.cshtml?highlight=7)]
 
-3. Uruchom aplikację. Ulubionej przeglądarce służy do kontroli źródła i sprawdź kod znaczników.
+3. Uruchom aplikację. Ulubionej przeglądarce służy do kontroli źródła oraz sprawdź znaczników.
 
-   `[HtmlTargetElement]` Atrybut powyżej dotyczy tylko kod znaczników HTML, który zawiera nazwę atrybutu "bold". `<bold>` Element nie został zmodyfikowany przez pomocnika tagów.
+   `[HtmlTargetElement]` Atrybut powyżej jest przeznaczony tylko dla znaczników HTML, który zawiera nazwę "bold". `<bold>` Element nie został zmodyfikowany przez pomocnika tagów.
 
-4. Komentarz `[HtmlTargetElement]` wiersza atrybutu i domyślnie przeznaczonych dla `<bold>` tagów, oznacza to, że kod znaczników HTML w formie `<bold>`. Należy pamiętać, że domyślną konwencję nazewnictwa będzie zgodna z nazwą klasy **Bold**pomocnika tagów do `<bold>` tagów.
+4. Komentarz `[HtmlTargetElement]` wiersza atrybutu i domyślnie przeznaczonych dla `<bold>` tagów, oznacza to, że kod znaczników HTML w formularzu `<bold>`. Należy pamiętać, że domyślna konwencja nazw będzie zgodną z nazwą klasy **Bold**pomocnika tagów do `<bold>` tagów.
 
-5. Uruchom aplikację i sprawdź, czy `<bold>` tag są przetwarzane przez pomocnika tagów.
+5. Uruchom aplikację i upewnij się, że `<bold>` tag jest przetwarzany przez pomocnika tagów.
 
-Klasa z wieloma dekoracji `[HtmlTargetElement]` atrybutów wyników w logiczne lub elementy docelowe. Na przykład przy użyciu poniższy kod, bold tag lub atrybut pogrubienia będą zgodne.
+Klasa z wieloma urządzanie `[HtmlTargetElement]` atrybuty wyniki w logiczne OR elementów docelowych. Na przykład przy użyciu poniższego kodu, pogrubienie tag lub atrybut bold będą zgodne.
 
 [!code-csharp[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/zBoldTagHelperCopy.cs?highlight=1,2&range=5-15)]
 
-Jeśli wiele atrybutów zostaną dodane do tej samej instrukcji, środowisko uruchomieniowe traktuje je jako logicznego koniunkcji binarnej. Na przykład w poniższym kodzie HTML element muszą nosić nazwy "bold" z atrybutem o nazwie "bold" (`<bold bold />`) do dopasowania.
+Gdy wiele atrybutów zostaną dodane do tej samej instrukcji, środowisko uruchomieniowe traktować je jak logicznego operatora AND. Na przykład w poniższym kodzie HTML element musi mieć nazwę "bold" przy użyciu atrybutu o nazwie "bold" (`<bold bold />`) do dopasowania.
 
 ```csharp
 [HtmlTargetElement("bold", Attributes = "bold")]
    ```
 
-Można również użyć `[HtmlTargetElement]` Aby zmienić nazwę elementu docelowego. Na przykład jeśli potrzebujesz `BoldTagHelper` do docelowego `<MyBold>` tagi, należy użyć następującego atrybutu:
+Można również użyć `[HtmlTargetElement]` do zmiany nazwy elementu docelowego. Na przykład, jeżeli chcesz `BoldTagHelper` do obiektu docelowego `<MyBold>` tagów, należy użyć następującego atrybutu:
 
 ```csharp
 [HtmlTargetElement("MyBold")]
-   ```
+```
 
 ## <a name="pass-a-model-to-a-tag-helper"></a>Przekaż modelu do pomocnika tagów
 
-1. Dodaj *modele* folderu.
+1. Dodaj *modeli* folderu.
 
-2. Dodaj następujące `WebsiteContext` klasy do *modele* folderu:
+2. Dodaj następujący kod `WebsiteContext` klasy *modeli* folderu:
 
    [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Models/WebsiteContext.cs)]
 
-3. Dodaj następujące `WebsiteInformationTagHelper` klasy do *TagHelpers* folderu.
+3. Dodaj następujący kod `WebsiteInformationTagHelper` klasy *TagHelpers* folderu.
 
    [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/WebsiteInformationTagHelper.cs)]
     
    **Uwagi:**
     
-   * Jak wspomniano wcześniej, pomocników tagów tłumaczy liter Pascal C#, nazwy klas i właściwości dla pomocników tagów do [obniżyć przypadku kebab](http://wiki.c2.com/?KebabCase). W związku z tym Aby użyć `WebsiteInformationTagHelper` w elemencie Razor, przedstawiono tworzenie `<website-information />`.
+   * Jak wspomniano wcześniej, pomocników tagów dokonuje translacji wielkości liter Pascal języka C#, nazwy klas i właściwości dla pomocników tagów w [obniżyć przypadek kebab](http://wiki.c2.com/?KebabCase). W związku z tym Aby użyć `WebsiteInformationTagHelper` w aparacie Razor, Ty napiszesz `<website-information />`.
     
-   * Nie są jawnie identyfikujący element docelowy z `[HtmlTargetElement]` atrybutu to domyślne ustawienie `website-information` będą stosowane. Po zastosowaniu następującego atrybutu (Uwaga nie jest kebab, ale jest zgodna z nazwą klasy):
+   * Nie są jawnie identyfikuje element docelowy z `[HtmlTargetElement]` atrybutu, więc domyślną `website-information` docelowe. Jeśli zastosowano atrybut (Uwaga nie jest przypadek kebab, ale jest zgodna z nazwą klasy):
     
    ```csharp
    [HtmlTargetElement("WebsiteInformation")]
    ```
     
-   Niższe znacznika skrzynki kebab `<website-information />` nie odpowiada. Jeśli chcesz używać `[HtmlTargetElement]` atrybutu, należy użyć przypadku kebab, jak pokazano poniżej:
+   Niższe tag przypadków kebab `<website-information />` nie odpowiada. Jeśli chcesz używać `[HtmlTargetElement]` atrybutu, należy użyć kebab przypadek, jak pokazano poniżej:
     
    ```csharp
    [HtmlTargetElement("Website-Information")]
    ```
     
-   * Elementy, które są samozamykającego nie ma zawartości. Na przykład znaczników Razor użyje tagu samozamykającego, ale zostanie utworzony pomocnika tagów [sekcji](http://www.w3.org/TR/html5/sections.html#the-section-element) elementu (który nie jest samozamykającego i pisania zawartości wewnątrz `section` elementu). W związku z tym należy ustawić `TagMode` do `StartTagAndEndTag` do zapisywania danych wyjściowych. Alternatywnie komentarz ustawienia linii `TagMode` i pisanie kodu znaczników przy użyciu tagu zamykającego. (Znaczników przykład znajduje się w dalszej części tego samouczka).
+   * Elementy, które są samozamykającego nie ma zawartości. W tym przykładzie znaczników Razor użyje tagu samozamykającego, ale zostanie utworzona Pomocnik tagu [sekcji](http://www.w3.org/TR/html5/sections.html#the-section-element) element (który nie jest samozamykającego i pisania zawartości wewnątrz `section` elementu). W związku z tym, należy ustawić `TagMode` do `StartTagAndEndTag` do zapisywania danych wyjściowych. Alternatywnie możesz przekształcić w komentarz ustawienia linii `TagMode` i Zapisywanie kodu znaczników przy użyciu tagu zamykającego. (Przykład znaczników znajduje się w dalszej części tego samouczka).
     
-   * `$` (Dolar) w następującym wierszu używa [interpolowane ciąg](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/interpolated-strings):
+   * `$` (Znak dolara) w następującym wierszu używa [ciągiem interpolowanym](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/interpolated-strings):
     
    ```cshtml
    $@"<ul><li><strong>Version:</strong> {Info.Version}</li>
    ```
 
-4. Dodaj następujący kod do *About.cshtml* widoku. Wyróżnione znaczników zawiera informacje dotyczące witryny sieci web.
+4. Dodaj następujący kod do *About.cshtml* widoku. Wyróżnione znaczników Wyświetla informacje o witryny sieci web.
     
    [!code-html[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/About.cshtml?highlight=1,12-999)]
     
    > [!NOTE]
-   > W znaczniku Razor, pokazano poniżej:
+   > W znacznikach Razor, pokazano poniżej:
    > 
    > [!code-html[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/About.cshtml?range=13-17)]
    > 
-   > Zna razor `info` atrybut jest klasa, nie ciągu i chcesz zapisać kod w języku C#. Wszelkie atrybut pomocnika tagów innych niż ciąg powinien być zapisywany bez `@` znaków.
+   > Wie razor `info` atrybut jest klasą, a nie w ciągu i chcesz pisać kod w języku C#. Dowolny atrybut pomocnika tagów niebędących ciągami powinny być zapisywane bez `@` znaków.
     
-5. Uruchom aplikację i przejdź do widoku informacje, zapoznaj się z informacjami w witrynie sieci web.
+5. Uruchom aplikację, a następnie przejdź do widoku informacje, aby wyświetlić informacje witryny sieci web.
 
    > [!NOTE]
-   > Można użyć następującego kodu znaczników przy użyciu tagu zamykającego i Usuń wiersz z `TagMode.StartTagAndEndTag` w pomocnika tagów:
+   > Można użyć następujących znaczników przy użyciu tagu zamykającego i Usuń wiersz z `TagMode.StartTagAndEndTag` w Pomocnik tagu:
    > 
    > [!code-html[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/AboutNotSelfClosing.cshtml?range=13-18)]
 
-## <a name="condition-tag-helper"></a>Warunek pomocnika tagów
+## <a name="condition-tag-helper"></a>Pomocnik tagu warunku
 
-Warunek pomocnika tagów renderuje dane wyjściowe po upływie wartość true.
+Pomocnik tagu warunek renderuje dane wyjściowe przy przekazywaniu wartość true.
 
-1. Dodaj następujące `ConditionTagHelper` klasy do *TagHelpers* folderu.
+1. Dodaj następujący kod `ConditionTagHelper` klasy *TagHelpers* folderu.
 
    [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/ConditionTagHelper.cs)]
 
-2. Zastąp zawartość *Views/Home/Index.cshtml* pliku z następujący kod:
+2. Zastąp zawartość *Views/Home/Index.cshtml* pliku następującym kodem:
 
-   ```cshtml
-   @using AuthoringTagHelpers.Models
-   @model WebsiteContext
-    
-   @{
-       ViewData["Title"] = "Home Page";
-   }
-    
-   <div>
-       <h3>Information about our website (outdated):</h3>
-       <website-information info=@Model />
-       <div condition="@Model.Approved">
-           <p>
-               This website has <strong surround="em"> @Model.Approved </strong> been approved yet.
-               Visit www.contoso.com for more information.
-           </p>
-       </div>
-   </div>
-   ```
-    
-3. Zastąp `Index` metoda `Home` kontrolera następującym kodem:
+   [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/Index.cshtml)]
+
+3. Zastąp `Index` method in Class metoda `Home` kontrolera, używając następującego kodu:
 
    [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Controllers/HomeController.cs?range=9-18)]
 
-4. Uruchom aplikację i przejdź do strony głównej. Znaczniki w warunkowej `div` nie będzie renderowany. Dołącz ciągu zapytania `?approved=true` do adresu URL (na przykład `http://localhost:1235/Home/Index?approved=true`). `approved` ma ustawioną wartość true a warunkowe zostanie wyświetlony kod znaczników.
+4. Uruchom aplikację i przejdź do strony głównej. Kod znaczników w warunkowej `div` nie będą renderowane. Dołącz ciąg zapytania `?approved=true` do adresu URL (na przykład `http://localhost:1235/Home/Index?approved=true`). `approved` jest ustawiona na wartość PRAWDA, a warunkową znaczników, który będzie wyświetlany.
 
 > [!NOTE]
-> Użyj [nameof](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/nameof) operatora, aby określić atrybut docelowy zamiast określania ciąg, jak w przypadku Pomocnik bold tagu:
+> Użyj [nameof](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/nameof) operator, aby określić atrybut docelowy, a nie określając ciąg, jak w przypadku Pomocnik tagu pogrubienie:
 > 
 > [!code-csharp[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/zConditionTagHelperCopy.cs?highlight=1,2,5&range=5-18)]
 > 
-> [Nameof](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/nameof) operatora będzie chronić kod powinien on kiedykolwiek można refaktorować (może chcemy zmienić nazwę na `RedCondition`).
+> [Nameof](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/nameof) operator ma być chroniony kod powinien on nigdy nie być refaktoryzowany (Firma Microsoft może chcesz zmienić nazwę aby `RedCondition`).
 
 ### <a name="avoid-tag-helper-conflicts"></a>Unikaj konfliktów pomocnika tagów
 
-W tej sekcji należy napisać parę automatyczne łączenie pomocników tagów. Pierwszy spowoduje zastąpienie znaczników zawierający adres URL rozpoczynający się protokołu HTTP z HTML zakotwiczenia tag zawierający ten sam adres URL (i w związku z tym reaguje łącze do adresu URL). Drugi będzie wykonywać takie same dla danego adresu URL począwszy WWW.
+W tej sekcji możesz zapisywać parę automatycznego łączenia pomocników tagów. Pierwszy spowoduje zastąpienie znaczników zawierający adres URL rozpoczynający się za pośrednictwem protokołu HTTP HTML zakotwiczenia tag zawierających ten sam adres URL (a zatem reaguje łącze do adresu URL). Drugi będzie tak samo dla danego adresu URL począwszy od WWW.
 
-Ponieważ te dwa pomocników są ściśle powiązane i mogą je w przyszłości Refaktoryzuj, firma Microsoft będzie przechowywać w tym samym pliku.
+Ponieważ te dwa pomocników są ściśle powiązane i mogą je refaktoryzować w przyszłości, zachowamy je w tym samym pliku.
 
-1. Dodaj następujące `AutoLinkerHttpTagHelper` klasy do *TagHelpers* folderu.
+1. Dodaj następujący kod `AutoLinkerHttpTagHelper` klasy *TagHelpers* folderu.
 
    [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinker.cs?range=7-19)]
 
    >[!NOTE]
-   >`AutoLinkerHttpTagHelper` Klas docelowych `p` elementów i używa [Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) utworzyć zakotwiczenia.
+   >`AutoLinkerHttpTagHelper` Klasy obiektów docelowych `p` elementów i używa [wyrażenia regularnego](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) utworzyć zakotwiczenia.
 
 2. Dodaj następujący kod na końcu *Views/Home/Contact.cshtml* pliku:
 
    [!code-html[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/Contact.cshtml?highlight=19)]
 
-3. Uruchom aplikację i sprawdź pomocnika tagów poprawnie renderuje zakotwiczenia.
+3. Uruchom aplikację i sprawdź Pomocnik tagu poprawnie renderowana zakotwiczenia.
 
-4. Aktualizacja `AutoLinker` klasy, aby uwzględnić `AutoLinkerWwwTagHelper` który przekonwertuje tekst www tag kotwicy zawierający oryginalny tekst www. Zaktualizowany kod zostanie wyróżniona poniżej:
+4. Aktualizacja `AutoLinker` klasy, aby uwzględnić `AutoLinkerWwwTagHelper` który przekonwertuje www tekstu zawierającego oryginalny tekst www tag kotwicy. Zaktualizowany kod jest wyróżniona poniżej:
 
    [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinker.cs?highlight=15-34&range=7-34)]
 
-5. Uruchom aplikację. Zwróć uwagę, www tekst jest traktowany jako łącze, ale nie ma tekstu HTTP. Jeśli umieścisz punkt przerwania w obu klasach widać, czy klasa pomocnika tagów HTTP jest uruchamiany pierwszy. Problem polega na dane wyjściowe pomocnika tagów są buforowane, czy po uruchomieniu pomocnika tagów WWW, zastępuje on dane wyjściowe pamięci podręcznej pomocnika tagów HTTP. W dalszej części samouczka przedstawiono będzie sterowanie pomocników tagów uruchamiane w kolejności. Firma Microsoft będzie naprawić kod z następujących czynności:
+5. Uruchom aplikację. Zwróć uwagę, tekst www jest renderowany jako link, ale nie jest tekst HTTP. Jeśli umieścisz punkt przerwania w obu klasach widać, że klasa pomocnika tagów HTTP jest uruchamiany pierwszego. Problem polega na że buforowania danych wyjściowych pomocnika tagów, a gdy pomocnik tagu WWW jest uruchomiona, zastępuje on buforowane dane wyjściowe z Pomocnik tagu HTTP. W dalszej części tego samouczka zobaczymy sposobu kontrolowania przez pomocników tagów uruchamiane w kolejności. Naprawimy ten kod z następujących czynności:
 
    [!code-csharp[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinkerCopy.cs?highlight=5,6,10,21,22,26&range=8-37)]
 
    > [!NOTE]
-   > W pierwszym wydaniu pomocników tagów automatyczne łączenie masz zawartość elementu docelowego z następującym kodem:
+   > W pierwszym wydaniu pomocników tagów automatycznego łączenia stało się zawartość elementu docelowego z następującym kodem:
    > 
    > [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinker.cs?range=12)]
    > 
-   > Oznacza to, należy wywołać `GetChildContentAsync` przy użyciu `TagHelperOutput` przekazany `ProcessAsync` metody. Jak wspomniano wcześniej, ponieważ dane wyjściowe są buforowane, ostatniego tagu pomocnika do uruchamiania usługi wins. Został rozwiązany problem z następującym kodem:
+   > Oznacza to, należy wywołać `GetChildContentAsync` przy użyciu `TagHelperOutput` przekazany do `ProcessAsync` metody. Jak wspomniano wcześniej, ponieważ dane wyjściowe są buforowane, ostatni Oznacz element pomocniczy służący do uruchamiania usługi wins. Naprawiono problem z następującym kodem:
    > 
    > [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z2AutoLinkerCopy.cs?range=34-35)]
    > 
    > Powyższy kod sprawdza, czy zawartość została zmodyfikowana, a jeśli tak, pobiera zawartość z buforu wyjściowego.
 
-6. Uruchom aplikację i sprawdzić, czy dwa łącza działają zgodnie z oczekiwaniami. Gdy wydaje się, że nasze pomocnika tagów konsolidatora automatycznie jest prawidłowe i kompletne ma niewielkie problem. Jeśli pierwszy uruchamia pomocnika tagów WWW, linki sieci Web nie będą poprawne. Zaktualizuj kod, dodając `Order` przeciążenia można sterować kolejnością działającym w tagu. `Order` Właściwość określa kolejność wykonywania względem innych pomocników tagów przeznaczonych dla tego samego elementu. Wartość domyślna kolejności to zero, a wystąpienia o niższych wartościach jest wykonywany jako pierwszy.
+6. Uruchom aplikację i sprawdzić, czy dwa linki działają zgodnie z oczekiwaniami. Chociaż wydaje się, że naszych Pomocnik tagu konsolidator automatycznie jest prawidłowe i kompletne, ma drobny problem. Jeśli Pomocnik tagu WWW jest uruchamiany w pierwszy, linki sieci Web nie będą poprawne. Aktualizowanie kodu, dodając `Order` przeciążenie, można określić kolejność pracująca w tagu w. `Order` Właściwość określa kolejność wykonywania względem innych pomocników tagów przeznaczonych dla tego samego elementu. Wartość domyślna kolejności to zero, a wystąpienia o niższych wartościach są wykonywane jako pierwsze.
 
    [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z2AutoLinkerCopy.cs?highlight=5,6,7,8&range=8-15)]
     
-   Powyższy kod zagwarantuje, że pomocnika tagów HTTP jest uruchamiany przed pomocnika tagów WWW. Zmień `Order` do `MaxValue` i sprawdź, czy znacznika generowany dla tagu WWW jest niepoprawny.
+   Powyższy kod gwarantuje, że Pomocnik tagu HTTP jest uruchamiany przed Pomocnik tagu WWW. Zmiana `Order` do `MaxValue` i sprawdź, czy znaczniki wygenerowany dla tagu WWW jest niepoprawny.
 
-## <a name="inspect-and-retrieve-child-content"></a>Zbadaj i pobrać zawartość elementu podrzędnego
+## <a name="inspect-and-retrieve-child-content"></a>Sprawdzanie i pobrać zawartość elementu podrzędnego
 
-Pomocników tagów podać kilka właściwości, aby pobrać zawartość.
+Pomocnicy tagów zawierają kilka właściwości, aby pobrać zawartość.
 
--  Wynik `GetChildContentAsync` można dołączać do `output.Content`.
+-  Wynik `GetChildContentAsync` można dołączyć do `output.Content`.
 -  Możesz sprawdzić wynik `GetChildContentAsync` z `GetContent`.
--  Jeśli zmodyfikujesz `output.Content`, treści pomocnika tagów nie będą wykonywane lub renderowane, chyba że wywołujesz `GetChildContentAsync` jak naszej próbki automatycznie konsolidatora:
+-  Jeśli zmodyfikujesz `output.Content`, treść pomocnika tagów nie będą wykonywane lub renderowane, chyba że wywołujesz `GetChildContentAsync` tak jak w naszym przykładzie automatycznie konsolidatora:
 
 [!code-csharp[](../../views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinkerCopy.cs?highlight=5,6,10&range=8-21)]
 
--  Wiele wywołań `GetChildContentAsync` zwraca tę samą wartość i ponownie nie jest wykonywana `TagHelper` body, chyba że przekazujesz w parametrze wartość false, wskazującą, nie należy używać buforowanego zestawu wyników.
+-  Wiele wywołań `GetChildContentAsync` zwraca taką samą wartość i nie jest ponownie wykonywana `TagHelper` treści, chyba że przyjmie wartość false parametru, wskazującą, aby nie korzystała z buforowanego zestawu wyników.

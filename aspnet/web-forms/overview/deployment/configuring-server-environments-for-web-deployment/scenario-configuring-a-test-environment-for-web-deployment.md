@@ -3,17 +3,17 @@ uid: web-forms/overview/deployment/configuring-server-environments-for-web-deplo
 title: 'Scenariusz: Konfigurowanie środowiska testowego na potrzeby wdrażania w Internecie | Dokumentacja firmy Microsoft'
 author: jrjlee
 description: W tym temacie opisano scenariusz wdrażania web typowe dla dewelopera lub środowisk testowych i opisano zadania, które należy wykonać, aby skonfigurować zdarzenia serwisowego...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: 44a22ac7-1fc7-4174-b946-c6129fb6a19b
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-test-environment-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: ba77c944378245ed82d1cee92b668e31acc51a81
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 3c6c8850e77f4a3cbb71db4353487c8a5e9c097d
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37822373"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753939"
 ---
 <a name="scenario-configuring-a-test-environment-for-web-deployment"></a>Scenariusz: Konfigurowanie środowiska testowego na potrzeby wdrażania w Internecie
 ====================

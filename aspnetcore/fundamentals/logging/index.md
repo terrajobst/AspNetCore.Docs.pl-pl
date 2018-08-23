@@ -3,14 +3,15 @@ title: Rejestrowanie w programie ASP.NET Core
 author: ardalis
 description: Więcej informacji na temat struktury rejestrowania w programie ASP.NET Core. Odnajdywanie dostawcy wbudowane funkcje rejestrowania i Dowiedz się więcej na temat popularnych dostawców innych firm.
 ms.author: tdykstra
-ms.date: 07/24/2018
+ms.custom: mvc
+ms.date: 08/21/2018
 uid: fundamentals/logging/index
-ms.openlocfilehash: 35bb7fa51db541f825a79151fb7fbe85d48e1998
-ms.sourcegitcommit: 028ad28c546de706ace98066c76774de33e4ad20
+ms.openlocfilehash: 38a395a97e9a0b7ccb0bfef0d1947ef379bf748c
+ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39655362"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "41886765"
 ---
 # <a name="logging-in-aspnet-core"></a>Rejestrowanie w programie ASP.NET Core
 
@@ -18,29 +19,39 @@ Przez [Steve Smith](https://ardalis.com/) i [Tom Dykstra](https://github.com/tdy
 
 Platforma ASP.NET Core obsługuje interfejs API rejestrowania, która współdziała z różnych dostawców logowania. Wbudowani dostawcy umożliwiają wysyłanie dzienników do jednego lub więcej miejsc docelowych, a w ramach rejestrowania innych firm, możesz podłączyć. W tym artykule pokazano, jak korzystać z interfejsu API wbudowane funkcje rejestrowania i dostawców w kodzie.
 
-::: moniker range=">= aspnetcore-2.0"
-
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/index/sample2) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/index/sample) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
-
-::: moniker-end
-
 Instrukcje dotyczące rejestrowania strumienia wyjściowego stdout w przypadku hostowania za pomocą programu IIS, zobacz <xref:host-and-deploy/iis/troubleshoot#aspnet-core-module-stdout-log>. Aby uzyskać informacji na temat rejestrowania strumienia wyjściowego stdout w usłudze Azure App Service, zobacz <xref:host-and-deploy/azure-apps/troubleshoot#aspnet-core-module-stdout-log>.
+
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/index/samples) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="how-to-create-logs"></a>Jak utworzyć dzienników
 
 Aby utworzyć dzienników, należy zaimplementować [ILogger&lt;TCategoryName&gt; ](/dotnet/api/microsoft.extensions.logging.ilogger-1) obiektu z [wstrzykiwanie zależności](xref:fundamentals/dependency-injection) kontenera:
 
-[!code-csharp[](index/sample/Controllers/TodoController.cs?name=snippet_LoggerDI&highlight=7)]
+::: moniker range=">= aspnetcore-2.0"
+
+[!code-csharp[](index/samples/2.x/TodoApiSample/Controllers/TodoController.cs?name=snippet_LoggerDI&highlight=7)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+[!code-csharp[](index/samples/1.x/TodoApiSample/Controllers/TodoController.cs?name=snippet_LoggerDI&highlight=7)]
+
+::: moniker-end
 
 Następnie wywołań metod rejestrowania dla tego obiektu rejestratora:
 
-[!code-csharp[](index/sample/Controllers/TodoController.cs?name=snippet_CallLogMethods&highlight=3,7)]
+::: moniker range=">= aspnetcore-2.0"
+
+[!code-csharp[](index/samples/2.x/TodoApiSample/Controllers/TodoController.cs?name=snippet_CallLogMethods&highlight=3,7)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+[!code-csharp[](index/samples/1.x/TodoApiSample/Controllers/TodoController.cs?name=snippet_CallLogMethods&highlight=3,7)]
+
+::: moniker-end
 
 W tym przykładzie tworzy dzienniki za pomocą `TodoController` klasy *kategorii*. Kategorie są wyjaśnione [w dalszej części tego artykułu](#log-category).
 
@@ -54,11 +65,11 @@ Dostawcy logowania przyjmuje komunikaty, utworzonych za pomocą `ILogger` obiekt
 
 Aby korzystać z dostawcy, należy wywołać dostawcy `Add<ProviderName>` metody rozszerzenia w *Program.cs*:
 
-[!code-csharp[](index/sample2/Program.cs?name=snippet_ExpandDefault&highlight=16,17)]
+[!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_ExpandDefault&highlight=16,17)]
 
 Domyślny szablon projektu umożliwia dostawcom rejestrowania w konsoli i debugowania, z wywołaniem [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) metody rozszerzenia w *Program.cs*:
 
-[!code-csharp[](index/sample2/Program.cs?name=snippet_TemplateCode&highlight=7)]
+[!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_TemplateCode&highlight=7)]
 
 ::: moniker-end
 
@@ -68,12 +79,12 @@ Dostawcy logowania przyjmuje komunikaty, utworzonych za pomocą `ILogger` obiekt
 
 Można użyć dostawcy, instalowanie pakietu NuGet i wywołanie metody rozszerzenia dostawcy w wystąpieniu [element ILoggerFactory](/dotnet/api/microsoft.extensions.logging.iloggerfactory), jak pokazano w poniższym przykładzie:
 
-[!code-csharp[](index/sample//Startup.cs?name=snippet_AddConsoleAndDebug&highlight=3,5-7)]
+[!code-csharp[](index/samples/1.x/TodoApiSample//Startup.cs?name=snippet_AddConsoleAndDebug&highlight=3,5-7)]
 
 Platforma ASP.NET Core [wstrzykiwanie zależności](xref:fundamentals/dependency-injection) (DI) zapewnia `ILoggerFactory` wystąpienia. `AddConsole` i `AddDebug` metody rozszerzenia są zdefiniowane w [Microsoft.Extensions.Logging.Console](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console/) i [Microsoft.Extensions.Logging.Debug](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Debug/) pakietów. Każda metoda rozszerzenia wywołuje `ILoggerFactory.AddProvider` jest metoda w wystąpieniu dostawcy.
 
 > [!NOTE]
-> [Przykładową aplikację](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/index/sample) dodaje rejestrowania dostawców w `Startup.Configure` metody. Jeśli chcesz uzyskać dane wyjściowe dziennika z kodu, który jest wykonywany wcześniej, Dodaj rejestrowania dostawców w `Startup` konstruktora klasy.
+> [1.x przykładową aplikację](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/index/samples/1.x) dodaje rejestrowania dostawców w `Startup.Configure` metody. Jeśli chcesz uzyskać dane wyjściowe dziennika z kodu, który jest wykonywany wcześniej, Dodaj rejestrowania dostawców w `Startup` konstruktora klasy.
 
 ::: moniker-end
 
@@ -184,11 +195,31 @@ A *kategorii* jest dołączany do każdego dziennika, które tworzysz. Określ k
 
 Można określić kategorię, która jako ciąg lub użyć metody rozszerzenia pochodzący z tej kategorii z typu. Aby określić kategorię, która jako ciąg znaków, należy wywołać `CreateLogger` na `ILoggerFactory` wystąpienia, jak pokazano poniżej.
 
-[!code-csharp[](index/sample//Controllers/TodoController.cs?name=snippet_CreateLogger&highlight=7,10)]
+::: moniker range=">= aspnetcore-2.0"
+
+[!code-csharp[](index/samples/2.x/TodoApiSample/Controllers/TodoController.cs?name=snippet_CreateLogger&highlight=7,10)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+[!code-csharp[](index/samples/1.x/TodoApiSample/Controllers/TodoController.cs?name=snippet_CreateLogger&highlight=7,10)]
+
+::: moniker-end
 
 W większości przypadków, będzie łatwiejszy w obsłudze `ILogger<T>`, jak w poniższym przykładzie.
 
-[!code-csharp[](index/sample//Controllers/TodoController.cs?name=snippet_LoggerDI&highlight=7)]
+::: moniker range=">= aspnetcore-2.0"
+
+[!code-csharp[](index/samples/2.x/TodoApiSample/Controllers/TodoController.cs?name=snippet_LoggerDI&highlight=7)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+[!code-csharp[](index/samples/1.x/TodoApiSample/Controllers/TodoController.cs?name=snippet_LoggerDI&highlight=7)]
+
+::: moniker-end
 
 Jest to równoważne z wywoływaniem `CreateLogger` z w pełni kwalifikowana nazwa typu z `T`.
 
@@ -198,7 +229,17 @@ Zawsze możesz pisać dziennika, należy określić jego [LogLevel](/dotnet/api/
 
 W poniższym przykładzie kodu nazwy metod (na przykład `LogWarning`) określ poziom dziennika. Pierwszy parametr jest [identyfikator zdarzenia dziennika](#log-event-id). Drugi parametr jest [szablon wiadomości z](#log-message-template) przy użyciu symboli zastępczych dla wartości argumentów dostarczone przez pozostałe parametry metody. Parametry metody zostały omówione bardziej szczegółowo w dalszej części tego artykułu.
 
-[!code-csharp[](index/sample//Controllers/TodoController.cs?name=snippet_CallLogMethods&highlight=3,7)]
+::: moniker range=">= aspnetcore-2.0"
+
+[!code-csharp[](index/samples/2.x/TodoApiSample/Controllers/TodoController.cs?name=snippet_CallLogMethods&highlight=3,7)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+[!code-csharp[](index/samples/1.x/TodoApiSample/Controllers/TodoController.cs?name=snippet_CallLogMethods&highlight=3,7)]
+
+::: moniker-end
 
 Metody dziennika, które obejmują poziom w nazwie metody są [metody rozszerzenia dla ILogger](/dotnet/api/microsoft.extensions.logging.loggerextensions). W tle wywołania tych metod `Log` metody, która przyjmuje `LogLevel` parametru. Możesz wywołać `Log` bezpośrednio zamiast jednej z tych metod rozszerzenia, ale składnia jest stosunkowo skomplikowane. Aby uzyskać więcej informacji, zobacz [interfejsu ILogger](/dotnet/api/microsoft.extensions.logging.ilogger) i [kod źródłowy rozszerzenia rejestratora](https://github.com/aspnet/Logging/blob/master/src/Microsoft.Extensions.Logging.Abstractions/LoggerExtensions.cs).
 
@@ -265,9 +306,21 @@ info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
 
 Zawsze możesz pisać dziennika, możesz określić *identyfikator zdarzenia*. Przykładowa aplikacja robi to przy użyciu zdefiniowanej lokalnie `LoggingEvents` klasy:
 
-[!code-csharp[](index/sample//Controllers/TodoController.cs?name=snippet_CallLogMethods&highlight=3,7)]
+::: moniker range=">= aspnetcore-2.0"
 
-[!code-csharp[](index/sample//Core/LoggingEvents.cs?name=snippet_LoggingEvents)]
+[!code-csharp[](index/samples/2.x/TodoApiSample/Controllers/TodoController.cs?name=snippet_CallLogMethods&highlight=3,7)]
+
+[!code-csharp[](index/samples/2.x/TodoApiSample/Core/LoggingEvents.cs?name=snippet_LoggingEvents)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+[!code-csharp[](index/samples/1.x/TodoApiSample/Controllers/TodoController.cs?name=snippet_CallLogMethods&highlight=3,7)]
+
+[!code-csharp[](index/samples/1.x/TodoApiSample/Core/LoggingEvents.cs?name=snippet_LoggingEvents)]
+
+::: moniker-end
 
 Identyfikator zdarzenia jest wartość całkowitą, która umożliwia kojarzenie zestaw zarejestrowanych zdarzeń ze sobą. Na przykład dziennika, aby dodać element do koszyka, może być identyfikator 1000 zdarzeń i dziennik ukończenia zakup może być identyfikator zdarzenia 1001.
 
@@ -284,7 +337,17 @@ warn: TodoApi.Controllers.TodoController[4000]
 
 Każdorazowo, gdy zapisu komunikatu dziennika, należy podać szablon wiadomości. Szablon wiadomości może być ciągiem lub może zawierać nazwanego symboli zastępczych, w której argument wartości są umieszczone. Szablon nie jest ciągiem formatu, a symbole zastępcze powinno się nazywać, nie są numerowane.
 
-[!code-csharp[](index/sample//Controllers/TodoController.cs?name=snippet_CallLogMethods&highlight=3,7)]
+::: moniker range=">= aspnetcore-2.0"
+
+[!code-csharp[](index/samples/2.x/TodoApiSample/Controllers/TodoController.cs?name=snippet_CallLogMethods&highlight=3,7)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+[!code-csharp[](index/samples/1.x/TodoApiSample/Controllers/TodoController.cs?name=snippet_CallLogMethods&highlight=3,7)]
+
+::: moniker-end
 
 Kolejność symboli zastępczych, nie ich nazwy, określa parametry, które służą do zapewniania ich wartości. Jeśli masz następujący kod:
 
@@ -312,7 +375,17 @@ Każda jednostka usługi Azure Table może mieć `ID` i `RequestTime` właściwo
 
 Metody rejestratora mają przeciążenia, które umożliwiają przekazywanie wyjątek, jak w poniższym przykładzie:
 
-[!code-csharp[](index/sample//Controllers/TodoController.cs?name=snippet_LogException&highlight=3)]
+::: moniker range=">= aspnetcore-2.0"
+
+[!code-csharp[](index/samples/2.x/TodoApiSample/Controllers/TodoController.cs?name=snippet_LogException&highlight=3)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+[!code-csharp[](index/samples/1.x/TodoApiSample/Controllers/TodoController.cs?name=snippet_LogException&highlight=3)]
+
+::: moniker-end
 
 Różnych dostawców obsługiwać informacje o wyjątku na różne sposoby. Oto przykład danych wyjściowych debugowania dostawcy w kodzie pokazanym powyżej.
 
@@ -335,11 +408,11 @@ Jeśli chcesz pominąć wszystkie dzienniki, można określić `LogLevel.None` j
 
 Szablony projektów tworzenie kodu, który wywołuje `CreateDefaultBuilder` skonfigurować rejestrowanie dla dostawców konsoli i debugowania. `CreateDefaultBuilder` Metoda konfiguruje również rejestrowania do wyszukania konfiguracji w `Logging` sekcji przy użyciu kodu, podobnie do poniższego:
 
-[!code-csharp[](index/sample2/Program.cs?name=snippet_ExpandDefault&highlight=15)]
+[!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_ExpandDefault&highlight=15)]
 
 Dane konfiguracji Określa poziomy minimalna dziennika przez dostawcę i kategorii, jak w poniższym przykładzie:
 
-[!code-json[](index/sample2/appsettings.json)]
+[!code-json[](index/samples/2.x/TodoApiSample/appsettings.json)]
 
 Ten kod JSON tworzy sześć reguły filtrowania, jeden dla dostawcy debugowania, cztery dla dostawcy konsoli oraz jedną, która ma zastosowanie do wszystkich dostawców. Zostanie wyświetlone, pokażemy, jak tylko jeden z tych reguł wybrano dla każdego dostawcy podczas `ILogger` obiekt zostanie utworzony.
 
@@ -347,7 +420,7 @@ Ten kod JSON tworzy sześć reguły filtrowania, jeden dla dostawcy debugowania,
 
 Można zarejestrować reguły filtrów w kodzie, jak pokazano w poniższym przykładzie:
 
-[!code-csharp[](index/sample2/Program.cs?name=snippet_FilterInCode&highlight=4-5)]
+[!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_FilterInCode&highlight=4-5)]
 
 Drugi `AddFilter` określa dostawcę debugowania przy użyciu jego nazwy. Pierwszy `AddFilter` ma zastosowanie do wszystkich dostawców, ponieważ nie określa typ dostawcy.
 
@@ -397,7 +470,7 @@ Nazwa typu można użyć, aby określić dostawcę konfiguracji, ale każdy dost
 
 Istnieje minimalne ustawienie poziomie staje się skuteczny tylko wtedy, gdy nie z konfiguracji czy kodu reguły dla danego dostawcy i kategorii. Poniższy przykład pokazuje, jak ustawić minimalny poziom:
 
-[!code-csharp[](index/sample2/Program.cs?name=snippet_MinLevel&highlight=3)]
+[!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_MinLevel&highlight=3)]
 
 Jeśli nie zostanie jawnie ustawiona minimalny poziom, wartością domyślną jest `Information`, co oznacza, że `Trace` i `Debug` dzienniki są ignorowane.
 
@@ -405,7 +478,7 @@ Jeśli nie zostanie jawnie ustawiona minimalny poziom, wartością domyślną je
 
 Można napisać kod w funkcji filtru, aby zastosować reguły filtrowania. Funkcja filtru jest wywoływana dla wszystkich dostawców i kategorie, które nie mają zasady przypisane do nich przez konfiguracji czy kodu. Kod w funkcji ma dostęp do typ dostawcy, kategorii i poziom dziennika, aby zdecydować, czy komunikat powinny być rejestrowane. Na przykład:
 
-[!code-csharp[](index/sample2/Program.cs?name=snippet_FilterFunction&highlight=5-13)]
+[!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_FilterFunction&highlight=5-13)]
 
 ::: moniker-end
 
@@ -415,13 +488,13 @@ Niektórzy dostawcy rejestrowania umożliwiają określenie, kiedy zapisany na n
 
 `AddConsole` i `AddDebug` metody rozszerzenia, zapewnienia przeciążenia, które umożliwiają przekazywanie w kryteriach filtrowania. Następujący przykładowy kod powoduje, że Konsola dostawca ignorowanie dzienniki poniżej `Warning` poziomu, podczas gdy dostawca debugowania ignoruje dzienniki tworzonych w ramach.
 
-[!code-csharp[](index/sample/Startup.cs?name=snippet_AddConsoleAndDebugWithFilter&highlight=6-7)]
+[!code-csharp[](index/samples/1.x/TodoApiSample/Startup.cs?name=snippet_AddConsoleAndDebugWithFilter&highlight=6-7)]
 
 `AddEventLog` Metoda ma przeciążenia, które przyjmuje `EventLogSettings` wystąpienia, co może zawierać funkcji filtrowania w jego `Filter` właściwości. Dostawca TraceSource nie zapewnia żadnego z tych przeciążeń, ponieważ jej poziom rejestrowania i inne parametry są oparte na `SourceSwitch` i `TraceListener` używa.
 
 Możesz ustawić reguły filtrowania dla wszystkich dostawców, które są zarejestrowane w usłudze `ILoggerFactory` wystąpienia przy użyciu `WithFilter` — metoda rozszerzenia. W poniższym przykładzie ogranicza dzienniki framework (kategoria zaczyna się od "Microsoft" lub "System") z ostrzeżeniami, a w dzienniku aplikacji na poziomie debugowania.
 
-[!code-csharp[](index/sample/Startup.cs?name=snippet_FactoryFilter&highlight=6-11)]
+[!code-csharp[](index/samples/1.x/TodoApiSample/Startup.cs?name=snippet_FactoryFilter&highlight=6-11)]
 
 Jeśli chcesz użyć filtrowania, aby uniemożliwić wszystkie dzienniki są zapisywane dla danej kategorii, można określić `LogLevel.None` jako minimalny poziom rejestrowania dla tej kategorii. Wartość całkowitą `LogLevel.None` to 6, która jest wyższa niż `LogLevel.Critical` (5).
 
@@ -435,7 +508,7 @@ Można grupować zestaw operacji logicznej w ramach *zakres* Aby dołączyć te 
 
 Zakres jest `IDisposable` typu, który jest zwracany przez [ILogger.BeginScope&lt;stanu dławienia&gt; ](/dotnet/api/microsoft.extensions.logging.ilogger.beginscope) metody i trwa do momentu jego usunięcia. Możesz użyć zakresu, zawijania z Rejestratora wywołania w `using` zablokować, jak pokazano poniżej:
 
-[!code-csharp[](index/sample//Controllers/TodoController.cs?name=snippet_Scopes&highlight=4-5,13)]
+[!code-csharp[](index/samples/1.x/TodoApiSample/Controllers/TodoController.cs?name=snippet_Scopes&highlight=4-5,13)]
 
 Poniższy kod umożliwia zakresy dla dostawcy konsoli:
 
@@ -443,7 +516,7 @@ Poniższy kod umożliwia zakresy dla dostawcy konsoli:
 
 *Program.cs*:
 
-[!code-csharp[](index/sample2/Program.cs?name=snippet_Scopes&highlight=4)]
+[!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_Scopes&highlight=4)]
 
 > [!NOTE]
 > Konfigurowanie `IncludeScopes` opcja rejestratora konsoli jest wymagana, aby włączyć rejestrowanie zakresu.
@@ -456,7 +529,7 @@ Poniższy kod umożliwia zakresy dla dostawcy konsoli:
 
 *Program.cs*:
 
-[!code-csharp[](index/sample2/Program.cs?name=snippet_Scopes&highlight=4)]
+[!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_Scopes&highlight=4)]
 
 > [!NOTE]
 > Konfigurowanie `IncludeScopes` opcja rejestratora konsoli jest wymagana, aby włączyć rejestrowanie zakresu.
@@ -467,7 +540,7 @@ Poniższy kod umożliwia zakresy dla dostawcy konsoli:
 
 *Startup.cs*:
 
-[!code-csharp[](index/sample/Startup.cs?name=snippet_Scopes&highlight=6)]
+[!code-csharp[](index/samples/1.x/TodoApiSample/Startup.cs?name=snippet_Scopes&highlight=6)]
 
 ::: moniker-end
 
@@ -523,7 +596,7 @@ loggerFactory.AddConsole(Configuration.GetSection("Logging"));
 
 Ten kod, który odwołuje się do `Logging` części *appSettings.json* pliku:
 
-[!code-json[](index/sample//appsettings.json)]
+[!code-json[](index/samples/1.x/TodoApiSample//appsettings.json)]
 
 Ustawienia pokazano limit framework dzienniki, aby ostrzeżenia zezwalając aplikacji do logowania na poziomie debugowania, jak wyjaśniono w [filtrowanie dziennika](#log-filtering) sekcji. Aby uzyskać więcej informacji, zobacz [konfiguracji](xref:fundamentals/configuration/index).
 
@@ -627,7 +700,17 @@ Aby użyć tego dostawcy, aplikacja ma do uruchamiania na .NET Framework (a nie 
 
 Poniższy przykład umożliwia skonfigurowanie `TraceSource` dostawcy, która rejestruje `Warning` i wyższych komunikaty w oknie konsoli.
 
-[!code-csharp[](index/sample/Startup.cs?name=snippet_TraceSource&highlight=9-12)]
+::: moniker range=">= aspnetcore-2.0"
+
+[!code-csharp[](index/samples/2.x/TodoApiSample/Startup.cs?name=snippet_TraceSource&highlight=9-12)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+[!code-csharp[](index/samples/1.x/TodoApiSample/Startup.cs?name=snippet_TraceSource&highlight=9-12)]
+
+::: moniker-end
 
 ### <a name="azure-app-service-provider"></a>Dostawca usługi Azure App Service
 

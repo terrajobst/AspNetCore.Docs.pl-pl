@@ -5,12 +5,12 @@ description: Dowiedz się, jak skonfigurować aplikację tak, za pomocą pary na
 ms.author: riande
 ms.date: 08/01/2018
 uid: security/key-vault-configuration
-ms.openlocfilehash: 6474b9f5cb9e441854565a7891c4aac7f781c810
-ms.sourcegitcommit: 571d76fbbff05e84406b6d909c8fe9cbea2c8ff1
+ms.openlocfilehash: 829c6c7e2750879b51bf3ce8225c6e472900f2ad
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39410133"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753877"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Dostawca konfiguracji usługi Azure Key Vault w programie ASP.NET Core
 
@@ -155,7 +155,7 @@ Wyłączone lub wygasłe klucze tajne throw `KeyVaultClientException`. Aby zapob
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-Gdy aplikacja zakończy się niepowodzeniem, można załadować konfiguracji przy użyciu dostawcy, komunikat o błędzie zostanie zapisany [infrastruktury ASP.NET rejestrowania](xref:fundamentals/logging/index). Konfiguracja ładowanie uniemożliwia następujące warunki:
+Gdy aplikacja zakończy się niepowodzeniem, można załadować konfiguracji przy użyciu dostawcy, komunikat o błędzie zostanie zapisany [infrastruktury platformy ASP.NET Core rejestrowania](xref:fundamentals/logging/index). Konfiguracja ładowanie uniemożliwia następujące warunki:
 
 * Aplikacja nie jest poprawnie skonfigurowane w usłudze Azure Active Directory.
 * Magazyn kluczy nie istnieje w usłudze Azure Key Vault.

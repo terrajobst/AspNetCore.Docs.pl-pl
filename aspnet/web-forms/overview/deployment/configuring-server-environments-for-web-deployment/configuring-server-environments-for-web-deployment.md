@@ -3,17 +3,17 @@ uid: web-forms/overview/deployment/configuring-server-environments-for-web-deplo
 title: Konfigurowanie środowisk serwera na potrzeby wdrażania w Internecie | Dokumentacja firmy Microsoft
 author: jrjlee
 description: Ten samouczek przedstawia sposób konfigurowania środowisk serwera na potrzeby pomocy technicznej, uruchamiane jednym kliknięciem i automatycznych, wdrożenia witryny sieci Web i publikowania w różnych scen różnych...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: 0bf0959b-4ca8-45de-bd13-b15347543b5a
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: df40cc9d16b9e6b3fe0b659b405106e68cee62b5
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 4f6433f0b8a9ad3b3634c9bcd8d95015eebaa865
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37835566"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755877"
 ---
 <a name="configuring-server-environments-for-web-deployment"></a>Konfigurowanie środowisk serwera na potrzeby wdrażania w Internecie
 ====================

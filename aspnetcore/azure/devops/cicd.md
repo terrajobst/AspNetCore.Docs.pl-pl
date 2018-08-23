@@ -2,15 +2,15 @@
 title: Metodyka DevOps z platformą ASP.NET Core i platformy Azure | Ciągła integracja i ciągłe wdrażanie
 author: CamSoper
 description: Przewodnik, który dostarcza wskazówki end-to-end na tworzeniu potoku metodyki DevOps dla aplikacji ASP.NET Core hostowanych na platformie Azure.
-ms.author: casoper
-ms.date: 08/07/2018
+ms.author: scaddie
+ms.date: 08/17/2018
 uid: azure/devops/cicd
-ms.openlocfilehash: 9127f26fc4e3f78ec745fa1e342de137228f484e
-ms.sourcegitcommit: 29dfe436f54a27fbb4f6494bc639d16c75001fab
-ms.translationtype: HT
+ms.openlocfilehash: e084a6115dc7e176c17b2b318233b7a003b39a83
+ms.sourcegitcommit: 1cf65c25ed16495e27f35ded98b3952a30c68f36
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39722679"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41754247"
 ---
 # <a name="continuous-integration-and-deployment"></a>Ciągła integracja i ciągłe wdrażanie
 
@@ -224,12 +224,13 @@ Definicja kompilacji **zadania** karcie wyświetlane są poszczególne kroki, kt
 ![Definicja zadania kompilacji](media/cicd/build-definition-tasks.png)
 
 1. **Przywróć** &mdash; Executes `dotnet restore` polecenia w celu przywrócenia pakietów NuGet aplikacji. Domyślny pakiet źródła danych, używany jest adres nuget.org.
-1. **Tworzenie** &mdash; Executes `dotnet build --configuration Release` polecenie, aby skompilować kod aplikacji. To `--configuration` opcja jest używana w celu wygenerowania zoptymalizowanych wersję kodu, który jest odpowiedni dla wdrożenia w środowisku produkcyjnym. Modyfikowanie *BuildConfiguration* zmiennej w definicji kompilacji **zmienne** kartę, jeśli na przykład konfiguracji debugowania nie jest konieczne.
-1. **Test** &mdash; Executes `dotnet test --configuration Release` polecenie, aby uruchomić testy jednostkowe aplikacji. Jeśli którykolwiek z testów nie powiedzie się, kompilacja nie powiedzie się i nie jest wdrożona.
+1. **Tworzenie** &mdash; Executes `dotnet build --configuration release` polecenie, aby skompilować kod aplikacji. To `--configuration` opcja jest używana w celu wygenerowania zoptymalizowanych wersję kodu, który jest odpowiedni dla wdrożenia w środowisku produkcyjnym. Modyfikowanie *BuildConfiguration* zmiennej w definicji kompilacji **zmienne** kartę, jeśli na przykład konfiguracji debugowania nie jest konieczne.
+1. **Test** &mdash; Executes `dotnet test --configuration release --logger trx --results-directory <local_path_on_build_agent>` polecenie, aby uruchomić testy jednostkowe aplikacji. Testy jednostkowe są wykonywane w ramach dowolnego języka C# projekt dopasowania `**/*Tests/*.csproj` glob wzorca. Wyniki testu są zapisywane w *.trx* pliku w lokalizacji określonej przez `--results-directory` opcji. Jeśli żadne testy nie powiodą się, kompilacja nie powiedzie się i nie jest wdrożona.
 
     > [!NOTE]
-    > Aby sprawdzić jednostki testy są poprawne, zmodyfikuj *SimpleFeedReader.Tests\Services\NewsServiceTests.cs* celowo przerwanie jedno z badań, takie jak zmiana `Assert.True(result.Count > 0);` do `Assert.False(result.Count > 0);` w `Returns_News_Stories_Given_Valid_Uri()` Metoda. Zatwierdź i Wypchnij zmiany. Kompilacja zakończy się niepowodzeniem i stan potoku kompilacji zmienia się na **nie powiodło się**. Przywróć zmiany, zatwierdzać i wypychać ponownie, a kompilacja zakończy się pomyślnie.
-1. **Publikowanie** &mdash; Executes `dotnet publish --configuration Release --output <local_path_on_build_agent>` polecenia w celu utworzenia *zip* pliku z artefaktami, które mają zostać wdrożone. `--output` Opcja określa lokalizację publikowania *zip* pliku. Czy lokalizacja jest określona przez przekazanie [uprzednio zdefiniowanej zmiennej](https://docs.microsoft.com/vsts/pipelines/build/variables) o nazwie `$(build.artifactstagingdirectory)`. Tej zmiennej rozwija ścieżkę lokalną, taką jak *c:\agent\_work\1\a*, w agencie kompilacji.
+    > Aby sprawdzić, czy pracy testów jednostkowych, zmodyfikuj *SimpleFeedReader.Tests\Services\NewsServiceTests.cs* celowo przerwanie jedno z badań. Na przykład zmienić `Assert.True(result.Count > 0);` do `Assert.False(result.Count > 0);` w `Returns_News_Stories_Given_Valid_Uri` metody. Zatwierdź i Wypchnij zmiany do usługi GitHub. Kompilacja zostanie wyzwolony i kończy się niepowodzeniem. Stan potoku kompilacji zmienia się na **nie powiodło się**. Cofnąć zmiany, zatwierdzać i wypychać ponownie. Kompilacja zakończy się pomyślnie.
+
+1. **Publikowanie** &mdash; Executes `dotnet publish --configuration release --output <local_path_on_build_agent>` polecenia w celu utworzenia *zip* pliku z artefaktami, które mają zostać wdrożone. `--output` Opcja określa lokalizację publikowania *zip* pliku. Czy lokalizacja jest określona przez przekazanie [uprzednio zdefiniowanej zmiennej](https://docs.microsoft.com/vsts/pipelines/build/variables) o nazwie `$(build.artifactstagingdirectory)`. Tej zmiennej rozwija ścieżkę lokalną, taką jak *c:\agent\_work\1\a*, w agencie kompilacji.
 1. **Publikowanie artefaktów** &mdash; Publishes *zip* za pomocą **Publikuj** zadania. Zadanie akceptuje *zip* lokalizacja jako parametr, który jest uprzednio zdefiniowanej zmiennej pliku `$(build.artifactstagingdirectory)`. *Zip* plik jest publikowany jako folder o nazwie *porzucić*.
 
 Kliknij przycisk definicji kompilacji **Podsumowanie** link, aby wyświetlić historię kompilacji z definicji:

@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 07/05/2018
 uid: fundamentals/error-handling
-ms.openlocfilehash: d7e60c0f615841461a17b093bffe5fb3f82f8616
-ms.sourcegitcommit: 506a199274e9fe5fb4070b273ba94f29f14cb619
+ms.openlocfilehash: ff04ebeb6a682ec924afe896fd6716010a63f7cd
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2018
-ms.locfileid: "39332278"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753641"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>Obsługa błędów w programie ASP.NET Core
 
@@ -195,7 +195,7 @@ Jeśli wystąpi błąd, po adresem/port hosta powiązania hostingu można wyświ
 
 Podczas uruchamiania na [IIS](/iis) lub [usług IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview), *502.5 niepowodzenia procesu* jest zwracany przez [modułu ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) , jeśli proces nie może być pracę. Aby uzyskać informacje na temat rozwiązywania problemów problemy z uruchamianiem w przypadku hostowania za pomocą programu IIS, zobacz <xref:host-and-deploy/iis/troubleshoot>. Aby uzyskać informacje na temat rozwiązywania problemów z uruchamianiem przy użyciu usługi Azure App Service, zobacz <xref:host-and-deploy/azure-apps/troubleshoot>.
 
-## <a name="aspnet-mvc-error-handling"></a>Obsługa błędów platformy ASP.NET MVC
+## <a name="aspnet-core-mvc-error-handling"></a>Obsługa błędów programu ASP.NET Core MVC
 
 [MVC](xref:mvc/overview) aplikacje mają pewne dodatkowe opcje obsługi błędów, takich jak konfigurowanie filtry wyjątków i sprawdzaniu poprawności modelu.
 

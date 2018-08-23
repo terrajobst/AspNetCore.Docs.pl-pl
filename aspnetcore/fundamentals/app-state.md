@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/14/2018
 uid: fundamentals/app-state
-ms.openlocfilehash: 072699113a45056ec3ea79436ad56896ba0a4197
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: 7794b3c10e26720d3e7ef8965f99b204a3c58d5c
+ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095817"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "41870937"
 ---
 # <a name="session-and-app-state-in-aspnet-core"></a>Stan sesji i aplikacji w programie ASP.NET Core
 
@@ -105,7 +105,7 @@ Poniższy kod przedstawia sposób konfigurowania dostawcy sesji w pamięci z dom
 
 ::: moniker-end
 
-Ważna jest kolejność oprogramowania pośredniczącego. W powyższym przykładzie `InvalidOperationException` wyjątek występuje wtedy, gdy `UseSession` jest wywoływana po `UseMvc`. Aby uzyskać więcej informacji, zobacz [kolejność oprogramowania pośredniczącego](xref:fundamentals/middleware/index#ordering).
+Ważna jest kolejność oprogramowania pośredniczącego. W powyższym przykładzie `InvalidOperationException` wyjątek występuje wtedy, gdy `UseSession` jest wywoływana po `UseMvc`. Aby uzyskać więcej informacji, zobacz [kolejność oprogramowania pośredniczącego](xref:fundamentals/middleware/index#order).
 
 [HttpContext.Session](/dotnet/api/microsoft.aspnetcore.http.httpcontext.session) jest dostępna po skonfigurowaniu stanu sesji.
 
@@ -299,7 +299,7 @@ Następujące `Startup` kod klasy konfiguruje dostawcę TempData oparte na sesji
 
 ::: moniker-end
 
-Ważna jest kolejność oprogramowania pośredniczącego. W powyższym przykładzie `InvalidOperationException` wyjątek występuje wtedy, gdy `UseSession` jest wywoływana po `UseMvc`. Aby uzyskać więcej informacji, zobacz [kolejność oprogramowania pośredniczącego](xref:fundamentals/middleware/index#ordering).
+Ważna jest kolejność oprogramowania pośredniczącego. W powyższym przykładzie `InvalidOperationException` wyjątek występuje wtedy, gdy `UseSession` jest wywoływana po `UseMvc`. Aby uzyskać więcej informacji, zobacz [kolejność oprogramowania pośredniczącego](xref:fundamentals/middleware/index#order).
 
 > [!IMPORTANT]
 > Jeśli dodasz przeznaczonych dla platformy .NET Framework i przy użyciu dostawcy TempData oparte na sesji [Microsoft.AspNetCore.Session](https://www.nuget.org/packages/Microsoft.AspNetCore.Session/) pakietu do projektu.

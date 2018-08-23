@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/02/2018
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 861370dc689e2420838f639ea0b1fb8f73927e16
-ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
+ms.openlocfilehash: df5bc21f9b93206b3cfc97a052df26b891930d23
+ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39342422"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "41902570"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Wstrzykiwanie zależności w programie ASP.NET Core
 
@@ -143,7 +143,7 @@ W przykładowej aplikacji `IMyDependency` usługa jest zarejestrowana przy użyc
 ::: moniker-end
 
 > [!NOTE]
-> Każdy `services.Add<ServiceName>` — metoda rozszerzenia dodaje (i potencjalnie konfiguruje) usługi. Na przykład `services.AddMvc()` dodaje usług, stronami Razor i wymagają MVC. Zaleca się, że aplikacje stosują taką Konwencję. Metody rozszerzające w miejscu [Microsoft.Extensions.DependencyInjection](/dotnet/api/microsoft.extensions.dependencyinjection) przestrzeni nazw w celu hermetyzacji grupy rejestracji usługi.
+> Każdy `services.Add{SERVICE_NAME}` — metoda rozszerzenia dodaje (i potencjalnie konfiguruje) usługi. Na przykład `services.AddMvc()` dodaje usług, stronami Razor i wymagają MVC. Zaleca się, że aplikacje stosują taką Konwencję. Metody rozszerzające w miejscu [Microsoft.Extensions.DependencyInjection](/dotnet/api/microsoft.extensions.dependencyinjection) przestrzeni nazw w celu hermetyzacji grupy rejestracji usługi.
 
 Jeśli Konstruktor usługi wymaga elementu podstawowego, takich jak `string`, element pierwotny może wprowadzone za pomocą [konfiguracji](xref:fundamentals/configuration/index) lub [wzorzec opcje](xref:fundamentals/configuration/options):
 
@@ -198,7 +198,7 @@ W przykładowej aplikacji `IMyDependency` wystąpienie jest wymagane i używane 
 | [System.Diagnostics.DiagnosticSource](https://docs.microsoft.com/dotnet/core/api/system.diagnostics.diagnosticsource) | pojedyncze |
 | [System.Diagnostics.DiagnosticListener](https://docs.microsoft.com/dotnet/core/api/system.diagnostics.diagnosticlistener) | pojedyncze |
 
-Po udostępnieniu register a service (i jej usługi zależne, jeśli jest to wymagane) metody rozszerzenia kolekcji usługi Konwencji jest użycie pojedynczego `Add<ServiceName>` metodę rozszerzenia, aby zarejestrować wszystkich usług wymaganych przez tę usługę. Poniższy kod jest przykładem sposobu dodawania dodatkowych usług do kontenera przy użyciu metody rozszerzenia [AddDbContext](/dotnet/api/microsoft.extensions.dependencyinjection.entityframeworkservicecollectionextensions.adddbcontext), [AddIdentity](/dotnet/api/microsoft.extensions.dependencyinjection.identityservicecollectionextensions.addidentity), i [AddMvc](/dotnet/api/microsoft.extensions.dependencyinjection.mvcservicecollectionextensions.addmvc):
+Po udostępnieniu register a service (i jej usługi zależne, jeśli jest to wymagane) metody rozszerzenia kolekcji usługi Konwencji jest użycie pojedynczego `Add{SERVICE_NAME}` metodę rozszerzenia, aby zarejestrować wszystkich usług wymaganych przez tę usługę. Poniższy kod jest przykładem sposobu dodawania dodatkowych usług do kontenera przy użyciu metody rozszerzenia [AddDbContext](/dotnet/api/microsoft.extensions.dependencyinjection.entityframeworkservicecollectionextensions.adddbcontext), [AddIdentity](/dotnet/api/microsoft.extensions.dependencyinjection.identityservicecollectionextensions.addidentity), i [AddMvc](/dotnet/api/microsoft.extensions.dependencyinjection.mvcservicecollectionextensions.addmvc):
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -480,14 +480,24 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="default-service-container-replacement"></a>Domyślna usługa kontenera zastąpienia
 
-Kontener Wbudowane usługi jest przeznaczone do służyć podstawowych potrzeb ramach i większość aplikacje konsumenckie oparta na nim. Jednak deweloperów można zastąpić w kontenerze Wbudowane ich preferowany kontenera. `Startup.ConfigureServices` Metoda zwykle zwraca `void`. Zmiana sygnatury metody do zwrócenia [IServiceProvider](/dotnet/api/system.iserviceprovider), innego kontenera można konfigurować i zwracana. Brak dostępnych wiele kontenerów IoC dla platformy .NET. W poniższym przykładzie [Autofac](https://autofac.org/) służy kontenera:
+Kontener Wbudowane usługi jest przeznaczona do potrzebami ramach i większość aplikacji klienta. Zalecamy używanie kontenerze Wbudowane, chyba że potrzebujesz określonych funkcji, która nie jest obsługiwana. Niektóre z funkcji obsługiwanych w 3 kontenerach ze stron nie można odnaleźć w kontenerze Wbudowane:
 
-1. Zainstaluj pakiety odpowiedniego kontenera:
+* Iniekcja właściwości
+* Iniekcja na podstawie nazwy
+* Kontenery podrzędne
+* Zarządzanie okresem istnienia niestandardowe
+* `Func<T>` Obsługa inicjowania z opóźnieniem
+
+Zobacz [pliku readme.md wstrzykiwanie zależności](https://github.com/aspnet/DependencyInjection#using-other-containers-with-microsoftextensionsdependencyinjection) listę niektórych kontenerów, które obsługują kart.
+
+Poniższy przykład zastępuje wbudowanych kontenerów za pomocą [Autofac](https://autofac.org/):
+
+* Zainstaluj pakiety odpowiedniego kontenera:
 
     * [Autofac](https://www.nuget.org/packages/Autofac/)
     * [Autofac.Extensions.DependencyInjection](https://www.nuget.org/packages/Autofac.Extensions.DependencyInjection/)
 
-2. Konfiguruj kontener w `Startup.ConfigureServices` i zwracają `IServiceProvider`:
+* Konfiguruj kontener w `Startup.ConfigureServices` i zwracają `IServiceProvider`:
 
     ```csharp
     public IServiceProvider ConfigureServices(IServiceCollection services)
@@ -506,7 +516,7 @@ Kontener Wbudowane usługi jest przeznaczone do służyć podstawowych potrzeb r
 
     Do użycia kontener firm 3 `Startup.ConfigureServices` musi zwracać `IServiceProvider`.
 
-3. Konfigurowanie Autofac w `DefaultModule`:
+* Konfigurowanie Autofac w `DefaultModule`:
 
     ```csharp
     public class DefaultModule : Module

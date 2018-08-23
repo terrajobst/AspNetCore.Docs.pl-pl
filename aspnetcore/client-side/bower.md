@@ -1,60 +1,60 @@
 ---
-title: Zarządzaj pakietami po stronie klienta z Bower w ASP.NET Core
+title: Zarządzanie pakietami po stronie klienta za pomocą narzędzi Bower w programie ASP.NET Core
 author: rick-anderson
-description: Zarządzanie pakietami po stronie klienta z Bower.
+description: Zarządzanie pakietami po stronie klienta za pomocą narzędzi Bower.
 ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.date: 02/14/2017
+ms.date: 08/09/2018
 uid: client-side/bower
-ms.openlocfilehash: 23f3dcd06f012f3cf8d9509280b91c4bd1dc84e1
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 8606c21596a5d9d6ada9c60b55b2f54da21c601b
+ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272520"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "41902722"
 ---
-# <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a>Zarządzaj pakietami po stronie klienta z Bower w ASP.NET Core
+# <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a>Zarządzanie pakietami po stronie klienta za pomocą narzędzi Bower w programie ASP.NET Core
 
-Przez [Rick Anderson](https://twitter.com/RickAndMSFT), [ryżu Noel](https://blog.falafel.com/falafel-software-recognized-sitefinity-website-year/), i [Scott Addie](https://scottaddie.com) 
+Przez [Rick Anderson](https://twitter.com/RickAndMSFT), [ryżu Noel](https://blog.falafel.com/falafel-software-recognized-sitefinity-website-year/), i [Scott Addie](https://scottaddie.com)
 
 > [!IMPORTANT]
-> Jednocześnie jest Bower, jego maintainers zaleca się użycie innego rozwiązania. [Menedżer biblioteki](https://blogs.msdn.microsoft.com/webdev/2018/04/18/what-happened-to-bower/) (LibMan skrócie) to system zarządzania zawartością statycznych po stronie klienta programu Visual Studio — nowy (Visual Studio 15,8 lub nowszej). Aby uzyskać więcej informacji, zobacz [Library Manager: Menedżer zawartości po stronie klienta dla aplikacji sieci web](https://blogs.msdn.microsoft.com/webdev/2018/04/17/library-manager-client-side-content-manager-for-web-apps/). Bower jest obsługiwana w programie Visual Studio za pomocą wersji 15,5 cala.
+> Jednocześnie jest Bower, zaleca się jego maintainers przy użyciu innego rozwiązania. [Menedżer biblioteki](https://blogs.msdn.microsoft.com/webdev/2018/04/18/what-happened-to-bower/) (LibMan w skrócie) to narzędzie programu Visual Studio do pozyskiwania nowych biblioteki po stronie klienta (Visual Studio, należy zachować 15,8 lub nowszej). Aby uzyskać więcej informacji, zobacz <xref:client-side/libman/index>. Bower jest świadczona w programie Visual Studio w wersji 15.5.
 >
-> Yarn z Webpack jest jeden popularną alternatywę dla którego [instrukcje migracji](https://bower.io/blog/2017/how-to-migrate-away-from-bower/) są dostępne. 
+> Yarn z Webpack jest jeden popularną alternatywę dla którego [instrukcjach migracji](https://bower.io/blog/2017/how-to-migrate-away-from-bower/) są dostępne.
 
-[Bower](https://bower.io/) wywołuje sam siebie "Menedżer pakietów dla sieci web". W ekosystemie .NET umieszcza void pozostawionego przez brakiem NuGet do dostarczania zawartości plików statycznych. Dla projektów platformy ASP.NET Core, te pliki statyczne są wbudowane w bibliotekach po stronie klienta, takich jak [jQuery](http://jquery.com/) i [Bootstrap](http://getbootstrap.com/). W przypadku bibliotek .NET, możesz nadal używać [NuGet](https://www.nuget.org/) Menedżera pakietów.
+[Program bower](https://bower.io/) wywołuje sam siebie "Menedżer pakietów dla sieci web". W ramach ekosystemu .NET umieszcza void pozostawiony przez brakiem NuGet, aby dostarczać plików zawartości statycznej. Dla projektów ASP.NET Core, te pliki statyczne są wbudowane w bibliotek po stronie klienta, takich jak [jQuery](http://jquery.com/) i [Bootstrap](http://getbootstrap.com/). Dla bibliotek .NET, możesz nadal używać [NuGet](https://www.nuget.org/) Menedżera pakietów.
 
-Proces kompilacji nowych projektów utworzonych za pomocą szablonów projektu platformy ASP.NET Core — konfiguracja po stronie klienta. [jQuery](http://jquery.com/) i [Bootstrap](http://getbootstrap.com/) są zainstalowane i Bower jest obsługiwany.
+Proces kompilacji nowe projekty utworzone za pomocą szablonów projektu ASP.NET Core, skonfiguruj po stronie klienta. [jQuery](http://jquery.com/) i [Bootstrap](http://getbootstrap.com/) są zainstalowane, i Bower jest obsługiwany.
 
-Pakiety po stronie klienta są wyświetlane w *bower.json* pliku. Szablony projektów platformy ASP.NET Core konfiguruje *bower.json* jQuery, weryfikacji jQuery i ładowania początkowego.
+Pakiety po stronie klienta są wymienione w *bower.json* pliku. Szablony projektów programu ASP.NET Core konfiguruje *bower.json* przy użyciu jQuery i dotyczącą weryfikacji jQuery, Bootstrap.
 
-W tym samouczku dodamy obsługę [czcionki świetny](http://fontawesome.io). Można je zainstalować pakiety bower **Zarządzaj pakietami Bower** interfejsu użytkownika lub ręcznie w *bower.json* pliku.
+W tym samouczku dodamy obsługę [Font Awesome](http://fontawesome.io). Można zainstalować za pomocą pakietów bower **Zarządzanie pakietami programu Bower** interfejsu użytkownika lub ręcznie w *bower.json* pliku.
 
-### <a name="installation-via-manage-bower-packages-ui"></a>Instalacja za pomocą pakietów Bower Zarządzaj interfejsu użytkownika
+### <a name="installation-via-manage-bower-packages-ui"></a>Instalację za pomocą Zarządzanie pakietami programu Bower interfejsu użytkownika
 
-* Utwórz nową aplikację sieci Web platformy ASP.NET Core z **aplikacji sieci Web platformy ASP.NET Core (.NET Core)** szablonu. Wybierz **aplikacji sieci Web** i **bez uwierzytelniania**.
+* Utwórz nową aplikację sieci Web platformy ASP.NET Core za pomocą **aplikacja sieci Web programu ASP.NET Core (.NET Core)** szablonu. Wybierz **aplikacji sieci Web** i **bez uwierzytelniania**.
 
-* Kliknij prawym przyciskiem myszy projekt w Eksploratorze rozwiązań i wybierz **Zarządzaj pakietami Bower** (również w menu głównym **projektu** > **Zarządzaj pakietami Bower**).
+* Kliknij prawym przyciskiem myszy projekt w Eksploratorze rozwiązań i wybierz **Zarządzanie pakietami programu Bower** (również w menu głównym **projektu** > **Zarządzanie pakietami programu Bower**).
 
-* W **Bower: \<Nazwa projektu\>**  , kliknij kartę "Przeglądaj", a następnie przeprowadź filtrowanie listy pakietów, wprowadzając `font-awesome` w polu wyszukiwania:
+* W **Bower: \<Nazwa projektu\>**  , kliknij kartę "Przeglądaj", a następnie Przefiltruj listę pakietów, wprowadzając `font-awesome` w polu wyszukiwania:
 
-  ![Zarządzaj pakietami bower](bower/_static/manage-bower-packages.png)
+  ![Zarządzaj pakietami programu bower](bower/_static/manage-bower-packages.png)
 
-* Upewnij się, że "zapisać zmiany w *bower.json*" jest zaznaczone pole wyboru. Wybierz z listy rozwijanej wersję, a następnie kliknij przycisk **zainstalować** przycisku. **Dane wyjściowe** okno zawiera szczegółowe informacje dotyczące instalacji.
+* Upewnij się, że "zapisać zmiany w *bower.json*" jest zaznaczone pole wyboru. Wybierz wersję z listy rozwijanej, a następnie kliknij przycisk **zainstalować** przycisku. **Dane wyjściowe** okno zawiera szczegółowe informacje dotyczące instalacji.
 
-### <a name="manual-installation-in-bowerjson"></a>Ręczna instalacja w pliku bower.json
+### <a name="manual-installation-in-bowerjson"></a>Instalacja ręczna, w pliku bower.json
 
-Otwórz *bower.json* pliku, a następnie dodaj "font świetny" do zależności. IntelliSense zawiera dostępnych pakietów. Po wybraniu pakietu dostępne wersje są wyświetlane. Poniżej obrazy są starsze i nie będzie zgodne, zostanie wyświetlony.
+Otwórz *bower.json* pliku i Dodaj "font-awesome" do zależności. Funkcja IntelliSense wyświetla dostępne pakiety. Po wybraniu pakietu dostępnych wersji są wyświetlane. Poniższe obrazy są starsze i nie będzie zgodne, zostanie wyświetlony.
 
-![IntelliSense bower Eksploratora pakietów](bower/_static/add-package.png)
+![IntelliSense Eksplorator pakietów bower](bower/_static/add-package.png)
 
-![Wersja bower IntelliSense](bower/_static/version-intelliSense.png)
+![wersja programu bower IntelliSense](bower/_static/version-intelliSense.png)
 
-Bower używa [wersjonowania semantycznego](http://semver.org/) do organizowania zależności. Wersjonowania semantycznego, znanej także jako programu SemVer identyfikuje pakiety ze schematu numerowania \<głównych >.\< drobne >. \<poprawki >. Przedstawiający kilka typowe opcje IntelliSense upraszcza wersjonowania semantycznego. Pierwszy element na liście IntelliSense (4.6.3 w powyższym przykładzie) jest uznawany za najnowsza stabilna wersja pakietu. Symbol daszek (^) najnowszą wersją główną i tyldy (~) najnowszą wersją pomocniczą.
+Bower używa [wersji semantycznej](http://semver.org/) do organizowania zależności. Semantyczne przechowywania wersji, znany także jako SemVer identyfikuje pakiety ze schematu numerowania \<główna >.\< pomocnicza >. \<poprawki >. IntelliSense ułatwia semantycznego versioning przedstawiający kilka typowe opcje. Pierwszy element na liście funkcji IntelliSense (4.6.3 w powyższym przykładzie), jest uznawana za stabilną najnowszą wersję pakietu. Symbolu daszka (^) odpowiada najbardziej aktualną wersję główną i tyldy (~) dopasowuje najbardziej aktualną wersję pomocniczą.
 
-Zapisz *bower.json* pliku. Visual Studio Obserwujący *bower.json* zmiany w pliku. Przy zapisywaniu *instalacji bower* polecenie jest wykonywane. Zobacz okno dane wyjściowe **Bower/npm** widok pełne polecenie wykonane.
+Zapisz *bower.json* pliku. Program Visual Studio obserwuje *bower.json* zmiany w pliku. Po zapisaniu, *Zainstaluj program bower* polecenie jest wykonywane. Zobacz okno dane wyjściowe **Bower/npm** widok pełne polecenie wykonane.
 
-Otwórz *.bowerrc* plików w obszarze *bower.json*. `directory` Właściwość jest ustawiona na *wwwroot/lib* który wskazuje lokalizację Bower zainstaluje zasoby pakietu.
+Otwórz *.bowerrc* plik *bower.json*. `directory` Właściwość jest ustawiona na *wwwroot/lib* która wskazuje lokalizację Bower zainstaluje zasobów pakietu.
 
 ```json
 {
@@ -62,46 +62,46 @@ Otwórz *.bowerrc* plików w obszarze *bower.json*. `directory` Właściwość j
 }
 ```
 
-Pole wyszukiwania w Eksploratorze rozwiązań umożliwia znaleźć i wyświetlić świetny czcionki pakietu.
+Aby znaleźć i wyświetlić pakiet font awesome, można użyć pola wyszukiwania w Eksploratorze rozwiązań.
 
-Otwórz *Views\Shared\_Layout.cshtml* plik i dodać świetny czcionki pliku CSS do środowiska [pomocnika tagów](xref:mvc/views/tag-helpers/intro) dla `Development`. W Eksploratorze rozwiązań, przeciągnij i upuść *awesome.css czcionki* wewnątrz `<environment names="Development">` elementu.
+Otwórz *Views\Shared\_Layout.cshtml* pliku i Dodaj font awesome pliku CSS w środowisku [Pomocnik tagu](xref:mvc/views/tag-helpers/intro) dla `Development`. Za pomocą Eksploratora rozwiązań przeciągnij i upuść *awesome.css czcionki* wewnątrz `<environment names="Development">` elementu.
 
 [!code-html[](bower/sample/_Layout.cshtml?highlight=4&range=9-13)]
 
-W aplikacji produkcyjnej należy dodać *awesome.min.css czcionki* do pomocniczego znacznika środowiska dla `Staging,Production`.
+W aplikacji produkcyjnych należy dodać *awesome.min.css czcionki* do Pomocnik tagu środowiska dla `Staging,Production`.
 
-Zastąp zawartość *Views\Home\About.cshtml* pliku Razor z następujący kod:
+Zastąp zawartość *Views\Home\About.cshtml* Razor pliku następującym kodem:
 
 [!code-html[](bower/sample/About.cshtml)]
 
-Uruchom aplikację i przejdź do widoku informacje weryfikowanie działania pakietu świetny czcionki.
+Uruchom aplikację i przejdź do widoku informacje, aby Sprawdź, czy działa font awesome pakietu.
 
-## <a name="exploring-the-client-side-build-process"></a>Eksploracja proces kompilacji po stronie klienta
+## <a name="exploring-the-client-side-build-process"></a>Eksplorowanie procesu kompilacji po stronie klienta
 
-Większość szablonów projektu platformy ASP.NET Core są już skonfigurowane do używania Bower. Ten przewodnik dalej rozpoczyna się od pustego projektu platformy ASP.NET Core i dodaje każdego z nich ręcznie, dzięki czemu możesz uzyskać pewne pojęcie dotyczące sposobu używania Bower w projekcie. Widać, co się dzieje z struktury projektu i środowiska uruchomieniowego output, ponieważ każda zmiana konfiguracji.
+Większość szablonów projektów ASP.NET Core są już skonfigurowane do użycia rozwiązania Bower. Ten przewodnik dalej rozpoczyna się od pustego projektu platformy ASP.NET Core i dodaje każdy element ręcznie, dzięki czemu można uzyskać pewne pojęcie dotyczące sposobu używania rozwiązania Bower w projekcie. Możesz zobaczyć, co się dzieje z struktury projektu i środowiska uruchomieniowego, zgodnie z każdej zmiany konfiguracji.
 
 Ogólne kroki procesu kompilacji po stronie klienta za pomocą rozwiązania Bower są:
 
-* Definiowanie pakietów używany w projekcie. <!-- once defined, you don't need to download them, VS does -->
-* Odwołanie pakiety ze stron sieci web.
+* Definiowanie pakietów używanych w projekcie. <!-- once defined, you don't need to download them, VS does -->
+* Pakiety odwołania ze stron sieci web.
 
 ### <a name="define-packages"></a>Definiowanie pakietów
 
-Po listy pakietów *bower.json* pliku, Visual Studio będzie je pobrać. W poniższym przykładzie użyto Bower załadować jQuery i ładowania początkowego do *wwwroot* folderu.
+Po wyświetleniu listy pakietów w *bower.json* plików, programu Visual Studio pobierze je. W poniższym przykładzie użyto narzędzia Bower do załadowania, jQuery i Bootstrap do *wwwroot* folderu.
 
-* Utwórz nową aplikację sieci Web platformy ASP.NET Core z **aplikacji sieci Web platformy ASP.NET Core (.NET Core)** szablonu. Wybierz **pusty** szablonu projektu i kliknij przycisk **OK**.
+* Utwórz nową aplikację sieci Web platformy ASP.NET Core za pomocą **aplikacja sieci Web programu ASP.NET Core (.NET Core)** szablonu. Wybierz **pusty** szablonu projektu i kliknij przycisk **OK**.
 
-* W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy Projekt > **Dodaj nowy element** i wybierz **pliku konfiguracyjnego Bower**. Uwaga: A *.bowerrc* również zostanie dodany plik.
+* W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy Projekt > **Dodaj nowy element** i wybierz **plik konfiguracji programu Bower**. Uwaga: Element *.bowerrc* również zostanie dodany plik.
 
-* Otwórz *bower.json*, Dodaj jquery i bootstrap do `dependencies` sekcji. Powstałe w ten sposób *bower.json* pliku będzie wyglądać jak w następującym przykładzie. Wersje zmieni się wraz z upływem czasu i może nie odpowiadać na poniższym obrazie.
+* Otwórz *bower.json*, Dodaj jquery i uruchamiania na `dependencies` sekcji. Wartość wynikowa *bower.json* plik będzie wyglądać podobnie jak w poniższym przykładzie. Wersje zmieni się wraz z upływem czasu i może nie odpowiadać na poniższej ilustracji.
 
 [!code-json[](bower/sample/bower.json?highlight=5,6)]
 
 * Zapisz *bower.json* pliku.
 
-  Sprawdź projekt zawiera *bootstrap* i *jQuery* katalogów w *wwwroot/lib*. Bower używa *.bowerrc* plik, aby zainstalować zasoby w *wwwroot/lib*.
+  Sprawdź projekt obejmuje *bootstrap* i *jQuery* katalogi *wwwroot/lib*. Zastosowań bower *.bowerrc* plik, aby zainstalować zasoby w *wwwroot/lib*.
 
-  Uwaga: Interfejsu użytkownika "Zarządzaj pakietami Bower" stanowi alternatywę do edycji plik ręcznie.
+  Uwaga: Interfejsu użytkownika "Zarządzaj pakietami Bower" jest alternatywą dla ręcznego plik edycji.
 
 ### <a name="enable-static-files"></a>Włącz pliki statyczne
 
@@ -110,16 +110,16 @@ Po listy pakietów *bower.json* pliku, Visual Studio będzie je pobrać. W poni�
 
 [!code-csharp[](bower/sample/Startup.cs?highlight=9)]
 
-### <a name="reference-packages"></a>Pakietów odniesienia
+### <a name="reference-packages"></a>Odwołanie do pakietów
 
-W tej sekcji utworzysz stronę HTML, aby sprawdzić, czy można uzyskać dostępu do wdrożone pakiety.
+W tej sekcji utworzysz stronę HTML, aby sprawdzić, czy będzie miał dostęp do wdrożonych pakietów.
 
-* Dodaj nową stronę HTML o nazwie *Index.html* do *wwwroot* folderu. Uwaga: Należy dodać do pliku w formacie HTML *wwwroot* folderu. Domyślnie funkcja zawartość statyczna nie może zostać wyświetlona poza *wwwroot*. Zobacz [pliki statyczne](xref:fundamentals/static-files) Aby uzyskać więcej informacji.
+* Dodaj nową stronę HTML o nazwie *Index.html* do *wwwroot* folderu. Uwaga: Należy dodać plik HTML *wwwroot* folderu. Domyślnie nie może zostać wyświetlona zawartość statyczną, poza *wwwroot*. Zobacz [pliki statyczne](xref:fundamentals/static-files) Aby uzyskać więcej informacji.
 
-  Zastąp zawartość *Index.html* z następujący kod:
+  Zastąp zawartość *Index.html* następującym kodem:
 
 [!code-html[](bower/sample/Index.html)]
 
-* Uruchom aplikację i przejdź do `http://localhost:<port>/Index.html`. Alternatywnie z *Index.html* otwarty, naciśnij klawisz `Ctrl+Shift+W`. Sprawdź stosowanie stylów jumbotron, kodu jQuery odpowiada po kliknięciu przycisku i że Bootstrap przycisku zmienia stan.
+* Uruchom aplikację i przejdź do `http://localhost:<port>/Index.html`. Alternatywnie za pomocą *Index.html* otwarte, naciśnij klawisz `Ctrl+Shift+W`. Sprawdź stosowanie stylów jumbotron, kodu jQuery odpowiada po kliknięciu przycisku i ładowania przycisku zmienia się stan.
 
-  ![Styl jumbotron](bower/_static/jumbotron.png)
+  ![Styl jumbotron stosowany](bower/_static/jumbotron.png)

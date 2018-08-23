@@ -3,17 +3,17 @@ uid: web-forms/videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-linqda
 title: '[Jak mogę] LINQ to SQL: LinqDataSource | Dokumentacja firmy Microsoft'
 author: scottstanfield
 description: 'Nowy formant asp: LinqDataSource .NET 3.5 ułatwia powiązania do elementów interfejsu użytkownika. W rzeczywistości żaden kod napisany lub naruszone w tworzeniu tego wideo. Zapytanie, upd...'
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/10/2008
 ms.assetid: 8ba6bfb6-8eb3-45d2-8819-5b5b54bf520c
 msc.legacyurl: /web-forms/videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-linqdatasource
 msc.type: video
-ms.openlocfilehash: 5daf53a36800ab6f77705a4bc506cb9c7b8b04d9
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 55da4a8317329b4d16e01991f1a0e69dc12e5eba
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37826808"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754136"
 ---
 <a name="how-do-i-linq-to-sql-linqdatasource"></a>[Jak mogę] LINQ to SQL: kontrolka LinqDataSource
 ====================

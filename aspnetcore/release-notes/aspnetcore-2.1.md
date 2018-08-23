@@ -3,15 +3,16 @@ title: What's new in platformy ASP.NET Core 2.1
 author: isaac2004
 description: Dowiedz się więcej o nowych funkcjach w programie ASP.NET Core 2.1.
 monikerRange: = aspnetcore-2.1
+ms.author: riande
 ms.custom: mvc
 ms.date: 05/30/2018
 uid: aspnetcore-2.1
-ms.openlocfilehash: f113e990d8b8f3eb80def0d18e301d930e58e596
-ms.sourcegitcommit: 516d0645c35ea784a3ae807be087ae70446a46ee
+ms.openlocfilehash: acbed75e2e894569816669e250795c95482bde2a
+ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39320679"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "41819475"
 ---
 # <a name="whats-new-in-aspnet-core-21"></a>What's new in platformy ASP.NET Core 2.1
 
@@ -157,6 +158,12 @@ Aby uzyskać więcej informacji, zobacz [używania szablonów aplikacji jednostr
 ## <a name="razor-pages-in-an-area"></a>Strony razor, w obszarze
 
 Obsługują teraz stron razor [obszarów](xref:mvc/controllers/areas). Aby zobaczyć przykład obszarów, należy utworzyć nową aplikację sieci web dla stron Razor za pomocą indywidualnych kont użytkowników. Aplikacja internetowa ze stronami Razor za pomocą indywidualnych kont użytkowników zawiera */Areas/Identity/Pages*.
+
+## <a name="mvc-compatibility-version"></a>Wersja zgodności MVC
+
+<xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*> Metody umożliwia aplikacji opcjonalnych lub zrezygnować z potencjalnie przełomowe zmiany zachowania wprowadzonych w programie ASP.NET Core MVC 2.1 lub nowszej.
+
+Aby uzyskać więcej informacji, zobacz <xref:mvc/compatibility-version>.
 
 ## <a name="migrate-from-20-to-21"></a>Migrowanie z wersji 2.0 do wersji 2.1
 

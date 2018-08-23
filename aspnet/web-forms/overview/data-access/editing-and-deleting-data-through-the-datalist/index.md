@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/editing-and-deleting-data-through-the-datali
 title: Edytowanie i usuwanie danych za pomocą kontrolki DataList | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Te samouczki pokazują, jak dostosować za pomocą kontrolki DataList, dzięki czemu umożliwia ona używa modyfikowanie danych.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: a6f02826-428a-49b1-ab2c-8e080b72f51e
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist
 msc.type: chapter
-ms.openlocfilehash: e876939fb2f8bdd2ec105f93c5d0a51c92879bd9
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 8976fa5415f0beb9aabbd6893ffe8fa2172ca87b
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37805803"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41757354"
 ---
 <a name="editing-and-deleting-data-through-the-datalist"></a>Edytowanie i usuwanie danych za pomocą kontrolki DataList
 ====================

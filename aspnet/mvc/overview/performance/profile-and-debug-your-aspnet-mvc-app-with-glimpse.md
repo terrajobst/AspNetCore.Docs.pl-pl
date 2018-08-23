@@ -3,17 +3,17 @@ uid: mvc/overview/performance/profile-and-debug-your-aspnet-mvc-app-with-glimpse
 title: Profilowanie i debugowanie aplikacji ASP.NET MVC za pomocą pakietów Glimpse | Dokumentacja firmy Microsoft
 author: Rick-Anderson
 description: Możliwość wypróbowania to prężnie działającą rośnie z rodziny pakietów NuGet typu open source zapewniająca wydajność szczegółowe, debugowania i informacji diagnostycznych dla platformy ASP.NET...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/26/2015
 ms.assetid: c205805f-efdd-4fa7-9616-f26eab180611
 msc.legacyurl: /mvc/overview/performance/profile-and-debug-your-aspnet-mvc-app-with-glimpse
 msc.type: authoredcontent
-ms.openlocfilehash: 4d044217d6c33594b39747a765165b8702338027
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: f5d174ff6823d654a24dcb2c90f10a3cbd24f1e7
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37808544"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755874"
 ---
 <a name="profile-and-debug-your-aspnet-mvc-app-with-glimpse"></a>Profilowanie i debugowanie aplikacji ASP.NET MVC za pomocą pakietów Glimpse
 ====================

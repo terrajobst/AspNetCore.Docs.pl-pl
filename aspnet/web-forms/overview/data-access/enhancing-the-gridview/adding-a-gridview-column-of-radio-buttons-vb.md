@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/enhancing-the-gridview/adding-a-gridview-col
 title: Dodawanie kolumny przycisków radiowych (VB) do kontrolki GridView | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: W tym samouczku pokazano, jak można dodać kolumny przycisków radiowych do kontrolki GridView, aby przedstawić użytkownikowi bardziej intuicyjny sposób wybierania pojedynczy wiersz...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/06/2007
 ms.assetid: 2e31b60b-8723-4f14-b7ee-37859454dc3b
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview/adding-a-gridview-column-of-radio-buttons-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 56aa37392ab51306112f934f8dbff4151f232d35
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 76b3dbd502eff7c97f57fdacd120ac2312aaceae
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37835615"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753628"
 ---
 <a name="adding-a-gridview-column-of-radio-buttons-vb"></a>Dodawanie kolumny przycisków radiowych (VB) do kontrolki GridView
 ====================

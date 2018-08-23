@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding
 title: Opis uwierzytelniania AJAX programu ASP.NET i usług aplikacji w profilu | Dokumentacja firmy Microsoft
 author: scottcate
 description: Usługa uwierzytelniania umożliwia użytkownikom podanie poświadczeń w celu odbierania pliku cookie uwierzytelniania, a to Usługa bramy, aby umożliwić użytkownikowi niestandardowe...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/14/2008
 ms.assetid: 6ab4efb6-aab6-45ac-ad2c-bdec5848ef9e
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-authentication-and-profile-application-services
 msc.type: authoredcontent
-ms.openlocfilehash: 6c08cffacb9ebde6f29398f53b2e568b4bd59d5d
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: d722130e625a9f867923280fce0ef35f19bfeb9d
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37831683"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753896"
 ---
 <a name="understanding-aspnet-ajax-authentication-and-profile-application-services"></a>Opis uwierzytelniania AJAX programu ASP.NET i usług aplikacji w profilu
 ====================
@@ -62,7 +62,7 @@ Metoda: login() rozpoczyna żądanie uwierzytelnienia poświadczeń użytkownika
 
 | **Nazwa parametru** | **Znaczenie** |
 | --- | --- |
-| userName | Wymagana. Nazwa użytkownika do uwierzytelniania. |
+| userName | Wymagane. Nazwa użytkownika do uwierzytelniania. |
 | Hasło | Atrybut opcjonalny (wartość domyślna to null). Hasło użytkownika. |
 | isPersistent | Atrybut opcjonalny (wartość domyślna to false). Czy plik cookie uwierzytelniania użytkownika ma utrwalić między sesjami. W przypadku wartości FAŁSZ użytkownika powoduje wylogowanie, gdy nastąpi zamknięcie okna przeglądarki lub ważności sesji. |
 | redirectUrl | Atrybut opcjonalny (wartość domyślna to null). Adres URL do przekierowania wyszukiwarki na pomyślne uwierzytelnienie. Jeśli ten parametr ma wartość null lub pusty ciąg, przekierowanie nie występuje. |

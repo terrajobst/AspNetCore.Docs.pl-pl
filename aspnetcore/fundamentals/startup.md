@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 4/13/2018
 uid: fundamentals/startup
-ms.openlocfilehash: a576f3840e66fc4ed877f7575aa3f3e36b37ae4d
-ms.sourcegitcommit: d99a8554c91f626cf5e466911cf504dcbff0e02e
+ms.openlocfilehash: 228719863400f30643cd3007df5291ee807cffba
+ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39356753"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "41870896"
 ---
 # <a name="application-startup-in-aspnet-core"></a>Uruchamianie aplikacji w programie ASP.NET Core
 
@@ -64,50 +64,11 @@ W przypadku funkcji, które wymagają znacznej Instalatora, istnieją `Add[Servi
 
 [!code-csharp[](../common/samples/WebApplication1/Startup.cs?highlight=4,7,11&start=40&end=55)]
 
-::: moniker range=">= aspnetcore-2.1"
-
-<a name="setcompatibilityversion"></a>
-
-### <a name="setcompatibilityversion-for-aspnet-core-mvc"></a>SetCompatibilityVersion dla platformy ASP.NET Core MVC
-
-`SetCompatibilityVersion` Metody umożliwia aplikacji opcjonalnych lub zrezygnować z potencjalnie przełomowe zmiany zachowania wprowadzone w programie ASP.NET MVC Core 2.1 +. Istotne zmiany zachowania w potencjalnie są zazwyczaj w jak działa w podsystemie MVC i jak **kodu** jest wywoływana w czasie wykonywania. Przez zgodzie na rozwiązanie, możesz korzystać z najnowszych zachowanie i długoterminowe zachowanie platformy ASP.NET Core.
-
-Poniższy kod ustawia tryb zgodności ASP.NET Core 2.1:
-
-[!code-csharp[Main](startup/sampleCompatibility/Startup.cs?name=snippet1)]
-
-Zaleca się przetestowanie aplikacji przy użyciu najnowszej wersji (`CompatibilityVersion.Version_2_1`). Przewidujemy, że większość aplikacji nie będziesz mieć istotne zmiany zachowania przy użyciu najnowszej wersji.
-
-Aplikacje, które wywołują `SetCompatibilityVersion(CompatibilityVersion.Version_2_0)` są chronione przed potencjalnie przełomowe zmiany zachowania wprowadzone w programie ASP.NET Core 2.1 MVC i nowszych wersji 2.x. Ta ochrona:
-
-* Nie ma zastosowania do wszystkich zmian 2.1 i nowsze, jest on skierowany do potencjalnie przełomowe zmiany zachowania środowiska uruchomieniowego platformy ASP.NET Core w podsystemie MVC.
-* Nie jest rozszerzana następnej wersji głównej.
-
-Zgodność domyślny dla platformy ASP.NET Core 2.1 i nowsze aplikacje 2.x, które obsługują **nie** wywołania `SetCompatibilityVersion` jest zgodność 2.0. Oznacza to, nie wywołuje metody `SetCompatibilityVersion` jest taka sama jak wywołania `SetCompatibilityVersion(CompatibilityVersion.Version_2_0)`.
-
-Poniższy kod ustawia tryb zgodności ASP.NET Core 2.1, z wyjątkiem następujących problemów:
-
-* [AllowCombiningAuthorizeFilters](https://github.com/aspnet/Mvc/blob/master/src/Microsoft.AspNetCore.Mvc.Core/MvcOptions.cs)
-* [InputFormatterExceptionPolicy](https://github.com/aspnet/Mvc/blob/master/src/Microsoft.AspNetCore.Mvc.Core/MvcOptions.cs)
-
-[!code-csharp[Main](startup/sampleCompatibility/Startup2.cs?name=snippet1)]
-
-W przypadku aplikacji, wystąpić przełomowe zmiany zachowania, za pomocą przełączników odpowiednie zgodności:
-
-* Umożliwia użyj najnowszej wersji i zrezygnować z specyficzne przełomowe zmiany zachowania.
-* Umożliwia aktualizacji aplikacji, dzięki czemu działa z najnowszymi zmianami.
-
-[MvcOptions](https://github.com/aspnet/Mvc/blob/master/src/Microsoft.AspNetCore.Mvc.Core/MvcOptions.cs) komentarze źródła klasy mają dobrej wyjaśnienie, co zmieniło i dlaczego zmiany są poprawę dla większości użytkowników.
-
-W przyszłości, będzie istnieć [wersji platformy ASP.NET Core 3.0](https://github.com/aspnet/Home/wiki/Roadmap). Starego zachowania obsługiwany przez przełączniki zgodności zostaną usunięte w wersji 3.0. Uważamy, że są to dodatnia zmian niemal wszystkich użytkowników korzystających. Wprowadzenie do tych zmian, większość aplikacji mogą teraz korzystać i innych będzie miał czas na aktualizację aplikacji.
-
-::: moniker-end
-
 ## <a name="the-configure-method"></a>Metoda Konfiguruj
 
 [Konfiguruj](/dotnet/api/microsoft.aspnetcore.hosting.startupbase.configure) metoda jest używana do określenia, w jaki sposób aplikacja reaguje na żądania HTTP. Potok żądań jest skonfigurowany, dodając [oprogramowania pośredniczącego](xref:fundamentals/middleware/index) składników [IApplicationBuilder](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder) wystąpienia. `IApplicationBuilder` jest dostępna dla `Configure` metody, ale nie jest zarejestrowany w kontenerze usługi. Hostingu tworzy `IApplicationBuilder` i przekazuje je bezpośrednio do `Configure` ([źródło odwołania](https://github.com/aspnet/Hosting/blob/release/2.0.0/src/Microsoft.AspNetCore.Hosting/Internal/WebHost.cs#L179-L192)).
 
-[Szablony ASP.NET Core](/dotnet/core/tools/dotnet-new) Konfiguruje potok dzięki obsłudze stroną wyjątków dla deweloperów [BrowserLink](http://vswebessentials.com/features/browserlink), stron błędów, pliki statyczne i platformy ASP.NET MVC:
+[Szablony ASP.NET Core](/dotnet/core/tools/dotnet-new) Konfiguruje potok dzięki obsłudze stroną wyjątków dla deweloperów [BrowserLink](http://vswebessentials.com/features/browserlink), stron błędów, pliki statyczne i ASP.NET Core MVC:
 
 [!code-csharp[](../common/samples/WebApplication1DotNetCore2.0App/Startup.cs?range=28-48&highlight=5,6,10,13,15)]
 
@@ -129,7 +90,7 @@ Aby uzyskać więcej informacji na temat sposobu użycia `IApplicationBuilder` i
 
 Użyj [IStartupFilter](/dotnet/api/microsoft.aspnetcore.hosting.istartupfilter) do konfiguracji oprogramowania pośredniczącego na początku lub na końcu aplikacji [Konfiguruj](#the-configure-method) potoku oprogramowania pośredniczącego. `IStartupFilter` jest przydatne upewnić się, że oprogramowanie pośredniczące jest uruchamiany przed lub po oprogramowanie pośredniczące dodane przez biblioteki na początku lub końcu potoku przetwarzania żądań aplikacji.
 
-`IStartupFilter` implementuje jedną metodę [Konfiguruj](/dotnet/api/microsoft.aspnetcore.hosting.istartupfilter.configure), który odbiera i zwraca `Action<IApplicationBuilder>`. [IApplicationBuilder](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder) definiuje klasę, aby skonfigurować Potok żądań aplikacji. Aby uzyskać więcej informacji, zobacz [tworzenie potoku oprogramowania pośredniczącego z IApplicationBuilder](xref:fundamentals/middleware/index#creating-a-middleware-pipeline-with-iapplicationbuilder).
+`IStartupFilter` implementuje jedną metodę [Konfiguruj](/dotnet/api/microsoft.aspnetcore.hosting.istartupfilter.configure), który odbiera i zwraca `Action<IApplicationBuilder>`. [IApplicationBuilder](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder) definiuje klasę, aby skonfigurować Potok żądań aplikacji. Aby uzyskać więcej informacji, zobacz [tworzenie potoku oprogramowania pośredniczącego z IApplicationBuilder](xref:fundamentals/middleware/index#create-a-middleware-pipeline-with-iapplicationbuilder).
 
 Każdy `IStartupFilter` implementuje middlewares co najmniej jeden w Potok żądań. Filtry są wywoływane w kolejności, w której zostały one dodane do kontenera usług. Filtry mogą dodawać oprogramowanie pośredniczące przed lub po przekazanie sterowania do następnego filtru, dlatego ich dołączania na początku lub końcu potoku aplikacji.
 

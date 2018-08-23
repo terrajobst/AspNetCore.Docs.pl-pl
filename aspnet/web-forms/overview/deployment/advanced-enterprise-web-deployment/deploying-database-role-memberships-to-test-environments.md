@@ -3,17 +3,17 @@ uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/deploying-
 title: Wdrażanie członkostw roli bazy danych w środowiskach testowych | Dokumentacja firmy Microsoft
 author: jrjlee
 description: W tym temacie opisano sposób dodawania kont użytkowników do ról bazy danych jako część wdrożenia rozwiązania w środowisku testowym. Podczas wdrażania rozwiązania zawierającego...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: 9b2af539-7ad9-47aa-b66e-873bd9906e79
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments
 msc.type: authoredcontent
-ms.openlocfilehash: a690d99df7a19c422fb217544ec183c311d1796f
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 07442b7a016ce2a32b1c9e7f44010517e40d7189
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37828036"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41757364"
 ---
 <a name="deploying-database-role-memberships-to-test-environments"></a>Wdrażanie członkostw roli bazy danych w środowiskach testowych
 ====================

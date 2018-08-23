@@ -1,3 +1,3 @@
-# <a name="aspnet-using-options-sample"></a>ASP.NET przy użyciu opcji — przykład
+# <a name="aspnet-core-options-sample"></a>Przykładowe opcje platformy ASP.NET Core
 
-W tym przykładzie przedstawiono użycie wzorca opcje w aplikacji platformy ASP.NET Core Razor strony. W tym przykładzie pokazano funkcje opisane w [wzorzec opcje](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options) tematu.
+Ten przykład ilustruje sposób używania wzorca opcje w aplikacji stronami ASP.NET Core Razor. W tym przykładzie przedstawiono funkcje opisane w [wzorzec opcje](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options) tematu.

@@ -5,12 +5,12 @@ description: ''
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/crud
-ms.openlocfilehash: 1c724da918640c514acbc24c390de4e735f8bf49
-ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
+ms.openlocfilehash: 626b828e2391d3982ff2cf393f0c9e0748c12810
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39342435"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754047"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---crud---2-of-10"></a>Platforma ASP.NET Core MVC z programem EF Core — CRUD - 2 z 10
 
@@ -117,7 +117,7 @@ W *StudentsController.cs*, zmodyfikuj HttpPost `Create` metoda przez dodanie blo
 
 [!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Create&highlight=4,6-7,14-21)]
 
-Ten kod dodaje jednostki dla uczniów, utworzone przez integrator modelu programu ASP.NET MVC do jednostki studentów zestawu, a następnie zapisuje zmiany w bazie danych. (Integratora modelu, który odwołuje się do funkcjonalność platformy ASP.NET MVC, która ułatwia pracę z danych przesyłanych przez formularz; integratora modelu konwertuje wartości przesłanego formularza na typy CLR i przekazuje je do metody akcji w parametrach. W tym przypadku integratora modelu tworzy wystąpienie jednostki dla uczniów przy użyciu wartości właściwości z kolekcji formularza.)
+Ten kod dodaje jednostki dla uczniów, utworzone przez integrator modelu programu ASP.NET Core MVC do jednostki studentów Ustaw, a następnie zapisuje zmiany w bazie danych. (Integratora modelu, który odwołuje się do funkcji programu ASP.NET Core MVC ułatwia pracę z danych przesyłanych przez formularz; integratora modelu konwertuje wartości przesłanego formularza na typy CLR i przekazuje je do metody akcji w parametrach. W tym przypadku integratora modelu tworzy wystąpienie jednostki dla uczniów przy użyciu wartości właściwości z kolekcji formularza.)
 
 Możesz usunąć `ID` z `Bind` atrybutu, ponieważ identyfikator ma wartość klucza podstawowego, który program SQL Server ustawi automatycznie, gdy zostanie wstawiona. Dane wejściowe od użytkownika nie należy ustawić wartość Identyfikatora.
 
@@ -273,7 +273,7 @@ Kliknij przycisk **Usuń**. Nie usunięto uczniów zostanie wyświetlona strona 
 
 Aby zwolnić zasoby, które zawiera połączenia z bazą danych, wystąpienie kontekstu musi zostać usunięty możliwie najszybciej po zakończeniu z nim. Wbudowane platformy ASP.NET Core [wstrzykiwanie zależności](../../fundamentals/dependency-injection.md) zajmie to zadanie dla Ciebie.
 
-W *Startup.cs*, należy wywołać [— metoda rozszerzenia AddDbContext](https://github.com/aspnet/EntityFrameworkCore/blob/03bcb5122e3f577a84498545fcf130ba79a3d987/src/Microsoft.EntityFrameworkCore/EntityFrameworkServiceCollectionExtensions.cs) aprowizację `DbContext` klasy w kontenerze ASP.NET DI. Czy metoda Ustawia okres istnienia usługi `Scoped` domyślnie. `Scoped` oznacza, że okres istnienia obiektu kontekstu pokrywa się z czasem życia żądania sieci web, a `Dispose` metoda zostanie wywołana automatycznie na końcu żądania sieci web.
+W *Startup.cs*, należy wywołać [— metoda rozszerzenia AddDbContext](https://github.com/aspnet/EntityFrameworkCore/blob/03bcb5122e3f577a84498545fcf130ba79a3d987/src/Microsoft.EntityFrameworkCore/EntityFrameworkServiceCollectionExtensions.cs) aprowizację `DbContext` klasy w kontenerze platformy ASP.NET Core DI. Czy metoda Ustawia okres istnienia usługi `Scoped` domyślnie. `Scoped` oznacza, że okres istnienia obiektu kontekstu pokrywa się z czasem życia żądania sieci web, a `Dispose` metoda zostanie wywołana automatycznie na końcu żądania sieci web.
 
 ## <a name="handling-transactions"></a>Obsługa transakcji
 

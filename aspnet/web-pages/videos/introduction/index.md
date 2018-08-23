@@ -3,17 +3,17 @@ uid: web-pages/videos/introduction/index
 title: Wprowadzenie do stron sieci Web wideo | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Które pliki wideo można wyświetlić w opanowaniu podstaw dotyczących stron sieci Web i programu WebMatrix.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/18/2012
 ms.assetid: b8a43660-177f-4a00-bb51-be887364c607
 msc.legacyurl: /web-pages/videos/introduction
 msc.type: chapter
-ms.openlocfilehash: a354b142ad7d3ac9c6ab4843f6be99ab4afcc737
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: f645e05deb334346ed7199b804387a29e9538165
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37840324"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753864"
 ---
 <a name="introduction-to-web-pages-videos"></a>Wprowadzenie do stron sieci Web filmów wideo
 ====================

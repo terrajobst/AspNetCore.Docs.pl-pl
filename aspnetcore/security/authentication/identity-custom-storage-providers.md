@@ -5,12 +5,12 @@ description: Dowiedz się, jak skonfigurować niestandardowi dostawcy magazynu d
 ms.author: riande
 ms.date: 05/24/2017
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: 7fb64f0b911c11750946697d782488c2107a3637
-ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
+ms.openlocfilehash: 4b210a52ae9761bb838dd5611e86ce8f71345499
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39342526"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753879"
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>Niestandardowi dostawcy magazynu dla produktu ASP.NET Core Identity
 
@@ -237,5 +237,5 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="references"></a>Odwołania
 
-- [Niestandardowi dostawcy magazynu dla produktu ASP.NET Identity](/aspnet/identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity)
+- [Niestandardowi dostawcy magazynu dla produktu ASP.NET Identity 4.x](/aspnet/identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity)
 - [Tożsamości platformy ASP.NET Core](https://github.com/aspnet/identity) — to repozytorium zawiera linki do społeczności utrzymywane dostawców magazynu.

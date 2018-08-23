@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/working-with-batched-data/wrapping-database-
 title: OPAKOWYWANIE modyfikacji bazy danych w ramach transakcji (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Ten samouczek jest pierwszą czterech, który sprawdza, aktualizowanie, usuwanie i wstawianie partie danych. W tym samouczku będziemy Dowiedz się, jak zezwolić transakcji bazy danych...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/26/2007
 ms.assetid: 7d821db5-6cbb-4b38-af14-198f9155fc82
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/wrapping-database-modifications-within-a-transaction-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 877174bad08970eed0cab52d0f1d8a521f7d2cc0
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 986baf521bf68b60e9c868f070f31a3aee21db8d
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37840748"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41757296"
 ---
 <a name="wrapping-database-modifications-within-a-transaction-vb"></a>OPAKOWYWANIE modyfikacji bazy danych w ramach transakcji (VB)
 ====================

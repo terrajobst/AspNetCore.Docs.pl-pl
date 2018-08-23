@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 10/14/2016
 uid: fundamentals/owin
-ms.openlocfilehash: 04042eedc52b4e6f57685e2d9ec1a75cd130fd8d
-ms.sourcegitcommit: 08f1a9baa97060da5168840b332c9c0805b5f901
+ms.openlocfilehash: db28eeff88a13dc95c469f3b7c0746c807da830f
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37144966"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754507"
 ---
 # <a name="open-web-interface-for-net-owin-with-aspnet-core"></a>Otwarty interfejs internetowy dla platformy .NET (OWIN) za pomocą programu ASP.NET Core
 
@@ -31,7 +31,7 @@ Dzięki temu platforma ASP.NET Core będzie hostowana na podstawie OWIN zgodny s
 
 [Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/owin/sample) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
 
-## <a name="running-owin-middleware-in-the-aspnet-pipeline"></a>Działające oprogramowanie pośredniczące OWIN w potoku platformy ASP.NET
+## <a name="running-owin-middleware-in-the-aspnet-core-pipeline"></a>Uruchamianie oprogramowania pośredniczącego OWIN w potoku platformy ASP.NET Core
 
 Obsługa OWIN platformy ASP.NET Core jest wdrażana jako część `Microsoft.AspNetCore.Owin` pakietu. Po zainstalowaniu tego pakietu, można zaimportować obsługi OWIN do projektu.
 
@@ -56,7 +56,7 @@ public Task OwinHello(IDictionary<string, object> environment)
 
 Zwraca podpis przykładowe `Task` i akceptuje `IDictionary<string, object>` zgodnie z wymaganiami OWIN.
 
-Poniższy kod przedstawia sposób dodawania `OwinHello` (jak pokazano powyżej) do potoku platformy ASP.NET za pomocą oprogramowania pośredniczącego `UseOwin` — metoda rozszerzenia.
+Poniższy kod przedstawia sposób dodawania `OwinHello` (jak pokazano powyżej) do potoku platformy ASP.NET Core za pomocą oprogramowania pośredniczącego `UseOwin` — metoda rozszerzenia.
 
 ```csharp
 public void Configure(IApplicationBuilder app)
@@ -90,9 +90,9 @@ app.UseOwin(pipeline =>
 
 <a name="hosting-on-owin"></a>
 
-## <a name="using-aspnet-hosting-on-an-owin-based-server"></a>Za pomocą hostingu platformy ASP.NET na serwerze OWIN
+## <a name="using-aspnet-core-hosting-on-an-owin-based-server"></a>Za pomocą platformy ASP.NET Core hostingu na serwerze OWIN
 
-Na podstawie OWIN serwerów mogło obsługiwać aplikacje platformy ASP.NET. Jeden z serwerów jest [Nowin](https://github.com/Bobris/Nowin), serwer sieci web .NET OWIN. W tym przykładzie w tym artykule I uwzględnione projekt, który odwołuje się Nowin i używa jej do utworzenia `IServer` zdolne do hostingu samodzielnego ASP.NET Core.
+Na podstawie OWIN serwerów mogło obsługiwać aplikacje platformy ASP.NET Core. Jeden z serwerów jest [Nowin](https://github.com/Bobris/Nowin), serwer sieci web .NET OWIN. W tym przykładzie w tym artykule I uwzględnione projekt, który odwołuje się Nowin i używa jej do utworzenia `IServer` zdolne do hostingu samodzielnego ASP.NET Core.
 
 [!code-csharp[](owin/sample/src/NowinSample/Program.cs?highlight=15)]
 

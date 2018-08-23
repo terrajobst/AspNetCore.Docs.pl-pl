@@ -3,17 +3,17 @@ uid: web-forms/overview/getting-started/hands-on-labs/index
 title: Visual Studio 2012 warsztaty | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Dowiedz się, jak tworzyć aplikacje za pomocą wzorca ASP.NET Web Forms z te laboratoria w ręce
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/13/2013
 ms.assetid: d0b8ff04-70e0-4453-a331-a4a4f57d72a8
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs
 msc.type: chapter
-ms.openlocfilehash: 39a4c2c25e0bee182841b5053aa2eaa4ca300261
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 1e77dcc59856f622d50ebd4e9c26e9a3ca2774e5
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37820748"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755950"
 ---
 <a name="visual-studio-2012-hands-on-labs"></a>Visual Studio 2012 warsztaty
 ====================

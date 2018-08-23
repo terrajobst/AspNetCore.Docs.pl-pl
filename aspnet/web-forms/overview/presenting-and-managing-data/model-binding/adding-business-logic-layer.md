@@ -3,17 +3,17 @@ uid: web-forms/overview/presenting-and-managing-data/model-binding/adding-busine
 title: Dodawanie warstwy logiki biznesowej do projektu, który używa wiązania modelu i formularzy sieci web | Dokumentacja firmy Microsoft
 author: tfitzmac
 description: W tej serii samouczków pokazano podstawowych aspektów projektu formularzy sieci Web ASP.NET przy użyciu wiązania modelu. Wiązanie modelu sprawia, że dane interakcji więcej proste —...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/27/2014
 ms.assetid: 7ef664b3-1cc8-4cbf-bb18-9f0f3a3ada2b
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/adding-business-logic-layer
 msc.type: authoredcontent
-ms.openlocfilehash: 70e7ae6ad12c26ea5001ff68b25c0431a7440a77
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 2c54c0a635c662c8740aa7f9b6bd02cd71913e24
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37837876"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753635"
 ---
 <a name="adding-business-logic-layer-to-a-project-that-uses-model-binding-and-web-forms"></a>Dodawanie warstwy logiki biznesowej do projektu, który używa wiązania modelu i formularzy sieci web
 ====================

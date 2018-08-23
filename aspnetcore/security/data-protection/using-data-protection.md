@@ -1,36 +1,36 @@
 ---
-title: Rozpoczynanie pracy z interfejsami API ochrony danych w podstawowej platformy ASP.NET
+title: Wprowadzenie do interfejsów API ochrony danych w programie ASP.NET Core
 author: rick-anderson
-description: Dowiedz się, jak używać interfejsy API ochrony danych platformy ASP.NET Core dla ochrony i wyłączenie ochrony danych w aplikacji.
+description: Dowiedz się, jak używać platformy ASP.NET Core interfejsy API ochrony danych do ochrony i wyłączenie ochrony danych w aplikacji.
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/using-data-protection
-ms.openlocfilehash: ab2551d87d1a2cd22e9f421cabe0288311cb2ec3
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 25bf099a3d9edd7e6e0872725cbc3707750314e6
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36275752"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755955"
 ---
-# <a name="get-started-with-the-data-protection-apis-in-aspnet-core"></a>Rozpoczynanie pracy z interfejsami API ochrony danych w podstawowej platformy ASP.NET
+# <a name="get-started-with-the-data-protection-apis-in-aspnet-core"></a>Wprowadzenie do interfejsów API ochrony danych w programie ASP.NET Core
 
 <a name="security-data-protection-getting-started"></a>
 
-W najprostszy, ochrona danych obejmuje następujące kroki:
+W jego najprostszy i ochronę danych składa się z następujących czynności:
 
-1. Utwórz funkcji ochrony danych na podstawie dostawcę ochrony danych.
+1. Utwórz funkcję ochrony danych na podstawie dostawca ochrony danych.
 
-2. Wywołanie `Protect` metody z danymi, które chcesz chronić.
+2. Wywołaj `Protect` metody z danymi, które chcesz chronić.
 
-3. Wywołanie `Unprotect` metody z danymi chcesz włączyć ponownie w postaci zwykłego tekstu.
+3. Wywołaj `Unprotect` metody przy użyciu danych chcesz przekształcić zwykły tekst.
 
-Większość platform i modeli aplikacji, takich jak ASP.NET lub SignalR, już konfiguracji systemu ochrony danych i dodaj go do kontenera usług, których dostęp za pomocą iniekcji zależności. W poniższym przykładzie pokazano Konfigurowanie usługi kontenera iniekcji zależności i rejestrowanie stosu ochrony danych, odbieranie dostawca ochrony danych za pośrednictwem Podpisane, tworzenie ochrony i ochrona, a następnie wyłączanie ochrony danych
+Większość struktur i modele aplikacji, takich jak ASP.NET Core lub SignalR, już skonfigurować system ochrony danych i dodać go do kontenera usługi, których dostęp przy użyciu iniekcji zależności. W poniższym przykładzie pokazano konfigurowania usługi kontenera do wstrzykiwania zależności i rejestrowanie stosu ochrony danych, odbieranie dostawca ochrony danych za pośrednictwem DI, tworzenia danych ochronę, a następnie nie jest chroniony i ochrony.
 
 [!code-csharp[](../../security/data-protection/using-data-protection/samples/protectunprotect.cs?highlight=26,34,35,36,37,38,39,40)]
 
-Podczas tworzenia ochrony należy podać co najmniej jeden [ciągów w celu](xref:security/data-protection/consumer-apis/purpose-strings). Ciąg przeznaczenia zapewnia izolację między konsumentów. Na przykład utworzone za pomocą ciąg "green" cel ochrony nie będą mogli nie Chroń dane dostarczone przez funkcję ochrony z celem "purpurowy".
+Po utworzeniu funkcję ochrony należy podać co najmniej jeden [ciągi celów](xref:security/data-protection/consumer-apis/purpose-strings). Ciąg przeznaczenia zapewnia izolację między konsumentów. Na przykład funkcję ochrony utworzonych za pomocą ciągu cel "green" nie można wyłączyć ochronę danych udostępnionych przez funkcję ochrony z celem "purpurowy".
 
 >[!TIP]
-> Wystąpienia `IDataProtectionProvider` i `IDataProtector` są wątkowo dla wielu wywołań. Ma ona która po składnika pobiera odwołanie do `IDataProtector` za pośrednictwem wywołania do `CreateProtector`, będzie używać tego odwołania na wiele wywołań `Protect` i `Unprotect`.
+> Wystąpienia elementu `IDataProtectionProvider` i `IDataProtector` są wątkowo dla wielu obiektów wywołujących. Ma zamierzone, gdy składnik pobiera odwołanie do `IDataProtector` poprzez wywołanie `CreateProtector`, użyje tego odwołania dla wielu wywołań `Protect` i `Unprotect`.
 >
->Wywołanie `Unprotect` zgłosi cryptographicexception — Jeśli chroniony ładunku nie można zweryfikować lub odszyfrowywane. Niektóre składniki mogą chcieć ignorowanie błędów podczas wyłączania ochrony operacji; składnik, który brzmi plików cookie uwierzytelniania może obsługi tego błędu i traktować żądania tak, jakby zawierał pliki cookie nie na wszystkich zamiast Niepowodzenie żądania bezpośrednich. Składniki, które mają to zachowanie w szczególności powinny catch cryptographicexception — zamiast spożycie wszystkie wyjątki.
+>Wywołanie `Unprotect` zgłosi cryptographicexception — Jeśli chroniony ładunku nie można zweryfikować lub odszyfrowywane. Niektóre składniki mogą chcieć ignorowanie błędów podczas wyłączania ochrony operacji; składnik, który odczytuje pliki cookie uwierzytelniania może obsługiwać ten błąd i traktować żądania tak, jakby był w ogóle pliki cookie nie zamiast zwraca Niepowodzenie żądania od razu wykupić. Składniki, które chcesz tego zachowania, należy w szczególności złapać cryptographicexception — zamiast powodu spożycia wszystkie wyjątki.

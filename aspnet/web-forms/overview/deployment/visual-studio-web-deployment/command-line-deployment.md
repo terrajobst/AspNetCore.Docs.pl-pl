@@ -3,17 +3,17 @@ uid: web-forms/overview/deployment/visual-studio-web-deployment/command-line-dep
 title: 'Wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio: wdrażanie z wiersza polecenia | Dokumentacja firmy Microsoft'
 author: tdykstra
 description: W tej serii samouczków dowiesz się, jak wdrożyć (opublikować) platformy ASP.NET sieci web aplikacji do usługi Azure App Service Web Apps lub dostawcy hostingu w innych firm, używane...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/15/2013
 ms.assetid: 82b8dea0-f062-4ee4-8784-3ffa30fbb1ca
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/command-line-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: f079beabccd253ff13c19d3192181ddbdf00b3bf
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 9b2832dd23f68f9283983b52a85e8a9d5f85fd2f
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37830970"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754023"
 ---
 <a name="aspnet-web-deployment-using-visual-studio-command-line-deployment"></a>Wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio: wdrażanie z wiersza polecenia
 ====================

@@ -3,17 +3,17 @@ uid: identity/overview/features-api/account-confirmation-and-password-recovery-w
 title: Potwierdzenie konta i odzyskiwanie hasła w produkcie ASP.NET Identity (C#) | Dokumentacja firmy Microsoft
 author: HaoK
 description: Przed wykonaniem tej instrukcji, które należy wykonać tworzenie bezpiecznej aplikacji sieci web ASP.NET MVC 5 z logowaniem, adres e-mail potwierdzenia i resetowaniem hasła. W tym samouczku...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/26/2015
 ms.assetid: 8d54180d-f826-4df7-b503-7debf5ed9fb3
 msc.legacyurl: /identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 08a954f8fab4a92b84bd79b4f644bcc1f55b1bc6
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 77a3e9d5e8b2698d2464e33520d779febd4533bd
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37831086"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41757355"
 ---
 <a name="account-confirmation-and-password-recovery-with-aspnet-identity-c"></a>Potwierdzenie konta i odzyskiwanie hasła w produkcie ASP.NET Identity (C#)
 ====================

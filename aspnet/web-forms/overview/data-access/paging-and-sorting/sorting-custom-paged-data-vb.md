@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/paging-and-sorting/sorting-custom-paged-data
 title: Sortowanie niestandardowo stronicowanych danych (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: W poprzednim samouczku dowiedzieliśmy sposób implementacji niestandardowych stronicowania, gdy presentating danych na stronie sieci web. W tym samouczku zobaczymy, jak rozszerzyć poprzednią...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/15/2006
 ms.assetid: 4823a186-caaf-4116-a318-c7ff4d955ddc
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/sorting-custom-paged-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 7a660f697676e20d8987af150b10fc6694ce7c57
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 63d10200300a015b35062409aba2fd7999de8c3c
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37805317"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41757066"
 ---
 <a name="sorting-custom-paged-data-vb"></a>Sortowanie niestandardowo stronicowanych danych (VB)
 ====================

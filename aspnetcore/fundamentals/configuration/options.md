@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/28/2017
 uid: fundamentals/configuration/options
-ms.openlocfilehash: ef6b0117b88c4c79771f0280267bd99993028ac8
-ms.sourcegitcommit: 028ad28c546de706ace98066c76774de33e4ad20
+ms.openlocfilehash: c553062bbec31ba5bd437eb0bd29e007ae93c65e
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39655423"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756615"
 ---
 # <a name="options-pattern-in-aspnet-core"></a>Wzorzec opcje w programie ASP.NET Core
 
@@ -23,6 +23,26 @@ Wzorzec opcje używa klas do reprezentowania grup powiązane ustawienia. Jeśli 
 * [Separacji](http://deviq.com/separation-of-concerns/): ustawienia dla poszczególnych części aplikacji nie są zależnych lub powiązanych ze sobą.
 
 [Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/options/sample) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample)) ten artykuł stanowi łatwiejszej do obserwowania z przykładowej aplikacji.
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+::: moniker range=">= aspnetcore-2.1"
+
+Odwołanie [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) lub Dodaj odwołanie do pakietu [Microsoft.Extensions.Options.ConfigurationExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Options.ConfigurationExtensions/) pakietu.
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
+Odwołanie [pakiet meta Microsoft.aspnetcore.all](xref:fundamentals/metapackage) lub Dodaj odwołanie do pakietu [Microsoft.Extensions.Options.ConfigurationExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Options.ConfigurationExtensions/) pakietu.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+Dodaj odwołanie do pakietu [Microsoft.Extensions.Options.ConfigurationExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Options.ConfigurationExtensions/) pakietu.
+
+::: moniker-end
 
 ## <a name="basic-options-configuration"></a>Podstawowe opcje konfiguracji
 

@@ -1,3 +1,3 @@
-# <a name="aspnet-generic-host-sample"></a>Przykład hosta ogólny ASP.NET
+# <a name="aspnet-core-generic-host-sample"></a>Przykładowy ogólny hosta platformy ASP.NET Core
 
-W tym przykładzie przedstawiono Host ogólnego ASP.NET Core [HostBuilder](https://docs.microsoft.com/dotnet/api/microsoft.extensions.hosting.ihostedservice). W tym przykładzie pokazano funkcje opisane w [.NET rodzajowego hosta](https://docs.microsoft.com/aspnet/core/fundamentals/host/generic-host) tematu.
+W tym przykładzie pokazano Host rodzajowego Core ASP.NET [HostBuilder](https://docs.microsoft.com/dotnet/api/microsoft.extensions.hosting.ihostedservice). W tym przykładzie przedstawiono funkcje opisane w [Host rodzajowego Core ASP.NET](https://docs.microsoft.com/aspnet/core/fundamentals/host/generic-host) tematu.

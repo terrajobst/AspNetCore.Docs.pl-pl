@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/19/2018
 uid: fundamentals/host/web-host
-ms.openlocfilehash: 476795645b0430962b61f7a61de29d5d1819602b
-ms.sourcegitcommit: d99a8554c91f626cf5e466911cf504dcbff0e02e
+ms.openlocfilehash: dfef2bf21f325f11d147379f75a8d81a8bd05eec
+ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39356717"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "41886749"
 ---
 # <a name="aspnet-core-web-host"></a>Host sieci Web platformy ASP.NET Core
 
@@ -899,7 +899,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
-`IHostingEnvironment` może być wstrzykuje `Invoke` metody podczas tworzenia niestandardowych [oprogramowania pośredniczącego](xref:fundamentals/middleware/index#writing-middleware):
+`IHostingEnvironment` może być wstrzykuje `Invoke` metody podczas tworzenia niestandardowych [oprogramowania pośredniczącego](xref:fundamentals/middleware/index#write-middleware):
 
 ```csharp
 public async Task Invoke(HttpContext context, IHostingEnvironment env)

@@ -5,12 +5,12 @@ description: Przewodnik, który dostarcza wskazówki end-to-end na tworzeniu pot
 ms.author: casoper
 ms.date: 08/07/2018
 uid: azure/devops/next-steps
-ms.openlocfilehash: c1b0b52295e2795e608399637dc9d864e2f572de
-ms.sourcegitcommit: 29dfe436f54a27fbb4f6494bc639d16c75001fab
+ms.openlocfilehash: 7a0f1b1b56a33b1870e0657d8ba465adb84f5a02
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39722674"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753908"
 ---
 # <a name="next-steps"></a>Następne kroki
 
@@ -20,7 +20,7 @@ Poza hosting sieci web i metodyki DevOps platforma Azure oferuje szeroką gamę 
 
 ## <a name="storage-and-databases"></a>Magazynowi i bazom danych
 
-[Pamięć podręczna redis](https://docs.microsoft.com/azure/redis-cache/) to dane o wysokiej przepływności, małego opóźnienia, buforowanie dostępna jako usługa. Może służyć do buforowania danych wyjściowych strony, zmniejszenie żądań bazy danych i zapewnianie stanu sesji platformy ASP.NET w wielu wystąpieniach aplikacji.
+[Pamięć podręczna redis](https://docs.microsoft.com/azure/redis-cache/) to dane o wysokiej przepływności, małego opóźnienia, buforowanie dostępna jako usługa. Może służyć do buforowania danych wyjściowych strony, zmniejszenie żądań bazy danych i zapewnianie stanu sesji platformy ASP.NET Core w wielu wystąpieniach aplikacji.
 
 [Usługa Azure Storage](https://docs.microsoft.com/azure/storage/) jest magazyn w chmurze skalowalności platformy Azure. Deweloperzy mogą korzystać z [usługi Queue Storage](https://docs.microsoft.com/azure/storage/queues/storage-queues-introduction) niezawodnej usługi kolejkowania i [Table Storage](https://docs.microsoft.com/azure/storage/tables/table-storage-overview) jest parach klucz wartość NoSQL, zaprojektowane do szybkiego opracowywania ogromnych, częściową strukturą zestawów danych.
 

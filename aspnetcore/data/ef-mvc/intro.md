@@ -5,12 +5,12 @@ description: ''
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/intro
-ms.openlocfilehash: 4e0bcffd1162681aa4d31c4fe74acac5a7e981f1
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: cbef7e5edf2950a87a4cd4155c63a22fff2990fe
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38216315"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754195"
 ---
 # <a name="aspnet-core-mvc-with-entity-framework-core---tutorial-1-of-10"></a>Platforma ASP.NET Core MVC za pomocą platformy Entity Framework Core — samouczek 1, 10
 
@@ -35,7 +35,7 @@ EF Core 2.0 jest najnowsza wersja programu EF jeszcze nie wszystkie funkcje prog
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-[! OBEJMUJĄ [] (~/includes/net-core-prereqs.md) [](~/includes/net-core-prereqs.md)]
+[!INCLUDE [](~/includes/net-core-prereqs.md)]
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
@@ -80,7 +80,7 @@ Otwórz program Visual Studio i Utwórz nowe platformy ASP.NET Core C# projektu 
 
 * Kliknij przycisk **OK**
 
-  ![Okno dialogowe Nowy projekt ASP.NET](intro/_static/new-aspnet.png)
+  ![Okno dialogowe nowego projektu programu ASP.NET Core](intro/_static/new-aspnet.png)
 
 ## <a name="set-up-the-site-style"></a>Ustawianie stylów lokacji
 
@@ -273,7 +273,7 @@ Można zauważyć, że kontroler trwa `SchoolContext` jako parametr konstruktora
 
 [!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Context&highlight=5,7,9)]
 
-Wstrzykiwanie zależności w programie ASP.NET zajmie się przekazanie wystąpienia `SchoolContext` do kontrolera. Skonfigurowano w *Startup.cs* pliku.
+Wstrzykiwanie zależności platformy ASP.NET Core dba o przekazanie wystąpienia `SchoolContext` do kontrolera. Skonfigurowano w *Startup.cs* pliku.
 
 Zawiera kontroler `Index` metody akcji, który wyświetla wszystkich studentów w bazie danych. Metoda pobiera listę uczniów z zestawu, czytając jednostek studentów `Students` właściwości wystąpienia kontekstu bazy danych:
 

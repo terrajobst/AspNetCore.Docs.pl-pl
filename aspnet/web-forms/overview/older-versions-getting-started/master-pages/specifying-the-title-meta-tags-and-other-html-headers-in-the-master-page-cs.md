@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/master-pages/specifying-t
 title: Określanie tytułu, tagów Meta i innych nagłówków HTML na stronie wzorcowej (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Patrzy na różnych technik do definiowania asortymentach &lt;head&gt; elementów na stronie wzorcowej, z poziomu strony zawartości.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/21/2008
 ms.assetid: 0aa1c84f-c9e2-4699-b009-0e28643ecbc6
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 773d8aee55a3e685c9759f9a9e0b571564f8cd31
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: e3846ea696a1a5a29fd53d6753878fab9dd9a95d
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37841014"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754233"
 ---
 <a name="specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-c"></a>Określanie tytułu, tagów Meta i innych nagłówków HTML na stronie wzorcowej (C#)
 ====================

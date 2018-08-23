@@ -5,12 +5,12 @@ description: W tym samouczku przedstawiono przydatnych tematów dla wykraczając
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: be44ef115ce72e1571bbdea2c609ea6c53792c59
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 25916365b4e682a8e296e0affbcddd4f1e5846b1
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38194045"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754093"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---advanced---10-of-10"></a>Platforma ASP.NET Core MVC z programem EF Core — zaawansowane — 10 10
 
@@ -187,7 +187,7 @@ Aby odtworzyć modelu danych, w tym klas jednostek z istniejącej bazy danych, n
 
 ## <a name="next-steps"></a>Następne kroki
 
-Na tym kończy się w tej serii samouczków na temat korzystania z programu Entity Framework Core w aplikacji ASP.NET MVC.
+Na tym kończy się w tej serii samouczków na temat korzystania z programu Entity Framework Core w aplikacji ASP.NET Core MVC.
 
 Aby uzyskać więcej informacji na temat programu EF Core, zobacz [dokumentację programu Entity Framework Core](https://docs.microsoft.com/ef/core). Książki jest również dostępny: [platformy Entity Framework Core in Action](https://www.manning.com/books/entity-framework-core-in-action).
 

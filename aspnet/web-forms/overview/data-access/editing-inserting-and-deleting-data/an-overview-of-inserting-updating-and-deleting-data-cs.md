@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/an-overv
 title: Omówienie wstawiania, aktualizowania i usuwania danych (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: W tym samouczku opisano sposób mapowania Insert() ObjectDataSource, Update(), i Delete() metody do metody LOGIKI klasy, a także jak configu...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/17/2006
 ms.assetid: b651dc58-93c7-4f83-a74e-3b99f6d60848
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: abe42d01cc31ea46c97888f31d768ebfede64abd
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 82f1127b01c211a2af91623d4df7ca10dcad6d8a
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37821705"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41757294"
 ---
 <a name="an-overview-of-inserting-updating-and-deleting-data-c"></a>Omówienie wstawiania, aktualizowania i usuwania danych (C#)
 ====================

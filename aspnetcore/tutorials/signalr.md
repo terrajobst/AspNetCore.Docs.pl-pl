@@ -5,14 +5,14 @@ description: W tym samouczku utworzysz aplikację rozmowy, która używa bibliot
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 08/08/2018
+ms.date: 08/20/2018
 uid: tutorials/signalr
-ms.openlocfilehash: 2c1c46b4a608eb0d39287a5261ed7c1f847a644e
-ms.sourcegitcommit: 29dfe436f54a27fbb4f6494bc639d16c75001fab
+ms.openlocfilehash: db7f31963f6a4280069f1f4f82a547e2879e64bb
+ms.sourcegitcommit: d27317c16f113e7c111583042ec7e4c5a26adf6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39722480"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41755905"
 ---
 # <a name="tutorial-get-started-with-signalr-on-aspnet-core"></a>Samouczek: Wprowadzenie do SignalR platformy ASP.NET Core
 
@@ -45,6 +45,12 @@ Po zakończeniu będziesz mieć działającą aplikację rozmowy:
 * [Środowisko C# dla programu Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
 * [npm](https://www.npmjs.com/get-npm) (Menedżer pakietów dla środowiska Node.js, używany dla biblioteki klienta SignalR JavaScript).
 
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+
+* [Program Visual Studio dla komputerów Mac w wersji 7.5.4 lub nowszy](https://www.visualstudio.com/downloads/)
+* [.NET core SDK 2.1 lub nowszej](https://www.microsoft.com/net/download/all) (dołączone do instalacji programu Visual Studio)
+* [npm](https://www.npmjs.com/get-npm) (Menedżer pakietów dla środowiska Node.js, używany dla biblioteki klienta SignalR JavaScript).
+
 ---
 
 ## <a name="create-the-project"></a>Utwórz projekt
@@ -59,7 +65,7 @@ Po zakończeniu będziesz mieć działającą aplikację rozmowy:
 
 * Wybierz **aplikacji sieci Web** do tworzenia projektu, który używa stron Razor.
 
-* Upewnij się, że platforma docelowa jest **platformy ASP.NET Core 2.1**, a następnie wybierz pozycję **OK**. 
+* Wybierz docelową platformę **platformy .NET Core**, wybierz opcję **platformy ASP.NET Core 2.1**i kliknij przycisk **OK**.
 
   ![Okno dialogowe nowego projektu w programie Visual Studio](signalr/_static/signalr-new-project-choose-type.png)
 
@@ -75,11 +81,21 @@ Po zakończeniu będziesz mieć działającą aplikację rozmowy:
 
    [!INCLUDE[](~/includes/webapp-alias-notice.md)]
 
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+
+* W menu, wybierz opcję **Plik > nowe rozwiązanie**.
+
+* Wybierz **platformy .NET Core > aplikacji > aplikacji internetowej ASP.NET Core** (nie wybieraj **ASP.NET Core Web App (MVC)**).
+
+* Wybierz **dalej**.
+
+* Nadaj projektowi nazwę *SignalRChat*, a następnie wybierz pozycję **Utwórz**.
+
 ---
 
 ## <a name="add-the-signalr-client-library"></a>Dodaj bibliotekę klienta SignalR
 
-Serwer biblioteki SignalR znajduje się w [meta Microsoft.aspnetcore.all Microsoft.AspnetCore.App](xref:fundamentals/metapackage-app). Ale trzeba uzyskać biblioteki klienckiej JavaScript z poziomu narzędzia npm, Menedżera pakietów środowiska Node.js.
+Serwer biblioteki SignalR znajduje się w [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app). Ale trzeba uzyskać biblioteki klienckiej JavaScript z poziomu narzędzia npm, Menedżera pakietów środowiska Node.js.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
 
@@ -87,7 +103,7 @@ Serwer biblioteki SignalR znajduje się w [meta Microsoft.aspnetcore.all Microso
 
   ```console
   cd SignalRChat
-  ``` 
+  ```
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
 
@@ -96,6 +112,10 @@ Serwer biblioteki SignalR znajduje się w [meta Microsoft.aspnetcore.all Microso
   ```console
   cd SignalRChat
   ``` 
+
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+
+* W **terminalu**, przejdź do folderu projektu (zawierającego *SignalRChat.csproj* pliku).
 
 ---
 
@@ -132,18 +152,12 @@ Serwer biblioteki SignalR znajduje się w [meta Microsoft.aspnetcore.all Microso
   Polecenie tworzy dane wyjściowe podobne do poniższego przykładu:
 
   ```
-  npm : npm notice created a lockfile as package-lock.json. You should commit this file.
-  At line:1 char:1
-  + npm install @aspnet/signalr
-  + ~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      + CategoryInfo          : NotSpecified: (npm notice crea...mmit this file.:String) [], RemoteException
-      + FullyQualifiedErrorId : NativeCommandError
-  WARN
-   SignalRChat@1.0.0 No description
-  WARN
-   SignalRChat@1.0.0 No repository field.
+  npm notice created a lockfile as package-lock.json. You should commit this file.
+  npm WARN signalrchat@1.0.0 No description
+  npm WARN signalrchat@1.0.0 No repository field.
+
   + @aspnet/signalr@1.0.2
-  added 1 package in 1.398s
+  added 1 package in 0.98s
   ```
 
 `npm install` Polecenia pobrane z biblioteki klienta JavaScript w podfolderze *node_modules*. Skopiuj go stamtąd do folderu, w obszarze *wwwroot* odwołujący ze strony sieci web aplikacji rozmów.
@@ -200,7 +214,19 @@ Serwer biblioteki SignalR musi być skonfigurowany do przekazywania żądań Sig
 
 ## <a name="run-the-app"></a>Uruchamianie aplikacji
 
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
 * Naciśnij klawisz **kombinację klawiszy CTRL + F5** Aby uruchomić aplikację bez debugowania.
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+
+* Naciśnij klawisz **kombinację klawiszy CTRL + F5** Aby uruchomić aplikację bez debugowania.
+
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+
+* W menu, wybierz opcję **Uruchom > Uruchom bez debugowania**.
+
+---
 
 * Skopiuj adres URL z paska adresu, a następnie otwórz innego wystąpienia przeglądarki lub karty i wklej adres URL w pasku adresu.
 

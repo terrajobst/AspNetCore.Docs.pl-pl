@@ -5,12 +5,12 @@ description: Dowiedz się, jak ASP.NET Core MVC zaawansowaną strukturę do twor
 ms.author: riande
 ms.date: 01/08/2018
 uid: mvc/overview
-ms.openlocfilehash: 7f8aab02c0ee37dad49ff224b182ec455e837a7a
-ms.sourcegitcommit: e955a722c05ce2e5e21b4219f7d94fb878e255a6
+ms.openlocfilehash: d2a50e48c20fe69b1fe691bfc9c91a27d4219922
+ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39378641"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "41902602"
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>Omówienie platformy ASP.NET Core MVC
 
@@ -251,3 +251,9 @@ Pomocnicy tagów zapewniają środowisko programistyczne przyjaznego dla kodu HT
 ### <a name="view-components"></a>Składniki widoków
 
 [Wyświetlanie składników](views/view-components.md) umożliwiają pakietu logiki renderowania i użyć go ponownie w całej aplikacji. Są one podobne do [widoki częściowe](views/partial.md), ale przy użyciu skojarzonej logiki.
+
+## <a name="compatibility-version"></a>Zgodność wersji
+
+<xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*> Metody umożliwia aplikacji opcjonalnych lub zrezygnować z potencjalnie przełomowe zmiany zachowania wprowadzonych w programie ASP.NET Core MVC 2.1 lub nowszej.
+
+Aby uzyskać więcej informacji, zobacz <xref:mvc/compatibility-version>.

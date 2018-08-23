@@ -5,12 +5,12 @@ description: Poznaj podstawowe informacje dotyczące uwierzytelniania, autoryzac
 ms.author: tdykstra
 ms.date: 11/01/2017
 uid: security/index
-ms.openlocfilehash: ed64594c85d555d8417903947fc3ce927dc04cec
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: 3a1c1ea1ad28fccbe5ae91b0be193938b095f60b
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095765"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755662"
 ---
 # <a name="overview-of-aspnet-core-security"></a>Przegląd zabezpieczeń platformy ASP.NET Core
 
@@ -35,9 +35,9 @@ Platforma ASP.NET Core i programem EF zawiera funkcje, które ułatwiają zabezp
 * [Cross-Site Request Forgery (CSRF)](xref:security/anti-request-forgery)
 * [Atakom na otwarte przekierowywanie](xref:security/preventing-open-redirects)
 
-Ma więcej luk w zabezpieczeniach, które należy wiedzieć. Aby uzyskać więcej informacji, zobacz sekcję w tym dokumencie na *dokumentacja zabezpieczeń platformy ASP.NET*.
+Ma więcej luk w zabezpieczeniach, które należy wiedzieć. Aby uzyskać więcej informacji, zobacz sekcję w tym dokumencie na *dokumentację zabezpieczeń platformy ASP.NET Core*.
 
-## <a name="aspnet-security-documentation"></a>Dokumentacja zabezpieczeń platformy ASP.NET
+## <a name="aspnet-core-security-documentation"></a>Dokumentacja zabezpieczeń platformy ASP.NET Core
 
 *   [Uwierzytelnianie](xref:security/authentication/index)
     *   [Wprowadzenie do tożsamości](xref:security/authentication/identity)

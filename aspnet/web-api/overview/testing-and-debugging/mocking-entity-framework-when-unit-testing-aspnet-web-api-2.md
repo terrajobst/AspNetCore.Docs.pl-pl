@@ -3,23 +3,23 @@ uid: web-api/overview/testing-and-debugging/mocking-entity-framework-when-unit-t
 title: Pozorowanie programu Entity Framework podczas testowania ASP.NET Web API 2 jednostek | Dokumentacja firmy Microsoft
 author: tfitzmac
 description: Tej wskazówki i aplikacji przedstawiają sposób tworzenia testów jednostkowych dla aplikacji sieci Web API 2, który używa programu Entity Framework. Pokazuje, jak zmodyfikować...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 12/13/2013
 ms.assetid: cd844025-ccad-41ce-8694-595f1022a49f
 msc.legacyurl: /web-api/overview/testing-and-debugging/mocking-entity-framework-when-unit-testing-aspnet-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: dc50965a2757defb254d05f0b8a5fd46a90dc75f
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 0bc5ab59583a2be3f889ba05d26c6cda4589057d
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37804403"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754144"
 ---
 <a name="mocking-entity-framework-when-unit-testing-aspnet-web-api-2"></a>Pozorowanie programu Entity Framework podczas testowania ASP.NET Web API 2 jednostek
 ====================
 przez [Tom FitzMacken](https://github.com/tfitzmac)
 
-[Pobieranie ukończone projektu](http://code.msdn.microsoft.com/Unit-Testing-with-ASPNET-e2867d4d)
+[Pobieranie ukończone projektu](https://code.msdn.microsoft.com/Unit-Testing-with-ASPNET-1374bc11)
 
 > Tej wskazówki i aplikacji przedstawiają sposób tworzenia testów jednostkowych dla aplikacji sieci Web API 2, który używa programu Entity Framework. Pokazuje sposób modyfikowania szkieletu kontrolera, aby umożliwić przekazywanie obiekt kontekstu do testowania oraz sposób tworzenia obiektów testowych, które działają z platformą Entity Framework.
 > 

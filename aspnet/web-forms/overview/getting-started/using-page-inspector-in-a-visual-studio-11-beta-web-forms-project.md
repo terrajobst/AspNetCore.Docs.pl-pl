@@ -3,17 +3,17 @@ uid: web-forms/overview/getting-started/using-page-inspector-in-a-visual-studio-
 title: Za pomocą narzędzia Page Inspector dla programu Visual Studio 2012 we wzorcu ASP.NET Web Forms | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Narzędzie Page Inspector dla programu Visual Studio 2012 jest narzędziem do projektowania sieci web za pomocą zintegrowanej przeglądarki. Wybierz dowolny element w zintegrowanej przeglądarki i narzędzie Page Inspector...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/15/2012
 ms.assetid: 2ece0bf4-aae5-4ff4-8f62-28e0819d4f86
 msc.legacyurl: /web-forms/overview/getting-started/using-page-inspector-in-a-visual-studio-11-beta-web-forms-project
 msc.type: authoredcontent
-ms.openlocfilehash: 8e914b87305fa729659822ec1166e9d1947e59cb
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: d2c377f8466f8f324b75ce60860aa00c11bc0ffe
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37806277"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753857"
 ---
 <a name="using-page-inspector-for-visual-studio-2012-in-aspnet-web-forms"></a>Za pomocą narzędzia Page Inspector dla programu Visual Studio 2012 w formularzach sieci Web platformy ASP.NET
 ====================

@@ -3,17 +3,17 @@ uid: web-api/overview/security/integrated-windows-authentication
 title: Zintegrowane uwierzytelnianie Windows | Dokumentacja firmy Microsoft
 author: MikeWasson
 description: W tym artykule opisano, w interfejsie API sieci Web platformy ASP.NET przy użyciu zintegrowanego uwierzytelniania Windows.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 12/18/2012
 ms.assetid: 71ee4c78-c500-4d1c-b761-b4e161a291b5
 msc.legacyurl: /web-api/overview/security/integrated-windows-authentication
 msc.type: authoredcontent
-ms.openlocfilehash: c15677b7aa66619f1ff32819585340ff497b937d
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 13dead421abf7ded73cbb2e5f87e54b1a869b5d4
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37820409"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754185"
 ---
 <a name="integrated-windows-authentication"></a>Uwierzytelnianie zintegrowane Windows
 ====================

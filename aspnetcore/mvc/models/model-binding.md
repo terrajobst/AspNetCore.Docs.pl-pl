@@ -4,14 +4,14 @@ author: tdykstra
 description: Dowiedz się, jak wiązanie modelu programu ASP.NET Core MVC mapuje dane z żądań HTTP na parametry metody akcji.
 ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
 ms.author: tdykstra
-ms.date: 01/22/2018
+ms.date: 08/14/2018
 uid: mvc/models/model-binding
-ms.openlocfilehash: 200e2c22e02ec9e24b7cdb3883cf6f2f93f2f4b7
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: 0ce20a8040c6b19da1f57e1c053a7ef81d8bcb23
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095736"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754191"
 ---
 # <a name="model-binding-in-aspnet-core"></a>Wiązanie modelu w programie ASP.NET Core
 
@@ -99,6 +99,31 @@ MVC zawiera kilka atrybutów, które można użyć do kierowania jego domyślne 
 
 Atrybuty są bardzo przydatne narzędzia, gdy trzeba zastąpić domyślne zachowanie wiązania modelu.
 
+## <a name="customize-model-binding-and-validation-globally"></a>Dostosowywanie wiązania modelu i sprawdzanie poprawności globalnie
+
+Zachowanie modelu powiązania i sprawdzanie poprawności systemu jest wymuszany przez [ModelMetadata](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.modelmetadata) , który opisuje:
+
+* Jak model ma zostać powiązany.
+* Jak sprawdzanie poprawności jest wykonywane od typu i jego właściwości.
+
+Aspekty zachowania systemu można skonfigurować globalnie przez dodanie dostawcy szczegóły [MvcOptions.ModelMetadataDetailsProviders](/dotnet/api/microsoft.aspnetcore.mvc.mvcoptions.modelmetadatadetailsproviders#Microsoft_AspNetCore_Mvc_MvcOptions_ModelMetadataDetailsProviders). MVC ma kilka dostawców wbudowanych szczegółowe informacje, które umożliwiają konfigurowanie zachowania, takie jak wyłączenie wiązania modelu lub sprawdzania poprawności w przypadku niektórych typów.
+
+Aby wyłączyć wiązania modelu wszystkich modeli określonego typu, należy dodać [ExcludeBindingMetadataProvider](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.metadata.excludebindingmetadataprovider) w `Startup.ConfigureServices`. Na przykład do wiązania modelu wyłączenie wszystkich modeli typu `System.Version`:
+
+```csharp
+services.AddMvc().AddMvcOptions(options =>
+    options.ModelMetadataDetailsProviders.Add(
+        new ExcludeBindingMetadataProvider(typeof(System.Version))));
+```
+
+Aby wyłączyć sprawdzanie poprawności właściwości określonego typu, należy dodać [SuppressChildValidationMetadataProvider](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.suppresschildvalidationmetadataprovider) w `Startup.ConfigureServices`. Na przykład, aby wyłączyć sprawdzanie poprawności we właściwościach typu `System.Guid`:
+
+```csharp
+services.AddMvc().AddMvcOptions(options =>
+    options.ModelMetadataDetailsProviders.Add(
+        new SuppressChildValidationMetadataProvider(typeof(System.Guid))));
+```
+
 ## <a name="bind-formatted-data-from-the-request-body"></a>Powiąż sformatowanych danych z treści żądania
 
 Dane żądania mogą pochodzić w różnych formatach, takich jak JSON, XML i wiele innych. Użycie atrybutu [FromBody] Aby wskazać, że chcesz powiązać parametr z danymi w treści żądania, są używane skonfigurowany zestaw programów formatujących do obsługi danych żądania na podstawie jego typu zawartości. Domyślnie MVC zawiera `JsonInputFormatter` klasy do obsługi danych JSON, ale można dodać dodatkowe elementy formatujące do obsługi kodu XML i innych formatów niestandardowych.
@@ -109,7 +134,7 @@ Dane żądania mogą pochodzić w różnych formatach, takich jak JSON, XML i wi
 > [!NOTE]
 > `JsonInputFormatter` Jest domyślny element formatujący i opiera się na [Json.NET](https://www.newtonsoft.com/json).
 
-ASP.NET wybiera elementy formatujące danych wejściowych, na podstawie [Content-Type](https://www.w3.org/Protocols/rfc1341/4_Content-Type.html) nagłówka i typu parametru, chyba że jest atrybutem zastosowanym określającą inny sposób. Jeśli chcesz użyć kodu XML lub innego formatu należy skonfigurować je w *Startup.cs* plik, ale najpierw musisz uzyskać odwołanie do `Microsoft.AspNetCore.Mvc.Formatters.Xml` za pomocą narzędzia NuGet. Kod startowy powinien wyglądać mniej więcej tak:
+ASP.NET Core wybiera elementy formatujące danych wejściowych, na podstawie [Content-Type](https://www.w3.org/Protocols/rfc1341/4_Content-Type.html) nagłówka i typu parametru, chyba że jest atrybutem zastosowanym określającą inny sposób. Jeśli chcesz użyć kodu XML lub innego formatu należy skonfigurować je w *Startup.cs* plik, ale najpierw musisz uzyskać odwołanie do `Microsoft.AspNetCore.Mvc.Formatters.Xml` za pomocą narzędzia NuGet. Kod startowy powinien wyglądać mniej więcej tak:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -119,7 +144,7 @@ public void ConfigureServices(IServiceCollection services)
    }
 ```
 
-Możesz pisać kod w *Startup.cs* plik zawiera `ConfigureServices` metody z `services` argumentu można użyć do utworzenia usługi dla aplikacji ASP.NET. W tym przykładzie dodamy element formatujący XML jako usługa, która zapewni MVC dla tej aplikacji. `options` Argument przekazany do `AddMvc` metoda umożliwia dodawanie oraz zarządzanie nimi filtry, elementy formatujące i inne opcje systemu z MVC podczas uruchamiania aplikacji. Następnie Zastosuj `Consumes` atrybutów do klasy kontrolera lub metody akcji do pracy z żądany format.
+Możesz pisać kod w *Startup.cs* plik zawiera `ConfigureServices` metody z `services` argumentu można użyć do utworzenia usługi dla aplikacji platformy ASP.NET Core. W tym przykładzie dodamy element formatujący XML jako usługa, która zapewni MVC dla tej aplikacji. `options` Argument przekazany do `AddMvc` metoda umożliwia dodawanie oraz zarządzanie nimi filtry, elementy formatujące i inne opcje systemu z MVC podczas uruchamiania aplikacji. Następnie Zastosuj `Consumes` atrybutów do klasy kontrolera lub metody akcji do pracy z żądany format.
 
 ### <a name="custom-model-binding"></a>Niestandardowe wiązanie modelu
 

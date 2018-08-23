@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 05/12/2018
 uid: razor-pages/index
-ms.openlocfilehash: 49bed6cc150a74ff8b72848f276c55c2490b6fa5
-ms.sourcegitcommit: a09820f91e71a7d98b7347bf93210abb9e995e22
+ms.openlocfilehash: f5549a24c5b5fe2e6b33bd55960f87a8bf86bd19
+ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37889145"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "41870883"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Wprowadzenie do stron Razor programu ASP.NET Core
 
@@ -261,7 +261,7 @@ public void OnHead()
 }
 ```
 
-Jeśli żadna procedura obsługi HEAD (`OnHead`) jest zdefiniowany, stron Razor powraca do wywoływania procedury obsługi strony GET (`OnGet`) w programie ASP.NET Core 2.1 lub nowszej. Zezwalaj na korzystanie z tego zachowania [metoda SetCompatibilityVersion](xref:fundamentals/startup#setcompatibilityversion-for-aspnet-core-mvc) w `Startup.Configure` dla platformy ASP.NET Core 2.1 do 2.x:
+Jeśli żadna procedura obsługi HEAD (`OnHead`) jest zdefiniowany, stron Razor powraca do wywoływania procedury obsługi strony GET (`OnGet`) w programie ASP.NET Core 2.1 lub nowszej. Zezwalaj na korzystanie z tego zachowania [metoda SetCompatibilityVersion](xref:mvc/compatibility-version) w `Startup.Configure` dla platformy ASP.NET Core 2.1 do 2.x:
 
 ```csharp
 services.AddMvc()
@@ -272,7 +272,6 @@ services.AddMvc()
 
 Zamiast włączenie wszystkich 2.1 zachowania `SetCompatibilityVersion`, użytkownik może jawnie wyrazić zgodę na konkretne zachowania. Poniższy kod zdecyduje się na żądania HEAD mapowanie programu obsługi GET.
 
-
 ```csharp
 services.AddMvc()
     .AddRazorPagesOptions(options =>
@@ -280,6 +279,7 @@ services.AddMvc()
         options.AllowMappingHeadRequestsToGetHandler = true;
     });
 ```
+
 ::: moniker-end
 
 <a name="xsrf"></a>

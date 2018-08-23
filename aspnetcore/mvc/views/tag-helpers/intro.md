@@ -1,35 +1,35 @@
 ---
-title: Pomocników tagów w platformy ASP.NET Core
+title: Pomocnicy tagów w programie ASP.NET Core
 author: rick-anderson
-description: Poznaj pomocników tagów są i sposobu ich używania w ASP.NET Core.
+description: Dowiedz się, czym są pomocnicy tagów i sposobu ich używania w programie ASP.NET Core.
 ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 2/14/2018
 uid: mvc/views/tag-helpers/intro
-ms.openlocfilehash: be75667f34eed7ba601eee331e3451c5738ef223
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: c2af9099fe439e1cdbf9ba86ffae3b2b0f67391e
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273572"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756215"
 ---
-# <a name="tag-helpers-in-aspnet-core"></a>Pomocników tagów w platformy ASP.NET Core
+# <a name="tag-helpers-in-aspnet-core"></a>Pomocnicy tagów w programie ASP.NET Core
 
-przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-## <a name="what-are-tag-helpers"></a>Co to są pomocników tagów?
+## <a name="what-are-tag-helpers"></a>Co to są pomocnicy tagów?
 
-Pomocników tagów włączyć kod po stronie serwera do tworzenia i renderowania elementów HTML w plikach Razor. Na przykład wbudowana `ImageTagHelper` dołączyć do nazwy obrazu numeru wersji. Przy każdej zmianie obrazu serwera generuje nową wersję unikatowy dla obrazu, więc klienci dotrą do pobrania bieżącego obrazu (zamiast starych obrazu pamięci podręcznej). Istnieje wiele wbudowanych pomocników tagów do wykonywania typowych zadań — takich jak tworzenie formularzy, łącza, ładowanie zasobów i pakietów więcej — i jeszcze bardziej dostępne w publicznych repozytoriach usługi GitHub i NuGet. Pomocników tagów są tworzone w języku C# i ich elementami docelowymi na podstawie nazwy elementu, atrybutu nazwy lub tagu nadrzędnym elementów HTML. Na przykład wbudowana `LabelTagHelper` celem może być HTML `<label>` elementu podczas `LabelTagHelper` atrybutów są stosowane. Jeśli znasz [pomocników HTML](http://stephenwalther.com/archive/2009/03/03/chapter-6-understanding-html-helpers), pomocników tagów zmniejszyć jawne przejścia między HTML i C# w widokach Razor. W wielu przypadkach pomocników HTML Podaj informacje o innym podejściu do określonych pomocniczego znacznika, ale ważne jest, aby rozpoznać pomocników tagów nie Zastąp pomocników HTML, a nie ma tagu pomocnika dla każdego pomocnika kodu HTML. [W porównaniu do pomocników HTML pomocników tagów](#tag-helpers-compared-to-html-helpers) wyjaśniono różnice bardziej szczegółowo.
+Pomocnicy tagów włączyć kodu po stronie serwera wziąć udział w tworzeniu i renderowaniu elementów HTML w plikach Razor. Na przykład wbudowane `ImageTagHelper` można dołączyć numer wersji do nazwy obrazu. Zmianie obrazu serwera generuje unikatowy nową wersję obrazu, dzięki czemu klienci są gwarantowane można pobrać bieżącego obrazu (zamiast przestarzałych obraz pamięci podręcznej). Istnieje wiele wbudowanych pomocników tagów dla typowych zadań — takich jak tworzenie formularzy, łącza, ładowanie zasobów i pakiety więcej — i jeszcze bardziej dostępne w publicznych repozytoriach GitHub oraz jak NuGet. Pomocnicy tagów są tworzone w języku C#, a ich celem są elementy HTML na podstawie nazwy elementu, atrybutu nazwy lub tagu nadrzędnym. Na przykład wbudowane `LabelTagHelper` mogą kierować HTML `<label>` elementu po `LabelTagHelper` atrybuty są stosowane. Jeśli znasz [pomocników HTML](http://stephenwalther.com/archive/2009/03/03/chapter-6-understanding-html-helpers), pomocników tagów zmniejszyć jawne przejścia pomiędzy HTML a C# w widokami Razor. W wielu przypadkach pomocników HTML zapewnić alternatywne podejście do określonych Pomocnik tagu, ale ważne jest, aby rozpoznać, czy pomocników tagów nie zastąpić pomocników HTML i nie jest pomocnika tagów dla każdego pomocnika kodu HTML. [W porównaniu do pomocników HTML pomocników tagów](#tag-helpers-compared-to-html-helpers) wyjaśnia różnice bardziej szczegółowo.
 
-## <a name="what-tag-helpers-provide"></a>Podaj pomocników tagów
+## <a name="what-tag-helpers-provide"></a>Podaj pomocnicy tagów
 
-**Środowisko programistyczne HTML przyjaznego** najbardziej części znaczników Razor przy użyciu pomocników tagów wygląda jak standardowy HTML. Projektanci frontonu conversant HTML/CSS/JavaScript można edytować Razor bez uzyskiwania składni Razor C#.
+**Środowisko programistyczne przyjaznego dla HTML** wygląda w przeważającej części HTML standardowych znaczników Razor za pomocą pomocników tagów. Projektanci frontonu conversant z HTML/CSS/JavaScript edytować Razor bez uczenia składnia Razor języka C#.
 
-**Bogate środowisko funkcji IntelliSense do tworzenia znaczników HTML i Razor** jest natomiast sharp do pomocników HTML, poprzednie podejście do tworzenia znaczników w widokach Razor po stronie serwera. [W porównaniu do pomocników HTML pomocników tagów](#tag-helpers-compared-to-html-helpers) wyjaśniono różnice bardziej szczegółowo. [Obsługę funkcji IntelliSense dla pomocników tagów](#intellisense-support-for-tag-helpers) opisano środowisko IntelliSense. Deweloperzy nawet ze składni Razor C# są bardziej wydajnej pracy przy użyciu pomocników tagów niż pisanie kodu C# Razor znaczników.
+**Bogate środowisko funkcji IntelliSense do tworzenia znaczników HTML i Razor** to sharp natomiast aby pomocników HTML, poprzednie podejście do tworzenia po stronie serwera, z kodu znaczników w widokami Razor. [W porównaniu do pomocników HTML pomocników tagów](#tag-helpers-compared-to-html-helpers) wyjaśnia różnice bardziej szczegółowo. [Obsługa funkcji IntelliSense dla pomocników tagów](#intellisense-support-for-tag-helpers) wyjaśnia środowiska funkcji IntelliSense. Nawet deweloperzy używający składni Razor C# są bardziej produktywne, używanie pomocników tagów niż pisanie znaczników języka C# Razor.
 
-**Można dokonać bardziej wydajną i może wygenerować bardziej niezawodne, niezawodne i kodu za pomocą informacje są dostępne tylko na serwerze** na przykład w przeszłości mantra na aktualizowanie obrazów była zmiana nazwy obrazu po zmianie obraz. Obrazy mają być buforowane agresywnie ze względu na wydajność, a jeśli nie zmienisz nazwę obrazu ryzyka klientom pobieranie starych kopii. W przeszłości po obraz był edytowany, nazwa ma zostać zmienione, a każde odwołanie do obrazu w aplikacji sieci web nie trzeba aktualizować. Nie tylko jest to bardzo pracę znacznym, jest również podatna (można pominąć odwołanie, przypadkowo wprowadź nieprawidłowy ciąg znaków, itp.) Wbudowane `ImageTagHelper` można wykonać tej operacji automatycznie. `ImageTagHelper` Dołączyć wersję numer do nazwy obrazu, więc przy każdej zmianie obrazu serwera automatycznie generuje nową wersję unikatowy dla obrazu. Klienci dotrą do pobrania bieżącego obrazu. Ten oszczędności niezawodności i instalacyjne pochodzą zasadniczo wolnego przy użyciu `ImageTagHelper`.
+**Sposobem, aby zapewnić bardziej efektywne i może wygenerować bardziej niezawodne, niezawodne i kodu łatwego w utrzymaniu, korzystając z informacji dostępna tylko na serwerze** na przykład w przeszłości mantra na temat aktualizowania obrazów była zmiana nazwy obrazu po zmianie obraz. Obrazy, które powinny być agresywnie buforowane ze względu na wydajność i chyba że zmieniasz nazwę obrazu, istnieje ryzyko klientom pobieranie starych kopii. W przeszłości po obraz był edytowany, nazwa ma zostać zmieniony, a każde odwołanie do obrazu w aplikacji sieci web nie trzeba aktualizować. Nie tylko jest to bardzo pracy o znacznym wykorzystaniu, jest również podatne (można pominąć odwołanie, przypadkowo wprowadzić nieprawidłowy ciąg znaków, itp.) Wbudowane `ImageTagHelper` można to zrobić dla Ciebie automatycznie. `ImageTagHelper` Można dołączyć wersji liczb do nazwy obrazu dzięki zmianie obrazu serwera automatycznie generuje unikatowy nową wersję obrazu. Klienci są gwarantowane można pobrać bieżącego obrazu. Ta oszczędności niezawodności i pracy dostępny zasadniczo bezpłatnie przy użyciu `ImageTagHelper`.
 
-Największą liczbą wbudowanych pomocników tagów docelową standardowych elementów HTML i udostępniania atrybutów po stronie serwera dla elementu. Na przykład `<input>` element używany w wielu widokach w *widoków/konta* folder zawiera `asp-for` atrybutu. Ten atrybut wyodrębnia nazwa właściwości określonego modelu do renderowany kod HTML. Należy wziąć pod uwagę widoku Razor z następującego modelu:
+Pomocnicy tagów największą liczbą wbudowanych docelową standardowych elementów kodu HTML i udostępniania atrybutów po stronie serwera dla elementu. Na przykład `<input>` element używany w wielu widoków w *widoków/konto* folder zawiera `asp-for` atrybutu. Ten atrybut wyodrębnia nazwę właściwości określonego modelu w postaci HTML. Należy wziąć pod uwagę widoku Razor z modelem następujące:
 
 ```csharp
 public class Movie
@@ -54,27 +54,27 @@ Generuje poniższy kod HTML:
 <label for="Movie_Title">Title</label>
 ```
 
-`asp-for` Atrybutu jest udostępniana przez `For` właściwości w [LabelTagHelper](/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.labeltaghelper?view=aspnetcore-2.0). Zobacz [pomocników tagów autora](xref:mvc/views/tag-helpers/authoring) Aby uzyskać więcej informacji.
+`asp-for` Atrybutu jest udostępniana przez `For` właściwość [LabelTagHelper](/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.labeltaghelper?view=aspnetcore-2.0). Zobacz [pomocników tagów Autor](xref:mvc/views/tag-helpers/authoring) Aby uzyskać więcej informacji.
 
-## <a name="managing-tag-helper-scope"></a>Zarządzanie zakresem pomocnika tagów
+## <a name="managing-tag-helper-scope"></a>Pomocnik tagu zakresu zarządzania
 
-Zakres pomocników tagów jest kontrolowany przy użyciu kombinacji `@addTagHelper`, `@removeTagHelper`i "!" Wypisz znaków.
+Zakres pomocników tagów jest kontrolowany przy użyciu kombinacji `@addTagHelper`, `@removeTagHelper`i "!" znak zrezygnować.
 
 <a name="add-helper-label"></a>
 
-### <a name="addtaghelper-makes-tag-helpers-available"></a>`@addTagHelper` udostępnia pomocników tagów
+### <a name="addtaghelper-makes-tag-helpers-available"></a>`@addTagHelper` udostępnia pomocnicy tagów
 
-Jeśli tworzenie nowej aplikacji sieci web platformy ASP.NET Core o nazwie *AuthoringTagHelpers*, następujące *Views/_ViewImports.cshtml* plik zostanie dodany do projektu:
+Jeśli utworzysz nową aplikację sieci web platformy ASP.NET Core o nazwie *AuthoringTagHelpers*, następujące *Views/_ViewImports.cshtml* plik zostanie dodany do projektu:
 
 [!code-cshtml[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopy.cshtml?highlight=2&range=2-3)]
 
-`@addTagHelper` Dyrektywy udostępnia pomocników tagów do widoku. W tym przypadku jest plik widoku *Pages/_ViewImports.cshtml*, która domyślnie jest dziedziczona przez wszystkie pliki w *stron* folder i podfoldery; udostępnianie pomocników tagów. Powyższy kod używa składni symbol wieloznaczny ("\*"), aby określić, że pomocników tagów w określonym zestawie (*Microsoft.AspNetCore.Mvc.TagHelpers*) będą dostępne dla każdego pliku widoku w *widoków* katalogu lub podkatalogu. Pierwszy parametr po `@addTagHelper` określa pomocników tagów, aby załadować (używamy "\*" dla pomocników tagów), a drugi parametr "Microsoft.AspNetCore.Mvc.TagHelpers" Określa zestaw zawierający pomocników tagów. *Microsoft.AspNetCore.Mvc.TagHelpers* jest zestawu dla wbudowanych pomocników tagów Core ASP.NET.
+`@addTagHelper` Dyrektywy udostępnia pomocników tagów w widoku. W tym przypadku jest plik widoku *Pages/_ViewImports.cshtml*, która domyślnie jest dziedziczona przez wszystkie pliki w *stron* folder i podfoldery; pomocników tagów udostępnianie. Powyższy kod używa składni symboli wieloznacznych ("\*") można określić, że wszystkie pomocników tagów w określonym zestawie (*Microsoft.AspNetCore.Mvc.TagHelpers*) będą dostępne dla wszystkich plików widoku w *widoków* katalog lub podkatalog. Pierwszy parametr po `@addTagHelper` określa pomocnicy tagów, aby załadować (używamy "\*" dla pomocników tagów), a drugi parametr "Microsoft.AspNetCore.Mvc.TagHelpers" Określa zestaw zawierający pomocników tagów. *Microsoft.AspNetCore.Mvc.TagHelpers* jest zestawem dla wbudowanych pomocników tagów dla platformy ASP.NET Core.
 
-Aby udostępnić wszystkie pomocników tagów w tym projekcie (co powoduje zestawu o nazwie *AuthoringTagHelpers*), należy użyć następujących:
+Aby udostępnić wszystkie pomocników tagów w tym projekcie (tworzy zestaw o nazwie *AuthoringTagHelpers*), należy użyć następujących czynności:
 
 [!code-cshtml[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopy.cshtml?highlight=3)]
 
-Jeśli projekt zawiera `EmailTagHelper` z domyślnej przestrzeni nazw (`AuthoringTagHelpers.TagHelpers.EmailTagHelper`), można podać w pełni kwalifikowana nazwa (FQN) pomocnika tagów:
+Jeśli projekt zawiera `EmailTagHelper` przy użyciu domyślnej przestrzeni nazw (`AuthoringTagHelpers.TagHelpers.EmailTagHelper`), możesz podać w pełni kwalifikowaną nazwę (FQN) pomocnika tagów:
 
 ```cshtml
 @using AuthoringTagHelpers
@@ -82,117 +82,117 @@ Jeśli projekt zawiera `EmailTagHelper` z domyślnej przestrzeni nazw (`Authorin
 @addTagHelper AuthoringTagHelpers.TagHelpers.EmailTagHelper, AuthoringTagHelpers
 ```
 
-Aby dodać pomocnika tagów do widoku, używając FQN, należy najpierw dodać FQN (`AuthoringTagHelpers.TagHelpers.EmailTagHelper`), a następnie nazwy zestawu (*AuthoringTagHelpers*). Większość deweloperów wolą używać "\*" znaków wieloznacznych. Składnia symbol wieloznaczny umożliwia Wstaw symbol wieloznaczny "\*" jako sufiks w FQN. Na przykład następujące dyrektywy zostanie wyświetlone `EmailTagHelper`:
+Aby dodać pomocnika tagów do widoku, używając FQN, należy najpierw dodać FQN (`AuthoringTagHelpers.TagHelpers.EmailTagHelper`), a następnie nazwę zestawu (*AuthoringTagHelpers*). Większość programistów wolą używać "\*" Składnia symboli wieloznacznych. Składnia symboli wieloznacznych pozwala wstawić symbol wieloznaczny "\*" jako sufiks w FQN. Na przykład, następujące dyrektywy zostanie wyświetlone `EmailTagHelper`:
 
 ```cshtml
 @addTagHelper AuthoringTagHelpers.TagHelpers.E*, AuthoringTagHelpers
 @addTagHelper AuthoringTagHelpers.TagHelpers.Email*, AuthoringTagHelpers
 ```
 
-Jak wspomniano wcześniej, dodawanie `@addTagHelper` dyrektywy do *Views/_ViewImports.cshtml* pliku udostępnia pomocnika tagów do wszystkich plików widoku w *widoków* katalogu i podkatalogów. Można użyć `@addTagHelper` dyrektywy w plikach określony widok, aby wyrazić zgodę na udostępnianie pomocnika tagów tylko tych widoków.
+Jak wspomniano wcześniej, dodając `@addTagHelper` dyrektywę *Views/_ViewImports.cshtml* pliku sprawia, że Pomocnik tagu jest dostępny dla wszystkich plików w widoku w *widoków* katalogu i podkatalogów. Możesz użyć `@addTagHelper` dyrektywy w plikach określonego widoku, aby wyrazić zgodę na udostępnianie Pomocnik tagu tylko tych widoków.
 
 <a name="remove-razor-directives-label"></a>
 
-### <a name="removetaghelper-removes-tag-helpers"></a>`@removeTagHelper` Usuwa pomocników tagów
+### <a name="removetaghelper-removes-tag-helpers"></a>`@removeTagHelper` Usuwa pomocnicy tagów
 
-`@removeTagHelper` Ma takie same parametry dwóch jako `@addTagHelper`, i usuwa pomocnika Tag, które zostały wcześniej dodane. Na przykład `@removeTagHelper` stosowane do określonego widoku powoduje usunięcie określonego pomocnika tagów z widoku. Przy użyciu `@removeTagHelper` w *Views/Folder/_ViewImports.cshtml* pliku usuwa określonego pomocnika Tag ze wszystkich widoków *folderu*.
+`@removeTagHelper` Ma ten sam dwa parametry jako `@addTagHelper`, i usuwa pomocnika tagów, który wcześniej został dodany. Na przykład `@removeTagHelper` stosowane w przypadku określonego widoku powoduje usunięcie określonego pomocnika tagów z widoku. Za pomocą `@removeTagHelper` w *Views/Folder/_ViewImports.cshtml* pliku usuwa określony Pomocnik tagu ze wszystkich widoków w *folderu*.
 
-### <a name="controlling-tag-helper-scope-with-the-viewimportscshtml-file"></a>Kontrolowanie zakresu pomocnika tagów z *_ViewImports.cshtml* pliku
+### <a name="controlling-tag-helper-scope-with-the-viewimportscshtml-file"></a>Kontrolowanie zakresu Pomocnik tagu za pomocą *_ViewImports.cshtml* pliku
 
-Możesz dodać *_ViewImports.cshtml* do dowolnego folderu widoku oraz widoku aparat stosuje dyrektywy z obu tego pliku i *Views/_ViewImports.cshtml* pliku. Jeśli dodano pustą *Views/Home/_ViewImports.cshtml* plik *Home* widoków, nie może istnieć bez zmian, ponieważ *_ViewImports.cshtml* plik jest dodatek. Wszelkie `@addTagHelper` dyrektywy dodać do *Views/Home/_ViewImports.cshtml* pliku (które nie są w domyślnym *Views/_ViewImports.cshtml* pliku) wystawi tych pomocników tagów do widoków tylko w *Home* folderu.
+Możesz dodać *_ViewImports.cshtml* dowolny folder widoku oraz widoku aparatu dotyczy dyrektywy z obu tego pliku i *Views/_ViewImports.cshtml* pliku. Jeśli została dodana pusta *Views/Home/_ViewImports.cshtml* plik *Home* widoków, może być brak zmian *_ViewImports.cshtml* plik jest dodatku. Żadnych `@addTagHelper` dyrektywy możesz dodać do *Views/Home/_ViewImports.cshtml* pliku (które nie są w domyślnym *Views/_ViewImports.cshtml* pliku) wystawi tych pomocników tagów do widoków tylko w *Home* folderu.
 
 <a name="opt-out"></a>
 
-### <a name="opting-out-of-individual-elements"></a>Rezygnacja z poszczególne elementy
+### <a name="opting-out-of-individual-elements"></a>Rezygnacja z poszczególnych elementów
 
-Możesz wyłączyć pomocnika tagów znakiem Wypisz pomocnika tagów na poziomie elementu ("!"). Na przykład `Email` Weryfikacja jest wyłączona w `<span>` znakiem Wypisz pomocnika tagów:
+Można wyłączyć pomocnika tagów znakiem rezygnacji Pomocnik tagu na poziomie elementu ("!"). Na przykład `Email` sprawdzania poprawności jest wyłączona w `<span>` znakiem rezygnacji Pomocnik tagu:
 
 ```cshtml
 <!span asp-validation-for="Email" class="text-danger"></!span>
 ```
 
-Należy zastosować znak Wypisz pomocnika tagów do otwarcia i zamknięcia tagu. (Edytorze programu Visual Studio automatycznie dodaje znak rezygnacji tag zamykający podczas dodawania do tagu otwierającego). Po dodaniu znak rezygnacji z elementem i atrybuty pomocnika tagów nie są już wyświetlani charakterystyczne czcionki.
+Pomocnik tagu znak rezygnacji muszą dotyczyć otwierający i zamykający tag. (Edytor programu Visual Studio automatycznie dodaje znak rezygnacji z tagu zamykającego po dodaniu do otwierający tag). Po dodaniu znak rezygnacji, elementów i atrybutów Pomocnik tagu już nie są wyświetlane czcionką szczególne.
 
 <a name="prefix-razor-directives-label"></a>
 
-### <a name="using-taghelperprefix-to-make-tag-helper-usage-explicit"></a>Przy użyciu `@tagHelperPrefix` dokonanie jawnego użycia Pomocnika tagów
+### <a name="using-taghelperprefix-to-make-tag-helper-usage-explicit"></a>Za pomocą `@tagHelperPrefix` się jawne użycie pomocnika tagów
 
-`@tagHelperPrefix` Dyrektywy pozwala na określenie Ciąg prefiksu tagu, aby włączyć obsługę pomocnika tagów i użycia Pomocnika tagów jawnego. Na przykład można dodać następujących znaczników *Views/_ViewImports.cshtml* pliku:
+`@tagHelperPrefix` Dyrektywy pozwala określić ciąg prefiksu tagu, aby włączyć obsługę pomocnika tagów i Pomocnik tagu użycie jawnego. Na przykład można dodać następujące znaczniki do *Views/_ViewImports.cshtml* pliku:
 
 ```cshtml
 @tagHelperPrefix th:
 ```
-Na poniższej ilustracji kodu ustawiono prefiks tagu Pomocnika `th:`, dlatego tylko tych elementów przy użyciu prefiksu `th:` obsługuje pomocników tagów (włączone pomocnika tagów elementy mają charakterystyczne czcionki). `<label>` i `<input>` elementy mają prefiks tagu pomocnika i obsługują pomocnika tagów, podczas `<span>` nie elementu.
+Na poniższej ilustracji kodu jest równa prefiks Pomocnik tagu `th:`, więc tylko te elementy, które są przy użyciu prefiksu `th:` obsługuje pomocników tagów (włączone Pomocnik tagu elementy mają szczególne czcionki). `<label>` i `<input>` elementy mają prefiks Pomocnik tagu i obsługują Pomocnik tagu, podczas `<span>` nie elementu.
 
 ![obraz](intro/_static/thp.png)
 
-Tym samym zasady hierarchii, które dotyczą `@addTagHelper` dotyczą również `@tagHelperPrefix`.
+Te same reguły hierarchii, które są stosowane do `@addTagHelper` dotyczą również `@tagHelperPrefix`.
 
-## <a name="intellisense-support-for-tag-helpers"></a>Obsługę funkcji IntelliSense dla pomocników tagów
+## <a name="intellisense-support-for-tag-helpers"></a>Obsługa funkcji IntelliSense dla pomocników tagów
 
-Podczas tworzenia nowej aplikacji sieci web ASP.NET w programie Visual Studio, dodaje pakiet NuGet "Microsoft.AspNetCore.Razor.Tools". To jest pakiet, który dodaje narzędzia pomocnika tagów.
+Po utworzeniu nowej aplikacji sieci web platformy ASP.NET Core w programie Visual Studio dodaje pakietu NuGet "Microsoft.AspNetCore.Razor.Tools". To jest pakiet, który dodaje narzędzi pomocnika tagów.
 
-Należy wziąć pod uwagę pisania kodu HTML `<label>` elementu. Jak wprowadzasz `<l` w edytorze programu Visual Studio, IntelliSense wyświetla zgodnych elementów:
+Rozważyć napisanie kodu HTML `<label>` elementu. Zaraz po wprowadzeniu `<l` w edytorze programu Visual Studio, IntelliSense wyświetla zgodnych elementów:
 
 ![obraz](intro/_static/label.png)
 
-Nie tylko możesz uzyskasz pomocy HTML, ale ikony ("@" symbol with "<>" poniżej).
+Nie tylko pozwala to uzyskać pomocy HTML, ale ikonę ("@" symbol with "<>" pod nim).
 
 ![obraz](intro/_static/tagSym.png)
 
-identyfikuje element zgodnie z celem pomocników tagów. Czysty elementów HTML (takie jak `fieldset`) wyświetlana ikona "<>".
+identyfikuje element jako objęte pomocników tagów. Czyste elementy HTML (takie jak `fieldset`) wyświetlana ikona "<>".
 
-Czystym kodem HTML `<label>` tagów wyświetla tagu HTML (za pomocą domyślnego motywu kolorów Visual Studio) czcionką brązowy atrybutów na czerwono, i atrybutu wartości w kolorze niebieskim.
+Czystym kodem HTML `<label>` tag Wyświetla tagu HTML (przy użyciu programu Visual Studio motyw domyślny) brązowy czcionki, atrybuty w kolorze czerwonym, i atrybutu wartości w kolorze niebieskim.
 
 ![obraz](intro/_static/LableHtmlTag.png)
 
-Po wprowadzeniu `<label`, IntelliSense wyświetla dostępne atrybuty HTML/CSS oraz atrybutów docelowe pomocnika tagów:
+Po wprowadzeniu `<label`, funkcja IntelliSense wyświetla dostępne atrybuty HTML/CSS i atrybuty nakierowane Pomocnik tagu:
 
 ![obraz](intro/_static/labelattr.png)
 
-Instrukcji IntelliSense pozwala na wprowadzenie klawisz tab, aby wykonać instrukcję, określając wybraną wartość:
+Instrukcji IntelliSense umożliwia wprowadzenie klawisz tab Aby wykonać instrukcję, określając wybraną wartość:
 
 ![obraz](intro/_static/stmtcomplete.png)
 
-Zaraz po wprowadzeniu atrybut pomocnika tagów zmiana czcionki tagów i atrybutów. Przy użyciu domyślnej programu Visual Studio "Blue" lub "Jasny" Kolor motywu, czcionka jest pogrubiona purpurowy. Jeśli używasz motywu "Ciemny" czcionka jest pogrubiona jest. Obrazy w tym dokumencie zostały pobrane przy użyciu domyślnego motywu.
+Zaraz po wprowadzeniu atrybut pomocnika tagów zmienić czcionki tagów i atrybutów. Korzystając z domyślne programu Visual Studio "Niebieski" lub "Jasny" motyw kolorów, czcionka jest pogrubiony purpurowy. Jeśli używasz "ciemny" czcionka jest pogrubiony zielonomodrym. Obrazy w niniejszym dokumencie zostały pobrane przy użyciu domyślnego motywu.
 
 ![obraz](intro/_static/labelaspfor2.png)
 
-Visual Studio można wprowadzić *CompleteWord* skrótów (Ctrl + spacja jest [domyślne](/visualstudio/ide/default-keyboard-shortcuts-in-visual-studio) wewnątrz podwójnych cudzysłowów (""), i wszystko jest teraz w języku C#, tak jak będzie w klasie C#. IntelliSense wyświetla wszystkie metody i właściwości w modelu strony. Metody i właściwości są dostępne, ponieważ typ właściwości jest `ModelExpression`. Na poniższej ilustracji, 'M I edytowanie `Register` widoku, więc `RegisterViewModel` jest dostępna.
+Możesz użyć programu Visual Studio *CompleteWord* skrót (Ctrl + spacja jest [domyślne](/visualstudio/ide/default-keyboard-shortcuts-in-visual-studio) w podwójnym cudzysłowie (""), i jesteś teraz w języku C#, tak samo, jak będzie klasy C#. IntelliSense wyświetla wszystkie metody i właściwości w modelu strony. Metody i właściwości są dostępne, ponieważ typ właściwości to `ModelExpression`. Na poniższej ilustracji I jestem edycji `Register` widoku, więc `RegisterViewModel` jest dostępna.
 
 ![obraz](intro/_static/intellemail.png)
 
-Funkcja IntelliSense wyświetla listę właściwości i metod modelu na stronie. Bogate środowisko funkcji IntelliSense pomaga wybrać klasę CSS:
+Funkcja IntelliSense wyświetla właściwości i metody dostępne dla modelu, na stronie. Bogate środowisko funkcji IntelliSense ułatwia wybór klasy CSS:
 
 ![obraz](intro/_static/iclass.png)
 
 ![obraz](intro/_static/intel3.png)
 
-## <a name="tag-helpers-compared-to-html-helpers"></a>W porównaniu do pomocników HTML pomocników tagów
+## <a name="tag-helpers-compared-to-html-helpers"></a>Pomocnicy tagów w porównaniu do pomocników HTML
 
-Dołącz pomocników tagów do elementów HTML w widokach Razor podczas [pomocników HTML](http://stephenwalther.com/archive/2009/03/03/chapter-6-understanding-html-helpers) są wywoływane jako metody oraz HTML w widoku Razor. Należy wziąć pod uwagę następujące znaczników Razor, który tworzy element label kodu HTML z klasy CSS "podpis":
+Pomocnicy tagów, Dołącz do elementów kodu HTML w widokami Razor podczas [pomocników HTML](http://stephenwalther.com/archive/2009/03/03/chapter-6-understanding-html-helpers) jest wywołana, zgodnie z metody grupową HTML widokami Razor. Należy wziąć pod uwagę następujące znaczniki Razor, który tworzy element label kodu HTML z klasy CSS "podpis":
 
 ```cshtml
 @Html.Label("FirstName", "First Name:", new {@class="caption"})
 ```
 
-W (`@`) informuje symbolu Razor jest to początek kodu. Następne dwa parametry ("Imię" i "imię:") są ciągami, więc [IntelliSense](/visualstudio/ide/using-intellisense) nie może pomóc. Ostatni argument:
+U (`@`) symbol informuje Razor to początek kodu. Następne dwa parametry ("FirstName" i "imię:") są ciągami, więc [IntelliSense](/visualstudio/ide/using-intellisense) nie będzie mogła pomóc. Ostatni argument:
 
 ```cshtml
 new {@class="caption"}
 ```
 
-Obiektu anonimowego jest używana do reprezentowania atrybutów. Ponieważ <strong>klasy</strong> jest zarezerwowanym słowem kluczowym języka C#, użyj `@` symbolu, aby wymusić C#, aby zinterpretować "@class=" jako symbolu (nazwa właściwości). Do projektanta frontonu (ktoś zapoznać się z kodu HTML/CSS/JavaScript i innych technologii klienta, ale nie znasz języka C# i Razor), większość wiersza jest obca. Cały wiersz musi być utworzony za pomocą pomoc od IntelliSense.
+Anonimowy obiekt służy do reprezentowania atrybutów. Ponieważ <strong>klasy</strong> jest zastrzeżonym słowem kluczowym w języku C# użyj `@` symbolu, aby wymusić języka C# do interpretacji "@class=" jako symbol separatora (nazwa właściwości). Do frontonu projektanta (ktoś z HTML/CSS/JavaScript i innych technologii klienta, ale nie znają języka C# i Razor), większość wiersza jest obcy. Cały wiersz musi być utworzone przy użyciu pomoc od funkcji IntelliSense.
 
-Przy użyciu `LabelTagHelper`, można zapisać znacznika tej samej:
+Za pomocą `LabelTagHelper`, ten sam kod znaczników, może być zapisana jako:
 
 ![obraz](intro/_static/label2.png)
 
-Z wersją pomocnika tagów, jak wprowadzasz `<l` w edytorze programu Visual Studio, IntelliSense wyświetla zgodnych elementów:
+Za pomocą wersji pomocnika tagów, zaraz po wprowadzeniu `<l` w edytorze programu Visual Studio, IntelliSense wyświetla zgodnych elementów:
 
 ![obraz](intro/_static/label.png)
 
-IntelliSense ułatwia pisanie cały wiersz. `LabelTagHelper` Domyślnie ustawienie zawartość `asp-for` atrybutu "Imię"; wartość ("imię") Konwertuje liter formatu właściwości do zdania składa się z nazwy właściwości z miejsca, w którym występuje każdego nowego wielką literą. W znaczniku następujące:
+Technologia IntelliSense pomaga napisać cały wiersz. `LabelTagHelper` Również wartość domyślna to ustawienie zawartości `asp-for` atrybutu "Imię"; wartość ("FirstName") Właściwości w formacie camelcase są konwertowane na zdania składa się z nazwy właściwości z miejsca, w których występuje każdy nowy wielkie litery. W następujących znaczników:
 
 ![obraz](intro/_static/label2.png)
 
@@ -202,7 +202,7 @@ generuje:
 <label class="caption" for="FirstName">First Name</label>
 ```
 
-Po dodaniu zawartości do formatu — z uwzględnieniem wielkości liter liter zdanie zawartości nie jest używana `<label>`. Na przykład:
+-W formacie camelcase zawartości zdanie — z uwzględnieniem wielkości liter nie jest używany w przypadku dodania zawartości do `<label>`. Na przykład:
 
 ![obraz](intro/_static/1stName.png)
 
@@ -212,56 +212,56 @@ generuje:
 <label class="caption" for="FirstName">Name First</label>
 ```
 
-Na poniższej ilustracji kodu przedstawiono formularz część *Views/Account/Register.cshtml* widoku Razor wygenerowane z szablonu MVC starszych 4.5.x ASP.NET uwzględnionych w programie Visual Studio 2015.
+Na poniższej ilustracji kodzie przedstawiono część formularza *Views/Account/Register.cshtml* widoku Razor generowany na podstawie szablonu MVC starszych 4.5.x ASP.NET dołączone do programu Visual Studio 2015.
 
 ![obraz](intro/_static/regCS.png)
 
-Edytor programu Visual Studio Wyświetla kodu C# za pomocą szare tła. Na przykład `AntiForgeryToken` pomocnika kodu HTML:
+Edytor programu Visual Studio Wyświetla kod C# na szarym tle. Na przykład `AntiForgeryToken` pomocnika kodu HTML:
 
 ```cshtml
 @Html.AntiForgeryToken()
 ```
 
-zostanie wyświetlony z szare tła. Większość znaczników w widoku rejestru jest C#. Porównać równoważne podejścia, przy użyciu pomocników tagów:
+zostanie wyświetlona na szarym tle. Większość kodu znaczników w widoku rejestr jest C#. Dla porównania, równoważne podejście, używanie pomocników tagów:
 
 ![obraz](intro/_static/regTH.png)
 
-Kod znaczników jest znacznie bardziej przejrzysty i łatwiejsze do odczytu, edytowanie i obsługa niż metody pomocników HTML. Kod C# jest ograniczone do minimum, który serwer musi znać. W edytorze programu Visual Studio są wyświetlane znaczników objęci pomocnika tagów charakterystyczne czcionki.
+Znaczniki jest znacznie bardziej przejrzyste i łatwiejsze do odczytania, edytowanie i obsługa niż metody pomocników HTML. Kod C# jest ograniczona do minimum, który serwer musi wiedzieć o. Edytor programu Visual Studio Wyświetla znaczników objęte pomocnika tagów w szczególne czcionki.
 
 Należy wziąć pod uwagę *E-mail* grupy:
 
 [!code-csharp[](intro/sample/Register.cshtml?range=12-18)]
 
-Każdego z atrybutów "asp —" ma wartość "E-mail", ale "E-mail" nie jest ciąg. W tym kontekście "E-mail" jest C# wyrażenie właściwości modelu dla `RegisterViewModel`.
+Każdego z atrybutów "asp-" ma wartość "Email", ale "Email" nie jest ciąg. W tym kontekście, "Email" jest C# wyrażenie właściwości modelu dla `RegisterViewModel`.
 
-Edytor programu Visual Studio ułatwia pisanie **wszystkie** z kodu znaczników w ujęciu pomocnika Tag formularza rejestru, podczas gdy program Visual Studio udostępnia pomoc dla większości kodu w ujęciu pomocników HTML. [Obsługę funkcji IntelliSense dla pomocników tagów](#intellisense-support-for-tag-helpers) przechodzi do szczegółów na temat pracy z pomocników tagów w edytorze programu Visual Studio.
+Edytor programu Visual Studio ułatwia pisanie **wszystkich** z kodu znaczników w ujęciu Pomocnik tagu formularza Zarejestruj się, gdy program Visual Studio udostępnia pomoc dla większości kod w metody pomocników HTML. [Obsługa funkcji IntelliSense dla pomocników tagów](#intellisense-support-for-tag-helpers) przechodzi do szczegółów na temat pracy z pomocników tagów w edytorze programu Visual Studio.
 
-## <a name="tag-helpers-compared-to-web-server-controls"></a>Pomocników tagów w porównaniu do kontrolki serwera sieci Web
+## <a name="tag-helpers-compared-to-web-server-controls"></a>Pomocnicy tagów w porównaniu do formantów serwera sieci Web
 
-* Pomocników tagów nie należy do użytkownika element, do którego są one związane z; po prostu uczestniczą w czasie renderowania elementów i zawartości. ASP.NET [kontrolki serwera sieci Web](https://msdn.microsoft.com/library/7698y1f0.aspx) zadeklarowany i wywoływane na stronie.
+* Pomocnicy tagów nie jest własnością elementu, z którymi są one związane. po prostu uczestniczą w czasie renderowania elementu, a zawartość. ASP.NET [kontrolki serwera sieci Web](https://msdn.microsoft.com/library/7698y1f0.aspx) zadeklarowana i wywoływane na stronie.
 
-* [Formanty serwera sieci Web](https://msdn.microsoft.com/library/zsyt68f1.aspx) mają cykl nieuproszczony może utrudnić opracowywania i debugowania.
+* [Sieci Web formanty serwera](https://msdn.microsoft.com/library/zsyt68f1.aspx) mają nietrywialnymi cykl życia, które mogą utrudnić opracowywania i debugowania.
 
-* Formanty serwera sieci Web umożliwiają dodawanie funkcji do elementów modelu DOM (Document Object) klienta za pomocą formantu klienta. Pomocników tagów nie ma żadnych modelu DOM.
+* Formanty serwera sieci Web umożliwiają dodawanie funkcji do elementów modelu DOM (Document Object) klienta za pomocą formantu klienta. Pomocnicy tagów nie ma żadnych modelu DOM.
 
-* Formanty serwera sieci Web obejmują wykrywanie automatyczne przeglądarki. Pomocników tagów nie korzystają z nie przeglądarki.
+* Formanty serwera sieci Web obejmują wykrywania automatycznego przeglądarki. Pomocnicy tagów nie znają przeglądarki.
 
-* Wiele pomocników tagów może działać na tym samym elemencie (zobacz [pomocnika tagów unikanie konfliktów](xref:mvc/views/tag-helpers/authoring#avoid-tag-helper-conflicts) ) podczas zwykle nie można utworzyć kontrolki serwera sieci Web.
+* Wiele pomocników tagów może działać na tym samym elemencie (zobacz [Pomocnik tagu unikanie konfliktów](xref:mvc/views/tag-helpers/authoring#avoid-tag-helper-conflicts) ) podczas zwykle nie można utworzyć formanty serwera sieci Web.
 
-* Pomocników tagów można tagu i zawartość elementów HTML, które jest zakresem, ale nie bezpośrednio modyfikować dowolne inne na stronie. Formanty serwera sieci Web mają szerszym zakresie i mogą wykonywać akcje, które mają wpływ na inne części strony; Włączanie niezamierzone skutki uboczne.
+* Pomocnicy tagów można zmodyfikować tagów i zawartości elementów kodu HTML, które są do zakresu, ale nie bezpośrednio modyfikować dowolne inne na stronie. Formanty serwera sieci Web mają szerszym zakresie i mogą wykonywać akcje, które mają wpływ na inne części strony; Włączanie wystąpienie niezamierzonych skutków ubocznych.
 
-* Formanty serwera sieci Web umożliwia konwertowanie ciągów na obiekty konwertery typu. Z pomocników tagów pracy natywnie w języku C#, dzięki czemu nie trzeba konwersja typu.
+* Formanty serwera sieci Web umożliwia konwertowanie ciągów na obiektach konwerterów typów. Dzięki pomocnicy tagów możesz podjąć natywnie w języku C#, dzięki czemu nie trzeba wpisywać konwersji.
 
-* Serwer sieci Web steruje użyciem [System.ComponentModel](/dotnet/api/system.componentmodel) do zaimplementowania zachowania czasu wykonywania i czasu projektowania, składników i kontrolek. `System.ComponentModel` zawiera klasy podstawowe i interfejsy dla wykonania atrybutów i typy konwerterów, powiązanie z danymi źródeł i licencjonowania składników. Natomiast który do pomocników tagów, które zwykle pochodzi od `TagHelper`i `TagHelper` klasy podstawowej przedstawia tylko dwie metody `Process` i `ProcessAsync`.
+* Serwer sieci Web steruje użyciem [System.ComponentModel](/dotnet/api/system.componentmodel) Aby zaimplementować to zachowanie w czasie wykonywania oraz w czasie projektowania składników i formantów. `System.ComponentModel` zawiera klasy podstawowe i interfejsy do implementacji atrybutów i typy konwerterów, powiązanie z danymi źródeł i licencjonowanie składników. Natomiast, aby pomocnicy tagów, które zwykle dziedziczyć `TagHelper`i `TagHelper` klasy bazowej ujawnia tylko dwie metody, `Process` i `ProcessAsync`.
 
-## <a name="customizing-the-tag-helper-element-font"></a>Dostosowywanie czcionki element pomocnika tagów
+## <a name="customizing-the-tag-helper-element-font"></a>Dostosowywanie czcionek element pomocnika tagów
 
-Możesz dostosować czcionki i kolorowania z **narzędzia** > **opcje** > **środowiska** > **czcionek Kolory i**:
+Można dostosować, czcionki i kolorowanie z **narzędzia** > **opcje** > **środowiska** > **czcionek Kolory i**:
 
 ![obraz](intro/_static/fontoptions2.png)
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Autor pomocników tagów](xref:mvc/views/tag-helpers/authoring)
-* [Praca z formularzy ](xref:mvc/views/working-with-forms)
-* [TagHelperSamples w serwisie GitHub](https://github.com/dpaquette/TagHelperSamples) zawiera przykłady pomocnika tagów do pracy z [Bootstrap](http://getbootstrap.com/).
+* [Tworzenie pomocników tagów](xref:mvc/views/tag-helpers/authoring)
+* [Praca z formularzami ](xref:mvc/views/working-with-forms)
+* [TagHelperSamples w serwisie GitHub](https://github.com/dpaquette/TagHelperSamples) zawiera przykłady Pomocnik tagu do pracy z [Bootstrap](http://getbootstrap.com/).

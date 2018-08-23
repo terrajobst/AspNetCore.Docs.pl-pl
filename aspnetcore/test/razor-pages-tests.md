@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/27/2017
 uid: test/razor-pages-tests
-ms.openlocfilehash: 2bac84d6b6e5f30ff0cbbbc0b841833b5c9f48ab
-ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
+ms.openlocfilehash: 364c4c0fd75954f1c7e0bfbc221938afe5332bde
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39342409"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755901"
 ---
 # <a name="razor-pages-unit-tests-in-aspnet-core"></a>Testy jednostkowe stron razor w programie ASP.NET Core
 
@@ -57,7 +57,7 @@ Aplikacja komunikat jest prosty system komunikatów stron Razor o następującej
 
 &#8224;Temat EF [testu za pomocą InMemory](/ef/core/miscellaneous/testing/in-memory), wyjaśnia, jak użyć bazy danych w pamięci dla testów w narzędziu MSTest. W tym temacie używany [xUnit](https://xunit.github.io/) struktury testowej. Test pojęć i badanie implementacji różnych środowisk testowych różnych są podobne, ale nie są identyczne.
 
-Mimo że aplikacja nie używa [wzorca repozytorium](xref:fundamentals/repository-pattern) i nie jest skuteczne przykładem [wzorzec jednostki pracy (UoW)](https://martinfowler.com/eaaCatalog/unitOfWork.html), stron Razor obsługuje te wzorce programowania. Aby uzyskać więcej informacji, zobacz [projektowanie warstwy trwałości infrastruktury](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design), [Implementowanie repozytorium i jednostki pracy wzorców w aplikacji ASP.NET MVC](/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application), i [kontrolera testów Logika](/aspnet/core/mvc/controllers/testing) (przykład implementuje wzorzec repozytorium).
+Mimo że aplikacja nie używa [wzorca repozytorium](xref:fundamentals/repository-pattern) i nie jest skuteczne przykładem [wzorzec jednostki pracy (UoW)](https://martinfowler.com/eaaCatalog/unitOfWork.html), stron Razor obsługuje te wzorce programowania. Aby uzyskać więcej informacji, zobacz [projektowanie warstwy trwałości infrastruktury](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design), <xref:fundamentals/repository-pattern>, i [logikę kontrolera testu](/aspnet/core/mvc/controllers/testing) (przykład implementuje wzorzec repozytorium).
 
 ## <a name="test-app-organization"></a>Testowanie aplikacji organizacji
 
