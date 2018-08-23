@@ -5,12 +5,12 @@ description: Poznaj podstawy tworzenia aplikacji sieci web programu ASP.NET Core
 ms.author: riande
 ms.date: 05/30/2018
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: 10e9174b0bf094f7a4ea820a5afcf2705f900327
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: bc18ec3ad3bb7e3afe38030a34b2e748ce9e341b
+ms.sourcegitcommit: 74c09caec8992635825b45b7f065f871d33c077a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38157175"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42634980"
 ---
 # <a name="get-started-with-razor-pages-in-aspnet-core"></a>Rozpoczynanie pracy ze stronami Razor w programie ASP.NET Core
 
@@ -65,6 +65,8 @@ Na poniższej ilustracji przedstawiono aplikację po zaakceptowaniu śledzenia:
 * Uruchamianie aplikacji za pomocą **kombinację klawiszy Ctrl + F5** (bez debugowania w trybie) pozwala wprowadzać zmiany kodu, Zapisz plik, Odśwież przeglądarkę i zobaczyć zmiany kodu. Wielu programistów łatwiej jest w trybie bez debugowania szybko uruchomić aplikację i wyświetlić zmiany.
 
 [!INCLUDE [razor-pages-start](~/includes/RP/2.1/razor-pages-start.md)]
+
+[!INCLUDE [F7](~/includes/RP/F7.md)]
 
 ::: moniker-end
 
