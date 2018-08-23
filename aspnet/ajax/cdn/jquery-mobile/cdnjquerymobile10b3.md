@@ -3,21 +3,21 @@ uid: ajax/cdn/jquery-mobile/cdnjquerymobile10b3
 title: jQuery Mobile 1.0 Beta 3 w usłudze Microsoft Ajax CDN | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: ''
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/23/2014
 ms.assetid: f71316df-b4f4-4cf5-8511-c0415391231c
 msc.legacyurl: /ajax/cdn/jquery-mobile/cdnjquerymobile10b3
 msc.type: content
-ms.openlocfilehash: 7f819202a889e59843e627de5d169a08c9ff9ed1
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 86294efd2a74a8e20e597fdbfaad5a46dbd88639
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37822421"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41752078"
 ---
-<a name="jquery-mobile-10-beta-3-on-the-microsoft-ajax-cdn"></a><span data-ttu-id="d26ac-102">jQuery Mobile 1.0 Beta 3 w usłudze Microsoft Ajax CDN</span><span class="sxs-lookup"><span data-stu-id="d26ac-102">jQuery Mobile 1.0 Beta 3 on the Microsoft Ajax CDN</span></span>
+<a name="jquery-mobile-10-beta-3-on-the-microsoft-ajax-cdn"></a><span data-ttu-id="f0c98-102">jQuery Mobile 1.0 Beta 3 w usłudze Microsoft Ajax CDN</span><span class="sxs-lookup"><span data-stu-id="f0c98-102">jQuery Mobile 1.0 Beta 3 on the Microsoft Ajax CDN</span></span>
 ====================
-<span data-ttu-id="d26ac-103">Biblioteka jQuery Mobile 1.0 Beta 3 zawiera następujące pliki:</span><span class="sxs-lookup"><span data-stu-id="d26ac-103">The jQuery Mobile 1.0 Beta 3 library includes the following files:</span></span>
+<span data-ttu-id="f0c98-103">Biblioteka jQuery Mobile 1.0 Beta 3 zawiera następujące pliki:</span><span class="sxs-lookup"><span data-stu-id="f0c98-103">The jQuery Mobile 1.0 Beta 3 library includes the following files:</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.0b3/jquery.mobile-1.0b3.js
 - https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.0b3/jquery.mobile-1.0b3.min.js
