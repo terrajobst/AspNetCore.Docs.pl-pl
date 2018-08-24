@@ -123,7 +123,7 @@ Istnieją trzy różne kroki, aby zakończyć. Wykonując kroki w wynikach nast�
 
     ![Zapisz definicję kompilacji - modalne okno dialogowe](media/cicd/vsts-save-modal.png)
 
-    Użyj domyślnego folderu z *\\*i kliknij przycisk **Zapisz** przycisku.
+    Użyj domyślnego folderu z *\\* i kliknij przycisk **Zapisz** przycisku.
 
 ### <a name="create-the-release-pipeline"></a>Twórz potoki wydania
 
