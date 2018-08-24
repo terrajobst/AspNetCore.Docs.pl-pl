@@ -51,8 +51,7 @@
 ##### [Wdrażanie dodatkowych plików](web-forms/overview/deployment/visual-studio-web-deployment/deploying-extra-files.md)
 ##### [Rozwiązywanie problemów](web-forms/overview/deployment/visual-studio-web-deployment/troubleshooting.md)
 #### [ASP.NET 4 — wprowadzenie do wdrożenia w przedsiębiorstwie](web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/index.md)
-##### 
-  [Wdrażanie aplikacji internetowych w scenariuszach dla przedsiębiorstw przy użyciu programu Visual Studio 2010](web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md)
+##### [Wdrażanie aplikacji internetowych w scenariuszach dla przedsiębiorstw przy użyciu programu Visual Studio 2010](web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md)
 ##### [Wdrażanie sieci Web w przedsiębiorstwie: omówienie scenariuszy](web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md)
 ##### [Zarządzanie cyklem życia aplikacji: od projektowania do produkcji](web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/application-lifecycle-management-from-development-to-production.md)
 #### [ASP.NET 4 — wdrażanie w przedsiębiorstwie, seria 1](web-forms/overview/deployment/web-deployment-in-the-enterprise/index.md)
@@ -1025,8 +1024,7 @@
 #### [Dynamic v. — silnie typizowane widoki](mvc/overview/views/dynamic-v-strongly-typed-views.md)
 ### [Zabezpieczenia, uwierzytelnianie i autoryzacja](mvc/overview/security/index.md)
 #### [Tworzenie aplikacji ASP.NET MVC 5 z logowaniem OAuth2 za pomocą poświadczeń usług Facebook, Twitter, LinkedIn i Google (C#)](mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md)
-#### 
-  [Tworzenie bezpiecznej aplikacji internetowej ASP.NET MVC 5 z logowaniem, potwierdzeniem adresu e-mail i resetowaniem hasła (C#)](mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md)
+#### [Tworzenie bezpiecznej aplikacji internetowej ASP.NET MVC 5 z logowaniem, potwierdzeniem adresu e-mail i resetowaniem hasła (C#)](mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md)
 #### [Aplikacja ASP.NET MVC 5 z uwierzytelnianiem dwuskładnikowym za pomocą wiadomości SMS i wiadomości e-mail](mvc/overview/security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication.md)
 #### [Zapobieganie atakom XSRF/CSRF we wzorcach ASP.NET MVC i Web Pages](mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages.md)
 #### [Zapobieganie atakom na otwarte przekierowywanie (C#)](mvc/overview/security/preventing-open-redirection-attacks.md)
@@ -1562,8 +1560,7 @@
 #### [Korzystanie z liczników wydajności SignalR w roli sieci Web platformy Azure](signalr/overview/performance/using-signalr-performance-counters-in-an-azure-web-role.md)
 ### [Wdrażanie i hosting](signalr/overview/deployment/index.md)
 #### [Samouczek: host samodzielny SignalR](signalr/overview/deployment/tutorial-signalr-self-host.md)
-#### 
-  [Używanie SignalR z usługą Web Apps w usłudze Azure App Service](signalr/overview/deployment/using-signalr-with-azure-web-sites.md)
+#### [Używanie SignalR z usługą Web Apps w usłudze Azure App Service](signalr/overview/deployment/using-signalr-with-azure-web-sites.md)
 ### [Zaawansowane](signalr/overview/advanced/index.md)
 #### [Wstrzykiwanie zależności w SignalR](signalr/overview/advanced/dependency-injection.md)
 ### [Wydania](signalr/overview/releases/index.md)
