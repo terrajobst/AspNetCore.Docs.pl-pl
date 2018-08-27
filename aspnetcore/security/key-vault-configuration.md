@@ -2,37 +2,25 @@
 title: Dostawca konfiguracji usługi Azure Key Vault w programie ASP.NET Core
 author: guardrex
 description: Dowiedz się, jak skonfigurować aplikację tak, za pomocą pary nazwa wartość ładowane w czasie wykonywania za pomocą dostawcy konfiguracji magazynu kluczy Azure.
+monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
+ms.custom: mvc
 ms.date: 08/01/2018
 uid: security/key-vault-configuration
-ms.openlocfilehash: 829c6c7e2750879b51bf3ce8225c6e472900f2ad
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: 933f4fb1f2c1c412d318af5974cc9653805242ca
+ms.sourcegitcommit: 25150f4398de83132965a89f12d3a030f6cce48d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41753877"
+ms.lasthandoff: 08/25/2018
+ms.locfileid: "42927990"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Dostawca konfiguracji usługi Azure Key Vault w programie ASP.NET Core
 
 Przez [Luke Latham](https://github.com/guardrex) i [Andrew Stanton pielęgniarki](https://github.com/anurse)
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
-Wyświetlanie lub pobieranie przykładowego kodu dla 2.x:
-
-* [Podstawowy przykład](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples/basic-sample/2.x) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample)) — odczytuje wartościami wpisów tajnych aplikacji.
-* [Przykład prefiks nazwy klucza](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples/key-name-prefix-sample/2.x) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample)) — odczytuje wartości klucza tajnego za pomocą prefiks nazwy klucza, który reprezentuje wersji aplikacji, dzięki czemu można załadować inny zbiór wartości wpisu tajnego dla każdej wersji aplikacji.
-
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
-Wyświetlanie lub pobieranie przykładowego kodu dla 1.x:
-
-* [Podstawowy przykład](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples/basic-sample/1.x) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample)) — odczytuje wartościami wpisów tajnych aplikacji.
-* [Przykład prefiks nazwy klucza](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples/key-name-prefix-sample/1.x) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample)) — odczytuje wartości klucza tajnego za pomocą prefiks nazwy klucza, który reprezentuje wersji aplikacji, dzięki czemu można załadować inny zbiór wartości wpisu tajnego dla każdej wersji aplikacji.
-
----
-
 W tym dokumencie wyjaśniono, jak używać [Microsoft Azure Key Vault](https://azure.microsoft.com/services/key-vault/) dostawcę konfiguracji, które można załadować wartości konfiguracji aplikacji z wpisy tajne w usłudze Azure Key Vault. Usługa Azure Key Vault to usługa oparta na chmurze, która pomaga chronić klucze kryptograficzne i wpisy tajne używane przez aplikacje i usługi. Typowe scenariusze obejmują kontrolę dostępu do danych poufnych konfiguracji i weryfikacja spełniające wymagania FIPS 140-2 poziom 2 sprzętowych modułów zabezpieczeń (HSM) w przypadku przechowywania danych konfiguracji. Ta funkcja jest dostępna dla aplikacji przeznaczonych dla platformy ASP.NET Core 1.1 lub nowszej.
+
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="package"></a>Package
 
@@ -52,7 +40,7 @@ Dostawca zostanie dodany do konfiguracji aplikacji z `AddAzureKeyVault` rozszerz
 
 [!code-csharp[Program](key-vault-configuration/samples/basic-sample/2.x/Program.cs?name=snippet1)]
 
-## <a name="creating-key-vault-secrets-and-loading-configuration-values-basic-sample"></a>Tworzenie magazynu kluczy, wpisów tajnych i ładowania wartości konfiguracji (podstawowy przykład)
+## <a name="create-key-vault-secrets-and-load-configuration-values-basic-sample"></a>Tworzenie magazynu kluczy, wpisów tajnych i załadować wartości konfiguracji (podstawowy przykład)
 
 1. Tworzenie magazynu kluczy i konfigurowanie usługi Azure Active Directory (Azure AD) dla aplikacji, postępując zgodnie ze wskazówkami w [Rozpoczynanie pracy z usługą Azure Key Vault](https://azure.microsoft.com/documentation/articles/key-vault-get-started/).
    * Dodawanie kluczy tajnych do magazynu kluczy przy użyciu [modułu programu PowerShell magazynu klucz AzureRM](/powershell/module/azurerm.keyvault) dostępnym [galerii programu PowerShell](https://www.powershellgallery.com/packages/AzureRM.KeyVault), [API REST usługi Azure Key Vault](/rest/api/keyvault/), lub [Witryny azure Portal](https://portal.azure.com/). Klucze tajne są tworzone jako *ręczne* lub *certyfikatu* wpisów tajnych. *Certyfikat* klucze tajne certyfikatów do użytku przez aplikacje i usługi, ale nie są obsługiwane przez dostawcę konfiguracji. Należy używać *ręczne* opcję, aby utworzyć klucze tajne pary nazwa wartość, do użytku z dostawcą konfiguracji.
@@ -75,7 +63,7 @@ Po uruchomieniu aplikacji, strony sieci Web pokazuje załadowany wartości klucz
 
 ![Okno przeglądarki zawierające wartości klucza tajnego załadowany za pośrednictwem dostawcy konfiguracji magazynu kluczy Azure](key-vault-configuration/_static/sample1.png)
 
-## <a name="creating-prefixed-key-vault-secrets-and-loading-configuration-values-key-name-prefix-sample"></a>Tworzenie prefiksem magazynu kluczy, wpisów tajnych i ładowania wartości konfiguracji (klucz name prefiks sample)
+## <a name="create-prefixed-key-vault-secrets-and-load-configuration-values-key-name-prefix-sample"></a>Tworzenie prefiksem magazynu kluczy, wpisów tajnych i załadować wartości konfiguracji (klucz name prefiks sample)
 
 `AddAzureKeyVault` udostępnia również przeciążenie, które akceptuje implementację `IKeyVaultSecretManager`, co pozwala na kontrolowanie sposobu klucza magazynu kluczy tajnych są konwertowane na klucze konfiguracji. Na przykład można zaimplementować interfejs służący do ładowania wartościami wpisów tajnych na podstawie wartości prefiks, który podajesz podczas uruchamiania aplikacji. Dzięki temu można na przykład, aby ładować wpisy tajne w oparciu o wersję aplikacji.
 
@@ -117,7 +105,7 @@ Podczas implementowania tego podejścia:
 
    ![Okno przeglądarki, pokazujący wartość tajna załadowany za pośrednictwem dostawcy konfiguracji magazynu kluczy Azure, gdy wersja aplikacji jest 5.1.0.0](key-vault-configuration/_static/sample2-2.png)
 
-## <a name="controlling-access-to-the-clientsecret"></a>Kontrolowanie dostępu do ClientSecret
+## <a name="control-access-to-the-clientsecret"></a>Kontrola dostępu do ClientSecret
 
 Użyj [narzędzie Menedżer klucz tajny](xref:security/app-secrets) do utrzymania `ClientSecret` spoza projektu drzewie źródłowym. Za pomocą Menedżera klucz tajny kojarzenie kluczy tajnych aplikacji z określonego projektu i udostępniać je w wielu projektach.
 
@@ -141,7 +129,7 @@ config.AddAzureKeyVault(
 store.Close();
 ```
 
-## <a name="reloading-secrets"></a>Ponowne ładowanie wpisów tajnych
+## <a name="reload-secrets"></a>Załaduj ponownie wpisy tajne
 
 Klucze tajne są buforowane do momentu `IConfigurationRoot.Reload()` jest wywoływana. Wygasłe, wyłączona, i zaktualizowanych wpisów tajnych w magazynie kluczy nie są przestrzegane przez aplikację do momentu `Reload` jest wykonywany.
 
@@ -153,7 +141,7 @@ Configuration.Reload();
 
 Wyłączone lub wygasłe klucze tajne throw `KeyVaultClientException`. Aby zapobiec sytuacji, w której aplikacja zostanie zgłoszony, zastąpić aplikację, lub zaktualizuj wyłączone/wygasły klucz tajny.
 
-## <a name="troubleshooting"></a>Rozwiązywanie problemów
+## <a name="troubleshoot"></a>Rozwiązywanie problemów
 
 Gdy aplikacja zakończy się niepowodzeniem, można załadować konfiguracji przy użyciu dostawcy, komunikat o błędzie zostanie zapisany [infrastruktury platformy ASP.NET Core rejestrowania](xref:fundamentals/logging/index). Konfiguracja ładowanie uniemożliwia następujące warunki:
 

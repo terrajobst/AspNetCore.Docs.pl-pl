@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 4/13/2018
 uid: fundamentals/startup
-ms.openlocfilehash: 228719863400f30643cd3007df5291ee807cffba
-ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
+ms.openlocfilehash: 465d33cc1f19428d5189b3a6fa7088ac402a9751
+ms.sourcegitcommit: 25150f4398de83132965a89f12d3a030f6cce48d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41870896"
+ms.lasthandoff: 08/25/2018
+ms.locfileid: "42927974"
 ---
 # <a name="application-startup-in-aspnet-core"></a>Uruchamianie aplikacji w programie ASP.NET Core
 
@@ -115,7 +115,7 @@ Oprogramowanie pośredniczące kolejność wykonywania jest ustawiona według ko
 * Wiele `IStartupFilter` implementacji może współpracować z tych samych obiektów. Jeśli kolejność jest ważna, kolejność ich `IStartupFilter` usługi rejestracji, aby dopasować kolejności ich middlewares powinno być ono uruchomione.
 * Biblioteki mogą dodawać oprogramowanie pośredniczące z co najmniej `IStartupFilter` implementacji, które są uruchamiane przed lub po innym oprogramowaniu pośredniczącym aplikacji zarejestrowane w usłudze `IStartupFilter`. Aby wywołać `IStartupFilter` oprogramowania pośredniczącego przed oprogramowanie pośredniczące dodane przez bibliotekę `IStartupFilter`, umieść rejestracji usługi, zanim biblioteki jest dodawany do kontenera usługi. Po dodaniu biblioteki, aby wywołać później, umieść rejestracji usługi.
 
-## <a name="adding-configuration-at-startup-from-an-external-assembly"></a>Dodawanie konfiguracji podczas uruchamiania z zewnętrznego zestawu
+## <a name="add-configuration-at-startup-from-an-external-assembly"></a>Dodaj konfigurację podczas uruchamiania z zewnętrznego zestawu
 
 [Interfejsu IHostingStartup](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup) implementacji umożliwia dodawanie rozszerzeń do aplikacji przy uruchamianiu z zewnętrznego zestawu poza aplikacji `Startup` klasy. Aby uzyskać więcej informacji, zobacz [zwiększanie możliwości aplikacji z zewnętrznego zestawu](xref:fundamentals/configuration/platform-specific-configuration).
 

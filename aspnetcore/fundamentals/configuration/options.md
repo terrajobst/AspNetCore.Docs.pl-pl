@@ -6,20 +6,20 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/28/2017
 uid: fundamentals/configuration/options
-ms.openlocfilehash: c553062bbec31ba5bd437eb0bd29e007ae93c65e
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: 6258530beedced9570111478fea630b1556e1a1e
+ms.sourcegitcommit: 25150f4398de83132965a89f12d3a030f6cce48d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41756615"
+ms.lasthandoff: 08/25/2018
+ms.locfileid: "42927961"
 ---
 # <a name="options-pattern-in-aspnet-core"></a>Wzorzec opcje w programie ASP.NET Core
 
 Przez [Luke Latham](https://github.com/guardrex)
 
-Wzorzec opcje używa klas do reprezentowania grup powiązane ustawienia. Jeśli ustawienia konfiguracji są izolowane przez funkcję w osobnych klas, aplikacja działa zgodnie z dwóch zasad ważne inżynierii oprogramowania:
+Wzorzec opcje używa klas do reprezentowania grup powiązane ustawienia. Gdy [ustawienia konfiguracji](xref:fundamentals/configuration/index) są izolowane według scenariusza w osobnych klas, aplikacja działa zgodnie z dwóch zasad ważne inżynierii oprogramowania:
 
-* [Zasady podziału interfejsu (ISP)](http://deviq.com/interface-segregation-principle/): funkcji (grupy), które są zależne od ustawień konfiguracji tylko zależą od ustawień konfiguracji, których używają.
+* [Zasady podziału interfejsu (ISP)](http://deviq.com/interface-segregation-principle/): scenariuszy (klasy), które są zależne od ustawień konfiguracji tylko zależą od ustawień konfiguracji, których używają.
 * [Separacji](http://deviq.com/separation-of-concerns/): ustawienia dla poszczególnych części aplikacji nie są zależnych lub powiązanych ze sobą.
 
 [Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/options/sample) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample)) ten artykuł stanowi łatwiejszej do obserwowania z przykładowej aplikacji.
@@ -122,7 +122,7 @@ delegate_option1 = value1_configured_by_delgate, delegate_option2 = 500
 
 Suboptions konfiguracja jest przedstawiona jako przykład &num;3 w [przykładową aplikację](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/options/sample).
 
-Aplikacje powinny zostać utworzone opcje klasy, które odnoszą się do określonych funkcji grupy (klasy) w aplikacji. Części aplikacji, które wymagają wartości konfiguracji powinien mieć tylko dostęp do wartości konfiguracji, których używają.
+Aplikacje powinny zostać utworzone opcje klasy, które odnoszą się do danego scenariusza grupy (klasy) w aplikacji. Części aplikacji, które wymagają wartości konfiguracji powinien mieć tylko dostęp do wartości konfiguracji, których używają.
 
 Podczas tworzenia powiązania opcje konfiguracji, każdej właściwości w typie opcji jest powiązany z kluczem konfiguracji formularza `property[:sub-property:]`. Na przykład `MyOptions.Option1` właściwość jest powiązana z klucza `Option1`, które są odczytywane z `option1` właściwość *appsettings.json*.
 

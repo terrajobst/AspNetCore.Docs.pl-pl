@@ -5,12 +5,12 @@ description: Dowiedz się, jak kontrolować zachowanie aplikacji w wielu środow
 ms.author: riande
 ms.date: 07/03/2018
 uid: fundamentals/environments
-ms.openlocfilehash: eaa6fa44ed90d0c85a11f5e67a4bb9a91e84c196
-ms.sourcegitcommit: c8e62aa766641aa55105f7db79cdf2b27a6e5977
+ms.openlocfilehash: 720e5ef9fb63b83499ce1801a1c3f9df4786d748
+ms.sourcegitcommit: 25150f4398de83132965a89f12d3a030f6cce48d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39254873"
+ms.lasthandoff: 08/25/2018
+ms.locfileid: "42927945"
 ---
 # <a name="use-multiple-environments-in-aspnet-core"></a>Używanie wielu środowisk w programie ASP.NET Core
 
@@ -275,7 +275,11 @@ Dystrybucje systemu Linux, można użyć `export` polecenie w wierszu polecenia 
 
 ### <a name="configuration-by-environment"></a>Konfiguracja według środowiska
 
-Zobacz *konfiguracji przez środowisko* części <xref:fundamentals/configuration/index#configuration-by-environment>.
+Aby załadować konfiguracji przez środowisko, zalecamy:
+
+* *appSettings* pliki (* appsettings.&lt; <Environment> &gt;JSON). Zobacz [konfiguracji: Dostawca konfiguracji pliku](xref:fundamentals/configuration/index#file-configuration-provider).
+* zmienne środowiskowe (ustawiona w każdym systemie którym hostowana jest aplikacja). Zobacz [konfiguracji: Dostawca konfiguracji pliku](xref:fundamentals/configuration/index#file-configuration-provider) i [bezpieczne przechowywanie kluczy tajnych aplikacji w trakcie opracowywania: zmienne środowiskowe](xref:security/app-secrets#environment-variables).
+* Klucz tajny Menedżer (w środowisku programistycznym tylko). Zobacz <xref:security/app-secrets>.
 
 ## <a name="environment-based-startup-class-and-methods"></a>Klasa początkowa oparte na środowisku i metody
 
