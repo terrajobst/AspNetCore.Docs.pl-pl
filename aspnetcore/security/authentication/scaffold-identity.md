@@ -4,14 +4,14 @@ author: rick-anderson
 description: Informacje o sposobie tworzenia szkieletu tożsamości w projektach programu ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
-ms.date: 5/16/2018
+ms.date: 08/16/2018
 uid: security/authentication/scaffold-identity
-ms.openlocfilehash: 07163941d0bd1fea6f9b3d9867536580d8a9e9d8
-ms.sourcegitcommit: e12f45ddcbe99102a74d4077df27d6c0ebba49c1
+ms.openlocfilehash: e35836fa9c20729da7c857243410833749b3a595
+ms.sourcegitcommit: 847cc1de5526ff42a7303491e6336c2dbdb45de4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/15/2018
-ms.locfileid: "39063276"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43055851"
 ---
 # <a name="scaffold-identity-in-aspnet-core-projects"></a>Tworzenie szkieletu tożsamość w projektach programu ASP.NET Core
 
@@ -26,6 +26,9 @@ Mimo, że Generator szkieletu generuje większość niezbędny kod, musisz zaktu
 Po uruchomieniu Generator szkieletu tożsamości *ScaffoldingReadme.txt* plik jest tworzony w katalogu projektu. *ScaffoldingReadme.txt* plik zawiera ogólne wskazówki, co jest potrzebne do ukończenia aktualizacji tworzenia szkieletów tożsamości. Ten dokument zawiera bardziej szczegółowe instrukcje niż *ScaffoldingReadme.txt* pliku.
 
 Firma Microsoft zaleca korzystanie z systemu kontroli źródła, przedstawiono różnice w pliku, która umożliwia tworzenie kopii poza zmiany. Sprawdź, czy zmiany po uruchomieniu Generator szkieletu tożsamości.
+
+> [!NOTE]
+> Wymagane są usługi, korzystając z [uwierzytelnianie dwuskładnikowe](xref:security/authentication/identity-enable-qrcodes), [konta potwierdzenia i hasła odzyskiwania](xref:security/authentication/accconfirm)i inne funkcje zabezpieczeń przy użyciu tożsamości. Usługi lub wycinków usługi nie są generowane podczas tworzenia szkieletów tożsamości. Usługi w celu włączenia tych funkcji, należy dodać ręcznie. Na przykład zobacz [wymagają E-mail z potwierdzeniem](xref:security/authentication/accconfirm#require-email-confirmation).
 
 ## <a name="scaffold-identity-into-an-empty-project"></a>Tworzenie szkieletu identity do pustego projektu
 
@@ -94,7 +97,8 @@ dotnet aspnet-codegenerator identity -dc RPauth.Data.ApplicationDbContext --file
 [!INCLUDE[](~/includes/webapp-alias-notice.md)]
 -->
 
-[!INCLUDE[](~/includes/scaffold-identity/id-scaffold-dlg-auth.md)] Niektóre opcje tożsamości są konfigurowane w *Areas/Identity/IdentityHostingStartup.cs*. Aby uzyskać więcej informacji, zobacz [interfejsu IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration).
+[!INCLUDE[](~/includes/scaffold-identity/id-scaffold-dlg-auth.md)]
+Niektóre opcje tożsamości są konfigurowane w *Areas/Identity/IdentityHostingStartup.cs*. Aby uzyskać więcej informacji, zobacz [interfejsu IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration).
 
 ## <a name="scaffold-identity-into-an-mvc-project-without-existing-authorization"></a>Tożsamość szkieletu do projektu programu MVC, bez autoryzacji istniejącej
 

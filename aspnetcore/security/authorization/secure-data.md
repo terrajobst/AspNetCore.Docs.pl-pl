@@ -1,60 +1,73 @@
 ---
-title: Tworzenie aplikacji platformy ASP.NET Core z danych użytkownika chronione przez autoryzacji
+title: Tworzenie aplikacji platformy ASP.NET Core przy użyciu danych użytkownika chronionych przez autoryzację
 author: rick-anderson
-description: Dowiedz się, jak utworzyć aplikację Razor strony z danymi użytkownika chronione przez autoryzacji. Obejmuje HTTPS, uwierzytelnianie, zabezpieczeń, ASP.NET Core Identity.
+description: Dowiedz się, jak utworzyć aplikację stron Razor przy użyciu danych użytkownika chronionych przez autoryzację. Obejmuje protokołu HTTPS, uwierzytelniania, zabezpieczeń i tożsamości platformy ASP.NET Core.
 ms.author: riande
-ms.date: 01/24/2018
+ms.date: 7/24/2018
 uid: security/authorization/secure-data
-ms.openlocfilehash: 32ced054ba559e66de4a300137d56b7c81a4149b
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: ba59e8d6243965188397c4ba7a130eec42acfb91
+ms.sourcegitcommit: 847cc1de5526ff42a7303491e6336c2dbdb45de4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36276383"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43055883"
 ---
-# <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Tworzenie aplikacji platformy ASP.NET Core z danych użytkownika chronione przez autoryzacji
+::: moniker range="<= aspnetcore-1.1"
+
+Zobacz [ta](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/asp.net_repo_pdf_1-16-18.pdf) dla wersji platformy ASP.NET Core MVC. Wersja platformy ASP.NET Core 1.1 po ukończeniu tego samouczka jest [to](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data) folderu. 1.1, na przykład platforma ASP.NET Core jest w [przykłady](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/final2).
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
+Zobacz temat [tego pdf] ()https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/asp.net_repo_pdf_July16_18.pdf)
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
+
+# <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Tworzenie aplikacji platformy ASP.NET Core przy użyciu danych użytkownika chronionych przez autoryzację
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT) i [Audette Jan](https://twitter.com/joeaudette)
 
-W tym samouczku przedstawiono sposób tworzenia aplikacji sieci web platformy ASP.NET Core z danymi użytkownika chronione przez autoryzacji. Wyświetla listę kontaktów, które uwierzytelnionych użytkowników (zarejestrowanym) został utworzony. Istnieją trzy grupy zabezpieczeń:
+W tym samouczku pokazano, jak utworzyć aplikację sieci web platformy ASP.NET Core przy użyciu danych użytkownika chronionych przez autoryzację. Wyświetla listę kontaktów, uwierzytelnionych użytkowników (zarejestrowane), które zostały utworzone. Istnieją trzy grupy zabezpieczeń:
 
-* **Użytkownicy zarejestrowanych** może wyświetlać wszystkie zatwierdzone dane i może edytowanie/usuwanie własnych danych.
-* **Menedżerowie** można zatwierdzić lub odrzucić dane kontaktowe. Tylko zatwierdzone kontakty są widoczne dla użytkowników.
-* **Administratorzy** można zatwierdzić Odrzuć i edytowanie/usuwanie żadnych danych.
+* **Liczba zarejestrowanych użytkowników** może wyświetlać wszystkie zatwierdzone dane i może edytować/usuwać swoje dane.
+* **Menedżerowie** można zatwierdzić lub odrzucić dane kontaktowe. Tylko zatwierdzone kontakty będą widoczne dla użytkowników.
+* **Administratorzy** można zatwierdzić/Odrzuć i edytowanie/usuwanie żadnych danych.
 
-Na poniższej ilustracji użytkownik Rick (`rick@example.com`) jest zalogowany. Rick mogą jedynie wyświetlać zatwierdzonych kontaktów i **Edytuj**/**usunąć**/**Utwórz nowy** łącza do swoich kontaktów. Tylko ostatni rekord powstały Rick, wyświetla **Edytuj** i **usunąć** łącza. Inni użytkownicy zobaczą ostatniego rekordu do momentu menedżerowi lub administratorowi zmienia stan na "Zatwierdzone".
+Na poniższej ilustracji użytkownik Rick (`rick@example.com`) jest zalogowany. Rick mogą jedynie wyświetlać kontakty zatwierdzone i **Edytuj**/**Usuń**/**Utwórz nowy** linki do swoich kontaktów. Tylko ostatni rekord, utworzone przez Rick, wyświetla **Edytuj** i **Usuń** łącza. Inni użytkownicy nie zobaczą ostatni rekord, aż Menedżer lub administrator zmienia stan na "Zatwierdzone".
 
-![Obraz opisane poprzedzających](secure-data/_static/rick.png)
+![Obraz opisanych w poprzednich](secure-data/_static/rick.png)
 
-Na poniższej ilustracji `manager@contoso.com` jest zarejestrowany i rolę menedżerów:
+Na poniższej ilustracji `manager@contoso.com` jest zarejestrowany i w roli menedżerów:
 
-![Obraz opisane poprzedzających](secure-data/_static/manager1.png)
+![Obraz opisanych w poprzednich](secure-data/_static/manager1.png)
 
-Na poniższej ilustracji przedstawiono menedżerów widoku Szczegóły kontaktu:
+Na poniższej ilustracji przedstawiono menedżerów widoku szczegółów kontaktu:
 
-![Obraz opisane poprzedzających](secure-data/_static/manager.png)
+![Obraz opisanych w poprzednich](secure-data/_static/manager.png)
 
 **Zatwierdź** i **Odrzuć** przyciski są wyświetlane tylko dla menedżerów i administratorów.
 
 Na poniższej ilustracji `admin@contoso.com` jest zarejestrowany i w roli administratora:
 
-![Obraz opisane poprzedzających](secure-data/_static/admin.png)
+![Obraz opisanych w poprzednich](secure-data/_static/admin.png)
 
-Administrator ma wszystkie uprawnienia. Użytkownik może odczytu/edytowanie/usuwanie żadnych skontaktuj się z i Zmień stan kontaktów.
+Administrator ma wszystkie uprawnienia. Ona można odczytu/edytowanie/usuwanie dowolnego skontaktuj się z pomocą i zmienić stan kontaktów.
 
-Aplikacja została utworzona przez [szkieletów](xref:tutorials/first-mvc-app-xplat/adding-model#scaffold-the-moviecontroller) następujące `Contact` modelu:
+Aplikacja została utworzona przez [tworzenia szkieletów](xref:tutorials/first-mvc-app-xplat/adding-model#scaffold-the-moviecontroller) następujące `Contact` modelu:
 
-[!code-csharp[](secure-data/samples/starter2/Models/Contact.cs?name=snippet1)]
+[!code-csharp[](secure-data/samples/starter2.1/Models/Contact.cs?name=snippet)]
 
-Próbka zawiera poniższe obsługi autoryzacji:
+Przykład zawiera poniższe obsługi autoryzacji:
 
-* `ContactIsOwnerAuthorizationHandler`: Zapewnia, że użytkownika można edytować tylko ich danych.
-* `ContactManagerAuthorizationHandler`: Umożliwia menedżerów zatwierdzić lub odrzucić kontaktów.
-* `ContactAdministratorsAuthorizationHandler`: Pozwala administratorom, aby zatwierdzić lub odrzucić kontaktów i edytowanie/usuwanie kontaktów.
+* `ContactIsOwnerAuthorizationHandler`: Zapewnia, że użytkownika można edytować tylko swoje dane.
+* `ContactManagerAuthorizationHandler`: Umożliwia menedżerom zatwierdzić lub odrzucić kontaktów.
+* `ContactAdministratorsAuthorizationHandler`: Umożliwia administratorom, aby zatwierdzić lub odrzucić kontakty i edytowanie/usuwanie kontaktów.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-W tym samouczku jest zaawansowane. Należy zapoznać się z:
+W tym samouczku jest zaawansowany. Należy zapoznać się z:
 
 * [ASP.NET Core](xref:tutorials/first-mvc-app/start-mvc)
 * [Uwierzytelnianie](xref:security/authentication/index)
@@ -62,274 +75,241 @@ W tym samouczku jest zaawansowane. Należy zapoznać się z:
 * [Autoryzacja](xref:security/authorization/index)
 * [Entity Framework Core](xref:data/ef-mvc/intro)
 
-Zobacz [plik PDF](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/asp.net_repo_pdf_1-16-18.pdf) dla wersji platformy ASP.NET Core MVC. Wersja platformy ASP.NET Core 1.1 tego samouczka jest [to](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data) folderu. 1.1, na przykład ASP.NET Core jest w [przykłady](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/final2).
+Kod pobierania, jak w przypadku tego samouczka wymaga platformy ASP.NET Core 2.2 w wersji zapoznawczej 1 lub nowszym. Zobacz [problem w usłudze GitHub](https://github.com/aspnet/Identity/issues/1813#issuecomment-394543909) dla obejścia.
 
 ## <a name="the-starter-and-completed-app"></a>Starter i ukończonej aplikacji
 
-[Pobierz](xref:tutorials/index#how-to-download-a-sample) [ukończone](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/final2) aplikacji. [Test](#test-the-completed-app) ukończonej aplikacji, należy zapoznać się z jego funkcje zabezpieczeń.
+[Pobierz](xref:tutorials/index#how-to-download-a-sample) [ukończone](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/final2) aplikacji. [Test](#test-the-completed-app) ukończonej aplikacji, dzięki czemu można zapoznać się z jej funkcjami zabezpieczeń.
 
-### <a name="the-starter-app"></a>Początkową aplikację
+### <a name="the-starter-app"></a>Aplikację startową
 
 [Pobierz](xref:tutorials/index#how-to-download-a-sample) [starter](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter2) aplikacji.
 
-Uruchom aplikację, wybierz **ContactManager** link i sprawdź, tworzenie, edytowanie i usuwanie kontaktu.
+Uruchom aplikację, naciśnij przycisk **ContactManager** link i sprawdź, tworzenie, edytowanie i usuwanie kontaktu.
 
 ## <a name="secure-user-data"></a>Zabezpieczanie danych użytkownika
 
-Następujące sekcje zostały wszystkie główne kroki umożliwiające utworzenie aplikacji danych bezpiecznego użytkownika. Może być przydatne do odwoływania się do projektu zakończone.
+Poniższe sekcje mają główne kroki umożliwiające utworzenie aplikacji danych bezpiecznego użytkownika. Może okazać się przydatne do odwoływania się do projektu ukończona.
 
-### <a name="tie-the-contact-data-to-the-user"></a>Powiązanie dane kontaktowe dla użytkownika
+### <a name="tie-the-contact-data-to-the-user"></a>Powiąż dane kontaktowe dla użytkownika
 
-Za pomocą programu ASP.NET [tożsamości](xref:security/authentication/identity) identyfikator użytkownika, aby zapewnić użytkownikom można edytować swoje dane, ale nie do innych danych użytkowników. Dodaj `OwnerID` i `ContactStatus` do `Contact` modelu:
+Za pomocą programu ASP.NET [tożsamości](xref:security/authentication/identity) identyfikator użytkownika w celu zapewnienia, że użytkownicy mogą edytować swoje dane, ale nie dane innych użytkowników. Dodaj `OwnerID` i `ContactStatus` do `Contact` modelu:
 
-[!code-csharp[](secure-data/samples/final2/Models/Contact.cs?name=snippet1&highlight=5-6,16-999)]
+[!code-csharp[](secure-data/samples/final2.1/Models/Contact.cs?name=snippet1&highlight=5-6,16-999)]
 
-`OwnerID` Identyfikator użytkownika z `AspNetUser` tabeli w [tożsamości](xref:security/authentication/identity) bazy danych. `Status` Pole określa, czy kontakt jest widoczny dla zwykłych użytkowników.
+`OwnerID` Identyfikator użytkownika z `AspNetUser` tabelę [tożsamości](xref:security/authentication/identity) bazy danych. `Status` Pola określa, czy kontakt jest widoczny dla zwykłych użytkowników.
 
-Tworzenie nowych migracji i aktualizacji bazy danych:
+Tworzenie nowej migracji i aktualizowanie bazy danych:
 
 ```console
 dotnet ef migrations add userID_Status
 dotnet ef database update
 ```
 
-### <a name="require-https-and-authenticated-users"></a>Wymagaj protokołu HTTPS i uwierzytelnionych użytkowników
+### <a name="add-role-services-to-identity"></a>Dodaj usługi ról do tożsamości
 
-Dodaj [IHostingEnvironment](/dotnet/api/microsoft.aspnetcore.hosting.ihostingenvironment) do `Startup`:
+Dołącz [opcji Dodawanie ról](/dotnet/api/microsoft.aspnetcore.identity.identitybuilder.addroles#Microsoft_AspNetCore_Identity_IdentityBuilder_AddRoles__1) można dodać usługi ról:
 
-[!code-csharp[](secure-data/samples/final2/Startup.cs?name=snippet_env)]
-
-W `ConfigureServices` metody *Startup.cs* plików, dodawanie [RequireHttpsAttribute](/dotnet/api/microsoft.aspnetcore.mvc.requirehttpsattribute) filtr autoryzacji:
-
-[!code-csharp[](secure-data/samples/final2/Startup.cs?name=snippet_SSL&highlight=10-999)]
-
-Jeśli używasz programu Visual Studio, należy włączyć protokół HTTPS.
-
-Przekierowywanie żądań HTTP, HTTPS, zobacz [ponowne zapisywanie adresów URL w oprogramowaniu pośredniczącym](xref:fundamentals/url-rewriting). Za pomocą programu Visual Studio Code lub testowania na platformie lokalnego, który nie zawiera certyfikatu testowego dla protokołu HTTPS:
-
-  Ustaw `"LocalTest:skipHTTPS": true` w *appsettings. Developement.JSON* pliku.
+[!code-csharp[](secure-data/samples/final2.1/Startup.cs?name=snippet2&highlight=12)]
 
 ### <a name="require-authenticated-users"></a>Wymaga uwierzytelnionych użytkowników
 
-Ustaw domyślne zasady uwierzytelniania, aby wymagać od użytkowników uwierzytelniania. Można zrezygnować z uwierzytelniania na poziomie metody Razor strony, kontrolera lub akcji z `[AllowAnonymous]` atrybutu. Ustawienie domyślne zasady uwierzytelniania, aby wymagać od użytkowników uwierzytelniania chroni nowo dodanego stron Razor i kontrolerów. Posiadanie uwierzytelniania domyślnie wymagane jest bezpieczniejszy niż polegania na nowe kontrolery i stron Razor do uwzględnienia `[Authorize]` atrybutu. 
+Ustaw domyślne zasady uwierzytelniania, aby wymagać od użytkowników uwierzytelniania:
 
-Z wymaganiami wszyscy użytkownicy uwierzytelnieni [AuthorizeFolder](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.authorizefolder?view=aspnetcore-2.0#Microsoft_Extensions_DependencyInjection_PageConventionCollectionExtensions_AuthorizeFolder_Microsoft_AspNetCore_Mvc_ApplicationModels_PageConventionCollection_System_String_System_String_) i [AuthorizePage](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.authorizepage?view=aspnetcore-2.0) wywołania nie są wymagane.
+[!code-csharp[](secure-data/samples/final2.1/Startup.cs?name=snippet&highlight=17-99)] 
 
-Aktualizacja `ConfigureServices` z następującymi zmianami:
+ Użytkownik może zrezygnować z uwierzytelniania na poziomie metody strony Razor, kontrolera lub akcji z `[AllowAnonymous]` atrybutu. Ustawienie domyślne zasady uwierzytelniania, aby wymagać od użytkowników uwierzytelniania chroni nowo dodanych stronami Razor i kontrolerów. Posiadanie uwierzytelniania domyślnie wymagane jest bezpieczniejszy niż opierając się na nowych kontrolerów i stron Razor do uwzględnienia `[Authorize]` atrybutu.
 
-* Komentarz `AuthorizeFolder` i `AuthorizePage`.
-* Ustaw domyślne zasady uwierzytelniania, aby wymagać od użytkowników uwierzytelniania.
+Dodaj [AllowAnonymous](/dotnet/api/microsoft.aspnetcore.authorization.allowanonymousattribute) do indeksu o i skontaktuj się z pomocą stron, użytkowników anonimowych można uzyskać informacji o lokacji, przed ich zarejestrowania.
 
-[!code-csharp[](secure-data/samples/final2/Startup.cs?name=snippet_defaultPolicy&highlight=23-27,31-999)]
-
-Dodaj [AllowAnonymous](/dotnet/api/microsoft.aspnetcore.authorization.allowanonymousattribute) do indeksu strony o i skontaktuj się z pomocą tak anonimowych użytkowników można uzyskać informacji o lokacji, przed ich zarejestrować. 
-
-[!code-csharp[](secure-data/samples/final2/Pages/Index.cshtml.cs?name=snippet&highlight=2)]
-
-Dodaj `[AllowAnonymous]` do [LoginModel i RegisterModel](https://github.com/aspnet/templating/issues/238).
+[!code-csharp[](secure-data/samples/final2.1/Pages/Index.cshtml.cs?highlight=1,6)]
 
 ### <a name="configure-the-test-account"></a>Skonfiguruj konto testu
 
-`SeedData` Klasy tworzy dwa konta: administrator i Menedżer. Użyj [narzędzie Menedżer klucz tajny](xref:security/app-secrets) ustawienie hasła dla tych kont. Ustawianie hasła z katalogu projektu (katalog zawierający *Program.cs*):
+`SeedData` Klasy tworzy dwa konta: administrator i Menedżer. Użyj [narzędzie Menedżer klucz tajny](xref:security/app-secrets) ustawić hasło dla tych kont. Ustaw hasło z katalogu projektu (katalogu zawierającego *Program.cs*):
 
 ```console
 dotnet user-secrets set SeedUserPW <PW>
 ```
 
-Jeśli użytkownik nie należy używać silnych haseł, jest zwracany wyjątek, kiedy `SeedData.Initialize` jest wywoływana.
+Jeśli nie określono silne hasło, wyjątek jest generowany, gdy `SeedData.Initialize` jest wywoływana.
 
 Aktualizacja `Main` hasła testu:
 
-[!code-csharp[](secure-data/samples/final2/Program.cs?name=snippet)]
+[!code-csharp[](secure-data/samples/final2.1/Program.cs?name=snippet)]
 
 ### <a name="create-the-test-accounts-and-update-the-contacts"></a>Tworzenie konta testowe i aktualizowanie kontaktów
 
-Aktualizacja `Initialize` metoda `SeedData` klasy w celu utworzenia konta testowego:
+Aktualizacja `Initialize` method in Class metoda `SeedData` klasy w celu utworzenia konta testowe:
 
-[!code-csharp[](secure-data/samples/final2/Data/SeedData.cs?name=snippet_Initialize)]
+[!code-csharp[](secure-data/samples/final2.1/Data/SeedData.cs?name=snippet_Initialize)]
 
-Dodaj identyfikator użytkownika administratora i `ContactStatus` do kontaktów. Utworzyć kontaktów "Przesłane" i jednym "odrzucone". Dodawanie stanu i Identyfikatora użytkownika do wszystkich kontaktów. Wyświetlane jest tylko jeden kontakt:
+Dodaj identyfikator użytkownika administratora i `ContactStatus` do kontaktów. Określ jeden z kontaktów "Przesłane" i jednym "odrzucone". Dodawanie stanu i Identyfikatora użytkownika do wszystkich kontaktów. Wyświetlane jest tylko jeden kontakt:
 
-[!code-csharp[](secure-data/samples/final2/Data/SeedData.cs?name=snippet1&highlight=17,18)]
+[!code-csharp[](secure-data/samples/final2.1/Data/SeedData.cs?name=snippet1&highlight=17,18)]
 
 ## <a name="create-owner-manager-and-administrator-authorization-handlers"></a>Utwórz właściciela, Menedżer i obsługi autoryzacji administratora
 
-Utwórz `ContactIsOwnerAuthorizationHandler` klasy w *autoryzacji* folderu. `ContactIsOwnerAuthorizationHandler` Sprawdza, czy użytkownik, działając w zasobie jest właścicielem zasobu.
+Tworzenie `ContactIsOwnerAuthorizationHandler` klasy w *autoryzacji* folderu. `ContactIsOwnerAuthorizationHandler` Sprawdza, czy użytkownik, działając w zasobie jest właścicielem zasobu.
 
-[!code-csharp[](secure-data/samples/final2/Authorization/ContactIsOwnerAuthorizationHandler.cs)]
+[!code-csharp[](secure-data/samples/final2.1/Authorization/ContactIsOwnerAuthorizationHandler.cs)]
 
-`ContactIsOwnerAuthorizationHandler` Wywołania [kontekstu. Pomyślnie](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandlercontext.succeed#Microsoft_AspNetCore_Authorization_AuthorizationHandlerContext_Succeed_Microsoft_AspNetCore_Authorization_IAuthorizationRequirement_) bieżący uwierzytelniony użytkownik jest właścicielem kontaktu. Programy obsługi autoryzacji zazwyczaj:
+`ContactIsOwnerAuthorizationHandler` Wywołania [kontekstu. Powodzenie](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandlercontext.succeed#Microsoft_AspNetCore_Authorization_AuthorizationHandlerContext_Succeed_Microsoft_AspNetCore_Authorization_IAuthorizationRequirement_) aktualnego użytkownika uwierzytelnionego jest skontaktuj się z właścicielem. Programy obsługi autoryzacji zazwyczaj:
 
-* Zwraca `context.Succeed` gdy są spełnione wymagania.
-* Zwraca `Task.CompletedTask` gdy nie są spełnione wymagania. `Task.CompletedTask` jest ani powodzenie lub niepowodzenie&mdash;umożliwia innych programów obsługi autoryzacji do uruchomienia.
+* Zwróć `context.Succeed` gdy spełniono wymagania.
+* Zwróć `Task.CompletedTask` gdy nie są spełnione wymagania. `Task.CompletedTask` to nie sukces lub niepowodzenie&mdash;umożliwia innych programów obsługi autoryzacji uruchomić.
 
-Jeśli musisz jawnie zakończyć się niepowodzeniem, zwróć [kontekstu. Niepowodzenie](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandlercontext.fail).
+Jeśli potrzebujesz jawnie nie powiedzie się, zwraca [kontekstu. Niepowodzenie](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandlercontext.fail).
 
-Aplikacja umożliwia kontaktu właścicieli edytowanie/usuwanie/utworzyć własne dane. `ContactIsOwnerAuthorizationHandler` nie trzeba sprawdzić działanie przekazany parametr wymaganie.
+Aplikacja umożliwia skontaktuj się z pomocą właścicieli do edycji/delete/tworzenie własnych danych. `ContactIsOwnerAuthorizationHandler` nie muszą sprawdzać operacji przekazane w parametrze wymagań.
 
-### <a name="create-a-manager-authorization-handler"></a>Tworzenie obsługi programu Menedżer autoryzacji
+### <a name="create-a-manager-authorization-handler"></a>Utwórz procedurę obsługi Menedżer autoryzacji
 
-Utwórz `ContactManagerAuthorizationHandler` klasy w *autoryzacji* folderu. `ContactManagerAuthorizationHandler` Weryfikuje użytkownika, działając w zasobie menedżera. Tylko menedżerowie można zatwierdzić lub odrzucić zmiany zawartości (nowe lub zmienione).
+Tworzenie `ContactManagerAuthorizationHandler` klasy w *autoryzacji* folderu. `ContactManagerAuthorizationHandler` Weryfikuje użytkownika, działając w zasobie menedżera. Tylko menedżerowie mogli zatwierdzać lub odrzucać zmiany zawartości (nowe lub zmienione).
 
-[!code-csharp[](secure-data/samples/final2/Authorization/ContactManagerAuthorizationHandler.cs)]
+[!code-csharp[](secure-data/samples/final2.1/Authorization/ContactManagerAuthorizationHandler.cs)]
 
-### <a name="create-an-administrator-authorization-handler"></a>Utwórz program obsługi autoryzacji administratora
+### <a name="create-an-administrator-authorization-handler"></a>Utwórz procedurę obsługi autoryzacji administratora
 
-Utwórz `ContactAdministratorsAuthorizationHandler` klasy w *autoryzacji* folderu. `ContactAdministratorsAuthorizationHandler` Sprawdza, czy użytkownik na zasób jest administratorem. Administrator może wykonać wszystkie operacje.
+Tworzenie `ContactAdministratorsAuthorizationHandler` klasy w *autoryzacji* folderu. `ContactAdministratorsAuthorizationHandler` Weryfikuje użytkownika na zasób jest administratorem. Administrator może wykonać wszystkie operacje.
 
-[!code-csharp[](secure-data/samples/final2/Authorization/ContactAdministratorsAuthorizationHandler.cs)]
+[!code-csharp[](secure-data/samples/final2.1/Authorization/ContactAdministratorsAuthorizationHandler.cs)]
 
-## <a name="register-the-authorization-handlers"></a>Rejestrowanie procedur obsługi autoryzacji
+## <a name="register-the-authorization-handlers"></a>Zarejestruj procedury obsługi autoryzacji
 
-Musi być zarejestrowany przy użyciu programu Entity Framework Core Services [iniekcji zależności](xref:fundamentals/dependency-injection) przy użyciu [AddScoped](/dotnet/api/microsoft.extensions.dependencyinjection.servicecollectionserviceextensions). `ContactIsOwnerAuthorizationHandler` Korzysta z platformy ASP.NET Core [tożsamości](xref:security/authentication/identity), który jest wbudowany w program Entity Framework Core. Zarejestrować obsługi z kolekcją usługi, dzięki czemu są dostępne do `ContactsController` za pośrednictwem [iniekcji zależności](xref:fundamentals/dependency-injection). Dodaj następujący kod na końcu `ConfigureServices`:
+Usługi za pomocą platformy Entity Framework Core musi być zarejestrowana do [wstrzykiwanie zależności](xref:fundamentals/dependency-injection) przy użyciu [AddScoped](/dotnet/api/microsoft.extensions.dependencyinjection.servicecollectionserviceextensions). `ContactIsOwnerAuthorizationHandler` Korzysta z platformy ASP.NET Core [tożsamości](xref:security/authentication/identity), która jest oparta na platformy Entity Framework Core. Zarejestruj procedury obsługi za pomocą kolekcji usługi, dzięki czemu są one dostępne do `ContactsController` za pośrednictwem [wstrzykiwanie zależności](xref:fundamentals/dependency-injection). Dodaj następujący kod na końcu `ConfigureServices`:
 
-[!code-csharp[](secure-data/samples/final2/Startup.cs?name=ConfigureServices&highlight=41-999)]
+[!code-csharp[](secure-data/samples/final2.1/Startup.cs?name=snippet_defaultPolicy&highlight=27-99)]
 
-`ContactAdministratorsAuthorizationHandler` i `ContactManagerAuthorizationHandler` są dodawane jako pojedynczych wystąpień. Są one pojedynczych wystąpień, ponieważ nie używają EF i wszystkich informacji potrzebnych `Context` parametr `HandleRequirementAsync` metody.
+`ContactAdministratorsAuthorizationHandler` i `ContactManagerAuthorizationHandler` są dodawane jako pojedynczych wystąpień. Są one pojedynczych wystąpień, ponieważ nie używają programu EF, a wszystkie informacje wymagane w `Context` parametru `HandleRequirementAsync` metody.
 
-## <a name="support-authorization"></a>Obsługuje autoryzacji
+## <a name="support-authorization"></a>Obsługuje autoryzację
 
-W tej sekcji zaktualizuj stron Razor i Dodaj klasę wymagań operacji.
+W tej sekcji służy do aktualizacji stron Razor i Dodaj klasę wymagania dotyczące operacji.
 
-### <a name="review-the-contact-operations-requirements-class"></a>Przegląd klasy wymagań operacji kontaktów
+### <a name="review-the-contact-operations-requirements-class"></a>Przegląd klasy wymagania dotyczące operacji kontaktu
 
-Przegląd `ContactOperations` klasy. Ta klasa zawiera wymagania obsługuje aplikacja:
+Przegląd `ContactOperations` klasy. Ta klasa zawiera wymagania obsługiwanej przez aplikację:
 
-[!code-csharp[](secure-data/samples/final2/Authorization/ContactOperations.cs)]
+[!code-csharp[](secure-data/samples/final2.1/Authorization/ContactOperations.cs)]
 
-### <a name="create-a-base-class-for-the-razor-pages"></a>Utwórz klasę podstawową dla stron Razor
+### <a name="create-a-base-class-for-the-contacts-razor-pages"></a>Utwórz klasę bazową dla stron Razor kontaktów
 
-Tworzenie klasy podstawowej, który zawiera usługi używane w kontaktach stron Razor. Klasa podstawowa umieszcza kod inicjowania w jednej lokalizacji:
+Utwórz klasę bazową, zawierający usług wykorzystanych w kontaktach stron Razor. Klasa bazowa umieszcza kod inicjowania w jednej lokalizacji:
 
-[!code-csharp[](secure-data/samples/final2/Pages/Contacts/DI_BasePageModel.cs)]
+[!code-csharp[](secure-data/samples/final2.1/Pages/Contacts/DI_BasePageModel.cs)]
 
-Poprzedni kod:
+Powyższy kod:
 
-* Dodaje `IAuthorizationService` usługi z dostępem do obsługi autoryzacji.
-* Dodaje tożsamość `UserManager` usługi.
+* Dodaje `IAuthorizationService` usługi w celu uzyskania dostępu do obsługi autoryzacji.
+* Dodaje tożsamości `UserManager` usługi.
 * Dodaj `ApplicationDbContext`.
 
 ### <a name="update-the-createmodel"></a>Aktualizacja CreateModel
 
-Zaktualizuj Tworzenie strony modelu konstruktora do użycia `DI_BasePageModel` klasy podstawowej:
+Aktualizuj Konstruktor Tworzenie strony modelu do użycia `DI_BasePageModel` klasa bazowa:
 
-[!code-csharp[](secure-data/samples/final2/Pages/Contacts/Create.cshtml.cs?name=snippetCtor)]
+[!code-csharp[](secure-data/samples/final2.1/Pages/Contacts/Create.cshtml.cs?name=snippetCtor)]
 
-Aktualizacja `CreateModel.OnPostAsync` metodę:
+Aktualizacja `CreateModel.OnPostAsync` metody:
 
-* Identyfikator użytkownika, aby dodać `Contact` modelu.
-* Wywołuje program obsługi autoryzacji, aby sprawdzić, czy użytkownik ma uprawnienia do tworzenia kontaktów.
+* Dodaj identyfikator użytkownika, który `Contact` modelu.
+* Wywołania obsługi autoryzacji, aby sprawdzić, czy użytkownik ma uprawnienia do tworzenia kontaktów.
 
-[!code-csharp[](secure-data/samples/final2/Pages/Contacts/Create.cshtml.cs?name=snippet_Create)]
+[!code-csharp[](secure-data/samples/final2.1/Pages/Contacts/Create.cshtml.cs?name=snippet_Create)]
 
 ### <a name="update-the-indexmodel"></a>Aktualizacja IndexModel
 
-Aktualizacja `OnGetAsync` dlatego kontakty tylko zatwierdzone są wyświetlane użytkownikom ogólne:
+Aktualizacja `OnGetAsync` metody, więc tylko zatwierdzonego kontakty są wyświetlane użytkownikom ogólne:
 
-[!code-csharp[](secure-data/samples/final2/Pages/Contacts/Index.cshtml.cs?name=snippet)]
+[!code-csharp[](secure-data/samples/final2.1/Pages/Contacts/Index.cshtml.cs?name=snippet)]
 
 ### <a name="update-the-editmodel"></a>Aktualizacja EditModel
 
-Dodaj program obsługi autoryzacji, aby sprawdzić, czy użytkownik jest właścicielem kontaktu. Ponieważ jest sprawdzana autoryzacji zasobów `[Authorize]` atrybut nie jest wystarczająca. Aplikacja nie ma dostępu do zasobu, gdy atrybuty są oceniane. Musi być bezwzględnie autoryzacji na podstawie zasobów. Kontroli należy wykonać, gdy aplikacja ma dostęp do zasobów przez załadowanie go w modelu strony lub przez załadowanie go w obrębie samego program obsługi. Zasób jest często używany przez przekazywanie klucz zasobu.
+Dodaj program obsługi autoryzacji, aby sprawdzić, czy użytkownik jest właścicielem kontaktu. Ponieważ autoryzacji zasobów jest weryfikowany, `[Authorize]` atrybut nie jest wystarczająca. Aplikacja nie ma dostępu do zasobu, gdy atrybuty są oceniane. Autoryzacja na podstawie zasobów musi być imperatywnego. Testy muszą być wykonywane, gdy aplikacja ma dostęp do zasobu przez załadowanie go w modelu strony lub przez załadowanie go w ramach programu obsługi, sam. Często dostęp do zasobu, przekazując klucz zasobu.
 
-[!code-csharp[](secure-data/samples/final2/Pages/Contacts/Edit.cshtml.cs?name=snippet)]
+[!code-csharp[](secure-data/samples/final2.1/Pages/Contacts/Edit.cshtml.cs?name=snippet)]
 
 ### <a name="update-the-deletemodel"></a>Aktualizacja DeleteModel
 
-Aktualizacja modelu strony Usuń na potrzeby obsługi autoryzacji Sprawdź, czy użytkownik ma uprawnienia do usuwania na kontakt.
+Aktualizowanie modelu strony delete na potrzeby obsługi autoryzacji upewnij się, że użytkownik ma odpowiednie uprawnienia do usuwania dla kontaktu.
 
-[!code-csharp[](secure-data/samples/final2/Pages/Contacts/Delete.cshtml.cs?name=snippet)]
+[!code-csharp[](secure-data/samples/final2.1/Pages/Contacts/Delete.cshtml.cs?name=snippet)]
 
-## <a name="inject-the-authorization-service-into-the-views"></a>Wstaw usługi autoryzacji do widoków
+## <a name="inject-the-authorization-service-into-the-views"></a>Wstrzyknięcie usługi autoryzacji do widoków
 
-Obecnie pokazuje interfejsu użytkownika edytowania i usuwania łącza do danych użytkownika nie można zmodyfikować. Interfejs użytkownika jest rozwiązany przez zastosowanie obsługi autoryzacji do widoków.
+Obecnie pokazuje interfejsu użytkownika edytowania i usuwania łącza kontaktów, do których użytkownik nie może modyfikować.
 
-Wstaw usługi autoryzacji w *Views/_ViewImports.cshtml* pliku, jest dostępny dla wszystkich widoków:
+Wstrzykiwanie usługi autoryzacji w *Views/_ViewImports.cshtml* pliku, dzięki czemu są one dostępne dla wszystkich widoków:
 
-[!code-cshtml[](secure-data/samples/final2/Pages/_ViewImports.cshtml?highlight=6-9)]
+[!code-cshtml[](secure-data/samples/final2.1/Pages/_ViewImports.cshtml?highlight=6-99)]
 
-Poprzedni kod znaczników dodaje kilka `using` instrukcje.
+Poprzedni kod znaczników umożliwia dodanie kilku `using` instrukcji.
 
-Aktualizacja **Edytuj** i **usunąć** łączy w *Pages/Contacts/Index.cshtml* , są one tylko renderowania dla użytkowników z odpowiednimi uprawnieniami:
+Aktualizacja **Edytuj** i **Usuń** linki w *Pages/Contacts/Index.cshtml* więc tylko są one renderowane dla użytkowników z odpowiednimi uprawnieniami:
 
-[!code-cshtml[](secure-data/samples/final2/Pages/Contacts/Index.cshtml?highlight=34-36,64-999)]
+[!code-cshtml[](secure-data/samples/final2.1/Pages/Contacts/Index.cshtml?highlight=34-36,62-999)]
 
 > [!WARNING]
-> Ukrywanie łącza od użytkowników, które nie mają uprawnień do zmiany danych nie zabezpieczenia aplikacji. Ukrywanie łączy powoduje, że bardziej przyjazny dla użytkownika aplikacji przez wyświetlanie łączy jedyne prawidłowe. Użytkownicy mogą hack wygenerowanego adresy URL do wywołania edytowania i usuwania operacji na danych, które nie są właścicielami. Razor strony lub kontrolera muszą wymuszać kontroli dostępu do zabezpieczania danych.
+> Ukrywanie łączy na podstawie użytkowników, którzy nie mają uprawnień do zmiany danych nie zabezpieczenia aplikacji. Ukrywanie łącza sprawia, że bardziej przyjazny dla użytkownika aplikacji, wyświetlając tylko poprawne linki. Użytkownicy mogą hack wygenerowanego adresy URL, aby wywołać Edytuj i Usuń operacje na danych, które nie są właścicielami. Strona Razor lub kontrolera musi wymuszają operacje sprawdzania dostępu do zabezpieczania danych.
 
 ### <a name="update-details"></a>Szczegóły aktualizacji
 
-Aktualizacja w widoku szczegółów, menedżerów można zatwierdzić lub odrzucić kontaktów:
+Zaktualizuj widok szczegółów, aby menedżerowie mogli zatwierdzać lub odrzucać kontaktów:
 
-[!code-cshtml[](secure-data/samples/final2/Pages/Contacts/Details.cshtml?range=48-999)]
+[!code-cshtml[](secure-data/samples/final2.1/Pages/Contacts/Details.cshtml?name=snippet)]
 
-Aktualizacja modelu strony szczegółów:
+Aktualizowanie modelu strony szczegółów:
 
-[!code-csharp[](secure-data/samples/final2/Pages/Contacts/Details.cshtml.cs?name=snippet)]
+[!code-csharp[](secure-data/samples/final2.1/Pages/Contacts/Details.cshtml.cs?name=snippet)]
 
-## <a name="test-the-completed-app"></a>Testowanie ukończonej aplikacji
-
-Za pomocą programu Visual Studio Code lub testowania na platformie lokalnego, który nie zawiera certyfikatu testowego dla protokołu HTTPS:
-
-* Ustaw `"LocalTest:skipHTTPS": true` w *appsettings. Developement.JSON* plik, aby pominąć wymaganie protokołu HTTPS. Pomiń HTTPS tylko na komputerze deweloperskim.
+## <a name="test-the-completed-app"></a>Testowanie aplikacji ukończone
 
 Jeśli aplikacja ma kontaktów:
 
 * Usuń wszystkie rekordy w `Contact` tabeli.
 * Ponowne uruchomienie aplikacji w celu umieszczenia bazy danych.
 
-Zarejestruj użytkownika dla przeglądania kontaktów.
+Zarejestruj użytkownika do przeglądania kontaktów.
 
-Łatwe testowanie ukończonej aplikacji jest uruchamianie trzech różnych przeglądarkach (lub incognito/sesję InPrivate wersji). W przeglądarce jednego zarejestrować nowego użytkownika (na przykład `test@example.com`). Zaloguj się do każdej przeglądarki z innym użytkownikiem. Sprawdź następujące operacje:
+Łatwe testowanie ukończonej aplikacji jest do uruchomienia w trzech różnych przeglądarek (lub incognito/InPrivate wersje). W jednej przeglądarki zarejestrować nowego użytkownika (na przykład `test@example.com`). Zaloguj się w każdej przeglądarce z innym użytkownikiem. Sprawdź następujące operacje:
 
-* Zarejestrowani użytkownicy mogą wyświetlać wszystkie zatwierdzone dane kontaktu.
-* Zarejestrowani użytkownicy mogą edytowanie/usuwanie własnych danych.
-* Menedżerowie można zatwierdzić lub odrzucić dane kontaktowe. `Details` Wyświetlić pokazuje **Zatwierdź** i **Odrzuć** przycisków.
-* Administratorzy mogą zatwierdzać Odrzuć i edytowanie/usuwanie żadnych danych.
+* Zarejestrowani użytkownicy można wyświetlić wszystkie zatwierdzone dane kontaktowe.
+* Zarejestrowani użytkownicy może edytować/usuwać swoje dane.
+* Menedżerowie mogli zatwierdzać lub odrzucać dane kontaktowe. `Details` Wyświetlić pokazuje **Zatwierdź** i **Odrzuć** przycisków.
+* Administratorzy mogą zatwierdzać/Odrzuć i edytowanie/usuwanie żadnych danych.
 
 | Użytkownik| Opcje |
 | ------------ | ---------|
-| test@example.com | Można edytowanie/usuwanie własnych danych |
-| manager@contoso.com | Można zatwierdzić Odrzuć i edytowanie i usuwanie własnych danych |
-| admin@contoso.com | Edytowanie i usuwanie można i Zatwierdź/Odrzuć wszystkie dane|
+| test@example.com | Może edytować/usuwać własnych danych |
+| manager@contoso.com | Można zatwierdzić/Odrzuć i edytowanie/usuwanie własnych danych |
+| admin@contoso.com | Edytowanie/usuwanie można i Zatwierdź/Odrzuć wszystkie dane|
 
-Utworzenie kontaktu w przeglądarce administratora. Skopiuj adres URL do usunięcia i Edytuj z skontaktowanie się z administratorem. Wklej te linki do przeglądarki użytkownika testowego, aby sprawdzić, czy użytkownik testu nie może wykonywać te operacje.
+Utwórz kontakt w przeglądarce administratora. Skopiuj adres URL do usunięcia, a następnie Edytuj z skontaktowanie się z administratorem. Wklej te linki do przeglądarki użytkownika testowego, aby sprawdzić, czy użytkownik testu nie może wykonywać te operacje.
 
-## <a name="create-the-starter-app"></a>Utworzyć początkową aplikację
+## <a name="create-the-starter-app"></a>Utwórz aplikację startową
 
 * Tworzenie stron Razor aplikacji o nazwie "ContactManager"
-
-  * Tworzenie aplikacji z **indywidualne konta użytkowników**.
-  * Nadaj mu nazwę "ContactManager", przestrzeń nazw odpowiada przestrzeni nazw używany w próbce.
-
-::: moniker range=">= aspnetcore-2.1"
+   * Tworzenie aplikacji za pomocą **indywidualne konta użytkowników**.
+   * Nadaj mu nazwę "ContactManager", przestrzeń nazw używaną w próbce pasujących przestrzeni nazw.
+   * `-uld` Określa LocalDB zamiast bazy danych SQLite
 
   ```console
   dotnet new webapp -o ContactManager -au Individual -uld
   ```
 
-  [!INCLUDE[](~/includes/webapp-alias-notice.md)]
+* Dodaj *Models\Contact.cs*:
 
-::: moniker-end
+  [!code-csharp[](secure-data/samples/starter2.1/Models/Contact.cs?name=snippet1)]
 
-::: moniker range="= aspnetcore-2.0"
-
-  ```console
-  dotnet new razor -o ContactManager -au Individual -uld
-  ```
-
-::: moniker-end
-
-  * `-uld` Określa LocalDB zamiast SQLite
-
-* Dodaj następujące `Contact` modelu:
-
-  [!code-csharp[](secure-data/samples/starter2/Models/Contact.cs?name=snippet1)]
-
-* Szkieletu `Contact` modelu:
+* Tworzenie szkieletu `Contact` modelu.
+* Tworzenie początkowej migracji i aktualizowanie bazy danych:
 
 ```console
 dotnet aspnet-codegenerator razorpage -m Contact -udl -dc ApplicationDbContext -outDir Pages\Contacts --referenceScriptLibraries
+dotnet ef database drop -f
+dotnet ef migrations add initial
+dotnet ef database update
 ```
 
 * Aktualizacja **ContactManager** zakotwiczenia w *Pages/_Layout.cshtml* pliku:
@@ -338,29 +318,24 @@ dotnet aspnet-codegenerator razorpage -m Contact -udl -dc ApplicationDbContext -
 <a asp-page="/Contacts/Index" class="navbar-brand">ContactManager</a>
 ```
 
-* Tworzenie szkieletu początkowej migracji i aktualizacji bazy danych:
+* Przetestuj aplikację, tworzenia, edytowania i usuwania kontaktu
 
-```console
-dotnet ef migrations add initial
-dotnet ef database update
-```
+### <a name="seed-the-database"></a>Inicjowanie bazy danych
 
-* Testowanie aplikacji przez tworzenie, edytowanie i usuwanie kontaktu
+Dodaj [SeedData](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter2.1/Data/SeedData.cs) klasy *danych* folderu.
 
-### <a name="seed-the-database"></a>Inicjatora bazy danych
+Wywołaj `SeedData.Initialize` z `Main`:
 
-Dodaj `SeedData` klasy do *danych* folderu. Jeśli pobrano próbki, możesz skopiować *SeedData.cs* pliku *danych* folderu projektu początkowego.
+[!code-csharp[](secure-data/samples/starter2.1/Program.cs?name=snippet)]
 
-Wywołanie `SeedData.Initialize` z `Main`:
-
-[!code-csharp[](secure-data/samples/starter2/Program.cs?name=snippet)]
-
-Testowanie, czy aplikacja rozpoczęta bazy danych. Jeśli istnieją wszystkie wiersze w kontakcie DB, seed — metoda nie działa.
+Sprawdź, czy aplikacja zasilany bazy danych. W przypadku wszystkich wierszy w skontaktuj się z bazy danych, metoda inicjatora nie zostanie uruchomiony.
 
 <a name="secure-data-add-resources-label"></a>
 
 ### <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Laboratorium autoryzacji platformy ASP.NET Core](https://github.com/blowdart/AspNetAuthorizationWorkshop). W tym laboratorium przechodzi w stan więcej szczegółów na temat funkcji zabezpieczeń wprowadzone w tym samouczku.
-* [Autoryzacja w ASP.NET Core: prosty, rolę, opartej na oświadczeniach, a niestandardowe](xref:security/authorization/index)
-* [Niestandardowe autoryzacji opartych na zasadach](xref:security/authorization/policies)
+* [Laboratorium autoryzacji platformy ASP.NET Core](https://github.com/blowdart/AspNetAuthorizationWorkshop). W tym laboratorium zawiera bardziej szczegółowe na temat funkcji zabezpieczeń wprowadzone w ramach tego samouczka.
+* [Autoryzacja w programie ASP.NET Core: prosty, rola, opartej na oświadczeniach i niestandardowe](xref:security/authorization/index)
+* [Autoryzacja niestandardowa oparta na zasadach](xref:security/authorization/policies)
+
+::: moniker-end

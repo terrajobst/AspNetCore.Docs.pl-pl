@@ -8,12 +8,12 @@ ms.date: 02/21/2014
 ms.assetid: 5fa1daf9-1161-4cfa-bd4c-658f48b2c229
 msc.legacyurl: /web-forms/what-is-web-forms
 msc.type: content
-ms.openlocfilehash: ccb0e6096b0281e5ef8af63bfd84b172e7f209b9
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: e135cfa2945b9e7e5269eb436ff0c1dff20aacdf
+ms.sourcegitcommit: 847cc1de5526ff42a7303491e6336c2dbdb45de4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41754235"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43055715"
 ---
 <a name="what-is-web-forms"></a>Co to jest formularzy sieci Web
 ====================
@@ -21,7 +21,7 @@ ASP.NET Web Forms jest częścią struktury aplikacji sieci web programu ASP.NET
 
 Formularze sieci Web są stron żądających użytkowników za pomocą przeglądarki. Te strony mogą być napisane przy użyciu kombinacji HTML, skrypt klienta, formanty serwera i kod serwera. Użytkownicy żądania strony, jest skompilowany i wykonany na serwerze przez platformę, a następnie generuje kod znaczników HTML, przeglądarka umożliwiający renderowanie w ramach. Na stronie ASP.NET Web Forms przedstawia informacje użytkownika w dowolnej przeglądarce lub urządzenie klienckie.
 
-W programie Visual Studio można utworzyć formularzy sieci Web ASP.NET. Visual Studio rozwoju środowiska IDE (Integrated) umożliwia przeciąganie i upuszczanie formantów serwera do tworzenia układu strony formularzy sieci Web. Następnie można łatwo ustawić właściwości, metody i zdarzenia dla formantów na stronie lub dane strony. Te właściwości, metody i zdarzenia są używane do definiowania zachowania strony sieci web, wygląd i działanie i tak dalej. Aby napisać kod serwera do obsługi logiki dla strony, można użyć języka .NET, takich jak Visual Basic lub C#.
+W programie Visual Studio można utworzyć formularzy sieci Web ASP.NET. Visual Studio rozwoju środowiska IDE (Integrated) umożliwia przeciąganie i upuszczanie formantów serwera do tworzenia układu strony formularzy sieci Web. Następnie można łatwo ustawić właściwości, metody i zdarzenia dla formantów na stronie lub samej strony. Te właściwości, metody i zdarzenia są używane do definiowania zachowania strony sieci web, wygląd i działanie i tak dalej. Aby napisać kod serwera do obsługi logiki dla strony, można użyć języka .NET, takich jak Visual Basic lub C#.
 
 > [!NOTE] 
 > 
