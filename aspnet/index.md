@@ -2,14 +2,15 @@
 uid: index
 layout: HubPage
 ms.topic: hub-page
+ms.author: riande
 title: Dokumentacja platformy ASP.NET | Microsoft Docs
-description: ''
-ms.openlocfilehash: cc887183fba9d3c46fbb1068d13d612a3e1806e6
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+description: Dowiedz się, jak tworzyć standardowe i internetowe aplikacje ASP.NET. Pobierz dokumentację, przykładowy kod, samouczki i inne materiały.
+ms.openlocfilehash: 9b63e7a708e1b0551e1f48cea2080528d29bdfa9
+ms.sourcegitcommit: 25150f4398de83132965a89f12d3a030f6cce48d
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30873633"
+ms.lasthandoff: 08/25/2018
+ms.locfileid: "42927926"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -144,7 +145,7 @@ ms.locfileid: "30873633"
                             <li class="fullSpan">
                                 <div class="container footer">
                                     <p><a href="https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md">Współtwórz dokumentację i przykłady dotyczące platformy ASP.NET Core</a></p>
-                                    <p><a href="https://docs.microsoft.com/dotnet/articles/project-json">Znajdź wersję programu Visual Studio 2015/pliku project.json dokumentacji</a></p>
+                                    <p><a href="https://docs.microsoft.com/dotnet/articles/project-json">Znajdź wersję dokumentacji Visual Studio 2015/project.json</a></p>
                                 </div>
                             </li>
                         </ul>
