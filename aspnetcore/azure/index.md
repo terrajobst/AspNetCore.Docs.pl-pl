@@ -5,14 +5,14 @@ description: Kolekcja wskazówki dotyczące optymalnego wykorzystania możliwoś
 ms.author: casoper
 ms.date: 08/07/2018
 layout: LandingPage
-ms.topic: landing-page
+ms.topic: conceptual
 uid: azure/index
-ms.openlocfilehash: f0a01afb176b155c4eb4ca9a66f56f92b5f802c5
-ms.sourcegitcommit: 6d02e26748a09eabeb0e11740a398cc2bc90b098
+ms.openlocfilehash: 1bae7bee01f5125dffb3391f590219b6195f968a
+ms.sourcegitcommit: 847cc1de5526ff42a7303491e6336c2dbdb45de4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41756338"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43055796"
 ---
 # <a name="azure-guidance"></a>Wskazówki dotyczące platformy Azure
 
