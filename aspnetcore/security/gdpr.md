@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/29/2018
 uid: security/gdpr
-ms.openlocfilehash: 10384d2abad7692d45f2be19f3ba7f8f8e8c3e17
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 0d6f02389fe4292bd0f7cf9a2a58c53449e1810a
+ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37832033"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43312087"
 ---
 # <a name="eu-general-data-protection-regulation-gdpr-support-in-aspnet-core"></a>Obsługa Unii Europejskiej ogólnego danych (GDPR Protection Regulation) w programie ASP.NET Core
 
@@ -117,4 +117,4 @@ W przypadku baz danych, które nie udostępniają wbudowane szyfrowanie danych m
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Microsoft.com/GDPR](https://www.microsoft.com/en-us/trustcenter/Privacy/GDPR)
+* [Microsoft.com/GDPR](https://www.microsoft.com/trustcenter/Privacy/GDPR)

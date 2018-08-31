@@ -1,28 +1,28 @@
 ---
-title: Dodaj nowe pole do aplikacji platformy ASP.NET Core MVC
+title: Dodawanie nowego pola do aplikacji ASP.NET Core MVC
 author: rick-anderson
-description: Dowiedz się, jak używać migracje Code First Framework jednostki Dodaj nowe pole do modelu i przeprowadzić migrację tej zmiany do bazy danych.
+description: Dowiedz się, jak użyć migracje Code First Framework jednostki Dodawanie nowego pola do modelu, i przeprowadzić migrację tej zmiany do bazy danych.
 ms.author: riande
-ms.date: 10/14/2016
+ms.date: 10/06/2017
 uid: tutorials/first-mvc-app/new-field
-ms.openlocfilehash: eb98ebcde1086ad605127dddc055a18d4874c722
-ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
+ms.openlocfilehash: 74f7a98143c80504d534c5ee4fd06b3dd076a2f2
+ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36961038"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43312234"
 ---
-# <a name="add-a-new-field-to-an-aspnet-core-mvc-app"></a>Dodaj nowe pole do aplikacji platformy ASP.NET Core MVC
+# <a name="add-a-new-field-to-an-aspnet-core-mvc-app"></a>Dodawanie nowego pola do aplikacji ASP.NET Core MVC
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-W tej sekcji użyjesz [Entity Framework](https://docs.microsoft.com/ef/core/get-started/aspnetcore/new-db) migracje Code First, aby dodać nowe pole do modelu i migracji, które zmiany w bazie danych.
+W tej sekcji użyjesz [Entity Framework](https://docs.microsoft.com/ef/core/get-started/aspnetcore/new-db) migracje Code First dodaje nowe pole do modelu i migracji, które zmiany w bazie danych.
 
-Gdy używasz EF Code First automatycznie utworzyć bazę danych, Code First dodaje tabeli do bazy danych, aby sprawdzić, czy schemat bazy danych jest zsynchronizowana z klasy modelu, który został wygenerowany. Jeśli nie są zsynchronizowane, EF zgłasza wyjątek. Dzięki temu można łatwiej znaleźć problemy niespójne bazy danych/kod.
+Korzystając z programów EF Code First automatycznie utworzyć bazę danych, rozwiązanie Code First dodaje tabelę do bazy danych, aby śledzić, czy schemat bazy danych jest zsynchronizowany z klasy modelu, który został wygenerowany z. Jeśli nie są zsynchronizowane, EF zgłasza wyjątek. Ułatwia to znajdowanie problemów z niespójne bazy danych/kodu.
 
-## <a name="adding-a-rating-property-to-the-movie-model"></a>Dodawanie właściwości klasyfikacji do modelu film
+## <a name="adding-a-rating-property-to-the-movie-model"></a>Dodawanie właściwości klasyfikacji do modelu Movie
 
-Otwórz *Models/Movie.cs* plik i dodać `Rating` właściwości:
+Otwórz *Models/Movie.cs* pliku i Dodaj `Rating` właściwości:
 
 ::: moniker range=">= aspnetcore-2.1"
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie21/Models/MovieDateRating.cs?highlight=13&name=snippet)]
@@ -31,62 +31,62 @@ Otwórz *Models/Movie.cs* plik i dodać `Rating` właściwości:
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieDateRating.cs?highlight=11&range=7-18)]
 ::: moniker-end
 
-Tworzenie aplikacji (Ctrl + Shift + B).
+Utwórz aplikację (Ctrl + Shift + B).
 
-Ponieważ zostały dodane nowe pole do `Movie` klasy, należy również zaktualizować powiązania białą listę dzięki tej nowej właściwości zostaną uwzględnione. W *MoviesController.cs*, zaktualizuj `[Bind]` atrybutu dla obu `Create` i `Edit` metod akcji, aby uwzględnić `Rating` właściwości:
+Ponieważ zostały dodane nowe pole do `Movie` klasy, należy również zaktualizować powiązania białą listę dzięki tej nowej właściwości zostaną dołączone. W *MoviesController.cs*, zaktualizuj `[Bind]` atrybutu dla obu `Create` i `Edit` metody akcji, aby uwzględnić `Rating` właściwości:
 
 ```csharp
 [Bind("ID,Title,ReleaseDate,Genre,Price,Rating")]
    ```
 
-Należy również zaktualizować szablony widok, aby wyświetlić, tworzyć i edytować nowe `Rating` właściwości w widoku przeglądarki.
+Należy również zaktualizować Przeglądanie szablonów, aby można było wyświetlić, tworzyć i edytować nowe `Rating` właściwości w widoku przeglądarki.
 
-Edytuj */Views/Movies/Index.cshtml* plik i dodać `Rating` pola:
+Edytuj */Views/Movies/Index.cshtml* pliku i Dodaj `Rating` pola:
 
 [!code-HTML[](start-mvc/sample/MvcMovie/Views/Movies/IndexGenreRating.cshtml?highlight=17,39&range=24-64)]
 
-Aktualizacja */Views/Movies/Create.cshtml* z `Rating` pola. Można kopiowania/wklejania poprzednią "formularza grupę" i umożliwić pomoc intelliSense, zaktualizuj pola. IntelliSense współpracuje z [pomocników tagów](xref:mvc/views/tag-helpers/intro). Uwaga: W wersji RTM programu Visual Studio 2017 należy zainstalować [usługi języka Razor](https://marketplace.visualstudio.com/items?itemName=ms-madsk.RazorLanguageServices) dla Razor intelliSense. Ten problem zostanie rozwiązany w następnej wersji.
+Aktualizacja */Views/Movies/Create.cshtml* z `Rating` pola. Można kopiowanie/wklejanie poprzedniego formularza grupy"" i umożliwić pomoc intelliSense, zaktualizuj pola. Technologia IntelliSense działa z [pomocników tagów](xref:mvc/views/tag-helpers/intro). Uwaga: W wersji RTM programu Visual Studio 2017 musisz zainstalować [usługi języka Razor](https://marketplace.visualstudio.com/items?itemName=ms-madsk.RazorLanguageServices) Razor funkcji IntelliSense. Ten problem zostanie rozwiązany w następnej wersji.
 
-![Deweloper wpisał litera R dla wartości atrybutu asp — dla w drugi element label w widoku. Menu kontekstowe Intellisense okazało pokazujący dostępne pola, w tym ocenę, która jest automatycznie wyróżnione na liście. Gdy dewelopera kliknie pole lub naciśnie klawisz Enter na klawiaturze, wartość będzie równa klasyfikacji.](new-field/_static/cr.png)
+![Deweloper wpisał literę R wartość atrybutu asp — dla w elemencie drugiego etykiety widoku. Menu kontekstowe Intellisense okazało, wyświetlanie dostępnych pól, w tym klasyfikacji, który jest automatycznie wyróżniona na liście. Gdy deweloper kliknie pole lub naciśnie klawisz Enter na klawiaturze, wartość zostanie ustawiona na ocenę.](new-field/_static/cr.png)
 
-Aplikacja nie będzie działać, dopóki nie możemy zaktualizować bazę danych, aby uwzględnić nowe pole. Jeżeli możesz uruchomić go teraz, uzyskasz następujące `SqlException`:
+Aplikacja nie będzie działać, dopóki nie możemy zaktualizować bazy danych, aby uwzględnić nowe pole. Jeśli uruchamiasz go teraz, uzyskasz następujące `SqlException`:
 
 `SqlException: Invalid column name 'Rating'.`
 
-Ten błąd jest wyświetlane, ponieważ zaktualizowane klasy modelu film jest inny niż schemat tabeli filmu istniejącej bazy danych. (Brak żadnej klasyfikacji kolumny w tabeli bazy danych.)
+Widzisz ten błąd, ponieważ zaktualizowane klasy modelu Movie różni się od schematu tabeli filmu istniejącej bazy danych. (Brak jest żadnej kolumny ocenę w tabeli bazy danych).
 
 Istnieje kilka sposobów rozwiązania problemu:
 
-1. Ma automatycznie porzucenia i ponownego utworzenia bazy danych na podstawie nowego schematu klasy modelu Entity Framework. Ta metoda jest bardzo wygodny wczesnym etapie cyklu programowanie podczas wprowadzania active Programowanie w testowej bazy danych; pozwala na szybkie razem rozwijać schematu modelu i bazy danych. Wadą interfejsu, jest jednak, że utracić istniejące dane w bazie danych, więc nie chcesz użyć tej metody w produkcyjnej bazie danych! Automatycznie inicjatora bazy danych z danych testowych za pomocą inicjatora jest często produktywności możliwości opracowywania aplikacji.
+1. Ma automatycznie Porzuć i ponownie utworzyć bazę danych na podstawie nowego schematu klasy modelu Entity Framework. To podejście jest bardzo wygodne na wczesnym etapie cyklu tworzenia oprogramowania, gdy robią active rozwoju w bazie danych testu; Umożliwia szybkie razem rozwijania schematu za jego modelu i bazie danych. Wadą jednak jest utraty istniejących danych w bazie danych — dzięki czemu nie chcesz używać tej metody w produkcyjnej bazie danych! Automatycznie zapełnić bazę danych przy użyciu danych testowych za pomocą inicjatora jest często produktywny sposób tworzenia aplikacji.
 
-2. Jawnie modyfikować schemat z istniejącej bazy danych, tak aby był zgodny z klasy modelu. Zaletą tej metody jest, aby zachować dane. Można to zrobić to ręcznie lub przez tworzenie bazy danych należy zmienić skryptu.
+2. Jawnie zmodyfikować schemat istniejącej bazy danych, aby odpowiadały one klasy modelu. Zaletą tego podejścia jest, aby zachować dane. Można to zrobić to ręcznie lub przez tworzenie bazy danych zmiana skryptu.
 
-3. Użyj migracje Code First, aby zaktualizować schemat bazy danych.
+3. Aby zaktualizować schemat bazy danych, należy użyć migracje Code First.
 
 W tym samouczku użyjemy migracje Code First.
 
-Aktualizacja `SeedData` klasy, dzięki czemu zapewnia wartość dla nowej kolumny. Poniżej przedstawiono przykładowe zmiany, ale należy to zrobić dla każdego `new Movie`.
+Aktualizacja `SeedData` klasy tak, aby go oferuje wartości dla nowej kolumny. Poniżej przedstawiono przykładowe zmiany, ale należy to zrobić dla każdego `new Movie`.
 
 [!code-csharp[](start-mvc/sample/MvcMovie/Models/SeedDataRating.cs?name=snippet1&highlight=6)]
 
 Skompiluj rozwiązanie.
 
-Z **narzędzia** menu, wybierz opcję **Menedżera pakietów NuGet > konsoli Menedżera pakietów**.
+Z **narzędzia** menu, wybierz opcję **Menedżera pakietów NuGet > Konsola Menedżera pakietów**.
 
-  ![PMC menu](adding-model/_static/pmc.png)
+  ![Menu konsoli zarządzania Pakietami](adding-model/_static/pmc.png)
 
-W kryterium wprowadź następujące polecenia:
+W konsoli zarządzania Pakietami wprowadź następujące polecenia:
 
 ```powershell
 Add-Migration Rating
 Update-Database
 ```
 
-`Add-Migration` Polecenie informuje framework migracji, aby sprawdzić bieżące `Movie` modelu z bieżącym `Movie` schemat bazy danych i utworzyć niezbędne kod, aby przeprowadzić migrację bazy danych do nowego modelu. Nazwa "Klasyfikacja" jest dowolnego i jest używany do nazywania plików migracji. Warto użyć opisową nazwę pliku migracji.
+`Add-Migration` Polecenie informuje platformę migracji, aby sprawdzić bieżące `Movie` modelu z bieżącymi `Movie` schematu bazy danych i utworzyć niezbędny kod, aby przeprowadzić migrację bazy danych do nowego modelu. Nazwa "Ocena" dowolnej i jest używany do nazywania plików migracji. Warto użyć znaczącą nazwę pliku migracji.
 
-Po usunięciu wszystkich rekordów w bazie danych będzie inicjatora bazy danych i obejmują `Rating` pola. Można to zrobić z łączami Usuń w przeglądarce lub SSOX.
+Jeśli usuniesz wszystkie rekordy w bazie danych, inicjowania będzie obsługiwał bazy danych i obejmują `Rating` pola. Można to zrobić, wraz z łączami delete w przeglądarce lub SSOX.
 
-Uruchom aplikację i sprawdzić, można utworzyć/edycji/wyświetlania filmów `Rating` pola. Należy również dodać `Rating` do `Edit`, `Details`, i `Delete` wyświetlania szablonów.
+Uruchom aplikację i sprawdź, można tworzenia/edycji/wyświetlania filmów z `Rating` pola. Należy również dodać `Rating` pole `Edit`, `Details`, i `Delete` wyświetlać szablony.
 
 > [!div class="step-by-step"]
 > [Poprzednie](search.md)

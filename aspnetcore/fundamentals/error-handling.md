@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 07/05/2018
 uid: fundamentals/error-handling
-ms.openlocfilehash: ff04ebeb6a682ec924afe896fd6716010a63f7cd
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: 7ea944bc423001aa47ce684443b96104cf9174bf
+ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41753641"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43312250"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>Obsługa błędów w programie ASP.NET Core
 
@@ -25,7 +25,7 @@ W tym artykule opisano typowe metody obsługi błędów w aplikacji platformy AS
 
 ::: moniker range=">= aspnetcore-2.1"
 
-Aby skonfigurować aplikację tak, aby wyświetlić stronę, która zawiera szczegółowe informacje o wyjątkach, należy użyć *stronie wyjątków deweloperów*. Strona udostępnione przez [Microsoft.AspNetCore.Diagnostics](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics/) pakiet, który jest dostępny w [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app). Dodaj wiersz w celu `Startup.Configure` metody:
+Aby skonfigurować aplikację tak, aby wyświetlić stronę, która zawiera szczegółowe informacje o wyjątkach, należy użyć *stronie wyjątków deweloperów*. Strona jest udostępniana przez [Microsoft.AspNetCore.Diagnostics](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics/) pakiet, który jest dostępny w [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app). Dodaj wiersz w celu `Startup.Configure` metody:
 
 ::: moniker-end
 
@@ -45,10 +45,10 @@ Aby skonfigurować aplikację tak, aby wyświetlić stronę, która zawiera szcz
 
 Umieść wywołanie [UseDeveloperExceptionPage](/dotnet/api/microsoft.aspnetcore.builder.developerexceptionpageextensions.usedeveloperexceptionpage) przed dowolnego oprogramowania pośredniczącego, którym chcesz przechwytywać wyjątków, takie jak `app.UseMvc`.
 
->[!WARNING]
+> [!WARNING]
 > Włącz na stronie wyjątków dla deweloperów **tylko wtedy, gdy aplikacja jest uruchomiona w środowisku programistycznym**. Nie chcesz publicznie udostępnić szczegółowe informacje o wyjątku, gdy aplikacja jest uruchamiana w środowisku produkcyjnym. [Dowiedz się więcej na temat konfigurowania środowisk](xref:fundamentals/environments).
 
-Aby wyświetlić stronę wyjątek dla deweloperów, uruchom przykładową aplikację w środowisku równa `Development`i Dodaj `?throw=true` do podstawowego adresu URL aplikacji. Strona zawiera kilka kart zawierających informacje o wyjątku i żądanie. Na pierwszej karcie znajdują się ślad stosu:
+Aby wyświetlić stronę wyjątek dla deweloperów, uruchom przykładową aplikację w środowisku równa `Development` i Dodaj `?throw=true` do podstawowego adresu URL aplikacji. Strona zawiera kilka kart zawierających informacje o wyjątku i żądanie. Na pierwszej karcie znajdują się ślad stosu:
 
 ![Ślad stosu](error-handling/_static/developer-exception-page.png)
 
@@ -60,7 +60,7 @@ Jeśli żądanie ma pliki cookie, są wyświetlane na **plików cookie** kartę.
 
 ![Nagłówki](error-handling/_static/developer-exception-page-headers.png)
 
-## <a name="configuring-a-custom-exception-handling-page"></a>Konfigurowanie niestandardowych wyjątków, Obsługa strony
+## <a name="configure-a-custom-exception-handling-page"></a>Konfigurowanie niestandardowych wyjątków, Obsługa strony
 
 Strona obsługi wyjątków do użycia, gdy aplikacja nie jest uruchomiona konfiguracji `Development` środowiska:
 
@@ -81,13 +81,35 @@ public IActionResult Error()
 }
 ```
 
-## <a name="configuring-status-code-pages"></a>Konfigurowanie stanu strony kodowe
+## <a name="configure-status-code-pages"></a>Konfigurowanie stanu strony kodowe
 
-Domyślnie aplikacji nie zapewnia stronę kodową sformatowanego stanu dla kodów stanu HTTP, takich jak *404 Nie znaleziono*. Aby zapewnić stan stron kodowych, należy skonfigurować oprogramowanie pośredniczące strony kod stanu przez dodanie wiersza do `Startup.Configure` metody:
+Domyślnie aplikacji nie zapewnia stronę kodową sformatowanego stanu dla kodów stanu HTTP, takich jak *404 Nie znaleziono*. Aby zapewnić stan stron kodowych, użyj oprogramowanie pośredniczące strony kodu stanu.
+
+::: moniker range=">= aspnetcore-2.1"
+
+Oprogramowanie pośredniczące jest udostępniana przez [Microsoft.AspNetCore.Diagnostics](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics/) pakiet, który jest dostępny w [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app).
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
+Oprogramowanie pośredniczące jest udostępniana przez [Microsoft.AspNetCore.Diagnostics](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics/) pakiet, który jest dostępny w [pakiet meta Microsoft.aspnetcore.all](xref:fundamentals/metapackage).
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+Oprogramowanie pośredniczące jest udostępniana przez dodanie odwołania do pakietu dla [Microsoft.AspNetCore.Diagnostics](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics/) pakietu w pliku projektu.
+
+::: moniker-end
+
+Dodaj wiersz w celu `Startup.Configure` metody:
 
 ```csharp
 app.UseStatusCodePages();
 ```
+
+<xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePages*> powinna być wywoływana przed żądaniem obsługi middlewares w potoku (na przykład statyczne pliki oprogramowania pośredniczącego i oprogramowanie pośredniczące MVC).
 
 Domyślnie oprogramowanie pośredniczące strony kod stanu dodaje tekstowy programy obsługi dla typowych kodów stanu, takie jak 404:
 

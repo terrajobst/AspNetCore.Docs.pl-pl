@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 08/20/2018
 uid: client-side/libman/libman-vs
-ms.openlocfilehash: b44769f1d0925f38523d6570858de17f37e32c2b
-ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
+ms.openlocfilehash: a653b1a5c07feca8672ba38e0cda3ddc30482c5a
+ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41910024"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43312182"
 ---
 # <a name="use-libman-with-aspnet-core-in-visual-studio"></a>LibMan za pomocą platformy ASP.NET Core w programie Visual Studio
 
@@ -100,7 +100,7 @@ Za pomocą następującego pliku manifestu, LibMan pobiera pliki na konfiguracj�
 
 * Podzbiór [jQuery](https://jquery.com/) w wersji 3.3.1 jest pobierana z CDNJS dostawcy. Podzbiór jest zdefiniowany w `files` właściwość&mdash;*jquery.min.js*, *jquery.js*, i *jquery.min.map*. Pliki są umieszczane w projekcie *wwwroot/lib/jquery* folderu.
 * Całość [Bootstrap](https://getbootstrap.com/) wersji 4.1.3 jest pobierana i umieszczana w *wwwroot/lib/bootstrap* folderu. Literał obiektu `provider` zastąpienia właściwości `defaultProvider` wartości właściwości. LibMan pobiera ładowania plików od dostawcy unpkg.
-* Podzbiór [Lodash](https://lodash.com/) została zatwierdzona przez jednostkę zarządzającej w organizacji. *Lodash.js* i *lodash.min.js* pliki są pobierane z lokalnego systemu plików w *C:\\tmp\\*. Pliki są kopiowane w projekcie *wwwroot/lib/lodash* folderu.
+* Podzbiór [Lodash](https://lodash.com/) została zatwierdzona przez jednostkę zarządzającej w organizacji. *Lodash.js* i *lodash.min.js* pliki są pobierane z lokalnego systemu plików w *C:\\temp\\lodash\\*. Pliki są kopiowane w projekcie *wwwroot/lib/lodash* folderu.
 
 [!code-json[](samples/LibManSample/libman.json)]
 
@@ -193,7 +193,7 @@ Clean libraries operation completed
 2 libraries were successfully deleted in 1.91 secs
 ```
 
-Operacji czyszczenia usuwa tylko pliki z projektu. Pliki biblioteki pozostać w pamięci podręcznej szybsze pobieranie na operacje przywracania w przyszłości. Aby zarządzać plikami biblioteki przechowywanych w pamięci podręcznej na komputerze lokalnym, użyj LibMan interfejsu wiersza polecenia.
+Operacji czyszczenia usuwa tylko pliki z projektu. Pliki biblioteki pozostać w pamięci podręcznej szybsze pobieranie na operacje przywracania w przyszłości. Aby zarządzać plikami biblioteki przechowywanych w pamięci podręcznej na komputerze lokalnym, użyj [LibMan interfejsu wiersza polecenia](xref:client-side/libman/libman-cli).
 
 ## <a name="uninstall-library-files"></a>Odinstaluj pliki biblioteki
 
@@ -231,4 +231,5 @@ Zmiany na starszą starszej wersji biblioteki, należy ręcznie zmodyfikować *l
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
+* <xref:client-side/libman/libman-cli>
 * [Repozytorium LibMan GitHub](https://github.com/aspnet/LibraryManager)

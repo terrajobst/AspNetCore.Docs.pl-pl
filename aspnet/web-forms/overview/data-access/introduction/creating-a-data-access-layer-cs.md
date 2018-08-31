@@ -8,18 +8,18 @@ ms.date: 04/05/2010
 ms.assetid: cfe2a6a0-1e56-4dc8-9537-c8ec76ba96a4
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-data-access-layer-cs
 msc.type: authoredcontent
-ms.openlocfilehash: fca6119b2e78c246724d6dd7277d5c4dc521f49c
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 4a6942df142ef40b92a8461afbc5f61fdfbde4ba
+ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41755568"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43312399"
 ---
 <a name="creating-a-data-access-layer-c"></a>Tworzenie warstwy dostępu do danych (C#)
 ====================
 przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
-[Pobierz przykładową aplikację](http://download.microsoft.com/download/4/6/3/463cf87c-4724-4cbc-b7b5-3f866f43ba50/ASPNET_Data_Tutorial_1_CS.exe) lub [Pobierz plik PDF](creating-a-data-access-layer-cs/_static/datatutorial01cs1.pdf)
+[Pobierz plik PDF](creating-a-data-access-layer-cs/_static/datatutorial01cs1.pdf)
 
 > W tym samouczku utworzymy zacząć od samego początku wymuszał i tworzenie danych warstwy dostępu (DAL), przy użyciu typizowanych zestawów danych, aby uzyskać dostęp do informacji w bazie danych.
 

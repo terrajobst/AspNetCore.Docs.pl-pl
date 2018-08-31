@@ -5,12 +5,12 @@ description: Więcej informacji o weryfikacji modelu w aplikacji ASP.NET Core MV
 ms.author: riande
 ms.date: 07/31/2018
 uid: mvc/models/validation
-ms.openlocfilehash: f407903577e40b6501737ef5b78d90e1e3e60c06
-ms.sourcegitcommit: e955a722c05ce2e5e21b4219f7d94fb878e255a6
+ms.openlocfilehash: fe036f261b80f6134078835080409720d149374d
+ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39378670"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43312157"
 ---
 # <a name="model-validation-in-aspnet-core-mvc"></a>Weryfikacja modelu w programie ASP.NET Core MVC
 
@@ -239,7 +239,7 @@ Teraz gdy użytkownicy wprowadzają wiadomość e-mail, JavaScript, w widoku wyw
 
 [!code-csharp[](validation/sample/User.cs?range=10-13)]
 
-`AdditionalFields` może ustawiono jawnie ciągi `"FirstName"` i `"LastName"`, ale przy użyciu [ `nameof` ](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/nameof) operator następująco upraszcza później refaktoryzacji. Metody akcji, aby wykonać sprawdzanie poprawności następnie musi zaakceptować dwa argumenty, jeden dla wartości `FirstName` i jeden dla wartości `LastName`.
+`AdditionalFields` może ustawiono jawnie ciągi `"FirstName"` i `"LastName"`, ale przy użyciu [ `nameof` ](/dotnet/csharp/language-reference/keywords/nameof) operator następująco upraszcza później refaktoryzacji. Metody akcji, aby wykonać sprawdzanie poprawności następnie musi zaakceptować dwa argumenty, jeden dla wartości `FirstName` i jeden dla wartości `LastName`.
 
 [!code-csharp[](validation/sample/UsersController.cs?range=30-39)]
 

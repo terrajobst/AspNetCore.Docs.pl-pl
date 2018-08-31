@@ -8,12 +8,12 @@ ms.date: 09/08/2014
 ms.assetid: 9b96eaa1-8ef0-4338-a2e8-e0f970bfaf68
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview
 msc.type: authoredcontent
-ms.openlocfilehash: ad5e97cd596e146f742c4c5e882d3938005070d1
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 8e3ae964dafc73bdf703cd7cbab430bbc99a6188
+ms.sourcegitcommit: a669c4e3f42e387e214a354ac4143555602e6f66
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41752481"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336027"
 ---
 <a name="getting-started-with-aspnet-45-web-forms-and-visual-studio-2013"></a>Wprowadzenie do wzorca ASP.NET 4.5 Web Forms i programu Visual Studio 2013
 ====================
@@ -21,9 +21,7 @@ przez [Erik Reitan](https://github.com/Erikre)
 
 [Pobierz Wingtip Toys przykładowego projektu (C#)](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) lub [Pobierz książkę elektroniczną (PDF)](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
-> W tej serii samouczków krok po kroku obejmuje podstawy tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu platformy ASP.NET 4.5 i programu Microsoft Visual Studio Express 2013 for Web. [Quiz formularzy sieci Web ASP.NET](http://quizapp.cloudapp.net/?quiz=ASP.NET)  
-> Sprawdź swoją wiedzę i wzmocnić kluczowych pojęć, wykonując Quiz formularzy sieci Web platformy ASP.NET. Ten test został opracowany z myślą z zawartości znajdujących się w tej serii samouczków. Pytania quizu zawiera wyjaśnienie wraz z linkami do dodatkowych wskazówek.
-
+W tej serii samouczków krok po kroku obejmuje podstawy tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu platformy ASP.NET 4.5 i programu Microsoft Visual Studio Express 2013 for Web. [Quiz formularzy sieci Web ASP.NET](http://quizapp.cloudapp.net/?quiz=ASP.NET)  
 
 ## <a name="introduction"></a>Wprowadzenie
 
