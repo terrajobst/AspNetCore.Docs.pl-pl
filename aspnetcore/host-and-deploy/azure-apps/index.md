@@ -4,14 +4,14 @@ author: guardrex
 description: Dowiedz się, jak hostować aplikacje platformy ASP.NET Core w usłudze Azure App Service wraz z łączami do przydatnych zasobów.
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/24/2018
+ms.date: 08/29/2018
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 42775bf4d3e88893260a5973f6f7bc9d3a006b5a
-ms.sourcegitcommit: 25150f4398de83132965a89f12d3a030f6cce48d
-ms.translationtype: HT
+ms.openlocfilehash: bc2a686c5ddc44fded135c9eed5caf676218773a
+ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2018
-ms.locfileid: "42927831"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43312073"
 ---
 # <a name="host-aspnet-core-on-azure-app-service"></a>Host platformy ASP.NET Core w usłudze Azure App Service
 
@@ -110,35 +110,55 @@ Platforma ASP.NET Core w wersji zapoznawczej aplikacji można wdrożyć w usłud
 <!-- * [Deploy the app self-contained](#deploy-the-app-self-contained) -->
 * [Używać platformy Docker z funkcją Web Apps for containers](#use-docker-with-web-apps-for-containers)
 
-Jeśli wystąpi problem, za pomocą rozszerzenia witryny (wersja zapoznawcza), otwórz problem w [GitHub](https://github.com/aspnet/azureintegration/issues/new).
-
 ### <a name="install-the-preview-site-extension"></a>Zainstalować rozszerzenie witryny usługi (wersja zapoznawcza)
+
+Jeśli wystąpi problem, za pomocą rozszerzenia witryny (wersja zapoznawcza), otwórz problem w [GitHub](https://github.com/aspnet/azureintegration/issues/new).
 
 1. W witrynie Azure portal przejdź do bloku usługi App Service.
 1. Wybierz aplikację sieci web.
-1. W polu wyszukiwania wprowadź "ex" lub przewiń w dół listy okienka zarządzania **narzędzia PROGRAMISTYCZNE**.
+1. Typ "ex" w polu wyszukiwania lub przewiń w dół na liście zarządzania sekcji, aby **narzędzia PROGRAMISTYCZNE**.
 1. Wybierz **narzędzia PROGRAMISTYCZNE** > **rozszerzenia**.
 1. Wybierz **Dodaj**.
-
-   ![Usługa Azure blok aplikacji z poprzednich kroków](index/_static/x1.png)
-
-1. Wybierz **rozszerzenia platformy ASP.NET Core**.
+1. Wybierz **platformy ASP.NET Core &lt;x.y&gt; (x86) środowiska uruchomieniowego** rozszerzenia z listy, gdzie `<x.y>` jest w wersji zapoznawczej platformy ASP.NET Core (na przykład **środowiska uruchomieniowego platformy ASP.NET Core 2.2 (x86)**). X86 środowiska uruchomieniowego jest odpowiednia dla [wdrożeń zależny od struktury](/dotnet/core/deploying/#framework-dependent-deployments-fdd) opierają się na spoza procesu hostingu przez modułu ASP.NET Core.
 1. Wybierz **OK** aby zaakceptować warunki prawne.
 1. Wybierz **OK** można zainstalować rozszerzenia.
 
-Po ukończeniu operacji dodawania, jest zainstalowana najnowsza wersja zapoznawcza platformy .NET Core. Weryfikowanie instalacji uruchamiając `dotnet --info` w konsoli. Z **usługi App Service** bloku:
+Po zakończeniu tej operacji jest zainstalowana najnowsza wersja zapoznawcza platformy .NET Core. Zweryfikuj instalację:
 
-1. Wprowadź "con" w polu wyszukiwania lub przewiń w dół na liście zarządzania okienka do **narzędzia PROGRAMISTYCZNE**.
-1. Wybierz **narzędzia PROGRAMISTYCZNE** > **konsoli**.
-1. Wprowadź `dotnet --info` w konsoli.
+1. Wybierz **zaawansowane narzędzia** w obszarze **narzędzia PROGRAMISTYCZNE**.
+1. Wybierz **Przejdź** na **Narzędzia zaawansowane** bloku.
+1. Wybierz **konsoli debugowania** > **PowerShell** elementu menu.
+1. W wierszu polecenia programu PowerShell uruchom następujące polecenie. Zastąpiono wersję środowiska uruchomieniowego platformy ASP.NET Core dla `<x.y>` w poleceniu:
 
-Jeśli wersja `2.1.300-preview1-008174` jest najnowsza wersja zapoznawcza, uzyskuje się następujące dane wyjściowe, uruchamiając `dotnet --info` w wierszu polecenia:
+   ```powershell
+   Test-Path D:\home\SiteExtensions\AspNetCoreRuntime.<x.y>.x86\
+   ```
+   Jeśli jest zainstalowany w wersji zapoznawczej środowiska uruchomieniowego dla platformy ASP.NET Core 2.2, polecenie to:
+   ```powershell
+   Test-Path D:\home\SiteExtensions\AspNetCoreRuntime.2.2.x86\
+   ```
+   Polecenie zwraca `True` podczas x64 czas wykonywania (wersja zapoznawcza) jest zainstalowany.
 
-![Usługa Azure blok aplikacji z poprzednich kroków](index/_static/cons.png)
+::: moniker range=">= aspnetcore-2.2"
 
-Wersja platformy ASP.NET Core na poprzednim obrazie `2.1.300-preview1-008174`, znajduje się przykład. Od najnowszej wersji wstępnej programu ASP.NET Core w momencie skonfigurowano rozszerzenie witryny pojawia się podczas wykonywania `dotnet --info`.
+> [!NOTE]
+> Architektura platformy — x86/x64 64 aplikację usługi App Services znajduje się w **ustawienia aplikacji** bloku w obszarze **ustawienia ogólne** warstwy hostowanym w obliczeniowej serii A i lepsze hostingu aplikacji. Jeśli aplikacja jest uruchamiana w trybie w procesie, architektura platformy jest skonfigurowany dla 64-bitowych (x64) modułu ASP.NET Core używa środowiska uruchomieniowego 64-bitowych (wersja zapoznawcza), jeśli jest obecny. Zainstaluj **platformy ASP.NET Core &lt;x.y&gt; (x64) środowiska uruchomieniowego** rozszerzenia (na przykład **środowiska uruchomieniowego platformy ASP.NET Core 2.2 (x64)**).
+>
+> Po zainstalowaniu x64 podglądu środowiska uruchomieniowego, uruchom następujące polecenie w oknie wiersza polecenia programu PowerShell programu Kudu, aby zweryfikować instalację. Zastąpiono wersję środowiska uruchomieniowego platformy ASP.NET Core dla `<x.y>` w poleceniu:
+>
+> ```powershell
+> Test-Path D:\home\SiteExtensions\AspNetCoreRuntime.<x.y>.x64\
+> ```
+> Jeśli jest zainstalowany w wersji zapoznawczej środowiska uruchomieniowego dla platformy ASP.NET Core 2.2, polecenie to:
+> ```powershell
+> Test-Path D:\home\SiteExtensions\AspNetCoreRuntime.2.2.x64\
+> ```
+> Polecenie zwraca `True` podczas x64 czas wykonywania (wersja zapoznawcza) jest zainstalowany.
 
-`dotnet --info` Wyświetla ścieżkę do rozszerzenia witryny, w którym zainstalowano wersję zapoznawczą. Pokazuje, aplikacja zostanie uruchomiona z poziomu rozszerzenia lokacji zamiast z domyślnej *ProgramFiles* lokalizacji. Jeśli widzisz *ProgramFiles*, uruchom ponownie lokację i uruchom `dotnet --info`.
+::: moniker-end
+
+> [!NOTE]
+> **ASP.NET Core rozszerzenia** zapewnia dodatkowe funkcje dla platformy ASP.NET Core w usłudze Azure App Services, takich jak włączenie rejestrowania platformy Azure. Rozszerzenie jest instalowana automatycznie podczas wdrażania w programie Visual Studio. Jeśli rozszerzenie nie jest zainstalowany, zainstaluj go dla aplikacji.
 
 **Rozszerzenie witryny (wersja zapoznawcza) za pomocą szablonu usługi ARM**
 
