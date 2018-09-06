@@ -3,282 +3,286 @@ title: Włączanie żądań Cross-Origin (CORS) w programie ASP.NET Core
 author: rick-anderson
 description: Dowiedz się, jak CORS jako standardowe rozwiązanie dla zezwolenie lub odrzucenie żądań cross-origin w aplikacji ASP.NET Core.
 ms.author: riande
-ms.date: 08/17/2018
+ms.custom: mvc
+ms.date: 09/05/2018
 uid: security/cors
-ms.openlocfilehash: 0dbb7933c76bb0d1d0cab519ea08c6c8f0ebedfd
-ms.sourcegitcommit: 64c2ca86fff445944b155635918126165ee0f8aa
+ms.openlocfilehash: f654260411f1bd5725a0e3d14951c7e9bbc893e8
+ms.sourcegitcommit: 08bf41d4b3e696ab512b044970e8304816f8cc56
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41756339"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44039981"
 ---
-# <a name="enable-cross-origin-requests-cors-in-aspnet-core"></a><span data-ttu-id="29748-103">Włączanie żądań Cross-Origin (CORS) w programie ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="29748-103">Enable Cross-Origin Requests (CORS) in ASP.NET Core</span></span>
+# <a name="enable-cross-origin-requests-cors-in-aspnet-core"></a><span data-ttu-id="60c4d-103">Włączanie żądań Cross-Origin (CORS) w programie ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="60c4d-103">Enable Cross-Origin Requests (CORS) in ASP.NET Core</span></span>
 
-<span data-ttu-id="29748-104">Przez [Mike Wasson](https://github.com/mikewasson), [Shayne Boyer](https://twitter.com/spboyer), i [Tom Dykstra](https://github.com/tdykstra)</span><span class="sxs-lookup"><span data-stu-id="29748-104">By [Mike Wasson](https://github.com/mikewasson), [Shayne Boyer](https://twitter.com/spboyer), and [Tom Dykstra](https://github.com/tdykstra)</span></span>
+<span data-ttu-id="60c4d-104">Przez [Mike Wasson](https://github.com/mikewasson), [Shayne Boyer](https://twitter.com/spboyer), i [Tom Dykstra](https://github.com/tdykstra)</span><span class="sxs-lookup"><span data-stu-id="60c4d-104">By [Mike Wasson](https://github.com/mikewasson), [Shayne Boyer](https://twitter.com/spboyer), and [Tom Dykstra](https://github.com/tdykstra)</span></span>
 
-<span data-ttu-id="29748-105">Poziom zabezpieczeń przeglądarki uniemożliwia strony sieci web wprowadzanie wysyłanie żądań AJAX do innej domeny.</span><span class="sxs-lookup"><span data-stu-id="29748-105">Browser security prevents a web page from making AJAX requests to another domain.</span></span> <span data-ttu-id="29748-106">To ograniczenie jest nazywany *zasadami tego samego źródła*i zapobiega złośliwych witryn odczytywanie poufnych danych z innej lokacji.</span><span class="sxs-lookup"><span data-stu-id="29748-106">This restriction is called the *same-origin policy*, and prevents a malicious site from reading sensitive data from another site.</span></span> <span data-ttu-id="29748-107">Jednak czasami możesz chcieć umożliwić innych witryn, wprowadzać żądań cross-origin w interfejsie API sieci web.</span><span class="sxs-lookup"><span data-stu-id="29748-107">However, sometimes you might want to let other sites make cross-origin requests to your web API.</span></span>
+<span data-ttu-id="60c4d-105">Poziom zabezpieczeń przeglądarki zapobiega wysyłania żądań do innej domeny niż ta, która obsłużyła stronę sieci web strony sieci web.</span><span class="sxs-lookup"><span data-stu-id="60c4d-105">Browser security prevents a web page from making requests to a different domain than the one that served the web page.</span></span> <span data-ttu-id="60c4d-106">To ograniczenie jest nazywany *zasadami tego samego źródła*.</span><span class="sxs-lookup"><span data-stu-id="60c4d-106">This restriction is called the *same-origin policy*.</span></span> <span data-ttu-id="60c4d-107">Zasada tego samego źródła uniemożliwia złośliwych witryn odczytywanie poufnych danych z innej lokacji.</span><span class="sxs-lookup"><span data-stu-id="60c4d-107">The same-origin policy prevents a malicious site from reading sensitive data from another site.</span></span> <span data-ttu-id="60c4d-108">Czasami możesz chcieć zezwala na innych witryn wprowadzać żądań cross-origin Twojej aplikacji.</span><span class="sxs-lookup"><span data-stu-id="60c4d-108">Sometimes, you might want to allow other sites make cross-origin requests to your app.</span></span>
 
-<span data-ttu-id="29748-108">[Krzyżowe współużytkowanie zasobów](http://www.w3.org/TR/cors/) (między źródłami CORS) jest to standard W3C, dzięki któremu serwer może Poluzować zasady tego samego źródła.</span><span class="sxs-lookup"><span data-stu-id="29748-108">[Cross Origin Resource Sharing](http://www.w3.org/TR/cors/) (CORS) is a W3C standard that allows a server to relax the same-origin policy.</span></span> <span data-ttu-id="29748-109">Przy użyciu mechanizmu CORS, serwer można jawnie zezwolić na niektórych żądań cross-origin jednocześnie odrzucając inne.</span><span class="sxs-lookup"><span data-stu-id="29748-109">Using CORS, a server can explicitly allow some cross-origin requests while rejecting others.</span></span> <span data-ttu-id="29748-110">CORS to bezpieczniejsze i bardziej elastyczne niż wcześniej techniki takie jak [JSONP](https://wikipedia.org/wiki/JSONP).</span><span class="sxs-lookup"><span data-stu-id="29748-110">CORS is safer and more flexible than earlier techniques such as [JSONP](https://wikipedia.org/wiki/JSONP).</span></span> <span data-ttu-id="29748-111">W tym temacie pokazano, jak włączanie mechanizmu CORS w aplikacji ASP.NET Core.</span><span class="sxs-lookup"><span data-stu-id="29748-111">This topic shows how to enable CORS in an ASP.NET Core application.</span></span>
+<span data-ttu-id="60c4d-109">[Krzyżowe współużytkowanie zasobów](https://www.w3.org/TR/cors/) (między źródłami CORS) jest to standard W3C, dzięki któremu serwer może Poluzować zasady tego samego źródła.</span><span class="sxs-lookup"><span data-stu-id="60c4d-109">[Cross Origin Resource Sharing](https://www.w3.org/TR/cors/) (CORS) is a W3C standard that allows a server to relax the same-origin policy.</span></span> <span data-ttu-id="60c4d-110">Przy użyciu mechanizmu CORS, serwer można jawnie zezwolić na niektórych żądań cross-origin jednocześnie odrzucając inne.</span><span class="sxs-lookup"><span data-stu-id="60c4d-110">Using CORS, a server can explicitly allow some cross-origin requests while rejecting others.</span></span> <span data-ttu-id="60c4d-111">CORS to bezpieczniejsze i bardziej elastyczne niż wcześniej technik, takich jak [JSONP](https://wikipedia.org/wiki/JSONP).</span><span class="sxs-lookup"><span data-stu-id="60c4d-111">CORS is safer and more flexible than earlier techniques, such as [JSONP](https://wikipedia.org/wiki/JSONP).</span></span> <span data-ttu-id="60c4d-112">W tym temacie pokazano, jak włączanie mechanizmu CORS w aplikacji ASP.NET Core.</span><span class="sxs-lookup"><span data-stu-id="60c4d-112">This topic shows how to enable CORS in an ASP.NET Core app.</span></span>
 
-## <a name="what-is-same-origin"></a><span data-ttu-id="29748-112">Co to jest "tego samego origin"?</span><span class="sxs-lookup"><span data-stu-id="29748-112">What is "same origin"?</span></span>
+## <a name="same-origin"></a><span data-ttu-id="60c4d-113">Tego samego źródła</span><span class="sxs-lookup"><span data-stu-id="60c4d-113">Same origin</span></span>
 
-<span data-ttu-id="29748-113">Dwa adresy URL mają tego samego źródła, jeśli mają identyczne schematy, hosty i portów.</span><span class="sxs-lookup"><span data-stu-id="29748-113">Two URLs have the same origin if they have identical schemes, hosts, and ports.</span></span> <span data-ttu-id="29748-114">([RFC 6454](http://tools.ietf.org/html/rfc6454))</span><span class="sxs-lookup"><span data-stu-id="29748-114">([RFC 6454](http://tools.ietf.org/html/rfc6454))</span></span>
+<span data-ttu-id="60c4d-114">Dwa adresy URL mają tego samego źródła, jeśli mają one hostów, porty i schematy identyczne ([RFC 6454](https://tools.ietf.org/html/rfc6454)).</span><span class="sxs-lookup"><span data-stu-id="60c4d-114">Two URLs have the same origin if they have identical schemes, hosts, and ports ([RFC 6454](https://tools.ietf.org/html/rfc6454)).</span></span>
 
-<span data-ttu-id="29748-115">Te dwa adresy URL są tego samego źródła:</span><span class="sxs-lookup"><span data-stu-id="29748-115">These two URLs have the same origin:</span></span>
+<span data-ttu-id="60c4d-115">Te dwa adresy URL są tego samego źródła:</span><span class="sxs-lookup"><span data-stu-id="60c4d-115">These two URLs have the same origin:</span></span>
 
-* `http://example.com/foo.html`
+* `https://example.com/foo.html`
+* `https://example.com/bar.html`
 
-* `http://example.com/bar.html`
+<span data-ttu-id="60c4d-116">Te adresy URL są różne źródła niż poprzednie dwa adresy URL:</span><span class="sxs-lookup"><span data-stu-id="60c4d-116">These URLs have different origins than the previous two URLs:</span></span>
 
-<span data-ttu-id="29748-116">Te adresy URL są źródła innego niż poprzednie dwa:</span><span class="sxs-lookup"><span data-stu-id="29748-116">These URLs have different origins than the previous two:</span></span>
-
-* <span data-ttu-id="29748-117">`http://example.net` -Innej domeny</span><span class="sxs-lookup"><span data-stu-id="29748-117">`http://example.net` - Different domain</span></span>
-
-* <span data-ttu-id="29748-118">`http://www.example.com/foo.html` — Różne domeny podrzędnej</span><span class="sxs-lookup"><span data-stu-id="29748-118">`http://www.example.com/foo.html` - Different subdomain</span></span>
-
-* <span data-ttu-id="29748-119">`https://example.com/foo.html` -Innego schematu</span><span class="sxs-lookup"><span data-stu-id="29748-119">`https://example.com/foo.html` - Different scheme</span></span>
-
-* <span data-ttu-id="29748-120">`http://example.com:9000/foo.html` -Innego portu</span><span class="sxs-lookup"><span data-stu-id="29748-120">`http://example.com:9000/foo.html` - Different port</span></span>
+* <span data-ttu-id="60c4d-117">`https://example.net` &ndash; Inną domenę</span><span class="sxs-lookup"><span data-stu-id="60c4d-117">`https://example.net` &ndash; Different domain</span></span>
+* <span data-ttu-id="60c4d-118">`https://www.example.com/foo.html` &ndash; Różne domeny podrzędnej</span><span class="sxs-lookup"><span data-stu-id="60c4d-118">`https://www.example.com/foo.html` &ndash; Different subdomain</span></span>
+* <span data-ttu-id="60c4d-119">`http://example.com/foo.html` &ndash; Inny schemat</span><span class="sxs-lookup"><span data-stu-id="60c4d-119">`http://example.com/foo.html` &ndash; Different scheme</span></span>
+* <span data-ttu-id="60c4d-120">`https://example.com:9000/foo.html` &ndash; Inny port</span><span class="sxs-lookup"><span data-stu-id="60c4d-120">`https://example.com:9000/foo.html` &ndash; Different port</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="29748-121">Program Internet Explorer nie bierze pod uwagę portu podczas porównywania źródeł.</span><span class="sxs-lookup"><span data-stu-id="29748-121">Internet Explorer doesn't consider the port when comparing origins.</span></span>
+> <span data-ttu-id="60c4d-121">Program Internet Explorer nie bierze pod uwagę portu podczas porównywania źródeł.</span><span class="sxs-lookup"><span data-stu-id="60c4d-121">Internet Explorer doesn't consider the port when comparing origins.</span></span>
 
-## <a name="enable-cors"></a><span data-ttu-id="29748-122">Włączanie mechanizmu CORS</span><span class="sxs-lookup"><span data-stu-id="29748-122">Enable CORS</span></span>
+## <a name="register-cors-services"></a><span data-ttu-id="60c4d-122">Rejestrowanie usługi CORS</span><span class="sxs-lookup"><span data-stu-id="60c4d-122">Register CORS services</span></span>
 
-::: moniker range="<= aspnetcore-1.1"
+::: moniker range=">= aspnetcore-2.1"
 
-<span data-ttu-id="29748-123">Aby skonfigurować mechanizmu CORS w aplikacji Dodaj `Microsoft.AspNetCore.Cors` pakietu do projektu.</span><span class="sxs-lookup"><span data-stu-id="29748-123">To set up CORS for your application add the `Microsoft.AspNetCore.Cors` package to your project.</span></span>
+<span data-ttu-id="60c4d-123">Odwołanie [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) lub Dodaj odwołanie do pakietu [Microsoft.AspNetCore.Cors](https://www.nuget.org/packages/Microsoft.AspNetCore.Cors/) pakietu.</span><span class="sxs-lookup"><span data-stu-id="60c4d-123">Reference the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app) or add a package reference to the [Microsoft.AspNetCore.Cors](https://www.nuget.org/packages/Microsoft.AspNetCore.Cors/) package.</span></span>
 
 ::: moniker-end
 
-<span data-ttu-id="29748-124">Wywołaj [AddCors](/dotnet/api/microsoft.extensions.dependencyinjection.corsservicecollectionextensions.addcors) w `Startup.ConfigureServices`:</span><span class="sxs-lookup"><span data-stu-id="29748-124">Call [AddCors](/dotnet/api/microsoft.extensions.dependencyinjection.corsservicecollectionextensions.addcors) in `Startup.ConfigureServices`:</span></span>
+::: moniker range="= aspnetcore-2.0"
 
-[!code-csharp[](cors/sample/CorsExample1/Startup.cs?name=snippet_addcors)]
+<span data-ttu-id="60c4d-124">Odwołanie [pakiet meta Microsoft.aspnetcore.all](xref:fundamentals/metapackage) lub Dodaj odwołanie do pakietu [Microsoft.AspNetCore.Cors](https://www.nuget.org/packages/Microsoft.AspNetCore.Cors/) pakietu.</span><span class="sxs-lookup"><span data-stu-id="60c4d-124">Reference the [Microsoft.AspNetCore.All metapackage](xref:fundamentals/metapackage) or add a package reference to the [Microsoft.AspNetCore.Cors](https://www.nuget.org/packages/Microsoft.AspNetCore.Cors/) package.</span></span>
 
-## <a name="enabling-cors-with-middleware"></a><span data-ttu-id="29748-125">Włączanie funkcji CORS, za pomocą oprogramowania pośredniczącego</span><span class="sxs-lookup"><span data-stu-id="29748-125">Enabling CORS with middleware</span></span>
+::: moniker-end
 
-<span data-ttu-id="29748-126">Aby włączyć mechanizm CORS, Dodaj oprogramowanie pośredniczące CORS do potoku żądania przy użyciu `UseCors` — metoda rozszerzenia.</span><span class="sxs-lookup"><span data-stu-id="29748-126">To enable CORS, add the CORS middleware to the request pipeline using the `UseCors` extension method.</span></span> <span data-ttu-id="29748-127">Oprogramowanie pośredniczące CORS musi poprzedzać żadnych zdefiniowanych punktów końcowych w aplikacji, której chcesz obsługiwać żądań cross-origin (na przykład, zanim każde wywołanie `UseMvc`).</span><span class="sxs-lookup"><span data-stu-id="29748-127">The CORS middleware must precede any defined endpoints in your app where you want to support cross-origin requests (For example, before any call to `UseMvc`).</span></span>
+::: moniker range="< aspnetcore-2.0"
 
-<span data-ttu-id="29748-128">Podczas dodawania przy użyciu oprogramowanie pośredniczące CORS można określić zasady cross-origin [CorsPolicyBuilder](/dotnet/api/microsoft.extensions.dependencyinjection.corsservicecollectionextensions.addcors) klasy.</span><span class="sxs-lookup"><span data-stu-id="29748-128">A cross-origin policy can be specified when adding the CORS middleware using the [CorsPolicyBuilder](/dotnet/api/microsoft.extensions.dependencyinjection.corsservicecollectionextensions.addcors) class.</span></span> <span data-ttu-id="29748-129">Istnieją dwa sposoby, aby to zrobić.</span><span class="sxs-lookup"><span data-stu-id="29748-129">There are two ways to do this.</span></span> <span data-ttu-id="29748-130">Pierwszy jest wywołanie `UseCors` za pomocą wyrażenia lambda:</span><span class="sxs-lookup"><span data-stu-id="29748-130">The first is to call `UseCors` with a lambda:</span></span>
+<span data-ttu-id="60c4d-125">Dodaj odwołanie do pakietu [Microsoft.AspNetCore.Cors](https://www.nuget.org/packages/Microsoft.AspNetCore.Cors/) pakietu.</span><span class="sxs-lookup"><span data-stu-id="60c4d-125">Add a package reference to the [Microsoft.AspNetCore.Cors](https://www.nuget.org/packages/Microsoft.AspNetCore.Cors/) package.</span></span>
 
-[!code-csharp[](cors/sample/CorsExample1/Startup.cs?highlight=11,12&range=22-38)]
+::: moniker-end
 
-<span data-ttu-id="29748-131">**Uwaga:** musi być określony adres URL bez znaku ukośnika na końcu (`/`).</span><span class="sxs-lookup"><span data-stu-id="29748-131">**Note:** The URL must be specified without a trailing slash (`/`).</span></span> <span data-ttu-id="29748-132">Jeśli adres URL kończy się za pomocą `/`, zwróci wynik porównania `false` i zostanie zwrócony bez nagłówka.</span><span class="sxs-lookup"><span data-stu-id="29748-132">If the URL terminates with `/`, the comparison will return `false` and no header will be returned.</span></span>
+<span data-ttu-id="60c4d-126">Wywołaj <xref:Microsoft.Extensions.DependencyInjection.MvcCorsMvcCoreBuilderExtensions.AddCors*> w `Startup.ConfigureServices` nad dodaniem usług CORS do aplikacji kontenera usługi:</span><span class="sxs-lookup"><span data-stu-id="60c4d-126">Call <xref:Microsoft.Extensions.DependencyInjection.MvcCorsMvcCoreBuilderExtensions.AddCors*> in `Startup.ConfigureServices` to add CORS services to the app's service container:</span></span>
 
-<span data-ttu-id="29748-133">Wyrażenie lambda ma `CorsPolicyBuilder` obiektu.</span><span class="sxs-lookup"><span data-stu-id="29748-133">The lambda takes a `CorsPolicyBuilder` object.</span></span> <span data-ttu-id="29748-134">Znajdziesz listę [opcje konfiguracji](#cors-policy-options) w dalszej części tego tematu.</span><span class="sxs-lookup"><span data-stu-id="29748-134">You'll find a list of the [configuration options](#cors-policy-options) later in this topic.</span></span> <span data-ttu-id="29748-135">W tym przykładzie zasady umożliwiają żądań cross-origin z `http://example.com` i innych źródeł.</span><span class="sxs-lookup"><span data-stu-id="29748-135">In this example, the policy allows cross-origin requests from `http://example.com` and no other origins.</span></span>
+[!code-csharp[](cors/sample/CorsExample1/Startup.cs?name=snippet_addcors&highlight=3)]
 
-<span data-ttu-id="29748-136">CorsPolicyBuilder ma interfejs fluent API, dzięki czemu można połączyć w łańcuch wywołań metod:</span><span class="sxs-lookup"><span data-stu-id="29748-136">CorsPolicyBuilder has a fluent API, so you can chain method calls:</span></span>
+## <a name="enable-cors"></a><span data-ttu-id="60c4d-127">Włączanie mechanizmu CORS</span><span class="sxs-lookup"><span data-stu-id="60c4d-127">Enable CORS</span></span>
 
-[!code-csharp[](../security/cors/sample/CorsExample3/Startup.cs?highlight=3&range=29-32)]
+<span data-ttu-id="60c4d-128">Po zarejestrowaniu mechanizmu CORS usługi, użyj jednej z następujących metod Włączanie mechanizmu CORS w aplikacji ASP.NET Core:</span><span class="sxs-lookup"><span data-stu-id="60c4d-128">After registering CORS services, use either of the following approaches to enable CORS in an ASP.NET Core app:</span></span>
 
-<span data-ttu-id="29748-137">Druga metoda jest zdefiniować co najmniej jedne zasady o nazwie CORS, a następnie wybierz pozycję zasady według nazwy w czasie wykonywania.</span><span class="sxs-lookup"><span data-stu-id="29748-137">The second approach is to define one or more named CORS policies, and then select the policy by name at run time.</span></span>
+* <span data-ttu-id="60c4d-129">[Oprogramowanie pośredniczące CORS](#enable-cors-with-cors-middleware) &ndash; zasady CORS do zastosowania globalnie do aplikacji za pomocą oprogramowania pośredniczącego.</span><span class="sxs-lookup"><span data-stu-id="60c4d-129">[CORS Middleware](#enable-cors-with-cors-middleware) &ndash; Apply CORS policies globally to the app via middleware.</span></span>
+* <span data-ttu-id="60c4d-130">[Mechanizm CORS w MVC](#enable-cors-in-mvc) &ndash; zasady CORS do zastosowania na akcji lub kontrolera.</span><span class="sxs-lookup"><span data-stu-id="60c4d-130">[CORS in MVC](#enable-cors-in-mvc) &ndash; Apply CORS policies per action or per controller.</span></span> <span data-ttu-id="60c4d-131">Oprogramowanie pośredniczące CORS nie jest używany.</span><span class="sxs-lookup"><span data-stu-id="60c4d-131">CORS Middleware isn't used.</span></span>
 
-[!code-csharp[](cors/sample/CorsExample2/Startup.cs?name=snippet_begin)]
+### <a name="enable-cors-with-cors-middleware"></a><span data-ttu-id="60c4d-132">Włączanie mechanizmu CORS z oprogramowaniem pośredniczącym CORS</span><span class="sxs-lookup"><span data-stu-id="60c4d-132">Enable CORS with CORS Middleware</span></span>
 
-<span data-ttu-id="29748-138">Ten przykład dodaje zasady CORS, o nazwie "AllowSpecificOrigin".</span><span class="sxs-lookup"><span data-stu-id="29748-138">This example adds a CORS policy named "AllowSpecificOrigin".</span></span> <span data-ttu-id="29748-139">Aby wybrać zasady, należy przekazać nazwę aby `UseCors`.</span><span class="sxs-lookup"><span data-stu-id="29748-139">To select the policy, pass the name to `UseCors`.</span></span>
+<span data-ttu-id="60c4d-133">Oprogramowanie pośredniczące CORS obsługuje żądań cross-origin w aplikacji.</span><span class="sxs-lookup"><span data-stu-id="60c4d-133">CORS Middleware handles cross-origin requests to the app.</span></span> <span data-ttu-id="60c4d-134">Aby włączyć oprogramowanie pośredniczące CORS w potoku przetwarzania żądań, należy wywołać <xref:Microsoft.AspNetCore.Builder.CorsMiddlewareExtensions.UseCors*> metody rozszerzenia w `Startup.Configure`.</span><span class="sxs-lookup"><span data-stu-id="60c4d-134">To enable CORS Middleware in the request processing pipeline, call the <xref:Microsoft.AspNetCore.Builder.CorsMiddlewareExtensions.UseCors*> extension method in `Startup.Configure`.</span></span>
 
-## <a name="enabling-cors-in-mvc"></a><span data-ttu-id="29748-140">Włączanie funkcji CORS na platformie MVC</span><span class="sxs-lookup"><span data-stu-id="29748-140">Enabling CORS in MVC</span></span>
+<span data-ttu-id="60c4d-135">Oprogramowanie pośredniczące CORS musi poprzedzać żadnych zdefiniowanych punktów końcowych w aplikacji, której chcesz obsługiwać żądań cross-origin (na przykład przed wywołaniem do `UseMvc` dla oprogramowania pośredniczącego stron MVC i Razor).</span><span class="sxs-lookup"><span data-stu-id="60c4d-135">CORS Middleware must precede any defined endpoints in your app where you want to support cross-origin requests (for example, before the call to `UseMvc` for MVC/Razor Pages Middleware).</span></span>
 
-<span data-ttu-id="29748-141">Można też użyć MVC do zastosowania określonego CORS każdej akcji, każdy kontroler lub globalnie dla wszystkich kontrolerów.</span><span class="sxs-lookup"><span data-stu-id="29748-141">You can alternatively use MVC to apply specific CORS per action, per controller, or globally for all controllers.</span></span> <span data-ttu-id="29748-142">Gdy za pomocą MVC w celu włączenia CORS tych samych usług mechanizmu CORS są używane, ale nie jest oprogramowanie pośredniczące CORS.</span><span class="sxs-lookup"><span data-stu-id="29748-142">When using MVC to enable CORS the same CORS services are used, but the CORS middleware isn't.</span></span>
+<span data-ttu-id="60c4d-136">A *zasad cross-origin* można określić podczas dodawania przy użyciu oprogramowanie pośredniczące CORS <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder> klasy.</span><span class="sxs-lookup"><span data-stu-id="60c4d-136">A *cross-origin policy* can be specified when adding the CORS Middleware using the <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder> class.</span></span> <span data-ttu-id="60c4d-137">Dostępne są dwie opcje do definiowania zasad CORS:</span><span class="sxs-lookup"><span data-stu-id="60c4d-137">There are two approaches for defining a CORS policy:</span></span>
 
-### <a name="per-action"></a><span data-ttu-id="29748-143">Za akcję</span><span class="sxs-lookup"><span data-stu-id="29748-143">Per action</span></span>
+* <span data-ttu-id="60c4d-138">Wywołaj `UseCors` za pomocą wyrażenia lambda:</span><span class="sxs-lookup"><span data-stu-id="60c4d-138">Call `UseCors` with a lambda:</span></span>
 
-<span data-ttu-id="29748-144">Aby określić zasad CORS dla danego działania Dodaj `[EnableCors]` atrybutu akcji.</span><span class="sxs-lookup"><span data-stu-id="29748-144">To specify a CORS policy for a specific action add the `[EnableCors]` attribute to the action.</span></span> <span data-ttu-id="29748-145">Podaj nazwę zasad.</span><span class="sxs-lookup"><span data-stu-id="29748-145">Specify the policy name.</span></span>
+  [!code-csharp[](cors/sample/CorsExample1/Startup.cs?highlight=11,12&range=22-38)]
 
-[!code-csharp[](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=EnableOnAction)]
+  <span data-ttu-id="60c4d-139">Wyrażenie lambda ma <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder> obiektu.</span><span class="sxs-lookup"><span data-stu-id="60c4d-139">The lambda takes a <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder> object.</span></span> <span data-ttu-id="60c4d-140">[Opcje konfiguracji](#cors-policy-options), takich jak `WithOrigins`, są opisane w dalszej części tego tematu.</span><span class="sxs-lookup"><span data-stu-id="60c4d-140">[Configuration options](#cors-policy-options), such as `WithOrigins`, are described later in this topic.</span></span> <span data-ttu-id="60c4d-141">W powyższym przykładzie zasady umożliwiają żądań cross-origin z `https://example.com` i innych źródeł.</span><span class="sxs-lookup"><span data-stu-id="60c4d-141">In the preceding example, the policy allows cross-origin requests from `https://example.com` and no other origins.</span></span>
 
-### <a name="per-controller"></a><span data-ttu-id="29748-146">Każdy kontroler</span><span class="sxs-lookup"><span data-stu-id="29748-146">Per controller</span></span>
+  <span data-ttu-id="60c4d-142">Należy określić adres URL bez znaku ukośnika na końcu (`/`).</span><span class="sxs-lookup"><span data-stu-id="60c4d-142">The URL must be specified without a trailing slash (`/`).</span></span> <span data-ttu-id="60c4d-143">Jeśli adres URL kończy się za pomocą `/`, zwraca wynik porównania `false` i zostanie zwrócony bez nagłówka.</span><span class="sxs-lookup"><span data-stu-id="60c4d-143">If the URL terminates with `/`, the comparison returns `false` and no header is returned.</span></span>
 
-<span data-ttu-id="29748-147">Aby określić zasady CORS dla określonego kontrolera Dodaj `[EnableCors]` atrybutów do klasy kontrolera.</span><span class="sxs-lookup"><span data-stu-id="29748-147">To specify the CORS policy for a specific controller add the `[EnableCors]` attribute to the controller class.</span></span> <span data-ttu-id="29748-148">Podaj nazwę zasad.</span><span class="sxs-lookup"><span data-stu-id="29748-148">Specify the policy name.</span></span>
+  <span data-ttu-id="60c4d-144">`CorsPolicyBuilder` ma interfejs fluent API, dzięki czemu można połączyć w łańcuch wywołań metod:</span><span class="sxs-lookup"><span data-stu-id="60c4d-144">`CorsPolicyBuilder` has a fluent API, so you can chain method calls:</span></span>
 
-[!code-csharp[](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=EnableOnController)]
+  [!code-csharp[](cors/sample/CorsExample3/Startup.cs?highlight=2-3&range=29-32)]
 
-### <a name="globally"></a><span data-ttu-id="29748-149">Globalnie</span><span class="sxs-lookup"><span data-stu-id="29748-149">Globally</span></span>
+* <span data-ttu-id="60c4d-145">Zdefiniuj co najmniej jedne zasady o nazwie CORS i wybierz zasady według nazwy w czasie wykonywania.</span><span class="sxs-lookup"><span data-stu-id="60c4d-145">Define one or more named CORS policies and select the policy by name at runtime.</span></span> <span data-ttu-id="60c4d-146">W poniższym przykładzie dodano zasady CORS zdefiniowanych przez użytkownika o nazwie *AllowSpecificOrigin*.</span><span class="sxs-lookup"><span data-stu-id="60c4d-146">The following example adds a user-defined CORS policy named *AllowSpecificOrigin*.</span></span> <span data-ttu-id="60c4d-147">Aby wybrać zasady, należy przekazać nazwę aby `UseCors`:</span><span class="sxs-lookup"><span data-stu-id="60c4d-147">To select the policy, pass the name to `UseCors`:</span></span>
 
-<span data-ttu-id="29748-150">Można włączyć mechanizm CORS globalnie dla wszystkich kontrolerów przez dodanie `CorsAuthorizationFilterFactory` filtr do kolekcji filtrów globalnych:</span><span class="sxs-lookup"><span data-stu-id="29748-150">You can enable CORS globally for all controllers by adding the `CorsAuthorizationFilterFactory` filter to the global filter collection:</span></span>
+  [!code-csharp[](cors/sample/CorsExample2/Startup.cs?name=snippet_begin&highlight=5-6,21)]
 
-[!code-csharp[](cors/sample/CorsMVC/Startup2.cs?name=snippet_configureservices)]
+### <a name="enable-cors-in-mvc"></a><span data-ttu-id="60c4d-148">Włączanie mechanizmu CORS na platformie MVC</span><span class="sxs-lookup"><span data-stu-id="60c4d-148">Enable CORS in MVC</span></span>
 
-<span data-ttu-id="29748-151">Kolejność pierwszeństwa jest: działania, kontrolera, globalne.</span><span class="sxs-lookup"><span data-stu-id="29748-151">The precedence order is: Action, controller, global.</span></span> <span data-ttu-id="29748-152">Zasady na poziomie akcji mają pierwszeństwo przed zasad na poziomie kontrolera, a zasady na poziomie kontrolera mają pierwszeństwo przed zasad globalnych.</span><span class="sxs-lookup"><span data-stu-id="29748-152">Action-level policies take precedence over controller-level policies, and controller-level policies take precedence over global policies.</span></span>
+<span data-ttu-id="60c4d-149">Można też użyć MVC zastosować określone zasady CORS na akcji lub kontrolera.</span><span class="sxs-lookup"><span data-stu-id="60c4d-149">You can alternatively use MVC to apply specific CORS policies per action or per controller.</span></span> <span data-ttu-id="60c4d-150">Używanie wzorca MVC, aby włączyć mechanizm CORS, używane są zarejestrowane usługi CORS.</span><span class="sxs-lookup"><span data-stu-id="60c4d-150">When using MVC to enable CORS, the registered CORS services are used.</span></span> <span data-ttu-id="60c4d-151">Oprogramowanie pośredniczące CORS nie jest używany.</span><span class="sxs-lookup"><span data-stu-id="60c4d-151">The CORS Middleware isn't used.</span></span>
 
-### <a name="disable-cors"></a><span data-ttu-id="29748-153">Wyłączenia CORS</span><span class="sxs-lookup"><span data-stu-id="29748-153">Disable CORS</span></span>
+### <a name="per-action"></a><span data-ttu-id="60c4d-152">Za akcję</span><span class="sxs-lookup"><span data-stu-id="60c4d-152">Per action</span></span>
 
-<span data-ttu-id="29748-154">Aby wyłączyć CORS dla kontrolera lub akcji, należy użyć `[DisableCors]` atrybutu.</span><span class="sxs-lookup"><span data-stu-id="29748-154">To disable CORS for a controller or action, use the `[DisableCors]` attribute.</span></span>
+<span data-ttu-id="60c4d-153">Aby określić zasad CORS dla danego działania, Dodaj [ &lbrack;EnableCors&rbrack; ](xref:Microsoft.AspNetCore.Cors.EnableCorsAttribute) atrybutu akcji.</span><span class="sxs-lookup"><span data-stu-id="60c4d-153">To specify a CORS policy for a specific action, add the [&lbrack;EnableCors&rbrack;](xref:Microsoft.AspNetCore.Cors.EnableCorsAttribute) attribute to the action.</span></span> <span data-ttu-id="60c4d-154">Podaj nazwę zasad.</span><span class="sxs-lookup"><span data-stu-id="60c4d-154">Specify the policy name.</span></span>
 
-[!code-csharp[](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=DisableOnAction)]
+[!code-csharp[](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=EnableOnAction&highlight=2)]
 
-## <a name="cors-policy-options"></a><span data-ttu-id="29748-155">Opcje zasad CORS</span><span class="sxs-lookup"><span data-stu-id="29748-155">CORS policy options</span></span>
+### <a name="per-controller"></a><span data-ttu-id="60c4d-155">Każdy kontroler</span><span class="sxs-lookup"><span data-stu-id="60c4d-155">Per controller</span></span>
 
-<span data-ttu-id="29748-156">W tej sekcji opisano różne opcje, które można ustawić zasady CORS.</span><span class="sxs-lookup"><span data-stu-id="29748-156">This section describes the various options that you can set in a CORS policy.</span></span>
+<span data-ttu-id="60c4d-156">Aby określić zasady CORS dla określonego kontrolera, należy dodać [ &lbrack;EnableCors&rbrack; ](xref:Microsoft.AspNetCore.Cors.EnableCorsAttribute) atrybutów do klasy kontrolera.</span><span class="sxs-lookup"><span data-stu-id="60c4d-156">To specify the CORS policy for a specific controller, add the [&lbrack;EnableCors&rbrack;](xref:Microsoft.AspNetCore.Cors.EnableCorsAttribute) attribute to the controller class.</span></span> <span data-ttu-id="60c4d-157">Podaj nazwę zasad.</span><span class="sxs-lookup"><span data-stu-id="60c4d-157">Specify the policy name.</span></span>
 
-* [<span data-ttu-id="29748-157">Ustaw dozwolone źródła</span><span class="sxs-lookup"><span data-stu-id="29748-157">Set the allowed origins</span></span>](#set-the-allowed-origins)
+[!code-csharp[](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=EnableOnController&highlight=2)]
 
-* [<span data-ttu-id="29748-158">Ustaw dozwolone metody HTTP</span><span class="sxs-lookup"><span data-stu-id="29748-158">Set the allowed HTTP methods</span></span>](#set-the-allowed-http-methods)
+<span data-ttu-id="60c4d-158">Kolejność pierwszeństwa jest:</span><span class="sxs-lookup"><span data-stu-id="60c4d-158">The precedence order is:</span></span>
 
-* [<span data-ttu-id="29748-159">Ustawia nagłówki żądania dozwolone</span><span class="sxs-lookup"><span data-stu-id="29748-159">Set the allowed request headers</span></span>](#set-the-allowed-request-headers)
+1. <span data-ttu-id="60c4d-159">Akcja</span><span class="sxs-lookup"><span data-stu-id="60c4d-159">action</span></span>
+1. <span data-ttu-id="60c4d-160">kontroler</span><span class="sxs-lookup"><span data-stu-id="60c4d-160">controller</span></span>
 
-* [<span data-ttu-id="29748-160">Ustawianie nagłówków odpowiedzi narażone</span><span class="sxs-lookup"><span data-stu-id="29748-160">Set the exposed response headers</span></span>](#set-the-exposed-response-headers)
+### <a name="disable-cors"></a><span data-ttu-id="60c4d-161">Wyłączenia CORS</span><span class="sxs-lookup"><span data-stu-id="60c4d-161">Disable CORS</span></span>
 
-* [<span data-ttu-id="29748-161">Poświadczenia w żądań cross-origin</span><span class="sxs-lookup"><span data-stu-id="29748-161">Credentials in cross-origin requests</span></span>](#credentials-in-cross-origin-requests)
+<span data-ttu-id="60c4d-162">Aby wyłączyć CORS dla kontrolera lub akcji, należy użyć [ &lbrack;DisableCors&rbrack; ](xref:Microsoft.AspNetCore.Cors.DisableCorsAttribute) atrybutu:</span><span class="sxs-lookup"><span data-stu-id="60c4d-162">To disable CORS for a controller or action, use the [&lbrack;DisableCors&rbrack;](xref:Microsoft.AspNetCore.Cors.DisableCorsAttribute) attribute:</span></span>
 
-* [<span data-ttu-id="29748-162">Ustaw czas wygaśnięcia wstępnego</span><span class="sxs-lookup"><span data-stu-id="29748-162">Set the preflight expiration time</span></span>](#set-the-preflight-expiration-time)
+[!code-csharp[](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=DisableOnAction&highlight=2)]
 
-<span data-ttu-id="29748-163">Niektóre opcje mogą być pomocne dla odczytu [działa jak CORS](#how-cors-works) pierwszy.</span><span class="sxs-lookup"><span data-stu-id="29748-163">For some options, it may be helpful to read [How CORS works](#how-cors-works) first.</span></span>
+## <a name="cors-policy-options"></a><span data-ttu-id="60c4d-163">Opcje zasad CORS</span><span class="sxs-lookup"><span data-stu-id="60c4d-163">CORS policy options</span></span>
 
-### <a name="set-the-allowed-origins"></a><span data-ttu-id="29748-164">Ustaw dozwolone źródła</span><span class="sxs-lookup"><span data-stu-id="29748-164">Set the allowed origins</span></span>
+<span data-ttu-id="60c4d-164">W tej sekcji opisano różne opcje, które można ustawić zasady CORS.</span><span class="sxs-lookup"><span data-stu-id="60c4d-164">This section describes the various options that you can set in a CORS policy.</span></span>
 
-<span data-ttu-id="29748-165">Aby zezwolić na co najmniej jeden z określonych źródeł:</span><span class="sxs-lookup"><span data-stu-id="29748-165">To allow one or more specific origins:</span></span>
+* [<span data-ttu-id="60c4d-165">Ustaw dozwolone źródła</span><span class="sxs-lookup"><span data-stu-id="60c4d-165">Set the allowed origins</span></span>](#set-the-allowed-origins)
+* [<span data-ttu-id="60c4d-166">Ustaw dozwolone metody HTTP</span><span class="sxs-lookup"><span data-stu-id="60c4d-166">Set the allowed HTTP methods</span></span>](#set-the-allowed-http-methods)
+* [<span data-ttu-id="60c4d-167">Ustawia nagłówki żądania dozwolone</span><span class="sxs-lookup"><span data-stu-id="60c4d-167">Set the allowed request headers</span></span>](#set-the-allowed-request-headers)
+* [<span data-ttu-id="60c4d-168">Ustawianie nagłówków odpowiedzi narażone</span><span class="sxs-lookup"><span data-stu-id="60c4d-168">Set the exposed response headers</span></span>](#set-the-exposed-response-headers)
+* [<span data-ttu-id="60c4d-169">Poświadczenia w żądań cross-origin</span><span class="sxs-lookup"><span data-stu-id="60c4d-169">Credentials in cross-origin requests</span></span>](#credentials-in-cross-origin-requests)
+* [<span data-ttu-id="60c4d-170">Ustaw czas wygaśnięcia wstępnego</span><span class="sxs-lookup"><span data-stu-id="60c4d-170">Set the preflight expiration time</span></span>](#set-the-preflight-expiration-time)
 
-[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=19-23)]
+<span data-ttu-id="60c4d-171">Niektóre opcje mogą być pomocne dla odczytu [działa jak CORS](#how-cors-works) najpierw sekcji.</span><span class="sxs-lookup"><span data-stu-id="60c4d-171">For some options, it may be helpful to read the [How CORS works](#how-cors-works) section first.</span></span>
 
-<span data-ttu-id="29748-166">Aby zezwolić na wszystkie pochodzenia:</span><span class="sxs-lookup"><span data-stu-id="29748-166">To allow all origins:</span></span>
+### <a name="set-the-allowed-origins"></a><span data-ttu-id="60c4d-172">Ustaw dozwolone źródła</span><span class="sxs-lookup"><span data-stu-id="60c4d-172">Set the allowed origins</span></span>
 
-[!code-csharp[](cors/sample/CorsExample4/Startup.cs??range=27-31)]
+<span data-ttu-id="60c4d-173">Aby zezwolić na co najmniej jeden z określonych źródeł, należy wywołać <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.WithOrigins*>:</span><span class="sxs-lookup"><span data-stu-id="60c4d-173">To allow one or more specific origins, call <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.WithOrigins*>:</span></span>
 
-<span data-ttu-id="29748-167">Starannie rozważ, przed zezwoleniem na żądania z dowolnego źródła.</span><span class="sxs-lookup"><span data-stu-id="29748-167">Consider carefully before allowing requests from any origin.</span></span> <span data-ttu-id="29748-168">Oznacza to, że dosłownie w dowolnej witrynie sieci Web mogą przesłać wywołania AJAX do interfejsu API.</span><span class="sxs-lookup"><span data-stu-id="29748-168">It means that literally any website can make AJAX calls to your API.</span></span>
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=20-24&highlight=4)]
 
-### <a name="set-the-allowed-http-methods"></a><span data-ttu-id="29748-169">Ustaw dozwolone metody HTTP</span><span class="sxs-lookup"><span data-stu-id="29748-169">Set the allowed HTTP methods</span></span>
+<span data-ttu-id="60c4d-174">Aby zezwolić na wszystkie pochodzenia, należy wywołać <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.AllowAnyOrigin*>:</span><span class="sxs-lookup"><span data-stu-id="60c4d-174">To allow all origins, call <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.AllowAnyOrigin*>:</span></span>
 
-<span data-ttu-id="29748-170">Aby zezwolić na wszystkie metody HTTP:</span><span class="sxs-lookup"><span data-stu-id="29748-170">To allow all HTTP methods:</span></span>
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=28-32&highlight=4)]
 
-[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=44-49)]
+<span data-ttu-id="60c4d-175">Starannie rozważ, przed zezwoleniem na żądania z dowolnego źródła.</span><span class="sxs-lookup"><span data-stu-id="60c4d-175">Consider carefully before allowing requests from any origin.</span></span> <span data-ttu-id="60c4d-176">Zezwolenie na żądania z dowolnego źródła oznacza, że *dowolnej witrynie sieci Web* mogą wysyłać żądań cross-origin do swojej aplikacji.</span><span class="sxs-lookup"><span data-stu-id="60c4d-176">Allowing requests from any origin means that *any website* can make cross-origin requests to your app.</span></span>
 
-<span data-ttu-id="29748-171">Dotyczy to żądań krótkiej i nagłówka Access-kontroli-Allow-Methods.</span><span class="sxs-lookup"><span data-stu-id="29748-171">This affects pre-flight requests and Access-Control-Allow-Methods header.</span></span>
+<span data-ttu-id="60c4d-177">To ustawienie dotyczy [stanu wstępnego żądania i nagłówka Access-Control-Allow-Origin](#preflight-requests) (opisanych w dalszej części tego tematu).</span><span class="sxs-lookup"><span data-stu-id="60c4d-177">This setting affects [preflight requests and the Access-Control-Allow-Origin header](#preflight-requests) (described later in this topic).</span></span>
 
-### <a name="set-the-allowed-request-headers"></a><span data-ttu-id="29748-172">Ustawia nagłówki żądania dozwolone</span><span class="sxs-lookup"><span data-stu-id="29748-172">Set the allowed request headers</span></span>
+### <a name="set-the-allowed-http-methods"></a><span data-ttu-id="60c4d-178">Ustaw dozwolone metody HTTP</span><span class="sxs-lookup"><span data-stu-id="60c4d-178">Set the allowed HTTP methods</span></span>
 
-<span data-ttu-id="29748-173">Żądania wstępnego CORS może obejmować nagłówka Access-Control-Request-Headers, lista nagłówków HTTP, ustawiane przez aplikację (tak zwane "Autor nagłówki żądania").</span><span class="sxs-lookup"><span data-stu-id="29748-173">A CORS preflight request might include an Access-Control-Request-Headers header, listing the HTTP headers set by the application (the so-called "author request headers").</span></span>
+<span data-ttu-id="60c4d-179">Aby zezwolić na wszystkie metody HTTP, należy wywołać <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.AllowAnyMethod*>:</span><span class="sxs-lookup"><span data-stu-id="60c4d-179">To allow all HTTP methods, call <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.AllowAnyMethod*>:</span></span>
 
-<span data-ttu-id="29748-174">Do listy dozwolonych nagłówków określonych:</span><span class="sxs-lookup"><span data-stu-id="29748-174">To whitelist specific headers:</span></span>
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=45-50&highlight=5)]
 
-[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=53-58)]
+<span data-ttu-id="60c4d-180">To ustawienie dotyczy [stanu wstępnego żądania i nagłówka Access-kontroli-Allow-Methods](#preflight-requests) (opisanych w dalszej części tego tematu).</span><span class="sxs-lookup"><span data-stu-id="60c4d-180">This setting affects [preflight requests and the Access-Control-Allow-Methods header](#preflight-requests) (described later in this topic).</span></span>
 
-<span data-ttu-id="29748-175">Aby umożliwić Twórz wszystkie nagłówki żądania:</span><span class="sxs-lookup"><span data-stu-id="29748-175">To allow all author request headers:</span></span>
+### <a name="set-the-allowed-request-headers"></a><span data-ttu-id="60c4d-181">Ustawia nagłówki żądania dozwolone</span><span class="sxs-lookup"><span data-stu-id="60c4d-181">Set the allowed request headers</span></span>
 
-[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=62-67)]
+<span data-ttu-id="60c4d-182">Aby zezwolić na określone nagłówki do wysłania żądania CORS, o nazwie *tworzyć nagłówki żądania*, wywołaj <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.WithHeaders*> i określ dozwolone nagłówki:</span><span class="sxs-lookup"><span data-stu-id="60c4d-182">To allow specific headers to be sent in a CORS request, called *author request headers*, call <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.WithHeaders*> and specify the allowed headers:</span></span>
 
-<span data-ttu-id="29748-176">Przeglądarki nie są całkowicie zgodne, w jaki ustawiają Access-Control-Request-Headers.</span><span class="sxs-lookup"><span data-stu-id="29748-176">Browsers are not entirely consistent in how they set Access-Control-Request-Headers.</span></span> <span data-ttu-id="29748-177">Jeśli ustawisz nagłówki do żadnego elementu innego niż "\*", użytkownik powinien zawierać co najmniej "Zaakceptuj", "content-type" i "origin", a także niestandardowe nagłówki, które mają być obsługiwane.</span><span class="sxs-lookup"><span data-stu-id="29748-177">If you set headers to anything other than "\*", you should include at least "accept", "content-type", and "origin", plus any custom headers that you want to support.</span></span>
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=54-59&highlight=5)]
 
-### <a name="set-the-exposed-response-headers"></a><span data-ttu-id="29748-178">Ustawianie nagłówków odpowiedzi narażone</span><span class="sxs-lookup"><span data-stu-id="29748-178">Set the exposed response headers</span></span>
+<span data-ttu-id="60c4d-183">Aby umożliwić Twórz wszystkie nagłówki żądania wywołania <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.AllowAnyHeader*>:</span><span class="sxs-lookup"><span data-stu-id="60c4d-183">To allow all author request headers, call <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.AllowAnyHeader*>:</span></span>
 
-<span data-ttu-id="29748-179">Domyślnie przeglądarka nie uwidacznia wszystkie nagłówki odpowiedzi do aplikacji.</span><span class="sxs-lookup"><span data-stu-id="29748-179">By default, the browser doesn't expose all of the response headers to the application.</span></span> <span data-ttu-id="29748-180">(Zobacz [ http://www.w3.org/TR/cors/#simple-response-header ](http://www.w3.org/TR/cors/#simple-response-header).) Nagłówki odpowiedzi, które są domyślnie dostępne są następujące:</span><span class="sxs-lookup"><span data-stu-id="29748-180">(See [http://www.w3.org/TR/cors/#simple-response-header](http://www.w3.org/TR/cors/#simple-response-header).) The response headers that are available by default are:</span></span>
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=63-68&highlight=5)]
 
-* <span data-ttu-id="29748-181">Cache-Control</span><span class="sxs-lookup"><span data-stu-id="29748-181">Cache-Control</span></span>
+<span data-ttu-id="60c4d-184">To ustawienie dotyczy [stanu wstępnego żądania i nagłówka Access-Control-Request-Headers](#preflight-requests) (opisanych w dalszej części tego tematu).</span><span class="sxs-lookup"><span data-stu-id="60c4d-184">This setting affects [preflight requests and the Access-Control-Request-Headers header](#preflight-requests) (described later in this topic).</span></span>
 
-* <span data-ttu-id="29748-182">Język zawartości</span><span class="sxs-lookup"><span data-stu-id="29748-182">Content-Language</span></span>
+::: moniker range=">= aspnetcore-2.2"
 
-* <span data-ttu-id="29748-183">Typ zawartości</span><span class="sxs-lookup"><span data-stu-id="29748-183">Content-Type</span></span>
+<span data-ttu-id="60c4d-185">Oprogramowanie pośredniczące CORS dopasowania zasad do określonych nagłówków, określony przez `WithHeaders` jest możliwe tylko wtedy, gdy nagłówki są wysyłane `Access-Control-Request-Headers` dokładnie pasują do nagłówków w `WithHeaders`.</span><span class="sxs-lookup"><span data-stu-id="60c4d-185">A CORS Middleware policy match to specific headers specified by `WithHeaders` is only possible when the headers sent in `Access-Control-Request-Headers` exactly match the headers stated in `WithHeaders`.</span></span>
 
-* <span data-ttu-id="29748-184">Wygasa</span><span class="sxs-lookup"><span data-stu-id="29748-184">Expires</span></span>
+<span data-ttu-id="60c4d-186">Na przykład należy wziąć pod uwagę aplikacji skonfigurowanej w następujący sposób:</span><span class="sxs-lookup"><span data-stu-id="60c4d-186">For instance, consider an app configured as follows:</span></span>
 
-* <span data-ttu-id="29748-185">Last-Modified</span><span class="sxs-lookup"><span data-stu-id="29748-185">Last-Modified</span></span>
+```csharp
+app.UseCors(policy => policy.WithHeaders(HeaderNames.CacheControl));
+```
 
-* <span data-ttu-id="29748-186">Dyrektywy pragma</span><span class="sxs-lookup"><span data-stu-id="29748-186">Pragma</span></span>
+<span data-ttu-id="60c4d-187">Oprogramowanie pośredniczące CORS odmawia żądania wstępnego za pomocą następujących nagłówek żądania, ponieważ `Content-Language` ([HeaderNames.ContentLanguage](xref:Microsoft.Net.Http.Headers.HeaderNames.ContentLanguage)) nie ma na liście w `WithHeaders`:</span><span class="sxs-lookup"><span data-stu-id="60c4d-187">CORS Middleware declines a preflight request with the following request header because `Content-Language` ([HeaderNames.ContentLanguage](xref:Microsoft.Net.Http.Headers.HeaderNames.ContentLanguage)) isn't listed in `WithHeaders`:</span></span>
 
-<span data-ttu-id="29748-187">Specyfikacja CORS wywołuje te *nagłówki odpowiedzi proste*.</span><span class="sxs-lookup"><span data-stu-id="29748-187">The CORS spec calls these *simple response headers*.</span></span> <span data-ttu-id="29748-188">Aby udostępnić innych nagłówków do aplikacji:</span><span class="sxs-lookup"><span data-stu-id="29748-188">To make other headers available to the application:</span></span>
+```
+Access-Control-Request-Headers: Cache-Control, Content-Language
+```
 
-[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=71-76)]
+<span data-ttu-id="60c4d-188">Zwraca aplikacji *200 OK* odpowiedzi, ale nie wysyła ponownie nagłówków CORS.</span><span class="sxs-lookup"><span data-stu-id="60c4d-188">The app returns a *200 OK* response but doesn't send the CORS headers back.</span></span> <span data-ttu-id="60c4d-189">W związku z tym przeglądarka nie podejmować żądań cross-origin.</span><span class="sxs-lookup"><span data-stu-id="60c4d-189">Therefore, the browser doesn't attempt the cross-origin request.</span></span>
 
-### <a name="credentials-in-cross-origin-requests"></a><span data-ttu-id="29748-189">Poświadczenia w żądań cross-origin</span><span class="sxs-lookup"><span data-stu-id="29748-189">Credentials in cross-origin requests</span></span>
+::: moniker-end
 
-<span data-ttu-id="29748-190">Poświadczenia wymagają specjalnej obsługi żądania CORS.</span><span class="sxs-lookup"><span data-stu-id="29748-190">Credentials require special handling in a CORS request.</span></span> <span data-ttu-id="29748-191">Domyślnie przeglądarka nie wysyła żadnych poświadczeń z żądaniem cross-origin.</span><span class="sxs-lookup"><span data-stu-id="29748-191">By default, the browser doesn't send any credentials with a cross-origin request.</span></span> <span data-ttu-id="29748-192">Poświadczenia obejmują pliki cookie, a także schematów uwierzytelniania HTTP.</span><span class="sxs-lookup"><span data-stu-id="29748-192">Credentials include cookies as well as HTTP authentication schemes.</span></span> <span data-ttu-id="29748-193">Do wysyłania poświadczeń przy użyciu żądania między źródłami, klient musi ustawić XMLHttpRequest.withCredentials na wartość true.</span><span class="sxs-lookup"><span data-stu-id="29748-193">To send credentials with a cross-origin request, the client must set XMLHttpRequest.withCredentials to true.</span></span>
+::: moniker range="< aspnetcore-2.2"
 
-<span data-ttu-id="29748-194">Bezpośrednio za pomocą obiektu XMLHttpRequest:</span><span class="sxs-lookup"><span data-stu-id="29748-194">Using XMLHttpRequest directly:</span></span>
+<span data-ttu-id="60c4d-190">Oprogramowanie pośredniczące CORS zawsze zezwala na cztery nagłówków w `Access-Control-Request-Headers` mają być wysyłane niezależnie od wartości skonfigurowanych w CorsPolicy.Headers.</span><span class="sxs-lookup"><span data-stu-id="60c4d-190">CORS Middleware always allows four headers in the `Access-Control-Request-Headers` to be sent regardless of the values configured in CorsPolicy.Headers.</span></span> <span data-ttu-id="60c4d-191">Ta lista nagłówków zawiera:</span><span class="sxs-lookup"><span data-stu-id="60c4d-191">This list of headers includes:</span></span>
+
+* `Accept`
+* `Accept-Language`
+* `Content-Language`
+* `Origin`
+
+<span data-ttu-id="60c4d-192">Na przykład należy wziąć pod uwagę aplikacji skonfigurowanej w następujący sposób:</span><span class="sxs-lookup"><span data-stu-id="60c4d-192">For instance, consider an app configured as follows:</span></span>
+
+```csharp
+app.UseCors(policy => policy.WithHeaders(HeaderNames.CacheControl));
+```
+
+<span data-ttu-id="60c4d-193">Oprogramowanie pośredniczące CORS odpowiada pomyślnie żądania wstępnego za pomocą następujących nagłówek żądania ponieważ `Content-Language` zawsze jest umieszczona na białej liście:</span><span class="sxs-lookup"><span data-stu-id="60c4d-193">CORS Middleware responds successfully to a preflight request with the following request header because `Content-Language` is always whitelisted:</span></span>
+
+```
+Access-Control-Request-Headers: Cache-Control, Content-Language
+```
+
+::: moniker-end
+
+### <a name="set-the-exposed-response-headers"></a><span data-ttu-id="60c4d-194">Ustawianie nagłówków odpowiedzi narażone</span><span class="sxs-lookup"><span data-stu-id="60c4d-194">Set the exposed response headers</span></span>
+
+<span data-ttu-id="60c4d-195">Domyślnie przeglądarka nie uwidacznia wszystkie nagłówki odpowiedzi do aplikacji.</span><span class="sxs-lookup"><span data-stu-id="60c4d-195">By default, the browser doesn't expose all of the response headers to the app.</span></span> <span data-ttu-id="60c4d-196">Aby uzyskać więcej informacji, zobacz [W3C Cross-Origin Resource Sharing (terminologii): prosty nagłówek odpowiedzi](https://www.w3.org/TR/cors/#simple-response-header).</span><span class="sxs-lookup"><span data-stu-id="60c4d-196">For more information, see [W3C Cross-Origin Resource Sharing (Terminology): Simple Response Header](https://www.w3.org/TR/cors/#simple-response-header).</span></span>
+
+<span data-ttu-id="60c4d-197">Nagłówki odpowiedzi, które są domyślnie dostępne są następujące:</span><span class="sxs-lookup"><span data-stu-id="60c4d-197">The response headers that are available by default are:</span></span>
+
+* `Cache-Control`
+* `Content-Language`
+* `Content-Type`
+* `Expires`
+* `Last-Modified`
+* `Pragma`
+
+<span data-ttu-id="60c4d-198">Specyfikacja CORS wywołuje te nagłówki *nagłówki odpowiedzi proste*.</span><span class="sxs-lookup"><span data-stu-id="60c4d-198">The CORS specification calls these headers *simple response headers*.</span></span> <span data-ttu-id="60c4d-199">Aby udostępnić innych nagłówków do aplikacji, należy wywołać <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.WithExposedHeaders*>:</span><span class="sxs-lookup"><span data-stu-id="60c4d-199">To make other headers available to the app, call <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.WithExposedHeaders*>:</span></span>
+
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=72-77&highlight=5)]
+
+### <a name="credentials-in-cross-origin-requests"></a><span data-ttu-id="60c4d-200">Poświadczenia w żądań cross-origin</span><span class="sxs-lookup"><span data-stu-id="60c4d-200">Credentials in cross-origin requests</span></span>
+
+<span data-ttu-id="60c4d-201">Poświadczenia wymagają specjalnej obsługi żądania CORS.</span><span class="sxs-lookup"><span data-stu-id="60c4d-201">Credentials require special handling in a CORS request.</span></span> <span data-ttu-id="60c4d-202">Domyślnie przeglądarka nie wysyła poświadczenia z żądaniem cross-origin.</span><span class="sxs-lookup"><span data-stu-id="60c4d-202">By default, the browser doesn't send credentials with a cross-origin request.</span></span> <span data-ttu-id="60c4d-203">Poświadczenia obejmują pliki cookie i schematów uwierzytelniania HTTP.</span><span class="sxs-lookup"><span data-stu-id="60c4d-203">Credentials include cookies and HTTP authentication schemes.</span></span> <span data-ttu-id="60c4d-204">Do wysyłania poświadczeń z żądaniem cross-origin, klient musi być ustawiona `XMLHttpRequest.withCredentials` do `true`.</span><span class="sxs-lookup"><span data-stu-id="60c4d-204">To send credentials with a cross-origin request, the client must set `XMLHttpRequest.withCredentials` to `true`.</span></span>
+
+<span data-ttu-id="60c4d-205">Za pomocą `XMLHttpRequest` bezpośrednio:</span><span class="sxs-lookup"><span data-stu-id="60c4d-205">Using `XMLHttpRequest` directly:</span></span>
 
 ```javascript
 var xhr = new XMLHttpRequest();
-xhr.open('get', 'http://www.example.com/api/test');
+xhr.open('get', 'https://www.example.com/api/test');
 xhr.withCredentials = true;
 ```
 
-<span data-ttu-id="29748-195">W technologii jQuery:</span><span class="sxs-lookup"><span data-stu-id="29748-195">In jQuery:</span></span>
+<span data-ttu-id="60c4d-206">W technologii jQuery:</span><span class="sxs-lookup"><span data-stu-id="60c4d-206">In jQuery:</span></span>
 
 ```jQuery
 $.ajax({
   type: 'get',
-  url: 'http://www.example.com/home',
+  url: 'https://www.example.com/home',
   xhrFields: {
     withCredentials: true
 }
 ```
 
-<span data-ttu-id="29748-196">Ponadto serwer musi zezwalać na poświadczenia.</span><span class="sxs-lookup"><span data-stu-id="29748-196">In addition, the server must allow the credentials.</span></span> <span data-ttu-id="29748-197">Aby zezwolić na współużytkowanie poświadczeń:</span><span class="sxs-lookup"><span data-stu-id="29748-197">To allow cross-origin credentials:</span></span>
+<span data-ttu-id="60c4d-207">Ponadto serwer musi zezwalać na poświadczenia.</span><span class="sxs-lookup"><span data-stu-id="60c4d-207">In addition, the server must allow the credentials.</span></span> <span data-ttu-id="60c4d-208">Zezwalaj na współużytkowanie poświadczeń, należy wywołać <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.AllowCredentials*>:</span><span class="sxs-lookup"><span data-stu-id="60c4d-208">To allow cross-origin credentials, call <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.AllowCredentials*>:</span></span>
 
-[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=80-85)]
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=81-86&highlight=5)]
 
-<span data-ttu-id="29748-198">Teraz odpowiedzi HTTP będzie zawierać nagłówka Access-kontroli-Allow-Credentials, który informuje przeglądarkę o tym, że serwer pozwala poświadczenia dla żądań cross-origin.</span><span class="sxs-lookup"><span data-stu-id="29748-198">Now the HTTP response will include an Access-Control-Allow-Credentials header, which tells the browser that the server allows credentials for a cross-origin request.</span></span>
+<span data-ttu-id="60c4d-209">Odpowiedź HTTP zawiera `Access-Control-Allow-Credentials` nagłówka, który informuje przeglądarkę o tym, że serwer pozwala poświadczenia dla żądań cross-origin.</span><span class="sxs-lookup"><span data-stu-id="60c4d-209">The HTTP response includes an `Access-Control-Allow-Credentials` header, which tells the browser that the server allows credentials for a cross-origin request.</span></span>
 
-<span data-ttu-id="29748-199">Jeśli przeglądarka wysyła poświadczenia, ale odpowiedź nie zawiera prawidłowego nagłówka Access-kontroli-Allow-Credentials, przeglądarka nie będzie ujawniać odpowiedź do aplikacji, a żądanie AJAX nie powiodło się.</span><span class="sxs-lookup"><span data-stu-id="29748-199">If the browser sends credentials, but the response doesn't include a valid Access-Control-Allow-Credentials header, the browser won't expose the response to the application, and the AJAX request fails.</span></span>
+<span data-ttu-id="60c4d-210">Jeśli przeglądarka wysyła poświadczenia, ale odpowiedź nie zawiera prawidłowej `Access-Control-Allow-Credentials` nagłówka, przeglądarka nie ujawnia odpowiedzi do aplikacji, a liczba nieudanych żądań cross-origin.</span><span class="sxs-lookup"><span data-stu-id="60c4d-210">If the browser sends credentials but the response doesn't include a valid `Access-Control-Allow-Credentials` header, the browser doesn't expose the response to the app, and the cross-origin request fails.</span></span>
 
-<span data-ttu-id="29748-200">Należy zachować ostrożność, dzięki czemu poświadczenia cross-origin.</span><span class="sxs-lookup"><span data-stu-id="29748-200">Be careful when allowing cross-origin credentials.</span></span> <span data-ttu-id="29748-201">Witryny sieci Web w innej domenie może wysyłać poświadczeń zalogowanego użytkownika do aplikacji w imieniu użytkownika bez wiedzy użytkownika.</span><span class="sxs-lookup"><span data-stu-id="29748-201">A website at another domain can send a logged-in user's credentials to the app on the user's behalf without the user's knowledge.</span></span> <span data-ttu-id="29748-202">Specyfikacja CORS również stany to ustawienie źródeł do `"*"` (wszystkie źródła) jest nieprawidłowa Jeśli `Access-Control-Allow-Credentials` nagłówka znajduje się.</span><span class="sxs-lookup"><span data-stu-id="29748-202">The CORS specification also states that setting origins to `"*"` (all origins) is invalid if the `Access-Control-Allow-Credentials` header is present.</span></span>
+<span data-ttu-id="60c4d-211">Należy zachować ostrożność, dzięki czemu poświadczenia cross-origin.</span><span class="sxs-lookup"><span data-stu-id="60c4d-211">Be careful when allowing cross-origin credentials.</span></span> <span data-ttu-id="60c4d-212">Witryny sieci Web w innej domenie może wysyłać poświadczeń zalogowanego użytkownika do aplikacji w imieniu użytkownika bez wiedzy użytkownika.</span><span class="sxs-lookup"><span data-stu-id="60c4d-212">A website at another domain can send a signed-in user's credentials to the app on the user's behalf without the user's knowledge.</span></span>
 
-### <a name="set-the-preflight-expiration-time"></a><span data-ttu-id="29748-203">Ustaw czas wygaśnięcia wstępnego</span><span class="sxs-lookup"><span data-stu-id="29748-203">Set the preflight expiration time</span></span>
+<span data-ttu-id="60c4d-213">Specyfikacja CORS również stany to ustawienie źródeł do `"*"` (wszystkie źródła) jest nieprawidłowa Jeśli `Access-Control-Allow-Credentials` nagłówka znajduje się.</span><span class="sxs-lookup"><span data-stu-id="60c4d-213">The CORS specification also states that setting origins to `"*"` (all origins) is invalid if the `Access-Control-Allow-Credentials` header is present.</span></span>
 
-<span data-ttu-id="29748-204">Nagłówek dostępu — kontrola-Max-Age Określa, jak długo mogą być buforowane odpowiedzi na żądania wstępnego.</span><span class="sxs-lookup"><span data-stu-id="29748-204">The Access-Control-Max-Age header specifies how long the response to the preflight request can be cached.</span></span> <span data-ttu-id="29748-205">Aby ustawić tego nagłówka:</span><span class="sxs-lookup"><span data-stu-id="29748-205">To set this header:</span></span>
+### <a name="preflight-requests"></a><span data-ttu-id="60c4d-214">Żądania wstępnego</span><span class="sxs-lookup"><span data-stu-id="60c4d-214">Preflight requests</span></span>
 
-[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=89-94)]
+<span data-ttu-id="60c4d-215">Dla niektórych żądań CORPS przeglądarce wysyła żądanie dodatkowe przed wprowadzeniem rzeczywistego żądania.</span><span class="sxs-lookup"><span data-stu-id="60c4d-215">For some CORS requests, the browser sends an additional request before making the actual request.</span></span> <span data-ttu-id="60c4d-216">To żądanie jest nazywany *żądania wstępnego*.</span><span class="sxs-lookup"><span data-stu-id="60c4d-216">This request is called a *preflight request*.</span></span> <span data-ttu-id="60c4d-217">Przeglądarka może pominąć żądania wstępnego, jeśli są spełnione następujące warunki:</span><span class="sxs-lookup"><span data-stu-id="60c4d-217">The browser can skip the preflight request if the following conditions are true:</span></span>
 
-<a name="cors-how-cors-works"></a>
+* <span data-ttu-id="60c4d-218">Metoda żądania jest GET, HEAD lub POST.</span><span class="sxs-lookup"><span data-stu-id="60c4d-218">The request method is GET, HEAD, or POST.</span></span>
+* <span data-ttu-id="60c4d-219">Aplikacja nie ustawia nagłówki żądania innego niż `Accept`, `Accept-Language`, `Content-Language`, `Content-Type`, lub `Last-Event-ID`.</span><span class="sxs-lookup"><span data-stu-id="60c4d-219">The app doesn't set request headers other than `Accept`, `Accept-Language`, `Content-Language`, `Content-Type`, or `Last-Event-ID`.</span></span>
+* <span data-ttu-id="60c4d-220">`Content-Type` Nagłówka, jeśli ustawiona, ma jedną z jedną z następujących wartości:</span><span class="sxs-lookup"><span data-stu-id="60c4d-220">The `Content-Type` header, if set, has one of the one of the following values:</span></span>
+  * `application/x-www-form-urlencoded`
+  * `multipart/form-data`
+  * `text/plain`
 
-## <a name="how-cors-works"></a><span data-ttu-id="29748-206">Jak działa mechanizmu CORS</span><span class="sxs-lookup"><span data-stu-id="29748-206">How CORS works</span></span>
+<span data-ttu-id="60c4d-221">Reguła w nagłówkach żądania skonfigurowana dla żądania klienta, który ma zastosowanie do nagłówków, które aplikacja ustawia przez wywołanie metody `setRequestHeader` na `XMLHttpRequest` obiektu.</span><span class="sxs-lookup"><span data-stu-id="60c4d-221">The rule on request headers set for the client request applies to headers that the app sets by calling `setRequestHeader` on the `XMLHttpRequest` object.</span></span> <span data-ttu-id="60c4d-222">Specyfikacja CORS wywołuje te nagłówki *tworzyć nagłówki żądania*.</span><span class="sxs-lookup"><span data-stu-id="60c4d-222">The CORS specification calls these headers *author request headers*.</span></span> <span data-ttu-id="60c4d-223">Reguła nie ma zastosowania do przeglądarki można ustawić, takie jak nagłówki `User-Agent`, `Host`, lub `Content-Length`.</span><span class="sxs-lookup"><span data-stu-id="60c4d-223">The rule doesn't apply to headers the browser can set, such as `User-Agent`, `Host`, or `Content-Length`.</span></span>
 
-<span data-ttu-id="29748-207">W tej sekcji opisano, co się stanie, w ramach żądania CORS na poziomie wiadomości HTTP.</span><span class="sxs-lookup"><span data-stu-id="29748-207">This section describes what happens in a CORS request at the level of the HTTP messages.</span></span> <span data-ttu-id="29748-208">Należy zrozumieć, jak CORS działa tak, aby zasady CORS może być prawidłowo skonfigurowane i debugowania, gdy wystąpią nieoczekiwane wyniki.</span><span class="sxs-lookup"><span data-stu-id="29748-208">It's important to understand how CORS works so that the CORS policy can be configured correctly and debugged when unexpected behaviors occur.</span></span>
-
-<span data-ttu-id="29748-209">Specyfikacja CORS wprowadza kilka nowych nagłówki HTTP, które Włączanie żądań cross-origin.</span><span class="sxs-lookup"><span data-stu-id="29748-209">The CORS specification introduces several new HTTP headers that enable cross-origin requests.</span></span> <span data-ttu-id="29748-210">Jeśli przeglądarka obsługuje mechanizm CORS, ustawia nagłówki te automatycznie dla żądań cross-origin.</span><span class="sxs-lookup"><span data-stu-id="29748-210">If a browser supports CORS, it sets these headers automatically for cross-origin requests.</span></span> <span data-ttu-id="29748-211">Niestandardowy kod JavaScript nie jest wymagane, aby włączyć mechanizm CORS.</span><span class="sxs-lookup"><span data-stu-id="29748-211">Custom JavaScript code isn't required to enable CORS.</span></span>
-
-<span data-ttu-id="29748-212">Oto przykład żądania między źródłami.</span><span class="sxs-lookup"><span data-stu-id="29748-212">Here is an example of a cross-origin request.</span></span> <span data-ttu-id="29748-213">`Origin` Nagłówek zapewnia domeny obiektu, z której wysłano żądanie:</span><span class="sxs-lookup"><span data-stu-id="29748-213">The `Origin` header provides the domain of the site that's making the request:</span></span>
+<span data-ttu-id="60c4d-224">Oto przykład żądania wstępnego:</span><span class="sxs-lookup"><span data-stu-id="60c4d-224">The following is an example of a preflight request:</span></span>
 
 ```
-GET http://myservice.azurewebsites.net/api/test HTTP/1.1
-Referer: http://myclient.azurewebsites.net/
+OPTIONS https://myservice.azurewebsites.net/api/test HTTP/1.1
 Accept: */*
-Accept-Language: en-US
-Origin: http://myclient.azurewebsites.net
-Accept-Encoding: gzip, deflate
-User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; WOW64; Trident/6.0)
-Host: myservice.azurewebsites.net
-```
-
-<span data-ttu-id="29748-214">Jeśli serwer zezwala na żądanie, ustawia nagłówka Access-Control-Allow-Origin w odpowiedzi.</span><span class="sxs-lookup"><span data-stu-id="29748-214">If the server allows the request, it sets the Access-Control-Allow-Origin header in the response.</span></span> <span data-ttu-id="29748-215">Wartość tego nagłówka stanowi odpowiada nagłówek źródła z żądania albo jest wartością symbol wieloznaczny "\*", co oznacza, że każde źródło jest dozwolony:</span><span class="sxs-lookup"><span data-stu-id="29748-215">The value of this header either matches the Origin header from the request, or is the wildcard value "\*", meaning that any origin is allowed:</span></span>
-
-```
-HTTP/1.1 200 OK
-Cache-Control: no-cache
-Pragma: no-cache
-Content-Type: text/plain; charset=utf-8
-Access-Control-Allow-Origin: http://myclient.azurewebsites.net
-Date: Wed, 20 May 2015 06:27:30 GMT
-Content-Length: 12
-
-Test message
-```
-
-<span data-ttu-id="29748-216">Odpowiedź nie zawiera nagłówka Access-Control-Allow-Origin, żądanie AJAX nie powiodło się.</span><span class="sxs-lookup"><span data-stu-id="29748-216">If the response doesn't include the Access-Control-Allow-Origin header, the AJAX request fails.</span></span> <span data-ttu-id="29748-217">W szczególności przeglądarki nie zezwalają na żądanie.</span><span class="sxs-lookup"><span data-stu-id="29748-217">Specifically, the browser disallows the request.</span></span> <span data-ttu-id="29748-218">Nawet jeśli serwer zwraca odpowiedź oznaczająca Powodzenie, przeglądarka nie udostępnia odpowiedzi do aplikacji klienckiej.</span><span class="sxs-lookup"><span data-stu-id="29748-218">Even if the server returns a successful response, the browser doesn't make the response available to the client application.</span></span>
-
-### <a name="preflight-requests"></a><span data-ttu-id="29748-219">Żądania wstępnego</span><span class="sxs-lookup"><span data-stu-id="29748-219">Preflight Requests</span></span>
-
-<span data-ttu-id="29748-220">W przypadku niektórych żądań CORPS przeglądarki przesyła wysłanie dodatkowego żądania o nazwie "żądania wstępnego", przed wysłaniem rzeczywistego żądania dla zasobu.</span><span class="sxs-lookup"><span data-stu-id="29748-220">For some CORS requests, the browser sends an additional request, called a "preflight request", before it sends the actual request for the resource.</span></span> <span data-ttu-id="29748-221">Przeglądarka może pominąć żądania wstępnego, jeśli są spełnione następujące warunki:</span><span class="sxs-lookup"><span data-stu-id="29748-221">The browser can skip the preflight request if the following conditions are true:</span></span>
-
-* <span data-ttu-id="29748-222">Metoda żądania jest GET, HEAD lub WPIS, a</span><span class="sxs-lookup"><span data-stu-id="29748-222">The request method is GET, HEAD, or POST, and</span></span>
-
-* <span data-ttu-id="29748-223">Aplikacja nie zmienia żadnych nagłówków żądania innego niż zawartości Accept, Accept-Language-Language, Content-Type lub ostatni-Event-ID, a</span><span class="sxs-lookup"><span data-stu-id="29748-223">The application doesn't set any request headers other than Accept, Accept-Language, Content-Language, Content-Type, or Last-Event-ID, and</span></span>
-
-* <span data-ttu-id="29748-224">Nagłówek Content-Type (jeśli ustawić) jest jednym z następujących czynności:</span><span class="sxs-lookup"><span data-stu-id="29748-224">The Content-Type header (if set) is one of the following:</span></span>
-
-  * <span data-ttu-id="29748-225">application/x-www-form-urlencoded</span><span class="sxs-lookup"><span data-stu-id="29748-225">application/x-www-form-urlencoded</span></span>
-
-  * <span data-ttu-id="29748-226">multipart/formularza data</span><span class="sxs-lookup"><span data-stu-id="29748-226">multipart/form-data</span></span>
-
-  * <span data-ttu-id="29748-227">zwykły tekst</span><span class="sxs-lookup"><span data-stu-id="29748-227">text/plain</span></span>
-
-<span data-ttu-id="29748-228">Reguła o nagłówki żądania dotyczy nagłówki, które aplikacja ustawia przez wywołanie metody setRequestHeader obiektu XMLHttpRequest.</span><span class="sxs-lookup"><span data-stu-id="29748-228">The rule about request headers applies to headers that the application sets by calling setRequestHeader on the XMLHttpRequest object.</span></span> <span data-ttu-id="29748-229">(Specyfikacji CORS wywołuje te "Autor nagłówki żądania"). Reguła nie ma zastosowania do nagłówków, które można ustawić przeglądarki, takich jak Agent użytkownika, Host lub Content-Length.</span><span class="sxs-lookup"><span data-stu-id="29748-229">(The CORS specification calls these "author request headers".) The rule doesn't apply to headers the browser can set, such as User-Agent, Host, or Content-Length.</span></span>
-
-<span data-ttu-id="29748-230">Oto przykład żądania wstępnego:</span><span class="sxs-lookup"><span data-stu-id="29748-230">Here is an example of a preflight request:</span></span>
-
-```
-OPTIONS http://myservice.azurewebsites.net/api/test HTTP/1.1
-Accept: */*
-Origin: http://myclient.azurewebsites.net
+Origin: https://myclient.azurewebsites.net
 Access-Control-Request-Method: PUT
 Access-Control-Request-Headers: accept, x-my-custom-header
 Accept-Encoding: gzip, deflate
@@ -287,23 +291,81 @@ Host: myservice.azurewebsites.net
 Content-Length: 0
 ```
 
-<span data-ttu-id="29748-231">Żądanie krótkiej wykorzystuje metodę OPTIONS protokołu HTTP.</span><span class="sxs-lookup"><span data-stu-id="29748-231">The pre-flight request uses the HTTP OPTIONS method.</span></span> <span data-ttu-id="29748-232">Zawiera ona dwie specjalnych nagłówków:</span><span class="sxs-lookup"><span data-stu-id="29748-232">It includes two special headers:</span></span>
+<span data-ttu-id="60c4d-225">Żądanie krótkiej wykorzystuje metodę OPTIONS protokołu HTTP.</span><span class="sxs-lookup"><span data-stu-id="60c4d-225">The pre-flight request uses the HTTP OPTIONS method.</span></span> <span data-ttu-id="60c4d-226">Zawiera ona dwie specjalnych nagłówków:</span><span class="sxs-lookup"><span data-stu-id="60c4d-226">It includes two special headers:</span></span>
 
-* <span data-ttu-id="29748-233">Access-Control-Request-Method: Metoda HTTP, która będzie służyć do rzeczywistego żądania.</span><span class="sxs-lookup"><span data-stu-id="29748-233">Access-Control-Request-Method: The HTTP method that will be used for the actual request.</span></span>
+* <span data-ttu-id="60c4d-227">`Access-Control-Request-Method`: Metoda HTTP, która będzie służyć do rzeczywistego żądania.</span><span class="sxs-lookup"><span data-stu-id="60c4d-227">`Access-Control-Request-Method`: The HTTP method that will be used for the actual request.</span></span>
+* <span data-ttu-id="60c4d-228">`Access-Control-Request-Headers`: Lista nagłówków żądań, które aplikacja ustawia rzeczywistego żądania.</span><span class="sxs-lookup"><span data-stu-id="60c4d-228">`Access-Control-Request-Headers`: A list of request headers that the app sets on the actual request.</span></span> <span data-ttu-id="60c4d-229">Jak wspomniano wcześniej, to nie zawiera nagłówki, które ustawia przeglądarki, takich jak `User-Agent`.</span><span class="sxs-lookup"><span data-stu-id="60c4d-229">As stated earlier, this doesn't include headers that the browser sets, such as `User-Agent`.</span></span>
 
-* <span data-ttu-id="29748-234">Access-Control-Request-Headers: Lista nagłówków żądań, które aplikacja jest ustawiona na rzeczywistego żądania.</span><span class="sxs-lookup"><span data-stu-id="29748-234">Access-Control-Request-Headers: A list of request headers that the application set on the actual request.</span></span> <span data-ttu-id="29748-235">(Ponownie, to nie obejmuje nagłówki, które ustawia w przeglądarce).</span><span class="sxs-lookup"><span data-stu-id="29748-235">(Again, this doesn't include headers that the browser sets.)</span></span>
+<span data-ttu-id="60c4d-230">Może obejmować żądania wstępnego CORS `Access-Control-Request-Headers` nagłówka, który wskazuje na serwerze, nagłówki, które są wysyłane przy użyciu rzeczywistego żądania.</span><span class="sxs-lookup"><span data-stu-id="60c4d-230">A CORS preflight request might include an `Access-Control-Request-Headers` header, which indicates to the server the headers that are sent with the actual request.</span></span>
 
-<span data-ttu-id="29748-236">Poniżej przedstawiono przykładową odpowiedź, przy założeniu, że serwer zezwala na żądanie:</span><span class="sxs-lookup"><span data-stu-id="29748-236">Here is an example response, assuming that the server allows the request:</span></span>
+<span data-ttu-id="60c4d-231">Aby zezwolić na określone nagłówki, należy wywołać <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.WithHeaders*>:</span><span class="sxs-lookup"><span data-stu-id="60c4d-231">To allow specific headers, call <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.WithHeaders*>:</span></span>
+
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=54-59&highlight=5)]
+
+<span data-ttu-id="60c4d-232">Aby umożliwić Twórz wszystkie nagłówki żądania wywołania <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.AllowAnyHeader*>:</span><span class="sxs-lookup"><span data-stu-id="60c4d-232">To allow all author request headers, call <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.AllowAnyHeader*>:</span></span>
+
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=63-68&highlight=5)]
+
+<span data-ttu-id="60c4d-233">Przeglądarki nie są w pełni zgodne, w jaki sposób ustawić `Access-Control-Request-Headers`.</span><span class="sxs-lookup"><span data-stu-id="60c4d-233">Browsers aren't entirely consistent in how they set `Access-Control-Request-Headers`.</span></span> <span data-ttu-id="60c4d-234">Jeśli ustawisz nagłówki do żadnego elementu innego niż `"*"` (lub użyj <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicy.AllowAnyHeader*>), powinien obejmować co najmniej `Accept`, `Content-Type`, i `Origin`, oraz niestandardowe nagłówki, które mają być obsługiwane.</span><span class="sxs-lookup"><span data-stu-id="60c4d-234">If you set headers to anything other than `"*"` (or use <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicy.AllowAnyHeader*>), you should include at least `Accept`, `Content-Type`, and `Origin`, plus any custom headers that you want to support.</span></span>
+
+<span data-ttu-id="60c4d-235">Poniżej zamieszczono przykładową odpowiedź do żądania wstępnego (przy założeniu, że serwer zezwala na żądanie):</span><span class="sxs-lookup"><span data-stu-id="60c4d-235">The following is an example response to the preflight request (assuming that the server allows the request):</span></span>
 
 ```
 HTTP/1.1 200 OK
 Cache-Control: no-cache
 Pragma: no-cache
 Content-Length: 0
-Access-Control-Allow-Origin: http://myclient.azurewebsites.net
+Access-Control-Allow-Origin: https://myclient.azurewebsites.net
 Access-Control-Allow-Headers: x-my-custom-header
 Access-Control-Allow-Methods: PUT
 Date: Wed, 20 May 2015 06:33:22 GMT
 ```
 
-<span data-ttu-id="29748-237">Odpowiedź zawiera nagłówek dostępu — kontrola-Allow-Methods, zawierającego dozwolone metody i, opcjonalnie nagłówka Access-Control-Zezwalaj-Headers, który zawiera listę dozwolonych nagłówków.</span><span class="sxs-lookup"><span data-stu-id="29748-237">The response includes an Access-Control-Allow-Methods header that lists the allowed methods, and optionally an Access-Control-Allow-Headers header, which lists the allowed headers.</span></span> <span data-ttu-id="29748-238">Jeśli żądania wstępnego zakończy się powodzeniem, przeglądarka wysyła rzeczywistego żądania, zgodnie z wcześniejszym opisem.</span><span class="sxs-lookup"><span data-stu-id="29748-238">If the preflight request succeeds, the browser sends the actual request, as described earlier.</span></span>
+<span data-ttu-id="60c4d-236">Odpowiedź zawiera `Access-Control-Allow-Methods` nagłówek, który zawiera listę dozwolonych metod i opcjonalnie `Access-Control-Allow-Headers` nagłówka, który zawiera listę dozwolonych nagłówków.</span><span class="sxs-lookup"><span data-stu-id="60c4d-236">The response includes an `Access-Control-Allow-Methods` header that lists the allowed methods and optionally an `Access-Control-Allow-Headers` header, which lists the allowed headers.</span></span> <span data-ttu-id="60c4d-237">Jeśli żądania wstępnego zakończy się powodzeniem, przeglądarka wysyła rzeczywistego żądania.</span><span class="sxs-lookup"><span data-stu-id="60c4d-237">If the preflight request succeeds, the browser sends the actual request.</span></span>
+
+<span data-ttu-id="60c4d-238">W przypadku odmowy żądania wstępnego aplikacja zwróci *200 OK* odpowiedzi, ale nie wysyła ponownie nagłówków CORS.</span><span class="sxs-lookup"><span data-stu-id="60c4d-238">If the preflight request is denied, the app returns a *200 OK* response but doesn't send the CORS headers back.</span></span> <span data-ttu-id="60c4d-239">W związku z tym przeglądarka nie podejmować żądań cross-origin.</span><span class="sxs-lookup"><span data-stu-id="60c4d-239">Therefore, the browser doesn't attempt the cross-origin request.</span></span>
+
+### <a name="set-the-preflight-expiration-time"></a><span data-ttu-id="60c4d-240">Ustaw czas wygaśnięcia wstępnego</span><span class="sxs-lookup"><span data-stu-id="60c4d-240">Set the preflight expiration time</span></span>
+
+<span data-ttu-id="60c4d-241">`Access-Control-Max-Age` Nagłówek Określa, jak długo mogą być buforowane odpowiedzi na żądania wstępnego.</span><span class="sxs-lookup"><span data-stu-id="60c4d-241">The `Access-Control-Max-Age` header specifies how long the response to the preflight request can be cached.</span></span> <span data-ttu-id="60c4d-242">Aby ustawić tego pliku nagłówkowego, należy wywołać <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.SetPreflightMaxAge*>:</span><span class="sxs-lookup"><span data-stu-id="60c4d-242">To set this header, call <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.SetPreflightMaxAge*>:</span></span>
+
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=90-95&highlight=5)]
+
+## <a name="how-cors-works"></a><span data-ttu-id="60c4d-243">Jak działa mechanizmu CORS</span><span class="sxs-lookup"><span data-stu-id="60c4d-243">How CORS works</span></span>
+
+<span data-ttu-id="60c4d-244">W tej sekcji opisano, co się stanie, w ramach żądania CORS na poziomie wiadomości HTTP.</span><span class="sxs-lookup"><span data-stu-id="60c4d-244">This section describes what happens in a CORS request at the level of the HTTP messages.</span></span> <span data-ttu-id="60c4d-245">Należy zrozumieć, jak CORS działa tak, aby zasady CORS może być prawidłowo skonfigurowane i debugowania, gdy wystąpią nieoczekiwane wyniki.</span><span class="sxs-lookup"><span data-stu-id="60c4d-245">It's important to understand how CORS works so that the CORS policy can be configured correctly and debugged when unexpected behaviors occur.</span></span>
+
+<span data-ttu-id="60c4d-246">Specyfikacja CORS wprowadza kilka nowych nagłówki HTTP, które Włączanie żądań cross-origin.</span><span class="sxs-lookup"><span data-stu-id="60c4d-246">The CORS specification introduces several new HTTP headers that enable cross-origin requests.</span></span> <span data-ttu-id="60c4d-247">Jeśli przeglądarka obsługuje mechanizm CORS, ustawia nagłówki te automatycznie dla żądań cross-origin.</span><span class="sxs-lookup"><span data-stu-id="60c4d-247">If a browser supports CORS, it sets these headers automatically for cross-origin requests.</span></span> <span data-ttu-id="60c4d-248">Niestandardowy kod JavaScript nie jest wymagane, aby włączyć mechanizm CORS.</span><span class="sxs-lookup"><span data-stu-id="60c4d-248">Custom JavaScript code isn't required to enable CORS.</span></span>
+
+<span data-ttu-id="60c4d-249">Oto przykład żądania między źródłami.</span><span class="sxs-lookup"><span data-stu-id="60c4d-249">The following is an example of a cross-origin request.</span></span> <span data-ttu-id="60c4d-250">`Origin` Nagłówek zapewnia domeny obiektu, z której wysłano żądanie:</span><span class="sxs-lookup"><span data-stu-id="60c4d-250">The `Origin` header provides the domain of the site that's making the request:</span></span>
+
+```
+GET https://myservice.azurewebsites.net/api/test HTTP/1.1
+Referer: https://myclient.azurewebsites.net/
+Accept: */*
+Accept-Language: en-US
+Origin: https://myclient.azurewebsites.net
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; WOW64; Trident/6.0)
+Host: myservice.azurewebsites.net
+```
+
+<span data-ttu-id="60c4d-251">Jeśli serwer zezwala na żądanie, ustawia `Access-Control-Allow-Origin` nagłówka w odpowiedzi.</span><span class="sxs-lookup"><span data-stu-id="60c4d-251">If the server allows the request, it sets the `Access-Control-Allow-Origin` header in the response.</span></span> <span data-ttu-id="60c4d-252">Wartość tego nagłówka stanowi albo odpowiada `Origin` nagłówek z żądania lub wartość symbolu wieloznacznego `"*"`, co oznacza, że każde źródło jest dozwolony:</span><span class="sxs-lookup"><span data-stu-id="60c4d-252">The value of this header either matches the `Origin` header from the request or is the wildcard value `"*"`, meaning that any origin is allowed:</span></span>
+
+```
+HTTP/1.1 200 OK
+Cache-Control: no-cache
+Pragma: no-cache
+Content-Type: text/plain; charset=utf-8
+Access-Control-Allow-Origin: https://myclient.azurewebsites.net
+Date: Wed, 20 May 2015 06:27:30 GMT
+Content-Length: 12
+
+Test message
+```
+
+<span data-ttu-id="60c4d-253">Jeżeli odpowiedź nie zawiera `Access-Control-Allow-Origin` nagłówka żądania między źródłami zakończy się niepowodzeniem.</span><span class="sxs-lookup"><span data-stu-id="60c4d-253">If the response doesn't include the `Access-Control-Allow-Origin` header, the cross-origin request fails.</span></span> <span data-ttu-id="60c4d-254">W szczególności przeglądarki nie zezwalają na żądanie.</span><span class="sxs-lookup"><span data-stu-id="60c4d-254">Specifically, the browser disallows the request.</span></span> <span data-ttu-id="60c4d-255">Nawet jeśli serwer zwraca odpowiedź oznaczająca Powodzenie, przeglądarka nie udostępnia odpowiedzi do aplikacji klienckiej.</span><span class="sxs-lookup"><span data-stu-id="60c4d-255">Even if the server returns a successful response, the browser doesn't make the response available to the client app.</span></span>
+
+## <a name="additional-resources"></a><span data-ttu-id="60c4d-256">Dodatkowe zasoby</span><span class="sxs-lookup"><span data-stu-id="60c4d-256">Additional resources</span></span>
+
+* [<span data-ttu-id="60c4d-257">Cross-Origin Resource Sharing (CORS)</span><span class="sxs-lookup"><span data-stu-id="60c4d-257">Cross-Origin Resource Sharing (CORS)</span></span>](https://developer.mozilla.org/docs/Web/HTTP/CORS)
