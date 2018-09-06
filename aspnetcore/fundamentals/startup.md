@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 4/13/2018
 uid: fundamentals/startup
-ms.openlocfilehash: 845cf231ed096af2f9c6d22b452510535ef44263
-ms.sourcegitcommit: 4cd8dce371d63a66d780e4af1baab2bcf9d61b24
+ms.openlocfilehash: 923d17be9c2bb1a9d338599d1cdc4c34302cddab
+ms.sourcegitcommit: 08bf41d4b3e696ab512b044970e8304816f8cc56
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/06/2018
-ms.locfileid: "43893220"
+ms.locfileid: "44040098"
 ---
 # <a name="application-startup-in-aspnet-core"></a>Uruchamianie aplikacji w programie ASP.NET Core
 
@@ -56,6 +56,8 @@ Aby dowiedzieć się więcej na temat `WebHostBuilder`, zobacz [hostingu](xref:f
 * Wywołanie przez hosta sieci web przed `Configure` metodę, aby skonfigurować usługi aplikacji.
 * Gdzie [opcje konfiguracji](xref:fundamentals/configuration/index) są ustawiane przez Konwencję.
 
+Typowy wzorzec polega na wywołaniu wszystkich `Add{Service}` metody, a następnie wywołania wszystkich `services.Configure{Service}` metody. Na przykład zobacz [Konfigurowanie tożsamości usługi](xref:security/authentication/identity#pw).
+
 Dodawanie usług do kontenera usługi udostępnia je w aplikacji, a w `Configure` metody. Te usługi są rozpoznawane przez [wstrzykiwanie zależności](xref:fundamentals/dependency-injection) lub [IApplicationBuilder.ApplicationServices](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder.applicationservices).
 
 Host sieci web może skonfigurować niektóre usługi przed `Startup` metody są wywoływane. Szczegółowe informacje są dostępne w [hostów w programie ASP.NET Core](xref:fundamentals/host/index) tematu.
@@ -86,7 +88,7 @@ Aby uzyskać więcej informacji na temat sposobu użycia `IApplicationBuilder` i
 
 [!code-csharp[](startup/snapshot_sample/Program.cs?highlight=18,22)]
 
-## <a name="startup-filters"></a>Filtrów uruchamiania
+## <a name="extend-startup-with-startup-filters"></a>Rozszerzanie uruchamiania przy użyciu filtrów uruchamiania
 
 Użyj [IStartupFilter](/dotnet/api/microsoft.aspnetcore.hosting.istartupfilter) do konfiguracji oprogramowania pośredniczącego na początku lub na końcu aplikacji [Konfiguruj](#the-configure-method) potoku oprogramowania pośredniczącego. `IStartupFilter` jest przydatne upewnić się, że oprogramowanie pośredniczące jest uruchamiany przed lub po oprogramowanie pośredniczące dodane przez biblioteki na początku lub końcu potoku przetwarzania żądań aplikacji.
 
@@ -102,9 +104,9 @@ Każdy `IStartupFilter` implementuje middlewares co najmniej jeden w Potok żąd
 
 [!code-csharp[](startup/sample/RequestSetOptionsStartupFilter.cs?name=snippet1&highlight=7)]
 
-`IStartupFilter` Jest zarejestrowany w kontenerze usługi w `ConfigureServices`:
+`IStartupFilter` Jest zarejestrowany w kontenerze usługi w [IWebHostBuilder.ConfigureServices](xref:Microsoft.AspNetCore.Hosting.IWebHostBuilder.ConfigureServices*) aby zademonstrować, jak filtr uruchamiania rozszerzają `Startup` z poza `Startup` klasy:
 
-[!code-csharp[](startup/sample/Startup.cs?name=snippet1&highlight=3)]
+[!code-csharp[](startup/sample/Program.cs?name=snippet1&highlight=4-5)]
 
 Gdy parametr ciągu zapytania dla `option` zostanie podana, oprogramowanie pośredniczące przetwarza przypisanie wartości, zanim oprogramowanie pośredniczące MVC renderuje odpowiedzi:
 

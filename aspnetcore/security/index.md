@@ -5,12 +5,12 @@ description: Poznaj podstawowe informacje dotyczące uwierzytelniania, autoryzac
 ms.author: tdykstra
 ms.date: 11/01/2017
 uid: security/index
-ms.openlocfilehash: 3a1c1ea1ad28fccbe5ae91b0be193938b095f60b
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: d371d37690b6d641f8e584f5e51dcc074a581622
+ms.sourcegitcommit: 08bf41d4b3e696ab512b044970e8304816f8cc56
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41755662"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44040085"
 ---
 # <a name="overview-of-aspnet-core-security"></a>Przegląd zabezpieczeń platformy ASP.NET Core
 
@@ -104,3 +104,4 @@ Ma więcej luk w zabezpieczeniach, które należy wiedzieć. Aby uzyskać więce
 *   [Zapobieganie atakom z użyciem skryptów między witrynami](xref:security/cross-site-scripting)
 *   [Włączanie żądań Cross-Origin (CORS)](xref:security/cors)
 *   [Udostępnianie plików cookie między aplikacjami](xref:security/cookie-sharing)
+*   [Bezpiecznej liście adresów IP](xref:security/ip-safelist)
