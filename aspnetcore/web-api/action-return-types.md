@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 07/23/2018
 uid: web-api/action-return-types
-ms.openlocfilehash: 82d18d866d4d18613cccb950b2f30ae81bd749de
-ms.sourcegitcommit: 6425baa92cec4537368705f8d27f3d0e958e43cd
+ms.openlocfilehash: 179a3e23ebc13a40b8e2d955b6adcc23d9a0f323
+ms.sourcegitcommit: 8268cc67beb1bb1ca470abb0e28b15a7a71b8204
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39220615"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44126725"
 ---
 # <a name="controller-action-return-types-in-aspnet-core-web-api"></a>Zwracane typy akcji kontrolera platformy ASP.NET Core Web API
 
@@ -85,13 +85,13 @@ Platforma ASP.NET Core 2.1 wprowadzono [ActionResult\<T >](/dotnet/api/microsoft
 
 C# nie obsługuje operatory niejawne Rzutowanie na interfejsach. W związku z tym, konwersja interfejsu na konkretny typ jest niezbędne do korzystania z `ActionResult<T>`. Na przykład użycie `IEnumerable` nie działa w następującym przykładzie:
 
-    ```csharp
-    [HttpGet]
-    public ActionResult<IEnumerable<Product>> Get()
-    {
-        return _repository.GetProducts();
-    }
-    ```
+```csharp
+[HttpGet]
+public ActionResult<IEnumerable<Product>> Get()
+{
+    return _repository.GetProducts();
+}
+```
 
 Jedną opcję, aby naprawić poprzedni kod ma zwrócić `_repository.GetProducts().ToList();`.
 

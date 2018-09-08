@@ -6,21 +6,22 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 08/31/2018
 uid: security/ip-safelist
-ms.openlocfilehash: 40fe7b67359efd1692490099c3fb529ba4a6148f
-ms.sourcegitcommit: 08bf41d4b3e696ab512b044970e8304816f8cc56
+ms.openlocfilehash: 362d1ded00bda3f328e029fb467f2b3eeaa01396
+ms.sourcegitcommit: 8268cc67beb1bb1ca470abb0e28b15a7a71b8204
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44040124"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44126712"
 ---
 # <a name="client-ip-safelist-for-aspnet-core"></a>Dla platformy ASP.NET Core, bezpiecznej liście adresów IP klienta
 
 Przez [linkach Damien](https://twitter.com/damien_bod) i [Tom Dykstra](https://github.com/tdykstra)
  
-W tym artykule przedstawiono dwa sposoby zaimplementowania bezpiecznej liście adresów IP (Lista dozwolonych):
+W tym artykule przedstawiono trzy sposoby, aby zaimplementować bezpiecznej liście adresów IP (Lista dozwolonych) w aplikacji ASP.NET Core. Możesz użyć:
 
-* Za pomocą platformy ASP.NET Core oprogramowania pośredniczącego do sprawdzenia zdalny adres IP każdego żądania.
-* Za pomocą platformy ASP.NET Core filtry akcji do sprawdzenia zdalny adres IP żądań dla danego działania metod.
+* Oprogramowanie pośredniczące do sprawdzenia zdalny adres IP każdego żądania.
+* Filtry akcji, aby sprawdzić adres IP zdalnego żądań dotyczących określonego kontrolery lub metody akcji.
+* Filtry stron razor do sprawdzenia zdalny adres IP żądań dla stron Razor.
 
 Przykładowa aplikacja pokazano oba podejścia. W każdym przypadku ciąg zawierający adresy IP zatwierdzone klienta są przechowywane w ustawieniu aplikacji. Oprogramowanie pośredniczące lub filtr analizuje ciąg w postaci listy i sprawdza, czy zdalny adres IP na liście. W przeciwnym razie zostanie zwrócony kod stanu HTTP 403 — Dostęp zabroniony.
 

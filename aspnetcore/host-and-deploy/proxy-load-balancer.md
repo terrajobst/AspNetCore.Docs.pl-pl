@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/06/2018
 uid: host-and-deploy/proxy-load-balancer
-ms.openlocfilehash: 255baf5570fc5127718aafcb3170bc3d00f00c91
-ms.sourcegitcommit: 08bf41d4b3e696ab512b044970e8304816f8cc56
+ms.openlocfilehash: 1833b5bb77b199bb5fd0257e9f33b4d6f0c23ec5
+ms.sourcegitcommit: 8268cc67beb1bb1ca470abb0e28b15a7a71b8204
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44040072"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44126738"
 ---
 # <a name="configure-aspnet-core-to-work-with-proxy-servers-and-load-balancers"></a>Konfigurowanie platformy ASP.NET Core pracować z serwerów proxy i moduły równoważenia obciążenia
 
@@ -220,12 +220,14 @@ services.Configure<ForwardedHeadersOptions>(options =>
 
 Jeśli serwer używa podwójnych gniazd, adresy IPv4, są dostarczane w formacie protokołu IPv6 (na przykład `10.0.0.1` w protokole IPv4 reprezentowane w protokole IPv6 jako `::ffff:10.0.0.1` lub `::ffff:a00:1`). Zobacz [IPAddress.MapToIPv6](xref:System.Net.IPAddress.MapToIPv6*). Określić, jeśli ten format jest wymagany, analizując [HttpContext.Connection.RemoteIpAddress](xref:Microsoft.AspNetCore.Http.ConnectionInfo.RemoteIpAddress*).
 
-W poniższym przykładzie adresu sieciowego, który dostarcza nagłówki przekazywane jest dodawany do `KnownNetworks` listy w formacie IPv6:
+W poniższym przykładzie adresu sieciowego, który dostarcza nagłówki przekazywane jest dodawany do `KnownNetworks` listy w formacie IPv6.
 
-Krótki format IPv6 `10.11.12.1/8`:
+Adres IPv4: `10.11.12.1/8`
 
-* `::ffff:0a0b:0c01`
-* Długość prefiksu: 104 (8 + 96&dagger;)
+Przekonwertowana adres IPv6: `::ffff:10.11.12.1`  
+Przekonwertowany długość prefiksu: 104
+
+Można też podać adres w formacie szesnastkowym (`10.11.12.1` reprezentowane w protokole IPv6 jako `::ffff:0a0b:0c01`). Podczas konwertowania adres IPv4, IPv6, Dodaj 96 do długości prefiksów CIDR (`8` w przykładzie), aby uwzględnić dodatkowe `::ffff:` prefiks IPv6 (8 + 96 = 104). 
 
 ```csharp
 // To access IPNetwork and IPAddress, add the following namespaces:
@@ -236,11 +238,9 @@ services.Configure<ForwardedHeadersOptions>(options =>
     options.ForwardedHeaders =
         ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
     options.KnownNetworks.Add(new IPNetwork(
-        IPAddress.Parse("::ffff:0a0b:0c01"), 104));
+        IPAddress.Parse("::ffff:10.11.12.1"), 104));
 });
 ```
-
-&dagger;Podczas konwertowania adres IPv4, IPv6, należy dodać 96 do długości prefiksu CIDR w celu uwzględnienia dodatkowych `::ffff:` prefiks IPv6.
 
 ## <a name="troubleshoot"></a>Rozwiązywanie problemów
 
