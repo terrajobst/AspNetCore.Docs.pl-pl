@@ -393,6 +393,7 @@
 ## [Zapobieganie atakom z użyciem skryptów między witrynami](xref:security/cross-site-scripting)
 ## [Włączanie żądań Cross-Origin (CORS)](xref:security/cors)
 ## [Udostępnianie plików cookie między aplikacjami](xref:security/cookie-sharing)
+## [Lista bezpiecznych adresów IP](xref:security/ip-safelist)
 
 # [Wydajność](xref:performance/index)
 ## [Buforowanie odpowiedzi](xref:performance/caching/index)
