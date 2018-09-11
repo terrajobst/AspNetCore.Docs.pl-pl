@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 09/06/2018
 uid: signalr/configuration
-ms.openlocfilehash: fee6e3382c14e818dff408f95770e711603f769d
-ms.sourcegitcommit: 08bf41d4b3e696ab512b044970e8304816f8cc56
+ms.openlocfilehash: b7c9c3713faa952c2b5bd142ab4887ccbc120ea2
+ms.sourcegitcommit: 1a2fc47fb5d3da0f2a3c3269613ab20eb3b0da2c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44039994"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44373374"
 ---
 # <a name="aspnet-core-signalr-configuration"></a>Konfiguracja Core SignalR platformy ASP.NET
 
@@ -26,13 +26,13 @@ Na przykład aby skonfigurować serializator do użycia nazwy właściwości "Pa
 
 ```csharp
 services.AddSignalR()
-    .AddJsonHubProtocol(options => {
+    .AddJsonProtocol(options => {
         options.PayloadSerializerSettings.ContractResolver = 
         new DefaultContractResolver();
     });
 ```
 
-W kliencie programu .NET, takie same `AddJsonHubProtocol` — metoda rozszerzenia istnieje na [HubConnectionBuilder](/dotnet/api/microsoft.aspnetcore.signalr.client.hubconnectionbuilder). `Microsoft.Extensions.DependencyInjection` Przestrzeni nazw, należy zaimportować resolve — metoda rozszerzenia:
+W kliencie programu .NET, takie same `AddJsonProtocol` — metoda rozszerzenia istnieje na [HubConnectionBuilder](/dotnet/api/microsoft.aspnetcore.signalr.client.hubconnectionbuilder). `Microsoft.Extensions.DependencyInjection` Przestrzeni nazw, należy zaimportować resolve — metoda rozszerzenia:
 
 ```csharp
 // At the top of the file:
@@ -40,10 +40,10 @@ using Microsoft.Extensions.DependencyInjection;
 
 // When constructing your connection:
 var connection = new HubConnectionBuilder()
-.AddJsonHubProtocol(options => {
-    options.PayloadSerializerSettings.ContractResolver = 
-        new DefaultContractResolver();
-});
+    .AddJsonProtocol(options => {
+        options.PayloadSerializerSettings.ContractResolver = 
+            new DefaultContractResolver();
+    });
 ```
 
 > [!NOTE]

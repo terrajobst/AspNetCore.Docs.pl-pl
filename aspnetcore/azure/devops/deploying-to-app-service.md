@@ -5,12 +5,12 @@ description: Przewodnik, który dostarcza wskazówki end-to-end na tworzeniu pot
 ms.author: casoper
 ms.date: 08/07/2018
 uid: azure/devops/deploy-to-app-service
-ms.openlocfilehash: abd7167b313e131dc8b7ea6a49b774e14ae53bb9
-ms.sourcegitcommit: 29dfe436f54a27fbb4f6494bc639d16c75001fab
+ms.openlocfilehash: 710e65a048fdc062219e90b0db323e8e96fd8e9d
+ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39722676"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44340137"
 ---
 # <a name="deploy-an-app-to-app-service"></a>Wdrażanie aplikacji w usłudze App Service
 
@@ -234,7 +234,7 @@ W tej sekcji wykonano następujące zadania:
 * Należy wdrożyć aktualizację do miejsca przejściowego.
 * Zamienione miejscami środowisk przejściowych i produkcyjnych.
 
-W następnej sekcji dowiesz się, jak utworzyć potok DevOps z platformą Azure i programu Visual Studio Team Services.
+W następnej sekcji dowiesz się, jak utworzyć potok DevOps za pomocą potoków usługi Azure.
 
 ## <a name="additional-reading"></a>Materiały uzupełniające
 

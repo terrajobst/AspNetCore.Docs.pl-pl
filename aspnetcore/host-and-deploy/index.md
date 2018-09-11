@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/07/2017
 uid: host-and-deploy/index
-ms.openlocfilehash: e62b68c4cfad29bb8bea3b9fbb2c231a4afeccea
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: eb3a4846775fa53132d3692f56bb1b628257ca8f
+ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095671"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44340215"
 ---
 # <a name="host-and-deploy-aspnet-core"></a>Hostowanie i wdrażanie platformy ASP.NET Core
 
@@ -66,7 +66,7 @@ Dodatkowa konfiguracja może być wymagane dla aplikacji hostowanych za serwery 
 
 Wdrożenie często wymaga dodatkowych zadań, oprócz kopiowania danych wyjściowych [publikowania dotnet](/dotnet/core/tools/dotnet-publish) do serwera. Na przykład może być wymagane lub wykluczone z dodatkowych plików *publikowania* folderu. Program Visual Studio używa MSBuild dla wdrażania w Internecie i MSBuild można dostosować do wykonywania wielu innych zadań podczas wdrażania. Aby uzyskać więcej informacji, zobacz [profilów publikowania w programie Visual Studio](xref:host-and-deploy/visual-studio-publish-profiles) i [przy użyciu programu MSBuild i Team Foundation Build](http://msbuildbook.com/) książki.
 
-Za pomocą [funkcji publikowania w sieci Web](xref:tutorials/publish-to-azure-webapp-using-vs) lub [wbudowana obsługa Git](xref:host-and-deploy/azure-apps/azure-continuous-deployment), aplikacje można wdrożyć bezpośrednio z programu Visual Studio w usłudze Azure App Service. Visual Studio Team Services obsługuje [ciągłe wdrażanie w usłudze Azure App Service](/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?tabs=vsts).
+Za pomocą [funkcji publikowania w sieci Web](xref:tutorials/publish-to-azure-webapp-using-vs) lub [wbudowana obsługa Git](xref:host-and-deploy/azure-apps/azure-continuous-deployment), aplikacje można wdrożyć bezpośrednio z programu Visual Studio w usłudze Azure App Service. Obsługuje usługi Azure DevOps [ciągłe wdrażanie w usłudze Azure App Service](/azure/devops/pipelines/targets/webapp).
 
 ## <a name="publishing-to-azure"></a>Publikowanie na platformie Azure
 

@@ -4,14 +4,14 @@ author: tdykstra
 description: Różnice między SignalR i SignalR platformy ASP.NET Core
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
-ms.date: 08/20/2018
+ms.date: 09/10/2018
 uid: signalr/version-differences
-ms.openlocfilehash: b904f57af3700b6e1e2143913dfa08da9bf8bbd2
-ms.sourcegitcommit: d27317c16f113e7c111583042ec7e4c5a26adf6f
+ms.openlocfilehash: 2f3458f27fd7f22339751e0734dd8c5da709a3c0
+ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41753645"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44340124"
 ---
 # <a name="differences-between-aspnet-signalr-and-aspnet-core-signalr"></a>Różnice między biblioteki SignalR platformy ASP.NET i SignalR platformy ASP.NET Core
 
@@ -132,6 +132,20 @@ connection = new HubConnectionBuilder()
     .WithUrl("url")
     .Build();
 ```
+
+## <a name="scaleout-differences"></a>Różnice skalowania w poziomie
+
+Biblioteki SignalR platformy ASP.NET obsługuje zarówno programu SQL Server i Redis. Biblioteki SignalR platformy ASP.NET Core obsługuje zarówno w usłudze Azure SignalR Service, jak i w pamięci podręcznej Redis.
+
+### <a name="aspnet"></a>ASP.NET
+
+* [SignalR — skalowanie w poziomie za pomocą usługi Azure Service Bus](/aspnet/signalr/overview/performance/scaleout-with-windows-azure-service-bus)
+* [SignalR — skalowanie w poziomie przy użyciu usługi Redis](/aspnet/signalr/overview/performance/scaleout-with-redis)
+* [SignalR — skalowanie w poziomie z programem SQL Server](/aspnet/signalr/overview/performance/scaleout-with-sql-server)
+
+### <a name="aspnet-core"></a>ASP.NET Core
+
+* [Usługi Azure SignalR Service](/azure/azure-signalr/)
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

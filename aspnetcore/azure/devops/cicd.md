@@ -5,27 +5,27 @@ description: Przewodnik, który dostarcza wskazówki end-to-end na tworzeniu pot
 ms.author: scaddie
 ms.date: 08/17/2018
 uid: azure/devops/cicd
-ms.openlocfilehash: e084a6115dc7e176c17b2b318233b7a003b39a83
-ms.sourcegitcommit: 1cf65c25ed16495e27f35ded98b3952a30c68f36
+ms.openlocfilehash: 0bfe1545da4c0778055d7c81c1588d3267d2e711
+ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41754247"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44340111"
 ---
 # <a name="continuous-integration-and-deployment"></a>Ciągła integracja i ciągłe wdrażanie
 
-W poprzednim rozdziale utworzono lokalnego repozytorium Git dla aplikacji proste czytnik źródła danych. W tym rozdziale możesz opublikować ten kod z repozytorium GitHub i utworzyć potok DevOps programu Visual Studio Team Services (VSTS). Potok umożliwia ciągłe kompilacje i wdrożenia aplikacji. Każdego zatwierdzenia do repozytorium GitHub wyzwala kompilację i wdrażania do miejsca przejściowego aplikacji sieci Web platformy Azure.
+W poprzednim rozdziale utworzono lokalnego repozytorium Git dla aplikacji proste czytnik źródła danych. W tym rozdziale możesz opublikować ten kod z repozytorium GitHub i budowy potoku usługom DevOps platformy Azure przy użyciu potoków usługi Azure. Potok umożliwia ciągłe kompilacje i wdrożenia aplikacji. Każdego zatwierdzenia do repozytorium GitHub wyzwala kompilację i wdrażania do miejsca przejściowego aplikacji sieci Web platformy Azure.
 
 W tej sekcji zostaną wykonane następujące zadania:
 
 * Publikowanie kodu aplikacji w usłudze GitHub
 * Odłącz lokalne wdrożenie narzędzia Git
-* Utwórz konto usługi VSTS
-* Utwórz projekt zespołowy w usłudze VSTS
+* Utwórz organizację DevOps platformy Azure
+* Utwórz projekt zespołowy w usłudze Azure Services metodyki DevOps
 * Utwórz definicję kompilacji
 * Tworzenie potoku tworzenia wersji
 * Zatwierdź zmiany w usłudze GitHub i automatycznie wdrażać na platformie Azure
-* Sprawdź z potokiem metodyki DevOps w usłudze VSTS
+* Sprawdź potoku potoki usługi Azure
 
 ## <a name="publish-the-apps-code-to-github"></a>Publikowanie kodu aplikacji w usłudze GitHub
 
@@ -53,7 +53,7 @@ W tej sekcji zostaną wykonane następujące zadania:
 
 ## <a name="disconnect-local-git-deployment"></a>Odłącz lokalne wdrożenie narzędzia Git
 
-Usuń lokalne wdrożenie narzędzia Git wykonując następujące kroki. Usługa VSTS zastępuje i rozszerzają funkcjonalność.
+Usuń lokalne wdrożenie narzędzia Git wykonując następujące kroki. Potoki usługi Azure (usługa DevOps platformy Azure) zastępuje i rozszerzają funkcjonalność.
 
 1. Otwórz [witryny Azure portal](https://portal.azure.com/)i przejdź do *przemieszczania (mywebapp\<unique_number\>/przemieszczania)* aplikacji sieci Web. Aplikacji sieci Web mogą szybko znajdować, wprowadzając *przemieszczania* w polu wyszukiwania w witrynie portal:
 
@@ -63,26 +63,26 @@ Usuń lokalne wdrożenie narzędzia Git wykonując następujące kroki. Usługa 
 1. Przejdź do *mywebapp < unique_number >* usługi App Service. Przypominamy pole wyszukiwania portalu można szybko zlokalizować usługi App Service.
 1. Kliknij przycisk **opcje wdrażania**. Zostanie wyświetlony nowy panel. Kliknij przycisk **rozłączenia** można usunąć lokalnej dodaną w poprzednim rozdziale konfiguracji kontroli źródła Git. Potwierdź operację usunięcia, klikając przycisk **tak** przycisku.
 
-## <a name="create-a-vsts-account"></a>Utwórz konto usługi VSTS
+## <a name="create-an-azure-devops-organization"></a>Utwórz organizację DevOps platformy Azure
 
-1. Otwórz przeglądarkę i przejdź do [strony tworzenia konta usługi VSTS](https://go.microsoft.com/fwlink/?LinkId=307137).
-1. Wpisz unikatową nazwę do **wybierz łatwą do zapamiętania nazwę** pole tekstowe w celu utworzenia adresu URL do uzyskiwania dostępu do konta usługi VSTS.
+1. Otwórz przeglądarkę i przejdź do [DevOps platformy Azure organizacji Tworzenie strony](https://go.microsoft.com/fwlink/?LinkId=307137).
+1. Wpisz unikatową nazwę do **wybierz łatwą do zapamiętania nazwę** pole tekstowe w celu utworzenia adresu URL do uzyskiwania dostępu do Twojej organizacji DevOps platformy Azure.
 1. Wybierz **Git** przycisk radiowy, ponieważ kod znajduje się w repozytorium GitHub.
 1. Kliknij przycisk **Kontynuuj** przycisku. Po krótkim czasie oczekiwania, konta i projektu zespołowego o nazwie *MyFirstProject*, są tworzone.
 
-    ![Strona tworzenia konta usługi VSTS](media/cicd/vsts-account-creation.png)
+    ![Strona tworzenia organizacji w usłudze Azure DevOps](media/cicd/vsts-account-creation.png)
 
-1. Otwórz potwierdzenie e-mail wskazujące, że konto usługi VSTS i projekt gotowy do użycia. Kliknij przycisk **Rozpocznij swój projekt** przycisku:
+1. Otwórz potwierdzenie e-mail wskazujące, że organizacja DevOps platformy Azure i projektu gotowy do użycia. Kliknij przycisk **Rozpocznij swój projekt** przycisku:
 
     ![Uruchom projekt, przycisk](media/cicd/vsts-start-project.png)
 
 1. W przeglądarce zostanie otwarty  *\<account_name\>. visualstudio.com*. Kliknij przycisk *MyFirstProject* link, aby rozpocząć konfigurowanie projektu DevOps potoku.
 
-## <a name="configure-the-devops-pipeline"></a>Konfigurowanie potoku metodyki DevOps
+## <a name="configure-the-azure-pipelines-pipeline"></a>Konfigurowanie potoku potoki usługi Azure
 
 Istnieją trzy różne kroki, aby zakończyć. Wykonując kroki w wynikach następujące trzy sekcje w operacyjnej potoku metodyki DevOps.
 
-### <a name="grant-vsts-access-to-the-github-repository"></a>Udzielanie dostępu usługi VSTS do repozytorium GitHub
+### <a name="grant-azure-devops-access-to-the-github-repository"></a>DevOps platformy Azure udzielanie dostępu do repozytorium GitHub
 
 1. Rozwiń **lub kompilowania kodu z repozytorium zewnętrznego** właściwości accordion. Kliknij przycisk **konfiguracji kompilacji** przycisku:
 
@@ -92,12 +92,12 @@ Istnieją trzy różne kroki, aby zakończyć. Wykonując kroki w wynikach nast�
 
     ![Wybierz źródło - GitHub](media/cicd/vsts-select-source.png)
 
-1. Autoryzacja jest wymagana, zanim usługa VSTS mogą uzyskiwać dostęp do repozytorium GitHub. Wprowadź *< GitHub_username > połączenie usługi GitHub* w **nazwa połączenia** pola tekstowego. Na przykład:
+1. Autoryzacja jest wymagana, zanim DevOps platformy Azure mogą uzyskiwać dostęp do repozytorium GitHub. Wprowadź *< GitHub_username > połączenie usługi GitHub* w **nazwa połączenia** pola tekstowego. Na przykład:
 
     ![Nazwa połączenia usługi GitHub](media/cicd/vsts-repo-authz.png)
 
 1. Jeśli uwierzytelnianie dwuskładnikowe jest włączone na koncie usługi GitHub, osobisty token dostępu jest wymagany. W takim przypadku kliknij **autoryzacji za pomocą osobisty token dostępu GitHub** łącza. Zobacz [oficjalnych instrukcji tworzenia tokenu osobistego dostępu GitHub](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) Aby uzyskać pomoc. Tylko *repozytorium* zakres uprawnień jest wymagane. W przeciwnym razie kliknij przycisk **autoryzacji przy użyciu protokołu OAuth** przycisku.
-1. Po wyświetleniu monitu zaloguj się do konta usługi GitHub. Następnie wybierz polecenie Autoryzuj, aby udzielić dostępu do konta usługi VSTS. Jeśli to się powiedzie, jest tworzony nowy punkt końcowy usługi.
+1. Po wyświetleniu monitu zaloguj się do konta usługi GitHub. Następnie wybierz polecenie Autoryzuj, aby udzielić dostępu do Twojej organizacji DevOps platformy Azure. Jeśli to się powiedzie, jest tworzony nowy punkt końcowy usługi.
 1. Kliknij przycisk wielokropka obok **repozytorium** przycisku. Wybierz *< GitHub_username > / prosty kanału informacyjnego czytników* repozytorium z listy. Kliknij przycisk **wybierz** przycisku.
 1. Wybierz *wzorca* gałęzi od **domyślna gałąź dla kompilacji ręcznej i zaplanowane** listy rozwijanej. Kliknij przycisk **Kontynuuj** przycisku. Zostanie wyświetlona strona wybór szablonu.
 
@@ -205,7 +205,7 @@ Istnieją trzy różne kroki, aby zakończyć. Wykonując kroki w wynikach nast�
 
     ![Włącz ciągłą integrację](media/cicd/enable-ci.png)
 
-1. Przejdź do **kolejce** karcie **kompilowania i wydawania** > **kompilacje** strony usługi VSTS. Kompilacja w kolejce pokazuje gałęzi i zatwierdzeń, które wywołały kompilację:
+1. Przejdź do **kolejce** karcie **potoki usługi Azure** > **kompilacje** strony w usługom DevOps platformy Azure. Kompilacja w kolejce pokazuje gałęzi i zatwierdzeń, które wywołały kompilację:
 
     ![kolejki kompilacji](media/cicd/build-queued.png)
 
@@ -213,7 +213,7 @@ Istnieją trzy różne kroki, aby zakończyć. Wykonując kroki w wynikach nast�
 
     ![zaktualizowana aplikacja](media/cicd/updated-app-v4.png)
 
-## <a name="examine-the-vsts-devops-pipeline"></a>Sprawdź z potokiem metodyki DevOps w usłudze VSTS
+## <a name="examine-the-azure-pipelines-pipeline"></a>Sprawdź potoku potoki usługi Azure
 
 ### <a name="build-definition"></a>Definicja kompilacji
 
@@ -275,6 +275,6 @@ Subskrypcja, grupa zasobów, typ usługi, nazwa aplikacji sieci web i szczegół
 
 ## <a name="additional-reading"></a>Materiały uzupełniające
 
-* [Tworzenie aplikacji platformy ASP.NET Core](https://docs.microsoft.com/vsts/build-release/apps/aspnet/build-aspnet-core)
-* [Tworzenie i wdrażanie aplikacji sieci Web platformy Azure](https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp)
-* [Zdefiniuj proces kompilacji ciągłej integracji do repozytorium GitHub](https://docs.microsoft.com/vsts/pipelines/build/ci-build-github)
+* [Tworzenie pierwszego potoku za pomocą potoków usługi Azure](/azure/devops/pipelines/get-started-yaml)
+* [Projekt kompilacji i platformy .NET Core](/azure/devops/pipelines/languages/dotnet-core)
+* [Wdrażanie aplikacji sieci web z potokiem, Azure](/azure/devops/pipelines/targets/webapp)

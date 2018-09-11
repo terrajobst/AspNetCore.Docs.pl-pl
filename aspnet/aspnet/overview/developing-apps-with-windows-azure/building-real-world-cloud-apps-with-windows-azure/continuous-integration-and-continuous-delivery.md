@@ -8,12 +8,12 @@ ms.date: 06/12/2014
 ms.assetid: eaece9f5-f80c-428b-b771-5db66d275b7d
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery
 msc.type: authoredcontent
-ms.openlocfilehash: 787aacfd843f5f72e567670d601fb036a2c474bc
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 7a92a68ce8bbeec604a22e082975d33f9f3377c1
+ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41754622"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44340072"
 ---
 <a name="continuous-integration-and-continuous-delivery-building-real-world-cloud-apps-with-azure"></a>Ciągła integracja i ciągłe dostarczanie (tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure)
 ====================
@@ -40,9 +40,9 @@ Na poniższym diagramie z [Microsoft Patterns and Practices e-book, ciągłego d
 
 Automatyzowanie tych procesów na platformie Azure jest łatwe. Ponieważ używasz wszystko w chmurze, nie trzeba kupować serwerów ani zarządzania nimi dla kompilacji lub środowiska testowego. I nie trzeba czekać na serwer można było wykonać test na. Z każdą kompilacją, jak można Przyspiesz środowisko testowe na platformie Azure przy użyciu skryptu automatyzacji, testów akceptacyjnych wykonywania lub więcej testów szczegółowe przed nim, a następnie po zakończeniu, po prostu go zlikwidujesz. I jeśli uruchomisz wyłącznie tego serwera do 2 godzin lub 8 godzin lub dni, kwotę, które trzeba płacić za jej minimalny, ponieważ teraz płacić tylko za czas, który faktycznie działa maszynę. Na przykład środowisko wymagane poprawki aplikacji po prostu koszt wynosi około 1% na godzinę po przejściu jednowarstwowa z poziomu bezpłatne. W ciągu miesiąca po przeprowadzeniu tylko środowiska na godzinę w czasie, środowiska testowego będzie prawdopodobnie kosztować mniej niż latte, który można kupić w kawę.
 
-## <a name="visual-studio-team-services-vsts"></a>Visual Studio Team Services (VSTS)
+## <a name="azure-devops-services"></a>Usługom DevOps platformy Azure 
 
-Usługa VSTS zapewnia szereg funkcji, które ułatwiają tworzenie aplikacji od planowania do wdrożenia.
+Usługom DevOps platformy Azure oferuje pewną liczbę funkcji, które ułatwiają tworzenie aplikacji od planowania do wdrożenia.
 
 - Obsługuje ona kontroli źródła (scentralizowany) TFVC i Git (rozproszone).
 - Oferuje ona usługi kompilacji elastycznych, co oznacza dynamicznie tworzy serwerów kompilacji, gdy zajdzie taka potrzeba i pobiera je w dół po ich zakończeniu. Możesz automatycznie uruchamiał kompilację, gdy ktoś sprawdza zmiany kodu źródłowego i nie trzeba mieć przydzielić i płacić za własnych serwerów kompilacji, leżących bezczynności przez większość czasu. Usługa kompilacji jest bezpłatna, tak długo, jak nie może przekraczać liczbę kompilacji. Spodziewasz się zrobić dużą liczbę kompilacji, mogą płacić za mały dodatkowych serwerów kompilacji zastrzeżone.
@@ -52,9 +52,9 @@ Usługa VSTS zapewnia szereg funkcji, które ułatwiają tworzenie aplikacji od 
 - Obsługuje ona elastyczne zarządzanie projektami.
 
 
-Aby uzyskać więcej informacji na temat ciągłą integrację i ciągłe dostarczanie funkcji usługi VSTS, zobacz [Visual Studio Team Services](https://www.visualstudio.com/team-services/).
+Aby uzyskać więcej informacji na temat ciągłą integrację i ciągłe dostarczanie funkcji usługom DevOps platformy Azure, zobacz [dokumentacji usługi Azure DevOps](/azure/devops/index).
 
-Jeśli potrzebujesz do zarządzania projektami setką kompleksowych, współpracę zespołową i rozwiązania kontroli źródła, zapoznaj się z usługi VSTS. Usługa jest dostępna bezpłatnie dla maksymalnie 5 użytkowników i możesz zasubskrybować na stronie [Visual Studio Team Services](https://www.visualstudio.com/team-services/).
+Jeśli potrzebujesz do zarządzania projektami setką kompleksowych, współpracę zespołową i rozwiązania kontroli źródła, zapoznaj się z usługom DevOps platformy Azure. Zarejestruj się pod adresem [usługom DevOps platformy Azure](https://dev.azure.com/).
 
 ## <a name="summary"></a>Podsumowanie
 

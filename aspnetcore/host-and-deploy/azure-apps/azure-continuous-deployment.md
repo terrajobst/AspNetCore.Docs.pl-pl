@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/14/2016
 uid: host-and-deploy/azure-apps/azure-continuous-deployment
-ms.openlocfilehash: 3470d9278574a95115b14f25b90a0a93bb3b8a67
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: 5ae8ce01610828417fc76ed6626e518c8493bd0f
+ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41756214"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44340202"
 ---
 # <a name="continuous-deployment-to-azure-with-visual-studio-and-git-with-aspnet-core"></a>Ciągłe wdrażanie na platformie Azure przy użyciu programu Visual Studio i Git za pomocą programu ASP.NET Core
 
@@ -21,7 +21,7 @@ przez [Erik Reitan](https://github.com/Erikre)
 
 Ten samouczek pokazuje, jak utworzyć aplikację internetową platformy ASP.NET Core przy użyciu programu Visual Studio i wdrożyć ją w programie Visual Studio w usłudze Azure App Service za pomocą ciągłego wdrażania.
 
-Zobacz też [Użyj usługi VSTS, aby tworzyć i publikować aplikację internetową platformy Azure z ciągłym wdrażaniem](/vsts/build-release/archive/apps/aspnet/aspnet-4-ci-cd-azure-automatic), który pokazuje, jak skonfigurować ciągłe dostarczanie (CD) przepływ pracy dla [usługi Azure App Service](/azure/app-service/app-service-web-overview) przy użyciu programu Visual Studio Team Usługi. Azure ciągłe dostarczanie w usłudze Team Services upraszcza konfigurowanie niezawodnego potoku wdrażania, aby publikować aktualizacje dla aplikacji hostowanych w usłudze Azure App Service. Potok można skonfigurować w witrynie Azure portal do kompilacji, uruchom testy, wdrożyć w miejscu przejściowym i następnie wdrażania w środowisku produkcyjnym.
+Zobacz też [Tworzenie pierwszego potoku za pomocą potoków usługi Azure](/azure/devops/pipelines/get-started-yaml), który pokazuje, jak skonfigurować ciągłe dostarczanie (CD) przepływ pracy dla [usługi Azure App Service](/azure/app-service/app-service-web-overview) przy użyciu usługi DevOps platformy Azure. Potoki usługi Azure (usługa usługom DevOps platformy Azure) upraszcza konfigurowanie niezawodnego potoku wdrażania aktualizacji dla aplikacji hostowanych w usłudze Azure App Service. Potok można skonfigurować w witrynie Azure portal do kompilacji, uruchom testy, wdrożyć w miejscu przejściowym i następnie wdrażania w środowisku produkcyjnym.
 
 > [!NOTE]
 > Do ukończenia tego samouczka, wymagane jest konto Microsoft Azure. Aby utworzyć konta [aktywować korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A261C142F) lub [utworzyć konto bezpłatnej wersji próbnej](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -228,5 +228,5 @@ Wyświetlanie zaktualizowanej aplikacji internetowej, wybierając **Przeglądaj*
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Użyj usługi VSTS, aby tworzyć i publikować aplikację internetową platformy Azure z ciągłym wdrażaniem](/vsts/build-release/archive/apps/aspnet/aspnet-4-ci-cd-azure-automatic)
+* [Tworzenie pierwszego potoku za pomocą potoków usługi Azure](/azure/devops/pipelines/get-started-yaml)
 * [Projekt Kudu](https://github.com/projectkudu/kudu/wiki)

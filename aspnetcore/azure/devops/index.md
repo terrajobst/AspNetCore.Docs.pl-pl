@@ -5,12 +5,12 @@ description: Przewodnik, który dostarcza wskazówki end-to-end na tworzeniu pot
 ms.author: casoper
 ms.date: 08/07/2018
 uid: azure/devops/index
-ms.openlocfilehash: f2eb2499a61ce639457f30f4d182dac6ff677a0f
-ms.sourcegitcommit: 6d02e26748a09eabeb0e11740a398cc2bc90b098
+ms.openlocfilehash: 53667831f5e33107178a947f23d957ff22e8c1a0
+ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41757311"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44340098"
 ---
 # <a name="devops-with-aspnet-core-and-azure"></a>Metodyka DevOps z platformami ASP.NET Core i Azure
 
@@ -46,7 +46,7 @@ Dowiedz się, różne metody wdrażania aplikacji platformy ASP.NET Core w usłu
 
 ### <a name="continuous-integration-and-deploymentxrefazuredevopscicd"></a>[Ciągła integracja i ciągłe wdrażanie](xref:azure/devops/cicd)
 
-Twórz end-to-end ciągłej integracji i wdrażania rozwiązania dla aplikacji platformy ASP.NET Core przy użyciu serwisu GitHub, VSTS i platformy Azure.
+Twórz end-to-end ciągłej integracji i wdrażania rozwiązania dla aplikacji platformy ASP.NET Core za pomocą usługi GitHub, usługom DevOps platformy Azure i platformy Azure.
 
 ### <a name="monitor-and-debugxrefazuredevopsmonitor"></a>[Monitorowanie i debugowania](xref:azure/devops/monitor)
 

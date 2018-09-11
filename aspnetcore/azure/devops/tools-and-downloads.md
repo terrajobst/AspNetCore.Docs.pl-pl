@@ -5,12 +5,12 @@ description: Przewodnik, który dostarcza wskazówki end-to-end na tworzeniu pot
 ms.author: casoper
 ms.date: 08/07/2018
 uid: azure/devops/tools-and-downloads
-ms.openlocfilehash: a63e97d9ab9eb0ed2fbd30e8c2e033f0c048d33e
-ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
+ms.openlocfilehash: 5529068b83db475315784571fbf4151d7ecd0d5d
+ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43312304"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44340163"
 ---
 # <a name="tools-and-downloads"></a>Narzędzia i pliki do pobrania
 
@@ -21,7 +21,7 @@ Platforma Azure oferuje kilka interfejsów do inicjowania obsługi administracyj
 Wymagane jest spełnienie następujących subskrypcji:
 
 * Azure &mdash; Jeśli nie masz konta, [bezpłatna wersja próbna](https://azure.microsoft.com/free/).
-* Visual Studio Team Services (VSTS) &mdash; to konto jest tworzone w rozdziale 4.
+* Usługi Azure DevOps &mdash; subskrypcji DevOps platformy Azure i organizacji jest tworzony w rozdziale 4.
 * GitHub &mdash; Jeśli nie masz konta, [Utwórz bezpłatne konto](https://github.com/join).
 
 Wymagane są następujące narzędzia:
