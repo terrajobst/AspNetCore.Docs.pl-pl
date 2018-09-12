@@ -5,12 +5,12 @@ description: Dowiedz się, jak utworzyć aplikację stron Razor przy użyciu dan
 ms.author: riande
 ms.date: 7/24/2018
 uid: security/authorization/secure-data
-ms.openlocfilehash: 9f264daa4a6b63478077cadb06a697f274014199
-ms.sourcegitcommit: a669c4e3f42e387e214a354ac4143555602e6f66
+ms.openlocfilehash: a263b092194763ae4ff3360fc0d76e8ee494b5a6
+ms.sourcegitcommit: e7e1e531b80b3f4117ff119caadbebf4dcf5dcb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43336014"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44510366"
 ---
 ::: moniker range="<= aspnetcore-1.1"
 
@@ -268,6 +268,10 @@ Zaktualizuj widok szczegółów, aby menedżerowie mogli zatwierdzać lub odrzuc
 Aktualizowanie modelu strony szczegółów:
 
 [!code-csharp[](secure-data/samples/final2.1/Pages/Contacts/Details.cshtml.cs?name=snippet)]
+
+## <a name="add-a-user-to-a-role"></a>Dodawanie użytkownika do roli
+
+Role są przechowywane w pliku cookie tożsamości. Zmiany wprowadzone do użytkowników, role nie są zachowywane do pliku cookie do czasu wygenerowania pliku cookie lub użytkownik wylogowuje się i loguje się. Aplikacje, dodawanie użytkowników do roli, które powinny wywoływać `SignInManager.RefreshSignInAsync(user)` można zaktualizować pliku cookie.
 
 ## <a name="test-the-completed-app"></a>Testowanie aplikacji ukończone
 
