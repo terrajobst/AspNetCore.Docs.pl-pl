@@ -287,7 +287,7 @@
 ### [Publikowanie na platformie Azure przy użyciu programu Visual Studio](xref:tutorials/publish-to-azure-webapp-using-vs)
 ### [Publikowanie na platformie Azure przy użyciu narzędzi interfejsu wiersza polecenia](xref:tutorials/publish-to-azure-webapp-using-cli)
 ### [Ciągłe wdrażanie na platformie Azure za pomocą programu Visual Studio i rozwiązania Git](xref:host-and-deploy/azure-apps/azure-continuous-deployment)
-### [Ciągłe wdrażanie na platformie Azure za pomocą usług VSTS](https://www.visualstudio.com/docs/build/aspnet/core/quick-to-azure)
+### [Ciągłe wdrażanie na platformie Azure za pomocą usługi Azure Pipelines](/azure/devops/pipelines/get-started-yaml)
 ### [Rozwiązywanie problemów z platformą ASP.NET Core w usłudze Azure App Service](xref:host-and-deploy/azure-apps/troubleshoot)
 ## [Hosting w systemie Windows z usługami IIS](xref:host-and-deploy/iis/index)
 ### [Rozwiązywanie problemów z platformą ASP.NET Core w usługach IIS](xref:host-and-deploy/iis/troubleshoot)
