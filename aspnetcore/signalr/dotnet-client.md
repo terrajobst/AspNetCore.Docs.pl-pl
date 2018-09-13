@@ -7,16 +7,14 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 09/10/2018
 uid: signalr/dotnet-client
-ms.openlocfilehash: 205ca8ca228dcc2cc77f7e9b6431943851a3b152
-ms.sourcegitcommit: 1a2fc47fb5d3da0f2a3c3269613ab20eb3b0da2c
+ms.openlocfilehash: ef84ede2ed45ddc3b64d4ce8f5bd0018a681faf6
+ms.sourcegitcommit: 4db337bd47d70c06fff91000c58bc048a491ccec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44373322"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44749324"
 ---
 # <a name="aspnet-core-signalr-net-client"></a>Klient modelu .NET SignalR platformy ASP.NET Core
-
-Przez [Rachel Appel](http://twitter.com/rachelappel)
 
 Biblioteki klienta platformy ASP.NET Core SignalR .NET umożliwia komunikację z koncentratorami SignalR z aplikacji .NET.
 
@@ -39,7 +37,26 @@ Install-Package Microsoft.AspNetCore.SignalR.Client
 
 Aby nawiązać połączenie, należy utworzyć `HubConnectionBuilder` i wywołać `Build`. Adres URL koncentratora, protokół, typem transportu, poziom dziennika, nagłówki i inne opcje można skonfigurować podczas tworzenia połączenia. Skonfiguruj wymagane opcje, wstawiając `HubConnectionBuilder` metody do `Build`. Uruchom połączenie przy użyciu `StartAsync`.
 
-[!code-csharp[Build hub connection](dotnet-client/sample/signalrchatclient/MainWindow.xaml.cs?name=snippet_MainWindowClass&highlight=14-16,32)]
+[!code-csharp[Build hub connection](dotnet-client/sample/signalrchatclient/MainWindow.xaml.cs?name=snippet_MainWindowClass&highlight=15-17,39)]
+
+## <a name="handle-lost-connection"></a>Obsługa utracono połączenie
+
+Użyj <xref:Microsoft.AspNetCore.SignalR.Client.HubConnection.Closed> zdarzenie, aby odpowiedzieć na utracono połączenie. Na przykład możesz chcieć zautomatyzować ponowne nawiązanie połączenia.
+
+`Closed` Zdarzeń wymaga delegata, która zwraca `Task`, co umożliwia uruchomienie bez użycia kodu async `async void`. Do zaspokojenia w podpisie delegata `Closed` programu obsługi zdarzeń, która działa synchronicznie, zwraca `Task.CompletedTask`:
+
+```csharp
+connection.Closed += (error) => {
+    // Do your close logic.
+    return Task.CompletedTask;
+};
+```
+
+Głównym powodem asynchroniczna pomoc techniczna jest więc będzie można ponownie rozpocząć połączenie. Uruchamianie połączenie jest operacji asynchronicznej.
+
+W `Closed` program obsługi, który uruchamia ponownie połączenie, należy wziąć pod uwagę oczekiwanie na niektórych losowego opóźnienia, aby zapobiec przeciążeniu serwera, jak pokazano w poniższym przykładzie:
+
+[!code-csharp[Use Closed event handler to automate reconnection](dotnet-client/sample/signalrchatclient/MainWindow.xaml.cs?name=snippet_ClosedRestart)]
 
 ## <a name="call-hub-methods-from-client"></a>Wywoływanie metod koncentratora z klienta
 

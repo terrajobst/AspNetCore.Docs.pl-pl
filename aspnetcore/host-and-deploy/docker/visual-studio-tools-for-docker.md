@@ -4,14 +4,14 @@ author: spboyer
 description: Dowiedz się, jak za pomocą narzędzi Visual Studio 2017 i platformy Docker for Windows konteneryzowanie aplikacji ASP.NET Core.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 07/26/2018
+ms.date: 09/12/2018
 uid: host-and-deploy/docker/visual-studio-tools-for-docker
-ms.openlocfilehash: 962c35cb1487dacd93fd78d09e2417ef77387e42
-ms.sourcegitcommit: 75bf5fdbfdcb6a7cfe8fe207b9ff37655ccbacd4
-ms.translationtype: MT
+ms.openlocfilehash: ecccc571f554e8dacdd37d247883547d1b525e9a
+ms.sourcegitcommit: 4db337bd47d70c06fff91000c58bc048a491ccec
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39275866"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44749350"
 ---
 # <a name="visual-studio-tools-for-docker-with-aspnet-core"></a>Visual Studio Tools for Docker z platformą ASP.NET Core
 
@@ -102,6 +102,10 @@ Dodaj program Visual Studio Tools for Docker *docker-compose* projekt do rozwią
 W powyższym przykładzie `image: hellodockertools` generuje obraz `hellodockertools:dev` uruchamiania aplikacji **debugowania** trybu. `hellodockertools:latest` Obraz jest generowany, gdy aplikacja jest uruchamiana **wersji** trybu.
 
 Nazwa obrazu przy użyciu prefiksu [usługi Docker Hub](https://hub.docker.com/) nazwy użytkownika (na przykład `dockerhubusername/hellodockertools`) Jeśli obraz jest wypchnięte do rejestru. Alternatywnie Zmień nazwę obrazu, aby zawierały adres URL rejestru prywatnego (na przykład `privateregistry.domain.com/hellodockertools`) w zależności od konfiguracji.
+
+Różne zachowania na podstawie konfiguracji kompilacji (na przykład Debug i Release), należy dodać specyficznych dla konfiguracji *narzędzia docker compose* plików. Pliki powinno się nazywać zgodnie z konfiguracją kompilacji (na przykład *docker compose.vs.debug.yml* i *docker compose.vs.release.yml*) i jest umieszczany w tej samej lokalizacji co *docker-compose-override.yml* pliku. 
+
+Za pomocą plików zastąpienie specyficznych dla konfiguracji, można określić różnych ustawień konfiguracji (np. zmienne środowiskowe lub punkty wejścia) dla konfiguracji kompilacji debugowania, jak i wydania.
 
 ### <a name="service-fabric"></a>Usługa Service Fabric
 
