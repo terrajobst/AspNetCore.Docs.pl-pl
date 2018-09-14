@@ -5,12 +5,12 @@ description: Odbieranie wskazówki dotyczące migrowania istniejących aplikacji
 ms.author: scaddie
 ms.date: 08/27/2017
 uid: migration/mvc2
-ms.openlocfilehash: 6e4243c367ec7ec119f4816828884b0b9bf02e1f
-ms.sourcegitcommit: 1a2fc47fb5d3da0f2a3c3269613ab20eb3b0da2c
+ms.openlocfilehash: 42fbabb2fe5bd79a72cd220230faa9d75ff1c9d8
+ms.sourcegitcommit: a742b55e4b8276a48b8b4394784554fecd883c84
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44373348"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45538391"
 ---
 # <a name="migrate-from-aspnet-to-aspnet-core-20"></a>Migrowanie z programu ASP.NET do ASP.NET Core 2.0
 
@@ -36,7 +36,7 @@ Przeznaczone dla platformy .NET Core pozwala wyeliminować wiele odwołań pakie
 
 ```xml
 <ItemGroup>
-  <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.3" />
+  <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.4" />
 </ItemGroup>
 ```
 

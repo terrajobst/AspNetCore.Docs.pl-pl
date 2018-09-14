@@ -5,14 +5,14 @@ description: Dowiedz się, jak używać koncentratory w biblioteki SignalR platf
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 05/01/2018
+ms.date: 09/12/2018
 uid: signalr/hubs
-ms.openlocfilehash: e583676ab0eed45aeaf6391d8cdf8c1485aa914e
-ms.sourcegitcommit: e7e1e531b80b3f4117ff119caadbebf4dcf5dcb7
+ms.openlocfilehash: 17e3ee23967bc1097a3121b3e3e5b58cebe3887d
+ms.sourcegitcommit: a742b55e4b8276a48b8b4394784554fecd883c84
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44510340"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45538365"
 ---
 # <a name="use-hubs-in-signalr-for-aspnet-core"></a>Na użytek koncentratory w SignalR platformy ASP.NET Core
 
@@ -94,6 +94,22 @@ Każda właściwość lub metoda w poprzednich tabelach zwraca obiekt z `SendAsy
 Aby wykonywać wywołania określonych klientów, należy użyć właściwości `Clients` obiektu. W poniższym przykładzie `SendMessageToCaller` metoda pokazuje wysyłania komunikatu do połączenia, który wywołał metodę koncentratora. `SendMessageToGroups` Metoda wysyła komunikat do grup, przechowywane w `List` o nazwie `groups`.
 
 [!code-csharp[Send messages](hubs/sample/hubs/chathub.cs?range=15-24)]
+
+## <a name="strongly-typed-hubs"></a>Koncentratory silnie typizowane
+
+Wadą korzystania z `SendAsync` jest, że opiera się na ciąg magiczny, aby określić metodę klienta do wywołania. Spowoduje to pozostawienie Otwórz kod błędów czasu wykonywania, jeśli nazwa metody została błędnie napisana lub brak od klienta.
+
+Alternatywa dla użycia `SendAsync` polega na wpisaniu silnie `Hub` z <xref:Microsoft.AspNetCore.SignalR.Hub`1>. W poniższym przykładzie `ChatHub` metody klienta zostały wyodrębnione na zewnątrz do interfejs o nazwie `IChatClient`.  
+
+[!code-csharp[Interface for IChatClient](hubs/sample/hubs/ichatclient.cs?name=snippet_IChatClient)]
+
+Ten interfejs może służyć do refaktoryzacji poprzednim `ChatHub` przykład.
+
+[!code-csharp[Strongly typed ChatHub](hubs/sample/hubs/StronglyTypedChatHub.cs?range=8-18,36)]
+
+Za pomocą `Hub<IChatClient>` umożliwia w czasie kompilacji sprawdzania metody klienta. Zapobiega to problem spowodował za pomocą magic ciągów, ponieważ `Hub<T>` tylko można zapewnić dostęp do metody zdefiniowane w interfejsie.
+
+Za pomocą silnie typizowanej `Hub<T>` wyłącza możliwość używania `SendAsync`.
 
 ## <a name="handle-events-for-a-connection"></a>Obsługa zdarzeń dla połączenia
 

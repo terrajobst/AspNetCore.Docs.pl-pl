@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 09/20/2017
 uid: fundamentals/metapackage-app
-ms.openlocfilehash: 37e911052d9d33daebf0f2424868f9589f9a04b0
-ms.sourcegitcommit: 1a2fc47fb5d3da0f2a3c3269613ab20eb3b0da2c
+ms.openlocfilehash: d27c3aa53d6edd235006dc136f09558395e15b6e
+ms.sourcegitcommit: a742b55e4b8276a48b8b4394784554fecd883c84
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44373335"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45538456"
 ---
 # <a name="microsoftaspnetcoreapp-metapackage-for-aspnet-core-21"></a>Meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App, dla platformy ASP.NET Core 2.1
 
@@ -45,7 +45,7 @@ Następujące projektu odwołania do pliku `Microsoft.AspNetCore.App` meta Micro
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.3" />
+    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.4" />
   </ItemGroup>
 
 </Project>

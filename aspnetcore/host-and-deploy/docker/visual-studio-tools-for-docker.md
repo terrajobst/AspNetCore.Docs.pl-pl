@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 09/12/2018
 uid: host-and-deploy/docker/visual-studio-tools-for-docker
-ms.openlocfilehash: ecccc571f554e8dacdd37d247883547d1b525e9a
-ms.sourcegitcommit: 4db337bd47d70c06fff91000c58bc048a491ccec
-ms.translationtype: HT
+ms.openlocfilehash: 4bb28e7644997c50c14046bc0c89338fa35a5f14
+ms.sourcegitcommit: a742b55e4b8276a48b8b4394784554fecd883c84
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44749350"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45538482"
 ---
 # <a name="visual-studio-tools-for-docker-with-aspnet-core"></a>Visual Studio Tools for Docker z platformą ASP.NET Core
 
@@ -231,6 +231,7 @@ Może to być oczekiwanie produkcji lub wersji obrazu na mniejszy rozmiar w por�
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
+* [Tworzenie kontenerów za pomocą programu Visual Studio](/visualstudio/containers)
 * [Usługa Azure Service Fabric: Przygotowywanie środowiska projektowego](/azure/service-fabric/service-fabric-get-started)
 * [Wdrażanie aplikacji .NET w kontenerze Windows w usłudze Azure Service Fabric](/azure/service-fabric/service-fabric-host-app-in-a-container)
 * [Rozwiązywanie problemów z programowania Visual Studio 2017 przy użyciu rozwiązania Docker](/azure/vs-azure-tools-docker-troubleshooting-docker-errors)
