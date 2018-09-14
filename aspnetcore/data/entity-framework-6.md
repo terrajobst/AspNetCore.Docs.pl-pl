@@ -1,93 +1,94 @@
 ---
-title: Wprowadzenie do platformy ASP.NET Core i strukturą Entity Framework 6
+title: Rozpoczynanie pracy z platformą ASP.NET Core i Entity Framework 6
 author: rick-anderson
-description: W tym artykule przedstawiono sposób użycia Entity Framework 6 w aplikacji platformy ASP.NET Core.
+description: W tym artykule pokazano, jak używać platformy Entity Framework 6 w aplikacji ASP.NET Core.
 ms.author: tdykstra
 ms.date: 02/24/2017
 uid: data/entity-framework-6
-ms.openlocfilehash: 500954bdf8ea592e0ed706943e0f5ba4f4594dbc
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: ba3ee137bfefd53cf2b7be2f328651ad38104ab5
+ms.sourcegitcommit: 70fb7c9d5f2ddfcf4747382a9f7159feca7a6aa7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274082"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45601746"
 ---
-# <a name="get-started-with-aspnet-core-and-entity-framework-6"></a>Wprowadzenie do platformy ASP.NET Core i strukturą Entity Framework 6
+# <a name="get-started-with-aspnet-core-and-entity-framework-6"></a>Rozpoczynanie pracy z platformą ASP.NET Core i Entity Framework 6
 
-Przez [Paweł Grudzień](https://github.com/pgrudzien12), [Damien Pontifex](https://github.com/DamienPontifex), i [Dykstra niestandardowy](https://github.com/tdykstra)
+Przez [Paweł Grudzień](https://github.com/pgrudzien12), [Damien Pontifex](https://github.com/DamienPontifex), i [Tom Dykstra](https://github.com/tdykstra)
 
-W tym artykule przedstawiono sposób użycia Entity Framework 6 w aplikacji platformy ASP.NET Core.
+W tym artykule pokazano, jak używać platformy Entity Framework 6 w aplikacji ASP.NET Core.
 
 ## <a name="overview"></a>Omówienie
 
-Aby korzystać z programu Entity Framework 6, projekt ma Kompiluj dla środowiska .NET Framework, jak Entity Framework 6 nie obsługuje platformy .NET Core. Jeśli potrzebujesz funkcji i platform musisz uaktualnić do [Entity Framework Core](https://docs.microsoft.com/ef/).
+Aby korzystać z platformy Entity Framework 6, projekt ma kompilowanie z użyciem platformy .NET Framework, zgodnie z platformy Entity Framework 6 nie obsługuje platformy .NET Core. Jeśli potrzebujesz funkcji dla wielu platform należy uaktualnić do [Entity Framework Core](https://docs.microsoft.com/ef/).
 
-Zalecanym sposobem użycia Entity Framework 6 w aplikacji platformy ASP.NET Core jest umieszczenie kontekstu EF6 i klasy modelu w bibliotece klas projektu którego element docelowy pełna platformy. Dodaj odwołanie do biblioteki klas z projektu platformy ASP.NET Core. Zobacz przykład [rozwiązania Visual Studio z projektami EF6 i ASP.NET Core](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/entity-framework-6/sample/).
+Zalecanym sposobem użycia platformy Entity Framework 6 w aplikacji ASP.NET Core jest umieszczenie kontekstu EF6 i klasy modeli w bibliotece klas projektu przeznaczonego pełny framework. Dodaj odwołanie do biblioteki klas z projektów ASP.NET Core. Zobacz przykład [rozwiązania Visual Studio z projektami EF6 i ASP.NET Core](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/entity-framework-6/sample/).
 
-Nie można ustawić kontekstu EF6 w projekcie platformy ASP.NET Core ponieważ projekty .NET Core nie obsługuje wszystkich funkcji, które EF6 polecenia takie jak *Enable-Migrations* wymagają.
+Nie można umieścić uprawnieniami EF6 w projektach programu ASP.NET Core, ponieważ projektów .NET Core nie obsługują wszystkie funkcje, które EF6 polecenia, takie jak *Enable-Migrations* wymagają.
 
-Niezależnie od typu projektu, w którym możesz znaleźć kontekst EF6 tylko narzędzia wiersza polecenia EF6 pracować z kontekstem EF6. Na przykład `Scaffold-DbContext` jest dostępna tylko w Entity Framework Core. Jeśli potrzebujesz odtwarzanie bazy danych do modelu EF6, zobacz [Code First istniejącą bazę danych](https://msdn.microsoft.com/jj200620).
+Niezależnie od typu projektu, w którym możesz znaleźć kontekstu EF6 tylko narzędzia wiersza polecenia platformy EF6 pracować z uprawnieniami EF6. Na przykład `Scaffold-DbContext` jest dostępna tylko w programie Entity Framework Core. Jeśli zachodzi potrzeba odtwarzanie bazy danych do modelu EF6, zobacz [Code First istniejącą bazę danych](https://msdn.microsoft.com/jj200620).
 
-## <a name="reference-full-framework-and-ef6-in-the-aspnet-core-project"></a>Odwołanie pełna platformy i EF6 w projekcie platformy ASP.NET Core
+## <a name="reference-full-framework-and-ef6-in-the-aspnet-core-project"></a>Dokumentacja pełny framework i EF6 w projekcie platformy ASP.NET Core
 
-Projekt platformy ASP.NET Core musi odwoływać się do środowiska .NET framework i EF6. Na przykład *.csproj* pliku projektu platformy ASP.NET Core będzie wyglądać podobnie do poniższego przykładu (wyświetlane są tylko odpowiednich części pliku).
+Projekt platformy ASP.NET Core musi odwoływać się do środowiska .NET framework i EF6. Na przykład *.csproj* plik projektu programu ASP.NET Core będzie wyglądać podobnie do poniższego przykładu (wyświetlane są tylko odpowiednie części pliku).
 
 [!code-xml[](entity-framework-6/sample/MVCCore/MVCCore.csproj?range=3-9&highlight=2)]
 
-Podczas tworzenia nowego projektu, użyj **aplikacji sieci Web platformy ASP.NET Core (.NET Framework)** szablonu.
+Podczas tworzenia nowego projektu, użyj **aplikacja sieci Web programu ASP.NET Core (.NET Framework)** szablonu.
 
 ## <a name="handle-connection-strings"></a>Obsługa parametrów połączenia
 
-Narzędzia wiersza polecenia EF6, które będą używane w projektu biblioteki klas EF6 wymaga konstruktora domyślnego, dzięki czemu można ich wystąpienia kontekstu. Ale prawdopodobnie należy określić parametry połączenia do użycia w projekcie platformy ASP.NET Core, w którym to przypadku konstruktora z kontekstu musi mieć parametr, który umożliwia przekazywanie w parametrach połączenia. Oto przykład.
+EF6 narzędzia wiersza polecenia, których można używać w projekcie biblioteki klas platformy EF6 wymagają domyślnego konstruktora, dzięki czemu można utworzyć wystąpienie kontekstu. Jednak prawdopodobnie będziesz chciał określić parametry połączenia do użycia w projekcie platformy ASP.NET Core, w którym to przypadku konstruktora kontekście musi mieć parametr, który umożliwia przekazywanie parametrów połączenia. Oto przykład.
 
 [!code-csharp[](entity-framework-6/sample/EF6/SchoolContext.cs?name=snippet_Constructor)]
 
-Ponieważ kontekst EF6 nie ma konstruktora bez parametrów, projekt EF6 musi zapewniać implementację elementu [interfejsu IDbContextFactory](https://msdn.microsoft.com/library/hh506876). Narzędzia wiersza polecenia EF6 znajdzie i używać tej implementacji, dlatego można utworzyć wystąpienie kontekstu. Oto przykład.
+Ponieważ kontekst EF6 nie ma konstruktora bez parametrów, projekt EF6 musi dostarczyć implementację [IDbContextFactory](https://msdn.microsoft.com/library/hh506876). Narzędzia wiersza polecenia platformy EF6 znajdzie i użyć tej implementacji, dzięki czemu można utworzyć wystąpienie kontekstu. Oto przykład.
 
 [!code-csharp[](entity-framework-6/sample/EF6/SchoolContextFactory.cs?name=snippet_IDbContextFactory)]
 
-W tym przykładowym kodzie `IDbContextFactory` implementacji przekazuje w ciągu połączenia ustalony. Jest to ciąg połączenia, który będzie używać narzędzi wiersza polecenia. Należy zaimplementować strategię, aby upewnić się, że biblioteka klas używa te same parametry połączenia, który korzysta z aplikacji wywołującej. Na przykład można pobrać wartości ze zmiennej środowiskowej w obu tych projektów.
+W tym przykładowym kodzie `IDbContextFactory` implementacji przekazuje ciągów połączeń zakodowanych. Jest to ciąg połączenia, który będzie używać narzędzi wiersza polecenia. Należy zaimplementować strategię, aby upewnić się, że biblioteka klas używa jednych parametrach połączenia, który używa aplikacji wywołującej. Na przykład można uzyskać wartość ze zmiennej środowiskowej w obu projektach.
 
-## <a name="set-up-dependency-injection-in-the-aspnet-core-project"></a>Konfigurowanie iniekcji zależności w projekcie platformy ASP.NET Core
+## <a name="set-up-dependency-injection-in-the-aspnet-core-project"></a>Konfigurowanie wstrzykiwanie zależności w projekcie platformy ASP.NET Core
 
-W projekcie Core *Startup.cs* pliku skonfigurowane w kontekście EF6 iniekcji zależności (Podpisane) w `ConfigureServices`. Obiektów kontekstu EF ma być ograniczone do istnienia danego żądania.
+W projekcie Core *Startup.cs* plików, skonfiguruj kontekst EF6 wstrzykiwanie zależności (DI) w `ConfigureServices`. Obiektów kontekstu EF powinien być ograniczony okres istnienia danego żądania.
 
 [!code-csharp[](entity-framework-6/sample/MVCCore/Startup.cs?name=snippet_ConfigureServices&highlight=5)]
 
-Następnie można pobrać wystąpienia kontekstu w kontrolerach przy użyciu Podpisane. Kod jest podobny do piszesz kontekstu EF rdzeni:
+Następnie można pobrać wystąpienia kontekstu w kontrolerach przy użyciu DI. Kod jest podobny do piszesz dla kontekstu programu EF Core:
 
 [!code-csharp[](entity-framework-6/sample/MVCCore/Controllers/StudentsController.cs?name=snippet_ContextInController)]
 
 ## <a name="sample-application"></a>Przykładowa aplikacja
 
-Przykładową aplikację pracy, zobacz [przykładowe rozwiązanie Visual Studio](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/entity-framework-6/sample/) dołączony w tym artykule.
+Pracy przykładowej aplikacji, zobacz [przykładowe rozwiązanie programu Visual Studio](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/entity-framework-6/sample/) dołączony w tym artykule.
 
-W tym przykładzie można utworzyć od podstaw przez następujące czynności w programie Visual Studio:
+W tym przykładzie można tworzyć od podstaw przez następujące kroki w programie Visual Studio:
 
-* Tworzenie rozwiązania.
+* Tworzenie rozwiązań.
 
-* **Dodaj nowy projekt > sieci Web > Aplikacja sieci Web platformy ASP.NET Core (.NET Framework)**
+* **Dodaj** > **nowy projekt** > **Web** > **aplikacji sieci Web platformy ASP.NET Core**
+  * W oknie dialogowym wyboru szablonów projektu wybierz na liście rozwijanej interfejsu API i .NET Framework
 
-* **Dodaj nowy projekt > klasycznego pulpitu systemu Windows > klasy biblioteki (.NET Framework)**
+* **Dodaj** > **nowy projekt** > **pulpitu Windows** > **klasy biblioteki (.NET Framework)**
 
 * W **Konsola Menedżera pakietów** (PMC) dla obu projektów, uruchom polecenie `Install-Package Entityframework`.
 
-* W projektu biblioteki klas, utworzyć klasy modelu danych i klasę kontekstu i implementacja `IDbContextFactory`.
+* W projekcie biblioteki klas Tworzenie klas modelu danych i klasy kontekstu i implementację `IDbContextFactory`.
 
-* W PMC dla projektu biblioteki klas, Uruchom polecenia `Enable-Migrations` i `Add-Migration Initial`. Jeśli ustawisz projekt platformy ASP.NET Core jako projekt startowy, Dodaj `-StartupProjectName EF6` do tych poleceń.
+* W konsoli zarządzania Pakietami dla projektu biblioteki klas, Uruchom polecenia `Enable-Migrations` i `Add-Migration Initial`. Jeśli ustawisz projekt platformy ASP.NET Core jako projekt startowy, Dodaj `-StartupProjectName EF6` tych poleceń.
 
-* W projekcie Core Dodaj odwołanie projektu do projektu biblioteki klas.
+* W projekcie podstawowe należy dodać odwołanie projektu do projektu biblioteki klas.
 
-* W projekcie Core w *Startup.cs*, zarejestruj się w kontekście celu Podpisane.
+* W projekcie podstawowe w *Startup.cs*, zarejestruj DI kontekstu.
 
-* W projekcie Core w *appsettings.json*, Dodaj parametry połączenia.
+* W projekcie podstawowe w *appsettings.json*, Dodaj parametry połączenia.
 
-* W projekcie Core Dodaj kontroler i widoków, aby sprawdzić, czy można odczytywania i zapisywania danych. (Należy pamiętać, że ASP.NET MVC podstawowych szkieletów nie będzie działać w kontekście EF6 odwołanie z biblioteki klas.)
+* W projekcie Core Dodaj kontrolera i widoki, aby sprawdzić, czy może odczytywać i zapisywać dane. (Zwróć uwagę, że tworzenia szkieletu ASP.NET Core MVC nie będzie działać w kontekście platformy EF6 stanowiący odwołanie z biblioteki klas).
 
 ## <a name="summary"></a>Podsumowanie
 
-W tym artykule udostępnił podstawowe wskazówki dotyczące korzystania z programu Entity Framework 6 w aplikacji platformy ASP.NET Core.
+Ten artykuł ma podano podstawowe wskazówki dotyczące korzystania z platformy Entity Framework 6 w aplikacji ASP.NET Core.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Entity Framework - konfiguracji opartej na kodzie](https://msdn.microsoft.com/data/jj680699.aspx)
+* [Entity Framework - konfiguracja na podstawie kodu](https://msdn.microsoft.com/data/jj680699.aspx)

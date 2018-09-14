@@ -5,12 +5,12 @@ description: Dowiedz się, jak utworzyć aplikację stron Razor przy użyciu dan
 ms.author: riande
 ms.date: 7/24/2018
 uid: security/authorization/secure-data
-ms.openlocfilehash: a263b092194763ae4ff3360fc0d76e8ee494b5a6
-ms.sourcegitcommit: e7e1e531b80b3f4117ff119caadbebf4dcf5dcb7
+ms.openlocfilehash: e4a54c95aa8131441d29a835751ce6241aac2ed3
+ms.sourcegitcommit: 70fb7c9d5f2ddfcf4747382a9f7159feca7a6aa7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44510366"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45601772"
 ---
 ::: moniker range="<= aspnetcore-1.1"
 
@@ -269,9 +269,12 @@ Aktualizowanie modelu strony szczegółów:
 
 [!code-csharp[](secure-data/samples/final2.1/Pages/Contacts/Details.cshtml.cs?name=snippet)]
 
-## <a name="add-a-user-to-a-role"></a>Dodawanie użytkownika do roli
+## <a name="add-or-remove-a-user-to-a-role"></a>Dodawanie lub usuwanie użytkownika do roli
 
-Role są przechowywane w pliku cookie tożsamości. Zmiany wprowadzone do użytkowników, role nie są zachowywane do pliku cookie do czasu wygenerowania pliku cookie lub użytkownik wylogowuje się i loguje się. Aplikacje, dodawanie użytkowników do roli, które powinny wywoływać `SignInManager.RefreshSignInAsync(user)` można zaktualizować pliku cookie.
+Zobacz [ten problem](https://github.com/aspnet/Docs/issues/8502) uzyskać informacji na temat:
+
+* Usuwanie uprawnień z użytkownikiem. Na przykład wyciszanie użytkownika w aplikacji do rozmów.
+* Dodawanie uprawnień dla użytkownika.
 
 ## <a name="test-the-completed-app"></a>Testowanie aplikacji ukończone
 

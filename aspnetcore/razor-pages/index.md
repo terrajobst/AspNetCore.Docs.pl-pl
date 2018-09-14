@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 05/12/2018
 uid: razor-pages/index
-ms.openlocfilehash: f5549a24c5b5fe2e6b33bd55960f87a8bf86bd19
-ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
+ms.openlocfilehash: 25add294d74be2840d2bee224b0f5ea91c782b64
+ms.sourcegitcommit: 70fb7c9d5f2ddfcf4747382a9f7159feca7a6aa7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41870883"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45601785"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Wprowadzenie do stron Razor programu ASP.NET Core
 
@@ -376,6 +376,8 @@ Zaktualizowany interfejs *Pages/Create.cshtml* Wyświetl plik:
 
 [Projekt startowy stron Razor](#rpvs17) zawiera *Pages/_ValidationScriptsPartial.cshtml*, która przechwytuje sprawdzania poprawności po stronie klienta.
 
+Aby uzyskać więcej informacji na temat widoki częściowe, zobacz <xref:mvc/views/partial>.
+
 <a name="url_gen"></a>
 
 ## <a name="url-generation-for-pages"></a>Generowanie adresu URL dla stron
@@ -558,11 +560,12 @@ services.AddMvc()
     .WithRazorPagesRoot("/path/to/razor/pages");
 ```
 
-## <a name="see-also"></a>Zobacz także
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Wprowadzenie do platformy ASP.NET Core](xref:index)
-* [Składnia Razor](xref:mvc/views/razor)
-* [Wprowadzenie do korzystania ze stron Razor](xref:tutorials/razor-pages/razor-pages-start)
-* [Konwencje autoryzacja stron razor](xref:security/authorization/razor-pages-authorization)
-* [Razor strony trasy i strony modelu dostawcy niestandardowi](xref:razor-pages/razor-pages-conventions)
-* [Testy jednostkowe stron Razor](xref:test/razor-pages-tests)
+* <xref:index>
+* <xref:mvc/views/razor>
+* <xref:tutorials/razor-pages/razor-pages-start>
+* <xref:security/authorization/razor-pages-authorization>
+* <xref:razor-pages/razor-pages-conventions>
+* <xref:test/razor-pages-tests>
+* <xref:mvc/views/partial>
