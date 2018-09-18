@@ -5,12 +5,12 @@ description: Dowiedz się, jak za pomocą części aplikacji, które abstrakcje 
 ms.author: riande
 ms.date: 01/04/2017
 uid: mvc/extensibility/app-parts
-ms.openlocfilehash: 377217870743e70f5e20544da43cb80c2c916c42
-ms.sourcegitcommit: 15d7bd0b2c4e6fe9ac335d658bab71a45ca5bc72
+ms.openlocfilehash: 41ae3fd4059844698ded4551dcedc8933ab8cff6
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41754767"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011316"
 ---
 # <a name="application-parts-in-aspnet-core"></a>Części aplikacji w programie ASP.NET Core
 
@@ -50,7 +50,7 @@ services.AddMvc()
 
         if (dependentLibrary != null)
         {
-           p.ApplicationParts.Remove(dependentLibrary);
+           apm.ApplicationParts.Remove(dependentLibrary);
         }
     })
 ```

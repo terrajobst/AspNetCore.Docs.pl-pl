@@ -4,14 +4,14 @@ author: guardrex
 description: Dowiedz się, jak konwencje tras i aplikacji dostawcy modelu pomóc routingu strony kontroli, odnajdywania i przetwarzania.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 04/12/2018
+ms.date: 09/17/2018
 uid: razor-pages/razor-pages-conventions
-ms.openlocfilehash: 5a5d580b4260767e411571ccacc19d6e8fe12559
-ms.sourcegitcommit: 028ad28c546de706ace98066c76774de33e4ad20
+ms.openlocfilehash: ea4f785dc8a64b430e312fd122a4d3184b61949e
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39655374"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011865"
 ---
 # <a name="razor-pages-route-and-app-conventions-in-aspnet-core"></a>Razor konwencje tras i aplikacji stron w programie ASP.NET Core
 
@@ -69,6 +69,26 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
+## <a name="route-order"></a>Kolejność trasy
+
+Określanie tras <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> przetwarzania (dopasowanie trasy).
+
+| Kolejność            | Zachowanie |
+| :--------------: | -------- |
+| -1               | Trasy są przetwarzane przed inne trasy są przetwarzane. |
+| 0                | Nie określono kolejności (wartość domyślna). Przypisanie nie `Order` (`Order = null`) domyślne trasy `Order` na 0 (zero) do przetworzenia. |
+| 1, 2, &hellip; n | Określa kolejność przetwarzania trasy. |
+
+Zgodnie z Konwencją tworzy się przetwarzanie trasy:
+
+* Trasy są przetwarzane w kolejności sekwencyjnej (-1, 0, 1, 2, &hellip; n).
+* Kiedy trasy mają taką samą `Order`, maksymalnie określoną trasę jest dopasowywany najpierw następuje mniej określonej trasy.
+* Gdy trasy z takimi samymi `Order` i taką samą liczbę parametrów dopasowania w adresie URL żądania, trasy są przetwarzane w kolejności, które są dodawane do <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection>.
+
+Jeśli to możliwe Unikaj w zależności od ustalonych trasy kolejność przetwarzania. Ogólnie rzecz biorąc routingu wybiera poprawny trasę z pasującymi adresu URL. Jeśli musisz ustawić trasy `Order` właściwości w celu kierowania żądań poprawnie, schemat routingu aplikacji jest prawdopodobnie mylące dla klientów powolnymi i słabymi do zachowania. Wyszukiwanie uprościć routingu schemat aplikacji. Przykładowa aplikacja wymaga jawnego trasę w protokole przetwarzania zamówienia, aby zademonstrować kilku scenariuszy routingu za pomocą pojedynczej aplikacji. Jednakże, należy podjąć w celu uniknięcia rozwiązaniem jest ustawienie trasy `Order` w aplikacjach produkcyjnych.
+
+Strony razor routingu i MVC kontroler routingu udziału wdrożenia. Informacje o kolejność trasy w tematach MVC znajduje się w temacie [Routing do akcji kontrolera: porządkowanie tras atrybutów](xref:mvc/controllers/routing#ordering-attribute-routes).
+
 ## <a name="model-conventions"></a>Konwencje modelu
 
 Dodawanie delegatów dla [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention) dodać [modelu Konwencji](xref:mvc/controllers/application-model#conventions) które są stosowane do stron Razor.
@@ -81,8 +101,13 @@ Przykładowa aplikacja dodaje `{globalTemplate?}` szablon trasy do wszystkich st
 
 [!code-csharp[](razor-pages-conventions/sample/Conventions/GlobalTemplatePageRouteModelConvention.cs?name=snippet1)]
 
-> [!NOTE]
-> `Order` Właściwość `AttributeRouteModel` ustawiono `-1`. Gwarantuje to, czy ten szablon otrzymuje priorytet pierwszą pozycję wartości danych trasy, jeśli podano wartość jedną trasę i także że będzie mają pierwszeństwo przed automatycznie generowanych trasy stron Razor. Na przykład przykładowa aplikacja dodaje `{aboutTemplate?}` szablon trasy w dalszej części tematu. `{aboutTemplate?}` Znajduje się szablon `Order` z `1`. Po żądaniu strony informacje o `/About/RouteDataValue`, "RouteDataValue" jest ładowany do `RouteData.Values["globalTemplate"]` (`Order = -1`) i nie `RouteData.Values["aboutTemplate"]` (`Order = 1`) ze względu na ustawienie `Order` właściwości.
+<xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> Właściwość <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel> ustawiono `1`. Dzięki temu Następująca trasa pasujące do zachowania w przykładowej aplikacji:
+
+* Szablon trasy dla `TheContactPage/{text?}` zostanie dodany w dalszej części tematu. Trasa strony kontaktu ma domyślną kolejność `null` (`Order = 0`), tak, aby odpowiadała przed `{globalTemplate?}` szablon trasy.
+* `{aboutTemplate?}` Szablon trasy zostanie dodany w dalszej części tematu. `{aboutTemplate?}` Znajduje się szablon `Order` z `2`. Po żądaniu strony informacje o `/About/RouteDataValue`, "RouteDataValue" jest ładowany do `RouteData.Values["globalTemplate"]` (`Order = 1`) i nie `RouteData.Values["aboutTemplate"]` (`Order = 2`) ze względu na ustawienie `Order` właściwości.
+* `{otherPagesTemplate?}` Szablon trasy zostanie dodany w dalszej części tematu. `{otherPagesTemplate?}` Znajduje się szablon `Order` z `2`. Po dowolnej stronie *stron/OtherPages* folderu jest żądanego przy użyciu parametru trasy (na przykład `/OtherPages/Page1/RouteDataValue`), "RouteDataValue" jest ładowany do `RouteData.Values["globalTemplate"]` (`Order = 1`) i nie `RouteData.Values["otherPagesTemplate"]` (`Order = 2`) ze względu na ustawienie `Order` właściwości.
+
+Wszędzie tam, gdzie to możliwe, nie należy ustawiać `Order`, które powoduje `Order = 0`. Polegaj na routingu, aby wybrać poprawny trasy.
 
 Opcje strony razor, takich jak dodawanie [konwencje](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpagesoptions.conventions), są dodawane, gdy MVC zostanie dodany do kolekcji usługi w `Startup.ConfigureServices`. Aby uzyskać przykład, zobacz [przykładową aplikację](https://github.com/aspnet/Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/sample/).
 
@@ -111,6 +136,7 @@ Ta aplikacja używa przykładowych `AddHeaderAttribute` klasy, aby dodać nagł�
 ![Nagłówki odpowiedzi strony informacje pokazują, że dodano GlobalHeader.](razor-pages-conventions/_static/about-page-global-header.png)
 
 ::: moniker range=">= aspnetcore-2.1"
+
 **Dodaj Konwencji modelu obsługi do wszystkich stron**
 
 Użyj [konwencje](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpagesoptions.conventions) tworzyć i dodawać [IPageHandlerModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipagehandlermodelconvention) do kolekcji [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention) wystąpień, które są stosowane podczas modelu obsługi strony konstrukcja.
@@ -135,6 +161,7 @@ services.AddMvc()
             options.Conventions.Add(new GlobalPageHandlerModelConvention());
         });
 ```
+
 ::: moniker-end
 
 ## <a name="page-route-action-conventions"></a>Konwencje akcji trasy strony
@@ -149,8 +176,9 @@ Ta aplikacja używa przykładowych `AddFolderRouteModelConvention` dodać `{othe
 
 [!code-csharp[](razor-pages-conventions/sample/Startup.cs?name=snippet3)]
 
-> [!NOTE]
-> `Order` Właściwość `AttributeRouteModel` ustawiono `1`. Gwarantuje to, że szablon `{globalTemplate?}` (zestaw wcześniej w temacie) otrzymuje priorytet dla pierwszego dane trasy wartość pozycji, gdy została podana wartość jedną trasę. Jeśli w żądaniu strony Strona 1 `/OtherPages/Page1/RouteDataValue`, "RouteDataValue" jest ładowany do `RouteData.Values["globalTemplate"]` (`Order = -1`) i nie `RouteData.Values["otherPagesTemplate"]` (`Order = 1`) ze względu na ustawienie `Order` właściwości.
+<xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> Właściwość <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel> ustawiono `2`. Gwarantuje to, że szablon `{globalTemplate?}` (wcześniej w temacie, aby `1`) otrzymuje priorytet dla pierwszego dane trasy wartość pozycji, gdy została podana wartość jedną trasę. Jeśli na stronie w programie *stron/OtherPages* zażądano folderu z wartością parametru trasy (na przykład `/OtherPages/Page1/RouteDataValue`), "RouteDataValue" jest ładowany do `RouteData.Values["globalTemplate"]` (`Order = 1`) i nie `RouteData.Values["otherPagesTemplate"]` (`Order = 2`) ze względu na ustawienie `Order` właściwości.
+
+Wszędzie tam, gdzie to możliwe, nie należy ustawiać `Order`, które powoduje `Order = 0`. Polegaj na routingu, aby wybrać poprawny trasy.
 
 Żądanie strony Strona 1 przykładu w `localhost:5000/OtherPages/Page1/GlobalRouteValue/OtherPagesRouteValue` i sprawdź wynik:
 
@@ -164,8 +192,9 @@ Ta aplikacja używa przykładowych `AddPageRouteModelConvention` dodać `{aboutT
 
 [!code-csharp[](razor-pages-conventions/sample/Startup.cs?name=snippet4)]
 
-> [!NOTE]
-> `Order` Właściwość `AttributeRouteModel` ustawiono `1`. Gwarantuje to, że szablon `{globalTemplate?}` (zestaw wcześniej w temacie) otrzymuje priorytet dla pierwszego dane trasy wartość pozycji, gdy została podana wartość jedną trasę. Jeśli w żądaniu strony informacje `/About/RouteDataValue`, "RouteDataValue" jest ładowany do `RouteData.Values["globalTemplate"]` (`Order = -1`) i nie `RouteData.Values["aboutTemplate"]` (`Order = 1`) ze względu na ustawienie `Order` właściwości.
+<xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> Właściwość <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel> ustawiono `2`. Gwarantuje to, że szablon `{globalTemplate?}` (wcześniej w temacie, aby `1`) otrzymuje priorytet dla pierwszego dane trasy wartość pozycji, gdy została podana wartość jedną trasę. Jeśli wartością parametru trasy w żądaniu strony informacje `/About/RouteDataValue`, "RouteDataValue" jest ładowany do `RouteData.Values["globalTemplate"]` (`Order = 1`) i nie `RouteData.Values["aboutTemplate"]` (`Order = 2`) ze względu na ustawienie `Order` właściwości.
+
+Wszędzie tam, gdzie to możliwe, nie należy ustawiać `Order`, które powoduje `Order = 0`. Polegaj na routingu, aby wybrać poprawny trasy.
 
 Żądanie próbki o stronę w `localhost:5000/About/GlobalRouteValue/AboutRouteValue` i sprawdź wynik:
 

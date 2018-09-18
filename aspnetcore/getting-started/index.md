@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/31/2018
 uid: getting-started
-ms.openlocfilehash: 7ab9f303d74786c4ac76f002d0f2c66371e78cb8
-ms.sourcegitcommit: b4c7b1a4c48dec0865f27874275c73da1f75e918
+ms.openlocfilehash: 06129200834607188052f44a888749c51662f638
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39228585"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011608"
 ---
 # <a name="get-started-with-aspnet-core"></a>Wprowadzenie do platformy ASP.NET Core
 
@@ -49,13 +49,15 @@ ms.locfileid: "39228585"
 
    Poprzednie polecenie wyświetli następujący komunikat:
 
-   *Zażądano ufające certyfikatu deweloperskiego protokołu HTTPS. Jeśli certyfikat nie jest już zaufany możemy uruchom następujące polecenie:* `'sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain <<certificate>>'` *to polecenie może monitować o hasło, aby zainstalować certyfikat w pęku kluczy systemu.    Hasło:*
+   *Zażądano ufające certyfikatu deweloperskiego protokołu HTTPS. Jeśli certyfikat nie jest zaufany, firma Microsoft będzie uruchom następujące polecenie:* `'sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain <<certificate>>'`
+   *To polecenie może monitować o hasło, aby zainstalować certyfikat w pęku kluczy systemu. Hasło:*
 
    Wprowadź hasło, jeśli zgadzasz się ufać certyfikatowi rozwoju.
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
-   <a name="see-the-documentation-for-your-linux-distribution-on-how-to-trust-the-https-development-certificate"></a>W dokumentacji dla Twojej dystrybucji systemu Linux na temat zaufania certyfikatu deweloperskiego protokołu HTTPS
+   W dokumentacji dla Twojej dystrybucji systemu Linux na temat zaufania certyfikatu deweloperskiego protokołu HTTPS
+   
 ---
 
 4. Uruchom aplikację:
@@ -152,4 +154,5 @@ ms.locfileid: "39228585"
 7. Przejdź do `http://localhost:5000`.
 
 [!INCLUDE [next steps](~/includes/getting-started/next-steps.md)]
+
 ::: moniker-end

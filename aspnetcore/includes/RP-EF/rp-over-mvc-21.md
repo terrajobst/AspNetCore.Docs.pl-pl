@@ -14,4 +14,5 @@ Wersja stron Razor programu ASP.NET Core 2.1 w tym samouczku zawiera wiele uleps
 * Jest preferowanym podejściem w przypadku nowych wdrożeń aplikacji.
 
 Jeśli wybrana w tym samouczku za pośrednictwem [stron Razor](xref:data/ef-rp/intro) wersji dać nam znać, dlaczego w [tej dyskusji GitHub](https://github.com/aspnet/Docs/issues/6146).
+
 ::: moniker-end

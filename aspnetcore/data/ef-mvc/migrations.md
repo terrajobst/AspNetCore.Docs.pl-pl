@@ -5,12 +5,12 @@ description: W ramach tego samouczka możesz rozpocząć korzystanie z funkcji m
 ms.author: tdykstra
 ms.date: 03/15/2018
 uid: data/ef-mvc/migrations
-ms.openlocfilehash: f710b33ac1a6017b0e3d7e8c3e528675a41424bb
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 556d7d4ad05679ebfce6c909b29610482bb3f350
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38194173"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011472"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---migrations---4-of-10"></a>Platforma ASP.NET Core MVC z programem EF Core - Migrations - 4 z 10
 
@@ -165,6 +165,7 @@ Aby uzyskać więcej informacji na temat poleceń konsoli zarządzania Pakietami
 ## <a name="summary"></a>Podsumowanie
 
 W tym samouczku pokazaliśmy już, jak tworzenie i stosowanie pierwszej migracji. W następnym samouczku rozpocznie się spojrzenie na bardziej zaawansowanych tematów, rozwijając modelu danych. Po drodze możesz utworzyć i zastosować potrzeby dodatkowych migracji.
+
 ::: moniker-end
 
 > [!div class="step-by-step"]

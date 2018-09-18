@@ -1,4 +1,5 @@
 ::: moniker range=">= aspnetcore-2.1"
+
 Kliknij prawym przyciskiem myszy czerwona linia falista > **szybkie akcje i Refaktoryzacje** na `[Column]` atribute i wybierz pozycję `using System.ComponentModel.DataAnnotations.Schema;`
 
 `[Column(TypeName = "decimal(18, 2)")]` Wymagana jest adnotacja danych, dzięki czemu można poprawnie mapowane na platformy Entity Framework Core `Price` walutę w bazie danych. Aby uzyskać więcej informacji, zobacz [typy danych](/ef/core/modeling/relational/data-types).
@@ -75,11 +76,13 @@ Kodzie produkcyjnym zazwyczaj będzie wykrywanie konfliktów współbieżności,
 Sprawdź *Pages/Movies/Edit.cshtml.cs* pliku:
 
 ::: moniker range="= aspnetcore-2.0"
+
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Edit.cshtml.cs?name=snippet2)]
 
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Edit21.cshtml.cs?name=snippet2)]
 
 ::: moniker-end

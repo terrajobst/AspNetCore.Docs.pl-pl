@@ -5,12 +5,12 @@ description: Wyjaśnienie przy użyciu uwierzytelniania plików cookie bez użyc
 ms.author: riande
 ms.date: 10/11/2017
 uid: security/authentication/cookie
-ms.openlocfilehash: ac1eec297d3efd1403990722f59c414ba4e5ddd9
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: 8045a1bf27853ff5f03166e7cf10d89e2ad38fd1
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095804"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011839"
 ---
 # <a name="use-cookie-authentication-without-aspnet-core-identity"></a>Używania uwierzytelniania plików cookie bez użycia produktu ASP.NET Core Identity
 
@@ -37,6 +37,8 @@ W `ConfigureServices` metody tworzenia usługi oprogramowania pośredniczącego 
 [!code-csharp[](cookie/samples/2.x/CookieSample/Startup.cs?name=snippet1)]
 
 `AuthenticationScheme` przekazany do `AddAuthentication` ustawia domyślny schemat uwierzytelniania dla aplikacji. `AuthenticationScheme` jest przydatne, gdy istnieje wiele wystąpień pliku cookie uwierzytelniania, a użytkownik chce [autoryzacji przy użyciu określonego schematu](xref:security/authorization/limitingidentitybyscheme). Ustawienie `AuthenticationScheme` do `CookieAuthenticationDefaults.AuthenticationScheme` zawiera wartość "Plików cookie" dla schematu. Możesz podać dowolną wartość ciągu, która odróżnia systemu.
+
+Schemat uwierzytelniania aplikacji różni się od schematu uwierzytelniania pliku cookie aplikacji. Gdy nie jest udostępniane schematu uwierzytelniania pliku cookie <xref:Microsoft.Extensions.DependencyInjection.CookieExtensions.AddCookie*>, używa ona [CookieAuthenticationDefaults.AuthenticationScheme](xref:Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationDefaults.AuthenticationScheme) ("plików cookie" ").
 
 W `Configure` metody, użyj `UseAuthentication` metodę do wywołania, oprogramowanie pośredniczące uwierzytelniania, która ustawia `HttpContext.User` właściwości. Wywołaj `UseAuthentication` metoda przed wywołaniem `UseMvcWithDefaultRoute` lub `UseMvc`:
 

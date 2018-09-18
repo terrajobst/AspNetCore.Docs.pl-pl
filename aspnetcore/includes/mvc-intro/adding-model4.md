@@ -1,69 +1,76 @@
-Zaznaczony kod powyżej przedstawiono filmu kontekst bazy danych dodawane do [iniekcji zależności](xref:fundamentals/dependency-injection) kontenera (w *Startup.cs* pliku). `services.AddDbContext<MvcMovieContext>(options =>` Określa bazę danych i parametry połączenia. `=>` jest [operatora lambda](/dotnet/articles/csharp/language-reference/operators/lambda-operator).
+Wyróżniony kod powyżej przedstawiono kontekst bazy danych filmów, które są dodawane do [wstrzykiwanie zależności](xref:fundamentals/dependency-injection) kontenera (w *Startup.cs* pliku). `services.AddDbContext<MvcMovieContext>(options =>` Określa bazę danych i parametry połączenia. `=>` jest [operatora lambda](/dotnet/articles/csharp/language-reference/operators/lambda-operator).
 
-Otwórz *Controllers/MoviesController.cs* pliku i sprawdź, czy konstruktora:
+Otwórz *Controllers/MoviesController.cs* plików i zbadaj konstruktora:
 
 <!-- l.. Make copy of Movies controller because we comment out the initial index method and update it later  -->
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_1)] 
 
-Używa konstruktora [iniekcji zależności](xref:fundamentals/dependency-injection) iniekcję kontekst bazy danych (`MvcMovieContext `) z kontrolerem. Kontekst bazy danych jest używany w każdym [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) metod w kontrolerze.
+Używa konstruktora [wstrzykiwanie zależności](xref:fundamentals/dependency-injection) iniekcję kontekst bazy danych (`MvcMovieContext `) do kontrolera. Kontekst bazy danych jest używany we wszystkich [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) metodami w kontrolerze.
 
 <a name="strongly-typed-models-keyword-label"></a>
 <a name="strongly-typed-models-and-the--keyword"></a>
 
 ## <a name="strongly-typed-models-and-the-model-keyword"></a>Silnie typizowane modeli i @model — słowo kluczowe
 
-Wcześniej w tym samouczku widać, jak kontroler może przekazać dane i obiekty do widoku przy użyciu `ViewData` słownika. `ViewData` Słownik jest obiekt dynamiczny, które oferują wygodny sposób późnym wiązaniem do przekazywania informacji do widoku.
+Wcześniej w tym samouczku pokazano, jak kontroler można przekazać dane i obiekty za pomocą widoku `ViewData` słownika. `ViewData` Słownik jest to obiekt dynamiczny, która zapewnia wygodny sposób z późnym wiązaniem do przekazywania informacji do widoku.
 
-MVC oferuje także możliwość przekazywania silnie typizowanych obiektów modelu do widoku. To silnie typizowane podejście umożliwia lepsze kompilacji Sprawdzanie kodu. Mechanizm szkieletów użyć tej metody, (tj. przekazywanie jednoznacznie modelu) z `MoviesController` klasy i widoki tworzona metod i widoków.
+MVC udostępnia również możliwość przekazywania silnie typizowanych obiektów modelu widoku. Silnie typizowane to podejście umożliwia lepsze kompilacji sprawdzania kodu. Mechanizm tworzenia szkieletów używane takie podejście (który jest przekazując silnie typizowany model) z `MoviesController` klasy i widoki utworzenia metod i widoków.
 
-Sprawdź wygenerowany `Details` metody w *Controllers/MoviesController.cs* pliku:
+Sprawdź wygenerowany `Details` method in Class metoda *Controllers/MoviesController.cs* pliku:
 
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie21/Controllers/MoviesController.cs?name=snippet_details)]
+
 ::: moniker-end
+
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_details)]
+
 ::: moniker-end
 
 
-`id` Parametr jest zwykle przekazywany jako dane trasy. Na przykład `http://localhost:5000/movies/details/1` ustawia:
+`id` Parametr ogólnie jest przekazywany jako dane trasy. Na przykład `http://localhost:5000/movies/details/1` ustawia:
 
 * Kontroler do `movies` kontrolera (pierwszy segment adresu URL).
-* Akcja `details` (drugi segment adresu URL).
-* Identyfikator na wartość 1 (ostatni segment adresu URL).
+* Działanie `details` (drugi segment adresu URL).
+* Identyfikator do 1 (ostatni segment adresu URL).
 
-Można również przekazać `id` za pomocą kwerendy ciągu w następujący sposób:
+Możesz również przekazać `id` przy użyciu zapytania następujący ciąg:
 
 `http://localhost:1234/movies/details?id=1`
 
-`id` Parametr jest zdefiniowany jako [typ dopuszczający wartość null](/dotnet/csharp/programming-guide/nullable-types/index) (`int?`) w przypadku, gdy nie jest podana wartość Identyfikatora.
+`id` Parametr jest zdefiniowany jako [typu dopuszczającego wartość null](/dotnet/csharp/programming-guide/nullable-types/index) (`int?`) w przypadku, gdy nie jest podana wartość Identyfikatora.
 
 
 
 ::: moniker range=">= aspnetcore-2.1"
 
-A [wyrażenia lambda](/dotnet/articles/csharp/programming-guide/statements-expressions-operators/lambda-expressions) jest przekazywany do `FirstOrDefaultAsync` Wybierz film jednostek, które odpowiada wartości ciągu danych lub zapytanie trasy.
+A [wyrażenia lambda](/dotnet/articles/csharp/programming-guide/statements-expressions-operators/lambda-expressions) jest przekazywany do `FirstOrDefaultAsync` do wybrania jednostki filmu, które odpowiada wartości ciągu danych lub zapytanie trasy.
 
 ```csharp
 var movie = await _context.Movie
     .FirstOrDefaultAsync(m => m.ID == id);
 ```
+
 ::: moniker-end
 
 ::: moniker range="<= aspnetcore-2.0"
 
-A [wyrażenia lambda](/dotnet/articles/csharp/programming-guide/statements-expressions-operators/lambda-expressions) jest przekazywany do `SingleOrDefaultAsync` Wybierz film jednostek, które odpowiada wartości ciągu danych lub zapytanie trasy.
+A [wyrażenia lambda](/dotnet/articles/csharp/programming-guide/statements-expressions-operators/lambda-expressions) jest przekazywany do `SingleOrDefaultAsync` do wybrania jednostki filmu, które odpowiada wartości ciągu danych lub zapytanie trasy.
 
 ```csharp
 var movie = await _context.Movie
     .SingleOrDefaultAsync(m => m.ID == id);
 ```
+
 ::: moniker-end
 
 
 
-Jeśli zostanie znaleziony film, wystąpienie `Movie` modelu jest przekazywana do `Details` widoku:
+Jeśli film zostanie znaleziony, wystąpienie `Movie` modelu jest przekazywany do `Details` widoku:
 
 ```csharp
 return View(movie);
@@ -73,19 +80,19 @@ Sprawdź zawartość *Views/Movies/Details.cshtml* pliku:
 
 [!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/DetailsOriginal.cshtml)]
 
-W tym `@model` instrukcji w górnej części pliku widoku, można określić typu obiektu, który oczekuje widoku. Podczas tworzenia kontrolera film, Visual Studio automatycznie uwzględnione następujące `@model` instrukcji w górnej części *Details.cshtml* pliku:
+Jeśli dołączysz `@model` instrukcji w górnej części pliku widoku, można określić typu obiektu, który oczekuje, że widok. Podczas tworzenia kontrolera filmu programu Visual Studio automatycznie uwzględnione następujące `@model` instrukcji na górze *Details.cshtml* pliku:
 
 ```HTML
 @model MvcMovie.Models.Movie
    ```
 
-To `@model` dyrektywy umożliwia dostęp do filmów, który kontroler przekazywane do widoku przy użyciu `Model` obiekt, który jest silnie typizowane. Na przykład w *Details.cshtml* widoku kodu przekazuje każde pole film, aby `DisplayNameFor` i `DisplayFor` pomocników HTML z silnie typizowaną `Model` obiektu. `Create` i `Edit` metody i widoki również przekazać `Movie` obiekt modelu.
+To `@model` dyrektywy umożliwia dostęp do filmów, która kontrolera przekazywane do widoku przy użyciu `Model` obiekt, który jest silnie typizowane. Na przykład w *Details.cshtml* widoku Kod przekazuje każdego pola film, aby `DisplayNameFor` i `DisplayFor` pomocników HTML za pomocą silnie typizowanej `Model` obiektu. `Create` i `Edit` metody i widoki również przekazać `Movie` obiekt modelu.
 
-Sprawdź *Index.cshtml* widoku i `Index` metody w kontrolerze filmów. Zwróć uwagę, jak kod tworzy `List` obiektu, gdy wywołuje `View` metody. Kod przekazuje to `Movies` z listy `Index` metody akcji w widoku:
+Sprawdź *Index.cshtml* widoku i `Index` metody w kontrolerze filmów. Zwróć uwagę, jak kod tworzy `List` obiektu, kiedy wywoływanych przez nią `View` metody. Kod przekazuje to `Movies` listy z `Index` metody akcji do widoku:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_index)]
 
-Podczas tworzenia kontrolera filmów, tworzenia szkieletu automatycznie uwzględnione następujące `@model` instrukcji w górnej części *Index.cshtml* pliku:
+Podczas tworzenia kontrolera filmy tworzenia szkieletów automatycznie uwzględnione następujące `@model` instrukcji na górze *Index.cshtml* pliku:
 
 <!-- Copy Index.cshtml to IndexOriginal.cshtml -->
 
@@ -95,4 +102,4 @@ Podczas tworzenia kontrolera filmów, tworzenia szkieletu automatycznie uwzględ
 
 [!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/IndexOriginal.cshtml?highlight=1,31,34,37,40,43,46-48)]
 
-Ponieważ `Model` obiektu jest silnie typizowane (jako `IEnumerable<Movie>` obiektu), jest typu każdego elementu w pętli `Movie`. Wśród innych korzyści, oznacza to, czy możesz uzyskać kompilacji Sprawdzanie kodu:
+Ponieważ `Model` obiektu zdecydowanie jest wpisane (jako `IEnumerable<Movie>` obiektu), każdy element w pętli jest wpisana jako `Movie`. Wśród innych korzyści, oznacza to, że uzyskujesz kompilacji sprawdzania kodu:

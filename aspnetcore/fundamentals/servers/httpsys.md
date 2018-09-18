@@ -4,14 +4,15 @@ author: guardrex
 description: Więcej informacji na temat HTTP.sys, serwer sieci web platformy ASP.NET Core na Windows. Oparta na sterownik trybu jądra HTTP.sys, sterownik HTTP.sys stanowi alternatywę Kestrel, który może służyć do bezpośredniego połączenia z Internetu bez usług IIS.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: tdykstra
-ms.date: 08/15/2018
+ms.custom: mvc
+ms.date: 09/13/2018
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: 58f71596b8ad54dd500699265ab022dc57c4f7a3
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: e845cb4eb7fe805e3d2195124073f7ab646d66cb
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41753994"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011671"
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>Implementacja serwera sieci web HTTP.sys, w programie ASP.NET Core
 
@@ -55,6 +56,28 @@ Sterownik HTTP.sys jest przydatne w przypadku wdrożeń gdzie:
   ![Sterownik HTTP.sys komunikuje się bezpośrednio z siecią wewnętrzną](httpsys/_static/httpsys-to-internal.png)
 
 Sterownik HTTP.sys to dojrzała technologia, która chroni przed wiele rodzajów ataków i udostępnia niezawodności, bezpieczeństwa i skalowalności serwera sieci web w pełni funkcjonalne. SAM działa jako odbiornik HTTP w pliku HTTP.sys.
+
+## <a name="http2-support"></a>Obsługa protokołu HTTP/2
+
+[Protokołu HTTP/2](https://httpwg.org/specs/rfc7540.html) jest włączone dla aplikacji platformy ASP.NET Core, jeśli następujące podstawowa wymagania zostały spełnione:
+
+* Windows Server 2016 i Windows 10 lub nowszym
+* [Negocjowania protokołu warstwy aplikacji (ALPN)](https://tools.ietf.org/html/rfc7301#section-3) połączenia
+* Protokół TLS 1.2 lub nowszej połączenia
+
+::: moniker range=">= aspnetcore-2.2"
+
+Jeśli zostanie nawiązane połączenie HTTP/2, [HttpRequest.Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) raporty `HTTP/2`.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
+Jeśli zostanie nawiązane połączenie HTTP/2, [HttpRequest.Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) raporty `HTTP/1.1`.
+
+::: moniker-end
+
+Protokołu HTTP/2 jest domyślnie włączona. Jeśli nie jest nawiązane połączenie HTTP/2, połączenie jest powraca do protokołu HTTP/1.1. W przyszłej wersji systemu Windows flagi konfiguracji protokołu HTTP/2 będą dostępne, w tym możliwość wyłączenia protokołu HTTP/2 w pliku HTTP.sys.
 
 ## <a name="kernel-mode-authentication-with-kerberos"></a>Uwierzytelnianie trybu jądra przy użyciu protokołu Kerberos
 

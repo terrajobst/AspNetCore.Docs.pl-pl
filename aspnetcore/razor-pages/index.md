@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 05/12/2018
 uid: razor-pages/index
-ms.openlocfilehash: 25add294d74be2840d2bee224b0f5ea91c782b64
-ms.sourcegitcommit: 70fb7c9d5f2ddfcf4747382a9f7159feca7a6aa7
+ms.openlocfilehash: bded9687e86ade206aee3422337fd14817787949
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45601785"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011683"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Wprowadzenie do stron Razor programu ASP.NET Core
 
@@ -419,6 +419,7 @@ Generowanie adresu URL dla stron obsługuje nazwy względnej. W poniższej tabel
 Nazwa względna łączenia jest przydatne w przypadku, gdy tworzenia witryn z złożonej strukturze. Jeśli używasz względne nazwy do połączenia między stronami w folderze, można zmienić nazwę tego folderu. Wszystkie łącza nadal działać (ponieważ nie obejmują one nazwę folderu).
 
 ::: moniker range=">= aspnetcore-2.1"
+
 ## <a name="viewdata-attribute"></a>Atrybut viewData
 
 Dane mogą być przekazywane do stron z [ViewDataAttribute](/dotnet/api/microsoft.aspnetcore.mvc.viewdataattribute). Właściwości na kontrolerach ani w modelach strony Razor ozdobione `[ViewData]` ich wartości przechowywane i ładowane z [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary).
@@ -452,6 +453,7 @@ W układzie tytuł jest do odczytu ze słownika ViewData:
     <title>@ViewData["Title"] - WebApplication</title>
     ...
 ```
+
 ::: moniker-end
 
 ## <a name="tempdata"></a>TempData

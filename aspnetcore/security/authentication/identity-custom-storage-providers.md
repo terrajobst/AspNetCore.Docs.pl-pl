@@ -3,14 +3,14 @@ title: Niestandardowi dostawcy magazynu dla produktu ASP.NET Core Identity
 author: ardalis
 description: Dowiedz się, jak skonfigurować niestandardowi dostawcy magazynu dla produktu ASP.NET Core Identity.
 ms.author: riande
-ms.date: 05/24/2017
+ms.date: 09/17/2018
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: 4b210a52ae9761bb838dd5611e86ce8f71345499
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: db51c39cc700f93917f54c80adbfe7922ffcd67e
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41753879"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011264"
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>Niestandardowi dostawcy magazynu dla produktu ASP.NET Core Identity
 
@@ -59,7 +59,7 @@ Podczas tworzenia nowego wystąpienia klasy `UserManager` lub `RoleManager` udos
 
 ### <a name="users"></a>Użytkownicy
 
-Zarejestrowani użytkownicy witryny sieci web. [IdentityUser](/aspnet/core/api/microsoft.aspnet.identity.corecompat.identityuser) typ może być rozszerzony lub jako przykład użyto dla niestandardowego typu. Nie trzeba dziedziczyć z określonego typu, aby zaimplementować własnego rozwiązania magazynu tożsamości niestandardowej.
+Zarejestrowani użytkownicy witryny sieci web. [IdentityUser](/dotnet/api/microsoft.aspnet.identity.corecompat.identityuser) typ może być rozszerzony lub jako przykład użyto dla niestandardowego typu. Nie trzeba dziedziczyć z określonego typu, aby zaimplementować własnego rozwiązania magazynu tożsamości niestandardowej.
 
 ### <a name="user-claims"></a>Oświadczenia użytkownika
 
@@ -67,11 +67,11 @@ Zestaw instrukcji (lub [oświadczeń](/dotnet/api/system.security.claims.claim))
 
 ### <a name="user-logins"></a>Identyfikatory logowania użytkownika
 
-Informacje o dostawcy uwierzytelniania zewnętrznych (takich jak Facebook lub konta Microsoft) do użycia podczas logowania użytkownika. [Przykład](/aspnet/core/api/microsoft.aspnet.identity.corecompat.identityuserlogin)
+Informacje o dostawcy uwierzytelniania zewnętrznych (takich jak Facebook lub konta Microsoft) do użycia podczas logowania użytkownika. [Przykład](/dotnet/api/microsoft.aspnet.identity.corecompat.identityuserlogin)
 
 ### <a name="roles"></a>Role
 
-Grupy autoryzacji dla danej witryny. Zawiera identyfikator i roli nazwę roli (na przykład "Admin" lub "Employee"). [Przykład](/aspnet/core/api/microsoft.aspnet.identity.corecompat.identityrole)
+Grupy autoryzacji dla danej witryny. Zawiera identyfikator i roli nazwę roli (na przykład "Admin" lub "Employee"). [Przykład](/dotnet/api/microsoft.aspnet.identity.corecompat.identityrole)
 
 ## <a name="the-data-access-layer"></a>Warstwa dostępu do danych
 
@@ -83,11 +83,11 @@ Warstwa dostępu do danych zawiera logikę do zapisywania danych z platformy ASP
 
 ### <a name="context-class"></a>Context — Klasa
 
-Hermetyzuje informacje, aby połączyć się z mechanizmu stanu trwałego i wykonywania zapytań. Kilka klas danych wymaga wystąpienia tej klasy zwykle zapewniane za pomocą iniekcji zależności. [Przykład](/aspnet/core/api/microsoft.aspnet.identity.corecompat.identitydbcontext-1).
+Hermetyzuje informacje, aby połączyć się z mechanizmu stanu trwałego i wykonywania zapytań. Kilka klas danych wymaga wystąpienia tej klasy zwykle zapewniane za pomocą iniekcji zależności. [Przykład](/dotnet/api/microsoft.aspnet.identity.corecompat.identitydbcontext-1).
 
 ### <a name="user-storage"></a>Magazyn użytkownika
 
-Przechowuje oraz pobiera informacje o użytkowniku (na przykład skrót nazwy i hasła użytkownika). [Przykład](/aspnet/core/api/microsoft.aspnet.identity.corecompat.userstore-1)
+Przechowuje oraz pobiera informacje o użytkowniku (na przykład skrót nazwy i hasła użytkownika). [Przykład](/dotnet/api/microsoft.aspnet.identity.corecompat.userstore-1)
 
 ### <a name="role-storage"></a>Rola magazynu
 
@@ -95,15 +95,15 @@ Przechowuje oraz pobiera informacje o roli (np. nazwy roli). [Przykład](/dotnet
 
 ### <a name="userclaims-storage"></a>Magazyn w oświadczeniach Userclaim
 
-Przechowuje oraz pobiera informacje o użytkownika (na przykład typ oświadczenia i wartości). [Przykład](/aspnet/core/api/microsoft.aspnet.identity.corecompat.userstore-1)
+Przechowuje oraz pobiera informacje o użytkownika (na przykład typ oświadczenia i wartości). [Przykład](/dotnet/api/microsoft.aspnet.identity.corecompat.userstore-1)
 
 ### <a name="userlogins-storage"></a>Magazyn UserLogins
 
-Przechowuje oraz pobiera dane logowania użytkownika (np. dostawcę uwierzytelniania zewnętrznych). [Przykład](/aspnet/core/api/microsoft.aspnet.identity.corecompat.userstore-1)
+Przechowuje oraz pobiera dane logowania użytkownika (np. dostawcę uwierzytelniania zewnętrznych). [Przykład](/dotnet/api/microsoft.aspnet.identity.corecompat.userstore-1)
 
 ### <a name="userrole-storage"></a>UserRole magazynu
 
-Przechowuje oraz pobiera, które role są przypisane do użytkowników, którzy. [Przykład](/aspnet/core/api/microsoft.aspnet.identity.corecompat.userstore-1)
+Przechowuje oraz pobiera, które role są przypisane do użytkowników, którzy. [Przykład](/dotnet/api/microsoft.aspnet.identity.corecompat.userstore-1)
 
 **Porada:** implementację tylko klasy, których zamierzasz używać w aplikacji.
 
@@ -115,7 +115,7 @@ Logika implementacji do tworzenia użytkownika znajduje się w `_usersTable.Crea
 
 ## <a name="customize-the-user-class"></a>Dostosowywanie klasy użytkownika
 
-Podczas implementowania dostawcy magazynu, należy utworzyć klasę użytkownika, który jest odpowiednikiem [ `IdentityUser` klasy](/aspnet/core/api/microsoft.aspnet.identity.corecompat.identityuser).
+Podczas implementowania dostawcy magazynu, należy utworzyć klasę użytkownika, który jest odpowiednikiem [klasy IdentityUser](/dotnet/api/microsoft.aspnet.identity.corecompat.identityuser).
 
 Jako minimum, musi zawierać klasy user `Id` i `UserName` właściwości.
 
@@ -185,7 +185,7 @@ public class UserStore : IUserStore<IdentityUser>,
 
 ### <a name="identityuserclaim-identityuserlogin-and-identityuserrole"></a>IdentityUserClaim IdentityUserLogin i IdentityUserRole
 
-`Microsoft.AspNet.Identity.EntityFramework` Przestrzeń nazw zawiera implementacje [IdentityUserClaim](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.identityuserclaim-1), [IdentityUserLogin](/aspnet/core/api/microsoft.aspnet.identity.corecompat.identityuserlogin), i [IdentityUserRole](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.identityuserrole-1) klasy. Jeśli używasz tych funkcji można tworzyć własne wersje tych klas i zdefiniuj właściwości dla aplikacji. Jednak czasami jest bardziej wydajne, nie były ładowane te jednostki do pamięci podczas wykonywania podstawowych operacji (takich jak dodawanie lub usuwanie oświadczeń użytkownika). Zamiast tego klasy magazynu zaplecza mogą wykonywać te operacje bezpośrednio w źródle danych. Na przykład `UserStore.GetClaimsAsync` można wywołać metody `userClaimTable.FindByUserId(user.Id)` metodę do wykonania zapytania w tabeli bezpośrednio i powrócić do listy oświadczeń.
+`Microsoft.AspNet.Identity.EntityFramework` Przestrzeń nazw zawiera implementacje [IdentityUserClaim](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.identityuserclaim-1), [IdentityUserLogin](/dotnet/api/microsoft.aspnet.identity.corecompat.identityuserlogin), i [IdentityUserRole](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.identityuserrole-1) klasy. Jeśli używasz tych funkcji można tworzyć własne wersje tych klas i zdefiniuj właściwości dla aplikacji. Jednak czasami jest bardziej wydajne, nie były ładowane te jednostki do pamięci podczas wykonywania podstawowych operacji (takich jak dodawanie lub usuwanie oświadczeń użytkownika). Zamiast tego klasy magazynu zaplecza mogą wykonywać te operacje bezpośrednio w źródle danych. Na przykład `UserStore.GetClaimsAsync` można wywołać metody `userClaimTable.FindByUserId(user.Id)` metodę do wykonania zapytania w tabeli bezpośrednio i powrócić do listy oświadczeń.
 
 ## <a name="customize-the-role-class"></a>Dostosowywanie klasy roli
 

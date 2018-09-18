@@ -32,18 +32,23 @@ Tłumaczy platformy ASP.NET Core `http://localhost:1234/Movies/Edit/4` na żąda
 Otwórz `Movies` kontrolera i zbadaj dwa `Edit` metody akcji. Poniższy kod przedstawia `HTTP GET Edit` metody, która pobiera film i wypełnia formularz edycji generowane przez *Edit.cshtml* pliku Razor.
 
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie21/Controllers/MC1.cs?name=snippet_edit1)]
 
 Poniższy kod przedstawia `HTTP POST Edit` metody, która przetwarza wartości przesłanych film:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit2)]
+
 ::: moniker-end
+
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit1)]
 
 Poniższy kod przedstawia `HTTP POST Edit` metody, która przetwarza wartości przesłanych film:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit2)]
+
 ::: moniker-end
 
 `[Bind]` Atrybut jest jednym ze sposobów, aby zapewnić ochronę przed [polegającymi](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost). Powinien zawierać tylko właściwości w `[Bind]` atrybut, który chcesz zmienić. Zobacz [chronić kontroler z nadmiernego księgowania](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application) Aby uzyskać więcej informacji. [Modele widoków](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/) zawierają alternatywne podejście, aby uniknąć nadmiernego ogłaszania.
@@ -51,10 +56,15 @@ Poniższy kod przedstawia `HTTP POST Edit` metody, która przetwarza wartości p
 Zwróć uwagę, drugi `Edit` metody akcji jest poprzedzony `[HttpPost]` atrybutu.
 
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie21/Controllers/MC1.cs?name=snippet_edit2&highlight=1)]
+
 ::: moniker-end
+
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit2&highlight=4)]
+
 ::: moniker-end
 
 `HttpPost` Atrybut określa, że to `Edit` może być wywołana metoda *tylko* dla `POST` żądań. Można zastosować `[HttpGet]` atrybutu do pierwszego Edytuj metodę, ale nie jest konieczne ponieważ `[HttpGet]` jest ustawieniem domyślnym.
@@ -68,10 +78,15 @@ Zwróć uwagę, drugi `Edit` metody akcji jest poprzedzony `[HttpPost]` atrybutu
 `HttpGet Edit` Metoda przyjmuje filmu `ID` parametru wyszukuje filmu używający narzędzia Entity Framework `SingleOrDefaultAsync` metodę i zwraca wybrany film do widoku edycji. Jeśli nie można odnaleźć filmu, `NotFound` (HTTP 404) jest zwracany.
 
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie21/Controllers/MC1.cs?name=snippet_edit1)]
+
 ::: moniker-end
+
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit1)]
+
 ::: moniker-end
 
 Podczas tworzenia widoku edycji system scaffoldingu zbadane `Movie` klasy i utworzony kod do renderowania `<label>` i `<input>` elementy dla każdej właściwości klasy. Poniższy przykład przedstawia widok edycji, który został wygenerowany przez system scaffoldingu programu Visual Studio:
@@ -93,10 +108,15 @@ Uruchom aplikację, a następnie przejdź do `/Movies` adresu URL. Kliknij przyc
 Poniższej przedstawiono listę `[HttpPost]` wersję `Edit` metody akcji.
 
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie21/Controllers/MC1.cs?name=snippet_edit2)]
+
 ::: moniker-end
+
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit2)]
+
 ::: moniker-end
 
 `[ValidateAntiForgeryToken]` Atrybut weryfikuje ukryte [XSRF](xref:security/anti-request-forgery) token wygenerowany przez generator tokenów zabezpieczających przed sfałszowaniem w [Pomocnik tagu formularza](xref:mvc/views/working-with-forms)

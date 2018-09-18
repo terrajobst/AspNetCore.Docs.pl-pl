@@ -5,12 +5,12 @@ description: Dowiedz się, jak można dodać klas związanych z zarządzaniem fi
 ms.author: riande
 ms.date: 05/30/2018
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: fb3a287725fa68ff9feb9935d7e6c5c2b8316517
-ms.sourcegitcommit: 4cd8dce371d63a66d780e4af1baab2bcf9d61b24
+ms.openlocfilehash: de82738509bb009f030a02e28904e3155088fa6a
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43893123"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011369"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Dodawanie modelu strony Razor aplikacji w programie ASP.NET Core
 
@@ -126,6 +126,7 @@ Sqlexception —: Nie można otworzyć bazy danych "Identyfikator GUID RazorPage
 Nie można zalogować użytkownika "Nazwa użytkownika".
 
 Możesz pominąć [krok migracji](#pmc).
+
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.0"

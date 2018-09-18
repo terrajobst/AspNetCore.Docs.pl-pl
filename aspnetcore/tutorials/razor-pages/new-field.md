@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 05/30/2018
 uid: tutorials/razor-pages/new-field
-ms.openlocfilehash: 6c23e5ab21dbb94c69ba50200a1d76647e22410a
-ms.sourcegitcommit: 4afaa55918262c8dcbd3efa9584959a731b47681
+ms.openlocfilehash: d6d59ff336095e2f1b8b2e9a0338b7791605ad7a
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45613456"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46010900"
 ---
 # <a name="add-a-new-field-to-a-razor-page-in-aspnet-core"></a>Dodaj nowe pole na stronę Razor programu ASP.NET Core
 
@@ -83,11 +83,15 @@ Aktualizacja `SeedData` klasy tak, aby go oferuje wartości dla nowej kolumny. P
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/SeedDataRating.cs?name=snippet1&highlight=8)]
 
 ::: moniker range="= aspnetcore-2.0"
+
 Zobacz [ukończone pliku SeedData.cs](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Models/SeedDataRating.cs).
+
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
+
 Zobacz [ukończone pliku SeedData.cs](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie21/Models/SeedDataRating.cs).
+
 ::: moniker-end
 
 Skompiluj rozwiązanie.

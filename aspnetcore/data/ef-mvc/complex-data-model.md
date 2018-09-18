@@ -5,12 +5,12 @@ description: W tym samouczku należy dodać większą liczbę jednostek i relacj
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: c97acd2b943e1d4c466c060247220b3b8bab6d6b
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: 3714cf7ce705a52653394319fef1728a6ddcc3ee
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41756216"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011773"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---data-model---5-of-10"></a>Platforma ASP.NET Core MVC z programem EF Core — Model danych — 5, 10
 
@@ -495,6 +495,7 @@ Kliknij prawym przyciskiem myszy **CourseAssignment** tabeli, a następnie wybie
 ## <a name="summary"></a>Podsumowanie
 
 Masz teraz bardziej złożonego modelu danych i odpowiednią bazę danych. W następującego samouczka dowiesz się więcej o tym, jak uzyskać dostęp do powiązanych danych.
+
 ::: moniker-end
 
 > [!div class="step-by-step"]

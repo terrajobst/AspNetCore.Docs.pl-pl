@@ -3,14 +3,14 @@ title: Routing do akcji kontrolera, w programie ASP.NET Core
 author: rick-anderson
 description: Dowiedz się, jak ASP.NET Core MVC używa routingu oprogramowania pośredniczącego do dopasowania adresów URL żądań przychodzących i mapowania ich działania.
 ms.author: riande
-ms.date: 03/14/2017
+ms.date: 09/17/2018
 uid: mvc/controllers/routing
-ms.openlocfilehash: 0d328d930ecb932c22fec524babb1c856b656b95
-ms.sourcegitcommit: 4e34ce61e1e7f1317102b16012ce0742abf2cca6
+ms.openlocfilehash: d66c2f14adf55dd0c4a7c3adfad7e5737e4deda1
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2018
-ms.locfileid: "39514781"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011656"
 ---
 # <a name="routing-to-controller-actions-in-aspnet-core"></a>Routing do akcji kontrolera, w programie ASP.NET Core
 
@@ -376,6 +376,8 @@ Tras atrybutów można skonfigurować kolejność przy użyciu `Order` właściw
 
 > [!TIP]
 > Należy unikać w zależności od `Order`. Jeśli przestrzeni URL wymaga jawnego kolejności wartości przekierowywany poprawnie, będzie ona wówczas prawdopodobnie mylące dla klientów, jak również. Ogólnie rzecz biorąc trasowanie atrybutów wybierze poprawnej trasy z pasującymi adresu URL. Jeśli domyślna kolejność użyto do generowania adresu URL nie działa, przy użyciu nazwy trasy zastąpienia jest zwykle łatwiejsze niż stosowanie `Order` właściwości.
+
+Strony razor routingu i MVC kontroler routingu udziału wdrożenia. Informacje o kolejność trasy w tematach stron Razor znajduje się w temacie [konwencje tras i aplikacji dla stron Razor: kolejność trasy](xref:razor-pages/razor-pages-conventions#route-order).
 
 <a name="routing-token-replacement-templates-ref-label"></a>
 

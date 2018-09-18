@@ -5,12 +5,12 @@ description: Dowiedz się, jak i wyznaczania wartości skrótu hasła, przy uży
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/consumer-apis/password-hashing
-ms.openlocfilehash: 882ac9b256b0cdf5fd19dc4bd2757cac7e8ecad3
-ms.sourcegitcommit: a742b55e4b8276a48b8b4394784554fecd883c84
+ms.openlocfilehash: 70301ffffbaaf3c5ff0642b19b80e40be83aa438
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45538380"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46010965"
 ---
 # <a name="hash-passwords-in-aspnet-core"></a>Wyznaczanie skrótów haseł w programie ASP.NET Core
 
@@ -26,4 +26,4 @@ Pakiet oferuje obecnie metody `KeyDerivation.Pbkdf2` pozwalający wyznaczania wa
 
 [!code-csharp[](password-hashing/samples/passwordhasher.cs)]
 
-Zobacz [kod źródłowy] (https://github.com/aspnet/Identity/blob/master/src/Core/PasswordHasher.cs) dla produktu ASP.NET Core Identity `PasswordHasher` przypadek użycia typu dla rzeczywistych warunkach.
+Zobacz [kod źródłowy](https://github.com/aspnet/Identity/blob/master/src/Core/PasswordHasher.cs) dla produktu ASP.NET Core Identity `PasswordHasher` przypadek użycia typu dla rzeczywistych warunkach.

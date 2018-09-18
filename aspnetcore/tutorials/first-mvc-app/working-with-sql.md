@@ -5,12 +5,12 @@ description: Dowiedz się więcej o korzystaniu z programu SQL Server LocalDB w 
 ms.author: riande
 ms.date: 03/07/2017
 uid: tutorials/first-mvc-app/working-with-sql
-ms.openlocfilehash: 2981035222681e6badbb0d917e4091baa96b9af1
-ms.sourcegitcommit: a09820f91e71a7d98b7347bf93210abb9e995e22
+ms.openlocfilehash: fadd7be793b1ff6e863b549271acd5b6b2cc9305
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37889132"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011852"
 ---
 # <a name="work-with-sql-server-localdb-in-aspnet-core"></a>Praca z bazą danych LocalDB programu SQL Server w programie ASP.NET Core
 
@@ -19,10 +19,15 @@ Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 `MvcMovieContext` Obiektu obsługuje zadania z bazą danych i mapowania `Movie` obiekty do rekordów bazy danych. Kontekst bazy danych jest zarejestrowany w [wstrzykiwanie zależności](xref:fundamentals/dependency-injection) kontenera w `ConfigureServices` method in Class metoda *Startup.cs* pliku:
 
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie21/Startup.cs?name=ConfigureServices&highlight=13-99)]
+
 ::: moniker-end
+
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=ConfigureServices&highlight=6-7)]
+
 ::: moniker-end
 
 ASP.NET Core [konfiguracji](xref:fundamentals/configuration/index) odczyty system `ConnectionString`. Dla wdrożenia lokalnego, pobiera parametry połączenia z *appsettings.json* pliku:
@@ -74,8 +79,11 @@ if (context.Movie.Any())
 Zastąp zawartość *Program.cs* następującym kodem:
 
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie21/Program.cs)]
+
 ::: moniker-end
+
 ::: moniker range="<= aspnetcore-2.0"
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
@@ -91,6 +99,7 @@ Dodaj inicjator inicjatora do końca `Configure` method in Class metoda *Startup
 [!code-csharp[](start-mvc/sample/MvcMovie/Startup.cs?highlight=9&name=snippet_seed)]
 
 ---
+
 ::: moniker-end
 
 Testowanie aplikacji

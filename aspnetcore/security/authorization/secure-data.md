@@ -5,16 +5,17 @@ description: Dowiedz się, jak utworzyć aplikację stron Razor przy użyciu dan
 ms.author: riande
 ms.date: 7/24/2018
 uid: security/authorization/secure-data
-ms.openlocfilehash: e4a54c95aa8131441d29a835751ce6241aac2ed3
-ms.sourcegitcommit: 70fb7c9d5f2ddfcf4747382a9f7159feca7a6aa7
+ms.openlocfilehash: 2fb13f0772a1f8aa4ed2ff3ece2a2c5d3b7360c9
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45601772"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46010939"
 ---
 ::: moniker range="<= aspnetcore-1.1"
 
 Zobacz [ta](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/asp.net_repo_pdf_1-16-18.pdf) dla wersji platformy ASP.NET Core MVC. Wersja platformy ASP.NET Core 1.1 po ukończeniu tego samouczka jest [to](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data) folderu. 1.1, na przykład platforma ASP.NET Core jest w [przykłady](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/final2).
+
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.0"
@@ -76,11 +77,13 @@ W tym samouczku jest zaawansowany. Należy zapoznać się z:
 * [Entity Framework Core](xref:data/ef-mvc/intro)
 
 ::: moniker-end
+
 ::: moniker range="= aspnetcore-2.1"
 
 W programie ASP.NET Core 2.1 `User.IsInRole` zakończy się niepowodzeniem w przypadku korzystania z `AddDefaultIdentity`. W tym samouczku `AddDefaultIdentity` i dlatego wymaga platformy ASP.NET Core 2.2 w wersji zapoznawczej 1 lub nowszym. Zobacz [problem w usłudze GitHub](https://github.com/aspnet/Identity/issues/1813#issuecomment-394543909) dla obejścia.
 
 ::: moniker-end
+
 ::: moniker range=">= aspnetcore-2.1"
 
 ## <a name="the-starter-and-completed-app"></a>Starter i ukończonej aplikacji

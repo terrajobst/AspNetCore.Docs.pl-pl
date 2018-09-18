@@ -4,5 +4,7 @@
 * **Programowanie dla wielu platform .NET core**
 
 ::: moniker range=">= aspnetcore-2.1"
+
 [Zestaw SDK programu .NET core 2.1 lub nowszej](https://www.microsoft.com/net/download/windows)
+
 ::: moniker-end

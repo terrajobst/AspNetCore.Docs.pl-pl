@@ -5,12 +5,12 @@ description: W tym samouczku dodasz, sortowanie, filtrowanie i stronicowanie fun
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: ee5a0dae41ba0afba518f0bd6fbd379fdbbfb1c1
-ms.sourcegitcommit: a3675f9704e4e73ecc7cbbbf016a13d2a5c4d725
+ms.openlocfilehash: 668d6e54a64022dda948170f72538f6d4cd9a49f
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39202617"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011641"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---sort-filter-paging---3-of-8"></a>Strony razor z programem EF Core w programie ASP.NET Core — sortowanie, filtrowanie, stronicowania - 3, 8
 
@@ -161,7 +161,7 @@ Obecnie po wybraniu łącza sortowania nagłówka kolumny filtru z wartości **w
 
 W tej sekcji `PaginatedList` klasa jest tworzona do obsługi stronicowania. `PaginatedList` Klasy używa `Skip` i `Take` instrukcje, aby filtrować dane na serwerze, zamiast pobierać wszystkie wiersze z tabeli. Poniższa ilustracja przedstawia przyciski stronicowania.
 
-![Strona indeksu studentów wraz z łączami stronicowania](sort-filter-page/_static/paging.png)
+![Studenci indeksu stronę linkami stronicowania](sort-filter-page/_static/paging.png)
 
 W folderze projektu, należy utworzyć `PaginatedList.cs` następującym kodem:
 
@@ -231,7 +231,7 @@ Uruchom aplikację i przejdź do strony studentów.
 * Aby upewnić się, że działa stronicowania, po kliknięciu łączy stronicowania w poszczególnych kolejności sortowania.
 * Aby sprawdzić, czy stronicowania działa poprawnie przy użyciu sortowania i filtrowania, wprowadź ciąg wyszukiwania, a następnie spróbuj stronicowania.
 
-![Strona indeksu studentów wraz z łączami stronicowania](sort-filter-page/_static/paging.png)
+![Studenci indeksu stronę linkami stronicowania](sort-filter-page/_static/paging.png)
 
 Aby uzyskać lepsze zrozumienie kodu:
 
@@ -281,6 +281,7 @@ Jeśli napotkasz problemy, nie można rozwiązać, Pobierz [ukończonej aplikacj
 * [Debugowanie ASP.NET Core 2.x źródła](https://github.com/aspnet/Docs/issues/4155)
 
 W następnym samouczku aplikacja używa migracji do aktualizacji modelu danych.
+
 ::: moniker-end
 
 > [!div class="step-by-step"]

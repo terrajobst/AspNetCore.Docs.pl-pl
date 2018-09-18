@@ -5,12 +5,12 @@ description: Dowiedz się, jak składniki widoków są używane w programie ASP.
 ms.author: riande
 ms.date: 02/14/2017
 uid: mvc/views/view-components
-ms.openlocfilehash: c4e4de6e4ffb634a636bccdb2a929a524baebecf
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: 0410e2025019bae45d941e61f556f4b2b57bd30f
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41755956"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46010913"
 ---
 # <a name="view-components-in-aspnet-core"></a>Składniki widoków w programie ASP.NET Core
 
@@ -75,9 +75,9 @@ Składnik widok definiuje swojej logiki w `InvokeAsync` metodę, która zwraca `
 
 Środowisko uruchomieniowe wyszukuje widoku w następujących ścieżkach:
 
-* /Pages/składniki/<component name>/\<view_name >
-* Views/\<controller_name>/Components/\<view_component_name>/\<view_name>
-* Widoki/Shared/Components/\<view_component_name > /\<view_name >
+* /Pages/składniki/\<view_component_name > /\<view_name >
+* /Views/\<controller_name > /Components/\<view_component_name > /\<view_name >
+* / Widoków/Shared/Components/\<view_component_name > /\<view_name >
 
 Domyślna nazwa widoku składnika widoku to *domyślne*, co oznacza, że plik widoku zazwyczaj będzie miała nazwę *Default.cshtml*. Można określić nazwę innego widoku, tworząc wynik widoku składnika lub podczas wywoływania `View` metody.
 

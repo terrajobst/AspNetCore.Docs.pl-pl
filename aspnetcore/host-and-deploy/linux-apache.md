@@ -6,12 +6,12 @@ ms.author: spboyer
 ms.custom: mvc
 ms.date: 03/13/2018
 uid: host-and-deploy/linux-apache
-ms.openlocfilehash: 2431e989d6fc2cf83bca47aaa41a2bf686c0ab54
-ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
+ms.openlocfilehash: 8c9f70fa634e9a2ba3f52b2c9e0597f5d92f6269
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219358"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011702"
 ---
 # <a name="host-aspnet-core-on-linux-with-apache"></a>Host platformy ASP.NET Core w systemie Linux z Apache
 
@@ -56,8 +56,10 @@ Ponieważ żądania są przekazywane przez zwrotny serwer proxy, należy użyć 
 Dowolny składnik, który jest zależny od systemu, takie jak uwierzytelnianie, generowanie konsolidacji, przekierowań i geolokalizacja, muszą być umieszczone po wywołaniu oprogramowanie pośredniczące przekazane nagłówków. Zgodnie z ogólną zasadą przekazywane oprogramowania pośredniczącego nagłówki należy uruchomić przed innym oprogramowaniu pośredniczącym, z wyjątkiem diagnostyki i obsługi oprogramowania pośredniczącego błędów. Ta kolejność gwarantuje, że oprogramowanie pośredniczące, opierając się na nagłówki przekazywane informacje mogą wykorzystywać wartości nagłówka do przetworzenia.
 
 ::: moniker range=">= aspnetcore-2.0"
+
 > [!NOTE]
 > Każda konfiguracja&mdash;z lub bez serwera proxy odwrotnej&mdash;jest prawidłowy i obsługiwanych konfiguracji hostingu dla platformy ASP.NET Core 2.0 lub nowszej aplikacje. Aby uzyskać więcej informacji, zobacz [kiedy należy używać Kestrel przy użyciu zwrotnego serwera proxy](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy).
+
 ::: moniker-end
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/08/2018
 uid: tutorials/first-web-api-mac
-ms.openlocfilehash: 4caa6d9057de8d0e821c4abefe22985f43ff95ad
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 40f9bd9c57b97826edfddeb00cb4fb38a026d46e
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38156143"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011628"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-visual-studio-for-mac"></a>Tworzenie internetowego interfejsu API platformy ASP.NET Core i programu Visual Studio dla komputerów Mac
 
@@ -126,14 +126,19 @@ Dodamy `Create`, `Update`, i `Delete` metody kontrolera. Te metody są odmiany m
 ### <a name="create"></a>Create
 
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-csharp[](first-web-api/samples/2.0/TodoApi/Controllers/TodoController.cs?name=snippet_Create)]
 
 Powyższa metoda reaguje na metodę POST protokołu HTTP, wskazane przez [[HttpPost]](/dotnet/api/microsoft.aspnetcore.mvc.httppostattribute) atrybutu. [[FromBody]](/dotnet/api/microsoft.aspnetcore.mvc.frombodyattribute) atrybut informuje MVC, aby uzyskać wartość elementu do wykonania z treści żądania HTTP.
+
 ::: moniker-end
+
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](first-web-api/samples/2.1/TodoApi/Controllers/TodoController.cs?name=snippet_Create)]
 
 Powyższa metoda reaguje na metodę POST protokołu HTTP, wskazane przez [[HttpPost]](/dotnet/api/microsoft.aspnetcore.mvc.httppostattribute) atrybutu. MVC pobiera wartość elementu do wykonania z treści żądania HTTP.
+
 ::: moniker-end
 
 `CreatedAtRoute` Metoda zwraca odpowiedź 201. Jest to standardowa odpowiedź na metodę POST protokołu HTTP, która tworzy nowy zasób na serwerze. `CreatedAtRoute` również dodaje do odpowiedzi nagłówek lokalizacji. Nagłówek Location określa identyfikator URI nowo utworzonego zadania do wykonania. Zobacz [10.2.2 201 utworzone](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).
@@ -162,8 +167,10 @@ Powyższa metoda reaguje na metodę POST protokołu HTTP, wskazane przez [[HttpP
 * Kliknij przycisk **wysyłania** przycisku.
 
 ::: moniker range=">= aspnetcore-2.1"
+
 > [!TIP]
 > Jeśli odpowiedź nie jest wyświetlany po kliknięciu przycisku **wysyłania**, wyłącz **weryfikacji certyfikacji SSL** opcji. To znajduje się w folderze **pliku** > **ustawienia**. Kliknij przycisk **wysyłania** przycisk ponownie po wyłączeniu ustawienia.
+
 ::: moniker-end
 
 Kliknij przycisk **nagłówki** karcie **odpowiedzi** okienka i skopiuj **lokalizacji** wartość nagłówka:
@@ -179,10 +186,15 @@ Dostęp do zasobu, który został utworzony, można użyć w nagłówku Location
 ### <a name="update"></a>Aktualizacja
 
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-csharp[](first-web-api/samples/2.0/TodoApi/Controllers/TodoController.cs?name=snippet_Update)]
+
 ::: moniker-end
+
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](first-web-api/samples/2.1/TodoApi/Controllers/TodoController.cs?name=snippet_Update)]
+
 ::: moniker-end
 
 `Update` jest podobny do `Create`, ale używa HTTP PUT. Odpowiedź jest [204 (Brak zawartości)](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html). Według specyfikacji protokołu HTTP żądanie PUT wymaga to klientowi wysłanie całego zaktualizowaną jednostkę, nie tylko różnice. Aby obsługiwać aktualizacje częściowe, należy użyć HTTP PATCH.
