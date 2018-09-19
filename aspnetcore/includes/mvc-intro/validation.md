@@ -17,10 +17,15 @@ Otwórz *Movie.cs* pliku. DataAnnotations zawiera zestaw wbudowanych atrybutów 
 Aktualizacja `Movie` klasy, aby skorzystać z wbudowanych `Required`, `StringLength`, `RegularExpression`, i `Range` atrybutów sprawdzania poprawności.
 
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc//sample/MvcMovie21/Models/MovieDateRatingDA.cs?name=snippet1)]
+
 ::: moniker-end
+
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDA.cs?name=snippet1)]
+
 ::: moniker-end
 
 Atrybuty weryfikacji określić zachowanie, które mają zostać wymuszone we właściwościach modelu, w których są one stosowane do. `Required` i `MinimumLength` atrybuty wskazuje, że właściwość musi mieć wartość, ale nic nie uniemożliwia użytkownikowi wprowadzanie odstępów do zaspokojenia tej weryfikacji. `RegularExpression` Atrybut jest używany do ograniczania znaków, które można danych wejściowych. W powyższym kodzie `Genre` i `Rating` należy używać tylko liter (pierwsze litery wielkie litery, białe miejsca, cyfry i znaki specjalne są niedozwolone). `Range` Atrybut ogranicza wartości do określonego zakresu. `StringLength` Atrybut pozwala ustawić maksymalną długość właściwości ciągu i opcjonalnie długości minimalnej. Typy wartości (takie jak `decimal`, `int`, `float`, `DateTime`) są założenia wymagane i nie ma potrzeby `[Required]` atrybutu.
@@ -115,10 +120,13 @@ Należy wyłączyć sprawdzanie poprawności Data jQuery, aby użyć `Range` atr
 Poniższy kod pokazuje atrybuty łączenie w jednym wierszu:
 
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc//sample/MvcMovie21/Models/MovieDateRatingDAmult.cs?name=snippet1)]
 
 ::: moniker-end
+
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDAmult.cs?name=snippet1)]
 
 ::: moniker-end

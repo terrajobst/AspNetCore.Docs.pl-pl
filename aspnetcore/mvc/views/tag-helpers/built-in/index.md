@@ -1,45 +1,45 @@
 ---
-title: Wbudowane pomocników tagów platformy ASP.NET Core
+title: Pomocnicy tagów wbudowanych w platformy ASP.NET Core
 author: pkellner
-description: Dowiedz się, jak wbudowane pomocników tagów platformy ASP.NET Core zwiększania wydajności pracy.
+description: Dowiedz się, jak pomocnicy tagów wbudowanych w platformy ASP.NET Core zwiększyć produktywność.
 ms.author: riande
-ms.date: 09/13/2017
+ms.date: 09/18/2018
 uid: mvc/views/tag-helpers/builtin-th/Index
-ms.openlocfilehash: 4f2ebf1600f42847db1c1f9517787b020d2e86c9
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 5d9425e0b68578c86a6f9a691322e0bb63a860fb
+ms.sourcegitcommit: c684eb6c0999d11d19e15e65939e5c7f99ba47df
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36279171"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46292313"
 ---
-# <a name="aspnet-core-built-in-tag-helpers"></a>Wbudowane pomocników tagów platformy ASP.NET Core
+# <a name="aspnet-core-built-in-tag-helpers"></a>Pomocnicy tagów wbudowanych w platformy ASP.NET Core
 
-Przez [Kellner Peterowi](http://peterkellner.net)
+Przez [Peter Kellner](http://peterkellner.net)
 
-Platformy ASP.NET Core zawiera wiele wbudowanych pomocników tagów w celu zwiększania wydajności pracy. Ta sekcja zawiera omówienie wbudowanego pomocników tagów.
+Platforma ASP.NET Core zawiera wiele wbudowanych pomocnicy tagów, aby zwiększyć produktywność. Ta sekcja zawiera omówienie wbudowanego pomocników tagów.
 
 > [!NOTE]
-> Dostępne są wbudowane pomocników tagów, które nie są już, ponieważ jest używana wewnętrznie przez [Razor](xref:mvc/views/razor) aparatu widoku. Dotyczy to również pomocnika tagów dla ~ znak, który zwiększa się do ścieżki katalogu głównego witryny sieci Web.
+> Istnieją wbudowane pomocnicy tagów, które nie są omówione, ponieważ są używane wewnętrznie przez [Razor](xref:mvc/views/razor) aparatu widoku. Obejmuje to pomocnika tagów dla ~ znak, który jest rozszerzany, aby ścieżka katalogu głównego witryny sieci Web.
 
-## <a name="built-in-aspnet-core-tag-helpers"></a>Wbudowane platformy ASP.NET Core pomocników tagów
+## <a name="built-in-aspnet-core-tag-helpers"></a>Pomocnicy tagów wbudowanych platformy ASP.NET Core
 
-**[Pomocnik Tag kotwicy](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper)**
+**[Pomocnik tagu kotwicy](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper)**
 
-**[Pamięć podręczna pomocnika tagów](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)**
+**[Pomocnik tagu pamięci podręcznej](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)**
 
-**[Pomocnik Tag rozproszonej pamięci podręcznej](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)**
+**[Pomocnik tagu rozproszonej pamięci podręcznej](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)**
 
-**[Pomocnik Tag środowiska](xref:mvc/views/tag-helpers/builtin-th/environment-tag-helper)**
+**[Pomocnik tagu środowiska](xref:mvc/views/tag-helpers/builtin-th/environment-tag-helper)**
 
 [comment]: **[FormActionTagHelper](xref:mvc/views/tag-helpers/builtin-th/form-action-tag-helper)**
 
-**[Pomocnik Tag formularza](xref:mvc/views/working-with-forms#the-form-tag-helper)**
+**[Pomocnik tagu formularza](xref:mvc/views/working-with-forms#the-form-tag-helper)**
 
-**[Pomocnik Tag obrazu](xref:mvc/views/tag-helpers/builtin-th/image-tag-helper)**
+**[Pomocnik tagu obrazu](xref:mvc/views/tag-helpers/builtin-th/image-tag-helper)**
 
 **[Pomocnik tagu wejściowego](xref:mvc/views/working-with-forms#the-input-tag-helper)**
 
-**[Etykieta pomocnika tagów](xref:mvc/views/working-with-forms#the-label-tag-helper)**
+**[Pomocnik tagu etykiet](xref:mvc/views/working-with-forms#the-label-tag-helper)**
 
 [comment]: **[LinkTagHelper](xref:mvc/views/tag-helpers/builtin-th/link-tag-helper)**
 
@@ -47,17 +47,17 @@ Platformy ASP.NET Core zawiera wiele wbudowanych pomocników tagów w celu zwię
 
 [comment]: **[ScriptTagHelper](xref:mvc/views/tag-helpers/builtin-th/script-tag-helper)**
 
-**[Pomocnik Tag częściowe](xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper)**
+**[Pomocnik tagu częściowego](xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper)**
 
-**[Wybierz pomocnika tagów](xref:mvc/views/working-with-forms#the-select-tag-helper)**
+**[Pomocnik tagu SELECT](xref:mvc/views/working-with-forms#the-select-tag-helper)**
 
-**[TextArea Tag pomocnika](xref:mvc/views/working-with-forms#the-textarea-tag-helper)**
+**[Pomocnik tagu TextArea](xref:mvc/views/working-with-forms#the-textarea-tag-helper)**
 
-**[Pomocnik Tag komunikatu weryfikacji](xref:mvc/views/working-with-forms#the-validation-message-tag-helper)**
+**[Pomocnik tagu komunikat sprawdzania poprawności](xref:mvc/views/working-with-forms#the-validation-message-tag-helper)**
 
-**[Pomocnik weryfikacji Summary — Tag](xref:mvc/views/working-with-forms#the-validation-summary-tag-helper)**
+**[Pomocnik tagu podsumowania sprawdzania poprawności](xref:mvc/views/working-with-forms#the-validation-summary-tag-helper)**
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Programowanie po stronie klienta](xref:client-side/index)
-* [Pomocnicy tagów](xref:mvc/views/tag-helpers/intro)
+* <xref:mvc/views/tag-helpers/intro>
+* <xref:mvc/views/tag-helpers/th-components>

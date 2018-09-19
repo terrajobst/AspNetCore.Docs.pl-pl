@@ -8,12 +8,12 @@ ms.date: 02/25/2014
 ms.assetid: 66a837e9-600b-4b72-97a9-19804231c64a
 msc.legacyurl: /web-api/overview/testing-and-debugging/tracing-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 697e7e91ae2d9d5712d9306a291635793063117b
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 02805eda4f8dceb467547fa4e00aef8ea956f228
+ms.sourcegitcommit: c684eb6c0999d11d19e15e65939e5c7f99ba47df
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41752490"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46292287"
 ---
 <a name="tracing-in-aspnet-web-api-2"></a>Śledzenie we wzorcu ASP.NET Web API 2
 ====================
@@ -114,7 +114,7 @@ Moduł zapisujący śledzenia tylko jedna może być aktywne. Domyślnie, intern
 
 ## <a name="how-web-api-tracing-works"></a>Jak internetowy interfejs API śledzenia działa
 
-Śledzenie używa interfejsu API sieci Web w interfejsu API sieci Web używa *fasady* wzorzec: po włączeniu funkcji śledzenia interfejsu API sieci Web opakowuje różne części Potok żądań z klasami, które wykonują wywołania śledzenia.
+Śledzenie w ramach interfejsu API sieci Web używa *fasady* wzorzec: po włączeniu funkcji śledzenia interfejsu API sieci Web opakowuje różne części Potok żądań z klasami, które wykonują wywołania śledzenia.
 
 Na przykład podczas wybierania kontrolera, potok używa **IHttpControllerSelector** interfejsu. Z włączonym śledzeniem pipleline wstawia klasę, która implementuje **IHttpControllerSelector** , ale wywołania za pośrednictwem rzeczywistej implementacji:
 

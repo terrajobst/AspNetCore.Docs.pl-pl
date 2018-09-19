@@ -1,28 +1,28 @@
-# <a name="work-with-sqlite-in-an-aspnet-core-mvc-app"></a>Praca z bazy danych SQLite w platformy ASP.NET Core aplikacji MVC
+# <a name="work-with-sqlite-in-an-aspnet-core-mvc-app"></a>Praca z SQLite w aplikacji MVC platformy ASP.NET Core
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-`MvcMovieContext` Obiektu obsługuje zadanie łączenia z bazą danych i mapowanie `Movie` obiektów do rekordów bazy danych. Kontekst bazy danych został zarejestrowany za pomocą [iniekcji zależności](xref:fundamentals/dependency-injection) kontenera w `ConfigureServices` metody w *Startup.cs* pliku:
+`MvcMovieContext` Obiektu obsługuje zadania z bazą danych i mapowania `Movie` obiekty do rekordów bazy danych. Kontekst bazy danych jest zarejestrowany w [wstrzykiwanie zależności](xref:fundamentals/dependency-injection) kontenera w `ConfigureServices` method in Class metoda *Startup.cs* pliku:
 
 [!code-csharp[](~/tutorials/first-mvc-app-xplat/start-mvc/sample/MvcMovie/Startup.cs?name=snippet2&highlight=6-8)]
 
-## <a name="sqlite"></a>SQLite
+## <a name="sqlite"></a>Bazy danych SQLite
 
-[SQLite](https://www.sqlite.org/) stanów witryny sieci Web:
+[SQLite](https://www.sqlite.org/) stany witryny sieci Web:
 
-> SQLite jest niezależna, wysokiej niezawodności, osadzone, oferujący wszystkie funkcje, domeny publicznej, aparatu bazy danych SQL. SQLite jest najczęściej używanych aparatu bazy danych na całym świecie.
+> Bazy danych SQLite jest niezależna o wysokiej niezawodności, osadzonych, w pełni funkcjonalne, domeny publicznej, aparatu bazy danych SQL. Bazy danych SQLite jest najczęściej używanych aparatu bazy danych na całym świecie.
 
-Istnieje wiele narzędzi innych firm, które można pobrać do zarządzania i wyświetlić bazy danych SQLite. Na poniższym obrazie pochodzi z [przeglądarki bazy danych dla bazy danych SQLite](http://sqlitebrowser.org/). Jeśli masz ulubionego narzędzia SQLite, zostaw komentarz w takich jak informacji na ten temat.
+Istnieje wiele narzędzi innych firm, które można pobrać do zarządzania oraz wyświetlić bazy danych SQLite. Poniższy obraz pochodzi z [przeglądarka bazy danych dla bazy danych SQLite](http://sqlitebrowser.org/). Jeśli masz ulubionego Narzędzia bazy danych SQLite, pozostaw komentarz na takich jak na jego temat.
 
 ![Przeglądarka bazy danych dla bazy danych Film przedstawiający SQLite](~/tutorials/first-mvc-app-xplat/working-with-sql/_static/dbb.png)
 
-## <a name="seed-the-database"></a>Inicjatora bazy danych
+## <a name="seed-the-database"></a>Inicjowanie bazy danych
 
-Utwórz nową klasę o nazwie `SeedData` w *modele* folderu. Zastąp wygenerowany kod poniżej:
+Utwórz nową klasę o nazwie `SeedData` w *modeli* folderu. Zastąp wygenerowany kod następujących czynności:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/SeedData.cs?name=snippet_1)]
 
-Jeśli w bazie danych są wszystkie filmy, zwraca inicjatora inicjatora.
+Czy istnieją wszystkie filmy w bazie danych, zwraca wartość inicjator inicjatora.
 
 ```csharp
 if (context.Movie.Any())
@@ -32,21 +32,26 @@ if (context.Movie.Any())
 ```
 
 <a name="si"></a>
-### <a name="add-the-seed-initializer"></a>Dodaj inicjatora inicjatora
+### <a name="add-the-seed-initializer"></a>Dodaj inicjator inicjatora
 
-Inicjator inicjatora, aby dodać `Main` metody w *Program.cs* pliku:
+Dodaj inicjator inicjator, tak aby `Main` method in Class metoda *Program.cs* pliku:
 
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie21/Program.cs)]
+
 ::: moniker-end
+
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Program.cs?highlight=6,16-32)]
+
 ::: moniker-end
 
 ### <a name="test-the-app"></a>Testowanie aplikacji
 
-Usuń wszystkie rekordy w bazie danych (co seed — metoda będzie uruchamiane). Zatrzymać i uruchomić aplikację w celu umieszczenia bazy danych.
+(Aby uruchomi seed — metoda), należy usunąć wszystkie rekordy w bazie danych. Zatrzymywanie i uruchamianie aplikacji w celu umieszczenia bazy danych.
    
 Aplikacja zawiera wprowadzonych danych.
 
-![Przeglądarka Otwórz aplikacji MVC Movie danych Film przedstawiający](~/tutorials/first-mvc-app/working-with-sql/_static/m55.png)
+![Przeglądarki Otwórz aplikacja filmu MVC wyświetlane dane dotyczące filmu](~/tutorials/first-mvc-app/working-with-sql/_static/m55.png)

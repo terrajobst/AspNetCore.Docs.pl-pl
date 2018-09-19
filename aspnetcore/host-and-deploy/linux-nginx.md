@@ -4,14 +4,14 @@ author: rick-anderson
 description: Dowiedz się, jak skonfigurować serwer Nginx jako zwrotny serwer proxy w systemie Ubuntu 16.04 do przesyłania ruchu HTTP do aplikacji sieci web ASP.NET Core uruchomionych na Kestrel.
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/22/2018
+ms.date: 09/08/2018
 uid: host-and-deploy/linux-nginx
-ms.openlocfilehash: d94640075f6fe5db06672f7dc641470c71076a16
-ms.sourcegitcommit: 08bf41d4b3e696ab512b044970e8304816f8cc56
+ms.openlocfilehash: 3891251b585ba0fd7f4ce58d824f1d82f40ae928
+ms.sourcegitcommit: c684eb6c0999d11d19e15e65939e5c7f99ba47df
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44040016"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46292352"
 ---
 # <a name="host-aspnet-core-on-linux-with-nginx"></a>Host platformy ASP.NET Core w systemie Linux przy użyciu serwera Nginx
 
@@ -122,17 +122,7 @@ Dodatkowa konfiguracja może być wymagane dla aplikacji hostowanych za serwery 
 
 ### <a name="install-nginx"></a>Zainstalować rozwiązanie Nginx
 
-Użyj `apt-get` do zainstalowania serwera Nginx. Instalator tworzy *systemd* skryptu init, który uruchamia serwer Nginx jako demon przy uruchamianiu systemu. 
-
-```bash
-sudo -s
-nginx=stable # use nginx=development for latest development version
-add-apt-repository ppa:nginx/$nginx
-apt-get update
-apt-get install nginx
-```
-
-Ubuntu osobistych pakiet archiwum (osobistych archiwów pakietów innych) obsługiwany przez wolontariuszy, nie zostało przekazane przez [nginx.org](https://nginx.org/). Aby uzyskać więcej informacji, zobacz [Nginx: binarny wydań: pakiety oficjalne Debian/Ubuntu](https://www.nginx.com/resources/wiki/start/topics/tutorials/install/#official-debian-ubuntu-packages).
+Użyj `apt-get` do zainstalowania serwera Nginx. Instalator tworzy *systemd* skryptu init, który uruchamia serwer Nginx jako demon przy uruchamianiu systemu. Postępuj zgodnie z instrukcjami instalacji dla systemu Ubuntu na [Nginx: pakiety oficjalne Debian/Ubuntu](https://www.nginx.com/resources/wiki/start/topics/tutorials/install/#official-debian-ubuntu-packages).
 
 > [!NOTE]
 > Jeśli wymagane są opcjonalne modułów serwera Nginx, może być wymagane tworzenia Nginx ze źródła.
@@ -222,6 +212,7 @@ ExecStart=/usr/bin/dotnet /var/aspnetcore/hellomvc/hellomvc.dll
 Restart=always
 # Restart service after 10 seconds if the dotnet service crashes:
 RestartSec=10
+KillSignal=SIGINT
 SyslogIdentifier=dotnet-example
 User=www-data
 Environment=ASPNETCORE_ENVIRONMENT=Production
@@ -233,26 +224,32 @@ WantedBy=multi-user.target
 
 Jeśli użytkownik *danych www* nie jest używany przez tę konfigurację użytkownika zdefiniowane w tym miejscu należy najpierw utworzyć i podane odpowiednie prawa własności plików.
 
+Użyj `TimeoutStopSec` skonfigurować czas oczekiwania na aplikację, aby zamknięty po odebraniu sygnału przerwania początkowej. Jeśli aplikacja nie zamknięty w tym okresie, aby zakończyć aplikację zgłaszany jest SIGKILL. Podaj wartość jako unitless sekund (na przykład `150`), czas span wartości (na przykład `2min 30s`), lub `infinity` wyłączyć limit czasu. `TimeoutStopSec` Wartość domyślna to wartość `DefaultTimeoutStopSec` w pliku konfiguracji Menedżera (*systemd system.conf*, *system.conf.d*, *systemd user.conf*,  *User.conf.d*). Domyślna wartość limitu czasu dla większości dystrybucji wynosi 90 s.
+
+```
+# The default value is 90 seconds for most distributions.
+TimeoutStopSec=90
+```
+
 System plików rozróżniana wielkość liter jest systemu Linux. Ustawienie ASPNETCORE_ENVIRONMENT "Produkcyjne" wyniki wyszukiwania dla pliku konfiguracji w *appsettings. Production.JSON*, a nie *appsettings.production.json*.
 
-> [!NOTE]
-> Niektóre wartości (na przykład parametry połączenia SQL), należy użyć znaków ucieczki dla dostawców konfiguracji można odczytać zmienne środowiskowe. Użyj następującego polecenia do generowania prawidłowo o zmienionym znaczeniu wartości do użycia w pliku konfiguracji:
->
-> ```console
-> systemd-escape "<value-to-escape>"
-> ```
+Niektóre wartości (na przykład parametry połączenia SQL), należy użyć znaków ucieczki dla dostawców konfiguracji można odczytać zmienne środowiskowe. Użyj następującego polecenia do generowania prawidłowo o zmienionym znaczeniu wartości do użycia w pliku konfiguracji:
+
+```console
+systemd-escape "<value-to-escape>"
+```
 
 Zapisz plik i włączyć usługę.
 
 ```bash
-systemctl enable kestrel-hellomvc.service
+sudo systemctl enable kestrel-hellomvc.service
 ```
 
 Uruchom usługę i sprawdź, czy jest uruchomiona.
 
 ```
-systemctl start kestrel-hellomvc.service
-systemctl status kestrel-hellomvc.service
+sudo systemctl start kestrel-hellomvc.service
+sudo systemctl status kestrel-hellomvc.service
 
 ● kestrel-hellomvc.service - Example .NET Web API App running on Ubuntu
     Loaded: loaded (/etc/systemd/system/kestrel-hellomvc.service; enabled)

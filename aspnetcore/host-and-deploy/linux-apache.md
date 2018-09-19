@@ -4,14 +4,14 @@ description: Dowiedz się, jak skonfigurować przekierowywanie ruchu HTTP do apl
 author: spboyer
 ms.author: spboyer
 ms.custom: mvc
-ms.date: 03/13/2018
+ms.date: 09/08/2018
 uid: host-and-deploy/linux-apache
-ms.openlocfilehash: 8c9f70fa634e9a2ba3f52b2c9e0597f5d92f6269
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: f4ce4f5e1e75245e423dd6821d4c9e0c34f958f7
+ms.sourcegitcommit: c684eb6c0999d11d19e15e65939e5c7f99ba47df
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011702"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46292326"
 ---
 # <a name="host-aspnet-core-on-linux-with-apache"></a>Host platformy ASP.NET Core w systemie Linux z Apache
 
@@ -200,6 +200,7 @@ ExecStart=/usr/local/bin/dotnet /var/aspnetcore/hellomvc/hellomvc.dll
 Restart=always
 # Restart service after 10 seconds if the dotnet service crashes:
 RestartSec=10
+KillSignal=SIGINT
 SyslogIdentifier=dotnet-example
 User=apache
 Environment=ASPNETCORE_ENVIRONMENT=Production 
@@ -208,27 +209,32 @@ Environment=ASPNETCORE_ENVIRONMENT=Production
 WantedBy=multi-user.target
 ```
 
-> [!NOTE]
-> **Użytkownik** &mdash; Jeśli użytkownik *apache* nie jest używany przez tę konfigurację, użytkownik musi najpierw utworzyć i biorąc pod uwagę odpowiednie prawa własności plików.
+Jeśli użytkownik *apache* nie jest używany przez tę konfigurację, użytkownik musi najpierw utworzyć i biorąc pod uwagę odpowiednie własności plików.
 
-> [!NOTE]
-> Niektóre wartości (na przykład parametry połączenia SQL), należy użyć znaków ucieczki dla dostawców konfiguracji można odczytać zmienne środowiskowe. Użyj następującego polecenia do generowania prawidłowo o zmienionym znaczeniu wartości do użycia w pliku konfiguracji:
->
-> ```console
-> systemd-escape "<value-to-escape>"
-> ```
+Użyj `TimeoutStopSec` skonfigurować czas oczekiwania na aplikację, aby zamknięty po odebraniu sygnału przerwania początkowej. Jeśli aplikacja nie zamknięty w tym okresie, aby zakończyć aplikację zgłaszany jest SIGKILL. Podaj wartość jako unitless sekund (na przykład `150`), czas span wartości (na przykład `2min 30s`), lub `infinity` wyłączyć limit czasu. `TimeoutStopSec` Wartość domyślna to wartość `DefaultTimeoutStopSec` w pliku konfiguracji Menedżera (*systemd system.conf*, *system.conf.d*, *systemd user.conf*,  *User.conf.d*). Domyślna wartość limitu czasu dla większości dystrybucji wynosi 90 s.
+
+```
+# The default value is 90 seconds for most distributions.
+TimeoutStopSec=90
+```
+
+Niektóre wartości (na przykład parametry połączenia SQL), należy użyć znaków ucieczki dla dostawców konfiguracji można odczytać zmienne środowiskowe. Użyj następującego polecenia do generowania prawidłowo o zmienionym znaczeniu wartości do użycia w pliku konfiguracji:
+
+```console
+systemd-escape "<value-to-escape>"
+```
 
 Zapisz plik i włączyć usługę:
 
 ```bash
-systemctl enable kestrel-hellomvc.service
+sudo systemctl enable kestrel-hellomvc.service
 ```
 
 Uruchom usługę i sprawdź, czy jest uruchomiona:
 
 ```bash
-systemctl start kestrel-hellomvc.service
-systemctl status kestrel-hellomvc.service
+sudo systemctl start kestrel-hellomvc.service
+sudo systemctl status kestrel-hellomvc.service
 
 ● kestrel-hellomvc.service - Example .NET Web API App running on CentOS 7
     Loaded: loaded (/etc/systemd/system/kestrel-hellomvc.service; enabled)
