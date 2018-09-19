@@ -4,14 +4,14 @@ author: rick-anderson
 description: Więcej informacji na temat Kestrel, serwer sieci web dla wielu platform dla platformy ASP.NET Core.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 09/01/2018
+ms.date: 09/13/2018
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: c11a32aec49f4550471fb1399306fe17f1735a5c
-ms.sourcegitcommit: 7211ae2dd702f67d36365831c490d6178c9a46c8
+ms.openlocfilehash: 21ba522b454a88a006938936e426537786ccaa1f
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44089889"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011737"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>Implementacja serwera sieci web kestrel w programie ASP.NET Core
 
@@ -21,13 +21,49 @@ Kestrel jest dla wielu platform [serwera sieci web dla platformy ASP.NET Core](x
 
 Kestrel obsługuje następujące funkcje:
 
+::: moniker range=">= aspnetcore-2.2"
+
+* HTTPS
+* Nieprzezroczysty uaktualnienia, które umożliwiają [WebSockets](https://github.com/aspnet/websockets)
+* Gniazda systemu UNIX, dla wysoko wydajnych za serwera Nginx
+* Protokołu HTTP/2 (z wyjątkiem w systemie macOS&dagger;)
+
+&dagger;Protokołu HTTP/2 będą obsługiwane w systemie macOS w przyszłej wersji.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
 * HTTPS
 * Nieprzezroczysty uaktualnienia, które umożliwiają [WebSockets](https://github.com/aspnet/websockets)
 * Gniazda systemu UNIX, dla wysoko wydajnych za serwera Nginx
 
+::: moniker-end
+
 Kestrel jest obsługiwane na wszystkich platformach i wersjach, które obsługuje platformy .NET Core.
 
 [Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/kestrel/samples) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
+
+::: moniker range=">= aspnetcore-2.2"
+
+## <a name="http2-support"></a>Obsługa protokołu HTTP/2
+
+[Protokołu HTTP/2](https://httpwg.org/specs/rfc7540.html) jest dostępna dla aplikacji platformy ASP.NET Core, jeśli następujące podstawowa wymagania zostały spełnione:
+
+* System operacyjny&dagger;
+  * Windows Server 2012 R2/Windows 8.1 lub nowszym
+  * Linux z protokołem OpenSSL 1.0.2 lub nowszej (na przykład Ubuntu 16.04 lub nowszy)
+* Platforma docelowa: .NET Core 2,2 lub nowszy
+* [Negocjowania protokołu warstwy aplikacji (ALPN)](https://tools.ietf.org/html/rfc7301#section-3) połączenia
+* Protokół TLS 1.2 lub nowszej połączenia
+
+&dagger;Protokołu HTTP/2 będą obsługiwane w systemie macOS w przyszłej wersji.
+
+Jeśli zostanie nawiązane połączenie HTTP/2, [HttpRequest.Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) raporty `HTTP/2`.
+
+Protokołu HTTP/2 jest domyślnie wyłączona. Aby uzyskać więcej informacji na temat konfigurowania, zobacz [opcje Kestrel](#kestrel-options) i [konfiguracji punktu końcowego](#endpoint-configuration) sekcje.
+
+::: moniker-end
 
 ## <a name="when-to-use-kestrel-with-a-reverse-proxy"></a>Kiedy należy używać Kestrel przy użyciu zwrotnego serwera proxy
 
@@ -86,10 +122,13 @@ Szablony projektów programu ASP.NET Core używa Kestrel domyślnie. W *Program.
 Zapewnienie dodatkowej konfiguracji po wywołaniu `CreateDefaultBuilder`, użyj `ConfigureKestrel`:
 
 ```csharp
-.ConfigureKestrel((context, options) =>
-{
-    // Set properties and call methods on options
-});
+public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+    WebHost.CreateDefaultBuilder(args)
+        .UseStartup<Startup>()
+        .ConfigureKestrel((context, options) =>
+        {
+            // Set properties and call methods on options
+        });
 ```
 
 ::: moniker-end
@@ -99,10 +138,14 @@ Zapewnienie dodatkowej konfiguracji po wywołaniu `CreateDefaultBuilder`, użyj 
 Zapewnienie dodatkowej konfiguracji po wywołaniu `CreateDefaultBuilder`, wywołaj [UseKestrel](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderkestrelextensions.usekestrel):
 
 ```csharp
-.UseKestrel(options =>
-{
-    // Set properties and call methods on options
-});
+public static IWebHost BuildWebHost(string[] args) =>
+    WebHost.CreateDefaultBuilder(args)
+        .UseStartup<Startup>()
+        .UseKestrel(options =>
+        {
+            // Set properties and call methods on options
+        })
+        .Build();
 ```
 
 ::: moniker-end
@@ -141,10 +184,13 @@ Można ustawić maksymalną liczbę równoczesnych otwarte połączenia TCP dla 
 ::: moniker range=">= aspnetcore-2.2"
 
 ```csharp
-.ConfigureKestrel((context, options) =>
-{
-    options.Limits.MaxConcurrentConnections = 100;
-});
+public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+    WebHost.CreateDefaultBuilder(args)
+        .UseStartup<Startup>()
+        .ConfigureKestrel((context, options) =>
+        {
+            options.Limits.MaxConcurrentConnections = 100;
+        });
 ```
 
 ::: moniker-end
@@ -160,10 +206,13 @@ Ma osobnych limitu połączeń, które zostały uaktualnione do innego protokoł
 ::: moniker range=">= aspnetcore-2.2"
 
 ```csharp
-.ConfigureKestrel((context, options) =>
-{
-    options.Limits.MaxConcurrentUpgradedConnections = 100;
-});
+public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+    WebHost.CreateDefaultBuilder(args)
+        .UseStartup<Startup>()
+        .ConfigureKestrel((context, options) =>
+        {
+            options.Limits.MaxConcurrentUpgradedConnections = 100;
+        });
 ```
 
 ::: moniker-end
@@ -198,10 +247,13 @@ Oto przykład pokazujący sposób konfigurowania ograniczeń aplikacji na każde
 ::: moniker range=">= aspnetcore-2.2"
 
 ```csharp
-.ConfigureKestrel((context, options) =>
-{
-    options.Limits.MaxRequestBodySize = 10 * 1024;
-});
+public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+    WebHost.CreateDefaultBuilder(args)
+        .UseStartup<Startup>()
+        .ConfigureKestrel((context, options) =>
+        {
+            options.Limits.MaxRequestBodySize = 10 * 1024;
+        });
 ```
 
 ::: moniker-end
@@ -238,13 +290,16 @@ Oto przykład pokazujący sposób konfigurowania kursów minimalną ilość dany
 ::: moniker range=">= aspnetcore-2.2"
 
 ```csharp
-.ConfigureKestrel((context, options) =>
-{
-    options.Limits.MinRequestBodyDataRate =
-        new MinDataRate(bytesPerSecond: 100, gracePeriod: TimeSpan.FromSeconds(10));
-    options.Limits.MinResponseDataRate =
-        new MinDataRate(bytesPerSecond: 100, gracePeriod: TimeSpan.FromSeconds(10));
-});
+public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+    WebHost.CreateDefaultBuilder(args)
+        .UseStartup<Startup>()
+        .ConfigureKestrel((context, options) =>
+        {
+            options.Limits.MinRequestBodyDataRate =
+                new MinDataRate(bytesPerSecond: 100, gracePeriod: TimeSpan.FromSeconds(10));
+            options.Limits.MinResponseDataRate =
+                new MinDataRate(bytesPerSecond: 100, gracePeriod: TimeSpan.FromSeconds(10));
+        });
 ```
 
 ::: moniker-end
@@ -256,6 +311,58 @@ Oto przykład pokazujący sposób konfigurowania kursów minimalną ilość dany
 Kursy na żądanie można skonfigurować w oprogramowaniu pośredniczącym:
 
 [!code-csharp[](kestrel/samples/2.x/KestrelSample/Startup.cs?name=snippet_Limits&highlight=5-8)]
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
+
+**MaxStreamsPerConnection**
+
+`Http2.MaxStreamsPerConnection` ogranicza liczbę jednoczesnych żądań strumieni na połączenie HTTP/2. Nadmiarowe strumieni zostaną odrzucone.
+
+```csharp
+public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+    WebHost.CreateDefaultBuilder(args)
+        .UseStartup<Startup>()
+        .ConfigureKestrel((context, options) =>
+        {
+            options.Limits.Http2.MaxStreamsPerConnection = 100;
+        });
+```
+
+Wartość domyślna to 100.
+
+**HeaderTableSize**
+
+Dekoder HPACK dekompresuje nagłówki HTTP dla połączeń HTTP/2. `Http2.HeaderTableSize` ogranicza rozmiar tabeli kompresji nagłówek, który używa dekodera HPACK. Wartość znajduje się w oktetach i musi być większa niż zero (0).
+
+```csharp
+public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+    WebHost.CreateDefaultBuilder(args)
+        .UseStartup<Startup>()
+        .ConfigureKestrel((context, options) =>
+        {
+            options.Limits.Http2.HeaderTableSize = 4096;
+        });
+```
+
+Wartość domyślna to 4096.
+
+**MaxFrameSize**
+
+`Http2.MaxFrameSize` Określa maksymalny rozmiar ładunku ramki połączenia protokołu HTTP/2 do odbierania. Wartość znajduje się w oktetach i musi mieć długość od 2 ^ 14 (16 384) i 2 ^ 24-1 (16 777 215).
+
+```csharp
+public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+    WebHost.CreateDefaultBuilder(args)
+        .UseStartup<Startup>()
+        .ConfigureKestrel((context, options) =>
+        {
+            options.Limits.Http2.MaxFrameSize = 16384;
+        });
+```
+
+Wartość domyślna to 2 ^ 14 (16 384).
 
 ::: moniker-end
 
@@ -332,6 +439,10 @@ Określa konfigurację `Action` do uruchamiania dla każdego punktu końcowego p
 
 **Configure(IConfiguration)**  
 Tworzy moduł ładujący konfiguracji dotyczące konfigurowania Kestrel, która przyjmuje [wartości IConfiguration](/dotnet/api/microsoft.extensions.configuration.iconfiguration) jako dane wejściowe. Konfiguracja musi należeć do sekcji konfiguracji zakresu dla Kestrel.
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
 
 **ListenOptions.UseHttps**  
 Konfigurowanie usługi Kestrel do używania protokołu HTTPS.
@@ -508,40 +619,42 @@ Obsługa SNI wymaga:
 ::: moniker range=">= aspnetcore-2.2"
 
 ```csharp
-WebHost.CreateDefaultBuilder()
-    .ConfigureKestrel((context, options) =>
-    {
-        options.ListenAnyIP(5005, listenOptions =>
+public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+    WebHost.CreateDefaultBuilder(args)
+        .UseStartup<Startup>()
+        .ConfigureKestrel((context, options) =>
         {
-            listenOptions.UseHttps(httpsOptions =>
+            options.ListenAnyIP(5005, listenOptions =>
             {
-                var localhostCert = CertificateLoader.LoadFromStoreCert(
-                    "localhost", "My", StoreLocation.CurrentUser, 
-                    allowInvalid: true);
-                var exampleCert = CertificateLoader.LoadFromStoreCert(
-                    "example.com", "My", StoreLocation.CurrentUser, 
-                    allowInvalid: true);
-                var subExampleCert = CertificateLoader.LoadFromStoreCert(
-                    "sub.example.com", "My", StoreLocation.CurrentUser, 
-                    allowInvalid: true);
-                var certs = new Dictionary<string, X509Certificate2>(
-                    StringComparer.OrdinalIgnoreCase);
-                certs["localhost"] = localhostCert;
-                certs["example.com"] = exampleCert;
-                certs["sub.example.com"] = subExampleCert;
-
-                httpsOptions.ServerCertificateSelector = (connectionContext, name) =>
+                listenOptions.UseHttps(httpsOptions =>
                 {
-                    if (name != null && certs.TryGetValue(name, out var cert))
-                    {
-                        return cert;
-                    }
+                    var localhostCert = CertificateLoader.LoadFromStoreCert(
+                        "localhost", "My", StoreLocation.CurrentUser, 
+                        allowInvalid: true);
+                    var exampleCert = CertificateLoader.LoadFromStoreCert(
+                        "example.com", "My", StoreLocation.CurrentUser, 
+                        allowInvalid: true);
+                    var subExampleCert = CertificateLoader.LoadFromStoreCert(
+                        "sub.example.com", "My", StoreLocation.CurrentUser, 
+                        allowInvalid: true);
+                    var certs = new Dictionary<string, X509Certificate2>(
+                        StringComparer.OrdinalIgnoreCase);
+                    certs["localhost"] = localhostCert;
+                    certs["example.com"] = exampleCert;
+                    certs["sub.example.com"] = subExampleCert;
 
-                    return exampleCert;
-                };
+                    httpsOptions.ServerCertificateSelector = (connectionContext, name) =>
+                    {
+                        if (name != null && certs.TryGetValue(name, out var cert))
+                        {
+                            return cert;
+                        }
+
+                        return exampleCert;
+                    };
+                });
             });
         });
-    });
 ```
 
 ::: moniker-end
@@ -549,40 +662,43 @@ WebHost.CreateDefaultBuilder()
 ::: moniker range="= aspnetcore-2.0 || aspnetcore-2.1"
 
 ```csharp
-WebHost.CreateDefaultBuilder()
-    .UseKestrel((context, options) =>
-    {
-        options.ListenAnyIP(5005, listenOptions =>
+public static IWebHost BuildWebHost(string[] args) =>
+    WebHost.CreateDefaultBuilder(args)
+        .UseStartup<Startup>()
+        .UseKestrel((context, options) =>
         {
-            listenOptions.UseHttps(httpsOptions =>
+            options.ListenAnyIP(5005, listenOptions =>
             {
-                var localhostCert = CertificateLoader.LoadFromStoreCert(
-                    "localhost", "My", StoreLocation.CurrentUser, 
-                    allowInvalid: true);
-                var exampleCert = CertificateLoader.LoadFromStoreCert(
-                    "example.com", "My", StoreLocation.CurrentUser, 
-                    allowInvalid: true);
-                var subExampleCert = CertificateLoader.LoadFromStoreCert(
-                    "sub.example.com", "My", StoreLocation.CurrentUser, 
-                    allowInvalid: true);
-                var certs = new Dictionary<string, X509Certificate2>(
-                    StringComparer.OrdinalIgnoreCase);
-                certs["localhost"] = localhostCert;
-                certs["example.com"] = exampleCert;
-                certs["sub.example.com"] = subExampleCert;
-
-                httpsOptions.ServerCertificateSelector = (connectionContext, name) =>
+                listenOptions.UseHttps(httpsOptions =>
                 {
-                    if (name != null && certs.TryGetValue(name, out var cert))
-                    {
-                        return cert;
-                    }
+                    var localhostCert = CertificateLoader.LoadFromStoreCert(
+                        "localhost", "My", StoreLocation.CurrentUser, 
+                        allowInvalid: true);
+                    var exampleCert = CertificateLoader.LoadFromStoreCert(
+                        "example.com", "My", StoreLocation.CurrentUser, 
+                        allowInvalid: true);
+                    var subExampleCert = CertificateLoader.LoadFromStoreCert(
+                        "sub.example.com", "My", StoreLocation.CurrentUser, 
+                        allowInvalid: true);
+                    var certs = new Dictionary<string, X509Certificate2>(
+                        StringComparer.OrdinalIgnoreCase);
+                    certs["localhost"] = localhostCert;
+                    certs["example.com"] = exampleCert;
+                    certs["sub.example.com"] = subExampleCert;
 
-                    return exampleCert;
-                };
+                    httpsOptions.ServerCertificateSelector = (connectionContext, name) =>
+                    {
+                        if (name != null && certs.TryGetValue(name, out var cert))
+                        {
+                            return cert;
+                        }
+
+                        return exampleCert;
+                    };
+                });
             });
-        });
-    });
+        })
+        .Build();
 ```
 
 ::: moniker-end
@@ -635,14 +751,17 @@ Nasłuchiwanie na gniazdo systemu Unix za pomocą [ListenUnixSocket](/dotnet/api
 ::: moniker range=">= aspnetcore-2.2"
 
 ```csharp
-.ConfigureKestrel((context, options) =>
-{
-    options.ListenUnixSocket("/tmp/kestrel-test.sock");
-    options.ListenUnixSocket("/tmp/kestrel-test.sock", listenOptions =>
-    {
-        listenOptions.UseHttps("testCert.pfx", "testpassword");
-    });
-});
+public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+    WebHost.CreateDefaultBuilder(args)
+        .UseStartup<Startup>()
+        .ConfigureKestrel((context, options) =>
+        {
+            options.ListenUnixSocket("/tmp/kestrel-test.sock");
+            options.ListenUnixSocket("/tmp/kestrel-test.sock", listenOptions =>
+            {
+                listenOptions.UseHttps("testCert.pfx", "testpassword");
+            });
+        });
 ```
 
 ::: moniker-end
@@ -704,6 +823,141 @@ Korzystając z usług IIS, powiązania adres URL dla usług IIS zastąpienia pow
 
 ::: moniker-end
 
+::: moniker range=">= aspnetcore-2.2"
+
+**ListenOptions.Protocols**
+
+`Protocols` Właściwość ustala protokołów HTTP (`HttpProtocols`) włączone w punkcie końcowym połączenia dla serwera. Przypisanie wartości do `Protocols` właściwość `HttpProtocols` wyliczenia.
+
+| `HttpProtocols` Wartość wyliczenia | Protokół połączenia dozwolone |
+| -------------------------- | ----------------------------- |
+| `Http1`                    | HTTP/1.1 tylko. Można używać z lub bez protokołu TLS. |
+| `Http2`                    | Protokołu HTTP/2 tylko. Głównie używane z protokołem TLS. Można używać bez protokołu TLS tylko wtedy, gdy klient obsługuje [tryb uprzednia](https://tools.ietf.org/html/rfc7540#section-3.4). |
+| `Http1AndHttp2`            | HTTP/1.1 i protokołu HTTP/2. Wymaga szyfrowania TLS i [negocjowania protokołu warstwy aplikacji (ALPN)](https://tools.ietf.org/html/rfc7301#section-3) połączenia w celu negocjowania protokołu HTTP/2; w przeciwnym razie Domyślnie połączenie HTTP/1.1. |
+
+Protokół domyślny to HTTP/1.1.
+
+Ograniczenia protokołu TLS dla protokołu HTTP/2:
+
+* Protokół TLS w wersji 1.2 lub nowszej
+* Ponowne negocjowanie wyłączone
+* Kompresja wyłączona
+* Rozmiary minimalne efemeryczne wymiany kluczy:
+  * Krzywej eliptycznej Diffie'ego-Hellmana (ECDHE) &lbrack; [RFC4492](https://www.ietf.org/rfc/rfc4492.txt) &rbrack; &ndash; 224 usługi bits, minimalne
+  * Pole skończoną Diffie'ego-Hellmana (DHE) &lbrack; `TLS12` &rbrack; &ndash; 2048 bitów minimalne
+* Mechanizmy szyfrowania nie na czarnej liście
+
+`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256` &lbrack;`TLS-ECDHE`&rbrack; z krzywej eliptycznej p-256 &lbrack; `FIPS186` &rbrack; jest domyślnie obsługiwany.
+
+Poniższy przykład pozwala protokołu HTTP/1.1 i połączeń protokołu HTTP/2 na porcie 8000. Połączenia są zabezpieczone przez protokół TLS z dostarczony certyfikat:
+
+```csharp
+public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+    WebHost.CreateDefaultBuilder(args)
+        .UseStartup<Startup>()
+        .ConfigureKestrel((context, options) =>
+        {
+            options.Listen(IPAddress.Any, 8000, listenOptions =>
+            {
+                listenOptions.Protocols = HttpProtocols.Http1AndHttp2;
+                listenOptions.UseHttps("testCert.pfx", "testPassword");
+            });
+        }
+```
+
+Opcjonalnie można utworzyć `IConnectionAdapter` implementacji, aby filtrować uzgodnienia protokołu TLS na podstawie poszczególnych połączeń dla określonych mechanizmów szyfrowania:
+
+```csharp
+public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+    WebHost.CreateDefaultBuilder(args)
+        .UseStartup<Startup>()
+        .ConfigureKestrel((context, options) =>
+        {
+            options.Listen(IPAddress.Any, 8000, listenOptions =>
+            {
+                listenOptions.Protocols = HttpProtocols.Http1AndHttp2;
+                listenOptions.UseHttps("testCert.pfx", "testPassword");
+                listenOptions.ConnectionAdapters.Add(new TlsFilterAdapter());
+            });
+        }
+```
+
+```csharp
+private class TlsFilterAdapter : IConnectionAdapter
+{
+    public bool IsHttps => false;
+
+    public Task<IAdaptedConnection> OnConnectionAsync(ConnectionAdapterContext context)
+    {
+        var tlsFeature = context.Features.Get<ITlsHandshakeFeature>();
+
+        // Throw NotSupportedException for any cipher algorithm that you don't 
+        // wish to support. Alternatively, define and compare 
+        // ITlsHandshakeFeature.CipherAlgorithm to a list of acceptable cipher 
+        // suites.
+        //
+        // A ITlsHandshakeFeature.CipherAlgorithm of CipherAlgorithmType.Null 
+        // indicates that no cipher algorithm supported by Kestrel matches the 
+        // requested algorithm(s).
+        if (tlsFeature.CipherAlgorithm == CipherAlgorithmType.Null)
+        {
+            throw new NotSupportedException("Prohibited cipher: " + tlsFeature.CipherAlgorithm);
+        }
+
+        return Task.FromResult<IAdaptedConnection>(new AdaptedConnection(context.ConnectionStream));
+    }
+
+    private class AdaptedConnection : IAdaptedConnection
+    {
+        public AdaptedConnection(Stream adaptedStream)
+        {
+            ConnectionStream = adaptedStream;
+        }
+
+        public Stream ConnectionStream { get; }
+
+        public void Dispose()
+        {
+        }
+    }
+}
+```
+
+*Ustaw protokół z konfiguracji*
+
+[WebHost.CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) wywołania `serverOptions.Configure(context.Configuration.GetSection("Kestrel"))` domyślnie można załadować konfiguracji Kestrel.
+
+W następującym *appsettings.json* przykład domyślnym protokołem połączenia (HTTP/1.1 i protokołu HTTP/2) zostanie nawiązane dla wszystkich punktów końcowych Kestrel firmy:
+
+```json
+{
+  "Kestrel": {
+    "EndPointDefaults": {
+      "Protocols": "Http1AndHttp2"
+    }
+  }
+}
+```
+
+W poniższym przykładzie plik konfiguracji nawiązuje połączenie protokół dla określonego punktu końcowego:
+
+```json
+{
+  "Kestrel": {
+    "EndPoints": {
+      "HttpsDefaultCert": {
+        "Url": "https://localhost:5001",
+        "Protocols": "Http1AndHttp2"
+      }
+    }
+  }
+}
+```
+
+Protokoły określić w kodzie zastępują wartości ustawione przez konfigurację.
+
+::: moniker-end
+
 ::: moniker range=">= aspnetcore-2.1"
 
 ## <a name="transport-configuration"></a>Konfiguracja transportu
@@ -719,7 +973,7 @@ Dla platformy ASP.NET Core 2.1 lub nowszej projektów używających [meta Micros
 
     ```xml
     <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel.Transport.Libuv" 
-                      Version="2.1.0" />
+                      Version="<LATEST_VERSION>" />
     ```
 
 * Wywołaj [WebHostBuilderLibuvExtensions.UseLibuv](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderlibuvextensions.uselibuv):
