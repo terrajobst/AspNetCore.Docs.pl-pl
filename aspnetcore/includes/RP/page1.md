@@ -11,10 +11,13 @@ W tym samouczku sprawdza, czy strony Razor, powstałe w wyniku tworzenia szkiele
 Sprawdź *Pages/Movies/Index.cshtml.cs* modelu strony:
 
 ::: moniker range="= aspnetcore-2.0"
+
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs)]
+
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index21.cshtml.cs)]
 
 ::: moniker-end
@@ -118,11 +121,15 @@ Zapisz zmiany i przetestować aplikację, klikając **RpMovie** łącza. Zobacz 
 Sprawdź *Pages/Movies/Create.cshtml.cs* modelu strony:
 
 ::: moniker range="= aspnetcore-2.0"
+
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml.cs?name=snippetALL)]
+
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create21.cshtml.cs?name=snippetALL)]
+
 ::: moniker-end
 
 
