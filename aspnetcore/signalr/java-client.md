@@ -7,12 +7,12 @@ ms.author: mimengis
 ms.custom: mvc
 ms.date: 09/06/2018
 uid: signalr/java-client
-ms.openlocfilehash: f110f5391ac34f5cb4a72f64c16d86c8a37369a2
-ms.sourcegitcommit: 4cd8dce371d63a66d780e4af1baab2bcf9d61b24
+ms.openlocfilehash: 0eba59a05ea6fd3fed46fcab86ac20caf40ebb65
+ms.sourcegitcommit: 8bf4dff3069e62972c1b0839a93fb444e502afe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43995429"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46482921"
 ---
 # <a name="aspnet-core-signalr-java-client"></a>Klienta SignalR Java platformy ASP.NET Core
 
@@ -26,12 +26,12 @@ Przykładowa aplikacja konsoli środowiska Java przywołanej w niniejszym artyku
 
 ## <a name="install-the-signalr-java-client-package"></a>Zainstaluj pakiet klienta SignalR Java
 
-*Signalr-0.1.0-preview1-35029* plik JAR zezwala klientom na łączenie się koncentratorów SignalR. Aby znaleźć numer najnowszej wersji pliku JAR, zobacz [wyniki wyszukiwania narzędzia Maven](https://search.maven.org/search?q=g:com.microsoft.aspnet%20AND%20a:signalr&core=gav).
+*Signalr-0.1.0-preview2-35174* plik JAR zezwala klientom na łączenie się koncentratorów SignalR. Aby znaleźć numer najnowszej wersji pliku JAR, zobacz [wyniki wyszukiwania narzędzia Maven](https://search.maven.org/search?q=g:com.microsoft.aspnet%20AND%20a:signalr&core=gav).
 
 Jeśli używasz narzędzia Gradle, Dodaj następujący wiersz do `dependencies` części Twojej *build.gradle* pliku:
 
 ```gradle
-implementation 'com.microsoft.aspnet:signalr:0.1.0-preview1-35029'
+implementation 'com.microsoft.aspnet:signalr:0.1.0-preview2-35174'
 ```
 
 Jeśli przy użyciu narzędzia Maven, Dodaj następujące wiersze wewnątrz `<dependencies>` elementu swoje *pom.xml* pliku:
@@ -63,12 +63,12 @@ Jest to wczesna wersja zapoznawcza klienta Java. Istnieje wiele funkcji, które 
 * Tylko typy pierwotne, mogą być akceptowane jako parametrów i zwracanych typów.
 * Interfejsy API są synchroniczne.
 * Typ połączenia "Send" jest obsługiwana w tej chwili. "Wywołaj" i przesyłania strumieniowego wartości zwracane nie są obsługiwane.
-* Klient nie obsługuje obecnie [usługi Azure SignalR Service](/azure/azure-signalr/).
 * Tylko protokół JSON jest obsługiwany.
 * Tylko transport gniazda Websocket jest obsługiwany.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
+* [Dokumentacja interfejsu API języka Java](/java/api/com.microsoft.aspnet.signalr?view=aspnet-signalr-java)
 * <xref:signalr/hubs>
 * <xref:signalr/javascript-client>
 * <xref:signalr/publish-to-azure-web-app>

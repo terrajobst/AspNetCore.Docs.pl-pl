@@ -7,14 +7,16 @@ ms.assetid: fddf8e5e-c055-4f81-b691-78deef871112
 ms.author: riande
 ms.date: 09/20/2017
 ms.technology: aspnet
-ms.openlocfilehash: fa7fe92ae0a6545986f816c04c18e659718846f1
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 8f45f73c691600ae5138170db5cc4794246c4f2e
+ms.sourcegitcommit: 8bf4dff3069e62972c1b0839a93fb444e502afe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41756529"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46482973"
 ---
 # <a name="aspnet-tutorials"></a>Samouczki platformy ASP.NET
+
+[!INCLUDE[](~/includes/rp.md)]
 
 Dostępne są następujące Przewodniki krok po kroku dotyczące tworzenia aplikacji ASP.NET.
 
@@ -23,8 +25,6 @@ Dostępne są następujące Przewodniki krok po kroku dotyczące tworzenia aplik
 
 ## <a name="web-forms"></a>Formularze sieci Web
 
-* [Wprowadzenie do wzorca ASP.NET 4.5 Web Forms i programu Visual Studio 2013](web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/index.md)
-* [Tworzenie podstawowej strony modelu Web Forms w programie Visual Studio 2013](web-forms/overview/getting-started/creating-a-basic-web-forms-page.md)
 * [Edytowanie kodu we wzorcu ASP.NET Web Forms w programie Visual Studio 2013](web-forms/overview/getting-started/code-editing-in-web-forms-pages.md)
 * [Korzystanie z narzędzia Page Inspector w programie Visual Studio 2012](web-forms/overview/getting-started/hands-on-labs/using-page-inspector-in-visual-studio-2012.md)
 * [Wiązania modelu i model Web Forms w programie Visual Studio 2013](web-forms/overview/presenting-and-managing-data/model-binding/index.md)
@@ -45,9 +45,6 @@ Dostępne są następujące Przewodniki krok po kroku dotyczące tworzenia aplik
 
 ## <a name="mvc"></a>MVC
 
-* [Wprowadzenie do ASP.NET MVC 5 ](mvc/overview/getting-started/introduction/index.md)
-* [Wprowadzenie do korzystania z programów EF 6 i MVC 5](mvc/overview/getting-started/getting-started-with-ef-using-mvc/index.md)
-* [Podejście Database First w programie EF z wykorzystaniem wzorca ASP.NET MVC](mvc/overview/getting-started/database-first-development/index.md)
 * [Korzystanie z narzędzia Page Inspector we wzorcu ASP.NET MVC](mvc/overview/views/using-page-inspector-in-aspnet-mvc.md)
 * [Tworzenie aplikacji ASP.NET MVC 5 z logowaniem OAuth2 za pomocą poświadczeń usług Facebook, Twitter, LinkedIn i Google (C#)](mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md)
 * [Tworzenie bezpiecznej aplikacji internetowej ASP.NET MVC 5 z logowaniem, potwierdzeniem adresu e-mail i resetowaniem hasła (C#)](mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md)
@@ -131,8 +128,7 @@ Dostępne są następujące Przewodniki krok po kroku dotyczące tworzenia aplik
 * [Testowanie gęstości połączenia SignalR za pomocą funkcji Crank](signalr/overview/performance/signalr-connection-density-testing-with-crank.md)
 * [Korzystanie z liczników wydajności SignalR w roli sieci Web platformy Azure](signalr/overview/performance/using-signalr-performance-counters-in-an-azure-web-role.md)
 * [Samouczek: host samodzielny SignalR](signalr/overview/deployment/tutorial-signalr-self-host.md)
-* 
-  [Używanie SignalR z usługą Web Apps w usłudze Azure App Service](signalr/overview/deployment/using-signalr-with-azure-web-sites.md)
+* [Używanie SignalR z usługą Web Apps w usłudze Azure App Service](signalr/overview/deployment/using-signalr-with-azure-web-sites.md)
 
 
 ## <a name="aspnet-identity"></a>ASP.NET Identity

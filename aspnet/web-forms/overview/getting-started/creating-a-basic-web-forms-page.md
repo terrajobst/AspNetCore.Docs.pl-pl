@@ -8,16 +8,18 @@ ms.date: 03/03/2014
 ms.assetid: a2f1c635-0817-4a9a-8c13-d5b5d29727c0
 msc.legacyurl: /web-forms/overview/getting-started/creating-a-basic-web-forms-page
 msc.type: authoredcontent
-ms.openlocfilehash: 3efd772854cb97c805d61b63c03f6bae031619de
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: fda6922c0703ca442d4f1ebc5b39dabeb5ee58cd
+ms.sourcegitcommit: 8bf4dff3069e62972c1b0839a93fb444e502afe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41757357"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46483025"
 ---
 <a name="creating-a-basic-aspnet-45-web-forms-page-in-visual-studio-2013"></a>Tworzenie podstawowych aplikacji ASP.NET 4.5 Web Forms strony w programie Visual Studio 2013
 ====================
 przez [Erik Reitan](https://github.com/Erikre)
+
+[!INCLUDE[](~/includes/rp.md)]
 
 Ten przewodnik zawiera wprowadzenie do środowiska deweloperskiego w sieci Web w [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/downloads#vs) i [programu Microsoft Visual Studio Express 2013 for Web](https://www.microsoft.com/visualstudio/11/downloads#express-web). Ten przewodnik przeprowadzi Cię przez tworzenie prostego strony ASP.NET Web Forms i przedstawia podstawowe techniki tworzenia nowej strony, dodawanie kontrolek i napisanie kodu.
 

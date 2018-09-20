@@ -4,14 +4,14 @@ author: rick-anderson
 description: Dowiedz się, jak dane w pamięci w programie ASP.NET Core z pamięci podręcznej.
 ms.author: riande
 ms.custom: mvc
-ms.date: 7/22/2018
+ms.date: 09/15/2018
 uid: performance/caching/memory
-ms.openlocfilehash: 091d00ca7a30b61bdd83618e055bf23e0f2753c4
-ms.sourcegitcommit: 67a0a04ebb3b21c826e5b9600bacfc897abd6a46
+ms.openlocfilehash: 2570ad7d939d67530b3de8cd0147815c2e25ecc8
+ms.sourcegitcommit: 8bf4dff3069e62972c1b0839a93fb444e502afe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42899847"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46482986"
 ---
 # <a name="cache-in-memory-in-aspnet-core"></a>Buforowanie w pamięci w programie ASP.NET Core
 
@@ -31,7 +31,19 @@ Non trwałych sesji w ramach farmy sieci web wymagają [rozproszonej pamięci po
 
 Wewnątrzpamięciowa pamięć podręczna może przechowywać dowolny obiekt; Interfejs rozproszonej pamięci podręcznej jest ograniczona do `byte[]`.
 
-### <a name="cache-guidelines"></a>Wskazówki dotyczące pamięci podręcznej
+## <a name="systemruntimecachingmemorycache"></a>System.Runtime.Caching/MemoryCache
+
+<xref:System.Runtime.Caching>/<xref:System.Runtime.Caching.MemoryCache> ([Pakietu NuGet](https://www.nuget.org/packages/System.Runtime.Caching/)) mogą być używane z:
+
+* .NET standard 2.0 lub nowszej.
+* Wszelkie [implementacji .NET](/dotnet/standard/net-standard#net-implementation-support) który jest przeznaczony dla .NET Standard 2.0 lub nowszej. Na przykład platforma ASP.NET Core 2.0 lub nowszej.
+* .NET framework 4.5 lub nowszej.
+
+[Microsoft.Extensions.Caching.Memory](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Memory/) / `IMemoryCache` (opisanych w tym temacie) są zalecane przez `System.Runtime.Caching` / `MemoryCache` ponieważ lepiej jest zintegrowana platforma ASP.NET Core. Na przykład `IMemoryCache` działa natywnie przy użyciu platformy ASP.NET Core [wstrzykiwanie zależności](xref:fundamentals/dependency-injection).
+
+Użyj `System.Runtime.Caching` / `MemoryCache` jako Most zgodności podczas przenoszenia kodu z ASP.NET 4.x, ASP.NET Core.
+
+## <a name="cache-guidelines"></a>Wskazówki dotyczące pamięci podręcznej
 
 * Kod powinien zawsze mieć opcja przełączania awaryjnego można pobrać danych i **nie** zależą od wartość w pamięci podręcznej jest dostępna.
 * Pamięć podręczna używa ograniczonych zasobów pamięci. Limit pamięci podręcznej wzrost:

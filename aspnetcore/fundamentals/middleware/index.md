@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/21/2018
 uid: fundamentals/middleware/index
-ms.openlocfilehash: e6dc76b7cb80e0dfda102df5aefb5d9ce9b821ed
-ms.sourcegitcommit: 847cc1de5526ff42a7303491e6336c2dbdb45de4
+ms.openlocfilehash: 84e79df7fcf5790e658a20c80f21d73cdc76c054
+ms.sourcegitcommit: 8bf4dff3069e62972c1b0839a93fb444e502afe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43055809"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46483012"
 ---
 # <a name="aspnet-core-middleware"></a>Oprogramowanie pośredniczące platformy ASP.NET Core
 
@@ -58,14 +58,18 @@ Utworzyć łańcuch wielu delegatów żądanie, wraz z <xref:Microsoft.AspNetCor
 
 Kolejność dodaną składników oprogramowania pośredniczącego w `Startup.Configure` metoda definiuje kolejność, w którym są wywoływane składników oprogramowania pośredniczącego na żądania i odwrotnej kolejności dla odpowiedzi. Kolejność jest krytyczny dla bezpieczeństwa, wydajności i funkcjonalności.
 
-Następujące `Configure` metoda dodaje następujące składniki oprogramowania pośredniczącego:
-
-1. Obsługa wyjątku/błędów
-2. Serwer plików statycznych
-3. Uwierzytelnianie
-4. MVC
+Następujące `Startup.Configure` metoda dodaje składników oprogramowania pośredniczącego dla typowych scenariuszy aplikacji:
 
 ::: moniker range=">= aspnetcore-2.0"
+
+1. Obsługa wyjątku/błędów
+1. Protokół zabezpieczeń Strict transportu HTTP
+1. Przekierowania protokołu HTTPS
+1. Serwer plików statycznych
+1. Wymuszanie zasad plików cookie
+1. Uwierzytelnianie
+1. Sesja
+1. MVC
 
 ```csharp
 public void Configure(IApplicationBuilder app)
@@ -96,11 +100,15 @@ public void Configure(IApplicationBuilder app)
     app.UseStaticFiles();
 
     // Use Cookie Policy Middleware to conform to EU General Data 
-    //   Protection Regulation (GDPR) regulations.
+    // Protection Regulation (GDPR) regulations.
     app.UseCookiePolicy();
 
     // Authenticate before the user accesses secure resources.
     app.UseAuthentication();
+
+    // If the app uses session state, call Session Middleware after Cookie 
+    // Policy Middleware and before MVC Middleware.
+    app.UseSession();
 
     // Add MVC to the request pipeline.
     app.UseMvc();
@@ -110,6 +118,12 @@ public void Configure(IApplicationBuilder app)
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.0"
+
+1. Obsługa wyjątku/błędów
+1. Pliki statyczne
+1. Uwierzytelnianie
+1. Sesja
+1. MVC
 
 ```csharp
 public void Configure(IApplicationBuilder app)
@@ -123,6 +137,10 @@ public void Configure(IApplicationBuilder app)
 
     // Authenticate before you access secure resources.
     app.UseIdentity();
+
+    // If the app uses session state, call UseSession before 
+    // MVC Middleware.
+    app.UseSession();
 
     // Add MVC to the request pipeline.
     app.UseMvcWithDefaultRoute();
@@ -215,12 +233,13 @@ Platforma ASP.NET Core jest dostarczany z następujących składników oprogramo
 | Oprogramowanie pośredniczące | Opis | Kolejność |
 | ---------- | ----------- | ----- |
 | [Uwierzytelnianie](xref:security/authentication/identity) | Zapewnia obsługę uwierzytelniania. | Przed `HttpContext.User` jest wymagana. Terminala dla wywołania zwrotne OAuth. |
+| [Zasady plików cookie](xref:security/gdpr) | Śledzi zgody od użytkowników do przechowywania informacji osobistych i wymusza standardy minimalne dla pliku cookie pól, takich jak `secure` i `SameSite`. | Zanim oprogramowanie pośredniczące, która wystawia pliki cookie. Przykłady: Uwierzytelnianie, sesji, MVC (TempData). |
 | [CORS](xref:security/cors) | Konfiguruje, Cross-Origin Resource Sharing. | Przed składników, które korzystają z mechanizmu CORS. |
 | [Diagnostyka](xref:fundamentals/error-handling) | Konfiguruje diagnostyki. | Przed składniki, które generują błędy. |
-| [Nagłówki przekazywane](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions) | Przekazuje nagłówki przekazywane do bieżącego żądania. | Przed składników korzystających z zaktualizowanymi polami (przykłady: schematu i hosta, adres IP klienta, metoda). |
+| [Nagłówki przekazywane](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions) | Przekazuje nagłówki przekazywane do bieżącego żądania. | Przed składniki, które zużywają zaktualizowanymi polami. Przykłady: schematu, hosta, adres IP klienta, metoda. |
 | [Zastąpienie metody HTTP](/dotnet/api/microsoft.aspnetcore.builder.httpmethodoverrideextensions) | Zezwala na przychodzące żądania POST przesłonić metodę. | Przed składniki, które zużywają zaktualizowana metoda. |
 | [Przekierowania protokołu HTTPS](xref:security/enforcing-ssl#require-https) | Przekieruj wszystkie żądania HTTP do HTTPS (platformy ASP.NET Core 2.1 lub nowszej). | Przed składniki, których wartość użycia adresu URL. |
-| [Zabezpieczenia transportu Strict HTTP (HSTS)](xref:security/enforcing-ssl#http-strict-transport-security-protocol-hsts) | Oprogramowanie ulepszenie pośredniczące zabezpieczeń, który dodaje nagłówek odpowiedzi specjalne (platformy ASP.NET Core 2.1 lub nowszej). | Przed wysłaniem odpowiedzi i po składniki, które modyfikują żądania (na przykład nagłówki przekazywane, ponownego zapisywania adresów URL). |
+| [Zabezpieczenia transportu Strict HTTP (HSTS)](xref:security/enforcing-ssl#http-strict-transport-security-protocol-hsts) | Oprogramowanie ulepszenie pośredniczące zabezpieczeń, który dodaje nagłówek odpowiedzi specjalne (platformy ASP.NET Core 2.1 lub nowszej). | Przed wysłaniem odpowiedzi i po składniki, które modyfikują żądań. Przykłady: Przekazywane nagłówków, ponownego zapisywania adresów URL. |
 | [MVC](xref:mvc/overview) | Przetwarza żądania przy użyciu stron MVC i Razor (platformy ASP.NET Core w wersji 2.0 lub nowszej). | Terminal, jeśli żądanie jest zgodny z trasą. |
 | [OWIN](xref:fundamentals/owin) | Współdziałanie z aplikacji opartych na OWIN, serwerów i oprogramowania pośredniczącego. | Terminal, jeśli oprogramowanie pośredniczące OWIN w pełni przetwarza żądanie. |
 | [Buforowanie odpowiedzi](xref:performance/caching/middleware) | Zapewnia obsługę buforowania odpowiedzi. | Przed składniki, które wymagają buforowania. |
