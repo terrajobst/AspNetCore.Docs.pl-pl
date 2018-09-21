@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/04/2018
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: 68afe77b05a717cffecc32188f18e9fde208b81f
-ms.sourcegitcommit: 3ca20ed63bf1469f4365f0c1fbd00c98a3191c84
+ms.openlocfilehash: fb748b74b62abb297ac0b16ec34982daf0e13cbd
+ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41756268"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523184"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Host platformy ASP.NET Core w usłudze Windows
 
@@ -61,6 +61,8 @@ Następujące minimalne zmiany są wymagane do skonfigurowania istniejący proje
       ```
 
       ::: moniker-end
+      
+      Jeśli wielu środowiska uruchomieniowego identyfikatorów (RID) znajdują się w rozdzielaną średnikami listę, należy użyć nazwy właściwości `<RuntimeIdentifiers>` (w liczbie mnogiej). Aby uzyskać więcej informacji, zobacz [.NET Core RID katalogu](/dotnet/core/rid-catalog).
 
    1. Dodaj odwołania do pakietu dla [Microsoft.AspNetCore.Hosting.WindowsServices](https://www.nuget.org/packages/Microsoft.AspNetCore.Hosting.WindowsServices/).
 

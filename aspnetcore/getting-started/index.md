@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/31/2018
 uid: getting-started
-ms.openlocfilehash: 06129200834607188052f44a888749c51662f638
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 5ba26d46bba9cdc649ac93c67c50731941c61888
+ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011608"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523158"
 ---
 # <a name="get-started-with-aspnet-core"></a>Wprowadzenie do platformy ASP.NET Core
 
@@ -24,8 +24,6 @@ ms.locfileid: "46011608"
     ```console
     dotnet new webapp -o aspnetcoreapp
     ```
-
-    [!INCLUDE [](~/includes/webapp-alias-notice.md)]
 
 3. Zaufanie certyfikatu deweloperskiego HTTPS:
 

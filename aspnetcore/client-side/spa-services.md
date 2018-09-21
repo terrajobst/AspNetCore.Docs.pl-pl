@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: H1Hack27Feb2017
 ms.date: 08/02/2017
 uid: client-side/spa-services
-ms.openlocfilehash: 6ac922d82e5c93343cd0e9df312719c6df121dcb
-ms.sourcegitcommit: 18339e3cb5a891a3ca36d8146fa83cf91c32e707
+ms.openlocfilehash: 6d6a92427d5d4b853248e60a12625573c4375515
+ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37434003"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523301"
 ---
 # <a name="use-javascriptservices-to-create-single-page-applications-in-aspnet-core"></a>Korzystanie z technologii JavaScriptServices do tworzenia aplikacji jednostronicowej w programie ASP.NET Core
 
@@ -19,20 +19,20 @@ Przez [Scott Addie](https://github.com/scottaddie) i [Fiyaz Hasan](http://fiyazh
 
 Jednej strony aplikacji (SPA) jest typem popularnych aplikacji sieci web ze względu na jej nieodłączne zaawansowanego środowiska użytkownika. Integrowanie SPA struktur po stronie klienta lub bibliotek, takich jak [Angular](https://angular.io/) lub [React](https://facebook.github.io/react/), przy użyciu struktur po stronie serwera, takich jak ASP.NET Core może być trudne. [Technologii JavaScriptServices](https://github.com/aspnet/JavaScriptServices) został opracowany, aby zmniejszyć liczbę problemów w procesie integracji. Dzięki temu bezproblemowe wartościach innego klienta i serwera stosów technologicznych.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/client-side/spa-services/sample) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
-
 <a name="what-is-js-services"></a>
 
-## <a name="what-is-javascriptservices"></a>Co to jest technologii JavaScriptServices?
+## <a name="what-is-javascriptservices"></a>Co to jest technologii JavaScriptServices
 
 Technologii JavaScriptServices jest kolekcja technologii po stronie klienta dla platformy ASP.NET Core. Jego celem jest pozwala platformy ASP.NET Core jako preferowaną platformę po stronie serwera deweloperów do tworzenia aplikacji jednostronicowych.
 
 Technologii JavaScriptServices składa się z trzech odrębnych pakietów NuGet:
+
 * [Microsoft.AspNetCore.NodeServices](https://www.nuget.org/packages/Microsoft.AspNetCore.NodeServices/) (NodeServices)
 * [Microsoft.AspNetCore.SpaServices](https://www.nuget.org/packages/Microsoft.AspNetCore.SpaServices/) (SpaServices)
 * [Microsoft.AspNetCore.SpaTemplates](https://www.nuget.org/packages/Microsoft.AspNetCore.SpaTemplates/) (SpaTemplates)
 
 Te pakiety są przydatne w przypadku możesz:
+
 * Uruchom JavaScript na serwerze
 * SPA framework lub biblioteki
 * Tworzenie zasobów po stronie klienta za pomocą Webpack
@@ -41,11 +41,12 @@ Wiele wysiłków w tym artykule jest umieszczany na temat korzystania z pakietu 
 
 <a name="what-is-spa-services"></a>
 
-## <a name="what-is-spaservices"></a>Co to jest SpaServices?
+## <a name="what-is-spaservices"></a>Co to jest SpaServices
 
 SpaServices utworzono pozwala platformy ASP.NET Core jako preferowaną platformę po stronie serwera deweloperów do tworzenia aplikacji jednostronicowych. SpaServices nie jest wymagane do rozwoju aplikacji jednostronicowych za pomocą programu ASP.NET Core, a nie blokuje w ramach określonego klienta.
 
 SpaServices zawiera przydatne infrastruktury, takich jak:
+
 * [Prerendering po stronie serwera](#server-prerendering)
 * [Oprogramowanie pośredniczące Dev Webpack](#webpack-dev-middleware)
 * [Zastąpienie gorąca modułu](#hot-module-replacement)
@@ -58,6 +59,7 @@ Zbiorczo te składniki infrastruktury pozwala zwiększyć przepływ pracy tworze
 ## <a name="prerequisites-for-using-spaservices"></a>Wymagania wstępne dotyczące korzystania z SpaServices
 
 Aby pracować z SpaServices, należy zainstalować następujące elementy:
+
 * [Node.js](https://nodejs.org/) (w wersji 6 lub nowszej) za pomocą pakietu npm
   * Aby sprawdzić te składniki są zainstalowane i można go znaleźć, uruchom następujące polecenie w wierszu polecenia:
 
@@ -84,6 +86,7 @@ Platforma ASP.NET Core [pomocników tagów](xref:mvc/views/tag-helpers/intro) do
 ### <a name="prerequisites"></a>Wymagania wstępne
 
 Zainstaluj następujące czynności:
+
 * [ASPNET prerendering](https://www.npmjs.com/package/aspnet-prerendering) pakietu npm:
 
     ```console
@@ -136,11 +139,14 @@ Aby rozszerzyć na poprzednim przykładzie kodu, dane mogą być przekazywane z 
 
 [Oprogramowanie pośredniczące Dev Webpack](https://webpack.github.io/docs/webpack-dev-middleware.html) wprowadza usprawnione Tworzenie przepływu pracy, według której Webpack kompilacji zasobów na żądanie. Oprogramowanie pośredniczące kompiluje i automatycznie obsługuje zasoby po stronie klienta po załadowaniu strony w przeglądarce. Alternatywne podejście jest ręcznie wywołać Webpack za pośrednictwem skryptu kompilacji npm projektu podczas zmiany zależności innych firm lub kod niestandardowy. Npm kompilacja skrypt w *package.json* plik jest wyświetlany w następującym przykładzie:
 
-[!code-json[](../client-side/spa-services/sample/SpaServicesSampleApp/package.json?range=5)]
+```json
+"build": "npm run build:vendor && npm run build:custom",
+```
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
 Zainstaluj następujące czynności:
+
 * [ASPNET webpack](https://www.npmjs.com/package/aspnet-webpack) pakietu npm:
 
     ```console
@@ -168,6 +174,7 @@ Traktować firmy Webpack [gorąca zastąpienie modułu](https://webpack.js.org/c
 ### <a name="prerequisites"></a>Wymagania wstępne
 
 Zainstaluj następujące czynności:
+
 * [webpack-hot — oprogramowanie pośredniczące](https://www.npmjs.com/package/webpack-hot-middleware) pakietu npm:
 
     ```console
@@ -205,6 +212,7 @@ Rozważmy scenariusz, w którym będą trasę `/some/page` jest używany. Przyj�
 ### <a name="prerequisites"></a>Wymagania wstępne
 
 Zainstaluj następujące czynności:
+
 * Po stronie klienta routingu pakietu npm. Przy użyciu usługi Angular, na przykład:
 
     ```console
@@ -235,7 +243,7 @@ Zostanie wyświetlona lista dostępnych szablonów SPA:
 
 | Szablony                                 | Krótka nazwa | Język | Znaczniki        |
 |:------------------------------------------|:-----------|:---------|:------------|
-| MVC platformy ASP.NET Core przy użyciu usługi Angular             | platformy angular    | [C#]     | Web/MVC/SPA |
+| MVC platformy ASP.NET Core przy użyciu usługi Angular             | Platformy angular    | [C#]     | Web/MVC/SPA |
 | MVC platformy ASP.NET Core z użyciem biblioteki React.js            | react      | [C#]     | Web/MVC/SPA |
 | MVC platformy ASP.NET Core z użyciem biblioteki React.js i Redux  | reactredux dla platformy | [C#]     | Web/MVC/SPA |
 
@@ -250,12 +258,13 @@ dotnet new angular
 ### <a name="set-the-runtime-configuration-mode"></a>Tryb konfiguracji środowiska uruchomieniowego
 
 Istnieją dwa tryby konfiguracji podstawowego środowiska uruchomieniowego:
+
 * **Programowanie**:
-    * Obejmuje map źródeł, aby ułatwić debugowanie.
-    * Nie Optymalizuj kod po stronie klienta dla wydajności.
+  * Obejmuje map źródeł, aby ułatwić debugowanie.
+  * Nie Optymalizuj kod po stronie klienta dla wydajności.
 * **Produkcji**:
-    * Wyklucza mapy źródła.
-    * Optymalizuje kod po stronie klienta za pomocą tworzenia pakietów i minimalizowanie.
+  * Wyklucza mapy źródła.
+  * Optymalizuje kod po stronie klienta za pomocą tworzenia pakietów i minimalizowanie.
 
 Platforma ASP.NET Core używa zmiennej środowiskowej o nazwie `ASPNETCORE_ENVIRONMENT` do przechowywania tryb konfiguracji. Zobacz **[należy ustawić środowisko](xref:fundamentals/environments#set-the-environment)** Aby uzyskać więcej informacji.
 
@@ -277,7 +286,7 @@ Aplikacja uruchamia się na hoście lokalnym, zgodnie z opisem w [tryb konfigura
 
 ### <a name="running-with-visual-studio-2017"></a>Uruchamianie programu Visual Studio 2017
 
-Otwórz *.csproj* pliku wygenerowanego przez [dotnet nowe](/dotnet/core/tools/dotnet-new) polecenia. Wymagane pakiety npm i NuGet zostaną przywrócone automatycznie po otwarty projekt. Ten proces przywracania może potrwać kilka minut, a aplikacja jest gotowa do uruchomienia po jego ukończeniu. Kliknij zielony przycisk uruchamiania lub naciśnij klawisz `Ctrl + F5`, i przeglądarce otworzy się Strona docelowa aplikacji. Aplikacja zostanie uruchomiona na hoście lokalnym, zgodnie z opisem w [tryb konfiguracji środowiska uruchomieniowego](#runtime-config-mode). 
+Otwórz *.csproj* pliku wygenerowanego przez [dotnet nowe](/dotnet/core/tools/dotnet-new) polecenia. Wymagane pakiety npm i NuGet zostaną przywrócone automatycznie po otwarty projekt. Ten proces przywracania może potrwać kilka minut, a aplikacja jest gotowa do uruchomienia po jego ukończeniu. Kliknij zielony przycisk uruchamiania lub naciśnij klawisz `Ctrl + F5`, i przeglądarce otworzy się Strona docelowa aplikacji. Aplikacja zostanie uruchomiona na hoście lokalnym, zgodnie z opisem w [tryb konfiguracji środowiska uruchomieniowego](#runtime-config-mode).
 
 <a name="app-testing"></a>
 
@@ -308,6 +317,7 @@ Skrypt uruchamia Karma narzędzie test runner, który odczytuje ustawienia zdefi
 [!code-xml[](../client-side/spa-services/sample/SpaServicesSampleApp/SpaServicesSampleApp.csproj?range=31-45)]
 
 Element docelowy programu MSBuild ma następujące obowiązki:
+
 1. Przywróć pakiety npm
 1. Tworzenie klasy produkcyjnej kompilacji zasobów innych firm, po stronie klienta
 1. Tworzenie klasy produkcyjnej kompilacji niestandardowych zasobów po stronie klienta

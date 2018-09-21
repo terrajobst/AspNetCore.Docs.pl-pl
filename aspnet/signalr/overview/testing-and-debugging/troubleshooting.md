@@ -8,12 +8,12 @@ ms.date: 06/10/2014
 ms.assetid: 4b559e6c-4fb0-4a04-9812-45cf08ae5779
 msc.legacyurl: /signalr/overview/testing-and-debugging/troubleshooting
 msc.type: authoredcontent
-ms.openlocfilehash: 77eedeb962bed06f1375284bcf05c4e4ffcdde3b
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 9ef69ece2558260f0409e9388751f77ac84a06f1
+ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41756462"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523080"
 ---
 <a name="signalr-troubleshooting"></a>Rozwiązywanie problemów z SignalR
 ====================
@@ -157,7 +157,7 @@ Połączenia w aplikacji klienckiej platformy .NET, która używa zabezpieczenia
 
 ## <a name="configuring-iis-websockets-to-pingpong-to-detect-a-dead-client"></a>Konfigurowanie websockets usług IIS na polecenie ping/pong wykrywania martwy klienta
 
-Serwery biblioteki SignalR nie wiadomo, jeśli klient jest dead lub nie i opierają się na powiadomienie z bazowego websocket błędów połączenia, oznacza to, OnClose wywołania zwrotnego. Jedno rozwiązanie tego problemu jest skonfigurować websockets usług IIS, aby wykonać polecenie ping/pong dla Ciebie. Daje to gwarancję, że połączenie zostanie zamknięte, jeśli nieoczekiwanie przerywa. Aby uzyskać więcej informacji, zobacz [ten wpis w witrynie stackoverflow](http://stackoverflow.com/questions/19502755/websocket-clients-state-not-changing-on-network-loss).
+Serwery biblioteki SignalR nie wiadomo, jeśli klient jest dead, czy nie, i opierają się na powiadomienie z bazowego websocket błędów połączenia, oznacza to, `OnClose` wywołania zwrotnego. Jedno rozwiązanie tego problemu jest skonfigurować websockets usług IIS, aby wykonać polecenie ping/pong dla Ciebie. Daje to gwarancję, że połączenie zostanie zamknięte, jeśli nieoczekiwanie przerywa. Aby uzyskać więcej informacji, zobacz [ten wpis w witrynie stackoverflow](http://stackoverflow.com/questions/19502755/websocket-clients-state-not-changing-on-network-loss).
 
 <a id="other"></a>
 

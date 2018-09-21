@@ -4,14 +4,14 @@ author: zuckerthoben
 description: Dowiedz się, jak za pomocą NSwag generować dokumentację i Pomóż strony dla internetowego interfejsu API platformy ASP.NET Core.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 06/29/2018
+ms.date: 09/20/2018
 uid: tutorials/get-started-with-nswag
-ms.openlocfilehash: ba20ccfbe2610eb4e3ec3a4c35f8e3b4cae0bb9c
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 432dcc0f2c65903ff637d09e744e2b2ed44a0eb3
+ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011878"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523197"
 ---
 # <a name="get-started-with-nswag-and-aspnet-core"></a>Rozpoczynanie pracy z usługą NSwag i ASP.NET Core
 
@@ -29,9 +29,14 @@ Przez [Christoph Nienaber](https://twitter.com/zuckerthoben) i [Rico Suter](http
 
 ::: moniker-end
 
-Za pomocą [NSwag](https://github.com/RSuter/NSwag) za pomocą programu ASP.NET Core wymaga oprogramowania pośredniczącego [NSwag.AspNetCore](https://www.nuget.org/packages/NSwag.AspNetCore/) pakietu NuGet. Pakiet, który składa się z generatora struktury Swagger, interfejs użytkownika struktury Swagger (v2 i v3), a [ReDoc UI](https://github.com/Rebilly/ReDoc).
+Zarejestruj middlewares NSwag do:
 
-Zdecydowanie zaleca się korzystania z tych firmy NSwag możliwości generowania kodu. Podczas generowania kodu, wybierz jedną z następujących opcji:
+* Generowanie specyfikacją struktury Swagger dla interfejsu API wdrożony w sieci web.
+* Obsługiwać interfejs użytkownika struktury Swagger do przeglądania i testowanie interfejsu API sieci web.
+
+Aby użyć [NSwag](https://github.com/RSuter/NSwag) middlewares platformy ASP.NET Core, zainstaluj [NSwag.AspNetCore](https://www.nuget.org/packages/NSwag.AspNetCore/) pakietu NuGet. Ten pakiet zawiera middlewares do generowania i obsługiwać specyfikacją struktury Swagger interfejs użytkownika struktury Swagger (v2 i v3), a [ReDoc UI](https://github.com/Rebilly/ReDoc).
+
+Ponadto zdecydowanie zaleca się korzystania z tych firmy NSwag możliwości generowania kodu. Wybierz jedną z poniższych opcji, aby korzystać z funkcji generowania kodu:
 
 * Użyj [NSwagStudio](https://github.com/NSwag/NSwag/wiki/NSwagStudio), aplikacji pulpitu Windows podczas generowania kodu klienta w języku C# i TypeScript dla interfejsu API.
 * Użyj [NSwag.CodeGeneration.CSharp](https://www.nuget.org/packages/NSwag.CodeGeneration.CSharp/) lub [NSwag.CodeGeneration.TypeScript](https://www.nuget.org/packages/NSwag.CodeGeneration.TypeScript/) pakiety NuGet umożliwiające code generation wewnątrz projektu.
@@ -40,7 +45,7 @@ Zdecydowanie zaleca się korzystania z tych firmy NSwag możliwości generowania
 
 ## <a name="features"></a>Funkcje
 
-Główny powód, aby używało NSwag jest możliwość wprowadzać nie tylko interfejs użytkownika struktury Swagger i programu Swagger generator, jak używać funkcji generowania kodu elastyczne. Nie ma potrzeby istniejącego interfejsu API&mdash;możesz użyć interfejsów API innych firm, które włączają struktury Swagger i umożliwić NSwag Generowanie implementacji klienta. W obu przypadkach cyklu tworzenia oprogramowania jest przyspieszona i łatwiej można dostosować do zmian interfejsów API.
+Głównym celem użycia NSwag jest możliwość nie tylko interfejs użytkownika struktury Swagger i generatora struktury Swagger, ale również upewnij wykorzystanie możliwości generowania kodu elastyczne. Nie ma potrzeby istniejącego interfejsu API&mdash;możesz użyć interfejsów API innych firm, które włączają struktury Swagger i umożliwić NSwag Generowanie implementacji klienta. W obu przypadkach cyklu tworzenia oprogramowania jest przyspieszona i łatwiej można dostosować do zmian interfejsów API.
 
 ## <a name="package-installation"></a>Instalacja pakietu
 
@@ -92,9 +97,13 @@ dotnet add TodoApi.csproj package NSwag.AspNetCore
 
 Zaimportuj następujące przestrzenie nazw w `Startup` klasy:
 
-[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.NSwag/Startup.cs?name=snippet_StartupConfigureImports)]
+[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.NSwag/Startup.cs?name=snippet_ConfigureServices&highlight=8-8)]
 
-W `Startup.Configure` metody włącza oprogramowanie pośredniczące dla obsługująca wygenerowane Specyfikacja Swagger i interfejs użytkownika struktury Swagger:
+W `Startup.ConfigureServices` metodę rejestrowania wymagane usługi struktury Swagger: 
+
+[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.NSwag/Startup.cs?name=snippet_Configure&highlight=6-10)]
+
+W `Startup.Configure` metody włącza oprogramowanie pośredniczące dla obsługująca wygenerowane Specyfikacja Swagger i v3 interfejs użytkownika struktury Swagger:
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.NSwag/Startup.cs?name=snippet_Configure&highlight=6-10)]
 
