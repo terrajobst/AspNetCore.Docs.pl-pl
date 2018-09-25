@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 01/10/2018
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: bab2f288f3c6956e44ff929bfd2e257301a5806a
-ms.sourcegitcommit: d99a8554c91f626cf5e466911cf504dcbff0e02e
+ms.openlocfilehash: 45200d34974cbbb44787616eba7508458882416c
+ms.sourcegitcommit: 4d5f8680d68b39c411b46c73f7014f8aa0f12026
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39356704"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47028144"
 ---
 # <a name="bundle-and-minify-static-assets-in-aspnet-core"></a>Tworzenie pakietów i minimalizowanie statycznych zasobów w programie ASP.NET Core
 
@@ -201,7 +201,7 @@ Do zminimalizowania *custome.CSS* i połączyć ją z *site.css* do *site.min.cs
 > Alternatywnie można użyć następującego wzorca obsługi symboli wieloznacznych:
 >
 > ```json
-> "inputFiles": ["wwwroot/**/*(*.css|!(*.min.css)"]
+> "inputFiles": ["wwwroot/**/*(*.css|!(*.min.css))"]
 > ```
 >
 > Ten wzorzec symboli wieloznacznych uwzględnia wszystkie pliki CSS i nie obejmuje wzorzec zminimalizowanego pliku.

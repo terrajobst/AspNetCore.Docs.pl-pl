@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/13/2018
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: d596ae67dbdfe938999a0b6f3f64b7f1647b4949
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 8f2155cbf0bc3101b78b890c1d66797278f1ca4b
+ms.sourcegitcommit: 4d5f8680d68b39c411b46c73f7014f8aa0f12026
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011745"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47028313"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host platformy ASP.NET Core na Windows za pomocą programu IIS
 
@@ -216,6 +216,8 @@ Włącz **Konsola zarządzania usługami IIS** i **usługi World Wide Web**.
    Aby uniemożliwić instalowanie x86 przez Instalator pakiety na x64 OS, uruchom Instalatora z wiersza polecenia administratora z przełącznikiem `OPT_NO_X86=1`.
 
 1. Ponowne uruchamianie systemu lub wykonać **net stop został /y** następuje **net start w3svc** z poziomu wiersza polecenia. Ponowne uruchomienie usług IIS przejmuje zmiany w systemie ścieżki, która jest zmienną środowiskową, wprowadzone przez Instalatora.
+
+   Jeśli Instalator Windows obsługującego pakietu wykryje, że usługi IIS wymaga zresetowania, aby dokończyć instalację, Instalator resetuje usług IIS. Jeśli Instalator wyzwala Resetowanie usług IIS, zostaną uruchomione ponownie wszystkie pule aplikacji usług IIS i witryn sieci Web.
 
 > [!NOTE]
 > Aby uzyskać informacji na temat konfiguracji udostępnionej usług IIS, zobacz [modułu ASP.NET Core przy użyciu konfiguracji udostępnionej usług IIS](xref:host-and-deploy/aspnet-core-module#aspnet-core-module-with-an-iis-shared-configuration).

@@ -1,20 +1,22 @@
-# <a name="response-compression-sample-application-aspnet-core-2x"></a>Aplikacja przykładowa kompresji odpowiedzi (platformy ASP.NET Core 2.x)
+# <a name="response-compression-sample-application-aspnet-core-2x"></a>Aplikacja przykładowa kompresji odpowiedzi (Platforma ASP.NET Core 2.x)
 
-Ten przykład przedstawia użycie platformy ASP.NET Core 2.x kompresji odpowiedzi HTTP dla, oprogramowanie pośredniczące kompresji odpowiedzi. Próbka przedstawia Gzip i dostawców niestandardowych kompresji odpowiedzi tekstowych i obrazów i pokazuje, jak dodać typ MIME kompresji. Dla przykładu 1.x platformy ASP.NET Core, zobacz [aplikacji przykładowej kompresji odpowiedzi (platformy ASP.NET Core 1.x)](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/response-compression/samples/1.x).
+Ten przykład ilustruje sposób używania programu ASP.NET Core 2.x, aby kompresowały odpowiedzi HTTP dla, oprogramowanie pośredniczące kompresji odpowiedzi. Próbka pokazuje Gzip i dostawców niestandardowych kompresji odpowiedzi tekstu i obrazów i pokazuje, jak dodać typ MIME dla kompresji. Dla platformy ASP.NET Core 1.x przykładu, zobacz [aplikacji przykładowej kompresji odpowiedzi (Platforma ASP.NET Core 1.x)](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/response-compression/samples/1.x).
 
 ## <a name="examples-in-this-sample"></a>Przykłady w tym przykładzie
+
 * `GzipCompressionProvider`
   * `text/plain`
-    * **/**-Lorem Ipsum tekstu pliku odpowiedzi w 2,044 bajtów, które skompresuje 927 bajtów
-    * **/testfile1kb.txt** -tekstu pliku odpowiedzi w 1,033 bajtów, które skompresuje 47 bajtów
-    * **/ ścieknie** -wystawione jako pojedynczy znaki w drugim 1 w odstępach czasu odpowiedzi 
+    * **/** -Lorem Ipsum tekst pliku odpowiedzi 2,044 bajtów, które skompresuje 927 bajtów
+    * **/testfile1kb.txt** — tekst pliku odpowiedzi 1,033 bajtów, które skompresuje 47 bajtów
+    * **/ ścieknie** -wystawione jako pojedyncze znaki w 1, drugi odstępach czasu odpowiedzi
   * `image/svg+xml`
-    * **/Banner.SVG** -A Scalable wektor grafiki SVG obrazu odpowiedzi na 9,707 bajtów, które skompresuje 4,459 bajtów
-* `CustomCompressionProvider`<br>Przedstawia sposób implementowania dostawcy kompresji niestandardowych do użytku z oprogramowaniem pośredniczącym
+    * **/Banner.SVG** -9,707 bajtów, które skompresuje 4,459 bajtów odpowiedzi obraz grafiki wektorowej skalowalne (SVG)
+* `CustomCompressionProvider`<br>Pokazuje, jak do implementowania dostawcy kompresji niestandardowych do użytku z oprogramowaniem pośredniczącym
 
-Jeśli żądanie zawiera `Accept-Encoding` kompresji nagłówka i odpowiedzi zakończy się pomyślnie, oprogramowanie pośredniczące automatycznie dodaje `Vary: Accept-Encoding` nagłówka do odpowiedzi. `Vary` Nagłówka powoduje, że pamięć podręczną do obsługi wielu kopii odpowiedzi na podstawie wartości alternatywnej `Accept-Encoding`, więc zarówno skompresowane (gzip) i wersji nieskompresowanych są przechowywane w pamięci podręcznej dla systemów, które może przyjąć skompresowany lub bez kompresji odpowiedzi.
+Jeśli żądanie zawiera `Accept-Encoding` kompresja nagłówków i odpowiedzi zakończy się pomyślnie, oprogramowanie pośredniczące automatycznie dodaje `Vary: Accept-Encoding` nagłówka odpowiedzi. `Vary` Pamięci podręcznych do obsługi wielu kopii odpowiedzi na podstawie alternatywne wartości powoduje, że nagłówek `Accept-Encoding`, więc skompresowany (gzip) i wersji nieskompresowanych są przechowywane w pamięci podręczne, w przypadku systemów, które mogą akceptować skompresowany lub bez kompresji odpowiedzi.
 
-## <a name="using-the-sample"></a>Przy użyciu próbki
-1. Upewnij się, żądania przy użyciu [Fiddler](http://www.telerik.com/fiddler), [Firebug](http://getfirebug.com/), lub [Postman](https://www.getpostman.com/) do aplikacji bez `Accept-Encoding` nagłówka i Uwaga ładunku odpowiedzi, rozmiar odpowiedzi i nagłówki odpowiedzi.
-2. Dodaj `Accept-Encoding: gzip` nagłówka i zanotuj rozmiar skompresowanych odpowiedzi i nagłówkami odpowiedzi. Rozmiar odpowiedzi spadnie i `Content-Encoding: gzip` nagłówka odpowiedzi jest dołączony przez oprogramowanie pośredniczące. Podczas przeglądania treść odpowiedzi dla Lorem Ipsum lub **testfile1kb.txt** odpowiedzi, zostanie wyświetlony czy tekst jest skompresowany i nie można go odczytać.
-3. Dodaj `Accept-Encoding: mycustomcompression` nagłówka i zanotuj nagłówków odpowiedzi. `CustomCompressionProvider` Jest pusty implementację, która faktycznie nie Kompresuj odpowiedzi, ale można utworzyć strumienia kompresji niestandardowych otokę dla `CreateStream()` metody.
+## <a name="using-the-sample"></a>Przy użyciu przykładu
+
+1. Upewnij się, żądanie, używając [Fiddler](http://www.telerik.com/fiddler), [Firebug](http://getfirebug.com/), lub [Postman](https://www.getpostman.com/) do aplikacji bez `Accept-Encoding` nagłówka i zanotuj ładunek odpowiedzi rozmiar odpowiedzi i nagłówki odpowiedzi.
+1. Dodaj `Accept-Encoding: gzip` nagłówka i zwróć uwagę, Rozmiar skompresowanych odpowiedzi i nagłówkami odpowiedzi. Rozmiar odpowiedzi spadnie i `Content-Encoding: gzip` nagłówek odpowiedzi znajduje się przez oprogramowanie pośredniczące. Patrząc na treść odpowiedzi dla Lorem Ipsum lub **testfile1kb.txt** odpowiedzi, możesz zobaczyć, że tekst jest skompresowany i nie można go odczytać.
+1. Dodaj `Accept-Encoding: mycustomcompression` nagłówka i zanotuj nagłówki odpowiedzi. `CustomCompressionProvider` Jest pusty implementacji, które faktycznie nie Kompresuj odpowiedzi, ale można utworzyć otokę strumienia niestandardowe kompresji dla `CreateStream()` metody.

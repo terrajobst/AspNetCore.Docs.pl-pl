@@ -1,21 +1,24 @@
 ---
-title: Wydajność w platformy ASP.NET Core
-author: ardalis
-description: Wykryj tematy dotyczące wydajności aplikacji platformy ASP.NET Core.
+title: Wydajność w programie ASP.NET Core
+author: guardrex
+description: Odkryj tematy dotyczące wydajności aplikacji platformy ASP.NET Core.
 ms.author: riande
-ms.date: 10/14/2016
+ms.custom: mvc
+ms.date: 09/16/2018
 uid: performance/index
-ms.openlocfilehash: e168432280f40f9d3b918a11deb55959c9ffeb70
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: da400078f4e8899ce41ff395c86fdea14bc3c376
+ms.sourcegitcommit: 4d5f8680d68b39c411b46c73f7014f8aa0f12026
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273640"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47028105"
 ---
-# <a name="performance-in-aspnet-core"></a>Wydajność w platformy ASP.NET Core
+# <a name="performance-in-aspnet-core"></a>Wydajność w programie ASP.NET Core
 
-* [Buforowanie odpowiedzi](caching/index.md)
-  * [Buforowanie w pamięci](caching/memory.md)
-  * [Praca z rozproszoną pamięcią podręczną](caching/distributed.md)
-  * [Buforowanie odpowiedzi](caching/response.md)
-* [Oprogramowanie pośredniczące kompresji odpowiedzi](response-compression.md)
+Następujące obszary scenariuszy wydajności w programie ASP.NET Core:
+
+[Buforowanie odpowiedzi](xref:performance/caching/index)  
+Dowiedz się, jak buforowanie danych i odpowiedzi w programie ASP.NET Core.
+
+[Kompresja odpowiedzi](xref:performance/response-compression)  
+Informacje o kompresji odpowiedzi i sposobie używania oprogramowanie pośredniczące kompresji odpowiedzi w aplikacji platformy ASP.NET Core.
