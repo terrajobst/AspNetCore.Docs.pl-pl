@@ -4,14 +4,14 @@ author: guardrex
 description: Dowiedz się, jak udostępnić aplikację ASP.NET Core w usłudze Windows.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 06/04/2018
+ms.date: 09/25/2018
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: fb748b74b62abb297ac0b16ec34982daf0e13cbd
-ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
+ms.openlocfilehash: eb88b0bb2e9ce4cfd3a7db2081ad7d62d5dcb08e
+ms.sourcegitcommit: 599ebae5c2d6fcb22dfa6ae7d1f4bdfcacb79af4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523184"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47211042"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Host platformy ASP.NET Core w usłudze Windows
 
@@ -21,13 +21,13 @@ Aplikacji ASP.NET Core może być hostowana na Windows bez korzystania z usług 
 
 [Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/windows-service/samples) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="convert-a-project-into-a-windows-service"></a>Konwertuj projekt w usłudze Windows
 
-Następujące minimalne zmiany są wymagane do skonfigurowania istniejący projekt ASP.NET Core, do uruchamiania w usłudze:
+Następujące minimalne zmiany są wymagane do skonfigurowania istniejący projekt ASP.NET Core, można uruchomić jako usługę:
 
 1. W pliku projektu:
 
-   1. Potwierdzić obecność identyfikator środowiska uruchomieniowego, albo dodaj go do  **\<PropertyGroup >** zawierający platforma docelowa:
+   * Potwierdzić obecność Windows [identyfikator środowiska uruchomieniowego (RID)](/dotnet/core/rid-catalog) lub dodać ją do `<PropertyGroup>` zawierający platforma docelowa:
 
       ::: moniker range=">= aspnetcore-2.1"
 
@@ -61,10 +61,15 @@ Następujące minimalne zmiany są wymagane do skonfigurowania istniejący proje
       ```
 
       ::: moniker-end
-      
-      Jeśli wielu środowiska uruchomieniowego identyfikatorów (RID) znajdują się w rozdzielaną średnikami listę, należy użyć nazwy właściwości `<RuntimeIdentifiers>` (w liczbie mnogiej). Aby uzyskać więcej informacji, zobacz [.NET Core RID katalogu](/dotnet/core/rid-catalog).
 
-   1. Dodaj odwołania do pakietu dla [Microsoft.AspNetCore.Hosting.WindowsServices](https://www.nuget.org/packages/Microsoft.AspNetCore.Hosting.WindowsServices/).
+      Aby opublikować dla wielu identyfikatorów RID:
+
+      * Podaj identyfikatorów RID w liście rozdzielanej średnikami.
+      * Użyj nazwy właściwości `<RuntimeIdentifiers>` (w liczbie mnogiej).
+
+      Aby uzyskać więcej informacji, zobacz [.NET Core RID katalogu](/dotnet/core/rid-catalog).
+
+   * Dodaj odwołania do pakietu dla [Microsoft.AspNetCore.Hosting.WindowsServices](https://www.nuget.org/packages/Microsoft.AspNetCore.Hosting.WindowsServices).
 
 1. Wprowadź następujące zmiany w `Program.Main`:
 
@@ -86,10 +91,10 @@ Następujące minimalne zmiany są wymagane do skonfigurowania istniejący proje
 
 1. Publikowanie aplikacji. Użyj [publikowania dotnet](/dotnet/articles/core/tools/dotnet-publish) lub [profilu publikowania w programie Visual Studio](xref:host-and-deploy/visual-studio-publish-profiles). Jeśli używasz programu Visual Studio, wybierz opcję **FolderProfile**.
 
-   Aby opublikować przykładową aplikację z poziomu wiersza polecenia, uruchom następujące polecenie w oknie konsoli z folderu projektu:
+   Aby opublikować przykładową aplikację przy użyciu narzędzi interfejsu wiersza polecenia (CLI), uruchom [publikowania dotnet](/dotnet/core/tools/dotnet-publish) polecenie w wierszu polecenia z folderu projektu. Identyfikator RID musi być określona w `<RuntimeIdenfifier>` (lub `<RuntimeIdentifiers>`) właściwości pliku projektu. W poniższym przykładzie aplikacja zostanie opublikowana w konfiguracji wydania dla `win7-x64` środowiska uruchomieniowego:
 
    ```console
-   dotnet publish --configuration Release
+   dotnet publish --configuration Release --runtime win7-x64
    ```
 
 1. Użyj [sc.exe](https://technet.microsoft.com/library/bb490995) narzędzie wiersza polecenia, aby utworzyć usługę. `binPath` Wartość jest ścieżką do pliku wykonywalnego aplikacji, która zawiera nazwę pliku wykonywalnego. **Odstęp między znakiem równości i znaku cudzysłowu na początku ścieżki jest wymagana.**
@@ -100,7 +105,7 @@ Następujące minimalne zmiany są wymagane do skonfigurowania istniejący proje
 
    Dla usługi, opublikowane w folderze projektu, użyj ścieżki do *publikowania* folder, aby utworzyć usługę. W poniższym przykładzie:
 
-   * Projekt, który znajduje się w `c:\my_services\AspNetCoreService` folderu.
+   * Projekt, który znajduje się w *c:\\my_services\\AspNetCoreService* folderu.
    * Projekt zostanie opublikowany w `Release` konfiguracji.
    * Moniker Framework docelowych (TFM) jest `netcoreapp2.1`.
    * Identyfikator środowiska uruchomieniowego (RID) jest `win7-x64`.
@@ -112,14 +117,14 @@ Następujące minimalne zmiany są wymagane do skonfigurowania istniejący proje
    ```console
    sc create MyService binPath= "c:\my_services\AspNetCoreService\bin\Release\netcoreapp2.1\win7-x64\publish\AspNetCoreService.exe"
    ```
-   
+
    > [!IMPORTANT]
    > Upewnij się, ma miejsce, między `binPath=` argumentu i jego wartość.
-   
+
    Publikowanie i uruchom usługę z innego folderu:
-   
-      1. Użyj [--dane wyjściowe &lt;OUTPUT_DIRECTORY&gt; ](/dotnet/core/tools/dotnet-publish#options) opcja `dotnet publish` polecenia. Jeśli używasz programu Visual Studio, należy skonfigurować **lokalizacji docelowej** w **FolderProfile** strona właściwości publikowania przed wybraniem **Publikuj** przycisku.
-   1. Tworzenie usługi przy użyciu `sc.exe` polecenia przy użyciu ścieżki folderu danych wyjściowych. Obejmują nazwę pliku wykonywalnego usługi w ścieżce podanej do `binPath`.
+
+      * Użyj [--dane wyjściowe &lt;OUTPUT_DIRECTORY&gt; ](/dotnet/core/tools/dotnet-publish#options) opcja `dotnet publish` polecenia. Jeśli używasz programu Visual Studio, należy skonfigurować **lokalizacji docelowej** w **FolderProfile** strona właściwości publikowania przed wybraniem **Publikuj** przycisku.
+      * Tworzenie usługi przy użyciu `sc.exe` polecenia przy użyciu ścieżki folderu danych wyjściowych. Obejmują nazwę pliku wykonywalnego usługi w ścieżce podanej do `binPath`.
 
 1. Uruchom usługę za pomocą `sc start <SERVICE_NAME>` polecenia.
 
@@ -131,7 +136,7 @@ Następujące minimalne zmiany są wymagane do skonfigurowania istniejący proje
 
    Polecenie zajmuje kilka sekund, aby uruchomić usługę.
 
-1. `sc query <SERVICE_NAME>` Polecenia mogą służyć do sprawdzania stanu usługi, aby określić stan:
+1. Aby sprawdzić stan usługi, użyj `sc query <SERVICE_NAME>` polecenia. Stan jest zgłaszany jako jeden z następujących wartości:
 
    * `START_PENDING`
    * `RUNNING`
@@ -170,7 +175,7 @@ Następujące minimalne zmiany są wymagane do skonfigurowania istniejący proje
    sc delete MyService
    ```
 
-## <a name="provide-a-way-to-run-outside-of-a-service"></a>Zapewnia możliwość uruchamiania poza usługą
+## <a name="run-the-app-outside-of-a-service"></a>Uruchom aplikację poza usługą
 
 Znacznie łatwiej testować i debugować podczas uruchamiania spoza niej, więc zwyczajowego, aby dodać kod, który wywołuje `RunAsService` tylko pod pewnymi warunkami. Na przykład aplikacja może działać jako aplikacji konsoli, za pomocą `--console` argument wiersza polecenia lub jeśli jest dołączony debuger:
 
@@ -234,7 +239,7 @@ Określ [konfiguracji punktu końcowego HTTPS serwera Kestrel](xref:fundamentals
 
 ## <a name="current-directory-and-content-root"></a>Bieżący katalog i katalog główny zawartości
 
-Bieżący katalog roboczy zwracany przez wywołanie metody `Directory.GetCurrentDirectory()` dla usługi Windows jest *C:\WINDOWS\system32* folderu. *System32* folder nie jest odpowiednią lokalizację do przechowywania plików usługi (na przykład pliki ustawień). Użyj jednej z następujących metod do utrzymywania i uzyskać dostęp do zasobów i plików ustawień za pomocą usługi [FileConfigurationExtensions.SetBasePath](/dotnet/api/microsoft.extensions.configuration.fileconfigurationextensions.setbasepath) przy użyciu [IConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.iconfigurationbuilder):
+Bieżący katalog roboczy zwracany przez wywołanie metody `Directory.GetCurrentDirectory()` dla usługi Windows jest *C:\\WINDOWS\\system32* folderu. *System32* folder nie jest odpowiednią lokalizację do przechowywania plików usługi (na przykład pliki ustawień). Użyj jednej z następujących metod do utrzymywania i uzyskać dostęp do zasobów i plików ustawień za pomocą usługi [FileConfigurationExtensions.SetBasePath](/dotnet/api/microsoft.extensions.configuration.fileconfigurationextensions.setbasepath) przy użyciu [IConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.iconfigurationbuilder):
 
 * Użyj ścieżki katalogu głównego zawartości. `IHostingEnvironment.ContentRootPath` Tej samej ścieżki, które są udostępniane `binPath` argumentów podczas tworzenia usługi. Zamiast używania `Directory.GetCurrentDirectory()` Tworzenie ścieżki do plików ustawień, użyj ścieżki katalogu głównego zawartości i przechowuje pliki w katalogu głównym zawartości aplikacji.
 * Store pliki w odpowiedniej lokalizacji na dysku. Określ ścieżkę bezwzględną z `SetBasePath` do folderu zawierającego pliki.

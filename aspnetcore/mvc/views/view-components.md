@@ -5,12 +5,12 @@ description: Dowiedz się, jak składniki widoków są używane w programie ASP.
 ms.author: riande
 ms.date: 02/14/2017
 uid: mvc/views/view-components
-ms.openlocfilehash: 0410e2025019bae45d941e61f556f4b2b57bd30f
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: cf2cfcdb07271503b844e31940e90b7376db0a6f
+ms.sourcegitcommit: 599ebae5c2d6fcb22dfa6ae7d1f4bdfcacb79af4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46010913"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47211068"
 ---
 # <a name="view-components-in-aspnet-core"></a>Składniki widoków w programie ASP.NET Core
 
@@ -95,6 +95,8 @@ Parametry, które zostaną przekazane do `InvokeAsync` metody. `PriorityList` Wi
 
 [!code-cshtml[](view-components/sample/ViewCompFinal/Views/Todo/IndexFinal.cshtml?range=35)]
 
+::: moniker range=">= aspnetcore-1.1"
+
 ## <a name="invoking-a-view-component-as-a-tag-helper"></a>Wywoływanie składnika widok jako pomocnika tagów
 
 Dla platformy ASP.NET Core 1.1 lub nowszym, można wywołać składnika widok jako [Pomocnik tagu](xref:mvc/views/tag-helpers/intro):
@@ -110,7 +112,7 @@ Pascal — z uwzględnieniem wielkości liter parametry klasy i metody pomocnik�
 </vc:[view-component-name]>
 ```
 
-Uwaga: Aby można było używać składnika widok jako pomocnika tagów, musisz się zarejestrować, zestaw zawierający przy użyciu widoku składnika `@addTagHelper` dyrektywy. Na przykład, jeśli składnik widoku znajduje się w zestawie o nazwie "MyWebApp", Dodaj następujące dyrektywy do `_ViewImports.cshtml` pliku:
+Aby użyć widoku składnika jako pomocnika tagów, zarejestruj zestawu zawierającego za pomocą składnika widoku `@addTagHelper` dyrektywy. Jeśli składnik widoku znajduje się w zestawie o nazwie `MyWebApp`, Dodaj następujące dyrektywy *_ViewImports.cshtml* pliku:
 
 ```cshtml
 @addTagHelper *, MyWebApp
@@ -127,6 +129,8 @@ W znacznikach Pomocnik tagu:
 [!code-cshtml[](view-components/sample/ViewCompFinal/Views/Todo/IndexTagHelper.cshtml?range=37-38)]
 
 W przykładzie powyżej `PriorityList` widoku składnika staje się `priority-list`. Parametry do składnika widoku są przekazywane jako atrybuty w małe litery kebab.
+
+::: moniker-end
 
 ### <a name="invoking-a-view-component-directly-from-a-controller"></a>Wywoływanie składnika widoku bezpośrednio za pomocą kontrolera
 
@@ -243,6 +247,76 @@ Jeśli chcesz skompilować bezpieczeństwa czasu, można zastąpić nazwy skład
 Dodaj `using` instrukcję, aby Twoje Razor wyświetlanie plików i używanie `nameof` operator:
 
 [!code-cshtml[](view-components/sample/ViewCompFinal/Views/Todo/IndexNameof.cshtml?range=1-6,35-)]
+
+## <a name="perform-synchronous-work"></a>Wykonaj Praca synchroniczna
+
+Struktura obsługuje wywoływanie synchronicznej `Invoke` metody, jeśli nie trzeba wykonywać pracę asynchroniczną. Poniższa metoda tworzy synchronicznego `Invoke` widoku składnika:
+
+```csharp
+public class PriorityList : ViewComponent
+{
+    public IViewComponentResult Invoke(int maxPriority, bool isDone)
+    {
+        var items = new List<string> { $"maxPriority: {maxPriority}", $"isDone: {isDone}" };
+        return View(items);
+    }
+}
+```
+
+Składnik widoku Razor plik listy ciągi przekazywane do `Invoke` — metoda (*Views/Home/Components/PriorityList/Default.cshtml*):
+
+```cshtml
+@model List<string>
+
+<h3>Priority Items</h3>
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>@item</li>
+    }
+</ul>
+```
+
+::: moniker range=">= aspnetcore-1.1"
+
+Składnik widok został wywołany w pliku Razor (na przykład *Views/Home/Index.cshtml*) przy użyciu jednej z następujących metod:
+
+* <xref:Microsoft.AspNetCore.Mvc.IViewComponentHelper>
+* [Pomocnik tagu](xref:mvc/views/tag-helpers/intro)
+
+Aby użyć <xref:Microsoft.AspNetCore.Mvc.IViewComponentHelper> podejście, wywołaj `Component.InvokeAsync`:
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-1.1"
+
+Składnik widok został wywołany w pliku Razor (na przykład *Views/Home/Index.cshtml*) przy użyciu <xref:Microsoft.AspNetCore.Mvc.IViewComponentHelper>.
+
+Wywołaj `Component.InvokeAsync`:
+
+::: moniker-end
+
+```cshtml
+@await Component.InvokeAsync(nameof(PriorityList), new { maxPriority = 4, isDone = true })
+```
+
+::: moniker range=">= aspnetcore-1.1"
+
+Aby użyć pomocnika tagów, należy zarejestrować zestaw zawierający przy użyciu widoku składnika `@addTagHelper` — dyrektywa (składnik widoku znajduje się w zestawie o nazwie `MyWebApp`):
+
+```cshtml
+@addTagHelper *, MyWebApp
+```
+
+Użyj widoku składnika Pomocnik tagu w pliku znaczników Razor:
+
+```cshtml
+<vc:priority-list max-priority="999" is-done="false">
+</vc:priority-list>
+```
+::: moniker-end
+
+Podpis metody `PriorityList.Invoke` jest synchroniczna, ale Razor znajduje i wywołuje metodę z `Component.InvokeAsync` w pliku znaczników.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

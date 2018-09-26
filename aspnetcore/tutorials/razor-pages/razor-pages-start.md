@@ -1,18 +1,18 @@
 ---
 title: Rozpoczynanie pracy ze stronami Razor w programie ASP.NET Core
 author: rick-anderson
-description: Poznaj podstawy tworzenia aplikacji sieci web programu ASP.NET Core Razor strony. Strony razor jest zalecane dla obciążeń internetowych w programie ASP.NET Core.
+description: W tej serii samouczków pokazano, jak używać stron Razor w programie ASP.NET Core. Dowiedz się, jak utworzyć model, generowanie kodu dla stron Razor, platformy Entity Framework Core i SQL Server na użytek dostęp do danych, dodać funkcje wyszukiwania, dodać sprawdzanie poprawności danych wejściowych i użyć migracje do aktualizacji modelu.
 ms.author: riande
 ms.date: 05/30/2018
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: 20fc1dfebda66a23c4682aa8e94523a710abf8b2
-ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
+ms.openlocfilehash: 2e1c84a704856a22e1e105f56612194d4bb9c234
+ms.sourcegitcommit: 599ebae5c2d6fcb22dfa6ae7d1f4bdfcacb79af4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44340020"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47211003"
 ---
-# <a name="get-started-with-razor-pages-in-aspnet-core"></a>Rozpoczynanie pracy ze stronami Razor w programie ASP.NET Core
+# <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Samouczek: Rozpoczynanie pracy ze stronami Razor w programie ASP.NET Core
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
