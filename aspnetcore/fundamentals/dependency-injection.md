@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/02/2018
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 57b50512d0dfbe1b1b7d7782f6eb7e328dd99149
-ms.sourcegitcommit: 599ebae5c2d6fcb22dfa6ae7d1f4bdfcacb79af4
+ms.openlocfilehash: 50986eeb4c5c8b06c739ee9f860665b877853d78
+ms.sourcegitcommit: 517bb1366da2a28b0014e384fa379755c21b47d8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/26/2018
-ms.locfileid: "47211081"
+ms.locfileid: "47230194"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Wstrzykiwanie zależności w programie ASP.NET Core
 
@@ -566,3 +566,4 @@ Wstrzykiwanie zależności jest *alternatywnych* do wzorce dostępu i statyczne/
 * [Zasada jawne zależności](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies)
 * [Inwersja kontroli kontenerów i wzorzec wstrzykiwanie zależności (Martina Fowlera)](https://www.martinfowler.com/articles/injection.html)
 * [Nowością jest pośredniczącego ("klejenie" kod do konkretnej implementacji)](https://ardalis.com/new-is-glue)
+* [Jak zarejestrować usługi z wieloma interfejsami w programie ASP.NET Core DI](https://andrewlock.net/how-to-register-a-service-with-multiple-interfaces-for-in-asp-net-core-di/)
