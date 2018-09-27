@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 09/13/2018
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: 21ba522b454a88a006938936e426537786ccaa1f
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 218b6429462991659ba02804fdc8fbb99b69f1a6
+ms.sourcegitcommit: 599ebae5c2d6fcb22dfa6ae7d1f4bdfcacb79af4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011737"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47211094"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>Implementacja serwera sieci web kestrel w programie ASP.NET Core
 
@@ -160,7 +160,7 @@ Wywołaj [UseKestrel](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderkes
 
 ::: moniker-end
 
-### <a name="kestrel-options"></a>Opcje kestrel
+## <a name="kestrel-options"></a>Opcje kestrel
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -172,7 +172,7 @@ Serwer sieci web Kestrel ma ograniczenie opcje konfiguracji, które są szczegó
 
 Ustaw na te i inne ograniczenia [limity](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions.limits) właściwość [KestrelServerOptions](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions) klasy. `Limits` Właściwość posiada wystąpienie [KestrelServerLimits](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserverlimits) klasy.
 
-**Maksymalna liczba połączeń klientów**
+### <a name="maximum-client-connections"></a>Maksymalna liczba połączeń klientów
 
 [MaxConcurrentConnections](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserverlimits.maxconcurrentconnections)  
 [MaxConcurrentUpgradedConnections](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserverlimits.maxconcurrentupgradedconnections)
@@ -227,7 +227,7 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
 
 Maksymalna liczba połączeń jest nieograniczona (null) domyślnie.
 
-**Rozmiar treści żądania maksymalna**
+### <a name="maximum-request-body-size"></a>Rozmiar treści żądania maksymalna
 
 [MaxRequestBodySize](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserverlimits.maxrequestbodysize)
 
@@ -272,7 +272,7 @@ Można zastąpić ustawienia dla konkretnego żądania w oprogramowaniu pośredn
 
 Wyjątek jest generowany, Jeśli spróbujesz skonfigurować limit na żądanie, po uruchomieniu aplikacji do odczytania żądania. Brak `IsReadOnly` właściwość, która wskazuje, czy `MaxRequestBodySize` właściwość jest w stanie tylko do odczytu, co oznacza, jest za późno, aby skonfigurować limit.
 
-**Szybkość danych treści żądania minimalne**
+### <a name="minimum-request-body-data-rate"></a>Szybkość danych treści żądania minimalne
 
 [MinRequestBodyDataRate](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserverlimits.minrequestbodydatarate)  
 [MinResponseDataRate](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserverlimits.minresponsedatarate)
@@ -316,7 +316,7 @@ Kursy na żądanie można skonfigurować w oprogramowaniu pośredniczącym:
 
 ::: moniker range=">= aspnetcore-2.2"
 
-**MaxStreamsPerConnection**
+### <a name="maximum-streams-per-connection"></a>Maksymalna strumienie na połączenie
 
 `Http2.MaxStreamsPerConnection` ogranicza liczbę jednoczesnych żądań strumieni na połączenie HTTP/2. Nadmiarowe strumieni zostaną odrzucone.
 
@@ -332,7 +332,7 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
 
 Wartość domyślna to 100.
 
-**HeaderTableSize**
+### <a name="header-table-size"></a>Rozmiar tabeli nagłówka
 
 Dekoder HPACK dekompresuje nagłówki HTTP dla połączeń HTTP/2. `Http2.HeaderTableSize` ogranicza rozmiar tabeli kompresji nagłówek, który używa dekodera HPACK. Wartość znajduje się w oktetach i musi być większa niż zero (0).
 
@@ -348,7 +348,7 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
 
 Wartość domyślna to 4096.
 
-**MaxFrameSize**
+### <a name="maximum-frame-size"></a>Maksymalny rozmiar ramki
 
 `Http2.MaxFrameSize` Określa maksymalny rozmiar ładunku ramki połączenia protokołu HTTP/2 do odbierania. Wartość znajduje się w oktetach i musi mieć długość od 2 ^ 14 (16 384) i 2 ^ 24-1 (16 777 215).
 
@@ -385,7 +385,7 @@ Aby uzyskać informacji o opcjach Kestrel i ograniczeń zobacz:
 
 ::: moniker-end
 
-### <a name="endpoint-configuration"></a>Konfiguracja punktu końcowego
+## <a name="endpoint-configuration"></a>Konfiguracja punktu końcowego
 
 ::: moniker range="= aspnetcore-2.0"
 
@@ -431,20 +431,24 @@ Wywołaj [nasłuchiwania](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.k
 
 Platforma ASP.NET Core 2.1 `KestrelServerOptions` konfiguracji:
 
-**ConfigureEndpointDefaults (Akcja&lt;ListenOptions&gt;)**  
+### <a name="configureendpointdefaultsactionltlistenoptionsgt"></a>ConfigureEndpointDefaults (Akcja&lt;ListenOptions&gt;)
+
 Określa konfigurację `Action` do uruchamiania dla każdego określonego punktu końcowego. Wywoływanie `ConfigureEndpointDefaults` wielokrotnie zastępuje starszy `Action`s w ostatnich `Action` określony.
 
-**ConfigureHttpsDefaults (Akcja&lt;HttpsConnectionAdapterOptions&gt;)**  
+### <a name="configurehttpsdefaultsactionlthttpsconnectionadapteroptionsgt"></a>ConfigureHttpsDefaults (Akcja&lt;HttpsConnectionAdapterOptions&gt;)
+
 Określa konfigurację `Action` do uruchamiania dla każdego punktu końcowego protokołu HTTPS. Wywoływanie `ConfigureHttpsDefaults` wielokrotnie zastępuje starszy `Action`s w ostatnich `Action` określony.
 
-**Configure(IConfiguration)**  
+### <a name="configureiconfiguration"></a>Configure(IConfiguration)
+
 Tworzy moduł ładujący konfiguracji dotyczące konfigurowania Kestrel, która przyjmuje [wartości IConfiguration](/dotnet/api/microsoft.extensions.configuration.iconfiguration) jako dane wejściowe. Konfiguracja musi należeć do sekcji konfiguracji zakresu dla Kestrel.
 
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
 
-**ListenOptions.UseHttps**  
+### <a name="listenoptionsusehttps"></a>ListenOptions.UseHttps
+
 Konfigurowanie usługi Kestrel do używania protokołu HTTPS.
 
 `ListenOptions.UseHttps` rozszerzenia:
@@ -703,7 +707,7 @@ public static IWebHost BuildWebHost(string[] args) =>
 
 ::: moniker-end
 
-**Powiąż z gniazda TCP**
+### <a name="bind-to-a-tcp-socket"></a>Powiąż z gniazda TCP
 
 [Nasłuchiwania](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions.listen) metoda wiąże gniazda TCP i lambda opcje zezwala na konfigurację certyfikatu SSL:
 
@@ -742,7 +746,7 @@ Przykład umożliwia skonfigurowanie protokołu SSL dla punktu końcowego za pom
 
 [!INCLUDE [How to make an X.509 cert](~/includes/make-x509-cert.md)]
 
-**Powiązany z gniazdem systemu Unix**
+### <a name="bind-to-a-unix-socket"></a>Powiązany z gniazdem systemu Unix
 
 Nasłuchiwanie na gniazdo systemu Unix za pomocą [ListenUnixSocket](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions.listenunixsocket) w celu zwiększenia wydajności przy użyciu serwera Nginx, jak pokazano w poniższym przykładzie:
 
@@ -774,7 +778,7 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
 
 ::: moniker range=">= aspnetcore-2.0"
 
-**Port 0**
+### <a name="port-0"></a>Port 0
 
 Gdy numer portu `0` określono Kestrel dynamicznie wiąże dostępny port. Poniższy przykład pokazuje, jak określić port, który Kestrel faktycznie powiązany w czasie wykonywania:
 
@@ -786,7 +790,7 @@ Gdy aplikacja jest uruchamiana, dane wyjściowe z okna konsoli wskazuje port dyn
 Listening on the following addresses: http://127.0.0.1:48508
 ```
 
-**Klucz konfiguracji i ograniczenia zmiennych środowiskowych ASPNETCORE_URLS hostów UseUrls, argument wiersza polecenia — adresów URL, adresy URL**
+### <a name="limitations"></a>Ograniczenia
 
 Konfigurowanie punktów końcowych przy użyciu następujących metod:
 
@@ -795,12 +799,12 @@ Konfigurowanie punktów końcowych przy użyciu następujących metod:
 * `urls` Klucz konfiguracji hosta
 * `ASPNETCORE_URLS` Zmienna środowiskowa
 
-Te metody są przydatne do tworzenia kodu, pracy z serwerami innych niż Kestrel. Jednak należy pamiętać o tych ograniczeniach:
+Te metody są przydatne do tworzenia kodu, pracy z serwerami innych niż Kestrel. Należy jednak pamiętać o następujących ograniczeniach:
 
 * Nie można użyć protokołu SSL przy użyciu tych metod, jeśli domyślny certyfikat znajduje się w konfiguracji punktu końcowego protokołu HTTPS (na przykład za pomocą `KestrelServerOptions` konfiguracji lub plik konfiguracji, jak pokazano we wcześniejszej części tego tematu).
 * Gdy zarówno `Listen` i `UseUrls` podejścia są używane równocześnie, `Listen` zastąpienia punktów końcowych `UseUrls` punktów końcowych.
 
-**Konfiguracja punktu końcowego usług IIS**
+### <a name="iis-endpoint-configuration"></a>Konfiguracja punktu końcowego usług IIS
 
 Korzystając z usług IIS, powiązania adres URL dla zastąpienia IIS powiązania są ustawiane przez `Listen` lub `UseUrls`. Aby uzyskać więcej informacji, zobacz [modułu ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) tematu.
 
@@ -817,7 +821,7 @@ Domyślnie platforma ASP.NET Core wiąże `http://localhost:5000`. Skonfiguruj p
 
 Aby uzyskać więcej informacji na temat tych metod, zobacz [hostingu](xref:fundamentals/host/index).
 
-**Konfiguracja punktu końcowego usług IIS**
+### <a name="iis-endpoint-configuration"></a>Konfiguracja punktu końcowego usług IIS
 
 Korzystając z usług IIS, powiązania adres URL dla usług IIS zastąpienia powiązania ustawione przez `UseUrls`. Aby uzyskać więcej informacji, zobacz [modułu ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) tematu.
 
@@ -825,7 +829,7 @@ Korzystając z usług IIS, powiązania adres URL dla usług IIS zastąpienia pow
 
 ::: moniker range=">= aspnetcore-2.2"
 
-**ListenOptions.Protocols**
+### <a name="listenoptionsprotocols"></a>ListenOptions.Protocols
 
 `Protocols` Właściwość ustala protokołów HTTP (`HttpProtocols`) włączone w punkcie końcowym połączenia dla serwera. Przypisanie wartości do `Protocols` właściwość `HttpProtocols` wyliczenia.
 
