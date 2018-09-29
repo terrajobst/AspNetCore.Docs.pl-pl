@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 04/20/2018
 uid: signalr/publish-to-azure-web-app
-ms.openlocfilehash: b0126771a9ba3a28a7af14adf5b5959c7591e5fb
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: a6a0e44f5c67fefdac6bd26b3772c23e75f8bfc1
+ms.sourcegitcommit: 32f5ee0690604d451f61e9a5c28881c9fcf85738
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095297"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47454729"
 ---
 # <a name="publish-an-aspnet-core-signalr-app-to-an-azure-web-app"></a>Publikowanie platformy ASP.NET Core aplikacji SignalR na aplikację internetową platformy Azure
 
@@ -23,7 +23,7 @@ ms.locfileid: "39095297"
 
 ## <a name="publish-the-app"></a>Publikowanie aplikacji
 
-Visual Studio udostępnia wbudowane narzędzia do publikowania aplikacji sieci Web platformy Azure. Visual Studio Code użytkownik może używać [wiersza polecenia platformy Azure](/cli/azure) polecenia, aby opublikować aplikacje na platformie Azure. W tym artykule opisano publikowania za pomocą narzędzi w programie Visual Studio. Aby opublikować aplikację przy użyciu wiersza polecenia platformy Azure, zobacz [publikowanie aplikacji platformy ASP.NET Core na platformie Azure za pomocą narzędzia wiersza polecenia](xref:tutorials/publish-to-azure-webapp-using-cli).
+Visual Studio udostępnia wbudowane narzędzia do publikowania aplikacji sieci Web platformy Azure. Visual Studio Code użytkownik może używać [wiersza polecenia platformy Azure](/cli/azure) polecenia, aby opublikować aplikacje na platformie Azure. W tym artykule opisano publikowania za pomocą narzędzi w programie Visual Studio. Aby opublikować aplikację przy użyciu wiersza polecenia platformy Azure, zobacz [publikowanie aplikacji platformy ASP.NET Core na platformie Azure za pomocą narzędzia wiersza polecenia](/azure/app-service/app-service-web-get-started-dotnet).
 
 Kliknij prawym przyciskiem myszy nad projektem w **Eksploratora rozwiązań** i wybierz **Publikuj**. Upewnij się, że **Utwórz nową** jest zaewidencjonowany **wybierz lokalizację docelową publikowania** okna dialogowego, a następnie wybierz **Publikuj**.
 
@@ -63,6 +63,6 @@ W witrynie Azure portal przejdź do **ustawienia aplikacji** dla aplikacji sieci
 
 ## <a name="related-resources"></a>Powiązane zasoby
 
-* [Publikowanie aplikacji platformy ASP.NET Core na platformie Azure za pomocą narzędzia wiersza polecenia](xref:tutorials/publish-to-azure-webapp-using-cli?tabs=windows)
+* [Publikowanie aplikacji platformy ASP.NET Core na platformie Azure za pomocą narzędzia wiersza polecenia](/azure/app-service/app-service-web-get-started-dotnet)
 * [Publikowanie aplikacji platformy ASP.NET Core na platformie Azure z programem Visual Studio](xref:tutorials/publish-to-azure-webapp-using-vs)
 * [Hostowanie i wdrażanie aplikacji ASP.NET Core w wersji zapoznawczej na platformie Azure](xref:host-and-deploy/azure-apps/index#deploy-aspnet-core-preview-release-to-azure-app-service)

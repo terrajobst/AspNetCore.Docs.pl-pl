@@ -1,17 +1,17 @@
 ---
 title: Pakiet meta Microsoft.aspnetcore.all dla programu ASP.NET Core 2.0
 author: Rick-Anderson
-description: Pakiet meta Microsoft.aspnetcore.all obejmuje wszystkie obsługiwane pakiety platformy ASP.NET Core i Entity Framework Core, wraz z ich zależnościami.
+description: Pakiet meta Microsoft.aspnetcore.all nie jest zalecane dla platformy ASP.NET Core 2.1 lub nowszych.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 09/20/2017
+ms.date: 09/20/2018
 uid: fundamentals/metapackage
-ms.openlocfilehash: fbc0f5465dc37a612b81c293f1a58b53ea4b2238
-ms.sourcegitcommit: cb0c27fa0184f954fce591d417e6ab2a51d8bb22
+ms.openlocfilehash: 1942426dbd5c15ae4a5fa5fbb931b94f50aa6043
+ms.sourcegitcommit: 32f5ee0690604d451f61e9a5c28881c9fcf85738
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39123830"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47454742"
 ---
 # <a name="microsoftaspnetcoreall-metapackage-for-aspnet-core-20"></a>Pakiet meta Microsoft.aspnetcore.all dla programu ASP.NET Core 2.0
 
@@ -65,3 +65,11 @@ Wszelkie zależności poprzedniego pakiety, które w przeciwnym razie nie ma zal
 
 * `StackExchange.Redis` jako zależą od elementu `Microsoft.Extensions.Caching.Redis`
 * `Microsoft.ApplicationInsights` jako zależą od elementu `Microsoft.AspNetCore.ApplicationInsights.HostingStartup`
+
+## <a name="update-aspnet-core-21"></a>Aktualizacja platformy ASP.NET Core 2.1
+
+Zalecamy przeprowadzenie migracji, migracji do `Microsoft.AspNetCore.App` meta Microsoft.aspnetcore.all 2.1 i nowszych. Aby nadal korzystać z `Microsoft.AspNetCore.All` meta Microsoft.aspnetcore.all i upewnij się, jest wdrażana w najnowszej wersji poprawki:
+
+* Na komputerach deweloperskich i serwery kompilacji: Zainstaluj najnowszą wersję [zestawu .NET Core SDK](https://www.microsoft.com/net/download).
+* Na serwerach wdrożenia: Zainstaluj najnowszą wersję [środowisko uruchomieniowe programu .NET Core](https://www.microsoft.com/net/download).
+ Twojej aplikacji będą uaktualniane do najnowszej zainstalowanej wersji na ponowne uruchomienie aplikacji.

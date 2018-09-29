@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/07/2017
 uid: host-and-deploy/index
-ms.openlocfilehash: eb3a4846775fa53132d3692f56bb1b628257ca8f
-ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
+ms.openlocfilehash: 024275be3fc5db3f2ed2f7cea1582a1a5f12bda7
+ms.sourcegitcommit: 32f5ee0690604d451f61e9a5c28881c9fcf85738
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44340215"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47454761"
 ---
 # <a name="host-and-deploy-aspnet-core"></a>Hostowanie i wdrażanie platformy ASP.NET Core
 
@@ -70,7 +70,7 @@ Za pomocą [funkcji publikowania w sieci Web](xref:tutorials/publish-to-azure-we
 
 ## <a name="publishing-to-azure"></a>Publikowanie na platformie Azure
 
-Zobacz [publikowania aplikacji sieci web ASP.NET Core w usłudze Azure App Service przy użyciu programu Visual Studio](xref:tutorials/publish-to-azure-webapp-using-vs) instrukcje dotyczące sposobu publikowania aplikacji za pomocą programu Visual Studio. Można także publikować aplikacji na platformie Azure z [wiersza polecenia](xref:tutorials/publish-to-azure-webapp-using-cli).
+Zobacz [publikowania aplikacji sieci web ASP.NET Core w usłudze Azure App Service przy użyciu programu Visual Studio](xref:tutorials/publish-to-azure-webapp-using-vs) instrukcje dotyczące sposobu publikowania aplikacji za pomocą programu Visual Studio. Można także publikować aplikacji na platformie Azure z [wiersza polecenia](/azure/app-service/app-service-web-get-started-dotnet).
 
 ## <a name="host-in-a-web-farm"></a>Hosting w ramach farmy sieci web
 

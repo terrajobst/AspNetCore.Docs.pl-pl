@@ -5,12 +5,12 @@ description: Dowiedz się więcej o szczegóły metody kontrolera i wyświetlani
 ms.author: riande
 ms.date: 03/07/2017
 uid: tutorials/first-mvc-app/details
-ms.openlocfilehash: 9864abb54483c0ccf911aaf704a1beae007b32a4
-ms.sourcegitcommit: 599ebae5c2d6fcb22dfa6ae7d1f4bdfcacb79af4
+ms.openlocfilehash: ce5b2af148ddba9bc718345c0b8074da8724308d
+ms.sourcegitcommit: 32f5ee0690604d451f61e9a5c28881c9fcf85738
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47211016"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47454807"
 ---
 # <a name="examine-the-details-and-delete-methods-of-an-aspnet-core-app"></a>Sprawdź szczegóły i usunięcie metod aplikacji ASP.NET Core
 

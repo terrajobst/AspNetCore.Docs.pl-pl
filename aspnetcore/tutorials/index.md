@@ -1,18 +1,18 @@
 ---
-title: Samouczki platformy ASP.NET Core
+title: Samouczki dotyczące platformy ASP.NET Core
 author: rick-anderson
 description: Lista przewodniki krok po kroku do nauki, jak opracowywać aplikacje platformy ASP.NET Core.
 ms.author: riande
 ms.date: 10/14/2017
 uid: tutorials/index
-ms.openlocfilehash: d103c351595f0d61e5f0ee14492f9f46b8c17e86
-ms.sourcegitcommit: 08f1a9baa97060da5168840b332c9c0805b5f901
+ms.openlocfilehash: 3d2fbb453c8f6510806d8dc263ea344023aa4cda
+ms.sourcegitcommit: 32f5ee0690604d451f61e9a5c28881c9fcf85738
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37144953"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47454794"
 ---
-# <a name="aspnet-core-tutorials"></a>Samouczki platformy ASP.NET Core
+# <a name="aspnet-core-tutorials"></a>Samouczki dotyczące platformy ASP.NET Core
 
 Dostępne są następujące Przewodniki krok po kroku dotyczące tworzenia aplikacji platformy ASP.NET Core:
 
@@ -28,7 +28,7 @@ Dostępne są następujące Przewodniki krok po kroku dotyczące tworzenia aplik
    * [Strony razor z programem VS Code](xref:tutorials/razor-pages-vsc/index)  
 
 * [Tworzenie aplikacji internetowej SignalR w czasie rzeczywistym](xref:tutorials/signalr)
-* [Tworzenie aplikacji sieci web SignalR z TypeScript](xref:tutorials/signalr-typescript-webpack)
+* [Tworzenie aplikacji internetowej SignalR za pomocą języka TypeScript](xref:tutorials/signalr-typescript-webpack)
 
 * Tworzenie aplikacji internetowej ASP.NET Core MVC
 
@@ -82,7 +82,7 @@ Dostępne są następujące Przewodniki krok po kroku dotyczące tworzenia aplik
 ## <a name="host-and-deploy"></a>Hostowanie i wdrażanie
 
 * [Wdrażanie aplikacji sieci web platformy ASP.NET Core na platformie Azure przy użyciu programu Visual Studio](xref:tutorials/publish-to-azure-webapp-using-vs)
-* [Wdrażanie aplikacji sieci web platformy ASP.NET Core na platformie Azure przy użyciu wiersza polecenia](xref:tutorials/publish-to-azure-webapp-using-cli)
+* [Wdrażanie aplikacji sieci web platformy ASP.NET Core na platformie Azure przy użyciu wiersza polecenia](/azure/app-service/app-service-web-get-started-dotnet)
 * [Publikowanie aplikacji sieci Web platformy Azure z ciągłym wdrażaniem](xref:host-and-deploy/azure-apps/azure-continuous-deployment)
 * [Wdrażanie kontenera platformy ASP.NET ha zdalnym hoście platformy Docker](/azure/vs-azure-tools-docker-hosting-web-apps-in-docker)
 * [Platforma ASP.NET Core i usługi Azure Service Fabric](/azure/service-fabric/service-fabric-add-a-web-frontend)
