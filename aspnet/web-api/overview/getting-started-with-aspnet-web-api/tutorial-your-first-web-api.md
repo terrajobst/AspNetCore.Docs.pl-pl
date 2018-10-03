@@ -18,7 +18,7 @@ ms.locfileid: "41753493"
 ====================
 przez [Mike Wasson](https://github.com/MikeWasson)
 
-[Pobieranie ukończone projektu](https://code.msdn.microsoft.com/Sample-code-of-Getting-c56ccb28)
+[Pobierz ukończony projekt](https://code.msdn.microsoft.com/Sample-code-of-Getting-c56ccb28)
 
 Protokół HTTP nie jest dostępne tylko dla wysyłaniu stron sieci web. Protokół HTTP, również jest to zaawansowana platforma do tworzenia interfejsów API, które udostępniają dane i usługi. Protokół HTTP jest proste, elastyczne i uniwersalnych. Niemal dowolną platformą, która można traktować ma biblioteki HTTP, więc usług HTTP można dotrzeć do szerokiej gamy klientów, w tym przeglądarek i urządzeń przenośnych, tradycyjne aplikacje komputerowe.
  
