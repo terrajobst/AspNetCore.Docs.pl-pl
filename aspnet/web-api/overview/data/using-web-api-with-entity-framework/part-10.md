@@ -19,32 +19,32 @@ ms.locfileid: "41752265"
 ====================
 przez [Mike Wasson](https://github.com/MikeWasson)
 
-[Pobieranie ukończone projektu](https://github.com/MikeWasson/BookService)
+[Pobierz ukończony projekt](https://github.com/MikeWasson/BookService)
 
-W ostatnim kroku opublikujesz aplikację na platformie Azure. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt i wybierz **Publikuj**.
+W ostatnim kroku opublikujesz aplikację na platformie Azure. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy na projekt i wybierz **Publikuj**.
 
 ![](part-10/_static/image1.png)
 
-Klikając **Publikuj** wywołuje **publikowanie w sieci Web** okna dialogowego. Jeśli zaznaczono **Host w chmurze** podczas pierwszego utworzenia projektu, a następnie połączenie i ustawienia zostały już skonfigurowane. W takim przypadku należy po prostu kliknij **ustawienia** i sprawdź &quot;wykonaj migracje Code First&quot;. (Jeśli nie została sprawdzona **Host w chmurze** na początku, a następnie wykonaj kroki opisane w [następnej sekcji](#new-website).)
+Kliknięcie **Publikuj** wywołuje okno tekstowe **publikowanie w sieci Web**. Jeśli podczas tworzenia projektu zaznaczono **Host w chmurze**, to ustawienia zostały już skonfigurowane. W takim przypadku należy po prostu kliknąć **ustawienia** i sprawdzić &quot;wykonaj migracje Code First&quot;. (Jeśli nie została zaznaczona opcja **Host w chmurze** na początku, wykonaj kroki opisane w [następnej sekcji](#new-website).)
 
 [![](part-10/_static/image3.png)](part-10/_static/image2.png)
 
-Aby wdrożyć aplikację, kliknij przycisk **Publikuj**. Możesz wyświetlić postęp publikowania **działania publikowania internetowego** okna. (Z **widoku** menu, wybierz opcję **Windows inne**, a następnie wybierz **działania publikowania internetowego**.)
+Aby wdrożyć aplikację, kliknij przycisk **Publikuj**. Możesz wyświetlić postęp publikowania w oknie **działania publikowania internetowego**. (Z menu **widoku**, wybierz opcję **Windows inne**, a następnie wybierz **działania publikowania internetowego**.)
 
 ![](part-10/_static/image4.png)
 
-Po zakończeniu wdrażania aplikacji programu Visual Studio przeglądarka domyślna automatycznie otwiera adres URL wdrożonych witryn sieci Web i aplikacji, który został utworzony, jest teraz uruchomiona w chmurze. Adres URL w pasku adresu przeglądarki pokazuje, że witryna jest ładowany z Internetu.
+Po zakończeniu wdrażania aplikacji programu Visual Studio uruchomi przeglądarkę domyślną automatycznie, która przejdzie pod adres URL wdrożonych witryn sieci Web i aplikacji, które zostały utworzone. Są one teraz uruchomione w chmurze. Adres URL w pasku adresu przeglądarki pokazuje, że witryna jest ładowana z Internetu.
 
 [![](part-10/_static/image6.png)](part-10/_static/image5.png)
 
 <a id="new-website"></a>
 ## <a name="deploying-to-a-new-website"></a>Wdrożenie nowej witryny sieci Web
 
-Jeśli nie zaznaczono **Host w chmurze** podczas tworzenia projektu, możesz teraz skonfigurować nową aplikację sieci web. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt i wybierz **Publikuj**. Wybierz **profilu** kartę, a następnie kliknij przycisk **Microsoft Azure Websites**. Nie są obecnie zalogowano do platformy Azure, zostanie wyświetlony monit Zaloguj się.
+Jeśli nie zaznaczono **Host w chmurze** podczas tworzenia projektu, możesz teraz skonfigurować nową aplikację sieci web. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy zakładkę projekt i wybierz **Publikuj**. Następnie wybierz kartę **profil**, po czym kliknij przycisk **Microsoft Azure Websites**. Jeśli nie jesteś zalogowany do Azure, wyświetli się okno logowania.
 
 [![](part-10/_static/image8.png)](part-10/_static/image7.png)
 
-W **istniejących witryn sieci Web** okno dialogowe, kliknij przycisk **New**.
+W oknie dialogowym **istniejących witryn sieci Web**, kliknij przycisk **New**.
 
 ![](part-10/_static/image9.png)
 
@@ -52,7 +52,7 @@ Wprowadź nazwę lokacji. Wybierz subskrypcję platformy Azure i region. W obsza
 
 [![](part-10/_static/image11.png)](part-10/_static/image10.png)
 
-Kliknij przycisk **ustawienia** i sprawdź &quot;wykonaj migracje Code First&quot;. Następnie kliknij przycisk **Publikuj**.
+Kliknij przycisk **ustawienia** i zaznacz &quot;wykonaj migracje Code First&quot;. Następnie kliknij przycisk **Publikuj**.
 
 > [!div class="step-by-step"]
 > [Poprzednie](part-9.md)
