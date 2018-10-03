@@ -20,10 +20,10 @@ W poniższej tabeli wymieniono pliki i foldery w projekcie. W tym samouczku *Sta
 
 *_Layout.cshtml* plik zawiera wspólne elementy HTML (skrypty i arkusze stylów) i ustawia układ dla aplikacji. Na przykład po kliknięciu **RazorPagesMovie**, **Home**, **o** lub **skontaktuj się z pomocą**, zobacz te same elementy. Wspólne elementy obejmują menu nawigacji górnej i nagłówek w dolnej części okna. Zobacz [układ](xref:mvc/views/layout) Aby uzyskać więcej informacji.
 
-*_ViewStart.cshtml* ustawia stron Razor `Layout` właściwości, aby korzystała *_Layout.cshtml* pliku. Zobacz [układ](xref:mvc/views/layout) Aby uzyskać więcej informacji.
-
 *_ViewImports.cshtml* plik zawiera dyrektywy Razor, które są importowane do każdej strony Razor. Zobacz [importowania dyrektywy udostępnione](xref:mvc/views/layout#importing-shared-directives) Aby uzyskać więcej informacji.
+
+*_ViewStart.cshtml* ustawia stron Razor `Layout` właściwości, aby korzystała *_Layout.cshtml* pliku. Zobacz [układ](xref:mvc/views/layout) Aby uzyskać więcej informacji.
 
 *_ValidationScriptsPartial.cshtml* plik zawiera odwołanie do [jQuery](https://jquery.com/) skrypty sprawdzania poprawności. Jeśli dodamy `Create` i `Edit` stron w dalszej części tego samouczka *_ValidationScriptsPartial.cshtml* plik będzie używany.
 
-`About`, `Contact` i `Index` strony są stron podstawowych, można użyć, aby uruchomić aplikację. `Error` Strona służy do wyświetlania informacji o błędzie.
+`About`, `Contact` i `Index` strony są stron podstawowych, można użyć, aby uruchomić aplikację. `Error` Strona służy do wyświetlania informacji o błędzie. `Privacy` Strona pozwala określić szczegóły dotyczące zasad ochrony prywatności witryny.
