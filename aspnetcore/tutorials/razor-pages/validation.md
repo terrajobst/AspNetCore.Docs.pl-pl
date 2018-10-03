@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 08/07/2017
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: 6144bfb9e731ace51b4f23870fdb06519fd4a9ea
-ms.sourcegitcommit: 599ebae5c2d6fcb22dfa6ae7d1f4bdfcacb79af4
+ms.openlocfilehash: cd958b9c084de4b3e12784774544610873a519f9
+ms.sourcegitcommit: 317f9be24db600499e79d25872d743af74bd86c0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47211029"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48045526"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>Dodawanie walidacji do strony ASP.NET Core Razor
 
@@ -27,7 +27,7 @@ Sprawdzanie poprawności wsparcie ze stronami Razor i programem Entity Framework
 
 ### <a name="adding-validation-rules-to-the-movie-model"></a>Dodawania reguł sprawdzania poprawności do modelu movie
 
-Otwórz *Movie.cs* pliku. [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) zawiera zestaw wbudowanych atrybutów sprawdzania poprawności, które są stosowane w sposób deklaratywny do klasa lub właściwość. DataAnnotations zawiera też atrybuty formatowania, takich jak `DataType` ułatwić formatowanie i nie zapewniają weryfikacji.
+Otwórz *Models/Movie.cs* pliku. [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) zawiera zestaw wbudowanych atrybutów sprawdzania poprawności, które są stosowane w sposób deklaratywny do klasa lub właściwość. DataAnnotations zawiera też atrybuty formatowania, takich jak `DataType` ułatwić formatowanie i nie zapewniają weryfikacji.
 
 Aktualizacja `Movie` klasy, aby korzystać z zalet `Required`, `StringLength`, `RegularExpression`, i `Range` atrybutów sprawdzania poprawności.
 
@@ -79,7 +79,7 @@ Po wyłączeniu JavaScript w przeglądarce przesyłania formularza z błędami o
 
 Opcjonalne, Walidacja po stronie serwera testu:
 
-* Wyłącz JavaScript w przeglądarce. Jeśli nie można wyłączyć języka JavaScript w przeglądarce, spróbuj innej przeglądarki.
+* Wyłącz JavaScript w przeglądarce. Można to zrobić za pomocą narzędzi dla deweloperów w przeglądarce. Jeśli nie można wyłączyć języka JavaScript w przeglądarce, spróbuj innej przeglądarki.
 * Ustaw punkt przerwania w `OnPostAsync` metody tworzenia lub edycji strony.
 * Prześlij formularz z błędami sprawdzania poprawności.
 * Sprawdź, czy stan modelu jest nieprawidłowy:

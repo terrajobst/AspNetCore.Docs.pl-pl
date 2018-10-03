@@ -6,12 +6,12 @@ description: Odbiorniki elementów Webhook programu ASP.NET
 ms.author: riande
 ms.date: 01/17/2012
 ms.assetid: 6cdea089-15b2-4732-8c68-921ca561a8f1
-ms.openlocfilehash: 376cb3e3fdc0bc7bd248da1f57e1064fb27b3cef
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: d771a588b23abcd7b1b33e694af17b219683fc48
+ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41752461"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47860917"
 ---
 # <a name="aspnet-webhooks-receivers"></a>Odbiorniki elementów Webhook programu ASP.NET
 
@@ -33,7 +33,7 @@ https://<host>/api/webhooks/incoming/<receiver>/{id}
 
 Ze względów bezpieczeństwa wiele odbiorników elementu WebHook wymagają, że identyfikator URI jest *https* identyfikatora URI i w niektórych przypadkach musi zawierać parametr zapytania dodatkowych, która służy do wymuszania, które tylko zamierzony ze stron może wysyłać elementów Webhook do powyższego identyfikatora URI .
 
-<em> <receiver> </em> Składnik to nazwa odbiorcy, na przykład <em>github</em> lub <em>slack</em>.
+`<receiver>` Składnik to nazwa odbiorcy, na przykład `github` lub `slack`.
 
 *{Id}* jest opcjonalny identyfikator, który może służyć do identyfikowania konkretnej konfiguracji odbiornika elementu WebHook. To może służyć do rejestrowania N elementów Webhook przy użyciu określonego odbiorcy. Na przykład następujące trzy identyfikatory URI mogą służyć do zarejestrowania dla trzech niezależnych elementy Webhook:
 

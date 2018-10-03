@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/02/2018
 uid: security/authorization/iauthorizationpolicyprovider
-ms.openlocfilehash: e3a534d3c3da5af4cfd3f72d105fac83e15135f0
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: fdd8f9232c4332aa8307b9dbdfba6af48dfafa72
+ms.sourcegitcommit: 317f9be24db600499e79d25872d743af74bd86c0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41753993"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48045500"
 ---
 # <a name="custom-authorization-policy-providers-using-iauthorizationpolicyprovider-in-aspnet-core"></a>Niestandardowi dostawcy zasad autoryzacji przy użyciu IAuthorizationPolicyProvider w programie ASP.NET Core 
 
@@ -151,7 +151,7 @@ Korzystanie z niestandardowych zasad z `IAuthorizationPolicyProvider`, należy:
 * Rejestrowanie niestandardowego `IAuthorizationPolicyProvider` typu w kolekcji usługi iniekcji zależności aplikacji (w `Startup.ConfigureServices`) aby zastąpić domyślny dostawca zasad.
 
 ```csharp
-services.AddTransient<IAuthorizationPolicyProvider, MinimumAgePolicyProvider>();
+services.AddSingleton<IAuthorizationPolicyProvider, MinimumAgePolicyProvider>();
 ```
 
 Niestandardowe pełną `IAuthorizationPolicyProvider` próbka jest dostępna w [repozytorium GitHub aspnet/AuthSamples](https://github.com/aspnet/AuthSamples/tree/master/samples/CustomPolicyProvider).

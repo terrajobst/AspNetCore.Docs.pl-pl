@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.date: 09/19/2018
 uid: signalr/index
-ms.openlocfilehash: 42e9edc082d86a2326c4bea717c19246cf7a6d20
-ms.sourcegitcommit: 8bf4dff3069e62972c1b0839a93fb444e502afe7
+ms.openlocfilehash: 16d560537e8d911e9ee1d3132800a0d2653acb75
+ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46482882"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47860904"
 ---
 # <a name="aspnet-core-signalr"></a>SignalR platformy ASP.NET Core
 
@@ -23,7 +23,7 @@ ms.locfileid: "46482882"
   * [HubContext](xref:signalr/hubcontext)
   * [Użytkownicy i grupy](xref:signalr/groups)
   * [Publikowanie na platformie Azure](xref:signalr/publish-to-azure-web-app)
-* [Klienci](xref:signalr/javascript-client)
+* [Klienci](xref:signalr/clients)
   * [Klient .NET](xref:signalr/dotnet-client)
   * [Klient Java](xref:signalr/java-client)
   * [Dokumentacja interfejsu API języka Java](/java/api/com.microsoft.aspnet.signalr?view=aspnet-signalr-java)

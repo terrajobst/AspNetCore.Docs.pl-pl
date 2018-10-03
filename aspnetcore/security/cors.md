@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/05/2018
 uid: security/cors
-ms.openlocfilehash: f654260411f1bd5725a0e3d14951c7e9bbc893e8
-ms.sourcegitcommit: 08bf41d4b3e696ab512b044970e8304816f8cc56
+ms.openlocfilehash: cfbf24edb1dae76f676d51738b0d57266688d53e
+ms.sourcegitcommit: 317f9be24db600499e79d25872d743af74bd86c0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44039981"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48045591"
 ---
 # <a name="enable-cross-origin-requests-cors-in-aspnet-core"></a>Włączanie żądań Cross-Origin (CORS) w programie ASP.NET Core
 
@@ -270,7 +270,7 @@ Dla niektórych żądań CORPS przeglądarce wysyła żądanie dodatkowe przed w
 
 * Metoda żądania jest GET, HEAD lub POST.
 * Aplikacja nie ustawia nagłówki żądania innego niż `Accept`, `Accept-Language`, `Content-Language`, `Content-Type`, lub `Last-Event-ID`.
-* `Content-Type` Nagłówka, jeśli ustawiona, ma jedną z jedną z następujących wartości:
+* `Content-Type` Nagłówka, jeśli ustawiona, ma jedną z następujących wartości:
   * `application/x-www-form-urlencoded`
   * `multipart/form-data`
   * `text/plain`

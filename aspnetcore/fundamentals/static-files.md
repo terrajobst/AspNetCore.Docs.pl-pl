@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/18/2018
 uid: fundamentals/static-files
-ms.openlocfilehash: 33fad930e617c74d9a8c07f850764a6b81fa8ab5
-ms.sourcegitcommit: 2c158fcfd325cad97ead608a816e525fe3dcf757
+ms.openlocfilehash: 52c7916b9fc55c875d56acd49c01f76dd2053817
+ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "41754840"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47861008"
 ---
 # <a name="static-files-in-aspnet-core"></a>Pliki statyczne z platformy ASP.NET Core
 
@@ -216,7 +216,7 @@ Zobacz [typu MIME](http://www.iana.org/assignments/media-types/media-types.xhtml
 
 ## <a name="non-standard-content-types"></a>Niestandardowe typy zawartości
 
-Oprogramowanie pośredniczące plików statycznych rozumie prawie 400 znanych typów zawartości. Jeśli użytkownik zażąda pliku nieznany typ pliku, oprogramowanie pośredniczące plików statycznych zwraca odpowiedź HTTP 404 (nie znaleziono). Jeśli przeglądanie katalogów jest włączona, jest wyświetlany link do pliku. Identyfikator URI zwraca błąd HTTP 404.
+Oprogramowanie pośredniczące plików statycznych rozumie prawie 400 znanych typów zawartości. Jeśli użytkownik żąda pliku z nieznany typ pliku, oprogramowanie pośredniczące plików statycznych przekazuje żądanie do następnego oprogramowania pośredniczącego w potoku. Jeśli nie oprogramowanie pośredniczące obsługuje żądania, *404 Nie znaleziono* zwróceniem odpowiedzi. Jeśli przeglądanie katalogów jest włączona, łącze do pliku jest wyświetlany na liście katalogów.
 
 Poniższy kod umożliwia obsługująca nieznane typy i renderuje nieznanym pliku jako obrazu:
 

@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 05/30/2018
 uid: tutorials/razor-pages/da1
-ms.openlocfilehash: 78490be1cfa3018c465cb1e8125918404a7e4525
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 7633c0a40764cc18a656f0497e3280e4067cb59f
+ms.sourcegitcommit: 317f9be24db600499e79d25872d743af74bd86c0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011615"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48045578"
 ---
 # <a name="update-the-generated-pages-in-an-aspnet-core-app"></a>Aktualizowanie stron wygenerowane w aplikacji ASP.NET Core
 
@@ -45,7 +45,7 @@ Wybierz pozycję `using System.ComponentModel.DataAnnotations;`
 
   ![za pomocą System.ComponentModel.DataAnnotations u góry listy](da1/da.png)
 
-  Program Visual studio dodaje `using System.ComponentModel.DataAnnotations;`.
+  Program Visual Studio dodaje `using System.ComponentModel.DataAnnotations;`.
 
 [!INCLUDE [model1](~/includes/RP/da2.md)]
 

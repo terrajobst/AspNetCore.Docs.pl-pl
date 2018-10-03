@@ -6,14 +6,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/31/2018
 uid: getting-started
-ms.openlocfilehash: 5ba26d46bba9cdc649ac93c67c50731941c61888
-ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
+ms.openlocfilehash: a6a5023594aec01370143e7d1f35fb45c109122a
+ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523158"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47860943"
 ---
 # <a name="get-started-with-aspnet-core"></a>Wprowadzenie do platformy ASP.NET Core
+
+W tym dokumencie przedstawiono kroki umożliwiające utworzenie i uruchomienie aplikacji ASP.NET Core.
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -21,55 +23,57 @@ ms.locfileid: "46523158"
 
 2. Tworzenie projektu platformy ASP.NET Core. Otwórz powłokę wiersza polecenia i wpisz następujące polecenie:
 
-    ```console
-    dotnet new webapp -o aspnetcoreapp
-    ```
+   ```console
+   dotnet new webapp -o aspnetcoreapp
+   ```
 
 3. Zaufanie certyfikatu deweloperskiego HTTPS:
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
-    ```console
-    dotnet dev-certs https --trust
-    ```
+  ```console
+  dotnet dev-certs https --trust
+  ```
 
-   Poprzednie polecenie wyświetla następujące okno dialogowe:
+  Poprzednie polecenie wyświetla następujące okno dialogowe:
 
-   ![Okno dialogowe ostrzeżenia o zabezpieczeniach](_static/cert.png)
+  ![Okno dialogowe ostrzeżenia o zabezpieczeniach](_static/cert.png)
 
-   Wybierz **tak** Jeśli zgadzasz się ufać certyfikatowi rozwoju.
+  Wybierz **tak** Jeśli zgadzasz się ufać certyfikatowi rozwoju.
 
 # <a name="macostabmacos"></a>[macOS](#tab/macos)
 
-    ```console
-    dotnet dev-certs https --trust
-    ```
+  ```console
+  dotnet dev-certs https --trust
+  ```
 
-   Poprzednie polecenie wyświetli następujący komunikat:
+  Poprzednie polecenie wyświetli następujący komunikat:
 
-   *Zażądano ufające certyfikatu deweloperskiego protokołu HTTPS. Jeśli certyfikat nie jest zaufany, firma Microsoft będzie uruchom następujące polecenie:* `'sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain <<certificate>>'`
-   *To polecenie może monitować o hasło, aby zainstalować certyfikat w pęku kluczy systemu. Hasło:*
+  *Zażądano ufające certyfikatu deweloperskiego protokołu HTTPS. Jeśli certyfikat nie jest już zaufany możemy uruchom następujące polecenie:* `'sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain <<certificate>>'`.  
+  * To polecenie może monitować o hasło, aby zainstalować certyfikat w pęku kluczy systemu.
+  
+  Hasło: *
 
-   Wprowadź hasło, jeśli zgadzasz się ufać certyfikatowi rozwoju.
+  Wprowadź hasło, jeśli zgadzasz się ufać certyfikatowi rozwoju.
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
-   W dokumentacji dla Twojej dystrybucji systemu Linux na temat zaufania certyfikatu deweloperskiego protokołu HTTPS
+  W dokumentacji dla Twojej dystrybucji systemu Linux na temat zaufania certyfikatu deweloperskiego protokołu HTTPS.
    
 ---
 
 4. Uruchom aplikację:
 
-    ```console
-    cd aspnetcoreapp
-    dotnet run
-    ```
+   ```console
+   cd aspnetcoreapp
+   dotnet run
+   ```
 
 5. Przejdź do [ http://localhost:5001 ](http://localhost:5001).  Kliknij przycisk **Akceptuj** zaakceptować zasady ochrony prywatności i plików cookie. Ta aplikacja nie zachowuje informacji osobistych.
 
 6. Otwórz *Pages/About.cshtml* i modyfikować strony z następujący wyróżniony kod znaczników:
 
-    [!code-cshtml[](sample/getting-started/about.cshtml?highlight=9)]
+   [!code-cshtml[](sample/getting-started/about.cshtml?highlight=9)]
 
 7. Przejdź do [ http://localhost:5001/About ](http://localhost:5001/About) i Sprawdź zmiany są wyświetlane.
 
@@ -85,22 +89,22 @@ ms.locfileid: "46523158"
 
    Otwórz powłokę wiersza polecenia. Wprowadź następujące polecenie:
 
-    ```console
-    dotnet new razor -o aspnetcoreapp
-    ```
+   ```console
+   dotnet new razor -o aspnetcoreapp
+   ```
 
 3. Uruchom aplikację za pomocą następujących poleceń:
 
-    ```console
-    cd aspnetcoreapp
-    dotnet run
-    ```
+   ```console
+   cd aspnetcoreapp
+   dotnet run
+   ```
 
 4. Przejdź do [ http://localhost:5000 ](http://localhost:5000).
 
 5. Otwórz *Pages/About.cshtml*i zmodyfikuj stronę, aby wyświetlić komunikat „Hello, world! Czas na serwerze jest @DateTime.Now":
 
-    [!code-cshtml[](sample/getting-started/about.cshtml?highlight=9&range=1-9)]
+   [!code-cshtml[](sample/getting-started/about.cshtml?highlight=9&range=1-9)]
 
 6. Przejdź do [ http://localhost:5000/About ](http://localhost:5000/About) a następnie zweryfikować zmiany.
 
@@ -137,9 +141,9 @@ ms.locfileid: "46523158"
 
 5. Przywróć pakiety.
 
-    ```console
-    dotnet restore
-    ```
+   ```console
+   dotnet restore
+   ```
 
 6. Uruchom aplikację.
 

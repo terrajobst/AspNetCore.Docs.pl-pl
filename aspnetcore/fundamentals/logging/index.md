@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 09/19/2018
 uid: fundamentals/logging/index
-ms.openlocfilehash: e3bf5909edb515a2dabba206abaa160bc431d622
-ms.sourcegitcommit: 8bf4dff3069e62972c1b0839a93fb444e502afe7
+ms.openlocfilehash: 62418d108461cf07490d7f406104db9ab3f11783
+ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46483090"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47861073"
 ---
 # <a name="logging-in-aspnet-core"></a>Rejestrowanie w programie ASP.NET Core
 
@@ -25,7 +25,7 @@ Instrukcje dotyczące rejestrowania strumienia wyjściowego stdout w przypadku h
 
 ## <a name="how-to-create-logs"></a>Jak utworzyć dzienników
 
-Aby utworzyć dzienników, należy zaimplementować [ILogger&lt;TCategoryName&gt; ](/dotnet/api/microsoft.extensions.logging.ilogger-1) obiektu z [wstrzykiwanie zależności](xref:fundamentals/dependency-injection) kontenera:
+Aby utworzyć dzienników, należy uzyskać [ILogger&lt;TCategoryName&gt; ](/dotnet/api/microsoft.extensions.logging.ilogger-1) z [wstrzykiwanie zależności](xref:fundamentals/dependency-injection) kontenera:
 
 ::: moniker range=">= aspnetcore-2.0"
 

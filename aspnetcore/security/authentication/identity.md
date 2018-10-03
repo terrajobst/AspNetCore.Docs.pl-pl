@@ -5,12 +5,12 @@ description: Tożsamość za pomocą aplikacji ASP.NET Core. Dowiedz się, jak u
 ms.author: riande
 ms.date: 08/08/2018
 uid: security/authentication/identity
-ms.openlocfilehash: ca83d07f7d93bd0cc61cd17cc373096b8e6aa2e1
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: d427932bb175c09105534379be4d71760f4e04e5
+ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46010978"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47860956"
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>Wprowadzenie do tożsamości programu ASP.NET Core
 
@@ -45,7 +45,7 @@ Tworzenie projektu aplikacji sieci Web programu ASP.NET Core z indywidualnymi ko
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Wybierz **pliku** > **nowe** > **projektu**. 
+* Wybierz **pliku** > **nowe** > **projektu**.
 * Wybierz **aplikacji sieci Web platformy ASP.NET Core**. Nadaj projektowi nazwę **WebApp1** mieć tej samej przestrzeni nazw jako do pobrania projektu. Kliknij przycisk **OK**.
 * Wybierz platformy ASP.NET Core **aplikacji sieci Web** platformy ASP.NET Core 2.1, następnie wybierz **Zmień uwierzytelnianie**.
 * Wybierz **indywidualne konta użytkowników** i kliknij przycisk **OK**.
@@ -119,15 +119,12 @@ Postępuj zgodnie z [tworzenia szkieletu tożsamości do projektu Razor z autory
 
 Dodaj pliki rejestru, logowania i wylogowania.
 
-
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 Jeśli utworzono projekt o nazwie **WebApp1**, uruchom następujące polecenia. W przeciwnym razie użyj poprawną przestrzeń nazw dla `ApplicationDbContext`:
 
-
 ```cli
 dotnet aspnet-codegenerator identity -dc WebApp1.Data.ApplicationDbContext --files "Account.Register;Account.Login;Account.Logout"
-
 ```
 
 PowerShell używa średnika jako separatora polecenia. Przy użyciu programu PowerShell, ucieczki średnikami, na liście plików lub umieścić na liście plików w podwójnym cudzysłowie, jak w poprzednim przykładzie.
@@ -163,7 +160,7 @@ PowerShell używa średnika jako separatora polecenia. Przy użyciu programu Pow
 Zostanie wyświetlony formularz logowania po:
 
 * **Zaloguj** łącze jest zaznaczone.
-* Gdy użytkownik uzyskuje dostęp do strony, gdzie one nie są uwierzytelniane **lub** autoryzacji nastąpi przekierowanie do strony logowania. 
+* Gdy użytkownik uzyskuje dostęp do strony, gdzie one nie są uwierzytelniane **lub** autoryzacji nastąpi przekierowanie do strony logowania.
 
 Po przesłaniu formularza na stronie logowania `OnPostAsync` nosi nazwę akcji. `PasswordSignInAsync` jest wywoływana w `_signInManager` obiektu (udostępnione przez wstrzykiwanie zależności).
 
@@ -254,7 +251,6 @@ Zobacz [konfiguracji](#pw) przykład określająca wymagania dotyczące minimaln
 * <xref:security/authorization/secure-data>
 * <xref:security/authentication/add-user-data>
 * <xref:security/authentication/identity-enable-qrcodes>
-* [Konfigurowanie tożsamości kluczy podstawowych danych typu](xref:security/authentication/identity-primary-key-configuration).
 * <xref:migration/identity>
 * <xref:security/authentication/accconfirm>
 * <xref:security/authentication/2fa>

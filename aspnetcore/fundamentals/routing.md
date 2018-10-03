@@ -4,14 +4,14 @@ author: ardalis
 description: Dowiedz się, jak funkcje routingu platformy ASP.NET Core jest odpowiedzialny za mapowanie przychodzące żądanie do programu obsługi trasy.
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/20/2018
+ms.date: 10/01/2018
 uid: fundamentals/routing
-ms.openlocfilehash: 94fa6a278466c8cc9926d7893d1ef71d83b865df
-ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
+ms.openlocfilehash: d9ba96c7b2abd35b1b13c84814bf3f776e8d8731
+ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41870854"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47861060"
 ---
 # <a name="routing-in-aspnet-core"></a>Routing w programie ASP.NET Core
 
@@ -37,7 +37,7 @@ Routing jest podłączony do [oprogramowania pośredniczącego](xref:fundamental
 
 ### <a name="url-matching"></a>Dopasowanie adresu URL
 
-Dopasowanie adresu URL jest proces, który wysyła routingu przychodzącego żądania *obsługi*. Ten proces jest zazwyczaj na podstawie danych ze ścieżki adresu URL, ale może zostać rozszerzony do należy wziąć pod uwagę wszystkie dane w żądaniu. Możliwość wysyłania żądań do rozdzielenia obsługi to klucz do skalowania, rozmiar i złożoność aplikacji.
+Dopasowanie adresu URL jest proces, który wysyła routingu przychodzącego żądania *obsługi*. Ten proces jest na podstawie danych ze ścieżki adresu URL, ale może zostać rozszerzony do należy wziąć pod uwagę wszystkie dane w żądaniu. Możliwość wysyłania żądań do rozdzielenia obsługi to klucz do skalowania, rozmiar i złożoność aplikacji.
 
 Wprowadź żądań przychodzących `RouterMiddleware`, która wywołuje metodę <xref:Microsoft.AspNetCore.Routing.IRouter.RouteAsync*> metody dla każdej trasy w sekwencji. <xref:Microsoft.AspNetCore.Routing.IRouter> Wybierze wystąpienie czy *obsługi* żądania przez ustawienie [RouteContext.Handler](xref:Microsoft.AspNetCore.Routing.RouteContext.Handler*) do innych niż null <xref:Microsoft.AspNetCore.Http.RequestDelegate>. Jeśli trasa Ustawia program obsługi żądania, route zatrzymanie przetwarzania i program obsługi jest wywoływane w celu przetworzenia żądania. Jeśli wszystkie trasy są sprawdzane i żadna procedura obsługi nie znajduje się na żądanie, oprogramowanie pośredniczące wywołuje *dalej*, a następne oprogramowanie pośredniczące w potoku żądania jest wywoływana.
 
@@ -108,7 +108,7 @@ routes.MapRoute(
 
 Ten szablon jest zgodny Ścieżka adresu URL, takich jak `/Products/Details/17` , ale nie `/Products/Details/Apples`. Definicji parametru trasy `{id:int}` definiuje [trasy ograniczenie](#route-constraint-reference) dla `id` parametru trasy. Implementowanie ograniczenia trasy <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> i badać wartości trasy, aby je zweryfikować. W tym przykładzie wartość trasy `id` musi być konwertowany na liczbę całkowitą. Zobacz [odwołanie w przypadku ograniczenia trasy](#route-constraint-reference) uzyskać bardziej szczegółowy opis ograniczenia trasy, które są dostarczane przez platformę.
 
-Dodatkowe przeciążenia `MapRoute` akceptowanych wartości `constraints`, `dataTokens`, i `defaults`. Te dodatkowe parametry `MapRoute` są zdefiniowane jako typ `object`. Jest typowy tych parametrów do przekazania obiektu anonimowo wpisane, gdzie nazwy właściwości typu anonimowego dopasowania trasy nazw parametrów.
+Dodatkowe przeciążenia `MapRoute` akceptowanych wartości `constraints`, `dataTokens`, i `defaults`. Te dodatkowe parametry `MapRoute` są zdefiniowane jako typ `object`. Jest typowy tych parametrów do przekazania obiektu anonimowo wpisane, gdzie nazwy właściwości typu anonimowego dopasowania trasy nazwy parametrów.
 
 Dwa poniższe przykłady tworzenia tras równoważne:
 
@@ -169,12 +169,12 @@ routes.MapRoute(
 
 Za pomocą wartości trasy `{ controller = Products, action = List }`, ta trasa generuje adres URL `/Products/List`. Wartości trasy są zastępowane odpowiednich parametrów trasy w celu utworzenia ze ścieżką URL. Ponieważ `id` jest opcjonalny parametr trasy, to żaden problem, że nie ma wartości.
 
-Za pomocą wartości trasy `{ controller = Home, action = Index }`, ta trasa generuje adres URL `/`. Wartości trasy, które zostały dostarczone zgodne z wartościami domyślnymi, tak aby segmenty odpowiadający wartości te można bezpiecznie pominąć. Pamiętaj, że oba adresy URL generowane dwustronnej konwersji z tą definicją trasy, a następnie generuje te same wartości trasy, które były używane do generowania adresu URL.
+Za pomocą wartości trasy `{ controller = Home, action = Index }`, ta trasa generuje adres URL `/`. Wartości trasy, które zostały dostarczone zgodne z wartościami domyślnymi, tak aby segmenty odpowiadający wartości te można bezpiecznie pominąć. Oba adresy URL generowane dwustronnej konwersji z tą definicją trasy i wygenerować tej samej wartości trasy, które były używane do generowania adresu URL.
 
 > [!TIP]
 > Skorzystaj z aplikacji za pomocą platformy ASP.NET Core MVC <xref:Microsoft.AspNetCore.Mvc.Routing.UrlHelper> do generowania adresów URL zamiast wywoływać metodę do routingu bezpośrednio.
 
-Aby uzyskać więcej szczegółów na temat procesu tworzenia adresu URL, zobacz [odwołania w przypadku generowania adresu url](#url-generation-reference).
+Aby uzyskać więcej informacji na temat generowania adresu URL, zobacz [odwołania w przypadku generowania adresu url](#url-generation-reference).
 
 ## <a name="use-routing-middleware"></a>Użyj oprogramowania pośredniczącego routingu
 
@@ -269,9 +269,31 @@ Wzorce adresów URL, które próbują przechwytywania nazwę pliku z rozszerzeni
 
 Możesz użyć `*` znak jako prefiks parametru trasy, aby powiązać pozostałą część identyfikatora URI. Jest to nazywane *wychwytywania* parametru. Na przykład `blog/{*slug}` dopasowuje dowolny identyfikator URI, który rozpoczyna się od `/blog` i dowolną wartość z dołączonym (która jest przypisana do `slug` trasy wartość). Parametry przechwytującą cały mogą być również zgodna pusty ciąg.
 
+::: moniker range=">= aspnetcore-2.2"
+
+Parametrze wychwytywania odpowiednie znaki specjalne, gdy trasa służy do generowania adresu URL, w tym separatora ścieżki (`/`) znaków. Na przykład tras `foo/{*path}` wartościami trasy `{ path = "my/path" }` generuje `foo/my%2Fpath`. Należy pamiętać o zmienionym znaczeniu ukośnikiem. Aby znakach separatora ścieżki Rundy, należy użyć `**` prefiks parametru trasy. Trasa `foo/{**path}` z `{ path = "my/path" }` generuje `foo/my/path`.
+
+::: moniker-end
+
 Może mieć parametrów trasy *wartości domyślne*magazynu, określając wartość domyślna po nazwie parametru, rozdzielone znakiem równości (`=`). Na przykład `{controller=Home}` definiuje `Home` jako wartość domyślna dla `controller`. Wartością domyślną jest używany, jeśli wartość nie jest obecny w adresie URL, dla parametru. Oprócz wartości domyślne parametrów trasy może być opcjonalnie, określony przez dodanie znaku zapytania (`?`) na końcu nazwy parametru, jak `id?`. Różnica między wartościami opcjonalne i domyślne parametry trasy jest parametr trasy z wartością domyślną będzie zawsze daje wartość opcjonalny parametr ma wartość tylko wtedy, gdy wartość zostanie podana w adresie URL żądania.
 
-Parametry trasy może mieć również ograniczenia, które musi odpowiadać wartości trasy, powiązany z adresu URL. Dodawanie dwukropek `:` i nazwa ograniczenia po Określa nazwę parametru trasy *ograniczenie w tekście* parametru trasy. Jeśli ograniczenie wymaga argumentów, są one udostępniane w w nawiasach `( )` po nazwie ograniczenia. Można określić wiele ograniczeń w tekście, dodając inny dwukropek `:` i nazwa ograniczenia. Nazwa ograniczenia jest przekazywany do <xref:Microsoft.AspNetCore.Routing.IInlineConstraintResolver> usługi w celu utworzenia wystąpienia <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> do użycia podczas przetwarzania adresu URL. Na przykład szablon trasy `blog/{article:minlength(10)}` Określa `minlength` ograniczenie z argumentem `10`. Aby uzyskać więcej informacji na temat ograniczenia trasy i lista ograniczeń dostarczanych przez szablon, zobacz [przekierować odwołanie do ograniczenia](#route-constraint-reference) sekcji.
+::: moniker range=">= aspnetcore-2.2"
+
+Parametry trasy może mieć ograniczeń, które musi odpowiadać wartości trasy, powiązany z adresu URL. Dodawanie dwukropka (`:`) i nazwa ograniczenia po Określa nazwę parametru trasy *ograniczenie w tekście* parametru trasy. Jeśli ograniczenie wymaga argumentów, są ujęte w nawiasy `( )` po nazwie ograniczenia. Można określić wiele ograniczeń w tekście, dodając inny dwukropka (`:`) i nazwa ograniczenia. Nazwa ograniczenia i argumenty są przekazywane do <xref:Microsoft.AspNetCore.Routing.IInlineConstraintResolver> usługi w celu utworzenia wystąpienia <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> do użycia podczas przetwarzania adresu URL. Jeśli Konstruktor ograniczenie wymaga usług, są one rozwiązane z iniekcji zależności aplikacji usług. Na przykład szablon trasy `blog/{article:minlength(10)}` Określa `minlength` ograniczenie z argumentem `10`. Aby uzyskać więcej informacji na temat ograniczenia trasy i lista ograniczeń dostarczanych przez szablon, zobacz [przekierować odwołanie do ograniczenia](#route-constraint-reference) sekcji.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
+Parametry trasy może mieć ograniczeń, które musi odpowiadać wartości trasy, powiązany z adresu URL. Dodawanie dwukropka (`:`) i nazwa ograniczenia po Określa nazwę parametru trasy *ograniczenie w tekście* parametru trasy. Jeśli ograniczenie wymaga argumentów, są ujęte w nawiasy `( )` po nazwie ograniczenia. Można określić wiele ograniczeń w tekście, dodając inny dwukropka (`:`) i nazwa ograniczenia. Nazwa ograniczenia i argumenty są przekazywane do <xref:Microsoft.AspNetCore.Routing.IInlineConstraintResolver> usługi w celu utworzenia wystąpienia <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> do użycia podczas przetwarzania adresu URL. Na przykład szablon trasy `blog/{article:minlength(10)}` Określa `minlength` ograniczenie z argumentem `10`. Aby uzyskać więcej informacji na temat ograniczenia trasy i lista ograniczeń dostarczanych przez szablon, zobacz [przekierować odwołanie do ograniczenia](#route-constraint-reference) sekcji.
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
+
+Parametry trasy może mieć również transformatory parametrów, które przekształcania wartości parametru podczas generowania łączy pasującego działania i stron na identyfikatory URI. Ograniczenia, np. parametr transformatory można dodać wbudowane do parametru trasy, dodając dwukropek (`:`) i nazwa transformatora po nazwie parametru trasy. Na przykład szablon trasy `blog/{article:slugify}` Określa `slugify` przekształcania.
+
+::: moniker-end
 
 Poniższa tabela przedstawia niektóre szablony trasy i ich zachowania.
 
@@ -301,7 +323,7 @@ Następujące słowa kluczowe są zarezerwowane nazwy i nie można użyć jako n
 
 ## <a name="route-constraint-reference"></a>Odwołanie do ograniczenia trasy
 
-Ograniczenia trasy wykonania, gdy `Route` ma dopasowane składnia przychodzącego adresu URL i podzielić na tokeny Ścieżka adresu URL do wartości trasy. Ograniczenia trasy ogólnie badać wartości tras skojarzone za pośrednictwem szablon trasy i upewnij prostą tak/nie decyzji o tym, czy wartość jest dopuszczalne. Niektóre ograniczenia trasy umożliwia należy wziąć pod uwagę, czy żądania można kierować dane poza wartości trasy. Na przykład <xref:Microsoft.AspNetCore.Routing.Constraints.HttpMethodRouteConstraint> można zaakceptować lub odrzucić żądanie oparte na jego zlecenie HTTP.
+Ograniczenia trasy wykonania, gdy `Route` ma dopasowane składnia przychodzącego adresu URL i podzielić na tokeny Ścieżka adresu URL do wartości trasy. Ograniczenia trasy ogólnie badać wartości tras skojarzone za pośrednictwem szablon trasy i wprowadzić tak, / nie decyzję o tym, czy wartość jest dopuszczalne. Niektóre ograniczenia trasy umożliwia należy wziąć pod uwagę, czy żądania można kierować dane poza wartości trasy. Na przykład <xref:Microsoft.AspNetCore.Routing.Constraints.HttpMethodRouteConstraint> można zaakceptować lub odrzucić żądanie oparte na jego zlecenie HTTP.
 
 > [!WARNING]
 > Należy unikać stosowania ograniczeń dla **sprawdzania danych wejściowych** ponieważ w ten sposób oznacza, że nieprawidłowe dane wejściowe skutkuje *404 — Nie można odnaleźć* odpowiedzi zamiast *400 — Nieprawidłowe żądanie* z odpowiedni komunikat o błędzie. Ograniczenia trasy są używane do **odróżnić** między podobne tras, nie można sprawdzić poprawność danych wejściowych dla określonej trasy.
@@ -343,7 +365,7 @@ public User GetUserById(int id) { }
 
 Dodaje platformę ASP.NET Core `RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.CultureInvariant` do konstruktora wyrażenia regularnego. Zobacz <xref:System.Text.RegularExpressions.RegexOptions> opis tych elementów członkowskich.
 
-Wyrażenia regularne używać ograniczników i tokeny podobne do używanych przez usługę Routing i języka C#. Wyrażenie regularne tokeny muszą być wyjściowym. Można użyć wyrażenia regularnego `^\d{3}-\d{2}-\d{4}$` routingu, wyrażenie musi mieć `\` znaki wpisane w jako `\\` w pliku źródłowym języka C# jako znak ucieczki `\` ciąg znaku ucieczki (chyba że za pomocą [ciąg verbatim literały](/dotnet/csharp/language-reference/keywords/string). `{` , `}` , `[` i `]` znaków muszą być poprzedzone podwojenie je jako znak ucieczki znaki ogranicznika parametr routingu. W poniższej tabeli przedstawiono wyrażeń regularnych i wersji o zmienionym znaczeniu.
+Wyrażenia regularne używać ograniczników i tokeny podobne do używanych przez usługę Routing i języka C#. Wyrażenie regularne tokeny muszą być wyjściowym. Można użyć wyrażenia regularnego `^\d{3}-\d{2}-\d{4}$` routingu, wyrażenie musi mieć `\` znaki wpisane w jako `\\` w pliku źródłowym języka C# jako znak ucieczki `\` ciąg znaku ucieczki (chyba że za pomocą [ciąg verbatim literały](/dotnet/csharp/language-reference/keywords/string). `{`, `}`, `[`, I `]` znaków muszą być poprzedzone podwojenie je jako znak ucieczki znaki ogranicznika parametr routingu. W poniższej tabeli przedstawiono wyrażeń regularnych i wersji o zmienionym znaczeniu.
 
 | Wyrażenie            | Poprzedzone znakiem zmiany znaczenia                        |
 | --------------------- | ------------------------------ |
@@ -361,9 +383,29 @@ Wyrażenia regularne użyte w routingu często rozpoczynać `^` znaków (dopasow
 | `^[a-z]{2}$` |  Cześć    | Nie    | zobacz `^` i `$` powyżej |
 | `^[a-z]{2}$` | 123abc456 | Nie    | zobacz `^` i `$` powyżej |
 
-Zapoznaj się [wyrażeń regularnych programu .NET Framework](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) więcej informacji na temat składni wyrażeń regularnych.
+Aby uzyskać więcej informacji na temat składni wyrażeń regularnych, zobacz [wyrażeń regularnych programu .NET Framework](/dotnet/standard/base-types/regular-expression-language-quick-reference).
 
 Aby ograniczyć parametr znany zestaw możliwych wartości, należy użyć wyrażenia regularnego. Na przykład `{action:regex(^(list|get|create)$)}` jest zgodny tylko `action` trasy wartość `list`, `get`, lub `create`. Jeśli przekazywana do słownika ograniczenia, ciąg `^(list|get|create)$` odpowiada. Ograniczenia, które są przekazywane w słowniku ograniczenia (niewyrównane w szablonie), która nie pasuje do jednej znane ograniczenia również są traktowane jako wyrażenia regularne.
+
+::: moniker range=">= aspnetcore-2.2"
+
+## <a name="parameter-transformer-reference"></a>Odwołania do parametru transformatora
+
+Parametr transformatory wykonania podczas generowania łącza dla `Route`. Parametr transformatory zająć parametru, wartości trasy i przekształć go w nową wartość ciągu. Po przekształceniu wartość jest używana w wygenerowane łącze. Na przykład niestandardowy `slugify` transformatora parametr we wzorcu trasy `blog\{article:slugify}` z `Url.Action(new { article = "MyTestArticle" })` generuje `blog\my-test-article`. Implementowanie transformatory parametr `Microsoft.AspNetCore.Routing.IOutboundParameterTransformer` i są skonfigurowane przy użyciu <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap>.
+
+Transformatory parametru są również używane przez struktury do przekształcania identyfikatora URI, do którego jest rozpoznawany jako punkt końcowy. Na przykład ASP.NET Core MVC używa parametru transformatory do przekształcania wartości trasy, używany do dopasowywania `area`, `controller`, `action`, i `page`.
+
+```csharp
+routes.MapRoute(
+    name: "default",
+    template: "{controller=Home:slugify}/{action=Index:slugify}/{id?}");
+```
+
+Trasa poprzedniej akcji `SubscriptionManagementController.GetAll()` jest dopasowany do identyfikatora URI `/subscription-management/get-all`. Transformer parametru nie zmienia wartości trasy, używanego do generowania łącza. `Url.Action("GetAll", "SubscriptionManagement")` dane wyjściowe `/subscription-management/get-all`.
+
+Dołączono również ASP.NET Core MVC `Microsoft.AspNetCore.Mvc.ApplicationModels.RouteTokenTransformerConvention` Konwencji interfejsu API. Konwencja dotyczy transformatora określony parametr wszystkie tokeny trasy atrybutów w aplikacji.
+
+::: moniker-end
 
 ## <a name="url-generation-reference"></a>Odwołanie do generowania adresu URL
 
@@ -385,7 +427,7 @@ Poniższy przykład pokazuje, jak wygenerować łącze do trasy, biorąc pod uwa
 
 Drugi parametr `VirtualPathContext` Konstruktor jest kolekcją *otoczenia wartości*. Wartości otoczenia umożliwiają wygodne przez ograniczenie liczby wartości, które Deweloper należy określić w ramach kontekstu żądania. Bieżące wartości trasy, bieżącego żądania są traktowane jako wartości otoczenia dotyczącymi generowania łączy. W aplikacji ASP.NET Core MVC, jeśli znajdują się w `About` akcji `HomeController`, nie musisz określić wartość trasy kontrolera, aby połączyć `Index` akcji&mdash;otoczenia wartość `Home` jest używany.
 
-Otoczenia wartości, które nie jest zgodny z parametrem są ignorowane, a otoczenia wartości również są ignorowane, gdy jawnie dostarczone przez wartość zastąpienia, go, przechodząc od lewej do prawej w adresie URL.
+Otoczenia wartości, które nie jest zgodny z parametrem są ignorowane, a otoczenia wartości również są ignorowane, gdy jawnie podana jest wartość zastępuje, go, przechodząc od lewej do prawej w adresie URL.
 
 Wartości jawnie są dostarczane, ale które nie są zgodne niczego są dodawane do ciągu zapytania. W poniższej tabeli przedstawiono wyniki, korzystając z szablonu trasy `{controller}/{action}/{id?}`.
 

@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 05/30/2018
 uid: tutorials/razor-pages/search
-ms.openlocfilehash: 9608f454c2c4ae0f4db1e71200b0ca98fe2cd2ad
-ms.sourcegitcommit: 32f5ee0690604d451f61e9a5c28881c9fcf85738
+ms.openlocfilehash: c88441b39d8c96ec817c58fc56ebd51a0887b077
+ms.sourcegitcommit: 317f9be24db600499e79d25872d743af74bd86c0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47454716"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48045565"
 ---
 # <a name="add-search-to-aspnet-core-razor-pages"></a>Dodawanie wyszukiwania do stron Razor programu ASP.NET Core
 
@@ -82,7 +82,7 @@ Dodaj następujące właściwości wyróżniony, aby *Pages/Movies/Index.cshtml.
 ::: moniker-end
 
 
-`SelectList Genres` Zawiera listę gatunki. Dzięki temu użytkownikowi na wybranie określonego rodzaju z listy.
+`Genres` Właściwość zawiera listę gatunki. Dzięki temu użytkownikowi na wybranie określonego rodzaju z listy.
 
 `MovieGenre` Właściwość zawiera gatunku określonych przez użytkownika (na przykład "zachodni").
 
