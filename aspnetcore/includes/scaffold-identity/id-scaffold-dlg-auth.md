@@ -49,4 +49,6 @@ PowerShell używa średnika jako separatora polecenia. Przy użyciu programu pow
 ```cli
 dotnet aspnet-codegenerator identity -dc MyWeb.Data.ApplicationDbContext --files "Account.Register;Account.Login;Account.Logout"
 ```
+
+<a name="if-you-run-the-identity-scaffolder-without-specifying-the---files-flag-or-the---usedefaultui-flag-all-the-available-identity-ui-pages-will-be-created-in-your-project"></a>Jeśli Generator szkieletu tożsamości jest uruchomiony bez określenia `--files` flagi lub `--useDefaultUI` Flaga wszystkie dostępne strony tożsamości interfejsu użytkownika zostanie utworzona w projekcie.
 -------------

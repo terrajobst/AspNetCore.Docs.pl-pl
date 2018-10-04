@@ -8,38 +8,38 @@ ms.date: 02/13/2014
 ms.assetid: 0acfec5a-48f2-4766-a801-a0f426966f0a
 msc.legacyurl: /web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio
 msc.type: authoredcontent
-ms.openlocfilehash: 41cb1048b9dab21516e38cfff0772b8b690d474f
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: f3c1a74b23a0d9535256caa660408701062fe21c
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41753718"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48795450"
 ---
 <a name="programming-aspnet-web-pages-razor-using-visual-studio"></a>Programowanie wzorca ASP.NET Web Pages (Razor) przy użyciu programu Visual Studio
 ====================
 przez [Tom FitzMacken](https://github.com/tfitzmac)
 
 > W tym artykule wyjaśniono, jak można użyć programu Visual Studio lub Visual Web Developer Express do programu ASP.NET Web Pages (Razor) witryn sieci Web.
-> 
+>
 > Dowiesz się
-> 
+>
 > - Co jest potrzebne do zainstalowania (jeśli nic) do pracy przy użyciu stron ASP.NET Web Pages w używanej wersji programu Visual Studio.
 > - Jak dodać obsługę dla stron sieci Web platformy ASP.NET do programu Visual Web Developer 2010 Express.
 > - Jak używać funkcji w programie Visual Studio do pracy ze stronami Razor aplikacji ASP.NET, w tym funkcji IntelliSense i debugowania.
->   
-> 
+>
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używanego w tym samouczku
-> 
-> 
+>
+>
 > - ASP.NET Web Pages (Razor) 3
 > - Visual Studio 2013
 > - Program WebMatrix 3
->   
-> 
+>
+>
 > W tym samouczku współpracuje również z wzorca ASP.NET Web Pages 2 programu Visual Studio 2012, Visual Studio 2010 i programu WebMatrix 2.
 
 
-Można programować wzorca ASP.NET Web pages o składni Razor za pomocą programu WebMatrix lub innych edytorów kodu. Można również użyć programu Microsoft Visual Studio, który jest w pełni funkcjonalne zintegrowanym środowisku programistycznym (IDE), która udostępnia zaawansowany zestaw narzędzi do tworzenia wielu rodzajach aplikacji (nie tylko witryn sieci Web). Do pracy ze stronami Razor aplikacji ASP.NET, można albo użyj jednego z pełnej wersji programu Visual Studio lub bezpłatną [programu Visual Studio Express for Web](https://www.visualstudio.com/downloads/download-visual-studio-vs#d-2013-express) edition.
+Można programować wzorca ASP.NET Web pages o składni Razor za pomocą programu WebMatrix lub innych edytorów kodu. Można również użyć programu Microsoft Visual Studio, który jest w pełni funkcjonalne zintegrowanym środowisku programistycznym (IDE), która udostępnia zaawansowany zestaw narzędzi do tworzenia wielu rodzajach aplikacji (nie tylko witryn sieci Web). Aby pracować ze stronami Razor aplikacji ASP.NET, możesz użyć [programu Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017).
 
 Dostępne są następujące dwie szczególnie przydatne funkcje, które program Visual Studio udostępnia do programowania w języku ASP.NET Razor strony sieci web:
 
@@ -47,6 +47,8 @@ Dostępne są następujące dwie szczególnie przydatne funkcje, które program 
 - *Debuger*. Debuger umożliwia rozwiązywanie problemów z kodu przez zatrzymanie programu, gdy jest uruchomiona, badanie zmiennych i krokowe wykonywanie kodu wiersz po wierszu.
 
 ## <a name="using-visual-studio-with-different-versions-of-aspnet-web-pages"></a>Za pomocą programu Visual Studio z użyciem różnych wersji wzorca ASP.NET Web Pages
+
+Aby tworzyć aplikacje sieci web ASP.NET w programie Visual Studio 2017, należy zainstalować **ASP.NET i tworzenie aplikacji internetowych** obciążenia.
 
 Visual Studio 2012 i Visual Studio 2013 obejmują obsługę składnika ASP.NET Web Pages. (Pakiety, które są wymagane do obsługi stron ASP.NET Web Pages są instalowane podczas instalowania programu Visual Studio).
 
@@ -73,7 +75,7 @@ Po kliknięciu przycisku, projekt jest otwierany w programie Visual Studio. Moż
 
 Aby utworzyć witrynę sieci Web ASP.NET Razor, w programie Visual Studio:
 
-1. Uruchom program Visual Studio lub Visual Web Developer.
+1. Otwórz program Visual Studio.
 2. W **pliku** menu, kliknij przycisk **nową witrynę sieci Web**.
 
     ![Utwórz nową witrynę sieci web](program-asp-net-web-pages-in-visual-studio/_static/image2.png)
@@ -90,28 +92,27 @@ Nowy projekt istnieje i jest wypełniana przy użyciu niektóre domyślne strony
 Teraz, po utworzeniu witryny, możesz zobaczyć, jak technologia IntelliSense działa w programie Visual Studio.
 
 1. W witrynie sieci Web został utworzony, otwórz *Default.cshtml* strony.
-2. Po `<h3>` tagów na stronie, wpisz `@ServerInfo.` (w tym kropki (.)). Zwróć uwagę, jak technologia IntelliSense wyświetla dostępne metody `ServerInfo` pomocnika na liście rozwijanej. 
+2. Po `<h3>` tagów na stronie, wpisz `@ServerInfo.` (w tym kropki (.)). Zwróć uwagę, jak technologia IntelliSense wyświetla dostępne metody `ServerInfo` pomocnika na liście rozwijanej.
 
     ![funkcja IntelliSense](program-asp-net-web-pages-in-visual-studio/_static/image4.png)
-3. Wybierz `GetHtml` metodę z listy, a następnie naciśnij klawisz Enter. Funkcja IntelliSense automatycznie wypełnia metody. (Przy użyciu dowolnej metody w języku C#, podczas dodawania `()` znaków po metodzie.)  
-   Kompletny kod dla `GetHtml` metoda wygląda następująco:  
+3. Wybierz `GetHtml` metodę z listy, a następnie naciśnij klawisz Enter. Funkcja IntelliSense automatycznie wypełnia metody. (Przy użyciu dowolnej metody w języku C#, podczas dodawania `()` znaków po metodzie.) Kompletny kod dla `GetHtml` metoda wygląda następująco:
 
     [!code-cshtml[Main](program-asp-net-web-pages-in-visual-studio/samples/sample1.cshtml)]
-4. Naciśnij klawisze Ctrl + F5, aby uruchomić stronę. Jest to, jak wygląda podczas wyświetlania w przeglądarce strony: 
+4. Naciśnij klawisze Ctrl + F5, aby uruchomić stronę. Jest to, jak wygląda podczas wyświetlania w przeglądarce strony:
 
     ![domyślną stronę w przeglądarce](program-asp-net-web-pages-in-visual-studio/_static/image5.png)
 5. Zamknij przeglądarkę.
 
 ### <a name="using-the-debugger"></a>Za pomocą debugera
 
-1. W górnej części *Default.cshtml* strony po wierszu, który rozpoczyna się od `Page.Title`, Dodaj następujący wiersz kodu: 
+1. W górnej części *Default.cshtml* strony po wierszu, który rozpoczyna się od `Page.Title`, Dodaj następujący wiersz kodu:
 
     [!code-csharp[Main](program-asp-net-web-pages-in-visual-studio/samples/sample2.cs)]
 2. Szare marginesie po lewej stronie kodu w edytorze, kliknij przycisk Dalej, ten nowy wiersz. Aby można było dodać *punktu przerwania*. Punkt przerwania jest znacznik, który informuje debuger, aby zatrzymać program w tym momencie, dzięki czemu można zobaczyć, co się dzieje.
 
     ![Ustaw punkt przerwania](program-asp-net-web-pages-in-visual-studio/_static/image6.png)
 3. Usuń wywołanie funkcji `ServerInfo.GetHtml` metodę i dodaj wywołanie do `@myTime` zmiennej w tym miejscu. To wywołanie powoduje wyświetlenie bieżącej wartości godziny, który jest zwracany przez nowy wiersz kodu.
-4. Naciśnij klawisz F5, aby uruchomić stronę w debugerze. Strona zatrzymuje się na punkcie przerwania, który został ustawiony. Na poniższej ilustracji przedstawiono, jak strona wygląda w edytorze za pomocą punktu przerwania (w kolorze żółtym). 
+4. Naciśnij klawisz F5, aby uruchomić stronę w debugerze. Strona zatrzymuje się na punkcie przerwania, który został ustawiony. Na poniższej ilustracji przedstawiono, jak strona wygląda w edytorze za pomocą punktu przerwania (w kolorze żółtym).
 
     ![punkt przerwania debugowania](program-asp-net-web-pages-in-visual-studio/_static/image7.png)
 5. Na pasku narzędzi debugowania kliknij **Step Into** przycisk (lub naciśnij klawisz F11) do uruchamiania następnego wiersza kodu. Każde kliknięcie tego przycisku, wykonanie przejdź do następnego wiersza kodu.

@@ -7,12 +7,12 @@ author: BillWagner
 ms.author: wiwagn
 ms.date: 02/01/2017
 ms.assetid: c9f1d52c-b4bd-4b5d-b7f9-8f9ceaf778c4
-ms.openlocfilehash: c2374e7c9ac89c2af26436529c7fa58a2d2d6ba6
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 1343bd100f521326477ecd831aa627b4394bad44
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37814161"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48795356"
 ---
 # <a name="migrating-aspnet-mvc-applications-to-windows-containers"></a>Migrowanie aplikacji ASP.NET MVC do kontenerów systemu Windows
 
@@ -35,11 +35,11 @@ Przenoszenie aplikacji obejmuje następujące kroki:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Musi być uruchomiona na komputerze deweloperskim
+Na komputerze deweloperskim musi mieć następujące oprogramowanie:
 
-- [Rocznicowa aktualizacja systemu Windows 10](https://www.microsoft.com/software-download/windows10/) (lub nowszego) lub [systemu Windows Server 2016](https://www.microsoft.com/cloud-platform/windows-server) (lub nowszej).
+- [Rocznicowa aktualizacja systemu Windows 10](https://www.microsoft.com/software-download/windows10/) (lub nowszego) lub [systemu Windows Server 2016](https://www.microsoft.com/cloud-platform/windows-server) (lub nowszej)
 - [Docker for Windows](https://docs.docker.com/docker-for-windows/) -Beta 26 wersja stabilna 1.13.0 lub 1.12 (lub nowsze wersje)
-- [Program Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx).
+- [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)
 
 > [!IMPORTANT]
 > Jeśli używasz systemu Windows Server 2016, postępuj zgodnie z instrukcjami dotyczącymi [wdrażania hosta kontenera — system Windows Server](https://msdn.microsoft.com/virtualization/windowscontainers/deployment/deployment).
@@ -114,7 +114,7 @@ docker run -d --name randomanswers mvcrandomanswers
 
 `-d` Argument nakazuje platformy Docker można uruchomić obrazu w trybie odłączonym. Oznacza to, że obraz platformy Docker działa bez połączenia z bieżącej powłoce.
 
-W wielu przykładach platformy docker może zostać wyświetlony -p do mapowania portów kontenera i hosta. Domyślny obraz aspnet skonfigurował już kontener do nasłuchiwania na porcie 80 i udostępnić ją. 
+W wielu przykładach platformy docker może zostać wyświetlony -p do mapowania portów kontenera i hosta. Domyślny obraz aspnet skonfigurował już kontener do nasłuchiwania na porcie 80 i udostępnić ją.
 
 `--name randomanswers` Umożliwia nadanie nazwy działającemu kontenerowi. Można używać tej nazwy zamiast Identyfikatora kontenera, w większości poleceń.
 

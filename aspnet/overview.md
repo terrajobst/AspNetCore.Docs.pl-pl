@@ -9,12 +9,12 @@ ms.date: 03/12/2010
 ms.technology: aspnet
 msc.legacyurl: ''
 msc.type: content
-ms.openlocfilehash: 5bdebcc226050afc2469840dc4a4dc97ec6b80b2
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 2dc48e1262b1807a77a9889f7e0e62c9b9ea463e
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41755768"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48794814"
 ---
 # <a name="aspnet-overview"></a>Omówienie programu ASP.NET
 
@@ -24,7 +24,7 @@ ASP.NET to bezpłatne środowisko internetowe umożliwiające tworzenie doskona�
 
 ## <a name="get-started"></a>Wprowadzenie
 
-[Visual Studio Community 2017](https://www.visualstudio.com/downloads/), bezpłatne środowisko IDE dla platformy ASP.NET w Windows.
+Zainstaluj [programu Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017) Community edition, bezpłatne środowisko IDE dla platformy ASP.NET w Windows.
 
 ## <a name="websites-and-web-applications"></a>Aplikacje sieci web i witryn sieci Web
 
@@ -34,7 +34,7 @@ Każdego szablonu jest przeznaczony dla stylu różnych rozwoju. Możesz wybrać
 
 Poniżej przedstawiono omówienie każdego z struktury i kilka pomysłów na to, jak dokonać wyboru między nimi. Jeśli wolisz wprowadzenie wideo, zobacz [tworzenie witryn internetowych ASP.NET](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/Making-Websites-with-ASPNET) i [co to jest narzędzia sieci Web?](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/what-is-web-tools)
 
-|   | Jeśli masz doświadczenie | Styl projektowania | Doświadczenie | 
+|   | Jeśli masz doświadczenie | Styl projektowania | Doświadczenie |
 |-----------|----------------------|-----------------------------------------------------|----------------|
 | Formularze sieci Web | Win Forms, WPF, .NET | Szybkie opracowywanie przy użyciu bogata Biblioteka formantów, które hermetyzują kod znaczników HTML | RAD średniego poziomu, zaawansowany |
 | MVC       | Ruby on Rails, platformy .NET  | Pełną kontrolę nad kod znaczników HTML, kodu i znaczników rozdzielonych i łatwe do pisania testów. Najlepszym wyborem dla aplikacji mobilnych i jednostronicowej (SPA). | Średniego poziomu, zaawansowany |
@@ -42,13 +42,13 @@ Poniżej przedstawiono omówienie każdego z struktury i kilka pomysłów na to,
 
 ### <a name="web-forms"></a>Formularze sieci Web
 
-ASP.NET Web Forms umożliwiają tworzenie dynamicznych witryn sieci Web przy użyciu znanego modelu przeciągania i upuszczania, oparte na zdarzeniach. Powierzchni projektowej oraz setkom kontrolek i składników pozwalają szybko tworzyć złożone, zaawansowane witryny opartej na interfejsie użytkownika z dostępem do danych. 
+ASP.NET Web Forms umożliwiają tworzenie dynamicznych witryn sieci Web przy użyciu znanego modelu przeciągania i upuszczania, oparte na zdarzeniach. Powierzchni projektowej oraz setkom kontrolek i składników pozwalają szybko tworzyć złożone, zaawansowane witryny opartej na interfejsie użytkownika z dostępem do danych.
 
 [Dowiedz się więcej o formularzy sieci Web](web-forms/index.md)
 
 ### <a name="mvc"></a>MVC
 
-ASP.NET MVC zapewnia zaawansowany, bazujący na wzorcach sposób tworzenia dynamicznych witryn internetowych, które umożliwia wyraźne oddzielenie obaw i zapewnia pełną kontrolę nad znacznikami dla przyjemne, elastyczne programowanie. Platforma ASP.NET MVC zawiera wiele funkcji umożliwiających szybkie, przyjazne projektowanie oparte na testach Programowanie w celu tworzenia zaawansowanych aplikacji korzystających z najnowszych standardów sieci web. 
+ASP.NET MVC zapewnia zaawansowany, bazujący na wzorcach sposób tworzenia dynamicznych witryn internetowych, które umożliwia wyraźne oddzielenie obaw i zapewnia pełną kontrolę nad znacznikami dla przyjemne, elastyczne programowanie. Platforma ASP.NET MVC zawiera wiele funkcji umożliwiających szybkie, przyjazne projektowanie oparte na testach Programowanie w celu tworzenia zaawansowanych aplikacji korzystających z najnowszych standardów sieci web.
 
 [Dowiedz się więcej o MVC](mvc/index.md)
 
@@ -80,7 +80,7 @@ Biblioteki SignalR platformy ASP.NET jest nową biblioteką dla deweloperów pla
 
 <!-- Put first under SignalR TOC:  Watch video (6 minutes) https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/signalr-and-the-real-time-web -->
 
-## <a name="mobile-apps-and-sites"></a>Aplikacje mobilne i lokacje 
+## <a name="mobile-apps-and-sites"></a>Aplikacje mobilne i lokacje
 
 Program ASP.NET może obsługiwać natywnych aplikacji mobilnych za pomocą interfejsu API sieci Web zaplecza, a także mobilnej witryny sieci web przy użyciu środowisk elastyczne, takich jak Twitter Bootstrap. Jeśli tworzysz natywnych aplikacji mobilnych jest łatwe tworzenie interfejsu API sieci Web opartych na formacie JSON na dostęp do danych uchwyt, uwierzytelnianie i powiadomienia wypychane dla aplikacji. Jeśli tworzysz interaktywnych witryn mobilnych, można użyć dowolnego CSS framework lub systemu siatki Otwórz kopii zapasowej lub wybierz zaawansowany system urządzenia przenośnego, np. jQuery Mobile lub Sencha i niezawodnych aplikacji mobilnych za pomocą PhoneGap.
 
@@ -88,7 +88,7 @@ Program ASP.NET może obsługiwać natywnych aplikacji mobilnych za pomocą inte
 
 <!-- Put first under mobile TOC:  Watch video (11 minutes) https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-and-mobile -->
 
-## <a name="single-page-applications"></a>Aplikacje jednej strony 
+## <a name="single-page-applications"></a>Aplikacje jednej strony
 
 ASP.NET pojedynczej strony aplikacji (SPA) pomaga w tworzeniu aplikacji, które zawierają istotne interakcji po stronie klienta przy użyciu języków HTML 5, CSS 3 i JavaScript. Visual Studio zawiera szablon służący do tworzenia aplikacji jednostronicowej przy użyciu struktura knockout.js i Web API platformy ASP.NET. Oprócz wbudowany szablon SPA utworzonych przez społeczność SPA są także dostępne szablony do pobrania.
 

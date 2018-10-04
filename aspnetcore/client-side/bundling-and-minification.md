@@ -4,18 +4,18 @@ author: scottaddie
 description: Dowiedz się, jak zoptymalizować zasoby statyczne w aplikacji sieci web platformy ASP.NET Core za pomocą metod minifikacji i tworzenia pakietów.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 01/10/2018
+ms.date: 10/04/2018
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: 45200d34974cbbb44787616eba7508458882416c
-ms.sourcegitcommit: 4d5f8680d68b39c411b46c73f7014f8aa0f12026
+ms.openlocfilehash: 152f3c810b587d734c1b1076a09ea38d13872e2d
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47028144"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48795408"
 ---
 # <a name="bundle-and-minify-static-assets-in-aspnet-core"></a>Tworzenie pakietów i minimalizowanie statycznych zasobów w programie ASP.NET Core
 
-Przez [Scott Addie](https://twitter.com/Scott_Addie)
+Przez [Scott Addie](https://twitter.com/Scott_Addie) i [sosny David](https://twitter.com/davidpine7)
 
 W tym artykule wyjaśniono zalety stosowania tworzenie pakietów i minimalizowanie, w tym, jak można użyć tych funkcji w aplikacji sieci web platformy ASP.NET Core.
 

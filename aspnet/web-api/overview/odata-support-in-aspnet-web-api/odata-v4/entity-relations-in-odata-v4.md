@@ -8,41 +8,37 @@ ms.date: 06/26/2014
 ms.assetid: 72657550-ec09-4779-9bfc-2fb15ecd51c7
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/entity-relations-in-odata-v4
 msc.type: authoredcontent
-ms.openlocfilehash: 80173519f1c8abd77b4138b7d29f780ffc60a188
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: d07ddab83462ee1bc84ba8ab15fe906937f506e6
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41756314"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48795395"
 ---
 <a name="entity-relations-in-odata-v4-using-aspnet-web-api-22"></a>Relacje jednostek w protokole OData v4 przy użyciu wzorca ASP.NET Web API 2.2
 ====================
 przez [Mike Wasson](https://github.com/MikeWasson)
 
 > Większość zestawów danych zdefiniować relacje między jednostkami: klienci mają zamówienia; książki mają autorzy; Jeśli te produkty mają dostawców. Używanie protokołu OData, klienci mogą przejść za pośrednictwem relacji jednostek. Biorąc pod uwagę produktu, można znaleźć dostawcy. Można również tworzyć i usuwać relacje. Na przykład można ustawić dostawcę dla produktu.
-> 
+>
 > W tym samouczku pokazano, jak obsługują te operacje w protokole OData v4 przy użyciu interfejsu API sieci Web platformy ASP.NET. Samouczek opiera się na samouczka [tworzenia protokołu OData v4 punktu końcowego Używanie wzorca ASP.NET Web API 2](create-an-odata-v4-endpoint.md).
-> 
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używanego w tym samouczku
-> 
-> 
+>
 > - Składnik Web API 2.1
 > - Protokołu OData v4
-> - [Visual Studio 2013 Update 2](https://www.visualstudio.com/downloads/download-visual-studio-vs)
+> - Visual Studio 2013 (Pobierz program Visual Studio 2017 [tutaj](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017))
 > - Entity Framework 6
 > - .NET 4.5
-> 
-> 
+>
 > ## <a name="tutorial-versions"></a>Samouczek wersji
-> 
+>
 > Dla protokołu OData w wersji 3, zobacz [Obsługa relacji jednostek w protokole OData v3](https://asp.net/web-api/overview/odata-support-in-aspnet-web-api/odata-v3/working-with-entity-relations).
-
 
 ## <a name="add-a-supplier-entity"></a>Dodaj jednostkę dostawcy
 
 > [!NOTE]
 > Samouczek opiera się na samouczka [tworzenia protokołu OData v4 punktu końcowego Używanie wzorca ASP.NET Web API 2](create-an-odata-v4-endpoint.md).
-
 
 Po pierwsze potrzebujemy powiązanej jednostki. Dodaj klasę o nazwie `Supplier` w folderze modeli.
 

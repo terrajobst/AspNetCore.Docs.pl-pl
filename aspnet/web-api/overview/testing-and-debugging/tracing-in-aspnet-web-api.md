@@ -8,30 +8,28 @@ ms.date: 02/25/2014
 ms.assetid: 66a837e9-600b-4b72-97a9-19804231c64a
 msc.legacyurl: /web-api/overview/testing-and-debugging/tracing-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 02805eda4f8dceb467547fa4e00aef8ea956f228
-ms.sourcegitcommit: c684eb6c0999d11d19e15e65939e5c7f99ba47df
+ms.openlocfilehash: 426e3500c504a651a325eec021e2d9e8b9cc1d32
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46292287"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48795283"
 ---
 <a name="tracing-in-aspnet-web-api-2"></a>Śledzenie we wzorcu ASP.NET Web API 2
 ====================
 przez [Mike Wasson](https://github.com/MikeWasson)
 
 > Jeśli chcesz debugować aplikację sieci web, to nie nie zastąpi dobry zestaw dzienniki śledzenia. W tym samouczku pokazano, jak włączyć śledzenie w programie ASP.NET Web API. Ta funkcja służy do śledzenia struktury Web API działanie przed i po wywołuje kontroler. Można również użyć do śledzenia własnego kodu.
-> 
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używanego w tym samouczku
-> 
-> 
-> - [Program Visual Studio 2017](https://www.visualstudio.com/downloads/) (współpracuje również z programu Visual Studio 2015)
+>
+> - [Program Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017) (współpracuje również z programu Visual Studio 2015)
 > - Składnik Web API 2
 > - [Microsoft.AspNet.WebApi.Tracing](http://www.nuget.org/packages/Microsoft.AspNet.WebApi.Tracing)
 
-
 ## <a name="enable-systemdiagnostics-tracing-in-web-api"></a>Włącz System.Diagnostics śledzenie w składniku Web API
 
-Najpierw utworzymy nowy projekt aplikacji sieci Web ASP.NET. W programie Visual Studio z **pliku** menu, wybierz opcję **New**, następnie **projektu**. W obszarze **szablony**, **Web**, wybierz opcję **aplikacji sieci Web ASP.NET**.
+Najpierw utworzymy nowy projekt aplikacji sieci Web ASP.NET. W programie Visual Studio z **pliku** menu, wybierz opcję **New** > **projektu**. W obszarze **szablony**, **Web**, wybierz opcję **aplikacji sieci Web ASP.NET**.
 
 [![](tracing-in-aspnet-web-api/_static/image2.png)](tracing-in-aspnet-web-api/_static/image1.png)
 

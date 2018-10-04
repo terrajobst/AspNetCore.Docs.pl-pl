@@ -8,12 +8,12 @@ ms.date: 06/05/2014
 ms.assetid: bf20f78d-ff91-48be-abd1-88e23dcc70ba
 msc.legacyurl: /web-api/overview/testing-and-debugging/unit-testing-with-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 0a3f9ddde725995359de85c5e0783106f5de02bd
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: 91cca2789b66b7b8983f8786b506c5fc71db8b75
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41757309"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48795437"
 ---
 <a name="unit-testing-aspnet-web-api-2"></a>ASP.NET Web API 2 testy jednostkowe
 ====================
@@ -22,17 +22,15 @@ przez [Tom FitzMacken](https://github.com/tfitzmac)
 [Pobieranie ukończone projektu](https://code.msdn.microsoft.com/Unit-Testing-with-ASPNET-1374bc11)
 
 > Tej wskazówki i aplikacji przedstawiają sposób tworzenia testów jednostkowych proste dla aplikacji sieci Web API 2. W tym samouczku pokazano, jak do uwzględnienia projekt testów jednostkowych w rozwiązaniu, a następnie zapisać metody testowe, sprawdzające wartości zwracane przez metodę kontrolera.
-> 
+>
 > W tym samouczku przyjęto założenie, że znasz podstawowe pojęcia dotyczące środowiska ASP.NET Web API. Aby uzyskać Samouczek wprowadzający, zobacz [wprowadzenie do wzorca ASP.NET Web API 2](../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md).
-> 
+>
 > Testy jednostkowe w tym temacie są celowo ograniczone do prostych danych scenariuszy. Do testowania bardziej zaawansowanych scenariuszy danych jednostki, zobacz [pozorowanie programu Entity Framework podczas jednostki testowania wzorca ASP.NET Web API 2](mocking-entity-framework-when-unit-testing-aspnet-web-api-2.md).
-> 
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używanego w tym samouczku
-> 
-> 
-> - [Visual Studio 2017](https://www.visualstudio.com/vs/)
+>
+> - [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)
 > - Składnik Web API 2
-
 
 ## <a name="in-this-topic"></a>W tym temacie:
 
@@ -41,7 +39,6 @@ Ten temat zawiera następujące sekcje:
 - [Wymagania wstępne](#prereqs)
 - [Pobierz program code](#download)
 - [Tworzenie aplikacji przy użyciu projektu testu jednostkowego](#appwithunittest)
-
     - [Dodaj projekt testu jednostkowego, podczas tworzenia aplikacji](#whencreate)
     - [Dodaj projekt testu jednostkowego do istniejącej aplikacji](#addtoexisting)
 - [Konfigurowanie aplikacji sieci Web API 2](#setupproject)
@@ -52,7 +49,7 @@ Ten temat zawiera następujące sekcje:
 <a id="prereqs"></a>
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Program Visual Studio 2017 Community, Professional lub Enterprise edition
+[Program Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017) Community, Professional lub Enterprise edition
 
 <a id="download"></a>
 ## <a name="download-code"></a>Pobierz program code

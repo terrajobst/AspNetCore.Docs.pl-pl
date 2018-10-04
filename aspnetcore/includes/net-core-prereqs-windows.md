@@ -1,4 +1,4 @@
-[Visual Studio 2017 w wersji 15.7.3 lub nowszej](https://www.microsoft.com/net/download/windows) z następującymi pakietami roboczymi:
+[Visual Studio 2017 w wersji 15.7.3 lub nowszej](https://visualstudio.microsoft.com/downloads/) z następującymi pakietami roboczymi:
 
 * **ASP.NET i tworzenie aplikacji internetowych**
 * **Programowanie dla wielu platform .NET core**

@@ -8,12 +8,12 @@ ms.date: 06/10/2014
 ms.assetid: 9f969dda-78ea-4329-b1e3-e51c02210a2b
 msc.legacyurl: /signalr/overview/getting-started/tutorial-high-frequency-realtime-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: e710980cecf9093ea9046b5790379befb5b61841
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 008cbc8ec7ca0af4b20e5e3974cf3862efa7677e
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41757343"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48794883"
 ---
 <a name="tutorial-high-frequency-realtime-with-signalr-2"></a>Samouczek: Realtime wysoką częstotliwością przy użyciu SignalR 2
 ====================
@@ -213,7 +213,7 @@ Aplikacja jest niemal ukończone, ale firma Microsoft może spowodować, że jed
 
 ## <a name="further-steps"></a>Trzeba wykonywać dalszych czynności
 
-W tym samouczku wyjaśniono sposób programowania aplikacji SignalR, która wysyła komunikaty o wysokiej częstotliwości między klientami a serwerami. Ten model komunikacji jest przydatne w przypadku tworzenia gier online i innych symulacje, takie jak [ShootR gry utworzone przy użyciu SignalR](http://shootr.signalr.net).
+W tym samouczku wyjaśniono sposób programowania aplikacji SignalR, która wysyła komunikaty o wysokiej częstotliwości między klientami a serwerami. Ten model komunikacji jest przydatne w przypadku tworzenia gier online i innych symulacje, takie jak [ShootR gry utworzone przy użyciu SignalR](https://shootr.azurewebsites.net/).
 
 Kompletna aplikacja utworzona w ramach tego samouczka można pobrać z [galerii kodów](https://code.msdn.microsoft.com/SignalR-20-MoveShape-Demo-6285b83a).
 

@@ -8,38 +8,38 @@ ms.date: 02/20/2014
 ms.assetid: 68de4326-7611-4b9b-b5f6-79b7adc3069f
 msc.legacyurl: /web-pages/overview/testing-and-debugging/introduction-to-debugging
 msc.type: authoredcontent
-ms.openlocfilehash: da04158c58054a8c0b8e31d3a55bea2dcbae7a05
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: fb9a69d568e10ddafd71e2b9600b3dae21576807
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41752872"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48794992"
 ---
 <a name="introduction-to-debugging-aspnet-web-pages-razor-sites"></a>Wprowadzenie do debugowania ASP.NET Web Pages (Razor) witryn
 ====================
 przez [Tom FitzMacken](https://github.com/tfitzmac)
 
 > W tym artykule opisano różne sposoby debugowania stron w witrynie internetowej ASP.NET Web Pages (Razor). Debugowanie jest proces znajdowaniem i naprawianiem błędów na swoich stronach kodu.
-> 
-> **Zawartość:** 
-> 
+>
+> **Zawartość:**
+>
 > - Jak wyświetlić informacje, które ułatwia analizowanie i debugowanie stron.
 > - Jak używać debugowania narzędzi w programie Visual Studio.
->   
-> 
+>
+>
 > Poniżej przedstawiono funkcje platformy ASP.NET, wprowadzona w artykule:
-> 
+>
 > - `ServerInfo` Pomocnika.
 > - `ObjectInfo` Pomocnik.
->   
-> 
+>
+>
 > ## <a name="software-versions"></a>Wersje oprogramowania
-> 
-> 
+>
+>
 > - ASP.NET Web Pages (Razor) 3
 > - Visual Studio 2013
->   
-> 
+>
+>
 > W tym samouczku współpracuje również z wzorca ASP.NET Web Pages 2. Można użyć program WebMatrix 3, ale zintegrowany debuger nie jest obsługiwane.
 
 
@@ -54,8 +54,8 @@ Jest istotnym elementem Rozwiązywanie problemów z błędami i problemów w kod
 
     Możesz dodać `ServerInfo` kod w dowolnym miejscu strony. Ale dodanie go na końcu będą przechowywane oddzielnie od innych treści strony, dzięki czemu łatwiej odczytać dane wyjściowe.
 
-    > [!NOTE] 
-    > 
+    > [!NOTE]
+    >
     > **Ważne** przed przeniesieniem stron sieci web na serwerze produkcyjnym, należy usunąć wszelkie kod diagnostyczny ze stron sieci web. Dotyczy to `ServerInfo` pomocnika, a także inne techniki diagnostyczne w tym artykule obejmujące, dodając kod do strony. Ponieważ informacje tego typu mogą być przydatne dla osób z wadami złośliwego działania, które nie mają odwiedzających witrynę sieci Web, aby wyświetlić informacje o Twojej nazwy serwera, nazwy użytkowników, ścieżki na serwerze i podobne szczegóły.
 3. Zapisz stronę i uruchom go w przeglądarce.
 
@@ -119,7 +119,7 @@ Innym sposobem, aby zobaczyć, co się dzieje w kodzie jest osadzanie wyrażeń 
 
 ## <a name="using-debugging-tools-in-visual-studio"></a>Za pomocą narzędzia do debugowania w programie Visual Studio
 
-W przypadku bardziej kompleksowe środowisko debugowania, użyj programu Visual Studio 2013 lub bezpłatne [Visual Studio Express 2013 for Web](https://www.visualstudio.com/downloads/download-visual-studio-vs#d-2013-express). Za pomocą programu Visual Studio można ustawić punkt przerwania w kodzie, w wierszu, który ma zostać sprawdzony.
+W przypadku bardziej kompleksowe środowisko debugowania, użyj [programu Visual Studio](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017). Za pomocą programu Visual Studio można ustawić punkt przerwania w kodzie, w wierszu, który ma zostać sprawdzony.
 
 ![Ustaw punkt przerwania](introduction-to-debugging/_static/image1.png)
 

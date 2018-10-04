@@ -8,12 +8,12 @@ ms.date: 05/28/2015
 ms.assetid: e879487e-dbcd-4b33-b092-d67c37ae768c
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-1
 msc.type: authoredcontent
-ms.openlocfilehash: 4abe0e06dfd927765efd8e566584e111cf4117d5
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: d65c0ea35ec766ef9d9093c6502230f9de72a3f3
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41753081"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48795217"
 ---
 <a name="using-web-api-2-with-entity-framework-6"></a>Używanie składnika Web API 2 z platformą Entity Framework 6
 ====================
@@ -22,16 +22,14 @@ przez [Mike Wasson](https://github.com/MikeWasson)
 [Pobieranie ukończone projektu](https://github.com/MikeWasson/BookService)
 
 > W tym samouczku nauczy Cię, że zaplecze podstawy tworzenia aplikacji sieci web za pomocą interfejsu API sieci Web platformy ASP.NET. W samouczku Entity Framework 6 dla warstwy danych i użyciem Knockout.js dla aplikacji JavaScript po stronie klienta. Samouczek przedstawia również sposób wdrażania aplikacji w usłudze Azure App Service Web Apps.
-> 
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używanego w tym samouczku
-> 
-> 
+>
 > - Składnik Web API 2.1
-> - [Visual Studio 2013 Update 2](https://www.visualstudio.com/downloads/download-visual-studio-vs)
+> - Visual Studio 2013 (Pobierz program Visual Studio 2017 [tutaj](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017))
 > - Entity Framework 6
 > - .NET 4.5
 > - [Knockout.js](http://knockoutjs.com/) 3.1
-
 
 W tym samouczku za pomocą wzorca ASP.NET Web API 2 platformy Entity Framework 6 do tworzenia aplikacji sieci web, która manipuluje wewnętrznej bazy danych. Poniżej przedstawiono zrzut ekranu aplikacji, która zostanie utworzona.
 

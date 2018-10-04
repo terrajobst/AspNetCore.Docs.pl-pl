@@ -8,12 +8,12 @@ ms.date: 01/20/2014
 ms.assetid: 979d6c9f-0129-4e5b-ae56-4507b281b86d
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: f13720c5e9de99fb4ae5b27a757c257cac881f89
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 35cf3bf555218b6b49b30f48186e4c67aff4ff7b
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41755160"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48795554"
 ---
 <a name="attribute-routing-in-aspnet-web-api-2"></a>Atrybut routingu we wzorcu ASP.NET Web API 2
 ====================
@@ -25,10 +25,9 @@ Wcześniej styl routingu o nazwie oparty na Konwencji routingu jest nadal w peł
 
 W tym temacie przedstawiono sposób włączania trasowanie atrybutów, a w tym artykule opisano różne opcje trasowanie atrybutów. Aby uzyskać samouczek end-to-end, który używa trasowanie atrybutów, zobacz [Tworzenie interfejsu API REST przy użyciu atrybutu routingu w sieci Web API 2](create-a-rest-api-with-attribute-routing.md).
 
-
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-[Program Visual Studio 2017](https://www.visualstudio.com/vs/) Community, Professional lub Enterprise Edition
+[Program Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017) Community, Professional lub Enterprise edition
 
 Można również użyć Menedżera pakietów NuGet, aby zainstalować wymagane pakiety. Z **narzędzia** menu w programie Visual Studio, wybierz **Menedżer pakietów biblioteki**, a następnie wybierz **Konsola Menedżera pakietów**. Wprowadź następujące polecenie w oknie Konsola Menedżera pakietów:
 
@@ -55,21 +54,21 @@ Poniżej przedstawiono niektóre wzorce, które atrybutu routingu powoduje, że 
 
 W tym przykładzie "/ api/v1/produktów" byłaby przekierowane do innego kontrolera niż "/ api/2/produktów".
 
-`/api/v1/products`  
+`/api/v1/products`
 `/api/v2/products`
 
 **Przeciążona segmentów identyfikatora URI**
 
 W tym przykładzie "1" jest numer zamówienia, ale "pending" mapuje do kolekcji.
 
-`/orders/1`  
+`/orders/1`
 `/orders/pending`
 
 **Wieloma typami parametrów**
 
 W tym przykładzie "1" jest numer zamówienia, ale "06/2013/16" Określa wartość typu date.
 
-`/orders/1`  
+`/orders/1`
 `/orders/2013/06/16`
 
 <a id="enable"></a>
@@ -251,7 +250,7 @@ Kiedy struktura próbuje dopasować identyfikatora URI z trasą, ocenia trasy w 
 Poniżej przedstawiono sposób ustalania kolejności, łączna liczba:
 
 1. Porównaj **RouteOrder** właściwość atrybut trasy.
-2. Spójrz na każdym segmencie identyfikatora URI w szablonie trasy. Dla każdego segmentu kolejność w następujący sposób: 
+2. Spójrz na każdym segmencie identyfikatora URI w szablonie trasy. Dla każdego segmentu kolejność w następujący sposób:
 
     1. Literał segmenty.
     2. Parametry trasy z ograniczeniami.

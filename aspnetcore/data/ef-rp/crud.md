@@ -5,12 +5,12 @@ description: Pokazuje, jak tworzyć, odczytywać, aktualizować, usuwać z progr
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/crud
-ms.openlocfilehash: e3a0ec2e21ae9e9eeaae1eb7c17f1604897fb6f9
-ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
+ms.openlocfilehash: 31fefc148040d7b65e9b65d6bf19f502ef9de542
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39342461"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48795567"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---crud---2-of-8"></a>Strony razor z programem EF Core w programie ASP.NET Core — CRUD - 2, 8
 
@@ -35,7 +35,7 @@ Tworzenie, edytowanie i usuwanie stron utworzony szkielet kodu korzysta z nastę
 
 Strony indeksu i szczegóły get i wyświetlić żądanych danych z metodą HTTP GET `OnGetAsync`
 
-## <a name="singleordefaultasync-vs-firstordefaultasync"></a>SingleOrDefaultAsync vs FirstOrDefaultAsync
+## <a name="singleordefaultasync-vs-firstordefaultasync"></a>SingleOrDefaultAsync programu vs. FirstOrDefaultAsync
 
 Wygenerowany kod używa [FirstOrDefaultAsync](/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.firstordefaultasync#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_FirstOrDefaultAsync__1_System_Linq_IQueryable___0__System_Threading_CancellationToken_), która jest ogólnie metoda preferowana nad [SingleOrDefaultAsync](/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.singleordefaultasync#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_SingleOrDefaultAsync__1_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Threading_CancellationToken_).
 
