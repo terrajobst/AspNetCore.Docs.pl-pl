@@ -8,12 +8,12 @@ ms.date: 07/16/2014
 ms.assetid: ecfd0eb4-c4ad-44e6-9db9-a2a66611ff6a
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale
 msc.type: authoredcontent
-ms.openlocfilehash: a26f22a7cf39593ee068fb8e8d57200120c97ccb
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 05181ae1b2d857eea45983d378b28011c1cd755a
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41757144"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48578136"
 ---
 <a name="hands-on-lab-maintainable-azure-websites-managing-change-and-scale"></a>Warsztaty: Azure websites w warstwie łatwego w utrzymaniu: Zarządzanie zmianami i skalowaniem
 ====================
@@ -22,17 +22,17 @@ Przez [Camp w sieci Web zespołu](https://twitter.com/webcamps)
 [Pobierz Camp Web szkolenia Kit](http://aka.ms/webcamps-training-kit)
 
 > Microsoft Azure ułatwia tworzenie i wdrażanie witryn sieci Web w środowisku produkcyjnym. Ale wszystko nie będzie gotowe, gdy aplikacja jest aktywna, po prostu rozpoczynasz pracę! Konieczne będzie obsługiwać zmiany wymagań, aktualizacji bazy danych, skalowania i więcej. Na szczęście usługa Azure App Service zapewnia pełne wsparcie, z dużą ilością funkcje ułatwiające zachowują te witryny działających normalnie.
-> 
+>
 > Platforma Azure oferuje bezpieczne i elastyczne programowania, wdrażania i skalowania opcje dla aplikacji sieci web dowolnej wielkości. Korzystaj z istniejących narzędzi do tworzenia i wdrażania aplikacji bez konieczności zawracania sobie głowy zarządzaniem infrastrukturą.
-> 
+>
 > Aprowizowanie aplikacji sieci web w środowisku produkcyjnym samodzielnie w ciągu kilku minut przez łatwe wdrożenie zawartości utworzonej przy użyciu ulubionego narzędzia deweloperskiego. Możesz wdrożyć istniejącą witrynę bezpośrednio z kontroli źródła z obsługą **Git**, **GitHub**, **Bitbucket**, **TFS**, a nawet  **DropBox**. Wdróż bezpośrednio z ulubionego środowiska IDE lub ze skryptów, używając **PowerShell** w Windows lub **interfejsu wiersza polecenia** narzędzia uruchamianie w dowolnym systemie operacyjnym. Po wdrożeniu zachowują te witryny stale aktualnych dzięki obsłudze ciągłego wdrażania.
-> 
+>
 > System Azure oferuje skalowalne i niezawodne magazyn w chmurze, kopii zapasowej i rozwiązania w zakresie odzyskiwania danych i małymi ilościami. W przypadku wdrażania aplikacji dla środowiska produkcyjnego, usługi magazynu, takie jak tabele, obiekty BLOB i bazy danych SQL, ułatwić skalowanie aplikacji w chmurze.
-> 
+>
 > Z bazami danych SQL ważne jest zapewnić aktualność wydajność bazy danych podczas wdrażania nowej wersji aplikacji. Dzięki **migracje Code First Framework jednostki**, tworzenia i wdrażania modelu danych został uproszczony, aby zaktualizować swoje środowiska w ciągu kilku minut. To ćwiczenie praktyczne pokazują różne tematy, które mogą wystąpić podczas wdrażania aplikacji sieci web na środowisko produkcyjne w systemie Microsoft Azure.
-> 
+>
 > Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web Camp zestaw szkoleniowy, dostępne pod adresem [ http://aka.ms/webcamps-training-kit ](http://aka.ms/webcamps-training-kit).
-> 
+>
 > Aby uzyskać więcej szczegółowe informacje dotyczące tego tematu, zobacz [tworzenie rzeczywistych aplikacji w chmurze za pomocą platformy Azure e-book](building-real-world-cloud-apps-with-windows-azure/introduction.md).
 
 
@@ -60,7 +60,7 @@ Do ukończenia tego laboratorium praktycznego niezbędne jest, następujące ele
 - [Visual Studio Express 2013 for Web](https://www.microsoft.com/visualstudio/) lub nowszej
 - [Zestaw Azure SDK dla platformy .NET 2.2](https://www.microsoft.com/windowsazure/sdk/)
 - [System kontroli wersji GIT](http://git-scm.com/download)
-- Subskrypcja Microsoft Azure 
+- Subskrypcja Microsoft Azure
 
     - Zaloguj się w celu [bezpłatnej wersji próbnej](http://aka.ms/watk-freetrial)
     - Jeśli masz program Visual Studio Professional, Test Professional, Premium lub Ultimate z subskrypcją MSDN lub platform MSDN, aktywować swoje [korzyść MSDN](http://aka.ms/watk-msdn) teraz, aby rozpocząć tworzenie i testowanie na platformie Azure
@@ -202,10 +202,10 @@ W tym zadaniu zostanie użyty **migracje Code First Framework jednostki** wykryw
 
     > [!NOTE]
     > Plik migracji składa się z dwóch metod **się** i **dół**.
-    > 
+    >
     > - **Się** metoda będzie używana do określenia, jakie zmiany bieżącej wersji naszych potrzeb aplikacji, aby zastosować do bazy danych.
     > - **Dół** służy do odwrócić zmiany dodanych do **się** metody.
-    > 
+    >
     > Podczas migracji bazy danych aktualizuje bazę danych, będzie ona uruchamiana wszystkich migracji w kolejności sygnatura czasowa, a tylko te, które nie były używane od czasu ostatniej aktualizacji ( \_tabeli MigrationHistory śledzi informacje o migracji, które zostały zastosowane). **Się** metoda wszystkich migracji zostanie wywołana i dokona zmian została określona w bazie danych. Jeśli firma chce przejść z powrotem do poprzedniej migracji **dół** metoda zostanie wywołana w celu ponownie dokonać zmian w odwrotnej kolejności.
 4. W **Konsola Menedżera pakietów**, wprowadź następujące polecenie i naciśnij klawisz **Enter**.
 
@@ -298,15 +298,15 @@ W tym zadaniu utworzysz aplikację internetową w **usługi Azure App Service** 
 
     > [!NOTE]
     > Domyślnie platforma Azure udostępnia domen w *azurewebsites.net* , ale też zapewnia możliwość ustawienia domen niestandardowych przy użyciu portalu zarządzania systemu Azure. Jednakże można zarządzać tylko domen niestandardowych korzystania z niektórych tryby w usłudze Azure App Service.
-    > 
+    >
     > Usługa Azure App Service jest dostępna w wersjach bezpłatna, współdzielona, podstawowa, standardowa i Premium. W trybie bezpłatna i współdzielona wszystkie aplikacje sieci web działają w środowisku wielodostępnym i mają limity przydziału użycia procesora CPU, pamięci i sieci. Maksymalna liczba bezpłatnych aplikacji mogą się różnić z planem. W trybie standardowym możesz wybrać aplikacje, które Uruchom na dedykowanych maszynach wirtualnych, które odpowiadają Azure standard zasobów obliczeniowych. Można znaleźć konfiguracji trybu aplikacji internetowej w **skalowania** menu aplikacji sieci web.
-    > 
+    >
     > ![Usługa Azure App Service tryby](maintainable-azure-websites-managing-change-and-scale/_static/image19.png "tryby w usłudze Azure App Service")
-    > 
+    >
     > Jeśli używasz **Shared** lub **standardowa** trybu, można zarządzać domen niestandardowych dla aplikacji sieci web, przechodząc do swojej aplikacji **Konfiguruj** menu i klikając **Zarządzanie domenami** w obszarze *nazw domen*.
-    > 
+    >
     > ![Zarządzanie domenami](maintainable-azure-websites-managing-change-and-scale/_static/image20.png "Zarządzanie domenami")
-    > 
+    >
     > ![Zarządzanie domenami niestandardowymi](maintainable-azure-websites-managing-change-and-scale/_static/image21.png "Zarządzanie domenami niestandardowymi")
 9. Po utworzeniu aplikacji internetowej kliknij link w obszarze **adresu URL** kolumny, aby sprawdzić, czy nowa aplikacja sieci web jest uruchomiona.
 
@@ -754,7 +754,7 @@ W tym zadaniu użyjesz portalu zarządzania systemu Azure można włączyć funk
 
     > [!NOTE]
     > Ten zakres reprezentuje średniego użycia procesora CPU dla aplikacji sieci web. Azure spowoduje dodanie lub usunięcie wystąpień, aby zachować swoją aplikację sieci web, w tym zakresie. Minimalna i maksymalna liczba wystąpień używanych do skalowania jest określony w **liczba wystąpień** konfiguracji. Azure nigdy nie zaczną się powyżej lub po przekroczeniu tego limitu.
-    > 
+    >
     > Wartość domyślna **Procesora docelowego** wartości są modyfikowane tylko na potrzeby tego laboratorium. Konfigurując zakres procesora CPU z małymi wartościami, zwiększasz szanse na wyzwalacza automatycznego skalowania podczas umiarkowany obciążenie aplikacji.
 
     ![Zmiana docelowej Procesora należeć do zakresu od 20 do 40 procent](maintainable-azure-websites-managing-change-and-scale/_static/image78.png "zmiana docelowy adres CPU należeć do zakresu od 20 do 40 procent")
@@ -869,7 +869,7 @@ Teraz, gdy **skalowania automatycznego** została skonfigurowana, zostanie utwor
 20. W **Eksploratora rozwiązań**, kliknij dwukrotnie **Local.settings** plik, aby eksplorować ustawienia testu. Domyślnie program Visual Studio używa komputera lokalnego do uruchamiania testów.
 
     > [!NOTE]
-    > Alternatywnie, można skonfigurować projektu testowego do uruchamiania testów obciążenia w chmurze za pomocą **Visual Studio Online (VSO)**. VSO zapewnia oparte na chmurze obciążenia, testowanie usługi, która symuluje bardziej realistycznego obciążenia, unikając ograniczenia środowiska lokalnego, takich jak wydajność procesora CPU, pamięci i przepustowość sieci. Aby uzyskać więcej informacji na temat uruchamiania testów obciążenia za pomocą rozwiązania VSO, zobacz [w tym artykule](https://www.visualstudio.com/get-started/load-test-your-app-vs).
+    > Alternatywnie, można skonfigurować projektu testowego do uruchamiania testów obciążenia w chmurze za pomocą **plany testów Azure**. Plany testów platformy Azure zapewnia oparte na chmurze obciążenia, testowanie usługi, która symuluje bardziej realistycznego obciążenia, unikając ograniczenia środowiska lokalnego, takich jak wydajność procesora CPU, pamięci i przepustowość sieci. Aby uzyskać więcej informacji o korzystaniu z planów testowych platformy Azure do uruchamiania testów obciążenia, zobacz [scenariuszy testowania obciążenia](/azure/devops/test/load-test/overview?view=vsts).
 
     ![Ustawienia testu](maintainable-azure-websites-managing-change-and-scale/_static/image98.png)
 
@@ -904,10 +904,10 @@ Teraz spowoduje wykonanie testu obciążenia, który został utworzony w poprzed
 
     > [!NOTE]
     > Może upłynąć kilka minut, zanim będą one widoczne na wykresie (naciśnij klawisz **klawiszy CTRL + F5** okresowo, aby odświeżyć stronę). Jeśli nie ma żadnych zmian, możesz wypróbować następujące czynności:
-    > 
+    >
     > - Zwiększ czas trwania testu obciążeniowego (np. do **10 minut**)
     > - Zmniejszenie wartości maksymalne i minimalne **Procesora docelowego** zakres w konfiguracji skalowania automatycznego w aplikacji sieci web
-    > - Uruchom test obciążenia w chmurze przy użyciu **programu Visual Studio Online**. Więcej informacji na [tutaj](https://www.visualstudio.com/get-started/load-test-your-app-vs.aspx)
+    > - Uruchom test obciążenia w chmurze przy użyciu **plany testów Azure**. Więcej informacji na [tutaj](/azure/devops/test/load-test/index?view=vsts)
 
 * * *
 

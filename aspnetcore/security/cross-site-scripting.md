@@ -3,14 +3,14 @@ title: Zapobiegaj Cross-Site skrypty (XSS) w programie ASP.NET Core
 author: rick-anderson
 description: Więcej informacji na temat skryptów między witrynami (XSS) i technik do adresowania tę lukę w zabezpieczeniach w aplikacji ASP.NET Core.
 ms.author: riande
-ms.date: 10/14/2016
+ms.date: 10/02/2018
 uid: security/cross-site-scripting
-ms.openlocfilehash: 4784b1775d955f0ef00526e50b960fc873ea218d
-ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
+ms.openlocfilehash: e937ce47b7151155197cd607832eeb6bf62e3a19
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39342214"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48577447"
 ---
 # <a name="prevent-cross-site-scripting-xss-in-aspnet-core"></a>Zapobiegaj Cross-Site skrypty (XSS) w programie ASP.NET Core
 
@@ -36,9 +36,9 @@ Co podstawowa XSS poziomu polega na oszukanie aplikacji do wstawiania `<script>`
 
 Używane w MVC automatycznie aparatu Razor koduje wszystkie dane wyjściowe źródło zmiennych, chyba że użytkownik pracuje się naprawdę trudne do zapobiegania jego zresetowanie. Używa atrybutu HTML reguły kodowania, zawsze gdy używasz *@* dyrektywy. Jako HTML kodowanie atrybutu jest nadzbiorem kodowanie HTML, oznacza to, że nie masz obawy samodzielnie za pomocą tego, czy należy używać kodowania HTML lub kodowanie atrybutu HTML. Należy się upewnić, że używasz tylko w kontekście HTML nie, podczas próby wstawienia niezaufane dane wejściowe bezpośrednio na język JavaScript. Pomocnicy tagów będzie również kodowania danych wejściowych używanych w parametrów tag.
 
-Wykonaj następujący widok Razor;
+Wykonaj następujący widok Razor:
 
-```none
+```cshtml
 @{
        var untrustedInput = "<\"123\">";
    }
@@ -59,7 +59,7 @@ Ten widok wyświetla zawartość *untrustedInput* zmiennej. Ta zmienna zawiera n
 
 Mogą wystąpić sytuacje, które chcesz wstawić wartość na język JavaScript do przetworzenia w danym widoku. Istnieją dwa sposoby, aby to zrobić. Najbezpieczniejszy sposób wstawiania wartości jest umieszczenie wartości w atrybucie dane tagu i pobierać Twój kod JavaScript. Na przykład:
 
-```none
+```cshtml
 @{
        var untrustedInput = "<\"123\">";
    }
@@ -114,9 +114,9 @@ Który, po jego uruchomieniu, spowoduje, że następujące czynności:
    <"123">
    ```
 
-Można również bezpośrednio wywołać kodera JavaScript
+Można również bezpośrednio wywołać kodera JavaScript:
 
-```none
+```cshtml
 @using System.Text.Encodings.Web;
    @inject JavaScriptEncoder encoder;
 
@@ -225,4 +225,4 @@ Ogólne zaakceptowane praktyką jest, czy kodowanie odbywa się w punkcie danych
 
 ## <a name="validation-as-an-xss-prevention-technique"></a>Sprawdzanie poprawności jako technikę zapobiegania XSS
 
-Sprawdzanie poprawności może być przydatne narzędzie ograniczanie atakom XSS. Na przykład ciągów liczbowych, zawierający tylko znaki 0 – 9 nie spowoduje wyzwolenia ataku XSS. Sprawdzanie poprawności staje się bardziej skomplikowane, jeśli użytkownik chce zaakceptować HTML w danych wejściowych użytkownika — analiza input języka HTML jest trudne lub niemożliwe. MarkDown i innych formatów tekstu będzie bezpieczniejsze dla zaawansowanych danych wejściowych. Nigdy nie należy polegać na sprawdzanie poprawności samodzielnie. Zawsze należy zakodować niezaufane dane wejściowe, zanim dane wyjściowe, niezależnie od tego, jakie sprawdzania poprawności, kiedy została wykonana.
+Sprawdzanie poprawności może być przydatne narzędzie ograniczanie atakom XSS. Na przykład ciągów liczbowych, zawierający tylko znaki 0 – 9 nie spowoduje wyzwolenia ataku XSS. Sprawdzanie poprawności staje się bardziej skomplikowane, akceptując HTML w danych wejściowych użytkownika. Analizowanie input języka HTML jest trudne lub niemożliwe. Markdown, w połączeniu z analizatora, wyodrębniania osadzonego kodu HTML, jest bezpieczniejsze do akceptowania bogate dane wejściowe. Nigdy nie zależą od samego sprawdzania poprawności. Zawsze należy zakodować niezaufane dane wejściowe, zanim dane wyjściowe, niezależnie od tego, jakie sprawdzania poprawności lub ich oczyszczania została wykonana.

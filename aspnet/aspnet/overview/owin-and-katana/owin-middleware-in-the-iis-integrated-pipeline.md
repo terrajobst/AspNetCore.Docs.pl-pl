@@ -8,16 +8,16 @@ ms.date: 11/07/2013
 ms.assetid: d031c021-33c2-45a5-bf9f-98f8fa78c2ab
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-middleware-in-the-iis-integrated-pipeline
 msc.type: authoredcontent
-ms.openlocfilehash: 56bd145688e1ab0a70710cc80cb8f5fa10ee8968
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 6124bcdaeeb0d4342cbde0d3ca52d55f76a953ab
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41753184"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48576472"
 ---
 <a name="owin-middleware-in-the-iis-integrated-pipeline"></a>Oprogramowanie pośredniczące OWIN w zintegrowanym potoku usług IIS
 ====================
-przez [projektu Praburaj](https://github.com/Praburaj), [Rick Anderson](https://github.com/Rick-Anderson)
+przez [projektu Praburaj](https://github.com/Praburaj), [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > W tym artykule przedstawiono sposób uruchamiania składników oprogramowania pośredniczącego OWIN (OMCs) w zintegrowanym potoku usług IIS i działa jak skonfigurować zdarzenie potoku OMC. Należy zapoznać się z [Omówienie projektu Katana](an-overview-of-project-katana.md) i [wykrywanie klasy początkowej OWIN](owin-startup-class-detection.md) przed odczytaniem w tym samouczku. Ten samouczek został napisany przez Rick Anderson ( [ @RickAndMSFT ](https://twitter.com/#!/RickAndMSFT) ), Chris Ross, Praburaj projektu i Howard Dierking ( [ @howard \_dierking](https://twitter.com/howard_dierking) ).
 

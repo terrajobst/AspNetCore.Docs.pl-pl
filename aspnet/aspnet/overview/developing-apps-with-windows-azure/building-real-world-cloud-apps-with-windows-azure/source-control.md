@@ -8,23 +8,22 @@ ms.date: 06/23/2015
 ms.assetid: 2a0370d3-c2fb-4bf3-88b8-aad5a736c793
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control
 msc.type: authoredcontent
-ms.openlocfilehash: 8402b73f5f9d063d958df39f98267468e4aef746
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 5df863762523b62759bb4f7849ca2635e5241b0a
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41752092"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48577798"
 ---
 <a name="source-control-building-real-world-cloud-apps-with-azure"></a>Kontroli źródła (tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure)
 ====================
-przez [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Tom Dykstra](https://github.com/tdykstra)
+przez [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra)
 
 [Pobierz go naprawić projektu](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) lub [Pobierz książkę elektroniczną](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
 > **Tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure** Książka elektroniczna jest oparta na prezentacji opracowany przez Scotta Guthrie. Wyjaśniono 13 wzorców i praktyk, które mogą pomóc Ci odnieść sukces, tworzenie aplikacji sieci web w chmurze. Aby uzyskać informacji o książce elektronicznej, zobacz [pierwszy rozdział](introduction.md).
 
-
-Kontrola źródła ma zasadnicze znaczenie dla wszystkich projektów rozwoju chmury, nie tylko środowiska zespołowe. W takich sytuacjach przydałaby traktować edycji kodu źródłowego lub nawet dokumentu programu Word bez funkcji cofania i automatycznego tworzenia kopii zapasowej i kontroli źródła zapewnia te funkcje na poziomie projektu, w którym można zapisać jeszcze więcej czasu, gdy coś pójdzie nie tak. Dzięki usługom kontroli źródła w chmurze nie masz już martwić się o Konfigurowanie skomplikowane, a następnie można użyć programu Visual Studio Online kontroli źródła jest bezpłatna dla maksymalnie 5 użytkowników.
+Kontrola źródła ma zasadnicze znaczenie dla wszystkich projektów rozwoju chmury, nie tylko środowiska zespołowe. W takich sytuacjach przydałaby traktować edycji kodu źródłowego lub nawet dokumentu programu Word bez funkcji cofania i automatycznego tworzenia kopii zapasowej i kontroli źródła zapewnia te funkcje na poziomie projektu, w którym można zapisać jeszcze więcej czasu, gdy coś pójdzie nie tak. Dzięki usługom kontroli źródła w chmurze nie masz już martwić się o Konfigurowanie skomplikowane, a następnie można użyć kontroli źródła repozytoriów platformy Azure jest bezpłatna dla maksymalnie 5 użytkowników.
 
 Pierwsza część w tym rozdziale opisano trzy kluczowe najlepszych rozwiązań, aby pamiętać:
 
@@ -32,11 +31,11 @@ Pierwsza część w tym rozdziale opisano trzy kluczowe najlepszych rozwiązań,
 - [Nigdy nie ewidencjonuj w wpisów tajnych](#secrets) (poufne dane takie jak poświadczeń) w repozytorium kodu źródłowego.
 - [Konfigurowanie gałęzi źródłowych](#devops) umożliwiające przepływ pracy DevOps.
 
-W pozostałej części rozdział zapewnia niektóre przykładowe implementacje tych wzorców w programie Visual Studio, Azure i programu Visual Studio Online:
+W pozostałej części rozdział zapewnia niektóre przykładowe implementacje tych wzorców w Visual Studio, platformy Azure i repozytoriów platformy Azure:
 
 - [Dodaj skrypty do kontroli źródła w programie Visual Studio](#vsscripts)
 - [Store poufnych danych na platformie Azure](#appsettings)
-- [Za pomocą narzędzia Git w programie Visual Studio i Visual Studio Online](#gittfs)
+- [Za pomocą narzędzia Git w programie Visual Studio i repozytoriów platformy Azure](#gittfs)
 
 <a id="scripts"></a>
 ## <a name="treat-automation-scripts-as-source-code"></a>Traktuj skryptów automatyzacji, jak kod źródłowy
@@ -73,7 +72,7 @@ Ta struktura pozwala również szybko reagować na opinie klientów. Jeśli musi
 
 Bez rozgałęziona struktura następująco z jego separacji dla środowiska produkcyjnego, gałęzie problem produkcji umieścić możesz w pozycji o podwyższenie poziomu nowego kodu funkcji wraz z produkcji rozwiązanie problemu. Nowy kod funkcji może nie być w pełni przetestowane i gotowe do produkcji i trzeba będzie wykonać dużo pracy tworzenia kopii wprowadzonych zmian, które nie są gotowe. Możesz też opóźnienie poprawkę w taki sposób, aby można było przetestować zmiany i przygotowania ich do wdrożenia.
 
-Następnie zobaczysz przykłady sposobu wdrożenia tych trzech wzorców w programie Visual Studio, Azure i programu Visual Studio Online. Oto przykłady zamiast szczegółowe instrukcje krok po kroku jak-to-it; Aby uzyskać szczegółowe instrukcje, zapewniających wszystkie niezbędne kontekstu, zobacz [zasobów](#resources) sekcji na końcu rozdziale.
+Następnie zobaczysz przykłady sposobu wdrożenia tych trzech wzorców w Visual Studio, platformy Azure i repozytoriów platformy Azure. Oto przykłady zamiast szczegółowe instrukcje krok po kroku jak-to-it; Aby uzyskać szczegółowe instrukcje, zapewniających wszystkie niezbędne kontekstu, zobacz [zasobów](#resources) sekcji na końcu rozdziale.
 
 <a id="vsscripts"></a>
 ## <a name="add-scripts-to-source-control-in-visual-studio"></a>Dodaj skrypty do kontroli źródła w programie Visual Studio
@@ -128,17 +127,17 @@ Należy zauważyć, że skrypty są parametryzowane tak, aby rzeczywiste wartoś
 Po uruchomieniu w środowisku projektowym lokalnie aplikacji odczytuje lokalny plik Web.config i połączenie punktów ciąg do bazy danych LocalDB programu SQL Server w *aplikacji\_danych* folderu projektu sieci web. Po uruchomieniu aplikacji na platformie Azure i aplikacja próbuje odczytać te wartości z pliku Web.config, co otrzymuje i używa są wartości przechowywane dla witryny sieci Web, a nie co faktycznie znajduje się w pliku Web.config.
 
 <a id="gittfs"></a>
-## <a name="use-git-in-visual-studio-and-visual-studio-online"></a>Za pomocą narzędzia Git w programie Visual Studio i Visual Studio Online
+## <a name="use-git-in-visual-studio-and-azure-devops"></a>Za pomocą narzędzia Git w programie Visual Studio i DevOps platformy Azure
 
 Do zaimplementowania DevOps rozgałęziona struktura przedstawiony wcześniej, można użyć dowolnego środowiska kontroli źródła. Aby rozproszone zespoły [Rozproszony system kontroli wersji](http://en.wikipedia.org/wiki/Distributed_revision_control) (DVCS) mogą działać najlepiej; w przypadku innych zespołów [scentralizowane system](http://en.wikipedia.org/wiki/Revision_control) może działać lepiej.
 
-[Git](http://git-scm.com/) jest DVCS, który jest stał się bardzo popularna. Kiedy używasz Git do kontroli źródła, masz pełną kopię repozytorium z całą historią na komputerze lokalnym. Wiele osób wolą, ponieważ jest łatwiejsza zatwierdzenia, aby kontynuować pracę, gdy nie masz połączenia z siecią — może być nadal wykonywać i wycofywanie zmian, Utwórz i przełączania gałęzi i tak dalej. Nawet wtedy, gdy masz połączenie z siecią, jest to, łatwiej i szybciej tworzyć gałęzie i przełączania gałęzi, gdy wszystko jest lokalny. Możesz również tworzyć lokalnych zatwierdzeń i wycofywanie zmian, bez mających wpływ na innym deweloperom. I wsadowego zatwierdzenia przed wysłaniem ich do serwera.
+[Git](http://git-scm.com/) to popularne Rozproszony system kontroli wersji. Kiedy używasz Git do kontroli źródła, masz pełną kopię repozytorium z całą historią na komputerze lokalnym. Wiele osób wolą, ponieważ jest łatwiejsza zatwierdzenia, aby kontynuować pracę, gdy nie masz połączenia z siecią — może być nadal wykonywać i wycofywanie zmian, Utwórz i przełączania gałęzi i tak dalej. Nawet wtedy, gdy masz połączenie z siecią, jest to, łatwiej i szybciej tworzyć gałęzie i przełączania gałęzi, gdy wszystko jest lokalny. Możesz również tworzyć lokalnych zatwierdzeń i wycofywanie zmian, bez mających wpływ na innym deweloperom. I wsadowego zatwierdzenia przed wysłaniem ich do serwera.
 
-[Microsoft Visual Studio Online](https://www.visualstudio.com/)(VSO), wcześniej znane jako usługi Team Foundation Service oferuje zarówno usługi Git i [Team Foundation Version Control](https://msdn.microsoft.com/library/ms181237(v=vs.120).aspx) (TFVC; scentralizowane kontroli źródła). W tym miejscu w firmie Microsoft w grupie Azure niektóre zespoły używają scentralizowanej kontroli źródła, użyj dystrybucji, a w niektórych mieszanego (scentralizowane i widoczne dla niektórych projektów i dystrybucji w innych projektach,). Usługa VSO jest dostępna bezpłatnie dla maksymalnie 5 użytkowników. Możesz zarejestrować się do planu free [tutaj](https://go.microsoft.com/fwlink/?LinkId=307137).
+[Azure repozytoriów](/azure/devops/repos/index?view=vsts) oferuje zarówno [Git](/azure/devops/repos/git/?view=vsts) i [Team Foundation Version Control](/azure/devops/repos/tfvc/index?view=vsts) (TFVC; scentralizowane kontroli źródła). Rozpoczynanie pracy z usługą Azure DevOps [tutaj](https://app.vsaex.visualstudio.com/signup).
 
-Visual Studio 2013 obejmuje najwyższej klasy wbudowane [obsługi systemu Git](https://msdn.microsoft.com/library/hh850437.aspx); Oto krótki pokaz usługi jak to działa.
+Visual Studio 2017 zawiera wbudowane najwyższej jakości [obsługi systemu Git](https://msdn.microsoft.com/library/hh850437.aspx). Poniżej przedstawiono krótki pokaz usługi jak to działa.
 
-Mając otwarty w programie Visual Studio 2013 projekt, kliknij prawym przyciskiem myszy rozwiązanie w **Eksploratora rozwiązań**i wybierz polecenie **Dodaj rozwiązanie do kontroli źródła**.
+Mając otwarty w programie Visual Studio projekt, kliknij prawym przyciskiem myszy rozwiązanie w **Eksploratora rozwiązań**, a następnie wybierz **Dodaj rozwiązanie do kontroli źródła**.
 
 ![Dodaj rozwiązanie do kontroli źródła](source-control/_static/image9.png)
 
@@ -184,7 +183,7 @@ Po przejściu do poziomu głównego gałęzi, zawartość  *\_Layout.cshtml* pli
 
 Ten prosty przykład jak szybko utworzyć gałąź i przerzucanie i z powrotem między gałęziami. Ta funkcja umożliwia bardzo elastyczne przepływu pracy przy użyciu strukturę gałęzi i skrypty automatyzacji są prezentowane w [Automatyzowanie wszystkiego](automate-everything.md) rozdziale. Na przykład może być pracy w gałęzi rozwoju, tworzenie gałęzi poprawki zniżki w stosunku do głównego, przełącz się do nowej gałęzi, wprowadzać w nim zmian i zatwierdzić je i przejdź z powrotem do gałęzi rozwoju i kontynuować wykonywanych wcześniej czynności.
 
-Opisane w tym miejscu jest sposób pracy z lokalnego repozytorium Git w programie Visual Studio. W środowisku zespołowym, można zwykle także Wypchnij zmiany typowe repozytorium. Narzędzia programu Visual Studio umożliwiają również wskaż zdalne repozytorium Git. W tym celu można użyć GitHub.com, możesz też [Git w programie Visual Studio Online](https://msdn.microsoft.com/library/hh850437.aspx) zintegrowana z usługą wszystkie inne usługi Visual Studio Online funkcje takie jak element roboczy i śledzenia usterek.
+Opisane w tym miejscu jest sposób pracy z lokalnego repozytorium Git w programie Visual Studio. W środowisku zespołowym, można zwykle także Wypchnij zmiany typowe repozytorium. Narzędzia programu Visual Studio umożliwiają również wskaż zdalne repozytorium Git. W tym celu można użyć GitHub.com, możesz też [Git i repozytoriów platformy Azure](/azure/devops/repos/git/overview?view=vsts) zintegrowane z wszystkich innych funkcji metodyki DevOps platformy Azure, takich jak element roboczy i śledzenia usterek.
 
 Nie jest to jedyny sposób można zaimplementować agile strategii rozgałęziania, oczywiście. Można włączyć tego samego przepływu pracy agile, przy użyciu repozytorium kontroli źródła scentralizowany.
 
@@ -194,13 +193,6 @@ Ma być mierzony sukces system kontroli źródła na podstawie jak szybko wprowa
 
 <a id="resources"></a>
 ## <a name="resources"></a>Resources
-
-[Programu Visual Studio Online](https://www.visualstudio.com/) portal zawiera dokumentację i usług pomocy technicznej i możesz zasubskrybować konta. Jeśli masz program Visual Studio 2012 i w związku z tym chce za pomocą narzędzia Git, zobacz [Visual Studio Tools for Git](https://visualstudiogallery.msdn.microsoft.com/abafc7d6-dcaa-40f4-8a5e-d6724bdb980c).
-
-Aby uzyskać więcej informacji na temat (scentralizowany system kontroli wersji) TFVC i Git (rozproszonej kontroli wersji) zobacz następujące zasoby:
-
-- [Którego systemu kontroli wersji należy używać: TFVC czy Git?](https://msdn.microsoft.com/library/vstudio/ms181368.aspx#tfvc_or_git_summary) Dokumentacja MSDN zawiera tabelę zawierającą podsumowanie różnic między systemami TFVC i Git.
-- [Dobrze podoba mi się Team Foundation Server i podoba mi się Git, ale która jest lepsze?](https://blogs.msdn.com/b/visualstudiouk/archive/2013/08/05/well-i-like-team-foundation-server-and-i-like-git-but-which-is-better.aspx) Porównanie usług Git i TFVC.
 
 Aby uzyskać więcej informacji na temat strategii rozgałęziania zobacz następujące zasoby:
 

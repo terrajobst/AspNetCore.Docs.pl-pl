@@ -8,16 +8,16 @@ ms.date: 05/21/2015
 ms.assetid: 97902c66-cb61-4d11-be52-73f962f2db0a
 msc.legacyurl: /identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure
 msc.type: authoredcontent
-ms.openlocfilehash: eda2277a4baad8f2a63aa2fdf6ab84f57f1eb0e0
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 8b5d6bf9fad72218341e4e0b90144da01abea3aa
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41755622"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48577544"
 ---
 <a name="best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure-app-service"></a>Najlepsze rozwiązania dotyczące wdrażania haseł i innych danych poufnych na platformie ASP.NET i usłudze Azure App Service
 ====================
-Przez [Rick Anderson](https://github.com/Rick-Anderson)
+Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > Ten samouczek pokazuje, jak Twój kod może bezpieczne przechowywanie i dostęp do informacji poufnych. Najważniejsze jest nigdy nie przechowuj haseł i innych poufnych danych w kodzie źródłowym i wpisów tajnych w środowisku produkcyjnym nie należy używać w trybie projektowania i testowania.
 > 

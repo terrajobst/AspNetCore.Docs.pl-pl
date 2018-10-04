@@ -8,16 +8,16 @@ ms.date: 08/14/2014
 ms.assetid: 457d7eaf-ee76-4ceb-9082-c7c1721435ad
 msc.legacyurl: /identity/overview/getting-started/developing-aspnet-apps-with-windows-azure-active-directory
 msc.type: authoredcontent
-ms.openlocfilehash: e2df906d220d738c45006de8b3c92e157ca9e57e
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 96a6b8d1c258e742907b649b631f8a6c2c4bbf98
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41757177"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48577473"
 ---
 <a name="developing-aspnet-apps-with-azure-active-directory"></a>Tworzenie aplikacji ASP.NET w usłudze Azure Active Directory
 ====================
-Przez [Rick Anderson](https://github.com/Rick-Anderson)
+Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 Microsoft ASP.NET narzędzi dla usługi Azure Active Directory upraszcza włączania uwierzytelniania dla aplikacji sieci web hostowanych na [Azure](https://www.windowsazure.com/home/features/web-sites/). Uwierzytelnianie w usłudze Azure służy do uwierzytelniania użytkowników usługi Office 365 z Twojej organizacji, kont firmowych synchronizowanych z lokalnej usługi Active Directory lub użytkownicy utworzeni w własnej domenie niestandardowej usługi Azure Active Directory. Włączanie uwierzytelniania opartego na Windows Azure umożliwia skonfigurowanie aplikacji w celu uwierzytelniania użytkowników za pomocą pojedynczej [usługi Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) dzierżawy.
 

@@ -8,16 +8,16 @@ ms.date: 03/26/2015
 ms.assetid: c205805f-efdd-4fa7-9616-f26eab180611
 msc.legacyurl: /mvc/overview/performance/profile-and-debug-your-aspnet-mvc-app-with-glimpse
 msc.type: authoredcontent
-ms.openlocfilehash: f5d174ff6823d654a24dcb2c90f10a3cbd24f1e7
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 94a72f22cbcd7fa84528dde502cceaa1e26dcaa1
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41755874"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48577291"
 ---
 <a name="profile-and-debug-your-aspnet-mvc-app-with-glimpse"></a>Profilowanie i debugowanie aplikacji ASP.NET MVC za pomocą pakietów Glimpse
 ====================
-Przez [Rick Anderson](https://github.com/Rick-Anderson)
+Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > Możliwość wypróbowania to prężnie działającą i rośnie z rodziny pakietów NuGet typu open source zapewniająca wydajność szczegółowe, debugowania i informacje diagnostyczne dla aplikacji ASP.NET. Jest proste do zainstalowania, lekki, niezwykle szybkie uzyskiwanie i przedstawia kluczowe metryki wydajności u dołu każdej strony. Umożliwia przechodzenie do aplikacji, gdy potrzebujesz dowiedzieć się, co się dzieje na serwerze. Możliwość wypróbowania zapewnia znacznie cenne informacje, zaleca się używania go w całym cyklu tworzenia oprogramowania, w tym środowisku testowym platformy Azure. Podczas [Fiddler](http://www.telerik.com/fiddler) i [narzędzia programistyczne F-12](https://msdn.microsoft.com/library/ie/gg589512(v=vs.85).aspx) zapewniają po stronie klienta widok, możliwość wypróbowania zawiera szczegółowy widok z serwera. Ten samouczek koncentruje się na przy użyciu platformy ASP.NET MVC możliwość wypróbowania i EF pakietów, ale dostępnych jest wiele innych pakietów. Jeśli jest to możliwe I połączy się z odpowiednią [Poznaj docs](http://getglimpse.com/Docs/) co mogę pomóc zachować. Możliwość wypróbowania to projekt typu open source, zbyt można współtworzyć kod źródłowy i dokumentacja.
 

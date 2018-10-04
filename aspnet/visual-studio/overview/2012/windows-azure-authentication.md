@@ -8,16 +8,16 @@ ms.date: 02/20/2013
 ms.assetid: a3cef801-a54b-4ebd-93c3-55764e2e14b1
 msc.legacyurl: /visual-studio/overview/2012/windows-azure-authentication
 msc.type: authoredcontent
-ms.openlocfilehash: d5d055d90b263050ef6defa1b98b139c4f8e4dee
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: a45b0ad2b61c2b78f7f06e85fe5e92193d73041d
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41754108"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48577512"
 ---
 <a name="windows-azure-authentication"></a>Windows Azure uwierzytelniania
 ====================
-Przez [Rick Anderson](https://github.com/Rick-Anderson)
+Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > Microsoft ASP.NET narzędzi dla usługi Windows Azure Active Directory pozwala w prosty sposób włączania uwierzytelniania dla aplikacji sieci web hostowanych na [Windows Azure Web Sites](https://www.windowsazure.com/home/features/web-sites/). Uwierzytelnianie w usłudze Windows Azure służy do uwierzytelniania użytkowników usługi Office 365 z Twojej organizacji, kont firmowych synchronizowanych z lokalnej usługi Active Directory lub użytkownicy utworzeni w własnej domenie niestandardowej usługi Windows Azure Active Directory. Włączanie uwierzytelniania opartego na Windows Azure umożliwia skonfigurowanie aplikacji w celu uwierzytelniania użytkowników za pomocą pojedynczej [Windows Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) dzierżawy.
 > 

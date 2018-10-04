@@ -6,19 +6,19 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.date: 09/19/2018
 uid: signalr/index
-ms.openlocfilehash: 16d560537e8d911e9ee1d3132800a0d2653acb75
-ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
+ms.openlocfilehash: 6e6361c01cba92e1c4fd77ba833e6c1761360ff2
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47860904"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48578201"
 ---
 # <a name="aspnet-core-signalr"></a>SignalR platformy ASP.NET Core
 
 * [Wprowadzenie](xref:signalr/introduction)
+* [Obsługiwane platformy](xref:signalr/supported-platforms)
 * [Wprowadzenie](xref:tutorials/signalr)
 * [Koncepcje dotyczące serwera](xref:signalr/hubs)
-  * [Obsługiwane platformy](xref:signalr/supported-platforms)
   * [Centra](xref:signalr/hubs)
   * [HubContext](xref:signalr/hubcontext)
   * [Użytkownicy i grupy](xref:signalr/groups)

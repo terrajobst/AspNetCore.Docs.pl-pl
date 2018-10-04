@@ -8,16 +8,16 @@ ms.date: 06/06/2012
 ms.assetid: a585c9a2-7c8e-478b-9706-90f3739c50d1
 msc.legacyurl: /web-forms/overview/performance-and-caching/using-asynchronous-methods-in-aspnet-45
 msc.type: authoredcontent
-ms.openlocfilehash: 5e5fe83e802980a5783c3d77454d5fb0ee7d5a91
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: eeb8ac4402b5e3d233082a749ad16ed98d4a71fc
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41756029"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48577811"
 ---
 <a name="using-asynchronous-methods-in-aspnet-45"></a>Używanie metod asynchronicznych na platformie ASP.NET 4.5
 ====================
-Przez [Rick Anderson](https://github.com/Rick-Anderson)
+Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > Ta seria samouczków obejmuje podstawy tworzenia asynchronicznego wzorca ASP.NET Web Forms aplikacji za pomocą [Visual Studio Express 2012 for Web](https://www.microsoft.com/visualstudio/11), która jest bezpłatna wersja programu Microsoft Visual Studio. Można również użyć [programu Visual Studio 2012](https://www.microsoft.com/visualstudio/11). Poniższe sekcje są uwzględnione w tym samouczku.
 > 

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/21/2018
 uid: performance/response-compression
-ms.openlocfilehash: 3a01c2d572c0026944347f736f9658a7872e6c35
-ms.sourcegitcommit: 4d5f8680d68b39c411b46c73f7014f8aa0f12026
+ms.openlocfilehash: d5e0b6ed21c14f2e76396cde846c69a76ad40794
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47028287"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48578149"
 ---
 # <a name="response-compression-in-aspnet-core"></a>Kompresja odpowiedzi w programie ASP.NET Core
 
@@ -150,9 +150,21 @@ Prześlij żądanie do przykładowej aplikacji bez `Accept-Encoding` nagłówka 
 
 ![Wynik żądania bez nagłówka Accept-Encoding wyświetlana w oknie programu fiddler. Odpowiedź nie jest skompresowany.](response-compression/_static/request-uncompressed.png)
 
+::: moniker range=">= aspnetcore-2.2"
+
+Prześlij żądanie do przykładowej aplikacji przy użyciu `Accept-Encoding: br` nagłówka (Brotli kompresji) i sprawdź, czy odpowiedź jest skompresowany. `Content-Encoding` i `Vary` nagłówki są obecne w odpowiedzi.
+
+![Wynik żądania przy użyciu nagłówka Accept-Encoding i wartość br okno programu fiddler. Nagłówki zależne i kodowania zawartości są dodawane do odpowiedzi. Odpowiedź jest skompresowany.](response-compression/_static/request-compressed-br.png)
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
 Prześlij żądanie do przykładowej aplikacji przy użyciu `Accept-Encoding: gzip` nagłówka i sprawdź, czy odpowiedź jest skompresowany. `Content-Encoding` i `Vary` nagłówki są obecne w odpowiedzi.
 
 ![Okno narzędzia fiddler wynik żądania przy użyciu nagłówka Accept-Encoding i wartość gzip. Nagłówki zależne i kodowania zawartości są dodawane do odpowiedzi. Odpowiedź jest skompresowany.](response-compression/_static/request-compressed.png)
+
+::: moniker-end
 
 ## <a name="providers"></a>dostawcy
 

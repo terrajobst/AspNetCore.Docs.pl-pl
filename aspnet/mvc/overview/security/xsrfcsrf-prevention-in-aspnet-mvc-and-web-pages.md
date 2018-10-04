@@ -8,16 +8,16 @@ ms.date: 03/14/2013
 ms.assetid: aadc5fa4-8215-4fc7-afd5-bcd2ef879728
 msc.legacyurl: /mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages
 msc.type: authoredcontent
-ms.openlocfilehash: cd1b8de51c180471ab273c4541959368ffbd48a3
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 5db661cccc58d1101f95091b069ab5cbfe78a378
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41754707"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48577941"
 ---
 <a name="xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages"></a>Zapobieganie XSRF/CSRF w ASP.NET MVC i Web Pages
 ====================
-Przez [Rick Anderson](https://github.com/Rick-Anderson)
+Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > Fałszerstwo żądania międzywitrynowego (znany także jako XSRF lub CSRF) jest ataku na aplikacje hostowane w sieci web, według której złośliwych witryn sieci web mogą mieć wpływ na interakcję między przeglądarką klienta i witryny sieci web, któremu ufają tej przeglądarki. Te ataki są możliwe, ponieważ przeglądarki sieci web wysyła tokeny uwierzytelniania automatycznie za pomocą każdego żądania do witryny sieci web. Canonical przykładem jest plik cookie uwierzytelniania, np. ASP. Bilet uwierzytelniania formularzy w sieci. Jednak te ataki można zastosować witryn sieci web, które używają każdy mechanizm uwierzytelniania trwałe (na przykład uwierzytelniania Windows, Basic i tak dalej).
 > 
