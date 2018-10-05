@@ -1,46 +1,46 @@
 ---
-title: Użyj Gulp w platformy ASP.NET Core
+title: Korzystanie z Gulp w programie ASP.NET Core
 author: rick-anderson
-description: Dowiedz się, jak używać Gulp w ASP.NET Core.
+description: Dowiedz się, jak korzystanie z Gulp w programie ASP.NET Core.
 ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.date: 02/28/2017
+ms.date: 10/04/2018
 uid: client-side/using-gulp
-ms.openlocfilehash: 35f62bf276d3708df0e2c8b56a44c34c178d8ff8
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 4f383be0498b5b861bd43cc0f0685b1e62c7571b
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278255"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48795528"
 ---
-# <a name="use-gulp-in-aspnet-core"></a>Użyj Gulp w platformy ASP.NET Core
+# <a name="use-gulp-in-aspnet-core"></a>Korzystanie z Gulp w programie ASP.NET Core
 
-Przez [Erik Reitan](https://github.com/Erikre), [Scott Addie](https://scottaddie.com), [Roth Danielowi](https://github.com/danroth27), i [Shayne Boyer](https://twitter.com/spboyer)
+Przez [Scott Addie](https://scottaddie.com), [Shayne Boyer](https://twitter.com/spboyer), i [sosny David](https://twitter.com/davidpine7)
 
-W typowej nowoczesnych witryn sieci web aplikacji może być procesu kompilacji:
+W aplikacji Typowa Nowoczesna sieć web może być procesu kompilacji:
 
-* Paczkę i zminimalizowania pliki JavaScript i CSS.
-* Uruchamianie narzędzi do wywołania tworzenie pakietów i minimalizowanie zadań przed każdej kompilacji.
-* Kompiluj mniej lub SASS pliki CSS.
-* Kompiluj CoffeeScript lub maszynie pliki JavaScript.
+* Tworzenie pakietów i minimalizowanie plików JavaScript i CSS.
+* Uruchom narzędzia, aby wywołać tworzenie pakietów i minimalizowanie zadań przed każdą kompilacją.
+* Skompilować mniej lub SASS pliki CSS.
+* Skompiluj pliki CoffeeScript lub TypeScript w kodzie JavaScript.
 
-A *modułu uruchamiającego zadania* to narzędzie, które automatyzuje tych zadań związanych z projektowaniem rutynowych i inne. Program Visual Studio udostępnia wbudowaną obsługę dla dwóch uczestników popularnych zadań oparte na języku JavaScript: [system Gulp](https://gulpjs.com/) i [Grunt](using-grunt.md).
+A *modułu uruchamiającego zadania* to narzędzie, które automatyzuje te zadania tworzenia procedur i nie tylko. Program Visual Studio udostępnia wbudowaną obsługę dla dwóch uczestników popularne zadania oparte na języku JavaScript: [Gulp](https://gulpjs.com/) i [Grunt](using-grunt.md).
 
-## <a name="gulp"></a>gulp
+## <a name="gulp"></a>Program gulp
 
-Gulp jest oparte na języku JavaScript przesyłania strumieniowego kompilacji pakiet narzędzi dla kodu po stronie klienta. Często służy do przesyłania strumieniowego plików po stronie klienta za pośrednictwem serii procesów, po wyzwoleniu określonego zdarzenia w środowisku kompilacji. Na przykład Gulp może służyć do automatyzowania [tworzenie pakietów i minimalizowanie](bundling-and-minification.md) lub czyszczenia Środowisko deweloperskie przed nowej kompilacji.
+Gulp to oparte na języku JavaScript przesyłania strumieniowego kompilacji narzędzi kod po stronie klienta. Często służy do przesyłania plików po stronie klienta za pomocą szeregu procesy po wyzwoleniu określonego zdarzenia w środowisku kompilacji. Na przykład Gulp może służyć do automatyzowania [tworzenie pakietów i minimalizowanie](bundling-and-minification.md) lub czyszczenie środowisko programistyczne przed nową kompilację.
 
-Zestaw zadań Gulp jest zdefiniowany w *gulpfile.js*. Następujący kod JavaScript zawiera modułów Gulp i określa ścieżki plików można odwoływać się w ciągu przyszłych zadań:
+Zestaw zadań Gulp jest zdefiniowany w *gulpfile.js*. Następujący kod JavaScript obejmują moduły Gulp i określa ścieżki plików, aby odwoływać się w ciągu przyszłych zadań:
 
 ```javascript
 /// <binding Clean='clean' />
 "use strict";
 
 var gulp = require("gulp"),
-  rimraf = require("rimraf"),
-  concat = require("gulp-concat"),
-  cssmin = require("gulp-cssmin"),
-  uglify = require("gulp-uglify");
+    rimraf = require("rimraf"),
+    concat = require("gulp-concat"),
+    cssmin = require("gulp-cssmin"),
+    uglify = require("gulp-uglify");
 
 var paths = {
   webroot: "./wwwroot/"
@@ -54,74 +54,87 @@ paths.concatJsDest = paths.webroot + "js/site.min.js";
 paths.concatCssDest = paths.webroot + "css/site.min.css";
 ```
 
-Powyższy kod określa, które moduły węzła są wymagane. `require` Funkcja importuje poszczególnych modułów, aby zadania zależne mogą wykorzystywać swoje funkcje. Każdego z zaimportowanych modułów jest przypisany do zmiennej. Moduły można odnaleźć, albo według nazwy lub ścieżki. W tym przykładzie modułów o nazwie `gulp`, `rimraf`, `gulp-concat`, `gulp-cssmin`, i `gulp-uglify` są pobierane przez nazwę. Ponadto szereg ścieżki są tworzone, dzięki czemu lokalizacje plików CSS i JavaScript można użyć ponownie i odwołuje zadań. Poniższa tabela zawiera opisy modułów objęte *gulpfile.js*.
+Powyższy kod określa, które moduły węzła są wymagane. `require` Funkcja importuje każdego modułu, aby zadania zależne, mogą korzystać z ich funkcje. Każdego z zaimportowanych modułów jest przypisany do zmiennej. Moduły można znaleźć, albo według nazwy lub ścieżki. W tym przykładzie modułów o nazwie `gulp`, `rimraf`, `gulp-concat`, `gulp-cssmin`, i `gulp-uglify` są pobierane przez nazwę. Ponadto seria ścieżek są tworzone tak, aby lokalizacje plików CSS i JavaScript, które mogą być ponownie użyte i przywoływany w ramach zadania. Poniższa tabela zawiera opis modułów objęte *gulpfile.js*.
 
 | Nazwa modułu | Opis |
 | ----------- | ----------- |
-| gulp        | Gulp przesyłania strumieniowego system kompilacji. Aby uzyskać więcej informacji, zobacz [system gulp](https://www.npmjs.com/package/gulp). |
+| Program gulp        | System kompilacji Gulp, przesyłania strumieniowego. Aby uzyskać więcej informacji, zobacz [gulp](https://www.npmjs.com/package/gulp). |
 | rimraf      | Moduł usuwania węzła. Aby uzyskać więcej informacji, zobacz [rimraf](https://www.npmjs.com/package/rimraf). |
-| gulp concat | Moduł, który łączy pliki oparte na znak nowego wiersza systemu operacyjnego. Aby uzyskać więcej informacji, zobacz [gulp concat](https://www.npmjs.com/package/gulp-concat). |
+| gulp concat | Moduł, który łączy pliki, w oparciu o system operacyjny znak nowego wiersza. Aby uzyskać więcej informacji, zobacz [gulp concat](https://www.npmjs.com/package/gulp-concat). |
 | gulp-cssmin | Moduł, który minimalizuje pliki CSS. Aby uzyskać więcej informacji, zobacz [gulp cssmin](https://www.npmjs.com/package/gulp-cssmin). |
 | gulp uglify | Moduł, który minimalizuje *js* plików. Aby uzyskać więcej informacji, zobacz [gulp uglify](https://www.npmjs.com/package/gulp-uglify). |
 
-Gdy wymagane moduły są importowane, można określić zadania. W tym miejscu jest sześć zadań zarejestrowany, reprezentowany przez następujący kod:
+Gdy wymagane moduły są importowane, można określić zadania. Oto sześciu zadań podrzędnych zarejestrowany, reprezentowane przez następujący kod:
 
 ```javascript
-gulp.task("clean:js", function (cb) {
-  rimraf(paths.concatJsDest, cb);
-});
+gulp.task("clean:js", done => rimraf(paths.concatJsDest, done));
+gulp.task("clean:css", done => rimraf(paths.concatCssDest, done));
+gulp.task("clean", gulp.series(["clean:js", "clean:css"]));
 
-gulp.task("clean:css", function (cb) {
-  rimraf(paths.concatCssDest, cb);
-});
-
-gulp.task("clean", ["clean:js", "clean:css"]);
-
-gulp.task("min:js", function () {
+gulp.task("min:js", () => {
   return gulp.src([paths.js, "!" + paths.minJs], { base: "." })
     .pipe(concat(paths.concatJsDest))
     .pipe(uglify())
     .pipe(gulp.dest("."));
 });
 
-gulp.task("min:css", function () {
+gulp.task("min:css", () => {
   return gulp.src([paths.css, "!" + paths.minCss])
     .pipe(concat(paths.concatCssDest))
     .pipe(cssmin())
     .pipe(gulp.dest("."));
 });
 
-gulp.task("min", ["min:js", "min:css"]);
+gulp.task("min", gulp.series(["min:js", "min:css"]));
+    
+// A 'default' task is required by Gulp v4
+gulp.task("default", gulp.series(["min"]));
 ```
 
-Poniższa tabela zawiera objaśnienie zadania określone w powyższym kodzie:
+---
+
+Poniższa tabela zawiera wyjaśnienie zadania określone w powyższym kodzie:
 
 |Nazwa zadania|Opis|
 |--- |--- |
-|Wyczyść: js|Zadanie, które używa modułu usunięcie węzła rimraf usunąć zminimalizowany wersję pliku site.js.|
-|Wyczyść: css|Zadanie, które używa modułu usunięcie węzła rimraf usunąć zminimalizowany wersję pliku site.css.|
-|Czyszczenie|Zadanie, które wywołuje `clean:js` zadań, a następnie `clean:css` zadań.|
-|min:js|Zadanie, które minimalizuje i łączy wszystkie pliki js znajdujących się w folderze js. . Pliki min.js są wyłączone.|
+|Wyczyść: js|Zadanie, które używa modułu usuwania węzła rimraf do usunięcia zminimalizowany wersję pliku site.js.|
+|Wyczyść: css|Zadanie, które używa modułu usuwania węzła rimraf do usunięcia zminimalizowany wersję pliku site.css.|
+|czyszczenie|Zadanie, które wywołuje `clean:js` zadania, a następnie `clean:css` zadania.|
+|min:js|Zadanie, które minimalizuje i łączy wszystkie pliki .js znajdujące się w folderze js. . Pliki min.js są wyłączone.|
 |min:css|Zadanie, które minimalizuje i łączy wszystkie pliki CSS w folderze css. . Pliki min.css są wyłączone.|
-|min|Zadanie, które wywołuje `min:js` zadań, a następnie `min:css` zadań.|
+|min|Zadanie, które wywołuje `min:js` zadania, a następnie `min:css` zadania.|
 
-## <a name="running-default-tasks"></a>Uruchomione zadania domyślne
+## <a name="running-default-tasks"></a>Uruchamianie zadań domyślne
 
-Jeśli jeszcze nie utworzono nową aplikację sieci Web, Utwórz nowy projekt aplikacji sieci Web ASP.NET w programie Visual Studio.
+Jeśli nie zostało jeszcze utworzone Nowa aplikacja sieci Web, należy utworzyć nowy projekt aplikacji sieci Web ASP.NET w programie Visual Studio.
 
-1.  Dodaj nowy plik JavaScript do projektu i nadaj mu nazwę *gulpfile.js*, następnie skopiuj poniższy kod.
+1.  Otwórz *package.json* pliku (Dodaj Jeśli nie istnieje) i Dodaj następujący kod.
+
+    ```json
+    {
+      "devDependencies": {
+        "gulp": "^4.0.0",
+        "gulp-concat": "2.6.1",
+        "gulp-cssmin": "0.2.0",
+        "gulp-uglify": "3.0.0",
+        "rimraf": "2.6.1"
+      }
+    }
+    ```
+
+2.  Dodaj nowy plik JavaScript do projektu i nadaj mu nazwę *gulpfile.js*, następnie skopiuj następujący kod.
 
     ```javascript
     /// <binding Clean='clean' />
     "use strict";
     
-    var gulp = require("gulp"),
-      rimraf = require("rimraf"),
-      concat = require("gulp-concat"),
-      cssmin = require("gulp-cssmin"),
-      uglify = require("gulp-uglify");
+    const gulp = require("gulp"),
+          rimraf = require("rimraf"),
+          concat = require("gulp-concat"),
+          cssmin = require("gulp-cssmin"),
+          uglify = require("gulp-uglify");
     
-    var paths = {
+    const paths = {
       webroot: "./wwwroot/"
     };
     
@@ -132,71 +145,54 @@ Jeśli jeszcze nie utworzono nową aplikację sieci Web, Utwórz nowy projekt ap
     paths.concatJsDest = paths.webroot + "js/site.min.js";
     paths.concatCssDest = paths.webroot + "css/site.min.css";
     
-    gulp.task("clean:js", function (cb) {
-      rimraf(paths.concatJsDest, cb);
-    });
-    
-    gulp.task("clean:css", function (cb) {
-      rimraf(paths.concatCssDest, cb);
-    });
-    
-    gulp.task("clean", ["clean:js", "clean:css"]);
-    
-    gulp.task("min:js", function () {
+    gulp.task("clean:js", done => rimraf(paths.concatJsDest, done));
+    gulp.task("clean:css", done => rimraf(paths.concatCssDest, done));
+    gulp.task("clean", gulp.series(["clean:js", "clean:css"]));
+
+    gulp.task("min:js", () => {
       return gulp.src([paths.js, "!" + paths.minJs], { base: "." })
         .pipe(concat(paths.concatJsDest))
         .pipe(uglify())
         .pipe(gulp.dest("."));
     });
-    
-    gulp.task("min:css", function () {
+
+    gulp.task("min:css", () => {
       return gulp.src([paths.css, "!" + paths.minCss])
         .pipe(concat(paths.concatCssDest))
         .pipe(cssmin())
         .pipe(gulp.dest("."));
     });
+
+    gulp.task("min", gulp.series(["min:js", "min:css"]));
     
-    gulp.task("min", ["min:js", "min:css"]);
+    // A 'default' task is required by Gulp v4
+    gulp.task("default", gulp.series(["min"]));
     ```
 
-2.  Otwórz *package.json* pliku (Dodawanie, jeśli nie istnieje) i Dodaj następujący kod.
-
-    ```json
-    {
-      "devDependencies": {
-        "gulp": "3.9.1",
-        "gulp-concat": "2.6.1",
-        "gulp-cssmin": "0.1.7",
-        "gulp-uglify": "2.0.1",
-        "rimraf": "2.6.1"
-      }
-    }
-    ```
-
-3.  W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *gulpfile.js*i wybierz **Eksploratora modułu uruchamiającego zadania**.
+3.  W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *gulpfile.js*i wybierz **Eksplorator modułu uruchamiającego zadania**.
     
-    ![Otwórz Eksploratora modułu uruchamiającego zadania w Eksploratorze rozwiązań](using-gulp/_static/02-SolutionExplorer-TaskRunnerExplorer.png)
+    ![Otwórz Eksplorator modułu uruchamiającego zadania za pomocą Eksploratora rozwiązań](using-gulp/_static/02-SolutionExplorer-TaskRunnerExplorer.png)
     
-    **Zadanie Eksploratora modułu uruchamiającego** z listą zadań Gulp. (Może być konieczne kliknięcie pozycji **Odśwież** przycisku, który wydaje się po lewej stronie nazwy projektu.)
+    **Task Runner Explorer** pokazuje listę zadań Gulp. (Być może trzeba kliknąć **Odśwież** przycisk, który pojawia się po lewej stronie nazwy projektu.)
     
-    ![Eksploratora modułu uruchamiającego zadania](using-gulp/_static/03-TaskRunnerExplorer.png)
+    ![Eksplorator modułu uruchamiającego zadania](using-gulp/_static/03-TaskRunnerExplorer.png)
     
     > [!IMPORTANT]
-    > **Eksploratora modułu uruchamiającego zadania** elementu menu kontekstowego jest wyświetlana tylko wtedy, gdy *gulpfile.js* znajduje się w katalogu głównym projektu.
+    > **Eksplorator modułu uruchamiającego zadania** element menu kontekstowego pojawia się tylko wtedy, gdy *gulpfile.js* znajduje się w katalogu głównym projektu.
 
-4.  Underneath **zadania** w **Eksploratora modułu uruchamiającego zadania**, kliknij prawym przyciskiem myszy **czystą**i wybierz **Uruchom** z menu podręcznego.
+4.  Poniżej **zadania** w **Eksplorator modułu uruchamiającego zadania**, kliknij prawym przyciskiem myszy **czyste**i wybierz **Uruchom** z menu podręcznego.
 
-    ![Zadanie czystą Eksploratora modułu uruchamiającego zadania](using-gulp/_static/04-TaskRunner-clean.png)
+    ![Zadanie czysty Eksplorator modułu uruchamiającego zadania](using-gulp/_static/04-TaskRunner-clean.png)
 
-    **Zadanie Eksploratora modułu uruchamiającego** utworzy nową kartę o nazwie **czystą** i wykonać czystą zadania zdefiniowanej w *gulpfile.js*.
+    **Task Runner Explorer** zostanie utworzona nowa karta o nazwie **czyste** i wykonać zadanie czysty, ponieważ jest on zdefiniowany w *gulpfile.js*.
 
-5.  Kliknij prawym przyciskiem myszy **czystą** zadań, a następnie wybierz **powiązania** > **przed kompilacji**.
+5.  Kliknij prawym przyciskiem myszy **czyste** zadań, a następnie wybierz **powiązania** > **przed kompilacji**.
 
-    ![Powiązanie BeforeBuild Eksploratora modułu uruchamiającego zadania](using-gulp/_static/05-TaskRunner-BeforeBuild.png)
+    ![Powiązanie BeforeBuild Eksplorator modułu uruchamiającego zadania](using-gulp/_static/05-TaskRunner-BeforeBuild.png)
 
-    **Przed kompilacji** powiązania konfiguruje czystą zadanie do automatycznego uruchamiania przed każdym kompilacji projektu.
+    **Przed kompilacji** powiązania konfiguruje zadanie czysty, aby automatycznie uruchomić przed każdą kompilacją projektu.
 
-Powiązania można skonfigurować przy użyciu **Eksploratora modułu uruchamiającego zadania** są przechowywane w formie komentarzy w górnej części programu *gulpfile.js* i obowiązują tylko w programie Visual Studio. Alternatywa, która nie wymaga programu Visual Studio jest skonfigurowanie automatycznego wykonywania zadań gulp w Twojej *.csproj* pliku. Na przykład umieścić Twojej *.csproj* pliku:
+Powiązania określone przy użyciu **Eksplorator modułu uruchamiającego zadania** są przechowywane w formie komentarza, w górnej części Twojej *gulpfile.js* i obowiązują tylko w programie Visual Studio. Alternatywa, która nie wymaga programu Visual Studio jest skonfigurowanie automatycznego wykonywania zadań gulp w swojej *.csproj* pliku. Na przykład, należy umieścić swojej *.csproj* pliku:
 
 ```xml
 <Target Name="MyPreCompileTarget" BeforeTargets="Build">
@@ -204,71 +200,76 @@ Powiązania można skonfigurować przy użyciu **Eksploratora modułu uruchamiaj
 </Target>
 ```
 
-Teraz czystą zadanie jest wykonywane po uruchomieniu projektu programu Visual Studio lub z wiersza polecenia przy użyciu [dotnet Uruchom](/dotnet/core/tools/dotnet-run) polecenia (Uruchom `npm install` pierwszy).
+Teraz zadanie czysty jest wykonywany, gdy uruchamiasz projekt w programie Visual Studio lub z wiersza polecenia przy użyciu [dotnet, uruchom](/dotnet/core/tools/dotnet-run) polecenia (uruchamianie `npm install` pierwszy).
 
-## <a name="defining-and-running-a-new-task"></a>Definiowanie i uruchamiania nowego zadania
+## <a name="defining-and-running-a-new-task"></a>Definiowanie i uruchomione nowe zadanie
 
 Aby zdefiniować nowe zadanie Gulp, zmodyfikuj *gulpfile.js*.
 
 1.  Dodaj następujący kod JavaScript do końca *gulpfile.js*:
 
     ```javascript
-    gulp.task("first", function () {
+    gulp.task('first', done => {
       console.log('first task! <-----');
+      done(); // signal completion
     });
     ```
 
-    To zadanie jest o nazwie `first`, i po prostu wyświetla ciąg.
+    To zadanie o nazwie `first`, i po prostu wyświetla ciąg.
 
 2.  Zapisz *gulpfile.js*.
 
-3.  W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *gulpfile.js*i wybierz *Eksploratora modułu uruchamiającego zadania*.
+3.  W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *gulpfile.js*i wybierz *Eksplorator modułu uruchamiającego zadania*.
 
-4.  W **Eksploratora modułu uruchamiającego zadania**, kliknij prawym przyciskiem myszy **pierwszy**i wybierz **Uruchom**.
+4.  W **Eksplorator modułu uruchamiającego zadania**, kliknij prawym przyciskiem myszy **pierwszy**i wybierz **Uruchom**.
 
-    ![Uruchom zadanie pierwszy Eksploratora modułu uruchamiającego zadania](using-gulp/_static/06-TaskRunner-First.png)
+    ![Uruchamianie pierwszego zadania Eksplorator modułu uruchamiającego zadania](using-gulp/_static/06-TaskRunner-First.png)
 
-    Tekst wyjściowy jest wyświetlany. Aby wyświetlić przykłady oparte na typowych scenariuszy, zobacz [system Gulp przepisami](#gulp-recipes).
+    Tekst wyjściowy jest wyświetlany. Aby wyświetlić przykłady oparte na typowych scenariuszy, zobacz [Gulp przepisy](#gulp-recipes).
 
 ## <a name="defining-and-running-tasks-in-a-series"></a>Definiowanie i uruchamianie zadań w serii
 
-Po uruchomieniu zadania wielu zadań jednocześnie domyślnie uruchamiane. Jednak jeśli chcesz uruchamiać zadania w określonej kolejności, należy określić podczas każdego zadania zostanie zakończone, a także jako zadania, które są zależne od zakończenia inne zadanie.
+Po uruchomieniu wielu zadań, zadań jednocześnie domyślnie uruchamiane. Jednak jeśli zachodzi potrzeba uruchamiania zadań w określonej kolejności, należy określić kiedy każde zadanie jest zakończone, jak również jako zadania, które zależą od zakończenia inne zadanie.
 
-1.  Aby zdefiniować serię zadań do wykonania w kolejności, Zastąp `first` zadań dodanych powyżej w *gulpfile.js* następującym kodem:
+1.  Aby zdefiniować szereg zadań do wykonania w kolejności, Zastąp `first` zadanie, które zostały dodane powyżej w *gulpfile.js* następującym kodem:
 
     ```javascript
-    gulp.task("series:first", function () {
+    gulp.task('series:first', done => {
       console.log('first task! <-----');
+      done(); // signal completion
     });
- 
-    gulp.task("series:second", ["series:first"], function () {
+    gulp.task('series:second', done => {
       console.log('second task! <-----');
+      done(); // signal completion
     });
- 
-    gulp.task("series", ["series:first", "series:second"], function () {});
+
+    gulp.task('series', gulp.series(['series:first', 'series:second']), () => { });
+
+    // A 'default' task is required by Gulp v4
+    gulp.task('default', gulp.series('series'));
     ```
  
-    Masz teraz trzy zadania: `series:first`, `series:second`, i `series`. `series:second` Zadanie zawiera drugi parametr, który określa tablicę zadania do uruchomienia, a ukończone przed `series:second` zadanie zostanie uruchomione. Jak określono w kodzie powyżej, tylko `series:first` zadań muszą zostać wykonane przed `series:second` zadanie zostanie uruchomione.
+    Masz teraz trzy zadania: `series:first`, `series:second`, i `series`. `series:second` Zadanie zawiera drugi parametr, który określa tablicę zadań do uruchomienia i ukończone przed `series:second` zadanie zostanie uruchomione. Jak określono w kodzie powyżej tylko `series:first` zadań muszą zostać wykonane przed `series:second` zadanie zostanie uruchomione.
 
 2.  Zapisz *gulpfile.js*.
 
-3.  W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *gulpfile.js* i wybierz **Eksploratora modułu uruchamiającego zadania** Jeśli nie jest już otwarty.
+3.  W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *gulpfile.js* i wybierz **Eksplorator modułu uruchamiającego zadania** Jeśli nie jest już otwarty.
 
-4.  W **Eksploratora modułu uruchamiającego zadania**, kliknij prawym przyciskiem myszy **serii** i wybierz **Uruchom**.
+4.  W **Eksplorator modułu uruchamiającego zadania**, kliknij prawym przyciskiem myszy **serii** i wybierz **Uruchom**.
 
-    ![Uruchom zadanie serii Eksploratora modułu uruchamiającego zadania](using-gulp/_static/07-TaskRunner-Series.png)
+    ![Uruchom zadanie serii Eksplorator modułu uruchamiającego zadania](using-gulp/_static/07-TaskRunner-Series.png)
 
 ## <a name="intellisense"></a>IntelliSense
 
-IntelliSense zawiera kod zakończenia, opisy parametrów i innych funkcji, aby zwiększyć wydajność i zmniejszyć błędy. Zadania gulp są napisane w języku JavaScript. w związku z tym IntelliSense zapewniają pomoc podczas tworzenia. Podczas pracy z użyciem języka JavaScript, IntelliSense wyświetla obiekty, funkcji, właściwości i parametrów, które są dostępne na podstawie użytkownika bieżącego kontekstu. Wybierz opcję kodowania z podanej listy wyskakujących przez funkcję IntelliSense kodu.
+Technologia IntelliSense zawiera uzupełniania kodu, opisy parametrów i inne funkcje, aby zwiększyć wydajność i zmniejszyć błędy. Zadań gulp są napisane w języku JavaScript. w związku z tym funkcja IntelliSense może zapewnić pomoc podczas tworzenia. Podczas pracy z użyciem języka JavaScript, IntelliSense wyświetla listę obiektów, funkcji, właściwości i parametrów, które są dostępne na podstawie Twojego bieżącego kontekstu. Wybierz opcję kodowania z wyskakującej listy dostarczonej przez technologię IntelliSense, aby uzupełnić kod.
 
-![System gulp IntelliSense](using-gulp/_static/08-IntelliSense.png)
+![Program gulp IntelliSense](using-gulp/_static/08-IntelliSense.png)
 
-Aby uzyskać więcej informacji o funkcji IntelliSense, zobacz [IntelliSense dla JavaScript](/visualstudio/ide/javascript-intellisense).
+Aby uzyskać więcej informacji na temat technologii IntelliSense, zobacz [JavaScript IntelliSense](/visualstudio/ide/javascript-intellisense).
 
-## <a name="development-staging-and-production-environments"></a>Środowiska deweloperskie, przemieszczania i produkcji
+## <a name="development-staging-and-production-environments"></a>Środowiska deweloperskie, przejściowe i produkcji
 
-W przypadku Gulp w celu zoptymalizowania plików po stronie klienta dla tymczasowych i produkcyjnych przetworzonych plików są zapisywane w lokalizacji lokalnej tymczasową i produkcyjną. *_Layout.cshtml* plików używa **środowiska** tagu pomocnika zapewnienie dwie różne wersje plików CSS. Jednej wersji plików CSS do rozwoju i innych wersji zoptymalizowano pod kątem zarówno tymczasową i produkcyjną. W Visual Studio 2017 r, jeśli zmienisz **ASPNETCORE_ENVIRONMENT** zmienną środowiskową `Production`, Visual Studio utworzy aplikację sieci Web i łącza do zminimalizowane pliki CSS. Poniżej przedstawiono znaczników **środowiska** zawierający tagów łącza do pomocników tagów `Development` CSS plików i zminimalizowany `Staging, Production` pliki CSS.
+Po Gulp jest używana do optymalizacji pliki po stronie klienta dla środowisk przejściowych i produkcyjnych, przetworzone pliki są zapisywane w lokalizacji lokalnej środowisk przejściowych i produkcyjnych. *_Layout.cshtml* plików używa **środowiska** tag pomocnika, aby zapewnić dwie różne wersje plików CSS. Jest jedna wersja plików CSS do tworzenia aplikacji, a druga wersja jest zoptymalizowany do przemieszczania i produkcji. W programie Visual Studio 2017 po zmianie **ASPNETCORE_ENVIRONMENT** zmiennej środowiskowej, aby `Production`, Visual Studio utworzy aplikację sieci Web i łącza do plików CSS w trybie zminimalizowanym. Ilustruje poniższy kod znaczników **środowiska** zawierający tagi łącza do pomocników tagów `Development` CSS plików i zminimalizowany `Staging, Production` pliki CSS.
 
 ```html
 <environment names="Development">
@@ -295,9 +296,9 @@ W przypadku Gulp w celu zoptymalizowania plików po stronie klienta dla tymczaso
 
 ## <a name="switching-between-environments"></a>Przełączanie między środowiskami
 
-Aby przełączyć między kompilowania kodu dla różnych środowisk, należy zmodyfikować **ASPNETCORE_ENVIRONMENT** wartość zmiennej środowiskowej.
+Aby przełączać się między kompilowanie dla różnych środowisk, należy zmodyfikować **ASPNETCORE_ENVIRONMENT** wartość zmiennej środowiskowej.
 
-1.  W **Eksploratora modułu uruchamiającego zadania**, upewnij się, że **min** zadań została ustawiona do uruchamiania **przed kompilacji**.
+1.  W **Eksplorator modułu uruchamiającego zadania**, upewnij się, że **min** zadania został ustawiony na uruchomienie **przed kompilacji**.
 
 2.  W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy nazwę projektu i wybierz **właściwości**.
 
@@ -305,45 +306,45 @@ Aby przełączyć między kompilowania kodu dla różnych środowisk, należy zm
 
 3.  Kliknij przycisk **debugowania** kartę.
 
-4.  Ustaw wartość **hostingu: środowisko** zmienną środowiskową `Production`.
+4.  Ustaw wartość **hostingu: środowisko** zmiennej środowiskowej, aby `Production`.
 
-5.  Naciśnij klawisz **F5** Aby uruchomić aplikację w przeglądarce.
+5.  Naciśnij klawisz **F5** do uruchamiania aplikacji w przeglądarce.
 
 6.  W oknie przeglądarki, kliknij prawym przyciskiem myszy strony, a następnie wybierz **Wyświetl źródło** Aby wyświetlić kod HTML dla strony.
 
-    Należy zauważyć, że łączy arkusza stylów wskaż zminimalizowany pliki CSS.
+    Należy zauważyć, że łączy arkusza stylów wskazują zminimalizowany pliki CSS.
 
 7.  Zamknij przeglądarkę, aby zatrzymać aplikacji sieci Web.
 
-8.  W programie Visual Studio, wróć do arkusza właściwości dla aplikacji sieci Web i zmienić **hostingu: środowisko** z powrotem do zmiennej środowiskowej `Development`.
+8.  W programie Visual Studio, wróć do arkusza właściwości dla aplikacji sieci Web i zmień **hostingu: środowisko** z powrotem do zmiennej środowiskowej `Development`.
 
-9.  Naciśnij klawisz **F5** Aby ponownie uruchomić aplikację w przeglądarce.
+9.  Naciśnij klawisz **F5** ponownie uruchomić aplikację w przeglądarce.
 
 10. W oknie przeglądarki, kliknij prawym przyciskiem myszy strony, a następnie wybierz **Wyświetl źródło** Aby wyświetlić kod HTML dla strony.
 
-    Należy zauważyć, że łączy arkusza stylów wskaż unminified wersje plików CSS.
+    Należy zauważyć, że łączy arkusza stylów wskazują unminified wersje plików CSS.
 
-Aby uzyskać więcej informacji związanych z środowiska w programie ASP.NET Core, zobacz [używać wiele środowisk](../fundamentals/environments.md).
+Aby uzyskać więcej informacji związanych z środowiska w programie ASP.NET Core, zobacz [używanie wielu środowisk](../fundamentals/environments.md).
 
 ## <a name="task-and-module-details"></a>Szczegóły zadania i modułu
 
-Zadanie Gulp jest zarejestrowana nazwa funkcji. Jeśli inne zadania musi zostać uruchomiony przed bieżącym zadań można określić zależności. Dodatkowe funkcje umożliwiają uruchamianie i obejrzyj Gulp zadania, a także Ustaw źródło (*src*) i docelowego (*dest*) plików jest modyfikowany. Poniżej przedstawiono podstawowe funkcje system Gulp interfejsu API:
+Zadań Gulp jest zarejestrowana z nazwą funkcji. Można określić zależności, jeśli inne zadania, musi zostać uruchomiony przed bieżącym zadaniu. Dodatkowe funkcje umożliwiają uruchamianie i obejrzyj zadań Gulp, a także ustawić źródło (*src*) i docelowy (*dest*) plików jest modyfikowany. Poniżej przedstawiono podstawowe funkcje Gulp interfejsu API:
 
-|Funkcja gulp|Składnia|Opis|
+|Program gulp — funkcja|Składnia|Opis|
 |---   |--- |--- |
 |— zadanie  |`gulp.task(name[, deps], fn) { }`|`task` Funkcja tworzy zadanie. `name` Parametr określa nazwę zadania. `deps` Parametr zawiera tablicę zadań do wykonania przed uruchomieniem tego zadania. `fn` Parametr reprezentuje funkcję wywołania zwrotnego, która wykonuje operacje zadania.|
-|Czujki |`gulp.watch(glob [, opts], tasks) { }`|`watch` Funkcja monitoruje pliki i uruchamia zadania po zmianie pliku. `glob` Parametr jest `string` lub `array` Określa, które pliki, aby obejrzeć. `opts` Parametru zapewnia dodatkowy plik obserwowanie opcje.|
-|src   |`gulp.src(globs[, options]) { }`|`src` Funkcja zawiera pliki, które są zgodne z wartościami glob. `glob` Parametr jest `string` lub `array` Określa, które pliki do odczytu. `options` Parametru zapewnia dodatkowe opcje pliku.|
-|Docelowy  |`gulp.dest(path[, options]) { }`|`dest` Funkcja określa lokalizację, do której można zapisywać pliki. `path` Parametr jest ciągiem lub funkcja, która określa folder docelowy. `options` Parametr jest obiekt, który określa opcje folderów danych wyjściowych.|
+|Wyrażenie kontrolne |`gulp.watch(glob [, opts], tasks) { }`|`watch` Funkcja monitoruje zadania plików i przebiegi po zmianie pliku. `glob` Parametr jest `string` lub `array` określający, plików, których obejrzeć. `opts` Parametr zawiera dodatkowy plik oglądania opcje.|
+|src   |`gulp.src(globs[, options]) { }`|`src` Funkcja zawiera pliki, które odpowiadają wartości glob. `glob` Parametr jest `string` lub `array` określający plików do odczytu. `options` Parametr zapewnia dodatkowe opcje pliku.|
+|docelowy  |`gulp.dest(path[, options]) { }`|`dest` Funkcja określa lokalizację, do którego można zapisywać pliki. `path` Parametru jest ciąg lub funkcja, która określa folder docelowy. `options` Parametru jest obiektem, który określa opcje folderów danych wyjściowych.|
 
-Aby uzyskać dodatkowe informacje system Gulp interfejsu API zobacz [system Gulp API Docs](https://github.com/gulpjs/gulp/blob/master/docs/API.md).
+Aby uzyskać dodatkowe informacje Gulp interfejsu API zobacz [Gulp Docs API](https://github.com/gulpjs/gulp/blob/master/docs/API.md).
 
-## <a name="gulp-recipes"></a>System gulp przepisami
+## <a name="gulp-recipes"></a>Przepisy gulp
 
-Społeczność Gulp oferuje Gulp [przepisami](https://github.com/gulpjs/gulp/blob/master/docs/recipes/README.md). Te przepisami składają się z Gulp zadań w celu rozwiązania typowych scenariuszy.
+Społeczność Gulp oferuje Gulp [przepisy](https://github.com/gulpjs/gulp/blob/master/docs/recipes/README.md). Te przepisami składają się z zadań Gulp obsługę typowych scenariuszy.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Dokumentacja gulp](https://github.com/gulpjs/gulp/blob/master/docs/README.md)
-* [Tworzenie pakietów i minimalizowanie w ASP.NET Core](bundling-and-minification.md)
-* [Użyj Grunt w platformy ASP.NET Core](using-grunt.md)
+* [Tworzenie pakietów i minimalizowanie w programie ASP.NET Core](bundling-and-minification.md)
+* [Korzystanie z Grunt w programie ASP.NET Core](using-grunt.md)
