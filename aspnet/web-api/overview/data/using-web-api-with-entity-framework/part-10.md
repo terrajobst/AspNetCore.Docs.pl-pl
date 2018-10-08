@@ -21,7 +21,7 @@ przez [Mike Wasson](https://github.com/MikeWasson)
 
 [Pobierz ukończony projekt](https://github.com/MikeWasson/BookService)
 
-W ostatnim kroku opublikujesz aplikację na platformie Azure. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy na projekt i wybierz **Publikuj**.
+W ostatnim kroku opublikujesz aplikację na platformie Azure. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt i wybierz **Publikuj**.
 
 ![](part-10/_static/image1.png)
 
