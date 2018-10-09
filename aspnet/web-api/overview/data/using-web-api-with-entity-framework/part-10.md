@@ -33,7 +33,7 @@ Aby wdrożyć aplikację, kliknij przycisk **Publikuj**. Możesz wyświetlić po
 
 ![](part-10/_static/image4.png)
 
-Po zakończeniu wdrażania aplikacji programu Visual Studio przeglądarka domyślna automatycznie otwiera adres URL wdrożonych witryn sieci Web i aplikacji, który został utworzony, jest teraz uruchomiona w chmurze. Adres URL w pasku adresu przeglądarki pokazuje, że witryna jest ładowany z Internetu.
+Po zakończeniu wdrażania aplikacji w programie Visual Studio zostanie automatycznie uruchomiona przeglądarka domyślna, która przejdzie pod adres URL wdrożonej witryny sieci Web. Utworzona aplikacja jest teraz uruchomione w chmurze. Adres URL w pasku adresu przeglądarki pokazuje, że witryna jest ładowana z Internetu.
 
 [![](part-10/_static/image6.png)](part-10/_static/image5.png)
 
