@@ -19,17 +19,17 @@ ms.locfileid: "41752265"
 ====================
 przez [Mike Wasson](https://github.com/MikeWasson)
 
-[Pobieranie ukończone projektu](https://github.com/MikeWasson/BookService)
+[Pobierz ukończony projekt](https://github.com/MikeWasson/BookService)
 
 W ostatnim kroku opublikujesz aplikację na platformie Azure. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt i wybierz **Publikuj**.
 
 ![](part-10/_static/image1.png)
 
-Klikając **Publikuj** wywołuje **publikowanie w sieci Web** okna dialogowego. Jeśli zaznaczono **Host w chmurze** podczas pierwszego utworzenia projektu, a następnie połączenie i ustawienia zostały już skonfigurowane. W takim przypadku należy po prostu kliknij **ustawienia** i sprawdź &quot;wykonaj migracje Code First&quot;. (Jeśli nie została sprawdzona **Host w chmurze** na początku, a następnie wykonaj kroki opisane w [następnej sekcji](#new-website).)
+Kliknięcie **Publikuj** wywołuje okno dialogowe **Publikowanie w sieci Web**. Jeśli podczas tworzenia projektu zaznaczono **Host w chmurze**, to połączenie i ustawienia zostały już skonfigurowane. W takim przypadku należy po prostu kliknąć **Ustawienia** i zaznaczyć opcję &quot;wykonaj migracje Code First&quot;. (Jeśli na początku nie została zaznaczona opcja **Host w chmurze**, wykonaj kroki opisane w [następnej sekcji](#new-website).)
 
 [![](part-10/_static/image3.png)](part-10/_static/image2.png)
 
-Aby wdrożyć aplikację, kliknij przycisk **Publikuj**. Możesz wyświetlić postęp publikowania **działania publikowania internetowego** okna. (Z **widoku** menu, wybierz opcję **Windows inne**, a następnie wybierz **działania publikowania internetowego**.)
+Aby wdrożyć aplikację, kliknij przycisk **Publikuj**. Możesz wyświetlić postęp publikowania w oknie **Działania publikowania internetowego**. (Z menu **Widok** wybierz opcję **Windows inne**, a następnie wybierz **Działania publikowania internetowego**.)
 
 ![](part-10/_static/image4.png)
 
@@ -40,11 +40,11 @@ Po zakończeniu wdrażania aplikacji programu Visual Studio przeglądarka domyś
 <a id="new-website"></a>
 ## <a name="deploying-to-a-new-website"></a>Wdrożenie nowej witryny sieci Web
 
-Jeśli nie zaznaczono **Host w chmurze** podczas tworzenia projektu, możesz teraz skonfigurować nową aplikację sieci web. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt i wybierz **Publikuj**. Wybierz **profilu** kartę, a następnie kliknij przycisk **Microsoft Azure Websites**. Nie są obecnie zalogowano do platformy Azure, zostanie wyświetlony monit Zaloguj się.
+Jeśli nie zaznaczono opcji **Host w chmurze** podczas tworzenia projektu, możesz teraz skonfigurować nową aplikację sieci web. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt i wybierz **Publikuj**. Następnie wybierz kartę **Profil**, po czym kliknij przycisk **Microsoft Azure Websites**. Jeśli nie jesteś zalogowany do Azure, wyświetli się monit o zalogowanie.
 
 [![](part-10/_static/image8.png)](part-10/_static/image7.png)
 
-W **istniejących witryn sieci Web** okno dialogowe, kliknij przycisk **New**.
+W oknie dialogowym **istniejących witryn sieci Web** kliknij przycisk **New**.
 
 ![](part-10/_static/image9.png)
 
@@ -52,7 +52,7 @@ Wprowadź nazwę lokacji. Wybierz subskrypcję platformy Azure i region. W obsza
 
 [![](part-10/_static/image11.png)](part-10/_static/image10.png)
 
-Kliknij przycisk **ustawienia** i sprawdź &quot;wykonaj migracje Code First&quot;. Następnie kliknij przycisk **Publikuj**.
+Kliknij przycisk **Ustawienia** i zaznacz opcję &quot;Wykonaj migracje Code First&quot;. Następnie kliknij przycisk **Publikuj**.
 
 > [!div class="step-by-step"]
 > [Poprzednie](part-9.md)

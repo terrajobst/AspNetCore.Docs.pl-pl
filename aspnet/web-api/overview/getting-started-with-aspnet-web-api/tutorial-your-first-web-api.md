@@ -2,7 +2,7 @@
 uid: web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
 title: Wprowadzenie do wzorca ASP.NET Web API 2 (C#)
 author: MikeWasson
-description: Protokół HTTP nie jest dostępne tylko dla wysyłaniu stron sieci web. Ponadto jest to zaawansowana platforma do tworzenia interfejsów API, które udostępniają dane i usługi. Protokół HTTP jest proste, elastyczne i ubiq...
+description: Protokół HTTP nie jest używany tylko do obsługi stron internetowych. Ponadto jest to zaawansowana platforma do tworzenia interfejsów API, które udostępniają dane i usługi. Protokół HTTP jest proste, elastyczne i ubiq...
 ms.author: riande
 ms.date: 11/28/2017
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
@@ -18,28 +18,28 @@ ms.locfileid: "48795296"
 ====================
 przez [Mike Wasson](https://github.com/MikeWasson)
 
-[Pobieranie ukończone projektu](https://code.msdn.microsoft.com/Sample-code-of-Getting-c56ccb28)
+[Pobierz ukończony projekt](https://code.msdn.microsoft.com/Sample-code-of-Getting-c56ccb28)
 
-Protokół HTTP nie jest dostępne tylko dla wysyłaniu stron sieci web. Protokół HTTP, również jest to zaawansowana platforma do tworzenia interfejsów API, które udostępniają dane i usługi. Protokół HTTP jest proste, elastyczne i uniwersalnych. Niemal dowolną platformą, która można traktować ma biblioteki HTTP, więc usług HTTP można dotrzeć do szerokiej gamy klientów, w tym przeglądarek i urządzeń przenośnych, tradycyjne aplikacje komputerowe.
+Protokół HTTP nie jest używany tylko do obsługi stron internetowych. Protokół HTTP to również zaawansowana platforma do tworzenia interfejsów API, które udostępniają dane i usługi. Protokół HTTP jest prosty, elastyczny i uniwersalny. Prawie każda platforma obsługuje bibliotekę HTTP, więc usługi HTTP mogą być stosowane dla szerokiej gamy klientów takich jak przeglądarki, urządzenia przenośne czy tradycyjne aplikacje komputerowe.
 
-Web API platformy ASP.NET to architektura służąca do tworzenia interfejsów API w programie .NET Framework w sieci web. W tym samouczku użyjesz interfejsu API sieci Web platformy ASP.NET do tworzenia internetowego interfejsu API, które zwraca listę produktów.
+Internetowy interfejs API platformy ASP.NET to architektura służąca do tworzenia internetowych interfejsów API w programie .NET Framework. W tym samouczku użyjesz internetowego interfejsu API platformy ASP.NET do tworzenia internetowego interfejsu API, który zwraca listę produktów.
 
 ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używanego w tym samouczku
 
 - [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)
-- Składnik Web API 2
+- Internetowy interfejs API 2
 
-Zobacz [Tworzenie internetowego interfejsu API za pomocą platformy ASP.NET Core i Visual Studio for Windows](https://docs.microsoft.com/aspnet/core/tutorials/first-web-api) jest dostępna nowsza wersja tego samouczka.
+Aby zapoznać się z nowszą wersją tego samouczka, zobacz [Tworzenie internetowego interfejsu API za pomocą platformy ASP.NET Core i programu Visual Studio dla systemu Windows](https://docs.microsoft.com/aspnet/core/tutorials/first-web-api).
 
 ## <a name="create-a-web-api-project"></a>Utwórz projekt internetowego interfejsu API
 
-W tym samouczku użyjesz interfejsu API sieci Web platformy ASP.NET do tworzenia internetowego interfejsu API, które zwraca listę produktów. Strony sieci web frontonu używa jQuery, aby wyświetlić wyniki.
+W tym samouczku użyjesz internetowego interfejsu API platformy ASP.NET do tworzenia internetowego interfejsu API, który zwraca listę produktów. Strony sieci web frontonu używa jQuery, aby wyświetlić wyniki.
 
 ![](tutorial-your-first-web-api/_static/image1.png)
 
-Uruchom program Visual Studio i wybierz **nowy projekt** z **Start** strony. Lub z **pliku** menu, wybierz opcję **New** i następnie **projektu**.
+Uruchom program Visual Studio i wybierz pozycję **Nowy projekt** na stronie **Start**. Możesz również z menu **Plik** wybrać pozycję **Nowy**, a następnie **Projekt**.
 
-W **szablony** okienku wybierz **zainstalowane szablony** i rozwiń **Visual C#** węzła. W obszarze **Visual C#**, wybierz opcję **Web**. Na liście szablonów projektu wybierz **aplikacji sieci Web ASP.NET**. Nadaj projektowi nazwę "ProductsApp", a następnie kliknij przycisk **OK**.
+W okienku **Szablony** wybierz pozycję **Zainstalowane szablony** i rozwiń węzeł **Visual C#**. W obszarze **Visual C#**, wybierz pozycję **Sieć Web**. Na liście szablonów projektu wybierz **Aplikacja internetowa ASP.NET**. Nadaj projektowi nazwę "ProductsApp", a następnie kliknij przycisk **OK**.
 
 ![](tutorial-your-first-web-api/_static/image2.png)
 
@@ -53,11 +53,11 @@ W **nowy projekt ASP.NET** okno dialogowe, wybierz opcję **pusty** szablonu. W 
 
 ## <a name="adding-a-model"></a>Dodawanie modelu
 
-A *modelu* jest obiektem, który reprezentuje dane w aplikacji. ASP.NET Web API może automatycznie serializuj model do formatu JSON, XML lub innym formacie, a następnie wpisz dane serializowane w treści komunikatu odpowiedzi HTTP. Tak długo, jak długo klient może odczytywać format serializacji, może wykonywać deserializację obiektu. Większość klientów może przeanalizować, XML lub JSON. Ponadto klient może wskazywać formatu, który chce, ustawiając nagłówek Accept w komunikacie żądania HTTP.
+*Model* jest obiektem, który reprezentuje dane w aplikacji. Internetowy interfejs API platformy ASP.NET może automatycznie zserializować model do formatu JSON, XML lub innego, a następnie wpisać te dane serializowane w treści komunikatu odpowiedzi HTTP. Jeśli klient może odczytać format serializacji, może również wykonywać deserializację obiektu. Większość klientów może analizować albo format XML, albo JSON. Ponadto klient może wskazać pożądany format, ustawiając nagłówek Accept w komunikacie żądania HTTP.
 
 Zacznijmy od utworzenia prostego modelu, który reprezentuje produkt.
 
-Eksplorator rozwiązań nie jest jeszcze widoczny, kliknij przycisk **widoku** menu, a następnie wybierz **Eksploratora rozwiązań**. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy folderu modeli. Z menu kontekstowego wybierz **Dodaj** polecenie **klasy**.
+Jeśli Eksplorator rozwiązań nie jest jeszcze widoczny, kliknij menu **Widok**, a następnie wybierz pozycję **Eksplorator rozwiązań**. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy folder Modele. Z menu kontekstowego wybierz pozycję **Dodaj**, a następnie **Klasa**.
 
 ![](tutorial-your-first-web-api/_static/image4.png)
 
@@ -67,12 +67,12 @@ Nazwa klasy &quot;produktu&quot;. Dodaj następujące właściwości do `Product
 
 ## <a name="adding-a-controller"></a>Dodawanie kontrolera
 
-W interfejsie API sieci Web *kontrolera* jest obiektem, który obsługuje żądania HTTP. Dodamy kontroler, który może zwrócić listę produktów lub jednego produktu, określonego przez identyfikator.
+W internetowym interfejsie API *kontroler* jest obiektem, który obsługuje żądania HTTP. Dodamy kontroler, który może zwrócić listę produktów lub pojedynczy produkt określony przez identyfikator.
 
 > [!NOTE]
-> Jeśli używasz platformy ASP.NET MVC, znasz już kontrolerów. Interfejs API sieci Web kontrolery są podobne do kontrolerów MVC, ale dziedziczą **klasy ApiController** klasy zamiast **kontrolera** klasy.
+> Jeśli używasz platformy ASP.NET MVC, znasz już kontrolery. W internetowym interfejsie API kontrolery są podobne do kontrolerów MVC, ale dziedziczą klasę **ApiController** zamiast klasy **Controller**.
 
-W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy folder kontrolerów. Wybierz **Dodaj** , a następnie wybierz **kontrolera**.
+W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy folder kontrolerów (Controllers). Wybierz pozycję **Dodaj**, a następnie **Kontroler**.
 
 ![](tutorial-your-first-web-api/_static/image5.png)
 
