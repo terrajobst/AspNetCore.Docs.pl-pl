@@ -39,7 +39,7 @@ W tym dokumencie przedstawiono kroki umożliwiające utworzenie i uruchomienie a
 
   ![Okno dialogowe ostrzeżenia o zabezpieczeniach](_static/cert.png)
 
-  Wybierz **tak** Jeśli zgadzasz się ufać certyfikatowi rozwoju.
+  Wybierz **tak** Jeśli zgadzasz się ufać certyfikatowi deweloperskiemu.
 
 # <a name="macostabmacos"></a>[macOS](#tab/macos)
 
@@ -54,11 +54,11 @@ W tym dokumencie przedstawiono kroki umożliwiające utworzenie i uruchomienie a
   
   Hasło: *
 
-  Wprowadź hasło, jeśli zgadzasz się ufać certyfikatowi rozwoju.
+  Wprowadź hasło, jeśli zgadzasz się ufać certyfikatowi deweloperskiemu.
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
-  W dokumentacji dla Twojej dystrybucji systemu Linux na temat zaufania certyfikatu deweloperskiego protokołu HTTPS.
+  Sprawd w dokumentacji dla Twojej dystrybucji systemu Linux informacje na temat dodania certyfikatu deweloperskiego do zaufanych certyfikatów protokołu HTTPS.
    
 ---
 
@@ -69,13 +69,13 @@ W tym dokumencie przedstawiono kroki umożliwiające utworzenie i uruchomienie a
    dotnet run
    ```
 
-5. Przejdź do [ http://localhost:5001 ](http://localhost:5001).  Kliknij przycisk **Akceptuj** zaakceptować zasady ochrony prywatności i plików cookie. Ta aplikacja nie zachowuje informacji osobistych.
+5. Przejdź do [http://localhost:5001](http://localhost:5001).  Kliknij przycisk **Akceptuj** zaakceptować zasady ochrony prywatności i plików cookie. Ta aplikacja nie zachowuje informacji osobistych.
 
-6. Otwórz *Pages/About.cshtml* i modyfikować strony z następujący wyróżniony kod znaczników:
+6. Otwórz *Pages/About.cshtml* i zmodyfikuj stronę w wyróżnionym miejscu w następującym przykładzie:
 
    [!code-cshtml[](sample/getting-started/about.cshtml?highlight=9)]
 
-7. Przejdź do [ http://localhost:5001/About ](http://localhost:5001/About) i Sprawdź zmiany są wyświetlane.
+7. Przejdź do [http://localhost:5001/About](http://localhost:5001/About) i sprawdź, czy zmiany są wyświetlane.
 
 [!INCLUDE [next steps](~/includes/getting-started/next-steps.md)]
 
@@ -100,13 +100,13 @@ W tym dokumencie przedstawiono kroki umożliwiające utworzenie i uruchomienie a
    dotnet run
    ```
 
-4. Przejdź do [ http://localhost:5000 ](http://localhost:5000).
+4. Przejdź do [http://localhost:5000](http://localhost:5000).
 
-5. Otwórz *Pages/About.cshtml*i zmodyfikuj stronę, aby wyświetlić komunikat „Hello, world! Czas na serwerze jest @DateTime.Now":
+5. Otwórz *Pages/About.cshtml* i zmodyfikuj stronę, aby wyświetlić komunikat „Hello, world! Czas na serwerze jest @DateTime.Now":
 
    [!code-cshtml[](sample/getting-started/about.cshtml?highlight=9&range=1-9)]
 
-6. Przejdź do [ http://localhost:5000/About ](http://localhost:5000/About) a następnie zweryfikować zmiany.
+6. Przejdź do [http://localhost:5000/About](http://localhost:5000/About) a następnie zweryfikuj zmiany.
 
 [!INCLUDE [next steps](~/includes/getting-started/next-steps.md)]
 
@@ -125,7 +125,7 @@ W tym dokumencie przedstawiono kroki umożliwiające utworzenie i uruchomienie a
    cd aspnetcoreapp
    ```
 
-3. Jeśli na komputerze zainstalowano nowszej wersji zestawu SDK, utworzyć *global.json* plik, aby zaznaczyć 1.0.4 zestawu SDK.
+3. Jeśli na komputerze zainstalowano nowszą wersję zestawu SDK, utwórz plik *global.json*, aby zaznaczyć wykorzystanie SDK w wersji 1.0.4.
 
    ```json
    {
@@ -151,7 +151,7 @@ W tym dokumencie przedstawiono kroki umożliwiające utworzenie i uruchomienie a
    dotnet run
    ```
 
-   [Dotnet, uruchom](/dotnet/core/tools/dotnet-run) polecenie tworzy najpierw aplikacji, jeśli to konieczne.
+   Polecenie [dotnet run](/dotnet/core/tools/dotnet-run) zbuduje najpierw aplikację, jeśli jest to konieczne.
 
 7. Przejdź do `http://localhost:5000`.
 
