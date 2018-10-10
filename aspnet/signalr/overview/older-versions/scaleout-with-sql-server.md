@@ -8,12 +8,12 @@ ms.date: 05/01/2013
 ms.assetid: 1dca7967-8296-444a-9533-837eb284e78c
 msc.legacyurl: /signalr/overview/older-versions/scaleout-with-sql-server
 msc.type: authoredcontent
-ms.openlocfilehash: cd0e3d4bdb4d2eb78e5c41167a17f8673584f654
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: d68196aa8e4d0c60570a0e36ccc75a2a080d57bc
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41751864"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912751"
 ---
 <a name="signalr-scaleout-with-sql-server-signalr-1x"></a>SignalR — skalowanie w poziomie z programem SQL Server (SignalR 1.x)
 ====================
@@ -66,7 +66,6 @@ Aby włączyć programu Service Broker, użyj następującego zapytania SQL:
 > [!NOTE]
 > Jeśli wydaje się zakleszczenie, upewnij się, to zapytanie nie istnieją żadne aplikacje połączone z bazą danych.
 
-
 Po włączeniu śledzenia śledzenia również pokaże czy programu Service Broker jest włączona.
 
 ## <a name="create-a-signalr-application"></a>Tworzenie aplikacji SignalR
@@ -76,7 +75,7 @@ Tworzenie aplikacji SignalR, wykonując dowolną z następujących samouczków:
 - [Wprowadzenie do SignalR](../getting-started/tutorial-getting-started-with-signalr.md)
 - [Wprowadzenie do SignalR i MVC 4](tutorial-getting-started-with-signalr-and-mvc-4.md)
 
-Następnie zmodyfikujemy aplikacji rozmów w celu obsługi skalowania w poziomie z programem SQL Server. Najpierw Dodaj pakiet SignalR.SqlServer NuGet do projektu. W programie Visual Studio z **narzędzia** menu, wybierz opcję **Menedżer pakietów biblioteki**, a następnie wybierz **Konsola Menedżera pakietów**. W oknie Konsola Menedżera pakietów wprowadź następujące polecenie:
+Następnie zmodyfikujemy aplikacji rozmów w celu obsługi skalowania w poziomie z programem SQL Server. Najpierw Dodaj pakiet SignalR.SqlServer NuGet do projektu. W programie Visual Studio z **narzędzia** menu, wybierz opcję **Menedżera pakietów NuGet**, a następnie wybierz **Konsola Menedżera pakietów**. W oknie Konsola Menedżera pakietów wprowadź następujące polecenie:
 
 [!code-powershell[Main](scaleout-with-sql-server/samples/sample4.ps1)]
 

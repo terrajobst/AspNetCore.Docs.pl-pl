@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 05/12/2018
 uid: razor-pages/index
-ms.openlocfilehash: f55d0e534dafb0709f1411bad9b038a87abde7ab
-ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
+ms.openlocfilehash: 54ef82bf64552e71e53178fdbcd8d226ea99b012
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523314"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913271"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Wprowadzenie do stron Razor programu ASP.NET Core
 
@@ -246,7 +246,9 @@ Zobacz [Walidacja modelu](xref:mvc/models/validation) Aby uzyskać więcej infor
 
 ## <a name="manage-head-requests-with-the-onget-handler"></a>Zarządzanie żądaniami HEAD za pomocą obsługi OnGet
 
-Zazwyczaj obsługi HEAD jest tworzony i wywołana dla żądania HEAD:
+Żądania HEAD umożliwiają pobieranie nagłówki dla określonego zasobu. Inaczej niż w przypadku żądania GET HEAD żądań nie zwracają treść odpowiedzi. 
+
+Zazwyczaj obsługi HEAD jest tworzony i wywołana dla żądania HEAD: 
 
 ```csharp
 public void OnHead()
@@ -255,12 +257,14 @@ public void OnHead()
 }
 ```
 
-Jeśli żadna procedura obsługi HEAD (`OnHead`) jest zdefiniowany, stron Razor powraca do wywoływania procedury obsługi strony GET (`OnGet`) w programie ASP.NET Core 2.1 lub nowszej. Zezwalaj na korzystanie z tego zachowania [metoda SetCompatibilityVersion](xref:mvc/compatibility-version) w `Startup.Configure` dla platformy ASP.NET Core 2.1 do 2.x:
+Jeśli żadna procedura obsługi HEAD (`OnHead`) jest zdefiniowany, stron Razor powraca do wywoływania procedury obsługi strony GET (`OnGet`) w programie ASP.NET Core 2.1 lub nowszej. W programie ASP.NET Core 2.1 i 2.2 to zachowanie dotyczy [SetCompatibilityVersion](xref:mvc/compatibility-version) w `Startup.Configure`:
 
 ```csharp
 services.AddMvc()
     .SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1);
 ```
+
+Generowanie szablonów domyślnych `SetCompatibilityVersion` wywołania platformy ASP.NET Core 2.1 i 2.2.
 
 `SetCompatibilityVersion` efektywnie ustawia opcję stron Razor `AllowMappingHeadRequestsToGetHandler` do `true`.
 

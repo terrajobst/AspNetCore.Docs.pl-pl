@@ -8,43 +8,43 @@ ms.date: 06/10/2014
 ms.assetid: 400db427-27af-4f2f-abf0-5486d5e024b5
 msc.legacyurl: /signalr/overview/deployment/tutorial-signalr-self-host
 msc.type: authoredcontent
-ms.openlocfilehash: 5d7d485357a6c820f11e0135e2ff9479c1965d96
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: a08ce2e89ae13125cbc3915b44bcd1120fc22150
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41756602"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911538"
 ---
 <a name="tutorial-signalr-self-host"></a>Samouczek: Host samodzielny SignalR
 ====================
 przez [Patrick Fletcher](https://github.com/pfletcher)
 
-[Pobieranie ukończone projektu](http://code.msdn.microsoft.com/SignalR-Self-Host-Sample-6da0f383)
+[Pobierz ukończony projekt](http://code.msdn.microsoft.com/SignalR-Self-Host-Sample-6da0f383)
 
 > W tym samouczku pokazano, jak utworzyć samodzielnie hostowany serwer SignalR 2 i jak połączyć się z nim za pomocą klienta języka JavaScript.
-> 
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używanego w tym samouczku
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET 4.5
 > - SignalR w wersji 2
->   
-> 
-> 
+>
+>
+>
 > ## <a name="using-visual-studio-2012-with-this-tutorial"></a>Z tego samouczka przy użyciu programu Visual Studio 2012
-> 
-> 
+>
+>
 > Aby użyć programu Visual Studio 2012 za pomocą tego samouczka, wykonaj następujące czynności:
-> 
+>
 > - Aktualizacja usługi [Menedżera pakietów](http://docs.nuget.org/docs/start-here/installing-nuget) do najnowszej wersji.
 > - Zainstaluj [Instalator platformy sieci Web](https://www.microsoft.com/web/downloads/platform.aspx).
 > - Instalator platformy sieci Web, wyszukiwanie i instalowanie **platformy ASP.NET i Web Tools 2013.1 dla programu Visual Studio 2012**. Szablony programu Visual Studio dla klas SignalR spowoduje to zainstalowanie takich jak **Centrum**.
 > - Niektóre szablony (takie jak **klasy początkowej OWIN**) nie są dostępne; w tym przypadku użyj pliku klasy.
-> 
-> 
+>
+>
 > ## <a name="questions-and-comments"></a>Pytania i komentarze
-> 
+>
 > Jak się podoba w tym samouczku, i co można było ulepszyć proces w komentarzach u dołu strony, wystaw opinię. Jeśli masz pytania, na które nie są bezpośrednio związane z tego samouczka, możesz zamieścić je do [forum ASP.NET SignalR](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) lub [StackOverflow.com](http://stackoverflow.com/).
 
 
@@ -74,7 +74,7 @@ W tym samouczku utworzysz serwer, który znajduje się w aplikacji konsoli, ale 
 1. Otwórz program Visual Studio 2013 z uprawnieniami administratora. Wybierz **pliku**, **nowy projekt**. Wybierz **Windows** w obszarze **Visual C#** w węźle **szablony** okienka, a następnie wybierz **aplikację Konsolową** szablonu. Nazwa nowego projektu "SignalRSelfHost", a następnie kliknij przycisk **OK**.
 
     ![](tutorial-signalr-self-host/_static/image1.png)
-2. Otwórz konsolę Menedżera pakietów biblioteki, wybierając **narzędzia**, **Menedżer pakietów biblioteki**, **Konsola Menedżera pakietów**.
+2. Otwórz konsolę Menedżera pakietów NuGet, wybierając **narzędzia** > **Menedżera pakietów NuGet** > **Konsola Menedżera pakietów**.
 3. W konsoli Menedżera pakietów wpisz następujące polecenie:
 
     [!code-powershell[Main](tutorial-signalr-self-host/samples/sample1.ps1)]

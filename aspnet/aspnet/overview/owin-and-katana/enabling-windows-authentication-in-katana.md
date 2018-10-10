@@ -8,12 +8,12 @@ ms.date: 07/30/2013
 ms.assetid: 82324ef0-3b75-4f63-a217-76ef4036ec93
 msc.legacyurl: /aspnet/overview/owin-and-katana/enabling-windows-authentication-in-katana
 msc.type: authoredcontent
-ms.openlocfilehash: 0aa578020a1f02fa68c74e758014c642219b4265
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 8afa2c9dfbe03a9874513f7d083adf7608f4218f
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41756700"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48910463"
 ---
 <a name="enabling-windows-authentication-in-katana"></a>Włączanie uwierzytelniania Windows w projekcie Katana
 ====================
@@ -36,7 +36,6 @@ Katana aktualnie obsługuje dwa serwery, które obsługuje zintegrowane uwierzyt
 > [!NOTE]
 > Katana nie jest aktualnie dostępny oprogramowanie pośredniczące OWIN do uwierzytelniania Windows, ponieważ ta funkcja jest już dostępne na serwerach.
 
-
 ## <a name="windows-authentication-in-iis"></a>Windows uwierzytelniania w usługach IIS
 
 Używając Microsoft.Owin.Host.SystemWeb, można po prostu włącz uwierzytelnianie Windows w usługach IIS.
@@ -45,7 +44,7 @@ Zacznijmy od utworzenia nowej aplikacji platformy ASP.NET przy użyciu szablonu 
 
 ![](enabling-windows-authentication-in-katana/_static/image1.png)
 
-Następnie dodaj pakiety NuGet. Z **narzędzia** menu, wybierz opcję **Menedżer pakietów biblioteki**, a następnie wybierz **Konsola Menedżera pakietów**. W oknie Konsola Menedżera pakietów wprowadź następujące polecenie:
+Następnie dodaj pakiety NuGet. Z **narzędzia** menu, wybierz opcję **Menedżera pakietów NuGet**, a następnie wybierz **Konsola Menedżera pakietów**. W oknie Konsola Menedżera pakietów wprowadź następujące polecenie:
 
 [!code-console[Main](enabling-windows-authentication-in-katana/samples/sample1.cmd)]
 
@@ -75,7 +74,7 @@ Później, podczas wdrażania aplikacji na serwerze, postępuj zgodnie z [te kro
 
 Jeśli są używane na potrzeby samodzielnego hostowania Katana Microsoft.Owin.Host.HttpListener, można włączyć uwierzytelnianie Windows bezpośrednio na **HttpListener** wystąpienia.
 
-Najpierw utwórz nową aplikację konsoli. Następnie dodaj pakiety NuGet. Z **narzędzia** menu, wybierz opcję **Menedżer pakietów biblioteki**, a następnie wybierz **Konsola Menedżera pakietów**. W oknie Konsola Menedżera pakietów wprowadź następujące polecenie:
+Najpierw utwórz nową aplikację konsoli. Następnie dodaj pakiety NuGet. Z **narzędzia** menu, wybierz opcję **Menedżera pakietów NuGet**, a następnie wybierz **Konsola Menedżera pakietów**. W oknie Konsola Menedżera pakietów wprowadź następujące polecenie:
 
 [!code-console[Main](enabling-windows-authentication-in-katana/samples/sample4.cmd)]
 

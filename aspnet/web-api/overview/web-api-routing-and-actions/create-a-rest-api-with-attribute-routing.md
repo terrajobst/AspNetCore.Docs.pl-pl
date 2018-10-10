@@ -8,12 +8,12 @@ ms.date: 06/26/2013
 ms.assetid: 23fc77da-2725-4434-99a0-ff872d96336b
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/create-a-rest-api-with-attribute-routing
 msc.type: authoredcontent
-ms.openlocfilehash: 191452204d4347396b1d339d9b82d583a2ce9f3c
-ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
+ms.openlocfilehash: 3b66f02c9be6441ff7d6c38d6180cc8556c6b8b9
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48795521"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912894"
 ---
 <a name="create-a-rest-api-with-attribute-routing-in-aspnet-web-api-2"></a>Tworzenie interfejsu API REST z atrybutem routingu we wzorcu ASP.NET Web API 2
 ====================
@@ -52,11 +52,11 @@ W większości żądań, natomiast interfejs API zwróci podzbiór danych (tytu�
 
 Rozpocznij od uruchamianie programu Visual Studio. Z **pliku** menu, wybierz opcję **New** , a następnie wybierz **projektu**.
 
-Rozwiń **zainstalowane** > **Visual C#** kategorii. W obszarze **Visual C#**, wybierz opcję **Web**. Na liście szablonów projektu wybierz **aplikacji sieci Web programu ASP.NET MVC 4**. Nadaj projektowi nazwę &quot;BooksAPI&quot;.
+Rozwiń **zainstalowane** > **Visual C#** kategorii. W obszarze **Visual C#**, wybierz pozycję **Sieć Web**. Na liście szablonów projektu wybierz **aplikacji sieci Web programu ASP.NET MVC 4**. Nadaj projektowi nazwę &quot;BooksAPI&quot;.
 
 ![](create-a-rest-api-with-attribute-routing/_static/image1.png)
 
-W **nowy projekt ASP.NET** okno dialogowe, wybierz opcję **pusty** szablonu. W obszarze "Dodaj foldery i podstawowe odwołania dla" Wybierz **interfejsu API sieci Web** pola wyboru. Kliknij przycisk **Utwórz projekt**.
+W oknie dialogowym **Nowy projekt ASP.NET** wybierz szablon **Pusty**. W obszarze "Dodaj foldery i podstawowe odwołania dla" Wybierz **interfejsu API sieci Web** pola wyboru. Kliknij przycisk **Utwórz projekt**.
 
 ![](create-a-rest-api-with-attribute-routing/_static/image2.png)
 
@@ -64,7 +64,7 @@ Spowoduje to utworzenie szkielet projektu, który jest skonfigurowany do obsług
 
 ### <a name="domain-models"></a>Modeli domeny
 
-Następnie Dodaj klasy dla modeli domeny. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy folderu modeli. Wybierz **Dodaj**, a następnie wybierz **klasy**. Nazwa klasy `Author`.
+Następnie Dodaj klasy dla modeli domeny. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy folder Modele. Wybierz **Dodaj**, a następnie wybierz **klasy**. Nazwa klasy `Author`.
 
 ![](create-a-rest-api-with-attribute-routing/_static/image3.png)
 
@@ -104,7 +104,7 @@ Kliknij przycisk **Dodaj** w **Dodaj kontroler** okna dialogowego. Szkieletu Dod
 
 ### <a name="seed-the-database"></a>Inicjowanie bazy danych
 
-Wybierz z menu narzędzia **Menedżer pakietów biblioteki**, a następnie wybierz pozycję **Konsola Menedżera pakietów**.
+Wybierz z menu narzędzia **Menedżera pakietów NuGet**, a następnie wybierz pozycję **Konsola Menedżera pakietów**.
 
 W oknie Konsola Menedżera pakietów wprowadź następujące polecenie:
 

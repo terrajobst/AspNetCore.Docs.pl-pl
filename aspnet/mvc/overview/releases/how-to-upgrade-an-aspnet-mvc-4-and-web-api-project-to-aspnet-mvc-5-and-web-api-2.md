@@ -8,12 +8,12 @@ ms.date: 10/17/2013
 ms.assetid: db0d02d9-58e8-4a0b-8d7d-b8df8ea97b88
 msc.legacyurl: /mvc/overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: d6fb40741c5f7b992e907a462ac92972fe603624
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 2566e201e44ccd9642abda7c7996056c73178fd6
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48578370"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912855"
 ---
 <a name="how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2"></a>Jak uaktualnić platformy ASP.NET MVC 4 i projektu interfejsu Web API platformy ASP.NET MVC 5 i Web API 2
 ====================
@@ -71,8 +71,8 @@ Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
     > -Microsoft-pomocnicy Microsoft.AspNet.WebHelpers został zastąpiony. Należy najpierw usunięcie starego pakietu, a następnie zainstaluj nowszą pakietu.   
     >   
     > Nie ma żadnych między wersjami między najważniejszych pakietów platformy ASP.NET. Na przykład MVC 5 jest zgodny z tylko Razor 3 i nie aparatu Razor 2.
-4. Otwórz swój projekt w programie Visual Studio 2013.
-5. Usuń wszystkie następujące pakiety NuGet programu ASP.NET, które są zainstalowane. Spowoduje usunięcie je za pomocą konsoli Menedżera pakietów (PMC). Aby otworzyć konsolę zarządzania Pakietami, wybierz **narzędzia** menu, a następnie wybierz **Menedżer pakietów biblioteki,** polecenie **Konsola Menedżera pakietów**. Projekt może nie zawierać wszystkich z nich.
+4. Otwórz swój projekt w programie Visual Studio.
+5. Usuń wszystkie następujące pakiety NuGet programu ASP.NET, które są zainstalowane. Spowoduje usunięcie je za pomocą konsoli Menedżera pakietów (PMC). Aby otworzyć konsolę zarządzania Pakietami, wybierz **narzędzia** menu, a następnie wybierz **Menedżera pakietów NuGet** polecenie **Konsola Menedżera pakietów**. Projekt może nie zawierać wszystkich z nich.
 
     1. `Microsoft.AspNet.WebPages.Administration`  
    Ten pakiet jest zazwyczaj dodawany podczas uaktualniania z MVC 3 do MVC 4. Aby usunąć, uruchom następujące polecenie w konsoli zarządzania Pakietami:  

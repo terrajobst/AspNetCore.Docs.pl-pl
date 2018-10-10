@@ -8,32 +8,32 @@ ms.date: 06/10/2014
 ms.assetid: 6ecd08c1-e364-4cd7-ad4c-806521911585
 msc.legacyurl: /signalr/overview/performance/scaleout-with-redis
 msc.type: authoredcontent
-ms.openlocfilehash: 630be13906e2143267ef33a59ccc2ea05073a258
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: ebb61e4296f78bcd74622b729a10d45b60ebb724
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41752466"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912790"
 ---
 <a name="signalr-scaleout-with-redis"></a>SignalR — skalowanie w poziomie przy użyciu usługi Redis
 ====================
 przez [Mike Wasson](https://github.com/MikeWasson), [Patrick Fletcher](https://github.com/pfletcher)
 
 > ## <a name="software-versions-used-in-this-topic"></a>Wersje oprogramowania używaną w tym temacie
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET 4.5
 > - SignalR w wersji 2
->   
-> 
-> 
+>
+>
+>
 > ## <a name="previous-versions-of-this-topic"></a>Poprzednie wersje tego tematu
-> 
+>
 > Aby uzyskać informacje dotyczące starszych wersji biblioteki SignalR, zobacz [starsze wersje biblioteki SignalR](../older-versions/index.md).
-> 
+>
 > ## <a name="questions-and-comments"></a>Pytania i komentarze
-> 
+>
 > Jak się podoba w tym samouczku, i co można było ulepszyć proces w komentarzach u dołu strony, wystaw opinię. Jeśli masz pytania, na które nie są bezpośrednio związane z tego samouczka, możesz zamieścić je do [forum ASP.NET SignalR](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) lub [StackOverflow.com](http://stackoverflow.com/).
 
 
@@ -52,8 +52,8 @@ Jeśli nie masz trzech serwerów fizycznych do użycia, można utworzyć maszyny
 
 Chociaż w tym samouczku korzysta z oficjalnego implementacja pamięci podręcznej Redis, dostępna jest również [Windows port Redis](https://github.com/MSOpenTech/redis) z MSOpenTech. Instalacja i konfiguracja są różne, ale w przeciwnym razie kroki są takie same.
 
-> [!NOTE] 
-> 
+> [!NOTE]
+>
 > SignalR — skalowanie w poziomie przy użyciu usługi Redis nie obsługuje klastrów usługi Redis.
 
 
@@ -62,12 +62,12 @@ Chociaż w tym samouczku korzysta z oficjalnego implementacja pamięci podręczn
 Przed przejściem do szczegółowe podręcznika, poniżej przedstawiono krótkie podsumowanie będzie wykonywać.
 
 1. Zainstaluj usługę Redis i uruchomić serwera Redis.
-2. Dodaj te pakiety NuGet do aplikacji: 
+2. Dodaj te pakiety NuGet do aplikacji:
 
     - [Microsoft.AspNet.SignalR](http://nuget.org/packages/Microsoft.AspNet.SignalR)
     - [Microsoft.AspNet.SignalR.Redis](http://nuget.org/packages/Microsoft.AspNet.SignalR.Redis)
 3. Tworzenie aplikacji SignalR.
-4. Dodaj następujący kod do pliku Startup.cs w celu skonfigurowania systemu backplane: 
+4. Dodaj następujący kod do pliku Startup.cs w celu skonfigurowania systemu backplane:
 
     [!code-csharp[Main](scaleout-with-redis/samples/sample1.cs)]
 
@@ -112,7 +112,7 @@ Tworzenie aplikacji SignalR, wykonując dowolną z następujących samouczków:
 - [Wprowadzenie do SignalR w wersji 2.0](../getting-started/tutorial-getting-started-with-signalr.md)
 - [Wprowadzenie do SignalR w wersji 2.0 i MVC 5](../getting-started/tutorial-getting-started-with-signalr-and-mvc.md)
 
-Następnie zmodyfikujemy aplikacji rozmów w celu obsługi skalowania w poziomie przy użyciu usługi Redis. Najpierw Dodaj pakiet SignalR.Redis NuGet do projektu. W programie Visual Studio z **narzędzia** menu, wybierz opcję **Menedżer pakietów biblioteki**, a następnie wybierz **Konsola Menedżera pakietów**. W oknie Konsola Menedżera pakietów wprowadź następujące polecenie:
+Następnie zmodyfikujemy aplikacji rozmów w celu obsługi skalowania w poziomie przy użyciu usługi Redis. Najpierw Dodaj pakiet SignalR.Redis NuGet do projektu. W programie Visual Studio z **narzędzia** menu, wybierz opcję **Menedżera pakietów NuGet**, a następnie wybierz **Konsola Menedżera pakietów**. W oknie Konsola Menedżera pakietów wprowadź następujące polecenie:
 
 [!code-powershell[Main](scaleout-with-redis/samples/sample5.ps1)]
 

@@ -8,12 +8,12 @@ ms.date: 11/17/2011
 ms.assetid: c3c76516-4c48-4153-bd03-d70e3a3edbb0
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 378bcc038335ee852cd1a6c6e545eb72c6e0c78b
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 9b3d47c3c8fe5f0b37f1d45e19341df3f91a5bb0
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41755591"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911191"
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-sql-server-compact-databases---2-of-12"></a>Wdrażanie aplikacji sieci Web ASP.NET za pomocą programu SQL Server Compact przy użyciu programu Visual Studio lub Visual Web Developer: Wdrażanie Compact baz danych SQL Server - 2 z 12
 ====================
@@ -105,12 +105,11 @@ Otwórz plik Web.config i Usuń element, który określa Code First klasy inicja
 > [!NOTE]
 > Innym sposobem określenia klasy inicjatora to zrobić, wywołując `Database.SetInitializer` w `Application_Start` method in Class metoda *Global.asax* pliku. Jeśli włączasz migracji w projekcie, który używa tej metody w celu określenia inicjatora, Usuń ten wiersz kodu.
 
-
 Następnie włącz migracje Code First.
 
 Pierwszym krokiem jest, aby upewnić się, że projekt ContosoUniversity jest ustawiony jako projekt startowy. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt ContosoUniversity i wybierz **Ustaw jako projekt startowy**. Migracje Code First będzie wyszukiwał projekt startowy, aby znaleźć parametry połączenia bazy danych.
 
-Z **narzędzia** menu, kliknij przycisk **Menedżer pakietów biblioteki** i następnie **Konsola Menedżera pakietów**.
+Z **narzędzia** menu, kliknij przycisk **Menedżera pakietów NuGet** i następnie **Konsola Menedżera pakietów**.
 
 ![Selecting_Package_Manager_Console](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image6.png)
 

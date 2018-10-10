@@ -8,27 +8,27 @@ ms.date: 04/11/2014
 ms.assetid: 07aa855a-92ee-4d43-ba66-5bfd7de20ee6
 msc.legacyurl: /aspnet/overview/owin-and-katana/host-owin-in-an-azure-worker-role
 msc.type: authoredcontent
-ms.openlocfilehash: 6bead915491c62de809b8625d8071a63c70a6ef5
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: dbf0964695dd2592d063b05c0778923edffe8e2e
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41756223"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48910779"
 ---
 <a name="host-owin-in-an-azure-worker-role"></a>Hostowanie OWIN w roli procesu roboczego platformy Azure
 ====================
 przez [Mike Wasson](https://github.com/MikeWasson)
 
 > W tym samouczku pokazano, jak na potrzeby samodzielnego hostowania OWIN w roli procesu roboczego Microsoft Azure.
-> 
+>
 > [Otwórz interfejs sieci Web dla platformy .NET](http://owin.org/) (OWIN) definiuje abstrakcję między serwerami sieci web platformy .NET i aplikacji sieci web. OWIN oddziela aplikacji sieci web na serwerze, co sprawia, że OWIN jest idealnym rozwiązaniem dla hostingu samodzielnego aplikacji sieci web w swoim własnym procesie, poza programem IIS — na przykład w roli procesu roboczego platformy Azure.
-> 
+>
 > W tym samouczku dowiesz się, jak na potrzeby samodzielnego hostowania aplikacji OWIN w roli procesu roboczego Microsoft Azure. Aby dowiedzieć się więcej o rolach procesów roboczych, zobacz [modele wykonywania Azure](https://azure.microsoft.com/documentation/articles/fundamentals-application-models/#CloudServices).
-> 
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używanego w tym samouczku
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - [Zestaw Azure SDK dla platformy .NET 2.3](https://azure.microsoft.com/downloads/)
 > - [Microsoft.Owin.Selfhost 2.1.0](http://www.nuget.org/packages/Microsoft.Owin.SelfHost/2.1.0)
 
@@ -56,7 +56,7 @@ Ogólnie rzecz biorąc aplikacją platformy Azure może zawierać wiele ról, ch
 
 ## <a name="add-the-owin-self-host-packages"></a>Dodaj pakiety hosta samodzielnego OWIN
 
-Z **narzędzia** menu, kliknij przycisk **Menedżer pakietów biblioteki**, następnie kliknij przycisk **Konsola Menedżera pakietów**.
+Z **narzędzia** menu, kliknij przycisk **Menedżera pakietów NuGet**, następnie kliknij przycisk **Konsola Menedżera pakietów**.
 
 W oknie Konsola Menedżera pakietów wprowadź następujące polecenie:
 

@@ -8,25 +8,25 @@ ms.date: 01/20/2014
 ms.assetid: e3d3e7ba-87f0-4032-bdd3-31f3c1aa9d9c
 msc.legacyurl: /web-api/overview/advanced/dependency-injection
 msc.type: authoredcontent
-ms.openlocfilehash: 41db1af79ed63ff4dd12be37e9cc76e16f1bf5e4
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: c58b06af0044144cf28cc36c16a41672aa1f6eb3
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41755460"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911268"
 ---
 <a name="dependency-injection-in-aspnet-web-api-2"></a>Wstrzykiwanie zależności we wzorcu ASP.NET Web API 2
 ====================
 przez [Mike Wasson](https://github.com/MikeWasson)
 
-[Pobieranie ukończone projektu](http://code.msdn.microsoft.com/ASP-NET-Web-API-Tutorial-468ee148)
+[Pobierz ukończony projekt](http://code.msdn.microsoft.com/ASP-NET-Web-API-Tutorial-468ee148)
 
 > W tym samouczku pokazano, jak wstrzykiwanie zależności do poziomu kontrolera interfejsu API sieci Web platformy ASP.NET.
 > 
 > ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używanego w tym samouczku
 > 
 > 
-> - Składnik Web API 2
+> - Internetowy interfejs API 2
 > - [Blok aplikacji Unity](https://www.nuget.org/packages/Unity/)
 > - Entity Framework 6 (działa także w wersji 5)
 
@@ -88,7 +88,7 @@ Kontenera IoC jest składnikiem oprogramowania, który jest odpowiedzialny za za
 > "IoC" oznacza "Inwersja kontroli", który jest ogólny wzorzec gdzie struktura wywołuje kod aplikacji. Kontenera IoC tworzy obiekty, które zwykle przepływu sterowania "odwraca".
 
 
-W tym samouczku użyjemy [Unity](https://msdn.microsoft.com/library/ff647202.aspx) z Microsoft Patterns &amp; rozwiązania. (Obejmują innych popularnych bibliotek [Castle Windsor](http://www.castleproject.org/), [Spring.Net](http://www.springframework.net/), [Autofac](https://code.google.com/p/autofac/), [Ninject](http://www.ninject.org/), i [StructureMap ](http://docs.structuremap.net/).) Menedżer pakietów NuGet można użyć do zainstalowania aparatu Unity. Z **narzędzia** menu w programie Visual Studio, wybierz **Menedżer pakietów biblioteki**, a następnie wybierz **Konsola Menedżera pakietów**. W oknie Konsola Menedżera pakietów wpisz następujące polecenie:
+W tym samouczku użyjemy [Unity](https://msdn.microsoft.com/library/ff647202.aspx) z Microsoft Patterns &amp; rozwiązania. (Obejmują innych popularnych bibliotek [Castle Windsor](http://www.castleproject.org/), [Spring.Net](http://www.springframework.net/), [Autofac](https://code.google.com/p/autofac/), [Ninject](http://www.ninject.org/), i [StructureMap ](http://docs.structuremap.net/).) Menedżer pakietów NuGet można użyć do zainstalowania aparatu Unity. Z **narzędzia** menu w programie Visual Studio, wybierz **Menedżera pakietów NuGet**, a następnie wybierz **Konsola Menedżera pakietów**. W oknie Konsola Menedżera pakietów wpisz następujące polecenie:
 
 [!code-console[Main](dependency-injection/samples/sample7.cmd)]
 

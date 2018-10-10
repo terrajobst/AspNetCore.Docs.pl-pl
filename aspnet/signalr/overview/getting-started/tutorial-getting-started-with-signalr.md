@@ -8,18 +8,18 @@ ms.date: 06/10/2014
 ms.assetid: a8b3b778-f009-4369-85c7-e90f9878d8b4
 msc.legacyurl: /signalr/overview/getting-started/tutorial-getting-started-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 647dab496acd63dc774236ed448bd6b37b19c707
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 676dc0854ef6f041e705ed6b39432e11dd8643ed
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41755166"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48910905"
 ---
 <a name="tutorial-getting-started-with-signalr-2"></a>Samouczek: Wprowadzenie do SignalR 2
 ====================
 przez [Patrick Fletcher](https://github.com/pfletcher)
 
-[Pobieranie ukończone projektu](http://code.msdn.microsoft.com/SignalR-Getting-Started-b9d18aa9)
+[Pobierz ukończony projekt](http://code.msdn.microsoft.com/SignalR-Getting-Started-b9d18aa9)
 
 > Ten samouczek pokazuje, jak utworzyć aplikację do obsługi rozmów w czasie rzeczywistym przy użyciu SignalR. Będzie dodać SignalR do pustych aplikacji sieci web ASP.NET i Utwórz stronę HTML do wysyłania i wyświetla komunikaty. 
 > 
@@ -102,7 +102,7 @@ Poniższe kroki Użyj programu Visual Studio 2013, aby utworzyć pustą aplikacj
 3. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt, wybierz **Dodaj | Klasa Centrum SignalR (v2)**. Nazwa klasy **ChatHub.cs** i dodaj go do projektu. Spowoduje to utworzenie **ChatHub** klasy i dodaje do projektu zestawu plików skryptów i odwołania do zestawów, obsługujące bibliotekę SignalR.
 
     > [!NOTE]
-    > Biblioteki SignalR można dodać do projektu, otwierając **narzędzia | Menedżer pakietów biblioteki | Konsola Menedżera pakietów** i uruchamiając polecenie:
+    > Biblioteki SignalR można dodać do projektu, otwierając **Narzędzia > Menedżer pakietów NuGet > Konsola Menedżera pakietów** i uruchamiając polecenie:
 
     `install-package Microsoft.AspNet.SignalR`
 

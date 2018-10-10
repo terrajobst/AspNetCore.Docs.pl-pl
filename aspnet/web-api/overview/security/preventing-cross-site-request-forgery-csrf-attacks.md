@@ -1,21 +1,21 @@
 ---
 uid: web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks
-title: Cross-Site Request Forgery (CSRF) ataku we wzorcu ASP.NET Web API | Dokumentacja firmy Microsoft
+title: Cross-Site Request Forgery (CSRF) ataku we wzorcu ASP.NET MVC
 author: MikeWasson
-description: Opisuje ataku fałszerstwo żądania międzywitrynowego (CSRF) oraz jak wdrożyć środki anti-CSRF w Web API platformy ASP.NET.
+description: W tym artykule opisano ataku fałszerstwo żądania międzywitrynowego (CSRF) i jak wdrożyć środki anti-CSRF we wzorcu ASP.NET MVC sieci Web.
 ms.author: riande
 ms.date: 12/12/2012
 ms.assetid: 81d46f14-8f48-4d8c-830d-cc8d594dc11b
 msc.legacyurl: /web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks
 msc.type: authoredcontent
-ms.openlocfilehash: cd7d978190d28a028285746781a380d9bb5f91d4
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: c88975d1c205e9d0733bfb4c710b92bc8fdaaa7a
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41752998"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911500"
 ---
-<a name="preventing-cross-site-request-forgery-csrf-attacks-in-aspnet-web-api"></a>Cross-Site Request Forgery (CSRF) ataku we wzorcu ASP.NET Web API
+<a name="preventing-cross-site-request-forgery-csrf-attacks-in-aspnet-mvc-application"></a>Cross-Site Request Forgery (CSRF) ataku w aplikacji ASP.NET MVC
 ====================
 przez [Mike Wasson](https://github.com/MikeWasson)
 

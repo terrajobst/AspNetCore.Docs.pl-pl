@@ -8,18 +8,18 @@ ms.date: 07/30/2013
 ms.assetid: 8af630e0-fffa-4110-9eca-c96e201b2724
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 72180686ea1ee6f6695b24fcedf3af90c1eddcfa
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 8bea3d4bc19a5a47240abeb2cc015116814a8fdf
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41754869"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911822"
 ---
 <a name="sorting-filtering-and-paging-with-the-entity-framework-in-an-aspnet-mvc-application-3-of-10"></a>Sortowanie, filtrowanie i stronicowanie za pomocą programu Entity Framework w aplikacji ASP.NET MVC (3 10)
 ====================
 przez [Tom Dykstra](https://github.com/tdykstra)
 
-[Pobieranie ukończone projektu](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
+[Pobierz ukończony projekt](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
 > Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 4 przy użyciu Entity Framework 5 Code First i programu Visual Studio 2012. Aby uzyskać informacji na temat tej serii samouczka, zobacz [pierwszym samouczku tej serii](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). Można uruchomić tej serii samouczka od początku lub [pobrać projekt startowy w tym rozdziale](building-the-ef5-mvc4-chapter-downloads.md) i zacznij tutaj.
 > 
@@ -117,7 +117,7 @@ Dodawanie stronicowania do strony indeksu studentów, zostanie najpierw należy 
 
 NuGet **PagedList.Mvc** pakiet automatycznie instaluje **PagedList** pakietu jako zależność. **PagedList** pakiet instaluje `PagedList` kolekcji typu i rozszerzenie metody `IQueryable` i `IEnumerable` kolekcji. Metody rozszerzające tworzenia pojedynczej strony danych w `PagedList` kolekcji z Twojej `IQueryable` lub `IEnumerable`i `PagedList` kolekcji zawiera kilka właściwości i metod, które ułatwiają stronicowania. **PagedList.Mvc** pakiet Instaluje pomocnika stronicowania, który wyświetla przyciski stronicowania.
 
-Z **narzędzia** menu, wybierz opcję **Menedżer pakietów biblioteki** i następnie **Zarządzaj pakietami NuGet dla rozwiązania**.
+Z **narzędzia** menu, wybierz opcję **Menedżera pakietów NuGet** i następnie **Zarządzaj pakietami NuGet dla rozwiązania**.
 
 W **Zarządzaj pakietami NuGet** okno dialogowe, kliknij przycisk **Online** karcie po lewej stronie, a następnie wprowadź "stronicowanej" w polu wyszukiwania. Po wyświetleniu **PagedList.Mvc** pakietu, kliknij przycisk **zainstalować**.
 

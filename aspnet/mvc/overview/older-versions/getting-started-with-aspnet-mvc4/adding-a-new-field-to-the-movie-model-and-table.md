@@ -8,12 +8,12 @@ ms.date: 08/28/2012
 ms.assetid: 9ef2c4f1-a305-4e0a-9fb8-bfbd9ef331d9
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-a-new-field-to-the-movie-model-and-table
 msc.type: authoredcontent
-ms.openlocfilehash: 39b48c67b5264a9b3ad97389f6a5c2bf9d94d25f
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 0f9b659b67a9a62635091b1e87169bce1218281a
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48576564"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911416"
 ---
 <a name="adding-a-new-field-to-the-movie-model-and-table"></a>Dodawanie nowego pola do modelu Movie i tabeli
 ====================
@@ -41,7 +41,7 @@ Przejdź z powrotem do Eksploratora rozwiązań. Kliknij prawym przyciskiem mysz
 
 Utwórz aplikację, aby upewnić się, że nie ma żadnych błędów.
 
-Z **narzędzia** menu, kliknij przycisk **Menedżer pakietów biblioteki** i następnie **Konsola Menedżera pakietów**.
+Z **narzędzia** menu, kliknij przycisk **Menedżera pakietów NuGet** i następnie **Konsola Menedżera pakietów**.
 
 ![Dodaj pakiet Man](adding-a-new-field-to-the-movie-model-and-table/_static/image3.png)
 

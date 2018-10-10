@@ -8,20 +8,20 @@ ms.date: 11/07/2014
 ms.assetid: 27d110fc-d1b7-4628-a763-26f1e6087549
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: c665ff3bd4ce5173ee17ab7e0c4591f72b439eeb
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 84be966c1e1a4357125c1a53b8065676c8f073f6
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41752287"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48910736"
 ---
 <a name="async-and-stored-procedures-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Async i procedur składowanych z platformą Entity Framework w aplikacji ASP.NET MVC
 ====================
 przez [Tom Dykstra](https://github.com/tdykstra)
 
-[Pobieranie ukończone projektu](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8) lub [Pobierz plik PDF](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20Entity%20Framework%206%20Code%20First%20using%20MVC%205.pdf)
+[Pobierz ukończony projekt](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
 
-> Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 5 przy użyciu Entity Framework 6 Code First i Visual Studio 2013. Aby uzyskać informacji na temat tej serii samouczka, zobacz [pierwszym samouczku tej serii](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
+> Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 5 przy użyciu Entity Framework 6 Code First i programu Visual Studio. Aby uzyskać informacji na temat tej serii samouczka, zobacz [pierwszym samouczku tej serii](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
 
 
 W samouczkach wcześniej pokazaliśmy ci, jak odczytywanie i aktualizowanie danych za pomocą synchronicznego modelu programowania. W tym samouczku dowiesz się jak zaimplementować asynchronicznego modelu programowania. Kod asynchroniczny może pomóc aplikacji działać lepiej, ponieważ ułatwia lepsze wykorzystanie zasobów serwera.

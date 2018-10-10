@@ -8,34 +8,34 @@ ms.date: 06/10/2014
 ms.assetid: 4b559e6c-4fb0-4a04-9812-45cf08ae5779
 msc.legacyurl: /signalr/overview/testing-and-debugging/troubleshooting
 msc.type: authoredcontent
-ms.openlocfilehash: 9ef69ece2558260f0409e9388751f77ac84a06f1
-ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
+ms.openlocfilehash: bdb0562955f3bde56a95ce937c27fdbe4aa94823
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523080"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911697"
 ---
 <a name="signalr-troubleshooting"></a>Rozwiązywanie problemów z SignalR
 ====================
 przez [Patrick Fletcher](https://github.com/pfletcher)
 
 > W tym dokumencie opisano typowe problemy dotyczące rozwiązywania problemów z SignalR.
-> 
+>
 > ## <a name="software-versions-used-in-this-topic"></a>Wersje oprogramowania używaną w tym temacie
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET 4.5
 > - SignalR w wersji 2
->   
-> 
-> 
+>
+>
+>
 > ## <a name="previous-versions-of-this-topic"></a>Poprzednie wersje tego tematu
-> 
+>
 > Aby uzyskać informacje dotyczące starszych wersji biblioteki SignalR, zobacz [starsze wersje biblioteki SignalR](../older-versions/index.md).
-> 
+>
 > ## <a name="questions-and-comments"></a>Pytania i komentarze
-> 
+>
 > Jak się podoba w tym samouczku, i co można było ulepszyć proces w komentarzach u dołu strony, wystaw opinię. Jeśli masz pytania, na które nie są bezpośrednio związane z tego samouczka, możesz zamieścić je do [forum ASP.NET SignalR](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) lub [StackOverflow.com](http://stackoverflow.com/).
 
 
@@ -294,7 +294,7 @@ Ten błąd może wynikać z używanie typów danych, których nie można odnale�
 
 ## <a name="compilation-and-server-side-errors"></a>Błędy kompilacji i po stronie serwera
 
- Poniższa sekcja zawiera możliwe rozwiązania kompilatora oraz błędów środowiska uruchomieniowego po stronie serwera. 
+ Poniższa sekcja zawiera możliwe rozwiązania kompilatora oraz błędów środowiska uruchomieniowego po stronie serwera.
 
 ### <a name="reference-to-hub-instance-is-null"></a>Odwołanie do wystąpienia Centrum ma wartość null
 

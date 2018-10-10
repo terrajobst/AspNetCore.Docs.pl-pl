@@ -8,28 +8,28 @@ ms.date: 04/02/2014
 ms.assetid: 6980ee2e-d6b0-4a08-8fb6-ab96362dd0e3
 msc.legacyurl: /web-api/overview/hosting-aspnet-web-api/host-aspnet-web-api-in-an-azure-worker-role
 msc.type: authoredcontent
-ms.openlocfilehash: cabf88e4e6c946f92a9e4534a4db5ae15dd8cae5
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 40cb1a4514beaf81e7ed75bbd3e478f2ba146fe5
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41755387"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48910749"
 ---
 <a name="host-aspnet-web-api-2-in-an-azure-worker-role"></a>Hostowanie wzorca ASP.NET Web API 2 w roli procesu roboczego platformy Azure
 ====================
 przez [Mike Wasson](https://github.com/MikeWasson)
 
 > Ten samouczek przedstawia hostowanie interfejsu API sieci Web platformy ASP.NET w roli procesu roboczego platformy Azure, za pomocą OWIN na potrzeby samodzielnego hostowania strukturę interfejsu API sieci Web.
-> 
+>
 > [Otwórz interfejs sieci Web dla platformy .NET](http://owin.org/) (OWIN) definiuje abstrakcję między serwerami sieci web platformy .NET i aplikacji sieci web. OWIN oddziela aplikacji sieci web na serwerze, co sprawia, że OWIN jest idealnym rozwiązaniem dla hostingu samodzielnego aplikacji sieci web w swoim własnym procesie, poza programem IIS — na przykład w roli procesu roboczego platformy Azure.
-> 
+>
 > W tym samouczku użyjesz pakietu Microsoft.Owin.Host.HttpListener udostępniającej serwer HTTP używane na potrzeby samodzielnego hostowania aplikacji OWIN.
-> 
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używanego w tym samouczku
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
-> - Składnik Web API 2
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
+> - Internetowy interfejs API 2
 > - [Zestaw Azure SDK dla platformy .NET 2.3](https://azure.microsoft.com/downloads/)
 
 
@@ -56,7 +56,7 @@ Ogólnie rzecz biorąc aplikacją platformy Azure może zawierać wiele ról, ch
 
 ## <a name="add-the-web-api-and-owin-packages"></a>Dodawanie interfejsu API sieci Web i pakietów OWIN
 
-Z **narzędzia** menu, kliknij przycisk **Menedżer pakietów biblioteki**, następnie kliknij przycisk **Konsola Menedżera pakietów**.
+Z **narzędzia** menu, kliknij przycisk **Menedżera pakietów NuGet**, następnie kliknij przycisk **Konsola Menedżera pakietów**.
 
 W oknie Konsola Menedżera pakietów wprowadź następujące polecenie:
 

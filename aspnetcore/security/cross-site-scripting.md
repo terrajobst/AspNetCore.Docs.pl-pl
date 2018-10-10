@@ -5,18 +5,18 @@ description: Więcej informacji na temat skryptów między witrynami (XSS) i tec
 ms.author: riande
 ms.date: 10/02/2018
 uid: security/cross-site-scripting
-ms.openlocfilehash: e937ce47b7151155197cd607832eeb6bf62e3a19
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 50f0211a2c64708d9b788dd10ce9064e66014d55
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48577447"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48910528"
 ---
 # <a name="prevent-cross-site-scripting-xss-in-aspnet-core"></a>Zapobiegaj Cross-Site skrypty (XSS) w programie ASP.NET Core
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Wykonywanie skryptów między witrynami (XSS) jest luki w zabezpieczeniach, która umożliwia osobie atakującej umieszcza skrypty po stronie klienta (zazwyczaj JavaScript) w stronach sieci web. Gdy inni użytkownicy załadować dotyczy stron, które zostaną uruchomione skrypty osoby atakujące, włączanie atakującemu kradzieży plików cookie i tokenów sesji zmiany zawartości strony sieci web za pomocą modelu DOM, manipulowanie lub przekierować przeglądarkę do innej strony. XSS luk w zabezpieczeniach są zazwyczaj wykonywane, gdy aplikacja akceptuje dane wejściowe użytkownika i wyświetla go na stronie bez weryfikowanie, kodowanie i jej anulowania zapewnianego element.
+Wykonywanie skryptów między witrynami (XSS) jest luki w zabezpieczeniach, która umożliwia osobie atakującej umieszcza skrypty po stronie klienta (zazwyczaj JavaScript) w stronach sieci web. Gdy inni użytkownicy załadować dotyczy stron, które zostaną uruchomione skrypty osoby atakującej, włączanie atakującemu kradzieży plików cookie i tokenów sesji zmiany zawartości strony sieci web za pomocą modelu DOM, manipulowanie lub przekierować przeglądarkę do innej strony. XSS luk w zabezpieczeniach są zazwyczaj wykonywane, gdy aplikacja akceptuje dane wejściowe użytkownika i wysyła go do strony bez weryfikowanie, kodowanie i jej anulowania zapewnianego element.
 
 ## <a name="protecting-your-application-against-xss"></a>Ochrona aplikacji przed XSS
 
@@ -26,15 +26,15 @@ Co podstawowa XSS poziomu polega na oszukanie aplikacji do wstawiania `<script>`
 
 2. Przed wprowadzeniem niezaufanych danych wewnątrz elementu HTML upewnij się, że jest zakodowany w formacie HTML. Kodowanie HTML przyjmuje znaków takich jak &lt; i zmiany ich do bezpiecznego formularza, takich jak &amp;lt;
 
-3. Przed wprowadzeniem niezaufane dane do atrybutu HTML upewnij się, że jest zakodowany atrybutu w kodzie HTML. Kodowanie atrybutu HTML jest podzbiorem kodowanie HTML i koduje znaki dodatkowe, takie jak "a".
+3. Przed wprowadzeniem niezaufane dane do atrybutu HTML upewnij się, że jest zakodowany w formacie HTML. Kodowanie atrybutu HTML jest podzbiorem kodowanie HTML i koduje znaki dodatkowe, takie jak "a".
 
-4. Przed wprowadzeniem niezaufane dane w JavaScript należy umieścić dane w elemencie HTML, którego zawartość, możesz pobrać w czasie wykonywania. Jeśli to nie jest możliwe, upewnij się, dane są kodowane języka JavaScript. Kodowanie JavaScript przyjmuje niebezpiecznych znaków dla języka JavaScript i zastępuje je ich hex, na przykład &lt; mogłoby być kodowany jako `\u003C`.
+4. Przed wprowadzeniem niezaufane dane w JavaScript należy umieścić dane w elemencie HTML, którego zawartość, możesz pobrać w czasie wykonywania. Jeśli nie jest to możliwe, upewnij się, że dane są zakodowane języka JavaScript. Kodowanie JavaScript przyjmuje niebezpiecznych znaków dla języka JavaScript i zastępuje je ich hex, na przykład &lt; mogłoby być kodowany jako `\u003C`.
 
 5. Przed wprowadzeniem niezaufanych danych w ciągu zapytania adresu URL upewnij się, że jest zakodowany w adresie URL.
 
 ## <a name="html-encoding-using-razor"></a>Kodowanie HTML przy użyciu Razor
 
-Używane w MVC automatycznie aparatu Razor koduje wszystkie dane wyjściowe źródło zmiennych, chyba że użytkownik pracuje się naprawdę trudne do zapobiegania jego zresetowanie. Używa atrybutu HTML reguły kodowania, zawsze gdy używasz *@* dyrektywy. Jako HTML kodowanie atrybutu jest nadzbiorem kodowanie HTML, oznacza to, że nie masz obawy samodzielnie za pomocą tego, czy należy używać kodowania HTML lub kodowanie atrybutu HTML. Należy się upewnić, że używasz tylko w kontekście HTML nie, podczas próby wstawienia niezaufane dane wejściowe bezpośrednio na język JavaScript. Pomocnicy tagów będzie również kodowania danych wejściowych używanych w parametrów tag.
+Używane w MVC automatycznie aparatu Razor koduje wszystkie dane wyjściowe źródło zmiennych, chyba że użytkownik pracuje się naprawdę trudne do zapobiegania jego zresetowanie. Używa reguł kodowania atrybutów HTML w każdym przypadku, gdy używasz *@* dyrektywy. Jako HTML kodowanie atrybutu jest nadzbiorem kodowanie HTML, oznacza to, że nie masz obawy samodzielnie za pomocą tego, czy należy używać kodowania HTML lub kodowanie atrybutu HTML. Należy się upewnić, że używasz tylko w kontekście HTML nie, podczas próby wstawienia niezaufane dane wejściowe bezpośrednio na język JavaScript. Pomocnicy tagów będzie również kodowania danych wejściowych używanych w parametrów tag.
 
 Wykonaj następujący widok Razor:
 
@@ -129,7 +129,7 @@ Można również bezpośrednio wywołać kodera JavaScript:
    </script>
    ```
 
-To spowoduje, że w przeglądarce w następujący sposób;
+To będą renderowane w przeglądarce w następujący sposób:
 
 ```html
 <script>

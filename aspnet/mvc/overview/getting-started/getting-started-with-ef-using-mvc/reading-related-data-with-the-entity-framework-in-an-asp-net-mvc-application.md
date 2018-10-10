@@ -8,20 +8,20 @@ ms.date: 11/07/2014
 ms.assetid: 18cdd896-8ed9-4547-b143-114711e3eafb
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 16bef0094406f3f45307eabd19c0872e90ecf7ef
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 18d3720f891e2356af42b58389776f2d04eee39d
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41752306"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913206"
 ---
 <a name="reading-related-data-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Odczytywanie powiązanych danych, za pomocą programu Entity Framework w aplikacji ASP.NET MVC
 ====================
 przez [Tom Dykstra](https://github.com/tdykstra)
 
-[Pobieranie ukończone projektu](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8) lub [Pobierz plik PDF](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20Entity%20Framework%206%20Code%20First%20using%20MVC%205.pdf)
+[Pobierz ukończony projekt](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
 
-> Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 5 przy użyciu Entity Framework 6 Code First i Visual Studio 2013. Aby uzyskać informacji na temat tej serii samouczka, zobacz [pierwszym samouczku tej serii](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
+> Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 5 przy użyciu Entity Framework 6 Code First i programu Visual Studio. Aby uzyskać informacji na temat tej serii samouczka, zobacz [pierwszym samouczku tej serii](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
 
 
 W poprzednim samouczku można wykonać modelu danych służbowych. W tym samouczku będziesz odczytywać i wyświetlanie powiązanych danych — oznacza to, że dane programu Entity Framework wczytywane właściwości nawigacji.
@@ -36,7 +36,7 @@ Na poniższych ilustracjach przedstawiono strony, którą będziesz pracować.
 
 Istnieje kilka sposobów, platformy Entity Framework można załadować powiązane dane do właściwości nawigacji jednostki:
 
-- *Powolne ładowanie*. Podczas odczytywania jednostki powiązane dane nie są pobierane. Jednak użytkownik podejmie próbę dostępu do właściwości nawigacji po raz pierwszy wymagane dane dla tej właściwości nawigacji jest automatycznie pobierany. Skutkiem wielu zapytań wysyłanych do bazy danych — jedną dla sam podmiot, a co za każdym razem, powiązane dane dla jednostki musi zostać pobrany. `DbContext` Klasa umożliwia powolne ładowanie domyślnie. 
+- *Powolne ładowanie*. Podczas odczytywania jednostki powiązane dane nie są pobierane. Jednak użytkownik podejmie próbę dostępu do właściwości nawigacji po raz pierwszy wymagane dane dla tej właściwości nawigacji jest automatycznie pobierany. Skutkiem wielu zapytań wysyłanych do bazy danych — jedną dla sam podmiot, a co za każdym razem, powiązane dane dla jednostki musi zostać pobrany. `DbContext` Klasa umożliwia powolne ładowanie domyślnie.
 
     ![Lazy_loading_example](https://asp.net/media/2577850/Windows-Live-Writer_Reading-Re.NET-MVC-Application-5-of-10h1_ADC3_Lazy_loading_example_2c44eabb-5fd3-485a-837d-8e3d053f2c0c.png)
 - *Wczesne ładowanie*. Podczas odczytywania jednostki powiązane dane są pobierane wraz z jej. Powoduje to zwykle w zapytaniu sprzężenia jednego, który pobiera wszystkie dane potrzebne. Należy określić wczesne ładowanie za pomocą `Include` metody.
@@ -69,7 +69,7 @@ Jeśli nie używasz dto, można wyłączyć ładowania z opóźnieniem i unikną
 Poniżej przedstawiono niektóre inne [sposobów można wyłączyć ładowania z opóźnieniem](https://msdn.microsoft.com/data/jj574232):
 
 - Dla właściwości nawigacji określonych, Pomiń `virtual` — słowo kluczowe w deklaracji właściwości.
-- Wszystkie właściwości nawigacji, można ustawić `LazyLoadingEnabled` do `false`, umieść następujący kod w konstruktorze klasy kontekstu: 
+- Wszystkie właściwości nawigacji, można ustawić `LazyLoadingEnabled` do `false`, umieść następujący kod w konstruktorze klasy kontekstu:
 
     [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.cs)]
 
@@ -183,10 +183,10 @@ Następujące zmiany wprowadzone do istniejącego kodu:
 
 - Klasa modelu, aby zmienić `InstructorIndexData`.
 - Zmienić tytuł strony z **indeksu** do **Instruktorzy**.
-- Dodano **Office** kolumnę wyświetlającą `item.OfficeAssignment.Location` tylko wtedy, gdy `item.OfficeAssignment` nie ma wartości null. (Ponieważ jest to relacja jeden do zero lub jeden, nie może być powiązane `OfficeAssignment` jednostki.) 
+- Dodano **Office** kolumnę wyświetlającą `item.OfficeAssignment.Location` tylko wtedy, gdy `item.OfficeAssignment` nie ma wartości null. (Ponieważ jest to relacja jeden do zero lub jeden, nie może być powiązane `OfficeAssignment` jednostki.)
 
     [!code-cshtml[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample16.cshtml)]
-- Dodano kod, który będzie dynamicznie dodawać `class="success"` do `tr` elementu wybranego przez instruktorów. To ustawienie koloru tła wybranego wiersza za pomocą [Bootstrap](../../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#bootstrap) klasy. 
+- Dodano kod, który będzie dynamicznie dodawać `class="success"` do `tr` elementu wybranego przez instruktorów. To ustawienie koloru tła wybranego wiersza za pomocą [Bootstrap](../../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#bootstrap) klasy.
 
     [!code-cshtml[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample17.cshtml)]
 - Dodano nową `ActionLink` etykietą **wybierz** bezpośrednio przed innych linków w każdym wierszu, co powoduje, że identyfikator wybranego instruktora, które mają być wysyłane do `Index` metody.
@@ -243,7 +243,7 @@ Uruchom teraz strony indeksu przez instruktorów i ma różnicy w wyświetlanych
 
 Znasz teraz wszystkie trzy sposoby (z opóźnieniem, eager i jawne) ładowanie powiązanych danych do właściwości nawigacji. W następnym samouczku dowiesz się, jak zaktualizować powiązane dane.
 
-Jak się podoba w tym samouczku, i co można było ulepszyć proces Wystaw opinię. Możesz również poprosić o nowe tematy w [Pokaż mi jak za pomocą kodu](http://aspnet.uservoice.com/forums/228522-show-me-how-with-code).
+Jak się podoba w tym samouczku, i co można było ulepszyć proces Wystaw opinię.
 
 Linki do innych zasobów platformy Entity Framework można znaleźć w [dostęp do danych platformy ASP.NET — zalecane zasoby](../../../../whitepapers/aspnet-data-access-content-map.md).
 

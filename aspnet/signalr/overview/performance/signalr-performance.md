@@ -8,34 +8,34 @@ ms.date: 06/10/2014
 ms.assetid: 3751f5e7-59db-4be0-a290-50abc24e5c84
 msc.legacyurl: /signalr/overview/performance/signalr-performance
 msc.type: authoredcontent
-ms.openlocfilehash: ae19493c46ae9670bd200529f73b74b0c3f4db00
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 269c10d7a73f181eaceac1c43ad51f3933d6711c
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41756821"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911863"
 ---
 <a name="signalr-performance"></a>Wydajność SignalR
 ====================
 przez [Patrick Fletcher](https://github.com/pfletcher)
 
 > W tym temacie opisano sposób projektowania, miar i zwiększenie wydajności w aplikacji SignalR.
-> 
+>
 > ## <a name="software-versions-used-in-this-topic"></a>Wersje oprogramowania używaną w tym temacie
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET 4.5
 > - SignalR w wersji 2
->   
-> 
-> 
+>
+>
+>
 > ## <a name="previous-versions-of-this-topic"></a>Poprzednie wersje tego tematu
-> 
+>
 > Aby uzyskać informacje dotyczące starszych wersji biblioteki SignalR, zobacz [starsze wersje biblioteki SignalR](../older-versions/index.md).
-> 
+>
 > ## <a name="questions-and-comments"></a>Pytania i komentarze
-> 
+>
 > Jak się podoba w tym samouczku, i co można było ulepszyć proces w komentarzach u dołu strony, wystaw opinię. Jeśli masz pytania, na które nie są bezpośrednio związane z tego samouczka, możesz zamieścić je do [forum ASP.NET SignalR](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) lub [StackOverflow.com](http://stackoverflow.com/).
 
 
@@ -139,7 +139,7 @@ W tej sekcji opisano, jak włączanie i używanie liczników wydajności SignalR
 
 Liczniki wydajności można dodać do serwera przy użyciu narzędzia o nazwie SignalR.exe. Aby zainstalować to narzędzie, wykonaj następujące kroki:
 
-1. W aplikacji programu Visual Studio, wybierz **narzędzia**, **Menedżer pakietów biblioteki**, **Zarządzaj pakietami NuGet dla rozwiązania...**
+1. W programie Visual Studio, wybierz **narzędzia** > **Menedżera pakietów NuGet** > **Zarządzaj pakietami NuGet dla rozwiązania**
 2. Wyszukaj **signalr.utils**i wybierz opcję instalacji.
 
     ![](signalr-performance/_static/image1.png)

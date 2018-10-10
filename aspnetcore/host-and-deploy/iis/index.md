@@ -4,14 +4,14 @@ author: guardrex
 description: Dowiedz się, jak hostować aplikacje platformy ASP.NET Core na systemu Windows serwera Internet Information Services (IIS).
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/13/2018
+ms.date: 09/21/2018
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 8f2155cbf0bc3101b78b890c1d66797278f1ca4b
-ms.sourcegitcommit: 4d5f8680d68b39c411b46c73f7014f8aa0f12026
+ms.openlocfilehash: 46bcb7822e93862d49923c813140ef453b5e27e5
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47028313"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913297"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host platformy ASP.NET Core na Windows za pomocą programu IIS
 
@@ -46,6 +46,8 @@ Aby uzyskać informacji na temat obsługi na platformie Azure, zobacz <xref:host
 
 W procesie wdrożenia po nawiązaniu połączenia protokołu HTTP/2 [HttpRequest.Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) raporty `HTTP/2`. Spoza procesu wdrożenia po nawiązaniu połączenia protokołu HTTP/2 [HttpRequest.Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) raporty `HTTP/1.1`.
 
+Aby uzyskać więcej informacji o modelach hostingu w procesie i poza procesem, zobacz <xref:fundamentals/servers/aspnet-core-module> tematu i <xref:host-and-deploy/aspnet-core-module>.
+
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.2"
@@ -67,9 +69,31 @@ Protokołu HTTP/2 jest domyślnie włączona. Jeśli nie jest nawiązane połąc
 
 ### <a name="enable-the-iisintegration-components"></a>Włącz składniki IISIntegration
 
-::: moniker range=">= aspnetcore-2.0"
+::: moniker range=">= aspnetcore-2.2"
 
-Typowa *Program.cs* wywołania [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) aby rozpocząć konfigurowanie hosta. `CreateDefaultBuilder` Konfiguruje [Kestrel](xref:fundamentals/servers/kestrel) jako serwera i umożliwia IIS integracji z siecią web, konfigurując ścieżki podstawowej i port [modułu ASP.NET Core](xref:fundamentals/servers/aspnet-core-module):
+**W trakcie modelu hostingu**
+
+Typowa *Program.cs* wywołania <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> aby rozpocząć konfigurowanie hosta. `CreateDefaultBuilder` wywołania `UseIIS` metoda rozruchu [CoreCLR](/dotnet/standard/glossary#coreclr) i hostowania aplikacji wewnątrz proces roboczy usług IIS (`w3wp.exe`). Testy wydajności wskazują, że hostowanie platformy .NET Core app w procesie zapewnia wyższą przepływność żądań w porównaniu do hostowania aplikacji spoza procesu i pośredniczenie żądania do [Kestrel](xref:fundamentals/servers/kestrel).
+
+**Model hostingu poza procesem**
+
+Typowa *Program.cs* wywołania <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> aby rozpocząć konfigurowanie hosta. Dla hostingu poza procesem, za pomocą programu IIS, `CreateDefaultBuilder` konfiguruje [Kestrel](xref:fundamentals/servers/kestrel) jako serwera i umożliwia IIS integracji z siecią web, konfigurując ścieżki podstawowej i port [modułu ASP.NET Core](xref:fundamentals/servers/aspnet-core-module):
+
+```csharp
+public static IWebHost BuildWebHost(string[] args) =>
+    WebHost.CreateDefaultBuilder(args)
+        ...
+```
+
+Modułu ASP.NET Core generuje portów dynamicznych do przypisania do procesu zaplecza. `CreateDefaultBuilder` wywołania <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*> metody, która zbiera z portów dynamicznych i konfiguruje usługi Kestrel do nasłuchiwania na `http://localhost:{dynamicPort}/`. Ustawienie to zastępuje inne konfiguracje adresu URL, takich jak wywołania `UseUrls` lub [API nasłuchiwania firmy Kestrel](xref:fundamentals/servers/kestrel#endpoint-configuration). W związku z tym, wywołania `UseUrls` lub jego Kestrel `Listen` interfejsu API nie są wymagane w przypadku korzystania z modułu. Jeśli `UseUrls` lub `Listen` jest wywoływane Kestrel nasłuchuje tylko na portach określona po uruchomieniu aplikacji bez usług IIS.
+
+Aby uzyskać więcej informacji o modelach hostingu w procesie i poza procesem, zobacz <xref:fundamentals/servers/aspnet-core-module> tematu i <xref:host-and-deploy/aspnet-core-module>.
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0 || aspnetcore-2.1"
+
+Typowa *Program.cs* wywołania <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> aby rozpocząć konfigurowanie hosta. `CreateDefaultBuilder` Konfiguruje [Kestrel](xref:fundamentals/servers/kestrel) jako serwera i umożliwia IIS integracji z siecią web, konfigurując ścieżki podstawowej i port [modułu ASP.NET Core](xref:fundamentals/servers/aspnet-core-module):
 
 ```csharp
 public static IWebHost BuildWebHost(string[] args) =>
@@ -212,8 +236,13 @@ Włącz **Konsola zarządzania usługami IIS** i **usługi World Wide Web**.
    1. Uruchom Instalatora na serwerze.
 
    **Ważne!** Po zainstalowaniu pakietu hostowanie usług IIS wcześniejsze instalacji pakietu musi zostać naprawiony. Uruchom Instalatora pakietu hostingu ponownie po zainstalowaniu usług IIS.
-   
-   Aby uniemożliwić instalowanie x86 przez Instalator pakiety na x64 OS, uruchom Instalatora z wiersza polecenia administratora z przełącznikiem `OPT_NO_X86=1`.
+
+   Uruchom Instalatora z wiersza polecenia administratora z co najmniej jeden przełączniki kontrolowania zachowania Instalatora:
+
+   * `OPT_NO_ANCM=1` &ndash; Pomiń instalację modułu ASP.NET Core.
+   * `OPT_NO_RUNTIME=1` &ndash; Pomiń instalację środowiska uruchomieniowego .NET Core.
+   * `OPT_NO_SHAREDFX=1` &ndash; Pomiń instalację struktury programu ASP.NET udostępnione (środowisko uruchomieniowe programu ASP.NET).
+   * `OPT_NO_X86=1` &ndash; Pomiń instalację x86 środowisk uruchomieniowych. Użyj tego przełącznika, gdy wiadomo, że użytkownik nie będzie hostingu aplikacji 32-bitowych. W przypadku każdej okazji, że zarówno 32-bitowych i 64-bitowych aplikacji będzie obsługiwać w przyszłości, nie używaj tego przełącznika i zainstalować obie środowisk uruchomieniowych.
 
 1. Ponowne uruchamianie systemu lub wykonać **net stop został /y** następuje **net start w3svc** z poziomu wiersza polecenia. Ponowne uruchomienie usług IIS przejmuje zmiany w systemie ścieżki, która jest zmienną środowiskową, wprowadzone przez Instalatora.
 

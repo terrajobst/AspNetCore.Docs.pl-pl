@@ -8,31 +8,31 @@ ms.date: 07/01/2015
 ms.assetid: 2a7517a0-b88c-4162-ade3-9bf6ca7062fd
 msc.legacyurl: /signalr/overview/deployment/using-signalr-with-azure-web-sites
 msc.type: authoredcontent
-ms.openlocfilehash: a6dfb4e5f3cd594860939eb54c88e6453e5db181
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: c5ede2891ef18b622ed269723603dea3b67a135d
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41753520"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912608"
 ---
 <a name="using-signalr-with-web-apps-in-azure-app-service"></a>Używanie SignalR z usługą Web Apps w usłudze Azure App Service
 ====================
 przez [Patrick Fletcher](https://github.com/pfletcher)
 
 > W tym dokumencie opisano sposób konfigurowania aplikacji SignalR, która działa w systemie Microsoft Azure.
-> 
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używanego w tym samouczku
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads) lub Visual Studio 2012
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013) lub Visual Studio 2012
 > - .NET 4.5
 > - SignalR w wersji 2
 > - Zestaw Azure SDK 2.3 dla programu Visual Studio 2013 lub 2012
->   
-> 
-> 
+>
+>
+>
 > ## <a name="questions-and-comments"></a>Pytania i komentarze
-> 
+>
 > Jak się podoba w tym samouczku, i co można było ulepszyć proces w komentarzach u dołu strony, wystaw opinię. Jeśli masz pytania, na które nie są bezpośrednio związane z tego samouczka, możesz zamieścić je do [forum ASP.NET SignalR](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR), [StackOverflow.com](http://stackoverflow.com/), lub [fora Microsoft Azure](https://social.msdn.microsoft.com/Forums/windowsazure/home?category=windowsazureplatform).
 
 
@@ -54,7 +54,7 @@ Biblioteki SignalR platformy ASP.NET można przenieść na nowy poziom interakcj
 
 SignalR nie dodaje żadnych konkretnej kompilacji do wdrażania aplikacji na platformie Azure i wdrażanie na serwerze lokalnym. Aplikacji korzystającej z biblioteki SignalR można hostować na platformie Azure bez konieczności wprowadzania zmian w konfiguracji lub innymi ustawieniami (mimo że obsługę funkcji WebSockets, zobacz [włączenie funkcji WebSockets w usłudze Azure App Service](#websocket) poniżej.) W tym samouczku wdrożysz aplikacja utworzona w [Samouczek wprowadzający](../getting-started/tutorial-getting-started-with-signalr.md) na platformie Azure.
 
-**Wymagania wstępne**
+**Wymagania wstępne
 
 - Visual Studio 2013. Jeśli nie masz programu Visual Studio, Visual Studio 2013 Express for Web znajduje się w instalacji zestawu SDK usługi Azure.
 - [Zestaw Azure SDK 2.3 dla programu Visual Studio 2013](https://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409) lub [zestaw Azure SDK 2.3 dla programu Visual Studio 2012](https://go.microsoft.com/fwlink/p/?linkid=323511).

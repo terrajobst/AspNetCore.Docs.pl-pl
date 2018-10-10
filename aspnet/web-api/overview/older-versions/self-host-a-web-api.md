@@ -8,12 +8,12 @@ ms.date: 01/26/2012
 ms.assetid: be5ab1e2-4140-4275-ac59-ca82a1bac0c1
 msc.legacyurl: /web-api/overview/older-versions/self-host-a-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: cac0d5aeaf49f45051d062935e0e9207ce59c7eb
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 63d192a6fa2aafef3770d5b0b97ec32e001b69db
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41755584"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912705"
 ---
 <a name="self-host-aspnet-web-api-1-c"></a>Hosta samodzielnego ASP.NET Web API 1 (C#)
 ====================
@@ -32,9 +32,9 @@ przez [Mike Wasson](https://github.com/MikeWasson)
 
 ## <a name="create-the-console-application-project"></a>Utwórz projekt aplikacji konsoli
 
-Uruchom program Visual Studio i wybierz **nowy projekt** z **Start** strony. Lub z **pliku** menu, wybierz opcję **New** i następnie **projektu**.
+Uruchom program Visual Studio i wybierz pozycję **Nowy projekt** na stronie **Start**. Możesz również z menu **Plik** wybrać pozycję **Nowy**, a następnie **Projekt**.
 
-W **szablony** okienku wybierz **zainstalowane szablony** i rozwiń **Visual C#** węzła. W obszarze **Visual C#**, wybierz opcję **Windows**. Na liście szablonów projektu wybierz **aplikację Konsolową**. Nadaj projektowi nazwę &quot;host własny&quot; i kliknij przycisk **OK**.
+W okienku **Szablony** wybierz pozycję **Zainstalowane szablony** i rozwiń węzeł **Visual C#**. W obszarze **Visual C#**, wybierz opcję **Windows**. Na liście szablonów projektu wybierz **aplikację Konsolową**. Nadaj projektowi nazwę &quot;host własny&quot; i kliknij przycisk **OK**.
 
 ![](self-host-a-web-api/_static/image1.png)
 
@@ -50,7 +50,7 @@ W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt i wybierz *
 
 Menedżer pakietów NuGet jest najprostszym sposobem dodania zestawy interfejsu API sieci Web do projektu niedotyczący środowiska ASP.NET.
 
-Aby sprawdzić, czy zainstalowano Menedżer pakietów NuGet, kliknij **narzędzia** menu w programie Visual Studio. Jeśli widzisz menu elementu o nazwie **Menedżer pakietów biblioteki**, można skorzystać z Menedżera pakietów NuGet.
+Aby sprawdzić, czy zainstalowano Menedżer pakietów NuGet, kliknij **narzędzia** menu w programie Visual Studio. Jeśli widzisz menu elementu o nazwie **Menedżera pakietów NuGet**, można skorzystać z Menedżera pakietów NuGet.
 
 Aby zainstalować Menedżera pakietów NuGet:
 
@@ -68,8 +68,8 @@ Aby zainstalować Menedżera pakietów NuGet:
 
 Po zainstalowaniu Menedżera pakietów NuGet do projektu należy dodać pakiet Self-Host interfejsu API sieci Web.
 
-1. Z **narzędzia** menu, wybierz opcję **Menedżer pakietów biblioteki**. *Uwaga*: Jeśli nie widzisz tego menu elementu, upewnij się, Menedżer pakietów NuGet, że poprawnie zainstalowane.
-2. Wybierz **Zarządzaj pakietami NuGet dla rozwiązania...**
+1. Z **narzędzia** menu, wybierz opcję **Menedżera pakietów NuGet**. *Uwaga*: Jeśli nie widzisz tego menu elementu, upewnij się, Menedżer pakietów NuGet, że poprawnie zainstalowane.
+2. Wybierz **Zarządzaj pakietami NuGet dla rozwiązania**
 3. W **Zarządzaj pakietami NugGet** okno dialogowe, wybierz opcję **Online**.
 4. W polu wyszukiwania wpisz &quot;Microsoft.AspNet.WebApi.SelfHost&quot;.
 5. Wybierz pakiet hosta Self interfejsu API sieci Web platformy ASP.NET, a następnie kliknij przycisk **zainstalować**.
@@ -77,7 +77,6 @@ Po zainstalowaniu Menedżera pakietów NuGet do projektu należy dodać pakiet S
 
 > [!NOTE]
 > Upewnij się zainstalować pakiet o nazwie Microsoft.AspNet.WebApi.SelfHost, nie AspNetWebApi.SelfHost.
-
 
 ![](self-host-a-web-api/_static/image4.png)
 
@@ -141,8 +140,8 @@ Dodaj nowy projekt aplikacji konsoli do rozwiązania:
 
 Użyj Menedżera pakietów NuGet Dodaj pakiet biblioteki podstawowych interfejsów API sieci Web platformy ASP.NET:
 
-- Wybierz z menu narzędzia **Menedżer pakietów biblioteki**.
-- Wybierz **Zarządzaj pakietami NuGet dla rozwiązania...**
+- Wybierz z menu narzędzia **Menedżera pakietów NuGet**.
+- Wybierz **Zarządzaj pakietami NuGet dla rozwiązania**
 - W **Zarządzaj pakietami NuGet** okno dialogowe, wybierz opcję **Online**.
 - W polu wyszukiwania wpisz &quot;Microsoft.AspNet.WebApi.Client&quot;.
 - Wybierz pakiet biblioteki klienta interfejsu API sieci Web platformy ASP.NET firmy Microsoft, a następnie kliknij przycisk **zainstalować**.

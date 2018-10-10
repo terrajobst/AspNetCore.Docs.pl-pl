@@ -8,12 +8,12 @@ ms.date: 03/29/2013
 ms.assetid: eeef9f73-6de3-49f9-b50b-9af22108f2ce
 msc.legacyurl: /signalr/overview/older-versions/tutorial-getting-started-with-signalr-and-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 34a7ae97a0a0652c090aa72e2cb21a4bce13bd5c
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 95fc3315149e07dbdb0505a2b5ab197bfedba097
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41753928"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48910879"
 ---
 <a name="tutorial-getting-started-with-signalr-1x-and-mvc-4"></a>Samouczek: Wprowadzenie do SignalR 1.x i MVC 4
 ====================
@@ -63,7 +63,7 @@ W tej sekcji przedstawiono sposób tworzenia aplikacji ASP.NET MVC 4, dodawanie 
       2. Wybierz szablon aplikacji internetowych, wyczyść opcję **Tworzenie projektu testu jednostkowego**i kliknij przycisk OK.
 
          ![Tworzenie witryny internetowej mvc](tutorial-getting-started-with-signalr-and-mvc-4/_static/image4.png)
-      3. Otwórz **narzędzia | Menedżer pakietów biblioteki | Konsola Menedżera pakietów** i uruchom następujące polecenie. Ten krok powoduje dodanie do projektu, zbiór plików skryptów i odwołania do zestawów, które umożliwiają funkcji SignalR.
+      3. Otwórz **Narzędzia > Menedżer pakietów NuGet > Konsola Menedżera pakietów** i uruchom następujące polecenie. Ten krok powoduje dodanie do projektu, zbiór plików skryptów i odwołania do zestawów, które umożliwiają funkcji SignalR.
 
          `install-package Microsoft.AspNet.SignalR -Version 1.1.3`
       4. W **Eksploratora rozwiązań** rozwiń folder skryptów. Należy pamiętać, że biblioteki skryptów dla elementu SignalR zostały dodane do projektu.

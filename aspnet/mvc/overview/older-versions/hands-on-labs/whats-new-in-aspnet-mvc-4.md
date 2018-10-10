@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 48f7feb3-872f-485d-b96f-e30011ff8c4a
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/whats-new-in-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: b1d80928d765bc71ea1579272662b6697371c47b
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 9d5a51a5887ecbbc96fce1416b88aa849bc3674e
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41752283"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912725"
 ---
 # <a name="whats-new-in-aspnet-mvc-4"></a>Co nowego we wzorcu ASP.NET MVC 4
 
@@ -382,7 +382,7 @@ Jednym z kluczowych aktualizacji w programie ASP.NET MVC 4 jest obsługa opracow
 
       > [!NOTE]
       > Jedną z zalet za pomocą narzędzia NuGet jest, że nie masz do wysłania wszystkie biblioteki w projekcie, zmniejszenie rozmiaru projektu. Za pomocą narzędzi NuGet Power Tools, określając wersji pakietu w pliku Packages.config można pobrać wymaganych bibliotek podczas pierwszego uruchomienia projektu. Jest to, dlaczego należy uruchomić następujące kroki, po otwarciu istniejącego rozwiązania, w tym środowisku laboratoryjnym.
-2. Otwórz **Konsola Menedżera pakietów** , klikając **narzędzia** &gt; **Menedżer pakietów biblioteki** &gt; **Menedżera pakietów Konsola** opcji menu.
+2. Otwórz **Konsola Menedżera pakietów** , klikając **narzędzia** > **Menedżera pakietów NuGet** > **Konsola Menedżera pakietów**  opcji menu.
 
     ![Otwieranie konsoli Menedżera pakietów NuGet](whats-new-in-aspnet-mvc-4/_static/image22.png "otwierania konsoli Menedżera pakietów NuGet")
 

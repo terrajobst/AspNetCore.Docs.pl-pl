@@ -8,21 +8,20 @@ ms.date: 12/08/2014
 ms.assetid: f35a9b0c-49ef-4cde-b06d-19d1543feb0b
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: 6e3de242f7cfc584f4c3d1dfa3d1948ee4d49d66
-ms.sourcegitcommit: 67a0a04ebb3b21c826e5b9600bacfc897abd6a46
+ms.openlocfilehash: 0aa440e700c9bfb02aa5d55ebf481850a730febe
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42899828"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912686"
 ---
 <a name="advanced-entity-framework-6-scenarios-for-an-mvc-5-web-application-12-of-12"></a>Scenariusze platformy zaawansowane Entity Framework 6 dla aplikacji MVC 5 sieci Web (12, 12)
 ====================
 przez [Tom Dykstra](https://github.com/tdykstra)
 
-[Pobieranie ukończone projektu](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8) lub [Pobierz plik PDF](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20Entity%20Framework%206%20Code%20First%20using%20MVC%205.pdf)
+[Pobierz ukończony projekt](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
 
-> Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 5 przy użyciu Entity Framework 6 Code First i Visual Studio 2013. Aby uzyskać informacji na temat tej serii samouczka, zobacz [pierwszym samouczku tej serii](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
-
+> Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 5 przy użyciu Entity Framework 6 Code First i programu Visual Studio. Aby uzyskać informacji na temat tej serii samouczka, zobacz [pierwszym samouczku tej serii](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
 
 W poprzednim samouczku wdrożono Tabela wg hierarchii dziedziczenia. Ten samouczek obejmuje wprowadza kilka tematów, które są przydatne pod uwagę podczas czegoś podstawy tworzenia aplikacji sieci web ASP.NET, które używają programu Entity Framework Code First. Instrukcje krok po kroku prowadzą użytkownika przez kod i za pomocą programu Visual Studio dla następujących tematach:
 
@@ -150,7 +149,7 @@ W *kontrolerów/CourseController*, Zastąp `Index` metody za pomocą następują
 
 [!code-csharp[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample6.cs)]
 
-Teraz Ustaw punkt przerwania na `return` — instrukcja (F9 kursor znajduje się w danym wierszu). Naciśnij klawisz F5, aby uruchomić projekt w trybie debugowania, a następnie wybierz stronę indeksu kursu. Gdy kod osiąga punkt przerwania, sprawdź `sql` zmiennej. Zobaczysz zapytanie, które są wysyłane do programu SQL Server. Jest to prosty `Select` instrukcji.
+Teraz Ustaw punkt przerwania na `return` — instrukcja (F9 kursor znajduje się w danym wierszu). Naciśnij klawisz **F5** Aby uruchomić projekt w trybie debugowania, a następnie wybierz stronę indeksu kursu. Gdy kod osiąga punkt przerwania, sprawdź `sql` zmiennej. Zobaczysz zapytanie, które są wysyłane do programu SQL Server. Jest to prosty `Select` instrukcji.
 
 [!code-json[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample7.json)]
 
@@ -291,7 +290,6 @@ Komunikat o błędzie:
 
 > Nie można utworzyć/w tle kopii "&lt;filename&gt;" gdy ten plik już istnieje.
 
-
 Rozwiązanie
 
 Odczekaj kilka sekund, a następnie odśwież stronę.
@@ -301,7 +299,6 @@ Odczekaj kilka sekund, a następnie odśwież stronę.
 Komunikat o błędzie (z `Update-Database` polecenia w konsoli zarządzania Pakietami):
 
 > Termin "Update-Database" nie został rozpoznany jako nazwa polecenia cmdlet, funkcji, pliku skryptu lub program wykonywalny. Sprawdź pisownię nazwy lub jeśli ścieżka został uwzględniony, sprawdź, czy ścieżka jest poprawna i spróbuj ponownie.
-
 
 Rozwiązanie
 
@@ -313,7 +310,6 @@ Komunikat o błędzie (z `Update-Database` polecenia w konsoli zarządzania Paki
 
 > Weryfikacja nie powiodła się dla co najmniej jednej jednostki. Zobacz właściwość "EntityValidationErrors", aby uzyskać więcej informacji.
 
-
 Rozwiązanie
 
 Jedną z przyczyn tego problemu jest błędy sprawdzania poprawności podczas `Seed` metoda przebiegów. Zobacz [wstępnego wypełniania i baz danych debugowania Entity Framework (EF)](https://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx) porady dotyczące debugowania `Seed` metody.
@@ -322,9 +318,7 @@ Jedną z przyczyn tego problemu jest błędy sprawdzania poprawności podczas `S
 
 Komunikat o błędzie:
 
-> Błąd HTTP 500.19 — wewnętrzny błąd serwera  
-> Żądana strona nie jest dostępny, ponieważ odpowiednie dane konfiguracyjne dla strony jest nieprawidłowy.
-
+> Błąd HTTP 500.19 — wewnętrzny błąd serwera żądana strona nie jest dostępny, ponieważ odpowiednie dane konfiguracyjne dla strony jest nieprawidłowy.
 
 Rozwiązanie
 
@@ -335,7 +329,6 @@ Jednym ze sposobów ten błąd może wystąpić jest z konieczności wiele kopii
 Komunikat o błędzie:
 
 > Wystąpił błąd związany z siecią lub wystąpieniem podczas nawiązywania połączenia z programem SQL Server. Serwer nie został znaleziony lub jest on niedostępny. Sprawdź, czy nazwa wystąpienia jest prawidłowa i że program SQL Server jest skonfigurowany do zezwalania na połączenia zdalne. (Dostawca: interfejsy sieciowe programu SQL, błąd: 26 — Błąd lokalizowania określonego Server/wystąpienie)
-
 
 Rozwiązanie
 

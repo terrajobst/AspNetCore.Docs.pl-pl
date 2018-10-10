@@ -8,33 +8,33 @@ ms.date: 03/20/2014
 ms.assetid: 20acee16-c70c-41e9-b38f-92bfcf9a4c1c
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-oauth-20-authorization-server
 msc.type: authoredcontent
-ms.openlocfilehash: 2dd4af4543713ab08ad9427d183f667e2dc04f1f
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 095dad49a8e9f963d941a84398afe9da0f46ce0b
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48578045"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912270"
 ---
 <a name="owin-oauth-20-authorization-server"></a>Serwer autoryzacji OAuth 2.0 OWIN
 ====================
 przez [Hongye Sun](https://github.com/hongyes), [projektu Praburaj](https://github.com/Praburaj), [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > Ten samouczek przeprowadzi Cię o tym, jak wdrożyć serwer autoryzacji OAuth 2.0 przy użyciu oprogramowania pośredniczącego uwierzytelniania OWIN OAuth. Jest to zaawansowane samouczek, który przedstawia tylko kroki, aby utworzyć serwer autoryzacji OWIN OAuth 2.0. Nie jest to samouczek krok po kroku. [Pobierz przykładowy kod](https://code.msdn.microsoft.com/OWIN-OAuth-20-Authorization-ba2b8783/file/114932/1/AuthorizationServer.zip).
-> 
+>
 > > [!NOTE]
 > > Ten konspekt powinien mieć na nie ma być używany do tworzenia aplikacji produkcyjnych bezpieczne. Ten samouczek jest przeznaczony do świadczenia tylko konspekt w sposób implementacji serwera autoryzacji OAuth 2.0 przy użyciu oprogramowania pośredniczącego uwierzytelniania OWIN OAuth.
-> 
-> 
+>
+>
 > ## <a name="software-versions"></a>Wersje oprogramowania
-> 
+>
 > | **Pokazane w tym samouczku** | **Współpracuje również z** |
 > | --- | --- |
 > | Windows 8.1 | Windows 8, Windows 7 |
-> | [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads) | [Program Visual Studio 2013 Express for Desktop](https://www.microsoft.com/visualstudio/eng/2013-downloads#d-2013-express). Visual Studio 2012 z najnowszymi aktualizacjami powinna działać, ale samouczka nie był testowany z nim, a niektóre opcje menu i okien dialogowych różnią się. |
+> | [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013) | [Program Visual Studio 2013 Express for Desktop](https://my.visualstudio.com/Downloads?q=visual%20studio%202013#d-2013-express). Visual Studio 2012 z najnowszymi aktualizacjami powinna działać, ale samouczka nie był testowany z nim, a niektóre opcje menu i okien dialogowych różnią się. |
 > | .NET 4.5 |  |
-> 
+>
 > ## <a name="questions-and-comments"></a>Pytania i komentarze
-> 
+>
 > Jeśli masz pytania, na które nie są bezpośrednio związane z tego samouczka, możesz zamieścić je pod [projektu Katana w usłudze GitHub](https://github.com/aspnet/AspNetKatana/). Pytania i komentarze dotyczące tego samouczka, sama sekcja komentarze w dolnej części strony.
 
 
@@ -81,11 +81,11 @@ Powyższy kod umożliwia logowanie aplikacji/zewnętrzną pliki cookie i uwierzy
 
 - `AuthorizeEndpointPath`Zgoda ścieżka żądania, w którym aplikacja kliencka przekieruje agenta użytkownika w celu uzyskania użytkowników można wystawić tokenu lub kodu. Musi zaczynać się ukośnika, na przykład "`/Authorize`".
 - `TokenEndpointPath`Ścieżka żądania aplikacji klienckiej komunikują się bezpośrednio do uzyskania tokenu dostępu. Musi zaczynać się ukośnika, np. "/ Token". Jeśli klient wystawił [klienta\_klucz tajny](http://tools.ietf.org/html/rfc6749#appendix-A.2), musi on zostać udostępniony do tego punktu końcowego.
-- `ApplicationCanDisplayErrors`: Ustaw `true` Jeśli aplikacja sieci web chce, aby wygenerować niestandardowej strony błędu dla błędów sprawdzania poprawności klienta na `/Authorize` punktu końcowego. Jest to tylko potrzebne dla przypadków, gdy przeglądarka nie zostanie przekierowana z powrotem do aplikacji klienckiej, na przykład, gdy `client_id` lub `redirect_uri` są nieprawidłowe. `/Authorize` Punktu końcowego powinno pojawić się "oauth. Błąd","protokołu oauth. ErrorDescription"i"protokołu oauth. Właściwości ErrorUri"są dodawane do środowiska OWIN. 
+- `ApplicationCanDisplayErrors`: Ustaw `true` Jeśli aplikacja sieci web chce, aby wygenerować niestandardowej strony błędu dla błędów sprawdzania poprawności klienta na `/Authorize` punktu końcowego. Jest to tylko potrzebne dla przypadków, gdy przeglądarka nie zostanie przekierowana z powrotem do aplikacji klienckiej, na przykład, gdy `client_id` lub `redirect_uri` są nieprawidłowe. `/Authorize` Punktu końcowego powinno pojawić się "oauth. Błąd","protokołu oauth. ErrorDescription"i"protokołu oauth. Właściwości ErrorUri"są dodawane do środowiska OWIN.
 
     > [!NOTE]
     > W przeciwnym razie ma wartość true, serwer autoryzacji zwróci domyślnej strony błędu przy użyciu szczegółów błędu.
-- `AllowInsecureHttp`: Wartość True Aby zezwolić na żądań autoryzacji i tokena pojawić się na adresy HTTP identyfikatora URI i zezwolić na przychodzący `redirect_uri` autoryzować parametry żądania, aby mieć adresy HTTP identyfikatora URI. 
+- `AllowInsecureHttp`: Wartość True Aby zezwolić na żądań autoryzacji i tokena pojawić się na adresy HTTP identyfikatora URI i zezwolić na przychodzący `redirect_uri` autoryzować parametry żądania, aby mieć adresy HTTP identyfikatora URI.
 
     > [!WARNING]
     > Zabezpieczenia — dotyczy to tylko rozwoju.
@@ -107,9 +107,9 @@ Na stronie logowania znajdują się poniżej:
 
 ![](owin-oauth-20-authorization-server/_static/image1.png)
 
-Przejrzyj IETF protokołu OAuth 2 [przyznawania kodu autoryzacji](http://tools.ietf.org/html/rfc6749#section-4.1) sekcji teraz. 
+Przejrzyj IETF protokołu OAuth 2 [przyznawania kodu autoryzacji](http://tools.ietf.org/html/rfc6749#section-4.1) sekcji teraz.
 
-**Dostawca** (w poniższej tabeli) to [OAuthAuthorizationServerOptions](https://msdn.microsoft.com/library/microsoft.owin.security.oauth.oauthauthorizationserveroptions(v=vs.111).aspx). Dostawca, który jest typu `OAuthAuthorizationServerProvider`, który zawiera wszystkie zdarzenia serwera OAuth. 
+**Dostawca** (w poniższej tabeli) to [OAuthAuthorizationServerOptions](https://msdn.microsoft.com/library/microsoft.owin.security.oauth.oauthauthorizationserveroptions(v=vs.111).aspx). Dostawca, który jest typu `OAuthAuthorizationServerProvider`, który zawiera wszystkie zdarzenia serwera OAuth.
 
 | Przepływ kroków z sekcji przyznawania kodu autoryzacji | Pobieranie przykładowych wykonuje te czynności przy użyciu: |
 | --- | --- |
@@ -134,13 +134,13 @@ Powyższy kod używa współbieżny słownik w pamięci do przechowywania biletu
 
 ![](owin-oauth-20-authorization-server/_static/image2.png)
 
-Jeśli **Grant** przycisk jest zaznaczony, `Authorize` akcja spowoduje utworzenie nowej tożsamości "Bearer" i zaloguj się przy użyciu go. Wywoła serwera autoryzacji do wygenerowania tokenu elementu nośnego i wysyłania jej do klienta przy użyciu ładunku JSON. 
+Jeśli **Grant** przycisk jest zaznaczony, `Authorize` akcja spowoduje utworzenie nowej tożsamości "Bearer" i zaloguj się przy użyciu go. Wywoła serwera autoryzacji do wygenerowania tokenu elementu nośnego i wysyłania jej do klienta przy użyciu ładunku JSON.
 
 ### <a name="implicit-grant"></a>Przyznawanie niejawne
 
 Zobacz organizację IETF protokołu OAuth 2 [przyznawanie niejawne](http://tools.ietf.org/html/rfc6749#section-4.2) sekcji teraz.
 
- [Przyznawanie niejawne](http://tools.ietf.org/html/rfc6749#section-4.2) przepływ pokazano na rysunku 4 przedstawiono przepływ i mapowania, które OAuth interfejsu OWIN oprogramowanie pośredniczące jest zgodna.  
+ [Przyznawanie niejawne](http://tools.ietf.org/html/rfc6749#section-4.2) przepływ pokazano na rysunku 4 przedstawiono przepływ i mapowania, które OAuth interfejsu OWIN oprogramowanie pośredniczące jest zgodna.
 
 | Przepływ kroków z sekcji przyznawanie niejawne | Pobieranie przykładowych wykonuje te czynności przy użyciu: |
 | --- | --- |
@@ -159,7 +159,7 @@ Ponieważ wprowadziliśmy punkt końcowy autoryzacji (`OAuthController.Authorize
 
 Zobacz organizację IETF protokołu OAuth 2 [przydział poświadczeń hasła właściciela zasobu](http://tools.ietf.org/html/rfc6749#section-4.3) sekcji teraz.
 
- [Przydział poświadczeń hasła właściciela zasobu](http://tools.ietf.org/html/rfc6749#section-4.3) przepływ pokazano na rysunku 5 jest przepływ i mapowania, które OAuth interfejsu OWIN oprogramowanie pośredniczące jest zgodna.  
+ [Przydział poświadczeń hasła właściciela zasobu](http://tools.ietf.org/html/rfc6749#section-4.3) przepływ pokazano na rysunku 5 jest przepływ i mapowania, które OAuth interfejsu OWIN oprogramowanie pośredniczące jest zgodna.
 
 | Przepływ kroków z sekcji przydział poświadczeń hasła właściciela zasobu | Pobieranie przykładowych wykonuje te czynności przy użyciu: |
 | --- | --- |
@@ -182,7 +182,7 @@ Poniżej przedstawiono przykładowe zastosowanie dla `Provider.GrantResourceOwne
 
 Zobacz organizację IETF protokołu OAuth 2 [przyznanie poświadczenia klienta](http://tools.ietf.org/html/rfc6749#section-4.4) sekcji teraz.
 
- [Przyznanie poświadczenia klienta](http://tools.ietf.org/html/rfc6749#section-4.4) przepływ pokazano na rysunku 6 jest przepływ i mapowania, które OAuth interfejsu OWIN oprogramowanie pośredniczące jest zgodna.  
+ [Przyznanie poświadczenia klienta](http://tools.ietf.org/html/rfc6749#section-4.4) przepływ pokazano na rysunku 6 jest przepływ i mapowania, które OAuth interfejsu OWIN oprogramowanie pośredniczące jest zgodna.
 
 | Przepływ kroków z sekcji przyznanie poświadczenia klienta | Pobieranie przykładowych wykonuje te czynności przy użyciu: |
 | --- | --- |
@@ -203,7 +203,7 @@ Poniżej przedstawiono przykładowe zastosowanie dla `Provider.GrantClientCreden
 
 Zobacz organizację IETF protokołu OAuth 2 [odświeżanie tokenu](http://tools.ietf.org/html/rfc6749#section-1.5) sekcji teraz.
 
- [Odświeżanie tokenu](http://tools.ietf.org/html/rfc6749#section-1.5) przepływ pokazano na rysunku 2 przedstawiono przepływ i mapowania, które OAuth interfejsu OWIN oprogramowanie pośredniczące jest zgodna.  
+ [Odświeżanie tokenu](http://tools.ietf.org/html/rfc6749#section-1.5) przepływ pokazano na rysunku 2 przedstawiono przepływ i mapowania, które OAuth interfejsu OWIN oprogramowanie pośredniczące jest zgodna.
 
 | Przepływ kroków z sekcji przyznanie poświadczenia klienta | Pobieranie przykładowych wykonuje te czynności przy użyciu: |
 | --- | --- |
@@ -212,7 +212,7 @@ Zobacz organizację IETF protokołu OAuth 2 [odświeżanie tokenu](http://tools.
 |  |  |
 | H serwer autoryzacji uwierzytelnia klienta i weryfikuje token odświeżania, a jeśli są one prawidłowe, wystawia nowy token dostępu (i, opcjonalnie, nowego tokena odświeżania). |  |
 
-Poniżej przedstawiono przykładowe zastosowanie dla `Provider.GrantRefreshToken`: 
+Poniżej przedstawiono przykładowe zastosowanie dla `Provider.GrantRefreshToken`:
 
 [!code-csharp[Main](owin-oauth-20-authorization-server/samples/sample9.cs)]
 

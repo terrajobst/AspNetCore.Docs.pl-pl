@@ -8,12 +8,12 @@ ms.date: 09/27/2013
 ms.assetid: 6dae249f-5ac6-4f6e-bc49-13bcd5a54a70
 msc.legacyurl: /aspnet/overview/owin-and-katana/getting-started-with-owin-and-katana
 msc.type: authoredcontent
-ms.openlocfilehash: f400ec887bdee123084f582d18016fb5ed3f2165
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 9920861da0e67d9304a944cacfb8ff8685267cd6
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41754335"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913180"
 ---
 <a name="getting-started-with-owin-and-katana"></a>Rozpoczęcie korzystania z OWIN i Katana
 ====================
@@ -33,13 +33,13 @@ Najpierw utwórz nowy projekt aplikacji sieci Web ASP.NET. (W programie Visual S
 
 ![](getting-started-with-owin-and-katana/_static/image1.png)
 
-W **nowy projekt ASP.NET** okno dialogowe, wybierz opcję **pusty** szablonu.
+W oknie dialogowym **Nowy projekt ASP.NET** wybierz szablon **Pusty**.
 
 ![](getting-started-with-owin-and-katana/_static/image2.png)
 
 ### <a name="add-nuget-packages"></a>Dodawanie pakietów NuGet
 
-Następnie dodaj wymagane pakiety NuGet. Z **narzędzia** menu, wybierz opcję **Menedżer pakietów biblioteki**, a następnie wybierz **Konsola Menedżera pakietów**. W oknie Konsola Menedżera pakietów wpisz następujące polecenie:
+Następnie dodaj wymagane pakiety NuGet. Z **narzędzia** menu, wybierz opcję **Menedżera pakietów NuGet**, a następnie wybierz **Konsola Menedżera pakietów**. W oknie Konsola Menedżera pakietów wpisz następujące polecenie:
 
 `install-package Microsoft.Owin.Host.SystemWeb –Pre`
 

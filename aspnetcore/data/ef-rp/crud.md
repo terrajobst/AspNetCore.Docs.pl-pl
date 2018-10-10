@@ -5,12 +5,12 @@ description: Pokazuje, jak tworzyć, odczytywać, aktualizować, usuwać z progr
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/crud
-ms.openlocfilehash: 31fefc148040d7b65e9b65d6bf19f502ef9de542
-ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
+ms.openlocfilehash: 25493f93daf3fe5e874ad1d06b918196cd1f074d
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48795567"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912816"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---crud---2-of-8"></a>Strony razor z programem EF Core w programie ASP.NET Core — CRUD - 2, 8
 
@@ -26,7 +26,7 @@ W tym samouczku szkieletu CRUD (Tworzenie, odczytywanie, aktualizowanie, usuwani
 
 Aby zminimalizować złożoność, zachowując tych samouczków skupia się na programu EF Core, kod programem EF Core jest używany w modelach strony. Niektórzy deweloperzy Użyj warstwy usług lub [wzorca repozytorium](xref:fundamentals/repository-pattern) Aby utworzyć warstwę abstrakcji między interfejsu użytkownika (Razor strony) i warstwy dostępu do danych.
 
-W tym samouczku, Utwórz, Edytuj, Usuń i szczegóły stron Razor w *uczniów* są sprawdzane w folderze.
+W tym samouczku, Utwórz, Edytuj, Usuń i szczegóły stron Razor w *studentów* są sprawdzane w folderze.
 
 Tworzenie, edytowanie i usuwanie stron utworzony szkielet kodu korzysta z następującego wzorca:
 
@@ -236,9 +236,9 @@ Przetestuj Delete.
 
 ## <a name="common-errors"></a>Typowe błędy
 
-Nie działają dla uczniów/Index lub inne łącza:
+Uczniowie/Index lub inne linki nie działa:
 
-Sprawdź stronę Razor zawiera poprawny `@page` dyrektywy. Na przykład strony Razor dla uczniów/indeksu powinna **nie** zawiera szablon trasy:
+Sprawdź stronę Razor zawiera poprawny `@page` dyrektywy. Na przykład strony Razor studentów/indeksu powinna **nie** zawiera szablon trasy:
 
 ```cshtml
 @page "{id:int}"

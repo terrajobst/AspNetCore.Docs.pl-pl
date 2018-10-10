@@ -8,12 +8,12 @@ ms.date: 06/12/2014
 ms.assetid: 1bc333c5-f096-4ea7-b170-779accc21c1a
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/the-fix-it-sample-application
 msc.type: authoredcontent
-ms.openlocfilehash: 435ee61a9c28ad0035457990cd3a889f5b240517
-ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
+ms.openlocfilehash: de3c8ea29f2c271136f58d8165bb92f4ab28ce83
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48795541"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912829"
 ---
 <a name="appendix-the-fix-it-sample-application-building-real-world-cloud-apps-with-azure"></a>Dodatek: Rozwiązać go przykładowej aplikacji (Tworzenie aplikacji w chmurze w rzeczywistych warunkach Dzięki platformie Azure)
 ====================
@@ -221,7 +221,7 @@ Istnieją dwa sposoby uruchamiania aplikacji napraw:
 4. W Eksploratorze plików kliknij prawym przyciskiem myszy plik zip i kliknij polecenie Właściwości, a następnie w oknie dialogowym właściwości kliknij odblokowania.
 5. Rozpakuj plik.
 6. Kliknij dwukrotnie plik SLN, aby uruchomić program Visual Studio.
-7. W menu Narzędzia kliknij Menedżer pakietów biblioteki, a następnie Konsola Menedżera pakietów.
+7. Z **narzędzia** menu, kliknij przycisk **Menedżera pakietów NuGet**, następnie **Konsola Menedżera pakietów**.
 8. W konsoli Menedżera pakietów (PMC), kliknij przycisk Przywróć.
 9. Zamknij program Visual Studio.
 10. Rozpocznij [emulatora usługi Azure storage](/azure/storage/common/storage-use-emulator).

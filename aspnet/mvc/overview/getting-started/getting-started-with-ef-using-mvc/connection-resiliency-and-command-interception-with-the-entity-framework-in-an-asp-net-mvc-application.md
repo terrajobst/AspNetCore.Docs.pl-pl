@@ -8,21 +8,20 @@ ms.date: 01/13/2015
 ms.assetid: c89d809f-6c65-4425-a3fa-c9f6e8ac89f2
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 9b326ec22fc70a8c1746c5cd2c302c7f04fa8d3e
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: ab6a553100d704746840eaad512ec140d4576c44
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41754967"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911789"
 ---
 <a name="connection-resiliency-and-command-interception-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Połączeń i przejmowanie poleceń z platformą Entity Framework w aplikacji ASP.NET MVC
 ====================
 przez [Tom Dykstra](https://github.com/tdykstra)
 
-[Pobieranie ukończone projektu](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8) lub [Pobierz plik PDF](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20Entity%20Framework%206%20Code%20First%20using%20MVC%205.pdf)
+[Pobierz ukończony projekt](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
 
-> Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 5 przy użyciu Entity Framework 6 Code First i Visual Studio 2013. Aby uzyskać informacji na temat tej serii samouczka, zobacz [pierwszym samouczku tej serii](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
-
+> Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 5 przy użyciu Entity Framework 6 Code First i programu Visual Studio. Aby uzyskać informacji na temat tej serii samouczka, zobacz [pierwszym samouczku tej serii](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
 
 Do tej pory aplikacja była uruchomiona lokalnie w usługach IIS Express na komputerze deweloperskim. Aby udostępnić rzeczywistej aplikacji innym osobom korzystanie przez Internet, należy wdrożyć je do dostawcy usług hosta sieci web, a trzeba wdrożyć bazę danych serwera bazy danych.
 
@@ -73,7 +72,7 @@ Przejmowanie zapytania można również użyć w celu wdrożenia najlepszym rozw
 
 ### <a name="create-a-logging-interface-and-class"></a>Tworzenie interfejsu rejestrowania i klasy
 
-A [najlepszymi rozwiązaniami w zakresie rejestrowania](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry.md#log) jest zrobienie tego przy użyciu interfejsu zamiast kodować wywołania System.Diagnostics.Trace lub klasa rejestrowania. Ułatwia zmienić swoje mechanizmie rejestrowania później, jeśli kiedykolwiek trzeba to zrobić. Aby w tej sekcji utworzysz interfejs rejestrowania i klasy do zaimplementowania go/p > 
+A [najlepszymi rozwiązaniami w zakresie rejestrowania](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry.md#log) jest zrobienie tego przy użyciu interfejsu zamiast kodować wywołania System.Diagnostics.Trace lub klasa rejestrowania. Ułatwia zmienić swoje mechanizmie rejestrowania później, jeśli kiedykolwiek trzeba to zrobić. Aby w tej sekcji utworzysz interfejs rejestrowania i klasy do zaimplementowania go/p >
 
 1. Utwórz folder w projekcie i nadaj mu nazwę *rejestrowania*.
 2. W *rejestrowania* folderze utwórz plik klasy o nazwie *ILogger.cs*i Zastąp kod szablonu poniższym kodem:
@@ -138,7 +137,7 @@ Następnie utworzysz klas, które platformy Entity Framework będzie wywoływać
 
 ## <a name="test-logging-and-connection-resiliency"></a>Test połączenia i rejestrowania odporności
 
-1. Naciśnij klawisz F5, aby uruchomić aplikację w trybie debugowania, a następnie kliknij przycisk **studentów** kartę.
+1. Naciśnij klawisz **F5** do uruchomienia aplikacji w trybie debugowania, a następnie kliknij przycisk **studentów** kartę.
 2. Przyjrzyj się programu Visual Studio **dane wyjściowe** okno, aby wyświetlić dane wyjściowe śledzenia. Może być konieczne przewinięcie ostatnie niektóre błędy języka JavaScript, aby uzyskać dostęp do dzienników napisany przez użytkownika rejestratora.
 
     Zwróć uwagę, możliwość wyświetlenia rzeczywiste zapytania SQL wysyłane do bazy danych. Zobaczysz niektóre początkowej zapytań i poleceń, które obsługuje platformy Entity Framework, aby rozpocząć pracę, sprawdzanie wersji bazy danych i tabeli historii migracji (poznasz migracji w następnym samouczku). Zobacz zapytanie dotyczące stronicowania, aby dowiedzieć się, jak wiele studentów, i na koniec zobaczysz zapytanie, które pobiera dane dla uczniów.
@@ -172,7 +171,7 @@ Następnie utworzysz klas, które platformy Entity Framework będzie wywoływać
 
 W tym samouczku pokazaliśmy już, jak dziennika poleceń SQL, które platformy Entity Framework Redaguj i wysyła do bazy danych i Włącz elastyczność połączenia. W następnym samouczku wdrożysz aplikację z Internetem, użycia migracje Code First na potrzeby wdrażania bazy danych.
 
-Jak się podoba w tym samouczku, i co można było ulepszyć proces Wystaw opinię. Możesz również poprosić o nowe tematy w [Pokaż mi jak za pomocą kodu](http://aspnet.uservoice.com/forums/228522-show-me-how-with-code).
+Jak się podoba w tym samouczku, i co można było ulepszyć proces Wystaw opinię.
 
 Linki do innych zasobów platformy Entity Framework można znaleźć w [dostęp do danych platformy ASP.NET — zalecane zasoby](../../../../whitepapers/aspnet-data-access-content-map.md).
 

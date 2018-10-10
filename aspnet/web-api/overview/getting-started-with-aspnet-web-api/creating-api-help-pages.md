@@ -8,12 +8,12 @@ ms.date: 04/01/2013
 ms.assetid: 0150e67b-c50d-4613-83ea-7b4ef8cacc5a
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/creating-api-help-pages
 msc.type: authoredcontent
-ms.openlocfilehash: 2d8758034ca4339ed7e9699cf2f2643bfab87ba4
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: c081064a32151a71fc4f3ea407e0c48a1539432a
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41752902"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913128"
 ---
 <a name="creating-help-pages-for-aspnet-web-api"></a>Tworzenie stron pomocy dla interfejsu API sieci Web platformy ASP.NET
 ====================
@@ -55,7 +55,7 @@ Każdy interfejs API zawiera link do strony zawierającej więcej szczegółowyc
 
 Strony pomocy można dodać do istniejącego projektu interfejsu API sieci Web przy użyciu Menedżera pakietów NuGet. Ta opcja jest przydatna, Rozpocznij od szablonu projektu innego niż szablon "Interfejs API sieci Web".
 
-Z **narzędzia** menu, wybierz opcję **Menedżer pakietów biblioteki**, a następnie wybierz pozycję **Konsola Menedżera pakietów**. W [Konsola Menedżera pakietów](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) okna, wpisz jedno z następujących poleceń:
+Z **narzędzia** menu, wybierz opcję **Menedżera pakietów NuGet**, a następnie wybierz pozycję **Konsola Menedżera pakietów**. W [Konsola Menedżera pakietów](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) okna, wpisz jedno z następujących poleceń:
 
 Aby uzyskać **C#** aplikacji: `Install-Package Microsoft.AspNet.WebApi.HelpPage`
 

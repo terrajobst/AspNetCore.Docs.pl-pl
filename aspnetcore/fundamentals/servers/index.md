@@ -4,25 +4,37 @@ author: rick-anderson
 description: Odnajdywanie serwerów sieci web w usługach Kestrel i sterownik HTTP.sys dla platformy ASP.NET Core. Dowiedz się, jak wybrać serwer i kiedy należy użyć zwrotnego serwera proxy.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 09/13/2018
+ms.date: 09/21/2018
 uid: fundamentals/servers/index
-ms.openlocfilehash: 0f1460af5bc1cd879ff11e43775ac16ca36b150e
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: f9a6f1ee1d080732f6a379f5be791c9e225ae0a5
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011758"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911945"
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>Implementacje serwera sieci Web w programie ASP.NET Core
 
 Przez [Tom Dykstra](https://github.com/tdykstra), [Steve Smith](https://ardalis.com/), [Halter Autor: Stephen](https://twitter.com/halter73), i [Chris Ross](https://github.com/Tratcher)
 
-Aplikacji ASP.NET Core jest uruchamiany z implementację serwera HTTP w procesie. Implementacja serwera nasłuchuje żądań HTTP i udostępnia je do aplikacji jako zestawów [funkcje na żądanie](xref:fundamentals/request-features) składające się na [HttpContext](/dotnet/api/system.web.httpcontext).
+Aplikacji ASP.NET Core jest uruchamiany z implementację serwera HTTP w procesie. Implementacja serwera nasłuchuje żądań HTTP i udostępnia je do aplikacji jako zestawów [funkcje na żądanie](xref:fundamentals/request-features) składające się na <xref:Microsoft.AspNetCore.Http.HttpContext>.
 
-ASP.NET Core jest dostarczana w dwie implementacje serwera:
+ASP.NET Core jest dostarczana w trzech implementacji serwera:
+
+::: moniker range=">= aspnetcore-2.2"
+
+* [Kestrel](xref:fundamentals/servers/kestrel) jest to domyślne, serwer HTTP dla wielu platform dla platformy ASP.NET Core.
+* `IISHttpServer` jest używana z [modelu hostingu w trakcie](xref:fundamentals/servers/aspnet-core-module#in-process-hosting-model) i [modułu ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) na Windows.
+* [Sterownik HTTP.sys](xref:fundamentals/servers/httpsys) serwera HTTP tylko do Windows opiera się na [sterownik jądra HTTP.sys i interfejsu API serwera HTTP](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx). (Nosi nazwę HTTP.sys [WebListener](xref:fundamentals/servers/weblistener) w programie ASP.NET Core 1.x.)
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
 
 * [Kestrel](xref:fundamentals/servers/kestrel) jest to domyślne, serwer HTTP dla wielu platform dla platformy ASP.NET Core.
 * [Sterownik HTTP.sys](xref:fundamentals/servers/httpsys) serwera HTTP tylko do Windows opiera się na [sterownik jądra HTTP.sys i interfejsu API serwera HTTP](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx). (Nosi nazwę HTTP.sys [WebListener](xref:fundamentals/servers/weblistener) w programie ASP.NET Core 1.x.)
+
+::: moniker-end
 
 ## <a name="kestrel"></a>Kestrel
 
@@ -60,7 +72,19 @@ Nie można używać usług IIS, serwera Nginx i Apache bez Kestrel lub [implemen
 
 ### <a name="iis-with-kestrel"></a>Usługi IIS za pomocą Kestrel
 
-Korzystając z [IIS](/iis/get-started/introduction-to-iis/introduction-to-iis-architecture) lub [usług IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) jako zwrotny serwer proxy dla platformy ASP.NET Core w aplikacji ASP.NET Core działa w procesie oddzielnie od proces roboczy usług IIS. W procesie programu IIS [modułu ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) koordynuje relacji zwrotnego serwera proxy. Podstawowe funkcje modułu ASP.NET Core są do uruchamiania aplikacji ASP.NET Core, uruchom ponownie aplikację uległa awarii i kierują ruch HTTP do aplikacji. Aby uzyskać więcej informacji, zobacz [modułu ASP.NET Core](xref:fundamentals/servers/aspnet-core-module). 
+::: moniker range=">= aspnetcore-2.2"
+
+Korzystając z [IIS](/iis/get-started/introduction-to-iis/introduction-to-iis-architecture) lub [usług IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview), aplikacja platformy ASP.NET Core albo działa w tym samym procesie co proces roboczy usług IIS ( *w trakcie* model hostingu) lub w oddzielnym procesie z proces roboczy usług IIS ( *spoza procesu* model hostingu).
+
+[Modułu ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) jest macierzysty moduł usług IIS, który obsługuje natywne żądań usług IIS między serwer Http w procesie programu IIS lub serwera Kestrel spoza procesu. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/servers/aspnet-core-module>.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
+Korzystając z [IIS](/iis/get-started/introduction-to-iis/introduction-to-iis-architecture) lub [usług IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) jako zwrotny serwer proxy dla platformy ASP.NET Core w aplikacji ASP.NET Core działa w procesie oddzielnie od proces roboczy usług IIS. W procesie programu IIS [modułu ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) koordynuje relacji zwrotnego serwera proxy. Podstawowe funkcje modułu ASP.NET Core są do uruchamiania aplikacji ASP.NET Core, uruchom ponownie aplikację uległa awarii i kierują ruch HTTP do aplikacji. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/servers/aspnet-core-module>.
+
+::: moniker-end
 
 ### <a name="nginx-with-kestrel"></a>Serwer Nginx z Kestrel
 

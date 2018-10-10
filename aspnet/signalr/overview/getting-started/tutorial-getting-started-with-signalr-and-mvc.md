@@ -8,48 +8,48 @@ ms.date: 06/10/2014
 ms.assetid: 80bfe5fb-bdfc-41fe-ac43-2132e5d69fac
 msc.legacyurl: /signalr/overview/getting-started/tutorial-getting-started-with-signalr-and-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 3fca46ac1e73905063afec9fc1eb9cf8df3aee24
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: a58b95adfb5d0165887b95abd3247d3a829aa882
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41756691"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912231"
 ---
 <a name="tutorial-getting-started-with-signalr-2-and-mvc-5"></a>Samouczek: Wprowadzenie do SignalR 2 i MVC 5
 ====================
 przez [Patrick Fletcher](https://github.com/pfletcher), [Tim Teebken](https://github.com/timlt)
 
-[Pobieranie ukończone projektu](http://code.msdn.microsoft.com/Getting-Started-with-c366b2f3)
+[Pobierz ukończony projekt](http://code.msdn.microsoft.com/Getting-Started-with-c366b2f3)
 
-> W tym samouczku pokazano, jak używać signalr2 na platformie ASP.NET do tworzenia aplikacji rozmowy w czasie rzeczywistym. Będzie dodać SignalR do aplikacji MVC 5 i Utwórz widok czatu do wysyłania i wyświetla komunikaty. 
-> 
+> W tym samouczku pokazano, jak używać signalr2 na platformie ASP.NET do tworzenia aplikacji rozmowy w czasie rzeczywistym. Będzie dodać SignalR do aplikacji MVC 5 i Utwórz widok czatu do wysyłania i wyświetla komunikaty.
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używanego w tym samouczku
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET 4.5
 > - MVC 5
 > - SignalR w wersji 2
->   
-> 
-> 
+>
+>
+>
 > ## <a name="using-visual-studio-2012-with-this-tutorial"></a>Z tego samouczka przy użyciu programu Visual Studio 2012
-> 
-> 
+>
+>
 > Aby użyć programu Visual Studio 2012 za pomocą tego samouczka, wykonaj następujące czynności:
-> 
+>
 > - Aktualizacja usługi [Menedżera pakietów](http://docs.nuget.org/docs/start-here/installing-nuget) do najnowszej wersji.
 > - Zainstaluj [Instalator platformy sieci Web](https://www.microsoft.com/web/downloads/platform.aspx).
 > - Instalator platformy sieci Web, wyszukiwanie i instalowanie **platformy ASP.NET i Web Tools 2013.1 dla programu Visual Studio 2012**. Szablony programu Visual Studio dla klas SignalR spowoduje to zainstalowanie takich jak **Centrum**.
 > - Niektóre szablony (takie jak **klasy początkowej OWIN**) nie są dostępne; w tym przypadku użyj pliku klasy.
-> 
-> 
+>
+>
 > ## <a name="tutorial-versions"></a>Samouczek wersji
-> 
+>
 > Aby uzyskać informacje dotyczące starszych wersji biblioteki SignalR, zobacz [starsze wersje biblioteki SignalR](../older-versions/index.md).
-> 
+>
 > ## <a name="questions-and-comments"></a>Pytania i komentarze
-> 
+>
 > Jak się podoba w tym samouczku, i co można było ulepszyć proces w komentarzach u dołu strony, wystaw opinię. Jeśli masz pytania, na które nie są bezpośrednio związane z tego samouczka, możesz zamieścić je do [forum ASP.NET SignalR](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) lub [StackOverflow.com](http://stackoverflow.com/).
 
 
@@ -97,7 +97,7 @@ W tej sekcji przedstawiono sposób tworzenia aplikacji ASP.NET MVC 5, dodawanie 
     > [!NOTE]
     > Jeśli wybierzesz dostawcy uwierzytelniania inny dla aplikacji, `Startup.cs` klasy, które zostaną utworzone dla Ciebie; nie należy tworzyć własne `Startup.cs` klasy w kroku 10 poniżej.
 4. Kliknij przycisk **OK** w **nowy projekt ASP.NET** okna dialogowego.
-5. Otwórz **narzędzia | Menedżer pakietów biblioteki | Konsola Menedżera pakietów** i uruchom następujące polecenie. Ten krok powoduje dodanie do projektu, zbiór plików skryptów i odwołania do zestawów, które umożliwiają funkcji SignalR.
+5. Otwórz **Narzędzia > Menedżer pakietów NuGet > Konsola Menedżera pakietów** i uruchom następujące polecenie. Ten krok powoduje dodanie do projektu, zbiór plików skryptów i odwołania do zestawów, które umożliwiają funkcji SignalR.
 
     `install-package Microsoft.AspNet.SignalR`
 6. W **Eksploratora rozwiązań**, rozwiń folder skryptów. Należy pamiętać, że biblioteki skryptów dla elementu SignalR zostały dodane do projektu.

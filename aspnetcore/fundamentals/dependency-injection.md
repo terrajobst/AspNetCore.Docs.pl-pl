@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/02/2018
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 50986eeb4c5c8b06c739ee9f860665b877853d78
-ms.sourcegitcommit: 517bb1366da2a28b0014e384fa379755c21b47d8
+ms.openlocfilehash: 33fae5d87029c8b3afdc321e0247555c1e479d07
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47230194"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912621"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Wstrzykiwanie zależności w programie ASP.NET Core
 
@@ -540,17 +540,17 @@ Metoda fabryki pojedynczej usługi, takie jak drugi argument [AddSingleton&lt;TS
 
 Podczas pracy z iniekcji zależności należy pamiętać o następujących zaleceń:
 
-* Unikaj przechowywania danych i konfiguracji bezpośrednio w kontenerze usługi. Na przykład koszyka użytkownika zwykle nie należy dodać do kontenera usługi. Należy użyć konfiguracji [wzorzec opcje](xref:fundamentals/configuration/options). Podobnie należy unikać obiektów "symbol zastępczy danych", które istnieją tylko w celu umożliwienia dostępu do innego obiektu. Jest lepszym rozwiązaniem żądania rzeczywisty element za pomocą iniekcji zależności, jeśli jest to możliwe.
+* Unikaj przechowywania danych i konfiguracji bezpośrednio w kontenerze usługi. Na przykład koszyka użytkownika zwykle nie należy dodać do kontenera usługi. Należy użyć konfiguracji [wzorzec opcje](xref:fundamentals/configuration/options). Podobnie należy unikać obiektów "symbol zastępczy danych", które istnieją tylko w celu umożliwienia dostępu do innego obiektu. Jest lepszym rozwiązaniem rzeczywisty element za pośrednictwem DI żądania.
 
 * Unikaj statycznych dostęp do usług (na przykład statycznie — wpisanie [IApplicationBuilder.ApplicationServices](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder.applicationservices) użytku innym miejscu).
 
-* Unikaj używania wzorca locator service (na przykład [IServiceProvider.GetService](/dotnet/api/system.iserviceprovider.getservice)).
+* Unikaj używania *wzorzec lokalizatora usług*. Na przykład nie wywołać <xref:System.IServiceProvider.GetService*> uzyskać wystąpienie usługi, gdy zamiast tego użyj DI. Inna wersja locator service, aby uniknąć wprowadza fabryki, który jest rozpoznawany jako zależności w czasie wykonywania. Oba te rozwiązania mieszanego [Inwersja kontroli](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) strategii.
 
 * Unikaj statycznych dostęp do `HttpContext` (na przykład [IHttpContextAccessor.HttpContext](/dotnet/api/microsoft.aspnetcore.http.ihttpcontextaccessor.httpcontext)).
 
 Podobnie jak wszystkie zestawy zaleceń mogą wystąpić sytuacje, w których wymagane jest ignorowanie zaleceniem. Wyjątki występują rzadko&mdash;przede wszystkim specjalne przypadki w samej strukturze.
 
-Wstrzykiwanie zależności jest *alternatywnych* do wzorce dostępu i statyczne/globalne obiektu. Nie można korzystać z zalet wstrzykiwanie zależności, jeśli można łączyć z dostępem do obiektu statycznego.
+DI jest *alternatywnych* do wzorce dostępu i statyczne/globalne obiektu. Nie można korzystać z zalet DI, jeśli można łączyć z dostępem do obiektu statycznego.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

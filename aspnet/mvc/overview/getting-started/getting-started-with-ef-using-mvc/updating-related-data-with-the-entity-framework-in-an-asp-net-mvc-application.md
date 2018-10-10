@@ -8,20 +8,20 @@ ms.date: 05/01/2015
 ms.assetid: 7ba88418-5d0a-437d-b6dc-7c3816d4ec07
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: e7f5fd725a0d151f19f49be9ceaf52b049d459c0
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 647793a65dec8feaf37de561ad77b4585bb869a8
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41756812"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912218"
 ---
 <a name="updating-related-data-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Aktualizowanie powiązanych danych z platformą Entity Framework w aplikacji ASP.NET MVC
 ====================
 przez [Tom Dykstra](https://github.com/tdykstra)
 
-[Pobieranie ukończone projektu](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8) lub [Pobierz plik PDF](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20Entity%20Framework%206%20Code%20First%20using%20MVC%205.pdf)
+[Pobierz ukończony projekt](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
 
-> Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 5 przy użyciu Entity Framework 6 Code First i Visual Studio 2013. Aby uzyskać informacji na temat tej serii samouczka, zobacz [pierwszym samouczku tej serii](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
+> Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 5 przy użyciu Entity Framework 6 Code First i programu Visual Studio. Aby uzyskać informacji na temat tej serii samouczka, zobacz [pierwszym samouczku tej serii](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
 
 
 W poprzednim samouczku wyświetlane powiązanych danych; w tym samouczku zostaną zaktualizowane powiązane dane. W przypadku większości relacji można to zrobić, aktualizując pola kluczy obcych lub właściwości nawigacji. W przypadku relacji wiele do wielu platformy Entity Framework nie ujawnia tabelę sprzężenia bezpośrednio, dzięki czemu można dodawać i usuwać jednostki do i z właściwości nawigacji odpowiednie.
@@ -214,8 +214,8 @@ Kliknij przycisk **Edytuj** na pod kierunkiem instruktora, aby wyświetlić stro
 
 Zmienić niektóre przypisania kursów, a następnie kliknij przycisk **Zapisz**. Wprowadzone zmiany zostaną odzwierciedlone na stronę indeksu.
 
- Uwaga: w tym miejscu podejście do edycji danych kurs przez instruktorów dobrze działa w przypadku istnieje ograniczona liczba kursów. Dla kolekcji, które są znacznie większe innego interfejsu użytkownika i inną metodę aktualizacji będą wymagane.  
- 
+ Uwaga: w tym miejscu podejście do edycji danych kurs przez instruktorów dobrze działa w przypadku istnieje ograniczona liczba kursów. Dla kolekcji, które są znacznie większe innego interfejsu użytkownika i inną metodę aktualizacji będą wymagane.
+
 
 ## <a name="update-the-deleteconfirmed-method"></a>Zaktualizuj metodę DeleteConfirmed
 
@@ -269,7 +269,7 @@ Jak wyjaśniono w [samouczek podstawowych funkcji CRUD](implementing-basic-crud-
 
 To wprowadzenie do pracy z powiązanych danych zostało zakończone. Do tej pory w tych samouczkach znasz już kod, który obsługuje synchronicznych operacji We/Wy. Może być aplikacja bardziej efektywnie używać zasobów serwera sieci web poprzez implementację kodu asynchronicznego i to, co należy to zrobić w następnym samouczku.
 
-Jak się podoba w tym samouczku, i co można było ulepszyć proces Wystaw opinię. Możesz również poprosić o nowe tematy w [Pokaż mi jak za pomocą kodu](http://aspnet.uservoice.com/forums/228522-show-me-how-with-code).
+Jak się podoba w tym samouczku, i co można było ulepszyć proces Wystaw opinię.
 
 Linki do innych zasobów platformy Entity Framework można znaleźć w [dostęp do danych platformy ASP.NET — zalecane zasoby](../../../../whitepapers/aspnet-data-access-content-map.md).
 

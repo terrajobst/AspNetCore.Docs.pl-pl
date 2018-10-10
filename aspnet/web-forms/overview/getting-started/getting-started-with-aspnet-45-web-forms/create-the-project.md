@@ -8,12 +8,12 @@ ms.date: 09/08/2014
 ms.assetid: 2ce36f78-8ecb-4ab1-b748-6d0ab633ea3f
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create-the-project
 msc.type: authoredcontent
-ms.openlocfilehash: de0f8092342a8ba8979a31e9a97b603e44e6a85d
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 754f085e3e43f7efa155f410d02a0d29d3349612
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41753532"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912296"
 ---
 <a name="create-the-project"></a>Tworzenie projektu
 ====================
@@ -174,8 +174,7 @@ Gdy serwer sieci Web odbiera żądanie dla strony, jego znajduje stronę, przetw
 > 
 > Oprócz funkcji w szablonie aplikacji formularzy sieci Web ASP.NET, używane przez aplikację Wingtip Toys [Entity Framework Code First](https://weblogs.asp.net/scottgu/archive/2010/12/08/announcing-entity-framework-code-first-ctp5-release.aspx), czyli biblioteki NuGet, która umożliwia programowanie skoncentrowane na kodzie podczas pracy z danymi. Najprościej mówiąc, tworzy bazy danych części aplikacji na podstawie kodu, który należy napisać. Używający narzędzia Entity Framework, możesz pobrać i manipulowanie danymi jako silnie typizowanych obiektów. Pozwala to skupić się na logice biznesowej w aplikacji, a nie szczegóły sposób dostęp do danych.
 > 
-> Aby uzyskać dodatkowe informacje o bibliotekach zainstalowanych i pakietów zawartych w szablonie formularzy sieci Web ASP.NET zobacz listę zainstalowanych pakietów NuGet. Aby to zrobić, w programie Visual Studio Utwórz nowy projekt formularzy sieci Web, wybierz opcję **narzędzia**  - &gt; **Menedżer pakietów biblioteki**  - &gt; **Zarządzanie Pakiety NuGet dla rozwiązania**i wybierz **zainstalowanych pakietów** w **Zarządzaj pakietami NuGet** okno dialogowe.
-
+> Aby uzyskać dodatkowe informacje o bibliotekach zainstalowanych i pakietów zawartych w szablonie formularzy sieci Web ASP.NET zobacz listę zainstalowanych pakietów NuGet. Aby to zrobić, w programie Visual Studio Utwórz nowy projekt formularzy sieci Web, wybierz opcję **narzędzia** > **Menedżera pakietów NuGet** > **Zarządzaj pakietami NuGet dla rozwiązania**i wybierz **zainstalowanych pakietów** w **Zarządzaj pakietami NuGet** okno dialogowe.
 
 ### <a name="touring-visual-studio"></a>Podróżujący programu Visual Studio
 

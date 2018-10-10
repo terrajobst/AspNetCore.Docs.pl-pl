@@ -5,12 +5,12 @@ description: Dowiedz się, jak utworzyć aplikację stron Razor przy użyciu dan
 ms.author: riande
 ms.date: 7/24/2018
 uid: security/authorization/secure-data
-ms.openlocfilehash: 2fb13f0772a1f8aa4ed2ff3ece2a2c5d3b7360c9
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 71b7855958b530b8bac32843a8d1e7db0113ffd9
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46010939"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912634"
 ---
 ::: moniker range="<= aspnetcore-1.1"
 
@@ -350,6 +350,7 @@ Sprawdź, czy aplikacja zasilany bazy danych. W przypadku wszystkich wierszy w s
 
 ### <a name="additional-resources"></a>Dodatkowe zasoby
 
+* [Tworzenie aplikacji internetowej platformy .NET Core i SQL Database w usłudze Azure App Service](/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb)
 * [Laboratorium autoryzacji platformy ASP.NET Core](https://github.com/blowdart/AspNetAuthorizationWorkshop). W tym laboratorium zawiera bardziej szczegółowe na temat funkcji zabezpieczeń wprowadzone w ramach tego samouczka.
 * [Autoryzacja w programie ASP.NET Core: prosty, rola, opartej na oświadczeniach i niestandardowe](xref:security/authorization/index)
 * [Autoryzacja niestandardowa oparta na zasadach](xref:security/authorization/policies)

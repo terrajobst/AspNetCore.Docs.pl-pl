@@ -8,12 +8,12 @@ ms.date: 08/15/2012
 ms.assetid: 27dc4fc8-1b51-43b0-933f-fc1b52476523
 msc.legacyurl: /mvc/overview/older-versions/aspnet-mvc-4-mobile-features
 msc.type: authoredcontent
-ms.openlocfilehash: 8b82b8b9b1ee6646072931da889c643afb34d474
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 6fe55a14b40f8c50dee91cdc7f59d0378f2a1ea2
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48578162"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912335"
 ---
 <a name="aspnet-mvc-4-mobile-features"></a>Funkcje mobilne platformy ASP.NET MVC 4
 ====================
@@ -184,7 +184,7 @@ Zmień nazwę *Views\Home\AllTags.Mobile.cshtml* i *Views\Home\AllTags.iPhone.cs
 
 Zainstaluj *jQuery.Mobile.MVC* pakietu NuGet w ten sposób:
 
-1. Z **narzędzia** menu, wybierz opcję **Menedżer pakietów biblioteki**, a następnie wybierz pozycję **Konsola Menedżera pakietów**.
+1. Z **narzędzia** menu, wybierz opcję **Menedżera pakietów NuGet**, a następnie wybierz pozycję **Konsola Menedżera pakietów**.
 
     [![p3_packageMgr](aspnet-mvc-4-mobile-features/_static/image20.png)](aspnet-mvc-4-mobile-features/_static/image19.png)
 2. W **Konsola Menedżera pakietów**, wprowadź `Install-Package jQuery.Mobile.MVC -version 1.0.0`
@@ -245,11 +245,11 @@ Odśwież *alltags —* Wyświetl w przeglądarce dla urządzeń przenośnych. M
 
 > [!NOTE]
 > Debugowanie Uwaga: można dodać następujący kod na końcu Views\Shared\\_ViewSwitcher.cshtml, aby pomóc w debugowaniu widoki, gdy za pomocą przeglądarki ciąg agenta użytkownika ustawiony na urządzeniu przenośnym.
-> 
+>
 > [!code-csharp[Main](aspnet-mvc-4-mobile-features/samples/sample15.cs)]
-> 
->  i dodać następujący nagłówek do *Views\Shared\\_Layout.cshtml* pliku.  
-> 
+>
+>  i dodać następujący nagłówek do *Views\Shared\\_Layout.cshtml* pliku.
+>
 > [!code-html[Main](aspnet-mvc-4-mobile-features/samples/sample16.html)]
 
 

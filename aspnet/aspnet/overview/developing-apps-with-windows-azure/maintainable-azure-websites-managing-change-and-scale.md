@@ -8,12 +8,12 @@ ms.date: 07/16/2014
 ms.assetid: ecfd0eb4-c4ad-44e6-9db9-a2a66611ff6a
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale
 msc.type: authoredcontent
-ms.openlocfilehash: 05181ae1b2d857eea45983d378b28011c1cd755a
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: bc6de2f0c8b2cd958c198abb90fc4ad97613e973
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48578136"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913310"
 ---
 <a name="hands-on-lab-maintainable-azure-websites-managing-change-and-scale"></a>Warsztaty: Azure websites w warstwie łatwego w utrzymaniu: Zarządzanie zmianami i skalowaniem
 ====================
@@ -124,7 +124,7 @@ W tym zadaniu, konieczne będzie przejście przez kroki umożliwiające **migrac
 
 1. Otwórz program Visual Studio i Otwórz **GeekQuiz.sln** plikiem rozwiązania z **Source\Ex1 UsingEntityFrameworkMigrations\Begin**.
 2. Skompiluj rozwiązanie, aby pobrać i zainstalować **NuGet** pakietów zależności. Aby to zrobić, kliknij prawym przyciskiem myszy rozwiązanie, a następnie kliknij przycisk **Kompiluj rozwiązanie** lub naciśnij **Ctrl + Shift + B**.
-3. Z **narzędzia** menu w programie Visual Studio, wybierz **Menedżer pakietów biblioteki**, a następnie kliknij przycisk **Konsola Menedżera pakietów**.
+3. Z **narzędzia** menu w programie Visual Studio, wybierz **Menedżera pakietów NuGet**, a następnie kliknij przycisk **Konsola Menedżera pakietów**.
 4. W **Konsola Menedżera pakietów**, wprowadź następujące polecenie i naciśnij klawisz **Enter**. Początkowej migracji, na podstawie istniejącego modelu zostanie utworzony.
 
     [!code-powershell[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample1.ps1)]

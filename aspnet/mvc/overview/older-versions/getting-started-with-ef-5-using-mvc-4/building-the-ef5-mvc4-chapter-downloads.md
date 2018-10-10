@@ -8,18 +8,18 @@ ms.date: 07/30/2013
 ms.assetid: d0a89089-eed8-4f61-a478-c5ffa30186f5
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/building-the-ef5-mvc4-chapter-downloads
 msc.type: authoredcontent
-ms.openlocfilehash: fa018ea12929efa742a323d96938d372b634fdd7
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 6b5d10ba9e878908953e999bd1fd44970acf4ca5
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48577072"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911971"
 ---
 <a name="building-the-chapter-downloads-for-the-ef-5-mvc-4-tutorials"></a>Tworzenie w rozdziale pliki do pobrania dla platformy MVC EF 5 4 samouczki
 ====================
 Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
-[Pobieranie ukończone projektu](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
+[Pobierz ukończony projekt](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
 > Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 4 przy użyciu Entity Framework 5 Code First i programu Visual Studio 2012. Aby uzyskać informacji na temat tej serii samouczka, zobacz [pierwszym samouczku tej serii](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
 
@@ -32,7 +32,7 @@ Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
     ![](building-the-ef5-mvc4-chapter-downloads/_static/image1.png)
 3. Rozpakuj plik.
 4. Kliknij dwukrotnie *CUx.sln* plik, aby uruchomić program Visual Studio.
-5. Z **narzędzia** menu, kliknij przycisk **Menedżer pakietów biblioteki**, następnie **Konsola Menedżera pakietów**.  
+5. Z **narzędzia** menu, kliknij przycisk **Menedżera pakietów NuGet**, następnie **Konsola Menedżera pakietów**.  
   
     ![](building-the-ef5-mvc4-chapter-downloads/_static/image2.png)
 6. Kliknij w konsoli Menedżera pakietów (PMC) **przywrócić**.  

@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/28/2018
 uid: fundamentals/websockets
-ms.openlocfilehash: fc3f70fb888797216b2ccc911a9f69eaae6ac01c
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: e46c2decf92d21322f2079bf880df534e0224db5
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48577733"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911655"
 ---
 # <a name="websockets-support-in-aspnet-core"></a>Obsługa protokółu Websocket w programie ASP.NET Core
 
@@ -20,7 +20,7 @@ Przez [Tom Dykstra](https://github.com/tdykstra) i [Andrew Stanton pielęgniarki
 
 W tym artykule wyjaśniono, jak rozpocząć pracę z gniazda Websocket w programie ASP.NET Core. [WebSocket](https://wikipedia.org/wiki/WebSocket) ([RFC 6455](https://tools.ietf.org/html/rfc6455)) to protokół, który umożliwia kanały komunikacja dwukierunkowa trwałego połączenia protokołu TCP. Jest on używany w aplikacjach korzystających z komunikacji szybki, w czasie rzeczywistym, takich jak rozmowy, pulpit nawigacyjny i gier, aplikacji.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/websockets/sample) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample)). Zobacz [następne kroki](#next-steps) sekcji, aby uzyskać więcej informacji.
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/websockets/samples) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample)). Zobacz [następne kroki](#next-steps) sekcji, aby uzyskać więcej informacji.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -60,14 +60,34 @@ Do pracy bezpośrednio za pomocą połączenia gniazda, należy użyć funkcji W
 
 Dodaj oprogramowanie pośredniczące Websocket w `Configure` metody `Startup` klasy:
 
-[!code-csharp[](websockets/sample/Startup.cs?name=UseWebSockets)]
+::: moniker range=">= aspnetcore-2.0"
+
+[!code-csharp[](websockets/samples/2.x/WebSocketsSample/Startup.cs?name=UseWebSockets)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+[!code-csharp[](websockets/samples/1.x/WebSocketsSample/Startup.cs?name=UseWebSockets)]
+
+::: moniker-end
 
 Można skonfigurować następujące ustawienia:
 
 * `KeepAliveInterval` -Jak często wysyłać ramki "ping" do klienta, aby upewnić się, serwery proxy utrzymanie otwartego połączenia.
 * `ReceiveBufferSize` — Rozmiar buforu używany do odbierania danych. Użytkownicy zaawansowani trzeba to zmienić dotyczące dostosowywania wydajności na podstawie rozmiaru danych.
 
-[!code-csharp[](websockets/sample/Startup.cs?name=UseWebSocketsOptions)]
+::: moniker range=">= aspnetcore-2.0"
+
+[!code-csharp[](websockets/samples/2.x/WebSocketsSample/Startup.cs?name=UseWebSocketsOptions)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+[!code-csharp[](websockets/samples/1.x/WebSocketsSample/Startup.cs?name=UseWebSocketsOptions)]
+
+::: moniker-end
 
 ### <a name="accept-websocket-requests"></a>Akceptować żądania protokołu WebSocket
 
@@ -75,7 +95,17 @@ Gdzieś później w cyklu życia żądania (w dalszej części `Configure` metod
 
 Poniższy przykład znajduje się w dalszej części w `Configure` metody:
 
-[!code-csharp[](websockets/sample/Startup.cs?name=AcceptWebSocket&highlight=7)]
+::: moniker range=">= aspnetcore-2.0"
+
+[!code-csharp[](websockets/samples/2.x/WebSocketsSample/Startup.cs?name=AcceptWebSocket&highlight=7)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+[!code-csharp[](websockets/samples/1.x/WebSocketsSample/Startup.cs?name=AcceptWebSocket&highlight=7)]
+
+::: moniker-end
 
 Żądanie protokołu WebSocket może występować na dowolny adres URL, ale ten przykładowy kod akceptuje tylko żądania dotyczące `/ws`.
 
@@ -85,7 +115,17 @@ Poniższy przykład znajduje się w dalszej części w `Configure` metody:
 
 Przekazuje kodu pokazanego wcześniej, która akceptuje żądanie protokołu WebSocket `WebSocket` obiekt `Echo` metody. Kod odbiera komunikat i natychmiast wysyła z powrotem tę samą wiadomość. Wiadomości wysyłanych i odbieranych w pętli, dopóki klient zamyka połączenie:
 
-[!code-csharp[](websockets/sample/Startup.cs?name=Echo)]
+::: moniker range=">= aspnetcore-2.0"
+
+[!code-csharp[](websockets/samples/2.x/WebSocketsSample/Startup.cs?name=Echo)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+[!code-csharp[](websockets/samples/1.x/WebSocketsSample/Startup.cs?name=Echo)]
+
+::: moniker-end
 
 Akceptując połączeniem WebSocket, przed rozpoczęciem pętli, kończy się potoku oprogramowania pośredniczącego. Po zamknięciu gniazda, rozwija potoku. Oznacza to, że żądanie zatrzymuje, przenoszenie do przodu w potoku po zaakceptowaniu WebSocket. Po zakończeniu pętli i gniazda jest zamknięty, żądanie będzie kontynuowane wykonywanie kopii zapasowych potoku.
 
@@ -122,7 +162,7 @@ Jeśli dzięki obsłudze protokołu WebSocket w [biblioteki socket.io](https://s
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Przykładową aplikację](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/websockets/sample) którego zostanie dołączony, ten artykuł stanowi app echa. Posiada strony sieci web, która sprawia, że połączeń protokołu WebSocket i wszelkich komunikatów odebranych wysyła ponownie serwer do klienta. Uruchamianie aplikacji z poziomu wiersza polecenia (go nie skonfigurowała do uruchamiania w programie Visual Studio z programem IIS Express) i przejdź do http://localhost:5000. Strony sieci web pokazuje stan połączenia w lewym górnym rogu:
+[Przykładową aplikację](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/websockets/samples) którego zostanie dołączony, ten artykuł stanowi app echa. Posiada strony sieci web, która sprawia, że połączeń protokołu WebSocket i wszelkich komunikatów odebranych wysyła ponownie serwer do klienta. Uruchamianie aplikacji z poziomu wiersza polecenia (go nie skonfigurowała do uruchamiania w programie Visual Studio z programem IIS Express) i przejdź do http://localhost:5000. Strony sieci web pokazuje stan połączenia w lewym górnym rogu:
 
 ![Początkowy stan strony sieci web](websockets/_static/start.png)
 

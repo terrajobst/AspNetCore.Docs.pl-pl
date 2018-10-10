@@ -8,20 +8,20 @@ ms.date: 11/07/2014
 ms.assetid: 46f7f3c9-274f-4649-811d-92222a9b27e2
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-a-more-complex-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 25bd71f9860db01afb7177da0f9befbdd8eb8e12
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 25cec8bb9384dbd053f8af12855171a54675a40e
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41754070"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912491"
 ---
 <a name="creating-a-more-complex-data-model-for-an-aspnet-mvc-application"></a>Tworzenie bardziej złożonego modelu danych dla aplikacji ASP.NET MVC
 ====================
 przez [Tom Dykstra](https://github.com/tdykstra)
 
-[Pobieranie ukończone projektu](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8) lub [Pobierz plik PDF](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20Entity%20Framework%206%20Code%20First%20using%20MVC%205.pdf)
+[Pobierz ukończony projekt](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
 
-> Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 5 przy użyciu Entity Framework 6 Code First i Visual Studio 2013. Aby uzyskać informacji na temat tej serii samouczka, zobacz [pierwszym samouczku tej serii](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
+> Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 5 przy użyciu Entity Framework 6 Code First i programu Visual Studio. Aby uzyskać informacji na temat tej serii samouczka, zobacz [pierwszym samouczku tej serii](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
 
 
 W poprzednich samouczkach doświadczenie w pracy z modelu prostego danych, który został składające się z trzech jednostek. W tym samouczku dodasz więcej jednostek i relacji i będzie Dostosuj model danych, określając formatowania i sprawdzania poprawności i reguł mapowania bazy danych. Zobaczysz Dostosuj model danych na dwa sposoby: przez dodanie atrybutów do klas jednostek i, dodając kod do klasy kontekstu bazy danych.
@@ -230,13 +230,13 @@ Domyślnie platforma Entity Framework przyjęto założenie, że wartości klucz
 
 Właściwości klucza obcego i właściwości nawigacji w `Course` jednostki odzwierciedlają się następująco:
 
-- Kurs jest przypisany do jednego działu, więc ma `DepartmentID` klucza obcego i `Department` właściwość nawigacji z powodów wymienionych powyżej. 
+- Kurs jest przypisany do jednego działu, więc ma `DepartmentID` klucza obcego i `Department` właściwość nawigacji z powodów wymienionych powyżej.
 
     [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample17.cs)]
-- Kurs może mieć dowolną liczbę uczniów zarejestrowane, więc `Enrollments` właściwość nawigacji jest kolekcją: 
+- Kurs może mieć dowolną liczbę uczniów zarejestrowane, więc `Enrollments` właściwość nawigacji jest kolekcją:
 
     [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample18.cs)]
-- Kurs może być prowadzone przez instruktorów wielu, więc `Instructors` właściwość nawigacji jest kolekcją: 
+- Kurs może być prowadzone przez instruktorów wielu, więc `Instructors` właściwość nawigacji jest kolekcją:
 
     [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample19.cs)]
 
@@ -260,15 +260,15 @@ Mapowanie kolumn zazwyczaj nie jest wymagana, ponieważ Entity Framework zazwycz
 
 Obcy właściwości klucza i nawigacji odzwierciedla się następująco:
 
-- Dział może lub nie ma uprawnienia administratora, a administrator zawsze ma pod kierunkiem instruktora. W związku z tym `InstructorID` właściwość jest dołączana jako kluczem obcym `Instructor` jednostki i znak zapytania, które są dodawane po `int` wpisz oznaczenia, aby oznaczyć właściwości jako dopuszczającego wartość null. Właściwość nawigacji jest o nazwie `Administrator` , ale przechowuje `Instructor` jednostki: 
+- Dział może lub nie ma uprawnienia administratora, a administrator zawsze ma pod kierunkiem instruktora. W związku z tym `InstructorID` właściwość jest dołączana jako kluczem obcym `Instructor` jednostki i znak zapytania, które są dodawane po `int` wpisz oznaczenia, aby oznaczyć właściwości jako dopuszczającego wartość null. Właściwość nawigacji jest o nazwie `Administrator` , ale przechowuje `Instructor` jednostki:
 
     [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample22.cs)]
-- Dział może mieć wielu kursów, więc ma `Courses` właściwość nawigacji: 
+- Dział może mieć wielu kursów, więc ma `Courses` właściwość nawigacji:
 
     [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample23.cs)]
 
   > [!NOTE]
-  > Zgodnie z Konwencją platformy Entity Framework umożliwia usuwanie kaskadowe nieprzyjmujące wartości kluczy obcych i w przypadku relacji wiele do wielu. Może to spowodować cykliczne cascade delete reguł, które spowoduje wyjątek podczas próby dodania do migracji. Na przykład, jeśli nie zostały zdefiniowane `Department.InstructorID` właściwość jako dopuszczającego wartość null, otrzymamy następujący komunikat o wyjątku: "więzy relacji spowoduje odwołanie cykliczne, w którym jest niedozwolone." W razie potrzeby własne reguły biznesowe `InstructorID` właściwość jako wartość null, trzeba wyłączyć przy użyciu następującej instrukcji interfejsu API fluent usuwanie kaskadowe relacji: 
+  > Zgodnie z Konwencją platformy Entity Framework umożliwia usuwanie kaskadowe nieprzyjmujące wartości kluczy obcych i w przypadku relacji wiele do wielu. Może to spowodować cykliczne cascade delete reguł, które spowoduje wyjątek podczas próby dodania do migracji. Na przykład, jeśli nie zostały zdefiniowane `Department.InstructorID` właściwość jako dopuszczającego wartość null, otrzymamy następujący komunikat o wyjątku: "więzy relacji spowoduje odwołanie cykliczne, w którym jest niedozwolone." W razie potrzeby własne reguły biznesowe `InstructorID` właściwość jako wartość null, trzeba wyłączyć przy użyciu następującej instrukcji interfejsu API fluent usuwanie kaskadowe relacji:
 
 [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample24.cs)]
 
@@ -285,10 +285,10 @@ Obcy właściwości klucza i nawigacji odzwierciedla się następująco:
 
 Właściwości klucza obcego i właściwości nawigacji odzwierciedla się następująco:
 
-- Rekord rejestracji jest jednego kursu, więc ma `CourseID` właściwość klucza obcego i `Course` właściwość nawigacji: 
+- Rekord rejestracji jest jednego kursu, więc ma `CourseID` właściwość klucza obcego i `Course` właściwość nawigacji:
 
     [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample26.cs)]
-- Rekord rejestracji jest dla uczniów lub studentów pojedynczego, więc ma `StudentID` właściwość klucza obcego i `Student` właściwość nawigacji: 
+- Rekord rejestracji jest dla uczniów lub studentów pojedynczego, więc ma `StudentID` właściwość klucza obcego i `Student` właściwość nawigacji:
 
     [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample27.cs)]
 
@@ -382,13 +382,13 @@ Po zakończeniu edycji &lt; *sygnatura czasowa&gt;\_ComplexDataModel.cs* pliku, 
 
 > [!NOTE]
 > Istnieje możliwość uzyskać inne błędy, podczas migracji danych i wprowadzania zmian schematu. Jeśli występują błędy migracji, których nie można rozwiązać, możesz zmienić nazwę bazy danych w parametrach połączenia lub usunąć bazy danych. Najprostszą metodą jest zmiana nazwy bazy danych w *Web.config* pliku. Poniższy przykład przedstawia nazwę zmieniono na CU\_testu:
-> 
+>
 > [!code-xml[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample36.xml?highlight=1)]
-> 
+>
 > Za pomocą nowej bazy danych, nie ma żadnych danych, aby przeprowadzić migrację oraz `update-database` polecenia jest znacznie bardziej prawdopodobne zakończyć bez błędów. Aby uzyskać instrukcje dotyczące sposobu usuwania z bazy danych, zobacz [jak usunąć bazę danych z programu Visual Studio 2012](http://romiller.com/2013/05/17/how-to-drop-a-database-from-visual-studio-2012/).
-> 
+>
 > W przypadku niepowodzenia inną rzeczą, którą możesz spróbować jest ponownie zainicjować bazy danych, wprowadzając następujące polecenie w konsoli zarządzania Pakietami:
-> 
+>
 > `update-database -TargetMigration:0`
 
 
@@ -406,7 +406,7 @@ Kliknij prawym przyciskiem myszy `CourseInstructor` tabeli, a następnie wybierz
 
 Masz teraz bardziej złożonego modelu danych i odpowiednią bazę danych. W następującego samouczka dowiesz się więcej na temat sposobów, aby uzyskać dostęp do powiązanych danych.
 
-Jak się podoba w tym samouczku, i co można było ulepszyć proces Wystaw opinię. Możesz również poprosić o nowe tematy w [Pokaż mi jak za pomocą kodu](http://aspnet.uservoice.com/forums/228522-show-me-how-with-code).
+Jak się podoba w tym samouczku, i co można było ulepszyć proces Wystaw opinię.
 
 Linki do innych zasobów platformy Entity Framework można znaleźć w [dostęp do danych platformy ASP.NET — zalecane zasoby](../../../../whitepapers/aspnet-data-access-content-map.md).
 

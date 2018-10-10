@@ -8,32 +8,32 @@ ms.date: 08/08/2014
 ms.assetid: 30060acb-be3e-4347-996f-3870f0c37829
 msc.legacyurl: /signalr/overview/testing-and-debugging/enabling-signalr-tracing
 msc.type: authoredcontent
-ms.openlocfilehash: ee62a7b01ff357262aa89dbac4f49180b4c58fe0
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 89b27267bec5edb0692fe75061d08b4688df5a8c
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41756305"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912070"
 ---
 <a name="enabling-signalr-tracing"></a>Włączanie śledzenia SignalR
 ====================
 przez [Tom FitzMacken](https://github.com/tfitzmac)
 
 > W tym dokumencie opisano, jak włączyć i skonfigurować śledzenie SignalR serwerów i klientów. Śledzenie umożliwia wyświetlanie informacji diagnostycznych o zdarzeniach w aplikacji SignalR.
-> 
+>
 > W tym temacie pierwotnie został napisany przez Patrick Fletcher.
-> 
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używanego w tym samouczku
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET Framework 4.5
 > - SignalR w wersji 2
->   
-> 
-> 
+>
+>
+>
 > ## <a name="questions-and-comments"></a>Pytania i komentarze
-> 
+>
 > Jak się podoba w tym samouczku, i co można było ulepszyć proces w komentarzach u dołu strony, wystaw opinię. Jeśli masz pytania, na które nie są bezpośrednio związane z tego samouczka, możesz zamieścić je do [forum ASP.NET SignalR](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) lub [StackOverflow.com](http://stackoverflow.com/).
 
 
@@ -134,7 +134,7 @@ Następujące dane wyjściowe zawierają wpisy z `ClientLog.txt` pliku dla aplik
 <a id="phone"></a>
 ## <a name="enabling-tracing-in-windows-phone-8-clients"></a>Włączanie śledzenia w klientach Windows Phone 8
 
-Aplikacji SignalR dla aplikacji Windows Phone używać tego samego klienta .NET jako aplikacje komputerowe, ale [Console.Out](https://msdn.microsoft.com/library/system.console.out(v=vs.110).aspx) oraz zapisywanie do pliku za pomocą [StreamWriter —](https://msdn.microsoft.com/library/system.io.streamwriter(v=vs.110).aspx) nie są dostępne. Zamiast tego należy utworzyć niestandardową implementację [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter(v=vs.110).aspx) śledzenia. 
+Aplikacji SignalR dla aplikacji Windows Phone używać tego samego klienta .NET jako aplikacje komputerowe, ale [Console.Out](https://msdn.microsoft.com/library/system.console.out(v=vs.110).aspx) oraz zapisywanie do pliku za pomocą [StreamWriter —](https://msdn.microsoft.com/library/system.io.streamwriter(v=vs.110).aspx) nie są dostępne. Zamiast tego należy utworzyć niestandardową implementację [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter(v=vs.110).aspx) śledzenia.
 
 <a id="phone_ui"></a>
 ### <a name="logging-windows-phone-client-events-to-the-ui"></a>Rejestrowanie zdarzeń klienta Windows Phone w interfejsie użytkownika

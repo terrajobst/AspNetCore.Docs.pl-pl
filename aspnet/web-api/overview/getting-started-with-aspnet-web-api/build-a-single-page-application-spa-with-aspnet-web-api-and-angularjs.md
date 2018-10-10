@@ -8,12 +8,12 @@ ms.date: 09/30/2015
 ms.assetid: 719727b7-bef3-45ad-bfe9-ba5bcdb2305f
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs
 msc.type: authoredcontent
-ms.openlocfilehash: 24ab1c470a22b5b328d1f3bc400400978eb31600
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 3c3557bb2be2807b11874937fcc629b5b773e463
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41754159"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912257"
 ---
 <a name="hands-on-lab-build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs"></a>Ćwiczenia praktyczne: Tworzenie aplikacji jednostronicowej (SPA) przy użyciu wzorca ASP.NET Web API i platformy Angular.js
 ====================
@@ -308,7 +308,7 @@ Rozpocznie się od zainstalowania moduł AngularJS z konsoli Menedżera pakietó
 
 
 1. Otwórz **Visual Studio Express 2013 for Web** , a następnie otwórz **GeekQuiz.sln** rozwiązanie znajduje się w **/Ex2-CreatingASPAInterface/początkowy w źródle** folderu. Alternatywnie można kontynuować z rozwiązaniem uzyskanym w poprzednim ćwiczeniu.
-2. Otwórz **Konsola Menedżera pakietów** z **narzędzia** | **Menedżer pakietów biblioteki**. Wpisz następujące polecenie, aby zainstalować **AngularJS.Core** pakietu NuGet.
+2. Otwórz **Konsola Menedżera pakietów** z **narzędzia** > **Menedżera pakietów NuGet**. Wpisz następujące polecenie, aby zainstalować **AngularJS.Core** pakietu NuGet.
 
     [!code-powershell[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample16.ps1)]
 3. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy **skrypty** folderu **GeekQuiz** projektu, a następnie wybierz **Dodaj | Nowy Folder**. Nazwa folderu **aplikacji** i naciśnij klawisz **Enter**.

@@ -8,12 +8,12 @@ ms.date: 09/08/2014
 ms.assetid: 423498f7-1a4b-44a1-b342-5f39d0bcf94f
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/aspnet-error-handling
 msc.type: authoredcontent
-ms.openlocfilehash: ed5d7b9b4e61b0289734f4cdef1039b31ddda7a7
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: af5e5a9c8d211b07b57aa50238b02cabe249aef8
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41752266"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911845"
 ---
 <a name="aspnet-error-handling"></a>Obsługa błędów platformy ASP.NET
 ====================
@@ -275,7 +275,7 @@ Biblioteki ELMAH (moduły rejestrowania błędów i obsługi) jest rejestrowanie
 
 Przed rozpoczęciem pracy za pomocą biblioteki ELMAH, należy go zainstalować. Jest to łatwe za pomocą *NuGet* pakiet Instalatora. Jak wspomniano we wcześniejszej części tej serii samouczków, NuGet jest rozszerzenie programu Visual Studio, która ułatwia do instalowania i aktualizowania bibliotek typu open source i narzędzi w programie Visual Studio.
 
-1. W programie Visual Studio z **narzędzia** menu, wybierz opcję **Menedżer pakietów biblioteki**  - &gt; **Zarządzaj pakietami NuGet dla rozwiązania**. 
+1. W programie Visual Studio z **narzędzia** menu, wybierz opcję **Menedżera pakietów NuGet** > **Zarządzaj pakietami NuGet dla rozwiązania**. 
 
     ![Obsługa błędów platformy ASP.NET — Zarządzaj pakietami NuGet dla rozwiązania](aspnet-error-handling/_static/image6.png)
 2. **Zarządzaj pakietami NuGet** w programie Visual Studio wyświetlane jest okno dialogowe.

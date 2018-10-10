@@ -8,40 +8,40 @@ ms.date: 06/10/2014
 ms.assetid: 03960de2-8d95-4444-9169-4426dcc64913
 msc.legacyurl: /signalr/overview/guide-to-the-api/handling-connection-lifetime-events
 msc.type: authoredcontent
-ms.openlocfilehash: 42cf7faf9112875e15072993b6210348d0c42534
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 1783a3ab292a5460d5cc1b7ad78073071d65d379
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41755256"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911959"
 ---
 <a name="understanding-and-handling-connection-lifetime-events-in-signalr"></a>Opis i obsługa zdarzeń okresu istnienia połączenia w SignalR
 ====================
 przez [Patrick Fletcher](https://github.com/pfletcher), [Tom Dykstra](https://github.com/tdykstra)
 
 > Ten artykuł zawiera omówienie SignalR połączenie, ponowne nawiązanie połączenia i rozłączenia zdarzenia, które może obsłużyć i ustawienia limitu czasu i utrzymywania aktywności, które można skonfigurować.
-> 
+>
 > Tego artykułu przyjęto założenie, że masz już pewną wiedzę na temat zdarzenia okresu istnienia połączenia i SignalR. Wprowadzenie do SignalR, patrz [wprowadzenie do SignalR](../getting-started/introduction-to-signalr.md). Wyświetla zdarzenia okresu istnienia połączenia na ten temat można znaleźć w następujących zasobach:
-> 
+>
 > - [Jak obsługiwać zdarzenia okresu istnienia połączenia w klasie Centrum](hubs-api-guide-server.md#connectionlifetime)
 > - [Jak obsługiwać zdarzenia okresu istnienia połączenia w klientów języka JavaScript](hubs-api-guide-javascript-client.md#connectionlifetime)
 > - [Jak obsługiwać zdarzenia okresu istnienia połączenia w przypadku klientów programu .NET](hubs-api-guide-net-client.md#connectionlifetime)
-> 
+>
 > ## <a name="software-versions-used-in-this-topic"></a>Wersje oprogramowania używaną w tym temacie
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET 4.5
 > - SignalR w wersji 2
->   
-> 
-> 
+>
+>
+>
 > ## <a name="previous-versions-of-this-topic"></a>Poprzednie wersje tego tematu
-> 
+>
 > Aby uzyskać informacje dotyczące starszych wersji biblioteki SignalR, zobacz [starsze wersje biblioteki SignalR](../older-versions/index.md).
-> 
+>
 > ## <a name="questions-and-comments"></a>Pytania i komentarze
-> 
+>
 > Jak się podoba w tym samouczku, i co można było ulepszyć proces w komentarzach u dołu strony, wystaw opinię. Jeśli masz pytania, na które nie są bezpośrednio związane z tego samouczka, możesz zamieścić je do [forum ASP.NET SignalR](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) lub [StackOverflow.com](http://stackoverflow.com/).
 
 
@@ -144,8 +144,8 @@ Transport połączenia przerw w działaniu, które nie są wykrywane przez trans
 
 Niektóre środowiska sieciowe celowo Zamknij bezczynnych połączeń, a inną funkcję pakiety utrzymywania aktywności jest aby temu zapobiec, dzięki czemu będzie tych sieciach wiedzieć, że połączenia SignalR jest używany. W skrajnych przypadkach domyślnej częstotliwości równej keepalive ping może nie być wystarczające, aby zapobiec zamkniętego połączenia. W takim przypadku można skonfigurować keepalive ping do wysłania częściej. Aby uzyskać więcej informacji, zobacz [ustawienia limitu czasu i utrzymywania aktywności](#timeoutkeepalive) w dalszej części tego tematu.
 
-> [!NOTE] 
-> 
+> [!NOTE]
+>
 > **Ważne**: kolejność zdarzeń opisane w tym miejscu nie ma żadnej gwarancji. SignalR sprawia, że każda próba zgłaszać zdarzenia okresu istnienia połączenia w sposób przewidywalny zgodnie z tym schemacie, ale istnieją wielu wariantów zdarzenia sieci i wiele sposobów, w których podstawowych struktur komunikacji, takich jak transportu interfejsy API z je obsłużyć. Na przykład `Reconnected` zdarzeń nie może zostać wywołane, gdy klient ponownie nawiąże połączenie, lub `OnConnected` obsługi na serwerze może być uruchomiony, gdy próba nawiązania połączenia zakończy się niepowodzeniem. W tym temacie opisano tylko efekty, zwykle produkcji przez niektórych typowych okolicznościach.
 
 

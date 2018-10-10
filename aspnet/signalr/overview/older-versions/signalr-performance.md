@@ -8,12 +8,12 @@ ms.date: 07/03/2013
 ms.assetid: 9594d644-66b6-4223-acdd-23e29a6e4c46
 msc.legacyurl: /signalr/overview/older-versions/signalr-performance
 msc.type: authoredcontent
-ms.openlocfilehash: 4fba0cc79046f5f3fd1dc50e5b69ddb78d98c23d
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 3ac62639617e1ff83761d0a1d45c27303d0b820d
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41752095"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912764"
 ---
 <a name="signalr-performance-signalr-1x"></a>Wydajność SignalR (SignalR 1.x)
 ====================
@@ -119,7 +119,7 @@ W tej sekcji opisano, jak włączanie i używanie liczników wydajności SignalR
 
 Liczniki wydajności można dodać do serwera przy użyciu narzędzia o nazwie SignalR.exe. Aby zainstalować to narzędzie, wykonaj następujące kroki:
 
-1. W aplikacji programu Visual Studio, wybierz **narzędzia**, **Menedżer pakietów biblioteki**, **Zarządzaj pakietami NuGet dla rozwiązania...**
+1. W programie Visual Studio, wybierz **narzędzia** > **Menedżera pakietów NuGet** > **Zarządzaj pakietami NuGet dla rozwiązania**
 2. Wyszukaj **signalr.utils**i wybierz opcję instalacji.
 
     ![](signalr-performance/_static/image1.png)

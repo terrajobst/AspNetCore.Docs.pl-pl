@@ -8,32 +8,32 @@ ms.date: 02/25/2014
 ms.assetid: 262843d6-43a2-4f1c-82d9-0b90ae6df0cf
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v3/creating-an-odata-endpoint
 msc.type: authoredcontent
-ms.openlocfilehash: 654f697c8d095d45ba31e2808c52f9ad24b606c8
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 2e0d3b45fd51192d227d852dc2f05b45ca42944c
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41755556"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48910918"
 ---
 <a name="creating-an-odata-v3-endpoint-with-web-api-2"></a>Tworzenie punktu końcowego OData v3 z interfejsu Web API 2
 ====================
 przez [Mike Wasson](https://github.com/MikeWasson)
 
-[Pobieranie ukończone projektu](http://code.msdn.microsoft.com/ASPNET-Web-API-OData-cecdb524)
+[Pobierz ukończony projekt](http://code.msdn.microsoft.com/ASPNET-Web-API-OData-cecdb524)
 
 > [Open Data Protocol](http://www.odata.org/) (OData) to protokół dostępu do danych w sieci Web. Protokół OData zapewnia ujednolicone struktury danych, wykonywania zapytań o dane i manipulowania zestawu danych przy użyciu operacji CRUD (tworzenia, odczytu, aktualizacji i usuwania). OData obsługuje formaty JSON i AtomPub (XML). Usługa OData definiuje również sposób do udostępnienia metadanych dotyczących danych. Klienci mogą używać metadane, aby dowiedzieć się, informacje o typie i relacje dla zestawu danych.
-> 
+>
 > ASP.NET Web API ułatwia utworzenie punktu końcowego OData dla zestawu danych. Można kontrolować, obsługuje punkt końcowy dokładnie operacje OData. Może obsługiwać wiele punktów końcowych OData, wraz z punktów końcowych bez OData. Masz pełną kontrolę nad modelu danych, logika biznesowa zaplecza i warstwy danych.
-> 
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używanego w tym samouczku
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
-> - Składnik Web API 2
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
+> - Internetowy interfejs API 2
 > - OData w wersji 3
 > - Entity Framework 6
 > - [Debugowanie serwera Proxy (opcjonalnie) w sieci Web programu fiddler](http://www.fiddler2.com)
-> 
+>
 > Obsługa protokołu OData interfejsu API sieci Web został dodany w [platformy ASP.NET i Web Tools 2012.2 Update](https://go.microsoft.com/fwlink/?LinkId=282650). Jednak ten samouczek używa tworzenia szkieletu, który został dodany w programie Visual Studio 2013.
 
 
@@ -52,22 +52,22 @@ W tym samouczku utworzysz prosty punkt końcowy OData, które klienci mogą wysy
 
 W tym samouczku utworzysz punkt końcowy OData, który obsługuje podstawowe operacje CRUD. Punkt końcowy udostępni pojedynczy zasób listę produktów. Spowoduje to dodanie kolejnych samouczkach więcej funkcji.
 
-Uruchom program Visual Studio i wybierz **nowy projekt** ze strony początkowej. Lub z **pliku** menu, wybierz opcję **New** i następnie **projektu**.
+Uruchom program Visual Studio i wybierz **nowy projekt** ze strony początkowej. Możesz również z menu **Plik** wybrać pozycję **Nowy**, a następnie **Projekt**.
 
-W **szablony** okienku wybierz **zainstalowane szablony** i rozwiń węzeł Visual C#. W obszarze **Visual C#**, wybierz opcję **Web**. Wybierz **aplikacji sieci Web ASP.NET** szablonu.
+W **szablony** okienku wybierz **zainstalowane szablony** i rozwiń węzeł Visual C#. W obszarze **Visual C#**, wybierz pozycję **Sieć Web**. Wybierz **aplikacji sieci Web ASP.NET** szablonu.
 
 ![](creating-an-odata-endpoint/_static/image1.png)
 
-W **nowy projekt ASP.NET** okno dialogowe, wybierz opcję **pusty** szablonu. W obszarze &quot;. Dodaj foldery i podstawowe odwołania dla... &quot;, sprawdź **interfejsu API sieci Web**. Kliknij przycisk **OK**.
+W oknie dialogowym **Nowy projekt ASP.NET** wybierz szablon **Pusty**. W obszarze &quot;. Dodaj foldery i podstawowe odwołania dla... &quot;, sprawdź **interfejsu API sieci Web**. Kliknij przycisk **OK**.
 
 ![](creating-an-odata-endpoint/_static/image2.png)
 
 <a id="add-model"></a>
 ## <a name="add-an-entity-model"></a>Dodawanie modelu jednostki
 
-A *modelu* jest obiektem, który reprezentuje dane w aplikacji. W tym samouczku potrzebujemy modelu, który reprezentuje produkt. Model odnosi się do naszych OData typu jednostki.
+*Model* jest obiektem, który reprezentuje dane w aplikacji. W tym samouczku potrzebujemy modelu, który reprezentuje produkt. Model odnosi się do naszych OData typu jednostki.
 
-W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy folderu modeli. Z menu kontekstowego wybierz **Dodaj** polecenie **klasy**.
+W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy folder Modele. Z menu kontekstowego wybierz pozycję **Dodaj**, a następnie **Klasa**.
 
 ![](creating-an-odata-endpoint/_static/image3.png)
 
@@ -92,7 +92,7 @@ Skompiluj teraz projekt. W następnym kroku użyjemy niektóre szkieletu program
 
 A *kontrolera* to klasa, która obsługuje żądania HTTP. Należy zdefiniować kontrolera osobne dla każdego zestawu jednostek w przypadku usługi OData. W tym samouczku utworzymy jednego kontrolera.
 
-W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy folder kontrolerów. Wybierz **Dodaj** , a następnie wybierz **kontrolera**.
+W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy folder kontrolerów. Wybierz pozycję **Dodaj**, a następnie **Kontroler**.
 
 ![](creating-an-odata-endpoint/_static/image5.png)
 
@@ -154,7 +154,7 @@ Pierwszy parametr jest przyjazna nazwa dla danej trasy. Klienci usługi nie widz
 
 W tym kroku użyjesz programu Entity Framework do umieszczenia w bazie danych niektórych testów. Ten krok jest opcjonalny, ale dzięki temu można natychmiast przetestowania punkt końcowy usługi OData.
 
-Z **narzędzia** menu, wybierz opcję **Menedżer pakietów biblioteki**, a następnie wybierz **Konsola Menedżera pakietów**. W oknie Konsola Menedżera pakietów wprowadź następujące polecenie:
+Z **narzędzia** menu, wybierz opcję **Menedżera pakietów NuGet**, a następnie wybierz **Konsola Menedżera pakietów**. W oknie Konsola Menedżera pakietów wprowadź następujące polecenie:
 
 [!code-console[Main](creating-an-odata-endpoint/samples/sample5.cmd)]
 
@@ -240,7 +240,7 @@ OData obsługuje kilka formatów serializacji:
 - JSON "jasny" (zostanie wprowadzony w protokole OData v3)
 - JSON "pełne" (wersja 2 OData)
 
-Domyślnie interfejs API sieci Web w formacie AtomPubJSON "jasny". 
+Domyślnie interfejs API sieci Web w formacie AtomPubJSON "jasny".
 
 Aby uzyskać AtomPub format, ustaw nagłówek Accept "application/atom + xml". Oto przykład treści odpowiedzi:
 

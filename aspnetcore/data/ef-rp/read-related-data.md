@@ -5,12 +5,12 @@ description: W tym samouczku należy przeczytać i wyświetlanie powiązanych da
 ms.author: riande
 ms.date: 11/05/2017
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: f57853fae7fb1cb7df130f38a6996c87a5c08e83
-ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
+ms.openlocfilehash: e23b8bb870b329bd705fbc9548df62524303893e
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523288"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912328"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>Strony razor z programem EF Core w programie ASP.NET Core — odczytanie powiązanych danych — 6 8
 
@@ -51,7 +51,7 @@ Istnieje kilka sposobów, że programu EF Core można załadować powiązane dan
 
   ![Przykład jawne ładowanie](read-related-data/_static/explicit-loading.png)
 
-* [Powolne ładowanie](https://docs.microsoft.com/ef/core/querying/related-data#lazy-loading). [EF Core nie obsługuje obecnie powolne ładowanie](https://github.com/aspnet/EntityFrameworkCore/issues/3797). Podczas odczytywania jednostki powiązane dane nie są pobierane. Podczas pierwszego uzyskiwania dostępu do właściwości nawigacji jest automatycznie pobierany wymagane dane dla tej właściwości nawigacji. Zapytanie jest wysyłane do bazy danych, w każdym właściwość nawigacji jest dostępny po raz pierwszy.
+* [Powolne ładowanie](https://docs.microsoft.com/ef/core/querying/related-data#lazy-loading). [Powolne ładowanie został dodany do programu EF Core w wersji 2.1](/ef/core/querying/related-data#lazy-loading). Podczas odczytywania jednostki powiązane dane nie są pobierane. Podczas pierwszego uzyskiwania dostępu do właściwości nawigacji jest automatycznie pobierany wymagane dane dla tej właściwości nawigacji. Zapytanie jest wysyłane do bazy danych, w każdym właściwość nawigacji jest dostępny po raz pierwszy.
 
 * `Select` Operator ładuje tylko powiązane dane potrzebne.
 

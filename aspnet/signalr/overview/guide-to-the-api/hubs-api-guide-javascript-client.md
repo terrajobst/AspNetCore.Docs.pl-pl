@@ -8,38 +8,38 @@ ms.date: 09/28/2015
 ms.assetid: a9fd4dc0-1b96-4443-82ca-932a5b4a8ea4
 msc.legacyurl: /signalr/overview/guide-to-the-api/hubs-api-guide-javascript-client
 msc.type: authoredcontent
-ms.openlocfilehash: de47593e7f54757d4f91a6e92485567e74b829ed
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 9edb7fd100a3f4c5331454045ac206d2f7a81961
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41756466"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912452"
 ---
 <a name="aspnet-signalr-hubs-api-guide---javascript-client"></a>Podręcznik interfejsu API centrów SignalR platformy ASP.NET — klient JavaScript
 ====================
 przez [Patrick Fletcher](https://github.com/pfletcher), [Tom Dykstra](https://github.com/tdykstra)
 
 > Ten dokument zawiera wprowadzenie do korzystania z interfejsu API centrów dla elementu SignalR w wersji 2 w klientów języka JavaScript, takie jak przeglądarki i aplikacje Windows Store (WinJS).
-> 
+>
 > Interfejsu API centrów SignalR umożliwia zdalne wywołania procedur (RPC) z serwera do połączonych klientów i od klientów z serwerem. W kodzie serwera należy zdefiniować metody, które mogą być wywoływane przez klientów, a wywołanie metody, które są uruchamiane na komputerze klienckim. W kodzie klienta definiowania metod, które mogą być wywoływane z serwera, a wywołanie metody, które są uruchamiane na serwerze. SignalR zajmuje się wszystkie nadmiar klient serwer dla Ciebie.
-> 
+>
 > SignalR oferuje również interfejs API niższego poziomu o nazwie połączeń trwałych. Wprowadzenie do SignalR, centra i połączenia trwałego, zobacz [wprowadzenie do SignalR](../getting-started/introduction-to-signalr.md).
-> 
+>
 > ## <a name="software-versions-used-in-this-topic"></a>Wersje oprogramowania używaną w tym temacie
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET 4.5
 > - SignalR w wersji 2
->   
-> 
-> 
+>
+>
+>
 > ## <a name="previous-versions-of-this-topic"></a>Poprzednie wersje tego tematu
-> 
+>
 > Aby uzyskać informacje dotyczące starszych wersji biblioteki SignalR, zobacz [starsze wersje biblioteki SignalR](../older-versions/index.md).
-> 
+>
 > ## <a name="questions-and-comments"></a>Pytania i komentarze
-> 
+>
 > Jak się podoba w tym samouczku, i co można było ulepszyć proces w komentarzach u dołu strony, wystaw opinię. Jeśli masz pytania, na które nie są bezpośrednio związane z tego samouczka, możesz zamieścić je do [forum ASP.NET SignalR](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) lub [StackOverflow.com](http://stackoverflow.com/).
 
 
@@ -234,7 +234,7 @@ To polecenie spowoduje dodanie 2.1.0 wersji pakietu do projektu.
 
 ### <a name="calling-usecors"></a>Wywoływanie UseCors
 
- Poniższy fragment kodu demonstruje sposób implementacji połączeń między domenami w SignalR 2. 
+ Poniższy fragment kodu demonstruje sposób implementacji połączeń między domenami w SignalR 2.
 
 **Implementowanie żądania między domenami w SignalR 2**
 
@@ -242,12 +242,12 @@ Poniższy kod ilustruje sposób włączyć mechanizm CORS i JSONP w projekcie bi
 
 [!code-csharp[Main](hubs-api-guide-javascript-client/samples/sample11.cs)]
 
-> [!NOTE] 
-> 
+> [!NOTE]
+>
 > - Nie należy ustawiać `jQuery.support.cors` na wartość true w kodzie.
-> 
+>
 >     ![Nie jest ustawiana na wartość true jQuery.support.cors](hubs-api-guide-javascript-client/_static/image7.png)
-> 
+>
 >     SignalR obsługuje korzystanie z mechanizmu CORS. Ustawienie `jQuery.support.cors` do wartości true powoduje wyłączenie JSONP, ponieważ powoduje ona SignalR założył, przeglądarka obsługuje mechanizm CORS.
 > - Podczas łączenia z adresem URL localhost, programu Internet Explorer 10 nie należy wziąć pod uwagę jej połączenie między domenami, dzięki czemu aplikacja będzie działać lokalnie za pomocą programu Internet Explorer 10, nawet jeśli nie zostały włączone połączenia między domenami na serwerze.
 > - Aby dowiedzieć się, jak za pomocą połączeń między domenami, za pomocą programu Internet Explorer 9, zobacz [wątek w witrynie StackOverflow](http://stackoverflow.com/questions/13573397/siganlr-ie9-cross-domain-request-dont-work).

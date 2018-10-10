@@ -1,56 +1,63 @@
 ---
-title: Wybór między ASP.NET i ASP.NET Core
+title: Wybieranie między ASP.NET 4.x i ASP.NET Core
 author: rick-anderson
-description: Dowiedz się, jak wybrać ASP.NET i ASP.NET Core.
+description: W tym artykule wyjaśniono vs platformy ASP.NET Core. ASP.NET 4.x i jak dokonać wyboru między nimi.
 ms.author: riande
-ms.date: 05/11/2018
+ms.date: 09/11/2018
 uid: fundamentals/choose-between-aspnet-and-aspnetcore
-ms.openlocfilehash: 6d759c0bc5e5c7d32d6c14786db6ba9fe7a2f1e8
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: f046491e2ec68b6beaad581e2b04e6688a81f2d1
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36291643"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911048"
 ---
-# <a name="choose-between-aspnet-and-aspnet-core"></a>Wybór między ASP.NET i ASP.NET Core
+# <a name="choose-between-aspnet-4x-and-aspnet-core"></a>Wybieranie między ASP.NET 4.x i ASP.NET Core
 
-Niezależnie od tego, jakiego typu aplikację tworzysz ASP.NET ma dla Ciebie rozwiązanie: od aplikacji sieci web przeznaczonych dla systemu Windows Server, do małych mikrousług przeznaczonych dla kontenerów systemu Linux i wiele innych.
+Platforma ASP.NET Core to przeprojektowana platforma ASP.NET 4.x. W tym artykule przedstawiono różnice między nimi.
 
 ## <a name="aspnet-core"></a>ASP.NET Core
 
-Platformy ASP.NET Core to open source, międzyplatformowa struktura do tworzenia aplikacji sieci web nowoczesny, oparte na chmurze systemu Windows, system macOS lub Linux.
+ASP.NET Core to architektura typu open source i między platformami do tworzenia aplikacji sieci web Nowoczesna, oparta na chmurze systemie Windows, macOS lub Linux.
 
-## <a name="aspnet"></a>ASP.NET
+[!INCLUDE[](~/includes/benefits.md)]
 
-ASP.NET to dojrzały platforma, która zawiera wszystkich usług niezbędnych do tworzenia korporacyjnej, aplikacje oparte na serwerze sieci web w systemie Windows.
+## <a name="aspnet-4x"></a>ASP.NET 4.x
+
+ASP.NET 4.x to dojrzała platforma, która zapewnia usługi potrzebne do tworzenia przeznaczonych dla przedsiębiorstw oparte na serwerze aplikacji sieci web na Windows.
 
 ## <a name="framework-selection"></a>Wybór Framework
 
-Przejrzeć tabelę poniżej, aby określić, które framework jest najbardziej odpowiednią do potrzeb.
+W poniższej tabeli porównano platformy ASP.NET Core, platformy ASP.NET 4.x.
 
-| ASP.NET Core | ASP.NET |
+| ASP.NET Core | ASP.NET 4.x |
 |---|---|
 |Tworzenie dla systemu Windows, system macOS lub Linux|Tworzenie dla systemu Windows|
-|[Stron razor](xref:razor-pages/index) jest zalecane podejście do tworzenia interfejsu użytkownika sieci Web począwszy od platformy ASP.NET Core 2.x. Zobacz też [MVC](xref:mvc/overview), [interfejs API sieci Web](xref:tutorials/first-web-api), i [SignalR](xref:signalr/introduction).|Użyj [sieci Web Forms](/aspnet/web-forms), [SignalR](/aspnet/signalr), [MVC](/aspnet/mvc), [interfejs API sieci Web](/aspnet/web-api/), [elementów Webhook](/aspnet/webhooks/), lub [stron sieci Web](/aspnet/web-pages)|
+|[Strony razor](xref:razor-pages/index) przedstawia zalecane podejście do tworzenia interfejsu użytkownika sieci Web począwszy od platformy ASP.NET Core 2.x. Zobacz też [MVC](xref:mvc/overview), [interfejs API sieci Web](xref:tutorials/first-web-api), i [SignalR](xref:signalr/introduction).|Użyj [Web Forms](/aspnet/web-forms), [SignalR](/aspnet/signalr), [MVC](/aspnet/mvc), [interfejs API sieci Web](/aspnet/web-api/), [elementów Webhook](/aspnet/webhooks/), lub [stron sieci Web](/aspnet/web-pages)|
 |Wiele wersji na maszynie|Jedna wersja na maszynie|
-|Tworzenie za pomocą programu Visual Studio, [programu Visual Studio for Mac](https://www.visualstudio.com/vs/visual-studio-mac/), lub [Visual Studio Code](https://code.visualstudio.com/) przy użyciu języka C# lub języka F #|Tworzenie z programem Visual Studio za pomocą C#, VB i F #|
-|Większa wydajność niż ASP.NET|Dobra wydajność|
-|[Wybierz środowisko uruchomieniowe .NET Framework lub .NET Core](/dotnet/articles/standard/choosing-core-framework-server)|Używasz środowiska uruchomieniowego .NET Framework|
+|Programowanie za pomocą programu Visual Studio [programu Visual Studio dla komputerów Mac](https://www.visualstudio.com/vs/visual-studio-mac/), lub [programu Visual Studio Code](https://code.visualstudio.com/) przy użyciu języka C# lub F #|Programowanie za pomocą programu Visual Studio przy użyciu języka C#, VB lub F #|
+|Wyższą wydajność niż ASP.NET 4.x|Dobra wydajność|
+|[Wybierz środowisko uruchomieniowe platformy .NET Framework lub .NET Core](/dotnet/articles/standard/choosing-core-framework-server)|Używasz środowiska uruchomieniowego .NET Framework|
+
+Zobacz [platformy ASP.NET Core przeznaczone dla .NET Framework](xref:index#target-framework) informacje na temat platformy ASP.NET Core 2.x obsługi w programie .NET Framework.
 
 ## <a name="aspnet-core-scenarios"></a>Scenariusze platformy ASP.NET Core
 
-* [Stron razor](xref:razor-pages/index) jest zalecane podejście do tworzenia interfejsu użytkownika sieci Web począwszy od platformy ASP.NET Core 2.x.
+* [Strony razor](xref:razor-pages/index) przedstawia zalecane podejście do tworzenia interfejsu użytkownika sieci Web począwszy od platformy ASP.NET Core 2.x.
 * [Witryny sieci Web](xref:tutorials/first-mvc-app/index)
 * [Interfejsy API](xref:tutorials/first-web-api)
 * [W czasie rzeczywistym](xref:signalr/index)
+* [Wdrażanie aplikacji ASP.NET Core na platformie Azure](/azure/app-service/app-service-web-get-started-dotnet)
 
-## <a name="aspnet-scenarios"></a>Scenariusze programu ASP.NET
+## <a name="aspnet-4x-scenarios"></a>Scenariusze 4.x ASP.NET
 
 * [Witryny sieci Web](/aspnet/mvc)
 * [Interfejsy API](/aspnet/web-api)
 * [W czasie rzeczywistym](/aspnet/signalr)
+* [Tworzenie aplikacji sieci web platformy ASP.NET 4.x na platformie Azure](/azure/app-service/app-service-web-get-started-dotnet-framework)
 
-## <a name="resources"></a>Resources
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Wprowadzenie do programu ASP.NET](/aspnet/overview)
+* [Wprowadzenie do platformy ASP.NET](/aspnet/overview)
 * [Wprowadzenie do platformy ASP.NET Core](xref:index)
+* <xref:host-and-deploy/azure-apps/index>

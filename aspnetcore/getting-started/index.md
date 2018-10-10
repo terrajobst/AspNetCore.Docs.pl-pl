@@ -6,28 +6,43 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/31/2018
 uid: getting-started
-ms.openlocfilehash: a6a5023594aec01370143e7d1f35fb45c109122a
-ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
+ms.openlocfilehash: 4a5a0cc5a5dab2171ab8ef43818185a4ee91af0e
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47860943"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912569"
 ---
-# <a name="get-started-with-aspnet-core"></a>Wprowadzenie do platformy ASP.NET Core
+# <a name="tutorial-get-started-with-aspnet-core"></a>Samouczek: Rozpoczynanie pracy z platformą ASP.NET Core
 
-W tym dokumencie przedstawiono kroki umożliwiające utworzenie i uruchomienie aplikacji ASP.NET Core.
+W tym samouczku pokazano, jak utworzyć aplikację sieci web platformy ASP.NET Core przy użyciu interfejsu wiersza polecenia platformy .NET Core. Dowiesz się, jak:
 
-::: moniker range=">= aspnetcore-2.1"
+> [!div class="checklist"]
+> * Tworzenie projektu aplikacji sieci web.
+> * Włączanie obsługi protokołu HTTPS w lokalnym.
+> * Uruchom aplikację.
+> * Edytuj stronę Razor.
 
-1. Zainstaluj [!INCLUDE [](~/includes/2.1-SDK.md)].
+Po zakończeniu będziesz mieć działającą aplikację sieci web uruchomiony na komputerze lokalnym.
 
-2. Tworzenie projektu platformy ASP.NET Core. Otwórz powłokę wiersza polecenia i wpisz następujące polecenie:
+![Strona główna aplikacji sieci Web](_static/home-page.png)
+
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+* Zainstaluj [!INCLUDE [](~/includes/2.1-SDK.md)].
+
+## <a name="create-a-web-app-project"></a>Tworzenie projektu aplikacji sieci web
+
+* Otwórz powłokę wiersza polecenia i wpisz następujące polecenie:
 
    ```console
    dotnet new webapp -o aspnetcoreapp
    ```
 
-3. Zaufanie certyfikatu deweloperskiego HTTPS:
+## <a name="enable-local-https"></a>Włączanie obsługi protokołu HTTPS w lokalnym
+
+* Zaufanie certyfikatu deweloperskiego HTTPS:
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
@@ -62,99 +77,36 @@ W tym dokumencie przedstawiono kroki umożliwiające utworzenie i uruchomienie a
    
 ---
 
-4. Uruchom aplikację:
+## <a name="run-the-app"></a>Uruchamianie aplikacji
+
+* Uruchom następujące polecenia:
 
    ```console
    cd aspnetcoreapp
    dotnet run
    ```
 
-5. Przejdź do [ http://localhost:5001 ](http://localhost:5001).  Kliknij przycisk **Akceptuj** zaakceptować zasady ochrony prywatności i plików cookie. Ta aplikacja nie zachowuje informacji osobistych.
+* Przejdź do [ https://localhost:5001 ](https://localhost:5001). Kliknij przycisk **Akceptuj** zaakceptować zasady ochrony prywatności i plików cookie. Ta aplikacja nie zachowuje informacji osobistych.
 
-6. Otwórz *Pages/About.cshtml* i modyfikować strony z następujący wyróżniony kod znaczników:
+## <a name="edit-a-razor-page"></a>Edytuj stronę Razor
+
+* Otwórz *Pages/About.cshtml* i modyfikować strony z następujący wyróżniony kod znaczników:
 
    [!code-cshtml[](sample/getting-started/about.cshtml?highlight=9)]
 
-7. Przejdź do [ http://localhost:5001/About ](http://localhost:5001/About) i Sprawdź zmiany są wyświetlane.
+* Przejdź do [ https://localhost:5001/About ](https://localhost:5001/About) i Sprawdź zmiany są wyświetlane.
 
-[!INCLUDE [next steps](~/includes/getting-started/next-steps.md)]
+## <a name="next-steps"></a>Następne kroki
 
-::: moniker-end
+W tym samouczku przedstawiono sposób:
 
-::: moniker range="= aspnetcore-2.0"
+> [!div class="checklist"]
+> * Tworzenie projektu aplikacji sieci web.
+> * Włączanie obsługi protokołu HTTPS w lokalnym.
+> * Uruchom projekt.
+> * Wprowadź zmiany.
 
-1. Zainstaluj [!INCLUDE [](~/includes/net-core-sdk-download-link.md)].
+Aby dowiedzieć się więcej na temat platformy ASP.NET Core, zobacz wprowadzenie:
 
-2. Utwórz nowy projekt ASP.NET Core.
-
-   Otwórz powłokę wiersza polecenia. Wprowadź następujące polecenie:
-
-   ```console
-   dotnet new razor -o aspnetcoreapp
-   ```
-
-3. Uruchom aplikację za pomocą następujących poleceń:
-
-   ```console
-   cd aspnetcoreapp
-   dotnet run
-   ```
-
-4. Przejdź do [ http://localhost:5000 ](http://localhost:5000).
-
-5. Otwórz *Pages/About.cshtml*i zmodyfikuj stronę, aby wyświetlić komunikat „Hello, world! Czas na serwerze jest @DateTime.Now":
-
-   [!code-cshtml[](sample/getting-started/about.cshtml?highlight=9&range=1-9)]
-
-6. Przejdź do [ http://localhost:5000/About ](http://localhost:5000/About) a następnie zweryfikować zmiany.
-
-[!INCLUDE [next steps](~/includes/getting-started/next-steps.md)]
-
-::: moniker-end
-
-::: moniker range="<= aspnetcore-1.1"
-
-1. Zainstaluj program .NET Core **Instalator zestawu SDK** dla zestawu SDK 1.0.4 z [.NET Core wszystkie strony plików do pobrania](https://www.microsoft.com/net/download/all).
-
-2. Utwórz folder dla nowego projektu ASP.NET Core.
-
-   Otwórz powłokę wiersza polecenia. Wprowadź następujące polecenia:
-
-   ```console
-   mkdir aspnetcoreapp
-   cd aspnetcoreapp
-   ```
-
-3. Jeśli na komputerze zainstalowano nowszej wersji zestawu SDK, utworzyć *global.json* plik, aby zaznaczyć 1.0.4 zestawu SDK.
-
-   ```json
-   {
-     "sdk": { "version": "1.0.4" }
-   }
-   ```
-
-4. Utwórz nowy projekt ASP.NET Core.
-
-   ```console
-   dotnet new web
-   ```
-
-5. Przywróć pakiety.
-
-   ```console
-   dotnet restore
-   ```
-
-6. Uruchom aplikację.
-
-   ```console
-   dotnet run
-   ```
-
-   [Dotnet, uruchom](/dotnet/core/tools/dotnet-run) polecenie tworzy najpierw aplikacji, jeśli to konieczne.
-
-7. Przejdź do `http://localhost:5000`.
-
-[!INCLUDE [next steps](~/includes/getting-started/next-steps.md)]
-
-::: moniker-end
+> [!div class="nextstepaction"]
+> <xref:index>

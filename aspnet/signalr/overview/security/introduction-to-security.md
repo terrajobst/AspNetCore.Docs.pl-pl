@@ -8,34 +8,34 @@ ms.date: 06/10/2014
 ms.assetid: ed562717-8591-4936-8e10-c7e63dcb570a
 msc.legacyurl: /signalr/overview/security/introduction-to-security
 msc.type: authoredcontent
-ms.openlocfilehash: 62f835349697d02ebe7363b00a032a5353d3dfc2
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 765abd36c5182f291499042e787bcb4fcc727997
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41752302"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48910861"
 ---
 <a name="introduction-to-signalr-security"></a>Wprowadzenie do zabezpieczeń SignalR
 ====================
 przez [Patrick Fletcher](https://github.com/pfletcher), [Tom FitzMacken](https://github.com/tfitzmac)
 
-> W tym artykule opisano problemy z zabezpieczeniami, które należy wziąć pod uwagę podczas opracowywania aplikacji SignalR. 
-> 
+> W tym artykule opisano problemy z zabezpieczeniami, które należy wziąć pod uwagę podczas opracowywania aplikacji SignalR.
+>
 > ## <a name="software-versions-used-in-this-topic"></a>Wersje oprogramowania używaną w tym temacie
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET 4.5
 > - SignalR w wersji 2
->   
-> 
-> 
+>
+>
+>
 > ## <a name="previous-versions-of-this-topic"></a>Poprzednie wersje tego tematu
-> 
+>
 > Aby uzyskać informacje dotyczące starszych wersji biblioteki SignalR, zobacz [starsze wersje biblioteki SignalR](../older-versions/index.md).
-> 
+>
 > ## <a name="questions-and-comments"></a>Pytania i komentarze
-> 
+>
 > Jak się podoba w tym samouczku, i co można było ulepszyć proces w komentarzach u dołu strony, wystaw opinię. Jeśli masz pytania, na które nie są bezpośrednio związane z tego samouczka, możesz zamieścić je do [forum ASP.NET SignalR](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) lub [StackOverflow.com](http://stackoverflow.com/).
 
 
@@ -108,7 +108,7 @@ Oto przykład ataku typu CSRF:
 
 1. Uwierzytelnianie za pomocą formularzy zalogowaniu się użytkownika do www.example.com.
 2. Serwer uwierzytelnia użytkownika. Odpowiedź z serwera zawiera pliku cookie uwierzytelniania.
-3. Bez wylogowanie, użytkownik odwiedzi złośliwą witrynę sieci web. Ta witryna złośliwego zawiera poniższy formularz HTML: 
+3. Bez wylogowanie, użytkownik odwiedzi złośliwą witrynę sieci web. Ta witryna złośliwego zawiera poniższy formularz HTML:
 
     [!code-html[Main](introduction-to-security/samples/sample1.html)]
 
@@ -124,12 +124,9 @@ Zazwyczaj ataków CSRF możliwe są względem witryny sieci web, które używaj�
 
 SignalR wykonuje następujące czynności, aby uniemożliwić złośliwym tworzenie prawidłowych żądań do aplikacji. SignalR wykonuje te czynności domyślnie, nie trzeba podejmować żadnych działań w kodzie.
 
-- **Wyłącz żądania obejmujące różne domeny**  
- SignalR wyłącza żądania obejmujące różne domeny, aby uniemożliwić użytkownikom wywoływanie punktu końcowego SignalR z domeny zewnętrznej. SignalR blokach żądania i uwzględnia każde żądanie z domeny zewnętrznej jest nieprawidłowy. Zaleca się utrzymywanie to domyślne zachowanie; w przeciwnym razie złośliwych witryn można nakłonienia użytkowników do wysyłania poleceń do swojej witryny. Jeśli musisz użyć żądania obejmujące różne domeny, zobacz [jak nawiązać połączenie między domenami](../guide-to-the-api/hubs-api-guide-javascript-client.md#crossdomain) .
-- **Przekaż token połączenia w ciągu zapytania, nie pliku cookie.**  
- SignalR przekazuje token połączenia jako wartość ciągu zapytania, a nie jako plik cookie. Zapisanie tokena połączenia w pliku cookie jest niebezpieczne, ponieważ przeglądarka może przypadkowo przekazywać token połączenia po napotkaniu złośliwego kodu. Przekazując token połączenia w ciągu zapytania zapobiega także token połączenia utrwalanie poza bieżącym połączeniu. W związku z tym złośliwy użytkownik nie może zgłosić wniosek w ramach poświadczeń uwierzytelniania innego użytkownika.
-- **Weryfikuj token połączenia**  
- Zgodnie z opisem w [token połączenia](#connectiontoken) sekcji serwera zna identyfikator połączenia, z którym jest skojarzony z każdego uwierzytelnionego użytkownika. Serwer nie przetwarza każde żądanie pochodzące od identyfikator połączenia, który nie jest zgodna z nazwą użytkownika. Jest mało prawdopodobne, złośliwy użytkownik może odgadnięcia prawidłowemu żądaniu, ponieważ złośliwy użytkownik musi wiedzieć, nazwę użytkownika i bieżący identyfikator generowany losowo połączenia. Ten identyfikator połączenia staje się nieprawidłowy, tak szybko, jak połączenie zostanie zakończona. Użytkownicy anonimowi nie powinna mieć dostępu do żadnych poufnych informacji.
+- **Wyłącz żądania obejmujące różne domeny** SignalR wyłącza żądania obejmujące różne domeny, aby uniemożliwić użytkownikom wywoływanie punktu końcowego SignalR z domeny zewnętrznej. SignalR blokach żądania i uwzględnia każde żądanie z domeny zewnętrznej jest nieprawidłowy. Zaleca się utrzymywanie to domyślne zachowanie; w przeciwnym razie złośliwych witryn można nakłonienia użytkowników do wysyłania poleceń do swojej witryny. Jeśli musisz użyć żądania obejmujące różne domeny, zobacz [jak nawiązać połączenie między domenami](../guide-to-the-api/hubs-api-guide-javascript-client.md#crossdomain) .
+- **Przekaż token połączenia w ciągu zapytania, nie jest to plik cookie** SignalR przekazuje token połączenia jako wartość ciągu zapytania, a nie jako pliku cookie. Zapisanie tokena połączenia w pliku cookie jest niebezpieczne, ponieważ przeglądarka może przypadkowo przekazywać token połączenia po napotkaniu złośliwego kodu. Przekazując token połączenia w ciągu zapytania zapobiega także token połączenia utrwalanie poza bieżącym połączeniu. W związku z tym złośliwy użytkownik nie może zgłosić wniosek w ramach poświadczeń uwierzytelniania innego użytkownika.
+- **Weryfikuj token połączenia** zgodnie z opisem w [token połączenia](#connectiontoken) sekcji serwera zna identyfikator połączenia, z którym jest skojarzony z każdego uwierzytelnionego użytkownika. Serwer nie przetwarza każde żądanie pochodzące od identyfikator połączenia, który nie jest zgodna z nazwą użytkownika. Jest mało prawdopodobne, złośliwy użytkownik może odgadnięcia prawidłowemu żądaniu, ponieważ złośliwy użytkownik musi wiedzieć, nazwę użytkownika i bieżący identyfikator generowany losowo połączenia. Ten identyfikator połączenia staje się nieprawidłowy, tak szybko, jak połączenie zostanie zakończona. Użytkownicy anonimowi nie powinna mieć dostępu do żadnych poufnych informacji.
 
 <a id="recommendations"></a>
 

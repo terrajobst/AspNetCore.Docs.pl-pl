@@ -8,12 +8,12 @@ ms.date: 06/10/2014
 ms.assetid: ce1305f9-30fd-49e3-bf38-d0a78dfb06c3
 msc.legacyurl: /signalr/overview/performance/scaleout-with-windows-azure-service-bus
 msc.type: authoredcontent
-ms.openlocfilehash: b87eb9f2df82d92c07ea0c86873849a44660e5c2
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 3adc8768eb7271de32180ba98f67864b22283510
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41756899"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48910801"
 ---
 <a name="signalr-scaleout-with-azure-service-bus"></a>SignalR — skalowanie w poziomie za pomocą usługi Azure Service Bus
 ====================
@@ -94,7 +94,7 @@ Kreator projektu tworzy dwa projekty:
 
 Aby utworzyć aplikację rozmowy, postępuj zgodnie z instrukcjami w tym samouczku [wprowadzenie do SignalR i MVC 5](../getting-started/tutorial-getting-started-with-signalr-and-mvc.md).
 
-NuGet umożliwia instalowanie wymaganych bibliotek. Z **narzędzia** menu, wybierz opcję **Menedżer pakietów biblioteki**, a następnie wybierz **Konsola Menedżera pakietów**. W **Konsola Menedżera pakietów** okna, wprowadź następujące polecenia:
+NuGet umożliwia instalowanie wymaganych bibliotek. Z **narzędzia** menu, wybierz opcję **Menedżera pakietów NuGet**, a następnie wybierz **Konsola Menedżera pakietów**. W **Konsola Menedżera pakietów** okna, wprowadź następujące polecenia:
 
 [!code-powershell[Main](scaleout-with-windows-azure-service-bus/samples/sample2.ps1)]
 

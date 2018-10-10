@@ -8,12 +8,12 @@ ms.date: 06/10/2014
 ms.assetid: 0fab5e35-8c1f-43d4-8635-b8aba8766a71
 msc.legacyurl: /signalr/overview/getting-started/introduction-to-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: f35e26bc8db2bbdb579836bbc9556ad2147cb8bf
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: d103573fb31bb3b08d054cbf65ff906bd5d151d3
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41754439"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912803"
 ---
 <a name="introduction-to-signalr"></a>Wprowadzenie do SignalR
 ====================
@@ -51,9 +51,7 @@ SignalR to open source, dostępne za pośrednictwem [GitHub](https://github.com/
 
 ## <a name="signalr-and-websocket"></a>SignalR i WebSocket
 
-SignalR używa nowego transportu protokołu WebSocket, gdzie są dostępne i nastąpi powrót do starszej transportu, gdy jest to konieczne. Gdy bez obaw można zapisać aplikacji bezpośrednio za pomocą protokołu WebSocket, przy użyciu biblioteki SignalR oznacza, że wiele dodatkowe funkcje, które trzeba do zaimplementowania będzie już zostały wykonane dla Ciebie. Co najważniejsze oznacza to, czy tworzyć kod aplikacji w taki sposób, aby móc korzystać z protokołu WebSocket, bez konieczności martwienia się o Tworzenie ścieżki osobnego kodu dla starszych klientów. SignalR również ochronnym możesz z konieczności martwienia się o aktualizacjach WebSocket, ponieważ SignalR będą w dalszym ciągu zostać zaktualizowany do obsługi zmian w podstawowej transportu, zapewniając spójny interfejs aplikacji wersje protokołu WebSocket.
-
-Bez obaw można tworzyć rozwiązania za pomocą protokołu WebSocket samodzielnie, biblioteka SignalR udostępnia wszystkie funkcje, trzeba napisać samodzielnie, np. powrót do innego transportu i korygowania aktualizacji aplikacji do implementacji protokołu WebSocket.
+SignalR używa nowy transport WebSocket, gdzie są dostępne i nastąpi powrót do starszej transportu, gdy jest to konieczne. Gdy bez obaw można zapisać aplikacji bezpośrednio za pomocą protokołu WebSocket, przy użyciu SignalR oznacza wiele dodatkowe funkcje, które trzeba do zaimplementowania zostało już przeprowadzone dla Ciebie. Co najważniejsze oznacza to, czy tworzyć kod aplikacji w taki sposób, aby móc korzystać z protokołu WebSocket, bez konieczności martwienia się o Tworzenie ścieżki osobnego kodu dla starszych klientów. SignalR również ochronnym możesz z konieczności martwienia się o aktualizacjach WebSocket, ponieważ SignalR zostanie zaktualizowany i będzie obsługiwać zmiany w podstawowej transportu, zapewniając spójny interfejs aplikacji wersje protokołu WebSocket.
 
 <a id="transports"></a>
 

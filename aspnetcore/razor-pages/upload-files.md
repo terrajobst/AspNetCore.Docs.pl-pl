@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 07/11/2018
 uid: razor-pages/upload-files
-ms.openlocfilehash: 4b2f80cd5644cf21d5d8452aff6df4eb5591d41b
-ms.sourcegitcommit: 19cbda409bdbbe42553dc385ea72d2a8e246509c
+ms.openlocfilehash: 92e72869967b6e3202c97b92e341ea22adc69651
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38993499"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912504"
 ---
 # <a name="upload-files-to-a-razor-page-in-aspnet-core"></a>Przekazywanie plików na stronę Razor programu ASP.NET Core
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/29/2018
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: f2de81af4bd2992aec76a287484d0057021231d8
-ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
+ms.openlocfilehash: c0bacc72cd02a5ebf993ca8ba5db2c7fe4325a29
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47860969"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913193"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Wdrażanie aplikacji platformy ASP.NET Core w usłudze Azure App Service
 
@@ -101,11 +101,11 @@ Aby uzyskać więcej informacji, zobacz [dostawcy magazynu kluczy](xref:security
 
 ## <a name="deploy-aspnet-core-preview-release-to-azure-app-service"></a>Wdrażanie platformy ASP.NET Core w wersji zapoznawczej w usłudze Azure App Service
 
-Platforma ASP.NET Core w wersji zapoznawczej aplikacji można wdrożyć w usłudze Azure App Service przy użyciu następujących metod:
+Użyj jednej z następujących metod:
 
-* [Zainstalować rozszerzenie witryny usługi (wersja zapoznawcza)](#install-the-preview-site-extension)
-<!-- * [Deploy the app self-contained](#deploy-the-app-self-contained) -->
-* [Używać platformy Docker z funkcją Web Apps for containers](#use-docker-with-web-apps-for-containers)
+* [Zainstalować rozszerzenie witryny usługi (wersja zapoznawcza)](#install-the-preview-site-extension).
+* [Wdróż aplikację, która jest niezależna](#deploy-the-app-self-contained).
+* [Używać platformy Docker z funkcją Web Apps for containers](#use-docker-with-web-apps-for-containers).
 
 ### <a name="install-the-preview-site-extension"></a>Zainstalować rozszerzenie witryny usługi (wersja zapoznawcza)
 
@@ -161,18 +161,46 @@ Po zakończeniu tej operacji jest zainstalowana najnowsza wersja zapoznawcza pla
 
 Jeśli szablon ARM jest używany do tworzenia i wdrażania aplikacji, `siteextensions` typu zasobu może służyć do dodawania rozszerzenia witryny aplikacji sieci web. Na przykład:
 
-[!code-json[Main](index/sample/arm.json?highlight=2)]
+[!code-json[](index/sample/arm.json?highlight=2)]
 
-<!--
-### Deploy the app self-contained
+### <a name="deploy-the-app-self-contained"></a>Wdróż aplikację, która jest niezależna
 
-A [self-contained app](/dotnet/core/deploying/#self-contained-deployments-scd) can be deployed that carries the preview runtime in the deployment. When deploying a self-contained app:
+A [niezależna wdrożenia (— SCD)](/dotnet/core/deploying/#self-contained-deployments-scd) który jest przeznaczony dla wersji zapoznawczej środowiska uruchomieniowego niesie ze sobą w środowisku uruchomieniowym w wersji zapoznawczej we wdrożeniu.
 
-* The site doesn't need to be prepared.
-* The app must be published differently than when publishing for a framework-dependent deployment with the shared runtime and host on the server.
+W przypadku wdrażania aplikacja samodzielna:
 
-Self-contained apps are an option for all ASP.NET Core apps.
--->
+* Witryny w usłudze Azure App Service nie wymaga [rozszerzenie witryny w wersji zapoznawczej](#install-the-preview-site-extension).
+* Aplikacja musi zostać opublikowany, zgodnie z innego podejścia niż podczas publikowania dla [zależny od struktury wdrożenia (stacje)](/dotnet/core/deploying#framework-dependent-deployments-fdd).
+
+#### <a name="publish-from-visual-studio"></a>Publikowanie z programu Visual Studio
+
+1. Wybierz **kompilacji** > **publikowania {Nazwa aplikacji}** na pasku narzędzi programu Visual Studio.
+1. W **wybierz lokalizację docelową publikowania** okna dialogowego, upewnij się, że **usługi App Service** jest zaznaczone.
+1. Wybierz **zaawansowane**. **Publikuj** zostanie otwarte okno dialogowe.
+1. W **Publikuj** okno dialogowe:
+   * Upewnij się, że **wersji** wybrać konfigurację.
+   * Otwórz **tryb wdrożenia** listy rozwijanej i wybierz pozycję **niezależna**.
+   * Wybierz docelowe środowisko uruchomieniowe z **docelowe środowisko uruchomieniowe** listy rozwijanej. Wartość domyślna to `win-x86`.
+   * Jeśli potrzebujesz usunięcie dodatkowych plików po wdrożeniu, otwórz **opcji publikowania pliku** i zaznacz pole wyboru, aby usunąć dodatkowe pliki w lokalizacji docelowej.
+   * Wybierz **Zapisz**.
+1. Utwórz nową witrynę, lub zaktualizuj istniejącą lokację, postępując zgodnie z pozostałymi instrukcjami w Kreatorze publikacji.
+
+#### <a name="publish-using-command-line-interface-cli-tools"></a>Publikowanie za pomocą narzędzia interfejsu wiersza polecenia (CLI)
+
+1. W pliku projektu, należy określić co najmniej jedną [identyfikatorów środowiska uruchomieniowego (RID)](/dotnet/core/rid-catalog). Użyj `<RuntimeIdentifier>` (pojedynczą) dla jednego identyfikatorów RID lub użyj `<RuntimeIdentifiers>` (liczba mnoga) można podać rozdzieloną średnikami listę identyfikatorów RID. W poniższym przykładzie `win-x86` określono identyfikatorów RID:
+
+   ```xml
+   <PropertyGroup>
+     <TargetFramework>netcoreapp2.1</TargetFramework>
+     <RuntimeIdentifier>win-x86</RuntimeIdentifier>
+   </PropertyGroup>
+   ```
+1. Z powłoki poleceń, Opublikuj aplikację w konfiguracji wydania dla aparatu plików wykonywalnych hosta [publikowania dotnet](/dotnet/core/tools/dotnet-publish) polecenia. W poniższym przykładzie aplikacja została opublikowana na potrzeby `win-x86` identyfikatorów RID. RID dostarczane do `--runtime` w musi być podana opcja `<RuntimeIdentifier>` (lub `<RuntimeIdentifiers>`) właściwość w pliku projektu.
+
+   ```console
+   dotnet publish --configuration Release --runtime win-x86
+   ```
+1. Przenieś zawartość *wersji/bin / {w TARGET FRAMEWORK} / {identyfikator środowiska URUCHOMIENIOWEGO} / publish* katalogu do lokacji w usłudze App Service.
 
 ### <a name="use-docker-with-web-apps-for-containers"></a>Używać platformy Docker z funkcją Web Apps for containers
 

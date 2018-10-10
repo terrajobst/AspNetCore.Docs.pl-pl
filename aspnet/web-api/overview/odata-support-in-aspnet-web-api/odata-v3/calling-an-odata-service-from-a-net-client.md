@@ -8,25 +8,25 @@ ms.date: 02/26/2014
 ms.assetid: 6f448917-ad23-4dcc-9789-897fad74051b
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v3/calling-an-odata-service-from-a-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: 45d4d1304d2c628d2ab0d09925d2050bf6f58c60
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 75f8e3eab7bd5667bbdcccbb5ae8a8e5b1f5fdba
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41756435"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912055"
 ---
 <a name="calling-an-odata-service-from-a-net-client-c"></a>Wywoływanie usługi protokołu OData z klienta programu .NET (C#)
 ====================
 przez [Mike Wasson](https://github.com/MikeWasson)
 
-[Pobieranie ukończone projektu](http://code.msdn.microsoft.com/ASPNET-Web-API-OData-cecdb524)
+[Pobierz ukończony projekt](http://code.msdn.microsoft.com/ASPNET-Web-API-OData-cecdb524)
 
 > W tym samouczku pokazano, jak wywołać usługę OData z poziomu aplikacji klienckiej języka C#.
-> 
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używanego w tym samouczku
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads) (w programach Visual Studio 2012)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013) (w programach Visual Studio 2012)
 > - [Biblioteka klienta usług danych WCF](https://msdn.microsoft.com/library/cc668772.aspx)
 > - Interfejsu Web API 2. (Przykład usługi OData został skompilowany przy użyciu Web API 2, ale aplikacja kliencka nie zależy od interfejsu API sieci Web).
 
