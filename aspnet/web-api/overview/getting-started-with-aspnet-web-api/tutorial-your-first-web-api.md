@@ -1,4 +1,4 @@
-﻿---
+---
 uid: web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
 title: Wprowadzenie do wzorca ASP.NET Web API 2 (C#)
 author: MikeWasson
@@ -43,16 +43,16 @@ W okienku **Szablony** wybierz pozycję **Zainstalowane szablony** i rozwiń wę
 
 ![](tutorial-your-first-web-api/_static/image2.png)
 
-W oknie dialogowym **Nowy projekt ASP.NET** wybierz szablon **Pusty**. W obszarze „Dodaj foldery i podstawowe odwołania dla” zaznacz opcję **Internetowy interfejs API**. Kliknij przycisk **OK**.
+W oknie dialogowym **Nowy projekt ASP.NET** wybierz szablon **Pusty**. W obszarze &quot;Dodaj foldery i podstawowe odwołania dla&quot; zaznacz opcję **Internetowy interfejs API** Kliknij przycisk **OK**.
 
 ![](tutorial-your-first-web-api/_static/image3.png)
 
 > [!NOTE]
-> Można również utworzyć projekt internetowego interfejsu API za pomocą szablonu „Internetowy interfejs API”. Szablon internetowego interfejsu API używa platformy ASP.NET MVC do udostępniania stron pomocy do interfejsu API. Używam pustego szablonu na potrzeby tego samouczka, ponieważ chcę pokazać internetowy interfejs API bez platformy MVC. Ogólnie rzecz biorąc, nie trzeba znać platformy ASP.NET MVC, aby korzystać z internetowego interfejsu API.
+> Można również utworzyć projekt internetowego interfejsu API za pomocą szablonu &quot;Internetowy interfejs API&quot;. Szablon internetowego interfejsu API używa platformy ASP.NET MVC do udostępniania stron pomocy do interfejsu API. Używam pustego szablonu na potrzeby tego samouczka, ponieważ chcę pokazać internetowy interfejs API bez platformy MVC. Ogólnie rzecz biorąc, nie trzeba znać platformy ASP.NET MVC, aby korzystać z internetowego interfejsu API.
 
 
 ## <a name="adding-a-model"></a>Dodawanie modelu
-*Model* jest obiektem, który reprezentuje dane w aplikacji. Internetowy interfejs API platformy ASP.NET może automatycznie zserializować model do formatu JSON, XML lub innego, a następnie wpisać te dane serializowane w treści komunikatu odpowiedzi HTTP. Jeśli klient może odczytać format serializacji, może również wykonywać deserializację obiektu. Większość klientów może analizować albo format XML, albo JSON. Ponadto klient może wskazać pożądany format, ustawiając nagłówek Accept w komunikacie żądania HTTP.
+
 *Model* jest obiektem, który reprezentuje dane w aplikacji. Internetowy interfejs API platformy ASP.NET może automatycznie zserializować model do formatu JSON, XML lub innego, a następnie wpisać te dane serializowane w treści komunikatu odpowiedzi HTTP. Jeśli klient może odczytać format serializacji, może również wykonywać deserializację obiektu. Większość klientów może analizować albo format XML, albo JSON. Ponadto klient może wskazać pożądany format, ustawiając nagłówek Accept w komunikacie żądania HTTP.
 
 Zacznijmy od utworzenia prostego modelu, który reprezentuje produkt.
@@ -61,7 +61,7 @@ Jeśli Eksplorator rozwiązań nie jest jeszcze widoczny, kliknij menu **Widok**
 
 ![](tutorial-your-first-web-api/_static/image4.png)
 
-Nazwij klasę „Product”. Dodaj następujące właściwości do klasy `Product`.
+Nazwij klasę &quot;Product&quot;. Dodaj następujące właściwości do klasy `Product`.
 
 [!code-csharp[Main](tutorial-your-first-web-api/samples/sample1.cs)]
 
@@ -80,7 +80,7 @@ W oknie dialogowym **Dodawanie szkieletu** wybierz pozycję **Kontroler Web API 
 
 ![](tutorial-your-first-web-api/_static/image6.png)
 
-W oknie dialogowym **Dodawanie kontrolera** nazwij kontrolera „ProductsController”. Kliknij przycisk **Dodaj**.
+W oknie dialogowym **Dodawanie kontrolera** nazwij kontrolera &quot;ProductsController&quot;. Kliknij przycisk **Dodaj**.
 
 ![](tutorial-your-first-web-api/_static/image7.png)
 
@@ -100,7 +100,7 @@ W tym przykładzie w celu uproszczenia produkty są przechowywane w stałej tabl
 
 Kontroler definiuje dwie metody, które zwracają produkty:
 
-- `GetAllProducts` Metoda zwraca całą listę produktów jako typ **IEnumerable&lt;produktu&gt;**.
+- Metoda `GetAllProducts` zwraca całą listę produktów jako typ **IEnumerable&lt;produkt&gt;**.
 - `GetProduct` Metoda odwołuje się do jednego produktu za pomocą jego identyfikatora.
 
 To wszystko! Masz działający internetowy interfejs API. Każda metoda na kontrolerze odnosi się do co najmniej jednego identyfikatora URI:
@@ -122,7 +122,7 @@ W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt i wybierz *
 
 ![](tutorial-your-first-web-api/_static/image9.png)
 
-W oknie dialogowym **Dodawanie nowego elementu** wybierz węzeł **Sieć Web** w kategorii **Visual C#**, a następnie wybierz element **Strona HTML**. Nazwij stronę „index.html”.
+W **Dodaj nowy element** okno dialogowe, wybierz opcję **Web** węzeł w węźle **Visual C#**, a następnie wybierz pozycję **strony HTML** elementu. Nazwij stronę &quot;index.html&quot;.
 
 ![](tutorial-your-first-web-api/_static/image10.png)
 
@@ -142,7 +142,7 @@ Funkcja JQuery [getJSON](http://api.jquery.com/jQuery.getJSON/) wysyła żądani
 
 ### <a name="getting-a-product-by-id"></a>Pobieranie produktu według Identyfikatora
 
-Aby uzyskać produkt o określonym identyfikatorze, wyślij żądanie HTTP GET do: „//api/products/*id*”, gdzie *id* jest identyfikatorem produktu.
+Aby uzyskać produkt za pomocą Identyfikatora, Wyślij żądanie HTTP GET do &quot;/interfejs API/produkty/*identyfikator*&quot;, gdzie *identyfikator* jest identyfikator produktu.
 
 [!code-javascript[Main](tutorial-your-first-web-api/samples/sample5.js)]
 
@@ -168,11 +168,11 @@ W przypadku korzystania z usługi HTTP bardzo przydatne może być wyświetlenie
 
 ![](tutorial-your-first-web-api/_static/image14.png)
 
-Zlokalizuj wpis dla względnego identyfikatora URI „api/products/”. Wybierz ten wpis, a następnie kliknij przycisk **Przejdź do widoku szczegółowego**. Widok szczegółowy zawiera karty, na których są wyświetlane nagłówki i zawartość żądań oraz odpowiedzi. Na przykład po kliknięciu karty **Nagłówki żądań** możesz zobaczyć, że klient zażądał wartości „application/json” w nagłówku Accept.
+Zlokalizuj wpis dla względny identyfikator URI "interfejsu api/produkty /". Wybierz ten wpis, a następnie kliknij przycisk **przejdź do widoku szczegółowym**. W widoku szczegółów istnieją karty, aby wyświetlić żądanie i odpowiedź nagłówki i treść. Na przykład jeśli klikniesz **nagłówki żądań** karcie widać, że klient zażądał &quot;application/json&quot; w nagłówku Accept.
 
 ![](tutorial-your-first-web-api/_static/image15.png)
 
-Po kliknięciu karty **Treść odpowiedzi** możesz zobaczyć, jak lista produktów została zserializowana do formatu JSON. Inne przeglądarki mają podobną funkcję. Kolejnym przydatnym narzędziem jest [Fiddler](http://www.fiddler2.com/fiddler2/) — internetowy serwer proxy do debugowania. Służy on do wyświetlania ruchu HTTP, a także do tworzenia żądań HTTP, co daje pełną kontrolę nad nagłówkami HTTP w żądaniu.
+Jeśli klikniesz kartę treść odpowiedzi, zostanie wyświetlony, jak lista produktów został wydany do formatu JSON. Inne przeglądarki mają podobne funkcje. Inne przydatne narzędzie jest [Fiddler](http://www.fiddler2.com/fiddler2/), internetowy serwer proxy debugowania. Służy narzędzia Fiddler do wyświetlania ruchu HTTP, a także do tworzenia żądań HTTP, co daje pełną kontrolę nad nagłówków HTTP żądania.
 
 ## <a name="see-this-app-running-on-azure"></a>Wyświetlanie aplikacji działającej na platformie Azure
 
