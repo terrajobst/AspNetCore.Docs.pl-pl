@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/01/2018
 uid: fundamentals/file-providers
-ms.openlocfilehash: 512229cfe7d7efdcd9050fa13dbdbf793be29a0b
-ms.sourcegitcommit: 571d76fbbff05e84406b6d909c8fe9cbea2c8ff1
+ms.openlocfilehash: a0d326f5fc995cb903380315879d39a8ce851d06
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39410159"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913219"
 ---
 # <a name="file-providers-in-aspnet-core"></a>Dostawcy plików w programie ASP.NET Core
 
@@ -141,7 +141,7 @@ W przykładowej aplikacji `HomeController` klasa otrzymuje `IFileProvider` wyst�
 [ManifestEmbeddedFileProvider](/dotnet/api/microsoft.extensions.fileproviders.manifestembeddedfileprovider) umożliwia dostęp do plików osadzonych w ramach zestawów. `ManifestEmbeddedFileProvider` Używa manifestu kompilowane do zestawu odtworzenie oryginalnej ścieżki plików osadzonych.
 
 > [!NOTE]
-> `ManifestEmbeddedFileProvider` Jest dostępna w programie ASP.NET Core 2.1 lub nowszej. Dostępu do plików osadzonych w zestawach platformy ASP.NET Core w wersji 2.0 lub wcześniej, zobacz [platformy ASP.NET Core 1.x wersję tego tematu](xref:fundamentals/file-providers?view=aspnetcore-1.1).
+> `ManifestEmbeddedFileProvider` Jest dostępna w programie ASP.NET Core 2.1 lub nowszej. Dostępu do plików osadzonych w zestawach platformy ASP.NET Core w wersji 2.0 lub wcześniej, zobacz [platformy ASP.NET Core 1.x wersję tego tematu](/aspnet/core/fundamentals/file-providers?view=aspnetcore-1.1).
 
 Aby wygenerować manifest osadzonych plików, należy ustawić `<GenerateEmbeddedFilesManifest>` właściwość `true`. Określ pliki, aby osadzić przy użyciu [ &lt;EmbeddedResource&gt;](/dotnet/core/tools/csproj#default-compilation-includes-in-net-core-projects):
 
