@@ -5,7 +5,7 @@ Uruchom Generator szkieletu tożsamości:
 * Z **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy na Projekt > **Dodaj** > **nowy element szkieletu**.
 * W okienku po lewej stronie **Dodawanie szkieletu** okno dialogowe, wybierz opcję **tożsamości** > **Dodaj**.
 * W **tożsamość usługi ADD** okno dialogowe, wybierz odpowiednie opcje.
-  * Wybierz istniejący stronę układu lub plik układu zostanie zastąpiony niepoprawny kod znaczników. Po wybraniu istniejącego pliku _Layout.cshtml jest **nie** zastąpione.
+  * Wybierz istniejący stronę układu lub plik układu zostanie zastąpiony niepoprawny kod znaczników. Kiedy istniejący  *\_Layout.cshtml* plików jest zaznaczona, jest **nie** zastąpione.
 
  Na przykład `~/Pages/Shared/_Layout.cshtml` dla stron Razor `~/Views/Shared/_Layout.cshtml` dla projektów MVC
 * Aby użyć istniejącego kontekstu danych, wybierz co najmniej jeden plik do zastąpienia. Musisz wybrać co najmniej jeden plik, aby dodać kontekstu danych.
@@ -50,5 +50,6 @@ PowerShell używa średnika jako separatora polecenia. Przy użyciu programu pow
 dotnet aspnet-codegenerator identity -dc MyWeb.Data.ApplicationDbContext --files "Account.Register;Account.Login;Account.Logout"
 ```
 
-<a name="if-you-run-the-identity-scaffolder-without-specifying-the---files-flag-or-the---usedefaultui-flag-all-the-available-identity-ui-pages-will-be-created-in-your-project"></a>Jeśli Generator szkieletu tożsamości jest uruchomiony bez określenia `--files` flagi lub `--useDefaultUI` Flaga wszystkie dostępne strony tożsamości interfejsu użytkownika zostanie utworzona w projekcie.
+Jeśli Generator szkieletu tożsamości jest uruchomiony bez określenia `--files` flagi lub `--useDefaultUI` Flaga wszystkie dostępne strony tożsamości interfejsu użytkownika zostanie utworzona w projekcie.
+
 -------------
