@@ -122,7 +122,7 @@ W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt i wybierz *
 
 ![](tutorial-your-first-web-api/_static/image9.png)
 
-W **Dodaj nowy element** okno dialogowe, wybierz opcję **Web** węzeł w węźle **Visual C#**, a następnie wybierz pozycję **strony HTML** elementu. Nazwij stronę &quot;index.html&quot;.
+W oknie dialogowym **Dodawanie nowego elementu** wybierz węzeł **Sieć Web** w kategorii **Visual C#**, a następnie wybierz element **Strona HTML**. Nazwij stronę &quot;index.html&quot;.
 
 ![](tutorial-your-first-web-api/_static/image10.png)
 
@@ -142,7 +142,7 @@ Funkcja JQuery [getJSON](http://api.jquery.com/jQuery.getJSON/) wysyła żądani
 
 ### <a name="getting-a-product-by-id"></a>Pobieranie produktu według Identyfikatora
 
-Aby uzyskać produkt za pomocą Identyfikatora, Wyślij żądanie HTTP GET do &quot;/interfejs API/produkty/*identyfikator*&quot;, gdzie *identyfikator* jest identyfikator produktu.
+Aby uzyskać produkt o określonym identyfikatorze, wyślij żądanie HTTP GET do &quot;//api/products/*id*&quot;, gdzie *id* jest identyfikatorem produktu.
 
 [!code-javascript[Main](tutorial-your-first-web-api/samples/sample5.js)]
 
@@ -168,11 +168,11 @@ W przypadku korzystania z usługi HTTP bardzo przydatne może być wyświetlenie
 
 ![](tutorial-your-first-web-api/_static/image14.png)
 
-Zlokalizuj wpis dla względny identyfikator URI "interfejsu api/produkty /". Wybierz ten wpis, a następnie kliknij przycisk **przejdź do widoku szczegółowym**. W widoku szczegółów istnieją karty, aby wyświetlić żądanie i odpowiedź nagłówki i treść. Na przykład jeśli klikniesz **nagłówki żądań** karcie widać, że klient zażądał &quot;application/json&quot; w nagłówku Accept.
+Zlokalizuj wpis dla względnego identyfikatora URI "api/products//". Wybierz ten wpis, a następnie kliknij przycisk **Przejdź do widoku szczegółowego**. Widok szczegółowy zawiera karty, na których są wyświetlane nagłówki i zawartość żądań oraz odpowiedzi. Na przykład po kliknięciu karty **Nagłówki żądań** możesz zobaczyć, że klient zażądał wartości &quot;application/json&quot; w nagłówku Accept.
 
 ![](tutorial-your-first-web-api/_static/image15.png)
 
-Jeśli klikniesz kartę treść odpowiedzi, zostanie wyświetlony, jak lista produktów został wydany do formatu JSON. Inne przeglądarki mają podobne funkcje. Inne przydatne narzędzie jest [Fiddler](http://www.fiddler2.com/fiddler2/), internetowy serwer proxy debugowania. Służy narzędzia Fiddler do wyświetlania ruchu HTTP, a także do tworzenia żądań HTTP, co daje pełną kontrolę nad nagłówków HTTP żądania.
+Po kliknięciu karty Treść odpowiedzi możesz zobaczyć, jak lista produktów została zserializowana do formatu JSON. Inne przeglądarki mają podobną funkcję. Kolejnym przydatnym narzędziem jest [Fiddler](http://www.fiddler2.com/fiddler2/) — internetowy serwer proxy do debugowania. Służy on do wyświetlania ruchu HTTP, a także do tworzenia żądań HTTP, co daje pełną kontrolę nad nagłówkami HTTP w żądaniu.
 
 ## <a name="see-this-app-running-on-azure"></a>Wyświetlanie aplikacji działającej na platformie Azure
 
