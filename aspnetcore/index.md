@@ -3,14 +3,14 @@ title: Wprowadzenie do platformy ASP.NET Core
 author: rick-anderson
 description: Zapoznaj się z wprowadzeniem do rozwiązania ASP.NET Core, czyli międzyplatformowej struktury typu open source o wysokiej wydajności służącej do tworzenia nowoczesnych aplikacji internetowych opartych na chmurze.
 ms.author: riande
-ms.date: 02/28/2018
+ms.date: 9/28/2018
 uid: index
-ms.openlocfilehash: 6de7f1bc8229c5de519e4064dda0a7061cf8b9c6
-ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
+ms.openlocfilehash: 85f2aa04e4b6692dd03a63f14bcebdec97ee270e
+ms.sourcegitcommit: 32f5ee0690604d451f61e9a5c28881c9fcf85738
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37077715"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47454781"
 ---
 # <a name="introduction-to-aspnet-core"></a>Wprowadzenie do platformy ASP.NET Core
 
@@ -40,8 +40,6 @@ Platforma ASP. NET Core oferuje następujące zalety:
 * Możliwość kompilowania i uruchamiania w systemach Windows, macOS i Linux.
 * Open source i [koncentracja na społeczności](https://live.asp.net/).
 
-Platforma ASP.NET Core jest dostarczana w całości w postaci pakietów [NuGet](https://www.nuget.org/). Używając pakietów NuGet, można zoptymalizować aplikację, uwzględniając w niej tylko niezbędne zależności. Aplikacje ASP.NET Core 2.x, których platformą docelową jest platforma .NET Core, wymagają tak naprawdę tylko [jednego pakietu NuGet](xref:fundamentals/metapackage). Korzyści z mniejszego obszaru powierzchni aplikacji obejmują: większe bezpieczeństwo, ograniczenie obsługi i lepszą wydajność.
-
 ## <a name="build-web-apis-and-web-ui-using-aspnet-core-mvc"></a>Tworzenie internetowego interfejsu użytkownika i internetowych interfejsów API przy użyciu wzorca MVC platformy ASP.NET Core
 
 Platforma ASP.NET Core MVC udostępnia funkcje, które umożliwiają tworzenie [internetowych interfejsów API](xref:tutorials/index#build-web-apis) i [aplikacji internetowych](xref:tutorials/index#build-web-apps):
@@ -52,7 +50,7 @@ Platforma ASP.NET Core MVC udostępnia funkcje, które umożliwiają tworzenie [
 * [Pomocnicy tagów](xref:mvc/views/tag-helpers/intro) umożliwiają uczestniczenie kodu po stronie serwera w tworzeniu i renderowaniu elementów HTML w plikach Razor.
 * Wbudowana obsługa [wiele formatów danych i negocjacji zawartości](xref:web-api/advanced/formatting) umożliwia internetowym interfejsom API obsługę szerokiej gamy klientów, w tym przeglądarek i urządzeń przenośnych.
 * [Powiązanie modelu](xref:mvc/models/model-binding) automatycznie mapuje dane z żądań HTTP na parametry metod akcji.
-* [Walidacja modelu](xref:mvc/models/validation) automatycznie przeprowadza weryfikację (walidację) po stronie klienta i serwera.
+* [Walidacja modelu](xref:mvc/models/validation) automatycznie przeprowadza walidację po stronie klienta i serwera.
 
 ## <a name="client-side-development"></a>Programowanie po stronie klienta
 
@@ -78,5 +76,6 @@ Aby uzyskać więcej informacji, zobacz następujące zasoby:
 
 * [Wprowadzenie do korzystania ze stron Razor](xref:tutorials/razor-pages/razor-pages-start)
 * [Samouczki platformy ASP.NET Core](xref:tutorials/index)
+* <xref:tutorials/publish-to-azure-webapp-using-vs>
 * [Platforma ASP.NET Core — podstawy](xref:fundamentals/index)
 * [Cotygodniowe podsumowanie ASP.NET Community Standup](https://live.asp.net/) zawiera aktualności o postępach i planach zespołu. Zawiera też informacje o polecanych blogach i oprogramowaniu innych firm.
