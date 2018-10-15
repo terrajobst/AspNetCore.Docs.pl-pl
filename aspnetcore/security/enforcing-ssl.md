@@ -1,16 +1,17 @@
 ---
 title: Wymuszanie protokołu HTTPS w programie ASP.NET Core
 author: rick-anderson
-description: Pokazuje, jak HTTPS/TLS w programie ASP.NET Core wymagają aplikacji sieci web.
+description: Dowiedz się, jak wymaganie protokołu HTTPS/TLS w aplikacji sieci web platformy ASP.NET Core.
 ms.author: riande
-ms.date: 2/9/2018
+ms.custom: mvc
+ms.date: 10/11/2018
 uid: security/enforcing-ssl
-ms.openlocfilehash: 6e16191b1a4627e683fd2281e5556b2a6e84c082
-ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
+ms.openlocfilehash: b4c058d3b4f00276043d9520d756e62ed8cac5d9
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523147"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325604"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>Wymuszanie protokołu HTTPS w programie ASP.NET Core
 
@@ -30,6 +31,7 @@ Nie interfejsu API mogą uniemożliwić wysyłanie danych poufnych na pierwsze �
 > * Zamknij połączenie z kodem stanu 400 (złe żądanie), a nie obsłużyć żądania.
 
 <a name="require"></a>
+
 ## <a name="require-https"></a>Wymaganie protokołu HTTPS
 
 ::: moniker range=">= aspnetcore-2.1"
@@ -47,38 +49,52 @@ Poniższy kod wywoła `UseHttpsRedirection` w `Startup` klasy:
 
 Wyróżniony kod:
 
-* Używa domyślnej [HttpsRedirectionOptions.RedirectStatusCode](/dotnet/api/microsoft.aspnetcore.httpspolicy.httpsredirectionoptions.redirectstatuscode) (`Status307TemporaryRedirect`).
+* Używa domyślnej [HttpsRedirectionOptions.RedirectStatusCode](/dotnet/api/microsoft.aspnetcore.httpspolicy.httpsredirectionoptions.redirectstatuscode) ([Status307TemporaryRedirect](/dotnet/api/microsoft.aspnetcore.http.statuscodes.status307temporaryredirect)).
 * Używa domyślnej [HttpsRedirectionOptions.HttpsPort](/dotnet/api/microsoft.aspnetcore.httpspolicy.httpsredirectionoptions.httpsport) (null), chyba że zostaną zastąpione `ASPNETCORE_HTTPS_PORT` zmiennej środowiskowej lub [IServerAddressesFeature](/dotnet/api/microsoft.aspnetcore.hosting.server.features.iserveraddressesfeature).
 
-> [!WARNING] 
->Port musi być dostępny dla oprogramowania pośredniczącego do przekierowania protokołu HTTPS. Jeśli port nie jest dostępny, przekierowania protokołu HTTPS nie występuje. HTTPS port można określić przez jedną z następujących ustawień:
-> 
->* `HttpsRedirectionOptions.HttpsPort` 
->* `ASPNETCORE_HTTPS_PORT` Zmiennej środowiskowej. 
->* Na etapie opracowywania adresu url HTTPS w *launchsettings.json*. 
->* Adres url HTTPS, skonfigurować bezpośrednio na Kestrel lub słowa kluczowego HttpSys. 
+Firma Microsoft zaleca, za pomocą przekierowania tymczasowego, a nie stałych przekierowań, ponieważ buforowanie linków może spowodować niestabilność zachowanie w środowiskach programistycznych. Firma Microsoft zaleca używanie [HSTS](#hsts) celu sygnalizowania, że dla klientów, którzy tylko zabezpieczyć zasób w aplikacji (tylko w środowisku produkcyjnym) powinny być wysyłane żądania.
+
+> [!WARNING]
+> Port musi być dostępny dla oprogramowania pośredniczącego do przekierowania protokołu HTTPS. Jeśli port nie jest dostępny, nie zachodzi przekierowania protokołu HTTPS. HTTPS port można określić przy użyciu dowolnej z następujących metod:
+>
+> * Ustaw `HttpsRedirectionOptions.HttpsPort`.
+> * Ustaw `ASPNETCORE_HTTPS_PORT` zmiennej środowiskowej.
+> * W trakcie opracowywania, należy ustawić adres URL protokołu HTTPS *launchsettings.json*.
+> * Konfigurowanie punktu końcowego adresu URL HTTPS dla [Kestrel](xref:fundamentals/servers/kestrel) lub [HTTP.sys](xref:fundamentals/servers/httpsys).
+>
+> Podczas Kestrel lub sterownik HTTP.sys jest używany jako serwer graniczny publicznymi, Kestrel lub sterownik HTTP.sys muszą być skonfigurowane do nasłuchiwania na obu:
+>
+> * Bezpieczny port, na którym klient zostanie przekierowany (zazwyczaj port 443 w środowisku produkcyjnym i 5001 w trakcie programowania).
+> * Port niezabezpieczone (zwykle 80 w środowisku produkcyjnym) do 5000 w trakcie opracowywania.
+>
+> Niebezpieczne port musi być dostępny dla klientów w kolejności dla aplikacji do odbierania niezabezpieczone żądania i Przekieruj do bezpiecznego portu.
+>
+> Wszystkie zapory między klientem i serwerem musi mieć również porty otworzyć dla ruchu.
+>
+> Aby uzyskać więcej informacji, zobacz [konfiguracji punktu końcowego Kestrel](xref:fundamentals/servers/kestrel#endpoint-configuration) lub <xref:fundamentals/servers/httpsys>.
 
 Następujący wyróżniony kod wywołuje [AddHttpsRedirection](/dotnet/api/microsoft.aspnetcore.builder.httpsredirectionservicesextensions.addhttpsredirection) skonfigurować opcje oprogramowania pośredniczącego:
 
 [!code-csharp[](enforcing-ssl/sample/Startup.cs?name=snippet2&highlight=14-99)]
 
-Wywoływanie `AddHttpsRedirection` tylko jest konieczna zmiana wartości ` HttpsPort` lub ` RedirectStatusCode`;
+Wywoływanie `AddHttpsRedirection` tylko jest konieczna zmiana wartości `HttpsPort` lub `RedirectStatusCode`.
 
 Wyróżniony kod:
 
-* Zestawy [HttpsRedirectionOptions.RedirectStatusCode](/dotnet/api/microsoft.aspnetcore.httpspolicy.httpsredirectionoptions.redirectstatuscode) do `Status307TemporaryRedirect`, która jest wartością domyślną.
+* Zestawy [HttpsRedirectionOptions.RedirectStatusCode](/dotnet/api/microsoft.aspnetcore.httpspolicy.httpsredirectionoptions.redirectstatuscode) do [Status307TemporaryRedirect](/dotnet/api/microsoft.aspnetcore.http.statuscodes.status307temporaryredirect), która jest wartością domyślną. Użyj pola [StatusCodes](/dotnet/api/microsoft.aspnetcore.http.statuscodes) klasy do przypisania do `RedirectStatusCode`.
 * Ustawia HTTPS port 5001. Wartość domyślna to 443.
 
 Automatycznie Ustaw port przez następujących mechanizmów:
 
 * Oprogramowanie pośredniczące może odnajdować portów za pomocą [IServerAddressesFeature](/dotnet/api/microsoft.aspnetcore.hosting.server.features.iserveraddressesfeature) gdy są spełnione następujące warunki:
 
-   * Kestrel lub sterownik HTTP.sys jest używana bezpośrednio z punktów końcowych HTTPS (dotyczy także uruchamianie aplikacji za pomocą debugera programu Visual Studio Code firmy).
-   * Tylko **jeden port HTTPS** jest używany przez aplikację.
+  * Kestrel lub sterownik HTTP.sys jest używana bezpośrednio z punktów końcowych HTTPS (dotyczy także uruchamianie aplikacji za pomocą debugera programu Visual Studio Code firmy).
+  * Tylko **jeden port HTTPS** jest używany przez aplikację.
 
 * Program Visual Studio jest używany:
-   * Usługi IIS Express ma obsługujące protokół HTTPS.
-   * *launchSettings.json* ustawia `sslPort` dla usług IIS Express.
+
+  * Usługi IIS Express ma obsługujące protokół HTTPS.
+  * *launchSettings.json* ustawia `sslPort` dla usług IIS Express.
 
 > [!NOTE]
 > Gdy aplikacja jest uruchamiana za zwrotny serwer proxy (na przykład, IIS, usługi IIS Express), `IServerAddressesFeature` jest niedostępna. Numer portu musi być skonfigurowany ręcznie. Jeśli port nie jest ustawiony, przekierowanie nie nastąpi żądań.
@@ -130,6 +146,7 @@ Globalnie wymagania protokołu HTTPS (`options.Filters.Add(new RequireHttpsAttri
 ::: moniker range=">= aspnetcore-2.1"
 
 <a name="hsts"></a>
+
 ## <a name="http-strict-transport-security-protocol-hsts"></a>Protokół zabezpieczeń Strict transportu HTTP (HSTS)
 
 Na [OWASP](https://www.owasp.org/index.php/About_The_Open_Web_Application_Security_Project), [zabezpieczeń transportu HTTP ograniczeniami (HSTS)](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet) jest ulepszeniem zabezpieczeń zgłoszenie zgody na uczestnictwo w określonym przez aplikację sieci web przy użyciu nagłówka odpowiedzi. Gdy [przeglądarki obsługującej HSTS](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet#Browser_Support) odbiera tego nagłówka:
@@ -156,7 +173,7 @@ Poniższy kod:
 [!code-csharp[](enforcing-ssl/sample/Startup.cs?name=snippet2&highlight=5-12)]
 
 * Ustawia wstępnego ładowania parametr nagłówka zabezpieczeń w przypadku transportu Strict. Wstępnego ładowania nie jest częścią [specyfikacji RFC HSTS](https://tools.ietf.org/html/rfc6797), ale jest obsługiwane przez przeglądarki sieci web do wstępnego witryn HSTS na zainstalować od nowa. Zobacz [ https://hstspreload.org/ ](https://hstspreload.org/) Aby uzyskać więcej informacji.
-* Włącza [includeSubDomain](https://tools.ietf.org/html/rfc6797#section-6.1.2), co ma zastosowanie zasad HSTS poddomen hosta. 
+* Włącza [includeSubDomain](https://tools.ietf.org/html/rfc6797#section-6.1.2), co ma zastosowanie zasad HSTS poddomen hosta.
 * Jawnie Ustawia parametr max-age nagłówka zabezpieczeń w przypadku transportu Strict do 60 dni. Jeśli nie zostanie ustawiona wartość domyślna to 30 dni. Zobacz [dyrektywy max-age](https://tools.ietf.org/html/rfc6797#section-6.1.1) Aby uzyskać więcej informacji.
 * Dodaje `example.com` do listy hostów, które mają zostać wykluczone.
 
@@ -173,11 +190,12 @@ Poprzedni przykład pokazuje, jak dodać kolejne hosty.
 ::: moniker range=">= aspnetcore-2.1"
 
 <a name="https"></a>
-## <a name="opt-out-of-https-on-project-creation"></a>Zrezygnować z protokołu HTTPS przy tworzeniu projektu
 
-Włącz szablony ASP.NET Core 2.1 lub nowszej sieci web aplikacji (z programu Visual Studio lub wiersza polecenia dotnet) [przekierowania protokołu HTTPS](#require) i [HSTS](#hsts). W przypadku wdrożeń, które nie wymagają protokołu HTTPS użytkownik może zrezygnować protokołu HTTPS. Na przykład niektóre usługi zaplecza, gdzie HTTPS jest obsługiwane zewnętrznie na urządzeniach brzegowych, przy użyciu protokołu HTTPS w każdym węźle nie jest wymagane.
+## <a name="opt-out-of-httpshsts-on-project-creation"></a>Zrezygnować z protokołu HTTPS/HSTS przy tworzeniu projektu
 
-Aby zrezygnować z protokołu HTTPS:
+W niektórych scenariuszach usługi zaplecza gdzie zabezpieczenia połączeń jest obsługiwane na urządzeniach brzegowych publicznych sieci konfigurowanie zabezpieczenia połączeń w każdym węźle nie jest wymagana. Wygenerowany na podstawie szablonów w programie Visual Studio lub z aplikacji sieci Web [dotnet nowe](/dotnet/core/tools/dotnet-new) Włącz polecenie [przekierowania protokołu HTTPS](#require) i [HSTS](#hsts). W przypadku wdrożeń, które nie wymagają tych scenariuszy użytkownik może zrezygnować z HTTPS/HSTS po utworzeniu aplikacji z szablonu.
+
+Aby zrezygnować z protokołu HTTPS/HSTS:
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/01/2018
 uid: fundamentals/host/web-host
-ms.openlocfilehash: 7440ab26534840b190a346614f645860fc2b7d78
-ms.sourcegitcommit: 7211ae2dd702f67d36365831c490d6178c9a46c8
+ms.openlocfilehash: 8b6517b009a289d6b93e2cc1bea60ecace61a3c6
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44089902"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49326163"
 ---
 # <a name="aspnet-core-web-host"></a>Host sieci Web platformy ASP.NET Core
 
@@ -46,10 +46,10 @@ public class Program
 * Ładunki [konfiguracji hosta](#host-configuration-values) od:
   * Zmienne środowiskowe prefiksem `ASPNETCORE_` (na przykład `ASPNETCORE_ENVIRONMENT`).
   * Argumenty wiersza polecenia.
-* Konfiguracja aplikacji obciążeń z:
+* Ładuje konfiguracji aplikacji w kolejności od:
   * *appsettings.json*.
   * *appSettings. {Środowiska} .json*.
-  * [Wpisami tajnymi użytkowników](xref:security/app-secrets) uruchamiania aplikacji `Development` środowisko przy użyciu zestawu wpisu.
+  * [Klucz tajny Menedżera](xref:security/app-secrets) uruchamiania aplikacji `Development` środowisko przy użyciu zestawu wpisu.
   * Zmienne środowiskowe.
   * Argumenty wiersza polecenia.
 * Konfiguruje [rejestrowania](xref:fundamentals/logging/index) dla danych wyjściowych konsoli i debugowania. Rejestrowanie powoduje umieszczenie [filtrowanie dziennika](xref:fundamentals/logging/index#log-filtering) reguły określone w sekcji Konfiguracja rejestrowania *appsettings.json* lub *appsettings. { Środowisko} .json* pliku.

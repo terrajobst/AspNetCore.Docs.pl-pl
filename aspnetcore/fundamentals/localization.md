@@ -5,12 +5,12 @@ description: Dowiedz się, jak platforma ASP.NET Core oferuje usługi oraz oprog
 ms.author: riande
 ms.date: 01/14/2017
 uid: fundamentals/localization
-ms.openlocfilehash: 6e8c4723ab0105b8c756221d3e3c5eebba6cc4e2
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 375d09d9bef59cf18b7805cbefe500aeb2e0cde7
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912040"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49326007"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalizacja i lokalizacja w programie ASP.NET Core
 
@@ -206,9 +206,9 @@ Każda kombinacja języka i kultury (innego niż domyślny język) wymaga pliku 
 
 ### <a name="configure-localization"></a>Konfigurowanie lokalizacji
 
-Lokalizacja jest skonfigurowana w `ConfigureServices` metody:
+Lokalizacja jest skonfigurowana w `Startup.ConfigureServices` metody:
 
-[!code-csharp[](localization/sample/Localization/Program.cs?name=snippet1)]
+[!code-csharp[](localization/sample/Localization/Startup.cs?name=snippet1)]
 
 * `AddLocalization` Dodaje usługi lokalizacji do kontenera usług. Powyższy kod ustawia również ścieżkę zasobów "Zasoby".
 
@@ -218,9 +218,9 @@ Lokalizacja jest skonfigurowana w `ConfigureServices` metody:
 
 ### <a name="localization-middleware"></a>Oprogramowanie pośredniczące lokalizacji
 
-Bieżąca kultura na żądanie znajduje się w lokalizacji [oprogramowania pośredniczącego](xref:fundamentals/middleware/index). Oprogramowanie pośredniczące lokalizacji jest włączona w `Configure` metody. Oprogramowanie pośredniczące lokalizacja musi być skonfigurowana przed wszelkie oprogramowanie pośredniczące, które może również obejmować kontrolę kultury żądania (na przykład `app.UseMvcWithDefaultRoute()`).
+Bieżąca kultura na żądanie znajduje się w lokalizacji [oprogramowania pośredniczącego](xref:fundamentals/middleware/index). Oprogramowanie pośredniczące lokalizacji jest włączona w `Startup.Configure` metody. Oprogramowanie pośredniczące lokalizacja musi być skonfigurowana przed wszelkie oprogramowanie pośredniczące, które może również obejmować kontrolę kultury żądania (na przykład `app.UseMvcWithDefaultRoute()`).
 
-[!code-csharp[](localization/sample/Localization/Program.cs?name=snippet2)]
+[!code-csharp[](localization/sample/Localization/Startup.cs?name=snippet2)]
 
 `UseRequestLocalization` Inicjuje `RequestLocalizationOptions` obiektu. Na każde żądanie listy z `RequestCultureProvider` w `RequestLocalizationOptions` wyliczenia i pierwszym dostawcą, który pomyślnie można określić kulturę żądania jest używana. Pochodzą domyślnych dostawców `RequestLocalizationOptions` klasy:
 

@@ -5,12 +5,12 @@ description: Dowiedz się, jak składniki widoków są używane w programie ASP.
 ms.author: riande
 ms.date: 02/14/2017
 uid: mvc/views/view-components
-ms.openlocfilehash: cf2cfcdb07271503b844e31940e90b7376db0a6f
-ms.sourcegitcommit: 599ebae5c2d6fcb22dfa6ae7d1f4bdfcacb79af4
+ms.openlocfilehash: 49c8be655f151e219c8fa0854dbcf510d7bbd158
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47211068"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325591"
 ---
 # <a name="view-components-in-aspnet-core"></a>Składniki widoków w programie ASP.NET Core
 
@@ -75,20 +75,20 @@ Składnik widok definiuje swojej logiki w `InvokeAsync` metodę, która zwraca `
 
 Środowisko uruchomieniowe wyszukuje widoku w następujących ścieżkach:
 
-* /Pages/składniki/\<view_component_name > /\<view_name >
-* /Views/\<controller_name > /Components/\<view_component_name > /\<view_name >
-* / Widoków/Shared/Components/\<view_component_name > /\<view_name >
+* /Pages/składniki / {Nazwa widoku składnika} / {Nazwa widoku}
+* /Components/ /views/ {nazwa kontrolera} {Nazwa widoku składnika} / {Nazwa widoku}
+* / Widoków/Shared/Components / {View nazwa składnika} / {Nazwa widoku}
 
 Domyślna nazwa widoku składnika widoku to *domyślne*, co oznacza, że plik widoku zazwyczaj będzie miała nazwę *Default.cshtml*. Można określić nazwę innego widoku, tworząc wynik widoku składnika lub podczas wywoływania `View` metody.
 
-Firma Microsoft zaleca, nazwij plik widoku *Default.cshtml* i użyj *widoków/Shared/Components/\<view_component_name > /\<view_name >* ścieżki. `PriorityList` Składnik widoku używane w tym przykładzie używa *Views/Shared/Components/PriorityList/Default.cshtml* widoku składnika widoku.
+Firma Microsoft zaleca, nazwij plik widoku *Default.cshtml* i użyj *widoków/Shared/Components / {Nazwa widoku składnika} / {Nazwa widoku}* ścieżki. `PriorityList` Składnik widoku używane w tym przykładzie używa *Views/Shared/Components/PriorityList/Default.cshtml* widoku składnika widoku.
 
 ## <a name="invoking-a-view-component"></a>Wywoływanie składnika widoku
 
 Aby użyć widoku składnika, wywołaj następujące wewnątrz widoku:
 
 ```cshtml
-@Component.InvokeAsync("Name of view component", <anonymous type containing parameters>)
+@Component.InvokeAsync("Name of view component", {Anonymous Type Containing Parameters})
 ```
 
 Parametry, które zostaną przekazane do `InvokeAsync` metody. `PriorityList` Widoku składnika opracowanych w artykule jest wywoływany z *Views/Todo/Index.cshtml* plik widoku. Poniższa `InvokeAsync` metoda jest wywoływana z dwoma parametrami:

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/02/2018
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 33fae5d87029c8b3afdc321e0247555c1e479d07
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: afbd8fa9eedefe97fa993d63a1edc6d0cc4ab0c4
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912621"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325994"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Wstrzykiwanie zależności w programie ASP.NET Core
 
@@ -249,7 +249,7 @@ Konstruktory może akceptować argumenty, które nie są dostarczane przez wstrz
 
 Gdy usługi są rozwiązywane przez `IServiceProvider` lub `ActivatorUtilities`, wymaga iniekcji konstruktora *publicznych* konstruktora.
 
-Gdy usługi są rozwiązywane przez `ActivatorUtilities`, iniekcji konstruktora wymaga tego tylko jeden konstruktor dotyczy istnieje. Konstruktor przeciążenia są obsługiwane, ale może istnieć tylko jednego przeciążenia, której argumenty mogą wszystkie zostać spełnione przez wstrzykiwanie zależności.
+Gdy usługi są rozwiązywane przez `ActivatorUtilities`, iniekcji konstruktora wymaga, że tylko jeden konstruktor dotyczy istnieje. Konstruktor przeciążenia są obsługiwane, ale może istnieć tylko jednego przeciążenia, której argumenty mogą wszystkie zostać spełnione przez wstrzykiwanie zależności.
 
 ## <a name="entity-framework-contexts"></a>Entity Framework kontekstów
 
@@ -287,9 +287,9 @@ Interfejsy są implementowane w `Operation` klasy. `Operation` Konstruktor gener
 
 `OperationService` Jest zarejestrowany, zależy od wszystkich innych `Operation` typów. Gdy `OperationService` żądania za pomocą iniekcji zależności odbierze nowe wystąpienie klasy poszczególnych usług albo istniejącego wystąpienia oparte na okres istnienia usług zależnych.
 
-* Jeśli przejściowy usługi są tworzone, gdy żądanie, `OperationsId` z `IOperationTransient` usługi jest inny niż `OperationsId` z `OperationService`. `OperationService` odbiera nowe wystąpienie klasy `IOperationTransient` klasy. Nowe wystąpienie daje innym `OperationsId`.
-* Jeśli usługi o określonym zakresie są tworzone na żądanie, `OperationsId` z `IOperationScoped` usługi jest taka sama jak w przypadku `OperationService` w żądaniu. Żądań, obie usługi udostępniania innym `OperationsId` wartość.
-* Jeśli utworzono raz i stosować w przypadku wszystkich żądań i wszystkie usługi singleton i pojedyncze wystąpienie usługi `OperationsId` jest stały we wszystkich żądań obsługi.
+* Jeśli przejściowy usługi są tworzone, gdy żądanie, `OperationId` z `IOperationTransient` usługi jest inny niż `OperationId` z `OperationService`. `OperationService` odbiera nowe wystąpienie klasy `IOperationTransient` klasy. Nowe wystąpienie daje innym `OperationId`.
+* Jeśli usługi o określonym zakresie są tworzone na żądanie, `OperationId` z `IOperationScoped` usługi jest taka sama jak w przypadku `OperationService` w żądaniu. Żądań, obie usługi udostępniania innym `OperationId` wartość.
+* Jeśli utworzono raz i stosować w przypadku wszystkich żądań i wszystkie usługi singleton i pojedyncze wystąpienie usługi `OperationId` jest stały we wszystkich żądań obsługi.
 
 ::: moniker range=">= aspnetcore-2.1"
 

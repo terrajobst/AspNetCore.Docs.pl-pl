@@ -3,23 +3,24 @@ title: Pomocnicy tagów wbudowanych w platformy ASP.NET Core
 author: pkellner
 description: Dowiedz się, jak pomocnicy tagów wbudowanych w platformy ASP.NET Core zwiększyć produktywność.
 ms.author: riande
-ms.date: 09/18/2018
+ms.custom: mvc
+ms.date: 10/10/2018
 uid: mvc/views/tag-helpers/builtin-th/Index
-ms.openlocfilehash: 5d9425e0b68578c86a6f9a691322e0bb63a860fb
-ms.sourcegitcommit: c684eb6c0999d11d19e15e65939e5c7f99ba47df
+ms.openlocfilehash: 58840d6ecd09bd2ae7f96c046a0cb93c018f9645
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46292313"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325487"
 ---
 # <a name="aspnet-core-built-in-tag-helpers"></a>Pomocnicy tagów wbudowanych w platformy ASP.NET Core
 
 Przez [Peter Kellner](http://peterkellner.net)
 
-Platforma ASP.NET Core zawiera wiele wbudowanych pomocnicy tagów, aby zwiększyć produktywność. Ta sekcja zawiera omówienie wbudowanego pomocników tagów.
+Aby zapoznać się z omówieniem pomocnicy tagów, zobacz <xref:mvc/views/tag-helpers/intro>.
 
 > [!NOTE]
-> Istnieją wbudowane pomocnicy tagów, które nie są omówione, ponieważ są używane wewnętrznie przez [Razor](xref:mvc/views/razor) aparatu widoku. Obejmuje to pomocnika tagów dla ~ znak, który jest rozszerzany, aby ścieżka katalogu głównego witryny sieci Web.
+> Istnieją wbudowane pomocnicy tagów, które nie są opisane w dokumentacji. Pomocnicy tagów, te są używane wewnętrznie przez [Razor](xref:mvc/views/razor) aparatu widoku. Obejmuje to pomocnika tagów dla `~` litery (tylda), która rozszerza się, aby ścieżka katalogu głównego witryny sieci Web.
 
 ## <a name="built-in-aspnet-core-tag-helpers"></a>Pomocnicy tagów wbudowanych platformy ASP.NET Core
 

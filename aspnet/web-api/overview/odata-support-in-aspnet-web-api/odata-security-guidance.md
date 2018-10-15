@@ -8,12 +8,12 @@ ms.date: 02/06/2013
 ms.assetid: b91e6424-1544-4747-bd0b-d1f8418c9653
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-security-guidance
 msc.type: authoredcontent
-ms.openlocfilehash: 2a5b776a81cb3e3cf809dd3c4229448988086a32
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 4ba53e15dab83368097a58ba4d0d2e46d113d1d2
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41756897"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325721"
 ---
 <a name="security-guidance-for-aspnet-web-api-2-odata"></a>Wskazówki dotyczące zabezpieczeń dla wzorca ASP.NET Web API 2 OData
 ====================
@@ -59,7 +59,7 @@ Jeśli wiesz, że wszyscy klienci są zaufane (na przykład w środowisku przeds
 - Rozważ wyłączenie funkcji funkcja any() i all(), ponieważ mogą one być powolne. 
 
     [!code-csharp[Main](odata-security-guidance/samples/sample7.cs)]
-- Jeśli wszystkie właściwości parametrów zawierają dużych ciągów & #8212for przykład, opis produktu lub wpis w blogu & #8212consider wyłączenie funkcji ciągów. 
+- Jeśli wszystkie właściwości parametrów zawierają dużych ciągów&#8212;na przykład opis produktu lub wpis w blogu&#8212;Rozważ wyłączenie funkcji ciągów. 
 
     [!code-csharp[Main](odata-security-guidance/samples/sample8.cs)]
 - Należy wziąć pod uwagę, nie można przydzielać filtrowania według właściwości nawigacji. Filtrowanie według właściwości nawigacji może spowodować sprzężenie, która może być powolne, w zależności od schematu bazy danych. Poniższy kod przedstawia moduł weryfikacji zapytania, który uniemożliwia filtrowania według właściwości nawigacji. Aby uzyskać więcej informacji na temat modułów weryfikacji zapytań zobacz [sprawdzanie poprawności zapytań](supporting-odata-query-options.md#query-validation). 

@@ -5,12 +5,12 @@ description: Dowiedz się, jak ASP.NET Core MVC używa routingu oprogramowania p
 ms.author: riande
 ms.date: 09/17/2018
 uid: mvc/controllers/routing
-ms.openlocfilehash: d66c2f14adf55dd0c4a7c3adfad7e5737e4deda1
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: a5f2670ed8742b7ff67b0494d7bdb37d919349f4
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011656"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49326085"
 ---
 # <a name="routing-to-controller-actions-in-aspnet-core"></a>Routing do akcji kontrolera, w programie ASP.NET Core
 
@@ -383,7 +383,7 @@ Strony razor routingu i MVC kontroler routingu udziału wdrożenia. Informacje o
 
 ## <a name="token-replacement-in-route-templates-controller-action-area"></a>Token zastępczy w szablonach tras ([controller] [action] [obszaru])
 
-Dla wygody, obsługi tras atrybutów *token zastępczy* , umieszczając token w nawiasach kwadratowych (`[`, `]`). Tokeny `[action]`, `[area]`, i `[controller]` zostaną zastąpione wartościami nazwy akcji, nazwy obszaru i nazwy kontrolera, w ramach akcji, której trasa jest zdefiniowana. W tym przykładzie akcji może dopasować ścieżki adresu URL, zgodnie z opisem w komentarzach:
+Dla wygody, obsługi tras atrybutów *token zastępczy* , umieszczając token w nawiasach kwadratowych (`[`, `]`). Tokeny `[action]`, `[area]`, i `[controller]` są zastępowane wartościami nazwy akcji, nazwy obszaru i nazwy kontrolera, w ramach akcji, której trasa jest zdefiniowana. W poniższym przykładzie akcje odnosić się do ścieżki adresu URL zgodnie z opisem w komentarzach:
 
 [!code-csharp[](routing/sample/main/Controllers/ProductsController.cs?range=7-11,13-17,20-22)]
 
@@ -407,9 +407,56 @@ public class ProductsController : MyBaseController
 }
 ```
 
-Zastępowania tokenu dotyczy także nazwy tras zdefiniowanych przez atrybut trasy. `[Route("[controller]/[action]", Name="[controller]_[action]")]` wygeneruje nazwę trasy unikatowy dla każdej akcji.
+Zastępowania tokenu dotyczy także nazwy tras zdefiniowanych przez atrybut trasy. `[Route("[controller]/[action]", Name="[controller]_[action]")]` generuje trasy unikatową nazwę dla każdej akcji.
 
 Aby dopasować ogranicznik literału zastępowania tokenu `[` lub `]`, zmienić jego znaczenie, powtarzając znak (`[[` lub `]]`).
+
+::: moniker range=">= aspnetcore-2.2"
+
+<a name="routing-token-replacement-transformers-ref-label"></a>
+
+### <a name="use-a-parameter-transformer-to-customize-token-replacement"></a>Użyj transformatora parametru, aby dostosować zastępowania tokenu
+
+Używanie transformatora parametru można dostosować zastępowania tokenu. Transformer parametr implementuje `IOutboundParameterTransformer` i przekształca wartości parametrów. Na przykład niestandardowy `SlugifyParameterTransformer` zmiany transformatora parametrów `SubscriptionManagement` trasy wartość `subscription-management`.
+
+`RouteTokenTransformerConvention` Jest Konwencja modelu aplikacji który:
+
+* Transformer parametru dotyczy wszystkich tras atrybutów w aplikacji.
+* Dostosowuje wartości tokenu trasy atrybutu, ponieważ zostaną zastąpione.
+
+```csharp
+public class SubscriptionManagementController : Controller
+{
+    [HttpGet("[controller]/[action]")] // Matches '/subscription-management/list-all'
+    public IActionResult ListAll() { ... }
+}
+```
+
+`RouteTokenTransformerConvention` Jest zarejestrowany jako opcja w `ConfigureServices`.
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddMvc(options =>
+    {
+        options.Conventions.Add(new RouteTokenTransformerConvention(
+                                     new SlugifyParameterTransformer()));
+    });
+}
+
+public class SlugifyParameterTransformer : IOutboundParameterTransformer
+{
+    public string TransformOutbound(object value)
+    {
+        if (value == null) { return null; }
+
+        // Slugify value
+        return Regex.Replace(value.ToString(), "([a-z])([A-Z])", "$1-$2").ToLower();
+    }
+}
+```
+
+::: moniker-end
 
 <a name="routing-multiple-routes-ref-label"></a>
 

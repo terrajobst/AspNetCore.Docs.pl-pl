@@ -4,14 +4,14 @@ author: guardrex
 description: Dowiedz się, jak skonfigurować aplikację ASP.NET Core za pomocą interfejsu API konfiguracji.
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/13/2018
+ms.date: 10/09/2018
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 288f8ba5b45cdecd8c9eae060fee2c2c25dec7f9
-ms.sourcegitcommit: 4cd8dce371d63a66d780e4af1baab2bcf9d61b24
+ms.openlocfilehash: 35f283becd156da22a4d9d2034055ee79b75ffda
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43893249"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49326176"
 ---
 # <a name="configuration-in-aspnet-core"></a>Konfiguracja w programie ASP.NET Core
 
@@ -191,7 +191,8 @@ W poniższej tabeli przedstawiono dostępne dla aplikacji platformy ASP.NET Core
 
 Jest zwykle kolejność dostawców konfiguracji:
 
-1. Pliki (*appsettings.json*, *appsettings.&lt; Środowisko&gt;.json*, gdzie `<Environment>` jest bieżące środowisko hostingu aplikacji)
+1. Pliki (*appsettings.json*, *appsettings. { Środowisko} .json*, gdzie `{Environment}` jest bieżące środowisko hostingu aplikacji)
+1. [Usługa Azure Key Vault](xref:security/key-vault-configuration)
 1. [Wpisami tajnymi użytkowników (klucz tajny Menedżer)](xref:security/app-secrets) (w środowisku programistycznym tylko)
 1. Zmienne środowiskowe
 1. Argumenty wiersza polecenia
@@ -201,12 +202,6 @@ Jest to powszechną praktyką do ostatniej pozycji dostawcę konfiguracji wiersz
 ::: moniker range=">= aspnetcore-2.0"
 
 Ta sekwencja dostawcy są umieszczane w miejscu, podczas inicjowania nowego <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> z <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*>. Aby uzyskać więcej informacji, zobacz [hosta sieci Web: Konfigurowanie hosta](xref:fundamentals/host/web-host#set-up-a-host).
-
-Wywołaj <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> podczas tworzenia hosta sieci Web w celu określenia dostawcy konfiguracji aplikacji:
-
-[!code-csharp[](index/samples/2.x/ConfigurationSample/Program.cs?name=snippet_Program&highlight=19)]
-
-`ConfigureAppConfiguration` *jest dostępna w programie ASP.NET Core 2.1 lub nowszej.*
 
 ::: moniker-end
 
@@ -247,19 +242,29 @@ W powyższym przykładzie nazwa środowiska (`env.EnvironmentName`) i nazwę zes
 
 ::: moniker-end
 
+::: moniker range=">= aspnetcore-2.1"
+
+## <a name="configureappconfiguration"></a>ConfigureAppConfiguration
+
+Wywołaj <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> podczas tworzenia hosta sieci Web, aby określić aplikacji dostawcy konfiguracji oprócz tych dodawane automatycznie przez <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*>:
+
+[!code-csharp[](index/samples/2.x/ConfigurationSample/Program.cs?name=snippet_Program&highlight=19)]
+
+::: moniker-end
+
 ## <a name="command-line-configuration-provider"></a>Dostawca konfiguracji wiersza polecenia
 
 <xref:Microsoft.Extensions.Configuration.CommandLine.CommandLineConfigurationProvider> Ładuje konfiguracji z pary klucz wartość argumentu wiersza polecenia w czasie wykonywania.
 
-::: moniker range=">= aspnetcore-2.0"
+Aby aktywować wiersza polecenia konfiguracji, <xref:Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions.AddCommandLine*> metoda rozszerzająca zostanie wywołana w wystąpieniu <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>.
 
-Aby uaktywnić konfigurację wiersza polecenia, należy wywołać <xref:Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions.AddCommandLine*> metody rozszerzenia w wystąpieniu <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>.
+::: moniker range=">= aspnetcore-2.0"
 
 `AddCommandLine` jest wywoływana automatycznie podczas inicjowania nowego <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> z <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*>. Aby uzyskać więcej informacji, zobacz [hosta sieci Web: Konfigurowanie hosta](xref:fundamentals/host/web-host#set-up-a-host).
 
 `CreateDefaultBuilder` także obciążenia:
 
-* Konfiguracja opcjonalna z *appsettings.json* i *appsettings.&lt; Środowisko&gt;.json*.
+* Konfiguracja opcjonalna z *appsettings.json* i *appsettings. { Środowisko} .json*.
 * [Wpisami tajnymi użytkowników (klucz tajny Menedżer)](xref:security/app-secrets) (w środowisku programistycznym).
 * Zmienne środowiskowe.
 
@@ -267,7 +272,66 @@ Aby uaktywnić konfigurację wiersza polecenia, należy wywołać <xref:Microsof
 
 `CreateDefaultBuilder` działa, gdy host jest konstruowany. W związku z tym, wiersza polecenia konfiguracji aktywowany przez `CreateDefaultBuilder` mogą mieć wpływ na sposób host jest skonfigurowany.
 
-Podczas tworzenia hosta ręcznie i nie wywołuje metody `CreateDefaultBuilder`, wywołaj `AddCommandLine` metody rozszerzenia w wystąpieniu <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>:
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
+
+Wywołaj <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> podczas tworzenia hosta, aby określić konfigurację aplikacji.
+
+`AddCommandLine` zostały już wywołane `CreateDefaultBuilder`. Jeśli zachodzi potrzeba zapewniają konfigurację aplikacji i nadal będzie można przesłonić tę konfigurację za pomocą argumentów wiersza polecenia, należy wywołać dodatkowych dostawców aplikacji <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> i wywołać `AddCommandLine` ostatni.
+
+```csharp
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        CreateWebHostBuilder(args).Build().Run();
+    }
+
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+            .ConfigureAppConfiguration((hostingContext, config) =>
+            {
+                // Call other providers here and call AddCommandLine last.
+                config.AddCommandLine(args)
+            })
+            .UseStartup<Startup>();
+}
+```
+
+Podczas tworzenia <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> , dzwoniąc <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> z konfiguracją:
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
+Zastosuj konfigurację do <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> z <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> metody.
+
+`AddCommandLine` zostały już wywołane `CreateDefaultBuilder` podczas `UseConfiguration` jest wywoływana. Jeśli zachodzi potrzeba zapewniają konfigurację aplikacji i nadal będzie można przesłonić tę konfigurację za pomocą argumentów wiersza polecenia, należy wywołać dodatkowych dostawców aplikacji w `ConfigurationBuilder` i wywołać `AddCommandLine` ostatni.
+
+```csharp
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        CreateWebHostBuilder(args).Build().Run();
+    }
+
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args)
+    {
+        var config = new ConfigurationBuilder()
+            // Call other providers here and call AddCommandLine last.
+            .AddCommandLine(args)
+            .Build();
+
+        return WebHost.CreateDefaultBuilder(args)
+            .UseConfiguration(config)
+            .UseStartup<Startup>();
+    }
+}
+```
+
+Podczas tworzenia <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> , dzwoniąc <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> z konfiguracją:
 
 ::: moniker-end
 
@@ -283,6 +347,8 @@ Zastosuj konfigurację do <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> z <
 
 ```csharp
 var config = new ConfigurationBuilder()
+    // Call additional providers here as needed.
+    // Call AddCommandLine last to allow arguments to override other configuration.
     .AddCommandLine(args)
     .Build();
 
@@ -342,7 +408,41 @@ Przełącz mapowania słownika kluczowych reguł:
 * Przełączniki musi rozpoczynać się kreską (`-`) lub podwójne kreska (`--`).
 * Słownik mapowań przełącznik nie może zawierać zduplikowane klucze.
 
-::: moniker range=">= aspnetcore-2.0"
+::: moniker range=">= aspnetcore-2.1"
+
+Wywołaj <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> podczas tworzenia hosta, aby określić konfigurację aplikacji:
+
+```csharp
+public class Program
+{
+    public static readonly Dictionary<string, string> _switchMappings = 
+        new Dictionary<string, string>
+        {
+            { "-CLKey1", "CommandLineKey1" },
+            { "-CLKey2", "CommandLineKey2" }
+        };
+
+    public static void Main(string[] args)
+    {
+        CreateWebHostBuilder(args).Build().Run();
+    }
+
+    // Do not pass the args to CreateDefaultBuilder
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        WebHost.CreateDefaultBuilder()
+            .ConfigureAppConfiguration((hostingContext, config) =>
+            {
+                config.AddCommandLine(args, _switchMappings)
+            })
+            .UseStartup<Startup>();
+}
+```
+
+Jak pokazano w powyższym przykładzie wywołanie `CreateDefaultBuilder` nie należy przekazywać argumenty, gdy przełącznik mapowania są używane. `CreateDefaultBuilder` metody `AddCommandLine` wywołania nie zawiera zamapowanego przełączników, a nie istnieje sposób do przekazania słownik mapowania przełącznika `CreateDefaultBuilder`. Jeśli argumenty zamapowanego przełącznik dołączania i są przekazywane do `CreateDefaultBuilder`, jego `AddCommandLine` dostawcy nie uda się zainicjowanie z <xref:System.FormatException>. Rozwiązanie nie jest do przekazywania argumentów do `CreateDefaultBuilder` , ale zamiast tego umożliwiające `ConfigurationBuilder` metody `AddCommandLine` metody do przetwarzania argumentów i słownika mapowania przełącznika.
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
 
 ```csharp
 public class Program
@@ -364,6 +464,7 @@ public class Program
             .AddCommandLine(args, switchMappings)
             .Build();
 
+        // Do not pass the args to CreateDefaultBuilder
         return WebHost.CreateDefaultBuilder()
             .UseConfiguration(config)
             .UseStartup<Startup>();
@@ -371,7 +472,7 @@ public class Program
 }
 ```
 
-Jak pokazano w powyższym przykładzie wywołanie `CreateDefaultBuilder` nie należy przekazywać argumenty, gdy przełącznik mapowania są używane. `CreateDefaultBuilder` metody `AddCommandLine` wywołania nie zawiera zamapowanego przełączników, a nie istnieje sposób do przekazania słownik mapowania przełącznika `CreateDefaultBuilder`. Jeśli argumenty zamapowanego przełącznik dołączania i są przekazywane do `CreateDefaultBuilder`, jego `AddCommandLine` dostawcy nie uda się zainicjowanie z <xref:System.FormatException>. Rozwiązanie nie ma przekazywania argumentów do `CreateDefaultBuilder` , ale zamiast tego umożliwiające `ConfigurationBuilder` metody `AddCommandLine` metody do przetwarzania argumentów i słownika mapowania przełącznika.
+Jak pokazano w powyższym przykładzie wywołanie `CreateDefaultBuilder` nie należy przekazywać argumenty, gdy przełącznik mapowania są używane. `CreateDefaultBuilder` metody `AddCommandLine` wywołania nie zawiera zamapowanego przełączników, a nie istnieje sposób do przekazania słownik mapowania przełącznika `CreateDefaultBuilder`. Jeśli argumenty zamapowanego przełącznik dołączania i są przekazywane do `CreateDefaultBuilder`, jego `AddCommandLine` dostawcy nie uda się zainicjowanie z <xref:System.FormatException>. Rozwiązanie nie jest do przekazywania argumentów do `CreateDefaultBuilder` , ale zamiast tego umożliwiające `ConfigurationBuilder` metody `AddCommandLine` metody do przetwarzania argumentów i słownika mapowania przełącznika.
 
 ::: moniker-end
 
@@ -441,19 +542,82 @@ Podczas pracy z kluczami hierarchiczne w zmiennych środowiskowych, separator dw
 
 `CreateDefaultBuilder` także obciążenia:
 
-* Konfiguracja opcjonalna z *appsettings.json* i *appsettings.&lt; Środowisko&gt;.json*.
+* Konfiguracja opcjonalna z *appsettings.json* i *appsettings. { Środowisko} .json*.
 * [Wpisami tajnymi użytkowników (klucz tajny Menedżer)](xref:security/app-secrets) (w środowisku programistycznym).
 * Argumenty wiersza polecenia.
 
 Dostawca konfiguracji zmiennych środowiskowych jest wywoływana po konfiguracji zostanie nawiązane z wpisami tajnymi użytkowników i *appsettings* plików. W tym miejscu podczas wywoływania dostawcy umożliwia zmienne środowiskowe są odczytywane w czasie wykonywania do zastępowania konfiguracji ustawione przez użytkownika hasła i *appsettings* plików.
 
-Możesz również bezpośrednio wywołać `AddEnvironmentVariables` metody rozszerzenia w wystąpieniu <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>:
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
+
+Wywołaj <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> podczas tworzenia hosta, aby określić konfigurację aplikacji.
+
+`AddEnvironmentVariables` dla zmiennych środowiskowych prefiksem `ASPNETCORE_` została już wywołana `CreateDefaultBuilder`. Jeśli konieczne jest zapewnienie konfiguracji aplikacji z dodatkowe zmienne środowiskowe, wywołaj dodatkowych dostawców aplikacji w <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> i wywołać `AddEnvironmentVariables` z prefiksem.
+
+```csharp
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        CreateWebHostBuilder(args).Build().Run();
+    }
+
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+            .ConfigureAppConfiguration((hostingContext, config) =>
+            {
+                // Call additional providers here as needed.
+                // Call AddEnvironmentVariables last if you need to allow environment
+                // variables to override values from other providers.
+                config.AddEnvironmentVariables(prefix: "PREFIX_")
+            })
+            .UseStartup<Startup>();
+}
+```
+
+Podczas tworzenia <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> , dzwoniąc <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> z konfiguracją:
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
+Wywołaj `AddEnvironmentVariables` metody rozszerzenia w wystąpieniu <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>. Zastosuj konfigurację do <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> z <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> metody.
+
+`AddEnvironmentVariables` dla zmiennych środowiskowych prefiksem `ASPNETCORE_` została już wywołana `CreateDefaultBuilder`. Jeśli konieczne jest zapewnienie konfiguracji aplikacji z dodatkowe zmienne środowiskowe, wywołaj dodatkowych dostawców aplikacji w <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> i wywołać `AddEnvironmentVariables` z prefiksem.
+
+```csharp
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        CreateWebHostBuilder(args).Build().Run();
+    }
+
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args)
+    {
+        var config = new ConfigurationBuilder()
+            // Call additional providers here as needed.
+            // Call AddEnvironmentVariables last if you need to allow environment
+            // variables to override values from other providers.
+            .AddEnvironmentVariables(prefix: "PREFIX_")
+            .Build();
+
+        return WebHost.CreateDefaultBuilder(args)
+            .UseConfiguration(config)
+            .UseStartup<Startup>();
+    }
+}
+```
+
+Podczas tworzenia <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> , dzwoniąc <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> z konfiguracją:
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.0"
 
-Zastosuj konfigurację do <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> z `UseConfiguration` metody:
+Zastosuj konfigurację do <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> z <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> metody:
 
 ::: moniker-end
 
@@ -575,9 +739,36 @@ Przeciążenia zezwala na określenie:
 * Czy konfiguracji jest załadowany ponownie, jeśli zmieni się plik.
 * <xref:Microsoft.Extensions.FileProviders.IFileProvider> Używane do uzyskania dostępu do pliku.
 
-::: moniker range=">= aspnetcore-2.0"
+::: moniker range=">= aspnetcore-2.1"
 
-Podczas wywoływania `CreateDefaultBuilder`, wywołaj `UseConfiguration` z konfiguracją:
+Wywołaj <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> podczas tworzenia hosta, aby określić konfigurację aplikacji:
+
+```csharp
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        CreateWebHostBuilder(args).Build().Run();
+    }
+
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+            .ConfigureAppConfiguration((hostingContext, config) =>
+            {
+                config.SetBasePath(Directory.GetCurrentDirectory());
+                config.AddIniFile("config.ini", optional: true, reloadOnChange: true)
+            })
+            .UseStartup<Startup>();
+}
+```
+
+Podczas tworzenia <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> , dzwoniąc <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> z konfiguracją:
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
+Podczas wywoływania `CreateDefaultBuilder`, wywołaj <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> z konfiguracją:
 
 ```csharp
 public class Program
@@ -601,13 +792,13 @@ public class Program
 }
 ```
 
-Podczas tworzenia <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> , dzwoniąc `UseConfiguration` z konfiguracją:
+Podczas tworzenia <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> , dzwoniąc <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> z konfiguracją:
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.0"
 
-Zastosuj konfigurację do <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> z `UseConfiguration` metody:
+Zastosuj konfigurację do <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> z <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> metody:
 
 ::: moniker-end
 
@@ -665,7 +856,7 @@ Przeciążenia zezwala na określenie:
 `AddJsonFile` jest wywoływana automatycznie, dwa razy, podczas inicjowania nowego <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> z <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*>. Metoda jest wywoływana, aby załadować konfiguracji:
 
 * *appSettings.JSON* &ndash; ten plik jest najpierw do odczytu. Wersja środowiska pliku można zastąpić wartości dostarczone przez *appsettings.json* pliku.
-* *appSettings. &lt;Środowiska&gt;.json* &ndash; środowiska wersję pliku zostanie załadowany na podstawie [IHostingEnvironment.EnvironmentName](xref:Microsoft.Extensions.Hosting.IHostingEnvironment.EnvironmentName*).
+* *appSettings. {Środowiska} .json* &ndash; środowiska wersję pliku zostanie załadowany na podstawie [IHostingEnvironment.EnvironmentName](xref:Microsoft.Extensions.Hosting.IHostingEnvironment.EnvironmentName*).
 
 Aby uzyskać więcej informacji, zobacz [hosta sieci Web: Konfigurowanie hosta](xref:fundamentals/host/web-host#set-up-a-host).
 
@@ -677,9 +868,40 @@ Aby uzyskać więcej informacji, zobacz [hosta sieci Web: Konfigurowanie hosta](
 
 Dostawca konfiguracji JSON jest ustanawiane, najpierw. W związku z tym, wpisami tajnymi użytkowników, zmienne środowiskowe i argumenty wiersza polecenia zastępuje konfiguracji ustawione przez *appsettings* plików.
 
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
+
+Wywołaj <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> podczas tworzenia hosta, aby określić konfigurację aplikacji dla plików innych niż *appsettings.json* i *appsettings. { Środowisko} .json*:
+
+```csharp
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        CreateWebHostBuilder(args).Build().Run();
+    }
+
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+            .ConfigureAppConfiguration((hostingContext, config) =>
+            {
+                config.SetBasePath(Directory.GetCurrentDirectory());
+                config.AddJsonFile("config.json", optional: true, reloadOnChange: true)
+            })
+            .UseStartup<Startup>();
+}
+```
+
+Podczas tworzenia <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> , dzwoniąc <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> z konfiguracją:
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
 Możesz również bezpośrednio wywołać `AddJsonFile` metody rozszerzenia w wystąpieniu <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>.
 
-Podczas wywoływania `CreateDefaultBuilder`, wywołaj `UseConfiguration` z konfiguracją:
+Podczas wywoływania `CreateDefaultBuilder`, wywołaj <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> z konfiguracją:
 
 ```csharp
 public class Program
@@ -703,13 +925,13 @@ public class Program
 }
 ```
 
-Podczas tworzenia <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> , dzwoniąc `UseConfiguration` z konfiguracją:
+Podczas tworzenia <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> , dzwoniąc <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> z konfiguracją:
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.0"
 
-Zastosuj konfigurację do <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> z `UseConfiguration` metody:
+Zastosuj konfigurację do <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> z <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> metody:
 
 ::: moniker-end
 
@@ -729,13 +951,13 @@ var host = new WebHostBuilder()
 
 ::: moniker range=">= aspnetcore-2.0"
 
-2.x Przykładowa aplikacja korzysta z metody statyczne wygody `CreateDefaultBuilder` do hosta, który obejmuje dwa wywołania do tworzenia `AddJsonFile`. Konfiguracja została załadowana z *appsettings.json* i *appsettings.&lt; Środowisko&gt;.json*.
+2.x Przykładowa aplikacja korzysta z metody statyczne wygody `CreateDefaultBuilder` do hosta, który obejmuje dwa wywołania do tworzenia `AddJsonFile`. Konfiguracja została załadowana z *appsettings.json* i *appsettings. { Środowisko} .json*.
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.0"
 
-Wywołania aplikacji przykładowej 1.x `AddJsonFile` dwa razy na `ConfigurationBuilder`. Konfiguracja została załadowana z *appsettings.json* i *appsettings.&lt; Środowisko&gt;.json*.
+Wywołania aplikacji przykładowej 1.x `AddJsonFile` dwa razy na `ConfigurationBuilder`. Konfiguracja została załadowana z *appsettings.json* i *appsettings. { Środowisko} .json*.
 
 ::: moniker-end
 
@@ -763,9 +985,36 @@ Przeciążenia zezwala na określenie:
 
 Węzeł główny plik konfiguracji jest ignorowany podczas tworzenia pary klucz wartość konfiguracji. Określać definicji typu dokumentu (DTD) lub przestrzeni nazw w pliku.
 
-::: moniker range=">= aspnetcore-2.0"
+::: moniker range=">= aspnetcore-2.1"
 
-Podczas wywoływania `CreateDefaultBuilder`, wywołaj `UseConfiguration` z konfiguracją:
+Wywołaj <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> podczas tworzenia hosta, aby określić konfigurację aplikacji:
+
+```csharp
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        CreateWebHostBuilder(args).Build().Run();
+    }
+
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+            .ConfigureAppConfiguration((hostingContext, config) =>
+            {
+                config.SetBasePath(Directory.GetCurrentDirectory());
+                config.AddXmlFile("config.xml", optional: true, reloadOnChange: true)
+            })
+            .UseStartup<Startup>();
+}
+```
+
+Podczas tworzenia <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> , dzwoniąc <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> z konfiguracją:
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
+Podczas wywoływania `CreateDefaultBuilder`, wywołaj <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> z konfiguracją:
 
 ```csharp
 public class Program
@@ -789,13 +1038,13 @@ public class Program
 }
 ```
 
-Podczas tworzenia <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> , dzwoniąc `UseConfiguration` z konfiguracją:
+Podczas tworzenia <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> , dzwoniąc <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> z konfiguracją:
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.0"
 
-Zastosuj konfigurację do <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> z `UseConfiguration` metody:
+Zastosuj konfigurację do <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> z <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> metody:
 
 ::: moniker-end
 
@@ -887,7 +1136,7 @@ Przeciążenia zezwala na określenie:
 * `Action<KeyPerFileConfigurationSource>` Delegat, który konfiguruje źródło.
 * Czy katalog jest opcjonalna i ścieżkę do katalogu.
 
-Podczas wywoływania `CreateDefaultBuilder`, wywołaj `UseConfiguration` z konfiguracją:
+Wywołaj <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> podczas tworzenia hosta, aby określić konfigurację aplikacji:
 
 ```csharp
 public class Program
@@ -897,21 +1146,18 @@ public class Program
         CreateWebHostBuilder(args).Build().Run();
     }
 
-    public static IWebHostBuilder CreateWebHostBuilder(string[] args)
-    {
-        var path = Path.Combine(Directory.GetCurrentDirectory(), "path/to/files");
-        var config = new ConfigurationBuilder()
-            .AddKeyPerFile(directoryPath: path, optional: true)
-            .Build();
-
-        return WebHost.CreateDefaultBuilder(args)
-            .UseConfiguration(config)
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+            .ConfigureAppConfiguration((hostingContext, config) =>
+            {
+                config.SetBasePath(Directory.GetCurrentDirectory());
+                config.AddKeyPerFile(directoryPath: path, optional: true)
+            })
             .UseStartup<Startup>();
-    }
 }
 ```
 
-Podczas tworzenia <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> , dzwoniąc `UseConfiguration` z konfiguracją:
+Podczas tworzenia <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> , dzwoniąc <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> z konfiguracją:
 
 ```csharp
 var path = Path.Combine(Directory.GetCurrentDirectory(), "path/to/files");
@@ -935,9 +1181,42 @@ Aby aktywować konfiguracji kolekcji w pamięci, należy wywołać <xref:Microso
 
 Dostawca konfiguracji mogą być zainicjowane z `IEnumerable<KeyValuePair<String,String>>`.
 
-::: moniker range=">= aspnetcore-2.0"
+::: moniker range=">= aspnetcore-2.1"
 
-Podczas wywoływania `CreateDefaultBuilder`, wywołaj `UseConfiguration` z konfiguracją:
+Wywołaj <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> podczas tworzenia hosta, aby określić konfigurację aplikacji:
+
+```csharp
+public class Program
+{
+    public static readonly Dictionary<string, string> _dict = 
+        new Dictionary<string, string>
+        {
+            {"MemoryCollectionKey1", "value1"},
+            {"MemoryCollectionKey2", "value2"}
+        };
+
+    public static void Main(string[] args)
+    {
+        CreateWebHostBuilder(args).Build().Run();
+    }
+
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+            .ConfigureAppConfiguration((hostingContext, config) =>
+            {
+                config.AddInMemoryCollection(_dict)
+            })
+            .UseStartup<Startup>();
+}
+```
+
+Podczas tworzenia <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> , dzwoniąc <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> z konfiguracją:
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
+Podczas wywoływania `CreateDefaultBuilder`, wywołaj <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> z konfiguracją:
 
 ```csharp
 public class Program
@@ -966,13 +1245,13 @@ public class Program
 }
 ```
 
-Podczas tworzenia <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> , dzwoniąc `UseConfiguration` z konfiguracją:
+Podczas tworzenia <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> , dzwoniąc <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> z konfiguracją:
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.0"
 
-Zastosuj konfigurację do <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> z `UseConfiguration` metody:
+Zastosuj konfigurację do <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> z <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> metody:
 
 ::: moniker-end
 
@@ -1317,7 +1596,7 @@ Brak elementu konfiguracji dla indeksu &num;3 mogą być dostarczane przed powi�
 
 ::: moniker range=">= aspnetcore-2.0"
 
-W `ConfigureAppConfiguration`:
+W <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*>:
 
 ```csharp
 config.AddJsonFile("missing_value.json", optional: false, reloadOnChange: false);

@@ -5,12 +5,12 @@ description: W tym samouczku należy dodać większą liczbę jednostek i relacj
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 88d727b0545f1dacb56ea889e45b02f947867b19
-ms.sourcegitcommit: 6425baa92cec4537368705f8d27f3d0e958e43cd
+ms.openlocfilehash: 4f35dd81c34a9123c20bb4925def93f69f0aaa13
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39220602"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49326098"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>Strony razor z programem EF Core w programie ASP.NET Core — Model danych — 5 8
 
@@ -432,7 +432,7 @@ public Student Student { get; set; }
 
 Istnieje relacja wiele do wielu między `Student` i `Course` jednostek. `Enrollment` Jednostki działa jako tabelę sprzężenia wiele do wielu *z ładunkiem* w bazie danych. "Z ładunkiem" oznacza, że `Enrollment` tabela zawiera dane dodatkowe, oprócz FKs dla połączonych tabel (w tym przypadku PK i `Grade`).
 
-Poniższa ilustracja przedstawia, jak wyglądają te relacje w diagramie jednostki. (Ten diagram został wygenerowany przy użyciu programu EF Power Tools dla platformy EF 6.x. Tworzenie diagramów nie jest część samouczka).
+Poniższa ilustracja przedstawia, jak wyglądają te relacje w diagramie jednostki. (Ten diagram został wygenerowany za pomocą [EF Power Tools](https://marketplace.visualstudio.com/items?itemName=ErikEJ.EntityFramework6PowerToolsCommunityEdition) na platformie EF 6.x. Tworzenie diagramów nie jest część samouczka).
 
 ![Kurs dla uczniów wiele do wielu relacji](complex-data-model/_static/student-course.png)
 

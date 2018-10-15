@@ -6,18 +6,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/18/2018
 uid: fundamentals/static-files
-ms.openlocfilehash: 52c7916b9fc55c875d56acd49c01f76dd2053817
-ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
+ms.openlocfilehash: 63ebc5ce5094053eca08a9212b3b4c074c4bed64
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47861008"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325981"
 ---
 # <a name="static-files-in-aspnet-core"></a>Pliki statyczne z platformy ASP.NET Core
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT) i [Scott Addie](https://twitter.com/Scott_Addie)
 
-Pliki statyczne, takich jak HTML, CSS, obrazów i JavaScript, to zasoby, których aplikacji ASP.NET Core służy bezpośrednio do klientów. Niektóre konfiguracja jest wymagana do włączenia do obsługi tych plików.
+Pliki statyczne, takich jak HTML, CSS, obrazów i JavaScript, to zasoby, których aplikacji ASP.NET Core służy bezpośrednio do klientów. Niektóre konfiguracja jest wymagana do włączenia obsługi tych plików.
 
 [Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/static-files/samples) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
 

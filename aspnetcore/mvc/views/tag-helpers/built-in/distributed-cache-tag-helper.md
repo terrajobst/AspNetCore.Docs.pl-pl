@@ -3,44 +3,54 @@ title: Pomocnik tagu pamięci podręcznej w programie ASP.NET Core rozproszonych
 author: pkellner
 description: Dowiedz się, jak używać Pomocnik tagu rozproszonej pamięci podręcznej.
 ms.author: riande
-ms.date: 02/14/2017
+ms.custom: mvc
+ms.date: 10/10/2018
 uid: mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper
-ms.openlocfilehash: 1b51164a6d3dab2eeaf64262d6f0d9961bd00d12
-ms.sourcegitcommit: 4d5f8680d68b39c411b46c73f7014f8aa0f12026
+ms.openlocfilehash: a5b33451a763c297c6d7885855a321c43435abb4
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47028095"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325214"
 ---
 # <a name="distributed-cache-tag-helper-in-aspnet-core"></a>Pomocnik tagu pamięci podręcznej w programie ASP.NET Core rozproszonych
 
-Przez [Peter Kellner](http://peterkellner.net) 
+Przez [Peter Kellner](http://peterkellner.net) i [Luke Latham](https://github.com/guardrex)
 
 Pomocnik tagu usługi rozproszonej pamięci podręcznej umożliwia znacznie zwiększyć wydajność aplikacji platformy ASP.NET Core, buforując zawartość ze źródłem rozproszonej pamięci podręcznej.
 
-Pomocnik tagu rozproszonej pamięci podręcznej dziedziczy z klasy bazowej tego samego jako Pomocnik tagu pamięci podręcznej. Wszystkie atrybuty skojarzone z Pomocnik tagu pamięci podręcznej będą również działać w Pomocnik tagu rozproszonej.
+Aby zapoznać się z omówieniem pomocnicy tagów, zobacz <xref:mvc/views/tag-helpers/intro>.
 
-Pomocnik tagu rozproszonej pamięci podręcznej następuje **jawne zależności zasady** znane jako **iniekcji konstruktora**. W szczególności `IDistributedCache` interfejs kontenera jest przekazywany do konstruktora rozproszonych Pomocnik tagu pamięci podręcznej w. Jeśli nie określonej implementacji konkretnego `IDistributedCache` został utworzony w `ConfigureServices`, zwykle znajduje się w pliku startup.cs, a następnie Pomocnik tagu rozproszonej pamięci podręcznej będzie używać tego samego dostawcy w pamięci do przechowywania danych w pamięci podręcznej jako podstawowego Pomocnik tagu pamięci podręcznej.
+Pomocnik tagu rozproszonej pamięci podręcznej dziedziczy z klasy bazowej tego samego jako Pomocnik tagu pamięci podręcznej. Wszystkie [Pomocnik tagu pamięci podręcznej](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper) atrybuty są dostępne dla Pomocnik tagu rozproszonej.
+
+Pomocnik tagu rozproszonej pamięci podręcznej używa [iniekcji konstruktora](xref:fundamentals/dependency-injection#constructor-injection-behavior). <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> Interfejsu jest przekazywana do konstruktora rozproszonych Pomocnik tagu pamięci podręcznej firmy. Jeśli nie konkretną implementację `IDistributedCache` jest tworzony w `Startup.ConfigureServices` (*Startup.cs*), Pomocnik tagu rozproszonej pamięci podręcznej przy użyciu tego samego dostawcy w pamięci dane w pamięci podręcznej jako [Pomocnik tagu pamięci podręcznej](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper).
 
 ## <a name="distributed-cache-tag-helper-attributes"></a>Rozproszone atrybutów Pomocnik tagu pamięci podręcznej
 
-- - -
+### <a name="attributes-shared-with-the-cache-tag-helper"></a>Atrybuty udostępnione Pomocnik tagu pamięci podręcznej
 
-### <a name="enabled-expires-on-expires-after-expires-sliding-vary-by-header-vary-by-query-vary-by-route-vary-by-cookie-vary-by-user-vary-by-priority"></a>włączone, wygasa w wygasa po wygaśnięciu przedłużanie różnią się w nagłówku różnią się przez zapytanie różnią się przez trasy różnią się przez cookie różnią się przez użytkownika różnią się według priorytetu
+* `enabled`
+* `expires-on`
+* `expires-after`
+* `expires-sliding`
+* `vary-by-header`
+* `vary-by-query`
+* `vary-by-route`
+* `vary-by-cookie`
+* `vary-by-user`
+* `vary-by priority`
 
-Pomocnik tagu pamięci podręcznej znajdują się definicje. Pomocnik tagu usługi rozproszonej pamięci podręcznej dziedziczy taka sama klasa co Pomocnik tagu pamięci podręcznej, dlatego te atrybuty są wspólne w Pomocnik tagu pamięci podręcznej.
+Pomocnik tagu rozproszonej pamięci podręcznej dziedziczy taka sama klasa co Pomocnik tagu pamięci podręcznej. Aby uzyskać opis tych atrybutów, zobacz [Pomocnik tagu pamięci podręcznej](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper).
 
-- - -
+### <a name="name"></a>nazwa
 
-### <a name="name-required"></a>(wymagane)
+| Typ atrybutu | Przykład                               |
+| -------------- | ------------------------------------- |
+| String         | `my-distributed-cache-unique-key-101` |
 
-| Typ atrybutu    | Przykładowa wartość     |
-|----------------   |----------------   |
-| string    | "my-distributed-cache-unique-key-101"     |
+`name` jest wymagany. `name` Atrybut jest używany jako klucz dla każdego wystąpienia przechowywanych w pamięci podręcznej. Inaczej niż w przypadku Pomocnik tagu pamięci podręcznej przypisuje klucz pamięci podręcznej do każdego wystąpienia, na podstawie nazwy strony Razor i lokalizację w stronę Razor, Pomocnik tagu rozproszonej pamięci podręcznej tylko określa jego klucza na na podstawie atrybutu `name`.
 
-Wymagane `name` atrybut jest używany jako klucz tej pamięci podręcznej przechowywanych dla każdego wystąpienia Pomocnik tagu rozproszonej pamięci podręcznej. W odróżnieniu od podstawowych Pomocnik tagu pamięci podręcznej przypisującej klucza do każdego wystąpienia Pomocnik tagu pamięci podręcznej na podstawie nazwy strony Razor i lokalizacja Pomocnik tagu na stronie razor Pomocnik tagu rozproszonej pamięci podręcznej tylko określa jego klucza na na podstawie atrybutu `name`
-
-Przykład użycia:
+Przykład:
 
 ```cshtml
 <distributed-cache name="my-distributed-cache-unique-key-101">
@@ -50,7 +60,7 @@ Przykład użycia:
 
 ## <a name="distributed-cache-tag-helper-idistributedcache-implementations"></a>Rozproszone implementacje IDistributedCache Pomocnik tagu pamięci podręcznej
 
-Istnieją dwie implementacje `IDistributedCache` wbudowanych w platformy ASP.NET Core. Jeden opiera się na serwerze SQL Server, a drugi jest oparta na pamięci podręcznej Redis. Szczegóły tych implementacji znajduje się w temacie <xref:performance/caching/distributed>. Obu implementacjach obejmują ustawienia wystąpienie `IDistributedCache` w programie ASP.NET Core *Startup.cs*.
+Istnieją dwie implementacje <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> wbudowanych w platformy ASP.NET Core. Jeden opiera się na serwerze SQL Server, a drugi jest oparta na pamięci podręcznej Redis. Szczegóły tych implementacji znajduje się w temacie <xref:performance/caching/distributed>. Obu implementacjach obejmują ustawienia wystąpienie `IDistributedCache` w `Startup`.
 
 Istnieją żadne atrybuty znacznika, w szczególności związanych z użyciem określonych implementacji `IDistributedCache`.
 

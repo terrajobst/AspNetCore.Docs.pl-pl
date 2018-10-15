@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/29/2018
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: c0bacc72cd02a5ebf993ca8ba5db2c7fe4325a29
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 315261c4d20970fc399cc2a879dd452bdf3be93f
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913193"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49326059"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Wdrażanie aplikacji platformy ASP.NET Core w usłudze Azure App Service
 
@@ -58,6 +58,8 @@ Jeśli przeznaczonych dla platformy .NET Core i odwoływanie się do [pakiet met
 ## <a name="override-app-configuration-using-the-azure-portal"></a>Zastąpienie konfiguracji aplikacji przy użyciu witryny Azure Portal
 
 **Ustawienia aplikacji** obszaru **ustawienia aplikacji** bloku pozwala na Ustawianie zmiennych środowiskowych dla aplikacji. Zmienne środowiskowe mogą być używane przez [dostawcę konfiguracji zmiennych środowiskowych](xref:fundamentals/configuration/index#environment-variables-configuration-provider).
+
+Po utworzeniu lub zmodyfikowaniu w witrynie Azure Portal ustawienia aplikacji i **Zapisz** przycisk jest zaznaczony, ponownym uruchomieniu aplikacji platformy Azure. Zmienna środowiskowa jest dostępne dla aplikacji, po ponownym uruchomieniu usługi.
 
 Jeśli aplikacja używa [hosta sieci Web](xref:fundamentals/host/web-host) i kompilacje hosta, za pomocą [WebHost.CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder), użyj zmiennych środowiskowych, które skonfigurować hosta `ASPNETCORE_` prefiks. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/host/web-host> i [dostawcę konfiguracji zmiennych środowiskowych](xref:fundamentals/configuration/index#environment-variables-configuration-provider).
 
@@ -111,7 +113,7 @@ Użyj jednej z następujących metod:
 
 Jeśli wystąpi problem, za pomocą rozszerzenia witryny (wersja zapoznawcza), otwórz problem w [GitHub](https://github.com/aspnet/azureintegration/issues/new).
 
-1. W witrynie Azure portal przejdź do bloku usługi App Service.
+1. W witrynie Azure Portal przejdź do bloku usługi App Service.
 1. Wybierz aplikację sieci web.
 1. Typ "ex" w polu wyszukiwania lub przewiń w dół na liście zarządzania sekcji, aby **narzędzia PROGRAMISTYCZNE**.
 1. Wybierz **narzędzia PROGRAMISTYCZNE** > **rozszerzenia**.

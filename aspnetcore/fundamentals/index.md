@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/20/2018
 uid: fundamentals/index
-ms.openlocfilehash: 68760f179c4d6e806510b727e2284f8c2c4a4ff6
-ms.sourcegitcommit: d27317c16f113e7c111583042ec7e4c5a26adf6f
+ms.openlocfilehash: 83dfb5707700da01c45bae3c0c00e67ca397d402
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41753997"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325474"
 ---
 # <a name="aspnet-core-fundamentals"></a>Podstawy platformy ASP.NET Core
 
@@ -119,7 +119,7 @@ Aby uzyskać więcej informacji, zobacz <xref:fundamentals/host/index>.
 
 ## <a name="servers"></a>Serwery
 
-Model hostingu w programie ASP.NET Core bezpośrednio nie nasłuchuje żądań. Model hostingu opiera się na implementację serwera HTTP do przekazywania żądań do aplikacji. Przekazane żądanie opakowaniu jako zbiór obiektów funkcji, które mogą być udostępniane za pośrednictwem interfejsów. Platforma ASP.NET Core obejmuje serwera zarządzanego dla wielu platform sieci web, nazywanego [Kestrel](xref:fundamentals/servers/kestrel). Kestrel jest często uruchamiane za produkcyjnym serwerze sieci web, takich jak [IIS](https://www.iis.net/) lub [Nginx](http://nginx.org) w konfiguracji zwrotnego serwera proxy. Można również uruchomić kestrel jako serwer graniczny bezpośrednie połączenie z Internetem, ASP.NET Core w wersji 2.0 lub nowszej.
+Model hostingu w programie ASP.NET Core bezpośrednio nie nasłuchuje żądań. Model hostingu opiera się na implementację serwera HTTP do przekazywania żądań do aplikacji. Przekazane żądanie opakowaniu jako zbiór obiektów funkcji, które mogą być udostępniane za pośrednictwem interfejsów. Platforma ASP.NET Core obejmuje serwera zarządzanego dla wielu platform sieci web, nazywanego [Kestrel](xref:fundamentals/servers/kestrel). Kestrel jest często uruchamiane za produkcyjnym serwerze sieci web, takich jak [IIS](https://www.iis.net/) lub [Nginx](http://nginx.org) w konfiguracji zwrotnego serwera proxy. Można również uruchomić kestrel jako serwer graniczny publicznymi, bezpośrednie połączenie z Internetem, ASP.NET Core w wersji 2.0 lub nowszej.
 
 Aby uzyskać więcej informacji, zobacz <xref:fundamentals/servers/index>.
 

@@ -3,14 +3,14 @@ title: Filtry w programie ASP.NET Core
 author: ardalis
 description: Dowiedz się, jak działa filtr i sposobu ich używania w programie ASP.NET Core MVC.
 ms.author: riande
-ms.date: 08/15/2018
+ms.date: 10/15/2018
 uid: mvc/controllers/filters
-ms.openlocfilehash: e20d934a17337d404249220d703ac4bb7164dfa6
-ms.sourcegitcommit: 9bdba90b2c97a4016188434657194b2d7027d6e3
+ms.openlocfilehash: 8b3291474883f2cad35283c6104327e03fcc3fec
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47402162"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49326033"
 ---
 # <a name="filters-in-aspnet-core"></a>Filtry w programie ASP.NET Core
 
@@ -204,13 +204,15 @@ Jeśli filtry mają zależności, które wymagają dostępu z DI, jest kilka met
 
 ### <a name="servicefilterattribute"></a>ServiceFilterAttribute
 
-A `ServiceFilter` pobiera wystąpienia filtru z DI. Dodaj filtr do kontenera w `ConfigureServices`i odwoływać się do niego w `ServiceFilter` atrybutu
+Typy wdrożenia filtrów usługi są zarejestrowane w usłudze DI. A `ServiceFilterAttribute` pobiera wystąpienia filtru z DI. Dodaj `ServiceFilterAttribute` do kontenera w `Startup.ConfigureServices`i odwoływać się do niego w `[ServiceFilter]` atrybutu:
 
 [!code-csharp[](./filters/sample/src/FiltersSample/Startup.cs?name=snippet_ConfigureServices&highlight=11)]
 
 [!code-csharp[](../../mvc/controllers/filters/sample/src/FiltersSample/Controllers/HomeController.cs?name=snippet_ServiceFilter&highlight=1)]
 
-Za pomocą `ServiceFilter` bez rejestrowania wyników filtrowania typ wyjątku:
+Korzystając z `ServiceFilterAttribute`, ustawiając `IsReusable` jest to wskazówka, wystąpienie filtru *może* być ponownie używane poza zakres żądania został utworzony w ciągu. Struktura zapewnia żadnej gwarancji, że pojedyncze wystąpienie filtru, który zostanie utworzony lub filtr nie nastąpi ponowne żądanie z kontenera DI w pewnym momencie później. Unikaj używania `IsReusable` przy użyciu filtru, który jest zależna od usługi z okresem istnienia innego niż pojedyncze.
+
+Za pomocą `ServiceFilterAttribute` bez rejestrowania wyników filtrowania typ wyjątku:
 
 ```
 System.InvalidOperationException: No service for type
@@ -226,7 +228,9 @@ System.InvalidOperationException: No service for type
 Z powodu tej różnicy:
 
 * Typy, które są wywoływane przy użyciu `TypeFilterAttribute` trzeba najpierw zarejestrowane z kontenerem.  Mają zależności są spełnione przez kontener. 
-* `TypeFilterAttribute` Opcjonalnie można zaakceptować argumentów konstruktora dla typu. 
+* `TypeFilterAttribute` Opcjonalnie można zaakceptować argumentów konstruktora dla typu.
+
+Korzystając z `TypeFilterAttribute`, ustawiając `IsReusable` jest to wskazówka, wystąpienie filtru *może* być ponownie używane poza zakres żądania został utworzony w ciągu. Struktura zapewnia żadnej gwarancji, które zostaną utworzone pojedyncze wystąpienie filtru. Unikaj używania `IsReusable` przy użyciu filtru, który jest zależna od usługi z okresem istnienia innego niż pojedyncze.
 
 W poniższym przykładzie pokazano sposób przekazywania argumentów do typu przy użyciu `TypeFilterAttribute`:
 

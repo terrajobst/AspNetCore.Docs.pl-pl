@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/21/2018
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 46bcb7822e93862d49923c813140ef453b5e27e5
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 12075f68dd828680f6bfbd46ea22ebd7bbe52dc7
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913297"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49326020"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host platformy ASP.NET Core na Windows za pomocą programu IIS
 
@@ -40,7 +40,7 @@ Aby uzyskać informacji na temat obsługi na platformie Azure, zobacz <xref:host
   * Protokół TLS 1.2 lub nowszej połączenia
 * Spoza procesu
   * Windows Server 2016 i Windows 10 lub nowszym; Usługi IIS 10 lub nowszym
-  * Krawędź połączenia używają protokołu HTTP/2, ale połączenie zwrotny serwer proxy [serwera Kestrel](xref:fundamentals/servers/kestrel) korzysta z protokołu HTTP/1.1.
+  * Połączenia z serwerem usługi edge publicznego służy połączenia zwrotnego serwera proxy protokołu HTTP/2 [serwera Kestrel](xref:fundamentals/servers/kestrel) korzysta z protokołu HTTP/1.1.
   * Platforma docelowa: nie dotyczy wdrożeń spoza procesu, ponieważ połączenie HTTP/2 jest obsługiwane wyłącznie przez usługi IIS.
   * Protokół TLS 1.2 lub nowszej połączenia
 
@@ -55,7 +55,7 @@ Aby uzyskać więcej informacji o modelach hostingu w procesie i poza procesem, 
 [Protokołu HTTP/2](https://httpwg.org/specs/rfc7540.html) jest obsługiwana w przypadku wdrożeń poza procesem, które spełniają następujące wymagania podstawowy:
 
 * Windows Server 2016 i Windows 10 lub nowszym; Usługi IIS 10 lub nowszym
-* Krawędź połączenia używają protokołu HTTP/2, ale połączenie zwrotny serwer proxy [serwera Kestrel](xref:fundamentals/servers/kestrel) korzysta z protokołu HTTP/1.1.
+* Połączenia z serwerem usługi edge publicznego służy połączenia zwrotnego serwera proxy protokołu HTTP/2 [serwera Kestrel](xref:fundamentals/servers/kestrel) korzysta z protokołu HTTP/1.1.
 * Platforma docelowa: nie dotyczy wdrożeń spoza procesu, ponieważ połączenie HTTP/2 jest obsługiwane wyłącznie przez usługi IIS.
 * Protokół TLS 1.2 lub nowszej połączenia
 

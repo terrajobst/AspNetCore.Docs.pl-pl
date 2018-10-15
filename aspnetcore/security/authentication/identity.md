@@ -5,12 +5,12 @@ description: Tożsamość za pomocą aplikacji ASP.NET Core. Dowiedz się, jak u
 ms.author: riande
 ms.date: 08/08/2018
 uid: security/authentication/identity
-ms.openlocfilehash: d427932bb175c09105534379be4d71760f4e04e5
-ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
+ms.openlocfilehash: e0494afd807080f4cd71127abce7bdb93f952dca
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47860956"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325513"
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>Wprowadzenie do tożsamości programu ASP.NET Core
 
@@ -160,7 +160,7 @@ PowerShell używa średnika jako separatora polecenia. Przy użyciu programu Pow
 Zostanie wyświetlony formularz logowania po:
 
 * **Zaloguj** łącze jest zaznaczone.
-* Gdy użytkownik uzyskuje dostęp do strony, gdzie one nie są uwierzytelniane **lub** autoryzacji nastąpi przekierowanie do strony logowania.
+* Użytkownik próbuje uzyskać dostęp ograniczony strona, która nie wolno im dostępu **lub** gdy jeszcze nie został uwierzytelniony przez system.
 
 Po przesłaniu formularza na stronie logowania `OnPostAsync` nosi nazwę akcji. `PasswordSignInAsync` jest wywoływana w `_signInManager` obiektu (udostępnione przez wstrzykiwanie zależności).
 

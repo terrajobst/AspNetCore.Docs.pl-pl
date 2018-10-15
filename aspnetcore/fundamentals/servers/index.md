@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 09/21/2018
 uid: fundamentals/servers/index
-ms.openlocfilehash: f9a6f1ee1d080732f6a379f5be791c9e225ae0a5
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 161ab3fdf48e58d8c9af991dc5531e46d9c5adff
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48911945"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325864"
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>Implementacje serwera sieci Web w programie ASP.NET Core
 
@@ -62,7 +62,7 @@ Jeśli aplikacja jest połączenie z Internetem, Kestrel należy użyć usług I
 
 ![Kestrel komunikuje się bezpośrednio z Internetem za pośrednictwem serwera zwrotny serwer proxy, na przykład serwer Nginx, Apache lub IIS](kestrel/_static/kestrel-to-internet.png)
 
-Najważniejszą przyczyną za używanie zwrotnego serwera proxy na potrzeby wdrożeń usługi edge (ujawniony na ruch z Internetu) to zabezpieczeń. Wersji 1.x Kestrel nie mają ważne funkcje zabezpieczeń do ochrony przed atakami z sieci Internet. Obejmuje, ale nie jest ograniczona do odpowiednie limity czasu, limity rozmiaru żądania i limity liczby jednoczesnych połączeń.
+Najważniejszą przyczyną za używanie zwrotnego serwera proxy na potrzeby publicznego krawędzi serwera wdrożenia, które są udostępniane bezpośrednio przez Internet jest zabezpieczeń. Wersji 1.x Kestrel nie mają ważne funkcje zabezpieczeń do ochrony przed atakami z sieci Internet. Obejmuje, ale nie jest ograniczona do odpowiednie limity czasu, limity rozmiaru żądania i limity liczby jednoczesnych połączeń.
 
 Aby uzyskać więcej informacji, zobacz [kiedy należy używać Kestrel przy użyciu zwrotnego serwera proxy](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy).
 
@@ -156,7 +156,7 @@ Podczas uruchamiania aplikacji z poziomu wiersza polecenia w folderze projektu [
   * Platforma docelowa: .NET Core 2,2 lub nowszy
 * [Usługi IIS (poza procesem)](xref:host-and-deploy/iis/index#http2-support)
   * Windows Server 2016 i Windows 10 lub nowszym; Usługi IIS 10 lub nowszym
-  * Krawędź połączenia używają protokołu HTTP/2, ale połączenie zwrotny serwer proxy Kestrel używa protokołu HTTP/1.1.
+  * Połączenia z serwerem usługi edge publicznego używać protokołu HTTP/2, ale połączenie zwrotny serwer proxy Kestrel korzysta z protokołu HTTP/1.1.
   * Platforma docelowa: nie dotyczy wdrożeń spoza procesu usług IIS.
 
 ::: moniker-end
@@ -168,7 +168,7 @@ Podczas uruchamiania aplikacji z poziomu wiersza polecenia w folderze projektu [
   * Platforma docelowa: nie dotyczy wdrożeń HTTP.sys.
 * [Usługi IIS (poza procesem)](xref:host-and-deploy/iis/index#http2-support)
   * Windows Server 2016 i Windows 10 lub nowszym; Usługi IIS 10 lub nowszym
-  * Krawędź połączenia używają protokołu HTTP/2, ale połączenie zwrotny serwer proxy Kestrel używa protokołu HTTP/1.1.
+  * Połączenia z serwerem usługi edge publicznego używać protokołu HTTP/2, ale połączenie zwrotny serwer proxy Kestrel korzysta z protokołu HTTP/1.1.
   * Platforma docelowa: nie dotyczy wdrożeń spoza procesu usług IIS.
 
 ::: moniker-end

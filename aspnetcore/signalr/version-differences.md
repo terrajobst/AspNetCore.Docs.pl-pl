@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.date: 09/10/2018
 uid: signalr/version-differences
-ms.openlocfilehash: 2f3458f27fd7f22339751e0734dd8c5da709a3c0
-ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
+ms.openlocfilehash: ea2de2606a99de70fa645c0c42303525fea0a44e
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44340124"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325539"
 ---
 # <a name="differences-between-aspnet-signalr-and-aspnet-core-signalr"></a>Różnice między biblioteki SignalR platformy ASP.NET i SignalR platformy ASP.NET Core
 
@@ -31,7 +31,7 @@ SignalR platformy ASP.NET Core nie jest zgodny z klientami lub serwerami na potr
 
 ### <a name="automatic-reconnects"></a>Automatyczne ponowne podłączenia
 
-Automatyczne ponowne podłączenia nie są już obsługiwane. Wcześniej SignalR próbował ponownie połączyć z serwerem, jeśli połączenie zostało przerwane. Jeśli klient został odłączony teraz użytkownik musi jawnie uruchomić nowe połączenie, jeśli chcą ponownie połączyć.
+Automatyczne ponowne podłączenia nie są obsługiwane w biblioteki SignalR platformy ASP.NET Core. Jeśli klient został odłączony, użytkownik jawnie należy uruchomić nowe połączenie, jeśli chcesz ponownie połączyć. W programie ASP.NET SignalR SignalR podejmie próbę połączenia z serwerem, jeśli połączenie zostało przerwane. 
 
 ### <a name="protocol-support"></a>Obsługa protokołów
 

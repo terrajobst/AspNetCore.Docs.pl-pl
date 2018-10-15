@@ -4,14 +4,14 @@ author: steve-smith
 description: Dowiedz się, jak zapobiegać atakom aplikacji sieci web, w którym złośliwą witrynę sieci Web mogą mieć wpływ na interakcję między przeglądarką klienta i aplikacji.
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/19/2018
+ms.date: 10/11/2018
 uid: security/anti-request-forgery
-ms.openlocfilehash: 6a30e1e2321ca3a81d6e1a320d1d87dddb3033c7
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: 213d6d09501b5428bdaad454ec487702ef2a02a6
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095791"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325916"
 ---
 # <a name="prevent-cross-site-request-forgery-xsrfcsrf-attacks-in-aspnet-core"></a>Ataki zapobiec Cross-Site Request Forgery (XSRF/CSRF) w programie ASP.NET Core
 
@@ -179,6 +179,31 @@ Platforma ASP.NET Core obejmuje trzy [filtry](xref:mvc/controllers/filters) do p
 
 Dostosowywanie [antiforgery opcje](/dotnet/api/Microsoft.AspNetCore.Antiforgery.AntiforgeryOptions) w `Startup.ConfigureServices`:
 
+::: moniker range=">= aspnetcore-2.0"
+
+```csharp
+services.AddAntiforgery(options => 
+{
+    // Set Cookie properties using CookieBuilder properties†.
+    options.FormFieldName = "AntiforgeryFieldname";
+    options.HeaderName = "X-CSRF-TOKEN-HEADERNAME";
+    options.SuppressXFrameOptionsHeader = false;
+});
+```
+
+&dagger;Ustaw antiforgery `Cookie` właściwości za pomocą właściwości [CookieBuilder](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder) klasy.
+
+| Opcja | Opis |
+| ------ | ----------- |
+| [Plik cookie](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.cookie) | Określa ustawienia używane do tworzenia antiforgery plików cookie. |
+| [FormFieldName](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.formfieldname) | Nazwa pola formularza, używany przez antiforgery system do renderowania antiforgery tokenów w widokach. |
+| [HeaderName](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.headername) | Nazwa nagłówka używany przez antiforgery systemu. Jeśli `null`, system uwzględnia tylko dane formularza. |
+| [SuppressXFrameOptionsHeader](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.suppressxframeoptionsheader) | Określa, czy pominąć Generowanie `X-Frame-Options` nagłówka. Domyślnie nagłówek jest generowany z wartością "SAMEORIGIN". Wartość domyślna to `false`. |
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
 ```csharp
 services.AddAntiforgery(options => 
 {
@@ -202,6 +227,8 @@ services.AddAntiforgery(options =>
 | [HeaderName](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.headername) | Nazwa nagłówka używany przez antiforgery systemu. Jeśli `null`, system uwzględnia tylko dane formularza. |
 | [Wartość parametru RequireSsl](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.requiressl) | Określa, czy protokół SSL jest wymagany przez antiforgery system. Jeśli `true`, niepowodzenie żądań protokołu SSL. Wartość domyślna to `false`. Ta właściwość jest przestarzała i zostanie usunięta w przyszłej wersji. Zalecaną alternatywą jest Cookie.SecurePolicy. |
 | [SuppressXFrameOptionsHeader](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.suppressxframeoptionsheader) | Określa, czy pominąć Generowanie `X-Frame-Options` nagłówka. Domyślnie nagłówek jest generowany z wartością "SAMEORIGIN". Wartość domyślna to `false`. |
+
+::: moniker-end
 
 Aby uzyskać więcej informacji, zobacz [CookieAuthenticationOptions](/dotnet/api/Microsoft.AspNetCore.Builder.CookieAuthenticationOptions).
 

@@ -5,12 +5,12 @@ description: Dowiedz się, jak można dodać klas związanych z zarządzaniem fi
 ms.author: riande
 ms.date: 05/30/2018
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 5cd1e08ac52d352be23a280419d7456f685a03ad
-ms.sourcegitcommit: 317f9be24db600499e79d25872d743af74bd86c0
+ms.openlocfilehash: 41a88e06afbe6e7accd03ff7b39aa69e15e0c0b4
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48045604"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325816"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Dodawanie modelu strony Razor aplikacji w programie ASP.NET Core
 
@@ -47,19 +47,18 @@ Wykonaj **dodać strony Razor za pomocą programu Entity Framework (CRUD)** okno
 
 * W **klasa modelu** listę rozwijaną, wybierz **Movie (RazorPagesMovie.Models)**.
 * W **klasa kontekstu danych** wiersz, wybierz opcję **+** (plus) Zaloguj się i zaakceptuj wygenerowaną nazwę **RazorPagesMovie.Models.RazorPagesMovieContext**.
-* W **klasa kontekstu danych** listę rozwijaną, wybierz **RazorPagesMovie.Models.RazorPagesMovieContext**
 * Wybierz **Dodaj**.
 
 ![Obraz z poprzednich instrukcji.](model/_static/arp.png)
 
-Proces szkieletu tworzonych i zmienianych następujące pliki:
+Proces szkieletu tworzy i aktualizuje następujące pliki:
 
 ### <a name="files-created"></a>Utworzone pliki
 
 * *Strony/filmów*: tworzenie, edytowanie usuwania, uzyskać szczegółowe informacje, indeksu. Te strony są szczegółowo opisane w następnym samouczku.
 * *Data/RazorPagesMovieContext.cs*
 
-### <a name="file-updates"></a>Aktualizacje plików
+### <a name="file-updated"></a>Zaktualizowano plik
 
 * *Startup.cs*: zmiany w tym pliku opisano szczegółowo w następnej sekcji.
 * *appSettings.JSON*: parametry połączenia używane do łączenia z lokalnej bazy danych zostanie dodany.
@@ -110,9 +109,10 @@ dotnet ef database update
 
 Ignoruj następujący komunikat ostrzegawczy, naprawić w dalszych samouczków:
 
-`Microsoft.EntityFrameworkCore.Model.Validation[30000]`
-
-      *No type was specified for the decimal column 'Price' on entity type 'Movie'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.*
+```console
+Microsoft.EntityFrameworkCore.Model.Validation[30000]
+      No type was specified for the decimal column 'Price' on entity type 'Movie'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.
+```
 
 `Add-Migration` Polecenie generuje kod, aby utworzyć schemat początkowej bazy danych. Schemat jest oparta na modelu, określone w `RazorPagesMovieContext` (w *Data/RazorPagesMovieContext.cs* pliku). `Initial` Argument jest używany do nazywania migracje. Można użyć dowolnej nazwy, ale zgodnie z Konwencją wybierz nazwę, która opisuje migracji. Zobacz [wprowadzenie do migracji](xref:data/ef-mvc/migrations#introduction-to-migrations) Aby uzyskać więcej informacji.
 
@@ -120,8 +120,10 @@ Ignoruj następujący komunikat ostrzegawczy, naprawić w dalszych samouczków:
 
 Jeśli zostanie wyświetlony błąd:
 
-`SqlException: Cannot open database "RazorPagesMovieContext-GUID" requested by the login. The login failed.
-Login failed for user 'User-name'.`
+```console
+SqlException: Cannot open database "RazorPagesMovieContext-GUID" requested by the login. The login failed.
+Login failed for user 'User-name'.
+```
 
 Możesz pominąć [krok migracji](#pmc).
 
@@ -186,9 +188,10 @@ dotnet ef database update
 
 Ignoruj następujący komunikat:
 
-    `Microsoft.EntityFrameworkCore.Model.Validation[30000]`
-
-      *No type was specified for the decimal column 'Price' on entity type 'Movie'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'*
+```console
+Microsoft.EntityFrameworkCore.Model.Validation[30000]
+      No type was specified for the decimal column 'Price' on entity type 'Movie'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'
+```
 
 Które naprawić w następnym samouczku.
 

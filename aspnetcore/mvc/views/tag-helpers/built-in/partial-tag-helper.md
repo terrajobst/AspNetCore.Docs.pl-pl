@@ -7,16 +7,18 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 07/25/2018
 uid: mvc/views/tag-helpers/builtin-th/partial-tag-helper
-ms.openlocfilehash: cb63357b1859c3709b2eae9f4e380c4a74e5e448
-ms.sourcegitcommit: c8e62aa766641aa55105f7db79cdf2b27a6e5977
+ms.openlocfilehash: 737568330d2dc33868564ea541383e4ddabf8e74
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39254756"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325435"
 ---
 # <a name="partial-tag-helper-in-aspnet-core"></a>Pomocnik tagu częściowego w programie ASP.NET Core
 
 Przez [Scott Addie](https://github.com/scottaddie)
+
+Aby zapoznać się z omówieniem pomocnicy tagów, zobacz <xref:mvc/views/tag-helpers/intro>.
 
 [Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/tag-helpers/built-in/samples) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
 
