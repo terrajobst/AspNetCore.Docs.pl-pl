@@ -1,4 +1,4 @@
----
+﻿---
 title: Co nowego w programie ASP.NET Core 2.1
 author: isaac2004
 description: Dowiedz się więcej o nowych funkcjach w programie ASP.NET Core 2.1.
@@ -58,7 +58,7 @@ W celu ułatwienia tworzenia bezpiecznej witryny sieci Web protokół HTTPS jest
 
 * Jako część zestawu .NET Core SDK pierwszego uruchomienia komputera, gdy używasz zestawu SDK po raz pierwszy.
 * Ręcznie przy użyciu nowego narzędzia `dev-certs`.
-
+	
 Uruchom polecenie `dotnet dev-certs https --trust`, aby zaufać certyfikatowi.
 
 ### <a name="https-redirection-and-enforcement"></a>Przekierowania i wymuszenia protokołu HTTPS
@@ -115,7 +115,7 @@ public class BasicTests
 
 Aby uzyskać więcej informacji, zobacz [testy integracji](xref:test/integration-tests) tematu.
 
-## <a name="apicontroller-actionresultt"></a>[Klasy ApiController], ActionResult\<T >
+## <a name="apicontroller-actionresultt"></a>[ApiController], ActionResult\<T>
 
 Platforma ASP.NET Core 2.1 dodaje nowe konwencje programowania, które ułatwiają tworzenie czystych i bardziej opisowych interfejsów API sieci Web. Dodano nowy typ `ActionResult<T>`, aby zwracać albo typ odpowiedzi albo inny wynik akcji (podobnie jak w przypadku IActionResult), ale nadal wskazywać typ odpowiedzi. Atrybut `[ApiController]` został również dodany jako sposób korzystania z konwencji i zachowań specyficznych dla interfejsu API sieci Web.
 
@@ -144,7 +144,7 @@ Aby uzyskać więcej informacji, zobacz [Host ogólny .NET](xref:fundamentals/ho
 
 Szablony aplikacji jednostronicowej dla platform Angular, React i React z Redux zostały zaktualizowane, aby używać standardowych struktur projektów i systemów budowania dla każdej z platform.
 
-Platformy Angular szablon jest oparty na interfejs wiersza polecenia usługi Angular i szablony platformy React są oparte na tworzenie platformy react aplikacji.
+Szablon platformy Angular jest oparty na interfejsie wiersza polecenia Angular, a szablony platformy React — na narzędziu`create-react-app`.
 Aby uzyskać więcej informacji, zobacz [używania szablonów aplikacji jednostronicowej platformy ASP.NET Core](xref:spa/index).
 
 ## <a name="razor-pages-search-for-razor-assets"></a>Wyszukiwanie zasobów Razor w stronach Razor
