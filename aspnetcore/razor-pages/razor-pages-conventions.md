@@ -4,14 +4,14 @@ author: guardrex
 description: Dowiedz się, jak konwencje tras i aplikacji dostawcy modelu pomóc routingu strony kontroli, odnajdywania i przetwarzania.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 09/17/2018
+ms.date: 10/12/2018
 uid: razor-pages/razor-pages-conventions
-ms.openlocfilehash: ea4f785dc8a64b430e312fd122a4d3184b61949e
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 13fd6c156afd5ab62739b09296a929120ce3450f
+ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011865"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49348536"
 ---
 # <a name="razor-pages-route-and-app-conventions-in-aspnet-core"></a>Razor konwencje tras i aplikacji stron w programie ASP.NET Core
 
@@ -93,7 +93,7 @@ Strony razor routingu i MVC kontroler routingu udziału wdrożenia. Informacje o
 
 Dodawanie delegatów dla [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention) dodać [modelu Konwencji](xref:mvc/controllers/application-model#conventions) które są stosowane do stron Razor.
 
-**Dodawanie modelu Konwencji tras do wszystkich stron**
+### <a name="add-a-route-model-convention-to-all-pages"></a>Dodawanie modelu Konwencji tras do wszystkich stron
 
 Użyj [konwencje](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpagesoptions.conventions) tworzyć i dodawać [IPageRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageroutemodelconvention) do kolekcji [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention) wystąpień, które są stosowane podczas modelu trasy strony konstrukcja.
 
@@ -117,7 +117,7 @@ Opcje strony razor, takich jak dodawanie [konwencje](/dotnet/api/microsoft.aspne
 
 ![Za pomocą tras segment GlobalRouteValue żądaniu strony informacje. Renderowanej stronie pokazuje, że wartości danych trasy są przechwytywane w metodzie OnGet strony.](razor-pages-conventions/_static/about-page-global-template.png)
 
-**Dodawanie aplikacji modelu Konwencji do wszystkich stron**
+### <a name="add-an-app-model-convention-to-all-pages"></a>Dodawanie aplikacji modelu Konwencji do wszystkich stron
 
 Użyj [konwencje](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpagesoptions.conventions) tworzyć i dodawać [IPageApplicationModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageapplicationmodelconvention) do kolekcji [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention) wystąpień, które są stosowane podczas strony modelu aplikacji konstrukcja.
 
@@ -137,12 +137,12 @@ Ta aplikacja używa przykładowych `AddHeaderAttribute` klasy, aby dodać nagł�
 
 ::: moniker range=">= aspnetcore-2.1"
 
-**Dodaj Konwencji modelu obsługi do wszystkich stron**
+### <a name="add-a-handler-model-convention-to-all-pages"></a>Dodaj Konwencji modelu obsługi do wszystkich stron
 
 Użyj [konwencje](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpagesoptions.conventions) tworzyć i dodawać [IPageHandlerModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipagehandlermodelconvention) do kolekcji [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention) wystąpień, które są stosowane podczas modelu obsługi strony konstrukcja.
 
 ```csharp
-public class GlobalPageHandlerModelConvention 
+public class GlobalPageHandlerModelConvention
     : IPageHandlerModelConvention
 {
     public void Apply(PageHandlerModel model)
@@ -168,7 +168,7 @@ services.AddMvc()
 
 Domyślnego dostawcę modelu trasy, która pochodzi od klasy [IPageRouteModelProvider](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageroutemodelprovider) wywołuje konwencje, które są przeznaczone do zapewnienia punkty rozszerzeń do konfigurowania tras strony.
 
-**Folder trasy modelu Konwencji**
+### <a name="folder-route-model-convention"></a>Folder trasy modelu Konwencji
 
 Użyj [AddFolderRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageconventioncollection.addfolderroutemodelconvention) tworzyć i dodawać [IPageRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageroutemodelconvention) , wywołuje akcję na [PageRouteModel](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageroutemodel) dla wszystkich stron w obszarze określony folder.
 
@@ -184,7 +184,7 @@ Wszędzie tam, gdzie to możliwe, nie należy ustawiać `Order`, które powoduje
 
 ![Strona 1 w folderze OtherPages żądanie z segmentem trasy GlobalRouteValue i OtherPagesRouteValue. Renderowanej stronie pokazuje, że wartości danych trasy są przechwytywane w metodzie OnGet strony.](razor-pages-conventions/_static/otherpages-page1-global-and-otherpages-templates.png)
 
-**Strona trasy modelu Konwencji**
+### <a name="page-route-model-convention"></a>Strona trasy modelu Konwencji
 
 Użyj [AddPageRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageconventioncollection.addpageroutemodelconvention) tworzyć i dodawać [IPageRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageroutemodelconvention) , wywołuje akcję na [PageRouteModel](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageroutemodel) dla strony o określonym Nazwa.
 
@@ -199,6 +199,44 @@ Wszędzie tam, gdzie to możliwe, nie należy ustawiać `Order`, które powoduje
 Żądanie próbki o stronę w `localhost:5000/About/GlobalRouteValue/AboutRouteValue` i sprawdź wynik:
 
 ![Informacje o stronie żądania segmentów trasy GlobalRouteValue i AboutRouteValue. Renderowanej stronie pokazuje, że wartości danych trasy są przechwytywane w metodzie OnGet strony.](razor-pages-conventions/_static/about-page-global-and-about-templates.png)
+
+::: moniker range=">= aspnetcore-2.2"
+
+## <a name="use-a-parameter-transformer-to-customize-page-routes"></a>Użyj transformatora parametru, aby dostosować stronę trasy
+
+Używanie transformatora parametru można dostosować trasy strony, wygenerowane przez platformy ASP.NET Core. Transformer parametr implementuje `IOutboundParameterTransformer` i przekształca wartości parametrów. Na przykład niestandardowy `SlugifyParameterTransformer` zmiany transformatora parametrów `SubscriptionManagement` trasy wartość `subscription-management`.
+
+`PageRouteTransformerConvention` Strony trasy modelu Konwencją transformatora parametr do segmentów nazwę folderu i pliku tras automatycznie wygenerowanych stron w aplikacji. Na przykład pliku stron Razor */Pages/SubscriptionManagement/ViewAll.cshtml* miałby trasę przepisany z `/SubscriptionManagement/ViewAll` do `/subscription-management/view-all`.
+
+`PageRouteTransformerConvention` tylko przy użyciu automatycznie generowanego segmenty trasy strony ze stron Razor folder i nazwę pliku. Go nie przekształci segmentów trasa dodana z `@page` dyrektywy. Konwencja również nie przekształci trasy dodane przez <xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.AddPageRoute*>.
+
+`PageRouteTransformerConvention` Jest zarejestrowany jako opcja w `Startup.ConfigureServices`:
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddMvc()
+        .AddRazorPagesOptions(options =>
+            {
+                options.Conventions.Add(
+                    new PageRouteTransformerConvention(
+                        new SlugifyParameterTransformer()));
+            });
+}
+
+public class SlugifyParameterTransformer : IOutboundParameterTransformer
+{
+    public string TransformOutbound(object value)
+    {
+        if (value == null) { return null; }
+
+        // Slugify value
+        return Regex.Replace(value.ToString(), "([a-z])([A-Z])", "$1-$2").ToLower();
+    }
+}
+```
+
+::: moniker-end
 
 ## <a name="configure-a-page-route"></a>Skonfiguruj trasy strony
 

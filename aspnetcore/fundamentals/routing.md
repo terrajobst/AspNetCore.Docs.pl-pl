@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/01/2018
 uid: fundamentals/routing
-ms.openlocfilehash: d9ba96c7b2abd35b1b13c84814bf3f776e8d8731
-ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
+ms.openlocfilehash: 500cefbc7caee2054b4afda7c1277685862f5ad4
+ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47861060"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49348562"
 ---
 # <a name="routing-in-aspnet-core"></a>Routing w programie ASP.NET Core
 
@@ -391,7 +391,15 @@ Aby ograniczyć parametr znany zestaw możliwych wartości, należy użyć wyra�
 
 ## <a name="parameter-transformer-reference"></a>Odwołania do parametru transformatora
 
-Parametr transformatory wykonania podczas generowania łącza dla `Route`. Parametr transformatory zająć parametru, wartości trasy i przekształć go w nową wartość ciągu. Po przekształceniu wartość jest używana w wygenerowane łącze. Na przykład niestandardowy `slugify` transformatora parametr we wzorcu trasy `blog\{article:slugify}` z `Url.Action(new { article = "MyTestArticle" })` generuje `blog\my-test-article`. Implementowanie transformatory parametr `Microsoft.AspNetCore.Routing.IOutboundParameterTransformer` i są skonfigurowane przy użyciu <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap>.
+Parametr transformatory:
+
+* Wykonania podczas generowania łącza dla `Route`.
+* Implementowanie `Microsoft.AspNetCore.Routing.IOutboundParameterTransformer`.
+* Zostały skonfigurowane za pomocą <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap>.
+* Pobrać parametru, wartości trasy i przekształć go w nową wartość ciągu.
+* Po przekształceniu wartość jest używana w wygenerowane łącze.
+
+Na przykład niestandardowy `slugify` transformatora parametr we wzorcu trasy `blog\{article:slugify}` z `Url.Action(new { article = "MyTestArticle" })` generuje `blog\my-test-article`.
 
 Transformatory parametru są również używane przez struktury do przekształcania identyfikatora URI, do którego jest rozpoznawany jako punkt końcowy. Na przykład ASP.NET Core MVC używa parametru transformatory do przekształcania wartości trasy, używany do dopasowywania `area`, `controller`, `action`, i `page`.
 
@@ -403,7 +411,10 @@ routes.MapRoute(
 
 Trasa poprzedniej akcji `SubscriptionManagementController.GetAll()` jest dopasowany do identyfikatora URI `/subscription-management/get-all`. Transformer parametru nie zmienia wartości trasy, używanego do generowania łącza. `Url.Action("GetAll", "SubscriptionManagement")` dane wyjściowe `/subscription-management/get-all`.
 
-Dołączono również ASP.NET Core MVC `Microsoft.AspNetCore.Mvc.ApplicationModels.RouteTokenTransformerConvention` Konwencji interfejsu API. Konwencja dotyczy transformatora określony parametr wszystkie tokeny trasy atrybutów w aplikacji.
+ASP.NET Core zawiera konwencje interfejsu API transformatory parametru przy użyciu wygenerowanego trasy:
+
+* ASP.NET Core MVC ma `Microsoft.AspNetCore.Mvc.ApplicationModels.RouteTokenTransformerConvention` Konwencji interfejsu API. Ta Konwencja dotyczy transformatora określony parametr wszystkich tras atrybutów w aplikacji. Transformer parametr przekształca tokeny trasy atrybutu, ponieważ zostaną zastąpione. Aby uzyskać więcej informacji, zobacz [Użyj transformatora parametru, aby dostosować zastępowania tokenu](/aspnet/core/mvc/controllers/routing#use-a-parameter-transformer-to-customize-token-replacement).
+* Strony razor ma `Microsoft.AspNetCore.Mvc.ApplicationModels.PageRouteTransformerConvention` Konwencji interfejsu API. Ta Konwencja dotyczy transformatora określony parametr wszystkie automatycznie odnalezione stron Razor. Transformer parametr przekształca folderu i pliku segmentów nazwy tras strony Razor. Aby uzyskać więcej informacji, zobacz [Użyj transformatora parametru, aby dostosować stronę trasy](/aspnet/core/razor-pages/razor-pages-conventions#use-a-parameter-transformer-to-customize-page-routes).
 
 ::: moniker-end
 

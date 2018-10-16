@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/30/2018
 uid: tutorials/web-api-vsc
-ms.openlocfilehash: e549bc3adf3efa32b3ac975cf04a35f508a554d5
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: b8e5c8b7d3dc04513997997d903295853dd1ff46
+ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49325630"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49348432"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-visual-studio-code"></a>Tworzenie internetowego interfejsu API za pomocą platformy ASP.NET Core i programu Visual Studio Code
 
@@ -32,6 +32,8 @@ Istnieją trzy wersje tego samouczka:
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 [!INCLUDE[prerequisites](~/includes/net-core-prereqs-vscode.md)]
+
+Zobacz [pomocy programu Visual Studio Code](#visual-studio-code-help) porady na temat korzystania z programu VS Code.
 
 ## <a name="create-the-project"></a>Utwórz projekt
 
@@ -57,7 +59,7 @@ Naciśnij klawisz **debugowania** (F5), aby skompilować i uruchomić program. W
 ["value1","value2"]
 ```
 
-Zobacz [pomocy programu Visual Studio Code](#visual-studio-code-help) porady na temat korzystania z programu VS Code.
+
 
 ## <a name="add-support-for-entity-framework-core"></a>Dodaj obsługę platformy Entity Framework Core
 

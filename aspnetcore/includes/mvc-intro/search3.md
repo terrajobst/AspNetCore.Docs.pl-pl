@@ -33,7 +33,7 @@ Model widoku gatunku filmu będzie zawierać:
 
    * Lista filmów.
    * A `SelectList` zawierającego listę gatunki. Umożliwi to użytkownikowi na wybranie określonego rodzaju z listy.
-   * `movieGenre`, zawierającą wybrane gatunku.
+   * `MovieGenre`, zawierającą wybrane gatunku.
 
 Zastąp `Index` method in Class metoda `MoviesController.cs` następującym kodem:
 
@@ -47,7 +47,7 @@ Poniższy kod jest `LINQ` zapytania, który pobiera wszystkie gatunki z bazy dan
 
 ```csharp
 movieGenreVM.genres = new SelectList(await genreQuery.Distinct().ToListAsync())
-   ```
+```
 
 ## <a name="adding-search-by-genre-to-the-index-view"></a>Dodawanie wyszukiwania według gatunku do widoku indeksu
 
@@ -57,8 +57,8 @@ Aktualizacja `Index.cshtml` w następujący sposób:
 
 Sprawdź wyrażenie lambda, używane w następujących pomocnika kodu HTML:
 
-`@Html.DisplayNameFor(model => model.movies[0].Title)`
+`@Html.DisplayNameFor(model => model.Movies[0].Title)`
  
-W poprzednim kodzie `DisplayNameFor` sprawdza pomocnika kodu HTML `Title` właściwość, do którego odwołuje się wyrażenie lambda, aby ustalić nazwę wyświetlaną. Ponieważ wyrażenie lambda jest kontrolowane zamiast oceniane, nie otrzymasz naruszenie zasad dostępu podczas `model`, `model.movies`, lub `model.movies[0]` są `null` lub jest pusty. Kiedy jest obliczane wyrażenie lambda (na przykład `@Html.DisplayFor(modelItem => item.Title)`), są oceniane wartości właściwości modelu.
+W poprzednim kodzie `DisplayNameFor` sprawdza pomocnika kodu HTML `Title` właściwość, do którego odwołuje się wyrażenie lambda, aby ustalić nazwę wyświetlaną. Ponieważ wyrażenie lambda jest kontrolowane zamiast oceniane, nie otrzymasz naruszenie zasad dostępu podczas `model`, `model.Movies`, lub `model.Movies[0]` są `null` lub jest pusty. Kiedy jest obliczane wyrażenie lambda (na przykład `@Html.DisplayFor(modelItem => item.Title)`), są oceniane wartości właściwości modelu.
 
 Testowanie aplikacji przez wyszukiwanie według gatunku, tytuł filmu i obu.

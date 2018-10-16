@@ -4,16 +4,16 @@ title: ASP.NET MVC 5 | Microsoft Docs
 author: rick-anderson
 description: ASP.NET MVC 5 platformy ASP.NET MVC 5 to architektura służąca do tworzenia skalowalnych, oparte na standardach aplikacji sieci web przy użyciu wzorców projektowych sprawdzone oraz dzięki możliwościom AS...
 ms.author: riande
-ms.date: 01/20/2014
+ms.date: 10/11/2018
 ms.assetid: f79fbf7f-59e5-4279-a832-c1a0294630f4
 msc.legacyurl: /mvc/mvc5
 msc.type: content
-ms.openlocfilehash: c837560e0ad9618decaba9761da9cf35e0f03f08
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: c958d39c7eff0d581de6b05890b8e6df8bdb5207
+ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41753211"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49348263"
 ---
 <a name="aspnet-mvc-5"></a>ASP.NET MVC 5
 ====================
@@ -21,7 +21,7 @@ ms.locfileid: "41753211"
 
 ### <a name="one-aspnet"></a>One ASP.NET
 
-Szablony projektów sieci Web MVC bezproblemowo integrować z nowego środowiska aplikacji One ASP.NET. Można dostosować swój projekt MVC i skonfigurować uwierzytelnianie przy użyciu Kreatora tworzenia projektu aplikacji One ASP.NET. Samouczek wprowadzający do ASP.NET MVC 5, można znaleźć w folderze [wprowadzenie do ASP.NET MVC 5](overview/getting-started/introduction/getting-started.md).
+Szablony projektów sieci Web MVC bezproblemowo zintegrować ze środowiskiem aplikacji One ASP.NET. Można dostosować swój projekt MVC i skonfigurować uwierzytelnianie przy użyciu Kreatora tworzenia projektu aplikacji One ASP.NET. Samouczek wprowadzający do ASP.NET MVC 5, można znaleźć w folderze [wprowadzenie do ASP.NET MVC 5](overview/getting-started/introduction/getting-started.md).
 
 Aby uzyskać informacje na temat uaktualniania projektów MVC 4 do MVC 5, zobacz [uaktualnianie ASP.NET MVC 4 i projektu interfejsu Web API platformy ASP.NET MVC 5 i Web API 2](overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2.md).
 
@@ -31,7 +31,7 @@ Szablony projektów MVC zostały zaktualizowane do użycia produktu ASP.NET Iden
 
 ### <a name="bootstrap"></a>Usługa ładowania początkowego
 
-Szablon projektu MVC została zaktualizowana w celu użycia [Bootstrap](http://getbootstrap.com/) zapewnienie elegancki i elastyczny wyglądu i działania, można łatwo dostosować. Aby uzyskać więcej informacji, zobacz [Bootstrap w szablonach projektu sieci web programu Visual Studio 2013](../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#bootstrap).
+Szablon projektu MVC została zaktualizowana w celu użycia [Bootstrap](http://getbootstrap.com/) zapewnienie elegancki i elastyczny wyglądu i działania, można łatwo dostosować. Aby uzyskać więcej informacji, zobacz [Bootstrap w szablonach projektu sieci web programu Visual Studio](../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#bootstrap).
 
 ### <a name="authentication-filters"></a>Filtry uwierzytelniania
 
@@ -47,43 +47,45 @@ ASP.NET MVC obsługuje teraz [trasowanie atrybutów](https://blogs.msdn.com/b/we
 
 ## <a name="new-web-project-experience"></a>Nowe środowisko projektu sieci Web
 
-Rozszerzyliśmy możliwości tworzenia nowych projektów sieci web w programie Visual Studio 2013. W **nowego projektu sieci Web platformy ASP.NET** okna dialogowego, można wybrać typ projektu, skonfigurować dowolną kombinację technologii (Web Forms, MVC, interfejs API sieci Web), skonfiguruj opcje uwierzytelniania i Dodaj projekt testu jednostkowego.
+Program Visual Studio rozszerzone możliwości tworzenia nowych projektów sieci web, począwszy od programu Visual Studio 2013. W **nowego projektu sieci Web platformy ASP.NET** okna dialogowego, można wybrać typ projektu chcesz, skonfigurować dowolną kombinację technologii (Web Forms, MVC, interfejs API sieci Web), skonfiguruj opcje uwierzytelniania, Dodaj obsługę platformy Docker i Dodaj projekt testu jednostkowego.
 
-![Nowy projekt ASP.NET](mvc5/_static/image1.png)
+![Nowy projekt ASP.NET](mvc5/_static/new-aspnet-web-app-dialog.png)
 
-Nowe okno dialogowe umożliwia zmianę domyślne opcje uwierzytelniania dla wielu szablonów. Na przykład po utworzeniu projektu ASP.NET Web Forms można wybrać jedną z następujących opcji:
+Okno dialogowe umożliwia zmianę domyślne opcje uwierzytelniania dla wielu szablonów. Na przykład po utworzeniu projektu ASP.NET Web Forms można wybrać jedną z następujących opcji:
 
 - Bez uwierzytelniania
 - Indywidualne konta użytkowników (członkostwa ASP.NET lub społecznościowych dostawcy logowania)
-- Konta organizacji (Active Directory w aplikacji internetowej)
+- Konta służbowe (Active Directory w aplikacji internetowej)
 - Windows Authentication (Active Directory w intranecie aplikacji)
 
-![Opcje uwierzytelniania](mvc5/_static/image2.png)
+![Opcje uwierzytelniania](mvc5/_static/change-authentication-dialog.png)
 
-Aby uzyskać więcej informacji na temat nowego procesu do tworzenia projektów sieci web, zobacz [tworzenia projektów sieci Web platformy ASP.NET w programie Visual Studio 2013](../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md). Aby uzyskać więcej informacji na temat nowej opcji uwierzytelniania, zobacz [produktu ASP.NET Identity](../identity/overview/index.md).
+Aby uzyskać więcej informacji na temat procesu tworzenia projektów sieci web, zobacz [tworzenia projektów sieci Web platformy ASP.NET w programie Visual Studio](../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md). Aby uzyskać więcej informacji na temat opcji uwierzytelniania, zobacz [produktu ASP.NET Identity](../identity/overview/index.md).
 
 <a id="scaffold"></a>
 ### <a name="aspnet-scaffolding"></a>Funkcja tworzenia szkieletu ASP.NET
 
 Funkcja tworzenia szkieletu ASP.NET jest struktura generowania kodu dla aplikacji sieci Web ASP.NET. Ułatwia on dodać schematyczny kod służący do projektu, która współdziała z modelu danych.
 
-W poprzednich wersjach programu Visual Studio tworzenia szkieletu była ograniczona do projektów programu ASP.NET MVC. Za pomocą programu Visual Studio 2013 można teraz używać tworzenia szkieletów dla każdego projektu programu ASP.NET, w tym formularzy sieci Web. Visual Studio 2013 aktualnie nie obsługuje generowania strony dla projektu formularzy sieci Web, ale nadal umożliwia tworzenie szkieletów przy użyciu formularzy sieci Web przez dodanie zależności MVC do projektu. Obsługa generowania strony formularzy sieci Web zostanie dodana w przyszłej aktualizacji.
+W wersjach programu Visual Studio przed 2013 tworzenia szkieletu była ograniczona do projektów programu ASP.NET MVC. Począwszy od programu Visual Studio 2013 umożliwia tworzenie szkieletów dla każdego projektu programu ASP.NET, w tym formularzy sieci Web. Program Visual Studio nie obsługuje obecnie generowania strony dla projektu formularzy sieci Web, ale nadal umożliwia tworzenie szkieletów przy użyciu formularzy sieci Web przez dodanie zależności MVC do projektu. Obsługa generowania strony formularzy sieci Web zostanie dodana w przyszłej wersji.
 
-Korzystając z tworzenia szkieletu, Upewniamy się, że wszystkie wymagane zależności są zainstalowane w projekcie. Na przykład jeśli rozpoczęcie projektu programu ASP.NET Web Forms, a następnie dodaj Kontroler interfejsu API sieci Web, korzystając z tworzenia szkieletów, wymagane pakiety NuGet i odwołania są automatycznie dodawane do projektu.
+Korzystając z tworzenia szkieletu, wszystkie wymagane zależności są zainstalowane w projekcie. Na przykład jeśli rozpoczęcie projektu programu ASP.NET Web Forms, a następnie dodaj Kontroler interfejsu API sieci Web, korzystając z tworzenia szkieletów, wymagane pakiety NuGet i odwołania są automatycznie dodawane do projektu.
 
-Aby dodać MVC scaffolding projekt formularzy sieci Web, należy dodać **nowy element szkieletu** i wybierz **MVC 5 zależności** w oknie dialogowym. Dostępne są dwie opcje na potrzeby tworzenia szkieletów MVC; Minimalna i pełne. Jeśli wybierzesz przycisku minimalnych tylko pakiety NuGet i odwołania dla platformy ASP.NET MVC są dodawane do projektu. Jeśli wybierzesz opcję pełnej, minimalnym zależności zostaną dodane, a także wymagane pliki zawartości projektu MVC.
+Aby dodać MVC scaffolding projekt formularzy sieci Web, należy dodać **nowy element szkieletu** i wybierz **MVC 5 zależności** w oknie dialogowym. Dostępne są dwie opcje na potrzeby tworzenia szkieletów MVC; **Zależności minimalnej** i **pełne zależności**. Jeśli wybierzesz **zależności minimalnej**, tylko pakiety NuGet i odwołania dla platformy ASP.NET MVC, które są dodawane do projektu. Jeśli wybierzesz **pełne zależności**, minimalnym zależności zostaną dodane oraz wymagane pliki zawartości projektu MVC.
 
-Obsługę tworzenia szkieletów kontrolerów async korzysta z nowych funkcji asynchronicznej z platformy Entity Framework 6.
+![Dodaj okno dialogowe Tworzenie szkieletu w programie Visual Studio](overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/add-scaffold.png)
+
+Obsługę tworzenia szkieletów async kontrolerów korzysta z funkcji asynchronicznej z platformy Entity Framework 6.
 
 Aby uzyskać więcej informacji i samouczków, zobacz [omówienie tworzenia szkieletu ASP.NET](../visual-studio/overview/2013/aspnet-scaffolding-overview.md).
 
-### <a name="getting-help-and-reporting-issues"></a>Uzyskiwanie pomocy i zgłaszania problemów dotyczących
+### <a name="get-help-and-report-issues"></a>Get-Help i zgłaszanie problemów
 
 - [Znane problemy i istotnej zmiany listy](../visual-studio/overview/2013/release-notes.md#knownissues)
 - Uzyskaj Pomoc i omawiania ASP.NET MVC 5 w [forów](https://forums.asp.net/1146.aspx)
 - [Zgłoś usterkę w programie ASP.NET MVC 5](https://github.com/aspnet/AspNetWebStack/issues)
 - [Żądania funkcji](http://aspnet.uservoice.com/forums/41201-asp-net-mvc)
 
-### <a name="upgrading-from-aspnet-mvc-4"></a>Uaktualnianie z programu ASP.NET MVC 4
+### <a name="upgrade-from-aspnet-mvc-4"></a>Uaktualnianie z programu ASP.NET MVC 4
 
 Zobacz [sposób uaktualniania wzorca ASP.NET MVC 4 i Web projekt interfejsu API platformy ASP.NET MVC 5 i Web API 2](overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2.md)

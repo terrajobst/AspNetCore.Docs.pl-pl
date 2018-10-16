@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/28/2018
 uid: fundamentals/websockets
-ms.openlocfilehash: e46c2decf92d21322f2079bf880df534e0224db5
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: b1e2180ed8dc93e2474ecca371d386830b7f3a9f
+ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48911655"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49348458"
 ---
 # <a name="websockets-support-in-aspnet-core"></a>Obsługa protokółu Websocket w programie ASP.NET Core
 
@@ -35,7 +35,7 @@ W tym artykule wyjaśniono, jak rozpocząć pracę z gniazda Websocket w program
 
   * Windows 8 / Windows Server 2012 lub nowszy
   * Usługi IIS 8 / 8 usług IIS Express
-  * Gniazda Websocket wymaga włączenia w usługach IIS (zobacz [obsługi usług IIS/IIS Express](#iisiis-express-support) sekcji.)
+  * Musi być włączona funkcja WebSockets (zobacz [obsługi usług IIS/IIS Express](#iisiis-express-support) sekcji.).
   
 * Jeśli aplikacja jest uruchamiana [HTTP.sys](xref:fundamentals/servers/httpsys):
 
@@ -133,7 +133,15 @@ Akceptując połączeniem WebSocket, przed rozpoczęciem pętli, kończy się po
 
 Windows Server 2012 lub nowszym i Windows 8 lub nowszym z usług IIS/IIS Express 8 lub nowszy jest obsługa protokołu WebSocket.
 
+> [!NOTE]
+> Gniazda Websocket są zawsze włączone, korzystając z usług IIS Express.
+
+### <a name="enabling-websockets-on-iis"></a>Włączanie funkcji WebSockets w usługach IIS
+
 Aby włączyć obsługę protokołu WebSocket w systemie Windows Server 2012 lub nowszym:
+
+> [!NOTE]
+> Te kroki nie są wymagane w przypadku korzystania z usług IIS Express
 
 1. Użyj **Dodaj role i funkcje** kreatora z **Zarządzaj** menu lub linku w **Menedżera serwera**.
 1. Wybierz **Instalacja oparta na rolach lub oparta na funkcjach**. Wybierz **dalej**.
@@ -145,6 +153,9 @@ Aby włączyć obsługę protokołu WebSocket w systemie Windows Server 2012 lub
 1. Po zakończeniu instalacji wybierz **Zamknij** aby zakończyć pracę kreatora.
 
 Aby włączyć obsługę protokołu WebSocket w systemie Windows 8 lub nowszy:
+
+> [!NOTE]
+> Te kroki nie są wymagane w przypadku korzystania z usług IIS Express
 
 1. Przejdź do **Panelu sterowania** > **programy** > **programy i funkcje** > **Windows Włącz funkcje w lub wyłącz** (po lewej stronie ekranu).
 1. Otwórz następujące węzły: **Internetowe usługi informacyjne** > **usługi World Wide Web** > **funkcje tworzenia aplikacji**.

@@ -5,12 +5,12 @@ description: W tym samouczku należy przeczytać i wyświetlanie powiązanych da
 ms.author: riande
 ms.date: 11/05/2017
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: e23b8bb870b329bd705fbc9548df62524303893e
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: e8b59c19eac2c2adc1f13cf1e44f750576686c87
+ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912328"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49348497"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>Strony razor z programem EF Core w programie ASP.NET Core — odczytanie powiązanych danych — 6 8
 
@@ -55,7 +55,7 @@ Istnieje kilka sposobów, że programu EF Core można załadować powiązane dan
 
 * `Select` Operator ładuje tylko powiązane dane potrzebne.
 
-## <a name="create-a-courses-page-that-displays-department-name"></a>Tworzenie strony kursów, który wyświetla nazwy działu
+## <a name="create-a-course-page-that-displays-department-name"></a>Tworzenie strony kursu, który wyświetla nazwy działu
 
 Jednostki kurs zawiera właściwość nawigacji, która zawiera `Department` jednostki. `Department` Działu, przypisana do kursu w jednostce.
 

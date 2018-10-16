@@ -6,21 +6,20 @@ ms.author: casoper
 ms.date: 09/21/2018
 ms.custom: mvc
 uid: security/authentication/azure-ad-b2c-webapi
-ms.openlocfilehash: 0efc95f508ef84d2728f503f1edd886ce6ae7a79
-ms.sourcegitcommit: 4d5f8680d68b39c411b46c73f7014f8aa0f12026
+ms.openlocfilehash: a7a109909d66b1016e78eedc8b802068143c65e3
+ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47028261"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49348549"
 ---
 # <a name="cloud-authentication-in-web-apis-with-azure-active-directory-b2c-in-aspnet-core"></a>Uwierzytelnianie w chmurze w sieci web, interfejsów API za pomocą usługi Azure Active Directory B2C w programie ASP.NET Core
 
 Przez [Soper kamery](https://twitter.com/camsoper)
 
-[Usługa Azure Active Directory B2C](/azure/active-directory-b2c/active-directory-b2c-overview) (Azure AD B2C) to rozwiązanie zarządzania tożsamością w chmurze dla aplikacji internetowych i mobilnych. Usługa zapewnia uwierzytelnianie dla aplikacji hostowanych w chmurze i lokalnych. Typy uwierzytelniania obejmują indywidualnych kont, kont sieci społecznościowych i federacyjnych konta przedsiębiorstwa. Ponadto usługa Azure AD B2C zapewniają uwierzytelnianie wieloskładnikowe z minimalną konfiguracją.
+[Usługa Azure Active Directory B2C](/azure/active-directory-b2c/active-directory-b2c-overview) (Azure AD B2C) to rozwiązanie zarządzania tożsamością w chmurze dla aplikacji internetowych i mobilnych. Usługa zapewnia uwierzytelnianie dla aplikacji hostowanych w chmurze i lokalnych. Typy uwierzytelniania obejmują indywidualnych kont, kont sieci społecznościowych i federacyjnych konta przedsiębiorstwa. Usługa Azure AD B2C zapewnia również usługi Multi-Factor authentication z minimalną konfiguracją.
 
-> [!TIP]
-> Usługa Azure Active Directory (Azure AD) i Azure AD B2C są osobne oferty. Dzierżawy usługi Azure AD organizacja, podczas gdy dzierżawy usługi Azure AD B2C reprezentuje kolekcję tożsamości do użycia z aplikacjami danej firmy. Aby dowiedzieć się więcej, zobacz [usługi Azure AD B2C: często zadawane pytania (FAQ)](/azure/active-directory-b2c/active-directory-b2c-faqs).
+Usługa Azure Active Directory (Azure AD) i Azure AD B2C są osobne oferty. Dzierżawy usługi Azure AD organizacja, podczas gdy dzierżawy usługi Azure AD B2C reprezentuje kolekcję tożsamości do użycia z aplikacjami danej firmy. Aby dowiedzieć się więcej, zobacz [usługi Azure AD B2C: często zadawane pytania (FAQ)](/azure/active-directory-b2c/active-directory-b2c-faqs).
 
 Ponieważ interfejsy API sieci web mają bez interfejsu użytkownika, są one nie można przekierować użytkownika do usługa bezpiecznych tokenów takich jak usługi Azure AD B2C. Zamiast tego interfejsu API są przekazywane tokenu elementu nośnego z aplikacji wywołującej, która już uwierzytelnił użytkownika za pomocą usługi Azure AD B2C. Interfejs API następnie weryfikuje token bez bezpośredniej interakcji użytkownika.
 
@@ -57,14 +56,14 @@ Użyj następujących wartości:
 
 | Ustawienie                       | Wartość               | Uwagi                                                                                  |
 |-------------------------------|---------------------|----------------------------------------------------------------------------------------|
-| **Nazwa**                      | *&lt;Nazwa interfejsu API&gt;*  | Wprowadź **nazwa** dla aplikacji, który opisuje aplikację dla użytkowników.                     |
+| **Nazwa**                      | *{Nazwa interfejsu API}*        | Wprowadź **nazwa** dla aplikacji, który opisuje aplikację dla użytkowników.                     |
 | **Uwzględnij aplikację sieci web / interfejs API sieci web** | Tak                 |                                                                                        |
 | **Zezwalaj na niejawny przepływ**       | Tak                 |                                                                                        |
 | **Adres URL odpowiedzi**                 | `https://localhost` | Adresy URL odpowiedzi to punkty końcowe, w którym usługi Azure AD B2C zwraca wszelkie tokeny żądane przez aplikację. |
 | **Identyfikator URI Identyfikatora aplikacji**                | *Interfejs API*               | Identyfikator URI nie musi prowadzić do adresu fizycznego. Tylko musi być unikatowa.     |
 | **Dołącz klienta natywnego**     | Nie                  |                                                                                        |
 
-Po zarejestrowaniu interfejsu API zostanie wyświetlona lista aplikacji i interfejsów API w dzierżawie. Wybierz interfejs API, który właśnie został zarejestrowany. Wybierz **kopiowania** ikony po prawej stronie **identyfikator aplikacji** pola, aby skopiować go do Schowka. Wybierz **opublikowane zakresy** i zweryfikowanie domyślnego *user_impersonation* występuje zakresie.
+Po zarejestrowaniu interfejsu API zostanie wyświetlona lista aplikacji i interfejsów API w dzierżawie. Wybierz interfejs API, który wcześniej został zarejestrowany. Wybierz **kopiowania** ikony po prawej stronie **identyfikator aplikacji** pola, aby skopiować go do Schowka. Wybierz **opublikowane zakresy** i zweryfikowanie domyślnego *user_impersonation* występuje zakresie.
 
 ## <a name="create-an-aspnet-core-app-in-visual-studio-2017"></a>Tworzenie aplikacji platformy ASP.NET Core w programie Visual Studio 2017
 
@@ -78,7 +77,7 @@ W programie Visual Studio:
 
     ![Zmień przycisk uwierzytelniania](./azure-ad-b2c-webapi/change-auth-button.png)
 
-4. W **Zmień uwierzytelnianie** okno dialogowe, wybierz opcję **indywidualne konta użytkowników**, a następnie wybierz pozycję **Połącz z istniejącym magazynem użytkownika w chmurze** na liście rozwijanej. 
+4. W **Zmień uwierzytelnianie** okno dialogowe, wybierz opcję **indywidualne konta użytkowników** > **Połącz z istniejącym magazynem użytkownika w chmurze**.
 
     ![Okno dialogowe uwierzytelniania zmiany](./azure-ad-b2c-webapi/change-auth-dialog.png)
 
@@ -86,9 +85,9 @@ W programie Visual Studio:
 
     | Ustawienie                       | Wartość                                                 |
     |-------------------------------|-------------------------------------------------------|
-    | **Nazwa domeny**               | *&lt;Nazwa domeny dzierżawy usługi B2C&gt;*          |
-    | **Identyfikator aplikacji**            | *&lt;Wklej identyfikator aplikacji ze Schowka&gt;* |
-    | **Zasady tworzenia konta lub logowania** | `B2C_1_SiUpIn`                                        |
+    | **Nazwa domeny**               | *{Nazwa domeny dzierżawy usługi B2C}*                |
+    | **Identyfikator aplikacji**            | *{Wklej identyfikator aplikacji ze Schowka}*       |
+    | **Zasady tworzenia konta lub logowania** | B2C_1_SiUpIn                                          |
 
     Wybierz **OK** zamknąć **Zmień uwierzytelnianie** okna dialogowego. Wybierz **OK** umożliwiające utworzenie aplikacji sieci web.
 
@@ -107,7 +106,7 @@ W programie Visual Studio, uruchamianie interfejsu API. Visual Studio otworzy w 
 
 ### <a name="register-postman-as-a-web-app"></a>Zarejestruj Postman jako aplikacja sieci web
 
-Ponieważ Postman symuluje aplikacji sieci web, który można uzyskać tokenów z dzierżawy usługi Azure AD B2C, musi być zarejestrowany w dzierżawie jako aplikacja sieci web. Rejestrowanie przy użyciu narzędzia Postman [kroki opisane w dokumentacji](/azure/active-directory-b2c/active-directory-b2c-app-registration#register-a-web-app) w obszarze **rejestrowanie aplikacji internetowej** sekcji. Zatrzyma **Tworzenie klucza tajnego klienta aplikacji sieci web** sekcji. Klucz tajny klienta nie jest wymagana na potrzeby tego samouczka. 
+Ponieważ Postman symuluje aplikację sieci web, która uzyskuje dostęp do tokenów z dzierżawy usługi Azure AD B2C, musi być zarejestrowany w dzierżawie jako aplikacja sieci web. Rejestrowanie przy użyciu narzędzia Postman [kroki opisane w dokumentacji](/azure/active-directory-b2c/active-directory-b2c-app-registration#register-a-web-app) w obszarze **rejestrowanie aplikacji internetowej** sekcji. Zatrzyma **Tworzenie klucza tajnego klienta aplikacji sieci web** sekcji. Klucz tajny klienta nie jest wymagana na potrzeby tego samouczka. 
 
 Użyj następujących wartości:
 
@@ -117,16 +116,16 @@ Użyj następujących wartości:
 | **Uwzględnij aplikację sieci web / interfejs API sieci web** | Tak                              |                                 |
 | **Zezwalaj na niejawny przepływ**       | Tak                              |                                 |
 | **Adres URL odpowiedzi**                 | `https://getpostman.com/postman` |                                 |
-| **Identyfikator URI Identyfikatora aplikacji**                | *&lt;Pozostaw to pole puste&gt;*            | Nie jest wymagane na potrzeby tego samouczka. |
+| **Identyfikator URI Identyfikatora aplikacji**                | *{puste}*                  | Nie jest wymagane na potrzeby tego samouczka. |
 | **Dołącz klienta natywnego**     | Nie                               |                                 |
 
 Nowo rejestrowanej aplikacji internetowej wymaga zgody na dostęp do internetowego interfejsu API w imieniu użytkownika.  
 
 1. Wybierz **Postman** na liście aplikacji, a następnie wybierz **dostęp do interfejsu API** z menu po lewej stronie.
-2. Wybierz **+ Dodaj**.
-3. W **wybierz interfejs API** listy rozwijanej wybierz nazwę interfejsu API sieci web.
-4. W **wybierz zakresy** listy rozwijanej, upewnij się, wszystkie zakresy są zaznaczone.
-5. Wybierz **Ok**.
+1. Wybierz **+ Dodaj**.
+1. W **wybierz interfejs API** listy rozwijanej wybierz nazwę interfejsu API sieci web.
+1. W **wybierz zakresy** listy rozwijanej, upewnij się, wszystkie zakresy są zaznaczone.
+1. Wybierz **Ok**.
 
 Identyfikator aplikacji w aplikacji Postman, należy pamiętać, ponieważ są wymagane do uzyskania tokenu elementu nośnego.
 
@@ -151,7 +150,7 @@ Z **Utwórz nowy** okno dialogowe:
 
 Aby sprawdzić, czy internetowy interfejs API wymaga uwierzytelniania, należy najpierw zgłosić wniosek bez uwierzytelniania.
 
-1. W **wprowadź adres URL żądania** wprowadź adres URL `ValuesController`. Adres URL jest taka sama jak wartość wyświetlana w przeglądarce, za pomocą **wartości/interfejsu api** dołączane. Przykładem może być `https://localhost:44375/api/values`.
+1. W **wprowadź adres URL żądania** wprowadź adres URL `ValuesController`. Adres URL jest taka sama jak wartość wyświetlana w przeglądarce, za pomocą **wartości/interfejsu api** dołączane. Na przykład `https://localhost:44375/api/values`.
 2. Wybierz **wysyłania** przycisku.
 3. Należy pamiętać, stan odpowiedzi jest *401 nieautoryzowane*.
 
@@ -173,19 +172,21 @@ Aby wprowadzić uwierzytelnionego żądania interfejsu API sieci web, token elem
 
    |                Ustawienie                 |                                             Wartość                                             |                                                                                                                                    Uwagi                                                                                                                                     |
    |----------------------------------------|-----------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-   |      <strong>Nazwa tokenu</strong>       |                                  <em>&lt;Nazwa tokenu&gt;</em>                                  |                                                                                                                   Wprowadź nazwę opisową dla tokenu.                                                                                                                    |
+   |      <strong>Nazwa tokenu</strong>       |                                          *{Nazwa tokenu}*                                       |                                                                                                                   Wprowadź nazwę opisową dla tokenu.                                                                                                                    |
    |      <strong>Typ udzielania</strong>       |                                           Niejawne                                            |                                                                                                                                                                                                                                                                              |
-   |     <strong>Adres URL wywołania zwrotnego</strong>      |                               `https://getpostman.com/postman`                                |                                                                                                                                                                                                                                                                              |
-   |       <strong>Adres URL uwierzytelniania</strong>        | `https://login.microsoftonline.com/tfp/<tenant domain name>/B2C_1_SiUpIn/oauth2/v2.0/authorize` |                                                                                                  Zastąp <em>&lt;nazwa_domeny_dzierżawy&gt;</em> z nazwą domeny dzierżawy.                                                                                                  |
-   |       <strong>Identyfikator klienta</strong>       |                <em>&lt;Wprowadź aplikację Postman <b>Identyfikatora aplikacji</b>&gt;</em>                 |                                                                                                                                                                                                                                                                              |
-   |         <strong>Zakres</strong>         |         `https://<tenant domain name>/<api>/user_impersonation openid offline_access`         | Zastąp <em>&lt;nazwa_domeny_dzierżawy&gt;</em> z nazwą domeny dzierżawy. Zastąp <em>&lt;api&gt;</em> z identyfikator URI Identyfikatora aplikacji należy nadać interfejsu API sieci web podczas pierwszej rejestracji (w tym przypadku `api`). Wzorzec adresu URL: <em>https://{tenant}.onmicrosoft.com/{api-id-uri}/{scope nazwa}</em>. |
-   |         <strong>State</strong>         |                                 <em>&lt;Pozostaw to pole puste&gt;</em>                                  |                                                                                                                                                                                                                                                                              |
+   |     <strong>Adres URL wywołania zwrotnego</strong>      |                                 `https://getpostman.com/postman`                              |                                                                                                                                                                                                                                                                              |
+   |       <strong>Adres URL uwierzytelniania</strong>        | `https://login.microsoftonline.com/{tenant domain name}/oauth2/v2.0/authorize?p=B2C_1_SiUpIn` |  Zastąp *{nazwa domeny dzierżawy}* z nazwą domeny dzierżawy. **WAŻNE**: ten adres URL musi mieć taką samą nazwę domeny, jak co znajduje się w `AzureAdB2C.Instance` w sieci web, interfejsów API *appsettings.json* pliku. Patrz Uwaga&dagger;.                                                  |
+   |       <strong>Identyfikator klienta</strong>       |                *{Wprowadź aplikację Postman <b>identyfikator aplikacji</b>}*                              |                                                                                                                                                                                                                                                                              |
+   |         <strong>Zakres</strong>         |         `https://{tenant domain name}/{api}/user_impersonation openid offline_access`       | Zastąp *{nazwa domeny dzierżawy}* z nazwą domeny dzierżawy. Zastąp *{interfejsu api}* z identyfikator URI Identyfikatora aplikacji należy nadać interfejsu API sieci web podczas pierwszej rejestracji (w tym przypadku `api`). Wzorzec adresu URL: `https://{tenant}.onmicrosoft.com/{api-id-uri}/{scope name}`.         |
+   |         <strong>State</strong>         |                                      *{puste}*                                          |                                                                                                                                                                                                                                                                              |
    | <strong>Uwierzytelnianie klienta</strong> |                                Wyślij poświadczeń klienta w treści                                |                                                                                                                                                                                                                                                                              |
 
+    > [!NOTE]
+    > &dagger; Okno dialogowe Ustawienia zasad w portalu Azure Active Directory B2C wyświetla dwa możliwe adresy URL: jeden w formacie `https://login.microsoftonline.com/`{nazwa domeny dzierżawy} / {dodatkowe informacje o ścieżce}, a druga w formacie `https://{tenant name}.b2clogin.com/`{nazwa domeny dzierżawy} / {dodatkowe informacje o ścieżce}. Ma ona **krytyczne** wykrytym przez domenę w w `AzureAdB2C.Instance` w sieci web, interfejsów API *appsettings.json* pliku użytemu w aplikacji sieci web *appsettings.json* pliku. Jest to tej samej domeny, które są używane dla pola Adres URL uwierzytelniania w narzędziu Postman. Należy pamiętać, że program Visual Studio używa nieco inny format adresu URL, niż jest wyświetlana w portalu. Tak długo, jak domeny są zgodne, adres URL działa.
 
 3. Wybierz **żądania tokenu** przycisku.
 
-4. Postman Collection zostanie otwarte nowe okno zawierające okno dialogowe logowania dzierżawy usługi Azure AD B2C. Zaloguj się przy użyciu istniejącego konta, (Jeśli utworzono jedną testowania zasad) lub wybierz **Zarejestruj się teraz** do utworzenia nowego konta. **Nie pamiętasz hasła?** łącze służy do zresetować zapomniane hasło.
+4. Postman spowoduje otwarcie nowego okna dialogowego logowania dla dzierżawy usługi Azure AD B2C. Zaloguj się przy użyciu istniejącego konta, (Jeśli utworzono jedną testowania zasad) lub wybierz **Zarejestruj się teraz** do utworzenia nowego konta. **Nie pamiętasz hasła?** łącze służy do zresetować zapomniane hasło.
 
 5. Po pomyślnym zalogowaniu okno zostanie zamknięte i **Zarządzanie TOKENÓW dostępu** zostanie wyświetlone okno dialogowe. Przewiń w dół do dołu i wybierz pozycję **użycia tokenu** przycisku.
 

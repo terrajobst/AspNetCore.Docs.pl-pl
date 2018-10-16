@@ -5,12 +5,12 @@ description: Pokazuje, jak tworzyć, odczytywać, aktualizować, usuwać z progr
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/crud
-ms.openlocfilehash: 25493f93daf3fe5e874ad1d06b918196cd1f074d
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: b30cc9a5a5bae520ec21e6314be7819484f9e580
+ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912816"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49348471"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---crud---2-of-8"></a>Strony razor z programem EF Core w programie ASP.NET Core — CRUD - 2, 8
 
@@ -57,7 +57,7 @@ W bardzo utworzony szkielet kodu [metoda findasync dla](/dotnet/api/microsoft.en
 * Umożliwia znalezienie jednostki za pomocą kluczowi podstawowemu (PK). Jeśli jednostki z PK jest śledzony przez kontekst, jest zwracany bez żądania z bazą danych.
 * Jest proste i zwięzłe.
 * Jest zoptymalizowana pod kątem wyszukiwania pojedynczej jednostki.
-* Może korzystnie wpływać na wydajności w niektórych sytuacjach, ale są rzadko się dzieje w przypadku aplikacji sieci web typowy.
+* Może korzystnie wpływać na wydajności w niektórych sytuacjach, ale który rzadko się dzieje w przypadku aplikacji sieci web typowy.
 * Niejawnie wykorzystuje [FirstAsync](/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.firstasync#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_FirstAsync__1_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Threading_CancellationToken_) zamiast [SingleAsync](/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.singleasync#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_SingleAsync__1_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Threading_CancellationToken_).
 
 Ale jeśli chcesz `Include` innych podmiotów, następnie `FindAsync` nie jest właściwe. Oznacza to, że może być konieczne porzucenie `FindAsync` i Zacznij korzystać z zapytania w miarę postępów Twojej aplikacji.

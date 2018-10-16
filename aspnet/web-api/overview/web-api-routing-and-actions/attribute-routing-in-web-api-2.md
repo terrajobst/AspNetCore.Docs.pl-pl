@@ -8,12 +8,12 @@ ms.date: 01/20/2014
 ms.assetid: 979d6c9f-0129-4e5b-ae56-4507b281b86d
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: d16dcc618bf6c60714179601db14f4dd2a9e41ce
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 22eb2fd748d52ec95e813ada8b1bf3b4826ad573
+ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912155"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49348484"
 ---
 <a name="attribute-routing-in-aspnet-web-api-2"></a>Atrybut routingu we wzorcu ASP.NET Web API 2
 ====================
@@ -245,11 +245,11 @@ Aby określić nazwę trasy, ustaw **nazwa** właściwości w atrybucie. Poniżs
 <a id="order"></a>
 ## <a name="route-order"></a>Kolejność trasy
 
-Kiedy struktura próbuje dopasować identyfikatora URI z trasą, ocenia trasy w określonej kolejności. Aby określić kolejność, ustaw **RouteOrder** właściwość atrybut trasy. Niższe wartości są obliczane jako pierwsze. Wartość domyślna kolejności wynosi zero.
+Kiedy struktura próbuje dopasować identyfikatora URI z trasą, ocenia trasy w określonej kolejności. Aby określić kolejność, ustaw **kolejności** właściwość atrybut trasy. Niższe wartości są obliczane jako pierwsze. Wartość domyślna kolejności wynosi zero.
 
 Poniżej przedstawiono sposób ustalania kolejności, łączna liczba:
 
-1. Porównaj **RouteOrder** właściwość atrybut trasy.
+1. Porównaj **kolejności** właściwość atrybut trasy.
 2. Spójrz na każdym segmencie identyfikatora URI w szablonie trasy. Dla każdego segmentu kolejność w następujący sposób:
 
     1. Literał segmenty.
@@ -271,4 +271,4 @@ Te trasy są uporządkowane w następujący sposób.
 4. zamówienia / {\*date}
 5. zamówienia / oczekujące
 
-Zwróć uwagę, że "szczegóły" jest literał segmentu i pojawia się przed "{id}", ale "oczekujące" pojawia się ostatnio ponieważ **RouteOrder** właściwość ma wartość 1. (W tym przykładzie przyjęto założenie, są nie klientów o nazwie "szczegóły" lub "pending". Ogólnie rzecz biorąc Staraj się unikać niejednoznaczne trasy. W tym przykładzie lepsze szablon trasy dla `GetByCustomer` jest "klientów / {customerName}")
+Zwróć uwagę, że "szczegóły" jest literał segmentu i pojawia się przed "{id}", ale "oczekujące" pojawia się ostatnio ponieważ **kolejności** właściwość ma wartość 1. (W tym przykładzie przyjęto założenie, są nie klientów o nazwie "szczegóły" lub "pending". Ogólnie rzecz biorąc Staraj się unikać niejednoznaczne trasy. W tym przykładzie lepsze szablon trasy dla `GetByCustomer` jest "klientów / {customerName}")
