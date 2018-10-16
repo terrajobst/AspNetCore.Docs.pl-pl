@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 09/13/2018
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: d6157ac2bdf046c66f4b740ad2263f6b7485c05d
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 4006057b8fcef9c28274bc52a311f15bff92ffb0
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912309"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49326150"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>Implementacja serwera sieci web kestrel w programie ASP.NET Core
 
@@ -89,7 +89,7 @@ Jeśli udostępnisz aplikację, aby przez Internet, użyj usług IIS, serwera Ng
 
 ![Kestrel komunikuje się bezpośrednio z Internetem za pośrednictwem serwera zwrotny serwer proxy, na przykład serwer Nginx, Apache lub IIS](kestrel/_static/kestrel-to-internet.png)
 
-Zwrotny serwer proxy jest wymagany w przypadku wdrożeń usługi edge (ujawniony na ruch z Internetu) ze względów bezpieczeństwa. Wersji 1.x Kestrel nie mają pełny zestaw zabezpieczeń przed atakami, takie jak odpowiednie limity czasu, limity rozmiaru i limity liczby jednoczesnych połączeń.
+Zwrotny serwer proxy jest wymagany dla publicznego krawędzi wdrożenia serwera (ujawniony na ruch z Internetu) ze względów bezpieczeństwa. Wersji 1.x Kestrel nie mają pełny zestaw zabezpieczeń przed atakami, takie jak odpowiednie limity czasu, limity rozmiaru i limity liczby jednoczesnych połączeń.
 
 ::: moniker-end
 
@@ -1296,7 +1296,7 @@ Oprogramowanie pośredniczące filtrowania w hosta jest domyślnie wyłączona. 
 ```
 
 > [!NOTE]
-> [Oprogramowanie pośredniczące nagłówki przekazywane](xref:host-and-deploy/proxy-load-balancer) ma również [ForwardedHeadersOptions.AllowedHosts](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.allowedhosts) opcji. Przekazane oprogramowanie pośredniczące nagłówków i hosta filtrowanie oprogramowanie pośredniczące mają podobną funkcjonalność dla różnych scenariuszy. Ustawienie `AllowedHosts` z przekazywane oprogramowania pośredniczącego nagłówki jest odpowiednie, jeśli nagłówek hosta nie są zachowywane podczas przekazywania żądań przy użyciu zwrotnego serwera proxy lub moduł równoważenia obciążenia. Ustawienie `AllowedHosts` z hosta filtrowania w oprogramowaniu pośredniczącym przydaje się, gdy Kestrel jest używany jako serwer graniczny, lub gdy nagłówek hosta był kierowany bezpośrednio.
+> [Oprogramowanie pośredniczące nagłówki przekazywane](xref:host-and-deploy/proxy-load-balancer) ma również [ForwardedHeadersOptions.AllowedHosts](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.allowedhosts) opcji. Przekazane oprogramowanie pośredniczące nagłówków i hosta filtrowanie oprogramowanie pośredniczące mają podobną funkcjonalność dla różnych scenariuszy. Ustawienie `AllowedHosts` z przekazywane oprogramowania pośredniczącego nagłówki jest odpowiednie, jeśli nagłówek hosta nie są zachowywane podczas przekazywania żądań przy użyciu zwrotnego serwera proxy lub moduł równoważenia obciążenia. Ustawienie `AllowedHosts` z hosta filtrowania w oprogramowaniu pośredniczącym przydaje się, gdy Kestrel jest używany jako serwer graniczny publicznego lub gdy nagłówek hosta był kierowany bezpośrednio.
 >
 > Aby uzyskać więcej informacji na temat przekazywane oprogramowania pośredniczącego nagłówków, zobacz [Konfigurowanie platformy ASP.NET Core pracować z serwerów proxy i moduły równoważenia obciążenia](xref:host-and-deploy/proxy-load-balancer).
 

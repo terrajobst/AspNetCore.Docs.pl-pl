@@ -54,7 +54,7 @@ Po zakończeniu będziesz mieć działającą aplikację sieci web uruchomiony n
 
   ![Okno dialogowe ostrzeżenia o zabezpieczeniach](_static/cert.png)
 
-  Wybierz **tak** Jeśli zgadzasz się ufać certyfikatowi rozwoju.
+  Wybierz **Tak**, jeśli zgadzasz się ufać certyfikatowi programistycznemu.
 
 # <a name="macostabmacos"></a>[macOS](#tab/macos)
 
@@ -69,11 +69,11 @@ Po zakończeniu będziesz mieć działającą aplikację sieci web uruchomiony n
   
   Hasło: *
 
-  Wprowadź hasło, jeśli zgadzasz się ufać certyfikatowi rozwoju.
+  Wprowadź hasło, jeśli zgadzasz się ufać certyfikatowi programistycznemu.
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
-  W dokumentacji dla Twojej dystrybucji systemu Linux na temat zaufania certyfikatu deweloperskiego protokołu HTTPS.
+  Sprawdź w dokumentacji dla Twojej dystrybucji systemu Linux informacje na temat dodania certyfikatu deweloperskiego do zaufanych certyfikatów protokołu HTTPS.
    
 ---
 
@@ -86,15 +86,15 @@ Po zakończeniu będziesz mieć działającą aplikację sieci web uruchomiony n
    dotnet run
    ```
 
-* Przejdź do [ https://localhost:5001 ](https://localhost:5001). Kliknij przycisk **Akceptuj** zaakceptować zasady ochrony prywatności i plików cookie. Ta aplikacja nie zachowuje informacji osobistych.
+* Przejdź do [https://localhost:5001](https://localhost:5001). Kliknij przycisk **Akceptuj**, aby zaakceptować zasady ochrony prywatności i plików cookie. Ta aplikacja nie zachowuje informacji osobistych.
 
 ## <a name="edit-a-razor-page"></a>Edytuj stronę Razor
 
-* Otwórz *Pages/About.cshtml* i modyfikować strony z następujący wyróżniony kod znaczników:
+* Otwórz *Pages/About.cshtml* i zmodyfikuj stronę w wyróżnionym miejscu w następującym przykładzie:
 
    [!code-cshtml[](sample/getting-started/about.cshtml?highlight=9)]
 
-* Przejdź do [ https://localhost:5001/About ](https://localhost:5001/About) i Sprawdź zmiany są wyświetlane.
+* Przejdź do [https://localhost:5001/About](https://localhost:5001/About) i sprawdź, czy zmiany są wyświetlane.
 
 ## <a name="next-steps"></a>Następne kroki
 
