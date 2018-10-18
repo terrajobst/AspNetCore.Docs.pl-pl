@@ -8,12 +8,12 @@ ms.date: 03/03/2014
 ms.assetid: 5344b74e-b888-479a-92bc-601a33bd61a2
 msc.legacyurl: /web-forms/overview/getting-started/code-editing-in-web-forms-pages
 msc.type: authoredcontent
-ms.openlocfilehash: 5bf10a78b106475ffc01b732b21088bad67eb93d
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 670f81ca1ef9923575cb2fee1747f06f426963d8
+ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41757059"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49391222"
 ---
 <a name="code-editing-aspnet-web-forms-in-visual-studio-2013"></a>Kod edycji ASP.NET Web Forms w programie Visual Studio 2013
 ====================
@@ -42,9 +42,6 @@ Aby ukończyć ten przewodnik, potrzebne są:
     > Microsoft Visual Studio 2013 i Microsoft Visual Studio Express 2013 for Web będzie często określane jako programu Visual Studio w całej tej serii samouczków.  
     >   
     > Jeśli używasz programu Visual Studio, tym przewodniku przyjęto założenie, że wybrana **programowania dla sieci Web** zbiór ustawień podczas pierwszego uruchomienia programu Visual Studio. Aby uzyskać więcej informacji, zobacz [porady: Wybieranie ustawienia środowiska programowania sieci Web](https://msdn.microsoft.com/library/ff521558.aspx).
-
-  Wprowadzenie do programu Visual Studio i platformy ASP.NET, zobacz [Tworzenie podstawowych strony ASP.NET 4.5 Web Forms w programie Visual Studio 2013](creating-a-basic-web-forms-page.md).   
- 
 
 ## <a name="creating-a-web-application-project-and-a-page"></a>Tworzenie projektu aplikacji sieci Web i strony
 

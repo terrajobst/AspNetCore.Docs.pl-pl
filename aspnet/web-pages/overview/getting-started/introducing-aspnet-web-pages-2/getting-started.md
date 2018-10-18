@@ -1,6 +1,6 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/getting-started
-title: Wprowadzenie do składnika ASP.NET Web Pages — wprowadzenie | Dokumentacja firmy Microsoft
+title: Wprowadzenie | Dokumentacja firmy Microsoft
 author: tfitzmac
 description: Program WebMatrix nie jest już zalecany jako zintegrowane środowisko projektowe dla stron ASP.NET Web Pages. Użyj programu Visual Studio lub Visual Studio Code. Niniejsze wskazówki...
 ms.author: riande
@@ -8,14 +8,14 @@ ms.date: 05/28/2015
 ms.assetid: a36d3bdf-ef1b-47a4-b932-3a0cf4cad716
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/getting-started
 msc.type: authoredcontent
-ms.openlocfilehash: 12878082306cf51f8ea08ae614d9420251ecb587
-ms.sourcegitcommit: 8bf4dff3069e62972c1b0839a93fb444e502afe7
+ms.openlocfilehash: 467239fdd2758240e589f4e1bfb40501502b83cf
+ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46482960"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49391274"
 ---
-<a name="introducing-aspnet-web-pages---getting-started"></a>Wprowadzenie do wzorca ASP.NET Web Pages — wprowadzenie
+<a name="getting-started"></a>Wprowadzenie
 ====================
 przez [Tom FitzMacken](https://github.com/tfitzmac)
 
@@ -115,16 +115,16 @@ A Oto strona która umożliwia dodawanie nowych informacji film do swojej witryn
 
 Kolejne samouczek Zestawy kompilacji na tym zestawu i Dodaj więcej funkcji, takich jak przekazywania obrazów, umożliwiając osób, zaloguj się, wysyłania wiadomości e-mail i integracji z mediów społecznościowych.
 
-## <a name="see-this-app-running-on-azure"></a>Zobacz tej aplikacji działających na platformie Azure
+## <a name="see-this-app-running-on-azure"></a>Wyświetlanie aplikacji działającej na platformie Azure
 
-Czy chcesz w witrynie Zakończono działającego jako aplikacja sieci web? Pełną wersję aplikacji można wdrożyć do konta platformy Azure, po prostu kliknąć poniższy przycisk.
+Czy chcesz zobaczyć gotową witrynę działającą jako aplikacja internetowa na żywo? Pełną wersję aplikacji możesz wdrożyć na koncie platformy Azure — wystarczy kliknąć poniższy przycisk.
 
 [![](http://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/?WT.mc_id=deploy_azure_aspnet&repository=https://github.com/tfitzmac/WebPagesMovies)
 
-Potrzebujesz konta platformy Azure, aby wdrożyć to rozwiązanie na platformie Azure. Jeśli nie masz już konto, masz następujące opcje:
+Aby wdrożyć to rozwiązanie na platformie Azure, musisz mieć konto platformy Azure. Jeśli nie masz jeszcze konta, możesz:
 
-- [Otworzyć bezpłatne konto platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A443DD604) — otrzymasz kredyt służy do wypróbowania płatnych usług platformy Azure, a nawet w przypadku, po ich wyczerpaniu nawet możesz zachować konto i korzystać z bezpłatnych usług platformy Azure.
-- [Aktywować korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604) -ramach subskrypcji MSDN daje środki na korzystanie z każdego miesiąca, używanego do płatne usługi platformy Azure.
+- [Otworzyć bezpłatne konto platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A443DD604) — otrzymujesz środki , które możesz użyć do wypróbowania płatnych usług platformy Azure, a potem nawet w przypadku ich wyczerpania możesz zachować konto i korzystać z bezpłatnych usług platformy Azure.
+- [Aktywować korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604) - w ramach subskrypcji MSDN każdego miesiąca dostajesz środki, dzięki którym możesz korzystać z płatnych usług platformy Azure.
 
 ## <a name="installing-everything"></a>Instalowanie wszystko
 

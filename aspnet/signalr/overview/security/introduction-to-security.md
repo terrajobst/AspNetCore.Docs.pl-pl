@@ -8,12 +8,12 @@ ms.date: 06/10/2014
 ms.assetid: ed562717-8591-4936-8e10-c7e63dcb570a
 msc.legacyurl: /signalr/overview/security/introduction-to-security
 msc.type: authoredcontent
-ms.openlocfilehash: 765abd36c5182f291499042e787bcb4fcc727997
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 6336d9608f41c367c46d5b9552141546bc782b7d
+ms.sourcegitcommit: 12a8bdb8e83ca9c23c06f3bc6507c9e1a60ea7e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48910861"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49401871"
 ---
 <a name="introduction-to-signalr-security"></a>Wprowadzenie do zabezpieczeń SignalR
 ====================
@@ -85,6 +85,14 @@ Dla każdego żądania serwer sprawdza poprawność zawartości tokenu, aby upew
 ![](introduction-to-security/_static/image4.png)
 
 Ponieważ identyfikator połączenia, który jest częścią procesu weryfikacji, nie należy ujawnić identyfikatora połączenia jednego użytkownika do innych użytkowników lub przechowywania wartości na kliencie, takie jak w pliku cookie.
+
+#### <a name="connection-tokens-vs-other-token-types"></a>Tokeny połączenia, a inne typy tokenów
+
+Tokeny połączenia od czasu do czasu są oznaczane za pomocą narzędzi zabezpieczeń, ponieważ wydają się być tokeny sesji lub tokenów uwierzytelniania, które stanowi zagrożenie, jeśli widoczne.
+
+Token połączenia SignalR nie jest token uwierzytelniania. Służy do upewnij się, że użytkownika zgłaszającego żądanie jest taka sama, jedną, która utworzyła połączenie. Token połączenia jest konieczne, ponieważ biblioteki SignalR platformy ASP.NET umożliwia nawiązywanie połączeń przenieść między serwerami. Token połączenia zostanie skojarzony z określonym użytkownikiem, ale nie potwierdzenia tożsamości użytkownika zgłaszającego żądanie. Żądanie SignalR uwierzytelniali się poprawnie musi on mieć inne token, który potwierdza tożsamość użytkownika, takich jak plik cookie lub tokenu elementu nośnego. Jednak połączenie token sam sprawia, że brak oświadczenia, że żądanie zostało utworzone przez tego użytkownika, tylko że Identyfikatora połączenia zawartych w tokenie jest skojarzony z tym użytkownikiem.
+
+Ponieważ token połączenia zapewnia brak oświadczenia uwierzytelniania własnych, jego nie jest określana jako "sesja" lub "uwierzytelnianie" tokenu. Biorąc token połączenia dla danego użytkownika i odtworzenie jego żądania uwierzytelnienia się jako inny użytkownik (lub nieuwierzytelnione żądania) zakończy się niepowodzeniem, ponieważ nie pasuje do żądania tożsamości użytkownika i tożsamości przechowywanych w tokenie.
 
 <a id="rejoingroup"></a>
 

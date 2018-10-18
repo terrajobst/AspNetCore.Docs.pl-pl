@@ -5,12 +5,12 @@ description: Dowiedz się, jak rozpocząć pracę z ASP.NET Core MVC i programu 
 ms.author: riande
 ms.date: 10/07/2017
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: 41f986a06ec46dc025c4e8218745b4a513e8ee2a
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: fe555e4cfcaec5d4bb8ccee00b06d1bbcaae9dcd
+ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011709"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49391209"
 ---
 # <a name="get-started-with-aspnet-core-mvc-and-visual-studio"></a>Wprowadzenie do ASP.NET Core MVC i programu Visual Studio
 
@@ -48,12 +48,12 @@ Wykonaj **nowy projekt** okno dialogowe:
 Wykonaj **nowa Core aplikacja internetowa ASP.NET (.NET Core) — MvcMovie** okno dialogowe:
 
 * W polu listy rozwijanej selektora wersji wybierz **platformy ASP.NET Core 2.1**
-* Wybierz **Application(Model-View-Controller) w sieci Web**
+* Wybierz **(Model-View-Controller) aplikacji sieci Web**
 * Naciśnij pozycję **OK**.
 
 ![Okno dialogowe nowego projektu, .net core w okienku po lewej stronie sieci web platformy ASP.NET Core ](start-mvc/_static/new_project22-21.png)
 
-Visual Studio używał domyślnego szablonu projektu MVC, który został utworzony. Masz działającą aplikację z chwili, wprowadzając nazwę projektu i wybraniu kilku opcji. Jest to projekt startowy podstawowe i jest dobrym miejscem do rozpoczęcia,
+Visual Studio używał domyślnego szablonu projektu MVC, który został utworzony. Masz działającą aplikację z chwili, wprowadzając nazwę projektu i wybraniu kilku opcji. Jest to projekt startowy podstawowe i jest dobrym miejscem do rozpoczęcia.
 
 Naciśnij pozycję **F5** do uruchomienia aplikacji w trybie debugowania lub **Ctrl-F5** w trybie bez debugowania.
 <!-- These images are also used by uid: tutorials/first-mvc-app-xplat/start-mvc -->

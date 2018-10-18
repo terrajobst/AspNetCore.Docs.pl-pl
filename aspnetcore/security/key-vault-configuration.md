@@ -5,14 +5,14 @@ description: Dowiedz się, jak skonfigurować aplikację tak, za pomocą pary na
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/01/2018
+ms.date: 10/17/2018
 uid: security/key-vault-configuration
-ms.openlocfilehash: 933f4fb1f2c1c412d318af5974cc9653805242ca
-ms.sourcegitcommit: 25150f4398de83132965a89f12d3a030f6cce48d
+ms.openlocfilehash: 474824cccdc63bb3dc3978ed68cf4c89cec12ad5
+ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2018
-ms.locfileid: "42927990"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49391145"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Dostawca konfiguracji usługi Azure Key Vault w programie ASP.NET Core
 
@@ -62,6 +62,48 @@ Dostawca zostanie dodany do konfiguracji aplikacji z `AddAzureKeyVault` rozszerz
 Po uruchomieniu aplikacji, strony sieci Web pokazuje załadowany wartości klucza tajnego:
 
 ![Okno przeglądarki zawierające wartości klucza tajnego załadowany za pośrednictwem dostawcy konfiguracji magazynu kluczy Azure](key-vault-configuration/_static/sample1.png)
+
+## <a name="bind-an-array-to-a-class"></a>Powiąż tablicę do klasy
+
+Dostawca jest zdolny do odczytywania wartości konfiguracji do tablicy, do powiązania z macierzą POCO.
+
+Podczas odczytywania ze źródła konfiguracji, która umożliwia klucze, aby zawierać dwukropek (`:`) separatory, liczbowych segment klucza jest używane do odróżniania klucze, które tworzą tablicę (`:0:`, `:1:`,... `:{n}:`). Aby uzyskać więcej informacji, zobacz [konfiguracji: powiązywanie tablicę do klasy](xref:fundamentals/configuration/index#bind-an-array-to-a-class).
+
+Usługa Azure Key Vault klucze nie można użyć dwukropek jako separatora. Podejście opisane w tym temacie używa podwójnego kreski (`--`) jako separatora hierarchiczne wartości (sekcji). Tablicy klucze są przechowywane w usłudze Azure Key Vault, przy użyciu podwójnych kresek i numeryczne kluczowe segmenty (`--0--`, `--1--`,... `--{n}--`).
+
+Sprawdź następujące [Serilog](https://serilog.net/) rejestrowania konfigurację dostawcy udostępniane przez plik w formacie JSON. Istnieją dwa obiektu literały zdefiniowane w `WriteTo` tablica, która odzwierciedla dwóch Serilog *wychwytywanie*, opisywać miejsca docelowe danych wyjściowych rejestrowania:
+
+```json
+"Serilog": {
+  "WriteTo": [
+    {
+      "Name": "AzureTableStorage",
+      "Args": {
+        "storageTableName": "logs",
+        "connectionString": "DefaultEnd...ountKey=Eby8...GMGw=="
+      }
+    },
+    {
+      "Name": "AzureDocumentDB",
+      "Args": {
+        "endpointUrl": "https://contoso.documents.azure.com:443",
+        "authorizationKey": "Eby8...GMGw=="
+      }
+    }
+  ]
+}
+```
+
+Konfiguracji przedstawionej w poprzednim pliku JSON jest przechowywany w usłudze Azure Key Vault przy użyciu Podwójna kreska (`--`) notacją i numeryczne segmenty:
+
+| Key | Wartość |
+| --- | ----- |
+| `Serilog--WriteTo--0--Name` | `AzureTableStorage` |
+| `Serilog--WriteTo--0--Args--storageTableName` | `logs` |
+| `Serilog--WriteTo--0--Args--connectionString` | `DefaultEnd...ountKey=Eby8...GMGw==` |
+| `Serilog--WriteTo--1--Name` | `AzureDocumentDB` |
+| `Serilog--WriteTo--1--Args--endpointUrl` | `https://contoso.documents.azure.com:443` |
+| `Serilog--WriteTo--1--Args--authorizationKey` | `Eby8...GMGw==` |
 
 ## <a name="create-prefixed-key-vault-secrets-and-load-configuration-values-key-name-prefix-sample"></a>Tworzenie prefiksem magazynu kluczy, wpisów tajnych i załadować wartości konfiguracji (klucz name prefiks sample)
 

@@ -1,17 +1,17 @@
 ---
 title: Uruchamianie aplikacji w programie ASP.NET Core
 author: ardalis
-description: Dowiedz się, jak klasa startowa. w programie ASP.NET Core umożliwia skonfigurowanie usług i potok żądań aplikacji.
+description: W tym artykule wyjaśniono, jak klasa startowa. w programie ASP.NET Core umożliwia skonfigurowanie usług i potok żądań aplikacji.
 ms.author: tdykstra
 ms.custom: mvc
 ms.date: 4/13/2018
 uid: fundamentals/startup
-ms.openlocfilehash: 923d17be9c2bb1a9d338599d1cdc4c34302cddab
-ms.sourcegitcommit: 08bf41d4b3e696ab512b044970e8304816f8cc56
+ms.openlocfilehash: 392dc83666bc6b9012adc6c32169ae7bdc7ed8d7
+ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44040098"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49391118"
 ---
 # <a name="application-startup-in-aspnet-core"></a>Uruchamianie aplikacji w programie ASP.NET Core
 
@@ -62,7 +62,7 @@ Dodawanie usług do kontenera usługi udostępnia je w aplikacji, a w `Configure
 
 Host sieci web może skonfigurować niektóre usługi przed `Startup` metody są wywoływane. Szczegółowe informacje są dostępne w [hostów w programie ASP.NET Core](xref:fundamentals/host/index) tematu.
 
-W przypadku funkcji, które wymagają znacznej Instalatora, istnieją `Add[Service]` metod rozszerzenia [IServiceCollection](/dotnet/api/Microsoft.Extensions.DependencyInjection.IServiceCollection). Aplikację internetową typowe rejestruje usługi Entity Framework, tożsamości i MVC:
+W przypadku funkcji, które wymagają znacznej Instalatora, istnieją `Add[Service]` metod rozszerzenia [IServiceCollection](/dotnet/api/Microsoft.Extensions.DependencyInjection.IServiceCollection). Typowa aplikacja platformy ASP.NET Core rejestruje usługi Entity Framework, tożsamości i MVC:
 
 [!code-csharp[](../common/samples/WebApplication1/Startup.cs?highlight=4,7,11&start=40&end=55)]
 

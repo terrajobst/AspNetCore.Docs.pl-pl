@@ -5,12 +5,12 @@ description: Lista przewodniki krok po kroku do nauki, jak opracowywać aplikacj
 ms.author: riande
 ms.date: 10/14/2017
 uid: tutorials/index
-ms.openlocfilehash: 3d2fbb453c8f6510806d8dc263ea344023aa4cda
-ms.sourcegitcommit: 32f5ee0690604d451f61e9a5c28881c9fcf85738
+ms.openlocfilehash: c7c17da1bc5fdc2f8e451ad11ebd8b42d1723a31
+ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47454794"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49391079"
 ---
 # <a name="aspnet-core-tutorials"></a>Samouczki dotyczące platformy ASP.NET Core
 
@@ -73,7 +73,6 @@ Dostępne są następujące Przewodniki krok po kroku dotyczące tworzenia aplik
 * [Korzystanie z Gulp](xref:client-side/using-gulp)
 * [Korzystanie z Grunt](xref:client-side/using-grunt)
 * [Zarządzanie pakietami po stronie klienta za pomocą narzędzi Bower](xref:client-side/bower)
-* [Tworzenie szybko reagujących witryn za pomocą narzędzi Bootstrap](xref:client-side/bootstrap)
 
 ## <a name="test"></a>Test
 
