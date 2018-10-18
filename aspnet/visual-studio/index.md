@@ -8,18 +8,19 @@ ms.date: 06/25/2013
 ms.assetid: 7356f644-2b54-4d9f-8863-9d59b9f75532
 msc.legacyurl: /visual-studio
 msc.type: categoryindex
-ms.openlocfilehash: 001255a9a7487abd9ee3e80bcd2b6ee78111f63b
-ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
+ms.openlocfilehash: 929900911e96890ee635b9831e3759411fe93acb
+ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48794853"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49391040"
 ---
-# <a name="visual-studio-2012-and-2013-with-aspnet"></a><span data-ttu-id="a8228-102">Visual Studio 2012 i 2013 za pomocą platformy ASP.NET</span><span class="sxs-lookup"><span data-stu-id="a8228-102">Visual Studio 2012 and 2013 with ASP.NET</span></span>
+# <a name="visual-studio-2012-and-2013-with-aspnet"></a><span data-ttu-id="370fb-102">Visual Studio 2012 i 2013 za pomocą platformy ASP.NET</span><span class="sxs-lookup"><span data-stu-id="370fb-102">Visual Studio 2012 and 2013 with ASP.NET</span></span>
 
-<span data-ttu-id="a8228-103">Aby uzyskać aktualne informacje na temat programu Visual Studio, przejdź do [visualstudio.microsoft.com](https://visualstudio.microsoft.com).</span><span class="sxs-lookup"><span data-stu-id="a8228-103">For current information about Visual Studio, go to [visualstudio.microsoft.com](https://visualstudio.microsoft.com).</span></span>
+<span data-ttu-id="370fb-103">Aby uzyskać aktualne informacje na temat programu Visual Studio, przejdź do [visualstudio.microsoft.com](https://visualstudio.microsoft.com).</span><span class="sxs-lookup"><span data-stu-id="370fb-103">For current information about Visual Studio, go to [visualstudio.microsoft.com](https://visualstudio.microsoft.com).</span></span>
 
-<span data-ttu-id="a8228-104">Następujące strony zawierają łącza do informacji o sposobie używania starszych wersji programu Visual Studio za pomocą platformy ASP.NET.</span><span class="sxs-lookup"><span data-stu-id="a8228-104">The following pages link to information about how to use older versions of Visual Studio with ASP.NET.</span></span>
+<span data-ttu-id="370fb-104">Następujące strony zawierają łącza do informacji o sposobie używania starszych wersji programu Visual Studio za pomocą platformy ASP.NET.</span><span class="sxs-lookup"><span data-stu-id="370fb-104">The following pages link to information about how to use older versions of Visual Studio with ASP.NET.</span></span>
 
-- [<span data-ttu-id="a8228-105">Visual Studio 2013</span><span class="sxs-lookup"><span data-stu-id="a8228-105">Visual Studio 2013</span></span>](overview/2013/index.md)
-- [<span data-ttu-id="a8228-106">Visual Studio 2012</span><span class="sxs-lookup"><span data-stu-id="a8228-106">Visual Studio 2012</span></span>](overview/2012/index.md)
+- [<span data-ttu-id="370fb-105">Visual Studio 2017</span><span class="sxs-lookup"><span data-stu-id="370fb-105">Visual Studio 2017</span></span>](overview/2017/index.md)
+- [<span data-ttu-id="370fb-106">Visual Studio 2013</span><span class="sxs-lookup"><span data-stu-id="370fb-106">Visual Studio 2013</span></span>](overview/2013/index.md)
+- [<span data-ttu-id="370fb-107">Visual Studio 2012</span><span class="sxs-lookup"><span data-stu-id="370fb-107">Visual Studio 2012</span></span>](overview/2012/index.md)
