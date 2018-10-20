@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/11/2018
 uid: mvc/views/partial
-ms.openlocfilehash: a836ed073dfe769fc3cc0cd0622b17937747928b
-ms.sourcegitcommit: 70fb7c9d5f2ddfcf4747382a9f7159feca7a6aa7
+ms.openlocfilehash: d3d2f55645881dd05f7663e0a9d3e45d6bb6d77f
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45601759"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477686"
 ---
 # <a name="partial-views-in-aspnet-core"></a>Widoki częściowe w programie ASP.NET Core
 
@@ -44,7 +44,7 @@ Nie używaj widoku częściowego których wykonywanie złożonych renderowania l
 
 ## <a name="declare-partial-views"></a>Zadeklaruj widoki częściowe
 
-::: moniker range=">= aspnetcore-2.1"
+::: moniker range=">= aspnetcore-2.0"
 
 Widok częściowy jest *.cshtml* pliku znaczników utrzymane w *widoków* folder (MVC) lub *stron* folder (stron Razor).
 
@@ -52,11 +52,11 @@ W przypadku platformy ASP.NET Core MVC, kontroler <xref:Microsoft.AspNetCore.Mvc
 
 W przeciwieństwie do widoku składnika MVC lub renderowania stron widoku częściowego nie zostanie uruchomiona *_ViewStart.cshtml*. Aby uzyskać więcej informacji na temat *_ViewStart.cshtml*, zobacz <xref:mvc/views/layout>.
 
-Nazwy plików widoku częściowego często rozpoczynają się od znaku podkreślenia (`_`). Konwencja nazewnictwa nie jest wymagana, ale pomaga wizualnie odróżnienie widoki częściowe z widoków i stron. Jeśli nazwa pliku zaczyna się od znaku podkreślenia, strony Razor nie przetwarza pliku znaczników jako stronę stron Razor, nawet wtedy, gdy zawiera pliku znaczników `@page` dyrektywy.
+Nazwy plików widoku częściowego często rozpoczynają się od znaku podkreślenia (`_`). Konwencja nazewnictwa nie jest wymagana, ale pomaga wizualnie odróżnienie widoki częściowe z widoków i stron.
 
 ::: moniker-end
 
-::: moniker range="< aspnetcore-2.1"
+::: moniker range="< aspnetcore-2.0"
 
 Widok częściowy jest *.cshtml* pliku znaczników utrzymane w *widoków* folderu.
 

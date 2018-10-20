@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/23/2018
 uid: mvc/controllers/testing
-ms.openlocfilehash: f036181f43d12ece89243fa3b0b0070ea84f8bc7
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 582a5ba461ee2df73b99e4f499e8152f7c6cb7cf
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46010991"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477166"
 ---
 # <a name="test-controller-logic-in-aspnet-core"></a>Logikę kontrolera testu w programie ASP.NET Core
 
@@ -67,7 +67,7 @@ Gdy [ModelState](xref:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary
 
 Drugi test weryfikuje, że w przypadku `ModelState` jest prawidłowy:
 
-* Nowy `BrainstormSession` zostanie dodany (za pośrednictwem [repozytorium](xref:fundamentals/repository-pattern)).
+* Nowy `BrainstormSession` jest dodawana (repozytorium).
 * Metoda ta zwraca `RedirectToActionResult` z oczekiwanych właściwości.
 
 Pozorowane wywołania, które nie są wywoływane są zwykle zignorowane, ale wywoływania `Verifiable` na końcu instalacji wywołanie umożliwia makiety walidacji w teście. Jest to wykonywane przy użyciu wywołania do `mockRepo.Verify`, który kończy się niepowodzeniem testu, jeśli oczekiwany metoda nie została wywołana.
@@ -185,5 +185,4 @@ Aby uzyskać prawidłową sesję `id`, test końcowy sprawdzający potwierdza, �
 * <xref:test/index>
 * <xref:test/integration-tests>
 * [Tworzenie i Uruchamianie testów jednostkowych za pomocą programu Visual Studio](/visualstudio/test/unit-test-your-code).
-* <xref:fundamentals/repository-pattern>
 * [Zasada jawne zależności](https://deviq.com/explicit-dependencies-principle/)

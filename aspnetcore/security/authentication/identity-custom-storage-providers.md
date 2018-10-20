@@ -5,12 +5,12 @@ description: Dowiedz się, jak skonfigurować niestandardowi dostawcy magazynu d
 ms.author: riande
 ms.date: 09/17/2018
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: db51c39cc700f93917f54c80adbfe7922ffcd67e
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: e206cf584d92a17d61676d71abc6fb577ae63453
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011264"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477621"
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>Niestandardowi dostawcy magazynu dla produktu ASP.NET Core Identity
 
@@ -41,7 +41,7 @@ dotnet new webapi -au Individual
 
 ## <a name="the-aspnet-core-identity-architecture"></a>Architektura tożsamości platformy ASP.NET Core
 
-Tożsamości platformy ASP.NET Core składa się z klasy o nazwie menedżerów i magazynów. *Menedżerowie* są ogólne klasy, które używa Deweloper aplikacji, aby wykonywać operacje, takie jak tworzenie tożsamości użytkownika. *Magazyny* są klasami niższego poziomu, które określają, jak jednostki, takie jak użytkownicy i role, są zachowywane. Postępuj zgodnie z magazynów [wzorca repozytorium](xref:fundamentals/repository-pattern) i są ściśle powiązane z mechanizmu stanu trwałego. Menedżerowie są całkowicie niezależni od magazynów, co oznacza, że można zastąpić mechanizmu stanu trwałego, bez konieczności zmieniania kodu aplikacji (z wyjątkiem konfiguracji).
+Tożsamości platformy ASP.NET Core składa się z klasy o nazwie menedżerów i magazynów. *Menedżerowie* są ogólne klasy, które używa Deweloper aplikacji, aby wykonywać operacje, takie jak tworzenie tożsamości użytkownika. *Magazyny* są klasami niższego poziomu, które określają, jak jednostki, takie jak użytkownicy i role, są zachowywane. Magazyny oparte na wzorcu repozytorium i są ściśle powiązane z mechanizmu stanu trwałego. Menedżerowie są całkowicie niezależni od magazynów, co oznacza, że można zastąpić mechanizmu stanu trwałego, bez konieczności zmieniania kodu aplikacji (z wyjątkiem konfiguracji).
 
 Na poniższym diagramie przedstawiono, jak aplikacja sieci web współdziała z menedżerów, natomiast sklepy interakcji z warstwy dostępu do danych.
 

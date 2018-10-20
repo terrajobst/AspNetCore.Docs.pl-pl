@@ -32,8 +32,9 @@ Dodaj następujący kod `MovieGenreViewModel` klasy *modeli* folderu:
 Model widoku gatunku filmu będzie zawierać:
 
    * Lista filmów.
-   * A `SelectList` zawierającego listę gatunki. Umożliwi to użytkownikowi na wybranie określonego rodzaju z listy.
+   * A `SelectList` zawierającego listę gatunki. Dzięki temu użytkownikowi na wybranie określonego rodzaju z listy.
    * `MovieGenre`, zawierającą wybrane gatunku.
+   * `SearchString`, który zawiera tekst, użytkownicy wprowadzają w polu tekstowym wyszukiwania.
 
 Zastąp `Index` method in Class metoda `MoviesController.cs` następującym kodem:
 
@@ -44,6 +45,8 @@ Poniższy kod jest `LINQ` zapytania, który pobiera wszystkie gatunki z bazy dan
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_LINQ)]
 
 `SelectList` Gatunków jest tworzona przy wyświetlaniu distinct gatunki (nie chcemy naszej listy wyboru mają zduplikowane gatunki).
+
+Gdy użytkownik wyszukuje element, do wartości wyszukiwania są przechowywane w polu wyszukiwania. Aby zachować wartości wyszukiwania, należy wypełnić `SearchString` właściwość o wartości wyszukiwania. Wyszukaj wartość `searchString` parametr `Index` akcji kontrolera.
 
 ```csharp
 movieGenreVM.genres = new SelectList(await genreQuery.Distinct().ToListAsync())

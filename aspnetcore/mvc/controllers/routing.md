@@ -5,12 +5,12 @@ description: Dowiedz się, jak ASP.NET Core MVC używa routingu oprogramowania p
 ms.author: riande
 ms.date: 09/17/2018
 uid: mvc/controllers/routing
-ms.openlocfilehash: a5f2670ed8742b7ff67b0494d7bdb37d919349f4
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: 2f6328a5efaa96fd8e4f0cafdbde77dd63a1548f
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49326085"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477647"
 ---
 # <a name="routing-to-controller-actions-in-aspnet-core"></a>Routing do akcji kontrolera, w programie ASP.NET Core
 
@@ -557,6 +557,10 @@ Akcje albo są tradycyjnie kierowane lub atrybut kierowany. Wprowadzenie do tras
 
 > [!NOTE]
 > Czym wyróżnia dwa rodzaje systemów routingu polega na stosowane po adres URL jest zgodny szablon trasy. W routingu konwencjonalne wartości tras z dopasowania są używane do wyboru akcji i kontrolera tabeli odnośników wszystkich akcji trasowane konwencjonalnych. W trasowanie atrybutów, każdy szablon jest już skojarzony z akcją, i jest wymagane żadne dalsze wyszukiwanie.
+
+## <a name="complex-segments"></a>Złożone segmentów
+
+Złożone segmenty (na przykład `[Route("/dog{token}cat")]`), są przetwarzane przez dopasowanie się literały od prawej do lewej w sposób niezachłanne. Zobacz [kod źródłowy](https://github.com/aspnet/Routing/blob/9cea167cfac36cf034dbb780e3f783114ef94780/src/Microsoft.AspNetCore.Routing/Patterns/RoutePatternMatcher.cs#L296) opis. Aby uzyskać więcej informacji, zobacz [ten problem](https://github.com/aspnet/Docs/issues/8197).
 
 <a name="routing-url-gen-ref-label"></a>
 

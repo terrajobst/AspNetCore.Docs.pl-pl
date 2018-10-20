@@ -5,12 +5,12 @@ description: ''
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/crud
-ms.openlocfilehash: 626b828e2391d3982ff2cf393f0c9e0748c12810
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: de9b0bd1e0346d4c12f256e6226353f1ab47ed11
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41754047"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477582"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---crud---2-of-10"></a>Platforma ASP.NET Core MVC z programem EF Core — CRUD - 2 z 10
 
@@ -25,7 +25,7 @@ Przykładową aplikację sieci web firmy Contoso University pokazuje, jak tworzy
 W poprzednim samouczku utworzono aplikację MVC, która przechowuje i wyświetla dane przy użyciu platformy Entity Framework i programu SQL Server LocalDB. W tym samouczku będziesz przejrzenie i dostosowanie CRUD (Tworzenie, odczytywanie, aktualizowanie, usuwanie) kod, który MVC scaffolding automatycznie utworzy dla Ciebie w widoków i kontrolerów.
 
 > [!NOTE]
-> Jest to powszechną praktyką w celu zaimplementowania [wzorca repozytorium](xref:fundamentals/repository-pattern) aby można było utworzyć warstwę abstrakcji między kontrolerem i warstwy dostępu do danych. Aby zachować te samouczki, prosty i skupiają się na nauczania, jak używać programu Entity Framework sam, nie używają repozytoriów. Informacje dla repozytoriów ze EF, zobacz [ostatni samouczek z tej serii](advanced.md).
+> Jest to powszechną praktyką w celu zaimplementowania wzorca repozytorium, aby można było utworzyć warstwę abstrakcji między kontrolerem i warstwy dostępu do danych. Aby zachować te samouczki, prosty i skupiają się na nauczania, jak używać programu Entity Framework sam, nie używają repozytoriów. Informacje dla repozytoriów ze EF, zobacz [ostatni samouczek z tej serii](advanced.md).
 
 W tym samouczku będziesz pracować z następujących stron sieci web:
 

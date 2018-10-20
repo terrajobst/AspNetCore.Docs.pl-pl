@@ -5,12 +5,12 @@ description: Pokazuje, jak utworzyć aplikację strony Razor za pomocą platform
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/intro
-ms.openlocfilehash: 89002f7b4a5af17a9404b14822086c7a9a6ec265
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: f714934a2ef804813290ae0c04432470a2ba5816
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011462"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477569"
 ---
 # <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>Strony razor za pomocą platformy Entity Framework Core w programie ASP.NET Core — samouczek 1 8
 
@@ -187,9 +187,9 @@ Proces szkieletu tworzonych i zmienianych następujące pliki:
 * *Strony/uczniów* tworzenie, edytowanie usuwania, uzyskać szczegółowe informacje, indeksu.
 * *Data/SchoolContext.cs*
 
-### <a name="files-updates"></a>Pliki aktualizacji
+### <a name="file-updates"></a>Aktualizacje plików
 
-* *Startup.cs* : wyszczególniono zmiany do tego pliku w następnej sekcji.
+* *Startup.cs* : zmiany w tym pliku opisano szczegółowo w następnej sekcji.
 * *appSettings.JSON* : parametry połączenia używane do łączenia z lokalnej bazy danych zostanie dodany.
 
 ## <a name="examine-the-context-registered-with-dependency-injection"></a>Badanie kontekstu zarejestrowane przy użyciu iniekcji zależności

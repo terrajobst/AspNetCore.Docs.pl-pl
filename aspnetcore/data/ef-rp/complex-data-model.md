@@ -5,12 +5,12 @@ description: W tym samouczku należy dodać większą liczbę jednostek i relacj
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 4f35dd81c34a9123c20bb4925def93f69f0aaa13
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: b81918cbd74200f0672f3002f916523fb4a9a914
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49326098"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477660"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>Strony razor z programem EF Core w programie ASP.NET Core — Model danych — 5 8
 
@@ -574,9 +574,15 @@ The ALTER TABLE statement conflicted with the FOREIGN KEY constraint "FK_dbo.Cou
 database "ContosoUniversity", table "dbo.Department", column 'DepartmentID'.
 ```
 
-Podczas migracji są uruchamiane z istniejącymi danymi, mogą istnieć ograniczenia klucza Obcego, które nie są spełnione przy użyciu istniejącej danych. Na potrzeby tego samouczka tworzona jest nowa baza danych, więc istnieją żadne naruszenia ograniczenia klucza Obcego. Zobacz [rozwiązywanie ograniczeń klucza obcego z starszych danych](#fk) Aby uzyskać instrukcje, jak naprawić naruszenia klucza Obcego dla bieżącej bazy danych.
+## <a name="apply-the-migration"></a>Zastosuj migracji
 
-### <a name="drop-and-update-the-database"></a>Porzuć i aktualizują bazę danych
+Teraz, gdy masz istniejącą bazę danych, należy wziąć pod uwagę sposób stosowania przyszłe zmiany do niego. W tym samouczku przedstawiono dwie metody:
+* [Porzuć i ponownie utworzyć bazę danych](#drop)
+* [Dotyczą migracji z istniejącej bazy danych](#applyexisting). Ta metoda jest bardziej złożony i czasochłonny proces, jest preferowanym podejściem w środowiskach produkcyjnych w rzeczywistych warunkach. **Uwaga**: jest to opcjonalne części samouczka. Można zrobić listy i ponownie utwórz kroki i pominąć tę sekcję. Jeśli chcesz wykonać kroki zawarte w tej sekcji, nie są listy i ponownie utwórz kroki. 
+
+<a name="drop"></a>
+
+### <a name="drop-and-re-create-the-database"></a>Porzuć i ponownie utworzyć bazę danych
 
 Kod w zaktualizowanej `DbInitializer` dodaje dane nowe jednostki. Aby wymusić programu EF Core do utworzenia nowej bazy danych, Porzuć i aktualizowanie bazy danych:
 
@@ -620,13 +626,13 @@ Sprawdź **CourseAssignment** tabeli:
 
 ![Dane CourseAssignment SSOX](complex-data-model/_static/ssox-ci-data.png)
 
-<a name="fk"></a>
+<a name="applyexisting"></a>
 
-## <a name="fixing-foreign-key-constraints-with-legacy-data"></a>Rozwiązywanie ograniczeń klucza obcego z starszych danych
+### <a name="apply-the-migration-to-the-existing-database"></a>Dotyczą migracji z istniejącej bazy danych
 
-Ta sekcja jest opcjonalna.
+Ta sekcja jest opcjonalna. Następujące kroki działają tylko wtedy, gdy pominięto poprzednie [Usuń i ponownie utworzyć bazę danych](#drop) sekcji.
 
-Podczas migracji są uruchamiane z istniejącymi danymi, mogą istnieć ograniczenia klucza Obcego, które nie są spełnione przy użyciu istniejącej danych. Z danymi produkcyjnymi należy przedsięwziąć do migrowania istniejących danych. Ta sekcja zawiera przykład poprawiania naruszenia ograniczeń klucza Obcego. Nie wprowadzaj tych zmian kodu, bez kopii zapasowej. Nie należy wprowadzić te zmiany kodu, jeśli wykonano poprzedniej sekcji, a aktualizacji bazy danych.
+Podczas migracji są uruchamiane z istniejącymi danymi, mogą istnieć ograniczenia klucza Obcego, które nie są spełnione z istniejącymi danymi. Z danymi produkcyjnymi należy przedsięwziąć do migrowania istniejących danych. Ta sekcja zawiera przykład poprawiania naruszenia ograniczeń klucza Obcego. Nie wprowadzaj tych zmian kodu, bez kopii zapasowej. Nie należy wprowadzić te zmiany kodu, jeśli wykonano poprzedniej sekcji, a aktualizacji bazy danych.
 
 *{Timestamp}_ComplexDataModel.cs* plik zawiera następujący kod:
 
@@ -639,7 +645,7 @@ Zapewnienie `ComplexDataModel` pracy migracji z istniejącymi danymi:
 * Zmień kod, aby nadać nową kolumnę (`DepartmentID`) wartość domyślną.
 * Tworzyć fałszywej dział o nazwie "Temp" jako domyślnego działu.
 
-### <a name="fix-the-foreign-key-constraints"></a>Rozwiązywanie ograniczeń klucza obcego
+#### <a name="fix-the-foreign-key-constraints"></a>Rozwiązywanie ograniczeń klucza obcego
 
 Aktualizacja `ComplexDataModel` klasy `Up` metody:
 

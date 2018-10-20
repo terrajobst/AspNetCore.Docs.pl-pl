@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/16/2018
 uid: fundamentals/host/generic-host
-ms.openlocfilehash: b593cab350f9c53ac703eaf4baa32682b17df7c9
-ms.sourcegitcommit: 12a8bdb8e83ca9c23c06f3bc6507c9e1a60ea7e5
+ms.openlocfilehash: 0924e2764958911dc1711d5427f6dd58e8873739
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49401884"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477608"
 ---
 # <a name="net-generic-host"></a>Ogólny hosta platformy .NET
 
@@ -98,7 +98,7 @@ Metody rozszerzenia są wywoływane na `IHostBuilder` implementacji, aby skonfig
 **Typ**: *ciągu*  
 **Domyślne**: Nazwa zestawu zawierającego punkt wejścia aplikacji.  
 **Można ustawić przy użyciu**: `HostBuilderContext.HostingEnvironment.ApplicationName`  
-**Zmienna środowiskowa**: `<PREFIX_>APPLICATIONKEY` (`<PREFIX_>` jest [opcjonalne i zdefiniowane przez użytkownika](#configuration-builder))
+**Zmienna środowiskowa**: `<PREFIX_>APPLICATIONNAME` (`<PREFIX_>` jest [opcjonalne i zdefiniowane przez użytkownika](#configuration-builder))
 
 ```csharp
 var host = new HostBuilder()

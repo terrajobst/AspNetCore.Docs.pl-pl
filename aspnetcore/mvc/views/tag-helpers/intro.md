@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 2/14/2018
 uid: mvc/views/tag-helpers/intro
-ms.openlocfilehash: c2af9099fe439e1cdbf9ba86ffae3b2b0f67391e
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: 4b9bceb3ce0153af2d9a30c402febe09707145b7
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41756215"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477309"
 ---
 # <a name="tag-helpers-in-aspnet-core"></a>Pomocnicy tagów w programie ASP.NET Core
 
@@ -68,7 +68,7 @@ Jeśli utworzysz nową aplikację sieci web platformy ASP.NET Core o nazwie *Aut
 
 [!code-cshtml[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopy.cshtml?highlight=2&range=2-3)]
 
-`@addTagHelper` Dyrektywy udostępnia pomocników tagów w widoku. W tym przypadku jest plik widoku *Pages/_ViewImports.cshtml*, która domyślnie jest dziedziczona przez wszystkie pliki w *stron* folder i podfoldery; pomocników tagów udostępnianie. Powyższy kod używa składni symboli wieloznacznych ("\*") można określić, że wszystkie pomocników tagów w określonym zestawie (*Microsoft.AspNetCore.Mvc.TagHelpers*) będą dostępne dla wszystkich plików widoku w *widoków* katalog lub podkatalog. Pierwszy parametr po `@addTagHelper` określa pomocnicy tagów, aby załadować (używamy "\*" dla pomocników tagów), a drugi parametr "Microsoft.AspNetCore.Mvc.TagHelpers" Określa zestaw zawierający pomocników tagów. *Microsoft.AspNetCore.Mvc.TagHelpers* jest zestawem dla wbudowanych pomocników tagów dla platformy ASP.NET Core.
+`@addTagHelper` Dyrektywy udostępnia pomocników tagów w widoku. W tym przypadku jest plik widoku *Pages/_ViewImports.cshtml*, która domyślnie jest dziedziczona przez wszystkie pliki w *stron* folderze i jego podfolderach; pomocników tagów udostępnianie. Powyższy kod używa składni symboli wieloznacznych ("\*") można określić, że wszystkie pomocników tagów w określonym zestawie (*Microsoft.AspNetCore.Mvc.TagHelpers*) będą dostępne dla wszystkich plików widoku w *widoków* katalog lub podkatalog. Pierwszy parametr po `@addTagHelper` określa pomocnicy tagów, aby załadować (używamy "\*" dla pomocników tagów), a drugi parametr "Microsoft.AspNetCore.Mvc.TagHelpers" Określa zestaw zawierający pomocników tagów. *Microsoft.AspNetCore.Mvc.TagHelpers* jest zestawem dla wbudowanych pomocników tagów dla platformy ASP.NET Core.
 
 Aby udostępnić wszystkie pomocników tagów w tym projekcie (tworzy zestaw o nazwie *AuthoringTagHelpers*), należy użyć następujących czynności:
 
@@ -89,7 +89,7 @@ Aby dodać pomocnika tagów do widoku, używając FQN, należy najpierw dodać F
 @addTagHelper AuthoringTagHelpers.TagHelpers.Email*, AuthoringTagHelpers
 ```
 
-Jak wspomniano wcześniej, dodając `@addTagHelper` dyrektywę *Views/_ViewImports.cshtml* pliku sprawia, że Pomocnik tagu jest dostępny dla wszystkich plików w widoku w *widoków* katalogu i podkatalogów. Możesz użyć `@addTagHelper` dyrektywy w plikach określonego widoku, aby wyrazić zgodę na udostępnianie Pomocnik tagu tylko tych widoków.
+Jak wspomniano wcześniej, dodając `@addTagHelper` dyrektywę *Views/_ViewImports.cshtml* pliku sprawia, że Pomocnik tagu jest dostępny dla wszystkich plików w widoku w *widoków* katalogu i podkatalogach. Możesz użyć `@addTagHelper` dyrektywy w plikach określonego widoku, aby wyrazić zgodę na udostępnianie Pomocnik tagu tylko tych widoków.
 
 <a name="remove-razor-directives-label"></a>
 
@@ -127,6 +127,10 @@ Na poniższej ilustracji kodu jest równa prefiks Pomocnik tagu `th:`, więc tyl
 ![obraz](intro/_static/thp.png)
 
 Te same reguły hierarchii, które są stosowane do `@addTagHelper` dotyczą również `@tagHelperPrefix`.
+
+## <a name="self-closing-tag-helpers"></a>Samozamykającego pomocnicy tagów
+
+Wiele pomocników tagów nie można użyć jako własny taga zamykającego. Niektóre pomocników tagów są przeznaczone do można samozamykający tagów. Przy użyciu Pomocnika tagów, który nie został zaprojektowany jako samozamykającego pomija wyniku renderowania. Powoduje samozamykający pomocnika tagów w wyniku renderowania tagu samozamykającego. Aby uzyskać więcej informacji, zobacz [tej uwagi](xref:mvc/views/tag-helpers/authoring#self-closing) w [tworzenie pomocników tagów](xref:mvc/views/tag-helpers/authoring).
 
 ## <a name="intellisense-support-for-tag-helpers"></a>Obsługa funkcji IntelliSense dla pomocników tagów
 
