@@ -1,17 +1,17 @@
-<span data-ttu-id="ff4a6-101">Zainstaluj następujące czynności:</span><span class="sxs-lookup"><span data-stu-id="ff4a6-101">Install the following:</span></span>
+<span data-ttu-id="88050-101">Zainstaluj następujące czynności:</span><span class="sxs-lookup"><span data-stu-id="88050-101">Install the following:</span></span>
 
 ::: moniker range="<= aspnetcore-2.0"
 
 * [!INCLUDE [](~/includes/net-core-sdk-download-link.md)]
-* [<span data-ttu-id="ff4a6-102">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="ff4a6-102">Visual Studio Code</span></span>](https://code.visualstudio.com/download)
-* [<span data-ttu-id="ff4a6-103">Środowisko C# dla programu Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="ff4a6-103">C# for Visual Studio Code</span></span>](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
+* [<span data-ttu-id="88050-102">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="88050-102">Visual Studio Code</span></span>](https://code.visualstudio.com/download)
+* [<span data-ttu-id="88050-103">Środowisko C# dla programu Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="88050-103">C# for Visual Studio Code</span></span>](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
 
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
 
 * [!INCLUDE [](~/includes/2.1-SDK.md)]
-* [<span data-ttu-id="ff4a6-104">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="ff4a6-104">Visual Studio Code</span></span>](https://code.visualstudio.com/download)
-* [<span data-ttu-id="ff4a6-105">Środowisko C# dla programu Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="ff4a6-105">C# for Visual Studio Code</span></span>](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
+* [<span data-ttu-id="88050-104">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="88050-104">Visual Studio Code</span></span>](https://code.visualstudio.com/download)
+* [<span data-ttu-id="88050-105">Środowisko C# dla programu Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="88050-105">C# for Visual Studio Code</span></span>](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
 
 ::: moniker-end
