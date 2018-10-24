@@ -5,12 +5,12 @@ description: Zapoznaj się z wprowadzeniem do rozwiązania ASP.NET Core, czyli m
 ms.author: riande
 ms.date: 9/28/2018
 uid: index
-ms.openlocfilehash: 85f2aa04e4b6692dd03a63f14bcebdec97ee270e
-ms.sourcegitcommit: 32f5ee0690604d451f61e9a5c28881c9fcf85738
+ms.openlocfilehash: 69ab702e9d9f8d746b7bc546d4f2bbb831ff59c7
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47454781"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911706"
 ---
 # <a name="introduction-to-aspnet-core"></a>Wprowadzenie do platformy ASP.NET Core
 
@@ -27,18 +27,7 @@ ASP.NET Core to międzyplatformowa struktura typu [open source](https://github.c
 
 Miliony deweloperów korzystają z platformy [ASP.NET 4.x](https://docs.microsoft.com/aspnet/overview) do tworzenia aplikacji internetowych. ASP.NET Core to przeprojektowana platforma ASP.NET 4.x, w której wprowadzono zmiany architektoniczne w celu stworzenia bardziej zwartej i modułowej struktury.
 
-Platforma ASP. NET Core oferuje następujące zalety:
-
-* Ujednolicony scenariusz na potrzeby tworzenia internetowego interfejsu użytkownika i internetowych interfejsów API.
-* Integracja [nowoczesnych struktur po stronie klienta](xref:client-side/index) i programistycznych przepływów pracy.
-* Gotowy do pracy w chmurze, oparty na środowisku [system konfiguracji](xref:fundamentals/configuration/index).
-* Wbudowane [wstrzykiwanie zależności](xref:fundamentals/dependency-injection).
-* Uproszczony, modułowy potok żądań HTTP zapewniający [wysoką wydajność](https://github.com/aspnet/benchmarks).
-* Możliwość hostowania w usługach [IIS](xref:host-and-deploy/iis/index), [Nginx](xref:host-and-deploy/linux-nginx), [Apache](xref:host-and-deploy/linux-apache), [Docker](xref:host-and-deploy/docker/index) lub samodzielnie we własnym procesie.
-* Przechowywanie wersji aplikacji obok siebie, gdy platformą docelową jest [.NET Core](https://docs.microsoft.com/dotnet/articles/standard/choosing-core-framework-server).
-* Narzędzia, które upraszczają tworzenie nowoczesnych aplikacji internetowych.
-* Możliwość kompilowania i uruchamiania w systemach Windows, macOS i Linux.
-* Open source i [koncentracja na społeczności](https://live.asp.net/).
+[!INCLUDE[](~/includes/benefits.md)]
 
 ## <a name="build-web-apis-and-web-ui-using-aspnet-core-mvc"></a>Tworzenie internetowego interfejsu użytkownika i internetowych interfejsów API przy użyciu wzorca MVC platformy ASP.NET Core
 
@@ -56,9 +45,16 @@ Platforma ASP.NET Core MVC udostępnia funkcje, które umożliwiają tworzenie [
 
 Platforma ASP.NET Core bezproblemowo integruje się z popularnymi strukturami i bibliotekami po stronie klienta, takimi jak [Angular](xref:spa/angular), [React](xref:spa/react) czy [Bootstrap](xref:client-side/bootstrap). Aby uzyskać więcej informacji, zobacz [Programowanie po stronie klienta](xref:client-side/index).
 
+<a name="target-framework"></a>
+
 ## <a name="aspnet-core-targeting-net-framework"></a>Platforma ASP.NET Core ukierunkowana na platformę .NET Framework
 
 Platforma ASP.NET Core może jako cel mieć platformę .NET Core lub .NET Framework. Aplikacje platformy ASP.NET Core ukierunkowane na platformę .NET Framework nie są wieloplatformowe &mdash; działają tylko w systemie Windows. Nie planuje się usunięcia z platformy ASP.NET Core obsługi przyjmowania jako celu platformy .NET Framework. Ogólnie rzecz biorąc, platforma ASP.NET Core zbudowana jest z bibliotek [.NET Standard](/dotnet/standard/net-standard). Aplikacje napisane przy użyciu platformy .NET Standard 2.0 działają wszędzie tam, gdzie obsługiwana jest platforma .NET Standard 2.0.
+
+Platforma ASP.NET Core 2.x jest obsługiwana w wersjach platformy .NET Framework zgodnych z platformą .NET Standard 2.0:
+
+* Zdecydowanie zaleca się platformę .NET Framework 4.7.1 lub nowszą.
+* Platforma .NET Framework 4.6.1 lub nowsza.
 
 Jest kilka zalet przyjmowania platformy .NET Core jako docelowej, a ich liczba rośnie z każdym wydaniem. Niektóre z zalet platformy .NET Core nad platformą .NET Framework to:
 
