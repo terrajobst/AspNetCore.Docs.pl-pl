@@ -5,12 +5,12 @@ description: Zapoznaj się z wprowadzeniem do rozwiązania ASP.NET Core, czyli m
 ms.author: riande
 ms.date: 9/28/2018
 uid: index
-ms.openlocfilehash: 69ab702e9d9f8d746b7bc546d4f2bbb831ff59c7
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 3bb86fa255548ff66592ac14c1020e0c6b47959c
+ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48911706"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49391160"
 ---
 # <a name="introduction-to-aspnet-core"></a>Wprowadzenie do platformy ASP.NET Core
 
@@ -43,7 +43,7 @@ Platforma ASP.NET Core MVC udostępnia funkcje, które umożliwiają tworzenie [
 
 ## <a name="client-side-development"></a>Programowanie po stronie klienta
 
-Platforma ASP.NET Core bezproblemowo integruje się z popularnymi strukturami i bibliotekami po stronie klienta, takimi jak [Angular](xref:spa/angular), [React](xref:spa/react) czy [Bootstrap](xref:client-side/bootstrap). Aby uzyskać więcej informacji, zobacz [Programowanie po stronie klienta](xref:client-side/index).
+Platforma ASP.NET Core bezproblemowo integruje się z popularnymi strukturami i bibliotekami po stronie klienta, takimi jak [Angular](xref:spa/angular), [React](xref:spa/react) czy [Bootstrap](https://getbootstrap.com/). Aby uzyskać więcej informacji, zobacz [Programowanie po stronie klienta](xref:client-side/index).
 
 <a name="target-framework"></a>
 
