@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/21/2018
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 12075f68dd828680f6bfbd46ea22ebd7bbe52dc7
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: 5092564ad885b0de090129a7a0f0bbbd472cb868
+ms.sourcegitcommit: ce6b6792c650708e92cdea051a5d166c0708c7c0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49326020"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49652348"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host platformy ASP.NET Core na Windows za pomocą programu IIS
 
@@ -85,13 +85,19 @@ public static IWebHost BuildWebHost(string[] args) =>
         ...
 ```
 
-Modułu ASP.NET Core generuje portów dynamicznych do przypisania do procesu zaplecza. `CreateDefaultBuilder` wywołania <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*> metody, która zbiera z portów dynamicznych i konfiguruje usługi Kestrel do nasłuchiwania na `http://localhost:{dynamicPort}/`. Ustawienie to zastępuje inne konfiguracje adresu URL, takich jak wywołania `UseUrls` lub [API nasłuchiwania firmy Kestrel](xref:fundamentals/servers/kestrel#endpoint-configuration). W związku z tym, wywołania `UseUrls` lub jego Kestrel `Listen` interfejsu API nie są wymagane w przypadku korzystania z modułu. Jeśli `UseUrls` lub `Listen` jest wywoływane Kestrel nasłuchuje tylko na portach określona po uruchomieniu aplikacji bez usług IIS.
+Modułu ASP.NET Core generuje portów dynamicznych do przypisania do procesu zaplecza. `CreateDefaultBuilder` wywołania <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*> metody. `UseIISIntegration` Konfiguruje usługi Kestrel do nasłuchiwania na port dynamiczny adres IP hosta lokalnego (`127.0.0.1`). Jeśli port dynamiczny jest 1234, Kestrel nasłuchuje na `127.0.0.1:1234`. Ta konfiguracja zastępuje inne konfiguracje adresu URL, dostarczone przez:
+
+* `UseUrls`
+* [Interfejs API nasłuchiwania kestrel firmy](xref:fundamentals/servers/kestrel#endpoint-configuration)
+* [Konfiguracja](xref:fundamentals/configuration/index) (lub [opcji wiersza polecenia — adresy URL](xref:fundamentals/host/web-host#override-configuration))
+
+Wywołania `UseUrls` lub jego Kestrel `Listen` interfejsu API nie są wymagane w przypadku korzystania z modułu. Jeśli `UseUrls` lub `Listen` jest wywoływane Kestrel nasłuchuje na określone porty tylko podczas uruchamiania aplikacji bez usług IIS.
 
 Aby uzyskać więcej informacji o modelach hostingu w procesie i poza procesem, zobacz <xref:fundamentals/servers/aspnet-core-module> tematu i <xref:host-and-deploy/aspnet-core-module>.
 
 ::: moniker-end
 
-::: moniker range="= aspnetcore-2.0 || aspnetcore-2.1"
+::: moniker range="= aspnetcore-2.1"
 
 Typowa *Program.cs* wywołania <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> aby rozpocząć konfigurowanie hosta. `CreateDefaultBuilder` Konfiguruje [Kestrel](xref:fundamentals/servers/kestrel) jako serwera i umożliwia IIS integracji z siecią web, konfigurując ścieżki podstawowej i port [modułu ASP.NET Core](xref:fundamentals/servers/aspnet-core-module):
 
@@ -101,7 +107,33 @@ public static IWebHost BuildWebHost(string[] args) =>
         ...
 ```
 
-Modułu ASP.NET Core generuje portów dynamicznych do przypisania do procesu zaplecza. `CreateDefaultBuilder` wywołania [UseIISIntegration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions.useiisintegration) metody, która zbiera z portów dynamicznych i konfiguruje usługi Kestrel do nasłuchiwania na `http://localhost:{dynamicPort}/`. Ustawienie to zastępuje inne konfiguracje adresu URL, takich jak wywołania `UseUrls` lub [API nasłuchiwania firmy Kestrel](xref:fundamentals/servers/kestrel#endpoint-configuration). W związku z tym, wywołania `UseUrls` lub jego Kestrel `Listen` interfejsu API nie są wymagane w przypadku korzystania z modułu. Jeśli `UseUrls` lub `Listen` jest wywoływane Kestrel nasłuchuje na porcie określona po uruchomieniu aplikacji bez usług IIS.
+Modułu ASP.NET Core generuje portów dynamicznych do przypisania do procesu zaplecza. `CreateDefaultBuilder` wywołania [UseIISIntegration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions.useiisintegration) metody. `UseIISIntegration` Konfiguruje usługi Kestrel do nasłuchiwania na port dynamiczny adres IP hosta lokalnego (`127.0.0.1`). Jeśli port dynamiczny jest 1234, Kestrel nasłuchuje na `127.0.0.1:1234`. Ta konfiguracja zastępuje inne konfiguracje adresu URL, dostarczone przez:
+
+* `UseUrls`
+* [Interfejs API nasłuchiwania kestrel firmy](xref:fundamentals/servers/kestrel#endpoint-configuration)
+* [Konfiguracja](xref:fundamentals/configuration/index) (lub [opcji wiersza polecenia — adresy URL](xref:fundamentals/host/web-host#override-configuration))
+
+Wywołania `UseUrls` lub jego Kestrel `Listen` interfejsu API nie są wymagane w przypadku korzystania z modułu. Jeśli `UseUrls` lub `Listen` jest wywoływane Kestrel nasłuchuje na porcie określony tylko podczas uruchamiania aplikacji bez usług IIS.
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
+Typowa *Program.cs* wywołania <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> aby rozpocząć konfigurowanie hosta. `CreateDefaultBuilder` Konfiguruje [Kestrel](xref:fundamentals/servers/kestrel) jako serwera i umożliwia IIS integracji z siecią web, konfigurując ścieżki podstawowej i port [modułu ASP.NET Core](xref:fundamentals/servers/aspnet-core-module):
+
+```csharp
+public static IWebHost BuildWebHost(string[] args) =>
+    WebHost.CreateDefaultBuilder(args)
+        ...
+```
+
+Modułu ASP.NET Core generuje portów dynamicznych do przypisania do procesu zaplecza. `CreateDefaultBuilder` wywołania [UseIISIntegration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions.useiisintegration) metody. `UseIISIntegration` Konfiguruje usługi Kestrel do nasłuchiwania na port dynamiczny adres IP hosta lokalnego (`localhost`). Jeśli port dynamiczny jest 1234, Kestrel nasłuchuje na `localhost:1234`. Ta konfiguracja zastępuje inne konfiguracje adresu URL, dostarczone przez:
+
+* `UseUrls`
+* [Interfejs API nasłuchiwania kestrel firmy](xref:fundamentals/servers/kestrel#endpoint-configuration)
+* [Konfiguracja](xref:fundamentals/configuration/index) (lub [opcji wiersza polecenia — adresy URL](xref:fundamentals/host/web-host#override-configuration))
+
+Wywołania `UseUrls` lub jego Kestrel `Listen` interfejsu API nie są wymagane w przypadku korzystania z modułu. Jeśli `UseUrls` lub `Listen` jest wywoływane Kestrel nasłuchuje na porcie określony tylko podczas uruchamiania aplikacji bez usług IIS.
 
 ::: moniker-end
 
@@ -118,7 +150,12 @@ var host = new WebHostBuilder()
 
 Zarówno [UseKestrel](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderkestrelextensions.usekestrel) i [UseIISIntegration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions.useiisintegration) są wymagane. Wywoływanie kodu `UseIISIntegration` nie ma wpływu na przenoszenie kodu. Jeśli aplikacja nie jest uruchamiana za usług IIS (na przykład, aplikacja jest uruchamiana bezpośrednio na Kestrel), `UseIISIntegration` nie działa.
 
-Modułu ASP.NET Core generuje portów dynamicznych do przypisania do procesu zaplecza. `UseIISIntegration` Metoda przejmuje portu dynamicznego i konfiguruje usługi Kestrel do nasłuchiwania `http://locahost:{dynamicPort}/`. Ustawienie to zastępuje inne konfiguracje adresu URL, takich jak wywołania `UseUrls`. W związku z tym, wywołanie `UseUrls` nie jest wymagana podczas korzystania z modułu. Jeśli `UseUrls` jest wywoływane Kestrel nasłuchuje na porcie określona po uruchomieniu aplikacji bez usług IIS.
+Modułu ASP.NET Core generuje portów dynamicznych do przypisania do procesu zaplecza. `UseIISIntegration` Konfiguruje usługi Kestrel do nasłuchiwania na port dynamiczny adres IP hosta lokalnego (`localhost`). Jeśli port dynamiczny jest 1234, Kestrel nasłuchuje na `localhost:1234`. Ta konfiguracja zastępuje inne konfiguracje adresu URL, dostarczone przez:
+
+* `UseUrls`
+* [Konfiguracja](xref:fundamentals/configuration/index) (lub [opcji wiersza polecenia — adresy URL](xref:fundamentals/host/web-host#override-configuration))
+
+Wywołanie `UseUrls` nie jest wymagana podczas korzystania z modułu. Jeśli `UseUrls` jest wywoływane Kestrel nasłuchuje na porcie określony tylko podczas uruchamiania aplikacji bez usług IIS.
 
 Jeśli `UseUrls` jest wywoływana w aplikacji ASP.NET Core 1.0, wywołaj ją **przed** wywoływania `UseIISIntegration` tak, aby moduł skonfigurowany port nie są zastępowane. Ta kolejność wywoływania nie jest wymagana przy użyciu platformy ASP.NET Core 1.1, ponieważ zastępuje ustawienia modułu `UseUrls`.
 

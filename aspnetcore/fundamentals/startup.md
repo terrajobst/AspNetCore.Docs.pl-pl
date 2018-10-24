@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 4/13/2018
 uid: fundamentals/startup
-ms.openlocfilehash: 392dc83666bc6b9012adc6c32169ae7bdc7ed8d7
-ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
+ms.openlocfilehash: 20c7630d949f78e737fdcaad0f189cd30cdebbfa
+ms.sourcegitcommit: ce6b6792c650708e92cdea051a5d166c0708c7c0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49391118"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49652322"
 ---
 # <a name="application-startup-in-aspnet-core"></a>Uruchamianie aplikacji w programie ASP.NET Core
 
@@ -44,7 +44,7 @@ Typowym zastosowaniem [wstrzykiwanie zależności](xref:fundamentals/dependency-
 
 [!code-csharp[](startup/snapshot_sample/Startup2.cs)]
 
-Alternatywa wprowadza `IHostingEnvironment` jest wykorzystanie podejścia opartego na Konwencji. Aplikację można zdefiniować w oddzielnym `Startup` klas w różnych środowiskach (na przykład `StartupDevelopment`), a odpowiedni `Startup` klasy jest zaznaczona w czasie wykonywania. Klasy, w których sufiks nazwy pasuje do bieżącego środowiska jest podzielony na priorytety. Jeśli aplikacja jest uruchamiana w środowisku deweloperskim i obejmuje zarówno `Startup` klasy i `StartupDevelopment` klasy `StartupDevelopment` klasa jest używana. Aby uzyskać więcej informacji, zobacz [używanie wielu środowisk](xref:fundamentals/environments#environment-based-startup-class-and-methods).
+Alternatywa wprowadza `IHostingEnvironment` jest wykorzystanie podejścia opartego na Konwencji. Kiedy aplikacja definiuje oddzielnych `Startup` klas w różnych środowiskach (na przykład `StartupDevelopment`), odpowiednie `Startup` klasy jest zaznaczona w czasie wykonywania. Klasy, w których sufiks nazwy pasuje do bieżącego środowiska jest podzielony na priorytety. Jeśli aplikacja jest uruchamiana w środowisku deweloperskim i obejmuje zarówno `Startup` klasy i `StartupDevelopment` klasy `StartupDevelopment` klasa jest używana. Aby uzyskać więcej informacji, zobacz [używanie wielu środowisk](xref:fundamentals/environments#environment-based-startup-class-and-methods).
 
 Aby dowiedzieć się więcej na temat `WebHostBuilder`, zobacz [hostingu](xref:fundamentals/host/index) tematu. Aby uzyskać informacji na temat obsługi błędów podczas uruchamiania, zobacz [uruchamiania obsługi wyjątków](xref:fundamentals/error-handling#startup-exception-handling).
 

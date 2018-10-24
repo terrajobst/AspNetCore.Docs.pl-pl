@@ -5,16 +5,16 @@ description: Dowiedz się, jak używać klienta platformy ASP.NET Core SignalR w
 monikerRange: '>= aspnetcore-2.2'
 ms.author: mimengis
 ms.custom: mvc
-ms.date: 09/06/2018
+ms.date: 10/18/2018
 uid: signalr/java-client
-ms.openlocfilehash: 0eba59a05ea6fd3fed46fcab86ac20caf40ebb65
-ms.sourcegitcommit: 8bf4dff3069e62972c1b0839a93fb444e502afe7
+ms.openlocfilehash: 77ea338f08b1986e69ba8ef1578c4cfe01a310de
+ms.sourcegitcommit: ce6b6792c650708e92cdea051a5d166c0708c7c0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46482921"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49652309"
 ---
-# <a name="aspnet-core-signalr-java-client"></a>Klienta SignalR Java platformy ASP.NET Core
+# <a name="aspnet-core-signalr-java-client"></a>Klienta programu ASP.NET Core SignalR w języku Java
 
 Przez [Mikael Mengistu](https://twitter.com/MikaelM_12)
 
@@ -26,12 +26,13 @@ Przykładowa aplikacja konsoli środowiska Java przywołanej w niniejszym artyku
 
 ## <a name="install-the-signalr-java-client-package"></a>Zainstaluj pakiet klienta SignalR Java
 
-*Signalr-0.1.0-preview2-35174* plik JAR zezwala klientom na łączenie się koncentratorów SignalR. Aby znaleźć numer najnowszej wersji pliku JAR, zobacz [wyniki wyszukiwania narzędzia Maven](https://search.maven.org/search?q=g:com.microsoft.aspnet%20AND%20a:signalr&core=gav).
+*Signalr-1.0.0-preview3-35501* plik JAR zezwala klientom na łączenie się koncentratorów SignalR. Aby znaleźć numer najnowszej wersji pliku JAR, zobacz [wyniki wyszukiwania narzędzia Maven](https://search.maven.org/search?q=g:com.microsoft.signalr%20AND%20a:signalr).
 
 Jeśli używasz narzędzia Gradle, Dodaj następujący wiersz do `dependencies` części Twojej *build.gradle* pliku:
 
 ```gradle
-implementation 'com.microsoft.aspnet:signalr:0.1.0-preview2-35174'
+implementation 'com.microsoft.signalr:signalr:1.0.0-preview3-35501'
+implementation 'io.reactivex.rxjava2:rxjava:2.2.2'
 ```
 
 Jeśli przy użyciu narzędzia Maven, Dodaj następujące wiersze wewnątrz `<dependencies>` elementu swoje *pom.xml* pliku:
@@ -42,29 +43,45 @@ Jeśli przy użyciu narzędzia Maven, Dodaj następujące wiersze wewnątrz `<de
 
 Aby ustanowić `HubConnection`, `HubConnectionBuilder` powinny być używane. Poziom adresu URL i dziennika Centrum można skonfigurować podczas tworzenia połączenia. Skonfiguruj wymagane opcje, wywołując jedną z `HubConnectionBuilder` przed `build`. Uruchom połączenie przy użyciu `start`.
 
-[!code-java[Build hub connection](java-client/sample/src/main/java/Chat.java?range=17-20)]
+[!code-java[Build hub connection](java-client/sample/src/main/java/Chat.java?range=16-17)]
 
 ## <a name="call-hub-methods-from-client"></a>Wywoływanie metod koncentratora z klienta
 
 Wywołanie `send` wywołuje metodę koncentratora. Przekaż nazwę metody koncentratora i argumenty zdefiniowane w metody koncentratora `send`.
 
-[!code-java[send method](java-client/sample/src/main/java/Chat.java?range=31)]
+[!code-java[send method](java-client/sample/src/main/java/Chat.java?range=28)]
 
 ## <a name="call-client-methods-from-hub"></a>Wywoływanie metody klienta z Centrum
 
 Użyj `hubConnection.on` do definiowania metod na komputerze klienckim, który można wywoływać koncentratora. Określ metody po kompilacji, ale przed rozpoczęciem połączenia.
 
-[!code-java[Define client methods](java-client/sample/src/main/java/Chat.java?range=22-24)]
+[!code-java[Define client methods](java-client/sample/src/main/java/Chat.java?range=19-21)]
+
+## <a name="add-logging"></a>Dodawanie rejestrowania
+
+Klient SignalR Java używa [SLF4J](https://www.slf4j.org/) biblioteki do rejestrowania. To API wysokiego poziomu rejestrowania, który umożliwia użytkownikom Biblioteka wybrana zapewniali własną implementację określonych rejestrowania, przenosząc powstanie zależności określonych rejestrowania. Poniższy fragment kodu przedstawia sposób użycia `java.util.logging` za pomocą klienta SignalR Java.
+
+```gradle
+implementation 'org.slf4j:slf4j-jdk14:1.7.25'
+```
+
+Jeśli nie skonfigurowano rejestrowanie, w zależności, SLF4J ładuje domyślny Rejestrator nie operacji następujący komunikat ostrzegawczy:
+
+```
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+```
+
+To można bezpiecznie zignorować.
 
 ## <a name="known-limitations"></a>Znane ograniczenia
 
-Jest to wczesna wersja zapoznawcza klienta Java. Istnieje wiele funkcji, które nie są jeszcze obsługiwane. Następujące luki pracuje w przyszłych wersjach:
+Jest to wersja zapoznawcza klienta Java. Niektóre funkcje nie są obsługiwane:
 
-* Tylko typy pierwotne, mogą być akceptowane jako parametrów i zwracanych typów.
-* Interfejsy API są synchroniczne.
-* Typ połączenia "Send" jest obsługiwana w tej chwili. "Wywołaj" i przesyłania strumieniowego wartości zwracane nie są obsługiwane.
 * Tylko protokół JSON jest obsługiwany.
 * Tylko transport gniazda Websocket jest obsługiwany.
+* Przesyłanie strumieniowe nie jest jeszcze obsługiwane.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
