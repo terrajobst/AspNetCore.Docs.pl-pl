@@ -3,14 +3,15 @@ title: Weryfikacja modelu w programie ASP.NET Core MVC
 author: tdykstra
 description: Więcej informacji o weryfikacji modelu w aplikacji ASP.NET Core MVC.
 ms.author: riande
-ms.date: 07/31/2018
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: mvc/models/validation
-ms.openlocfilehash: fe036f261b80f6134078835080409720d149374d
-ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
+ms.openlocfilehash: 73d41b4718071d00a6f80b33de182da2ad90f331
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43312157"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090953"
 ---
 # <a name="model-validation-in-aspnet-core-mvc"></a>Weryfikacja modelu w programie ASP.NET Core MVC
 
@@ -27,6 +28,13 @@ Na szczęście platformy .NET ma wyodrębnione sprawdzania poprawności do atryb
 ## <a name="validation-attributes"></a>Sprawdzanie poprawności atrybutów
 
 Atrybuty weryfikacji służą do konfigurowania weryfikacji modelu, więc podobne pod względem koncepcyjnym do sprawdzania poprawności w polach w tabelach bazy danych. Obejmuje to ograniczenia, takie jak przypisywanie typów danych lub wymagane pola. Inne rodzaje weryfikacji obejmują stosowania wzorców do danych w celu wymuszania reguł biznesowych, takich jak karty kredytowej lub numer telefonu lub adres e-mail. Atrybuty weryfikacji upewnij się, wymuszając te wymagania, znacznie prostsze i łatwiejsze w użyciu.
+
+Sprawdzanie poprawności atrybutów są określony na poziomie właściwości: 
+
+```csharp 
+[Required] 
+public string MyProperty { get; set; } 
+``` 
 
 Poniżej znajduje się adnotacjami `Movie` modelu w aplikacji, która przechowuje informacje dotyczące filmów i programów telewizyjnych. Większość właściwości są wymagane, i kilka właściwości ciągu mają wymagania dotyczące długości. Ponadto ma ograniczenie zakresu liczbowego w miejscu, aby `Price` właściwości z zakresu od 0 do $999,99, wraz z atrybutu niestandardowego sprawdzania poprawności.
 
@@ -62,7 +70,7 @@ Nieprzyjmujące [typy wartości](/dotnet/csharp/language-reference/keywords/valu
 
 Wiązanie modelu MVC, która nie jest rozpatrywany wraz z weryfikacji i atrybutów sprawdzania poprawności, odrzuca przesyłania pola formularza, zawierający brakujące wartości lub białe znaki dla typów innych niż null. W przypadku braku `BindRequired` atrybutu na właściwość target wiązania modelu ignoruje Brak danych dla typów innych niż null, gdy formularz nie ma pola ukrytego przychodzące dane formularza.
 
-[Atrybut BindRequired](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.bindrequiredattribute) (Zobacz też [dostosować zachowanie wiązania modelu z atrybutami](xref:mvc/models/model-binding#customize-model-binding-behavior-with-attributes)) jest przydatne do upewnij się formularz danych zostało zakończone. Gdy jest stosowany do właściwości, system powiązanie modelu wymaga podania wartości dla tej właściwości. Gdy jest stosowany do typu, system powiązanie modelu wymaga wartości wszystkich właściwości tego typu.
+[Atrybut BindRequired](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.bindrequiredattribute) (Zobacz też <xref:mvc/models/model-binding#customize-model-binding-behavior-with-attributes>) jest przydatne do upewnij się formularz danych zostało zakończone. Gdy jest stosowany do właściwości, system powiązanie modelu wymaga podania wartości dla tej właściwości. Gdy jest stosowany do typu, system powiązanie modelu wymaga wartości wszystkich właściwości tego typu.
 
 Kiedy używać [Nullable\<T > typu](/dotnet/csharp/programming-guide/nullable-types/) (na przykład `decimal?` lub `System.Nullable<decimal>`) i oznacz ją `Required`, sprawdzanie poprawności po stronie serwera odbywa się tak, jakby właściwości zostały standardowego typu dopuszczającego wartość null (na przykład `string`).
 
@@ -256,4 +264,4 @@ Jeśli musisz zweryfikować co najmniej dwa dodatkowe pola z `[Remote]` atrybutu
 public string MiddleName { get; set; }
 ```
 
-`AdditionalFields`, podobnie jak wszystkie argumenty atrybutu, musi być wyrażeniem stałym. W związku z tym, nie można używać [ciągiem interpolowanym](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/interpolated-strings) lub zadzwoń [ `string.Join()` ](https://msdn.microsoft.com/library/system.string.join(v=vs.110).aspx) zainicjować `AdditionalFields`. Dla każdego dodatkowego pola, które możesz dodać do `[Remote]` atrybutu, należy dodać kolejny argument do odpowiedniej metody akcji kontrolera.
+`AdditionalFields`, podobnie jak wszystkie argumenty atrybutu, musi być wyrażeniem stałym. W związku z tym, nie można używać [ciągiem interpolowanym](/dotnet/csharp/language-reference/keywords/interpolated-strings) lub zadzwoń [ `string.Join()` ](https://msdn.microsoft.com/library/system.string.join(v=vs.110).aspx) zainicjować `AdditionalFields`. Dla każdego dodatkowego pola, które możesz dodać do `[Remote]` atrybutu, należy dodać kolejny argument do odpowiedniej metody akcji kontrolera.

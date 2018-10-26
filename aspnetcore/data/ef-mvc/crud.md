@@ -3,14 +3,15 @@ title: Platforma ASP.NET Core MVC z programem EF Core — CRUD - 2 z 10
 author: rick-anderson
 description: ''
 ms.author: tdykstra
-ms.date: 03/15/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-mvc/crud
-ms.openlocfilehash: de9b0bd1e0346d4c12f256e6226353f1ab47ed11
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: 34927415beadaa3f5c9035a9101e3c99f7cbc395
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477582"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090826"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---crud---2-of-10"></a>Platforma ASP.NET Core MVC z programem EF Core — CRUD - 2 z 10
 
@@ -91,7 +92,7 @@ Spowoduje to wygenerowanie poniższy kod HTML po `item.ID` wynosi 6:
 <a href="/Students/Edit?studentID=6">Edit</a>
 ```
 
-Aby uzyskać więcej informacji na temat pomocnicy tagów, zobacz [pomocników tagów w programie ASP.NET Core](xref:mvc/views/tag-helpers/intro).
+Aby uzyskać więcej informacji na temat pomocnicy tagów, zobacz <xref:mvc/views/tag-helpers/intro>.
 
 ### <a name="add-enrollments-to-the-details-view"></a>Dodawanie rejestracji do widoku szczegółów
 
@@ -121,7 +122,7 @@ Ten kod dodaje jednostki dla uczniów, utworzone przez integrator modelu program
 
 Możesz usunąć `ID` z `Bind` atrybutu, ponieważ identyfikator ma wartość klucza podstawowego, który program SQL Server ustawi automatycznie, gdy zostanie wstawiona. Dane wejściowe od użytkownika nie należy ustawić wartość Identyfikatora.
 
-Inne niż `Bind` , bloku try / catch jest tylko zmiany wprowadzone do utworzony szkielet kodu. Jeśli wyjątek, który pochodzi od klasy `DbUpdateException` jest przechwycony podczas zmiany są zapisywane, jest wyświetlany ogólny komunikat o błędzie. `DbUpdateException` wyjątki są czasami spowodowane coś zewnętrznego do aplikacji, a nie błąd programowania, dzięki czemu użytkownik jest zalecane, aby spróbować ponownie. Chociaż nie jest zaimplementowana w tym przykładzie, aplikacji jakości produkcyjnej rejestruje wyjątek. Aby uzyskać więcej informacji, zobacz **dziennik, aby uzyskać szczegółowe informacje o** sekcji [monitorowanie i Telemetria (tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure)](https://docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).
+Inne niż `Bind` , bloku try / catch jest tylko zmiany wprowadzone do utworzony szkielet kodu. Jeśli wyjątek, który pochodzi od klasy `DbUpdateException` jest przechwycony podczas zmiany są zapisywane, jest wyświetlany ogólny komunikat o błędzie. `DbUpdateException` wyjątki są czasami spowodowane coś zewnętrznego do aplikacji, a nie błąd programowania, dzięki czemu użytkownik jest zalecane, aby spróbować ponownie. Chociaż nie jest zaimplementowana w tym przykładzie, aplikacji jakości produkcyjnej rejestruje wyjątek. Aby uzyskać więcej informacji, zobacz **dziennik, aby uzyskać szczegółowe informacje o** sekcji [monitorowanie i Telemetria (tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure)](/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).
 
 `ValidateAntiForgeryToken` Atrybut zapobiega fałszerstwo żądania międzywitrynowego (CSRF) ataków. Token są automatycznie wstrzykiwane do widoku przez [FormTagHelper](xref:mvc/views/working-with-forms#the-form-tag-helper) i jest dostępne po przesłaniu formularza przez użytkownika. Token jest sprawdzana `ValidateAntiForgeryToken` atrybutu. Aby uzyskać więcej informacji na temat CSRF zobacz [ochrona przed fałszerstwem żądań](../../security/anti-request-forgery.md).
 
@@ -277,7 +278,7 @@ W *Startup.cs*, należy wywołać [— metoda rozszerzenia AddDbContext](https:/
 
 ## <a name="handling-transactions"></a>Obsługa transakcji
 
-Domyślnie platforma Entity Framework niejawnie implementuje transakcji. W scenariuszach, w którym zmiany do wielu wierszy lub tabeli, a następnie wywołać `SaveChanges`, platformy Entity Framework automatycznie tworzy się, że wszystkie zmiany powiedzie się lub nie ich wszystkich. Jeśli niektóre zmiany są najpierw wykonywane, a następnie błąd występuje, te zmiany są automatycznie przywracane. Zobacz scenariusze, w którym możesz muszą większa kontrola — na przykład, jeśli chcesz dołączyć operacje wykonywane poza programem Entity Framework w ramach transakcji — [transakcji](https://docs.microsoft.com/ef/core/saving/transactions).
+Domyślnie platforma Entity Framework niejawnie implementuje transakcji. W scenariuszach, w którym zmiany do wielu wierszy lub tabeli, a następnie wywołać `SaveChanges`, platformy Entity Framework automatycznie tworzy się, że wszystkie zmiany powiedzie się lub nie ich wszystkich. Jeśli niektóre zmiany są najpierw wykonywane, a następnie błąd występuje, te zmiany są automatycznie przywracane. Zobacz scenariusze, w którym możesz muszą większa kontrola — na przykład, jeśli chcesz dołączyć operacje wykonywane poza programem Entity Framework w ramach transakcji — [transakcji](/ef/core/saving/transactions).
 
 ## <a name="no-tracking-queries"></a>Bez śledzenia zapytań
 
@@ -291,7 +292,7 @@ Możesz wyłączyć śledzenie obiekty obiektów w pamięci przez wywołanie met
 
 * Aby dołączyć jednostkę, aby można było zaktualizować go, ale wcześniej pobrane z tej samej jednostki do różnych celów. Ponieważ jednostka jest już śledzony przez kontekst bazy danych, nie można dołączyć jednostki, która ma zostać zmieniony. Jednym ze sposobów, aby obsłużyć taką sytuację jest wywołanie `AsNoTracking` na wcześniejsze zapytanie względem.
 
-Aby uzyskać więcej informacji, zobacz [śledzenia programu vs. Bez śledzenia](https://docs.microsoft.com/ef/core/querying/tracking).
+Aby uzyskać więcej informacji, zobacz [śledzenia programu vs. Bez śledzenia](/ef/core/querying/tracking).
 
 ## <a name="summary"></a>Podsumowanie
 

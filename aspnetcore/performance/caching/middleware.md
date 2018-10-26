@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/26/2017
 uid: performance/caching/middleware
-ms.openlocfilehash: d991bc48ed07ee71b0decaa0bee4df811fdc74c4
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: b5eef012356236d600d026e5161a2df5a7954e3b
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477530"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090488"
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Oprogramowanie pośredniczące w programie ASP.NET Core buforowania odpowiedzi
 
@@ -120,10 +120,10 @@ Oprogramowanie pośredniczące przestrzega zasad [specyfikacji protokołu HTTP 1
 
 Aby uzyskać większą kontrolę nad zachowanie buforowania zapoznaj się z innych funkcji buforowania platformy ASP.NET Core. Zobacz następujące tematy:
 
-* [Buforowanie w pamięci](xref:performance/caching/memory)
-* [Praca z rozproszoną pamięcią podręczną](xref:performance/caching/distributed)
-* [Pomocnik tagu w programie ASP.NET Core MVC pamięci podręcznej](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
-* [Pomocnik tagu rozproszonej pamięci podręcznej](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
+* <xref:performance/caching/memory>
+* <xref:performance/caching/distributed>
+* <xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper>
+* <xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper>
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
@@ -155,11 +155,11 @@ Podczas testowania i rozwiązywania problemów z zachowaniem buforowania, przegl
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Uruchamianie aplikacji](xref:fundamentals/startup)
-* [Oprogramowanie pośredniczące](xref:fundamentals/middleware/index)
-* [Buforowanie w pamięci](xref:performance/caching/memory)
-* [Praca z rozproszoną pamięcią podręczną](xref:performance/caching/distributed)
-* [Wykrywanie zmian za pomocą tokenów zmiany](xref:fundamentals/change-tokens)
-* [Buforowanie odpowiedzi](xref:performance/caching/response)
-* [Pomocnik tagu pamięci podręcznej](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
-* [Pomocnik tagu rozproszonej pamięci podręcznej](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
+* <xref:fundamentals/startup>
+* <xref:fundamentals/middleware/index>
+* <xref:performance/caching/memory>
+* <xref:performance/caching/distributed>
+* <xref:fundamentals/change-tokens>
+* <xref:performance/caching/response>
+* <xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper>
+* <xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper>
