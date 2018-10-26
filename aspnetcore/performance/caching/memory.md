@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/15/2018
 uid: performance/caching/memory
-ms.openlocfilehash: be2e81d1aa6a89d65414d53a70ca2d2fb5d2d3a3
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: f0d5bb74985b6ce0da7d4c5b69e31b8d2bbb5105
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477192"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090049"
 ---
 # <a name="cache-in-memory-in-aspnet-core"></a>Buforowanie w pamięci w programie ASP.NET Core
 
@@ -172,9 +172,9 @@ Za pomocą `CancellationTokenSource` zezwala na wiele wpisów pamięci podręczn
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Praca z rozproszoną pamięcią podręczną](xref:performance/caching/distributed)
-* [Wykrywanie zmian za pomocą tokenów zmiany](xref:fundamentals/change-tokens)
-* [Buforowanie odpowiedzi](xref:performance/caching/response)
-* [Oprogramowanie pośredniczące buforowania odpowiedzi](xref:performance/caching/middleware)
-* [Pomocnik tagu pamięci podręcznej](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
-* [Pomocnik tagu rozproszonej pamięci podręcznej](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
+* <xref:performance/caching/distributed>
+* <xref:fundamentals/change-tokens>
+* <xref:performance/caching/response>
+* <xref:performance/caching/middleware>
+* <xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper>
+* <xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper>

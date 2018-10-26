@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/23/2018
 uid: mvc/controllers/testing
-ms.openlocfilehash: 582a5ba461ee2df73b99e4f499e8152f7c6cb7cf
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: 8fb50506e6f4e274592c4fd45d4c7876681ebc6d
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477166"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090199"
 ---
 # <a name="test-controller-logic-in-aspnet-core"></a>Logikę kontrolera testu w programie ASP.NET Core
 
@@ -75,7 +75,7 @@ Pozorowane wywołania, które nie są wywoływane są zwykle zignorowane, ale wy
 > [!NOTE]
 > Biblioteka Moq używane w tym przykładzie sprawia, że można mieszać mocks weryfikowalny lub "strict" z-weryfikowalny mocks (nazywanych również "luźne" mocks wycinków). Dowiedz się więcej o [Dostosowywanie zachowania pozorny przy użyciu Moq](https://github.com/Moq/moq4/wiki/Quickstart#customizing-mock-behavior).
 
-Inny kontroler Przykładowa aplikacja wyświetla informacje związane z Diagram burzy określonej sesji. Kontroler zawiera logikę do czynienia z nieprawidłowy `id` wartości (istnieją dwa `return` scenariuszy, w poniższym przykładzie, aby uwzględnić te scenariusze). Końcowe `return` instrukcja zwraca nową `StormSessionViewModel` do widoku:
+[SessionController](https://github.com/aspnet/Docs/blob/master/aspnetcore/mvc/controllers/testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs) w przykładzie aplikacja wyświetla informacje dotyczące sesji określonego Diagram burzy. Kontroler zawiera logikę do czynienia z nieprawidłowy `id` wartości (istnieją dwa `return` scenariuszy, w poniższym przykładzie, aby uwzględnić te scenariusze). Końcowe `return` instrukcja zwraca nową `StormSessionViewModel` do widoku (*Controllers/SessionController.cs*):
 
 [!code-csharp[](testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs?name=snippet_SessionController&highlight=12-16,18-22,31)]
 
