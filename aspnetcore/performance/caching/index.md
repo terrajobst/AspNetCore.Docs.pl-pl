@@ -5,29 +5,29 @@ description: Dowiedz się, jak używać buforowania danych i odpowiedzi z pamię
 ms.author: riande
 ms.date: 09/16/2018
 uid: performance/caching/index
-ms.openlocfilehash: bb188f598f3acdbc6eca59d58d26e1b8382f5701
-ms.sourcegitcommit: 4d5f8680d68b39c411b46c73f7014f8aa0f12026
+ms.openlocfilehash: 01d2826dc37085fe4f7b7d2921f3b6a16bee61f3
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47028118"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50089376"
 ---
 # <a name="cache-responses-in-aspnet-core"></a>Buforowanie odpowiedzi w programie ASP.NET Core
 
-[Buforowanie w pamięci](xref:performance/caching/memory)  
+<xref:performance/caching/memory>  
 Dowiedz się, jak dane w pamięci w programie ASP.NET Core z pamięci podręcznej.
 
-[Praca z rozproszoną pamięcią podręczną](xref:performance/caching/distributed)  
+<xref:performance/caching/distributed>  
 Dowiedz się, jak używać platformy ASP.NET Core rozproszonej pamięci podręcznej w celu poprawy wydajności aplikacji i skalowalności, szczególnie w środowisku farmy, chmurze i na serwerze.
 
-[Buforowanie odpowiedzi](xref:performance/caching/response)  
+<xref:performance/caching/response>  
 Dowiedz się, jak używać odpowiedzi z pamięci podręcznej w celu niższymi wymaganiami co do przepustowości i zwiększenie wydajności aplikacji platformy ASP.NET Core.
 
-[Oprogramowanie pośredniczące buforowania odpowiedzi](xref:performance/caching/middleware)  
+<xref:performance/caching/middleware>  
 Informacje o sposobie konfigurowania i używania oprogramowanie pośredniczące buforowania odpowiedzi w programie ASP.NET Core.
 
-[Pomocnik tagu pamięci podręcznej](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)  
+<xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper>  
 Dowiedz się, jak używać Pomocnik tagu pamięci podręcznej.
 
-[Pomocnik tagu rozproszonej pamięci podręcznej](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)  
+<xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper>  
 Dowiedz się, jak używać Pomocnik tagu rozproszonej pamięci podręcznej.

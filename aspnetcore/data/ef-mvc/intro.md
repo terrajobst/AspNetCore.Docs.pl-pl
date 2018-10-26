@@ -3,14 +3,15 @@ title: Platforma ASP.NET Core MVC za pomocą platformy Entity Framework Core —
 author: rick-anderson
 description: ''
 ms.author: tdykstra
-ms.date: 03/15/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-mvc/intro
-ms.openlocfilehash: 46cc5144a289637a0fb1c1c2ac22aba2d881af52
-ms.sourcegitcommit: a669c4e3f42e387e214a354ac4143555602e6f66
+ms.openlocfilehash: 6f867875ed670065ef76728342d3854281f08ae4
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43336110"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091070"
 ---
 # <a name="aspnet-core-mvc-with-entity-framework-core---tutorial-1-of-10"></a>Platforma ASP.NET Core MVC za pomocą platformy Entity Framework Core — samouczek 1, 10
 
@@ -28,7 +29,7 @@ Przykładowa aplikacja jest witryną sieci web dla uniwersytetu fikcyjnej firmy 
 
 [Pobieranie i wyświetlanie ukończonej aplikacji.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
-EF Core 2.0 jest najnowsza wersja programu EF jeszcze nie wszystkie funkcje programu EF 6.x. Aby uzyskać informacje o tym, jak dokonać wyboru między EF 6.x i programem EF Core, zobacz [vs programu EF Core. EF6.x](https://docs.microsoft.com/ef/efcore-and-ef6/). Jeśli wybierzesz EF w wersji 6.x, zobacz [poprzedniej wersji tej serii samouczków](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
+EF Core 2.0 jest najnowsza wersja programu EF jeszcze nie wszystkie funkcje programu EF 6.x. Aby uzyskać informacje o tym, jak dokonać wyboru między EF 6.x i programem EF Core, zobacz [vs programu EF Core. EF6.x](/ef/efcore-and-ef6/). Jeśli wybierzesz EF w wersji 6.x, zobacz [poprzedniej wersji tej serii samouczków](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
 
 > [!NOTE]
 > Wersja platformy ASP.NET Core 1.1 po ukończeniu tego samouczka, zobacz [wersji programu VS 2017 Update 2 po ukończeniu tego samouczka w formacie PDF](https://github.com/aspnet/Docs/blob/master/aspnetcore/data/ef-mvc/intro/_static/efmvc1.1.pdf).
@@ -106,11 +107,11 @@ Naciśnij klawisze CTRL + F5, aby uruchomić projekt, lub wybierz **Debuguj > Ur
 
 ## <a name="entity-framework-core-nuget-packages"></a>Entity Framework Core NuGet pakietów
 
-Aby dodać obsługę programu EF Core do projektu, należy zainstalować dostawcy bazy danych, który ma pod kątem. Ten samouczek używa programu SQL Server i pakiet dostawcy jest [Microsoft.EntityFrameworkCore.SqlServer](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer/). Ten pakiet jest objęta [pakiet](xref:fundamentals/metapackage) meta Microsoft.aspnetcore.all, więc nie trzeba go zainstalować.
+Aby dodać obsługę programu EF Core do projektu, należy zainstalować dostawcy bazy danych, który ma pod kątem. Ten samouczek używa programu SQL Server i pakiet dostawcy jest [Microsoft.EntityFrameworkCore.SqlServer](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer/). Ten pakiet jest objęta [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app), więc nie trzeba tworzą odwołanie do pakietu, jeśli aplikacja ma odwołania do pakietu dla `Microsoft.AspNetCore.App` pakietu.
 
 Ten pakiet i jego zależności (`Microsoft.EntityFrameworkCore` i `Microsoft.EntityFrameworkCore.Relational`) zapewnia obsługę środowiska uruchomieniowego dla platformy EF. Należy dodać pakiet narzędzi w dalszej części [migracje](migrations.md) samouczka.
 
-Aby uzyskać informacje o innych dostawców bazy danych, które są dostępne dla platformy Entity Framework Core, zobacz [bazy danych dostawcy](https://docs.microsoft.com/ef/core/providers/).
+Aby uzyskać informacje o innych dostawców bazy danych, które są dostępne dla platformy Entity Framework Core, zobacz [bazy danych dostawcy](/ef/core/providers/).
 
 ## <a name="create-the-data-model"></a>Tworzenie modelu danych
 
@@ -357,7 +358,7 @@ Niektóre elementy pod uwagę podczas pisania kodu asynchronicznego, który uży
 
 * Jeśli chcesz skorzystać z zalet wydajności kod asynchroniczny, upewnij się, wszystkie biblioteki pakietami, które używasz (takie jak w przypadku stronicowania), jeśli wywołują wszystkie metody, że zapytania wysyłane do bazy danych programu Entity Framework użyć async.
 
-Aby uzyskać więcej informacji na temat programowania asynchronicznego w .NET, zobacz [Przegląd Async](https://docs.microsoft.com/dotnet/articles/standard/async).
+Aby uzyskać więcej informacji na temat programowania asynchronicznego w .NET, zobacz [Przegląd Async](/dotnet/articles/standard/async).
 
 ## <a name="summary"></a>Podsumowanie
 

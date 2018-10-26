@@ -3,14 +3,15 @@ title: Publikowanie aplikacji platformy ASP.NET Core na platformie Azure z progr
 author: rick-anderson
 description: Dowiedz się, jak opublikować aplikację ASP.NET Core w usłudze Azure App Service przy użyciu programu Visual Studio.
 ms.author: riande
-ms.date: 12/16/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: tutorials/publish-to-azure-webapp-using-vs
-ms.openlocfilehash: 7211da268c1c52e7b859e6f98ce433fd19b218ff
-ms.sourcegitcommit: 516d0645c35ea784a3ae807be087ae70446a46ee
+ms.openlocfilehash: a5a02112d87563a47d5e2dab355359fa39da9a89
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39320729"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090358"
 ---
 # <a name="publish-an-aspnet-core-app-to-azure-with-visual-studio"></a>Publikowanie aplikacji platformy ASP.NET Core na platformie Azure z programem Visual Studio
 
@@ -20,7 +21,7 @@ Przez [Rick Anderson](https://twitter.com/RickAndMSFT), [Silveira Blum Cesarowi]
 
 Zobacz [Opublikuj na platformie Azure z programu Visual Studio dla komputerów Mac](https://blog.xamarin.com/publish-azure-visual-studio-mac/) Jeśli pracujesz w systemie macOS.
 
-Aby rozwiązać problem wdrożenia usługi App Service, zobacz [Rozwiązywanie problemów z platformą ASP.NET Core w usłudze Azure App Service](xref:host-and-deploy/azure-apps/troubleshoot).
+Aby rozwiązać problem wdrożenia usługi App Service, zobacz <xref:host-and-deploy/azure-apps/troubleshoot>.
 
 ## <a name="set-up"></a>Konfigurowanie
 
@@ -126,7 +127,7 @@ Program Visual Studio zwraca **Tworzenie usługi App Service** okna dialogowego.
 
 ![Konfigurowanie okna dialogowego baza danych SQL](publish-to-azure-webapp-using-vs/_static/conf_final.png)
 
-Visual Studio tworzy aplikację sieci Web i SQL Server na platformie Azure. Może to potrwać kilka minut. Aby uzyskać informacji na temat tworzenia zasobów, zobacz [zasoby dodatkowe](#additonal-resources).
+Visual Studio tworzy aplikację sieci Web i SQL Server na platformie Azure. Może to potrwać kilka minut. Aby uzyskać informacji na temat tworzenia zasobów, zobacz [dodatkowe zasoby](#additonal-resources).
 
 Po zakończeniu wdrażania wybierz **ustawienia**:
 
@@ -141,7 +142,7 @@ Na **ustawienia** strony **Publikuj** okno dialogowe:
 
 ![Okno dialogowe publikowanie: panel ustawień](publish-to-azure-webapp-using-vs/_static/pubs.png)
 
-Kliknij przycisk **publikowania**. Visual Studio publishs aplikacji na platformie Azure. Po zakończeniu wdrażania aplikacji jest otwarty w przeglądarce.
+Kliknij przycisk **publikowania**. Program Visual Studio publikuje aplikację na platformie Azure. Po zakończeniu wdrażania aplikacji jest otwarty w przeglądarce.
 
 ### <a name="test-your-app-in-azure"></a>Przetestuj swoją aplikację na platformie Azure
 
@@ -179,11 +180,11 @@ Po zakończeniu testowania aplikacji, przejdź do [witryny Azure portal](https:/
 
 ### <a name="next-steps"></a>Następne kroki
 
-* [Ciągłe wdrażanie na platformie Azure przy użyciu programu Visual Studio i Git](xref:host-and-deploy/azure-apps/azure-continuous-deployment)
+* <xref:host-and-deploy/azure-apps/azure-continuous-deployment>
 
 ## <a name="additonal-resources"></a>Zasoby dodatkowe
 
-* [Usługa Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-overview)
-* [Grupy zasobów platformy Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups)
-* [Usługa Azure SQL Database](https://docs.microsoft.com/azure/sql-database/)
-* [Rozwiązywanie problemów z platformą ASP.NET Core w usłudze Azure App Service](xref:host-and-deploy/azure-apps/troubleshoot)
+* [Usługa Azure App Service](/azure/app-service/app-service-web-overview)
+* [Grupy zasobów platformy Azure](/azure/azure-resource-manager/resource-group-overview#resource-groups)
+* [Usługa Azure SQL Database](/azure/sql-database/)
+* <xref:host-and-deploy/azure-apps/troubleshoot>

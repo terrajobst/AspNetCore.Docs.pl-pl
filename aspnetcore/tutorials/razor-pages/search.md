@@ -6,18 +6,38 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 05/30/2018
 uid: tutorials/razor-pages/search
-ms.openlocfilehash: c88441b39d8c96ec817c58fc56ebd51a0887b077
-ms.sourcegitcommit: 317f9be24db600499e79d25872d743af74bd86c0
+ms.openlocfilehash: 80292f8cfecd5363fb8acc8578f9bb0ca9ee5969
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48045565"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090166"
 ---
 # <a name="add-search-to-aspnet-core-razor-pages"></a>Dodawanie wyszukiwania do stron Razor programu ASP.NET Core
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 W tym dokumencie możliwości wyszukiwania jest dodawany do strony indeksu, który umożliwia wyszukiwanie filmów przez *gatunku* lub *nazwa*.
+
+Dodaj następujące właściwości wyróżniony, aby *Pages/Movies/Index.cshtml.cs*:
+
+::: moniker range="= aspnetcore-2.0"
+
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs?name=snippet_newProps&highlight=11-999)]
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
+
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie21/Pages/Movies/Index.cshtml.cs?name=snippet_newProps&highlight=11-999)]
+
+::: moniker-end
+
+* `SearchString`: zawiera tekst, użytkownicy wprowadzają w polu tekstowym wyszukiwania.
+* `Genres`: zawiera listę gatunki. Dzięki temu użytkownikowi na wybranie określonego rodzaju z listy.
+* `MovieGenre`: zawiera gatunku określonych przez użytkownika (na przykład "zachodni").
+
+Będziesz pracować `Genres` i `MovieGenre` właściwości w dalszej części tego dokumentu.
 
 Aktualizuj stronę indeksu `OnGetAsync` metoda następującym kodem:
 
@@ -40,6 +60,8 @@ Jeśli `searchString` parametru zawiera ciąg, zapytanie filmy zostanie zmodyfik
 `s => s.Title.Contains()` Kod jest [wyrażenia Lambda](/dotnet/csharp/programming-guide/statements-expressions-operators/lambda-expressions). Wyrażenia lambda są używane w oparte na metodzie [LINQ](/dotnet/csharp/programming-guide/concepts/linq/) jako argumenty do standardowych metod operatorów kwerendy takich zapytań jak [gdzie](/dotnet/csharp/programming-guide/concepts/linq/query-syntax-and-method-syntax-in-linq) metody lub `Contains` (używane w poprzednim kodzie). Zapytania LINQ nie są wykonywane, gdy są one definiowane lub ich modyfikacji przez wywołanie metody (takie jak `Where`, `Contains` lub `OrderBy`). Przeciwnie wykonanie zapytania jest odroczone. Oznacza to, że obliczania wyrażenia została opóźniona do momentu jego rzeczywista wartość jest powtarzana lub `ToListAsync` metoda jest wywoływana. Zobacz [wykonywania zapytania](/dotnet/framework/data/adonet/ef/language-reference/query-execution) Aby uzyskać więcej informacji.
 
 **Uwaga:** [zawiera](/dotnet/api/system.data.objects.dataclasses.entitycollection-1.contains) metoda jest uruchomiona w bazie danych, nie w kodzie języka C#. Rozróżnianie wielkości liter w zapytaniu, zależy od bazy danych i sortowanie. W programie SQL Server `Contains` mapuje [SQL LIKE](/sql/t-sql/language-elements/like-transact-sql), która jest uwzględniana wielkość liter. W SQLite przy użyciu sortowania domyślnego, jest uwzględniana wielkość liter.
+
+Na koniec, ostatni wiersz `OnGetAsync` metoda wypełni `SearchString` właściwość z wartością wyszukiwania przez użytkownika. Za pomocą `SearchString` właściwości wypełnione, wartości wyszukiwania są przechowywane w polu wyszukiwania, po wykonaniu wyszukiwania.
 
 Przejdź do strony filmy i Dołącz ciąg zapytania, takie jak `?searchString=Ghost` do adresu URL (na przykład `http://localhost:5000/Movies?searchString=Ghost`). Wyświetlane są filtrowane filmów.
 
@@ -66,25 +88,6 @@ Kod HTML `<form>` tagów używa [Pomocnik tagu formularza](xref:mvc/views/workin
 ![Widok indeksu z ghost słowa wpisane w polu tekstowym filtru tytułu](search/_static/filter.png)
 
 ## <a name="search-by-genre"></a>Wyszukaj według gatunku
-
-Dodaj następujące właściwości wyróżniony, aby *Pages/Movies/Index.cshtml.cs*:
-
-::: moniker range="= aspnetcore-2.0"
-
-[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs?name=snippet_newProps&highlight=11-999)]
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.1"
-
-[!code-csharp[](razor-pages-start/sample/RazorPagesMovie21/Pages/Movies/Index.cshtml.cs?name=snippet_newProps&highlight=11-999)]
-
-::: moniker-end
-
-
-`Genres` Właściwość zawiera listę gatunki. Dzięki temu użytkownikowi na wybranie określonego rodzaju z listy.
-
-`MovieGenre` Właściwość zawiera gatunku określonych przez użytkownika (na przykład "zachodni").
 
 Aktualizacja `OnGetAsync` metoda następującym kodem:
 

@@ -3,14 +3,15 @@ title: Metodyka DevOps z platformą ASP.NET Core i platformy Azure | Następne k
 author: CamSoper
 description: Przewodnik, który dostarcza wskazówki end-to-end na tworzeniu potoku metodyki DevOps dla aplikacji ASP.NET Core hostowanych na platformie Azure.
 ms.author: casoper
-ms.date: 08/07/2018
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: azure/devops/next-steps
-ms.openlocfilehash: 7a0f1b1b56a33b1870e0657d8ba465adb84f5a02
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: b82e7251b507f8d141930673d50722cfaa576db5
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41753908"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50089883"
 ---
 # <a name="next-steps"></a>Następne kroki
 
@@ -20,26 +21,26 @@ Poza hosting sieci web i metodyki DevOps platforma Azure oferuje szeroką gamę 
 
 ## <a name="storage-and-databases"></a>Magazynowi i bazom danych
 
-[Pamięć podręczna redis](https://docs.microsoft.com/azure/redis-cache/) to dane o wysokiej przepływności, małego opóźnienia, buforowanie dostępna jako usługa. Może służyć do buforowania danych wyjściowych strony, zmniejszenie żądań bazy danych i zapewnianie stanu sesji platformy ASP.NET Core w wielu wystąpieniach aplikacji.
+[Pamięć podręczna redis](/azure/redis-cache/) to dane o wysokiej przepływności, małego opóźnienia, buforowanie dostępna jako usługa. Może służyć do buforowania danych wyjściowych strony, zmniejszenie żądań bazy danych i zapewnianie stanu sesji platformy ASP.NET Core w wielu wystąpieniach aplikacji.
 
-[Usługa Azure Storage](https://docs.microsoft.com/azure/storage/) jest magazyn w chmurze skalowalności platformy Azure. Deweloperzy mogą korzystać z [usługi Queue Storage](https://docs.microsoft.com/azure/storage/queues/storage-queues-introduction) niezawodnej usługi kolejkowania i [Table Storage](https://docs.microsoft.com/azure/storage/tables/table-storage-overview) jest parach klucz wartość NoSQL, zaprojektowane do szybkiego opracowywania ogromnych, częściową strukturą zestawów danych.
+[Usługa Azure Storage](/azure/storage/) jest magazyn w chmurze skalowalności platformy Azure. Deweloperzy mogą korzystać z [usługi Queue Storage](/azure/storage/queues/storage-queues-introduction) niezawodnej usługi kolejkowania i [Table Storage](/azure/storage/tables/table-storage-overview) jest parach klucz wartość NoSQL, zaprojektowane do szybkiego opracowywania ogromnych, częściową strukturą zestawów danych.
 
-[Usługa Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) zapewnia funkcje znanych relacyjnej bazy danych jako usługa korzystająca z aparatu Microsoft SQL Server.
+[Usługa Azure SQL Database](/azure/sql-database/) zapewnia funkcje znanych relacyjnej bazy danych jako usługa korzystająca z aparatu Microsoft SQL Server.
 
-[Usługa cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) globalnie dystrybuowana, wielomodelowa usługa bazy danych NoSQL. Wiele interfejsów API dostępnych w tym interfejsu API SQL (dawniej nazywanych bazy danych DocumentDB), bazy danych Cassandra i bazy danych MongoDB.
+[Usługa cosmos DB](/azure/cosmos-db/) globalnie dystrybuowana, wielomodelowa usługa bazy danych NoSQL. Wiele interfejsów API dostępnych w tym interfejsu API SQL (dawniej nazywanych bazy danych DocumentDB), bazy danych Cassandra i bazy danych MongoDB.
 
 ## <a name="identity"></a>Tożsamość
 
-[Usługa Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) i [usługi Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/) są obie te usługi tożsamości. Usługa Azure Active Directory jest przeznaczona dla scenariuszy dla przedsiębiorstw i do pracy zespołowej usługi Azure AD B2B (business-to-business), podczas gdy usługi Azure Active Directory B2C jest zamierzony scenariuszy biznesowych do klienta, w tym logowania się w sieci społecznościowej.
+[Usługa Azure Active Directory](/azure/active-directory/) i [usługi Azure Active Directory B2C](/azure/active-directory-b2c/) są obie te usługi tożsamości. Usługa Azure Active Directory jest przeznaczona dla scenariuszy dla przedsiębiorstw i do pracy zespołowej usługi Azure AD B2B (business-to-business), podczas gdy usługi Azure Active Directory B2C jest zamierzony scenariuszy biznesowych do klienta, w tym logowania się w sieci społecznościowej.
 
 ## <a name="mobile"></a>Telefon komórkowy
 
-[Usługa Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/) jest aparatem wieloplatformowe i skalowalne powiadomienia wypychane, aby szybko wysyłać miliony wiadomości do aplikacji działających na urządzeniach różnych typów.
+[Usługa Notification Hubs](/azure/notification-hubs/) jest aparatem wieloplatformowe i skalowalne powiadomienia wypychane, aby szybko wysyłać miliony wiadomości do aplikacji działających na urządzeniach różnych typów.
 
 ## <a name="web-infrastructure"></a>Infrastruktura sieci Web
 
-[Usługa Azure Container Service](https://docs.microsoft.com/azure/aks/) zarządza hostowanym środowiskiem Kubernetes, pozwalając szybko i łatwo wdrażać i zarządzać konteneryzowanych aplikacji bez doświadczenia z organizowaniem kontenerów.
+[Usługa Azure Container Service](/azure/aks/) zarządza hostowanym środowiskiem Kubernetes, pozwalając szybko i łatwo wdrażać i zarządzać konteneryzowanych aplikacji bez doświadczenia z organizowaniem kontenerów.
 
-[Usługa Azure Search](https://docs.microsoft.com/azure/search/) służy do tworzenia wyszukiwania przedsiębiorstwa za pośrednictwem prywatną, heterogeniczną zawartość.
+[Usługa Azure Search](/azure/search/) służy do tworzenia wyszukiwania przedsiębiorstwa za pośrednictwem prywatną, heterogeniczną zawartość.
 
-[Usługa Service Fabric](https://docs.microsoft.com/azure/service-fabric/) jest to platforma systemów rozproszonych ułatwiająca pakowanie, wdrażanie i zarządzanie skalowalnych i niezawodnych mikrousług i kontenerów.
+[Usługa Service Fabric](/azure/service-fabric/) jest to platforma systemów rozproszonych ułatwiająca pakowanie, wdrażanie i zarządzanie skalowalnych i niezawodnych mikrousług i kontenerów.

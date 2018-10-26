@@ -3,20 +3,21 @@ title: Dodawanie nowego pola do aplikacji ASP.NET Core MVC
 author: rick-anderson
 description: Dowiedz się, jak użyć migracje Code First Framework jednostki Dodawanie nowego pola do modelu, i przeprowadzić migrację tej zmiany do bazy danych.
 ms.author: riande
-ms.date: 10/06/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: tutorials/first-mvc-app/new-field
-ms.openlocfilehash: b63bad99c4a966703634c711e5406d86e5bd140c
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: e58d5af90b997c66cb749ab8f1b2f8049b8f7303
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46010887"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50089689"
 ---
 # <a name="add-a-new-field-to-an-aspnet-core-mvc-app"></a>Dodawanie nowego pola do aplikacji ASP.NET Core MVC
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-W tej sekcji użyjesz [Entity Framework](https://docs.microsoft.com/ef/core/get-started/aspnetcore/new-db) migracje Code First dodaje nowe pole do modelu i migracji, które zmiany w bazie danych.
+W tej sekcji użyjesz [Entity Framework](/ef/core/get-started/aspnetcore/new-db) migracje Code First dodaje nowe pole do modelu i migracji, które zmiany w bazie danych.
 
 Korzystając z programów EF Code First automatycznie utworzyć bazę danych, rozwiązanie Code First dodaje tabelę do bazy danych, aby śledzić, czy schemat bazy danych jest zsynchronizowany z klasy modelu, który został wygenerowany z. Jeśli nie są zsynchronizowane, EF zgłasza wyjątek. Ułatwia to znajdowanie problemów z niespójne bazy danych/kodu.
 

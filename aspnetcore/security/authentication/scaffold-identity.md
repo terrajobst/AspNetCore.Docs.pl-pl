@@ -4,22 +4,23 @@ author: rick-anderson
 description: Informacje o sposobie tworzenia szkieletu tożsamości w projektach programu ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
-ms.date: 08/16/2018
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: security/authentication/scaffold-identity
-ms.openlocfilehash: 37ad9897fbc5eb1822ed2413334b4fce9050296b
-ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
+ms.openlocfilehash: 94ccfc8aa2ad37d89de42f276cb2f808a08cd55e
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523041"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090644"
 ---
 # <a name="scaffold-identity-in-aspnet-core-projects"></a>Tworzenie szkieletu tożsamość w projektach programu ASP.NET Core
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Udostępnia platformy ASP.NET Core 2.1 i nowsze [tożsamości platformy ASP.NET Core](xref:security/authentication/identity) jako [biblioteki klas Razor](xref:razor-pages/ui-class). Aplikacje, które zawierają tożsamości można zastosować Generator szkieletu można selektywnie Dodawanie kodu źródłowego, znajdujących się w bibliotece klas Razor tożsamości (RCL). Można wygenerować kod źródłowy, aby można było zmodyfikować kod i zmienić zachowanie. Na przykład można nakazać Generator szkieletu do generowania kodu, używane podczas rejestracji. Wygenerowany kod mają pierwszeństwo przed ten sam kod w RCL tożsamości. Aby uzyskać pełną kontrolę nad interfejsu użytkownika i korzysta z domyślnego RCL, zobacz sekcję [Utwórz pełnej tożsamości interfejsu użytkownika źródło](#full).
+Udostępnia platformy ASP.NET Core 2.1 i nowsze [tożsamości platformy ASP.NET Core](xref:security/authentication/identity) jako [biblioteki klas Razor](xref:razor-pages/ui-class). Aplikacje, które zawierają tożsamości można zastosować Generator szkieletu można selektywnie Dodawanie kodu źródłowego, znajdujących się w bibliotece klas Razor tożsamości (RCL). Przydatne może być wygenerowanie kodu źródłowego, aby można było zmodyfikować kod i zmienić zachowanie. Na przykład można nakazać Generatorowi szkieletu wygenerowanie kodu używanego podczas rejestracji. Wygenerowany kod ma pierwszeństwo przed tym samym kodem w bibliotece RCL tożsamości. Aby uzyskać pełną kontrolę nad interfejsu użytkownika i korzysta z domyślnego RCL, zobacz sekcję [Utwórz pełnej tożsamości interfejsu użytkownika źródło](#full).
 
-Aplikacje, które wykonują **nie** obejmują uwierzytelniania można zastosować Generator szkieletu, aby dodać pakiet RCL tożsamości. Masz możliwość wyboru tożsamości kodu do wygenerowania.
+Aplikacje, które wykonują **nie** obejmują uwierzytelniania można zastosować Generator szkieletu, aby dodać pakiet RCL tożsamości. Masz możliwość wyboru kodu tożsamości do wygenerowania.
 
 Mimo, że Generator szkieletu generuje większość niezbędny kod, musisz zaktualizować projekt, aby ukończyć proces. W tym dokumencie wyjaśniono kroki niezbędne do ukończenia aktualizacji tworzenia szkieletów tożsamości.
 
@@ -72,7 +73,7 @@ Tożsamość jest skonfigurowana w *Areas/Identity/IdentityHostingStartup.cs*. A
 
 ### <a name="enable-authentication"></a>Włączanie uwierzytelniania
 
-W `Configure` metody `Startup` klasy, wywołaj [UseAuthentication](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.builder.authappbuilderextensions.useauthentication?view=aspnetcore-2.0#Microsoft_AspNetCore_Builder_AuthAppBuilderExtensions_UseAuthentication_Microsoft_AspNetCore_Builder_IApplicationBuilder_) po `UseStaticFiles`:
+W `Configure` metody `Startup` klasy, wywołaj [UseAuthentication](/dotnet/api/microsoft.aspnetcore.builder.authappbuilderextensions.useauthentication?view=aspnetcore-2.0#Microsoft_AspNetCore_Builder_AuthAppBuilderExtensions_UseAuthentication_Microsoft_AspNetCore_Builder_IApplicationBuilder_) po `UseStaticFiles`:
 
 [!code-csharp[](scaffold-identity/sample/StartupRPnoAuth.cs?name=snippet1&highlight=29)]
 
@@ -130,7 +131,7 @@ Tożsamość jest skonfigurowana w *Areas/Identity/IdentityHostingStartup.cs*. A
 
 [!INCLUDE[](~/includes/scaffold-identity/migrations.md)]
 
-Wywołaj [UseAuthentication](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.builder.authappbuilderextensions.useauthentication?view=aspnetcore-2.0#Microsoft_AspNetCore_Builder_AuthAppBuilderExtensions_UseAuthentication_Microsoft_AspNetCore_Builder_IApplicationBuilder_) po `UseStaticFiles`:
+Wywołaj [UseAuthentication](/dotnet/api/microsoft.aspnetcore.builder.authappbuilderextensions.useauthentication?view=aspnetcore-2.0#Microsoft_AspNetCore_Builder_AuthAppBuilderExtensions_UseAuthentication_Microsoft_AspNetCore_Builder_IApplicationBuilder_) po `UseStaticFiles`:
 
 [!code-csharp[](scaffold-identity/sample/StartupMvcNoAuth.cs?name=snippet1&highlight=23)]
 

@@ -3,14 +3,15 @@ title: Strony razor z programem EF Core w programie ASP.NET Core — sortowanie,
 author: rick-anderson
 description: W tym samouczku dodasz, sortowanie, filtrowanie i stronicowanie funkcjonalność do strony, przy użyciu platformy ASP.NET Core i Entity Framework Core.
 ms.author: riande
-ms.date: 6/31/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: 06669d69fa9fec87d262c2b5bfd8b11649259849
-ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
+ms.openlocfilehash: 19fe24e0f901c50e8425db7665b5b2257b608146
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49348445"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090888"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---sort-filter-paging---3-of-8"></a>Strony razor z programem EF Core w programie ASP.NET Core — sortowanie, filtrowanie, stronicowania - 3, 8
 
@@ -51,7 +52,7 @@ Po żądaniu strony indeksu z **studentów** połączyć, nie ma żadnych ciągu
 
 [!code-csharp[](intro/samples/cu21/Pages/Students/Index.cshtml.cs?name=snippet_SortOnly&highlight=3-4)]
 
-Poniższy kod zawiera warunkowe C# [?: operator](https://docs.microsoft.com/dotnet/csharp/language-reference/operators/conditional-operator):
+Poniższy kod zawiera warunkowe C# [?: operator](/dotnet/csharp/language-reference/operators/conditional-operator):
 
 [!code-csharp[](intro/samples/cu21/Pages/Students/Index.cshtml.cs?name=snippet_Ternary)]
 

@@ -3,14 +3,15 @@ title: Strony razor z programem EF Core w programie ASP.NET Core — odczytanie 
 author: rick-anderson
 description: W tym samouczku należy przeczytać i wyświetlanie powiązanych danych — oznacza to, że dane programu Entity Framework wczytywane właściwości nawigacji.
 ms.author: riande
-ms.date: 11/05/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: e8b59c19eac2c2adc1f13cf1e44f750576686c87
-ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
+ms.openlocfilehash: b3a60c3f983dba8761b219773f827c39ff82cb01
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49348497"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090865"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>Strony razor z programem EF Core w programie ASP.NET Core — odczytanie powiązanych danych — 6 8
 
@@ -32,7 +33,7 @@ Na poniższych ilustracjach przedstawiono stron ukończonych w ramach tego samou
 
 Istnieje kilka sposobów, że programu EF Core można załadować powiązane dane do właściwości nawigacji jednostki:
 
-* [Wczesne ładowanie](https://docs.microsoft.com/ef/core/querying/related-data#eager-loading). Wczesne ładowanie jest, gdy zapytanie dla jednego typu obiektu również ładuje powiązanych jednostek. Podczas odczytywania jednostki powiązane dane są pobierane. Powoduje to zwykle w zapytaniu sprzężenia jednego, który pobiera wszystkie dane potrzebne. EF Core będzie wystawiać wielu zapytań dla niektórych rodzajów wczesne ładowanie. Wystawianie wielu zapytań może być bardziej efektywne niż w przypadku niektórych zapytań w EF6 było pojedynczego zapytania. Wczesne ładowanie jest określony za pomocą `Include` i `ThenInclude` metody.
+* [Wczesne ładowanie](/ef/core/querying/related-data#eager-loading). Wczesne ładowanie jest, gdy zapytanie dla jednego typu obiektu również ładuje powiązanych jednostek. Podczas odczytywania jednostki powiązane dane są pobierane. Powoduje to zwykle w zapytaniu sprzężenia jednego, który pobiera wszystkie dane potrzebne. EF Core będzie wystawiać wielu zapytań dla niektórych rodzajów wczesne ładowanie. Wystawianie wielu zapytań może być bardziej efektywne niż w przypadku niektórych zapytań w EF6 było pojedynczego zapytania. Wczesne ładowanie jest określony za pomocą `Include` i `ThenInclude` metody.
 
   ![Przykład wczesne ładowanie](read-related-data/_static/eager-loading.png)
  
@@ -47,11 +48,11 @@ Istnieje kilka sposobów, że programu EF Core można załadować powiązane dan
 
   Uwaga: Programu EF Core jest automatycznie rozwiązuje właściwości nawigacji do innych jednostek, które wcześniej zostały załadowane do wystąpienia kontekstu. Nawet jeśli dane dla właściwości nawigacyjnej *nie* jawnie uwzględnione, nadal można wypełnić właściwość, jeśli niektóre lub wszystkie powiązane jednostki zostały wcześniej załadowane.
 
-* [Jawne ładowanie](https://docs.microsoft.com/ef/core/querying/related-data#explicit-loading). Podczas odczytywania jednostki powiązane dane nie są pobierane. Musi być napisany kod można pobrać powiązanych danych, gdy jest to konieczne. Jawne ładowanie w oddzielnych zapytań powoduje wielu zapytań wysyłanych do bazy danych. Przy użyciu jawne ładowanie kod określa właściwości nawigacji, aby go załadować. Użyj `Load` celu jawne ładowanie metodę. Na przykład:
+* [Jawne ładowanie](/ef/core/querying/related-data#explicit-loading). Podczas odczytywania jednostki powiązane dane nie są pobierane. Musi być napisany kod można pobrać powiązanych danych, gdy jest to konieczne. Jawne ładowanie w oddzielnych zapytań powoduje wielu zapytań wysyłanych do bazy danych. Przy użyciu jawne ładowanie kod określa właściwości nawigacji, aby go załadować. Użyj `Load` celu jawne ładowanie metodę. Na przykład:
 
   ![Przykład jawne ładowanie](read-related-data/_static/explicit-loading.png)
 
-* [Powolne ładowanie](https://docs.microsoft.com/ef/core/querying/related-data#lazy-loading). [Powolne ładowanie został dodany do programu EF Core w wersji 2.1](/ef/core/querying/related-data#lazy-loading). Podczas odczytywania jednostki powiązane dane nie są pobierane. Podczas pierwszego uzyskiwania dostępu do właściwości nawigacji jest automatycznie pobierany wymagane dane dla tej właściwości nawigacji. Zapytanie jest wysyłane do bazy danych, w każdym właściwość nawigacji jest dostępny po raz pierwszy.
+* [Powolne ładowanie](/ef/core/querying/related-data#lazy-loading). [Powolne ładowanie został dodany do programu EF Core w wersji 2.1](/ef/core/querying/related-data#lazy-loading). Podczas odczytywania jednostki powiązane dane nie są pobierane. Podczas pierwszego uzyskiwania dostępu do właściwości nawigacji jest automatycznie pobierany wymagane dane dla tej właściwości nawigacji. Zapytanie jest wysyłane do bazy danych, w każdym właściwość nawigacji jest dostępny po raz pierwszy.
 
 * `Select` Operator ładuje tylko powiązane dane potrzebne.
 

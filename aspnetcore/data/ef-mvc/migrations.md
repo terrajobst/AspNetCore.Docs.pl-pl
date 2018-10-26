@@ -3,14 +3,15 @@ title: Platforma ASP.NET Core MVC z programem EF Core - Migrations - 4 z 10
 author: rick-anderson
 description: W ramach tego samouczka możesz rozpocząć korzystanie z funkcji migracje EF Core dla zarządzania zmianami modelu danych w aplikacji ASP.NET Core MVC.
 ms.author: tdykstra
-ms.date: 03/15/2018
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-mvc/migrations
-ms.openlocfilehash: 556d7d4ad05679ebfce6c909b29610482bb3f350
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 21ef3a675579d8a6671343d84cbe4f4b62979679
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011472"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090813"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---migrations---4-of-10"></a>Platforma ASP.NET Core MVC z programem EF Core - Migrations - 4 z 10
 
@@ -37,7 +38,7 @@ Aby pracować z migracji, można użyć **Konsola Menedżera pakietów** (PMC) l
 Narzędzia platformy EF dla interfejsu wiersza polecenia (CLI) znajdują się w [Microsoft.EntityFrameworkCore.Tools.DotNet](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools.DotNet). Aby zainstalować ten pakiet, należy dodać go do `DotNetCliToolReference` kolekcji w *.csproj* pliku, jak pokazano. **Uwaga:** należy zainstalować ten pakiet, edytując *.csproj* pliku; nie można użyć `install-package` polecenia lub graficznego interfejsu użytkownika Menedżera pakietów. Możesz edytować *.csproj* pliku, klikając prawym przyciskiem myszy nazwę projektu w **Eksploratora rozwiązań** i wybierając polecenie **Edytuj ContosoUniversity.csproj**.
 
 [!code-xml[](intro/samples/cu/ContosoUniversity.csproj?range=12-15&highlight=2)]
-  
+
 (Numery wersji, w tym przykładzie zostały bieżącej, gdy samouczek został napisany).
 
 ## <a name="change-the-connection-string"></a>Zmień parametry połączenia
@@ -104,7 +105,7 @@ Jeśli utworzono początkowej migracji bazy danych już istnieje, kod tworzenia 
 
 Tworzy migracje *migawki* bieżącego schematu bazy danych w *Migrations/SchoolContextModelSnapshot.cs*. Podczas dodawania migracji EF Określa, co zmieniło się przez porównanie modelu danych do pliku migawki.
 
-Podczas usuwania migracji, należy użyć [Usuń migracji ef dotnet](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove) polecenia. `dotnet ef migrations remove` Usuwa migracji i gwarantuje, że migawka poprawnie zostanie zresetowana.
+Podczas usuwania migracji, należy użyć [Usuń migracji ef dotnet](/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove) polecenia. `dotnet ef migrations remove` Usuwa migracji i gwarantuje, że migawka poprawnie zostanie zresetowana.
 
 Zobacz [EF Core migracji w środowiskach zespołu](/ef/core/managing-schemas/migrations/teams) Aby uzyskać więcej informacji o sposobie korzystania z pliku migawki.
 
@@ -116,7 +117,7 @@ W oknie wiersza polecenia wprowadź następujące polecenie, aby utworzyć bazę
 dotnet ef database update
 ```
 
-Dane wyjściowe polecenia są podobne do `migrations add` poleceń, z tą różnicą, że Zobacz dzienniki dla polecenia SQL, który konfigurowania bazy danych. Większość dzienników zostały pominięte w następujących przykładowych danych wyjściowych. Jeśli wolisz nie wyświetlić ten poziom szczegółów komunikatów dziennika można zmienić poziom dziennika w *appsettings. Development.JSON* pliku. Aby uzyskać więcej informacji, zobacz [wprowadzenie do rejestrowania](xref:fundamentals/logging/index).
+Dane wyjściowe polecenia są podobne do `migrations add` poleceń, z tą różnicą, że Zobacz dzienniki dla polecenia SQL, który konfigurowania bazy danych. Większość dzienników zostały pominięte w następujących przykładowych danych wyjściowych. Jeśli wolisz nie wyświetlić ten poziom szczegółów komunikatów dziennika można zmienić poziom dziennika w *appsettings. Development.JSON* pliku. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/logging/index>.
 
 ```text
 info: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[0]
@@ -143,7 +144,7 @@ info: Microsoft.EntityFrameworkCore.Database.Command[200101]
 Done.
 ```
 
-Użyj **Eksplorator obiektów SQL Server** do inspekcji bazy danych, tak jak w pierwszym samouczku.  Można zauważyć dodanie tabeli __EFMigrationsHistory, która przechowuje informacje o migracji, które zostały zastosowane do bazy danych. Wyświetlanie danych w tej tabeli, a następnie zostanie wyświetlony jeden wiersz dla pierwszej migracji. (Ostatni dziennik w powyższym przykładzie danych wyjściowych interfejsu wiersza polecenia wyświetla instrukcji INSERT, która tworzy ten wiersz).
+Użyj **Eksplorator obiektów SQL Server** do inspekcji bazy danych, tak jak w pierwszym samouczku.  Można zauważyć dodanie \_ \_EFMigrationsHistory tabeli, która przechowuje informacje o migracji, które zostały zastosowane do bazy danych. Wyświetlanie danych w tej tabeli, a następnie zostanie wyświetlony jeden wiersz dla pierwszej migracji. (Ostatni dziennik w powyższym przykładzie danych wyjściowych interfejsu wiersza polecenia wyświetla instrukcji INSERT, która tworzy ten wiersz).
 
 Uruchom aplikację, aby zweryfikować, że wszystko nadal działa tak jak wcześniej.
 
@@ -154,13 +155,13 @@ Uruchom aplikację, aby zweryfikować, że wszystko nadal działa tak jak wcześ
 
 EF narzędzi do zarządzania migracji jest niedostępna, z poleceń interfejsu wiersza polecenia platformy .NET Core lub poleceń cmdlet programu PowerShell w programie Visual Studio **Konsola Menedżera pakietów** okna (PMC). W tym samouczku pokazano, jak używać interfejsu wiersza polecenia, ale można użyć konsoli zarządzania Pakietami, jeśli użytkownik sobie tego życzy.
 
-Polecenia EF poleceń PMC znajdują się w [Microsoft.EntityFrameworkCore.Tools](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools) pakietu. Ten pakiet jest już uwzględniony w [pakiet](xref:fundamentals/metapackage) meta Microsoft.aspnetcore.all, więc nie trzeba go zainstalować.
+Polecenia EF poleceń PMC znajdują się w [Microsoft.EntityFrameworkCore.Tools](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools) pakietu. Ten pakiet jest objęta [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app), więc nie musisz dodać odwołanie do pakietu, jeśli aplikacja ma odwołania do pakietu dla `Microsoft.AspNetCore.App`.
 
 **Ważne:** nie jest to ten sam pakiet, instalowanie interfejsu wiersza polecenia, edytując *.csproj* pliku. Nazwa tego z nich kończy się na `Tools`, w odróżnieniu od nazwy pakiet interfejsu wiersza polecenia, którego nazwa kończy się na `Tools.DotNet`.
 
-Aby uzyskać więcej informacji na temat poleceń interfejsu wiersza polecenia, zobacz [interfejsu wiersza polecenia platformy .NET Core](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet).
+Aby uzyskać więcej informacji na temat poleceń interfejsu wiersza polecenia, zobacz [interfejsu wiersza polecenia platformy .NET Core](/ef/core/miscellaneous/cli/dotnet).
 
-Aby uzyskać więcej informacji na temat poleceń konsoli zarządzania Pakietami, zobacz [Konsola Menedżera pakietów (Visual Studio)](https://docs.microsoft.com/ef/core/miscellaneous/cli/powershell).
+Aby uzyskać więcej informacji na temat poleceń konsoli zarządzania Pakietami, zobacz [Konsola Menedżera pakietów (Visual Studio)](/ef/core/miscellaneous/cli/powershell).
 
 ## <a name="summary"></a>Podsumowanie
 

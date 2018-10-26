@@ -1,17 +1,17 @@
 ---
-title: Rozwiązywanie problemów z platformą ASP.NET Core w usłudze Azure App Service
+title: Rozwiązywanie problemów z błędami uruchamiania programu ASP.NET Core w usłudze Azure App Service
 author: guardrex
 description: Dowiedz się, jak diagnozować problemy z wdrożeniami platformy ASP.NET Core usługi Azure App Service.
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/31/2018
+ms.date: 10/24/2018
 uid: host-and-deploy/azure-apps/troubleshoot
-ms.openlocfilehash: a995c743b4e43be8bea5329affb3f2c736b1d016
-ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
+ms.openlocfilehash: 05bb024f5b0d2b554cc861c250a92fd7ae23437f
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41902557"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090748"
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service"></a>Rozwiązywanie problemów z platformą ASP.NET Core w usłudze Azure App Service
 
@@ -108,7 +108,7 @@ Plik dziennika stdout modułu ASP.NET Core rejestruje często przydatne komunika
 
 ## <a name="common-startup-errors"></a>Typowe błędy uruchamiania 
 
-Zobacz [dokumentacja typowych błędów platformy ASP.NET Core](xref:host-and-deploy/azure-iis-errors-reference). Najbardziej typowe problemy, które uniemożliwiają uruchamianie aplikacji znajdują się w temacie odwołania.
+Zobacz <xref:host-and-deploy/azure-iis-errors-reference>. Najbardziej typowe problemy, które uniemożliwiają uruchamianie aplikacji znajdują się w temacie odwołania.
 
 ## <a name="slow-or-hanging-app"></a>Wolne lub zwisa aplikacji
 
@@ -175,8 +175,8 @@ Aby uzyskać więcej informacji, zobacz [Włączanie rejestrowania diagnostyczne
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Wprowadzenie do obsługi błędów w platformy ASP.NET Core](xref:fundamentals/error-handling)
-* [Dokumentacja typowych błędów dla usługi Azure App Service i IIS za pomocą programu ASP.NET Core](xref:host-and-deploy/azure-iis-errors-reference)
+* <xref:fundamentals/error-handling>
+* <xref:host-and-deploy/azure-iis-errors-reference>
 * [Rozwiązywanie problemów z aplikacją sieci web w usłudze Azure App Service przy użyciu programu Visual Studio](/azure/app-service/web-sites-dotnet-troubleshoot-visual-studio)
 * [Rozwiązywanie problemów z błędami HTTP "502 — Zła brama" i "503 Usługa niedostępna" w aplikacjach sieci web platformy Azure](/azure/app-service/app-service-web-troubleshoot-http-502-http-503)
 * [Powolne sieci web app Rozwiązywanie problemów z wydajnością w usłudze Azure App Service](/azure/app-service/app-service-web-troubleshoot-performance-degradation)

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/21/2018
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: 0ae19b26bc86c9da7a61f3117aaae1844115593a
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 0d167f779f9dcae6b0d946dce5e341793daf43bf
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913284"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091018"
 ---
 # <a name="aspnet-core-module-configuration-reference"></a>Informacje o konfiguracji ASP.NET Core modułu
 
@@ -48,6 +48,8 @@ Następujące właściwości mają zastosowanie w przypadku hostowania w procesi
 * Architektura (liczba bitów) zainstalowanego środowiska uruchomieniowego (x64 lub x86) i aplikacji musi być zgodna z architekturą puli aplikacji.
 
 * Ustawiając hosta aplikacji ręcznie za pomocą `WebHostBuilder` (nie używa [CreateDefaultBuilder](xref:fundamentals/host/web-host#set-up-a-host)) i nigdy nie uruchomienia aplikacji bezpośrednio na serwerze Kestrel (Self-Hosted), wywołanie `UseKestrel` przed wywołaniem `UseIISIntegration`. Jeśli kolejność została odwrócona, host nie można uruchomić.
+
+* Rozłącza klienta są wykrywane. [HttpContext.RequestAborted](xref:Microsoft.AspNetCore.Http.HttpContext.RequestAborted*) odwołano token anulowania, gdy klient odłączy się.
 
 ### <a name="hosting-model-changes"></a>Zmiany modelu hostingu
 
@@ -155,7 +157,7 @@ Zobacz [konfiguracji podrzędnych aplikacji](xref:host-and-deploy/iis/index#sub-
 
 | Atrybut | Opis | Domyślny |
 | --------- | ----------- | :-----: |
-| `arguments` | <p>Atrybut opcjonalny ciąg.</p><p>Argumenty do pliku wykonywalnego, określony w **processPath**.</p>| |
+| `arguments` | <p>Atrybut opcjonalny ciąg.</p><p>Argumenty do pliku wykonywalnego, określony w **processPath**.</p> | |
 | `disableStartUpErrorPage` | <p>Opcjonalny logiczny atrybut.</p><p>W przypadku opcji true **502.5 - niepowodzenia procesu** strony jest pominięty, a strona kodowa 502 stan skonfigurowane w *web.config* ma pierwszeństwo.</p> | `false` |
 | `forwardWindowsAuthToken` | <p>Opcjonalny logiczny atrybut.</p><p>W przypadku opcji true token są przekazywane do procesu podrzędnego nasłuchiwać ASPNETCORE_PORT % jako nagłówek "MS-ASPNETCORE-WINAUTHTOKEN" na żądanie. Jest odpowiedzialny za ten proces może wywołać funkcja CloseHandle tego tokenu na żądanie.</p> | `true` |
 | `hostingModel` | <p>Atrybut opcjonalny ciąg.</p><p>Określa modelu hostingu w trakcie (`inprocess`) lub spoza procesu (`outofprocess`).</p> | `outofprocess` |
@@ -306,6 +308,50 @@ Poniższy przykład `aspNetCore` element konfiguruje rejestrowanie strumienia st
     stdoutLogFile="\\?\%home%\LogFiles\stdout">
 </aspNetCore>
 ```
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
+
+## <a name="enhanced-diagnostic-logs"></a>Rozszerzone dzienników diagnostycznych
+
+Modułu ASP.NET Core udostępnia, są konfigurowane w celu zapewnienia dzienniki diagnostyki rozszerzonej. Dodaj `<handlerSettings>` elementu `<aspNetCore>` element *web.config*. Ustawienie `debugLevel` do `TRACE` udostępnia pozwala uzyskać większą wierność informacje diagnostyczne:
+
+```xml
+<aspNetCore processPath="dotnet"
+    arguments=".\MyApp.dll"
+    stdoutLogEnabled="false"
+    stdoutLogFile="\\?\%home%\LogFiles\stdout"
+    hostingModel="inprocess">
+  <handlerSettings>
+    <handlerSetting name="debugFile" value="aspnetcore-debug.log" />
+    <handlerSetting name="debugLevel" value="FILE,TRACE" />
+  </handlerSettings>
+</aspNetCore>
+```
+
+Poziom debugowania (`debugLevel`) wartości mogą obejmować zarówno na poziomie, jak i lokalizację.
+
+Poziomy (w kolejności od najmniejszej do najbardziej szczegółowy):
+
+* BŁĄD
+* OSTRZEŻENIE
+* INFORMACJE O
+* TRACE
+
+Lokalizacje (wiele lokalizacji są dozwolone):
+
+* KONSOLA
+* DZIENNIK ZDARZEŃ
+* PLIK
+
+Ustawienia obsługi można również podać za pośrednictwem zmienne środowiskowe:
+
+* `ASPNETCORE_MODULE_DEBUG_FILE` &ndash; Ścieżka do pliku dziennika debugowania. (Domyślnie: *czy aspnetcore*)
+* `ASPNETCORE_MODULE_DEBUG` &ndash; Ustawienie poziomie debugowania.
+
+> [!WARNING]
+> Czy **nie** Pozostaw włączone we wdrożeniu na dłużej, niż jest to wymagane, aby rozwiązać problem rejestrowanie debugowania. Rozmiar dziennika nie jest ograniczona. Pozostawienie dziennik debugowania włączone może wyczerpać dostępne miejsce na dysku i awarii serwera lub usługi app service.
 
 ::: moniker-end
 

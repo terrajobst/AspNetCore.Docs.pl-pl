@@ -3,15 +3,15 @@ title: Pomocnicy tagów w formularzach w programie ASP.NET Core
 author: rick-anderson
 description: W tym artykule opisano wbudowane pomocników tagów używane w formularzach.
 ms.author: riande
-ms.custom: H1Hack27Feb2017
-ms.date: 02/14/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: mvc/views/working-with-forms
-ms.openlocfilehash: e613dc1e85b84cc5e2b8ad2bf3958040257d1966
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: efc71cc8d072769cde07e129b6d9bb933fc2f7af
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48911282"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090219"
 ---
 # <a name="tag-helpers-in-forms-in-aspnet-core"></a>Pomocnicy tagów w formularzach w programie ASP.NET Core
 
@@ -29,7 +29,7 @@ W wielu przypadkach pomocników HTML zapewnić alternatywne podejście do okreś
 
 * Generuje kod HTML [ \<formularza >](https://www.w3.org/TR/html401/interact/forms.html) `action` wartość atrybutu dla akcji kontrolera MVC lub nazwanej trasy
 
-* Generuje ukryty [tokenu weryfikacji żądania](https://docs.microsoft.com/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) celu zapobiegania fałszowaniu żądania między witrynami (gdy jest używane z `[ValidateAntiForgeryToken]` atrybutu w metodzie akcji Post protokołu HTTP)
+* Generuje ukryty [tokenu weryfikacji żądania](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) celu zapobiegania fałszowaniu żądania między witrynami (gdy jest używane z `[ValidateAntiForgeryToken]` atrybutu w metodzie akcji Post protokołu HTTP)
 
 * Udostępnia `asp-route-<Parameter Name>` atrybutu, gdzie `<Parameter Name>` jest dodawany do wartości trasy. `routeValues` Parametry `Html.BeginForm` i `Html.BeginRouteForm` zapewniają podobne funkcje.
 
@@ -48,7 +48,7 @@ Pomocnik tagu formularza powyżej generuje poniższy kod HTML:
 </form>
 ```
 
-Środowisko wykonawcze MVC zgłasza `action` wartość atrybutu z atrybutów Pomocnik tagu formularza `asp-controller` i `asp-action`. Pomocnik tagu formularza również generuje ukryty [tokenu weryfikacji żądania](https://docs.microsoft.com/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) celu zapobiegania fałszowaniu żądania między witrynami (gdy jest używane z `[ValidateAntiForgeryToken]` atrybutu w metodzie akcji Post protokołu HTTP). Ochrona przed fałszerstwem żądań między witrynami czysty formularz HTML jest trudne, Pomocnik tagu formularza udostępnia tę usługę dla Ciebie.
+Środowisko wykonawcze MVC zgłasza `action` wartość atrybutu z atrybutów Pomocnik tagu formularza `asp-controller` i `asp-action`. Pomocnik tagu formularza również generuje ukryty [tokenu weryfikacji żądania](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) celu zapobiegania fałszowaniu żądania między witrynami (gdy jest używane z `[ValidateAntiForgeryToken]` atrybutu w metodzie akcji Post protokołu HTTP). Ochrona przed fałszerstwem żądań między witrynami czysty formularz HTML jest trudne, Pomocnik tagu formularza udostępnia tę usługę dla Ciebie.
 
 ### <a name="using-a-named-route"></a>Korzystanie z nazwanej trasy
 
@@ -106,7 +106,7 @@ Type expected
 
 |Typ architektury .NET|Typ danych wejściowych|
 |---|---|
-|wartość logiczna|type=”checkbox”|
+|wartość logiczna|Typ = "checkbox"|
 |String|Typ = "text"|
 |DataGodzina|Typ "datetime" =|
 |Byte|Typ = "number"|
@@ -119,10 +119,10 @@ W poniższej tabeli przedstawiono niektóre typowe [adnotacje danych](/dotnet/ap
 
 |Atrybut|Typ danych wejściowych|
 |---|---|
-|[EmailAddress]|type=”email”|
-|[Url]|type=”url”|
-|[HiddenInput]|type=”hidden”|
-|[Phone]|type=”tel”|
+|[EmailAddress]|Typ = "email"|
+|[Url]|Typ = "url"|
+|[HiddenInput]|Typ = "hidden"|
+|[Phone]|Typ = "tel"|
 |[DataType(DataType.Password)]| Typ = "password"|
 |[DataType(DataType.Date)]| Typ = "Data"|
 |[DataType(DataType.Time)]| Typ = "time"|
@@ -244,7 +244,6 @@ Następujące Razor pokazuje, jak iteracji po kolekcji:
 *Views/Shared/EditorTemplates/ToDoItem.cshtml* szablonu:
 
 [!code-HTML[](working-with-forms/sample/final/Views/Shared/EditorTemplates/ToDoItem.cshtml)]
-
 
 >[!NOTE]
 >Zawsze używaj `for` (i *nie* `foreach`) do iteracji całej listy. Ocena indeksatora w LINQ wyrażenie może być kosztowne i należy zminimalizować.
@@ -574,10 +573,10 @@ Poprawny `<option>` element zostanie wybrana (zawierają `selected="selected"` a
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Pomocnicy tagów](xref:mvc/views/tag-helpers/intro)
+* <xref:mvc/views/tag-helpers/intro>
 * [Element formularza HTML](https://www.w3.org/TR/html401/interact/forms.html)
 * [Żądanie weryfikacji tokenu](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages)
-* [Wiązanie modelu](xref:mvc/models/model-binding)
-* [Walidacja modelu](xref:mvc/models/validation)
+* <xref:mvc/models/model-binding>
+* <xref:mvc/models/validation>
 * [Interfejs IAttributeAdapter](/dotnet/api/Microsoft.AspNetCore.Mvc.DataAnnotations.IAttributeAdapter)
 * [Fragmenty kodu dla tego dokumentu](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/working-with-forms/sample/final)

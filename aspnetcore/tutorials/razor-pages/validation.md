@@ -4,14 +4,15 @@ author: rick-anderson
 description: Dowiedz się, jak dodać sprawdzanie poprawności na stronę Razor programu ASP.NET Core.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 08/07/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: cd958b9c084de4b3e12784774544610873a519f9
-ms.sourcegitcommit: 317f9be24db600499e79d25872d743af74bd86c0
+ms.openlocfilehash: 2518b9911f13da79c76c84e530cf53fc2df474e5
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48045526"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090449"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>Dodawanie walidacji do strony ASP.NET Core Razor
 
@@ -27,7 +28,7 @@ Sprawdzanie poprawności wsparcie ze stronami Razor i programem Entity Framework
 
 ### <a name="adding-validation-rules-to-the-movie-model"></a>Dodawania reguł sprawdzania poprawności do modelu movie
 
-Otwórz *Models/Movie.cs* pliku. [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) zawiera zestaw wbudowanych atrybutów sprawdzania poprawności, które są stosowane w sposób deklaratywny do klasa lub właściwość. DataAnnotations zawiera też atrybuty formatowania, takich jak `DataType` ułatwić formatowanie i nie zapewniają weryfikacji.
+Otwórz *Models/Movie.cs* pliku. [DataAnnotations](/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) zawiera zestaw wbudowanych atrybutów sprawdzania poprawności, które są stosowane w sposób deklaratywny do klasa lub właściwość. DataAnnotations zawiera też atrybuty formatowania, takich jak `DataType` ułatwić formatowanie i nie zapewniają weryfikacji.
 
 Aktualizacja `Movie` klasy, aby korzystać z zalet `Required`, `StringLength`, `RegularExpression`, i `Range` atrybutów sprawdzania poprawności.
 
@@ -45,7 +46,7 @@ Aktualizacja `Movie` klasy, aby korzystać z zalet `Required`, `StringLength`, `
 
 Atrybuty weryfikacji określić zachowanie, który jest wymuszany dla właściwości modelu:
 
-* `Required` i `MinimumLength` atrybuty wskazują, że właściwość musi mieć wartość. Jednakże nic nie uniemożliwia użytkownikowi wprowadzanie odstępów, aby spełniać ograniczenie sprawdzania poprawności dla typu dopuszczającego wartość null. Nieprzyjmujące [typy wartości](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/value-types) (takie jak `decimal`, `int`, `float`, i `DateTime`) są założenia wymagane i nie ma potrzeby `Required` atrybutu.
+* `Required` i `MinimumLength` atrybuty wskazują, że właściwość musi mieć wartość. Jednakże nic nie uniemożliwia użytkownikowi wprowadzanie odstępów, aby spełniać ograniczenie sprawdzania poprawności dla typu dopuszczającego wartość null. Nieprzyjmujące [typy wartości](/dotnet/csharp/language-reference/keywords/value-types) (takie jak `decimal`, `int`, `float`, i `DateTime`) są założenia wymagane i nie ma potrzeby `Required` atrybutu.
 * `RegularExpression` Atrybut ogranicza znaki, które użytkownik może wprowadzić. W poprzednim kodzie `Genre` musi zaczynać się wielkie litery i postępuj zgodnie z zero lub więcej liter, pojedynczym lub podwójnym cudzysłowie, białych znaków lub kreski. `Rating` musi rozpoczynać się wielkie litery, a następnie postępuj zgodnie z zero lub więcej liter, cyfr, pojedynczym lub podwójnym cudzysłowie, białych znaków lub łączniki.
 * `Range` Atrybut ogranicza wartości do określonego zakresu.
 * `StringLength` Atrybut Ustawia maksymalną długość ciągu i opcjonalnie minimalnej długości. 
@@ -95,7 +96,7 @@ Poniższy kod ilustruje część *Create.cshtml* strona, która szkieletu we wcz
 
 [!code-cshtml[](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Create.cshtml?range=14-20)]
 
-[Pomocnik tagu dane wejściowe](xref:mvc/views/working-with-forms) używa [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) atrybutów, a następnie tworzy atrybutów HTML potrzebne dla technologii jQuery weryfikacji po stronie klienta. [Pomocnik tagu weryfikacji](xref:mvc/views/working-with-forms#the-validation-tag-helpers) wyświetla błędy sprawdzania poprawności. Zobacz [weryfikacji](xref:mvc/models/validation) Aby uzyskać więcej informacji.
+[Pomocnik tagu dane wejściowe](xref:mvc/views/working-with-forms) używa [DataAnnotations](/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) atrybutów, a następnie tworzy atrybutów HTML potrzebne dla technologii jQuery weryfikacji po stronie klienta. [Pomocnik tagu weryfikacji](xref:mvc/views/working-with-forms#the-validation-tag-helpers) wyświetla błędy sprawdzania poprawności. Zobacz [weryfikacji](xref:mvc/models/validation) Aby uzyskać więcej informacji.
 
 Tworzenie i edytowanie strony mają reguł sprawdzania poprawności w nich. Reguł sprawdzania poprawności i ciągi błędów są określane tylko w `Movie` klasy. Te reguły sprawdzania poprawności są automatycznie stosowane do stron Razor, którą edytować `Movie` modelu.
 
@@ -166,10 +167,10 @@ Dziękujemy za wypełnienie tego wprowadzenia do stron Razor. Dziękujemy za opi
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Praca z formularzami](xref:mvc/views/working-with-forms)
-* [Globalizacja i lokalizacja](xref:fundamentals/localization)
-* [Wprowadzenie do pomocnicy tagów](xref:mvc/views/tag-helpers/intro)
-* [Tworzenie pomocników tagów](xref:mvc/views/tag-helpers/authoring)
+* <xref:mvc/views/working-with-forms>
+* <xref:fundamentals/localization>
+* <xref:mvc/views/tag-helpers/intro>
+* <xref:mvc/views/tag-helpers/authoring>
 
 > [!div class="step-by-step"]
 > [Poprzedni: Dodanie nowego pola](xref:tutorials/razor-pages/new-field)

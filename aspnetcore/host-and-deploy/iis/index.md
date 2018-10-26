@@ -6,16 +6,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/21/2018
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 5092564ad885b0de090129a7a0f0bbbd472cb868
-ms.sourcegitcommit: ce6b6792c650708e92cdea051a5d166c0708c7c0
+ms.openlocfilehash: 72c32b9c66b50663b33a5274b8f60de126622535
+ms.sourcegitcommit: 76ffb9456e0a44651dfcf052ce133f728ae2359b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652348"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50132208"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host platformy ASP.NET Core na Windows za pomocą programu IIS
 
 Przez [Luke Latham](https://github.com/guardrex)
+
+[Zainstaluj program .NET Core hostingu pakietu](#install-the-NET-core-hosting-bundle)
 
 ## <a name="supported-operating-systems"></a>Supported operating systems
 
@@ -262,28 +264,42 @@ Włącz **Konsola zarządzania usługami IIS** i **usługi World Wide Web**.
 
 ![Konsola zarządzania usługami IIS oraz usługi sieci Web są zaznaczone w funkcji Windows.](index/_static/windows-features-win10.png)
 
----
-
 ## <a name="install-the-net-core-hosting-bundle"></a>Zainstaluj program .NET Core hostingu pakietu
 
-1. Zainstaluj *hostingu pakietu programu .NET Core* przez system operacyjny. Pakiet instaluje .NET Core środowisko uruchomieniowe, biblioteki platformy .NET Core i [modułu ASP.NET Core](xref:fundamentals/servers/aspnet-core-module). Moduł tworzy zwrotny serwer proxy między usługami IIS a Kestrel server. Jeśli system nie ma dostępu do Internetu, należy uzyskać i zainstalować [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840) przed zainstalowaniem pakietu hostingu platformy .NET Core.
+Zainstaluj *hostingu pakietu programu .NET Core* przez system operacyjny. Pakiet instaluje .NET Core środowisko uruchomieniowe, biblioteki platformy .NET Core i [modułu ASP.NET Core](xref:fundamentals/servers/aspnet-core-module). Moduł tworzy zwrotny serwer proxy między usługami IIS a Kestrel server. Jeśli system nie ma dostępu do Internetu, należy uzyskać i zainstalować [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840) przed zainstalowaniem pakietu hostingu platformy .NET Core.
 
-   1. Przejdź do [strony pobierania .NET](https://www.microsoft.com/net/download/windows).
-   1. W obszarze **platformy .NET Core**, wybierz opcję **Pobierz podstawowe środowisko uruchomieniowe platformy .NET** znajdujący się obok **Uruchom aplikacje** etykiety. Plik wykonywalny Instalatora zawiera słowa "hostingu" w nazwie pliku (na przykład *dotnet hostingu-2.1.2-win.exe*).
-   1. Uruchom Instalatora na serwerze.
+> [!IMPORTANT]
+> Po zainstalowaniu pakietu hostowanie usług IIS wcześniejsze instalacji pakietu musi zostać naprawiony. Uruchom Instalatora pakietu hostingu ponownie po zainstalowaniu usług IIS.
 
-   **Ważne!** Po zainstalowaniu pakietu hostowanie usług IIS wcześniejsze instalacji pakietu musi zostać naprawiony. Uruchom Instalatora pakietu hostingu ponownie po zainstalowaniu usług IIS.
+### <a name="direct-download-current-version"></a>Pobieranie bezpośrednie (bieżąca wersja)
 
-   Uruchom Instalatora z wiersza polecenia administratora z co najmniej jeden przełączniki kontrolowania zachowania Instalatora:
+Pobierz Instalatora, korzystając z następującego linku:
+
+[Bieżący Instalatora pakietu hostingu programu .NET Core (pobieranie bezpośrednie)](https://www.microsoft.com/net/permalink/dotnetcore-current-windows-runtime-bundle-installer)
+
+### <a name="earlier-versions-of-the-installer"></a>Wcześniejszych wersjach Instalator
+
+Aby uzyskać starszej wersji Instalatora:
+
+1. Przejdź do [.NET Pobierz archiwa](https://www.microsoft.com/net/download/archives).
+1. W obszarze **platformy .NET Core**, wybierz wersję platformy .NET Core.
+1. W **uruchamiać aplikacje — środowisko uruchomieniowe** kolumny, znajdź wiersz żądanego wersji środowiska uruchomieniowego .NET Core.
+1. Pobierz Instalatora przy użyciu **środowisko uruchomieniowe i pakiet hostingu** łącza.
+
+> [!WARNING]
+> Niektóre instalatory zawierają wersje, osiągnęły ich koniec cyklu życia (ma), które nie są już obsługiwane przez firmę Microsoft. Aby uzyskać więcej informacji, zobacz [zasady pomocy technicznej](https://www.microsoft.com/net/download/dotnet-core/2.0).
+
+### <a name="install-the-hosting-bundle"></a>Zainstaluj pakiet hostingu
+
+1. Uruchom Instalatora na serwerze. Po uruchomieniu Instalatora z wiersza polecenia z uprawnieniami administratora, dostępne są następujące parametry:
 
    * `OPT_NO_ANCM=1` &ndash; Pomiń instalację modułu ASP.NET Core.
    * `OPT_NO_RUNTIME=1` &ndash; Pomiń instalację środowiska uruchomieniowego .NET Core.
    * `OPT_NO_SHAREDFX=1` &ndash; Pomiń instalację struktury programu ASP.NET udostępnione (środowisko uruchomieniowe programu ASP.NET).
    * `OPT_NO_X86=1` &ndash; Pomiń instalację x86 środowisk uruchomieniowych. Użyj tego przełącznika, gdy wiadomo, że użytkownik nie będzie hostingu aplikacji 32-bitowych. W przypadku każdej okazji, że zarówno 32-bitowych i 64-bitowych aplikacji będzie obsługiwać w przyszłości, nie używaj tego przełącznika i zainstalować obie środowisk uruchomieniowych.
-
 1. Ponowne uruchamianie systemu lub wykonać **net stop został /y** następuje **net start w3svc** z poziomu wiersza polecenia. Ponowne uruchomienie usług IIS przejmuje zmiany w systemie ścieżki, która jest zmienną środowiskową, wprowadzone przez Instalatora.
 
-   Jeśli Instalator Windows obsługującego pakietu wykryje, że usługi IIS wymaga zresetowania, aby dokończyć instalację, Instalator resetuje usług IIS. Jeśli Instalator wyzwala Resetowanie usług IIS, zostaną uruchomione ponownie wszystkie pule aplikacji usług IIS i witryn sieci Web.
+Jeśli Instalator Windows obsługującego pakietu wykryje, że usługi IIS wymaga zresetowania, aby dokończyć instalację, Instalator resetuje usług IIS. Jeśli Instalator wyzwala Resetowanie usług IIS, zostaną uruchomione ponownie wszystkie pule aplikacji usług IIS i witryn sieci Web.
 
 > [!NOTE]
 > Aby uzyskać informacji na temat konfiguracji udostępnionej usług IIS, zobacz [modułu ASP.NET Core przy użyciu konfiguracji udostępnionej usług IIS](xref:host-and-deploy/aspnet-core-module#aspnet-core-module-with-an-iis-shared-configuration).
@@ -399,7 +415,7 @@ Aby skonfigurować ochronę danych w środowisku usług IIS, aby utrwalić pier�
 
   Klucze ochrony danych używane przez aplikacje platformy ASP.NET Core są przechowywane w rejestrze systemu zewnętrznego do aplikacji. Aby zachować klucze dla danej aplikacji, należy utworzyć klucze rejestru dla puli aplikacji.
 
-  Dla autonomicznej, bez webfarm instalacji usług IIS, [skrypt programu PowerShell do aprowizacji AutoGenKeys.ps1 ochrony danych (ASP.NET Core 2.2)](https://github.com/aspnet/DataProtection/blob/release/2.2/Provision-AutoGenKeys.ps1) może służyć do każdej puli aplikacji używana z aplikacji ASP.NET Core. Ten skrypt tworzy klucz rejestru w rejestrze HKLM, który jest dostępny tylko dla konta procesu roboczego puli aplikacji w aplikacji. Klucze są szyfrowane za pomocą DPAPI za pomocą klucza komputera.
+  Dla autonomicznej, bez webfarm instalacji usług IIS, [skrypt programu PowerShell do aprowizacji AutoGenKeys.ps1 ochrony danych](https://github.com/aspnet/AspNetCore/blob/master/src/DataProtection/Provision-AutoGenKeys.ps1) może służyć do każdej puli aplikacji używana z aplikacji ASP.NET Core. Ten skrypt tworzy klucz rejestru w rejestrze HKLM, który jest dostępny tylko dla konta procesu roboczego puli aplikacji w aplikacji. Klucze są szyfrowane za pomocą DPAPI za pomocą klucza komputera.
 
   W scenariuszach z farmami internetowymi można skonfigurować aplikację można użyć ścieżki UNC do przechowywania jego pierścień klucz ochrony danych. Domyślnie klucze ochrony danych nie są szyfrowane. Upewnij się, że uprawnienia do udziału sieciowego są ograniczone do konta Windows, którego aplikacja działa. X509 certyfikatu może służyć do ochrony kluczy w stanie spoczynku. Należy wziąć pod uwagę mechanizmu, aby zezwolić użytkownikom na przekazywanie certyfikatów: miejsce certyfikatów do zaufanego certyfikatu przez użytkownika, przechowywania i upewnij się, są one dostępne na wszystkich komputerach, którym jest uruchamiany aplikacji użytkownika. Zobacz [konfiguracji ochrony danych platformy ASP.NET Core](xref:security/data-protection/configuration/overview) Aby uzyskać szczegółowe informacje.
 

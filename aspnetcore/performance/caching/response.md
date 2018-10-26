@@ -5,12 +5,12 @@ description: Dowiedz się, jak używać odpowiedzi z pamięci podręcznej w celu
 ms.author: riande
 ms.date: 09/20/2017
 uid: performance/caching/response
-ms.openlocfilehash: 4bf61502738d70760679ec98c8f2f303eca9d504
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: bbf5b649bac9d31aa6d0ecdc3828648677b05716
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477492"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090696"
 ---
 # <a name="response-caching-in-aspnet-core"></a>Buforowanie odpowiedzi w programie ASP.NET Core
 
@@ -68,7 +68,7 @@ Aby uzyskać więcej informacji, zobacz [pamięci podręcznej w pamięci](xref:p
 
 Umożliwia przechowywanie danych w pamięci, gdy aplikacja jest hostowana w chmurze i na serwerze farmie rozproszonej pamięci podręcznej. Pamięć podręczna jest współużytkowany przez serwery, które przetwarzają żądania. Klienci mogą przesyłać żądania, które jest obsługiwane przez dowolnego serwera w grupie, jeśli dane w pamięci podręcznej klienta jest dostępny. ASP.NET Core oferuje program SQL Server i pamięci podręczne Redis rozproszonych.
 
-Aby uzyskać więcej informacji, zobacz [Praca z rozproszoną pamięcią podręczną](xref:performance/caching/distributed).
+Aby uzyskać więcej informacji, zobacz <xref:performance/caching/distributed>.
 
 ### <a name="cache-tag-helper"></a>Pomocnik tagu pamięci podręcznej
 
@@ -230,9 +230,9 @@ Cache-Control: public,max-age=60
 
 * [Zapisywanie odpowiedzi w pamięci podręcznej](https://tools.ietf.org/html/rfc7234#section-3)
 * [Cache-Control](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
-* [Buforowanie w pamięci](xref:performance/caching/memory)
-* [Praca z rozproszoną pamięcią podręczną](xref:performance/caching/distributed)
-* [Wykrywanie zmian za pomocą tokenów zmiany](xref:fundamentals/change-tokens)
-* [Oprogramowanie pośredniczące buforowania odpowiedzi](xref:performance/caching/middleware)
-* [Pomocnik tagu pamięci podręcznej](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
-* [Pomocnik tagu rozproszonej pamięci podręcznej](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
+* <xref:performance/caching/memory>
+* <xref:performance/caching/distributed>
+* <xref:fundamentals/change-tokens>
+* <xref:performance/caching/middleware>
+* <xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper>
+* <xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper>

@@ -4,14 +4,14 @@ author: rick-anderson
 description: Dowiedz się, jak skonfigurować serwer Nginx jako zwrotny serwer proxy w systemie Ubuntu 16.04 do przesyłania ruchu HTTP do aplikacji sieci web ASP.NET Core uruchomionych na Kestrel.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/09/2018
+ms.date: 10/23/2018
 uid: host-and-deploy/linux-nginx
-ms.openlocfilehash: 8d3c158b44c9f30e7c0746398306aa1c0fd9e15b
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: ea2631f5112efabac07275f86e65432889cb8081
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912119"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090520"
 ---
 # <a name="host-aspnet-core-on-linux-with-nginx"></a>Host platformy ASP.NET Core w systemie Linux przy użyciu serwera Nginx
 
@@ -66,13 +66,6 @@ Testowanie aplikacji:
 
 Zwrotny serwer proxy jest wspólne dla aplikacji sieci web dynamicznego obsługująca. Zwrotny serwer proxy kończy żądanie HTTP i przekazuje je do aplikacji ASP.NET Core.
 
-::: moniker range=">= aspnetcore-2.0"
-
-> [!NOTE]
-> Każda konfiguracja&mdash;z lub bez serwera proxy odwrotnej&mdash;jest prawidłowy i obsługiwanych konfiguracji hostingu dla platformy ASP.NET Core 2.0 lub nowszej aplikacje. Aby uzyskać więcej informacji, zobacz [kiedy należy używać Kestrel przy użyciu zwrotnego serwera proxy](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy).
-
-::: moniker-end
-
 ### <a name="use-a-reverse-proxy-server"></a>Użyj serwera proxy odwrotnej
 
 Kestrel nadaje się doskonale dla obsługujących zawartość dynamiczną z platformą ASP.NET Core. Jednak możliwości usług sieci web nie są jako wyposażonym jako serwerów, takich jak usługi IIS, Apache i Nginx. Serwer proxy odwrotnej można odciążyć pracy, takich jak obsługująca zawartość statyczną, buforowanie żądań kompresowania żądań i kończenie żądań SSL z serwerem HTTP. Zwrotnego serwera proxy mogą znajdować się na dedykowanym komputerze lub można wdrażać wraz z serwerem HTTP.
@@ -83,7 +76,7 @@ Ponieważ żądania są przekazywane przez zwrotny serwer proxy, należy użyć 
 
 Dowolny składnik, który jest zależny od systemu, takie jak uwierzytelnianie, generowanie konsolidacji, przekierowań i geolokalizacja, muszą być umieszczone po wywołaniu oprogramowanie pośredniczące przekazane nagłówków. Zgodnie z ogólną zasadą przekazywane oprogramowania pośredniczącego nagłówki należy uruchomić przed innym oprogramowaniu pośredniczącym, z wyjątkiem diagnostyki i obsługi oprogramowania pośredniczącego błędów. Ta kolejność gwarantuje, że oprogramowanie pośredniczące, opierając się na nagłówki przekazywane informacje mogą wykorzystywać wartości nagłówka do przetworzenia.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+::: moniker range=">= aspnetcore-2.0"
 
 Wywoływanie [UseForwardedHeaders](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) method in Class metoda `Startup.Configure` przed wywołaniem [UseAuthentication](/dotnet/api/microsoft.aspnetcore.builder.authappbuilderextensions.useauthentication) lub podobne oprogramowanie pośredniczące schematu uwierzytelniania. Konfigurowanie oprogramowania pośredniczącego, aby przekazywać `X-Forwarded-For` i `X-Forwarded-Proto` nagłówków:
 
@@ -96,7 +89,9 @@ app.UseForwardedHeaders(new ForwardedHeadersOptions
 app.UseAuthentication();
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 Wywoływanie [UseForwardedHeaders](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) method in Class metoda `Startup.Configure` przed wywołaniem [UseIdentity](/dotnet/api/microsoft.aspnetcore.builder.builderextensions.useidentity) i [UseFacebookAuthentication](/dotnet/api/microsoft.aspnetcore.builder.facebookappbuilderextensions.usefacebookauthentication) lub podobne schematu uwierzytelniania oprogramowanie pośredniczące. Konfigurowanie oprogramowania pośredniczącego, aby przekazywać `X-Forwarded-For` i `X-Forwarded-Proto` nagłówków:
 
@@ -114,7 +109,7 @@ app.UseFacebookAuthentication(new FacebookOptions()
 });
 ```
 
----
+::: moniker-end
 
 Jeśli nie [ForwardedHeadersOptions](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) są określone oprogramowanie pośredniczące, są domyślne nagłówki do przekazywania `None`.
 
@@ -333,7 +328,7 @@ sudo ufw enable
 
 Edit *src/http/ngx_http_header_filter_module.c*:
 
-```c
+```
 static char ngx_http_server_string[] = "Server: Web Server" CRLF;
 static char ngx_http_server_full_string[] = "Server: Web Server" CRLF;
 ```
@@ -348,9 +343,9 @@ Konfigurowanie serwera przy użyciu dodatkowych wymaganych modułów. Należy wz
 
 * Wzmocnić zabezpieczenia przez wprowadzenie niektórych rozwiązań przedstawiony w następującym */etc/nginx/nginx.conf* pliku. Przykłady obejmują wybranie silniejszego szyfrowania i przekierowania całego ruchu za pośrednictwem protokołu HTTP do HTTPS.
 
-* Dodawanie `HTTP Strict-Transport-Security` nagłówka (HSTS) zapewnia wszystkie kolejne żądania wysłane przez klienta są tylko za pośrednictwem protokołu HTTPS.
+* Dodawanie `HTTP Strict-Transport-Security` nagłówka (HSTS) zapewnia, wszystkie kolejne żądania wysłane przez klienta za pośrednictwem protokołu HTTPS.
 
-* Nie dodawaj nagłówka zabezpieczeń w przypadku transportu Strict, lub wybrać odpowiednią `max-age` Jeśli SSL zostanie wyłączona w przyszłości.
+* Nie należy dodawać nagłówek HSTS lub wybrać odpowiednią `max-age` Jeśli SSL zostanie wyłączona w przyszłości.
 
 Dodaj */etc/nginx/proxy.conf* pliku konfiguracji:
 
@@ -361,15 +356,20 @@ Edytuj */etc/nginx/nginx.conf* pliku konfiguracji. Przykład zawiera zarówno `h
 [!code-nginx[](linux-nginx/nginx.conf?highlight=2)]
 
 #### <a name="secure-nginx-from-clickjacking"></a>Zabezpieczenia serwera Nginx z porywaniu kliknięć
-Porywaniu kliknięć jest techniki złośliwego Zbieraj zainfekowane użytkownik klika polecenie. Porywaniu kliknięć wskazówki ofiarą (gości) do kliknięcia w witrynie zainfekowane. Użyj X-FRAME-OPTIONS na zabezpieczenie witryny.
 
-Edytuj *nginx.conf* pliku:
+[Porywaniu kliknięć](https://blog.qualys.com/securitylabs/2015/10/20/clickjacking-a-common-implementation-mistake-that-can-put-your-websites-in-danger), znane również jako *interfejsu użytkownika odszkodowania ataku*, jest złośliwymi atakami, gdzie zwiódł już obiekt odwiedzający witrynę sieci Web do kliknięcia łącza lub przycisku na innej stronie nie są one obecnie odwiedzający. Użyj `X-FRAME-OPTIONS` na zabezpieczenie witryny.
 
-```bash
-sudo nano /etc/nginx/nginx.conf
-```
+Aby uniknąć porywaniu kliknięć ataków:
 
-Dodaj wiersz `add_header X-Frame-Options "SAMEORIGIN";` i Zapisz plik, a następnie uruchom ponownie serwer Nginx.
+1. Edytuj *nginx.conf* pliku:
+
+   ```bash
+   sudo nano /etc/nginx/nginx.conf
+   ```
+
+   Dodaj wiersz `add_header X-Frame-Options "SAMEORIGIN";`.
+1. Zapisz plik.
+1. Uruchom ponownie serwer Nginx.
 
 #### <a name="mime-type-sniffing"></a>Wykrywanie typu MIME
 

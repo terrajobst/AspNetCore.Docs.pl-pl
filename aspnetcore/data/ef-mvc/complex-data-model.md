@@ -3,14 +3,15 @@ title: Platforma ASP.NET Core MVC z programem EF Core — Model danych — 5, 10
 author: rick-anderson
 description: W tym samouczku należy dodać większą liczbę jednostek i relacji i Dostosuj model danych, określając formatowania i sprawdzania poprawności i reguł mapowania.
 ms.author: tdykstra
-ms.date: 03/15/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: 3714cf7ce705a52653394319fef1728a6ddcc3ee
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 87212edbfe34af6de938cf95314501e56e64a8be
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011773"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091044"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---data-model---5-of-10"></a>Platforma ASP.NET Core MVC z programem EF Core — Model danych — 5, 10
 
@@ -232,7 +233,7 @@ W *Models/Course.cs*, Zastąp kod został dodany wcześniej następujący kod. Z
 
 Jednostka kurs ma właściwość klucza obcego `DepartmentID` który wskazuje na powiązanej jednostce działu i ma `Department` właściwości nawigacji.
 
-Entity Framework nie wymaga dodanie właściwości klucza obcego w modelu danych mają właściwości nawigacji dla powiązanej jednostki.  EF automatycznie tworzy klucze obce w bazie danych wszędzie tam, gdzie będą one potrzebne i tworzy [w tle właściwości](https://docs.microsoft.com/ef/core/modeling/shadow-properties) dla nich. Ale o klucza obcego w modelu danych, że aktualizacje są prostszy i efektywniejszy. Na przykład, gdy fetch jednostkę kurs, aby edytować jednostki działu ma wartość null Jeśli nie zostanie załadowany, więc po zaktualizowaniu jednostki kurs, trzeba najpierw pobrać jednostki działu. Gdy właściwość klucza obcego `DepartmentID` znajduje się w modelu danych nie trzeba pobrać jednostki działu, przed uaktualnieniem.
+Entity Framework nie wymaga dodanie właściwości klucza obcego w modelu danych mają właściwości nawigacji dla powiązanej jednostki.  EF automatycznie tworzy klucze obce w bazie danych wszędzie tam, gdzie będą one potrzebne i tworzy [w tle właściwości](/ef/core/modeling/shadow-properties) dla nich. Ale o klucza obcego w modelu danych, że aktualizacje są prostszy i efektywniejszy. Na przykład, gdy fetch jednostkę kurs, aby edytować jednostki działu ma wartość null Jeśli nie zostanie załadowany, więc po zaktualizowaniu jednostki kurs, trzeba najpierw pobrać jednostki działu. Gdy właściwość klucza obcego `DepartmentID` znajduje się w modelu danych nie trzeba pobrać jednostki działu, przed uaktualnieniem.
 
 ### <a name="the-databasegenerated-attribute"></a>Atrybut DatabaseGenerated
 
@@ -246,7 +247,7 @@ public int CourseID { get; set; }
 
 Domyślnie program Entity Framework przyjęto założenie, że wartości klucza podstawowego są generowane przez bazę danych. To, co ma w większości scenariuszy. Jednak w przypadku jednostek kurs będzie numer kurs określonych przez użytkownika, takich jak serie 1000 służy do jednego działu, serię 2000 do innego działu i tak dalej.
 
-`DatabaseGenerated` Atrybut może służyć także do generowania wartości domyślne, jak w przypadku kolumny bazy danych używane do rejestrowania Data wiersz został utworzony lub zaktualizowany.  Aby uzyskać więcej informacji, zobacz [wygenerowanych właściwości](https://docs.microsoft.com/ef/core/modeling/generated-properties).
+`DatabaseGenerated` Atrybut może służyć także do generowania wartości domyślne, jak w przypadku kolumny bazy danych używane do rejestrowania Data wiersz został utworzony lub zaktualizowany.  Aby uzyskać więcej informacji, zobacz [wygenerowanych właściwości](/ef/core/modeling/generated-properties).
 
 ### <a name="foreign-key-and-navigation-properties"></a>Obcy właściwości klucza i nawigacja
 
@@ -373,7 +374,7 @@ Tabelę sprzężenia jest wymagana w bazie danych dla relacji wiele do wielu ins
 
 Ponieważ klucze obce nie dopuszcza wartości null i razem jednoznacznie identyfikują poszczególne wiersze tabeli, nie ma potrzeby oddzielnych klucza podstawowego. *InstructorID* i *CourseID* właściwości powinny działać jako złożony klucz podstawowy. Jedynym sposobem, aby zidentyfikować złożonego kluczy podstawowych do programów EF polega na użyciu *interfejsu API fluent* (go nie może odbywać się przy użyciu atrybutów). Pokazano, jak skonfigurować złożony klucz podstawowy w następnej sekcji.
 
-Klucz złożony gwarantuje, że kiedy masz wiele wierszy do jednego kursu i wiele wierszy dla jednego przez instruktorów, nie może mieć wiele wierszy dla tego samego przez instruktorów i kurs. `Enrollment` Sprzężenia jednostka definiuje swój własny klucz podstawowy, więc możliwe są duplikatami tego rodzaju. Aby uniknąć takich duplikaty, możesz można dodać unikatowego indeksu na pola kluczy obcych, lub skonfigurować `Enrollment` przy użyciu podstawowego klucza złożonego podobne do `CourseAssignment`. Aby uzyskać więcej informacji, zobacz [indeksów](https://docs.microsoft.com/ef/core/modeling/indexes).
+Klucz złożony gwarantuje, że kiedy masz wiele wierszy do jednego kursu i wiele wierszy dla jednego przez instruktorów, nie może mieć wiele wierszy dla tego samego przez instruktorów i kurs. `Enrollment` Sprzężenia jednostka definiuje swój własny klucz podstawowy, więc możliwe są duplikatami tego rodzaju. Aby uniknąć takich duplikaty, możesz można dodać unikatowego indeksu na pola kluczy obcych, lub skonfigurować `Enrollment` przy użyciu podstawowego klucza złożonego podobne do `CourseAssignment`. Aby uzyskać więcej informacji, zobacz [indeksów](/ef/core/modeling/indexes).
 
 ## <a name="update-the-database-context"></a>Aktualizowanie kontekstu bazy danych
 
@@ -385,7 +386,7 @@ Ten kod dodaje nowe jednostki i konfiguruje złożony klucz podstawowy jednostki
 
 ## <a name="fluent-api-alternative-to-attributes"></a>Zamiast interfejsu API Fluent atrybutów
 
-Kod w `OnModelCreating` metody `DbContext` klasy używa *interfejsu API fluent* do konfigurowania zachowania EF. Interfejs API jest nazywany "fluent", ponieważ jest ona często używana przez centrali szereg wywołań metod, które razem w pojedynczej instrukcji, jak w poniższym przykładzie z [dokumentacji programu EF Core](https://docs.microsoft.com/ef/core/modeling/#methods-of-configuration):
+Kod w `OnModelCreating` metody `DbContext` klasy używa *interfejsu API fluent* do konfigurowania zachowania EF. Interfejs API jest nazywany "fluent", ponieważ jest ona często używana przez centrali szereg wywołań metod, które razem w pojedynczej instrukcji, jak w poniższym przykładzie z [dokumentacji programu EF Core](/ef/core/modeling/#methods-of-configuration):
 
 ```csharp
 protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -400,7 +401,7 @@ W tym samouczku używasz interfejsu API fluent tylko dla mapowania bazy danych, 
 
 Niektórzy deweloperzy wolą używać interfejsu API fluent, wyłącznie tak, aby ich zachowania ich klasami jednostki "Wyczyść". Jeśli chcesz, a kilka dostosowania, które jest możliwe tylko przy użyciu interfejsu API fluent można łączyć atrybutów i wygodnego interfejsu API, ale ogólnie rzecz biorąc zalecaną praktyką jest, wybierz jedną z tych dwóch metod i używać oznacza spójnie możliwie. Jeśli używasz obu, należy pamiętać, że wszędzie tam, gdzie występuje konflikt, interfejsu API Fluent zastępuje atrybuty.
 
-Aby uzyskać więcej informacji na temat atrybutów, a interfejs fluent API zobacz [metod konfiguracji](https://docs.microsoft.com/ef/core/modeling/#methods-of-configuration).
+Aby uzyskać więcej informacji na temat atrybutów, a interfejs fluent API zobacz [metod konfiguracji](/ef/core/modeling/#methods-of-configuration).
 
 ## <a name="entity-diagram-showing-relationships"></a>Jednostki Diagram przedstawiający relacje
 

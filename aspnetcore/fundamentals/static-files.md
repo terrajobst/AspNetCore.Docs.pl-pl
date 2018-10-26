@@ -4,14 +4,14 @@ author: rick-anderson
 description: Dowiedz się, jak obsługiwać oraz zabezpieczanie plików statycznych i konfigurowanie plików statycznych hostingu zachowania oprogramowania pośredniczącego w aplikacji sieci web platformy ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/18/2018
+ms.date: 10/18/2018
 uid: fundamentals/static-files
-ms.openlocfilehash: 63ebc5ce5094053eca08a9212b3b4c074c4bed64
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: 5d34bd18c263a9dc2c126be3de53726979d8358e
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49325981"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090776"
 ---
 # <a name="static-files-in-aspnet-core"></a>Pliki statyczne z platformy ASP.NET Core
 
@@ -23,23 +23,25 @@ Pliki statyczne, takich jak HTML, CSS, obrazów i JavaScript, to zasoby, któryc
 
 ## <a name="serve-static-files"></a>Obsługa plików statycznych
 
-Pliki statyczne są przechowywane w katalogu głównym projektu sieci web. Domyślny katalog jest  *\<content_root > / wwwroot*, ale można ją zmienić za pomocą [UseWebRoot](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usewebroot#Microsoft_AspNetCore_Hosting_HostingAbstractionsWebHostBuilderExtensions_UseWebRoot_Microsoft_AspNetCore_Hosting_IWebHostBuilder_System_String_) metody. Zobacz [zawartości głównego](xref:fundamentals/index#content-root) i [katalog główny sieci Web](xref:fundamentals/index#web-root) Aby uzyskać więcej informacji.
+Pliki statyczne są przechowywane w katalogu głównym projektu sieci web. Domyślny katalog jest  *\<content_root > / wwwroot*, ale można ją zmienić za pomocą [UseWebRoot](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usewebroot#Microsoft_AspNetCore_Hosting_HostingAbstractionsWebHostBuilderExtensions_UseWebRoot_Microsoft_AspNetCore_Hosting_IWebHostBuilder_System_String_) metody. Zobacz [zawartości głównego](xref:fundamentals/index#content-root) i [katalog główny sieci Web](xref:fundamentals/index#web-root-webroot) Aby uzyskać więcej informacji.
 
 Hosta sieci web aplikacji należy pamiętać o zawartości katalogu.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+::: moniker range=">= aspnetcore-2.0"
 
 `WebHost.CreateDefaultBuilder` Metoda ustawia zawartość katalogu głównego w bieżącym katalogu:
 
 [!code-csharp[](../common/samples/WebApplication1DotNetCore2.0App/Program.cs?name=snippet_Main&highlight=9)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 Ustaw zawartość katalogu głównego w bieżącym katalogu, wywołując [UseContentRoot](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usecontentroot#Microsoft_AspNetCore_Hosting_HostingAbstractionsWebHostBuilderExtensions_UseContentRoot_Microsoft_AspNetCore_Hosting_IWebHostBuilder_System_String_) wewnątrz `Program.Main`:
 
 [!code-csharp[](static-files/samples/1x/Program.cs?name=snippet_ProgramClass&highlight=7)]
 
----
+::: moniker-end
 
 Pliki statyczne są dostępne za pośrednictwem ścieżki względem katalogu głównego sieci web. Na przykład **aplikacji sieci Web** szablonu projektu zawiera kilka folderów w ramach *wwwroot* folderu:
 
@@ -50,15 +52,23 @@ Pliki statyczne są dostępne za pośrednictwem ścieżki względem katalogu gł
 
 Format identyfikatora URI, aby uzyskać dostęp do pliku w *obrazów* podfolder jest *http://\<server_address > /images/\<image_file_name >*. Na przykład *http://localhost:9189/images/banner3.svg*.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+::: moniker range=">= aspnetcore-2.1"
+
+Jeśli przeznaczony dla .NET Framework, Dodaj [Microsoft.AspNetCore.StaticFiles](https://www.nuget.org/packages/Microsoft.AspNetCore.StaticFiles/) pakietu do projektu. Jeśli przeznaczony dla platformy .NET Core [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) obejmuje tego pakietu.
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
 
 Jeśli przeznaczony dla .NET Framework, Dodaj [Microsoft.AspNetCore.StaticFiles](https://www.nuget.org/packages/Microsoft.AspNetCore.StaticFiles/) pakietu do projektu. Jeśli przeznaczony dla platformy .NET Core [pakiet meta Microsoft.aspnetcore.all](xref:fundamentals/metapackage) obejmuje tego pakietu.
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 Dodaj [Microsoft.AspNetCore.StaticFiles](https://www.nuget.org/packages/Microsoft.AspNetCore.StaticFiles/) pakietu do projektu.
 
----
+::: moniker-end
 
 Konfigurowanie [oprogramowania pośredniczącego](xref:fundamentals/middleware/index) umożliwiająca obsługi plików statycznych.
 
@@ -71,6 +81,8 @@ Wywoływanie [UseStaticFiles](/dotnet/api/microsoft.aspnetcore.builder.staticfil
 Bez parametrów `UseStaticFiles` przeciążenie metody oznacza pliki w katalogu głównym sieci web, jako servable. Następujące odwołania do znaczników *wwwroot/images/banner1.svg*:
 
 [!code-cshtml[](static-files/samples/1x/Views/Home/Index.cshtml?name=snippet_static_file_wwwroot)]
+
+W poprzednim kodzie znak tyldy `~/` wskazuje webroot. Aby uzyskać więcej informacji, zobacz [katalog główny sieci Web](xref:fundamentals/index#web-root-webroot).
 
 ### <a name="serve-files-outside-of-web-root"></a>Udostępniania plików poza katalogiem głównym sieci web
 

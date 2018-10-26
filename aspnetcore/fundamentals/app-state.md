@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/14/2018
 uid: fundamentals/app-state
-ms.openlocfilehash: 7794b3c10e26720d3e7ef8965f99b204a3c58d5c
-ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
+ms.openlocfilehash: 7383d123be4d1e7a20eb93646e630119583350e6
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41870937"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091096"
 ---
 # <a name="session-and-app-state-in-aspnet-core"></a>Stan sesji i aplikacji w programie ASP.NET Core
 
@@ -27,7 +27,7 @@ Stan, mogą być przechowywane przy użyciu kilku metod. Każde podejście jest 
 
 | Podejście do magazynu | Mechanizm magazynu |
 | ---------------- | ----------------- |
-| [Pliki cookie](#cookies) | Pliki cookie protokołu HTTP (mogą obejmować dane przechowywane przy użyciu kodu po stronie serwera aplikacji) |
+| [Plik cookie](#cookies) | Pliki cookie protokołu HTTP (mogą obejmować dane przechowywane przy użyciu kodu po stronie serwera aplikacji) |
 | [Stan sesji](#session-state) | Pliki cookie protokołu HTTP i kodu aplikacji po stronie serwera |
 | [TempData](#tempdata) | Pliki cookie protokołu HTTP lub stan sesji |
 | [Ciągi zapytań](#query-strings) | Ciągi kwerendy HTTP |
@@ -70,7 +70,7 @@ Stan sesji wykazuje następujące zachowania:
 
 Dostawcy pamięci podręcznej przechowuje dane sesji w pamięci serwera, w którym znajduje się aplikacja. W przypadku scenariusza farmy serwera:
 
-* Użyj *trwałych sesji* powiązać każdej sesji do wystąpienia specyficzne dla aplikacji na wybranym serwerze. [Usługa Azure App Service](https://azure.microsoft.com/services/app-service/) używa [Routing żądań aplikacji (ARR)](/iis/extensions/planning-for-arr/using-the-application-request-routing-module) do wymuszania trwałych sesji domyślnie. Jednak trwałych sesji może mieć wpływ na skalowalność i skomplikować aktualizacje aplikacji sieci web. Lepszym rozwiązaniem jest użycie pamięci podręcznej Redis lub SQL Server rozproszonej pamięci podręcznej, która nie wymaga trwałych sesji. Aby uzyskać więcej informacji, zobacz [Praca z rozproszoną pamięcią podręczną](xref:performance/caching/distributed).
+* Użyj *trwałych sesji* powiązać każdej sesji do wystąpienia specyficzne dla aplikacji na wybranym serwerze. [Usługa Azure App Service](https://azure.microsoft.com/services/app-service/) używa [Routing żądań aplikacji (ARR)](/iis/extensions/planning-for-arr/using-the-application-request-routing-module) do wymuszania trwałych sesji domyślnie. Jednak trwałych sesji może mieć wpływ na skalowalność i skomplikować aktualizacje aplikacji sieci web. Lepszym rozwiązaniem jest użycie pamięci podręcznej Redis lub SQL Server rozproszonej pamięci podręcznej, która nie wymaga trwałych sesji. Aby uzyskać więcej informacji, zobacz <xref:performance/caching/distributed>.
 * Plik cookie sesji jest szyfrowany za pomocą [interfejsu IDataProtector](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotector). Ochrona danych muszą zostać prawidłowo skonfigurowane, można odczytać plików cookie sesji na każdym komputerze. Aby uzyskać więcej informacji, zobacz [ochrony danych w programie ASP.NET Core](xref:security/data-protection/index) i [dostawcy magazynu kluczy](xref:security/data-protection/implementation/key-storage-providers).
 
 ### <a name="configure-session-state"></a>Skonfiguruj stan sesji
@@ -87,7 +87,7 @@ Dostawcy pamięci podręcznej przechowuje dane sesji w pamięci serwera, w któr
 
 ::: moniker-end
 
-* Jedną z [IDistributedCache](/dotnet/api/microsoft.extensions.caching.distributed.idistributedcache) pamięci podręcznej pamięci. `IDistributedCache` Implementacja jest używana jako magazyn zapasowy dla sesji. Aby uzyskać więcej informacji, zobacz [Praca z rozproszoną pamięcią podręczną](xref:performance/caching/distributed).
+* Jedną z [IDistributedCache](/dotnet/api/microsoft.extensions.caching.distributed.idistributedcache) pamięci podręcznej pamięci. `IDistributedCache` Implementacja jest używana jako magazyn zapasowy dla sesji. Aby uzyskać więcej informacji, zobacz <xref:performance/caching/distributed>.
 * Wywołanie [AddSession](/dotnet/api/microsoft.extensions.dependencyinjection.sessionservicecollectionextensions.addsession) w `ConfigureServices`.
 * Wywołanie [UseSession](/dotnet/api/microsoft.aspnetcore.builder.sessionmiddlewareextensions#methods_) w `Configure`.
 
@@ -434,7 +434,7 @@ Użyj [wstrzykiwanie zależności](xref:fundamentals/dependency-injection) udost
 
 * "Nie można rozpoznać usługi dla typu"Microsoft.Extensions.Caching.Distributed.IDistributedCache"podczas próby aktywowania"Microsoft.AspNetCore.Session.DistributedSessionStore"."
 
-  Jest to zazwyczaj spowodowane nie można skonfigurować co najmniej jedną `IDistributedCache` implementacji. Aby uzyskać więcej informacji, zobacz [Praca z rozproszoną pamięcią podręczną](xref:performance/caching/distributed) i [pamięci podręcznej w pamięci](xref:performance/caching/memory).
+  Jest to zazwyczaj spowodowane nie można skonfigurować co najmniej jedną `IDistributedCache` implementacji. Aby uzyskać więcej informacji, zobacz <xref:performance/caching/distributed> i <xref:performance/caching/memory>.
 
 * W tym przypadku sesję, którą oprogramowanie pośredniczące nie powiedzie się, aby utrwalić sesji (na przykład, jeśli magazyn zapasowy nie jest dostępna), oprogramowanie pośredniczące rejestruje wyjątek i kontynuuje działanie żądania. Prowadzi to do nieprzewidywalne zachowanie.
 

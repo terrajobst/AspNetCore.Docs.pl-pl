@@ -3,14 +3,15 @@ title: Platforma ASP.NET Core MVC z programem EF Core — dziedziczenie - 9, 10
 author: rick-anderson
 description: Ten samouczek przedstawia sposób implementowania dziedziczenia w modelu danych przy użyciu platformy Entity Framework Core w aplikacji ASP.NET Core.
 ms.author: tdykstra
-ms.date: 03/15/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-mvc/inheritance
-ms.openlocfilehash: a71954297f44f936893a7f1e9d3b0685f81378b9
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 60417040dd296311e1aecff8f224aadf8da82779
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38126707"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090761"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---inheritance---9-of-10"></a>Platforma ASP.NET Core MVC z programem EF Core — dziedziczenie - 9, 10
 
@@ -142,7 +143,7 @@ Kliknij prawym przyciskiem myszy tabeli osób, a następnie kliknij przycisk **P
 
 ## <a name="summary"></a>Podsumowanie
 
-Tabela wg hierarchii dziedziczenia dla zastało zaimplementowane `Person`, `Student`, i `Instructor` klasy. Aby uzyskać więcej informacji dotyczących dziedziczenia w Entity Framework Core, zobacz [dziedziczenia](https://docs.microsoft.com/ef/core/modeling/inheritance). W następnym samouczku pokazano, jak do obsługi różnorodnych stosunkowo zaawansowane scenariusze platformy Entity Framework.
+Tabela wg hierarchii dziedziczenia dla zastało zaimplementowane `Person`, `Student`, i `Instructor` klasy. Aby uzyskać więcej informacji dotyczących dziedziczenia w Entity Framework Core, zobacz [dziedziczenia](/ef/core/modeling/inheritance). W następnym samouczku pokazano, jak do obsługi różnorodnych stosunkowo zaawansowane scenariusze platformy Entity Framework.
 
 ::: moniker-end
 

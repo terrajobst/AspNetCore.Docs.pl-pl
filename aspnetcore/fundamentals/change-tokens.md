@@ -5,12 +5,12 @@ description: Dowiedz się, jak używać tokenów zmian do śledzenia zmian.
 ms.author: riande
 ms.date: 11/10/2017
 uid: fundamentals/change-tokens
-ms.openlocfilehash: 1cf3693764919a8fd064584ab7b7ad237e8465b3
-ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
+ms.openlocfilehash: cfa9950d6460ef59399d3adc05b5e3865d2f37f7
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49391444"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090887"
 ---
 # <a name="detect-changes-with-change-tokens-in-aspnet-core"></a>Wykrywanie zmian za pomocą tokenów zmiany w programie ASP.NET Core
 
@@ -195,9 +195,9 @@ var compositeChangeToken =
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Buforowanie w pamięci](xref:performance/caching/memory)
-* [Praca z rozproszoną pamięcią podręczną](xref:performance/caching/distributed)
-* [Buforowanie odpowiedzi](xref:performance/caching/response)
-* [Oprogramowanie pośredniczące buforowania odpowiedzi](xref:performance/caching/middleware)
-* [Pomocnik tagu pamięci podręcznej](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
-* [Pomocnik tagu rozproszonej pamięci podręcznej](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
+* <xref:performance/caching/memory>
+* <xref:performance/caching/distributed>
+* <xref:performance/caching/response>
+* <xref:performance/caching/middleware>
+* <xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper>
+* <xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper>

@@ -3,14 +3,15 @@ title: Ochrona danych platformy ASP.NET Core
 author: rick-anderson
 description: Informacje na temat koncepcji ochrony danych i zasad dotyczących projektowania interfejsów API do ochrony danych usługi ASP.NET Core.
 ms.author: riande
-ms.date: 10/14/2016
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: security/data-protection/introduction
-ms.openlocfilehash: a49eee89e8c11b26c76ba167215c141482159933
-ms.sourcegitcommit: c684eb6c0999d11d19e15e65939e5c7f99ba47df
+ms.openlocfilehash: 37f170a3e8a46ef2215b0999358d46dd402636df
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46292300"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50089551"
 ---
 # <a name="aspnet-core-data-protection"></a>Ochrona danych platformy ASP.NET Core
 
@@ -44,7 +45,7 @@ Rozpoczęliśmy od zidentyfikowania problemów z istniejącego stosu. Po mieliś
 
 Za pomocą tych zasad, pamiętając opracowaliśmy prosty, [łatwy w użyciu](xref:security/data-protection/using-data-protection) stosu ochrony danych.
 
-Interfejsy API ochrony danych programu ASP.NET Core nie są przeznaczone głównie dla nieokreślony stan trwały ładunki poufne. Inne technologie, takie jak [Windows CNG DPAPI](https://msdn.microsoft.com/library/windows/desktop/hh706794%28v=vs.85%29.aspx) i [usługi Azure Rights Management](https://docs.microsoft.com/rights-management/) są bardziej odpowiednie do scenariusza nieograniczony magazyn i mają możliwości odpowiednio silne zarządzania kluczami. Inaczej mówiąc, nic nie uniemożliwiają dewelopera przy użyciu platformy ASP.NET Core interfejsy API ochrony danych dla długoterminowej ochrony poufnych danych.
+Interfejsy API ochrony danych programu ASP.NET Core nie są przeznaczone głównie dla nieokreślony stan trwały ładunki poufne. Inne technologie, takie jak [Windows CNG DPAPI](https://msdn.microsoft.com/library/windows/desktop/hh706794%28v=vs.85%29.aspx) i [usługi Azure Rights Management](/rights-management/) są bardziej odpowiednie do scenariusza nieograniczony magazyn i mają możliwości odpowiednio silne zarządzania kluczami. Inaczej mówiąc, nic nie uniemożliwiają dewelopera przy użyciu platformy ASP.NET Core interfejsy API ochrony danych dla długoterminowej ochrony poufnych danych.
 
 ## <a name="audience"></a>Odbiorcy
 

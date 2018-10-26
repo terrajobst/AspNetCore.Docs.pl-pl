@@ -4,20 +4,21 @@ author: rick-anderson
 description: Pokazuje, jak dodać nowe pole do strony Razor za pomocą platformy Entity Framework Core
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 05/30/2018
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: tutorials/razor-pages/new-field
-ms.openlocfilehash: d6d59ff336095e2f1b8b2e9a0338b7791605ad7a
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: f8be269887903797803257d8a21e002519102047
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46010900"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50089516"
 ---
 # <a name="add-a-new-field-to-a-razor-page-in-aspnet-core"></a>Dodaj nowe pole na stronę Razor programu ASP.NET Core
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-W tej sekcji użyjesz [Entity Framework](https://docs.microsoft.com/ef/core/get-started/aspnetcore/new-db) migracje Code First dodaje nowe pole do modelu i migracji, które zmiany w bazie danych.
+W tej sekcji użyjesz [Entity Framework](/ef/core/get-started/aspnetcore/new-db) migracje Code First dodaje nowe pole do modelu i migracji, które zmiany w bazie danych.
 
 Jeśli przy użyciu programu EF Code First automatycznie utworzyć bazę danych, Code First:
 
@@ -96,7 +97,9 @@ Zobacz [ukończone pliku SeedData.cs](https://github.com/aspnet/Docs/blob/master
 
 Skompiluj rozwiązanie.
 
-<a name="pmc"></a> Z **narzędzia** menu, wybierz opcję **Menedżera pakietów NuGet > Konsola Menedżera pakietów**.
+<a name="pmc"></a>
+
+Z **narzędzia** menu, wybierz opcję **Menedżera pakietów NuGet > Konsola Menedżera pakietów**.
 W konsoli zarządzania Pakietami wprowadź następujące polecenia:
 
 ```powershell
@@ -111,7 +114,9 @@ Update-Database
 
 Nazwa "Ocena" dowolnej i jest używany do nazywania plików migracji. Warto użyć znaczącą nazwę pliku migracji.
 
-<a name="ssox"></a> Jeśli usuniesz wszystkie rekordy w bazie danych, inicjatora będzie obsługiwał bazy danych i obejmują `Rating` pola. Można to zrobić za pomocą łącza delete w przeglądarce, albo z [Eksplorator obiektów Sql Server](xref:tutorials/razor-pages/sql#ssox) (SSOX). Aby usunąć bazy danych z SSOX:
+<a name="ssox"></a>
+
+Jeśli usuniesz wszystkie rekordy w bazie danych, inicjatora będzie obsługiwał bazy danych i obejmują `Rating` pola. Można to zrobić za pomocą łącza delete w przeglądarce, albo z [Eksplorator obiektów Sql Server](xref:tutorials/razor-pages/sql#ssox) (SSOX). Aby usunąć bazy danych z SSOX:
 
 * Wybierz bazę danych w SSOX.
 * Kliknij prawym przyciskiem myszy w bazie danych, a następnie wybierz pozycję *Usuń*.

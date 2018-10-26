@@ -4,19 +4,20 @@ author: Rick-Anderson
 description: Pakiet meta Microsoft.aspnetcore.all nie jest zalecane dla platformy ASP.NET Core 2.1 lub nowszych.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 09/20/2018
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: fundamentals/metapackage
-ms.openlocfilehash: b1924e07acd2b4feb25c69b8c4674002e6ba0464
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: f78684cb31976f976aec5e1773bcc728dfecc82e
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49325682"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090709"
 ---
 # <a name="microsoftaspnetcoreall-metapackage-for-aspnet-core-20"></a>Pakiet meta Microsoft.aspnetcore.all dla programu ASP.NET Core 2.0
 
 > [!NOTE]
-> Firma Microsoft zaleca, aby aplikacje przeznaczone na platformy ASP.NET Core 2.1 i później użyć [Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) zamiast tego pakietu. Zobacz [migrowany pakiet do Microsoft.AspNetCore.App](#migrate) w tym artykule.
+> Firma Microsoft zaleca, aby aplikacje przeznaczone na platformy ASP.NET Core 2.1 i później użyć [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) zamiast tego pakietu. Zobacz [migrowany pakiet do Microsoft.AspNetCore.App](#migrate) w tym artykule.
 
 Ta funkcja wymaga platformy ASP.NET Core 2.x określania wartości docelowej .NET Core 2.x.
 
@@ -30,7 +31,7 @@ Wszystkie funkcje platformy ASP.NET Core 2.x i Entity Framework Core 2.x znajduj
 
 Numer wersji `Microsoft.AspNetCore.All` meta Microsoft.aspnetcore.all reprezentuje wersję platformy ASP.NET Core i Entity Framework Core wersji.
 
-Aplikacje, które używają `Microsoft.AspNetCore.All` meta Microsoft.aspnetcore.all automatycznie korzystać z zalet [Store środowiska uruchomieniowego programu .NET Core](https://docs.microsoft.com/dotnet/core/deploying/runtime-store). Store środowiska uruchomieniowego zawiera wszystkie zasoby środowiska uruchomieniowego potrzebnych do uruchomienia programu ASP.NET Core 2.x aplikacji. Kiedy używasz `Microsoft.AspNetCore.All` meta Microsoft.aspnetcore.all, **nie** zasoby z pakietów platformy ASP.NET Core NuGet, do którego istnieje odwołanie, są wdrażane przy użyciu aplikacji &mdash; Store środowiska uruchomieniowego programu .NET Core zawiera te zasoby. Zasoby w Store środowiska uruchomieniowego są wstępnie skompilowane, aby poprawić czas uruchamiania aplikacji.
+Aplikacje, które używają `Microsoft.AspNetCore.All` meta Microsoft.aspnetcore.all automatycznie korzystać z zalet [Store środowiska uruchomieniowego programu .NET Core](/dotnet/core/deploying/runtime-store). Store środowiska uruchomieniowego zawiera wszystkie zasoby środowiska uruchomieniowego potrzebnych do uruchomienia programu ASP.NET Core 2.x aplikacji. Kiedy używasz `Microsoft.AspNetCore.All` meta Microsoft.aspnetcore.all, **nie** zasoby z pakietów platformy ASP.NET Core NuGet, do którego istnieje odwołanie, są wdrażane przy użyciu aplikacji &mdash; Store środowiska uruchomieniowego programu .NET Core zawiera te zasoby. Zasoby w Store środowiska uruchomieniowego są wstępnie skompilowane, aby poprawić czas uruchamiania aplikacji.
 
 Aby usunąć pakiety, które nie są używane, można użyć procesu przycinania pakietu. Przycięty pakiety są wyłączone w danych wyjściowych w opublikowanej aplikacji.
 
@@ -39,6 +40,7 @@ Następujące *.csproj* pliku odwołania `Microsoft.AspNetCore.All` meta Microso
 [!code-xml[](metapackage/samples/Metapackage.All.Example.csproj?highlight=6)]
 
 <a name="migrate"></a>
+
 ## <a name="migrating-from-microsoftaspnetcoreall-to-microsoftaspnetcoreapp"></a>Migrowanie z pakiet do Microsoft.AspNetCore.App
 
 Następujące pakiety są objęte `Microsoft.AspNetCore.All` , ale nie `Microsoft.AspNetCore.App` pakietu. 

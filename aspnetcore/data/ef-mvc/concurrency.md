@@ -3,14 +3,15 @@ title: Platforma ASP.NET Core MVC z programem EF Core — współbieżności - 8
 author: rick-anderson
 description: W tym samouczku przedstawiono sposób obsługi konfliktów, gdy wielu użytkowników aktualizacji tej samej jednostki w tym samym czasie.
 ms.author: tdykstra
-ms.date: 03/15/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-mvc/concurrency
-ms.openlocfilehash: 9bf65621213c9657232dfff1701c9937d5105a9c
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 0ae566a76a2ef656843452ed537b8fdfbddaed22
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38186640"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090904"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---concurrency---8-of-10"></a>Platforma ASP.NET Core MVC z programem EF Core — współbieżności - 8, 10
 
@@ -219,7 +220,6 @@ Zastąp kod w HttpPost `Delete` — metoda (o nazwie `DeleteConfirmed`) z nastę
 
 W utworzony szkielet kodu, który został zastąpiony ta metoda akceptowane tylko identyfikator rekordu:
 
-
 ```csharp
 public async Task<IActionResult> DeleteConfirmed(int id)
 ```
@@ -278,7 +278,7 @@ Zastąp kod w *Views/Departments/Create.cshtml* do dodania zaznacz opcję do lis
 
 ## <a name="summary"></a>Podsumowanie
 
-Na tym kończy się wprowadzenie do obsługi konfliktów współbieżności. Aby uzyskać więcej informacji na temat obsługi współbieżności w programie EF Core, zobacz [konfliktów współbieżności](https://docs.microsoft.com/ef/core/saving/concurrency). Następny samouczek pokazuje, jak zaimplementować Tabela wg hierarchii dziedziczenia dla jednostek przez instruktorów i uczniów.
+Na tym kończy się wprowadzenie do obsługi konfliktów współbieżności. Aby uzyskać więcej informacji na temat obsługi współbieżności w programie EF Core, zobacz [konfliktów współbieżności](/ef/core/saving/concurrency). Następny samouczek pokazuje, jak zaimplementować Tabela wg hierarchii dziedziczenia dla jednostek przez instruktorów i uczniów.
 
 ::: moniker-end
 

@@ -3,14 +3,15 @@ title: Przekazywanie plików z platformy ASP.NET Core
 author: ardalis
 description: Jak używać wiązania modelu i przesyłania strumieniowego do przekazywania plików na platformie ASP.NET Core MVC.
 ms.author: riande
-ms.date: 07/05/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: mvc/models/file-uploads
-ms.openlocfilehash: 771e22ca01c67f2b6bbee780324d9d08759b3279
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 913fc9aa473950b7117fb9da5c8913e658c43a9d
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38201735"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090270"
 ---
 # <a name="file-uploads-in-aspnet-core"></a>Przekazywanie plików z platformy ASP.NET Core
 
@@ -70,7 +71,7 @@ Podczas przekazywania plików przy użyciu wiązania modelu i `IFormFile` interf
 
 [!code-csharp[](file-uploads/sample/FileUploadSample/Controllers/UploadFilesController.cs?name=snippet1)]
 
-Przekazane przy użyciu `IFormFile` technika są buforowane w pamięci lub na dysku na serwerze sieci web przed przetworzeniem. Wewnątrz metody akcji `IFormFile` zawartość jest dostępna jako strumień. Oprócz lokalnego systemu plików, pliki mogą być przesłana strumieniowo do [usługi Azure Blob storage](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-blobs/) lub [Entity Framework](https://docs.microsoft.com/ef/core/index).
+Przekazane przy użyciu `IFormFile` technika są buforowane w pamięci lub na dysku na serwerze sieci web przed przetworzeniem. Wewnątrz metody akcji `IFormFile` zawartość jest dostępna jako strumień. Oprócz lokalnego systemu plików, pliki mogą być przesłana strumieniowo do [usługi Azure Blob storage](/azure/visual-studio/vs-storage-aspnet5-getting-started-blobs) lub [Entity Framework](/ef/core/index).
 
 Aby przechowywać dane plik binarny w bazie danych przy użyciu platformy Entity Framework, należy zdefiniować właściwości typu `byte[]` jednostki:
 
@@ -117,7 +118,7 @@ public async Task<IActionResult> Register(RegisterViewModel model)
             user.AvatarImage = memoryStream.ToArray();
         }
     // additional logic omitted
-    
+
     // Don't rely on or trust the model.AvatarImage.FileName property 
     // without validation.
 }

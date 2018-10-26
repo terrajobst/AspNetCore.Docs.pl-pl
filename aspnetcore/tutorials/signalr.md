@@ -7,23 +7,23 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 08/31/2018
 uid: tutorials/signalr
-ms.openlocfilehash: 55fb6b1c13549129a00541c1228956a93854ad78
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 77ad5c6869b87b832e2bdfa61da7b80961323783
+ms.sourcegitcommit: f2d14a7518d6ee51aca9333818ac1276e7b5ecef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48578032"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50134564"
 ---
 # <a name="tutorial-get-started-with-aspnet-core-signalr"></a>Samouczek: Rozpoczynanie pracy przy użyciu biblioteki SignalR platformy ASP.NET Core
 
 W tym samouczku pokazano podstawowe informacje dotyczące tworzenia aplikacji w czasie rzeczywistym przy użyciu biblioteki SignalR. Dowiesz się, jak:
 
 > [!div class="checklist"]
-> * Tworzenie projektu aplikacji sieci web.
+> * Utwórz projekt sieci web.
 > * Dodaj bibliotekę klienta SignalR.
 > * Utwórz Centrum SignalR.
 > * Skonfiguruj projekt do korzystania z SignalR.
-> * Dodaj kod używający koncentratora, aby wysyłać komunikaty z dowolnego klienta do wszystkich połączonych klientów.
+> * Dodaj kod, który wysyła komunikaty z dowolnego klienta do wszystkich połączonych klientów.
 
 Po zakończeniu będziesz mieć działającą aplikację rozmowy:
 

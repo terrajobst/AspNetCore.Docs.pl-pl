@@ -6,18 +6,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/01/2018
 uid: fundamentals/routing
-ms.openlocfilehash: 500cefbc7caee2054b4afda7c1277685862f5ad4
-ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
+ms.openlocfilehash: 96df625113b0c33ee8a9e9bb7dccec9a2c28348a
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49348562"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091005"
 ---
 # <a name="routing-in-aspnet-core"></a>Routing w programie ASP.NET Core
 
 Przez [Ryan Nowak](https://github.com/rynowak), [Steve Smith](https://ardalis.com/), i [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Funkcje routingu jest odpowiedzialny za mapowanie przychodzące żądanie do programu obsługi trasy. Trasy są zdefiniowane w aplikacji i skonfigurowane, po uruchomieniu aplikacji. Trasy Opcjonalnie można wyodrębnić wartości z adresu URL zawartych w żądaniu, a te wartości mogą następnie służyć do przetwarzania żądania. Korzystając z informacji o trasie z aplikacji, funkcji routingu jest również możliwe do generowania adresów URL, które mapują do obsługi trasy. W związku z tym routingu, można znaleźć programu obsługi trasy na podstawie adresu URL lub adres URL odpowiadający programu obsługi trasy, na podstawie informacji programu obsługi trasy.
+Funkcje routingu jest odpowiedzialny za mapowanie przychodzące żądanie do programu obsługi trasy. Trasy są zdefiniowane w aplikacji i skonfigurowane, po uruchomieniu aplikacji. Trasy Opcjonalnie można wyodrębnić wartości z adresu URL zawartych w żądaniu, a te wartości mogą następnie służyć do przetwarzania żądania. Korzystając z informacji o trasie z aplikacji, funkcji routingu jest również możliwe do generowania adresów URL, które mapują do obsługi trasy. W związku z tym routing można znaleźć programu obsługi trasy na podstawie adresu URL lub znaleźć adres URL odpowiadający programu obsługi trasy, na podstawie informacji programu obsługi trasy.
 
 > [!IMPORTANT]
 > W tym dokumencie opisano niskiego poziomu routingu platformy ASP.NET Core. Aby uzyskać informacji na temat routingu platformy ASP.NET Core MVC, zobacz <xref:mvc/controllers/routing>.
@@ -47,7 +47,7 @@ Dopasowanie ciągu `RouteAsync` spowoduje także ustawienie właściwości `Rout
 
 [RouteData.Values](xref:Microsoft.AspNetCore.Routing.RouteData.Values*) jest słownikiem *wartości trasy* wyprodukowanych z trasy. Wartości te są zwykle określane przez tokenizowanie adres URL i może służyć do przyjmowania danych wejściowych użytkownika lub dodatkowo dispatching decyzje wewnątrz aplikacji.
 
-[RouteData.DataTokens](xref:Microsoft.AspNetCore.Routing.RouteData.DataTokens*) to zbiór właściwości dodatkowych danych związanych z dopasowanej trasy. `DataTokens` dostarczone dane o pomocy technicznej kojarzenie stanu z każdej trasy tak, aby aplikacja może wykonać później na podstawie decyzji w trasie, która pasuje. Te wartości są definiowane przez projektanta i wykonaj **nie** mają wpływ na zachowanie routingu w dowolny sposób. Ponadto wartości przechowalni w tokeny danych może być dowolnego typu, w przeciwieństwie do wartości trasy, które muszą być łatwo konwertowany do i z ciągów.
+[RouteData.DataTokens](xref:Microsoft.AspNetCore.Routing.RouteData.DataTokens*) to zbiór właściwości dodatkowych danych związanych z dopasowanej trasy. `DataTokens` dostarczone dane o pomocy technicznej kojarzenie stanu z każdej trasy tak, aby aplikacja może wykonać później na podstawie decyzji w trasie, która pasuje. Te wartości są definiowane przez projektanta i wykonaj **nie** mają wpływ na zachowanie routingu w dowolny sposób. Ponadto przechowalni wartości w `RouteData.DataTokens` może być dowolnego typu, w przeciwieństwie do `RouteData.Values`, które muszą być łatwo konwertowany do i z ciągów.
 
 [RouteData.Routers](xref:Microsoft.AspNetCore.Routing.RouteData.Routers*) znajduje się lista tras, na których uczestniczyła w pomyślnie dopasowywania żądania. Trasy mogą być zagnieżdżone wewnątrz siebie nawzajem. `Routers` Właściwość odzwierciedla drogę przez drzewo logiczne tras, które spowodowały dopasowanie. Ogólnie rzecz biorąc, pierwszy element `Routers` jest kolekcją tras i powinny być używane do generowania adresu URL. Ostatnim elementem w `Routers` jest programu obsługi trasy, który jest zgodny.
 
@@ -63,7 +63,7 @@ Podstawowy danych wejściowych do `GetVirtualPath` są:
 * [VirtualPathContext.Values](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.Values*)
 * [VirtualPathContext.AmbientValues](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.AmbientValues*)
 
-Trasy przede wszystkim używasz wartości trasy, dostarczone przez `Values` i `AmbientValues` zdecydować, gdzie jest możliwe do generowania adresu URL i wartości, których do uwzględnienia. `AmbientValues` Zestaw wartości trasy, które zostały utworzone z dopasowywania bieżące żądanie w systemie routingu. Z kolei `Values` są wartości trasy, które określają sposób generowania żądany adres URL dla bieżącej operacji. `HttpContext` Znajduje się w przypadku, gdy trasa musi uzyskać services lub dodatkowe dane skojarzone z bieżącym kontekstem.
+Trasy przede wszystkim używasz wartości trasy, dostarczone przez `Values` i `AmbientValues` zdecydować, czy jest możliwe do generowania adresu URL i wartości, których do uwzględnienia. `AmbientValues` Zestaw wartości trasy, które zostały utworzone z dopasowywania bieżące żądanie w systemie routingu. Z kolei `Values` są wartości trasy, które określają sposób generowania żądany adres URL dla bieżącej operacji. `HttpContext` Znajduje się w przypadku, gdy trasa musi uzyskać services lub dodatkowe dane skojarzone z bieżącym kontekstem.
 
 > [!TIP]
 > Traktować [VirtualPathContext.Values](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.Values*) jako zbiór zastąpienia [VirtualPathContext.AmbientValues](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.AmbientValues*). Generowanie adresu URL spróbuje ponownie użyć wartości trasy z bieżącego żądania, aby ułatwić do generowania adresów URL dla łącza przy użyciu tego samego trasę lub trasy wartości.

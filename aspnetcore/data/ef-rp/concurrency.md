@@ -3,14 +3,15 @@ title: Strony razor z programem EF Core w programie ASP.NET Core — współbie�
 author: rick-anderson
 description: W tym samouczku przedstawiono sposób obsługi konfliktów, gdy wielu użytkowników aktualizacji tej samej jednostki w tym samym czasie.
 ms.author: riande
-ms.date: 11/15/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: 722676b6765c32f3d11d5a3e23a5bea6ebe5488d
-ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
+ms.openlocfilehash: 6af6a90b24b3d5d97547544e5e87b02c4358b136
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523262"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090517"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---concurrency---8-of-8"></a>Strony razor z programem EF Core w programie ASP.NET Core — współbieżności — 8 8
 
@@ -72,7 +73,7 @@ Optymistyczna współbieżność obejmuje następujące opcje:
 
 ## <a name="handling-concurrency"></a>Obsługa współbieżności 
 
-Gdy właściwość jest skonfigurowany jako [tokenu współbieżności](https://docs.microsoft.com/ef/core/modeling/concurrency):
+Gdy właściwość jest skonfigurowany jako [tokenu współbieżności](/ef/core/modeling/concurrency):
 
 * EF Core sprawdza, czy właściwości nie został zmodyfikowany po jego pobrania. Sprawdzanie jest wykonywane podczas [SaveChanges](/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechanges?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChanges) lub [SaveChangesAsync](/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechangesasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChangesAsync_System_Threading_CancellationToken_) jest wywoływana.
 * Jeśli właściwość została zmieniona po jego pobrania, [DbUpdateConcurrencyException](/dotnet/api/microsoft.entityframeworkcore.dbupdateconcurrencyexception?view=efcore-2.0) zgłaszany. 

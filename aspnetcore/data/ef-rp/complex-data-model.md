@@ -3,14 +3,15 @@ title: Strony razor z programem EF Core w programie ASP.NET Core — Model danyc
 author: rick-anderson
 description: W tym samouczku należy dodać większą liczbę jednostek i relacji i Dostosuj model danych, określając formatowania i sprawdzania poprawności i reguł mapowania.
 ms.author: riande
-ms.date: 6/31/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: b81918cbd74200f0672f3002f916523fb4a9a914
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: 9a0d5a8e722487ccf7e08aadb39f838a0963451d
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477660"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090978"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>Strony razor z programem EF Core w programie ASP.NET Core — Model danych — 5 8
 
@@ -121,6 +122,7 @@ Dodanie `Column` atrybut zmieni się zapasowy modelu `SchoolContext`. Zapasowy m
 ```SQL
 SqlException: Invalid column name 'FirstName'.
 ```
+
 Aby zaktualizować bazy danych:
 
 * Skompiluj projekt.
@@ -157,7 +159,7 @@ Otwórz Tabela Student SSOX:
 
 ![Tabela studentów w SSOX po migracji](complex-data-model/_static/ssox-after-migration.png)
 
-Przed zastosowaniem migracji, nazwa kolumny były typu [nvarchar(MAX)](https://docs.microsoft.com/sql/t-sql/data-types/nchar-and-nvarchar-transact-sql). Nazwa kolumny są teraz `nvarchar(50)`. Nazwa kolumny został zmieniony z `FirstMidName` do `FirstName`.
+Przed zastosowaniem migracji, nazwa kolumny były typu [nvarchar(MAX)](/sql/t-sql/data-types/nchar-and-nvarchar-transact-sql). Nazwa kolumny są teraz `nvarchar(50)`. Nazwa kolumny został zmieniony z `FirstMidName` do `FirstName`.
 
 > [!Note]
 > W poniższej sekcji Kompilowanie aplikacji na niektórych etapach generuje błędy kompilatora. Instrukcje Określ, kiedy do skompilowania aplikacji.
@@ -295,7 +297,7 @@ Aktualizacja *Models/Course.cs* następującym kodem:
 
 EF Core nie wymaga właściwości klucza Obcego dla modelu danych, gdy model nie ma właściwości nawigacji dla powiązanej jednostki.
 
-EF Core automatycznie tworzy FKs w bazie danych wszędzie tam, gdzie będą one potrzebne. Tworzy programu EF Core [w tle właściwości](https://docs.microsoft.com/ef/core/modeling/shadow-properties) dla FKs utworzone automatycznie. Posiadanie klucza Obcego w modelu danych, że aktualizacje są prostszy i efektywniejszy. Na przykład, należy wziąć pod uwagę modelu gdzie właściwości klucza Obcego `DepartmentID` jest *nie* uwzględnione. Gdy jednostka kurs jest pobierana do edycji:
+EF Core automatycznie tworzy FKs w bazie danych wszędzie tam, gdzie będą one potrzebne. Tworzy programu EF Core [w tle właściwości](/ef/core/modeling/shadow-properties) dla FKs utworzone automatycznie. Posiadanie klucza Obcego w modelu danych, że aktualizacje są prostszy i efektywniejszy. Na przykład, należy wziąć pod uwagę modelu gdzie właściwości klucza Obcego `DepartmentID` jest *nie* uwzględnione. Gdy jednostka kurs jest pobierana do edycji:
 
 * `Department` Jednostki ma wartość null, jeśli nie zostały jawnie jest ładowany.
 * Do zaktualizowania jednostki kurs `Department` należy najpierw pobrać jednostki.
@@ -314,7 +316,7 @@ public int CourseID { get; set; }
 
 Domyślnie EF Core przyjęto założenie, że wartości klucza produktu są generowane przez bazy danych. DB wygenerowany klucz podstawowy wartościami ogólnie jest najlepszym rozwiązaniem. Aby uzyskać `Course` jednostek, użytkownik określa PK. Na przykład liczba kurs takich jak seria 1000 dla działu matematycznych, serię 2000 dla angielskiego działu.
 
-`DatabaseGenerated` Atrybut może służyć także do generowania wartości domyślne. Na przykład baza danych może automatycznie generować pole daty, aby zarejestrować Data wiersz został utworzony lub zaktualizowany. Aby uzyskać więcej informacji, zobacz [wygenerowanych właściwości](https://docs.microsoft.com/ef/core/modeling/generated-properties).
+`DatabaseGenerated` Atrybut może służyć także do generowania wartości domyślne. Na przykład baza danych może automatycznie generować pole daty, aby zarejestrować Data wiersz został utworzony lub zaktualizowany. Aby uzyskać więcej informacji, zobacz [wygenerowanych właściwości](/ef/core/modeling/generated-properties).
 
 ### <a name="foreign-key-and-navigation-properties"></a>Obcy właściwości klucza i nawigacja
 
@@ -478,7 +480,7 @@ Klucz złożony zapewnia:
 `Enrollment` Jednostki sprzężenia definiuje swój własny klucz podstawowy, więc możliwe są duplikatami tego rodzaju. Aby uniknąć takich duplikaty:
 
 * Dodaj unikatowy indeks pól klucza Obcego lub
-* Konfigurowanie `Enrollment` przy użyciu podstawowego klucza złożonego podobne do `CourseAssignment`. Aby uzyskać więcej informacji, zobacz [indeksów](https://docs.microsoft.com/ef/core/modeling/indexes).
+* Konfigurowanie `Enrollment` przy użyciu podstawowego klucza złożonego podobne do `CourseAssignment`. Aby uzyskać więcej informacji, zobacz [indeksów](/ef/core/modeling/indexes).
 
 ## <a name="update-the-db-context"></a>Aktualizuj kontekst bazy danych
 
@@ -490,7 +492,7 @@ Poprzedzający kod dodaje nowe jednostki i konfiguruje `CourseAssignment` PK. z�
 
 ## <a name="fluent-api-alternative-to-attributes"></a>Zamiast interfejsu API Fluent atrybutów
 
-`OnModelCreating` Metody w poprzednim kodzie używa *interfejsu API fluent* do konfigurowania zachowania programu EF Core. Interfejs API jest nazywany "fluent", ponieważ jest ona często używana przez centrali szereg wywołań metod w pojedynczej instrukcji. [Następujący kod](https://docs.microsoft.com/ef/core/modeling/#methods-of-configuration) jest przykładem wygodnego interfejsu API:
+`OnModelCreating` Metody w poprzednim kodzie używa *interfejsu API fluent* do konfigurowania zachowania programu EF Core. Interfejs API jest nazywany "fluent", ponieważ jest ona często używana przez centrali szereg wywołań metod w pojedynczej instrukcji. [Następujący kod](/ef/core/modeling/#methods-of-configuration) jest przykładem wygodnego interfejsu API:
 
 ```csharp
 protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -516,7 +518,7 @@ Niektóre atrybuty używane w tym samouczku są używane do:
 * EF Core tylko konfiguracji (na przykład `HasKey`).
 * Sprawdzanie poprawności i programem EF Core konfiguracji (na przykład `[StringLength(50)]`).
 
-Aby uzyskać więcej informacji na temat atrybutów, a interfejs fluent API zobacz [metod konfiguracji](https://docs.microsoft.com/ef/core/modeling/#methods-of-configuration).
+Aby uzyskać więcej informacji na temat atrybutów, a interfejs fluent API zobacz [metod konfiguracji](/ef/core/modeling/#methods-of-configuration).
 
 ## <a name="entity-diagram-showing-relationships"></a>Jednostki Diagram przedstawiający relacje
 
@@ -577,6 +579,7 @@ database "ContosoUniversity", table "dbo.Department", column 'DepartmentID'.
 ## <a name="apply-the-migration"></a>Zastosuj migracji
 
 Teraz, gdy masz istniejącą bazę danych, należy wziąć pod uwagę sposób stosowania przyszłe zmiany do niego. W tym samouczku przedstawiono dwie metody:
+
 * [Porzuć i ponownie utworzyć bazę danych](#drop)
 * [Dotyczą migracji z istniejącej bazy danych](#applyexisting). Ta metoda jest bardziej złożony i czasochłonny proces, jest preferowanym podejściem w środowiskach produkcyjnych w rzeczywistych warunkach. **Uwaga**: jest to opcjonalne części samouczka. Można zrobić listy i ponownie utwórz kroki i pominąć tę sekcję. Jeśli chcesz wykonać kroki zawarte w tej sekcji, nie są listy i ponownie utwórz kroki. 
 

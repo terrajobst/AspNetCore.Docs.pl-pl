@@ -3,14 +3,14 @@ title: Metodyka DevOps z platformą ASP.NET Core i platformy Azure | Ciągła in
 author: CamSoper
 description: Przewodnik, który dostarcza wskazówki end-to-end na tworzeniu potoku metodyki DevOps dla aplikacji ASP.NET Core hostowanych na platformie Azure.
 ms.author: scaddie
-ms.date: 08/17/2018
+ms.date: 10/24/2018
 uid: azure/devops/cicd
-ms.openlocfilehash: 0bfe1545da4c0778055d7c81c1588d3267d2e711
-ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
+ms.openlocfilehash: 18a59a1ff6fd6bbf51ff664764725b8972dfa1bf
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44340111"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090540"
 ---
 # <a name="continuous-integration-and-deployment"></a>Ciągła integracja i ciągłe wdrażanie
 
@@ -230,7 +230,7 @@ Definicja kompilacji **zadania** karcie wyświetlane są poszczególne kroki, kt
     > [!NOTE]
     > Aby sprawdzić, czy pracy testów jednostkowych, zmodyfikuj *SimpleFeedReader.Tests\Services\NewsServiceTests.cs* celowo przerwanie jedno z badań. Na przykład zmienić `Assert.True(result.Count > 0);` do `Assert.False(result.Count > 0);` w `Returns_News_Stories_Given_Valid_Uri` metody. Zatwierdź i Wypchnij zmiany do usługi GitHub. Kompilacja zostanie wyzwolony i kończy się niepowodzeniem. Stan potoku kompilacji zmienia się na **nie powiodło się**. Cofnąć zmiany, zatwierdzać i wypychać ponownie. Kompilacja zakończy się pomyślnie.
 
-1. **Publikowanie** &mdash; Executes `dotnet publish --configuration release --output <local_path_on_build_agent>` polecenia w celu utworzenia *zip* pliku z artefaktami, które mają zostać wdrożone. `--output` Opcja określa lokalizację publikowania *zip* pliku. Czy lokalizacja jest określona przez przekazanie [uprzednio zdefiniowanej zmiennej](https://docs.microsoft.com/vsts/pipelines/build/variables) o nazwie `$(build.artifactstagingdirectory)`. Tej zmiennej rozwija ścieżkę lokalną, taką jak *c:\agent\_work\1\a*, w agencie kompilacji.
+1. **Publikowanie** &mdash; Executes `dotnet publish --configuration release --output <local_path_on_build_agent>` polecenia w celu utworzenia *zip* pliku z artefaktami, które mają zostać wdrożone. `--output` Opcja określa lokalizację publikowania *zip* pliku. Czy lokalizacja jest określona przez przekazanie [uprzednio zdefiniowanej zmiennej](/azure/devops/pipelines/build/variables) o nazwie `$(build.artifactstagingdirectory)`. Tej zmiennej rozwija ścieżkę lokalną, taką jak *c:\agent\_work\1\a*, w agencie kompilacji.
 1. **Publikowanie artefaktów** &mdash; Publishes *zip* za pomocą **Publikuj** zadania. Zadanie akceptuje *zip* lokalizacja jako parametr, który jest uprzednio zdefiniowanej zmiennej pliku `$(build.artifactstagingdirectory)`. *Zip* plik jest publikowany jako folder o nazwie *porzucić*.
 
 Kliknij przycisk definicji kompilacji **Podsumowanie** link, aby wyświetlić historię kompilacji z definicji:

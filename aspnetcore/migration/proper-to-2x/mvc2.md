@@ -3,14 +3,15 @@ title: Migrowanie z programu ASP.NET do ASP.NET Core 2.0
 author: isaac2004
 description: Odbieranie wskazówki dotyczące migrowania istniejących aplikacji ASP.NET MVC lub Web API platformy ASP.NET Core 2.0.
 ms.author: scaddie
-ms.date: 08/27/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: migration/mvc2
-ms.openlocfilehash: 42fbabb2fe5bd79a72cd220230faa9d75ff1c9d8
-ms.sourcegitcommit: a742b55e4b8276a48b8b4394784554fecd883c84
+ms.openlocfilehash: 006eeeba28dbd351698e46547abe3c96818a63d9
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45538391"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090462"
 ---
 # <a name="migrate-from-aspnet-to-aspnet-core-20"></a>Migrowanie z programu ASP.NET do ASP.NET Core 2.0
 
@@ -28,7 +29,8 @@ Zainstaluj **jeden** z następujących czynności z [.NET pliki do pobrania: Win
   * **Programowanie dla wielu platform .NET core** obciążenia
 
 ## <a name="target-frameworks"></a>Platformy docelowe
-Projekty ASP.NET Core 2.0 oferują deweloperom elastyczność określania wartości docelowej platformy .NET Core i .NET Framework. Zobacz [Wybieranie między programami .NET Core i .NET Framework dla aplikacji serwerowych](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server) ustalenie, której lokalizacja docelowa jest najbardziej odpowiednie.
+
+Projekty ASP.NET Core 2.0 oferują deweloperom elastyczność określania wartości docelowej platformy .NET Core i .NET Framework. Zobacz [Wybieranie między programami .NET Core i .NET Framework dla aplikacji serwerowych](/dotnet/standard/choosing-core-framework-server) ustalenie, której lokalizacja docelowa jest najbardziej odpowiednie.
 
 Podczas przeznaczonych dla platformy .NET Framework, projekty muszą odwoływać się do poszczególnych pakietów NuGet.
 
@@ -40,17 +42,20 @@ Przeznaczone dla platformy .NET Core pozwala wyeliminować wiele odwołań pakie
 </ItemGroup>
 ```
 
-W przypadku meta Microsoft.aspnetcore.all żadnych pakietów, do którego odwołuje się meta Microsoft.aspnetcore.all są wdrażane przy użyciu aplikacji. Store środowiska uruchomieniowego programu .NET Core obejmuje te zasoby, i są one wstępnie skompilowany do zwiększenia wydajności. Zobacz [pakiet meta Microsoft.aspnetcore.all dla platformy ASP.NET Core 2.x](xref:fundamentals/metapackage) Aby uzyskać więcej szczegółów.
+W przypadku meta Microsoft.aspnetcore.all żadnych pakietów, do którego odwołuje się meta Microsoft.aspnetcore.all są wdrażane przy użyciu aplikacji. Store środowiska uruchomieniowego programu .NET Core obejmuje te zasoby, i są one wstępnie skompilowany do zwiększenia wydajności. Zobacz <xref:fundamentals/metapackage> Aby uzyskać więcej szczegółów.
 
 ## <a name="project-structure-differences"></a>Różnice struktura projektu
-*.Csproj* format pliku została uproszczona w programie ASP.NET Core. Pewne istotne zmiany obejmują:
-- Dołączenie jawne plików nie jest niezbędne zostały uznane za częścią projektu. Zmniejsza to ryzyko konfliktów scalania XML, pracując w dużych zespołach.
-- Nie ma żadnych identyfikatora GUID na podstawie odwołań do innych projektów, co zwiększa czytelność pliku.
-- Plik można edytować bez rozładowywania go w programie Visual Studio:
 
-    ![Edytowanie pliku CSPROJ menu kontekstowego w programie Visual Studio 2017](_static/EditProjectVs2017.png)
+*.Csproj* format pliku została uproszczona w programie ASP.NET Core. Pewne istotne zmiany obejmują:
+
+* Dołączenie jawne plików nie jest niezbędne zostały uznane za częścią projektu. Zmniejsza to ryzyko konfliktów scalania XML, pracując w dużych zespołach.
+* Nie ma żadnych identyfikatora GUID na podstawie odwołań do innych projektów, co zwiększa czytelność pliku.
+* Plik można edytować bez rozładowywania go w programie Visual Studio:
+
+  ![Edytowanie pliku CSPROJ menu kontekstowego w programie Visual Studio 2017](_static/EditProjectVs2017.png)
 
 ## <a name="globalasax-file-replacement"></a>Zastąpienie pliku Global.asax
+
 Platforma ASP.NET Core wprowadzono nowy mechanizm do uruchomienia aplikacji. Punkt wejścia dla aplikacji platformy ASP.NET to *Global.asax* pliku. Zadania, takie jak Konfiguracja tras i filtrowania i obszaru rejestracje są obsługiwane w *Global.asax* pliku.
 
 [!code-csharp[](samples/globalasax-sample.cs)]
@@ -77,9 +82,10 @@ Platforma ASP.NET Core korzysta z podobnego podejścia, ale nie jest zależny od
 
 Host i aplikacji ma zostały odłączone zapewniającą elastyczność przechodzenia do różnych platform w przyszłości.
 
-**Uwaga:** Aby uzyskać więcej informacji na temat odwołania do platformy ASP.NET Core uruchamianie i oprogramowanie pośredniczące, zobacz [uruchamiania w programie ASP.NET Core](xref:fundamentals/startup)
+Aby uzyskać więcej informacji na temat odwołania do platformy ASP.NET Core uruchamianie i oprogramowanie pośredniczące, zobacz <xref:fundamentals/startup>.
 
 ## <a name="storing-configurations"></a>Zapisywanie konfiguracji
+
 Obsługuje platformy ASP.NET z przechowywaniem ustawień. Te ustawienia są używane, na przykład do obsługi środowiska, w której zostały wdrożone aplikacje. Powszechną praktyką było przechowywać wszystkie niestandardowe pary klucz wartość w `<appSettings>` części *Web.config* pliku:
 
 [!code-xml[](samples/webconfig-sample.xml)]
@@ -107,7 +113,7 @@ Istnieją rozszerzenia tego podejścia w celu uproszczenia procesu bardziej niez
 services.Configure<AppConfiguration>(Configuration.GetSection("AppConfiguration"));
 ````
 
-**Uwaga:** Aby uzyskać więcej informacji na temat odwołania do konfiguracji platformy ASP.NET Core, zobacz [konfiguracji w programie ASP.NET Core](xref:fundamentals/configuration/index).
+**Uwaga:** Aby uzyskać więcej informacji na temat odwołania do konfiguracji platformy ASP.NET Core, zobacz <xref:fundamentals/configuration/index>.
 
 ## <a name="native-dependency-injection"></a>Wstrzykiwanie zależności natywnych
 
@@ -133,7 +139,7 @@ Wstrzykiwanie zależności jest częścią platformy ASP.NET Core, dlatego możn
 
 Repozytorium może być wprowadzony dowolnego miejsca, podobnie jak przy użyciu aparatu Unity.
 
-Aby uzyskać więcej informacji na temat wstrzykiwanie zależności w programie ASP.NET Core, zobacz [wstrzykiwanie zależności](xref:fundamentals/dependency-injection).
+Aby uzyskać więcej informacji na temat wstrzykiwanie zależności w programie ASP.NET Core, zobacz <xref:fundamentals/dependency-injection>.
 
 ## <a name="serving-static-files"></a>Dostarczania plików statycznych.
 
@@ -149,7 +155,7 @@ W programie ASP.NET Core, pliki statyczne są przechowywane w "root sieci web" (
 
 Na przykład zasób obrazu w *wwwroot/obrazów* folder jest dostępny w przeglądarce w lokalizacji, takich jak `http://<app>/images/<imageFileName>`.
 
-**Uwaga:** Aby uzyskać więcej informacji na temat odwołania do dostarczania plików statycznych z platformy ASP.NET Core, zobacz [pliki statyczne](xref:fundamentals/static-files).
+**Uwaga:** Aby uzyskać więcej informacji na temat odwołania do dostarczania plików statycznych z platformy ASP.NET Core, zobacz <xref:fundamentals/static-files>.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

@@ -3,18 +3,19 @@ title: Metodyka DevOps z platformą ASP.NET Core i platformy Azure | Wdrażanie 
 author: CamSoper
 description: Przewodnik, który dostarcza wskazówki end-to-end na tworzeniu potoku metodyki DevOps dla aplikacji ASP.NET Core hostowanych na platformie Azure.
 ms.author: casoper
-ms.date: 08/07/2018
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: azure/devops/deploy-to-app-service
-ms.openlocfilehash: 710e65a048fdc062219e90b0db323e8e96fd8e9d
-ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
+ms.openlocfilehash: 33026ed510aae63a9e580aa5d708f94aad778fca
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44340137"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090940"
 ---
 # <a name="deploy-an-app-to-app-service"></a>Wdrażanie aplikacji w usłudze App Service
 
-[Usługa Azure App Service](https://docs.microsoft.com/azure/app-service/) jest Azure platforma sieci web hostingu. Wdrażanie aplikacji sieci web w usłudze Azure App Service może odbywać się ręcznie lub za pomocą zautomatyzowanego procesu. W tej sekcji przewodnika omówiono metod wdrażania, które mogą być wyzwalane ręcznie lub za pomocą skryptu przy użyciu wiersza polecenia lub wyzwalane ręcznie przy użyciu programu Visual Studio.
+[Usługa Azure App Service](/azure/app-service/) jest Azure platforma sieci web hostingu. Wdrażanie aplikacji sieci web w usłudze Azure App Service może odbywać się ręcznie lub za pomocą zautomatyzowanego procesu. W tej sekcji przewodnika omówiono metod wdrażania, które mogą być wyzwalane ręcznie lub za pomocą skryptu przy użyciu wiersza polecenia lub wyzwalane ręcznie przy użyciu programu Visual Studio.
 
 W tej sekcji opisano następujące zadania:
 
@@ -70,7 +71,7 @@ Z powłoki poleceń należy pobrać kod, skompilować projekt i uruchomić go w 
 
 ## <a name="create-the-azure-app-service-web-app"></a>Tworzenie aplikacji sieci Web w usłudze Azure App Service
 
-Aby wdrożyć aplikację, musisz utworzyć usługi App Service [aplikacji sieci Web](https://docs.microsoft.com/azure/app-service/app-service-web-overview). Po utworzeniu aplikacji sieci Web będzie można wdrożyć na go z komputera lokalnego przy użyciu narzędzia Git.
+Aby wdrożyć aplikację, musisz utworzyć usługi App Service [aplikacji sieci Web](/azure/app-service/app-service-web-overview). Po utworzeniu aplikacji sieci Web będzie można wdrożyć na go z komputera lokalnego przy użyciu narzędzia Git.
 
 1. Zaloguj się do [usługi Azure Cloud Shell](https://shell.azure.com/bash). Uwaga: Po zalogowaniu się po raz pierwszy Cloud Shell monituje o utworzenie konta magazynu dla plików konfiguracyjnych. Zaakceptuj wartości domyślne lub Podaj unikatową nazwę.
 
@@ -88,7 +89,7 @@ Aby wdrożyć aplikację, musisz utworzyć usługi App Service [aplikacji sieci 
     az group create --location centralus --name AzureTutorial
     ```
 
-    `az` Olecenie wywołuje [wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/). Interfejs wiersza polecenia, które mogą być uruchamiane lokalnie, ale jej używanie w usłudze Cloud Shell oszczędza czas i konfiguracji.
+    `az` Olecenie wywołuje [wiersza polecenia platformy Azure](/cli/azure/). Interfejs wiersza polecenia, które mogą być uruchamiane lokalnie, ale jej używanie w usłudze Cloud Shell oszczędza czas i konfiguracji.
 
     c. Utwórz plan usługi App Service w warstwie S1. Plan usługi App Service to grupa aplikacji sieci web, które udostępnianie tej samej warstwie cenowej. W warstwie S1 jest bezpłatne, ale jest to wymagane dla funkcji miejsca przejściowego.
 
@@ -238,7 +239,7 @@ W następnej sekcji dowiesz się, jak utworzyć potok DevOps za pomocą potoków
 
 ## <a name="additional-reading"></a>Materiały uzupełniające
 
-* [Przegląd usługi Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview)
-* [Tworzenie aplikacji internetowej platformy .NET Core i SQL Database w usłudze Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb)
-* [Skonfiguruj poświadczenia wdrożenia dla usługi Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-deployment-credentials)
-* [Konfigurowanie środowisk przejściowych w usłudze Azure App Service](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing)
+* [Przegląd usługi Web Apps](/azure/app-service/app-service-web-overview)
+* [Tworzenie aplikacji internetowej platformy .NET Core i SQL Database w usłudze Azure App Service](/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb)
+* [Skonfiguruj poświadczenia wdrożenia dla usługi Azure App Service](/azure/app-service/app-service-deployment-credentials)
+* [Konfigurowanie środowisk przejściowych w usłudze Azure App Service](/azure/app-service/web-sites-staged-publishing)

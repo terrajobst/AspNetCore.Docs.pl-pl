@@ -4,14 +4,15 @@ author: rick-anderson
 description: Więcej informacji na temat WebListener, serwer sieci web platformy ASP.NET Core na Windows, który może służyć do bezpośredniego połączenia z Internetu bez usług IIS.
 monikerRange: < aspnetcore-2.0
 ms.author: riande
-ms.date: 08/15/2018
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: fundamentals/servers/weblistener
-ms.openlocfilehash: 5602c1ddbe76879587de12bcd82722c103dee03f
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: e359d8d3ff443009128d7c76bf13f3c9a0a54730
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41754193"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090579"
 ---
 # <a name="weblistener-web-server-implementation-in-aspnet-core"></a>Implementacja serwera sieci web WebListener w programie ASP.NET Core
 
@@ -160,7 +161,7 @@ Oto oficjalna dokumentacja:
 
 Następujące zasoby zawierają szczegółowe instrukcje dla kilku scenariuszy. Artykuły, które odwołują się do `HttpListener` jednakowo do zastosowania `WebListener`, ponieważ także są oparte na Http.Sys.
 
-* [Instrukcje: konfigurowanie portu z certyfikatem SSL](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-configure-a-port-with-an-ssl-certificate)
+* [Instrukcje: konfigurowanie portu z certyfikatem SSL](/dotnet/framework/wcf/feature-details/how-to-configure-a-port-with-an-ssl-certificate)
 * [Komunikacja HTTPS - HttpListener i opartych na Hosting certyfikatu klienta](http://sunshaking.blogspot.com/2012/11/https-communication-httplistener-based.html) to jest blogu innych firm i jest dość stara, ale nadal zawiera przydatne informacje.
 * [Instrukcje: HttpListener za pomocą wskazówki lub serwer Http niezarządzanego kodu (C++) jako serwera prostego protokołu SSL](https://blogs.msdn.microsoft.com/jpsanders/2009/09/29/how-to-walkthrough-using-httplistener-or-http-server-unmanaged-code-c-as-an-ssl-simple-server/) to zbyt blogu starszy przydatnymi informacjami.
 * [Jak skonfigurować WebListener podstawowych platformy .NET, przy użyciu protokołu SSL?](https://blogs.msdn.microsoft.com/timomta/2016/11/04/how-do-i-set-up-a-net-core-weblistener-with-ssl/)

@@ -3,14 +3,15 @@ title: Rozpoczynanie pracy z platformą ASP.NET Core i Entity Framework 6
 author: rick-anderson
 description: W tym artykule pokazano, jak używać platformy Entity Framework 6 w aplikacji ASP.NET Core.
 ms.author: tdykstra
-ms.date: 02/24/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/entity-framework-6
-ms.openlocfilehash: ba3ee137bfefd53cf2b7be2f328651ad38104ab5
-ms.sourcegitcommit: 70fb7c9d5f2ddfcf4747382a9f7159feca7a6aa7
+ms.openlocfilehash: b7679afbe4c364386fe8f16d22d7e9797a3e0c27
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45601746"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090062"
 ---
 # <a name="get-started-with-aspnet-core-and-entity-framework-6"></a>Rozpoczynanie pracy z platformą ASP.NET Core i Entity Framework 6
 
@@ -20,7 +21,7 @@ W tym artykule pokazano, jak używać platformy Entity Framework 6 w aplikacji A
 
 ## <a name="overview"></a>Omówienie
 
-Aby korzystać z platformy Entity Framework 6, projekt ma kompilowanie z użyciem platformy .NET Framework, zgodnie z platformy Entity Framework 6 nie obsługuje platformy .NET Core. Jeśli potrzebujesz funkcji dla wielu platform należy uaktualnić do [Entity Framework Core](https://docs.microsoft.com/ef/).
+Aby korzystać z platformy Entity Framework 6, projekt ma kompilowanie z użyciem platformy .NET Framework, zgodnie z platformy Entity Framework 6 nie obsługuje platformy .NET Core. Jeśli potrzebujesz funkcji dla wielu platform należy uaktualnić do [Entity Framework Core](/ef/).
 
 Zalecanym sposobem użycia platformy Entity Framework 6 w aplikacji ASP.NET Core jest umieszczenie kontekstu EF6 i klasy modeli w bibliotece klas projektu przeznaczonego pełny framework. Dodaj odwołanie do biblioteki klas z projektów ASP.NET Core. Zobacz przykład [rozwiązania Visual Studio z projektami EF6 i ASP.NET Core](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/entity-framework-6/sample/).
 

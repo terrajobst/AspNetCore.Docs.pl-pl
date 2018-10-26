@@ -4,22 +4,27 @@ author: rick-anderson
 description: Poznaj podstawowe pojęcia do tworzenia aplikacji platformy ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/20/2018
+ms.date: 10/25/2018
 uid: fundamentals/index
-ms.openlocfilehash: 83dfb5707700da01c45bae3c0c00e67ca397d402
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: 56344315acc59003248ffaf1e61455b94a93a545
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49325474"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090722"
 ---
 # <a name="aspnet-core-fundamentals"></a>Podstawy platformy ASP.NET Core
 
-Aplikacji ASP.NET Core jest aplikacją konsoli, która tworzy serwer sieci web w jego `Main` metody:
+Aplikacji ASP.NET Core jest aplikacją konsoli, która tworzy serwer sieci web w jego `Program.Main` metody. `Main` Metody jest to aplikacja *zarządzany punkt wejścia*:
 
 ::: moniker range=">= aspnetcore-2.0"
 
 [!code-csharp[](index/snapshots/2.x/Program.cs)]
+
+.NET Core hosta:
+
+* Ładunki [środowisko uruchomieniowe programu .NET Core](https://github.com/dotnet/coreclr).
+* Korzysta z pierwszym argumentem wiersza polecenia jako ścieżka do zarządzanej plik binarny, który zawiera punkt wejścia (`Main`) i rozpoczyna wykonywanie kodu.
 
 `Main` Wywołuje metodę [WebHost.CreateDefaultBuilder](xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*), zgodny [wzorzec konstruktora](https://wikipedia.org/wiki/Builder_pattern) w celu utworzenia hosta sieci web. Konstruktor ma metody definiujące serwer sieci web (na przykład <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions.UseKestrel*>) i Klasa początkowa (<xref:Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions.UseStartup*>). W powyższym przykładzie [Kestrel](xref:fundamentals/servers/kestrel) serwera sieci web jest przydzielany automatycznie. Host sieci web platformy ASP.NET Core próbuje uruchomić na serwerze IIS, jeśli jest dostępny. Inne serwery sieci web, takich jak [HTTP.sys](xref:fundamentals/servers/httpsys), mogą być używane przez wywołanie metody rozszerzenia odpowiednie. `UseStartup` opisano w następnej sekcji.
 
@@ -30,6 +35,11 @@ Aplikacji ASP.NET Core jest aplikacją konsoli, która tworzy serwer sieci web w
 ::: moniker range="< aspnetcore-2.0"
 
 [!code-csharp[](index/snapshots/1.x/Program.cs)]
+
+.NET Core hosta:
+
+* Ładunki [środowisko uruchomieniowe programu .NET Core](https://github.com/dotnet/coreclr).
+* Korzysta z pierwszym argumentem wiersza polecenia jako ścieżka do zarządzanej plik binarny, który zawiera punkt wejścia (`Main`) i rozpoczyna wykonywanie kodu.
 
 `Main` Metoda używa <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder>, zgodny [wzorzec konstruktora](https://wikipedia.org/wiki/Builder_pattern) w celu utworzenia hosta aplikacji sieci web. Konstruktor ma metody definiujące serwer sieci web (na przykład <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions.UseKestrel*>) i Klasa początkowa (<xref:Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions.UseStartup*>). W powyższym przykładzie [Kestrel](xref:fundamentals/servers/kestrel) używany jest serwer sieci web. Inne serwery sieci web, takich jak [WebListener](xref:fundamentals/servers/weblistener), mogą być używane przez wywołanie metody rozszerzenia odpowiednie. `UseStartup` opisano w następnej sekcji.
 
@@ -75,9 +85,11 @@ Aby uzyskać więcej informacji, zobacz <xref:fundamentals/startup>.
 
 Główny zawartości jest ścieżka podstawowa do żadnej zawartości, używanych przez aplikację, takie jak [stron Razor](xref:razor-pages/index), MVC widoków i statyczne elementy zawartości. Domyślnie zawartość katalogu głównego jest tej samej lokalizacji co aplikację podstawową ścieżkę dla pliku wykonywalnego, hostowanie aplikacji.
 
-## <a name="web-root"></a>Katalog główny sieci Web
+## <a name="web-root-webroot"></a>Katalog główny sieci Web (webroot)
 
-Katalog główny aplikacji sieci web jest to katalog, w do projektu zawierającego zasoby publicznej, statycznej, takie jak CSS, JavaScript i plików obrazów.
+Webroot aplikacji jest to katalog, w do projektu zawierającego zasoby publicznej, statycznej, takie jak CSS, JavaScript i plików obrazów. Domyślnie *wwwroot* jest webroot.
+
+Dla elementu Razor (*.cshtml*) plików ukośnika tylda `~/` wskazuje webroot. Począwszy od ścieżki `~/` są określane jako ścieżek wirtualnych.
 
 ## <a name="dependency-injection-services"></a>Wstrzykiwanie zależności (usługi)
 

@@ -3,18 +3,19 @@ title: Metodyka DevOps z platformą ASP.NET Core i platformy Azure | Narzędzia 
 author: CamSoper
 description: Przewodnik, który dostarcza wskazówki end-to-end na tworzeniu potoku metodyki DevOps dla aplikacji ASP.NET Core hostowanych na platformie Azure.
 ms.author: casoper
-ms.date: 08/07/2018
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: azure/devops/tools-and-downloads
-ms.openlocfilehash: 5529068b83db475315784571fbf4151d7ecd0d5d
-ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
+ms.openlocfilehash: 573e257e6fc7614010a8749ff439f16011c2c10a
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44340163"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50089386"
 ---
 # <a name="tools-and-downloads"></a>Narzędzia i pliki do pobrania
 
-Platforma Azure oferuje kilka interfejsów do inicjowania obsługi administracyjnej zasobów i zarządzania, takich jak [witryny Azure portal](https://portal.azure.com), [wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/), [programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview), [w chmurze platformy Azure Shell](https://shell.azure.com/bash)i Visual Studio. Ten przewodnik minimalistyczny podejście i korzysta z usługi Azure Cloud Shell zawsze, gdy jest to możliwe zmniejszenie kroki wymagane. Jednak należy użyć witryny Azure portal dla niektórych części.
+Platforma Azure oferuje kilka interfejsów do inicjowania obsługi administracyjnej zasobów i zarządzania, takich jak [witryny Azure portal](https://portal.azure.com), [wiersza polecenia platformy Azure](/cli/azure/), [programu Azure PowerShell](/powershell/azure/overview), [w chmurze platformy Azure Shell](https://shell.azure.com/bash)i Visual Studio. Ten przewodnik minimalistyczny podejście i korzysta z usługi Azure Cloud Shell zawsze, gdy jest to możliwe zmniejszenie kroki wymagane. Jednak należy użyć witryny Azure portal dla niektórych części.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -39,7 +40,7 @@ Wymagane są następujące narzędzia:
 
 * [Program Visual Studio](https://www.visualstudio.com/)użytkownika niezawodne narzędzia platformy Azure zapewnia graficzny interfejs użytkownika dla większości funkcji opisanych w tym przewodniku. W każdej wersji programu Visual Studio będzie działać, łącznie z bezpłatnego programu Visual Studio Community Edition. Samouczki są zapisywane do zademonstrowania programowania, wdrażania i metodyki DevOps z usługą i bez programu Visual Studio.
 
-  Upewnij się, że program Visual Studio zawiera następujące [obciążeń](https://docs.microsoft.com/visualstudio/install/modify-visual-studio) zainstalowane:
+  Upewnij się, że program Visual Studio zawiera następujące [obciążeń](/visualstudio/install/modify-visual-studio) zainstalowane:
 
   * ASP.NET i tworzenie aplikacji internetowych
   * Programowanie na platformie Azure

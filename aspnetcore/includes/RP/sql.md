@@ -2,9 +2,11 @@
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-`MovieContext` Obiektu obsługuje zadania z bazą danych i mapowania `Movie` obiekty do rekordów bazy danych. Kontekst bazy danych jest zarejestrowany w [wstrzykiwanie zależności](xref:fundamentals/dependency-injection) kontenera w `ConfigureServices` method in Class metoda *Startup.cs* pliku:
+`MovieContext` Obiektu obsługuje zadania z bazą danych i mapowania `Movie` obiekty do rekordów bazy danych. Kontekst bazy danych jest zarejestrowany w [wstrzykiwanie zależności (DI)](xref:fundamentals/dependency-injection) kontenera w `ConfigureServices` method in Class metoda *Startup.cs* pliku:
 
 [!code-csharp[](code/Startup.cs?name=snippet2&highlight=6-8)]
+
+Aby uzyskać więcej informacji na temat korzystania z `DbContext` DI, widoczne [przy użyciu typu DbContext z DI](/ef/core/miscellaneous/configuring-dbcontext#using-dbcontext-with-dependency-injection).
 
 ## <a name="sqlite"></a>Bazy danych SQLite
 

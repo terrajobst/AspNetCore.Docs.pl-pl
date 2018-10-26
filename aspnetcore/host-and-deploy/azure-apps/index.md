@@ -4,14 +4,14 @@ author: guardrex
 description: Ten artykuł zawiera linki do hosta platformy Azure i wdrażanie zasobów.
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/29/2018
+ms.date: 10/24/2018
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 315261c4d20970fc399cc2a879dd452bdf3be93f
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: b238630d6f762e2b9fad1060f8150185bcf413fe
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49326059"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090231"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Wdrażanie aplikacji platformy ASP.NET Core w usłudze Azure App Service
 
@@ -29,10 +29,10 @@ Tworzenie i wdrażanie aplikacji sieci web ASP.NET Core w usłudze Azure App Ser
 
 Następujące artykuły są dostępne w dokumentacji platformy ASP.NET Core:
 
-[Publikowanie na platformie Azure przy użyciu programu Visual Studio](xref:tutorials/publish-to-azure-webapp-using-vs)  
+<xref:tutorials/publish-to-azure-webapp-using-vs>  
 Dowiedz się, jak opublikować aplikację ASP.NET Core w usłudze Azure App Service przy użyciu programu Visual Studio.
 
-[Ciągłe wdrażanie na platformie Azure za pomocą programu Visual Studio i rozwiązania Git](xref:host-and-deploy/azure-apps/azure-continuous-deployment)  
+<xref:host-and-deploy/azure-apps/azure-continuous-deployment>  
 Dowiedz się, jak utworzyć aplikację internetową platformy ASP.NET Core przy użyciu programu Visual Studio, a następnie wdrożyć ją w usłudze Azure App Service przy użyciu narzędzia Git do ciągłego wdrażania.
 
 [Tworzenie pierwszego potoku za pomocą potoków usługi Azure](/azure/devops/pipelines/get-started-yaml)  
@@ -45,13 +45,13 @@ Dowiedz się, wykonywanie ograniczenia środowiska uruchomieniowego usługi Azur
 
 ## <a name="application-configuration"></a>Konfiguracja aplikacji
 
-W programie ASP.NET Core 2.0 lub nowszej następujące pakiety NuGet zapewniają funkcji automatycznego rejestrowania w przypadku aplikacji wdrożonych w usłudze Azure App Service:
+Następujące pakiety NuGet zapewniają funkcji automatycznego rejestrowania w przypadku aplikacji wdrożonych w usłudze Azure App Service:
 
 * [Microsoft.AspNetCore.AzureAppServices.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNetCore.AzureAppServices.HostingStartup/) używa [interfejsu IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration) nad umożliwieniem integracji światła w górę platformy ASP.NET Core w usłudze Azure App Service. Funkcje rejestrowania dodano są dostarczane przez `Microsoft.AspNetCore.AzureAppServicesIntegration` pakietu.
 * [Microsoft.AspNetCore.AzureAppServicesIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.AzureAppServicesIntegration/) wykonuje [AddAzureWebAppDiagnostics](/dotnet/api/microsoft.extensions.logging.azureappservicesloggerfactoryextensions.addazurewebappdiagnostics) dodać dostawców rejestrowania diagnostycznego usługi Azure App Service w `Microsoft.Extensions.Logging.AzureAppServices` pakietu.
 * [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices/) zawiera implementacje rejestratora do obsługi dzienników diagnostycznych usługi Azure App Service i przesyłanie strumieniowe funkcji dzienników.
 
-Jeśli przeznaczonych dla platformy .NET Core i odwoływanie się do [pakiet meta Microsoft.aspnetcore.all](xref:fundamentals/metapackage), pakiety są już uwzględniane. Pakiety nie są spełnione z nowszego [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app). Jeśli przeznaczonych dla platformy .NET Framework lub odwołuje się do `Microsoft.AspNetCore.App` meta Microsoft.aspnetcore.all, odwołania się do pakietów indywidualne rejestrowanie.
+Jeśli przeznaczonych dla platformy .NET Core i odwoływanie się do [pakiet meta Microsoft.aspnetcore.all](xref:fundamentals/metapackage), poprzedni pakiety są dołączane. Pakiety nie są spełnione z [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app). Jeśli przeznaczonych dla platformy .NET Framework lub odwołuje się do `Microsoft.AspNetCore.App` meta Microsoft.aspnetcore.all, odwołania się do pakietów indywidualne rejestrowanie.
 
 ::: moniker-end
 
@@ -79,13 +79,13 @@ Dowiedz się, jak przeglądać limity przydziału i metryki, aby aplikacje i pla
 [Włączanie rejestrowania diagnostycznego dla aplikacji sieci web w usłudze Azure App Service](/azure/app-service/web-sites-enable-diagnostic-log)  
 Dowiedz się, jak włączyć i dostęp do rejestrowania diagnostycznego dla kodów stanu HTTP, żądań zakończonych niepowodzeniem i aktywności serwera sieci web.
 
-[Wprowadzenie do obsługi błędów w platformy ASP.NET Core](xref:fundamentals/error-handling)  
+<xref:fundamentals/error-handling>  
 Poznaj typowe metody obsługi błędów w aplikacji platformy ASP.NET Core.
 
-[Rozwiązywanie problemów z platformą ASP.NET Core w usłudze Azure App Service](xref:host-and-deploy/azure-apps/troubleshoot)  
+<xref:host-and-deploy/azure-apps/troubleshoot>  
 Dowiedz się, jak diagnozować problemy z wdrożeniami w usłudze Azure App Service za pomocą aplikacji platformy ASP.NET Core.
 
-[Dokumentacja typowych błędów dla usługi Azure App Service i IIS za pomocą programu ASP.NET Core](xref:host-and-deploy/azure-iis-errors-reference)  
+<xref:host-and-deploy/azure-iis-errors-reference>  
 Zobacz typowych błędów konfiguracji wdrażania dla aplikacji hostowanych przez Azure App Service/IIS za pomocą poradę dotyczącą rozwiązywania problemów.
 
 ## <a name="data-protection-key-ring-and-deployment-slots"></a>Pierścień klucz ochrony danych i miejsca wdrożenia
@@ -99,7 +99,7 @@ Po zamianie między miejscami wdrożenia, każdy system przy użyciu ochrony dan
 * Magazyn SQL
 * Pamięć podręczna redis
 
-Aby uzyskać więcej informacji, zobacz [dostawcy magazynu kluczy](xref:security/data-protection/implementation/key-storage-providers).
+Aby uzyskać więcej informacji, zobacz <xref:security/data-protection/implementation/key-storage-providers>.
 
 ## <a name="deploy-aspnet-core-preview-release-to-azure-app-service"></a>Wdrażanie platformy ASP.NET Core w wersji zapoznawczej w usłudze Azure App Service
 

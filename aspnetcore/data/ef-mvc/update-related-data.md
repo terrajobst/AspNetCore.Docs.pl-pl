@@ -3,14 +3,15 @@ title: Platforma ASP.NET Core MVC z programem EF Core — aktualizacja powiązan
 author: rick-anderson
 description: W tym samouczku będziesz aktualizowanie powiązanych danych, aktualizując pola kluczy obcych i właściwości nawigacji.
 ms.author: tdykstra
-ms.date: 03/15/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-mvc/update-related-data
-ms.openlocfilehash: ef8cb3916e5d1542e4d36cad694351462b94ed32
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 37985c945f2e4b15cfcefb0c126c3209e0bdeac4
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38126729"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090736"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---update-related-data---7-of-10"></a>Platforma ASP.NET Core MVC z programem EF Core — aktualizacja powiązanych danych - 7 10
 
@@ -290,7 +291,7 @@ Testowanie, uruchamianie aplikacji, a następnie tworząc pod kierunkiem instruk
 
 ## <a name="handling-transactions"></a>Obsługa transakcji
 
-Jak wyjaśniono w [samouczek CRUD](crud.md), platformy Entity Framework niejawnie wykonuje transakcji. Zobacz scenariusze, w którym możesz muszą większa kontrola — na przykład, jeśli chcesz dołączyć operacje wykonywane poza programem Entity Framework w ramach transakcji — [transakcji](https://docs.microsoft.com/ef/core/saving/transactions).
+Jak wyjaśniono w [samouczek CRUD](crud.md), platformy Entity Framework niejawnie wykonuje transakcji. Zobacz scenariusze, w którym możesz muszą większa kontrola — na przykład, jeśli chcesz dołączyć operacje wykonywane poza programem Entity Framework w ramach transakcji — [transakcji](/ef/core/saving/transactions).
 
 ## <a name="summary"></a>Podsumowanie
 

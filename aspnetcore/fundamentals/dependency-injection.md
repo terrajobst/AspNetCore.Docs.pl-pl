@@ -4,14 +4,14 @@ author: guardrex
 description: Dowiedz się, jak platformy ASP.NET Core implementuje wstrzykiwanie zależności i jak z niej korzystać.
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/02/2018
+ms.date: 10/24/2018
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 193bfc7651b6da6db69e8c15bd6beb82906bde0a
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: 566b85f5b71e365bd4bb0023156ac956a13b45fe
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477673"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091083"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Wstrzykiwanie zależności w programie ASP.NET Core
 
@@ -195,8 +195,8 @@ W przykładowej aplikacji `IMyDependency` wystąpienie jest wymagane i używane 
 | [Microsoft.Extensions.ObjectPool.ObjectPoolProvider](/dotnet/api/microsoft.extensions.objectpool.objectpoolprovider) | pojedyncze |
 | [Microsoft.Extensions.Options.IConfigureOptions&lt;T&gt;](/dotnet/api/microsoft.extensions.options.iconfigureoptions-1) | Przejściowe |
 | [Microsoft.Extensions.Options.IOptions&lt;T&gt;](/dotnet/api/microsoft.extensions.options.ioptions-1) | pojedyncze |
-| [System.Diagnostics.DiagnosticSource](https://docs.microsoft.com/dotnet/core/api/system.diagnostics.diagnosticsource) | pojedyncze |
-| [System.Diagnostics.DiagnosticListener](https://docs.microsoft.com/dotnet/core/api/system.diagnostics.diagnosticlistener) | pojedyncze |
+| [System.Diagnostics.DiagnosticSource](/dotnet/core/api/system.diagnostics.diagnosticsource) | pojedyncze |
+| [System.Diagnostics.DiagnosticListener](/dotnet/core/api/system.diagnostics.diagnosticlistener) | pojedyncze |
 
 Po udostępnieniu register a service (i jej usługi zależne, jeśli jest to wymagane) metody rozszerzenia kolekcji usługi Konwencji jest użycie pojedynczego `Add{SERVICE_NAME}` metodę rozszerzenia, aby zarejestrować wszystkich usług wymaganych przez tę usługę. Poniższy kod jest przykładem sposobu dodawania dodatkowych usług do kontenera przy użyciu metody rozszerzenia [AddDbContext](/dotnet/api/microsoft.extensions.dependencyinjection.entityframeworkservicecollectionextensions.adddbcontext), [AddIdentity](/dotnet/api/microsoft.extensions.dependencyinjection.identityservicecollectionextensions.addidentity), i [AddMvc](/dotnet/api/microsoft.extensions.dependencyinjection.mvcservicecollectionextensions.addmvc):
 
@@ -494,8 +494,8 @@ Poniższy przykład zastępuje wbudowanych kontenerów za pomocą [Autofac](http
 
 * Zainstaluj pakiety odpowiedniego kontenera:
 
-    * [Autofac](https://www.nuget.org/packages/Autofac/)
-    * [Autofac.Extensions.DependencyInjection](https://www.nuget.org/packages/Autofac.Extensions.DependencyInjection/)
+  * [Autofac](https://www.nuget.org/packages/Autofac/)
+  * [Autofac.Extensions.DependencyInjection](https://www.nuget.org/packages/Autofac.Extensions.DependencyInjection/)
 
 * Konfiguruj kontener w `Startup.ConfigureServices` i zwracają `IServiceProvider`:
 

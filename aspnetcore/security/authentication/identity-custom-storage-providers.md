@@ -3,14 +3,15 @@ title: Niestandardowi dostawcy magazynu dla produktu ASP.NET Core Identity
 author: ardalis
 description: Dowiedz się, jak skonfigurować niestandardowi dostawcy magazynu dla produktu ASP.NET Core Identity.
 ms.author: riande
-ms.date: 09/17/2018
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: e206cf584d92a17d61676d71abc6fb577ae63453
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: b10731261ca0c748548fcba94a229ba055d46eb5
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477621"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090839"
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>Niestandardowi dostawcy magazynu dla produktu ASP.NET Core Identity
 
@@ -24,7 +25,7 @@ Tożsamość platformy ASP.NET Core jest rozszerzalny system, co pozwala na twor
 
 Domyślnie system tożsamości platformy ASP.NET Core przechowuje informacje o użytkowniku w bazie danych programu SQL Server przy użyciu platformy Entity Framework Core. Wiele aplikacji ta metoda działa dobrze. Można jednak używać mechanizmu stanu trwałego różnych lub schemat danych. Na przykład:
 
-* Możesz użyć [Azure Table Storage](https://docs.microsoft.com/azure/storage/) lub w innym magazynie danych.
+* Możesz użyć [Azure Table Storage](/azure/storage/) lub w innym magazynie danych.
 * Tabele bazy danych ma inną strukturę. 
 * Możesz też chcieć skorzystać z różnymi danymi dostępu podejścia, takie jak [programem Dapper](https://github.com/StackExchange/Dapper). 
 
@@ -146,27 +147,27 @@ W ramach `UserStore` klasy, użyj klasy dostępu do danych, które zostały utwo
 
 ### <a name="interfaces-to-implement-when-customizing-user-store"></a>Interfejsy do implementacji podczas dostosowywania magazynu użytkowników
 
-- **Elementy IUserStore**  
+* **Elementy IUserStore**  
  [Elementy IUserStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserstore-1) interfejs jest jedyną interfejsu, należy zaimplementować w magazynie użytkownika. Definiuje metody do tworzenia, aktualizowania i pobierania użytkowników.
-- **IUserClaimStore**  
+* **IUserClaimStore**  
  [IUserClaimStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserclaimstore-1) interfejs definiuje metody wdrożenia włączania oświadczeń użytkowników. Zawiera metody dodawania, usuwania i pobierania oświadczeń użytkowników.
-- **IUserLoginStore**  
+* **IUserLoginStore**  
  [IUserLoginStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserloginstore-1) definiuje metody implementacji umożliwiające dostawcy uwierzytelniania zewnętrznego. Zawiera metody dodawania, usuwania i pobierania danych logowania użytkownika i metodę pobierania na podstawie informacji logowania użytkownika.
-- **IUserRoleStore**  
+* **IUserRoleStore**  
  [IUserRoleStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserrolestore-1) interfejs definiuje metody wdrożenia do mapowania użytkownika do roli. Zawiera metody służące do dodawania, usuwania i pobierania ról użytkownika i metodę sprawdzania, jeśli użytkownik jest przypisany do roli.
-- **IUserPasswordStore**  
+* **IUserPasswordStore**  
  [IUserPasswordStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserpasswordstore-1) interfejs definiuje metody wdrożenia można utrwalić haseł w formie skrótu. Zawiera metody do pobierania i ustawiania skrótem hasła, a metoda, która wskazuje, czy użytkownik ma ustawione hasło.
-- **IUserSecurityStampStore**  
+* **IUserSecurityStampStore**  
  [IUserSecurityStampStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iusersecuritystampstore-1) interfejs definiuje metody implementacji wskazującą, czy informacje o koncie użytkownika został zmieniony na użytek sygnatury bezpieczeństwa. Ta sygnatura jest aktualizowany, gdy użytkownik zmieni hasło, lub dodaje lub usuwa nazwy logowania. Zawiera metody do pobierania i ustawiania sygnatury bezpieczeństwa.
-- **IUserTwoFactorStore**  
+* **IUserTwoFactorStore**  
  [IUserTwoFactorStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iusertwofactorstore-1) interfejs definiuje metody wdrożenia do obsługi uwierzytelniania dwuskładnikowego. Zawiera metody do pobierania i ustawiania czy uwierzytelnianie dwuskładnikowe jest włączone dla użytkownika.
-- **IUserPhoneNumberStore**  
+* **IUserPhoneNumberStore**  
  [IUserPhoneNumberStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserphonenumberstore-1) interfejs definiuje metody implementacji przechowywania numerów telefonów użytkownika. Zawiera metody do pobierania i ustawiania numeru telefonu i tego, czy numer telefonu został potwierdzony.
-- **IUserEmailStore**  
+* **IUserEmailStore**  
  [IUserEmailStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuseremailstore-1) interfejs definiuje metody implementacji przechowywania adresów e-mail użytkownika. Zawiera metody do pobierania i ustawiania adresu e-mail i tego, czy adres e-mail został potwierdzony.
-- **IUserLockoutStore**  
+* **IUserLockoutStore**  
  [IUserLockoutStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserlockoutstore-1) interfejs definiuje metody implementacji przechowywania informacji na temat blokowania kont. Zawiera metody do śledzenia nieudanych prób dostępu i blokady.
-- **IQueryableUserStore**  
+* **IQueryableUserStore**  
  [IQueryableUserStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iqueryableuserstore-1) interfejs definiuje członków, możesz wdrożyć w celu zapewnienia magazynu użytkowników z obsługą zapytań.
 
 Implementuje się interfejsy, które są potrzebne w Twojej aplikacji. Na przykład:
@@ -199,9 +200,9 @@ Oto przykład klasy roli:
 
 Możesz utworzyć `RoleStore` klasę, która zapewnia metody wszystkie operacje na danych w ramach ról. Ta klasa jest odpowiednikiem [elemencie RoleStore&lt;element TRole&gt; ](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.rolestore-1) klasy. W `RoleStore` klasy należy zaimplementować `IRoleStore<TRole>` i opcjonalnie `IQueryableRoleStore<TRole>` interfejsu.
 
-- **IRoleStore&lt;TRole&gt;**  
+* **IRoleStore&lt;TRole&gt;**  
  [Interfejs IRoleStore&lt;element TRole&gt; ](/dotnet/api/microsoft.aspnetcore.identity.irolestore-1) interfejs definiuje metody służące do zaimplementowania w klasie magazynu ról. Zawiera ona metody tworzenia, aktualizowania i pobierania ról.
-- **RoleStore&lt;TRole&gt;**  
+* **RoleStore&lt;TRole&gt;**  
  Aby dostosować `RoleStore`, Utwórz klasę, która implementuje `IRoleStore<TRole>` interfejsu. 
 
 ## <a name="reconfigure-app-to-use-a-new-storage-provider"></a>Ponownie skonfigurować aplikację do używania nowego dostawcę magazynu
@@ -237,5 +238,5 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="references"></a>Odwołania
 
-- [Niestandardowi dostawcy magazynu dla produktu ASP.NET Identity 4.x](/aspnet/identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity)
-- [Tożsamości platformy ASP.NET Core](https://github.com/aspnet/identity) — to repozytorium zawiera linki do społeczności utrzymywane dostawców magazynu.
+* [Niestandardowi dostawcy magazynu dla produktu ASP.NET Identity 4.x](/aspnet/identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity)
+* [Tożsamości platformy ASP.NET Core](https://github.com/aspnet/identity) &ndash; to repozytorium zawiera linki do społeczności utrzymywane dostawców magazynu.
