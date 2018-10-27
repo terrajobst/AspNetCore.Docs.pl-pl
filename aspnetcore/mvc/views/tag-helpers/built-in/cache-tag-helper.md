@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/10/2018
 uid: mvc/views/tag-helpers/builtin-th/cache-tag-helper
-ms.openlocfilehash: 7d64c500168166b0a7a29d5b92473726d5a9f49a
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: 2590682755721a4bb14902b9fe7138a3bff56d31
+ms.sourcegitcommit: 54655f1e1abf0b64d19506334d94cfdb0caf55f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49325344"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50148814"
 ---
 # <a name="cache-tag-helper-in-aspnet-core-mvc"></a>Pomocnik tagu w programie ASP.NET Core MVC pamięci podręcznej
 
@@ -119,7 +119,7 @@ Poniższy przykład monitoruje wartość nagłówka `User-Agent`. Przykład bufo
 | -------------- | -------------------- |
 | String         | `Make`, `Make,Model` |
 
-`vary-by-query` akceptuje rozdzielaną przecinkami listę wartości nagłówka, które wyzwalać odświeżanie pamięci podręcznej po zmianie wartości nagłówka.
+`vary-by-query` akceptuje rozdzielaną przecinkami listę <xref:Microsoft.AspNetCore.Http.IQueryCollection.Keys*> w ciągu zapytania (<xref:Microsoft.AspNetCore.Http.HttpRequest.Query*>) który wyzwolić odświeżanie pamięci podręcznej w przypadku wartości dowolnych zmian klucza na liście.
 
 Poniższy przykład monitoruje wartości `Make` i `Model`. Przykład buforuje zawartość dla każdego innego `Make` i `Model` przesłanym do serwera sieci web:
 

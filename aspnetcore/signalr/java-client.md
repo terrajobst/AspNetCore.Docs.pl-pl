@@ -7,12 +7,12 @@ ms.author: mimengis
 ms.custom: mvc
 ms.date: 10/18/2018
 uid: signalr/java-client
-ms.openlocfilehash: 77ea338f08b1986e69ba8ef1578c4cfe01a310de
-ms.sourcegitcommit: ce6b6792c650708e92cdea051a5d166c0708c7c0
+ms.openlocfilehash: 3d2cfe5f58cc41741512c68cebbbc90e8f714cba
+ms.sourcegitcommit: 54655f1e1abf0b64d19506334d94cfdb0caf55f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652309"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50148788"
 ---
 # <a name="aspnet-core-signalr-java-client"></a>Klienta programu ASP.NET Core SignalR w języku Java
 
@@ -85,7 +85,7 @@ Jest to wersja zapoznawcza klienta Java. Niektóre funkcje nie są obsługiwane:
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Dokumentacja interfejsu API języka Java](/java/api/com.microsoft.aspnet.signalr?view=aspnet-signalr-java)
+* [Dokumentacja interfejsów API języka Java](/java/api/com.microsoft.signalr?view=aspnet-signalr-java)
 * <xref:signalr/hubs>
 * <xref:signalr/javascript-client>
 * <xref:signalr/publish-to-azure-web-app>

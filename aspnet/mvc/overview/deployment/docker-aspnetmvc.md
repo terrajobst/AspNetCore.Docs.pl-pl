@@ -7,12 +7,12 @@ author: BillWagner
 ms.author: wiwagn
 ms.date: 02/01/2017
 ms.assetid: c9f1d52c-b4bd-4b5d-b7f9-8f9ceaf778c4
-ms.openlocfilehash: 2e7b2a2e9d915aec0814def56daab860e1efa8af
-ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
+ms.openlocfilehash: b3eb643daf230336ce5def96007b6096f86390e6
+ms.sourcegitcommit: 54655f1e1abf0b64d19506334d94cfdb0caf55f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49348419"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50148944"
 ---
 # <a name="migrating-aspnet-mvc-applications-to-windows-containers"></a>Migrowanie aplikacji ASP.NET MVC do kontenerów systemu Windows
 
@@ -139,7 +139,7 @@ docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" randomanswers
 > Niektóre programy sieci VPN lub serwer proxy może uniemożliwić przejście do witryny.
 > Można tymczasowo wyłączyć, aby upewnić się, że kontener działa.
 
-Zawiera katalog przykładu w usłudze GitHub [skrypt programu PowerShell](https://github.com/dotnet/docs/tree/master/samples/framework/docker/MVCRandomAnswerGenerator/run.ps1) , który jest wykonywany tych poleceń dla Ciebie. Otwórz okno programu PowerShell, zmień katalog na katalog rozwiązania i wpisz:
+Zawiera katalog przykładu w usłudze GitHub [skrypt programu PowerShell](https://github.com/dotnet/samples/blob/master/framework/docker/MVCRandomAnswerGenerator/run.ps1) , który jest wykonywany tych poleceń dla Ciebie. Otwórz okno programu PowerShell, zmień katalog na katalog rozwiązania i wpisz:
 
 ```console
 ./run.ps1

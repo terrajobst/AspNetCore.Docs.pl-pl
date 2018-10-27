@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: host-and-deploy/visual-studio-publish-profiles
-ms.openlocfilehash: 4de92ba17e678eed1e95eacac7f9ca6578aa20c5
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 3e626f99b06b0343360d6c46447e357890433dda
+ms.sourcegitcommit: 54655f1e1abf0b64d19506334d94cfdb0caf55f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090397"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50148931"
 ---
 # <a name="visual-studio-publish-profiles-for-aspnet-core-app-deployment"></a>Program Visual Studio publikowania profile na potrzeby wdrażania aplikacji platformy ASP.NET Core
 
@@ -49,7 +49,7 @@ Następujący plik projektu został utworzony za pomocą polecenia `dotnet new m
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.5" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.9" />
   </ItemGroup>
 
 </Project>

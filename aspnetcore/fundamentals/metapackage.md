@@ -5,14 +5,14 @@ description: Pakiet meta Microsoft.aspnetcore.all nie jest zalecane dla platform
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 10/25/2018
 uid: fundamentals/metapackage
-ms.openlocfilehash: f78684cb31976f976aec5e1773bcc728dfecc82e
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: d95bafd412969bb8db38499bd2ff01af510d872c
+ms.sourcegitcommit: 54655f1e1abf0b64d19506334d94cfdb0caf55f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090709"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50148853"
 ---
 # <a name="microsoftaspnetcoreall-metapackage-for-aspnet-core-20"></a>Pakiet meta Microsoft.aspnetcore.all dla programu ASP.NET Core 2.0
 
@@ -37,13 +37,31 @@ Aby usunąć pakiety, które nie są używane, można użyć procesu przycinania
 
 Następujące *.csproj* pliku odwołania `Microsoft.AspNetCore.All` meta Microsoft.aspnetcore.all dla platformy ASP.NET Core:
 
-[!code-xml[](metapackage/samples/Metapackage.All.Example.csproj?highlight=6)]
+[!code-xml[](metapackage/samples/Metapackage.All.Example.csproj?highlight=8)]
+
+::: moniker range=">= aspnetcore-2.1"
+
+## <a name="implicit-versioning"></a>Niejawne przechowywania wersji
+
+W programie ASP.NET Core 2.1 lub nowszej, możesz określić `Microsoft.AspNetCore.All` odwołania, które bez wersji pakietu. Jeśli wersja nie jest określona, niejawne wersja jest określona przez zestaw SDK (`Microsoft.NET.Sdk.Web`). Firma Microsoft zaleca, opierając się na niejawne wersji określony przez zestaw SDK i nie zostały jawnie ustawienie numeru wersji na odwołanie do pakietu. Jeśli masz pytania na temat tego podejścia, pozostaw komentarz GitHub na [dyskusję odnośnie do wersji niejawne Microsoft.AspNetCore.App](https://github.com/aspnet/Docs/issues/6430).
+
+Jest ustawiona wersja niejawne `major.minor.0` przenośne aplikacji. Mechanizm przodu udostępnionej platformy uruchamia aplikację na najnowszej zgodnej wersji spośród zainstalowanych platform udostępnionych. Aby zagwarantować, że ta sama wersja jest używana podczas tworzenia, testowania i produkcji, upewnij się, że tę samą wersję udostępnionego framework jest zainstalowana we wszystkich środowiskach. Dla aplikacji niezależna numer wersji niejawne został ustawiony na `major.minor.patch` udostępnionego Framework powiązane zainstalowanego zestawu SDK.
+
+Określenie numeru wersji na `Microsoft.AspNetCore.All` jest odwołanie do pakietu **nie** gwarantuje daną wersję udostępnionego framework jest wybierany. Na przykład załóżmy, że wersja "2.1.1" jest określona, ale zainstalowano "2.1.3". W takim przypadku aplikacja będzie używać "2.1.3". Chociaż nie jest to zalecane, możesz wyłączyć przenoszenia do przodu (poprawki i/lub pomocnicze). Aby uzyskać więcej informacji na temat hosta dotnet przodu i konfigurowania jej zachowanie zobacz [dotnet hosta przenoszenia do przodu](https://github.com/dotnet/core-setup/blob/master/Documentation/design-docs/roll-forward-on-no-candidate-fx.md).
+
+Zestaw SDK projektu musi być równa `Microsoft.NET.Sdk.Web` w pliku projektu użyć niejawnego wersji `Microsoft.AspNetCore.All`. Gdy `Microsoft.NET.Sdk` zestawu SDK jest określony (`<Project Sdk="Microsoft.NET.Sdk">` u góry pliku projektu), jest generowane ostrzeżenie następujące:
+
+*Ostrzeżenie NU1604: Zależność projektu pakiet nie zawiera włącznie dolną granicę. Uwzględnij dolną granicę w wersji zależności, aby zapewnić przywracania na poziomie wyniki.*
+
+Jest to znany problem z zestawu SDK programu .NET Core 2.1 i zostanie rozwiązany w .NET Core 2.2 SDK.
+
+::: moniker-end
 
 <a name="migrate"></a>
 
 ## <a name="migrating-from-microsoftaspnetcoreall-to-microsoftaspnetcoreapp"></a>Migrowanie z pakiet do Microsoft.AspNetCore.App
 
-Następujące pakiety są objęte `Microsoft.AspNetCore.All` , ale nie `Microsoft.AspNetCore.App` pakietu. 
+Następujące pakiety są objęte `Microsoft.AspNetCore.All` , ale nie `Microsoft.AspNetCore.App` pakietu.
 
 * `Microsoft.AspNetCore.ApplicationInsights.HostingStartup`
 * `Microsoft.AspNetCore.AzureAppServices.HostingStartup`
