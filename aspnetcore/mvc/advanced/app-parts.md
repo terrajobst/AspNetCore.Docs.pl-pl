@@ -5,16 +5,16 @@ description: Dowiedz się, jak za pomocą części aplikacji, które abstrakcje 
 ms.author: riande
 ms.date: 01/04/2017
 uid: mvc/extensibility/app-parts
-ms.openlocfilehash: 41ae3fd4059844698ded4551dcedc8933ab8cff6
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: c0d3ad6bcdf2e56df915b176b28759c59e76faf6
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011316"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50206566"
 ---
 # <a name="application-parts-in-aspnet-core"></a>Części aplikacji w programie ASP.NET Core
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 *Aplikacji część* jest klasą abstrakcyjną nad zasobami aplikacji, z którego MVC funkcjami, jak kontrolerów, składniki widoków lub może zostać odnalezionych pomocników tagów. Jednym z przykładów aplikacji, część jest AssemblyPart, który hermetyzuje odwołania do zestawu i ujawnia typy i odwołania do kompilacji. *Funkcja dostawców* działają z części aplikacji, aby wypełnić funkcje aplikacji ASP.NET Core MVC. Głównie w przypadku części aplikacji jest umożliwienie skonfiguruj aplikację, aby odnaleźć (lub uniknąć ładowanie) funkcjami MVC z zestawu.
 

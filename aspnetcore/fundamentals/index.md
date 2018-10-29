@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/25/2018
 uid: fundamentals/index
-ms.openlocfilehash: 56344315acc59003248ffaf1e61455b94a93a545
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: ab140051648c1640b3c4f382bfd8201c5c0c2039
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090722"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207475"
 ---
 # <a name="aspnet-core-fundamentals"></a>Podstawy platformy ASP.NET Core
 
@@ -159,36 +159,6 @@ Platforma ASP.NET Core oferuje scenariusze routing żądań aplikacji do obsług
 
 Aby uzyskać więcej informacji, zobacz <xref:fundamentals/routing>.
 
-## <a name="file-providers"></a>Dostawcy plików
-
-Platforma ASP.NET Core przenosi dostępu do systemu plików przy użyciu dostawcy plików, która zapewnia wspólny interfejs do pracy z plikami na wielu platformach.
-
-Aby uzyskać więcej informacji, zobacz <xref:fundamentals/file-providers>.
-
-## <a name="static-files"></a>Pliki statyczne
-
-Statyczne pliki oprogramowanie pośredniczące pełni plików statycznych, takich jak pliki HTML, CSS, obrazów i JavaScript.
-
-Aby uzyskać więcej informacji, zobacz <xref:fundamentals/static-files>.
-
-## <a name="session-and-app-state"></a>Stan sesji i aplikacji
-
-Platforma ASP.NET Core oferuje kilka metod, aby zachować stan sesji i aplikacji, gdy użytkownik przegląda aplikacji sieci web.
-
-Aby uzyskać więcej informacji, zobacz <xref:fundamentals/app-state>.
-
-## <a name="globalization-and-localization"></a>Globalizacja i lokalizacja
-
-Tworzenie wielojęzycznych witryny sieci Web za pomocą programu ASP.NET Core umożliwia witryny dotrzeć do większej liczby osób. Platforma ASP.NET Core oferuje usługi oraz oprogramowanie pośredniczące lokalizacja zawartości do różnych języków i kultur.
-
-Aby uzyskać więcej informacji, zobacz <xref:fundamentals/localization>.
-
-## <a name="request-features"></a>Funkcje na żądanie
-
-Szczegóły implementacji serwera sieci Web związanych z żądań HTTP i odpowiedzi są zdefiniowane w interfejsach. Te interfejsy są używane przez implementacje serwera i oprogramowania pośredniczącego do tworzenia i modyfikowania potoku hostingu aplikacji.
-
-Aby uzyskać więcej informacji, zobacz <xref:fundamentals/request-features>.
-
 ## <a name="background-tasks"></a>Zadania w tle
 
 Zadania w tle są implementowane jako *usługi hostowane*. Usługa hostowana jest klasą z logiką zadań tła, który implementuje <xref:Microsoft.Extensions.Hosting.IHostedService> interfejsu.
@@ -200,43 +170,3 @@ Aby uzyskać więcej informacji, zobacz <xref:fundamentals/host/hosted-services>
 `HttpContext` podczas przetwarzania żądań ze stronami Razor i MVC jest automatycznie dostępny. W sytuacjach gdzie `HttpContext` nie jest łatwo dostępne, możesz uzyskać dostęp `HttpContext` za pośrednictwem <xref:Microsoft.AspNetCore.Http.IHttpContextAccessor> interfejsu i jego domyślna implementacja <xref:Microsoft.AspNetCore.Http.HttpContextAccessor>.
 
 Aby uzyskać więcej informacji, zobacz <xref:fundamentals/httpcontext>.
-
-## <a name="websockets"></a>Funkcja WebSockets
-
-[WebSocket](https://wikipedia.org/wiki/WebSocket) to protokół, który umożliwia kanały komunikacja dwukierunkowa trwałego połączenia protokołu TCP. Jest używana w przypadku aplikacji, takie jak rozmowy, giełdowych, gry i dowolnym miejscu działanie funkcji w czasie rzeczywistym w aplikacji sieci web. Platforma ASP.NET Core obsługuje scenariusze gniazda sieci web.
-
-Aby uzyskać więcej informacji, zobacz <xref:fundamentals/websockets>.
-
-::: moniker range=">= aspnetcore-2.1"
-
-## <a name="microsoftaspnetcoreapp-metapackage"></a>Microsoft.AspNetCore.App meta Microsoft.aspnetcore.all
-
-[Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App/) meta Microsoft.aspnetcore.all upraszcza zarządzanie pakietami.
-
-Aby uzyskać więcej informacji, zobacz <xref:fundamentals/metapackage-app>.
-
-::: moniker-end
-
-::: moniker range="= aspnetcore-2.0"
-
-## <a name="microsoftaspnetcoreall-metapackage"></a>Microsoft.AspNetCore.All metapackage
-
-[Pakiet](https://www.nuget.org/packages/Microsoft.AspNetCore.All) meta Microsoft.aspnetcore.all dla platformy ASP.NET Core obejmuje:
-
-* Wszystkie obsługiwane pakiety przez zespół programu ASP.NET Core.
-* We wszystkich obsługiwanych pakietów w kolejności od platformy Entity Framework Core.
-* Zależności wewnętrzne i firm 3 używane przez program ASP.NET Core i Entity Framework Core.
-
-Aby uzyskać więcej informacji, zobacz <xref:fundamentals/metapackage>.
-
-::: moniker-end
-
-## <a name="net-core-vs-net-framework-runtime"></a>Środowisko uruchomieniowe programu .NET core i .NET Framework
-
-Aplikacji ASP.NET Core mogą określać docelową środowisko uruchomieniowe platformy .NET Core lub .NET Framework.
-
-Aby uzyskać więcej informacji, zobacz [wybór między .NET Core i .NET Framework](/dotnet/articles/standard/choosing-core-framework-server).
-
-## <a name="choose-between-aspnet-core-and-aspnet"></a>Wybieranie między platformą ASP.NET Core i ASP.NET
-
-Aby uzyskać więcej informacji na temat wybierania między platformą ASP.NET Core i ASP.NET, zobacz <xref:fundamentals/choose-between-aspnet-and-aspnetcore>.

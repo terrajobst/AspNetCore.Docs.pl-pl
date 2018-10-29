@@ -1,37 +1,37 @@
 ---
-title: Skonfiguruj przenośne obiektu lokalizacji w ASP.NET Core
+title: Konfigurowanie lokalizacji obiektu przenośnego w programie ASP.NET Core
 author: sebastienros
-description: W tym artykule przedstawiono pliki Portable obiektów oraz opisano kroki dotyczące korzystania z nich w aplikacji platformy ASP.NET Core Framework Orchard Core.
+description: Ten artykuł wprowadza plików przenośnych obiektów i opisano kroki używania ich w aplikacji ASP.NET Core przy użyciu Orchard Core framework.
 ms.author: scaddie
 ms.date: 09/26/2017
 uid: fundamentals/portable-object-localization
-ms.openlocfilehash: 0baa8dbb1f42cdc30185108fe90937f89d0d42bf
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: c9f892f5a886d7167b4705595ed2277279495201
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36275788"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207631"
 ---
-# <a name="configure-portable-object-localization-in-aspnet-core"></a>Skonfiguruj przenośne obiektu lokalizacji w ASP.NET Core
+# <a name="configure-portable-object-localization-in-aspnet-core"></a>Konfigurowanie lokalizacji obiektu przenośnego w programie ASP.NET Core
 
 Przez [OK Sébastien](https://github.com/sebastienros) i [Scott Addie](https://twitter.com/Scott_Addie)
 
-W tym artykule przedstawiono kroki dotyczące korzystania z plików przenośnych obiektu (PO) w aplikacji platformy ASP.NET Core z [Orchard Core](https://github.com/OrchardCMS/OrchardCore) framework.
+W tym artykule opisano kolejne kroki dotyczące korzystania z plików obiektu przenośnego (PO) w aplikacji platformy ASP.NET Core za pomocą [Orchard Core](https://github.com/OrchardCMS/OrchardCore) framework.
 
-**Uwaga:** Orchard Core nie jest produktem firmy Microsoft. W rezultacie Microsoft nie zapewnia obsługi dla tej funkcji.
+**Uwaga:** Orchard Core nie jest produktem firmy Microsoft. W związku z tym Microsoft nie obsługuje tej funkcji.
 
-[Wyświetlić lub pobrać przykładowy kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/localization/sample/POLocalization) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/localization/sample/POLocalization) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
-## <a name="what-is-a-po-file"></a>Co to jest plik PO?
+## <a name="what-is-a-po-file"></a>Co to jest plik zamówienia zakupu?
 
-PO pliki są dystrybuowane jako pliki tekstowe zawierający przetłumaczone ciągi dla danego języka. Niektóre zalety funkcji zamiast plikach Arządzania *.resx* pliki obejmują:
-- Pliki PO obsługują określania liczby mnogiej; *.resx* plików nie obsługuje określania liczby mnogiej.
-- PO pliki nie są kompilowane jak *.resx* plików. W efekcie specjalne kroki narzędzi i kompilacji nie są wymagane.
-- Pliki PO działają prawidłowo w przypadku współpracy online narzędzia do edycji.
+Pliki PO są dystrybuowane jako pliki tekstowe, zawierający przetłumaczone ciągi dla danego języka. Niektóre zalety zamiast plików PO *resx* pliki obejmują:
+- Pliki PO obsługują pluralizacja; *resx* pliki nie obsługują pluralizacja.
+- Pliki zamówienia zakupu nie są kompilowane, takich jak *resx* plików. W efekcie wyspecjalizowane narzędzia i kompilacji kroki nie są wymagane.
+- Pliki PO działać dobrze współpracy online narzędzia do edycji.
 
 ### <a name="example"></a>Przykład
 
-Oto przykładowy plik PO zawierających Translacja dwa ciągi w języku francuskim, łącznie z jednego z jego mnogiej:
+Poniżej przedstawiono przykładowy plik PO zawierających Translacja dwa ciągi w języku francuskim, łącznie z jego liczba mnoga:
 
 *FR.po*
 
@@ -49,27 +49,27 @@ msgstr[1] "Les adresses email sont \"{0}\""
 
 W tym przykładzie używa następującej składni:
 
-- `#:`: Komentarz wskazujący kontekście ciąg, który ma zostać poddany translacji. Tych samych parametrach może zostać przetłumaczone inaczej w zależności od tego, gdzie jest używany.
-- `msgid`: Niezrozumiały ciąg.
-- `msgstr`: Przetłumaczonego ciąg.
+- `#:`: Komentarz wskazujący kontekście ciąg, który ma zostać poddany translacji. Te same parametry mogą być tłumaczone różnie w zależności od tego, gdzie jest on używany.
+- `msgid`Nieprzetłumaczonych ciągów.
+- `msgstr`: Przetłumaczonego ciągu.
 
-W przypadku określania liczby mnogiej pomocy technicznej można zdefiniować więcej wpisów.
+W przypadku obsługi pluralizacja można zdefiniować więcej wpisów.
 
-- `msgid_plural`: Niezrozumiały mnogiej ciąg.
-- `msgstr[0]`: Przetłumaczonego ciąg w przypadku 0.
-- `msgstr[N]`: Przetłumaczonego ciąg wielkość N.
+- `msgid_plural`Ciąg, liczba mnoga nieprzetłumaczony.
+- `msgstr[0]`: Przetłumaczonego ciągu w przypadku 0.
+- `msgstr[N]`: Przetłumaczonego ciągu przypadków N.
 
-Specyfikacja pliku PO można znaleźć [tutaj](https://www.gnu.org/savannah-checkouts/gnu/gettext/manual/html_node/PO-Files.html).
+Specyfikacja pliku zamówienia zakupu można znaleźć [tutaj](https://www.gnu.org/savannah-checkouts/gnu/gettext/manual/html_node/PO-Files.html).
 
-## <a name="configuring-po-file-support-in-aspnet-core"></a>Konfigurowanie obsługi plików PO w ASP.NET Core
+## <a name="configuring-po-file-support-in-aspnet-core"></a>Konfigurowanie obsługi plików zamówienia zakupu w programie ASP.NET Core
 
-Ten przykład jest oparty na aplikacji ASP.NET Core MVC wygenerowany na podstawie szablonu projektu programu Visual Studio 2017 r.
+Ten przykład jest oparty na aplikacji ASP.NET Core MVC generowany na podstawie szablonu projektu programu Visual Studio 2017.
 
 ### <a name="referencing-the-package"></a>Odwołanie do pakietu
 
-Dodaj odwołanie do `OrchardCore.Localization.Core` pakietu NuGet. Jest ona dostępna na [MyGet](https://www.myget.org/) w źródle następujących pakietów: https://www.myget.org/F/orchardcore-preview/api/v3/index.json
+Dodaj odwołanie do `OrchardCore.Localization.Core` pakietu NuGet. Jest ona dostępna na [MyGet](https://www.myget.org/) następujące źródła pakietu: https://www.myget.org/F/orchardcore-preview/api/v3/index.json
 
-*.Csproj* plik zawiera teraz wiersz podobny do następującego (numer wersji może się różnić):
+*.Csproj* plik zawiera teraz linię podobne do następujących (numer wersji może być inna):
 
 [!code-xml[](localization/sample/POLocalization/POLocalization.csproj?range=9)]
 
@@ -79,39 +79,39 @@ Dodaj wymagane usługi, aby `ConfigureServices` metody *Startup.cs*:
 
 [!code-csharp[](localization/sample/POLocalization/Startup.cs?name=snippet_ConfigureServices&highlight=4-21)]
 
-Dodaj wymagane oprogramowanie pośredniczące o konieczności `Configure` metody *Startup.cs*:
+Dodaj wymagane oprogramowanie pośredniczące `Configure` metody *Startup.cs*:
 
 [!code-csharp[](localization/sample/POLocalization/Startup.cs?name=snippet_Configure&highlight=15)]
 
-Dodaj następujący kod do wyboru widoku Razor. *About.cshtml* jest używany w tym przykładzie.
+Dodaj następujący kod do wybranego widoku Razor. *About.cshtml* jest używany w tym przykładzie.
 
 [!code-cshtml[](localization/sample/POLocalization/Views/Home/About.cshtml)]
 
-`IViewLocalizer` Wystąpienia jest wprowadzonym i umożliwia tłumaczenie tekstu "Hello world!".
+`IViewLocalizer` Wystąpienie jest wprowadzony i umożliwia tłumaczenie tekstu "Hello world!".
 
-### <a name="creating-a-po-file"></a>Tworzenie pliku PO
+### <a name="creating-a-po-file"></a>Tworzenie pliku zamówienia zakupu
 
-Utwórz plik o nazwie  *<culture code>po oraz pakiety* w folderze głównym aplikacji. W tym przykładzie nazwa pliku jest *fr.po* ponieważ jest używana w języku francuskim:
+Utwórz plik o nazwie  *<culture code>je* w folderze głównym aplikacji. W tym przykładzie nazwa pliku jest *fr.po* ponieważ jest używana w języku francuskim:
 
 [!code-text[](localization/sample/POLocalization/fr.po)]
 
-Ten plik z rozszerzeniem zarówno ciąg do tłumaczenia ciąg translacji francuski. Tłumaczeń przywrócić ich Kultura nadrzędna, jeśli to konieczne. W tym przykładzie *fr.po* plik jest używany, jeśli jest żądaną kulturę `fr-FR` lub `fr-CA`.
+Ten plik przechowuje ciągu do tłumaczenia i ciąg przetłumaczone francuski. Tłumaczenia przywrócić ich nadrzędnego kultury, jeśli to konieczne. W tym przykładzie *fr.po* plik jest używany, jeśli jest żądaną kulturę `fr-FR` lub `fr-CA`.
 
 ### <a name="testing-the-application"></a>Testowanie aplikacji
 
-Uruchom aplikację, a następnie przejdź do adresu URL `/Home/About`. Tekst **Witaj świecie!** zostanie wyświetlona.
+Uruchom aplikację i przejdź do adresu URL `/Home/About`. Tekst **Witaj świecie!** zostanie wyświetlona.
 
 Przejdź do adresu URL `/Home/About?culture=fr-FR`. Tekst **Bonjour le monde!** zostanie wyświetlona.
 
-## <a name="pluralization"></a>Określania liczby mnogiej
+## <a name="pluralization"></a>Pluralizacja
 
-Pliki PO obsługują formularze określania liczby mnogiej, co jest przydatne, gdy te same parametry musi zostać przetłumaczone inaczej w zależności od mają kardynalność. To zadanie jest nawiązywane skomplikowane faktem, że każdego języka definiuje reguły niestandardowe, aby wybrać ciąg, który ma być używany w oparciu kardynalność.
+Pliki PO obsługuje pluralizacja formularzy, co jest przydatne, gdy ten sam ciąg musi być tłumaczony inaczej w zależności od kardynalności. To zadanie wykonywane skomplikowane faktem, że każdy język definiuje reguły niestandardowe, aby wybrać, które parametry do użycia oparte na kardynalność.
 
-Pakiet lokalizacja Orchard udostępnia interfejs API do wywoływania automatycznie tych różnych w liczbie mnogiej.
+Pakiet lokalizacji witryny systemu Orchard zapewnia interfejs API do wywołania tych różnych postaci mnogiej automatycznie.
 
-### <a name="creating-pluralization-po-files"></a>Tworzenie określania liczby mnogiej zamówienia zakupu plików
+### <a name="creating-pluralization-po-files"></a>Tworzenie pluralizacja plików zamówienia zakupu
 
-Dodaj następującą zawartość do wymienione wcześniej *fr.po* pliku:
+Dodaj następującą zawartość do wymienionych wcześniej *fr.po* pliku:
 
 ```text
 msgid "There is one item."
@@ -120,19 +120,19 @@ msgstr[0] "Il y a un élément."
 msgstr[1] "Il y a {0} éléments."
 ```
 
-Zobacz [co to jest plik PO?](#what-is-a-po-file) wyjaśnienie reprezentuje każdego wpisu w tym przykładzie.
+Zobacz [co to jest plik PO?](#what-is-a-po-file) wyjaśnienie co reprezentuje każdy wpis, w tym przykładzie.
 
-### <a name="adding-a-language-using-different-pluralization-forms"></a>Dodawanie języka przy użyciu różnych określania liczby mnogiej formularzy
+### <a name="adding-a-language-using-different-pluralization-forms"></a>Dodawanie języka przy użyciu różnych pluralizacja formularzy
 
-Ciągi w języku angielskim i francuskim były używane w poprzednim przykładzie. Angielskim i francuskim ma tylko dwie formy określania liczby mnogiej i udostępniać te same zasady formularza, czyli że Kardynalność jednej jest mapowany na pierwszym mnogiej. Inne Kardynalność jest mapowana na drugi mnogiej.
+Ciągi języka angielskiego i francuskiego zostały użyte w poprzednim przykładzie. Języka angielskiego i francuskiego ma tylko dwie formy pluralizacja i udostępniać te same zasady formularza, czyli czy Kardynalność jednego jest mapowane na pierwszym mnogiej. Inne Kardynalność jest zamapowana na drugim mnogiej.
 
-Nie wszystkie języki mają te same zasady stosowania. Jest to zilustrowane z czeski języka, który ma trzy w liczbie mnogiej.
+Nie wszystkie języki udostępniać te same reguły. Jest to zilustrowane w języku Czeskiej, która ma trzy w liczbie mnogiej.
 
-Utwórz `cs.po` plików w następujący sposób, zwracając uwagę, jak określania liczby mnogiej wymaga trzech różnych tłumaczenia:
+Utwórz `cs.po` pliku w następujący sposób i zwróć uwagę, jak pluralizacja wymaga trzech różnych tłumaczeń:
 
 [!code-text[](localization/sample/POLocalization/cs.po)]
 
-Aby zaakceptować lokalizacje czeski, Dodaj `"cs"` do listy obsługiwanych kultur w `ConfigureServices` metody:
+Aby zaakceptować lokalizacje Czeskiej, Dodaj `"cs"` do listy obsługiwanych kultur w `ConfigureServices` metody:
 
 ```csharp
 var supportedCultures = new List<CultureInfo>
@@ -145,7 +145,7 @@ var supportedCultures = new List<CultureInfo>
 };
 ```
 
-Edytuj *Views/Home/About.cshtml* pliku do renderowania zlokalizowanego, liczbie mnogiej ciągów dla kilku cardinalities:
+Edytuj *Views/Home/About.cshtml* pliku do renderowania ciągi zlokalizowane, plural dla kilku kardynalności:
 
 ```cshtml
 <p>@Localizer.Plural(1, "There is one item.", "There are {0} items.")</p>
@@ -153,11 +153,11 @@ Edytuj *Views/Home/About.cshtml* pliku do renderowania zlokalizowanego, liczbie 
 <p>@Localizer.Plural(5, "There is one item.", "There are {0} items.")</p>
 ```
 
-**Uwaga:** w scenariuszu rzeczywistych zmiennej będzie służyć do reprezentowania licznika. W tym miejscu możemy Powtórz ten sam kod z trzech różnych wartości do udostępnienia bardzo konkretnym przypadku.
+**Uwaga:** w rzeczywistym scenariuszu, zmienna będzie używana do reprezentowania liczby. W tym miejscu możemy Powtórz ten sam kod za pomocą trzy różne wartości, aby ujawnić bardzo szczegółowych przypadków.
 
-Po przełączeniu kultury, zostanie wyświetlony poniżej:
+Po przełączeniu kultur, zostaną wyświetlone następujące czynności:
 
-Dla `/Home/About`:
+Dla programów `/Home/About`:
 
 ```html
 There is one item.
@@ -165,7 +165,7 @@ There are 2 items.
 There are 5 items.
 ```
 
-Dla `/Home/About?culture=fr`:
+Dla programów `/Home/About?culture=fr`:
 
 ```html
 Il y a un élément.
@@ -173,7 +173,7 @@ Il y a 2 éléments.
 Il y a 5 éléments.
 ```
 
-Dla `/Home/About?culture=cs`:
+Dla programów `/Home/About?culture=cs`:
 
 ```html
 Existuje jedna položka.
@@ -181,17 +181,17 @@ Existují 2 položky.
 Existuje 5 položek.
 ```
 
-Należy pamiętać, że dla kultury czeski, trzy tłumaczenia są różne. Kultur francuski i angielski udostępnianie tego samego konstrukcji dla dwóch ostatnich przetłumaczone ciągi.
+Należy pamiętać, że dla kultury Czeskiej, trzy tłumaczenia są różne. Kultury francuski i angielski udostępnianie tych samych konstrukcji dla dwóch ostatnich przetłumaczone ciągi.
 
 ## <a name="advanced-tasks"></a>Zaawansowane zadania
 
-### <a name="contextualizing-strings"></a>Ciągi kontekstem
+### <a name="contextualizing-strings"></a>Ciągi uczestnika
 
-Aplikacje często zawierają ciągi do tłumaczenia w kilku miejscach. Te same parametry mogą mieć różnych tłumaczenia w określonych lokalizacjach w aplikacji (widokami Razor lub klasa plików). Plik PO obsługuje pojęcie kontekstem pliku, który może służyć do klasyfikowania ciąg reprezentowanego. Przy użyciu kontekstu pliku, ciąg można przekonwertować różnie w zależności od kontekstu pliku (lub brak kontekstu pliku).
+Aplikacje często zawierają ciągi, które można przetłumaczyć w kilku miejscach. Te same parametry mogą mieć różnych tłumaczeń w określonych lokalizacjach w obrębie aplikacji (widokami Razor lub plików klasy). Plik PO obsługuje pojęcie kontekstu pliku, który może służyć do kategoryzowania ciągu reprezentowanego. Za pomocą kontekstu pliku, ciągu mogą być tłumaczone różnie, w zależności od kontekstu pliku (lub brak kontekstu pliku).
 
-Usługi lokalizacji PO Użyj nazwy klasy pełną lub widok, który jest używany podczas tłumaczenia ciąg. Jest to osiągane przez ustawienie wartości na `msgctxt` wpisu.
+Usług lokalizacyjnych zamówienia zakupu, użyj nazwy klasy pełną lub widok, który jest używany podczas tłumaczenia ciąg. Jest to osiągane przez ustawienie wartości na `msgctxt` wpisu.
 
-Należy wziąć pod uwagę pomocnicza dodanie do poprzedniego *fr.po* przykład. W lokalizacji widoku Razor *Views/Home/About.cshtml* można zdefiniować jako kontekst plików przez ustawienie zarezerwowanego `msgctxt` wartość wpisu:
+Należy wziąć pod uwagę pomocnicza dodanie do poprzedniego *fr.po* przykład. Widok Razor znajdujący się w *Views/Home/About.cshtml* mogą być definiowane jako kontekstu pliku przez ustawienie zarezerwowanego `msgctxt` wartość wpisu:
 
 ```text
 msgctxt "Views.Home.About"
@@ -199,28 +199,28 @@ msgid "Hello world!"
 msgstr "Bonjour le monde!"
 ```
 
-Z `msgctxt` tak ustawiona, tłumaczenie tekstu występuje podczas nawigowania do `/Home/About?culture=fr-FR`. Tłumaczenie nie występuje podczas nawigowania do `/Home/Contact?culture=fr-FR`.
+Za pomocą `msgctxt` ustawione jako takie, tłumaczenie tekstu występuje podczas przechodzenia do `/Home/About?culture=fr-FR`. Tłumaczenie nie występują w przypadku przechodzenia do `/Home/Contact?culture=fr-FR`.
 
-Nie określonego wpisu nie odpowiada z kontekstem danego pliku, mechanizm rezerwowy Orchard Core szuka odpowiedniego pliku PO bez kontekstu. Zakładając, że nie jest zdefiniowany dla kontekstu określonego pliku *Views/Home/Contact.cshtml*, nawigacyjnego do `/Home/Contact?culture=fr-FR` ładuje plik PO, takich jak:
+Nie określonego wpisu jest dopasowywany w kontekście danego pliku, mechanizm rezerwowy Orchard Core szuka pliku odpowiednią zamówienia zakupu bez kontekstu. Zakładając, że nie jest zdefiniowany dla kontekstu określonego pliku *Views/Home/Contact.cshtml*, po do `/Home/Contact?culture=fr-FR` ładuje plik zamówienia zakupu, takich jak:
 
 [!code-text[](localization/sample/POLocalization/fr.po)]
 
-### <a name="changing-the-location-of-po-files"></a>Zmiana lokalizacji plików PO
+### <a name="changing-the-location-of-po-files"></a>Zmiana lokalizacji plików zamówienia zakupu
 
-Domyślna lokalizacja plików PO można zmienić w `ConfigureServices`:
+Można zmienić domyślną lokalizację plików PO w programie `ConfigureServices`:
 
 ```csharp
 services.AddPortableObjectLocalization(options => options.ResourcesPath = "Localization");
 ```
 
-W tym przykładzie plikach Arządzania są ładowane z *lokalizacja* folderu.
+W tym przykładzie zamówienia zakupu pliki są ładowane z *lokalizacji* folderu.
 
-### <a name="implementing-a-custom-logic-for-finding-localization-files"></a>Wdrażanie niestandardowej logiki do znajdowania lokalizacji plików
+### <a name="implementing-a-custom-logic-for-finding-localization-files"></a>Implementowanie logiki niestandardowej do znajdowania lokalizacji plików
 
-Gdy wymagany jest bardziej złożonej logice można znaleźć w plikach Arządzania `OrchardCore.Localization.PortableObject.ILocalizationFileLocationProvider` interfejsu może być wdrożone i zarejestrowany jako usługa. Jest to przydatne, gdy PO pliki mogą być przechowywane w różnych lokalizacjach, lub jeśli pliki znajdują się w hierarchii folderów.
+Gdy będzie potrzebny bardziej złożonej logiki, aby zlokalizować pliki PO `OrchardCore.Localization.PortableObject.ILocalizationFileLocationProvider` interfejsu może być zaimplementowany i zarejestrowany jako usługa. Jest to przydatne, gdy pliki PO mogą być przechowywane w różnych lokalizacjach lub gdy pliki znajdują się w hierarchii folderów.
 
-### <a name="using-a-different-default-pluralized-language"></a>Przy użyciu języka różne domyślne pluralized
+### <a name="using-a-different-default-pluralized-language"></a>Za pomocą języka różne domyślne pluralized
 
-Ten pakiet zawiera `Plural` — metoda rozszerzenia, które są specyficzne dla dwóch w liczbie mnogiej. W przypadku języków wymagających więcej w liczbie mnogiej create — metoda rozszerzenia. Przy użyciu metody rozszerzenia, nie trzeba udostępnić plik dowolnej lokalizacji w języku domyślnym &mdash; oryginalnego ciągi są już dostępne bezpośrednio w kodzie.
+Ten pakiet zawiera `Plural` metodę rozszerzenia, które są specyficzne dla dwóch w liczbie mnogiej. W przypadku języków wymagających więcej w liczbie mnogiej utworzyć metodę rozszerzenia. Za pomocą metody rozszerzenia, nie należy podać dowolny plik lokalizacji dla domyślnego języka &mdash; oryginalnego ciągi są już dostępne bezpośrednio w kodzie.
 
-Można używać więcej ogólnych `Plural(int count, string[] pluralForms, params object[] arguments)` przepełnienia, które akceptuje tłumaczeń tablicy ciągów.
+Można użyć więcej ogólny `Plural(int count, string[] pluralForms, params object[] arguments)` przeciążenia, który przyjmuje tablicę ciągów, tłumaczeń.

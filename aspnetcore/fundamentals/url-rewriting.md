@@ -5,18 +5,18 @@ description: Zapoznaj się z adresem URL ponownego zapisywania adresów i przeki
 ms.author: riande
 ms.date: 08/17/2017
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: d9f33f34f75fe7bf534146c5a426335e74635018
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: 5a1891c838436467fb49ff6288587fab08201179
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49326072"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207189"
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>Adres URL ponowne napisanie oprogramowania pośredniczącego w programie ASP.NET Core
 
 Przez [Luke Latham](https://github.com/guardrex) i [Mikael Mengistu](https://github.com/mikaelm12)
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/sample/) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/sample/) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 Ponownego zapisywania adresów URL jest działaniem zmiany żądania, których adresy URL na podstawie co najmniej jeden wstępnie zdefiniowanych reguł. Ponownego zapisywania adresów URL tworzy abstrakcję między lokalizacje zasobów i ich adresów, tak, aby lokalizacje i adresy nie są ściśle powiązane. Istnieje kilka scenariuszy, w których jest przydatna ponownego zapisywania adresów URL:
 
@@ -399,9 +399,9 @@ Oprogramowanie pośredniczące obsługuje następujące zmienne serwera moduł p
 
 ### <a name="method-based-rule"></a>Reguły oparte na metodzie
 
-Użyj `Add(Action<RewriteContext> applyRule)` do zaimplementowania własnej logiki reguły w metodzie. `RewriteContext` Udostępnia `HttpContext` do użycia w metodzie. `context.Result` Określa, jak dodatkowe potok przetwarzania jest obsługiwane.
+Użyj `Add(Action<RewriteContext> applyRule)` do zaimplementowania własnej logiki reguły w metodzie. `RewriteContext` Udostępnia `HttpContext` do użycia w metodzie. `RewriteContext.Result` Określa, jak dodatkowe potok przetwarzania jest obsługiwane.
 
-| context.Result                       | Akcja                                                          |
+| `RewriteContext.Result`              | Akcja                                                          |
 | ------------------------------------ | --------------------------------------------------------------- |
 | `RuleResult.ContinueRules` (ustawienie domyślne) | Kontynuować stosowanie reguł                                         |
 | `RuleResult.EndResponse`             | Zatrzymaj stosowanie reguł i wysłania odpowiedzi                       |
@@ -437,7 +437,7 @@ Oryginalne żądanie: `/file.xml`
 
 ### <a name="irule-based-rule"></a>Na podstawie irule na podstawie reguł
 
-Użyj `Add(IRule)` do zaimplementowania własnej logiki reguły w klasie, która pochodzi od klasy `IRule`. Za pomocą `IRule` zapewnia większą elastyczność na podejście oparte na metodzie reguły. Klasy pochodne mogą obejmować konstruktora, w którym możesz przekazać parametry `ApplyRule` metody.
+Użyj `Add(IRule)` do hermetyzacji własną logiką reguły określoną w klasę, która implementuje `IRule` interfejsu. Za pomocą `IRule` zapewnia większą elastyczność na podejście oparte na metodzie reguły. Klasa doprowadzić mogą obejmować konstruktora, w którym możesz przekazać parametry `ApplyRule` metody.
 
 ::: moniker range=">= aspnetcore-2.0"
 

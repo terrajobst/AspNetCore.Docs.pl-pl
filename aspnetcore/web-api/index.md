@@ -6,18 +6,18 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 08/15/2018
 uid: web-api/index
-ms.openlocfilehash: 763b95fb8ed3806bc67b7ad199153ea1027efa57
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: e4615e5d416ba2433d55309b25ee3643c6c636ac
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090423"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207007"
 ---
 # <a name="build-web-apis-with-aspnet-core"></a>Tworzenie interfejsów API za pomocą platformy ASP.NET Core w sieci web
 
 Przez [Scott Addie](https://github.com/scottaddie)
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/define-controller/samples) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/define-controller/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 W tym dokumencie wyjaśniono, jak tworzenie internetowego interfejsu API w programie ASP.NET Core i jest najbardziej odpowiednie do użycia każdej funkcji.
 
@@ -100,7 +100,7 @@ Domyślnym zachowaniem jest wyłączona po <xref:Microsoft.AspNetCore.Mvc.ApiBeh
 
 [!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=5)]
 
-Za pomocą flagi zgodności 2,2 lub nowszy, jest domyślny typ odpowiedzi zwracanych dla odpowiedzi 400 <xref:Microsoft.AspNetCore.Mvc.ValidationProblemDetails>. Użyć [SuppressUseValidationProblemDetailsForInvalidModelStateResponses](/dotnet/api/microsoft.aspnetcore.Mvc.ApiBehaviorOptions) <!--  <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressUseValidationProblemDetailsForInvalidModelStateResponses> --> właściwości, aby użyć formatu błędu platformy ASP.NET Core 2.1.
+Za pomocą flagi zgodności 2,2 lub nowszy, jest domyślny typ odpowiedzi zwracanych dla odpowiedzi 400 <xref:Microsoft.AspNetCore.Mvc.ValidationProblemDetails>. Użyj [SuppressUseValidationProblemDetailsForInvalidModelStateResponses](/dotnet/api/microsoft.aspnetcore.Mvc.ApiBehaviorOptions) <!--  <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressUseValidationProblemDetailsForInvalidModelStateResponses> --> właściwości, aby użyć formatu błędu platformy ASP.NET Core 2.1.
 
 ### <a name="binding-source-parameter-inference"></a>Powiązanie źródła parametru wnioskowania
 

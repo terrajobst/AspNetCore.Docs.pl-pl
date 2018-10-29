@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/14/2018
 uid: fundamentals/middleware/extensibility
-ms.openlocfilehash: 346f5e7b28a9cd17a03a864772ed8b2e4be9455b
-ms.sourcegitcommit: 2c158fcfd325cad97ead608a816e525fe3dcf757
+ms.openlocfilehash: 566a5c5f642a3f55e72a8e070c69d2bfddaee3a1
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "41752664"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207202"
 ---
 # <a name="factory-based-middleware-activation-in-aspnet-core"></a>Oprogramowanie pośredniczące oparte na fabryce aktywacji w programie ASP.NET Core
 
@@ -29,7 +29,7 @@ Korzyści:
 
 `IMiddleware` aktywowano na żądanie, dzięki czemu usługi o określonym zakresie można wstrzyknięte do konstruktora oprogramowania pośredniczącego.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/middleware/extensibility/sample) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/middleware/extensibility/sample) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 Przykładowa aplikacja pokazuje aktywowany przez oprogramowanie pośredniczące:
 

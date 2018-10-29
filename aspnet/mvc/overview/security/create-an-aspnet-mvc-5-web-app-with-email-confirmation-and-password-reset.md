@@ -8,12 +8,12 @@ ms.date: 03/26/2015
 ms.assetid: d4911cb3-1afb-4805-b860-10818c4b1280
 msc.legacyurl: /mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset
 msc.type: authoredcontent
-ms.openlocfilehash: 02a0153f20e9390a5ab8d4ecb4f73556b339d9a9
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 5092476c6cf59bea6fab6fa6f169ff11ec4c9c4a
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48576467"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207488"
 ---
 <a name="create-a-secure-aspnet-mvc-5-web-app-with-log-in-email-confirmation-and-password-reset-c"></a>Tworzenie bezpiecznej aplikacji sieci web ASP.NET MVC 5 z logowaniem, wiadomości e-mail z potwierdzeniem i resetowaniem hasła (C#)
 ====================
@@ -56,6 +56,8 @@ Zazwyczaj chcesz uniemożliwić nowym użytkownikom publikowanie żadnych danych
 
 <a id="SG"></a>
 ## <a name="hook-up-sendgrid"></a>Podpinanie usługi SendGrid
+
+Instrukcje w tej sekcji nie są aktualne. Zobacz [dostawcy poczty e-mail SendGrid skonfigurować](/aspnet/core/security/authentication/accconfirm#configure-email-provider) zaktualizowane instrukcje.
 
 Chociaż ten samouczek przedstawia tylko sposób dodawania powiadomienie e-mail za pośrednictwem [SendGrid](http://sendgrid.com/), możesz wysłać wiadomość e-mail przy użyciu SMTP i inne mechanizmy (zobacz [dodatkowe zasoby](#addRes)).
 

@@ -5,12 +5,12 @@ description: Dowiedz się, jak używać odpowiedzi z pamięci podręcznej w celu
 ms.author: riande
 ms.date: 09/20/2017
 uid: performance/caching/response
-ms.openlocfilehash: bbf5b649bac9d31aa6d0ecdc3828648677b05716
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 99093cd281ffa8dddc574dc27254c0175e2651b3
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090696"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207371"
 ---
 # <a name="response-caching-in-aspnet-core"></a>Buforowanie odpowiedzi w programie ASP.NET Core
 
@@ -19,7 +19,7 @@ Przez [John Luo](https://github.com/JunTaoLuo), [Rick Anderson](https://twitter.
 > [!NOTE]
 > Buforowanie odpowiedzi w stron Razor jest dostępna w programie ASP.NET Core 2.1 lub nowszej.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/response/samples) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/response/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 Buforowanie odpowiedzi zmniejsza liczbę żądań, które sprawia, że klient lub serwer proxy na serwerze sieci web. Buforowanie odpowiedzi zmniejsza ilość pracy serwera sieci web wykonuje do generowania odpowiedzi. Buforowanie odpowiedzi jest kontrolowana przez nagłówki, które określają, jak chcesz klienta, serwera proxy i oprogramowaniu pośredniczącym, aby buforowanie odpowiedzi.
 

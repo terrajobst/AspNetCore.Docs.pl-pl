@@ -8,12 +8,12 @@ ms.date: 01/30/2013
 ms.assetid: f9c07af0-4b20-4b08-af8f-47fc3df169a2
 msc.legacyurl: /single-page-application/overview/introduction/knockoutjs-template
 msc.type: authoredcontent
-ms.openlocfilehash: 328046363666944f121dedc1883bbe83f5b079d2
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 60bc8bf95cace722244ffc87ff4c00126a0ed2a0
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41753596"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207449"
 ---
 <a name="single-page-application-knockoutjs-template"></a>Aplikacja jednostronicowa: Szablon KnockoutJS
 ====================
@@ -41,9 +41,9 @@ Wymagania:
 - Program Visual Studio 2012 lub Visual Studio Express 2012 for Web
 - Narzędzia sieci Web ASP.NET 2012.2 aktualizacji. Aktualizację można zainstalować [tutaj](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=ASPDOTNETandWebTools2012_2).
 
-Uruchom program Visual Studio i wybierz **nowy projekt** ze strony początkowej. Lub z **pliku** menu, wybierz opcję **New** i następnie **projektu**.
+Uruchom program Visual Studio i wybierz **nowy projekt** ze strony początkowej. Możesz również z menu **Plik** wybrać pozycję **Nowy**, a następnie **Projekt**.
 
-W **szablony** okienku wybierz **zainstalowane szablony** i rozwiń **Visual C#** węzła. W obszarze **Visual C#**, wybierz opcję **Web**. Na liście szablonów projektu wybierz **aplikacji sieci Web programu ASP.NET MVC 4**. Nadaj projektowi nazwę, a następnie kliknij przycisk **OK**.
+W okienku **Szablony** wybierz pozycję **Zainstalowane szablony** i rozwiń węzeł **Visual C#**. W obszarze **Visual C#**, wybierz pozycję **Sieć Web**. Na liście szablonów projektu wybierz **aplikacji sieci Web programu ASP.NET MVC 4**. Nadaj projektowi nazwę, a następnie kliknij przycisk **OK**.
 
 ![](knockoutjs-template/_static/image2.png)
 
@@ -163,7 +163,7 @@ Kontrolerów MVC również znajdują się w folderze kontrolery rozwiązania. `H
 
 [!code-cshtml[Main](knockoutjs-template/samples/sample4.cshtml)]
 
-Po zalogowaniu użytkownicy widzą głównego interfejsu użytkownika. W przeciwnym razie użytkownik zobaczy na panelu logowania. Należy pamiętać, że to warunkowe renderowania się dzieje po stronie serwera. Nigdy nie próbuje ukryć poufnej zawartości po stronie klienta i 8212anything #, która wysyłać w odpowiedzi HTTP jest widoczny dla kogoś, kto ogląda nieprzetworzone komunikaty HTTP.
+Po zalogowaniu użytkownicy widzą głównego interfejsu użytkownika. W przeciwnym razie użytkownik zobaczy na panelu logowania. Należy pamiętać, że to warunkowe renderowania się dzieje po stronie serwera. Nigdy nie próbuje ukryć poufnej zawartości po stronie klienta&#8212;wszystko, co wysyłać w odpowiedzi HTTP jest widoczny dla kogoś, kto ogląda nieprzetworzone komunikaty HTTP.
 
 ## <a name="client-side-javascript-and-knockoutjs"></a>JavaScript po stronie klienta i użyciem Knockout.js
 

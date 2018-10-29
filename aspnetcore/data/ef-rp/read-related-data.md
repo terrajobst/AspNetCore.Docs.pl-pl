@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: b3a60c3f983dba8761b219773f827c39ff82cb01
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: cf8733e1e806c4be0c4b217fc45c7a338a03a3ce
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090865"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207559"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>Strony razor z programem EF Core w programie ASP.NET Core — odczytanie powiązanych danych — 6 8
 
@@ -21,7 +21,7 @@ Przez [Tom Dykstra](https://github.com/tdykstra), [Jan Kowalski P](https://twitt
 
 W tym samouczku powiązanych danych odczytu i wyświetlić. Powiązane dane to dane programu EF Core ładuje się do właściwości nawigacji.
 
-Jeśli napotkasz problemy, nie można rozwiązać, [pobrania lub wyświetlenia ukończonej aplikacji.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples) [Instrukcje pobierania](xref:tutorials/index#how-to-download-a-sample).
+Jeśli napotkasz problemy, nie można rozwiązać, [pobrania lub wyświetlenia ukończonej aplikacji.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples) [Instrukcje pobierania](xref:index#how-to-download-a-sample).
 
 Na poniższych ilustracjach przedstawiono stron ukończonych w ramach tego samouczka:
 

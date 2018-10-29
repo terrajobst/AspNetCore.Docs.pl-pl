@@ -8,12 +8,12 @@ ms.date: 02/10/2010
 ms.assetid: 1365eebb-bdf7-4a05-8d18-7f200531be55
 msc.legacyurl: /whitepapers/ms03-32-issue
 msc.type: content
-ms.openlocfilehash: ce2d705a93577b0c6d28f86069873c6ecd891db6
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 9041f8d15a449a517594f8051c3d9f0ceb18a8a3
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41757353"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207020"
 ---
 <a name="fix-for-server-application-unavailable-error-after-applying-security-update-for-ie"></a>Naprawiono błąd "Aplikacja serwera niedostępna" po zastosowaniu aktualizacji zabezpieczeń dla programu Internet Explorer
 ====================
@@ -38,7 +38,7 @@ Ciężko pracujemy na trwałe rozwiązanie tego problemu. W międzyczasie można
 4. Re-registers ASP.NET. Spowoduje to utworzenie nowego losowe hasło dla konta i stosuje domyślne ustawienia kontroli dostępu platformy ASP.NET dla niego
 5. Uruchamia ponownie usługę IIS
 
-Plik wsadowy zawiera zapisane na stałe tymczasowe hasło "<strong>1pass@word</strong>", który będzie wyświetlany monit o wprowadzenie dla polecenia Uruchom jako, po uruchomieniu pliku wsadowego. Po zakończeniu wykonywania polecenia Uruchom jako hasło do konta ASPNET są odtwarzane z silną losową wartość. Należy pamiętać, że plik wsadowy może zakończyć się niepowodzeniem, jeśli hasło zapisane na stałe nie spełnia wymagania dotyczące złożoności hasła w danym środowisku. Jeśli tak jest rzeczywiście, możesz go zmienić na inną wartość, która jest odpowiednia dla użytkowanego środowiska.
+Plik wsadowy zawiera zapisane na stałe tymczasowe hasło "<strong>1pass\@word</strong>", który będzie wyświetlany monit o wprowadzenie dla polecenia Uruchom jako, po uruchomieniu pliku wsadowego. Po zakończeniu wykonywania polecenia Uruchom jako hasło do konta ASPNET są odtwarzane z silną losową wartość. Należy pamiętać, że plik wsadowy może zakończyć się niepowodzeniem, jeśli hasło zapisane na stałe nie spełnia wymagania dotyczące złożoności hasła w danym środowisku. Jeśli tak jest rzeczywiście, możesz go zmienić na inną wartość, która jest odpowiednia dla użytkowanego środowiska.
 
 *> [!IMPORTANT]* Po dodaniu ustawienia kontroli dostępu niestandardowych lub uprawnień konta bazy danych dla konta ASPNET muszą być utworzone ponownie po ukończeniu tego pliku wsadowego. Jest to spowodowane po utworzeniu konta otrzyma nowy identyfikator zabezpieczeń (SID).
 
@@ -51,7 +51,7 @@ Plik wsadowy jest zawarte w archiwum samorozpakowujący się poniżej. Aby uży�
 3. Wyodrębnij zawartość do c:\
 4. Wybierz polecenie Uruchom... z start menu, a następnie wprowadź `cmd.exe`
 5. W oknie polecenia Otwórz typ `c:\fixup.cmd`.
-6. Po wyświetleniu monitu wprowadź <strong>1pass@word</strong> jako hasło.
+6. Po wyświetleniu monitu wprowadź <strong>1pass\@word</strong> jako hasło.
 7. W przypadku ustawienia kontroli dostępu niestandardowych wcześniej lub uprawnień konta bazy danych dla konta ASPNET, należy ponownie zastosować te ustawienia teraz.
 
 Wiele przeprosinami za niedogodności, który spowodował ten. Firma Microsoft prześle dodatkowe informacje po jej udostępnieniu.

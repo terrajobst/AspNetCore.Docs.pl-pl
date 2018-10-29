@@ -6,12 +6,12 @@ monikerRange: < aspnetcore-2.0
 ms.author: riande
 ms.date: 09/22/2018
 uid: security/authentication/2fa
-ms.openlocfilehash: 19cc4b5326e8359afd47dd75aca3d661c3f92a30
-ms.sourcegitcommit: 9bdba90b2c97a4016188434657194b2d7027d6e3
+ms.openlocfilehash: 5b0866ecf15381b040e3646eecc22374b6b0c9e2
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47402123"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50205889"
 ---
 # <a name="two-factor-authentication-with-sms-in-aspnet-core"></a>Uwierzytelnianie dwuskładnikowe za pomocą wiadomości SMS w programie ASP.NET Core
 
@@ -22,7 +22,7 @@ Przez [Rick Anderson](https://twitter.com/RickAndMSFT) i [Swiss deweloperów](ht
 
 W tym samouczku pokazano, jak skonfigurować uwierzytelnianie dwuskładnikowe (2FA) przy użyciu programu SMS. Instrukcje są podane dla [twilio](https://www.twilio.com/) i [ASPSMS](https://www.aspsms.com/asp.net/identity/core/testcredits/), ale można użyć dowolnego dostawcy programu SMS. Firma Microsoft zaleca, po ukończeniu [potwierdzenie konta i odzyskiwanie hasła](xref:security/authentication/accconfirm) przed rozpoczęciem tego samouczka.
 
-Widok [ukończone przykładowe](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/2fa/sample/Web2FA). [Jak pobrać](xref:tutorials/index#how-to-download-a-sample).
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/2fa/sample/Web2FA). [Jak pobrać](xref:index#how-to-download-a-sample).
 
 ## <a name="create-a-new-aspnet-core-project"></a>Utwórz nowy projekt ASP.NET Core
 

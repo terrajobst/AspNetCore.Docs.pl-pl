@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 08/31/2018
 uid: tutorials/signalr
-ms.openlocfilehash: 77ad5c6869b87b832e2bdfa61da7b80961323783
-ms.sourcegitcommit: f2d14a7518d6ee51aca9333818ac1276e7b5ecef
+ms.openlocfilehash: c059ace7ebe0e65ecb3ac068677d65ae148322a0
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50134564"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207683"
 ---
 # <a name="tutorial-get-started-with-aspnet-core-signalr"></a>Samouczek: Rozpoczynanie pracy przy użyciu biblioteki SignalR platformy ASP.NET Core
 
@@ -29,7 +29,7 @@ Po zakończeniu będziesz mieć działającą aplikację rozmowy:
 
 ![SignalR przykładowej aplikacji](signalr/_static/signalr-get-started-finished.png)
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/signalr/sample) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample)).
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/signalr/sample) ([sposobu pobierania](xref:index#how-to-download-a-sample)).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

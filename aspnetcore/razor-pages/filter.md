@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 04/05/2018
 uid: razor-pages/filter
-ms.openlocfilehash: d9d4ea65a9357d19c283036e7ab9417e0deaeda2
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 5b233d95c9fbab09c64072377b85b40b127df7b7
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011721"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50205941"
 ---
 # <a name="filter-methods-for-razor-pages-in-aspnet-core"></a>Metody filtrowania dla stron Razor w programie ASP.NET Core
 
@@ -29,7 +29,7 @@ Strona razor filtrów:
 
 Kod może działać, zanim metoda obsługi jest wykonywana przy użyciu konstruktora strony lub oprogramowanie pośredniczące, ale tylko filtry stron Razor mają dostęp do [HttpContext](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel.httpcontext?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_RazorPages_PageModel_HttpContext). Filtry mają [FilterContext](/dotnet/api/microsoft.aspnetcore.mvc.filters.filtercontext?view=aspnetcore-2.0) pochodne parametr, który zapewnia dostęp do `HttpContext`. Na przykład [implementacji atrybutu filtru](#ifa) Przykładowa aplikacja dodaje nagłówek odpowiedzi, coś, co nie można wykonać za pomocą konstruktorów i oprogramowania pośredniczącego.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/razor-pages/filter/sample/PageFilter) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/razor-pages/filter/sample/PageFilter) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 Filtry stron razor zapewniają następujące metody, które mogą być stosowane globalnie lub na poziomie strony:
 

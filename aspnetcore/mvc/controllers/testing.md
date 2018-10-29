@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/23/2018
 uid: mvc/controllers/testing
-ms.openlocfilehash: 8fb50506e6f4e274592c4fd45d4c7876681ebc6d
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 18674f85a0cf8c6dfffa94a2160f7182752674f7
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090199"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207995"
 ---
 # <a name="test-controller-logic-in-aspnet-core"></a>Logikę kontrolera testu w programie ASP.NET Core
 
@@ -19,7 +19,7 @@ Przez [Steve Smith](https://ardalis.com/)
 
 [Kontrolery](xref:mvc/controllers/actions) odgrywają główną rolę w dowolnej aplikacji platformy ASP.NET Core MVC. W efekcie powinien mieć pewność, że kontrolery zachowują się zgodnie z oczekiwaniami. Aplikacja jest wdrażana w środowisku produkcyjnym, zautomatyzowanych testów można wykrywać błędy.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/testing/sample) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/testing/sample) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 ## <a name="unit-tests-of-controller-logic"></a>Testy jednostkowe z logiką kontrolera
 

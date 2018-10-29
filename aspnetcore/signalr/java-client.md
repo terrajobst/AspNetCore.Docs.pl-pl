@@ -7,12 +7,12 @@ ms.author: mimengis
 ms.custom: mvc
 ms.date: 10/18/2018
 uid: signalr/java-client
-ms.openlocfilehash: 3d2cfe5f58cc41741512c68cebbbc90e8f714cba
-ms.sourcegitcommit: 54655f1e1abf0b64d19506334d94cfdb0caf55f6
+ms.openlocfilehash: 646118c78d5d38b44b89d399cd06a5332a11d064
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50148788"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207774"
 ---
 # <a name="aspnet-core-signalr-java-client"></a>Klienta programu ASP.NET Core SignalR w języku Java
 
@@ -22,7 +22,7 @@ Klienta Java umożliwia połączenie z serwerem biblioteki SignalR platformy ASP
 
 Przykładowa aplikacja konsoli środowiska Java przywołanej w niniejszym artykule używa klienta SignalR Java.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/java-client/sample) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/java-client/sample) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 ## <a name="install-the-signalr-java-client-package"></a>Zainstaluj pakiet klienta SignalR Java
 

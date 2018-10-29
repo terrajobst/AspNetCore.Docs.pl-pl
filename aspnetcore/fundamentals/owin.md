@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 10/14/2016
 uid: fundamentals/owin
-ms.openlocfilehash: db28eeff88a13dc95c469f3b7c0746c807da830f
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: eb5cf92a6dcc3ddb9e2f56cd72a710b66f7fae06
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41754507"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50206890"
 ---
 # <a name="open-web-interface-for-net-owin-with-aspnet-core"></a>Otwarty interfejs internetowy dla platformy .NET (OWIN) za pomocą programu ASP.NET Core
 
@@ -29,7 +29,7 @@ Dzięki temu platforma ASP.NET Core będzie hostowana na podstawie OWIN zgodny s
 > [!NOTE]
 > Korzystanie z tych kart jest powiązana z negatywnie na wydajność. Nie używaj aplikacji przy użyciu tylko składniki platformy ASP.NET Core `Microsoft.AspNetCore.Owin` pakietu lub kart.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/owin/sample) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/owin/sample) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 ## <a name="running-owin-middleware-in-the-aspnet-core-pipeline"></a>Uruchamianie oprogramowania pośredniczącego OWIN w potoku platformy ASP.NET Core
 

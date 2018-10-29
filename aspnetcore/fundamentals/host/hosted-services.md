@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/15/2018
 uid: fundamentals/host/hosted-services
-ms.openlocfilehash: 9c38b1e1d429498bcd59f780e3d3fe1a50eae32d
-ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
+ms.openlocfilehash: 92905d86cb963d01f1806f08d07b270a7f6d8563
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47860930"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207410"
 ---
 # <a name="background-tasks-with-hosted-services-in-aspnet-core"></a>Zadania w tle z usług hostowanych w programie ASP.NET Core
 
@@ -24,7 +24,7 @@ W programie ASP.NET Core, można zaimplementować jako zadania w tle *usługi ho
 * Usługa hostowana, które aktywuje usługę o określonym zakresie. Usługi o określonym zakresie służy iniekcji zależności.
 * Umieszczonych w kolejce zadania w tle wykonywane sekwencyjnie.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/host/hosted-services/samples/) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/host/hosted-services/samples/) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 Przykładowa aplikacja znajduje się w dwóch wersjach:
 

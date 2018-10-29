@@ -6,18 +6,20 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 4/13/2018
 uid: fundamentals/startup
-ms.openlocfilehash: 20c7630d949f78e737fdcaad0f189cd30cdebbfa
-ms.sourcegitcommit: ce6b6792c650708e92cdea051a5d166c0708c7c0
+ms.openlocfilehash: 2212344cb3c651714e8c520b096ab0c4eaf5a180
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652322"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50206459"
 ---
-# <a name="application-startup-in-aspnet-core"></a>Uruchamianie aplikacji w programie ASP.NET Core
+# <a name="app-startup-in-aspnet-core"></a>Uruchamianie aplikacji w programie ASP.NET Core
 
 Przez [Steve Smith](https://ardalis.com), [Tom Dykstra](https://github.com/tdykstra), i [Luke Latham](https://github.com/guardrex)
 
 `Startup` Klasa służy do konfigurowania usług i potok żądań aplikacji.
+
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/startup/sample/) ([sposobu pobierania](xref:index#how-to-download-a-sample)).
 
 ## <a name="the-startup-class"></a>Klasa początkowa
 
@@ -96,7 +98,7 @@ Użyj [IStartupFilter](/dotnet/api/microsoft.aspnetcore.hosting.istartupfilter) 
 
 Każdy `IStartupFilter` implementuje middlewares co najmniej jeden w Potok żądań. Filtry są wywoływane w kolejności, w której zostały one dodane do kontenera usług. Filtry mogą dodawać oprogramowanie pośredniczące przed lub po przekazanie sterowania do następnego filtru, dlatego ich dołączania na początku lub końcu potoku aplikacji.
 
-[Przykładową aplikację](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/startup/sample/) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample)) pokazuje, jak zarejestrować oprogramowanie pośredniczące z `IStartupFilter`. Przykładowa aplikacja zawiera oprogramowanie pośredniczące, która ustawia wartości opcji z parametru ciągu zapytania:
+Przykładowa aplikacja pokazuje, jak zarejestrować oprogramowanie pośredniczące z `IStartupFilter`. Przykładowa aplikacja zawiera oprogramowanie pośredniczące, która ustawia wartości opcji z parametru ciągu zapytania:
 
 [!code-csharp[](startup/sample/RequestSetOptionsMiddleware.cs?name=snippet1)]
 

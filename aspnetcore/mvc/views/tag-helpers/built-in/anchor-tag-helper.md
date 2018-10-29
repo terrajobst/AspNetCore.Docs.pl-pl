@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 10/10/2018
 uid: mvc/views/tag-helpers/builtin-th/anchor-tag-helper
-ms.openlocfilehash: 13508729c1e3b64a8b0e6965da57880738ab85c3
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: 01c5833210b73dafb763602d363afcf9e7bc0122
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49325552"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50206279"
 ---
 # <a name="anchor-tag-helper-in-aspnet-core"></a>Pomocnik tagu kotwicy w programie ASP.NET Core
 
@@ -21,7 +21,7 @@ Przez [Peter Kellner](http://peterkellner.net) i [Scott Addie](https://github.co
 
 Aby zapoznać się z omówieniem pomocnicy tagów, zobacz <xref:mvc/views/tag-helpers/intro>.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/tag-helpers/built-in/samples) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/tag-helpers/built-in/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 *SpeakerController* jest używana w przykładach w tym dokumencie:
 

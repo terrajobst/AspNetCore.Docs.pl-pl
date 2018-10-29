@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/19/2017
 uid: security/cookie-sharing
-ms.openlocfilehash: afb0405ea87a6239c3017ba0a59a22527a817feb
-ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
+ms.openlocfilehash: 7f357df4d450da40f4d6e1a5ab20516ff748e748
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43312285"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50206903"
 ---
 # <a name="share-cookies-among-apps-with-aspnet-and-aspnet-core"></a>Udostępnianie plików cookie między aplikacjami ASP.NET i ASP.NET Core
 
@@ -19,7 +19,7 @@ Przez [Rick Anderson](https://twitter.com/RickAndMSFT) i [Luke Latham](https://g
 
 Witryny sieci Web często składają się z poszczególnych aplikacji web apps pracujących razem. Aby zapewnić środowisko logowania jednokrotnego (SSO), aplikacje sieci web w obrębie lokacji muszą współużytkować pliki cookie uwierzytelniania. Aby zapewnić obsługę tego scenariusza, stosu ochrony danych umożliwia udostępnianie Katana uwierzytelniania plików cookie i biletów uwierzytelniania pliku cookie platformy ASP.NET Core.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/cookie-sharing/sample/) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/cookie-sharing/sample/) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 Przykład ilustruje udostępnianie między trzy aplikacje, które korzystają z plików cookie uwierzytelniania plików cookie:
 
@@ -57,7 +57,7 @@ Hostowania aplikacji, które udostępnianie plików cookie między domenami podr
 options.Cookie.Domain = ".contoso.com";
 ```
 
-Zobacz *CookieAuthWithIdentity.Core* projektu w [przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/cookie-sharing/sample/) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample)).
+Zobacz *CookieAuthWithIdentity.Core* projektu w [przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/cookie-sharing/sample/) ([sposobu pobierania](xref:index#how-to-download-a-sample)).
 
 ::: moniker-end
 
@@ -105,7 +105,7 @@ Hostowania aplikacji, które udostępnianie plików cookie między domenami podr
 options.Cookie.Domain = ".contoso.com";
 ```
 
-Zobacz *CookieAuth.Core* projektu w [przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/cookie-sharing/sample/) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample)).
+Zobacz *CookieAuth.Core* projektu w [przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/cookie-sharing/sample/) ([sposobu pobierania](xref:index#how-to-download-a-sample)).
 
 ::: moniker-end
 
@@ -168,7 +168,7 @@ Aby udostępnić pliki cookie uwierzytelniania między aplikację ASP.NET 4.x i 
 
 [!code-csharp[](cookie-sharing/sample/CookieAuthWithIdentity.NETFramework/CookieAuthWithIdentity.NETFramework/App_Start/Startup.Auth.cs?name=snippet1)]
 
-Zobacz *CookieAuthWithIdentity.NETFramework* projektu w [przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/cookie-sharing/sample/) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample)).
+Zobacz *CookieAuthWithIdentity.NETFramework* projektu w [przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/cookie-sharing/sample/) ([sposobu pobierania](xref:index#how-to-download-a-sample)).
 
 Podczas generowania tożsamości użytkownika, typ uwierzytelniania musi być zgodny z typem zdefiniowanym w `AuthenticationType` zestawu przy użyciu `UseCookieAuthentication`.
 

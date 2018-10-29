@@ -7,12 +7,12 @@ author: BillWagner
 ms.author: wiwagn
 ms.date: 02/01/2017
 ms.assetid: c9f1d52c-b4bd-4b5d-b7f9-8f9ceaf778c4
-ms.openlocfilehash: b3eb643daf230336ce5def96007b6096f86390e6
-ms.sourcegitcommit: 54655f1e1abf0b64d19506334d94cfdb0caf55f6
+ms.openlocfilehash: 7b34187747d3081998b8b60a72adae78cafe2c3e
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50148944"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207969"
 ---
 # <a name="migrating-aspnet-mvc-applications-to-windows-containers"></a>Migrowanie aplikacji ASP.NET MVC do kontenerów systemu Windows
 
@@ -71,7 +71,7 @@ Kliknij przycisk **Publikuj**, i Visual Studio skopiuje wszystkie zasoby potrzeb
 Zdefiniuj obraz Docker w pliku Dockerfile. Plik Dockerfile zawiera instrukcje dotyczące obraz podstawowy, dodatkowe składniki, aplikację, którą chcesz uruchomić i inne obrazy konfiguracji.  Plik Dockerfile stanowi dane wejściowe `docker build` polecenia, co powoduje utworzenie obrazu.
 
 Utworzysz obraz na podstawie `microsoft/aspnet` obrazów znajdujących się na [usługi Docker Hub](https://hub.docker.com/r/microsoft/aspnet/).
-Obraz podstawowy `microsoft/aspnet`, jest obrazem systemu Windows Server. Zawiera on Windows Server Core, IIS i programu ASP.NET 4.6.2. Po uruchomieniu tego obrazu w kontenerze, nastąpi automatyczne uruchomienie usług IIS i zainstalowanych witryn sieci Web.
+Obraz podstawowy `microsoft/aspnet`, jest obrazem systemu Windows Server. Zawiera on Windows Server Core, IIS i platformy ASP.NET 4.7.2. Po uruchomieniu tego obrazu w kontenerze, nastąpi automatyczne uruchomienie usług IIS i zainstalowanych witryn sieci Web.
 
 Plik Dockerfile, który tworzy obraz wygląda następująco:
 
@@ -122,18 +122,7 @@ W wielu przykładach platformy docker może zostać wyświetlony -p do mapowania
 
 ## <a name="verify-in-the-browser"></a>Sprawdź, czy w przeglądarce
 
-> [!NOTE]
-> W bieżącej wersji kontenerów Windows nie może przejść do `http://localhost`.
-> Jest to znane zachowanie w WinNAT i rozwiąże go w przyszłości. Do momentu, która jest skierowana, musisz użyć adresu IP kontenera.
-
-Po uruchomieniu kontenera Znajdź jego adres IP, czemu możesz nawiązywać połączenia z działającym kontenerem w przeglądarce:
-
-```console
-docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" randomanswers
-172.31.194.61
-```
-
-Łączenie z działającym kontenerem przy użyciu adresu IPv4 `http://172.31.194.61` w przykładzie przedstawionym. Typ tego adresu URL w przeglądarce i powinien zostać wyświetlony działającej witryny.
+Po uruchomieniu kontenera, połączyć się z działającego kontenera `http://localhost` w przykładzie przedstawionym. Typ tego adresu URL w przeglądarce i powinien zostać wyświetlony działającej witryny.
 
 > [!NOTE]
 > Niektóre programy sieci VPN lub serwer proxy może uniemożliwić przejście do witryny.
@@ -145,10 +134,9 @@ Zawiera katalog przykładu w usłudze GitHub [skrypt programu PowerShell](https:
 ./run.ps1
 ```
 
-Powyższe polecenie tworzy obraz, wyświetla listę obrazów na swojej maszynie, uruchamia kontener i wyświetla adres IP dla tego kontenera.
+Powyższe polecenie tworzy obraz, wyświetla listę obrazów na Twojej maszynie i uruchamia kontener.
 
-Aby zatrzymać kontener, należy wydać `docker
-stop` polecenia:
+Aby zatrzymać kontener, należy wydać `docker stop` polecenia:
 
 ```console
 docker stop randomanswers

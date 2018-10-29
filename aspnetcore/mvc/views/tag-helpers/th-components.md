@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: scaddie
 ms.date: 09/18/2018
 uid: mvc/views/tag-helpers/th-components
-ms.openlocfilehash: c6986ebd179be588b0dc829065a3a8dc36ede3f5
-ms.sourcegitcommit: c684eb6c0999d11d19e15e65939e5c7f99ba47df
+ms.openlocfilehash: 3d21e12650d844f05bdfdf5b3451ab6219e3c3b7
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46293457"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50206877"
 ---
 # <a name="tag-helper-components-in-aspnet-core"></a>Składniki Pomocnika tagów w programie ASP.NET Core
 
@@ -21,7 +21,7 @@ Składnik pomocnika tagów jest pomocnika tagów, która pozwala na warunkowo zm
 
 Platforma ASP.NET Core obejmuje dwie wbudowane składniki pomocnika tagów: `head` i `body`. Znajdują się one w <xref:Microsoft.AspNetCore.Mvc.Razor.TagHelpers> przestrzeni nazw i mogą być używane w MVC i stron Razor. Składniki Pomocnika tagów nie wymagają rejestracji za pomocą aplikacji w *_ViewImports.cshtml*.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/tag-helpers/th-components/samples) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/tag-helpers/th-components/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 ## <a name="use-cases"></a>Przypadki użycia
 

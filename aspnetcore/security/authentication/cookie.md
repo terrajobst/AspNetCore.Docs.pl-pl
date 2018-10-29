@@ -5,12 +5,12 @@ description: Wyjaśnienie przy użyciu uwierzytelniania plików cookie bez użyc
 ms.author: riande
 ms.date: 10/11/2017
 uid: security/authentication/cookie
-ms.openlocfilehash: 8045a1bf27853ff5f03166e7cf10d89e2ad38fd1
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 8add7559557d505397c3be8d8a48aa2e9d9e45e8
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011839"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207423"
 ---
 # <a name="use-cookie-authentication-without-aspnet-core-identity"></a>Używania uwierzytelniania plików cookie bez użycia produktu ASP.NET Core Identity
 
@@ -18,7 +18,7 @@ Przez [Rick Anderson](https://twitter.com/RickAndMSFT) i [Luke Latham](https://g
 
 Jak przedstawiono w wcześniejszych tematach uwierzytelniania [tożsamości platformy ASP.NET Core](xref:security/authentication/identity) jest dostawcy uwierzytelniania pełne, kompleksowe za utworzenie i utrzymywanie logowania. Można jednak logika uwierzytelniania niestandardowego za pomocą na podstawie plików cookie uwierzytelniania w czasie. Uwierzytelnianie oparte na plikach cookie służy jako dostawcy uwierzytelniania autonomicznych, bez tożsamości platformy ASP.NET Core.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/cookie/samples) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/cookie/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 Dla celów demonstracyjnych w przykładowej aplikacji konto użytkownika dla hipotetycznego użytkownika Maria Rodriguez jest zapisane na stałe do aplikacji. Użyj nazwy użytkownika wiadomości E-mail "maria.rodriguez@contoso.com" i wszystkie hasła do logowania użytkownika. Użytkownik jest uwierzytelniany w `AuthenticateUser` method in Class metoda *Pages/Account/Login.cshtml.cs* pliku. Przykład rzeczywistych użytkownika może być uwierzytelniani względem bazy danych.
 
