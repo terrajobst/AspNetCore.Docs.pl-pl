@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: mvc/views/tag-helpers/authoring
-ms.openlocfilehash: 01e6af13c3a16de368528b1650543d36ef910571
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 78e5281d109977e8f41fe1f207254d3016f9c569
+ms.sourcegitcommit: c43a6f1fe72d7c2db4b5815fd532f2b45d964e07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207839"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50244869"
 ---
 # <a name="author-tag-helpers-in-aspnet-core"></a>Tworzenie pomocników tagów w programie ASP.NET Core
 
@@ -80,7 +80,7 @@ the following snippet uses TagHelpers3 and should use TagHelpers (not the 3)
     [!code-html[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImports.cshtml?highlight=3&range=1-3)]
 -->
 
-Aby dodać pomocnika tagów do widoku, używając FQN, należy najpierw dodać FQN (`AuthoringTagHelpers.TagHelpers.EmailTagHelper`), a następnie nazwę zestawu (*AuthoringTagHelpers*). Większość programistów będą najpierw użyj składni symboli wieloznacznych. [Wprowadzenie do pomocników tagów](intro.md) określa szczegółowo składni dodawania, usuwania, hierarchii i symboli wieloznacznych pomocnika tagów.
+Aby dodać pomocnika tagów do widoku, używając FQN, należy najpierw dodać FQN (`AuthoringTagHelpers.TagHelpers.EmailTagHelper`), a następnie **nazwy zestawu** (*AuthoringTagHelpers*, nie necessarly `namespace`). Większość programistów będą najpierw użyj składni symboli wieloznacznych. [Wprowadzenie do pomocników tagów](intro.md) określa szczegółowo składni dodawania, usuwania, hierarchii i symboli wieloznacznych pomocnika tagów.
 
 1. Aktualizowanie kodu znaczników w *Views/Home/Contact.cshtml* plików za pomocą tych zmian:
 
