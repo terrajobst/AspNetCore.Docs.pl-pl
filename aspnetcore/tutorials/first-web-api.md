@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/17/2018
 uid: tutorials/first-web-api
-ms.openlocfilehash: 2694388324cdbd246aad6c88d8439171704dfe89
-ms.sourcegitcommit: 29dfe436f54a27fbb4f6494bc639d16c75001fab
+ms.openlocfilehash: 88d1958ce5c42d559754972a855c1ffe22ab45a6
+ms.sourcegitcommit: 2ef32676c16f76282f7c23154d13affce8c8bf35
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39722519"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50234582"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-visual-studio"></a>Tworzenie internetowego interfejsu API za pomocą platformy ASP.NET Core i Visual Studio
 
@@ -21,7 +21,7 @@ Ten samouczek opiera się internetowego interfejsu API do zarządzania listę el
 
 Istnieją trzy wersje tego samouczka:
 
-* Windows: Web API za pomocą programu Visual Studio w Windows (w tym samouczku)
+* Windows: Web API za pomocą programu Visual Studio w Windows (tego samouczka, zobacz [wersja wideo](https://www.youtube.com/watch?v=TTkhEyGBfAk))
 * System macOS: [interfejsu API sieci Web z programem Visual Studio dla komputerów Mac](xref:tutorials/first-web-api-mac)
 * macOS i Linux, Windows: [interfejsu API sieci Web za pomocą programu Visual Studio Code](xref:tutorials/web-api-vsc)
 

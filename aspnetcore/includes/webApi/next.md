@@ -11,4 +11,4 @@
 * [Routing do akcji kontrolera](xref:mvc/controllers/routing)
 * [Tworzenie interfejsów API za pomocą platformy ASP.NET Core w sieci web](xref:web-api/index)
 * [Zwracane typy akcji kontrolera](xref:web-api/action-return-types)
-* [Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-web-api/samples). Zobacz [sposobu pobierania](xref:tutorials/index#how-to-download-a-sample).
+* [Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-web-api/samples). Zobacz [sposobu pobierania](xref:index#how-to-download-a-sample).

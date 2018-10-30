@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/index
-title: ASP.NET4 — wprowadzenie do wdrożenia w przedsiębiorstwie | Dokumentacja firmy Microsoft
+title: ASP.NET4 - wprowadzenie do wdrożenia w przedsiębiorstwie | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Tego zestawu samouczków opisano narzędzia i techniki, które służy do wdrażania aplikacji sieci web w różnych scenariuszach dla przedsiębiorstw.
 ms.author: riande
@@ -15,12 +15,11 @@ ms.contentlocale: pl-PL
 ms.lasthandoff: 08/16/2018
 ms.locfileid: "41752871"
 ---
-<a name="aspnet-4---enterprise-deployment-introduction"></a>ASP.NET4 — wprowadzenie do wdrożenia w przedsiębiorstwie
+<a name="aspnet-4---enterprise-deployment-introduction"></a>ASP.NET4 - wprowadzenie do wdrożenia w przedsiębiorstwie
 ====================
 > Tego zestawu samouczków opisano narzędzia i techniki, które służy do wdrażania aplikacji sieci web w różnych scenariuszach dla przedsiębiorstw.
 
 
-- 
-  [Wdrażanie aplikacji internetowych w scenariuszach dla przedsiębiorstw przy użyciu programu Visual Studio 2010](deploying-web-applications-in-enterprise-scenarios.md)
+- [Wdrażanie aplikacji internetowych w scenariuszach dla przedsiębiorstw przy użyciu programu Visual Studio 2010](deploying-web-applications-in-enterprise-scenarios.md)
 - [Wdrażanie sieci Web w przedsiębiorstwie: omówienie scenariuszy](enterprise-web-deployment-scenario-overview.md)
 - [Zarządzanie cyklem życia aplikacji: od projektowania do produkcji](application-lifecycle-management-from-development-to-production.md)

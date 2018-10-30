@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.date: 09/10/2018
 uid: signalr/version-differences
-ms.openlocfilehash: 4ac7952f26500285fc1c8f9453feb3ea8b33851a
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 3cec37719b743b3c805ada77249f526278e44599
+ms.sourcegitcommit: 2ef32676c16f76282f7c23154d13affce8c8bf35
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50089833"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50234608"
 ---
 # <a name="differences-between-aspnet-signalr-and-aspnet-core-signalr"></a>Różnice między biblioteki SignalR platformy ASP.NET i SignalR platformy ASP.NET Core
 
@@ -56,9 +56,9 @@ app.UseSignalR(routes =>
 });
 ```
 
-### <a name="sticky-sessions-now-required"></a>Trwałych sesji teraz wymagany
+### <a name="sticky-sessions"></a>Trwałych sesji
 
-Ze względu na sposób skalowania w poziomie pracy w ASP.NET SignalR klientów może ponownie połączyć, a następnie wysyłać komunikaty do dowolnego serwera w farmie. Ze względu na zmiany modelu skalowalnego w poziomie, jak również nie obsługuje ponowne podłączenia to nie jest już obsługiwana. Gdy klient nawiąże połączenie z serwerem, na czas trwania połączenia musi współdziałać z tym samym serwerze.
+Model skalowania w poziomie SignalR platformy ASP.NET umożliwia klientom ponownego połączenia i wysyłanie komunikatów do dowolnego serwera w farmie. W biblioteki SignalR platformy ASP.NET Core klient musi korzystać z tego samego serwera na czas trwania połączenia. Do skalowania w poziomie przy użyciu pamięci podręcznej Redis oznacza to, że wymagane są trwałych sesji. Do skalowania w poziomie przy użyciu [usługi Azure SignalR Service](/azure/azure-signalr/), trwałych sesji nie są wymagane, ponieważ usługa obsługuje połączenia z klientami. 
 
 ### <a name="single-hub-per-connection"></a>Jedno centrum dla połączenia
 

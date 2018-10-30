@@ -7,12 +7,12 @@ ms.author: anurse
 ms.custom: mvc
 ms.date: 06/29/2018
 uid: signalr/authn-and-authz
-ms.openlocfilehash: 31d5f753e043157caf43fa8df54e310ea0efd17b
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 7cfe90115b0710fba196693efd309f7c914f0ad4
+ms.sourcegitcommit: 2ef32676c16f76282f7c23154d13affce8c8bf35
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207943"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50234543"
 ---
 # <a name="authentication-and-authorization-in-aspnet-core-signalr"></a>Uwierzytelnianie i autoryzacja w biblioteki SignalR platformy ASP.NET Core
 
@@ -28,11 +28,13 @@ SignalR mogą być używane z [uwierzytelnianie programu ASP.NET Core](xref:secu
 
 W aplikacji opartej na przeglądarce uwierzytelniania plików cookie umożliwia istniejących poświadczeń użytkownika w taki sposób, aby automatycznie przekazywane z połączeniami SignalR. Podczas korzystania z klienta przeglądarki, dodatkowa konfiguracja nie jest potrzebna. Jeśli użytkownik jest zalogowany do aplikacji, połączenia SignalR automatycznie dziedziczy tego uwierzytelnienia.
 
-Plik cookie uwierzytelniania nie jest zalecane, chyba że aplikacja musi się tylko do uwierzytelniania użytkowników z klienta przeglądarki. Korzystając z [klient modelu .NET](xref:signalr/dotnet-client), `Cookies` właściwości można skonfigurować w `.WithUrl` wywołanie w celu zapewnienia pliku cookie. Jednak przy użyciu uwierzytelniania plików cookie z klienta .NET wymaga aplikacji, aby dostarczać interfejs API w celu wymiany danych uwierzytelniania dla pliku cookie.
+Pliki cookie są specyficzne dla przeglądarki sposób przesyłania tokenów dostępu, ale klientów nie korzystających z przeglądarki mogą wysyłać je. Korzystając z [klient modelu .NET](xref:signalr/dotnet-client), `Cookies` właściwości można skonfigurować w `.WithUrl` wywołanie w celu zapewnienia pliku cookie. Jednak przy użyciu uwierzytelniania plików cookie z klienta .NET wymaga aplikacji, aby dostarczać interfejs API w celu wymiany danych uwierzytelniania dla pliku cookie.
 
 ### <a name="bearer-token-authentication"></a>Uwierzytelnianie przy użyciu tokenów elementu nośnego
 
-Uwierzytelnianie przy użyciu tokenów elementu nośnego zaleca się podczas korzystania z klientów innych niż klient przeglądarki. W tym podejściu klienta zawiera token dostępu, która serwer sprawdza poprawność używana do identyfikowania użytkownika. Szczegóły tokenu uwierzytelniania elementu nośnego wykraczają poza zakres tego dokumentu. Na serwerze uwierzytelniania tokenu elementu nośnego jest skonfigurowany przy użyciu [oprogramowanie pośredniczące elementu nośnego JWT](/dotnet/api/microsoft.extensions.dependencyinjection.jwtbearerextensions.addjwtbearer).
+Klient może dostarczyć token dostępu, zamiast korzystać z pliku cookie. Serwer sprawdza poprawność tokenu i używa ich do identyfikacji użytkownika. To jest sprawdzana tylko wtedy, gdy połączenie zostanie nawiązane. W okresie obowiązywania połączenia serwera nie automatycznie ponownie sprawdź poprawność pod kątem tokenu odwołania.
+
+Na serwerze uwierzytelniania tokenu elementu nośnego jest skonfigurowany przy użyciu [oprogramowanie pośredniczące elementu nośnego JWT](/dotnet/api/microsoft.extensions.dependencyinjection.jwtbearerextensions.addjwtbearer).
 
 W kliencie JavaScript, można określić token za pomocą [accessTokenFactory](xref:signalr/configuration#configure-bearer-authentication) opcji.
 
@@ -55,6 +57,10 @@ var connection = new HubConnectionBuilder()
 W standardowych interfejsów API sieci web tokenów elementu nośnego, są wysyłane w nagłówku HTTP. Nie można ustawić tych nagłówków w przeglądarkach, korzystając z niektórych transportu jest jednak SignalR. Korzystając z funkcji WebSockets i zdarzenia Server-Sent, token jest przekazywany jako parametr ciągu zapytania. Aby to umożliwić, na serwerze, wymagana jest dodatkowa konfiguracja:
 
 [!code-csharp[Configure Server to accept access token from Query String](authn-and-authz/sample/Startup.cs?name=snippet)]
+
+### <a name="cookies-vs-bearer-tokens"></a>Pliki cookie, a tokenów elementu nośnego 
+
+Ponieważ pliki cookie są specyficzne dla przeglądarek, wysyłając je od innych rodzajów klientów dodaje złożoności w porównaniu do wysyłania tokenów elementu nośnego. Z tego powodu uwierzytelniania plików cookie nie jest zalecane, chyba że aplikacja musi się tylko do uwierzytelniania użytkowników z klienta przeglądarki. Uwierzytelnianie przy użyciu tokenów elementu nośnego zaleca się podczas korzystania z klientów innych niż klient przeglądarki.
 
 ### <a name="windows-authentication"></a>Uwierzytelnianie systemu Windows
 
