@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: tutorials/razor-pages-vsc/razor-pages-start
-ms.openlocfilehash: 9ea66134c524a6a1a670d55bae4e66cf38a45274
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: f18d0a8b3ce24c9844b02f8a0b6360f7e1b1bdb7
+ms.sourcegitcommit: c43a6f1fe72d7c2db4b5815fd532f2b45d964e07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50089855"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50244856"
 ---
 # <a name="get-started-with-aspnet-core-razor-pages-in-visual-studio-code"></a>Rozpoczynanie pracy ze stronami ASP.NET Core Razor w programie Visual Studio Code
 
@@ -65,7 +65,7 @@ W programie Visual Studio Code (VS Code) wybierz **Plik > Otwórz Folder**, a na
 
 ### <a name="launch-the-app"></a>Uruchom aplikację
 
-Naciśnij kombinację klawiszy Ctrl + F5, aby uruchomić aplikację bez debugowania. Alternatywnie z **debugowania** menu, wybierz opcję **Rozpocznij bez debugowania**.
+Z **debugowania** menu, wybierz opcję **Rozpocznij bez debugowania**. Alternatywnie możesz nacisnąć skrót klawiaturowy wyświetlane obok opcji menu. Ten skrót różni się w zależności od używanego systemu operacyjnego.
 
 W następnym samouczku dodamy modelu do projektu. 
 

@@ -6,18 +6,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/21/2018
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 72c32b9c66b50663b33a5274b8f60de126622535
-ms.sourcegitcommit: 76ffb9456e0a44651dfcf052ce133f728ae2359b
+ms.openlocfilehash: 6b2cf853575b02de76d44bf79849fe11bb458fbd
+ms.sourcegitcommit: c43a6f1fe72d7c2db4b5815fd532f2b45d964e07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50132208"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50244947"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host platformy ASP.NET Core na Windows za pomocą programu IIS
 
 Przez [Luke Latham](https://github.com/guardrex)
 
-[Zainstaluj program .NET Core hostingu pakietu](#install-the-NET-core-hosting-bundle)
+[Zainstaluj program .NET Core hostingu pakietu](#install-the-net-core-hosting-bundle)
 
 ## <a name="supported-operating-systems"></a>Supported operating systems
 

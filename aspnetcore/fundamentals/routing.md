@@ -6,18 +6,29 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/01/2018
 uid: fundamentals/routing
-ms.openlocfilehash: 06059d720bd4444b1ec12e42d466ee54d1658203
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: a014782ba503bc8bd0fdefb4cb4f382aa8fde4cd
+ms.sourcegitcommit: c43a6f1fe72d7c2db4b5815fd532f2b45d964e07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207759"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50244973"
 ---
 # <a name="routing-in-aspnet-core"></a>Routing w programie ASP.NET Core
 
 Przez [Ryan Nowak](https://github.com/rynowak), [Steve Smith](https://ardalis.com/), i [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Funkcje routingu jest odpowiedzialny za mapowanie przychodzące żądanie do programu obsługi trasy. Trasy są zdefiniowane w aplikacji i skonfigurowane, po uruchomieniu aplikacji. Trasy Opcjonalnie można wyodrębnić wartości z adresu URL zawartych w żądaniu, a te wartości mogą następnie służyć do przetwarzania żądania. Korzystając z informacji o trasie z aplikacji, funkcji routingu jest również możliwe do generowania adresów URL, które mapują do obsługi trasy. W związku z tym routing można znaleźć programu obsługi trasy na podstawie adresu URL lub znaleźć adres URL odpowiadający programu obsługi trasy, na podstawie informacji programu obsługi trasy.
+
+Większość aplikacji należy wybrać podstawowe i opisowe schemat routingu, aby adresy URL są czytelne i zrozumiałe. Domyślną trasę konwencjonalne `{controller=Home}/{action=Index}/{id?}`:
+
+* Obsługuje podstawowe i opisowe schemat routingu:
+* To dobry punkt początkowy dla aplikacji sieci web przeznaczony do użytku przez przeglądarki.
+
+Często dodania dodatkowych tras zwięzła do obszarów dużego ruchu aplikacji w sytuacjach wyspecjalizowanego (na przykład, blogów, handlu elektronicznego) przy użyciu [trasowanie atrybutów](xref:mvc/controllers/routing#attribute-routing) lub trasy są konwencjonalne funkcje w wersji dedykowanej.
+
+Interfejsy API sieci Web należy używać trasowanie atrybutów do modelu funkcjonalność aplikacji jako zestaw zasobów, której operacje są reprezentowane przez zleceń HTTP. Oznacza to, że wiele operacji (na przykład GET, POST) na ten sam zasób logicznej będzie używać tego samego adresu URL. Routing atrybutów zapewnia poziom kontroli, który jest potrzebny do uważnie projektować przestrzeni URL interfejsu API.
+
+Obsługa generowania adresu URL MVC umożliwia aplikacji można rozwijać bez twardych kodowania adresy URL, aby połączyć aplikację. Dzięki temu począwszy od podstawowej konfiguracji routingu i modyfikowania trasy, po kształt aplikacji jest określony.
 
 > [!IMPORTANT]
 > W tym dokumencie opisano niskiego poziomu routingu platformy ASP.NET Core. Aby uzyskać informacji na temat routingu platformy ASP.NET Core MVC, zobacz <xref:mvc/controllers/routing>.
