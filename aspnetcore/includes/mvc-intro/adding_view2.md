@@ -115,6 +115,6 @@ Dane są pobierane z adresu URL i przekazywane do kontrolera, za pomocą [integr
 
 ![Widok przedstawiający powitalnej etykietę i frazy Hello Rick przedstawiono cztery razy — informacje](~/tutorials/first-mvc-app/adding-view/_static/rick2.png)
 
-W powyższym przykładzie użyliśmy `ViewData` słownika do przekazywania danych z kontrolera do widoku. W dalszej części samouczka użyjemy modelu widoku do przekazywania danych za pomocą kontrolera do widoku. Widok modelu sposobem przekazywania danych jest zwykle znacznie preferowany nad `ViewData` podejście słownika. Zobacz [ViewModel vs vs ViewData vs obiekt ViewBag vs TempData sesji w MVC](http://www.mytecbits.com/microsoft/dot-net/viewmodel-viewdata-viewbag-tempdata-mvc) Aby uzyskać więcej informacji.
+W powyższym przykładzie użyliśmy `ViewData` słownika do przekazywania danych z kontrolera do widoku. W dalszej części samouczka użyjemy modelu widoku do przekazywania danych za pomocą kontrolera do widoku. Widok modelu sposobem przekazywania danych jest zwykle znacznie preferowany nad `ViewData` podejście słownika. Zobacz [kiedy używać elementów ViewBag, ViewData i TempData ](http://www.rachelappel.com/when-to-use-viewbag-viewdata-or-tempdata-in-asp-net-mvc-3-applications/) Aby uzyskać więcej informacji.
 
 Cóż, to był rodzaju "M" dla modelu, ale nie rodzaj bazy danych. Przyjrzyjmy się, co możemy wyjaśniono konto i bazę danych filmów.

@@ -1,10 +1,10 @@
 # <a name="aspnet-core-authorization-sample"></a>Przykładowe autoryzacji platformy ASP.NET Core
 
-W tym przykładzie przedstawiono użycie autoryzacji stron Razor przy użyciu Konwencji. W tym przykładzie pokazano funkcje opisane w [konwencje autoryzacji stron Razor](https://docs.microsoft.com/aspnet/core/security/authorization/razor-pages-authorization) tematu.
+Ten przykład przedstawia sposób używania metody autoryzacja stron Razor przy Konwencji. W tym przykładzie przedstawiono funkcje opisane w [konwencje autoryzacja stron Razor](https://docs.microsoft.com/aspnet/core/security/authorization/razor-pages-authorization) tematu.
 
-Autoryzacja użytkownika w tym przykładzie używa uwierzytelniania plików cookie funkcje opisane w [Użyj plików cookie uwierzytelniania bez ASP.NET Core Identity](https://docs.microsoft.com/aspnet/core/security/authentication/cookie) tematu. Informacje na temat używania ASP.NET Core Identity, zobacz Tematy w [uwierzytelniania](https://docs.microsoft.com/aspnet/core/security/authentication/index) sekcji dokumentacji.
+Autoryzacja użytkownika w tym przykładzie używa uwierzytelniania plików cookie, funkcje opisane w [Użyj plików cookie uwierzytelniania bez użycia produktu ASP.NET Core Identity](https://docs.microsoft.com/aspnet/core/security/authentication/cookie) tematu. Aby uzyskać informacje na temat używania tożsamości platformy ASP.NET Core, zobacz <xref:security/authentication/identity>.
 
-W przypadku uruchamiania próbki, należy użyć adresu e-mail **maria.rodriguez@contoso.com** do uwierzytelnienia użytkownika.
+Podczas uruchamiania przykładu, należy użyć adresu e-mail **maria.rodriguez@contoso.com** do uwierzytelnienia użytkownika.
 
 ## <a name="examples-in-this-sample"></a>Przykłady w tym przykładzie
 

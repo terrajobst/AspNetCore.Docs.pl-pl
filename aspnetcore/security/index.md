@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: security/index
-ms.openlocfilehash: f3b1f74f2e3a991b72cae94019f42548e3858f20
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 4277266e20ab1921a2ba24d4500358ba90330370
+ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50091031"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50252948"
 ---
 # <a name="overview-of-aspnet-core-security"></a>Przegląd zabezpieczeń platformy ASP.NET Core
 
@@ -40,7 +40,7 @@ Ma więcej luk w zabezpieczeniach, które należy wiedzieć. Aby uzyskać więce
 
 ## <a name="aspnet-core-security-documentation"></a>Dokumentacja zabezpieczeń platformy ASP.NET Core
 
-* [Uwierzytelnianie](xref:security/authentication/index)
+* Uwierzytelnianie
   * [Wprowadzenie do tożsamości](xref:security/authentication/identity)
   * [Włączanie uwierzytelniania za pomocą usługi Facebook, Google i innych dostawców zewnętrznych](xref:security/authentication/social/index)
   * [Włączanie uwierzytelniania za pomocą protokołu WS-Federation](xref:security/authentication/ws-federation)
@@ -54,7 +54,7 @@ Ma więcej luk w zabezpieczeniach, które należy wiedzieć. Aby uzyskać więce
     * [Wywoływanie interfejsu Web API z aplikacji internetowej platformy ASP.NET Core przy użyciu usługi Azure AD](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/)
     * [Aplikację internetową platformy ASP.NET Core przy użyciu usługi Azure AD B2C](https://azure.microsoft.com/resources/samples/active-directory-b2c-dotnetcore-webapp/)
   * [Zabezpieczanie aplikacji platformy ASP.NET Core za pomocą usługi IdentityServer4](https://identityserver4.readthedocs.io)
-* [Autoryzacja](xref:security/authorization/index)
+* Autoryzacja
   * [Wprowadzenie](xref:security/authorization/introduction)
   * [Tworzenie aplikacji przy użyciu danych użytkownika chronionych przez autoryzację](xref:security/authorization/secure-data)
   * [Autoryzacja prosta](xref:security/authorization/simple)
@@ -65,10 +65,10 @@ Ma więcej luk w zabezpieczeniach, które należy wiedzieć. Aby uzyskać więce
   * [Autoryzacja na podstawie zasobów](xref:security/authorization/resourcebased)
   * [Autoryzacja na podstawie widoku](xref:security/authorization/views)
   * [Ograniczanie tożsamości według schematu](xref:security/authorization/limitingidentitybyscheme)
-* [Ochrona danych](xref:security/data-protection/index)
+* Ochrona danych
   * [Wprowadzenie do ochrony danych](xref:security/data-protection/introduction)
   * [Wprowadzenie do interfejsów API ochrony danych](xref:security/data-protection/using-data-protection)
-  * [Interfejsy API przeznaczone dla klientów](xref:security/data-protection/consumer-apis/index)
+  * Interfejsy API przeznaczone dla klientów
     * [Omówienie interfejsów API przeznaczonych dla klientów](xref:security/data-protection/consumer-apis/overview)
     * [Ciągi celów](xref:security/data-protection/consumer-apis/purpose-strings)
     * [Hierarchia celów i obsługa wielu dzierżawców](xref:security/data-protection/consumer-apis/purpose-strings-multitenancy)

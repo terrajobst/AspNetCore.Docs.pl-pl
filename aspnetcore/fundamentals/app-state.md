@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/14/2018
 uid: fundamentals/app-state
-ms.openlocfilehash: da20538a0dc6e13caedaf6a1130e66981dcb7af2
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 5ca909681ca9da3fae0391991902da97581852be
+ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207293"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50253185"
 ---
 # <a name="session-and-app-state-in-aspnet-core"></a>Stan sesji i aplikacji w programie ASP.NET Core
 
@@ -33,7 +33,7 @@ Stan, mogą być przechowywane przy użyciu kilku metod. Każde podejście jest 
 | [Ciągi zapytań](#query-strings) | Ciągi kwerendy HTTP |
 | [Ukryte pola](#hidden-fields) | Pola formularza HTTP |
 | [HttpContext.Items](#httpcontextitems) | Kod aplikacji po stronie serwera |
-| [Cache](#cache) | Kod aplikacji po stronie serwera |
+| [Pamięć podręczna](#cache) | Kod aplikacji po stronie serwera |
 | [Wstrzykiwanie zależności](#dependency-injection) | Kod aplikacji po stronie serwera |
 
 ## <a name="cookies"></a>Pliki cookie
@@ -71,7 +71,7 @@ Stan sesji wykazuje następujące zachowania:
 Dostawcy pamięci podręcznej przechowuje dane sesji w pamięci serwera, w którym znajduje się aplikacja. W przypadku scenariusza farmy serwera:
 
 * Użyj *trwałych sesji* powiązać każdej sesji do wystąpienia specyficzne dla aplikacji na wybranym serwerze. [Usługa Azure App Service](https://azure.microsoft.com/services/app-service/) używa [Routing żądań aplikacji (ARR)](/iis/extensions/planning-for-arr/using-the-application-request-routing-module) do wymuszania trwałych sesji domyślnie. Jednak trwałych sesji może mieć wpływ na skalowalność i skomplikować aktualizacje aplikacji sieci web. Lepszym rozwiązaniem jest użycie pamięci podręcznej Redis lub SQL Server rozproszonej pamięci podręcznej, która nie wymaga trwałych sesji. Aby uzyskać więcej informacji, zobacz <xref:performance/caching/distributed>.
-* Plik cookie sesji jest szyfrowany za pomocą [interfejsu IDataProtector](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotector). Ochrona danych muszą zostać prawidłowo skonfigurowane, można odczytać plików cookie sesji na każdym komputerze. Aby uzyskać więcej informacji, zobacz [ochrony danych w programie ASP.NET Core](xref:security/data-protection/index) i [dostawcy magazynu kluczy](xref:security/data-protection/implementation/key-storage-providers).
+* Plik cookie sesji jest szyfrowany za pomocą [interfejsu IDataProtector](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotector). Ochrona danych muszą zostać prawidłowo skonfigurowane, można odczytać plików cookie sesji na każdym komputerze. Aby uzyskać więcej informacji, zobacz <xref:security/data-protection/introduction> i [dostawcy magazynu kluczy](xref:security/data-protection/implementation/key-storage-providers).
 
 ### <a name="configure-session-state"></a>Skonfiguruj stan sesji
 
@@ -274,7 +274,7 @@ Wybieranie dostawcy TempData obejmuje kilka zagadnień, takich jak:
 
 1. Aplikacja już używa stanu sesji? Jeśli tak, przy użyciu dostawcy TempData stanu sesji ma bez dodatkowych kosztów do aplikacji (jako uzupełnienie rozmiar danych).
 2. Aplikacja używa TempData tylko rzadko stosunkowo małe ilości danych (maks. 500 w bajtach)? Jeśli tak, plik cookie dostawcy TempData dodaje niewielkim kosztem do każdego żądania, który przenosi TempData. W przeciwnym razie TempData dostawcy stanu sesji może być korzystne uniknąć Pełna zgodnooć wersji dużej ilości danych do wszystkich żądań do momentu TempData jest używany.
-3. Czy aplikacja działa w farmie serwerów na wielu serwerach? Jeśli tak, istnieje dodatkowa konfiguracja, nie trzeba używać dostawcy TempData plik cookie poza ochrony danych (zobacz [ochrony danych](xref:security/data-protection/index) i [dostawcy magazynu kluczy](xref:security/data-protection/implementation/key-storage-providers)).
+3. Czy aplikacja działa w farmie serwerów na wielu serwerach? Jeśli tak, istnieje dodatkowa konfiguracja, nie trzeba używać dostawcy TempData plik cookie poza ochrony danych (zobacz <xref:security/data-protection/introduction> i [dostawcy magazynu kluczy](xref:security/data-protection/implementation/key-storage-providers)).
 
 > [!NOTE]
 > Większość klientów sieci web (na przykład przeglądarki sieci web) wymuszać limity maksymalny rozmiar poszczególnych plików cookie i/lub całkowita liczba plików cookie. Korzystając z dostawcy TempData plików cookie, sprawdź, czy aplikacja nie będzie przekroczenia limitów. Należy wziąć pod uwagę całkowity rozmiar danych. Konto na potrzeby zwiększenie rozmiaru pliku cookie z powodu szyfrowania i segmentu.

@@ -7,12 +7,12 @@ ms.author: anurse
 ms.custom: mvc
 ms.date: 06/29/2018
 uid: signalr/authn-and-authz
-ms.openlocfilehash: 7cfe90115b0710fba196693efd309f7c914f0ad4
-ms.sourcegitcommit: 2ef32676c16f76282f7c23154d13affce8c8bf35
+ms.openlocfilehash: aa1721ba1802e1bfba04d57378085a136c100deb
+ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/30/2018
-ms.locfileid: "50234543"
+ms.locfileid: "50252909"
 ---
 # <a name="authentication-and-authorization-in-aspnet-core-signalr"></a>Uwierzytelnianie i autoryzacja w biblioteki SignalR platformy ASP.NET Core
 
@@ -22,7 +22,7 @@ Przez [Andrew Stanton pielęgniarki](https://twitter.com/anurse)
 
 ## <a name="authenticate-users-connecting-to-a-signalr-hub"></a>Uwierzytelnianie użytkowników łączących się z Centrum SignalR
 
-SignalR mogą być używane z [uwierzytelnianie programu ASP.NET Core](xref:security/authentication/index) do skojarzenia użytkownika z każdego połączenia. W centrum danych uwierzytelniania są dostępne z [ `HubConnectionContext.User` ](/dotnet/api/microsoft.aspnetcore.signalr.hubconnectioncontext.user) właściwości. Uwierzytelnianie umożliwia piaście aby wywoływać metody na wszystkie połączenia skojarzone z użytkownikiem (zobacz [zarządzania użytkownikami i grupami w SignalR](xref:signalr/groups) Aby uzyskać więcej informacji). Wiele połączeń mogą być skojarzone z żadnym użytkownikiem.
+SignalR mogą być używane z [uwierzytelnianie programu ASP.NET Core](xref:security/authentication/identity) do skojarzenia użytkownika z każdego połączenia. W centrum danych uwierzytelniania są dostępne z [ `HubConnectionContext.User` ](/dotnet/api/microsoft.aspnetcore.signalr.hubconnectioncontext.user) właściwości. Uwierzytelnianie umożliwia piaście aby wywoływać metody na wszystkie połączenia skojarzone z użytkownikiem (zobacz [zarządzania użytkownikami i grupami w SignalR](xref:signalr/groups) Aby uzyskać więcej informacji). Wiele połączeń mogą być skojarzone z żadnym użytkownikiem.
 
 ### <a name="cookie-authentication"></a>Plik cookie uwierzytelniania
 

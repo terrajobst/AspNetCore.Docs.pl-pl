@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/21/2018
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 6b2cf853575b02de76d44bf79849fe11bb458fbd
-ms.sourcegitcommit: c43a6f1fe72d7c2db4b5815fd532f2b45d964e07
+ms.openlocfilehash: b204eeb35f8765bbafc85b3bb283809727356d3e
+ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/30/2018
-ms.locfileid: "50244947"
+ms.locfileid: "50253211"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host platformy ASP.NET Core na Windows za pomocą programu IIS
 
@@ -401,7 +401,7 @@ Pliki w folderze wdrażania są zablokowane, gdy aplikacja jest uruchomiona. Nie
 
 ## <a name="data-protection"></a>Ochrona danych
 
-[Stosu ochrony danych programu ASP.NET Core](xref:security/data-protection/index) jest używana przez kilka platformy ASP.NET Core [middlewares](xref:fundamentals/middleware/index), w tym oprogramowanie pośredniczące używane w przypadku uwierzytelniania. Nawet wtedy, gdy interfejsów API ochrony danych nie są wywoływane przez kod użytkownika, należy skonfigurować ochronę danych, za pomocą skryptu wdrożenia lub w kodzie użytkownika, aby utworzyć trwałe kryptograficznych [magazynu kluczy](xref:security/data-protection/implementation/key-management). Jeśli nie jest skonfigurowana ochrona danych, klucze są przechowywane w pamięci i odrzucone po ponownym uruchomieniu aplikacji.
+[Stosu ochrony danych programu ASP.NET Core](xref:security/data-protection/introduction) jest używana przez kilka platformy ASP.NET Core [middlewares](xref:fundamentals/middleware/index), w tym oprogramowanie pośredniczące używane w przypadku uwierzytelniania. Nawet wtedy, gdy interfejsów API ochrony danych nie są wywoływane przez kod użytkownika, należy skonfigurować ochronę danych, za pomocą skryptu wdrożenia lub w kodzie użytkownika, aby utworzyć trwałe kryptograficznych [magazynu kluczy](xref:security/data-protection/implementation/key-management). Jeśli nie jest skonfigurowana ochrona danych, klucze są przechowywane w pamięci i odrzucone po ponownym uruchomieniu aplikacji.
 
 Jeśli pierścień klucz jest przechowywany w pamięci, po ponownym uruchomieniu aplikacji:
 
@@ -434,7 +434,7 @@ Aby skonfigurować ochronę danych w środowisku usług IIS, aby utrwalić pier�
 
 * **Ustaw zasady dla komputera w celu ochrony danych**
 
-  System ochrony danych ma ograniczoną obsługę ustawiania domyślnych [komputera zasad](xref:security/data-protection/configuration/machine-wide-policy) dla wszystkich aplikacji korzystających z interfejsów API ochrony danych. Zobacz [dokumentacja programu data protection](xref:security/data-protection/index) Aby uzyskać szczegółowe informacje.
+  System ochrony danych ma ograniczoną obsługę ustawiania domyślnych [komputera zasad](xref:security/data-protection/configuration/machine-wide-policy) dla wszystkich aplikacji korzystających z interfejsów API ochrony danych. Aby uzyskać więcej informacji, zobacz <xref:security/data-protection/introduction>.
 
 ## <a name="sub-application-configuration"></a>Konfiguracja aplikacji podrzędnych
 

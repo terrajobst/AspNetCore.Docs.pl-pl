@@ -1,4 +1,5 @@
 <a name="cli"></a>
+
 ## <a name="add-scaffold-tooling-and-perform-initial-migration"></a>Dodawanie szkieletu narzędzi i wykonywania początkowej migracji
 
 Dodaj następujące wiersze do *RazorPagesMovie.csproj* pliku, bezpośrednio przed zamykającym `</Project>` tag:
@@ -7,7 +8,8 @@ Dodaj następujące wiersze do *RazorPagesMovie.csproj* pliku, bezpośrednio prz
 <ItemGroup>
   <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.1.0-preview1-final"/>
 </ItemGroup>
-```  
+```
+  
 W wierszu polecenia Uruchom następujące polecenia interfejsu wiersza polecenia platformy .NET Core:
 
 ```console

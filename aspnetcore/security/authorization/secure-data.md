@@ -5,12 +5,12 @@ description: Dowiedz się, jak utworzyć aplikację stron Razor przy użyciu dan
 ms.author: riande
 ms.date: 7/24/2018
 uid: security/authorization/secure-data
-ms.openlocfilehash: 786e83eb28722e83eea46def962593f58ad524e2
-ms.sourcegitcommit: c43a6f1fe72d7c2db4b5815fd532f2b45d964e07
+ms.openlocfilehash: 185628d4e06c9b5ae7f2685c10ea9e46dd5abe92
+ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/30/2018
-ms.locfileid: "50244843"
+ms.locfileid: "50253224"
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Tworzenie aplikacji platformy ASP.NET Core przy użyciu danych użytkownika chronionych przez autoryzację
 
@@ -71,16 +71,16 @@ Przykład zawiera poniższe obsługi autoryzacji:
 W tym samouczku jest zaawansowany. Należy zapoznać się z:
 
 * [ASP.NET Core](xref:tutorials/first-mvc-app/start-mvc)
-* [Uwierzytelnianie](xref:security/authentication/index)
+* [Uwierzytelnianie](xref:security/authentication/identity)
 * [Potwierdzenie konta i odzyskiwanie hasła](xref:security/authentication/accconfirm)
-* [Autoryzacja](xref:security/authorization/index)
+* [Autoryzacja](xref:security/authorization/introduction)
 * [Entity Framework Core](xref:data/ef-mvc/intro)
 
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.1"
 
-W programie ASP.NET Core 2.1 `User.IsInRole` zakończy się niepowodzeniem w przypadku korzystania z `AddDefaultIdentity`. W tym samouczku `AddDefaultIdentity` i dlatego wymaga platformy ASP.NET Core 2.2 w wersji zapoznawczej 1 lub nowszym. Zobacz [problem w usłudze GitHub](https://github.com/aspnet/Identity/issues/1813#issuecomment-394543909) dla obejścia.
+W programie ASP.NET Core 2.1 `User.IsInRole` zakończy się niepowodzeniem w przypadku korzystania z `AddDefaultIdentity`. W tym samouczku `AddDefaultIdentity` i dlatego wymaga platformy ASP.NET Core 2,2 lub nowszej. Zobacz [problem w usłudze GitHub](https://github.com/aspnet/Identity/issues/1813#issuecomment-394543909) dla obejścia.
 
 ::: moniker-end
 
@@ -352,7 +352,7 @@ Sprawdź, czy aplikacja zasilany bazy danych. W przypadku wszystkich wierszy w s
 
 * [Tworzenie aplikacji internetowej platformy .NET Core i SQL Database w usłudze Azure App Service](/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb)
 * [Laboratorium autoryzacji platformy ASP.NET Core](https://github.com/blowdart/AspNetAuthorizationWorkshop). W tym laboratorium zawiera bardziej szczegółowe na temat funkcji zabezpieczeń wprowadzone w ramach tego samouczka.
-* [Autoryzacja w programie ASP.NET Core: prosty, rola, opartej na oświadczeniach i niestandardowe](xref:security/authorization/index)
+* <xref:security/authorization/introduction>
 * [Autoryzacja niestandardowa oparta na zasadach](xref:security/authorization/policies)
 
 ::: moniker-end

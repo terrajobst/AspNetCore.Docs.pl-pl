@@ -15,7 +15,7 @@ Powyższy kod:
 * Definiuje klasę kontrolera interfejsu API bez metody.
 * Tworzy nowy Todo elementu, gdy `TodoItems` jest pusty. Nie można usunąć wszystkie elementy zadań do wykonania, ponieważ Konstruktor tworzy nowy Jeśli jeden `TodoItems` jest pusty.
 
-W kolejnych sekcjach metody są dodawane do implementacji interfejsu API. Klasa jest oznaczona za pomocą `[ApiController]` atrybutu, aby włączyć funkcje wygodne. Aby uzyskać informacji na temat funkcji włączone za pomocą atrybutu, zobacz [dodawać adnotacje do klasy za pomocą ApiControllerAttribute](xref:web-api/index#annotate-class-with-apicontrollerattribute).
+W kolejnych sekcjach metody są dodawane do implementacji interfejsu API. Klasa jest oznaczona za pomocą `[ApiController]` atrybutu, aby włączyć funkcje wygodne. Aby uzyskać informacji na temat funkcji włączone za pomocą atrybutu, zobacz [adnotacja o ApiControllerAttribute](xref:web-api/index#annotation-with-apicontrollerattribute).
 
 ::: moniker-end
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: d9eb6a01e096c7e8cbcb0979e24331a8d5316a14
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 3626ce834b904db64c1976aefc77dc60a7bfdf1c
+ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207657"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50253172"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Wstrzykiwanie zależności w programie ASP.NET Core
 
@@ -427,7 +427,7 @@ Usługi dostępne w ramach platformy ASP.NET Core poprosić `HttpContext` są ud
 
 Żądanie usługi reprezentują usługi skonfigurowane, a żądane w ramach aplikacji. Gdy obiekty określić zależności, są one spełnione przez typów znalezionych w `RequestServices`, a nie `ApplicationServices`.
 
-Ogólnie rzecz biorąc aplikacja nie należy bezpośrednio używać tych właściwości. Zamiast tego żądania typy, klasy wymagają za pomocą konstruktorów klas i zezwolić na platformę iniekcji zależności. Daje to klasy, które są łatwiejsze do testowania (zobacz [testowanie i debugowanie](xref:test/index) tematy).
+Ogólnie rzecz biorąc aplikacja nie należy bezpośrednio używać tych właściwości. Zamiast tego żądania typy, klasy wymagają za pomocą konstruktorów klas i zezwolić na platformę iniekcji zależności. Daje to klasy, które są łatwiejsze do testowania.
 
 > [!NOTE]
 > Preferuj żądania z zależności jako parametry konstruktora do uzyskiwania dostępu do `RequestServices` kolekcji.
@@ -558,7 +558,6 @@ DI jest *alternatywnych* do wzorce dostępu i statyczne/globalne obiektu. Nie mo
 * <xref:mvc/controllers/dependency-injection>
 * <xref:security/authorization/dependencyinjection>
 * <xref:fundamentals/startup>
-* <xref:test/index>
 * <xref:fundamentals/middleware/extensibility>
 * [Pisanie czystego kodu w programie ASP.NET Core przy użyciu iniekcji zależności (MSDN)](https://msdn.microsoft.com/magazine/mt703433.aspx)
 * [Projekt aplikacji zarządzanych przez kontener, Prelude: Gdzie jest należą kontenera?](https://blogs.msdn.microsoft.com/nblumhardt/2008/12/26/container-managed-application-design-prelude-where-does-the-container-belong/)

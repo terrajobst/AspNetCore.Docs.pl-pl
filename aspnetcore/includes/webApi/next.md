@@ -2,8 +2,8 @@
 
 * Aby uzyskać informacji na temat używania trwałego bazy danych zobacz:
 
-  * [Tworzenie aplikacji internetowej strony Razor za pomocą programu ASP.NET Core](xref:tutorials/index)
-  * [Praca z danymi w programie ASP.NET Core](xref:data/index)
+  * <xref:tutorials/razor-pages/index>
+  * <xref:data/ef-rp/index>
 
 * <xref:host-and-deploy/azure-apps/index>
 * <xref:host-and-deploy/index>

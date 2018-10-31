@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: mvc/models/validation
-ms.openlocfilehash: 73d41b4718071d00a6f80b33de182da2ad90f331
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 1063fdccb97e55e6b0eb6689187134ff41c10a02
+ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090953"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50253159"
 ---
 # <a name="model-validation-in-aspnet-core-mvc"></a>Weryfikacja modelu w programie ASP.NET Core MVC
 
@@ -22,6 +22,8 @@ Przez [Rachel Appel](https://github.com/rachelappel)
 Zanim aplikacja przechowuje dane w bazie danych, aplikacja musi sprawdzić poprawność danych. Potencjalne zagrożenia bezpieczeństwa w celu weryfikacji, że jest prawidłowo sformatowany według typu i rozmiaru i musi stosować się do reguł, dane muszą zostać sprawdzone. Sprawdzanie poprawności jest niezbędne, chociaż może być nadmiarowy i żmudnym do zaimplementowania. W przypadku platformy MVC weryfikacji odbywa się na kliencie i serwerze.
 
 Na szczęście platformy .NET ma wyodrębnione sprawdzania poprawności do atrybutów sprawdzania poprawności. Te atrybuty zawierają kod sprawdzania poprawności, w tym samym zmniejsza ilość kodu, który trzeba napisać.
+
+W programie ASP.NET Core 2.2 i nowszych środowiska uruchomieniowego platformy ASP.NET Core short-circuits weryfikacji (pomija), jeśli można określić, że wykres podanego modelu nie wymaga weryfikacji. Pomijanie sprawdzania poprawności może zapewnić znaczne ulepszenia wydajności, podczas sprawdzania poprawności modeli, które nie może lub nie ma żadnych skojarzonych modułów weryfikacji. Pominięto Walidacja obejmuje obiekty, takie jak kolekcje elementów podstawowych (`byte[]`, `string[]`, `Dictionary<string, string>`, itp.), lub wykresów złożonych obiektów bez żadnych modułów weryfikacji.
 
 [Wyświetlanie lub pobieranie przykładowy z serwisu GitHub](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/models/validation/sample).
 
