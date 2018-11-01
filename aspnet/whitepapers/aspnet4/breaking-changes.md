@@ -37,7 +37,7 @@ ms.locfileid: "41756444"
 [Błędy konfiguracji związane z nowej konfiguracji programu ASP.NET 4 głównych](#0.1__Toc256770149 "_Toc256770149")  
 [Aplikacje programu ASP.NET 4 podrzędnych zakończyć się niepowodzeniem do ekranu startowego w ramach programu ASP.NET 2.0 lub ASP.NET aplikacji w wersji 3.5](#0.1__Toc256770150 "_Toc256770150")  
 [ASP.NET 4 witryn sieci Web nie można uruchomić na komputerach, na którym zainstalowano program SharePoint](#0.1__Toc256770151 "_Toc256770151")  
-[The HttpRequest.FilePath Property No Longer Includes PathInfo Values](#0.1__Toc256770152 "_Toc256770152")  
+[Właściwość HttpRequest.FilePath nie zawiera już PATHINFO zawiera wartości](#0.1__Toc256770152 "_Toc256770152")  
 [Program ASP.NET 2.0 aplikacji może generować httpexception — błędy, które odwołują się eurl.axd](#0.1__Toc256770153 "_Toc256770153")  
 [Programy obsługi zdarzeń nie może zostać nie wywołane dokumentu domyślnego w IIS 7.5 lub IIS 7 trybie zintegrowanym](#0.1__Toc256770154 "_Toc256770154")  
 [Zmienia się na implementacji zabezpieczenia dostępu kodu platformy ASP.NET](#0.1__Toc256770155 "_Toc256770155")  
