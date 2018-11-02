@@ -8,12 +8,12 @@ ms.date: 02/07/2014
 ms.assetid: aa67d304-583b-4bf8-a231-195656cfb587
 msc.legacyurl: /web-pages/overview/getting-started/introducing-razor-syntax-c
 msc.type: authoredcontent
-ms.openlocfilehash: 347e5ddbc02866887d3f422ecc291e5e3dfacaaf
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: b242bf52bbd63d726e6ce6ab7be01a1b81c5bf1b
+ms.sourcegitcommit: fc2486ddbeb15ab4969168d99b3fe0fbe91e8661
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207917"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50758261"
 ---
 <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-c"></a>Wprowadzenie do programowania dla sieci Web platformy ASP.NET używająca składni Razor (C#)
 ====================
@@ -342,13 +342,13 @@ Poniższa lista zawiera niektóre typowe metody konwersji i testowania dla zmien
 
 :::row:::
     :::column:::
-        <strong>Method</strong>
+    <strong>— Metoda</strong>
     :::column-end:::
     :::column:::
-        <strong>Description</strong>
+    <strong>Opis</strong>
     :::column-end:::
     :::column:::
-        <strong>Example</strong>
+    <strong>Przykład</strong>
     :::column-end:::
 :::row-end:::
 * * *
@@ -357,7 +357,7 @@ Poniższa lista zawiera niektóre typowe metody konwersji i testowania dla zmien
         `AsInt(), IsInt()`
     :::column-end:::
     :::column:::
-        Converts a string that represents a whole number (like "593") to an integer.
+    Konwertuje ciąg, który reprezentuje liczbę całkowitą z zakresu (np. "593") na liczbę całkowitą.
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample28.cs)]
@@ -369,7 +369,7 @@ Poniższa lista zawiera niektóre typowe metody konwersji i testowania dla zmien
         `AsBool(), IsBool()`
     :::column-end:::
     :::column:::
-        Converts a string like &quot;true&quot; or &quot;false&quot; to a Boolean type.
+    Konwertuje ciąg, takich jak &quot;true&quot; lub &quot;false&quot; na typ Boolean.
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample29.cs)]
@@ -381,7 +381,7 @@ Poniższa lista zawiera niektóre typowe metody konwersji i testowania dla zmien
         `AsFloat(), IsFloat()`
     :::column-end:::
     :::column:::
-        Converts a string that has a decimal value like &quot;1.3&quot; or &quot;7.439&quot; to a floating-point number.
+    Konwertuje ciąg, który ma wartość dziesiętną, takich jak &quot;1.3&quot; lub &quot;7.439&quot; na liczbę zmiennoprzecinkową.
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample30.cs)]
@@ -393,7 +393,7 @@ Poniższa lista zawiera niektóre typowe metody konwersji i testowania dla zmien
         `AsDecimal(), IsDecimal()`
     :::column-end:::
     :::column:::
-        Converts a string that has a decimal value like &quot;1.3&quot; or &quot;7.439&quot; to a decimal number. (In ASP.NET, a decimal number is more precise than a floating-point number.)
+    Konwertuje ciąg, który ma wartość dziesiętną, takich jak &quot;1.3&quot; lub &quot;7.439&quot; na liczbę dziesiętną. (W programie ASP.NET: liczba dziesiętna jest bardziej precyzyjne niż liczba zmiennoprzecinkowa).
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample31.cs)]
@@ -405,7 +405,7 @@ Poniższa lista zawiera niektóre typowe metody konwersji i testowania dla zmien
         `AsDateTime(), IsDateTime()`
     :::column-end:::
     :::column:::
-        Converts a string that represents a date and time value to the ASP.NET `DateTime` type.
+    Konwertuje ciąg reprezentujący wartość daty i godziny ASP.NET `DateTime` typu.
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample32.cs)]
@@ -417,7 +417,7 @@ Poniższa lista zawiera niektóre typowe metody konwersji i testowania dla zmien
         `ToString()`
     :::column-end:::
     :::column:::
-        Converts any other data type to a string.
+    Konwertuje ciąg inny typ danych.
     :::column-end:::
     :::column:::
         [!code-javascript[Main](introducing-razor-syntax-c/samples/sample33.js)]
@@ -431,13 +431,13 @@ Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaj
 
 :::row:::
     :::column:::
-        <strong>Operator</strong>
+    <strong>Operator</strong>
     :::column-end:::
     :::column:::
-        <strong>Description</strong>
+    <strong>Opis</strong>
     :::column-end:::
     :::column:::
-        <strong>Examples</strong>
+    <strong>Przykłady</strong>
     :::column-end:::
 :::row-end:::
 * * *
@@ -446,7 +446,7 @@ Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaj
         `+` `-` `*` `/`
     :::column-end:::
     :::column:::
-        Math operators used in numerical expressions.
+    Operatory matematyczne używać w wyrażeniach liczbowych.
     :::column-end:::
     :::column:::
         [!code-css[Main](introducing-razor-syntax-c/samples/sample34.css)]
@@ -458,7 +458,7 @@ Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaj
         `=`
     :::column-end:::
     :::column:::
-        Assignment. Assigns the value on the right side of a statement to the object on the left side.
+    Przypisanie. Przypisuje wartość po prawej stronie instrukcji do obiektu po lewej stronie.
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample35.cs)]
@@ -470,7 +470,7 @@ Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaj
         `==`
     :::column-end:::
     :::column:::
-        Equality. Returns `true` if the values are equal. (Notice the distinction between the `=` operator and the `==` operator.)
+    Równości. Zwraca `true` Jeśli wartości są równe. (Należy zauważyć różnicę między `=` operatora i `==` operator.)
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample36.cs)]
@@ -482,7 +482,7 @@ Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaj
         `!=`
     :::column-end:::
     :::column:::
-        Inequality. Returns `true` if the values are not equal.
+    Nierówności. Zwraca `true` wartości nie są równe.
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample37.cs)]
@@ -494,7 +494,7 @@ Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaj
         `< > <= >=`
     :::column-end:::
     :::column:::
-        Less-than, greater-than, less-than-or-equal, and greater-than-or-equal.
+    Mniej-niż większą-niż, mniejsze niż lub równości i większa niż — lub równości.
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample38.cs)]
@@ -506,7 +506,7 @@ Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaj
         `+`
     :::column-end:::
     :::column:::
-        Concatenation, which is used to join strings. ASP.NET knows the difference between this operator and the addition operator based on the data type of the expression.
+    Łączenie, który jest używany do łączenia ciągów. ASP.NET wie, że różnica między Ten operator i operator dodawania, na podstawie typu danych wyrażenia.
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample39.cs)]
@@ -518,7 +518,7 @@ Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaj
         `+=` `-=`
     :::column-end:::
     :::column:::
-        The increment and decrement operators, which add and subtract 1 (respectively) from a variable.
+    Operatory inkrementacji i dekrementacji, które dodawania i odejmowania 1 (odpowiednio) ze zmiennej.
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample40.cs)]
@@ -530,7 +530,7 @@ Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaj
         `.`
     :::column-end:::
     :::column:::
-        Dot. Used to distinguish objects and their properties and methods.
+    Kropka. Używany do odróżnienia obiektów i ich właściwości i metody.
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample41.cs)]
@@ -542,7 +542,7 @@ Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaj
         `()`
     :::column-end:::
     :::column:::
-        Parentheses. Used to group expressions and to pass parameters to methods.
+    Nawiasy. Używane do wyrażenia grupy oraz w celu przekazania parametrów do metod.
     :::column-end:::
     :::column:::
         [!code-javascript[Main](introducing-razor-syntax-c/samples/sample42.js)]
@@ -554,7 +554,7 @@ Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaj
         `[]`
     :::column-end:::
     :::column:::
-        Brackets. Used for accessing values in arrays or collections.
+    Nawiasy kwadratowe. Używane do uzyskiwania dostępu do wartości w tablice i kolekcje.
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample43.cs)]
@@ -566,7 +566,7 @@ Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaj
         `!`
     :::column-end:::
     :::column:::
-        Not. Reverses a `true` value to `false` and vice versa. Typically used as a shorthand way to test for `false` (that is, for not `true`).
+    Nie. Odwraca `true` wartość `false` i na odwrót. Zwykle jest używana jako sposób skrót do testowania `false` (oznacza to, aby nie `true`).
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample44.cs)]
@@ -578,7 +578,7 @@ Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaj
         `&&` <code>&#124;&#124;</code>
     :::column-end:::
     :::column:::
-        Logical AND and OR, which are used to link conditions together.
+    Operator logiczny oraz i lub które są używane do łączenia ze sobą warunki.
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample45.cs)]

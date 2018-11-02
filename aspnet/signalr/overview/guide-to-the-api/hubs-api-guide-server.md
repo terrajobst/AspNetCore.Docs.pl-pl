@@ -8,12 +8,12 @@ ms.date: 06/10/2014
 ms.assetid: b19913e5-cd8a-4e4b-a872-5ac7a858a934
 msc.legacyurl: /signalr/overview/guide-to-the-api/hubs-api-guide-server
 msc.type: authoredcontent
-ms.openlocfilehash: 03dd8a73141330348f2877760a5978a8a0b95122
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 6545491cfa36bb9fee555eb0348ec0a319bff470
+ms.sourcegitcommit: fc2486ddbeb15ab4969168d99b3fe0fbe91e8661
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41754714"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50758248"
 ---
 <a name="aspnet-signalr-hubs-api-guide---server-c"></a>Podręcznik biblioteki SignalR platformy ASP.NET do interfejsu API centrów — serwer (C#)
 ====================
@@ -304,6 +304,11 @@ Aby wywołać metody klienta, z serwera, należy użyć `Clients` właściwość
 
 [!code-csharp[Main](hubs-api-guide-server/samples/sample23.cs?highlight=5)]
 
+Wywoływanie metody klienta jest operacją asynchroniczną i zwraca `Task`. Użyj `await`:
+
+* Aby upewnić się, komunikat jest wysyłany bez błędów. 
+* Aby włączyć wychwytywanie i obsługa błędów w bloku try-catch.
+
 **Klient JavaScript za pomocą wygenerowanego serwera proxy**
 
 [!code-html[Main](hubs-api-guide-server/samples/sample24.html?highlight=1)]
@@ -572,7 +577,7 @@ W VB.NET lub koncentrator silnie typizowane, obiekt wywołujący stanu nie są d
 
 ## <a name="how-to-handle-errors-in-the-hub-class"></a>Sposób obsługi błędów w klasie Centrum
 
-Do obsługi błędów występujących w Twoich metodach koncentratora, klasy, należy użyć co najmniej jeden z następujących metod:
+Do obsługi błędów występujących w Twoich metodach klasy koncentratora, najpierw upewnij się, "zauważysz" wszystkie wyjątki od operacji asynchronicznej (takich jak wywoływanie metod klienta) przy użyciu `await`. Następnie należy użyć co najmniej jeden z następujących metod:
 
 - Zabalit kodzie metoda bloków try-catch, a następnie zaloguj się obiekt wyjątku. Dla celów debugowania wyjątku można wysłać do klienta, ale zabezpieczeń przyczyny wysyłanie szczegółowych informacji do klientów w środowisku produkcyjnym nie jest zalecane.
 - Utwórz moduł potoku koncentratorów, który obsługuje [OnIncomingError](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.hubpipelinemodule.onincomingerror(v=vs.111).aspx) metody. Poniższy przykład pokazuje moduł potoku, który rejestruje błędy, kod w pliku Startup.cs, która wprowadza moduł potokiem koncentratorów.
