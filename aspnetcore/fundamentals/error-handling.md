@@ -1,17 +1,17 @@
 ---
 title: Obsługa błędów w programie ASP.NET Core
-author: ardalis
+author: tdykstra
 description: Dowiedz się, jak do obsługi błędów w aplikacji platformy ASP.NET Core.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 07/05/2018
+ms.date: 11/01/2018
 uid: fundamentals/error-handling
-ms.openlocfilehash: d1e94fdc89fbebc264dc001bbf35666af16f4799
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 89117d78486493747d649c3bb0d9cce9f97ef419
+ms.sourcegitcommit: 85f2939af7a167b9694e1d2093277ffc9a741b23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50208034"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50968322"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>Obsługa błędów w programie ASP.NET Core
 
@@ -119,17 +119,28 @@ Oprogramowanie pośredniczące obsługuje kilka metod rozszerzenia. Jedna metoda
 
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePages)]
 
-Inna metoda przyjmuje zawartości typu i formatu ciągu:
+Przeciążenia `UseStatusCodePages` przyjmuje zawartości typu i formatu ciągu:
 
 ```csharp
 app.UseStatusCodePages("text/plain", "Status code page, status code: {0}");
 ```
+### <a name="redirect-re-execute-extension-methods"></a>Przekieruj wykonaj ponownie metody rozszerzenia
 
-Istnieją również przekierować, a następnie wykonaj ponownie metody rozszerzenia. Metoda przekierowania wysyła *302 Found* kod stanu dla klienta i przekierowuje klienta do szablonu adresu URL podanej lokalizacji. Szablon może obejmować `{0}` symbol zastępczy dla kodu stanu. Adresy URL, począwszy od `~` ma ścieżki podstawowej, dołączony. Adres URL, który nie zaczyna się od `~` jest używany jako jest.
+<xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePagesWithRedirects*>:
+
+* Wysyła *302 — znaleziono* kod stanu do klienta.
+* Przekierowuje klienta do lokalizacji, udostępnionego w szablonie adresu URL. 
+
+Szablon może obejmować `{0}` symbol zastępczy dla kodu stanu. Szablon musi rozpoczynać się od ukośnika (`/`).
 
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePagesWithRedirect)]
 
-Wykonaj ponownie metoda zwraca oryginalny kod stanu do klienta i określa, czy treść odpowiedzi powinny być generowane ponownie, wykonując Potok żądań przy użyciu ścieżki alternatywnej. Ta ścieżka może zawierać `{0}` symbol zastępczy kod stanu:
+<xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePagesWithReExecute*>:
+
+* Zwraca oryginalny kod stanu do klienta.
+* Określa, czy treść odpowiedzi powinny być generowane ponownie, wykonując Potok żądań przy użyciu ścieżki alternatywnej. 
+
+Szablon może obejmować `{0}` symbol zastępczy dla kodu stanu. Szablon musi rozpoczynać się od ukośnika (`/`).
 
 ```csharp
 app.UseStatusCodePagesWithReExecute("/error/{0}");
@@ -146,7 +157,7 @@ if (statusCodePagesFeature != null)
 }
 ```
 
-Jeśli przy użyciu `UseStatusCodePages*` przeciążenia, że wskazuje punkt końcowy w ramach aplikacji, Utwórz widoku MVC lub strona Razor dla punktu końcowego. Na przykład [dotnet nowe](/dotnet/core/tools/dotnet-new) szablonu dla aplikacji stron Razor tworzy następującą stronę i klasy modelu strony:
+Aby użyć `UseStatusCodePages*` przeciążenia, że wskazuje punkt końcowy w ramach aplikacji, Utwórz widoku MVC lub strona Razor dla punktu końcowego. Na przykład [dotnet nowe](/dotnet/core/tools/dotnet-new) szablonu dla aplikacji stron Razor tworzy następującą stronę i klasy modelu strony:
 
 *Error.cshtml*:
 
