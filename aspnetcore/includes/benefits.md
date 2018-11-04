@@ -1,7 +1,7 @@
 Platforma ASP. NET Core oferuje następujące zalety:
 
 * Ujednolicony scenariusz na potrzeby tworzenia internetowego interfejsu użytkownika i internetowych interfejsów API.
-* Zmianie architektury dla [testowalności](xref:test/index).
+* Zaprojektowana z myślą o możliwości testowania.
 * [Strony razor](xref:razor-pages/index) sprawia, że kodowania skoncentrowane na stronie scenariuszy łatwiejsze i bardziej wydajne.
 * Możliwość tworzenia i systemem Windows, macOS i Linux.
 * Open source i [koncentracja na społeczności](https://live.asp.net/).
