@@ -4,7 +4,7 @@ Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 W tym samouczku sprawdza, czy strony Razor, powstałe w wyniku tworzenia szkieletów w poprzednim samouczku. 
 
-[Wyświetlanie lub pobieranie](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie) próbki.
+[Wyświetlanie lub pobieranie](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie21) próbki.
 
 ## <a name="the-create-delete-details-and-edit-pages"></a>Tworzenie, usuwanie, szczegóły i edycji stron.
 
@@ -101,7 +101,7 @@ Zmiana `<title>` element *Pages/Shared/_Layout.cshtml* pliku, aby użyć krótsz
 
 [!code-cshtml[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Pages/_Layout.cshtml?range=1-6&highlight=6)]
 
-Znajdź następujący element zakotwiczenia w *Pages/_Layout.cshtml* pliku.
+Znajdź następujący element zakotwiczenia w *Pages/Shared/_Layout.cshtml* pliku.
 
 ```cshtml
 <a asp-page="/Index" class="navbar-brand">RazorPagesMovie</a>
@@ -114,7 +114,7 @@ Zastąp poprzedzający element następującym kodem.
 
 Poprzedni element zakotwiczenia jest [Pomocnik tagu](xref:mvc/views/tag-helpers/intro). W tym przypadku ma [Pomocnik tagu kotwicy](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper). `asp-page="/Movies/Index"` Atrybut pomocnika tagów i wartość tworzy łącze do `/Movies/Index` strona Razor.
 
-Zapisz zmiany i przetestować aplikację, klikając **RpMovie** łącza. Zobacz [_Layout.cshtml](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Pages/_Layout.cshtml) pliku w usłudze GitHub.
+Zapisz zmiany i przetestować aplikację, klikając **RpMovie** łącza. Zobacz [_Layout.cshtml](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Pages/Shared/_Layout.cshtml) pliku w usłudze GitHub.
 
 ### <a name="the-create-page-model"></a>Tworzenie modelu strony
 
