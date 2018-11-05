@@ -5,12 +5,12 @@ description: Dowiedz się, jak utworzyć i używać niestandardowe elementy form
 ms.author: tdykstra
 ms.date: 02/08/2017
 uid: web-api/advanced/custom-formatters
-ms.openlocfilehash: a038cd9c05950333fce9e72f67d6721198fae4d3
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: ee6f166ced41c41506f2a17a7d362399c165b718
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50206318"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51020653"
 ---
 # <a name="custom-formatters-in-aspnet-core-web-api"></a>Niestandardowe elementy formatujące w interfejsie API sieci Web platformy ASP.NET Core
 
@@ -51,6 +51,8 @@ Dla typów nośników tekstu (na przykład vCard) dziedziczyć [TextInputFormatt
 
 [!code-csharp[](custom-formatters/sample/Formatters/VcardOutputFormatter.cs?name=classdef)]
 
+Na przykład wejściowego elementu formatującego, zobacz [przykładową aplikację](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample).
+
 Dla typów binarnych dziedziczyć [InputFormatter](/dotnet/api/microsoft.aspnetcore.mvc.formatters.inputformatter) lub [OutputFormatter](/dotnet/api/microsoft.aspnetcore.mvc.formatters.outputformatter) klasy bazowej.
 
 ### <a name="specify-valid-media-types-and-encodings"></a>Określ prawidłowe pliki multimedialne i kodowania
@@ -58,6 +60,8 @@ Dla typów binarnych dziedziczyć [InputFormatter](/dotnet/api/microsoft.aspnetc
 W konstruktorze, należy określić, dodając do typów nośników prawidłowe i kodowania `SupportedMediaTypes` i `SupportedEncodings` kolekcji.
 
 [!code-csharp[](custom-formatters/sample/Formatters/VcardOutputFormatter.cs?name=ctor&highlight=3,5-6)]
+
+Na przykład wejściowego elementu formatującego, zobacz [przykładową aplikację](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample).
 
 > [!NOTE]
 > Nie można wykonać wstrzykiwanie zależności Konstruktor w klasie elementu formatującego. Na przykład nie można pobrać rejestrator, dodając parametr rejestratora do konstruktora. Dostęp do usług, należy użyć obiektu context, który zostanie przekazany do metody. Przykładowy kod [poniżej](#read-write) pokazuje, jak to zrobić.
@@ -67,6 +71,8 @@ W konstruktorze, należy określić, dodając do typów nośników prawidłowe i
 Określ typ, można wykonać deserializacji do lub serializacji z przez zastąpienie `CanReadType` lub `CanWriteType` metody. Na przykład tylko można utworzyć pliku vCard tekst z `Contact` typu i na odwrót.
 
 [!code-csharp[](custom-formatters/sample/Formatters/VcardOutputFormatter.cs?name=canwritetype)]
+
+Na przykład wejściowego elementu formatującego, zobacz [przykładową aplikację](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample).
 
 #### <a name="the-canwriteresult-method"></a>Metoda CanWriteResult
 
@@ -84,6 +90,8 @@ Załóżmy, że podpis metody akcji, zwraca `Person` typu, ale może zwrócić `
 Wykonują rzeczywistą pracę podczas deserializacji lub serializacji w `ReadRequestBodyAsync` lub `WriteResponseBodyAsync`. Wyróżnione wiersze w poniższym przykładzie pokazano, jak można pobrać usługi z kontenera iniekcji zależności (nie można dostać się je z parametrów konstruktora).
 
 [!code-csharp[](custom-formatters/sample/Formatters/VcardOutputFormatter.cs?name=writeresponse&highlight=3-4)]
+
+Na przykład wejściowego elementu formatującego, zobacz [przykładową aplikację](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample).
 
 ## <a name="how-to-configure-mvc-to-use-a-custom-formatter"></a>Jak skonfigurować MVC do użycia niestandardowego elementu formatującego.
 

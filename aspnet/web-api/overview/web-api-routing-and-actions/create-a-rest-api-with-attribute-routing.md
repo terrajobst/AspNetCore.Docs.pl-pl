@@ -8,12 +8,12 @@ ms.date: 06/26/2013
 ms.assetid: 23fc77da-2725-4434-99a0-ff872d96336b
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/create-a-rest-api-with-attribute-routing
 msc.type: authoredcontent
-ms.openlocfilehash: 3b66f02c9be6441ff7d6c38d6180cc8556c6b8b9
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 18a44c280e6df1603837938d24d7d639d8c87cc2
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912894"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51021420"
 ---
 <a name="create-a-rest-api-with-attribute-routing-in-aspnet-web-api-2"></a>Tworzenie interfejsu API REST z atrybutem routingu we wzorcu ASP.NET Web API 2
 ====================
@@ -52,11 +52,11 @@ W większości żądań, natomiast interfejs API zwróci podzbiór danych (tytu�
 
 Rozpocznij od uruchamianie programu Visual Studio. Z **pliku** menu, wybierz opcję **New** , a następnie wybierz **projektu**.
 
-Rozwiń **zainstalowane** > **Visual C#** kategorii. W obszarze **Visual C#**, wybierz pozycję **Sieć Web**. Na liście szablonów projektu wybierz **aplikacji sieci Web programu ASP.NET MVC 4**. Nadaj projektowi nazwę &quot;BooksAPI&quot;.
+Rozwiń **zainstalowane** > **Visual C#** kategorii. W obszarze **Visual C#**, wybierz pozycję **Sieć Web**. Na liście szablonów projektu wybierz **aplikacji sieci Web platformy ASP.NET (.NET Framework)**. Nadaj projektowi nazwę &quot;BooksAPI&quot;.
 
 ![](create-a-rest-api-with-attribute-routing/_static/image1.png)
 
-W oknie dialogowym **Nowy projekt ASP.NET** wybierz szablon **Pusty**. W obszarze "Dodaj foldery i podstawowe odwołania dla" Wybierz **interfejsu API sieci Web** pola wyboru. Kliknij przycisk **Utwórz projekt**.
+W **Nowa aplikacja internetowa ASP.NET** okno dialogowe, wybierz opcję **pusty** szablonu. W obszarze "Dodaj foldery i podstawowe odwołania dla" Wybierz **interfejsu API sieci Web** pola wyboru. Kliknij przycisk **OK**.
 
 ![](create-a-rest-api-with-attribute-routing/_static/image2.png)
 
@@ -86,7 +86,7 @@ W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy folder kontrolerów
 
 ![](create-a-rest-api-with-attribute-routing/_static/image4.png)
 
-W **Dodawanie szkieletu** okno dialogowe, wybierz opcję "Web API 2 z akcjami odczytu/zapisu, kontroler, używający narzędzia Entity Framework."
+W **Dodawanie szkieletu** okno dialogowe, wybierz opcję **kontroler internetowego interfejsu API 2 z akcjami używający narzędzia Entity Framework**.
 
 [![](create-a-rest-api-with-attribute-routing/_static/image6.png)](create-a-rest-api-with-attribute-routing/_static/image5.png)
 

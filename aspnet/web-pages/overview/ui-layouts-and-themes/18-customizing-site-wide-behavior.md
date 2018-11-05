@@ -1,19 +1,19 @@
 ---
 uid: web-pages/overview/ui-layouts-and-themes/18-customizing-site-wide-behavior
 title: Dostosowywanie zachowania dla całej witryny dla ASP.NET Web Pages (Razor) witryn | Dokumentacja firmy Microsoft
-author: tfitzmac
+author: Rick-Anderson
 description: W tym rozdziale wyjaśniono, jak wprowadzić ustawienia całej witryny sieci Web lub cały folder, a nie tylko strony.
 ms.author: riande
 ms.date: 02/17/2014
 ms.assetid: e158bed7-226f-4275-b02e-7553bd58c669
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/18-customizing-site-wide-behavior
 msc.type: authoredcontent
-ms.openlocfilehash: a6737c05d3326a2cd7535f32e99482b0de394575
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: ca7c241d6e4d1e4baa581faf2bda4ed275b4e785
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41753900"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51021472"
 ---
 <a name="customizing-site-wide-behavior-for-aspnet-web-pages-razor-sites"></a>Dostosowywanie zachowania dla całej witryny dla witrynach ASP.NET Web Pages (Razor)
 ====================

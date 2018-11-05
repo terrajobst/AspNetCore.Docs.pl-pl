@@ -1,21 +1,21 @@
 ---
 uid: web-pages/overview/ui-layouts-and-themes/twitter-helper
 title: Pomocnik ze strony sieci Web ASP.NET w usłudze Twitter | Dokumentacja firmy Microsoft
-author: tfitzmac
+author: Rick-Anderson
 description: W tym temacie i aplikacji pokazują, jak dodać Pomocnik usługi Twitter do projektu program WebMatrix 3. Zawiera kod Pomocnik usługi Twitter i przedstawiono sposób wywoływania pomocnika...
 ms.author: riande
 ms.date: 02/07/2014
 ms.assetid: c1a1244e-b9c8-42e6-a00b-8456a4ec027c
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/twitter-helper
 msc.type: authoredcontent
-ms.openlocfilehash: 06223826c2682ffd62d5a1717f34242f39be5eda
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 89c8c520cd32ca2ee24e6cd90e11f7bdf39c7a80
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41753729"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51020576"
 ---
-<a name="twitter-helper-with-aspnet-web-pages"></a>Pomocnik usługi Twitter za pomocą wzorca ASP.NET Web Pages
+<a name="twitter-helper-with-aspnet-web-pages"></a>Pomocnik usługi Twitter we wzorcu ASP.NET Web Pages
 ====================
 przez [Tom FitzMacken](https://github.com/tfitzmac)
 

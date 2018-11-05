@@ -1,19 +1,19 @@
 ---
 uid: web-forms/overview/presenting-and-managing-data/model-binding/updating-deleting-and-creating-data
 title: Aktualizowanie, usuwanie i tworzenie danych za pomocą wiązania modelu i formularzy sieci web | Dokumentacja firmy Microsoft
-author: tfitzmac
+author: Rick-Anderson
 description: W tej serii samouczków pokazano podstawowych aspektów projektu formularzy sieci Web ASP.NET przy użyciu wiązania modelu. Wiązanie modelu sprawia, że dane interakcji więcej proste —...
 ms.author: riande
 ms.date: 02/27/2014
 ms.assetid: 602baa94-5a4f-46eb-a717-7a9e539c1db4
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/updating-deleting-and-creating-data
 msc.type: authoredcontent
-ms.openlocfilehash: a3e098d7b10ba6218ffa1818ccf8fc8df6912a9e
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 127543b0696b01f136b340d07f6f806b6a6fb1eb
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41753733"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51021576"
 ---
 <a name="updating-deleting-and-creating-data-with-model-binding-and-web-forms"></a>Aktualizowanie, usuwanie i tworzenie danych za pomocą wiązania modelu i formularzy sieci web
 ====================

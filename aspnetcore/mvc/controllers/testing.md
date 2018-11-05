@@ -7,10 +7,10 @@ ms.custom: mvc
 ms.date: 08/23/2018
 uid: mvc/controllers/testing
 ms.openlocfilehash: 7e27f30e35c2c6e9062c8321b8b8544a38a69605
-ms.sourcegitcommit: fc2486ddbeb15ab4969168d99b3fe0fbe91e8661
+ms.sourcegitcommit: 85f2939af7a167b9694e1d2093277ffc9a741b23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2018
+ms.lasthandoff: 11/05/2018
 ms.locfileid: "50758144"
 ---
 # <a name="test-controller-logic-in-aspnet-core"></a>Logikę kontrolera testu w programie ASP.NET Core

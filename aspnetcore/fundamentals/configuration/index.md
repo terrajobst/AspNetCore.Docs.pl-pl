@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/09/2018
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 2af66c0f35109dc1de954bf501f33ad61ddef4db
-ms.sourcegitcommit: 85f2939af7a167b9694e1d2093277ffc9a741b23
+ms.openlocfilehash: 6dd478770d4eae4d497da576c17fbe7d2c133b89
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50968374"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51021745"
 ---
 # <a name="configuration-in-aspnet-core"></a>Konfiguracja w programie ASP.NET Core
 
@@ -1151,6 +1151,7 @@ public class Program
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 config.SetBasePath(Directory.GetCurrentDirectory());
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "path/to/files");
                 config.AddKeyPerFile(directoryPath: path, optional: true);
             })
             .UseStartup<Startup>();
@@ -1509,13 +1510,13 @@ viewModel.TvShow = tvShow;
 
 Należy wziąć pod uwagę kluczy i wartości konfiguracji pokazano w poniższej tabeli.
 
-| Key     | Wartość  |
-| :-----: | :----: |
-| Macierz: 0 | value0 |
-| Macierz: 1 | Wartość1 |
-| Macierz: 2 | Wartość2 |
-| Macierz: 4 | Wartość4 |
-| Macierz: 5 | Wartość5 |
+| Key             | Wartość  |
+| :-------------: | :----: |
+| Macierz: wpisów: 0 | value0 |
+| Macierz: wpisów: 1 | Wartość1 |
+| Macierz: wpisów: 2 | Wartość2 |
+| Macierz: wpisów: 4 | Wartość4 |
+| Macierz: wpisów: 5 | Wartość5 |
 
 Te klucze i wartości są ładowane w przykładowej aplikacji przy użyciu dostawcy konfiguracji pamięci:
 
@@ -1574,17 +1575,17 @@ _config.GetSection("array").Bind(arrayExample);
 
 Powiązany obiekt, wystąpienie `ArrayExample`, odbiera dane tablicy z konfiguracji.
 
-| `ArrayExamples.Entries` Indeks | `ArrayExamples.Entries` Wartość |
-| :---------------------------: | :---------------------------: |
-| 0                             | value0                        |
-| 1                             | Wartość1                        |
-| 2                             | Wartość2                        |
-| 3                             | Wartość4                        |
-| 4                             | Wartość5                        |
+| `ArrayExample.Entries` Indeks | `ArrayExample.Entries` Wartość |
+| :--------------------------: | :--------------------------: |
+| 0                            | value0                       |
+| 1                            | Wartość1                       |
+| 2                            | Wartość2                       |
+| 3                            | Wartość4                       |
+| 4                            | Wartość5                       |
 
 Indeks &num;3 w powiązany obiekt przechowuje dane konfiguracyjne `array:4` klucz konfiguracji i jego wartość `value4`. Gdy dane konfiguracji, które zawiera tablicę jest powiązana, indeksy tablicy w klucze konfiguracji jedynie służą do iteracji dane konfiguracji, podczas tworzenia obiektu. Wartość null nie mogą być przechowywane w danych konfiguracji, a wpis o wartości null nie jest tworzona w powiązany obiekt, w przypadku tablicy w konfiguracji kluczy Pomiń jeden lub więcej indeksów.
 
-Brak elementu konfiguracji dla indeksu &num;3 mogą być dostarczane przed powiązanie `ArrayExamples` wystąpienie przez dowolnego dostawcę konfiguracji, tworzącego prawidłowe pary klucz wartość w konfiguracji. Jeśli przykład uwzględniony dodatkowego dostawcę konfiguracji JSON z Brak pary klucz wartość `ArrayExamples.Entries` pasuje do tablicy kompletna konfiguracja:
+Brak elementu konfiguracji dla indeksu &num;3 mogą być dostarczane przed powiązanie `ArrayExample` wystąpienie przez dowolnego dostawcę konfiguracji, tworzącego prawidłowe pary klucz wartość w konfiguracji. Jeśli przykład uwzględniony dodatkowego dostawcę konfiguracji JSON z Brak pary klucz wartość `ArrayExample.Entries` pasuje do tablicy kompletna konfiguracja:
 
 *missing_value.JSON*:
 
@@ -1620,16 +1621,16 @@ Pary klucz wartość, jak pokazano w tabeli są ładowane do konfiguracji.
 | :-------------: | :----: |
 | Macierz: wpisów: 3 | Wartość3 |
 
-Jeśli `ArrayExamples` wystąpienia klasy jest powiązana po dostawcę konfiguracji JSON zawiera wpis dla indeksu &num;3, `ArrayExamples.Entries` tablicy zawiera wartość.
+Jeśli `ArrayExample` wystąpienia klasy jest powiązana po dostawcę konfiguracji JSON zawiera wpis dla indeksu &num;3, `ArrayExample.Entries` tablicy zawiera wartość.
 
-| `ArrayExamples.Entries` Indeks | `ArrayExamples.Entries` Wartość |
-| :---------------------------: | :---------------------------: |
-| 0                             | value0                        |
-| 1                             | Wartość1                        |
-| 2                             | Wartość2                        |
-| 3                             | Wartość3                        |
-| 4                             | Wartość4                        |
-| 5                             | Wartość5                        |
+| `ArrayExample.Entries` Indeks | `ArrayExample.Entries` Wartość |
+| :--------------------------: | :--------------------------: |
+| 0                            | value0                       |
+| 1                            | Wartość1                       |
+| 2                            | Wartość2                       |
+| 3                            | Wartość3                       |
+| 4                            | Wartość4                       |
+| 5                            | Wartość5                       |
 
 **Przetwarzanie tablicy JSON**
 

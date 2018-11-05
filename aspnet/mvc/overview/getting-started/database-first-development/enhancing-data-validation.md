@@ -1,19 +1,19 @@
 ---
 uid: mvc/overview/getting-started/database-first-development/enhancing-data-validation
 title: 'EF bazy danych, najpierw z platformą ASP.NET MVC: ulepszanie weryfikacji danych | Dokumentacja firmy Microsoft'
-author: tfitzmac
+author: Rick-Anderson
 description: Za pomocą MVC, platformy Entity Framework i funkcja tworzenia szkieletu ASP.NET, można utworzyć aplikację internetową, która zapewnia interfejs do istniejącej bazy danych. Ten samouczek seri...
 ms.author: riande
 ms.date: 12/29/2014
 ms.assetid: 0ed5e67a-34c0-4b57-84a6-802b0fb3cd00
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/enhancing-data-validation
 msc.type: authoredcontent
-ms.openlocfilehash: dbff33a1c4f47474adda82e796d9c292392142f2
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: df2cd99619f097c9f392e8fe7352c1ce3a69c8df
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41753528"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51021667"
 ---
 <a name="ef-database-first-with-aspnet-mvc-enhancing-data-validation"></a>EF bazy danych, najpierw z platformą ASP.NET MVC: ulepszanie weryfikacji danych
 ====================

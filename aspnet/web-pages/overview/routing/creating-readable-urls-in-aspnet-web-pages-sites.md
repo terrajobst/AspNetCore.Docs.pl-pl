@@ -1,19 +1,19 @@
 ---
 uid: web-pages/overview/routing/creating-readable-urls-in-aspnet-web-pages-sites
 title: Tworzenie adresów URL można odczytać we wzorcu ASP.NET Web Pages witryny (Razor) | Dokumentacja firmy Microsoft
-author: tfitzmac
+author: Rick-Anderson
 description: W tym artykule opisano, routing w witrynie sieci Web ASP.NET Web Pages (Razor) i jak dzięki temu można używać adresów URL, które były bardziej czytelne i lepszym miejscem dla optymalizacji dla aparatów wyszukiwania. Po otwarciu...
 ms.author: riande
 ms.date: 02/17/2014
 ms.assetid: a8aac1ac-89de-4415-afe0-97a41c6423d2
 msc.legacyurl: /web-pages/overview/routing/creating-readable-urls-in-aspnet-web-pages-sites
 msc.type: authoredcontent
-ms.openlocfilehash: b8405283dc5bf44a4cd8d1122d327346774d95e8
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 26d8f94b2e38fe5205a37e3d37b4e3bd509a3874
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41752091"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51021088"
 ---
 <a name="creating-readable-urls-in-aspnet-web-pages-razor-sites"></a>Tworzenie adresów URL do odczytu w witrynach ASP.NET Web Pages (Razor)
 ====================

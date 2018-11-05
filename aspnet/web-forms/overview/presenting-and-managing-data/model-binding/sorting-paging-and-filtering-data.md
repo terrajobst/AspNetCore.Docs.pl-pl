@@ -1,19 +1,19 @@
 ---
 uid: web-forms/overview/presenting-and-managing-data/model-binding/sorting-paging-and-filtering-data
 title: Sortowanie, stronicowanie i filtrowanie danych za pomocą wiązania modelu i formularzy sieci web | Dokumentacja firmy Microsoft
-author: tfitzmac
+author: Rick-Anderson
 description: W tej serii samouczków pokazano podstawowych aspektów projektu formularzy sieci Web ASP.NET przy użyciu wiązania modelu. Wiązanie modelu sprawia, że dane interakcji więcej proste —...
 ms.author: riande
 ms.date: 02/27/2014
 ms.assetid: 266e7866-e327-4687-b29d-627a0925e87d
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/sorting-paging-and-filtering-data
 msc.type: authoredcontent
-ms.openlocfilehash: 86ddedb68b8d18057cd2f7d68e795efda33734b1
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 624f98cea6030e0b7b022f86c4c1aa37f1db9726
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41757363"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51020956"
 ---
 <a name="sorting-paging-and-filtering-data-with-model-binding-and-web-forms"></a>Sortowanie, stronicowanie i filtrowanie danych za pomocą wiązania modelu i formularzy sieci web
 ====================

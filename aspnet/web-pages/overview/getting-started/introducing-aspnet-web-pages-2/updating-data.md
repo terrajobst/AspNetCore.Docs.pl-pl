@@ -1,19 +1,19 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/updating-data
 title: Wprowadzenie do składnika ASP.NET Web Pages — aktualizowanie danych bazy danych | Dokumentacja firmy Microsoft
-author: tfitzmac
+author: Rick-Anderson
 description: W tym samouczku dowiesz się, jak zaktualizować wpis (Zmień) istniejącej bazy danych, korzystając z ASP.NET Web Pages (Razor). Przyjęto założenie, że zostały wykonane serii th...
 ms.author: riande
 ms.date: 01/02/2018
 ms.assetid: ac86ec9c-6b69-485b-b9e0-8b9127b13e6b
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/updating-data
 msc.type: authoredcontent
-ms.openlocfilehash: 9d0da2eed9964e56a01f3c811d6a14c9d1735e10
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 206d7e209857aceb3eb92c2405bb73f7ff7dbaeb
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41754244"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51021433"
 ---
 <a name="introducing-aspnet-web-pages---updating-database-data"></a>Wprowadzenie do wzorca ASP.NET Web Pages — aktualizowanie danych bazy danych
 ====================

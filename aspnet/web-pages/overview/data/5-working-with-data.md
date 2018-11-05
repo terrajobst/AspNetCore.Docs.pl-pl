@@ -1,19 +1,19 @@
 ---
 uid: web-pages/overview/data/5-working-with-data
 title: Wprowadzenie do pracy z bazą danych we wzorcu ASP.NET Web Pages (Razor) witryn | Dokumentacja firmy Microsoft
-author: tfitzmac
+author: Rick-Anderson
 description: W tym rozdziale opisano, jak uzyskać dostęp do danych z bazy danych i wyświetlania ich przy użyciu stron ASP.NET Web Pages.
 ms.author: riande
 ms.date: 02/18/2014
 ms.assetid: 673d502f-2c16-4a6f-bb63-dbfd9a77ef47
 msc.legacyurl: /web-pages/overview/data/5-working-with-data
 msc.type: authoredcontent
-ms.openlocfilehash: b6db23c6f9bba418dff7e6b50bbc1c54f13ccb70
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: a688761c87376aa93463c13eaa07858d3acb9dc2
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41755362"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51021693"
 ---
 <a name="introduction-to-working-with-a-database-in-aspnet-web-pages-razor-sites"></a>Wprowadzenie do pracy z bazą danych we wzorcu ASP.NET Web Pages (Razor) witryn
 ====================
