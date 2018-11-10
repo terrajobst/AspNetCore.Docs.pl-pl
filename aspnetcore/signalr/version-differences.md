@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.date: 09/10/2018
 uid: signalr/version-differences
-ms.openlocfilehash: 3cec37719b743b3c805ada77249f526278e44599
-ms.sourcegitcommit: 2ef32676c16f76282f7c23154d13affce8c8bf35
+ms.openlocfilehash: 8f07647959b6ef815eed599703bdb1bfb446572f
+ms.sourcegitcommit: edb9d2d78c9a4d68b397e74ae2aff088b325a143
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50234608"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51505755"
 ---
 # <a name="differences-between-aspnet-signalr-and-aspnet-core-signalr"></a>Różnice między biblioteki SignalR platformy ASP.NET i SignalR platformy ASP.NET Core
 
@@ -36,6 +36,10 @@ Automatyczne ponowne podłączenia nie są obsługiwane w biblioteki SignalR pla
 ### <a name="protocol-support"></a>Obsługa protokołów
 
 Biblioteki SignalR platformy ASP.NET Core obsługuje JSON, a także nowy protokół binarny na podstawie [MessagePack](xref:signalr/messagepackhubprotocol). Ponadto protokoły niestandardowe, mogą być tworzone.
+
+### <a name="transports"></a>Transporty
+
+Transport nieskończona ramki nie jest obsługiwany w biblioteki SignalR platformy ASP.NET Core.
 
 ## <a name="differences-on-the-server"></a>Różnice na serwerze
 
@@ -72,6 +76,14 @@ Obsługuje teraz Core SignalR platformy ASP.NET [danych przesyłanych strumienio
 
 Możliwość przekazywania dowolny stan między klientami a Centrum (często nazywanej HubState) zostało usunięte, a także obsługę wiadomości dotyczące postępu. Nie ma odpowiednika serwerów proxy koncentratora, w tym momencie.
 
+### <a name="globalhost"></a>GlobalHost
+
+Platforma ASP.NET Core ma wstrzykiwanie zależności (DI) wbudowane w platformę. Usługi umożliwiają dostęp DI [HubContext](xref:signalr/hubcontext). `GlobalHost` Obiekt, który jest używany w SignalR platformy ASP.NET można pobrać `HubContext` nie istnieje w biblioteki SignalR platformy ASP.NET Core.
+
+### <a name="hubpipeline"></a>HubPipeline
+
+Biblioteki SignalR platformy ASP.NET Core nie ma obsługi `HubPipeline` modułów.
+
 ## <a name="differences-on-the-client"></a>Różnice na komputerze klienckim
 
 ### <a name="typescript"></a>TypeScript
@@ -90,6 +102,10 @@ npm install @aspnet/signalr
 ### <a name="jquery"></a>jQuery
 
 Zależność od jQuery zostało usunięte, jednak projekty można nadal używać jQuery.
+
+### <a name="internet-explorer-support"></a>Obsługa programu Internet Explorer
+
+Biblioteki SignalR platformy ASP.NET Core wymaga programu Microsoft Internet Explorer 11 lub nowszy (ASP.NET SignalR obsługiwany program Microsoft Internet Explorer 8 lub nowszy).
 
 ### <a name="javascript-client-method-syntax"></a>Składnia metody klient JavaScript
 

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: f46bddb618d2a030e29b7dfa1671ea53b0d4bcc2
-ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
+ms.openlocfilehash: d4cc0ab9de314c0c5a1a9016efd1e566ff1c47d2
+ms.sourcegitcommit: edb9d2d78c9a4d68b397e74ae2aff088b325a143
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51021355"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51505781"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>Dodawanie walidacji do strony ASP.NET Core Razor
 
@@ -61,8 +61,7 @@ Wybierz **Utwórz nowy** łącza. Wypełnij formularz z niektórych z nieprawid�
 
 ![Film wyświetlanie formularza za pomocą wielu błędów weryfikacji po stronie klienta jQuery](validation/_static/val.png)
 
-> [!NOTE]
-> Nie można wprowadzić, kropki i przecinki w `Price` pola. Aby obsługiwać [dotyczącą weryfikacji jQuery](https://jqueryvalidation.org/) w innych niż angielski, które należy użyć przecinka (",") dla punktu dziesiętnego i formaty daty inne niż angielski, należy wykonać kroki, aby sprzedawać aplikację. Zobacz [dodatkowe zasoby](#additional-resources) Aby uzyskać więcej informacji. Teraz po prostu wprowadź liczbami całkowitymi, takich jak 10.
+[!INCLUDE[](~/includes/currency.md)]
 
 Zwróć uwagę, jak formularz automatycznie renderowany komunikat o błędzie weryfikacji w każdym polu zawierający nieprawidłową wartość. Błędy są wymuszane, zarówno po stronie klienta (przy użyciu języków JavaScript i jQuery) i po stronie serwera (Jeśli użytkownik ma Obsługa skryptów JavaScript wyłączona).
 

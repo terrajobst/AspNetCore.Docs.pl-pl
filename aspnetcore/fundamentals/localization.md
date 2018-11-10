@@ -5,12 +5,12 @@ description: Dowiedz się, jak platforma ASP.NET Core oferuje usługi oraz oprog
 ms.author: riande
 ms.date: 01/14/2017
 uid: fundamentals/localization
-ms.openlocfilehash: 5014d697603d802929b417e6439d4cc6983184d2
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: af11906f86fe4ea91ed520584daedc094ab2dc0b
+ms.sourcegitcommit: edb9d2d78c9a4d68b397e74ae2aff088b325a143
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207592"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51505833"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalizacja i lokalizacja w programie ASP.NET Core
 
@@ -338,6 +338,8 @@ Warunki:
 * Określonej kultury: kultura, który ma określony język i region. (na przykład "en US", "en-GB", "es-CL")
 * Nadrzędny kultury: kultury neutralnej, który zawiera określoną kulturę. (na przykład "en" jest Kultura nadrzędna "en US" i "en-GB")
 * Ustawienia regionalne: Ustawienia regionalne jest taka sama jak kultury.
+
+[!INCLUDE[](~/includes/currency.md)]
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

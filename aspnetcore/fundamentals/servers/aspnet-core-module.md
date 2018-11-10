@@ -1,17 +1,17 @@
 ---
 title: Moduł ASP.NET Core
-author: rick-anderson
+author: guardrex
 description: Dowiedz się, jak modułu ASP.NET Core zezwala na serwerze sieci web Kestrel do używania usług IIS lub IIS Express jako serwera zwrotny serwer proxy.
 ms.author: tdykstra
 ms.custom: mvc
 ms.date: 09/21/2018
 uid: fundamentals/servers/aspnet-core-module
-ms.openlocfilehash: 2f73a34b7d311c9e98ad2ecba11894d27bb2aa4d
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 39c1b364f9dab635c79e00561d212c858c0c4395
+ms.sourcegitcommit: 09affee3d234cb27ea6fe33bc113b79e68900d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48910892"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51191259"
 ---
 # <a name="aspnet-core-module"></a>Moduł ASP.NET Core
 

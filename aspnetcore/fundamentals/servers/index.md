@@ -1,17 +1,17 @@
 ---
 title: Implementacje serwera sieci Web w programie ASP.NET Core
-author: rick-anderson
+author: guardrex
 description: Odnajdywanie serwerów sieci web w usługach Kestrel i sterownik HTTP.sys dla platformy ASP.NET Core. Dowiedz się, jak wybrać serwer i kiedy należy użyć zwrotnego serwera proxy.
 ms.author: tdykstra
 ms.custom: mvc
 ms.date: 09/21/2018
 uid: fundamentals/servers/index
-ms.openlocfilehash: 6b6ebbe9d31d571ea470fba0989d622dcf6e68af
-ms.sourcegitcommit: fc2486ddbeb15ab4969168d99b3fe0fbe91e8661
+ms.openlocfilehash: 06d4bf09b07fc70a10b3e260e78c29fe189486c5
+ms.sourcegitcommit: edb9d2d78c9a4d68b397e74ae2aff088b325a143
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50758209"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51505729"
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>Implementacje serwera sieci Web w programie ASP.NET Core
 
@@ -144,7 +144,7 @@ Podczas uruchamiania aplikacji z poziomu wiersza polecenia w folderze projektu [
 
 * [Kestrel](xref:fundamentals/servers/kestrel#http2-support)
   * System operacyjny
-    * Windows Server 2012 R2/Windows 8.1 lub nowszym
+    * Windows Server 2016 i Windows 10 lub nowszym&dagger;
     * Linux z protokołem OpenSSL 1.0.2 lub nowszej (na przykład Ubuntu 16.04 lub nowszy)
     * Protokołu HTTP/2 będą obsługiwane w systemie macOS w przyszłej wersji.
   * Platforma docelowa: .NET Core 2,2 lub nowszy
@@ -158,6 +158,8 @@ Podczas uruchamiania aplikacji z poziomu wiersza polecenia w folderze projektu [
   * Windows Server 2016 i Windows 10 lub nowszym; Usługi IIS 10 lub nowszym
   * Połączenia z serwerem usługi edge publicznego używać protokołu HTTP/2, ale połączenie zwrotny serwer proxy Kestrel korzysta z protokołu HTTP/1.1.
   * Platforma docelowa: nie dotyczy wdrożeń spoza procesu usług IIS.
+
+&dagger;Kestrel ma ograniczoną obsługę protokołu HTTP/2, Windows Server 2012 R2 i Windows 8.1. Obsługa jest ograniczona, ponieważ lista obsługiwanych mechanizmów szyfrowania TLS dostępnych w tych systemach operacyjnych jest ograniczona. Certyfikat wygenerowany za pomocą Elliptic krzywej cyfrowego Signature Algorithm (ECDSA) może być konieczne bezpiecznych połączeń TLS.
 
 ::: moniker-end
 

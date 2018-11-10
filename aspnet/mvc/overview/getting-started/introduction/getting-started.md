@@ -7,12 +7,12 @@ ms.date: 10/04/2018
 ms.assetid: f3d8adbe-55e7-4fd4-84a8-7155bc45c676
 msc.legacyurl: /mvc/overview/getting-started/introduction/getting-started
 msc.type: authoredcontent
-ms.openlocfilehash: 2cc9364b815cae0207fc59784303c6a0906f1b94
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 462583a42f20126ef8f8b5927268c20ec1ceab89
+ms.sourcegitcommit: edb9d2d78c9a4d68b397e74ae2aff088b325a143
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48578448"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51505807"
 ---
 <a name="getting-started-with-aspnet-mvc-5"></a>Wprowadzenie do ASP.NET MVC 5
 ====================
@@ -55,7 +55,7 @@ Naciśnij klawisz **F5** można rozpocząć debugowania. Po naciśnięciu klawis
 
 ![](getting-started/_static/image5.png)
 
-Gotową do tego szablonu domyślnego umożliwia `Home`, `Contact`, i `About` stron. Na powyższej ilustracji nie wyświetla **Home**, **o**, i **skontaktuj się z pomocą** łącza. W zależności od rozmiaru okna przeglądarki może być konieczne kliknij ikonę nawigacji, aby zobaczyć te linki.
+Gotową do tego szablonu domyślnego umożliwia `Home`, `Contact`, i `About` stron. Na poniższym obrazie nie wyświetla **Home**, **o**, i **skontaktuj się z pomocą** łącza. W zależności od rozmiaru okna przeglądarki może być konieczne kliknij ikonę nawigacji, aby zobaczyć te linki.
 
 ![](getting-started/_static/image6.png)
 
@@ -65,13 +65,13 @@ Aby uzyskać listę bieżącego samouczki, zobacz [MVC zalecane artykuły](../mv
 
 ## <a name="see-this-app-running-on-azure"></a>Zobacz tej aplikacji działających na platformie Azure
 
-Czy chcesz w witrynie Zakończono działającego jako aplikacja sieci web? Pełną wersję aplikacji można wdrożyć do konta platformy Azure, po prostu kliknąć poniższy przycisk.
+Czy chcesz zobaczyć gotową witrynę działającą jako aplikacja internetowa na żywo? Pełną wersję aplikacji możesz wdrożyć na koncie platformy Azure — wystarczy kliknąć poniższy przycisk.
 
 [![](https://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/?repository=https://github.com/aspnet/Docs/tree/master/aspnet/mvc/overview/getting-started/introduction/sample/MvcMovie&amp;WT.mc_id=deploy_azure_aspnet)
 
-Potrzebujesz konta platformy Azure, aby wdrożyć to rozwiązanie na platformie Azure. Jeśli nie masz jeszcze konta, użyj jednej z następujących opcji go utworzyć:
+Aby wdrożyć to rozwiązanie na platformie Azure, musisz mieć konto platformy Azure. Jeśli nie masz jeszcze konta, użyj jednej z następujących opcji go utworzyć:
 
-- [Otworzyć bezpłatne konto platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A443DD604) — otrzymasz kredyt służy do wypróbowania płatnych usług platformy Azure, a nawet w przypadku, po ich wyczerpaniu nawet możesz zachować konto i korzystać z bezpłatnych usług platformy Azure.
+- [Otworzyć bezpłatne konto platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A443DD604) — otrzymujesz środki , które możesz użyć do wypróbowania płatnych usług platformy Azure, a potem nawet w przypadku ich wyczerpania możesz zachować konto i korzystać z bezpłatnych usług platformy Azure.
 - [Aktywować korzyści dla subskrybentów programu Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers) -subskrypcji usługi Visual Studio udostępnia środki na korzystanie z każdego miesiąca, używanego do płatne usługi platformy Azure.
 
 > [!div class="step-by-step"]

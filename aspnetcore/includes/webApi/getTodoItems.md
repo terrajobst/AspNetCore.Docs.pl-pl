@@ -74,7 +74,7 @@ W dalszej części tego samouczka I pokazano, jak mogą być wyświetlane odpowi
 
 ::: moniker-end
 
-* Zastąp `[controller]` nazwę kontrolera, który jest nazwa klasy kontrolera minus sufiks "Controller". W tym przykładzie nazwa klasy kontrolera jest **Todo**kontrolera i nazwę katalogu głównego jest "todo". Platforma ASP.NET Core [routingu](xref:mvc/controllers/routing) jest uwzględniana wielkość liter.
+* Zastąp `[controller]` nazwę kontrolera, który zwyczajowo jest nazwa klasy kontrolera minus sufiks "Controller". W tym przykładzie nazwa klasy kontrolera jest **Todo**kontrolera i nazwę katalogu głównego jest "todo". Platforma ASP.NET Core [routingu](xref:mvc/controllers/routing) jest uwzględniana wielkość liter.
 * Jeśli `[HttpGet]` atrybut ma szablon trasy (takie jak `[HttpGet("/products")]`, dołączania, do ścieżki. W tym przykładzie nie używa szablonu. Aby uzyskać więcej informacji, zobacz [atrybutu, routing za pomocą atrybutów Http [polecenie]](xref:mvc/controllers/routing#attribute-routing-with-httpverb-attributes).
 
 W następującym `GetById` metody `"{id}"` jest zmienną symbolu zastępczego dla Unikatowy identyfikator elementu do wykonania. Gdy `GetById` jest wywołana, przypisuje wartość `"{id}"` w adresie URL do metody `id` parametru.
