@@ -4,14 +4,14 @@ author: tdykstra
 description: Więcej informacji o weryfikacji modelu w aplikacji ASP.NET Core MVC.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 11/06/2018
 uid: mvc/models/validation
-ms.openlocfilehash: 1063fdccb97e55e6b0eb6689187134ff41c10a02
-ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
+ms.openlocfilehash: f1757f807e50019e5071abc42ec3129935ab77aa
+ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50253159"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51225463"
 ---
 # <a name="model-validation-in-aspnet-core-mvc"></a>Weryfikacja modelu w programie ASP.NET Core MVC
 
@@ -33,10 +33,10 @@ Atrybuty weryfikacji służą do konfigurowania weryfikacji modelu, więc podobn
 
 Sprawdzanie poprawności atrybutów są określony na poziomie właściwości: 
 
-```csharp 
-[Required] 
+```csharp
+[Required]
 public string MyProperty { get; set; } 
-``` 
+```
 
 Poniżej znajduje się adnotacjami `Movie` modelu w aplikacji, która przechowuje informacje dotyczące filmów i programów telewizyjnych. Większość właściwości są wymagane, i kilka właściwości ciągu mają wymagania dotyczące długości. Ponadto ma ograniczenie zakresu liczbowego w miejscu, aby `Price` właściwości z zakresu od 0 do $999,99, wraz z atrybutu niestandardowego sprawdzania poprawności.
 
@@ -82,13 +82,19 @@ Weryfikacja po stronie klienta wymaga podania wartości dla pola formularza, kt�
 
 Stan modelu reprezentuje błędy sprawdzania poprawności w przesłanych wartości z formularza HTML.
 
-MVC będą nadal sprawdzanie poprawności pól, dopóki nie osiągnie maksymalną liczbę błędów (200 domyślnie). Możesz skonfigurować tę liczbę, wstawiając następujący kod do `ConfigureServices` method in Class metoda *Startup.cs* pliku:
+MVC będzie, sprawdzanie poprawności pól, dopóki nie osiągnie maksymalną liczbę błędów (200 domyślnie). Tę liczbę można skonfigurować w następującym kodem `Startup.ConfigureServices`:
 
 [!code-csharp[](validation/sample/Startup.cs?range=27)]
 
-## <a name="handling-model-state-errors"></a>Stan modelu obsługi błędów
+## <a name="handle-model-state-errors"></a>Błędy stanu modelu uchwytu
 
-Sprawdzanie poprawności modelu występującą przed każdym wywoływana Akcja kontrolera i odpowiada metoda akcji sprawdzanie `ModelState.IsValid` i odpowiednio reagują. W wielu przypadkach odpowiednie reakcji ma zwracać odpowiedź o błędzie, najlepiej szczegółowych informacji na temat przyczyny niepowodzenia weryfikacji modelu.
+Sprawdzanie poprawności modelu występuje przed wykonaniem tej akcji kontrolera. Jest odpowiedzialny za akcji, aby sprawdzić `ModelState.IsValid` i odpowiednio reagują. W wielu przypadkach odpowiednie reakcji ma zwracać odpowiedź o błędzie, najlepiej szczegółowych informacji na temat przyczyny niepowodzenia weryfikacji modelu.
+
+::: moniker range=">= aspnetcore-2.1"
+
+Gdy `ModelState.IsValid` daje w wyniku `false` kontrolery interfejsu API sieci web przy użyciu `[ApiController]` atrybutu, zwracana jest automatyczne odpowiedź HTTP 400 zawierający szczegółowe informacje o problemie. Aby uzyskać więcej informacji, zobacz [odpowiedzi automatyczne HTTP 400](xref:web-api/index#automatic-http-400-responses).
+
+::: moniker-end
 
 Niektóre aplikacje wybierze wykonać standardowej Konwencji za zajmowanie się błędy sprawdzania poprawności modelu, w których filtr przypadku odpowiednim miejscu, aby zaimplementować takie zasady. Należy przetestować zachowaniem akcji ze Stanami prawidłowe oraz nieprawidłowe modelu.
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: host-and-deploy/iis/troubleshoot
-ms.openlocfilehash: 6a53c1ba5badd741afc3321ce21b047965c611db
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 2b23bf8230f7a1c207ef7870da098ffb0c597fd5
+ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090605"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51225450"
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a>Rozwiązywanie problemów z platformą ASP.NET Core w usługach IIS
 
@@ -19,7 +19,17 @@ Przez [Luke Latham](https://github.com/guardrex)
 
 Ten artykuł zawiera instrukcje na temat platformy ASP.NET Core zdiagnozować problem uruchamiania aplikacji w przypadku hostowania za pomocą [Internet Information Services (IIS)](/iis). Informacje przedstawione w tym artykule mają zastosowanie do hostowania w usługach IIS w systemie Windows Server i Windows Desktop.
 
+::: moniker range=">= aspnetcore-2.2"
+
+W programie Visual Studio ma domyślnie wartość projektu ASP.NET Core [usług IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) hostingu podczas debugowania. A *502.5 - niepowodzenia procesu* lub *500.30 - Start błąd* występuje, gdy debugowanie lokalne może być troubleshooted przy użyciu porady w tym temacie.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
 W programie Visual Studio ma domyślnie wartość projektu ASP.NET Core [usług IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) hostingu podczas debugowania. A *502.5 niepowodzenia procesu* występuje, gdy debugowanie lokalne może być troubleshooted przy użyciu porady w tym temacie.
+
+::: moniker-end
 
 Dodatkowe tematy dotyczące rozwiązywania problemów:
 
@@ -40,11 +50,40 @@ Więcej informacji na temat debugowania wbudowaną w programie Visual Studio Cod
 **502.5 niepowodzenie procesu**  
 Proces roboczy kończy się niepowodzeniem. Nie zaczyna się aplikacja.
 
-Modułu ASP.NET Core podejmowana jest próba uruchomienia procesu roboczego, ale nie została uruchomiona. Zazwyczaj można ustalić przyczyny niepowodzenia uruchamiania procesu na podstawie wpisów w [dziennik zdarzeń aplikacji](#application-event-log) i [dziennika stdout modułu ASP.NET Core](#aspnet-core-module-stdout-log).
+Modułu ASP.NET Core próbuje uruchomić proces dotnet wewnętrznej bazy danych, ale nie została uruchomiona. Zazwyczaj można ustalić przyczyny niepowodzenia uruchamiania procesu na podstawie wpisów w [dziennik zdarzeń aplikacji](#application-event-log) i [dziennika stdout modułu ASP.NET Core](#aspnet-core-module-stdout-log). 
+
+Aplikacja jest błędnie skonfigurowane z powodu przeznaczony dla wersji udostępnionej platformy ASP.NET Core, która nie jest obecny jest jakiś wspólny warunek błędu. Sprawdź, które wersje udostępnionej platformy ASP.NET Core są zainstalowane na komputerze docelowym.
 
 *502.5 niepowodzenia procesu* strony błędu jest zwracany, jeśli aplikacji lub obsługującego błędnej konfiguracji powoduje niepowodzenie procesu roboczego:
 
 ![Okno przeglądarki, przedstawiający 502.5 stronę niepowodzenia procesu](troubleshoot/_static/process-failure-page.png)
+
+::: moniker range=">= aspnetcore-2.2"
+
+**500.30 w procesie Niepowodzenie uruchamiania**
+
+Proces roboczy kończy się niepowodzeniem. Nie zaczyna się aplikacja.
+
+Próbuje uruchomić program .NET Core CLR w procesie modułu ASP.NET Core, ale nie została uruchomiona. Zazwyczaj można ustalić przyczyny niepowodzenia uruchamiania procesu na podstawie wpisów w [dziennik zdarzeń aplikacji](#application-event-log) i [dziennika stdout modułu ASP.NET Core](#aspnet-core-module-stdout-log). 
+
+Aplikacja jest błędnie skonfigurowane z powodu przeznaczony dla wersji udostępnionej platformy ASP.NET Core, która nie jest obecny jest jakiś wspólny warunek błędu. Sprawdź, które wersje udostępnionej platformy ASP.NET Core są zainstalowane na komputerze docelowym.
+
+**500.0 w procesie programu obsługi błędu ładowania**
+
+Proces roboczy kończy się niepowodzeniem. Nie zaczyna się aplikacja.
+
+Modułu ASP.NET Core nie powiedzie się znaleźć programu .NET Core CLR i Znajdź program obsługi żądania w trakcie (*aspnetcorev2_inprocess.dll*). Sprawdź, czy:
+
+* Aplikacja jest przeznaczona na albo [Microsoft.AspNetCore.Server.IIS](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IIS) pakietu NuGet lub [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app).
+* Wersja udostępnionej platformy ASP.NET Core jest zainstalowanie aplikacji jest przeznaczony dla na komputerze docelowym.
+
+**500.0 Błąd ładowania poza procesem programu obsługi**
+
+Proces roboczy kończy się niepowodzeniem. Nie zaczyna się aplikacja.
+
+Modułu ASP.NET Core nie powiedzie się znaleźć spoza procesu hostingu Obsługa żądania. Upewnij się, że *aspnetcorev2_outofprocess.dll* znajduje się w podfolderze obok *aspnetcorev2.dll*. 
+
+::: moniker-end
 
 **500 Wewnętrzny błąd serwera**  
 Uruchamia aplikację, ale błąd uniemożliwia spełnienie żądania przez serwer.

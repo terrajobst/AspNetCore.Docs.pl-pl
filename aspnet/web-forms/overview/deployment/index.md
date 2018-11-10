@@ -36,8 +36,7 @@ ms.locfileid: "41755044"
     - [Rozwiązywanie problemów](visual-studio-web-deployment/troubleshooting.md)
 - [ASP.NET 4 — wprowadzenie do wdrożenia w przedsiębiorstwie](deploying-web-applications-in-enterprise-scenarios/index.md)
 
-    - 
-  [Wdrażanie aplikacji internetowych w scenariuszach dla przedsiębiorstw przy użyciu programu Visual Studio 2010](deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md)
+    - [Wdrażanie aplikacji internetowych w scenariuszach dla przedsiębiorstw przy użyciu programu Visual Studio 2010](deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md)
     - [Wdrażanie sieci Web w przedsiębiorstwie: omówienie scenariuszy](deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md)
     - [Zarządzanie cyklem życia aplikacji: od projektowania do produkcji](deploying-web-applications-in-enterprise-scenarios/application-lifecycle-management-from-development-to-production.md)
 - [ASP.NET 4 — wdrażanie w przedsiębiorstwie, seria 1](web-deployment-in-the-enterprise/index.md)

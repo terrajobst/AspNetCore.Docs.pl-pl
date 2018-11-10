@@ -4,14 +4,14 @@ author: guardrex
 description: Dowiedz się, jak hostować aplikacje platformy ASP.NET Core na systemu Windows serwera Internet Information Services (IIS).
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/21/2018
+ms.date: 11/05/2018
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: b204eeb35f8765bbafc85b3bb283809727356d3e
-ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
-ms.translationtype: MT
+ms.openlocfilehash: 5408fb04231a61e0c4c7a91eb15196bf754ddfa7
+ms.sourcegitcommit: 09affee3d234cb27ea6fe33bc113b79e68900d22
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50253211"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51191376"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host platformy ASP.NET Core na Windows za pomocą programu IIS
 
@@ -82,7 +82,7 @@ Typowa *Program.cs* wywołania <xref:Microsoft.AspNetCore.WebHost.CreateDefaultB
 Typowa *Program.cs* wywołania <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> aby rozpocząć konfigurowanie hosta. Dla hostingu poza procesem, za pomocą programu IIS, `CreateDefaultBuilder` konfiguruje [Kestrel](xref:fundamentals/servers/kestrel) jako serwera i umożliwia IIS integracji z siecią web, konfigurując ścieżki podstawowej i port [modułu ASP.NET Core](xref:fundamentals/servers/aspnet-core-module):
 
 ```csharp
-public static IWebHost BuildWebHost(string[] args) =>
+public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
     WebHost.CreateDefaultBuilder(args)
         ...
 ```
@@ -104,7 +104,7 @@ Aby uzyskać więcej informacji o modelach hostingu w procesie i poza procesem, 
 Typowa *Program.cs* wywołania <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> aby rozpocząć konfigurowanie hosta. `CreateDefaultBuilder` Konfiguruje [Kestrel](xref:fundamentals/servers/kestrel) jako serwera i umożliwia IIS integracji z siecią web, konfigurując ścieżki podstawowej i port [modułu ASP.NET Core](xref:fundamentals/servers/aspnet-core-module):
 
 ```csharp
-public static IWebHost BuildWebHost(string[] args) =>
+public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
     WebHost.CreateDefaultBuilder(args)
         ...
 ```

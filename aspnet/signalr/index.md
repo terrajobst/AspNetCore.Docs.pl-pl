@@ -58,8 +58,7 @@ ms.locfileid: "41753298"
     - [Wdrażanie i hosting](overview/deployment/index.md)
 
         - [Samouczek: host samodzielny SignalR](overview/deployment/tutorial-signalr-self-host.md)
-        - 
-  [Używanie SignalR z usługą Web Apps w usłudze Azure App Service](overview/deployment/using-signalr-with-azure-web-sites.md)
+        - [Używanie SignalR z usługą Web Apps w usłudze Azure App Service](overview/deployment/using-signalr-with-azure-web-sites.md)
     - [Zaawansowane](overview/advanced/index.md)
 
         - [Wstrzykiwanie zależności w SignalR](overview/advanced/dependency-injection.md)

@@ -759,7 +759,7 @@ Następujące wersje programu [Globalize](https://github.com/jquery/globalize "G
 
 ### <a name="respond-releases-on-the-cdn"></a>Odpowiadać wersji w usłudze CDN
 
-Następujące wersje programu [ https://github.com/scottjehl/Respond ] (https://github.com/scottjehl/Respond " https://github.com/scottjehl/Respond ") odpowiada znajdują się w sieci CDN:
+Następujące wersje programu [https://github.com/scottjehl/Respond](https://github.com/scottjehl/Respond "https://github.com/scottjehl/Respond") odpowiada znajdują się w sieci CDN:
 
 #### <a name="respond-version-142"></a>Odpowiedź w wersji 1.4.2
 

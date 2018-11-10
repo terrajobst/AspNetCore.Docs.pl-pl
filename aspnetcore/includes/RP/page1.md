@@ -30,7 +30,7 @@ Gdy `OnGet` zwraca `void` lub `OnGetAsync` zwraca`Task`, brak zwracany metody je
 
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie21/Pages/Movies/Create.cshtml.cs?name=snippet)]
 
-Sprawdź *Pages/Movies/Index.cshtml* strona Razor:
+<a name="index"></a> Sprawdź *Pages/Movies/Index.cshtml* strona Razor:
 
 [!code-cshtml[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml)]
 
@@ -51,7 +51,7 @@ Sprawdź wyrażenie lambda, używane w następujących pomocnika kodu HTML:
 
 [!code-cshtml[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?range=1-2&highlight=2)]
 
-`@model` Dyrektywa określa typ modelu przekazywane do stron Razor. W powyższym przykładzie `@model` wiersz sprawia, że `PageModel`— dostępny na stronie Razor klasy pochodnej. Model jest używany w `@Html.DisplayNameFor` i `@Html.DisplayName` [pomocników HTML](/aspnet/mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs#understanding-html-helpers) na stronie.
+`@model` Dyrektywa określa typ modelu przekazywane do stron Razor. W powyższym przykładzie `@model` wiersz sprawia, że `PageModel`— dostępny na stronie Razor klasy pochodnej. Model jest używany w `@Html.DisplayNameFor` i `@Html.DisplayFor` [pomocników HTML](/aspnet/mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs#understanding-html-helpers) na stronie.
 
 <!-- why don't xref links work?
 [HTML Helpers 2](xref:aspnet/mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs)

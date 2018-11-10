@@ -5,14 +5,14 @@ description: Dowiedz się, jak rozpocząć pracę z gniazda Websocket w programi
 monikerRange: '>= aspnetcore-1.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 06/28/2018
+ms.date: 11/06/2018
 uid: fundamentals/websockets
-ms.openlocfilehash: b0f1aeff6c7a5777993459274293ba23f2d9dc12
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 3a649f88699d61636d9aa7fbfe4468ca67b3b018
+ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50206743"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51225411"
 ---
 # <a name="websockets-support-in-aspnet-core"></a>Obsługa protokółu Websocket w programie ASP.NET Core
 
@@ -72,10 +72,24 @@ Dodaj oprogramowanie pośredniczące Websocket w `Configure` metody `Startup` kl
 
 ::: moniker-end
 
+::: moniker range="< aspnetcore-2.2"
+
 Można skonfigurować następujące ustawienia:
 
-* `KeepAliveInterval` -Jak często wysyłać ramki "ping" do klienta, aby upewnić się, serwery proxy utrzymanie otwartego połączenia.
-* `ReceiveBufferSize` — Rozmiar buforu używany do odbierania danych. Użytkownicy zaawansowani trzeba to zmienić dotyczące dostosowywania wydajności na podstawie rozmiaru danych.
+* `KeepAliveInterval` -Jak często wysyłać ramki "ping" do klienta, aby upewnić się, serwery proxy utrzymanie otwartego połączenia. Wartość domyślna to dwie minuty.
+* `ReceiveBufferSize` — Rozmiar buforu używany do odbierania danych. Użytkownicy zaawansowani trzeba to zmienić dotyczące dostosowywania wydajności na podstawie rozmiaru danych. Wartość domyślna to 4 KB.
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
+
+Można skonfigurować następujące ustawienia:
+
+* `KeepAliveInterval` -Jak często wysyłać ramki "ping" do klienta, aby upewnić się, serwery proxy utrzymanie otwartego połączenia. Wartość domyślna to dwie minuty.
+* `ReceiveBufferSize` — Rozmiar buforu używany do odbierania danych. Użytkownicy zaawansowani trzeba to zmienić dotyczące dostosowywania wydajności na podstawie rozmiaru danych. Wartość domyślna to 4 KB.
+* `AllowedOrigins` -Lista dozwolonych wartości nagłówka pochodzenia dla żądania protokołu WebSocket. Domyślnie wszystkie źródła są dozwolone. Aby uzyskać szczegółowe informacje, zobacz "WebSocket pochodzenia ograniczenia" poniżej.
+
+::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -128,6 +142,32 @@ Przekazuje kodu pokazanego wcześniej, która akceptuje żądanie protokołu Web
 ::: moniker-end
 
 Akceptując połączeniem WebSocket, przed rozpoczęciem pętli, kończy się potoku oprogramowania pośredniczącego. Po zamknięciu gniazda, rozwija potoku. Oznacza to, że żądanie zatrzymuje, przenoszenie do przodu w potoku po zaakceptowaniu WebSocket. Po zakończeniu pętli i gniazda jest zamknięty, żądanie będzie kontynuowane wykonywanie kopii zapasowych potoku.
+
+::: moniker range=">= aspnetcore-2.2"
+
+### <a name="websocket-origin-restriction"></a>Ograniczenie pochodzenia WebSocket
+
+Zabezpieczenia udostępniane przez mechanizm CORS nie dotyczą funkcji WebSockets. Czy przeglądarek **nie**:
+
+* Wykonywanie żądań krótkiej mechanizmu CORS.
+* Przestrzeganie ograniczenia określone w `Access-Control` nagłówków w przypadku wysyłania żądań protokołu WebSocket.
+
+Jednak wysłać przeglądarek `Origin` nagłówka podczas wystawiania żądania protokołu WebSocket. Aplikacje powinny być konfigurowane do sprawdzania poprawności tych nagłówków, aby upewnić się, że dozwolone są tylko WebSockets pochodzące z oczekiwanym źródła.
+
+Jeśli przechowujesz serwera na "https://server.com"i hosting w systemie klienta"https://client.com", Dodaj "https://client.com" Aby `AllowedOrigins` listy dla funkcji WebSockets sprawdzić.
+
+```csharp
+app.UseWebSockets(new WebSocketOptions()
+{
+    AllowedOrigins.Add("https://client.com");
+    AllowedOrigins.Add("https://www.client.com");
+});
+```
+
+> [!NOTE]
+> `Origin` Nagłówek jest kontrolowany przez klienta i, podobnie jak `Referer` nagłówka, mogą zostać sfałszowane. Czy **nie** Użyj tych nagłówków jako mechanizm uwierzytelniania.
+
+::: moniker-end
 
 ## <a name="iisiis-express-support"></a>Obsługa usług IIS/IIS Express
 

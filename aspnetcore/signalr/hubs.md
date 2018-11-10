@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 09/12/2018
 uid: signalr/hubs
-ms.openlocfilehash: be42314afad4ff43d2fcf1abbc96c5b78c773977
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 27aedc5b2f2060d961070fbd1ff5304eaa3956d1
+ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50206019"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51225359"
 ---
 # <a name="use-hubs-in-signalr-for-aspnet-core"></a>Na użytek koncentratory w SignalR platformy ASP.NET Core
 
@@ -41,6 +41,11 @@ Utwórz koncentrator od zadeklarowania klasy, która dziedziczy `Hub`i Dodaj met
 [!code-csharp[Create and use hubs](hubs/sample/hubs/chathub.cs?range=8-37)]
 
 Można określić zwracany typ i parametry, w tym typy złożone i tablice, tak jak w dowolnej metody języka C#. SignalR obsługi serializacji i deserializacji obiektu złożonego obiekty i tablice parametrów i zwracanych wartości.
+
+> [!NOTE]
+> Centra są przejściowe:
+> * Nie należy przechowywać stanu właściwością klasy koncentratora. Każde wywołanie metody koncentratora jest wykonywane na nowe wystąpienie koncentratora.  
+> * Użyj `await` podczas wywoływania metod asynchronicznych, które są zależne od centrum pozostaje aktywne. Na przykład metoda takich jak `Clients.All.SendAsync(...)` może zakończyć się niepowodzeniem, jeśli jest wywoływana bez `await` i metody koncentratora zakończy się przed `SendAsync` zakończy się.
 
 ## <a name="the-context-object"></a>Obiekt kontekstu
 
