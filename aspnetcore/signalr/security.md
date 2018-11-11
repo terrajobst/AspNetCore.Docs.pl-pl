@@ -5,14 +5,14 @@ description: Dowiedz się, jak używać uwierzytelniania i autoryzacji w bibliot
 monikerRange: '>= aspnetcore-2.1'
 ms.author: anurse
 ms.custom: mvc
-ms.date: 10/17/2018
+ms.date: 11/06/2018
 uid: signalr/security
-ms.openlocfilehash: be1dd24c40327d9a0d8f91bf75300128d3d52725
-ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
-ms.translationtype: HT
+ms.openlocfilehash: f646d319cf3030fd4d769e882514da14b230bbdd
+ms.sourcegitcommit: c3fa5aded0bf76a7414047d50b8a2311d27ee1ef
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51225372"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51276148"
 ---
 # <a name="security-considerations-in-aspnet-core-signalr"></a>Zagadnienia dotyczące zabezpieczeń w biblioteki SignalR platformy ASP.NET Core
 
@@ -35,7 +35,7 @@ Aby uzyskać więcej informacji na temat konfigurowania mechanizmu CORS, zobacz 
 * Metody HTTP `GET` i `POST` muszą być dozwolone.
 * Poświadczenia musi być włączona, nawet wtedy, gdy nie jest używane uwierzytelnianie.
 
-Na przykład następujące zasady CORS umożliwia klient przeglądarki SignalR w serwisie `http://example.com` dostęp do aplikacji SignalR w serwisie `http://signalr.example.com`:
+Na przykład następujące zasady CORS umożliwia klient przeglądarki SignalR w serwisie `https://example.com` dostęp do aplikacji SignalR w serwisie `https://signalr.example.com`:
 
 [!code-csharp[Main](security/sample/Startup.cs?name=snippet1)]
 
@@ -70,7 +70,14 @@ W programie ASP.NET Core 2.1 i nowsze, nagłówek sprawdzania poprawności możn
 
 ## <a name="access-token-logging"></a>Rejestrowanie tokenu dostępu
 
-Korzystając z funkcji WebSockets lub Server-Sent zdarzeń, klient przeglądarki wysyła ten token dostępu w ciągu zapytania. Odbiera token dostępu za pomocą ciągu zapytania jest zazwyczaj tak bezpieczne, jak przy użyciu standardu `Authorization` nagłówka. Jednak wiele serwerów sieci web Zaloguj się adres URL dla każdego żądania, w tym ciągu zapytania. Rejestrowanie adresy URL mogą rejestrować tokenu dostępu. Najlepszym rozwiązaniem jest można ustawić ustawienia rejestrowania serwera, aby uniemożliwić rejestrowanie tokenów dostępu w sieci web.
+Korzystając z funkcji WebSockets lub Server-Sent zdarzeń, klient przeglądarki wysyła ten token dostępu w ciągu zapytania. Odbiera token dostępu za pomocą ciągu zapytania jest zazwyczaj tak bezpieczne, jak przy użyciu standardu `Authorization` nagłówka. Aby zapewnić bezpieczne połączenie end-to-end między klientem a serwerem, należy zawsze używać protokołu HTTPS. Wiele serwerów sieci web Zaloguj się adres URL dla każdego żądania, w tym ciągu zapytania. Rejestrowanie adresy URL mogą rejestrować tokenu dostępu. Platforma ASP.NET Core rejestruje adres URL dla każdego żądania domyślnie, co będzie zawierać ciąg zapytania. Na przykład:
+
+```
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:5000/myhub?access_token=1234
+```
+
+Jeśli masz wątpliwości dotyczących rejestrowanie tych danych za pomocą dzienników serwera, można wyłączyć rejestrowanie wyłącznie przez skonfigurowanie `Microsoft.AspNetCore.Hosting` rejestratora `Warning` poziom lub nowszy (te komunikaty są zapisywane w `Info` poziom). Zobacz dokumentację na [filtrowanie dziennika](xref:fundamentals/logging/index#log-filtering) Aby uzyskać więcej informacji. Jeśli nadal chcesz rejestrować pewne informacje o żądaniu, możesz to zrobić [zapisu oprogramowanie pośredniczące](xref:fundamentals/middleware/index#write-middleware) rejestrowanie danych wymagają i odfiltrować `access_token` wartość ciągu zapytania, (jeśli istnieje).
 
 ## <a name="exceptions"></a>Wyjątki
 
