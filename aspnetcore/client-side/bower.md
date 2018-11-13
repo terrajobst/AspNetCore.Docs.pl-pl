@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 08/09/2018
 uid: client-side/bower
-ms.openlocfilehash: 8606c21596a5d9d6ada9c60b55b2f54da21c601b
-ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
+ms.openlocfilehash: 06edf7ee791aac0984ff71c2f243f61093f0d503
+ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41902722"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51570025"
 ---
 # <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a>Zarządzanie pakietami po stronie klienta za pomocą narzędzi Bower w programie ASP.NET Core
 
@@ -40,7 +40,7 @@ W tym samouczku dodamy obsługę [Font Awesome](http://fontawesome.io). Można z
 
   ![Zarządzaj pakietami programu bower](bower/_static/manage-bower-packages.png)
 
-* Upewnij się, że "zapisać zmiany w *bower.json*" jest zaznaczone pole wyboru. Wybierz wersję z listy rozwijanej, a następnie kliknij przycisk **zainstalować** przycisku. **Dane wyjściowe** okno zawiera szczegółowe informacje dotyczące instalacji.
+* Upewnij się, że "zapisać zmiany w *bower.json*" pole wyboru jest zaznaczone. Wybierz wersję z listy rozwijanej, a następnie kliknij przycisk **zainstalować** przycisku. **Dane wyjściowe** okno zawiera szczegółowe informacje dotyczące instalacji.
 
 ### <a name="manual-installation-in-bowerjson"></a>Instalacja ręczna, w pliku bower.json
 

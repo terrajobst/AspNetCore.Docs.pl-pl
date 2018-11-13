@@ -5,12 +5,12 @@ description: Przewodnik, który dostarcza wskazówki end-to-end na tworzeniu pot
 ms.author: scaddie
 ms.date: 10/24/2018
 uid: azure/devops/cicd
-ms.openlocfilehash: 18a59a1ff6fd6bbf51ff664764725b8972dfa1bf
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: edaf2c2e1428e5e82104786d94584a4ef08f9ee3
+ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090540"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51570090"
 ---
 # <a name="continuous-integration-and-deployment"></a>Ciągła integracja i ciągłe wdrażanie
 
@@ -271,7 +271,7 @@ Kliknięcie zadania zamiany gniazda, co spowoduje wyświetlenie następującej k
 
 ![Zwolnij zadanie zamiany gniazda potoku](media/cicd/release-definition-task2.png)
 
-Subskrypcja, grupa zasobów, typ usługi, nazwa aplikacji sieci web i szczegóły miejsca wdrożenia znajdują się. **Wymiany z produkcją** zaznaczono pole wyboru. W związku z tym, wdrożone usługi bits *przemieszczania* gniazda zostały zamienione w środowisku produkcyjnym.
+Subskrypcja, grupa zasobów, typ usługi, nazwa aplikacji sieci web i szczegóły miejsca wdrożenia znajdują się. **Wymiany z produkcją** pole wyboru jest zaznaczone. W związku z tym, wdrożone usługi bits *przemieszczania* gniazda zostały zamienione w środowisku produkcyjnym.
 
 ## <a name="additional-reading"></a>Materiały uzupełniające
 

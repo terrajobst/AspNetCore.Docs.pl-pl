@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/01/2018
 uid: fundamentals/file-providers
-ms.openlocfilehash: 3274615a0d6b6f928301ce97d18f5d9768963a30
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 5d0d46ba82cd84e48e5a9b23d6d330d8888beb41
+ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207319"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51570103"
 ---
 # <a name="file-providers-in-aspnet-core"></a>Dostawcy plików w programie ASP.NET Core
 
@@ -20,7 +20,7 @@ Przez [Steve Smith](https://ardalis.com/) i [Luke Latham](https://github.com/gua
 Platforma ASP.NET Core przenosi dostępu do systemu plików przy użyciu dostawcy plików. Dostawcy plików są używane w ramach platformy ASP.NET Core:
 
 * [IHostingEnvironment](/dotnet/api/microsoft.extensions.hosting.ihostingenvironment) udostępnia zawartość katalogu głównego aplikacji i katalog główny sieci web jako `IFileProvider` typów.
-* [Statyczne pliki oprogramowania pośredniczącego](xref:fundamentals/static-files) używa dostawcy plików do zlokalizowania plików statycznych.
+* [Oprogramowanie pośredniczące plików statycznych](xref:fundamentals/static-files) używa dostawcy plików do zlokalizowania plików statycznych.
 * [Razor](xref:mvc/views/razor) używa dostawcy plików do zlokalizowania, widoków i stron.
 * Zestaw narzędzi .NET core korzysta z dostawcy plików i glob wzorce, aby określić, które pliki powinny być publikowane.
 

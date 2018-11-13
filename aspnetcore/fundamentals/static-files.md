@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/18/2018
 uid: fundamentals/static-files
-ms.openlocfilehash: 5d00e6ba57053d17b45a24a1c57a446cb3db22ca
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: fb92141b1864574242b29ecc386024ce72a6be87
+ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207137"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51570129"
 ---
 # <a name="static-files-in-aspnet-core"></a>Pliki statyczne z platformy ASP.NET Core
 
@@ -96,7 +96,7 @@ Należy wziąć pod uwagę hierarchii katalogów, w którym znajdują się pliki
   * **images**
       * *banner1.svg*
 
-Żądanie mogą uzyskiwać dostęp do *banner1.svg* pliku, konfigurując oprogramowanie pośredniczące plików statycznych w następujący sposób:
+Żądanie mogą uzyskiwać dostęp do *banner1.svg* pliku przez skonfigurowanie statycznych oprogramowanie pośredniczące plików w następujący sposób:
 
 [!code-csharp[](static-files/samples/1x/StartupTwoStaticFiles.cs?name=snippet_ConfigureMethod&highlight=5-10)]
 
@@ -120,12 +120,12 @@ Pliki zostały wprowadzone publicznie podlega buforowaniu, na 10 minut (600 seku
 
 ## <a name="static-file-authorization"></a>Statyczny plik autoryzacji
 
-Oprogramowanie pośredniczące plików statycznych nie zapewnia sprawdzeń autoryzacji. Wszystkich plików obsługiwanych przez, łącznie z tymi w ramach *wwwroot*, są dostępne publicznie. Aby udostępniać pliki na podstawie autoryzacji:
+Statyczne oprogramowanie pośredniczące plików nie zapewnia sprawdzeń autoryzacji. Wszystkich plików obsługiwanych przez, łącznie z tymi w ramach *wwwroot*, są dostępne publicznie. Aby udostępniać pliki na podstawie autoryzacji:
 
-* Store je poza *wwwroot* i z dowolnego katalogu, które są dostępne dla oprogramowanie pośredniczące plików statycznych **i**
+* Store je poza *wwwroot* i z dowolnego katalogu, które są dostępne dla statycznych oprogramowanie pośredniczące plików.
 * Obsługujących je za pośrednictwem metody akcji, do którego zastosowano autoryzacji. Zwróć [FileResult](/dotnet/api/microsoft.aspnetcore.mvc.fileresult) obiektu:
 
-[!code-csharp[](static-files/samples/1x/Controllers/HomeController.cs?name=snippet_BannerImageAction)]
+  [!code-csharp[](static-files/samples/1x/Controllers/HomeController.cs?name=snippet_BannerImageAction)]
 
 ## <a name="enable-directory-browsing"></a>Umożliwia przeglądanie katalogów
 
@@ -154,7 +154,7 @@ Ustawianie domyślnej strony głównej zawiera odwiedzających logiczne punkt po
 [!code-csharp[](static-files/samples/1x/StartupEmpty.cs?name=snippet_ConfigureMethod&highlight=3)]
 
 > [!IMPORTANT]
-> `UseDefaultFiles` musi zostać wywołana przed `UseStaticFiles` do obsługi domyślnego pliku. `UseDefaultFiles` jest dysków adresu URL, który faktycznie nie obsługuje pliku. Włącz oprogramowanie pośredniczące plików statycznych przy użyciu `UseStaticFiles` do udostępniania plików.
+> `UseDefaultFiles` musi zostać wywołana przed `UseStaticFiles` do obsługi domyślnego pliku. `UseDefaultFiles` jest dysków adresu URL, który faktycznie nie obsługuje pliku. Włącza oprogramowanie pośredniczące plików statycznych przy użyciu `UseStaticFiles` do udostępniania plików.
 
 Za pomocą `UseDefaultFiles`, żądania do folderu wyszukiwania:
 

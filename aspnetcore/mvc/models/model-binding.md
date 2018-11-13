@@ -4,14 +4,14 @@ author: tdykstra
 description: Dowiedz się, jak wiązanie modelu programu ASP.NET Core MVC mapuje dane z żądań HTTP na parametry metody akcji.
 ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
 ms.author: tdykstra
-ms.date: 08/14/2018
+ms.date: 11/13/2018
 uid: mvc/models/model-binding
-ms.openlocfilehash: 0ce20a8040c6b19da1f57e1c053a7ef81d8bcb23
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: 1dc9b41328ed78440622acc1865b6f088d394403
+ms.sourcegitcommit: 1d6ab43eed9cb3df6211c22b97bb3a9351ec4419
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41754191"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51597787"
 ---
 # <a name="model-binding-in-aspnet-core"></a>Wiązanie modelu w programie ASP.NET Core
 
@@ -55,7 +55,7 @@ Ponieważ wiązania modelu o podanie klucza o nazwie `id` i nie ma nic o nazwie 
 
 Do tej pory w przykładzie użyto typów prostych. W MVC proste typy są dowolnego typu pierwotnego .NET lub typu dla konwertera typu ciąg. Gdyby parametru metody akcji klasy takie jak `Movie` typ, który zawiera proste i złożone typy, właściwości nadal będą powiązanie modelu MVC go obsłużyć dobrze. Używa odbicia i rekursji przechodzenia właściwości typów złożonych szuka dopasowania. Wiązanie modelu wyszukuje wzorzec *parameter_name.property_name* do powiązania wartości właściwości. Jeśli nie znajdzie dopasowania wartości tego formularza podejmie można powiązać, przy użyciu tylko nazwy właściwości. Dla tych typów, takich jak `Collection` typów, wiązanie modelu szuka dopasowań, który ma *parameter_name [index]* lub po prostu *[index]*. Model traktuje powiązania `Dictionary` podobnie, typów, pytanie o *parameter_name [klucz]* lub po prostu *[klucz]*, tak długo, jak klucze są typy proste. Klucze, które są obsługiwane pasuje do nazwy pola HTML i pomocnicy tagów generowane dla tego samego typu modelu. Dzięki temu obustronne konwertowanie wartości tak, aby pola formularza pozostają wypełniony przy użyciu danych wejściowych użytkownika do ich zapewnienia wygody, na przykład, gdy powiązane dane z Utwórz lub zmodyfikuj nie przeszły pomyślnie sprawdzania poprawności.
 
-Dla powiązania odbywały się klasy musi mieć publicznego konstruktora domyślnego i powiązać element członkowski musi być publicznymi właściwościami zapisywalny. W sytuacji, będzie tylko można utworzyć wystąpienia klasy przy użyciu publicznego konstruktora domyślnego wiązania modelu właściwości można ustawić.
+Aby umożliwić wiązanie modelu, klasa musi mieć publicznego konstruktora domyślnego i publicznego modyfikowalne właściwości do powiązania. W przypadku tworzenia powiązania modelu klasy są tworzone przy użyciu publicznego konstruktora domyślnego, a następnie można ustawić właściwości.
 
 Podczas wiązania parametru wiązania modelu zatrzymuje wyszukiwanie wartości o takiej nazwie i powoduje przeniesienie do powiązania następny parametr. W przeciwnym razie domyślne zachowanie wiązania modelu ustawia parametry domyślne wartości w zależności od ich typu:
 

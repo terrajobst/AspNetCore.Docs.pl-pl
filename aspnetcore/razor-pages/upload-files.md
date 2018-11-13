@@ -4,14 +4,14 @@ author: guardrex
 description: Dowiedz się, jak przekazać pliki do strony Razor.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 07/11/2018
+ms.date: 11/10/2018
 uid: razor-pages/upload-files
-ms.openlocfilehash: 92e72869967b6e3202c97b92e341ea22adc69651
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 8d86a84bcd31cc1e1e6fbe0693c7ec179e589f3d
+ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912504"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51570012"
 ---
 # <a name="upload-files-to-a-razor-page-in-aspnet-core"></a>Przekazywanie plików na stronę Razor programu ASP.NET Core
 
@@ -22,6 +22,8 @@ Ten temat opiera się na [przykładową aplikację](https://github.com/aspnet/Do
 W tym temacie pokazano, jak przekazać pliki, za pomocą prostego modelu powiązania, co sprawdza się dobrze w przypadku przekazywania plików na małe. Aby uzyskać informacje na przesyłanie strumieniowe dużych plików, zobacz [przekazywanie dużych plików z przesyłaniem strumieniowym](xref:mvc/models/file-uploads#uploading-large-files-with-streaming).
 
 W poniższych krokach funkcji przekazywania plików harmonogram film zostanie dodany do przykładowej aplikacji. Harmonogram film jest reprezentowany przez `Schedule` klasy. Klasa zawiera dwie wersje harmonogramu. Jedna wersja są przekazywane klientom, `PublicSchedule`. Druga wersja jest używana w przypadku pracowników firmy `PrivateSchedule`. Każda wersja jest przekazywany jako oddzielny plik. Samouczek pokazuje, jak wykonać dwie operacje przekazywania plików ze strony za pomocą pojedynczego wpisu do serwera.
+
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/razor-pages/upload-files/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 ## <a name="security-considerations"></a>Zagadnienia dotyczące bezpieczeństwa
 

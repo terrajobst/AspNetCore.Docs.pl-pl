@@ -4,14 +4,14 @@ author: guardrex
 description: Dowiedz się, jak hostować aplikacje platformy ASP.NET Core na systemu Windows serwera Internet Information Services (IIS).
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/05/2018
+ms.date: 11/10/2018
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: aa821b4923d2a5495ab3e9973142e1e97371ec91
-ms.sourcegitcommit: c3fa5aded0bf76a7414047d50b8a2311d27ee1ef
-ms.translationtype: HT
+ms.openlocfilehash: 1b34195dc51ca8dab5e8eda10f05ff6678fbc78c
+ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51276173"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51570168"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host platformy ASP.NET Core na Windows za pomocą programu IIS
 
@@ -422,12 +422,32 @@ Aplikacje podrzędne, w obszarze katalogu głównego aplikacji nie powinna zawie
 
 W poniższym przykładzie pokazano publikowania *web.config* sub aplikacji ASP.NET Core w pliku:
 
+::: moniker range=">= aspnetcore-2.2"
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <location path="." inheritInChildApplications="false">
+    <system.webServer>
+      <aspNetCore processPath="dotnet" 
+        arguments=".\MyApp.dll" 
+        stdoutLogEnabled="false" 
+        stdoutLogFile=".\logs\stdout" />
+    </system.webServer>
+  </location>
+</configuration>
+```
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>
   <system.webServer>
     <aspNetCore processPath="dotnet" 
-      arguments=".\<assembly_name>.dll" 
+      arguments=".\MyApp.dll" 
       stdoutLogEnabled="false" 
       stdoutLogFile=".\logs\stdout" />
   </system.webServer>
@@ -444,12 +464,14 @@ Odnośnie do hostowania aplikacji — ASP.NET Core sub-poniżej aplikacji ASP.NE
       <remove name="aspNetCore" />
     </handlers>
     <aspNetCore processPath="dotnet" 
-      arguments=".\<assembly_name>.dll" 
+      arguments=".\MyApp.dll" 
       stdoutLogEnabled="false" 
       stdoutLogFile=".\logs\stdout" />
   </system.webServer>
 </configuration>
 ```
+
+::: moniker-end
 
 Aby uzyskać więcej informacji na temat konfigurowania modułu ASP.NET Core, zobacz [wprowadzenie do modułu ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) tematu i [informacje o konfiguracji modułu ASP.NET Core](xref:host-and-deploy/aspnet-core-module).
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/18/2018
 uid: security/enforcing-ssl
-ms.openlocfilehash: afa40db4c84820db91878bb98dae082b3dd9a2e2
-ms.sourcegitcommit: c43a6f1fe72d7c2db4b5815fd532f2b45d964e07
+ms.openlocfilehash: d287d30203fbf367203afe65e05478806fafab34
+ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50244891"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51570051"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>Wymuszanie protokołu HTTPS w programie ASP.NET Core
 
@@ -208,7 +208,7 @@ Aby zrezygnować z protokołu HTTPS/HSTS:
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
 
-Usuń zaznaczenie pola wyboru **Konfigurowanie protokołu HTTPS** pola wyboru.
+Usuń zaznaczenie pola wyboru **Konfigurowanie protokołu HTTPS** pole wyboru.
 
 ![Nowe aplikacje sieci Web programu ASP.NET Core Wyświetla okno dialogowe Konfigurowanie usunięto zaznaczenie pola wyboru protokołu HTTPS.](enforcing-ssl/_static/out.png)
 

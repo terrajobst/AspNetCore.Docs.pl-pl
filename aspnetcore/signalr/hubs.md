@@ -5,14 +5,14 @@ description: Dowiedz się, jak używać koncentratory w biblioteki SignalR platf
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 09/12/2018
+ms.date: 11/07/2018
 uid: signalr/hubs
-ms.openlocfilehash: 27aedc5b2f2060d961070fbd1ff5304eaa3956d1
-ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
-ms.translationtype: HT
+ms.openlocfilehash: 0413d354307208726f4252f431ac59526effed08
+ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51225359"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51569922"
 ---
 # <a name="use-hubs-in-signalr-for-aspnet-core"></a>Na użytek koncentratory w SignalR platformy ASP.NET Core
 
@@ -38,7 +38,15 @@ Podczas dodawania funkcji SignalR do aplikacji ASP.NET Core, należy skonfigurow
 
 Utwórz koncentrator od zadeklarowania klasy, która dziedziczy `Hub`i Dodaj metody publiczne do niego. Klienci mogą wywoływać metody, które są zdefiniowane jako `public`.
 
-[!code-csharp[Create and use hubs](hubs/sample/hubs/chathub.cs?range=8-37)]
+```csharp
+public class ChatHub : Hub
+{
+    public Task SendMessage(string user, string message)
+    {
+        return Clients.All.SendAsync("ReceiveMessage", user, message);
+    }
+}
+```
 
 Można określić zwracany typ i parametry, w tym typy złożone i tablice, tak jak w dowolnej metody języka C#. SignalR obsługi serializacji i deserializacji obiektu złożonego obiekty i tablice parametrów i zwracanych wartości.
 
@@ -85,20 +93,24 @@ Można określić zwracany typ i parametry, w tym typy złożone i tablice, tak 
 | `AllExcept` | Wywołuje metodę dla wszystkich podłączonych klientów z wyjątkiem wskazanych połączeń |
 | `Client` | Wywołuje metodę dla określonego klienta połączone |
 | `Clients` | Wywołuje metodę dla określonych klientów połączonych |
-| `Group` | Wywołuje metodę do wszystkich połączeń w określonej grupie  |
-| `GroupExcept` | Wywołuje metodę do wszystkich połączeń w określonej grupie, z wyjątkiem wskazanych połączeń |
-| `Groups` | Wywołuje metodę do wielu grup połączeń  |
-| `OthersInGroup` | Wywołuje metodę do grupy połączeń z wykluczeniem klienta, który wywołał metodę koncentratora  |
-| `User` | Wywołuje metodę, aby wszystkie połączenia skojarzone z określonym użytkownikiem |
-| `Users` | Wywołuje metodę, aby wszystkie połączenia skojarzone z określonych użytkowników |
+| `Group` | Wywołuje metodę dla wszystkich połączeń w określonej grupie  |
+| `GroupExcept` | Wywołuje metodę dla wszystkich połączeń w określonej grupie, z wyjątkiem wskazanych połączeń |
+| `Groups` | Wywołuje metodę dla wielu grup połączeń  |
+| `OthersInGroup` | Wywołuje metodę dla grupy połączeń z wykluczeniem klienta, który wywołał metodę koncentratora  |
+| `User` | Wywołuje metodę dla wszystkich połączeń, skojarzone z określonym użytkownikiem |
+| `Users` | Wywołuje metodę dla wszystkich połączeń skojarzonych z określonych użytkowników |
 
 Każda właściwość lub metoda w poprzednich tabelach zwraca obiekt z `SendAsync` metody. `SendAsync` Metoda umożliwia podanie nazwy i parametry metody klienta do wywołania.
 
 ## <a name="send-messages-to-clients"></a>Wysyłanie komunikatów do klientów
 
-Aby wykonywać wywołania określonych klientów, należy użyć właściwości `Clients` obiektu. W poniższym przykładzie `SendMessageToCaller` metoda pokazuje wysyłania komunikatu do połączenia, który wywołał metodę koncentratora. `SendMessageToGroups` Metoda wysyła komunikat do grup, przechowywane w `List` o nazwie `groups`.
+Aby wykonywać wywołania określonych klientów, należy użyć właściwości `Clients` obiektu. W poniższym przykładzie istnieją trzy metody Centrum:
 
-[!code-csharp[Send messages](hubs/sample/hubs/chathub.cs?range=15-24)]
+* `SendMessage` wysyła wiadomość do wszystkich połączonych klientów przy użyciu `Clients.All`.
+* `SendMessageToCaller` wysyła komunikat do obiektu wywołującego, za pomocą `Clients.Caller`.
+* `SendMessageToGroups` wysyła wiadomość do wszystkich klientów w `SignalR Users` grupy.
+
+[!code-csharp[Send messages](hubs/sample/hubs/chathub.cs?name=HubMethods)]
 
 ## <a name="strongly-typed-hubs"></a>Koncentratory silnie typizowane
 
@@ -116,17 +128,42 @@ Za pomocą `Hub<IChatClient>` umożliwia w czasie kompilacji sprawdzania metody 
 
 Za pomocą silnie typizowanej `Hub<T>` wyłącza możliwość używania `SendAsync`.
 
+## <a name="change-the-name-of-a-hub-method"></a>Zmień nazwę metody koncentratora
+
+Domyślnie nazwa metody koncentratora serwera jest nazwa metody .NET. Można jednak użyć [HubMethodName](xref:Microsoft.AspNetCore.SignalR.HubMethodNameAttribute) atrybutu, aby zmienić to ustawienie domyślne i ręcznie określić nazwę metody. Klienta należy użyć tej nazwy zamiast nazwy metody .NET, podczas wywoływania metody.
+
+[!code-csharp[HubMethodName attribute](hubs/sample/hubs/chathub.cs?name=HubMethodName&highlight=1)]
+
 ## <a name="handle-events-for-a-connection"></a>Obsługa zdarzeń dla połączenia
 
 Interfejs API centrów SignalR udostępnia `OnConnectedAsync` i `OnDisconnectedAsync` metod wirtualnych, do zarządzania i śledzenia połączeń. Zastąp `OnConnectedAsync` metody wirtualnej do wykonania akcji, gdy klient nawiąże połączenie z koncentratorem, takie jak dodanie go do grupy.
 
-[!code-csharp[Handle events](hubs/sample/hubs/chathub.cs?range=26-36)]
+[!code-csharp[Handle connection](hubs/sample/hubs/chathub.cs?name=OnConnectedAsync)]
+
+Zastąp `OnDisconnectedAsync` metody wirtualnej do wykonania akcji w przypadku, gdy klient zakończy połączenie. Jeśli klient odłączy się celowo (przez wywołanie metody `connection.stop()`, na przykład), `exception` parametr będzie `null`. Jednakże, jeśli klient został odłączony z powodu błędu (np. awarii sieci), `exception` parametr będzie zawierać wyjątek zawierająca opis błędu.
+
+[!code-csharp[Handle disconnection](hubs/sample/hubs/chathub.cs?name=OnDisconnectedAsync)]
 
 ## <a name="handle-errors"></a>Obsługa błędów
 
 Wyjątki zgłaszane w Twoich metodach koncentratora są wysyłane do klienta, który wywołał metodę. Na kliencie JavaScript `invoke` metoda zwraca [JavaScript Promise](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Using_promises). Gdy klient odbierze błąd związany z programu obsługi dołączone do przy użyciu promise `catch`, ma ona wywoływana i przekazywane jako plik JavaScript `Error` obiektu.
 
 [!code-javascript[Error](hubs/sample/wwwroot/js/chat.js?range=23)]
+
+Domyślnie jeśli koncentrator zgłasza wyjątek, SignalR zwraca ogólny komunikat o błędzie do klienta. Na przykład:
+
+```
+Microsoft.AspNetCore.SignalR.HubException: An unexpected error occurred invoking 'MethodName' on the server.
+```
+
+Nieoczekiwane wyjątki często zawierają poufne informacje, takie jak nazwa serwera bazy danych, wyjątek wyzwalane, gdy połączenie z bazą danych nie powiedzie się. SignalR nie ujawnia te szczegółowe komunikaty o błędach domyślnie ze względów bezpieczeństwa. Zobacz [artykułu zagadnienia dotyczące zabezpieczeń](xref:signalr/security#exceptions) Aby uzyskać więcej informacji o tym, dlaczego szczegóły wyjątku są pomijane.
+
+Jeśli masz wyjątkowych warunków możesz *czy* zostanie rozpropagowany do klienta, można użyć `HubException` klasy. Jeśli możesz zgłosić `HubException` ze swojej metody koncentratora SignalR **będzie** Wyślij cały komunikat do klienta bez modyfikacji.
+
+[!code-csharp[ThrowHubException](hubs/sample/hubs/chathub.cs?name=ThrowHubException&highlight=3)]
+
+> [!NOTE]
+> Wysyła tylko SignalR `Message` właściwości wyjątku do klienta. Ślad stosu i inne właściwości w drodze wyjątku nie są dostępne dla klienta.
 
 ## <a name="related-resources"></a>Powiązane zasoby
 

@@ -60,7 +60,7 @@ Możesz ustawić punkt przerwania w `[HttpPost] Create` metody i sprawdź, nigdy
 
 Na poniższej ilustracji przedstawiono sposób wyłączania JavaScript w przeglądarce FireFox.
 
-![Firefox: Na karcie zawartość okna dialogowego Opcje usunąć zaznaczenie pola wyboru Włącz język Javascript.](~/tutorials/first-mvc-app/validation/_static/ff.png)
+![Firefox: Na karcie Zawartość opcje, usuń zaznaczenie pola wyboru Włącz język Javascript.](~/tutorials/first-mvc-app/validation/_static/ff.png)
 
 Na poniższej ilustracji przedstawiono sposób wyłączania JavaScript w przeglądarce Chrome.
 
