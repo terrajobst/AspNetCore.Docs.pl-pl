@@ -8,12 +8,12 @@ ms.date: 05/30/2007
 ms.assetid: 22ca8efa-7cd1-45a7-b9ce-ce6eb3b3ff95
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-at-application-startup-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 2c7d00a21663746964e086a75fd4b64ed211ed5f
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: c97058e5fd54dfd0393ec5ad020ad957d9719784
+ms.sourcegitcommit: f202864efca81a72ea7120c0692940c40d9d0630
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41756580"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51635332"
 ---
 <a name="caching-data-at-application-startup-c"></a>Buforowanie danych przy uruchamianiu aplikacji (C#)
 ====================
@@ -26,9 +26,9 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 ## <a name="introduction"></a>Wprowadzenie
 
-Dwóch poprzednich samouczkach przyjrzano się buforowanie danych w prezentacji i warstwy pamięci podręcznej. W [buforowanie danych za pomocą kontrolki ObjectDataSource](caching-data-with-the-objectdatasource-cs.md), przyjrzeliśmy się za pomocą kontrolki ObjectDataSource s, buforowanie funkcji buforowania danych w warstwie prezentacji. [Buforowanie danych w architekturze](caching-data-in-the-architecture-cs.md) zbadane, buforowanie w nowy, oddzielny warstwy pamięci podręcznej. Obu tych samouczków używany *reaktywne ładowania* w pracy z pamięcią podręczną danych. Za pomocą reaktywne ładowania każdorazowo, wymagane są dane, system najpierw sprawdza, czy jego s w pamięci podręcznej. W przeciwnym razie go bierze danych ze źródłowego źródła, takich jak bazy danych, a następnie przechowuje je w pamięci podręcznej. Główną zaletą reaktywne ładowania jest łatwość implementacji. Jednym z jej wady jest realizowaniem nierównomierny żądań. Wyobraź sobie stronę, która używa warstwy pamięci podręcznej z poprzedniego samouczka, aby wyświetlić informacje o produkcie. Gdy ta strona po raz pierwszy odwiedzony lub odwiedzony po raz pierwszy po dane w pamięci podręcznej został wykluczony z powodu ograniczeń pamięci lub po upływie określonego osiągnięte, danych musi zostać pobrany z bazy danych. W związku z tym te żądania użytkowników będzie trwać dłużej niż żądań użytkowników, które mogą być obsługiwane przez pamięć podręczną.
+Dwóch poprzednich samouczkach przyjrzano się buforowanie danych w prezentacji i warstwy pamięci podręcznej. W [buforowanie danych za pomocą kontrolki ObjectDataSource](caching-data-with-the-objectdatasource-cs.md), przyjrzeliśmy się za pomocą funkcji buforowania ObjectDataSource do buforowania danych w warstwie prezentacji. [Buforowanie danych w architekturze](caching-data-in-the-architecture-cs.md) zbadane, buforowanie w nowy, oddzielny warstwy pamięci podręcznej. Obu tych samouczków używany *reaktywne ładowania* w pracy z pamięcią podręczną danych. Z ładowaniem reaktywne, każdym razem, gdy wymagane są dane, system najpierw sprawdza, czy jest w pamięci podręcznej. W przeciwnym razie go bierze danych ze źródłowego źródła, takich jak bazy danych, a następnie przechowuje je w pamięci podręcznej. Główną zaletą reaktywne ładowania jest łatwość implementacji. Jednym z jej wady jest realizowaniem nierównomierny żądań. Wyobraź sobie stronę, która używa warstwy pamięci podręcznej z poprzedniego samouczka, aby wyświetlić informacje o produkcie. Gdy ta strona po raz pierwszy odwiedzony lub odwiedzony po raz pierwszy po dane w pamięci podręcznej został wykluczony z powodu ograniczeń pamięci lub po upływie określonego osiągnięte, danych musi zostać pobrany z bazy danych. W związku z tym te żądania użytkowników będzie trwać dłużej niż żądań użytkowników, które mogą być obsługiwane przez pamięć podręczną.
 
-*Aktywne ładowanie* zapewnia strategię zarządzania pamięcią podręczną w alternatywnej tego wygładza wydajność wszystkich żądań, ładując potrzebne dane w pamięci podręcznej przed nią. Zazwyczaj aktywne ładowanie używa niektóre procesy, która okresowo sprawdza lub powiadomienie w przypadku, gdy został aktualizacji z danymi źródłowymi. Ten proces aktualizuje następnie pamięci podręcznej, aby utrzymać ją od nowa. Aktywne ładowanie jest szczególnie przydatne, jeśli dane pochodzą z połączenia z bazą danych powolne, usługi sieci Web lub z innego źródła danych szczególnie wolna. Jednak takie podejście do aktywnego ładowania jest trudniejsze do zaimplementowania, ponieważ wymaga ona tworzenia, zarządzania i wdrażania procesów do wyszukania zmian i aktualizowanie pamięci podręcznej.
+*Aktywne ładowanie* zapewnia strategię zarządzania pamięcią podręczną w alternatywnej tego wygładza wydajność wszystkich żądań, ładując dane w pamięci podręcznej przed jest wymagana. Zazwyczaj aktywne ładowanie używa niektóre procesy, która okresowo sprawdza lub powiadomienie w przypadku, gdy został aktualizacji z danymi źródłowymi. Ten proces aktualizuje następnie pamięci podręcznej, aby utrzymać ją od nowa. Aktywne ładowanie jest szczególnie przydatne, jeśli dane pochodzą z połączenia z bazą danych powolne, usługi sieci Web lub z innego źródła danych szczególnie wolna. Jednak takie podejście do aktywnego ładowania jest trudniejsze do zaimplementowania, ponieważ wymaga ona tworzenia, zarządzania i wdrażania procesów do wyszukania zmian i aktualizowanie pamięci podręcznej.
 
 Inną wersję aktywne ładowanie i typu, w których firma Microsoft będzie eksplorowania w ramach tego samouczka, trwa ładowanie danych w pamięci podręcznej podczas uruchamiania aplikacji. To podejście jest szczególnie przydatne w przypadku buforowania danych statycznych, takich jak rekordy z tabel odnośników bazy danych.
 
@@ -40,7 +40,7 @@ Inną wersję aktywne ładowanie i typu, w których firma Microsoft będzie eksp
 
 Przykłady buforowania przy użyciu ładowania reaktywne zbadaliśmy poprzedniego pracy dwóch samouczki dobrze z danymi, które okresowo mogą ulec zmianie, a nie długo exorbitantly do wygenerowania. Ale jeśli nigdy nie zmieni się dane w pamięci podręcznej, po upływie posługują się ładowanie reaktywne jest zbędny. Podobnie jeśli dane są buforowane przyjmuje nadmiernie dużo czasu, aby wygenerować, następnie tych użytkowników, których żądania Znajdź pustą pamięć podręczna będzie musiał zmieścić długiego oczekiwania podczas danych bazowych są pobierane. Należy wziąć pod uwagę buforowanie danych statycznych i danych, która przyjmuje wyjątkowo dużo czasu, można wygenerować przy uruchamianiu aplikacji.
 
-Gdy bazy danych mają wiele dynamiczny, często Zmienianie wartości większość również mieć ilość danych statycznych. Na przykład praktycznie wszystkich modeli danych może mieć jedną lub więcej kolumn zawierających określoną wartość z zakresu od stały zestaw opcji. A `Patients` tabeli bazy danych może być `PrimaryLanguage` kolumny, w których zestaw wartości może być język angielski, hiszpański, francuski, rosyjski, japoński i tak dalej. Często, następujące typy kolumn są implementowane za pomocą *tabel odnośników*. Zamiast przechowywania ciągu angielski lub francuski w `Patients` tabeli drugiej tabeli zostanie utworzone, zwykle dwóch kolumn — Unikatowy identyfikator i opis ciągu — przy użyciu rekordu dla wszystkich możliwych wartości. `PrimaryLanguage` Kolumny w `Patients` odpowiedni identyfikator unikatowy w tabeli są przechowywane w tabeli odnośników. Na rysunku 1 pacjenta Jan Nowak s podstawowy język jest angielski, podczas Ed Johnson s ma wartość Rosyjska.
+Gdy bazy danych mają wiele dynamiczny, często Zmienianie wartości większość również mieć ilość danych statycznych. Na przykład praktycznie wszystkich modeli danych może mieć jedną lub więcej kolumn zawierających określoną wartość z zakresu od stały zestaw opcji. A `Patients` tabeli bazy danych może być `PrimaryLanguage` kolumny, w których zestaw wartości może być język angielski, hiszpański, francuski, rosyjski, japoński i tak dalej. Często, następujące typy kolumn są implementowane za pomocą *tabel odnośników*. Zamiast przechowywania ciągu angielski lub francuski w `Patients` tabeli drugiej tabeli zostanie utworzone, zwykle dwóch kolumn — Unikatowy identyfikator i opis ciągu — przy użyciu rekordu dla wszystkich możliwych wartości. `PrimaryLanguage` Kolumny w `Patients` odpowiedni identyfikator unikatowy w tabeli są przechowywane w tabeli odnośników. Na rysunku 1 pacjenta Jan Nowak podstawowy język jest angielski, podczas Ed Johnson rosyjski.
 
 
 ![Tabela językach znajduje się tabela odnośników używana w tabeli pacjentów](caching-data-at-application-startup-cs/_static/image1.png)
@@ -65,16 +65,16 @@ Podczas pracy z klasą, zazwyczaj należy najpierw można utworzyć wystąpienia
 
 Zanim firma Microsoft może wywołać *SomeMethod* i pracować z *SomeProperty*, firma Microsoft musi najpierw utworzyć wystąpienie klasy przy użyciu `new` — słowo kluczowe. *SomeMethod* i *SomeProperty* są skojarzone z określonym wystąpieniem. Okres istnienia tych elementów członkowskich jest powiązany z okresem istnienia ich skojarzonego obiektu. *Statyczne elementy członkowskie*, z drugiej strony są zmiennych, właściwości i metod, które są współużytkowane przez *wszystkich* wystąpienia klasy i w związku z tym, mają tak długo, jak klasa okres istnienia. Statyczne elementy członkowskie są oznaczone przez słowo kluczowe `static`.
 
-Oprócz statycznych składowych danych mogą być buforowane, przy użyciu stanu aplikacji. Każda aplikacja ASP.NET obsługuje kolekcji nazwa/wartość tego s współużytkowane przez wszystkich użytkowników i stron aplikacji. Ta kolekcja jest możliwy za pomocą [ `HttpContext` klasy](https://msdn.microsoft.com/library/system.web.httpcontext.aspx) s [ `Application` właściwość](https://msdn.microsoft.com/library/system.web.httpcontext.application.aspx)i użyty z komputera z kodem klasę ASP.NET strony s w następujący sposób:
+Oprócz statycznych składowych danych mogą być buforowane, przy użyciu stanu aplikacji. Każda aplikacja ASP.NET obsługuje kolekcji nazwa/wartość, który jest współużytkowany przez wszystkich użytkowników i stron aplikacji. Ta kolekcja jest możliwy za pomocą [ `HttpContext` klasy](https://msdn.microsoft.com/library/system.web.httpcontext.aspx)firmy [ `Application` właściwość](https://msdn.microsoft.com/library/system.web.httpcontext.application.aspx)i użyty z komputera na stronie ASP.NET osobna klasa kodu w następujący sposób:
 
 
 [!code-csharp[Main](caching-data-at-application-startup-cs/samples/sample2.cs)]
 
-Pamięć podręczna danych udostępnia znacznie bogatszy interfejs API do buforowania danych, dzięki czemu mechanizmów expiries na podstawie czasu i zależności, priorytetów element pamięci podręcznej i tak dalej. Statyczne elementy członkowskie i stan aplikacji takich funkcji, należy dodać ręcznie przez dewelopera strony. Gdy buforowanie danych przy uruchamianiu aplikacji dla cyklu życia aplikacji, jednak korzyści wynikające z pamięci podręcznej s danych są moot. W tym samouczku Zapoznamy się kod, który używa wszystkich trzech metod do buforowania danych statycznych.
+Pamięć podręczna danych udostępnia znacznie bogatszy interfejs API do buforowania danych, dzięki czemu mechanizmów expiries na podstawie czasu i zależności, priorytetów element pamięci podręcznej i tak dalej. Statyczne elementy członkowskie i stan aplikacji takich funkcji, należy dodać ręcznie przez dewelopera strony. Buforowanie danych przy uruchamianiu aplikacji dla cyklu życia aplikacji, jednak zalety pamięci podręcznej danych są moot. W tym samouczku Zapoznamy się kod, który używa wszystkich trzech metod do buforowania danych statycznych.
 
 ## <a name="step-3-caching-thesupplierstable-data"></a>Krok 3: Buforowanie`Suppliers`tabeli danych
 
-Northwind bazy danych tabel, firma Microsoft ve zaimplementowane data nie zawierają żadnych tabel odnośników tradycyjnych. Cztery DataTables zaimplementowany w naszej DAL wszystkie tabele modelu, w których wartości są niestatycznych. Zamiast poświęcania czasu, aby dodać nową tabelę DataTable warstwy DAL nowej klasy i metody służące do LOGIKI dla właśnie w tym samouczku umożliwiają s poudawać, `Suppliers` tabeli s danych jest statyczna. W związku z tym firma Microsoft może buforować tych danych, podczas uruchamiania aplikacji.
+Northwind bazy danych tabel, firma Microsoft ve zaimplementowane data nie zawierają żadnych tabel odnośników tradycyjnych. Cztery DataTables zaimplementowany w naszej DAL wszystkie tabele modelu, w których wartości są niestatycznych. Zamiast spędzać czas, aby dodać nową tabelę DataTable warstwy DAL nowej klasy i metody służące do LOGIKI, w tym samouczku możemy po prostu poudawać, `Suppliers` dostosowanie danych z tabeli jest statyczna. W związku z tym firma Microsoft może buforować tych danych, podczas uruchamiania aplikacji.
 
 Aby rozpocząć, Utwórz nową klasę o nazwie `StaticCache.cs` w `CL` folderu.
 
@@ -89,39 +89,39 @@ Musimy dodać metodę, która służy do ładowania danych przy uruchamianiu w m
 
 [!code-csharp[Main](caching-data-at-application-startup-cs/samples/sample3.cs)]
 
-Powyższy kod używa zmienną statyczną składową `suppliers`, do przechowywania wyników z `SuppliersBLL` klasy s `GetSuppliers()` metody, która jest wywoływana z `LoadStaticCache()` metody. `LoadStaticCache()` Metoda jest przeznaczona do wywołania podczas uruchamiania s aplikacji. Po załadowaniu tych danych przy uruchamianiu aplikacji stronę, którą musi współpracować z dostawcą danych może wywołać `StaticCache` klasy s `GetSuppliers()` metody. W związku z tym wywołanie do bazy danych w celu uzyskania dostawców odbywa się tylko raz, podczas uruchamiania aplikacji.
+Powyższy kod używa zmienną statyczną składową `suppliers`, do przechowywania wyników z `SuppliersBLL` klasy `GetSuppliers()` metody, która jest wywoływana z `LoadStaticCache()` metody. `LoadStaticCache()` Metoda jest przeznaczona do wywoływania podczas uruchamiania aplikacji. Po załadowaniu tych danych przy uruchamianiu aplikacji stronę, którą musi współpracować z dostawcą danych może wywołać `StaticCache` klasy `GetSuppliers()` metody. W związku z tym wywołanie do bazy danych w celu uzyskania dostawców odbywa się tylko raz, podczas uruchamiania aplikacji.
 
 Zamiast używania zmienną statycznej składowej jako magazynu pamięci podręcznej, można też użyliśmy stan aplikacji lub pamięci podręcznej danych. Poniższy kod pokazuje klasy retooled do wartości stanu aplikacji:
 
 
 [!code-csharp[Main](caching-data-at-application-startup-cs/samples/sample4.cs)]
 
-W `LoadStaticCache()`, informacji o dostawcy jest przechowywany w zmiennej aplikacji *klucz*. Jego s zwracane jako odpowiedniego typu (`Northwind.SuppliersDataTable`) z `GetSuppliers()`. Gdy stan aplikacji jest możliwy w klasach związanym z kodem stron programu ASP.NET przy użyciu `Application["key"]`, w ramach architektury, trzeba użyć `HttpContext.Current.Application["key"]` Aby uzyskać bieżącą `HttpContext`.
+W `LoadStaticCache()`, informacji o dostawcy jest przechowywany w zmiennej aplikacji *klucz*. Jest zwracany jako odpowiedniego typu (`Northwind.SuppliersDataTable`) z `GetSuppliers()`. Gdy stan aplikacji jest możliwy w klasach związanym z kodem stron programu ASP.NET przy użyciu `Application["key"]`, w ramach architektury, trzeba użyć `HttpContext.Current.Application["key"]` Aby uzyskać bieżącą `HttpContext`.
 
 Podobnie pamięć podręczną danych może służyć do przechowywania w pamięci podręcznej, co ilustruje poniższy kod:
 
 
 [!code-csharp[Main](caching-data-at-application-startup-cs/samples/sample5.cs)]
 
-Aby dodać element do pamięci podręcznej danych przez nieograniczony czas na podstawie czasu, należy użyć `System.Web.Caching.Cache.NoAbsoluteExpiration` i `System.Web.Caching.Cache.NoSlidingExpiration` wartości jako parametry wejściowe. Tego określonego przeciążenia pamięci podręcznej danych s `Insert` została wybrana metoda, tak aby można było podać *priorytet* elementu pamięci podręcznej. Priorytet jest używany do określenia, jakie elementy, aby oczyścić z pamięci podręcznej, kiedy jest za mało dostępnej pamięci. W tym miejscu użyjemy priorytet `NotRemovable`, co zapewnia, że ten element pamięci podręcznej wygrał t oczyszczanie.
+Aby dodać element do pamięci podręcznej danych przez nieograniczony czas na podstawie czasu, należy użyć `System.Web.Caching.Cache.NoAbsoluteExpiration` i `System.Web.Caching.Cache.NoSlidingExpiration` wartości jako parametry wejściowe. Tego określonego przeciążenia pamięci podręcznej danych `Insert` została wybrana metoda, tak aby można było podać *priorytet* elementu pamięci podręcznej. Priorytet jest używany do określenia, jakie elementy, aby oczyścić z pamięci podręcznej, kiedy jest za mało dostępnej pamięci. W tym miejscu użyjemy priorytet `NotRemovable`, co zapewnia, że ten element pamięci podręcznej wygrał t oczyszczanie.
 
 > [!NOTE]
-> Implementuje ten plik do pobrania samouczek s `StaticCache` klasy przy użyciu podejścia zmiennej członka statycznego. Kod technik pamięci podręcznej stanu i danych aplikacji jest dostępna w komentarzach w pliku klasy.
+> W tym samouczku, Pobierz implementuje `StaticCache` klasy przy użyciu podejścia zmiennej członka statycznego. Kod technik pamięci podręcznej stanu i danych aplikacji jest dostępna w komentarzach w pliku klasy.
 
 
 ## <a name="step-4-executing-code-at-application-startup"></a>Krok 4: Wykonywanie kodu przy uruchamianiu aplikacji
 
 Aby wykonać kod, po pierwszym uruchomieniu aplikacji sieci web, należy utworzyć specjalny plik o nazwie `Global.asax`. Ten plik może zawierać programy obsługi zdarzeń dla aplikacji-, sesja- i zdarzeń na poziomie żądania i jest w tym miejscu gdzie można dodać kod, który będzie wykonywany przy każdym uruchomieniu aplikacji.
 
-Dodaj `Global.asax` plik do katalogu głównego s aplikacji sieci web, kliknij prawym przyciskiem myszy nazwę projektu witryny sieci Web w programie Visual Studio s Eksploratora rozwiązań i wybierając pozycję Dodaj nowy element. W oknie dialogowym Dodaj nowy element wybierz typ elementu globalna klasa aplikacji, a następnie kliknij przycisk Dodaj.
+Dodaj `Global.asax` plik do katalogu głównego aplikacji sieci web, kliknij prawym przyciskiem myszy nazwę projektu witryny sieci Web w Eksploratorze rozwiązań programu Visual Studio i wybierając pozycję Dodaj nowy element. W oknie dialogowym Dodaj nowy element wybierz typ elementu globalna klasa aplikacji, a następnie kliknij przycisk Dodaj.
 
 > [!NOTE]
 > Jeśli masz już `Global.asax` plik w projekcie, globalna klasa aplikacji typu elementu nie będzie wyświetlane w oknie dialogowym Dodaj nowy element.
 
 
-[![Dodaj plik Global.asax do katalogu głównego s aplikacji sieci Web](caching-data-at-application-startup-cs/_static/image4.png)](caching-data-at-application-startup-cs/_static/image3.png)
+[![Dodaj plik Global.asax do katalogu głównego aplikacji sieci Web](caching-data-at-application-startup-cs/_static/image4.png)](caching-data-at-application-startup-cs/_static/image3.png)
 
-**Rysunek 3**: Dodaj `Global.asax` plik, aby Twoja aplikacja sieci Web s katalogu głównego ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](caching-data-at-application-startup-cs/_static/image5.png))
+**Rysunek 3**: Dodaj `Global.asax` plik w katalogu głównym Twojej aplikacji sieci Web ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](caching-data-at-application-startup-cs/_static/image5.png))
 
 
 Wartość domyślna `Global.asax` szablon pliku zawiera pięć metod, w ramach po stronie serwera `<script>` tag:
@@ -132,14 +132,14 @@ Wartość domyślna `Global.asax` szablon pliku zawiera pięć metod, w ramach p
 - **`Session_Start`** wykonuje, gdy zostanie utworzona nowa sesja
 - **`Session_End`** jest uruchamiany, gdy wygasł lub porzucony sesji
 
-`Application_Start` Program obsługi zdarzeń jest wywoływana tylko raz podczas cyklu życia aplikacji s. Aplikacja rozpoczyna się po raz pierwszy zasobu ASP.NET żądania od aplikacji i będzie kontynuowane do czasu ponownego uruchomienia aplikacji, która może się zdarzyć, modyfikując zawartość `/Bin` folderu, modyfikując `Global.asax`, modyfikowania zawartość w `App_Code` folderu lub modyfikowanie `Web.config` pliku wśród innych przyczyn. Zapoznaj się [Przegląd cyklu życia aplikacji ASP.NET](https://msdn.microsoft.com/library/ms178473.aspx) bardziej szczegółowe omówienie dotyczące cyklu życia aplikacji.
+`Application_Start` Program obsługi zdarzeń jest wywoływana tylko raz podczas cyklu życia aplikacji. Aplikacja rozpoczyna się po raz pierwszy zasobu ASP.NET żądania od aplikacji i będzie kontynuowane do czasu ponownego uruchomienia aplikacji, która może się zdarzyć, modyfikując zawartość `/Bin` folderu, modyfikując `Global.asax`, modyfikowania zawartość w `App_Code` folderu lub modyfikowanie `Web.config` pliku wśród innych przyczyn. Zapoznaj się [Przegląd cyklu życia aplikacji ASP.NET](https://msdn.microsoft.com/library/ms178473.aspx) bardziej szczegółowe omówienie dotyczące cyklu życia aplikacji.
 
-Te samouczki tylko musimy dodać kod, aby `Application_Start` metody, więc możesz usunąć pozostałe. W `Application_Start`, wystarczy wywołać `StaticCache` klasy s `LoadStaticCache()` metody, która będzie załadować i buforowania informacji o dostawcy:
+Te samouczki tylko musimy dodać kod, aby `Application_Start` metody, więc możesz usunąć pozostałe. W `Application_Start`, wystarczy wywołać `StaticCache` klasy `LoadStaticCache()` metody, która będzie załadować i buforowania informacji o dostawcy:
 
 
 [!code-aspx[Main](caching-data-at-application-startup-cs/samples/sample6.aspx)]
 
-Wszystkie dostępne tego s jest! Przy uruchamianiu aplikacji `LoadStaticCache()` metoda pobrania informacji o dostawcy z LOGIKI i go przechowywać w zmiennej członka statycznego (lub niezależnie od pamięci podręcznej przechowywanie możesz zakończył się przy użyciu w `StaticCache` klasy). Aby sprawdzić to zachowanie, ustaw punkt przerwania `Application_Start` metody i uruchomić aplikację. Należy pamiętać, że punkt przerwania zostaje trafiony po uruchomieniu aplikacji. Kolejne żądania, jednak nie powodują `Application_Start` wykonać metodę.
+To wszystko jest do niego! Przy uruchamianiu aplikacji `LoadStaticCache()` metoda pobrania informacji o dostawcy z LOGIKI i go przechowywać w zmiennej członka statycznego (lub niezależnie od pamięci podręcznej przechowywanie możesz zakończył się przy użyciu w `StaticCache` klasy). Aby sprawdzić to zachowanie, ustaw punkt przerwania `Application_Start` metody i uruchomić aplikację. Należy pamiętać, że punkt przerwania zostaje trafiony po uruchomieniu aplikacji. Kolejne żądania, jednak nie powodują `Application_Start` wykonać metodę.
 
 
 [![Użyj punkt przerwania, aby Sprawdź, czy program obsługi zdarzeń Application_Start jest wykonywana.](caching-data-at-application-startup-cs/_static/image7.png)](caching-data-at-application-startup-cs/_static/image6.png)
@@ -153,9 +153,9 @@ Wszystkie dostępne tego s jest! Przy uruchamianiu aplikacji `LoadStaticCache()`
 
 ## <a name="step-5-displaying-the-cached-data"></a>Krok 5: Wyświetlanie danych pamięci podręcznej
 
-W tym momencie `StaticCache` klasa ma wersję dostawcy danych, pamięci podręcznej podczas uruchamiania aplikacji, który jest możliwy za pośrednictwem jego `GetSuppliers()` metody. Aby pracować z danymi z warstwy prezentacji, możemy użyć kontrolki ObjectDataSource lub programowo wywołania `StaticCache` klasy s `GetSuppliers()` metody z klasy związane z kodem strony ASP.NET. Pozwól, s, Przyjrzyj się za pomocą kontrolki ObjectDataSource i GridView do wyświetlania informacji o dostawcy pamięci podręcznej.
+W tym momencie `StaticCache` klasa ma wersję dostawcy danych, pamięci podręcznej podczas uruchamiania aplikacji, który jest możliwy za pośrednictwem jego `GetSuppliers()` metody. Aby pracować z danymi z warstwy prezentacji, możemy użyć kontrolki ObjectDataSource lub programowo wywołania `StaticCache` klasy `GetSuppliers()` metody z klasy CodeBehind strony ASP.NET. Przyjrzyjmy się za pomocą kontrolki ObjectDataSource i GridView do wyświetlania informacji o dostawcy pamięci podręcznej.
 
-Zacznij od otwarcia `AtApplicationStartup.aspx` stronie `Caching` folderu. Przeciągnij GridView z przybornika w projektancie, ustawiając jego `ID` właściwość `Suppliers`. Następnie z widoku GridView tagu inteligentnego s zdecydować się na utworzenie nowego elementu ObjectDataSource, o nazwie `SuppliersCachedDataSource`. Konfigurowanie kontrolki ObjectDataSource używać `StaticCache` klasy s `GetSuppliers()` metody.
+Zacznij od otwarcia `AtApplicationStartup.aspx` stronie `Caching` folderu. Przeciągnij GridView z przybornika w projektancie, ustawiając jego `ID` właściwość `Suppliers`. Następnie z tagu inteligentnego GridView zdecydować się na utworzenie nowego elementu ObjectDataSource, o nazwie `SuppliersCachedDataSource`. Konfigurowanie kontrolki ObjectDataSource używać `StaticCache` klasy `GetSuppliers()` metody.
 
 
 [![Konfigurowanie kontrolki ObjectDataSource na korzystanie z klasy StaticCache](caching-data-at-application-startup-cs/_static/image10.png)](caching-data-at-application-startup-cs/_static/image9.png)
@@ -168,12 +168,12 @@ Zacznij od otwarcia `AtApplicationStartup.aspx` stronie `Caching` folderu. Przec
 **Rysunek 6**: Użyj `GetSuppliers()` metody do pobierania danych dostawcy pamięci podręcznej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](caching-data-at-application-startup-cs/_static/image14.png))
 
 
-Po zakończeniu działania kreatora programu Visual Studio automatycznie doda BoundFields dla każdego pola danych w `SuppliersDataTable`. Z kontrolkami GridView i kontrolki ObjectDataSource s oznaczeniu deklaracyjnym powinien wyglądać podobnie do następującego:
+Po zakończeniu działania kreatora programu Visual Studio automatycznie doda BoundFields dla każdego pola danych w `SuppliersDataTable`. Z kontrolkami GridView i ObjectDataSource oznaczeniu deklaracyjnym powinien wyglądać podobnie do następującego:
 
 
 [!code-aspx[Main](caching-data-at-application-startup-cs/samples/sample7.aspx)]
 
-Rysunek nr 7 przedstawia stronę po wyświetleniu za pośrednictwem przeglądarki. Dane wyjściowe są, niż było możemy ściągnąć dane z s LOGIKI `SuppliersBLL` klasy, ale przy użyciu `StaticCache` klasy zwraca dane dostawcy jako pamięci podręcznej podczas uruchamiania aplikacji. Możesz ustawić punkty przerwania w `StaticCache` klasy s `GetSuppliers()` metodę, aby sprawdzić to zachowanie.
+Rysunek nr 7 przedstawia stronę po wyświetleniu za pośrednictwem przeglądarki. Dane wyjściowe są, taka sama miał możemy ściągnąć dane od LOGIKI `SuppliersBLL` klasy, ale przy użyciu `StaticCache` klasy zwraca dane dostawcy jako pamięci podręcznej podczas uruchamiania aplikacji. Możesz ustawić punkty przerwania w `StaticCache` klasy `GetSuppliers()` metodę, aby sprawdzić to zachowanie.
 
 
 [![Dane dostawcy pamięci podręcznej są wyświetlane w widoku GridView](caching-data-at-application-startup-cs/_static/image16.png)](caching-data-at-application-startup-cs/_static/image15.png)
@@ -183,9 +183,9 @@ Rysunek nr 7 przedstawia stronę po wyświetleniu za pośrednictwem przeglądark
 
 ## <a name="summary"></a>Podsumowanie
 
-Większość każdy model danych zawiera ilość danych statycznych, zwykle implementowany w postaci tabel odnośników. Ponieważ te informacje są statyczne, s tam nie ma powodu do stale dostęp do bazy danych za każdym razem, te informacje mają być wyświetlone. Ponadto ze względu na charakter statycznego, gdy buforowanie danych w miejscu s nie konieczności wygaśnięcia. W tym samouczku będziemy pokazaliśmy, jak przyjmują takie dane i buforowanie w pamięci podręcznej danych stanu aplikacji i za pośrednictwem zmiennej członka statycznego. Te informacje są buforowane przy uruchamianiu aplikacji i pozostaje w pamięci podręcznej w okresie istnienia aplikacji s.
+Większość każdy model danych zawiera ilość danych statycznych, zwykle implementowany w postaci tabel odnośników. Ponieważ te informacje są statyczne, nie ma powodu stale dostęp do bazy danych za każdym razem, że te informacje mają być wyświetlone. Ponadto ze względu na charakter statycznego, gdy buforowanie danych nie jest konieczne wygaśnięcia. W tym samouczku będziemy pokazaliśmy, jak przyjmują takie dane i buforowanie w pamięci podręcznej danych stanu aplikacji i za pośrednictwem zmiennej członka statycznego. Te informacje są buforowane przy uruchamianiu aplikacji i pozostaje w pamięci podręcznej w okresie istnienia aplikacji.
 
-W tym samouczku i w ciągu ostatnich dwóch możemy ve przyjrzano się buforowanie danych na czas trwania okresu istnienia s aplikacji, a także przy użyciu expiries oparte na czasie. Podczas buforowania danych bazy danych, jednak na podstawie czasu wygaśnięcia może być mniej niż idealne rozwiązanie. Zamiast okresowo opróżniania pamięci podręcznej, jest optymalna do tylko wykluczać element pamięci podręcznej po zmodyfikowaniu podstawowych danych w bazie danych. Możliwe przy użyciu zależności pamięci podręcznej SQL, które zostaną omówione w naszym następnym samouczku jest to idealne rozwiązanie.
+W tym samouczku i w ciągu ostatnich dwóch możemy ve przyjrzano się buforowanie danych w okresie istnienia aplikacji, a także przy użyciu expiries oparte na czasie. Podczas buforowania danych bazy danych, jednak na podstawie czasu wygaśnięcia może być mniej niż idealne rozwiązanie. Zamiast okresowo opróżniania pamięci podręcznej, jest optymalna do tylko wykluczać element pamięci podręcznej po zmodyfikowaniu podstawowych danych w bazie danych. Możliwe przy użyciu zależności pamięci podręcznej SQL, które zostaną omówione w naszym następnym samouczku jest to idealne rozwiązanie.
 
 Wszystkiego najlepszego programowania!
 

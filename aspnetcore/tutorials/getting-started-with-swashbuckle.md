@@ -4,14 +4,14 @@ author: zuckerthoben
 description: Dowiedz się, jak dodać pakiet Swashbuckle do swojego projektu interfejsu API sieci web platformy ASP.NET Core, aby zintegrować interfejs użytkownika struktury Swagger.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 11/05/2018
+ms.date: 11/14/2018
 uid: tutorials/get-started-with-swashbuckle
-ms.openlocfilehash: b932a0a494366bd13549c1c6c7f7003133d120d4
-ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
+ms.openlocfilehash: 9832e1ea2b59085b6680820469b16d549f4b0582
+ms.sourcegitcommit: f202864efca81a72ea7120c0692940c40d9d0630
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51570142"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51635345"
 ---
 # <a name="get-started-with-swashbuckle-and-aspnet-core"></a>Wprowadzenie do pakietu Swashbuckle i ASP.NET Core
 
@@ -107,6 +107,8 @@ Interfejs użytkownika struktury Swagger, można znaleźć w folderze `http://lo
 > Aby obsługiwać interfejs użytkownika struktury Swagger w katalogu głównym aplikacji (`http://localhost:<port>/`) ustaw `RoutePrefix` właściwości na pusty ciąg:
 >
 > [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup3.cs?name=snippet_UseSwaggerUI&highlight=4)]
+
+Jeśli przy użyciu katalogi wirtualne (za pomocą usług IIS lub zwrotny serwer proxy, na przykład), wartość punktu końcowego struktury Swagger przy użyciu ścieżki względnej `./` prefiks. Na przykład `./swagger/v1/swagger.json`. Za pomocą `/swagger/v1/swagger.json` instruuje aplikację, aby wyszukać plik JSON w katalogu głównym PRAWDA adres URL (plus prefiks trasy, jeśli używane). Na przykład `http://localhost:<port>/<route_prefix>/swagger/v1/swagger.json` zamiast `http://localhost:<port>/<virtual_directory>/<route_prefix>/swagger/v1/swagger.json`.
 
 ## <a name="customize-and-extend"></a>Dostosowywanie i rozszerzanie
 

@@ -3,14 +3,14 @@ title: Niestandardowe wiązanie modelu w programie ASP.NET Core
 author: ardalis
 description: Dowiedz się, jak wiązanie modelu umożliwia akcji kontrolera do pracy bezpośrednio z typami modelu w programie ASP.NET Core.
 ms.author: riande
-ms.date: 04/10/2017
+ms.date: 11/13/2018
 uid: mvc/advanced/custom-model-binding
-ms.openlocfilehash: dc901aea3c20e7f2e955f39d923216de70ef015b
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 1da42829270e8ff4a626a45aec4d4e825062bd4f
+ms.sourcegitcommit: f202864efca81a72ea7120c0692940c40d9d0630
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090410"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51635298"
 ---
 # <a name="custom-model-binding-in-aspnet-core"></a>Niestandardowe wiązanie modelu w programie ASP.NET Core
 
@@ -87,11 +87,14 @@ Następujące przykładowe używa `ModelBinder` atrybutu na `Author` modelu:
 
 [!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Data/Author.cs?highlight=10)]
 
-W poprzednim kodzie `ModelBinder` atrybut określa typ `IModelBinder` która powinna być używana do powiązania `Author` parametrów akcji. 
+W poprzednim kodzie `ModelBinder` atrybut określa typ `IModelBinder` która powinna być używana do powiązania `Author` parametrów akcji.
 
-`AuthorEntityBinder` Do powiązania zostanie użyte `Author` parametru przez pobieranie jednostki ze źródła danych przy użyciu platformy Entity Framework Core i `authorId`:
+Następujące `AuthorEntityBinder` klasy powiązań `Author` parametru przez pobieranie jednostki ze źródła danych przy użyciu platformy Entity Framework Core i `authorId`:
 
 [!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Binders/AuthorEntityBinder.cs?name=demo)]
+
+> [!NOTE]
+> Poprzedni `AuthorEntityBinder` klasy jest za zadanie zilustrowanie niestandardowego integratora modelu. Klasa nie ma za zadanie zilustrowanie najlepsze rozwiązania dotyczące scenariusza wyszukiwania. Wyszukiwanie, można powiązać `authorId` i wykonywania zapytań względem bazy danych w metodzie akcji. To podejście oddziela niepowodzenia powiązania modelu z `NotFound` przypadków.
 
 Poniższy kod przedstawia sposób użycia `AuthorEntityBinder` w metodzie akcji:
 
@@ -107,7 +110,7 @@ Można zastosować `ModelBinder` atrybutu do właściwości określonego modelu 
 
 ### <a name="implementing-a-modelbinderprovider"></a>Implementowanie ModelBinderProvider
 
-Zamiast stosowania atrybutu, można zaimplementować `IModelBinderProvider`. Jest to, jak integratorów wbudowana struktura są implementowane. Po określeniu typu usługi integratora operuje na, określ typ argumentu daje, **nie** akceptuje swoje integratora danych wejściowych. Dla następującego dostawcy integratorów modeli w programach `AuthorEntityBinder`. Gdy jest ona dodawana do kolekcji dostawców MVC, nie trzeba używać `ModelBinder` atrybutu na `Author` lub `Author` typizowane parametry.
+Zamiast stosowania atrybutu, można zaimplementować `IModelBinderProvider`. Jest to, jak integratorów wbudowana struktura są implementowane. Po określeniu typu usługi integratora operuje na, określ typ argumentu daje, **nie** akceptuje swoje integratora danych wejściowych. Dla następującego dostawcy integratorów modeli w programach `AuthorEntityBinder`. Gdy jest ona dodawana do kolekcji dostawców MVC, nie trzeba używać `ModelBinder` atrybutu na `Author` lub `Author`-typizowane parametry.
 
 [!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Binders/AuthorEntityBinderProvider.cs?highlight=17-20)]
 
@@ -130,6 +133,7 @@ Dodawanie dostawcy do końca kolekcji może spowodować integratora modelu wbudo
 ## <a name="recommendations-and-best-practices"></a>Zalecenia i najlepsze rozwiązania
 
 Integratorów modelu niestandardowego:
+
 - Nie należy próbować zestawu kodów stanu lub zwracania wyników (na przykład 404 Nie znaleziono). W przypadku niepowodzenia wiązania modelu [filtr akcji](xref:mvc/controllers/filters) lub logiki w ramach sama metoda akcji powinna obsługiwać awarii.
 - Są najbardziej przydatne do eliminacji powtarzających się kod i odciąż przekrojowe zagadnienia z metody akcji.
 - Zazwyczaj nie powinny służyć do przekonwertowania ciągu na typ niestandardowy, [ `TypeConverter` ](/dotnet/api/system.componentmodel.typeconverter) zazwyczaj jest lepszym rozwiązaniem.

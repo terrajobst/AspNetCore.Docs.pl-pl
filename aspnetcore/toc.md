@@ -185,6 +185,8 @@
 ## [Zwracane typy akcji](xref:web-api/action-return-types)
 ## [Formatowanie danych odpowiedzi](xref:web-api/advanced/formatting)
 ## [Niestandardowe elementy formatujące](xref:web-api/advanced/custom-formatters)
+## [Analizatory](xref:web-api/advanced/analyzers)
+## [Konwencje](xref:web-api/advanced/conventions)
 
 # Aplikacje w czasie rzeczywistym
 ## [Omówienie](xref:signalr/introduction)

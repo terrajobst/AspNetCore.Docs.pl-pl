@@ -4,14 +4,14 @@ author: rick-anderson
 description: Dowiedz się, jak skonfigurować ochronę danych w programie ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/17/2017
+ms.date: 11/13/2018
 uid: security/data-protection/configuration/overview
-ms.openlocfilehash: 0377fe9fbe5a1eeddb384443370751baa3c0ee43
-ms.sourcegitcommit: 8bf4dff3069e62972c1b0839a93fb444e502afe7
+ms.openlocfilehash: 3be220df4b14ed8dbbd1fab70f46578e9408aa26
+ms.sourcegitcommit: f202864efca81a72ea7120c0692940c40d9d0630
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46482999"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51635319"
 ---
 # <a name="configure-aspnet-core-data-protection"></a>Konfigurowanie ochrony danych programu ASP.NET Core
 
@@ -135,7 +135,14 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="setapplicationname"></a>SetApplicationName
 
-Domyślnie system ochrony danych izoluje aplikacje, od siebie nawzajem, nawet wtedy, gdy są one udostępnianie tej samej fizycznej repozytorium klucza. Zapobiega to zrozumienie ładunków chronionych drugiej strony aplikacje. Aby udostępnić ładunków chronionych między dwiema aplikacjami, należy użyć [SetApplicationName](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.setapplicationname) z taką samą wartość dla każdej aplikacji:
+Domyślnie system ochrony danych izoluje aplikacje, od siebie nawzajem, nawet wtedy, gdy są one udostępnianie tej samej fizycznej repozytorium klucza. Zapobiega to zrozumienie ładunków chronionych drugiej strony aplikacje.
+
+Aby udostępnić chronione ładunków między aplikacjami:
+
+* Konfigurowanie <xref:Microsoft.AspNetCore.DataProtection.DataProtectionBuilderExtensions.SetApplicationName*> w każdej aplikacji z taką samą wartość.
+* Użyj tej samej wersji stosu interfejsu API ochrony danych w aplikacjach. Wykonaj **albo** z następujących czynności w plikach projektu aplikacji:
+  * Odwoływać się do tej samej wersji framework udostępnione za pośrednictwem [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app).
+  * Takie same odwołania [ochrony danych pakietu](xref:security/data-protection/introduction#package-layout) wersji.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -177,7 +184,7 @@ Jeśli system ochrony danych nie jest udostępniane przez hosta platformy ASP.NE
 
 Stos ochrony danych umożliwia zmianę domyślny algorytm używany przez nowo wygenerowane klucze. Najprostszym sposobem, w tym celu jest wywołanie [UseCryptographicAlgorithms](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.usecryptographicalgorithms) z wywołania zwrotnego konfiguracji:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+::: moniker range=">= aspnetcore-2.0"
 
 ```csharp
 services.AddDataProtection()
@@ -189,7 +196,9 @@ services.AddDataProtection()
     });
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 ```csharp
 services.AddDataProtection()
@@ -201,7 +210,7 @@ services.AddDataProtection()
     });
 ```
 
----
+::: moniker-end
 
 Wartość domyślna usuwają elementy EncryptionAlgorithm to AES-256-CBC, a domyślna ValidationAlgorithm to HMACSHA256. Domyślne zasady można ustawić przez administratora systemu za pośrednictwem [komputera zasad](xref:security/data-protection/configuration/machine-wide-policy), ale jawnym wywołaniem `UseCryptographicAlgorithms` zastępują zasady domyślne.
 
@@ -214,7 +223,7 @@ Można ręcznie określić implementację poprzez wywołanie [UseCustomCryptogra
 
 ### <a name="specifying-custom-managed-algorithms"></a>Określanie niestandardowego algorytmy zarządzanych
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+::: moniker range=">= aspnetcore-2.0"
 
 Aby określić niestandardowe zarządzanych algorytmów, tworzyć [ManagedAuthenticatedEncryptorConfiguration](/dotnet/api/microsoft.aspnetcore.dataprotection.authenticatedencryption.configurationmodel.managedauthenticatedencryptorconfiguration) wystąpienia, który wskazuje na typy implementacji:
 
@@ -234,7 +243,9 @@ serviceCollection.AddDataProtection()
     });
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 Aby określić niestandardowe zarządzanych algorytmów, tworzyć [ManagedAuthenticatedEncryptionSettings](/dotnet/api/microsoft.aspnetcore.dataprotection.authenticatedencryption.managedauthenticatedencryptionsettings) wystąpienia, który wskazuje na typy implementacji:
 
@@ -254,7 +265,7 @@ serviceCollection.AddDataProtection()
     });
 ```
 
----
+::: moniker-end
 
 Ogólnie \*właściwości typu musi wskazywać na konkretny, tworzone jako wystąpienia (za pośrednictwem publicznego konstruktora bez parametrów) implementacje [SymmetricAlgorithm](/dotnet/api/system.security.cryptography.symmetricalgorithm) i [KeyedHashAlgorithm](/dotnet/api/system.security.cryptography.keyedhashalgorithm), ale przypadki specjalne systemu, takie jak niektóre wartości `typeof(Aes)` dla wygody.
 
@@ -263,7 +274,7 @@ Ogólnie \*właściwości typu musi wskazywać na konkretny, tworzone jako wyst�
 
 ### <a name="specifying-custom-windows-cng-algorithms"></a>Określanie niestandardowego algorytmy Windows CNG
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+::: moniker range=">= aspnetcore-2.0"
 
 Określanie niestandardowego algorytmu Windows CNG przy użyciu szyfrowania w trybie CBC przy użyciu HMAC sprawdzania poprawności, należy utworzyć [CngCbcAuthenticatedEncryptorConfiguration](/dotnet/api/microsoft.aspnetcore.dataprotection.authenticatedencryption.configurationmodel.cngcbcauthenticatedencryptorconfiguration) wystąpienia, które zawiera konsolidatorze informacji:
 
@@ -285,7 +296,9 @@ services.AddDataProtection()
     });
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 Określanie niestandardowego algorytmu Windows CNG przy użyciu szyfrowania w trybie CBC przy użyciu HMAC sprawdzania poprawności, należy utworzyć [CngCbcAuthenticatedEncryptionSettings](/dotnet/api/microsoft.aspnetcore.dataprotection.authenticatedencryption.cngcbcauthenticatedencryptionsettings) wystąpienia, które zawiera konsolidatorze informacji:
 
@@ -307,12 +320,12 @@ services.AddDataProtection()
     });
 ```
 
----
+::: moniker-end
 
 > [!NOTE]
 > Algorytm szyfrowania symetrycznego bloku musi mieć klucz o długości > = 128 bitów — blok o rozmiarze > = 64-bitowy, i konieczna jest obsługa szyfrowania trybie CBC przy użyciu dopełnienie PKCS #7. Algorytm wyznaczania wartości skrótu musi mieć rozmiar szyfrowanego > = 128 bitów i musi obsługiwać otwierana z BCRYPT\_algorytmu podpisu\_obsługi\_HMAC\_flagi flagi. \*Właściwości dostawcy można ustawić na wartość null, aby użyć domyślnego dostawcy dla określonego algorytmu. Zobacz [BCryptOpenAlgorithmProvider](https://msdn.microsoft.com/library/windows/desktop/aa375479(v=vs.85).aspx) dokumentacji, aby uzyskać więcej informacji.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+::: moniker range=">= aspnetcore-2.0"
 
 Określanie niestandardowego algorytmu Windows CNG przy użyciu szyfrowania trybu Galois liczników z weryfikacją, należy utworzyć [CngGcmAuthenticatedEncryptorConfiguration](/dotnet/api/microsoft.aspnetcore.dataprotection.authenticatedencryption.configurationmodel.cnggcmauthenticatedencryptorconfiguration) wystąpienia, które zawiera konsolidatorze informacji:
 
@@ -330,7 +343,9 @@ services.AddDataProtection()
     });
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 Określanie niestandardowego algorytmu Windows CNG przy użyciu szyfrowania trybu Galois liczników z weryfikacją, należy utworzyć [CngGcmAuthenticatedEncryptionSettings](/dotnet/api/microsoft.aspnetcore.dataprotection.authenticatedencryption.cnggcmauthenticatedencryptionsettings) wystąpienia, które zawiera konsolidatorze informacji:
 
@@ -348,7 +363,7 @@ services.AddDataProtection()
     });
 ```
 
----
+::: moniker-end
 
 > [!NOTE]
 > Algorytm szyfrowania symetrycznego bloku musi mieć klucz o długości > = 128 bitów — rozmiar bloku dokładnie 128 bitów, i konieczna jest obsługa szyfrowania usługi GCM. Możesz ustawić [EncryptionAlgorithmProvider](/dotnet/api/microsoft.aspnetcore.dataprotection.authenticatedencryption.configurationmodel.cngcbcauthenticatedencryptorconfiguration.encryptionalgorithmprovider) właściwości na wartość null, aby użyć domyślnego dostawcę dla określonego algorytmu. Zobacz [BCryptOpenAlgorithmProvider](https://msdn.microsoft.com/library/windows/desktop/aa375479(v=vs.85).aspx) dokumentacji, aby uzyskać więcej informacji.
@@ -364,7 +379,7 @@ W przypadku hostowania w [Docker](/dotnet/standard/microservices-architecture/co
 * Folder, który jest woluminem platformy Docker, która utrwala poza okres istnienia kontenera, takich jak udostępnionego woluminu lub wolumin zainstalowany w hoście.
 * Zewnętrznego dostawcy, takich jak [usługi Azure Key Vault](https://azure.microsoft.com/services/key-vault/) lub [Redis](https://redis.io/).
 
-## <a name="see-also"></a>Zobacz także
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * <xref:security/data-protection/configuration/non-di-scenarios>
 * <xref:security/data-protection/configuration/machine-wide-policy>
