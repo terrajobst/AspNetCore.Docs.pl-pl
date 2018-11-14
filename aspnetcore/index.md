@@ -4,14 +4,14 @@ author: rick-anderson
 description: Zapoznaj się z wprowadzeniem do rozwiązania ASP.NET Core, czyli międzyplatformowej struktury typu open source o wysokiej wydajności służącej do tworzenia nowoczesnych aplikacji internetowych opartych na chmurze.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 11/10/2018
 uid: index
-ms.openlocfilehash: 60f7d64baa0441b90befb2d785999a707e1025c5
-ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
+ms.openlocfilehash: 1699acc0086dfd50c573afc239bc8f37eb9e7af9
+ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51225398"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51569991"
 ---
 # <a name="introduction-to-aspnet-core"></a>Wprowadzenie do platformy ASP.NET Core
 
@@ -76,6 +76,22 @@ Wiele artykułów i samouczków zawiera linki do kodu przykładowego.
 1. [Pobierz plik zip repozytorium ASP.NET](https://codeload.github.com/aspnet/Docs/zip/master).
 1. Rozpakuj plik *Docs-master.zip*.
 1. Adres URL linku do przykładu pomoże Ci przejść do katalogu przykładu.
+
+Aby zademonstrować wiele scenariuszy, przykładowe aplikacje używają instrukcji `#define` i `#if-#else/#elif-#endif` języka C# do selektywnego kompilowania i uruchamiania różnych sekcji przykładowego kodu. Aby w tych przykładach zastosować takie podejście, ustaw instrukcję `#define` w górnej części plików języka C# na symbol skojarzony ze scenariuszem, który chcesz uruchomić. Przykład może wymagać ustawienia symbolu w górnej części wielu plików, aby umożliwić uruchomienie scenariusza.
+
+Na przykład następująca lista symboli `#define` wskazuje, że są dostępne cztery scenariusze (jeden scenariusz na symbol). Aktualna konfiguracja przykładu powoduje uruchomienie scenariusza `TemplateCode`:
+
+```csharp
+#define TemplateCode // or LogFromMain or ExpandDefault or FilterInCode
+```
+
+Aby zmienić przykład w celu uruchomienia scenariusza `ExpandDefault`, zdefiniuj symbol `ExpandDefault` i pozostaw pozostałe symbole jako przekształcone w komentarz:
+
+```csharp
+#define ExpandDefault // TemplateCode or LogFromMain or FilterInCode
+```
+
+Więcej informacji na temat używania [ dyrektyw preprocesora języka C#](/dotnet/csharp/language-reference/preprocessor-directives/) do selektywnego kompilowania sekcji kodu można znaleźć w tematach [#define (C# Reference)](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-define) (#define (odwołanie w języku C#)) i [#if (C# Reference)](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-if) (#if (odwołanie w języku C#)).
 
 ## <a name="next-steps"></a>Następne kroki
 
