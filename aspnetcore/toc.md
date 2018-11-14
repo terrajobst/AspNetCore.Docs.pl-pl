@@ -197,6 +197,7 @@
 ### [HubContext](xref:signalr/hubcontext)
 ### [Użytkownicy i grupy](xref:signalr/groups)
 ### [Publikowanie na platformie Azure](xref:signalr/publish-to-azure-web-app)
+### [Zagadnienia dotyczące projektowania interfejsów API](xref:signalr/api-design)
 ## Klienci
 ### [Klient .NET](xref:signalr/dotnet-client)
 ### [Dokumentacja interfejsów API platformy .NET](/dotnet/api/microsoft.aspnetcore.signalr.client)
