@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 11/13/2018
 uid: tutorials/signalr
-ms.openlocfilehash: b7414b1981508f2424eccb147a44023058c7f97c
-ms.sourcegitcommit: 1d6ab43eed9cb3df6211c22b97bb3a9351ec4419
+ms.openlocfilehash: 8916b3659250c1bcbbc2dc9b3d466586f98bcc7e
+ms.sourcegitcommit: d3392f688cfebc1f25616da7489664d69c6ee330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51597800"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51818385"
 ---
 # <a name="tutorial-get-started-with-aspnet-core-signalr"></a>Samouczek: Rozpoczynanie pracy przy użyciu biblioteki SignalR platformy ASP.NET Core
 
@@ -243,6 +243,10 @@ Serwer biblioteki SignalR musi być skonfigurowany do przekazywania żądań Sig
   Nazwa i wiadomości są wyświetlane na obu stronach natychmiast.
 
   ![SignalR przykładowej aplikacji](signalr/_static/signalr-get-started-finished.png)
+
+> [!TIP]
+> Jeśli aplikacja nie działa, Otwórz swoje narzędzia deweloperskie przeglądarki (F12) i przejdź do konsoli. Może pojawić się błędy związane z Twoim kodem HTML i JavaScript. Załóżmy, że możesz umieścić *signalr.js* w innym folderze niż bezpośredniego. W takim przypadku odwołania do tego pliku nie będzie działać, a następnie zostanie wyświetlony błąd 404 w konsoli.
+> ![błąd — nie znaleziono signalr.js](signalr/_static/f12-console.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
