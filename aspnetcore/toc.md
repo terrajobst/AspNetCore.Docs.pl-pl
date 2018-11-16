@@ -332,7 +332,7 @@
 #### [Uwierzytelnianie przy użyciu usługi Twitter](xref:security/authentication/twitter-logins)
 #### [Uwierzytelnianie przy użyciu usługi Google](xref:security/authentication/google-logins)
 #### [Uwierzytelnianie firmy Microsoft](xref:security/authentication/microsoft-logins)
-#### [Inni dostawcy uwierzytelniania](xref:security/authentication/otherlogins)
+#### [Zewnętrzni dostawcy uwierzytelniania](xref:security/authentication/otherlogins)
 #### [Dodatkowe oświadczenia](xref:security/authentication/social/additional-claims)
 ### [Uwierzytelnianie za pomocą usług federacyjnych w Internecie](xref:security/authentication/ws-federation)
 ### [Potwierdzenie konta i odzyskiwanie hasła](xref:security/authentication/accconfirm)
