@@ -5,14 +5,14 @@ description: Omówienie platformy ASP.NET Core SignalR JavaScript klienta.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 08/14/2018
+ms.date: 11/14/2018
 uid: signalr/javascript-client
-ms.openlocfilehash: 02844c35d1933d36576c25ff335a572fb65eff5c
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 7de7abd7176e160154a458a3b90f662ba8f47f8c
+ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50208021"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51708390"
 ---
 # <a name="aspnet-core-signalr-javascript-client"></a>ASP.NET Core SignalR JavaScript klienta
 
@@ -98,6 +98,17 @@ Konfiguracja po stronie klienta dziennika śledzenia, przekazując rejestratora 
 Użyj [configureLogging](/javascript/api/%40aspnet/signalr/hubconnectionbuilder#configurelogging) metody [HubConnectionBuilder](/javascript/api/%40aspnet/signalr/hubconnectionbuilder) skonfigurować poziom dziennika. Komunikaty są rejestrowane w konsoli przeglądarki.
 
 [!code-javascript[Logging levels](javascript-client/sample/wwwroot/js/chat.js?range=9-12)]
+
+## <a name="reconnect-clients"></a>Ponowne łączenie klientów
+
+Automatyczne nie ponowne połączenia klienta JavaScript dla elementu SignalR. Należy napisać kod, który zostanie nawiązana ponownie ręcznie klienta. Poniższy kod przedstawia metody typowego ponowne nawiązanie połączenia:
+
+1. Funkcji (w tym przypadku `start` funkcji) jest tworzony, aby rozpocząć połączenie.
+1. Wywołaj `start` funkcji przez połączenie `onclose` programu obsługi zdarzeń.
+
+[!code-javascript[Reconnect the JavaScript client](javascript-client/sample/wwwroot/js/chat.js?range=30-42)]
+
+Implementacja rzeczywistych będzie używać wycofywanie wykładnicze lub spróbuj ponownie określoną liczbę razy, przed rezygnacją. 
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

@@ -5,14 +5,14 @@ description: ''
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 06/07/2018
+ms.date: 11/14/2018
 uid: signalr/streaming
-ms.openlocfilehash: 70f12999b7f4230147b9ea43f6f7730b0816c43a
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 6d5f707bd2a37e1999c6e87e3cfc369aa0301207
+ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50206391"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51708442"
 ---
 # <a name="use-streaming-in-aspnet-core-signalr"></a>Korzystanie z przesyłaniem strumieniowym w biblioteki SignalR platformy ASP.NET Core
 
@@ -29,14 +29,33 @@ Metody koncentratora automatycznie wybrana zostaje pierwsza przesyłania strumie
 > [!NOTE]
 > Zapisać `ChannelReader` w wątku w tle i wróć `ChannelReader` tak szybko, jak to możliwe. Inne wywołania koncentratora będzie zablokowany do momentu `ChannelReader` jest zwracana.
 
-[!code-csharp[Streaming hub method](streaming/sample/Hubs/StreamHub.cs?range=10-34)]
+::: moniker range="= aspnetcore-2.1"
+
+[!code-csharp[Streaming hub method](streaming/sample/Hubs/StreamHub.aspnetcore21.cs?range=12-36)]
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
+
+[!code-csharp[Streaming hub method](streaming/sample/Hubs/StreamHub.cs?range=11-35)]
+
+> [!NOTE]
+> W programie ASP.NET Core 2.2 lub nowszej, przesyłanie strumieniowe metod koncentratora może akceptować `CancellationToken` parametr, który zostanie wyzwolony, gdy klient anuluje subskrypcje ze strumienia. Używanie tego tokenu, aby zatrzymać działanie serwera i zwolnić wszystkie zasoby, jeśli klient odłączy się do końca strumienia.
+
+::: moniker-end
 
 ## <a name="net-client"></a>Klient modelu .NET
 
 `StreamAsChannelAsync` Metody `HubConnection` służy do wywoływania metody przesyłania strumieniowego. Przekaż nazwę metody koncentratora oraz argumenty zdefiniowane w metody koncentratora `StreamAsChannelAsync`. Parametr generyczny na `StreamAsChannelAsync<T>` Określa typ obiektów zwróconych przez metodę przesyłania strumieniowego. Element `ChannelReader<T>` jest zwracany z wywołania usługi stream i reprezentuje strumienia na komputerze klienckim. Do odczytywania danych, typowym wzorcem jest pętli `WaitToReadAsync` i wywołać `TryRead` kiedy dane są dostępne. Pętla zakończy się po strumień został zamknięty przez serwer lub token anulowania jest przekazywany do `StreamAsChannelAsync` zostało anulowane.
 
+::: moniker range=">= aspnetcore-2.2"
+
 ```csharp
-var channel = await hubConnection.StreamAsChannelAsync<int>("Counter", 10, 500, CancellationToken.None);
+// Call "Cancel" on this CancellationTokenSource to send a cancellation message to 
+// the server, which will trigger the corresponding token in the Hub method.
+var cancellationTokenSource = new CancellationTokenSource();
+var channel = await hubConnection.StreamAsChannelAsync<int>(
+    "Counter", 10, 500, cancellationTokenSource.Token);
 
 // Wait asynchronously for data to become available
 while (await channel.WaitToReadAsync())
@@ -51,6 +70,29 @@ while (await channel.WaitToReadAsync())
 Console.WriteLine("Streaming completed");
 ```
 
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.1"
+
+```csharp
+var channel = await hubConnection
+    .StreamAsChannelAsync<int>("Counter", 10, 500, CancellationToken.None);
+
+// Wait asynchronously for data to become available
+while (await channel.WaitToReadAsync())
+{
+    // Read all currently available data synchronously, before waiting for more data
+    while (channel.TryRead(out var count))
+    {
+        Console.WriteLine($"{count}");
+    }
+}
+
+Console.WriteLine("Streaming completed");
+```
+
+::: moniker-end
+
 ## <a name="javascript-client"></a>Klient JavaScript
 
 Klientów języka JavaScript pozwala wywoływać metody przesyłania strumieniowego dla koncentratorów, za pomocą `connection.stream`. `stream` Metoda przyjmuje dwa argumenty:
@@ -62,7 +104,17 @@ Klientów języka JavaScript pozwala wywoływać metody przesyłania strumieniow
 
 [!code-javascript[Streaming javascript](streaming/sample/wwwroot/js/stream.js?range=19-36)]
 
+::: moniker range="= aspnetcore-2.1"
+
 Aby zakończyć strumień od klienta, należy wywołać `dispose` metody `ISubscription` zwrócone z `subscribe` metody.
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
+
+Aby zakończyć strumień od klienta, należy wywołać `dispose` metody `ISubscription` zwrócone z `subscribe` metody. Wywołanie tej metody spowoduje, że `CancellationToken` parametru metody koncentratora (jeśli zostały zapewnione jest jeden) zostaną anulowane.
+
+::: moniker-end
 
 ## <a name="related-resources"></a>Powiązane zasoby
 

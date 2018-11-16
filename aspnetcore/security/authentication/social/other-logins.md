@@ -1,50 +1,50 @@
 ---
-title: Krótki przegląd innych dostawców uwierzytelniania
+title: Zewnętrznych dostawców uwierzytelniania OAuth
 author: rick-anderson
+description: Odkryj dostawców uwierzytelniania OAuth zewnętrznych, które działają z aplikacji platformy ASP.NET Core.
 ms.author: riande
-ms.date: 11/03/2016
+ms.custom: mvc
+ms.date: 11/11/2018
 uid: security/authentication/otherlogins
-ms.openlocfilehash: 9c2ce02f4613fddbe0e767724019d80ac056bf7b
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: b69c366ec1bf12ccf434991fc8a79eaf8c09da3d
+ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274056"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51708468"
 ---
-# <a name="short-survey-of-other-authentication-providers"></a>Krótki przegląd innych dostawców uwierzytelniania
+# <a name="external-oauth-authentication-providers"></a>Zewnętrznych dostawców uwierzytelniania OAuth
 
-<a name="security-authentication-other-logins"></a>
+Przez [Rick Anderson](https://twitter.com/RickAndMSFT), [autorem jest Pranav Rastogi](https://github.com/rustd), i [Valeriy Novytskyy](https://github.com/01binary)
 
-Przez [Rick Anderson](https://twitter.com/RickAndMSFT), [Pranav Rastogi](https://github.com/rustd), i [Valeriy Novytskyy](https://github.com/01binary)
+Poniższa lista zawiera typowe zewnętrznych dostawców uwierzytelniania OAuth współpracujących z aplikacji platformy ASP.NET Core. Pakiety NuGet innych firm, takich jak te obsługiwane przez [aspnet contrib](https://www.nuget.org/packages?q=owners%3Aaspnet-contrib+title%3AOAuth), może służyć jako uzupełnienie dostawców uwierzytelniania implementowane przez zespół programu ASP.NET Core.
 
-W tym miejscu są konfigurowane instrukcje dotyczące niektórych innych typowych dostawców uwierzytelniania OAuth. Pakiety NuGet innych firm, takie jak te obsługiwanego przez [aspnet contrib](https://www.nuget.org/packages?q=owners%3Aaspnet-contrib+title%3AOAuth) może służyć do uzupełnienia dostawców uwierzytelniania zaimplementowana przez zespół platformy ASP.NET Core.
+* [LinkedIn](https://www.linkedin.com/developer/apps) ([instrukcje](https://developer.linkedin.com/docs/oauth2))
 
-* Konfigurowanie **LinkedIn** zalogować: [ https://www.linkedin.com/developer/apps ](https://www.linkedin.com/developer/apps). Zobacz [oficjalnego kroki](https://developer.linkedin.com/docs/oauth2).
+* [Instagram](https://www.instagram.com/developer/register/) ([instrukcje](https://www.instagram.com/developer/authentication/))
 
-* Konfigurowanie **Instagram** zalogować: [ https://www.instagram.com/developer/register/ ](https://www.instagram.com/developer/register/). Zobacz [oficjalnego kroki](https://www.instagram.com/developer/authentication/).
+* [Reddit](https://www.reddit.com/login?dest=https%3A%2F%2Fwww.reddit.com%2Fprefs%2Fapps) ([instrukcje](https://github.com/reddit/reddit/wiki/OAuth2-Quick-Start-Example))
 
-* Konfigurowanie **Reddit** zalogować: [ https://www.reddit.com/login?dest=https%3A%2F%2Fwww.reddit.com%2Fprefs%2Fapps ](https://www.reddit.com/login?dest=https%3A%2F%2Fwww.reddit.com%2Fprefs%2Fapps). Zobacz [oficjalnego kroki](https://github.com/reddit/reddit/wiki/OAuth2-Quick-Start-Example).
+* [Github](https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fsettings%2Fapplications%2Fnew) ([instrukcje](https://developer.github.com/v3/oauth/))
 
-* Konfigurowanie **Github** zalogować: [ https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fsettings%2Fapplications%2Fnew ](https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fsettings%2Fapplications%2Fnew). Zobacz [oficjalnego kroki](https://developer.github.com/v3/oauth/).
+* [Yahoo](https://login.yahoo.com/config/login?src=devnet&.done=http%3A%2F%2Fdeveloper.yahoo.com%2Fapps%2Fcreate%2F) ([instrukcje](https://developer.yahoo.com/bbauth/user.html))
 
-* Konfigurowanie **Yahoo** zalogować: [ https://login.yahoo.com/config/login?src=devnet&.done=http%3A%2F%2Fdeveloper.yahoo.com%2Fapps%2Fcreate%2F ](https://login.yahoo.com/config/login?src=devnet&.done=http%3A%2F%2Fdeveloper.yahoo.com%2Fapps%2Fcreate%2F). Zobacz [oficjalnego kroki](https://developer.yahoo.com/bbauth/user.html).
+* [Tumblr](https://www.tumblr.com/oauth/apps) ([instrukcje](https://www.tumblr.com/docs/api/v2#auth))
 
-* Konfigurowanie **Tumblr** zalogować: [ https://www.tumblr.com/oauth/apps ](https://www.tumblr.com/oauth/apps). Zobacz [oficjalnego kroki](https://www.tumblr.com/docs/api/v2#auth).
+* [Pinterest](https://www.pinterest.com/login/?next=http%3A%2F%2Fdevsite%2Fapps%2F) ([instrukcje](https://developers.pinterest.com/docs/api/overview/?))
 
-* Konfigurowanie **Pinterest** zalogować: [ https://www.pinterest.com/login/?next=http%3A%2F%2Fdevsite%2Fapps%2F ](https://www.pinterest.com/login/?next=http%3A%2F%2Fdevsite%2Fapps%2F). Zobacz [oficjalnego kroki](https://developers.pinterest.com/docs/api/overview/?).
+* [Pocket](https://getpocket.com/developer/apps/new) ([instrukcje](https://getpocket.com/developer/docs/authentication))
 
-* Konfigurowanie **Pocket** zalogować: [ https://getpocket.com/developer/apps/new ](https://getpocket.com/developer/apps/new). Zobacz [oficjalnego kroki](https://getpocket.com/developer/docs/authentication).
+* [Flickr](https://www.flickr.com/services/apps/create) ([instrukcje](https://www.flickr.com/services/api/auth.oauth.html))
 
-* Konfigurowanie **Flickr** zalogować: [ https://www.flickr.com/services/apps/create ](https://www.flickr.com/services/apps/create). Zobacz [oficjalnego kroki](https://www.flickr.com/services/api/auth.oauth.html).
+* [Dribble](https://dribbble.com/signup) ([instrukcje](http://developer.dribbble.com/v1/oauth/))
 
-* Konfigurowanie **Dribble** zalogować: [ https://dribbble.com/signup ](https://dribbble.com/signup). Zobacz [oficjalnego kroki](http://developer.dribbble.com/v1/oauth/).
+* [Usługi Vimeo](https://vimeo.com/join) ([instrukcje](https://developer.vimeo.com/api/authentication))
 
-* Konfigurowanie **Vimeo** zalogować: [ https://vimeo.com/join ](https://vimeo.com/join). Zobacz [oficjalnego kroki](https://developer.vimeo.com/api/authentication).
+* [SoundCloud](https://soundcloud.com/you/apps/new) ([instrukcje](https://developers.soundcloud.com/blog/we-love-oauth-2))
 
-* Konfigurowanie **SoundCloud** zalogować: [ https://soundcloud.com/you/apps/new ](https://soundcloud.com/you/apps/new). Zobacz [oficjalnego kroki](https://developers.soundcloud.com/blog/we-love-oauth-2).
+* [VK](https://vk.com/apps?act=manage) ([instrukcje](https://vk.com/pages?oid=-17680044&p=Authorizing_Sites))
 
-* Konfigurowanie **VK** zalogować: [ https://vk.com/apps?act=manage ](https://vk.com/apps?act=manage). Zobacz [oficjalnego kroki](https://vk.com/pages?oid=-17680044&p=Authorizing_Sites).
+[!INCLUDE[Multiple authentication providers](includes/chain-auth-providers.md)]
 
-## <a name="multiple-authentication-providers"></a>Wielu dostawców uwierzytelniania
-
-[!INCLUDE[](~/includes/chain-auth-providers.md)]
+[!INCLUDE[Forward request information when behind a proxy or load balancer section](includes/forwarded-headers-middleware.md)]

@@ -5,14 +5,14 @@ description: Dowiedz się, jak wdrożyć zadania w tle z usługami hostowanymi n
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/15/2018
+ms.date: 11/14/2018
 uid: fundamentals/host/hosted-services
-ms.openlocfilehash: 92905d86cb963d01f1806f08d07b270a7f6d8563
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: f8e13e13af22f1be4f14d5e59807c4dae3b78e84
+ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207410"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51708494"
 ---
 # <a name="background-tasks-with-hosted-services-in-aspnet-core"></a>Zadania w tle z usług hostowanych w programie ASP.NET Core
 
@@ -39,11 +39,20 @@ Odwołanie [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundame
 
 Implementowanie usług hostowanych <xref:Microsoft.Extensions.Hosting.IHostedService> interfejsu. Interfejs definiuje dwie metody dla obiektów, które są zarządzane przez hosta:
 
-* [StartAsync(CancellationToken)](xref:Microsoft.Extensions.Hosting.IHostedService.StartAsync*)  -  `StartAsync` zawiera logikę, aby uruchomić zadanie w tle. Korzystając z [hosta sieci Web](xref:fundamentals/host/web-host), `StartAsync` jest wywoływana po uruchomieniu serwera i [IApplicationLifetime.ApplicationStarted](xref:Microsoft.AspNetCore.Hosting.IApplicationLifetime.ApplicationStarted*) zostanie wywołany. Korzystając z [ogólnego hosta](xref:fundamentals/host/generic-host), `StartAsync` jest wywoływana przed `ApplicationStarted` zostanie wywołany.
+* [StartAsync(CancellationToken)](xref:Microsoft.Extensions.Hosting.IHostedService.StartAsync*) &ndash; `StartAsync` zawiera logikę, aby uruchomić zadanie w tle. Korzystając z [hosta sieci Web](xref:fundamentals/host/web-host), `StartAsync` jest wywoływana po uruchomieniu serwera i [IApplicationLifetime.ApplicationStarted](xref:Microsoft.AspNetCore.Hosting.IApplicationLifetime.ApplicationStarted*) zostanie wywołany. Korzystając z [ogólnego hosta](xref:fundamentals/host/generic-host), `StartAsync` jest wywoływana przed `ApplicationStarted` zostanie wywołany.
 
-* [StopAsync(CancellationToken)](xref:Microsoft.Extensions.Hosting.IHostedService.StopAsync*) — wyzwalane, gdy host działa łagodne zamykanie. `StopAsync` zawiera logikę do zakończenia zadania w tle i usuwania niezarządzanych zasobów. Jeśli aplikacja zostanie wyłączony nieoczekiwanie (na przykład aplikacji proces zakończy się niepowodzeniem), `StopAsync` nie może być wywoływana.
+* [StopAsync(CancellationToken)](xref:Microsoft.Extensions.Hosting.IHostedService.StopAsync*) &ndash; wyzwalane, gdy host działa łagodne zamykanie. `StopAsync` zawiera logikę, aby zakończyć zadanie w tle. Implementowanie <xref:System.IDisposable> i [finalizatory (destruktory)](/dotnet/csharp/programming-guide/classes-and-structs/destructors) usuwania niezarządzanych zasobów. 
 
-Hostowana usługa została aktywowana po uruchamiania aplikacji, i bez problemu zmieniała zamykania przy zamykaniu aplikacji. Gdy <xref:System.IDisposable> jest zaimplementowana, zasobów można usunąć po usunięciu kontenera usług. Jeśli podczas wykonywania zadania w tle, zostanie zgłoszony błąd `Dispose` powinna być wywoływana nawet wtedy, gdy `StopAsync` nie jest wywoływana.
+  Token anulowania ma domyślny pięciu drugi limit czasu do wskazania, że proces zamykania nie powinny już być bezpieczne. Jeśli zażądano anulowania w tokenie:
+  
+  * Wszystkie pozostałe operacje w tle, które wykonuje aplikacja powinna zostało przerwane.
+  * Wszystkie metody o nazwie w `StopAsync` powinna zwrócić natychmiast.
+  
+  Jednak zadania nie są porzucona po żądania anulowania&mdash;obiekt wywołujący czeka na ukończenie wszystkich zadań.
+
+  Jeśli aplikacja zostanie wyłączony nieoczekiwanie (na przykład aplikacji proces zakończy się niepowodzeniem), `StopAsync` nie może być wywoływana. W związku z tym, wszystkie metody o nazwie lub operacje przeprowadzane w `StopAsync` nie mogą wystąpić.
+
+Usługa hostowana jest aktywowany po przy uruchamianiu aplikacji i zostanie poprawnie zamknięte przy zamykaniu aplikacji. Jeśli podczas wykonywania zadania w tle, zostanie zgłoszony błąd `Dispose` powinna być wywoływana nawet wtedy, gdy `StopAsync` nie jest wywoływana.
 
 ## <a name="timed-background-tasks"></a>Zadania w tle przekroczono limit czasu
 

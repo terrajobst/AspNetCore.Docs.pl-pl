@@ -1,94 +1,95 @@
 ---
-title: Ustawienia logowania zewnętrznego Google w ASP.NET Core
+title: Ustawienia logowania zewnętrznego Google w programie ASP.NET Core
 author: rick-anderson
-description: W tym samouczku przedstawiono integrację uwierzytelnianie użytkownika konto Google do istniejącej aplikacji platformy ASP.NET Core.
+description: Ten samouczek przedstawia integracja uwierzytelniania użytkownika konta Google do istniejącej aplikacji platformy ASP.NET Core.
 ms.author: riande
-ms.date: 08/02/2017
+ms.custom: mvc
+ms.date: 11/11/2018
 uid: security/authentication/google-logins
-ms.openlocfilehash: c5b6c992e134a2c4f0314d9d6e0465e6228c54ee
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: dfda83e1d7cf3c5ff8e31de20c15d468de5d15c0
+ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274914"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51708455"
 ---
-# <a name="google-external-login-setup-in-aspnet-core"></a>Ustawienia logowania zewnętrznego Google w ASP.NET Core
+# <a name="google-external-login-setup-in-aspnet-core"></a>Ustawienia logowania zewnętrznego Google w programie ASP.NET Core
 
 Przez [Valeriy Novytskyy](https://github.com/01binary) i [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-W tym samouczku przedstawiono sposób umożliwić użytkownikom logowanie za pomocą swojego konta Google + przy użyciu przykładowy projekt platformy ASP.NET Core 2.0, utworzony na [poprzedniej strony](xref:security/authentication/social/index). Rozpoczniemy wykonując [kroki oficjalnego](https://developers.google.com/identity/sign-in/web/devconsole-project) do utworzenia nowej aplikacji w konsoli interfejsu API firmy Google.
+W tym samouczku dowiesz się, jak umożliwić użytkownikom logowanie się przy użyciu swojego konta Google + przy użyciu przykładowy projekt programu ASP.NET Core 2.0, utworzony na [poprzedniej strony](xref:security/authentication/social/index). Rozpoczniemy pracę, postępując zgodnie z [oficjalnych kroków](https://developers.google.com/identity/sign-in/web/devconsole-project) do utworzenia nowej aplikacji w konsoli interfejsu API Google.
 
-## <a name="create-the-app-in-google-api-console"></a>Tworzenie aplikacji w konsoli interfejsu API firmy Google
+## <a name="create-the-app-in-google-api-console"></a>Tworzenie aplikacji w konsoli interfejsu API Google
 
-* Przejdź do [ https://console.developers.google.com/projectselector/apis/library ](https://console.developers.google.com/projectselector/apis/library) i zaloguj się. Jeśli nie masz już konto Google, użyj **więcej opcji** > **[Tworzenie konta](https://accounts.google.com/SignUpWithoutGmail?service=cloudconsole&continue=https%3A%2F%2Fconsole.developers.google.com%2Fprojectselector%2Fapis%2Flibrary&ltmpl=api)**  łącze, aby go utworzyć:
+* Przejdź do [ https://console.developers.google.com/projectselector/apis/library ](https://console.developers.google.com/projectselector/apis/library) i zaloguj się. Jeśli nie masz już konto Google, użyj **więcej opcji** > **[Utwórz konto](https://accounts.google.com/SignUpWithoutGmail?service=cloudconsole&continue=https%3A%2F%2Fconsole.developers.google.com%2Fprojectselector%2Fapis%2Flibrary&ltmpl=api)**  łącze, aby go utworzyć:
 
-![Konsoli interfejsu API firmy Google](index/_static/GoogleConsoleLogin.png)
+![Konsola interfejsu API Google](index/_static/GoogleConsoleLogin.png)
 
-* Nastąpi przekierowanie do **biblioteki interfejsu API menedżera** strony:
+* Nastąpi przekierowanie do **Menedżer interfejsu API biblioteki** strony:
 
-![Strona Menedżer interfejsu API biblioteki](index/_static/GoogleConsoleSwitchboard.png)
+![Strona biblioteki Menedżer interfejsu API](index/_static/GoogleConsoleSwitchboard.png)
 
-* Wybierz **Utwórz** , a następnie wprowadź Twojej **Nazwa projektu**:
+* Naciśnij pozycję **Utwórz** i wprowadź swoje **Nazwa projektu**:
 
 ![Okno dialogowe nowego projektu](index/_static/GoogleConsoleNewProj.png)
 
-* Po zaakceptowaniu okno dialogowe, są przekierowany do strony biblioteki, dzięki czemu można wybrać funkcje dla nowej aplikacji. Znajdź **interfejsu API Google +** na liście i kliknij jego łącze, aby dodać funkcję interfejsu API:
+* Po zaakceptowaniu okna dialogowego, nastąpi przekierowanie do strony biblioteki umożliwia wybranie funkcji dla nowej aplikacji. Znajdź **interfejsu API Google +** na liście i kliknij jego łącze, aby dodać funkcję interfejsu API:
 
-![Strona Menedżer interfejsu API biblioteki](index/_static/GoogleConsoleChooseApi.png)
+![Strona biblioteki Menedżer interfejsu API](index/_static/GoogleConsoleChooseApi.png)
 
-* Zostanie wyświetlona strona dla nowo dodanego interfejsu API. Wybierz **włączyć** dodać Google + znak w funkcji do aplikacji:
+* Zostanie wyświetlona strona dla nowo dodanego interfejsu API. Naciśnij pozycję **Włącz** dodać Google + znak w funkcji do aplikacji:
 
 ![Strona Menedżer interfejsu API Google + interfejsu API](index/_static/GoogleConsoleEnableApi.png)
 
-* Po włączeniu interfejs API, naciśnij przycisk **Utwórz poświadczenia** skonfigurować kluczy tajnych:
+* Po włączeniu interfejsu API, naciśnij przycisk **Utwórz poświadczenia** skonfigurować wpisy tajne:
 
 ![Strona Menedżer interfejsu API Google + interfejsu API](index/_static/GoogleConsoleGoCredentials.png)
 
 * Wybierz:
-   * **Google+ API**
-   * **Serwer sieci Web (np. node.js, Tomcat)**, i
-   * **Dane użytkownika**:
+  * **Google+ API**
+  * **Serwer sieci Web (np. środowisko node.js, Tomcat)**, i
+  * **Dane użytkownika**:
 
-![Strona poświadczeń Menedżer interfejsu API: Sprawdź, jaki rodzaj poświadczeń można muszą panelu](index/_static/GoogleConsoleChooseCred.png)
+![Strona poświadczeń Menedżer interfejsu API: Dowiedz się, jaki rodzaj poświadczeń należy panelu](index/_static/GoogleConsoleChooseCred.png)
 
-* Wybierz **poświadczeniami, które są potrzebne?** który przyjmuje do drugiego kroku konfiguracji aplikacji **Utwórz identyfikator klienta OAuth 2.0**:
+* Naciśnij pozycję **jakie poświadczenia są potrzebne?** której przejście do drugiego kroku konfiguracji aplikacji **Utwórz identyfikator klienta OAuth 2.0**:
 
 ![Strona poświadczeń Menedżer interfejsu API: Utwórz identyfikator klienta OAuth 2.0](index/_static/GoogleConsoleCreateClient.png)
 
-* Ponieważ tworzymy projektu Google + z tylko jedną funkcję (logowania), możemy wprowadzić ten sam **nazwa** dla Identyfikatora klienta OAuth 2.0, użyliśmy dla projektu.
+* Ponieważ tworzymy projektu Google + przy użyciu tylko jednej funkcji (Zaloguj), możemy wprowadzić ten sam **nazwa** dla Identyfikatora klienta OAuth 2.0, użyliśmy dla projektu.
 
-* Wprowadź identyfikator URI programowania z `/signin-google` dołączany do **autoryzowanych przekierowania URI** pola (na przykład: `https://localhost:44320/signin-google`). Uwierzytelnianie serwisu Google skonfigurowane w dalszej części tego samouczka automatycznie będzie obsługiwać żądań w `/signin-google` trasy do zaimplementowania przepływu OAuth.
+* Wprowadź identyfikator URI programistycznych dzięki `/signin-google` dołączany do **identyfikatory URI przekierowania autoryzowanych** pola (na przykład: `https://localhost:44320/signin-google`). Uwierzytelnianie serwisu Google skonfigurowane w dalszej części tego samouczka będzie automatycznie obsługiwać żądań w `/signin-google` trasy do zaimplementowania przepływu uwierzytelniania OAuth.
 
 > [!NOTE]
-> Segment identyfikatora URI `/signin-google` jest ustawiony jako domyślny wywołania zwrotnego z dostawcę uwierzytelniania serwisu Google. Identyfikator URI wywołania zwrotnego domyślne można zmienić podczas konfigurowania oprogramowania pośredniczącego uwierzytelniania Google za pośrednictwem dziedziczonego [RemoteAuthenticationOptions.CallbackPath](/dotnet/api/microsoft.aspnetcore.authentication.remoteauthenticationoptions.callbackpath) właściwość [GoogleOptions](/dotnet/api/microsoft.aspnetcore.authentication.google.googleoptions) klasy.
+> Segmentem identyfikatora URI `/signin-google` jest ustawiony jako zwrotnym domyślnego dostawcę uwierzytelniania serwisu Google. Identyfikator URI wywołania zwrotnego domyślne można zmienić podczas konfigurowania oprogramowania pośredniczącego uwierzytelniania Google za pośrednictwem dziedziczonego [RemoteAuthenticationOptions.CallbackPath](/dotnet/api/microsoft.aspnetcore.authentication.remoteauthenticationoptions.callbackpath) właściwość [GoogleOptions](/dotnet/api/microsoft.aspnetcore.authentication.google.googleoptions) klasy.
 
-* Naciśnij klawisz TAB, aby dodać **autoryzowanych przekierowania URI** wpisu.
+* Naciśnij klawisz TAB, aby dodać **identyfikatory URI przekierowania autoryzowanych** wpisu.
 
-* Wybierz **Utwórz identyfikator klienta**, który umożliwia przejście do trzeciego stopnia **ustawienie ekranu zgoda OAuth 2.0**:
+* Naciśnij pozycję **Utwórz identyfikator klienta**, która umożliwia przejście do trzeci krok **skonfigurować ekran zgody OAuth 2.0**:
 
-![Strona poświadczeń Menedżer interfejsu API: ustawianie ekranu zgoda OAuth 2.0](index/_static/GoogleConsoleAddCred.png)
+![Strona poświadczeń Menedżer interfejsu API: Konfigurowanie ekran zgody OAuth 2.0](index/_static/GoogleConsoleAddCred.png)
 
-* Wprowadź skierowane do publicznego **adres E-mail** i **nazwa produktu** wyświetlany dla aplikacji, jeśli Google + monity użytkownika do logowania. Dodatkowe opcje są dostępne w obszarze **więcej opcji dostosowania**.
+* Wprowadź swoje użytek publiczny **adres E-mail** i **nazwa produktu** wyświetlany dla aplikacji, gdy Google + monituje użytkownika do logowania. Dodatkowe opcje są dostępne w obszarze **dodatkowe opcje dostosowywania**.
 
-* Wybierz **Kontynuuj** do przejdź do ostatniego kroku **Pobierz poświadczenia**:
+* Naciśnij pozycję **Kontynuuj** do przejdź do ostatniego kroku **Pobierz poświadczenia**:
 
 ![Strona poświadczeń Menedżer interfejsu API: Pobierz poświadczenia](index/_static/GoogleConsoleFinish.png)
 
-* Wybierz **Pobierz** można zapisać pliku JSON z haseł aplikacji i **gotowe** aby zakończyć tworzenie nowej aplikacji.
+* Naciśnij pozycję **Pobierz** można zapisać plik w formacie JSON za pomocą kluczy tajnych aplikacji, a **gotowe** aby ukończyć tworzenie nowej aplikacji.
 
-* W przypadku wdrażania lokacji należy ponownie **konsoli Google** i zarejestrować nowego publicznego adresu url.
+* W przypadku wdrażania w witrynie będzie konieczne ponownie przeanalizowanie **konsoli Google** i rejestrowanie nowego publicznego adresu url.
 
-## <a name="store-google-clientid-and-clientsecret"></a>Sklep Google ClientID i ClientSecret
+## <a name="store-google-clientid-and-clientsecret"></a>Store Google ClientID i ClientSecret
 
-Link ustawień poufnych, takich jak Google `Client ID` i `Client Secret` do swojej aplikacji konfiguracji za pomocą [Manager klucz tajny](xref:security/app-secrets). Do celów tego samouczka, nazwa tokeny `Authentication:Google:ClientId` i `Authentication:Google:ClientSecret`.
+Link ustawień poufnych, takich jak Google `Client ID` i `Client Secret` z konfiguracji aplikacji za pomocą [Menedżera klucz tajny](xref:security/app-secrets). Do celów tego samouczka, nazwa tokeny `Authentication:Google:ClientId` i `Authentication:Google:ClientSecret`.
 
-Tokeny te wartości można znaleźć w pliku JSON pobranego w poprzednim kroku, w obszarze `web.client_id` i `web.client_secret`.
+Wartości dla tych tokenów można znaleźć w pliku JSON, pobrany w poprzednim kroku, w obszarze `web.client_id` i `web.client_secret`.
 
 ## <a name="configure-google-authentication"></a>Konfigurowanie uwierzytelniania serwisu Google
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+::: moniker range=">= aspnetcore-2.0"
 
-Dodaj usługę Google w `ConfigureServices` metody w *Startup.cs* pliku:
+Dodaj usługę Google w `ConfigureServices` method in Class metoda *Startup.cs* pliku:
 
 ```csharp
 services.AddIdentity<ApplicationUser, IdentityRole>()
@@ -104,18 +105,20 @@ services.AddAuthentication().AddGoogle(googleOptions =>
 
 [!INCLUDE [default settings configuration](includes/default-settings.md)]
 
-[!INCLUDE[](~/includes/chain-auth-providers.md)]
+[!INCLUDE[](includes/chain-auth-providers.md)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+::: moniker-end
 
-Szablon projektu używany w tym samouczku upewnia się, że [Microsoft.AspNetCore.Authentication.Google](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Google) pakiet jest zainstalowany.
+::: moniker range="< aspnetcore-2.0"
 
-* Aby zainstalować ten pakiet przy użyciu programu Visual Studio 2017, kliknij prawym przyciskiem myszy projekt i wybierz **Zarządzaj pakietami NuGet**.
+Szablon projektu, w tym samouczku używane zapewnia, że [Microsoft.AspNetCore.Authentication.Google](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Google) pakiet jest zainstalowany.
+
+* Aby zainstalować ten pakiet za pomocą programu Visual Studio 2017, kliknij prawym przyciskiem myszy projekt i wybierz pozycję **Zarządzaj pakietami NuGet**.
 * Aby zainstalować przy użyciu interfejsu wiersza polecenia platformy .NET Core, wykonaj następujące czynności w katalogu projektu:
 
 `dotnet add package Microsoft.AspNetCore.Authentication.Google`
 
-Dodaj oprogramowanie pośredniczące Google w `Configure` metody w *Startup.cs* pliku:
+Dodaj oprogramowanie pośredniczące Google w `Configure` method in Class metoda *Startup.cs* pliku:
 
 ```csharp
 app.UseGoogleAuthentication(new GoogleOptions()
@@ -125,36 +128,38 @@ app.UseGoogleAuthentication(new GoogleOptions()
 });
 ```
 
----
+::: moniker-end
 
-Zobacz [GoogleOptions](/dotnet/api/microsoft.aspnetcore.builder.googleoptions) dokumentacja interfejsu API, aby uzyskać więcej informacji na temat opcji konfiguracji obsługiwanych przez uwierzytelniania serwisu Google. To może być używane do żądania różne informacje o użytkowniku.
+Zobacz [GoogleOptions](/dotnet/api/microsoft.aspnetcore.builder.googleoptions) dokumentacja interfejsu API, aby uzyskać więcej informacji na temat opcji konfiguracji obsługiwanych przez uwierzytelnianie serwisu Google. Może to służyć do żądania różne informacje o użytkowniku.
 
-## <a name="sign-in-with-google"></a>Zaloguj się przy użyciu usługi Google
+## <a name="sign-in-with-google"></a>Zaloguj się przy użyciu Google
 
-Uruchom aplikację, a następnie kliknij przycisk **Zaloguj**. Pojawia się opcję, aby zalogować się przy użyciu usługi Google:
+Uruchom aplikację, a następnie kliknij przycisk **Zaloguj**. Zostanie wyświetlona opcja Zaloguj się przy użyciu Google:
 
-![Aplikacji sieci Web w programie Microsoft Edge: użytkownik nie jest uwierzytelniony](index/_static/DoneGoogle.png)
+![Aplikację sieci Web działającą w programie Microsoft Edge: użytkownik nie jest uwierzytelniony](index/_static/DoneGoogle.png)
 
-Po kliknięciu Google, nastąpi przekierowanie do sklepu Google uwierzytelniania:
+Po kliknięciu w usłudze Google, nastąpi przekierowanie do usługi Google do uwierzytelniania:
 
-![Dialog uwierzytelniania Google](index/_static/GoogleLogin.png)
+![Okno dialogowe uwierzytelniania Google](index/_static/GoogleLogin.png)
 
-Po wprowadzeniu poświadczeń Google, następnie nastąpi przekierowanie do witryny sieci web, w którym można ustawić adres e-mail.
+Po wprowadzeniu poświadczeń Google, następnie nastąpi przekierowanie do witryny sieci web, w którym można ustawić swój adres e-mail.
 
-Użytkownik jest obecnie zalogowany przy użyciu poświadczeń konta Google:
+Obecnie zalogowano Cię przy użyciu poświadczeń konta Google:
 
-![Aplikacji sieci Web w programie Microsoft Edge: użytkownik uwierzytelniony](index/_static/Done.png)
+![Aplikację sieci Web działającą w programie Microsoft Edge: użytkownik uwierzytelniony](index/_static/Done.png)
+
+[!INCLUDE[Forward request information when behind a proxy or load balancer section](includes/forwarded-headers-middleware.md)]
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-* Jeśli zostanie wyświetlony `403 (Forbidden)` strony błędu z własną aplikację podczas pracy w trybie Programowanie (lub podziału do debugera z tego samego błędu), upewnij się, że **interfejsu API Google +** została włączona w **biblioteki interfejsu API menedżera** przez wykonanie kroków podanych [wcześniej na tej stronie](#create-the-app-in-google-api-console). Jeśli logowanie nie działa, a nie ma dostępnych żadnych błędów, przełącz się do trybu programowanie ułatwiające debugować ten problem.
-* **Platformy ASP.NET Core tylko 2.x:** Jeśli tożsamości nie jest skonfigurowana pod wywołując `services.AddIdentity` w `ConfigureServices`, próby uwierzytelnienia będą powodować *ArgumentException: należy podać opcję "SignInScheme"*. Szablon projektu używany w tym samouczku zapewnia to zrobić.
-* Jeśli nie utworzono bazy danych lokacji, stosując początkowej migracji, otrzyma *operacji bazy danych nie powiodło się podczas przetwarzania żądania* błędu. Wybierz **zastosować migracje** do tworzenia bazy danych i Odśwież, aby kontynuować mimo błędu.
+* Jeśli zostanie wyświetlony `403 (Forbidden)` stronę błędu z własnej aplikacji, gdy działa w trybie projektowania (lub przerwanie w debugerze z tym samym błędem), upewnij się, że **interfejsu API Google +** zostało włączone w **Menedżer interfejsu API biblioteki** przez wykonanie kroków podanych [wcześniej na tej stronie](#create-the-app-in-google-api-console). Jeśli nie otrzymujesz błędy logowania nie rozwiąże problemu, przełącz się do trybu opracowywania, aby ułatwić debugowanie problemu.
+* **Platforma ASP.NET Core 2.x tylko:** Jeśli tożsamość nie jest skonfigurowana, wywołując `services.AddIdentity` w `ConfigureServices`, próby uwierzytelnienia będą powodować *ArgumentException: należy podać opcję "SignInScheme"*. Szablon projektu, w tym samouczku używane gwarantuje, że odbywa się.
+* Jeśli nie utworzono bazy danych lokacji, stosując początkowej migracji, zostanie wyświetlony *operacji bazy danych nie powiodło się podczas przetwarzania żądania* błędu. Naciśnij pozycję **zastosować migracje** do tworzenia bazy danych i Odśwież, aby kontynuować po błędzie.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* W tym artykule pokazano, jak można uwierzytelniać z serwisem Google. Można wykonać podobne podejścia do uwierzytelniania za pomocą innych dostawców wymienione na [poprzedniej strony](xref:security/authentication/social/index).
+* W tym artykule pokazano, jak można uwierzytelniać za pomocą usługi Google. Możesz wykonać podejście podobne do uwierzytelniania przy użyciu innych dostawców na [poprzedniej strony](xref:security/authentication/social/index).
 
-* Po opublikowaniu witryny sieci web do aplikacji sieci web platformy Azure, należy zresetować `ClientSecret` w konsoli interfejsu API firmy Google.
+* Gdy publikujesz witrynę sieci web do aplikacji sieci web platformy Azure, należy zresetować `ClientSecret` w konsoli interfejsu API Google.
 
-* Ustaw `Authentication:Google:ClientId` i `Authentication:Google:ClientSecret` zgodnie z ustawieniami aplikacji w portalu Azure. System konfiguracji jest skonfigurowany do odczytu klucze zmiennych środowiskowych.
+* Ustaw `Authentication:Google:ClientId` i `Authentication:Google:ClientSecret` jako ustawienia aplikacji w witrynie Azure portal. System konfiguracji jest skonfigurowany do odczytu klucze ze zmiennych środowiskowych.

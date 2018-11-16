@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/30/2018
 uid: fundamentals/host/generic-host
-ms.openlocfilehash: 9943c9dd2d6dd67a79186ee880b181a5915d06be
-ms.sourcegitcommit: edb9d2d78c9a4d68b397e74ae2aff088b325a143
+ms.openlocfilehash: cac5ccdea7838d26b7468f9bf1ab8d317b444b46
+ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51505716"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51708520"
 ---
 # <a name="net-generic-host"></a>Ogólny hosta platformy .NET
 
@@ -75,7 +75,7 @@ Konfiguracja hosta jest tworzony przez:
 **Typ**: *ciągu*  
 **Domyślne**: Nazwa zestawu zawierającego punkt wejścia aplikacji.  
 **Można ustawić przy użyciu**: `HostBuilderContext.HostingEnvironment.ApplicationName`  
-**Zmienna środowiskowa**: `<PREFIX_>APPLICATIONNAME` (`<PREFIX_>` jest [opcjonalne i zdefiniowane przez użytkownika](#configuration-builder))
+**Zmienna środowiskowa**: `<PREFIX_>APPLICATIONNAME` (`<PREFIX_>` jest [opcjonalne i zdefiniowane przez użytkownika](#configurehostconfiguration))
 
 ### <a name="content-root"></a>Zawartość katalogu głównego
 
@@ -85,7 +85,7 @@ To ustawienie określa, gdzie hosta rozpoczyna się wyszukiwanie plików zawarto
 **Typ**: *ciągu*  
 **Domyślne**: wartość domyślna to folder, w którym znajduje się zestaw aplikacji.  
 **Można ustawić przy użyciu**: `UseContentRoot`  
-**Zmienna środowiskowa**: `<PREFIX_>CONTENTROOT` (`<PREFIX_>` jest [opcjonalne i zdefiniowane przez użytkownika](#configuration-builder))
+**Zmienna środowiskowa**: `<PREFIX_>CONTENTROOT` (`<PREFIX_>` jest [opcjonalne i zdefiniowane przez użytkownika](#configurehostconfiguration))
 
 Jeśli ścieżka nie istnieje, host nie można uruchomić.
 
@@ -99,7 +99,7 @@ Ustawia aplikacji [środowiska](xref:fundamentals/environments).
 **Typ**: *ciągu*  
 **Domyślne**: produkcji  
 **Można ustawić przy użyciu**: `UseEnvironment`  
-**Zmienna środowiskowa**: `<PREFIX_>ENVIRONMENT` (`<PREFIX_>` jest [opcjonalne i zdefiniowane przez użytkownika](#configuration-builder))
+**Zmienna środowiskowa**: `<PREFIX_>ENVIRONMENT` (`<PREFIX_>` jest [opcjonalne i zdefiniowane przez użytkownika](#configurehostconfiguration))
 
 Środowisko można ustawić dowolną wartość. Wartości zdefiniowane w ramach obejmują `Development`, `Staging`, i `Production`. Wartości nie są z uwzględnieniem wielkości liter.
 

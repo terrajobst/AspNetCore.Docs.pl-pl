@@ -3,14 +3,15 @@ title: Facebook, Google i zewnętrznego dostawcy uwierzytelniania w programie AS
 author: rick-anderson
 description: W tym samouczku przedstawiono sposób tworzenia platformy ASP.NET Core 2.x aplikacji przy użyciu protokołu OAuth 2.0 przy użyciu dostawcy uwierzytelniania zewnętrznego.
 ms.author: riande
-ms.date: 11/01/2016
+ms.custom: mvc
+ms.date: 11/11/2018
 uid: security/authentication/social/index
-ms.openlocfilehash: 48a01ab241f9a6ad6ad3fb2ee9e210f459075c33
-ms.sourcegitcommit: a669c4e3f42e387e214a354ac4143555602e6f66
+ms.openlocfilehash: 19074d5014a09446ceec1b89449e78760fc8e7cf
+ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43336123"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51708377"
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Facebook, Google i zewnętrznego dostawcy uwierzytelniania w programie ASP.NET Core
 
@@ -28,9 +29,9 @@ Uwaga: Pakiety przedstawionych w tym miejscu abstrakcji dużym stopniem złożon
 
 ## <a name="create-a-new-aspnet-core-project"></a>Utwórz nowy projekt platformy ASP.NET Core
 
-* W programie Visual Studio 2017, Utwórz nowy projekt z poziomu strony startowej lub za pośrednictwem **Plik > Nowy > Projekt**.
+* W programie Visual Studio 2017, Utwórz nowy projekt z poziomu strony startowej lub za pośrednictwem **pliku** > **New** > **projektu**.
 
-* Wybierz **aplikacji sieci Web programu ASP.NET Core** szablonu dostępnego w **Visual C# > .NET Core** kategorii:
+* Wybierz **aplikacji sieci Web programu ASP.NET Core** szablonu dostępnego w **Visual C#**   >  **platformy .NET Core** kategorii:
 
 ![Okno dialogowe nowego projektu](index/_static/new-project.png)
 
@@ -51,9 +52,11 @@ Uwaga: Ten samouczek dotyczy wersji platformy ASP.NET Core 2.0 SDK, które możn
 
 OAuth 2.0 wymaga użycia protokołu SSL do uwierzytelniania za pośrednictwem protokołu HTTPS.
 
-Uwaga: Projekty utworzone za pomocą **aplikacji sieci Web** lub **interfejsu API sieci Web** szablony projektów dla platformy ASP.NET Core 2.x są konfigurowane automatycznie w celu włączenia protokołu SSL, a następnie uruchom za pomocą adresu URL https, jeśli **indywidualnych Konta użytkowników** została zaznaczona opcja **okno dialogowe Zmień uwierzytelnianie** w Kreatorze projektu, jak pokazano powyżej.
+Projekty utworzone za pomocą **aplikacji sieci Web** lub **interfejsu API sieci Web** projektu szablonów za pomocą platformy ASP.NET Core 2.1 lub nowszej są automatycznie konfigurowane do włączenia protokołu SSL. Uruchomieniu aplikacji przy użyciu domyślnego bezpiecznego punktu końcowego, jeśli **indywidualne konta użytkowników** jest zaznaczona opcja **okno dialogowe Zmień uwierzytelnianie** Kreatora projektu.
 
-* Wymagaj protokołu SSL w lokacji, wykonując kroki opisane w [Wymuszanie protokołu SSL w aplikacji ASP.NET Core](xref:security/enforcing-ssl) tematu.
+Aby uzyskać więcej informacji, zobacz <xref:security/enforcing-ssl>.
+
+[!INCLUDE[Forward request information when behind a proxy or load balancer section](includes/forwarded-headers-middleware.md)]
 
 ## <a name="use-secretmanager-to-store-tokens-assigned-by-login-providers"></a>Użyj SecretManager do przechowywania tokenów przypisany przez dostawców logowania
 
@@ -74,7 +77,7 @@ Użyj poniższych tematów, aby skonfigurować aplikację do używania odpowiedn
 * [Microsoft](xref:security/authentication/microsoft-logins) instrukcje
 * [Inni dostawcy](xref:security/authentication/otherlogins) instrukcje
 
-[!INCLUDE[](~/includes/chain-auth-providers.md)]
+[!INCLUDE[](includes/chain-auth-providers.md)]
 
 ## <a name="optionally-set-password"></a>Opcjonalnie Ustaw hasło
 

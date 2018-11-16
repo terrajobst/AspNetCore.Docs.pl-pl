@@ -5,14 +5,14 @@ description: Dowiedz się, jak zadbać o dodatkowe oświadczenia i tokeny od dos
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/28/2018
+ms.date: 11/11/2018
 uid: security/authentication/social/additional-claims
-ms.openlocfilehash: dc8b3e32141466a12e4eff0c86d2d4bed689afe5
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 9a24ac138950ef2bedac48f506655d06520137cf
+ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50206360"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51708364"
 ---
 # <a name="persist-additional-claims-and-tokens-from-external-providers-in-aspnet-core"></a>Utrwalanie dodatkowe oświadczenia i tokeny od dostawców zewnętrznych w programie ASP.NET Core
 
@@ -22,13 +22,11 @@ Aplikacji ASP.NET Core można ustanowić dodatkowe oświadczenia i tokeny od dos
 
 [Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/social/additional-claims/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
-## <a name="prerequisite"></a>Wymaganie wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 
 Zdecyduj, które dostawcy uwierzytelniania zewnętrznego do obsługi w aplikacji. Dla każdego dostawcy rejestrowanie aplikacji i uzyskać identyfikator klienta oraz klucz tajny klienta. Aby uzyskać więcej informacji, zobacz <xref:security/authentication/social/index>. [Przykładową aplikację](#sample-app-instructions) używa [dostawcę uwierzytelniania serwisu Google](xref:security/authentication/google-logins).
 
-## <a name="authentication-provider-configuration"></a>Konfiguracja dostawcy uwierzytelniania
-
-### <a name="set-the-client-id-and-client-secret"></a>Ustaw identyfikator klienta i klucz tajny klienta
+## <a name="set-the-client-id-and-client-secret"></a>Ustaw identyfikator klienta i klucz tajny klienta
 
 Dostawca uwierzytelniania OAuth ustanawia relację zaufania z aplikacji przy użyciu Identyfikatora klienta oraz klucz tajny klienta. Identyfikator klienta i wartości klucza tajnego klienta są tworzone dla aplikacji przez dostawcę uwierzytelniania zewnętrznych podczas rejestracji aplikacji za pomocą dostawcy. Każdego dostawcy zewnętrznego przez aplikację muszą być konfigurowane niezależnie z Identyfikatorem klienta i klucz tajny klienta dostawcy. Aby uzyskać więcej informacji zobacz Tematy dostawcy uwierzytelniania zewnętrznego, które mają zastosowanie do danego scenariusza:
 
@@ -43,7 +41,7 @@ Przykładowa aplikacja konfiguruje dostawcę uwierzytelniania serwisu Google z I
 
 [!code-csharp[](additional-claims/samples/2.x/AdditionalClaimsSample/Startup.cs?name=snippet_AddGoogle&highlight=4,6)]
 
-### <a name="establish-the-authentication-scope"></a>Określa zakres uwierzytelniania
+## <a name="establish-the-authentication-scope"></a>Określa zakres uwierzytelniania
 
 Określ listę uprawnień do pobierania od dostawcy, określając <xref:Microsoft.AspNetCore.Authentication.OAuth.OAuthOptions.Scope*>. Zakresy uwierzytelniania dla typowych dostawców zewnętrznych są wyświetlane w poniższej tabeli.
 
@@ -58,7 +56,7 @@ Przykładowa aplikacja dodaje Google `plus.login` zakres żądania logowania Goo
 
 [!code-csharp[](additional-claims/samples/2.x/AdditionalClaimsSample/Startup.cs?name=snippet_AddGoogle&highlight=7)]
 
-### <a name="map-user-data-keys-and-create-claims"></a>Mapy kluczy danych użytkownika i tworzą oświadczenia
+## <a name="map-user-data-keys-and-create-claims"></a>Mapy kluczy danych użytkownika i tworzą oświadczenia
 
 W oknie dialogowym Opcje dostawcy należy określić <xref:Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions.MapJsonKey*> dla każdego klucza dane użytkownika JSON zewnętrznego dostawcy tożsamości aplikacji do odczytu na rejestracji. Aby uzyskać więcej informacji na temat typów oświadczeń, zobacz <xref:System.Security.Claims.ClaimTypes>.
 
@@ -72,7 +70,7 @@ W przykładowej aplikacji `OnPostConfirmationAsync` (*Account/ExternalLogin.csht
 
 [!code-csharp[](additional-claims/samples/2.x/AdditionalClaimsSample/Pages/Account/ExternalLogin.cshtml.cs?name=snippet_OnPostConfirmationAsync&highlight=30-31)]
 
-### <a name="save-the-access-token"></a>Zapisywanie tokenu dostępu
+## <a name="save-the-access-token"></a>Zapisywanie tokenu dostępu
 
 <xref:Microsoft.AspNetCore.Authentication.RemoteAuthenticationOptions.SaveTokens*> Określa, czy tokeny dostępu i Odśwież powinny być przechowywane w <xref:Microsoft.AspNetCore.Http.Authentication.AuthenticationProperties> po pomyślnej autoryzacji. `SaveTokens` ustawiono `false` domyślnie, aby zmniejszyć rozmiar pliku cookie uwierzytelniania końcowej.
 
@@ -93,7 +91,7 @@ Przykładowa aplikacja zapisuje tokenu dostępu w:
 
 [!code-csharp[](additional-claims/samples/2.x/AdditionalClaimsSample/Pages/Account/ExternalLogin.cshtml.cs?name=snippet_OnGetCallbackAsync&highlight=31-32)]
 
-### <a name="how-to-add-additional-custom-tokens"></a>Jak dodać dodatkowe tokeny niestandardowe
+## <a name="how-to-add-additional-custom-tokens"></a>Jak dodać dodatkowe tokeny niestandardowe
 
 Aby zademonstrować, jak dodać niestandardowy token, który jest przechowywany jako część `SaveTokens`, przykładowa aplikacja dodaje <xref:Microsoft.AspNetCore.Authentication.AuthenticationToken> z bieżącymi <xref:System.DateTime> dla [AuthenticationToken.Name](xref:Microsoft.AspNetCore.Authentication.AuthenticationToken.Name*) z `TicketCreated`:
 
@@ -143,3 +141,5 @@ Authentication Properties
 .expires
     Mon, 10 Sep 2018 18:08:05 GMT
 ```
+
+[!INCLUDE[Forward request information when behind a proxy or load balancer section](includes/forwarded-headers-middleware.md)]

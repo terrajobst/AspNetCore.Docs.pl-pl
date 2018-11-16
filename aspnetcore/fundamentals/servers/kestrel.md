@@ -2,23 +2,26 @@
 title: Implementacja serwera sieci web kestrel w programie ASP.NET Core
 author: guardrex
 description: Więcej informacji na temat Kestrel, serwer sieci web dla wielu platform dla platformy ASP.NET Core.
-monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 11/05/2018
+ms.date: 11/12/2018
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: a26726a824db31e07b881dbfa8dc2ef37d4d3492
-ms.sourcegitcommit: edb9d2d78c9a4d68b397e74ae2aff088b325a143
+ms.openlocfilehash: 793aa6e190da0170a395292ea661f7c828f817c1
+ms.sourcegitcommit: 1d6ab43eed9cb3df6211c22b97bb3a9351ec4419
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51505768"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51597813"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>Implementacja serwera sieci web kestrel w programie ASP.NET Core
 
 Przez [Tom Dykstra](https://github.com/tdykstra), [Chris Ross](https://github.com/Tratcher), i [Halter Autor: Stephen](https://twitter.com/halter73)
 
+::: moniker range="<= aspnetcore-1.1"
+
 Dla wersji 1.1 w tym temacie, Pobierz [implementacji serwera sieci web Kestrel w programie ASP.NET Core (w wersji 1.1, plików PDF)](https://webpifeed.blob.core.windows.net/webpifeed/Partners/Kestrel_1.1.pdf).
+
+::: moniker-end
 
 Kestrel jest dla wielu platform [serwera sieci web dla platformy ASP.NET Core](xref:fundamentals/servers/index). Kestrel jest serwer sieci web, który znajduje się domyślnie w szablonach projektu ASP.NET Core.
 
