@@ -34,7 +34,7 @@
 ## [Uruchamianie aplikacji](xref:fundamentals/startup)
 ## [Wstrzykiwanie zależności (usługi)](xref:fundamentals/dependency-injection)
 ## [Routing](xref:fundamentals/routing)
-## [Wiele środowisk](xref:fundamentals/environments)
+## [Środowiska (deweloperskie, przejściowe, produkcyjne)](xref:fundamentals/environments)
 ## [Konfiguracja](xref:fundamentals/configuration/index)
 ## [Opcje](xref:fundamentals/configuration/options)
 ## [Rejestrowanie](xref:fundamentals/logging/index)
@@ -432,6 +432,7 @@
 ## [Kompresja odpowiedzi](xref:performance/response-compression)
 
 # Migracja
+## [Z wersji 2.1 do 2.2](xref:migration/21-to-22)
 ## [Z wersji 2.0 do 2.1](xref:migration/20_21)
 ## Z wersji 1.x do 2.0
 ### [Omówienie](xref:migration/1x-to-2x/index)
