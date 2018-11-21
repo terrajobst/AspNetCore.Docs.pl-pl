@@ -4,14 +4,14 @@ author: rick-anderson
 description: Zapoznaj się z wprowadzeniem do rozwiązania ASP.NET Core, czyli międzyplatformowej struktury typu open source o wysokiej wydajności służącej do tworzenia nowoczesnych aplikacji internetowych opartych na chmurze.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/10/2018
+ms.date: 11/16/2018
 uid: index
-ms.openlocfilehash: 1699acc0086dfd50c573afc239bc8f37eb9e7af9
-ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
+ms.openlocfilehash: ccf00316218c0787136193a7acaf55b8687c6ede
+ms.sourcegitcommit: 04b55a5ce9d649ff2df926157ec28ae47afe79e2
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51569991"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52156948"
 ---
 # <a name="introduction-to-aspnet-core"></a>Wprowadzenie do platformy ASP.NET Core
 
@@ -77,7 +77,9 @@ Wiele artykułów i samouczków zawiera linki do kodu przykładowego.
 1. Rozpakuj plik *Docs-master.zip*.
 1. Adres URL linku do przykładu pomoże Ci przejść do katalogu przykładu.
 
-Aby zademonstrować wiele scenariuszy, przykładowe aplikacje używają instrukcji `#define` i `#if-#else/#elif-#endif` języka C# do selektywnego kompilowania i uruchamiania różnych sekcji przykładowego kodu. Aby w tych przykładach zastosować takie podejście, ustaw instrukcję `#define` w górnej części plików języka C# na symbol skojarzony ze scenariuszem, który chcesz uruchomić. Przykład może wymagać ustawienia symbolu w górnej części wielu plików, aby umożliwić uruchomienie scenariusza.
+### <a name="preprocessor-directives-in-sample-code"></a>Dyrektywy preprocesora w przykładowym kodzie
+
+Aby zademonstrować wiele scenariuszy, przykładowe aplikacje używają instrukcji `#define` i `#if-#else/#elif-#endif` języka C# do selektywnego kompilowania i uruchamiania różnych sekcji przykładowego kodu. Aby w tych przykładach zastosować takie podejście, ustaw instrukcję `#define` w górnej części plików języka C# na symbol skojarzony ze scenariuszem, który chcesz uruchomić. Niektóre przykłady mogą wymagać ustawienia symbolu w górnej części wielu plików, aby umożliwić uruchomienie scenariusza.
 
 Na przykład następująca lista symboli `#define` wskazuje, że są dostępne cztery scenariusze (jeden scenariusz na symbol). Aktualna konfiguracja przykładu powoduje uruchomienie scenariusza `TemplateCode`:
 
@@ -92,6 +94,33 @@ Aby zmienić przykład w celu uruchomienia scenariusza `ExpandDefault`, zdefiniu
 ```
 
 Więcej informacji na temat używania [ dyrektyw preprocesora języka C#](/dotnet/csharp/language-reference/preprocessor-directives/) do selektywnego kompilowania sekcji kodu można znaleźć w tematach [#define (C# Reference)](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-define) (#define (odwołanie w języku C#)) i [#if (C# Reference)](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-if) (#if (odwołanie w języku C#)).
+
+### <a name="regions-in-sample-code"></a>Regiony w przykładowym kodzie
+
+Niektóre przykładowe aplikacje zawierają sekcje kodu ujęte w instrukcje [#region](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-region) i [#end-region](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-endregion) języka C#. System tworzenia dokumentacji wstawia te regiony do renderowanych tematów dokumentacji.  
+
+Nazwy regionów zwykle zawierają wyraz „snippet”. W poniższym przykładzie pokazano region o nazwie `snippet_FilterInCode`:
+
+```csharp
+#region snippet_FilterInCode
+WebHost.CreateDefaultBuilder(args)
+    .UseStartup<Startup>()
+    .ConfigureLogging(logging =>
+        logging.AddFilter("System", LogLevel.Debug)
+            .AddFilter<DebugLoggerProvider>("Microsoft", LogLevel.Trace))
+            .Build();
+#endregion
+```
+
+Wcześniejszy fragment kodu w języku C# jest przywoływany w pliku markdown tematu za pomocą następującego wiersza:
+
+```
+[!code-csharp[](sample/SampleApp/Program.cs?name=snippet_FilterInCode)]
+```
+
+Możesz bezpiecznie zignorować (lub usunąć) instrukcje `#region` i `#end-region` otaczające kod. Jeśli planujesz uruchamiać przykładowy scenariusz opisany w temacie, nie zmieniaj kodu między tymi instrukcjami. Kod możesz swobodnie modyfikować, eksperymentując z innymi scenariuszami.
+
+Aby uzyskać więcej informacji, zobacz [Współtworzenie dokumentacji platformy ASP.NET: fragmenty kodu](https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md#code-snippets).
 
 ## <a name="next-steps"></a>Następne kroki
 
