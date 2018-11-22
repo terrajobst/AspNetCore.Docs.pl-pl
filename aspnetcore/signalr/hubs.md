@@ -5,14 +5,14 @@ description: Dowiedz się, jak używać koncentratory w biblioteki SignalR platf
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 11/07/2018
+ms.date: 11/20/2018
 uid: signalr/hubs
-ms.openlocfilehash: 0413d354307208726f4252f431ac59526effed08
-ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
+ms.openlocfilehash: 91f92e9d6b776457cd319965d548ee401ddc5e0e
+ms.sourcegitcommit: 4225e2c49a0081e6ac15acff673587201f54b4aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51569922"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282146"
 ---
 # <a name="use-hubs-in-signalr-for-aspnet-core"></a>Na użytek koncentratory w SignalR platformy ASP.NET Core
 
@@ -85,7 +85,6 @@ Można określić zwracany typ i parametry, w tym typy złożone i tablice, tak 
 | `Caller` | Wywołuje metodę dla klienta, który wywołał metodę koncentratora |
 | `Others` | Wywołuje metodę dla wszyscy połączeni klienci oprócz klienta, który wywołał metodę |
 
-
 `Hub.Clients` zawiera również następujące metody:
 
 | Metoda | Opis |
@@ -126,7 +125,17 @@ Ten interfejs może służyć do refaktoryzacji poprzednim `ChatHub` przykład.
 
 Za pomocą `Hub<IChatClient>` umożliwia w czasie kompilacji sprawdzania metody klienta. Zapobiega to problem spowodował za pomocą magic ciągów, ponieważ `Hub<T>` tylko można zapewnić dostęp do metody zdefiniowane w interfejsie.
 
-Za pomocą silnie typizowanej `Hub<T>` wyłącza możliwość używania `SendAsync`.
+Za pomocą silnie typizowanej `Hub<T>` wyłącza możliwość używania `SendAsync`. Wszelkie metody zdefiniowane w interfejsie nadal można zdefiniować jako asynchroniczne. W rzeczywistości, każda z tych metod zwraca `Task`. Ponieważ jest to interfejs, nie używaj `async` — słowo kluczowe. Na przykład:
+
+```csharp
+public interface IClient
+{
+    Task ClientMethod();
+}
+```
+
+> [!NOTE]
+> `Async` Sufiks nie jest usunięte z nazwy metody. Chyba, że metoda klienta jest zdefiniowana z `.on('MyMethodAsync')`, nie używaj `MyMethodAsync` jako nazwę.
 
 ## <a name="change-the-name-of-a-hub-method"></a>Zmień nazwę metody koncentratora
 
@@ -150,7 +159,7 @@ Wyjątki zgłaszane w Twoich metodach koncentratora są wysyłane do klienta, kt
 
 [!code-javascript[Error](hubs/sample/wwwroot/js/chat.js?range=23)]
 
-Domyślnie jeśli koncentrator zgłasza wyjątek, SignalR zwraca ogólny komunikat o błędzie do klienta. Na przykład:
+Jeśli koncentrator zgłasza wyjątek, połączenia nie są zamknięte. Domyślnie SignalR zwraca ogólny komunikat o błędzie do klienta. Na przykład:
 
 ```
 Microsoft.AspNetCore.SignalR.HubException: An unexpected error occurred invoking 'MethodName' on the server.

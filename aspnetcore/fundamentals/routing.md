@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/15/2018
 uid: fundamentals/routing
-ms.openlocfilehash: bfada2777551253d8bb5b3d6bf89d1b05b26c574
-ms.sourcegitcommit: 04b55a5ce9d649ff2df926157ec28ae47afe79e2
+ms.openlocfilehash: f18ec1da2affbf67b7ada570b68f98a42c7256a5
+ms.sourcegitcommit: ad28d1bc6657a743d5c2fa8902f82740689733bb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/20/2018
-ms.locfileid: "52156974"
+ms.locfileid: "52256596"
 ---
 # <a name="routing-in-aspnet-core"></a>Routing w programie ASP.NET Core
 
@@ -232,7 +232,7 @@ Kilka istnieją różnice między punktu końcowego routingu w programie ASP.NET
 
   Za pomocą `IRouter`-routing oparty na, ten kod generuje identyfikator URI zestawu `/blog/ReadPost/17`, który uwzględnia wielkość liter w wyrazie wartość podana trasy. Tworzy punkt końcowy routingu w programie ASP.NET Core 2.2 lub nowszym `/Blog/ReadPost/17` (Wielka "Blog"). Udostępnia punkt końcowy routingu `IOutboundParameterTransformer` interfejsu, który może służyć do dostosowywania zachowania globalnie lub aby zastosować różnych konwencji mapowania adresów URL.
 
-  Aby uzyskać więcej informacji, zobacz [odwołania do parametru transformatora](xref:#parameter-transformer-reference) sekcji.
+  Aby uzyskać więcej informacji, zobacz [odwołania do parametru transformatora](#parameter-transformer-reference) sekcji.
 
 * Generowanie konsolidacji używane przez strony MVC i Razor z konwencjonalnych trasy zachowuje się inaczej, podczas próby łącze do kontrolera/akcji lub strona, która nie istnieje.
 
