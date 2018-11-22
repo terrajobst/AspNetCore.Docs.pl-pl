@@ -5,12 +5,12 @@ description: Więcej informacji na temat składni znacznikowania Razor do osadza
 ms.author: riande
 ms.date: 10/26/2018
 uid: mvc/views/razor
-ms.openlocfilehash: 10f0db168b36fed82def8227b3c3edcf5b57f6d7
-ms.sourcegitcommit: 54655f1e1abf0b64d19506334d94cfdb0caf55f6
+ms.openlocfilehash: ab9fb3f55399764c5fe985811d92c504ed210767
+ms.sourcegitcommit: ad28d1bc6657a743d5c2fa8902f82740689733bb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50148892"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52256583"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>Dokumentacja składni razor dla platformy ASP.NET Core
 
@@ -197,7 +197,7 @@ Aby zdefiniować podsekcję blok kodu, które mają renderować kod HTML, Otocz 
 
 Tej metody można użyć do renderowania elementów HTML, który nie jest otoczony potraktowane jak tag HTML. Bez tagu HTML lub Razor występuje błąd w czasie wykonywania Razor.
 
-**\<Tekst >** tag jest przydatne do kontroli odstępu, podczas renderowania zawartości:
+ **\<Tekst >** tag jest przydatne do kontroli odstępu, podczas renderowania zawartości:
 
 * Tylko zawartości między  **\<tekst >** renderowanego tagu. 
 * Nie spacji przed ani po  **\<tekst >** tagów jest wyświetlana w danych wyjściowych HTML.
@@ -526,6 +526,105 @@ Poniższy kod jest wygenerowany Razor C# klasy:
 
 `@section` Dyrektywa jest używany w połączeniu z [układ](xref:mvc/views/layout) do przedstawiania do renderowania zawartości w różnych częściach strony HTML. Aby uzyskać więcej informacji, zobacz [sekcje](xref:mvc/views/layout#layout-sections-label).
 
+## <a name="templated-razor-delegates"></a>Oparte na szablonach delegatów Razor
+
+Szablony razor umożliwiają definiowanie fragmentu interfejsu użytkownika w następującym formacie:
+
+```cshtml
+@<tag>...</tag>
+```
+
+Poniższy przykład ilustruje sposób określania oparte na szablonach delegata Razor jako <xref:System.Func`2>. [Typu dynamicznego](/dotnet/csharp/programming-guide/types/using-type-dynamic) jest określona dla parametru metody, która hermetyzuje delegata. [Typ obiektu](/dotnet/csharp/language-reference/keywords/object) jest określony jako wartość zwracaną przez delegata. Ten szablon jest używany z <xref:System.Collections.Generic.List`1> z `Pet` zawierający `Name` właściwości.
+
+```csharp
+public class Pet
+{
+    public string Name { get; set; }
+}
+```
+
+```cshtml
+@{
+    Func<dynamic, object> petTemplate = @<p>You have a pet named @item.Name.</p>;
+
+    var pets = new List<Pet>
+    {
+        new Pet { Name = "Rin Tin Tin" },
+        new Pet { Name = "Mr. Bigglesworth" },
+        new Pet { Name = "K-9" }
+    };
+}
+```
+
+Szablon jest renderowany przy użyciu `pets` dostarczonych przez `foreach` instrukcji:
+
+```cshtml
+@foreach (var pet in pets)
+{
+    @petTemplate2(pet)
+}
+```
+
+Wyniku renderowania:
+
+```html
+<p>You have a pet named <strong>Rin Tin Tin</strong>.</p>
+<p>You have a pet named <strong>Mr. Bigglesworth</strong>.</p>
+<p>You have a pet named <strong>K-9</strong>.</p>
+```
+
+Możesz również dostarczyć wbudowany szablon Razor, jako argument do metody. W poniższym przykładzie `Repeat` metoda odbiera szablon Razor. Metoda używa tego szablonu w celu wygenerowania zawartość HTML z powtórzeń elementy dostarczane z listy:
+
+```cshtml
+@using Microsoft.AspNetCore.Html
+
+@functions {
+    public static IHtmlContent Repeat(IEnumerable<dynamic> items, int times, 
+        Func<dynamic, IHtmlContent> template)
+    {
+        var html = new HtmlContentBuilder();
+
+        foreach (var item in items)
+        {
+            for (var i = 0; i < times; i++)
+            {
+                html.AppendHtml(template(item));
+            }
+        }
+
+        return html;
+    }
+}
+```
+
+Za pomocą listę zwierząt domowych, z poprzedniego przykładu `Repeat` metoda jest wywoływana z:
+
+* <xref:System.Collections.Generic.List`1> z `Pet`.
+* Liczba powtórzeń każdego pet.
+* Wbudowany szablon do użycia dla elementów listy, listy nieuporządkowane.
+
+```cshtml
+<ul>
+    @Repeat(pets, 3, @<li>@item.Name</li>)
+</ul>
+```
+
+Wyniku renderowania:
+
+```html
+<ul>
+    <li>Rin Tin Tin</li>
+    <li>Rin Tin Tin</li>
+    <li>Rin Tin Tin</li>
+    <li>Mr. Bigglesworth</li>
+    <li>Mr. Bigglesworth</li>
+    <li>Mr. Bigglesworth</li>
+    <li>K-9</li>
+    <li>K-9</li>
+    <li>K-9</li>
+</ul>
+```
+
 ## <a name="tag-helpers"></a>Pomocnicy tagów
 
 Istnieją trzy dyrektyw, które odnoszą się do [pomocników tagów](xref:mvc/views/tag-helpers/intro).
@@ -541,8 +640,8 @@ Istnieją trzy dyrektyw, które odnoszą się do [pomocników tagów](xref:mvc/v
 ### <a name="razor-keywords"></a>Słowa kluczowe razor
 
 * Strona (wymaga platformy ASP.NET Core 2.0 i nowsze)
-* — przestrzeń nazw
-* — funkcje
+*  — przestrzeń nazw
+*  — funkcje
 * Inherits
 * model
 * sekcja
@@ -560,7 +659,7 @@ Razor słowa kluczowe są poprzedzone znakiem zmiany znaczenia z `@(Razor Keywor
 * if
 * else
 * lock
-* — przełącznik
+*  — przełącznik
 * Wypróbuj
 * CATCH
 * finally
