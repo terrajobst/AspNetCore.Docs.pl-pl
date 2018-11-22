@@ -1,4 +1,4 @@
-﻿---
+---
 title: Wprowadzenie do platformy ASP.NET Core
 author: rick-anderson
 description: Samouczek szybki, które tworzy i uruchamia prostej aplikacji Hello World przy użyciu platformy ASP.NET Core.
@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/31/2018
 uid: getting-started
-ms.openlocfilehash: 4a5a0cc5a5dab2171ab8ef43818185a4ee91af0e
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 4c899ff3c087f1b569521c6e2e8458fca01d6061
+ms.sourcegitcommit: bdfba5e7575b2a786ef27c0edf688c7dbd09ee95
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912569"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52288645"
 ---
 # <a name="tutorial-get-started-with-aspnet-core"></a>Samouczek: Rozpoczynanie pracy z platformą ASP.NET Core
 
@@ -110,3 +110,8 @@ Aby dowiedzieć się więcej na temat platformy ASP.NET Core, zobacz wprowadzeni
 
 > [!div class="nextstepaction"]
 > <xref:index>
+
+
+
+> [!NOTE]
+> Testujemy użyteczność proponowaną nową strukturę dla platformy ASP.NET Core spis treści.  Jeśli masz kilka minut, spróbuj wykonywania, znajdowanie 7 różne tematy w bieżącej lub proponowanej spis treści, [kliknij tutaj, aby wziąć udział w badaniach](https://dpk4xbh5.optimalworkshop.com/treejack/aa11wn82).
