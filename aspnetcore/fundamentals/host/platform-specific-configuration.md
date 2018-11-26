@@ -5,18 +5,18 @@ description: Dowiedz się, jak poprawić aplikacji ASP.NET Core z zestawu zewnę
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/13/2018
+ms.date: 11/22/2018
 uid: fundamentals/configuration/platform-specific-configuration
-ms.openlocfilehash: a06c2da04c1631f5811a535c891ca5190b0d8864
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: ef3b48dc72f294a783d789c4c9a796e3498a91d9
+ms.sourcegitcommit: 710fc5fcac258cc8415976dc66bdb355b3e061d5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207566"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52299459"
 ---
 # <a name="enhance-an-app-from-an-external-assembly-in-aspnet-core-with-ihostingstartup"></a>Zwiększanie możliwości aplikacji z zewnętrznego zestawu w programie ASP.NET Core za pomocą interfejsu IHostingStartup
 
-Przez [Luke Latham](https://github.com/guardrex)
+Przez [Luke Latham](https://github.com/guardrex) i [Pavel Krymets](https://github.com/pakrym)
 
 [Interfejsu IHostingStartup](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup) (hostuje uruchamiania) implementacja dodaje rozszerzenia do aplikacji przy uruchamianiu z zestawu zewnętrznego. Na przykład zewnętrznej biblioteki służy hostingu implementacji uruchamiania zapewnienie dodatkowej konfiguracji dostawcy lub usług do aplikacji. `IHostingStartup` *jest dostępna w programie ASP.NET Core 2.0 lub nowszej.*
 
@@ -113,14 +113,21 @@ Strony indeksu aplikacji odczytuje i renderuje wartości konfiguracji dwa klucze
 
 *Ta metoda jest dostępna tylko w przypadku aplikacji .NET Core, nie .NET Framework.*
 
-Dynamiczne hostingu ulepszenie uruchamiania, która nie wymaga odwołania w czasie kompilacji w celu aktywacji można podać w aplikacji konsolowej bez punktu wejścia. Ta aplikacja zawiera `HostingStartup` atrybutu. Aby utworzyć dynamiczny uruchomienia hostingu:
+Dynamiczne hostingu ulepszenie uruchamiania, która nie wymaga odwołania w czasie kompilacji w celu aktywacji można podać w aplikacji konsolowej bez punktu wejścia, który zawiera `HostingStartup` atrybutu. Publikowanie aplikacji konsoli daje hostingu zestaw startowy, który mogą być używane w sklepie środowiska uruchomieniowego.
 
-1. Implementacja biblioteki jest tworzony z klasy, która zawiera `IHostingStartup` implementacji. Biblioteka implementacja jest traktowany jako normalny pakietu.
-1. Aplikacja konsolowa bez punktu wejścia odwołuje się do wdrożenia pakietu biblioteki. Aplikacja konsoli jest używany, ponieważ:
-   * Plik zależności jest trwały możliwy do uruchomienia aplikacji, więc biblioteki nie może dostarczyć pliku zależności.
-   * Nie można dodać bezpośrednio do biblioteki [Magazyn pakietu środowiska uruchomieniowego](/dotnet/core/deploying/runtime-store), co wymaga możliwy do uruchomienia projektu, który jest przeznaczony dla udostępnionego środowiska uruchomieniowego.
-1. Aplikacja konsoli jest publikowany uzyskać zależności uruchomienia hostingu. Konsekwencją publikowania aplikacji konsoli jest, że nieużywane zależności są usuwane z pliku zależności.
-1. Aplikacja i jej zależności pliku jest umieszczany w Magazyn pakietu środowiska uruchomieniowego. Do odnajdywania, hostingu zestaw startowy i jego zależności pliku, jest przywoływany w parze zmiennych środowiskowych.
+Aplikacja konsolowa bez punktu wejścia jest używany w ramach tego procesu, ponieważ:
+
+* Do korzystania z hostingu uruchamiania w zestawie hostingu uruchamiania jest wymagana pliku zależności. Plik zależności jest trwały możliwy do uruchomienia aplikacji, który jest wytwarzany przez opublikowanie aplikacji, a nie z biblioteki.
+* Nie można dodać bezpośrednio do biblioteki [Magazyn pakietu środowiska uruchomieniowego](/dotnet/core/deploying/runtime-store), co wymaga możliwy do uruchomienia projektu, który jest przeznaczony dla udostępnionego środowiska uruchomieniowego.
+
+W przypadku tworzenia dynamicznego uruchamiania hostingu:
+
+* Zestaw startowy hostingu jest tworzony z aplikacji konsoli, bez punkt wejścia:
+  * Zawiera klasę, która zawiera `IHostingStartup` implementacji.
+  * Obejmuje [HostingStartup](/dotnet/api/microsoft.aspnetcore.hosting.hostingstartupattribute) atrybut do identyfikowania `IHostingStartup` implementacji klasy.
+* Aplikacja konsoli jest publikowany uzyskać zależności uruchomienia hostingu. Konsekwencją publikowania aplikacji konsoli jest, że nieużywane zależności są usuwane z pliku zależności.
+* Plik zależności jest modyfikowany do ustawiania lokalizacji środowiska uruchomieniowego, zestawu startowego hostingu.
+* Zestawie hostingu uruchamiania i jego zależności pliku jest umieszczany w Magazyn pakietu środowiska uruchomieniowego. Aby odnaleźć zestawie hostingu uruchamiania i jego zależności pliku, są wyświetlane w pary zmiennych środowiskowych.
 
 Aplikacja konsoli odwołuje się do [Microsoft.AspNetCore.Hosting.Abstractions](https://www.nuget.org/packages/Microsoft.AspNetCore.Hosting.Abstractions/) pakietu:
 
@@ -167,187 +174,98 @@ Dostępne są następujące opcje do obsługi aktywacji uruchamiania:
 
 Hostingu implementacji uruchamiania jest umieszczany w [magazynu środowiska uruchomieniowego](/dotnet/core/deploying/runtime-store). Odwołanie do zestawu kompilacji nie jest wymagane przez aplikację rozszerzone.
 
-Po utworzeniu hostingu uruchamiania pliku projektu startowego hostingu służy jako plik manifestu pod kątem [magazynu dotnet](/dotnet/core/tools/dotnet-store) polecenia.
+Po utworzeniu hostingu uruchamiania magazynu środowiska uruchomieniowego jest generowana z użyciem pliku manifestu projektu i [magazynu dotnet](/dotnet/core/tools/dotnet-store) polecenia.
 
 ```console
-dotnet store --manifest <PROJECT_FILE> --runtime <RUNTIME_IDENTIFIER>
+dotnet store --manifest {MANIFEST FILE} --runtime {RUNTIME IDENTIFIER} --output {OUTPUT LOCATION} --skip-optimization
 ```
 
-To polecenie umieszcza zestawie hostingu uruchamiania i inne zależności, które nie są częścią udostępnionej platformy w magazynie środowiska uruchomieniowego profilu użytkownika na:
+W przykładowej aplikacji (*RuntimeStore* projektu) służy następujące polecenie:
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
-
-```
-%USERPROFILE%\.dotnet\store\x64\<TARGET_FRAMEWORK_MONIKER>\<ENHANCEMENT_ASSEMBLY_NAME>\<ENHANCEMENT_VERSION>\lib\<TARGET_FRAMEWORK_MONIKER>\
+``` console
+dotnet store --manifest store.manifest.csproj --runtime win7-x64 --output ./deployment/store --skip-optimization
 ```
 
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
-
-```
-/Users/<USER>/.dotnet/store/x64/<TARGET_FRAMEWORK_MONIKER>/<ENHANCEMENT_ASSEMBLY_NAME>/<ENHANCEMENT_VERSION>/lib/<TARGET_FRAMEWORK_MONIKER>/
-```
-
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
-
-```
-/Users/<USER>/.dotnet/store/x64/<TARGET_FRAMEWORK_MONIKER>/<ENHANCEMENT_ASSEMBLY_NAME>/<ENHANCEMENT_VERSION>/lib/<TARGET_FRAMEWORK_MONIKER>/
-```
-
----
-
-Jeśli wymagasz umieścić zestaw i zależności do użytku globalnego, należy dodać `-o|--output` opcję `dotnet store` polecenia z następującą ścieżką:
-
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
-
-```
-%PROGRAMFILES%\dotnet\store\x64\<TARGET_FRAMEWORK_MONIKER>\<ENHANCEMENT_ASSEMBLY_NAME>\<ENHANCEMENT_VERSION>\lib\<TARGET_FRAMEWORK_MONIKER>\
-```
-
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
-
-```
-/usr/local/share/dotnet/store/x64/<TARGET_FRAMEWORK_MONIKER>/<ENHANCEMENT_ASSEMBLY_NAME>/<ENHANCEMENT_VERSION>/lib/<TARGET_FRAMEWORK_MONIKER>/
-```
-
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
-
-```
-/usr/local/share/dotnet/store/x64/<TARGET_FRAMEWORK_MONIKER>/<ENHANCEMENT_ASSEMBLY_NAME>/<ENHANCEMENT_VERSION>/lib/<TARGET_FRAMEWORK_MONIKER>/
-```
-
----
+Dla środowiska uruchomieniowego odnaleźć magazyn środowiska uruchomieniowego, lokalizacja magazynu środowiska uruchomieniowego jest dodawana do `DOTNET_SHARED_STORE` zmiennej środowiskowej.
 
 **Zmodyfikuj i umieść plik zależności startowe hostingu**
 
-Lokalizacja środowiska uruchomieniowego jest określona w  *\*. deps.json* pliku. Aby aktywować ulepszenie, `runtime` element musi określać lokalizację zestawu środowiska wykonawczego rozszerzenie. Prefiks `runtime` lokalizacji za pomocą `lib/<TARGET_FRAMEWORK_MONIKER>/`:
+Aby aktywować rozszerzenie bez pakietu odwołania do poprawienia, określ dodatkowe zależności środowiska uruchomieniowego za pomocą `additionalDeps`. `additionalDeps` Umożliwia:
 
-[!code-json[](platform-specific-configuration/samples-snapshot/2.x/StartupEnhancement2.deps.json?range=2-13&highlight=8)]
+* Rozszerz wykres biblioteki aplikacji przez udostępnienie zestawu dodatkowe  *\*. deps.json* pliki do scalania z własnych aplikacji  *\*. deps.json* pliku podczas uruchamiania.
+* Należy hostingu zestawu startowego obciążana i prostsze do odnalezienia.
 
-W przykładowym kodzie (*StartupDiagnostics* projektu), modyfikacji  *\*. deps.json* pliku odbywa się przez [PowerShell](/powershell/scripting/powershell-scripting) skryptu. Skrypt programu PowerShell automatycznie jest wyzwalana przez element docelowy kompilacji, w pliku projektu.
+Jest zalecane podejście do generowania pliku dodatkowe zależności:
 
-Implementacja  *\*. deps.json* plik musi znajdować się w dostępnej lokalizacji.
+ 1. Wykonaj `dotnet publish` w pliku manifestu sklepu środowiska uruchomieniowego, do którego odwołuje się w poprzedniej sekcji.
+ 1. Usuń odwołanie do manifestu z bibliotek i `runtime` części wynikowy  *\*deps.json* pliku.
 
-Do użytku dla użytkownika, umieść plik w *additonalDeps* folderu profilu użytkownika `.dotnet` ustawienia:
+W przykładowym projekcie `store.manifest/1.0.0` właściwości zostanie usunięta z `targets` i `libraries` sekcji:
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
-
-```
-%USERPROFILE%\.dotnet\x64\additionalDeps\<ENHANCEMENT_ASSEMBLY_NAME>\shared\Microsoft.NETCore.App\<SHARED_FRAMEWORK_VERSION>\
-```
-
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
-
-```
-/Users/<USER>/.dotnet/x64/additionalDeps/<ENHANCEMENT_ASSEMBLY_NAME>/shared/Microsoft.NETCore.App/<SHARED_FRAMEWORK_VERSION>/
-```
-
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
-
-```
-/Users/<USER>/.dotnet/x64/additionalDeps/<ENHANCEMENT_ASSEMBLY_NAME>/shared/Microsoft.NETCore.App/<SHARED_FRAMEWORK_VERSION>/
-```
-
----
-
-Do użytku globalnego, umieść plik w *additonalDeps* folderu instalacji platformy .NET Core:
-
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
-
-```
-%PROGRAMFILES%\dotnet\additionalDeps\<ENHANCEMENT_ASSEMBLY_NAME>\shared\Microsoft.NETCore.App\<SHARED_FRAMEWORK_VERSION>\
-```
-
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
-
-```
-/usr/local/share/dotnet/additionalDeps/<ENHANCEMENT_ASSEMBLY_NAME>/shared/Microsoft.NETCore.App/<SHARED_FRAMEWORK_VERSION>/
-```
-
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
-
-```
-/usr/local/share/dotnet/additionalDeps/<ENHANCEMENT_ASSEMBLY_NAME>/shared/Microsoft.NETCore.App/<SHARED_FRAMEWORK_VERSION>/
-```
-
----
-
-Udostępnione framework w wersji odzwierciedla wersję udostępnionego środowiska uruchomieniowego, która korzysta z docelową aplikacją. Udostępnione środowisko uruchomieniowe jest wyświetlany w  *\*. runtimeconfig.json* pliku. W przykładowej aplikacji (*HostingStartupApp*), udostępnionego środowiska uruchomieniowego jest określona w *HostingStartupApp.runtimeconfig.json* pliku.
-
-**Listy plików zależności startowe hostingu**
-
-Lokalizacja wdrożenia  *\*. deps.json* plik znajduje się w `DOTNET_ADDITIONAL_DEPS` zmiennej środowiskowej.
-
-Jeśli plik zostanie umieszczony w profilu użytkownika *.dotnet* folder, ustaw wartość zmiennej środowiskowej:
-
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
-
-```
-%USERPROFILE%\.dotnet\x64\additionalDeps\
+```json
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v2.1",
+    "signature": "4ea77c7b75ad1895ae1ea65e6ba2399010514f99"
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v2.1": {
+      "store.manifest/1.0.0": {
+        "dependencies": {
+          "StartupDiagnostics": "1.0.0"
+        },
+        "runtime": {
+          "store.manifest.dll": {}
+        }
+      },
+      "StartupDiagnostics/1.0.0": {
+        "runtime": {
+          "lib/netcoreapp2.1/StartupDiagnostics.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "store.manifest/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "StartupDiagnostics/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-oiQr60vBQW7+nBTmgKLSldj06WNLRTdhOZpAdEbCuapoZ+M2DJH2uQbRLvFT8EGAAv4TAKzNtcztpx5YOgBXQQ==",
+      "path": "startupdiagnostics/1.0.0",
+      "hashPath": "startupdiagnostics.1.0.0.nupkg.sha512"
+    }
+  }
+}
 ```
 
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
+Miejsce  *\*. deps.json* plik w następującej lokalizacji:
 
 ```
-/Users/<USER>/.dotnet/x64/additionalDeps/
+{ADDITIONAL DEPENDENCIES PATH}/shared/{SHARED FRAMEWORK NAME}/{SHARED FRAMEWORK VERSION}/{ENHANCEMENT ASSEMBLY NAME}.deps.json
 ```
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+* `{ADDITIONAL DEPENDENCIES PATH}` &ndash; Dodane do lokalizacji `DOTNET_ADDITIONAL_DEPS` zmiennej środowiskowej.
+* `{SHARED FRAMEWORK NAME}` &ndash; Udostępnione framework jest wymagany dla tego pliku dodatkowe zależności.
+* `{SHARED FRAMEWORK VERSION}` &ndash; Wersja minimalna udostępnionej platformy.
+* `{ENHANCEMENT ASSEMBLY NAME}` &ndash; Rozszerzenie nazwy zestawu.
+
+W przykładowej aplikacji (*RuntimeStore* projektu), plik dodatkowe zależności jest umieszczany w następującej lokalizacji:
 
 ```
-/Users/<USER>/.dotnet/x64/additionalDeps/
+additionalDeps/shared/Microsoft.AspNetCore.App/2.1.0/StartupDiagnostics.deps.json
 ```
 
----
+Dla środowiska uruchomieniowego odnaleźć lokalizacji magazynu środowiska uruchomieniowego, lokalizacja pliku dodatkowe zależności jest dodawana do `DOTNET_ADDITIONAL_DEPS` zmiennej środowiskowej.
 
-Jeśli plik zostanie umieszczony w instalacji programu .NET Core do użytku globalnego, należy podać pełną ścieżkę do pliku:
-
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
-
-```
-%PROGRAMFILES%\dotnet\additionalDeps\<ENHANCEMENT_ASSEMBLY_NAME>\shared\Microsoft.NETCore.App\<SHARED_FRAMEWORK_VERSION>\<ENHANCEMENT_ASSEMBLY_NAME>.deps.json
-```
-
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
-
-```
-/usr/local/share/dotnet/additionalDeps/<ENHANCEMENT_ASSEMBLY_NAME>/shared/Microsoft.NETCore.App/<SHARED_FRAMEWORK_VERSION>/<ENHANCEMENT_ASSEMBLY_NAME>.deps.json
-```
-
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
-
-```
-/usr/local/share/dotnet/additionalDeps/<ENHANCEMENT_ASSEMBLY_NAME>/shared/Microsoft.NETCore.App/<SHARED_FRAMEWORK_VERSION>/<ENHANCEMENT_ASSEMBLY_NAME>.deps.json
-```
-
----
-
-Aby uzyskać przykładową aplikację (*HostingStartupApp*) można znaleźć pliku zależności (*HostingStartupApp.runtimeconfig.json*), plik zależności jest umieszczany w profilu użytkownika.
-
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
-
-Ustaw `DOTNET_ADDITIONAL_DEPS` zmienną środowiskową na następującą wartość:
-
-```
-%UserProfile%\.dotnet\x64\additionalDeps\StartupDiagnostics\
-```
-
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
-
-Ustaw `DOTNET_ADDITIONAL_DEPS` zmienną środowiskową na następującą wartość:
-
-```
-/Users/<USER>/.dotnet/x64/additionalDeps/StartupDiagnostics/
-```
-
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
-
-Ustaw `DOTNET_ADDITIONAL_DEPS` zmienną środowiskową na następującą wartość:
-
-```
-/Users/<USER>/.dotnet/x64/additionalDeps/StartupDiagnostics/
-```
-
----
+W przykładowej aplikacji (*RuntimeStore* projektu), tworzenie magazynu środowiska uruchomieniowego i generuje dodatkowe zależności pliku odbywa się przy użyciu [PowerShell](/powershell/scripting/powershell-scripting) skryptu.
 
 Aby zapoznać się z przykładami sposobu ustawiania zmiennych środowiskowych dla różnych systemów operacyjnych, zobacz [używanie wielu środowisk](xref:fundamentals/environments).
 
@@ -355,9 +273,9 @@ Aby zapoznać się z przykładami sposobu ustawiania zmiennych środowiskowych d
 
 W celu ułatwienia wdrażania hostingu uruchamiania w środowisku multimachine, przykładowa aplikacja tworzy *wdrożenia* folderu w opublikowanych danych wyjściowych, który zawiera:
 
-* Zestaw startowy hostingu.
+* Uruchamianie magazyn środowisko uruchomieniowe hostingu.
 * Plik hostingu zależności startowe.
-* Skrypt programu PowerShell, który tworzy lub modyfikuje `ASPNETCORE_HOSTINGSTARTUPASSEMBLIES` i `DOTNET_ADDITIONAL_DEPS` do obsługi aktywacji uruchomienia hostingu. Uruchom skrypt w administracyjnym wierszu polecenia programu PowerShell w systemie wdrożenia.
+* Skrypt programu PowerShell, który tworzy lub modyfikuje `ASPNETCORE_HOSTINGSTARTUPASSEMBLIES`, `DOTNET_SHARED_STORE`, i `DOTNET_ADDITIONAL_DEPS` do obsługi aktywacji uruchomienia hostingu. Uruchom skrypt w administracyjnym wierszu polecenia programu PowerShell w systemie wdrożenia.
 
 ### <a name="nuget-package"></a>Pakiet NuGet
 

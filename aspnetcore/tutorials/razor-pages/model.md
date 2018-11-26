@@ -5,12 +5,12 @@ description: Dowiedz się, jak można dodać klas związanych z zarządzaniem fi
 ms.author: riande
 ms.date: 05/30/2018
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 41a88e06afbe6e7accd03ff7b39aa69e15e0c0b4
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: c4b23f75da298e4ee804f649219c2ce466b6d6ea
+ms.sourcegitcommit: 710fc5fcac258cc8415976dc66bdb355b3e061d5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49325816"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52299446"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Dodawanie modelu strony Razor aplikacji w programie ASP.NET Core
 
@@ -107,7 +107,7 @@ dotnet ef migrations add Initial
 dotnet ef database update
 ```
 
-Ignoruj następujący komunikat ostrzegawczy, naprawić w dalszych samouczków:
+Ignoruj następujący komunikat ostrzegawczy możesz rozwiązać później w samouczku:
 
 ```console
 Microsoft.EntityFrameworkCore.Model.Validation[30000]
