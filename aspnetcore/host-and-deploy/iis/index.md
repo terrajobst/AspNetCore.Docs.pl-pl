@@ -4,20 +4,23 @@ author: guardrex
 description: Dowiedz się, jak hostować aplikacje platformy ASP.NET Core na systemu Windows serwera Internet Information Services (IIS).
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/10/2018
+ms.date: 11/26/2018
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 1b34195dc51ca8dab5e8eda10f05ff6678fbc78c
-ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
+ms.openlocfilehash: 77fa6e1ef6a7fc707c2665826d3c1f4c2691979c
+ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51570168"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52450804"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host platformy ASP.NET Core na Windows za pomocą programu IIS
 
 Przez [Luke Latham](https://github.com/guardrex)
 
 [Zainstaluj program .NET Core hostingu pakietu](#install-the-net-core-hosting-bundle)
+
+> [!NOTE]
+> W tej chwili testujemy użyteczność nowo zaproponowanej struktury spisu treści dla dokumentacji platformy ASP.NET Core.  Jeśli możesz poświęcić chwilę na wykonanie ćwiczenia polegającego na znalezieniu 7 różnych tematów w aktualnym lub zaproponowanym spisie treści, [kliknij tutaj i weź udział w badaniu](https://dpk4xbh5.optimalworkshop.com/treejack/rps16hd5).
 
 ## <a name="supported-operating-systems"></a>Supported operating systems
 
@@ -416,31 +419,19 @@ Aby skonfigurować ochronę danych w środowisku usług IIS, aby utrwalić pier�
 
   System ochrony danych ma ograniczoną obsługę ustawiania domyślnych [komputera zasad](xref:security/data-protection/configuration/machine-wide-policy) dla wszystkich aplikacji korzystających z interfejsów API ochrony danych. Aby uzyskać więcej informacji, zobacz <xref:security/data-protection/introduction>.
 
-## <a name="sub-application-configuration"></a>Konfiguracja aplikacji podrzędnych
+## <a name="virtual-directories"></a>Katalogi wirtualne
 
-Aplikacje podrzędne, w obszarze katalogu głównego aplikacji nie powinna zawierać modułu ASP.NET Core jako program obsługi. Jeśli moduł jest dodawany jako program obsługi w sub-app *web.config* pliku *500.19 wewnętrzny błąd serwera* odwołuje się do pliku błędnej konfiguracji jest zgłaszany, jeśli próba przeglądania aplikacji podrzędnej.
+[Wirtualne katalogi IIS](/iis/get-started/planning-your-iis-architecture/understanding-sites-applications-and-virtual-directories-on-iis#virtual-directories) nie są obsługiwane przez aplikacje platformy ASP.NET Core. Aplikacja może być obsługiwany jako [podrzędnych aplikacji](#sub-applications).
 
-W poniższym przykładzie pokazano publikowania *web.config* sub aplikacji ASP.NET Core w pliku:
+## <a name="sub-applications"></a>Aplikacje podrzędne
 
-::: moniker range=">= aspnetcore-2.2"
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<configuration>
-  <location path="." inheritInChildApplications="false">
-    <system.webServer>
-      <aspNetCore processPath="dotnet" 
-        arguments=".\MyApp.dll" 
-        stdoutLogEnabled="false" 
-        stdoutLogFile=".\logs\stdout" />
-    </system.webServer>
-  </location>
-</configuration>
-```
-
-::: moniker-end
+Może być hostowana aplikacji ASP.NET Core jako [aplikacji podrzędnych usług IIS (sub-app)](/iis/get-started/planning-your-iis-architecture/understanding-sites-applications-and-virtual-directories-on-iis#applications). Ścieżka do aplikacji podrzędnej staje się częścią adresu URL aplikacji głównej.
 
 ::: moniker range="< aspnetcore-2.2"
+
+Sub — aplikacja nie powinna zawierać modułu ASP.NET Core jako program obsługi. Jeśli moduł jest dodawany jako program obsługi w sub-app *web.config* pliku *500.19 wewnętrzny błąd serwera* odwołuje się do pliku błędnej konfiguracji jest zgłaszany, jeśli próba przeglądania aplikacji podrzędnej.
+
+W poniższym przykładzie pokazano publikowania *web.config* sub aplikacji ASP.NET Core w pliku:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -473,7 +464,23 @@ Odnośnie do hostowania aplikacji — ASP.NET Core sub-poniżej aplikacji ASP.NE
 
 ::: moniker-end
 
-Aby uzyskać więcej informacji na temat konfigurowania modułu ASP.NET Core, zobacz [wprowadzenie do modułu ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) tematu i [informacje o konfiguracji modułu ASP.NET Core](xref:host-and-deploy/aspnet-core-module).
+Łączy statycznych zasobów w obrębie aplikacji podrzędnej należy używać ukośnika tyldy (`~/`) notacji. Wyzwalacze notacji ukośnika tylda [Pomocnik tagu](xref:mvc/views/tag-helpers/intro) można poprzedzić pathbase aplikacji podrzędnych do renderowanej względnego linku. Sub-aplikacji na `/subapp_path`, obraz połączony z `src="~/image.png"` jest renderowane jako `src="/subapp_path/image.png"`. Oprogramowanie pośredniczące plików statycznych aplikacji głównego nie przetwarza żądanie plików statycznych. Żądanie jest przetwarzane przez oprogramowanie pośredniczące plików statycznych aplikacji podrzędnej.
+
+Jeśli statycznych zasobów `src` atrybut jest ustawiony na ścieżkę bezwzględną (na przykład `src="/image.png"`), łącze jest renderowane bez pathbase aplikacji podrzędnej. Oprogramowanie pośredniczące plików statycznych aplikacji głównej próbuje obsługiwać zasobów z poziomu katalogu głównego aplikacji [webroot](xref:fundamentals/index#web-root-webroot), które powoduje *404 — Nie można odnaleźć* odpowiedzi, chyba że statyczny element zawartości jest dostępny z poziomu katalogu głównego aplikacji.
+
+Do hostowania aplikacji ASP.NET Core jako aplikację podrzędne w ramach innej aplikacji platformy ASP.NET Core:
+
+1. Ustanów pulę aplikacji do aplikacji podrzędnej. Ustaw **wersja środowiska .NET CLR** do **bez kodu zarządzanego**.
+
+1. Dodawanie katalogu głównego witryny w Menedżerze usług IIS przy użyciu aplikacji podrzędne w folderze w katalogu głównego witryny.
+
+1. Kliknij prawym przyciskiem myszy folder aplikacji podrzędnej w Menedżerze usług IIS, a następnie wybierz pozycję **Konwertuj na aplikację**.
+
+1. W **Add Application** okno dialogowe, użyj **wybierz** przycisku **puli aplikacji** można przypisać puli aplikacji, który został utworzony dla aplikacji podrzędnej. Wybierz **OK**.
+
+Przypisanie puli osobnych aplikacji do aplikacji podrzędnej jest wymagana, korzystając z modelu hostingu w procesie.
+
+Aby uzyskać więcej informacji na temat w procesie model hostingu i konfigurowania modułu ASP.NET Core, zobacz <xref:fundamentals/servers/aspnet-core-module> i <xref:host-and-deploy/aspnet-core-module>.
 
 ## <a name="configuration-of-iis-with-webconfig"></a>Konfiguracja programu IIS z pliku web.config
 
@@ -610,6 +617,7 @@ Rozróżnia typowych błędów, odnośnie do hostowania aplikacji platformy ASP.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
+* <xref:test/troubleshoot>
 * [Wprowadzenie do platformy ASP.NET Core](xref:index)
 * [Witryna oficjalne Microsoft IIS](https://www.iis.net/)
 * [Windows Server Technical Preview biblioteki zawartości](/windows-server/windows-server)

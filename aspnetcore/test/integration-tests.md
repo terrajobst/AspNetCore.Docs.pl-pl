@@ -5,14 +5,14 @@ description: Dowiedz się, jak testy integracji upewnij się, że składniki apl
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/30/2018
+ms.date: 11/26/2018
 uid: test/integration-tests
-ms.openlocfilehash: a136a362cd8973b3684f9a70bd4792d75238eab0
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 9729925c89c212bb6e6fac1a484b6288697afe57
+ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207878"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52450752"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>Testy integracji w programie ASP.NET Core
 
@@ -100,8 +100,8 @@ Praktycznie nie ma różnic między aplikacjami MVC i konfiguracji testów aplik
 Projekt testowy musi:
 
 * Odwołać się do następujących pakietów:
-  - [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App/)
-  - [Microsoft.AspNetCore.Mvc.Testing](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Testing/)
+  * [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App/)
+  * [Microsoft.AspNetCore.Mvc.Testing](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Testing/)
 * Określ zestaw SDK sieci Web w pliku projektu (`<Project Sdk="Microsoft.NET.Sdk.Web">`). Zestaw SDK sieci Web jest wymagany podczas odwoływania się do [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app).
 
 Te wymagania wstępne są widoczne w [przykładową aplikację](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/integration-tests/samples/). Sprawdzanie *tests/RazorPagesProject.Tests/RazorPagesProject.Tests.csproj* pliku. Ta aplikacja używa przykładowych [xUnit](https://xunit.github.io/) struktury testowej i [AngleSharp](https://anglesharp.github.io/) Biblioteka analizator, więc Przykładowa aplikacja również odwołuje się do:
@@ -316,6 +316,10 @@ Dodaj *xunit.runner.json* plik do katalogu głównego projektu testowego o nast�
   "shadowCopy": false
 }
 ```
+
+## <a name="disposal-of-objects"></a>Usuwanie obiektów
+
+Po przeprowadzeniu testów z `IClassFixture` wdrożenia są wykonywane, [elementu TestServer](/dotnet/api/microsoft.aspnetcore.testhost.testserver) i [HttpClient](/dotnet/api/system.net.http.httpclient) będą usuwane, gdy usuwa xUnit [WebApplicationFactory](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1) . Jeśli obiektów utworzonych przez dewelopera wymaga usunięcia, usunąć je w `IClassFixture` implementacji. Aby uzyskać więcej informacji, zobacz [implementacja metody Dispose](/dotnet/standard/garbage-collection/implementing-dispose).
 
 ## <a name="integration-tests-sample"></a>Przykład testy integracji
 

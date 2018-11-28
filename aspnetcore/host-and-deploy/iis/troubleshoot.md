@@ -4,14 +4,14 @@ author: guardrex
 description: Dowiedz się, jak diagnozować problemy z wdrożeniami usług Internet Information Services (IIS) w aplikacji platformy ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 11/26/2018
 uid: host-and-deploy/iis/troubleshoot
-ms.openlocfilehash: 2b23bf8230f7a1c207ef7870da098ffb0c597fd5
-ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
+ms.openlocfilehash: 2ff870623de43676be38c5de8f338a7913e885a8
+ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51225450"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52450713"
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a>Rozwiązywanie problemów z platformą ASP.NET Core w usługach IIS
 
@@ -47,7 +47,8 @@ Więcej informacji na temat debugowania wbudowaną w programie Visual Studio Cod
 
 ## <a name="app-startup-errors"></a>Błędy uruchamiania aplikacji
 
-**502.5 niepowodzenie procesu**  
+### <a name="5025-process-failure"></a>502.5 niepowodzenie procesu
+
 Proces roboczy kończy się niepowodzeniem. Nie zaczyna się aplikacja.
 
 Modułu ASP.NET Core próbuje uruchomić proces dotnet wewnętrznej bazy danych, ale nie została uruchomiona. Zazwyczaj można ustalić przyczyny niepowodzenia uruchamiania procesu na podstawie wpisów w [dziennik zdarzeń aplikacji](#application-event-log) i [dziennika stdout modułu ASP.NET Core](#aspnet-core-module-stdout-log). 
@@ -60,7 +61,7 @@ Aplikacja jest błędnie skonfigurowane z powodu przeznaczony dla wersji udostę
 
 ::: moniker range=">= aspnetcore-2.2"
 
-**500.30 w procesie Niepowodzenie uruchamiania**
+### <a name="50030-in-process-startup-failure"></a>500.30 w procesie Niepowodzenie uruchamiania
 
 Proces roboczy kończy się niepowodzeniem. Nie zaczyna się aplikacja.
 
@@ -68,7 +69,7 @@ Próbuje uruchomić program .NET Core CLR w procesie modułu ASP.NET Core, ale n
 
 Aplikacja jest błędnie skonfigurowane z powodu przeznaczony dla wersji udostępnionej platformy ASP.NET Core, która nie jest obecny jest jakiś wspólny warunek błędu. Sprawdź, które wersje udostępnionej platformy ASP.NET Core są zainstalowane na komputerze docelowym.
 
-**500.0 w procesie programu obsługi błędu ładowania**
+### <a name="5000-in-process-handler-load-failure"></a>500.0 w procesie programu obsługi błędu ładowania
 
 Proces roboczy kończy się niepowodzeniem. Nie zaczyna się aplikacja.
 
@@ -77,7 +78,7 @@ Modułu ASP.NET Core nie powiedzie się znaleźć programu .NET Core CLR i Znajd
 * Aplikacja jest przeznaczona na albo [Microsoft.AspNetCore.Server.IIS](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IIS) pakietu NuGet lub [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app).
 * Wersja udostępnionej platformy ASP.NET Core jest zainstalowanie aplikacji jest przeznaczony dla na komputerze docelowym.
 
-**500.0 Błąd ładowania poza procesem programu obsługi**
+### <a name="5000-out-of-process-handler-load-failure"></a>500.0 Błąd ładowania poza procesem programu obsługi
 
 Proces roboczy kończy się niepowodzeniem. Nie zaczyna się aplikacja.
 
@@ -85,12 +86,13 @@ Modułu ASP.NET Core nie powiedzie się znaleźć spoza procesu hostingu Obsług
 
 ::: moniker-end
 
-**500 Wewnętrzny błąd serwera**  
+### <a name="500-internal-server-error"></a>500 Wewnętrzny błąd serwera
+
 Uruchamia aplikację, ale błąd uniemożliwia spełnienie żądania przez serwer.
 
 Ten błąd występuje w kodzie aplikacji, podczas uruchamiania lub podczas tworzenia odpowiedzi. Odpowiedź może zawierać żadnej zawartości lub odpowiedzi może być wyświetlana jako *500 Wewnętrzny błąd serwera* w przeglądarce. W dzienniku zdarzeń aplikacji stwierdza, zwykle uruchomiona aplikacja. Z perspektywy serwera, który jest poprawna. Aplikacja została uruchomiona, ale nie może wygenerować prawidłowej odpowiedzi. [Uruchamianie aplikacji w wierszu polecenia](#run-the-app-at-a-command-prompt) na serwerze lub [Włącz dziennik stdout modułu ASP.NET Core](#aspnet-core-module-stdout-log) do rozwiązania problemu.
 
-**Resetowanie połączenia**
+### <a name="connection-reset"></a>Resetowanie połączenia
 
 Jeśli błąd wystąpi po nagłówki są wysyłane, jest za późno serwera wysłać **500 Wewnętrzny błąd serwera** po wystąpieniu błędu. Dzieje się tak często, gdy wystąpi błąd podczas serializacji obiektów złożonych na odpowiedź. Tego typu błędu jest wyświetlany jako *resetowania połączenia* błąd na komputerze klienckim. [Rejestrowanie aplikacji](xref:fundamentals/logging/index) mogą pomóc rozwiązać tego rodzaju błędów.
 
@@ -113,7 +115,7 @@ Dostęp do dziennika zdarzeń aplikacji:
 
 Wiele błędów uruchamiania przestaną generować przydatne informacje w dzienniku zdarzeń aplikacji. Przyczyną niektórych błędów można znaleźć, uruchamiając aplikację w wierszu polecenia w systemie hostingu.
 
-**Wdrożenie zależny od struktury**
+#### <a name="framework-dependent-deployment"></a>Wdrożenie zależny od struktury
 
 Jeśli aplikacja jest [wdrożenia zależny od struktury](/dotnet/core/deploying/#framework-dependent-deployments-fdd):
 
@@ -121,7 +123,7 @@ Jeśli aplikacja jest [wdrożenia zależny od struktury](/dotnet/core/deploying/
 1. Dane wyjściowe z aplikacji, przedstawiający wszystkie błędy z konsoli są zapisywane w oknie konsoli.
 1. Jeśli wystąpią błędy, gdy kieruje żądanie do aplikacji, należy wysłać żądanie do hosta i portu, na którym nasłuchuje Kestrel. Przy użyciu domyślnego hosta i post, zgłosić wniosek o `http://localhost:5000/`. Jeśli aplikacja reaguje, zwykle pod adresem punktu końcowego Kestrel, problem najprawdopodobniej związanych z konfiguracją zwrotny serwer proxy i mniej prawdopodobne w aplikacji.
 
-**Niezależne wdrożenia**
+#### <a name="self-contained-deployment"></a>Niezależne wdrożenia
 
 Jeśli aplikacja jest [niezależna wdrożenia](/dotnet/core/deploying/#self-contained-deployments-scd):
 
@@ -142,7 +144,8 @@ Włączanie i wyświetlanie dzienników stdout:
 1. Przejdź do *dzienniki* folderu. Znajdowanie i otwieranie najnowszych dziennika stdout.
 1. Badanie w dzienniku błędów.
 
-**Ważne!** Wyłącz rejestrowanie strumienia stdout, po zakończeniu rozwiązywania problemów.
+> [!IMPORTANT]
+> Wyłącz rejestrowanie strumienia stdout, po zakończeniu rozwiązywania problemów.
 
 1. Edytuj *web.config* pliku.
 1. Ustaw **stdoutLogEnabled** do `false`.
@@ -153,9 +156,27 @@ Włączanie i wyświetlanie dzienników stdout:
 >
 > Rutynowe logujesz się w aplikacji ASP.NET Core, użytku bibliotekę rejestrowania, która ogranicza rozmiar pliku dziennika i obraca się loguje. Aby uzyskać więcej informacji, zobacz [rejestrowania innych dostawców](xref:fundamentals/logging/index#third-party-logging-providers).
 
-## <a name="enabling-the-developer-exception-page"></a>Włączanie na stronie wyjątków dla deweloperów
+## <a name="enable-the-developer-exception-page"></a>Włącz na stronie wyjątków dla deweloperów
 
 `ASPNETCORE_ENVIRONMENT` [Zmiennej środowiskowej, można dodać do pliku web.config](xref:host-and-deploy/aspnet-core-module#setting-environment-variables) do uruchomienia aplikacji w środowisku programistycznym. Tak długo, jak środowisko nie jest zastąpione przy uruchamianiu aplikacji przez `UseEnvironment` umożliwia ustawienie zmiennej środowiskowej w Konstruktorze hosta [stronie wyjątków deweloperów](xref:fundamentals/error-handling) się pojawiać po uruchomieniu aplikacji.
+
+::: moniker range=">= aspnetcore-2.2"
+
+```xml
+<aspNetCore processPath="dotnet"
+      arguments=".\MyApp.dll"
+      stdoutLogEnabled="false"
+      stdoutLogFile=".\logs\stdout"
+      hostingModel="inprocess">
+  <environmentVariables>
+    <environmentVariable name="ASPNETCORE_ENVIRONMENT" value="Development" />
+  </environmentVariables>
+</aspNetCore>
+```
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
 
 ```xml
 <aspNetCore processPath="dotnet"
@@ -168,11 +189,17 @@ Włączanie i wyświetlanie dzienników stdout:
 </aspNetCore>
 ```
 
+::: moniker-end
+
 Ustawienie zmiennej środowiskowej, aby uzyskać `ASPNETCORE_ENVIRONMENT` jest zalecane tylko dla używane w przejściowym i testowania serwerów, które nie są połączone z Internetem. Usuń zmienną środowiskową z *web.config* plik po rozwiązywania problemów. Aby uzyskać informacje na temat ustawiania zmiennych środowiskowych *web.config*, zobacz [environmentVariables element podrzędny elementu aspNetCore](xref:host-and-deploy/aspnet-core-module#setting-environment-variables).
 
-## <a name="common-startup-errors"></a>Typowe błędy uruchamiania 
+## <a name="common-startup-errors"></a>Typowe błędy uruchamiania
 
 Zobacz <xref:host-and-deploy/azure-iis-errors-reference>. Najbardziej typowe problemy, które uniemożliwiają uruchamianie aplikacji znajdują się w temacie odwołania.
+
+## <a name="obtain-data-from-an-app"></a>Uzyskiwanie danych z aplikacji
+
+Jeśli aplikacja jest w stanie odpowiadać na żądania, żądania, połączenia i dodatkowych danych można uzyskać z aplikację za pomocą oprogramowania pośredniczącego terminalu wbudowanego. Aby uzyskać więcej informacji i przykładowy kod, zobacz <xref:test/troubleshoot#obtain-data-from-an-app>.
 
 ## <a name="slow-or-hanging-app"></a>Wolne lub zwisa aplikacji
 
@@ -190,7 +217,7 @@ Zobacz [zdalne debugowanie platformy ASP.NET Core na komputerze zdalnym usług I
 
 [Usługa Application Insights](/azure/application-insights/) udostępnia dane telemetryczne z aplikacji hostowanych przez usługi IIS, w tym rejestrowanie i funkcji raportowania błędów. Usługa Application Insights można tylko raporty dotyczące błędów występujących po uruchomieniu aplikacji, gdy staną się dostępne funkcje rejestrowania aplikacji. Aby uzyskać więcej informacji, zobacz [usługi Application Insights dla platformy ASP.NET Core](/azure/application-insights/app-insights-asp-net-core).
 
-## <a name="additional-troubleshooting-advice"></a>Dodatkowe porady dotyczące rozwiązywania problemów
+## <a name="additional-advice"></a>Dodatkowe porady
 
 Czasami funkcjonalności aplikacji nie powiedzie się natychmiast po uaktualnieniu albo .NET Core SDK w wersjach maszyny lub pakiet rozwoju w aplikacji. W niektórych przypadkach niespójne pakietów może spowodować uszkodzenie aplikacji podczas przeprowadzania uaktualnienia głównych. Większość z tych problemów można naprawić, wykonując następujące instrukcje:
 
@@ -201,11 +228,12 @@ Czasami funkcjonalności aplikacji nie powiedzie się natychmiast po uaktualnien
 
 > [!TIP]
 > Wygodnym sposobem Wyczyść pamięć podręczną pakietu ma wykonać `dotnet nuget locals all --clear` z poziomu wiersza polecenia.
-> 
+>
 > Wyczyszczenie pamięci podręcznej pakietu może być również wykonywane przy użyciu [nuget.exe](https://www.nuget.org/downloads) narzędzie i wykonywania polecenia `nuget locals all -clear`. *nuget.exe* nie jest powiązane instalacji z pulpitu systemu operacyjnego Windows i należy uzyskać oddzielnie od [NuGet witryny sieci Web](https://www.nuget.org/downloads).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
+* <xref:test/troubleshoot>
 * <xref:fundamentals/error-handling>
 * <xref:host-and-deploy/azure-iis-errors-reference>
 * <xref:host-and-deploy/aspnet-core-module>

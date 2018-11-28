@@ -4,14 +4,14 @@ description: Dowiedz się, jak skonfigurować przekierowywanie ruchu HTTP do apl
 author: spboyer
 ms.author: spboyer
 ms.custom: mvc
-ms.date: 10/23/2018
+ms.date: 11/26/2018
 uid: host-and-deploy/linux-apache
-ms.openlocfilehash: 1d303fbde2a398b4628d3390aea80957a59f711b
-ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
+ms.openlocfilehash: d0e36d0a73df43a26c03dc4154962240683817b5
+ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50253146"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52450817"
 ---
 # <a name="host-aspnet-core-on-linux-with-apache"></a>Host platformy ASP.NET Core w systemie Linux z Apache
 
@@ -180,9 +180,9 @@ sudo systemctl restart httpd
 sudo systemctl enable httpd
 ```
 
-## <a name="monitoring-the-app"></a>Monitorowanie aplikacji
+## <a name="monitor-the-app"></a>Monitorowanie aplikacji
 
-Apache jest teraz Instalatora w celu przekazywania żądań kierowanych do `http://localhost:80` do aplikacji platformy ASP.NET Core uruchomionych na Kestrel na `http://127.0.0.1:5000`.  Apache skonfigurować nie jest jednak do zarządzania procesem Kestrel. Użyj *systemd* i Utwórz plik usługi, aby uruchomić i monitorować podstawowej aplikacji sieci web. *systemd* to system init, który zapewnia wiele funkcji zaawansowanych uruchamianie, zatrzymywanie oraz zarządzanie procesami. 
+Apache jest teraz Instalatora w celu przekazywania żądań kierowanych do `http://localhost:80` do aplikacji platformy ASP.NET Core uruchomionych na Kestrel na `http://127.0.0.1:5000`. Apache skonfigurować nie jest jednak do zarządzania procesem Kestrel. Użyj *systemd* i Utwórz plik usługi, aby uruchomić i monitorować podstawowej aplikacji sieci web. *systemd* to system init, który zapewnia wiele funkcji zaawansowanych uruchamianie, zatrzymywanie oraz zarządzanie procesami.
 
 ### <a name="create-the-service-file"></a>Utwórz plik usługi
 
@@ -259,7 +259,7 @@ Connection: Keep-Alive
 Transfer-Encoding: chunked
 ```
 
-### <a name="viewing-logs"></a>Wyświetlanie dzienników
+### <a name="view-logs"></a>Wyświetl dzienniki
 
 Ponieważ aplikacja sieci web przy użyciu Kestrel odbywa się przy użyciu *systemd*, scentralizowane dziennika są rejestrowane zdarzenia i procesów. Jednak ten dziennik zawiera wpisy dla wszystkich usług i procesów, które zarządza *systemd*. Aby wyświetlić `kestrel-helloapp.service`— określone elementy, użyj następującego polecenia:
 
@@ -288,7 +288,7 @@ Aby skonfigurować ochronę danych na zostaną zachowane, a pierścień klucz sz
 * <xref:security/data-protection/implementation/key-storage-providers>
 * <xref:security/data-protection/implementation/key-encryption-at-rest>
 
-## <a name="securing-the-app"></a>Zabezpieczanie aplikacji
+## <a name="secure-the-app"></a>Zabezpieczanie aplikacji
 
 ### <a name="configure-firewall"></a>Konfigurowanie zapory
 
@@ -485,4 +485,5 @@ Przykładowy plik ogranicza przepustowość jako 600 KB/s, w obszarze Katalog g�
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Wymagania wstępne dla platformy .NET Core w systemie Linux](/dotnet/core/linux-prerequisites)
-* [Konfigurowanie platformy ASP.NET Core pracować z serwerów proxy i moduły równoważenia obciążenia](xref:host-and-deploy/proxy-load-balancer)
+* <xref:test/troubleshoot>
+* <xref:host-and-deploy/proxy-load-balancer>
