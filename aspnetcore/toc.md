@@ -413,6 +413,15 @@
 ## [Udostępnianie plików cookie między aplikacjami](xref:security/cookie-sharing)
 ## [Lista bezpiecznych adresów IP](xref:security/ip-safelist)
 
+# Wydajność
+## [Omówienie](xref:performance/performance-best-practices)
+##  Buforowanie odpowiedzi
+### [Omówienie](xref:performance/caching/response)
+### [W pamięci podręcznej](xref:performance/caching/memory)
+### [Rozproszone buforowanie](xref:performance/caching/distributed)
+### [Oprogramowanie pośredniczące buforowania odpowiedzi](xref:performance/caching/middleware)
+## [Kompresja odpowiedzi](xref:performance/response-compression)
+
 # Inne tematy
 ## [Globalizacja i lokalizacja](xref:fundamentals/localization)
 ## [Lokalizacja obiektu przenośnego przy użyciu struktury Orchard Core](xref:fundamentals/portable-object-localization)
@@ -428,13 +437,6 @@
 ## [Pakiet meta Microsoft.AspNetCore.All](xref:fundamentals/metapackage)
 ## [Rejestrowanie za pomocą funkcji LoggerMessage](xref:fundamentals/logging/loggermessage)
 ## [Używanie obserwatora plików](xref:tutorials/dotnet-watch)
-## Buforowanie odpowiedzi
-### [Omówienie](xref:performance/caching/index)
-### [Buforowanie w pamięci](xref:performance/caching/memory)
-### [Rozproszone buforowanie](xref:performance/caching/distributed)
-### [Buforowanie odpowiedzi](xref:performance/caching/response)
-### [Oprogramowanie pośredniczące buforowania odpowiedzi](xref:performance/caching/middleware)
-## [Kompresja odpowiedzi](xref:performance/response-compression)
 
 # Migracja
 ## [Z wersji 2.1 do 2.2](xref:migration/21-to-22)
