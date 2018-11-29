@@ -5,12 +5,12 @@ description: W tym artykule wyjaśniono vs platformy ASP.NET Core. ASP.NET 4.x i
 ms.author: riande
 ms.date: 09/11/2018
 uid: fundamentals/choose-between-aspnet-and-aspnetcore
-ms.openlocfilehash: 79e56e10b756677431ceff289300c251e54bf632
-ms.sourcegitcommit: bdfba5e7575b2a786ef27c0edf688c7dbd09ee95
+ms.openlocfilehash: fa281a068dfdcd8a7c45dd5d0a0c3084c4bc8dbc
+ms.sourcegitcommit: e8d80ff566bfe505b43389d7bc4551edb1c0c872
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52288671"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52549075"
 ---
 # <a name="choose-between-aspnet-4x-and-aspnet-core"></a>Wybieranie między ASP.NET 4.x i ASP.NET Core
 
@@ -63,4 +63,4 @@ Zobacz [platformy ASP.NET Core przeznaczone dla .NET Framework](xref:index#targe
 * <xref:host-and-deploy/azure-apps/index>
 
 > [!NOTE]
-> Testujemy użyteczność proponowaną nową strukturę dla platformy ASP.NET Core spis treści.  Jeśli masz kilka minut, spróbuj wykonywania, znajdowanie 7 różne tematy w bieżącej lub proponowanej spis treści, [kliknij tutaj, aby wziąć udział w badaniach](https://dpk4xbh5.optimalworkshop.com/treejack/aa11wn82).
+> W tej chwili testujemy użyteczność nowo zaproponowanej struktury spisu treści dla dokumentacji platformy ASP.NET Core.  Jeśli możesz poświęcić chwilę na wykonanie ćwiczenia polegającego na znalezieniu 7 różnych tematów w aktualnym lub zaproponowanym spisie treści, [kliknij tutaj i weź udział w badaniu](https://dpk4xbh5.optimalworkshop.com/treejack/rps16hd5).

@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.date: 11/29/2018
 uid: performance/performance-best-practices
-ms.openlocfilehash: ced86dbc2d6f40b503493eda122d8977d6df7035
-ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
+ms.openlocfilehash: 9f3ed97bf4d4eb371ff5ae3874234b44745cc4ca
+ms.sourcegitcommit: 0fc89b80bb1952852ecbcf3c5c156459b02a6ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453028"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52618119"
 ---
 # <a name="aspnet-core-performance-best-practices"></a>ASP.NET Core najlepsze rozwiązania w zakresie wydajności
 
@@ -24,7 +24,7 @@ Ten temat zawiera wytyczne dotyczące wydajności, najlepsze rozwiązania z plat
 
 ## <a name="cache-aggressively"></a>Agresywne pamięci podręcznej
 
-Pamięć podręczna została omówiona w różnych części tego dokumentu. Aby uzyskać więcej informacji, zobacz [buforują odpowiedzi w programie ASP.NET Core](xref:performance/caching/index).
+Pamięć podręczna została omówiona w różnych części tego dokumentu. Aby uzyskać więcej informacji, zobacz <xref:performance/caching/response>.
 
 ## <a name="avoid-blocking-calls"></a>Unikanie zablokowania wywołania
 
@@ -71,7 +71,7 @@ Zalecenia:
 
 * **Czy** asynchroniczne wywoływanie dostępu do wszystkich danych interfejsów API.
 * **Nie** pobieranie większej ilości danych niż jest to konieczne. Zapisywanie zapytań, aby zwrócić tylko dane, które są niezbędne dla bieżącego żądania HTTP.
-* **Czy** należy wziąć pod uwagę buforowanie często uzyskać dostępu do danych pobranych z bazy danych lub usługi zdalnej, jeśli jest dopuszczalne dane, które mogą być nieco nieaktualne. W zależności od scenariusza, prawdopodobnie używasz [MemoryCache](xref:performance/caching/memory) lub [DistributedCache](xref:performance/caching/distributed). Aby uzyskać więcej informacji, zobacz [buforują odpowiedzi w programie ASP.NET Core](xref:performance/caching/index).
+* **Czy** należy wziąć pod uwagę buforowanie często uzyskać dostępu do danych pobranych z bazy danych lub usługi zdalnej, jeśli jest dopuszczalne dane, które mogą być nieco nieaktualne. W zależności od scenariusza, prawdopodobnie używasz [MemoryCache](xref:performance/caching/memory) lub [DistributedCache](xref:performance/caching/distributed). Aby uzyskać więcej informacji, zobacz <xref:performance/caching/response>.
 * Zminimalizuj liczbę rund sieciowych. Celem jest, aby pobrać wszystkie dane, które będą potrzebne w pojedynczym wywołaniu, a nie kilka wywołań.
 * **Czy** użyj [nie śledzenia zapytań](/ef/core/querying/tracking#no-tracking-queries) w Entity Framework Core przy uzyskiwaniu dostępu do danych dla celów tylko do odczytu. EF Core może zwrócić wyniki zapytania śledzenia nie bardziej efektywnie.
 * **Czy** filtr i agregacji zapytań LINQ (przy użyciu `.Where`, `.Select`, lub `.Sum` instrukcji, na przykład), aby filtrowanie odbywa się przez bazę danych.
