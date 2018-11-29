@@ -20,6 +20,7 @@
 ### [W programie Visual Studio Code](xref:tutorials/web-api-vsc)
 ### [W programie Visual Studio dla komputerów Mac](xref:tutorials/first-web-api-mac)
 ### [Dla natywnych aplikacji mobilnych](xref:mobile/native-mobile-backend)
+### [W programie MongoDB](xref:tutorials/first-mongo-app)
 ## Aplikacje internetowe w czasie rzeczywistym
 ### [Usługa SignalR za pomocą języka JavaScript](xref:tutorials/signalr)
 ### [Usługa SignalR za pomocą języka TypeScript](xref:tutorials/signalr-typescript-webpack)
@@ -178,6 +179,7 @@
 ### [Interfejs API sieci Web z programem Visual Studio Code](xref:tutorials/web-api-vsc)
 ### [Interfejs API sieci Web z programem Visual Studio dla komputerów Mac](xref:tutorials/first-web-api-mac)
 ### [Internetowy interfejs API dla natywnych aplikacji mobilnych](xref:mobile/native-mobile-backend)
+### [Internetowy interfejs API w programie MongoDB](xref:tutorials/first-mongo-app)
 ## Swagger / OpenAPI
 ### [Omówienie](xref:tutorials/web-api-help-pages-using-swagger)
 ### [Wprowadzenie do pakietu Swashbuckle](xref:tutorials/get-started-with-swashbuckle)
@@ -189,7 +191,7 @@
 ## [Konwencje](xref:web-api/advanced/conventions)
 
 # Aplikacje w czasie rzeczywistym
-## [Omówienie](xref:signalr/introduction)
+## [SignalR — omówienie](xref:signalr/introduction)
 ## [Obsługiwane platformy](xref:signalr/supported-platforms)
 ## Samouczki
 ### [Usługa SignalR za pomocą języka JavaScript](xref:tutorials/signalr)
@@ -208,6 +210,10 @@
 ### [Klient JavaScript](xref:signalr/javascript-client)
 ### [Dokumentacja interfejsów API języka JavaScript](/javascript/api/?view=signalr-js-latest)
 ### [WebPack i TypeScript](xref:tutorials/signalr-typescript-webpack)
+## Hostowanie i skalowanie
+### [Omówienie](xref:signalr/scale)
+### [Usługa Azure SignalR Service](/azure/azure-signalr/signalr-overview)
+### [Płyta montażowa Redis](xref:signalr/redis-backplane)
 ## [Konfiguracja](xref:signalr/configuration)
 ## [Uwierzytelnianie i autoryzacja](xref:signalr/authn-and-authz)
 ## [Zagadnienia dotyczące bezpieczeństwa](xref:signalr/security)
