@@ -7,12 +7,12 @@ ms.author: pranavkm
 ms.custom: mvc
 ms.date: 11/13/2018
 uid: web-api/advanced/conventions
-ms.openlocfilehash: 023b8d09511aa42966e2a7d1c85e407bb6e79b0f
-ms.sourcegitcommit: f202864efca81a72ea7120c0692940c40d9d0630
+ms.openlocfilehash: ede9a46c160cf6a49aa93da710af0bf0b8f59acc
+ms.sourcegitcommit: c4572be5ebb301013a5698caf9b5572b76cb2e34
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51635365"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52710078"
 ---
 # <a name="use-web-api-conventions"></a>Użyj interfejsu API sieci web Konwencji
 
@@ -26,7 +26,7 @@ W czasie wykonywania <xref:Microsoft.AspNetCore.Mvc.ApiExplorer> rozumie Konwenc
 
 ## <a name="apply-web-api-conventions"></a>Zastosuj konwencje interfejsu API sieci web
 
-Istnieją trzy sposoby, aby zastosować Konwencję. Konwencje nie tworzą, każde działanie może być skojarzony z dokładnie jednego Konwencji. Bardziej szczegółowe konwencje (szczegóły przedstawiono poniżej) mają pierwszeństwo przed mniej określonych zadań. Zaznaczenie jest deterministyczna, gdy co najmniej dwóch Konwencji ten sam priorytet zastosować do akcji. Istnieją następujące opcje, aby zastosować Konwencję do działania z najbardziej specyficznych do najmniej specyficznych:
+Istnieją trzy sposoby, aby zastosować Konwencję. Konwencje nie tworzą. Każde działanie może być skojarzony z dokładnie jednego Konwencji. Bardziej szczegółowe konwencje (szczegóły przedstawiono poniżej) mają pierwszeństwo przed mniej określonych zadań. Zaznaczenie jest deterministyczna, gdy co najmniej dwóch Konwencji ten sam priorytet zastosować do akcji. Istnieją następujące opcje, aby zastosować Konwencję do działania z najbardziej specyficznych do najmniej specyficznych:
 
 1. `Microsoft.AspNetCore.Mvc.ApiConventionMethodAttribute` &mdash; Ma zastosowanie do poszczególnych działań i określa typ Konwencji i metody Konwencji, która ma zastosowanie. W poniższym przykładzie metoda Konwencji `Microsoft.AspNetCore.Mvc.DefaultApiConventions.Put` jest stosowany do `Update` akcji:
 

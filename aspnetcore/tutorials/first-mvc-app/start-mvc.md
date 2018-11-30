@@ -5,12 +5,12 @@ description: Dowiedz się, jak rozpocząć pracę z ASP.NET Core MVC i programu 
 ms.author: riande
 ms.date: 10/07/2017
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: fe555e4cfcaec5d4bb8ccee00b06d1bbcaae9dcd
-ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
+ms.openlocfilehash: 9d50607899058c887597a3d73198552d3ef5b020
+ms.sourcegitcommit: c4572be5ebb301013a5698caf9b5572b76cb2e34
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49391209"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52710091"
 ---
 # <a name="get-started-with-aspnet-core-mvc-and-visual-studio"></a>Wprowadzenie do ASP.NET Core MVC i programu Visual Studio
 
@@ -23,6 +23,9 @@ Istnieją 3 wersje tego samouczka:
 * System macOS: [tworzenie aplikacji ASP.NET Core MVC za pomocą programu Visual Studio dla komputerów Mac](xref:tutorials/first-mvc-app-mac/start-mvc)
 * Windows: [tworzenie aplikacji MVC platformy ASP.NET Core z programem Visual Studio](xref:tutorials/first-mvc-app/start-mvc)
 * System macOS, Linux i Windows: [tworzenie aplikacji ASP.NET Core MVC za pomocą programu Visual Studio Code](xref:tutorials/first-mvc-app-xplat/start-mvc)
+
+> [!NOTE]
+> W tej chwili testujemy użyteczność nowo zaproponowanej struktury spisu treści dla dokumentacji platformy ASP.NET Core.  Jeśli możesz poświęcić chwilę na wykonanie ćwiczenia polegającego na znalezieniu 7 różnych tematów w aktualnym lub zaproponowanym spisie treści, [kliknij tutaj i weź udział w badaniu](https://dpk4xbh5.optimalworkshop.com/treejack/rps16hd5).
 
 ## <a name="install-visual-studio-and-net-core"></a>Instalowanie programu Visual Studio i .NET Core
 
@@ -81,26 +84,7 @@ W następnej części tego samouczka będziemy Dowiedz się więcej o MVC i rozp
 
 ::: moniker range="<= aspnetcore-2.0"
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
-
 [!INCLUDE [](~/includes/net-core-prereqs.md)]
-
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
-
-Install Visual Studio Community 2017. Wybierz pakiet do pobrania społeczności. Pomiń ten krok, jeśli masz program Visual Studio 2017.
-
-* [Instalator programu Visual stronę główną programu Studio 2017](https://www.visualstudio.com/)
-
-Uruchom Instalatora i wybierz następujące obciążenia:
-
-* **ASP.NET i tworzenie aplikacji internetowych** (w obszarze **sieć Web i chmura**)
-* **Programowanie dla wielu platform .NET core** (w obszarze **inne zestawy narzędzi**)
-
-![**ASP.NET i web development ** (w obszarze ** sieć Web i chmura **)](start-mvc/_static/web_workload.png)
-
-![* *.NET core cross-cross-platfrom rozwoju ** (w obszarze ** inne zestawy narzędzi **)](start-mvc/_static/x_plat_wl.png)
-
----
 
 ## <a name="create-a-web-app"></a>Tworzenie aplikacji sieci web
 
@@ -117,8 +101,6 @@ Wykonaj **nowy projekt** okno dialogowe:
 
 ![Okno dialogowe nowego projektu, .net core w okienku po lewej stronie sieci web platformy ASP.NET Core ](start-mvc/_static/new_project2.png)
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
 Wykonaj **nowa Core aplikacja internetowa ASP.NET (.NET Core) — MvcMovie** okno dialogowe:
 
 * W polu listy rozwijanej selektora wersji wybierz **ASP.NET Core 2.-**
@@ -126,19 +108,6 @@ Wykonaj **nowa Core aplikacja internetowa ASP.NET (.NET Core) — MvcMovie** okn
 * Naciśnij pozycję **OK**.
 
 ![Okno dialogowe nowego projektu, .net core w okienku po lewej stronie sieci web platformy ASP.NET Core ](start-mvc/_static/new_project22.png)
-
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
-Wykonaj **nowa Core aplikacja internetowa ASP.NET (.NET Core) — MvcMovie** okno dialogowe:
-
-* We wzorcu tap pole listy rozwijanej selektora wersji **ASP.NET Core 1.1**
-* Naciśnij pozycję **aplikacji sieci Web**
-* Zachowaj wartość domyślną **bez uwierzytelniania**
-* Naciśnij pozycję **OK**.
-
-![Nowa aplikacja sieci web platformy ASP.NET Core](start-mvc/_static/p3.png)
-
----
 
 Visual Studio używał domyślnego szablonu projektu MVC, który został utworzony. Masz działającą aplikację z chwili, wprowadzając nazwę projektu i wybraniu kilku opcji. Jest to projekt startowy podstawowe i jest dobrym miejscem do rozpoczęcia,
 

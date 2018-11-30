@@ -5,12 +5,12 @@ description: Dowiedz się więcej o korzystaniu z programu SQL Server LocalDB w 
 ms.author: riande
 ms.date: 03/07/2017
 uid: tutorials/first-mvc-app/working-with-sql
-ms.openlocfilehash: fadd7be793b1ff6e863b549271acd5b6b2cc9305
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 49615c25d51cfa671157c2e56b8e0753719c678a
+ms.sourcegitcommit: c4572be5ebb301013a5698caf9b5572b76cb2e34
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011852"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52710104"
 ---
 # <a name="work-with-sql-server-localdb-in-aspnet-core"></a>Praca z bazą danych LocalDB programu SQL Server w programie ASP.NET Core
 
@@ -86,19 +86,9 @@ Zastąp zawartość *Program.cs* następującym kodem:
 
 ::: moniker range="<= aspnetcore-2.0"
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
-
 Dodaj inicjator inicjator, tak aby `Main` method in Class metoda *Program.cs* pliku:
 
 [!code-csharp[](start-mvc/sample/MvcMovie/Program.cs?highlight=6,14-32)]
-
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
-
-Dodaj inicjator inicjatora do końca `Configure` method in Class metoda *Startup.cs* pliku.
-
-[!code-csharp[](start-mvc/sample/MvcMovie/Startup.cs?highlight=9&name=snippet_seed)]
-
----
 
 ::: moniker-end
 
