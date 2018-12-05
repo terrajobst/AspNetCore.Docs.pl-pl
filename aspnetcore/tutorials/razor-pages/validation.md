@@ -2,17 +2,17 @@
 title: Dodawanie walidacji do strony ASP.NET Core Razor
 author: rick-anderson
 description: Dowiedz się, jak dodać sprawdzanie poprawności na stronę Razor programu ASP.NET Core.
-monikerRange: '>= aspnetcore-2.0'
+monikerRange: '>= aspnetcore-2.2'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 12/5/2018
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: d4cc0ab9de314c0c5a1a9016efd1e566ff1c47d2
-ms.sourcegitcommit: edb9d2d78c9a4d68b397e74ae2aff088b325a143
+ms.openlocfilehash: 87171beb7c214b1370d4d4144a79cb6d2c56098f
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51505781"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52862372"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>Dodawanie walidacji do strony ASP.NET Core Razor
 
@@ -22,27 +22,20 @@ W tej sekcji logikę weryfikacji jest dodawany do `Movie` modelu. Reguły sprawd
 
 ## <a name="validation"></a>Walidacja
 
-Nosi nazwę główną cechą Wytwarzanie oprogramowania [susz](https://wikipedia.org/wiki/Don%27t_repeat_yourself) ("**D** **R**epeat **Y**ourself"). Strony razor zachęca do którego funkcje określono raz i znajduje odzwierciedlenie w całej aplikacji. PRÓBNEGO może zmniejszyć ilość kodu w aplikacji. PRÓBNEGO sprawia, że kod błędu mniej podatne i łatwiejsze do testowania i obsługi.
+Nosi nazwę główną cechą Wytwarzanie oprogramowania [susz](https://wikipedia.org/wiki/Don%27t_repeat_yourself) ("**D** **R**epeat **Y**ourself"). Strony razor zachęca do którego funkcje określono raz i znajduje odzwierciedlenie w całej aplikacji. PRÓBNEGO może ułatwić:
+
+* Zmniejsz ilość kodu w aplikacji.
+* Powoduje, że kod błędu mniej podatne i łatwiejsze do testowania i obsługi.
 
 Sprawdzanie poprawności wsparcie ze stronami Razor i programem Entity Framework jest dobrym przykładem susz zasady. Reguły sprawdzania poprawności deklaratywne są określone w jednym miejscu (w klasie modelu), a zasady są wymuszane wszędzie, gdzie w aplikacji.
 
 ### <a name="adding-validation-rules-to-the-movie-model"></a>Dodawania reguł sprawdzania poprawności do modelu movie
 
-Otwórz *Models/Movie.cs* pliku. [DataAnnotations](/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) zawiera zestaw wbudowanych atrybutów sprawdzania poprawności, które są stosowane w sposób deklaratywny do klasa lub właściwość. DataAnnotations zawiera też atrybuty formatowania, takich jak `DataType` ułatwić formatowanie i nie zapewniają weryfikacji.
+Otwórz *Models/Movie.cs* pliku. [DataAnnotations](/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) zawiera zestaw wbudowanych atrybutów sprawdzania poprawności, które są stosowane w sposób deklaratywny do klasa lub właściwość. DataAnnotations również zawierać formatowania atrybutów, takich jak `DataType` ułatwić formatowanie i nie zapewniają weryfikacji.
 
 Aktualizacja `Movie` klasy, aby korzystać z zalet `Required`, `StringLength`, `RegularExpression`, i `Range` atrybutów sprawdzania poprawności.
 
-::: moniker range="= aspnetcore-2.0"
-
-[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieDateRatingDA.cs?name=snippet1)]
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.1"
-
-[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie21/Models/MovieDateRatingDA.cs?name=snippet1)]
-
-::: moniker-end
+[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Models/MovieDateRatingDA.cs?name=snippet1)]
 
 Atrybuty weryfikacji określić zachowanie, który jest wymuszany dla właściwości modelu:
 
@@ -113,11 +106,8 @@ Sprawdź `Movie` klasy. `System.ComponentModel.DataAnnotations` Przestrzeń nazw
 
 `DataType.Date` nie określa format daty, która jest wyświetlana. Domyślnie pole danych są wyświetlane domyślne formaty oparte na tym serwerze `CultureInfo`.
 
-::: moniker range=">= aspnetcore-2.1"
 
 `[Column(TypeName = "decimal(18, 2)")]` Wymagana jest adnotacja danych, dzięki czemu można poprawnie mapowane na platformy Entity Framework Core `Price` walutę w bazie danych. Aby uzyskać więcej informacji, zobacz [typy danych](/ef/core/modeling/relational/data-types).
-
-::: moniker-end
 
 `DisplayFormat` Atrybut jest używany jawnie określić format daty:
 
@@ -144,17 +134,7 @@ Ogólnie nie jest dobrą praktyką jest kompilowanie twardych dat w ramach model
 
 Poniższy kod pokazuje atrybuty łączenie w jednym wierszu:
 
-::: moniker range="= aspnetcore-2.0"
-
-[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRatingDAmult.cs?name=snippet1)]
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.1"
-
-[!code-csharp[](razor-pages-start/sample/RazorPagesMovie21/Models/MovieDateRatingDAmult.cs?name=snippet1)]
-
-::: moniker-end
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Models/MovieDateRatingDAmult.cs?name=snippet1)]
 
 [Rozpoczynanie pracy ze stronami Razor i programem EF Core](xref:data/ef-rp/intro) pokazuje zaawansowane operacji programu EF Core przy użyciu stron Razor.
 
