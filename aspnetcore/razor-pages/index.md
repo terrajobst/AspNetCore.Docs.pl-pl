@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 05/12/2018
 uid: razor-pages/index
-ms.openlocfilehash: 7fc048e427fd49e2142160615a12989fd4f40303
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: cc881ff42d57ab1654f492a70006a995939e4844
+ms.sourcegitcommit: 8a65f6c2cbe290fb2418eed58f60fb74c95392c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207618"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52892123"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Wprowadzenie do stron Razor programu ASP.NET Core
 
@@ -25,15 +25,15 @@ Ten dokument zawiera wprowadzenie do stron Razor. Nie jest samouczek krok po kro
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-[!INCLUDE [](~/includes/net-core-prereqs.md)]
+[!INCLUDE[](~/includes/net-core-prereqs-all-2.2.md)]
 
 <a name="rpvs17"></a>
 
-## <a name="creating-a-razor-pages-project"></a>Tworzenie projektu stron Razor
+## <a name="create-a-razor-pages-project"></a>Utwórz projekt stron Razor
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-Zobacz [Rozpoczynanie pracy ze stronami Razor](xref:tutorials/razor-pages/razor-pages-start) szczegółowe instrukcje dotyczące sposobu tworzenia stron Razor projektu za pomocą programu Visual Studio.
+Zobacz [Rozpoczynanie pracy ze stronami Razor](xref:tutorials/razor-pages/razor-pages-start) szczegółowe instrukcje dotyczące sposobu tworzenia projektu stron Razor.
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
@@ -65,23 +65,9 @@ Uruchom `dotnet new razor` z wiersza polecenia.
 
 ::: moniker-end
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
-
-::: moniker range=">= aspnetcore-2.1"
-
-Uruchom `dotnet new webapp` z wiersza polecenia.
-
-::: moniker-end
-
-::: moniker range="= aspnetcore-2.0"
-
-Uruchom `dotnet new razor` z wiersza polecenia.
-
-::: moniker-end
-
 ---
 
-## <a name="razor-pages"></a>Strony razor
+## <a name="razor-pages"></a>Razor Pages
 
 Strony razor jest włączone w *Startup.cs*:
 
@@ -117,7 +103,7 @@ Uwagi:
 * Środowisko uruchomieniowe szuka plików stron Razor w *stron* folderu domyślnie.
 * `Index` jest domyślną stroną, podczas gdy adres URL nie zawiera strony.
 
-## <a name="writing-a-basic-form"></a>Zapisywanie formularza podstawowego
+## <a name="write-a-basic-form"></a>Zapis formularza podstawowego
 
 Strony razor zaprojektowaną do podejmowania typowe wzorce używane w przeglądarkach, łatwe do wdrożenia podczas kompilowania aplikacji. [Wiązanie modelu](xref:mvc/models/model-binding), [pomocników tagów](xref:mvc/views/tag-helpers/intro)i wszystkich pomocników HTML *po prostu działają* z właściwościami, zdefiniowanej w klasie strony Razor. Należy wziąć pod uwagę strona, która implementuje podstawową "Skontaktuj się z nami" formularza dla `Contact` modelu:
 
@@ -173,10 +159,7 @@ Kiedy przesłanego formularza ma błędy sprawdzania poprawności, (które są p
 
 Strony razor domyślnie powiązania właściwości tylko zlecenia-GET. Powiązanie z właściwościami może zmniejszyć ilość kodu, który trzeba napisać. Powiązanie zmniejsza kodu przy użyciu tej samej właściwości do renderowania pól formularza (`<input asp-for="Customer.Name" />`) i akceptuje dane wejściowe.
 
-> [!NOTE]
-> Ze względów bezpieczeństwa możesz zrezygnować w celu powiązania danych żądania GET do strony właściwości modelu. Sprawdź dane wejściowe użytkownika przed mapowania ich właściwości. Jeśli wybierzesz to zachowanie jest przydatne w przypadku, gdy adresowania scenariusze, które zależą od wartości trasy lub ciągu zapytania.
->
-> Aby powiązać właściwości z żądań GET, należy ustawić `[BindProperty]` atrybutu `SupportsGet` właściwości `true`: `[BindProperty(SupportsGet = true)]`
+[!INCLUDE[](~/includes/bind-get.md)]
 
 Strona główna (*Index.cshtml*):
 
@@ -242,11 +225,11 @@ Właściwości `PageModel` być dekorowane za pomocą [wymagane](/dotnet/api/sys
 
 [!code-cs[](index/sample/Create.cshtml.cs?highlight=3,15-16)]
 
-Zobacz [Walidacja modelu](xref:mvc/models/validation) Aby uzyskać więcej informacji.
+Aby uzyskać więcej informacji, zobacz [Walidacja modelu](xref:mvc/models/validation).
 
 ## <a name="manage-head-requests-with-the-onget-handler"></a>Zarządzanie żądaniami HEAD za pomocą obsługi OnGet
 
-Żądania HEAD umożliwiają pobieranie nagłówki dla określonego zasobu. Inaczej niż w przypadku żądania GET HEAD żądań nie zwracają treść odpowiedzi. 
+Żądania HEAD umożliwiają pobieranie nagłówki dla określonego zasobu. Inaczej niż w przypadku żądania GET HEAD żądań nie zwracają treść odpowiedzi.
 
 Zazwyczaj obsługi HEAD jest tworzony i wywołana dla żądania HEAD: 
 
@@ -477,7 +460,7 @@ Następujące znaczniki w *Pages/Customers/Index.cshtml* pliku wyświetlana jest
 public string Message { get; set; }
 ```
 
-Zobacz [TempData](xref:fundamentals/app-state#tempdata) Aby uzyskać więcej informacji.
+Aby uzyskać więcej informacji, zobacz [TempData](xref:fundamentals/app-state#tempdata) .
 
 <a name="mhpp"></a>
 ## <a name="multiple-handlers-per-page"></a>Procedury obsługi wielu na stronę

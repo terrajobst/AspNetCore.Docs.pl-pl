@@ -1,16 +1,11 @@
-::: moniker range=">= aspnetcore-2.1"
-
-Kliknij prawym przyciskiem myszy czerwona linia falista > **szybkie akcje i Refaktoryzacje** na `[Column]` atribute i wybierz pozycję `using System.ComponentModel.DataAnnotations.Schema;`
 
 `[Column(TypeName = "decimal(18, 2)")]` Wymagana jest adnotacja danych, dzięki czemu można poprawnie mapowane na platformy Entity Framework Core `Price` walutę w bazie danych. Aby uzyskać więcej informacji, zobacz [typy danych](/ef/core/modeling/relational/data-types).
 
 Ukończone modelu:
 
-[!code-csharp[Main](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie21/Models/MovieDateFixed.cs?name=snippet_1)]
+[!code-csharp[Main](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Models/MovieDateFixed.cs?name=snippet_1)]
 
-::: moniker-end
-
-Omówimy [DataAnnotations](/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) w następnym samouczku. [Wyświetlić](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.metadata.displaymetadata) atrybut określa, co będzie wyświetlone nazwy pola (w tym przypadku "Data wydania" zamiast "ReleaseDate"). [DataType](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.internal.datatypeattributeadapter) atrybut określa typ danych (Data), co nie jest wyświetlane informacje o godzinie, w tym polu.
+[DataAnnotations](/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) zostało omówione w następnym samouczku. [Wyświetlić](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.metadata.displaymetadata) atrybut określa, co będzie wyświetlone nazwy pola (w tym przypadku "Data wydania" zamiast "ReleaseDate"). [DataType](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.internal.datatypeattributeadapter) atrybut określa typ danych (Data), co nie jest wyświetlane informacje o godzinie, w tym polu.
 
 Przejdź do strony/filmów i umieść kursor nad **Edytuj** link, aby wyświetlić docelowy adres URL.
 
@@ -69,23 +64,11 @@ Aby przetestować `catch` bloku:
 
 Kodzie produkcyjnym zazwyczaj będzie wykrywanie konfliktów współbieżności, gdy dwie lub więcej klientów współbieżnie aktualizowana rekordu. Zobacz [Obsługa konfliktów współbieżności](xref:data/ef-rp/concurrency) Aby uzyskać więcej informacji.
 
-::: moniker-end
-
 ### <a name="posting-and-binding-review"></a>Umieszczanie i powiązanie przeglądu
 
 Sprawdź *Pages/Movies/Edit.cshtml.cs* pliku:
 
-::: moniker range="= aspnetcore-2.0"
-
-[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Edit.cshtml.cs?name=snippet2)]
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.1"
-
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Edit21.cshtml.cs?name=snippet2)]
-
-::: moniker-end
 
 Nawiązaniem żądanie HTTP GET do strony filmy oraz pozwala edytować (na przykład `http://localhost:5000/Movies/Edit/2`):
 

@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.2'
 ms.author: riande
 ms.date: 12/3/2018
 uid: tutorials/razor-pages/search
-ms.openlocfilehash: 0afd22be397f3f887fb6ce9718e01dc625548e71
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 8e047024180b20e3b649085647a9136140911fee
+ms.sourcegitcommit: 8a65f6c2cbe290fb2418eed58f60fb74c95392c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861956"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52892071"
 ---
 # <a name="add-search-to-aspnet-core-razor-pages"></a>Dodawanie wyszukiwania do stron Razor programu ASP.NET Core
 
@@ -28,8 +28,9 @@ Dodaj następujące właściwości wyróżniony, aby *Pages/Movies/Index.cshtml.
 * `SearchString`: zawiera tekst, użytkownicy wprowadzają w polu tekstowym wyszukiwania. `SearchString` zostanie nadany [ `[BindProperty]` ](/dotnet/api/microsoft.aspnetcore.mvc.bindpropertyattribute) atrybutu. `[BindProperty]` wiąże wartości formularza i ciągi zapytania z taką samą nazwę jak właściwość. `(SupportsGet = true)` jest wymagany dla wiązania w odpowiedzi na żądania GET.
 * `Genres`: zawiera listę gatunki. `Genres` Zezwala użytkownikowi na wybranie określonego rodzaju z listy. `SelectList` wymaga `using Microsoft.AspNetCore.Mvc.Rendering;`
 * `MovieGenre`: zawiera gatunku określonych przez użytkownika (na przykład "zachodni").
+* `Genres` i `MovieGenre` są używane w dalszej części tego samouczka.
 
-`Genres` i `MovieGenre` właściwości są używane w dalszej części tego samouczka.
+[!INCLUDE[](~/includes/bind-get.md)]
 
 Aktualizuj stronę indeksu `OnGetAsync` metoda następującym kodem:
 

@@ -7,12 +7,12 @@ ms.author: mimengis
 ms.custom: mvc
 ms.date: 11/07/2018
 uid: signalr/java-client
-ms.openlocfilehash: 78ffdf7488c95b1cf84a249d6d08b6acd23ec208
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: d0eff38c1f622b896ed1dc3002238aec7b6bfd38
+ms.sourcegitcommit: 8a65f6c2cbe290fb2418eed58f60fb74c95392c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861761"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52892097"
 ---
 # <a name="aspnet-core-signalr-java-client"></a>Klienta programu ASP.NET Core SignalR w języku Java
 
@@ -26,13 +26,12 @@ Przykładowa aplikacja konsoli środowiska Java przywołanej w niniejszym artyku
 
 ## <a name="install-the-signalr-java-client-package"></a>Zainstaluj pakiet klienta SignalR Java
 
-*Signalr-1.0.0-preview3-35501* plik JAR zezwala klientom na łączenie się koncentratorów SignalR. Aby znaleźć numer najnowszej wersji pliku JAR, zobacz [wyniki wyszukiwania narzędzia Maven](https://search.maven.org/search?q=g:com.microsoft.signalr%20AND%20a:signalr).
+*Signalr 1.0.0* plik JAR zezwala klientom na łączenie się koncentratorów SignalR. Aby znaleźć numer najnowszej wersji pliku JAR, zobacz [wyniki wyszukiwania narzędzia Maven](https://search.maven.org/search?q=g:com.microsoft.signalr%20AND%20a:signalr).
 
 Jeśli używasz narzędzia Gradle, Dodaj następujący wiersz do `dependencies` części Twojej *build.gradle* pliku:
 
 ```gradle
-implementation 'com.microsoft.signalr:signalr:1.0.0-preview3-35501'
-implementation 'io.reactivex.rxjava2:rxjava:2.2.2'
+implementation 'com.microsoft.signalr:signalr:1.0.0'
 ```
 
 Jeśli przy użyciu narzędzia Maven, Dodaj następujące wiersze wewnątrz `<dependencies>` elementu swoje *pom.xml* pliku:
@@ -95,8 +94,6 @@ HubConnection hubConnection = HubConnectionBuilder.create("YOUR HUB URL HERE")
 ```
 
 ## <a name="known-limitations"></a>Znane ograniczenia
-
-Jest to wersja zapoznawcza klienta Java. Niektóre funkcje nie są obsługiwane:
 
 * Tylko protokół JSON jest obsługiwany.
 * Tylko transport gniazda Websocket jest obsługiwany.
