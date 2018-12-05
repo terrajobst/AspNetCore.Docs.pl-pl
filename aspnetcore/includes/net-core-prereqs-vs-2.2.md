@@ -1,0 +1,2 @@
+* [Visual Studio 2017 w wersji 15.9 lub nowszej](https://visualstudio.microsoft.com/downloads/) z **ASP.NET i tworzenie aplikacji internetowych** obciążenia
+* [.NET core SDK 2,2 lub nowszy](https://www.microsoft.com/net/download/all)

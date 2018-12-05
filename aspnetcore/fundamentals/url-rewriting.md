@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/19/2018
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: 98787891a97e49081d72107484f030d216d82f45
-ms.sourcegitcommit: ad28d1bc6657a743d5c2fa8902f82740689733bb
+ms.openlocfilehash: 84052789717738a48c346d35d1a2642017a9ab93
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52256570"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861917"
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>Adres URL ponowne napisanie oprogramowania pośredniczącego w programie ASP.NET Core
 
@@ -210,7 +210,7 @@ Następujące `^rewrite-rule/` część wyrażenia, istnieją dwie grupy przechw
 Nie ma żadnych komunikacji dwustronnej z serwerem, można uzyskać zasobu. Jeśli zasób istnieje, ma pobrać i zwracany do klienta z *200 — OK* kod stanu. Ponieważ klient nie jest przekierowany, nie powoduje zmiany adresu URL w pasku adresu przeglądarki. Klienci nie może wykryć, że operacja ponownego zapisywania adresu URL wystąpił na serwerze.
 
 > [!NOTE]
-> Użyj `skipRemainingRules: true` zawsze, gdy to możliwe ponieważ reguł dopasowania jest obliczeniowo kosztowne i skraca czas odpowiedzi aplikacji. Najszybszy odpowiedzi aplikacji:
+> Użyj `skipRemainingRules: true` zawsze, gdy to możliwe ponieważ reguł dopasowania jest obliczeniowo kosztowne i wydłuża czas odpowiedzi aplikacji. Najszybszy odpowiedzi aplikacji:
 >
 > * Kolejność napisać ponownie reguły z najczęściej dopasowane reguły do najmniej często dopasowane reguły.
 > * Pomiń przetwarzanie pozostałych reguł, gdy pasują do przetwarzania nie dodatkowe reguły jest wymagana.

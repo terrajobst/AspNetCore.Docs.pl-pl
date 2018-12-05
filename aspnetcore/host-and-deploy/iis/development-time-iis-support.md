@@ -4,14 +4,14 @@ author: shirhatti
 description: Dowiedz się, obsługę debugowania aplikacji ASP.NET Core, gdy działające poza usługą IIS w systemie Windows Server.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/26/2018
+ms.date: 11/30/2018
 uid: host-and-deploy/iis/development-time-iis-support
-ms.openlocfilehash: 65dbe690a33d82a4edddf315803dc4c656db27a0
-ms.sourcegitcommit: e8d80ff566bfe505b43389d7bc4551edb1c0c872
+ms.openlocfilehash: 51375e6a6bb25a469d467ca97a151abd305c1ece
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52549107"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52862385"
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>Obsługa usług IIS czas opracowywania, w programie Visual Studio dla platformy ASP.NET Core
 
@@ -54,7 +54,7 @@ Jeśli ma już instalacji usług IIS **domyślna witryna sieci Web** z nazwą ho
 ## <a name="enable-development-time-iis-support-in-visual-studio"></a>Włącz obsługę usług IIS w czasie projektowania w programie Visual Studio
 
 1. Uruchom Instalatora programu Visual Studio.
-1. Wybierz **czas opracowywania usługi IIS obsługują** składnika. Składnik jest wymieniony jako opcjonalny w **Podsumowanie** panelu dla **ASP.NET i tworzenie aplikacji internetowych** obciążenia. Instaluje składnik [modułu ASP.NET Core](xref:fundamentals/servers/aspnet-core-module), czyli macierzysty moduł usług IIS wymagane do uruchamiania aplikacji za zaporą usług IIS platformy ASP.NET Core w konfiguracji zwrotny serwer proxy.
+1. Wybierz **czas opracowywania usługi IIS obsługują** składnika. Składnik jest wymieniony jako opcjonalny w **Podsumowanie** panelu dla **ASP.NET i tworzenie aplikacji internetowych** obciążenia. Instaluje składnik [modułu ASP.NET Core](xref:fundamentals/servers/aspnet-core-module), czyli moduł macierzysty usług IIS wymagane do uruchamiania aplikacji ASP.NET Core za pomocą programu IIS.
 
 ![Modyfikowanie funkcjami programu Visual Studio: wybrana jest karta obciążeń. W sekcji sieć Web i chmura panelu rozwoju platformy ASP.NET i sieci web jest zaznaczona. Po prawej stronie w obszarze opcjonalne panel Podsumowanie ma postać pola wyboru raz rozwoju, obsługę usług IIS.](development-time-iis-support/_static/development_time_support.png)
 

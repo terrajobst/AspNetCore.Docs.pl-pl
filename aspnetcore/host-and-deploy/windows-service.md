@@ -2,17 +2,17 @@
 title: Host platformy ASP.NET Core w usłudze Windows
 author: guardrex
 description: Dowiedz się, jak udostępnić aplikację ASP.NET Core w usłudze Windows.
-monikerRange: '>= aspnetcore-2.2'
+monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 11/26/2018
+ms.date: 12/01/2018
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: f857e96108b68bb6ec64a85910bf4d889cdf2822
-ms.sourcegitcommit: e7fafb153b9de7595c2558a0133f8d1c33a3bddb
+ms.openlocfilehash: f53c303dc63e092f08e933fea79eb805523cde9b
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52458520"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861397"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Host platformy ASP.NET Core w usłudze Windows
 
@@ -38,202 +38,250 @@ Niezależne wdrożenia (— SCD) nie jest zależny od obecności składniki wsp�
 
 Do istniejącego projektu platformy ASP.NET Core do uruchomienia aplikacji jako usługi, należy wprowadzić następujące zmiany:
 
-1. Na podstawie wybranego elementu [typu wdrożenia](#deployment-type), należy zaktualizować plik projektu:
+### <a name="project-file-updates"></a>Aktualizacje plików projektu
 
-   * **Zależny od struktury wdrożenia (stacje)** &ndash; Dodaj Windows [identyfikator środowiska uruchomieniowego (RID)](/dotnet/core/rid-catalog) do `<PropertyGroup>` zawierający platformę docelową. Dodaj `<SelfContained>` właściwością `false`. Wyłączyć tworzenie *web.config* pliku, dodając `<IsTransformWebConfigDisabled>` właściwością `true`.
+Na podstawie wybranego elementu [typu wdrożenia](#deployment-type), należy zaktualizować plik projektu:
 
-     ```xml
-     <PropertyGroup>
-       <TargetFramework>netcoreapp2.2</TargetFramework>
-       <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
-       <SelfContained>false</SelfContained>
-       <IsTransformWebConfigDisabled>true</IsTransformWebConfigDisabled>
-     </PropertyGroup>
-     ```
+#### <a name="framework-dependent-deployment-fdd"></a>Zależny od struktury wdrożenia (stacje)
 
-     **Niezależne wdrożenia (— SCD)** &ndash; potwierdzić obecność Windows [identyfikator środowiska uruchomieniowego (RID)](/dotnet/core/rid-catalog) lub dodać RID do `<PropertyGroup>` zawierający platformę docelową. Wyłączyć tworzenie *web.config* pliku, dodając `<IsTransformWebConfigDisabled>` właściwością `true`.
+Dodaj Windows [identyfikator środowiska uruchomieniowego (RID)](/dotnet/core/rid-catalog) do `<PropertyGroup>` zawierający platformę docelową. Dodaj `<SelfContained>` właściwością `false`. Wyłączyć tworzenie *web.config* pliku, dodając `<IsTransformWebConfigDisabled>` właściwością `true`.
 
-     ```xml
-     <PropertyGroup>
-       <TargetFramework>netcoreapp2.2</TargetFramework>
-       <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
-       <IsTransformWebConfigDisabled>true</IsTransformWebConfigDisabled>
-     </PropertyGroup>
-     ```
+::: moniker range=">= aspnetcore-2.2"
 
-     Aby opublikować dla wielu identyfikatorów RID:
+```xml
+<PropertyGroup>
+  <TargetFramework>netcoreapp2.2</TargetFramework>
+  <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
+  <SelfContained>false</SelfContained>
+  <IsTransformWebConfigDisabled>true</IsTransformWebConfigDisabled>
+</PropertyGroup>
+```
 
-     * Podaj identyfikatorów RID w liście rozdzielanej średnikami.
-     * Użyj nazwy właściwości `<RuntimeIdentifiers>` (w liczbie mnogiej).
+::: moniker-end
 
-     Aby uzyskać więcej informacji, zobacz [.NET Core RID katalogu](/dotnet/core/rid-catalog).
+::: moniker range="= aspnetcore-2.1"
 
-   * Dodaj odwołania do pakietu dla [Microsoft.AspNetCore.Hosting.WindowsServices](https://www.nuget.org/packages/Microsoft.AspNetCore.Hosting.WindowsServices).
+```xml
+<PropertyGroup>
+  <TargetFramework>netcoreapp2.1</TargetFramework>
+  <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
+  <UseAppHost>true</UseAppHost>
+  <SelfContained>false</SelfContained>
+  <IsTransformWebConfigDisabled>true</IsTransformWebConfigDisabled>
+</PropertyGroup>
+```
 
-   * Aby włączyć rejestrowanie w dzienniku zdarzeń Windows, należy dodać odwołania do pakietu dla [Microsoft.Extensions.Logging.EventLog](https://www.nuget.org/packages/Microsoft.Extensions.Logging.EventLog).
+::: moniker-end
 
-     Aby uzyskać więcej informacji, zobacz [obsługi, uruchamianie i zatrzymywanie wydarzeń](#handle-starting-and-stopping-events) sekcji.
+#### <a name="self-contained-deployment-scd"></a>Niezależne wdrożenia (— SCD)
 
-1. Wprowadź następujące zmiany w `Program.Main`:
+Potwierdzić obecność Windows [identyfikator środowiska uruchomieniowego (RID)](/dotnet/core/rid-catalog) lub identyfikatorów RID, aby dodać `<PropertyGroup>` zawierający platformę docelową. Wyłączyć tworzenie *web.config* pliku, dodając `<IsTransformWebConfigDisabled>` właściwością `true`.
 
-   * Do testowania i debugowania, gdy działają poza usługą, Dodaj kod, aby ustalić, czy aplikacja jest uruchomiona jako usługę lub aplikację konsoli. Sprawdź, czy jest dołączony debuger a `--console` argument wiersza polecenia jest obecny.
+```xml
+<PropertyGroup>
+  <TargetFramework>netcoreapp2.2</TargetFramework>
+  <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
+  <IsTransformWebConfigDisabled>true</IsTransformWebConfigDisabled>
+</PropertyGroup>
+```
 
-     Jeśli tych warunków jest spełniony, (aplikacja nie jest uruchamiana jako usługa), należy wywołać <xref:Microsoft.AspNetCore.Hosting.WebHostExtensions.Run*> na hoście w sieci Web.
+Aby opublikować dla wielu identyfikatorów RID:
 
-     Jeśli warunki są fałszywe, (aplikacja jest uruchamiana jako usługa):
+* Podaj identyfikatorów RID w liście rozdzielanej średnikami.
+* Użyj nazwy właściwości `<RuntimeIdentifiers>` (w liczbie mnogiej).
 
-     * Wywołaj <xref:Microsoft.Extensions.Hosting.HostingHostBuilderExtensions.UseContentRoot*> i użyj ścieżki do lokalizacji publikowania aplikacji. Nie wywołuj <xref:System.IO.Directory.GetCurrentDirectory*> można uzyskać ścieżki, ponieważ aplikacji usługi Windows, która zwraca *C:\\WINDOWS\\system32* folderu podczas `GetCurrentDirectory` nosi nazwę. Aby uzyskać więcej informacji, zobacz [bieżący katalog i katalog główny zawartości](#current-directory-and-content-root) sekcji.
-     * Wywołaj <xref:Microsoft.AspNetCore.Hosting.WindowsServices.WebHostWindowsServiceExtensions.RunAsService*> do uruchomienia aplikacji jako usługi.
+  Aby uzyskać więcej informacji, zobacz [.NET Core RID katalogu](/dotnet/core/rid-catalog).
 
-     Ponieważ [dostawcę konfiguracji wiersza polecenia](xref:fundamentals/configuration/index#command-line-configuration-provider) wymaga pary nazwa wartość dla argumentów wiersza poleceń `--console` przełącznik został usunięty z argumentów przed <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> otrzymuje je.
+Dodaj odwołania do pakietu dla [Microsoft.AspNetCore.Hosting.WindowsServices](https://www.nuget.org/packages/Microsoft.AspNetCore.Hosting.WindowsServices).
 
-   * Można zapisać w dzienniku zdarzeń Windows, należy dodać dostawcę dziennika zdarzeń <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder.ConfigureLogging*>. Poziom rejestrowania za pomocą `Logging:LogLevel:Default` w *appsettings. Production.JSON* pliku. Pokaz i testowania pliku ustawień produkcji przykładową aplikację ustawia poziom rejestrowania `Information`. W środowisku produkcyjnym, wartość jest zazwyczaj równa `Error`. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/logging/index#windows-eventlog-provider>.
+Aby włączyć rejestrowanie w dzienniku zdarzeń Windows, należy dodać odwołania do pakietu dla [Microsoft.Extensions.Logging.EventLog](https://www.nuget.org/packages/Microsoft.Extensions.Logging.EventLog).
 
-   [!code-csharp[](windows-service/samples/2.x/AspNetCoreService/Program.cs?name=snippet_Program)]
+Aby uzyskać więcej informacji, zobacz [obsługi, uruchamianie i zatrzymywanie wydarzeń](#handle-starting-and-stopping-events) sekcji.
 
-1. Publikowanie aplikacji za pomocą [publikowania dotnet](/dotnet/articles/core/tools/dotnet-publish), [profilu publikowania w programie Visual Studio](xref:host-and-deploy/visual-studio-publish-profiles), lub Visual Studio Code. Jeśli używasz programu Visual Studio, wybierz opcję **FolderProfile** i skonfigurować **lokalizacji docelowej** przed wybraniem **Publikuj** przycisku.
+### <a name="programmain-updates"></a>Aktualizacje Program.Main
 
-   Aby opublikować przykładową aplikację przy użyciu narzędzi interfejsu wiersza polecenia (CLI), uruchom [publikowania dotnet](/dotnet/core/tools/dotnet-publish) polecenie w wierszu polecenia z folderu projektu z konfiguracją wydania, przekazana do [- c |--konfiguracji](/dotnet/core/tools/dotnet-publish#options)opcji. Użyj [-o |--dane wyjściowe](/dotnet/core/tools/dotnet-publish#options) opcji ze ścieżką do publikowania do folderu poza aplikacją.
+Wprowadź następujące zmiany w `Program.Main`:
 
-   * **Zależny od struktury wdrożenia (stacje)**
+* Do testowania i debugowania, gdy działają poza usługą, Dodaj kod, aby ustalić, czy aplikacja jest uruchomiona jako usługę lub aplikację konsoli. Sprawdź, czy jest dołączony debuger a `--console` argument wiersza polecenia jest obecny.
 
-     W poniższym przykładzie aplikacja została opublikowana do *c:\\svc* folderu:
+  Jeśli tych warunków jest spełniony, (aplikacja nie jest uruchamiana jako usługa), należy wywołać <xref:Microsoft.AspNetCore.Hosting.WebHostExtensions.Run*> na hoście w sieci Web.
 
-     ```console
-     dotnet publish --configuration Release --output c:\svc
-     ```
+  Jeśli warunki są fałszywe, (aplikacja jest uruchamiana jako usługa):
 
-   * **Niezależne wdrożenia (— SCD)** &ndash; identyfikatorów RID musi być określona w `<RuntimeIdenfifier>` (lub `<RuntimeIdentifiers>`) właściwości pliku projektu. Podaj środowisko uruchomieniowe [- r | — środowisko uruchomieniowe](/dotnet/core/tools/dotnet-publish#options) opcji `dotnet publish` polecenia.
+  * Wywołaj <xref:Microsoft.Extensions.Hosting.HostingHostBuilderExtensions.UseContentRoot*> i użyj ścieżki do lokalizacji publikowania aplikacji. Nie wywołuj <xref:System.IO.Directory.GetCurrentDirectory*> można uzyskać ścieżki, ponieważ aplikacji usługi Windows, która zwraca *C:\\WINDOWS\\system32* folderu podczas `GetCurrentDirectory` nosi nazwę. Aby uzyskać więcej informacji, zobacz [bieżący katalog i katalog główny zawartości](#current-directory-and-content-root) sekcji.
+  * Wywołaj <xref:Microsoft.AspNetCore.Hosting.WindowsServices.WebHostWindowsServiceExtensions.RunAsService*> do uruchomienia aplikacji jako usługi.
 
-     W poniższym przykładzie aplikacja została opublikowana na potrzeby `win7-x64` środowiska uruchomieniowego *c:\\svc* folderu:
+  Ponieważ [dostawcę konfiguracji wiersza polecenia](xref:fundamentals/configuration/index#command-line-configuration-provider) wymaga pary nazwa wartość dla argumentów wiersza poleceń `--console` przełącznik został usunięty z argumentów przed <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> otrzymuje je.
 
-     ```console
-     dotnet publish --configuration Release --runtime win7-x64 --output c:\svc
-     ```
+* Można zapisać w dzienniku zdarzeń Windows, należy dodać dostawcę dziennika zdarzeń <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder.ConfigureLogging*>. Poziom rejestrowania za pomocą `Logging:LogLevel:Default` w *appsettings. Production.JSON* pliku. Pokaz i testowania pliku ustawień produkcji przykładową aplikację ustawia poziom rejestrowania `Information`. W środowisku produkcyjnym, wartość jest zazwyczaj równa `Error`. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/logging/index#windows-eventlog-provider>.
 
-1. Utwórz konto użytkownika dla usługi przy użyciu `net user` polecenia:
+[!code-csharp[](windows-service/samples/2.x/AspNetCoreService/Program.cs?name=snippet_Program)]
 
-   ```console
-   net user {USER ACCOUNT} {PASSWORD} /add
-   ```
+### <a name="publish-the-app"></a>Publikowanie aplikacji
 
-   Dla przykładowej aplikacji, należy utworzyć konto użytkownika o nazwie `ServiceUser` i hasła. W poniższym poleceniu zastąp `{PASSWORD}` z [silne hasło](/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements).
+Publikowanie aplikacji za pomocą [publikowania dotnet](/dotnet/articles/core/tools/dotnet-publish), [profilu publikowania w programie Visual Studio](xref:host-and-deploy/visual-studio-publish-profiles), lub Visual Studio Code. Jeśli używasz programu Visual Studio, wybierz opcję **FolderProfile** i skonfigurować **lokalizacji docelowej** przed wybraniem **Publikuj** przycisku.
 
-   ```console
-   net user ServiceUser {PASSWORD} /add
-   ```
+Aby opublikować przykładową aplikację przy użyciu narzędzi interfejsu wiersza polecenia (CLI), uruchom [publikowania dotnet](/dotnet/core/tools/dotnet-publish) polecenie w wierszu polecenia z folderu projektu z konfiguracją wydania, przekazana do [- c |--konfiguracji](/dotnet/core/tools/dotnet-publish#options)opcji. Użyj [-o |--dane wyjściowe](/dotnet/core/tools/dotnet-publish#options) opcji ze ścieżką do publikowania do folderu poza aplikacją.
 
-   Jeśli potrzebujesz dodać użytkownika do grupy, użyj `net localgroup` polecenie, gdzie `{GROUP}` to nazwa grupy:
+#### <a name="publish-a-framework-dependent-deployment-fdd"></a>Publikowanie wdrożenia zależny od struktury (stacje)
 
-   ```console
-   net localgroup {GROUP} {USER ACCOUNT} /add
-   ```
+W poniższym przykładzie aplikacja została opublikowana do *c:\\svc* folderu:
 
-   Aby uzyskać więcej informacji, zobacz [kont użytkowników usług](/windows/desktop/services/service-user-accounts).
+```console
+dotnet publish --configuration Release --output c:\svc
+```
 
-1. Udzielanie zapisu/odczytu/wykonania dostępu do folderu aplikacji przy użyciu [icacls](/windows-server/administration/windows-commands/icacls) polecenia:
+#### <a name="publish-a-self-contained-deployment-scd"></a>Publikowanie niezależne wdrożenia (— SCD)
 
-   ```console
-   icacls "{PATH}" /grant {USER ACCOUNT}:(OI)(CI){PERMISSION FLAGS} /t
-   ```
+Identyfikator RID musi być określona w `<RuntimeIdenfifier>` (lub `<RuntimeIdentifiers>`) właściwości pliku projektu. Podaj środowisko uruchomieniowe [- r | — środowisko uruchomieniowe](/dotnet/core/tools/dotnet-publish#options) opcji `dotnet publish` polecenia.
 
-   * `{PATH}` &ndash; Ścieżka do folderu aplikacji.
-   * `{USER ACCOUNT}` &ndash; Konto użytkownika (SID).
-   * `(OI)` &ndash; Obiekt dziedziczenia flagi propaguje uprawnienia do podrzędnych plików.
-   * `(CI)` &ndash; Flaga Dziedziczenie kontenera propaguje uprawnienia do folderów podrzędnych.
-   * `{PERMISSION FLAGS}` &ndash; Ustawia uprawnienia dostępu do aplikacji.
-     * Zapis (`W`)
-     * Odczyt (`R`)
-     * Wykonaj (`X`)
-     * Pełne (`F`)
-     * Modyfikowanie (`M`)
-   * `/t` &ndash; Rekursywnie dotyczą plików i folderów podrzędnych istniejących.
+W poniższym przykładzie aplikacja została opublikowana na potrzeby `win7-x64` środowiska uruchomieniowego *c:\\svc* folderu:
 
-   Dla przykładowej aplikacji opublikowany *c:\\svc* folder i `ServiceUser` konto z uprawnieniami do zapisu/odczytu/wykonania, użyj następującego polecenia:
+```console
+dotnet publish --configuration Release --runtime win7-x64 --output c:\svc
+```
 
-   ```console
-   icacls "c:\svc" /grant ServiceUser:(OI)(CI)WRX /t
-   ```
+### <a name="create-a-user-account"></a>Utwórz konto użytkownika
 
-   Aby uzyskać więcej informacji, zobacz [icacls](/windows-server/administration/windows-commands/icacls).
+Utwórz konto użytkownika dla usługi przy użyciu `net user` polecenia:
 
-1. Użyj [sc.exe](https://technet.microsoft.com/library/bb490995) narzędzie wiersza polecenia, aby utworzyć usługę. `binPath` Wartość jest ścieżką do pliku wykonywalnego aplikacji, która zawiera nazwę pliku wykonywalnego. **Odstęp między równości i znaku cudzysłowu każdego parametru i wartość jest wymagana.**
+```console
+net user {USER ACCOUNT} {PASSWORD} /add
+```
 
-   ```console
-   sc create {SERVICE NAME} binPath= "{PATH}" obj= "{DOMAIN}\{USER ACCOUNT}" password= "{PASSWORD}"
-   ```
+Dla przykładowej aplikacji, należy utworzyć konto użytkownika o nazwie `ServiceUser` i hasła. W poniższym poleceniu zastąp `{PASSWORD}` z [silne hasło](/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements).
 
-   * `{SERVICE NAME}` &ndash; Nazwa do przypisania do usługi w [Menedżera sterowania usługami](/windows/desktop/services/service-control-manager).
-   * `{PATH}` &ndash; Ścieżka do pliku wykonywalnego usługi.
-   * `{DOMAIN}` &ndash; Domena komputerze przyłączonym do domeny. Jeśli komputer nie jest przyłączone do domeny, nazwa komputera lokalnego.
-   * `{USER ACCOUNT}` &ndash; Konto użytkownika, pod którym działa usługa.
-   * `{PASSWORD}` &ndash; Hasło konta użytkownika.
+```console
+net user ServiceUser {PASSWORD} /add
+```
 
-   > [!WARNING]
-   > Czy **nie** pominąć `obj` parametru. Wartością domyślną dla `obj` jest [konta LocalSystem](/windows/desktop/services/localsystem-account) konta. Uruchamianie usługi w obszarze `LocalSystem` konto stanowi znaczące zagrożenie bezpieczeństwa. Usługi są zawsze uruchamiane przy użyciu konta użytkownika, które ma ograniczone uprawnienia.
+Jeśli potrzebujesz dodać użytkownika do grupy, użyj `net localgroup` polecenie, gdzie `{GROUP}` to nazwa grupy:
 
-   W poniższym przykładzie przykładowej aplikacji:
+```console
+net localgroup {GROUP} {USER ACCOUNT} /add
+```
 
-   * Usługa jest o nazwie **Moja_usługa**.
-   * Opublikowana usługa znajduje się w *c:\\svc* folderu. Nosi nazwę pliku wykonywalnego aplikacji *SampleApp.exe*. Ujmij `binPath` wartość w znaki cudzysłowu (").
-   * Usługa jest uruchamiana w ramach `ServiceUser` konta. Zastąp `{DOMAIN}` przy użyciu konta użytkownika domeny lub nazwy komputera lokalnego. Ujmij `obj` wartość w znaki cudzysłowu ("). Przykład: W przypadku hostowania systemu komputera lokalnego, o nazwie `MairaPC`ustaw `obj` do `"MairaPC\ServiceUser"`.
-   * Zastąp `{PASSWORD}` przy użyciu hasła konta użytkownika. Ujmij `password` wartość w znaki cudzysłowu (").
+Aby uzyskać więcej informacji, zobacz [kont użytkowników usług](/windows/desktop/services/service-user-accounts).
 
-   ```console
-   sc create MyService binPath= "c:\svc\sampleapp.exe" obj= "{DOMAIN}\ServiceUser" password= "{PASSWORD}"
-   ```
+### <a name="set-permissions"></a>Ustawianie uprawnień
 
-   > [!IMPORTANT]
-   > Upewnij się, że istnieją spacji między znakami równości parametrów i wartości parametrów.
+Udzielanie zapisu/odczytu/wykonania dostępu do folderu aplikacji przy użyciu [icacls](/windows-server/administration/windows-commands/icacls) polecenia:
 
-1. Uruchom usługę za pomocą `sc start {SERVICE NAME}` polecenia.
+```console
+icacls "{PATH}" /grant {USER ACCOUNT}:(OI)(CI){PERMISSION FLAGS} /t
+```
 
-   Aby uruchomić usługę aplikacji przykładowej, użyj następującego polecenia:
+* `{PATH}` &ndash; Ścieżka do folderu aplikacji.
+* `{USER ACCOUNT}` &ndash; Konto użytkownika (SID).
+* `(OI)` &ndash; Obiekt dziedziczenia flagi propaguje uprawnienia do podrzędnych plików.
+* `(CI)` &ndash; Flaga Dziedziczenie kontenera propaguje uprawnienia do folderów podrzędnych.
+* `{PERMISSION FLAGS}` &ndash; Ustawia uprawnienia dostępu do aplikacji.
+  * Zapis (`W`)
+  * Odczyt (`R`)
+  * Wykonaj (`X`)
+  * Pełne (`F`)
+  * Modyfikowanie (`M`)
+* `/t` &ndash; Rekursywnie dotyczą plików i folderów podrzędnych istniejących.
 
-   ```console
-   sc start MyService
-   ```
+Dla przykładowej aplikacji opublikowany *c:\\svc* folder i `ServiceUser` konto z uprawnieniami do zapisu/odczytu/wykonania, użyj następującego polecenia:
 
-   Polecenie zajmuje kilka sekund, aby uruchomić usługę.
+```console
+icacls "c:\svc" /grant ServiceUser:(OI)(CI)WRX /t
+```
 
-1. Aby sprawdzić stan usługi, użyj `sc query {SERVICE NAME}` polecenia. Stan jest zgłaszany jako jeden z następujących wartości:
+Aby uzyskać więcej informacji, zobacz [icacls](/windows-server/administration/windows-commands/icacls).
 
-   * `START_PENDING`
-   * `RUNNING`
-   * `STOP_PENDING`
-   * `STOPPED`
+## <a name="manage-the-service"></a>Zarządzanie usługą
 
-   Użyj następującego polecenia, aby sprawdzić stan usługi aplikacji przykładowej:
+### <a name="create-the-service"></a>Tworzenie usługi
 
-   ```console
-   sc query MyService
-   ```
+Użyj [sc.exe](https://technet.microsoft.com/library/bb490995) narzędzie wiersza polecenia, aby utworzyć usługę. `binPath` Wartość jest ścieżką do pliku wykonywalnego aplikacji, która zawiera nazwę pliku wykonywalnego. **Odstęp między równości i znaku cudzysłowu każdego parametru i wartość jest wymagana.**
 
-1. Kiedy usługa jest w `RUNNING` stanu i usługi w przypadku aplikacji sieci web, przeglądanie aplikacji w ścieżce (domyślnie `http://localhost:5000`, który przekierowuje do `https://localhost:5001` przy użyciu [HTTPS przekierowanie w oprogramowaniu pośredniczącym](xref:security/enforcing-ssl)).
+```console
+sc create {SERVICE NAME} binPath= "{PATH}" obj= "{DOMAIN}\{USER ACCOUNT}" password= "{PASSWORD}"
+```
 
-   Usługa app service przykładowego, można przeglądać w tej aplikacji w `http://localhost:5000`.
+* `{SERVICE NAME}` &ndash; Nazwa do przypisania do usługi w [Menedżera sterowania usługami](/windows/desktop/services/service-control-manager).
+* `{PATH}` &ndash; Ścieżka do pliku wykonywalnego usługi.
+* `{DOMAIN}` &ndash; Domena komputerze przyłączonym do domeny. Jeśli komputer nie jest przyłączone do domeny, nazwa komputera lokalnego.
+* `{USER ACCOUNT}` &ndash; Konto użytkownika, pod którym działa usługa.
+* `{PASSWORD}` &ndash; Hasło konta użytkownika.
 
-1. Zatrzymaj usługę za pomocą `sc stop {SERVICE NAME}` polecenia.
+> [!WARNING]
+> Czy **nie** pominąć `obj` parametru. Wartością domyślną dla `obj` jest [konta LocalSystem](/windows/desktop/services/localsystem-account) konta. Uruchamianie usługi w obszarze `LocalSystem` konto stanowi znaczące zagrożenie bezpieczeństwa. Usługi są zawsze uruchamiane przy użyciu konta użytkownika, które ma ograniczone uprawnienia.
 
-   Następujące polecenie zatrzymuje usługę aplikacji przykładowej:
+W poniższym przykładzie przykładowej aplikacji:
 
-   ```console
-   sc stop MyService
-   ```
+* Usługa jest o nazwie **Moja_usługa**.
+* Opublikowana usługa znajduje się w *c:\\svc* folderu. Nosi nazwę pliku wykonywalnego aplikacji *SampleApp.exe*. Ujmij `binPath` wartość w znaki cudzysłowu (").
+* Usługa jest uruchamiana w ramach `ServiceUser` konta. Zastąp `{DOMAIN}` przy użyciu konta użytkownika domeny lub nazwy komputera lokalnego. Ujmij `obj` wartość w znaki cudzysłowu ("). Przykład: W przypadku hostowania systemu komputera lokalnego, o nazwie `MairaPC`ustaw `obj` do `"MairaPC\ServiceUser"`.
+* Zastąp `{PASSWORD}` przy użyciu hasła konta użytkownika. Ujmij `password` wartość w znaki cudzysłowu (").
 
-1. Po krótkiej chwili zatrzymania usługi, odinstaluj usługę za pomocą `sc delete {SERVICE NAME}` polecenia.
+```console
+sc create MyService binPath= "c:\svc\sampleapp.exe" obj= "{DOMAIN}\ServiceUser" password= "{PASSWORD}"
+```
 
-   Sprawdź stan usługi aplikacji przykładowej:
+> [!IMPORTANT]
+> Upewnij się, że istnieją spacji między znakami równości parametrów i wartości parametrów.
 
-   ```console
-   sc query MyService
-   ```
+### <a name="start-the-service"></a>Uruchom usługę
 
-   Gdy usługa app service przykładowego jest w `STOPPED` stanu, użyj następującego polecenia, aby odinstalować usługę aplikacji przykładowej:
+Uruchom usługę za pomocą `sc start {SERVICE NAME}` polecenia.
 
-   ```console
-   sc delete MyService
-   ```
+Aby uruchomić usługę aplikacji przykładowej, użyj następującego polecenia:
+
+```console
+sc start MyService
+```
+
+Polecenie zajmuje kilka sekund, aby uruchomić usługę.
+
+### <a name="determine-the-service-status"></a>Sprawdź stan usługi
+
+Aby sprawdzić stan usługi, użyj `sc query {SERVICE NAME}` polecenia. Stan jest zgłaszany jako jeden z następujących wartości:
+
+* `START_PENDING`
+* `RUNNING`
+* `STOP_PENDING`
+* `STOPPED`
+
+Użyj następującego polecenia, aby sprawdzić stan usługi aplikacji przykładowej:
+
+```console
+sc query MyService
+```
+
+### <a name="browse-a-web-app-service"></a>Przeglądaj, usługi aplikacji sieci web
+
+Kiedy usługa jest w `RUNNING` stanu i usługi w przypadku aplikacji sieci web, przeglądanie aplikacji w ścieżce (domyślnie `http://localhost:5000`, który przekierowuje do `https://localhost:5001` przy użyciu [HTTPS przekierowanie w oprogramowaniu pośredniczącym](xref:security/enforcing-ssl)).
+
+Usługa app service przykładowego, można przeglądać w tej aplikacji w `http://localhost:5000`.
+
+### <a name="stop-the-service"></a>Zatrzymaj usługę
+
+Zatrzymaj usługę za pomocą `sc stop {SERVICE NAME}` polecenia.
+
+Następujące polecenie zatrzymuje usługę aplikacji przykładowej:
+
+```console
+sc stop MyService
+```
+
+### <a name="delete-the-service"></a>Usuń usługę
+
+Po krótkiej chwili zatrzymania usługi, odinstaluj usługę za pomocą `sc delete {SERVICE NAME}` polecenia.
+
+Sprawdź stan usługi aplikacji przykładowej:
+
+```console
+sc query MyService
+```
+
+Gdy usługa app service przykładowego jest w `STOPPED` stanu, użyj następującego polecenia, aby odinstalować usługę aplikacji przykładowej:
+
+```console
+sc delete MyService
+```
 
 ## <a name="handle-starting-and-stopping-events"></a>Obsługa uruchamianie i zatrzymywanie wydarzeń
 

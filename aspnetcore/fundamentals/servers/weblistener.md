@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: fundamentals/servers/weblistener
-ms.openlocfilehash: eaf76a44bc7750aef94319042e61aa294c6cba35
-ms.sourcegitcommit: 09affee3d234cb27ea6fe33bc113b79e68900d22
+ms.openlocfilehash: 92a2e567e968cce59ba7b6f374ebd4bc189b81ee
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51191272"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52862125"
 ---
 # <a name="weblistener-web-server-implementation-in-aspnet-core"></a>Implementacja serwera sieci web WebListener w programie ASP.NET Core
 
@@ -87,7 +87,7 @@ Dostępne są także [ustawienia rejestru Http.Sys](https://support.microsoft.co
 
 * Konfigurowanie adresów URL i portów do nasłuchiwania 
 
-  Domyślnie platforma ASP.NET Core wiąże `http://localhost:5000`. Aby skonfigurować przedrostki adresów URL i portów, można użyć `UseURLs` metody rozszerzenia `urls` argument wiersza polecenia lub systemu konfiguracji platformy ASP.NET Core. Aby uzyskać więcej informacji zobacz [hosta w ASP.NET Core(xref:fundamentals/host/index).
+  Domyślnie platforma ASP.NET Core wiąże `http://localhost:5000`. Aby skonfigurować przedrostki adresów URL i portów, można użyć `UseURLs` metody rozszerzenia `urls` argument wiersza polecenia lub systemu konfiguracji platformy ASP.NET Core. Aby uzyskać więcej informacji, zobacz [hostów w programie ASP.NET Core](xref:fundamentals/host/index).
 
   Sieci Web używa odbiornika [formaty ciągu prefiks Http.Sys](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx). Nie ma żadnych wymagań formatu ciągu prefiksu, które są specyficzne dla WebListener.
 

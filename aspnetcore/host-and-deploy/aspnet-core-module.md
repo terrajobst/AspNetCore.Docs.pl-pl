@@ -4,14 +4,14 @@ author: guardrex
 description: Dowiedz się, jak skonfigurować modułu ASP.NET Core do hostowania aplikacji platformy ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/12/2018
+ms.date: 12/01/2018
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: 5a3fd9c3453c07ee550c7de0333c9a49d5d5d1af
-ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
+ms.openlocfilehash: 0feb93c4cbda3a13421c3e120c6f6b7fab626541
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52450661"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861605"
 ---
 # <a name="aspnet-core-module-configuration-reference"></a>Informacje o konfiguracji ASP.NET Core modułu
 
@@ -37,7 +37,7 @@ Aby skonfigurować aplikację do obsługi w procesie, Dodaj `<AspNetCoreHostingM
 
 Następujące właściwości mają zastosowanie w przypadku hostowania w procesie:
 
-* [Serwera Kestrel](xref:fundamentals/servers/kestrel) nie jest używany. Niestandardowy <xref:Microsoft.AspNetCore.Hosting.Server.IServer> implementacji `IISHttpServer` działa jako serwer aplikacji.
+* Serwer HTTP usług IIS (`IISHttpServer`) jest używany zamiast [Kestrel](xref:fundamentals/servers/kestrel) serwera. Serwer HTTP usług IIS (`IISHttpServer`) jest kolejnym <xref:Microsoft.AspNetCore.Hosting.Server.IServer> implementację, która konwertuje natywnych żądań usług IIS platformy ASP.NET Core zarządzane żądania do przetworzenia przez aplikację.
 
 * [Atrybut requestTimeout](#attributes-of-the-aspnetcore-element) nie ma zastosowania do hostowania w procesie.
 

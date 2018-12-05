@@ -3,14 +3,14 @@ title: Składniki widoków w programie ASP.NET Core
 author: rick-anderson
 description: Dowiedz się, jak składniki widoków są używane w programie ASP.NET Core oraz dodać je do aplikacji.
 ms.author: riande
-ms.date: 02/14/2017
+ms.date: 12/03/2018
 uid: mvc/views/view-components
-ms.openlocfilehash: 91399acafb36f1f8759ed1783e70e59b631e3bf0
-ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
+ms.openlocfilehash: 5812abad80cd906d6b9a7175bd7cdefd03a99eb3
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50253136"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861332"
 ---
 # <a name="view-components-in-aspnet-core"></a>Składniki widoków w programie ASP.NET Core
 
@@ -63,13 +63,13 @@ Widok klasy składnika:
 
 ### <a name="view-component-methods"></a>Wyświetlanie składnika metod
 
-Składnik widok definiuje swojej logiki w `InvokeAsync` metodę, która zwraca `IViewComponentResult`. Parametry pochodzą bezpośrednio z wywołania części widoku, nie z wiązania modelu. Składnik widok nigdy nie obsługuje bezpośrednio żądania. Zazwyczaj składnikiem widoku inicjuje modelu i przekazuje je do widoku przez wywołanie metody `View` metody. Podsumowując wyświetlić metody składników:
+Składnik widok definiuje swojej logiki w `InvokeAsync` metodę, która zwraca `Task<IViewComponentResult>` lub synchronicznego `Invoke` metodę, która zwraca `IViewComponentResult`. Parametry pochodzą bezpośrednio z wywołania części widoku, nie z wiązania modelu. Składnik widok nigdy nie obsługuje bezpośrednio żądania. Zazwyczaj składnikiem widoku inicjuje modelu i przekazuje je do widoku przez wywołanie metody `View` metody. Podsumowując wyświetlić metody składników:
 
-* Zdefiniuj `InvokeAsync` metodę, która zwraca `IViewComponentResult`
-* Zazwyczaj inicjuje modelu i przekazuje je do widoku, wywołując `ViewComponent` `View` — metoda
-* Parametry pochodzą z wywołania metody HTTP nie znajduje się żadne wiązanie modelu
-* To nie jest dostępny bezpośrednio jako punkt końcowy HTTP, są one wywoływane w kodzie (zwykle w widoku). Składnik widok nigdy nie obsługuje żądania
-* Są przeciążone dla podpisu, a nie wszystkie szczegóły z bieżącego żądania HTTP
+* Zdefiniuj `InvokeAsync` metodę, która zwraca `Task<IViewComponentResult>` lub synchronicznego `Invoke` metodę, która zwraca `IViewComponentResult`.
+* Zazwyczaj inicjuje modelu i przekazuje je do widoku, wywołując `ViewComponent` `View` metody.
+* Parametry pochodzą z wywołania metody, a nie HTTP. Nie istnieje żadne wiązanie modelu.
+* Nie są dostępne bezpośrednio jako punkt końcowy HTTP. Są one wywoływane w kodzie (zwykle w widoku). Składnik widok nigdy nie obsługuje żądania.
+* Są przeciążone dla podpisu, a nie wszystkie szczegóły z bieżącego żądania HTTP.
 
 ### <a name="view-search-path"></a>Ścieżka wyszukiwania widoku
 

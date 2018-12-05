@@ -5,14 +5,14 @@ description: Informacje o kompresji odpowiedzi i sposobie używania oprogramowan
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/21/2018
+ms.date: 12/01/2018
 uid: performance/response-compression
-ms.openlocfilehash: 8c3d74b6a346d51507d3c278b03ddc842feea13e
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 2516fbb30e55990dc4ad0d92069853bc26874bc9
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207982"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861891"
 ---
 # <a name="response-compression-in-aspnet-core"></a>Kompresja odpowiedzi w programie ASP.NET Core
 
@@ -24,7 +24,7 @@ Przepustowość sieci jest ograniczona zasobów. Zazwyczaj zmniejszenie rozmiaru
 
 ## <a name="when-to-use-response-compression-middleware"></a>Kiedy należy używać oprogramowanie pośredniczące kompresji odpowiedzi
 
-Użyj technologii kompresji odpowiedzi na serwerze usług IIS, Apache i Nginx. Wydajność oprogramowania pośredniczącego prawdopodobnie nie będzie zgodne z modułów serwera. [Serwer HTTP.sys](xref:fundamentals/servers/httpsys) i [Kestrel](xref:fundamentals/servers/kestrel) aktualnie nie ma możliwości obsługi kompresji wbudowanych.
+Użyj technologii kompresji odpowiedzi na serwerze usług IIS, Apache i Nginx. Wydajność oprogramowania pośredniczącego prawdopodobnie nie będzie zgodne z modułów serwera. [Serwer HTTP.sys](xref:fundamentals/servers/httpsys) serwera i [Kestrel](xref:fundamentals/servers/kestrel) server obecnie nie oferują obsługę wbudowanych kompresji.
 
 Oprogramowanie pośredniczące kompresji odpowiedzi należy użyć, jeśli:
 
@@ -33,8 +33,8 @@ Oprogramowanie pośredniczące kompresji odpowiedzi należy użyć, jeśli:
   * [Moduł mod_deflate Apache](http://httpd.apache.org/docs/current/mod/mod_deflate.html)
   * [Serwer Nginx kompresja i Dekompresja](https://www.nginx.com/resources/admin-guide/compression-and-decompression/)
 * Hosting bezpośrednio na:
-  * [Serwer HTTP.sys](xref:fundamentals/servers/httpsys) (wcześniej noszącą nazwę [WebListener](xref:fundamentals/servers/weblistener))
-  * [Kestrel](xref:fundamentals/servers/kestrel)
+  * [Sterownik HTTP.sys](xref:fundamentals/servers/httpsys) server (wcześniej noszącą nazwę [WebListener](xref:fundamentals/servers/weblistener))
+  * [Kestrel](xref:fundamentals/servers/kestrel) serwera
 
 ## <a name="response-compression"></a>Kompresja odpowiedzi
 
@@ -432,7 +432,7 @@ Podczas kompresowania odpowiedzi na podstawie `Accept-Encoding` nagłówka, wyst
 
 ## <a name="middleware-issue-when-behind-an-nginx-reverse-proxy"></a>Oprogramowanie pośredniczące problem za zaporą zwrotny serwer proxy Nginx
 
-Gdy żądanie jest przekazywane przez serwer Nginx, `Accept-Encoding` nagłówka zostanie usunięty. Zapobiega to oprogramowanie pośredniczące od kompresji odpowiedzi. Aby uzyskać więcej informacji, zobacz [NGINX: kompresja i Dekompresja](https://www.nginx.com/resources/admin-guide/compression-and-decompression/). Ten problem jest śledzona przez [ustalić przekazywanego kompresji dla kontenera Nginx (BasicMiddleware #123)](https://github.com/aspnet/BasicMiddleware/issues/123).
+Gdy żądanie jest przekazywane przez serwer Nginx, `Accept-Encoding` nagłówka zostanie usunięty. Usuwanie `Accept-Encoding` nagłówka zapobiega oprogramowanie pośredniczące kompresji odpowiedzi. Aby uzyskać więcej informacji, zobacz [NGINX: kompresja i Dekompresja](https://www.nginx.com/resources/admin-guide/compression-and-decompression/). Ten problem jest śledzona przez [ustalić przekazywanego kompresji dla kontenera Nginx (aspnet/BasicMiddleware \#123)](https://github.com/aspnet/BasicMiddleware/issues/123).
 
 ## <a name="working-with-iis-dynamic-compression"></a>Praca z kompresji dynamicznej usług IIS
 

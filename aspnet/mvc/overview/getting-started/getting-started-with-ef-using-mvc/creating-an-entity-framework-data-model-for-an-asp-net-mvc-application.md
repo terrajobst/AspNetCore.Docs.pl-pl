@@ -3,16 +3,16 @@ uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-
 title: Wprowadzenie do programu Entity Framework 6 Code First wykorzystaniem MVC 5 | Dokumentacja firmy Microsoft
 author: tdykstra
 ms.author: riande
-ms.date: 10/04/2018
+ms.date: 12/04/2018
 ms.assetid: 00bc8b51-32ed-4fd3-9745-be4c2a9c1eaf
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 5dd9a5a24d8c67c5190c98e3240d132eaa27661c
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: c7ab9458f83e05af84f72d9a2519a8c1c39b84b5
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912413"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861436"
 ---
 # <a name="get-started-with-entity-framework-6-code-first-using-mvc-5"></a>Rozpoczynanie pracy z usługą Entity Framework 6 Code First wykorzystaniem MVC 5
 
@@ -21,7 +21,7 @@ przez [Tom Dykstra](https://github.com/tdykstra)
 [Pobierz ukończony projekt](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
 
 > [!NOTE]
-> A [nowszą wersję tej serii samouczków](/aspnet/core/tutorials/razor-pages/razor-pages-start?view=aspnetcore-2.1) jest dostępna, który używa [stron Razor](/aspnet/core/razor-pages). Strony razor jest opartej na stronach model programowania, który umożliwia tworzenie internetowego interfejsu użytkownika, łatwiejsze i bardziej wydajne. Firma Microsoft zaleca Samouczek stron Razor, MVC w wersji. Samouczek stron Razor:
+> W nowych wdrożeniach, firma Microsoft zaleca [stronami ASP.NET Core Razor](/aspnet/core/razor-pages) za pośrednictwem widoków i kontrolerów platformy ASP.NET MVC. Podobny do tej serii samouczków jest dostępny dla stron Razor [Samouczek stron Razor](/aspnet/core/tutorials/razor-pages/razor-pages-start):
 >
 > * Łatwiej jest je wykonać.
 > * Zapewnia więcej najlepszych rozwiązań programu EF Core.

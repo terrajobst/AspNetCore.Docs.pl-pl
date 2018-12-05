@@ -1,17 +1,17 @@
 ---
 title: Moduł ASP.NET Core
 author: guardrex
-description: Dowiedz się, jak modułu ASP.NET Core zezwala na serwerze sieci web Kestrel do używania usług IIS lub IIS Express jako serwera zwrotny serwer proxy.
+description: Dowiedz się, jak modułu ASP.NET Core umożliwia serwer sieci web Kestrel do używania usług IIS lub IIS Express.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 09/21/2018
+ms.date: 11/30/2018
 uid: fundamentals/servers/aspnet-core-module
-ms.openlocfilehash: 39c1b364f9dab635c79e00561d212c858c0c4395
-ms.sourcegitcommit: 09affee3d234cb27ea6fe33bc113b79e68900d22
+ms.openlocfilehash: d3f3a42dd7aebc425905b865376a584bcf0e5153
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51191259"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861462"
 ---
 # <a name="aspnet-core-module"></a>Moduł ASP.NET Core
 
@@ -36,7 +36,7 @@ Obsługiwane wersje Windows:
 
 ::: moniker range=">= aspnetcore-2.2"
 
-W przypadku hostowania w procesie, moduł ma własną implementację serwera `IISHttpServer`.
+W przypadku hostowania w procesie, moduł używa implementację w procesie serwera usług IIS, serwera HTTP usług IIS (`IISHttpServer`).
 
 Gdy w hostingu poza procesem, moduł działa tylko z Kestrel. Moduł nie jest zgodna z [HTTP.sys](xref:fundamentals/servers/httpsys) (wcześniej noszącą nazwę [WebListener](xref:fundamentals/servers/weblistener)).
 
@@ -73,9 +73,9 @@ Na poniższym diagramie przedstawiono relację między usługami IIS, modułu AS
 
 ![Moduł ASP.NET Core](aspnet-core-module/_static/ancm-inprocess.png)
 
-Żądanie dociera z sieci web do sterownik HTTP.sys trybu jądra. Sterownik kieruje żądanie macierzystego w usługach IIS na porcie skonfigurowanym witryny sieci Web, zwykle 80 (HTTP) lub 443 (HTTPS). Moduł odbiera żądanie natywnych i przekazuje sterowanie do `IISHttpServer`, czyli co konwertuje żądanie z natywnego na zarządzane.
+Żądanie dociera z sieci web do sterownik HTTP.sys trybu jądra. Sterownik kieruje żądanie macierzystego w usługach IIS na porcie skonfigurowanym witryny sieci Web, zwykle 80 (HTTP) lub 443 (HTTPS). Moduł odbiera żądanie natywnych i przekazuje go do serwera HTTP usług IIS (`IISHttpServer`). Serwer HTTP usług IIS jest implementacją w procesie serwera usług IIS, który konwertuje żądania z natywnego na zarządzanych.
 
-Po `IISHttpServer` przejmuje żądania, żądania są przesyłane do potoku oprogramowania pośredniczącego platformy ASP.NET Core. Potoku oprogramowania pośredniczącego obsługuje żądanie i przekazuje ją jako `HttpContext` wystąpienie aplikacji logiki. Odpowiedź aplikacji jest przekazywany z powrotem do usług IIS, wypchnięć, które go wycofać do klienta HTTP, który zainicjował żądanie.
+Po przetworzeniu żądania przez serwer HTTP usług IIS, żądania są przesyłane do potoku oprogramowania pośredniczącego platformy ASP.NET Core. Potoku oprogramowania pośredniczącego obsługuje żądanie i przekazuje ją jako `HttpContext` wystąpienie aplikacji logiki. Odpowiedź aplikacji jest przekazywany z powrotem do usług IIS, wypchnięć, które go wycofać do klienta, który zainicjował żądanie.
 
 ### <a name="out-of-process-hosting-model"></a>Model hostingu poza procesem
 

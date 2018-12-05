@@ -4,14 +4,14 @@ author: guardrex
 description: Dowiedz się, aktywnych i nieaktywnych moduły IIS dla aplikacji platformy ASP.NET Core oraz jak zarządzać moduły usług IIS.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/12/2018
+ms.date: 11/30/2018
 uid: host-and-deploy/iis/modules
-ms.openlocfilehash: b417d479d0c3f8b3e739d4c72b52247de0e88e56
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: c6a6cc9b6b3410267c6f5034f824648a1ebbe10f
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49325955"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52862242"
 ---
 # <a name="iis-modules-with-aspnet-core"></a>Moduły usług IIS za pomocą programu ASP.NET Core
 
@@ -21,7 +21,7 @@ Niektóre moduły macierzyste usług IIS i wszystkie moduły usług IIS, zarząd
 
 ## <a name="native-modules"></a>Moduły macierzyste
 
-Tabela zawiera moduły macierzyste usług IIS, które działają na żądania zwrotnego serwera proxy aplikacji platformy ASP.NET Core.
+Tabela zawiera moduły macierzyste usług IIS, które zachowują swoją funkcjonalność aplikacji platformy ASP.NET Core i modułu ASP.NET Core.
 
 | Moduł | Funkcjonalność aplikacji platformy ASP.NET Core | Opcja platformy ASP.NET Core |
 | --- | :---: | --- |
