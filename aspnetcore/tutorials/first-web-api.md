@@ -7,12 +7,12 @@ monikerRange: '> aspnetcore-2.1'
 ms.custom: mvc
 ms.date: 11/19/2018
 uid: tutorials/first-web-api
-ms.openlocfilehash: 6e71771cd76b83da98bbad3e96469f635909198f
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 419da905a622fe39693ed10a6b9d5e8a459b4a00
+ms.sourcegitcommit: a3a15d3ad4d6e160a69614a29c03bbd50db110a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862398"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52951995"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core-mvc"></a>Samouczek: Tworzenie interfejsu API sieci web za pomocą platformy ASP.NET Core MVC
 
@@ -88,6 +88,8 @@ Na poniższym diagramie przedstawiono projekt aplikacji.
 * Wybierz **aplikacji programu .NET Core** > **interfejsu API sieci Web platformy ASP.NET Core** > **dalej**.
 
   ![okno dialogowe z systemem macOS nowego projektu](first-web-api-mac/_static/1.png)
+  
+* W **Konfigurowanie nowego programu ASP.NET Core internetowy interfejs API** okno dialogowe, zaakceptuj wartość domyślną **platformę docelową** z **platformy .NET Core 2.2*.
 
 * Wprowadź *TodoApi* dla **Nazwa projektu** , a następnie wybierz **Utwórz**.
 
@@ -268,7 +270,7 @@ Następującą odpowiedź HTTP jest tworzony przez wywołanie metody `GetTodoIte
 
 W następującym `GetTodoItem` metody `"{id}"` jest zmienną symbolu zastępczego dla Unikatowy identyfikator elementu do wykonania. Gdy `GetTodoItem` zostanie wywołana, wartość `"{id}"` w adresie URL jest przekazane do metody w jego`id` parametru.
 
-[!code-csharp[](first-web-api/samples/2.2/TodoApi/Controllers/TodoController.cs?name=snippet_GetTodoItem&highlight=1-2)]
+[!code-csharp[](first-web-api/samples/2.2/TodoApi/Controllers/TodoController.cs?name=snippet_GetByID&highlight=1-2)]
 
 `Name = "GetTodo"` Parametr tworzy trasą mającą nazwę. Zostanie wyświetlony, pokażemy, jak aplikacja może używać nazwy do utworzenia łącza HTTP, używając nazwy trasy.
 

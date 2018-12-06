@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 12/03/2018
 uid: aspnetcore-2.2
-ms.openlocfilehash: 7429cb725a630c080690d81ec75d291bf48be2fc
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: d0bb0698526e2f7af8f0e99b0393f3ce48657b34
+ms.sourcegitcommit: a3a15d3ad4d6e160a69614a29c03bbd50db110a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862830"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52952060"
 ---
 # <a name="whats-new-in-aspnet-core-22"></a>What's new in ASP.NET Core 2.2
 
@@ -23,14 +23,23 @@ Otwarty interfejs API (znany także jako struktury Swagger) to specyfikacja niez
 
 Aby uzyskać więcej informacji, zobacz następujące zasoby:
 
-* <xref:tutorials/web-api-help-pages-using-swagger>
-* [Platforma ASP.NET Core 2.2.0-preview1: Otwórz interfejsów API analizatorów & konwencje](https://blogs.msdn.microsoft.com/webdev/2018/08/23/asp-net-core-2-20-preview1-open-api-analyzers-conventions/).
+* <xref:web-api/advanced/analyzers>
+* <xref:web-api/advanced/conventions>
+* [Platforma ASP.NET Core 2.2.0-preview1: Otwórz z & konwencje analizatorów interfejsu API](https://blogs.msdn.microsoft.com/webdev/2018/08/23/asp-net-core-2-20-preview1-open-api-analyzers-conventions/)
+
+## <a name="problem-details-support"></a>Obsługuje szczegóły problemu
+
+Platforma ASP.NET Core 2.1 wprowadzono `ProblemDetails`zgodnie z specyfikacją RFC 7807 zawierający szczegóły błędu z odpowiedzi HTTP. W 2.2 `ProblemDetails` jest standardowa odpowiedź do klienta kody błędów w kontrolerów z `ApiControllerAttribute`. `IActionResult` Zwracanie klient zwraca teraz (4xx) kod stanu błędu `ProblemDetails` treści. Wynik zawiera również identyfikator korelacji, który może służyć do skorelowania błędów przy użyciu dzienników żądania. Błędy klienta `ProducesResponseType` domyślnie używa `ProblemDetails` jako typ odpowiedzi. To jest udokumentowany w otwartych interfejsów API / Swagger dane wyjściowe generowane przy użyciu NSwag lub Swashbuckle.AspNetCore.
 
 ## <a name="endpoint-routing"></a>Punkt końcowy routingu
 
-Platforma ASP.NET Core 2.2 używa nowego *routingu punkt końcowy* system ulepszone wysyłania żądań. Zmiany obejmują nowy link członków generowania interfejsu API.
+Platforma ASP.NET Core 2.2 używa nowego *routingu punkt końcowy* system ulepszone wysyłania żądań. Zmiany obejmują nowy link członków generowania interfejsu API i kierowanie transformatory parametru.
 
-Aby uzyskać więcej informacji, zobacz [różnice między routing oparty na IRouter i do endpoint](xref:fundamentals/routing?view=aspnetcore-2.2#differences-from-earlier-versions-of-routing).
+Aby uzyskać więcej informacji, zobacz następujące zasoby:
+
+* [Punkt końcowy routingu w 2.2](https://blogs.msdn.microsoft.com/webdev/2018/08/27/asp-net-core-2-2-0-preview1-endpoint-routing/)
+* [Kierowanie parametru transformatory](https://www.hanselman.com/blog/ASPNETCore22ParameterTransformersForCleanURLGenerationAndSlugsInRazorPagesOrMVC.aspx) (zobacz **Routing** sekcji)
+* [Różnice między routing oparty na IRouter i punktu końcowego](xref:fundamentals/routing?view=aspnetcore-2.2#differences-from-earlier-versions-of-routing)
 
 ## <a name="health-checks"></a>Kontrole kondycji
 
@@ -38,7 +47,7 @@ Nowe kondycji sprawdza, czy usługa sprawia, że łatwiej używać platformy ASP
 
 Kontrole kondycji są używane przez koordynatora kontenerów lub szybko określić, jeśli system jest zazwyczaj odpowiada na żądania usługi równoważenia obciążenia. Orkiestrator kontenerów może odpowiadać na kondycji niepowodzenie sprawdzenia przez zatrzymywanie stopniowego wdrażania lub ponownego uruchamiania kontenera. Moduł równoważenia obciążenia może odpowiedzieć sprawdzenie kondycji routing ruchu od niepowodzeniem wystąpienie usługi.
 
-Kontrole kondycji są udostępniane przez aplikację jako punktu końcowego HTTP używane przez systemy monitorowania. Kontrole kondycji można skonfigurować dla różnych scenariusze monitorowania w czasie rzeczywistym oraz monitorowanie systemów.
+Kontrole kondycji są udostępniane przez aplikację jako punktu końcowego HTTP używane przez systemy monitorowania. Kontrole kondycji można skonfigurować dla różnych scenariusze monitorowania w czasie rzeczywistym oraz monitorowanie systemów. Kondycji sprawdza, czy usługa integruje się z [projektu BeatPulse](https://github.com/Xabaril/BeatPulse). który ułatwia dodawanie kontroli dla wielu popularnych systemów i zależności.
 
 Aby uzyskać więcej informacji, zobacz [kontroli kondycji w programie ASP.NET Core](xref:host-and-deploy/health-checks).
 
@@ -61,7 +70,7 @@ We wcześniejszych wersjach programu ASP.NET Core, są skonfigurowane opcje Kest
 
 ## <a name="iis-in-process-hosting"></a>Hostowanie wewnątrzprocesowe usług IIS
 
-We wcześniejszych wersjach programu ASP.NET Core usługi IIS służy jako zwrotny serwer proxy. W 2.2, modułu ASP.NET Core można uruchomić oprogramowania CoreCLR i hostowanie aplikacji w ramach proces roboczy usług IIS (*w3wp.exe*). Hosting w trakcie zapewnia istotnie poprawiającą wydajność i zyski diagnostycznych podczas korzystania z użyciem usług IIS.
+We wcześniejszych wersjach programu ASP.NET Core usługi IIS służy jako zwrotny serwer proxy. W 2.2, modułu ASP.NET Core można uruchomić oprogramowania CoreCLR i hostowanie aplikacji w ramach proces roboczy usług IIS (*w3wp.exe*). W trakcie hostingu zapewnia wydajność i zyski diagnostycznych podczas korzystania z użyciem usług IIS.
 
 Aby uzyskać więcej informacji, zobacz [IIS wewnątrzprocesowego hostingu](xref:fundamentals/servers/aspnet-core-module?view=aspnetcore-2.2#in-process-hosting-model).
 

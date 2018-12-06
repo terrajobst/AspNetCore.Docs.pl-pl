@@ -7,12 +7,12 @@ ms.date: 12/04/2018
 ms.assetid: 00bc8b51-32ed-4fd3-9745-be4c2a9c1eaf
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: c7ab9458f83e05af84f72d9a2519a8c1c39b84b5
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: ad4f9161402170950a6bca31b1696315971cbed6
+ms.sourcegitcommit: a3a15d3ad4d6e160a69614a29c03bbd50db110a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861436"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52952047"
 ---
 # <a name="get-started-with-entity-framework-6-code-first-using-mvc-5"></a>Rozpoczynanie pracy z usługą Entity Framework 6 Code First wykorzystaniem MVC 5
 
@@ -21,7 +21,7 @@ przez [Tom Dykstra](https://github.com/tdykstra)
 [Pobierz ukończony projekt](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
 
 > [!NOTE]
-> W nowych wdrożeniach, firma Microsoft zaleca [stronami ASP.NET Core Razor](/aspnet/core/razor-pages) za pośrednictwem widoków i kontrolerów platformy ASP.NET MVC. Podobny do tej serii samouczków jest dostępny dla stron Razor [Samouczek stron Razor](/aspnet/core/tutorials/razor-pages/razor-pages-start):
+> W nowych wdrożeniach, firma Microsoft zaleca [stronami ASP.NET Core Razor](/aspnet/core/razor-pages) za pośrednictwem widoków i kontrolerów platformy ASP.NET MVC. Dla serii samouczków, podobny do następującego przy użyciu stron Razor, zobacz [samouczek: rozpoczynanie pracy ze stronami Razor w programie ASP.NET Core](/aspnet/core/tutorials/razor-pages/razor-pages-start). Samouczek nowe:
 >
 > * Łatwiej jest je wykonać.
 > * Zapewnia więcej najlepszych rozwiązań programu EF Core.
