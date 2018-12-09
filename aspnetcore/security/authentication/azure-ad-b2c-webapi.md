@@ -1,19 +1,19 @@
 ---
-title: Uwierzytelnianie w chmurze w sieci web, interfejsów API za pomocą usługi Azure Active Directory B2C w programie ASP.NET Core
+title: Uwierzytelnianie w interfejsie web API za pomocą usługi Azure Active Directory B2C w programie ASP.NET Core
 author: camsoper
 description: Dowiedz się, jak skonfigurować uwierzytelnianie usługi Azure Active Directory B2C przy użyciu interfejsu API sieci Web programu ASP.NET Core. Przetestuj uwierzytelniony interfejs API sieci web za pomocą narzędzia Postman.
 ms.author: casoper
 ms.date: 09/21/2018
-ms.custom: mvc
+ms.custom: mvc, seodec18
 uid: security/authentication/azure-ad-b2c-webapi
-ms.openlocfilehash: a7a109909d66b1016e78eedc8b802068143c65e3
-ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
+ms.openlocfilehash: e8ac1e33819dd369460139df25597e1aa0979c91
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49348549"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121716"
 ---
-# <a name="cloud-authentication-in-web-apis-with-azure-active-directory-b2c-in-aspnet-core"></a>Uwierzytelnianie w chmurze w sieci web, interfejsów API za pomocą usługi Azure Active Directory B2C w programie ASP.NET Core
+# <a name="authentication-in-web-apis-with-azure-active-directory-b2c-in-aspnet-core"></a>Uwierzytelnianie w interfejsie web API za pomocą usługi Azure Active Directory B2C w programie ASP.NET Core
 
 Przez [Soper kamery](https://twitter.com/camsoper)
 
@@ -122,10 +122,10 @@ Użyj następujących wartości:
 Nowo rejestrowanej aplikacji internetowej wymaga zgody na dostęp do internetowego interfejsu API w imieniu użytkownika.  
 
 1. Wybierz **Postman** na liście aplikacji, a następnie wybierz **dostęp do interfejsu API** z menu po lewej stronie.
-1. Wybierz **+ Dodaj**.
+1. Wybierz pozycję **+ Dodaj**.
 1. W **wybierz interfejs API** listy rozwijanej wybierz nazwę interfejsu API sieci web.
 1. W **wybierz zakresy** listy rozwijanej, upewnij się, wszystkie zakresy są zaznaczone.
-1. Wybierz **Ok**.
+1. Wybierz przycisk **OK**.
 
 Identyfikator aplikacji w aplikacji Postman, należy pamiętać, ponieważ są wymagane do uzyskania tokenu elementu nośnego.
 
@@ -200,7 +200,7 @@ Wybierz **wysyłania** przycisk, aby ponownie wysłać żądanie. Tym razem stan
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przedstawiono sposób:
+W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie dzierżawy usługi Azure Active Directory B2C.

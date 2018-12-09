@@ -3,15 +3,15 @@ title: Ustawienia logowania zewnętrznego Google w programie ASP.NET Core
 author: rick-anderson
 description: Ten samouczek przedstawia integracja uwierzytelniania użytkownika konta Google do istniejącej aplikacji platformy ASP.NET Core.
 ms.author: riande
-ms.custom: mvc
+ms.custom: mvc, seodec18
 ms.date: 11/11/2018
 uid: security/authentication/google-logins
-ms.openlocfilehash: dfda83e1d7cf3c5ff8e31de20c15d468de5d15c0
-ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
+ms.openlocfilehash: e5deda5d521643e3155be00f4630a86c6a82575c
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51708455"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121534"
 ---
 # <a name="google-external-login-setup-in-aspnet-core"></a>Ustawienia logowania zewnętrznego Google w programie ASP.NET Core
 
@@ -27,7 +27,7 @@ W tym samouczku dowiesz się, jak umożliwić użytkownikom logowanie się przy 
 
 * Nastąpi przekierowanie do **Menedżer interfejsu API biblioteki** strony:
 
-![Strona biblioteki Menedżer interfejsu API](index/_static/GoogleConsoleSwitchboard.png)
+![Docelowa na stronie biblioteki Menedżer interfejsu API](index/_static/GoogleConsoleSwitchboard.png)
 
 * Naciśnij pozycję **Utwórz** i wprowadź swoje **Nazwa projektu**:
 
@@ -35,15 +35,15 @@ W tym samouczku dowiesz się, jak umożliwić użytkownikom logowanie się przy 
 
 * Po zaakceptowaniu okna dialogowego, nastąpi przekierowanie do strony biblioteki umożliwia wybranie funkcji dla nowej aplikacji. Znajdź **interfejsu API Google +** na liście i kliknij jego łącze, aby dodać funkcję interfejsu API:
 
-![Strona biblioteki Menedżer interfejsu API](index/_static/GoogleConsoleChooseApi.png)
+![Wyszukaj "interfejs API Google +" na stronie biblioteki Menedżer interfejsu API](index/_static/GoogleConsoleChooseApi.png)
 
 * Zostanie wyświetlona strona dla nowo dodanego interfejsu API. Naciśnij pozycję **Włącz** dodać Google + znak w funkcji do aplikacji:
 
-![Strona Menedżer interfejsu API Google + interfejsu API](index/_static/GoogleConsoleEnableApi.png)
+![Docelowa na stronie Menedżer interfejsu API Google + interfejs API](index/_static/GoogleConsoleEnableApi.png)
 
 * Po włączeniu interfejsu API, naciśnij przycisk **Utwórz poświadczenia** skonfigurować wpisy tajne:
 
-![Strona Menedżer interfejsu API Google + interfejsu API](index/_static/GoogleConsoleGoCredentials.png)
+![Tworzenie przycisku poświadczenia na stronie Menedżer interfejsu API Google + interfejsu API](index/_static/GoogleConsoleGoCredentials.png)
 
 * Wybierz:
   * **Google+ API**

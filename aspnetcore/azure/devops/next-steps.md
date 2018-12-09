@@ -1,17 +1,17 @@
 ---
-title: Metodyka DevOps z platformą ASP.NET Core i platformy Azure | Następne kroki
+title: Następne kroki — metodyki DevOps z platformą ASP.NET Core i platformy Azure
 author: CamSoper
-description: Przewodnik, który dostarcza wskazówki end-to-end na tworzeniu potoku metodyki DevOps dla aplikacji ASP.NET Core hostowanych na platformie Azure.
+description: Dodatkowe ścieżki szkoleniowe dotyczące metodyki DevOps z platformą ASP.NET Core i platformy Azure.
 ms.author: casoper
-ms.custom: mvc
+ms.custom: mvc, seodec18
 ms.date: 10/24/2018
 uid: azure/devops/next-steps
-ms.openlocfilehash: b82e7251b507f8d141930673d50722cfaa576db5
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 7c3b1c701b13b2a2052c72f5f84bba33d4995ad7
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50089883"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121327"
 ---
 # <a name="next-steps"></a>Następne kroki
 
@@ -33,7 +33,7 @@ Poza hosting sieci web i metodyki DevOps platforma Azure oferuje szeroką gamę 
 
 [Usługa Azure Active Directory](/azure/active-directory/) i [usługi Azure Active Directory B2C](/azure/active-directory-b2c/) są obie te usługi tożsamości. Usługa Azure Active Directory jest przeznaczona dla scenariuszy dla przedsiębiorstw i do pracy zespołowej usługi Azure AD B2B (business-to-business), podczas gdy usługi Azure Active Directory B2C jest zamierzony scenariuszy biznesowych do klienta, w tym logowania się w sieci społecznościowej.
 
-## <a name="mobile"></a>Telefon komórkowy
+## <a name="mobile"></a>Urządzenia przenośne
 
 [Usługa Notification Hubs](/azure/notification-hubs/) jest aparatem wieloplatformowe i skalowalne powiadomienia wypychane, aby szybko wysyłać miliony wiadomości do aplikacji działających na urządzeniach różnych typów.
 

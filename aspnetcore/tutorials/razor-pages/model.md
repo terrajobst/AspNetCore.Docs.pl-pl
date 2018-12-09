@@ -6,12 +6,12 @@ ms.author: riande
 monikerRange: '>= aspnetcore-2.2'
 ms.date: 12/3/2018
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 3c9b96c8e56672a3c4268d8cd507f30127a812dd
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 91fee1db820493be671fecaee3cfb4c1b7df8bd3
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861475"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121366"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Dodawanie modelu strony Razor aplikacji w programie ASP.NET Core
 
@@ -94,7 +94,7 @@ Wykonaj **dodać strony Razor za pomocą programu Entity Framework (CRUD)** okno
 
 * W **klasa modelu** listę rozwijaną, wybierz **Movie (RazorPagesMovie.Models)**.
 * W **klasa kontekstu danych** wiersz, wybierz opcję **+** (plus) Zaloguj się i zaakceptuj wygenerowaną nazwę **RazorPagesMovie.Models.RazorPagesMovieContext**.
-* Wybierz **Dodaj**.
+* Wybierz pozycję **Dodaj**.
 
 ![Obraz z poprzednich instrukcji.](model/_static/arp.png)
 
@@ -108,6 +108,12 @@ Wykonaj **dodać strony Razor za pomocą programu Entity Framework (CRUD)** okno
 -->
 
 * Otwórz okno polecenia w katalogu projektu (katalog, który zawiera *Program.cs*, *Startup.cs*, i *.csproj* plików).
+* Zainstaluj narzędzia do tworzenia szkieletów:
+
+  ```console
+   dotnet tool install --global dotnet-aspnet-codegenerator
+   ```
+
 * **Aby uzyskać Windows**: Uruchom następujące polecenie:
 
   ```console

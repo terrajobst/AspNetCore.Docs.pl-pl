@@ -1,20 +1,20 @@
 ---
-title: Zwiększanie możliwości aplikacji z zewnętrznego zestawu w programie ASP.NET Core za pomocą interfejsu IHostingStartup
+title: Korzystanie z obsługi zestawów uruchamiania w programie ASP.NET Core
 author: guardrex
 description: Dowiedz się, jak poprawić aplikacji ASP.NET Core z zestawu zewnętrznego za pomocą interfejsu IHostingStartup implementację.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.custom: mvc
+ms.custom: mvc,seodec18
 ms.date: 11/22/2018
 uid: fundamentals/configuration/platform-specific-configuration
-ms.openlocfilehash: ef3b48dc72f294a783d789c4c9a796e3498a91d9
-ms.sourcegitcommit: 710fc5fcac258cc8415976dc66bdb355b3e061d5
+ms.openlocfilehash: 6c38242afee46b80bafcba47a8f77e2c05f6537e
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52299459"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121729"
 ---
-# <a name="enhance-an-app-from-an-external-assembly-in-aspnet-core-with-ihostingstartup"></a>Zwiększanie możliwości aplikacji z zewnętrznego zestawu w programie ASP.NET Core za pomocą interfejsu IHostingStartup
+# <a name="use-hosting-startup-assemblies-in-aspnet-core"></a>Korzystanie z obsługi zestawów uruchamiania w programie ASP.NET Core
 
 Przez [Luke Latham](https://github.com/guardrex) i [Pavel Krymets](https://github.com/pakrym)
 
@@ -308,7 +308,7 @@ Hostingu ulepszenie uruchamiania mogą być zapewniane przez *bin*-wdrożone zes
   * Zarejestrowane usługi
   * Adres (schematu, hosta, podstawa ścieżki, ścieżki, ciąg zapytania)
   * Połączenia (zdalnego adresu IP, port zdalny lokalnego adresu IP, port lokalny, certyfikatu klienta)
-  * Nagłówki żądania
+  * Nagłówki żądań
   * Zmienne środowiskowe
 
 Do uruchomienia przykładu:

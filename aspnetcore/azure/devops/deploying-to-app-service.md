@@ -1,17 +1,17 @@
 ---
-title: Metodyka DevOps z platformą ASP.NET Core i platformy Azure | Wdrażanie aplikacji w usłudze App Service
+title: Wdrażanie aplikacji w usłudze App Service — metodyki DevOps z platformą ASP.NET Core i platformy Azure
 author: CamSoper
-description: Przewodnik, który dostarcza wskazówki end-to-end na tworzeniu potoku metodyki DevOps dla aplikacji ASP.NET Core hostowanych na platformie Azure.
+description: Wdrażanie aplikacji ASP.NET Core na usłudze Azure App Service, pierwszym krokiem dla metodyki DevOps z platformą ASP.NET Core i platformy Azure.
 ms.author: casoper
-ms.custom: mvc
+ms.custom: mvc, seodec18
 ms.date: 10/24/2018
 uid: azure/devops/deploy-to-app-service
-ms.openlocfilehash: 33026ed510aae63a9e580aa5d708f94aad778fca
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 4424d3d15cbd234357c8265fa276834cb9abf352
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090940"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121223"
 ---
 # <a name="deploy-an-app-to-app-service"></a>Wdrażanie aplikacji w usłudze App Service
 
@@ -150,12 +150,12 @@ Aplikacja została już wdrożona z powłoki poleceń. Utwórzmy wdrażanie aktu
 3. Naciśnij klawisz **Ctrl**+**Shift**+**B** do skompilowania aplikacji.
 4. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy nad projektem, a następnie kliknij przycisk **Publikuj**.
 
-    ![Kliknij prawym przyciskiem myszy, publikowanie](./media/deploying-to-app-service/publish.png)
+    ![Zrzut ekranu przedstawiający kliknij prawym przyciskiem myszy i publikowania](./media/deploying-to-app-service/publish.png)
 5. Visual Studio można utworzyć nowy zasób usługi App Service, ale ta aktualizacja zostanie opublikowana przez istniejące wdrożenie. W **wybierz lokalizację docelową publikowania** okno dialogowe, wybierz opcję **usługi App Service** z listy po lewej stronie, a następnie wybierz pozycję **wybierz istniejącą**. Kliknij przycisk **publikowania**.
 6. W **usługi App Service** okna dialogowego, upewnij się, że firmy Microsoft lub konto organizacyjne użyte do utworzenia subskrypcji platformy Azure jest wyświetlana w prawym górnym rogu. Jeśli nie, kliknij listę rozwijaną i dodaj ją.
 7. Upewnij się, że poprawne Azure **subskrypcji** jest zaznaczone. Aby uzyskać **widoku**, wybierz opcję **grupy zasobów**. Rozwiń **AzureTutorial** grupy zasobów, a następnie wybierz istniejącą aplikację sieci web. Kliknij przycisk **OK**.
 
-    ![Publikowanie w oknie dialogowym App Service](./media/deploying-to-app-service/publish-dialog.png)
+    ![Zrzut ekranu przedstawiający okno dialogowe z publikowania usługi aplikacji](./media/deploying-to-app-service/publish-dialog.png)
 
 Visual Studio tworzy i wdraża aplikację na platformie Azure. Przejdź do adresu URL aplikacji sieci web. Sprawdzić, czy `<h2>` modyfikacji elementu jest aktywna.
 
@@ -211,7 +211,7 @@ Miejsca wdrożenia obsługuje wdrażanie przejściowe zmiany, bez wywierania wp�
 
 6. Aby sprawdzić, czy V3 został pomyślnie wdrożony do miejsca przejściowego, Otwórz dwa okna przeglądarki. W jednym oknie przejdź do oryginalnego adresu URL aplikacji sieci web. W innym oknie przejdź do tymczasowej adresu URL aplikacji sieci web. Produkcja — adres URL służy aplikacji w wersji 2. Przejściowym adresie URL służy aplikacji w wersji 3.
 
-    ![Porównywanie okna przeglądarki](./media/deploying-to-app-service/ready-to-swap.png)
+    ![Zrzut ekranu okna przeglądarki porównanie](./media/deploying-to-app-service/ready-to-swap.png)
 
 7. W usłudze Cloud Shell można zamienić miejsca przejściowego zweryfikować/przygotowaniu up w środowisku produkcyjnym.
 

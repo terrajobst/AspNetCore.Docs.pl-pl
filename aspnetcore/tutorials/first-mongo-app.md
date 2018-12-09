@@ -3,15 +3,15 @@ title: Tworzenie interfejsów API sieci web za pomocą platformy ASP.NET Core i 
 author: prkhandelwal
 description: W tym samouczku przedstawiono sposób tworzenia sieci web platformy ASP.NET Core interfejsu API przy użyciu bazy danych NoSQL bazy danych MongoDB.
 ms.author: scaddie
-ms.custom: mvc
+ms.custom: mvc,seodec18
 ms.date: 11/29/2018
 uid: tutorials/first-mongo-app
-ms.openlocfilehash: 0772de5d697d697da494124efbda092db3835812
-ms.sourcegitcommit: a3a15d3ad4d6e160a69614a29c03bbd50db110a2
+ms.openlocfilehash: df3b8656618c813838d6618efc9394f0ccb6e563
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52952008"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121482"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-mongodb"></a>Tworzenie internetowego interfejsu API za pomocą platformy ASP.NET Core i usługi MongoDB
 
@@ -19,7 +19,7 @@ Przez [Pratik Khandelwal](https://twitter.com/K2Prk) i [Scott Addie](https://twi
 
 Ten samouczek tworzy internetowego interfejsu API, która wykonuje operacje tworzenia, odczytu, aktualizowania lub usuwania (CRUD) [bazy danych MongoDB](https://www.mongodb.com/what-is-mongodb) bazy danych NoSQL.
 
-W tym samouczku dowiesz się, jak:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Konfigurowanie bazy danych MongoDB
@@ -35,20 +35,20 @@ W tym samouczku dowiesz się, jak:
 
 * [.NET core SDK 2,2 lub nowszy](https://www.microsoft.com/net/download/all)
 * [Visual Studio 2017 w wersji 15.9 lub nowszej](https://www.visualstudio.com/downloads/) z **ASP.NET i tworzenie aplikacji internetowych** obciążenia
-* [Bazy danych MongoDB](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/)
+* [MongoDB](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/)
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * [.NET core SDK 2,2 lub nowszy](https://www.microsoft.com/net/download/all)
 * [Visual Studio Code](https://code.visualstudio.com/download)
 * [Środowisko C# dla programu Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
-* [Bazy danych MongoDB](https://docs.mongodb.com/manual/administration/install-community/)
+* [MongoDB](https://docs.mongodb.com/manual/administration/install-community/)
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 * [.NET core SDK 2,2 lub nowszy](https://www.microsoft.com/net/download/all)
 * [Program Visual Studio dla komputerów Mac w wersji 7,7 lub nowszy](https://www.visualstudio.com/downloads/)
-* [Bazy danych MongoDB](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/)
+* [MongoDB](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/)
 
 ---
 

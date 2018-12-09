@@ -1,17 +1,17 @@
 ---
-title: Metodyka DevOps z platformą ASP.NET Core i platformy Azure | Monitorowanie i debugowania
+title: Monitorowania i debugowania - DevOps z platformą ASP.NET Core i platformy Azure
 author: CamSoper
-description: Przewodnik, który dostarcza wskazówki end-to-end na tworzeniu potoku metodyki DevOps dla aplikacji ASP.NET Core hostowanych na platformie Azure.
+description: Monitorowania i debugowania kodu jako części rozwiązania DevOps z platformą ASP.NET Core i platformy Azure
 ms.author: casoper
-ms.custom: mvc
+ms.custom: mvc, seodec18
 ms.date: 10/24/2018
 uid: azure/devops/monitor
-ms.openlocfilehash: c4013de574fdf34114f2ae6c6a2150d72f807578
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: e005b951aec578b396fc19dec5d2f55cbce4f664
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090201"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121612"
 ---
 # <a name="monitor-and-debug"></a>Monitorowanie i debugowania
 
@@ -35,7 +35,7 @@ Aplikacje sieci web usługi App Service są łatwo monitorowana w czasie rzeczyw
 
 1. **Przegląd** karcie są wyświetlane użyteczne informacje "w skrócie", w tym wykresy wyświetlane ostatnie metryki.
 
-    ![Panel ogólny](./media/monitoring/overview.png)
+    ![Zrzut ekranu przedstawiający Przegląd panelu](./media/monitoring/overview.png)
 
     * **Http 5xx**: liczba błędów po stronie serwera, zwykle wyjątków w kodzie ASP.NET Core.
     * **W danych**: transfer danych przychodzących do aplikacji sieci web.
@@ -45,7 +45,7 @@ Aplikacje sieci web usługi App Service są łatwo monitorowana w czasie rzeczyw
 
     Kilka Samoobsługowe narzędzia do optymalizacji i rozwiązywania problemów znajdują się również na tej stronie.
 
-    ![Samoobsługowe narzędzia](./media/monitoring/wizards.png)
+    ![Zrzut ekranu przedstawiający Samoobsługowe narzędzia](./media/monitoring/wizards.png)
 
     * **Diagnozowanie i rozwiązywanie problemów** jest rozwiązywanie problemów z samoobsługi.
     * **Usługa Application Insights** jest profilowania wydajności i zachowań aplikacji, a następnie omówiono w dalszej części w tej sekcji.
@@ -69,7 +69,7 @@ Aplikacje sieci web usługi App Service są łatwo monitorowana w czasie rzeczyw
     ![Application Insights instalacji](./media/monitoring/new-app-insights.png)
 
 1. Aby uzyskać **środowiska wykonawczego/struktury**, wybierz opcję **platformy ASP.NET Core**. Zaakceptuj ustawienia domyślne.
-1. Wybierz **OK**. Jeśli zostanie wyświetlony monit, aby upewnić się, zaznaczyć **Kontynuuj**.
+1. Kliknij przycisk **OK**. Jeśli zostanie wyświetlony monit, aby upewnić się, zaznaczyć **Kontynuuj**.
 1. Po utworzeniu zasobu kliknij nazwę zasobu usługi Application Insights, aby przejść bezpośrednio do strony usługi Application Insights.
 
     ![Nowy zasób usługi Application Insights jest gotowy](./media/monitoring/new-app-insights-done.png)
@@ -92,7 +92,7 @@ Dzienniki serwera i aplikacji sieci Web są wyłączone domyślnie w usłudze Az
 1. Włącz **rejestrowanie aplikacji (system plików)**. Jeśli zostanie wyświetlony monit, kliknij pole, aby zainstalować rozszerzenia, aby włączyć rejestrowanie w aplikacji sieci web aplikacji.
 1. Ustaw **rejestrowanie serwera sieci Web** do **System plików**.
 1. Wprowadź **okres przechowywania** w dniach. Na przykład 30.
-1. Kliknij przycisk **Zapisz**.
+1. Kliknij pozycję **Zapisz**.
 
 Dzienniki serwera (usługa App Service) platformy ASP.NET Core i sieci web są generowane dla aplikacji sieci web. Mogą być pobierane przy użyciu protokołu FTP/FTPS wyświetlane informacje. Hasło jest taka sama jak poświadczenia wdrażania utworzone wcześniej w tym przewodniku. Dzienniki mogą być [przesyłane strumieniowo bezpośrednio na komputerze lokalnym przy użyciu programu PowerShell lub wiersza polecenia platformy Azure](/azure/app-service/web-sites-enable-diagnostic-log#download). Dzienniki można też [wyświetlane w usłudze Application Insights](/azure/app-service/web-sites-enable-diagnostic-log#how-to-view-logs-in-application-insights).
 
@@ -103,7 +103,7 @@ Dzienniki serwera sieci web i aplikacji, może być przesyłany strumieniowo w c
 1. Otwórz [witryny Azure portal](https://portal.azure.com), a następnie przejdź do *mywebapp\<unique_number\>*  usługi App Service.
 1. W menu po lewej stronie, przewiń w dół do **monitorowanie** i wybierz pozycję **strumień dziennika**.
 
-    ![Link strumień dziennika](./media/monitoring/log-stream.png)
+    ![Zrzut ekranu przedstawiający dziennika strumienia link](./media/monitoring/log-stream.png)
 
 Dzienniki można też [strumieniowo przy użyciu wiersza polecenia platformy Azure lub programu Azure PowerShell](/azure/app-service/web-sites-enable-diagnostic-log#streamlogs), w tym w usłudze Cloud Shell.
 

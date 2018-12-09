@@ -1,19 +1,19 @@
 ---
-title: Hosta w programie ASP.NET Core
+title: Host sieci Web i ogólny hosta w programie ASP.NET Core
 author: guardrex
 description: Informacje o hosta sieci Web programu ASP.NET Core i .NET ogólnego hosta, które są odpowiedzialni za zarządzanie uruchamiania i czasu życia aplikacji.
 ms.author: riande
-ms.custom: mvc
+ms.custom: mvc,seodec18
 ms.date: 08/28/2018
 uid: fundamentals/host/index
-ms.openlocfilehash: 9927722b5080beb94e5628d9e7b54e6d50a5bff8
-ms.sourcegitcommit: a669c4e3f42e387e214a354ac4143555602e6f66
+ms.openlocfilehash: 3e67d8338aa7ac1b1530d0498ee0126d36a8d72b
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43336053"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121521"
 ---
-# <a name="host-in-aspnet-core"></a>Hosta w programie ASP.NET Core
+# <a name="web-host-and-generic-host-in-aspnet-core"></a>Host sieci Web i ogólny hosta w programie ASP.NET Core
 
 Konfigurowanie aplikacji platformy .NET i uruchamiania *hosta*. Host jest odpowiedzialny za zarządzanie uruchamiania i czasu życia aplikacji. Host dwa interfejsy API są dostępne do użycia:
 

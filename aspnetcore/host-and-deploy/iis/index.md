@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/01/2018
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 1680b1377351fbfbfc38249868da389012dd5fb6
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 5919fe66139260bace1c356c833abb132ba4b2e8
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862190"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121755"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host platformy ASP.NET Core na Windows za pomocą programu IIS
 
@@ -20,7 +20,7 @@ Przez [Luke Latham](https://github.com/guardrex)
 [Zainstaluj program .NET Core hostingu pakietu](#install-the-net-core-hosting-bundle)
 
 > [!NOTE]
-> W tej chwili testujemy użyteczność nowo zaproponowanej struktury spisu treści dla dokumentacji platformy ASP.NET Core.  Jeśli możesz poświęcić chwilę na wykonanie ćwiczenia polegającego na znalezieniu 7 różnych tematów w aktualnym lub zaproponowanym spisie treści, [kliknij tutaj i weź udział w badaniu](https://dpk4xbh5.optimalworkshop.com/treejack/rps16hd5).
+> W tej chwili testujemy użyteczność nowo zaproponowanej struktury spisu treści dla dokumentacji platformy ASP.NET Core.  Jeśli możesz poświęcić chwilę na wykonanie ćwiczenia polegającego na znalezieniu 7 różnych tematów w aktualnym lub zaproponowanym spisie treści, [kliknij tutaj i weź udział w badaniu](https://dpk4xbh5.optimalworkshop.com/treejack/aa11wn82).
 
 ## <a name="supported-operating-systems"></a>Supported operating systems
 
@@ -329,6 +329,10 @@ W przypadku wdrażania aplikacji na serwerach z [narzędzia Web Deploy](/iis/pub
    ![Ustaw bez kodu zarządzanego dla wersji środowiska .NET CLR.](index/_static/edit-apppool-ws2016.png)
 
     Platforma ASP.NET Core działa w oddzielnym procesie i zarządza środowiska uruchomieniowego. Platforma ASP.NET Core nie jest zależny od ładowanie klasycznych CLR. Ustawienie **wersja środowiska .NET CLR** do **bez kodu zarządzanego** jest opcjonalne.
+
+1. *Platforma ASP.NET Core 2,2 lub nowszej*: dla 64-bitowych (x 64) [niezależna wdrożenia](/dotnet/core/deploying/#self-contained-deployments-scd) , który używa [modelu hostingu w trakcie](xref:fundamentals/servers/aspnet-core-module#in-process-hosting-model), Wyłącz pulę aplikacji dla procesów 32-bitowych (x 86).
+
+   W **akcje** Menedżera usług IIS na pasku bocznym **pul aplikacji**, wybierz opcję **ustawienia domyślne puli aplikacji** lub **Zaawansowane ustawienia**. Znajdź **Włącz 32-bitowych aplikacji** i ustaw wartość `False`. To ustawienie nie ma wpływu na aplikacje wdrożone dla [hostingu poza procesem](xref:fundamentals/servers/aspnet-core-module#out-of-process-hosting-model).
 
 1. Upewnij się, że tożsamość modelu procesu ma odpowiednie uprawnienia.
 

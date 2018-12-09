@@ -5,13 +5,14 @@ description: Dowiedz się, jak skonfigurować uwierzytelnianie dwuskładnikowe (
 monikerRange: < aspnetcore-2.0
 ms.author: riande
 ms.date: 09/22/2018
+ms.custom: seodec18
 uid: security/authentication/2fa
-ms.openlocfilehash: 5b0866ecf15381b040e3646eecc22374b6b0c9e2
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 6f20928b0dec9b235fa17c1b44c81a48d031e9e0
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50205889"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121664"
 ---
 # <a name="two-factor-authentication-with-sms-in-aspnet-core"></a>Uwierzytelnianie dwuskładnikowe za pomocą wiadomości SMS w programie ASP.NET Core
 
@@ -97,7 +98,7 @@ Otwórz *Views/Manage/Index.cshtml* plik widoku Razor i Usuń komentarz znaków 
 
 * Wybierz swoją nazwę użytkownika i aktywuje `Index` metody akcji kontrolera zarządzania. Następnie wybierz numer telefonu **Dodaj** łącza.
 
-![Zarządzanie widoku](2fa/_static/login2fa2.png)
+![Zarządzanie widok — nacisnąć link "Dodaj"](2fa/_static/login2fa2.png)
 
 * Dodaj numer telefonu, który uzyskać kod weryfikacyjny i naciśnij pozycję **Wyślij kod weryfikacyjny**.
 
@@ -111,11 +112,11 @@ Jeśli nie otrzymasz wiadomość SMS, zobacz stronę dziennika usługi twilio.
 
 * W widoku Zarządzanie pokazuje numer telefonu został pomyślnie dodany.
 
-![Zarządzanie widoku](2fa/_static/login2fa5.png)
+![Zarządzanie widok — pomyślnie dodano numer telefonu](2fa/_static/login2fa5.png)
 
 * Naciśnij pozycję **Włącz** do włączenia uwierzytelniania dwuskładnikowego.
 
-![Zarządzanie widoku](2fa/_static/login2fa6.png)
+![Zarządzanie widok — Włączanie uwierzytelniania dwuskładnikowego](2fa/_static/login2fa6.png)
 
 ### <a name="test-two-factor-authentication"></a>Uwierzytelnianie dwuskładnikowe testu
 

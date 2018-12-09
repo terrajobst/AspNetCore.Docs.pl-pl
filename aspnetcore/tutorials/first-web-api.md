@@ -7,12 +7,12 @@ monikerRange: '> aspnetcore-2.1'
 ms.custom: mvc
 ms.date: 11/19/2018
 uid: tutorials/first-web-api
-ms.openlocfilehash: 419da905a622fe39693ed10a6b9d5e8a459b4a00
-ms.sourcegitcommit: a3a15d3ad4d6e160a69614a29c03bbd50db110a2
+ms.openlocfilehash: 1af14b85cbaefc00fd97db7c721c4f9436a65fb2
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52951995"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121469"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core-mvc"></a>Samouczek: Tworzenie interfejsu API sieci web za pomocą platformy ASP.NET Core MVC
 
@@ -20,7 +20,7 @@ Przez [Rick Anderson](https://twitter.com/RickAndMSFT) i [Mike Wasson](https://g
 
 W tym samouczku pokazano podstawy tworzenia internetowego interfejsu API za pomocą programu ASP.NET Core.
 
-W tym samouczku dowiesz się, jak:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Utwórz projekt interfejsu api sieci web.
@@ -300,7 +300,7 @@ Ten samouczek używa narzędzia Postman do testowania internetowego interfejsu A
   * Ustawia metodę HTTP **UZYSKAĆ**.
   * Ustaw adres URL żądania `https://localhost:<port>/api/todo`. Na przykład `https://localhost:5001/api/todo`.
 * Ustaw **widoku dwa okienka** w narzędziu Postman.
-* Wybierz **wysyłania**.
+* Wybierz pozycję **Wyślij**.
 
 ![Postman przy użyciu żądania Get](first-web-api/_static/2pv.png)
 
@@ -336,7 +336,7 @@ Powyższy kod jest metodą HTTP POST, wskazane przez [[HttpPost]](/dotnet/api/mi
     }
     ```
 
-* Wybierz **wysyłania**.
+* Wybierz pozycję **Wyślij**.
 
   ![Postman przy użyciu Utwórz żądanie](first-web-api/_static/create.png)
 
@@ -351,7 +351,7 @@ Powyższy kod jest metodą HTTP POST, wskazane przez [[HttpPost]](/dotnet/api/mi
 
 * Ustaw metodę GET.
 * Wklej identyfikator URI (na przykład `https://localhost:5001/api/Todo/2`)
-* Wybierz **wysyłania**.
+* Wybierz pozycję **Wyślij**.
 
 ## <a name="add-a-puttodoitem-method"></a>Dodaj metodę PutTodoItem
 
@@ -367,6 +367,7 @@ Zaktualizuj element zadania do wykonania, który ma identyfikator = 1 i ustaw je
 
 ```json
   {
+    "ID":1,
     "name":"feed fish",
     "isComplete":true
   }
@@ -463,7 +464,7 @@ Aby uzyskać więcej informacji, zobacz następujące zasoby:
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przedstawiono sposób:
+W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Utwórz projekt interfejsu api sieci web.

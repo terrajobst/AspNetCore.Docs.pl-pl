@@ -1,16 +1,17 @@
 ---
-title: Metodyka DevOps z platformą ASP.NET Core i platformy Azure | Ciągła integracja i ciągłe wdrażanie
+title: Ciągła integracja i wdrażanie — metodyki DevOps z platformą ASP.NET Core i platformy Azure
 author: CamSoper
-description: Przewodnik, który dostarcza wskazówki end-to-end na tworzeniu potoku metodyki DevOps dla aplikacji ASP.NET Core hostowanych na platformie Azure.
+description: Ciągła integracja i wdrażanie w infrastrukturze DevOps za pomocą platformy ASP.NET Core i platformy Azure
 ms.author: scaddie
 ms.date: 10/24/2018
+ms.custom: seodec18
 uid: azure/devops/cicd
-ms.openlocfilehash: edaf2c2e1428e5e82104786d94584a4ef08f9ee3
-ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
+ms.openlocfilehash: e5bddde41291c9573f58d749bbf830de9ea9319d
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51570090"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121599"
 ---
 # <a name="continuous-integration-and-deployment"></a>Ciągła integracja i ciągłe wdrażanie
 
@@ -150,7 +151,7 @@ Istnieją trzy różne kroki, aby zakończyć. Wykonując kroki w wynikach nast�
 1. Wybierz nazwę definicji kompilacji *MyFirstProject ASP.NET Core-CI*, z **źródło (definicja kompilacji)** listy rozwijanej.
 1. Wybierz *najnowsze* z **domyślną wersję** listy rozwijanej. Ta opcja tworzy artefaktów generowane przez działanie najnowszych definicji kompilacji.
 1. Zastąp tekst umieszczony w **alias źródła** pole tekstowe z *porzucić*.
-1. Kliknij przycisk **Dodaj** przycisku. **Artefaktów** sekcji aktualizacje, aby wyświetlić zmiany.
+1. Kliknij przycisk **Dodaj**. **Artefaktów** sekcji aktualizacje, aby wyświetlić zmiany.
 1. Kliknij ikonę pioruna umożliwiające ciągłych wdrożeń:
 
     ![Potok tworzenia wersji artefaktów - ikonę pioruna](media/cicd/vsts-artifacts-lightning-bolt.png)
@@ -158,7 +159,7 @@ Istnieją trzy różne kroki, aby zakończyć. Wykonując kroki w wynikach nast�
     Po włączeniu tej opcji wdrożenia wystąpienia każdorazowo, gdy dostępna jest nowa kompilacja.
 1. A **wyzwalacz ciągłego wdrażania** po prawej stronie zostanie wyświetlony panel. Kliknij przycisk przełączania, aby włączyć tę funkcję. Nie jest wymagane do włączenia **wyzwalacza żądania ściągnięcia**.
 1. Kliknij przycisk **Dodaj** listy rozwijanej w **tworzyć filtry gałęzi** sekcji. Wybierz **gałęzi domyślnej Build Definition** opcji. Ten filtr powoduje, że wydania do wyzwalania tylko w przypadku kompilacji z repozytorium GitHub *wzorca* gałęzi.
-1. Kliknij przycisk **Zapisz** przycisku. Kliknij przycisk **OK** przycisku w wynikowym **Zapisz** modalne okno dialogowe.
+1. Kliknij przycisk **Zapisz**. Kliknij przycisk **OK** przycisku w wynikowym **Zapisz** modalne okno dialogowe.
 1. Kliknij przycisk **środowisko 1** pole. **Środowiska** po prawej stronie zostanie wyświetlony panel. Zmiana *środowisko 1* tekstu w **Nazwa środowiska** polu tekstowym *produkcji*.
 
    ![Potok wydań — pole tekstowe Nazwa środowiska](media/cicd/vsts-environment-name-textbox.png)
@@ -174,12 +175,12 @@ Istnieją trzy różne kroki, aby zakończyć. Wykonując kroki w wynikach nast�
 1. Wybierz *mywebapp / < unique_number / >* z **nazwa usługi App service** listy rozwijanej.
 1. Wybierz *AzureTutorial* z **grupy zasobów** listy rozwijanej.
 1. Wybierz *przemieszczania* z **miejsca** listy rozwijanej.
-1. Kliknij przycisk **Zapisz** przycisku.
+1. Kliknij przycisk **Zapisz**.
 1. Umieść kursor nad domyślna nazwa potoku wydania. Kliknij ikonę ołówka, aby go edytować. Użyj *MyFirstProject ASP.NET Core-CD* jako nazwę.
 
     ![Nazwa potoku wydania](media/cicd/vsts-release-definition-name.png)
 
-1. Kliknij przycisk **Zapisz** przycisku.
+1. Kliknij przycisk **Zapisz**.
 
 ## <a name="commit-changes-to-github-and-automatically-deploy-to-azure"></a>Zatwierdź zmiany w usłudze GitHub i automatycznie wdrażać na platformie Azure
 
@@ -235,15 +236,15 @@ Definicja kompilacji **zadania** karcie wyświetlane są poszczególne kroki, kt
 
 Kliknij przycisk definicji kompilacji **Podsumowanie** link, aby wyświetlić historię kompilacji z definicji:
 
-![Historia definicji kompilacji](media/cicd/build-definition-summary.png)
+![Zrzut ekranu przedstawiający kompilacji definicji historii](media/cicd/build-definition-summary.png)
 
 Na wynikowej stronie kliknij link odpowiadający numerowi unikatowy kompilacji:
 
-![Strona podsumowania definicji kompilacji](media/cicd/build-definition-completed.png)
+![Strona podsumowania definicji zrzut ekranu przedstawiający kompilacji](media/cicd/build-definition-completed.png)
 
 Zostanie wyświetlone podsumowanie tej określonej kompilacji. Kliknij przycisk **artefaktów** kartę i zwróć uwagę, *porzucić* znajduje się folder utworzony przez kompilację:
 
-![Tworzenie definicji artefaktów - folder do wrzucania](media/cicd/build-definition-artifacts.png)
+![Zrzut ekranu przedstawiający artefaktów w definicji kompilacji - folder do wrzucania](media/cicd/build-definition-artifacts.png)
 
 Użyj **Pobierz** i **Eksploruj** łącza, aby sprawdzić opublikowanych artefaktów.
 
@@ -251,25 +252,25 @@ Użyj **Pobierz** i **Eksploruj** łącza, aby sprawdzić opublikowanych artefak
 
 Potok tworzenia wersji została utworzona przy użyciu nazwy *MyFirstProject ASP.NET Core-CD*:
 
-![Omówienie potok wydania](media/cicd/release-definition-overview.png)
+![Zrzut ekranu przedstawiający wersji potoku Przegląd](media/cicd/release-definition-overview.png)
 
 Są dwa główne składniki potoku tworzenia wersji **artefaktów** i **środowisk**. Kliknij pole w **artefaktów** sekcji, co spowoduje wyświetlenie następujących panelu:
 
-![artefaktów potok wydania](media/cicd/release-definition-artifacts.png)
+![Zrzut ekranu przedstawiający wersji potoku artefaktów](media/cicd/release-definition-artifacts.png)
 
 **Źródło (definicja kompilacji)** wartość reprezentuje definicję kompilacji, z którą jest połączony ten potok wersji. *Zip* znajduje się plik utworzony przez pomyślny przebieg definicję kompilacji do *produkcji* środowisko do wdrażania na platformie Azure. Kliknij przycisk *fazy 1, 2 zadania* łącze w *produkcji* pole środowiska, aby wyświetlić zadania potoku wydania:
 
-![zadania potoku wydania](media/cicd/release-definition-tasks.png)
+![Zrzut ekranu przedstawiający wersji potok zadań](media/cicd/release-definition-tasks.png)
 
 Potok wersji składa się z dwóch zadań: *wdrożenia usługi Azure App Service do gniazda* i *zarządzania usługi Azure App Service — gniazda wymiany*. Kliknięcie pierwszego zadania, co spowoduje wyświetlenie następującej konfiguracji zadania:
 
-![Zadanie wdrażania potoku tworzenia wersji](media/cicd/release-definition-task1.png)
+![Zadanie wdrażania zrzut ekranu przedstawiający wersji potoku](media/cicd/release-definition-task1.png)
 
 Subskrypcja platformy Azure, typ usługi, nazwa aplikacji sieci web, grupy zasobów i miejsce wdrożenia są definiowane w zadania wdrażania. **Pakietu lub folderu** zawiera pole tekstowe *zip* ścieżka pliku do wyodrębniane i wdrożyć *przemieszczania* gniazda *mywebapp\<unikatowy _number\>*  aplikacji sieci web.
 
 Kliknięcie zadania zamiany gniazda, co spowoduje wyświetlenie następującej konfiguracji zadania:
 
-![Zwolnij zadanie zamiany gniazda potoku](media/cicd/release-definition-task2.png)
+![Zrzut ekranu przedstawiający zwolnienia potoku gniazda wymiany zadania](media/cicd/release-definition-task2.png)
 
 Subskrypcja, grupa zasobów, typ usługi, nazwa aplikacji sieci web i szczegóły miejsca wdrożenia znajdują się. **Wymiany z produkcją** pole wyboru jest zaznaczone. W związku z tym, wdrożone usługi bits *przemieszczania* gniazda zostały zamienione w środowisku produkcyjnym.
 

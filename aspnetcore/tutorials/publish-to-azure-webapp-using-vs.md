@@ -6,16 +6,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: tutorials/publish-to-azure-webapp-using-vs
-ms.openlocfilehash: a5a02112d87563a47d5e2dab355359fa39da9a89
-ms.sourcegitcommit: c4572be5ebb301013a5698caf9b5572b76cb2e34
+ms.openlocfilehash: 7eab773746f76b00e8e796387c4ee1dc042a4c23
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2018
-ms.locfileid: "50090358"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121274"
 ---
 # <a name="publish-an-aspnet-core-app-to-azure-with-visual-studio"></a>Publikowanie aplikacji platformy ASP.NET Core na platformie Azure z programem Visual Studio
 
-Przez [Rick Anderson](https://twitter.com/RickAndMSFT), [Silveira Blum Cesarowi](https://github.com/cesarbs), i [Rachel Appel](https://twitter.com/rachelappel)
+Przez [Rick Anderson](https://twitter.com/RickAndMSFT), [Silveira Blum Cesarowi](https://github.com/cesarbs)
 
 [!INCLUDE [Azure App Service Preview Notice](../includes/azure-apps-preview-notice.md)]
 
@@ -37,7 +37,7 @@ Wykonaj **nowy projekt** okno dialogowe:
 
 * W okienku po lewej stronie wybierz **platformy .NET Core**.
 * W środkowym okienku wybierz **aplikacji sieci Web programu ASP.NET Core**.
-* Wybierz **OK**.
+* Kliknij przycisk **OK**.
 
 ![Okno dialogowe nowego projektu](publish-to-azure-webapp-using-vs/_static/new_prj.png)
 
@@ -119,7 +119,7 @@ W **Publikuj** okno dialogowe:
 
 ![Konfigurowanie programu SQL Server w oknie dialogowym](publish-to-azure-webapp-using-vs/_static/conf_servername.png)
 
-* Wybierz **OK**.
+* Kliknij przycisk **OK**.
 
 Program Visual Studio zwraca **Tworzenie usługi App Service** okna dialogowego.
 
@@ -138,7 +138,7 @@ Na **ustawienia** strony **Publikuj** okno dialogowe:
   * Rozwiń **baz danych** i sprawdź **Użyj tych parametrów połączenia w czasie wykonywania**.
   * Rozwiń **migracją architektury jednostek** i sprawdź **Zastosuj tej migracji na publikowanie**.
 
-* Wybierz **Zapisz**. Program Visual Studio zwraca **Publikuj** okna dialogowego. 
+* Wybierz pozycję **Zapisz**. Program Visual Studio zwraca **Publikuj** okna dialogowego. 
 
 ![Okno dialogowe publikowanie: panel ustawień](publish-to-azure-webapp-using-vs/_static/pubs.png)
 
@@ -186,5 +186,5 @@ Po zakończeniu testowania aplikacji, przejdź do [witryny Azure portal](https:/
 
 * [Usługa Azure App Service](/azure/app-service/app-service-web-overview)
 * [Grupy zasobów platformy Azure](/azure/azure-resource-manager/resource-group-overview#resource-groups)
-* [Usługa Azure SQL Database](/azure/sql-database/)
+* [Azure SQL Database](/azure/sql-database/)
 * <xref:host-and-deploy/azure-apps/troubleshoot>

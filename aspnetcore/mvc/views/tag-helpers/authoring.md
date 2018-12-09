@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: mvc/views/tag-helpers/authoring
-ms.openlocfilehash: 78e5281d109977e8f41fe1f207254d3016f9c569
-ms.sourcegitcommit: c43a6f1fe72d7c2db4b5815fd532f2b45d964e07
+ms.openlocfilehash: 16f3a435af267a5a17a24ee9fbda2b1c7c8818fd
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50244869"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121625"
 ---
 # <a name="author-tag-helpers-in-aspnet-core"></a>Tworzenie pomocników tagów w programie ASP.NET Core
 
@@ -49,7 +49,7 @@ Oznacza to, że tag kotwicy temu to łącze w wiadomości e-mail. Można to zrob
 
    [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1EmailTagHelperCopy.cs)]
 
-   * Pomocnicy tagów używać konwencji nazewnictwa, który jest przeznaczony dla elementów główna nazwa klasy (minus *pomocnika tagów* część nazwy klasy). W tym przykładzie nazwa głównego **wiadomości E-mail**pomocnika tagów jest *wiadomości e-mail*, więc `<email>` zostaną objęte tagu. Konwencja nazewnictwa powinny działać dla większości pomocnicy tagów, później zaprezentuję, jak go zastąpić.
+   * Pomocnicy tagów używać konwencji nazewnictwa, który jest przeznaczony dla elementów główna nazwa klasy (minus *pomocnika tagów* część nazwy klasy). W tym przykładzie nazwa głównego **EmailTagHelper** jest *e-mail*, więc `<email>` zostaną objęte tagu. Konwencja nazewnictwa powinny działać dla większości pomocnicy tagów, później zaprezentuję, jak go zastąpić.
 
    * `EmailTagHelper` Klasa pochodzi od `TagHelper`. `TagHelper` Klasa udostępnia metody i właściwości do pisania pomocników tagów.
 

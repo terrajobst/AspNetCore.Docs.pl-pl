@@ -3,15 +3,15 @@ title: Ustawienia zewnętrznej nazwy logowania usługi Facebook w programie ASP.
 author: rick-anderson
 description: Ten samouczek przedstawia integracja uwierzytelniania użytkownika konta serwisu Facebook do istniejącej aplikacji platformy ASP.NET Core.
 ms.author: riande
-ms.custom: mvc
+ms.custom: mvc, seodec18
 ms.date: 11/11/2018
 uid: security/authentication/facebook-logins
-ms.openlocfilehash: e8ae16538b5d6844af7d983071fad629ebbe6217
-ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
+ms.openlocfilehash: 8bb22dc6df9879e827ff9a5ac11e9e3ad5346dc2
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51708507"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121508"
 ---
 # <a name="facebook-external-login-setup-in-aspnet-core"></a>Ustawienia zewnętrznej nazwy logowania usługi Facebook w programie ASP.NET Core
 
@@ -129,7 +129,7 @@ Po kliknięciu **Facebook**, nastąpi przekierowanie do usługi Facebook do uwie
 
 Uwierzytelnianie serwisu Facebook żądań publicznego profilu i adres e-mail, domyślnie:
 
-![Strona uwierzytelniania serwisu Facebook](index/_static/FBLoginDone.png)
+![Ekranie wyrażania zgody strony uwierzytelniania usługi Facebook](index/_static/FBLoginDone.png)
 
 Po wprowadzeniu poświadczeń serwisu Facebook nastąpi przekierowanie do witryny, w którym można ustawić swój adres e-mail.
 

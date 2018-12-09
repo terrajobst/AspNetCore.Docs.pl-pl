@@ -6,14 +6,14 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 09/20/2018
 uid: tutorials/web-api-help-pages-using-swagger
-ms.openlocfilehash: 586195e3a29130c0b638ed6763ea5c9032ca6b2b
-ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
+ms.openlocfilehash: d7a6ed158dcb464bb80c83773ed7d455b25ce44b
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523132"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121547"
 ---
-# <a name="aspnet-core-web-api-help-pages-with-swagger--openapi"></a>ASP.NET Core Web API help pages w strukturze Swagger / interfejsu OpenAPI
+# <a name="aspnet-core-web-api-help-pages-with-swagger--openapi"></a>Strony sieci web platformy ASP.NET Core pomocy interfejsu API, w strukturze Swagger / interfejsu OpenAPI
 
 Przez [Christoph Nienaber](https://twitter.com/zuckerthoben) i [Rico Suter](http://rsuter.com)
 

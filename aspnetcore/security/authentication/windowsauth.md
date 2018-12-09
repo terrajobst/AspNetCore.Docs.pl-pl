@@ -3,15 +3,15 @@ title: Konfigurowanie uwierzytelniania Windows w programie ASP.NET Core
 author: scottaddie
 description: Dowiedz się, jak skonfigurować uwierzytelnianie Windows w programie ASP.NET Core, za pomocą usług IIS Express, usługi IIS, sterownik HTTP.sys i WebListener.
 ms.author: riande
-ms.custom: mvc
+ms.custom: mvc, seodec18
 ms.date: 11/01/2018
 uid: security/authentication/windowsauth
-ms.openlocfilehash: 87fcab75555c1dae0b2815c30d79fd4615df9660
-ms.sourcegitcommit: 85f2939af7a167b9694e1d2093277ffc9a741b23
+ms.openlocfilehash: 342759a6ff4b5679e0d54c979188ae66d339562d
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50968296"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121300"
 ---
 # <a name="configure-windows-authentication-in-aspnet-core"></a>Konfigurowanie uwierzytelniania Windows w programie ASP.NET Core
 
@@ -47,7 +47,7 @@ Prace deweloperskie za pomocą usług IIS Express szablon zawiera wszystkie konf
 
 Projekt programu Visual Studio **właściwości** strony **debugowania** karta zawiera pola wyboru dla uwierzytelniania Windows i uwierzytelnianie anonimowe.
 
-![Zrzut ekranu przeglądarki uwierzytelnianie Windows](windowsauth/_static/vs-auth-property-menu.png)
+![Zrzut ekranu przeglądarki uwierzytelniania Windows przy użyciu opcji Uwierzytelnianie wyróżniony](windowsauth/_static/vs-auth-property-menu.png)
 
 Alternatywnie, można skonfigurować te dwie właściwości w *launchSettings.json* pliku:
 

@@ -4,14 +4,14 @@ author: rick-anderson
 description: W tym samouczku przedstawiono sposób obsługi konfliktów, gdy wielu użytkowników aktualizacji tej samej jednostki w tym samym czasie.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 12/07/2018
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: cd06cb1056e1c856214d2440533aad5789907107
-ms.sourcegitcommit: a3a15d3ad4d6e160a69614a29c03bbd50db110a2
+ms.openlocfilehash: da854bafdb9d3741358fd69c2f862c3cdf1ee406
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "50207345"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121651"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---concurrency---8-of-8"></a>Strony razor z programem EF Core w programie ASP.NET Core — współbieżności — 8 8
 
@@ -245,7 +245,7 @@ Zmień inne pole w drugiej karcie przeglądarki.
 
 ![Edytuj działu po zmianie — strona 2](concurrency/_static/edit-after-change-2.png)
 
-Kliknij przycisk **Zapisz**. Zostaną wyświetlone komunikaty o błędach dla wszystkich pól, które nie są zgodne z wartościami bazy danych:
+Kliknij pozycję **Zapisz**. Zostaną wyświetlone komunikaty o błędach dla wszystkich pól, które nie są zgodne z wartościami bazy danych:
 
 ![Komunikat o błędzie działu edycji strony](concurrency/_static/edit-error.png)
 
@@ -271,7 +271,7 @@ Strony usuwania wykrywa konfliktów współbieżności, jeśli jednostka został
 
 Aktualizacja *Pages/Departments/Delete.cshtml* następującym kodem:
 
-[!code-html[](intro/samples/cu/Pages/Departments/Delete.cshtml?highlight=1,10,36,51)]
+[!code-html[](intro/samples/cu/Pages/Departments/Delete.cshtml?highlight=1,10,39,51)]
 
 
 Poprzedni kod znaczników wprowadza następujące zmiany:

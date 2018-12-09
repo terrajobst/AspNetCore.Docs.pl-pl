@@ -3,14 +3,15 @@ title: Strony razor za pomocą platformy Entity Framework Core w programie ASP.N
 author: rick-anderson
 description: Pokazuje, jak utworzyć aplikację strony Razor za pomocą platformy Entity Framework Core
 ms.author: riande
+ms.custom: seodec18
 ms.date: 11/22/2018
 uid: data/ef-rp/intro
-ms.openlocfilehash: afba4395fe9dbe22516b6c4ebdc4c582381981fd
-ms.sourcegitcommit: 710fc5fcac258cc8415976dc66bdb355b3e061d5
+ms.openlocfilehash: 34c7238b689993245e033625dcd0e728b7c45163
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52299472"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121703"
 ---
 # <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>Strony razor za pomocą platformy Entity Framework Core w programie ASP.NET Core — samouczek 1 8
 
@@ -164,7 +165,7 @@ Wykonaj **dodać strony Razor za pomocą programu Entity Framework (CRUD)** okno
 * W **klasa modelu** listę rozwijaną, wybierz opcję **uczniów (ContosoUniversity.Models)**.
 * W **klasa kontekstu danych** wiersz, wybierz opcję **+** (plus) Zaloguj się i Zmień nazwę wygenerowanego na **ContosoUniversity.Models.SchoolContext**.
 * W **klasa kontekstu danych** listę rozwijaną, wybierz opcję **ContosoUniversity.Models.SchoolContext**
-* Wybierz **Dodaj**.
+* Wybierz pozycję **Dodaj**.
 
 ![Okno dialogowe CRUD](intro/_static/s1.png)
 
@@ -306,7 +307,7 @@ Kilka rzeczy, w których trzeba pamiętać podczas pisania kodu asynchronicznego
 * Z kontekstu programu EF Core nie jest bezpieczny dla wątków: nie należy próbować wykonać wiele operacji wykonywane równolegle.
 * Aby móc korzystać z zalet wydajności kod asynchroniczny, sprawdź, czy biblioteka pakietów (np. stronicowania) używają asynchronicznej, jeśli wywołują metod programu EF Core, które wysyłają zapytania do bazy danych.
 
-Aby uzyskać więcej informacji na temat programowania asynchronicznego w .NET, zobacz [Przegląd Async](/dotnet/articles/standard/async) i [programowanie asynchroniczne z async i await](/dotnet/csharp/programming-guide/concepts/async/).
+Aby uzyskać więcej informacji na temat programowania asynchronicznego w .NET, zobacz [Przegląd Async](/dotnet/standard/async) i [programowanie asynchroniczne z async i await](/dotnet/csharp/programming-guide/concepts/async/).
 
 W następnym samouczku basic CRUD (Tworzenie, odczytywanie, aktualizowanie, usuwanie) są badane.
 

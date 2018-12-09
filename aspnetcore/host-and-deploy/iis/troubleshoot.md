@@ -4,14 +4,14 @@ author: guardrex
 description: Dowiedz się, jak diagnozować problemy z wdrożeniami usług Internet Information Services (IIS) w aplikacji platformy ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/30/2018
+ms.date: 12/06/2018
 uid: host-and-deploy/iis/troubleshoot
-ms.openlocfilehash: 10c40746ffca1343c84f6a7388f3b2d7ab77ab02
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 6d43057639ea88bb21ac66f2799062e06fffc530
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861584"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121690"
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a>Rozwiązywanie problemów z platformą ASP.NET Core w usługach IIS
 
@@ -92,6 +92,26 @@ Uruchamia aplikację, ale błąd uniemożliwia spełnienie żądania przez serwe
 
 Ten błąd występuje w kodzie aplikacji, podczas uruchamiania lub podczas tworzenia odpowiedzi. Odpowiedź może zawierać żadnej zawartości lub odpowiedzi może być wyświetlana jako *500 Wewnętrzny błąd serwera* w przeglądarce. W dzienniku zdarzeń aplikacji stwierdza, zwykle uruchomiona aplikacja. Z perspektywy serwera, który jest poprawna. Aplikacja została uruchomiona, ale nie może wygenerować prawidłowej odpowiedzi. [Uruchamianie aplikacji w wierszu polecenia](#run-the-app-at-a-command-prompt) na serwerze lub [Włącz dziennik stdout modułu ASP.NET Core](#aspnet-core-module-stdout-log) do rozwiązania problemu.
 
+### <a name="failed-to-start-application-errorcode-0x800700c1"></a>Nie można uruchomić aplikację (kod błędu "0x800700c1")
+
+```
+EventID: 1010
+Source: IIS AspNetCore Module V2
+Failed to start application '/LM/W3SVC/6/ROOT/', ErrorCode '0x800700c1'.
+```
+
+Aplikacji nie powiodło się, ponieważ zestaw aplikacji (*.dll*) nie można go załadować.
+
+Ten błąd występuje, gdy występuje niezgodność liczby bitów opublikowanej aplikacji i procesu w3wp/programu iisexpress.
+
+Upewnij się, że ustawienie 32-bitowych puli aplikacji jest prawidłowy:
+
+1. Wybierz pulę aplikacji w Menedżerze usług IIS w **pul aplikacji**.
+1. Wybierz **Zaawansowane ustawienia** w obszarze **edytowanie puli aplikacji** w **akcje** panelu.
+1. Ustaw **Włącz aplikacje 32-bitowe**:
+   * Jeśli wdrażanie (x86) 32-bitowych aplikacji, ustaw wartość `True`.
+   * Jeśli wdrażanie (x64) 64-bitowych aplikacji, ustaw wartość `False`.
+
 ### <a name="connection-reset"></a>Resetowanie połączenia
 
 Jeśli błąd wystąpi po nagłówki są wysyłane, jest za późno serwera wysłać **500 Wewnętrzny błąd serwera** po wystąpieniu błędu. Dzieje się tak często, gdy wystąpi błąd podczas serializacji obiektów złożonych na odpowiedź. Tego typu błędu jest wyświetlany jako *resetowania połączenia* błąd na komputerze klienckim. [Rejestrowanie aplikacji](xref:fundamentals/logging/index) mogą pomóc rozwiązać tego rodzaju błędów.
@@ -101,6 +121,21 @@ Jeśli błąd wystąpi po nagłówki są wysyłane, jest za późno serwera wys�
 Modułu ASP.NET Core jest skonfigurowany z domyślną *startupTimeLimit* 120 sekund. Gdy pozostawić wartość domyślną, aplikacja może potrwać do dwóch minut przed moduł dzienniki awarii procesu. Aby uzyskać informacje na temat konfigurowania modułu, zobacz [atrybuty elementu aspNetCore](xref:host-and-deploy/aspnet-core-module#attributes-of-the-aspnetcore-element).
 
 ## <a name="troubleshoot-app-startup-errors"></a>Rozwiązywanie problemów z błędami uruchamiania aplikacji
+
+### <a name="enable-the-aspnet-core-module-debug-log"></a>Włącz dziennik debugowania modułu ASP.NET Core
+
+Dodaj poniższe ustawienia programu obsługi w aplikacji *web.config* plik, aby włączyć dzienniki debugowania modułu ASP.NET Core:
+
+```xml
+<aspNetCore ...>
+  <handlerSettings>
+    <handlerSetting name="debugLevel" value="file" />
+    <handlerSetting name="debugFile" value="c:\temp\ancm.log" />
+  </handlerSettings>
+</aspNetCore>
+```
+
+Upewnij się, czy ścieżka określona dla dziennika istnieje i że tożsamość puli aplikacji ma uprawnienia do zapisu do lokalizacji.
 
 ### <a name="application-event-log"></a>Dziennik zdarzeń aplikacji
 
@@ -167,7 +202,7 @@ Włączanie i wyświetlanie dzienników stdout:
       arguments=".\MyApp.dll"
       stdoutLogEnabled="false"
       stdoutLogFile=".\logs\stdout"
-      hostingModel="inprocess">
+      hostingModel="InProcess">
   <environmentVariables>
     <environmentVariable name="ASPNETCORE_ENVIRONMENT" value="Development" />
   </environmentVariables>

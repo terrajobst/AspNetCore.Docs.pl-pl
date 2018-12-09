@@ -3,14 +3,15 @@ title: Tworzenie aplikacji platformy ASP.NET Core przy użyciu danych użytkowni
 author: rick-anderson
 description: Dowiedz się, jak utworzyć aplikację stron Razor przy użyciu danych użytkownika chronionych przez autoryzację. Obejmuje protokołu HTTPS, uwierzytelniania, zabezpieczeń i tożsamości platformy ASP.NET Core.
 ms.author: riande
-ms.date: 7/24/2018
+ms.date: 12/07/2018
+ms.custom: seodec18
 uid: security/authorization/secure-data
-ms.openlocfilehash: 185628d4e06c9b5ae7f2685c10ea9e46dd5abe92
-ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
+ms.openlocfilehash: d49ee7779b425d625b81c8a65694121c616bfba6
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50253224"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121638"
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Tworzenie aplikacji platformy ASP.NET Core przy użyciu danych użytkownika chronionych przez autoryzację
 
@@ -38,21 +39,21 @@ W tym samouczku pokazano, jak utworzyć aplikację sieci web platformy ASP.NET C
 
 Na poniższej ilustracji użytkownik Rick (`rick@example.com`) jest zalogowany. Rick mogą jedynie wyświetlać kontakty zatwierdzone i **Edytuj**/**Usuń**/**Utwórz nowy** linki do swoich kontaktów. Tylko ostatni rekord, utworzone przez Rick, wyświetla **Edytuj** i **Usuń** łącza. Inni użytkownicy nie zobaczą ostatni rekord, aż Menedżer lub administrator zmienia stan na "Zatwierdzone".
 
-![Obraz opisanych w poprzednich](secure-data/_static/rick.png)
+![Zrzut ekranu przedstawiający Rick zalogowany](secure-data/_static/rick.png)
 
 Na poniższej ilustracji `manager@contoso.com` jest zarejestrowany i w roli menedżerów:
 
-![Obraz opisanych w poprzednich](secure-data/_static/manager1.png)
+![Zrzut ekranu przedstawiający manager@contoso.com zalogowany](secure-data/_static/manager1.png)
 
 Na poniższej ilustracji przedstawiono menedżerów widoku szczegółów kontaktu:
 
-![Obraz opisanych w poprzednich](secure-data/_static/manager.png)
+![Widok menedżera kontaktu](secure-data/_static/manager.png)
 
 **Zatwierdź** i **Odrzuć** przyciski są wyświetlane tylko dla menedżerów i administratorów.
 
 Na poniższej ilustracji `admin@contoso.com` jest zarejestrowany i w roli administratora:
 
-![Obraz opisanych w poprzednich](secure-data/_static/admin.png)
+![Zrzut ekranu przedstawiający admin@contoso.com zalogowany](secure-data/_static/admin.png)
 
 Administrator ma wszystkie uprawnienia. Ona można odczytu/edytowanie/usuwanie dowolnego skontaktuj się z pomocą i zmienić stan kontaktów.
 
@@ -281,25 +282,32 @@ Zobacz [ten problem](https://github.com/aspnet/Docs/issues/8502) uzyskać inform
 
 ## <a name="test-the-completed-app"></a>Testowanie aplikacji ukończone
 
+Jeśli nie został jeszcze ustawiony hasła dla kont użytkowników wypełnionych, użyj [narzędzie Menedżer klucz tajny](xref:security/app-secrets#secret-manager) ustawić hasło:
+
+* Wybierz silne hasło: Użyj ośmiu lub więcej znaków i co najmniej jeden znak wielkie litery, numer i symboli. Na przykład `Passw0rd!` spełnia wymagania silne hasło.
+* Wykonaj następujące polecenie z folderu projektu, gdzie `<PW>` jest hasłem:
+
+  ```console
+  dotnet user-secrets set SeedUserPW <PW>
+  ```
+
 Jeśli aplikacja ma kontaktów:
 
 * Usuń wszystkie rekordy w `Contact` tabeli.
 * Ponowne uruchomienie aplikacji w celu umieszczenia bazy danych.
 
-Zarejestruj użytkownika do przeglądania kontaktów.
-
-Łatwe testowanie ukończonej aplikacji jest do uruchomienia w trzech różnych przeglądarek (lub incognito/InPrivate wersje). W jednej przeglądarki zarejestrować nowego użytkownika (na przykład `test@example.com`). Zaloguj się w każdej przeglądarce z innym użytkownikiem. Sprawdź następujące operacje:
+Łatwe testowanie ukończonej aplikacji jest do uruchomienia w trzech różnych przeglądarek (lub sesji incognito/InPrivate). W jednej przeglądarki zarejestrować nowego użytkownika (na przykład `test@example.com`). Zaloguj się w każdej przeglądarce z innym użytkownikiem. Sprawdź następujące operacje:
 
 * Zarejestrowani użytkownicy można wyświetlić wszystkie zatwierdzone dane kontaktowe.
 * Zarejestrowani użytkownicy może edytować/usuwać swoje dane.
-* Menedżerowie mogli zatwierdzać lub odrzucać dane kontaktowe. `Details` Wyświetlić pokazuje **Zatwierdź** i **Odrzuć** przycisków.
-* Administratorzy mogą zatwierdzać/Odrzuć i edytowanie/usuwanie żadnych danych.
+* Menedżerowie mogą zatwierdzać/Odrzuć dane kontaktowe. `Details` Wyświetlić pokazuje **Zatwierdź** i **Odrzuć** przycisków.
+* Administratorzy mogą zatwierdzać/Odrzuć i edytowanie/usuwanie wszystkich danych.
 
-| Użytkownik| Opcje |
-| ------------ | ---------|
-| test@example.com | Może edytować/usuwać własnych danych |
-| manager@contoso.com | Można zatwierdzić/Odrzuć i edytowanie/usuwanie własnych danych |
-| admin@contoso.com | Edytowanie/usuwanie można i Zatwierdź/Odrzuć wszystkie dane|
+| Użytkownik                | Zasilany przez aplikację | Opcje                                  |
+| ------------------- | :---------------: | ---------------------------------------- |
+| test@example.com    | Nie                | Edytowanie/usuwanie własnych danych.                |
+| manager@contoso.com | Tak               | Zatwierdź/Odrzuć i edytowanie/usuwanie własnych danych. |
+| admin@contoso.com   | Tak               | Zatwierdź/Odrzuć i edytowanie/usuwanie wszystkich danych. |
 
 Utwórz kontakt w przeglądarce administratora. Skopiuj adres URL do usunięcia, a następnie Edytuj z skontaktowanie się z administratorem. Wklej te linki do przeglądarki użytkownika testowego, aby sprawdzić, czy użytkownik testu nie może wykonywać te operacje.
 
