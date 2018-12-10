@@ -5,12 +5,12 @@ description: Więcej informacji na temat składni znacznikowania Razor do osadza
 ms.author: riande
 ms.date: 10/26/2018
 uid: mvc/views/razor
-ms.openlocfilehash: ab9fb3f55399764c5fe985811d92c504ed210767
-ms.sourcegitcommit: ad28d1bc6657a743d5c2fa8902f82740689733bb
+ms.openlocfilehash: 2ec86c774e0fd26c4455829680a2b1db687b8090
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52256583"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121593"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>Dokumentacja składni razor dla platformy ASP.NET Core
 
@@ -197,7 +197,7 @@ Aby zdefiniować podsekcję blok kodu, które mają renderować kod HTML, Otocz 
 
 Tej metody można użyć do renderowania elementów HTML, który nie jest otoczony potraktowane jak tag HTML. Bez tagu HTML lub Razor występuje błąd w czasie wykonywania Razor.
 
- **\<Tekst >** tag jest przydatne do kontroli odstępu, podczas renderowania zawartości:
+**\<Tekst >** tag jest przydatne do kontroli odstępu, podczas renderowania zawartości:
 
 * Tylko zawartości między  **\<tekst >** renderowanego tagu. 
 * Nie spacji przed ani po  **\<tekst >** tagów jest wyświetlana w danych wyjściowych HTML.
@@ -640,8 +640,8 @@ Istnieją trzy dyrektyw, które odnoszą się do [pomocników tagów](xref:mvc/v
 ### <a name="razor-keywords"></a>Słowa kluczowe razor
 
 * Strona (wymaga platformy ASP.NET Core 2.0 i nowsze)
-*  — przestrzeń nazw
-*  — funkcje
+* — przestrzeń nazw
+* — funkcje
 * Inherits
 * model
 * sekcja
@@ -659,7 +659,7 @@ Razor słowa kluczowe są poprzedzone znakiem zmiany znaczenia z `@(Razor Keywor
 * if
 * else
 * lock
-*  — przełącznik
+* — przełącznik
 * Wypróbuj
 * CATCH
 * finally
@@ -741,7 +741,7 @@ Aparat widoku Razor wykonuje wyszukiwanie z uwzględnieniem wielkości liter dla
 
 Deweloperzy są zachęcani do pasuje do wielkości liter w nazwach plików i katalogów na wielkość liter w wyrazie:
 
-    * Nazwy obszaru, kontrolera i akcji.
-    * Strony razor.
+* Nazwy obszaru, kontrolera i akcji.
+* Strony razor.
 
 Wielkości liter, gwarantuje, że wdrożeń Znajdź swoje opinie, niezależnie od tego, źródłowy system plików.
