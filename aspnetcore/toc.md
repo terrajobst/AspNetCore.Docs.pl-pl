@@ -6,20 +6,11 @@
 # [Wprowadzenie](xref:getting-started)
 
 # Samouczki
-## [Tworzenie internetowego interfejsu API](xref:tutorials/first-web-api)
+## Interfejsy Web API
+### [Tworzenie internetowego interfejsu API](xref:tutorials/first-web-api)
+### [Internetowy interfejs API w programie MongoDB](xref:tutorials/first-mongo-app)
 ## Aplikacje internetowe
-### Razor Pages
-#### [Wprowadzenie do produktu Razor Pages](xref:razor-pages/index)
-
-#### [Samouczek dotyczący produktu Razor Pages](xref:tutorials/razor-pages/index)
-##### [Wprowadzenie](xref:tutorials/razor-pages/razor-pages-start)
-##### [Dodawanie modelu](xref:tutorials/razor-pages/model)
-##### [Tworzenie szkieletów](xref:tutorials/razor-pages/page)
-##### [Praca z bazą danych](xref:tutorials/razor-pages/sql)
-##### [Aktualizowanie stron](xref:tutorials/razor-pages/da1)
-##### [Dodawanie wyszukiwania](xref:tutorials/razor-pages/search)
-##### [Dodawanie nowego pola](xref:tutorials/razor-pages/new-field)
-##### [Dodawanie walidacji](xref:tutorials/razor-pages/validation)
+### [Strony Razor](xref:tutorials/razor-pages/index)
 
 ### MVC
 #### [W programie Visual Studio](xref:tutorials/first-mvc-app/index)
@@ -65,7 +56,7 @@
 # Aplikacje internetowe
 ## Razor Pages
 ### [Omówienie](xref:razor-pages/index)
-### [Samouczek dotyczący produktu Razor Pages](xref:tutorials/razor-pages/index)
+### [Samouczek produktu Razor Pages](xref:tutorials/razor-pages/index)
 #### [Wprowadzenie](xref:tutorials/razor-pages/razor-pages-start)
 #### [Dodawanie modelu](xref:tutorials/razor-pages/model)
 #### [Tworzenie szkieletów](xref:tutorials/razor-pages/page)
@@ -165,7 +156,9 @@
 # Interfejsy Web API
 ## [Omówienie](xref:web-api/index)
 
-## [Tworzenie internetowego interfejsu API](xref:tutorials/first-web-api)
+## Samouczki
+### [Tworzenie internetowego interfejsu API](xref:tutorials/first-web-api)
+### [Internetowy interfejs API w programie MongoDB](xref:tutorials/first-mongo-app)
 
 ## Swagger / OpenAPI
 ### [Omówienie](xref:tutorials/web-api-help-pages-using-swagger)
@@ -420,7 +413,7 @@
 ## [Zmiana tokenów](xref:fundamentals/change-tokens)
 ## [Otwarty interfejs internetowy dla platformy .NET (OWIN)](xref:fundamentals/owin)
 ## [Zadania w tle z usługami hostowanymi](xref:fundamentals/host/hosted-services)
-## [Zwiększanie możliwości aplikacji z zewnętrznego zestawu](xref:fundamentals/configuration/platform-specific-configuration)
+## [Hosting zestawów startowych](xref:fundamentals/configuration/platform-specific-configuration)
 ## [Metapakiet Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app)
 ## [Pakiet meta Microsoft.AspNetCore.All](xref:fundamentals/metapackage)
 ## [Rejestrowanie za pomocą funkcji LoggerMessage](xref:fundamentals/logging/loggermessage)
