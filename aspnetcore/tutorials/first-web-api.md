@@ -1,20 +1,20 @@
 ---
-title: 'Samouczek: Tworzenie interfejsu API sieci web za pomocą platformy ASP.NET Core MVC'
+title: 'Samouczek: Tworzenie internetowego interfejsu API za pomocą platformy ASP.NET Core MVC'
 author: rick-anderson
 description: Tworzenie internetowego interfejsu API platformy ASP.NET Core MVC
 ms.author: riande
 monikerRange: '> aspnetcore-2.1'
 ms.custom: mvc
-ms.date: 11/19/2018
+ms.date: 12/10/2018
 uid: tutorials/first-web-api
-ms.openlocfilehash: 1af14b85cbaefc00fd97db7c721c4f9436a65fb2
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: 614732ede6734aa9a7b190db2fd22e55c3dc6bb3
+ms.sourcegitcommit: 1872d2e6f299093c78a6795a486929ffb0bbffff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121469"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53216862"
 ---
-# <a name="tutorial-create-a-web-api-with-aspnet-core-mvc"></a>Samouczek: Tworzenie interfejsu API sieci web za pomocą platformy ASP.NET Core MVC
+# <a name="tutorial-create-a-web-api-with-aspnet-core-mvc"></a>Samouczek: Tworzenie internetowego interfejsu API za pomocą platformy ASP.NET Core MVC
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT) i [Mike Wasson](https://github.com/mikewasson)
 
@@ -75,9 +75,9 @@ Na poniższym diagramie przedstawiono projekt aplikacji.
    code -r TodoApi
    ```
 
-  Te polecenia Utwórz nowy projekt interfejsu API sieci web i Otwórz nowe wystąpienie programu Visual Studio Code w on nowy folder projektu.
+  Te polecenia Utwórz nowy projekt interfejsu API sieci web i Otwórz nowe wystąpienie programu Visual Studio Code w nowym folderze projektu.
 
-* Gdy okno dialogowe z pytaniem, jeśli chcesz dodać wymagane zasoby do projektu, wybierz **tak**
+* Gdy okno dialogowe z pytaniem, jeśli chcesz dodać wymagane zasoby do projektu, wybierz **tak**.
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
@@ -359,7 +359,7 @@ Dodaj następujący kod `PutTodoItem` metody:
 
 [!code-csharp[](first-web-api/samples/2.2/TodoApi/Controllers/TodoController.cs?name=snippet_Update)]
 
-`PutTodoItem` jest podobny do `PostTodoItem`, z wyjątkiem używa HTTP PUT. Odpowiedź jest [204 (Brak zawartości)](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html). Zgodnie ze specyfikacją protokołu HTTP żądania PUT wymaga to klientowi wysłanie całego zaktualizowaną jednostkę, nie tylko zmiany. Aby obsługiwać aktualizacje częściowe, należy użyć [HTTP PATCH](/dotnet/api/microsoft.aspnetcore.mvc.httppostattribute).
+`PutTodoItem` jest podobny do `PostTodoItem`, z wyjątkiem używa HTTP PUT. Odpowiedź jest [204 (Brak zawartości)](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html). Zgodnie ze specyfikacją protokołu HTTP żądania PUT wymaga to klientowi wysłanie całego zaktualizowaną jednostkę, nie tylko zmiany. Aby obsługiwać aktualizacje częściowe, należy użyć [HTTP PATCH](xref:Microsoft.AspNetCore.Mvc.HttpPatchAttribute).
 
 ### <a name="test-the-puttodoitem-method"></a>Metoda PutTodoItem testu
 

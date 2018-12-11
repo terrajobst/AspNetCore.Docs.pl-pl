@@ -4,14 +4,14 @@ author: guardrex
 description: Dowiedz się, jak skonfigurować aplikację ASP.NET Core za pomocą interfejsu API konfiguracji.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/15/2018
+ms.date: 12/07/2018
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 766ac77a2af01509f8e4bc646a18f7dfbc923511
-ms.sourcegitcommit: d3392f688cfebc1f25616da7489664d69c6ee330
+ms.openlocfilehash: 6f0378ffc4f9a1efa95c8f70d70e7799abef130b
+ms.sourcegitcommit: 1872d2e6f299093c78a6795a486929ffb0bbffff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51818398"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53216901"
 ---
 # <a name="configuration-in-aspnet-core"></a>Konfiguracja w programie ASP.NET Core
 
@@ -21,7 +21,7 @@ Konfiguracja aplikacji w programie ASP.NET Core opiera się na parach klucz wart
 
 ::: moniker range=">= aspnetcore-2.1"
 
-* Usługa Azure Key Vault
+* W usłudze Azure Key Vault
 * Argumenty wiersza polecenia
 * Niestandardowi dostawcy (zainstalowane lub utworzone)
 * Pliki katalogu
@@ -33,7 +33,7 @@ Konfiguracja aplikacji w programie ASP.NET Core opiera się na parach klucz wart
 
 ::: moniker range="= aspnetcore-2.0 || aspnetcore-1.1"
 
-* Usługa Azure Key Vault
+* W usłudze Azure Key Vault
 * Argumenty wiersza polecenia
 * Niestandardowi dostawcy (zainstalowane lub utworzone)
 * Zmienne środowiskowe
@@ -147,9 +147,9 @@ W poniższej tabeli przedstawiono dostępne dla aplikacji platformy ASP.NET Core
 
 ::: moniker range=">= aspnetcore-2.1"
 
-| Dostawcy | Udostępnia konfigurację z&hellip; |
+| Dostawca | Udostępnia konfigurację z&hellip; |
 | -------- | ----------------------------------- |
-| [Dostawca konfiguracji magazynu w usłudze Azure klucza](xref:security/key-vault-configuration) (*zabezpieczeń* tematy) | Usługa Azure Key Vault |
+| [Dostawca konfiguracji magazynu w usłudze Azure klucza](xref:security/key-vault-configuration) (*zabezpieczeń* tematy) | W usłudze Azure Key Vault |
 | [Dostawca konfiguracji wiersza polecenia](#command-line-configuration-provider) | Parametry wiersza polecenia |
 | [Dostawca konfiguracji niestandardowej](#custom-configuration-provider) | Źródło niestandardowe |
 | [Dostawca konfiguracji zmiennych środowiskowych](#environment-variables-configuration-provider) | Zmienne środowiskowe |
@@ -162,9 +162,9 @@ W poniższej tabeli przedstawiono dostępne dla aplikacji platformy ASP.NET Core
 
 ::: moniker range="= aspnetcore-2.0 || aspnetcore-1.1"
 
-| Dostawcy | Udostępnia konfigurację z&hellip; |
+| Dostawca | Udostępnia konfigurację z&hellip; |
 | -------- | ----------------------------------- |
-| [Dostawca konfiguracji magazynu w usłudze Azure klucza](xref:security/key-vault-configuration) (*zabezpieczeń* tematy) | Usługa Azure Key Vault |
+| [Dostawca konfiguracji magazynu w usłudze Azure klucza](xref:security/key-vault-configuration) (*zabezpieczeń* tematy) | W usłudze Azure Key Vault |
 | [Dostawca konfiguracji wiersza polecenia](#command-line-configuration-provider) | Parametry wiersza polecenia |
 | [Dostawca konfiguracji niestandardowej](#custom-configuration-provider) | Źródło niestandardowe |
 | [Dostawca konfiguracji zmiennych środowiskowych](#environment-variables-configuration-provider) | Zmienne środowiskowe |
@@ -176,7 +176,7 @@ W poniższej tabeli przedstawiono dostępne dla aplikacji platformy ASP.NET Core
 
 ::: moniker range="= aspnetcore-1.0"
 
-| Dostawcy | Udostępnia konfigurację z&hellip; |
+| Dostawca | Udostępnia konfigurację z&hellip; |
 | -------- | ----------------------------------- |
 | [Dostawca konfiguracji wiersza polecenia](#command-line-configuration-provider) | Parametry wiersza polecenia |
 | [Dostawca konfiguracji niestandardowej](#custom-configuration-provider) | Źródło niestandardowe |
@@ -534,7 +534,7 @@ Aby aktywować środowisko zmiennych konfiguracji, należy wywołać <xref:Micro
 
 Podczas pracy z kluczami hierarchiczne w zmiennych środowiskowych, separator dwukropek (`:`) może nie działać na wszystkich platformach. Podwójnym podkreśleniem (`__`) jest obsługiwana przez wszystkie platformy i zastępuje dwukropka.
 
-[Usługa Azure App Service](https://azure.microsoft.com/services/app-service/) pozwala na Ustawianie zmiennych środowiskowych w portalu Azure, które mogą zastąpić konfigurację aplikacji przy użyciu dostawcy konfiguracji zmiennych środowiskowych. Aby uzyskać więcej informacji, zobacz [aplikacje platformy Azure: zastępczą konfigurację aplikacji przy użyciu witryny Azure Portal](xref:host-and-deploy/azure-apps/index#override-app-configuration-using-the-azure-portal).
+[Usługa Azure App Service](https://azure.microsoft.com/services/app-service/) pozwala na Ustawianie zmiennych środowiskowych w portalu Azure, które mogą zastąpić konfigurację aplikacji przy użyciu dostawcy konfiguracji zmiennych środowiskowych. Aby uzyskać więcej informacji, zobacz [aplikacje platformy Azure: Zastąpienie konfiguracji aplikacji przy użyciu witryny Azure Portal](xref:host-and-deploy/azure-apps/index#override-app-configuration-using-the-azure-portal).
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -699,11 +699,11 @@ Statyczne wygodna metoda `CreateDefaultBuilder` tworzy <xref:Microsoft.AspNetCor
 
 Interfejs API konfiguracji zawiera reguły jest przetwarzana w specjalny cztery połączenia ciągu zmiennych środowiskowych zajmujących się Konfigurowanie parametrów połączenia platformy Azure dla środowiska aplikacji. Zmienne środowiskowe z prefiksami pokazano w tabeli są ładowane do aplikacji, jeśli nie dostarczono żadnego prefiksu do `AddEnvironmentVariables`.
 
-| Prefiks ciągu połączenia | Dostawcy |
+| Prefiks ciągu połączenia | Dostawca |
 | ------------------------ | -------- |
 | `CUSTOMCONNSTR_` | Dostawcy niestandardowego |
 | `MYSQLCONNSTR_` | [MySQL](https://www.mysql.com/) |
-| `SQLAZURECONNSTR_` | [Usługa Azure SQL Database](https://azure.microsoft.com/services/sql-database/) |
+| `SQLAZURECONNSTR_` | [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) |
 | `SQLCONNSTR_` | [SQL Server](https://www.microsoft.com/sql-server/) |
 
 Gdy zmienna środowiskowa są odnajdywane i ładowane do konfiguracji za pomocą dowolnego z czterech prefiksy z tabelą:
@@ -714,9 +714,9 @@ Gdy zmienna środowiskowa są odnajdywane i ładowane do konfiguracji za pomocą
 | Klucz zmiennych środowiska | Klucz konfiguracji przekonwertowany | Pozycja konfiguracji dostawcy                                                    |
 | ------------------------ | --------------------------- | ------------------------------------------------------------------------------- |
 | `CUSTOMCONNSTR_<KEY>`    | `ConnectionStrings:<KEY>`   | Wpis konfiguracyjny nie utworzony.                                                |
-| `MYSQLCONNSTR_<KEY>`     | `ConnectionStrings:<KEY>`   | Klucz: `ConnectionStrings:<KEY>_ProviderName`:<br>Wartość: `MySql.Data.MySqlClient` |
-| `SQLAZURECONNSTR_<KEY>`  | `ConnectionStrings:<KEY>`   | Klucz: `ConnectionStrings:<KEY>_ProviderName`:<br>Wartość: `System.Data.SqlClient`  |
-| `SQLCONNSTR_<KEY>`       | `ConnectionStrings:<KEY>`   | Klucz: `ConnectionStrings:<KEY>_ProviderName`:<br>Wartość: `System.Data.SqlClient`  |
+| `MYSQLCONNSTR_<KEY>`     | `ConnectionStrings:<KEY>`   | Klucz: `ConnectionStrings:<KEY>_ProviderName`:<br>Wartość:`MySql.Data.MySqlClient` |
+| `SQLAZURECONNSTR_<KEY>`  | `ConnectionStrings:<KEY>`   | Klucz: `ConnectionStrings:<KEY>_ProviderName`:<br>Wartość:`System.Data.SqlClient`  |
+| `SQLCONNSTR_<KEY>`       | `ConnectionStrings:<KEY>`   | Klucz: `ConnectionStrings:<KEY>_ProviderName`:<br>Wartość:`System.Data.SqlClient`  |
 
 ## <a name="file-configuration-provider"></a>Dostawca konfiguracji pliku
 
@@ -1137,6 +1137,8 @@ Przeciążenia zezwala na określenie:
 * `Action<KeyPerFileConfigurationSource>` Delegat, który konfiguruje źródło.
 * Czy katalog jest opcjonalna i ścieżkę do katalogu.
 
+Podwójne podkreślenie (`__`) jest używany jako ogranicznika klucza konfiguracji w nazwach plików. Na przykład, nazwa_pliku `Logging__LogLevel__System` generuje klucz konfiguracji `Logging:LogLevel:System`.
+
 Wywołaj <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> podczas tworzenia hosta, aby określić konfigurację aplikacji:
 
 ```csharp
@@ -1355,7 +1357,7 @@ var children = configSection.GetChildren();
 
 ::: moniker range=">= aspnetcore-2.0"
 
-### <a name="exists"></a>Istnieje
+### <a name="exists"></a>Exists
 
 Użyj [ConfigurationExtensions.Exists](xref:Microsoft.Extensions.Configuration.ConfigurationExtensions.Exists*) do ustalenia, czy istnieje sekcji konfiguracji:
 
@@ -1810,7 +1812,7 @@ public class Startup
 }
 ```
 
-Na przykład uzyskiwania dostępu do konfiguracji za pomocą metod jako udogodnienie uruchamiania zobacz [uruchamiania aplikacji: wygodne metody](xref:fundamentals/startup#convenience-methods).
+Na przykład uzyskiwania dostępu do konfiguracji za pomocą metod jako udogodnienie uruchamiania zobacz [uruchamiania aplikacji: Wygodne metody](xref:fundamentals/startup#convenience-methods).
 
 ## <a name="access-configuration-in-a-razor-pages-page-or-mvc-view"></a>Konfiguracja dostępu na stronie stron Razor lub w widoku MVC
 

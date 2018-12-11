@@ -3,14 +3,14 @@ title: Migrowanie z programu ASP.NET do ASP.NET Core
 author: isaac2004
 description: Odbieranie wskazówki dotyczące migrowania istniejących aplikacji ASP.NET MVC lub internetowych interfejsów API do Core.web platformy ASP.NET
 ms.author: scaddie
-ms.date: 08/27/2017
+ms.date: 12/10/2018
 uid: migration/proper-to-2x/index
-ms.openlocfilehash: 1a3e3f0b514c262cfe13ea8391ab97b95aa4384e
-ms.sourcegitcommit: 54655f1e1abf0b64d19506334d94cfdb0caf55f6
+ms.openlocfilehash: 6808fefb890dcdec6abdd0604ab61dfd2573d910
+ms.sourcegitcommit: 1872d2e6f299093c78a6795a486929ffb0bbffff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50148801"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53216797"
 ---
 # <a name="migrate-from-aspnet-to-aspnet-core"></a>Migrowanie z programu ASP.NET do ASP.NET Core
 
@@ -66,7 +66,7 @@ Platforma ASP.NET Core korzysta z podobnego podejścia, ale nie jest zależny od
 
 `Startup` musi zawierać `Configure` metody. W `Configure`, dodać niezbędne oprogramowanie pośredniczące do potoku. W poniższym przykładzie (z domyślnego szablonu witryny sieci web) kilka metod rozszerzenia są używane do konfigurowania potoku obsługę:
 
-* [BrowserLink](http://vswebessentials.com/features/browserlink)
+* [Łączność z przeglądarkami](xref:client-side/using-browserlink)
 * Strony błędów
 * Pliki statyczne
 * ASP.NET Core MVC
