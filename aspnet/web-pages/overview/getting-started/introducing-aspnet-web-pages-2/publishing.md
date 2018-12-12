@@ -8,12 +8,12 @@ ms.date: 05/28/2015
 ms.assetid: 7e85c70e-1a88-4408-8b3d-29611c7713ed
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/publishing
 msc.type: authoredcontent
-ms.openlocfilehash: fe196e5db8fd1cecbe84b2eb970939303f9313d1
-ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
+ms.openlocfilehash: bd6611a03ee4940f5d4176ce23464f313b9ec884
+ms.sourcegitcommit: eef99d14d96dc8c3c1bb0e2c4cb14da152f8a952
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51021459"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53022508"
 ---
 <a name="introducing-aspnet-web-pages---publishing-a-site-by-using-webmatrix"></a>Wprowadzenie do wzorca ASP.NET Web Pages — publikowanie witryny za pomocą programu WebMatrix
 ====================
@@ -50,7 +50,7 @@ Ten samouczek zawiera cztery sekcje:
 <a id="defaultpage"></a>
 ## <a name="setting-up-the-default-page"></a>Konfigurowanie domyślnej strony
 
-Gdy użytkownik przechodzi do adres podstawowy dla witryny sieci web, do użytkownika jest wyświetlona domyślna strona dla danej witryny. Na przykład, gdy Default.htm jest ustawiona jako domyślna strona dla tej witryny w www.contoso.com, przechodząc do <strong>www.contoso.com</strong> jest taka sama jak przejść do <strong>www.contoso.com/Default.htm</strong>.
+Gdy użytkownik przechodzi do adres podstawowy dla witryny sieci web, do użytkownika jest wyświetlona domyślna strona dla danej witryny. Na przykład, gdy *Default.htm* jest ustawiona jako domyślna strona dla tej witryny w `www.contoso.com`, przechodząc do `www.contoso.com` jest taka sama jak przejść do `www.contoso.com/Default.htm`.
 
 Obecnie Twoja witryna wymaga **Default.cshtml** jako domyślnej strony. Ta strona jest w dobrym stanie, domyślnej strony, ale w tym samouczku nie dodano żadnej zawartości do tej strony, będzie wyświetlany w pustej strony. Otwórz Default.cshtml i Zastąp zawartość następującym kodem.
 
