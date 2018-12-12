@@ -8,16 +8,18 @@ ms.date: 06/10/2014
 ms.assetid: d1983524-e0d5-4ee6-9d87-1f552f7cb964
 msc.legacyurl: /signalr/overview/testing-and-debugging/unit-testing-signalr-applications
 msc.type: authoredcontent
-ms.openlocfilehash: ba8f5d4577403fe9765641d7ee5d88bde045680a
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: d8f3afdc2749173d1e260096ee6bd4bf1ae4c7cb
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48910827"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287522"
 ---
 <a name="unit-testing-signalr-applications"></a>Testowanie jednostkowe aplikacji SignalR
 ====================
 przez [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > W tym artykule opisano korzystanie z funkcji testów jednostkowych SignalR 2.
 >
@@ -42,7 +44,7 @@ Funkcji testów jednostkowych w SignalR 2 umożliwia tworzenie testów jednostko
 
 W tej sekcji dodasz testy jednostkowe dla aplikacji utworzonych w [samouczka Wprowadzenie](../getting-started/tutorial-getting-started-with-signalr.md) przy użyciu [XUnit.net](https://github.com/xunit/xunit) i [Moq](https://github.com/Moq/moq4).
 
-XUnit.net będzie służyć do kontrolowania badania; Moq będzie służyć do tworzenia [testowanie](http://en.wikipedia.org/wiki/Mock_object) obiektu do testowania. Inne struktury pozorowania może służyć w razie potrzeby; [NSubstitute](http://nsubstitute.github.io/) jest również dobrym wyborem. W tym samouczku pokazano, jak skonfigurować makiety obiektu na dwa sposoby: po pierwsze, za pomocą `dynamic` obiektu (zostanie wprowadzony w programie .NET Framework 4), a drugi, przy użyciu interfejsu.
+XUnit.net będzie służyć do kontrolowania badania; Moq będzie służyć do tworzenia [testowanie](http://en.wikipedia.org/wiki/Mock_object) obiektu do testowania. Inne struktury pozorowania może służyć w razie potrzeby; [NSubstitute](http://nsubstitute.github.io/) jest również dobrym wyborem. W tym samouczku pokazano, jak skonfigurować makiety obiektu na dwa sposoby: Po pierwsze, za pomocą `dynamic` obiektu (zostanie wprowadzony w programie .NET Framework 4), a drugi, przy użyciu interfejsu.
 
 ### <a name="contents"></a>Spis treści
 

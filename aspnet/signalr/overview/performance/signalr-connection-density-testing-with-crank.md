@@ -8,21 +8,23 @@ ms.date: 02/22/2015
 ms.assetid: 148d9ca7-1af1-44b6-a9fb-91e261b9b463
 msc.legacyurl: /signalr/overview/performance/signalr-connection-density-testing-with-crank
 msc.type: authoredcontent
-ms.openlocfilehash: 556accb1bcc18e9e4d1f813a87fc6f4b67bda088
-ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
+ms.openlocfilehash: 308fed51953b085506488c5e0dda1ced9f4d09fb
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51021485"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287588"
 ---
 <a name="signalr-connection-density-testing-with-crank"></a>Testowanie gęstości połączenia usługi SignalR za pomocą funkcji Crank
 ====================
 przez [Tom FitzMacken](https://github.com/tfitzmac)
 
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
+
 > W tym artykule opisano sposób użycia narzędzia węzłówką do testowania aplikacji przy użyciu wielu symulowanych klientów.
 
 
-Gdy aplikacja jest uruchomiona w środowisku hostingu (albo usługi Azure web rolę, usługi IIS, lub może być samodzielnie hostowane przy użyciu Owin), należy przetestować wysoką gęstość połączenia przy użyciu narzędzia węzłówką odpowiedzi aplikacji. Środowisko hostingu może być serwer Internet Information Services (IIS), hosta Owin lub roli usługi sieci web platformy Azure. (Uwaga: liczniki wydajności nie są dostępne w usłudze Azure App Service Web Apps, dlatego nie można uzyskać dane dotyczące wydajności z test gęstość połączenia.)
+Gdy aplikacja jest uruchomiona w środowisku hostingu (albo usługi Azure web rolę, usługi IIS, lub może być samodzielnie hostowane przy użyciu Owin), należy przetestować wysoką gęstość połączenia przy użyciu narzędzia węzłówką odpowiedzi aplikacji. Środowisko hostingu może być serwer Internet Information Services (IIS), hosta Owin lub roli usługi sieci web platformy Azure. (Uwaga: Liczniki wydajności nie są dostępne w usłudze Azure App Service Web Apps, dlatego nie można uzyskać dane dotyczące wydajności z test gęstość połączenia.)
 
 Gęstość połączenia odnosi się do liczbę równoczesnych połączeń TCP, nawiązywanych na serwerze. Każde połączenie TCP wiąże się własną obciążenie i otwierania dużej liczby bezczynnych połączeń po pewnym czasie spowoduje utworzenie "wąskie gardło" pamięci.
 
@@ -44,21 +46,21 @@ Został pobrany i tworzone bazy kodu i zainstalowanych liczników wydajności na
 
 Dostępne opcje narzędzia węzłówką obejmują:
 
-- **/?** : Wyświetlony ekran pomocy. Dostępne opcje są także wyświetlane, gdy **adresu Url** parametr zostanie pominięty.
-- **/ Adres Url**: adres URL połączenia SignalR. Ten parametr jest wymagany. W przypadku aplikacji SignalR przy użyciu domyślnego mapowania ścieżki będą kończyć się na "/ signalr".
+- **/?** : Pokazuje ekran pomocy. Dostępne opcje są także wyświetlane, gdy **adresu Url** parametr zostanie pominięty.
+- **/ Adres Url**: Adres URL połączenia SignalR. Ten parametr jest wymagany. W przypadku aplikacji SignalR przy użyciu domyślnego mapowania ścieżki będą kończyć się na "/ signalr".
 - **/ Transportu**: Nazwa transportu. Wartość domyślna to `auto`, który wybierze najbardziej protokołu. Opcje obejmują `WebSockets`, `ServerSentEvents`, i `LongPolling` (`ForeverFrame` nie jest opcją dla węzłówką, ponieważ klient modelu .NET, a nie jest używany program Internet Explorer). Aby uzyskać więcej informacji na temat sposobu SignalR wybiera transportu, zobacz [transportu i planów awaryjnych](../getting-started/introduction-to-signalr.md#transports).
-- **/ BatchSize**: liczba klientach dodawanych w każdej partii. Wartością domyślną jest 50.
-- **/ ConnectInterval**: interwał w milisekundach między dodawaniem połączeń. Wartość domyślna to 500.
-- **/ Połączeń**: liczba połączeń używane do testowania obciążenia aplikacji. Wartość domyślna to 100 000.
-- **/ ConnectTimeout**: limit czasu w ciągu kilku sekund przed przerwaniem testu. Wartość domyślna to 300.
-- **MinServerMBytes**: w megabajtach serwerze z minimalną nawiązać połączenie. Wartość domyślna to 500.
-- **SendBytes**: rozmiar ładunku wysyłanych do serwera w bajtach. Wartość domyślna to 0.
-- **SendInterval**: opóźnienie w milisekundach między wiadomości do serwera. Wartość domyślna to 500.
-- **Właściwości SendTimeout**: limit czasu (w milisekundach) dla wiadomości do serwera. Wartość domyślna to 300.
-- **ControllerUrl**: adres Url, w którym jeden klient będzie obsługiwać koncentrator kontrolera. Wartość domyślna to null (Brak Centrum kontrolera). Koncentrator kontrolera została uruchomiona, podczas uruchamiania sesji węzłówką; żadne dodatkowe kontakt między Koncentrator kontrolera i węzłówką jest nawiązywany.
-- **NumClients**: liczba symulowane klientom na łączenie się z aplikacją. Wartość domyślna to jeden.
+- **/ BatchSize**: Liczba klientach dodawanych w każdej partii. Wartością domyślną jest 50.
+- **/ ConnectInterval**: Interwał w milisekundach między dodawaniem połączeń. Wartość domyślna to 500.
+- **/ Połączeń**: Liczba połączeń używanych do testu obciążenia aplikacji. Wartość domyślna to 100 000.
+- **/ ConnectTimeout**: Limit czasu w ciągu kilku sekund przed przerwaniem testu. Wartość domyślna to 300.
+- **MinServerMBytes**: Megabajtów serwerze z minimalną nawiązać połączenie. Wartość domyślna to 500.
+- **SendBytes**: Rozmiar ładunku wysyłanych do serwera w bajtach. Wartość domyślna to 0.
+- **SendInterval**: Opóźnienie w milisekundach między wiadomości do serwera. Wartość domyślna to 500.
+- **Właściwości SendTimeout**: Limit czasu (w milisekundach) dla wiadomości do serwera. Wartość domyślna to 300.
+- **ControllerUrl**: Adres Url, gdzie jeden klient będzie obsługiwać koncentrator kontrolera. Wartość domyślna to null (Brak Centrum kontrolera). Koncentrator kontrolera została uruchomiona, podczas uruchamiania sesji węzłówką; żadne dodatkowe kontakt między Koncentrator kontrolera i węzłówką jest nawiązywany.
+- **NumClients**: Liczba symulowane klientom na łączenie się z aplikacją. Wartość domyślna to jeden.
 - **Plik dziennika**: Nazwa pliku dla pliku dziennika dla przebiegu testu. Wartość domyślna to `crank.csv`.
-- **SampleInterval**: czas w milisekundach między próbek licznika wydajności. Wartość domyślna to 1000.
+- **SampleInterval**: Czas w milisekundach między próbek licznika wydajności. Wartość domyślna to 1000.
 - **SignalRInstance**: Nazwa wystąpienia liczników wydajności na serwerze. Wartość domyślna to do wartości stanu połączenia klienta.
 
 ### <a name="example"></a>Przykład

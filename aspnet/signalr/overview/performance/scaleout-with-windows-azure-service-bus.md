@@ -8,16 +8,18 @@ ms.date: 06/10/2014
 ms.assetid: ce1305f9-30fd-49e3-bf38-d0a78dfb06c3
 msc.legacyurl: /signalr/overview/performance/scaleout-with-windows-azure-service-bus
 msc.type: authoredcontent
-ms.openlocfilehash: 3adc8768eb7271de32180ba98f67864b22283510
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 5cdb9b5eb6d3f5ebd5c96e4b0d89926c18bddadd
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48910801"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287614"
 ---
-<a name="signalr-scaleout-with-azure-service-bus"></a>SignalR — skalowanie w poziomie za pomocą usługi Azure Service Bus
+<a name="signalr-scaleout-with-azure-service-bus"></a>SignalR — skalowanie w poziomie z użyciem usługi Azure Service Bus
 ====================
 przez [Mike Wasson](https://github.com/MikeWasson), [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 W tym samouczku wdrożysz aplikację SignalR, do roli sieci Web Windows Azure, przy użyciu systemu backplane usługi Service Bus, aby dystrybuować komunikaty do każdego wystąpienia roli. (Możesz również użyć płyty montażowej usługi Service Bus za pomocą [aplikacji sieci web w usłudze Azure App Service](https://docs.microsoft.com/azure/app-service-web/).)
 
@@ -49,13 +51,13 @@ Przed przejściem do szczegółowe podręcznika, poniżej przedstawiono krótkie
 
     [!code-csharp[Main](scaleout-with-windows-azure-service-bus/samples/sample1.cs)]
 
-Ten kod konfiguruje systemu backplane z wartościami domyślnymi dla [TopicCount](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.servicebusscaleoutconfiguration.topiccount(v=vs.118).aspx) i [MaxQueueLength](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.messaging.scaleoutconfiguration.maxqueuelength(v=vs.118).aspx). Aby uzyskać informacje na temat zmiany tych wartości, zobacz [wydajność SignalR: metryki skalowania](signalr-performance.md#scaleout_metrics).
+Ten kod konfiguruje systemu backplane z wartościami domyślnymi dla [TopicCount](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.servicebusscaleoutconfiguration.topiccount(v=vs.118).aspx) i [MaxQueueLength](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.messaging.scaleoutconfiguration.maxqueuelength(v=vs.118).aspx). Aby uzyskać informacje na temat zmiany tych wartości, zobacz [wydajność SignalR: Metryki skalowania](signalr-performance.md#scaleout_metrics).
 
 Dla każdej aplikacji wybierz inną wartość dla "YourAppName". Nie należy używać tej samej wartości dla wielu aplikacji.
 
 ## <a name="create-the-azure-services"></a>Tworzenie usług platformy Azure
 
-Utwórz usługę w chmurze, zgodnie z opisem w [jak utworzyć i wdrożyć usługę w chmurze](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy). Postępuj zgodnie z instrukcjami w sekcji "jak: Tworzenie usługi w chmurze przy użyciu szybkiego tworzenia". W tym samouczku nie musisz przekazać certyfikat.
+Utwórz usługę w chmurze, zgodnie z opisem w [jak utworzyć i wdrożyć usługę w chmurze](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy). Postępuj zgodnie z instrukcjami w sekcji "jak: Utwórz usługę w chmurze przy użyciu szybkie tworzenie". W tym samouczku nie musisz przekazać certyfikat.
 
 ![](scaleout-with-windows-azure-service-bus/_static/image2.png)
 
@@ -87,7 +89,7 @@ W **nowy projekt ASP.NET** okno dialogowe, wybierz opcję **MVC**i kliknij przyc
 
 Kreator projektu tworzy dwa projekty:
 
-- ChatService: Ten projekt jest aplikacją platformy Windows Azure. Definiuje ról platformy Azure i inne opcje konfiguracji.
+- ChatService: Ten projekt to aplikacja Windows Azure. Definiuje ról platformy Azure i inne opcje konfiguracji.
 - SignalRChat: Ten projekt jest projektu ASP.NET MVC 5.
 
 ## <a name="create-the-signalr-chat-application"></a>Tworzenie aplikacji czatu SignalR

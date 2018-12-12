@@ -8,16 +8,18 @@ ms.date: 06/05/2013
 ms.assetid: 347210ba-c452-4feb-886f-b51d89f58971
 msc.legacyurl: /signalr/overview/older-versions/troubleshooting
 msc.type: authoredcontent
-ms.openlocfilehash: df949347cecd9ac617a52ad798f37bebdb8524fa
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 6c2a8e72959c9370ff46084ca135c2b2977f4f42
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41754598"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287697"
 ---
-<a name="signalr-troubleshooting-signalr-1x"></a>Rozwiązywanie problemów z SignalR (SignalR 1.x)
+<a name="signalr-troubleshooting-signalr-1x"></a>Rozwiązywanie problemów z usługą SignalR (SignalR 1.x)
 ====================
 przez [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > W tym dokumencie opisano typowe problemy dotyczące rozwiązywania problemów z SignalR.
 
@@ -53,7 +55,7 @@ SignalR wymaga analizatora składni JSON do serializacji wywołań między serwe
 
 ### <a name="mixing-hub-and-persistentconnection-syntax"></a>Łączenie Centrum i PersistentConnection składni
 
-SignalR używa dwóch modeli komunikacji: koncentratorów i PersistentConnections. Składnia wywoływania modele te dwa komunikacji różni się w kodzie klienta. Jeśli koncentrator zostały dodane w kodzie serwera, należy sprawdzić, cały kod klienta jest używana składnia odpowiedniego koncentratora.
+SignalR używa dwóch modeli komunikacji: Centra i PersistentConnections. Składnia wywoływania modele te dwa komunikacji różni się w kodzie klienta. Jeśli koncentrator zostały dodane w kodzie serwera, należy sprawdzić, cały kod klienta jest używana składnia odpowiedniego koncentratora.
 
 **Kod klienta JavaScript, który tworzy PersistentConnection klient JavaScript**
 
@@ -157,8 +159,8 @@ Ten błąd może wystąpić w środowiskach między domenami gdzie komunikacji m
 
 Istnieje kilka przyczyn tego problemu. Sprawdź wszystkie z następujących czynności:
 
-- **Odwołanie do adresu serwera proxy koncentratora niepoprawny format:** tego błędu jest częsta, jeśli odwołanie do Centrum wygenerowany adres serwera proxy nie jest poprawnie sformatowany. Sprawdź, czy adres centrum odniesienia prawidłowo. Zobacz [jak odwoływać się do serwera proxy w dynamicznie generowanym](../guide-to-the-api/hubs-api-guide-javascript-client.md#dynamicproxy) Aby uzyskać szczegółowe informacje.
-- **Dodawanie tras do aplikacji przed dodaniem trasę koncentratora:** Jeśli aplikacja korzysta z innych tras, sprawdź, czy pierwsza trasa dodano wywołanie `MapHubs`.
+- **Nieprawidłowy format odwołanie adresu serwera proxy Centrum:** Ten błąd jest częsta, jeśli odwołanie do Centrum wygenerowany adres serwera proxy nie jest poprawnie sformatowany. Sprawdź, czy adres centrum odniesienia prawidłowo. Zobacz [jak odwoływać się do serwera proxy w dynamicznie generowanym](../guide-to-the-api/hubs-api-guide-javascript-client.md#dynamicproxy) Aby uzyskać szczegółowe informacje.
+- **Dodawanie tras do aplikacji, przed dodaniem trasę koncentratora:** Jeśli aplikacja korzysta z innych tras, sprawdź, czy pierwsza trasa dodano wywołanie `MapHubs`.
 
 ### <a name="500-internal-server-error"></a>"500 Wewnętrzny błąd serwera"
 
@@ -172,7 +174,7 @@ Spowoduje to błąd, jeśli wywołanie `MapHubs` nie jest wykonywana prawidłowo
 
 Upewnij się, że parametry, z których możesz wysłać do metody nie zawierają nieprzeznaczone do typów (takich jak dojścia do plików lub połączenia z bazą danych). Jeśli musisz używać elementów członkowskich w obiekcie po stronie serwera, który nie ma do wysłania do klienta, (zarówno dla zabezpieczeń i powodów serializacji), użyj `JSONIgnore` atrybutu.
 
-### <a name="protocol-error-unknown-transport-error"></a>"Błąd protokołu: nieznany transportu" Błąd
+### <a name="protocol-error-unknown-transport-error"></a>"Błąd protokołu: Błąd transportu nieznany"
 
 Ten błąd może wystąpić, jeśli klient nie obsługuje transportów, które korzysta z biblioteki SignalR. Zobacz [transportu i planów awaryjnych](../getting-started/introduction-to-signalr.md#transports) informacji, na którym przeglądarki mogą być używane z SignalR.
 
@@ -184,11 +186,11 @@ Ten błąd wystąpi, jeśli `DisableJavaScriptProxies` ustawiono podczas dotyczy
 
 Ten błąd może być widoczny, gdy jest używane uwierzytelnianie, a klient jest wylogowanie, zanim połączenie zostanie zatrzymana. Rozwiązaniem jest zatrzymanie połączenia SignalR przed wylogowanie klienta.
 
-### <a name="uncaught-error-signalr-jquery-not-found-please-ensure-jquery-is-referenced-before-the-signalrjs-file-error"></a>"Błąd nieprzechwycony: SignalR: nie można odnaleźć jQuery. Upewnij się, że jQuery odwołuje się do pliku SignalR.js"Błąd
+### <a name="uncaught-error-signalr-jquery-not-found-please-ensure-jquery-is-referenced-before-the-signalrjs-file-error"></a>"Nieprzechwycony błąd: SignalR: jQuery nie można odnaleźć. Upewnij się, że jQuery odwołuje się do pliku SignalR.js"Błąd
 
 Klient SignalR JavaScript wymaga jQuery do uruchomienia. Sprawdź, czy której można się odwołać do technologii jQuery jest poprawna, czy ścieżki jest prawidłowa i czy odwołanie do technologii jQuery jest przed odwołanie do biblioteki SignalR.
 
-### <a name="uncaught-typeerror-cannot-read-property-ltpropertygt-of-undefined-error"></a>"Nieprzechwycony TypeError: nie można odczytać właściwości"&lt;właściwość&gt;"undefined" Błąd
+### <a name="uncaught-typeerror-cannot-read-property-ltpropertygt-of-undefined-error"></a>"Nieprzechwycony TypeError: Nie można odczytać właściwości "&lt;właściwość&gt;" undefined "Błąd
 
 Ten błąd wynika z nie posiadają jQuery lub serwer proxy koncentratory odpowiednie odwołania. Sprawdź, czy odwołania do jQuery i koncentratory serwer proxy jest prawidłowy, czy ścieżki jest prawidłowa i czy odwołanie do technologii jQuery jest przed odwołanie do serwera proxy koncentratorów. Domyślne odwołanie do serwera proxy koncentratory powinien wyglądać następująco:
 

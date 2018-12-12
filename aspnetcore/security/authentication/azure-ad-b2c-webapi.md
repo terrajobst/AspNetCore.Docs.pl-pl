@@ -6,12 +6,12 @@ ms.author: casoper
 ms.date: 09/21/2018
 ms.custom: mvc, seodec18
 uid: security/authentication/azure-ad-b2c-webapi
-ms.openlocfilehash: e8ac1e33819dd369460139df25597e1aa0979c91
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: 9c541644d276bbdc990bb01f8bd80c92862cd6f0
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121716"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284620"
 ---
 # <a name="authentication-in-web-apis-with-azure-active-directory-b2c-in-aspnet-core"></a>Uwierzytelnianie w interfejsie web API za pomocą usługi Azure Active Directory B2C w programie ASP.NET Core
 
@@ -19,7 +19,7 @@ Przez [Soper kamery](https://twitter.com/camsoper)
 
 [Usługa Azure Active Directory B2C](/azure/active-directory-b2c/active-directory-b2c-overview) (Azure AD B2C) to rozwiązanie zarządzania tożsamością w chmurze dla aplikacji internetowych i mobilnych. Usługa zapewnia uwierzytelnianie dla aplikacji hostowanych w chmurze i lokalnych. Typy uwierzytelniania obejmują indywidualnych kont, kont sieci społecznościowych i federacyjnych konta przedsiębiorstwa. Usługa Azure AD B2C zapewnia również usługi Multi-Factor authentication z minimalną konfiguracją.
 
-Usługa Azure Active Directory (Azure AD) i Azure AD B2C są osobne oferty. Dzierżawy usługi Azure AD organizacja, podczas gdy dzierżawy usługi Azure AD B2C reprezentuje kolekcję tożsamości do użycia z aplikacjami danej firmy. Aby dowiedzieć się więcej, zobacz [usługi Azure AD B2C: często zadawane pytania (FAQ)](/azure/active-directory-b2c/active-directory-b2c-faqs).
+Usługa Azure Active Directory (Azure AD) i Azure AD B2C są osobne oferty. Dzierżawy usługi Azure AD organizacja, podczas gdy dzierżawy usługi Azure AD B2C reprezentuje kolekcję tożsamości do użycia z aplikacjami danej firmy. Aby dowiedzieć się więcej, zobacz [usługi Azure AD B2C: Często zadawane pytania (FAQ)](/azure/active-directory-b2c/active-directory-b2c-faqs).
 
 Ponieważ interfejsy API sieci web mają bez interfejsu użytkownika, są one nie można przekierować użytkownika do usługa bezpiecznych tokenów takich jak usługi Azure AD B2C. Zamiast tego interfejsu API są przekazywane tokenu elementu nośnego z aplikacji wywołującej, która już uwierzytelnił użytkownika za pomocą usługi Azure AD B2C. Interfejs API następnie weryfikuje token bez bezpośredniej interakcji użytkownika.
 
@@ -175,14 +175,14 @@ Aby wprowadzić uwierzytelnionego żądania interfejsu API sieci web, token elem
    |      <strong>Nazwa tokenu</strong>       |                                          *{Nazwa tokenu}*                                       |                                                                                                                   Wprowadź nazwę opisową dla tokenu.                                                                                                                    |
    |      <strong>Typ udzielania</strong>       |                                           Niejawne                                            |                                                                                                                                                                                                                                                                              |
    |     <strong>Adres URL wywołania zwrotnego</strong>      |                                 `https://getpostman.com/postman`                              |                                                                                                                                                                                                                                                                              |
-   |       <strong>Adres URL uwierzytelniania</strong>        | `https://login.microsoftonline.com/{tenant domain name}/oauth2/v2.0/authorize?p=B2C_1_SiUpIn` |  Zastąp *{nazwa domeny dzierżawy}* z nazwą domeny dzierżawy. **WAŻNE**: ten adres URL musi mieć taką samą nazwę domeny, jak co znajduje się w `AzureAdB2C.Instance` w sieci web, interfejsów API *appsettings.json* pliku. Patrz Uwaga&dagger;.                                                  |
+   |       <strong>Adres URL uwierzytelniania</strong>        | `https://login.microsoftonline.com/{tenant domain name}/oauth2/v2.0/authorize?p=B2C_1_SiUpIn` |  Zastąp *{nazwa domeny dzierżawy}* z nazwą domeny dzierżawy. **WAŻNE**: Ten adres URL musi mieć taką samą nazwę domeny, jak co znajduje się w `AzureAdB2C.Instance` w sieci web, interfejsów API *appsettings.json* pliku. Patrz Uwaga&dagger;.                                                  |
    |       <strong>Identyfikator klienta</strong>       |                *{Wprowadź aplikację Postman <b>identyfikator aplikacji</b>}*                              |                                                                                                                                                                                                                                                                              |
    |         <strong>Zakres</strong>         |         `https://{tenant domain name}/{api}/user_impersonation openid offline_access`       | Zastąp *{nazwa domeny dzierżawy}* z nazwą domeny dzierżawy. Zastąp *{interfejsu api}* z identyfikator URI Identyfikatora aplikacji należy nadać interfejsu API sieci web podczas pierwszej rejestracji (w tym przypadku `api`). Wzorzec adresu URL: `https://{tenant}.onmicrosoft.com/{api-id-uri}/{scope name}`.         |
    |         <strong>State</strong>         |                                      *{puste}*                                          |                                                                                                                                                                                                                                                                              |
    | <strong>Uwierzytelnianie klienta</strong> |                                Wyślij poświadczeń klienta w treści                                |                                                                                                                                                                                                                                                                              |
 
     > [!NOTE]
-    > &dagger; Okno dialogowe Ustawienia zasad w portalu Azure Active Directory B2C wyświetla dwa możliwe adresy URL: jeden w formacie `https://login.microsoftonline.com/`{nazwa domeny dzierżawy} / {dodatkowe informacje o ścieżce}, a druga w formacie `https://{tenant name}.b2clogin.com/`{nazwa domeny dzierżawy} / {dodatkowe informacje o ścieżce}. Ma ona **krytyczne** wykrytym przez domenę w w `AzureAdB2C.Instance` w sieci web, interfejsów API *appsettings.json* pliku użytemu w aplikacji sieci web *appsettings.json* pliku. Jest to tej samej domeny, które są używane dla pola Adres URL uwierzytelniania w narzędziu Postman. Należy pamiętać, że program Visual Studio używa nieco inny format adresu URL, niż jest wyświetlana w portalu. Tak długo, jak domeny są zgodne, adres URL działa.
+    > &dagger; Okno dialogowe Ustawienia zasad w portalu Azure Active Directory B2C zawiera dwa możliwe adresy URL: W formacie `https://login.microsoftonline.com/`{nazwa domeny dzierżawy} / {dodatkowe informacje o ścieżce}, a druga w formacie `https://{tenant name}.b2clogin.com/`{nazwa domeny dzierżawy} / {dodatkowe informacje o ścieżce}. Ma ona **krytyczne** wykrytym przez domenę w w `AzureAdB2C.Instance` w sieci web, interfejsów API *appsettings.json* pliku użytemu w aplikacji sieci web *appsettings.json* pliku. Jest to tej samej domeny, które są używane dla pola Adres URL uwierzytelniania w narzędziu Postman. Należy pamiętać, że program Visual Studio używa nieco inny format adresu URL, niż jest wyświetlana w portalu. Tak długo, jak domeny są zgodne, adres URL działa.
 
 3. Wybierz **żądania tokenu** przycisku.
 

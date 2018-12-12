@@ -8,16 +8,18 @@ ms.date: 06/10/2014
 ms.assetid: 4b559e6c-4fb0-4a04-9812-45cf08ae5779
 msc.legacyurl: /signalr/overview/testing-and-debugging/troubleshooting
 msc.type: authoredcontent
-ms.openlocfilehash: bdb0562955f3bde56a95ce937c27fdbe4aa94823
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: e41061f0310c021b10dc6667a5c3297788213b0a
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48911697"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287958"
 ---
-<a name="signalr-troubleshooting"></a>Rozwiązywanie problemów z SignalR
+<a name="signalr-troubleshooting"></a>Rozwiązywanie problemów z usługą SignalR
 ====================
 przez [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > W tym dokumencie opisano typowe problemy dotyczące rozwiązywania problemów z SignalR.
 >
@@ -71,7 +73,7 @@ SignalR wymaga analizatora składni JSON do serializacji wywołań między serwe
 
 ### <a name="mixing-hub-and-persistentconnection-syntax"></a>Łączenie Centrum i PersistentConnection składni
 
-SignalR używa dwóch modeli komunikacji: koncentratorów i PersistentConnections. Składnia wywoływania modele te dwa komunikacji różni się w kodzie klienta. Jeśli koncentrator zostały dodane w kodzie serwera, należy sprawdzić, cały kod klienta jest używana składnia odpowiedniego koncentratora.
+SignalR używa dwóch modeli komunikacji: Centra i PersistentConnections. Składnia wywoływania modele te dwa komunikacji różni się w kodzie klienta. Jeśli koncentrator zostały dodane w kodzie serwera, należy sprawdzić, cały kod klienta jest używana składnia odpowiedniego koncentratora.
 
 **Kod klienta JavaScript, który tworzy PersistentConnection klient JavaScript**
 
@@ -187,10 +189,10 @@ Ten błąd może wystąpić w środowiskach między domenami gdzie komunikacji m
 
 Istnieje kilka przyczyn tego problemu. Sprawdź wszystkie z następujących czynności:
 
-- **Odwołanie do adresu serwera proxy koncentratora niepoprawny format:** tego błędu jest częsta, jeśli odwołanie do Centrum wygenerowany adres serwera proxy nie jest poprawnie sformatowany. Sprawdź, czy adres centrum odniesienia prawidłowo. Zobacz [jak odwoływać się do serwera proxy w dynamicznie generowanym](../guide-to-the-api/hubs-api-guide-javascript-client.md#dynamicproxy) Aby uzyskać szczegółowe informacje.
-- **Dodawanie tras do aplikacji przed dodaniem trasę koncentratora:** Jeśli aplikacja korzysta z innych tras, sprawdź, czy pierwsza trasa dodano wywołanie `MapSignalR`.
-- **Za pomocą usług IIS 7 lub bez aktualizacji w wersji 7.5 dla adresy URL bez rozszerzeń:** za pomocą usług IIS 7 i 7.5 wymaga aktualizacji adresów URL bez rozszerzenia, dzięki czemu serwer może zapewniać dostęp do definicji Centrum w `/signalr/hubs`. Aktualizację można znaleźć [tutaj](https://support.microsoft.com/kb/980368).
-- **Nieaktualna w pamięci podręcznej lub uszkodzenie usług IIS:** Aby sprawdzić, czy zawartość pamięci podręcznej nie jest nieaktualna, wprowadź następujące polecenie w oknie programu PowerShell, aby wyczyścić pamięć podręczną:
+- **Nieprawidłowy format odwołanie adresu serwera proxy Centrum:** Ten błąd jest częsta, jeśli odwołanie do Centrum wygenerowany adres serwera proxy nie jest poprawnie sformatowany. Sprawdź, czy adres centrum odniesienia prawidłowo. Zobacz [jak odwoływać się do serwera proxy w dynamicznie generowanym](../guide-to-the-api/hubs-api-guide-javascript-client.md#dynamicproxy) Aby uzyskać szczegółowe informacje.
+- **Dodawanie tras do aplikacji, przed dodaniem trasę koncentratora:** Jeśli aplikacja korzysta z innych tras, sprawdź, czy pierwsza trasa dodano wywołanie `MapSignalR`.
+- **Za pomocą usług IIS 7 i 7.5 bez aktualizacji dla adresów URL bez rozszerzenia:** Za pomocą usług IIS 7 i 7.5 wymaga aktualizacji dla adresów URL bez rozszerzenia, dzięki czemu serwer może zapewniać dostęp do definicji Centrum w `/signalr/hubs`. Aktualizację można znaleźć [tutaj](https://support.microsoft.com/kb/980368).
+- **Pamięć podręczna programu IIS nieaktualne lub uszkodzone:** Aby sprawdzić, czy zawartość pamięci podręcznej nie jest nieaktualna, wprowadź następujące polecenie w oknie programu PowerShell, aby wyczyścić pamięć podręczną:
 
     [!code-powershell[Main](troubleshooting/samples/sample11.ps1)]
 
@@ -212,7 +214,7 @@ Spowoduje to błąd, jeśli wywołanie `MapSignalR` nie jest wykonywana prawidł
 
 Upewnij się, że parametry, z których możesz wysłać do metody nie zawierają nieprzeznaczone do typów (takich jak dojścia do plików lub połączenia z bazą danych). Jeśli musisz używać elementów członkowskich w obiekcie po stronie serwera, który nie ma do wysłania do klienta, (zarówno dla zabezpieczeń i powodów serializacji), użyj `JSONIgnore` atrybutu.
 
-### <a name="protocol-error-unknown-transport-error"></a>"Błąd protokołu: nieznany transportu" Błąd
+### <a name="protocol-error-unknown-transport-error"></a>"Błąd protokołu: Błąd transportu nieznany"
 
 Ten błąd może wystąpić, jeśli klient nie obsługuje transportów, które korzysta z biblioteki SignalR. Zobacz [transportu i planów awaryjnych](../getting-started/introduction-to-signalr.md#transports) informacji, na którym przeglądarki mogą być używane z SignalR.
 
@@ -224,11 +226,11 @@ Ten błąd wystąpi, jeśli `DisableJavaScriptProxies` ustawiono podczas dotyczy
 
 Ten błąd może być widoczny, gdy jest używane uwierzytelnianie, a klient jest wylogowanie, zanim połączenie zostanie zatrzymana. Rozwiązaniem jest zatrzymanie połączenia SignalR przed wylogowanie klienta.
 
-### <a name="uncaught-error-signalr-jquery-not-found-please-ensure-jquery-is-referenced-before-the-signalrjs-file-error"></a>"Błąd nieprzechwycony: SignalR: nie można odnaleźć jQuery. Upewnij się, że jQuery odwołuje się do pliku SignalR.js"Błąd
+### <a name="uncaught-error-signalr-jquery-not-found-please-ensure-jquery-is-referenced-before-the-signalrjs-file-error"></a>"Nieprzechwycony błąd: SignalR: jQuery nie można odnaleźć. Upewnij się, że jQuery odwołuje się do pliku SignalR.js"Błąd
 
 Klient SignalR JavaScript wymaga jQuery do uruchomienia. Sprawdź, czy której można się odwołać do technologii jQuery jest poprawna, czy ścieżki jest prawidłowa i czy odwołanie do technologii jQuery jest przed odwołanie do biblioteki SignalR.
 
-### <a name="uncaught-typeerror-cannot-read-property-ltpropertygt-of-undefined-error"></a>"Nieprzechwycony TypeError: nie można odczytać właściwości"&lt;właściwość&gt;"undefined" Błąd
+### <a name="uncaught-typeerror-cannot-read-property-ltpropertygt-of-undefined-error"></a>"Nieprzechwycony TypeError: Nie można odczytać właściwości "&lt;właściwość&gt;" undefined "Błąd
 
 Ten błąd wynika z nie posiadają jQuery lub serwer proxy koncentratory odpowiednie odwołania. Sprawdź, czy odwołania do jQuery i koncentratory serwer proxy jest prawidłowy, czy ścieżki jest prawidłowa i czy odwołanie do technologii jQuery jest przed odwołanie do serwera proxy koncentratorów. Domyślne odwołanie do serwera proxy koncentratory powinien wyglądać następująco:
 
@@ -282,7 +284,7 @@ Wiadomości są opóźnione, gdy za pomocą serwera wysyłane zdarzenia na dodat
 
 Jest to znany problem opisany [tutaj](https://github.com/SignalR/SignalR/issues/1963). Mogą być widoczne symptomami przy użyciu najnowszej biblioteki JQuery; Obejście polega na starszą wersję aplikacji do technologii JQuery 1.8.2.
 
-### <a name="invalidoperationexception-not-a-valid-web-socket-request"></a>"InvalidOperationException: nie żądania gniazda sieci web prawidłowe.
+### <a name="invalidoperationexception-not-a-valid-web-socket-request"></a>"InvalidOperationException: Nie prawidłowe żądanie gniazda sieci web.
 
 Ten błąd może wystąpić, jeśli jest używany protokół WebSocket, ale serwer proxy sieci modyfikuje nagłówki żądania. Rozwiązanie jest skonfigurować serwer proxy, aby umożliwić WebSocket na porcie 80.
 

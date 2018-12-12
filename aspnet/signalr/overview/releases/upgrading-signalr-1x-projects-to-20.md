@@ -8,16 +8,18 @@ ms.date: 06/10/2014
 ms.assetid: adcfef99-9bc5-489d-a91b-9b7c2bc35e04
 msc.legacyurl: /signalr/overview/releases/upgrading-signalr-1x-projects-to-20
 msc.type: authoredcontent
-ms.openlocfilehash: 450ddedb520035cc05a0dbcca1a2666dd1ba24c7
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 23ea23585b15395cf86bdad13885af32d1b64e79
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48910554"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53286847"
 ---
 <a name="upgrading-signalr-1x-projects-to-version-2"></a>Uaktualnianie projektów SignalR 1.x do wersji 2
 ====================
 przez [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > W tym temacie opisano sposób uaktualniania istniejący projekt SignalR 1.x do SignalR 2.x oraz sposób rozwiązywania problemów, które mogą wystąpić podczas procesu uaktualniania.
 >
@@ -50,13 +52,13 @@ SignalR 2 oferuje w jednolitym środowisku projektowym na platformach serwera pr
 
 Chociaż zaleca się uaktualnienie aplikacji SignalR 2, SignalR 1.x będą nadal obsługiwane.
 
-W tym samouczku opisano sposób uaktualniania aplikacji hostowanej w sieci web z SignalR 2. Własne aplikacje, (te, które będzie hostować serwer w aplikacji konsoli, usługa Windows lub inny proces) są teraz obsługiwane zgodnie z SignalR 2. Aby uzyskać informacje na temat sposobu Rozpocznij tworzenie aplikacji samodzielnie hostowany przy użyciu SignalR 2, zobacz [samouczek: Host samodzielny SignalR](../deployment/tutorial-signalr-self-host.md).
+W tym samouczku opisano sposób uaktualniania aplikacji hostowanej w sieci web z SignalR 2. Własne aplikacje, (te, które będzie hostować serwer w aplikacji konsoli, usługa Windows lub inny proces) są teraz obsługiwane zgodnie z SignalR 2. Aby uzyskać informacje na temat sposobu Rozpocznij tworzenie aplikacji samodzielnie hostowany przy użyciu SignalR 2, zobacz [samouczka: Host samodzielny SignalR](../deployment/tutorial-signalr-self-host.md).
 
 ## <a name="contents"></a>Spis treści
 
 W poniższych sekcjach opisano zadania związane z uaktualnianiem projektów SignalR i jak rozwiązywać problemy, które mogą wystąpić.
 
-- [Przykład: Uaktualnienie samouczka Wprowadzenie do SignalR 2](#example)
+- [Przykład: Uaktualnianie samouczka Wprowadzenie do SignalR 2](#example)
 - [Rozwiązywanie problemów z błędami podczas uaktualniania](#troubleshooting)
 
 <a id="example"></a>

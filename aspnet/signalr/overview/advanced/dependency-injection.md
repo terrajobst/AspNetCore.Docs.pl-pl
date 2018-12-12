@@ -8,16 +8,18 @@ ms.date: 06/10/2014
 ms.assetid: a14121ae-02cf-4024-8af0-9dd0dc810690
 msc.legacyurl: /signalr/overview/advanced/dependency-injection
 msc.type: authoredcontent
-ms.openlocfilehash: 607738e7531eaf9ee9f6a24267b65e153cc4d599
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: f5959902b030621a19d912d7db2ea0faf95b7a7c
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912874"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287797"
 ---
-<a name="dependency-injection-in-signalr"></a>Wstrzykiwanie zależności w SignalR
+<a name="dependency-injection-in-signalr"></a>Wstrzykiwanie zależności w usłudze SignalR
 ====================
 przez [Mike Wasson](https://github.com/MikeWasson), [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > ## <a name="software-versions-used-in-this-topic"></a>Wersje oprogramowania używaną w tym temacie
 >
@@ -99,8 +101,8 @@ Aplikacja rozmowy prawdopodobnie jest zbyt proste do korzystania z kontenera IoC
 
 Przykładowe StockTicker definiuje dwie klasy głównej:
 
-- `StockTickerHub`: Klasy koncentratora, który zarządza połączeniami klienta.
-- `StockTicker`: Wzorzec singleton przechowuje cen akcji, która okresowo aktualizuje je.
+- `StockTickerHub`: Klasa Centrum zarządza połączeniami klienta.
+- `StockTicker`: Pojedyncze, który przechowuje giełdowych i okresowo aktualizuje je.
 
 `StockTickerHub` zawiera odwołanie do `StockTicker` singleton, podczas gdy `StockTicker` zawiera odwołanie do **IHubConnectionContext** dla `StockTickerHub`. Ten interfejs używa do komunikowania się z `StockTickerHub` wystąpień. (Aby uzyskać więcej informacji, zobacz [emisje serwera z użyciem ASP.NET SignalR](../getting-started/tutorial-server-broadcast-with-signalr.md).)
 

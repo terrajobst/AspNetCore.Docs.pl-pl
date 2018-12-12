@@ -8,16 +8,18 @@ ms.date: 06/05/2013
 ms.assetid: e608e263-264d-448b-b0eb-6eeb77713b22
 msc.legacyurl: /signalr/overview/older-versions/handling-connection-lifetime-events
 msc.type: authoredcontent
-ms.openlocfilehash: 5a0e912540bf24abd8a7e91c73c87ed9213be487
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: f965c38e18c442268f9bb1d7ffb5e98a135efade
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41754028"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287687"
 ---
 <a name="understanding-and-handling-connection-lifetime-events-in-signalr-1x"></a>Opis i obsługa zdarzeń okresu istnienia połączenia w SignalR 1.x
 ====================
 przez [Patrick Fletcher](https://github.com/pfletcher), [Tom Dykstra](https://github.com/tdykstra)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > Ten artykuł zawiera omówienie SignalR połączenie, ponowne nawiązanie połączenia i rozłączenia zdarzenia, które może obsłużyć i ustawienia limitu czasu i utrzymywania aktywności, które można skonfigurować.
 > 
@@ -63,7 +65,7 @@ Ten artykuł zawiera następujące sekcje:
 Ten artykuł będzie odróżnić *połączeniami SignalR*, *transportu połączenia*, i *połączeń fizycznych*:
 
 - **Połączenia SignalR** odwołuje się do relacji logicznych między klientem i adres URL serwera, obsługiwany przez interfejs API SignalR, unikatowo identyfikowana przez identyfikator połączenia. Dane dotyczące tej relacji jest obsługiwany przez SignalR, jest używany do ustanawiania połączenia transportu. Końce relacji i SignalR usuwa danych, gdy klient wywołuje `Stop` metody lub limit czasu zostanie osiągnięty podczas SignalR próby ponownego nawiązania połączenia transportu utracone.
-- **Połączenie będzie transportowane** odwołuje się do relacji logicznych między klientem a serwerem, obsługiwane przez jedną z czterech transportu interfejsów API: WebSockets, zdarzenia wysłanego przez serwer, nieskończoność ramki lub długie sondowania. SignalR używa transportu interfejsu API można utworzyć połączenia transportowego i interfejsów API transportu zależy od istnienia połączenia sieci fizycznej, można utworzyć połączenia transportowego. Połączenie transportu kończy się, gdy SignalR kończy go lub transportu API wykryje, że fizyczne połączenie jest uszkodzone.
+- **Połączenie będzie transportowane** odwołuje się do relacji logicznych między klientem a serwerem, obsługiwane przez jedną z czterech transportu interfejsów API: Gniazda Websocket, zdarzenia wysłanego przez serwer, nieskończoność ramki lub długiego sondowania. SignalR używa transportu interfejsu API można utworzyć połączenia transportowego i interfejsów API transportu zależy od istnienia połączenia sieci fizycznej, można utworzyć połączenia transportowego. Połączenie transportu kończy się, gdy SignalR kończy go lub transportu API wykryje, że fizyczne połączenie jest uszkodzone.
 - **Fizyczne połączenie** odwołuje się do łącza sieci fizycznej — przewodów, sygnały sieci bezprzewodowej, routery, itp. — ułatwiają komunikację między komputerem klienckim a serwerem. Fizyczne połączenie musi być obecna, aby możliwe było nawiązanie połączenia transportu i można ustanowić połączenia transportu w celu ustanowienia połączenia SignalR. Jednak istotne fizycznego połączenia nie zawsze natychmiast kończy się połączenie transportu lub połączenia SignalR, jak opisano w dalszej części tego tematu.
 
 Na poniższym diagramie połączenia SignalR jest reprezentowany przez koncentratory interfejsu API i PersistentConnection API SignalR warstwy połączenie transportu jest reprezentowany przez warstwę transportu i fizyczne połączenie jest reprezentowane przez linie między serwerem a klientami.

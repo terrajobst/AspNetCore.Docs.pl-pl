@@ -8,16 +8,18 @@ ms.date: 05/15/2013
 ms.assetid: eaa206c4-edb3-487e-8fcb-54a3261fed36
 msc.legacyurl: /signalr/overview/older-versions/dependency-injection
 msc.type: authoredcontent
-ms.openlocfilehash: 905dea4918be731673c39e788069ce2dc78e1649
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 2035b3feebfa32dd7ec4d6adf715a7fee5e7b74f
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48910697"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287382"
 ---
-<a name="dependency-injection-in-signalr-1x"></a>Wstrzykiwanie zależności w SignalR 1.x
+<a name="dependency-injection-in-signalr-1x"></a>Wstrzykiwanie zależności w usłudze SignalR 1.x
 ====================
 przez [Mike Wasson](https://github.com/MikeWasson), [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 Wstrzykiwanie zależności jest sposobem usunięcia ustalonych zależności między obiektami, ułatwiając Zastąp zależności obiektu do testowania (przy użyciu obiektów makiety) lub zmienić zachowanie w czasie wykonywania. W tym samouczku pokazano, jak wykonać wstrzykiwanie zależności na koncentratorów SignalR. Pokazano również, jak używać kontenerów IoC za pomocą biblioteki SignalR. Kontenera IoC to ogólne umożliwiająca iniekcji zależności.
 
@@ -81,8 +83,8 @@ Aplikacja rozmowy prawdopodobnie jest zbyt proste do korzystania z kontenera IoC
 
 Przykładowe StockTicker definiuje dwie klasy głównej:
 
-- `StockTickerHub`: Klasy koncentratora, który zarządza połączeniami klienta.
-- `StockTicker`: Wzorzec singleton przechowuje cen akcji, która okresowo aktualizuje je.
+- `StockTickerHub`: Klasa Centrum zarządza połączeniami klienta.
+- `StockTicker`: Pojedyncze, który przechowuje giełdowych i okresowo aktualizuje je.
 
 `StockTickerHub` zawiera odwołanie do `StockTicker` singleton, podczas gdy `StockTicker` zawiera odwołanie do **IHubConnectionContext** dla `StockTickerHub`. Ten interfejs używa do komunikowania się z `StockTickerHub` wystąpień. (Aby uzyskać więcej informacji, zobacz [emisje serwera z użyciem ASP.NET SignalR](index.md).)
 

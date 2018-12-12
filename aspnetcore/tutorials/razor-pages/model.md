@@ -6,12 +6,12 @@ ms.author: riande
 monikerRange: '>= aspnetcore-2.2'
 ms.date: 12/3/2018
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 91fee1db820493be671fecaee3cfb4c1b7df8bd3
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: 667009ced46efc07c2b4e79306382272aa5779b0
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121366"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284516"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Dodawanie modelu strony Razor aplikacji w programie ASP.NET Core
 
@@ -117,13 +117,13 @@ Wykonaj **dodać strony Razor za pomocą programu Entity Framework (CRUD)** okno
 * **Aby uzyskać Windows**: Uruchom następujące polecenie:
 
   ```console
-  dotnet aspnet-codegenerator razorpage -m Movie -dc MovieContext -udl -outDir Pages\Movies --referenceScriptLibraries
+  dotnet aspnet-codegenerator razorpage -m Movie -dc RazorPagesMovieContext -udl -outDir Pages\Movies --referenceScriptLibraries
   ```
 
 * **Dla systemu macOS i Linux**: Uruchom następujące polecenie:
 
   ```console
-  dotnet aspnet-codegenerator razorpage -m Movie -dc MovieContext -udl -outDir Pages/Movies --referenceScriptLibraries
+  dotnet aspnet-codegenerator razorpage -m Movie -dc RazorPagesMovieContext -udl -outDir Pages/Movies --referenceScriptLibraries
   ```
 
 [!INCLUDE [explains scaffold gen params](~/includes/RP/model4.md)]
@@ -133,6 +133,11 @@ Wykonaj **dodać strony Razor za pomocą programu Entity Framework (CRUD)** okno
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 * Otwórz okno polecenia w katalogu projektu (katalog, który zawiera *Program.cs*, *Startup.cs*, i *.csproj* plików).
+* Zainstaluj narzędzia do tworzenia szkieletów:
+
+  ```console
+   dotnet tool install --global dotnet-aspnet-codegenerator
+   ```
 * Uruchom następujące polecenie:
 
   ```console
@@ -147,7 +152,7 @@ Proces szkieletu tworzy i aktualizuje następujące pliki:
 
 ### <a name="files-created"></a>Utworzone pliki
 
-* *Strony/filmów*: tworzenie, usuwanie, uzyskać szczegółowe informacje, edytowanie i indeksu.
+* *Strony/filmów*: Tworzenie, usuwanie, uzyskać szczegółowe informacje, edytowanie i indeks.
 * *Data/RazorPagesMovieContext.cs*
 
 ### <a name="file-updated"></a>Zaktualizowano plik
@@ -265,5 +270,5 @@ Możesz pominąć [krok migracji](#pmc).
 Następnego samouczka opisano plików utworzonych przez tworzenie szkieletów.
 
 > [!div class="step-by-step"]
-> [Poprzedni: Rozpoczynanie pracy](xref:tutorials/razor-pages/razor-pages-start)
-> [dalej: działanie stron Razor](xref:tutorials/razor-pages/page)
+> [Poprzednie: Rozpoczynanie pracy](xref:tutorials/razor-pages/razor-pages-start)
+> [dalej: Strony razor ze szkieletami](xref:tutorials/razor-pages/page)

@@ -8,16 +8,18 @@ ms.date: 06/10/2014
 ms.assetid: b19913e5-cd8a-4e4b-a872-5ac7a858a934
 msc.legacyurl: /signalr/overview/guide-to-the-api/hubs-api-guide-server
 msc.type: authoredcontent
-ms.openlocfilehash: 6545491cfa36bb9fee555eb0348ec0a319bff470
-ms.sourcegitcommit: fc2486ddbeb15ab4969168d99b3fe0fbe91e8661
+ms.openlocfilehash: 4730c4d9f601f561cfc884e0a9c2c2d12785ae0f
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50758248"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53288108"
 ---
 <a name="aspnet-signalr-hubs-api-guide---server-c"></a>Podręcznik biblioteki SignalR platformy ASP.NET do interfejsu API centrów — serwer (C#)
 ====================
 przez [Patrick Fletcher](https://github.com/pfletcher), [Tom Dykstra](https://github.com/tdykstra)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > Ten dokument zawiera wprowadzenie do programowania po stronie serwera interfejsu API centrów SignalR platformy ASP.NET dla elementu SignalR w wersji 2, przy użyciu przykładów kodu, demonstrując typowe opcje.
 > 
@@ -41,7 +43,6 @@ przez [Patrick Fletcher](https://github.com/pfletcher), [Tom Dykstra](https://gi
 > ## <a name="questions-and-comments"></a>Pytania i komentarze
 > 
 > Jak się podoba w tym samouczku, i co można było ulepszyć proces w komentarzach u dołu strony, wystaw opinię. Jeśli masz pytania, na które nie są bezpośrednio związane z tego samouczka, możesz zamieścić je do [forum ASP.NET SignalR](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) lub [StackOverflow.com](http://stackoverflow.com/).
-
 
 ## <a name="overview"></a>Omówienie
 
@@ -103,7 +104,7 @@ Aby zdefiniować trasę, którego klienci będą używać, aby nawiązać połą
 
 [!code-csharp[Main](hubs-api-guide-server/samples/sample1.cs)]
 
-W przypadku dodawania funkcji SignalR do aplikacji ASP.NET MVC, upewnij się, że trasa SignalR jest dodawana przed innych tras. Aby uzyskać więcej informacji, zobacz [samouczek: wprowadzenie do SignalR 2 i MVC 5](../getting-started/tutorial-getting-started-with-signalr-and-mvc.md).
+W przypadku dodawania funkcji SignalR do aplikacji ASP.NET MVC, upewnij się, że trasa SignalR jest dodawana przed innych tras. Aby uzyskać więcej informacji, zobacz [samouczka: Wprowadzenie do SignalR 2 i MVC 5](../getting-started/tutorial-getting-started-with-signalr-and-mvc.md).
 
 <a id="signalrurl"></a>
 

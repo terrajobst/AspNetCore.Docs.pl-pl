@@ -6,12 +6,12 @@ ms.author: casoper
 ms.custom: mvc, seodec18
 ms.date: 10/24/2018
 uid: azure/devops/deploy-to-app-service
-ms.openlocfilehash: 4424d3d15cbd234357c8265fa276834cb9abf352
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: 9fe17c9e210d4dda9b74818104fc52a60d4f0077
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121223"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284542"
 ---
 # <a name="deploy-an-app-to-app-service"></a>Wdrażanie aplikacji w usłudze App Service
 
@@ -73,7 +73,7 @@ Z powłoki poleceń należy pobrać kod, skompilować projekt i uruchomić go w 
 
 Aby wdrożyć aplikację, musisz utworzyć usługi App Service [aplikacji sieci Web](/azure/app-service/app-service-web-overview). Po utworzeniu aplikacji sieci Web będzie można wdrożyć na go z komputera lokalnego przy użyciu narzędzia Git.
 
-1. Zaloguj się do [usługi Azure Cloud Shell](https://shell.azure.com/bash). Uwaga: Po zalogowaniu się po raz pierwszy Cloud Shell monituje o utworzenie konta magazynu dla plików konfiguracyjnych. Zaakceptuj wartości domyślne lub Podaj unikatową nazwę.
+1. Zaloguj się do [usługi Azure Cloud Shell](https://shell.azure.com/bash). Uwaga: Po zalogowaniu się po raz pierwszy, usługa Cloud Shell wyświetli monit o utworzenie konta magazynu dla plików konfiguracji. Zaakceptuj wartości domyślne lub Podaj unikatową nazwę.
 
 2. Użyliśmy usługi Cloud Shell dla następujących kroków.
 
@@ -141,7 +141,7 @@ Aby wdrożyć aplikację, musisz utworzyć usługi App Service [aplikacji sieci 
 
 ## <a name="deployment-with-visual-studio"></a>Wdrażanie za pomocą programu Visual Studio
 
-> *Uwaga: Ta sekcja dotyczy Windows tylko. Użytkownicy systemu Linux i macOS wprowadzić zmiany, opisanej w kroku 2 poniżej. Zapisz plik i zatwierdź zmianę w repozytorium lokalnym za pomocą `git commit`. Na koniec wypchnąć zmiany z `git push`, jak w pierwszej sekcji.*
+> *Uwaga: Ta sekcja dotyczy tylko Windows. Użytkownicy systemu Linux i macOS wprowadzić zmiany, opisanej w kroku 2 poniżej. Zapisz plik i zatwierdź zmianę w repozytorium lokalnym za pomocą `git commit`. Na koniec wypchnąć zmiany z `git push`, jak w pierwszej sekcji.*
 
 Aplikacja została już wdrożona z powłoki poleceń. Utwórzmy wdrażanie aktualizacji w aplikacji za pomocą zintegrowanych narzędzi programu Visual Studio. W tle programu Visual Studio w ramach tak samo, jak narzędzie wiersza polecenia, ale w obrębie znajomy interfejs użytkownika programu Visual Studio.
 

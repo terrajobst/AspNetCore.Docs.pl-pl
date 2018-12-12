@@ -3,14 +3,14 @@ title: Migrowanie z programu ASP.NET do ASP.NET Core
 author: isaac2004
 description: Odbieranie wskazówki dotyczące migrowania istniejących aplikacji ASP.NET MVC lub internetowych interfejsów API do Core.web platformy ASP.NET
 ms.author: scaddie
-ms.date: 12/10/2018
+ms.date: 12/11/2018
 uid: migration/proper-to-2x/index
-ms.openlocfilehash: 6808fefb890dcdec6abdd0604ab61dfd2573d910
-ms.sourcegitcommit: 1872d2e6f299093c78a6795a486929ffb0bbffff
+ms.openlocfilehash: a9eef832a68afa1a73e3c7c545378da190602ce2
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53216797"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284399"
 ---
 # <a name="migrate-from-aspnet-to-aspnet-core"></a>Migrowanie z programu ASP.NET do ASP.NET Core
 
@@ -20,7 +20,7 @@ Ten artykuł służy jako przewodnik migracji aplikacji ASP.NET do platformy ASP
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-[!INCLUDE [](~/includes/net-core-sdk-download-link.md)]
+[.NET core SDK 2,2 lub nowszy](https://www.microsoft.com/net/download)
 
 ## <a name="target-frameworks"></a>Platformy docelowe
 
@@ -28,15 +28,15 @@ Projekty ASP.NET Core oferują deweloperom elastyczność określania wartości 
 
 Podczas przeznaczonych dla platformy .NET Framework, projekty muszą odwoływać się do poszczególnych pakietów NuGet.
 
-Przeznaczone dla platformy .NET Core pozwala wyeliminować wiele odwołań pakietu jawne, dzięki zastosowaniu platformy ASP.NET Core [meta Microsoft.aspnetcore.all](xref:fundamentals/metapackage). Zainstaluj `Microsoft.AspNetCore.All` meta Microsoft.aspnetcore.all w projekcie:
+Przeznaczone dla platformy .NET Core pozwala wyeliminować wiele odwołań pakietu jawne, dzięki zastosowaniu platformy ASP.NET Core [meta Microsoft.aspnetcore.all](xref:fundamentals/metapackage-app). Zainstaluj `Microsoft.AspNetCore.App` meta Microsoft.aspnetcore.all w projekcie:
 
 ```xml
 <ItemGroup>
-  <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.9" />
+   <PackageReference Include="Microsoft.AspNetCore.App" />
 </ItemGroup>
 ```
 
-W przypadku meta Microsoft.aspnetcore.all żadnych pakietów, do którego odwołuje się meta Microsoft.aspnetcore.all są wdrażane przy użyciu aplikacji. Store środowiska uruchomieniowego programu .NET Core obejmuje te zasoby, i są one wstępnie skompilowany do zwiększenia wydajności. Zobacz [pakiet meta Microsoft.aspnetcore.all dla platformy ASP.NET Core 2.x](xref:fundamentals/metapackage) Aby uzyskać więcej szczegółów.
+W przypadku meta Microsoft.aspnetcore.all żadnych pakietów, do którego odwołuje się meta Microsoft.aspnetcore.all są wdrażane przy użyciu aplikacji. Store środowiska uruchomieniowego programu .NET Core obejmuje te zasoby, i są one wstępnie skompilowany do zwiększenia wydajności. Zobacz [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App, dla platformy ASP.NET Core](xref:fundamentals/metapackage-app) Aby uzyskać więcej szczegółów.
 
 ## <a name="project-structure-differences"></a>Różnice struktura projektu
 
@@ -64,15 +64,14 @@ Platforma ASP.NET Core korzysta z podobnego podejścia, ale nie jest zależny od
 
 [!code-csharp[](samples/program.cs)]
 
-`Startup` musi zawierać `Configure` metody. W `Configure`, dodać niezbędne oprogramowanie pośredniczące do potoku. W poniższym przykładzie (z domyślnego szablonu witryny sieci web) kilka metod rozszerzenia są używane do konfigurowania potoku obsługę:
+`Startup` musi zawierać `Configure` metody. W `Configure`, dodać niezbędne oprogramowanie pośredniczące do potoku. W poniższym przykładzie (z domyślnego szablonu witryny sieci web) metody rozszerzenia, należy skonfigurować potok o obsługę:
 
-* [Łączność z przeglądarkami](xref:client-side/using-browserlink)
 * Strony błędów
-* Pliki statyczne
+* Zabezpieczenia transportu Strict HTTP
+* Przekierowywanie HTTP do HTTPS
 * ASP.NET Core MVC
-* Tożsamość
 
-[!code-csharp[](../../common/samples/WebApplication1/Startup.cs?highlight=8,9,10,14,17,19,21&start=58&end=84)]
+[!code-csharp[](samples/startup.cs)]
 
 Host i aplikacji ma zostały odłączone zapewniającą elastyczność przechodzenia do różnych platform w przyszłości.
 

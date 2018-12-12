@@ -8,16 +8,18 @@ ms.date: 06/10/2014
 ms.assetid: 400db427-27af-4f2f-abf0-5486d5e024b5
 msc.legacyurl: /signalr/overview/deployment/tutorial-signalr-self-host
 msc.type: authoredcontent
-ms.openlocfilehash: a08ce2e89ae13125cbc3915b44bcd1120fc22150
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 48cb3d4d71c33ac3382b2b35b5a19fa1c4958874
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48911538"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287406"
 ---
 <a name="tutorial-signalr-self-host"></a>Samouczek: Host samodzielny SignalR
 ====================
 przez [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 [Pobierz ukończony projekt](http://code.msdn.microsoft.com/SignalR-Self-Host-Sample-6da0f383)
 
@@ -91,7 +93,7 @@ W tym samouczku utworzysz serwer, który znajduje się w aplikacji konsoli, ale 
 
     Powyższy kod obejmuje trzy klasy:
 
-    - **Program**, w tym **Main** Definiowanie ścieżki podstawowej wykonywania metody. W przypadku tej metody, aplikacji sieci web typu **uruchamiania** została uruchomiona na określony adres URL (`http://localhost:8080`). Jeśli zabezpieczeń jest wymagany w punkcie końcowym, można zaimplementować protokół SSL. Zobacz [porady: Konfigurowanie portu z certyfikatem SSL](https://msdn.microsoft.com/library/ms733791.aspx) Aby uzyskać więcej informacji.
+    - **Program**, w tym **Main** Definiowanie ścieżki podstawowej wykonywania metody. W przypadku tej metody, aplikacji sieci web typu **uruchamiania** została uruchomiona na określony adres URL (`http://localhost:8080`). Jeśli zabezpieczeń jest wymagany w punkcie końcowym, można zaimplementować protokół SSL. Zobacz [jak: Konfigurowanie portu z certyfikatem SSL](https://msdn.microsoft.com/library/ms733791.aspx) Aby uzyskać więcej informacji.
     - **Uruchamianie**, klasa zawierająca konfiguracje dla serwera biblioteki SignalR (konfiguracji tylko w tym samouczku używany jest wywołanie `UseCors`) i wywołanie `MapSignalR`, tworzy trasy dla obiektów Centrum w projekcie.
     - **MyHub**, klasa Centrum SignalR, zapewniające aplikacji dla klientów. Ta klasa zawiera jedną metodę, **wysyłania**, że klienci wywoła wysyłać wiadomość do wszystkich innych połączonych klientów.
 6. Skompilować i uruchomić aplikację. Adres, który jest uruchomiony serwer powinien być wyświetlony w oknie konsoli.

@@ -8,16 +8,18 @@ ms.date: 07/01/2015
 ms.assetid: 2a7517a0-b88c-4162-ade3-9bf6ca7062fd
 msc.legacyurl: /signalr/overview/deployment/using-signalr-with-azure-web-sites
 msc.type: authoredcontent
-ms.openlocfilehash: c5ede2891ef18b622ed269723603dea3b67a135d
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: da69e1aba1b56d69ad8e710cddd2b492168f1255
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912608"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287771"
 ---
-<a name="using-signalr-with-web-apps-in-azure-app-service"></a>Używanie SignalR z usługą Web Apps w usłudze Azure App Service
+<a name="using-signalr-with-web-apps-in-azure-app-service"></a>Używanie usługi SignalR z funkcją Web Apps w usłudze Azure App Service
 ====================
 przez [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > W tym dokumencie opisano sposób konfigurowania aplikacji SignalR, która działa w systemie Microsoft Azure.
 >
@@ -54,7 +56,7 @@ Biblioteki SignalR platformy ASP.NET można przenieść na nowy poziom interakcj
 
 SignalR nie dodaje żadnych konkretnej kompilacji do wdrażania aplikacji na platformie Azure i wdrażanie na serwerze lokalnym. Aplikacji korzystającej z biblioteki SignalR można hostować na platformie Azure bez konieczności wprowadzania zmian w konfiguracji lub innymi ustawieniami (mimo że obsługę funkcji WebSockets, zobacz [włączenie funkcji WebSockets w usłudze Azure App Service](#websocket) poniżej.) W tym samouczku wdrożysz aplikacja utworzona w [Samouczek wprowadzający](../getting-started/tutorial-getting-started-with-signalr.md) na platformie Azure.
 
-**Wymagania wstępne
+**Wymagania wstępne**
 
 - Visual Studio 2013. Jeśli nie masz programu Visual Studio, Visual Studio 2013 Express for Web znajduje się w instalacji zestawu SDK usługi Azure.
 - [Zestaw Azure SDK 2.3 dla programu Visual Studio 2013](https://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409) lub [zestaw Azure SDK 2.3 dla programu Visual Studio 2012](https://go.microsoft.com/fwlink/p/?linkid=323511).
@@ -98,7 +100,7 @@ W górnej części strony konfiguracji upewnij się, że .NET 4.5 jest używana 
 
 Na stronie konfiguracji w **WebSockets** ustawienie, wybierz **na**.
 
-![Ustawienie funkcji WebSockets: na](using-signalr-with-azure-web-sites/_static/image10.png)
+![Ustawienie funkcji WebSockets: On](using-signalr-with-azure-web-sites/_static/image10.png)
 
 W dolnej części strony konfiguracji, wybierz **Zapisz** Aby zapisać zmiany.
 

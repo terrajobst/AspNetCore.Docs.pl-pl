@@ -8,16 +8,18 @@ ms.date: 02/18/2013
 ms.assetid: fdc3599a-5217-44c1-951f-0eec9812dce7
 msc.legacyurl: /signalr/overview/older-versions/tutorial-getting-started-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: d541dad19d8fd547d61e8850d64e514ea5db7fcf
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 720a4879f5fbe3c0c2b4c7809cb94c22547329c3
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912426"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287375"
 ---
 <a name="tutorial-getting-started-with-signalr-1x"></a>Samouczek: Wprowadzenie do SignalR 1.x
 ====================
 przez [Patrick Fletcher](https://github.com/pfletcher), [Tim Teebken](https://github.com/timlt)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > Ten samouczek pokazuje, jak utworzyć aplikację do obsługi rozmów w czasie rzeczywistym przy użyciu SignalR. Będzie dodać SignalR do pustych aplikacji sieci web ASP.NET i Utwórz stronę HTML do wysyłania i wyświetla komunikaty.
 
@@ -165,7 +167,7 @@ Poniższy kod przedstawia sposób nawiązać połączenie z koncentratorem. Kod 
 
 Wiesz, że SignalR to architektura służąca do tworzenia aplikacji sieci web w czasie rzeczywistym. Pokazaliśmy również kilka zadań programistycznych SignalR: jak dodać SignalR do aplikacji ASP.NET, sposób tworzenia klasy koncentratora oraz jak wysyłać i odbierać komunikaty z Centrum.
 
-Możesz udostępnić przykładowej aplikacji w tym samouczku lub innych aplikacji SignalR w Internecie, wdrażając je do dostawcy usług hostingowych. Firma Microsoft oferuje bezpłatny internetowy hostowanie do 10 witryn sieci web w ramach bezpłatnego [konta wersji próbnej usługi Windows Azure](https://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A443DD604). Aby uzyskać wskazówki dotyczące sposobu wdrażania przykładowej aplikacji SignalR, zobacz [publikowania SignalR wprowadzenie do przykładu jako witryny sieci Web Azure Windows](https://blogs.msdn.com/b/timlee/archive/2013/02/27/deploy-the-signalr-getting-started-sample-as-a-windows-azure-web-site.aspx). Aby uzyskać szczegółowe informacje o sposobie wdrażania projektu sieci web programu Visual Studio z witryny sieci Web do Windows Azure, zobacz [wdrażanie aplikacji ASP.NET do witryny sieci Web Windows Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet). (Uwaga: transportu WebSocket nie jest obecnie obsługiwane dla witryn sieci Web Windows Azure. WebSocket podczas transportu nie jest dostępna, SignalR używa innych dostępnych transportu, zgodnie z opisem w sekcji transportów [wprowadzenie do SignalR tematu](index.md).)
+Możesz udostępnić przykładowej aplikacji w tym samouczku lub innych aplikacji SignalR w Internecie, wdrażając je do dostawcy usług hostingowych. Firma Microsoft oferuje bezpłatny internetowy hostowanie do 10 witryn sieci web w ramach bezpłatnego [konta wersji próbnej usługi Windows Azure](https://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A443DD604). Aby uzyskać wskazówki dotyczące sposobu wdrażania przykładowej aplikacji SignalR, zobacz [publikowania SignalR wprowadzenie do przykładu jako witryny sieci Web Azure Windows](https://blogs.msdn.com/b/timlee/archive/2013/02/27/deploy-the-signalr-getting-started-sample-as-a-windows-azure-web-site.aspx). Aby uzyskać szczegółowe informacje o sposobie wdrażania projektu sieci web programu Visual Studio z witryny sieci Web do Windows Azure, zobacz [wdrażanie aplikacji ASP.NET do witryny sieci Web Windows Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet). (Uwaga: WebSocket transport nie jest obecnie obsługiwane dla witryn sieci Web Windows Azure. WebSocket podczas transportu nie jest dostępna, SignalR używa innych dostępnych transportu, zgodnie z opisem w sekcji transportów [wprowadzenie do SignalR tematu](index.md).)
 
 Aby dowiedzieć się bardziej zaawansowanych pojęciach zmiany SignalR, odwiedź następującą witrynę dla SignalR kod źródłowy i zasobów:
 

@@ -5,14 +5,14 @@ description: Ten artykuł zawiera linki do hosta platformy Azure i wdrażanie za
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/04/2018
+ms.date: 12/10/2018
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: b32dd3cb84a86d12c61e391b88355ab0411c2815
-ms.sourcegitcommit: a3a15d3ad4d6e160a69614a29c03bbd50db110a2
+ms.openlocfilehash: b6ff2124aac7e866f630cf359cbd188e88906844
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52951969"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284698"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Wdrażanie aplikacji platformy ASP.NET Core w usłudze Azure App Service
 
@@ -25,7 +25,7 @@ Azure [dokumentację usługi Web Apps](/azure/app-service/) to miejsce, dokument
 [Szybki Start: Tworzenie aplikacji internetowej platformy ASP.NET Core na platformie Azure](/azure/app-service/app-service-web-get-started-dotnet)  
 Visual Studio umożliwia tworzenie i wdrażanie aplikacji sieci web ASP.NET Core w usłudze Azure App Service w Windows.
 
-[Szybki Start: Tworzenie aplikacji sieci web platformy .NET Core w usłudze App Service w systemie Linux](/azure/app-service/containers/quickstart-dotnetcore)  
+[Szybki Start: Tworzenie aplikacji internetowej platformy .NET Core w usłudze App Service w systemie Linux](/azure/app-service/containers/quickstart-dotnetcore)  
 Tworzenie i wdrażanie aplikacji sieci web ASP.NET Core w usłudze Azure App Service w systemie Linux, należy użyć wiersza polecenia.
 
 Następujące artykuły są dostępne w dokumentacji platformy ASP.NET Core:
@@ -84,9 +84,11 @@ Usługi IIS oprogramowania pośredniczącego integracji, który konfiguruje prze
 
 ## <a name="monitoring-and-logging"></a>Monitorowanie i rejestrowanie
 
+Aplikacje platformy ASP.NET Core, wdrożyć w usłudze App Service automatycznie otrzymywać rozszerzenie usługi App Service **platformy ASP.NET Core rejestrowania rozszerzenia**. Rozszerzenie udostępnia rejestrowania platformy Azure.
+
 Monitorowanie, rejestrowanie i informacje dotyczące rozwiązywania problemów zobacz następujące artykuły:
 
-[Porady: monitorowanie aplikacji w usłudze Azure App Service](/azure/app-service/web-sites-monitor)  
+[Instrukcje: Monitorowanie aplikacji w usłudze Azure App Service](/azure/app-service/web-sites-monitor)  
 Dowiedz się, jak przeglądać limity przydziału i metryki, aby aplikacje i plany usługi App Service.
 
 [Włączanie rejestrowania diagnostycznego dla aplikacji sieci web w usłudze Azure App Service](/azure/app-service/web-sites-enable-diagnostic-log)  
@@ -108,7 +110,7 @@ Zobacz typowych błędów konfiguracji wdrażania dla aplikacji hostowanych prze
 Po zamianie między miejscami wdrożenia, każdy system przy użyciu ochrony danych będzie możliwe do odszyfrowywania danych przechowywanych w poprzednim miejsca przy użyciu pierścień klucza. Oprogramowaniu pośredniczącym pliku Cookie ASP.NET używa ochrony danych, aby chronić swoje pliki cookie. Prowadzi to do użytkowników, trwa wylogowanie z aplikacji, która używa standardowych oprogramowaniu pośredniczącym pliku Cookie ASP.NET. Jako rozwiązanie pierścień klucz niezależnie od miejsca należy użyć dostawcy zewnętrznego pierścienia klucz takiego jak:
 
 * Azure Blob Storage
-* Usługa Azure Key Vault
+* W usłudze Azure Key Vault
 * Magazyn SQL
 * Pamięć podręczna redis
 
@@ -130,7 +132,7 @@ Jeśli wystąpi problem, za pomocą rozszerzenia witryny (wersja zapoznawcza), o
 1. Wybierz aplikację sieci web.
 1. Typ "ex" w polu wyszukiwania, aby filtrować "Rozszerzenia" lub przewiń w dół na liście narzędzi do zarządzania.
 1. Wybierz **rozszerzenia**.
-1. Wybierz **Dodaj**.
+1. Wybierz pozycję **Dodaj**.
 1. Wybierz **platformy ASP.NET Core {X.Y} ({x64 | x86}) środowiska uruchomieniowego** rozszerzenia z listy, gdzie `{X.Y}` jest w wersji zapoznawczej platformy ASP.NET Core i `{x64|x86}` Określa platformę.
 1. Wybierz **OK** aby zaakceptować warunki prawne.
 1. Wybierz **OK** można zainstalować rozszerzenia.
@@ -185,7 +187,7 @@ W przypadku wdrażania aplikacja samodzielna:
    * Otwórz **tryb wdrożenia** listy rozwijanej i wybierz pozycję **niezależna**.
    * Wybierz docelowe środowisko uruchomieniowe z **docelowe środowisko uruchomieniowe** listy rozwijanej. Wartość domyślna to `win-x86`.
    * Jeśli potrzebujesz usunięcie dodatkowych plików po wdrożeniu, otwórz **opcji publikowania pliku** i zaznacz pole wyboru, aby usunąć dodatkowe pliki w lokalizacji docelowej.
-   * Wybierz **Zapisz**.
+   * Wybierz pozycję **Zapisz**.
 1. Utwórz nową witrynę, lub zaktualizuj istniejącą lokację, postępując zgodnie z pozostałymi instrukcjami w Kreatorze publikacji.
 
 #### <a name="publish-using-command-line-interface-cli-tools"></a>Publikowanie za pomocą narzędzia interfejsu wiersza polecenia (CLI)
@@ -211,13 +213,13 @@ W przypadku wdrażania aplikacja samodzielna:
 
 ## <a name="protocol-settings-https"></a>Ustawienia protokołu (HTTPS)
 
-Powiązania bezpiecznego protokołu zezwalania Określ certyfikat do użycia podczas odpowiadania na żądania za pośrednictwem protokołu HTTPS. Powiązanie wymaga ważnego certyfikatu prywatnego (*PFX*) dla określonej nazwy hosta. Aby uzyskać więcej informacji, zobacz [samouczek: powiązania istniejącego niestandardowego certyfikatu SSL w usłudze Azure Web Apps](/azure/app-service/app-service-web-tutorial-custom-ssl).
+Powiązania bezpiecznego protokołu zezwalania Określ certyfikat do użycia podczas odpowiadania na żądania za pośrednictwem protokołu HTTPS. Powiązanie wymaga ważnego certyfikatu prywatnego (*PFX*) dla określonej nazwy hosta. Aby uzyskać więcej informacji, zobacz [samouczka: Powiązania istniejącego niestandardowego certyfikatu SSL w usłudze Azure Web Apps](/azure/app-service/app-service-web-tutorial-custom-ssl).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Przegląd usługi Web Apps (5-minutowy klip wideo z omówieniem)](/azure/app-service/app-service-web-overview)
-* [Usługa Azure App Service: Najlepsze miejsce do hostowania aplikacji .NET (55-minutowy klip wideo z omówieniem)](https://channel9.msdn.com/events/dotnetConf/2017/T222)
-* [Azure Friday: Diagnostyki usługi aplikacji Azure i środowisko rozwiązywania problemów (12-minutowy klip wideo)](https://channel9.msdn.com/Shows/Azure-Friday/Azure-App-Service-Diagnostic-and-Troubleshooting-Experience)
+* [Usługa Azure App Service: Najlepiej umieścić na hoście aplikacji .NET (55-minutowy klip wideo z omówieniem)](https://channel9.msdn.com/events/dotnetConf/2017/T222)
+* [Azure Friday: Azure diagnostyki usługi aplikacji i rozwiązywanie problemów z doświadczenia (12-minutowy klip wideo)](https://channel9.msdn.com/Shows/Azure-Friday/Azure-App-Service-Diagnostic-and-Troubleshooting-Experience)
 * [Omówienie diagnostyki w usłudze Azure App Service](/azure/app-service/app-service-diagnostics)
 * <xref:host-and-deploy/web-farm>
 
@@ -227,4 +229,4 @@ Usługa Azure App Service w systemie Windows Server [Internet Information Servic
 * <xref:fundamentals/servers/aspnet-core-module>
 * <xref:host-and-deploy/aspnet-core-module>
 * <xref:host-and-deploy/iis/modules>
-* [Biblioteki Microsoft TechNet: Systemu Windows Server](/windows-server/windows-server-versions)
+* [Biblioteki Microsoft TechNet: System Windows Server](/windows-server/windows-server-versions)

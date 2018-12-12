@@ -4,30 +4,36 @@ author: rick-anderson
 description: Dowiedz się, jak utworzyć profile publikowania w programie Visual Studio i używać ich do zarządzania wdrożeniami aplikacji platformy ASP.NET Core do różnych celów.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 12/06/2018
 uid: host-and-deploy/visual-studio-publish-profiles
-ms.openlocfilehash: 3e626f99b06b0343360d6c46447e357890433dda
-ms.sourcegitcommit: 54655f1e1abf0b64d19506334d94cfdb0caf55f6
+ms.openlocfilehash: 3d24cd2cd4697e8e7cf7e4bdf4d076a09b6a6a23
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50148931"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284711"
 ---
 # <a name="visual-studio-publish-profiles-for-aspnet-core-app-deployment"></a>Program Visual Studio publikowania profile na potrzeby wdrażania aplikacji platformy ASP.NET Core
 
 Przez [Sayed Ibrahim Hashimi](https://github.com/sayedihashimi) i [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Ten dokument koncentruje się na temat korzystania z programu Visual Studio 2017 do tworzenia i używania profilów publikowania. Profile publikowania utworzonych za pomocą programu Visual Studio można uruchomić z programu MSBuild i Visual Studio 2017. Zobacz [publikowania aplikacji sieci web ASP.NET Core w usłudze Azure App Service przy użyciu programu Visual Studio](xref:tutorials/publish-to-azure-webapp-using-vs) instrukcje dotyczące publikowania na platformie Azure.
+::: moniker range="<= aspnetcore-1.1"
+
+Dla wersji 1.1 w tym temacie, Pobierz [programu Visual Studio publikowania profile na potrzeby wdrażania aplikacji platformy ASP.NET Core (w wersji 1.1, plików PDF)](https://webpifeed.blob.core.windows.net/webpifeed/Partners/VS_Publish_Profiles_1.1.pdf).
+
+::: moniker-end
+
+Ten dokument koncentruje się na temat korzystania z programu Visual Studio 2017 lub nowszej, aby tworzenie i używanie profilów publikowania. Profile publikowania utworzonych za pomocą programu Visual Studio można uruchomić z programu MSBuild i Visual Studio. Zobacz [publikowania aplikacji sieci web ASP.NET Core w usłudze Azure App Service przy użyciu programu Visual Studio](xref:tutorials/publish-to-azure-webapp-using-vs) instrukcje dotyczące publikowania na platformie Azure.
 
 Następujący plik projektu został utworzony za pomocą polecenia `dotnet new mvc`:
 
-::: moniker range=">= aspnetcore-2.1"
+::: moniker range=">= aspnetcore-2.2"
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
@@ -39,37 +45,17 @@ Następujący plik projektu został utworzony za pomocą polecenia `dotnet new m
 
 ::: moniker-end
 
-::: moniker range="= aspnetcore-2.0"
+::: moniker range="< aspnetcore-2.2"
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.9" />
-  </ItemGroup>
-
-</Project>
-```
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-```xml
-<Project Sdk="Microsoft.NET.Sdk.Web">
-
-  <PropertyGroup>
-    <TargetFramework>netcoreapp1.1</TargetFramework>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore" Version="1.1.7" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.8" />
-    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.1.3" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
 
 </Project>
@@ -113,7 +99,7 @@ Gdy projekt jest ładowany, są obliczane elementy projektu (pliki). `item type`
 Podczas wybierania **Publikuj** przycisku w programie Visual Studio lub podczas publikowania z poziomu wiersza polecenia:
 
 * Elementy/właściwości są obliczane (pliki, które są potrzebne do tworzenia).
-* **Sam program Visual Studio**: pakiety NuGet są przywracane. (Przywróć musi być jawne przez użytkownika na interfejs wiersza polecenia).
+* **Sam program Visual Studio**: Pakiety NuGet są przywracane. (Przywróć musi być jawne przez użytkownika na interfejs wiersza polecenia).
 * Projekt zostanie skompilowany.
 * Publikuj elementy są obliczane (pliki, które są niezbędne do publikowania).
 * Projekt zostanie opublikowany (obliczanej pliki są kopiowane do lokalizacji docelowej publikowania).
@@ -130,24 +116,10 @@ dotnet publish C:\Webs\Web1
 
 Uruchom następujące polecenia, aby tworzyć i publikować aplikację sieci web:
 
-::: moniker range=">= aspnetcore-2.0"
-
 ```console
 dotnet new mvc
 dotnet publish
 ```
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-```console
-dotnet new mvc
-dotnet restore
-dotnet publish
-```
-
-::: moniker-end
 
 [Publikowania dotnet](/dotnet/core/tools/dotnet-publish) polecenie generuje dane wyjściowe podobne do następujących:
 
@@ -174,7 +146,7 @@ dotnet publish -c Release -o C:\MyWebs\test
 
 Właściwości programu MSBuild może być przekazywany przy użyciu jednej z następujących formatów:
 
-* ` p:<NAME>=<VALUE>`
+* `p:<NAME>=<VALUE>`
 * `/p:<NAME>=<VALUE>`
 
 Następujące polecenie publikuje `Release` kompilacja — przejście do udziału sieciowego:
@@ -187,12 +159,12 @@ Upewnij się, że opublikowanej aplikacji do wdrożenia nie jest uruchomione. Pl
 
 ## <a name="publish-profiles"></a>Profile publikowania
 
-Ta sekcja używa programu Visual Studio 2017, aby utworzyć profil publikowania. Po utworzeniu publikowanie z programu Visual Studio lub wiersza polecenia jest dostępna.
+Ta sekcja używa programu Visual Studio 2017 r. lub nowszej, aby utworzyć profil publikowania. Po utworzeniu profilu publikowania z wiersza polecenia lub programu Visual Studio jest dostępna.
 
 Publikowanie profilów można uprościć proces publikowania, a może znajdować się dowolna liczba profilów. Tworzenie profilu publikowania w programie Visual Studio, wybierając jedną z następujących ścieżek:
 
 * Kliknij prawym przyciskiem myszy projekt w Eksploratorze rozwiązań i wybierz **Publikuj**.
-* Wybierz **Publikuj &lt;project_name&gt;**  z **kompilacji** menu.
+* Wybierz **publikowania {Nazwa projektu}** z **kompilacji** menu.
 
 **Publikuj** jest wyświetlana na karcie Strona możliwości aplikacji. Jeśli projekt nie ma profil publikowania, zostanie wyświetlona następująca strona:
 
@@ -214,11 +186,11 @@ Kreator publikowania obsługuje następujące cele publikowania:
 
 Aby uzyskać więcej informacji, zobacz [jakie opcje publikowania są dla mnie odpowiednia](/visualstudio/ide/not-in-toc/web-publish-options).
 
-Podczas tworzenia profilu publikowania za pomocą programu Visual Studio *PublishProfiles/właściwości/&lt;nazwa_profilu&gt;.pubxml* zostanie utworzony plik MSBuild. *.Pubxml* plik jest plikiem programu MSBuild i zawiera ustawienia konfiguracji publikowania. Ten plik można zmienić dostosowywania kompilacji i publikowania procesu. Ten plik jest odczytywany przez proces publikowania. `<LastUsedBuildConfiguration>` to specjalne, ponieważ jest właściwością globalną, a nie powinien być w dowolnym pliku, który jest importowany w kompilacji. Zobacz [MSBuild: sposób ustawiania właściwości konfiguracji](http://sedodream.com/2012/10/27/MSBuildHowToSetTheConfigurationProperty.aspx) Aby uzyskać więcej informacji.
+Podczas tworzenia profilu publikowania za pomocą programu Visual Studio *PublishProfiles/właściwości / {Nazwa profilu} .pubxml* zostanie utworzony plik MSBuild. *.Pubxml* plik jest plikiem programu MSBuild i zawiera ustawienia konfiguracji publikowania. Ten plik można zmienić dostosowywania kompilacji i publikowania procesu. Ten plik jest odczytywany przez proces publikowania. `<LastUsedBuildConfiguration>` to specjalne, ponieważ jest właściwością globalną, a nie powinien być w dowolnym pliku, który jest importowany w kompilacji. Zobacz [MSBuild: sposób ustawiania właściwości konfiguracji](http://sedodream.com/2012/10/27/MSBuildHowToSetTheConfigurationProperty.aspx) Aby uzyskać więcej informacji.
 
 Podczas publikowania do obiektu docelowego platformy Azure, *.pubxml* plik zawiera identyfikator swojej subskrypcji platformy Azure. Z tym typem docelowym dodając ten plik do kontroli źródła nie jest zalecane. Podczas publikowania w celu spoza platformy Azure, jest bezpieczne do zaewidencjonowania *.pubxml* pliku.
 
-Informacje poufne (na przykład hasło publikowania) są szyfrowane na komputerze na poziomie użytkownika/komputera. Jest on przechowywany w *PublishProfiles/właściwości/&lt;nazwa_profilu&gt;. pubxml.user* pliku. Ponieważ ten plik można przechowywać poufne informacje, nie powinny zostać sprawdzone w kontroli źródła.
+Informacje poufne (na przykład hasło publikowania) są szyfrowane na komputerze na poziomie użytkownika/komputera. Jest on przechowywany w *PublishProfiles/właściwości / {Nazwa profilu}.pubxml.user* pliku. Ponieważ ten plik można przechowywać poufne informacje, nie powinny zostać sprawdzone w kontroli źródła.
 
 Aby uzyskać omówienie sposobu publikowania aplikacji sieci web programu ASP.NET Core, zobacz [hosta i wdrażanie](xref:host-and-deploy/index). Zadania programu MSBuild i elementy docelowe niezbędne do opublikowania aplikacji ASP.NET Core są typu open source w https://github.com/aspnet/websdk.
 
@@ -270,7 +242,7 @@ dotnet publish /p:PublishProfile=Azure /p:Configuration=Release
 Ustaw następujące właściwości programu MSBuild, korzystając z profilu publikowania:
 
 * `DeployOnBuild=true`
-* `PublishProfile=<Publish profile name>`
+* `PublishProfile={PUBLISH PROFILE}`
 
 Podczas publikowania za pomocą profilu o nazwie *FolderProfile*, można wykonać jedną z poniższych poleceń:
 
@@ -321,34 +293,49 @@ msbuild /p:Configuration=Release /p:DeployOnBuild=true /p:PublishProfile=FolderP
 
 ## <a name="publish-to-an-msdeploy-endpoint-from-the-command-line"></a>Publikowanie do punktu końcowego MSDeploy z wiersza polecenia
 
-Publikowanie można osiągnąć przy użyciu interfejsu wiersza polecenia platformy .NET Core lub programu MSBuild. `dotnet publish` działa w kontekście programu .NET Core. `msbuild` Polecenia wymaga programu .NET Framework, która ogranicza ją do środowiska Windows.
+W poniższym przykładzie użyto aplikacji sieci web ASP.NET Core utworzona przez program Visual Studio o nazwie *AzureWebApp*. Profil publikowania aplikacji platformy Azure jest dodawany z programem Visual Studio. Aby uzyskać więcej informacji na temat sposobu tworzenia profilu, zobacz [profilów publikowania](#publish-profiles) sekcji.
 
-Najprostszym sposobem publikowania za pomocą narzędzia MSDeploy jest najpierw utwórz profil publikowania w programie Visual Studio 2017 i Użyj profilu z wiersza polecenia.
+Aby wdrożyć aplikację za pomocą profilu publikowania, wykonaj `msbuild` polecenia z programu Visual Studio **wiersz polecenia dla deweloperów**. Wiersz polecenia jest dostępna w *programu Visual Studio* folderu **Start** menu na pasku zadań Windows. W celu ułatwienia dostępu, można dodać wiersza polecenia, aby **narzędzia** menu w programie Visual Studio. Aby uzyskać więcej informacji, zobacz [wiersz polecenia programisty dla programu Visual Studio](/dotnet/framework/tools/developer-command-prompt-for-vs#run-the-command-prompt-from-inside-visual-studio).
 
-W poniższym przykładzie utworzono aplikację internetową platformy ASP.NET Core (przy użyciu `dotnet new mvc`), a profil publikowania platformy Azure są dodawane przy użyciu programu Visual Studio.
-
-Uruchom `msbuild` z **wiersz polecenia programisty dla programu VS 2017**. Wiersz polecenia dla deweloperów jest prawidłowy *msbuild.exe* w swojej ścieżce niektóre zestaw zmiennych MSBuild.
-
-Program MSBuild używa następującej składni:
+Program MSBuild używa następującej składni polecenia:
 
 ```console
-msbuild <path-to-project-file> /p:DeployOnBuild=true /p:PublishProfile=<Publish Profile> /p:Username=<USERNAME> /p:Password=<PASSWORD>
+msbuild {PATH} 
+    /p:DeployOnBuild=true 
+    /p:PublishProfile={PROFILE} 
+    /p:Username={USERNAME} 
+    /p:Password={PASSWORD}
 ```
 
-Pobierz `Password` z  *\<nazwa Publikuj >. PublishSettings* pliku. Pobierz *. PublishSettings* plików z poziomu:
+* {PATH} &ndash; Ścieżka do pliku projektu aplikacji.
+* {PROFIL} &ndash; Nazwa profilu publikowania.
+* UŻYTKOWNIK {USERNAME} &ndash; MSDeploy username. {USERNAME} można znaleźć w profilu publikowania.
+* {PASSWORD} &ndash; MSDeploy hasła. Uzyskaj {PASSWORD} z *{profil}. PublishSettings* pliku. Pobierz *. PublishSettings* plików z poziomu:
+  * Eksplorator rozwiązań: Wybierz **widoku** > **Eksplorator chmury**. Połącz z subskrypcją platformy Azure. Otwórz **usług App Services**. Kliknij prawym przyciskiem myszy aplikację. Wybierz **Pobierz profil publikowania**.
+  * Witryna Azure portal: Wybierz **Pobierz profil publikowania** w aplikacji sieci web **Przegląd** panelu.
 
-* Eksplorator rozwiązań: Kliknij prawym przyciskiem myszy w aplikacji sieci Web i wybierz **Pobierz profil publikowania**.
-* Witryna Azure portal: kliknij **Pobierz profil publikowania** w usłudze Web App **Przegląd** panelu.
-
-`Username` można znaleźć w profilu publikowania.
-
-Następujące przykładowe używa *Web11112 — narzędzie Web Deploy* profil publikowania:
+W poniższym przykładzie użyto profil publikowania o nazwie *AzureWebApp — narzędzie Web Deploy*:
 
 ```console
-msbuild "C:\Webs\Web1\Web1.csproj" /p:DeployOnBuild=true
- /p:PublishProfile="Web11112 - Web Deploy"  /p:Username="$Web11112"
- /p:Password="<password removed>"
+msbuild "AzureWebApp.csproj" 
+    /p:DeployOnBuild=true 
+    /p:PublishProfile="AzureWebApp - Web Deploy" 
+    /p:Username="$AzureWebApp" 
+    /p:Password=".........."
 ```
+
+Profil publikowania można również za pomocą interfejsu wiersza polecenia platformy .NET Core [dotnet msbuild](/dotnet/core/tools/dotnet-msbuild) polecenie w wierszu polecenia Windows:
+
+```console
+dotnet msbuild "AzureWebApp.csproj"
+    /p:DeployOnBuild=true 
+    /p:PublishProfile="AzureWebApp - Web Deploy" 
+    /p:Username="$AzureWebApp" 
+    /p:Password=".........."
+```
+
+> [!NOTE]
+> [Dotnet msbuild](/dotnet/core/tools/dotnet-msbuild) polecenie jest dostępne dla wielu platform i można kompilować aplikacje platformy ASP.NET Core w systemach macOS i Linux. Jednak program MSBuild w systemie macOS i Linux nie jest zdolny do wdrażania aplikacji na platformie Azure lub innych punktów końcowych MSDeploy. Program MSDeploy jest dostępna tylko na Windows.
 
 ## <a name="exclude-files"></a>Wyklucz pliki
 

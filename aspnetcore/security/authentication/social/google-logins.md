@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc, seodec18
 ms.date: 11/11/2018
 uid: security/authentication/google-logins
-ms.openlocfilehash: e5deda5d521643e3155be00f4630a86c6a82575c
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: 372504eb4f6fea412b5b160e0d5e9251dafe0d56
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121534"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284497"
 ---
 # <a name="google-external-login-setup-in-aspnet-core"></a>Ustawienia logowania zewnętrznego Google w programie ASP.NET Core
 
@@ -67,7 +67,7 @@ W tym samouczku dowiesz się, jak umożliwić użytkownikom logowanie się przy 
 
 * Naciśnij pozycję **Utwórz identyfikator klienta**, która umożliwia przejście do trzeci krok **skonfigurować ekran zgody OAuth 2.0**:
 
-![Strona poświadczeń Menedżer interfejsu API: Konfigurowanie ekran zgody OAuth 2.0](index/_static/GoogleConsoleAddCred.png)
+![Strona poświadczeń Menedżer interfejsu API: Ustawianie ekranu wyrażania zgody OAuth 2.0](index/_static/GoogleConsoleAddCred.png)
 
 * Wprowadź swoje użytek publiczny **adres E-mail** i **nazwa produktu** wyświetlany dla aplikacji, gdy Google + monituje użytkownika do logowania. Dodatkowe opcje są dostępne w obszarze **dodatkowe opcje dostosowywania**.
 
@@ -136,7 +136,7 @@ Zobacz [GoogleOptions](/dotnet/api/microsoft.aspnetcore.builder.googleoptions) d
 
 Uruchom aplikację, a następnie kliknij przycisk **Zaloguj**. Zostanie wyświetlona opcja Zaloguj się przy użyciu Google:
 
-![Aplikację sieci Web działającą w programie Microsoft Edge: użytkownik nie jest uwierzytelniony](index/_static/DoneGoogle.png)
+![Aplikacja sieci Web jest uruchomiony w programie Microsoft Edge: Użytkownik nie jest uwierzytelniony](index/_static/DoneGoogle.png)
 
 Po kliknięciu w usłudze Google, nastąpi przekierowanie do usługi Google do uwierzytelniania:
 
@@ -146,14 +146,14 @@ Po wprowadzeniu poświadczeń Google, następnie nastąpi przekierowanie do witr
 
 Obecnie zalogowano Cię przy użyciu poświadczeń konta Google:
 
-![Aplikację sieci Web działającą w programie Microsoft Edge: użytkownik uwierzytelniony](index/_static/Done.png)
+![Aplikacja sieci Web jest uruchomiony w programie Microsoft Edge: Użytkownik uwierzytelniony](index/_static/Done.png)
 
 [!INCLUDE[Forward request information when behind a proxy or load balancer section](includes/forwarded-headers-middleware.md)]
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
 * Jeśli zostanie wyświetlony `403 (Forbidden)` stronę błędu z własnej aplikacji, gdy działa w trybie projektowania (lub przerwanie w debugerze z tym samym błędem), upewnij się, że **interfejsu API Google +** zostało włączone w **Menedżer interfejsu API biblioteki** przez wykonanie kroków podanych [wcześniej na tej stronie](#create-the-app-in-google-api-console). Jeśli nie otrzymujesz błędy logowania nie rozwiąże problemu, przełącz się do trybu opracowywania, aby ułatwić debugowanie problemu.
-* **Platforma ASP.NET Core 2.x tylko:** Jeśli tożsamość nie jest skonfigurowana, wywołując `services.AddIdentity` w `ConfigureServices`, próby uwierzytelnienia będą powodować *ArgumentException: należy podać opcję "SignInScheme"*. Szablon projektu, w tym samouczku używane gwarantuje, że odbywa się.
+* **ASP.NET Core 2.x tylko:** Jeśli tożsamość nie jest skonfigurowana, wywołując `services.AddIdentity` w `ConfigureServices`, próby uwierzytelnienia będą powodować *ArgumentException: Opcja "SignInScheme" musi być podana*. Szablon projektu, w tym samouczku używane gwarantuje, że odbywa się.
 * Jeśli nie utworzono bazy danych lokacji, stosując początkowej migracji, zostanie wyświetlony *operacji bazy danych nie powiodło się podczas przetwarzania żądania* błędu. Naciśnij pozycję **zastosować migracje** do tworzenia bazy danych i Odśwież, aby kontynuować po błędzie.
 
 ## <a name="next-steps"></a>Następne kroki

@@ -1,6 +1,6 @@
 ---
 uid: signalr/overview/getting-started/tutorial-server-broadcast-with-signalr
-title: 'Samouczek: Emisje serwera z SignalR 2 | Dokumentacja firmy Microsoft'
+title: 'Samouczek: Emisje serwera z użyciem SignalR 2 | Dokumentacja firmy Microsoft'
 author: tdykstra
 description: W tym samouczku przedstawiono sposób tworzenia aplikacji sieci web korzystającą z signalr2 na platformie ASP.NET w celu zapewnienia funkcji emisji serwera. Server emisji oznacza że commun...
 ms.author: riande
@@ -8,16 +8,18 @@ ms.date: 10/13/2014
 ms.assetid: 1568247f-60b5-4eca-96e0-e661fbb2b273
 msc.legacyurl: /signalr/overview/getting-started/tutorial-server-broadcast-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 7a85a704dc5d830ec793540fbc44a3ce7ec8c934
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: ad2eee8742d5bc45dc2bdc90f76736b4dc94d14b
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48911547"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53288021"
 ---
-<a name="tutorial-server-broadcast-with-signalr-2"></a>Samouczek: Emisje serwera z SignalR 2
+<a name="tutorial-server-broadcast-with-signalr-2"></a>Samouczek: Emisje serwera z użyciem SignalR 2
 ====================
 przez [Tom Dykstra](https://github.com/tdykstra), [Tom FitzMacken](https://github.com/tfitzmac)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > W tym samouczku przedstawiono sposób tworzenia aplikacji sieci web korzystającą z signalr2 na platformie ASP.NET w celu zapewnienia funkcji emisji serwera. Emisja Server oznacza, że inicjowane komunikacji z klientami przez serwer. Ten scenariusz wymaga innego podejścia programowania niż peer-to-peer scenariuszy, takich jak aplikacje rozmowy, w których komunikacji z klientami są inicjowane przez jeden lub więcej klientów.
 >
@@ -52,7 +54,6 @@ przez [Tom Dykstra](https://github.com/tdykstra), [Tom FitzMacken](https://githu
 > ## <a name="questions-and-comments"></a>Pytania i komentarze
 >
 > Jak się podoba w tym samouczku, i co można było ulepszyć proces w komentarzach u dołu strony, wystaw opinię. Jeśli masz pytania, na które nie są bezpośrednio związane z tego samouczka, możesz zamieścić je do [forum ASP.NET SignalR](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) lub [StackOverflow.com](http://stackoverflow.com/).
-
 
 ## <a name="overview"></a>Omówienie
 
@@ -273,7 +274,7 @@ Ukończono konfigurowanie kod serwera. W następnej sekcji należy skonfigurowa�
 
 <a id="enablelogging"></a>
 
-## <a name="enable-logging"></a>Włączanie rejestrowania
+## <a name="enable-logging"></a>Włącz rejestrowanie
 
 SignalR ma funkcję wbudowane funkcje rejestrowania, który można włączyć na kliencie, aby ułatwić rozwiązywanie problemów. W tej sekcji, Włącz rejestrowanie i zapoznaj się z przykładami, które pokazują, jak dzienniki informujące, który z poniższych metod transportu używa SignalR:
 

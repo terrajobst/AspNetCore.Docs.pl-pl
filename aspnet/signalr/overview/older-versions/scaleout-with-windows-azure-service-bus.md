@@ -8,16 +8,18 @@ ms.date: 05/01/2013
 ms.assetid: 501db899-e68c-49ff-81b2-1dc561bfe908
 msc.legacyurl: /signalr/overview/older-versions/scaleout-with-windows-azure-service-bus
 msc.type: authoredcontent
-ms.openlocfilehash: d597eebc958815b1b1b9fdffc256c4453efce6b3
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 687d3d7787baa69410ee35d651a029c69d28c70b
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48910957"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287003"
 ---
-<a name="signalr-scaleout-with-azure-service-bus-signalr-1x"></a>SignalR — skalowanie w poziomie za pomocą usługi Azure Service Bus (SignalR 1.x)
+<a name="signalr-scaleout-with-azure-service-bus-signalr-1x"></a>SignalR — skalowanie w poziomie z użyciem usługi Azure Service Bus (SignalR 1.x)
 ====================
 przez [Mike Wasson](https://github.com/MikeWasson), [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 W tym samouczku wdrożysz aplikację SignalR, do roli sieci Web Windows Azure, przy użyciu systemu backplane usługi Service Bus, aby dystrybuować komunikaty do każdego wystąpienia roli.
 
@@ -53,7 +55,7 @@ Dla każdej aplikacji wybierz inną wartość dla "YourAppName". Nie należy uż
 
 ## <a name="create-the-azure-services"></a>Tworzenie usług platformy Azure
 
-Utwórz usługę w chmurze, zgodnie z opisem w [jak utworzyć i wdrożyć usługę w chmurze](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy). Postępuj zgodnie z instrukcjami w sekcji "jak: Tworzenie usługi w chmurze przy użyciu szybkiego tworzenia". W tym samouczku nie musisz przekazać certyfikat.
+Utwórz usługę w chmurze, zgodnie z opisem w [jak utworzyć i wdrożyć usługę w chmurze](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy). Postępuj zgodnie z instrukcjami w sekcji "jak: Utwórz usługę w chmurze przy użyciu szybkie tworzenie". W tym samouczku nie musisz przekazać certyfikat.
 
 ![](scaleout-with-windows-azure-service-bus/_static/image2.png)
 
@@ -81,7 +83,7 @@ Umieść kursor myszy nad nową rolę, więc widoczne ikonę ołówka. Kliknij t
 
 W **nowego projektu programu ASP.NET MVC 4** kreatora wybierz **aplikacji internetowej**. Kliknij przycisk **OK**. Kreator projektu tworzy dwa projekty:
 
-- ChatService: Ten projekt jest aplikacją platformy Windows Azure. Definiuje ról platformy Azure i inne opcje konfiguracji.
+- ChatService: Ten projekt to aplikacja Windows Azure. Definiuje ról platformy Azure i inne opcje konfiguracji.
 - SignalRChat: Ten projekt jest projekt platformy ASP.NET MVC 4.
 
 ## <a name="create-the-signalr-chat-application"></a>Tworzenie aplikacji czatu SignalR

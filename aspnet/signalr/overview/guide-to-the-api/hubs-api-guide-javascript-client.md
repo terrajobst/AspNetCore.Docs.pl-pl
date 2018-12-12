@@ -8,16 +8,18 @@ ms.date: 09/28/2015
 ms.assetid: a9fd4dc0-1b96-4443-82ca-932a5b4a8ea4
 msc.legacyurl: /signalr/overview/guide-to-the-api/hubs-api-guide-javascript-client
 msc.type: authoredcontent
-ms.openlocfilehash: 9edb7fd100a3f4c5331454045ac206d2f7a81961
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 8e493eda256351904da49e1222773f188e6a2058
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912452"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53288069"
 ---
 <a name="aspnet-signalr-hubs-api-guide---javascript-client"></a>Podręcznik interfejsu API centrów SignalR platformy ASP.NET — klient JavaScript
 ====================
 przez [Patrick Fletcher](https://github.com/pfletcher), [Tom Dykstra](https://github.com/tdykstra)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > Ten dokument zawiera wprowadzenie do korzystania z interfejsu API centrów dla elementu SignalR w wersji 2 w klientów języka JavaScript, takie jak przeglądarki i aplikacje Windows Store (WinJS).
 >
@@ -41,7 +43,6 @@ przez [Patrick Fletcher](https://github.com/pfletcher), [Tom Dykstra](https://gi
 > ## <a name="questions-and-comments"></a>Pytania i komentarze
 >
 > Jak się podoba w tym samouczku, i co można było ulepszyć proces w komentarzach u dołu strony, wystaw opinię. Jeśli masz pytania, na które nie są bezpośrednio związane z tego samouczka, możesz zamieścić je do [forum ASP.NET SignalR](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) lub [StackOverflow.com](http://stackoverflow.com/).
-
 
 ## <a name="overview"></a>Omówienie
 
@@ -464,7 +465,7 @@ Sposób wywoływania metody serwera, która nie zwraca żadnej wartości można 
 
 Biblioteka SignalR udostępnia następujące połączenia zdarzenia okresu istnienia, które może obsłużyć:
 
-- `starting`: Wywoływane, zanim wszystkie dane są wysyłane za pośrednictwem połączenia.
+- `starting`: Wywoływane przed wszystkie dane są wysyłane za pośrednictwem połączenia.
 - `received`: Zgłaszane w przypadku nieodebrania żadnych danych w połączeniu. Udostępnia odebrane dane.
 - `connectionSlow`: Wywoływane, gdy klient wykrywa wolno lub często porzucanie połączenia.
 - `reconnecting`: Wywoływane, gdy transportu źródłowego rozpoczyna ponowne nawiązywanie połączenia.

@@ -6,12 +6,12 @@ ms.author: casoper
 ms.custom: mvc, seodec18
 ms.date: 10/24/2018
 uid: azure/devops/monitor
-ms.openlocfilehash: e005b951aec578b396fc19dec5d2f55cbce4f664
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: 00489bd92dfff8fd80bd24c2e60193d32031d7c4
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121612"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284373"
 ---
 # <a name="monitor-and-debug"></a>Monitorowanie i debugowania
 
@@ -37,10 +37,10 @@ Aplikacje sieci web usługi App Service są łatwo monitorowana w czasie rzeczyw
 
     ![Zrzut ekranu przedstawiający Przegląd panelu](./media/monitoring/overview.png)
 
-    * **Http 5xx**: liczba błędów po stronie serwera, zwykle wyjątków w kodzie ASP.NET Core.
-    * **W danych**: transfer danych przychodzących do aplikacji sieci web.
-    * **Dane wychodzące**: danych dane wychodzące z aplikacji sieci web dla klientów.
-    * **Żądania**: liczba żądań HTTP.
+    * **Http 5xx**: Liczba błędów po stronie serwera, zwykle wyjątków w kodzie ASP.NET Core.
+    * **Dane w**: Transfer danych przychodzących do aplikacji sieci web.
+    * **Dane wyjściowe**: Wyjście danych z aplikacji sieci web dla klientów.
+    * **Żądania**: Liczba HTTP żądania.
     * **Średni czas odpowiedzi**: Średni czas dla aplikacji sieci web do odpowiadania na żądania HTTP.
 
     Kilka Samoobsługowe narzędzia do optymalizacji i rozwiązywania problemów znajdują się również na tej stronie.

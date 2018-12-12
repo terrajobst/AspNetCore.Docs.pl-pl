@@ -2,22 +2,24 @@
 uid: signalr/overview/older-versions/signalr-performance
 title: Wydajność SignalR (SignalR 1.x) | Dokumentacja firmy Microsoft
 author: pfletcher
-description: Wydajność SignalR
+description: Wydajność usługi SignalR
 ms.author: riande
 ms.date: 07/03/2013
 ms.assetid: 9594d644-66b6-4223-acdd-23e29a6e4c46
 msc.legacyurl: /signalr/overview/older-versions/signalr-performance
 msc.type: authoredcontent
-ms.openlocfilehash: 3ac62639617e1ff83761d0a1d45c27303d0b820d
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: ea2d3908544ac8b3ea17ceceaf1d2905c5c6f322
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912764"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287582"
 ---
-<a name="signalr-performance-signalr-1x"></a>Wydajność SignalR (SignalR 1.x)
+<a name="signalr-performance-signalr-1x"></a>Wydajność usługi SignalR (SignalR 1.x)
 ====================
 przez [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > W tym temacie opisano sposób projektowania, miar i zwiększenie wydajności w aplikacji SignalR.
 
@@ -71,7 +73,7 @@ Następujące ustawienia konfiguracji można Dostrajanie Serwer w celu zapewnien
 
 **Ustawienia konfiguracji SignalR**
 
-- **DefaultMessageBufferSize**: domyślnie SignalR zachowuje 1000 komunikatów w pamięci na Centrum połączenia. Jeśli używane są duże wiadomości, że może to spowodować problemy z pamięcią, które mogą być złagodzone przez zmniejszenie tej wartości. To ustawienie można ustawić w `Application_Start` programu obsługi zdarzeń w aplikacji ASP.NET lub `Configuration` metody klasy początkowej OWIN w samodzielnie hostowanej aplikacji. W poniższym przykładzie pokazano, jak zmniejszyć tę wartość, aby zmniejszyć ilość pamięci zajmowaną przez aplikację, aby zmniejszyć ilość używanej pamięci serwera:
+- **DefaultMessageBufferSize**: Domyślnie SignalR zachowuje 1000 komunikatów w pamięci na Centrum połączenia. Jeśli używane są duże wiadomości, że może to spowodować problemy z pamięcią, które mogą być złagodzone przez zmniejszenie tej wartości. To ustawienie można ustawić w `Application_Start` programu obsługi zdarzeń w aplikacji ASP.NET lub `Configuration` metody klasy początkowej OWIN w samodzielnie hostowanej aplikacji. W poniższym przykładzie pokazano, jak zmniejszyć tę wartość, aby zmniejszyć ilość pamięci zajmowaną przez aplikację, aby zmniejszyć ilość używanej pamięci serwera:
 
     **Kod serwera .NET w pliku Global.asax dla malejącej domyślny rozmiar buforu komunikatu**
 
@@ -79,7 +81,7 @@ Następujące ustawienia konfiguracji można Dostrajanie Serwer w celu zapewnien
 
 **Ustawienia konfiguracji usług IIS**
 
-- **Maksymalna liczba równoczesnych żądań dla aplikacji**: zwiększenie liczby równoczesnych IIS żądań zwiększy zasoby serwera są dostępne na potrzeby obsługiwania żądań. Wartość domyślna to 5000; Aby zwiększyć to ustawienie, wykonaj następujące polecenia w wierszu polecenia z podwyższonym poziomem uprawnień:
+- **Maksymalna liczba równoczesnych żądań dla aplikacji**: Zwiększenie liczby równoczesnych IIS żądań zwiększy zasoby serwera są dostępne na potrzeby obsługiwania żądań. Wartość domyślna to 5000; Aby zwiększyć to ustawienie, wykonaj następujące polecenia w wierszu polecenia z podwyższonym poziomem uprawnień:
 
     [!code-console[Main](signalr-performance/samples/sample4.cmd)]
 
@@ -92,10 +94,10 @@ Ta sekcja zawiera ustawienia konfiguracji, które można ustawić w `aspnet.conf
 
 Ustawienia programu ASP.NET, które może poprawić wydajność SignalR są następujące:
 
-- **Maksymalna liczba równoczesnych żądań na procesor CPU,**: zwiększenie tego ustawienia może zlikwidować wąskie gardła wydajności. Aby zwiększyć to ustawienie, Dodaj następujące ustawienie konfiguracji, aby `aspnet.config` pliku:
+- **Maksymalna liczba równoczesnych żądań na procesor CPU,**: Zwiększa to ustawienie może zlikwidować wąskie gardła wydajności. Aby zwiększyć to ustawienie, Dodaj następujące ustawienie konfiguracji, aby `aspnet.config` pliku:
 
     [!code-xml[Main](signalr-performance/samples/sample5.xml?highlight=4)]
-- **Ograniczenie kolejki żądań**: kiedy łączna liczba połączeń przekroczy `maxConcurrentRequestsPerCPU` ustawienie ASP.NET rozpocznie ograniczanie żądań za pomocą kolejki. Aby zwiększyć rozmiar kolejki, możesz zwiększyć `requestQueueLimit` ustawienie. Aby to zrobić, Dodaj następujące ustawienie konfiguracji, aby `processModel` w węźle `config/machine.config` (zamiast `aspnet.config`):
+- **Ograniczenie kolejki żądań**: Jeśli łączna liczba połączeń przekroczy `maxConcurrentRequestsPerCPU` ustawienie ASP.NET rozpocznie ograniczanie żądań za pomocą kolejki. Aby zwiększyć rozmiar kolejki, możesz zwiększyć `requestQueueLimit` ustawienie. Aby to zrobić, Dodaj następujące ustawienie konfiguracji, aby `processModel` w węźle `config/machine.config` (zamiast `aspnet.config`):
 
     [!code-xml[Main](signalr-performance/samples/sample6.xml)]
 
@@ -177,10 +179,10 @@ Następujące metryki pomiaru ruchu za pośrednictwem wewnętrznego magistrali k
 
 Następujące metryki pomiaru błędów generowanych przez ruch komunikatów SignalR. **Rozpoznawanie Centrum** błędy występują, gdy nie można rozpoznać koncentratora lub metody koncentratora. **Wywołania koncentratora** błędy są wyjątki generowane podczas wywołania metody koncentratora. **Transport** błędy są błędami połączenia podczas żądania lub odpowiedzi HTTP.
 
-- **Błędów: Suma wszystkich**
-- **Błędy: All/s**
+- **Błędy: Suma wszystkich**
+- **Błędy: Wszystkie na sekundę**
 - **Błędy: Łączna liczba rozpoznawania koncentratora**
-- **Błędy: Centrum rozpoznawania/s**
+- **Błędy: Rozpoznawania koncentratora na sekundę**
 - **Błędy: Łączna liczba wywołania koncentratora**
 - **Błędy: Wywołania koncentratora na sekundę**
 - **Błędy: Łączna liczba transportu**

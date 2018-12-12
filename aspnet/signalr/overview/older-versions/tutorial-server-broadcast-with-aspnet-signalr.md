@@ -8,16 +8,18 @@ ms.date: 04/10/2013
 ms.assetid: ab7b2554-956a-4f6d-b2a0-4ae0c62e8580
 msc.legacyurl: /signalr/overview/older-versions/tutorial-server-broadcast-with-aspnet-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 7d604af11ade848358e291d1df25f2f8df850132
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: d5c09f6493c4dedb4fc2ecbf9055dd014ede71f2
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48911984"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53288056"
 ---
 <a name="tutorial-server-broadcast-with-aspnet-signalr-1x"></a>Samouczek: Emisje serwera z użyciem ASP.NET SignalR 1.x
 ====================
 przez [Patrick Fletcher](https://github.com/pfletcher), [Tom Dykstra](https://github.com/tdykstra)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > W tym samouczku przedstawiono sposób tworzenia aplikacji sieci web, która używa biblioteki SignalR platformy ASP.NET, aby zapewnić funkcjonalność emisji serwera. Emisja Server oznacza, że inicjowane komunikacji z klientami przez serwer. Ten scenariusz wymaga innego podejścia programowania niż peer-to-peer scenariuszy, takich jak aplikacje rozmowy, w których komunikacji z klientami są inicjowane przez jeden lub więcej klientów.
 > 
@@ -272,7 +274,7 @@ Ukończono konfigurowanie kod serwera. W następnej sekcji należy skonfigurowa�
 
 <a id="enablelogging"></a>
 
-## <a name="enable-logging"></a>Włączanie rejestrowania
+## <a name="enable-logging"></a>Włącz rejestrowanie
 
 SignalR ma funkcję wbudowane funkcje rejestrowania, który można włączyć na kliencie, aby ułatwić rozwiązywanie problemów. W tej sekcji, Włącz rejestrowanie i zapoznaj się z przykładami, które pokazują, jak dzienniki informujące, który z poniższych metod transportu używa SignalR:
 

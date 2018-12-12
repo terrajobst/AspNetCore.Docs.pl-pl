@@ -8,16 +8,19 @@ ms.date: 07/16/2014
 ms.assetid: ba07958c-42e1-4da0-81db-ba6925ed6db0
 msc.legacyurl: /signalr/overview/getting-started/real-time-web-applications-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 59831fb8497c86ec5e02de3912b36a15f416597c
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: de2f2349fc284e167bd8227ae55da79b9f1f4549
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913245"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53288012"
 ---
 <a name="hands-on-lab-real-time-web-applications-with-signalr"></a>Ćwiczenia praktyczne: Aplikacje internetowe czasu rzeczywistego przy użyciu SignalR
 ====================
+
 Przez [Camp w sieci Web zespołu](https://twitter.com/webcamps)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 [Pobierz Camp Web szkolenia Kit](http://aka.ms/webcamps-training-kit)
 
@@ -25,9 +28,9 @@ Przez [Camp w sieci Web zespołu](https://twitter.com/webcamps)
 > 
 > **SignalR** udostępnia także prosty i ogólny interfejs API ten serwer do klienta RPC (wywołują funkcje JavaScript w przeglądarkach klientów z kodu .NET po stronie serwera) w aplikacji ASP.NET, a także dodawanie przydatne punkty zaczepienia umożliwiający zarządzanie połączeniami takie jak łączenie/rozłączanie połączeń zdarzenia, grupowanie połączeń i autoryzację.
 > 
-> **SignalR** jest warstwą abstrakcji nałożoną przez niektóre transportu, które są wymagane do pracy w czasie rzeczywistym między klientem i serwerem. A **SignalR** połączeniu rozpoczyna się jako HTTP, a następnie zostanie podwyższony do **WebSocket** połączenia, jeśli jest dostępny. **WebSocket** jest idealnym rozwiązaniem transport dla **SignalR**, ponieważ zapewnia najbardziej efektywne wykorzystanie pamięci serwera ma najniższe opóźnienie i ma większość podstawowych funkcji (takich jak komunikację pełnodupleksową między klientem i Server), ale ma również najbardziej rygorystyczne wymagania: **WebSocket** wymaga serwera, aby korzystać z **systemu Windows Server 2012** lub **systemu Windows 8**, wraz z **.NET framework 4.5**. Jeśli te wymagania nie są spełnione, **SignalR** podejmie próbę użycia innego transportu się jego połączenia (takich jak *Ajax długim sondowaniem*).
+> **SignalR** jest warstwą abstrakcji nałożoną przez niektóre transportu, które są wymagane do pracy w czasie rzeczywistym między klientem i serwerem. A **SignalR** połączeniu rozpoczyna się jako HTTP, a następnie zostanie podwyższony do **WebSocket** połączenia, jeśli jest dostępny. **WebSocket** jest idealnym rozwiązaniem transport dla **SignalR**, ponieważ zapewnia najbardziej efektywne wykorzystanie pamięci serwera ma najniższe opóźnienie i ma większość podstawowych funkcji (takich jak komunikację pełnodupleksową między klientem i Server), ale ma również najbardziej rygorystyczne wymagania: **WebSocket** wymaga serwera, aby korzystać z **systemu Windows Server 2012** lub **systemu Windows 8**, wraz z **.NET Framework 4.5**. Jeśli te wymagania nie są spełnione, **SignalR** podejmie próbę użycia innego transportu się jego połączenia (takich jak *Ajax długim sondowaniem*).
 > 
-> **SignalR** interfejs API zawiera dwa modele do komunikacji między klientami a serwerami: **połączeń trwałych** i **koncentratory**. A **połączenia** reprezentuje punkt końcowy proste wysyłanie pojedynczego adresata pogrupowane lub wiadomości emisji. A **Centrum** jest bardziej ogólny potokiem utworzonych na podstawie interfejsu API połączenia, który umożliwia klienta i serwera, bezpośrednie wywoływanie metod na siebie nawzajem.
+> **SignalR** interfejs API zawiera dwa modele do komunikacji między klientami a serwerami: **Połączenia trwałe** i **koncentratory**. A **połączenia** reprezentuje punkt końcowy proste wysyłanie pojedynczego adresata pogrupowane lub wiadomości emisji. A **Centrum** jest bardziej ogólny potokiem utworzonych na podstawie interfejsu API połączenia, który umożliwia klienta i serwera, bezpośrednie wywoływanie metod na siebie nawzajem.
 > 
 > ![Architektura SignalR](real-time-web-applications-with-signalr/_static/image1.png)
 > 
@@ -257,7 +260,7 @@ Te problemy można rozwiązać za pomocą składnik o nazwie *płyty montażowej
 Obecnie istnieją trzy typy montażowych dla elementu SignalR:
 
 - **Windows Azure Service Bus**. Service Bus to infrastruktura obsługi komunikatów, umożliwiający składników do wysyłania wiadomości luźno powiązane.
-- **Program SQL Server**. Płyty montażowej programu SQL Server zapisuje komunikaty do tabel SQL. Systemu backplane używa brokera usług dla komunikatów wydajne. Jednak działa Jeśli programu Service Broker nie jest włączona.
+- **SQL Server**. Płyty montażowej programu SQL Server zapisuje komunikaty do tabel SQL. Systemu backplane używa brokera usług dla komunikatów wydajne. Jednak działa Jeśli programu Service Broker nie jest włączona.
 - **Redis**. Redis jest przechowywanie par klucz wartość w pamięci. Usługa redis obsługuje wzorzec publikowania/subskrybowania ("pub/sub") do wysyłania wiadomości.
 
 Każdy komunikat jest wysyłany za pośrednictwem magistrali komunikatów. Implementuje w magistrali komunikatów [IMessageBus](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.messaging.imessagebus(v=vs.100).aspx) interfejs, który udostępnia abstrakcji publikowania/subskrybowania. Montażowych pracy, zastępując domyślne **IMessageBus** z magistralą przeznaczone dla tego systemu backplane.
@@ -269,9 +272,9 @@ Aby uzyskać więcej informacji na temat sposobu płyty montażowej SignalR dzia
 > [!NOTE]
 > Istnieją sytuacje, w którym płyty montażowej może stać się wąskim gardłem. Poniżej przedstawiono kilka typowych scenariuszy SignalR:
 > 
-> - [Emisja serwera](tutorial-server-broadcast-with-signalr.md) (np. giełdowej): montażowych zadziałać dla tego scenariusza, ponieważ serwer kontroluje szybkość, z jaką komunikaty są wysyłane.
-> - [Klient do klienta](tutorial-getting-started-with-signalr.md) (np. chat): W tym scenariuszu systemu backplane może być "wąskie gardło", jeśli liczba komunikatów jest skalowana o liczbie klientów; oznacza to, jeśli liczba komunikatów rośnie przyłączyć proporcjonalnie, ponieważ coraz więcej klientów.
-> - [O wysokiej częstotliwości w czasie rzeczywistym](tutorial-high-frequency-realtime-with-signalr.md) (np. w czasie rzeczywistym gry): płyty montażowej nie jest zalecane w przypadku tego scenariusza.
+> - [Emisja serwera](tutorial-server-broadcast-with-signalr.md) (np. giełdowej): Montażowych działa dobrze sprawdza się w tym scenariuszu, ponieważ serwer kontroluje szybkość, z jaką komunikaty są wysyłane.
+> - [Klient — klient](tutorial-getting-started-with-signalr.md) (np. chat): W tym scenariuszu systemu backplane może być "wąskie gardło", jeśli liczba komunikatów jest skalowana o liczbie klientów. oznacza to jeśli liczba komunikatów rośnie dołączyć proporcjonalnie, ponieważ coraz więcej klientów.
+> - [O wysokiej częstotliwości w czasie rzeczywistym](tutorial-high-frequency-realtime-with-signalr.md) (np. w czasie rzeczywistym gry): W tym scenariuszu nie zaleca się systemu backplane.
 
 
 W tym ćwiczeniu zostanie użyty **programu SQL Server** do dystrybucji wiadomości między **Quiz maniaków komputerowych** aplikacji. Te zadania będą uruchamiane na maszynie jeden test dowiesz się, jak ustawić konfigurację, ale w celu uzyskania pełnego wpływu, konieczne będzie wdrożenie aplikacji SignalR do co najmniej dwóch serwerów. SQL Server należy również zainstalować na jednym serwerze lub na oddzielnym serwerze dedykowanym.

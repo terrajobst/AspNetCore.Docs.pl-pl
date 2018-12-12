@@ -8,16 +8,18 @@ ms.date: 04/29/2013
 ms.assetid: 3fd9f11c-799b-4001-bd60-1e70cfc61c19
 msc.legacyurl: /signalr/overview/older-versions/scaleout-in-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 0cd1e64af031fea8078c8c1ca4c64b1e2e69d7e9
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: fffa424ea4b62a54b9df48aaa409541ab5d1608f
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41754242"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287601"
 ---
-<a name="introduction-to-scaleout-in-signalr-1x"></a>Wprowadzenie do skalowania w poziomie w SignalR 1.x
+<a name="introduction-to-scaleout-in-signalr-1x"></a>Wprowadzenie do skalowania w poziomie w usłudze SignalR 1.x
 ====================
 przez [Mike Wasson](https://github.com/MikeWasson), [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 Ogólnie rzecz biorąc, istnieją dwa sposoby skalowania aplikacji sieci web: *skalowanie w górę* i *skalowanie w poziomie*.
 
@@ -36,7 +38,7 @@ Biblioteka SignalR udostępnia obecnie trzy montażowych:
 
 - **Usługi Azure Service Bus**. Service Bus to infrastruktura obsługi komunikatów, umożliwiający składników do wysyłania wiadomości w swobodną.
 - **Redis**. Redis jest przechowywanie par klucz wartość w pamięci. Usługa redis obsługuje wzorzec publikowania/subskrybowania ("pub/sub") do wysyłania wiadomości.
-- **Program SQL Server**. Płyty montażowej programu SQL Server zapisuje komunikaty do tabel SQL. Systemu backplane używa brokera usług dla komunikatów wydajne. Jednak działa Jeśli programu Service Broker nie jest włączona.
+- **SQL Server**. Płyty montażowej programu SQL Server zapisuje komunikaty do tabel SQL. Systemu backplane używa brokera usług dla komunikatów wydajne. Jednak działa Jeśli programu Service Broker nie jest włączona.
 
 W przypadku wdrożenia aplikacji na platformie Azure, należy wziąć pod uwagę przy użyciu usługi Azure Service Bus systemu backplane. Jeśli są wdrażane w farmie serwerów, należy wziąć pod uwagę programu SQL Server lub montażowych pamięci podręcznej Redis.
 
@@ -60,9 +62,9 @@ Kursor działa mechanizm nawet wtedy, gdy klient jest kierowany do innego serwer
 
 Korzystając z płyty montażowej, przepływność komunikatów maksymalna jest niższa niż to, gdy klienci komunikować się bezpośrednio do węzła pojedynczego serwera. Wynika to z systemu backplane przekazuje każdy komunikat do każdego węzła, dzięki czemu systemu backplane może stać się wąskim gardłem. Czy to ograniczenie dotyczy problem, zależy od aplikacji. Na przykład poniżej przedstawiono kilka typowych scenariuszy SignalR:
 
-- [Emisja serwera](tutorial-server-broadcast-with-aspnet-signalr.md) (np. giełdowej): montażowych zadziałać dla tego scenariusza, ponieważ serwer kontroluje szybkość, z jaką komunikaty są wysyłane.
-- [Klient do klienta](tutorial-getting-started-with-signalr.md) (np. chat): W tym scenariuszu systemu backplane może być "wąskie gardło", jeśli liczba komunikatów jest skalowana o liczbie klientów; oznacza to, jeśli liczba komunikatów rośnie przyłączyć proporcjonalnie, ponieważ coraz więcej klientów.
-- [O wysokiej częstotliwości w czasie rzeczywistym](tutorial-high-frequency-realtime-with-signalr.md) (np. w czasie rzeczywistym gry): płyty montażowej nie jest zalecane w przypadku tego scenariusza.
+- [Emisja serwera](tutorial-server-broadcast-with-aspnet-signalr.md) (np. giełdowej): Montażowych działa dobrze sprawdza się w tym scenariuszu, ponieważ serwer kontroluje szybkość, z jaką komunikaty są wysyłane.
+- [Klient — klient](tutorial-getting-started-with-signalr.md) (np. chat): W tym scenariuszu systemu backplane może być "wąskie gardło", jeśli liczba komunikatów jest skalowana o liczbie klientów. oznacza to jeśli liczba komunikatów rośnie dołączyć proporcjonalnie, ponieważ coraz więcej klientów.
+- [O wysokiej częstotliwości w czasie rzeczywistym](tutorial-high-frequency-realtime-with-signalr.md) (np. w czasie rzeczywistym gry): W tym scenariuszu nie zaleca się systemu backplane.
 
 ## <a name="enabling-tracing-for-signalr-scaleout"></a>Włączanie śledzenia SignalR — skalowanie w poziomie
 

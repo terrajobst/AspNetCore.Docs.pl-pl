@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/03/2018
 uid: host-and-deploy/health-checks
-ms.openlocfilehash: d8fd43d9d689396cf30ca371763cdf7ac9423c77
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 6c1c644b2cd44cd00c68a8fd7d1e7d496ec91a59
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862769"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284685"
 ---
 # <a name="health-checks-in-aspnet-core"></a>Kontroli kondycji w programie ASP.NET Core
 
@@ -50,7 +50,7 @@ Inny scenariusz sprawdzania kondycji pokazuje sposób filtrowania kontrole kondy
 
 W przypadku wielu aplikacji konfiguracji sondy kondycji podstawowe raporty dostępności aplikacji do przetwarzania żądań (*żywotności*) jest wystarczająca dowiedzieć się, stan aplikacji.
 
-Podstawową konfigurację rejestruje usługi sprawdzania kondycji i wywołuje kondycji Sprawdź oprogramowania pośredniczącego, aby odpowiedzieć na punkt końcowy adres URL odpowiedzi kondycji. Domyślnie żadne testy kondycji konkretnego są rejestrowane do testowania dowolnej określonej zależności lub podsystemu. Aplikacja jest traktowany jako w dobrej kondycji, jeśli jest w stanie odpowiadać na adres URL punktu końcowego kondycji. Moduł zapisujący odpowiedzi domyślnej zapisuje stan (`HealthCheckStatus`) jako zwykły tekst odpowiedź z powrotem do klienta, wskazując `HealthCheckResult.Healthy` lub `HealthCheckResult.Unhealthy` stanu.
+Podstawową konfigurację rejestruje usługi sprawdzania kondycji i wywołuje kondycji Sprawdź oprogramowania pośredniczącego, aby odpowiedzieć na punkt końcowy adres URL odpowiedzi kondycji. Domyślnie żadne testy kondycji konkretnego są rejestrowane do testowania dowolnej określonej zależności lub podsystemu. Aplikacja jest traktowany jako w dobrej kondycji, jeśli jest w stanie odpowiadać na adres URL punktu końcowego kondycji. Moduł zapisujący odpowiedzi domyślnej zapisuje stan (`HealthStatus`) jako zwykły tekst odpowiedź z powrotem do klienta, wskazując `HealthStatus.Healthy`, `HealthStatus.Degraded` lub `HealthStatus.Unhealthy` stanu.
 
 Rejestrowanie usługi sprawdzania kondycji z `AddHealthChecks` w `Startup.ConfigureServices`. Dodaj oprogramowanie pośredniczące sprawdzanie kondycji za pomocą `UseHealthChecks` w potoku przetwarzania żądań `Startup.Configure`.
 
@@ -216,12 +216,12 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     app.UseHealthChecks("/health", new HealthCheckOptions()
     {
         // The following StatusCodes are the default assignments for
-        // the HealthCheckStatus properties.
+        // the HealthStatus properties.
         ResultStatusCodes =
         {
-            [HealthCheckStatus.Healthy] = StatusCodes.Status200OK,
-            [HealthCheckStatus.Degraded] = StatusCodes.Status200OK,
-            [HealthCheckStatus.Unhealthy] = StatusCodes.Status503ServiceUnavailable
+            [HealthStatus.Healthy] = StatusCodes.Status200OK,
+            [HealthStatus.Degraded] = StatusCodes.Status200OK,
+            [HealthStatus.Unhealthy] = StatusCodes.Status503ServiceUnavailable
         }
     });
 }

@@ -8,26 +8,26 @@ ms.date: 06/10/2014
 ms.assetid: 0fab5e35-8c1f-43d4-8635-b8aba8766a71
 msc.legacyurl: /signalr/overview/getting-started/introduction-to-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 0b7e223b6b793d1860797157be6021ffb7f1bc12
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: c865078c14b8615faa278819f86a9dd623a42f36
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090296"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287587"
 ---
-<a name="introduction-to-signalr"></a>Wprowadzenie do SignalR
+<a name="introduction-to-signalr"></a>Wprowadzenie do usługi SignalR
 ====================
 
-Zobacz [wprowadzenie do biblioteki SignalR platformy ASP.NET Core](/aspnet/core/signalr/introduction) zaktualizowana wersja tego samouczka, który używa najnowszej wersji programu Visual Studio. Nowe samouczku [platformy ASP.NET Core](/aspnet/core/), który udostępnia wiele ulepszeń w porównaniu z tego samouczka.
-
 przez [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
+
 
 > W tym artykule opisano, co to jest SignalR i niektóre z rozwiązań, który został zaprojektowany do utworzenia. 
 > 
 > ## <a name="questions-and-comments"></a>Pytania i komentarze
 > 
 > Jak się podoba w tym samouczku, i co można było ulepszyć proces w komentarzach u dołu strony, wystaw opinię. Jeśli masz pytania, na które nie są bezpośrednio związane z tego samouczka, możesz zamieścić je do [forum ASP.NET SignalR](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) lub [StackOverflow.com](https://stackoverflow.com/questions/tagged/signalr).
-
 
 ## <a name="what-is-signalr"></a>Co to jest SignalR?
 
@@ -57,7 +57,7 @@ SignalR używa nowy transport WebSocket, gdzie są dostępne i nastąpi powrót 
 
 ## <a name="transports-and-fallbacks"></a>Transporty i planów awaryjnych
 
-SignalR to Abstrakcja za pośrednictwem niektórych transportu, które są wymagane do pracy w czasie rzeczywistym między klientem i serwerem. Połączenia SignalR startuje jako protokołu HTTP, a następnie zostanie podwyższony do połączeń protokołu WebSocket, jeśli jest ona dostępna. Protokół WebSocket jest idealny transport dla elementu SignalR, ponieważ ona sprawia, że najbardziej efektywne wykorzystanie pamięci serwera, ma najniższe opóźnienie i ma większość podstawowych funkcji (na przykład w trybie pełnego dupleksu komunikacji między klientem i serwerem), ale ma on także najbardziej rygorystyczne wymagania dotyczące: WebSocket wymaga, aby serwer z systemem Windows Server 2012 lub Windows 8 i .NET Framework 4.5. Jeśli te wymagania nie są spełnione, SignalR spróbuje użyć innego transportu się jego połączenia.
+SignalR to Abstrakcja za pośrednictwem niektórych transportu, które są wymagane do pracy w czasie rzeczywistym między klientem i serwerem. Połączenia SignalR startuje jako protokołu HTTP, a następnie zostanie podwyższony do połączeń protokołu WebSocket, jeśli jest ona dostępna. Protokół WebSocket jest idealny transport dla elementu SignalR, ponieważ ona sprawia, że najbardziej efektywne wykorzystanie pamięci serwera, ma najniższe opóźnienie i ma większość podstawowych funkcji (na przykład w trybie pełnego dupleksu komunikacji między klientem i serwerem), ale ma on także najbardziej rygorystyczne wymagania: WebSocket wymaga serwera z systemem Windows Server 2012 lub Windows 8 i .NET Framework 4.5. Jeśli te wymagania nie są spełnione, SignalR spróbuje użyć innego transportu się jego połączenia.
 
 ### <a name="html-5-transports"></a>Służy do transportu HTML 5
 
@@ -132,7 +132,7 @@ Stałe typu string do określania transportów są zdefiniowane w następujący 
 
 ## <a name="connections-and-hubs"></a>Połączeniami i koncentratorami
 
-Interfejs API SignalR zawiera dwa modele do komunikacji między klientami a serwerami: trwałego połączeniami i koncentratorami.
+Interfejs API SignalR zawiera dwa modele do komunikacji między klientami a serwerami: Trwałe połączeniami i koncentratorami.
 
 Połączenie reprezentuje proste punktu końcowego do wysyłania wiadomości jednego adresata, pogrupowanych lub emisji. Udostępnia trwałe połączenie interfejsu API (reprezentowane przez klasę PersistentConnection w kodzie .NET), deweloper bezpośredni dostęp do protokołu komunikacyjnego niskiego poziomu, który udostępnia SignalR. Przy użyciu modelu komunikacji połączeń nie będą niczym nowym dla deweloperów, którzy korzystali z opartego na połączeniach interfejsów API, takich jak Windows Communication Foundation.
 

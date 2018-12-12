@@ -4,14 +4,14 @@ author: guardrex
 description: Dowiedz się, jak hostować aplikacje platformy ASP.NET Core na systemu Windows serwera Internet Information Services (IIS).
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/01/2018
+ms.date: 12/11/2018
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 5919fe66139260bace1c356c833abb132ba4b2e8
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: b71adcaad710ecfb7f81de0cc302f293d1728bec
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121755"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53288121"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host platformy ASP.NET Core na Windows za pomocą programu IIS
 
@@ -32,6 +32,14 @@ Obsługiwane są następujące systemy operacyjne:
 [Serwer HTTP.sys](xref:fundamentals/servers/httpsys) (wcześniej noszącą nazwę [WebListener](xref:fundamentals/servers/weblistener)) nie działa w konfiguracji zwrotny serwer proxy z usługami IIS. Użyj [serwera Kestrel](xref:fundamentals/servers/kestrel).
 
 Aby uzyskać informacji na temat obsługi na platformie Azure, zobacz <xref:host-and-deploy/azure-apps/index>.
+
+## <a name="supported-platforms"></a>Obsługiwane platformy
+
+Aplikacje opublikowane (x86) 32-bitowych i 64-bitowych (x 64) wdrożenia są obsługiwane. Wdrażanie aplikacji 32-bitowych, chyba że aplikacja:
+
+* Wymaga większych pamięci wirtualnej przestrzeni adresowej dostępne dla aplikacji 64-bitowych.
+* Wymaga większy rozmiar stosu usług IIS.
+* Ma zależności natywnych 64-bitowych.
 
 ## <a name="application-configuration"></a>Konfiguracja aplikacji
 
@@ -227,10 +235,10 @@ Włącz **serwer sieci Web (IIS)** roli serwera i ustanowić usług ról.
    ![Domyślne usługi ról są wybrane w kroku wybierz rolę usług.](index/_static/role-services-ws2016.png)
 
    **Windows Authentication (opcjonalnie)**  
-   Aby włączyć uwierzytelnianie Windows, rozwiń następujące węzły: **serwera sieci Web** > **zabezpieczeń**. Wybierz **uwierzytelniania Windows** funkcji. Aby uzyskać więcej informacji, zobacz [uwierzytelniania Windows \<windowsAuthentication >](/iis/configuration/system.webServer/security/authentication/windowsAuthentication/) i [uwierzytelniania Windows skonfiguruj](xref:security/authentication/windowsauth).
+   Aby włączyć uwierzytelnianie Windows, rozwiń następujące węzły: **Serwer sieci Web** > **zabezpieczeń**. Wybierz **uwierzytelniania Windows** funkcji. Aby uzyskać więcej informacji, zobacz [uwierzytelniania Windows \<windowsAuthentication >](/iis/configuration/system.webServer/security/authentication/windowsAuthentication/) i [uwierzytelniania Windows skonfiguruj](xref:security/authentication/windowsauth).
 
    **Gniazda Websocket (opcjonalnie)**  
-   Funkcja WebSockets jest obsługiwana przy użyciu platformy ASP.NET Core 1.1 lub nowszej. Aby włączyć protokół WebSockets, rozwiń następujące węzły: **serwera sieci Web** > **opracowywanie aplikacji**. Wybierz **protokołu WebSocket** funkcji. Aby uzyskać więcej informacji, zobacz [WebSockets](xref:fundamentals/websockets).
+   Funkcja WebSockets jest obsługiwana przy użyciu platformy ASP.NET Core 1.1 lub nowszej. Aby włączyć protokół WebSockets, rozwiń następujące węzły: **Serwer sieci Web** > **opracowywanie aplikacji**. Wybierz **protokołu WebSocket** funkcji. Aby uzyskać więcej informacji, zobacz [WebSockets](xref:fundamentals/websockets).
 
 1. Postępuj zgodnie z instrukcjami **potwierdzenie** krok w celu zainstalowania roli Serwer sieci web i usług. Ponowne uruchomienie serwera/IIS nie jest wymagane po zainstalowaniu **serwer sieci Web (IIS)** roli.
 
@@ -249,10 +257,10 @@ Włącz **Konsola zarządzania usługami IIS** i **usługi World Wide Web**.
 1. Zaakceptuj domyślne funkcje dla **usługi World Wide Web** lub dostosowywanie funkcji usług IIS.
 
    **Windows Authentication (opcjonalnie)**  
-   Aby włączyć uwierzytelnianie Windows, rozwiń następujące węzły: **usługi World Wide Web** > **zabezpieczeń**. Wybierz **uwierzytelniania Windows** funkcji. Aby uzyskać więcej informacji, zobacz [uwierzytelniania Windows \<windowsAuthentication >](/iis/configuration/system.webServer/security/authentication/windowsAuthentication/) i [uwierzytelniania Windows skonfiguruj](xref:security/authentication/windowsauth).
+   Aby włączyć uwierzytelnianie Windows, rozwiń następujące węzły: **Usługi World Wide Web** > **zabezpieczeń**. Wybierz **uwierzytelniania Windows** funkcji. Aby uzyskać więcej informacji, zobacz [uwierzytelniania Windows \<windowsAuthentication >](/iis/configuration/system.webServer/security/authentication/windowsAuthentication/) i [uwierzytelniania Windows skonfiguruj](xref:security/authentication/windowsauth).
 
    **Gniazda Websocket (opcjonalnie)**  
-   Funkcja WebSockets jest obsługiwana przy użyciu platformy ASP.NET Core 1.1 lub nowszej. Aby włączyć protokół WebSockets, rozwiń następujące węzły: **usługi World Wide Web** > **funkcje tworzenia aplikacji**. Wybierz **protokołu WebSocket** funkcji. Aby uzyskać więcej informacji, zobacz [WebSockets](xref:fundamentals/websockets).
+   Funkcja WebSockets jest obsługiwana przy użyciu platformy ASP.NET Core 1.1 lub nowszej. Aby włączyć protokół WebSockets, rozwiń następujące węzły: **Usługi World Wide Web** > **funkcje tworzenia aplikacji**. Wybierz **protokołu WebSocket** funkcji. Aby uzyskać więcej informacji, zobacz [WebSockets](xref:fundamentals/websockets).
 
 1. Jeśli instalacja usług IIS wymaga ponownego uruchomienia komputera, uruchom ponownie system.
 
@@ -330,7 +338,7 @@ W przypadku wdrażania aplikacji na serwerach z [narzędzia Web Deploy](/iis/pub
 
     Platforma ASP.NET Core działa w oddzielnym procesie i zarządza środowiska uruchomieniowego. Platforma ASP.NET Core nie jest zależny od ładowanie klasycznych CLR. Ustawienie **wersja środowiska .NET CLR** do **bez kodu zarządzanego** jest opcjonalne.
 
-1. *Platforma ASP.NET Core 2,2 lub nowszej*: dla 64-bitowych (x 64) [niezależna wdrożenia](/dotnet/core/deploying/#self-contained-deployments-scd) , który używa [modelu hostingu w trakcie](xref:fundamentals/servers/aspnet-core-module#in-process-hosting-model), Wyłącz pulę aplikacji dla procesów 32-bitowych (x 86).
+1. *Platforma ASP.NET Core 2,2 lub nowszej*: Dla (x64) 64-bitowych [niezależna wdrożenia](/dotnet/core/deploying/#self-contained-deployments-scd) , który używa [modelu hostingu w trakcie](xref:fundamentals/servers/aspnet-core-module#in-process-hosting-model), Wyłącz pulę aplikacji dla procesów 32-bitowych (x 86).
 
    W **akcje** Menedżera usług IIS na pasku bocznym **pul aplikacji**, wybierz opcję **ustawienia domyślne puli aplikacji** lub **Zaawansowane ustawienia**. Znajdź **Włącz 32-bitowych aplikacji** i ustaw wartość `False`. To ustawienie nie ma wpływu na aplikacje wdrożone dla [hostingu poza procesem](xref:fundamentals/servers/aspnet-core-module#out-of-process-hosting-model).
 
@@ -404,7 +412,7 @@ Aby skonfigurować ochronę danych w środowisku usług IIS, aby utrwalić pier�
 
   Dla autonomicznej, bez webfarm instalacji usług IIS, [skrypt programu PowerShell do aprowizacji AutoGenKeys.ps1 ochrony danych](https://github.com/aspnet/AspNetCore/blob/master/src/DataProtection/Provision-AutoGenKeys.ps1) może służyć do każdej puli aplikacji używana z aplikacji ASP.NET Core. Ten skrypt tworzy klucz rejestru w rejestrze HKLM, który jest dostępny tylko dla konta procesu roboczego puli aplikacji w aplikacji. Klucze są szyfrowane za pomocą DPAPI za pomocą klucza komputera.
 
-  W scenariuszach z farmami internetowymi można skonfigurować aplikację można użyć ścieżki UNC do przechowywania jego pierścień klucz ochrony danych. Domyślnie klucze ochrony danych nie są szyfrowane. Upewnij się, że uprawnienia do udziału sieciowego są ograniczone do konta Windows, którego aplikacja działa. X509 certyfikatu może służyć do ochrony kluczy w stanie spoczynku. Należy wziąć pod uwagę mechanizmu, aby zezwolić użytkownikom na przekazywanie certyfikatów: miejsce certyfikatów do zaufanego certyfikatu przez użytkownika, przechowywania i upewnij się, są one dostępne na wszystkich komputerach, którym jest uruchamiany aplikacji użytkownika. Zobacz [konfiguracji ochrony danych platformy ASP.NET Core](xref:security/data-protection/configuration/overview) Aby uzyskać szczegółowe informacje.
+  W scenariuszach z farmami internetowymi można skonfigurować aplikację można użyć ścieżki UNC do przechowywania jego pierścień klucz ochrony danych. Domyślnie klucze ochrony danych nie są szyfrowane. Upewnij się, że uprawnienia do udziału sieciowego są ograniczone do konta Windows, którego aplikacja działa. X509 certyfikatu może służyć do ochrony kluczy w stanie spoczynku. Należy wziąć pod uwagę mechanizmu, aby zezwolić użytkownikom na przekazywanie certyfikatów: Miejsce certyfikatów do zaufanego certyfikatu przez użytkownika, Przechowuj i upewnij się, że są one dostępne na wszystkich komputerach, którym jest uruchamiany aplikacji użytkownika. Zobacz [konfiguracji ochrony danych platformy ASP.NET Core](xref:security/data-protection/configuration/overview) Aby uzyskać szczegółowe informacje.
 
 * **Konfigurowanie puli aplikacji usług IIS, aby załadować profil użytkownika**
 
@@ -542,11 +550,11 @@ Jeśli proces roboczy usług IIS wymaga podwyższonego poziomu dostępu do aplik
 
 1. Wprowadź **puli aplikacji IIS\\< app_pool_name >** w **wprowadź nazwy obiektów do wybrania** obszaru. Wybierz **Sprawdź nazwy** przycisku. Aby uzyskać *DefaultAppPool* Sprawdź nazwy przy użyciu **IIS AppPool\DefaultAppPool**. Gdy **Sprawdź nazwy** przycisk jest zaznaczony, wartość **DefaultAppPool** podane w obszarze nazwy obiektu. Nie można wprowadzić nazwę puli aplikacji bezpośrednio do obszaru nazw obiektów. Użyj **puli aplikacji IIS\\< app_pool_name >** formatowania podczas sprawdzania dostępności nazwy obiektu.
 
-   ![Użytkownicy lub grupy, okno dialogowe wyboru folderu aplikacji: Nazwa puli aplikacji "DefaultAppPool" jest dołączany do "puli aplikacji IIS\" w obszarze nazwy obiektu przed wybraniem opcji"Sprawdź nazwy".](index/_static/select-users-or-groups-1.png)
+   ![Wybierz użytkowników lub grup okno dialogowe folderu aplikacji: Nazwa puli aplikacji "DefaultAppPool" jest dołączany do "puli aplikacji IIS\" w obszarze nazwy obiektu przed wybraniem opcji"Sprawdź nazwy".](index/_static/select-users-or-groups-1.png)
 
-1. Wybierz **OK**.
+1. Kliknij przycisk **OK**.
 
-   ![Użytkownicy lub grupy, okno dialogowe wyboru folderu aplikacji: po wybraniu pozycji "Sprawdź nazwy", nazwa obiektu "DefaultAppPool" jest wyświetlany w obiekcie nazwy obszaru.](index/_static/select-users-or-groups-2.png)
+   ![Wybierz użytkowników lub grup okno dialogowe folderu aplikacji: Po wybraniu pozycji "Sprawdź nazwy", nazwa obiektu "DefaultAppPool" jest wyświetlany w obszarze nazwy obiektu.](index/_static/select-users-or-groups-2.png)
 
 1. Odczyt &amp; wykonania uprawnienia domyślne. Podaj dodatkowe uprawnienia, stosownie do potrzeb.
 
@@ -584,7 +592,7 @@ Aby uzyskać więcej informacji o modelach hostingu w procesie i poza procesem, 
 
 * Windows Server 2016 i Windows 10 lub nowszym; Usługi IIS 10 lub nowszym
 * Połączenia z serwerem usługi edge publicznego służy połączenia zwrotnego serwera proxy protokołu HTTP/2 [serwera Kestrel](xref:fundamentals/servers/kestrel) korzysta z protokołu HTTP/1.1.
-* Platforma docelowa: nie dotyczy wdrożeń spoza procesu, ponieważ połączenie HTTP/2 jest obsługiwane wyłącznie przez usługi IIS.
+* Lokalizacja docelowa: Nie dotyczy wdrożeń spoza procesu, ponieważ połączenie HTTP/2 jest obsługiwane wyłącznie przez usługi IIS.
 * Protokół TLS 1.2 lub nowszej połączenia
 
 Jeśli zostanie nawiązane połączenie HTTP/2, [HttpRequest.Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) raporty `HTTP/1.1`.

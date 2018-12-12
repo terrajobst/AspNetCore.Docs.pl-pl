@@ -9,24 +9,26 @@ ms.date: 10/03/2018
 ms.assetid: 2a127d3b-21ed-4cc9-bec0-cdab4e742a25
 msc.legacyurl: /signalr/overview/performance/using-signalr-performance-counters-in-an-azure-web-role
 msc.type: authoredcontent
-ms.openlocfilehash: 7304ff17bb53f94bdee1e90602d206bf32184e37
-ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
+ms.openlocfilehash: bdd875201895c6eaf155b54582d0898c2570d93c
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48795463"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287719"
 ---
 # <a name="using-signalr-performance-counters-in-an-azure-web-role"></a>Korzystanie z liczników wydajności SignalR w roli sieci Web platformy Azure
 
 Przez [Luke Latham](https://github.com/guardrex)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 Liczniki wydajności SignalR są używane do monitorowania wydajności aplikacji w roli sieci Web platformy Azure. Liczniki są przechwytywane przez Microsoft Azure Diagnostics. Instalowanie liczników wydajności SignalR na platformie Azure dzięki *signalr.exe*, tego samego narzędzia, które są używane dla aplikacji autonomicznych lub w środowisku lokalnym. Ponieważ przejściowy ról platformy Azure, możesz skonfigurować aplikację tak, aby zainstalować i zarejestrować liczników wydajności SignalR podczas uruchamiania.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Program Visual Studio 2015 lub [2017 r.](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)
-* [Zestaw Microsoft Azure SDK dla programu Visual Studio](https://azure.microsoft.com/downloads/) **Uwaga: ponowne uruchomienie komputera po zainstalowaniu zestawu SDK.**
-* Subskrypcja Microsoft Azure: aby Załóż bezpłatne konto wersji próbnej platformy Azure, zobacz [bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/free/).
+* [Zestaw Microsoft Azure SDK dla programu Visual Studio](https://azure.microsoft.com/downloads/) **Uwaga: Ponowne uruchomienie komputera po zainstalowaniu zestawu SDK.**
+* Subskrypcja Microsoft Azure: Aby utworzyć bezpłatne konto wersji próbnej platformy Azure, zobacz [bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/free/).
 
 ## <a name="creating-an-azure-web-role-application-that-exposes-signalr-performance-counters"></a>Tworzenie aplikacji w roli sieci Web platformy Azure, który udostępnia liczników wydajności SignalR
 
@@ -43,7 +45,7 @@ Liczniki wydajności SignalR są używane do monitorowania wydajności aplikacji
    >
    > ![Obciążenie programistyczne platformy Azure w Instalatorze programu Visual Studio](using-signalr-performance-counters-in-an-azure-web-role/_static/azure-development-workload.png)
 
-4. W **nową usługę w chmurze Azure Microsoft** okno dialogowe, wybierz opcję **Role sieci Web ASP.NET** i wybierz > przycisk, aby dodać rolę do projektu. Wybierz **OK**.
+4. W **nową usługę w chmurze Azure Microsoft** okno dialogowe, wybierz opcję **Role sieci Web ASP.NET** i wybierz > przycisk, aby dodać rolę do projektu. Kliknij przycisk **OK**.
 
    ![Dodaj rolę sieci Web platformy ASP.NET](using-signalr-performance-counters-in-an-azure-web-role/_static/image2.png)
 
