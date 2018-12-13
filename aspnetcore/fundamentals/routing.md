@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/15/2018
 uid: fundamentals/routing
-ms.openlocfilehash: f18ec1da2affbf67b7ada570b68f98a42c7256a5
-ms.sourcegitcommit: ad28d1bc6657a743d5c2fa8902f82740689733bb
+ms.openlocfilehash: 66d719bb14095dcec4c2cfa15b63cf74ad7a0d49
+ms.sourcegitcommit: 1ea1b4fc58055c62728143388562689f1ef96cb2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52256596"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53329162"
 ---
 # <a name="routing-in-aspnet-core"></a>Routing w programie ASP.NET Core
 
@@ -276,7 +276,7 @@ Kilka istnieją różnice między punktu końcowego routingu w programie ASP.NET
 
   W punkcie końcowym routingu za pomocą platformy ASP.NET Core 2.2 lub nowszej, wynik jest `/Login`. Otoczenia wartości nie są ponownie użyte w przypadku połączonych miejscem docelowym jest inną akcję lub strony.
 
-* Składnia parametru trasy Pełna zgodnooć wersji: ukośników nie są zakodowane, korzystając z double — gwiazdka (`**`) parametrze wychwytywania składni.
+* Składnia parametru trasy Pełna zgodnooć wersji: Ukośników nie są zakodowane, korzystając z double — gwiazdka (`**`) parametrze wychwytywania składni.
 
   Podczas generowania łącza routingu systemu koduje wartość przechwycone z double — gwiazdka (`**`) parametrze wychwytywania (na przykład `{**myparametername}`) z wyjątkiem kreski ułamkowe. Przechwytującą cały gwiazdki podwójnej precyzji jest obsługiwane w przypadku `IRouter`— na podstawie routingu w programie ASP.NET Core 2.2 lub nowszym.
 
@@ -679,12 +679,23 @@ Parametr transformatory:
 
 Na przykład niestandardowy `slugify` transformatora parametr we wzorcu trasy `blog\{article:slugify}` z `Url.Action(new { article = "MyTestArticle" })` generuje `blog\my-test-article`.
 
+Aby użyć transformatora parametr we wzorcu trasy, jest skonfigurowana najpierw za pomocą <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap> w `Startup.ConfigureServices`:
+
+```csharp
+services.AddRouting(options =>
+{
+    // Replace the type and the name used to refer to it with your own
+    // IOutboundParameterTransformer implementation
+    options.ConstraintMap["slugify"] = typeof(SlugifyParameterTransformer);
+});
+```
+
 Parametr transformatory są używane przez platformę do przekształcania identyfikatora URI, gdzie jest rozpoznawany jako punkt końcowy. Na przykład ASP.NET Core MVC używa parametru transformatory do przekształcania wartości trasy, używany do dopasowywania `area`, `controller`, `action`, i `page`.
 
 ```csharp
 routes.MapRoute(
     name: "default",
-    template: "{controller=Home:slugify}/{action=Index:slugify}/{id?}");
+    template: "{controller:slugify=Home}/{action:slugify=Index}/{id?}");
 ```
 
 Trasa poprzedniej akcji `SubscriptionManagementController.GetAll()` jest dopasowany do identyfikatora URI `/subscription-management/get-all`. Transformer parametru nie zmienia wartości trasy, używanego do generowania łącza. Na przykład `Url.Action("GetAll", "SubscriptionManagement")` generuje `/subscription-management/get-all`.

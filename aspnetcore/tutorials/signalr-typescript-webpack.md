@@ -2,17 +2,16 @@
 title: Używanie biblioteki SignalR platformy ASP.NET Core za pomocą TypeScript i Webpack
 author: ssougnez
 description: W tym samouczku skonfigurujesz Webpack połączyć w paczkę i Utwórz aplikację sieci web biblioteki SignalR platformy ASP.NET Core, którego klient został napisany w TypeScript.
-monikerRange: '>= aspnetcore-2.2'
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 11/30/2018
 uid: tutorials/signalr-typescript-webpack
-ms.openlocfilehash: b2d59dfc449953cc2d747b507295c00ac0f652dd
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 92709beb7a99289b8639135aab9d821937825103
+ms.sourcegitcommit: a16352c1c88a71770ab3922200a8cd148fb278a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862255"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53335289"
 ---
 # <a name="use-aspnet-core-signalr-with-typescript-and-webpack"></a>Używanie biblioteki SignalR platformy ASP.NET Core za pomocą TypeScript i Webpack
 
@@ -20,7 +19,7 @@ Przez [Sébastien Sougnez](https://twitter.com/ssougnez) i [Scott Addie](https:/
 
 [Webpack](https://webpack.js.org/) umożliwia deweloperom połączyć w paczkę i tworzyć zasoby po stronie klienta aplikacji sieci web. Ten samouczek pokazuje, za pomocą Webpack w aplikacji sieci web biblioteki SignalR platformy ASP.NET Core, którego klient został napisany w [TypeScript](https://www.typescriptlang.org/).
 
-W tym samouczku dowiesz się, jak:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenia szkieletu początkową aplikację biblioteki SignalR platformy ASP.NET Core
@@ -103,9 +102,9 @@ Poniższe kroki konfigurowania konwersji TypeScript w kodzie JavaScript i paczki
 
     Niektórych wyjaśnienie skrypty:
 
-    * `build`: Zawiera zasoby po stronie klienta w trybie projektowania, a następnie oczekuje na zmiany w plikach. Obserwator plików powoduje, że pakiet ponownie wygenerować każdorazowo zmiany w pliku projektu. `mode` Opcja wyłącza optymalizacje, produkcji, takie jak potrząsając drzewa i minimalizowanie. Używaj tylko `build` w trakcie opracowywania.
+    * `build`: Razem z zasobami klienta w trybie projektowania, a następnie oczekuje na zmiany w plikach. Obserwator plików powoduje, że pakiet ponownie wygenerować każdorazowo zmiany w pliku projektu. `mode` Opcja wyłącza optymalizacje, produkcji, takie jak potrząsając drzewa i minimalizowanie. Używaj tylko `build` w trakcie opracowywania.
     * `release`: Zawiera zasoby po stronie klienta w trybie produkcyjnym.
-    * `publish`: Uruchamia `release` skrypt, aby powiązać zasoby po stronie klienta w trybie produkcyjnym. Wywołuje .NET Core interfejsu wiersza polecenia [publikowania](/dotnet/core/tools/dotnet-publish) polecenie, aby opublikować aplikację.
+    * `publish`: Przebiegi `release` skrypt, aby powiązać zasoby po stronie klienta w trybie produkcyjnym. Wywołuje .NET Core interfejsu wiersza polecenia [publikowania](/dotnet/core/tools/dotnet-publish) polecenie, aby opublikować aplikację.
 
 1. Utwórz plik o nazwie *webpack.config.js*, w katalogu głównym projektu o następującej zawartości:
 

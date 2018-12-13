@@ -5,14 +5,14 @@ description: Dowiedz się, jak skonfigurować kontrole kondycji infrastruktury p
 monikerRange: '>= aspnetcore-2.2'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/03/2018
+ms.date: 12/12/2018
 uid: host-and-deploy/health-checks
-ms.openlocfilehash: 6c1c644b2cd44cd00c68a8fd7d1e7d496ec91a59
-ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
+ms.openlocfilehash: cf2aea91221887dad5646604214f810493d4b175
+ms.sourcegitcommit: 1ea1b4fc58055c62728143388562689f1ef96cb2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284685"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53329149"
 ---
 # <a name="health-checks-in-aspnet-core"></a>Kontroli kondycji w programie ASP.NET Core
 
@@ -36,10 +36,12 @@ Kontrole kondycji są zwykle używane z zewnętrznego monitorowania usługi lub 
 
 Odwołanie [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) lub Dodaj odwołanie do pakietu [Microsoft.AspNetCore.Diagnostics.HealthChecks](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics.HealthChecks) pakietu.
 
-Przykładowa aplikacja zawiera kod startowy wykazanie, że kontrole kondycji dla kilku scenariuszy. [Sondowanie bazy danych](#database-probe) scenariusza sondy kondycji połączenia bazy danych przy użyciu [BeatPulse](https://github.com/Xabaril/BeatPulse). [Sondy DbContext](#entity-framework-core-dbcontext-probe) scenariusza sondy bazę danych przy użyciu programu EF Core `DbContext`. Aby zapoznać się z scenariusze bazy danych za pomocą przykładowej aplikacji:
+Przykładowa aplikacja zawiera kod uruchamiający wykazanie, że kontrole kondycji dla kilku scenariuszy. [Sondowanie bazy danych](#database-probe) scenariusz sprawdza kondycję połączenia bazy danych przy użyciu [BeatPulse](https://github.com/Xabaril/BeatPulse). [Sondy DbContext](#entity-framework-core-dbcontext-probe) scenariusz sprawdza bazę danych przy użyciu programu EF Core `DbContext`. Aby zapoznać się w scenariuszach bazy danych dla przykładowej aplikacji:
 
-* Tworzenie bazy danych oraz zapewnienia jego parametry połączenia w *appsettings.json* pliku aplikacji.
-* Dodaj odwołanie do pakietu [AspNetCore.HealthChecks.SqlServer](https://www.nuget.org/packages/AspNetCore.HealthChecks.SqlServer/).
+* Tworzy bazę danych i zapewnia jego parametry połączenia w *appsettings.json* pliku.
+* Ma następujące odwołania do pakietu w pliku projektu:
+  * [AspNetCore.HealthChecks.SqlServer](https://www.nuget.org/packages/AspNetCore.HealthChecks.SqlServer/)
+  * [Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore](https://www.nuget.org/packages/Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore/)
 
 > [!NOTE]
 > [BeatPulse](https://github.com/Xabaril/BeatPulse) nie jest obsługiwany lub obsługiwane przez firmę Microsoft.
@@ -314,9 +316,17 @@ dotnet run --scenario db
 
 ## <a name="entity-framework-core-dbcontext-probe"></a>Entity Framework Core DbContext sondy
 
-`DbContext` Sprawdzanie jest obsługiwane w aplikacjach, które używają [Core Entity Framework (EF)](/ef/core/). To sprawdzenie potwierdza, że aplikacja może komunikować się z bazą danych skonfigurowane dla platformy EF Core `DbContext`. Domyślnie `DbContextHealthCheck` wywołuje programu EF Core `CanConnectAsync` metody. Można dostosować, jakie działanie jest uruchamiany, gdy sprawdzanie kondycji za pomocą przeciążenia `AddDbContextCheck` metody.
+`DbContext` Wyboru potwierdza, że aplikacja może komunikować się z bazą danych skonfigurowane dla platformy EF Core `DbContext`. `DbContext` Wyboru jest obsługiwane w aplikacjach który:
 
-`AddDbContextCheck<TContext>` rejestruje sprawdzenia kondycji `DbContext` (`TContext`). Domyślnie nazwa sprawdzenie kondycji jest nazwą `TContext` typu. Przeciążenie jest dostępna do konfigurowania stanu awarii, tagi i zapytań niestandardowych testu.
+* Użyj [platformy Entity Framework (EF) Core](/ef/core/).
+* Odwołanie do pakietu [Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore](https://www.nuget.org/packages/Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore/).
+
+`AddDbContextCheck<TContext>` rejestruje sprawdzenia kondycji `DbContext`. `DbContext` Jest dostarczany jako `TContext` do metody. Przeciążenie jest dostępna do konfigurowania stanu awarii, tagi i zapytań niestandardowych testu.
+
+Domyślnie:
+
+* `DbContextHealthCheck` Wywołuje programu EF Core `CanConnectAsync` metody. Można dostosować, jakie działanie jest uruchamiane podczas sprawdzania kondycji za pomocą `AddDbContextCheck` przeciążenia metody.
+* Nazwa kontroli kondycji jest nazwą `TContext` typu.
 
 W przykładowej aplikacji `AppDbContext` jest dostarczany w celu `AddDbContextCheck` i zarejestrowany jako usługa w `Startup.ConfigureServices`.
 

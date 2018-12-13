@@ -2,19 +2,18 @@
 title: Wprowadzenie do biblioteki SignalR platformy ASP.NET Core
 author: tdykstra
 description: W tym samouczku utworzysz aplikację rozmowy, która korzysta z biblioteki SignalR platformy ASP.NET Core.
-monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
 ms.date: 11/30/2018
 uid: tutorials/signalr
-ms.openlocfilehash: c52041b34d6c9d1d8f06f980c900b805a0933293
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 904031c58b06f12d41902802f8ab3927b29ae94b
+ms.sourcegitcommit: a16352c1c88a71770ab3922200a8cd148fb278a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861990"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53335352"
 ---
-# <a name="tutorial-get-started-with-aspnet-core-signalr"></a>Samouczek: Rozpoczynanie pracy przy użyciu biblioteki SignalR platformy ASP.NET Core
+# <a name="tutorial-get-started-with-aspnet-core-signalr"></a>Samouczek: Wprowadzenie do biblioteki SignalR platformy ASP.NET Core
 
 W tym samouczku pokazano podstawowe informacje dotyczące tworzenia aplikacji w czasie rzeczywistym przy użyciu biblioteki SignalR. Dowiesz się, jak:
 
@@ -30,10 +29,6 @@ Po zakończeniu będziesz mieć działającą aplikację rozmowy:
 ![SignalR przykładowej aplikacji](signalr/_static/signalr-get-started-finished.png)
 
 [Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/signalr/sample) ([sposobu pobierania](xref:index#how-to-download-a-sample)).
-
-> [!NOTE]
-> W tej chwili testujemy użyteczność nowo zaproponowanej struktury spisu treści dla dokumentacji platformy ASP.NET Core.  Jeśli możesz poświęcić chwilę na wykonanie ćwiczenia polegającego na znalezieniu 7 różnych tematów w aktualnym lub zaproponowanym spisie treści, [kliknij tutaj i weź udział w badaniu](https://dpk4xbh5.optimalworkshop.com/treejack/aa11wn82).
-
 
 [!INCLUDE [|Prerequisites](~/includes/net-core-prereqs-all-2.2.md)]
 
@@ -70,7 +65,7 @@ Po zakończeniu będziesz mieć działającą aplikację rozmowy:
 
 * Wybierz **platformy .NET Core > aplikacji > aplikacji internetowej ASP.NET Core** (nie wybieraj **ASP.NET Core Web App (MVC)**).
 
-* Wybierz **dalej**.
+* Wybierz opcję **Dalej**.
 
 * Nadaj projektowi nazwę *SignalRChat*, a następnie wybierz pozycję **Utwórz**.
 
@@ -236,7 +231,7 @@ Serwer biblioteki SignalR musi być skonfigurowany do przekazywania żądań Sig
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przedstawiono sposób:
+W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie projektu aplikacji sieci web.

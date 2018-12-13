@@ -5,12 +5,12 @@ description: Dowiedz się, jak rozpocząć pracę z ASP.NET Core MVC i programu 
 ms.author: riande
 ms.date: 10/07/2017
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: 738c49272c2ae2b075866001f06ad09fe73969f9
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: dfc9a864cf10db5fc44d5631dcbb2f73325d9e14
+ms.sourcegitcommit: a16352c1c88a71770ab3922200a8cd148fb278a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862203"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53335328"
 ---
 # <a name="get-started-with-aspnet-core-mvc-and-visual-studio"></a>Wprowadzenie do ASP.NET Core MVC i programu Visual Studio
 
@@ -20,12 +20,9 @@ Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Istnieją 3 wersje tego samouczka:
 
-* System macOS: [tworzenie aplikacji ASP.NET Core MVC za pomocą programu Visual Studio dla komputerów Mac](xref:tutorials/first-mvc-app-mac/start-mvc)
-* Windows: [tworzenie aplikacji MVC platformy ASP.NET Core z programem Visual Studio](xref:tutorials/first-mvc-app/start-mvc)
-* System macOS, Linux i Windows: [tworzenie aplikacji ASP.NET Core MVC za pomocą programu Visual Studio Code](xref:tutorials/first-mvc-app-xplat/start-mvc)
-
-> [!NOTE]
-> W tej chwili testujemy użyteczność nowo zaproponowanej struktury spisu treści dla dokumentacji platformy ASP.NET Core.  Jeśli możesz poświęcić chwilę na wykonanie ćwiczenia polegającego na znalezieniu 7 różnych tematów w aktualnym lub zaproponowanym spisie treści, [kliknij tutaj i weź udział w badaniu](https://dpk4xbh5.optimalworkshop.com/treejack/aa11wn82).
+* System macOS: [Tworzenie aplikacji MVC platformy ASP.NET Core z programem Visual Studio dla komputerów Mac](xref:tutorials/first-mvc-app-mac/start-mvc)
+* W systemie Windows: [Tworzenie aplikacji MVC platformy ASP.NET Core z programem Visual Studio](xref:tutorials/first-mvc-app/start-mvc)
+* z systemem macOS, Linux i Windows: [Tworzenie aplikacji MVC platformy ASP.NET Core przy użyciu programu Visual Studio Code](xref:tutorials/first-mvc-app-xplat/start-mvc)
 
 ## <a name="install-visual-studio-and-net-core"></a>Instalowanie programu Visual Studio i .NET Core
 

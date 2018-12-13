@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/11/2018
 uid: getting-started
-ms.openlocfilehash: cf9e731f7638687b3f40b42864ef7ee8f5522b39
-ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
+ms.openlocfilehash: dc85fe9189c93476859a6c00d60ec24d6eeec3fa
+ms.sourcegitcommit: a16352c1c88a71770ab3922200a8cd148fb278a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284360"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53335315"
 ---
 # <a name="tutorial-get-started-with-aspnet-core"></a>Samouczek: Wprowadzenie do platformy ASP.NET Core
 
@@ -111,6 +111,3 @@ Aby dowiedzieć się więcej na temat platformy ASP.NET Core, zobacz wprowadzeni
 
 > [!div class="nextstepaction"]
 > <xref:index>
-
-> [!NOTE]
-> Testujemy użyteczność proponowaną nową strukturę dla platformy ASP.NET Core spis treści. Jeśli masz kilka minut, aby wypróbować ćwiczenie znajdowanie siedmiu różnych tematów w bieżącej lub proponowanej spis treści, [kliknij tutaj, aby wziąć udział w badaniach](https://dpk4xbh5.optimalworkshop.com/treejack/aa11wn82).
