@@ -177,6 +177,7 @@
 ## Samouczki
 ### [Usługa SignalR za pomocą języka JavaScript](xref:tutorials/signalr)
 ### [Usługa SignalR za pomocą języka TypeScript](xref:tutorials/signalr-typescript-webpack)
+## [Przykłady](https://github.com/aspnet/SignalR-samples)
 ## Koncepcje dotyczące serwera
 ### [Centra](xref:signalr/hubs)
 ### [HubContext](xref:signalr/hubcontext)
@@ -402,6 +403,7 @@
 ### [Rozproszone buforowanie](xref:performance/caching/distributed)
 ### [Oprogramowanie pośredniczące buforowania odpowiedzi](xref:performance/caching/middleware)
 ## [Kompresja odpowiedzi](xref:performance/response-compression)
+## [Narzędzia diagnostyczne](xref:performance/diagnostic-tools)
 
 # Inne tematy
 ## [Globalizacja i lokalizacja](xref:fundamentals/localization)
