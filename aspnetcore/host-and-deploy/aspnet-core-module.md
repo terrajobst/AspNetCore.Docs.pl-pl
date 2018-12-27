@@ -1,33 +1,43 @@
 ---
-title: Informacje o konfiguracji ASP.NET Core modułu
+title: Moduł ASP.NET Core
 author: guardrex
 description: Dowiedz się, jak skonfigurować modułu ASP.NET Core do hostowania aplikacji platformy ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/10/2018
+ms.date: 12/18/2018
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: b6fdca7e5d59fbfb80428f77b5c772cc04daf4b0
-ms.sourcegitcommit: 1872d2e6f299093c78a6795a486929ffb0bbffff
+ms.openlocfilehash: dee4fe7a498d211cb8ef6a3c49017c3cc8a56847
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53216888"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637862"
 ---
-# <a name="aspnet-core-module-configuration-reference"></a>Informacje o konfiguracji ASP.NET Core modułu
+# <a name="aspnet-core-module"></a>Moduł ASP.NET Core
 
-Przez [Luke Latham](https://github.com/guardrex), [Rick Anderson](https://twitter.com/RickAndMSFT), [Sourabh Shirhatti](https://twitter.com/sshirhatti), i [Justin Kotalik](https://github.com/jkotalik)
-
-Niniejszy dokument zawiera instrukcje dotyczące sposobu konfigurowania modułu ASP.NET Core do hostowania aplikacji platformy ASP.NET Core. Aby zapoznać się z wprowadzeniem do modułu ASP.NET Core i instrukcje dotyczące instalacji, zobacz [Przegląd modułu ASP.NET Core](xref:fundamentals/servers/aspnet-core-module).
+Przez [Tom Dykstra](https://github.com/tdykstra), [Rick Strahl](https://github.com/RickStrahl), [Chris Ross](https://github.com/Tratcher), [Rick Anderson](https://twitter.com/RickAndMSFT), [Sourabh Shirhatti](https://twitter.com/sshirhatti), [ Justin Kotalik](https://github.com/jkotalik), i [Luke Latham](https://github.com/guardrex)
 
 ::: moniker range=">= aspnetcore-2.2"
 
-## <a name="hosting-model"></a>Model hostingu
+Modułu ASP.NET Core jest moduł macierzysty usług IIS, które podłącza się do potoku usług IIS albo:
 
-W przypadku aplikacji uruchomiony na platformy .NET Core 2.2 lub nowszym ten moduł umożliwia w trakcie modelu hostingu, w celu zwiększenia wydajności w porównaniu do hostingu (poza procesem) zwrotnego serwera proxy. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/servers/aspnet-core-module#aspnet-core-module-description>.
+* Hostowanie aplikacji ASP.NET Core wewnątrz proces roboczy usług IIS (`w3wp.exe`), co jest nazywane [modelu hostingu w trakcie](#in-process-hosting-model).
+* Przesyła żądania sieci web do uruchamiania aplikacji ASP.NET Core zaplecza [serwera Kestrel](xref:fundamentals/servers/kestrel), co jest nazywane [modelu hostingu poza procesem](#out-of-process-hosting-model).
 
-Hosting w procsess jest zoptymalizowany pod kątem w przypadku istniejących aplikacji, ale [dotnet nowe](/dotnet/core/tools/dotnet-new) szablony domyślne do modelu hostowania w trakcie scenariusze dotyczące wszystkich usług IIS oraz usług IIS Express.
+Obsługiwane wersje Windows:
 
-Aby skonfigurować aplikację do obsługi w procesie, Dodaj `<AspNetCoreHostingModel>` właściwość do pliku projektu aplikacji (na przykład *MyApp.csproj*) z wartością `InProcess` (spoza procesu hostingu została ustawiona za pomocą `outofprocess`):
+* Windows 7 lub nowszy
+* Windows Server 2008 R2 lub nowszy
+
+W przypadku hostowania w procesie, moduł używa implementacji w procesie serwera dla usług IIS, nazywany serwerem HTTP usług IIS (`IISHttpServer`).
+
+Gdy w hostingu poza procesem, moduł działa tylko z Kestrel. Moduł nie jest zgodna z [HTTP.sys](xref:fundamentals/servers/httpsys).
+
+## <a name="hosting-models"></a>Modelach hostingu
+
+### <a name="in-process-hosting-model"></a>W trakcie modelu hostingu
+
+Aby skonfigurować aplikację do obsługi w procesie, Dodaj `<AspNetCoreHostingModel>` właściwość do pliku projektu aplikacji o wartości `InProcess` (spoza procesu hostingu została ustawiona za pomocą `OutOfProcess`):
 
 ```xml
 <PropertyGroup>
@@ -35,9 +45,11 @@ Aby skonfigurować aplikację do obsługi w procesie, Dodaj `<AspNetCoreHostingM
 </PropertyGroup>
 ```
 
+Jeśli `<AspNetCoreHostingModel>` właściwość nie jest obecny w pliku, wartością domyślną jest `OutOfProcess`.
+
 Następujące właściwości mają zastosowanie w przypadku hostowania w procesie:
 
-* Serwer HTTP usług IIS (`IISHttpServer`) jest używany zamiast [Kestrel](xref:fundamentals/servers/kestrel) serwera. Serwer HTTP usług IIS (`IISHttpServer`) jest kolejnym <xref:Microsoft.AspNetCore.Hosting.Server.IServer> implementację, która konwertuje natywnych żądań usług IIS platformy ASP.NET Core zarządzane żądania do przetworzenia przez aplikację.
+* Serwer HTTP usług IIS (`IISHttpServer`) jest używany zamiast [Kestrel](xref:fundamentals/servers/kestrel) serwera.
 
 * [Atrybut requestTimeout](#attributes-of-the-aspnetcore-element) nie ma zastosowania do hostowania w procesie.
 
@@ -55,6 +67,21 @@ Następujące właściwości mają zastosowanie w przypadku hostowania w procesi
 
   Przykładowy kod, który ustawia bieżący katalog aplikacji, zobacz [klasy CurrentDirectoryHelpers](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/aspnet-core-module/samples_snapshot/2.x/CurrentDirectoryHelpers.cs). Wywołaj `SetCurrentDirectory` metody. Kolejne wywołania <xref:System.IO.Directory.GetCurrentDirectory*> zapewniają katalogu aplikacji.
 
+### <a name="out-of-process-hosting-model"></a>Model hostingu poza procesem
+
+Aby skonfigurować aplikację dla hostingu poza procesem, użyj jednej z poniższych metod w pliku projektu:
+
+* Nie określaj `<AspNetCoreHostingModel>` właściwości. Jeśli `<AspNetCoreHostingModel>` właściwość nie jest obecny w pliku, wartością domyślną jest `OutOfProcess`.
+* Ustaw wartość `<AspNetCoreHostingModel>` właściwości `OutOfProcess` (hostowanie wewnątrzprocesowe została ustawiona za pomocą `InProcess`):
+
+```xml
+<PropertyGroup>
+  <AspNetCoreHostingModel>OutOfProcess</AspNetCoreHostingModel>
+</PropertyGroup>
+```
+
+[Kestrel](xref:fundamentals/servers/kestrel) serwer jest używany zamiast serwera HTTP usług IIS (`IISHttpServer`).
+
 ### <a name="hosting-model-changes"></a>Zmiany modelu hostingu
 
 Jeśli `hostingModel` ustawienie to ulegnie zmianie w *web.config* pliku (wyjaśnione w [konfiguracji z pliku web.config](#configuration-with-webconfig) sekcji), moduł odtwarzania procesu roboczego programu IIS.
@@ -66,6 +93,43 @@ Dla usług IIS Express moduł nie odtworzyć proces roboczy, ale zamiast tego wy
 `Process.GetCurrentProcess().ProcessName` Raporty `w3wp` / `iisexpress` (w procesie) lub `dotnet` (poza procesem).
 
 ::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
+Modułu ASP.NET Core jest moduł macierzysty usług IIS, które podłącza się do potoku usług IIS do przekazywania żądań sieci web z zapleczem platformy ASP.NET Core z aplikacji.
+
+Obsługiwane wersje Windows:
+
+* Windows 7 lub nowszy
+* Windows Server 2008 R2 lub nowszy
+
+Moduł działa tylko z Kestrel. Moduł nie jest zgodna z [HTTP.sys](xref:fundamentals/servers/httpsys).
+
+Ponieważ aplikacje platformy ASP.NET Core, uruchom w procesie oddzielić od proces roboczy usług IIS, moduł obsługuje także zarządzanie procesem. Moduł rozpoczyna się proces dla aplikacji ASP.NET Core, gdy pierwsze żądanie dociera i ponownie uruchamia aplikację w przypadku jej awarii. Jest to zasadniczo takie samo zachowanie, ponieważ aplikacje ASP.NET 4.x, działających w trakcie w usługach IIS, które są zarządzane przez [Windows Process Activation Service (WAS)](/iis/manage/provisioning-and-managing-iis/features-of-the-windows-process-activation-service-was).
+
+Na poniższym diagramie przedstawiono relację między usług IIS, modułu ASP.NET Core i aplikacji:
+
+![Moduł ASP.NET Core](aspnet-core-module/_static/ancm-outofprocess.png)
+
+Żądania pojawić się w sieci Web w trybie jądra sterownik HTTP.sys. Sterownik kieruje żądania do usługi IIS w witrynie sieci Web skonfigurowanego portu, zwykle 80 (HTTP) lub 443 (HTTPS). Moduł przekazuje żądania do Kestrel na losowy port aplikacji, która nie jest port 80 i 443.
+
+Moduł Określa port, za pośrednictwem zmiennej środowiskowej przy uruchamianiu i oprogramowania pośredniczącego integracji usług IIS umożliwia skonfigurowanie serwera do nasłuchiwania `http://localhost:{port}`. Wykonywane są dodatkowe czynności kontrolne i żądania, które nie pochodzą z modułu są odrzucane. Moduł nie obsługuje przekazywanie protokołu HTTPS, dlatego żądania są przekazywane za pośrednictwem protokołu HTTP, nawet wtedy, gdy odbierane przez usługi IIS przy użyciu protokołu HTTPS.
+
+Po Kestrel przejmuje żądania z modułu, żądania są przesyłane do potoku oprogramowania pośredniczącego platformy ASP.NET Core. Potoku oprogramowania pośredniczącego obsługuje żądanie i przekazuje ją jako `HttpContext` wystąpienie aplikacji logiki. Oprogramowanie pośredniczące dodane przez usługi IIS integracji aktualizuje schemat, zdalny adres IP i pathbase w celu uwzględnienia przekazywania żądania do Kestrel. Odpowiedź aplikacji jest przekazywany z powrotem do usług IIS, wypchnięć, które go wycofać do klienta HTTP, który zainicjował żądanie.
+
+::: moniker-end
+
+Wiele modułów macierzystych, takie jak uwierzytelnianie Windows pozostają aktywne. Aby dowiedzieć się, jak aktywne moduły usług IIS przy użyciu modułu ASP.NET Core, zobacz <xref:host-and-deploy/iis/modules>.
+
+Modułu ASP.NET Core może również:
+
+* Ustaw zmienne środowiskowe dla procesu roboczego.
+* Rejestrowanie strumienia stdout, dane wyjściowe do usługi file storage dotyczące rozwiązywania problemów, uruchamiania.
+* Przekazuj tokeny uwierzytelniania Windows.
+
+## <a name="how-to-install-and-use-the-aspnet-core-module"></a>Jak zainstalować i używać modułu ASP.NET Core
+
+Aby uzyskać instrukcje na temat sposobu instalowania i używania modułu ASP.NET Core, zobacz <xref:host-and-deploy/iis/index>.
 
 ## <a name="configuration-with-webconfig"></a>Konfiguracja z pliku web.config
 
@@ -481,3 +545,9 @@ Dzienniki Instalatora pakietu hostingu dla modułu znajdują się w *C:\\użytko
    * %ProgramFiles%\iis Express\config\templates\PersonalWebServer\applicationHost.config
 
 Pliki można znaleźć, wyszukując *aspnetcore* w *applicationHost.config* pliku.
+
+## <a name="additional-resources"></a>Dodatkowe zasoby
+
+* <xref:host-and-deploy/iis/index>
+* [Repozytorium GitHub modułów Core ASP.NET (źródło odwołania)](https://github.com/aspnet/AspNetCoreModule)
+* <xref:host-and-deploy/iis/modules>

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 9a0d5a8e722487ccf7e08aadb39f838a0963451d
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 930a6f2b860c71b6f499cff53e0d909a130f7948
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090978"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637901"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>Strony razor z programem EF Core w programie ASP.NET Core — Model danych — 5 8
 
@@ -538,10 +538,7 @@ Aktualizowanie kodu w *Data/DbInitializer.cs*:
 
 [!code-csharp[](intro/samples/cu21/Data/DbInitializer.cs?name=snippet_Final)]
 
-Powyższy kod udostępnia dane inicjatora dla nowych jednostek. Większość ten kod tworzy nowe obiekty jednostki i ładowania przykładowych danych. Dane przykładowe są używane do testowania. Poprzedni kod tworzy następujące relacje wiele do wielu.
-
-* `Enrollments`
-* `CourseAssignment`
+Powyższy kod udostępnia dane inicjatora dla nowych jednostek. Większość ten kod tworzy nowe obiekty jednostki i ładowania przykładowych danych. Dane przykładowe są używane do testowania. Zobacz `Enrollments` i `CourseAssignments` dla przykładów jak wiele do wielu Dołączanie tabel może zostać rozpoczęta.
 
 ## <a name="add-a-migration"></a>Dodaj migrację
 
@@ -581,7 +578,7 @@ database "ContosoUniversity", table "dbo.Department", column 'DepartmentID'.
 Teraz, gdy masz istniejącą bazę danych, należy wziąć pod uwagę sposób stosowania przyszłe zmiany do niego. W tym samouczku przedstawiono dwie metody:
 
 * [Porzuć i ponownie utworzyć bazę danych](#drop)
-* [Dotyczą migracji z istniejącej bazy danych](#applyexisting). Ta metoda jest bardziej złożony i czasochłonny proces, jest preferowanym podejściem w środowiskach produkcyjnych w rzeczywistych warunkach. **Uwaga**: jest to opcjonalne części samouczka. Można zrobić listy i ponownie utwórz kroki i pominąć tę sekcję. Jeśli chcesz wykonać kroki zawarte w tej sekcji, nie są listy i ponownie utwórz kroki. 
+* [Dotyczą migracji z istniejącej bazy danych](#applyexisting). Ta metoda jest bardziej złożony i czasochłonny proces, jest preferowanym podejściem w środowiskach produkcyjnych w rzeczywistych warunkach. **Uwaga**: Jest to opcjonalne części samouczka. Można zrobić listy i ponownie utwórz kroki i pominąć tę sekcję. Jeśli chcesz wykonać kroki zawarte w tej sekcji, nie są listy i ponownie utwórz kroki. 
 
 <a name="drop"></a>
 

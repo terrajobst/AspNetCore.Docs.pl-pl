@@ -3,14 +3,14 @@ title: Sprawdź szczegóły i usunięcie metod aplikacji ASP.NET Core
 author: rick-anderson
 description: Dowiedz się więcej o szczegóły metody kontrolera i wyświetlanie w podstawowej aplikacji ASP.NET Core MVC.
 ms.author: riande
-ms.date: 03/07/2017
+ms.date: 12/25/2018
 uid: tutorials/first-mvc-app/details
-ms.openlocfilehash: c5d21bc70aae4c1a1d10bb333871eeef25a1879c
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 51609518b97d848aad90eeab0ed40abab2d53d51
+ms.sourcegitcommit: 4e87712029de2aceb1cf2c52e9e3dda8195a5b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50208008"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53381968"
 ---
 # <a name="examine-the-details-and-delete-methods-of-an-aspnet-core-app"></a>Sprawdź szczegóły i usunięcie metod aplikacji ASP.NET Core
 
@@ -18,17 +18,7 @@ Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Otwórz kontrolera film i zbadaj `Details` metody:
 
-::: moniker range=">= aspnetcore-2.1"
-
-[!code-csharp[](start-mvc/sample/MvcMovie21/Controllers/MoviesController.cs?name=snippet_details)]
-
-::: moniker-end
-
-::: moniker range="<= aspnetcore-2.0"
-
-[!code-csharp[](start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_details)]
-
-::: moniker-end
+[!code-csharp[](start-mvc/sample/MvcMovie22/Controllers/MoviesController.cs?name=snippet_details)]
 
 Aparat tworzenia szkieletów MVC, utworzony z tą metodą akcji dodaje komentarz przedstawiający żądanie HTTP, który wywołuje tę metodę. W tym przypadku jest żądanie GET z trzech segmenty adresu URL, `Movies` kontrolera, `Details` metody i `id` wartość. Te segmenty są definiowane w odwołania *Startup.cs*.
 
@@ -38,17 +28,7 @@ EF ułatwia wyszukiwanie danych przy użyciu `SingleOrDefaultAsync` metody. Waż
 
 Sprawdź `Delete` i `DeleteConfirmed` metody.
 
-::: moniker range=">= aspnetcore-2.1"
-
-[!code-csharp[](start-mvc/sample/MvcMovie21/Controllers/MoviesController.cs?name=snippet_delete)]
-
-::: moniker-end
-
-::: moniker range="<= aspnetcore-2.0"
-
-[!code-csharp[](start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_delete)]
-
-::: moniker-end
+[!code-csharp[](start-mvc/sample/MvcMovie22/Controllers/MoviesController.cs?name=snippet_delete)]
 
 Należy pamiętać, że `HTTP GET Delete` metoda nie powoduje usunięcia określonego filmu, zwraca widok filmu dokąd wysyłać (HttpPost) usuwania. Wykonywanie operacji usuwania w odpowiedzi na polecenie GET żądania (lub służącego wykonywania operacji Edytuj, Utwórz operacji lub innej operacji, które zmieniają dane) otwiera lukę w zabezpieczeniach.
 
@@ -58,10 +38,9 @@ Należy pamiętać, że `HTTP GET Delete` metoda nie powoduje usunięcia określ
 
 [!code-csharp[](start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_delete3)]
 
-
 Środowisko uruchomieniowe języka wspólnego (CLR) wymaga przeciążonej metody ma unikatowy parametr podpisu (tej samej nazwie metoda, ale inną listę parametrów). Jednak w tym miejscu należy dwa `Delete` metody — jeden dla GET--i jeden dla wpisu, czy obie pozycje mają taki sam podpis parametru. (Obaj użytkownicy muszą zaakceptować pojedyncze liczby całkowite jako parametr.)
 
-Dostępne są dwie opcje tego problemu, jednym jest nadać różne nazwy metody. To mechanizm tworzenia szkieletów została w poprzednim przykładzie. Jednak wprowadza mały problem: ASP.NET mapuje segmentów adresu URL do metody akcji według nazwy i metodę w przypadku zmiany nazwy, routing zwykle nie będzie mógł odnaleźć tej metody. Rozwiązanie jest widoczny w tym przykładzie jest dodanie `ActionName("Delete")` atrybutu `DeleteConfirmed` metody. Ten atrybut wykonuje mapowanie systemu routingu, aby znaleźć adres URL, który zawiera /Delete/ dla żądania POST `DeleteConfirmed` metody.
+Dostępne są dwie opcje tego problemu, jednym jest nadać różne nazwy metody. To mechanizm tworzenia szkieletów została w poprzednim przykładzie. Jednak wprowadza mały problem: ASP.NET mapuje segmentów adresu URL do metody akcji według nazwy, a jeśli zmienisz metodę, routing zwykle nie można znaleźć tej metody. Rozwiązanie jest widoczny w tym przykładzie jest dodanie `ActionName("Delete")` atrybutu `DeleteConfirmed` metody. Ten atrybut wykonuje mapowanie systemu routingu, aby znaleźć adres URL, który zawiera /Delete/ dla żądania POST `DeleteConfirmed` metody.
 
 Inny wspólnej obejście dla metod, które mają identyczne nazwy i wzory podpisów jest sztucznie Zmień podpis metody POST w celu uwzględnienia dodatkowych parametrów (nieużywane). To, co zrobiliśmy w poprzednim wpisie podczas dodaliśmy `notUsed` parametru. Możesz to zrobić to samo w tym miejscu dla `[HttpPost] Delete` metody:
 
@@ -73,7 +52,7 @@ public async Task<IActionResult> Delete(int id, bool notUsed)
 
 ### <a name="publish-to-azure"></a>Publikowanie na platformie Azure
 
-Aby uzyskać informacje na temat wdrażania na platformie Azure, zobacz [samouczek: tworzenie aplikacji internetowej platformy .NET Core i SQL Database w usłudze Azure App Service](/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb).
+Aby uzyskać informacje na temat wdrażania na platformie Azure, zobacz [samouczka: Tworzenie aplikacji internetowej platformy .NET Core i SQL Database w usłudze Azure App Service](/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb).
 
 > [!div class="step-by-step"]
 > [Poprzednie](validation.md)

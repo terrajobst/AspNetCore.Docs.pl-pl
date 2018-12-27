@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/11/2018
 uid: security/authentication/twitter-logins
-ms.openlocfilehash: 43a5ea59d8853d297ae2c1ec3f4b1c0c14ec80c3
-ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
+ms.openlocfilehash: 49db8b921fde169380ca284f46e535786b2b8a30
+ms.sourcegitcommit: 3e94d192b2ed9409fe72e3735e158b333354964c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51708429"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53735807"
 ---
 # <a name="twitter-external-login-setup-with-aspnet-core"></a>Konfiguracja logowania zewnętrznego za pomocą platformy ASP.NET Core w usłudze Twitter
 
@@ -62,9 +62,9 @@ Szablon projektu, w tym samouczku używane zapewnia, że [Microsoft.AspNetCore.A
 Dodaj usługę Twitter w `ConfigureServices` method in Class metoda *Startup.cs* pliku:
 
 ```csharp
-services.AddIdentity<ApplicationUser, IdentityRole>()
-        .AddEntityFrameworkStores<ApplicationDbContext>()
-        .AddDefaultTokenProviders();
+services.AddDefaultIdentity<IdentityUser>()
+        .AddDefaultUI(UIFramework.Bootstrap4)
+        .AddEntityFrameworkStores<ApplicationDbContext>();
 
 services.AddAuthentication().AddTwitter(twitterOptions =>
 {
@@ -99,7 +99,7 @@ Zobacz [TwitterOptions](/dotnet/api/microsoft.aspnetcore.builder.twitteroptions)
 
 Uruchom aplikację, a następnie kliknij przycisk **Zaloguj**. Zostanie wyświetlona opcja Zaloguj się przy użyciu usługi Twitter:
 
-![Aplikacja sieci Web: użytkownik nie jest uwierzytelniony](index/_static/DoneTwitter.png)
+![Aplikacja sieci Web: Użytkownik nie jest uwierzytelniony](index/_static/DoneTwitter.png)
 
 Kliknięcie **Twitter** przekierowuje do usługi Twitter do uwierzytelniania:
 
@@ -109,13 +109,13 @@ Po wprowadzeniu swoje poświadczenia usługi Twitter, nastąpi przekierowanie do
 
 Obecnie zalogowano Cię przy użyciu poświadczeń usługi Twitter:
 
-![Aplikacja sieci Web: użytkownik uwierzytelniony](index/_static/Done.png)
+![Aplikacja sieci Web: Użytkownik uwierzytelniony](index/_static/Done.png)
 
 [!INCLUDE[Forward request information when behind a proxy or load balancer section](includes/forwarded-headers-middleware.md)]
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-* **Platforma ASP.NET Core 2.x tylko:** Jeśli tożsamość nie jest skonfigurowana, wywołując `services.AddIdentity` w `ConfigureServices`, próby uwierzytelnienia będą powodować *ArgumentException: należy podać opcję "SignInScheme"*. Szablon projektu, w tym samouczku używane gwarantuje, że odbywa się.
+* **ASP.NET Core 2.x tylko:** Jeśli tożsamość nie jest skonfigurowana, wywołując `services.AddIdentity` w `ConfigureServices`, próby uwierzytelnienia będą powodować *ArgumentException: Opcja "SignInScheme" musi być podana*. Szablon projektu, w tym samouczku używane gwarantuje, że odbywa się.
 * Jeśli nie utworzono bazy danych lokacji, stosując początkowej migracji, zostanie wyświetlony *operacji bazy danych nie powiodło się podczas przetwarzania żądania* błędu. Naciśnij pozycję **zastosować migracje** do tworzenia bazy danych i Odśwież, aby kontynuować po błędzie.
 
 ## <a name="next-steps"></a>Następne kroki

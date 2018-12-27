@@ -4,14 +4,14 @@ author: guardrex
 description: Zapoznaj się z adresem URL ponownego zapisywania adresów i przekierowywania z oprogramowanie pośredniczące ponownego zapisywania adresów URL w aplikacji platformy ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/19/2018
+ms.date: 12/18/2018
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: 84052789717738a48c346d35d1a2642017a9ab93
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: d2dd5e9b7f196bcbd1940f7ef58331dabd2367a1
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861917"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637810"
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>Adres URL ponowne napisanie oprogramowania pośredniczącego w programie ASP.NET Core
 
@@ -56,7 +56,7 @@ Podczas przekierowywania żądań do innego adresu URL, informujące o przekiero
 
 * *302 — znaleziono* kod stanu jest używany w przypadku, gdy przekierowania jest tymczasowy lub ogólnie może ulec zmianie. Kod stanu 302 wskazuje klientowi adresu URL Sklepu i używać go w przyszłości.
 
-Aby uzyskać więcej informacji na temat kodów stanu, zobacz [dokumencie RFC 2616: definicje kodów stanu](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).
+Aby uzyskać więcej informacji na temat kodów stanu, zobacz [dokumencie RFC 2616: Definicje kodów stanu](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).
 
 A *ponowne zapisywanie adresów URL* jest operacją po stronie serwera, który udostępnia zasób z adresu innego zasobu niż dany klient zażądał. Ponownego zapisywania adresów URL nie wymaga komunikacji dwustronnej z serwerem. Nowych adres URL nie jest zwracana do klienta i nie będzie wyświetlany w pasku adresu przeglądarki.
 
@@ -78,7 +78,7 @@ Oprogramowanie pośredniczące ponownego zapisywania adresów URL należy użyć
 * [Moduł mod_rewrite Apache na serwerze Apache](https://httpd.apache.org/docs/2.4/rewrite/)
 * [Adres URL ponownego zapisywania adresów na serwera Nginx](https://www.nginx.com/blog/creating-nginx-rewrite-rules/)
 
-Ponadto korzystania z oprogramowania pośredniczącego, gdy aplikacja jest hostowana na [serwera HTTP.sys](xref:fundamentals/servers/httpsys) (wcześniej noszącą nazwę [WebListener](xref:fundamentals/servers/weblistener)).
+Ponadto korzystania z oprogramowania pośredniczącego, gdy aplikacja jest hostowana na [serwera HTTP.sys](xref:fundamentals/servers/httpsys) (dawniej nazywanych WebListener).
 
 Główne przyczyny używał adresu URL na serwerze, ponowne napisanie technologii dostępnych w usługach IIS, Apache i Nginx są następujące:
 
@@ -194,7 +194,7 @@ We wcześniejszym przykładzie z regułą przekierowania `redirect-rule/(.*)`, n
 | Ścieżka                               | Dopasowanie |
 | ---------------------------------- | :---: |
 | `/redirect-rule/1234/5678`         | Tak   |
-| `/my-cool-redirect-rule/1234/5678` | Tak   |
+| `/my-cool-redirect-rule/1234/5678` | Yes   |
 | `/anotherredirect-rule/1234/5678`  | Tak   |
 
 Reguły ponownego pisania `^rewrite-rule/(\d+)/(\d+)`, tylko dopasowuje ścieżek, jeśli zaczyna `rewrite-rule/`. W poniższej tabeli należy zauważyć różnicę w dopasowywanie.

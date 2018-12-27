@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 12/01/2018
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: f53c303dc63e092f08e933fea79eb805523cde9b
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: bdb29c318c66ac884b9225ba8c2a0dfc1f364255
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861397"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637706"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Host platformy ASP.NET Core w usłudze Windows
 
@@ -108,7 +108,7 @@ Wprowadź następujące zmiany w `Program.Main`:
 
   Jeśli warunki są fałszywe, (aplikacja jest uruchamiana jako usługa):
 
-  * Wywołaj <xref:Microsoft.Extensions.Hosting.HostingHostBuilderExtensions.UseContentRoot*> i użyj ścieżki do lokalizacji publikowania aplikacji. Nie wywołuj <xref:System.IO.Directory.GetCurrentDirectory*> można uzyskać ścieżki, ponieważ aplikacji usługi Windows, która zwraca *C:\\WINDOWS\\system32* folderu podczas `GetCurrentDirectory` nosi nazwę. Aby uzyskać więcej informacji, zobacz [bieżący katalog i katalog główny zawartości](#current-directory-and-content-root) sekcji.
+  * Wywołaj <xref:System.IO.Directory.SetCurrentDirectory*> i użyj ścieżki do lokalizacji publikowania aplikacji. Nie wywołuj <xref:System.IO.Directory.GetCurrentDirectory*> można uzyskać ścieżki, ponieważ aplikacji usługi Windows, która zwraca *C:\\WINDOWS\\system32* folderu podczas `GetCurrentDirectory` nosi nazwę. Aby uzyskać więcej informacji, zobacz [bieżący katalog i katalog główny zawartości](#current-directory-and-content-root) sekcji.
   * Wywołaj <xref:Microsoft.AspNetCore.Hosting.WindowsServices.WebHostWindowsServiceExtensions.RunAsService*> do uruchomienia aplikacji jako usługi.
 
   Ponieważ [dostawcę konfiguracji wiersza polecenia](xref:fundamentals/configuration/index#command-line-configuration-provider) wymaga pary nazwa wartość dla argumentów wiersza poleceń `--console` przełącznik został usunięty z argumentów przed <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> otrzymuje je.
@@ -323,16 +323,16 @@ Bieżący katalog roboczy zwracany przez wywołanie metody <xref:System.IO.Direc
 
 ### <a name="set-the-content-root-path-to-the-apps-folder"></a>Ustaw ścieżkę katalogu głównego zawartości do folderu aplikacji
 
-<xref:Microsoft.Extensions.Hosting.IHostingEnvironment.ContentRootPath*> Tej samej ścieżki, które są udostępniane `binPath` argumentów podczas tworzenia usługi. Zamiast wywoływać metodę `GetCurrentDirectory` do tworzenia ścieżek do plików ustawień, należy wywołać <xref:Microsoft.Extensions.Hosting.HostingHostBuilderExtensions.UseContentRoot*> ze ścieżką do katalogu głównego zawartości aplikacji.
+<xref:Microsoft.Extensions.Hosting.IHostingEnvironment.ContentRootPath*> Tej samej ścieżki, które są udostępniane `binPath` argumentów podczas tworzenia usługi. Zamiast wywoływać metodę `GetCurrentDirectory` do tworzenia ścieżek do plików ustawień, należy wywołać <xref:System.IO.Directory.SetCurrentDirectory*> ze ścieżką do katalogu głównego zawartości aplikacji.
 
 W `Program.Main`, określić ścieżkę do folderu pliku wykonywalnego usługi i ustanowić zawartości katalogu głównego aplikacji za pomocą ścieżki:
 
 ```csharp
 var pathToExe = Process.GetCurrentProcess().MainModule.FileName;
 var pathToContentRoot = Path.GetDirectoryName(pathToExe);
+Directory.SetCurrentDirectory(pathToContentRoot);
 
 CreateWebHostBuilder(args)
-    .UseContentRoot(pathToContentRoot)
     .Build()
     .RunAsService();
 ```

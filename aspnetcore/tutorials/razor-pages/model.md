@@ -6,12 +6,12 @@ ms.author: riande
 monikerRange: '>= aspnetcore-2.2'
 ms.date: 12/3/2018
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 667009ced46efc07c2b4e79306382272aa5779b0
-ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
+ms.openlocfilehash: 0915c525d5fb96a3d32f91fbd65a4e1f62ee28b8
+ms.sourcegitcommit: 68a3081dd175d6518d1bfa31b4712bd8a2dd3864
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284516"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53577867"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Dodawanie modelu strony Razor aplikacji w programie ASP.NET Core
 
@@ -202,7 +202,7 @@ Update-Database
 ---  
 <!-- End of VS tabs -->
 
-`ef migrations add InitialCreate` Polecenie generuje kod, aby utworzyć schemat początkowej bazy danych. Schemat jest oparta na modelu, określone w `DbContext` (w *Models/RazorPagesMovieContext.cs* pliku). `InitialCreate` Argument jest używany do nazywania migracje. Można dowolną nazwę, ale zgodnie z Konwencją, wybrane nazwę opisującą migracji.
+`ef migrations add InitialCreate` Polecenie generuje kod, aby utworzyć schemat początkowej bazy danych. Schemat jest oparta na modelu, określone w `DbContext` (w *RazorPagesMovieContext.cs* pliku). `InitialCreate` Argument jest używany do nazywania migracje. Można dowolną nazwę, ale zgodnie z Konwencją, wybrane nazwę opisującą migracji.
 
 `ef database update` Polecenia `Up` method in Class metoda *migracje /\<sygnatura czasowa > _InitialCreate.cs* pliku. `Up` Metoda tworzy bazę danych.
 

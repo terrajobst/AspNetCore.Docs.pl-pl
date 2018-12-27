@@ -5,26 +5,23 @@ description: Więcej informacji na temat HTTP.sys, serwer sieci web platformy AS
 monikerRange: '>= aspnetcore-2.0'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 12/01/2018
+ms.date: 12/18/2018
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: 8810fd295e8c4269812e712ce2fdc9b9fa2bbb4f
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: a779fee53109d4c1cabb2005896e757f23467540
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861696"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637628"
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>Implementacja serwera sieci web HTTP.sys, w programie ASP.NET Core
 
 Przez [Tom Dykstra](https://github.com/tdykstra), [Chris Ross](https://github.com/Tratcher), i [Luke Latham](https://github.com/guardrex)
 
-> [!NOTE]
-> W tym temacie mają zastosowanie do platformy ASP.NET Core 2.0 lub nowszej. We wcześniejszych wersjach programu ASP.NET Core, nosi nazwę HTTP.sys [WebListener](xref:fundamentals/servers/weblistener).
-
 [Sterownik HTTP.sys](/iis/get-started/introduction-to-iis/introduction-to-iis-architecture#hypertext-transfer-protocol-stack-httpsys) jest [serwera sieci web dla platformy ASP.NET Core](xref:fundamentals/servers/index) uruchomioną w Windows. Sterownik HTTP.sys stanowi alternatywę [Kestrel](xref:fundamentals/servers/kestrel) serwera i ofert, niektóre funkcje, że nie zapewnia Kestrel.
 
 > [!IMPORTANT]
-> Sterownik HTTP.sys jest niezgodna z [modułu ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) i nie można używać z usług IIS lub IIS Express.
+> Sterownik HTTP.sys jest niezgodna z [modułu ASP.NET Core](xref:host-and-deploy/aspnet-core-module) i nie można używać z usług IIS lub IIS Express.
 
 Sterownik HTTP.sys obsługuje następujące funkcje:
 
@@ -190,7 +187,7 @@ Sterownik HTTP.sys delegatów, aby uwierzytelnianie trybu jądra za pomocą prot
 
    2. Tworzenie certyfikatów z podpisem własnym X.509, jeśli jest to wymagane.
 
-      [!INCLUDE [How to make an X.509 cert](../../includes/make-x509-cert.md)]
+      [!INCLUDE [How to make an X.509 cert](~/includes/make-x509-cert.md)]
 
 4. Otwórz porty zapory muszą zezwalać na ruch do osiągnięcia HTTP.sys. Użyj *netsh.exe* lub [poleceń cmdlet programu PowerShell](https://technet.microsoft.com/library/jj554906).
 

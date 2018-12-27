@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.date: 11/14/2018
 uid: signalr/version-differences
-ms.openlocfilehash: c9302f1c9e7cd4e62eaeaef871feb54ef26aa3ca
-ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
+ms.openlocfilehash: fb10d6e62ff28128e6e9e5dcef55e44f25de8ad0
+ms.sourcegitcommit: 6548c19f345850ee22b50f7ef9fca732895d9e08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51708416"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53425123"
 ---
 # <a name="differences-between-aspnet-signalr-and-aspnet-core-signalr"></a>Różnice między biblioteki SignalR platformy ASP.NET i SignalR platformy ASP.NET Core
 
@@ -24,6 +24,7 @@ SignalR platformy ASP.NET Core nie jest zgodny z klientami lub serwerami na potr
 | Pakiet NuGet | [Microsoft.AspNet.SignalR](https://www.nuget.org/packages/Microsoft.AspNet.SignalR/) | [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App/) (.NET Core)<br>[Microsoft.AspNetCore.SignalR](https://www.nuget.org/packages/Microsoft.AspNetCore.SignalR/) (.NET Framework) |
 | Pakiety NuGet klienta | [Microsoft.AspNet.SignalR.Client](https://www.nuget.org/packages/Microsoft.AspNet.SignalR.Client/)<br>[Microsoft.AspNet.SignalR.JS](https://www.nuget.org/packages/Microsoft.AspNet.SignalR.JS/) | [Microsoft.AspNetCore.SignalR.Client](https://www.nuget.org/packages/Microsoft.AspNetCore.SignalR.Client/) |
 | Klient npm pakietu | [signalr](https://www.npmjs.com/package/signalr) | [@aspnet/signalr](https://www.npmjs.com/package/@aspnet/signalr) |
+| Klienta Java | [Repozytorium GitHub](https://github.com/SignalR/java-client) (przestarzałe)  | Pakiet maven [com.microsoft.signalr](https://search.maven.org/artifact/com.microsoft.signalr/signalr) |
 | Typ aplikacji serwera | ASP.NET (System.Web) lub samodzielnego hostowania OWIN | ASP.NET Core |
 | Platformy obsługiwane serwera | .NET framework 4.5 lub nowszy | Program .NET framework 4.6.1 lub nowszej<br>.NET core 2.1 lub nowszej |
 
@@ -165,7 +166,7 @@ Biblioteki SignalR platformy ASP.NET obsługuje program SQL Server i Redis. Bibl
 
 ### <a name="aspnet-core"></a>ASP.NET Core
 
-* [Usługi Azure SignalR Service](/azure/azure-signalr/)
+* [Usługa Azure SignalR Service](/azure/azure-signalr/)
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

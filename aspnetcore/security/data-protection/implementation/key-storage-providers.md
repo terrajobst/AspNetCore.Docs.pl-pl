@@ -3,14 +3,14 @@ title: Dostawcy magazynu kluczy w programie ASP.NET Core
 author: rick-anderson
 description: Więcej informacji o dostawcy magazynu kluczy na platformie ASP.NET Core i jak skonfigurować lokalizacje magazynu kluczy.
 ms.author: riande
-ms.date: 12/06/2018
+ms.date: 12/19/2018
 uid: security/data-protection/implementation/key-storage-providers
-ms.openlocfilehash: e10271d5979b503a8a842f8866a0e2a3fa040656
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: d6dabc9e4581e0891d1dd14f73e086d50b45bba4
+ms.sourcegitcommit: 3e94d192b2ed9409fe72e3735e158b333354964c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121456"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53735742"
 ---
 # <a name="key-storage-providers-in-aspnet-core"></a>Dostawcy magazynu kluczy w programie ASP.NET Core
 
@@ -125,6 +125,38 @@ Aby skonfigurować dostawcę programu EF Core, należy wywołać [ `PersistKeysT
 Parametr ogólny, `TContext`, musi dziedziczyć [DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext) i [IDataProtectionKeyContext](/dotnet/api/microsoft.aspnetcore.dataprotection.entityframeworkcore.idataprotectionkeycontext):
 
 [!code-csharp[Main](key-storage-providers/sample/MyKeysContext.cs)]
+
+Utwórz `DataProtectionKeys` tabeli. 
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+Wykonaj następujące polecenia w **Konsola Menedżera pakietów** okna (PMC):
+
+```PowerShell
+Add-Migration AddDataProtectionKeys -Context MyKeysContext
+Update-Database -Context MyKeysContext
+```
+
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+
+Wykonaj następujące polecenia w powłoce poleceń:
+
+```console
+dotnet ef migrations add AddDataProtectionKeys --context MyKeysContext
+dotnet ef database update --context MyKeysContext
+```
+
+---
+
+`MyKeysContext` jest `DbContext` zdefiniowane w poprzednim przykładzie kodu. Jeśli używasz `DbContext` pod inną nazwą podstaw swoje `DbContext` nazwę `MyKeysContext`.
+
+`DataProtectionKeys` Klasy na jednostkę przyjmuje strukturę pokazano w poniższej tabeli.
+
+| Właściwości/pola | Typ CLR | Typ SQL              |
+| -------------- | -------- | --------------------- |
+| `Id`           | `int`    | `int`, Klucz podstawowy, nie ma wartości null   |
+| `FriendlyName` | `string` | `nvarchar(MAX)`, o wartości null |
+| `Xml`          | `string` | `nvarchar(MAX)`, o wartości null |
 
 ::: moniker-end
 

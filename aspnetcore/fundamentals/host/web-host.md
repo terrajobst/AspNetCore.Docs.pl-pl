@@ -4,14 +4,14 @@ author: guardrex
 description: Więcej informacji na temat hosta sieci web w programie ASP.NET Core, który jest odpowiedzialny za zarządzanie uruchamiania i czasu życia aplikacji.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/01/2018
+ms.date: 12/18/2018
 uid: fundamentals/host/web-host
-ms.openlocfilehash: bc77413127273aba207e68e7fbcb8ad916267e8e
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 7215027a083c0ed0bc3b15196e390a31c5dcfc14
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862281"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637849"
 ---
 # <a name="aspnet-core-web-host"></a>Host sieci Web platformy ASP.NET Core
 
@@ -57,7 +57,7 @@ public class Program
   * Zmienne środowiskowe.
   * Argumenty wiersza polecenia.
 * Konfiguruje [rejestrowania](xref:fundamentals/logging/index) dla danych wyjściowych konsoli i debugowania. Rejestrowanie powoduje umieszczenie [filtrowanie dziennika](xref:fundamentals/logging/index#log-filtering) reguły określone w sekcji Konfiguracja rejestrowania *appsettings.json* lub *appsettings. { Środowisko} .json* pliku.
-* Gdy działające poza usługą IIS z [modułu ASP.NET Core](xref:fundamentals/servers/aspnet-core-module), `CreateDefaultBuilder` umożliwia [integracji usług IIS](xref:host-and-deploy/iis/index), który konfiguruje port i adres podstawowy aplikacji. Integracja usług IIS umożliwia skonfigurowanie aplikacji [przechwytywania błędów uruchamiania](#capture-startup-errors). Opcjach domyślny usług IIS, zobacz temat <xref:host-and-deploy/iis/index#iis-options>.
+* Gdy działające poza usługą IIS z [modułu ASP.NET Core](xref:host-and-deploy/aspnet-core-module), `CreateDefaultBuilder` umożliwia [integracji usług IIS](xref:host-and-deploy/iis/index), który konfiguruje port i adres podstawowy aplikacji. Integracja usług IIS umożliwia skonfigurowanie aplikacji [przechwytywania błędów uruchamiania](#capture-startup-errors). Opcjach domyślny usług IIS, zobacz temat <xref:host-and-deploy/iis/index#iis-options>.
 * Zestawy [ServiceProviderOptions.ValidateScopes](/dotnet/api/microsoft.extensions.dependencyinjection.serviceprovideroptions.validatescopes) do `true` w przypadku aplikacji środowiska programowania. Aby uzyskać więcej informacji, zobacz [zakresu walidacji](#scope-validation).
 
 Konfiguracja zdefiniowane przez `CreateDefaultBuilder` zastąpienia i wzmacnia [ConfigureAppConfiguration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configureappconfiguration), [ConfigureLogging](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configurelogging)i inne metody, jak i metody rozszerzenia [ IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder). Oto kilka przykładów:
@@ -137,7 +137,7 @@ Host używa jednego z tych opcji ustawia wartość ostatniego. Aby uzyskać wię
 
 **Klucz**: applicationName  
 **Typ**: *ciągu*  
-**Domyślne**: Nazwa zestawu zawierającego punkt wejścia aplikacji.  
+**Domyślne**: Nazwa zestawu zawierającego wpis aplikacji punktu.  
 **Można ustawić przy użyciu**: `UseSetting`  
 **Zmienna środowiskowa**: `ASPNETCORE_APPLICATIONNAME`
 
@@ -152,7 +152,7 @@ To ustawienie steruje przechwytywania błędów uruchamiania.
 
 **Klucz**: captureStartupErrors  
 **Typ**: *bool* (`true` lub `1`)  
-**Domyślne**: wartość domyślna to `false` chyba, że aplikacja jest uruchamiana z Kestrel za usług IIS, w którym domyślnie są `true`.  
+**Domyślne**: Wartość domyślna to `false` chyba, że aplikacja jest uruchamiana z Kestrel za usług IIS, w którym domyślnie są `true`.  
 **Można ustawić przy użyciu**: `CaptureStartupErrors`  
 **Zmienna środowiskowa**: `ASPNETCORE_CAPTURESTARTUPERRORS`
 
@@ -169,7 +169,7 @@ To ustawienie określa, gdzie platformy ASP.NET Core rozpoczyna się wyszukiwani
 
 **Klucz**: contentRoot  
 **Typ**: *ciągu*  
-**Domyślne**: wartość domyślna to folder, w którym znajduje się zestaw aplikacji.  
+**Domyślne**: Wartość domyślna to folder, w którym znajduje się zestaw aplikacji.  
 **Można ustawić przy użyciu**: `UseContentRoot`  
 **Zmienna środowiskowa**: `ASPNETCORE_CONTENTROOT`
 
@@ -203,7 +203,7 @@ Ustawia środowiska Twojej aplikacji.
 
 **Klucz**: środowisko  
 **Typ**: *ciągu*  
-**Domyślne**: produkcji  
+**Domyślne**: Produkcji  
 **Można ustawić przy użyciu**: `UseEnvironment`  
 **Zmienna środowiskowa**: `ASPNETCORE_ENVIRONMENT`
 
@@ -220,7 +220,7 @@ Ustawia hostingu zestawy uruchamiania aplikacji.
 
 **Klucz**: hostingStartupAssemblies  
 **Typ**: *ciągu*  
-**Domyślne**: pusty ciąg  
+**Domyślne**: Pusty ciąg  
 **Można ustawić przy użyciu**: `UseSetting`  
 **Zmienna środowiskowa**: `ASPNETCORE_HOSTINGSTARTUPASSEMBLIES`
 
@@ -238,9 +238,9 @@ WebHost.CreateDefaultBuilder(args)
 Ustawienie HTTPS przekierowania portu. Używane w [Wymuszanie protokołu HTTPS](xref:security/enforcing-ssl).
 
 **Klucz**: https_port **typu**: *ciąg*
-**domyślne**: nie ustawiono wartość domyślną.
-**Można ustawić przy użyciu**: `UseSetting` 
- **zmiennej środowiskowej**: `ASPNETCORE_HTTPS_PORT`
+**domyślne**: Nie ustawiono wartość domyślną.
+**Można ustawić przy użyciu**: `UseSetting`
+**Zmienna środowiskowa**: `ASPNETCORE_HTTPS_PORT`
 
 ```csharp
 WebHost.CreateDefaultBuilder(args)
@@ -253,7 +253,7 @@ Rozdzielana średnikami ciąg hostingu uruchamiania zestawów, które mają zost
 
 **Klucz**: hostingStartupExcludeAssemblies  
 **Typ**: *ciągu*  
-**Domyślne**: pusty ciąg  
+**Domyślne**: Pusty ciąg  
 **Można ustawić przy użyciu**: `UseSetting`  
 **Zmienna środowiskowa**: `ASPNETCORE_HOSTINGSTARTUPEXCLUDEASSEMBLIES`
 
@@ -341,7 +341,7 @@ Określa zestaw, aby wyszukać `Startup` klasy.
 
 **Klucz**: startupAssembly  
 **Typ**: *ciągu*  
-**Domyślne**: zestaw aplikacji  
+**Domyślne**: Zestaw aplikacji  
 **Można ustawić przy użyciu**: `UseStartup`  
 **Zmienna środowiskowa**: `ASPNETCORE_STARTUPASSEMBLY`
 

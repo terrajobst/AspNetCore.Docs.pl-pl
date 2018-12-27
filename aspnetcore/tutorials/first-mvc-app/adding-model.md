@@ -5,64 +5,70 @@ description: Dodawanie modelu do prostą aplikację platformy ASP.NET Core.
 ms.author: riande
 ms.date: 12/8/2017
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: 5a820789ee3a761025d09aa78f3c42e59fc5fa38
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 630b4b0549a8549d9570d701fb1691310ec442c3
+ms.sourcegitcommit: 4e87712029de2aceb1cf2c52e9e3dda8195a5b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011381"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53381858"
 ---
-[!INCLUDE [adding-model](~/Includes/mvc-intro/adding-model1.md)]
+# <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>Dodawanie modelu do aplikacji ASP.NET Core MVC
 
-Kliknij prawym przyciskiem myszy *modeli* folder > **Dodaj** > **klasy**. Nazwa klasy **filmu** i dodaj następujące właściwości:
+Przez [Rick Anderson](https://twitter.com/RickAndMSFT) i [Tom Dykstra](https://github.com/tdykstra)
 
-[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieNoEF.cs?name=snippet_1)]
+W tej sekcji dodasz klasy zarządzania filmów w bazie danych. Te klasy będzie "**M**odelu" wchodzi w skład **M**VC aplikacji.
 
-`ID` Pole jest wymagane przez bazę danych dla klucza podstawowego. 
+Użyj tych klas z [Entity Framework Core](/ef/core) (EF Core) do pracy z bazą danych. EF Core to platforma mapowania obiektowo relacyjny (ORM), która upraszcza kod dostępu do danych, który trzeba napisać.
 
-Skompiluj projekt, aby sprawdzić, czy nie zawiera błędów. Masz teraz **M**odelu w swojej **M**VC aplikacji.
+Klasy modeli, możesz utworzyć są nazywane klasami POCO (z **P**zwykły **O**ld **C**LR **O**biekty), ponieważ nie mają żadnych zależności EF Core. Określają one po prostu właściwości danych, które będą przechowywane w bazie danych.
 
-## <a name="scaffolding-a-controller"></a>Tworzenia szkieletów kontrolera
+W tym samouczku pisania klasy modeli i programem EF Core tworzy bazę danych. Alternatywnym podejściu, nieuwzględnione w tym miejscu jest do generowania klasy modelu z istniejącej bazy danych. Aby uzyskać informacji na temat tego podejścia, zobacz [ASP.NET Core — istniejąca baza danych](/ef/core/get-started/aspnetcore/existing-db).
 
-::: moniker range=">= aspnetcore-2.1"
+## <a name="add-a-data-model-class"></a>Dodaj klasę modelu danych
+
+<!-- VS -------------------------->
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+Kliknij prawym przyciskiem myszy *modeli* folder > **Dodaj** > **klasy**. Nazwa klasy **filmu**.
+
+[!INCLUDE [model 1b](~/includes/mvc-intro/model1b.md)]
+
+<!-- Code -------------------------->
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Program Visual Studio Code / Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
+
+* Dodaj klasę umożliwiającą *modeli* folder o nazwie *Movie.cs*.
+
+[!INCLUDE [model 1b](~/includes/mvc-intro/model1b.md)]
+[!INCLUDE [model 2](~/includes/mvc-intro/model2.md)]
+
+---  
+<!-- End of VS tabs -->
+
+## <a name="scaffold-the-movie-model"></a>Tworzenie szkieletu modelu movie
+
+W tej sekcji modelu movie jest szkielet. Oznacza to, że narzędzie do tworzenia szkieletów tworzy strony dla operacji tworzenia, odczytu, aktualizowania lub usuwania (CRUD) do modelu movie.
+
+<!-- VS -------------------------->
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *kontrolerów* folderu **> Dodaj > Nowy element szkieletu**.
 
 ![Widok powyżej kroku](adding-model/_static/add_controller21.png)
 
-W **Dodawanie szkieletu** okno dialogowe, naciśnij **kontroler MVC z widokami używający narzędzia Entity Framework > Dodaj**.
+W **Dodawanie szkieletu** okno dialogowe, wybierz opcję **kontroler MVC z widokami używający narzędzia Entity Framework > Dodaj**.
 
 ![Dodaj okno dialogowe Tworzenie szkieletu](adding-model/_static/add_scaffold21.png)
 
-::: moniker-end
-
-::: moniker range="<= aspnetcore-2.0"
-
-W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *kontrolerów* folderu **> Dodaj > kontrolera**.
-
-![Widok powyżej kroku](adding-model/_static/add_controller.png)
-
-Jeśli **Dodaj zależności MVC** zostanie wyświetlone okno dialogowe:
-
-* [Aktualizacja programu Visual Studio do najnowszej wersji](https://www.visualstudio.com/downloads/). Wersje serwera Visual Studio przed 15.5 pokazuj tego okna dialogowego.
-* Jeśli nie można zaktualizować wybierz **Dodaj**, a następnie ponownie wykonaj kroki kontrolera Dodaj.
-
-W **Dodawanie szkieletu** okno dialogowe, naciśnij **kontroler MVC z widokami używający narzędzia Entity Framework > Dodaj**.
-
-![Dodaj okno dialogowe Tworzenie szkieletu](adding-model/_static/add_scaffold2.png)
-
-::: moniker-end
-
 Wykonaj **Dodaj kontroler** okno dialogowe:
 
-* **Klasa modelu:** *Movie (MvcMovie.Models)*
-* **Klasa kontekstu danych:** wybierz **+** ikonę i Dodaj domyślny **MvcMovie.Models.MvcMovieContext**
+* **Klasa modelu:** *Film (MvcMovie.Models)*
+* **Klasa kontekstu danych:** Wybierz **+** ikonę i Dodaj domyślny **MvcMovie.Models.MvcMovieContext**
 
 ![Dodawanie kontekstu danych](adding-model/_static/dc.png)
 
-* **Widoki:** Zachowaj domyślne poszczególnych opcji zaznaczone
-* **Nazwa kontrolera:** Zachowaj ustawienie domyślne *MoviesController*
-* Naciśnij pozycję **Dodaj**
+* **Widoki:** Zachowaj wartość domyślną każdego z zaznaczoną opcją
+* **Nazwa kontrolera:** Zachowaj wartość domyślną *MoviesController*
+* Wybierz **Dodaj**
 
 ![Dodaj kontroler, okno dialogowe](adding-model/_static/add_controller2.png)
 
@@ -72,7 +78,51 @@ Program Visual Studio tworzy:
 * Kontroler filmy (*Controllers/MoviesController.cs*)
 * Pliki widoku razor dla stron Create, Delete, szczegółowe informacje, edycji i indeksu (<em>widoków/filmy/&ast;.cshtml</em>)
 
-Automatyczne tworzenie kontekst bazy danych i [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) (tworzenia, odczytu, aktualizacji i usuwania) metody akcji i widoki są określane jako *tworzenia szkieletów*. Wkrótce będziesz mieć aplikację internetową w pełni funkcjonalne, która umożliwia zarządzanie filmu bazy danych.
+Automatyczne tworzenie kontekst bazy danych i [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) (tworzenia, odczytu, aktualizacji i usuwania) metody akcji i widoki są określane jako *tworzenia szkieletów*.
+
+<!-- Code -------------------------->
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+
+<!--  Until https://github.com/aspnet/Scaffolding/issues/582 is fixed windows needs backslash or the namespace is namespace RazorPagesMovie.Pages_Movies rather than namespace RazorPagesMovie.Pages.Movies
+-->
+
+* Otwórz okno polecenia w katalogu projektu (katalog, który zawiera *Program.cs*, *Startup.cs*, i *.csproj* plików).
+* Zainstaluj narzędzia do tworzenia szkieletów:
+
+  ```console
+   dotnet tool install --global dotnet-aspnet-codegenerator
+   ```
+
+* Uruchom następujące polecenie:
+
+  ```console
+     dotnet aspnet-codegenerator controller -name MoviesController -m Movie -dc MvcMovieContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries
+  ```
+
+[!INCLUDE [explains scaffold generated params](~/includes/mvc-intro/model4.md)]
+
+<!-- Mac -------------------------->
+
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+
+* Otwórz okno polecenia w katalogu projektu (katalog, który zawiera *Program.cs*, *Startup.cs*, i *.csproj* plików).
+* Zainstaluj narzędzia do tworzenia szkieletów:
+
+  ```console
+   dotnet tool install --global dotnet-aspnet-codegenerator
+   ```
+
+* Uruchom następujące polecenie:
+
+  ```console
+     dotnet aspnet-codegenerator controller -name MoviesController -m Movie -dc MvcMovieContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries
+  ```
+
+[!INCLUDE [explains scaffold gen params](~/includes/RP/model4.md)]
+
+---
+
+<!-- End of VS tabs                  -->
 
 Jeśli Uruchom aplikację i kliknąć **filmu Mvc** link, zostanie wyświetlony komunikat o błędzie podobny do następującego:
 
@@ -82,92 +132,189 @@ An unhandled exception occurred while processing the request.
 SqlException: Cannot open database "MvcMovieContext-<GUID removed>" requested by the login. The login failed.
 Login failed for user 'Rick'.
 
-System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString 
+System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString
 ```
 
-Musisz utworzyć bazę danych i użyjesz programu EF Core [migracje](xref:data/ef-mvc/migrations) funkcję, aby to zrobić. Migracje umożliwia tworzenie bazy danych, która pasuje do modelu danych i zaktualizować schemat bazy danych, gdy model danych, zmiany.
+Należy utworzyć bazę danych, a następnie użyj programu EF Core [migracje](xref:data/ef-mvc/migrations) funkcję, aby to zrobić. Migracje umożliwia tworzenie bazy danych, która pasuje do modelu danych i zaktualizować schemat bazy danych, gdy model danych, zmiany.
 
-## <a name="add-ef-tooling-and-perform-initial-migration"></a>Dodaj EF narzędzi i wykonywania początkowej migracji
+<a name="pmc"></a>
 
-W tej sekcji użyjesz konsoli Menedżera pakietów (PMC) do:
+## <a name="initial-migration"></a>Początkowej migracji
 
-* Dodaj pakiet narzędzi Entity Framework Core Tools. Ten pakiet jest wymagany do dodawania migracje i aktualizują bazę danych.
+<!-- VS -------------------------->
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+W tej sekcji konsoli Menedżera pakietów (PMC) służy do:
+
 * Dodaj początkowej migracji.
 * Zaktualizuj bazy danych przy użyciu początkowej migracji.
 
-Z **narzędzia** menu, wybierz opcję **Menedżera pakietów NuGet > Konsola Menedżera pakietów**.
+Z **narzędzia** menu, wybierz opcję **Menedżera pakietów NuGet** > **Konsola Menedżera pakietów**.
 
-<!-- following image shared with uid: tutorials/razor-pages/model --> ![Menu konsoli zarządzania Pakietami](adding-model/_static/pmc.png)
+  ![Menu konsoli zarządzania Pakietami](~/tutorials/first-mvc-app/adding-model/_static/pmc.png)
 
 W konsoli zarządzania Pakietami wprowadź następujące polecenia:
 
-::: moniker range=">= aspnetcore-2.1"
-
-``` PMC
+```PMC
 Add-Migration Initial
 Update-Database
 ```
 
-Ignoruj następujący komunikat o błędzie, możemy naprawić w następnym samouczku:
+`Add-Migration` Polecenie generuje kod, aby utworzyć schemat początkowej bazy danych.
+<!-- Code -------------------------->
 
-*Microsoft.EntityFrameworkCore.Model.Validation[30000]*  
-      *Brak typu została określona dla dziesiętną kolumny "Cena" jednostki typu "Filmu". To spowoduje, że wartości, aby dyskretnie obcięty, jeśli nie mieszczą się w domyślnej dokładności i skali. Jawnie określić typ kolumny serwera SQL, która może pomieścić wszystkie wartości przy użyciu "ForHasColumnType()".*
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Program Visual Studio Code / Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
 
-::: moniker-end
+[!INCLUDE [initial migration](~/includes/RP/model3.md)]
+`ef migrations add InitialCreate` Polecenie generuje kod, aby utworzyć schemat początkowej bazy danych.
 
-::: moniker range="<= aspnetcore-2.0"
+---  
+<!-- End of VS tabs -->
 
-``` PMC
-Install-Package Microsoft.EntityFrameworkCore.Tools
-Add-Migration Initial
-Update-Database
+Schemat jest oparta na modelu, określone w `DbContext` (w *Models/MvcMovieContext.cs* pliku). `InitialCreate` Argument jest używany do nazywania migracje. Można dowolną nazwę, ale zgodnie z Konwencją, wybrane nazwę opisującą migracji.
+
+`ef database update` Polecenia `Up` method in Class metoda *migracje /\<sygnatura czasowa > _InitialCreate.cs* pliku. `Up` Metoda tworzy bazę danych.
+
+<!-- VS -------------------------->
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+## <a name="examine-the-context-registered-with-dependency-injection"></a>Badanie kontekstu zarejestrowane przy użyciu iniekcji zależności
+
+Platforma ASP.NET Core został utworzony za pomocą [wstrzykiwanie zależności](xref:fundamentals/dependency-injection). Usługi (takie jak kontekst bazy danych programu EF Core) zostały zarejestrowane przy użyciu iniekcji zależności podczas uruchamiania aplikacji. Składniki, które wymagają tych usług (np. strony Razor) znajdują się tych usług za pomocą parametry konstruktora. Kod konstruktora, który pobiera wystąpienia kontekstu bazy danych jest przedstawiony w dalszej części tego samouczka.
+
+Narzędzie do tworzenia szkieletów automatycznie tworzone kontekst bazy danych i jest on zarejestrowany za pomocą kontenera iniekcji zależności.
+
+Sprawdź `Startup.ConfigureServices` metody. Wyróżniony wiersz został dodany w procesie tworzenia szkieletu:
+
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Startup.cs?name=snippet_ConfigureServices&highlight=15-18)]
+
+`MvcMovieContext` Współrzędne funkcji EF Core (tworzenia, odczytu, aktualizacji, usuwania, itp.) `Movie` modelu. Kontekst danych (`MvcMovieContext`) jest tworzony na podstawie [Microsoft.EntityFrameworkCore.DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext). Kontekst danych określa, które jednostki są uwzględnione w modelu danych:
+
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Data/MvcMovieContext.cs)]
+
+Powyższy kod tworzy [ `DbSet<Movie>` ](/dotnet/api/microsoft.entityframeworkcore.dbset-1) właściwość zestawu jednostek. W terminologii programu Entity Framework zwykle zestaw jednostek odnosi się do tabeli bazy danych. Jednostki odnosi się do wiersza w tabeli.
+
+Nazwa ciągu połączenia jest przekazywany do kontekstu przez wywołanie metody na [DbContextOptions](/dotnet/api/microsoft.entityframeworkcore.dbcontextoptions) obiektu. Na potrzeby lokalnego programowania dla [systemu konfiguracji platformy ASP.NET Core](xref:fundamentals/configuration/index) odczytuje parametry połączenia z *appsettings.json* pliku.
+<!-- Code -------------------------->
+
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Program Visual Studio Code / Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
+
+Platforma ASP.NET Core został utworzony za pomocą [wstrzykiwanie zależności](xref:fundamentals/dependency-injection). Usługi (takie jak kontekst bazy danych programu EF Core) zostały zarejestrowane przy użyciu iniekcji zależności podczas uruchamiania aplikacji. Składniki, które wymagają tych usług (np. strony Razor) znajdują się tych usług za pomocą parametry konstruktora. Kod konstruktora, który pobiera wystąpienia kontekstu bazy danych jest przedstawiony w dalszej części tego samouczka.
+
+Kontekst bazy danych utworzone i jest on zarejestrowany za pomocą kontenera iniekcji zależności.
+
+---
+
+Schemat jest oparta na modelu, określone w `MvcMovieContext` (w *Data/MvcMovieContext.cs* pliku). `Initial` Argument jest używany do nazywania migracje. Można dowolną nazwę, ale przez Konwencję na nazwę opisującą migracji jest używana. Zobacz [wprowadzenie do migracji](xref:data/ef-mvc/migrations#introduction-to-migrations) Aby uzyskać więcej informacji.
+
+`Update-Database` Polecenia `Up` method in Class metoda *migracje / {sygnatura czasowa} _InitialCreate.cs* pliku, który tworzy bazę danych.
+
+<a name="test"></a>
+
+### <a name="test-the-app"></a>Testowanie aplikacji
+
+* Uruchom aplikację i dołączyć `/Movies` do adresu URL w przeglądarce (`http://localhost:port/movies`).
+
+Jeśli pojawi się wyjątek bazy danych podobny do następującego:
+
+```console
+SqlException: Cannot open database "MvcMovieContext-GUID" requested by the login. The login failed.
+Login failed for user 'User-name'.
 ```
 
-**Uwaga:** Jeśli otrzymasz komunikat o błędzie z `Install-Package` polecenia Otwórz Menedżera pakietów NuGet i wyszukiwania oraz `Microsoft.EntityFrameworkCore.Tools` pakietu. Dzięki temu można zainstalować pakietu, lub sprawdź, czy jest on już zainstalowany. Możesz również zapoznać się [podejście interfejsu wiersza polecenia](#cli) Jeśli masz problemy z konsoli zarządzania Pakietami.
+Możesz pominąć [krok migracji](#pmc).
 
-::: moniker-end
+* Test **Utwórz** łącza.
 
-`Add-Migration` Polecenie tworzy kod, aby utworzyć schemat początkowej bazy danych. Schemat jest oparta na modelu, określone w `DbContext`(w *Data/MvcMovieContext.cs* pliku). `Initial` Argument jest używany do nazywania migracje. Można użyć dowolnej nazwy, ale zgodnie z Konwencją wybierz nazwę, która opisuje migracji. Zobacz [wprowadzenie do migracji](xref:data/ef-mvc/migrations#introduction-to-migrations) Aby uzyskać więcej informacji.
+  > [!NOTE]
+  > Nie można wprowadzić dziesiętna przecinkami w `Price` pola. Aby obsługiwać [dotyczącą weryfikacji jQuery](https://jqueryvalidation.org/) dla ustawień regionalnych innych niż angielski, które należy użyć przecinka (",") separator dziesiętny i formaty daty inne niż angielski, aplikacja musi globalizowana. Globalizacja instrukcje można znaleźć [problem w usłudze GitHub](https://github.com/aspnet/Docs/issues/4076#issuecomment-326590420).
 
-`Update-Database` Polecenia `Up` method in Class metoda *migracje /\<sygnatura czasowa > _Initial.cs* pliku, który tworzy bazę danych.
+* Test **Edytuj**, **szczegóły**, i **Usuń** łącza.
 
-<a name="cli"></a> Zamiast konsoli zarządzania Pakietami, należy wykonać czynności poprzedzających przy użyciu interfejsu wiersza polecenia (CLI):
+Sprawdź `Startup` klasy:
 
-* Dodaj [narzędzi programu EF Core](xref:data/ef-mvc/migrations#entity-framework-core-nuget-packages-for-migrations) do *.csproj* pliku.
-* Uruchom następujące polecenia z poziomu konsoli (w katalogu projektu):
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Startup.cs?name=snippet_ConfigureServices&highlight=13-99)]
 
-  ```console
-  dotnet ef migrations add Initial
-  dotnet ef database update
-  ```
+Poprzedni kod wyróżniony pokazuje kontekst bazy danych filmów, które są dodawane do [wstrzykiwanie zależności](xref:fundamentals/dependency-injection) kontenera:
 
-  Jeśli uruchamianie aplikacji, a komunikat o błędzie:
+* `services.AddDbContext<MvcMovieContext>(options =>` Określa bazę danych i parametry połączenia.
+* `=>` jest [operatora lambda](/dotnet/articles/csharp/language-reference/operators/lambda-operator)
 
-  ```text
-  SqlException: Cannot open database "Movie" requested by the login.
-  The login failed.
-  Login failed for user 'user name'.
-  ```
+Otwórz *Controllers/MoviesController.cs* plików i zbadaj konstruktora:
 
-Prawdopodobnie nie uruchomiono `dotnet ef database update`.
+<!-- l.. Make copy of Movies controller because we comment out the initial index method and update it later  -->
 
-[!INCLUDE [adding-model](~/Includes/mvc-intro/adding-model3.md)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Controllers/MC1.cs?name=snippet_1)]
 
-::: moniker range=">= aspnetcore-2.1"
+Używa konstruktora [wstrzykiwanie zależności](xref:fundamentals/dependency-injection) iniekcję kontekst bazy danych (`MvcMovieContext `) do kontrolera. Kontekst bazy danych jest używany we wszystkich [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) metodami w kontrolerze.
 
-[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie21/Startup.cs?name=ConfigureServices&highlight=13-99)]
+<a name="strongly-typed-models-keyword-label"></a>
+<a name="strongly-typed-models-and-the--keyword"></a>
 
-::: moniker-end
+## <a name="strongly-typed-models-and-the-model-keyword"></a>Silnie typizowane modeli i @model — słowo kluczowe
 
-::: moniker range="<= aspnetcore-2.0"
+Wcześniej w tym samouczku pokazano, jak kontroler można przekazać dane i obiekty za pomocą widoku `ViewData` słownika. `ViewData` Słownik jest to obiekt dynamiczny, która zapewnia wygodny sposób z późnym wiązaniem do przekazywania informacji do widoku.
 
-[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=ConfigureServices&highlight=6-7)]
+MVC udostępnia również możliwość przekazywania silnie typizowanych obiektów modelu widoku. Silnie typizowane temu najlepszy czas kompilacji sprawdzania kodu. Mechanizm tworzenia szkieletów używane takie podejście (który jest przekazując silnie typizowany model) z `MoviesController` klasy i widoki utworzenia metod i widoków.
 
-::: moniker-end
+Sprawdź wygenerowany `Details` method in Class metoda *Controllers/MoviesController.cs* pliku:
 
-[!INCLUDE [adding-model](~/Includes/mvc-intro/adding-model4.md)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Controllers/MC1.cs?name=snippet_details)]
 
-![Menu kontekstowe funkcji IntelliSense dla elementu modelu, wyświetlanie listy dostępnych właściwości dla Identyfikatora, ceny, Data wydania i tytuł](adding-model/_static/ints.png)
+`id` Parametr ogólnie jest przekazywany jako dane trasy. Na przykład `https://localhost:5001/movies/details/1` ustawia:
+
+* Kontroler do `movies` kontrolera (pierwszy segment adresu URL).
+* Działanie `details` (drugi segment adresu URL).
+* Identyfikator do 1 (ostatni segment adresu URL).
+
+Możesz również przekazać `id` przy użyciu zapytania następujący ciąg:
+
+`https://localhost:5001/movies/details?id=1`
+
+`id` Parametr jest zdefiniowany jako [typu dopuszczającego wartość null](/dotnet/csharp/programming-guide/nullable-types/index) (`int?`) w przypadku, gdy nie jest podana wartość Identyfikatora.
+
+A [wyrażenia lambda](/dotnet/articles/csharp/programming-guide/statements-expressions-operators/lambda-expressions) jest przekazywany do `FirstOrDefaultAsync` do wybrania jednostki filmu, które odpowiada wartości ciągu danych lub zapytanie trasy.
+
+```csharp
+var movie = await _context.Movie
+    .FirstOrDefaultAsync(m => m.Id == id);
+```
+
+Jeśli film zostanie znaleziony, wystąpienie `Movie` modelu jest przekazywany do `Details` widoku:
+
+```csharp
+return View(movie);
+   ```
+
+Sprawdź zawartość *Views/Movies/Details.cshtml* pliku:
+
+[!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Views/Movies/DetailsOriginal.cshtml)]
+
+Jeśli dołączysz `@model` instrukcji w górnej części pliku widoku, można określić typu obiektu, który oczekuje, że widok. Podczas tworzenia kontrolera filmu, następujące `@model` instrukcja została automatycznie dołączane u góry *Details.cshtml* pliku:
+
+```HTML
+@model MvcMovie.Models.Movie
+   ```
+
+To `@model` dyrektywy umożliwia dostęp do filmów, która kontrolera przekazywane do widoku przy użyciu `Model` obiekt, który jest silnie typizowane. Na przykład w *Details.cshtml* widoku Kod przekazuje każdego pola film, aby `DisplayNameFor` i `DisplayFor` pomocników HTML za pomocą silnie typizowanej `Model` obiektu. `Create` i `Edit` metody i widoki również przekazać `Movie` obiekt modelu.
+
+Sprawdź *Index.cshtml* widoku i `Index` metody w kontrolerze filmów. Zwróć uwagę, jak kod tworzy `List` obiektu, kiedy wywoływanych przez nią `View` metody. Kod przekazuje to `Movies` listy z `Index` metody akcji do widoku:
+
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Controllers/MC1.cs?name=snippet_index)]
+
+Podczas tworzenia kontrolera filmy tworzenia szkieletów automatycznie uwzględnione następujące `@model` instrukcji na górze *Index.cshtml* pliku:
+
+<!-- Copy Index.cshtml to IndexOriginal.cshtml -->
+
+[!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Views/Movies/IndexOriginal.cshtml?range=1)]
+
+`@model` Dyrektywy umożliwia dostęp do listy filmów, które kontrolera przekazywane do widoku przy użyciu `Model` obiekt, który jest silnie typizowane. Na przykład w *Index.cshtml* wyświetlić kod pętlę filmów z `foreach` instrukcji na silnie typizowaną `Model` obiektu:
+
+[!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Views/Movies/IndexOriginal.cshtml?highlight=1,31,34,37,40,43,46-48)]
+
+Ponieważ `Model` obiektu zdecydowanie jest wpisane (jako `IEnumerable<Movie>` obiektu), każdy element w pętli jest wpisana jako `Movie`. Wśród innych korzyści oznacza to, uzyskasz czasie kompilacji sprawdzania kodu:
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

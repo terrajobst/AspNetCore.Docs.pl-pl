@@ -1,23 +1,23 @@
 ---
 title: Konfigurowanie uwierzytelniania Windows w programie ASP.NET Core
 author: scottaddie
-description: Dowiedz się, jak skonfigurować uwierzytelnianie Windows w programie ASP.NET Core, za pomocą usług IIS Express, usługi IIS, sterownik HTTP.sys i WebListener.
+description: Dowiedz się, jak skonfigurować uwierzytelnianie Windows w programie ASP.NET Core, za pomocą usług IIS Express, usługi IIS i sterownik HTTP.sys.
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 11/01/2018
+ms.date: 12/18/2018
 uid: security/authentication/windowsauth
-ms.openlocfilehash: 15e388433cc9b01e9db3e2fb56aca1ebb5ba5ba4
-ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
+ms.openlocfilehash: 94dff2f47b2b076cb15f8d385239179b52786678
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284429"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637823"
 ---
 # <a name="configure-windows-authentication-in-aspnet-core"></a>Konfigurowanie uwierzytelniania Windows w programie ASP.NET Core
 
 Przez [Steve Smith](https://ardalis.com) i [Scott Addie](https://twitter.com/Scott_Addie)
 
-Dla aplikacji platformy ASP.NET Core, obsługiwane w przypadku usług IIS można skonfigurować uwierzytelniania Windows [HTTP.sys](xref:fundamentals/servers/httpsys), lub [WebListener](xref:fundamentals/servers/weblistener).
+Dla aplikacji platformy ASP.NET Core, obsługiwane w przypadku usług IIS można skonfigurować uwierzytelniania Windows lub [HTTP.sys](xref:fundamentals/servers/httpsys).
 
 ## <a name="windows-authentication"></a>Uwierzytelnianie systemu Windows
 
@@ -55,7 +55,7 @@ Alternatywnie, można skonfigurować te dwie właściwości w *launchSettings.js
 
 ## <a name="enable-windows-authentication-with-iis"></a>Włączanie uwierzytelniania Windows za pomocą usług IIS
 
-Usługi IIS używają [modułu ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) hostująca aplikacje platformy ASP.NET Core. Uwierzytelnianie Windows jest skonfigurowany w usługach IIS, a nie aplikacji. Poniższe sekcje pokazują, jak skonfigurować aplikację ASP.NET Core, aby korzystać z uwierzytelniania Windows za pomocą Menedżera usług IIS.
+Usługi IIS używają [modułu ASP.NET Core](xref:host-and-deploy/aspnet-core-module) hostująca aplikacje platformy ASP.NET Core. Uwierzytelnianie Windows jest skonfigurowany w usługach IIS, a nie aplikacji. Poniższe sekcje pokazują, jak skonfigurować aplikację ASP.NET Core, aby korzystać z uwierzytelniania Windows za pomocą Menedżera usług IIS.
 
 ### <a name="iis-configuration"></a>Konfiguracja programu IIS
 
@@ -89,8 +89,6 @@ Dowiedz się więcej o [publikowania w usługach IIS](xref:host-and-deploy/iis/i
 
 Uruchom aplikację, aby sprawdzić, czy działa uwierzytelniania Windows.
 
-::: moniker range=">= aspnetcore-2.0"
-
 ## <a name="enable-windows-authentication-with-httpsys"></a>Włącz uwierzytelnianie Windows w pliku HTTP.sys
 
 Chociaż Kestrel nie obsługuje uwierzytelniania Windows, możesz użyć [HTTP.sys](xref:fundamentals/servers/httpsys) do obsługi scenariuszy samodzielnie hostowanego na Windows. Poniższy przykład umożliwia skonfigurowanie aplikacji hosta sieci web HTTP.sys za pomocą uwierzytelniania Windows:
@@ -103,28 +101,13 @@ Chociaż Kestrel nie obsługuje uwierzytelniania Windows, możesz użyć [HTTP.s
 > [!NOTE]
 > Sterownik HTTP.sys nie jest obsługiwana na serwerze Nano Server w wersji 1709 lub nowszej. Aby użyć uwierzytelniania Windows i sterownik HTTP.sys systemu Nano Server, użyj [Server Core (microsoft/windowsservercore) kontenera](https://hub.docker.com/r/microsoft/windowsservercore/). Aby uzyskać więcej informacji na temat Server Core, zobacz [co to jest opcja instalacji Server Core w systemie Windows Server?](/windows-server/administration/server-core/what-is-server-core).
 
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-## <a name="enable-windows-authentication-with-weblistener"></a>Włączanie uwierzytelniania Windows za pomocą WebListener
-
-Chociaż Kestrel nie obsługuje uwierzytelniania Windows, możesz użyć [WebListener](xref:fundamentals/servers/weblistener) do obsługi scenariuszy samodzielnie hostowanego na Windows. Poniższy przykład umożliwia skonfigurowanie aplikacji sieci web hosta WebListener za pomocą uwierzytelniania Windows:
-
-[!code-csharp[](windowsauth/sample/Program1x.cs?highlight=6-11)]
-
-> [!NOTE]
-> WebListener delegatów, aby uwierzytelnianie trybu jądra za pomocą protokołu uwierzytelniania Kerberos. Uwierzytelnianie w trybie użytkownika nie jest obsługiwana przy użyciu protokołu Kerberos i WebListener. Konto komputera należy używany do odszyfrowywania tokenu/biletu Kerberos uzyskany z usługi Active Directory i przesyłany dalej przez klienta do serwera w celu uwierzytelnienia użytkownika. Rejestrowanie głównej nazwy usługi (SPN) dla hosta, a nie użytkownika aplikacji.
-
-::: moniker-end
-
 ## <a name="work-with-windows-authentication"></a>Praca z uwierzytelnianiem Windows
 
 Stan konfiguracji dostępu anonimowego określa sposób, w którym `[Authorize]` i `[AllowAnonymous]` atrybuty są używane w aplikacji. W poniższych sekcjach dwóch opisano sposób obsługi konfiguracji niedozwolonych i dozwolone stany dostęp anonimowy.
 
 ### <a name="disallow-anonymous-access"></a>Nie zezwalaj na dostęp anonimowy
 
-Gdy jest włączone uwierzytelnianie Windows i dostęp anonimowy jest wyłączony, `[Authorize]` i `[AllowAnonymous]` atrybuty mają żadnego skutku. Jeśli witryna usług IIS (lub serwera HTTP.sys lub WebListener) jest skonfigurowany do nie zezwalaj na dostęp anonimowy, żądanie nigdy nie osiągnie Twojej aplikacji. Z tego powodu `[AllowAnonymous]` atrybut nie ma zastosowania.
+Gdy jest włączone uwierzytelnianie Windows i dostęp anonimowy jest wyłączony, `[Authorize]` i `[AllowAnonymous]` atrybuty mają żadnego skutku. Jeśli nie zezwala na dostęp anonimowy skonfigurowano witryny usług IIS (lub sterownik HTTP.sys), żądanie nigdy nie osiągnie Twojej aplikacji. Z tego powodu `[AllowAnonymous]` atrybut nie ma zastosowania.
 
 ### <a name="allow-anonymous-access"></a>Zezwalaj na dostęp anonimowy
 

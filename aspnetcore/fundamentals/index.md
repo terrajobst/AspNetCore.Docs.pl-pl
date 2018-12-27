@@ -4,14 +4,14 @@ author: rick-anderson
 description: Poznaj podstawowe pojęcia do tworzenia aplikacji platformy ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/01/2018
+ms.date: 12/18/2018
 uid: fundamentals/index
-ms.openlocfilehash: 8bd447632f915cadcc5199ec50b292ad27f6c3ba
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 11dc6336ae7667038983c967f28232bef325f5bb
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861592"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637773"
 ---
 # <a name="aspnet-core-fundamentals"></a>Podstawy platformy ASP.NET Core
 
@@ -41,7 +41,7 @@ Aplikacji ASP.NET Core jest aplikacją konsoli, która tworzy serwer sieci web w
 * Ładunki [środowisko uruchomieniowe programu .NET Core](https://github.com/dotnet/coreclr).
 * Korzysta z pierwszym argumentem wiersza polecenia jako ścieżka do zarządzanej plik binarny, który zawiera punkt wejścia (`Main`) i rozpoczyna wykonywanie kodu.
 
-`Main` Metoda używa <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder>, zgodny [wzorzec konstruktora](https://wikipedia.org/wiki/Builder_pattern) w celu utworzenia hosta aplikacji sieci web. Konstruktor ma metody definiujące serwer sieci web (na przykład <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions.UseKestrel*>) i Klasa początkowa (<xref:Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions.UseStartup*>). W powyższym przykładzie [Kestrel](xref:fundamentals/servers/kestrel) używany jest serwer sieci web. Inne serwery sieci web, takich jak [WebListener](xref:fundamentals/servers/weblistener), mogą być używane przez wywołanie metody rozszerzenia odpowiednie. `UseStartup` opisano w następnej sekcji.
+`Main` Metoda używa <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder>, zgodny [wzorzec konstruktora](https://wikipedia.org/wiki/Builder_pattern) w celu utworzenia hosta aplikacji sieci web. Konstruktor ma metody definiujące serwer sieci web (na przykład <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions.UseKestrel*>) i Klasa początkowa (<xref:Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions.UseStartup*>). W powyższym przykładzie [Kestrel](xref:fundamentals/servers/kestrel) używany jest serwer sieci web. Inne serwery sieci web, takich jak [HTTP.sys](xref:fundamentals/servers/httpsys), mogą być używane przez wywołanie metody rozszerzenia odpowiednie. `UseStartup` zostało wyjaśnione w dalszej [uruchamiania](#startup) sekcji.
 
 `WebHostBuilder` udostępnia wiele metod opcjonalne, w tym <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*> do hostowania w usługach IIS i usług IIS Express i <xref:Microsoft.Extensions.Hosting.HostingHostBuilderExtensions.UseContentRoot*> do określania zawartości katalogu głównego. <xref:Microsoft.AspNetCore.Hosting.IWebHostBuilder.Build*> i <xref:Microsoft.AspNetCore.Hosting.WebHostExtensions.Run*> metod tworzenia <xref:Microsoft.AspNetCore.Hosting.IWebHost> obiektu, który hostuje aplikację i rozpoczyna nasłuchiwanie żądań HTTP.
 
@@ -140,7 +140,7 @@ Model hostingu w programie ASP.NET Core bezpośrednio nie nasłuchuje żądań. 
 Platforma ASP.NET Core oferuje następujące implementacje serwera:
 
 * [Kestrel](xref:fundamentals/servers/kestrel) serwera zarządzanego dla wielu platform sieci web. Kestrel często jest uruchamiany w konfiguracji zwrotny serwer proxy przy użyciu [IIS](https://www.iis.net/). Można również uruchomić kestrel jako serwer graniczny publicznymi, bezpośrednie połączenie z Internetem, ASP.NET Core w wersji 2.0 lub nowszej.
-* Serwer HTTP usług IIS (`IISHttpServer`) jest [IIS wewnątrz procesowego](xref:fundamentals/servers/aspnet-core-module#in-process-hosting-model).
+* Serwer HTTP usług IIS (`IISHttpServer`) jest [wewnątrz procesowego](xref:fundamentals/servers/index#in-process-hosting-model) dla usług IIS.
 * [Sterownik HTTP.sys](xref:fundamentals/servers/httpsys) serwer jest serwerem sieci web dla platformy ASP.NET Core na Windows.
 
 # <a name="macostabmacos"></a>[macOS](#tab/macos)

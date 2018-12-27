@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: seodec18
 ms.date: 11/22/2018
 uid: data/ef-rp/intro
-ms.openlocfilehash: 34c7238b689993245e033625dcd0e728b7c45163
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: b66d20a46b29b6975512026fa940f7f9e50deeb5
+ms.sourcegitcommit: 6548c19f345850ee22b50f7ef9fca732895d9e08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121703"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53425136"
 ---
 # <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>Strony razor za pomocą platformy Entity Framework Core w programie ASP.NET Core — samouczek 1 8
 
@@ -65,7 +65,7 @@ Styl interfejsu użytkownika w tej lokacji znajduje się w pobliżu co to jest g
 * Tworzenie nowej aplikacji sieci Web platformy ASP.NET Core. Nadaj projektowi nazwę **ContosoUniversity**. Ważne jest, aby nadaj projektowi nazwę *ContosoUniversity* , przestrzenie nazw dopasować sytuacje, kiedy kod jest skopiowane i wklejone.
 * Wybierz **platformy ASP.NET Core 2.1** w listy rozwijanej, a następnie wybierz pozycję **aplikacji sieci Web**.
 
-Obrazy te czynności, zobacz [tworzenie aplikacji sieci web Razor](xref:tutorials/razor-pages/razor-pages-start#create-a-razor-web-app).
+Obrazy te czynności, zobacz [tworzenie aplikacji sieci web Razor](xref:tutorials/razor-pages/razor-pages-start#create-a-razor-pages-web-app).
 Uruchom aplikację.
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
@@ -190,8 +190,8 @@ Proces szkieletu tworzonych i zmienianych następujące pliki:
 
 ### <a name="file-updates"></a>Aktualizacje plików
 
-* *Startup.cs* : zmiany w tym pliku opisano szczegółowo w następnej sekcji.
-* *appSettings.JSON* : parametry połączenia używane do łączenia z lokalnej bazy danych zostanie dodany.
+* *Startup.cs* : Zmiany do tego pliku są szczegółowo opisane w następnej sekcji.
+* *appSettings.JSON* : Parametry połączenia używane do łączenia z lokalnej bazy danych zostanie dodany.
 
 ## <a name="examine-the-context-registered-with-dependency-injection"></a>Badanie kontekstu zarejestrowane przy użyciu iniekcji zależności
 

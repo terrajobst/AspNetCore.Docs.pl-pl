@@ -4,20 +4,20 @@ author: rick-anderson
 description: Ten samouczek przedstawia integracja uwierzytelniania użytkownika konta serwisu Facebook do istniejącej aplikacji platformy ASP.NET Core.
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 11/11/2018
+ms.date: 12/18/2018
 uid: security/authentication/facebook-logins
-ms.openlocfilehash: d4f3e210b0d3c79eaf2233f97a29a6d96cd69b39
-ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
+ms.openlocfilehash: 66f895c7c8dcc00d991c0ea57535f2ed56431a77
+ms.sourcegitcommit: 3e94d192b2ed9409fe72e3735e158b333354964c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284386"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53735781"
 ---
 # <a name="facebook-external-login-setup-in-aspnet-core"></a>Ustawienia zewnętrznej nazwy logowania usługi Facebook w programie ASP.NET Core
 
 Przez [Valeriy Novytskyy](https://github.com/01binary) i [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-W tym samouczku dowiesz się, jak umożliwić użytkownikom logowanie się przy użyciu swojego konta w serwisie Facebook przy użyciu przykładowy projekt programu ASP.NET Core 2.0, utworzony na [poprzedniej strony](xref:security/authentication/social/index). Wymaga uwierzytelniania serwisu Facebook [Microsoft.AspNetCore.Authentication.Facebook](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Facebook) pakietu NuGet. Zaczniemy od utworzenia identyfikator aplikacji Facebook, postępując zgodnie z [oficjalnych kroków](https://developers.facebook.com).
+W tym samouczku dowiesz się, jak umożliwić użytkownikom logowanie się przy użyciu swojego konta w serwisie Facebook przy użyciu przykładowy projekt programu ASP.NET Core 2.0, utworzony na [poprzedniej strony](xref:security/authentication/social/index). Zaczniemy od utworzenia identyfikator aplikacji Facebook, postępując zgodnie z [oficjalnych kroków](https://developers.facebook.com).
 
 ## <a name="create-the-app-in-facebook"></a>Tworzenie aplikacji w usłudze Facebook
 
@@ -74,9 +74,9 @@ dotnet user-secrets set Authentication:Facebook:AppSecret <app-secret>
 Dodawanie usługi Facebook w `ConfigureServices` method in Class metoda *Startup.cs* pliku:
 
 ```csharp
-services.AddIdentity<ApplicationUser, IdentityRole>()
-        .AddEntityFrameworkStores<ApplicationDbContext>()
-        .AddDefaultTokenProviders();
+services.AddDefaultIdentity<IdentityUser>()
+        .AddDefaultUI(UIFramework.Bootstrap4)
+        .AddEntityFrameworkStores<ApplicationDbContext>();
 
 services.AddAuthentication().AddFacebook(facebookOptions =>
 {
@@ -145,6 +145,8 @@ Obecnie zalogowano Cię przy użyciu poświadczeń serwisu Facebook:
 * Jeśli nie utworzono bazy danych lokacji, stosując początkowej migracji, możesz uzyskać *operacji bazy danych nie powiodło się podczas przetwarzania żądania* błędu. Naciśnij pozycję **zastosować migracje** do tworzenia bazy danych i Odśwież, aby kontynuować po błędzie.
 
 ## <a name="next-steps"></a>Następne kroki
+
+* Dodaj [Microsoft.AspNetCore.Authentication.Facebook](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Facebook) pakiet NuGet do projektu w przypadku zaawansowanych scenariuszy uwierzytelniania serwisu Facebook. Ten pakiet nie jest wymagane do integracji funkcji zewnętrznej nazwy logowania usługi Facebook z aplikacją. 
 
 * W tym artykule pokazano, jak można uwierzytelniać za pomocą usługi Facebook. Możesz wykonać podejście podobne do uwierzytelniania przy użyciu innych dostawców na [poprzedniej strony](xref:security/authentication/social/index).
 

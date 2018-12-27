@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/06/2018
 uid: tutorials/publish-to-azure-webapp-using-vs
-ms.openlocfilehash: d713a520368ba86726e46203da5ea33eed4f6e2c
-ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
+ms.openlocfilehash: e71cb8badbbc852685c845e6bbb0bbb12ab5499f
+ms.sourcegitcommit: 68a3081dd175d6518d1bfa31b4712bd8a2dd3864
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284594"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53577815"
 ---
 # <a name="publish-an-aspnet-core-app-to-azure-with-visual-studio"></a>Publikowanie aplikacji platformy ASP.NET Core na platformie Azure z programem Visual Studio
 
@@ -154,7 +154,9 @@ Kliknij przycisk **publikowania**. Program Visual Studio publikuje aplikację na
 
 ### <a name="update-the-app"></a>Aktualizowanie aplikacji
 
-* Edytuj *Pages/About.cshtml* Razor strony i zmienić jego zawartość. Na przykład można zmodyfikować akapitu powiedzieć "Hello platformy ASP.NET Core!": [!code-html[About](publish-to-azure-webapp-using-vs/sample/about.cshtml?highlight=9&range=1-9)]
+* Edytuj *Pages/About.cshtml* Razor strony i zmienić jego zawartość. Na przykład można zmodyfikować akapitu powiedzieć "Hello platformy ASP.NET Core!":
+
+    [!code-html[About](publish-to-azure-webapp-using-vs/sample/about.cshtml?highlight=9&range=1-9)]
 
 * Kliknij prawym przyciskiem myszy projekt i wybierz pozycję **publikowania...**  ponownie.
 

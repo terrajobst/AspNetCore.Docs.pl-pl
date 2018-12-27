@@ -4,14 +4,14 @@ author: ardalis
 description: Dowiedz się, jak platforma ASP.NET Core obsługuje Open Web Interface for .NET (OWIN), który umożliwia aplikacjom sieci web jest całkowicie niezależna od serwerów sieci web.
 ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.date: 10/14/2016
+ms.date: 12/18/2018
 uid: fundamentals/owin
-ms.openlocfilehash: eb5cf92a6dcc3ddb9e2f56cd72a710b66f7fae06
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 51982c7ebc4f66c2b0b73bf425d9ecbd0bf37826
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50206890"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637797"
 ---
 # <a name="open-web-interface-for-net-owin-with-aspnet-core"></a>Otwarty interfejs internetowy dla platformy .NET (OWIN) za pomocą programu ASP.NET Core
 
@@ -162,7 +162,7 @@ namespace NowinSample
 }
 ```
 
-Dowiedz się więcej o programie ASP.NET [serwerów](servers/index.md).
+Dowiedz się więcej o [platformy ASP.NET Core serwerów](xref:fundamentals/servers/index).
 
 ## <a name="run-aspnet-core-on-an-owin-based-server-and-use-its-websockets-support"></a>Uruchamianie platformy ASP.NET Core na serwerze OWIN i użyj jego obsługa funkcji WebSockets
 

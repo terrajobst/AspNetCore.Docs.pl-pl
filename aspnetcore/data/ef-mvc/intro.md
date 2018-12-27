@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: data/ef-mvc/intro
-ms.openlocfilehash: f1682203850f2c5440fe8d0b98830ca8772ff70f
-ms.sourcegitcommit: c4572be5ebb301013a5698caf9b5572b76cb2e34
+ms.openlocfilehash: 1191632555dc9331f815c1bfb1f313459824754a
+ms.sourcegitcommit: 68a3081dd175d6518d1bfa31b4712bd8a2dd3864
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "50244895"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53577906"
 ---
 # <a name="aspnet-core-mvc-with-entity-framework-core---tutorial-1-of-10"></a>Platforma ASP.NET Core MVC za pomocą platformy Entity Framework Core — samouczek 1, 10
 
@@ -75,7 +75,7 @@ Otwórz program Visual Studio i Utwórz nowe platformy ASP.NET Core C# projektu 
 
 * Wybierz **ASP.NET Core 2.0** i **aplikacji sieci Web (Model-View-Controller)** szablonu.
 
-  **Uwaga:** ten samouczek wymaga platformy ASP.NET Core 2.0 i programu EF Core 2.0 lub nowszej — upewnij się, że **ASP.NET Core 1.1** nie jest zaznaczone.
+  **Uwaga:** Ten samouczek wymaga platformy ASP.NET Core 2.0 i programu EF Core 2.0 lub nowszej — upewnij się, że **ASP.NET Core 1.1** nie jest zaznaczone.
 
 * Upewnij się, że **uwierzytelniania** ustawiono **bez uwierzytelniania**.
 
@@ -245,7 +245,7 @@ Automatyczne tworzenie widoków i CRUD metody akcji jest określana jako tworzen
 
 Jeśli **Dodaj zależności MVC** zostanie wyświetlone okno dialogowe:
 
-* [Aktualizacja programu Visual Studio do najnowszej wersji](https://www.visualstudio.com/downloads/). Wersje serwera Visual Studio przed 15.5 pokazuj tego okna dialogowego.
+* [Aktualizacja programu Visual Studio do najnowszej wersji](https://www.visualstudio.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017). Wersje serwera Visual Studio przed 15.5 pokazuj tego okna dialogowego.
 * Jeśli nie można zaktualizować wybierz **Dodaj**, a następnie ponownie wykonaj kroki kontrolera Dodaj.
 
 * W **Dodawanie szkieletu** okno dialogowe:

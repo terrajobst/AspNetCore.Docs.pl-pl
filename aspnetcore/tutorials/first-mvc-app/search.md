@@ -1,44 +1,150 @@
 ---
 title: Dodawanie wyszukiwania do aplikacji ASP.NET Core MVC
 author: rick-anderson
-description: Pokazuje, jak dodawanie wyszukiwania do prostą aplikację platformy ASP.NET Core MVC
+description: Pokazuje, jak dodać wyszukiwanie do podstawowej aplikacji ASP.NET Core MVC
 ms.author: riande
-ms.date: 03/07/2017
+ms.date: 12/25/2018
 uid: tutorials/first-mvc-app/search
-ms.openlocfilehash: d0581142b505323385feba441b707d29b3f6db5d
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 3814acf0f1cf1572f1c30ce952df910ce40b4141
+ms.sourcegitcommit: 4e87712029de2aceb1cf2c52e9e3dda8195a5b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38216199"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53381832"
 ---
-[!INCLUDE [adding-model](~/includes/mvc-intro/search1.md)]
+# <a name="add-search-to-an-aspnet-core-mvc-app"></a>Dodawanie wyszukiwania do aplikacji ASP.NET Core MVC
 
-Możesz szybko zmienić nazwę `searchString` parametr `id` z **Zmień nazwę** polecenia. Kliknij prawym przyciskiem myszy `searchString` **> Zmień nazwę**.
+Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-![Menu kontekstowe](search/_static/rename.png)
+W tej sekcji możesz dodać możliwości wyszukiwania do `Index` metody akcji, która umożliwia wyszukiwanie filmów przez *gatunku* lub *nazwa*.
 
-Obiekty docelowe zmiany nazwy są wyróżnione.
+Aktualizacja `Index` metoda następującym kodem:
 
-![Edytor kodu, przedstawiający zmiennej wyróżnione w całym metoda ActionResult indeksu](search/_static/rename2.png)
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_1stSearch)]
+
+W pierwszym wierszu `Index` tworzy metody akcji [LINQ](/dotnet/standard/using-linq) zapytanie, aby wybrać filmów:
+
+```csharp
+var movies = from m in _context.Movie
+             select m;
+```
+
+Zapytanie jest *tylko* zdefiniowane w tym momencie, ma ona **nie** zostały uruchomione dla bazy danych.
+
+Jeśli `searchString` parametru zawiera ciąg, zapytanie filmy zostanie zmodyfikowany na potrzeby filtrowania na wartość ciągu wyszukiwania:
+
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_SearchNull2)]
+
+`s => s.Title.Contains()` Powyższy kod jest [wyrażenia Lambda](/dotnet/csharp/programming-guide/statements-expressions-operators/lambda-expressions). Wyrażenia lambda są używane w oparte na metodzie [LINQ](/dotnet/standard/using-linq) jako argumenty do standardowych metod operatorów kwerendy takich zapytań jak [gdzie](/dotnet/api/system.linq.enumerable.where) metody lub `Contains` (używane w powyższym kodzie). Zapytania LINQ nie są wykonywane, gdy są one definiowane lub ich modyfikacji przez wywołanie metody, takie jak `Where`, `Contains` lub `OrderBy`. Przeciwnie wykonanie zapytania jest odroczone.  Oznacza to, że wyniku obliczenia wyrażenia zostanie opóźnione, dopóki wartość zrealizowane faktycznie jest powtarzana lub `ToListAsync` metoda jest wywoływana. Aby uzyskać więcej informacji na temat wykonywania zapytań z opóźnieniem, zobacz [wykonywania zapytania](/dotnet/framework/data/adonet/ef/language-reference/query-execution).
+
+Uwaga: [Zawiera](/dotnet/api/system.data.objects.dataclasses.entitycollection-1.contains) metoda jest uruchomiona w bazie danych nie jest w kodzie języka c# pokazano powyżej. Rozróżnianie wielkości liter w zapytaniu, zależy od bazy danych i sortowanie. W programie SQL Server [zawiera](/dotnet/api/system.data.objects.dataclasses.entitycollection-1.contains) mapuje [SQL LIKE](/sql/t-sql/language-elements/like-transact-sql), która jest uwzględniana wielkość liter. W SQLlite przy użyciu sortowania domyślnego, jest uwzględniana wielkość liter.
+
+Przejdź do adresu `/Movies/Index`. Dołącz ciąg zapytania, takie jak `?searchString=Ghost` do adresu URL. Wyświetlane są filtrowane filmów.
+
+![Widok indeksu](~/tutorials/first-mvc-app/search/_static/ghost.png)
+
+Jeśli zmienisz podpis `Index` metoda będzie miała parametru o nazwie `id`, `id` parametr będzie odpowiadał opcjonalnego `{id}` symbolu zastępczego dla domyślnej kieruje zestawu w *Startup.cs*.
+
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?highlight=5&name=snippet_1)]
 
 Zmień parametr `id` i wszystkie wystąpienia `searchString` Zmień `id`.
 
-![Edytor kodu, przedstawiający zmiennej został zmieniony na identyfikator](search/_static/rename3.png)
+Poprzedni `Index` metody:
 
-[!INCLUDE [adding-model](~/includes/mvc-intro/search2.md)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?highlight=1,8&name=snippet_1stSearch)]
 
-Zwróć uwagę, jak technologia intelliSense pomaga zaktualizować znaczników.
+Zaktualizowany interfejs `Index` metody z `id` parametru:
 
-![Menu kontekstowe funkcji IntelliSense przy użyciu metody zaznaczony na liście atrybutów dla elementu form](search/_static/int_m.png)
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?highlight=1,8&name=snippet_SearchID)]
 
-![Menu kontekstowe IntelliSense z pobrać zaznaczony na liście wartości atrybutów — metoda](search/_static/int_get.png)
+Tytuł wyszukiwania można teraz przekazywać jako dane trasy (segment adresu URL) zamiast jako wartość ciągu zapytania.
 
-Zwróć uwagę, szczególne czcionkę w `<form>` tagu. Szczególne czcionki wskazuje tagu jest obsługiwana przez [pomocników tagów](~/mvc/views/tag-helpers/intro.md).
+![Widok indeksu z ghost word dodawany do adresu Url i zwrócony filmu listę filmów Ghostbusters i Ghostbusters 2](~/tutorials/first-mvc-app/search/_static/g2.png)
 
-![tag formularza z tekstem purpurowy](search/_static/th_font.png)
+Jednak nie można oczekiwać od użytkowników, aby zmodyfikować adres URL, za każdym razem, gdy chcą wyszukiwania filmów. Teraz należy dodać elementy interfejsu użytkownika, aby pomóc im filtrowanie filmów. Jeśli zmienisz podpis `Index` metodę, aby przetestować sposób przekazywania trasy powiązanym `ID` parametr, zmień je z powrotem, aby przyspieszyć parametr o nazwie `searchString`:
 
-[!INCLUDE [adding-model](~/includes/mvc-intro/search3.md)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?highlight=1,8&name=snippet_1stSearch)]
+
+Otwórz *Views/Movies/Index.cshtml* pliku i Dodaj `<form>` znaczników, które przedstawiono poniżej:
+
+[!code-HTML[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/IndexForm1.cshtml?highlight=10-16&range=4-21)]
+
+Kod HTML `<form>` tagów używa [Pomocnik tagu formularza](xref:mvc/views/working-with-forms), więc gdy prześlesz formularz, aby opublikowaniu ciąg filtru `Index` akcji kontrolera filmów. Zapisz zmiany, a następnie przetestować filtr.
+
+![Widok indeksu z ghost słowa wpisane w polu tekstowym filtru tytułu](~/tutorials/first-mvc-app/search/_static/filter.png)
+
+Istnieje nie `[HttpPost]` przeciążenia `Index` metody można by oczekiwać. Nie są potrzebne, ponieważ metoda nie jest zmiana stanu aplikacji, po prostu filtrowania danych.
+
+Można dodać następujące `[HttpPost] Index` metody.
+
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?highlight=1&name=snippet_SearchPost)]
+
+`notUsed` Parametr jest używany do tworzenia przeciążenie dla elementu `Index` metody. Omówimy, w dalszej części tego samouczka.
+
+Jeśli dodasz tej metody, wywołujący akcji będzie odpowiadać `[HttpPost] Index` metody i `[HttpPost] Index` metoda może działać, jak pokazano na poniższej ilustracji.
+
+![Okno przeglądarki z odpowiedzi aplikacji z indeksu HttpPost: Filtr ghost](~/tutorials/first-mvc-app/search/_static/fo.png)
+
+Jednak nawet w przypadku dodania to `[HttpPost]` wersję `Index` metody, jest to ograniczenie, w jak to wszystko została zaimplementowana. Wyobraź sobie, że chcesz utworzyć zakładkę określonego wyszukiwania lub chcesz wysłać link do znajomych, mogą kliknąć umożliwiający zobaczenie tej samej listy filtrowane filmów. Należy zauważyć, że adres URL żądania HTTP POST jest taki sam jak adres URL dla żądania GET (localhost:xxxxx/filmy/indeksu) — Brak wyszukiwania informacji w adresie URL. Informacje o parametrach wyszukiwania są wysyłane do serwera jako [stanowią wartość pola](https://developer.mozilla.org/docs/Learn/HTML/Forms/Sending_and_retrieving_form_data). Możesz sprawdzić, czy za pomocą narzędzia deweloperskie przeglądarki lub doskonałą [narzędzie Fiddler](http://www.telerik.com/fiddler). Na poniższym obrazie przedstawiono narzędzia deweloperskie przeglądarki Chrome:
+
+![Karta Sieć narzędzi dla deweloperów w programie Microsoft Edge wyświetlanie treść żądania z wartością Ciągwyszukiwania ghost](~/tutorials/first-mvc-app/search/_static/f12_rb.png)
+
+Możesz zobaczyć parametru wyszukiwania i [XSRF](xref:security/anti-request-forgery) tokenu w treści żądania. Należy pamiętać, zgodnie z opisem w poprzednim samouczku [Pomocnik tagu formularza](xref:mvc/views/working-with-forms) generuje [XSRF](xref:security/anti-request-forgery) token zabezpieczający przed sfałszowaniem. Dane, nie masz zostać zmodyfikowana, więc nie potrzebujemy przeprowadzić walidacji tokenu w metodzie kontrolera.
+
+Ponieważ parametr wyszukiwania znajduje się w treści żądania, a nie jej adres URL, nie można przechwycić informacje wyszukiwania do zakładki lub udostępnienia innym osobom. Poprawka, określając żądania powinna przypominać `HTTP GET`:
+
+[!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Views/Movies/IndexGet.cshtml?highlight=12&range=1-23)]
+
+Teraz gdy prześlesz wyszukiwania, adres URL zawiera ciąg zapytania wyszukiwania. Wyszukiwanie będzie także przejść do `HttpGet Index` metody akcji, nawet jeśli masz `HttpPost Index` metody.
+
+![Okno przeglądarki, przedstawiające Ciągwyszukiwania = ghost w adresie Url i filmów, zwrócone, Ghostbusters i Ghostbusters 2, zawierają ghost programu word](~/tutorials/first-mvc-app/search/_static/search_get.png)
+
+Następujący kod przedstawia zmiany `form` tag:
+
+```html
+<form asp-controller="Movies" asp-action="Index" method="get">
+   ```
+
+## <a name="add-search-by-genre"></a>Dodaj wyszukiwanie według gatunku
+
+Dodaj następujący kod `MovieGenreViewModel` klasy *modeli* folderu:
+
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieGenreViewModel.cs)]
+
+Model widoku gatunku filmu będzie zawierać:
+
+   * Lista filmów.
+   * A `SelectList` zawierającego listę gatunki. Dzięki temu użytkownikowi na wybranie określonego rodzaju z listy.
+   * `MovieGenre`, zawierającą wybrane gatunku.
+   * `SearchString`, który zawiera tekst, użytkownicy wprowadzają w polu tekstowym wyszukiwania.
+
+Zastąp `Index` method in Class metoda `MoviesController.cs` następującym kodem:
+
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Controllers/MoviesController.cs?name=snippet_SearchGenre)]
+
+Poniższy kod jest `LINQ` zapytania, który pobiera wszystkie gatunki z bazy danych.
+
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Controllers/MoviesController.cs?name=snippet_LINQ)]
+
+`SelectList` Gatunków jest tworzona przy wyświetlaniu distinct gatunki (nie chcemy naszej listy wyboru mają zduplikowane gatunki).
+
+Gdy użytkownik wyszukuje element, do wartości wyszukiwania są przechowywane w polu wyszukiwania.
+
+## <a name="add-search-by-genre-to-the-index-view"></a>Dodaj wyszukiwanie według gatunku do widoku indeksu
+
+Aktualizacja `Index.cshtml` w następujący sposób:
+
+[!code-HTML[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Views/Movies/IndexFormGenreNoRating.cshtml?highlight=1,15,16,17,28,31,34,37,43)]
+
+Sprawdź wyrażenie lambda, używane w następujących pomocnika kodu HTML:
+
+`@Html.DisplayNameFor(model => model.Movies[0].Title)`
+
+W poprzednim kodzie `DisplayNameFor` sprawdza pomocnika kodu HTML `Title` właściwość, do którego odwołuje się wyrażenie lambda, aby ustalić nazwę wyświetlaną. Ponieważ wyrażenie lambda jest kontrolowane zamiast oceniane, nie otrzymasz naruszenie zasad dostępu podczas `model`, `model.Movies`, lub `model.Movies[0]` są `null` lub jest pusty. Kiedy jest obliczane wyrażenie lambda (na przykład `@Html.DisplayFor(modelItem => item.Title)`), są oceniane wartości właściwości modelu.
+
+Testowanie aplikacji przez wyszukiwanie według gatunku, tytuł filmu i przez:
+
+![Wyniki przedstawiający okno przeglądarki https://localhost:5001/Movies?MovieGenre=Comedy&SearchString=2](~/tutorials/first-mvc-app/search/_static/s2.png)
 
 > [!div class="step-by-step"]
 > [Poprzednie](controller-methods-views.md)

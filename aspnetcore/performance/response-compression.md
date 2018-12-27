@@ -5,14 +5,14 @@ description: Informacje o kompresji odpowiedzi i sposobie używania oprogramowan
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/01/2018
+ms.date: 12/18/2018
 uid: performance/response-compression
-ms.openlocfilehash: 2516fbb30e55990dc4ad0d92069853bc26874bc9
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 51ab51652a7b3f9b4ef97b3abbffe2e398c0bfb5
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861891"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637758"
 ---
 # <a name="response-compression-in-aspnet-core"></a>Kompresja odpowiedzi w programie ASP.NET Core
 
@@ -33,8 +33,8 @@ Oprogramowanie pośredniczące kompresji odpowiedzi należy użyć, jeśli:
   * [Moduł mod_deflate Apache](http://httpd.apache.org/docs/current/mod/mod_deflate.html)
   * [Serwer Nginx kompresja i Dekompresja](https://www.nginx.com/resources/admin-guide/compression-and-decompression/)
 * Hosting bezpośrednio na:
-  * [Sterownik HTTP.sys](xref:fundamentals/servers/httpsys) server (wcześniej noszącą nazwę [WebListener](xref:fundamentals/servers/weblistener))
-  * [Kestrel](xref:fundamentals/servers/kestrel) serwera
+  * [Serwer HTTP.sys](xref:fundamentals/servers/httpsys) (dawniej nazywanych WebListener)
+  * [Kestrel serwera](xref:fundamentals/servers/kestrel)
 
 ## <a name="response-compression"></a>Kompresja odpowiedzi
 
@@ -50,7 +50,7 @@ W przypadku klienta może przetwarzać skompresowanej treści, klient musi powia
 | `deflate`                       | Nie                   | [Format skompresowanych danych DEFLATE](https://tools.ietf.org/html/rfc1951) |
 | `exi`                           | Nie                   | [Wymiana wydajne XML W3C](https://tools.ietf.org/id/draft-varga-netconf-exi-capability-00.html) |
 | `gzip`                          | Tak                  | [Format pliku gzip](https://tools.ietf.org/html/rfc1952) |
-| `identity`                      | Tak                  | Identyfikator "Bez kodowania": nie musi być zakodowany odpowiedzi. |
+| `identity`                      | Tak                  | Identyfikator "Bez kodowania": Odpowiedź nie musi być zakodowany. |
 | `pack200-gzip`                  | Nie                   | [Format Transfer sieci archiwa Java](https://jcp.org/aboutJava/communityprocess/review/jsr200/index.html) |
 | `*`                             | Tak                  | Kodowanie nie jest jawnie żądanej zawartości dostępne |
 
@@ -64,7 +64,7 @@ W przypadku klienta może przetwarzać skompresowanej treści, klient musi powia
 | `deflate`                       | Nie                   | [Format skompresowanych danych DEFLATE](https://tools.ietf.org/html/rfc1951) |
 | `exi`                           | Nie                   | [Wymiana wydajne XML W3C](https://tools.ietf.org/id/draft-varga-netconf-exi-capability-00.html) |
 | `gzip`                          | Tak (ustawienie domyślne)        | [Format pliku gzip](https://tools.ietf.org/html/rfc1952) |
-| `identity`                      | Tak                  | Identyfikator "Bez kodowania": nie musi być zakodowany odpowiedzi. |
+| `identity`                      | Tak                  | Identyfikator "Bez kodowania": Odpowiedź nie musi być zakodowany. |
 | `pack200-gzip`                  | Nie                   | [Format Transfer sieci archiwa Java](https://jcp.org/aboutJava/communityprocess/review/jsr200/index.html) |
 | `*`                             | Tak                  | Kodowanie nie jest jawnie żądanej zawartości dostępne |
 
@@ -74,7 +74,7 @@ Aby uzyskać więcej informacji, zobacz [IANA oficjalne kodowania listy zawarto�
 
 Oprogramowanie pośredniczące pozwala na dodawanie kompresji dodatkowych dostawców na potrzeby niestandardowych `Accept-Encoding` wartości nagłówka. Aby uzyskać więcej informacji, zobacz [niestandardowi](#custom-providers) poniżej.
 
-Oprogramowanie pośredniczące jest w stanie reagowanie na wartości jakości (qvalue, `q`) wagi, gdy wysłane przez klienta w celu określenia priorytetów schematów kompresji. Aby uzyskać więcej informacji, zobacz [RFC 7231: Zaakceptuj kodowania](https://tools.ietf.org/html/rfc7231#section-5.3.4).
+Oprogramowanie pośredniczące jest w stanie reagowanie na wartości jakości (qvalue, `q`) wagi, gdy wysłane przez klienta w celu określenia priorytetów schematów kompresji. Aby uzyskać więcej informacji, zobacz [RFC 7231: Zaakceptuj kodowanie](https://tools.ietf.org/html/rfc7231#section-5.3.4).
 
 Algorytmy kompresji podlegają zależność między szybkości kompresji i efektywność kompresji. *Skuteczność* w tym kontekście odnosi się do rozmiaru danych wyjściowych po kompresji. Najmniejszy rozmiar odbywa się przez większość *optymalne* kompresji.
 
@@ -432,7 +432,7 @@ Podczas kompresowania odpowiedzi na podstawie `Accept-Encoding` nagłówka, wyst
 
 ## <a name="middleware-issue-when-behind-an-nginx-reverse-proxy"></a>Oprogramowanie pośredniczące problem za zaporą zwrotny serwer proxy Nginx
 
-Gdy żądanie jest przekazywane przez serwer Nginx, `Accept-Encoding` nagłówka zostanie usunięty. Usuwanie `Accept-Encoding` nagłówka zapobiega oprogramowanie pośredniczące kompresji odpowiedzi. Aby uzyskać więcej informacji, zobacz [NGINX: kompresja i Dekompresja](https://www.nginx.com/resources/admin-guide/compression-and-decompression/). Ten problem jest śledzona przez [ustalić przekazywanego kompresji dla kontenera Nginx (aspnet/BasicMiddleware \#123)](https://github.com/aspnet/BasicMiddleware/issues/123).
+Gdy żądanie jest przekazywane przez serwer Nginx, `Accept-Encoding` nagłówka zostanie usunięty. Usuwanie `Accept-Encoding` nagłówka zapobiega oprogramowanie pośredniczące kompresji odpowiedzi. Aby uzyskać więcej informacji, zobacz [NGINX: Kompresja i Dekompresja](https://www.nginx.com/resources/admin-guide/compression-and-decompression/). Ten problem jest śledzona przez [ustalić przekazywanego kompresji dla kontenera Nginx (aspnet/BasicMiddleware \#123)](https://github.com/aspnet/BasicMiddleware/issues/123).
 
 ## <a name="working-with-iis-dynamic-compression"></a>Praca z kompresji dynamicznej usług IIS
 
@@ -465,6 +465,6 @@ Użyj narzędzia, takiego jak [Fiddler](https://www.telerik.com/fiddler), [Fireb
 * <xref:fundamentals/startup>
 * <xref:fundamentals/middleware/index>
 * [Mozilla Developer Network: Zaakceptuj kodowania](https://developer.mozilla.org/docs/Web/HTTP/Headers/Accept-Encoding)
-* [Sekcji 7231 RFC 3.1.2.1: Zawierać zawartości](https://tools.ietf.org/html/rfc7231#section-3.1.2.1)
-* [RFC 7230 sekcja 4.2.3: Gzip kodowania](https://tools.ietf.org/html/rfc7230#section-4.2.3)
+* [Sekcja 7231 RFC 3.1.2.1: Zawierać zawartości](https://tools.ietf.org/html/rfc7231#section-3.1.2.1)
+* [RFC 7230 sekcja 4.2.3: Kodowanie w formacie gzip](https://tools.ietf.org/html/rfc7230#section-4.2.3)
 * [Wersja specyfikacji formatu pliku GZIP 4.3](http://www.ietf.org/rfc/rfc1952.txt)

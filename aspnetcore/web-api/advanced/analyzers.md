@@ -5,18 +5,18 @@ description: Więcej informacji o analizatorach interfejsu API sieci web w Micro
 monikerRange: '>= aspnetcore-2.2'
 ms.author: pranavkm
 ms.custom: mvc
-ms.date: 11/13/2018
+ms.date: 12/14/2018
 uid: web-api/advanced/analyzers
-ms.openlocfilehash: 89424d89ec2b3125fd3c6b7c86fed2d292b153e6
-ms.sourcegitcommit: f202864efca81a72ea7120c0692940c40d9d0630
+ms.openlocfilehash: 7558552586d3056c43d8bfd9ef74cbcb3396726f
+ms.sourcegitcommit: 6548c19f345850ee22b50f7ef9fca732895d9e08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51635364"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53425097"
 ---
 # <a name="use-web-api-analyzers"></a>Używane analizatory interfejsu API sieci web
 
-Platforma ASP.NET Core 2.2 wprowadza [Microsoft.AspNetCore.Mvc.Api.Analyzers](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Api.Analyzers) pakiet NuGet zawierający analizatory internetowych interfejsów API. Analizatory pracować kontrolerów, oznaczony za pomocą <xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute>, podczas kompilowania [konwencje interfejsu API](xref:web-api/advanced/conventions).
+ASP.NET Core 2,2 i nowszych obejmują [Microsoft.AspNetCore.Mvc.Api.Analyzers](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Api.Analyzers) pakiet NuGet zawierający analizatory internetowych interfejsów API. Analizatory pracować kontrolerów, oznaczony za pomocą <xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute>, podczas kompilowania [konwencje interfejsu API](xref:web-api/advanced/conventions).
 
 ## <a name="package-installation"></a>Instalacja pakietu
 
@@ -66,10 +66,16 @@ dotnet add ApiConventions.csproj package Microsoft.AspNetCore.Mvc.Api.Analyzers
 
 ## <a name="analyzers-for-api-conventions"></a>Analizatory konwencje interfejsu API
 
-Otwarte dokumenty interfejsu API zawierają kody stanów i typów odpowiedzi, które mogą zwrócić akcji. W programie ASP.NET Core MVC atrybuty takie jak <xref:Microsoft.AspNetCore.Mvc.ProducesResponseTypeAttribute> i <xref:Microsoft.AspNetCore.Mvc.ProducesAttribute> służą do dokumentowania akcji. <xref:tutorials/web-api-help-pages-using-swagger> Przechodzi do bardziej szczegółowo w dokumentacji interfejsu API.
+Dokumentów OpenAPI zawiera kody stanów i typów odpowiedzi, które mogą zwrócić akcji. W programie ASP.NET Core MVC atrybuty takie jak <xref:Microsoft.AspNetCore.Mvc.ProducesResponseTypeAttribute> i <xref:Microsoft.AspNetCore.Mvc.ProducesAttribute> służą do dokumentowania akcji. <xref:tutorials/web-api-help-pages-using-swagger> Przechodzi do bardziej szczegółowo w dokumentacji interfejsu API.
 
 Jedną z analizatory w pakiecie sprawdza kontrolerów, oznaczony za pomocą <xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute> i określa akcje, które nie całkowicie dokumentu ich odpowiedzi. Rozważmy następujący przykład:
 
 [!code-csharp[](conventions/sample/Controllers/ContactsController.cs?name=missing404docs&highlight=9)]
 
 Poprzednią akcję dokumenty HTTP 200 Powodzenie zwracany typ, ale nie dokumentu kod stanu błędu HTTP 404. Analizator raporty dokumentacji brakuje kod stanu HTTP 404 jako ostrzeżenie. Podano opcję, aby rozwiązać ten problem.
+
+## <a name="additional-resources"></a>Dodatkowe zasoby
+
+* <xref:web-api/advanced/conventions>
+* <xref:tutorials/web-api-help-pages-using-swagger>
+* [Adnotacja z atrybutem klasy ApiController](xref:web-api/index#annotation-with-apicontroller-attribute)

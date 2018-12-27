@@ -4,14 +4,14 @@ author: guardrex
 description: Dowiedz się, jak diagnozować problemy z wdrożeniami usług Internet Information Services (IIS) w aplikacji platformy ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/06/2018
+ms.date: 12/18/2018
 uid: host-and-deploy/iis/troubleshoot
-ms.openlocfilehash: 6d43057639ea88bb21ac66f2799062e06fffc530
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: 68fcd578c051ae9ba6234cad0465a7ef42f1ed14
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121690"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637693"
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a>Rozwiązywanie problemów z platformą ASP.NET Core w usługach IIS
 
@@ -34,7 +34,7 @@ W programie Visual Studio ma domyślnie wartość projektu ASP.NET Core [usług 
 Dodatkowe tematy dotyczące rozwiązywania problemów:
 
 <xref:host-and-deploy/azure-apps/troubleshoot>  
-Mimo że usługa App Service używa [modułu ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) i usługi IIS do hostowania aplikacji, zobacz temat dedykowanych instrukcje specyficzne dla usługi App Service.
+Mimo że usługa App Service używa [modułu ASP.NET Core](xref:host-and-deploy/aspnet-core-module) i usługi IIS do hostowania aplikacji, zobacz temat dedykowanych instrukcje specyficzne dla usługi App Service.
 
 <xref:fundamentals/error-handling>  
 Dowiedz się, jak do obsługi błędów w aplikacji platformy ASP.NET Core podczas programowania w systemie lokalnym.

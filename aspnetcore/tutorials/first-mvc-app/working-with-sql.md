@@ -1,44 +1,52 @@
 ---
-title: Praca z programu SQL Server LocalDB w aplikacji MVC platformy ASP.NET Core
+title: Praca z SQL w aplikacji MVC platformy ASP.NET Core
 author: rick-anderson
-description: Dowiedz się więcej o korzystaniu z programu SQL Server LocalDB w prostej aplikacji ASP.NET Core MVC.
+description: Dowiedz się więcej o korzystaniu z programu SQL Server LocalDB lub bazy danych SQLite w aplikacji ASP.NET Core MVC.
 ms.author: riande
 ms.date: 03/07/2017
 uid: tutorials/first-mvc-app/working-with-sql
-ms.openlocfilehash: 49615c25d51cfa671157c2e56b8e0753719c678a
-ms.sourcegitcommit: c4572be5ebb301013a5698caf9b5572b76cb2e34
+ms.openlocfilehash: 3757b972694a41cb87beb8ebee818cd498be6764
+ms.sourcegitcommit: 4e87712029de2aceb1cf2c52e9e3dda8195a5b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52710104"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53382033"
 ---
-# <a name="work-with-sql-server-localdb-in-aspnet-core"></a>Praca z bazą danych LocalDB programu SQL Server w programie ASP.NET Core
+# <a name="work-with-sql-in-aspnet-core"></a>Praca z SQL w programie ASP.NET Core
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 `MvcMovieContext` Obiektu obsługuje zadania z bazą danych i mapowania `Movie` obiekty do rekordów bazy danych. Kontekst bazy danych jest zarejestrowany w [wstrzykiwanie zależności](xref:fundamentals/dependency-injection) kontenera w `ConfigureServices` method in Class metoda *Startup.cs* pliku:
 
-::: moniker range=">= aspnetcore-2.1"
+<!-- VS -------------------------->
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie21/Startup.cs?name=ConfigureServices&highlight=13-99)]
-
-::: moniker-end
-
-::: moniker range="<= aspnetcore-2.0"
-
-[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=ConfigureServices&highlight=6-7)]
-
-::: moniker-end
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Startup.cs?name=snippet_ConfigureServices&highlight=13-99)]
 
 ASP.NET Core [konfiguracji](xref:fundamentals/configuration/index) odczyty system `ConnectionString`. Dla wdrożenia lokalnego, pobiera parametry połączenia z *appsettings.json* pliku:
 
 [!code-json[](start-mvc/sample/MvcMovie/appsettings.json?highlight=2&range=8-10)]
 
+<!-- Code -------------------------->
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Program Visual Studio Code / Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
+
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Startup.cs?name=snippet_UseSqlite&highlight=11-12)]
+
+ASP.NET Core [konfiguracji](xref:fundamentals/configuration/index) odczyty system `ConnectionString`. Dla wdrożenia lokalnego, pobiera parametry połączenia z *appsettings.json* pliku:
+
+[!code-json[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/appsettingsSQLite.json?highlight=2&range=8-10)]
+
+---  
+<!-- End of VS tabs -->
+
 Podczas wdrażania aplikacji na serwerze testowym lub produkcyjnym, można użyć zmiennej środowiskowej lub innej metody, które można ustawić parametrów połączenia do rzeczywistego programu SQL Server. Zobacz [konfiguracji](xref:fundamentals/configuration/index) Aby uzyskać więcej informacji.
+
+<!-- VS -------------------------->
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 ## <a name="sql-server-express-localdb"></a>SQL Server Express LocalDB
 
-LocalDB to Uproszczona wersja aparatu programu SQL Server Express bazy danych, która jest przeznaczona do tworzenia programu. LocalDB rozpoczyna się na żądanie i działa w trybie użytkownika, więc nie ma żadnych złożonej konfiguracji. Domyślnie tworzy bazy danych LocalDB "\*.mdf" pliki *C:/Users/\<użytkownika\>*  katalogu.
+LocalDB to Uproszczona wersja aparatu programu SQL Server Express bazy danych, która jest przeznaczona do tworzenia programu. LocalDB rozpoczyna się na żądanie i działa w trybie użytkownika, więc nie ma żadnych złożonej konfiguracji. Domyślnie tworzy bazy danych LocalDB *.mdf* pliki *C:/Users / {user}* katalogu.
 
 * Z **widoku** menu Otwórz **Eksplorator obiektów SQL Server** (SSOX).
 
@@ -58,11 +66,18 @@ Należy zauważyć ikonę klucza, obok `ID`. Domyślnie program EF spowoduje, ż
 
   ![Tabela filmu otwarte, wyświetlanie tabeli danych](working-with-sql/_static/vd22.png)
 
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Program Visual Studio Code / Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
+
+[!INCLUDE[](~/includes/rp/sqlite.md)]
+
+---  
+<!-- End of VS tabs -->
+
 ## <a name="seed-the-database"></a>Inicjowanie bazy danych
 
 Utwórz nową klasę o nazwie `SeedData` w *modeli* folderu. Zastąp wygenerowany kod następujących czynności:
 
-[!code-csharp[](start-mvc/sample/MvcMovie/Models/SeedData.cs?name=snippet_1)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Models/SeedData.cs?name=snippet_1)]
 
 Czy istnieją wszystkie filmy w bazie danych, zwraca inicjatora inicjatora i filmy nie zostaną dodane.
 
@@ -78,21 +93,12 @@ if (context.Movie.Any())
 
 Zastąp zawartość *Program.cs* następującym kodem:
 
-::: moniker range=">= aspnetcore-2.1"
-
-[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie21/Program.cs)]
-
-::: moniker-end
-
-::: moniker range="<= aspnetcore-2.0"
-
-Dodaj inicjator inicjator, tak aby `Main` method in Class metoda *Program.cs* pliku:
-
-[!code-csharp[](start-mvc/sample/MvcMovie/Program.cs?highlight=6,14-32)]
-
-::: moniker-end
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Program.cs)]
 
 Testowanie aplikacji
+
+<!-- VS -------------------------->
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Usuń wszystkie rekordy w bazie danych. Można to zrobić, wraz z łączami delete w przeglądarce lub SSOX.
 * Wymusić na aplikacji, aby zainicjować (wywoływanie metody w `Startup` klasy), uruchamia seed — metoda. Aby wymusić inicjowania, usługi IIS Express musi zostać zatrzymana i uruchomiona ponownie. To zrobić przy użyciu dowolnej z następujących metod:
@@ -105,6 +111,14 @@ Testowanie aplikacji
 
     * Podczas uruchamiania w trybie bez debugowania programu VS, naciśnij klawisz F5, aby uruchomić tryb debugowania
     * W przypadku uruchomienia programu VS w trybie debugowania, Zatrzymaj debuger, a następnie naciśnij klawisz F5
+
+<!-- Code -------------------------->
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Program Visual Studio Code / Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
+
+(Aby uruchomi seed — metoda), należy usunąć wszystkie rekordy w bazie danych. Zatrzymywanie i uruchamianie aplikacji w celu umieszczenia bazy danych.
+
+---  
+<!-- End of VS tabs -->
 
 Aplikacja zawiera wprowadzonych danych.
 

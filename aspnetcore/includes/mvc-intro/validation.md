@@ -60,11 +60,11 @@ Możesz ustawić punkt przerwania w `[HttpPost] Create` metody i sprawdź, nigdy
 
 Na poniższej ilustracji przedstawiono sposób wyłączania JavaScript w przeglądarce FireFox.
 
-![Firefox: Na karcie Zawartość opcje, usuń zaznaczenie pola wyboru Włącz język Javascript.](~/tutorials/first-mvc-app/validation/_static/ff.png)
+![Firefox: Na karcie Zawartość opcje Usuń zaznaczenie pola wyboru Włącz język Javascript.](~/tutorials/first-mvc-app/validation/_static/ff.png)
 
 Na poniższej ilustracji przedstawiono sposób wyłączania JavaScript w przeglądarce Chrome.
 
-![Google Chrome: Javascript — w sekcji Ustawienia zawartości, wybierz opcję nie zezwalają na dowolnej lokacji do uruchomienia kodu JavaScript.](~/tutorials/first-mvc-app/validation/_static/chrome.png)
+![Google Chrome: W sekcji kodu Javascript w zawartości ustawień wybierz opcję nie zezwalają na dowolnej lokacji do uruchomienia kodu JavaScript.](~/tutorials/first-mvc-app/validation/_static/chrome.png)
 
 Po wyłączeniu JavaScript Opublikuj nieprawidłowe dane i krok po kroku debugera.
 

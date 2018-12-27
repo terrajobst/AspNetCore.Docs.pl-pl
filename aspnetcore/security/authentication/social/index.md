@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/11/2018
 uid: security/authentication/social/index
-ms.openlocfilehash: 19074d5014a09446ceec1b89449e78760fc8e7cf
-ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
+ms.openlocfilehash: 47ac1f966ff727957e6ed700c3c68efa16b1b38b
+ms.sourcegitcommit: 3e94d192b2ed9409fe72e3735e158b333354964c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51708377"
+ms.lasthandoff: 12/24/2018
+ms.locfileid: "53735729"
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Facebook, Google i zewnętrznego dostawcy uwierzytelniania w programie ASP.NET Core
 
@@ -24,8 +24,6 @@ W tym samouczku przedstawiono sposób tworzenia platformy ASP.NET Core 2.x aplik
 ![Ikony mediów społecznościowych usługi Facebook, Twitter, Google, plus i Windows](index/_static/social.png)
 
 Umożliwienie użytkownikom logowania się za pomocą istniejących poświadczeń jest wygodne w przypadku użytkowników i przenosi wiele złożoności zarządzania procesu logowania na innej. Aby przykładów jak społecznościowych nazw logowania, może zapewnić konwersje typów ruchu i klienta, zobacz przypadków przez [Facebook](https://www.facebook.com/unsupportedbrowser) i [Twitter](https://dev.twitter.com/resources/case-studies).
-
-Uwaga: Pakiety przedstawionych w tym miejscu abstrakcji dużym stopniem złożoności przepływu uwierzytelniania OAuth, ale zrozumienie szczegóły mogą okazać się niezbędne podczas rozwiązywania problemów. Wiele zasobów są dostępne; na przykład zobacz [wprowadzenie do protokołu OAuth 2](https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2) lub [opis protokołu OAuth 2](http://www.bubblecode.net/2016/01/22/understanding-oauth2/). Niektóre problemy można rozwiązać, analizując [kod źródłowy platformy ASP.NET Core pakiety dostawcy](https://github.com/aspnet/Security/tree/master/src).
 
 ## <a name="create-a-new-aspnet-core-project"></a>Utwórz nowy projekt platformy ASP.NET Core
 

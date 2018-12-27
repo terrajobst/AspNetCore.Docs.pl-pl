@@ -4,14 +4,14 @@ author: tdykstra
 description: Dowiedz się więcej o nowych funkcjach w programie ASP.NET Core 2.2.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 12/03/2018
+ms.date: 12/18/2018
 uid: aspnetcore-2.2
-ms.openlocfilehash: d0bb0698526e2f7af8f0e99b0393f3ce48657b34
-ms.sourcegitcommit: a3a15d3ad4d6e160a69614a29c03bbd50db110a2
+ms.openlocfilehash: 13d7dec834a5661b445b4fc0c0be8be9b7b41b9e
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52952060"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637732"
 ---
 # <a name="whats-new-in-aspnet-core-22"></a>What's new in ASP.NET Core 2.2
 
@@ -25,7 +25,7 @@ Aby uzyskać więcej informacji, zobacz następujące zasoby:
 
 * <xref:web-api/advanced/analyzers>
 * <xref:web-api/advanced/conventions>
-* [Platforma ASP.NET Core 2.2.0-preview1: Otwórz z & konwencje analizatorów interfejsu API](https://blogs.msdn.microsoft.com/webdev/2018/08/23/asp-net-core-2-20-preview1-open-api-analyzers-conventions/)
+* [2.2.0-preview1 platformy ASP.NET Core: Analizatory otwartych interfejsów API i konwencje](https://blogs.msdn.microsoft.com/webdev/2018/08/23/asp-net-core-2-20-preview1-open-api-analyzers-conventions/)
 
 ## <a name="problem-details-support"></a>Obsługuje szczegóły problemu
 
@@ -72,7 +72,7 @@ We wcześniejszych wersjach programu ASP.NET Core, są skonfigurowane opcje Kest
 
 We wcześniejszych wersjach programu ASP.NET Core usługi IIS służy jako zwrotny serwer proxy. W 2.2, modułu ASP.NET Core można uruchomić oprogramowania CoreCLR i hostowanie aplikacji w ramach proces roboczy usług IIS (*w3wp.exe*). W trakcie hostingu zapewnia wydajność i zyski diagnostycznych podczas korzystania z użyciem usług IIS.
 
-Aby uzyskać więcej informacji, zobacz [IIS wewnątrzprocesowego hostingu](xref:fundamentals/servers/aspnet-core-module?view=aspnetcore-2.2#in-process-hosting-model).
+Aby uzyskać więcej informacji, zobacz [hosting dla usług IIS w trakcie](xref:host-and-deploy/aspnet-core-module?view=aspnetcore-2.2#in-process-hosting-model).
 
 ## <a name="signalr-java-client"></a>Klienta SignalR Java
 

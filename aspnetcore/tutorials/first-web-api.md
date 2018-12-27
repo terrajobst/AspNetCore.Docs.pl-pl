@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/10/2018
 uid: tutorials/first-web-api
-ms.openlocfilehash: a27031550dd6fe810a250b369f83b7fe322aad1f
-ms.sourcegitcommit: 1ea1b4fc58055c62728143388562689f1ef96cb2
+ms.openlocfilehash: c2b4dcddd5332330cd6e6abe7d3a12697cde845e
+ms.sourcegitcommit: 4e87712029de2aceb1cf2c52e9e3dda8195a5b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53329175"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53382007"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core-mvc"></a>Samouczek: Tworzenie internetowego interfejsu API za pomocą platformy ASP.NET Core MVC
 
@@ -22,7 +22,7 @@ W tym samouczku pokazano podstawy tworzenia internetowego interfejsu API za pomo
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Utwórz projekt interfejsu api sieci web.
+> * Utwórz projekt interfejsu API sieci web.
 > * Dodaj klasę modelu.
 > * Utwórz kontekst bazy danych.
 > * Zarejestruj kontekst bazy danych.
@@ -31,7 +31,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Konfigurowanie routingu i ścieżki adresu URL.
 > * Określ wartości zwracane.
 > * Wywoływanie internetowego interfejsu API za pomocą narzędzia Postman.
-> * Wywoływanie internetowego interfejsu api przy użyciu jQuery.
+> * Wywołanie interfejsu API sieci web przy użyciu jQuery.
 
 Na koniec masz internetowego interfejsu API, która może zarządzać "wykonania", przechowywane w relacyjnej bazie danych.
 

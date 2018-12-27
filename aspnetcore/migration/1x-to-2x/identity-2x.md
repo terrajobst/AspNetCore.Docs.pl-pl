@@ -3,14 +3,14 @@ title: Migrowanie uwierzytelnianie i tożsamość do ASP.NET Core 2.0
 author: scottaddie
 description: W tym artykule omówiono najbardziej typowe kroki dla migracji platformy ASP.NET Core 1.x uwierzytelnianie i tożsamość ASP.NET Core 2.0.
 ms.author: scaddie
-ms.date: 10/26/2017
+ms.date: 12/18/2018
 uid: migration/1x-to-2x/identity-2x
-ms.openlocfilehash: 6d457d42ad29ca579ba74e3b097d143bd6531b72
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: d28b4af483c7ec9d6cff6db3e2f1693e765d4202
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41754044"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637615"
 ---
 # <a name="migrate-authentication-and-identity-to-aspnet-core-20"></a>Migrowanie uwierzytelnianie i tożsamość do ASP.NET Core 2.0
 
@@ -283,7 +283,7 @@ Istnieją dwie odmiany uwierzytelniania Windows:
 
 Pierwsza wersja opisanych powyżej jest niezależny od zmiany 2.0.
 
-Druga opisanych powyżej jest wpływ zmiany 2.0. Na przykład może być umożliwiając anonimowych użytkowników do aplikacji w usługach IIS lub [HTTP.sys](xref:fundamentals/servers/weblistener) warstwy, ale autoryzowanie użytkowników na poziomie kontrolera. W tym scenariuszu ustawiono domyślny schemat `IISDefaults.AuthenticationScheme` w `ConfigureServices` metody *Startup.cs*:
+Druga opisanych powyżej jest wpływ zmiany 2.0. Na przykład może być co anonimowych użytkowników w swojej aplikacji w usługach IIS lub [HTTP.sys](xref:fundamentals/servers/httpsys) warstwy, ale autoryzowanie użytkowników na poziomie kontrolera. W tym scenariuszu ustawiono domyślny schemat `IISDefaults.AuthenticationScheme` w `Startup.ConfigureServices` metody:
 
 ```csharp
 services.AddAuthentication(IISDefaults.AuthenticationScheme);

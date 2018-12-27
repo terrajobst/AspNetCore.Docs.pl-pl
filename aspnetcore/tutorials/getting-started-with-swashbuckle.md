@@ -4,14 +4,14 @@ author: zuckerthoben
 description: Dowiedz się, jak dodać pakiet Swashbuckle do swojego projektu interfejsu API sieci web platformy ASP.NET Core, aby zintegrować interfejs użytkownika struktury Swagger.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 11/30/2018
+ms.date: 12/18/2018
 uid: tutorials/get-started-with-swashbuckle
-ms.openlocfilehash: 9229b4536c3d5090e640de71357c728ddbd5dcc3
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: a8c3d999cfddb4d3d888455d7cc0b899a71e427e
+ms.sourcegitcommit: ea215df889e89db44037a6ac2f01baede0450da9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862346"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53595350"
 ---
 # <a name="get-started-with-swashbuckle-and-aspnet-core"></a>Wprowadzenie do pakietu Swashbuckle i ASP.NET Core
 
@@ -25,7 +25,7 @@ Istnieją trzy główne składniki do narzędzia Swashbuckle:
 
 * [Swashbuckle.AspNetCore.SwaggerGen](https://www.nuget.org/packages/Swashbuckle.AspNetCore.SwaggerGen/): generatora struktury Swagger, który tworzy `SwaggerDocument` obiektów bezpośrednio z tras, kontrolerów i modeli. Zazwyczaj jest połączona z oprogramowaniem pośredniczącym punktu końcowego struktury Swagger można automatycznie udostępnić JSON programu Swagger.
 
-* [Swashbuckle.AspNetCore.SwaggerUI](https://www.nuget.org/packages/Swashbuckle.AspNetCore.SwaggerUI/): wbudowana wersja narzędzia interfejs użytkownika struktury Swagger. Interpretuje JSON programu Swagger do tworzenia rozbudowanych, możliwych do dostosowania środowisko do opisywania funkcje interfejsu API sieci Web. Obejmuje ona wiązka testów wbudowanych dla metody publiczne.
+* [Swashbuckle.AspNetCore.SwaggerUI](https://www.nuget.org/packages/Swashbuckle.AspNetCore.SwaggerUI/): wbudowana wersja narzędzia interfejs użytkownika struktury Swagger. Interpretuje JSON programu Swagger do tworzenia rozbudowanych, możliwych do dostosowania środowisko do opisywania funkcje interfejsu API sieci web. Obejmuje ona wiązka testów wbudowanych dla metody publiczne.
 
 ## <a name="package-installation"></a>Instalacja pakietu
 
@@ -258,7 +258,7 @@ Skonfiguruj strukturę Swagger, aby użyć wygenerowanego pliku XML. Dla systemu
 
 ::: moniker-end
 
-W poprzednim kodzie [odbicia](/dotnet/csharp/programming-guide/concepts/reflection) jest używany do tworzenia nazwę pliku XML dopasowania, projekt interfejsu API sieci Web. [AppContext.BaseDirectory](/dotnet/api/system.appcontext.basedirectory#System_AppContext_BaseDirectory) właściwość jest używana do konstruowania ścieżkę do pliku XML.
+W poprzednim kodzie [odbicia](/dotnet/csharp/programming-guide/concepts/reflection) jest używany do tworzenia nazwę pliku XML dopasowania, projekt interfejsu API sieci web. [AppContext.BaseDirectory](xref:System.AppContext.BaseDirectory*) właściwość jest używana do konstruowania ścieżkę do pliku XML.
 
 Dodawanie komentarze z potrójnym ukośnikiem akcję zwiększa interfejsu użytkownika programu Swagger, dodając opis do nagłówku sekcji. Dodaj [ \<podsumowania >](/dotnet/csharp/programming-guide/xmldoc/summary) element powyżej `Delete` akcji:
 
@@ -367,11 +367,11 @@ Dodaj `[Produces("application/json")]` atrybutu Kontroler interfejsu API. Jej ce
 
 ![Interfejs użytkownika struktury swagger z domyślny typ zawartości odpowiedzi](web-api-help-pages-using-swagger/_static/json-response-content-type.png)
 
-W miarę zwiększania użycia adnotacje danych w interfejsie API sieci Web interfejsu API i interfejsu użytkownika strony, stają się bardziej opisowy i przydatne pomocy.
+W miarę zwiększania użycia adnotacje danych w interfejsie API sieci web interfejsu API i interfejsu użytkownika strony, stają się bardziej opisowy i przydatne pomocy.
 
 ### <a name="describe-response-types"></a>Opis typów odpowiedzi
 
-Deweloperzy odbierająca komunikaty są najbardziej interesujących co to jest zwracany&mdash;specjalnie typów odpowiedzi i kody błędów (o ile nie standard). Typy odpowiedzi i kody błędów są wskazywane w adnotacjach komentarze i dane XML.
+Deweloperom korzystanie z interfejsu API sieci web są najbardziej interesujących co to jest zwracany&mdash;specjalnie typów odpowiedzi i kody błędów (o ile nie standard). Typy odpowiedzi i kody błędów są wskazywane w adnotacjach komentarze i dane XML.
 
 `Create` Akcji zwraca kod stanu 201 protokołu HTTP w przypadku powodzenia. Treść żądania przesłane ma wartość null zwracany jest kod stanu HTTP 400. Bez prawidłowego dokumentacji w Interfejsie użytkownika programu Swagger użytkownik nie ma wiedzy na temat tych oczekiwanych wyników. Rozwiązać ten problem, dodając wyróżnione wiersze w następującym przykładzie:
 
@@ -390,6 +390,12 @@ Deweloperzy odbierająca komunikaty są najbardziej interesujących co to jest z
 Teraz interfejs użytkownika struktury Swagger dokumenty wyraźnie oczekiwanego kody odpowiedzi HTTP:
 
 ![Wyświetlanie opis klasy odpowiedzi WPIS "Zwraca nowo utworzony element Todo" interfejs użytkownika struktury swagger i "400 - Jeśli element ma wartość null" dla kodu stan i przyczyna w komunikatach odpowiedzi](web-api-help-pages-using-swagger/_static/data-annotations-response-types.png)
+
+::: moniker range=">= aspnetcore-2.2"
+
+W programie ASP.NET Core 2.2 lub nowszej, konwencje mogą być używane jako alternatywa jawnie urządzanie poszczególne akcje za pomocą `[ProducesResponseType]`. Aby uzyskać więcej informacji, zobacz <xref:web-api/advanced/conventions>.
+
+::: moniker-end
 
 ### <a name="customize-the-ui"></a>Dostosowywanie interfejsu użytkownika
 

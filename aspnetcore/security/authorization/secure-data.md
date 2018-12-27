@@ -3,15 +3,15 @@ title: Tworzenie aplikacji platformy ASP.NET Core przy użyciu danych użytkowni
 author: rick-anderson
 description: Dowiedz się, jak utworzyć aplikację stron Razor przy użyciu danych użytkownika chronionych przez autoryzację. Obejmuje protokołu HTTPS, uwierzytelniania, zabezpieczeń i tożsamości platformy ASP.NET Core.
 ms.author: riande
-ms.date: 12/07/2018
+ms.date: 12/18/2018
 ms.custom: seodec18
 uid: security/authorization/secure-data
-ms.openlocfilehash: d49ee7779b425d625b81c8a65694121c616bfba6
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: fa82d3d99f4e4b7ad17ed385fb7c029745797e8d
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121638"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637836"
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Tworzenie aplikacji platformy ASP.NET Core przy użyciu danych użytkownika chronionych przez autoryzację
 
@@ -57,7 +57,7 @@ Na poniższej ilustracji `admin@contoso.com` jest zarejestrowany i w roli admini
 
 Administrator ma wszystkie uprawnienia. Ona można odczytu/edytowanie/usuwanie dowolnego skontaktuj się z pomocą i zmienić stan kontaktów.
 
-Aplikacja została utworzona przez [tworzenia szkieletów](xref:tutorials/first-mvc-app-xplat/adding-model#scaffold-the-moviecontroller) następujące `Contact` modelu:
+Aplikacja została utworzona przez [tworzenia szkieletów](xref:tutorials/first-mvc-app/adding-model#scaffold-the-movie-model) następujące `Contact` modelu:
 
 [!code-csharp[](secure-data/samples/starter2.1/Models/Contact.cs?name=snippet)]
 

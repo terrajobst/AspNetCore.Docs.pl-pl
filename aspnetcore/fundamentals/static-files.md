@@ -4,14 +4,14 @@ author: rick-anderson
 description: Dowiedz się, jak obsługiwać oraz zabezpieczanie plików statycznych i konfigurowanie plików statycznych hostingu zachowania oprogramowania pośredniczącego w aplikacji sieci web platformy ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/18/2018
+ms.date: 12/18/2018
 uid: fundamentals/static-files
-ms.openlocfilehash: fb92141b1864574242b29ecc386024ce72a6be87
-ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
+ms.openlocfilehash: 4c08d65cc1f658ef08a9b4b362ac7f8a3a243557
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51570129"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637784"
 ---
 # <a name="static-files-in-aspnet-core"></a>Pliki statyczne z platformy ASP.NET Core
 
@@ -246,7 +246,7 @@ Przy użyciu poprzedniego kodu żądanie dotyczące pliku z nieznanym typem zawa
 
 * Adresy URL zawartość jest uwidaczniana z `UseDirectoryBrowser` i `UseStaticFiles` podlegają rozróżnianie wielkości liter i ograniczenia dotyczące znaków bazowego systemu plików. Na przykład Windows jest uwzględniana wielkość liter&mdash;systemach macOS i Linux nie są.
 
-* Aplikacje platformy ASP.NET Core hostowanych w użyciu IIS [modułu ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) do przekazywania wszystkich żądań do aplikacji, w tym realizowania żądań plików statycznych. Obsługa plików statycznych usług IIS nie jest używany. Ma on możliwość obsługi żądań przed są one obsługiwane przez moduł.
+* Aplikacje platformy ASP.NET Core hostowanych w użyciu IIS [modułu ASP.NET Core](xref:host-and-deploy/aspnet-core-module) do przekazywania wszystkich żądań do aplikacji, w tym realizowania żądań plików statycznych. Obsługa plików statycznych usług IIS nie jest używany. Ma on możliwość obsługi żądań przed są one obsługiwane przez moduł.
 
 * Wykonaj następujące czynności w Menedżerze usług IIS, aby usunąć program obsługi plików statycznych usług IIS na poziomie serwera lub witryny sieci Web:
     1. Przejdź do **modułów** funkcji.

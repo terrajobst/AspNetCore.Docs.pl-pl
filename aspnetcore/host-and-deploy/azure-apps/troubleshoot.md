@@ -4,14 +4,14 @@ author: guardrex
 description: Dowiedz się, jak diagnozować problemy z wdrożeniami platformy ASP.NET Core usługi Azure App Service.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 12/18/2018
 uid: host-and-deploy/azure-apps/troubleshoot
-ms.openlocfilehash: 05bb024f5b0d2b554cc861c250a92fd7ae23437f
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: b36c321c6ba6801a32b5187651063337b4533fd1
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090748"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637655"
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service"></a>Rozwiązywanie problemów z platformą ASP.NET Core w usłudze Azure App Service
 
@@ -19,14 +19,14 @@ Przez [Luke Latham](https://github.com/guardrex)
 
 [!INCLUDE [Azure App Service Preview Notice](../../includes/azure-apps-preview-notice.md)]
 
-Ten artykuł zawiera instrukcje na temat platformy ASP.NET Core zdiagnozować problem uruchamiania aplikacji za pomocą narzędzi diagnostycznych w usłudze Azure App Service. Aby uzyskać dodatkowe porady dotyczące rozwiązywania problemów, zobacz [Omówienie diagnostyki usługi Azure App Service](/azure/app-service/app-service-diagnostics) i [jak: monitorowanie aplikacji w usłudze Azure App Service](/azure/app-service/web-sites-monitor) w dokumentacji platformy Azure.
+Ten artykuł zawiera instrukcje na temat platformy ASP.NET Core zdiagnozować problem uruchamiania aplikacji za pomocą narzędzi diagnostycznych w usłudze Azure App Service. Aby uzyskać dodatkowe porady dotyczące rozwiązywania problemów, zobacz [Omówienie diagnostyki usługi Azure App Service](/azure/app-service/app-service-diagnostics) i [jak: Monitorowanie aplikacji w usłudze Azure App Service](/azure/app-service/web-sites-monitor) w dokumentacji platformy Azure.
 
 ## <a name="app-startup-errors"></a>Błędy uruchamiania aplikacji
 
 **502.5 niepowodzenie procesu**  
 Proces roboczy kończy się niepowodzeniem. Nie zaczyna się aplikacja.
 
-[Modułu ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) próby uruchomienia procesu roboczego, ale nie została uruchomiona. Badanie w dzienniku zdarzeń aplikacji często pomaga rozwiązać tego rodzaju problemów. Dostęp do dziennika zostało wyjaśnione w [dziennik zdarzeń aplikacji](#application-event-log) sekcji.
+[Modułu ASP.NET Core](xref:host-and-deploy/aspnet-core-module) próby uruchomienia procesu roboczego, ale nie została uruchomiona. Badanie w dzienniku zdarzeń aplikacji często pomaga rozwiązać tego rodzaju problemów. Dostęp do dziennika zostało wyjaśnione w [dziennik zdarzeń aplikacji](#application-event-log) sekcji.
 
 *502.5 niepowodzenia procesu* strony błędu jest zwracany, jeśli niepoprawnie skonfigurowany aplikacji powoduje, że proces roboczy nie powiedzie się:
 
@@ -164,7 +164,7 @@ Aby wyświetlić dzienniki śledzenia nieudanych żądań (Dzienniki FREB):
 1. Przejdź do **diagnozowanie i rozwiązywanie problemów** bloku w witrynie Azure portal.
 1. Wybierz **nie powiodło się dzienniki śledzenia żądań** z **SUPPORT TOOLS** obszar na pasku bocznym.
 
-Zobacz [żądania zakończone niepowodzeniem śledzi sekcji Włącz rejestrowanie diagnostyki dla aplikacji sieci web w usłudze Azure App Service temacie](/azure/app-service/web-sites-enable-diagnostic-log#failed-request-traces) i [wydajność aplikacji — często zadawane pytania dla aplikacji sieci Web na platformie Azure: jak włączyć śledzenie nieudanych żądań?](/azure/app-service/app-service-web-availability-performance-application-issues-faq#how-do-i-turn-on-failed-request-tracing) Aby uzyskać więcej informacji.
+Zobacz [żądania zakończone niepowodzeniem śledzi sekcji Włącz rejestrowanie diagnostyki dla aplikacji sieci web w usłudze Azure App Service temacie](/azure/app-service/web-sites-enable-diagnostic-log#failed-request-traces) i [wydajność aplikacji — często zadawane pytania dla aplikacji sieci Web na platformie Azure: Jak włączyć śledzenie niepomyślnych żądań ](/azure/app-service/app-service-web-availability-performance-application-issues-faq#how-do-i-turn-on-failed-request-tracing) Aby uzyskać więcej informacji.
 
 Aby uzyskać więcej informacji, zobacz [Włączanie rejestrowania diagnostycznego dla aplikacji sieci web w usłudze Azure App Service](/azure/app-service/web-sites-enable-diagnostic-log).
 
@@ -182,4 +182,4 @@ Aby uzyskać więcej informacji, zobacz [Włączanie rejestrowania diagnostyczne
 * [Powolne sieci web app Rozwiązywanie problemów z wydajnością w usłudze Azure App Service](/azure/app-service/app-service-web-troubleshoot-performance-degradation)
 * [Wydajność aplikacji — często zadawane pytania dla aplikacji sieci Web na platformie Azure](/azure/app-service/app-service-web-availability-performance-application-issues-faq)
 * [Azure piaskownica aplikacji sieci Web (ograniczenia wykonywania środowiska uruchomieniowego usługi App Service)](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox)
-* [Azure Friday: Diagnostyki usługi aplikacji Azure i środowisko rozwiązywania problemów (12-minutowy klip wideo)](https://channel9.msdn.com/Shows/Azure-Friday/Azure-App-Service-Diagnostic-and-Troubleshooting-Experience)
+* [Azure Friday: Azure diagnostyki usługi aplikacji i rozwiązywanie problemów z doświadczenia (12-minutowy klip wideo)](https://channel9.msdn.com/Shows/Azure-Friday/Azure-App-Service-Diagnostic-and-Troubleshooting-Experience)

@@ -7,11 +7,11 @@ ms.author: riande
 ms.date: 12/3/2018
 uid: tutorials/razor-pages/search
 ms.openlocfilehash: 8e047024180b20e3b649085647a9136140911fee
-ms.sourcegitcommit: 8a65f6c2cbe290fb2418eed58f60fb74c95392c8
+ms.sourcegitcommit: 3e94d192b2ed9409fe72e3735e158b333354964c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52892071"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53735820"
 ---
 # <a name="add-search-to-aspnet-core-razor-pages"></a>Dodawanie wyszukiwania do stron Razor programu ASP.NET Core
 
@@ -52,7 +52,7 @@ Jeśli `SearchString` właściwość nie jest zerowa lub pusta, zapytanie filmy 
 
 `s => s.Title.Contains()` Kod jest [wyrażenia Lambda](/dotnet/csharp/programming-guide/statements-expressions-operators/lambda-expressions). Wyrażenia lambda są używane w oparte na metodzie [LINQ](/dotnet/csharp/programming-guide/concepts/linq/) jako argumenty do standardowych metod operatorów kwerendy takich zapytań jak [gdzie](/dotnet/csharp/programming-guide/concepts/linq/query-syntax-and-method-syntax-in-linq) metody lub `Contains` (używane w poprzednim kodzie). Zapytania LINQ nie są wykonywane, gdy są one definiowane lub ich modyfikacji przez wywołanie metody (takie jak `Where`, `Contains` lub `OrderBy`). Przeciwnie wykonanie zapytania jest odroczone. Oznacza to, że obliczania wyrażenia została opóźniona do momentu jego rzeczywista wartość jest powtarzana lub `ToListAsync` metoda jest wywoływana. Zobacz [wykonywania zapytania](/dotnet/framework/data/adonet/ef/language-reference/query-execution) Aby uzyskać więcej informacji.
 
-**Uwaga:** [zawiera](/dotnet/api/system.data.objects.dataclasses.entitycollection-1.contains) metoda jest uruchomiona w bazie danych, nie w kodzie języka C#. Rozróżnianie wielkości liter w zapytaniu, zależy od bazy danych i sortowanie. W programie SQL Server `Contains` mapuje [SQL LIKE](/sql/t-sql/language-elements/like-transact-sql), która jest uwzględniana wielkość liter. W SQLite przy użyciu sortowania domyślnego, jest uwzględniana wielkość liter.
+**Uwaga:** [Zawiera](/dotnet/api/system.data.objects.dataclasses.entitycollection-1.contains) metoda jest uruchomiona w bazie danych, nie w C# kodu. Rozróżnianie wielkości liter w zapytaniu, zależy od bazy danych i sortowanie. W programie SQL Server `Contains` mapuje [SQL LIKE](/sql/t-sql/language-elements/like-transact-sql), która jest uwzględniana wielkość liter. W SQLite przy użyciu sortowania domyślnego, jest uwzględniana wielkość liter.
 
 Przejdź do strony filmy i Dołącz ciąg zapytania, takie jak `?searchString=Ghost` do adresu URL (na przykład `https://localhost:5001/Movies?searchString=Ghost`). Wyświetlane są filtrowane filmów.
 
@@ -108,5 +108,5 @@ Aktualizacja *Index.cshtml* w następujący sposób:
 Testowanie aplikacji przez wyszukiwanie według gatunku, tytuł filmu i obu.
 
 > [!div class="step-by-step"]
-> [Poprzedni: Aktualizowanie stron](xref:tutorials/razor-pages/da1)
-> [dalej: dodanie nowego pola](xref:tutorials/razor-pages/new-field)
+> [Poprzednie: Aktualizowanie stron](xref:tutorials/razor-pages/da1)
+> [dalej: Dodawanie nowego pola](xref:tutorials/razor-pages/new-field)

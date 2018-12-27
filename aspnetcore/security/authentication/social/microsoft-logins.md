@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/11/2018
 uid: security/authentication/microsoft-logins
-ms.openlocfilehash: 89969370cea66b7b6632f1b0be59e135767c831e
-ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
+ms.openlocfilehash: 4909a0084994654777ad7a6ebda866ac727f0528
+ms.sourcegitcommit: 3e94d192b2ed9409fe72e3735e158b333354964c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51708403"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53735755"
 ---
 # <a name="microsoft-account-external-login-setup-with-aspnet-core"></a>Konfigurowanie logowania zewnętrznego Account firmy Microsoft za pomocą programu ASP.NET Core
 
@@ -80,9 +80,9 @@ Szablon projektu, w tym samouczku używane zapewnia, że [Microsoft.AspNetCore.A
 Dodaj usługę Microsoft Account w `ConfigureServices` method in Class metoda *Startup.cs* pliku:
 
 ```csharp
-services.AddIdentity<ApplicationUser, IdentityRole>()
-        .AddEntityFrameworkStores<ApplicationDbContext>()
-        .AddDefaultTokenProviders();
+services.AddDefaultIdentity<IdentityUser>()
+        .AddDefaultUI(UIFramework.Bootstrap4)
+        .AddEntityFrameworkStores<ApplicationDbContext>();
 
 services.AddAuthentication().AddMicrosoftAccount(microsoftOptions =>
 {
@@ -119,7 +119,7 @@ Zobacz [MicrosoftAccountOptions](/dotnet/api/microsoft.aspnetcore.builder.micros
 
 Uruchom aplikację, a następnie kliknij przycisk **Zaloguj**. Zostanie wyświetlona opcja Zaloguj się przy użyciu konta Microsoft:
 
-![Aplikacja dziennika na stronie sieci Web: użytkownik nie jest uwierzytelniony](index/_static/DoneMicrosoft.png)
+![Aplikacja sieci Web, dziennik na stronie: Użytkownik nie jest uwierzytelniony](index/_static/DoneMicrosoft.png)
 
 Po kliknięciu firmy Microsoft są przekierowywane do firmy Microsoft do uwierzytelniania. Po zarejestrowaniu się przy użyciu Account firmy Microsoft (Jeśli nie zostało to zrobione) użytkownik jest monitowany, aby umożliwić aplikacji dostęp do informacji:
 
@@ -129,7 +129,7 @@ Naciśnij pozycję **tak** i nastąpi przekierowanie do witryny sieci web, w kt�
 
 Obecnie zalogowano Cię przy użyciu poświadczeń konta Microsoft:
 
-![Aplikacja sieci Web: użytkownik uwierzytelniony](index/_static/Done.png)
+![Aplikacja sieci Web: Użytkownik uwierzytelniony](index/_static/Done.png)
 
 [!INCLUDE[Forward request information when behind a proxy or load balancer section](includes/forwarded-headers-middleware.md)]
 
@@ -138,7 +138,7 @@ Obecnie zalogowano Cię przy użyciu poświadczeń konta Microsoft:
 * Jeśli dostawca Account Microsoft przekieruje Cię do strony logowania w błąd, weź pod uwagę błąd tytuł i opis parametrów ciągu zapytania bezpośrednio po `#` (hasztag) w identyfikatorze Uri.
 
   Mimo, że komunikat o błędzie wydaje się, że wskazywać na problem z uwierzytelniania firmy Microsoft, Najczęstszą przyczyną jest niezgodne żadnego z identyfikatora Uri aplikacji **identyfikatory URI przekierowań** określony dla **Web** platformy .
-* **Platforma ASP.NET Core 2.x tylko:** Jeśli tożsamość nie jest skonfigurowana, wywołując `services.AddIdentity` w `ConfigureServices`, próby uwierzytelnienia będą powodować *ArgumentException: należy podać opcję "SignInScheme"*. Szablon projektu, w tym samouczku używane gwarantuje, że odbywa się.
+* **ASP.NET Core 2.x tylko:** Jeśli tożsamość nie jest skonfigurowana, wywołując `services.AddIdentity` w `ConfigureServices`, próby uwierzytelnienia będą powodować *ArgumentException: Opcja "SignInScheme" musi być podana*. Szablon projektu, w tym samouczku używane gwarantuje, że odbywa się.
 * Jeśli nie utworzono bazy danych lokacji, stosując początkowej migracji, zostanie wyświetlony *operacji bazy danych nie powiodło się podczas przetwarzania żądania* błędu. Naciśnij pozycję **zastosować migracje** do tworzenia bazy danych i Odśwież, aby kontynuować po błędzie.
 
 ## <a name="next-steps"></a>Następne kroki
