@@ -4,14 +4,14 @@ author: guardrex
 description: Więcej informacji na temat Kestrel, serwer sieci web dla wielu platform dla platformy ASP.NET Core.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 12/01/2018
+ms.date: 12/18/2018
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: 2a6a3786aa3a78bb83f497db22acac873512f939
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: af1f330f2afa340ef98a6b4bd5008859f4b0f914
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861930"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637914"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>Implementacja serwera sieci web kestrel w programie ASP.NET Core
 
@@ -25,7 +25,7 @@ Dla wersji 1.1 w tym temacie, Pobierz [implementacji serwera sieci web Kestrel w
 
 Kestrel jest dla wielu platform [serwera sieci web dla platformy ASP.NET Core](xref:fundamentals/servers/index). Kestrel jest serwer sieci web, który znajduje się domyślnie w szablonach projektu ASP.NET Core.
 
-Kestrel obsługuje następujące funkcje:
+Kestrel obsługuje następujące scenariusze:
 
 ::: moniker range=">= aspnetcore-2.2"
 
@@ -76,7 +76,11 @@ Protokołu HTTP/2 jest domyślnie wyłączona. Aby uzyskać więcej informacji n
 
 Można użyć Kestrel, samodzielnie lub z *zwrotnego serwera proxy*, takich jak [Internet Information Services (IIS)](https://www.iis.net/), [Nginx](http://nginx.org), lub [Apache](https://httpd.apache.org/). Serwer proxy odwrotnej odbiera żądania HTTP z sieci i przekazuje je do Kestrel.
 
+Kestrel używany jako serwer sieci web do krawędzi (dostępnym z Internetu):
+
 ![Kestrel komunikuje się bezpośrednio z Internetu bez zwrotnego serwera proxy](kestrel/_static/kestrel-to-internet2.png)
+
+Kestrel używane w konfiguracji zwrotny serwer proxy:
 
 ![Kestrel komunikuje się bezpośrednio z Internetem za pośrednictwem serwera zwrotny serwer proxy, na przykład serwer Nginx, Apache lub IIS](kestrel/_static/kestrel-to-internet.png)
 
@@ -470,7 +474,7 @@ Określ adresy URL przy użyciu:
 
 Aby uzyskać więcej informacji, zobacz [adresy URL serwerów](xref:fundamentals/host/web-host#server-urls) i [zastępczą konfigurację](xref:fundamentals/host/web-host#override-configuration).
 
-Podana wartość przy użyciu tych metod może być co najmniej jeden protokół HTTP i HTTPS punktów końcowych (HTTPS Jeśli dostępny jest certyfikatu z domyślną). Konfiguracja uwzględnia wartość będącą rozdzielonej średnikami liście (na przykład `"Urls": "http://localhost:8000;http://localhost:8001"`).
+Podana wartość przy użyciu tych metod może być co najmniej jeden protokół HTTP i HTTPS punktów końcowych (HTTPS Jeśli dostępny jest certyfikatu z domyślną). Konfiguracja uwzględnia wartość będącą rozdzielonej średnikami liście (na przykład `"Urls": "http://localhost:8000; http://localhost:8001"`).
 
 *Zamień domyślny certyfikat z konfiguracji*
 
@@ -790,7 +794,7 @@ Te metody są przydatne do tworzenia kodu, pracy z serwerami innych niż Kestrel
 
 ### <a name="iis-endpoint-configuration"></a>Konfiguracja punktu końcowego usług IIS
 
-Korzystając z usług IIS, powiązania adres URL dla zastąpienia IIS powiązania są ustawiane przez `Listen` lub `UseUrls`. Aby uzyskać więcej informacji, zobacz [modułu ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) tematu.
+Korzystając z usług IIS, powiązania adres URL dla zastąpienia IIS powiązania są ustawiane przez `Listen` lub `UseUrls`. Aby uzyskać więcej informacji, zobacz [modułu ASP.NET Core](xref:host-and-deploy/aspnet-core-module) tematu.
 
 ::: moniker range=">= aspnetcore-2.2"
 
@@ -1033,4 +1037,4 @@ Oprogramowanie pośredniczące filtrowania w hosta jest domyślnie wyłączona. 
 * <xref:security/enforcing-ssl>
 * <xref:host-and-deploy/proxy-load-balancer>
 * [Kod źródłowy kestrel](https://github.com/aspnet/KestrelHttpServer)
-* [RFC 7230: Komunikat o składni i routingu (ppkt 5.4: Host)](https://tools.ietf.org/html/rfc7230#section-5.4)
+* [RFC 7230: Składnia i Routing komunikatów (ppkt 5.4: Host)](https://tools.ietf.org/html/rfc7230#section-5.4)
