@@ -11,11 +11,7 @@
 ### [Internetowy interfejs API w programie MongoDB](xref:tutorials/first-mongo-app)
 ## Aplikacje internetowe
 ### [Strony Razor](xref:tutorials/razor-pages/index)
-
-### MVC
-#### [W programie Visual Studio](xref:tutorials/first-mvc-app/index)
-#### [W programie Visual Studio Code](xref:tutorials/first-mvc-app-xplat/index)
-#### [W programie Visual Studio dla komputerów Mac](xref:tutorials/first-mvc-app-mac/index)
+### [MVC](xref:tutorials/first-mvc-app/index)
 
 ## Aplikacje internetowe w czasie rzeczywistym
 ### [Usługa SignalR za pomocą języka JavaScript](xref:tutorials/signalr)
@@ -46,11 +42,7 @@
 ### [Omówienie](xref:fundamentals/host/index)
 ### [Host internetowy](xref:fundamentals/host/web-host)
 ### [Host ogólny](xref:fundamentals/host/generic-host)
-## Serwery
-### [Omówienie](xref:fundamentals/servers/index)
-### [Kestrel](xref:fundamentals/servers/kestrel)
-### [Moduł ASP.NET Core](xref:fundamentals/servers/aspnet-core-module)
-### [HTTP.sys](xref:fundamentals/servers/httpsys)
+## [Serwery](xref:fundamentals/servers/index)
 ## [Inicjowanie żądań HTTP](xref:fundamentals/http-requests)
 
 # Aplikacje internetowe
@@ -66,50 +58,26 @@
 #### [Dodawanie nowego pola](xref:tutorials/razor-pages/new-field)
 #### [Dodawanie walidacji](xref:tutorials/razor-pages/validation)
 
+## MVC
+### [Omówienie wzorca MVC](xref:mvc/overview)
+### [Wzorzec MVC — samouczek](xref:tutorials/first-mvc-app/index)
+#### [Wprowadzenie](xref:tutorials/first-mvc-app/start-mvc)
+#### [Dodawanie kontrolera](xref:tutorials/first-mvc-app/adding-controller)
+#### [Dodawanie widoku](xref:tutorials/first-mvc-app/adding-view)
+#### [Dodawanie modelu](xref:tutorials/first-mvc-app/adding-model)
+#### [Praca z bazą danych](xref:tutorials/first-mvc-app/working-with-sql)
+#### [Widoki i akcje kontrolera](xref:tutorials/first-mvc-app/controller-methods-views)
+#### [Dodawanie wyszukiwania](xref:tutorials/first-mvc-app/search)
+#### [Dodawanie nowego pola](xref:tutorials/first-mvc-app/new-field)
+#### [Dodawanie walidacji](xref:tutorials/first-mvc-app/validation)
+#### [Badanie metod Details i Delete](xref:tutorials/first-mvc-app/details)
+
 ### [Filtry](xref:razor-pages/filter)
 ### [Biblioteki klas Razor](xref:razor-pages/ui-class)
 ### [Konwencje tras i aplikacji](xref:razor-pages/razor-pages-conventions)
 ### [Przekazywanie plików](xref:razor-pages/upload-files)
 ### [Zestaw Razor SDK](xref:razor-pages/sdk)
-## MVC
-### [Omówienie](xref:mvc/overview)
-### Samouczki
-#### Wzorzec MVC w programie Visual Studio
-##### [Omówienie](xref:tutorials/first-mvc-app/index)
-##### [Wprowadzenie](xref:tutorials/first-mvc-app/start-mvc)
-##### [Dodawanie kontrolera](xref:tutorials/first-mvc-app/adding-controller)
-##### [Dodawanie widoku](xref:tutorials/first-mvc-app/adding-view)
-##### [Dodawanie modelu](xref:tutorials/first-mvc-app/adding-model)
-##### [Praca z bazą danych](xref:tutorials/first-mvc-app/working-with-sql)
-##### [Widoki i akcje kontrolera](xref:tutorials/first-mvc-app/controller-methods-views)
-##### [Dodawanie wyszukiwania](xref:tutorials/first-mvc-app/search)
-##### [Dodawanie nowego pola](xref:tutorials/first-mvc-app/new-field)
-##### [Dodawanie walidacji](xref:tutorials/first-mvc-app/validation)
-##### [Badanie metod Details i Delete](xref:tutorials/first-mvc-app/details)
-#### Wzorzec MVC w programie Visual Studio Code
-##### [Omówienie](xref:tutorials/first-mvc-app-xplat/index)
-##### [Wprowadzenie](xref:tutorials/first-mvc-app-xplat/start-mvc)
-##### [Dodawanie kontrolera](xref:tutorials/first-mvc-app-xplat/adding-controller)
-##### [Dodawanie widoku](xref:tutorials/first-mvc-app-xplat/adding-view)
-##### [Dodawanie modelu](xref:tutorials/first-mvc-app-xplat/adding-model)
-##### [Praca z systemem SQLite](xref:tutorials/first-mvc-app-xplat/working-with-sql)
-##### [Metody kontrolera i widoki](xref:tutorials/first-mvc-app-xplat/controller-methods-views)
-##### [Dodawanie wyszukiwania](xref:tutorials/first-mvc-app-xplat/search)
-##### [Dodawanie nowego pola](xref:tutorials/first-mvc-app-xplat/new-field)
-##### [Dodawanie walidacji](xref:tutorials/first-mvc-app-xplat/validation)
-##### [Badanie metod Details i Delete](xref:tutorials/first-mvc-app/details)
-#### Wzorzec MVC w programie Visual Studio dla komputerów Mac
-##### [Omówienie](xref:tutorials/first-mvc-app-mac/index)
-##### [Wprowadzenie](xref:tutorials/first-mvc-app-mac/start-mvc)
-##### [Dodawanie kontrolera](xref:tutorials/first-mvc-app-mac/adding-controller)
-##### [Dodawanie widoku](xref:tutorials/first-mvc-app-mac/adding-view)
-##### [Dodawanie modelu](xref:tutorials/first-mvc-app-mac/adding-model)
-##### [Praca z systemem SQLite](xref:tutorials/first-mvc-app-mac/working-with-sql)
-##### [Metody kontrolera i widoki](xref:tutorials/first-mvc-app-mac/controller-methods-views)
-##### [Dodawanie wyszukiwania](xref:tutorials/first-mvc-app-mac/search)
-##### [Dodawanie nowego pola](xref:tutorials/first-mvc-app-mac/new-field)
-##### [Dodawanie walidacji](xref:tutorials/first-mvc-app-mac/validation)
-##### [Badanie metod Details i Delete](xref:tutorials/first-mvc-app/details)
+
 ### [Widoki](xref:mvc/views/overview)
 ### [Widoki częściowe](xref:mvc/views/partial)
 ### [Kontrolery](xref:mvc/controllers/actions)
@@ -284,9 +252,11 @@
 ## Hostowanie w systemie Windows za pomocą usług IIS
 ### [Omówienie](xref:host-and-deploy/iis/index)
 ### [Rozwiązywanie problemów w usługach IIS](xref:host-and-deploy/iis/troubleshoot)
-### [Dokumentacja modułu ASP.NET Core](xref:host-and-deploy/aspnet-core-module)
+### [Moduł ASP.NET Core](xref:host-and-deploy/aspnet-core-module)
 ### [Obsługa usług IIS w programie Visual Studio](xref:host-and-deploy/iis/development-time-iis-support)
 ### [Moduły usług IIS](xref:host-and-deploy/iis/modules)
+## [Kestrel](xref:fundamentals/servers/kestrel)
+## [HTTP.sys](xref:fundamentals/servers/httpsys)
 ## [Hosting w usłudze systemu Windows](xref:host-and-deploy/windows-service)
 ## [Hosting w systemie Linux z Nginx](xref:host-and-deploy/linux-nginx)
 ## [Hosting w systemie Linux z Apache](xref:host-and-deploy/linux-apache)
