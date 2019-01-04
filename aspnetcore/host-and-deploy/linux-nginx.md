@@ -4,14 +4,14 @@ author: rick-anderson
 description: Dowiedz się, jak skonfigurować serwer Nginx jako zwrotny serwer proxy w systemie Ubuntu 16.04 do przesyłania ruchu HTTP do aplikacji sieci web ASP.NET Core uruchomionych na Kestrel.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/26/2018
+ms.date: 12/20/2018
 uid: host-and-deploy/linux-nginx
-ms.openlocfilehash: d4bffab80ba20d4cf77a358249c7b349033de5bd
-ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
+ms.openlocfilehash: 534c62c127e685af9c6076932943def25bd3ac06
+ms.sourcegitcommit: e1cc4c1ef6c9e07918a609d5ad7fadcb6abe3e12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52450791"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53997334"
 ---
 # <a name="host-aspnet-core-on-linux-with-nginx"></a>Host platformy ASP.NET Core w systemie Linux przy użyciu serwera Nginx
 
@@ -126,7 +126,7 @@ Aby uzyskać więcej informacji, zobacz <xref:host-and-deploy/proxy-load-balance
 
 ### <a name="install-nginx"></a>Zainstalować rozwiązanie Nginx
 
-Użyj `apt-get` do zainstalowania serwera Nginx. Instalator tworzy *systemd* skryptu init, który uruchamia serwer Nginx jako demon przy uruchamianiu systemu. Postępuj zgodnie z instrukcjami instalacji dla systemu Ubuntu na [Nginx: pakiety oficjalne Debian/Ubuntu](https://www.nginx.com/resources/wiki/start/topics/tutorials/install/#official-debian-ubuntu-packages).
+Użyj `apt-get` do zainstalowania serwera Nginx. Instalator tworzy *systemd* skryptu init, który uruchamia serwer Nginx jako demon przy uruchamianiu systemu. Postępuj zgodnie z instrukcjami instalacji dla systemu Ubuntu na [Nginx: Oficjalna pakietów systemu Debian/Ubuntu](https://www.nginx.com/resources/wiki/start/topics/tutorials/install/#official-debian-ubuntu-packages).
 
 > [!NOTE]
 > Jeśli wymagane są opcjonalne modułów serwera Nginx, może być wymagane tworzenia Nginx ze źródła.
@@ -268,7 +268,7 @@ Connection: Keep-Alive
 Transfer-Encoding: chunked
 ```
 
-### <a name="view-logs"></a>Wyświetl dzienniki
+### <a name="view-logs"></a>Wyświetlanie dzienników
 
 Ponieważ aplikacja sieci web przy użyciu Kestrel odbywa się przy użyciu `systemd`, scentralizowane dziennika są rejestrowane wszystkie zdarzenia i procesów. Jednak ten dziennik zawiera wszystkie wpisy dla wszystkich usług i procesów, które zarządza `systemd`. Aby wyświetlić `kestrel-helloapp.service`— określone elementy, użyj następującego polecenia:
 
@@ -296,6 +296,18 @@ Aby skonfigurować ochronę danych na zostaną zachowane, a pierścień klucz sz
 
 * <xref:security/data-protection/implementation/key-storage-providers>
 * <xref:security/data-protection/implementation/key-encryption-at-rest>
+
+## <a name="long-request-header-fields"></a>Pola nagłówka długiego żądania
+
+Jeśli aplikacja wymaga żądanie dłużej, niż dozwolone przez serwer proxy pola nagłówka domyślne ustawienia (zwykle 4K lub 8K, w zależności od platformy), następujące dyrektywy wymaga dostosowania. Wartości do zastosowania są zależne od scenariusza. Aby uzyskać więcej informacji można znaleźć w temacie serwera dokumentacji.
+
+* [proxy_buffer_size](https://nginx.org/docs/http/ngx_http_proxy_module.html#proxy_buffer_size)
+* [proxy_buffers](https://nginx.org/docs/http/ngx_http_proxy_module.html#proxy_buffers)
+* [proxy_busy_buffers_size](https://nginx.org/docs/http/ngx_http_proxy_module.html#proxy_busy_buffers_size)
+* [large_client_header_buffers](https://nginx.org/docs/http/ngx_http_core_module.html#large_client_header_buffers)
+
+> [!WARNING]
+> Nie narastał do wartości domyślnych buforów proxy konieczne. Zwiększenie wartości te zwiększa ryzyko przepełnienia buforu (przepełnienie), a następnie przeprowadzenie ataku typu "odmowa usługi" (DoS) ataków złośliwych użytkowników.
 
 ## <a name="secure-the-app"></a>Zabezpieczanie aplikacji
 
@@ -386,7 +398,7 @@ Dodaj wiersz `add_header X-Content-Type-Options "nosniff";` i Zapisz plik, a nas
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Wymagania wstępne dla platformy .NET Core w systemie Linux](/dotnet/core/linux-prerequisites)
-* [Nginx: Wersje binarne: pakiety oficjalne Debian/Ubuntu](https://www.nginx.com/resources/wiki/start/topics/tutorials/install/#official-debian-ubuntu-packages)
+* [Serwer Nginx: Binarny wydania: Oficjalna pakietów systemu Debian/Ubuntu](https://www.nginx.com/resources/wiki/start/topics/tutorials/install/#official-debian-ubuntu-packages)
 * <xref:test/troubleshoot>
 * <xref:host-and-deploy/proxy-load-balancer>
-* [Serwer NGINX: Przy użyciu nagłówka przekazane](https://www.nginx.com/resources/wiki/start/topics/examples/forwarded/)
+* [SERWER NGINX: Przy użyciu nagłówka przekazane](https://www.nginx.com/resources/wiki/start/topics/examples/forwarded/)

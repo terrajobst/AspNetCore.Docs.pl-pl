@@ -3,14 +3,14 @@ title: Metody kontrolera i widoki w programie ASP.NET Core
 author: rick-anderson
 description: Dowiedz się, jak pracować z metody kontrolera, widoków i DataAnnotations w programie ASP.NET Core.
 ms.author: riande
-ms.date: 12/25/2018
+ms.date: 12/13/2018
 uid: tutorials/first-mvc-app/controller-methods-views
-ms.openlocfilehash: 5984194194f14153aaa1e80df028bbaaf182e02b
-ms.sourcegitcommit: 4e87712029de2aceb1cf2c52e9e3dda8195a5b8e
+ms.openlocfilehash: e6bdaec6dfe681582a54bd39ce1c76bebe6f5fb2
+ms.sourcegitcommit: e1cc4c1ef6c9e07918a609d5ad7fadcb6abe3e12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53382046"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53997256"
 ---
 # <a name="controller-methods-and-views-in-aspnet-core"></a>Metody kontrolera i widoki w programie ASP.NET Core
 
@@ -52,7 +52,7 @@ Odwołaj format [routingu](xref:mvc/controllers/routing) w *Startup.cs* pliku:
 
 Tłumaczy platformy ASP.NET Core `https://localhost:5001/Movies/Edit/4` na żądanie, aby `Edit` metody akcji `Movies` kontroler z parametrem `Id` 4. (Metody kontrolera są również znane jako metody akcji).
 
-[Pomocników tagów](xref:mvc/views/tag-helpers/intro) są jednymi z najbardziej popularnych nowe funkcje w programie ASP.NET Core. Zobacz [dodatkowe zasoby](#additional-resources) Aby uzyskać więcej informacji.
+[Pomocników tagów](xref:mvc/views/tag-helpers/intro) są jednymi z najbardziej popularnych nowe funkcje w programie ASP.NET Core. Aby uzyskać więcej informacji, zobacz [dodatkowe zasoby](#additional-resources).
 
 Otwórz `Movies` kontrolera i zbadaj dwa `Edit` metody akcji. Poniższy kod przedstawia `HTTP GET Edit` metody, która pobiera film i wypełnia formularz edycji generowane przez *Edit.cshtml* pliku Razor.
 
@@ -76,7 +76,7 @@ Poniższy kod przedstawia `HTTP POST Edit` metody, która przetwarza wartości p
 
 ::: moniker-end
 
-`[Bind]` Atrybut jest jednym ze sposobów, aby zapewnić ochronę przed [polegającymi](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost). Powinien zawierać tylko właściwości w `[Bind]` atrybut, który chcesz zmienić. Zobacz [chronić kontroler z nadmiernego księgowania](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application) Aby uzyskać więcej informacji. [Modele widoków](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/) zawierają alternatywne podejście, aby uniknąć nadmiernego ogłaszania.
+`[Bind]` Atrybut jest jednym ze sposobów, aby zapewnić ochronę przed [polegającymi](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost). Powinien zawierać tylko właściwości w `[Bind]` atrybut, który chcesz zmienić. Aby uzyskać więcej informacji, zobacz [chronić kontroler z nadmiernego księgowania](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application). [Modele widoków](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/) zawierają alternatywne podejście, aby uniknąć nadmiernego ogłaszania.
 
 Zwróć uwagę, drugi `Edit` metody akcji jest poprzedzony `[HttpPost]` atrybutu.
 
@@ -136,7 +136,7 @@ Poniższej przedstawiono listę `[HttpPost]` wersję `Edit` metody akcji.
 
 `[ValidateAntiForgeryToken]` Atrybut weryfikuje ukryte [XSRF](xref:security/anti-request-forgery) token wygenerowany przez generator tokenów zabezpieczających przed sfałszowaniem w [Pomocnik tagu formularza](xref:mvc/views/working-with-forms)
 
-[Wiązanie modelu](xref:mvc/models/model-binding) systemu przyjmuje wartości przesłanego formularza i tworzy `Movie` obiektu, który jest przekazywany jako `movie` parametru. `ModelState.IsValid` Metoda sprawdza, czy dane dostarczone w formie może służyć do modyfikowania (edycji lub aktualizacja) `Movie` obiektu. Jeśli dane są prawidłowe są zapisywane. Dane zaktualizowane movie (edytowanych) są zapisywane w bazie danych przez wywołanie metody `SaveChangesAsync` metoda kontekst bazy danych. Po zapisaniu danych, kod przekierowuje użytkownika do `Index` metody akcji `MoviesController` klasy, która wyświetla kolekcji film, w tym zmiany wprowadzone przed chwilą.
+[Wiązanie modelu](xref:mvc/models/model-binding) systemu przyjmuje wartości przesłanego formularza i tworzy `Movie` obiektu, który jest przekazywany jako `movie` parametru. `ModelState.IsValid` Metoda sprawdza, czy dane dostarczone w formie może służyć do modyfikowania (edycji lub aktualizacja) `Movie` obiektu. Jeśli dane są prawidłowe, są zapisywane. Dane zaktualizowane movie (edytowanych) są zapisywane w bazie danych przez wywołanie metody `SaveChangesAsync` metoda kontekst bazy danych. Po zapisaniu danych, kod przekierowuje użytkownika do `Index` metody akcji `MoviesController` klasy, która wyświetla kolekcji film, w tym zmiany wprowadzone przed chwilą.
 
 Zanim opublikowania formularza z serwerem, weryfikacji po stronie klienta sprawdza reguł sprawdzania poprawności w polach. Jeśli występują błędy sprawdzania poprawności, jest wyświetlany komunikat o błędzie i formularza nie jest opublikowane. Obsługa języka JavaScript jest wyłączona, nie będziesz mieć weryfikacji po stronie klienta, ale serwer wykryje opublikowanych wartości, które nie są prawidłowe i wartości formularza zostanie wyświetlony ponownie, z komunikatów o błędach. W dalszej części tego samouczka omówiony [sprawdzania poprawności modelu](xref:mvc/models/validation) bardziej szczegółowo. [Pomocnik tagu weryfikacji](xref:mvc/views/working-with-forms) w *Views/Movies/Edit.cshtml* Wyświetl szablon dba o wyświetlaniu odpowiedniego komunikatu o błędzie.
 

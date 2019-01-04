@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 11/30/2018
 uid: tutorials/signalr
-ms.openlocfilehash: 904031c58b06f12d41902802f8ab3927b29ae94b
-ms.sourcegitcommit: a16352c1c88a71770ab3922200a8cd148fb278a6
+ms.openlocfilehash: 36296513726f7e098a536afc22fcbfb2cafe946d
+ms.sourcegitcommit: e1cc4c1ef6c9e07918a609d5ad7fadcb6abe3e12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53335352"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53997282"
 ---
 # <a name="tutorial-get-started-with-aspnet-core-signalr"></a>Samouczek: Wprowadzenie do biblioteki SignalR platformy ASP.NET Core
 
@@ -163,7 +163,7 @@ A *Centrum* jest klasa, która służy jako ogólny potok, który obsługuje kom
 
   `ChatHub` Klasa dziedziczy z elementu SignalR `Hub` klasy. `Hub` Klasa zarządza połączeń, grup i komunikatów.
 
-  `SendMessage` Metoda może być wywoływana przez wszystkie połączone klienta. Wysyła odebranego komunikatu do wszystkich klientów. Kod SignalR jest asynchroniczne w celu zapewnienia maksymalnej skalowalności.
+  `SendMessage` Metoda może być wywoływana przez połączone klienta, aby wysłać wiadomość do wszystkich klientów. Kod klienta JavaScript, który wywołuje metodę przedstawiono w dalszej części tego samouczka. Kod SignalR jest asynchroniczne w celu zapewnienia maksymalnej skalowalności.
 
 ## <a name="configure-signalr"></a>Konfigurowanie biblioteki SignalR
 

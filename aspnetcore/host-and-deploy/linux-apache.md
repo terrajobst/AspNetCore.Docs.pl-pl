@@ -4,14 +4,14 @@ description: Dowiedz się, jak skonfigurować przekierowywanie ruchu HTTP do apl
 author: spboyer
 ms.author: spboyer
 ms.custom: mvc
-ms.date: 12/01/2018
+ms.date: 12/20/2018
 uid: host-and-deploy/linux-apache
-ms.openlocfilehash: 46cdb764b872e86f0fd7d19133aae14891bdd452
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 8c590743328885336498ca2446c618b13a7d2ce2
+ms.sourcegitcommit: e1cc4c1ef6c9e07918a609d5ad7fadcb6abe3e12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862463"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53997230"
 ---
 # <a name="host-aspnet-core-on-linux-with-apache"></a>Host platformy ASP.NET Core w systemie Linux z Apache
 
@@ -259,7 +259,7 @@ Connection: Keep-Alive
 Transfer-Encoding: chunked
 ```
 
-### <a name="view-logs"></a>Wyświetl dzienniki
+### <a name="view-logs"></a>Wyświetlanie dzienników
 
 Ponieważ aplikacja sieci web przy użyciu Kestrel odbywa się przy użyciu *systemd*, scentralizowane dziennika są rejestrowane zdarzenia i procesów. Jednak ten dziennik zawiera wpisy dla wszystkich usług i procesów, które zarządza *systemd*. Aby wyświetlić `kestrel-helloapp.service`— określone elementy, użyj następującego polecenia:
 
@@ -471,6 +471,7 @@ Za pomocą *mod_ratelimit*, który znajduje się w *host z wieloma adresami* mod
 ```bash
 sudo nano /etc/httpd/conf.d/ratelimit.conf
 ```
+
 Przykładowy plik ogranicza przepustowość jako 600 KB/s, w obszarze Katalog główny:
 
 ```
@@ -481,6 +482,13 @@ Przykładowy plik ogranicza przepustowość jako 600 KB/s, w obszarze Katalog g�
     </Location>
 </IfModule>
 ```
+
+### <a name="long-request-header-fields"></a>Pola nagłówka długiego żądania
+
+Jeśli aplikacja wymaga pola nagłówka żądania jest większa niż dozwolona przez ustawienie (zazwyczaj 8,190 bajtów) domyślne serwera proxy, Dostosuj wartość [LimitRequestFieldSize](https://httpd.apache.org/docs/2.4/mod/core.html#LimitRequestFieldSize) dyrektywy. Wartość ma być stosowana jest zależny od scenariusza. Aby uzyskać więcej informacji można znaleźć w temacie serwera dokumentacji.
+
+> [!WARNING]
+> Nie zwiększyć wartość domyślną `LimitRequestFieldSize` o ile to konieczne. Przeprowadzenie ataku typu "odmowa usługi" (DoS), atakami złośliwych użytkowników i zwiększyć wartość zwiększa ryzyko przepełnienia buforu (przepełnienie).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

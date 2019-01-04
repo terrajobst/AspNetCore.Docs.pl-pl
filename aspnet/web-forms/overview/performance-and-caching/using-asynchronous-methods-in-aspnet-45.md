@@ -4,16 +4,16 @@ title: Używanie metod asynchronicznych na platformie ASP.NET 4.5 | Dokumentacja
 author: Rick-Anderson
 description: Ta seria samouczków obejmuje podstawy tworzenia asynchronicznych aplikacji formularzy sieci Web ASP.NET przy użyciu programu Visual Studio Express 2012 for Web, która jest bezpłatna...
 ms.author: riande
-ms.date: 06/06/2012
+ms.date: 01/02/2019
 ms.assetid: a585c9a2-7c8e-478b-9706-90f3739c50d1
 msc.legacyurl: /web-forms/overview/performance-and-caching/using-asynchronous-methods-in-aspnet-45
 msc.type: authoredcontent
-ms.openlocfilehash: 9a3c9fab4932c3bc85733a912cf1d1eaaecc1ab7
-ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
+ms.openlocfilehash: c36749f82051ee8965035eca9c2e4e57a5dbd616
+ms.sourcegitcommit: e1cc4c1ef6c9e07918a609d5ad7fadcb6abe3e12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51225489"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53997347"
 ---
 <a name="using-asynchronous-methods-in-aspnet-45"></a>Używanie metod asynchronicznych na platformie ASP.NET 4.5
 ====================
@@ -68,7 +68,7 @@ Ogólnie rzecz biorąc należy używać metod asynchronicznych następujące war
 - Operacje są powiązane z siecią lub I/O-granicę zamiast zależne od Procesora CPU.
 - Równoległość jest ważniejsza niż uproszczenia kodu.
 - Chcesz zapewnić mechanizm, który pozwala użytkownikom na anulowanie długotrwałe żądania.
-- Kiedy korzyść przełączania wątków się przeprowadzi koszt przełącznika kontekstu. Ogólnie rzecz biorąc należy upewnić metody asynchronicznej Jeśli metoda synchroniczna blokuje wątek żądania programu ASP.NET, podczas wykonywania żadnej pracy. Za pomocą wywołania asynchronicznego, wątek żądania programu ASP.NET nie jest zablokowany podczas oczekiwania na żądanie usługi sieci web zakończyć, wykonując żadnej pracy.
+- Kiedy korzyść przełączania wątków przewyższa koszt przełączania kontekstu. Ogólnie rzecz biorąc należy upewnić metody asynchronicznej Jeśli metoda synchroniczna blokuje wątek żądania programu ASP.NET, podczas wykonywania żadnej pracy. Za pomocą wywołania asynchronicznego, wątek żądania programu ASP.NET nie jest zablokowany podczas oczekiwania na żądanie usługi sieci web zakończyć, wykonując żadnej pracy.
 - Testowanie pokazuje, że blokowania operacji jest wąskim gardłem wydajności witryn i usług IIS może obsługiwać więcej żądań przy użyciu metod asynchronicznych na te wywołania blokowania.
 
   Do pobrania przykładowych pokazano, jak skutecznie używać metod asynchronicznych. Przykładowym został zaprojektowany w celu zapewnienia prosty pokaz programowania asynchronicznego w programie ASP.NET 4.5. Plik nie ma być architektury referencyjnej dla programowania asynchronicznego w programie ASP.NET. Wywołuje program przykładowy [ASP.NET Web API](../../../web-api/index.md) metod, które z kolei wywołać [Task.Delay](https://msdn.microsoft.com/library/hh139096(VS.110).aspx) do symulacji wywołania usługi sieci web długotrwałych. Większości aplikacji produkcyjnych, nie będą widoczne takie oczywiste korzyści wynikające z używania metod asynchronicznych.   
@@ -79,9 +79,9 @@ Kilka aplikacji wymaga wszystkich metod asynchronicznych. Często konwertowanie 
 
 Możesz pobrać przykładową aplikację z [ https://github.com/RickAndMSFT/Async-ASP.NET ](https://github.com/RickAndMSFT/Async-ASP.NET) na [GitHub](https://github.com/) lokacji. Repozytorium zawiera trzy projekty:
 
-- *WebAppAsync*: projekt formularzy sieci Web ASP.NET, który korzysta z interfejsu API sieci Web **WebAPIpwg** usługi. Większość kodu, w tym samouczku to w tym projekcie.
-- *WebAPIpgw*: interfejs API sieci Web platformy ASP.NET MVC 4 projektu, który implementuje `Products, Gizmos and Widgets` kontrolerów. Zapewnia dane dotyczące *WebAppAsync* projektu i *Mvc4Async* projektu.
-- *Mvc4Async*: projekt platformy ASP.NET MVC 4, który zawiera kod używany w innym samouczku. To sprawia, że wywołania interfejsu API sieci Web **WebAPIpwg** usługi.
+- *WebAppAsync*: Projekt formularzy sieci Web ASP.NET, który korzysta z interfejsu API sieci Web **WebAPIpwg** usługi. Większość kodu, w tym samouczku to w tym projekcie.
+- *WebAPIpgw*: Projekt interfejsu API platformy ASP.NET MVC 4 w sieci Web, który implementuje `Products, Gizmos and Widgets` kontrolerów. Zapewnia dane dotyczące *WebAppAsync* projektu i *Mvc4Async* projektu.
+- *Mvc4Async*: Projekt platformy ASP.NET MVC 4, który zawiera kod używany w innym samouczku. To sprawia, że wywołania interfejsu API sieci Web **WebAPIpwg** usługi.
 
 ## <a id="GizmosSynch"></a>  Na stronie synchroniczne Gizmo
 

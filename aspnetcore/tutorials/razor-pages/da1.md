@@ -4,14 +4,14 @@ author: rick-anderson
 description: Dowiedz się, jak zaktualizować wygenerowanych stron w aplikacji ASP.NET Core.
 monikerRange: '>= aspnetcore-2.2'
 ms.author: riande
-ms.date: 12/3/2018
+ms.date: 12/20/2018
 uid: tutorials/razor-pages/da1
-ms.openlocfilehash: b88dcd12ee670eb2e0919bdb07b9b7556a5b80e7
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 396cb9b9eeaab2d3db6108feeba71dbc2bc8981d
+ms.sourcegitcommit: e1cc4c1ef6c9e07918a609d5ad7fadcb6abe3e12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862411"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53997204"
 ---
 # <a name="update-the-generated-pages-in-an-aspnet-core-app"></a>Aktualizowanie stron wygenerowane w aplikacji ASP.NET Core
 
@@ -69,22 +69,22 @@ Zaktualizuj, Edytuj, szczegóły i usuwanie stron Razor, aby użyć szablonu tra
 @page "{id:int?}"
 ```
 
-Aby przetestować działanie lub `@page "{id:int?}"`:
+Aby przetestować działanie `@page "{id:int?}"`:
 
-* Ustawianie strony dyrektyw w *Pages/Movies/Details.cshtml* do `@page "{id:int?}"`
+* Ustawianie strony dyrektyw w *Pages/Movies/Details.cshtml* do `@page "{id:int?}"`.
 * Ustaw punkt przerwania w `public async Task<IActionResult> OnGetAsync(int? id)` (w *Pages/Movies/Details.cshtml.cs*).
-* Przejdź do  `https://localhost:5001/Movies/Details/`
+* Przejdź do adresu `https://localhost:5001/Movies/Details/`.
 
 Za pomocą `@page "{id:int}"` dyrektywy, punkt przerwania zostanie nigdy osiągnięty. Aparat routingu zwrócić kod HTTP 404. Za pomocą `@page "{id:int?}"`, `OnGetAsync` metoda zwraca `NotFound` (HTTP 404).
 
-Chociaż nie jest to zalecane, można napisać metodę delete jako:
+Chociaż nie jest to zalecane, można napisać `OnGetAsync` — metoda (w *Pages/Movies/Delete.cshtml.cs*) jako:
 
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/Delete.cshtml.cs?name=snippet)]
 
 Przetestuj poprzedni kod:
 
-* Wybierz link usuwania.
-* Usuń identyfikator z adresu URL. Na przykład zmienić `https://localhost:5001/Movies/Delete/8` do `https://localhost:5001/Movies/Delete`
+* Wybierz **Usuń** łącza.
+* Usuń identyfikator z adresu URL. Na przykład zmienić `https://localhost:5001/Movies/Delete/8` do `https://localhost:5001/Movies/Delete`.
 * Przejść przez kod w debugerze.
 
 ### <a name="review-concurrency-exception-handling"></a>Przejrzyj Obsługa wyjątku współbieżności
@@ -125,7 +125,7 @@ Po opublikowaniu strony filmy oraz pozwala edytować:
   public Movie Movie { get; set; }
   ```
 
-* Jeśli występują błędy w stanie modelu (na przykład `ReleaseDate` nie można przekonwertować na wartość typu date), ponownie opublikowania formularza z wartościami przesłane.
+* Jeśli występują błędy w stanie modelu (na przykład `ReleaseDate` nie można przekonwertować na wartość typu date), zostanie wyświetlony formularz wartościami przesłane.
 * Jeśli nie ma żadnych błędów modelu, film zostanie zapisana.
 
 Metod HTTP GET, na stronach indeksu, tworzenie i usuwanie Razor wykonaj podobny wzorzec. HTTP POST `OnPostAsync` metody w tworzenie strony Razor ze wzorcem podobne do `OnPostAsync` metody w edytowanie strony Razor.
@@ -133,5 +133,5 @@ Metod HTTP GET, na stronach indeksu, tworzenie i usuwanie Razor wykonaj podobny 
 Wyszukiwanie zostanie dodany do następnego samouczka.
 
 > [!div class="step-by-step"]
-> [Poprzedni: Praca z bazą danych](xref:tutorials/razor-pages/sql)
+> [Poprzednie: Praca z bazą danych](xref:tutorials/razor-pages/sql)
 > [dalej: Dodawanie wyszukiwania](xref:tutorials/razor-pages/search)

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/14/2018
 uid: fundamentals/app-state
-ms.openlocfilehash: ccaaa6fafd611c3cf35a9171d5bfd6100535eeb9
-ms.sourcegitcommit: 0fc89b80bb1952852ecbcf3c5c156459b02a6ceb
+ms.openlocfilehash: 2d9fe4fc7c69f23a903b4ada44e328ef140963db
+ms.sourcegitcommit: e1cc4c1ef6c9e07918a609d5ad7fadcb6abe3e12
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52618132"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53997308"
 ---
 # <a name="session-and-app-state-in-aspnet-core"></a>Stan sesji i aplikacji w programie ASP.NET Core
 
@@ -64,6 +64,7 @@ Stan sesji wykazuje następujące zachowania:
 * Aplikacja zachowuje sesję przez ograniczony czas, po wykonaniu ostatniego żądania. Aplikacja ustawia limit czasu sesji lub domyślną wartość 20 minut. Stan sesji jest idealnym rozwiązaniem do przechowywania danych użytkownika, który jest specyficzny dla określonej sesji, ale których danych nie wymaga trwałego magazynu między sesjami.
 * Dane sesji zostaną usunięte albo gdy [ISession.Clear](/dotnet/api/microsoft.aspnetcore.http.isession.clear) implementacja jest nazywany lub utraty ważności sesji.
 * Nie ma domyślnego mechanizmu do informowania kod aplikacji przeglądarki klienta został zamknięty lub gdy plik cookie sesji został usunięty lub wygasła w dniu klienta.
+Szablony stron ASP.NET Core MVC i Razor obejmują obsługę [ogólne rozporządzenie o ochronie danych (RODO), obsługa](xref:security/gdpr). [Pliki cookie z sesji stanu nie są istotne](xref:security/gdpr#tempdata-provider-and-session-state-cookies-are-not-essential), stan sesji nie jest funkcjonalności, gdy śledzenie jest wyłączone.
 
 > [!WARNING]
 > Nie należy przechowywać poufne dane stanu sesji. Użytkownik może nie Zamknij przeglądarkę i wyczyść plik cookie sesji. Niektóre przeglądarki pliki cookie z sesji prawidłowe zachowanie okna przeglądarki. Sesja nie może być ograniczone do pojedynczego użytkownika&mdash;następnego użytkownika mogą w dalszym ciągu Przeglądaj aplikację przy użyciu tego samego pliku cookie sesji.
@@ -368,7 +369,7 @@ Inne kod może uzyskać dostęp, wartość przechowywana we `HttpContext.Items` 
 
 Takie podejście również ma tę zaletę wyeliminowanie korzystanie z kluczowych ciągów w kodzie.
 
-## <a name="cache"></a>pamięć podręczna
+## <a name="cache"></a>Pamięć podręczna
 
 Buforowanie jest skuteczny sposób przechowywania i pobierania danych. Aplikacja może kontrolować okres istnienia pamięci podręcznej elementów.
 
