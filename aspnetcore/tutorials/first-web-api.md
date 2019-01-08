@@ -311,7 +311,7 @@ Dodaj następujący kod `PostTodoItem` metody:
 
 Powyższy kod jest metodą HTTP POST, wskazane przez [[HttpPost]](/dotnet/api/microsoft.aspnetcore.mvc.httppostattribute) atrybutu. Metoda pobiera wartość elementu do wykonania z treści żądania HTTP.
 
-`CreatedAtRoute` Metody:
+`CreatedAtAction` Metody:
 
 * Zwraca odpowiedź 201. Protokół HTTP 201 jest standardowa odpowiedź na metodę POST protokołu HTTP, która tworzy nowy zasób na serwerze.
 * Dodaje do odpowiedzi nagłówek lokalizacji. Nagłówek Location określa identyfikator URI nowo utworzonego zadania do wykonania. Aby uzyskać więcej informacji, zobacz [10.2.2 201 utworzono](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).
