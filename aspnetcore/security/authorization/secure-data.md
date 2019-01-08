@@ -6,12 +6,12 @@ ms.author: riande
 ms.date: 12/18/2018
 ms.custom: seodec18
 uid: security/authorization/secure-data
-ms.openlocfilehash: fa82d3d99f4e4b7ad17ed385fb7c029745797e8d
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: bdba706c1ef24ebe35129cb8bb2d9949196245a1
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637836"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098925"
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Tworzenie aplikacji platformy ASP.NET Core przy użyciu danych użytkownika chronionych przez autoryzację
 
@@ -59,7 +59,7 @@ Administrator ma wszystkie uprawnienia. Ona można odczytu/edytowanie/usuwanie d
 
 Aplikacja została utworzona przez [tworzenia szkieletów](xref:tutorials/first-mvc-app/adding-model#scaffold-the-movie-model) następujące `Contact` modelu:
 
-[!code-csharp[](secure-data/samples/starter2.1/Models/Contact.cs?name=snippet)]
+[!code-csharp[](secure-data/samples/starter2.1/Models/Contact.cs?name=snippet1)]
 
 Przykład zawiera poniższe obsługi autoryzacji:
 
@@ -314,33 +314,33 @@ Utwórz kontakt w przeglądarce administratora. Skopiuj adres URL do usunięcia,
 ## <a name="create-the-starter-app"></a>Utwórz aplikację startową
 
 * Tworzenie stron Razor aplikacji o nazwie "ContactManager"
-   * Tworzenie aplikacji za pomocą **indywidualne konta użytkowników**.
-   * Nadaj mu nazwę "ContactManager", przestrzeń nazw używaną w próbce pasujących przestrzeni nazw.
-   * `-uld` Określa LocalDB zamiast bazy danych SQLite
+  * Tworzenie aplikacji za pomocą **indywidualne konta użytkowników**.
+  * Nadaj mu nazwę "ContactManager", przestrzeń nazw używaną w próbce pasujących przestrzeni nazw.
+  * `-uld` Określa LocalDB zamiast bazy danych SQLite
 
   ```console
   dotnet new webapp -o ContactManager -au Individual -uld
   ```
 
-* Dodaj *Models\Contact.cs*:
+* Dodaj *Models/Contact.cs*:
 
   [!code-csharp[](secure-data/samples/starter2.1/Models/Contact.cs?name=snippet1)]
 
 * Tworzenie szkieletu `Contact` modelu.
 * Tworzenie początkowej migracji i aktualizowanie bazy danych:
 
-```console
-dotnet aspnet-codegenerator razorpage -m Contact -udl -dc ApplicationDbContext -outDir Pages\Contacts --referenceScriptLibraries
-dotnet ef database drop -f
-dotnet ef migrations add initial
-dotnet ef database update
-```
+  ```console
+  dotnet aspnet-codegenerator razorpage -m Contact -udl -dc ApplicationDbContext -outDir Pages\Contacts --referenceScriptLibraries
+  dotnet ef database drop -f
+  dotnet ef migrations add initial
+  dotnet ef database update
+  ```
 
 * Aktualizacja **ContactManager** zakotwiczenia w *Pages/_Layout.cshtml* pliku:
 
-```cshtml
-<a asp-page="/Contacts/Index" class="navbar-brand">ContactManager</a>
-```
+  ```cshtml
+  <a asp-page="/Contacts/Index" class="navbar-brand">ContactManager</a>
+  ```
 
 * Przetestuj aplikację, tworzenia, edytowania i usuwania kontaktu
 

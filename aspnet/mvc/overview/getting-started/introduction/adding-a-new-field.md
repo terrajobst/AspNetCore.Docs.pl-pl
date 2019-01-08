@@ -8,14 +8,14 @@ ms.date: 10/17/2013
 ms.assetid: 4085de68-d243-4378-8a64-86236ea8d2da
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-new-field
 msc.type: authoredcontent
-ms.openlocfilehash: 87bb2c5f64e714268f5e2631b44fbb8a93a6a4b6
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 950ae17ebd6b0f15520c2a4e9372703f5374dfbe
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48578096"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098691"
 ---
-<a name="adding-a-new-field"></a>Dodawanie nowego pola
+<a name="adding-a-new-field"></a>Dodanie nowego pola
 ====================
 Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
@@ -94,7 +94,7 @@ W **Konsola Menedżera pakietów**, wprowadź polecenie `update-database` do two
 
 ![](adding-a-new-field/_static/image7.png)
 
-Jeśli otrzymasz komunikat o błędzie wskazujący tabela już istnieje i nie można utworzyć, prawdopodobnie uruchomienia aplikacji, po usunięciu bazy danych oraz zanim zostanie wykonany `update-database`. W takim przypadku usuń *Movies.mdf* ponownie plik, a następnie spróbuj ponownie `update-database` polecenia. Jeśli nadal wystąpi błąd, usuń folder migracje i zawartość, a następnie uruchomić za pomocą instrukcji u góry tej strony (to delete *Movies.mdf* pliku, a następnie przejść do Enable-Migrations). Jeśli nadal występują Twoja nazwavstutorialfactory, Otwórz Eksplorator obiektów SQL Server, a następnie usunąć bazę danych z listy.
+Jeśli otrzymasz komunikat o błędzie wskazujący tabela już istnieje i nie można utworzyć, prawdopodobnie uruchomienia aplikacji, po usunięciu bazy danych oraz zanim zostanie wykonany `update-database`. W takim przypadku usuń *Movies.mdf* ponownie plik, a następnie spróbuj ponownie `update-database` polecenia. Jeśli nadal wystąpi błąd, usuń folder migracje i zawartość, a następnie uruchomić za pomocą instrukcji u góry tej strony (to delete *Movies.mdf* pliku, a następnie przejść do Enable-Migrations). Jeśli nadal wystąpi błąd, Otwórz Eksplorator obiektów SQL Server, a następnie usunąć bazę danych z listy.
 
 Uruchom aplikację, a następnie przejdź do */Movies* adresu URL. Dane inicjatora są wyświetlane.
 

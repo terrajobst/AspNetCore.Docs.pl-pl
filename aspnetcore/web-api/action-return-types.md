@@ -4,14 +4,14 @@ author: scottaddie
 description: Więcej informacji na temat w interfejsie API sieci Web platformy ASP.NET Core przy użyciu różnych metod zwracane typy akcji kontrolera.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 07/23/2018
+ms.date: 01/04/2019
 uid: web-api/action-return-types
-ms.openlocfilehash: 84300eae4271c3ee4387be022c3576dc83e144eb
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 98d70e0379d353cff98a6d7a13f2dd00eb4da206
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207527"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098743"
 ---
 # <a name="controller-action-return-types-in-aspnet-core-web-api"></a>Zwracane typy akcji kontrolera platformy ASP.NET Core Web API
 
@@ -68,13 +68,18 @@ Należy wziąć pod uwagę następujące akcję asynchroniczną, w której istni
 
 [!code-csharp[](../web-api/action-return-types/samples/WebApiSample.Api.Pre21/Controllers/ProductsController.cs?name=snippet_CreateAsync&highlight=8,13)]
 
-W poprzednim działaniu, zwracany jest kod stanu 400, podczas sprawdzania poprawności modelu nie powiedzie się i [element BadRequest](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.badrequest) wywoływana jest metoda pomocnika. Na przykład, następujący model wskazuje, że żądania należy podać `Name` właściwości i wartości. W związku z tym, nie można podać poprawną `Name` w żądaniu powoduje, że sprawdzanie poprawności modelu nie powiedzie się.
+W poprzednim kodzie:
 
-[!code-csharp[](../web-api/action-return-types/samples/WebApiSample.DataAccess/Models/Product.cs?name=snippet_ProductClass&highlight=5-6)]
+* Kod stanu 400 ([element BadRequest](xref:Microsoft.AspNetCore.Mvc.ControllerBase.BadRequest*)) jest zwracany przez środowisko uruchomieniowe programu ASP.NET Core, gdy opis produktu zawiera "XYZ widżet".
+* Kod stanu 201 jest generowany przez [CreatedAtAction](xref:Microsoft.AspNetCore.Mvc.ControllerBase.CreatedAtAction*) metody, gdy produkt jest tworzony. W tej ścieżce kodu `Product` obiekt jest zwracany.
 
-Akcji innych znanych kod powrotny poprzedzającego jest 201, który jest generowany przez [CreatedAtAction](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.createdataction) metody pomocnika. W tej ścieżce `Product` obiekt jest zwracany.
+Na przykład, następujący model wskazuje, że żądania muszą zawierać `Name` i `Description` właściwości. W związku z tym, nie można podać `Name` i `Description` w żądaniu powoduje, że sprawdzanie poprawności modelu nie powiedzie się.
+
+[!code-csharp[](../web-api/action-return-types/samples/WebApiSample.DataAccess/Models/Product.cs?name=snippet_ProductClass&highlight=5-6,8-9)]
 
 ::: moniker range=">= aspnetcore-2.1"
+
+Jeśli [[klasy ApiController]](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) w platformy ASP.NET Core 2.1 lub nowszej jest stosowany, kod stanu 400 powodować błędy sprawdzania poprawności modelu. Aby uzyskać więcej informacji, zobacz [odpowiedzi automatyczne HTTP 400](xref:web-api/index#automatic-http-400-responses).
 
 ## <a name="actionresultt-type"></a>ActionResult\<T > typu
 
@@ -114,7 +119,12 @@ Należy wziąć pod uwagę akcję asynchroniczną, w którym istnieją dwie moż
 
 [!code-csharp[](../web-api/action-return-types/samples/WebApiSample.Api.21/Controllers/ProductsController.cs?name=snippet_CreateAsync&highlight=8,13)]
 
-W przypadku niepowodzenia weryfikacji modelu [element BadRequest](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.badrequest#Microsoft_AspNetCore_Mvc_ControllerBase_BadRequest_Microsoft_AspNetCore_Mvc_ModelBinding_ModelStateDictionary_) metoda jest wywoływana, aby zwrócić kod stanu 400. [ModelState](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.modelstate) właściwości zawierające błędy sprawdzania poprawności określonego jest przekazywany do niego. Jeśli weryfikacja modelu zakończy się powodzeniem, produkt jest tworzony w bazie danych. Zwracany jest kod stanu 201.
+W poprzednim kodzie:
+
+* Kod stanu 400 ([element BadRequest](xref:Microsoft.AspNetCore.Mvc.ControllerBase.BadRequest*)) jest zwracany przez środowisko uruchomieniowe programu ASP.NET Core po:
+  * [[Klasy ApiController]](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) zastosowano atrybut i sprawdzanie poprawności modelu nie powiedzie się.
+  * Opis produktu zawiera "XYZ widżet".
+* Kod stanu 201 jest generowany przez [CreatedAtAction](xref:Microsoft.AspNetCore.Mvc.ControllerBase.CreatedAtAction*) metody, gdy produkt jest tworzony. W tej ścieżce kodu `Product` obiekt jest zwracany.
 
 > [!TIP]
 > Począwszy od platformy ASP.NET Core 2.1, wnioskowania źródła wiązania parametrów akcji jest włączane, gdy klasa kontrolera zostanie nadany `[ApiController]` atrybutu. Parametry typu złożonego automatycznie powiązane przy użyciu treści żądania. W związku z tym, poprzedniej akcji `product` parametr jawnie nie jest oznaczony za pomocą [[FromBody]](/dotnet/api/microsoft.aspnetcore.mvc.frombodyattribute) atrybutu.

@@ -7,12 +7,12 @@ ms.author: riande
 ms.date: 09/22/2018
 ms.custom: seodec18
 uid: security/authentication/2fa
-ms.openlocfilehash: 6f20928b0dec9b235fa17c1b44c81a48d031e9e0
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: 48bfc50378fc0ec212f5b9d4e7ce05bb4fc97b9d
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121664"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098899"
 ---
 # <a name="two-factor-authentication-with-sms-in-aspnet-core"></a>Uwierzytelnianie dwuskładnikowe za pomocą wiadomości SMS w programie ASP.NET Core
 
@@ -27,7 +27,7 @@ W tym samouczku pokazano, jak skonfigurować uwierzytelnianie dwuskładnikowe (2
 
 ## <a name="create-a-new-aspnet-core-project"></a>Utwórz nowy projekt ASP.NET Core
 
-Utwórz nową aplikację sieci web platformy ASP.NET Core o nazwie `Web2FA` za pomocą indywidualnych kont użytkowników. Postępuj zgodnie z instrukcjami w [Wymuszanie protokołu SSL w aplikacji ASP.NET Core](xref:security/enforcing-ssl) do ustawiania i wymagać protokołu SSL.
+Utwórz nową aplikację sieci web platformy ASP.NET Core o nazwie `Web2FA` za pomocą indywidualnych kont użytkowników. Postępuj zgodnie z instrukcjami <xref:security/enforcing-ssl> skonfigurować i włączyć wymaganie protokołu HTTPS.
 
 ### <a name="create-an-sms-account"></a>Tworzenie konta usługi programu SMS
 
@@ -35,17 +35,17 @@ Tworzenie konta usługi programu SMS, na przykład z [twilio](https://www.twilio
 
 #### <a name="figuring-out-sms-provider-credentials"></a>Ustalenie, poświadczenia dostawcy programu SMS
 
-**Twilio:** z karty Pulpit nawigacyjny konta usługi Twilio, skopiuj **identyfikator SID konta** i **tokenu uwierzytelniania**.
+**Twilio:** Karta pulpitu nawigacyjnego konta usługi Twilio, skopiuj **identyfikator SID konta** i **tokenu uwierzytelniania**.
 
-**ASPSMS:** w ustawieniach konta, przejdź do **Userkey** i skopiować go razem z Twojej **hasło**.
+**ASPSMS:** W ustawieniach konta, przejdź do **Userkey** i skopiować go razem z Twojej **hasło**.
 
 Później będą przechowywane te wartości przy użyciu narzędzia menedżera klucz tajny w kluczach `SMSAccountIdentification` i `SMSAccountPassword`.
 
 #### <a name="specifying-senderid--originator"></a>Określanie SenderID / inicjatora
 
-**Twilio:** na karcie liczby skopiuj usługi Twilio **numer telefonu**.
+**Twilio:** Na karcie liczby skopiuj usługi Twilio **numer telefonu**.
 
-**ASPSMS:** w Menu nadawcy odblokować odblokować przynajmniej jednego nadawcy, lub wybierz inicjatora alfanumeryczne (nie obsługiwany przez wszystkie sieci).
+**ASPSMS:** W Menu nadawcy odblokować odblokować przynajmniej jednego nadawcy, lub wybierz inicjatora alfanumeryczne (nie obsługiwany przez wszystkie sieci).
 
 Później będą przechowywane w tej wartości za pomocą narzędzia menedżera klucz tajny w kluczu `SMSAccountFrom`.
 
@@ -136,7 +136,7 @@ Jeśli nie otrzymasz wiadomość SMS, zobacz stronę dziennika usługi twilio.
 
 ## <a name="account-lockout-for-protecting-against-brute-force-attacks"></a>Blokada konta na potrzeby ochrony przed atakami siłowymi
 
-Blokada konta zaleca się za pomocą funkcji 2FA. Po użytkownik loguje się przy użyciu konta lokalnego lub konta w sieci społecznościowej, znajduje się każda nieudanej próby w funkcji 2FA. W przypadku osiągnięcia maksymalnej nieudanych prób dostępu użytkownika jest zablokowane (domyślne: 5 minut blokady po 5 nieudanych prób dostępu). Po pomyślnym uwierzytelnieniu resetuje liczbę prób dostępu nie powiodło się i zresetowanie zegara. Maksymalną liczbę nieudanych prób dostępu i okres blokady, można ustawić za pomocą [MaxFailedAccessAttempts](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions.maxfailedaccessattempts) i [DefaultLockoutTimeSpan](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions.defaultlockouttimespan). Następujące konfiguruje blokady konta po upływie 10 minut po 10 nieudanych prób dostępu:
+Blokada konta zaleca się za pomocą funkcji 2FA. Po użytkownik loguje się przy użyciu konta lokalnego lub konta w sieci społecznościowej, znajduje się każda nieudanej próby w funkcji 2FA. W przypadku osiągnięcia maksymalnej nieudanych prób dostępu użytkownika jest zablokowane (domyślne: 5-minutowego blokady po 5 nieudanych prób dostępu). Po pomyślnym uwierzytelnieniu resetuje liczbę prób dostępu nie powiodło się i zresetowanie zegara. Maksymalną liczbę nieudanych prób dostępu i okres blokady, można ustawić za pomocą [MaxFailedAccessAttempts](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions.maxfailedaccessattempts) i [DefaultLockoutTimeSpan](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions.defaultlockouttimespan). Następujące konfiguruje blokady konta po upływie 10 minut po 10 nieudanych prób dostępu:
 
 [!code-csharp[](2fa/sample/Web2FA/Startup.cs?name=snippet2&highlight=13-17)]
 

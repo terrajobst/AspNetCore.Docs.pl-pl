@@ -4,16 +4,16 @@ title: Dodawanie sprawdzania poprawności | Dokumentacja firmy Microsoft
 author: Rick-Anderson
 description: ''
 ms.author: riande
-ms.date: 10/17/2013
+ms.date: 01/06/2019
 ms.assetid: 9f35ca15-e216-4db6-9ebf-24380b0f31b4
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 22e59a99a179a7a414447036b973e3ad3b462515
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 6831259ce19c3747c179d6fc1b7e2095051a603b
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48577954"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54099029"
 ---
 <a name="adding-validation"></a>Dodawanie walidacji
 ====================
@@ -97,7 +97,7 @@ Być może zastanawiasz się, jak sprawdzanie poprawności UI został wygenerowa
 
 [!code-csharp[Main](adding-validation/samples/sample5.cs)]
 
-Pierwszy (HTTP GET) `Create` metody akcji Wyświetla początkowej formularza tworzenia. Drugi (`[HttpPost]`) wersja obsługuje post formularza. Drugi `Create` — metoda ( `HttpPost` wersji) wywołań `ModelState.IsValid` do sprawdzenia, czy ten film zawiera wszystkie błędy weryfikacji. Wywołanie tej metody ocenia wszelkie atrybuty weryfikacji, które zostały zastosowane do obiektu. Jeśli obiekt ma błędy sprawdzania poprawności `Create` metoda ponownie zostanie wyświetlony formularz. Jeśli nie ma żadnych błędów, metoda zapisuje ten nowy film w bazie danych. W naszym przykładzie filmu **nie opublikowania formularza z serwerem, gdy występują błędy sprawdzania poprawności wykrywane po stronie klienta; drugi** `Create` **nigdy nie zostanie wywołana metoda**. Jeśli wyłączysz JavaScript w przeglądarce, sprawdzanie poprawności klienta jest wyłączona i HTTP POST `Create` wywołania metody `ModelState.IsValid` do sprawdzenia, czy ten film zawiera wszystkie błędy weryfikacji.
+Pierwszy (HTTP GET) `Create` metody akcji Wyświetla początkowej formularza tworzenia. Drugi (`[HttpPost]`) wersja obsługuje post formularza. Drugi `Create` — metoda ( `HttpPost` wersji) sprawdza `ModelState.IsValid` czy filmu ma wszystkie błędy weryfikacji. Wprowadzenie tej właściwości ocenia wszelkie atrybuty weryfikacji, które zostały zastosowane do obiektu. Jeśli obiekt ma błędy sprawdzania poprawności `Create` metoda ładowaniu formularza. Jeśli nie ma żadnych błędów, metoda zapisuje ten nowy film w bazie danych. W naszym przykładzie filmu **formularza nie jest opublikowane na serwerze, gdy występują błędy sprawdzania poprawności wykrywane po stronie klienta; drugi** `Create` **nigdy nie zostanie wywołana metoda**. Jeśli wyłączysz JavaScript w przeglądarce, sprawdzanie poprawności klienta jest wyłączone i HTTP POST `Create` metoda pobiera `ModelState.IsValid` do sprawdzenia, czy ten film zawiera wszystkie błędy weryfikacji.
 
 Możesz ustawić punkt przerwania w `HttpPost Create` metody i sprawdź, nigdy nie jest wywoływana metoda, weryfikacji po stronie klienta nie prześle dane formularza w przypadku wykrycia błędów sprawdzania poprawności. Jeśli można wyłączyć języka JavaScript w przeglądarce, a następnie Prześlij formularz z błędami, punkt przerwania zostanie osiągnięty. Będzie nadal się pojawiać pełna Walidacja bez kodu JavaScript. Na poniższej ilustracji przedstawiono sposób wyłączania JavaScript w przeglądarce Internet Explorer.
 
@@ -159,7 +159,7 @@ Jeśli używasz `DataType` atrybutu z polem daty należy określić `DisplayForm
 
 Poniższy kod pokazuje atrybuty łączenie w jednym wierszu:
 
-[!code-csharp[Main](adding-validation/samples/sample10.cs?highlight=6,10)]
+[!code-csharp[Main](adding-validation/samples/sample10.cs?highlight=4,6,10,12)]
 
 W następnej części serii, utworzymy aplikację i wprowadzić kilka ulepszeń do automatycznie generowanego `Details` i `Delete` metody.
 

@@ -5,12 +5,12 @@ description: Dodawanie widoku do aplikacji MVC
 ms.author: riande
 ms.date: 09/1721/2017
 uid: mvc/overview/getting-started/introduction/adding-a-view
-ms.openlocfilehash: 56c00d5992a95971f48bb6e1ec30d63706948997
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 47447c82506cc0eb4dafabe272b3204f76a2edd7
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48578240"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098665"
 ---
 <a name="adding-a-view"></a>Dodawanie widoku
 ====================
@@ -22,7 +22,7 @@ W tej sekcji zamierzasz zmodyfikować `HelloWorldController` klasy w celu użyci
 
 Utworzysz widok szablonu pliku przy użyciu [aparatu widoku Razor](../../../../web-pages/overview/getting-started/introducing-razor-syntax-c.md). Szablony widoku razor mają *.cshtml* rozszerzenie pliku, a następnie podaj to elegancki sposób tworzenia kodu HTML w danych wyjściowych przy użyciu języka C#. Razor minimalizuje liczbę znaków i wymagane podczas pisania szablonu widoku naciśnięcia klawiszy i umożliwia szybkie, płynów, przepływ pracy kodowania.
 
-Obecnie `Index` metoda zwraca ciąg zawierający komunikat, który jest ustalony w klasie kontrolera. Zmiana `Index` metodę, aby zwrócić `View` obiektu, jak pokazano w poniższym kodzie:
+Obecnie `Index` metoda zwraca ciąg zawierający komunikat, który jest ustalony w klasie kontrolera. Zmiana `Index` metodę do wywołania na kontrolerach [widoku](/dotnet/api/microsoft.aspnetcore.mvc.controller.view#Microsoft_AspNetCore_Mvc_Controller_View) metodzie, jak pokazano w poniższym kodzie:
 
 [!code-csharp[Main](adding-a-view/samples/sample1.cs?highlight=1,3)]
 
@@ -112,7 +112,7 @@ Nasze trochę &quot;danych&quot; (w tym przypadku &quot;pozdrowienia z naszych W
 
 Zanim firma przejdź do bazy danych i porozmawiać na temat modeli jednak najpierw Omówmy przekazywania informacji z kontrolera do widoku. Klasy kontrolera są wywoływane w odpowiedzi na przychodzące żądanie adresu URL. Klasa kontrolera jest pisze się kod, który obsługuje przeglądarki przychodzących żądań, pobiera dane z bazy danych i ostatecznie decyduje o rodzaju odpowiedzi do odesłania do przeglądarki. Wyświetl szablony następnie można za pomocą kontrolera do generowania i formatowanie odpowiedzi HTML do przeglądarki.
 
-Kontrolery są odpowiedzialne za świadczenie dowolne dane i obiekty są wymagane dla szablonu widoku do renderowania odpowiedzi do przeglądarki. Najlepszym rozwiązaniem jest: **szablonu widoku nigdy nie może wykonać logikę biznesową ani bezpośredniej interakcji z bazą danych**. Zamiast tego szablonu widoku powinny działać tylko w przypadku danych, który znajduje się do niego przez kontroler. Utrzymywanie to &quot;separacji&quot; pomaga zapewnić Twój kod będzie łatwiejszy w utrzymaniu i przejrzysty, sprawdzalnego działa zgodnie.
+Kontrolery są odpowiedzialne za świadczenie dowolne dane i obiekty są wymagane dla szablonu widoku do renderowania odpowiedzi do przeglądarki. Najlepszym rozwiązaniem jest: **Szablon widoku nigdy nie może wykonać logikę biznesową ani bezpośredniej interakcji z bazą danych**. Zamiast tego szablonu widoku powinny działać tylko w przypadku danych, który znajduje się do niego przez kontroler. Utrzymywanie to &quot;separacji&quot; pomaga zapewnić Twój kod będzie łatwiejszy w utrzymaniu i przejrzysty, sprawdzalnego działa zgodnie.
 
 Obecnie `Welcome` metody akcji w `HelloWorldController` klasy przyjmuje `name` i `numTimes` parametru, a następnie dane wyjściowe wartości bezpośrednio do przeglądarki. Zamiast kontrolera renderowania tej odpowiedzi jako ciąg znaków, zmienimy kontrolera, aby użyć szablonu widoku. Wyświetl szablon generuje odpowiedzi dynamicznej, oznacza to, czy musisz przekazać odpowiednich bitów danych z kontrolera do widoku w celu wygenerowania odpowiedzi. Można to zrobić przez kontroler umieścić dane dynamiczne (parametry) wymagającym szablon widoku w `ViewBag` obiekt, który szablon widoku może uzyskać dostęp.
 

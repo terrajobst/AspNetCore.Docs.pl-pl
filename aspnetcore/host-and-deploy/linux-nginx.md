@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/20/2018
 uid: host-and-deploy/linux-nginx
-ms.openlocfilehash: 534c62c127e685af9c6076932943def25bd3ac06
-ms.sourcegitcommit: e1cc4c1ef6c9e07918a609d5ad7fadcb6abe3e12
+ms.openlocfilehash: 24973e7bedcb219ac411948db8aa27d7219eac31
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53997334"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54099289"
 ---
 # <a name="host-aspnet-core-on-linux-with-nginx"></a>Host platformy ASP.NET Core w systemie Linux przy użyciu serwera Nginx
 
@@ -68,7 +68,7 @@ Zwrotny serwer proxy jest wspólne dla aplikacji sieci web dynamicznego obsługu
 
 ### <a name="use-a-reverse-proxy-server"></a>Użyj serwera proxy odwrotnej
 
-Kestrel nadaje się doskonale dla obsługujących zawartość dynamiczną z platformą ASP.NET Core. Jednak możliwości usług sieci web nie są jako wyposażonym jako serwerów, takich jak usługi IIS, Apache i Nginx. Serwer proxy odwrotnej można odciążyć pracy, takich jak obsługująca zawartość statyczną, buforowanie żądań kompresowania żądań i kończenie żądań SSL z serwerem HTTP. Zwrotnego serwera proxy mogą znajdować się na dedykowanym komputerze lub można wdrażać wraz z serwerem HTTP.
+Kestrel nadaje się doskonale dla obsługujących zawartość dynamiczną z platformą ASP.NET Core. Jednak możliwości usług sieci web nie są jako wyposażonym jako serwerów, takich jak usługi IIS, Apache i Nginx. Serwer proxy odwrotnej można odciążyć pracy, takich jak obsługująca zawartość statyczną, buforowanie żądań kompresowania żądań i zakończenia połączenia HTTPS z serwera HTTP. Zwrotnego serwera proxy mogą znajdować się na dedykowanym komputerze lub można wdrażać wraz z serwerem HTTP.
 
 Na potrzeby tego przewodnika pojedyncze wystąpienie serwera Nginx jest używany. Działa na tym samym serwerze, wraz z serwerem HTTP. Na podstawie wymagań, można wybrać różne ustawienia.
 
@@ -349,7 +349,7 @@ static char ngx_http_server_full_string[] = "Server: Web Server" CRLF;
 
 Konfigurowanie serwera przy użyciu dodatkowych wymaganych modułów. Należy wziąć pod uwagę przy użyciu zapory aplikacji sieci web, takich jak [zapory ModSecurity](https://www.modsecurity.org/), w celu ograniczenia funkcjonalności aplikacji.
 
-#### <a name="configure-ssl"></a>Konfigurowanie certyfikatu SSL
+#### <a name="https-configuration"></a>Konfiguracja protokołu HTTPS
 
 * Konfigurowanie serwera do nasłuchiwania ruchu HTTPS na porcie `443` , określając prawidłowy certyfikat wystawiony przez zaufany urząd certyfikacji (CA).
 
@@ -357,7 +357,7 @@ Konfigurowanie serwera przy użyciu dodatkowych wymaganych modułów. Należy wz
 
 * Dodawanie `HTTP Strict-Transport-Security` nagłówka (HSTS) zapewnia, wszystkie kolejne żądania wysłane przez klienta za pośrednictwem protokołu HTTPS.
 
-* Nie należy dodawać nagłówek HSTS lub wybrać odpowiednią `max-age` Jeśli SSL zostanie wyłączona w przyszłości.
+* Nie należy dodawać nagłówek HSTS lub wybrać odpowiednią `max-age` Jeśli protokół HTTPS zostanie wyłączona w przyszłości.
 
 Dodaj */etc/nginx/proxy.conf* pliku konfiguracji:
 

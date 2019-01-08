@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/11/2018
 uid: security/authentication/social/index
-ms.openlocfilehash: 47ac1f966ff727957e6ed700c3c68efa16b1b38b
-ms.sourcegitcommit: 3e94d192b2ed9409fe72e3735e158b333354964c
+ms.openlocfilehash: 063d452fb6ab91b712ade7f7b7ed99823dbdc657
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/24/2018
-ms.locfileid: "53735729"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098821"
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Facebook, Google i zewnętrznego dostawcy uwierzytelniania w programie ASP.NET Core
 
@@ -46,11 +46,11 @@ Uwaga: Ten samouczek dotyczy wersji platformy ASP.NET Core 2.0 SDK, które możn
 * Wprowadź adres e-mail i hasło dla nowego konta, a następnie wybierz **zarejestrować**.
 * Postępuj zgodnie z instrukcjami, aby zastosować migracji.
 
-## <a name="require-ssl"></a>Wymagaj protokołu SSL
+## <a name="require-https"></a>Wymaganie protokołu HTTPS
 
-OAuth 2.0 wymaga użycia protokołu SSL do uwierzytelniania za pośrednictwem protokołu HTTPS.
+OAuth 2.0 wymaga użycia protokołów SSL/TLS do uwierzytelniania za pośrednictwem protokołu HTTPS.
 
-Projekty utworzone za pomocą **aplikacji sieci Web** lub **interfejsu API sieci Web** projektu szablonów za pomocą platformy ASP.NET Core 2.1 lub nowszej są automatycznie konfigurowane do włączenia protokołu SSL. Uruchomieniu aplikacji przy użyciu domyślnego bezpiecznego punktu końcowego, jeśli **indywidualne konta użytkowników** jest zaznaczona opcja **okno dialogowe Zmień uwierzytelnianie** Kreatora projektu.
+Projekty utworzone za pomocą **aplikacji sieci Web** lub **interfejsu API sieci Web** projektu szablonów za pomocą platformy ASP.NET Core 2.1 lub nowszej są automatycznie konfigurowane do włączania protokołu HTTPS. Uruchomieniu aplikacji przy użyciu domyślnego bezpiecznego punktu końcowego, jeśli **indywidualne konta użytkowników** jest zaznaczona opcja **okno dialogowe Zmień uwierzytelnianie** Kreatora projektu.
 
 Aby uzyskać więcej informacji, zobacz <xref:security/enforcing-ssl>.
 

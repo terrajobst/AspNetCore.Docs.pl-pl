@@ -3,14 +3,14 @@ title: Buforowanie odpowiedzi w programie ASP.NET Core
 author: rick-anderson
 description: Dowiedz się, jak używać odpowiedzi z pamięci podręcznej w celu niższymi wymaganiami co do przepustowości i zwiększenie wydajności aplikacji platformy ASP.NET Core.
 ms.author: riande
-ms.date: 09/20/2017
+ms.date: 01/07/2018
 uid: performance/caching/response
-ms.openlocfilehash: 99093cd281ffa8dddc574dc27254c0175e2651b3
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 5fbcaddff6e53d01a19ba8a7455c719feb614326
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207371"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098951"
 ---
 # <a name="response-caching-in-aspnet-core"></a>Buforowanie odpowiedzi w programie ASP.NET Core
 
@@ -23,7 +23,7 @@ Przez [John Luo](https://github.com/JunTaoLuo), [Rick Anderson](https://twitter.
 
 Buforowanie odpowiedzi zmniejsza liczbę żądań, które sprawia, że klient lub serwer proxy na serwerze sieci web. Buforowanie odpowiedzi zmniejsza ilość pracy serwera sieci web wykonuje do generowania odpowiedzi. Buforowanie odpowiedzi jest kontrolowana przez nagłówki, które określają, jak chcesz klienta, serwera proxy i oprogramowaniu pośredniczącym, aby buforowanie odpowiedzi.
 
-Serwer sieci web może buforować odpowiedzi, po dodaniu [oprogramowanie pośredniczące buforowania odpowiedzi](xref:performance/caching/middleware).
+[Atrybut ResponseCache](#responsecache-attribute) uczestniczy podczas ustawiania nagłówków, których klienci mogą przestrzegać podczas buforowania odpowiedzi buforowanie odpowiedzi. [Oprogramowanie pośredniczące buforowania odpowiedzi](xref:performance/caching/middleware) może służyć do odpowiedzi z pamięci podręcznej na serwerze. Można użyć oprogramowania pośredniczącego `ResponseCache` atrybutu właściwości w celu wywierania wpływu na zachowanie buforowania po stronie serwera.
 
 ## <a name="http-based-response-caching"></a>Buforowanie odpowiedzi oparte na protokole HTTP
 
@@ -36,8 +36,8 @@ Typowe `Cache-Control` dyrektywy są wyświetlane w poniższej tabeli.
 | [public](https://tools.ietf.org/html/rfc7234#section-5.2.2.5)   | Pamięć podręczna może przechowywać odpowiedzi. |
 | [private](https://tools.ietf.org/html/rfc7234#section-5.2.2.6)  | Odpowiedź nie mogą być przechowywane w udostępnionej pamięci podręcznej. Prywatnej pamięci podręcznej może przechowywać i ponowne użycie odpowiedzi. |
 | [max-age](https://tools.ietf.org/html/rfc7234#section-5.2.1.1)  | Klient nie będzie akceptować odpowiedzi, którego okres ważności jest większa niż określoną liczbę sekund. Przykłady: `max-age=60` (60 sekund), `max-age=2592000` (1 miesiąc) |
-| [no-cache](https://tools.ietf.org/html/rfc7234#section-5.2.1.4) | **W odpowiedzi na żądania**: pamięć podręczna nie mogą używać odpowiedzi przechowywane do spełnienia żądania. Uwaga: Serwer pochodzenia ponownie generuje odpowiedzi klienta, a także oprogramowanie pośredniczące aktualizuje odpowiedzi przechowywane w pamięci podręcznej.<br><br>**W odpowiedzi**: odpowiedź nie może być używany dla kolejnych żądań bez sprawdzania poprawności na serwerze źródłowym. |
-| [nie-store](https://tools.ietf.org/html/rfc7234#section-5.2.1.5) | **W odpowiedzi na żądania**: pamięć podręczna nie musi przechowywać żądania.<br><br>**W odpowiedzi**: pamięć podręczna nie musi przechowywać dowolną część odpowiedzi. |
+| [no-cache](https://tools.ietf.org/html/rfc7234#section-5.2.1.4) | **W odpowiedzi na żądania**: Pamięć podręczna nie może używać odpowiedzi przechowywane do spełnienia żądania. Uwaga: Serwer pochodzenia ponownie generuje odpowiedzi klienta, a oprogramowanie pośredniczące aktualizuje odpowiedzi przechowywane w pamięci podręcznej.<br><br>**W odpowiedzi**: Odpowiedź nie mogą być używane dla kolejnych żądań bez sprawdzania poprawności na serwerze źródłowym. |
+| [nie-store](https://tools.ietf.org/html/rfc7234#section-5.2.1.5) | **W odpowiedzi na żądania**: Pamięć podręczna nie musi przechowywać żądania.<br><br>**W odpowiedzi**: Pamięć podręczna nie musi przechowywać dowolną część odpowiedzi. |
 
 W poniższej tabeli przedstawiono innych nagłówków pamięci podręcznej, które mają znaczenie w pamięci podręcznej.
 
@@ -54,7 +54,7 @@ W poniższej tabeli przedstawiono innych nagłówków pamięci podręcznej, któ
 
 Zawsze zapewniane klienta `Cache-Control` nagłówków żądań ma sens należy wziąć pod uwagę w celu buforowania HTTP. W ramach specyfikacji oficjalne buforowania mają na celu obniżenie kosztów opóźnienia oraz sieci spełnienia żądania za pośrednictwem sieci klientów, serwery proxy i serwerów. Nie jest koniecznie sposób kontroluje obciążenie serwera pochodzenia.
 
-Istnieje nie bieżącej deweloperowi kontroli nad tym zachowanie buforowania, gdy za pomocą [oprogramowanie pośredniczące buforowania odpowiedzi](xref:performance/caching/middleware) ponieważ oprogramowanie pośredniczące działa zgodnie z oficjalną buforowania specyfikacji. [Przyszłe rozszerzenia będą miały do oprogramowania pośredniczącego](https://github.com/aspnet/ResponseCaching/issues/96) pozwoli na konfigurowanie oprogramowania pośredniczącego, aby zignorować żądania `Cache-Control` nagłówka podczas podejmowania decyzji o do obsługi buforowanych odpowiedzi. To zaoferuje Ci możliwość lepszej kontroli obciążenia na serwerze podczas korzystania z oprogramowania pośredniczącego.
+Istnieje nie deweloperowi kontroli nad tym zachowaniem buforowania przy użyciu [oprogramowanie pośredniczące buforowania odpowiedzi](xref:performance/caching/middleware) ponieważ oprogramowanie pośredniczące działa zgodnie z oficjalną buforowania specyfikacji. [Planowane ulepszenia oprogramowanie pośredniczące](https://github.com/aspnet/AspNetCore/issues/2612) jest możliwość konfiguracji oprogramowania pośredniczącego, aby zignorować żądania `Cache-Control` nagłówka podczas podejmowania decyzji o do obsługi buforowanych odpowiedzi. Ulepszenia planowane udostępniają możliwość lepszej obciążenie serwera kontroli.
 
 ## <a name="other-caching-technology-in-aspnet-core"></a>Innych technologii buforowania w programie ASP.NET Core
 
@@ -91,7 +91,7 @@ Aby uzyskać więcej informacji, zobacz [rozproszonych Pomocnik tagu pamięci po
 
 [VaryByQueryKeys](/dotnet/api/microsoft.aspnetcore.mvc.responsecacheattribute.varybyquerykeys) odpowiedzi przechowywane jest zależna od wartości podanej listy kluczy zapytania. Gdy do pojedynczej wartości `*` zostanie podana, oprogramowanie pośredniczące różni się w odpowiedzi dla wszystkich żądań parametrów ciągu zapytania. `VaryByQueryKeys` wymaga platformy ASP.NET Core 1.1 lub nowszej.
 
-Oprogramowanie pośredniczące buforowania odpowiedzi musi być włączona, aby ustawić `VaryByQueryKeys` właściwości; w przeciwnym razie jest zgłaszany wyjątek czasu wykonywania. Nie ma odpowiedniego nagłówka HTTP dla `VaryByQueryKeys` właściwości. Właściwość jest funkcja protokołu HTTP obsługiwane przez oprogramowanie pośredniczące buforowania odpowiedzi. Oprogramowaniu pośredniczącym, aby obsługiwać odpowiedzi z pamięci podręcznej ciąg zapytania i wartość ciągu zapytania musi odpowiadać poprzedniego żądania. Na przykład należy wziąć pod uwagę sekwencji żądań i wyniki wyświetlane w poniższej tabeli.
+[Oprogramowanie pośredniczące buforowania odpowiedzi](xref:performance/caching/middleware) musi być włączona, aby ustawić `VaryByQueryKeys` właściwości; w przeciwnym razie jest zgłaszany wyjątek czasu wykonywania. Nie ma odpowiedniego nagłówka HTTP dla `VaryByQueryKeys` właściwości. Właściwość jest funkcja protokołu HTTP obsługiwane przez oprogramowanie pośredniczące buforowania odpowiedzi. Oprogramowaniu pośredniczącym, aby obsługiwać odpowiedzi z pamięci podręcznej ciąg zapytania i wartość ciągu zapytania musi odpowiadać poprzedniego żądania. Na przykład należy wziąć pod uwagę sekwencji żądań i wyniki wyświetlane w poniższej tabeli.
 
 | Żądanie                          | Wynik                   |
 | -------------------------------- | ------------------------ |

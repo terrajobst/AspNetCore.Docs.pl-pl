@@ -4,14 +4,14 @@ author: mjrousos
 description: Porady dotyczące zwiększania wydajności aplikacji platformy ASP.NET Core i unikanie typowych problemów z wydajnością.
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
-ms.date: 11/29/2018
+ms.date: 1/9/2019
 uid: performance/performance-best-practices
-ms.openlocfilehash: 9f3ed97bf4d4eb371ff5ae3874234b44745cc4ca
-ms.sourcegitcommit: 0fc89b80bb1952852ecbcf3c5c156459b02a6ceb
+ms.openlocfilehash: 25aa4c1e22ead7db4775c6e5e81b6fd627c6d7a6
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52618119"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54099068"
 ---
 # <a name="aspnet-core-performance-best-practices"></a>ASP.NET Core najlepsze rozwiązania w zakresie wydajności
 
@@ -19,8 +19,7 @@ Przez [Mike Rousos](https://github.com/mjrousos)
 
 Ten temat zawiera wytyczne dotyczące wydajności, najlepsze rozwiązania z platformą ASP.NET Core.
 
-<a name="hot"></a>
-<!-- TODO review hot code paths is jargon that won't MT (machine translate) and is not well defined for native speakers. --> W tym dokumencie ścieżki gorąca kod jest zdefiniowany jako ścieżka kodu, który jest często nazywany i gdzie większość czasu wykonywania występuje. Ścieżki kodu gorąca zwykle ograniczają skalowanie aplikacji oraz wydajności.
+<a name="hot"></a> W tym dokumencie ścieżki gorąca kod jest zdefiniowany jako ścieżka kodu, który jest często nazywany i gdzie większość czasu wykonywania występuje. Ścieżki kodu gorąca zwykle ograniczają skalowanie aplikacji oraz wydajności.
 
 ## <a name="cache-aggressively"></a>Agresywne pamięci podręcznej
 
@@ -129,6 +128,10 @@ Zalecenia:
 
 * **Czy** korzystanie z platformy ASP.NET Core [wbudowaną obsługę](xref:client-side/bundling-and-minification) tworzenie pakietów i minifikacja zasobów klienta.
 * **Czy** należy wziąć pod uwagę innych narzędzi innych firm, takich jak [Gulp](uid:client-side/bundling-and-minification#consume-bundleconfigjson-from-gulp) lub [Webpack](https://webpack.js.org/) dla bardziej złożonego zarządzania zasobami klienta.
+
+## <a name="compress-responses"></a>Kompresji odpowiedzi
+
+ Zazwyczaj zmniejszenie rozmiaru odpowiedzi często znacznie zwiększa szybkość reakcji aplikacji. Jednym ze sposobów, aby zmniejszyć rozmiar ładunku jest kompresji odpowiedzi aplikacji. Aby uzyskać więcej informacji, zobacz [kompresji odpowiedzi](xref:performance/response-compression).
 
 ## <a name="use-the-latest-aspnet-core-release"></a>Użyj najnowszej wersji platformy ASP.NET Core
 

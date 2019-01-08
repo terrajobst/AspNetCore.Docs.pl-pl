@@ -4,14 +4,14 @@ author: rick-anderson
 description: Poznaj podstawowe pojęcia do tworzenia aplikacji platformy ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2018
+ms.date: 01/06/2019
 uid: fundamentals/index
-ms.openlocfilehash: 11dc6336ae7667038983c967f28232bef325f5bb
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: a56beebd796448705c7b84f47699e9739f451419
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637773"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54099237"
 ---
 # <a name="aspnet-core-fundamentals"></a>Podstawy platformy ASP.NET Core
 
@@ -63,7 +63,7 @@ Aplikacji ASP.NET Core jest aplikacją konsoli, która tworzy serwer sieci web w
 
 ::: moniker-end
 
-`Startup` Klasa jest gdzie definiuje się Potok żądań obsługi i którym skonfigurowano wszystkich usług wymaganych przez aplikację. `Startup` Klasy musi być publiczna i może zawierać następujących metod:
+`Startup` Klasy jest, gdy wszystkie wymagane przez aplikację usługi są skonfigurowane, a definiowany jest potok żądań obsługi. `Startup` Klasy muszą być publiczne i zwykle zawiera następujące metody. `Startup.ConfigureServices` jest opcjonalne.
 
 ::: moniker range=">= aspnetcore-2.0"
 

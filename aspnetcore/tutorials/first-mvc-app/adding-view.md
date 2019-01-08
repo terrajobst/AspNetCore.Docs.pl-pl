@@ -5,12 +5,12 @@ description: Dodawanie widoku na prostej aplikacji ASP.NET Core MVC
 ms.author: riande
 ms.date: 03/04/2017
 uid: tutorials/first-mvc-app/adding-view
-ms.openlocfilehash: 5267e5a49bb6ecdd4cef671989f111eae7a64ec4
-ms.sourcegitcommit: 4e87712029de2aceb1cf2c52e9e3dda8195a5b8e
+ms.openlocfilehash: 0c9c682f39bf86b4d83841eca21fc67b718950e9
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53381819"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098717"
 ---
 # <a name="add-a-view-to-an-aspnet-core-mvc-app"></a>Dodaj widok do aplikacji ASP.NET Core MVC
 
@@ -24,7 +24,7 @@ Obecnie `Index` metoda zwraca ciąg zawierający komunikat, który jest ustalony
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_4)]
 
-Zwraca poprzedni kod `View` obiektu. Szablonu widoku jest używane do generowania odpowiedzi HTML do przeglądarki. Metody kontrolera (znany także jako metody akcji), takie jak `Index` ogólnie zwracany przez metodę powyżej [IActionResult](/dotnet/api/microsoft.aspnetcore.mvc.iactionresult) (lub klasą pochodną `ActionResult`), nie jest typem, takich jak ciągi.
+Powyższy kod wywołuje kontrolera <xref:Microsoft.AspNetCore.Mvc.Controller.View*> metody. Szablonu widoku jest używane do generowania odpowiedzi HTML. Metody kontrolera (znany także jako *metod akcji*), takie jak `Index` ogólnie zwracany przez metodę powyżej <xref:Microsoft.AspNetCore.Mvc.IActionResult> (lub klasą pochodną <xref:Microsoft.AspNetCore.Mvc.ActionResult>), nie jest typem, takich jak `string`.
 
 ## <a name="add-a-view"></a>Dodawanie widoku
 

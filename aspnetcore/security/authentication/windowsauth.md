@@ -2,62 +2,77 @@
 title: Konfigurowanie uwierzytelniania Windows w programie ASP.NET Core
 author: scottaddie
 description: Dowiedz się, jak skonfigurować uwierzytelnianie Windows w programie ASP.NET Core, za pomocą usług IIS Express, usługi IIS i sterownik HTTP.sys.
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 12/18/2018
+ms.date: 12/23/2018
 uid: security/authentication/windowsauth
-ms.openlocfilehash: 94dff2f47b2b076cb15f8d385239179b52786678
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: 64178c8fce71445fc6a728a236d811484b21e3e0
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637823"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54099263"
 ---
 # <a name="configure-windows-authentication-in-aspnet-core"></a>Konfigurowanie uwierzytelniania Windows w programie ASP.NET Core
 
-Przez [Steve Smith](https://ardalis.com) i [Scott Addie](https://twitter.com/Scott_Addie)
+Przez [Scott Addie](https://twitter.com/Scott_Addie) i [Luke Latham](https://github.com/guardrex)
 
-Dla aplikacji platformy ASP.NET Core, obsługiwane w przypadku usług IIS można skonfigurować uwierzytelniania Windows lub [HTTP.sys](xref:fundamentals/servers/httpsys).
+[Uwierzytelnianie Windows](/iis/configuration/system.webServer/security/authentication/windowsAuthentication/) można skonfigurować dla aplikacji platformy ASP.NET Core z [IIS](xref:host-and-deploy/iis/index) lub [HTTP.sys](xref:fundamentals/servers/httpsys).
 
-## <a name="windows-authentication"></a>Uwierzytelnianie systemu Windows
-
-Uwierzytelnianie Windows opiera się uwierzytelniać użytkowników aplikacji platformy ASP.NET Core w systemie operacyjnym. Możesz użyć uwierzytelniania Windows, gdy serwer działa w sieci firmowej przy użyciu tożsamości domeny usługi Active Directory lub innym kontom Windows do identyfikacji użytkowników. Uwierzytelnianie Windows najlepiej nadaje się do środowisk intranetowych, w których użytkownicy, aplikacje klienckie i serwery sieci web należą do tej samej domeny Windows.
-
-[Dowiedz się więcej o uwierzytelnianiu Windows i instalując je dla usług IIS](/iis/configuration/system.webServer/security/authentication/windowsAuthentication/).
+Uwierzytelnianie Windows opiera się uwierzytelniać użytkowników aplikacji platformy ASP.NET Core w systemie operacyjnym. Możesz użyć uwierzytelniania Windows, gdy serwer działa w sieci firmowej przy użyciu tożsamości domeny usługi Active Directory lub konta Windows do identyfikacji użytkowników. Uwierzytelnianie Windows najlepiej nadaje się do środowisk intranetowych, w którym użytkownicy, aplikacje klienckie i serwery sieci web należą do tej samej domeny Windows.
 
 ## <a name="enable-windows-authentication-in-an-aspnet-core-app"></a>Włączanie uwierzytelniania Windows w aplikacji ASP.NET Core
 
-Szablon aplikacji sieci Web w usłudze Visual Studio można skonfigurować tak, aby zapewnić obsługę uwierzytelniania Windows.
+**Aplikacji sieci Web** szablonu dostępnego za pośrednictwem programu Visual Studio lub interfejsu wiersza polecenia platformy .NET Core może być skonfigurowane do obsługi uwierzytelniania Windows.
 
-### <a name="use-the-windows-authentication-app-template"></a>Korzystanie z szablonu aplikacji uwierzytelnianie Windows
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+### <a name="use-the-windows-authentication-app-template-for-a-new-project"></a>Korzystanie z szablonu aplikacji uwierzytelniania Windows dla nowego projektu
 
 W programie Visual Studio:
 
-1. Tworzenie nowej aplikacji sieci Web platformy ASP.NET Core.
-1. Wybierz aplikację sieci Web z listy szablonów.
+1. Utwórz nową **aplikacji sieci Web programu ASP.NET Core**.
+1. Wybierz **aplikacji sieci Web** z listy szablonów.
 1. Wybierz **Zmień uwierzytelnianie** i wybrać **uwierzytelniania Windows**.
 
-Uruchom aplikację. Nazwa użytkownika jest wyświetlana w prawym górnym rogu aplikacji.
+Uruchom aplikację. Nazwa użytkownika pojawia się w interfejsie użytkownika aplikacji renderowany.
 
-![Zrzut ekranu przeglądarki uwierzytelnianie Windows](windowsauth/_static/browser-screenshot.png)
+### <a name="manual-configuration-for-an-existing-project"></a>Ręcznej konfiguracji dla istniejącego projektu
 
-Prace deweloperskie za pomocą usług IIS Express szablon zawiera wszystkie konfiguracje niezbędne do korzystania z uwierzytelniania Windows. W poniższej sekcji pokazano, jak ręcznie skonfigurować aplikację ASP.NET Core dla uwierzytelniania Windows.
+Właściwości projektu umożliwiają uwierzytelnianie Windows włączyć i wyłączyć uwierzytelnianie anonimowe:
 
-### <a name="visual-studio-settings-for-windows-and-anonymous-authentication"></a>Ustawienia programu Visual Studio for Windows i uwierzytelnianie anonimowe
+1. Kliknij prawym przyciskiem myszy projekt w programie Visual Studio **Eksploratora rozwiązań** i wybierz **właściwości**.
+1. Wybierz **debugowania** kartę.
+1. Usuń zaznaczenie pola wyboru dla **Włącz uwierzytelnianie anonimowe**.
+1. Zaznacz pole wyboru dla **Włącz uwierzytelnianie Windows**.
 
-Projekt programu Visual Studio **właściwości** strony **debugowania** karta zawiera pola wyboru dla uwierzytelniania Windows i uwierzytelnianie anonimowe.
+Alternatywnie, można skonfigurować właściwości w `iisSettings` węźle *launchSettings.json* pliku:
 
-![Zrzut ekranu przeglądarki uwierzytelniania Windows przy użyciu opcji Uwierzytelnianie wyróżniony](windowsauth/_static/vs-auth-property-menu.png)
+[!code-json[](windowsauth/sample_snapshot/launchSettings.json?highlight=2-3)]
 
-Alternatywnie, można skonfigurować te dwie właściwości w *launchSettings.json* pliku:
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
-[!code-json[](windowsauth/sample/launchSettings.json?highlight=3-4)]
+Użyj **uwierzytelniania Windows** szablonu aplikacji.
+
+Wykonaj [dotnet nowe](/dotnet/core/tools/dotnet-new) polecenia `webapp` argumentu (aplikację sieci Web platformy ASP.NET Core) i `--auth Windows` przełącznika:
+
+```console
+dotnet new webapp --auth Windows
+```
+
+---
 
 ## <a name="enable-windows-authentication-with-iis"></a>Włączanie uwierzytelniania Windows za pomocą usług IIS
 
-Usługi IIS używają [modułu ASP.NET Core](xref:host-and-deploy/aspnet-core-module) hostująca aplikacje platformy ASP.NET Core. Uwierzytelnianie Windows jest skonfigurowany w usługach IIS, a nie aplikacji. Poniższe sekcje pokazują, jak skonfigurować aplikację ASP.NET Core, aby korzystać z uwierzytelniania Windows za pomocą Menedżera usług IIS.
+Usługi IIS używają [modułu ASP.NET Core](xref:host-and-deploy/aspnet-core-module) hostująca aplikacje platformy ASP.NET Core. Uwierzytelnianie Windows jest skonfigurowany dla usług IIS za pomocą *web.config* pliku. Następujące sekcje show jak:
+
+* Zapewnia lokalny *web.config* pliku, który aktywuje uwierzytelniania Windows na serwerze, gdy aplikacja jest wdrożona.
+* Konfigurowanie za pomocą Menedżera usług IIS *web.config* pliku aplikacji platformy ASP.NET Core, która została już wdrożona na serwerze.
 
 ### <a name="iis-configuration"></a>Konfiguracja programu IIS
+
+Jeśli jeszcze tego nie zrobiono, Włącz usługi IIS do hostowania aplikacji platformy ASP.NET Core. Aby uzyskać więcej informacji, zobacz <xref:host-and-deploy/iis/index>.
 
 Włączyć usługi roli usług IIS na potrzeby uwierzytelniania Windows. Aby uzyskać więcej informacji, zobacz [Włącz uwierzytelnianie Windows usługami roli usług IIS (zobacz krok 2)](xref:host-and-deploy/iis/index#iis-configuration).
 
@@ -69,23 +84,53 @@ Modułu ASP.NET Core jest domyślnie skonfigurowana do przekazywania tokenu uwie
 
 Określ nazwę i folder, a następnie zezwala utworzyć nową pulę aplikacji.
 
-### <a name="customize-authentication"></a>Dostosowywanie uwierzytelniania
+### <a name="enable-windows-authentication-for-the-app-in-iis"></a>Włącz uwierzytelnianie Windows dla aplikacji w usługach IIS
 
-Otwórz funkcje uwierzytelniania dla tej witryny.
+Użyj **albo** z następujących metod:
 
-![Menu uwierzytelniania usług IIS](windowsauth/_static/iis-authentication-menu.png)
+* [Programowanie — konfiguracja po stronie przed opublikowaniem aplikacji](#development-side-configuration-with-a-local-webconfig-file) (*zalecane*)
+* [Konfiguracja po stronie serwera po opublikowaniu aplikacji](#server-side-configuration-with-the-iis-manager)
 
-Wyłączyć uwierzytelnianie anonimowe, a następnie włączyć uwierzytelnianie Windows.
+#### <a name="development-side-configuration-with-a-local-webconfig-file"></a>Programowanie — konfiguracja po stronie przy użyciu pliku lokalnego pliku web.config
 
-![Ustawienia uwierzytelniania usług IIS](windowsauth/_static/iis-auth-settings.png)
+Wykonaj poniższe kroki **przed** możesz [publikowanie i wdrażanie projektu](#publish-and-deploy-your-project-to-the-iis-site-folder).
 
-### <a name="publish-your-project-to-the-iis-site-folder"></a>Publikowanie projektu do folderu witryny usług IIS
+Dodaj następujący kod *web.config* plik do katalogu głównego projektu:
 
-Za pomocą programu Visual Studio lub interfejsu wiersza polecenia platformy .NET Core, Opublikuj aplikację w folderze docelowym.
+[!code-xml[](windowsauth/sample_snapshot/web_2.config)]
 
-![Okno dialogowe publikowanie w programie Visual Studio](windowsauth/_static/vs-publish-app.png)
+Gdy projekt zostanie opublikowany przez zestaw SDK (bez `<IsTransformWebConfigDisabled>` właściwością `true` w pliku projektu), opublikowanego *web.config* plik zawiera `<location><system.webServer><security><authentication>` sekcji. Aby uzyskać więcej informacji na temat `<IsTransformWebConfigDisabled>` właściwości, zobacz <xref:host-and-deploy/iis/index#webconfig-file>.
 
-Dowiedz się więcej o [publikowania w usługach IIS](xref:host-and-deploy/iis/index).
+#### <a name="server-side-configuration-with-the-iis-manager"></a>Konfiguracja po stronie serwera za pomocą Menedżera usług IIS
+
+Wykonaj poniższe kroki **po** możesz [publikowanie i wdrażanie projektu](#publish-and-deploy-your-project-to-the-iis-site-folder).
+
+1. W Menedżerze usług IIS wybierz witrynę IIS, w obszarze **witryn** węźle **połączeń** pasku bocznym.
+1. Kliknij dwukrotnie **uwierzytelniania** w **IIS** obszaru.
+1. Wybierz **uwierzytelnianie anonimowe**. Wybierz **wyłączyć** w **akcje** pasku bocznym.
+1. Wybierz **uwierzytelniania Windows**. Wybierz **Włącz** w **akcje** pasku bocznym.
+
+Kiedy te akcje są wykonywane, Menedżera usług IIS modyfikuje aplikacji *web.config* pliku. A `<system.webServer><security><authentication>` węzeł zostanie dodany ze zaktualizowanymi ustawieniami dla `anonymousAuthentication` i `windowsAuthentication`:
+
+[!code-xml[](windowsauth/sample_snapshot/web_1.config?highlight=4-5)]
+
+`<system.webServer>` Dodany do sekcji *web.config* pliku przez Menedżera usług IIS znajduje się poza jej `<location>` sekcji dodawane przez program .NET Core SDK po opublikowaniu aplikacji. Ponieważ sekcji zostanie dodany poza `<location>` węzła, ustawienia są dziedziczone przez żaden [aplikacji podrzędnych](xref:host-and-deploy/iis/index#sub-applications) do bieżącej aplikacji. Aby zapobiec dziedziczenia, Przenieś dodany `<security>` sekcji wewnątrz `<location><system.webServer>` sekcji podanym w zestawie SDK.
+
+W przypadku Menedżera usług IIS można dodać konfiguracji usług IIS dotyczy tylko aplikacji *web.config* pliku na serwerze. Kolejne wdrożenie aplikacji może zastąpić ustawienia na serwerze, jeśli kopię serwera *web.config* zastępuje projektu *web.config* pliku. Użyj **albo** z następujących metod do zarządzania ustawieniami:
+
+* Użyj Menedżera usług IIS, aby zresetować ustawienia w *web.config* pliku po plik jest zastępowany we wdrożeniu.
+* Dodaj *pliku web.config* aplikacji lokalnie przy użyciu ustawień. Aby uzyskać więcej informacji, zobacz [rozwoju — konfiguracja po stronie](#development-side-configuration-with-a-local-webconfig-file) sekcji.
+
+### <a name="publish-and-deploy-your-project-to-the-iis-site-folder"></a>Publikowanie i wdrażanie projektu do folderu witryny usług IIS
+
+Za pomocą programu Visual Studio lub interfejsu wiersza polecenia platformy .NET Core, publikowanie i wdrażanie aplikacji do folderu docelowego.
+
+Aby uzyskać więcej informacji dotyczących obsługi za pomocą programu IIS publikowania i wdrażania, zobacz następujące tematy:
+
+* [dotnet publish](/dotnet/core/tools/dotnet-publish)
+* <xref:host-and-deploy/iis/index>
+* <xref:host-and-deploy/aspnet-core-module>
+* <xref:host-and-deploy/visual-studio-publish-profiles>
 
 Uruchom aplikację, aby sprawdzić, czy działa uwierzytelniania Windows.
 
@@ -93,7 +138,7 @@ Uruchom aplikację, aby sprawdzić, czy działa uwierzytelniania Windows.
 
 Chociaż Kestrel nie obsługuje uwierzytelniania Windows, możesz użyć [HTTP.sys](xref:fundamentals/servers/httpsys) do obsługi scenariuszy samodzielnie hostowanego na Windows. Poniższy przykład umożliwia skonfigurowanie aplikacji hosta sieci web HTTP.sys za pomocą uwierzytelniania Windows:
 
-[!code-csharp[](windowsauth/sample/Program2x.cs?highlight=9-14)]
+[!code-csharp[](windowsauth/sample_snapshot/Program.cs?highlight=9-14)]
 
 > [!NOTE]
 > Sterownik HTTP.sys delegatów, aby uwierzytelnianie trybu jądra za pomocą protokołu uwierzytelniania Kerberos. Uwierzytelnianie w trybie użytkownika nie jest obsługiwana przy użyciu protokołu Kerberos i sterownik HTTP.sys. Konto komputera należy używany do odszyfrowywania tokenu/biletu Kerberos uzyskany z usługi Active Directory i przesyłany dalej przez klienta do serwera w celu uwierzytelnienia użytkownika. Rejestrowanie głównej nazwy usługi (SPN) dla hosta, a nie użytkownika aplikacji.
@@ -140,8 +185,8 @@ services.AddAuthentication(HttpSysDefaults.AuthenticationScheme);
 
 ### <a name="impersonation"></a>Personifikacja
 
-Platforma ASP.NET Core nie implementuje personifikacji. Aplikacje są uruchamiane przy użyciu tożsamości aplikacji dla wszystkich żądań, przy użyciu tożsamości puli lub procesu aplikacji. Jeśli musisz jawnie wykonaj akcję w imieniu użytkownika, należy użyć `WindowsIdentity.RunImpersonated`. Uruchomić jedną akcję w tym kontekście, a następnie zamknij kontekstu.
+Platforma ASP.NET Core nie implementuje personifikacji. Aplikacje są uruchamiane przy użyciu tożsamości przez aplikację dla wszystkich żądań, przy użyciu tożsamości puli lub procesu aplikacji. Jeśli musisz jawnie wykonaj akcję w imieniu użytkownika, należy użyć [WindowsIdentity.RunImpersonated](xref:System.Security.Principal.WindowsIdentity.RunImpersonated*) w [oprogramowania pośredniczącego terminalu wbudowane](xref:fundamentals/middleware/index#create-a-middleware-pipeline-with-iapplicationbuilder) w `Startup.Configure`. Uruchomić jedną akcję w tym kontekście, a następnie zamknij kontekstu.
 
-[!code-csharp[](windowsauth/sample/Startup.cs?name=snippet_Impersonate&highlight=10-18)]
+[!code-csharp[](windowsauth/sample_snapshot/Startup.cs?highlight=10-19)]
 
-Należy pamiętać, że `RunImpersonated` nie obsługuje operacji asynchronicznych i nie powinny być używane w przypadku złożonych scenariuszy. Na przykład zawijania całego żądania lub łańcuchów oprogramowanie pośredniczące nie jest obsługiwany lub zalecane.
+`RunImpersonated` nie obsługuje operacji asynchronicznych i nie powinny być używane w przypadku złożonych scenariuszy. Na przykład zawijania całego żądania lub łańcuchów oprogramowanie pośredniczące nie jest obsługiwany lub zalecane.

@@ -8,12 +8,12 @@ ms.date: 03/28/2008
 ms.assetid: 54d9df99-1161-4899-b4e8-2679c85915e7
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-partial-page-updates-with-asp-net-ajax
 msc.type: authoredcontent
-ms.openlocfilehash: 2e0b1e1d4cbb282e7fd4b27e0a93ba1b9702edea
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 4883046aa16d5e67b7f0c92e15c897ef1a933b67
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41757350"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098938"
 ---
 <a name="understanding-partial-page-updates-with-aspnet-ajax"></a>Objaśnienie aktualizacji stron częściowych przy użyciu rozszerzeń ASP.NET AJAX
 ====================
@@ -46,7 +46,7 @@ Może być najbardziej widoczne funkcji rozszerzenia AJAX programu ASP.NET jest 
 
 Możliwość integracji renderowania stron częściowych jest integrowany ASP.NET przy minimalnych zmianach w projekcie.
 
-## <a name="walkthrough-integrating-partial-rendering-into-an-existing-project"></a>Wskazówki: Integrowanie częściowe renderowanie istniejący projekt
+## <a name="walkthrough-integrating-partial-rendering-into-an-existing-project"></a>Przewodnik: Integrowanie częściowe renderowanie istniejący projekt
 
 
 1. W programie Microsoft Visual Studio 2008, należy utworzyć nowy projekt witryny sieci Web platformy ASP.NET, przechodząc do <em>pliku</em>  <em>- &gt; New</em>  <em>- &gt; witryny sieci Web</em> i wybierając pozycję witryny sieci Web platformy ASP.NET z poziomu okna dialogowego. Można określić nazwę wedle uznania i może zainstalować ją w systemie plików lub do programu Internet Information Services (IIS).
@@ -57,7 +57,7 @@ Możliwość integracji renderowania stron częściowych jest integrowany ASP.NE
 
 [!code-aspx[Main](understanding-partial-page-updates-with-asp-net-ajax/samples/sample1.aspx)]
 
-**Wyświetlanie 2: Codebehind (spacje) default.aspx.cs**
+**Wyświetlanie 2: (Spacje) default.aspx.cs CodeBehind**
 
 [!code-csharp[Main](understanding-partial-page-updates-with-asp-net-ajax/samples/sample2.cs)]
 
@@ -85,13 +85,13 @@ Możliwość integracji renderowania stron częściowych jest integrowany ASP.NE
 1. W dowolnym miejscu `<form>` elementu, obejmują formantu ScriptManager przez dwukrotne kliknięcie `ScriptManager` w przyborniku.
 2. Edytuj `<asp:ScriptManager>` tag, aby obejmowała atrybut `EnablePartialRendering= true`.
 
-**Wyświetlanie 3: Znaczników dla default.aspx z włączoną funkcją renderowania częściowe**
+**Wyświetlanie 3: Kod znaczników dla default.aspx z włączoną funkcją renderowania częściowe**
 
 [!code-aspx[Main](understanding-partial-page-updates-with-asp-net-ajax/samples/sample3.aspx)]
 
 1. Otwórz plik web.config. Należy zauważyć, że program Visual Studio automatycznie dodał odwołanie kompilacji do System.Web.Extensions.dll.
 
-1. What's New in Visual Studio 2008: plik web.config, dostarczanego z szablonami projektu witryny sieci Web platformy ASP.NET, automatycznie obejmuje wszystkie niezbędne odwołania do rozszerzenia AJAX programu ASP.NET i zawiera sekcje informacji konfiguracyjnych, które mogą być niezaznaczone komentarzem włączyć dodatkowe funkcje. Visual Studio 2005 wcześniejszego podobne szablony zostały zainstalowane rozszerzenia AJAX programu ASP.NET 2.0. W programie Visual Studio 2008, rozszerzenia AJAX są jednak zrezygnować domyślnie (oznacza to, że ich są określone przez domyślny, ale można usuwać odwołania).
+1. Co nowego w programie Visual Studio 2008: Plik web.config, dostarczanego z witryna sieci Web ASP.NET szablonów projektu automatycznie obejmuje wszystkie niezbędne odwołania do rozszerzenia AJAX programu ASP.NET i zawiera oznaczone jako części informacji o konfiguracji, które mogą być niezaznaczone komentarze, aby włączyć dodatkowe funkcje. Visual Studio 2005 wcześniejszego podobne szablony zostały zainstalowane rozszerzenia AJAX programu ASP.NET 2.0. W programie Visual Studio 2008, rozszerzenia AJAX są jednak zrezygnować domyślnie (oznacza to, że ich są określone przez domyślny, ale można usuwać odwołania).
 
 
 [![](understanding-partial-page-updates-with-asp-net-ajax/_static/image8.png)](understanding-partial-page-updates-with-asp-net-ajax/_static/image7.png)
@@ -130,7 +130,7 @@ Właściwości tylko do kodu:
 | IsDebuggingEnabled | wartość logiczna | Czy skrypt pobiera i debugowania kodu jest włączona. |
 | IsInAsyncPostback | wartość logiczna | Pobiera informacje, czy strona jest obecnie w żądaniu post wstecz asynchronicznym. |
 | ProfileService | ProfileService-Manager | Pobiera szczegółowe informacje o serwerze proxy usługi profilowania ASP.NET, który zostanie wysłany do klienta. |
-| Skrypty | Kolekcja&lt;odwołanie do skryptu&gt; | Pobiera kolekcję odwołania do skryptu, które zostaną wysłane do klienta. |
+| Scripts | Kolekcja&lt;odwołanie do skryptu&gt; | Pobiera kolekcję odwołania do skryptu, które zostaną wysłane do klienta. |
 | Usługi | Kolekcja&lt;odwołanie do usługi&gt; | Pobiera kolekcję odwołań do serwera proxy usługi sieci Web, które zostaną wysłane do klienta. |
 | SupportsPartialRendering | wartość logiczna | Pobiera informacje, czy bieżące klienta obsługuje częściowe renderowanie. Jeśli ta właściwość zwraca **false**, wszystkie żądania strony będą standardowa ogłaszania zwrotnego. |
 
@@ -153,7 +153,7 @@ Elementy podrzędne znaczników:
 
 Formantu ScriptManager stanowi podstawę niezbędne dla rozszerzenia AJAX programu ASP.NET. Jego zapewnia dostęp do biblioteki skryptów (w tym system typów rozbudowane skryptu po stronie klienta), obsługuje częściowe renderowanie i zapewnia zaawansowaną obsługę dodatkowych usług platformy ASP.NET (takich jak uwierzytelnianie i profilowania, ale również inne usługi sieci Web). Formantu ScriptManager znajdują się również lokalizacja i globalizacja Obsługa skryptów klienta.
 
-## <a name="providing-alterative-and-supplemental-scripts"></a>Zapewnianie skrypty alternatywny i uzupełniające
+## <a name="providing-alternative-and-supplemental-scripts"></a>Podanie alternatywnych i uzupełniające skryptów
 
 Rozszerzenia AJAX programu Microsoft ASP.NET 2.0 zawiera kod cały skrypt w obu debugowania i wydania wersji jako zasoby osadzone w przywoływanych zestawach, deweloperzy mogą przekierować funkcja ScriptManager do plików skryptów niestandardowych, a także rejestrowanie dodatkowe wymagane skrypty.
 

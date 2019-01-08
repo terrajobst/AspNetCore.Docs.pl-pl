@@ -5,12 +5,12 @@ description: Dowiedz się, jak skonfigurować uwierzytelnianie usługi Azure Act
 ms.date: 01/25/2018
 ms.custom: mvc
 uid: security/authentication/azure-ad-b2c
-ms.openlocfilehash: 73a66cea1533cc835796f673021bfa45c35f5935
-ms.sourcegitcommit: 4cd8dce371d63a66d780e4af1baab2bcf9d61b24
+ms.openlocfilehash: 2c544475ccd3eb76f2737fec1cf269ac86add372
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43893197"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098990"
 ---
 # <a name="cloud-authentication-with-azure-active-directory-b2c-in-aspnet-core"></a>Uwierzytelnianie w chmurze za pomocą usługi Azure Active Directory B2C w programie ASP.NET Core
 
@@ -19,7 +19,7 @@ Przez [Soper kamery](https://twitter.com/camsoper)
 [Usługa Azure Active Directory B2C](/azure/active-directory-b2c/active-directory-b2c-overview) (Azure AD B2C) to rozwiązanie zarządzania tożsamością w chmurze dla aplikacji internetowych i mobilnych. Usługa zapewnia uwierzytelnianie dla aplikacji hostowanych w chmurze i lokalnych. Typy uwierzytelniania obejmują indywidualnych kont, kont sieci społecznościowych i federacyjnych konta przedsiębiorstwa. Ponadto usługa Azure AD B2C zapewniają uwierzytelnianie wieloskładnikowe z minimalną konfiguracją.
 
 > [!TIP]
-> Usługa Azure Active Directory (Azure AD) i Azure AD B2C są osobne oferty. Dzierżawy usługi Azure AD organizacja, podczas gdy dzierżawy usługi Azure AD B2C reprezentuje kolekcję tożsamości do użycia z aplikacjami danej firmy. Aby dowiedzieć się więcej, zobacz [usługi Azure AD B2C: często zadawane pytania (FAQ)](/azure/active-directory-b2c/active-directory-b2c-faqs).
+> Usługa Azure Active Directory (Azure AD) i Azure AD B2C są osobne oferty. Dzierżawy usługi Azure AD organizacja, podczas gdy dzierżawy usługi Azure AD B2C reprezentuje kolekcję tożsamości do użycia z aplikacjami danej firmy. Aby dowiedzieć się więcej, zobacz [usługi Azure AD B2C: Często zadawane pytania (FAQ)](/azure/active-directory-b2c/active-directory-b2c-faqs).
 
 W tym samouczku pokazano, jak:
 
@@ -96,7 +96,7 @@ W programie Visual Studio:
 Wróć do okna przeglądarki, za pomocą właściwości aplikacji B2C wciąż otwarty. Zmień tymczasową **adres URL odpowiedzi** określony skopiowany wcześniej do wartości z programu Visual Studio. Wybierz **Zapisz** w górnej części okna.
 
 > [!TIP]
-> Jeśli jeszcze nie został skopiowany adres URL odpowiedzi, we właściwościach projektu sieci web za pomocą adresu protokołu SSL na karcie debugowania i Dołącz **CallbackPath** wartość z *appsettings.json*.
+> Jeśli jeszcze nie został skopiowany adres URL odpowiedzi, we właściwościach projektu sieci web za pomocą adresu HTTPS na karcie debugowania i Dołącz **CallbackPath** wartość z *appsettings.json*.
 
 ## <a name="configure-policies"></a>Konfigurowanie zasad
 
@@ -121,7 +121,7 @@ Po pomyślnym zalogowaniu się przeglądarka przekierowuje do aplikacji sieci we
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przedstawiono sposób:
+W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie dzierżawy usługi Azure Active Directory B2C

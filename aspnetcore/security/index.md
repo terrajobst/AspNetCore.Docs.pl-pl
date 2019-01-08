@@ -6,16 +6,16 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: security/index
-ms.openlocfilehash: 579e472e01efd08bbafe949e37a3b655a42a5b46
-ms.sourcegitcommit: 04b55a5ce9d649ff2df926157ec28ae47afe79e2
+ms.openlocfilehash: 933501411169d89c4b24edda743c47591aa7a87a
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52156922"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098964"
 ---
 # <a name="overview-of-aspnet-core-security"></a>Przegląd zabezpieczeń platformy ASP.NET Core
 
-Platforma ASP.NET Core umożliwia deweloperom łatwe konfigurowanie i zarządzanie zabezpieczeniami dla swoich aplikacji. Platforma ASP.NET Core zawiera funkcje zarządzania uwierzytelniania, autoryzacji, ochrony danych, Wymuszanie protokołu SSL, wpisy tajne aplikacji, ochrona przed fałszerstwem żądań ochrony i zarządzanie mechanizmu CORS. Te funkcje zabezpieczeń pozwalają na tworzenie niezawodnych, ale zabezpieczanie aplikacji platformy ASP.NET Core.
+Platforma ASP.NET Core umożliwia deweloperom łatwe konfigurowanie i zarządzanie zabezpieczeniami dla swoich aplikacji. Platforma ASP.NET Core zawiera funkcje zarządzania uwierzytelniania, autoryzacji, ochrony danych, Wymuszanie protokołu HTTPS, wpisy tajne aplikacji, ochrona przed fałszerstwem żądań ochrony i zarządzanie mechanizmu CORS. Te funkcje zabezpieczeń pozwalają na tworzenie niezawodnych, ale zabezpieczanie aplikacji platformy ASP.NET Core.
 
 ## <a name="aspnet-core-security-features"></a>Funkcje zabezpieczeń platformy ASP.NET Core
 

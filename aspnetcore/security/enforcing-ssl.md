@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/01/2018
 uid: security/enforcing-ssl
-ms.openlocfilehash: b15c6b5ac77f047c40704c9e164165c55b6ae93b
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 0c3add9c8860a47932cda3a8b07c83dc774bf1f1
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861527"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098977"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>Wymuszanie protokołu HTTPS w programie ASP.NET Core
 
@@ -69,9 +69,9 @@ Określ port HTTPS przy użyciu dowolnej z następujących metod:
 
   **Klucz**: `https_port`  
   **Typ**: *ciągu*  
-  **Domyślne**: nie ustawiono wartość domyślną.  
+  **Domyślne**: Nie ustawiono wartość domyślną.  
   **Można ustawić przy użyciu**: `UseSetting`  
-  **Zmienna środowiskowa**: `<PREFIX_>HTTPS_PORT` (prefiks jest `ASPNETCORE_` przy użyciu [hosta sieci Web](xref:fundamentals/host/web-host).)
+  **Zmienna środowiskowa**: `<PREFIX_>HTTPS_PORT` (Prefiks jest `ASPNETCORE_` przy użyciu [hosta sieci Web](xref:fundamentals/host/web-host).)
 
   Podczas konfigurowania <xref:Microsoft.AspNetCore.Hosting.IWebHostBuilder> w `Program`:
 
@@ -98,7 +98,7 @@ Wszystkie zapory między klientem i serwerem musi mieć również komunikacji ot
 
 Jeśli żądania są przekazywane w konfiguracji zwrotny serwer proxy, należy użyć [przekazywane oprogramowania pośredniczącego nagłówki](xref:host-and-deploy/proxy-load-balancer) przed wywołaniem oprogramowania pośredniczącego przekierowania protokołu HTTPS. Aktualizacje oprogramowania pośredniczącego nagłówki przekazywane `Request.Scheme`przy użyciu `X-Forwarded-Proto` nagłówka. Zezwala oprogramowania pośredniczącego przekierowania URI i innych zasad zabezpieczeń, do prawidłowego działania. Po przekazywane oprogramowania pośredniczącego nagłówków nie jest używany, aplikacji wewnętrznej bazy danych może być wyświetlony prawidłowy schemat i nie pozostać w pętli przekierowania. Typowe komunikat o błędzie użytkownika końcowego jest wystąpiły za dużo przekierowań.
 
-W przypadku wdrażania w usłudze Azure App Service, postępuj zgodnie ze wskazówkami w [samouczek: powiązania istniejącego niestandardowego certyfikatu SSL w usłudze Azure Web Apps](/azure/app-service/app-service-web-tutorial-custom-ssl).
+W przypadku wdrażania w usłudze Azure App Service, postępuj zgodnie ze wskazówkami w [samouczka: Powiązania istniejącego niestandardowego certyfikatu SSL w usłudze Azure Web Apps](/azure/app-service/app-service-web-tutorial-custom-ssl).
 
 ### <a name="options"></a>Opcje
 
@@ -192,9 +192,9 @@ Poniższy kod:
 
 `UseHsts` nie obejmuje następujące hosty sprzężenia zwrotnego:
 
-* `localhost` Adres sprzężenia zwrotnego protokołu IPv4.
-* `127.0.0.1` Adres sprzężenia zwrotnego protokołu IPv4.
-* `[::1]` Adres sprzężenia zwrotnego protokołu IPv6.
+* `localhost` : Adres IPv4 sprzężenia zwrotnego.
+* `127.0.0.1` : Adres IPv4 sprzężenia zwrotnego.
+* `[::1]` : Adres sprzężenia zwrotnego protokołu IPv6.
 
 ::: moniker-end
 
@@ -260,7 +260,7 @@ Zobacz [problem w usłudze GitHub](https://github.com/aspnet/Docs/issues/6199).
 ## <a name="additional-information"></a>Dodatkowe informacje
 
 * <xref:host-and-deploy/proxy-load-balancer>
-* [Hostowanie platformy ASP.NET Core w systemie Linux z Apache: Konfiguracja protokołu SSL](xref:host-and-deploy/linux-apache#ssl-configuration)
-* [Hostowanie platformy ASP.NET Core w systemie Linux przy użyciu serwera Nginx: Konfiguracja protokołu SSL](xref:host-and-deploy/linux-nginx#configure-ssl)
+* [Host platformy ASP.NET Core w systemie Linux z Apache: Konfiguracja protokołu HTTPS](xref:host-and-deploy/linux-apache#https-configuration)
+* [Host platformy ASP.NET Core w systemie Linux przy użyciu serwera Nginx: Konfiguracja protokołu HTTPS](xref:host-and-deploy/linux-nginx#https-configuration)
 * [Jak skonfigurować protokół SSL na serwerze IIS](/iis/manage/configuring-security/how-to-set-up-ssl-on-iis)
 * [Obsługa przeglądarek OWASP HSTS](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet#Browser_Support)
