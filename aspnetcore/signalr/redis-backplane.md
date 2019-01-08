@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 11/28/2018
 uid: signalr/redis-backplane
-ms.openlocfilehash: 343cb5b2c7ed7162bae7865553a783fea45f0cfb
-ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
+ms.openlocfilehash: fde7f08ae2310b0b9bf9b7fe25a1dfc4a568adb6
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284476"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54099358"
 ---
 # <a name="set-up-a-redis-backplane-for-aspnet-core-signalr-scale-out"></a>Konfigurowanie systemu backplane Redis dla biblioteki SignalR platformy ASP.NET Core skalowalnego w poziomie
 
@@ -24,7 +24,10 @@ W tym artykule wyjaśniono aspekty specyficzne dla SignalR Konfigurowanie [Redis
 
 * Wdrażanie serwera Redis.
 
-  Do użytku produkcyjnego montażowa Redis jest zalecane tylko w przypadku infrastruktury lokalnej. Aby zminimalizować opóźnienie, serwer Redis powinien być w tym samym centrum danych jako aplikacji SignalR. Jeśli uruchomiona jest aplikacja SignalR w chmurze platformy Azure, firma Microsoft zaleca Azure SignalR Service zamiast montażowa pamięci podręcznej Redis. Możesz użyć usługi Azure Redis Cache Service do tworzenia aplikacji i środowisk testowych. Aby uzyskać więcej informacji, zobacz następujące zasoby:
+  > [!IMPORTANT] 
+  > Do użytku produkcyjnego montażowa Redis jest zalecane tylko wtedy, gdy działa w tym samym centrum danych jako aplikacji SignalR. W przeciwnym razie opóźnienia sieci spadku wydajności. Jeśli uruchomiona jest aplikacja SignalR w chmurze platformy Azure, firma Microsoft zaleca Azure SignalR Service zamiast montażowa pamięci podręcznej Redis. Możesz użyć usługi Azure Redis Cache Service do tworzenia aplikacji i środowisk testowych.
+
+  Aby uzyskać więcej informacji, zobacz następujące zasoby:
 
   * <xref:signalr/scale>
   * [Dokumentacja usługi redis](https://redis.io/)

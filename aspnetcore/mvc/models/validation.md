@@ -4,14 +4,14 @@ author: tdykstra
 description: Więcej informacji o weryfikacji modelu w aplikacji ASP.NET Core MVC.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/06/2018
+ms.date: 01/04/2019
 uid: mvc/models/validation
-ms.openlocfilehash: f1757f807e50019e5071abc42ec3129935ab77aa
-ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
+ms.openlocfilehash: f3a34972006b5fdee307c9a8d9989b2cc1e36893
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51225463"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54099386"
 ---
 # <a name="model-validation-in-aspnet-core-mvc"></a>Weryfikacja modelu w programie ASP.NET Core MVC
 
@@ -44,23 +44,23 @@ Poniżej znajduje się adnotacjami `Movie` modelu w aplikacji, która przechowuj
 
 Po prostu odczytywanie za pomocą modelu, co spowoduje wyświetlenie zasad dotyczących danych dla tej aplikacji, co ułatwia zachowania kodu. Poniżej przedstawiono kilka popularnych wbudowanych sprawdzania poprawności atrybutów:
 
-* `[CreditCard]`: Weryfikuje właściwość ma format karty kredytowej.
+* `[CreditCard]`: Sprawdza poprawność właściwość ma format karty kredytowej.
 
-* `[Compare]`: Sprawdza poprawność dwie właściwości w modelu są zgodne.
+* `[Compare]`: Sprawdza dwie właściwości w modelu są zgodne.
 
-* `[EmailAddress]`: Weryfikuje właściwość ma format adresu e-mail.
+* `[EmailAddress]`: Sprawdza poprawność właściwość ma format adresu e-mail.
 
-* `[Phone]`: Weryfikuje właściwość ma format telefonu.
+* `[Phone]`: Sprawdza poprawność właściwość ma format telefonu.
 
-* `[Range]`: Sprawdzanie poprawności właściwości wartość znajduje się w danym zakresie.
+* `[Range]`: Sprawdza poprawność właściwości wartość znajduje się w danym zakresie.
 
-* `[RegularExpression]`: Sprawdza, czy dane odpowiada określonemu wyrażeniu regularnemu.
+* `[RegularExpression]`: Weryfikuje, że dane odpowiada określonemu wyrażeniu regularnemu.
 
-* `[Required]`: Sprawia, że wymagane właściwości.
+* `[Required]`: Powoduje, że właściwość wymagane.
 
 * `[StringLength]`: Sprawdza, czy właściwość ciągu ma co najwyżej podanej długości maksymalnej.
 
-* `[Url]`: Weryfikuje właściwość ma format adresu URL.
+* `[Url]`: Sprawdza poprawność właściwość ma format adresu URL.
 
 MVC obsługuje dowolnego atrybutu, która pochodzi od klasy `ValidationAttribute` do celów sprawdzania poprawności. Wiele atrybutów sprawdzania poprawności przydatne znajdują się w [System.ComponentModel.DataAnnotations](/dotnet/api/system.componentmodel.dataannotations) przestrzeni nazw.
 
@@ -84,7 +84,7 @@ Stan modelu reprezentuje błędy sprawdzania poprawności w przesłanych wartoś
 
 MVC będzie, sprawdzanie poprawności pól, dopóki nie osiągnie maksymalną liczbę błędów (200 domyślnie). Tę liczbę można skonfigurować w następującym kodem `Startup.ConfigureServices`:
 
-[!code-csharp[](validation/sample/Startup.cs?range=27)]
+[!code-csharp[](validation/sample/Startup.cs?name=snippet_MaxModelValidationErrors)]
 
 ## <a name="handle-model-state-errors"></a>Błędy stanu modelu uchwytu
 

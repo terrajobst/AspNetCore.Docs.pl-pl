@@ -6,12 +6,12 @@ ms.author: spboyer
 ms.custom: mvc
 ms.date: 12/20/2018
 uid: host-and-deploy/linux-apache
-ms.openlocfilehash: 8c590743328885336498ca2446c618b13a7d2ce2
-ms.sourcegitcommit: e1cc4c1ef6c9e07918a609d5ad7fadcb6abe3e12
+ms.openlocfilehash: 217dc840748ef33173ae6a8c001aee558864ec59
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53997230"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54099412"
 ---
 # <a name="host-aspnet-core-on-linux-with-apache"></a>Host platformy ASP.NET Core w systemie Linux z Apache
 
@@ -324,15 +324,15 @@ icmp-blocks:
 rich rules: 
 ```
 
-### <a name="ssl-configuration"></a>Konfiguracja protokołu SSL
+### <a name="https-configuration"></a>Konfiguracja protokołu HTTPS
 
-Do skonfigurowania serwera Apache dla protokołu SSL, *mod_ssl* moduł jest używany. Gdy *host z wieloma adresami* moduł został zainstalowany, *mod_ssl* również został zainstalowany moduł. Jeśli nie została zainstalowana za pomocą `yum` Aby dodać go do konfiguracji.
+Do skonfigurowania serwera Apache do obsługi protokołu HTTPS, *mod_ssl* moduł jest używany. Gdy *host z wieloma adresami* moduł został zainstalowany, *mod_ssl* również został zainstalowany moduł. Jeśli nie została zainstalowana za pomocą `yum` Aby dodać go do konfiguracji.
 
 ```bash
 sudo yum install mod_ssl
 ```
 
-Aby Wymuszanie protokołu SSL, należy zainstalować `mod_rewrite` modułu, aby umożliwić ponownego zapisywania adresów URL:
+Aby Wymuszanie protokołu HTTPS, należy zainstalować `mod_rewrite` modułu, aby umożliwić ponownego zapisywania adresów URL:
 
 ```bash
 sudo yum install mod_rewrite
