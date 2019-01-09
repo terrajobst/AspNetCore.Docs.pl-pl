@@ -115,7 +115,7 @@ items:
         items:
         - name: Wdrażanie aplikacji internetowych w scenariuszach dla przedsiębiorstw przy użyciu programu Visual Studio 2010
           href: web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md
-        - name: 'Wdrażanie w Internecie w przedsiębiorstwie: omówienie scenariuszy'
+        - name: 'Wdrażanie w Internecie w przedsiębiorstwie: omówienie scenariusza'
           href: web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md
         - name: 'Zarządzanie cyklem życia aplikacji: od projektowania do produkcji'
           href: web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/application-lifecycle-management-from-development-to-production.md
@@ -256,7 +256,7 @@ items:
       - name: ASP.NET 4 — kontynuowanie pracy z programem Entity Framework 4 i wzorcem Web Forms
         href: web-forms/overview/older-versions-getting-started/continuing-with-ef/index.md
         items:
-        - name: 'Program Entity Framework 4.0 i kontrolka ObjectDataSource, część 1: wprowadzenie'
+        - name: 'Program Entity Framework 4.0 i kontrolka ObjectDataSource, część 1: Wprowadzenie'
           href: web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started.md
         - name: 'Program Entity Framework 4.0 i kontrolka ObjectDataSource, część 2: dodawanie warstwy logiki biznesowej i testów jednostkowych'
           href: web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests.md
@@ -1546,13 +1546,13 @@ items:
         href: web-forms/videos/migrating/intro-to-aspnet-20-user-interface-elements.md
       - name: '[Migrowanie z] Klasyczne środowisko ASP na platformę ASP.NET'
         href: web-forms/videos/migrating/migrating-from-classic-asp-to-aspnet.md
-      - name: 'Wprowadzenie do platformy ASP.NET dla deweloperów JSP: ASP.NET 2.0 — Zapraszamy'
+      - name: 'Wprowadzenie do platformy ASP.NET dla deweloperów JSP: platforma ASP.NET 2.0 —Zapraszamy!'
         href: web-forms/videos/migrating/intro-to-aspnet-for-jsp-developers-welcome-to-aspnet-20.md
-      - name: 'Wprowadzenie do platformy ASP.NET dla deweloperów JSP: tworzenie aplikacji'
+      - name: 'Wprowadzenie do platformy ASP.NET dla deweloperów JSP: kompilowanie aplikacji'
         href: web-forms/videos/migrating/intro-to-aspnet-for-jsp-developers-building-applications.md
       - name: 'Wprowadzenie do platformy ASP.NET dla deweloperów ColdFusion: dodawanie platformy ASP.NET do swojej oferty'
         href: web-forms/videos/migrating/intro-to-aspnet-for-coldfusion-developers-adding-aspnet-to-your-repertoire.md
-      - name: 'Wprowadzenie do platformy ASP.NET dla deweloperów ColdFusion: tworzenie aplikacji ASP.NET'
+      - name: 'Wprowadzenie do platformy ASP.NET dla deweloperów ColdFusion: kompilowanie aplikacji ASP.NET'
         href: web-forms/videos/migrating/introduction-to-aspnet-for-coldfusion-developers-building-an-aspnet-application.md
       - name: Międzyoperacyjność języka PHP i platformy systemu Windows
         href: web-forms/videos/migrating/interop-between-php-and-the-windows-platform.md
@@ -1802,23 +1802,23 @@ items:
       - name: Jak to zrobić za pomocą zapytań LINQ
         href: web-forms/videos/data-access/how-do-i-with-linq/index.md
         items:
-        - name: LINQ to SQL — przegląd
+        - name: 'LINQ to SQL: Omówienie'
           href: web-forms/videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-overview.md
-        - name: LINQ to SQL — model danych
+        - name: 'LINQ to SQL: model danych'
           href: web-forms/videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-data-model.md
-        - name: LINQ to SQL — wykonywanie zapytań w bazie danych
+        - name: 'LINQ to SQL: wykonywanie zapytania w bazie danych'
           href: web-forms/videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-querying-the-database.md
-        - name: LINQ to SQL — aktualizowanie bazy danych
+        - name: 'LINQ to SQL: aktualizowanie bazy danych'
           href: web-forms/videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-updating-the-database.md
-        - name: LINQ to SQL — kontrolka LinqDataSource
+        - name: 'LINQ to SQL: kontrolka LinqDataSource'
           href: web-forms/videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-linqdatasource.md
-        - name: LINQ to SQL — niestandardowa kontrolka LinqDataSource
+        - name: 'LINQ to SQL: niestandardowa kontrolka LinqDataSource'
           href: web-forms/videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-custom-linqdatasource.md
-        - name: LINQ to SQL — korzystanie z procedur składowanych
+        - name: 'LINQ to SQL: korzystanie z procedur składowanych'
           href: web-forms/videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-using-stored-procedures.md
-        - name: LINQ to SQL — aktualizowanie przy użyciu procedur składowanych
+        - name: 'LINQ to SQL: aktualizowanie przy użyciu procedur składowanych'
           href: web-forms/videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-updating-with-stored-procedures.md
-        - name: LINQ to SQL — wykonywanie dowolnego kodu SQL
+        - name: 'LINQ to SQL: wykonywanie dowolnego kodu SQL'
           href: web-forms/videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-executing-arbitrary-sql.md
       - name: Filmy dotyczące zapytań LINQ od zespołu języka VB
         href: web-forms/videos/data-access/linq-videos-from-the-vb-team/index.md
@@ -2323,7 +2323,7 @@ items:
           href: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6.md
         - name: Część 7. Członkostwo i autoryzacja
           href: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-7.md
-        - name: Część 8. koszyk z aktualizacjami AJAX
+        - name: Część 8. Koszyk z aktualizacjami AJAX
           href: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-8.md
         - name: Część 9. Rejestracja i finalizacja zakupu
           href: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-9.md
@@ -2626,7 +2626,7 @@ items:
           href: mvc/videos/mvc-2/how-do-i/what-is-aspnet-mvc-80-minute-technical-video-for-developers-building-nerddinner.md
         - name: Dlaczego warto wybrać wzorzec ASP.NET MVC — 3-minutowa prezentacja wideo dla osób podejmujących decyzje
           href: mvc/videos/mvc-2/how-do-i/why-aspnet-mvc-3-minute-overview-video-for-decision-makers.md
-        - name: ASP.NET MVC — 10-minutowe wideo techniczne dla deweloperów
+        - name: 'ASP.NET MVC: 10-minutowe wideo techniczne dla deweloperów'
           href: mvc/videos/mvc-2/how-do-i/aspnet-mvc-how-10-minute-technical-video-for-developers.md
         - name: Zwracanie danych w formacie JSON na potrzeby wywoływania AJAX w aplikacji internetowej ASP.NET MVC
           href: mvc/videos/mvc-2/how-do-i/how-do-i-return-json-formatted-data-for-an-ajax-call-in-an-aspnet-mvc-web-application.md
@@ -2659,20 +2659,20 @@ items:
       - name: Wzorzec ASP.NET MVC dla każdego
         href: mvc/videos/mvc-2/aspnet-mvc-for-the-rest-of-us/index.md
         items:
-        - name: 'Wzorzec ASP.NET MVC dla każdego: część 1'
+        - name: 'Wzorzec ASP.NET MVC dla każdego: Część 1'
           href: mvc/videos/mvc-2/aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-1.md
-        - name: 'Wzorzec ASP.NET MVC dla każdego: część 2'
+        - name: 'Wzorzec ASP.NET MVC dla każdego: Część 2'
           href: mvc/videos/mvc-2/aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-2.md
-        - name: 'Wzorzec ASP.NET MVC dla każdego: część 3'
+        - name: 'Wzorzec ASP.NET MVC dla każdego: Część 3'
           href: mvc/videos/mvc-2/aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-3.md
-        - name: 'Wzorzec ASP.NET MVC dla każdego: część 4'
+        - name: 'Wzorzec ASP.NET MVC dla każdego: Część 4'
           href: mvc/videos/mvc-2/aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-4.md
       - name: Music Store
         href: mvc/videos/mvc-2/music-store/index.md
         items:
         - name: 'Sklep MVC Music Store — część 1: wprowadzenie, narzędzia i struktura projektu'
           href: mvc/videos/mvc-2/music-store/mvc-music-store-part-1-intro-tools-and-project-structure.md
-        - name: 'Sklep MVC Music Store — część 2: kontrolery'
+        - name: 'Sklep MVC Music Store — część 2: Kontrolery'
           href: mvc/videos/mvc-2/music-store/mvc-music-store-part-2-controllers.md
         - name: 'Sklep MVC Music Store — część 3: widoki i modele widoków'
           href: mvc/videos/mvc-2/music-store/mvc-music-store-part-3-views-and-viewmodels.md
@@ -2682,23 +2682,23 @@ items:
       - name: ASP.NET MVC Storefront
         href: mvc/videos/mvc-1/aspnet-mvc-storefront/index.md
         items:
-        - name: 'ASP.NET MVC Storefront — część 1: omówienie architektury'
+        - name: 'ASP.NET MVC Storefront — część 1: omówienie architektury i dyskusja'
           href: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-1-architectural-discussion-and-overview.md
         - name: 'ASP.NET MVC Storefront — część 2: wzorzec repozytorium'
           href: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-2-the-repository-pattern.md
         - name: 'ASP.NET MVC Storefront — część 3: potoki i filtry'
           href: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-3-pipes-and-filters.md
-        - name: 'ASP.NET MVC Storefront — część 4: skok dzięki modelowi LINQ To SQL'
+        - name: 'ASP.NET MVC Storefront — część 4: kolekcja LINQ to SQL'
           href: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-4-linq-to-sql-spike.md
-        - name: 'ASP.NET MVC Storefront — część 5: globalizacja'
+        - name: 'ASP.NET MVC Storefront — część 5: Globalizacja'
           href: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-5-globalization.md
         - name: 'ASP.NET MVC Storefront — część 6: kończenie repozytorium i początkowa praca z interfejsem użytkownika'
           href: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-6-finishing-the-repository-and-initial-ui-work.md
         - name: 'ASP.NET MVC Storefront — część 7: routing i praca z interfejsem użytkownika'
           href: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-7-routing-and-ui-work.md
-        - name: 'ASP.NET MVC Storefront — część 8: kontrolery testów, zakończenie iteracji 1'
+        - name: 'ASP.NET MVC Storefront — część 8: testowanie kontrolerów, zakończenie iteracji 1'
           href: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-8-testing-controllers-iteration-1-complete.md
-        - name: 'ASP.NET MVC Storefront — część 9: koszyk'
+        - name: 'ASP.NET MVC Storefront — część 9: Koszyk'
           href: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-9-the-shopping-cart.md
         - name: 'ASP.NET MVC Storefront — część 10: refaktoryzacja i autoryzacja koszyka'
           href: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-10-shopping-cart-refactor-and-authorization.md
@@ -2706,13 +2706,13 @@ items:
           href: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-11-hooking-up-the-shopping-cart-and-using-components.md
         - name: 'ASP.NET MVC Storefront — część 12: pozorowanie'
           href: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-12-mocking.md
-        - name: 'ASP.NET MVC Storefront — część 13: wstrzykiwanie zależności'
+        - name: 'ASP.NET MVC Storefront — część 13: Wstrzykiwanie zależności'
           href: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-13-dependency-injection.md
         - name: 'ASP.NET MVC Storefront — część 14: rozbudowana interakcja z klientem'
           href: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-14-rich-client-interaction.md
-        - name: 'ASP.NET MVC Storefront — część 15: przegląd kodu publicznego'
+        - name: 'ASP.NET MVC Storefront — część 15: publiczny przegląd kodu'
           href: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-15-public-code-review.md
-        - name: 'ASP.NET MVC Storefront — część 16: ponowne wprowadzenie członkostwa z użyciem OpenID'
+        - name: 'ASP.NET MVC Storefront — część 16: ponowne włączanie członkostwa przy użyciu identyfikatora OpenID'
           href: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-16-membership-redo-with-openid.md
         - name: 'ASP.NET MVC Storefront — część 17: finalizacja zakupu z Jeffem Atwoodem'
           href: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-17-checkout-with-jeff-atwood.md
@@ -2722,7 +2722,7 @@ items:
           href: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-19-processing-orders-with-windows-workflow.md
         - name: 'ASP.NET MVC Storefront — część 19a: dalsze czynności w programie Windows Workflow'
           href: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-19a-windows-workflow-followup.md
-        - name: 'ASP.NET MVC Storefront — część 20: rejestrowanie'
+        - name: 'ASP.NET MVC Storefront — część 20: Rejestrowanie'
           href: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-20-logging.md
         - name: 'ASP.NET MVC Storefront — część 21: menedżer zamówień i personalizacja'
           href: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-21-order-manager-and-personalization.md
@@ -2730,7 +2730,7 @@ items:
           href: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-22-restructuring-rerouting-and-paypal.md
         - name: 'ASP.NET MVC Storefront — część 23: wprowadzenie do projektowania opartego na domenie'
           href: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-23-getting-started-with-domain-driven-design.md
-        - name: 'ASP.NET MVC Storefront — część 24: koniec'
+        - name: 'ASP.NET MVC Storefront — część 24: zakończenie'
           href: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-24-finis.md
       - name: Rozmowy
         href: mvc/videos/mvc-1/conference-presentations/index.md
@@ -2931,7 +2931,7 @@ items:
         href: web-api/overview/advanced/httpclient-message-handlers.md
       - name: 'Wysyłanie danych formularza HTML we wzorcu Web API: dane w formacie form-urlencoded'
         href: web-api/overview/advanced/sending-html-form-data-part-1.md
-      - name: 'Wysyłanie danych formularza HTML we wzorcu Web API: przekazywanie pliku i wieloczęściowej wiadomości MIME'
+      - name: 'Wysyłanie danych formularza HTML we wzorcu Web API: przekazywanie plików i wieloczęściowa wiadomość MIME'
         href: web-api/overview/advanced/sending-html-form-data-part-2.md
       - name: Pliki cookie protokołu HTTP we wzorcu ASP.NET Web API
         href: web-api/overview/advanced/http-cookies.md
@@ -2978,17 +2978,17 @@ items:
       items:
       - name: ASP.NET Web API
         href: web-api/videos/getting-started/aspnet-web-api.md
-      - name: 'ASP.NET Web API, część 1: Twój pierwszy wzorzec Web API'
+      - name: 'ASP.NET Web API, część 1: Twój pierwszy internetowy interfejs API'
         href: web-api/videos/getting-started/your-first-web-api.md
       - name: 'ASP.NET Web API, część 2: pobieranie danych'
         href: web-api/videos/getting-started/getting-data.md
       - name: 'ASP.NET Web API, część 3: usuwanie i aktualizowanie'
         href: web-api/videos/getting-started/delete-and-update.md
-      - name: 'ASP.NET Web API, część 4: stronicowanie i zapytania'
+      - name: 'ASP.NET Web API, część 4: stronicowanie i wykonywanie zapytań'
         href: web-api/videos/getting-started/paging-and-querying.md
       - name: 'ASP.NET Web API, część 5: walidacja niestandardowa'
         href: web-api/videos/getting-started/custom-validation.md
-      - name: 'ASP.NET Web API, część 6: autoryzacja'
+      - name: 'ASP.NET Web API, część 6: Autoryzacja'
         href: web-api/videos/getting-started/authorization.md
   - name: Lista przykładów wzorca Web API
     href: web-api/samples-list.md
@@ -3208,13 +3208,13 @@ items:
         href: signalr/overview/getting-started/introduction-to-signalr.md
       - name: Obsługiwane platformy
         href: signalr/overview/getting-started/supported-platforms.md
-      - name: 'Samouczek: wprowadzenie do usługi SignalR 2'
+      - name: Rozmowa w czasie rzeczywistym przy użyciu usługi SignalR 2
         href: signalr/overview/getting-started/tutorial-getting-started-with-signalr.md
-      - name: 'Samouczek: wprowadzenie do usługi SignalR 2 i wzorca MVC 5'
+      - name: Rozmowa w czasie rzeczywistym przy użyciu usług SignalR 2 i MVC 5
         href: signalr/overview/getting-started/tutorial-getting-started-with-signalr-and-mvc.md
-      - name: 'Samouczek: wysyłanie w czasie rzeczywistym z wysoką częstotliwością przy użyciu usługi SignalR 2'
+      - name: Wysyłanie w czasie rzeczywistym z wysoką częstotliwością przy użyciu usługi SignalR 2
         href: signalr/overview/getting-started/tutorial-high-frequency-realtime-with-signalr.md
-      - name: 'Samouczek: emisje serwera z użyciem usługi SignalR 2'
+      - name: Emisje serwera z użyciem usługi SignalR 2
         href: signalr/overview/getting-started/tutorial-server-broadcast-with-signalr.md
       - name: 'Ćwiczenia praktyczne: aplikacje internetowe czasu rzeczywistego z wykorzystaniem usługi SignalR'
         href: signalr/overview/getting-started/real-time-web-applications-with-signalr.md
@@ -3428,9 +3428,9 @@ items:
     href: visual-studio/overview/2013/release-notes.md
   - name: Rozszerzenie ASP.NET and Web Tools 2013.2 dla programu Visual Studio 2013 — informacje o wersji
     href: visual-studio/overview/2013/aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes.md
-  - name: 'Ćwiczenia praktyczne: narzędzia Web Tools dla programu Visual Studio 2013'
+  - name: 'Ćwiczenia praktyczne: Narzędzia Visual Studio 2013 Web Tools'
     href: visual-studio/overview/2013/visual-studio-2013-web-tools.md
-  - name: 'Ćwiczenia praktyczne: One ASP.NET: integrowanie wzorców ASP.NET Web Forms, MVC i Web API'
+  - name: 'Ćwiczenia praktyczne: Jedna platforma ASP.NET: integrowanie wzorców ASP.NET Web Forms, MVC i Web API'
     href: visual-studio/overview/2013/one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api.md
 - name: Visual Studio 2012
   href: visual-studio/overview/2012/index.md
@@ -3743,9 +3743,9 @@ items:
       href: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern.md
     - name: Więcej wzorców i wskazówki
       href: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/more-patterns-and-guidance.md
-    - name: 'Dodatek: przykładowa aplikacja Fix It'
+    - name: 'Załącznik: przykładowa aplikacja Fix It'
       href: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/the-fix-it-sample-application.md
-  - name: 'Ćwiczenia praktyczne: łatwe w obsłudze witryny internetowe platformy Azure: zarządzanie zmianami i skalowaniem'
+  - name: 'Ćwiczenia praktyczne: Witryny internetowe platformy Azure z możliwością obsługi: zarządzanie zmianami i skalowaniem'
     href: aspnet/overview/developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale.md
 - name: OWIN i Katana
   href: aspnet/overview/owin-and-katana/index.md
@@ -3810,9 +3810,9 @@ items:
     href: whitepapers/whats-new-in-aspnet-45-and-visual-studio-2012.md
 - name: Odwołanie API
   href: api-ref.md
-ms.openlocfilehash: 6c6d8fc996066fef18c8a9396ec6eed6e4e3fec6
-ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
+ms.openlocfilehash: cb887e46701baa93d1deed63eb01c7c0dc1faa55
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52450825"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54099310"

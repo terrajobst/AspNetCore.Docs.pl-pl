@@ -179,7 +179,9 @@
 ## [Debugowanie migawek](/azure/application-insights/app-insights-snapshot-debugger)
 ## [Debugowanie migawki w programie Visual Studio](/visualstudio/debugger/debug-live-azure-applications)
 ## [Testy integracji](xref:test/integration-tests)
+## [Obciążenie i testy przeciążeniowe](xref:test/loadtests)
 ## [Rozwiązywanie problemów](xref:test/troubleshoot)
+## [Rejestrowanie](xref:fundamentals/logging/index)
 
 # Dostęp do danych
 ## Samouczki
@@ -392,6 +394,7 @@
 ## [Używanie obserwatora plików](xref:tutorials/dotnet-watch)
 
 # Migracja
+## [Z wersji 2.2 do 3.0](xref:migration/22-to-30)
 ## [Z wersji 2.1 do 2.2](xref:migration/21-to-22)
 ## [Z wersji 2.0 do 2.1](xref:migration/20_21)
 ## Z wersji 1.x do 2.0
@@ -406,6 +409,7 @@
 ### [ClaimsPrincipal.Current](xref:migration/claimsprincipal-current)
 ### [Członkostwo w tożsamości](xref:migration/proper-to-2x/membership-to-core-identity)
 ### [Moduły HTTP do oprogramowania pośredniczącego](xref:migration/http-modules)
+## [Rejestrowanie (nie na platformie ASP.NET Core)](xref:migration/logging-nonaspnetcore)
 
 # Co nowego?
 ## [Co nowego w wersji 2.2](xref:aspnetcore-2.2)
