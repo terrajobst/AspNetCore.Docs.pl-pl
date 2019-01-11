@@ -1,3 +1,5 @@
+# [Dokumentacja platformy ASP.NET Core](/aspnet/#pivot=core)
+
 # Omówienie
 ## [Informacje o programie ASP.NET Core](xref:index)
 ## [Porównanie programów ASP.NET Core i ASP.NET](xref:fundamentals/choose-between-aspnet-and-aspnetcore)
@@ -5,8 +7,14 @@
 
 # [Wprowadzenie](xref:getting-started)
 
+# Co nowego?
+## [Co nowego w wersji 2.2](xref:aspnetcore-2.2)
+## [Co nowego w wersji 2.1](xref:aspnetcore-2.1)
+## [Co nowego w wersji 2.0](xref:aspnetcore-2.0)
+## [Co nowego w wersji 1.1](xref:aspnetcore-1.1)
+
 # Samouczki
-## Interfejsy Web API
+## Aplikacje internetowego interfejsu API
 ### [Tworzenie internetowego interfejsu API](xref:tutorials/first-web-api)
 ### [Internetowy interfejs API w programie MongoDB](xref:tutorials/first-mongo-app)
 ## Aplikacje internetowe
@@ -121,7 +129,7 @@
 ### [Niestandardowe wiązanie modelu](xref:mvc/advanced/custom-model-binding)
 ### [Wersja zgodności](xref:mvc/compatibility-version)
 
-# Interfejsy Web API
+# Aplikacje internetowego interfejsu API
 ## [Omówienie](xref:web-api/index)
 
 ## Samouczki
@@ -376,6 +384,7 @@
 ### [Oprogramowanie pośredniczące buforowania odpowiedzi](xref:performance/caching/middleware)
 ## [Kompresja odpowiedzi](xref:performance/response-compression)
 ## [Narzędzia diagnostyczne](xref:performance/diagnostic-tools)
+## [Obciążenie i testy przeciążeniowe](xref:test/loadtests)
 
 # Inne tematy
 ## [Globalizacja i lokalizacja](xref:fundamentals/localization)
@@ -410,12 +419,6 @@
 ### [Członkostwo w tożsamości](xref:migration/proper-to-2x/membership-to-core-identity)
 ### [Moduły HTTP do oprogramowania pośredniczącego](xref:migration/http-modules)
 ## [Rejestrowanie (nie na platformie ASP.NET Core)](xref:migration/logging-nonaspnetcore)
-
-# Co nowego?
-## [Co nowego w wersji 2.2](xref:aspnetcore-2.2)
-## [Co nowego w wersji 2.1](xref:aspnetcore-2.1)
-## [Co nowego w wersji 2.0](xref:aspnetcore-2.0)
-## [Co nowego w wersji 1.1](xref:aspnetcore-1.1)
 
 # [Dokumentacja interfejsu API](/dotnet/api/?view=aspnetcore-2.2)
 
