@@ -5,12 +5,12 @@ description: W tym samouczku pokazano, jak zainstalować i używać narzędzia o
 ms.author: riande
 ms.date: 05/31/2018
 uid: tutorials/dotnet-watch
-ms.openlocfilehash: fc08efa433f688a0b9009aed35fdee2b0c228619
-ms.sourcegitcommit: e12f45ddcbe99102a74d4077df27d6c0ebba49c1
+ms.openlocfilehash: f1e0d91b27df4af7cbfb6f2547c94c0370c65d0d
+ms.sourcegitcommit: cec77d5ad8a0cedb1ecbec32834111492afd0cd2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/15/2018
-ms.locfileid: "39063302"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54207505"
 ---
 # <a name="develop-aspnet-core-apps-using-a-file-watcher"></a>Tworzenie aplikacji platformy ASP.NET Core za pomocą obserwator plików
 
@@ -20,7 +20,7 @@ Przez [Rick Anderson](https://twitter.com/RickAndMSFT) i [Victor Hurdugaci](http
 
 W tym samouczku jest używany istniejący interfejs API sieci web z dwoma punktami końcowymi: taki, który zwraca sumę i jedną, która zwraca produktu. Metoda produktu zawiera usterkę, zostanie rozwiązany w ramach tego samouczka.
 
-Pobierz [przykładową aplikację](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/dotnet-watch/sample). Obejmuje dwa projekty: *WebApp* (Platforma ASP.NET Core internetowego interfejsu API) i *WebAppTests* (testy jednostkowe dla interfejsu API sieci web).
+Pobierz [przykładową aplikację](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/dotnet-watch/sample). Składa się z dwóch projektów: *Aplikacja sieci Web* (Platforma ASP.NET Core internetowego interfejsu API) i *WebAppTests* (testy jednostkowe dla interfejsu API sieci web).
 
 W powłoce poleceń, przejdź do *aplikacji sieci Web* folderu. Uruchom następujące polecenie:
 
@@ -179,4 +179,4 @@ VSTest wykonuje, gdy wszelkich zmian w plikach w dowolnym projekcie testowym.
 
 ## <a name="dotnet-watch-in-github"></a>`dotnet-watch` w usłudze GitHub
 
-`dotnet-watch` jest częścią usługi GitHub [repozytorium DotNetTools](https://github.com/aspnet/DotNetTools/tree/master/src/dotnet-watch).
+`dotnet-watch` jest częścią usługi GitHub [repozytorium aspnet/AspNetCore](https://github.com/aspnet/AspNetCore/tree/master/src/Tools/dotnet-watch).

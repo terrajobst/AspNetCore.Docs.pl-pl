@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 12/4/2018
 uid: tutorials/razor-pages/page
-ms.openlocfilehash: acfc446732803c67714943fe3e5b7a31055ebcd7
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 2b68523ac84596bda2914d9c348ddea8c7ea9465
+ms.sourcegitcommit: cec77d5ad8a0cedb1ecbec32834111492afd0cd2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862008"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54207385"
 ---
 # <a name="scaffolded-razor-pages-in-aspnet-core"></a>Strony razor ze szkieletami w programie ASP.NET Core
 
@@ -57,6 +57,12 @@ Sprawdź wyrażenie lambda, używane w następujących pomocnika kodu HTML:
 [!code-cshtml[](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?range=1-2&highlight=2)]
 
 `@model` Dyrektywa określa typ modelu przekazywane do stron Razor. W powyższym przykładzie `@model` wiersz sprawia, że `PageModel`— dostępny na stronie Razor klasy pochodnej. Model jest używany w `@Html.DisplayNameFor` i `@Html.DisplayFor` [pomocników HTML](/aspnet/mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs#understanding-html-helpers) na stronie.
+
+### <a name="the-layout-page"></a>Strona układu
+
+Wybierz linki menu (**RazorPagesMovie**, **Home**, i **zachowania**). Każda strona zawiera ten sam układ menu. Układ menu jest zaimplementowana w *Pages/Shared/_Layout.cshtml* pliku. Otwórz *Pages/Shared/_Layout.cshtml* pliku.
+
+[Układ](xref:mvc/views/layout) Szablony umożliwiają określ układ kontenera HTML Twojej witryny w jednym miejscu, a następnie zastosować je na wielu stronach w witrynie. Znajdź `@RenderBody()` wiersza. `RenderBody` jest symbolem zastępczym, gdzie wszystkie specyficzne dla strony widoki, których tworzenie pokazu, *opakowane* w stronę układu. Na przykład w przypadku wybrania **zachowania** linku **Pages/Privacy.cshtml** renderowania widoku w `RenderBody` metody.
 
 <a name="vd"></a>
 ### <a name="viewdata-and-layout"></a>ViewData i układu
@@ -168,5 +174,5 @@ Aparat tworzenia szkieletów tworzy znaczników Razor dla każdego pola w modelu
 [Pomocnik tagu dane wejściowe](xref:mvc/views/working-with-forms) (`<input asp-for="Movie.Title" class="form-control" />`) używa [DataAnnotations](/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) atrybutów, a następnie tworzy atrybutów HTML potrzebne dla technologii jQuery weryfikacji po stronie klienta.
 
 > [!div class="step-by-step"]
-> [Poprzedni: Dodawanie modelu](xref:tutorials/razor-pages/model)
-> [dalej: bazy danych](xref:tutorials/razor-pages/sql)
+> [Poprzednie: Dodawanie modelu](xref:tutorials/razor-pages/model)
+> [dalej: Bazy danych](xref:tutorials/razor-pages/sql)
