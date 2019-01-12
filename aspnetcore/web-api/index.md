@@ -4,14 +4,14 @@ author: scottaddie
 description: Informacje o funkcjach dostępnych podczas tworzenia internetowego interfejsu API w programie ASP.NET Core i moment jest właściwy użyć każdej funkcji.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 11/06/2018
+ms.date: 01/11/2019
 uid: web-api/index
-ms.openlocfilehash: 7541c4c308deaecda0bda9a9c77d9372b65a5100
-ms.sourcegitcommit: f202864efca81a72ea7120c0692940c40d9d0630
+ms.openlocfilehash: a826bdecdd3a25eb23597123166695c169ba4229
+ms.sourcegitcommit: ec71fd5a988f927ae301813aae5ff764feb3bb6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51635306"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54249441"
 ---
 # <a name="build-web-apis-with-aspnet-core"></a>Tworzenie interfejsów API za pomocą platformy ASP.NET Core w sieci web
 
@@ -141,7 +141,10 @@ Zasady wnioskowania są stosowane dla źródeł danych domyślne parametry akcji
 
 * **[FromBody]**  jest wnioskowany dla parametrów typu złożonego. Wyjątkiem od tej reguły jest dowolny typ złożony, wbudowane o specjalnym znaczeniu, takich jak <xref:Microsoft.AspNetCore.Http.IFormCollection> i <xref:System.Threading.CancellationToken>. Wnioskowanie o kodzie źródłowym powiązania ignoruje te typy specjalne. `[FromBody]` nie jest wnioskowany dla typów prostych, takich jak `string` lub `int`. W związku z tym `[FromBody]` atrybut powinien być używany dla typów prostych, gdy te funkcje są potrzebne. Kiedy akcja ma więcej niż jeden parametr określony jawnie (za pośrednictwem `[FromBody]`) lub wywnioskowane jako powiązanej z treści żądania, zgłaszany jest wyjątek. Na przykład następujące podpisy akcji może spowodować wyjątek:
 
-[!code-csharp[](define-controller/samples/WebApiSample.Api.21/Controllers/TestController.cs?name=snippet_ActionsCausingExceptions)]
+    [!code-csharp[](define-controller/samples/WebApiSample.Api.21/Controllers/TestController.cs?name=snippet_ActionsCausingExceptions)]
+
+    > [!NOTE]
+    > W programie ASP.NET Core 2.1 parametrów typu kolekcji, takie jak listy i tablice są niepoprawnie wnioskowane jako [[FromQuery]](xref:Microsoft.AspNetCore.Mvc.FromQueryAttribute). [[FromBody] ](xref:Microsoft.AspNetCore.Mvc.FromBodyAttribute) powinny być używane do tych parametrów, jeśli mają być powiązane z treści żądania. To zachowanie jest stała, w programie ASP.NET Core 2.2 lub nowszej, gdzie wywnioskowana, parametry typu kolekcji można powiązać z treści domyślnie.
 
 * **[FromForm]**  jest wnioskowany dla parametrach akcji danego typu <xref:Microsoft.AspNetCore.Http.IFormFile> i <xref:Microsoft.AspNetCore.Http.IFormFileCollection>. Nie wynika dla wszystkich typów prostych lub zdefiniowanych przez użytkownika.
 * **[FromRoute]**  jest wnioskowany dla dowolnej nazwy parametru akcji parametrowi w szablonie trasy. Gdy więcej niż jedna trasa jest zgodna z parametrem akcji, wartości trasy jest uważany za `[FromRoute]`.

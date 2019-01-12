@@ -5,14 +5,14 @@ description: Dowiedz się, jak testy integracji upewnij się, że składniki apl
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/26/2018
+ms.date: 01/11/2019
 uid: test/integration-tests
-ms.openlocfilehash: 9729925c89c212bb6e6fac1a484b6288697afe57
-ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
+ms.openlocfilehash: 0f919d7715a26f1efdb37d35b047a7050e46a272
+ms.sourcegitcommit: ec71fd5a988f927ae301813aae5ff764feb3bb6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52450752"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54249519"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>Testy integracji w programie ASP.NET Core
 
@@ -26,7 +26,7 @@ W tym temacie założono podstawową wiedzę na temat testów jednostkowych. Je�
 
 Przykładowa aplikacja jest aplikacją stron Razor i zakłada podstawową wiedzę na temat stron Razor. Jeśli znasz stron Razor, zobacz następujące tematy:
 
-* [Wprowadzenie do stron Razor](xref:razor-pages/index)
+* [Wprowadzenie do produktu Razor Pages](xref:razor-pages/index)
 * [Wprowadzenie do korzystania ze stron Razor](xref:tutorials/razor-pages/razor-pages-start)
 * [Testy jednostkowe stron Razor](xref:test/razor-pages-tests)
 
@@ -72,9 +72,9 @@ Testy integracji wykonaj sekwencję zdarzeń, które zawierają zwykle *Rozmieś
 
 1. SUT hosta sieci web jest skonfigurowana.
 1. Klient serwera test jest tworzony do przesyłania żądań do aplikacji.
-1. *Rozmieść* krok testu jest wykonywany: Aplikacja testowa przygotowuje żądania.
-1. *Act* krok testu jest wykonywany: klient przesyła żądanie i odbiera odpowiedź.
-1. *Asercja* krok testu jest wykonywany: *rzeczywiste* odpowiedzi jest zweryfikowany jako *przekazać* lub *się nie powieść* na podstawie *oczekiwano*  odpowiedzi.
+1. *Rozmieść* krok testu jest wykonywana: Aplikacja testowa przygotowuje żądania.
+1. *Act* krok testu jest wykonywana: Klient przesyła żądanie i odbiera odpowiedź.
+1. *Asercja* krok testu jest wykonywana: *Rzeczywiste* odpowiedzi jest zweryfikowany jako *przekazać* lub *się nie powieść* na podstawie *Oczekiwano* odpowiedzi.
 1. Proces jest kontynuowany, dopóki wszystkie testy są wykonywane.
 1. Wyniki testu są zgłaszane.
 
@@ -114,7 +114,7 @@ Te wymagania wstępne są widoczne w [przykładową aplikację](https://github.c
 
 [WebApplicationFactory&lt;TEntryPoint&gt; ](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1) służy do tworzenia [elementu TestServer](/dotnet/api/microsoft.aspnetcore.testhost.testserver) testów integracji. `TEntryPoint` Zazwyczaj jest klasa punktu wejścia SUT `Startup` klasy.
 
-Implementowanie klas testowych *początkowych klasy* interfejsu (`IClassFixture`) oznacza klasy zawiera testy i zapewnienia wystąpienia obiektów udostępnionych testów w klasie.
+Implementowanie klas testowych *początkowych klasy* interfejsu ([IClassFixture](https://xunit.github.io/docs/shared-context#class-fixture)) oznacza klasy zawiera testy i zapewnienia wystąpienia obiektów udostępnionych testów w klasie.
 
 ### <a name="basic-test-of-app-endpoints"></a>Podstawowy test punktów końcowych aplikacji
 
@@ -151,7 +151,7 @@ Konfiguracja hosta sieci Web mogą być tworzone niezależnie od klas testowych 
 
    [!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/CustomWebApplicationFactory.cs?name=snippet1)]
 
-   Rozmieszczanie w bazie danych [przykładową aplikację](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/integration-tests/samples) odbywa się przez `InitializeDbForTests` metody. Metoda została opisana w [integracji testy próbki: testowanie aplikacji organizacji](#test-app-organization) sekcji.
+   Rozmieszczanie w bazie danych [przykładową aplikację](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/integration-tests/samples) odbywa się przez `InitializeDbForTests` metody. Metoda została opisana w [integracji testy próbki: Testowanie aplikacji organizacji](#test-app-organization) sekcji.
 
 2. Użyj niestandardowego `CustomWebApplicationFactory` w klasach testowych. W poniższym przykładzie użyto fabryka w `IndexPageTests` klasy:
 
@@ -173,9 +173,9 @@ Wszelkie żądania POST do SUT musi spełniać antiforgery upewnij się, że sta
 
 * `GetDocumentAsync` &ndash; Odbiera [obiektu HttpResponseMessage](/dotnet/api/system.net.http.httpresponsemessage) i zwraca `IHtmlDocument`. `GetDocumentAsync` używa fabryki, który przygotowuje *odpowiedzi wirtualnego* oparte na oryginalnym `HttpResponseMessage`. Aby uzyskać więcej informacji, zobacz [dokumentacji AngleSharp](https://github.com/AngleSharp/AngleSharp#documentation).
 * `SendAsync` metody rozszerzenia dla `HttpClient` compose [HttpRequestMessage](/dotnet/api/system.net.http.httprequestmessage) i wywołać [SendAsync(HttpRequestMessage)](/dotnet/api/system.net.http.httpclient.sendasync#System_Net_Http_HttpClient_SendAsync_System_Net_Http_HttpRequestMessage_) do przesyłania żądań do SUT. Przeciążenia `SendAsync` zaakceptować formularza HTML (`IHtmlFormElement`) oraz następujące:
-  - Przedstawia przycisk formularza (`IHtmlElement`)
-  - Formularz wartości kolekcji (`IEnumerable<KeyValuePair<string, string>>`)
-  - Przycisk Prześlij (`IHtmlElement`) i wartości pól (`IEnumerable<KeyValuePair<string, string>>`)
+  * Przedstawia przycisk formularza (`IHtmlElement`)
+  * Formularz wartości kolekcji (`IEnumerable<KeyValuePair<string, string>>`)
+  * Przycisk Prześlij (`IHtmlElement`) i wartości pól (`IEnumerable<KeyValuePair<string, string>>`)
 
 > [!NOTE]
 > [AngleSharp](https://anglesharp.github.io/) jest analiza kodu innych firm używane w celach demonstracyjnych, w tym temacie i przykładowa aplikacja biblioteki. AngleSharp nie jest obsługiwana lub wymaganych do testowania integracji aplikacji platformy ASP.NET Core. Inne analizatory mogą być używane, takich jak [pakiet elastyczność Html (HAP)](http://html-agility-pack.net/). Innym rozwiązaniem jest napisać kod, aby obsłużyć żądania tokenu weryfikacji i plików cookie antiforgery antiforgery systemu bezpośrednio.

@@ -5,18 +5,18 @@ description: Dowiedz się, jak pracować z metody kontrolera, widoków i DataAnn
 ms.author: riande
 ms.date: 12/13/2018
 uid: tutorials/first-mvc-app/controller-methods-views
-ms.openlocfilehash: e6bdaec6dfe681582a54bd39ce1c76bebe6f5fb2
-ms.sourcegitcommit: e1cc4c1ef6c9e07918a609d5ad7fadcb6abe3e12
+ms.openlocfilehash: cd1b0f2ccffaa660f137b8d739933e56018f2702
+ms.sourcegitcommit: ec71fd5a988f927ae301813aae5ff764feb3bb6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53997256"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54249415"
 ---
 # <a name="controller-methods-and-views-in-aspnet-core"></a>Metody kontrolera i widoki w programie ASP.NET Core
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Mamy dobry początek aplikacji filmu, ale prezentacji nie jest najlepszym rozwiązaniem. Nie chcemy wyświetlić czas (12:00:00 AM na ilustracji poniżej) i **ReleaseDate** powinna być dwa słowa.
+Mamy dobry początek aplikacji filmu, ale prezentacji nie jest najlepszym rozwiązaniem, na przykład **ReleaseDate** powinna być dwa słowa.
 
 ![Widok indeksu: Data wydania jest jedno słowo (bez spacji) i każdy film Data wydania zawiera godzinę 12: 00](working-with-sql/_static/m55.png)
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: seodec18
 ms.date: 11/22/2018
 uid: data/ef-rp/intro
-ms.openlocfilehash: b66d20a46b29b6975512026fa940f7f9e50deeb5
-ms.sourcegitcommit: 6548c19f345850ee22b50f7ef9fca732895d9e08
+ms.openlocfilehash: 868163ed621ef9818759efd72ed3d233dc958219
+ms.sourcegitcommit: ec71fd5a988f927ae301813aae5ff764feb3bb6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53425136"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54249506"
 ---
 # <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>Strony razor za pomocą platformy Entity Framework Core w programie ASP.NET Core — samouczek 1 8
 
@@ -261,6 +261,8 @@ EF Core tworzy pustą bazy danych. W tej sekcji `Initialize` metody są zapisywa
 W *danych* folderu, Utwórz nowy plik klasy o nazwie *DbInitializer.cs* i Dodaj następujący kod:
 
 [!code-csharp[](intro/samples/cu21/Data/DbInitializer.cs?name=snippet_Intro)]
+
+Uwaga: W poprzednim kodzie użyto `Models` dla przestrzeni nazw (`namespace ContosoUniversity.Models`) zamiast `Data`. `Models` jest zgodny z kodem generowanych przez generator szkieletu. Aby uzyskać więcej informacji, zobacz [problem związany z GitHub tworzenia szkieletów](https://github.com/aspnet/Scaffolding/issues/822).
 
 Kod sprawdza, czy wszystkie studentów w bazie danych. W przypadku nie studentów w bazie danych, baza danych jest inicjowany z danych testowych. Ładuje dane testowe do tablic zamiast `List<T>` kolekcje w celu zoptymalizowania wydajności.
 

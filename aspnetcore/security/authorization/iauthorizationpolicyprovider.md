@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/02/2018
 uid: security/authorization/iauthorizationpolicyprovider
-ms.openlocfilehash: fdd8f9232c4332aa8307b9dbdfba6af48dfafa72
-ms.sourcegitcommit: 317f9be24db600499e79d25872d743af74bd86c0
+ms.openlocfilehash: ef3e81da6fb9e2e332b553607be35fcd79e9362d
+ms.sourcegitcommit: ec71fd5a988f927ae301813aae5ff764feb3bb6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48045500"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54249376"
 ---
 # <a name="custom-authorization-policy-providers-using-iauthorizationpolicyprovider-in-aspnet-core"></a>Niestandardowi dostawcy zasad autoryzacji przy użyciu IAuthorizationPolicyProvider w programie ASP.NET Core 
 
@@ -25,7 +25,7 @@ Przykładowe scenariusze, w przypadku, gdy niestandardowego [IAuthorizationPolic
 * Przy użyciu dużych wielu zasad (w przypadku liczb różne pomieszczenia lub wieku, na przykład), więc nie ma sensu do dodania każdej zasady autoryzacji poszczególnych z `AuthorizationOptions.AddPolicy` wywołania.
 * Tworzenie zasad w oparciu o informacje z zewnętrznego źródła danych (np. bazy danych) w czasie wykonywania, lub określanie wymagań autoryzacji dynamicznie za pośrednictwem innego mechanizmu.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AuthSamples/tree/master/samples/CustomPolicyProvider) z [repozytorium GitHub aspnet/AuthSamples](https://github.com/aspnet/AuthSamples). Pobierz plik ZIP repozytorium aspnet/AuthSamples.
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore/tree/release/2.2/src/AuthSamples/) z [repozytorium AspNetCore GitHub](https://github.com/aspnet/AspNetCore). Pobierz plik ZIP repozytorium aspnet/AuthSamples.
 Rozpakuj *AuthSamples-master.zip* pliku. Przejdź do *samples/CustomPolicyProvider* folderu projektu.
 
 ## <a name="customize-policy-retrieval"></a>Dostosowywanie pobierania zasad
