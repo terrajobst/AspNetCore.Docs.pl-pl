@@ -5,12 +5,12 @@ description: Dowiedz się, jak kontrolować zachowanie aplikacji w wielu środow
 ms.author: riande
 ms.date: 07/03/2018
 uid: fundamentals/environments
-ms.openlocfilehash: 865257d127084671036147dd1f28c9c4843feef6
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 642af9e8f9e322e3624dad46bb1463f6525f5c9e
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50206851"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341670"
 ---
 # <a name="use-multiple-environments-in-aspnet-core"></a>Używanie wielu środowisk w programie ASP.NET Core
 
@@ -22,7 +22,7 @@ Platforma ASP.NET Core konfiguruje zachowanie aplikacji, w zależności od środ
 
 ## <a name="environments"></a>Środowiska
 
-Platforma ASP.NET Core odczytuje zmiennej środowiskowej `ASPNETCORE_ENVIRONMENT` przy uruchamianiu aplikacji i przechowuje wartość w [IHostingEnvironment.EnvironmentName](/dotnet/api/microsoft.aspnetcore.hosting.ihostingenvironment.environmentname). Możesz ustawić `ASPNETCORE_ENVIRONMENT` dowolną wartość, ale [trzech wartości](/dotnet/api/microsoft.aspnetcore.hosting.environmentname) są obsługiwane przez platformę: [rozwoju](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development), [przemieszczania](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging), i [wśrodowiskuprodukcyjnym](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production). Jeśli `ASPNETCORE_ENVIRONMENT` nie jest ustawiony, jego wartość domyślna to `Production`.
+Platforma ASP.NET Core odczytuje zmiennej środowiskowej `ASPNETCORE_ENVIRONMENT` przy uruchamianiu aplikacji i przechowuje wartość w [IHostingEnvironment.EnvironmentName](/dotnet/api/microsoft.aspnetcore.hosting.ihostingenvironment.environmentname). Możesz ustawić `ASPNETCORE_ENVIRONMENT` dowolną wartość, ale [trzech wartości](/dotnet/api/microsoft.aspnetcore.hosting.environmentname) są obsługiwane przez platformę: [Programowanie](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development), [przemieszczania](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging), i [produkcji](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production). Jeśli `ASPNETCORE_ENVIRONMENT` nie jest ustawiony, jego wartość domyślna to `Production`.
 
 [!code-csharp[](environments/sample/EnvironmentsSample/Startup.cs?name=snippet)]
 
@@ -111,9 +111,9 @@ Następujący kod JSON zawiera trzy profile z *launchSettings.json* pliku:
 
 Gdy aplikacja jest uruchamiana z [dotnet, uruchom](/dotnet/core/tools/dotnet-run), pierwszy profil z `"commandName": "Project"` jest używany. Wartość `commandName` Określa serwer sieci web, aby uruchomić. `commandName` może być jednym z następujących czynności:
 
-* IIS Express
-* IIS
-* Projekt (który spowoduje uruchomienie Kestrel)
+* `IISExpress`
+* `IIS`
+* `Project` (który spowoduje uruchomienie Kestrel)
 
 Gdy aplikacja jest uruchamiana z [dotnet, uruchom](/dotnet/core/tools/dotnet-run):
 
@@ -183,7 +183,7 @@ Aby ustawić środowiska w [usługi Azure App Service](https://azure.microsoft.c
 1. W **ustawienia** grupy, wybierz opcję **ustawienia aplikacji** bloku.
 1. W **ustawienia aplikacji** wybierz opcję **Dodaj nowe ustawienie**.
 1. Aby uzyskać **wprowadź nazwę**, podaj `ASPNETCORE_ENVIRONMENT`. Aby uzyskać **wprowadź wartość**, zapewniają środowiska (na przykład `Staging`).
-1. Wybierz **ustawienie miejsca** pole wyboru, jeśli chcesz, aby ustawienie środowiska, aby pozostać z bieżącym gnieździe, gdy zostały zamienione miejscami wdrożenia. Aby uzyskać więcej informacji, zobacz [dokumentacji platformy Azure: ustawienia, które zostały zamienione?](/azure/app-service/web-sites-staged-publishing).
+1. Wybierz **ustawienie miejsca** pole wyboru, jeśli chcesz, aby ustawienie środowiska, aby pozostać z bieżącym gnieździe, gdy zostały zamienione miejscami wdrożenia. Aby uzyskać więcej informacji, zobacz [dokumentacji platformy Azure: Ustawienia, które zostały zamienione? ](/azure/app-service/web-sites-staged-publishing).
 1. Wybierz **Zapisz** w górnej części bloku.
 
 Usługa Azure App Service zostanie automatycznie uruchomiony ponownie aplikację po ustawienia aplikacji (zmienną środowiskową) jest dodanie, zmianę lub usunąć w witrynie Azure portal.
@@ -277,7 +277,7 @@ Dystrybucje systemu Linux, można użyć `export` polecenie w wierszu polecenia 
 Aby załadować konfiguracji przez środowisko, zalecamy:
 
 * *appSettings* pliki (* appsettings.&lt; <Environment> &gt;JSON). Zobacz [konfiguracji: Dostawca konfiguracji pliku](xref:fundamentals/configuration/index#file-configuration-provider).
-* zmienne środowiskowe (ustawiona w każdym systemie którym hostowana jest aplikacja). Zobacz [konfiguracji: Dostawca konfiguracji pliku](xref:fundamentals/configuration/index#file-configuration-provider) i [bezpieczne przechowywanie kluczy tajnych aplikacji w trakcie opracowywania: zmienne środowiskowe](xref:security/app-secrets#environment-variables).
+* zmienne środowiskowe (ustawiona w każdym systemie którym hostowana jest aplikacja). Zobacz [konfiguracji: Dostawca konfiguracji pliku](xref:fundamentals/configuration/index#file-configuration-provider) i [bezpieczne przechowywanie kluczy tajnych aplikacji w trakcie opracowywania: Zmienne środowiskowe](xref:security/app-secrets#environment-variables).
 * Klucz tajny Menedżer (w środowisku programistycznym tylko). Zobacz <xref:security/app-secrets>.
 
 ## <a name="environment-based-startup-class-and-methods"></a>Klasa początkowa oparte na środowisku i metody

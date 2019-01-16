@@ -1,17 +1,17 @@
 ---
-title: Rozwiązywanie problemów z błędami uruchamiania programu ASP.NET Core w usłudze Azure App Service
+title: Rozwiązywanie problemów z platformą ASP.NET Core w usłudze Azure App Service
 author: guardrex
 description: Dowiedz się, jak diagnozować problemy z wdrożeniami platformy ASP.NET Core usługi Azure App Service.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2018
+ms.date: 01/11/2019
 uid: host-and-deploy/azure-apps/troubleshoot
-ms.openlocfilehash: b36c321c6ba6801a32b5187651063337b4533fd1
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: 65a5e355bc15db6de9060331395c441160c8b62d
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637655"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341644"
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service"></a>Rozwiązywanie problemów z platformą ASP.NET Core w usłudze Azure App Service
 
@@ -51,15 +51,15 @@ Modułu ASP.NET Core jest skonfigurowany z domyślną *startupTimeLimit* 120 sek
 
 Aby uzyskać dostęp do dziennika zdarzeń aplikacji, należy użyć **diagnozowanie i rozwiązywanie problemów** bloku w witrynie Azure portal:
 
-1. W witrynie Azure portal Otwórz blok aplikacji w **App Services** bloku.
-1. Wybierz **diagnozowanie i rozwiązywanie problemów** bloku.
-1. W obszarze **wybierz kategorię problemu**, wybierz opcję **niedziałającej aplikacji internetowej** przycisku.
-1. W obszarze **sugerowane rozwiązania**, otwórz okienko **otwórz dzienniki zdarzeń aplikacji**. Wybierz **otwórz dzienniki zdarzeń aplikacji** przycisku.
-1. Zapoznaj się z błędem najnowsze dostarczone przez *IIS AspNetCoreModule* w **źródła** kolumny.
+1. W witrynie Azure portal, należy otworzyć aplikację w **App Services**.
+1. Wybierz **diagnozowanie i rozwiązywanie problemów**.
+1. Wybierz **narzędzia diagnostyczne** nagłówka.
+1. W obszarze **Support Tools**, wybierz opcję **zdarzenia aplikacji** przycisku.
+1. Zapoznaj się z błędem najnowsze dostarczone przez *IIS AspNetCoreModule* lub *AspNetCoreModule usług IIS w wersji 2* wpisu w **źródła** kolumny.
 
 Alternatywa dla użycia **diagnozowanie i rozwiązywanie problemów** bloku jest zbadanie pliku dziennika zdarzeń aplikacji bezpośrednio za pomocą [Kudu](https://github.com/projectkudu/kudu/wiki):
 
-1. Wybierz **Narzędzia zaawansowane** bloku **narzędzia PROGRAMISTYCZNE** obszaru. Wybierz **Przejdź&rarr;**  przycisku. W nowej karcie przeglądarki lub w oknie zostanie otwarta konsola Kudu.
+1. Otwórz **Narzędzia zaawansowane** w **narzędzia programistyczne** obszaru. Wybierz **Przejdź&rarr;**  przycisku. W nowej karcie przeglądarki lub w oknie zostanie otwarta konsola Kudu.
 1. Za pomocą paska nawigacji u góry strony, otwórz **konsoli debugowania** i wybierz **CMD**.
 1. Otwórz **LogFiles** folderu.
 1. Wybierz ikonę ołówka obok *eventlog.xml* pliku.
@@ -69,7 +69,7 @@ Alternatywa dla użycia **diagnozowanie i rozwiązywanie problemów** bloku jest
 
 Wiele błędów uruchamiania przestaną generować przydatne informacje w dzienniku zdarzeń aplikacji. Aplikację można uruchomić [Kudu](https://github.com/projectkudu/kudu/wiki) konsoli zdalnej wykonywania, aby dowiedzieć się, błąd:
 
-1. Wybierz **Narzędzia zaawansowane** bloku **narzędzia PROGRAMISTYCZNE** obszaru. Wybierz **Przejdź&rarr;**  przycisku. W nowej karcie przeglądarki lub w oknie zostanie otwarta konsola Kudu.
+1. Otwórz **Narzędzia zaawansowane** w **narzędzia programistyczne** obszaru. Wybierz **Przejdź&rarr;**  przycisku. W nowej karcie przeglądarki lub w oknie zostanie otwarta konsola Kudu.
 1. Za pomocą paska nawigacji u góry strony, otwórz **konsoli debugowania** i wybierz **CMD**.
 1. Otwieranie folderów w ścieżce **witryny** > **wwwroot**.
 1. W konsoli należy uruchomić tę aplikację, wykonując zestawu aplikacji.
@@ -95,7 +95,7 @@ Plik dziennika stdout modułu ASP.NET Core rejestruje często przydatne komunika
 1. Sprawdzanie **zmodyfikowane** kolumny i wybierz ikonę ołówka, aby edytować stdout dziennika z najnowszą datą modyfikacji.
 1. Po otwarciu pliku dziennika jest wyświetlany błąd.
 
-**Ważne!** Wyłącz rejestrowanie strumienia stdout, po zakończeniu rozwiązywania problemów.
+Aby wyłączyć rejestrowanie strumienia stdout, po zakończeniu rozwiązywania problemów:
 
 1. W Kudu **konsoli diagnostyki**, wróć do ścieżki **witryny** > **wwwroot** aby ujawnić *web.config* pliku. Otwórz **web.config** plik ponownie, wybierając ikonę ołówka.
 1. Ustaw **stdoutLogEnabled** do `false`.
@@ -106,7 +106,37 @@ Plik dziennika stdout modułu ASP.NET Core rejestruje często przydatne komunika
 >
 > Ogólne logujesz się w aplikacji ASP.NET Core po uruchomieniu, użytku bibliotekę rejestrowania, która ogranicza rozmiar pliku dziennika i obraca się loguje. Aby uzyskać więcej informacji, zobacz [rejestrowania innych dostawców](xref:fundamentals/logging/index#third-party-logging-providers).
 
-## <a name="common-startup-errors"></a>Typowe błędy uruchamiania 
+::: moniker range=">= aspnetcore-2.2"
+
+### <a name="aspnet-core-module-debug-log"></a>Dziennik debugowania modułu platformy ASP.NET Core
+
+Dziennik debugowania modułu ASP.NET Core zapewnia rejestrowanie dodatkowych, lepiej od modułu ASP.NET Core. Włączanie i wyświetlanie dzienników stdout:
+
+1. Aby włączyć rozszerzony dziennik diagnostyczny, wykonaj jedną z następujących czynności:
+   * Postępuj zgodnie z instrukcjami w [rozszerzone dzienniki diagnostyczne](xref:host-and-deploy/aspnet-core-module#enhanced-diagnostic-logs) do konfigurowania aplikacji na potrzeby rozszerzonego rejestrowania diagnostycznego. Ponowne wdrażanie aplikacji.
+   * Dodaj `<handlerSettings>` wyświetlane w [rozszerzone dzienniki diagnostyczne](xref:host-and-deploy/aspnet-core-module#enhanced-diagnostic-logs) do działającej aplikacji *web.config* plików przy użyciu konsoli Kudu:
+     1. Otwórz **Narzędzia zaawansowane** w **narzędzia programistyczne** obszaru. Wybierz **Przejdź&rarr;**  przycisku. W nowej karcie przeglądarki lub w oknie zostanie otwarta konsola Kudu.
+     1. Za pomocą paska nawigacji u góry strony, otwórz **konsoli debugowania** i wybierz **CMD**.
+     1. Otwieranie folderów w ścieżce **witryny** > **wwwroot**. Edytuj *web.config* pliku, wybierając przycisk ołówka. Dodaj `<handlerSettings>` jak pokazano na [rozszerzone dzienniki diagnostyczne](xref:host-and-deploy/aspnet-core-module#enhanced-diagnostic-logs). Wybierz ikonę **Zapisz**.
+1. Otwórz **Narzędzia zaawansowane** w **narzędzia programistyczne** obszaru. Wybierz **Przejdź&rarr;**  przycisku. W nowej karcie przeglądarki lub w oknie zostanie otwarta konsola Kudu.
+1. Za pomocą paska nawigacji u góry strony, otwórz **konsoli debugowania** i wybierz **CMD**.
+1. Otwieranie folderów w ścieżce **witryny** > **wwwroot**. Jeśli nie podasz ścieżkę *czy aspnetcore* pliku, plik zostanie wyświetlony na liście. Jeśli podano ścieżkę, przejdź do lokalizacji pliku dziennika.
+1. Otwórz plik dziennika, klikając przycisk ołówka obok nazwy pliku.
+
+Aby wyłączyć rejestrowanie debugowania, po zakończeniu rozwiązywania problemów:
+
+1. Aby wyłączyć dziennik debugowania rozszerzone, wykonać jedną z następujących czynności:
+   * Usuń `<handlerSettings>` z *web.config* lokalnie plik i ponownie wdrożyć aplikację.
+   * Konsola Kudu umożliwia edytowanie *web.config* pliku i usuwania `<handlerSettings>` sekcji. Zapisz plik.
+
+> [!WARNING]
+> Nie można wyłączyć dziennik debugowania może prowadzić do awarii aplikacji lub serwera. Nie ma żadnego limitu rozmiaru pliku dziennika. Tylko umożliwia rejestrowanie debugowania aplikacji rozwiązywania problemów z uruchamianiem.
+>
+> Ogólne logujesz się w aplikacji ASP.NET Core po uruchomieniu, użytku bibliotekę rejestrowania, która ogranicza rozmiar pliku dziennika i obraca się loguje. Aby uzyskać więcej informacji, zobacz [rejestrowania innych dostawców](xref:fundamentals/logging/index#third-party-logging-providers).
+
+::: moniker-end
+
+## <a name="common-startup-errors"></a>Typowe błędy uruchamiania
 
 Zobacz <xref:host-and-deploy/azure-iis-errors-reference>. Najbardziej typowe problemy, które uniemożliwiają uruchamianie aplikacji znajdują się w temacie odwołania.
 
@@ -157,7 +187,7 @@ Przejdź do aktywowania rejestrowania diagnostycznego:
 1. Wysłać żądanie do aplikacji.
 1. W ramach transmisji danych dziennika wskazuje przyczynę błędu.
 
-**Ważne!** Pamiętaj wyłączyć rejestrowanie strumienia stdout, po zakończeniu rozwiązywania problemów. Zapoznaj się z instrukcjami w [dziennika stdout modułu ASP.NET Core](#aspnet-core-module-stdout-log) sekcji.
+Pamiętaj wyłączyć rejestrowanie strumienia stdout, po zakończeniu rozwiązywania problemów. Zapoznaj się z instrukcjami w [dziennika stdout modułu ASP.NET Core](#aspnet-core-module-stdout-log) sekcji.
 
 Aby wyświetlić dzienniki śledzenia nieudanych żądań (Dzienniki FREB):
 

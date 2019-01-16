@@ -4,14 +4,14 @@ author: tdykstra
 description: Więcej informacji na temat struktury rejestrowania w programie ASP.NET Core. Odnajdywanie dostawcy wbudowane funkcje rejestrowania i Dowiedz się więcej na temat popularnych dostawców innych firm.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 10/11/2018
+ms.date: 01/14/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: f7cfb3823a188f28398d59e0d009e9ddc159dc32
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 0908cc6eeaaba4006a0029ef86d3e47dcf3f9a28
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207579"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341748"
 ---
 # <a name="logging-in-aspnet-core"></a>Rejestrowanie w programie ASP.NET Core
 
@@ -272,7 +272,7 @@ Poniższy kod tworzy `Information` i `Warning` dzienników:
 
 W poprzednim kodzie pierwszy parametr jest [identyfikator zdarzenia dziennika](#log-event-id). Drugi parametr jest szablon wiadomości z symboli zastępczych dla wartości argumentów dostarczone przez pozostałe parametry metody. Parametry metody są wyjaśnione w [komunikatu sekcji szablonu](#log-message-template) w dalszej części tego artykułu.
 
-Metody, które obejmują poziom w nazwie metody logowania (na przykład `LogInformation` i `LogWarning`) są [metody rozszerzenia dla ILogger](xref:Microsoft.Extensions.Logging.LoggerExtensions). Wywoływanie tych metod `Log` metody, która przyjmuje `LogLevel` parametru. Możesz wywołać `Log` bezpośrednio zamiast jednej z tych metod rozszerzenia, ale składnia jest stosunkowo skomplikowane. Aby uzyskać więcej informacji, zobacz <xref:Microsoft.Extensions.Logging.ILogger> i [kod źródłowy rozszerzenia rejestratora](https://github.com/aspnet/Logging/blob/master/src/Microsoft.Extensions.Logging.Abstractions/LoggerExtensions.cs).
+Metody, które obejmują poziom w nazwie metody logowania (na przykład `LogInformation` i `LogWarning`) są [metody rozszerzenia dla ILogger](xref:Microsoft.Extensions.Logging.LoggerExtensions). Wywoływanie tych metod `Log` metody, która przyjmuje `LogLevel` parametru. Możesz wywołać `Log` bezpośrednio zamiast jednej z tych metod rozszerzenia, ale składnia jest stosunkowo skomplikowane. Aby uzyskać więcej informacji, zobacz <xref:Microsoft.Extensions.Logging.ILogger> i [kod źródłowy rozszerzenia rejestratora](https://github.com/aspnet/Extensions/blob/release/2.2/src/Logging/Logging.Abstractions/src/LoggerExtensions.cs).
 
 Platforma ASP.NET Core definiuje następujące poziomy dziennika, w tym miejscu uporządkowane od najniższej do najwyższej ważności.
 
@@ -464,7 +464,7 @@ Drugi `AddFilter` określa dostawcę debugowania przy użyciu jego nazwy. Pierws
 
 Dane konfiguracji i `AddFilter` kod przedstawiony w powyższych przykładach Tworzenie reguły pokazano w poniższej tabeli. Pierwsze sześć pochodzą przykład konfiguracji i ostatnie dwa pochodzą w przykładzie kodu.
 
-| Wartość liczbowa | Dostawcy      | Kategorie, które zaczynają się od...          | Minimalny poziom rejestrowania |
+| Wartość liczbowa | Dostawca      | Kategorie, które zaczynają się od...          | Minimalny poziom rejestrowania |
 | :----: | ------------- | --------------------------------------- | ----------------- |
 | 1      | Debugowanie         | Wszystkie kategorie                          | Informacje       |
 | 2      | Konsola       | Microsoft.AspNetCore.Mvc.Razor.Internal | Ostrzeżenie           |
@@ -863,7 +863,7 @@ Zestaw SDK usługi Application Insights można zbierać i zgłaszać dzienniki g
 
 * [Omówienie usługi Application Insights](/azure/application-insights/app-insights-overview)
 * [Usługa Application Insights dla platformy ASP.NET Core](/azure/application-insights/app-insights-asp-net-core)
-* [Witryny typu Wiki dotycząca usługi Application Insights/Microsoft-aspnetcore: rejestrowanie](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Logging).
+* [Microsoft/ApplicationInsights-aspnetcore Wiki: Rejestrowanie](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Logging).
 
 ::: moniker-end
 

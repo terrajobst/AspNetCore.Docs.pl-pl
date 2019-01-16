@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 01/11/2019
 uid: web-api/index
-ms.openlocfilehash: a826bdecdd3a25eb23597123166695c169ba4229
-ms.sourcegitcommit: ec71fd5a988f927ae301813aae5ff764feb3bb6a
+ms.openlocfilehash: 8ba20c51f38a43adca4133a402c6d741379a4c54
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54249441"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341631"
 ---
 # <a name="build-web-apis-with-aspnet-core"></a>Tworzenie interfejsów API za pomocą platformy ASP.NET Core w sieci web
 
@@ -133,7 +133,9 @@ Atrybut źródłowy powiązania Określa lokalizację, w którym znajduje się w
 > [!WARNING]
 > Nie używaj `[FromRoute]` po wartości mogą zawierać `%2f` (to znaczy `/`). `%2f` nie będzie unescaped do `/`. Użyj `[FromQuery]` Jeśli wartość może zawierać `%2f`.
 
-Bez `[ApiController]` atrybutu, powiązanie źródła jawnie zdefiniowanych atrybutów. W poniższym przykładzie `[FromQuery]` atrybut wskazuje, że `discontinuedOnly` podano wartość parametru ciągu zapytania adresu URL żądania:
+Bez `[ApiController]` atrybutu, powiązanie źródła jawnie zdefiniowanych atrybutów. Bez `[ApiController]` lub innych atrybutów źródło powiązania, takich jak `[FromQuery]`, środowisko uruchomieniowe programu ASP.NET Core podejmują próbę użycia integratora modelu obiektu złożonego. Integrator modelu obiektu złożonego ściąga dane z dostawców wartości, (które mają zdefiniowaną kolejność). Na przykład "body integratora modelu" jest zawsze zgadzaj.
+
+W poniższym przykładzie `[FromQuery]` atrybut wskazuje, że `discontinuedOnly` podano wartość parametru ciągu zapytania adresu URL żądania:
 
 [!code-csharp[](define-controller/samples/WebApiSample.Api.21/Controllers/ProductsController.cs?name=snippet_BindingSourceAttributes&highlight=3)]
 
@@ -245,3 +247,4 @@ Użyj `ClientErrorMapping` właściwości, aby skonfigurować zawartość `Probl
 * <xref:web-api/advanced/formatting>
 * <xref:tutorials/web-api-help-pages-using-swagger>
 * <xref:mvc/controllers/routing>
+****

@@ -6,12 +6,12 @@ ms.author: riande
 monikerRange: '>= aspnetcore-2.2'
 ms.date: 12/3/2018
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 0915c525d5fb96a3d32f91fbd65a4e1f62ee28b8
-ms.sourcegitcommit: 68a3081dd175d6518d1bfa31b4712bd8a2dd3864
+ms.openlocfilehash: 9aa3171c2d47c4cc5827ab480d1e7d3d4c38d28e
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53577867"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341423"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Dodawanie modelu strony Razor aplikacji w programie ASP.NET Core
 
@@ -147,6 +147,10 @@ Wykonaj **dodać strony Razor za pomocą programu Entity Framework (CRUD)** okno
 [!INCLUDE [explains scaffold gen params](~/includes/RP/model4.md)]
 
 ---
+
+Poprzednich poleceniach generuje następujące ostrzeżenie: "Nie określono typu dziesiętną kolumny"Cena"jednostki typu"Filmu". To spowoduje, że wartości, aby dyskretnie obcięty, jeśli nie mieszczą się w domyślnej dokładności i skali. Jawnie określić typ kolumny serwera SQL, która może pomieścić wszystkie wartości przy użyciu "HasColumnType()"."
+
+Możesz zignorować ostrzeżenie o tym, zostanie rozwiązany później w samouczku.
 
 Proces szkieletu tworzy i aktualizuje następujące pliki:
 

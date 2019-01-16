@@ -4,14 +4,14 @@ author: rick-anderson
 description: Samouczek szybki, które tworzy i uruchamia prostej aplikacji Hello World przy użyciu platformy ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/11/2018
+ms.date: 01/15/2019
 uid: getting-started
-ms.openlocfilehash: dc85fe9189c93476859a6c00d60ec24d6eeec3fa
-ms.sourcegitcommit: a16352c1c88a71770ab3922200a8cd148fb278a6
+ms.openlocfilehash: eee927f4306fa7757f3f361e6c6f367658512897
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53335315"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341813"
 ---
 # <a name="tutorial-get-started-with-aspnet-core"></a>Samouczek: Wprowadzenie do platformy ASP.NET Core
 
@@ -87,7 +87,7 @@ cd aspnetcoreapp
 dotnet run
 ```
 
-Przejdź do [https://localhost:5001](https://localhost:5001). Kliknij przycisk **Akceptuj**, aby zaakceptować zasady ochrony prywatności i plików cookie. Ta aplikacja nie zachowuje informacji osobistych.
+Po powłoki poleceń wskazuje, że aplikacja została uruchomiona, przejdź do [ https://localhost:5001 ](https://localhost:5001). Kliknij przycisk **Akceptuj**, aby zaakceptować zasady ochrony prywatności i plików cookie. Ta aplikacja nie zachowuje informacji osobistych.
 
 ## <a name="edit-a-razor-page"></a>Edytuj stronę Razor
 

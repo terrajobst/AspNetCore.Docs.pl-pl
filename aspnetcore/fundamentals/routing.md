@@ -4,14 +4,14 @@ author: rick-anderson
 description: Dowiedz się, jak platformy ASP.NET Core, routing jest odpowiedzialny za mapowania żądania identyfikatorów URI punktu końcowego selektory i wysyłania żądania przychodzące do punktów końcowych.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/29/2018
+ms.date: 01/14/2019
 uid: fundamentals/routing
-ms.openlocfilehash: c57b309e4474f9aff5c0594a3d9d1c796990d31e
-ms.sourcegitcommit: e1cc4c1ef6c9e07918a609d5ad7fadcb6abe3e12
+ms.openlocfilehash: 96d098115f2f9b150f796e08cf14e60611f59e17
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53997360"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341761"
 ---
 # <a name="routing-in-aspnet-core"></a>Routing w programie ASP.NET Core
 
@@ -46,7 +46,7 @@ services.AddMvc(options => options.EnableEndpointRouting = false)
     .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 ```
 
-Aby uzyskać więcej informacji na temat <xref:Microsoft.AspNetCore.Routing.IRouter>-routingu, zobacz artykuł [platformy ASP.NET Core 2.1 wersję tego tematu](xref:fundamentals/routing?view=aspnetcore-2.1).
+Aby uzyskać więcej informacji na temat <xref:Microsoft.AspNetCore.Routing.IRouter>-routingu, zobacz artykuł [platformy ASP.NET Core 2.1 wersję tego tematu](/aspnet/core/fundamentals/routing?view=aspnetcore-2.1).
 
 ::: moniker-end
 

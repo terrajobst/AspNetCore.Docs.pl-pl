@@ -8,12 +8,12 @@ ms.date: 10/14/2017
 ms.assetid: 8935bf14-ca6d-4a4e-9dbe-b96ce74cef49
 msc.legacyurl: /ajax/cdn
 msc.type: content
-ms.openlocfilehash: 2445d788df8ae80ccaad2dfeb19d1ccb91954d40
-ms.sourcegitcommit: ec71fd5a988f927ae301813aae5ff764feb3bb6a
+ms.openlocfilehash: 65eee9bc477fc8adf10e8d819b93375ffbb72d7b
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54249584"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341842"
 ---
 <a name="microsoft-ajax-content-delivery-network"></a>Usługa Microsoft AJAX Content Delivery Network
 ====================
@@ -27,7 +27,7 @@ ms.locfileid: "54249584"
 ## <a name="table-of-contents"></a>Spis treści
 
 **[zmieniona na ajax.aspnetcdn.com AJAX.microsoft.com](#ajaxmicrosoftcom_renamed_to_ajaxaspnetcdncom_18)**  
-**[Obsługa .vsdoc programu Visual Studio](#Visual_Studio_vsdoc_Support_19)**  
+**[Visual Studio .vsdoc Support](#Visual_Studio_vsdoc_Support_19)**  
 **[Za pomocą kodu ASP.NET Ajax z sieci CDN](#Using_ASPNET_Ajax_from_the_CDN_20)**  
 **[Przy użyciu jQuery z sieci CDN](#Using_jQuery_from_the_CDN_21)**  
 **[Przy użyciu jQuery interfejsu użytkownika z usługi CDN](#Using_jQuery_UI_from_the_CDN_22)**  
@@ -71,7 +71,7 @@ Usługa CDN obsługuje następujące biblioteki skryptów innych firm, które zo
 Microsoft Ajax CDN zawiera również następujące biblioteki, które zostały przekazane przez firmę Microsoft:
 
 - ASP.NET AJAX
-- Pliki JavaScript platformy ASP.NET MVC
+- ASP.NET MVC JavaScript Files
 - Pliki ASP.NET SignalR JavaScript
 
 Microsoft zastrzega sobie prawa własności do żadnych bibliotek innych firm, hostowanych w tej sieci CDN. Właściciele praw autorskich bibliotek korzystają z licencji tych bibliotek do Ciebie. Wszelkie prawa, które może być konieczne pobranie i używanie biblioteki są przyznawane wyłącznie przez właścicieli praw autorskich. Ponieważ nie są to biblioteki Microsoft, firma Microsoft oferuje żadnych gwarancji ani licencji praw własności intelektualnej (w tym nie domyślnych praw patentowych) bibliotek innych firm, hostowanych w tej sieci CDN.
@@ -661,7 +661,7 @@ Następujące wersje wtyczki szablonów jQuery znajdują się w tej sieci CDN. K
 Następujące wersje wtyczki cyklu jQuery znajdują się w tej sieci CDN. Kliknij każdy link, aby wyświetlić rzeczywiste listę plików.
 
 - [jQuery Cycle 2.99](jquery-cycle/cdnjquerycycle299.md "jQuery Cycle 2.99")
-- [jQuery 2,94 cyklu](jquery-cycle/cdnjquerycycle294.md "jQuery 2,94 cyklu")
+- [jQuery Cycle 2.94](jquery-cycle/cdnjquerycycle294.md "jQuery Cycle 2.94")
 - [jQuery Cycle 2.88](jquery-cycle/cdnjquerycycle288.md "jQuery Cycle 2.88")
 
 <a id="jQuery_DataTables_Releases_on_the_CDN_7"></a>
@@ -672,7 +672,7 @@ Następujące wersje wtyczki DataTables jQuery znajdują się w tej sieci CDN. K
 
 - [jQuery DataTables 1.10.5](jquery-datatables/cdnjquerydatatables105.md "jQuery DataTables 1.10.5")
 - [jQuery DataTables 1.10.4](jquery-datatables/cdnjquerydatatables104.md "jQuery DataTables 1.10.4")
-- [jQuery DataTables pytanie 1.9.4](jquery-datatables/cdnjquerydatatables194.md "jQuery DataTables pytanie 1.9.4")
+- [jQuery DataTables 1.9.4](jquery-datatables/cdnjquerydatatables194.md "jQuery DataTables 1.9.4")
 - [jQuery DataTables 1.9.3](jquery-datatables/cdnjquerydatatables193.md "jQuery DataTables 1.9.3")
 - [jQuery DataTables 1.9.2](jquery-datatables/cdnjquerydatatables192.md "jQuery DataTables 1.9.2")
 - [jQuery DataTables 1.9.1](jquery-datatables/cdnjquerydatatables191.md "jQuery DataTables 1.9.1")
@@ -797,6 +797,21 @@ Następujące wersje programu [https://github.com/scottjehl/Respond](https://git
 
 Następujące wersje programu [getbootstrap.com](http://getbootstrap.com "getbootstrap.com") bootstrap znajdują się w sieci CDN:
 
+#### <a name="bootstrap-version-421"></a>Wersja bootstrap 4.2.1
+
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/bootstrap.js
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/bootstrap.min.js
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/bootstrap.bundle.js
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/css/bootstrap.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/css/bootstrap.css.map
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/css/bootstrap.min.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/css/bootstrap-grid.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/css/bootstrap-grid.min.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/css/bootstrap-grid.css.map
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/css/bootstrap-reboot.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/css/bootstrap-reboot.min.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/css/bootstrap-reboot.css.map
+
 #### <a name="bootstrap-version-411"></a>Wersja bootstrap 4.1.1
 
 - https://ajax.aspnetcdn.com/ajax/bootstrap/4.1.1/bootstrap.js
@@ -826,6 +841,22 @@ Następujące wersje programu [getbootstrap.com](http://getbootstrap.com "getboo
 - https://ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/css/bootstrap-reboot.css
 - https://ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/css/bootstrap-reboot.min.css
 - https://ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/css/bootstrap-reboot.css.map
+
+#### <a name="bootstrap-version-340"></a>Wersja bootstrap 3.4.0
+
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/bootstrap.js
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/bootstrap.min.js
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/css/bootstrap.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/css/bootstrap.css.map
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/css/bootstrap.min.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/css/bootstrap-theme.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/css/bootstrap-theme.css.map
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/css/bootstrap-theme.min.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/fonts/glyphicons-halflings-regular.eot
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/fonts/glyphicons-halflings-regular.svg
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/fonts/glyphicons-halflings-regular.ttf
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/fonts/glyphicons-halflings-regular.woff
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/fonts/glyphicons-halflings-regular.woff2
 
 #### <a name="bootstrap-version-337"></a>Wersja bootstrap 3.3.7
 
@@ -1062,7 +1093,7 @@ Następujące wersje programu [getbootstrap.com](http://getbootstrap.com "getboo
 
 Następujące wersje programu [https://github.com/ixisio/bootstrap-touch-carousel](https://github.com/ixisio/bootstrap-touch-carousel "https://github.com/ixisio/bootstrap-touch-carousel") Bootstrap TouchCarousel wersji znajdują się w sieci CDN:
 
-#### <a name="bootstrap-touchcarousel-version-080"></a>Bootstrap TouchCarousel wersja 0.8.0
+#### <a name="bootstrap-touchcarousel-version-080"></a>Bootstrap TouchCarousel version 0.8.0
 
 - https://ajax.aspnetcdn.com/ajax/bootstrap-touch-carousel/0.8.0/css/bootstrap-touch-carousel.css
 - https://ajax.aspnetcdn.com/ajax/bootstrap-touch-carousel/0.8.0/js/bootstrap-touch-carousel.js

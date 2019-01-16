@@ -1,19 +1,19 @@
 ---
-title: Moduł ASP.NET Core
+title: ASP.NET Core Module
 author: guardrex
 description: Dowiedz się, jak skonfigurować modułu ASP.NET Core do hostowania aplikacji platformy ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
 ms.date: 01/11/2019
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: f97d6f188bfcba6285cbd1fa91ce530e96395929
-ms.sourcegitcommit: ec71fd5a988f927ae301813aae5ff764feb3bb6a
+ms.openlocfilehash: a39ece169199d256b2914d6b1a6d24dbf6a276d6
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54249571"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341787"
 ---
-# <a name="aspnet-core-module"></a>Moduł ASP.NET Core
+# <a name="aspnet-core-module"></a>ASP.NET Core Module
 
 Przez [Tom Dykstra](https://github.com/tdykstra), [Rick Strahl](https://github.com/RickStrahl), [Chris Ross](https://github.com/Tratcher), [Rick Anderson](https://twitter.com/RickAndMSFT), [Sourabh Shirhatti](https://twitter.com/sshirhatti), [ Justin Kotalik](https://github.com/jkotalik), i [Luke Latham](https://github.com/guardrex)
 
@@ -111,7 +111,7 @@ Ponieważ aplikacje platformy ASP.NET Core, uruchom w procesie oddzielić od pro
 
 Na poniższym diagramie przedstawiono relację między usług IIS, modułu ASP.NET Core i aplikacji:
 
-![Moduł ASP.NET Core](aspnet-core-module/_static/ancm-outofprocess.png)
+![ASP.NET Core Module](aspnet-core-module/_static/ancm-outofprocess.png)
 
 Żądania pojawić się w sieci Web w trybie jądra sterownik HTTP.sys. Sterownik kieruje żądania do usługi IIS w witrynie sieci Web skonfigurowanego portu, zwykle 80 (HTTP) lub 443 (HTTPS). Moduł przekazuje żądania do Kestrel na losowy port aplikacji, która nie jest port 80 i 443.
 
@@ -244,7 +244,7 @@ Aby uzyskać informacji na temat konfigurowania aplikacji podrzędnych usług II
 | `shutdownTimeLimit` | <p>Atrybut opcjonalną liczbą całkowitą.</p><p>Czas trwania w sekundach module pliku wykonywalnego, który jest bezpiecznie zamknąć podczas *app_offline.htm* Wykryto plik.</p> | Wartość domyślna: `10`<br>Minimalna: `0`<br>Maks.: `600` |
 | `startupTimeLimit` | <p>Atrybut opcjonalną liczbą całkowitą.</p><p>Czas trwania w sekundach modułu dla pliku wykonywalnego do uruchomienia procesu nasłuchuje na porcie. Jeśli ten limit czasu zostanie przekroczony, moduł kasuje procesu. Moduł spróbuje ponownie uruchomić proces, gdy otrzymuje nowe żądanie oraz podejmować próby ponownego uruchomienia procesu dla kolejnych żądań przychodzących, chyba że aplikacja nie została uruchomiona w dalszym ciągu **rapidFailsPerMinute** liczbę razy w ciągu ostatnich stopniowe minuta.</p><p>Wartość 0 (zero) jest **nie** uważane za nieskończony limit czasu.</p> | Wartość domyślna: `120`<br>Minimalna: `0`<br>Maks.: `3600` |
 | `stdoutLogEnabled` | <p>Opcjonalny logiczny atrybut.</p><p>W przypadku opcji true **stdout** i **stderr** dla procesu określonego w **processPath** są przekierowywane do pliku określonego w **stdoutLogFile**.</p> | `false` |
-| `stdoutLogFile` | <p>Atrybut opcjonalny ciąg.</p><p>Określa ścieżkę względną lub bezwzględną, dla którego **stdout** i **stderr** z określonym w procesie **processPath** są rejestrowane. Są ścieżki względne względem katalogu głównego witryny. Dowolną ścieżkę, począwszy od `.` są względem lokacji głównej i wszystkich innych ścieżek są traktowane jako ścieżek bezwzględnych. Wszystkie foldery w ścieżce musi istnieć w kolejności dla modułu, można utworzyć pliku dziennika. Za pomocą ograniczniki podkreślenia, timestamp, identyfikator procesu i rozszerzenie pliku (*.log*) są dodawane do ostatniego segment **stdoutLogFile** ścieżki. Jeśli `.\logs\stdout` jest dostarczany jako wartość przykład stdout dziennik jest zapisywany jako *stdout_20180205194132_1934.log* w *dzienniki* folderu po zapisaniu 2/5/2018 o 19:41:32 przy użyciu procesu o identyfikatorze 1934.</p> | `aspnetcore-stdout` |
+| `stdoutLogFile` | <p>Atrybut opcjonalny ciąg.</p><p>Określa ścieżkę względną lub bezwzględną, dla którego **stdout** i **stderr** z określonym w procesie **processPath** są rejestrowane. Są ścieżki względne względem katalogu głównego witryny. Dowolną ścieżkę, począwszy od `.` są względem lokacji głównej i wszystkich innych ścieżek są traktowane jako ścieżek bezwzględnych. Wszystkie foldery w ścieżce są tworzone przez moduł, gdy plik dziennika jest tworzony. Za pomocą ograniczniki podkreślenia, timestamp, identyfikator procesu i rozszerzenie pliku (*.log*) są dodawane do ostatniego segment **stdoutLogFile** ścieżki. Jeśli `.\logs\stdout` jest dostarczany jako wartość przykład stdout dziennik jest zapisywany jako *stdout_20180205194132_1934.log* w *dzienniki* folderu po zapisaniu 2/5/2018 o 19:41:32 przy użyciu procesu o identyfikatorze 1934.</p> | `aspnetcore-stdout` |
 
 ::: moniker-end
 
@@ -364,7 +364,7 @@ Jeśli modułu ASP.NET Core nie uda się uruchomić procesu wewnętrznej bazy da
 
 ## <a name="log-creation-and-redirection"></a>Tworzenia dziennika i Przekierowanie
 
-Modułu ASP.NET Core przekierowuje dane wyjściowe stdout i stderr konsoli do dysku, jeśli `stdoutLogEnabled` i `stdoutLogFile` atrybuty `aspNetCore` elementu są ustawione. Wszystkie foldery w `stdoutLogFile` ścieżka musi istnieć w kolejności dla modułu, można utworzyć pliku dziennika. Pula aplikacji musi mieć dostęp do zapisu do lokalizacji, w którym zapisywane są dzienniki (Użyj `IIS AppPool\<app_pool_name>` zapewnienie uprawnienia do zapisu).
+Modułu ASP.NET Core przekierowuje dane wyjściowe stdout i stderr konsoli do dysku, jeśli `stdoutLogEnabled` i `stdoutLogFile` atrybuty `aspNetCore` elementu są ustawione. Wszystkie foldery w `stdoutLogFile` ścieżki są tworzone przez moduł, gdy plik dziennika jest tworzony. Pula aplikacji musi mieć dostęp do zapisu do lokalizacji, w którym zapisywane są dzienniki (Użyj `IIS AppPool\<app_pool_name>` zapewnienie uprawnienia do zapisu).
 
 Dzienniki nie są obracane, chyba że wystąpi procesu recykling/ponowne uruchomienie. Jest odpowiedzialny za dostawcy usług hostingowych w celu ograniczenia ilości miejsca na dysku przez dzienniki.
 

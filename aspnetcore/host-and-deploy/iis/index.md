@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/11/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 3239b4652d739ed2ac205c9daae7754dbd8e918c
-ms.sourcegitcommit: ec71fd5a988f927ae301813aae5ff764feb3bb6a
+ms.openlocfilehash: 83c084beb059d803811e9739d34bdbdd6bcff463
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54249561"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341800"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host platformy ASP.NET Core na Windows za pomocą programu IIS
 
@@ -312,11 +312,6 @@ W przypadku wdrażania aplikacji na serwerach z [narzędzia Web Deploy](/iis/pub
 ## <a name="create-the-iis-site"></a>Tworzenie witryny usług IIS
 
 1. W systemie hostingu utworzyć folderu zawierającego pliki i foldery opublikowanych aplikacji. Układ wdrożenia aplikacji jest opisana w [strukturę katalogów](xref:host-and-deploy/directory-structure) tematu.
-
-1. W ramach nowego folderu, utworzyć *dzienniki* folder do przechowywania dzienników stdout modułu ASP.NET Core w przypadku, gdy jest włączone rejestrowanie strumienia stdout. Jeśli aplikacja jest wdrożona za pomocą *dzienniki* folderu w ładunku, Pomiń ten krok. Aby uzyskać instrukcje dotyczące włączania MSBuild tworzenia *dzienniki* folderu automatycznie, gdy projekt jest skompilowany lokalnie, zobacz [strukturę katalogów](xref:host-and-deploy/directory-structure) tematu.
-
-   > [!IMPORTANT]
-   > Należy używać tylko w dzienniku stdout rozwiązywać problemy z uruchamianiem aplikacji. Nigdy nie używaj rejestrowanie strumienia stdout do rejestrowania procedury aplikacji. Brak brak limitu rozmiaru pliku dziennika lub liczba pliki dziennika utworzone. Pula aplikacji musi mieć dostęp do zapisu do lokalizacji, w którym zapisywane są dzienniki. Wszystkie foldery na ścieżkę do lokalizacji dziennika, musi istnieć. Aby uzyskać więcej informacji na temat dzienników stdout, zobacz [tworzenia i Przekierowanie dziennika](xref:host-and-deploy/aspnet-core-module#log-creation-and-redirection). Instrukcje dotyczące rejestrowania w aplikacji ASP.NET Core, zobacz [rejestrowania](xref:fundamentals/logging/index) tematu.
 
 1. W **Menedżera usług IIS**, otwórz węzeł serwera w **połączeń** panelu. Kliknij prawym przyciskiem myszy **witryn** folderu. Wybierz **Dodawanie witryny sieci Web** z menu kontekstowego.
 

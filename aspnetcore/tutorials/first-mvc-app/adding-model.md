@@ -5,12 +5,12 @@ description: Dodawanie modelu do prostą aplikację platformy ASP.NET Core.
 ms.author: riande
 ms.date: 12/8/2017
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: 630b4b0549a8549d9570d701fb1691310ec442c3
-ms.sourcegitcommit: 4e87712029de2aceb1cf2c52e9e3dda8195a5b8e
+ms.openlocfilehash: 062a248ffdf8e30ed01a72e0a555c1c9a1ab1b6d
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53381858"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341615"
 ---
 # <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>Dodawanie modelu do aplikacji ASP.NET Core MVC
 
@@ -34,7 +34,7 @@ Kliknij prawym przyciskiem myszy *modeli* folder > **Dodaj** > **klasy**. Nazwa 
 [!INCLUDE [model 1b](~/includes/mvc-intro/model1b.md)]
 
 <!-- Code -------------------------->
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Program Visual Studio Code / Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code / Visual Studio for Mac](#tab/visual-studio-code+visual-studio-mac)
 
 * Dodaj klasę umożliwiającą *modeli* folder o nazwie *Movie.cs*.
 
@@ -164,13 +164,17 @@ Update-Database
 `Add-Migration` Polecenie generuje kod, aby utworzyć schemat początkowej bazy danych.
 <!-- Code -------------------------->
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Program Visual Studio Code / Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code / Visual Studio for Mac](#tab/visual-studio-code+visual-studio-mac)
 
 [!INCLUDE [initial migration](~/includes/RP/model3.md)]
 `ef migrations add InitialCreate` Polecenie generuje kod, aby utworzyć schemat początkowej bazy danych.
 
 ---  
 <!-- End of VS tabs -->
+
+Poprzednich poleceniach generuje następujące ostrzeżenie: "Nie określono typu dziesiętną kolumny"Cena"jednostki typu"Filmu". To spowoduje, że wartości, aby dyskretnie obcięty, jeśli nie mieszczą się w domyślnej dokładności i skali. Jawnie określić typ kolumny serwera SQL, która może pomieścić wszystkie wartości przy użyciu "HasColumnType()"."
+
+Możesz zignorować ostrzeżenie o tym, zostanie rozwiązany później w samouczku.
 
 Schemat jest oparta na modelu, określone w `DbContext` (w *Models/MvcMovieContext.cs* pliku). `InitialCreate` Argument jest używany do nazywania migracje. Można dowolną nazwę, ale zgodnie z Konwencją, wybrane nazwę opisującą migracji.
 
@@ -199,7 +203,7 @@ Powyższy kod tworzy [ `DbSet<Movie>` ](/dotnet/api/microsoft.entityframeworkcor
 Nazwa ciągu połączenia jest przekazywany do kontekstu przez wywołanie metody na [DbContextOptions](/dotnet/api/microsoft.entityframeworkcore.dbcontextoptions) obiektu. Na potrzeby lokalnego programowania dla [systemu konfiguracji platformy ASP.NET Core](xref:fundamentals/configuration/index) odczytuje parametry połączenia z *appsettings.json* pliku.
 <!-- Code -------------------------->
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Program Visual Studio Code / Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code / Visual Studio for Mac](#tab/visual-studio-code+visual-studio-mac)
 
 Platforma ASP.NET Core został utworzony za pomocą [wstrzykiwanie zależności](xref:fundamentals/dependency-injection). Usługi (takie jak kontekst bazy danych programu EF Core) zostały zarejestrowane przy użyciu iniekcji zależności podczas uruchamiania aplikacji. Składniki, które wymagają tych usług (np. strony Razor) znajdują się tych usług za pomocą parametry konstruktora. Kod konstruktora, który pobiera wystąpienia kontekstu bazy danych jest przedstawiony w dalszej części tego samouczka.
 

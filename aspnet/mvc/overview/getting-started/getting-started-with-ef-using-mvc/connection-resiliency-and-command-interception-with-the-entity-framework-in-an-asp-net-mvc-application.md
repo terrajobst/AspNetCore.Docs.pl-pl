@@ -1,33 +1,39 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application
-title: Połączeń i przejmowanie poleceń z platformą Entity Framework w aplikacji ASP.NET MVC | Dokumentacja firmy Microsoft
+title: 'Samouczek: Za pomocą połączenia odporność i polecenia przejmowanie EF w aplikacji ASP.NET MVC'
 author: tdykstra
-description: Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 5 przy użyciu Entity Framework 6 Code First i programu Visual Studio...
+description: W tym samouczku dowiesz się, jak używać połączenia przejmowanie odporność i polecenia. Są one dwie ważne funkcje programu Entity Framework 6.
 ms.author: riande
-ms.date: 01/13/2015
+ms.date: 01/14/2018
+ms.topic: tutorial
 ms.assetid: c89d809f-6c65-4425-a3fa-c9f6e8ac89f2
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: ab6a553100d704746840eaad512ec140d4576c44
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: fae5c7e1ad1000ed90630c3620b853de3a735d60
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48911789"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341735"
 ---
-<a name="connection-resiliency-and-command-interception-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Połączeń i przejmowanie poleceń z platformą Entity Framework w aplikacji ASP.NET MVC
-====================
-przez [Tom Dykstra](https://github.com/tdykstra)
-
-[Pobierz ukończony projekt](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
-
-> Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 5 przy użyciu Entity Framework 6 Code First i programu Visual Studio. Aby uzyskać informacji na temat tej serii samouczka, zobacz [pierwszym samouczku tej serii](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
+# <a name="tutorial-use-connection-resiliency-and-command-interception-with-entity-framework-in-an-aspnet-mvc-app"></a>Samouczek: Za pomocą połączenia odporność i polecenie zatrzymania programu Entity Framework w aplikacji ASP.NET MVC
 
 Do tej pory aplikacja była uruchomiona lokalnie w usługach IIS Express na komputerze deweloperskim. Aby udostępnić rzeczywistej aplikacji innym osobom korzystanie przez Internet, należy wdrożyć je do dostawcy usług hosta sieci web, a trzeba wdrożyć bazę danych serwera bazy danych.
 
-W tym samouczku dowiesz się, jak korzystać z dwóch funkcji programu Entity Framework 6, które są szczególnie przydatne w przypadku wdrażania w środowisku chmury: połączenia (Automatyczne ponawianie prób dla błędów przejściowych) i przejmowanie poleceń (catch, wszystkie zapytania SQL wysyłane do bazy danych, aby można było zalogować się lub je zmienić).
+W tym samouczku dowiesz się, jak używać połączenia przejmowanie odporność i polecenia. Są one dwie ważne funkcje programu Entity Framework 6, które są szczególnie przydatne w przypadku wdrażania w środowisku chmury: połączenia (Automatyczne ponawianie prób dla błędów przejściowych) i przejmowanie poleceń (catch wszystkie zapytania SQL wysyłane do bazy danych Aby można było rejestrować lub je zmienić.)
 
 Ten samouczek przejmowanie połączenia, jak odporność i polecenia jest opcjonalne. Jeśli pominiesz ten samouczek kilku drobnych korekt musi nastąpić w kolejnych samouczkach.
+
+W ramach tego samouczka możesz:
+
+> [!div class="checklist"]
+> * Włączanie połączeń
+> * Włącz przejmowanie poleceń
+> * Nowa konfiguracja testu
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+* [Sortowanie, filtrowanie i stronicowanie](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application.md)
 
 ## <a name="enable-connection-resiliency"></a>Włączanie połączeń
 
@@ -135,7 +141,7 @@ Następnie utworzysz klas, które platformy Entity Framework będzie wywoływać
 
     Kodzie symulacji błędu przejściowego napisanych w taki sposób, że można spowodować błędy przejściowe, wprowadzając inną wartość w interfejsie użytkownika. Alternatywnie można napisać kod interceptor, aby zawsze Generuj sekwencji przejściowych wyjątków bez sprawdzania pod kątem wartości określonego parametru. Następnie można dodać interceptor tylko wtedy, gdy chcesz wygenerować błędów przejściowych. Jeśli to zrobisz, jednak nie dodać interceptor do momentu po ukończeniu inicjowania bazy danych. Innymi słowy należy wykonać co najmniej jedna baza danych operacji, takich jak zapytania na jednym z zestawów encji, przed rozpoczęciem generowania błędów przejściowych. Entity Framework wykonuje kilka zapytań podczas inicjowania bazy danych, a nie są one wykonywane w ramach transakcji, więc błędy podczas inicjowania może spowodować, że kontekst do pobrania w niespójnym stanie.
 
-## <a name="test-logging-and-connection-resiliency"></a>Test połączenia i rejestrowania odporności
+## <a name="test-the-new-configuration"></a>Nowa konfiguracja testu
 
 1. Naciśnij klawisz **F5** do uruchomienia aplikacji w trybie debugowania, a następnie kliknij przycisk **studentów** kartę.
 2. Przyjrzyj się programu Visual Studio **dane wyjściowe** okno, aby wyświetlić dane wyjściowe śledzenia. Może być konieczne przewinięcie ostatnie niektóre błędy języka JavaScript, aby uzyskać dostęp do dzienników napisany przez użytkownika rejestratora.
@@ -167,14 +173,19 @@ Następnie utworzysz klas, które platformy Entity Framework będzie wywoływać
     ![Fikcyjny wyjątku](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image4.png)
 5. Usuń znaczniki komentarza *SetExecutionStrategy* linię *SchoolConfiguration.cs*.
 
-## <a name="summary"></a>Podsumowanie
-
-W tym samouczku pokazaliśmy już, jak dziennika poleceń SQL, które platformy Entity Framework Redaguj i wysyła do bazy danych i Włącz elastyczność połączenia. W następnym samouczku wdrożysz aplikację z Internetem, użycia migracje Code First na potrzeby wdrażania bazy danych.
-
-Jak się podoba w tym samouczku, i co można było ulepszyć proces Wystaw opinię.
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 Linki do innych zasobów platformy Entity Framework można znaleźć w [dostęp do danych platformy ASP.NET — zalecane zasoby](../../../../whitepapers/aspnet-data-access-content-map.md).
 
-> [!div class="step-by-step"]
-> [Poprzednie](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-> [dalej](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+## <a name="next-steps"></a>Następne kroki
+
+W ramach tego samouczka możesz:
+
+> [!div class="checklist"]
+> * Elastyczność połączenia włączone
+> * Przejmowanie poleceń włączone
+> * Przetestować nową konfigurację
+
+Przejdź do następnego artykułu, aby dowiedzieć się więcej o migracje Code First i wdrażania na platformie Azure.
+> [!div class="nextstepaction"]
+> [Migracje Code First i wdrażania na platformie Azure](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application.md)

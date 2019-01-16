@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/11/2018
 uid: host-and-deploy/directory-structure
-ms.openlocfilehash: ee0bebb8b5c688f8471d6420d1641b87ac271f6c
-ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
+ms.openlocfilehash: 4bc5ead8e24c4bb7fe6cd2f52fd2aa622187180c
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284568"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341397"
 ---
 # <a name="aspnet-core-directory-structure"></a>Struktura katalogów platformy ASP.NET Core
 
@@ -28,8 +28,8 @@ Przez [Luke Latham](https://github.com/guardrex)
 
 | Typ aplikacji | Struktura katalogów |
 | -------- | ------------------- |
-| [Wdrożenie zależny od struktury](/dotnet/core/deploying/#framework-dependent-deployments-fdd) | <ul><li>Publikowanie&dagger;<ul><li>Dzienniki&dagger; (opcjonalnie, o ile nie jest wymagane w celu odbierania dzienników stdout)</li><li>Widoki&dagger; (MVC aplikacji; Jeśli widoków nie są wstępnie skompilowane)</li><li>Strony&dagger; (MVC ani stron Razor aplikacji; Jeśli strony nie są wstępnie skompilowane)</li><li>Wwwroot&dagger;</li><li>*\.pliki dll</li><li>{Nazwa zestawu} deps.JSON</li><li>{Nazwa zestawu} .dll</li><li>{Nazwa zestawu} .pdb</li><li>{NAZWA ZESTAWU}. Views.dll</li><li>{NAZWA ZESTAWU}. Views.pdb</li><li>{Nazwa zestawu}.runtimeconfig.json</li><li>plik Web.config (w przypadku wdrożeń usług IIS)</li></ul></li></ul> |
-| [Niezależne wdrożenia](/dotnet/core/deploying/#self-contained-deployments-scd) | <ul><li>Publikowanie&dagger;<ul><li>Dzienniki&dagger; (opcjonalnie, o ile nie jest wymagane w celu odbierania dzienników stdout)</li><li>Widoki&dagger; (MVC aplikacji; Jeśli widoków nie są wstępnie skompilowane)</li><li>Strony&dagger; (MVC ani stron Razor aplikacji; Jeśli strony nie są wstępnie skompilowane)</li><li>Wwwroot&dagger;</li><li>\*pliki z rozszerzeniem dll</li><li>{Nazwa zestawu} deps.JSON</li><li>{Nazwa zestawu} .dll</li><li>{Nazwa zestawu} .exe</li><li>{Nazwa zestawu} .pdb</li><li>{NAZWA ZESTAWU}. Views.dll</li><li>{NAZWA ZESTAWU}. Views.pdb</li><li>{Nazwa zestawu}.runtimeconfig.json</li><li>plik Web.config (w przypadku wdrożeń usług IIS)</li></ul></li></ul> |
+| [Framework-dependent Deployment](/dotnet/core/deploying/#framework-dependent-deployments-fdd) | <ul><li>Publikowanie&dagger;<ul><li>Dzienniki&dagger; (opcjonalnie, o ile nie jest wymagane w celu odbierania dzienników stdout)</li><li>Widoki&dagger; (MVC aplikacji; Jeśli widoków nie są wstępnie skompilowane)</li><li>Strony&dagger; (MVC ani stron Razor aplikacji; Jeśli strony nie są wstępnie skompilowane)</li><li>wwwroot&dagger;</li><li>*\.pliki dll</li><li>{Nazwa zestawu} deps.JSON</li><li>{Nazwa zestawu} .dll</li><li>{Nazwa zestawu} .pdb</li><li>{ASSEMBLY NAME}.Views.dll</li><li>{NAZWA ZESTAWU}. Views.pdb</li><li>{Nazwa zestawu}.runtimeconfig.json</li><li>plik Web.config (w przypadku wdrożeń usług IIS)</li></ul></li></ul> |
+| [Niezależne wdrożenia](/dotnet/core/deploying/#self-contained-deployments-scd) | <ul><li>Publikowanie&dagger;<ul><li>Dzienniki&dagger; (opcjonalnie, o ile nie jest wymagane w celu odbierania dzienników stdout)</li><li>Widoki&dagger; (MVC aplikacji; Jeśli widoków nie są wstępnie skompilowane)</li><li>Strony&dagger; (MVC ani stron Razor aplikacji; Jeśli strony nie są wstępnie skompilowane)</li><li>wwwroot&dagger;</li><li>\*pliki z rozszerzeniem dll</li><li>{Nazwa zestawu} deps.JSON</li><li>{Nazwa zestawu} .dll</li><li>{Nazwa zestawu} .exe</li><li>{Nazwa zestawu} .pdb</li><li>{ASSEMBLY NAME}.Views.dll</li><li>{NAZWA ZESTAWU}. Views.pdb</li><li>{Nazwa zestawu}.runtimeconfig.json</li><li>plik Web.config (w przypadku wdrożeń usług IIS)</li></ul></li></ul> |
 
 &dagger;Określa katalog
 
@@ -37,7 +37,7 @@ Przez [Luke Latham](https://github.com/guardrex)
 
 *Wwwroot* katalogu, jeśli jest obecny, zawiera tylko statyczne elementy zawartości.
 
-Stdout *dzienniki* katalogu mogą być tworzone dla wdrożenia przy użyciu jednej z następujących dwóch metod:
+A *dzienniki* katalogu mogą być tworzone dla wdrożenia przy użyciu jednej z następujących dwóch metod:
 
 * Dodaj następujący kod `<Target>` element do pliku projektu:
 
@@ -57,6 +57,8 @@ Stdout *dzienniki* katalogu mogą być tworzone dla wdrożenia przy użyciu jedn
 * Utwórz fizycznie *dzienniki* katalogu na serwerze w trakcie wdrażania.
 
 Katalog wdrażania musi mieć uprawnienia odczytu/Execute. *Dzienniki* katalogu musi mieć uprawnienia odczytu/zapisu. Dodatkowe katalogi, w którym są zapisywane pliki muszą mieć uprawnienia odczytu/zapisu.
+
+[Rejestrowanie strumienia stdout moduł Core ASP.NET](xref:host-and-deploy/aspnet-core-module#log-creation-and-redirection) nie wymaga *dzienniki* folderu we wdrożeniu. Moduł jest w stanie tworzenie wszystkie foldery w `stdoutLogFile` ścieżki, gdy plik dziennika jest tworzony. Tworzenie *dzienniki* folderu jest przydatne w przypadku [modułu ASP.NET Core ulepszone rejestrowanie debugowania](xref:host-and-deploy/aspnet-core-module#enhanced-diagnostic-logs). Foldery w ścieżce podanej do `<handlerSetting>` wartości nie są tworzone automatycznie przez moduł i wstępnie powinno istnieć we wdrożeniu, aby umożliwić modułu do zapisywania dzienników debugowania.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

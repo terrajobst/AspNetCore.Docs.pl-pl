@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 11/06/2018
 uid: fundamentals/websockets
-ms.openlocfilehash: 3a649f88699d61636d9aa7fbfe4468ca67b3b018
-ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
+ms.openlocfilehash: 6c32269181ea3311c4aea99c08a1c043e7833b05
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51225411"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341456"
 ---
 # <a name="websockets-support-in-aspnet-core"></a>Obsługa protokółu Websocket w programie ASP.NET Core
 
@@ -34,7 +34,7 @@ W tym artykule wyjaśniono, jak rozpocząć pracę z gniazda Websocket w program
 * Jeśli aplikacja działa w systemie Windows za pomocą programu IIS:
 
   * Windows 8 / Windows Server 2012 lub nowszy
-  * Usługi IIS 8 / 8 usług IIS Express
+  * IIS 8 / IIS 8 Express
   * Musi być włączona funkcja WebSockets (zobacz [obsługi usług IIS/IIS Express](#iisiis-express-support) sekcji.).
   
 * Jeśli aplikacja jest uruchamiana [HTTP.sys](xref:fundamentals/servers/httpsys):
@@ -156,13 +156,7 @@ Jednak wysłać przeglądarek `Origin` nagłówka podczas wystawiania żądania 
 
 Jeśli przechowujesz serwera na "https://server.com"i hosting w systemie klienta"https://client.com", Dodaj "https://client.com" Aby `AllowedOrigins` listy dla funkcji WebSockets sprawdzić.
 
-```csharp
-app.UseWebSockets(new WebSocketOptions()
-{
-    AllowedOrigins.Add("https://client.com");
-    AllowedOrigins.Add("https://www.client.com");
-});
-```
+[!code-csharp[](websockets/samples/2.x/WebSocketsSample/Startup.cs?name=UseWebSocketsOptionsAO&highlight=6-7)]
 
 > [!NOTE]
 > `Origin` Nagłówek jest kontrolowany przez klienta i, podobnie jak `Referer` nagłówka, mogą zostać sfałszowane. Czy **nie** Użyj tych nagłówków jako mechanizm uwierzytelniania.
@@ -184,12 +178,12 @@ Aby włączyć obsługę protokołu WebSocket w systemie Windows Server 2012 lub
 > Te kroki nie są wymagane w przypadku korzystania z usług IIS Express
 
 1. Użyj **Dodaj role i funkcje** kreatora z **Zarządzaj** menu lub linku w **Menedżera serwera**.
-1. Wybierz **Instalacja oparta na rolach lub oparta na funkcjach**. Wybierz **dalej**.
-1. Wybierz odpowiedni serwer (serwer lokalny jest wybrane domyślnie). Wybierz **dalej**.
+1. Wybierz **Instalacja oparta na rolach lub oparta na funkcjach**. Wybierz opcję **Dalej**.
+1. Wybierz odpowiedni serwer (serwer lokalny jest wybrane domyślnie). Wybierz opcję **Dalej**.
 1. Rozwiń **serwer sieci Web (IIS)** w **role** drzewa, a następnie rozwiń **serwera sieci Web**, a następnie rozwiń węzeł **opracowywanie aplikacji**.
-1. Wybierz **protokołu WebSocket**. Wybierz **dalej**.
+1. Wybierz **protokołu WebSocket**. Wybierz opcję **Dalej**.
 1. Jeśli nie są wymagane dodatkowe funkcje, wybierz opcję **dalej**.
-1. Wybierz **zainstalować**.
+1. Wybierz pozycję **Zainstaluj**.
 1. Po zakończeniu instalacji wybierz **Zamknij** aby zakończyć pracę kreatora.
 
 Aby włączyć obsługę protokołu WebSocket w systemie Windows 8 lub nowszy:
@@ -199,7 +193,7 @@ Aby włączyć obsługę protokołu WebSocket w systemie Windows 8 lub nowszy:
 
 1. Przejdź do **Panelu sterowania** > **programy** > **programy i funkcje** > **Windows Włącz funkcje w lub wyłącz** (po lewej stronie ekranu).
 1. Otwórz następujące węzły: **Internetowe usługi informacyjne** > **usługi World Wide Web** > **funkcje tworzenia aplikacji**.
-1. Wybierz **protokołu WebSocket** funkcji. Wybierz **OK**.
+1. Wybierz **protokołu WebSocket** funkcji. Kliknij przycisk **OK**.
 
 ### <a name="disable-websocket-when-using-socketio-on-nodejs"></a>Wyłącz WebSocket, gdy na języku Node.js przy użyciu biblioteki socket.io
 

@@ -1,26 +1,26 @@
 ---
-title: Oprogramowanie pośredniczące platformy ASP.NET Core
+title: ASP.NET Core Middleware
 author: rick-anderson
 description: Więcej informacji na temat oprogramowania pośredniczącego platformy ASP.NET Core i potok żądań.
 ms.author: riande
 ms.custom: mvc
 ms.date: 10/10/2018
 uid: fundamentals/middleware/index
-ms.openlocfilehash: 4e5da1036b77e876899ccdea48bdec69454e1657
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: c55dbd5a9ac31f55daf1cb3146fb18b91b016919
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861488"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341592"
 ---
-# <a name="aspnet-core-middleware"></a>Oprogramowanie pośredniczące platformy ASP.NET Core
+# <a name="aspnet-core-middleware"></a>ASP.NET Core Middleware
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT) i [Steve Smith](https://ardalis.com/)
 
 Oprogramowanie pośredniczące to oprogramowanie, które jest umieszczone w potoku aplikacji do obsługi żądań i odpowiedzi. Poszczególne składniki:
 
 * Pozwala wybrać, czy przekazywać żądania do następnego składnika w potoku.
-* Można wykonywać pracę, przed i po wywołaniu następny składnik w potoku.
+* Można wykonać pracy przed i po nim następny składnik w potoku.
 
 Delegaty żądania są używane do tworzenia potoku żądania. Delegaty żądania obsługi danego żądania HTTP.
 
@@ -54,7 +54,7 @@ Utworzyć łańcuch wielu delegatów żądanie, wraz z <xref:Microsoft.AspNetCor
 >
 > <xref:Microsoft.AspNetCore.Http.HttpResponse.HasStarted*> jest to przydatne wskazówka, aby wskazać, czy nagłówki zostały wysłane, czy jednostka została zapisana.
 
-## <a name="order"></a>Kolejność
+## <a name="order"></a>Zamówienie
 
 Kolejność dodaną składników oprogramowania pośredniczącego w `Startup.Configure` metoda definiuje kolejność, w którym są wywoływane składników oprogramowania pośredniczącego na żądania i odwrotnej kolejności dla odpowiedzi. Kolejność jest krytyczny dla bezpieczeństwa, wydajności i funkcjonalności.
 
@@ -230,7 +230,7 @@ app.Map("/level1", level1App => {
 
 Platforma ASP.NET Core jest dostarczany z następujących składników oprogramowania pośredniczącego. *Kolejności* kolumna zawiera uwagi dotyczące umieszczenia oprogramowanie pośredniczące w potoku żądanie i na jakich warunkach oprogramowanie pośredniczące może zakończyć żądania i uniemożliwić innym oprogramowaniu pośredniczącym przetwarzania żądania.
 
-| Oprogramowanie pośredniczące | Opis | Kolejność |
+| Oprogramowanie pośredniczące | Opis | Zamówienie |
 | ---------- | ----------- | ----- |
 | [Uwierzytelnianie](xref:security/authentication/identity) | Zapewnia obsługę uwierzytelniania. | Przed `HttpContext.User` jest wymagana. Terminala dla wywołania zwrotne OAuth. |
 | [Zasady plików cookie](xref:security/gdpr) | Śledzi zgody od użytkowników do przechowywania informacji osobistych i wymusza standardy minimalne dla pliku cookie pól, takich jak `secure` i `SameSite`. | Zanim oprogramowanie pośredniczące, która wystawia pliki cookie. Przykłady: Uwierzytelnianie, sesji, MVC (TempData). |
@@ -239,8 +239,8 @@ Platforma ASP.NET Core jest dostarczany z następujących składników oprogramo
 | [Nagłówki przekazywane](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions) | Przekazuje nagłówki przekazywane do bieżącego żądania. | Przed składniki, które zużywają zaktualizowanymi polami. Przykłady: schematu, hosta, adres IP klienta, metoda. |
 | [Kontrola kondycji](xref:host-and-deploy/health-checks) | Sprawdza kondycję aplikacji ASP.NET Core oraz jego zależności, takich jak sprawdzanie dostępności bazy danych. | Terminal, gdy żądanie pasuje do endpoint sprawdzania kondycji. |
 | [Zastąpienie metody HTTP](/dotnet/api/microsoft.aspnetcore.builder.httpmethodoverrideextensions) | Zezwala na przychodzące żądania POST przesłonić metodę. | Przed składniki, które zużywają zaktualizowana metoda. |
-| [Przekierowania protokołu HTTPS](xref:security/enforcing-ssl#require-https) | Przekieruj wszystkie żądania HTTP do HTTPS (platformy ASP.NET Core 2.1 lub nowszej). | Przed składniki, których wartość użycia adresu URL. |
-| [Zabezpieczenia transportu Strict HTTP (HSTS)](xref:security/enforcing-ssl#http-strict-transport-security-protocol-hsts) | Oprogramowanie ulepszenie pośredniczące zabezpieczeń, który dodaje nagłówek odpowiedzi specjalne (platformy ASP.NET Core 2.1 lub nowszej). | Przed wysłaniem odpowiedzi i po składniki, które modyfikują żądań. Przykłady: Przekazywane nagłówków, ponownego zapisywania adresów URL. |
+| [HTTPS Redirection](xref:security/enforcing-ssl#require-https) | Przekieruj wszystkie żądania HTTP do HTTPS (platformy ASP.NET Core 2.1 lub nowszej). | Przed składniki, których wartość użycia adresu URL. |
+| [Zabezpieczenia transportu Strict HTTP (HSTS)](xref:security/enforcing-ssl#http-strict-transport-security-protocol-hsts) | Oprogramowanie ulepszenie pośredniczące zabezpieczeń, który dodaje nagłówek odpowiedzi specjalne (platformy ASP.NET Core 2.1 lub nowszej). | Przed wysłaniem odpowiedzi i po składniki, które modyfikują żądań. Przykłady: Nagłówki przekazywane ponownego zapisywania adresów URL. |
 | [MVC](xref:mvc/overview) | Przetwarza żądania przy użyciu stron MVC i Razor (platformy ASP.NET Core w wersji 2.0 lub nowszej). | Terminal, jeśli żądanie jest zgodny z trasą. |
 | [OWIN](xref:fundamentals/owin) | Współdziałanie z aplikacji opartych na OWIN, serwerów i oprogramowania pośredniczącego. | Terminal, jeśli oprogramowanie pośredniczące OWIN w pełni przetwarza żądanie. |
 | [Buforowanie odpowiedzi](xref:performance/caching/middleware) | Zapewnia obsługę buforowania odpowiedzi. | Przed składniki, które wymagają buforowania. |
