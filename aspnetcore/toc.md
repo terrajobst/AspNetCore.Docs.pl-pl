@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: a3ac1ac389892681e8c122d569e6325353ed6e88
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341683"
+---
 # [Dokumentacja platformy ASP.NET Core](/aspnet/#pivot=core)
 
 # Omówienie
@@ -251,7 +259,9 @@
 ### [Publikowanie za pomocą narzędzi interfejsu wiersza polecenia](/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb)
 ### [Publikowanie za pomocą programu Visual Studio i usługi Git](xref:host-and-deploy/azure-apps/azure-continuous-deployment)
 ### [Ciągłe wdrażanie za pomocą usługi Azure Pipelines](/azure/devops/pipelines/get-started-yaml)
-### [Rozwiązywanie problemów spowodowanych błędami uruchamiania](xref:host-and-deploy/azure-apps/troubleshoot)
+### [Moduł ASP.NET Core](xref:host-and-deploy/aspnet-core-module)
+### [Rozwiązywanie problemów](xref:host-and-deploy/azure-apps/troubleshoot)
+### [Informacje o błędach](xref:host-and-deploy/azure-iis-errors-reference)
 ## DevOps 
 ### [Omówienie](xref:azure/devops/index)
 ### [Narzędzia i pliki do pobrania](xref:azure/devops/tools-and-downloads)
@@ -261,10 +271,11 @@
 ### [Następne kroki](xref:azure/devops/next-steps)
 ## Hostowanie w systemie Windows za pomocą usług IIS
 ### [Omówienie](xref:host-and-deploy/iis/index)
-### [Rozwiązywanie problemów w usługach IIS](xref:host-and-deploy/iis/troubleshoot)
 ### [Moduł ASP.NET Core](xref:host-and-deploy/aspnet-core-module)
 ### [Obsługa usług IIS w programie Visual Studio](xref:host-and-deploy/iis/development-time-iis-support)
 ### [Moduły usług IIS](xref:host-and-deploy/iis/modules)
+### [Rozwiązywanie problemów](xref:host-and-deploy/iis/troubleshoot)
+### [Informacje o błędach](xref:host-and-deploy/azure-iis-errors-reference)
 ## [Kestrel](xref:fundamentals/servers/kestrel)
 ## [HTTP.sys](xref:fundamentals/servers/httpsys)
 ## [Hosting w usłudze systemu Windows](xref:host-and-deploy/windows-service)
@@ -279,7 +290,6 @@
 ## [Hosting w farmie internetowej](xref:host-and-deploy/web-farm)
 ## [Publikowanie profilów w programie Visual Studio](xref:host-and-deploy/visual-studio-publish-profiles)
 ## [Struktura katalogów](xref:host-and-deploy/directory-structure)
-## [Dokumentacja błędów dla usług Azure App Service i IIS](xref:host-and-deploy/azure-iis-errors-reference)
 ## [Kontrole kondycji](xref:host-and-deploy/health-checks)
 
 # Zabezpieczenia i tożsamość
@@ -420,6 +430,6 @@
 ### [Moduły HTTP do oprogramowania pośredniczącego](xref:migration/http-modules)
 ## [Rejestrowanie (nie na platformie ASP.NET Core)](xref:migration/logging-nonaspnetcore)
 
-# [Dokumentacja interfejsu API](/dotnet/api/?view=aspnetcore-2.2)
+# [Dokumentacja interfejsu API](/dotnet/api/?view=aspnetcore-2.1)
 
 # [Współtworzenie](https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md)
