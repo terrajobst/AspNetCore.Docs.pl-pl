@@ -8,176 +8,213 @@ ms.date: 02/27/2014
 ms.assetid: 9f24fb82-c7ac-48da-b8e2-51b3da17e365
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/retrieving-data
 msc.type: authoredcontent
-ms.openlocfilehash: b05f3780d7c4e4734b35c0d9377a89d6f3edb0f8
-ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
+ms.openlocfilehash: c53c27f4852eab9813bd917315111e7cd3b04953
+ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51021342"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396288"
 ---
 <a name="retrieving-and-displaying-data-with-model-binding-and-web-forms"></a>Pobieranie i wyświetlanie danych za pomocą wiązania modelu i formularzy sieci web
 ====================
-przez [Tom FitzMacken](https://github.com/tfitzmac)
 
 > W tej serii samouczków pokazano podstawowych aspektów projektu formularzy sieci Web ASP.NET przy użyciu wiązania modelu. Wiązanie modelu sprawia, że dane interakcji prostszą niż rozwiązywania problemów związanych z danymi obiektów źródła (takich jak kontrolki ObjectDataSource lub SqlDataSource). Ta seria rozpoczyna się od wprowadzające informacje i przenosi do bardziej zaawansowanych pojęciach w kolejnych samouczkach.
 > 
-> Wzorca wiązania modelu współpracuje z dowolnym technologii dostępu do danych. W tym samouczku użyjesz programu Entity Framework, ale można użyć technologii dostępu do danych, który jest najbardziej znane. Z kontrolki powiązane z danymi serwera, na przykład kontrolki GridView, ListView, DetailsView lub FormView określane są nazwy metod na potrzeby wybierając, aktualizowanie, usuwanie i tworzenie danych. W tym samouczku należy określić wartość dla metody SelectMethod.
+>  Wzorca wiązania modelu współpracuje z dowolnym technologii dostępu do danych. W tym samouczku użyjesz programu Entity Framework, ale można użyć technologii dostępu do danych, który jest najbardziej znane. Z kontrolki powiązane z danymi serwera, na przykład kontrolki GridView, ListView, DetailsView lub FormView określane są nazwy metod na potrzeby wybierając, aktualizowanie, usuwanie i tworzenie danych. W tym samouczku należy określić wartość dla metody SelectMethod. 
 > 
 > W ramach tej metody można przewidzieć logikę pobierania danych. W następnym samouczku ustawi wartości dla operacji UpdateMethod, DeleteMethod i operacji InsertMethod.
+>
+> Możesz [Pobierz](https://go.microsoft.com/fwlink/?LinkId=286116) kompletnego projektu w C# lub Visual Basic. Do pobrania kod działa, za pomocą programu Visual Studio 2012 i nowszych. Używa szablonu programu Visual Studio 2012, który różni się nieco od szablonu programu Visual Studio 2017, przedstawione w tym samouczku.
 > 
-> Możesz [Pobierz](https://go.microsoft.com/fwlink/?LinkId=286116) kompletnego projektu w języku C# lub VB. Kod do pobrania w programach Visual Studio 2012 lub Visual Studio 2013. Używa szablonu programu Visual Studio 2012, który różni się nieco od szablonu programu Visual Studio 2013, przedstawione w tym samouczku.
-> 
-> W tym samouczku możesz uruchomić aplikację w programie Visual Studio. Można także udostępnić aplikację za pośrednictwem Internetu przez wdrożenie jej dostawcy usług hostingowych. Firma Microsoft oferuje bezpłatny internetowy hostowanie do 10 witryn sieci web w  
+> W tym samouczku możesz uruchomić aplikację w programie Visual Studio. Można również wdrożyć aplikację na dostawcy usług hostingowych i był dostępny za pośrednictwem Internetu. Firma Microsoft oferuje bezpłatny internetowy hostowanie do 10 witryn sieci web w  
 >  [bezpłatne konto wersji próbnej platformy Azure](https://azure.microsoft.com/free/?WT.mc_id=A443DD604). Aby uzyskać informacje o sposobie wdrażania projektu sieci web programu Visual Studio do usługi Azure App Service Web Apps, zobacz [wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio](../../deployment/visual-studio-web-deployment/introduction.md) serii. Ten samouczek pokazuje również, jak użyć migracje Code First Framework jednostki do wdrożenia bazy danych programu SQL Server do usługi Azure SQL Database.
 > 
 > ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używanego w tym samouczku
 > 
-> 
-> - Microsoft Visual Studio 2013 lub programu Microsoft Visual Studio Express 2013 for Web
+> - Microsoft Visual Studio 2017 or Microsoft Visual Studio Community 2017
 >   
-> 
-> W tym samouczku współpracuje również z programu Visual Studio 2012, ale będzie istnieć pewne różnice w szablonie Projekt i interfejsu użytkownika.
+> W tym samouczku współpracuje również z programu Visual Studio 2012 i Visual Studio 2013, ale istnieją pewne różnice w szablonie Projekt i interfejsu użytkownika.
 
 
 ## <a name="what-youll-build"></a>Będziesz tworzyć
 
 W ramach tego samouczka należy:
 
-1. Tworzenie obiektów danych, które odzwierciedlają uniwersytetu z studentów rejestrację na kursy
-2. Tworzenie tabel bazy danych z obiektów
-3. Wypełniania bazy danych przy użyciu danych testowych
-4. Wyświetlanie danych w formularzu sieci web
+* Tworzenie obiektów danych, które odzwierciedlają uniwersytetu z studentów rejestrację na kursy
+* Tworzenie tabel bazy danych z obiektów
+* Wypełniania bazy danych przy użyciu danych testowych
+* Wyświetlanie danych w formularzu sieci web
 
-## <a name="set-up-project"></a>Konfigurowanie projektu
+## <a name="create-the-project"></a>Utwórz projekt
 
-W programie Visual Studio 2013, Utwórz nową **aplikacji sieci Web ASP.NET** o nazwie **ContosoUniversityModelBinding**.
+1. W programie Visual Studio 2017, należy utworzyć **aplikacji sieci Web platformy ASP.NET (.NET Framework)** projekt o nazwie **ContosoUniversityModelBinding**.
 
-![Tworzenie projektu](retrieving-data/_static/image2.png)
+   ![Tworzenie projektu](retrieving-data/_static/image19.png)
 
-Wybierz szablon formularzy sieci Web i pozostaw opcje domyślne. Kliknij przycisk OK, aby skonfigurować projekt.
+2. Kliknij przycisk **OK**. Zostanie wyświetlone okno dialogowe, aby wybrać szablon.
 
-![Wybierz formularze sieci web](retrieving-data/_static/image3.png)
+   ![Wybierz formularze sieci web](retrieving-data/_static/image3.png)
 
-Najpierw należy będzie kilka niewielkich zmian, aby dostosować wygląd witryny. Otwórz **Site.Master** pliku i Zmień tytuł na obejmują University Contoso zamiast Moja aplikacja platformy ASP.NET.
+3. Wybierz **formularzy sieci Web** szablonu. 
 
-[!code-aspx[Main](retrieving-data/samples/sample1.aspx?highlight=1)]
+4. W razie potrzeby zmień uwierzytelnianie, aby **indywidualne konta użytkowników**. 
 
-Następnie zmień tekst nagłówka z **Nazwa aplikacji** do **Contoso University**.
+5. Wybierz **OK** do tworzenia projektu.
 
-[!code-aspx[Main](retrieving-data/samples/sample2.aspx?highlight=7)]
+## <a name="modify-site-appearance"></a>Modyfikowanie wyglądu witryny
 
-Również w Site.Master, należy zmienić łącza nawigacji, które są wyświetlane w nagłówku, aby odzwierciedlić stron, które są istotne dla tej lokacji. Nie musisz albo **o** strony lub **skontaktuj się z pomocą** strony można usunąć tych łączy. Zamiast tego konieczne będzie łącze do strony o nazwie **studentów**. Ta strona nie został jeszcze utworzony.
+   Wprowadzić kilka zmian, aby dostosować wygląd witryny. 
+   
+   1. Otwórz plik Site.Master.
+   
+   2. Zmienianie tytułu, aby wyświetlić **Contoso University** i nie **My ASP.NET Application**.
 
-[!code-aspx[Main](retrieving-data/samples/sample3.aspx)]
+      [!code-aspx-csharp[Main](retrieving-data/samples/sample1.aspx?highlight=1)]
 
-Zapisz i zamknij Site.Master.
+   3. Zmień tekst nagłówka z **Nazwa aplikacji** do **Contoso University**.
 
-Teraz utworzysz formularz sieci web do wyświetlania danych dla uczniów. Kliknij prawym przyciskiem myszy projekt, a **Dodaj** **nowy element**. Wybierz **formularz sieci Web ze stroną wzorcową** szablonu i nadaj mu nazwę **Students.aspx**.
+      [!code-aspx-csharp[Main](retrieving-data/samples/sample2.aspx?highlight=7)]
 
-![Tworzenie strony](retrieving-data/_static/image5.png)
+   4. Zmień łącza nagłówka nawigacji do lokacji odpowiednią z nich. 
+   
+      Usuń linki do **o** i **skontaktuj się z pomocą** i zamiast tego należy połączyć **studentów** strony, który zostanie utworzony.
 
-Wybierz **Site.Master** jako stronę wzorcową dla nowego formularza sieci web.
+      [!code-aspx-csharp[Main](retrieving-data/samples/sample3.aspx)]
 
-## <a name="create-the-data-models-and-database"></a>Tworzenie modeli danych i bazy danych
+   5. Zapisz Site.Master.
 
-Migracje Code First użyje do tworzenia obiektów i odpowiednie tabele bazy danych. Te tabele zapisze informacje na temat uczniów i ich kursy.
+## <a name="add-a-web-form-to-display-student-data"></a>Dodaj formularz sieci web, aby wyświetlić dane dla uczniów
 
-W folderze modeli, Dodaj nową klasę o nazwie **UniversityModels.cs**.
+   1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt, wybierz **Dodaj** i następnie **nowy element**. 
+   
+   2. W **Dodaj nowy element** okno dialogowe, wybierz opcję **formularz sieci Web ze stroną wzorcową** szablonu i nadaj mu nazwę **Students.aspx**.
 
-![Tworzenie klasy modelu](retrieving-data/_static/image7.png)
+      ![Tworzenie strony](retrieving-data/_static/image5.png)
 
-W tym pliku zdefiniuj klasy SchoolContext, studentów, rejestracji i kurs w następujący sposób:
+   3. Wybierz pozycję **Dodaj**.
+   
+   4. Formularz sieci web stronę wzorcową, można wybrać **Site.Master**.
+   
+   5. Kliknij przycisk **OK**.
+   
 
-[!code-csharp[Main](retrieving-data/samples/sample4.cs)]
+## <a name="add-the-data-model"></a>Dodawanie modelu danych
 
-Klasa SchoolContext pochodzi od typu DbContext, który zarządza połączenia z bazą danych i zmiany w danych.
+W **modeli** folderu, Dodaj klasę o nazwie **UniversityModels.cs**.
 
-W klasie dla uczniów, zwróć uwagę, atrybuty, które zostały zastosowane do **FirstName**, **LastName**, i **roku** właściwości. Te atrybuty będą używane do sprawdzania poprawności danych w ramach tego samouczka. W celu uproszczenia kodu dla tego projektu demonstracji, tylko te właściwości, które zostały oznaczone za pomocą atrybutów sprawdzania poprawności danych. W projekcie rzeczywistych atrybutów sprawdzania poprawności będzie dotyczą wszystkich właściwości, które muszą zweryfikowanych danych, takich jak właściwości w klasach rejestracji i kursów.
+   1. Kliknij prawym przyciskiem myszy **modeli**, wybierz opcję **Dodaj**, a następnie **nowy element**. **Dodaj nowy element** pojawi się okno dialogowe.
 
-Save UniversityModels.cs.
+   2. W menu nawigacji po lewej stronie wybierz **kodu**, następnie **klasy**.
 
-Narzędzia do migracji Code First użyje do skonfigurowania bazy danych na podstawie tych klas.
+      ![Tworzenie klasy modelu](retrieving-data/_static/image20.png)
 
-W **Konsola Menedżera pakietów**, uruchom polecenie:  
-`enable-migrations -ContextTypeName ContosoUniversityModelBinding.Models.SchoolContext`
+   3. Nazwa klasy **UniversityModels.cs** i wybierz **Dodaj**.
 
-Jeśli polecenie zakończy się pomyślnie, zostanie wyświetlony komunikat z informacją, że migracja zostanie włączona,
+      W tym pliku, należy zdefiniować `SchoolContext`, `Student`, `Enrollment`, i `Course` klas w następujący sposób:
 
-![Włączanie funkcji migracje](retrieving-data/_static/image8.png)
+      [!code-csharp[Main](retrieving-data/samples/sample4.cs)]
 
-Należy zauważyć, że nowy plik o nazwie **Configuration.cs** została utworzona. W programie Visual Studio otworzyć tego pliku jest automatycznie po jego utworzeniu. Zawiera klasę konfiguracji **inicjatora** metody, która umożliwia wstępne wypełnianie tabel bazy danych z danymi.
+      `SchoolContext` Klasa pochodzi od `DbContext`, która zarządza połączenia z bazą danych i zmiany w danych.
 
-Dodaj następujący kod do metody inicjatora. Musisz dodać **przy użyciu** poufności informacji dotyczące **ContosoUniversityModelBinding.Models** przestrzeni nazw.
+      W `Student` klasy, zwróć uwagę, atrybuty stosowane do `FirstName`, `LastName`, i `Year` właściwości. W tym samouczku korzysta z tych atrybutów sprawdzania poprawności danych. Aby uprościć kod, tylko te właściwości są oznaczone za pomocą atrybutów sprawdzania poprawności danych. W projekcie rzeczywistych atrybutów sprawdzania poprawności będzie dotyczą wszystkich właściwości wymagające weryfikacji.
 
-[!code-csharp[Main](retrieving-data/samples/sample5.cs)]
+   4. Save UniversityModels.cs.
 
-Zapisz Configuration.cs.
+## <a name="set-up-the-database-based-on-classes"></a>Konfigurowanie bazy danych oparte na klasach
 
-W konsoli Menedżera pakietów, uruchom polecenie `add-migration initial`.
+W tym samouczku [migracje Code First](https://docs.microsoft.com/en-us/ef/ef6/modeling/code-first/migrations/) do tworzenia obiektów i tabel bazy danych programu. Te tabele są przechowywane informacje o uczniów i ich kursy.
 
-Następnie uruchom polecenie `update-database`.
+   1. Wybierz **narzędzia** > **Menedżera pakietów NuGet** > **Konsola Menedżera pakietów**.
 
-Jeśli wystąpi wyjątek podczas uruchamiania tego polecenia, jest to możliwe, że wartości StudentID i CourseID mają różne wartości w metodzie inicjatora. Otwórz tych tabel w bazie danych i Znajdź istniejące wartości StudentID i CourseID. Dodaj te wartości w kodzie do wstępnego wypełniania tabeli rejestracji.
+   2. W **Konsola Menedżera pakietów**, uruchom następujące polecenie:  
+      `enable-migrations -ContextTypeName ContosoUniversityModelBinding.Models.SchoolContext`
 
-Plik bazy danych został dodany, ale jest on ukryty w projekcie. Kliknij przycisk **Pokaż wszystkie pliki** do wyświetlenia pliku.
+      Jeśli polecenie zakończy się pomyślnie, zostanie wyświetlony komunikat z informacją, że włączono migracji.
 
-![Pokaż wszystkie pliki](retrieving-data/_static/image10.png)
+      ![Włączanie funkcji migracje](retrieving-data/_static/image8.png)
 
-Zwróć uwagę, pojawi się w aplikacji pliku .mdf\_folderu danych.
+      Należy zauważyć, że plik o nazwie *Configuration.cs* została utworzona. `Configuration` Klasa ma `Seed` metody, która wstępnie wypełnić tabele bazy danych z danymi.
 
-![plik bazy danych](retrieving-data/_static/image12.png)
+## <a name="pre-populate-the-database"></a>Wstępne wypełnianie bazy danych
 
-Kliknij dwukrotnie plik mdf, a następnie otworzyć Eksploratora serwera. Tabele teraz istnieją i są wypełniane przy użyciu danych.
+   1. Otwórz Configuration.cs.
+   
+   2. Dodaj następujący kod do `Seed` metody. Ponadto Dodaj `using` poufności informacji dotyczące `ContosoUniversityModelBinding. Models` przestrzeni nazw.
 
-![tabele bazy danych](retrieving-data/_static/image14.png)
+      [!code-csharp[Main](retrieving-data/samples/sample5.cs)]
 
-## <a name="display-data-from-students-and-related-tables"></a>Wyświetlanie danych z powiązanych tabel i studentów
+   3. Zapisz Configuration.cs.
 
-Z danymi w bazie danych możesz teraz przystąpić do pobierania danych i wyświetlić go na stronie sieci web. Użyjesz **GridView** formantu, aby wyświetlić dane w kolumn i wierszy.
+   4. W konsoli Menedżera pakietów, uruchom polecenie **początkowej migracji Dodaj**.
 
-Otwórz Students.aspx i zlokalizuj **MainContent** symbol zastępczy. W ramach tego symbolu zastępczego, należy dodać **GridView** formant, który zawiera następujący kod.
+   5. Uruchom polecenie **update-database**.
 
-[!code-aspx[Main](retrieving-data/samples/sample6.aspx)]
+      Jeśli wystąpi wyjątek podczas uruchamiania tego polecenia `StudentID` i `CourseID` wartości może się różnić od `Seed` wartości metody. Otwórz te tabele bazy danych i Znajdź istniejące wartości dla `StudentID` i `CourseID`. Dodaj te wartości do kodu rozmieszczania `Enrollments` tabeli.
 
-Istnieje kilka ważnych koncepcji, w tym kodzie znaczników dla Ciebie należy zwrócić uwagę. Najpierw zwróć uwagę, czy wartość jest ustawiona dla **metody SelectMethod** właściwości w elemencie GridView. Ta wartość Określa nazwę metody, która służy do pobierania danych dla widoku GridView. Ta metoda utworzy w następnym kroku. Po drugie, zwróć uwagę, że **ItemType** właściwość jest ustawiona na klasę dla uczniów, która została utworzona wcześniej. Ustawiając tę wartość, może odnosić się do właściwości tej klasy w kodzie znaczników. Na przykład klasa uczniów zawiera kolekcję o nazwie rejestracji. Możesz użyć **Item.Enrollments** do pobrania tej kolekcji, a następnie pobrać sumy zarejestrowanych środki na korzystanie z dla każdego ucznia za pomocą składni LINQ.
+## <a name="add-a-gridview-control"></a>Dodawanie kontrolki GridView
 
-W pliku związanym z kodem, należy dodać metodę, która jest określona dla **metody SelectMethod** wartość. Otwórz **Students.aspx.cs**i Dodaj **przy użyciu** instrukcji dla **ContosoUniversityModelBinding.Models** i **System.Data.Entity**przestrzeni nazw.
+Z wypełniania bazy danych możesz teraz pobrać te dane i wyświetlania ich. 
 
-[!code-csharp[Main](retrieving-data/samples/sample7.cs)]
+1. Otwórz Students.aspx.
 
-Następnie dodaj następującą metodę. Zwróć uwagę, czy nazwa ta metoda jest zgodna Nazwa parametru metody SelectMethod.
+2. Znajdź `MainContent` symbol zastępczy. W ramach tego symbolu zastępczego, należy dodać **GridView** formant, który zawiera ten kod.
 
-[!code-csharp[Main](retrieving-data/samples/sample8.cs)]
+   [!code-aspx-csharp[Main](retrieving-data/samples/sample6.aspx)]
 
-**Include** klauzuli poprawia wydajność kwerendy, ale nie jest istotne dla kwerendy do pracy. Bez klauzuli Include będzie można odzyskać danych przy użyciu ładowania z opóźnieniem, które obejmuje wysłanie oddzielnych zapytań do bazy danych zawsze związane z dane są pobierane. Dostarczając klauzuli Include, dane są pobierane za pomocą wczesne ładowanie, co oznacza, wszystkie powiązane dane są pobierane za pomocą jednego zapytania bazy danych. W przypadku większości powiązanych danych nie jest używane, eager ładowania może być mniej wydajne rozwiązanie, ponieważ jest pobierana większej ilości danych. Jednak w takim przypadku wczesne ładowanie zapewnia najlepszą wydajność, ponieważ powiązane dane jest wyświetlany dla każdego rekordu.
+   Kwestii, które należy zwrócić uwagę:
+   * Zwróć uwagę, wartość ustawioną dla `SelectMethod` właściwości w elemencie GridView. Ta wartość określa metodę używaną do pobierania danych widoku GridView, które są tworzone w następnym kroku. 
+   
+   * `ItemType` Właściwość jest ustawiona na `Student` klasy utworzonej wcześniej. To ustawienie umożliwia odwoływać się do właściwości klasy w znaczniku. Na przykład `Student` klasa ma kolekcję o nazwie `Enrollments`. Można użyć `Item.Enrollments` pobrania tej kolekcji, a następnie użyć [składni LINQ](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/linq/query-syntax-and-method-syntax-in-linq) można pobrać każdy uczeń użytkownika zarejestrowane środki na korzystanie z sumą.
+   
+3. Zapisz Students.aspx.
 
-Aby dowiedzieć się więcej o aspekt dotyczący wydajności podczas ładowania powiązanych danych, zobacz sekcję pod tytułem **leniwy Eager i jawne ładowanie powiązanych danych** w [odczytywania danych powiązanych z platformą Entity Framework w ASP Aplikacja MVC platformy .NET](../../../../mvc/overview/getting-started/getting-started-with-ef-using-mvc/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md) tematu.
+## <a name="add-code-to-retrieve-data"></a>Dodaj kod, aby pobrać dane
 
-Domyślnie dane są sortowane według wartości właściwości oznaczonym jako klucz. Możesz dodać klauzulę OrderBy, aby określić inną wartość do sortowania. W tym przykładzie właściwość StudentID domyślnej jest używana do sortowania. W [sortowanie, stronicowanie i filtrowanie danych](sorting-paging-and-filtering-data.md) tematu spowoduje włączenie użytkownikowi na wybranie kolumny sortowania.
+   W pliku związanym z kodem Students.aspx, Dodaj metodę określone dla `SelectMethod` wartość. 
+   
+   1. Otwórz Students.aspx.cs.
+   
+   2. Dodaj `using` instrukcji dla `ContosoUniversityModelBinding. Models` i `System.Data.Entity` przestrzeni nazw.
 
-Uruchom aplikację sieci web i przejdź do strony studentów. Na stronie studentów są wyświetlane następujące informacje dla uczniów.
+      [!code-csharp[Main](retrieving-data/samples/sample7.cs)]
 
-![Pokaż dane](retrieving-data/_static/image16.png)
+   3. Dodaj metodę określona dla `SelectMethod`:
+
+      [!code-csharp[Main](retrieving-data/samples/sample8.cs)]
+
+      `Include` Klauzuli poprawia wydajność zapytań, ale nie jest wymagana. Bez `Include` klauzuli, dane są pobierane przy użyciu [ *powolne ładowanie*](https://en.wikipedia.org/wiki/Lazy_loading), które obejmuje wysyłanie oddzielnego zapytania do bazy danych zawsze powiązane dane są pobierane. Za pomocą `Include` klauzuli, dane są pobierane przy użyciu *wczesne ładowanie*, co oznacza, że zapytanie pojedynczej bazy danych pobiera wszystkie powiązane dane. Powiązane dane nie będą używane, wczesne ładowanie jest mniej wydajne rozwiązanie, ponieważ dane są pobierane. Jednak w takim przypadku wczesne ładowanie zapewnia najlepszą wydajność, ponieważ powiązane dane jest wyświetlany dla każdego rekordu.
+
+      Aby uzyskać więcej informacji na temat zagadnienia związane z wydajnością podczas ładowania powiązanych danych, zobacz **leniwy Eager i jawne ładowanie powiązanych danych** sekcji [odczytywania danych powiązanych z platformą Entity Framework na platformie ASP.NET Aplikacja MVC](../../../../mvc/overview/getting-started/getting-started-with-ef-using-mvc/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md) artykułu.
+
+      Domyślnie dane są sortowane według wartości właściwości oznaczonym jako klucz. Możesz dodać `OrderBy` klauzulę, aby określić wartość sortowania. W tym przykładzie domyślne `StudentID` właściwość jest używana do sortowania. W [sortowanie, stronicowanie i filtrowanie danych](sorting-paging-and-filtering-data.md) artykułu, użytkownik jest włączona, aby wybrać kolumnę sortowania.
+ 
+   4. Zapisz Students.aspx.cs.
+
+## <a name="run-your-application"></a>Uruchamianie aplikacji 
+
+Uruchom aplikację sieci web (**F5**) i przejdź do **studentów** stronę, która wyświetla następujące czynności:
+
+   ![Pokaż dane](retrieving-data/_static/image16.png)
 
 ## <a name="automatic-generation-of-model-binding-methods"></a>Automatyczne generowanie metody wiązania modelu
 
-Podczas pracy za pośrednictwem tej serii samouczków, możesz po prostu skopiować kod z tego samouczka, do projektu. Jednak jedną wadą tego podejścia jest, że użytkownik może nie zostaną powiadomieni o funkcji dostarczane przez program Visual Studio, aby automatycznie wygenerować kod dla metody wiązania modelu. Podczas pracy z własnych projektów, automatyczne generowanie kodu można zaoszczędzić czas i pomoc, uzyskasz zorientować się, jak zaimplementować operacji. W tej sekcji opisano funkcję generowanie kodu automatyczne. Ta sekcja ma tylko charakter informacyjny i nie zawiera żadnego kodu, potrzebne do zaimplementowania w projekcie.
+Podczas pracy za pośrednictwem tej serii samouczków, możesz po prostu skopiować kod z tego samouczka, do projektu. Jednak jedną wadą tego podejścia jest, że użytkownik może nie zostaną powiadomieni o funkcji dostarczane przez program Visual Studio, aby automatycznie wygenerować kod dla metody wiązania modelu. Podczas pracy z własnych projektów, automatyczne generowanie kodu można zaoszczędzić czas i pomoc, uzyskasz zorientować się, jak zaimplementować operacji. W tej sekcji opisano funkcję generowanie kodu automatyczne. Ta sekcja ma tylko charakter informacyjny i nie zawiera żadnego kodu, potrzebne do zaimplementowania w projekcie. 
 
-Podczas ustawiania wartości **metody SelectMethod**, **operacji UpdateMethod**, **operacji InsertMethod**, lub **DeleteMethod** właściwości w kodzie znaczników Możesz wybrać **Tworzenie nowej metody** opcji.
+Podczas ustawiania wartości `SelectMethod`, `UpdateMethod`, `InsertMethod`, lub `DeleteMethod` właściwości w kodzie znaczników, możesz wybrać **Tworzenie nowej metody** opcji.
 
-![Utwórz nową metodę](retrieving-data/_static/image18.png)
+![Utwórz metodę](retrieving-data/_static/image18.png)
 
-Program Visual Studio nie tylko tworzy metodę w kodem przy użyciu prawidłowego podpisu, ale również generuje kod implementacji pomocne podczas wykonywania operacji. Jeśli najpierw ustawić **ItemType** właściwości przed rozpoczęciem korzystania z funkcji generowania kodu automatyczne wygenerowany kod użyje tego typu dla operacji. Na przykład ustawiając właściwość operacji UpdateMethod, poniższy kod jest generowany automatycznie:
+Program Visual Studio nie tylko tworzy metodę w kodem przy użyciu prawidłowego podpisu, ale również generuje kod implementacji do wykonania tej operacji. Jeśli najpierw ustawić `ItemType` właściwości przed użyciem automatyczne generowanie kodu funkcji, które należy wpisać używa wygenerowany kod dla operacji. Na przykład podczas ustawiania `UpdateMethod` właściwość, poniższy kod jest generowany automatycznie:
 
 [!code-csharp[Main](retrieving-data/samples/sample9.cs)]
 
-Ponownie powyższy kod nie musi być dodany do projektu. W następnym samouczku wdroży metod aktualizowania, usuwania i dodawania nowych danych.
+Ponownie ten kod nie musi być dodany do projektu. W następnym samouczku będziesz implementować metody do aktualizowania, usuwania i dodawania nowych danych.
 
-## <a name="conclusion"></a>Wniosek
+## <a name="summary"></a>Podsumowanie
 
 W tym samouczku utworzono klasy modelu danych i wygenerowany bazy danych na podstawie tych klas. Tabele bazy danych są wypełnione danych testowych. Używane wiązania modelu do pobierania danych z bazy danych, a następnie wyświetlane dane w widoku GridView.
 
-W ciągu następnych [samouczek](updating-deleting-and-creating-data.md) w tej serii umożliwi aktualizowanie, usuwanie i tworzenie danych.
+W ciągu następnych [samouczek](updating-deleting-and-creating-data.md) w tej serii włączysz, aktualizowanie, usuwanie i tworzenie danych.
 
 > [!div class="step-by-step"]
 > [Next](updating-deleting-and-creating-data.md)

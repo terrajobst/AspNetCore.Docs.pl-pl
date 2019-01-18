@@ -3,14 +3,15 @@ title: Platforma ASP.NET Core MVC z programem EF Core — zaawansowane — 10 10
 author: rick-anderson
 description: W tym samouczku przedstawiono przydatnych tematów dla wykraczających poza podstawowe informacje dotyczące tworzenia aplikacji sieci web platformy ASP.NET Core, korzystających z platformy Entity Framework Core.
 ms.author: tdykstra
-ms.date: 03/15/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: 5cdba79c0b8edd9b865bda8328c86356cbe6a0a2
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: ba3834b29e78972bf914a5cba1a2cae3cc19a315
+ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46010926"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "50090787"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---advanced---10-of-10"></a>Platforma ASP.NET Core MVC z programem EF Core — zaawansowane — 10 10
 
@@ -92,7 +93,7 @@ Uruchom `UpdateCourseCredits` metody, wybierając **kursów** kartę, następnie
 
 ![Strona kurs środki na korzystanie z aktualizacji](advanced/_static/update-credits.png)
 
-Kliknij przycisk **aktualizacji**. Zobaczysz liczbę uwzględnionych wierszy:
+Kliknij przycisk **Aktualizuj**. Zobaczysz liczbę uwzględnionych wierszy:
 
 ![Zaktualizowano wierszy strony kurs środki na korzystanie z aktualizacji](advanced/_static/update-credits-rows-affected.png)
 
@@ -100,7 +101,7 @@ Kliknij przycisk **powrót do listy** Aby wyświetlić listę kursy z poprawione
 
 Należy pamiętać, że kodu produkcyjnego będą upewnij się, że zawsze aktualizuje wynik na liście prawidłowych danych. Uproszczony kod przedstawiony tutaj pomnożyć liczbę środki na korzystanie z wystarczająco spowodować liczby większe niż 5. ( `Credits` Właściwość ma `[Range(0, 5)]` atrybutu.) Zapytanie update będzie działać, ale nieprawidłowych danych może spowodować nieoczekiwane wyniki w innych części systemu, które zakładają, że ilość środków jest 5 lub mniej.
 
-Aby uzyskać więcej informacji na temat pierwotne zapytania SQL, zobacz [pierwotne zapytania SQL](https://docs.microsoft.com/ef/core/querying/raw-sql).
+Aby uzyskać więcej informacji na temat pierwotne zapytania SQL, zobacz [pierwotne zapytania SQL](/ef/core/querying/raw-sql).
 
 ## <a name="examine-sql-sent-to-the-database"></a>Sprawdź SQL wysyłane do bazy danych
 
@@ -176,7 +177,7 @@ Mimo że kod źródłowy jest otwarty, platformy Entity Framework Core jest w pe
 
 ## <a name="reverse-engineer-from-existing-database"></a>Odtwarzanie z istniejącej bazy danych
 
-Aby odtworzyć modelu danych, w tym klas jednostek z istniejącej bazy danych, należy użyć [dbcontext szkieletu](https://docs.microsoft.com/ef/core/miscellaneous/cli/powershell#scaffold-dbcontext) polecenia. Zobacz [samouczek ułatwiający rozpoczęcie](https://docs.microsoft.com/ef/core/get-started/aspnetcore/existing-db).
+Aby odtworzyć modelu danych, w tym klas jednostek z istniejącej bazy danych, należy użyć [dbcontext szkieletu](/ef/core/miscellaneous/cli/powershell#scaffold-dbcontext) polecenia. Zobacz [samouczek ułatwiający rozpoczęcie](/ef/core/get-started/aspnetcore/existing-db).
 
 <a id="dynamic-linq"></a>
 ## <a name="use-dynamic-linq-to-simplify-sort-selection-code"></a>Korzystanie z dynamicznej LINQ w celu uproszczenia wybór rozliczeniowy
@@ -189,11 +190,11 @@ Aby odtworzyć modelu danych, w tym klas jednostek z istniejącej bazy danych, n
 
 Na tym kończy się w tej serii samouczków na temat korzystania z programu Entity Framework Core w aplikacji ASP.NET Core MVC.
 
-Aby uzyskać więcej informacji na temat programu EF Core, zobacz [dokumentację programu Entity Framework Core](https://docs.microsoft.com/ef/core). Książki jest również dostępny: [platformy Entity Framework Core in Action](https://www.manning.com/books/entity-framework-core-in-action).
+Aby uzyskać więcej informacji na temat programu EF Core, zobacz [dokumentację programu Entity Framework Core](/ef/core). Książki jest również dostępna: [Entity Framework Core in Action](https://www.manning.com/books/entity-framework-core-in-action).
 
-Aby uzyskać informacje na temat wdrażania aplikacji sieci web, zobacz [hosta i wdrażanie](xref:host-and-deploy/index).
+Aby uzyskać informacje na temat wdrażania aplikacji sieci web, zobacz <xref:host-and-deploy/index>.
 
-Aby uzyskać informacje o innych tematów dotyczących platformy ASP.NET Core MVC, takie jak uwierzytelnianie i autoryzacja, zobacz [dokumentacji platformy ASP.NET Core](xref:index).
+Aby uzyskać informacje o innych tematów dotyczących platformy ASP.NET Core MVC, takie jak uwierzytelnianie i autoryzacja, zobacz <xref:index>.
 
 ## <a name="acknowledgments"></a>Potwierdzenia
 
@@ -239,7 +240,7 @@ dotnet ef database drop
 
 Komunikat o błędzie:
 
-> Wystąpił błąd związany z siecią lub wystąpieniem podczas nawiązywania połączenia z programem SQL Server. Serwer nie został znaleziony lub jest on niedostępny. Sprawdź, czy nazwa wystąpienia jest prawidłowa i że program SQL Server jest skonfigurowany do zezwalania na połączenia zdalne. (Dostawca: interfejsy sieciowe programu SQL, błąd: 26 — Błąd lokalizowania określonego Server/wystąpienie)
+> Wystąpił błąd związany z siecią lub wystąpieniem podczas nawiązywania połączenia z programem SQL Server. Serwer nie został znaleziony lub jest on niedostępny. Sprawdź, czy nazwa wystąpienia jest prawidłowa i że program SQL Server jest skonfigurowany do zezwalania na połączenia zdalne. (Dostawca: Interfejsy sieciowe programu SQL, błąd: 26 — błąd podczas znajdowania/podanego wystąpienia)
 
 Rozwiązanie:
 

@@ -4,14 +4,14 @@ author: guardrex
 description: Dowiedz się, aktywnych i nieaktywnych moduły IIS dla aplikacji platformy ASP.NET Core oraz jak zarządzać moduły usług IIS.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/30/2018
+ms.date: 01/17/2019
 uid: host-and-deploy/iis/modules
-ms.openlocfilehash: c6a6cc9b6b3410267c6f5034f824648a1ebbe10f
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 8c32a668b3945f0da0194162e19e965b4aed3934
+ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862242"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396275"
 ---
 # <a name="iis-modules-with-aspnet-core"></a>Moduły usług IIS za pomocą programu ASP.NET Core
 
@@ -72,7 +72,7 @@ Moduły zarządzane są *nie* funkcjonalność hostowanej aplikacji platformy AS
 | OutputCache             | [Oprogramowanie pośredniczące buforowania odpowiedzi](xref:performance/caching/middleware) |
 | Profil                 | |
 | RoleManager             | |
-| ScriptModule 4.0        | |
+| ScriptModule-4.0        | |
 | Sesja                 | [Oprogramowanie pośredniczące sesji](xref:fundamentals/app-state) |
 | UrlAuthorization        | |
 | UrlMappingsModule       | [Oprogramowanie pośredniczące ponownego zapisywania adresów URL](xref:fundamentals/url-rewriting) |
@@ -105,13 +105,13 @@ Aby uzyskać więcej informacji o wyłączaniu modułów przy użyciu ustawień 
 
 Jeśli sposób, aby usunąć moduł z ustawieniem w *web.config*, odblokować moduł i odblokować `<modules>` części *web.config* pierwszy:
 
-1. Uzyskaj dostęp do modułu na poziomie serwera. Wybierz serwer usług IIS w Menedżerze usług IIS **połączeń** pasku bocznym. Otwórz **modułów** w **IIS** obszaru. Wybierz moduł z listy. W **akcje** pasku bocznym po prawej stronie, wybierz **Unlock**. Odblokować dowolną liczbę modułów związanych z planowaniem do usunięcia z *web.config* później.
+1. Uzyskaj dostęp do modułu na poziomie serwera. Wybierz serwer usług IIS w Menedżerze usług IIS **połączeń** pasku bocznym. Otwórz **modułów** w **IIS** obszaru. Wybierz moduł z listy. W **akcje** pasku bocznym po prawej stronie, wybierz **Unlock**. Jeśli wpis akcji dla modułu, który jest wyświetlany jako **blokady**, moduł jest już odblokowane i jest wymagana żadna akcja. Odblokować dowolną liczbę modułów związanych z planowaniem do usunięcia z *web.config* później.
 
 2. Wdrażanie aplikacji bez `<modules>` sekcji *web.config*. Jeśli aplikacja jest wdrożona za pomocą *web.config* zawierający `<modules>` sekcji bez konieczności odblokować sekcji najpierw w Menedżerze programu IIS, programu Configuration Manager zgłasza wyjątek podczas próby odblokowania sekcji. W związku z tym, Wdróż aplikację bez `<modules>` sekcji.
 
-3. Odblokuj `<modules>` części *web.config*. W **połączeń** pasku bocznym, wybierz witrynę internetową w **witryn**. W **zarządzania** obszarze Otwórz **edytora konfiguracji**. Użyj formantów nawigacji, aby wybrać `system.webServer/modules` sekcji. W **akcje** pasku bocznym po prawej stronie, wybierz, aby **Unlock** sekcji.
+3. Odblokuj `<modules>` części *web.config*. W **połączeń** pasku bocznym, wybierz witrynę internetową w **witryn**. W **zarządzania** obszarze Otwórz **edytora konfiguracji**. Użyj formantów nawigacji, aby wybrać `system.webServer/modules` sekcji. W **akcje** pasku bocznym po prawej stronie, wybierz, aby **Unlock** sekcji. Jeśli wpis akcji dla sekcji modułów pojawia się jako **Blokuj sekcję**sekcji modułu jest już odblokowane i jest wymagana żadna akcja.
 
-4. W tym momencie `<modules>` sekcji mogą być dodawane do *web.config* plik z `<remove>` elementu do usunięcia modułu z poziomu aplikacji. Wiele `<remove>` elementy mogą być dodawane do usunąć wiele modułów. Jeśli *web.config* zmian na serwerze, natychmiast wprowadzenie identycznych zmian w projekcie *web.config* plik lokalnie. Usuwanie modułu w ten sposób nie wpływa na modułu z innymi aplikacjami na serwerze.
+4. Dodaj `<modules>` sekcji do aplikacji użytkownika lokalnego *web.config* plik z `<remove>` elementu do usunięcia modułu z poziomu aplikacji. Dodawanie wielu `<remove>` elementy, aby usunąć wiele modułów. Jeśli *web.config* zmian na serwerze, natychmiast wprowadzenie identycznych zmian w projekcie *web.config* plik lokalnie. Usuwanie modułu przy użyciu tej metody nie wpływa na użycie modułu w innych aplikacjach na serwerze.
 
    ```xml
    <configuration>
@@ -122,6 +122,26 @@ Jeśli sposób, aby usunąć moduł z ustawieniem w *web.config*, odblokować mo
     </system.webServer>
    </configuration>
    ```
+   
+Aby dodać lub usunąć moduły usług IIS Express przy użyciu *web.config*, zmodyfikuj *applicationHost.config* do odblokowania `<modules>` sekcji:
+
+1. Otwórz *{katalog główny aplikacji}\\.vs\config\applicationhost.config*.
+
+1. Znajdź `<section>` elementem moduły usług IIS i zmień `overrideModeDefault` z `Deny` do `Allow`:
+
+   ```xml
+   <section name="modules" 
+            allowDefinition="MachineToApplication" 
+            overrideModeDefault="Allow" />
+   ```
+   
+1. Znajdź `<location path="" overrideMode="Allow"><system.webServer><modules>` sekcji. W przypadku modułów, które chcesz usunąć, ustawić `lockItem` z `true` do `false`. W poniższym przykładzie moduł CGI jest odblokowany:
+
+   ```xml
+   <add name="CgiModule" lockItem="false" />
+   ```
+   
+1. Po `<modules>` sekcji i indywidualne moduły są odblokowane, możesz dodać lub usunąć moduły usług IIS przy użyciu aplikacji *web.config* pliku do uruchamiania aplikacji w usługach IIS Express.
 
 Moduł usług IIS może zostać także usunięty z *Appcmd.exe*. Podaj `MODULE_NAME` i `APPLICATION_NAME` w poleceniu:
 
@@ -146,7 +166,7 @@ Moduł buforowanie HTTP (`HttpCacheModule`) implementuje wyjściowej pamięci po
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * <xref:host-and-deploy/iis/index>
-* [Wprowadzenie do architektury usługi IIS: modułów w usługach IIS](/iis/get-started/introduction-to-iis/introduction-to-iis-architecture#modules-in-iis)
+* [Wprowadzenie do architektury usługi IIS: Moduły w usługach IIS](/iis/get-started/introduction-to-iis/introduction-to-iis-architecture#modules-in-iis)
 * [Przegląd moduły usług IIS](/iis/get-started/introduction-to-iis/iis-modules-overview)
 * [Dostosowywanie usług IIS 7.0 ról i modułów](https://technet.microsoft.com/library/cc627313.aspx)
-* [USŁUGI IIS `<system.webServer>`](/iis/configuration/system.webServer/)
+* [IIS `<system.webServer>`](/iis/configuration/system.webServer/)
