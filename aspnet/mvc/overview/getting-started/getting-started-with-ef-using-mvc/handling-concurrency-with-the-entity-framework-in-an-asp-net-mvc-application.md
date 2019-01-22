@@ -1,36 +1,41 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application
-title: Obsługa współbieżności przy użyciu programu Entity Framework 6 w aplikacji ASP.NET MVC 5 (10 12) | Dokumentacja firmy Microsoft
+title: 'Samouczek: Obsługa współbieżności przy użyciu programu EF w aplikacji ASP.NET MVC 5'
+description: W tym samouczku pokazano, jak używać optymistycznej współbieżności do obsługi konfliktów, gdy wielu użytkowników aktualizacji tej samej jednostki w tym samym czasie.
 author: tdykstra
-description: Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 5 przy użyciu Entity Framework 6 Code First i programu Visual Studio...
 ms.author: riande
-ms.date: 12/08/2014
+ms.date: 01/21/2019
+ms.topic: tutorial
 ms.assetid: be0c098a-1fb2-457e-b815-ddca601afc65
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 22fd6bc92aa0d516e1bfeb5aa6a67d7246d977ac
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: b77b8d6f952472f4d3030f54665f970b8ace2caf
+ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913258"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54444184"
 ---
-<a name="handling-concurrency-with-the-entity-framework-6-in-an-aspnet-mvc-5-application-10-of-12"></a>Obsługa współbieżności przy użyciu programu Entity Framework 6 w aplikacji ASP.NET MVC 5 (10 12)
-====================
-przez [Tom Dykstra](https://github.com/tdykstra)
+# <a name="tutorial-handle-concurrency-with-ef-in-an-aspnet-mvc-5-app"></a>Samouczek: Obsługa współbieżności przy użyciu programu EF w aplikacji ASP.NET MVC 5
 
-[Pobierz ukończony projekt](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
+W starszych samouczkach przedstawiono sposób aktualizacji danych. W tym samouczku pokazano, jak używać optymistycznej współbieżności do obsługi konfliktów, gdy wielu użytkowników aktualizacji tej samej jednostki w tym samym czasie. Zmienianie stron sieci web, które działają z `Department` jednostki tak, aby ich obsługi błędów współbieżności. Na poniższych ilustracjach przedstawiono edytowanie i usuwanie stron, w tym niektóre komunikaty, które są wyświetlane, jeśli wystąpi konflikt współbieżności.
 
-> Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 5 przy użyciu Entity Framework 6 Code First i programu Visual Studio. Aby uzyskać informacji na temat tej serii samouczka, zobacz [pierwszym samouczku tej serii](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
+![Department_Edit_page_2_after_clicking_Save](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image10.png)
 
+![Department_Edit_page_2_after_clicking_Save](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image15.png)
 
-W starszych samouczkach przedstawiono sposób aktualizacji danych. W tym samouczku przedstawiono sposób obsługi konfliktów, gdy wielu użytkowników aktualizacji tej samej jednostki w tym samym czasie.
+W ramach tego samouczka możesz:
 
-Poznasz, jak zmienić stron sieci web, które działają z `Department` jednostki tak, aby ich obsługi błędów współbieżności. Na poniższych ilustracjach przedstawiono indeks i usuwanie stron, tym niektóre komunikaty, które są wyświetlane, jeśli wystąpi konflikt współbieżności.
+> [!div class="checklist"]
+> * Dowiedz się więcej o konfliktów współbieżności
+> * Dodaj optymistycznej współbieżności
+> * Modyfikowanie kontrolera działu
+> * Obsługa współbieżności testowych
+> * Aktualizuj stronę Delete
 
-![Department_Index_page_before_edits](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image1.png)
+## <a name="prerequisites"></a>Wymagania wstępne
 
-![Department_Edit_page_2_after_clicking_Save](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image2.png)
+* [Model asynchroniczny i procedury składowane](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application.md)
 
 ## <a name="concurrency-conflicts"></a>Konfliktów współbieżności
 
@@ -46,11 +51,7 @@ Zarządzanie blokady ma wady. Może być skomplikowane, aby program. Wymaga znac
 
 Jest alternatywą do Współbieżność pesymistyczna *optymistycznej współbieżności*. Optymistyczna współbieżność oznacza, umożliwiając konfliktów współbieżności do wykonania, a następnie reagowaniu odpowiednio Jeśli tak jest. Na przykład Jan uruchamia działów stronie Edytowanie zmiany **budżetu** kwotę dla angielskiego dział z $350,000.00 0,00 USD.
 
-![Changing_English_dept_budget_to_100000](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
-
 Zanim Jan kliknie **Zapisz**, Magdalena uruchamia tej samej stronie i zmiany **Data rozpoczęcia** pola z 1-9/2007 do 8/8/2013.
-
-![Changing_English_dept_start_date_to_1999](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image4.png)
 
 John kliknie **Zapisz** pierwszy i widzi kliknie jego zmiana, gdy przeglądarka powróci do strony indeksu, a następnie Magdalena **Zapisz**. Co dzieje się potem określają sposób obsługi konfliktów współbieżności. Niektóre opcje obejmują następujące czynności:
 
@@ -75,7 +76,7 @@ Należy rozwiązać konflikty, obsługując [OptimisticConcurrencyException](htt
 
 W pozostałej części tego samouczka dodasz [rowversion](https://msdn.microsoft.com/library/ms182776(v=sql.110).aspx) śledzenia właściwość `Department` jednostki, Utwórz kontrolera i widoki, a test, aby sprawdzić, czy wszystko działa poprawnie.
 
-## <a name="add-an-optimistic-concurrency-property-to-the-department-entity"></a>Dodaj właściwość optymistycznej współbieżności do jednostki działu
+## <a name="add-optimistic-concurrency"></a>Dodaj optymistycznej współbieżności
 
 W *Models\Department.cs*, dodawanie właściwości śledzenia o nazwie `RowVersion`:
 
@@ -91,7 +92,7 @@ Przez dodanie właściwości po zmianie modelu bazy danych, więc należy przepr
 
 [!code-console[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample3.cmd)]
 
-## <a name="modify-the-department-controller"></a>Modyfikowanie kontrolera działu
+## <a name="modify-department-controller"></a>Modyfikowanie kontrolera działu
 
 W *Controllers\DepartmentController.cs*, Dodaj `using` instrukcji:
 
@@ -135,37 +136,23 @@ W *Views\Department\Edit.cshtml*, Dodaj pole ukryte, aby zapisać `RowVersion` w
 
 [!code-cshtml[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample12.cshtml?highlight=18)]
 
-## <a name="testing-optimistic-concurrency-handling"></a>Testowanie obsługi optymistycznej współbieżności
+## <a name="test-concurrency-handling"></a>Obsługa współbieżności testowych
 
-Uruchamianie witryny, a następnie kliknij przycisk **działów**:
-
-![Department_Index_page_before_edits](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image5.png)
+Uruchamianie witryny, a następnie kliknij przycisk **działów**.
 
 Kliknij prawym przyciskiem myszy **Edytuj** hiperlink do działu w języku angielskim, a następnie wybierz pozycję **Otwórz na nowej karcie** kliknięcie **Edytuj** hiperłącze dla angielskiego działu. Dwie karty są wyświetlane te same informacje.
 
-![Department_Edit_page_before_changes](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image6.png)
-
 Zmień pole na pierwszej karcie przeglądarki, a następnie kliknij przycisk **Zapisz**.
-
-![Department_Edit_page_1_after_change](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image7.png)
 
 Przeglądarka wyświetla stronę indeksu wartością zmienione.
 
-![Departments_Index_page_after_first_budget_edit](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image8.png)
-
-Zmień pole na drugiej karcie przeglądarki, a następnie kliknij przycisk **Zapisz**.
-
-![Department_Edit_page_2_after_change](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image9.png)
-
-Kliknij przycisk **Zapisz** na drugiej karcie przeglądarki. Zobaczysz komunikat o błędzie:
+Zmień pole na drugiej karcie przeglądarki, a następnie kliknij przycisk **Zapisz**. Zobaczysz komunikat o błędzie:
 
 ![Department_Edit_page_2_after_clicking_Save](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image10.png)
 
 Kliknij przycisk **Zapisz** ponownie. Wartość, która została wprowadzona w drugiej karcie przeglądarki są zapisywane wraz z oryginalnej wartości danych, zmiany w pierwszym przeglądarki. Zobaczysz zapisane wartości, gdy zostanie wyświetlona strona indeksu.
 
-![Department_Index_page_with_change_from_second_browser](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image11.png)
-
-## <a name="updating-the-delete-page"></a>Aktualizowanie strony Delete
+## <a name="update-the-delete-page"></a>Aktualizuj stronę Delete
 
 Na stronie usuwania programu Entity Framework wykrywa konfliktów współbieżności spowodowanych przez osoby z działu inne do edycji w podobny sposób. Gdy `HttpGet` `Delete` metoda Wyświetla widok potwierdzenie, widok zawiera oryginalny `RowVersion` wartość w ukrytym polu. Wartość jest następnie udostępniana `HttpPost` `Delete` metodę, która jest wywoływana, gdy użytkownik potwierdzi usunięcie. Gdy platforma Entity Framework tworzy SQL `DELETE` polecenia obejmuje `WHERE` klauzuli z oryginalnym `RowVersion` wartość. Jeśli wyniki polecenia zero wierszy dotyczy (wiersz został zmieniony po stronie potwierdzenia usunięcia został wyświetlony przesyłane), zwracany jest wyjątek współbieżności, a `HttpGet Delete` metoda jest wywoływana z flagą błąd równa `true` Aby ponownie wyświetlić Strona potwierdzenia komunikatu o błędzie. Istnieje również możliwość, że zero zmienionych wierszy, ponieważ wiersz został usunięty przez innego użytkownika, więc w takim przypadku jest wyświetlany komunikat o błędzie inny.
 
@@ -209,17 +196,11 @@ Na koniec dodaje ukryte pola dla `DepartmentID` i `RowVersion` właściwości po
 
 Uruchom stronę indeksu działów. Kliknij prawym przyciskiem myszy **Usuń** hiperlink do działu w języku angielskim, a następnie wybierz pozycję **Otwórz na nowej karcie** na pierwszej karcie kliknięcie **Edytuj** hiperłącze dla angielskiego działu.
 
-W pierwszym oknie zmienić jedną z wartości, a następnie kliknij przycisk **Zapisz** :
-
-![Department_Edit_page_after_change_before_delete](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image12.png)
+W pierwszym oknie zmienić jedną z wartości, a następnie kliknij przycisk **Zapisz**.
 
 Na stronie indeksu potwierdza zmianę.
 
-![Departments_Index_page_after_budget_edit_before_delete](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image13.png)
-
 W drugiej karcie kliknij **Usuń**.
-
-![Department_Delete_confirmation_page_before_concurrency_error](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image14.png)
 
 Zostanie wyświetlony komunikat o błędzie współbieżności, a wartości Dział zostaną odświeżone przy użyciu co to jest obecnie dostępna w bazie danych.
 
@@ -227,12 +208,27 @@ Zostanie wyświetlony komunikat o błędzie współbieżności, a wartości Dzia
 
 Jeśli klikniesz **Usuń** ponownie, użytkownik jest przekierowany do strony indeksu, który pokazuje, że dział został usunięty.
 
-## <a name="summary"></a>Podsumowanie
+## <a name="get-the-code"></a>Pobierz kod
 
-Na tym kończy się wprowadzenie do obsługi konfliktów współbieżności. Aby uzyskać informacji na temat innych sposobów, aby obsłużyć różne scenariusze współbieżności, zobacz [wzorców optymistycznej współbieżności](https://msdn.microsoft.com/data/jj592904) i [Praca z wartościami właściwości](https://msdn.microsoft.com/data/jj592677) w witrynie MSDN. Następny samouczek przedstawia sposób implementowania Tabela wg hierarchii dziedziczenia dla `Instructor` i `Student` jednostek.
+[Pobierz ukończony projekt](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
+
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 Linki do innych zasobów platformy Entity Framework można znaleźć w [dostęp do danych platformy ASP.NET — zalecane zasoby](../../../../whitepapers/aspnet-data-access-content-map.md).
 
-> [!div class="step-by-step"]
-> [Poprzednie](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-> [dalej](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+Aby uzyskać informacji na temat innych sposobów, aby obsłużyć różne scenariusze współbieżności, zobacz [wzorców optymistycznej współbieżności](https://msdn.microsoft.com/data/jj592904) i [Praca z wartościami właściwości](https://msdn.microsoft.com/data/jj592677) w witrynie MSDN. Następny samouczek przedstawia sposób implementowania Tabela wg hierarchii dziedziczenia dla `Instructor` i `Student` jednostek.
+
+## <a name="next-steps"></a>Następne kroki
+
+W ramach tego samouczka możesz:
+
+> [!div class="checklist"]
+> * Przedstawia informacje na temat konfliktów współbieżności
+> * Dodano optymistycznej współbieżności
+> * Zmodyfikowane kontrolera działu
+> * Obsługa współbieżności przetestowane
+> * Zaktualizowane strony usuwania
+
+Przejdź do następnego artykułu, aby dowiedzieć się, jak i implementują dziedziczenie w modelu danych.
+> [!div class="nextstepaction"]
+> [Implementowanie dziedziczenia w modelu danych](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application.md)

@@ -8,14 +8,14 @@ ms.date: 02/16/2008
 ms.assetid: 152ab1e5-aec2-4ea7-b8cc-27a24dd9acb8
 msc.legacyurl: /mvc/overview/older-versions-1/views/asp-net-mvc-views-overview-cs
 msc.type: authoredcontent
-ms.openlocfilehash: ac47caa46d93c6157926f1c9b5112555fae4f8f5
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: a8e64a99549584f150d64d909ac97210257b1147
+ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41752698"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54444132"
 ---
-<a name="aspnet-mvc-views-overview-c"></a>Widoków ASP.NET MVC — omówienie (C#)
+<a name="aspnet-mvc-views-overview-c"></a>Omówienie widoków ASP.NET MVC (C#)
 ====================
 przez [Walther Autor: Stephen](https://github.com/StephenWalther)
 
@@ -28,7 +28,7 @@ Celem tego samouczka jest zapewnienie krótkie wprowadzenie do widoków ASP.NET 
 
 Dla platformy ASP.NET lub Active Server Pages platformy ASP.NET MVC nie obejmuje wszystko, co odnosi się bezpośrednio do strony. W aplikacji ASP.NET MVC nie istnieje strona na dysku, który odnosi się do ścieżki na adres URL, który można wpisać w pasku adresu przeglądarki. Najbliższy rzeczą do strony w aplikacji ASP.NET MVC jest coś, co o nazwie *widoku*.
 
-ASP.NET MVC, w przeglądarce aplikacji, przychodzące żądania są mapowane do akcji kontrolera. Akcja kontrolera może zwrócić widok. Akcja kontrolera może jednak wykonać inny rodzaj akcje, takie jak przekierowywanie do kolejnej akcji kontrolera.
+W aplikacji ASP.NET MVC przychodzących żądań przeglądarki są mapowane do akcji kontrolera. Akcja kontrolera może zwrócić widok. Akcja kontrolera może jednak wykonać inny rodzaj akcje, takie jak przekierowywanie do kolejnej akcji kontrolera.
 
 Wyświetlanie listy 1 zawiera proste o nazwie HomeController kontrolera. HomeController udostępnia dwie akcje kontroler o nazwie indeks() i Details().
 
@@ -91,7 +91,7 @@ Ponieważ wywołujesz Response.Write() tak często, firma Microsoft umożliwia s
 
 [!code-aspx[Main](asp-net-mvc-views-overview-cs/samples/sample3.aspx)]
 
-Można użyć dowolnego języka platformy .NET do generowania zawartości dynamicznej w widoku. Zwykle ll możesz użyć Visual Basic .NET lub C# do pisania widoków i kontrolerów.
+Można użyć dowolnego języka platformy .NET do generowania zawartości dynamicznej w widoku. Normalnie, użyjesz albo Visual Basic .NET lub C# do zapisu, widoków i kontrolerów.
 
 ## <a name="using-html-helpers-to-generate-view-content"></a>Wyświetlanie zawartości przy użyciu pomocników HTML
 
@@ -106,7 +106,7 @@ Na przykład widok w ofercie 4 wykorzystuje trzy pomocników HTML — pomocnicy 
 
 [![Okno dialogowe Nowy projekt](asp-net-mvc-views-overview-cs/_static/image1.jpg)](asp-net-mvc-views-overview-cs/_static/image1.png)
 
-**Rysunek 01**: standardowy formularz logowania ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](asp-net-mvc-views-overview-cs/_static/image2.png))
+**Rysunek 01**: Standardowa formularz logowania ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](asp-net-mvc-views-overview-cs/_static/image2.png))
 
 
 Wszystkie metody pomocników HTML są nazywane we właściwości Html widoku. Na przykład przez wywołanie metody Html.TextBox() renderowanie pole tekstowe.
@@ -139,7 +139,7 @@ Wyświetl w ofercie 7 pobiera komunikat z danymi widoku i renderuje komunikat do
 
 Należy zauważyć, że widok wykorzystuje metody pomocnika kodu HTML Html.Encode() podczas renderowania komunikatu. Pomocnik kodu HTML Html.Encode() koduje znaki specjalne, takie jak &lt; i &gt; na znaki, które są bezpieczne wyświetlić na stronie sieci web. Zawsze, gdy renderowanie zawartości, który użytkownik prześle do witryny sieci Web należy zakodować zawartość, aby uniemożliwić ataki przez iniekcję kodu JavaScript.
 
-(Ponieważ utworzyliśmy komunikat osoby w ProductController, firma Microsoft don t naprawdę potrzebne do zakodowania komunikatu. Jednak jest dobry sposób zawsze wywołuj metody Html.Encode() podczas wyświetlania zawartości pobranej z wyświetlanie danych w widoku).
+(Ponieważ utworzyliśmy komunikat osoby w ProductController nie naprawdę potrzebujemy do zakodowania komunikatu. Jednak jest dobry sposób zawsze wywołuj metody Html.Encode() podczas wyświetlania zawartości pobranej z wyświetlanie danych w widoku).
 
 W ofercie 7 Firma Microsoft skorzystała z widoku danych komunikatu prosty ciąg znaków za pomocą kontrolera do widoku. Również służy widok danych do przekazania innych typów danych, takich jak zbiór rekordów bazy danych, za pomocą kontrolera do widoku. Na przykład jeśli chcesz wyświetlić zawartość tabeli Produkty bazy danych w widoku, a następnie przejdzie kolekcji bazy danych rejestruje w widoku danych.
 

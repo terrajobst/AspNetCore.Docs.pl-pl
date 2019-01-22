@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: 19fe24e0f901c50e8425db7665b5b2257b608146
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 350243fb94b4798293a5a61b580c3b3b4d8c6d4a
+ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090888"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54444301"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---sort-filter-paging---3-of-8"></a>Strony razor z programem EF Core w programie ASP.NET Core — sortowanie, filtrowanie, stronicowania - 3, 8
 
@@ -258,6 +258,8 @@ W *SchoolViewModels* folderu, Dodaj *EnrollmentDateGroup.cs* następującym kode
 [!code-csharp[](intro/samples/cu21/Models/SchoolViewModels/EnrollmentDateGroup.cs)]
 
 ### <a name="update-the-about-page-model"></a>Aktualizowanie modelu strony informacje
+
+Szablony sieci web w programie ASP.NET Core 2.2 nie zawierają na stronie informacje. Jeśli używasz programu ASP.NET Core 2.2, należy utworzyć stronę Razor o.
 
 Aktualizacja *Pages/About.cshtml.cs* pliku następującym kodem:
 

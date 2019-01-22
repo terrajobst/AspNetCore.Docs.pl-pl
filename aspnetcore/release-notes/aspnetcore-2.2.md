@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 12/18/2018
 uid: aspnetcore-2.2
-ms.openlocfilehash: 13d7dec834a5661b445b4fc0c0be8be9b7b41b9e
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: b8279588e674e3ada486f61bac2c216f1359e86d
+ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637732"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54444392"
 ---
 # <a name="whats-new-in-aspnet-core-22"></a>What's new in ASP.NET Core 2.2
 
@@ -25,7 +25,7 @@ Aby uzyskać więcej informacji, zobacz następujące zasoby:
 
 * <xref:web-api/advanced/analyzers>
 * <xref:web-api/advanced/conventions>
-* [2.2.0-preview1 platformy ASP.NET Core: Analizatory otwartych interfejsów API i konwencje](https://blogs.msdn.microsoft.com/webdev/2018/08/23/asp-net-core-2-20-preview1-open-api-analyzers-conventions/)
+* [ASP.NET Core 2.2.0-preview1: Analizatory otwartych interfejsów API i konwencje](https://blogs.msdn.microsoft.com/webdev/2018/08/23/asp-net-core-2-20-preview1-open-api-analyzers-conventions/)
 
 ## <a name="problem-details-support"></a>Obsługuje szczegóły problemu
 
@@ -57,7 +57,7 @@ Platforma ASP.NET Core 2.2 dodaje obsługę protokołu HTTP/2.
 
 Protokołu HTTP/2 jest główną korektą protokołu HTTP. Niektóre istotne funkcje protokołu HTTP/2 to obsługa kompresja nagłówków i w pełni multiplexed strumieni za pośrednictwem jednego połączenia. Gdy protokołu HTTP/2 zachowuje semantykę przez HTTP (nagłówków HTTP, metod itd.) jest istotną zmianę z HTTP/1.x, w jaki sposób te dane są obramowane i przesyłane przez sieć.
 
-W wyniku tej zmiany w ramek serwery i klienci muszą negocjowania używana wersja protokołu. Negocjowania protokołu warstwy aplikacji (ALPN) to rozszerzenie protokołu TLS, które umożliwia serwera i klienta negocjowania protokołu wersji używany w ramach ich uzgadniania TLS. Mimo że możliwe jest zapewnienie uprzednia między serwerem a klientem przy użyciu protokołu, wszystkie główne przeglądarki obsługują ALPN jako jedynym sposobem, aby ustanowić połączenie HTTP/2.
+W wyniku tej zmiany w ramek serwery i klienci muszą negocjowania używana wersja protokołu. Negocjowania protokołu warstwy aplikacji (ALPN) to rozszerzenie protokołu TLS, który pozwala na serwer i klienta w celu negocjowania protokołu wersji używany w ramach ich uzgadniania TLS. Mimo że możliwe jest zapewnienie uprzednia między serwerem a klientem przy użyciu protokołu, wszystkie główne przeglądarki obsługują ALPN jako jedynym sposobem, aby ustanowić połączenie HTTP/2.
 
 Aby uzyskać więcej informacji, zobacz [Obsługa protokołu HTTP/2](xref:fundamentals/servers/index?view=aspnetcore-2.2#http2-support).
 

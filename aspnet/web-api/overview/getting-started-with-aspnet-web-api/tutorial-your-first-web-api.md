@@ -7,12 +7,12 @@ ms.author: riande
 ms.date: 11/28/2017
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 62e99a41ba935470c39476c9aea8ee4193543425
-ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
+ms.openlocfilehash: 7bec95af4532535f0d620bfe6862958907466874
+ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48795296"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54444262"
 ---
 <a name="get-started-with-aspnet-web-api-2-c"></a>Wprowadzenie do wzorca ASP.NET Web API 2 (C#)
 ====================
@@ -61,7 +61,7 @@ Jeśli Eksplorator rozwiązań nie jest jeszcze widoczny, kliknij menu **Widok**
 
 ![](tutorial-your-first-web-api/_static/image4.png)
 
-Nazwij klasę &quot;Product&quot;. Dodaj następujące właściwości do klasy `Product`.
+Nazwij klasę &quot;Product&quot;. Dodaj następujące właściwości do `Product` klasy.
 
 [!code-csharp[Main](tutorial-your-first-web-api/samples/sample1.cs)]
 
@@ -178,7 +178,7 @@ Po kliknięciu karty Treść odpowiedzi możesz zobaczyć, jak lista produktów 
 
 Czy chcesz zobaczyć gotową witrynę działającą jako aplikacja internetowa na żywo? Pełną wersję aplikacji możesz wdrożyć na koncie platformy Azure — wystarczy kliknąć poniższy przycisk.
 
-[![](http://azuredeploy.net/deploybutton.png)](https://deploy.azure.com/?WT.mc_id=deploy_azure_aspnet&repository=https://github.com/tfitzmac/WebAPI-ProductsApp#/form/setup)
+[![](https://azuredeploy.net/deploybutton.png)](https://deploy.azure.com/?WT.mc_id=deploy_azure_aspnet&repository=https://github.com/tfitzmac/WebAPI-ProductsApp#/form/setup)
 
 Aby wdrożyć to rozwiązanie na platformie Azure, musisz mieć konto platformy Azure. Jeśli nie masz jeszcze konta, możesz:
 

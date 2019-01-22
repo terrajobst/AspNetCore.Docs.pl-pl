@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/13/2018
 uid: security/data-protection/configuration/overview
-ms.openlocfilehash: 3be220df4b14ed8dbbd1fab70f46578e9408aa26
-ms.sourcegitcommit: f202864efca81a72ea7120c0692940c40d9d0630
+ms.openlocfilehash: 0aef2680f48b7923579f90943846f22734f61b50
+ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51635319"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54444275"
 ---
 # <a name="configure-aspnet-core-data-protection"></a>Konfigurowanie ochrony danych programu ASP.NET Core
 
@@ -42,7 +42,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Ustaw lokalizację magazynu pierścień klucza (na przykład [PersistKeysToAzureBlobStorage](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.persistkeystoazureblobstorage)). Można ustawić lokalizację, ponieważ wywołanie `ProtectKeysWithAzureKeyVault` implementuje [IXmlEncryptor](/dotnet/api/microsoft.aspnetcore.dataprotection.xmlencryption.ixmlencryptor) wyłączają ustawienia ochrony danych, w tym lokalizacji przechowywania klucza pierścienia. Poprzedni przykład wykorzystuje usługi Azure Blob Storage, aby utrwalić pierścień klucza. Aby uzyskać więcej informacji, zobacz [dostawcy magazynu kluczy: Azure i Redis](xref:security/data-protection/implementation/key-storage-providers#azure-and-redis). Można również utrwalić pierścień klucz lokalnie za pomocą [PersistKeysToFileSystem](xref:security/data-protection/implementation/key-storage-providers#file-system).
+Ustaw lokalizację magazynu pierścień klucza (na przykład [PersistKeysToAzureBlobStorage](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.persistkeystoazureblobstorage)). Można ustawić lokalizację, ponieważ wywołanie `ProtectKeysWithAzureKeyVault` implementuje [IXmlEncryptor](/dotnet/api/microsoft.aspnetcore.dataprotection.xmlencryption.ixmlencryptor) wyłączają ustawienia ochrony danych, w tym lokalizacji przechowywania klucza pierścienia. Poprzedni przykład wykorzystuje usługi Azure Blob Storage, aby utrwalić pierścień klucza. Aby uzyskać więcej informacji, zobacz [dostawcy magazynu kluczy: Platforma Azure i Redis](xref:security/data-protection/implementation/key-storage-providers#azure-and-redis). Można również utrwalić pierścień klucz lokalnie za pomocą [PersistKeysToFileSystem](xref:security/data-protection/implementation/key-storage-providers#file-system).
 
 `keyIdentifier` Jest identyfikator klucza magazynu kluczy, używany do szyfrowania klucza (na przykład `https://contosokeyvault.vault.azure.net/keys/dataprotection/`).
 
@@ -135,7 +135,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="setapplicationname"></a>SetApplicationName
 
-Domyślnie system ochrony danych izoluje aplikacje, od siebie nawzajem, nawet wtedy, gdy są one udostępnianie tej samej fizycznej repozytorium klucza. Zapobiega to zrozumienie ładunków chronionych drugiej strony aplikacje.
+Domyślnie system ochrony danych izoluje aplikacje od siebie nawzajem oparte na ich ścieżek zawartości katalogu głównego, nawet wtedy, gdy są one udostępnianie tej samej fizycznej repozytorium klucza. Zapobiega to zrozumienie ładunków chronionych drugiej strony aplikacje.
 
 Aby udostępnić chronione ładunków między aplikacjami:
 

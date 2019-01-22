@@ -1,34 +1,28 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application
-title: Async i procedur składowanych z platformą Entity Framework w aplikacji ASP.NET MVC | Dokumentacja firmy Microsoft
+title: 'Samouczek: Użycie async i procedur składowanych z EF w aplikacji platformy ASP.NET MVC'
+description: W tym samouczku zobaczysz sposobu implementacji asynchronicznego modelu programowania i Dowiedz się, jak używanie procedur składowanych.
 author: tdykstra
-description: Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 5 przy użyciu Entity Framework 6 Code First i programu Visual Studio...
 ms.author: riande
-ms.date: 11/07/2014
+ms.date: 01/18/2019
+ms.topic: tutorial
 ms.assetid: 27d110fc-d1b7-4628-a763-26f1e6087549
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 84be966c1e1a4357125c1a53b8065676c8f073f6
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 0896664174bc2fee65b73ecf256d994f2abacc0a
+ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48910736"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54444366"
 ---
-<a name="async-and-stored-procedures-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Async i procedur składowanych z platformą Entity Framework w aplikacji ASP.NET MVC
-====================
-przez [Tom Dykstra](https://github.com/tdykstra)
-
-[Pobierz ukończony projekt](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
-
-> Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 5 przy użyciu Entity Framework 6 Code First i programu Visual Studio. Aby uzyskać informacji na temat tej serii samouczka, zobacz [pierwszym samouczku tej serii](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
-
+# <a name="tutorial-use-async-and-stored-procedures-with-ef-in-an-aspnet-mvc-app"></a>Samouczek: Użycie async i procedur składowanych z EF w aplikacji platformy ASP.NET MVC
 
 W samouczkach wcześniej pokazaliśmy ci, jak odczytywanie i aktualizowanie danych za pomocą synchronicznego modelu programowania. W tym samouczku dowiesz się jak zaimplementować asynchronicznego modelu programowania. Kod asynchroniczny może pomóc aplikacji działać lepiej, ponieważ ułatwia lepsze wykorzystanie zasobów serwera.
 
-W tym samouczku zobaczysz również sposób użycia procedury składowane insert, update i operacje usuwania w jednostce.
+W ramach tego samouczka możesz także Zobacz, jak używane procedury składowane insert, update i operacje usuwania w jednostce.
 
-Na koniec będzie ponownie wdrożyć aplikację na platformie Azure oraz wszystkich zmian w bazie danych, które zostały zaimplementowane od podczas pierwszego wdrażania.
+Na koniec ponownego wdrażania aplikacji na platformie Azure oraz wszystkich zmian w bazie danych, które zostały zaimplementowane od podczas pierwszego wdrażania.
 
 Na poniższych ilustracjach przedstawiono niektóre stron którymi będziesz pracować.
 
@@ -36,7 +30,19 @@ Na poniższych ilustracjach przedstawiono niektóre stron którymi będziesz pra
 
 ![Utwórz działu](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image2.png)
 
-## <a name="why-bother-with-asynchronous-code"></a>Dlaczego odblokowane za pomocą kodu asynchronicznego
+W ramach tego samouczka możesz:
+
+> [!div class="checklist"]
+> * Dowiedz się więcej o kodzie asynchronicznym
+> * Tworzenie kontrolera działu
+> * Używanie procedur składowanych
+> * Wdrażanie na platformie Azure
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+* [Aktualizowanie powiązanych danych](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+
+## <a name="why-use-asynchronous-code"></a>Dlaczego warto korzystać z kodu asynchronicznego
 
 Serwer sieci web ma ograniczoną liczbę dostępnych wątków, a w sytuacjach, w dużym obciążeniem wszystkie dostępne wątki mogło zostać użyte. Jeśli tak się stanie, serwer nie może przetworzyć nowe żądania aż wątki są zwalniane. Przy użyciu kodu synchronicznego wiele wątków może powiązane, gdy nie są faktycznie czynności wykonują wszelkie prace ponieważ oczekują one operacji We/Wy zakończyć. Za pomocą kodu asynchronicznego podczas procesu jest oczekiwania na we/wy ukończyć, jego wątku jest zwalniana dla serwera na potrzeby przetwarzaniem innych żądań. W rezultacie kod asynchroniczny umożliwia zasobów serwera w celu można użyć bardziej wydajnie i serwera jest włączona, aby obsłużyć większy ruch, bez opóźnień.
 
@@ -44,11 +50,9 @@ We wcześniejszych wersjach programu .NET, pisanie i testowanie kodu asynchronic
 
 Aby uzyskać więcej informacji na temat programowania asynchronicznego, zobacz [Obsługa async Użyj .NET 4.5 w celu unikania blokowania połączeń](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices.md#async).
 
-## <a name="create-the-department-controller"></a>Tworzenie kontrolera działu
+## <a name="create-department-controller"></a>Tworzenie kontrolera działu
 
-Tworzenie kontrolera działu, w taki sam sposób jak w przypadku starszych kontrolerów, jednak tym razem wybierz **Użyj kontrolera asynchronicznego** pole wyboru czynności.
-
-![Tworzenie szkieletu kontrolera działu](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
+Tworzenie kontrolera działu, w taki sam sposób jak w przypadku starszych kontrolerów, jednak tym razem wybierz **używać asynchronicznych akcji kontrolera** pole wyboru.
 
 Następującym głównym funkcjom Pokaż dodanych do kodu synchronicznego `Index` metodę, aby stał się asynchronicznego:
 
@@ -89,8 +93,6 @@ W widokach Delete i szczegółowe informacje, użyj następującego kodu:
 
 Uruchom aplikację, a następnie kliknij przycisk **działów** kartę.
 
-![Działy strony](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image4.png)
-
 Wszystko, co działa tak samo, jak w innych kontrolerów, ale w tym kontrolerze wszystkich zapytań SQL są wykonywane asynchronicznie.
 
 Kilka rzeczy, aby wiedzieć, w którym używasz programowania asynchronicznego przy użyciu platformy Entity Framework:
@@ -98,7 +100,7 @@ Kilka rzeczy, aby wiedzieć, w którym używasz programowania asynchronicznego p
 - Kod asynchroniczny nie jest bezpieczny dla wątków. Innymi słowy innymi słowy, nie należy próbować wykonać wiele operacji równolegle za pomocą tego samego wystąpienia kontekstu.
 - Jeśli chcesz skorzystać z zalet wydajności kod asynchroniczny, upewnij się, wszystkie biblioteki pakietami, które używasz (takie jak w przypadku stronicowania), jeśli wywołują wszystkie metody, że zapytania wysyłane do bazy danych programu Entity Framework użyć async.
 
-## <a name="use-stored-procedures-for-inserting-updating-and-deleting"></a>Używanie procedur składowanych do wstawiania, aktualizowania i usuwania
+## <a name="use-stored-procedures"></a>Używanie procedur składowanych
 
 Niektóre deweloperów i przetwarzający wolą używanie procedur składowanych, aby uzyskać dostęp do bazy danych. We wcześniejszych wersjach programu Entity Framework można pobrać danych za pomocą procedury składowanej przez [wykonywanie pierwotne zapytania SQL](advanced-entity-framework-scenarios-for-an-mvc-web-application.md), ale nie może nakazać EF procedur składowanych na potrzeby operacji aktualizacji. W programów EF 6 jest łatwa do skonfigurowania Code First na używanie procedur składowanych.
 
@@ -120,7 +122,6 @@ Niektóre deweloperów i przetwarzający wolą używanie procedur składowanych,
 4. Uruchom aplikację w trybie debugowania, kliknij przycisk **działów** kartę, a następnie kliknij przycisk **Utwórz nowy**.
 5. Wprowadź dane dla nowego wydziału, a następnie kliknij przycisk **Utwórz**.
 
-     ![Utwórz działu](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image5.png)
 6. W programie Visual Studio, sprawdź dzienniki w **dane wyjściowe** okno, aby wyświetlić, aby wstawić nowy wiersz działu użyto procedury składowanej.
 
      ![Dział Insert SP](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image6.png)
@@ -143,12 +144,24 @@ W tej sekcji, musisz ukończyć opcjonalną **wdrażania aplikacji na platformie
 
     Uruchom stronę po raz pierwszy uzyskuje dostęp do bazy danych, platformy Entity Framework umożliwia uruchamianie wszystkich migracjach `Up` metod wymaganych do przełączenia bazy danych na bieżąco z bieżącym modelem danych. Można teraz używać wszystkich stron sieci web, które dodane od czasu ostatniego wdrożenia, w tym stron działu, które zostały dodane w tym samouczku.
 
-## <a name="summary"></a>Podsumowanie
+## <a name="get-the-code"></a>Pobierz kod
 
-W tym samouczku pokazano, jak poprawić wydajność serwera przez napisanie kodu, który jest wykonywany asynchronicznie i jak używanie procedur składowanych dla Wstawianie, aktualizowanie i usuwanie operacji. W następnym samouczku pokazano, jak zapobiec utracie danych, gdy wielu użytkowników próby edytowania tego samego rekordu w tym samym czasie.
+[Pobieranie ukończone projektu](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
+
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 Linki do innych zasobów platformy Entity Framework można znaleźć w [dostęp do danych platformy ASP.NET — zalecane zasoby](../../../../whitepapers/aspnet-data-access-content-map.md).
 
-> [!div class="step-by-step"]
-> [Poprzednie](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-> [dalej](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+## <a name="next-steps"></a>Następne kroki
+
+W ramach tego samouczka możesz:
+
+> [!div class="checklist"]
+> * Przedstawia informacje na temat kodu asynchronicznego
+> * Utworzony kontroler działu
+> * Używane procedury składowane
+> * Wdrażane na platformie Azure
+
+Przejdź do następnego artykułu, aby dowiedzieć się, jak obsługa konfliktów, gdy wielu użytkowników aktualizacji tej samej jednostki w tym samym czasie.
+> [!div class="nextstepaction"]
+> [Obsługa współbieżności](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md)

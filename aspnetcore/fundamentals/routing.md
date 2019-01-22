@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/14/2019
 uid: fundamentals/routing
-ms.openlocfilehash: 96d098115f2f9b150f796e08cf14e60611f59e17
-ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
+ms.openlocfilehash: 070200b6fdc8b3178e2b7b12375ba1dd56080697
+ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54341761"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54444379"
 ---
 # <a name="routing-in-aspnet-core"></a>Routing w programie ASP.NET Core
 
@@ -737,3 +737,9 @@ routes.MapRoute("blog_route", "blog/{*slug}",
 ```
 
 Generowanie konsolidacji tylko generuje link dla tej trasy podczas dopasowywania wartości `controller` i `action` są dostarczane.
+
+## <a name="complex-segments"></a>Złożone segmentów
+
+Złożone segmenty (na przykład `[Route("/x{token}y")]`) są przetwarzane przez dopasowanie się literały od prawej do lewej w sposób niezachłanne. Zobacz [ten kod](https://github.com/aspnet/AspNetCore/blob/release/2.2/src/Http/Routing/src/Patterns/RoutePatternMatcher.cs#L293) Aby uzyskać szczegółowe informacje dotyczące złożonych segmentów są dopasowywane. [Przykładowy kod](https://github.com/aspnet/AspNetCore/blob/release/2.2/src/Http/Routing/src/Patterns/RoutePatternMatcher.cs#L293) nie jest używany przez program ASP.NET Core, ale zapewnia dobre omówienie złożonych segmentów.
+<!-- While that code is no longer used by ASP.NET Core for complex segment matching, it provides a good match to the current algorithm. The [current code](https://github.com/aspnet/AspNetCore/blob/91514c9af7e0f4c44029b51f05a01c6fe4c96e4c/src/Http/Routing/src/Matching/DfaMatcherBuilder.cs#L227-L244) is too abstracted from matching to be useful for understanding complex segment matching.
+-->

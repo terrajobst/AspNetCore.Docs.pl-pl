@@ -1,34 +1,43 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application
-title: Wdrażanie dziedziczenia z programu Entity Framework 6 w aplikacji ASP.NET MVC 5 (11, 12) | Dokumentacja firmy Microsoft
+title: 'Szablon: Implementowanie dziedziczenia z programów EF w aplikacjach ASP.NET MVC 5'
+description: Ten samouczek przedstawia sposób implementowania dziedziczenia w modelu danych.
 author: tdykstra
-description: Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 5 przy użyciu Entity Framework 6 Code First i programu Visual Studio...
 ms.author: riande
-ms.date: 11/07/2014
+ms.date: 01/21/2019
+ms.topic: tutorial
 ms.assetid: 08834147-77ec-454a-bb7a-d931d2a40dab
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 613494d58d7652f69a52241bcd3a7e896bc5407c
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: df8715e4416ce3ccdf1d9e380addcded553d85f8
+ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912712"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54444288"
 ---
-<a name="implementing-inheritance-with-the-entity-framework-6-in-an-aspnet-mvc-5-application-11-of-12"></a>Wdrażanie dziedziczenia z programu Entity Framework 6 w aplikacji ASP.NET MVC 5 (11, 12)
-====================
-przez [Tom Dykstra](https://github.com/tdykstra)
-
-[Pobierz ukończony projekt](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
-
-> Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 5 przy użyciu Entity Framework 6 Code First i programu Visual Studio. Aby uzyskać informacji na temat tej serii samouczka, zobacz [pierwszym samouczku tej serii](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
-
+# <a name="template-implement-inheritance-with-ef-in-an-aspnet-mvc-5-app"></a>Szablon: Implementowanie dziedziczenia z programów EF w aplikacji ASP.NET MVC 5
 
 W poprzednim samouczku obsługiwane są wyjątki współbieżności. Ten samouczek przedstawia sposób implementowania dziedziczenia w modelu danych.
 
 Programowanie zorientowane obiektowo umożliwia [dziedziczenia](http://en.wikipedia.org/wiki/Inheritance_(object-oriented_programming)) ułatwiające [ponowne użycie kodu](http://en.wikipedia.org/wiki/Code_reuse). W tym samouczku poznasz, jak zmienić `Instructor` i `Student` klasy tak, że pochodzą one od `Person` podstawowej klasy, która zawiera właściwości, takie jak `LastName` , które są wspólne dla instruktorów i studentów. Nie będzie dodać lub zmienić dowolnymi stronami sieci web, ale zmienisz część kodu, a te zmiany są automatycznie odzwierciedlane w bazie danych.
 
-## <a name="options-for-mapping-inheritance-to-database-tables"></a>Opcje mapowania dziedziczenia w tabelach bazy danych
+W ramach tego samouczka możesz:
+
+> [!div class="checklist"]
+> * Dowiedz się, jak mapować dziedziczenia do bazy danych
+> * Utwórz klasę osoby
+> * Aktualizacja przez instruktorów i uczniów
+> * Dodanie osoby do modelu
+> * Tworzenie i aktualizowanie migracji
+> * Testowanie wdrożenia
+> * Wdrażanie na platformie Azure
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+* [Implementowanie dziedziczenia](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+
+## <a name="map-inheritance-to-database"></a>Mapowanie dziedziczenia do bazy danych
 
 `Instructor` i `Student` klas w `School` model danych ma kilka właściwości, które są identyczne:
 
@@ -40,13 +49,13 @@ Załóżmy, że chcesz wyeliminować nadmiarowy kod dla właściwości, które s
 
 Istnieje kilka sposobów, w których ta struktura dziedziczenia, mogą być reprezentowane w bazie danych. Może mieć `Person` tabelę, która zawiera informacje na temat uczniów i Instruktorzy w jednej tabeli. Niektóre kolumny można zastosować tylko do Instruktorzy (`HireDate`), niektóre tylko dla uczniów i studentów (`EnrollmentDate`), niektóre na wartość oba (`LastName`, `FirstName`). Zazwyczaj trzeba *dyskryminatora* kolumny, aby wskazać, jakiego typu każdy wiersz reprezentuje. Na przykład kolumna dyskryminatora może być "Instruktora" instruktorów i "Student" dla uczniów lub studentów.
 
-![Tabela na hierarchy_example](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
+![Table-per-hierarchy_example](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
 
 Ten wzorzec generowania struktury dziedziczenie jednostki z tabeli pojedynczej bazy danych jest nazywany *Tabela wg hierarchii* dziedziczenia (TPH).
 
 Alternatywą jest, aby wyglądała bardziej jak struktury dziedziczenia bazę danych. Na przykład można mieć tylko pola nazwy `Person` tabeli i mieć osobne `Instructor` i `Student` tabele z polami daty.
 
-![Tabela na type_inheritance](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image4.png)
+![Table-per-type_inheritance](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image4.png)
 
 Ten wzorzec polegający na wprowadzaniu tabeli bazy danych dla każdej klasie jednostki jest wywoływana *tabeli na typ* dziedziczenia (TPT).
 
@@ -62,7 +71,9 @@ W *modeli* folderze utwórz *osoba.cs* i Zastąp kod szablonu poniższym kodem:
 
 [!code-csharp[Main](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.cs)]
 
-## <a name="make-student-and-instructor-classes-inherit-from-person"></a>Utworzyć dla uczniów i instruktora klasy dziedziczyć od osoby
+## <a name="update-instructor-and-student"></a>Aktualizacja przez instruktorów i uczniów
+
+Teraz zaktualizować *Instructor.cs* i *Sudent.cs* dziedziczy wartości z *Person.sc*.
 
 W *Instructor.cs*, pochodzi `Instructor` klasy z `Person` klasy, a następnie usuń klucza i nazwy pola. Ten kod będzie wyglądać następująco:
 
@@ -72,7 +83,7 @@ Wprowadzić zmiany podobne do *Student.cs*. `Student` Klasy będzie wyglądać n
 
 [!code-csharp[Main](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample3.cs)]
 
-## <a name="add-the-person-entity-type-to-the-model"></a>Dodaj osoby typu jednostki do modelu
+## <a name="add-person-to-the-model"></a>Dodanie osoby do modelu
 
 W *SchoolContext.cs*, Dodaj `DbSet` właściwość `Person` typ jednostki:
 
@@ -80,7 +91,7 @@ W *SchoolContext.cs*, Dodaj `DbSet` właściwość `Person` typ jednostki:
 
 To wszystko, co wymaga programu Entity Framework, w celu skonfigurowania Tabela wg hierarchii dziedziczenia. Jak można zauważyć, gdy baza danych zostanie zaktualizowany, będzie miał `Person` tabeli zamiast `Student` i `Instructor` tabel.
 
-## <a name="create-and-update-a-migrations-file"></a>Tworzenie i aktualizowanie plików migracji
+## <a name="create-and-update-migrations"></a>Tworzenie i aktualizowanie migracji
 
 W konsoli Menedżera pakietów (PMC) wprowadź następujące polecenie:
 
@@ -121,18 +132,13 @@ Uruchom `update-database` ponownie polecenie.
 >
 > Za pomocą nowej bazy danych, nie ma żadnych danych, aby przeprowadzić migrację oraz `update-database` polecenia jest znacznie bardziej prawdopodobne zakończyć bez błędów. Aby uzyskać instrukcje dotyczące sposobu usuwania z bazy danych, zobacz [jak usunąć bazę danych z programu Visual Studio 2012](http://romiller.com/2013/05/17/how-to-drop-a-database-from-visual-studio-2012/). W przypadku zastosowania tego podejścia w celu przejdź do samouczka pominąć krok wdrażania na końcu tego samouczka lub wdrożyć nowej lokacji i bazy danych. Jeśli Wdróż aktualizację w tej samej lokacji, które możesz już został wdrożenie już EF zostanie wyświetlony ten sam błąd, gdy migracja jest uruchamiany automatycznie. Jeśli chcesz rozwiązać błąd migracji, zostanie najlepszy zasób jest jednym z forów platformy Entity Framework lub StackOverflow.com.
 
-
-## <a name="testing"></a>Testowanie
+## <a name="test-the-implementation"></a>Testowanie wdrożenia
 
 Uruchamianie witryny, a następnie spróbuj różnych stronach. Wszystko działa to tak jak poprzednio.
 
 W **Eksploratora serwera** rozwiń **Connections\SchoolContext danych** i następnie **tabel**, i zobaczysz, że **uczniów** i **Przez instruktorów** tabele zostały zastąpione przez **osoby** tabeli. Rozwiń **osoby** tabeli i zawiera wszystkie kolumny, które wcześniej w **uczniów** i **przez instruktorów** tabel.
 
-![Server_Explorer_showing_Person_table](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image5.png)
-
 Kliknij prawym przyciskiem myszy tabeli osób, a następnie kliknij przycisk **Pokaż dane tabeli** się kolumna dyskryminatora.
-
-![](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image6.png)
 
 Na poniższym diagramie przedstawiono strukturę nową bazę danych School:
 
@@ -144,22 +150,37 @@ W tej sekcji, musisz ukończyć opcjonalną **wdrażania aplikacji na platformie
 
 1. W programie Visual Studio, kliknij prawym przyciskiem myszy projekt w **Eksploratora rozwiązań** i wybierz **Publikuj** z menu kontekstowego.
 
-    ![Opublikuj w menu kontekstowego projektu](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image8.png)
 2. Kliknij przycisk **publikowania**.
 
-    ![Publikowanie](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image9.png)
+    Aplikacja sieci Web zostanie otwarta w domyślnej przeglądarce.
 
-   Aplikacja sieci Web zostanie otwarta w domyślnej przeglądarce.
 3. Testowanie aplikacji w celu zweryfikowania działa.
 
     Uruchom stronę po raz pierwszy uzyskuje dostęp do bazy danych, platformy Entity Framework umożliwia uruchamianie wszystkich migracjach `Up` metod wymaganych do przełączenia bazy danych na bieżąco z bieżącym modelem danych.
 
-## <a name="summary"></a>Podsumowanie
+## <a name="get-the-code"></a>Pobierz kod
 
-Tabela wg hierarchii dziedziczenia dla zastało zaimplementowane `Person`, `Student`, i `Instructor` klasy. Aby uzyskać więcej informacji na temat tego i innych struktur dziedziczenia, zobacz [wzorzec dziedziczenia TPT](https://msdn.microsoft.com/data/jj618293) i [wzorzec dziedziczenia TPH](https://msdn.microsoft.com/data/jj618292) w witrynie MSDN. W następnym samouczku pokazano, jak do obsługi różnorodnych stosunkowo zaawansowane scenariusze platformy Entity Framework.
+[Pobierz ukończony projekt](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
+
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 Linki do innych zasobów platformy Entity Framework można znaleźć w [dostęp do danych platformy ASP.NET — zalecane zasoby](../../../../whitepapers/aspnet-data-access-content-map.md).
 
-> [!div class="step-by-step"]
-> [Poprzednie](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-> [dalej](advanced-entity-framework-scenarios-for-an-mvc-web-application.md)
+Aby uzyskać więcej informacji na temat tego i innych struktur dziedziczenia, zobacz [wzorzec dziedziczenia TPT](https://msdn.microsoft.com/data/jj618293) i [wzorzec dziedziczenia TPH](https://msdn.microsoft.com/data/jj618292) w witrynie MSDN. W następnym samouczku pokazano, jak do obsługi różnorodnych stosunkowo zaawansowane scenariusze platformy Entity Framework.
+
+## <a name="next-steps"></a>Następne kroki
+
+W ramach tego samouczka możesz:
+
+> [!div class="checklist"]
+> * Przedstawiono do mapowania dziedziczenia bazy danych
+> * Utworzone klasy osoby
+> * Zaktualizowane przez instruktorów i uczniów
+> * Dodano osoby do modelu
+> * Utworzone i zaktualizuj migracji
+> * Przetestowane wdrożenia
+> * Wdrażane na platformie Azure
+
+Przejdź do następnego artykułu, aby dowiedzieć się więcej na temat tematów, które są przydatne pod uwagę podczas czegoś podstawy tworzenia aplikacji sieci web ASP.NET, które używają programu Entity Framework Code First.
+> [!div class="nextstepaction"]
+> [Zaawansowane scenariusze platformy Entity Framework](advanced-entity-framework-scenarios-for-an-mvc-web-application.md)

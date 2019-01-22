@@ -4,14 +4,14 @@ author: mjrousos
 description: Dowiedz się, jak używać niestandardowego IAuthorizationPolicyProvider w aplikacji ASP.NET Core można dynamicznie wygenerować zasady autoryzacji.
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/02/2018
+ms.date: 01/21/2019
 uid: security/authorization/iauthorizationpolicyprovider
-ms.openlocfilehash: ef3e81da6fb9e2e332b553607be35fcd79e9362d
-ms.sourcegitcommit: ec71fd5a988f927ae301813aae5ff764feb3bb6a
+ms.openlocfilehash: ca57a9fd8e3c11f15fe14bbe4538bc748c4c84b6
+ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54249376"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54444158"
 ---
 # <a name="custom-authorization-policy-providers-using-iauthorizationpolicyprovider-in-aspnet-core"></a>Niestandardowi dostawcy zasad autoryzacji przy użyciu IAuthorizationPolicyProvider w programie ASP.NET Core 
 
@@ -25,8 +25,7 @@ Przykładowe scenariusze, w przypadku, gdy niestandardowego [IAuthorizationPolic
 * Przy użyciu dużych wielu zasad (w przypadku liczb różne pomieszczenia lub wieku, na przykład), więc nie ma sensu do dodania każdej zasady autoryzacji poszczególnych z `AuthorizationOptions.AddPolicy` wywołania.
 * Tworzenie zasad w oparciu o informacje z zewnętrznego źródła danych (np. bazy danych) w czasie wykonywania, lub określanie wymagań autoryzacji dynamicznie za pośrednictwem innego mechanizmu.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore/tree/release/2.2/src/AuthSamples/) z [repozytorium AspNetCore GitHub](https://github.com/aspnet/AspNetCore). Pobierz plik ZIP repozytorium aspnet/AuthSamples.
-Rozpakuj *AuthSamples-master.zip* pliku. Przejdź do *samples/CustomPolicyProvider* folderu projektu.
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore/tree/release/2.2/src/Security/samples/CustomPolicyProvider) z [repozytorium AspNetCore GitHub](https://github.com/aspnet/AspNetCore). Pobierz plik ZIP repozytorium aspnet/AspNetCore. Rozpakuj plik. Przejdź do *src/Security/samples/CustomPolicyProvider* folderu projektu.
 
 ## <a name="customize-policy-retrieval"></a>Dostosowywanie pobierania zasad
 
@@ -84,7 +83,7 @@ Można go zastosować do akcji w taki sam sposób jak inne `Authorize` atrybutó
 public IActionResult RequiresMinimumAge10()
 ```
 
-## <a name="custom-iauthorizationpolicyprovider"></a>Niestandardowe IAuthorizationPolicyProvider
+## <a name="custom-iauthorizationpolicyprovider"></a>Custom IAuthorizationPolicyProvider
 
 Niestandardowy `MinimumAgeAuthorizeAttribute` ułatwia zasady autoryzacji żądania dla dowolnego minimalny wiek żądanego. Następny problem do rozwiązania jest upewnienie się, że zasady autoryzacji są dostępne dla wszystkich tych różnych wieku. Jest to miejsce `IAuthorizationPolicyProvider` przydaje się.
 
@@ -154,4 +153,4 @@ Korzystanie z niestandardowych zasad z `IAuthorizationPolicyProvider`, należy:
 services.AddSingleton<IAuthorizationPolicyProvider, MinimumAgePolicyProvider>();
 ```
 
-Niestandardowe pełną `IAuthorizationPolicyProvider` próbka jest dostępna w [repozytorium GitHub aspnet/AuthSamples](https://github.com/aspnet/AuthSamples/tree/master/samples/CustomPolicyProvider).
+Niestandardowe pełną `IAuthorizationPolicyProvider` próbka jest dostępna w [repozytorium GitHub aspnet/AuthSamples](https://github.com/aspnet/AspNetCore/tree/release/2.2/src/Security/samples/CustomPolicyProvider).
