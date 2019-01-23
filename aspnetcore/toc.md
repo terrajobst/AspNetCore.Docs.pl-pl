@@ -1,11 +1,3 @@
----
-ms.openlocfilehash: a3ac1ac389892681e8c122d569e6325353ed6e88
-ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
-ms.translationtype: HT
-ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54341683"
----
 # [Dokumentacja platformy ASP.NET Core](/aspnet/#pivot=core)
 
 # Omówienie
@@ -25,6 +17,8 @@ ms.locfileid: "54341683"
 ## Aplikacje internetowego interfejsu API
 ### [Tworzenie internetowego interfejsu API](xref:tutorials/first-web-api)
 ### [Internetowy interfejs API w programie MongoDB](xref:tutorials/first-mongo-app)
+### [Zaplecze dla urządzeń przenośnych](xref:mobile/native-mobile-backend)
+
 ## Aplikacje internetowe
 ### [Strony Razor](xref:tutorials/razor-pages/index)
 ### [MVC](xref:tutorials/first-mvc-app/index)
@@ -32,7 +26,6 @@ ms.locfileid: "54341683"
 ## Aplikacje internetowe w czasie rzeczywistym
 ### [Usługa SignalR za pomocą języka JavaScript](xref:tutorials/signalr)
 ### [Usługa SignalR za pomocą języka TypeScript](xref:tutorials/signalr-typescript-webpack)
-## [Tworzenie usług zaplecza dla natywnych aplikacji mobilnych](xref:mobile/native-mobile-backend)
 
 ## Dostęp do danych
 ### [Program EF Core z produktem Razor Pages](xref:data/ef-rp/index)
@@ -50,16 +43,13 @@ ms.locfileid: "54341683"
 ## [Opcje](xref:fundamentals/configuration/options)
 ## [Rejestrowanie](xref:fundamentals/logging/index)
 ## [Obsługa błędów](xref:fundamentals/error-handling)
-## Oprogramowanie pośredniczące
-### [Omówienie](xref:fundamentals/middleware/index)
-### [Oprogramowanie pośredniczące oparte na fabryce](xref:fundamentals/middleware/extensibility)
-### [Oprogramowanie pośredniczące oparte na fabryce z kontenerem innej firmy](xref:fundamentals/middleware/extensibility-third-party-container)
+## [Oprogramowanie pośredniczące](xref:fundamentals/middleware/index)
 ## Host
 ### [Omówienie](xref:fundamentals/host/index)
 ### [Host internetowy](xref:fundamentals/host/web-host)
 ### [Host ogólny](xref:fundamentals/host/generic-host)
 ## [Serwery](xref:fundamentals/servers/index)
-## [Inicjowanie żądań HTTP](xref:fundamentals/http-requests)
+## [Zgłaszanie żądań HTTP](xref:fundamentals/http-requests)
 
 # Aplikacje internetowe
 ## Razor Pages
@@ -286,6 +276,7 @@ ms.locfileid: "54341683"
 ### [Kompilowanie obrazów platformy Docker](/dotnet/articles/core/docker/building-net-docker-images)
 ### [Visual Studio Tools](xref:host-and-deploy/docker/visual-studio-tools-for-docker)
 ### [Publikowanie w obrazie platformy Docker](/azure/vs-azure-tools-docker-hosting-web-apps-in-docker)
+### [Przykładowe obrazy platformy Docker](https://github.com/dotnet/dotnet-docker/blob/master/samples/aspnetapp/README.md)
 ## [Konfiguracja serwera proxy i modułu równoważenia obciążenia](xref:host-and-deploy/proxy-load-balancer)
 ## [Hosting w farmie internetowej](xref:host-and-deploy/web-farm)
 ## [Publikowanie profilów w programie Visual Studio](xref:host-and-deploy/visual-studio-publish-profiles)
@@ -373,7 +364,7 @@ ms.locfileid: "54341683"
 #### [Dostawcy efemerycznej ochrony danych](xref:security/data-protection/implementation/key-storage-ephemeral)
 ### Zgodność
 #### [Omówienie](xref:security/data-protection/compatibility/index)
-#### [Zamienianie elementu <machineKey> na platformie ASP.NET](xref:security/data-protection/compatibility/replacing-machinekey)
+#### [Zastępowanie atrybutu machineKey w programie ASP.NET](xref:security/data-protection/compatibility/replacing-machinekey)
 ## [Ochrona wpisów tajnych w trakcie opracowywania](xref:security/app-secrets)
 ## [Wymuszanie protokołu HTTPS](xref:security/enforcing-ssl)
 ## [Obsługa Ogólnego rozporządzenia o ochronie danych (RODO) w UE](xref:security/gdpr)
@@ -396,12 +387,14 @@ ms.locfileid: "54341683"
 ## [Narzędzia diagnostyczne](xref:performance/diagnostic-tools)
 ## [Obciążenie i testy przeciążeniowe](xref:test/loadtests)
 
-# Inne tematy
-## [Globalizacja i lokalizacja](xref:fundamentals/localization)
-## [Lokalizacja obiektu przenośnego przy użyciu struktury Orchard Core](xref:fundamentals/portable-object-localization)
+# Globalizacja i lokalizacja
+## [Omówienie](xref:fundamentals/localization)
+## [Lokalizacja obiektu przenośnego](xref:fundamentals/portable-object-localization)
+
+# Zaawansowane
 ## [Ponowne zapisywanie adresów URL](xref:fundamentals/url-rewriting)
 ## [Dostawcy plików](xref:fundamentals/file-providers)
-## [Funkcje na żądanie](xref:fundamentals/request-features)
+## [Interfejsy funkcji żądań](xref:fundamentals/request-features)
 ## [Dostęp do obiektu HttpContext](xref:fundamentals/httpcontext)
 ## [Zmiana tokenów](xref:fundamentals/change-tokens)
 ## [Otwarty interfejs internetowy dla platformy .NET (OWIN)](xref:fundamentals/owin)
@@ -411,6 +404,8 @@ ms.locfileid: "54341683"
 ## [Pakiet meta Microsoft.AspNetCore.All](xref:fundamentals/metapackage)
 ## [Rejestrowanie za pomocą funkcji LoggerMessage](xref:fundamentals/logging/loggermessage)
 ## [Używanie obserwatora plików](xref:tutorials/dotnet-watch)
+### [Oprogramowanie pośredniczące oparte na fabryce](xref:fundamentals/middleware/extensibility)
+### [Oprogramowanie pośredniczące oparte na fabryce z kontenerem innej firmy](xref:fundamentals/middleware/extensibility-third-party-container)
 
 # Migracja
 ## [Z wersji 2.2 do 3.0](xref:migration/22-to-30)
