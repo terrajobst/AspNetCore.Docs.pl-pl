@@ -4,17 +4,17 @@ title: 'Samouczek: Tworzenie bardziej złożonego modelu danych dla aplikacji AS
 author: tdykstra
 description: W tym samouczku dodasz więcej jednostek i relacji i będzie Dostosuj model danych, określając formatowania i sprawdzania poprawności i reguł mapowania bazy danych.
 ms.author: riande
-ms.date: 01/16/2019
+ms.date: 01/22/2019
 ms.topic: tutorial
 ms.assetid: 46f7f3c9-274f-4649-811d-92222a9b27e2
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-a-more-complex-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 50cbc184983b3e37c34332dad52bc0d70ade18c2
-ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
+ms.openlocfilehash: 5d05d456315c019c545a91b527bb05510126c06b
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396301"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836633"
 ---
 # <a name="tutorial-create-a-more-complex-data-model-for-an-aspnet-mvc-app"></a>Samouczek: Tworzenie bardziej złożonego modelu danych dla aplikacji ASP.NET MVC
 
@@ -397,6 +397,10 @@ Nie utworzono klasę modelu `CourseInstructor` tabeli. Jak wyjaśniono wcześnie
 Kliknij prawym przyciskiem myszy `CourseInstructor` tabeli, a następnie wybierz pozycję **Pokaż dane tabeli** Aby sprawdzić, czy zawiera dane w nim na `Instructor` jednostki został dodany do `Course.Instructors` właściwości nawigacji.
 
 ![Table_data_in_CourseInstructor_table](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image17.png)
+
+## <a name="get-the-code"></a>Pobierz kod
+
+[Pobierz ukończony projekt](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

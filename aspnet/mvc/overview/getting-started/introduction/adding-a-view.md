@@ -3,14 +3,14 @@ title: Dodawanie widoku do aplikacji MVC
 author: Rick-Anderson
 description: Dodawanie widoku do aplikacji MVC
 ms.author: riande
-ms.date: 09/1721/2017
+ms.date: 01/23/2019
 uid: mvc/overview/getting-started/introduction/adding-a-view
-ms.openlocfilehash: 47447c82506cc0eb4dafabe272b3204f76a2edd7
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: afa7584529566ebe82a0eb3849de89bd0df064bd
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54098665"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54837757"
 ---
 <a name="adding-a-view"></a>Dodawanie widoku
 ====================
@@ -60,7 +60,7 @@ Alternatywnie Uruchom aplikację i przejdź do `HelloWorld` kontrolera (`http://
 
 ![](adding-a-view/_static/image6.png)
 
-Wygląda dość dobrze. Jednak należy zauważyć, że pasek tytułu w przeglądarce pokazuje &quot;indeksu — Moje ASP.NET likacji "i big Data link w górnej części strony mówi"Nazwa aplikacji". W zależności od tego, jak małe wprowadzisz okna przeglądarki, konieczne może być kliknij trzy paski w prawym górnym rogu, aby zobaczyć do **Home**, **o**, **skontaktuj się z pomocą**, **Zarejestrować** i **Zaloguj** łącza.
+Wygląda dość dobrze. Jednak zauważyć, że pasek tytułu w przeglądarce pokazuje "Indeksu — Moja aplikacja platformy ASP.NET," i big Data link w górnej części strony jest wyświetlany komunikat "Nazwa aplikacji". W zależności od tego, jak małe wprowadzisz okna przeglądarki, konieczne może być kliknij trzy paski w prawym górnym rogu, aby zobaczyć do **Home**, **o**, **skontaktuj się z pomocą**, **Zarejestrować** i **Zaloguj** łącza.
 
 ## <a name="changing-views-and-layout-pages"></a>Zmienianie widoków i układ strony
 

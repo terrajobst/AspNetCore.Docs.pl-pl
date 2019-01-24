@@ -1,19 +1,19 @@
 ---
 uid: signalr/overview/performance/scaleout-with-windows-azure-service-bus
 title: SignalR — skalowanie w poziomie za pomocą usługi Azure Service Bus | Dokumentacja firmy Microsoft
-author: MikeWasson
+author: bradygaster
 description: Wersje oprogramowania używany w tej wersji programu Visual Studio 2013 .NET 4.5 SignalR tematu 2 poprzednie wersje tego tematu dla SignalR 1.x wersję tego tematu...
-ms.author: riande
+ms.author: bradyg
 ms.date: 06/10/2014
 ms.assetid: ce1305f9-30fd-49e3-bf38-d0a78dfb06c3
 msc.legacyurl: /signalr/overview/performance/scaleout-with-windows-azure-service-bus
 msc.type: authoredcontent
-ms.openlocfilehash: 5cdb9b5eb6d3f5ebd5c96e4b0d89926c18bddadd
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.openlocfilehash: 9f6188ff5f716c20d759f73975d6a8ad522834d8
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53287614"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836821"
 ---
 <a name="signalr-scaleout-with-azure-service-bus"></a>SignalR — skalowanie w poziomie z użyciem usługi Azure Service Bus
 ====================
@@ -29,7 +29,7 @@ Wymagania wstępne:
 
 - Konto usługi Windows Azure.
 - [Windows Azure SDK](https://go.microsoft.com/fwlink/?linkid=254364&amp;clcid=0x409).
-- Visual Studio 2012 lub 2013.
+- Visual Studio 2012 or 2013.
 
 Płyty montażowej magistrali usług jest również zgodna z [usługi Service Bus dla systemu Windows Server](https://msdn.microsoft.com/library/windowsazure/dn282144.aspx), wersja 1.1. Jednak nie jest zgodny z wersją 1.0 usługi Service Bus dla systemu Windows Server.
 
@@ -45,7 +45,7 @@ Przed przejściem do szczegółowe podręcznika, poniżej przedstawiono krótkie
 2. Dodaj te pakiety NuGet do aplikacji: 
 
     - [Microsoft.AspNet.SignalR](http://nuget.org/packages/Microsoft.AspNet.SignalR)
-    - [Microsoft.AspNet.SignalR.ServiceBus3](https://www.nuget.org/packages/Microsoft.AspNet.SignalR.ServiceBus3) lub [Microsoft.AspNet.SignalR.ServiceBus](https://www.nuget.org/packages/Microsoft.AspNet.SignalR.ServiceBus)
+    - [Microsoft.AspNet.SignalR.ServiceBus3](https://www.nuget.org/packages/Microsoft.AspNet.SignalR.ServiceBus3) or [Microsoft.AspNet.SignalR.ServiceBus](https://www.nuget.org/packages/Microsoft.AspNet.SignalR.ServiceBus)
 3. Tworzenie aplikacji SignalR.
 4. Dodaj następujący kod do pliku Startup.cs w celu skonfigurowania systemu backplane: 
 

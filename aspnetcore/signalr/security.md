@@ -1,18 +1,18 @@
 ---
 title: Zagadnienia dotyczące zabezpieczeń w biblioteki SignalR platformy ASP.NET Core
-author: tdykstra
+author: bradygaster
 description: Dowiedz się, jak używać uwierzytelniania i autoryzacji w biblioteki SignalR platformy ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: anurse
 ms.custom: mvc
 ms.date: 11/06/2018
 uid: signalr/security
-ms.openlocfilehash: f646d319cf3030fd4d769e882514da14b230bbdd
-ms.sourcegitcommit: c3fa5aded0bf76a7414047d50b8a2311d27ee1ef
+ms.openlocfilehash: 52cfac6be8e61572acdf0b19dab574b607314d97
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51276148"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836067"
 ---
 # <a name="security-considerations-in-aspnet-core-signalr"></a>Zagadnienia dotyczące zabezpieczeń w biblioteki SignalR platformy ASP.NET Core
 

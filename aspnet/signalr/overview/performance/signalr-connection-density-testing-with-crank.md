@@ -1,19 +1,19 @@
 ---
 uid: signalr/overview/performance/signalr-connection-density-testing-with-crank
 title: Gęstość połączenia SignalR, testowanie za pomocą węzłówką | Dokumentacja firmy Microsoft
-author: Rick-Anderson
+author: bradygaster
 description: Testowanie gęstości połączenia usługi SignalR za pomocą funkcji Crank
-ms.author: riande
+ms.author: bradyg
 ms.date: 02/22/2015
 ms.assetid: 148d9ca7-1af1-44b6-a9fb-91e261b9b463
 msc.legacyurl: /signalr/overview/performance/signalr-connection-density-testing-with-crank
 msc.type: authoredcontent
-ms.openlocfilehash: 308fed51953b085506488c5e0dda1ced9f4d09fb
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.openlocfilehash: 40c9764f0c47b83df8300553b4b290429937345c
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53287588"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836548"
 ---
 <a name="signalr-connection-density-testing-with-crank"></a>Testowanie gęstości połączenia usługi SignalR za pomocą funkcji Crank
 ====================
@@ -46,13 +46,13 @@ Został pobrany i tworzone bazy kodu i zainstalowanych liczników wydajności na
 
 Dostępne opcje narzędzia węzłówką obejmują:
 
-- **/?** : Pokazuje ekran pomocy. Dostępne opcje są także wyświetlane, gdy **adresu Url** parametr zostanie pominięty.
+- **/?**: Pokazuje ekran pomocy. Dostępne opcje są także wyświetlane, gdy **adresu Url** parametr zostanie pominięty.
 - **/ Adres Url**: Adres URL połączenia SignalR. Ten parametr jest wymagany. W przypadku aplikacji SignalR przy użyciu domyślnego mapowania ścieżki będą kończyć się na "/ signalr".
-- **/ Transportu**: Nazwa transportu. Wartość domyślna to `auto`, który wybierze najbardziej protokołu. Opcje obejmują `WebSockets`, `ServerSentEvents`, i `LongPolling` (`ForeverFrame` nie jest opcją dla węzłówką, ponieważ klient modelu .NET, a nie jest używany program Internet Explorer). Aby uzyskać więcej informacji na temat sposobu SignalR wybiera transportu, zobacz [transportu i planów awaryjnych](../getting-started/introduction-to-signalr.md#transports).
-- **/ BatchSize**: Liczba klientach dodawanych w każdej partii. Wartością domyślną jest 50.
+- **/Transport**: Nazwa transportu. Wartość domyślna to `auto`, który wybierze najbardziej protokołu. Opcje obejmują `WebSockets`, `ServerSentEvents`, i `LongPolling` (`ForeverFrame` nie jest opcją dla węzłówką, ponieważ klient modelu .NET, a nie jest używany program Internet Explorer). Aby uzyskać więcej informacji na temat sposobu SignalR wybiera transportu, zobacz [transportu i planów awaryjnych](../getting-started/introduction-to-signalr.md#transports).
+- **/BatchSize**: Liczba klientach dodawanych w każdej partii. Wartością domyślną jest 50.
 - **/ ConnectInterval**: Interwał w milisekundach między dodawaniem połączeń. Wartość domyślna to 500.
 - **/ Połączeń**: Liczba połączeń używanych do testu obciążenia aplikacji. Wartość domyślna to 100 000.
-- **/ ConnectTimeout**: Limit czasu w ciągu kilku sekund przed przerwaniem testu. Wartość domyślna to 300.
+- **/ConnectTimeout**: Limit czasu w ciągu kilku sekund przed przerwaniem testu. Wartość domyślna to 300.
 - **MinServerMBytes**: Megabajtów serwerze z minimalną nawiązać połączenie. Wartość domyślna to 500.
 - **SendBytes**: Rozmiar ładunku wysyłanych do serwera w bajtach. Wartość domyślna to 0.
 - **SendInterval**: Opóźnienie w milisekundach między wiadomości do serwera. Wartość domyślna to 500.

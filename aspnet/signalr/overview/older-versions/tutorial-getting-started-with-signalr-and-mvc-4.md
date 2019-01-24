@@ -1,21 +1,21 @@
 ---
 uid: signalr/overview/older-versions/tutorial-getting-started-with-signalr-and-mvc-4
 title: 'Samouczek: Wprowadzenie do SignalR 1.x i MVC 4 | Dokumentacja firmy Microsoft'
-author: pfletcher
+author: bradygaster
 description: Użyj biblioteki SignalR platformy ASP.NET i ASP.NET MVC 4, aby utworzyć aplikację do rozmów w czasie rzeczywistym.
-ms.author: riande
+ms.author: bradyg
 ms.date: 03/29/2013
 ms.assetid: eeef9f73-6de3-49f9-b50b-9af22108f2ce
 msc.legacyurl: /signalr/overview/older-versions/tutorial-getting-started-with-signalr-and-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: a67d05288252c17d84b1d7df5f7bcddde3c887f5
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.openlocfilehash: dd55ca22004b7e3899f6a8789494c842b984787f
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53287726"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54837796"
 ---
-<a name="tutorial-getting-started-with-signalr-1x-and-mvc-4"></a>Samouczek: Wprowadzenie do SignalR 1.x i MVC 4
+<a name="tutorial-getting-started-with-signalr-1x-and-mvc-4"></a>Samouczek: wprowadzenie do usługi SignalR 1.x i wzorca MVC 4
 ====================
 przez [Patrick Fletcher](https://github.com/pfletcher), [Tim Teebken](https://github.com/timlt)
 
@@ -51,7 +51,7 @@ Sekcje:
 
 Wymagania wstępne:
 
-- Visual Studio 2010 SP1, program Visual Studio 2012 lub Visual Studio 2012 Express. Jeśli nie masz programu Visual Studio, zobacz [ASP.NET pliki do pobrania](https://www.asp.net/downloads) można pobrać bezpłatny program Visual Studio 2012 Express narzędzia programistyczne.
+- Visual Studio 2010 SP1, Visual Studio 2012, or Visual Studio 2012 Express. Jeśli nie masz programu Visual Studio, zobacz [ASP.NET pliki do pobrania](https://www.asp.net/downloads) można pobrać bezpłatny program Visual Studio 2012 Express narzędzia programistyczne.
 - Dla programu Visual Studio 2010, należy zainstalować [platformy ASP.NET MVC 4](https://www.microsoft.com/download/details.aspx?id=30683).
 
 W tej sekcji przedstawiono sposób tworzenia aplikacji ASP.NET MVC 4, dodawanie biblioteki SignalR i tworzenie aplikacji czatu.
@@ -126,7 +126,7 @@ W tej sekcji przedstawiono sposób tworzenia aplikacji ASP.NET MVC 4, dodawanie 
 
 Aplikacji rozmów SignalR pokazuje dwa podstawowe zadania rozwoju SignalR: tworzenie koncentratora jako obiekt główny koordynacji na serwerze i za pomocą biblioteki jQuery SignalR do wysyłania i odbierania komunikatów.
 
-### <a name="signalr-hubs"></a>Koncentratory SignalR
+### <a name="signalr-hubs"></a>SignalR Hubs
 
 W przykładowym kodzie **ChatHub** klasa pochodzi od **Microsoft.AspNet.SignalR.Hub** klasy. Wyprowadzanie z **Centrum** klasy jest to wygodny sposób, aby skompilować aplikację SignalR. Można utworzyć metody publiczne na klasy koncentratora, a następnie uzyskać dostęp do tych metod, wywołując je z jQuery skrypty na stronie sieci web.
 

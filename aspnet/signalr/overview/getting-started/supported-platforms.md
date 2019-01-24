@@ -1,19 +1,19 @@
 ---
 uid: signalr/overview/getting-started/supported-platforms
 title: Obsługiwane platformy | Dokumentacja firmy Microsoft
-author: pfletcher
+author: bradygaster
 description: W tym artykule opisano, jakie klientów i serwerów, które są obsługiwane przez SignalR.
-ms.author: riande
+ms.author: bradyg
 ms.date: 04/18/2018
 ms.assetid: eac31beb-0f46-4afa-9def-e80904dea4f0
 msc.legacyurl: /signalr/overview/getting-started/supported-platforms
 msc.type: authoredcontent
-ms.openlocfilehash: e270f9a328f36854fdfb3e23b78e0b40cdda6411
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.openlocfilehash: 60fa74b54797efbe14ba525160b2f750a4f5a451
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53287380"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836054"
 ---
 <a name="supported-platforms"></a>Obsługiwane platformy
 ====================
@@ -55,7 +55,7 @@ Kiedy SignalR znajduje się w usługach IIS, obsługiwane są następujące wers
 
 Należy również zauważyć, czy dla elementu SignalR do użycia protokołu WebSocket, IIS 8 lub usług IIS Express 8 musi być używany, serwer musi używać systemu Windows 8, Windows Server 2012 lub nowszy, i WebSocket wymaga włączenia w usługach IIS. Aby uzyskać informacje o sposobie włączania protokołu WebSocket w usługach IIS, zobacz [obsługi protokołu WebSocket 8.0 IIS](https://www.iis.net/learn/get-started/whats-new-in-iis-8/iis-80-websocket-protocol-support).
 
-- Usługi IIS 8 lub 8 usług IIS Express.
+- IIS 8 or IIS 8 Express.
 - Usługi IIS 7 i 7.5. Obsługa [adresy URL bez rozszerzeń](https://support.microsoft.com/kb/980368) jest wymagana.
 - Usługi IIS muszą działać w trybie zintegrowanym; trybu klasycznego nie jest obsługiwana. Maksymalnie 30 sekund opóźnienia w dostarczaniu wiadomości mogą się pojawić, jeśli usługi IIS zostanie uruchomiony w trybie klasycznym przy użyciu transportu Server-Sent zdarzenia.
 - Aplikacji macierzystej musi działać w trybie pełnego zaufania.
@@ -85,9 +85,9 @@ Oprócz wymaga niektórych przeglądarkach, transportów różnych, które korzy
 
 **Wymagania dotyczące transportu przeglądarki sieci Web**
 
-| Transportu | Internet Explorer | Chrome (Windows lub z systemem iOS) | Firefox | Safari (OS x lub z systemem iOS) | Android |
+| Transport | Internet Explorer | Chrome (Windows lub z systemem iOS) | Firefox | Safari (OS x lub z systemem iOS) | Android |
 | --- | --- | --- | --- | --- | --- |
-| Funkcja WebSockets | 10+ | Bieżąca wartość-1 | Bieżąca wartość-1 | Bieżąca wartość-1 | Brak |
+| WebSockets | 10+ | Bieżąca wartość-1 | Bieżąca wartość-1 | Bieżąca wartość-1 | Brak |
 | Zdarzenia wysłanego przez serwer | Brak | Bieżąca wartość-1 | Bieżąca wartość-1 | Bieżąca wartość-1 | Brak |
 | ForeverFrame | 8+ | Brak | Brak | Brak | 4.1 |
 | Długiego sondowania | 8+ | Bieżąca wartość-1 | Bieżąca wartość-1 | Bieżąca wartość-1 | 4.1 |
@@ -109,7 +109,7 @@ Oprócz systemu operacyjnego i wymagania dotyczące programu .NET framework dost
 
 **Wymagania transportu programu Silverlight i Windows Desktop**
 
-| Transportu | Aplikacja platformy .NET | Silverlight |
+| Transport | Aplikacja platformy .NET | Silverlight |
 | --- | --- | --- |
 | Gniazda sieci Web | Windows 8 + i .NET 4.5 + | Brak |
 | Nieskończona ramki | Brak | Brak |
@@ -124,9 +124,9 @@ SignalR może służyć w aplikacjach Windows Store i aplikacji systemu Windows 
 
 **Windows Store i Windows Phone transportu wymagań**
 
-| Transportu | Windows Store/ .NET | Windows Store / JavaScript | Windows Phone / IE | Windows Phone / platformy .NET |
+| Transport | Windows Store/ .NET | Windows Store / JavaScript | Windows Phone / IE | Windows Phone / platformy .NET |
 | --- | --- | --- | --- | --- |
-| Funkcja WebSockets | Brak | Win8+ | 8+ | Brak |
+| WebSockets | Brak | Win8+ | 8+ | Brak |
 | Nieskończona ramki | Brak | Win8+ | 7.5+ | Brak |
 | Zdarzenia wysłanego przez serwer | Win8+ | Brak | Brak | 8+ |
 | Długiego sondowania | Win8+ | Win8+ | 7.5+ | 8+ |

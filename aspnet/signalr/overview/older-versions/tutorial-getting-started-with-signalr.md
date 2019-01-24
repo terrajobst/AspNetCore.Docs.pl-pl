@@ -1,21 +1,21 @@
 ---
 uid: signalr/overview/older-versions/tutorial-getting-started-with-signalr
 title: 'Samouczek: Wprowadzenie do SignalR 1.x | Dokumentacja firmy Microsoft'
-author: pfletcher
+author: bradygaster
 description: Użyj biblioteki SignalR platformy ASP.NET, aby utworzyć aplikację do rozmów w czasie rzeczywistym na stronie HTML.
-ms.author: riande
+ms.author: bradyg
 ms.date: 02/18/2013
 ms.assetid: fdc3599a-5217-44c1-951f-0eec9812dce7
 msc.legacyurl: /signalr/overview/older-versions/tutorial-getting-started-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 720a4879f5fbe3c0c2b4c7809cb94c22547329c3
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.openlocfilehash: b4b632a84e40aa0b73dfc7a30da0cf28249cc5b4
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53287375"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836639"
 ---
-<a name="tutorial-getting-started-with-signalr-1x"></a>Samouczek: Wprowadzenie do SignalR 1.x
+<a name="tutorial-getting-started-with-signalr-1x"></a>Samouczek: wprowadzenie do usługi SignalR 1.x
 ====================
 przez [Patrick Fletcher](https://github.com/pfletcher), [Tim Teebken](https://github.com/timlt)
 
@@ -60,7 +60,7 @@ W tej sekcji pokazano, jak utworzyć pustą aplikację sieci web platformy ASP.N
 
 Wymagania wstępne:
 
-- Visual Studio 2010 z dodatkiem SP1 lub 2012. Jeśli nie masz programu Visual Studio, zobacz [ASP.NET pliki do pobrania](https://www.asp.net/downloads) można pobrać bezpłatny program Visual Studio 2012 Express narzędzia programistyczne.
+- Visual Studio 2010 SP1 or 2012. Jeśli nie masz programu Visual Studio, zobacz [ASP.NET pliki do pobrania](https://www.asp.net/downloads) można pobrać bezpłatny program Visual Studio 2012 Express narzędzia programistyczne.
 - [Microsoft ASP.NET and Web Tools 2012.2](https://go.microsoft.com/fwlink/?LinkId=279941). Dla programu Visual Studio 2012 Instalator dodaje nowe funkcje platformy ASP.NET, w tym szablony SignalR do programu Visual Studio. Dla programu Visual Studio 2010 z dodatkiem SP1 Instalator nie jest dostępny, ale zakończysz pracę z samouczkiem, instalując pakiet NuGet biblioteki SignalR, zgodnie z opisem w ramach kroków konfiguracji.
 
 Poniższe kroki Użyj programu Visual Studio 2012, aby utworzyć pustą aplikację sieci Web platformy ASP.NET i dodać biblioteki SignalR:
@@ -123,7 +123,7 @@ Poniższe kroki Użyj programu Visual Studio 2012, aby utworzyć pustą aplikacj
 
 Aplikacji rozmów SignalR pokazuje dwa podstawowe zadania rozwoju SignalR: tworzenie koncentratora jako obiekt główny koordynacji na serwerze i za pomocą biblioteki jQuery SignalR do wysyłania i odbierania komunikatów.
 
-### <a name="signalr-hubs"></a>Koncentratory SignalR
+### <a name="signalr-hubs"></a>SignalR Hubs
 
 W przykładowym kodzie **ChatHub** klasa pochodzi od **Microsoft.AspNet.SignalR.Hub** klasy. Wyprowadzanie z **Centrum** klasy jest to wygodny sposób, aby skompilować aplikację SignalR. Można utworzyć metody publiczne na klasy koncentratora, a następnie uzyskać dostęp do tych metod, wywołując je z jQuery skrypty na stronie sieci web.
 

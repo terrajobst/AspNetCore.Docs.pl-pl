@@ -4,14 +4,14 @@ author: guardrex
 description: Dowiedz się, jak skonfigurować modułu ASP.NET Core do hostowania aplikacji platformy ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/11/2019
+ms.date: 01/22/2019
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: bb046b9b0eb97486605566eb7827f7ad9a9c9d92
-ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
+ms.openlocfilehash: 4eea360d08c79b889db00132109cf49492f84de6
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54444340"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54837783"
 ---
 # <a name="aspnet-core-module"></a>ASP.NET Core Module
 
@@ -286,7 +286,20 @@ Aby uzyskać informacji na temat konfigurowania aplikacji podrzędnych usług II
 
 ### <a name="setting-environment-variables"></a>Ustawianie zmiennych środowiskowych
 
-Zmienne środowiskowe można określić dla tego procesu w `processPath` atrybutu. Określ zmienną środowiskową `environmentVariable` element podrzędny elementu `environmentVariables` elementu kolekcji. Zmienne środowiskowe ustawione w tej sekcji pierwszeństwo systemowe zmienne środowiskowe.
+::: moniker range=">= aspnetcore-3.0"
+
+Zmienne środowiskowe można określić dla tego procesu w `processPath` atrybutu. Określ zmienną środowiskową `<environmentVariable>` element podrzędny elementu `<environmentVariables>` elementu kolekcji. Zmienne środowiskowe ustawione w tej sekcji pierwszeństwo systemowe zmienne środowiskowe.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+Zmienne środowiskowe można określić dla tego procesu w `processPath` atrybutu. Określ zmienną środowiskową `<environmentVariable>` element podrzędny elementu `<environmentVariables>` elementu kolekcji.
+
+> [!WARNING]
+> Ustaw zmienne środowiskowe ustawione w tej sekcji wystąpienie konfliktu, za pomocą zmiennych środowiskowych systemu o takiej samej nazwie. Jeśli zmienna środowiskowa jest ustawiana w obu *web.config* plik, a w systemie poziomu w Windows, wartość *web.config* plik staje się dołączany do wartości zmiennej środowiskowej systemu (na potrzeby przykład `ASPNETCORE_ENVIRONMENT: Development;Development`), który uniemożliwia uruchomienie przez aplikację.
+
+::: moniker-end
 
 W poniższym przykładzie ustawiono dwóch zmiennych środowiskowych. `ASPNETCORE_ENVIRONMENT` konfiguruje środowisko aplikacji `Development`. Deweloper może tymczasowo ustawić tę wartość w *web.config* pliku, aby wymusić [stronie wyjątków deweloperów](xref:fundamentals/error-handling) załadować podczas debugowania aplikacji wyjątek. `CONFIG_DIR` to przykład zmiennej środowiskowej zdefiniowanej przez użytkownika, gdzie deweloper ma napisany kod, który odczytuje wartość przy uruchamianiu w celu utworzenia ścieżki do ładowania pliku konfiguracji aplikacji.
 
@@ -320,6 +333,19 @@ W poniższym przykładzie ustawiono dwóch zmiennych środowiskowych. `ASPNETCOR
   </environmentVariables>
 </aspNetCore>
 ```
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
+
+> [!NOTE]
+> Zamiast bezpośrednio w konfiguracji środowiska *web.config* ma zawierać `<EnvironmentName>` właściwości w profilu publikowania (*.pubxml*) lub pliku projektu. To podejście ustawia środowisko *web.config* po opublikowaniu projektu:
+>
+> ```xml
+> <PropertyGroup>
+>   <EnvironmentName>Development</EnvironmentName>
+> </PropertyGroup>
+> ```
 
 ::: moniker-end
 

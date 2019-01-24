@@ -4,14 +4,14 @@ author: prkhandelwal
 description: W tym samouczku przedstawiono sposób tworzenia sieci web platformy ASP.NET Core interfejsu API przy użyciu bazy danych NoSQL bazy danych MongoDB.
 ms.author: scaddie
 ms.custom: mvc, seodec18
-ms.date: 11/29/2018
+ms.date: 01/23/2019
 uid: tutorials/first-mongo-app
-ms.openlocfilehash: bd9a36c5eb06542c820e71e937b8da10f735a0f8
-ms.sourcegitcommit: 68a3081dd175d6518d1bfa31b4712bd8a2dd3864
+ms.openlocfilehash: 6375ae618816671bd9c64f038603747c64cdce56
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53577841"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54835599"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-mongodb"></a>Tworzenie internetowego interfejsu API za pomocą platformy ASP.NET Core i usługi MongoDB
 
@@ -54,11 +54,11 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 ## <a name="configure-mongodb"></a>Konfigurowanie bazy danych MongoDB
 
-Jeśli przy użyciu Windows, bazy danych MongoDB jest zainstalowana w *C:\Program Files\MongoDB* domyślnie. Dodaj *C:\Program Files\MongoDB\Server\<numer_wersji > \bin* do `Path` zmiennej środowiskowej. Dzięki tej zmianie bazy danych MongoDB dostęp z dowolnego miejsca na komputerze deweloperskim.
+Jeśli przy użyciu Windows, bazy danych MongoDB jest zainstalowana w *C:\\Program Files\\bazy danych MongoDB* domyślnie. Dodaj *C:\\Program Files\\bazy danych MongoDB\\serwera\\\<numer_wersji >\\bin* do `Path` zmiennej środowiskowej. Dzięki tej zmianie bazy danych MongoDB dostęp z dowolnego miejsca na komputerze deweloperskim.
 
 Użyj powłoki mongo w poniższych krokach umożliwia tworzenie bazy danych, wprowadzanie kolekcje i przechowywanie dokumentów. Aby uzyskać więcej informacji na temat poleceń powłoki mongo, zobacz [Praca z powłoki mongo](https://docs.mongodb.com/manual/mongo/#working-with-the-mongo-shell).
 
-1. Wybierz katalog na komputerze deweloperskim do przechowywania danych. Na przykład *C:\BooksData* na Windows. Utwórz katalog, jeśli nie istnieje. Powłoki mongo nie tworzyć nowe katalogi.
+1. Wybierz katalog na komputerze deweloperskim do przechowywania danych. Na przykład *C:\\BooksData* na Windows. Utwórz katalog, jeśli nie istnieje. Powłoki mongo nie tworzyć nowe katalogi.
 1. Otwórz powłokę wiersza polecenia. Uruchom następujące polecenie, aby nawiązać połączenie z bazą danych MongoDB na domyślnym porcie 27017. Pamiętaj, aby zastąpić `<data_directory_path>` z katalogu, który został wybrany w poprzednim kroku.
 
     ```console
@@ -188,7 +188,13 @@ Baza danych jest gotowy. Możesz rozpocząć tworzenie interfejsu API sieci web 
 
     [!code-csharp[](first-mongo-app/sample/BooksApi/Models/Book.cs)]
 
-W klasie poprzedniego `Id` właściwość jest wymagana do mapowania obiektu środowiska uruchomieniowego języka wspólnego (CLR) do kolekcji usługi MongoDB. Inne właściwości w klasie są ozdobione `[BsonElement]` atrybutu. Wartość ten atrybut reprezentuje nazwę właściwości w kolekcji usługi MongoDB.
+W klasie poprzedniego `Id` właściwości:
+
+* Jest wymagany do mapowania obiektu środowiska uruchomieniowego języka wspólnego (CLR) do kolekcji usługi MongoDB.
+* Jest oznaczony za pomocą `[BsonId]` do wyznaczenia tę właściwość jako klucz podstawowy dokumentu.
+* Jest oznaczony za pomocą `[BsonRepresentation(BsonType.ObjectId)]` umożliwia przekazanie parametru jako typu `string` zamiast `ObjectId`. MONGO obsługuje konwersję z `string` do `ObjectId`.
+
+Inne właściwości w klasie jest oznaczony za pomocą `[BsonElement]` atrybutu. Wartość ten atrybut reprezentuje nazwę właściwości w kolekcji usługi MongoDB.
 
 ## <a name="add-a-crud-operations-class"></a>Dodaj klasę operacje CRUD
 

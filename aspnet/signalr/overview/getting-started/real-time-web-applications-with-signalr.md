@@ -1,21 +1,21 @@
 ---
 uid: signalr/overview/getting-started/real-time-web-applications-with-signalr
 title: 'Ćwiczenia praktyczne: Aplikacje internetowe czasu rzeczywistego przy użyciu SignalR | Dokumentacja firmy Microsoft'
-author: rick-anderson
+author: bradygaster
 description: Możliwość Wypchnij zawartość do dołączonych klientów, jak to się dzieje, w czasie rzeczywistym po stronie serwera są wyposażone w aplikacji sieci Web w czasie rzeczywistym. Dla deweloperów platformy ASP.NET i ASP...
-ms.author: riande
+ms.author: bradyg
 ms.date: 07/16/2014
 ms.assetid: ba07958c-42e1-4da0-81db-ba6925ed6db0
 msc.legacyurl: /signalr/overview/getting-started/real-time-web-applications-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: de2f2349fc284e167bd8227ae55da79b9f1f4549
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.openlocfilehash: d4998c8b739b4b1a06699a17464a7399a87a8595
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53288012"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54837510"
 ---
-<a name="hands-on-lab-real-time-web-applications-with-signalr"></a>Ćwiczenia praktyczne: Aplikacje internetowe czasu rzeczywistego przy użyciu SignalR
+<a name="hands-on-lab-real-time-web-applications-with-signalr"></a>Ćwiczenia praktyczne: aplikacje internetowe czasu rzeczywistego z wykorzystaniem usługi SignalR
 ====================
 
 Przez [Camp w sieci Web zespołu](https://twitter.com/webcamps)
@@ -53,7 +53,7 @@ W tym praktyczne laboratorium dowiesz się jak:
 
 Do ukończenia tego laboratorium praktycznego niezbędne jest, następujące elementy:
 
-- [Visual Studio Express 2013 for Web](https://www.microsoft.com/visualstudio/) lub nowszej
+- [Visual Studio Express 2013 for Web](https://www.microsoft.com/visualstudio/) or greater
 
 <a id="Setup"></a>
 ### <a name="setup"></a>Konfiguracja

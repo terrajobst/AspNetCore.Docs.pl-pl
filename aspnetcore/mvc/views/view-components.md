@@ -5,12 +5,12 @@ description: Dowiedz się, jak składniki widoków są używane w programie ASP.
 ms.author: riande
 ms.date: 12/03/2018
 uid: mvc/views/view-components
-ms.openlocfilehash: 5812abad80cd906d6b9a7175bd7cdefd03a99eb3
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 156db610d99eaf8a8042a4c7c85267d521a20fd4
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861332"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836704"
 ---
 # <a name="view-components-in-aspnet-core"></a>Składniki widoków w programie ASP.NET Core
 
@@ -20,7 +20,7 @@ Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ## <a name="view-components"></a>Składniki widoków
 
-Składniki widoków są podobne do widoków częściowych, ale są one znacznie bardziej wydajne. Składniki widoków nie używaj wiązania modelu i tylko zależą od podanych podczas wywoływania do niego danych. W tym artykule został napisany, za pomocą platformy ASP.NET Core MVC, ale wyświetlania składników również Praca ze stronami Razor.
+Składniki widoków są podobne do widoków częściowych, ale są one znacznie bardziej wydajne. Składniki widoków nie używaj wiązania modelu i tylko zależą od podanych podczas wywoływania do niego danych. W tym artykule został napisany, przy użyciu widoków i kontrolerów, ale wyświetlania składników również Praca ze stronami Razor.
 
 Składnik widoku:
 
@@ -140,7 +140,7 @@ W tym przykładzie składnik ten widok jest wywoływany bezpośrednio z kontrole
 
 [!code-csharp[](view-components/sample/ViewCompFinal/Controllers/ToDoController.cs?name=snippet_IndexVC)]
 
-## <a name="walkthrough-creating-a-simple-view-component"></a>Wskazówki: Tworzenie składnika Widok prosty
+## <a name="walkthrough-creating-a-simple-view-component"></a>Przewodnik: Tworzenie składnika Widok prosty
 
 [Pobierz](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/view-components/sample), tworzyć i testować kod startowy. Jest to prosty projekt za pomocą `Todo` kontrolera, który wyświetla listę *Todo* elementów.
 

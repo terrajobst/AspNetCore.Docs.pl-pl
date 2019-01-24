@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/14/2018
 uid: fundamentals/app-state
-ms.openlocfilehash: 23bbb3063d696f588abecb1fe05ea3381ab2346d
-ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
+ms.openlocfilehash: a510e4f49e158203dd7c5e1e0bd28472541f7925
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54341696"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836340"
 ---
 # <a name="session-and-app-state-in-aspnet-core"></a>Stan sesji i aplikacji w programie ASP.NET Core
 
@@ -48,7 +48,7 @@ Można w trosce o [Unii Europejskiej ogólnego ochronie danych wykonawczych (ROD
 
 ## <a name="session-state"></a>Stan sesji
 
-Stan sesji jest scenariusz platformy ASP.NET Core, do przechowywania danych użytkownika, gdy użytkownik przegląda aplikacji sieci web. Stan sesji używa magazynu utrzymywane przez aplikację, aby utrwalać dane między żądań klienta. Dane sesji są obsługiwane przez pamięć podręczną i uznane za danych tymczasowych&mdash;witryny powinny nadal działać bez żadnych danych sesji.
+Stan sesji jest scenariusz platformy ASP.NET Core, do przechowywania danych użytkownika, gdy użytkownik przegląda aplikacji sieci web. Stan sesji używa magazynu utrzymywane przez aplikację, aby utrwalać dane między żądań klienta. Dane sesji są obsługiwane przez pamięć podręczną i uznane za danych tymczasowych&mdash;witryny powinny nadal działać bez żadnych danych sesji. Aplikacja o krytycznym znaczeniu danych należy przechowywane w bazie danych użytkownika i buforowane w sesji tylko jako optymalizacji wydajności.
 
 > [!NOTE]
 > Sesja nie jest obsługiwane w [SignalR](xref:signalr/index) aplikacje ponieważ [Centrum SignalR](xref:signalr/hubs) może zostać wykonany niezależnie od kontekstu HTTP. Na przykład, to może wystąpić, gdy długo żądanie sondowania jest otwarte przez koncentrator poza okres istnienia kontekstu HTTP żądania.

@@ -1,18 +1,18 @@
 ---
 title: Platformy obsługiwane przez SignalR platformy ASP.NET Core
-author: tdykstra
+author: bradygaster
 description: Dowiedz się więcej o obsługiwane platformy dla biblioteki SignalR platformy ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
-ms.author: tdykstra
+ms.author: bradyg
 ms.custom: mvc
 ms.date: 11/12/2018
 uid: signalr/supported-platforms
-ms.openlocfilehash: be3d4d0049395fb2499bd0b4aac126e953ce7910
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: e4e84baf0120036b473eac256107b46a4accfe37
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861722"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54837718"
 ---
 # <a name="aspnet-core-signalr-supported-platforms"></a>Platformy obsługiwane przez SignalR platformy ASP.NET Core
 
@@ -29,7 +29,7 @@ Biblioteka SignalR dla programu ASP.NET Core obsługuje związanej z platformą 
 | Microsoft Edge                  | bieżący |
 | Mozilla Firefox                 | bieżący |
 | Google Chrome; obejmuje systemu Android | bieżący |
-| Safari; obejmuje dla systemu iOS            | bieżący |
+| Safari; includes iOS            | bieżący |
 | Microsoft Internet Explorer     | 11      |
  
 ## <a name="net-client"></a>Klient modelu .NET

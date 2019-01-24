@@ -1,19 +1,19 @@
 ---
 uid: signalr/overview/performance/scaleout-with-sql-server
 title: SignalR — skalowanie w poziomie z programem SQL Server | Dokumentacja firmy Microsoft
-author: MikeWasson
+author: bradygaster
 description: Wersje oprogramowania, używaną w tym temacie dodatku .NET 4.5 SignalR dla programu Visual Studio 2013 w wersji 2, poprzednie wersje w tym temacie informacji o wcześniejszych wersjach...
-ms.author: riande
+ms.author: bradyg
 ms.date: 06/10/2014
 ms.assetid: 98358b6e-9139-4239-ba3a-2d7dd74dd664
 msc.legacyurl: /signalr/overview/performance/scaleout-with-sql-server
 msc.type: authoredcontent
-ms.openlocfilehash: 73b16ecf141732f0adc362dc5167073491cc2dea
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.openlocfilehash: 5984a5e6c3215e7dde8c09ef702bf6453730a3ee
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53287016"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54837900"
 ---
 <a name="signalr-scaleout-with-sql-server"></a>SignalR — skalowanie w poziomie z użyciem programu SQL Server
 ====================

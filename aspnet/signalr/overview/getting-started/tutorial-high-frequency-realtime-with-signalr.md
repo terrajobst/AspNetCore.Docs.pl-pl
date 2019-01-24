@@ -1,20 +1,20 @@
 ---
 uid: signalr/overview/getting-started/tutorial-high-frequency-realtime-with-signalr
 title: 'Samouczek: Tworzenie aplikacji w czasie rzeczywistym z wysoką częstotliwością przy użyciu SignalR 2 | Dokumentacja firmy Microsoft'
-author: pfletcher
+author: bradygaster
 description: W tym samouczku przedstawiono sposób tworzenia aplikacji sieci web, która używa biblioteki SignalR platformy ASP.NET w celu zapewnienia wysokiej częstotliwości funkcje obsługi komunikatów.
-ms.author: riande
-ms.date: 01/02/2019
+ms.author: bradyg
+ms.date: 01/22/2019
 ms.assetid: 9f969dda-78ea-4329-b1e3-e51c02210a2b
 msc.legacyurl: /signalr/overview/getting-started/tutorial-high-frequency-realtime-with-signalr
 msc.type: authoredcontent
 ms.topic: tutorial
-ms.openlocfilehash: 85503db0b41be6f87136627667d6dd71f0d4f609
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: 44aaa2b0c059de310e963f642fa56c2f00a7e443
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54098593"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836730"
 ---
 # <a name="tutorial-create-high-frequency-real-time-app-with-signalr-2"></a>Samouczek: Tworzenie aplikacji w czasie rzeczywistym z wysoką częstotliwością przy użyciu SignalR 2
 
@@ -223,6 +223,10 @@ Aplikacja jest prawie gotowy, ale firma Microsoft może spowodować, że jeden w
 Przemieszczanie kształtu w innym oknie zostanie wyświetlona mniej jerky. Aplikacja argumentu ruchu za pośrednictwem czasu, a nie raz ustawiany na wiadomości przychodzącej.
 
 Ten kod przenosi kształt z poprzedniej lokalizacji na nową. Serwer udostępnia położenie kształtu w miarę upływu interwał animacji. W tym przypadku to 100 milisekund. Aplikacja czyści wszystkie poprzednie animacje systemem kształtu, przed rozpoczęciem nowej animacji.
+
+## <a name="get-the-code"></a>Pobierz kod
+
+[Pobierz ukończony projekt](http://code.msdn.microsoft.com/SignalR-20-MoveShape-Demo-6285b83a)
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

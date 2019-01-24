@@ -1,19 +1,19 @@
 ---
 uid: signalr/overview/security/persistent-connection-authorization
 title: Uwierzytelnianie i autoryzacja połączeń trwałych SignalR | Dokumentacja firmy Microsoft
-author: pfletcher
+author: bradygaster
 description: W tym temacie opisano sposób wymusić autoryzację dla trwałego połączenia. Aby uzyskać ogólne informacje na temat integracji zabezpieczeń do aplikacji SignalR...
-ms.author: riande
+ms.author: bradyg
 ms.date: 06/10/2014
 ms.assetid: e264677b-9c01-47ec-94f9-3cd8f08f94af
 msc.legacyurl: /signalr/overview/security/persistent-connection-authorization
 msc.type: authoredcontent
-ms.openlocfilehash: bbbcb5593fb265eca4fb261d378532047d53e674
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.openlocfilehash: 7dab28f4720b34082f71e487c64af88a8ba01e6c
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53287393"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54835626"
 ---
 <a name="authentication-and-authorization-for-signalr-persistent-connections"></a>Uwierzytelnianie i autoryzacja połączeń trwałych usługi SignalR
 ====================

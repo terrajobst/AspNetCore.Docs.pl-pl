@@ -1,19 +1,19 @@
 ---
 uid: signalr/overview/security/hub-authorization
 title: Uwierzytelnianie i autoryzacja dla centrów SignalR | Dokumentacja firmy Microsoft
-author: pfletcher
+author: bradygaster
 description: W tym temacie opisano, jak ograniczyć, które użytkownicy lub ról dostęp do metod koncentratora. Wersje oprogramowania używaną w tym temacie program Visual Studio 2013 .NET 4.5 SignalR ve...
-ms.author: riande
+ms.author: bradyg
 ms.date: 01/05/2015
 ms.assetid: a610c796-c131-473c-baef-2e6c568cb2a2
 msc.legacyurl: /signalr/overview/security/hub-authorization
 msc.type: authoredcontent
-ms.openlocfilehash: d957d31e0c5453d0d4a48958fa4b25d61407f207
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.openlocfilehash: bfea212283165facc046e5355571c1e6d9c7cd7d
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53287628"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54837419"
 ---
 <a name="authentication-and-authorization-for-signalr-hubs"></a>Uwierzytelnianie i autoryzacja dla centrów usługi SignalR
 ====================
@@ -119,7 +119,7 @@ Jeśli masz klienta platformy .NET, takie jak aplikacja konsolowa, która wspó�
 
 <a id="cookie"></a>
 
-### <a name="cookie"></a>Plik cookie
+### <a name="cookie"></a>Cookie
 
 Twój klient .NET wchodzi w interakcję z koncentratora, który korzysta z uwierzytelniania formularzy programu ASP.NET, należy ręcznie ustawić pliku cookie uwierzytelniania dla połączenia. Dodawanie pliku cookie do `CookieContainer` właściwość [HubConnection](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.client.hubs.hubconnection(v=vs.111).aspx) obiektu. Poniższy przykład pokazuje aplikacja konsolowa, która pobiera pliku cookie uwierzytelniania ze strony sieci web, a następnie dodaje ten plik cookie dla połączenia.
 

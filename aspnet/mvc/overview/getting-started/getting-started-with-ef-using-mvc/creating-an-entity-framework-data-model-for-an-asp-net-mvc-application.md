@@ -4,17 +4,17 @@ title: 'Samouczek: Rozpoczynanie pracy z usługą Entity Framework 6 Code First 
 description: W tej serii samouczków dowiesz się, jak utworzyć aplikację ASP.NET MVC 5, która używa platformy Entity Framework 6 na potrzeby dostępu do danych.
 author: tdykstra
 ms.author: riande
-ms.date: 01/10/2019
+ms.date: 01/22/2019
 ms.topic: tutorial
 ms.assetid: 00bc8b51-32ed-4fd3-9745-be4c2a9c1eaf
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 5d524c981af2d9d8f44254c61631937e6f049cdb
-ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
+ms.openlocfilehash: b72a4ae1a89fd47d9c6ff63ccd45b26324508a63
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54341709"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836184"
 ---
 # <a name="tutorial-get-started-with-entity-framework-6-code-first-using-mvc-5"></a>Samouczek: Rozpoczynanie pracy z usługą Entity Framework 6 Code First wykorzystaniem MVC 5
 
@@ -286,6 +286,11 @@ Ilość kodu, trzeba było pisać w kolejności Entity Framework można było tw
 - Właściwość jest interpretowany jako właściwość klucza obcego, jeśli jest on nazwany *&lt;nazwy właściwości nawigacji&gt;&lt;nazwa właściwość klucza podstawowego&gt;* (na przykład `StudentID` dla `Student` właściwość nawigacji od `Student` jest klucz podstawowy jednostki `ID`). Właściwości klucza obcego może również mieć taką samą nazwę po prostu &lt;nazwa właściwość klucza podstawowego&gt; (na przykład `EnrollmentID` ponieważ `Enrollment` jest klucz podstawowy jednostki `EnrollmentID`).
 
 Po zapoznaniu się konwencje może zostać zastąpiona. Na przykład określić, nie powinien być pluralized nazwy tabel, a zobaczysz później jak wyraźnie oznaczyć właściwość jako właściwość klucza obcego.
+
+## <a name="get-the-code"></a>Pobierz kod
+
+[Pobierz ukończony projekt](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
+
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 Aby uzyskać więcej informacji o programów EF 6 zobacz następujące artykuły:

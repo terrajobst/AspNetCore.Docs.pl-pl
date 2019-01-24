@@ -1,21 +1,21 @@
 ---
 uid: signalr/overview/deployment/tutorial-signalr-self-host
 title: 'Samouczek: Host samodzielny SignalR | Dokumentacja firmy Microsoft'
-author: pfletcher
+author: bradygaster
 description: W tym samouczku pokazano, jak utworzyć samodzielnie hostowany serwer SignalR 2 i jak połączyć się z nim za pomocą klienta języka JavaScript. Wersje oprogramowania używanego w tym samouczku V...
-ms.author: riande
+ms.author: bradyg
 ms.date: 06/10/2014
 ms.assetid: 400db427-27af-4f2f-abf0-5486d5e024b5
 msc.legacyurl: /signalr/overview/deployment/tutorial-signalr-self-host
 msc.type: authoredcontent
-ms.openlocfilehash: 48cb3d4d71c33ac3382b2b35b5a19fa1c4958874
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.openlocfilehash: 6a6359d59a4b715e13fe2bbcef57da6d6d6294b5
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53287406"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54835755"
 ---
-<a name="tutorial-signalr-self-host"></a>Samouczek: Host samodzielny SignalR
+<a name="tutorial-signalr-self-host"></a>Samouczek: samodzielne hostowanie usługi SignalR
 ====================
 przez [Patrick Fletcher](https://github.com/pfletcher)
 

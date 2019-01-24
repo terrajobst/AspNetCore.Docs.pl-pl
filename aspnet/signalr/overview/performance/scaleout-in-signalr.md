@@ -1,19 +1,19 @@
 ---
 uid: signalr/overview/performance/scaleout-in-signalr
 title: Wprowadzenie do skalowania w poziomie w SignalR | Dokumentacja firmy Microsoft
-author: MikeWasson
+author: bradygaster
 description: Wersje oprogramowania, używaną w tym temacie dodatku .NET 4.5 SignalR dla programu Visual Studio 2013 w wersji 2, poprzednie wersje w tym temacie informacji o wcześniejszych wersjach...
-ms.author: riande
+ms.author: bradyg
 ms.date: 06/10/2014
 ms.assetid: 7e781fc1-1c1f-45a8-bc1d-338e96dbe9c9
 msc.legacyurl: /signalr/overview/performance/scaleout-in-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 50f9e5bc2713af7fe41473339e360099a92d4c5d
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.openlocfilehash: 60ae0353745284796eb7e0ddb6397ecb48eceaf0
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53286990"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836210"
 ---
 <a name="introduction-to-scaleout-in-signalr"></a>Wprowadzenie do skalowania w poziomie w usłudze SignalR
 ====================
@@ -54,7 +54,7 @@ Jedno rozwiązanie jest przesyłanie komunikatów między serwerami z użyciem s
 
 Biblioteka SignalR udostępnia obecnie trzy montażowych:
 
-- **Usługi Azure Service Bus**. Service Bus to infrastruktura obsługi komunikatów, umożliwiający składników do wysyłania wiadomości w swobodną.
+- **Azure Service Bus**. Service Bus to infrastruktura obsługi komunikatów, umożliwiający składników do wysyłania wiadomości w swobodną.
 - **Redis**. Redis jest przechowywanie par klucz wartość w pamięci. Usługa redis obsługuje wzorzec publikowania/subskrybowania ("pub/sub") do wysyłania wiadomości.
 - **SQL Server**. Płyty montażowej programu SQL Server zapisuje komunikaty do tabel SQL. Systemu backplane używa brokera usług dla komunikatów wydajne. Jednak działa Jeśli programu Service Broker nie jest włączona.
 

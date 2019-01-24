@@ -1,19 +1,19 @@
 ---
 uid: signalr/overview/older-versions/hub-authorization
 title: Uwierzytelnianie i autoryzacja dla centrów SignalR (SignalR 1.x) | Dokumentacja firmy Microsoft
-author: pfletcher
+author: bradygaster
 description: W tym temacie opisano, jak ograniczyć, które użytkownicy lub ról dostęp do metod koncentratora.
-ms.author: riande
+ms.author: bradyg
 ms.date: 10/17/2013
 ms.assetid: 3d2dfc0e-eac2-4076-a468-325d3d01cc7b
 msc.legacyurl: /signalr/overview/older-versions/hub-authorization
 msc.type: authoredcontent
-ms.openlocfilehash: 1bd61b8faff22db3337e9d9c1ed2532d3e64440d
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.openlocfilehash: 7f4a76109111f19dc4381ad01e642afdabade336
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53287471"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836908"
 ---
 <a name="authentication-and-authorization-for-signalr-hubs-signalr-1x"></a>Uwierzytelnianie i autoryzacja centrów usługi SignalR (SignalR 1.x)
 ====================
@@ -102,7 +102,7 @@ Jeśli masz klienta platformy .NET, takie jak aplikacja konsolowa, która wspó�
 
 <a id="cookie"></a>
 
-### <a name="cookie"></a>Plik cookie
+### <a name="cookie"></a>Cookie
 
 Twój klient .NET wchodzi w interakcję z koncentratora, który korzysta z uwierzytelniania formularzy programu ASP.NET, należy ręcznie ustawić pliku cookie uwierzytelniania dla połączenia. Dodawanie pliku cookie do `CookieContainer` właściwość [HubConnection](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.client.hubs.hubconnection(v=vs.111).aspx) obiektu. Poniższy przykład pokazuje aplikacja konsolowa, która pobiera pliku cookie uwierzytelniania ze strony sieci web, a następnie dodaje ten plik cookie dla połączenia. Adres URL `https://www.contoso.com/RemoteLogin` w przykładzie wskazuje do strony sieci web, którą należy utworzyć. Strona pobierania nazwy przesłanych użytkownika i hasła i prób zalogowania użytkownika przy użyciu poświadczeń.
 

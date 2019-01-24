@@ -5,12 +5,12 @@ description: Dodawanie widoku na prostej aplikacji ASP.NET Core MVC
 ms.author: riande
 ms.date: 03/04/2017
 uid: tutorials/first-mvc-app/adding-view
-ms.openlocfilehash: 321ffd6b0168d4befc950a58035d19561e879491
-ms.sourcegitcommit: ec71fd5a988f927ae301813aae5ff764feb3bb6a
+ms.openlocfilehash: f241a19c8821019f327fb160f01fe01eca53c5d0
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54249454"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836912"
 ---
 # <a name="add-a-view-to-an-aspnet-core-mvc-app"></a>Dodaj widok do aplikacji ASP.NET Core MVC
 
@@ -104,7 +104,7 @@ W poprzednim znaczników `asp-area` [atrybut Pomocnik tagu kotwicy](xref:mvc/vie
 
 **Uwaga**: `Movies` Kontrolera nie została zaimplementowana. W tym momencie `Movie App` link nie działa.
 
-Zapisać zmiany i wybierz **zachowania** łącza. Zwróć uwagę, jak Wyświetla tytuł, na karcie przeglądarki **ochrona prywatności — aplikacja filmu** zamiast **ochrona prywatności — filmu Mvc**:
+Zapisać zmiany i wybierz **zachowania** łącza. Zwróć uwagę, jak Wyświetla tytuł, na karcie przeglądarki **zasady zachowania poufności informacji — aplikacja filmu** zamiast **zasady zachowania poufności informacji - filmu Mvc**:
 
 ![Karta Prywatność](~/tutorials/first-mvc-app/adding-view/_static/about2.png)
 

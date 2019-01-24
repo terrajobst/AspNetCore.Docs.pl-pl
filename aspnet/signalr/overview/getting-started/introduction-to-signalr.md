@@ -1,19 +1,19 @@
 ---
 uid: signalr/overview/getting-started/introduction-to-signalr
 title: Wprowadzenie do SignalR | Dokumentacja firmy Microsoft
-author: pfletcher
+author: bradygaster
 description: W tym artykule opisano, co to jest SignalR i niektóre z rozwiązań, który został zaprojektowany do utworzenia.
-ms.author: riande
+ms.author: bradyg
 ms.date: 06/10/2014
 ms.assetid: 0fab5e35-8c1f-43d4-8635-b8aba8766a71
 msc.legacyurl: /signalr/overview/getting-started/introduction-to-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: c865078c14b8615faa278819f86a9dd623a42f36
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.openlocfilehash: 7b9dae3e5d79319a9fefee41f4525a59f950746a
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53287587"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54837770"
 ---
 <a name="introduction-to-signalr"></a>Wprowadzenie do usługi SignalR
 ====================
@@ -59,7 +59,7 @@ SignalR używa nowy transport WebSocket, gdzie są dostępne i nastąpi powrót 
 
 SignalR to Abstrakcja za pośrednictwem niektórych transportu, które są wymagane do pracy w czasie rzeczywistym między klientem i serwerem. Połączenia SignalR startuje jako protokołu HTTP, a następnie zostanie podwyższony do połączeń protokołu WebSocket, jeśli jest ona dostępna. Protokół WebSocket jest idealny transport dla elementu SignalR, ponieważ ona sprawia, że najbardziej efektywne wykorzystanie pamięci serwera, ma najniższe opóźnienie i ma większość podstawowych funkcji (na przykład w trybie pełnego dupleksu komunikacji między klientem i serwerem), ale ma on także najbardziej rygorystyczne wymagania: WebSocket wymaga serwera z systemem Windows Server 2012 lub Windows 8 i .NET Framework 4.5. Jeśli te wymagania nie są spełnione, SignalR spróbuje użyć innego transportu się jego połączenia.
 
-### <a name="html-5-transports"></a>Służy do transportu HTML 5
+### <a name="html-5-transports"></a>HTML 5 transports
 
 Transporty te zależą od pomocy technicznej dla [HTML 5](http://en.wikipedia.org/wiki/HTML5). Jeśli przeglądarka klienta nie obsługuje standardu HTML 5, starsze transportów będą używane.
 
@@ -107,7 +107,7 @@ Aby włączyć rejestrowanie dla Twojego Centrum zdarzeń w przeglądarce, Dodaj
     ![Konsola programu Microsoft Internet Explorer](introduction-to-signalr/_static/image2.png)
 - W przeglądarce Chrome Otwórz konsolę, naciskając klawisze Ctrl + Shift + J.
 
-    ![Konsola w przeglądarce Google Chrome](introduction-to-signalr/_static/image3.png)
+    ![Console in Google Chrome](introduction-to-signalr/_static/image3.png)
 
 Otwórz konsolę i Rejestrowanie włączone będzie można zobaczyć, które transportu jest używany przez SignalR.
 

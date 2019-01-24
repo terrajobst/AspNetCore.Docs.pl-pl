@@ -2,16 +2,16 @@
 title: Używanie biblioteki SignalR platformy ASP.NET Core za pomocą TypeScript i Webpack
 author: ssougnez
 description: W tym samouczku skonfigurujesz Webpack połączyć w paczkę i Utwórz aplikację sieci web biblioteki SignalR platformy ASP.NET Core, którego klient został napisany w TypeScript.
-ms.author: scaddie
+ms.author: bradyg
 ms.custom: mvc
 ms.date: 11/30/2018
 uid: tutorials/signalr-typescript-webpack
-ms.openlocfilehash: 92709beb7a99289b8639135aab9d821937825103
-ms.sourcegitcommit: a16352c1c88a71770ab3922200a8cd148fb278a6
+ms.openlocfilehash: 8292ab2e0ad1f5c67ac7f15c280b49700f6717ad
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53335289"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836327"
 ---
 # <a name="use-aspnet-core-signalr-with-typescript-and-webpack"></a>Używanie biblioteki SignalR platformy ASP.NET Core za pomocą TypeScript i Webpack
 
@@ -41,7 +41,7 @@ Konfigurowanie programu Visual Studio, aby wyszukać pakiety npm w usłudze *śc
 1. Przejdź do **narzędzia** > **opcje** > **projekty i rozwiązania** > **sieci Web zarządzania pakietami**  >  **Zewnętrzne narzędzia sieci Web**.
 1. Wybierz *$(PATH)* wpis na liście. Kliknij strzałkę w górę, aby przenieść wpis do drugiej pozycji na liście.
 
-    ![Konfiguracja programu Visual Studio](signalr-typescript-webpack/_static/signalr-configure-path-visual-studio.png)
+    ![Visual Studio Configuration](signalr-typescript-webpack/_static/signalr-configure-path-visual-studio.png)
 
 Visual Studio zostało zakończone. Nadszedł czas, aby utworzyć projekt.
 

@@ -8,18 +8,18 @@ ms.date: 03/14/2014
 ms.assetid: 58b583cd-c4ab-47a3-8527-8c92c298c91f
 msc.legacyurl: /whitepapers/aspnet-web-deployment-content-map
 msc.type: content
-ms.openlocfilehash: c970d929c4e6b581bedd2947982926ac448facfa
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 6df0c9d2f38ad1d39abd62787c600ef80da8e8e0
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41753626"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836224"
 ---
-<a name="aspnet-web-deployment---recommended-resources"></a>Wdrażanie sieci Web platformy ASP.NET — zalecane zasoby
+<a name="aspnet-web-deployment---recommended-resources"></a>Wdrożenie internetowe na platformie ASP.NET — zalecane zasoby
 ====================
 > Ten temat zawiera łącza do dokumentacji zasoby o tym, jak wdrożyć (opublikować) ASP.NET sieci web aplikacji usług IIS przy użyciu programu Visual Studio 2010, Visual Web Developer 2010 i nowszych wersjach.
 > 
-> Jeśli znasz bardzo blogu, [stackoverflow](http://stackoverflow.com) wątku lub dowolny link, który powinien być przydatny, [Wyślij do nas wiadomość e-mail](mailto:aspnetue@microsoft.com?subject=Deployment Content Map) z linkiem.
+> Jeśli znasz bardzo blogu, [stackoverflow](http://stackoverflow.com) wątku lub dowolny link, który powinien być przydatny, [Wyślij do nas wiadomość e-mail](mailto:aspnetue@microsoft.com?subject=Deployment%20Content%20Map) z linkiem.
 > 
 > > [!NOTE] 
 > > 
@@ -65,7 +65,7 @@ Ten temat zawiera następujące sekcje:
 
 ## <a name="finding-hosting-providers-for-an-aspnet-application"></a>Wyszukiwanie dostawcy usług dla aplikacji ASP.NET hosta
 
-- [Hostingu platformy ASP.NET](https://asp.net/hosting)
+- [ASP.NET Hosting](https://asp.net/hosting)
 
 
 <a id="fromvs"></a>
@@ -75,7 +75,7 @@ Ten temat zawiera następujące sekcje:
 
 - [Jak wdrożyć witrynę sieci Web platformy Azure Windows](https://docs.microsoft.com/azure/app-service-web/web-sites-deploy). Opisano opcje i zamieszczono linki do zasobów do wdrażania projektów sieci web do Windows Azure Web Sites. Zawiera sekcję o wdrażaniu w programie Visual Studio.
 - [Wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio](../web-forms/overview/deployment/visual-studio-web-deployment/introduction.md). 12-trzyczęściowej serii samouczków, przedstawia sposób wdrażania aplikacji sieci web przy użyciu bazy danych programu SQL Server. Dla bazy danych wdrożenie używa dostawcy dbDacFx i migracje Code First Framework jednostki. Zawiera również informacje o [przekształcenia pliku Web.config](../web-forms/overview/deployment/visual-studio-web-deployment/web-config-transformations.md), [wdrażania poszczególnych plików](../web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-code-update.md#specificfiles), [wiersza polecenia deployment](../web-forms/overview/deployment/visual-studio-web-deployment/command-line-deployment.md), i [jak Dostosowywanie programu Visual Studio w sieci web potoku publikowania przez edycję plików .pubxml](../web-forms/overview/deployment/visual-studio-web-deployment/deploying-extra-files.md). Dotyczy wszystkich projektów sieci web platformy ASP.NET, w tym Web Forms, MVC i interfejs API sieci Web).
-- [Porady: Wdrażanie publikowania projektu sieci Web za pomocą jednego kliknięcia w programie Visual Studio](https://msdn.microsoft.com/library/dd465337.aspx) (informacje referencyjne dotyczące programu Visual Studio Web Publish kreatora.)
+- [Instrukcje: Wdrażanie publikowania projektu sieci Web za pomocą jednego kliknięcia w programie Visual Studio](https://msdn.microsoft.com/library/dd465337.aspx) (informacje referencyjne dotyczące programu Visual Studio Web Publish kreatora.)
 - [Wdrażanie aplikacji sieci Web ASP.NET za pomocą programu SQL Server Compact przy użyciu programu Visual Studio](../web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12.md). Jest to starszą wersję **wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio** wymienione w górnej części tej sekcji. Przede wszystkim ułatwia teraz informacje dotyczące wdrażania baz danych programu SQL Server Compact i migrację z programu SQL Server Compact do pełnej wersji programu SQL Server.
 - [Przy użyciu tabel magazynu .NET obejmujące wiele warstw aplikacji, kolejek i obiektów blob](https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36) (witryny Microsoft Azure). 5-częściową serię samouczków pokazano, jak utworzyć projekt programu MVC oraz wdrożyć ją z usługą Windows Azure w chmurze.
 
@@ -83,8 +83,8 @@ Ten temat zawiera następujące sekcje:
 <a id="package"></a>
 ## <a name="deploying-a-web-application-by-creating-and-installing-a-web-deployment-package"></a>Wdrażanie aplikacji sieci web przez tworzenie i instalowanie pakietu wdrożeniowego sieci web
 
-- [Porady: Tworzenie pakietu wdrożeniowego sieci Web w programie Visual Studio](https://msdn.microsoft.com/library/dd465323.aspx) (MSDN).
-- [Porady: Instalowanie pakietu wdrożeniowego przy użyciu pliku pliku deploy.cmd utworzone przez program Visual Studio](https://msdn.microsoft.com/library/ff356104.aspx) (MSDN).
+- [Instrukcje: Utwórz pakiet wdrażania sieci Web w programie Visual Studio](https://msdn.microsoft.com/library/dd465323.aspx) (MSDN).
+- [Instrukcje: Zainstaluj pakiet wdrożeniowy, przy użyciu pliku pliku deploy.cmd utworzone przez program Visual Studio](https://msdn.microsoft.com/library/ff356104.aspx) (MSDN).
 - [Przy użyciu pakietu Narzędzia Web Deploy do wdrażania usług IIS w oknie programu dev i do hosta innej](http://sedodream.com/2011/11/08/UsingAWebDeployPackageToDeployToIISOnTheDevBoxAndToAThirdPartyHost.aspx) (blog Sayed Hashimi). Jak za pomocą Menedżera usług IIS zainstalowanie pakietu wdrożeniowego w usługach IIS na komputerze lokalnym oraz na hosting firmy, która obsługuje Menedżera usług IIS do administracji zdalnej.
 - [Tworzenie sieci Web wdrażanie pakietu z programu Visual Studio 2010](https://www.iis.net/learn/publish/using-web-deploy/building-a-web-deploy-package-from-visual-studio-2010) (IIS.NET w witrynie). Zawiera instrukcje dotyczące tworzenia pakietów z wiersza polecenia i instalacji.
 - [Publikowanie dowolnym pakietu](http://sedodream.com/2012/03/14/PackageWebUpdatedAndVideoBelow.aspx) (blog Sayed Hashimi). Wprowadza pakietu NuGet, który automatyzuje proces przekształcenia pliku Web.config dla wielu środowisk docelowego, dzięki czemu można wdrożyć jeden pakiet na wielu serwerach. Zobacz też [wideo PackageWeb](https://www.youtube.com/watch?v=-LvUJFI8CzM) przez Sayed Hashimi.
@@ -100,7 +100,7 @@ Zobacz też poniższej sekcji.
 - [Ciągła integracja i ciągłe dostarczanie (tworzenie rzeczywistych aplikacji w chmurze przy użyciu platformy Windows Azure).](../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery.md) Rozdział E-book, który zawiera wprowadzenie do ciągłej integracji i ciągłego dostarczania.
 - [Jak wdrożyć witrynę sieci Web platformy Azure Windows](https://docs.microsoft.com/azure/app-service-web/web-sites-deploy). Opisano opcje i linki do zasobów dla wdrażania projektów sieci web do Windows Azure Web Sites. Zawiera sekcję poświęconą automatyzowaniu wdrożeń z kontroli źródła.
 - [Wdrażanie aplikacji sieci Web w scenariuszach dla przedsiębiorstw](../web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md). 40 części serii samouczków pokazano, jak zautomatyzować wdrażanie w procesie ciągłej integracji przy użyciu programu Visual Studio 2010 i Team Foundation Server 2010.
-- [Wewnątrz aparatu Microsoft Build: przy użyciu programu MSBuild i Team Foundation Build, Sayed Hashimi i William Bartholomew](http://msbuildbook.com). To książki, a nie zasobu sieci web, ale jest podstawy do nauki, jak skonfigurować program MSBuild w scenariuszach ciągłej integracji.
+- [W aparacie kompilacji firmy Microsoft: Przy użyciu programu MSBuild i Team Foundation Build, Sayed Hashimi i William Bartholomew](http://msbuildbook.com). To książki, a nie zasobu sieci web, ale jest podstawy do nauki, jak skonfigurować program MSBuild w scenariuszach ciągłej integracji.
 - [Pakiet rozszerzenia programu MSBuild](https://github.com/mikefourie/MSBuildExtensionPack). Zawiera zadania wdrażania.
 - [Przewodnik dostosowywania kompilacji Foundation Team](https://aka.ms/vsarsolutions). Dokumentacja wg ALM Rangers na temat konfigurowania serwera Team Foundation Server obejmuje wdrażanie w Internecie i obejmuje samouczkami i klipami wideo.
 - [Przekształcenia SlowCheetah XML z serwera CI](http://sedodream.com/2011/12/12/SlowCheetahXMLTransformsFromACIServer.aspx) (blog Sayed Hashimi). Opis sposobu użycia SlowCheetah dodatku programu Visual Studio do przekształcania pliku app.config i inne pliki XML.
@@ -119,7 +119,7 @@ Zobacz też [upewnić się, że aplikacja jest w trybie offline podczas wdrażan
 - [Jak wyłączyć transformacji pliku Web.config?](https://msdn.microsoft.com/library/ee942158.aspx#disable_web_config_transformation) (MSDN).
 - [Kiedy używać narzędzia Web Deploy parametrów zamiast transformacje pliku Web.config?](https://msdn.microsoft.com/library/ee942158.aspx#web_deploy_parameters) (MSDN).
 - [XDT (Przekształcanie dokumentów XML), wydanej w dniu codeplex.com](https://blogs.msdn.com/b/webdev/archive/2013/04/23/xdt-xml-document-transform-released-on-codeplex-com.aspx) (blog programowanie aplikacji sieci Web platformy .NET i narzędzi). Ogłasza dostępności kodu źródłowego dla silnika transformacji pliku Web.config i zawiera listę niektórych narzędzi, które go używają.
-- [Windows Azure Web Sites: Jak ciągi aplikacji and Connection Strings Work](https://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx) (blog Microsoft Azure). Przekształca alternatywę do pliku Web.config, jeśli środowisko docelowym jest Windows Azure Web Sites, a chcesz przekształcić `appSettings` lub `connectionStrings`.
+- [Windows Azure Web Sites: Jak aplikacja ciągi and Connection Strings Work](https://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx) (blog Microsoft Azure). Przekształca alternatywę do pliku Web.config, jeśli środowisko docelowym jest Windows Azure Web Sites, a chcesz przekształcić `appSettings` lub `connectionStrings`.
 
 
 <a id="webdeployparms"></a>
@@ -127,12 +127,12 @@ Zobacz też [upewnić się, że aplikacja jest w trybie offline podczas wdrażan
 
 ## <a name="using-web-deploy-parameters-to-change-settings-in-the-destination-web-application-during-deployment"></a>Za pomocą narzędzia Web Deploy parametrów, aby zmienić ustawienia w aplikacji sieci web docelowego podczas wdrażania
 
-- [Porady: użycie narzędzia Web Deploy parametrów w pakiecie wdrożeniowym sieci Web](https://msdn.microsoft.com/library/ff398068.aspx) (MSDN).
-- [Program MSDeploy: Jak zaktualizować ustawienia aplikacji na publikowanie oparte na profilu publikowania](http://sedodream.com/2013/03/02/MSDeployHowToUpdateAppSettingsOnPublishBasedOnThePublishProfile.aspx) (blog Sayed Hashimi). Pokazuje, jak zintegrować narzędzia Web deploy parametrów do programu Visual Studio profilów publikowania.
+- [Instrukcje: Użyj narzędzia Web Deploy parametrów w pakiecie wdrożeniowym sieci Web](https://msdn.microsoft.com/library/ff398068.aspx) (MSDN).
+- [MSDeploy: Jak zaktualizować ustawienia aplikacji na publikowanie oparte na profilu publikowania](http://sedodream.com/2013/03/02/MSDeployHowToUpdateAppSettingsOnPublishBasedOnThePublishProfile.aspx) (blog Sayed Hashimi). Pokazuje, jak zintegrować narzędzia Web deploy parametrów do programu Visual Studio profilów publikowania.
 - [Sieci Web wdrażanie parametryzacji](https://www.iis.net/learn/publish/using-web-deploy/web-deploy-parameterization) (IIS.NET w witrynie).
 - [Sieci Web wdrażanie parametryzacji w działaniu](http://vishaljoshi.blogspot.com/2010/07/web-deploy-parameterization-in-action.html) (blog Vishal Joshi).
 - [Vs parametryzacji wdrażania sieci Web. Przekształcenia pliku Web.config](http://vishaljoshi.blogspot.com/2010/06/parameterization-vs-webconfig.html) (blog Vishal Joshi).
-- [Windows Azure Web Sites: Jak ciągi aplikacji and Connection Strings Work](https://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx) (blog Microsoft Azure). Alternatywa dla sieci Web wdrożenia parametrów, jeśli środowisko docelowym jest Windows Azure Web Sites, a użytkownik chce zdefiniować parametry `appSettings` lub `connectionStrings`.
+- [Windows Azure Web Sites: Jak aplikacja ciągi and Connection Strings Work](https://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx) (blog Microsoft Azure). Alternatywa dla sieci Web wdrożenia parametrów, jeśli środowisko docelowym jest Windows Azure Web Sites, a użytkownik chce zdefiniować parametry `appSettings` lub `connectionStrings`.
 
 
 <a id="appoffline"></a>
@@ -154,7 +154,7 @@ Zobacz też [upewnić się, że aplikacja jest w trybie offline podczas wdrażan
 
 - [Konfigurowanie wdrażania bazy danych w programie Visual Studio](https://msdn.microsoft.com/library/dd394698.aspx#dbdeployment) (MSDN). Omówienie opcji wdrażania bazy danych w projekcie sieci web.
 - [Wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio](../web-forms/overview/deployment/visual-studio-web-deployment/introduction.md). 12-trzyczęściowej serii samouczków, przedstawia wdrożenie bazy danych przy użyciu dostawcy dbDacFx i migracje Code First Framework jednostki.
-- [Porady: Wdrażanie sieci Web projektu za pomocą jednego kliknięcia publikowania w programie Visual Studio](https://msdn.microsoft.com/library/dd465337.aspx) (MSDN).
+- [Instrukcje: Wdrażanie sieci Web projektu za pomocą jednego kliknięcia publikowania w programie Visual Studio](https://msdn.microsoft.com/library/dd465337.aspx) (MSDN).
 - [Wdrażanie bezpiecznej aplikacji ASP.NET MVC 5 z członkostwa, uwierzytelnianiem OAuth i bazą danych SQL w witrynie sieci Web platformy Azure Windows](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data). Długie samouczek, który zostanie skompilowana i wdrożona aplikacja, która korzysta z jednego serwera SQL bazy danych, zarówno dla danych członkostwa i aplikacji.
 - [Wdrażanie aplikacji sieci Web ASP.NET za pomocą programu SQL Server Compact przy użyciu programu Visual Studio](../web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12.md). 12-trzyczęściowej serii samouczków, przedstawia sposób wdrażania baz danych programu SQL Server Compact i jak przeprowadzić migrację z programu SQL Server Compact do pełnej wersji programu SQL Server.
 

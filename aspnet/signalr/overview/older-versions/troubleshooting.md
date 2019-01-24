@@ -1,19 +1,19 @@
 ---
 uid: signalr/overview/older-versions/troubleshooting
 title: Rozwiązywanie problemów z SignalR (SignalR 1.x) | Dokumentacja firmy Microsoft
-author: pfletcher
+author: bradygaster
 description: W tym artykule opisano typowe problemy z programowaniem aplikacji SignalR.
-ms.author: riande
+ms.author: bradyg
 ms.date: 06/05/2013
 ms.assetid: 347210ba-c452-4feb-886f-b51d89f58971
 msc.legacyurl: /signalr/overview/older-versions/troubleshooting
 msc.type: authoredcontent
-ms.openlocfilehash: 6c2a8e72959c9370ff46084ca135c2b2977f4f42
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.openlocfilehash: d485829fb60b32b063405f37ae9c6c278bf7255b
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53287697"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836275"
 ---
 <a name="signalr-troubleshooting-signalr-1x"></a>Rozwiązywanie problemów z usługą SignalR (SignalR 1.x)
 ====================
@@ -262,7 +262,7 @@ To zachowanie jest celowe. SignalR nie obsługuje stanu sesji programu ASP.NET, 
 
 Może zostać wyświetlony ten błąd, jeśli używasz kodu z ze starszą dokumentacją lub blogów. Sprawdź, czy użytkownik nie odwołują się do nazw metod, które zostały zmienione lub przestarzałe (takich jak `OnConnectedAsync`).
 
-### <a name="hostcontextextensionswebsocketserverurl-is-null"></a>HostContextExtensions.WebSocketServerUrl ma wartość null
+### <a name="hostcontextextensionswebsocketserverurl-is-null"></a>HostContextExtensions.WebSocketServerUrl is null
 
 To zachowanie jest celowe. Ta składowa jest przestarzała i nie powinna być używana.
 
