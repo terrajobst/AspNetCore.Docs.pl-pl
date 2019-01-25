@@ -4,17 +4,17 @@ title: 'Samouczek: Odczytywanie powiązanych danych przy użyciu programu EF w a
 description: W tym samouczku będziesz odczytywać i wyświetlanie powiązanych danych — oznacza to, że dane programu Entity Framework wczytywane właściwości nawigacji.
 author: tdykstra
 ms.author: riande
-ms.date: 01/17/2019
+ms.date: 01/22/2019
 ms.topic: tutorial
 ms.assetid: 18cdd896-8ed9-4547-b143-114711e3eafb
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 8660a75655b801364cce7c4b59847c5c00562a27
-ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
-ms.translationtype: MT
+ms.openlocfilehash: 5f45820cd7abd60e69c19368cee50e91e31a75a0
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396210"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836834"
 ---
 # <a name="tutorial-read-related-data-with-ef-in-an-aspnet-mvc-app"></a>Samouczek: Odczytywanie powiązanych danych przy użyciu programu EF w aplikacji ASP.NET MVC
 
@@ -243,6 +243,10 @@ Następnie są ładowane jawnie każdego `Enrollment` jednostki użytkownika zwi
 Zwróć uwagę, że używasz `Collection` metodę, aby załadować właściwość kolekcji, ale dla właściwości, która zawiera tylko jedną jednostkę, możesz użyć `Reference` metody.
 
 Uruchom teraz strony indeksu przez instruktorów i ma różnicy w wyświetlanych na stronie zostanie wyświetlony, mimo że zostało zmienione, jak dane są pobierane.
+
+## <a name="get-the-code"></a>Pobierz kod
+
+[Pobierz ukończony projekt](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

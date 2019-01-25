@@ -1,18 +1,18 @@
 ---
 title: ASP.NET Core SignalR produkcji hostowania i skalowania
-author: tdykstra
+author: bradygaster
 description: Dowiedz się, jak uniknąć wydajności i skalowania problemy w aplikacjach korzystających z biblioteki SignalR platformy ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
-ms.author: tdykstra
+ms.author: bradyg
 ms.custom: mvc
 ms.date: 11/28/2018
 uid: signalr/scale
-ms.openlocfilehash: 94791ffb73b58a9026942d632bce59773e3fda5b
-ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
+ms.openlocfilehash: 4ac4509acc89d0091a3757c7cfbc9981614f29ad
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453025"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836925"
 ---
 # <a name="aspnet-core-signalr-hosting-and-scaling"></a>ASP.NET Core SignalR hostowania i skalowania
 
@@ -46,7 +46,7 @@ Aplikację, która używa biblioteki SignalR musi do śledzenia swoich połącze
 
 Opcje dotyczące rozwiązywania tego problemu są [usługi Azure SignalR Service](#azure-signalr-service) i [Redis płyty montażowej](#redis-backplane).
 
-## <a name="azure-signalr-service"></a>Usługi Azure SignalR Service
+## <a name="azure-signalr-service"></a>Usługa Azure SignalR Service
 
 Usługa Azure SignalR Service to serwer proxy, a nie jako płyty montażowej. Każdorazowo, klient inicjuje połączenie z serwerem, klient zostanie przekierowany do połączenia z usługą. Ten proces jest zilustrowany na poniższym diagramie:
 

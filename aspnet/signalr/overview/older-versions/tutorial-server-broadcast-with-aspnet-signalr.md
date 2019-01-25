@@ -1,21 +1,21 @@
 ---
 uid: signalr/overview/older-versions/tutorial-server-broadcast-with-aspnet-signalr
 title: 'Samouczek: Emisje serwera z użyciem ASP.NET SignalR 1.x | Dokumentacja firmy Microsoft'
-author: pfletcher
+author: bradygaster
 description: W tym samouczku przedstawiono sposób tworzenia aplikacji sieci web, która używa biblioteki SignalR platformy ASP.NET, aby zapewnić funkcjonalność emisji serwera. Oznacza to communic emisje serwera...
-ms.author: riande
+ms.author: bradyg
 ms.date: 04/10/2013
 ms.assetid: ab7b2554-956a-4f6d-b2a0-4ae0c62e8580
 msc.legacyurl: /signalr/overview/older-versions/tutorial-server-broadcast-with-aspnet-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: d5c09f6493c4dedb4fc2ecbf9055dd014ede71f2
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.openlocfilehash: 258a55bf72c4b3425d001f478620fa9651952b3f
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53288056"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54837471"
 ---
-<a name="tutorial-server-broadcast-with-aspnet-signalr-1x"></a>Samouczek: Emisje serwera z użyciem ASP.NET SignalR 1.x
+<a name="tutorial-server-broadcast-with-aspnet-signalr-1x"></a>Samouczek: emisje serwera z użyciem wzorca ASP.NET SignalR 1.x
 ====================
 przez [Patrick Fletcher](https://github.com/pfletcher), [Tom Dykstra](https://github.com/tdykstra)
 
@@ -293,7 +293,7 @@ Dla dowolnego danego połączenia SignalR wybiera najlepszą metodą transportu,
 
     Jeśli używasz programu Internet Explorer 10 w systemie Windows 8 (IIS 8), metodą transportu jest WebSockets.
 
-    ![Konsolę programu IE 10 IIS 8](tutorial-server-broadcast-with-aspnet-signalr/_static/image10.png)
+    ![IE 10 IIS 8 Console](tutorial-server-broadcast-with-aspnet-signalr/_static/image10.png)
 
     Jeśli korzystasz z programu Internet Explorer 10, Windows 7 (usługi IIS 7.5), metodą transportu jest elementu iframe.
 
@@ -305,7 +305,7 @@ Dla dowolnego danego połączenia SignalR wybiera najlepszą metodą transportu,
 
     Jeśli używasz przeglądarki Firefox 19 Windows 7 (usługi IIS 7.5), metodą transportu jest zdarzenia wysłanego przez serwer.
 
-    ![Konsolę programu Firefox 19 IIS 7.5](tutorial-server-broadcast-with-aspnet-signalr/_static/image13.png)
+    ![Firefox 19 IIS 7.5 Console](tutorial-server-broadcast-with-aspnet-signalr/_static/image13.png)
 
 <a id="fullsample"></a>
 
@@ -412,7 +412,7 @@ Samouczki, które pokazują scenariuszy komunikacji między peer-to-peer, zobacz
 
 Aby dowiedzieć się więcej zaawansowanych koncepcji programowania SignalR, odwiedź następującą witrynę dla SignalR kod źródłowy i zasobów:
 
-- [Biblioteki SignalR platformy ASP.NET](https://asp.net/signalr/)
+- [ASP.NET SignalR](https://asp.net/signalr/)
 - [Projekt SignalR](http://signalr.net/)
 - [SignalR Github i przykłady](https://github.com/SignalR/SignalR)
 - [Witryny typu Wiki biblioteki SignalR](https://github.com/SignalR/SignalR/wiki)

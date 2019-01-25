@@ -1,19 +1,19 @@
 ---
 uid: signalr/overview/index
 title: Wskazówki dotyczące SignalR | Dokumentacja firmy Microsoft
-author: rick-anderson
+author: bradygaster
 description: ''
-ms.author: riande
+ms.author: bradyg
 ms.date: 10/24/2012
 ms.assetid: e57da75a-1d98-4e3c-8787-f1d7e1eb2d86
 msc.legacyurl: /signalr/overview
 msc.type: book
-ms.openlocfilehash: d22f9e561d8d22c2562bc2f723beb2189592fdda
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 2ab5094e863c5762c0c4c70a15f4da1088bc52e7
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41757359"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54837575"
 ---
 <a name="signalr-guidance"></a>Wskazówki dotyczące SignalR
 ====================
@@ -21,11 +21,11 @@ ms.locfileid: "41757359"
 
     - [Wprowadzenie do SignalR](getting-started/introduction-to-signalr.md)
     - [Obsługiwane platformy](getting-started/supported-platforms.md)
-    - [Samouczek: wprowadzenie do korzystania z SignalR 2](getting-started/tutorial-getting-started-with-signalr.md)
-    - [Samouczek: wprowadzenie do korzystania z SignalR 2 i MVC 5](getting-started/tutorial-getting-started-with-signalr-and-mvc.md)
-    - [Samouczek: wysyłanie w czasie rzeczywistym z wysoką częstotliwością przy użyciu SignalR 2](getting-started/tutorial-high-frequency-realtime-with-signalr.md)
-    - [Samouczek: emisje serwera z użyciem SignalR 2](getting-started/tutorial-server-broadcast-with-signalr.md)
-    - [Ćwiczenia praktyczne: aplikacje internetowe czasu rzeczywistego z wykorzystaniem SignalR](getting-started/real-time-web-applications-with-signalr.md)
+    - [Samouczek: Wprowadzenie do SignalR 2](getting-started/tutorial-getting-started-with-signalr.md)
+    - [Samouczek: Wprowadzenie do SignalR 2 i MVC 5](getting-started/tutorial-getting-started-with-signalr-and-mvc.md)
+    - [Samouczek: Wysoka częstotliwość Realtime z SignalR 2](getting-started/tutorial-high-frequency-realtime-with-signalr.md)
+    - [Samouczek: Emisje serwera z użyciem SignalR 2](getting-started/tutorial-server-broadcast-with-signalr.md)
+    - [Ćwiczenia praktyczne: Aplikacje internetowe czasu rzeczywistego przy użyciu SignalR](getting-started/real-time-web-applications-with-signalr.md)
 - [Przewodnik po interfejsie API](guide-to-the-api/index.md)
 
     - [Podręcznik interfejsu API centrów — serwer (C#)](guide-to-the-api/hubs-api-guide-server.md)
@@ -55,7 +55,7 @@ ms.locfileid: "41757359"
     - [Korzystanie z liczników wydajności SignalR w roli sieci Web platformy Azure](performance/using-signalr-performance-counters-in-an-azure-web-role.md)
 - [Wdrażanie i hosting](deployment/index.md)
 
-    - [Samouczek: host samodzielny SignalR](deployment/tutorial-signalr-self-host.md)
+    - [Samouczek: Host samodzielny SignalR](deployment/tutorial-signalr-self-host.md)
     - [Używanie SignalR z usługą Web Apps w usłudze Azure App Service](deployment/using-signalr-with-azure-web-sites.md)
 - [Zaawansowane](advanced/index.md)
 
@@ -65,10 +65,10 @@ ms.locfileid: "41757359"
     - [Uaktualnianie projektów SignalR 1.x do wersji 2](releases/upgrading-signalr-1x-projects-to-20.md)
 - [Starsze wersje](older-versions/index.md)
 
-    - [Samouczek: wprowadzenie do SignalR 1.x](older-versions/tutorial-getting-started-with-signalr.md)
-    - [Samouczek: wprowadzenie do SignalR 1.x i MVC 4](older-versions/tutorial-getting-started-with-signalr-and-mvc-4.md)
+    - [Samouczek: Wprowadzenie do SignalR 1.x](older-versions/tutorial-getting-started-with-signalr.md)
+    - [Samouczek: Wprowadzenie do SignalR 1.x i MVC 4](older-versions/tutorial-getting-started-with-signalr-and-mvc-4.md)
     - [Wysyłanie w czasie rzeczywistym z wysoką częstotliwością przy użyciu SignalR 1.x](older-versions/tutorial-high-frequency-realtime-with-signalr.md)
-    - [Samouczek: emisje serwera z użyciem ASP.NET SignalR 1.x](older-versions/tutorial-server-broadcast-with-aspnet-signalr.md)
+    - [Samouczek: Emisje serwera z użyciem ASP.NET SignalR 1.x](older-versions/tutorial-server-broadcast-with-aspnet-signalr.md)
     - [Podręcznik interfejsu API centrów — serwer](older-versions/signalr-1x-hubs-api-guide-server.md)
     - [Podręcznik interfejsu API centrów SignalR 1.x — klient JavaScript](older-versions/signalr-1x-hubs-api-guide-javascript-client.md)
     - [Podręcznik interfejsu API centrów — klient modelu .NET](older-versions/signalr-1x-hubs-api-guide-net-client.md)

@@ -1,22 +1,22 @@
 ---
 uid: signalr/overview/getting-started/tutorial-getting-started-with-signalr
 title: 'Samouczek: Rozmowy w czasie rzeczywistym przy użyciu SignalR 2 | Dokumentacja firmy Microsoft'
-author: pfletcher
+author: bradygaster
 description: Ten samouczek pokazuje, jak utworzyć aplikację do obsługi rozmów w czasie rzeczywistym przy użyciu SignalR. Możesz dodać SignalR na pustą aplikację sieci web platformy ASP.NET.
-ms.author: riande
-ms.date: 01/02/2019
+ms.author: bradyg
+ms.date: 01/22/2019
 ms.assetid: a8b3b778-f009-4369-85c7-e90f9878d8b4
 msc.legacyurl: /signalr/overview/getting-started/tutorial-getting-started-with-signalr
 msc.type: authoredcontent
 ms.topic: tutorial
-ms.openlocfilehash: aa015abc47bb2450e04e167c0404aaa1d119ba2c
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: 90f2c03fbda522e3a46200bc0132cc74100ce70f
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54098627"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836795"
 ---
-# <a name="tutorial-real-time-chat-with-signalr-2"></a>Samouczek: Rozmowy w czasie rzeczywistym przy użyciu SignalR 2
+# <a name="tutorial-real-time-chat-with-signalr-2"></a>Samouczek: Rozmowa w czasie rzeczywistym przy użyciu usługi SignalR 2
 
 Ten samouczek pokazuje, jak utworzyć aplikację do obsługi rozmów w czasie rzeczywistym przy użyciu SignalR. Dodaj SignalR do pustych aplikacji sieci web ASP.NET i Utwórz stronę HTML do wysyłania i wyświetla komunikaty.
 
@@ -161,6 +161,10 @@ Ten kod otwiera połączenie z koncentratorem.
 > Takie podejście zapewnia, że kod nawiąże połączenie, przed wykonaniem programu obsługi zdarzeń.
 
 Kod uruchamia połączenie i przekazuje go po funkcji do obsługi zdarzenia click na **wysyłania** przycisk na stronie HTML.
+
+## <a name="get-the-code"></a>Pobierz kod
+
+[Pobierz ukończony projekt](http://code.msdn.microsoft.com/SignalR-Getting-Started-b9d18aa9)
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

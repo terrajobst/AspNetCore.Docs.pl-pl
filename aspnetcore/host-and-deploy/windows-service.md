@@ -5,14 +5,14 @@ description: Dowiedz się, jak udostępnić aplikację ASP.NET Core w usłudze W
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 12/01/2018
+ms.date: 01/22/2019
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: bdb29c318c66ac884b9225ba8c2a0dfc1f364255
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: eedaf64710506f2a2aac65c178a9888d2ab33d38
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637706"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54837484"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Host platformy ASP.NET Core w usłudze Windows
 
@@ -42,9 +42,11 @@ Do istniejącego projektu platformy ASP.NET Core do uruchomienia aplikacji jako 
 
 Na podstawie wybranego elementu [typu wdrożenia](#deployment-type), należy zaktualizować plik projektu:
 
-#### <a name="framework-dependent-deployment-fdd"></a>Zależny od struktury wdrożenia (stacje)
+#### <a name="framework-dependent-deployment-fdd"></a>Framework-dependent Deployment (FDD)
 
-Dodaj Windows [identyfikator środowiska uruchomieniowego (RID)](/dotnet/core/rid-catalog) do `<PropertyGroup>` zawierający platformę docelową. Dodaj `<SelfContained>` właściwością `false`. Wyłączyć tworzenie *web.config* pliku, dodając `<IsTransformWebConfigDisabled>` właściwością `true`.
+Dodaj Windows [identyfikator środowiska uruchomieniowego (RID)](/dotnet/core/rid-catalog) do `<PropertyGroup>` zawierający platformę docelową. W poniższym przykładzie ustawiono RID `win7-x64`. Dodaj `<SelfContained>` właściwością `false`. Te właściwości poinstruować zestawu SDK w celu wygenerowania pliku wykonywalnego (*.exe*) pliku Windows.
+
+A *web.config* pliku, który zazwyczaj jest generowany podczas publikowania aplikacji ASP.NET Core, nie jest konieczne w przypadku aplikacji usługi Windows. Aby wyłączyć tworzenie *web.config* Dodaj `<IsTransformWebConfigDisabled>` właściwością `true`.
 
 ::: moniker range=">= aspnetcore-2.2"
 
@@ -60,6 +62,8 @@ Dodaj Windows [identyfikator środowiska uruchomieniowego (RID)](/dotnet/core/ri
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.1"
+
+Dodaj `<UseAppHost>` właściwością `true`. Ta właściwość zapewnia usługi ze ścieżką aktywacji (plik wykonywalny *.exe*) dla Dyskietki.
 
 ```xml
 <PropertyGroup>

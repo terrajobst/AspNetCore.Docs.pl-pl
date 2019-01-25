@@ -34,7 +34,7 @@ Dla każdego pliku Markdown może istnieć folder obrazów i folder do przykład
 ![description of image for alt attribute](configuration/index/_static/imagename.png)
 ```
 
-Wszystkie obrazy powinny mieć [tekst alternatywny (alt)](https://wikipedia.org/wiki/Alt_attribute). Porady dotyczące określania tekst alternatywny, znaleźć zasoby online, takich jak [WebAIM: tekst alternatywny](https://webaim.org/techniques/alttext/).
+Wszystkie obrazy powinny mieć [tekst alternatywny (alt)](https://wikipedia.org/wiki/Alt_attribute). Porady dotyczące określania tekst alternatywny, znaleźć zasoby online, takich jak [WebAIM: Tekst alternatywny](https://webaim.org/techniques/alttext/).
 
 Na użytek małe nazw plików języka Markdown i nazwy plików obrazów.
 
@@ -124,22 +124,20 @@ Wymaga DocFX:
 
 ### <a name="mono-instructions"></a>Instrukcje platformy mono
 
-* Zainstaluj platformę Mono za pośrednictwem Homebrew: `brew install mono`.
+* Zainstaluj platformę Mono za pośrednictwem Homebrew:
+
+  ```
+  brew install mono
+  ```
 * Pobierz [najnowszą wersję DocFX](https://github.com/dotnet/docfx/releases).
-* Wyodrębnij do `\bin\docfx`.
-* Tworzenie aliasów dla **docfx**:
+* Wyodrębnij archiwum do *$ głównej/bin/docfx*.
+* Tworzenie aliasów dla pary **docfx** w powłoce bash. Pierwszy alias jest używany do tworzenia w dokumentacji. Drugi aliasu jest używane do tworzenia i obsługi dokumentacji.
 
   ```
-  function docfx {
-    mono $HOME/bin/docfx/docfx.exe
-  }
-    
-  function docfx-serve {
-    mono $HOME/bin/docfx/docfx.exe serve _site
-  }
+  alias docfx='mono $HOME/bin/docfx/docfx.exe'
+  alias docfx-serve='mono $HOME/bin/docfx/docfx.exe --serve'
   ```
-
-* Uruchom `docfx` w *Docs\aspnet* lub *Docs\aspnetcore* katalogu do tworzenia witryny. Uruchom `docfx-serve` do wyświetlania witryny w `http://localhost:8080`.
+* Wykonaj `docfx` z katalogu głównego repozytorium do tworzenia witryny. Wykonaj `docfx-serve` do wyświetlania witryny w `http://localhost:8080`.
 
 ## <a name="voice-and-tone"></a>Głos i ton
 

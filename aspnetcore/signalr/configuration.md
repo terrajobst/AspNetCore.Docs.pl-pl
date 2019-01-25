@@ -1,24 +1,24 @@
 ---
 title: Konfiguracja Core SignalR platformy ASP.NET
-author: tdykstra
+author: bradygaster
 description: Informacje o sposobie konfigurowania aplikacji ASP.NET Core SignalR.
 monikerRange: '>= aspnetcore-2.1'
-ms.author: tdykstra
+ms.author: bradyg
 ms.custom: mvc
 ms.date: 09/06/2018
 uid: signalr/configuration
-ms.openlocfilehash: 855446003ae9d994854d4d8bb7d0f542a22734e4
-ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
+ms.openlocfilehash: bb18ba242584afa7181dcc19a5295f86996aeaa3
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49391105"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54837523"
 ---
 # <a name="aspnet-core-signalr-configuration"></a>Konfiguracja Core SignalR platformy ASP.NET
 
 ## <a name="jsonmessagepack-serialization-options"></a>Opcje serializacji JSON/MessagePack
 
-Biblioteki SignalR platformy ASP.NET Core obsługuje dwa protokoły kodowania wiadomości: [JSON](https://www.json.org/) i [MessagePack](https://msgpack.org/index.html). Dla każdego protokołu zawiera opcje konfiguracji serializacji.
+SignalR platformy ASP.NET Core obsługuje dwa protokoły, kodowania wiadomości: [JSON](https://www.json.org/) i [MessagePack](https://msgpack.org/index.html). Dla każdego protokołu zawiera opcje konfiguracji serializacji.
 
 Serializacja kodu JSON można skonfigurować na serwerze za pomocą [AddJsonProtocol](/dotnet/api/microsoft.extensions.dependencyinjection.jsonprotocoldependencyinjectionextensions.addjsonprotocol) metodę rozszerzenia, które mogą być dodawane po [AddSignalR](/dotnet/api/microsoft.extensions.dependencyinjection.signalrdependencyinjectionextensions.addsignalr) w swojej `Startup.ConfigureServices` metody. `AddJsonProtocol` Metoda przyjmuje obiekt delegowany, który odbiera `options` obiektu. [PayloadSerializerSettings](/dotnet/api/microsoft.aspnetcore.signalr.jsonhubprotocoloptions.payloadserializersettings) właściwość obiektu, na którym jest na składnik JSON.NET `JsonSerializerSettings` obiektu, który może służyć do konfigurowania serializacji argumenty i zwracać wartości. Zobacz [dokumentacji na składnik JSON.NET](https://www.newtonsoft.com/json/help/html/Introduction.htm) Aby uzyskać więcej informacji.
 
@@ -94,9 +94,9 @@ Użyj `HttpConnectionDispatcherOptions` skonfigurować zaawansowane ustawienia p
 
 | Opcja | Wartość domyślna | Opis |
 | ------ | ------------- | ----------- |
-| `ApplicationMaxBufferSize` | 32 KB. | Maksymalna liczba bajtów odebranych od klienta, bufory serwera. Zwiększenie tej wartości umożliwia serwer do odbierania komunikatów większy, ale może mieć negatywny wpływ na zużycie pamięci. |
+| `ApplicationMaxBufferSize` | 32 KB | Maksymalna liczba bajtów odebranych od klienta, bufory serwera. Zwiększenie tej wartości umożliwia serwer do odbierania komunikatów większy, ale może mieć negatywny wpływ na zużycie pamięci. |
 | `AuthorizationData` | Dane są automatycznie zbierane z `Authorize` atrybuty stosowane do klasy koncentratora. | Lista [IAuthorizeData](/dotnet/api/microsoft.aspnetcore.authorization.iauthorizedata) obiekty używane do określenia, czy klient jest autoryzowany do podłączać do koncentratora. |
-| `TransportMaxBufferSize` | 32 KB. | Maksymalna liczba bajtów wysłanych przez aplikację, bufory serwera. Zwiększenie tej wartości umożliwia serwerowi na wysyłanie wiadomości większych, ale może mieć negatywny wpływ na zużycie pamięci. |
+| `TransportMaxBufferSize` | 32 KB | Maksymalna liczba bajtów wysłanych przez aplikację, bufory serwera. Zwiększenie tej wartości umożliwia serwerowi na wysyłanie wiadomości większych, ale może mieć negatywny wpływ na zużycie pamięci. |
 | `Transports` | Wszystkich transportów są włączone. | Maska bitów `HttpTransportType` wartości, które mogą ograniczyć transportów klienta można się połączyć. |
 | `LongPolling` | Zobacz poniżej. | Dodatkowe opcje specyficzne dla transportu sondowania długie. |
 | `WebSockets` | Zobacz poniżej. | Dodatkowe opcje specyficzne dla transportu funkcji WebSockets. |
@@ -215,7 +215,7 @@ let connection = new signalR.HubConnectionBuilder()
 
 Dodatkowe opcje dotyczące konfigurowania limitu czasu i zachowanie keep-alive są dostępne na `HubConnection` samego obiektu:
 
-| .NET — opcja | Opcja języka JavaScript | Wartość domyślna | Opis |
+| .NET — opcja | JavaScript Option | Wartość domyślna | Opis |
 | ----------- | ----------------- | ------------- | ----------- |
 | `ServerTimeout` | `serverTimeoutInMilliseconds` | 30 sekund (ponad 30 000 MS) | Limit czasu aktywności serwera. Jeśli serwer nie wysłał wiadomości, w tym interwał, klient traktuje serwera odłączona i wyzwalacze `Closed` zdarzeń (`onclose` w języku JavaScript). Ta wartość musi być wystarczająco duży dla komunikat ping do wysłania z serwera **i** odebranych przez klienta w ciągu interwału limitu czasu. Zalecana wartość to co najmniej dwukrotnie serwera numeru `KeepAliveInterval` wartość, aby dać czas na polecenia ping do odbierania. |
 | `HandshakeTimeout` | Nie można konfigurować | 15 sekund | Limit czasu dla serwera początkowego uzgadniania. Jeśli serwer nie wysyłać odpowiedzi uzgadniania, w tym interwał, klient anuluje uzgadnianiu i wyzwalacze `Closed` zdarzeń (`onclose` w języku JavaScript). To ustawienie Zaawansowane, które powinny być modyfikowane tylko, jeśli występują błędy przekroczenia limitu czasu uzgadnianie ze względu na opóźnienie sieci poważne. Aby uzyskać więcej szczegółów na temat procesu uzgadniania, zobacz [specyfikacji protokołu Centrum SignalR](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md). |
@@ -226,7 +226,7 @@ W kliencie programu .NET wartości limitu czasu są określane jako `TimeSpan` w
 
 Dodatkowe opcje można skonfigurować w `WithUrl` (`withUrl` w języku JavaScript) metody `HubConnectionBuilder`:
 
-| .NET — opcja | Opcja języka JavaScript | Wartość domyślna | Opis |
+| .NET — opcja | JavaScript Option | Wartość domyślna | Opis |
 | ----------- | ----------------- | ------------- | ----------- |
 | `AccessTokenProvider` | `accessTokenFactory` | `null` | Funkcja zwraca ciąg, który jest dostarczana jako token uwierzytelniania elementu nośnego w żądaniach HTTP. |
 | `SkipNegotiation` | `skipNegotiation` | `false` | Ustaw tę opcję na `true` Aby pominąć krok negocjacji. **Obsługiwane tylko w przypadku transportu WebSockets jest tylko transportu włączone**. Nie można włączyć to ustawienie, korzystając z usługi Azure SignalR Service. |

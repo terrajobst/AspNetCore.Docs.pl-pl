@@ -1,19 +1,19 @@
 ---
 uid: signalr/overview/guide-to-the-api/hubs-api-guide-server
 title: Podręcznik biblioteki SignalR platformy ASP.NET do interfejsu API centrów — serwer (C#) | Dokumentacja firmy Microsoft
-author: pfletcher
+author: bradygaster
 description: Ten dokument zawiera wprowadzenie do programowania po stronie serwera interfejsu API centrów SignalR platformy ASP.NET dla elementu SignalR w wersji 2, przy użyciu przykładów kodu, demonstrując...
-ms.author: riande
+ms.author: bradyg
 ms.date: 06/10/2014
 ms.assetid: b19913e5-cd8a-4e4b-a872-5ac7a858a934
 msc.legacyurl: /signalr/overview/guide-to-the-api/hubs-api-guide-server
 msc.type: authoredcontent
-ms.openlocfilehash: 4730c4d9f601f561cfc884e0a9c2c2d12785ae0f
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.openlocfilehash: a28663c8d5c679f85e863e7d0b4523a6f4dd4a1f
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53288108"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54837458"
 ---
 <a name="aspnet-signalr-hubs-api-guide---server-c"></a>Podręcznik biblioteki SignalR platformy ASP.NET do interfejsu API centrów — serwer (C#)
 ====================
@@ -56,7 +56,7 @@ Ten dokument zawiera następujące sekcje:
 
     - [Okres istnienia obiektu Centrum](#transience)
     - [Wielkości liter pisane Centrum nazw klientów języka JavaScript](#hubnames)
-    - [Wiele centrów](#multiplehubs)
+    - [Multiple Hubs](#multiplehubs)
     - [Koncentratory silnie Typizowane](#stronglytypedhubs)
 - [Sposób definiowania metody w klasie Centrum, który można wywoływać klientów](#hubmethods)
 
@@ -196,7 +196,7 @@ Jeśli chcesz określić inną nazwę dla klientów użyć, należy dodać `HubN
 
 <a id="multiplehubs"></a>
 
-### <a name="multiple-hubs"></a>Wiele centrów
+### <a name="multiple-hubs"></a>Multiple Hubs
 
 W aplikacji, można zdefiniować wiele klas koncentratora. Po wykonaniu tej czynności, połączenie jest udostępniane, ale są osobne grupy:
 
@@ -504,7 +504,7 @@ Aby uzyskać informacje dotyczące klienta, użyj `Context` właściwość klasy
     [!code-csharp[Main](hubs-api-guide-server/samples/sample48.cs?highlight=1)]
 
     Identyfikator połączenia, który jest identyfikatorem GUID, który jest przypisywany przez SignalR (we własnym kodzie nie można określić wartości). Istnieje jeden identyfikator połączenia dla poszczególnych połączeń i tego samego połączenia, którego identyfikator jest używany przez wszystkie centra, jeśli masz wiele centrów w aplikacji.
-- Dane nagłówka HTTP.
+- HTTP header data.
 
     [!code-csharp[Main](hubs-api-guide-server/samples/sample49.cs?highlight=1)]
 

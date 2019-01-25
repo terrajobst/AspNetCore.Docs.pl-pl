@@ -3,18 +3,18 @@ uid: signalr/overview/getting-started/tutorial-server-broadcast-with-signalr
 title: 'Samouczek: Emisje serwera z użyciem SignalR 2 | Dokumentacja firmy Microsoft'
 author: tdykstra
 description: W tym samouczku przedstawiono sposób tworzenia aplikacji sieci web korzystającą z signalr2 na platformie ASP.NET w celu zapewnienia funkcji emisji serwera.
-ms.author: riande
+ms.author: bradyg
 ms.date: 01/02/2019
 ms.topic: tutorial
 ms.assetid: 1568247f-60b5-4eca-96e0-e661fbb2b273
 msc.legacyurl: /signalr/overview/getting-started/tutorial-server-broadcast-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: a6014e604613492db91b2dc6f846c3c73d938d99
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: a243c78c7d552f1c82a88c6083871fcd16538618
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54099302"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54837432"
 ---
 # <a name="tutorial-server-broadcast-with-signalr-2"></a>Samouczek: Serwer emisji z SignalR 2
 
@@ -81,7 +81,7 @@ Za pomocą interfejsu API Centrum SignalR będzie obsługiwać interakcji z serw
 
 Chcesz tylko jedno wystąpienie `StockTicker` klasy są uruchamiane na serwerze, więc musisz skonfigurować odwołanie z każdej `StockTickerHub` wystąpienia do wzorca singleton `StockTicker` wystąpienia. `StockTicker` Klasa ma wysyłać do klientów, ponieważ ma danych podstawowych i wyzwala aktualizacje, ale `StockTicker` nie jest `Hub` klasy. `StockTicker` Klasy musi uzyskać odwołanie do obiektu kontekstu połączenia koncentratora SignalR. Można następnie użyć obiektu context połączenia SignalR do emisji przeznaczonych dla klientów.
 
-#### <a name="create-stocktickerhubcs"></a>Utwórz StockTickerHub.cs
+#### <a name="create-stocktickerhubcs"></a>Create StockTickerHub.cs
 
 1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt i wybierz **Dodaj** > **nowy element**.
 
@@ -105,7 +105,7 @@ Jeśli metoda musiały uzyskać danych, wykonując coś, co wymagałoby oczekiwa
 
 Jak zobaczysz później podczas tworzenia `StockTicker` klasy, aplikacja tworzy pojedyncze wystąpienie tej klasy w jego statyczny `Instance` właściwości. To wystąpienie singleton `StockTicker` znajduje się w pamięci, niezależnie od tego, ilu klientów łączyć i rozłączać. To wystąpienie jest co `GetAllStocks()` metoda używa do zwracania bieżących informacji podstawowych.
 
-#### <a name="create-stocktickercs"></a>Utwórz StockTicker.cs
+#### <a name="create-stocktickercs"></a>Create StockTicker.cs
 
 1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt i wybierz **Dodaj** > **klasy**.
 
@@ -195,7 +195,7 @@ W tej sekcji służy do konfigurowania kod, który jest uruchamiany na kliencie.
 
 Strony HTML będą wyświetlane dane i plik JavaScript będzie organizowania danych.
 
-#### <a name="create-stocktickerhtml"></a>Utwórz StockTicker.html
+#### <a name="create-stocktickerhtml"></a>Create StockTicker.html
 
 Najpierw należy dodać klienta HTML.
 
@@ -232,7 +232,7 @@ Najpierw należy dodać klienta HTML.
 
 1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *StockTicker.html*, a następnie wybierz pozycję **Ustaw jako strona startowa**.
 
-#### <a name="create-stocktickerjs"></a>Utwórz StockTicker.js
+#### <a name="create-stocktickerjs"></a>Create StockTicker.js
 
 Teraz można utworzyć pliku JavaScript.
 
@@ -315,7 +315,7 @@ SignalR ma funkcję wbudowane funkcje rejestrowania, który można włączyć na
 
 Dla dowolnego danego połączenia SignalR wybiera najlepszą metodą transportu, który obsługuje zarówno na serwerze, jak i klienta.
 
-1. Otwórz *StockTicker.js*.
+1. Open *StockTicker.js*.
 
 1. Dodaj ten wyróżniony wiersz kodu, aby włączyć rejestrowanie bezpośrednio przed kod, który inicjuje połączenie z końcem pliku:
 
@@ -480,7 +480,7 @@ Samouczki, które pokazują scenariuszy komunikacji między peer-to-peer, zobacz
 
 Aby uzyskać więcej informacji na temat biblioteki SignalR zobacz następujące zasoby:
 
-* [Biblioteki SignalR platformy ASP.NET](../../index.md)
+* [ASP.NET SignalR](../../index.md)
 * [Projekt SignalR](http://signalr.net/)
 * [SignalR GitHub i przykłady](https://github.com/SignalR/SignalR)
 * [Witryny typu Wiki biblioteki SignalR](https://github.com/SignalR/SignalR/wiki)

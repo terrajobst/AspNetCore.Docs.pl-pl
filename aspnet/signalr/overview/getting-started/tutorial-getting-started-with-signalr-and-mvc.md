@@ -1,22 +1,22 @@
 ---
 uid: signalr/overview/getting-started/tutorial-getting-started-with-signalr-and-mvc
 title: 'Samouczek: Rozmowy w czasie rzeczywistym z SignalR 2 i MVC 5 | Dokumentacja firmy Microsoft'
-author: pfletcher
+author: bradygaster
 description: W tym samouczku pokazano, jak używać signalr2 na platformie ASP.NET do tworzenia aplikacji rozmowy w czasie rzeczywistym. Biblioteki SignalR można dodać do aplikacji MVC 5.
-ms.author: riande
-ms.date: 01/02/2019
+ms.author: bradyg
+ms.date: 01/22/2019
 ms.assetid: 80bfe5fb-bdfc-41fe-ac43-2132e5d69fac
 msc.legacyurl: /signalr/overview/getting-started/tutorial-getting-started-with-signalr-and-mvc
 msc.type: authoredcontent
 ms.topic: tutorial
-ms.openlocfilehash: eb4b7e1403f4070d65702b756bf98c5294c7fb17
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: 1b02aecc68a93dbd6373ca5304530e76c9d0b6b5
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54098607"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54837004"
 ---
-# <a name="tutorial-real-time-chat-with-signalr-2-and-mvc-5"></a>Samouczek: Rozmowy w czasie rzeczywistym z SignalR 2 i MVC 5
+# <a name="tutorial-real-time-chat-with-signalr-2-and-mvc-5"></a>Samouczek: Rozmowa w czasie rzeczywistym przy użyciu usług SignalR 2 i MVC 5
 
 W tym samouczku pokazano, jak używać signalr2 na platformie ASP.NET do tworzenia aplikacji rozmowy w czasie rzeczywistym. Dodawanie SignalR do aplikacji MVC 5 i tworzenie widoku czatu do wysyłania i wyświetla komunikaty.
 
@@ -175,6 +175,10 @@ Ten kod otwiera połączenie z koncentratorem.
 > Takie podejście zapewnia ustanowić połączenie przed wykonaniem programu obsługi zdarzeń.
 
 Kod uruchamia połączenie i przekazuje go po funkcji do obsługi zdarzenia click na **wysyłania** przycisk na stronie rozmowy.
+
+## <a name="get-the-code"></a>Pobierz kod
+
+[Pobierz ukończony projekt](http://code.msdn.microsoft.com/Getting-Started-with-c366b2f3)
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
