@@ -4,14 +4,14 @@ author: guardrex
 description: Dowiedz się, jak skonfigurować aplikację ASP.NET Core za pomocą interfejsu API konfiguracji.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/07/2018
+ms.date: 01/25/2019
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 6f0378ffc4f9a1efa95c8f70d70e7799abef130b
-ms.sourcegitcommit: 1872d2e6f299093c78a6795a486929ffb0bbffff
+ms.openlocfilehash: 2465570e469020ae2855508bd1bfc8528e188ebb
+ms.sourcegitcommit: ca5f03210bedc61c6639a734ae5674bfe095dee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53216901"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55073169"
 ---
 # <a name="configuration-in-aspnet-core"></a>Konfiguracja w programie ASP.NET Core
 
@@ -56,12 +56,6 @@ Konfiguracja aplikacji w programie ASP.NET Core opiera się na parach klucz wart
 
 [Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
-Przykłady podane w tym temacie opierają się na:
-
-* Ustawianie ścieżki podstawowej aplikacji za pomocą <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>. `SetBasePath` ma zostać udostępnione do aplikacji, odwołując się do [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) pakietu.
-* Rozpoznawanie sekcji plików konfiguracji przy użyciu <xref:Microsoft.Extensions.Configuration.ConfigurationSection.GetSection*>. `GetSection` ma zostać udostępnione do aplikacji, odwołując się do [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration/) pakietu.
-* Konfiguracja powiązania do .NET klasy za pomocą <xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> i [uzyskać&lt;T&gt;](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Get*). `Bind` i `Get<T>` są dostępne dla aplikacji, odwołując się do [Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder/) pakietu. `Get<T>` jest dostępna w programie ASP.NET Core 1.1 lub nowszej.
-
 ::: moniker range=">= aspnetcore-2.1"
 
 Te trzy pakiety są objęte [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app).
@@ -77,6 +71,22 @@ Te trzy pakiety są objęte [pakiet meta Microsoft.aspnetcore.all](xref:fundamen
 ## <a name="host-vs-app-configuration"></a>Hostowanie i konfiguracji aplikacji
 
 Zanim aplikacja jest skonfigurowana i uruchomiona, *hosta* skonfigurowany i uruchomiony. Host jest odpowiedzialny za zarządzanie uruchamiania i czasu życia aplikacji. Zarówno aplikacja, jak i hosta są skonfigurowane przy użyciu dostawcy konfiguracji opisanych w tym temacie. Pary klucz wartość konfiguracji hosta stają się częścią globalnej konfiguracji aplikacji. Aby uzyskać więcej informacji na temat sposobu konfiguracji dostawcy są używane, gdy host jest wbudowana i wpływ źródła konfiguracji hosta konfiguracji, zobacz <xref:fundamentals/host/index>.
+
+## <a name="default-configuration"></a>Konfiguracja domyślna
+
+Aplikacje oparte na platformy ASP.NET Core sieci Web [dotnet nowe](/dotnet/core/tools/dotnet-new) wywołania szablonów <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> podczas tworzenia na hoście. `CreateDefaultBuilder` udostępnia domyślną konfigurację aplikacji.
+
+* Konfiguracja hosta jest dostarczana z:
+  * Zmienne środowiskowe prefiksem `ASPNETCORE_` (na przykład `ASPNETCORE_ENVIRONMENT`) przy użyciu [dostawcę konfiguracji zmiennych środowiskowych](#environment-variables-configuration-provider).
+  * Argumenty wiersza polecenia przy użyciu [dostawcę konfiguracji wiersza polecenia](#command-line-configuration-provider).
+* Konfiguracja aplikacji jest dostarczana z (w następującej kolejności):
+  * *appSettings.JSON* przy użyciu [dostawcę konfiguracji pliku](#file-configuration-provider).
+  * *appSettings. {Środowiska} .json* przy użyciu [dostawcę konfiguracji pliku](#file-configuration-provider).
+  * [Klucz tajny Menedżera](xref:security/app-secrets) uruchamiania aplikacji `Development` środowisko przy użyciu zestawu wpisu.
+  * Zmienne środowiskowe za pomocą [dostawcę konfiguracji zmiennych środowiskowych](#environment-variables-configuration-provider).
+  * Argumenty wiersza polecenia przy użyciu [dostawcę konfiguracji wiersza polecenia](#command-line-configuration-provider).
+
+Dostawcy konfiguracji zostały omówione w dalszej części tego tematu. Aby uzyskać więcej informacji na hoście i `CreateDefaultBuilder`, zobacz <xref:fundamentals/host/web-host#set-up-a-host>.
 
 ## <a name="security"></a>Zabezpieczenia
 
@@ -116,7 +126,7 @@ Gdy plik jest do odczytu do konfiguracji, unikatowe klucze są tworzone do obsł
 * section1:key0
 * section1:key1
 
-<xref:Microsoft.Extensions.Configuration.ConfigurationSection.GetSection*> i <xref:Microsoft.Extensions.Configuration.IConfiguration.GetChildren*> metody są dostępne do izolowania sekcje i elementy podrzędne do sekcji w danych konfiguracji. Te metody są opisane w dalszej części w [GetSection GetChildren i Exists](#getsection-getchildren-and-exists).
+<xref:Microsoft.Extensions.Configuration.ConfigurationSection.GetSection*> i <xref:Microsoft.Extensions.Configuration.IConfiguration.GetChildren*> metody są dostępne do izolowania sekcje i elementy podrzędne do sekcji w danych konfiguracji. Te metody są opisane w dalszej części w [GetSection GetChildren i Exists](#getsection-getchildren-and-exists). `GetSection` Trwa [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration/) pakiet, który znajduje się w [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app).
 
 ## <a name="conventions"></a>Konwencje
 
@@ -238,7 +248,8 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-W powyższym przykładzie nazwa środowiska (`env.EnvironmentName`) i nazwę zestawu aplikacji (`env.ApplicationName`) są dostarczane przez <xref:Microsoft.Extensions.Hosting.IHostingEnvironment>. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/environments>.
+W powyższym przykładzie nazwa środowiska (`env.EnvironmentName`) i nazwę zestawu aplikacji (`env.ApplicationName`) są dostarczane przez <xref:Microsoft.Extensions.Hosting.IHostingEnvironment>. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/environments>. Ścieżka podstawowa została ustawiona za pomocą <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>. `SetBasePath` Trwa [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) pakiet, który znajduje się w [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app).
+.
 
 ::: moniker-end
 
@@ -246,7 +257,7 @@ W powyższym przykładzie nazwa środowiska (`env.EnvironmentName`) i nazwę zes
 
 ## <a name="configureappconfiguration"></a>ConfigureAppConfiguration
 
-Wywołaj <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> podczas tworzenia hosta sieci Web, aby określić aplikacji dostawcy konfiguracji oprócz tych dodawane automatycznie przez <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*>:
+Wywołaj <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> podczas tworzenia hosta do określenia aplikacji dostawcy konfiguracji oprócz tych dodawane automatycznie przez <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*>:
 
 [!code-csharp[](index/samples/2.x/ConfigurationSample/Program.cs?name=snippet_Program&highlight=19)]
 
@@ -658,7 +669,7 @@ Przechowywać listę zmiennych środowiskowych renderowany przez aplikację kró
 * ŚRODOWISKO
 * contentRoot
 * AllowedHosts
-* ApplicationName
+* applicationName
 * Wiersz polecenia
 
 ::: moniker range=">= aspnetcore-2.0"
@@ -763,6 +774,8 @@ public class Program
 }
 ```
 
+Ścieżka podstawowa została ustawiona za pomocą <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>. `SetBasePath` Trwa [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) pakiet, który znajduje się w [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app).
+
 Podczas tworzenia <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> , dzwoniąc <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> z konfiguracją:
 
 ::: moniker-end
@@ -793,6 +806,8 @@ public class Program
 }
 ```
 
+Ścieżka podstawowa została ustawiona za pomocą <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>. `SetBasePath` Trwa [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) pakiet, który znajduje się w [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app).
+
 Podczas tworzenia <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> , dzwoniąc <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> z konfiguracją:
 
 ::: moniker-end
@@ -814,6 +829,8 @@ var host = new WebHostBuilder()
     .UseKestrel()
     .UseStartup<Startup>();
 ```
+
+Ścieżka podstawowa została ustawiona za pomocą <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>. `SetBasePath` Trwa [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) pakiet, który znajduje się w [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app).
 
 Przykładowy plik konfiguracji INI:
 
@@ -894,6 +911,8 @@ public class Program
 }
 ```
 
+Ścieżka podstawowa została ustawiona za pomocą <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>. `SetBasePath` Trwa [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) pakiet, który znajduje się w [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app).
+
 Podczas tworzenia <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> , dzwoniąc <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> z konfiguracją:
 
 ::: moniker-end
@@ -926,6 +945,8 @@ public class Program
 }
 ```
 
+Ścieżka podstawowa została ustawiona za pomocą <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>. `SetBasePath` Trwa [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) pakiet, który znajduje się w [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app).
+
 Podczas tworzenia <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> , dzwoniąc <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> z konfiguracją:
 
 ::: moniker-end
@@ -948,6 +969,8 @@ var host = new WebHostBuilder()
     .UseStartup<Startup>();
 ```
 
+Ścieżka podstawowa została ustawiona za pomocą <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>. `SetBasePath` Trwa [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) pakiet, który znajduje się w [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app).
+
 **Przykład**
 
 ::: moniker range=">= aspnetcore-2.0"
@@ -967,9 +990,9 @@ Wywołania aplikacji przykładowej 1.x `AddJsonFile` dwa razy na `ConfigurationB
 
 | Key                        | Wartość rozwoju | Wartość produkcji |
 | -------------------------- | :---------------: | :--------------: |
-| Rejestrowanie: LogLevel:System    | Informacje       | Informacje      |
-| Rejestrowanie: LogLevel:Microsoft | Informacje       | Informacje      |
-| Rejestrowanie: LogLevel:Default   | Debugowanie             | Błąd            |
+| Logging:LogLevel:System    | Informacje       | Informacje      |
+| Logging:LogLevel:Microsoft | Informacje       | Informacje      |
+| Logging:LogLevel:Default   | Debugowanie             | Błąd            |
 | AllowedHosts               | *                 | *                |
 
 ### <a name="xml-configuration-provider"></a>Dostawca konfiguracji XML
@@ -1009,6 +1032,8 @@ public class Program
 }
 ```
 
+Ścieżka podstawowa została ustawiona za pomocą <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>. `SetBasePath` Trwa [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) pakiet, który znajduje się w [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app).
+
 Podczas tworzenia <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> , dzwoniąc <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> z konfiguracją:
 
 ::: moniker-end
@@ -1039,6 +1064,8 @@ public class Program
 }
 ```
 
+Ścieżka podstawowa została ustawiona za pomocą <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>. `SetBasePath` Trwa [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) pakiet, który znajduje się w [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app).
+
 Podczas tworzenia <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> , dzwoniąc <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> z konfiguracją:
 
 ::: moniker-end
@@ -1060,6 +1087,8 @@ var host = new WebHostBuilder()
     .UseKestrel()
     .UseStartup<Startup>();
 ```
+
+Ścieżka podstawowa została ustawiona za pomocą <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>. `SetBasePath` Trwa [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) pakiet, który znajduje się w [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app).
 
 Pliki konfiguracji XML można użyć nazw unikatowych elementów dla powtarzających się sekcje:
 
@@ -1160,6 +1189,8 @@ public class Program
             .UseStartup<Startup>();
 }
 ```
+
+Ścieżka podstawowa została ustawiona za pomocą <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>. `SetBasePath` Trwa [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) pakiet, który znajduje się w [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app).
 
 Podczas tworzenia <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> , dzwoniąc <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> z konfiguracją:
 
@@ -1326,13 +1357,15 @@ Gdy plik jest do odczytu do konfiguracji, następujące klucze unikatowe hierarc
 
 ### <a name="getsection"></a>GetSection
 
-[IConfiguration.GetSection](xref:Microsoft.Extensions.Configuration.IConfiguration.GetSection*) wyodrębnia podsekcji konfiguracji z kluczem określonym podsekcji.
+[IConfiguration.GetSection](xref:Microsoft.Extensions.Configuration.IConfiguration.GetSection*) wyodrębnia podsekcji konfiguracji z kluczem określonym podsekcji. `GetSection` Trwa [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration/) pakiet, który znajduje się w [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app).
 
 Aby zwrócić <xref:Microsoft.Extensions.Configuration.IConfigurationSection> zawierający tylko pary klucz wartość w `section1`, wywołaj `GetSection` i podaj nazwę sekcji:
 
 ```csharp
 var configSection = _config.GetSection("section1");
 ```
+
+`configSection` Nie ma wartości, tylko klucz i ścieżkę.
 
 Podobnie Aby uzyskać wartości kluczy w `section2:subsection0`, wywołaj `GetSection` i podaj ścieżkę do sekcji:
 
@@ -1342,7 +1375,9 @@ var configSection = _config.GetSection("section2:subsection0");
 
 `GetSection` nigdy nie zwraca `null`. Jeśli nie zostanie znaleziona pasująca sekcja, pusta `IConfigurationSection` jest zwracana.
 
-### <a name="getchildren"></a>GetChildren —
+Gdy `GetSection` zwraca pasujących sekcji <xref:Microsoft.Extensions.Configuration.IConfigurationSection.Value> nie jest wypełnione. A <xref:Microsoft.Extensions.Configuration.IConfigurationSection.Key> i <xref:Microsoft.Extensions.Configuration.IConfigurationSection.Path> są zwracane, gdy istnieje sekcji.
+
+### <a name="getchildren"></a>GetChildren
 
 Wywołanie [IConfiguration.GetChildren](xref:Microsoft.Extensions.Configuration.IConfiguration.GetChildren*) na `section2` uzyskuje `IEnumerable<IConfigurationSection>` zawierającej:
 
@@ -1373,7 +1408,7 @@ Podane dane przykładowe `sectionExists` jest `false` , ponieważ nie ma `sectio
 
 Konfiguracja może być powiązana z klas, które reprezentują grupy powiązane ustawienia za pomocą *wzorzec opcje*. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/configuration/options>.
 
-Wartości konfiguracji są zwracane jako ciągi, ale wywoływania <xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> umożliwia konstruowanie [POCO](https://wikipedia.org/wiki/Plain_Old_CLR_Object) obiektów.
+Wartości konfiguracji są zwracane jako ciągi, ale wywoływania <xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> umożliwia konstruowanie [POCO](https://wikipedia.org/wiki/Plain_Old_CLR_Object) obiektów. `Bind` Trwa [Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder/) pakiet, który znajduje się w [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app).
 
 Przykładowa aplikacja zawiera `Starship` modelu (*Models/Starship.cs*):
 
@@ -1407,8 +1442,8 @@ Tworzone są następujące pary klucz wartość konfiguracji:
 
 | Key                   | Wartość                                             |
 | --------------------- | ------------------------------------------------- |
-| starship: Nazwa         | USS przedsiębiorstwa                                    |
-| starship: rejestru     | KCF 1701                                          |
+| starship: Nazwa         | USS Enterprise                                    |
+| starship: rejestru     | NCC-1701                                          |
 | starship: klasy        | Tworzenia                                      |
 | starship: długość       | 304.8                                             |
 | starship: upoważnione | False                                             |
@@ -1428,9 +1463,11 @@ Wywołania aplikacji przykładowej `GetSection` z `starship` klucza. `starship` 
 
 ::: moniker-end
 
+`GetSection` Trwa [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration/) pakiet, który znajduje się w [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app).
+
 ## <a name="bind-to-an-object-graph"></a>Powiąż z wykresu obiektu
 
-<xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> jest w stanie całego grafu obiektów POCO powiązania.
+<xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> jest w stanie całego grafu obiektów POCO powiązania. `Bind` Trwa [Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder/) pakiet, który znajduje się w [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app).
 
 Przykładowy zawiera `TvShow` model zawiera wykres obiektu, którego `Metadata` i `Actors` klasy (*Models/TvShow.cs*):
 
@@ -1500,11 +1537,13 @@ viewModel.TvShow = tvShow;
 
 ::: moniker-end
 
+<xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Get*> Trwa [Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder/) pakiet, który znajduje się w [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app). `Get<T>` jest dostępna w programie ASP.NET Core 1.1 lub nowszej. `GetSection` Trwa [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration/) pakiet, który znajduje się w [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app).
+
 ## <a name="bind-an-array-to-a-class"></a>Powiąż tablicę do klasy
 
 *Przykładowa aplikacja pokazuje pojęcia opisane w tej sekcji.*
 
-<xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> Obsługuje tablice powiązania do obiektów przy użyciu tablicy indeksów w klucze konfiguracji. Dowolnym formacie tablicy, który udostępnia liczbowych segment klucza (`:0:`, `:1:`, &hellip; `:{n}:`) jest w stanie tablicy powiązania z macierzą POCO klasy.
+<xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> Obsługuje tablice powiązania do obiektów przy użyciu tablicy indeksów w klucze konfiguracji. Dowolnym formacie tablicy, który udostępnia liczbowych segment klucza (`:0:`, `:1:`, &hellip; `:{n}:`) jest w stanie tablicy powiązania z macierzą POCO klasy. "Związać" znajduje się w [Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder/) pakiet, który znajduje się w [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app).
 
 > [!NOTE]
 > Powiązanie jest zapewniana przez Konwencję. Konfiguracja niestandardowa dostawców nie są wymagane do zaimplementowania tablicy powiązania.
@@ -1516,10 +1555,10 @@ Należy wziąć pod uwagę kluczy i wartości konfiguracji pokazano w poniższej
 | Key             | Wartość  |
 | :-------------: | :----: |
 | Macierz: wpisów: 0 | value0 |
-| Macierz: wpisów: 1 | Wartość1 |
-| Macierz: wpisów: 2 | Wartość2 |
-| Macierz: wpisów: 4 | Wartość4 |
-| Macierz: wpisów: 5 | Wartość5 |
+| Macierz: wpisów: 1 | value1 |
+| Macierz: wpisów: 2 | value2 |
+| Macierz: wpisów: 4 | value4 |
+| Macierz: wpisów: 5 | value5 |
 
 Te klucze i wartości są ładowane w przykładowej aplikacji przy użyciu dostawcy konfiguracji pamięci:
 
@@ -1558,6 +1597,8 @@ var arrayExample = new ArrayExample();
 _config.GetSection("array").Bind(arrayExample);
 ```
 
+`GetSection` Trwa [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration/) pakiet, który znajduje się w [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app).
+
 ::: moniker range=">= aspnetcore-1.1"
 
 [ConfigurationBinder.Get&lt;T&gt; ](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Get*) składni można również użyć, która skutkuje bardziej kompaktowy kod:
@@ -1581,16 +1622,16 @@ Powiązany obiekt, wystąpienie `ArrayExample`, odbiera dane tablicy z konfigura
 | `ArrayExample.Entries` Indeks | `ArrayExample.Entries` Wartość |
 | :--------------------------: | :--------------------------: |
 | 0                            | value0                       |
-| 1                            | Wartość1                       |
-| 2                            | Wartość2                       |
-| 3                            | Wartość4                       |
-| 4                            | Wartość5                       |
+| 1                            | value1                       |
+| 2                            | value2                       |
+| 3                            | value4                       |
+| 4                            | value5                       |
 
 Indeks &num;3 w powiązany obiekt przechowuje dane konfiguracyjne `array:4` klucz konfiguracji i jego wartość `value4`. Gdy dane konfiguracji, które zawiera tablicę jest powiązana, indeksy tablicy w klucze konfiguracji jedynie służą do iteracji dane konfiguracji, podczas tworzenia obiektu. Wartość null nie mogą być przechowywane w danych konfiguracji, a wpis o wartości null nie jest tworzona w powiązany obiekt, w przypadku tablicy w konfiguracji kluczy Pomiń jeden lub więcej indeksów.
 
 Brak elementu konfiguracji dla indeksu &num;3 mogą być dostarczane przed powiązanie `ArrayExample` wystąpienie przez dowolnego dostawcę konfiguracji, tworzącego prawidłowe pary klucz wartość w konfiguracji. Jeśli przykład uwzględniony dodatkowego dostawcę konfiguracji JSON z Brak pary klucz wartość `ArrayExample.Entries` pasuje do tablicy kompletna konfiguracja:
 
-*missing_value.JSON*:
+*missing_value.json*:
 
 ```json
 {
@@ -1622,18 +1663,18 @@ Pary klucz wartość, jak pokazano w tabeli są ładowane do konfiguracji.
 
 | Key             | Wartość  |
 | :-------------: | :----: |
-| Macierz: wpisów: 3 | Wartość3 |
+| Macierz: wpisów: 3 | value3 |
 
 Jeśli `ArrayExample` wystąpienia klasy jest powiązana po dostawcę konfiguracji JSON zawiera wpis dla indeksu &num;3, `ArrayExample.Entries` tablicy zawiera wartość.
 
 | `ArrayExample.Entries` Indeks | `ArrayExample.Entries` Wartość |
 | :--------------------------: | :--------------------------: |
 | 0                            | value0                       |
-| 1                            | Wartość1                       |
-| 2                            | Wartość2                       |
-| 3                            | Wartość3                       |
-| 4                            | Wartość4                       |
-| 5                            | Wartość5                       |
+| 1                            | value1                       |
+| 2                            | value2                       |
+| 3                            | value3                       |
+| 4                            | value4                       |
+| 5                            | value5                       |
 
 **Przetwarzanie tablicy JSON**
 
@@ -1655,10 +1696,10 @@ Dostawca konfiguracji JSON odczytuje dane konfiguracji do następujących par kl
 
 | Key                     | Wartość  |
 | ----------------------- | :----: |
-| json_array:key          | Wartośća |
-| json_array:Subsection:0 | Wartośćb |
-| json_array:Subsection:1 | valueC |
-| json_array:Subsection:2 | zwracającej |
+| json_array:key          | valueA |
+| json_array:subsection:0 | Wartośćb |
+| json_array:subsection:1 | valueC |
+| json_array:subsection:2 | valueD |
 
 W przykładowej aplikacji następującej klasy POCO jest dostępny dla powiązania pary klucz wartość konfiguracji:
 
@@ -1680,7 +1721,7 @@ Po powiązaniu `JsonArrayExample.Key` przechowuje wartość `valueA`. Wartości 
 | :---------------------------------: | :---------------------------------: |
 | 0                                   | Wartośćb                              |
 | 1                                   | valueC                              |
-| 2                                   | zwracającej                              |
+| 2                                   | valueD                              |
 
 ## <a name="custom-configuration-provider"></a>Dostawca konfiguracji niestandardowej
 

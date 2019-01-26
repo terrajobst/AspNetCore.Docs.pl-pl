@@ -5,12 +5,12 @@ description: Dowiedz się, jak włączyć generowanie kodu QR dla aplikacji auth
 ms.author: riande
 ms.date: 08/14/2018
 uid: security/authentication/identity-enable-qrcodes
-ms.openlocfilehash: 437f354f71128a98bae9abdced291e04efc9f48e
-ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
+ms.openlocfilehash: cf99cc21a7a1bb4d01c7cc092106d23375a1a76f
+ms.sourcegitcommit: ca5f03210bedc61c6639a734ae5674bfe095dee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51225385"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55073130"
 ---
 # <a name="enable-qr-code-generation-for-totp-authenticator-apps-in-aspnet-core"></a>Włączanie generowania kodu QR dla TOTP aplikacje uwierzytelniania w programie ASP.NET Core
 
@@ -25,6 +25,8 @@ Kody QR wymaga platformy ASP.NET Core 2.0 lub nowszej.
 Platforma ASP.NET Core jest dostarczany z Obsługa aplikacji wystawcy uwierzytelnienia do poszczególnych uwierzytelniania. Dwa Authentication uwierzytelnianie (2FA) uwierzytelniania aplikacji przy użyciu opartych na czasie jednorazowe hasła algorytm (TOTP), są zalecane podejście do uwierzytelniania 2FA. Funkcji 2FA przy użyciu TOTP jest preferowany dla wiadomości SMS 2FA. Aplikację authenticator zawiera kod cyfrę 6 do 8, które użytkownicy muszą wprowadzić po potwierdzeniu, nazwy użytkownika i hasła. Zazwyczaj aplikację wystawcy uwierzytelnienia jest instalowany na smartfonie.
 
 Szablony aplikacji sieci web platformy ASP.NET Core obsługuje wystawcy uwierzytelnienia, ale nie zapewnia pomoc techniczną dla QRCode generacji. Generatory QRCode jej obsługi ułatwiają realizację konfigurowania funkcji 2FA. Ten dokument przeprowadzi Cię przez proces dodawania [kod QR](https://wikipedia.org/wiki/QR_code) generacji do strony konfiguracji uwierzytelniania 2FA.
+
+Uwierzytelnianie dwuskładnikowe nie odbywa się przy użyciu zewnętrznego dostawcę uwierzytelniania, takich jak [Google](xref:security/authentication/google-logins) lub [Facebook](xref:security/authentication/facebook-logins). Logowania zewnętrzne są chronione przy użyciu dowolnego mechanizmu zapewnia dostawcy logowania zewnętrznego. Należy wziąć pod uwagę, na przykład [Microsoft](xref:security/authentication/microsoft-logins) dostawcy uwierzytelniania wymaga klucza sprzętowego lub innej metody uwierzytelniania 2FA. Jeśli domyślne szablony wymuszane 2FA "local" użytkownicy będą wymagane do spełnienia dwie metody uwierzytelniania 2FA, które nie jest powszechnie używany scenariusz.
 
 ## <a name="adding-qr-codes-to-the-2fa-configuration-page"></a>Dodawanie kody QR do strony konfiguracji funkcji 2FA
 

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc, seodec18
 ms.date: 10/25/2018
 uid: razor-pages/sdk
-ms.openlocfilehash: 2df7dc4234207d3dbac8a4ff47751adc8fc6a192
-ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
+ms.openlocfilehash: 0e6cfeb1863ed14ffe670cf082e99f28b26718dd
+ms.sourcegitcommit: ca5f03210bedc61c6639a734ae5674bfe095dee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284453"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55073104"
 ---
 # <a name="aspnet-core-razor-sdk"></a>Platforma ASP.NET Core Razor SDK
 
@@ -80,7 +80,7 @@ Właściwości i elementy w poniższej tabeli są używane do konfigurowania dan
 | `RazorTargetName` | Nazwa pliku (bez rozszerzenia) zestaw utworzony przez Razor. | 
 | `RazorOutputPath` | Katalog wyjściowy Razor. |
 | `RazorCompileToolset` | Używany do określenia zestawu narzędzi, używany do tworzenia zestawu Razor. Prawidłowe wartości to `Implicit`, `RazorSDK`, i `PrecompilationTool`. |
-| `EnableDefaultContentItems` | Gdy `true`, obejmuje niektórych typów plików, takie jak *.cshtml* pliki zawartości w projekcie. Gdy przywoływana za pomocą `Microsoft.NET.Sdk.Web`, plików w obszarze *wwwroot* i dołączane są także pliki konfiguracji. |
+| [EnableDefaultContentItems](https://github.com/aspnet/websdk/blob/rel-2.0.0/src/ProjectSystem/Microsoft.NET.Sdk.Web.ProjectSystem.Targets/netstandard1.0/Microsoft.NET.Sdk.Web.ProjectSystem.targets#L21) | Wartość domyślna to `true`. Gdy `true`, obejmuje *web.config*, *.json*, i *.cshtml* pliki zawartości w projekcie. Gdy przywoływana za pomocą `Microsoft.NET.Sdk.Web`, plików w obszarze *wwwroot* i dołączane są także pliki konfiguracji. |
 | `EnableDefaultRazorGenerateItems` | Gdy `true`, obejmuje *.cshtml* plików ze `Content` elementy w `RazorGenerate` elementów. |
 | `GenerateRazorTargetAssemblyInfo` | Gdy `true`, generuje *.cs* plik zawierający atrybuty określone przez `RazorAssemblyAttribute` włącznie z plikiem w danych wyjściowych kompilacji. |
 | `EnableDefaultRazorTargetAssemblyInfoAttributes` | Gdy `true`, dodaje domyślny zestaw atrybutów zestawu do `RazorAssemblyAttribute`. |
@@ -89,6 +89,8 @@ Właściwości i elementy w poniższej tabeli są używane do konfigurowania dan
 | `IncludeRazorContentInPack` | Gdy `true`, wszystkie elementy zawartości Razor (*.cshtml* pliki) są oznaczone do włączenia do wygenerowanego pakietu NuGet. Wartość domyślna to `false`. |
 | `EmbedRazorGenerateSources` | Gdy `true`, dodaje RazorGenerate (*.cshtml*) elementów jako osadzone pliki do wygenerowanego zestawu Razor. Wartość domyślna to `false`. |
 | `UseRazorBuildServer` | Gdy `true`, używa procesu serwera kompilacji trwałego odciążania roboczego generowania kodu. Wartością domyślną jest wartość `UseSharedCompilation`. |
+
+Aby uzyskać więcej informacji na temat właściwości, zobacz [właściwości programu MSBuild](/visualstudio/msbuild/msbuild-properties).
 
 ### <a name="targets"></a>Obiekty docelowe
 

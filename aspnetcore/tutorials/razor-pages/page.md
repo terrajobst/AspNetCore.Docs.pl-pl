@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 12/4/2018
 uid: tutorials/razor-pages/page
-ms.openlocfilehash: 2b68523ac84596bda2914d9c348ddea8c7ea9465
-ms.sourcegitcommit: cec77d5ad8a0cedb1ecbec32834111492afd0cd2
+ms.openlocfilehash: c902e9e258b4f436e2f19e2940246b80549238b8
+ms.sourcegitcommit: ca5f03210bedc61c6639a734ae5674bfe095dee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54207385"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55073117"
 ---
 # <a name="scaffolded-razor-pages-in-aspnet-core"></a>Strony razor ze szkieletami w programie ASP.NET Core
 
@@ -107,7 +107,7 @@ Poprzedni element zakotwiczenia jest [Pomocnik tagu](xref:mvc/views/tag-helpers/
 
 Zapisz zmiany i przetestować aplikację, klikając **RpMovie** łącza. Zobacz [_Layout.cshtml](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Pages/Shared/_Layout.cshtml) plik w usłudze GitHub, jeśli masz jakiekolwiek problemy.
 
-Testowanie inne linki (**Home**, **RpMovie**, **Utwórz**, **Edytuj**, i **Usuń**). Każda strona Ustawia tytuł, który można wyświetlić na karcie przeglądarki. Gdy zakładki na stronie tytuł jest używana do zakładki. *Pages/Index.cshtml* i *Pages/Movies/Index.cshtml* obecnie o takiej samej nazwie, ale możesz modyfikować je mogą mieć różne wartości.
+Testowanie inne linki (**Home**, **RpMovie**, **Utwórz**, **Edytuj**, i **Usuń**). Każda strona Ustawia tytuł, który można wyświetlić na karcie przeglądarki. Gdy zakładki na stronie tytuł jest używana do zakładki.
 
 > [!NOTE]
 > Nie można wprowadzić dziesiętna przecinkami w `Price` pola. Aby obsługiwać [dotyczącą weryfikacji jQuery](https://jqueryvalidation.org/) dla ustawień regionalnych innych niż angielski, które należy użyć przecinka (",") dla punktu dziesiętnego i formaty daty inne niż angielski, należy wykonać kroki, aby sprzedawać aplikację. To [problem w usłudze GitHub 4076](https://github.com/aspnet/Docs/issues/4076#issuecomment-326590420) instrukcje dotyczące dodawania przecinek dziesiętny.
@@ -175,4 +175,4 @@ Aparat tworzenia szkieletów tworzy znaczników Razor dla każdego pola w modelu
 
 > [!div class="step-by-step"]
 > [Poprzednie: Dodawanie modelu](xref:tutorials/razor-pages/model)
-> [dalej: Bazy danych](xref:tutorials/razor-pages/sql)
+> [dalej: Data Base](xref:tutorials/razor-pages/sql)
