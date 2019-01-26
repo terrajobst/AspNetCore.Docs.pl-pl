@@ -5,78 +5,78 @@ description: Więcej informacji na temat zalet wstępnej kompilacji w plikach Ra
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/17/2018
+ms.date: 01/23/2019
 uid: mvc/views/view-compilation
-ms.openlocfilehash: f5888cf43d8d8192acedaa33b3fa0f313737fc9b
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 2720708f8e58fdc55b82bfb56665005170e79934
+ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011290"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54889759"
 ---
-# <a name="razor-file-compilation-in-aspnet-core"></a><span data-ttu-id="b1c8b-103">Kompilacja pliku razor w programie ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="b1c8b-103">Razor file compilation in ASP.NET Core</span></span>
+# <a name="razor-file-compilation-in-aspnet-core"></a><span data-ttu-id="2bf16-103">Kompilacja pliku razor w programie ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="2bf16-103">Razor file compilation in ASP.NET Core</span></span>
 
-<span data-ttu-id="b1c8b-104">Przez [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="b1c8b-104">By [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
+<span data-ttu-id="2bf16-104">Przez [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="2bf16-104">By [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
 
 ::: moniker range="= aspnetcore-1.1"
 
-<span data-ttu-id="b1c8b-105">Pliku Razor jest kompilowana w czasie wykonywania, gdy jest wywoływany skojarzonego widoku MVC.</span><span class="sxs-lookup"><span data-stu-id="b1c8b-105">A Razor file is compiled at runtime, when the associated MVC view is invoked.</span></span> <span data-ttu-id="b1c8b-106">Publikowanie pliku Razor w czasie kompilacji nie jest obsługiwane.</span><span class="sxs-lookup"><span data-stu-id="b1c8b-106">Build-time Razor file publishing is unsupported.</span></span> <span data-ttu-id="b1c8b-107">Opcjonalnie można kompilować plikach razor na czas publikacji i wdrożonych przy użyciu aplikacji&mdash;przy użyciu narzędzia wstępnej kompilacji.</span><span class="sxs-lookup"><span data-stu-id="b1c8b-107">Razor files can optionally be compiled at publish time and deployed with the app&mdash;using the precompilation tool.</span></span>
+<span data-ttu-id="2bf16-105">Pliku Razor jest kompilowana w czasie wykonywania, gdy jest wywoływany skojarzonego widoku MVC.</span><span class="sxs-lookup"><span data-stu-id="2bf16-105">A Razor file is compiled at runtime, when the associated MVC view is invoked.</span></span> <span data-ttu-id="2bf16-106">Publikowanie pliku Razor w czasie kompilacji nie jest obsługiwane.</span><span class="sxs-lookup"><span data-stu-id="2bf16-106">Build-time Razor file publishing is unsupported.</span></span> <span data-ttu-id="2bf16-107">Opcjonalnie można kompilować plikach razor na czas publikacji i wdrożonych przy użyciu aplikacji&mdash;przy użyciu narzędzia wstępnej kompilacji.</span><span class="sxs-lookup"><span data-stu-id="2bf16-107">Razor files can optionally be compiled at publish time and deployed with the app&mdash;using the precompilation tool.</span></span>
 
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.0"
 
-<span data-ttu-id="b1c8b-108">Pliku Razor jest kompilowana w czasie wykonywania, po wywołaniu skojarzonego widoku Razor strony lub MVC.</span><span class="sxs-lookup"><span data-stu-id="b1c8b-108">A Razor file is compiled at runtime, when the associated Razor Page or MVC view is invoked.</span></span> <span data-ttu-id="b1c8b-109">Publikowanie pliku Razor w czasie kompilacji nie jest obsługiwane.</span><span class="sxs-lookup"><span data-stu-id="b1c8b-109">Build-time Razor file publishing is unsupported.</span></span> <span data-ttu-id="b1c8b-110">Opcjonalnie można kompilować plikach razor na czas publikacji i wdrożonych przy użyciu aplikacji&mdash;przy użyciu narzędzia wstępnej kompilacji.</span><span class="sxs-lookup"><span data-stu-id="b1c8b-110">Razor files can optionally be compiled at publish time and deployed with the app&mdash;using the precompilation tool.</span></span>
+<span data-ttu-id="2bf16-108">Pliku Razor jest kompilowana w czasie wykonywania, po wywołaniu skojarzonego widoku Razor strony lub MVC.</span><span class="sxs-lookup"><span data-stu-id="2bf16-108">A Razor file is compiled at runtime, when the associated Razor Page or MVC view is invoked.</span></span> <span data-ttu-id="2bf16-109">Publikowanie pliku Razor w czasie kompilacji nie jest obsługiwane.</span><span class="sxs-lookup"><span data-stu-id="2bf16-109">Build-time Razor file publishing is unsupported.</span></span> <span data-ttu-id="2bf16-110">Opcjonalnie można kompilować plikach razor na czas publikacji i wdrożonych przy użyciu aplikacji&mdash;przy użyciu narzędzia wstępnej kompilacji.</span><span class="sxs-lookup"><span data-stu-id="2bf16-110">Razor files can optionally be compiled at publish time and deployed with the app&mdash;using the precompilation tool.</span></span>
 
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
 
-<span data-ttu-id="b1c8b-111">Pliku Razor jest kompilowana w czasie wykonywania, po wywołaniu skojarzonego widoku Razor strony lub MVC.</span><span class="sxs-lookup"><span data-stu-id="b1c8b-111">A Razor file is compiled at runtime, when the associated Razor Page or MVC view is invoked.</span></span> <span data-ttu-id="b1c8b-112">Pliki razor są kompilowane w obu kompilacji i opublikować przy użyciu [Razor SDK](xref:razor-pages/sdk).</span><span class="sxs-lookup"><span data-stu-id="b1c8b-112">Razor files are compiled at both build and publish time using the [Razor SDK](xref:razor-pages/sdk).</span></span>
+<span data-ttu-id="2bf16-111">Pliku Razor jest kompilowana w czasie wykonywania, po wywołaniu skojarzonego widoku Razor strony lub MVC.</span><span class="sxs-lookup"><span data-stu-id="2bf16-111">A Razor file is compiled at runtime, when the associated Razor Page or MVC view is invoked.</span></span> <span data-ttu-id="2bf16-112">Pliki razor są kompilowane w obu kompilacji i opublikować przy użyciu [Razor SDK](xref:razor-pages/sdk).</span><span class="sxs-lookup"><span data-stu-id="2bf16-112">Razor files are compiled at both build and publish time using the [Razor SDK](xref:razor-pages/sdk).</span></span>
 
 ::: moniker-end
 
-## <a name="precompilation-considerations"></a><span data-ttu-id="b1c8b-113">Zagadnienia dotyczące wstępnej kompilacji</span><span class="sxs-lookup"><span data-stu-id="b1c8b-113">Precompilation considerations</span></span>
+## <a name="precompilation-considerations"></a><span data-ttu-id="2bf16-113">Zagadnienia dotyczące wstępnej kompilacji</span><span class="sxs-lookup"><span data-stu-id="2bf16-113">Precompilation considerations</span></span>
 
-<span data-ttu-id="b1c8b-114">Prekompilowanie plikach Razor efekty uboczne są następujące:</span><span class="sxs-lookup"><span data-stu-id="b1c8b-114">The following are side effects of precompiling Razor files:</span></span>
+<span data-ttu-id="2bf16-114">Prekompilowanie plikach Razor efekty uboczne są następujące:</span><span class="sxs-lookup"><span data-stu-id="2bf16-114">The following are side effects of precompiling Razor files:</span></span>
 
-* <span data-ttu-id="b1c8b-115">Mniejsze opublikowany pakiet</span><span class="sxs-lookup"><span data-stu-id="b1c8b-115">A smaller published bundle</span></span>
-* <span data-ttu-id="b1c8b-116">Krótszy czas uruchamiania</span><span class="sxs-lookup"><span data-stu-id="b1c8b-116">A faster startup time</span></span>
-* <span data-ttu-id="b1c8b-117">Nie można edytować pliki Razor&mdash;Brak powiązanej zawartości z opublikowanych pakietu.</span><span class="sxs-lookup"><span data-stu-id="b1c8b-117">You can't edit Razor files&mdash;the associated content is absent from the published bundle.</span></span>
+* <span data-ttu-id="2bf16-115">Mniejsze opublikowany pakiet</span><span class="sxs-lookup"><span data-stu-id="2bf16-115">A smaller published bundle</span></span>
+* <span data-ttu-id="2bf16-116">Krótszy czas uruchamiania</span><span class="sxs-lookup"><span data-stu-id="2bf16-116">A faster startup time</span></span>
+* <span data-ttu-id="2bf16-117">Nie można edytować pliki Razor&mdash;Brak powiązanej zawartości z opublikowanych pakietu.</span><span class="sxs-lookup"><span data-stu-id="2bf16-117">You can't edit Razor files&mdash;the associated content is absent from the published bundle.</span></span>
 
-## <a name="deploy-precompiled-files"></a><span data-ttu-id="b1c8b-118">Wdrażanie wstępnie skompilowanych plików</span><span class="sxs-lookup"><span data-stu-id="b1c8b-118">Deploy precompiled files</span></span>
+## <a name="deploy-precompiled-files"></a><span data-ttu-id="2bf16-118">Wdrażanie wstępnie skompilowanych plików</span><span class="sxs-lookup"><span data-stu-id="2bf16-118">Deploy precompiled files</span></span>
 
 ::: moniker range=">= aspnetcore-2.1"
 
-<span data-ttu-id="b1c8b-119">Kompilacja i publikowania w czasie kompilacji plików Razor jest domyślnie włączona, przez zestaw SDK Razor.</span><span class="sxs-lookup"><span data-stu-id="b1c8b-119">Build- and publish-time compilation of Razor files is enabled by default by the Razor SDK.</span></span> <span data-ttu-id="b1c8b-120">Po te są aktualizowane w plikach Razor do edycji jest obsługiwana w czasie kompilacji.</span><span class="sxs-lookup"><span data-stu-id="b1c8b-120">Editing Razor files after they're updated is supported at build time.</span></span> <span data-ttu-id="b1c8b-121">Domyślnie tylko skompilowanych *Views.dll* i nie *.cshtml* pliki zostały wdrożone za pomocą aplikacji.</span><span class="sxs-lookup"><span data-stu-id="b1c8b-121">By default, only the compiled *Views.dll* and no *.cshtml* files are deployed with your app.</span></span>
+<span data-ttu-id="2bf16-119">Kompilacja i publikowania w czasie kompilacji plików Razor jest domyślnie włączona, przez zestaw SDK Razor.</span><span class="sxs-lookup"><span data-stu-id="2bf16-119">Build- and publish-time compilation of Razor files is enabled by default by the Razor SDK.</span></span> <span data-ttu-id="2bf16-120">Po te są aktualizowane w plikach Razor do edycji jest obsługiwana w czasie kompilacji.</span><span class="sxs-lookup"><span data-stu-id="2bf16-120">Editing Razor files after they're updated is supported at build time.</span></span> <span data-ttu-id="2bf16-121">Domyślnie tylko skompilowanych *Views.dll* i nie *.cshtml* pliki zostały wdrożone za pomocą aplikacji.</span><span class="sxs-lookup"><span data-stu-id="2bf16-121">By default, only the compiled *Views.dll* and no *.cshtml* files are deployed with your app.</span></span>
 
 > [!IMPORTANT]
-> <span data-ttu-id="b1c8b-122">Narzędzie wstępnej kompilacji zostaną usunięte w programie ASP.NET Core 3.0.</span><span class="sxs-lookup"><span data-stu-id="b1c8b-122">The precompilation tool will be removed in ASP.NET Core 3.0.</span></span> <span data-ttu-id="b1c8b-123">Zalecamy przeprowadzić migrację do [Razor Sdk](xref:razor-pages/sdk).</span><span class="sxs-lookup"><span data-stu-id="b1c8b-123">We recommend migrating to [Razor Sdk](xref:razor-pages/sdk).</span></span>
+> <span data-ttu-id="2bf16-122">Narzędzie wstępnej kompilacji zostaną usunięte w programie ASP.NET Core 3.0.</span><span class="sxs-lookup"><span data-stu-id="2bf16-122">The precompilation tool will be removed in ASP.NET Core 3.0.</span></span> <span data-ttu-id="2bf16-123">Zalecamy przeprowadzić migrację do [Razor Sdk](xref:razor-pages/sdk).</span><span class="sxs-lookup"><span data-stu-id="2bf16-123">We recommend migrating to [Razor Sdk](xref:razor-pages/sdk).</span></span>
 >
-> <span data-ttu-id="b1c8b-124">Zestaw Razor SDK jest efektywne tylko wtedy, gdy brak właściwości specyficzne dla wstępnej kompilacji są ustawione w pliku projektu.</span><span class="sxs-lookup"><span data-stu-id="b1c8b-124">The Razor SDK is effective only when no precompilation-specific properties are set in the project file.</span></span> <span data-ttu-id="b1c8b-125">Na przykład ustawienie *.csproj* pliku `MvcRazorCompileOnPublish` właściwość `true` wyłącza zestaw Razor SDK.</span><span class="sxs-lookup"><span data-stu-id="b1c8b-125">For instance, setting the *.csproj* file's `MvcRazorCompileOnPublish` property to `true` disables the Razor SDK.</span></span>
+> <span data-ttu-id="2bf16-124">Zestaw Razor SDK jest efektywne tylko wtedy, gdy brak właściwości specyficzne dla wstępnej kompilacji są ustawione w pliku projektu.</span><span class="sxs-lookup"><span data-stu-id="2bf16-124">The Razor SDK is effective only when no precompilation-specific properties are set in the project file.</span></span> <span data-ttu-id="2bf16-125">Na przykład ustawienie *.csproj* pliku `MvcRazorCompileOnPublish` właściwość `true` wyłącza zestaw Razor SDK.</span><span class="sxs-lookup"><span data-stu-id="2bf16-125">For instance, setting the *.csproj* file's `MvcRazorCompileOnPublish` property to `true` disables the Razor SDK.</span></span>
 
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.0"
 
-<span data-ttu-id="b1c8b-126">Jeśli projekt jest przeznaczony dla .NET Framework, należy zainstalować [Microsoft.AspNetCore.Mvc.Razor.ViewCompilation](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Razor.ViewCompilation/) pakietu NuGet:</span><span class="sxs-lookup"><span data-stu-id="b1c8b-126">If your project targets .NET Framework, install the [Microsoft.AspNetCore.Mvc.Razor.ViewCompilation](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Razor.ViewCompilation/) NuGet package:</span></span>
+<span data-ttu-id="2bf16-126">Jeśli projekt jest przeznaczony dla .NET Framework, należy zainstalować [Microsoft.AspNetCore.Mvc.Razor.ViewCompilation](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Razor.ViewCompilation/) pakietu NuGet:</span><span class="sxs-lookup"><span data-stu-id="2bf16-126">If your project targets .NET Framework, install the [Microsoft.AspNetCore.Mvc.Razor.ViewCompilation](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Razor.ViewCompilation/) NuGet package:</span></span>
 
 [!code-xml[](view-compilation/sample/DotNetFrameworkProject.csproj?name=snippet_ViewCompilationPackage)]
 
-<span data-ttu-id="b1c8b-127">Jeśli projekt jest przeznaczony dla platformy .NET Core, żadne zmiany nie są niezbędne.</span><span class="sxs-lookup"><span data-stu-id="b1c8b-127">If your project targets .NET Core, no changes are necessary.</span></span>
+<span data-ttu-id="2bf16-127">Jeśli projekt jest przeznaczony dla platformy .NET Core, żadne zmiany nie są niezbędne.</span><span class="sxs-lookup"><span data-stu-id="2bf16-127">If your project targets .NET Core, no changes are necessary.</span></span>
 
-<span data-ttu-id="b1c8b-128">Szablony projektów programu ASP.NET Core 2.x niejawnie ustaw `MvcRazorCompileOnPublish` właściwość `true` domyślnie.</span><span class="sxs-lookup"><span data-stu-id="b1c8b-128">The ASP.NET Core 2.x project templates implicitly set the `MvcRazorCompileOnPublish` property to `true` by default.</span></span> <span data-ttu-id="b1c8b-129">W związku z tym, ten element można bezpiecznie usunąć z *.csproj* pliku.</span><span class="sxs-lookup"><span data-stu-id="b1c8b-129">Consequently, this element can be safely removed from the *.csproj* file.</span></span>
+<span data-ttu-id="2bf16-128">Szablony projektów programu ASP.NET Core 2.x niejawnie ustaw `MvcRazorCompileOnPublish` właściwość `true` domyślnie.</span><span class="sxs-lookup"><span data-stu-id="2bf16-128">The ASP.NET Core 2.x project templates implicitly set the `MvcRazorCompileOnPublish` property to `true` by default.</span></span> <span data-ttu-id="2bf16-129">W związku z tym, ten element można bezpiecznie usunąć z *.csproj* pliku.</span><span class="sxs-lookup"><span data-stu-id="2bf16-129">Consequently, this element can be safely removed from the *.csproj* file.</span></span>
 
 > [!IMPORTANT]
-> <span data-ttu-id="b1c8b-130">Narzędzie wstępnej kompilacji zostaną usunięte w programie ASP.NET Core 3.0.</span><span class="sxs-lookup"><span data-stu-id="b1c8b-130">The precompilation tool will be removed in ASP.NET Core 3.0.</span></span> <span data-ttu-id="b1c8b-131">Zalecamy przeprowadzić migrację do [Razor Sdk](xref:razor-pages/sdk).</span><span class="sxs-lookup"><span data-stu-id="b1c8b-131">We recommend migrating to [Razor Sdk](xref:razor-pages/sdk).</span></span>
+> <span data-ttu-id="2bf16-130">Narzędzie wstępnej kompilacji zostaną usunięte w programie ASP.NET Core 3.0.</span><span class="sxs-lookup"><span data-stu-id="2bf16-130">The precompilation tool will be removed in ASP.NET Core 3.0.</span></span> <span data-ttu-id="2bf16-131">Zalecamy przeprowadzić migrację do [Razor Sdk](xref:razor-pages/sdk).</span><span class="sxs-lookup"><span data-stu-id="2bf16-131">We recommend migrating to [Razor Sdk](xref:razor-pages/sdk).</span></span>
 >
-> <span data-ttu-id="b1c8b-132">Wstępnej kompilacji pliku razor jest niedostępna podczas wykonywania [niezależna wdrożenia (— SCD)](/dotnet/core/deploying/#self-contained-deployments-scd) programu ASP.NET Core 2.0.</span><span class="sxs-lookup"><span data-stu-id="b1c8b-132">Razor file precompilation is unavailable when performing a [self-contained deployment (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd) in ASP.NET Core 2.0.</span></span>
+> <span data-ttu-id="2bf16-132">Wstępnej kompilacji pliku razor jest niedostępna podczas wykonywania [niezależna wdrożenia (— SCD)](/dotnet/core/deploying/#self-contained-deployments-scd) programu ASP.NET Core 2.0.</span><span class="sxs-lookup"><span data-stu-id="2bf16-132">Razor file precompilation is unavailable when performing a [self-contained deployment (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd) in ASP.NET Core 2.0.</span></span>
 
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-1.1"
 
-<span data-ttu-id="b1c8b-133">Ustaw `MvcRazorCompileOnPublish` właściwości `true`i zainstaluj [Microsoft.AspNetCore.Mvc.Razor.ViewCompilation](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Razor.ViewCompilation/) pakietu NuGet.</span><span class="sxs-lookup"><span data-stu-id="b1c8b-133">Set the `MvcRazorCompileOnPublish` property to `true`, and install the [Microsoft.AspNetCore.Mvc.Razor.ViewCompilation](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Razor.ViewCompilation/) NuGet package.</span></span> <span data-ttu-id="b1c8b-134">Następujące *.csproj* przykładzie wyróżniono tych ustawień:</span><span class="sxs-lookup"><span data-stu-id="b1c8b-134">The following *.csproj* sample highlights these settings:</span></span>
+<span data-ttu-id="2bf16-133">Ustaw `MvcRazorCompileOnPublish` właściwości `true`i zainstaluj [Microsoft.AspNetCore.Mvc.Razor.ViewCompilation](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Razor.ViewCompilation/) pakietu NuGet.</span><span class="sxs-lookup"><span data-stu-id="2bf16-133">Set the `MvcRazorCompileOnPublish` property to `true`, and install the [Microsoft.AspNetCore.Mvc.Razor.ViewCompilation](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Razor.ViewCompilation/) NuGet package.</span></span> <span data-ttu-id="2bf16-134">Następujące *.csproj* przykładzie wyróżniono tych ustawień:</span><span class="sxs-lookup"><span data-stu-id="2bf16-134">The following *.csproj* sample highlights these settings:</span></span>
 
 [!code-xml[](view-compilation/sample/MvcRazorCompileOnPublish.csproj?highlight=4,10)]
 
@@ -84,19 +84,38 @@ ms.locfileid: "46011290"
 
 ::: moniker range="<= aspnetcore-2.0"
 
-<span data-ttu-id="b1c8b-135">Przygotowywanie aplikacji dla [wdrożenia zależny od struktury](/dotnet/core/deploying/#framework-dependent-deployments-fdd) z [polecenia publikowania interfejsu wiersza polecenia platformy .NET Core](/dotnet/core/tools/dotnet-publish).</span><span class="sxs-lookup"><span data-stu-id="b1c8b-135">Prepare the app for a [framework-dependent deployment](/dotnet/core/deploying/#framework-dependent-deployments-fdd) with the [.NET Core CLI publish command](/dotnet/core/tools/dotnet-publish).</span></span> <span data-ttu-id="b1c8b-136">Na przykład wykonaj następujące polecenie w katalogu głównym projektu:</span><span class="sxs-lookup"><span data-stu-id="b1c8b-136">For example, execute the following command at the project root:</span></span>
+<span data-ttu-id="2bf16-135">Przygotowywanie aplikacji dla [wdrożenia zależny od struktury](/dotnet/core/deploying/#framework-dependent-deployments-fdd) z [polecenia publikowania interfejsu wiersza polecenia platformy .NET Core](/dotnet/core/tools/dotnet-publish).</span><span class="sxs-lookup"><span data-stu-id="2bf16-135">Prepare the app for a [framework-dependent deployment](/dotnet/core/deploying/#framework-dependent-deployments-fdd) with the [.NET Core CLI publish command](/dotnet/core/tools/dotnet-publish).</span></span> <span data-ttu-id="2bf16-136">Na przykład wykonaj następujące polecenie w katalogu głównym projektu:</span><span class="sxs-lookup"><span data-stu-id="2bf16-136">For example, execute the following command at the project root:</span></span>
 
 ```console
 dotnet publish -c Release
 ```
 
-<span data-ttu-id="b1c8b-137">A *< project_name >. PrecompiledViews.dll* zawierający skompilowane pliki Razor jest generowany po pomyślnym zakończeniu wstępnej kompilacji.</span><span class="sxs-lookup"><span data-stu-id="b1c8b-137">A *<project_name>.PrecompiledViews.dll* file, containing the compiled Razor files, is produced when precompilation succeeds.</span></span> <span data-ttu-id="b1c8b-138">Na przykład, poniższy zrzut ekranu przedstawia zawartość *Index.cshtml* w ramach *WebApplication1.PrecompiledViews.dll*:</span><span class="sxs-lookup"><span data-stu-id="b1c8b-138">For example, the screenshot below depicts the contents of *Index.cshtml* within *WebApplication1.PrecompiledViews.dll*:</span></span>
+<span data-ttu-id="2bf16-137">A *< project_name >. PrecompiledViews.dll* zawierający skompilowane pliki Razor jest generowany po pomyślnym zakończeniu wstępnej kompilacji.</span><span class="sxs-lookup"><span data-stu-id="2bf16-137">A *<project_name>.PrecompiledViews.dll* file, containing the compiled Razor files, is produced when precompilation succeeds.</span></span> <span data-ttu-id="2bf16-138">Na przykład, poniższy zrzut ekranu przedstawia zawartość *Index.cshtml* w ramach *WebApplication1.PrecompiledViews.dll*:</span><span class="sxs-lookup"><span data-stu-id="2bf16-138">For example, the screenshot below depicts the contents of *Index.cshtml* within *WebApplication1.PrecompiledViews.dll*:</span></span>
 
 ![Widokami razor wewnątrz biblioteki DLL](view-compilation/_static/razor-views-in-dll.png)
 
 ::: moniker-end
 
-## <a name="additional-resources"></a><span data-ttu-id="b1c8b-140">Dodatkowe zasoby</span><span class="sxs-lookup"><span data-stu-id="b1c8b-140">Additional resources</span></span>
+## <a name="recompile-razor-files-on-change"></a><span data-ttu-id="2bf16-140">Skompiluj ponownie plikach Razor przy zmianie</span><span class="sxs-lookup"><span data-stu-id="2bf16-140">Recompile Razor files on change</span></span>
+
+<span data-ttu-id="2bf16-141"><xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions> `AllowRecompilingViewsOnFileChange` Pobiera lub ustawia wartość określającą, jeśli pliki Razor (widokami Razor i stron Razor) są ponownie kompilowane i zaktualizowany w przypadku plików zmienią się na dysku.</span><span class="sxs-lookup"><span data-stu-id="2bf16-141">The <xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions> `AllowRecompilingViewsOnFileChange` gets or sets a value that determines if Razor files (Razor views and Razor Pages) are recompiled and updated if files change on disk.</span></span>
+
+<span data-ttu-id="2bf16-142">Po ustawieniu `true`, [IFileProvider.Watch](xref:Microsoft.Extensions.FileProviders.IFileProvider.Watch*) skonfigurowane zegarki zmian w plikach Razor w <xref:Microsoft.Extensions.FileProviders.IFileProvider> wystąpień.</span><span class="sxs-lookup"><span data-stu-id="2bf16-142">When set to `true`, [IFileProvider.Watch](xref:Microsoft.Extensions.FileProviders.IFileProvider.Watch*) watches for changes to Razor files in configured <xref:Microsoft.Extensions.FileProviders.IFileProvider> instances.</span></span>
+
+<span data-ttu-id="2bf16-143">Wartość domyślna to `true` dla:</span><span class="sxs-lookup"><span data-stu-id="2bf16-143">The default value is `true` for:</span></span>
+
+* <span data-ttu-id="2bf16-144">Platforma ASP.NET Core 2.1 lub starszej aplikacji.</span><span class="sxs-lookup"><span data-stu-id="2bf16-144">ASP.NET Core 2.1 or earlier apps.</span></span>
+* <span data-ttu-id="2bf16-145">Aplikacje platformy ASP.NET Core 2,2 lub nowszym w środowisku programistycznym.</span><span class="sxs-lookup"><span data-stu-id="2bf16-145">ASP.NET Core 2.2 or later apps in the Development environment.</span></span>
+
+<span data-ttu-id="2bf16-146">`AllowRecompilingViewsOnFileChange` jest skojarzony z przełącznikiem zgodności i zapewniają różne zachowanie w zależności od skonfigurowanych zgodność wersji aplikacji.</span><span class="sxs-lookup"><span data-stu-id="2bf16-146">`AllowRecompilingViewsOnFileChange` is associated with a compatibility switch and can provide different behavior depending on the configured compatibility version for the app.</span></span> <span data-ttu-id="2bf16-147">Konfigurowanie aplikacji przez ustawienie `AllowRecompilingViewsOnFileChange` ma pierwszeństwo przed wartość też dorozumianych przez wersja zgodności aplikacji.</span><span class="sxs-lookup"><span data-stu-id="2bf16-147">Configuring the app by setting `AllowRecompilingViewsOnFileChange` takes precedence over the value implied by the app's compatibility version.</span></span>
+
+<span data-ttu-id="2bf16-148">Jeśli wersja zgodności aplikacji jest równa <xref:Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1> lub wcześniej, `AllowRecompilingViewsOnFileChange` ustawiono `true` , chyba że jawnie skonfigurowane.</span><span class="sxs-lookup"><span data-stu-id="2bf16-148">If the app's compatibility version is set to <xref:Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1> or earlier, `AllowRecompilingViewsOnFileChange` is set to `true` unless explicitly configured.</span></span>
+
+<span data-ttu-id="2bf16-149">Jeśli wersja zgodności aplikacji jest równa `CompatibilityVersion.Version_2_2` lub nowszym, `AllowRecompilingViewsOnFileChange` ustawiono `false` chyba, że środowisko jest rozwoju lub wartość jest jawnie skonfigurowany.</span><span class="sxs-lookup"><span data-stu-id="2bf16-149">If the app's compatibility version is set to `CompatibilityVersion.Version_2_2` or later, `AllowRecompilingViewsOnFileChange` is set to `false` unless the environment is Development or the value is explicitly configured.</span></span>
+
+<span data-ttu-id="2bf16-150">Wskazówki i przykłady ustawienie wersji zgodności aplikacji, zobacz <xref:mvc/compatibility-version>.</span><span class="sxs-lookup"><span data-stu-id="2bf16-150">For guidance and examples of setting the app's compatibility version, see <xref:mvc/compatibility-version>.</span></span>
+
+## <a name="additional-resources"></a><span data-ttu-id="2bf16-151">Dodatkowe zasoby</span><span class="sxs-lookup"><span data-stu-id="2bf16-151">Additional resources</span></span>
 
 ::: moniker range="= aspnetcore-1.1"
 
