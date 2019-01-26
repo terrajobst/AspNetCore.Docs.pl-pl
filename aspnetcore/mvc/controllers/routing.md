@@ -3,20 +3,20 @@ title: Routing do akcji kontrolera, w programie ASP.NET Core
 author: rick-anderson
 description: Dowiedz się, jak ASP.NET Core MVC używa routingu oprogramowania pośredniczącego do dopasowania adresów URL żądań przychodzących i mapowania ich działania.
 ms.author: riande
-ms.date: 09/17/2018
+ms.date: 01/24/2019
 uid: mvc/controllers/routing
-ms.openlocfilehash: 2f6328a5efaa96fd8e4f0cafdbde77dd63a1548f
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: f5104bc53581a41fa8c25d8c67e08e038c275391
+ms.sourcegitcommit: c6db8b14521814f1f7e528d7aa06e474e4c04a1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477647"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "55065012"
 ---
 # <a name="routing-to-controller-actions-in-aspnet-core"></a>Routing do akcji kontrolera, w programie ASP.NET Core
 
 Przez [Ryan Nowak](https://github.com/rynowak) i [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Platforma ASP.NET Core MVC używa routingu [oprogramowania pośredniczącego](xref:fundamentals/middleware/index) do dopasowania adresów URL żądań przychodzących i mapowania ich działania. Trasy są definiowane w kod uruchamiający lub atrybutów. Trasy opisano, jak ścieżek URL powinny być dopasowane do akcji. Trasy są również używane do generowania adresów URL (dla linków) wysłane w odpowiedzi. 
+Platforma ASP.NET Core MVC używa routingu [oprogramowania pośredniczącego](xref:fundamentals/middleware/index) do dopasowania adresów URL żądań przychodzących i mapowania ich działania. Trasy są definiowane w kod uruchamiający lub atrybutów. Trasy opisano, jak ścieżek URL powinny być dopasowane do akcji. Trasy są również używane do generowania adresów URL (dla linków) wysłane w odpowiedzi.
 
 Akcje albo są tradycyjnie kierowane lub atrybut kierowany. Wprowadzenie do trasy na kontrolerze lub akcji sprawia, że atrybut kierowany. Zobacz [mieszane routingu](#routing-mixed-ref-label) Aby uzyskać więcej informacji.
 
@@ -159,7 +159,7 @@ Trasy w kolekcji tras są uporządkowane i będą przetwarzane w kolejności, w 
 > [!NOTE]
 > *Trasy są konwencjonalne funkcje w wersji dedykowanej* często używają parametrów wychwytywania trasy, takich jak `{*article}` do przechwytywania pozostała część ścieżki adresu URL. Dzięki temu może być trasę zbyt intensywnie co oznacza, czy jest on zgodny adresów URL, które mają zostać dopasowane przez innych tras. W dalszej części tabeli tras, aby rozwiązać ten problem, należy umieścić trasy "zachłanne".
 
-### <a name="fallback"></a>Rezerwowe
+### <a name="fallback"></a>Fallback
 
 W ramach procesu przetwarzania żądania MVC sprawdzi, czy wartości trasy można znaleźć kontrolerów i akcji w aplikacji. Jeśli wartości trasy nie są zgodne akcję trasy nie zostanie on uznany za zgodny i dalej trasy zostaną sprawdzone. Jest to nazywane *rezerwowego*, a ma ona przeznaczona do uproszczenia przypadków nakładają się konwencjonalne trasy.
 
@@ -190,7 +190,6 @@ Jeśli wiele tras zgodnych z MVC nie można odnaleźć trasy "Najważniejsze", s
 ### <a name="route-names"></a>Nazwy tras
 
 Ciągi `"blog"` i `"default"` w poniższych przykładach są nazwy tras:
-
 
 ```csharp
 app.UseMvc(routes =>
@@ -339,7 +338,7 @@ public class ProductsApiController : Controller
 
 W tym przykładzie ze ścieżką URL `/products` może odnosić się do `ProductsApi.ListProducts`i Ścieżka adresu URL `/products/5` może odnosić się do `ProductsApi.GetProduct(int)`. Oba te akcje dopasowanie tylko HTTP `GET` ponieważ są one `HttpGetAttribute`.
 
-Kierowanie zastosowanych akcji, które zaczynają się od szablonów `/` nie uzyskać w połączeniu z szablonów tras stosowane do kontrolera. W tym przykładzie dopasowuje zestaw ścieżek URL podobny do *trasy domyślnej*.
+Kierowanie zastosowanych akcji, które zaczynają się od szablonów `/` lub `~/` nie uzyskać w połączeniu z szablonów tras stosowane do kontrolera. W tym przykładzie dopasowuje zestaw ścieżek URL podobny do *trasy domyślnej*.
 
 ```csharp
 [Route("Home")]
@@ -377,7 +376,7 @@ Tras atrybutów można skonfigurować kolejność przy użyciu `Order` właściw
 > [!TIP]
 > Należy unikać w zależności od `Order`. Jeśli przestrzeni URL wymaga jawnego kolejności wartości przekierowywany poprawnie, będzie ona wówczas prawdopodobnie mylące dla klientów, jak również. Ogólnie rzecz biorąc trasowanie atrybutów wybierze poprawnej trasy z pasującymi adresu URL. Jeśli domyślna kolejność użyto do generowania adresu URL nie działa, przy użyciu nazwy trasy zastąpienia jest zwykle łatwiejsze niż stosowanie `Order` właściwości.
 
-Strony razor routingu i MVC kontroler routingu udziału wdrożenia. Informacje o kolejność trasy w tematach stron Razor znajduje się w temacie [konwencje tras i aplikacji dla stron Razor: kolejność trasy](xref:razor-pages/razor-pages-conventions#route-order).
+Strony razor routingu i MVC kontroler routingu udziału wdrożenia. Informacje o kolejność trasy w tematach stron Razor znajduje się w temacie [stron Razor konwencje tras i aplikacji: Kolejność trasy](xref:razor-pages/razor-pages-conventions#route-order).
 
 <a name="routing-token-replacement-templates-ref-label"></a>
 
@@ -549,7 +548,7 @@ Ten atrybut z powyższego przykładu automatycznie ustawia `Template` do `"api/[
 
 <a name="routing-mixed-ref-label"></a>
 
-## <a name="mixed-routing-attribute-routing-vs-conventional-routing"></a>Mieszane routingu: atrybut vs konwencjonalne routingu
+## <a name="mixed-routing-attribute-routing-vs-conventional-routing"></a>Mieszane routingu: Atrybut vs konwencjonalne routingu
 
 Aplikacji MVC można łączyć użytkowania konwencjonalne i atrybut routingu. Jest to zazwyczaj za pomocą konwencjonalnych trasy dla kontrolerów obsługujących stron HTML do przeglądarek, a atrybut routingu dla kontrolerów obsługujących interfejsów API REST.
 

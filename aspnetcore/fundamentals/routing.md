@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/14/2019
 uid: fundamentals/routing
-ms.openlocfilehash: 070200b6fdc8b3178e2b7b12375ba1dd56080697
-ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
+ms.openlocfilehash: c5303ad418660fa31fe9094f0e61ee31f5d988f7
+ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54444379"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54890019"
 ---
 # <a name="routing-in-aspnet-core"></a>Routing w programie ASP.NET Core
 
@@ -665,6 +665,26 @@ Wyrażenia regularne użyte w routingu często rozpoczynać się od karetki (`^`
 Aby uzyskać więcej informacji na temat składni wyrażeń regularnych, zobacz [wyrażeń regularnych programu .NET Framework](/dotnet/standard/base-types/regular-expression-language-quick-reference).
 
 Aby ograniczyć parametr znany zestaw możliwych wartości, należy użyć wyrażenia regularnego. Na przykład `{action:regex(^(list|get|create)$)}` jest zgodny tylko `action` trasy wartość `list`, `get`, lub `create`. Jeśli przekazywana do słownika ograniczenia, ciąg `^(list|get|create)$` odpowiada. Ograniczenia, które są przekazywane w słowniku ograniczenia (niewyrównane w szablonie), która nie pasuje do jednej znane ograniczenia również są traktowane jako wyrażenia regularne.
+
+## <a name="custom-route-constraints"></a>Ograniczenia trasy niestandardowe
+
+Oprócz ograniczenia wbudowanych trasy, ograniczenia trasy niestandardowe można utworzyć przez zaimplementowanie <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> interfejsu. `IRouteConstraint` Interfejs zawiera jedną metodę `Match`, co powoduje zwrócenie `true` Jeśli ograniczenie jest spełniony i `false` inaczej.
+
+Aby użyć niestandardowego `IRouteConstraint`, typ ograniczenia trasy muszą być zarejestrowane w usłudze aplikacji `RouteOptions.ConstraintMap` w kontenerze usługi aplikacji. A <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap> jest słownik, który mapy trasy klucze ograniczenia do `IRouteConstraint` implementacji, które sprawdzają poprawność tych ograniczeń. Aplikacja `RouteOptions.ConstraintMap` mogą być aktualizowane w `Startup.ConfigureServices` albo w ramach `services.AddRouting` wywołania lub przez skonfigurowanie `RouteOptions` bezpośrednio z `services.Configure<RouteOptions>`. Na przykład:
+
+```csharp
+services.AddRouting(options =>
+{
+    options.ConstraintMap.Add("customName", typeof(MyCustomConstraint));
+});
+```
+
+Ograniczenia mogą być następnie stosowane do trasy w zwykły sposób, przy użyciu nazwy określonej podczas rejestrowania typu ograniczenia. Na przykład:
+
+```csharp
+[HttpGet("{id:customName}")]
+public ActionResult<string> Get(string id)
+```
 
 ::: moniker range=">= aspnetcore-2.2"
 

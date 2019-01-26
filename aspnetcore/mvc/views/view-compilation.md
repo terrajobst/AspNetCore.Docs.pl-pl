@@ -5,14 +5,14 @@ description: Więcej informacji na temat zalet wstępnej kompilacji w plikach Ra
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/17/2018
+ms.date: 01/23/2019
 uid: mvc/views/view-compilation
-ms.openlocfilehash: f5888cf43d8d8192acedaa33b3fa0f313737fc9b
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 2720708f8e58fdc55b82bfb56665005170e79934
+ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011290"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54889759"
 ---
 # <a name="razor-file-compilation-in-aspnet-core"></a>Kompilacja pliku razor w programie ASP.NET Core
 
@@ -95,6 +95,25 @@ A *< project_name >. PrecompiledViews.dll* zawierający skompilowane pliki Razor
 ![Widokami razor wewnątrz biblioteki DLL](view-compilation/_static/razor-views-in-dll.png)
 
 ::: moniker-end
+
+## <a name="recompile-razor-files-on-change"></a>Skompiluj ponownie plikach Razor przy zmianie
+
+<xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions> `AllowRecompilingViewsOnFileChange` Pobiera lub ustawia wartość określającą, jeśli pliki Razor (widokami Razor i stron Razor) są ponownie kompilowane i zaktualizowany w przypadku plików zmienią się na dysku.
+
+Po ustawieniu `true`, [IFileProvider.Watch](xref:Microsoft.Extensions.FileProviders.IFileProvider.Watch*) skonfigurowane zegarki zmian w plikach Razor w <xref:Microsoft.Extensions.FileProviders.IFileProvider> wystąpień.
+
+Wartość domyślna to `true` dla:
+
+* Platforma ASP.NET Core 2.1 lub starszej aplikacji.
+* Aplikacje platformy ASP.NET Core 2,2 lub nowszym w środowisku programistycznym.
+
+`AllowRecompilingViewsOnFileChange` jest skojarzony z przełącznikiem zgodności i zapewniają różne zachowanie w zależności od skonfigurowanych zgodność wersji aplikacji. Konfigurowanie aplikacji przez ustawienie `AllowRecompilingViewsOnFileChange` ma pierwszeństwo przed wartość też dorozumianych przez wersja zgodności aplikacji.
+
+Jeśli wersja zgodności aplikacji jest równa <xref:Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1> lub wcześniej, `AllowRecompilingViewsOnFileChange` ustawiono `true` , chyba że jawnie skonfigurowane.
+
+Jeśli wersja zgodności aplikacji jest równa `CompatibilityVersion.Version_2_2` lub nowszym, `AllowRecompilingViewsOnFileChange` ustawiono `false` chyba, że środowisko jest rozwoju lub wartość jest jawnie skonfigurowany.
+
+Wskazówki i przykłady ustawienie wersji zgodności aplikacji, zobacz <xref:mvc/compatibility-version>.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

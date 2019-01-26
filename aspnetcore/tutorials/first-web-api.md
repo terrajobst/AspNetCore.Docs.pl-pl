@@ -4,14 +4,14 @@ author: rick-anderson
 description: Tworzenie internetowego interfejsu API platformy ASP.NET Core MVC
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/10/2018
+ms.date: 01/24/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 03936ee74836c7b214cb3dc4023a6e3c252f2a26
-ms.sourcegitcommit: cec77d5ad8a0cedb1ecbec32834111492afd0cd2
-ms.translationtype: MT
+ms.openlocfilehash: f677af6a86e20b95efcd16c7472cd9e14169e6cd
+ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54207450"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54889980"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core-mvc"></a>Samouczek: Tworzenie internetowego interfejsu API za pomocą platformy ASP.NET Core MVC
 
@@ -168,13 +168,9 @@ Klasy modeli może przejść w dowolnym miejscu w projekcie, ale *modeli* folder
 
 * Kliknij prawym przyciskiem myszy *modeli* i wybierz polecenie **Dodaj** > **klasy**. Nazwa klasy *TodoContext* i kliknij przycisk **Dodaj**.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code / Visual Studio for Mac](#tab/visual-studio-code+visual-studio-mac)
 
 * Dodaj `TodoContext` klasy *modeli* folderu.
-
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
-
-* Dodaj `TodoContext` klasy w *modeli* folderu:
 
 ---
 
@@ -207,13 +203,9 @@ Powyższy kod:
 
   ![Dodaj okno dialogowe nowego elementu za pomocą kontrolera w wyszukiwania sieci web i pole Kontroler interfejsu api wybrane](first-web-api/_static/new_controller.png)
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code / Visual Studio for Mac](#tab/visual-studio-code+visual-studio-mac)
 
 * W *kontrolerów* folderu, Utwórz klasę o nazwie `TodoController`.
-
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
-
-* W *kontrolerów* folderu, dodać klasę `TodoController`.
 
 ---
 
@@ -271,8 +263,6 @@ W następującym `GetTodoItem` metody `"{id}"` jest zmienną symbolu zastępczeg
 
 [!code-csharp[](first-web-api/samples/2.2/TodoApi/Controllers/TodoController.cs?name=snippet_GetByID&highlight=1-2)]
 
-`Name = "GetTodo"` Parametr tworzy trasą mającą nazwę. Zostanie wyświetlony, pokażemy, jak aplikacja może używać nazwy do utworzenia łącza HTTP, używając nazwy trasy.
-
 ## <a name="return-values"></a>Zwracane wartości
 
 Zwracany typ `GetTodoItems` i `GetTodoItem` metody jest [ActionResult\<T > typu](xref:web-api/action-return-types#actionresultt-type). Platforma ASP.NET Core automatycznie serializuje obiekt do [JSON](https://www.json.org/) i zapisuje dane JSON w treści komunikatu odpowiedzi. Kod odpowiedzi dla tego typu zwracanego jest równy 200, zakładając, że nie ma żadnych nieobsłużonych wyjątków. Nieobsługiwane wyjątki są tłumaczone na błędy 5xx.
@@ -313,9 +303,9 @@ Powyższy kod jest metodą HTTP POST, wskazane przez [[HttpPost]](/dotnet/api/mi
 
 `CreatedAtAction` Metody:
 
-* Zwraca odpowiedź 201. Protokół HTTP 201 jest standardowa odpowiedź na metodę POST protokołu HTTP, która tworzy nowy zasób na serwerze.
-* Dodaje do odpowiedzi nagłówek lokalizacji. Nagłówek Location określa identyfikator URI nowo utworzonego zadania do wykonania. Aby uzyskać więcej informacji, zobacz [10.2.2 201 utworzono](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).
-* Używa "GetTodo" o nazwie tras w celu utworzenia adresu URL. "GetTodo" o nazwie trasa jest zdefiniowana w `GetTodoItem`:
+* Zwraca kod stanu 201 protokołu HTTP, jeśli to się powiedzie. Protokół HTTP 201 jest standardowa odpowiedź na metodę POST protokołu HTTP, która tworzy nowy zasób na serwerze.
+* Dodaje `Location` nagłówka odpowiedzi. `Location` Nagłówek Określa identyfikator URI nowo utworzonego zadania do wykonania. Aby uzyskać więcej informacji, zobacz [10.2.2 201 utworzono](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).
+* Odwołania `GetTodoItem` akcja w celu utworzenia `Location` nagłówka identyfikatora URI. C# `nameof` Słowo kluczowe jest używane w celu uniknięcia kodować Nazwa akcji w `CreatedAtAction` wywołania.
 
   [!code-csharp[](first-web-api/samples/2.2/TodoApi/Controllers/TodoController.cs?name=snippet_GetByID&highlight=1-2)]
 

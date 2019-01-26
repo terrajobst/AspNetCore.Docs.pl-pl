@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/29/2018
 uid: security/gdpr
-ms.openlocfilehash: 7688ac6264b089ebd3544494c967684cb291a547
-ms.sourcegitcommit: cec77d5ad8a0cedb1ecbec32834111492afd0cd2
+ms.openlocfilehash: 5f5ed96354b0b71961c122506602e60b95b809fa
+ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54207518"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54889746"
 ---
 # <a name="eu-general-data-protection-regulation-gdpr-support-in-aspnet-core"></a>Obsługa Unii Europejskiej ogólnego danych (GDPR Protection Regulation) w programie ASP.NET Core
 
@@ -49,9 +49,9 @@ Strony razor i MVC projekty utworzone za pomocą szablonów projektu obejmują o
 
 [!code-csharp[](gdpr/sample/Startup.cs?name=snippet1&highlight=51)]
 
-### <a name="cookieconsentpartialcshtml-partial-view"></a>Widok częściowy _CookieConsentPartial.cshtml
+### <a name="cookieconsentpartialcshtml-partial-view"></a>_CookieConsentPartial.cshtml partial view
 
-*_CookieConsentPartial.cshtml* widoku częściowego:
+The *_CookieConsentPartial.cshtml* partial view:
 
 [!code-html[](gdpr/sample/RP/Pages/Shared/_CookieConsentPartial.cshtml)]
 
@@ -92,6 +92,7 @@ Uwagi:
 * Aby wygenerować `Account/Manage` kod, zobacz [tożsamości szkieletu](xref:security/authentication/scaffold-identity).
 * **Usuń** i **Pobierz** łącza działać tylko w przypadku domyślnych danych tożsamości. Aplikacje tworzone danych niestandardowych użytkownika musi zostać rozszerzony do usuwania/pobierania danych niestandardowych użytkownika. Aby uzyskać więcej informacji, zobacz [Dodawanie, pobieranie i usuwanie danych niestandardowych użytkownika tożsamości](xref:security/authentication/add-user-data).
 * Zapisano tokeny dla danego użytkownika, które są przechowywane w tabeli bazy danych tożsamości `AspNetUserTokens` są usuwane po usunięciu użytkownika za pomocą kaskadowych zachowanie dotyczące usuwania ze względu na [klucz obcy](https://github.com/aspnet/Identity/blob/release/2.1/src/EF/IdentityUserContext.cs#L152).
+* [Uwierzytelnianie zewnętrznego dostawcy](xref:security/authentication/social/index), takie jak Facebook i Google, nie jest dostępna przed zaakceptowaniu zasad pliku cookie.
 
 ## <a name="encryption-at-rest"></a>Szyfrowanie w spoczynku
 

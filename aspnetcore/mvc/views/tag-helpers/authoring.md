@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: mvc/views/tag-helpers/authoring
-ms.openlocfilehash: 16f3a435af267a5a17a24ee9fbda2b1c7c8818fd
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: c21decd39b7855cf2eefb2bb482e5e91b9487863
+ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121625"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54889941"
 ---
 # <a name="author-tag-helpers-in-aspnet-core"></a>Tworzenie pomocników tagów w programie ASP.NET Core
 
@@ -96,7 +96,7 @@ Aktualizacja `EmailTagHelper` klasy następującym kodem:
 
 [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/EmailTagHelperMailTo.cs?range=6-22)]
 
-* Pascal — z uwzględnieniem wielkości liter nazwy klasy i właściwości pomocników tagów są tłumaczone na ich [obniżyć przypadek kebab](https://stackoverflow.com/questions/11273282/whats-the-name-for-dash-separated-case/12273101). W związku z tym Aby użyć `MailTo` użyjemy atrybutu `<email mail-to="value"/>` równoważne.
+* Pascal — z uwzględnieniem wielkości liter nazwy klasy i właściwości pomocników tagów są tłumaczone na ich [przypadek kebab](https://stackoverflow.com/questions/11273282/whats-the-name-for-dash-separated-case/12273101). W związku z tym Aby użyć `MailTo` użyjemy atrybutu `<email mail-to="value"/>` równoważne.
 
 * Ostatni wiersz ustawia ukończone zawartości dla naszych Pomocnik tagu minimalny zestaw funkcjonalności.
 
@@ -189,7 +189,7 @@ Można również użyć `[HtmlTargetElement]` do zmiany nazwy elementu doceloweg
 
    [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/WebsiteInformationTagHelper.cs)]
 
-   * Jak wspomniano wcześniej, pomocników tagów dokonuje translacji wielkości liter Pascal języka C#, nazwy klas i właściwości dla pomocników tagów w [obniżyć przypadek kebab](http://wiki.c2.com/?KebabCase). W związku z tym Aby użyć `WebsiteInformationTagHelper` w aparacie Razor, Ty napiszesz `<website-information />`.
+   * Jak wspomniano wcześniej, dokonuje translacji pomocnicy tagów, Pascal — z uwzględnieniem wielkości liter C# klasy nazwy i właściwości dla pomocników tagów w [przypadek kebab](http://wiki.c2.com/?KebabCase). W związku z tym Aby użyć `WebsiteInformationTagHelper` w aparacie Razor, Ty napiszesz `<website-information />`.
 
    * Nie są jawnie identyfikuje element docelowy z `[HtmlTargetElement]` atrybutu, więc domyślną `website-information` docelowe. Jeśli zastosowano atrybut (Uwaga nie jest przypadek kebab, ale jest zgodna z nazwą klasy):
 
@@ -197,7 +197,7 @@ Można również użyć `[HtmlTargetElement]` do zmiany nazwy elementu doceloweg
    [HtmlTargetElement("WebsiteInformation")]
    ```
 
-   Niższe tag przypadków kebab `<website-information />` nie odpowiada. Jeśli chcesz używać `[HtmlTargetElement]` atrybutu, należy użyć kebab przypadek, jak pokazano poniżej:
+   Tag przypadków kebab `<website-information />` nie odpowiada. Jeśli chcesz używać `[HtmlTargetElement]` atrybutu, należy użyć kebab przypadek, jak pokazano poniżej:
 
    ```csharp
    [HtmlTargetElement("Website-Information")]
