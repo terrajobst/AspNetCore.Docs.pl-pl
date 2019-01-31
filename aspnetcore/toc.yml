@@ -455,6 +455,8 @@ items:
       name: Omówienie
     - uid: tutorials/publish-to-azure-webapp-using-vs
       name: Publikowanie za pomocą programu Visual Studio
+    - name: Publikowanie za pomocą programu Visual Studio dla komputerów Mac
+      href: /visualstudio/mac/publish-app-svc
     - name: Publikowanie za pomocą narzędzi interfejsu wiersza polecenia
       href: /azure/app-service/app-service-web-tutorial-dotnetcore-sqldb
     - uid: host-and-deploy/azure-apps/azure-continuous-deployment
@@ -523,6 +525,8 @@ items:
     name: Hosting w farmie internetowej
   - uid: host-and-deploy/visual-studio-publish-profiles
     name: Profile publikowania w programie Visual Studio
+  - name: Publikowanie do folderu w programie Visual Studio dla komputerów Mac
+    href: /visualstudio/mac/publish-folder
   - uid: host-and-deploy/directory-structure
     name: Struktura katalogów
   - uid: host-and-deploy/health-checks
@@ -539,6 +543,8 @@ items:
       name: Tworzenie szkieletu systemu Identity
     - uid: security/authentication/add-user-data
       name: Dodawanie niestandardowych danych użytkowników do systemu Identity
+    - uid: security/authentication/samples
+      name: Przykłady uwierzytelniania
     - uid: security/authentication/customize_identity_model
       name: Dostosowywanie systemu Identity
     - uid: security/authentication/community
@@ -806,9 +812,9 @@ items:
   href: /dotnet/api/?view=aspnetcore-2.1
 - name: Współtworzenie
   href: https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md
-ms.openlocfilehash: 4f8ccb592b7f95794cad01edd1e0f514bd9943c1
-ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
+ms.openlocfilehash: a6169489db7d7365e254c8f1213de348a4429c49
+ms.sourcegitcommit: e7276930515216338a33c4a03c0d7a87fc718ffe
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54890076"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55293521"
