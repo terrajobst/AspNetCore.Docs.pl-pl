@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 07/25/2018
 uid: mvc/views/tag-helpers/builtin-th/partial-tag-helper
-ms.openlocfilehash: bcaeb3ba286feb55c0755c5baee4b7608710e647
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: d56df549d845b1f83ec4a5ec97ce6b44438f725a
+ms.sourcegitcommit: d22b3c23c45a076c4f394a70b1c8df2fbcdf656d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207787"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55428437"
 ---
 # <a name="partial-tag-helper-in-aspnet-core"></a>Pomocnik tagu częściowego w programie ASP.NET Core
 
@@ -53,7 +53,7 @@ Następujące znaczniki jest używana jawna ścieżka, co oznacza, że *_Product
 
 ## <a name="for"></a>dla
 
-`for` Atrybutu przypisuje [ModelExpression](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.modelexpression) ma zostać obliczone dla bieżącego modelu. A `ModelExpression` wnioskuje `@Model.` składni. Na przykład `for="Product"` mogą być używane zamiast `for="@Model.Product"`. To domyślne zachowanie wnioskowania jest zastępowany przy użyciu `@` symbol do definiowania wbudowane wyrażenia. `for` Atrybut nie może być używany z [modelu](#model) atrybutu.
+`for` Atrybutu przypisuje [ModelExpression](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.modelexpression) ma zostać obliczone dla bieżącego modelu. A `ModelExpression` wnioskuje `@Model.` składni. Na przykład `for="Product"` mogą być używane zamiast `for="@Model.Product"`. To domyślne zachowanie wnioskowania jest zastępowany przy użyciu `@` symbol do definiowania wbudowane wyrażenia.
 
 Ładuje następujące znaczniki *_ProductPartial.cshtml*:
 
@@ -71,7 +71,7 @@ W niej następujące znaczniki nową `Product` obiektu jest tworzone i przekazyw
 
 [!code-cshtml[](samples/TagHelpersBuiltIn/Pages/Product.cshtml?name=snippet_Model)]
 
-## <a name="view-data"></a>Wyświetlanie danych
+## <a name="view-data"></a>view-data
 
 `view-data` Atrybutu przypisuje [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) do przekazania do widoku częściowego. Następujące znaczniki sprawia, że całą kolekcję ViewData jest dostępny dla widoku częściowego:
 

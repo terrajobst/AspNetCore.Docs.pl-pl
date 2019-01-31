@@ -4,22 +4,22 @@ title: Włączanie żądań Cross-Origin we wzorcu ASP.NET Web API 2 | Dokumenta
 author: MikeWasson
 description: Pokazuje sposób obsługi udostępniania zasobów między źródłami (CORS) w interfejsie API sieci Web platformy ASP.NET.
 ms.author: riande
-ms.date: 10/10/2018
+ms.date: 01/29/2019
 ms.assetid: 9b265a5a-6a70-4a82-adce-2d7c56ae8bdd
 msc.legacyurl: /web-api/overview/security/enabling-cross-origin-requests-in-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 118b779c89edb874f7f928315d1094738be5f097
-ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
+ms.openlocfilehash: 97a0027194b019b09e220493dcb593e682027fe3
+ms.sourcegitcommit: d22b3c23c45a076c4f394a70b1c8df2fbcdf656d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49348523"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55428450"
 ---
 <a name="enable-cross-origin-requests-in-aspnet-web-api-2"></a>Włączanie żądań cross-origin w programie ASP.NET Web API 2
 ====================
 przez [Mike Wasson](https://github.com/MikeWasson)
 
-> Poziom zabezpieczeń przeglądarki uniemożliwia strony sieci web wprowadzanie wysyłanie żądań AJAX do innej domeny. To ograniczenie jest nazywany *zasadami tego samego źródła*i zapobiega złośliwych witryn odczytywanie poufnych danych z innej lokacji. Jednak czasami możesz chcieć umożliwić innych witryn, wywołania interfejsu API sieci web.
+> Zabezpieczenia przeglądarki uniemożliwiają stronie internetowej wysyłanie żądań AJAX do innej domeny. To ograniczenie jest nazywany *zasadami tego samego źródła*i zapobiega złośliwych witryn odczytywanie poufnych danych z innej lokacji. Jednak czasami możesz chcieć umożliwić innych witryn, wywołania interfejsu API sieci web.
 >
 > [Krzyżowe współużytkowanie zasobów](http://www.w3.org/TR/cors/) (między źródłami CORS) jest to standard W3C, dzięki któremu serwer może Poluzować zasady tego samego źródła. Przy użyciu mechanizmu CORS, serwer można jawnie zezwolić na niektórych żądań cross-origin jednocześnie odrzucając inne. CORS to bezpieczniejsze i bardziej elastyczne niż wcześniej techniki takie jak [JSONP](http://en.wikipedia.org/wiki/JSONP). W tym samouczku pokazano, jak włączyć mechanizm CORS w aplikacji interfejsu API sieci Web.
 >
@@ -67,7 +67,7 @@ Te adresy URL są źródła innego niż poprzednie dwa:
 
    [!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample1.cs)]
 
-4. Można uruchomić aplikację lokalnie, lub Wdróż na platformie Azure. (Zrzuty ekranu w tym samouczku aplikacja wdrażanie w usłudze Azure App Service Web Apps.) Aby sprawdzić, czy działa interfejs API sieci web, przejdź do `http://hostname/api/test/`, gdzie *hostname* jest domeną, w których wdrożono aplikację. Powinien zostać wyświetlony tekst odpowiedzi &quot;Uzyskaj: wiadomość testową&quot;.
+4. Można uruchomić aplikację lokalnie, lub Wdróż na platformie Azure. (Zrzuty ekranu w tym samouczku aplikacja wdrażanie w usłudze Azure App Service Web Apps.) Aby sprawdzić, czy działa interfejs API sieci web, przejdź do `http://hostname/api/test/`, gdzie *hostname* jest domeną, w których wdrożono aplikację. Powinien zostać wyświetlony tekst odpowiedzi &quot;UZYSKAĆ: Wiadomości testowe&quot;.
 
    ![Wiadomość testowa przedstawiający przeglądarkę sieci Web](enabling-cross-origin-requests-in-web-api/_static/image4.png)
 
@@ -90,7 +90,7 @@ Po kliknięciu przycisku "Try It" żądanie AJAX jest przesyłany do aplikacji u
 ![Błąd "Wypróbuj" w przeglądarce](enabling-cross-origin-requests-in-web-api/_static/image7.png)
 
 > [!NOTE]
-> Jeśli możesz obejrzeć ruch HTTP w narzędziu [Fiddler](http://www.telerik.com/fiddler), zostanie wyświetlony w przeglądarce wysyłania żądania GET i żądanie zakończy się powodzeniem, że wywołanie AJAX zwraca błąd. Jest ważne zrozumieć, zasadami jednego źródła, nie uniemożliwia przeglądarki z *wysyłania* żądania. Zamiast tego należy go zapobiega aplikację widzisz *odpowiedzi*.
+> Jeśli możesz obejrzeć ruch HTTP w narzędziu [Fiddler](https://www.telerik.com/fiddler), zostanie wyświetlony w przeglądarce wysyłania żądania GET i żądanie zakończy się powodzeniem, że wywołanie AJAX zwraca błąd. Jest ważne zrozumieć, zasadami jednego źródła, nie uniemożliwia przeglądarki z *wysyłania* żądania. Zamiast tego należy go zapobiega aplikację widzisz *odpowiedzi*.
 
 ![Debuger sieci web programu fiddler przedstawiający żądania sieci web](enabling-cross-origin-requests-in-web-api/_static/image8.png)
 
@@ -165,6 +165,22 @@ Poniżej przedstawiono przykładową odpowiedź, przy założeniu, że serwer ze
 
 Odpowiedź zawiera nagłówek dostępu — kontrola-Allow-Methods, zawierającego dozwolone metody i, opcjonalnie nagłówka Access-Control-Zezwalaj-Headers, który zawiera listę dozwolonych nagłówków. Jeśli żądania wstępnego zakończy się powodzeniem, przeglądarka wysyła rzeczywistego żądania, zgodnie z wcześniejszym opisem.
 
+Narzędzia często używane do testowania punktów końcowych przy użyciu żądania wstępnego OPTIONS (na przykład [Fiddler](https://www.telerik.com/fiddler) i [Postman](https://www.getpostman.com/)) nie wymagane nagłówki opcje będą domyślnie wysyłane. Upewnij się, że `Access-Control-Request-Method` i `Access-Control-Request-Headers` nagłówki są wysyłane z żądania i opcje nagłówki skontaktować się z aplikacją za pośrednictwem usług IIS.
+
+Aby skonfigurować serwer IIS zezwala na aplikację ASP.NET w celu odbierania i obsługi żądań opcji, dodaj następującą konfigurację w aplikacji *web.config* w pliku `<system.webServer><handlers>` sekcji:
+
+```xml
+<system.webServer>
+  <handlers>
+    <remove name="ExtensionlessUrlHandler-Integrated-4.0" />
+    <remove name="OPTIONSVerbHandler" />
+    <add name="ExtensionlessUrlHandler-Integrated-4.0" path="*." verb="*" type="System.Web.Handlers.TransferRequestHandler" preCondition="integratedMode,runtimeVersionv4.0" />
+  </handlers>
+</system.webServer>
+```
+
+Usunięcie `OPTIONSVerbHandler` zapobiega obsługi opcji żądań usług IIS. Zastąpienie `ExtensionlessUrlHandler-Integrated-4.0` umożliwia żądania OPTIONS skontaktować się z aplikacją, ponieważ rejestrację modułu domyślne zezwala tylko żądania GET, HEAD, POST i debugowania przy użyciu adresów URL bez rozszerzenia.
+
 ## <a name="scope-rules-for-enablecors"></a>Zakres reguły [EnableCors]
 
 W aplikacji, można włączyć mechanizm CORS każdej akcji, każdy kontroler lub globalnie dla wszystkich kontrolerów składnika Web API.
@@ -175,13 +191,13 @@ Aby włączyć mechanizm CORS dla jednej akcji, należy ustawić **[EnableCors]*
 
 [!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample10.cs)]
 
-**Każdy kontroler**
+**Per Controller**
 
 Jeśli ustawisz **[EnableCors]** klasy kontrolera ma zastosowanie do wszystkich akcji w kontrolerze. Aby wyłączyć CORS dla akcji, należy dodać **[DisableCors]** atrybutu akcji. Poniższy przykład umożliwia CORS dla każdej metody, z wyjątkiem `PutItem`.
 
 [!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample11.cs)]
 
-**Globalnie**
+**Globally**
 
 Aby włączyć mechanizm CORS dla wszystkich kontrolerów składnika Web API w aplikacji, należy przekazać **EnableCorsAttribute** wystąpienia do **EnableCors** metody:
 
@@ -230,7 +246,7 @@ Domyślnie przeglądarka nie uwidacznia wszystkie nagłówki odpowiedzi do aplik
 - Typ zawartości
 - Wygasa
 - Last-Modified
-- Dyrektywy pragma
+- Pragma
 
 Specyfikacja CORS wywołuje te [nagłówki odpowiedzi proste](https://dvcs.w3.org/hg/cors/raw-file/tip/Overview.html#simple-response-header). Aby udostępnić innych nagłówków do aplikacji, należy ustawić *exposedHeaders* parametru **[EnableCors]**.
 

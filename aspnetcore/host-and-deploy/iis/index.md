@@ -4,14 +4,14 @@ author: guardrex
 description: Dowiedz się, jak hostować aplikacje platformy ASP.NET Core na systemu Windows serwera Internet Information Services (IIS).
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/11/2019
+ms.date: 01/29/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 83c084beb059d803811e9739d34bdbdd6bcff463
-ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
+ms.openlocfilehash: 9392da14e589736b24790676c1c07c9964882737
+ms.sourcegitcommit: d22b3c23c45a076c4f394a70b1c8df2fbcdf656d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54341800"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55428463"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host platformy ASP.NET Core na Windows za pomocą programu IIS
 
@@ -594,6 +594,12 @@ Jeśli zostanie nawiązane połączenie HTTP/2, [HttpRequest.Protocol](xref:Micr
 ::: moniker-end
 
 Protokołu HTTP/2 jest domyślnie włączona. Jeśli nie jest nawiązane połączenie HTTP/2, połączenia wrócić do protokołu HTTP/1.1. Aby uzyskać więcej informacji na temat konfiguracji protokołu HTTP/2 z wdrożeniami usług IIS, zobacz [protokołu HTTP/2 w programie IIS](/iis/get-started/whats-new-in-iis-10/http2-on-iis).
+
+## <a name="cors-preflight-requests"></a>Żądania wstępnego CORS
+
+*Ta sekcja dotyczy tylko aplikacji platformy ASP.NET Core środowiska .NET Framework.*
+
+Dla aplikacji ASP.NET Core przeznaczonego programu .NET Framework, opcje żądania nie są przekazywane do aplikacji domyślnie w usługach IIS. Informacje na temat konfigurowania obsługi usług IIS aplikacji w *web.config* do przekazania żądania OPTIONS, zobacz [Włączanie żądań cross-origin w programie ASP.NET Web API 2: Jak działa CORS](/aspnet/web-api/overview/security/enabling-cross-origin-requests-in-web-api#how-cors-works).
 
 ## <a name="deployment-resources-for-iis-administrators"></a>Zasoby dotyczące wdrażania dla administratorów usług IIS
 

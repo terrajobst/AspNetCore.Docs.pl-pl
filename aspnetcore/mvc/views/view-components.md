@@ -3,14 +3,14 @@ title: Składniki widoków w programie ASP.NET Core
 author: rick-anderson
 description: Dowiedz się, jak składniki widoków są używane w programie ASP.NET Core oraz dodać je do aplikacji.
 ms.author: riande
-ms.date: 12/03/2018
+ms.date: 1/30/2019
 uid: mvc/views/view-components
-ms.openlocfilehash: 31c0d8f2c08eb06633b604c949cadff24ed5cb7e
-ms.sourcegitcommit: c47d7c131eebbcd8811e31edda210d64cf4b9d6b
+ms.openlocfilehash: d0e528fcf9e20afee98e74fbc09c67b81e123e95
+ms.sourcegitcommit: d22b3c23c45a076c4f394a70b1c8df2fbcdf656d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55236357"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55428398"
 ---
 # <a name="view-components-in-aspnet-core"></a>Składniki widoków w programie ASP.NET Core
 
@@ -75,9 +75,11 @@ Składnik widok definiuje swojej logiki w `InvokeAsync` metodę, która zwraca `
 
 Środowisko uruchomieniowe wyszukuje widoku w następujących ścieżkach:
 
-* /Pages/składniki / {Nazwa widoku składnika} / {Nazwa widoku}
 * /Components/ /views/ {nazwa kontrolera} {Nazwa widoku składnika} / {Nazwa widoku}
 * / Widoków/Shared/Components / {View nazwa składnika} / {Nazwa widoku}
+* / / Udostępnione/składników stron / {View nazwa składnika} / {Nazwa widoku}
+
+Ścieżka wyszukiwania ma zastosowanie do projektów za pomocą kontrolerów i widoków i stron Razor.
 
 Domyślna nazwa widoku składnika widoku to *domyślne*, co oznacza, że plik widoku zazwyczaj będzie miała nazwę *Default.cshtml*. Można określić nazwę innego widoku, tworząc wynik widoku składnika lub podczas wywoływania `View` metody.
 
