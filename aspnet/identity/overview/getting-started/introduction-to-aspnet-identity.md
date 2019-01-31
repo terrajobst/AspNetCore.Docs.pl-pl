@@ -4,34 +4,31 @@ title: Wprowadzenie do produktu ASP.NET Identity | Dokumentacja firmy Microsoft
 author: jongalloway
 description: Systemu członkostwa programu ASP.NET została wprowadzona w systemach kopii programu ASP.NET 2.0 w wersji 2005 i od czasu, a następnie typicall aplikacji sieci web sposoby miały miejsce wiele zmian...
 ms.author: riande
-ms.date: 10/17/2013
+ms.date: 01/22/2019
 ms.assetid: 38717fc1-5989-43cf-952d-4007cc1dd923
 msc.legacyurl: /identity/overview/getting-started/introduction-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 1938de2b57c8fafa7ea8a656c0a42d2d3f1a6c81
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 4a545e52d2d9ea04a10c37c116fd326c60de9f8f
+ms.sourcegitcommit: c47d7c131eebbcd8811e31edda210d64cf4b9d6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48577876"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55236448"
 ---
-<a name="introduction-to-aspnet-identity"></a>Wprowadzenie do produktu ASP.NET Identity
+<a name="introduction-to-aspnet-identity"></a>Wprowadzenie do systemu ASP.NET Identity
 ====================
-przez [Galloway'em Jon](https://github.com/jongalloway), [autorem jest Pranav Rastogi](https://github.com/rustd), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra)
 
 > Systemu członkostwa programu ASP.NET została wprowadzona w systemach kopii programu ASP.NET 2.0 w wersji 2005 i od czasu, a następnie w sposób, w aplikacji sieci web zazwyczaj obsługiwać uwierzytelnianie i autoryzacja było wiele zmian. ASP.NET Identity jest nowy wygląd, na jakie systemu członkostwa powinny być podczas kompilowania nowoczesnych aplikacji dla sieci web, telefonu lub tabletu.
-> 
-> W tym artykule został napisany przez autorem jest Pranav Rastogi ([@rustd](https://twitter.com/rustd)), Jan Galloway'em ([@jongalloway](https://twitter.com/jongalloway)), Tom Dykstra i Rick Anderson ([ @RickAndMSFT ](https://twitter.com/#!/RickAndMSFT) ).
 
 
 ## <a name="background-membership-in-aspnet"></a>Tło: Członkostwo w programie ASP.NET:
 
-### <a name="aspnet-membership"></a>Członkostwo ASP.NET
+### <a name="aspnet-membership"></a>Członkostwo platformy ASP.NET
 
 [Członkostwo ASP.NET](https://msdn.microsoft.com/library/yh26yfzy(v=VS.100).aspx) zaprojektowano tak, aby rozwiązać wymagania dotyczące członkostwa w lokacji, które są wspólne w 2005 uwierzytelniania formularzy i bazy danych programu SQL Server dla nazwy użytkownika, hasła i dane profilu. Obecnie istnieje znacznie szerszy tablicą opcji przechowywania danych dla aplikacji sieci web i większość deweloperów chcesz włączyć w swoich witrynach dostawców tożsamości społecznościowych na użytek funkcji uwierzytelniania i autoryzacji. Ograniczenia dotyczące projektowania członkostwa ASP.NET utrudniają to przejście:
 
 - Schemat bazy danych została zaprojektowana dla programu SQL Server i nie można go zmienić. Można dodać informacji o profilu, ale dodatkowe dane są pakowane w innej tabeli, co utrudnia na dostęp za pomocą jakichkolwiek środków, z wyjątkiem za pośrednictwem interfejsu API dostawcy profilu.
-- System dostawcy umożliwia zmianę zapasowy magazyn danych, ale system zaprojektowany pod kątem założeń, które są odpowiednie w przypadku relacyjnej bazy danych. Można napisać dostawcy do przechowywania informacji o członkostwie w mechanizm magazynu nierelacyjnych, takich jak tabele magazynu platformy Azure, ale następnie trzeba obejść projektowania relacyjnych, pisząc duże ilości kodu i wiele `System.NotImplementedException` wyjątków dla metod, które nie mają zastosowanie do baz danych NoSQL.
+- System dostawcy umożliwia zmianę zapasowy magazyn danych, ale system zaprojektowany pod kątem założeń, które są odpowiednie w przypadku relacyjnej bazy danych. Można napisać dostawcy do przechowywania informacji o członkostwie w mechanizm magazynu nierelacyjnych, takich jak tabele magazynu platformy Azure, ale następnie trzeba obejść projektowania relacyjnych, pisząc większej ilości kodu i wiele `System.NotImplementedException` wyjątków dla metod, które nie mają zastosowanie do baz danych NoSQL.
 - Ponieważ funkcje w/log Wyloguj opiera się na uwierzytelnianie formularzy, nie można użyć systemu członkostwa [OWIN](../../../aspnet/overview/owin-and-katana/an-overview-of-project-katana.md). OWIN obejmuje składniki oprogramowania pośredniczącego uwierzytelniania, takie jak Obsługa dziennika dodatków przy użyciu dostawców tożsamości zewnętrznych (takich jak Accounts firmy Microsoft, Facebook, Google i Twitter) i dziennika dodatków przy użyciu konta organizacji z usługi Active Directory lokalnych lub Usługa Azure Active Directory. OWIN obejmuje również obsługę protokołu OAuth 2.0 JWT i mechanizmu CORS.
 
 ### <a name="aspnet-simple-membership"></a>Członkostwo ASP.NET prosty
@@ -48,13 +45,13 @@ Członkostwa prostego ułatwiają dostosowywanie informacji o profilu użytkowni
 
 [Dostawców uniwersalnych ASP.NET](http://www.hanselman.com/blog/IntroducingSystemWebProvidersASPNETUniversalProvidersForSessionMembershipRolesAndUserProfileOnSQLCompactAndSQLAzure.aspx) zostały zaprojektowane, aby umożliwić utrwalanie informacji o członkostwie w systemie Microsoft Azure SQL Database i mogą również działać przy użyciu programu SQL Server Compact. Dostawców uniwersalnych zostały zbudowane Entity Framework Code First, co oznacza, że dostawców uniwersalnych może służyć do utrwalenia danych w magazynie, wszystkie objęte EF. Za pomocą dostawców uniwersalnych schemat bazy danych został oczyszczony z bardzo dużo także.
 
-Dostawców uniwersalnych są tworzone w infrastrukturze członkostwa ASP.NET, więc one nadal wykonać te same ograniczenia jako dostawca SqlMembership. Oznacza to, że zostały zaprojektowane dla relacyjnych baz danych i trudno Dostosuj informacje o profilu i użytkownika. Ci dostawcy nadal można używać uwierzytelniania formularzy dla funkcji logowania i Wyloguj.
+Dostawców uniwersalnych są tworzone w infrastrukturze członkostwa ASP.NET, więc one nadal wykonać te same ograniczenia jako dostawca SqlMembership. Oznacza to, że zostały zaprojektowane dla relacyjnych baz danych i trudno Dostosuj informacje o profilu i użytkownika. Ci dostawcy nadal można używać uwierzytelniania formularzy dla funkcji logowania i wylogowywania.
 
 ## <a name="aspnet-identity"></a>ASP.NET Identity
 
 Jako członkostwa wątku na platformie ASP.NET powstał w ciągu lat zespół programu ASP.NET ma umożliwił zdobycie z opinii klientów.
 
-Przy założeniu, że użytkownicy będą logować się, wprowadzając nazwę użytkownika i hasło, które zarejestrowanych w swojej aplikacji nie jest już prawidłowy. Stała się bardziej społecznościowych sieci web. Użytkownicy wchodzą w interakcje ze sobą w czasie rzeczywistym za pośrednictwem kanałów społecznościowych, takich jak Facebook, Twitter i innych społecznościowych witryn sieci web. Deweloperzy chcesz, aby użytkownicy mogli zalogować się przy użyciu ich tożsamości społecznościowych, dzięki czemu mają bogate doświadczenie w swoich witrynach sieci web. System członkostwa nowoczesnych należy włączyć na podstawie przekierowania dziennika dodatki plug-in do dostawców uwierzytelniania, takich jak Facebook, Twitter i innych.
+Przy założeniu, że użytkownicy będą logować, wprowadzając nazwę użytkownika i hasło, które zarejestrowanych w swojej aplikacji nie jest już prawidłowy. Stała się bardziej społecznościowych sieci web. Użytkownicy wchodzą w interakcje ze sobą w czasie rzeczywistym za pośrednictwem kanałów społecznościowych, takich jak Facebook, Twitter i innych społecznościowych witryn sieci web. Deweloperzy mają użytkownicy mogą zalogować się przy użyciu ich tożsamości społecznościowych, dzięki czemu mają bogate doświadczenie w swoich witrynach sieci web. System członkostwa nowoczesnych należy włączyć na podstawie przekierowania dziennika dodatki plug-in do dostawców uwierzytelniania, takich jak Facebook, Twitter i innych.
 
 Jak ewoluował programowania dla sieci web, tak samo wzorce programowania dla sieci web. Jednostki testowania kodu aplikacji stały się podstawowe znaczenie dla deweloperów aplikacji. W 2008 ASP.NET dodaje nowej struktury, na podstawie wzorca Model-View-Controller (MVC), w części, aby pomóc deweloperom w tworzeniu jednostki sprawdzalnego działa zgodnie aplikacji ASP.NET. Deweloperzy, którzy chcieli jednostki testowania ich logiki aplikacji, które również chce, aby można było to zrobić za pomocą systemu członkostwa.
 
@@ -85,21 +82,19 @@ Biorąc pod uwagę te zmiany podczas tworzenia aplikacji sieci web ASP.NET Ident
 - **Dostawców społecznościowych logowania**
 
     - Możesz łatwo dodać społecznościowych dodatków dziennika, takich jak Account Microsoft, Facebook, Twitter, Google i innych użytkowników do aplikacji i przechowywać dane specyficzne dla użytkownika w aplikacji.
-- **Azure Active Directory**
 
-    - Można również dodać funkcję z logowania za pomocą usługi Azure Active Directory i przechowywać dane specyficzne dla użytkownika w aplikacji. Aby uzyskać więcej informacji, zobacz [kont organizacyjnych](../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#orgauth) w tworzeniu projektów sieci Web platformy ASP.NET w programie Visual Studio 2013
 - **Integracja z OWIN**
 
     - Uwierzytelnianie ASP.NET teraz opiera się na oprogramowania pośredniczącego OWIN, które mogą być używane na dowolnego hosta, na podstawie OWIN. ASP.NET Identity nie ma żadnych zależności na System.Web. Jest w pełni zgodne framework OWIN i mogą być używane w dowolnej aplikacji OWIN hostowanej.
     - ASP.NET Identity korzysta z uwierzytelniania OWIN w/log Wyloguj użytkowników w witrynie sieci web. Oznacza to, że zamiast korzystać z uwierzytelniania formularzy, aby wygenerować plik cookie, aplikacja używa OWIN CookieAuthentication w tym.
 - **Pakiet NuGet**
 
-    - ASP.NET Identity jest dystrybuowany jako pakiet NuGet, który jest zainstalowany w szablonach platformy ASP.NET MVC i formularzy sieci Web interfejsu API sieci Web, które są dostarczane z programem Visual Studio 2013. Ten pakiet NuGet można pobrać z galerii pakietów NuGet.
+    - ASP.NET Identity jest dystrybuowany jako pakiet NuGet, który jest zainstalowany w szablonach platformy ASP.NET MVC i formularzy sieci Web interfejsu API sieci Web, które są dostarczane z programem Visual Studio 2017. Ten pakiet NuGet można pobrać z galerii pakietów NuGet.
     - Zwalnianie produktu ASP.NET Identity jako NuGet pakietu ułatwia zespół programu ASP.NET do iteracji na nowe funkcje i poprawki błędów i dostarczaj je deweloperom zwinne.
 
-## <a name="getting-started-with-aspnet-identity"></a>Wprowadzenie do produktu ASP.NET Identity
+## <a name="get-started-with-aspnet-identity"></a>Wprowadzenie do produktu ASP.NET Identity
 
-ASP.NET Identity jest używany w szablonach projektu programu Visual Studio 2013 dla platformy ASP.NET MVC i formularzy sieci Web, internetowy interfejs API SPA. W ramach tego przewodnika firma Microsoft pokazują, jak szablony projektów umożliwiają produktu ASP.NET Identity dodawania funkcjonalności do rejestracji, zaloguj się i wylogowania użytkownika.
+ASP.NET Identity jest używany w szablonach projektu programu Visual Studio 2017 dla platformy ASP.NET MVC i formularzy sieci Web, internetowy interfejs API SPA. W ramach tego przewodnika firma Microsoft będzie pokazują, jak szablony projektów umożliwiają produktu ASP.NET Identity dodają funkcje do rejestracji, zaloguj się i wylogować użytkownika.
 
 ASP.NET Identity jest implementowany przy użyciu poniższej procedury. Celem tego artykułu jest zapewnienie wysokiego poziomu omówienie produktu ASP.NET Identity; można wykonać krok po kroku lub tylko odczytać szczegóły. Aby uzyskać bardziej szczegółowe instrukcje na temat tworzenia aplikacji za pomocą tożsamości ASP.NET, w tym za pomocą nowego interfejsu API, aby dodać użytkowników, role i informacje o profilu Zobacz sekcji Następne kroki na końcu tego artykułu.
 
@@ -113,29 +108,25 @@ ASP.NET Identity jest implementowany przy użyciu poniższej procedury. Celem te
     - [`Microsoft.AspNet.Identity.Core`](http://www.nuget.org/packages/Microsoft.AspNet.Identity.Core/)  
    Ten pakiet zawiera interfejsy podstawowe dla produktu ASP.NET Identity. Ten pakiet można napisać implementację dla produktu ASP.NET Identity, że elementy docelowe różnych stanów trwałych magazyny, takie jak Azure Table Storage, NoSQL baz danych itp.
     - [`Microsoft.AspNet.Identity.OWIN`](http://www.nuget.org/packages/Microsoft.AspNet.Identity.Owin/)  
-   Ten pakiet zawiera funkcje, które służy do dodatku w aplikacjach ASP.NET uwierzytelniania OWIN w produkcie ASP.NET Identity. To jest używana podczas dodawania dziennika funkcji do aplikacji i wywołać oprogramowanie pośredniczące uwierzytelniania plików Cookie OWIN do generowania pliku cookie.
+   Ten pakiet zawiera funkcje, które służy do dodatku w aplikacjach ASP.NET uwierzytelniania OWIN w produkcie ASP.NET Identity. To jest używana podczas dodawania logowania funkcji do aplikacji i wywołać oprogramowanie pośredniczące uwierzytelniania plików Cookie OWIN do generowania pliku cookie.
 3. Tworzenie użytkownika.  
    Uruchom aplikację, a następnie kliknij polecenie **zarejestrować** link, aby utworzyć użytkownika. Na poniższej ilustracji przedstawiono na stronie rejestru, który gromadzi informacje o nazwę użytkownika i hasło.  
   
     ![](introduction-to-aspnet-identity/_static/image2.png)  
   
-   Kiedy użytkownik kliknie **zarejestrować** przycisku `Register` akcji kontrolera konto tworzy użytkownika, wywołując Identity interfejsu API ASP.NET, jak wyróżniono poniżej:
+   Gdy użytkownik wybierze **zarejestrować** przycisku `Register` akcji kontrolera konto tworzy użytkownika, wywołując Identity interfejsu API ASP.NET, jak wyróżniono poniżej:
 
     [!code-csharp[Main](introduction-to-aspnet-identity/samples/sample1.cs?highlight=8-9)]
-4. Zaloguj się.  
+4. Rejestrowanie.  
    Jeśli użytkownik został pomyślnie utworzony, użytkownik jest zalogowany za `SignInAsync` metody.  
 
-    [!code-csharp[Main](introduction-to-aspnet-identity/samples/sample2.cs?highlight=12)]
+    [!code-csharp[Main](introduction-to-aspnet-identity/samples/sample6.cs?highlight=12)]
 
-    [!code-csharp[Main](introduction-to-aspnet-identity/samples/sample3.cs?highlight=5-6)]
 
-   Wyróżniony kod powyżej `SignInAsync` metoda generuje [ClaimsIdentity](https://msdn.microsoft.com/library/system.security.claims.claimsidentity.aspx). Ponieważ produktu ASP.NET Identity i uwierzytelniania plików Cookie OWIN systemu opartego na oświadczeniach, struktura wymaga aplikację, aby wygenerować ClaimsIdentity dla użytkownika. Tożsamość ClaimsIdentity zawierają informacje dotyczące wszystkich oświadczeń użytkownika, takich jak role, jakie należy użytkownik. Można również dodać więcej oświadczenia dla użytkownika na tym etapie.  
-  
-   Wyróżniony kod poniżej `SignInAsync` metoda loguje użytkownika za pomocą słowniku z OWIN i wywoływania `SignIn` i przekazując ClaimsIdentity.  
-
-    [!code-csharp[Main](introduction-to-aspnet-identity/samples/sample4.cs?highlight=8-11)]
+   `SignInManager.SignInAsync` Metoda generuje [ClaimsIdentity](https://msdn.microsoft.com/library/system.security.claims.claimsidentity.aspx). Ponieważ produktu ASP.NET Identity i uwierzytelniania plików Cookie OWIN systemu opartego na oświadczeniach, struktura wymaga aplikację, aby wygenerować ClaimsIdentity dla użytkownika. Tożsamość ClaimsIdentity zawierają informacje dotyczące wszystkich oświadczeń użytkownika, takich jak role, jakie należy użytkownik.   
+ 
 5. Wyloguj się.  
-   Klikając **wylogować** linku wywołuje operację wylogowania w kontrolerze konta. 
+   Wybierz **wylogować** łącza do wywoływania akcji wylogowania w kontrolerze konta. 
 
     [!code-csharp[Main](introduction-to-aspnet-identity/samples/sample5.cs?highlight=6)]
 
@@ -143,7 +134,7 @@ ASP.NET Identity jest implementowany przy użyciu poniższej procedury. Celem te
 
 ## <a name="components-of-aspnet-identity"></a>Składniki produktu ASP.NET Identity
 
-Na poniższym diagramie przedstawiono składniki systemu produktu ASP.NET Identity (kliknij [to](introduction-to-aspnet-identity/_static/image3.png) lub na diagramie Aby powiększyć ją). Pakiety w kolorze zielonym tworzą system tożsamości ASP.NET. Inne pakiety są zależności, które są potrzebne do korzystania z systemu tożsamości ASP.NET w aplikacji ASP.NET.
+Na poniższym diagramie przedstawiono składniki systemu produktu ASP.NET Identity (wybierz [to](introduction-to-aspnet-identity/_static/image3.png) lub na diagramie Aby powiększyć ją). Pakiety w kolorze zielonym tworzą system tożsamości ASP.NET. Inne pakiety są zależności, które są potrzebne do korzystania z systemu tożsamości ASP.NET w aplikacji ASP.NET.
 
 [![](introduction-to-aspnet-identity/_static/image5.png)](introduction-to-aspnet-identity/_static/image4.png)
 
@@ -164,9 +155,5 @@ Mamy nadzieję, że wkrótce zapewnić wskazówki dotyczące migrowania istniej�
  Interfejs API platformy ASP.NET Identity jest samouczku można dodać informacji o profilu do bazy danych użytkowników i sposób uwierzytelniania za pomocą serwis Google czy Facebook.
 - [Tworzenie aplikacji ASP.NET MVC z uwierzytelnianiem i bazą danych SQL i wdrażanie w usłudze Azure App Service](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data)  
  W tym samouczku pokazano, jak dodać użytkowników i ról za pomocą interfejsu API tożsamości.
-- [Indywidualne konta użytkowników](../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#indauth) podczas tworzenia projektów sieci Web platformy ASP.NET, w programie Visual Studio 2013
-- [Konta organizacyjne](../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#orgauth) podczas tworzenia projektów sieci Web platformy ASP.NET, w programie Visual Studio 2013
-- [Dostosowywanie informacje o profilu w produkcie ASP.NET Identity w szablonach VS 2013](https://blogs.msdn.com/b/webdev/archive/2013/10/16/customizing-profile-information-in-asp-net-identity-in-vs-2013-templates.aspx)
-- [Więcej informacji można uzyskać od dostawców sieci społecznościowych, używane w szablonach projektu programu VS 2013](https://blogs.msdn.com/b/webdev/archive/2013/10/16/get-more-information-from-social-providers-used-in-the-vs-2013-project-templates.aspx)
 - [https://github.com/rustd/AspnetIdentitySample](https://github.com/rustd/AspnetIdentitySample)  
  Przykładowa aplikacja pokazuje, jak dodać podstawowe role i pomoc dla użytkowników i jak to zrobić, ról i zarządzanie użytkownikami.

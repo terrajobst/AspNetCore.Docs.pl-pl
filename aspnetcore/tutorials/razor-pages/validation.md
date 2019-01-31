@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/5/2018
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: 87171beb7c214b1370d4d4144a79cb6d2c56098f
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 99b1073fe025ee8693d9fe833402d245f78a603d
+ms.sourcegitcommit: e7276930515216338a33c4a03c0d7a87fc718ffe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862372"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55293510"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>Dodawanie walidacji do strony ASP.NET Core Razor
 
@@ -140,9 +140,9 @@ Poniższy kod pokazuje atrybuty łączenie w jednym wierszu:
 
 ### <a name="publish-to-azure"></a>Publikowanie na platformie Azure
 
-Aby uzyskać informacje na temat wdrażania na platformie Azure, zobacz [samouczek: tworzenie aplikacji ASP.NET na platformie Azure przy użyciu bazy danych SQL](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase). Te instrukcje są przeznaczone dla aplikacji platformy ASP.NET, nie aplikacji ASP.NET Core, ale kroki są takie same.
+Aby uzyskać informacje na temat wdrażania na platformie Azure, zobacz [samouczka: Tworzenie aplikacji ASP.NET na platformie Azure przy użyciu bazy danych SQL](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase). Te instrukcje są przeznaczone dla aplikacji platformy ASP.NET, nie aplikacji ASP.NET Core, ale kroki są takie same.
 
-Dziękujemy za wypełnienie tego wprowadzenia do stron Razor. Dziękujemy za opinię. [Rozpoczynanie pracy ze stronami Razor i programem EF Core](xref:data/ef-rp/intro) jest doskonałym uzupełnianie w tym samouczku.
+Dziękujemy za wypełnienie tego wprowadzenia do stron Razor. [Rozpoczynanie pracy ze stronami Razor i programem EF Core](xref:data/ef-rp/intro) jest doskonałym uzupełnianie w tym samouczku.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
@@ -152,4 +152,4 @@ Dziękujemy za wypełnienie tego wprowadzenia do stron Razor. Dziękujemy za opi
 * <xref:mvc/views/tag-helpers/authoring>
 
 > [!div class="step-by-step"]
-> [Poprzedni: Dodanie nowego pola](xref:tutorials/razor-pages/new-field)
+> [Poprzednie: Dodawanie nowego pola](xref:tutorials/razor-pages/new-field)

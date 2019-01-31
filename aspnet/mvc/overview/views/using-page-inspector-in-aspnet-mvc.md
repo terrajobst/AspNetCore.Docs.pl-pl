@@ -8,14 +8,14 @@ ms.date: 08/15/2012
 ms.assetid: c7e4e1ab-4932-4614-9f53-aaf7c706d498
 msc.legacyurl: /mvc/overview/views/using-page-inspector-in-aspnet-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: c465b0bac9af90a892d6e62a327ba36977d08d4a
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 0dea8b077878139a3f513cb51447b86a93fe55b8
+ms.sourcegitcommit: c47d7c131eebbcd8811e31edda210d64cf4b9d6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41757187"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55236539"
 ---
-<a name="using-page-inspector-in-aspnet-mvc"></a>Za pomocą narzędzia Page Inspector we wzorcu ASP.NET MVC
+<a name="using-page-inspector-in-aspnet-mvc"></a>Korzystanie z narzędzia Page Inspector we wzorcu ASP.NET MVC
 ====================
 przez Tim Ammann
 
@@ -81,7 +81,7 @@ W **Eksploratora rozwiązań**, rozwiń węzeł **widoków** folder i następnie
 
 ![Wyświetl Index.cshtml w narzędzia Page Inspector](using-page-inspector-in-aspnet-mvc/_static/image8.png)
 
-Domyślnie narzędzie Page Inspector jest zadokowany jako okno po lewej stronie w środowisku Visual Studio. Jeśli wolisz, możesz go zadokować w innym miejscu lub oddokować okno. Zobacz [porady: Aranżowanie i dokowanie Windows](https://msdn.microsoft.com/library/z4y0hsax.aspx).
+Domyślnie narzędzie Page Inspector jest zadokowany jako okno po lewej stronie w środowisku Visual Studio. Jeśli wolisz, możesz go zadokować w innym miejscu lub oddokować okno. Zobacz [jak: Aranżowanie i dokowanie Windows](https://msdn.microsoft.com/library/z4y0hsax.aspx).
 
 Górne okienko okna narzędzia Page Inspector pokazuje bieżącej strony w oknie przeglądarki. Dolne okienko wyświetla stronę w kod znaczników HTML, wraz z niektórych kart, które pozwalają przeprowadzać inspekcje różne aspekty strony. Dolne okienko jest podobny do [narzędzi deweloperskich F12](https://msdn.microsoft.com/ie/aa740478) w programie Internet Explorer.
 
@@ -161,7 +161,7 @@ W oknie przeglądarki, narzędzie Page Inspector, umieść kursor myszy na sekcj
 
 ![Kursor div.content otoki](using-page-inspector-in-aspnet-mvc/_static/image26.png)
 
-Kliknij wewnątrz sekcji otoki div.content jeden raz, a następnie przesuń wskaźnik myszy na **style** okna. **— Style** okno pokazuje wszystkie reguły CSS dla tego elementu. Przewiń w dół do selektora klasy Znajdź .featured .content otoki. Teraz usuń zaznaczenie pola wyboru dla właściwości kolor tła.
+Kliknij wewnątrz sekcji otoki div.content jeden raz, a następnie przesuń wskaźnik myszy na **style** okna. **Style** okno pokazuje wszystkie reguły CSS dla tego elementu. Przewiń w dół do selektora klasy Znajdź .featured .content otoki. Teraz usuń zaznaczenie pola wyboru dla właściwości kolor tła.
 
 ![Kolor tła wyczyść](using-page-inspector-in-aspnet-mvc/_static/image28.png)
 
@@ -186,7 +186,7 @@ Kliknij przycisk **Sprawdź** umieścić narzędzie Page Inspector w trybie insp
 
 W przeglądarce narzędzia Page Inspector, umieść kursor myszy na sekcję "Home Page" do momentu **div.content otoki** etykieta jest wyświetlana. Kliknij raz, aby wybrać ten element.
 
-**— Style** okno pokazuje wszystkie reguły CSS dla tego elementu. Przewiń w dół do selektora klasy Znajdź .featured .content otoki. Kliknij pozycję "opakowanie .content .featured". Narzędzie Page Inspector otwiera się w pliku CSS, która definiuje ten styl (Site.css) i zaznacza odpowiednie style CSS.
+**Style** okno pokazuje wszystkie reguły CSS dla tego elementu. Przewiń w dół do selektora klasy Znajdź .featured .content otoki. Kliknij pozycję "opakowanie .content .featured". Narzędzie Page Inspector otwiera się w pliku CSS, która definiuje ten styl (Site.css) i zaznacza odpowiednie style CSS.
 
 ![](using-page-inspector-in-aspnet-mvc/_static/image32.png)
 

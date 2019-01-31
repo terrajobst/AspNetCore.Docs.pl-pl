@@ -1,26 +1,26 @@
 ---
 uid: mvc/overview/getting-started/database-first-development/setting-up-database
 title: 'Samouczek: Rozpoczynanie pracy z wykorzystaniem MVC 5 EF Database First'
-description: W tym artykule pokazano, jak rozpocząć od istniejącej bazy danych i szybkie tworzenie aplikacji sieci web, która umożliwia użytkownikom na interakcję z danymi.
+description: W tym samouczku pokazano, jak rozpocząć od istniejącej bazy danych i szybkie tworzenie aplikacji sieci web, która umożliwia użytkownikom na interakcję z danymi.
 author: Rick-Anderson
 ms.author: riande
-ms.date: 01/23/2019
+ms.date: 01/28/2019
 ms.topic: tutorial
 ms.assetid: 095abad4-3bfe-4f06-b092-ae6a735b7e49
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/setting-up-database
 msc.type: authoredcontent
-ms.openlocfilehash: 8b094b7c334eaad510c46b55a99ec727b9c381c2
-ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
+ms.openlocfilehash: a503e3db63c873249178fd4783d322f4067c3208
+ms.sourcegitcommit: c47d7c131eebbcd8811e31edda210d64cf4b9d6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54889928"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55236383"
 ---
 # <a name="tutorial-get-started-with-ef-database-first-using-mvc-5"></a>Samouczek: Rozpoczynanie pracy z wykorzystaniem MVC 5 EF Database First
 
 Za pomocą MVC, platformy Entity Framework i funkcja tworzenia szkieletu ASP.NET, można utworzyć aplikację internetową, która zapewnia interfejs do istniejącej bazy danych. W tej serii samouczków pokazano, jak automatycznie wygenerować kod, który pozwala użytkownikom na wyświetlanie, edytowanie, tworzenie i usuwanie danych, która znajduje się w tabeli bazy danych. Wygenerowany kod odnosi się do kolumn w tabeli bazy danych. W ostatniej części serii zostanie wdrożona lokacji i bazy danych na platformie Azure.
 
-W tym artykule pokazano, jak rozpocząć od istniejącej bazy danych i szybkie tworzenie aplikacji sieci web, która umożliwia użytkownikom na interakcję z danymi. Aby utworzyć aplikację sieci web używa platformy Entity Framework 6 i MVC 5. Funkcja tworzenia szkieletu ASP.NET umożliwia automatyczne generowanie kodu na wyświetlanie, aktualizowanie, tworzenie i usuwanie danych. Za pomocą narzędzia publikowania w programie Visual Studio, można łatwo wdrożysz lokacji i bazy danych na platformie Azure.
+W tym samouczku pokazano, jak rozpocząć od istniejącej bazy danych i szybkie tworzenie aplikacji sieci web, która umożliwia użytkownikom na interakcję z danymi. Aby utworzyć aplikację sieci web używa platformy Entity Framework 6 i MVC 5. Funkcja tworzenia szkieletu ASP.NET umożliwia automatyczne generowanie kodu na wyświetlanie, aktualizowanie, tworzenie i usuwanie danych. Za pomocą narzędzia publikowania w programie Visual Studio, można łatwo wdrożysz lokacji i bazy danych na platformie Azure.
 
 Ta część serii koncentruje się na utworzenie bazy danych i zapełnianie danymi.
 
@@ -37,7 +37,7 @@ W ramach tego samouczka możesz:
 
 ## <a name="introduction"></a>Wprowadzenie
 
-Ten artykuł dotyczy sytuacji, w którym masz bazę danych i chcesz wygenerować kod dla aplikacji sieci web na podstawie pól tej bazy danych. To podejście jest nazywane tworzenie pierwszej bazy danych. Jeśli nie masz już istniejącą bazę danych, możesz zamiast tego użyć podejścia o nazwie rozwiązania deweloperskiego Code First, który obejmuje Definiowanie klas danych i generowanie bazy danych przy użyciu właściwości klasy.
+Ten samouczek dotyczy sytuacji, w którym masz bazę danych i chcesz wygenerować kod dla aplikacji sieci web na podstawie pól tej bazy danych. To podejście jest nazywane tworzenie pierwszej bazy danych. Jeśli nie masz już istniejącą bazę danych, możesz zamiast tego użyć podejścia o nazwie rozwiązania deweloperskiego Code First, który obejmuje Definiowanie klas danych i generowanie bazy danych przy użyciu właściwości klasy.
 
 ## <a name="set-up-the-database"></a>Konfigurowanie bazy danych
 
@@ -102,6 +102,6 @@ W ramach tego samouczka możesz:
 > [!div class="checklist"]
 > * Konfigurowanie bazy danych
 
-Przejdź do następnego artykułu, aby dowiedzieć się, jak tworzenie modeli danych i aplikacji sieci web.
+Przejdź do następnego samouczka, aby dowiedzieć się, jak tworzenie modeli danych i aplikacji sieci web.
 > [!div class="nextstepaction"]
 > [Tworzenie modeli danych i aplikacji sieci web](creating-the-web-application.md)
