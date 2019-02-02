@@ -1,0 +1,1 @@
+<span data-ttu-id="bf2ad-101">Wprowadzenie bardziej zaawansowanych, zmierzające do doświadczonych deweloperów — zobacz [wprowadzenie do stron Razor](xref:razor-pages/index).</span><span class="sxs-lookup"><span data-stu-id="bf2ad-101">For a more advanced introduction aimed at experienced developers, see [Introduction to Razor Pages](xref:razor-pages/index).</span></span>
