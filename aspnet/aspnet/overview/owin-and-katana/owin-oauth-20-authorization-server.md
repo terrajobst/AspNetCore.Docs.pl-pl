@@ -4,20 +4,18 @@ title: Serwer autoryzacji OAuth 2.0 OWIN | Dokumentacja firmy Microsoft
 author: hongyes
 description: Ten samouczek przeprowadzi Cię o tym, jak wdrożyć serwer autoryzacji OAuth 2.0 przy użyciu oprogramowania pośredniczącego uwierzytelniania OWIN OAuth. To jest to zaawansowane samouczek z tej tylko outlin...
 ms.author: riande
-ms.date: 03/20/2014
+ms.date: 01/28/2019
 ms.assetid: 20acee16-c70c-41e9-b38f-92bfcf9a4c1c
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-oauth-20-authorization-server
 msc.type: authoredcontent
-ms.openlocfilehash: 095dad49a8e9f963d941a84398afe9da0f46ce0b
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: b8451d2d9e346bd5e2f51ba45e48030a5221b549
+ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912270"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55667651"
 ---
-<a name="owin-oauth-20-authorization-server"></a>Serwer autoryzacji OAuth 2.0 OWIN
-====================
-przez [Hongye Sun](https://github.com/hongyes), [projektu Praburaj](https://github.com/Praburaj), [Rick Anderson]((https://twitter.com/RickAndMSFT))
+# <a name="owin-oauth-20-authorization-server"></a>Serwer autoryzacji OAuth 2.0 interfejsu OWIN
 
 > Ten samouczek przeprowadzi Cię o tym, jak wdrożyć serwer autoryzacji OAuth 2.0 przy użyciu oprogramowania pośredniczącego uwierzytelniania OWIN OAuth. Jest to zaawansowane samouczek, który przedstawia tylko kroki, aby utworzyć serwer autoryzacji OWIN OAuth 2.0. Nie jest to samouczek krok po kroku. [Pobierz przykładowy kod](https://code.msdn.microsoft.com/OWIN-OAuth-20-Authorization-ba2b8783/file/114932/1/AuthorizationServer.zip).
 >
@@ -29,9 +27,9 @@ przez [Hongye Sun](https://github.com/hongyes), [projektu Praburaj](https://gith
 >
 > | **Pokazane w tym samouczku** | **Współpracuje również z** |
 > | --- | --- |
-> | Windows 8.1 | Windows 8, Windows 7 |
-> | [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013) | [Program Visual Studio 2013 Express for Desktop](https://my.visualstudio.com/Downloads?q=visual%20studio%202013#d-2013-express). Visual Studio 2012 z najnowszymi aktualizacjami powinna działać, ale samouczka nie był testowany z nim, a niektóre opcje menu i okien dialogowych różnią się. |
-> | .NET 4.5 |  |
+> | Windows 8.1 | Windows 10, Windows 8, Windows 7 |
+> | [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+> | .NET 4.7.2 |  |
 >
 > ## <a name="questions-and-comments"></a>Pytania i komentarze
 >
@@ -53,7 +51,7 @@ W tym samouczku omówiono:
 <a id="prerequisites"></a>
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/downloads#d-2013-editions) lub bezpłatnych [Visual Studio Express 2013](https://www.microsoft.com/visualstudio/eng/downloads#d-2013-express), jak wskazano w **wersje oprogramowania** w górnej części strony.
+- [Program Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) wskazane **wersje oprogramowania** w górnej części strony.
 - Znajomość OWIN. Zobacz [wprowadzenie do projektu Katana](https://msdn.microsoft.com/magazine/dn451439.aspx) i [What's new in OWIN i Katana](index.md).
 - Znajomość [OAuth](http://tools.ietf.org/html/rfc6749) terminologii, w tym [role](http://tools.ietf.org/html/rfc6749#section-1.1), [przepływ protokołu](http://tools.ietf.org/html/rfc6749#section-1.2), i [autoryzację](http://tools.ietf.org/html/rfc6749#section-1.3). [Wprowadzenie protokołu OAuth 2.0](http://tools.ietf.org/html/rfc6749#section-1) stanowi dobry wprowadzenie.
 
@@ -79,18 +77,18 @@ Powyższy kod umożliwia logowanie aplikacji/zewnętrzną pliki cookie i uwierzy
 
 `UseOAuthAuthorizationServer` — Metoda rozszerzenia jest konfiguracja serwera autoryzacji. Dostępne są opcje instalacji:
 
-- `AuthorizeEndpointPath`Zgoda ścieżka żądania, w którym aplikacja kliencka przekieruje agenta użytkownika w celu uzyskania użytkowników można wystawić tokenu lub kodu. Musi zaczynać się ukośnika, na przykład "`/Authorize`".
-- `TokenEndpointPath`Ścieżka żądania aplikacji klienckiej komunikują się bezpośrednio do uzyskania tokenu dostępu. Musi zaczynać się ukośnika, np. "/ Token". Jeśli klient wystawił [klienta\_klucz tajny](http://tools.ietf.org/html/rfc6749#appendix-A.2), musi on zostać udostępniony do tego punktu końcowego.
+- `AuthorizeEndpointPath`: Ścieżka żądania, w którym aplikacja kliencka przekieruje agenta użytkownika w celu uzyskania użytkowników zgodę można wystawić tokenu lub kodu. Musi zaczynać się ukośnika, na przykład "`/Authorize`".
+- `TokenEndpointPath`: Ścieżka żądania aplikacji klienckiej komunikują się bezpośrednio do uzyskania tokenu dostępu. Musi zaczynać się ukośnika, np. "/ Token". Jeśli klient wystawił [klienta\_klucz tajny](http://tools.ietf.org/html/rfc6749#appendix-A.2), musi on zostać udostępniony do tego punktu końcowego.
 - `ApplicationCanDisplayErrors`: Ustaw `true` Jeśli aplikacja sieci web chce, aby wygenerować niestandardowej strony błędu dla błędów sprawdzania poprawności klienta na `/Authorize` punktu końcowego. Jest to tylko potrzebne dla przypadków, gdy przeglądarka nie zostanie przekierowana z powrotem do aplikacji klienckiej, na przykład, gdy `client_id` lub `redirect_uri` są nieprawidłowe. `/Authorize` Punktu końcowego powinno pojawić się "oauth. Błąd","protokołu oauth. ErrorDescription"i"protokołu oauth. Właściwości ErrorUri"są dodawane do środowiska OWIN.
 
     > [!NOTE]
     > W przeciwnym razie ma wartość true, serwer autoryzacji zwróci domyślnej strony błędu przy użyciu szczegółów błędu.
-- `AllowInsecureHttp`: Wartość True Aby zezwolić na żądań autoryzacji i tokena pojawić się na adresy HTTP identyfikatora URI i zezwolić na przychodzący `redirect_uri` autoryzować parametry żądania, aby mieć adresy HTTP identyfikatora URI.
+- `AllowInsecureHttp`: Wartość true, aby umożliwić żądań autoryzacji i tokena pojawić się na adresy HTTP identyfikatora URI i zezwolić na przychodzący `redirect_uri` autoryzować parametry żądania, aby mieć adresy HTTP identyfikatora URI.
 
     > [!WARNING]
     > Zabezpieczenia — dotyczy to tylko rozwoju.
 - `Provider`: Obiekt udostępniany przez aplikację do przetwarzania zdarzeń zgłaszanych przez oprogramowanie pośredniczące serwera autoryzacji. Aplikacja może wdrożyć interfejs w całości lub może utworzyć wystąpienie `OAuthAuthorizationServerProvider` i przypisać delegatów niezbędne dla przepływów uwierzytelniania OAuth, ten serwer obsługuje.
-- `AuthorizationCodeProvider`: Tworzy kod autoryzacji jednorazowy, aby powrócić do aplikacji klienckiej. W przypadku serwera OAuth, aby był zabezpieczyć aplikację **musi** udostępniać wystąpienie dla `AuthorizationCodeProvider` gdzie token utworzony przez `OnCreate/OnCreateAsync` zdarzenie jest traktowane jako prawidłowe dla tylko jedno wywołanie `OnReceive/OnReceiveAsync`.
+- `AuthorizationCodeProvider`: Generuje kod autoryzacji jednorazowy, aby powrócić do aplikacji klienckiej. W przypadku serwera OAuth, aby był zabezpieczyć aplikację **musi** udostępniać wystąpienie dla `AuthorizationCodeProvider` gdzie token utworzony przez `OnCreate/OnCreateAsync` zdarzenie jest traktowane jako prawidłowe dla tylko jedno wywołanie `OnReceive/OnReceiveAsync`.
 - `RefreshTokenProvider`: Tworzy token odświeżania, która może być użyta do wyprodukowania nowy token dostępu w razie. Jeśli nie podano serwera autoryzacji nie zwróci tokenów odświeżania z `/Token` punktu końcowego.
 
 ## <a name="account-management"></a>Zarządzanie kontami

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/11/2018
 uid: security/anti-request-forgery
-ms.openlocfilehash: 3c1ea8f41eb6ed847bf24141ef0ae0c7e03d8a79
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: 6e140717834b901e12ef7863fd07b983b0c55107
+ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54099224"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55667664"
 ---
 # <a name="prevent-cross-site-request-forgery-xsrfcsrf-attacks-in-aspnet-core"></a>Ataki zapobiec Cross-Site Request Forgery (XSRF/CSRF) w programie ASP.NET Core
 
@@ -195,7 +195,7 @@ services.AddAntiforgery(options =>
 
 | Opcja | Opis |
 | ------ | ----------- |
-| [Plik cookie](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.cookie) | Określa ustawienia używane do tworzenia antiforgery plików cookie. |
+| [Cookie](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.cookie) | Określa ustawienia używane do tworzenia antiforgery plików cookie. |
 | [FormFieldName](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.formfieldname) | Nazwa pola formularza, używany przez antiforgery system do renderowania antiforgery tokenów w widokach. |
 | [HeaderName](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.headername) | Nazwa nagłówka używany przez antiforgery systemu. Jeśli `null`, system uwzględnia tylko dane formularza. |
 | [SuppressXFrameOptionsHeader](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.suppressxframeoptionsheader) | Określa, czy pominąć Generowanie `X-Frame-Options` nagłówka. Domyślnie nagłówek jest generowany z wartością "SAMEORIGIN". Wartość domyślna to `false`. |
@@ -219,13 +219,13 @@ services.AddAntiforgery(options =>
 
 | Opcja | Opis |
 | ------ | ----------- |
-| [Plik cookie](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.cookie) | Określa ustawienia używane do tworzenia antiforgery plików cookie. |
+| [Cookie](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.cookie) | Określa ustawienia używane do tworzenia antiforgery plików cookie. |
 | [CookieDomain](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.cookiedomain) | Domena pliku cookie. Wartość domyślna to `null`. Ta właściwość jest przestarzała i zostanie usunięta w przyszłej wersji. Zalecaną alternatywą jest Cookie.Domain. |
 | [CookieName](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.cookiename) | Nazwa pliku cookie. Jeśli nie jest ustawiona, system generuje unikatowa nazwa zaczyna się od [DefaultCookiePrefix](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.defaultcookieprefix) (". AspNetCore.Antiforgery."). Ta właściwość jest przestarzała i zostanie usunięta w przyszłej wersji. Zalecaną alternatywą jest Cookie.Name. |
 | [CookiePath](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.cookiepath) | Ścieżka zestawu w pliku cookie. Ta właściwość jest przestarzała i zostanie usunięta w przyszłej wersji. Zalecaną alternatywą jest Cookie.Path. |
 | [FormFieldName](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.formfieldname) | Nazwa pola formularza, używany przez antiforgery system do renderowania antiforgery tokenów w widokach. |
 | [HeaderName](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.headername) | Nazwa nagłówka używany przez antiforgery systemu. Jeśli `null`, system uwzględnia tylko dane formularza. |
-| [Wartość parametru RequireSsl](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.requiressl) | Określa, czy protokół HTTPS jest wymagany przez antiforgery system. Jeśli `true`, Niepowodzenie żądania innego niż HTTPS. Wartość domyślna to `false`. Ta właściwość jest przestarzała i zostanie usunięta w przyszłej wersji. Zalecaną alternatywą jest Cookie.SecurePolicy. |
+| [RequireSsl](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.requiressl) | Określa, czy protokół HTTPS jest wymagany przez antiforgery system. Jeśli `true`, Niepowodzenie żądania innego niż HTTPS. Wartość domyślna to `false`. Ta właściwość jest przestarzała i zostanie usunięta w przyszłej wersji. Zalecaną alternatywą jest Cookie.SecurePolicy. |
 | [SuppressXFrameOptionsHeader](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.suppressxframeoptionsheader) | Określa, czy pominąć Generowanie `X-Frame-Options` nagłówka. Domyślnie nagłówek jest generowany z wartością "SAMEORIGIN". Wartość domyślna to `false`. |
 
 ::: moniker-end
@@ -412,15 +412,40 @@ xhttp.send(JSON.stringify({ "newPassword": "ReallySecurePassword999$$$" }));
 
 ### <a name="angularjs"></a>AngularJS
 
-Moduł AngularJS używa konwencji adres CSRF. Jeśli serwer wysyła plik cookie o nazwie `XSRF-TOKEN`, AngularJS `$http` usługa dodaje wartość pliku cookie do nagłówka, gdy wysyła żądanie do serwera. Ten proces odbywa się automatycznie. Nagłówek nie musi być ustawiony w sposób jawny. Nazwa nagłówka jest `X-XSRF-TOKEN`. Serwer powinna wykryć ten nagłówek i zweryfikować jego zawartość.
+Moduł AngularJS używa konwencji adres CSRF. Jeśli serwer wysyła plik cookie o nazwie `XSRF-TOKEN`, AngularJS `$http` usługa dodaje wartość pliku cookie do nagłówka, gdy wysyła żądanie do serwera. Ten proces odbywa się automatycznie. Nagłówek nie musi jawnie ustawiona w kliencie. Nazwa nagłówka jest `X-XSRF-TOKEN`. Serwer powinna wykryć ten nagłówek i zweryfikować jego zawartość.
 
-Dla interfejsu API platformy ASP.NET Core pracować z niniejszej Konwencji:
+Dla interfejsu API platformy ASP.NET Core pracować z niniejszej Konwencji, w przypadku uruchamiania aplikacji:
 
 * Skonfiguruj aplikację, aby dostarczyć token w pliku cookie o nazwie `XSRF-TOKEN`.
 * Konfigurowanie usługi antiforgery do wyszukania nagłówka o nazwie `X-XSRF-TOKEN`.
 
 ```csharp
-services.AddAntiforgery(options => options.HeaderName = "X-XSRF-TOKEN");
+public void Configure(IApplicationBuilder app, IAntiforgery antiforgery)
+{
+    app.Use(next => context =>
+    {
+        string path = context.Request.Path.Value;
+
+        if (
+            string.Equals(path, "/", StringComparison.OrdinalIgnoreCase) ||
+            string.Equals(path, "/index.html", StringComparison.OrdinalIgnoreCase))
+        {
+            // The request token can be sent as a JavaScript-readable cookie, 
+            // and Angular uses it by default.
+            var tokens = antiforgery.GetAndStoreTokens(context);
+            context.Response.Cookies.Append("XSRF-TOKEN", tokens.RequestToken, 
+                new CookieOptions() { HttpOnly = false });
+        }
+
+        return next(context);
+    });
+}
+
+public void ConfigureServices(IServiceCollection services)
+{
+    // Angular's default header name for sending the XSRF token.
+    services.AddAntiforgery(options => options.HeaderName = "X-XSRF-TOKEN");
+}
 ```
 
 [Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/anti-request-forgery/sample/AngularSample) ([sposobu pobierania](xref:index#how-to-download-a-sample))

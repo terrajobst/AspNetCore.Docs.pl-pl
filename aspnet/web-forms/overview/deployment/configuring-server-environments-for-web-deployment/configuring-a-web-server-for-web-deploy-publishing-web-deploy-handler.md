@@ -4,26 +4,24 @@ title: Konfigurowanie serwera sieci Web dla sieci Web wdrażanie, publikowanie (
 author: jrjlee
 description: W tym temacie opisano sposób konfigurowania serwera sieci web usług Internet Information Services (IIS) do obsługi publikowania w sieci web i wdrażanie przy użyciu Hanowi wdrażania w sieci Web usług IIS...
 ms.author: riande
-ms.date: 05/04/2012
+ms.date: 01/29/2017
 ms.assetid: 90ebf911-1c46-4470-b876-1335bd0f590f
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler
 msc.type: authoredcontent
-ms.openlocfilehash: 13e4fdf77daf26abe837a90db9c11ecbe1957823
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: cf18a8860d34daa23f61e3dde13c2c79c6c0d4a5
+ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41751854"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55667326"
 ---
-<a name="configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler"></a>Konfigurowanie serwera sieci Web dla sieci Web wdrażanie, publikowanie (Web Deploy obsługi)
-====================
-przez [Jason Lee](https://github.com/jrjlee)
+# <a name="configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler"></a>Konfigurowanie serwera internetowego dla usługi publikowania Web Deploy (procedura obsługi narzędzia Web Deploy)
 
 [Pobierz plik PDF](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > W tym temacie opisano sposób konfigurowania serwera sieci web usług Internet Information Services (IIS) do obsługi publikowania w sieci web i wdrażanie przy użyciu obsługi wdrażania w sieci Web usług IIS.
 > 
-> Podczas pracy dzięki narzędziu Web Deploy 2.0 lub nowszej, istnieją trzy główne metody umożliwia pobieranie aplikacji lub witryn na serwerze sieci web. Można:
+> Podczas pracy dzięki narzędziu Web Deploy 2.0 lub nowszej, istnieją trzy główne metody umożliwia pobieranie aplikacji lub witryn na serwerze sieci web. Możesz:
 > 
 > - Użyj *usługa zdalnego agenta narzędzia Web Deploy*. Takie podejście wymaga mniej konfiguracji serwera sieci web, ale musisz podać poświadczenia administratora lokalnego serwera, aby wdrażać żadnych elementów do serwera.
 > - Użyj *obsługi narzędzia Web Deploy*. To podejście jest o wiele bardziej skomplikowane i wymaga więcej nakładu pracy początkowej, aby skonfigurować serwer sieci web. Jednak użycie tej metody, można skonfigurować usługi IIS, aby umożliwić użytkownikom niebędącym administratorami wykonać wdrożenie. Program obsługi wdrażania sieci Web jest dostępna tylko w usługach IIS w wersji 7 lub nowszej.
@@ -55,11 +53,11 @@ Aby skonfigurować serwer sieci web, aby zaakceptować i wdrażanie pakietów in
 Aby specjalnie obsługiwać ContactManager przykładowe rozwiązanie, należy także do:
 
 - Instalowanie programu .NET Framework 4.0.
-- Zainstaluj program ASP.NET MVC 3.
+- Install ASP.NET MVC 3.
 
-W tym temacie pokazują sposób wykonywania każdego z tych procedur. Zadania i wskazówki, w tym temacie założono, że zaczynasz z kompilacją serwera czystego, systemem Windows Server 2008 R2. Przed kontynuowaniem upewnij się, że:
+W tym temacie pokazują sposób wykonywania każdego z tych procedur. Zadania i wskazówki, w tym temacie założono, że zaczynasz z kompilacją serwera czystego, systemem Windows Server 2016. Przed kontynuowaniem upewnij się, że:
 
-- Systemu Windows Server 2008 R2 z dodatkiem Service Pack 1 i wszystkie dostępne aktualizacje są instalowane.
+- Windows Server 2016
 - Serwer jest przyłączony do domeny.
 - Serwer ma statyczny adres IP.
 
@@ -74,14 +72,14 @@ Ta sekcja przeprowadzi Cię przez zainstalowanie wymaganych produktów i składn
 W takim przypadku należy zainstalować te rzeczy:
 
 - **Zalecana konfiguracja usług IIS 7**. Dzięki temu **serwer sieci Web (IIS)** roli na serwerze sieci web i instaluje zestaw moduły usług IIS i składników, które są potrzebne do obsługi aplikacji ASP.NET.
-- **Usługami IIS: Usługa zarządzania**. Spowoduje to zainstalowanie usługi zarządzania siecią Web (WMSvc) w usługach IIS. Ta usługa umożliwia zdalne zarządzanie witryn sieci Web usług IIS i uwidacznia punkt końcowy program obsługi wdrażania w sieci Web dla klientów.
-- **Usług IIS: Uwierzytelnianie podstawowe**. Spowoduje to zainstalowanie modułu uwierzytelnianie podstawowe usług IIS. Dzięki temu usługi zarządzania siecią Web (WMSvc) uwierzytelnienia poświadczeń, których udzielasz.
+- **IIS: Usługa zarządzania**. Spowoduje to zainstalowanie usługi zarządzania siecią Web (WMSvc) w usługach IIS. Ta usługa umożliwia zdalne zarządzanie witryn sieci Web usług IIS i uwidacznia punkt końcowy program obsługi wdrażania w sieci Web dla klientów.
+- **IIS: Uwierzytelnianie podstawowe**. Spowoduje to zainstalowanie modułu uwierzytelnianie podstawowe usług IIS. Dzięki temu usługi zarządzania siecią Web (WMSvc) uwierzytelnienia poświadczeń, których udzielasz.
 - **Sieci Web narzędzia do wdrażania 2.1 lub nowszej**. Spowoduje to zainstalowanie narzędzia Web Deploy (i jego podstawowego pliku wykonywalnego, MSDeploy.exe) na serwerze. W ramach tego procesu instaluje program obsługi wdrażania sieci Web i integruje ją za pomocą usługi zarządzania siecią Web.
-- **.NET framework 4.0**. Jest to wymagane do uruchamiania aplikacji, które zostały utworzone w tej wersji programu .NET Framework.
+- **.NET Framework 4.0**. Jest to wymagane do uruchamiania aplikacji, które zostały utworzone w tej wersji programu .NET Framework.
 - **ASP.NET MVC 3**. Spowoduje to zainstalowanie zestawów, należy uruchomić aplikacji MVC 3.
 
 > [!NOTE]
-> W tym przewodniku opisano użycie Instalatora platformy sieci Web do zainstalowania i skonfigurowania różnych składników. Mimo że nie musisz użyć Instalatora platformy sieci Web, upraszcza proces instalacji przez automatyczne wykrywanie zależności i zapewnienie zawsze uzyskać najnowsze wersje produktów. Aby uzyskać więcej informacji, zobacz [3.0 Instalatora platformy sieci Web firmy Microsoft](https://go.microsoft.com/?linkid=9805118).
+> W tym przewodniku opisano użycie Instalatora platformy sieci Web do zainstalowania i skonfigurowania różnych składników. Mimo że nie musisz użyć Instalatora platformy sieci Web, upraszcza proces instalacji przez automatyczne wykrywanie zależności i zapewnienie zawsze uzyskać najnowsze wersje produktów. Aby uzyskać więcej informacji, zobacz [Instalatora platformy sieci Web firmy Microsoft](https://go.microsoft.com/?linkid=9805118).
 
 
 **Aby zainstalować wymagane produktów i składników**
@@ -91,7 +89,7 @@ W takim przypadku należy zainstalować te rzeczy:
 
     > [!NOTE]
     > Teraz możesz uruchamiać Instalatora platformy sieci Web w dowolnym momencie z **Start** menu. Aby to zrobić, na **Start** menu, kliknij przycisk **wszystkie programy**, a następnie kliknij przycisk **Instalatora platformy sieci Web firmy Microsoft**.
-3. W górnej części **3.0 Instalatora platformy sieci Web** okna, kliknij przycisk **produktów**.
+3. W górnej części **Instalatora platformy sieci Web** okna, kliknij przycisk **produktów**.
 4. W lewej części okna, w okienku nawigacji kliknij **struktur**.
 5. W **Microsoft .NET Framework 4** wiersz, jeśli nie zainstalowano jeszcze programu .NET Framework, kliknij przycisk **Dodaj**.
 
@@ -103,13 +101,13 @@ W takim przypadku należy zainstalować te rzeczy:
 7. W okienku nawigacji kliknij **serwera**.
 8. W **zalecana konfiguracja programu IIS 7** wiersz, kliknij przycisk **Dodaj**.
 9. W **2.1 narzędzia wdrażania Web** wiersz, kliknij przycisk **Dodaj**.
-10. W **usługi IIS: uwierzytelnianie podstawowe** wiersz, kliknij przycisk **Dodaj**.
-11. W **usługi IIS: Usługa zarządzania** wiersz, kliknij przycisk **Dodaj**.
+10. W **usług IIS: Uwierzytelnianie podstawowe** wiersz, kliknij przycisk **Dodaj**.
+11. W **usług IIS: Usługa zarządzania** wiersz, kliknij przycisk **Dodaj**.
 12. Kliknij przycisk **zainstalować**. Instalator platformy sieci Web zostanie wyświetlona lista produktów&#x2014;oraz wszystkie powiązane zależności&#x2014;do zainstalowania i zostanie wyświetlony monit o zaakceptowanie postanowień licencyjnych.
 
     ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image2.png)
 13. Przejrzyj postanowienia licencyjne, a jeśli wyrażasz zgodę na warunki, kliknij przycisk **akceptuję**.
-14. Po zakończeniu instalacji kliknij przycisk **Zakończ**, a następnie Zamknij **3.0 Instalatora platformy sieci Web** okna.
+14. Po zakończeniu instalacji kliknij przycisk **Zakończ**, a następnie Zamknij **Instalatora platformy sieci Web** okna.
 
 Jeśli zainstalowano program .NET Framework 4.0 przed zainstalowaniem usług IIS, należy uruchomić [narzędzie rejestracji usług IIS platformy ASP.NET](https://msdn.microsoft.com/library/k6h9cz8h(v=VS.100).aspx) (aspnet\_regiis.exe) do zarejestrowania najnowszą wersję platformy ASP.NET z programem IIS. Jeśli tego nie zrobisz, można znaleźć usługi IIS będą udostępniać zawartość statyczną (takich jak pliki HTML) bez żadnych problemów, ale zwróci **HTTP 404.0: błąd — nie można odnaleźć** podczas próby przeglądania zawartości platformy ASP.NET. Aby upewnić się, że program ASP.NET 4.0 jest zarejestrowany, można użyć następnej procedury.
 
@@ -145,7 +143,7 @@ Teraz, po zainstalowaniu wszystko, czego potrzebujesz, następnym krokiem jest s
     ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image3.png)
 3. W środkowym okienku w obszarze **IIS**, kliknij dwukrotnie **uwierzytelniania**.
 
-    ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image4.png)
+    ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image20.png)
 4. Kliknij prawym przyciskiem myszy **uwierzytelnianie podstawowe**, a następnie kliknij przycisk **Włącz**.
 
     ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image5.png)
@@ -207,7 +205,7 @@ Mimo że nie ma zatrzymywanie możesz z wdrażania zawartości do domyślnej wit
     ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image11.png)
 
     > [!NOTE]
-    > W środowisku produkcyjnym prawdopodobnie warto hostowanie witryny sieci Web na porcie 80 i konfigurowanie nagłówka hosta, wraz z pasujących rekordów DNS. Aby uzyskać więcej informacji na temat konfigurowania nagłówki hosta w usługach IIS 7, zobacz [Konfigurowanie nagłówka hosta dla witryny sieci Web (IIS 7)](https://technet.microsoft.com/library/cc753195(WS.10).aspx). Aby uzyskać więcej informacji na temat roli serwera DNS w systemie Windows Server 2008 R2, zobacz [Omówienie serwera DNS](https://technet.microsoft.com/en-gb/library/cc770392.aspx) i [serwer DNS](https://technet.microsoft.com/windowsserver/dd448607).
+    > W środowisku produkcyjnym prawdopodobnie warto hostowanie witryny sieci Web na porcie 80 i konfigurowanie nagłówka hosta, wraz z pasujących rekordów DNS. Aby uzyskać więcej informacji na temat konfigurowania nagłówki hosta w usługach IIS 7, zobacz [Konfigurowanie nagłówka hosta dla witryny sieci Web (IIS 7)](https://technet.microsoft.com/library/cc753195(WS.10).aspx). Aby uzyskać więcej informacji na temat roli serwera DNS w systemie Windows Server, zobacz [Omówienie serwera DNS](https://technet.microsoft.com/en-gb/library/cc770392.aspx) i [serwer DNS](https://technet.microsoft.com/windowsserver/dd448607).
 9. W **akcje** okienku w obszarze **edytowanie witryny**, kliknij przycisk **powiązania**.
 10. W **powiązania witryny** okno dialogowe, kliknij przycisk **Dodaj**.
 
@@ -222,9 +220,9 @@ Mimo że nie ma zatrzymywanie możesz z wdrażania zawartości do domyślnej wit
 13. W **powiązania witryny** okno dialogowe, kliknij przycisk **Zamknij**.
 14. W **połączeń** okienku kliknij **pul aplikacji**.
 15. W **pul aplikacji** , kliknij prawym przyciskiem myszy nazwę puli aplikacji, a potem kliknij **podstawowych ustawień**. Domyślnie nazwa puli aplikacji będą odpowiadać nazwie witryny sieci Web (na przykład **DemoSite**).
-16. W **.NET Framework w wersji** listy wybierz **4.0.30319 .NET Framework**, a następnie kliknij przycisk **OK**.
+16. W **wersja środowiska .NET CLR** listy wybierz **4.0.30319 .NET CLR**, a następnie kliknij przycisk **OK**.
 
-    ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image14.png)
+    ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image21.png)
 
     > [!NOTE]
     > Przykładowe rozwiązanie wymaga programu .NET Framework 4.0. To nie jest wymagane dla narzędzia Web Deploy w zasadzie.
@@ -281,8 +279,8 @@ Domyślnie usługa zarządzania usługami IIS sieci Web nasłuchuje na porcie TC
 
 | Kierunek | Z portu | Do portu | Typ portu |
 | --- | --- | --- | --- |
-| Dla ruchu przychodzącego | Wszystkie | 8172 | TCP |
-| Wychodzące | 8172 | Wszystkie | TCP |
+| Dla ruchu przychodzącego | Dowolne | 8172 | TCP |
+| Wychodzące | 8172 | Dowolne | TCP |
   
 
 Aby uzyskać więcej informacji na temat konfigurowania reguł zapory Windows, zobacz [Konfigurowanie reguł zapory](https://technet.microsoft.com/library/dd448559(WS.10).aspx). Zapory innych firm należy zapoznać się z dokumentacją produktu.

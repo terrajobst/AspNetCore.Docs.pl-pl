@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.assetid: 0ed5e67a-34c0-4b57-84a6-802b0fb3cd00
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/enhancing-data-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 85299d70c6cba52c1d40a42edfd429c96318134a
-ms.sourcegitcommit: c47d7c131eebbcd8811e31edda210d64cf4b9d6b
+ms.openlocfilehash: 897cd7c6a40445e2a4abede50d81e101372d3233
+ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55236487"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55667625"
 ---
 # <a name="tutorial-enhance-data-validation-for-ef-database-first-with-aspnet-mvc-app"></a>Samouczek: Zwiększ sprawdzania poprawności danych dla platformy EF Database First w aplikacji ASP.NET MVC
 
@@ -84,6 +84,14 @@ Zapisz *ContosoModel.edmx* plik, aby zastosować zmiany.
 
 Otwórz *Student.cs* pliku lub *Enrollment.cs* plików i zwróć uwagę, że atrybutów sprawdzania poprawności danych, które są stosowane w starszych nie są już w pliku. Uruchom aplikację i zwróć uwagę, czy reguły sprawdzania poprawności nadal są stosowane podczas wprowadzania danych.
 
+## <a name="conclusion"></a>Wniosek
+
+Ta seria podać prosty przykład sposobu generowania kodu z istniejącej bazy danych, która umożliwia użytkownikom edytowanie, aktualizowanie, tworzenie i usuwanie danych. ASP.NET MVC 5, platformy Entity Framework i ASP.NET tworzenie szkieletów on używany do tworzenia projektu. 
+
+Wprowadzający przykład rozwiązania deweloperskiego Code First, zobacz [wprowadzenie do ASP.NET MVC 5](../introduction/getting-started.md). 
+
+Na przykład bardziej zaawansowanych, zobacz [Tworzenie modelu danych Entity Framework dla aplikacji platformy ASP.NET MVC 4](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). Pamiętaj, że interfejs API typu DbContext, służące do pracy z danymi w pierwszej bazy danych jest taki sam jak interfejs API, można użyć do pracy z danymi w Code First. Nawet wtedy, gdy użytkownik zamierza użyć pierwszej bazy danych, możesz dowiedzieć się, jak do obsługi bardziej złożonych scenariuszy, takich jak odczytywanie i aktualizowanie powiązanych danych, obsługa konfliktów współbieżności, i innych elementów z samouczka Code First. Jedyną różnicą jest w sposób tworzenia bazy danych, klasy kontekstu i klas jednostek.
+
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 Aby uzyskać pełną listę można zastosować do klasy i właściwości adnotacji sprawdzania poprawności danych, zobacz [System.ComponentModel.DataAnnotations](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx).
@@ -96,6 +104,6 @@ W ramach tego samouczka możesz:
 > * Dane dodane adnotacje
 > * Dodano metadanych klas
 
-Przejdź do następnego samouczka, aby dowiedzieć się, jak opublikować aplikację sieci web i bazy danych na platformie Azure.
+Aby dowiedzieć się, jak wdrożyć aplikację sieci web i bazy danych SQL w usłudze Azure App Service, zobacz w tym samouczku:
 > [!div class="nextstepaction"]
-> [Publikowanie na platformie Azure](publish-to-azure.md)
+> [Wdrażanie aplikacji .NET w usłudze Azure App Service](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase/)

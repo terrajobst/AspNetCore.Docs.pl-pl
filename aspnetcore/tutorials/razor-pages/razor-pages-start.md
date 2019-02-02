@@ -5,18 +5,22 @@ description: W tej serii samouczków pokazano, jak używać stron Razor w progra
 ms.author: riande
 ms.date: 12/5/2018
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: 929bc72b16e302a5018038bc449704b7078dd33a
-ms.sourcegitcommit: 6548c19f345850ee22b50f7ef9fca732895d9e08
+ms.openlocfilehash: bec5838c2efaffb933828260eaf1a840ff202140
+ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53425084"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55667768"
 ---
 # <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Samouczek: Rozpoczynanie pracy ze stronami Razor w programie ASP.NET Core
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-To jest pierwszy samouczek serii. [Seria](xref:tutorials/razor-pages/index) uczy podstaw tworzenia aplikacji platformy ASP.NET Core Razor strony sieci web. Na końcu serii będziesz mieć aplikację, która zarządza bazy danych filmów.  
+To jest pierwszy samouczek serii. [Seria](xref:tutorials/razor-pages/index) uczy podstaw tworzenia aplikacji platformy ASP.NET Core Razor strony sieci web.
+
+[!INCLUDE[](~/includes/advancedRP.md)]
+
+Na końcu serii będziesz mieć aplikację, która zarządza bazy danych filmów.  
 
 [!INCLUDE[View or download sample code](~/includes/rp/download.md)]
 
@@ -29,7 +33,7 @@ W ramach tego samouczka możesz:
 
 Na końcu tego samouczka będziesz mieć działającą aplikację sieci web stron Razor, które utworzysz w kolejnych samouczkach.
 
-[Strona główna lub indeks](razor-pages-start/_static/home2.2.png)
+![Strona główna lub indeks](razor-pages-start/_static/home2.2.png)
 
 [!INCLUDE[](~/includes/net-core-prereqs-all-2.2.md)]
 
@@ -150,7 +154,7 @@ Zawiera dane konfiguracyjne, takie jak parametry połączenia. Aby uzyskać wię
 
 Zawiera punkt wejścia programu. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/host/web-host>.
 
-### <a name="startupcs"></a>Startup.CS
+### <a name="startupcs"></a>Startup.cs
 
 Zawiera kod, który konfiguruje zachowania aplikacji, na przykład tego, czy wymaga zgody na pliki cookie. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/startup>.
 

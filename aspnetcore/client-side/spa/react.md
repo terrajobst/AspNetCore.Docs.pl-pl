@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 02/21/2018
 uid: spa/react
-ms.openlocfilehash: c83b119e81d7d0abfd727cb8c72abb09763d9448
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: d83bff8abcd5b59d8bc4a51a101510755394f0c4
+ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011433"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55667690"
 ---
 # <a name="use-the-react-project-template-with-aspnet-core"></a>Szablon projektu platformy React za pomocą platformy ASP.NET Core
 
@@ -27,7 +27,7 @@ Zaktualizowany szablon projektu platformy React udostępnia dogodny punkt począ
 
 Szablon jest odpowiednikiem Tworzenie projektu ASP.NET Core jako zaplecza interfejsu API i standardowy projekt kanadyjskiej administracji podatkowej reagować na działanie jako interfejsu użytkownika, ale zapewniające wygodę hostingu, zarówno w projekcie pojedynczej aplikacji, który może być skompilowane i opublikowane jako pojedyncza jednostka.
 
-## <a name="create-a-new-app"></a>Utwórz nową aplikację
+## <a name="create-a-new-app"></a>Tworzenie nowej aplikacji
 
 ::: moniker range="= aspnetcore-2.0"
 
@@ -97,14 +97,22 @@ Projekt jest skonfigurowana do uruchamiania wystąpienia serwera wdrożeniowego 
 
 Brak wadą tego ustawienia domyślnego. Po każdej zmianie kodu C# i ASP.NET Core aplikacja wymaga ponownego uruchomienia, serwer kanadyjskiej administracji podatkowej zostanie ponownie uruchomiony. Kilka sekund, należy uruchomić tworzenie kopii zapasowej. Jeśli wprowadzasz częste C# kodu edycji i nie chcesz czekać, aż serwer kanadyjskiej administracji podatkowej ponownie uruchomić, uruchom serwer kanadyjskiej administracji podatkowej zewnętrznie, niezależnie od procesu, ASP.NET Core. Aby to zrobić:
 
-1. W wierszu polecenia przejdź do *ClientApp* podkatalogu, a następnie uruchom serwera wdrożeniowego programu kanadyjskiej administracji podatkowej:
+1. Dodaj *ENV* plik *ClientApp* podkatalogu z następującymi ustawieniami:
+
+    ```
+    BROWSER=none
+    ```
+    
+    Uniemożliwi to przeglądarki sieci web otwierania podczas uruchamiania serwera kanadyjskiej administracji podatkowej zewnętrznie.
+
+2. W wierszu polecenia przejdź do *ClientApp* podkatalogu, a następnie uruchom serwera wdrożeniowego programu kanadyjskiej administracji podatkowej:
 
     ```console
     cd ClientApp
     npm start
     ```
 
-2. Zmodyfikować aplikację platformy ASP.NET Core w taki sposób, aby użyć wystąpienia zewnętrznego serwera kanadyjskiej administracji podatkowej zamiast uruchamiania jednego z własnych. W swojej *uruchamiania* klasy, Zastąp `spa.UseReactDevelopmentServer` wywołania następującym kodem:
+3. Zmodyfikować aplikację platformy ASP.NET Core w taki sposób, aby użyć wystąpienia zewnętrznego serwera kanadyjskiej administracji podatkowej zamiast uruchamiania jednego z własnych. W swojej *uruchamiania* klasy, Zastąp `spa.UseReactDevelopmentServer` wywołania następującym kodem:
 
     ```csharp
     spa.UseProxyToSpaDevelopmentServer("http://localhost:3000");

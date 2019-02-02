@@ -4,39 +4,38 @@ title: Wykrywanie klasy początkowej OWIN | Dokumentacja firmy Microsoft
 author: Praburaj
 description: W tym samouczku pokazano, jak skonfigurować klasy początkowej OWIN, które są ładowane. Aby uzyskać więcej informacji na temat OWIN Zobacz Omówienie projektu Katana. W tym samouczku został...
 ms.author: riande
-ms.date: 10/17/2013
+ms.date: 01/28/2019
 ms.assetid: 08257f55-36f4-4e39-9c88-2a5602838c79
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-startup-class-detection
 msc.type: authoredcontent
-ms.openlocfilehash: 4e753187f1caae646402712c2abc28856ae71a79
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 0b34cca8b48383dbb028106651758dff889ed614
+ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48910710"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55667300"
 ---
-<a name="owin-startup-class-detection"></a>Wykrywanie klasy początkowej OWIN
+<a name="owin-startup-class-detection"></a>Wykrywanie klasy początkowej interfejsu OWIN
 ====================
-przez [projektu Praburaj](https://github.com/Praburaj), [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > W tym samouczku pokazano, jak skonfigurować klasy początkowej OWIN, które są ładowane. Aby uzyskać więcej informacji na temat OWIN, zobacz [Omówienie projektu Katana](an-overview-of-project-katana.md). Ten samouczek został napisany przez Rick Anderson ( [ @RickAndMSFT ](https://twitter.com/#!/RickAndMSFT) ), Praburaj projektu i Howard Dierking ( [ @howard \_dierking](https://twitter.com/howard_dierking) ).
 >
 > ## <a name="prerequisites"></a>Wymagania wstępne
 >
-> [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
+> [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
 
 
-## <a name="owin-startup-class-detection"></a>Wykrywanie klasy początkowej OWIN
+## <a name="owin-startup-class-detection"></a>Wykrywanie klasy początkowej interfejsu OWIN
 
  Każda aplikacja OWIN ma klasę uruchamiania, w których określane są składniki do potoku aplikacji. Istnieją różne sposoby uruchamiania klasy można połączyć ze środowiskiem uruchomieniowym, w zależności od modelu hostingu wybierzesz (OwinHost, IIS i usług IIS Express). Klasa początkowa przedstawiona w tym samouczku można w każdej aplikacji macierzystej. Klasa startowa. Połącz się z hostingu środowiska uruchomieniowego przy użyciu których zbliża się do jednej z tych:
 
 1. **Konwencje nazewnictwa**: Katana szuka klasę o nazwie `Startup` w przestrzeni nazw, nazwa zestawu lub globalnej przestrzeni nazw.
-2. **Atrybut OwinStartup**: jest to podejście, większość programistów zajmie się w celu określenia klasy uruchamiania. Następujący atrybut ustawi klasa startowa `TestStartup` klasy w `StartupDemo` przestrzeni nazw.
+2. **Atrybut OwinStartup**: To podejście, zajmie większość deweloperów w celu określenia klasy uruchamiania. Następujący atrybut ustawi klasa startowa `TestStartup` klasy w `StartupDemo` przestrzeni nazw.
 
     [!code-csharp[Main](owin-startup-class-detection/samples/sample1.cs)]
 
    `OwinStartup` Konwencji nazewnictwa przesłonięcia atrybutów. Można również określić przyjazną nazwę, z tego atrybutu, jednak przy użyciu przyjaznej nazwy, musisz również użyć `appSetting` elementu w pliku konfiguracji.
-3. **Element appSetting w pliku konfiguracyjnym**: `appSetting` zastępuje element `OwinStartup` atrybut i konwencji nazewnictwa. Możliwość posiadania wielu klas uruchamiania (przy każdym użyciu `OwinStartup` atrybutu) i skonfigurować, która klasa uruchamiania zostanie załadowany w pliku konfiguracji, za pomocą znaczników podobny do następującego:
+3. **Element appSetting w pliku konfiguracyjnym**: `appSetting` Zastępuje element `OwinStartup` atrybut i konwencji nazewnictwa. Możliwość posiadania wielu klas uruchamiania (przy każdym użyciu `OwinStartup` atrybutu) i skonfigurować, która klasa uruchamiania zostanie załadowany w pliku konfiguracji, za pomocą znaczników podobny do następującego:
 
     [!code-xml[Main](owin-startup-class-detection/samples/sample2.xml)]
 
@@ -60,7 +59,7 @@ przez [projektu Praburaj](https://github.com/Praburaj), [Rick Anderson]((https:/
 1. Utwórz pustą aplikację sieci web platformy Asp.Net i nadaj mu **StartupDemo**. -Zainstaluj `Microsoft.Owin.Host.SystemWeb` przy użyciu Menedżera pakietów NuGet. Z **narzędzia** menu, wybierz opcję **Menedżera pakietów NuGet**, a następnie **Konsola Menedżera pakietów**. Wprowadź następujące polecenie:
 
     [!code-powershell[Main](owin-startup-class-detection/samples/sample7.ps1)]
-2. Dodaj klasę początkową OWIN. W programie Visual Studio 2013 kliknij prawym przyciskiem myszy projekt i wybierz **Dodaj klasę**. — w **Dodaj nowy element** okna dialogowego wprowadź *OWIN* w polu wyszukiwania, a następnie zmień nazwę pliku Startup.cs, a następnie kliknij przycisk **Dodaj**.
+2. Dodaj klasę początkową OWIN. W programie Visual Studio 2017 kliknij prawym przyciskiem myszy projekt i wybierz **Dodaj klasę**. — w **Dodaj nowy element** okna dialogowego wprowadź *OWIN* w polu wyszukiwania, a następnie zmień nazwę pliku Startup.cs, a następnie wybierz **Dodaj**.
 
      ![](owin-startup-class-detection/_static/image1.png)
 
@@ -80,7 +79,7 @@ przez [projektu Praburaj](https://github.com/Praburaj), [Rick Anderson]((https:/
      > [!NOTE]
      > W powyższym kodzie możemy zostały oznaczone jako komentarz `OwinStartup` atrybutu, a my one polegania na Konwencji uruchamiania klasę o nazwie `Startup` .-Naciśnij ***F5*** do uruchomienia aplikacji. Następnie kliknij przycisk Odśwież kilka razy.
 
-    ![](owin-startup-class-detection/_static/image4.png) Uwaga: Liczby wyświetlanej na ilustracjach w tym samouczku nie będą zgodne numer widoczny. Ciąg milisekund jest używany do wyświetlenia nowej odpowiedzi po odświeżeniu strony.
+    ![](owin-startup-class-detection/_static/image4.png) Uwaga: Liczby wyświetlanej na ilustracjach w tym samouczku nie będą zgodne, zostanie wyświetlona liczba. Ciąg milisekund jest używany do wyświetlenia nowej odpowiedzi po odświeżeniu strony.
   Można wyświetlić informacje o śledzeniu w **dane wyjściowe** okna.
 
     ![](owin-startup-class-detection/_static/image5.png)
@@ -158,6 +157,7 @@ W tej sekcji dodamy innej klasy uruchamiania. Możesz dodać wiele klasy począt
 
    Klasa początkowa produkcji jest ładowany.
     ![](owin-startup-class-detection/_static/image9.png)
+
    Nasza aplikacja ma wiele klas uruchamiania, a w tym przykładzie firma Microsoft mają odłożone której klasy uruchamiania do obciążenia aż do czasu.
 8. Przetestuj następujące opcje uruchamiania środowiska uruchomieniowego:
 

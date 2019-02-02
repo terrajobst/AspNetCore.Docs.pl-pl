@@ -4,20 +4,18 @@ title: Czego nie robić na platformie ASP.NET i co zrobić zamiast tego | Dokume
 author: Rick-Anderson
 description: W tym temacie opisano kilka typowych pomyłek, których wiele osób wprowadza w projektach programu ASP.NET w sieci web. Zawiera on zalecenia dotyczące co należy zrobić, aby uniknąć tych commo...
 ms.author: riande
-ms.date: 05/08/2014
+ms.date: 01/28/2019
 ms.assetid: c39b9965-545c-4b04-8f55-21be7f28a9e5
 msc.legacyurl: /aspnet/overview/web-development-best-practices/what-not-to-do-in-aspnet-and-what-to-do-instead
 msc.type: authoredcontent
-ms.openlocfilehash: 69040ca6a1ddeaf029062da45475dd2171b1afa6
-ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
+ms.openlocfilehash: 512d2e2b39467635390fa175546f79d8c9f89f4a
+ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51021446"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55667716"
 ---
-<a name="what-not-to-do-in-aspnet-and-what-to-do-instead"></a>Czego nie robić na platformie ASP.NET i co zrobić zamiast tego
-====================
-przez [Tom FitzMacken](https://github.com/tfitzmac)
+# <a name="what-not-to-do-in-aspnet-and-what-to-do-instead"></a>Czego nie robić na platformie ASP.NET i co zrobić zamiast tego
 
 > W tym temacie opisano kilka typowych pomyłek, których wiele osób wprowadza w projektach programu ASP.NET w sieci web. Zawiera on zalecenia dotyczące co należy zrobić, aby uniknąć tych typowych pomyłek. Jest on oparty na [prezentacji](http://vimeo.com/68390507) przez **Damianem Edwardsem** na norweskiej konferencji deweloperów.
 
@@ -63,17 +61,17 @@ Ten temat zawiera następujące sekcje:
 
 ### <a name="control-adapters"></a>Kontrolki karty
 
-Zalecenie: Zatrzymaj renderowanie adaptacyjne za pomocą adapterów kontrolek, a zamiast tego użyć zapytaniami multimediów CSS i HTML zgodnych ze standardami.
+Zalecenie: Uniemożliwić korzystanie z adapterów kontrolek adaptacyjne renderowanie, a zamiast tego użyć zapytaniami multimediów CSS i HTML zgodnych ze standardami.
 
 Formanty karty zostały wprowadzone w .NET 2.0 do renderowania kodu prezentacji, który został dostosowany do różnych urządzeń i środowisk. Teraz można osiągnąć ten adaptacyjne renderowania przy użyciu CSS i HTML. Należy zaprzestać korzystania z adapterów kontrolek i przekonwertować żadnych istniejących kart CSS i HTML.
 
-Aby uzyskać więcej informacji, zobacz [zapytaniami multimediów](http://www.w3.org/TR/css3-mediaqueries/) i [instrukcje: Dodawanie stron Mobile Your wzorca ASP.NET Web Forms / aplikacji MVC](../../../whitepapers/add-mobile-pages-to-your-aspnet-web-forms-mvc-application.md).
+Aby uzyskać więcej informacji, zobacz [zapytaniami multimediów](http://www.w3.org/TR/css3-mediaqueries/) i [How to: Dodawanie stron dla urządzeń przenośnych do aplikacji ASP.NET Web Forms / MVC aplikacji](../../../whitepapers/add-mobile-pages-to-your-aspnet-web-forms-mvc-application.md).
 
 <a id="styleprop"></a>
 
 ### <a name="style-properties-on-controls"></a>Właściwości stylu dla formantów
 
-Zalecenie: Zatrzymaj, ustawienie wartości stylu w znacznikach kontroli, a zamiast tego ustawienia formatowania wartości w arkusze stylów CSS.
+Zalecenie: Zatrzymaj ustawianie wartości stylu w znacznikach kontroli, a zamiast tego ustawienia formatowania wartości w arkusze stylów CSS.
 
 Formanty serwera sieci Web zawierają dziesiątek, jak właściwości, które mogą być używane do ustawiania właściwości stylu w tekście. Na przykład ForeColor właściwość ustawia kolor tekstu dla formantu. Można osiągnąć ten sam efekt, bardziej wydajnie za pomocą arkuszy stylów CSS. Arkusze stylów umożliwiają scentralizowanie wartości stylu i zapobiec ustawianiu tych wartości w całej aplikacji.
 
@@ -87,9 +85,9 @@ Następny przykład pokazuje, jak dynamicznie zastosować klasę CSS.
 
 <a id="callback"></a>
 
-### <a name="page-and-control-callbacks"></a>Strony i wywołań zwrotnych kontroli
+### <a name="page-and-control-callbacks"></a>Wywołania zwrotne strony i kontrolki
 
-Zalecenie: Zatrzymaj, za pomocą wywołania zwrotne strony i kontrolki, a zamiast tego użyć dowolnej z następujących czynności: AJAX, UpdatePanel, metod akcji MVC, interfejs API sieci Web lub SignalR.
+Zalecenie: Zatrzymaj, za pomocą wywołania zwrotne strony i kontrolki, a zamiast tego użyć dowolnej z następujących czynności: AJAX, UpdatePanel, MVC metody akcji, interfejs API sieci Web lub SignalR.
 
 We wcześniejszych wersjach programu ASP.NET metody wywołania zwrotnego strony i kontrolki włączone aktualizację części strony sieci web bez odświeżania całej strony. Teraz można wykonać aktualizacji stron częściowych przy użyciu [AJAX](../../../ajax/index.md), [UpdatePanel](https://msdn.microsoft.com/library/bb386454.aspx), [MVC](../../../mvc/index.md), [interfejsu API sieci Web](../../../web-api/index.md) lub [SignalR](../../../signalr/index.md). Należy zatrzymać przy użyciu metod wywołania zwrotnego, ponieważ mogą one spowodować problemy z przyjaznymi adresami URL i routing. Domyślnie formanty, nie należy włączać metody wywołania zwrotnego, ale jeśli włączono tę funkcję w kontrolce, należy wyłączyć je.
 
@@ -97,7 +95,7 @@ We wcześniejszych wersjach programu ASP.NET metody wywołania zwrotnego strony 
 
 ### <a name="browser-capability-detection"></a>Wykrywanie możliwości przeglądarki
 
-Zalecenie: Zatrzymaj, przy użyciu przeglądarki statyczne możliwości wykrywania, a zamiast tego użyj funkcji dynamicznej wykrywania.
+Zalecenie: Zatrzymaj, przy użyciu przeglądarki statyczne możliwości wykrywania, a zamiast tego użyć funkcji dynamiczne wykrywanie.
 
 We wcześniejszych wersjach programu ASP.NET obsługiwane funkcje w każdej przeglądarce są przechowywane w pliku XML. Wykrywanie obsługi różnych funkcji za pomocą statycznych wyszukiwania nie jest najlepszym rozwiązaniem. Teraz można dynamicznie wykryć przeglądarki użytkownika obsługiwane funkcje przy użyciu funkcji wykrywania struktury, takich jak [Modernizr](http://modernizr.com/). Funkcja wykrywania określa pomocy technicznej podjęto próbę użycia metody lub właściwości, a następnie zaznaczając, aby zobaczyć, jeśli przeglądarki generowane oczekiwany rezultat. Domyślnie Modernizr znajduje się w szablonach aplikacji sieci Web.
 
@@ -109,7 +107,7 @@ We wcześniejszych wersjach programu ASP.NET obsługiwane funkcje w każdej prze
 
 ### <a name="request-validation"></a>Żądanie weryfikacji
 
-Zalecenie: Sprawdzanie poprawności danych wejściowych użytkownika i kodowanie danych wyjściowych z użytkowników.
+Zalecenie: Weryfikowanie danych wejściowych użytkownika i kodowanie danych wyjściowych z użytkowników.
 
 Weryfikacja żądania jest funkcją programu ASP.NET, która sprawdza każde żądanie i zatrzymuje żądania, jeśli zostanie znaleziony potencjalnych zagrożeń. Nie są zależne od weryfikację żądań dla zabezpieczania aplikacji przed atakami skryptów między witrynami. Zamiast tego należy sprawdzić poprawność wszystkich danych wejściowych od użytkowników i kodowanie danych wyjściowych. W niektórych przypadkach ograniczonych wyrażeń regularnych można użyć, aby sprawdzić poprawność danych wejściowych, ale w przypadku bardziej skomplikowane, które należy sprawdzić, czy dane wejściowe użytkownika za pomocą klas platformy .NET, które sprawdza, czy wartość jest zgodna, dozwolone wartości.
 
@@ -151,7 +149,7 @@ Poniższy przykład pokazuje, jak określić w pliku Web.config, że uwierzyteln
 
 ### <a name="enableviewstatemac"></a>EnableViewStateMac
 
-Zalecenie: Nigdy nie ma wartość false.
+Zalecenie: Nigdy nie jest ustawiona na wartość false.
 
 Domyślnie EnbableViewStateMac jest ustawiona na wartość true. Nawet wtedy, gdy aplikacja nie używa stanu widoku, nie należy ustawiać EnableViewStateMac na wartość false. Ustawienie wartości FALSE spowoduje, że aplikacja narażone na wykonywanie skryptów między witrynami.
 
@@ -165,7 +163,7 @@ Poniższy przykład pokazuje, jak ustawić EnableViewStateMac na wartość true.
 
 ### <a name="medium-trust"></a>Trybie średniego zaufania
 
-Zalecenie: Nie są zależne od zaufania Medium (lub inne poziom zaufania) pełnią funkcję granicy zabezpieczeń.
+Zalecenie: Pełnią funkcję granicy zabezpieczeń nie są zależne od zaufania Medium (lub inne poziom zaufania).
 
 Częściowej relacji zaufania nie chronią odpowiednio aplikacji i nie powinna być używana. Zamiast tego należy używać pełnego zaufania i izolowania niezaufanych aplikacji w osobnych pulach aplikacji. Ponadto należy uruchomić każdy unikatową tożsamość puli aplikacji. Aby uzyskać więcej informacji, zobacz [częściowego zaufania programu ASP.NET nie gwarantuje izolacji aplikacji](https://support.microsoft.com/kb/2698981).
 
@@ -207,9 +205,9 @@ Możesz użyć [PreSendRequestHeaders](https://msdn.microsoft.com/library/system
 
 <a id="asyncevents"></a>
 
-### <a name="asynchronous-page-events-with-web-forms"></a>Zdarzenia asynchroniczne strony za pomocą formularzy sieci Web
+### <a name="asynchronous-page-events-with-web-forms"></a>Zdarzenia asynchroniczne strony za pomocą formularzy sieci web
 
-Zalecenie: W formularzach sieci Web należy unikać pisania asynchronicznej metody void zdarzenia cyklu życia strony, a zamiast tego użyć [Page.RegisterAsyncTask](https://msdn.microsoft.com/library/system.web.ui.page.registerasynctask.aspx) dla kodu asynchronicznego.
+Zalecenie: W formularzach sieci Web, należy unikać pisania asynchronicznej metody void zdarzenia cyklu życia strony, a zamiast tego użyj [Page.RegisterAsyncTask](https://msdn.microsoft.com/library/system.web.ui.page.registerasynctask.aspx) dla kodu asynchronicznego.
 
 Po oznaczeniu zdarzeń strony, przy użyciu **async** i **void**, nie można określić, kiedy kod asynchroniczny zostało zakończone. Zamiast tego należy użyć Page.RegisterAsyncTask do uruchomienia kodu asynchronicznego w sposób, który pozwala na śledzenie jego zakończenia.
 
@@ -217,7 +215,7 @@ W poniższym przykładzie pokazano, a przycisk kliknij program obsługi, który 
 
 [!code-csharp[Main](what-not-to-do-in-aspnet-and-what-to-do-instead/samples/sample11.cs)]
 
-Jeśli używasz zadań asynchronicznych ustawić platformę docelową środowiska wykonawczego protokołu Http do wersji 4.5 w pliku Web.config. Ustawienia platformy docelowej do 4.5 włącza na nowy kontekst synchronizacji został dodany w .NET 4.5. Ta wartość jest ustawiana domyślnie w nowych projektach programu Visual Studio 2012, ale nie można ustawić, jeśli pracujesz z istniejącego projektu.
+Jeśli używasz zadań asynchronicznych, należy ustawić platformę docelową środowiska uruchomieniowego Http 4.5 (lub nowszym) w pliku Web.config. Ustawienia platformy docelowej do 4.5 włącza na nowy kontekst synchronizacji został dodany w .NET 4.5. Ta wartość jest ustawiana domyślnie w nowych projektach programu Visual Studio, ale nie można ustawić, jeśli pracujesz z istniejącego projektu.
 
 [!code-xml[Main](what-not-to-do-in-aspnet-and-what-to-do-instead/samples/sample12.xml)]
 
@@ -237,7 +235,7 @@ Jeśli konieczne jest wykonanie tej pracy w programie ASP.NET, można dodać pak
 
 ### <a name="request-entity-body"></a>Treść jednostki żądania
 
-Zalecenie: Unikaj czytania Request.Form Request.InputStream przed programu obsługi zdarzeń.
+Zalecenie: Należy unikać czytania Request.Form Request.InputStream przed programu obsługi zdarzeń.
 
 Najwcześniejsza którymi należy zapoznać się z Request.Form lub Request.InputStream jest podczas obsługi wykonywania zdarzeń. W przypadku platformy MVC kontroler jest programem obsługi i zdarzenie wykonania jest po uruchomieniu metody akcji. W formularzach sieci Web strona jest program obsługi, a zdarzenie wykonania jest gdy zostanie wyzwolony zdarzeń Page.Init. Jeśli treść jednostki żądania możesz odczytać starszych niż zdarzenie wykonania, kolidować z przetwarzaniem żądania.
 
@@ -247,7 +245,7 @@ Jeśli zachodzi potrzeba odczytania treści jednostki żądania przed zdarzeniem
 
 ### <a name="responseredirect-and-responseend"></a>Response.Redirect i Response.End
 
-Zalecenie: Należy pamiętać o różnice w sposób obsługi wątków po wywołaniu [Response.Redirect(String)](https://msdn.microsoft.com/library/t9dwyts4.aspx).
+Zalecenie: Należy zwrócić uwagę na różnice w sposób obsługi wątków po wywołaniu [Response.Redirect(String)](https://msdn.microsoft.com/library/t9dwyts4.aspx).
 
 [Response.Redirect(String)](https://msdn.microsoft.com/library/t9dwyts4.aspx) metoda wywołuje metodę Response.End. W procesie synchronicznym wywołanie Request.Redirect powoduje, że bieżący wątek natychmiastowe przerwanie. Jednak w procesie asynchronicznym, wywołanie Response.Redirect nie przerwać bieżącego wątku, więc kontynuuje wykonywanie kodu dla żądania. W procesie asynchronicznym musi zwracać zadanie z metody, aby zatrzymać wykonywanie kodu.
 
@@ -257,7 +255,7 @@ W projekcie MVC nie powinien wywoływać Response.Redirect. Zamiast tego zwracaj
 
 ### <a name="enableviewstate-and-viewstatemode"></a>EnableViewState i ViewStateMode
 
-Zalecenie: ViewStateMode Użyj zamiast EnableViewState, aby zapewnić kontrolę nad tym, którzy kontrolki używać stan widoku.
+Zalecenie: Użyj ViewStateMode, zamiast EnableViewState, aby zapewnić kontrolę nad tym, którzy kontrolki używać stan widoku.
 
 Gdy EnableViewState jest ustawiona na wartość false w dyrektywie Page, stan widoku jest wyłączona dla wszystkich kontrolek w obrębie strony i nie można włączyć. Jeśli chcesz włączyć tylko niektóre formanty na stronie stanu widoku, ustaw ViewStateMode wyłączone dla strony.
 

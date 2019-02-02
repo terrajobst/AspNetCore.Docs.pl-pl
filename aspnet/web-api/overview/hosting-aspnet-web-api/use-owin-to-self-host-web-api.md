@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/hosting-aspnet-web-api/use-owin-to-self-host-web-api
-title: Korzystanie z OWIN na potrzeby samodzielnego hostowania interfejsu Web API 2 platformy ASP.NET | Dokumentacja firmy Microsoft
+title: Korzystanie z OWIN na potrzeby samodzielnego hostowania interfejsu API sieci Web programu ASP.NET | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: W tym samouczku pokazano, jak hostować interfejs API sieci Web platformy ASP.NET w aplikacji konsoli, za pomocą OWIN na potrzeby samodzielnego hostowania strukturę interfejsu API sieci Web. Otwórz interfejs sieci Web dla platformy .NET (OWIN) d...
 ms.author: riande
@@ -8,16 +8,15 @@ ms.date: 07/09/2013
 ms.assetid: a90a04ce-9d07-43ad-8250-8a92fb2bd3d5
 msc.legacyurl: /web-api/overview/hosting-aspnet-web-api/use-owin-to-self-host-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 06fd13fe9b12d172d615ae76a71d246a89f5386d
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 59ce24aa47ca590fbe9b617dbbe8bc6b3711849e
+ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48910489"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55667391"
 ---
-<a name="use-owin-to-self-host-aspnet-web-api-2"></a>Korzystanie z OWIN na potrzeby samodzielnego hostowania interfejsu Web API 2 platformy ASP.NET
+<a name="use-owin-to-self-host-aspnet-web-api"></a>Korzystanie z OWIN na potrzeby samodzielnego hostowania interfejsu API sieci Web platformy ASP.NET 
 ====================
-przez [Kanchan Mehrotra](https://twitter.com/kanchanmeh)
 
 > W tym samouczku pokazano, jak hostować interfejs API sieci Web platformy ASP.NET w aplikacji konsoli, za pomocą OWIN na potrzeby samodzielnego hostowania strukturę interfejsu API sieci Web.
 >
@@ -26,23 +25,23 @@ przez [Kanchan Mehrotra](https://twitter.com/kanchanmeh)
 > ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używanego w tym samouczku
 >
 >
-> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013) (współpracuje również z programu Visual Studio 2012)
-> - Internetowy interfejs API 2
+> - [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) 
+> - Internetowy interfejs API 5.2.7
 
 
 > [!NOTE]
 > Możesz znaleźć pełnego kodu źródłowego w ramach tego samouczka w [aspnet.codeplex.com](https://aspnet.codeplex.com/SourceControl/latest#Samples/WebApi/OwinSelfhostSample/ReadMe.txt).
 
 
-## <a name="create-a-console-application"></a>Tworzenie aplikacji konsoli
+## <a name="create-a-console-application"></a>Tworzenie aplikacji konsolowej
 
-Na **pliku** menu, kliknij przycisk **New**, następnie kliknij przycisk **projektu**. Z **zainstalowane szablony**, w obszarze Visual C#, kliknij przycisk **Windows** a następnie kliknij przycisk **aplikację Konsolową**. Nadaj projektowi nazwę "OwinSelfhostSample", a następnie kliknij przycisk **OK**.
+Na **pliku** menu **New**, a następnie wybierz **projektu**. Z **zainstalowane**w obszarze **Visual C#** , wybierz opcję **pulpitu Windows** , a następnie wybierz **Aplikacja konsoli (.Net Framework)**. Nadaj projektowi nazwę "OwinSelfhostSample", a następnie wybierz pozycję **OK**.
 
-[![](use-owin-to-self-host-web-api/_static/image2.png)](use-owin-to-self-host-web-api/_static/image1.png)
+[![](use-owin-to-self-host-web-api/_static/image7.png)](use-owin-to-self-host-web-api/_static/image7.png)
 
-## <a name="add-the-web-api-and-owin-packages"></a>Dodawanie interfejsu API sieci Web i pakietów OWIN
+## <a name="add-the-web-api-and-owin-packages"></a>Dodaj pakiety internetowego interfejsu API i OWIN
 
-Z **narzędzia** menu, kliknij przycisk **Menedżera pakietów NuGet**, następnie kliknij przycisk **Konsola Menedżera pakietów**. W oknie Konsola Menedżera pakietów wprowadź następujące polecenie:
+Z **narzędzia** menu, wybierz opcję **Menedżera pakietów NuGet**, a następnie wybierz **Konsola Menedżera pakietów**. W oknie Konsola Menedżera pakietów wprowadź następujące polecenie:
 
 `Install-Package Microsoft.AspNet.WebApi.OwinSelfHost`
 
@@ -50,7 +49,7 @@ Spowoduje to zainstalowanie pakietu host własny WebAPI OWIN i wszystkich wymaga
 
 [![](use-owin-to-self-host-web-api/_static/image4.png)](use-owin-to-self-host-web-api/_static/image3.png)
 
-## <a name="configure-web-api-for-self-host"></a>Konfigurowanie internetowego interfejsu API dla hosta samodzielnego
+## <a name="configure-web-api-for-self-host"></a>Konfigurowanie interfejsu API sieci Web dla hosta samodzielnego
 
 W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt i wybierz **Dodaj** / **klasy** Aby dodać nową klasę. Nazwa klasy `Startup`.
 
@@ -60,7 +59,7 @@ Zastąp cały kod standardowy, w tym pliku następujących czynności:
 
 [!code-csharp[Main](use-owin-to-self-host-web-api/samples/sample1.cs)]
 
-## <a name="add-a-web-api-controller"></a>Dodaj Kontroler interfejsu API sieci Web
+## <a name="add-a-web-api-controller"></a>Dodawanie kontrolera interfejsu API sieci Web
 
 Następnie Dodaj klasę kontrolera interfejsu API sieci Web. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt i wybierz **Dodaj** / **klasy** Aby dodać nową klasę. Nazwa klasy `ValuesController`.
 
@@ -68,13 +67,13 @@ Zastąp cały kod standardowy, w tym pliku następujących czynności:
 
 [!code-csharp[Main](use-owin-to-self-host-web-api/samples/sample2.cs)]
 
-## <a name="start-the-owin-host-and-make-a-request-using-httpclient"></a>Uruchamianie hosta OWIN i wykonać żądanie za pomocą elementu HttpClient
+## <a name="start-the-owin-host-and-make-a-request-with-httpclient"></a>Uruchamianie hosta OWIN i wykonać żądanie za pomocą klasy HttpClient
 
 Zastąp cały kod standardowy w pliku Program.cs następujących czynności:
 
 [!code-csharp[Main](use-owin-to-self-host-web-api/samples/sample3.cs)]
 
-## <a name="running-the-application"></a>Uruchamianie aplikacji
+## <a name="run-the-application"></a>Uruchamianie aplikacji
 
 Aby uruchomić aplikację, naciśnij klawisz F5 w programie Visual Studio. Dane wyjściowe powinny wyglądać następująco:
 

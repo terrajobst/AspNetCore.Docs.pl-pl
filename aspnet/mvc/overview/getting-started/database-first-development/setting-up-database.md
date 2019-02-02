@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.assetid: 095abad4-3bfe-4f06-b092-ae6a735b7e49
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/setting-up-database
 msc.type: authoredcontent
-ms.openlocfilehash: a503e3db63c873249178fd4783d322f4067c3208
-ms.sourcegitcommit: c47d7c131eebbcd8811e31edda210d64cf4b9d6b
+ms.openlocfilehash: dfc6c7a7083524a1e7049fdc879fe679f951084d
+ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55236383"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55667742"
 ---
 # <a name="tutorial-get-started-with-ef-database-first-using-mvc-5"></a>Samouczek: Rozpoczynanie pracy z wykorzystaniem MVC 5 EF Database First
 
-Za pomocą MVC, platformy Entity Framework i funkcja tworzenia szkieletu ASP.NET, można utworzyć aplikację internetową, która zapewnia interfejs do istniejącej bazy danych. W tej serii samouczków pokazano, jak automatycznie wygenerować kod, który pozwala użytkownikom na wyświetlanie, edytowanie, tworzenie i usuwanie danych, która znajduje się w tabeli bazy danych. Wygenerowany kod odnosi się do kolumn w tabeli bazy danych. W ostatniej części serii zostanie wdrożona lokacji i bazy danych na platformie Azure.
+Za pomocą MVC, platformy Entity Framework i funkcja tworzenia szkieletu ASP.NET, można utworzyć aplikację internetową, która zapewnia interfejs do istniejącej bazy danych. W tej serii samouczków pokazano, jak automatycznie wygenerować kod, który pozwala użytkownikom na wyświetlanie, edytowanie, tworzenie i usuwanie danych, która znajduje się w tabeli bazy danych. Wygenerowany kod odnosi się do kolumn w tabeli bazy danych. W ostatniej części serii, dowiesz się, jak dodawać adnotacje danych do modelu danych do określania wymagań dotyczących walidacji i wyświetlenie formatowania. Gdy wszystko będzie gotowe, mogą przechodzić do platformy Azure artykułu, aby dowiedzieć się, jak wdrożyć aplikację platformy .NET i bazy danych SQL w usłudze Azure App Service.
 
 W tym samouczku pokazano, jak rozpocząć od istniejącej bazy danych i szybkie tworzenie aplikacji sieci web, która umożliwia użytkownikom na interakcję z danymi. Aby utworzyć aplikację sieci web używa platformy Entity Framework 6 i MVC 5. Funkcja tworzenia szkieletu ASP.NET umożliwia automatyczne generowanie kodu na wyświetlanie, aktualizowanie, tworzenie i usuwanie danych. Za pomocą narzędzia publikowania w programie Visual Studio, można łatwo wdrożysz lokacji i bazy danych na platformie Azure.
 
@@ -51,7 +51,7 @@ Uruchom program Visual Studio i Utwórz **projekt bazy danych programu SQL Serve
 
 ![Utwórz projekt bazy danych](setting-up-database/_static/image1.png)
 
-Masz teraz projekt pustej bazy danych. Ta baza danych zostanie wdrożona na platformie Azure w dalszej części tego samouczka, należy ustawić usługi Azure SQL Database jako platformę docelową dla projektu. Ustawienie platforma docelowa nie jest faktycznie wdrażana bazy danych. oznacza jedynie, że projekt bazy danych sprawdzi, czy projekt bazy danych jest zgodna z platformą docelową. Aby ustawić platformę docelową, otwórz **właściwości** dla projektu i wybierz **Microsoft Azure SQL Database** dla platformy docelowej.
+Masz teraz projekt pustej bazy danych. Aby upewnić się, możesz wdrożyć tę bazę danych na platformie Azure, będzie ustawić usługi Azure SQL Database jako platformę docelową dla projektu. Ustawienie platforma docelowa nie jest faktycznie wdrażana bazy danych. oznacza jedynie, że projekt bazy danych sprawdzi, czy projekt bazy danych jest zgodna z platformą docelową. Aby ustawić platformę docelową, otwórz **właściwości** dla projektu i wybierz **Microsoft Azure SQL Database** dla platformy docelowej.
 
 Możesz utworzyć tabele wymagane na potrzeby tego samouczka, dodając skrypty SQL, które tabel. Kliknij prawym przyciskiem myszy projekt i Dodaj nowy element. Wybierz **tabele i widoki** > **tabeli** i nadaj mu nazwę *uczniów*.
 

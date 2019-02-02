@@ -6,16 +6,20 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 09/08/2017
 uid: tutorials/razor-pages/index
-ms.openlocfilehash: 981460e63be611f8b9b5ceda73c2d6b8f2e4962e
-ms.sourcegitcommit: 6548c19f345850ee22b50f7ef9fca732895d9e08
+ms.openlocfilehash: db0dab630f986b6f60e24b7a39e20c7a4607f931
+ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53425071"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55667378"
 ---
 # <a name="tutorial-create-a-razor-pages-web-app-with-aspnet-core"></a>Samouczek: Tworzenie aplikacji internetowej strony Razor za pomocą programu ASP.NET Core
 
-W tej serii samouczków opisano podstawy tworzenia aplikacji sieci web stron Razor. Seria zawiera następujące samouczki:
+W tej serii samouczków opisano podstawy tworzenia aplikacji sieci web stron Razor. 
+
+[!INCLUDE[](~/includes/advancedRP.md)]
+
+Ta seria zawiera następujące samouczki:
 
 1. [Tworzenie aplikacji internetowych ze stronami Razor](xref:tutorials/razor-pages/razor-pages-start)
 1. [Dodawanie modelu do aplikacji stron Razor](xref:tutorials/razor-pages/model)

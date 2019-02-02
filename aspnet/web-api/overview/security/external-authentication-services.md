@@ -4,22 +4,20 @@ title: Zewnętrznych usług uwierzytelniania przy użyciu interfejsu API sieci W
 author: rmcmurray
 description: W tym artykule opisano korzystanie z zewnętrznych usług uwierzytelniania w Web API platformy ASP.NET.
 ms.author: riande
-ms.date: 06/26/2013
+ms.date: 01/28/2019
 ms.assetid: 3bb8eb15-b518-44f5-a67d-a27e051aedc6
 msc.legacyurl: /web-api/overview/security/external-authentication-services
 msc.type: authoredcontent
-ms.openlocfilehash: 0b23baac7eca0297e063c682a8ae199f9543d75e
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: de9b64e6c582059ec66ab352f60773f50af7b1ff
+ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41754929"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55667859"
 ---
-<a name="external-authentication-services-with-aspnet-web-api-c"></a>Zewnętrznych usług uwierzytelniania przy użyciu interfejsu API sieci Web platformy ASP.NET (C#)
-====================
-przez [Robert McMurray](https://github.com/rmcmurray)
+# <a name="external-authentication-services-with-aspnet-web-api-c"></a>Zewnętrznych usług uwierzytelniania przy użyciu interfejsu API sieci Web platformy ASP.NET (C#)
 
-Visual Studio 2013 i ASP.NET 4.5.1 Rozwiń opcje zabezpieczeń [aplikacje jednostronicowe](../../../single-page-application/index.md) (SPA) i [interfejsu API sieci Web](../../index.md) usługi w celu integracji z usługami uwierzytelniania zewnętrznego, które obejmują kilka Uwierzytelniania OAuth/OpenID i uwierzytelniania mediach społecznościowych: Accounts firmy Microsoft, Twitter, Facebook i Google.
+Visual Studio 2017 i platformy ASP.NET 4.7.2 Rozwiń opcje zabezpieczeń [aplikacje jednostronicowe](../../../single-page-application/index.md) (SPA) i [interfejsu API sieci Web](../../index.md) usługi w celu integracji z usługami uwierzytelniania zewnętrznego, które obejmują kilka Uwierzytelniania OAuth/OpenID i mediów społecznościowych usługi uwierzytelniania: Konta Microsoft, Twitter, Facebook i Google.  
 
 ### <a name="in-this-walkthrough"></a>W tym przewodniku
 
@@ -34,21 +32,19 @@ Visual Studio 2013 i ASP.NET 4.5.1 Rozwiń opcje zabezpieczeń [aplikacje jednos
     - [Łączenie zewnętrznych usług uwierzytelniania](#COMBINE)
     - [Konfiguracja usług IIS Express do użycia w pełni kwalifikowaną nazwę domeny](#FQDN)
     - [Jak uzyskać ustawienia aplikacji dla uwierzytelniania firmy Microsoft](#OBTAIN)
-    - [Opcjonalnie: Wyłącz lokalną rejestrację.](#DISABLE)
+    - [Opcjonalnie: Wyłącz lokalne rejestracji](#DISABLE)
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
 Aby skorzystać z przykładów w tym przewodniku, należy dysponować następującymi elementami:
 
-- Visual Studio 2013
-- Konto usługi dla co najmniej jeden z następujących usług uwierzytelniania zewnętrznego:
+- Visual Studio 2017
+- Konto dewelopera z identyfikatorem aplikacji i klucz tajny dla jednego z następujących usług uwierzytelniania mediów społecznościowych:
 
-    - Konto użytkownika Google
-    - Konto dewelopera z identyfikatorem aplikacji i klucz tajny dla jednego z następujących usług uwierzytelniania mediów społecznościowych:
-
-        - Konta Microsoft ([https://go.microsoft.com/fwlink/?LinkID=144070](https://go.microsoft.com/fwlink/?LinkID=144070))
-        - W usłudze Twitter ([https://dev.twitter.com/](https://dev.twitter.com/))
-        - Facebook ([https://developers.facebook.com/](https://developers.facebook.com/))
+  - Konta Microsoft ([https://go.microsoft.com/fwlink/?LinkID=144070](https://go.microsoft.com/fwlink/?LinkID=144070))
+  - Twitter ([https://dev.twitter.com/](https://dev.twitter.com/))
+  - Facebook ([https://developers.facebook.com/](https://developers.facebook.com/))
+  - Google ([https://developers.google.com/](https://developers.google.com))
 
 <a id="USING"></a>
 ## <a name="using-external-authentication-services"></a>Za pomocą zewnętrznych usług uwierzytelniania
@@ -65,43 +61,41 @@ W drugim przykładzie agent użytkownika negocjuje z serwera zewnętrznego autor
 
 [![](external-authentication-services/_static/image4.png "Kliknij, aby rozwinąć obrazu")](external-authentication-services/_static/image3.png)
 
-Visual Studio 2013 i ASP.NET 4.5.1 ułatwienia integracji z zewnętrznych usług uwierzytelniania dla deweloperów, zapewniając wbudowane funkcje integracji dla następujących usług uwierzytelniania:
+Visual Studio 2017 i platformy ASP.NET 4.7.2 ułatwienia integracji z zewnętrznych usług uwierzytelniania dla deweloperów, zapewniając wbudowane funkcje integracji dla następujących usług uwierzytelniania:
 
 - Facebook
 - Google
 - Accounts firmy Microsoft (konta Windows Live ID)
 - Twitter
 
-W przykładach w tym przewodniku pokazano, jak skonfigurować każdej z obsługiwanych zewnętrznych usług uwierzytelniania przy użyciu nowego szablonu aplikacji sieci Web ASP.NET, który jest dostarczany za pomocą programu Visual Studio 2013.
+W przykładach w tym przewodniku pokazano, jak skonfigurować każdej z obsługiwanych zewnętrznych usług uwierzytelniania przy użyciu nowego szablonu aplikacji sieci Web ASP.NET, który jest dostarczany z programem Visual Studio 2017.
 
 > [!NOTE]
 > Jeśli to konieczne, może być konieczne dodanie Twojej nazwy FQDN do ustawienia usługi uwierzytelniania zewnętrznego. Wymóg ten jest oparty na ograniczenia zabezpieczeń w przypadku niektórych usług uwierzytelniania zewnętrznego, które wymagają nazwy FQDN w ustawieniach aplikacji dopasować nazwę FQDN, który jest używany przez klientów. (Kroki opisane w tym się znacznie różnić dla poszczególnych usług uwierzytelniania zewnętrznego, należy skontaktować się z dokumentacją poszczególnych usług uwierzytelniania zewnętrznego, aby zobaczyć, jeśli jest to wymagane i sposobie konfigurowania tych ustawień.) Jeśli potrzebujesz do skonfigurowania usług IIS Express do używania nazwy FQDN, w tym środowisku testowym, zobacz [konfigurowania usług IIS Express do użycia w pełni kwalifikowaną nazwę domeny](#FQDN) sekcję w dalszej części tego przewodnika.
 
 
 <a id="SAMPLE"></a>
-## <a name="creating-a-sample-web-application"></a>Tworzenie przykładowej aplikacji sieci Web
+## <a name="create-a-sample-web-application"></a>Tworzenie przykładowej aplikacji sieci Web
 
 Poniższe kroki prowadzi przez proces tworzenia przykładowej aplikacji przy użyciu szablonu aplikacji sieci Web platformy ASP.NET i użyjesz tej przykładowej aplikacji dla poszczególnych usług uwierzytelniania zewnętrznego w dalszej części tego przewodnika.
 
-Uruchom program Visual Studio 2013, wybierz **nowy projekt** ze strony początkowej. Lub z **pliku** menu, wybierz opcję **New** i następnie **projektu**.
+Uruchom program Visual Studio 2017 i wybierz **nowy projekt** ze strony początkowej. Możesz również z menu **Plik** wybrać pozycję **Nowy**, a następnie **Projekt**.
 
-[![](external-authentication-services/_static/image6.png "Kliknij, aby rozwinąć obrazu")](external-authentication-services/_static/image5.png)
+<!-- [![](external-authentication-services/_static/image6.png "Click to Expand the Image")](external-authentication-services/_static/image5.png) -->
 
-Gdy **nowy projekt** zostanie wyświetlone okno dialogowe, wybierz **zainstalowane** **szablony** i rozwiń **Visual C#**. W obszarze **Visual C#**, wybierz opcję **Web**. Na liście szablonów projektu wybierz **aplikacji sieci Web ASP.NET**. Wprowadź nazwę dla projektu, a następnie kliknij przycisk **OK**.
+Gdy **nowy projekt** zostanie wyświetlone okno dialogowe, wybierz **zainstalowane** i rozwiń **Visual C#** . W obszarze **Visual C#**, wybierz pozycję **Sieć Web**. Na liście szablonów projektu wybierz **aplikacji sieci Web ASP.NET (.Net Framework)**. Wprowadź nazwę dla projektu, a następnie kliknij przycisk **OK**.
 
-[![](external-authentication-services/_static/image8.png "Kliknij, aby rozwinąć obrazu")](external-authentication-services/_static/image7.png)
+[![](external-authentication-services/_static/image71.png "Kliknij, aby rozwinąć obrazu")](external-authentication-services/_static/image71.png)
 
-Gdy **nowy projekt ASP.NET** jest wyświetlany, wybierz opcję **SPA** szablon i kliknij przycisk **Tworzenie projektu**.
+Gdy **nowy projekt ASP.NET** jest wyświetlany, wybierz opcję **aplikacji jednostronicowej** szablon i kliknij przycisk **Tworzenie projektu**.
 
-[![](external-authentication-services/_static/image10.png "Kliknij, aby rozwinąć obrazu")](external-authentication-services/_static/image9.png)
+[![](external-authentication-services/_static/image72.png "Kliknij, aby rozwinąć obrazu")](external-authentication-services/_static/image72.png)
 
-Poczekaj co program Visual Studio 2013 tworzy projekt.
+Poczekaj co program Visual Studio 2017 powoduje utworzenie projektu.
 
-[![](external-authentication-services/_static/image12.png "Kliknij, aby rozwinąć obrazu")](external-authentication-services/_static/image11.png)
+<!-- [![](external-authentication-services/_static/image12.png "Click to Expand the Image")](external-authentication-services/_static/image11.png) -->
 
-Po zakończeniu programu Visual Studio 2013 podczas tworzenia projektu, otwórz *Startup.Auth.cs* pliku, który znajduje się w **aplikacji\_Start** folderu.
-
-[![](external-authentication-services/_static/image14.png "Kliknij, aby rozwinąć obrazu")](external-authentication-services/_static/image13.png)
+Po zakończeniu programu Visual Studio 2017 podczas tworzenia projektu, otwórz *Startup.Auth.cs* pliku, który znajduje się w **aplikacji\_Start** folderu.
 
 Po utworzeniu projektu Brak zewnętrznych usług uwierzytelniania są włączone w *Startup.Auth.cs* pliku; poniższy rysunek ilustruje, co może wyglądać w kodzie, z sekcjami wyróżniony, gdzie zostanie włączone Usługa uwierzytelniania zewnętrznego i wszelkie odpowiednie ustawienia, aby można było używać uwierzytelniania Accounts firmy Microsoft, Twitter, Facebook lub Google przy użyciu aplikacji ASP.NET:
 
@@ -109,9 +103,9 @@ Po utworzeniu projektu Brak zewnętrznych usług uwierzytelniania są włączone
 
 Po naciśnięciu klawisza F5, aby kompilować i debugować aplikację sieci web, wyświetli ekran logowania, gdzie zobaczysz, że nie zdefiniowano żadnych zewnętrznych usług uwierzytelniania.
 
-[![](external-authentication-services/_static/image16.png "Kliknij, aby rozwinąć obrazu")](external-authentication-services/_static/image15.png)
+[![](external-authentication-services/_static/image73.png "Kliknij, aby rozwinąć obrazu")](external-authentication-services/_static/image73.png)
 
-W poniższych sekcjach dowiesz się, jak włączyć każdą z tych usług uwierzytelniania zewnętrznego, które są dostarczane za pomocą platformy ASP.NET w programie Visual Studio 2013.
+W poniższych sekcjach dowiesz się, jak włączyć każdą z tych usług uwierzytelniania zewnętrznego, które są dostarczane za pomocą platformy ASP.NET w programie Visual Studio 2017.
 
 <a id="FACEBOOK"></a>
 ## <a name="enabling-facebook-authentication"></a>Włączanie uwierzytelniania serwisu Facebook
@@ -120,10 +114,9 @@ Za pomocą usługi Facebook uwierzytelnianie wymaga utworzenia konta dewelopera 
 
 Po uzyskaniu swojego Identyfikatora aplikacji i klucz tajny, wykonaj następujące kroki, aby włączyć uwierzytelnianie serwisu Facebook dla aplikacji sieci web:
 
-1. Gdy projekt jest otwarty w programie Visual Studio 2013, otwórz *Startup.Auth.cs* pliku:
+1. Gdy projekt jest otwarty w programie Visual Studio 2017, otwórz *Startup.Auth.cs* pliku.
 
-    [![](external-authentication-services/_static/image18.png "Kliknij, aby rozwinąć obrazu")](external-authentication-services/_static/image17.png)
-2. Znajdź wyróżnioną sekcję kodu:
+2. Zlokalizuj sekcję uwierzytelniania serwisu Facebook kodu:
 
     [!code-csharp[Main](external-authentication-services/samples/sample2.cs)]
 3. Usuń &quot; // &quot; znaków, usuń znaczniki komentarza wyróżnione wiersze kodu, a następnie dodaj swojego Identyfikatora aplikacji i klucz tajny. Po dodaniu tych parametrów można ponownie skompilować projekt:
@@ -131,7 +124,7 @@ Po uzyskaniu swojego Identyfikatora aplikacji i klucz tajny, wykonaj następują
     [!code-csharp[Main](external-authentication-services/samples/sample3.cs)]
 4. Po naciśnięciu klawisza F5, aby otworzyć aplikację sieci web w przeglądarce sieci web, pojawią się, że usługi Facebook został zdefiniowany jako usługi uwierzytelniania zewnętrznego:
 
-    [![](external-authentication-services/_static/image20.png "Kliknij, aby rozwinąć obrazu")](external-authentication-services/_static/image19.png)
+    [![](external-authentication-services/_static/image74.png "Kliknij, aby rozwinąć obrazu")](external-authentication-services/_static/image74.png)
 5. Po kliknięciu **Facebook** przycisku przeglądarki nastąpi przekierowanie do strony logowania usługi Facebook:
 
     [![](external-authentication-services/_static/image22.png "Kliknij, aby rozwinąć obrazu")](external-authentication-services/_static/image21.png)
@@ -145,22 +138,22 @@ Po uzyskaniu swojego Identyfikatora aplikacji i klucz tajny, wykonaj następują
 <a id="GOOGLE"></a>
 ## <a name="enabling-google-authentication"></a>Włączanie uwierzytelniania serwisu Google
 
-Jest znacznie najłatwiejszym usług uwierzytelniania zewnętrznego, aby włączyć, ponieważ nie wymaga konta dewelopera ani nie wymaga dodatkowych informacji takimi jak identyfikator aplikacji lub klucz tajny w odróżnieniu od innych usług uwierzytelniania zewnętrznego, Google wymagają.
+Za pomocą Google uwierzytelniania, musisz utworzyć konto dewelopera Google, a projekt będzie wymagać Identyfikatora aplikacji i klucza tajnego z usługi Google aby funkcjonować. Aby uzyskać informacje o tworzeniu konta dewelopera Google i uzyskania Twojej aplikacji, identyfikator i klucz tajny, zobacz [ https://developers.google.com ](https://developers.google.com).
+
 
 Aby włączyć uwierzytelnianie serwisu Google dla aplikacji sieci web, użyj następujących kroków:
 
-1. Gdy projekt jest otwarty w programie Visual Studio 2013, otwórz *Startup.Auth.cs* pliku:
+1. Gdy projekt jest otwarty w programie Visual Studio 2017, otwórz *Startup.Auth.cs* pliku.
 
-    [![](external-authentication-services/_static/image28.png "Kliknij, aby rozwinąć obrazu")](external-authentication-services/_static/image27.png)
-2. Znajdź wyróżnioną sekcję kodu:
+2. Zlokalizuj sekcję uwierzytelniania Google kodu:
 
     [!code-csharp[Main](external-authentication-services/samples/sample4.cs)]
-3. Usuń &quot; // &quot; znaków, usuń znaczniki komentarza wyróżniony wiersz kodu, a następnie ponownie skompilować projekt:
+3. Usuń &quot; // &quot; znaków, usuń znaczniki komentarza wyróżnione wiersze kodu, a następnie dodaj swojego Identyfikatora aplikacji i klucz tajny. Po dodaniu tych parametrów można ponownie skompilować projekt:
 
     [!code-csharp[Main](external-authentication-services/samples/sample5.cs)]
 4. Po naciśnięciu klawisza F5, aby otworzyć aplikację sieci web w przeglądarce sieci web, zobaczysz, że Google został zdefiniowany jako usługi uwierzytelniania zewnętrznego:
 
-    [![](external-authentication-services/_static/image30.png "Kliknij, aby rozwinąć obrazu")](external-authentication-services/_static/image29.png)
+    [![](external-authentication-services/_static/image75.png "Kliknij, aby rozwinąć obrazu")](external-authentication-services/_static/image75.png)
 5. Po kliknięciu **Google** przycisku przeglądarki nastąpi przekierowanie do strony logowania Google:
 
     [![](external-authentication-services/_static/image32.png "Kliknij, aby rozwinąć obrazu")](external-authentication-services/_static/image31.png)
@@ -181,10 +174,9 @@ Uwierzytelnianie firmy Microsoft wymaga utworzenia konta dewelopera i aby funkcj
 
 Po uzyskaniu usługi konsumenta oraz klucz tajny klienta, wykonaj następujące kroki, aby włączyć uwierzytelnianie firmy Microsoft dla aplikacji sieci web:
 
-1. Gdy projekt jest otwarty w programie Visual Studio 2013, otwórz *Startup.Auth.cs* pliku:
+1. Gdy projekt jest otwarty w programie Visual Studio 2017, otwórz *Startup.Auth.cs* pliku.
 
-    [![](external-authentication-services/_static/image40.png "Kliknij, aby rozwinąć obrazu")](external-authentication-services/_static/image39.png)
-2. Znajdź wyróżnioną sekcję kodu:
+2. Zlokalizuj sekcję uwierzytelniania firmy Microsoft kodu:
 
     [!code-csharp[Main](external-authentication-services/samples/sample6.cs)]
 3. Usuń &quot; // &quot; znaków, usuń znaczniki komentarza wyróżnione wiersze kodu, a następnie dodaj swój identyfikator klienta i klucz tajny klienta. Po dodaniu tych parametrów można ponownie skompilować projekt:
@@ -213,10 +205,9 @@ W usłudze Twitter uwierzytelniania, musisz utworzyć konto dewelopera i aby fun
 
 Po uzyskaniu usługi konsumenta oraz klucz tajny klienta, wykonaj następujące kroki, aby włączyć uwierzytelnianie usługi Twitter dla aplikacji sieci web:
 
-1. Gdy projekt jest otwarty w programie Visual Studio 2013, otwórz *Startup.Auth.cs* pliku:
+1. Gdy projekt jest otwarty w programie Visual Studio 2017, otwórz *Startup.Auth.cs* pliku.
 
-    [![](external-authentication-services/_static/image52.png "Kliknij, aby rozwinąć obrazu")](external-authentication-services/_static/image51.png)
-2. Znajdź wyróżnioną sekcję kodu:
+2. Zlokalizuj sekcję uwierzytelniania usługi Twitter kodu:
 
     [!code-csharp[Main](external-authentication-services/samples/sample8.cs)]
 3. Usuń &quot; // &quot; znaków usuń znaczniki komentarza wyróżnione wiersze kodu, a następnie dodaj klucz klienta i klucz tajny klienta. Po dodaniu tych parametrów można ponownie skompilować projekt:
@@ -251,16 +242,16 @@ Aby uzyskać większą elastyczność można zdefiniować wiele usług uwierzyte
 [![](external-authentication-services/_static/image62.png "Kliknij, aby rozwinąć obrazu")](external-authentication-services/_static/image61.png)
 
 <a id="FQDN"></a>
-### <a name="configuring-iis-express-to-use-a-fully-qualified-domain-name"></a>Konfiguracja usług IIS Express do użycia w pełni kwalifikowaną nazwę domeny
+### <a name="configure-iis-express-to-use-a-fully-qualified-domain-name"></a>Konfigurowanie usług IIS Express do użycia w pełni kwalifikowanej nazwy domeny
 
-Niektórzy dostawcy uwierzytelniania zewnętrznego nie obsługują testowanie aplikacji przy użyciu adresu protokołu HTTP, takich jak `http://localhost:port/`. Aby obejść ten problem, można statyczne mapowanie w pełni kwalifikowanej domeny nazwę (FQDN) należy dodać do pliku HOSTS i skonfiguruj opcje projektu w programie Visual Studio 2013 na potrzeby testowania/debugowanie nazwy FQDN. Aby to zrobić, wykonaj następujące kroki:
+Niektórzy dostawcy uwierzytelniania zewnętrznego nie obsługują testowanie aplikacji przy użyciu adresu protokołu HTTP, takich jak `http://localhost:port/`. Aby obejść ten problem, można dodać mapowanie statyczne, które w pełni kwalifikowanej domeny nazwę (FQDN) Twojego pliku HOSTS i skonfigurować opcje projektu w programie Visual Studio 2017 na potrzeby testowania/debugowanie nazwę FQDN. Aby to zrobić, wykonaj następujące kroki:
 
 - Dodaj nazwę FQDN statyczne mapowania pliku hostów:
 
   1. Otwórz wiersz polecenia z podwyższonym w Windows.
   2. Wpisz następujące polecenie:
 
-      <kbd>Notatnik %WinDir%\system32\drivers\etc\hosts</kbd>
+      <kbd>notepad %WinDir%\system32\drivers\etc\hosts</kbd>
   3. Dodaj następujący wpis w pliku HOSTS:
 
       <kbd>127.0.0.1 www.wingtiptoys.com</kbd>
@@ -268,7 +259,7 @@ Niektórzy dostawcy uwierzytelniania zewnętrznego nie obsługują testowanie ap
 
 - Konfigurowanie projektu programu Visual Studio, aby użyć nazwy FQDN:
 
-  1. Gdy projekt jest otwarty w programie Visual Studio 2013, kliknij przycisk **projektu** menu, a następnie wybierz pozycję Właściwości projektu. Na przykład, możesz wybrać **właściwości WebApplication1**.
+  1. Gdy projekt jest otwarty w programie Visual Studio 2017, kliknij przycisk **projektu** menu, a następnie wybierz pozycję Właściwości projektu. Na przykład, możesz wybrać **właściwości WebApplication1**.
   2. Wybierz **Web** kartę.
   3. Wprowadź nazwę FQDN dla <strong>projektu adres Url</strong>. Na przykład wprowadzisz <kbd> <http://www.wingtiptoys.com> </kbd> jeśli było mapowania nazwy FQDN, który został dodany do Twojego pliku HOSTS.
 
@@ -277,7 +268,7 @@ Niektórzy dostawcy uwierzytelniania zewnętrznego nie obsługują testowanie ap
     1. Otwórz wiersz polecenia z podwyższonym w Windows.
     2. Wpisz następujące polecenie, aby zmienić do folderu usługi IIS Express:
 
-        <kbd>CD /d &quot;%ProgramFiles%\IIS Express&quot;</kbd>
+        <kbd>cd /d &quot;%ProgramFiles%\IIS Express&quot;</kbd>
     3. Wpisz następujące polecenie, aby dodać nazwę FQDN do aplikacji:
 
         <kbd>appcmd.exe set config-section:system.applicationHost/sites / +&quot;[name = "WebApplication1"] .bindings. [ Protokół = "http" bindingInformation = "*:80:www.wingtiptoys.com']&quot; /commit:apphost</kbd>
@@ -291,16 +282,18 @@ Niektórzy dostawcy uwierzytelniania zewnętrznego nie obsługują testowanie ap
 
 1. Przejdź do [ https://go.microsoft.com/fwlink/?LinkID=144070 ](https://go.microsoft.com/fwlink/?LinkID=144070) i wprowadź nazwę konta Microsoft i hasło po wyświetleniu monitu, a następnie kliknij przycisk **Zaloguj**:
 
-    [![](external-authentication-services/_static/image64.png "Kliknij, aby rozwinąć obrazu")](external-authentication-services/_static/image63.png)
-2. Wprowadź nazwę i języka w aplikacji po wyświetleniu monitu, a następnie kliknij przycisk **akceptuję**:
+   <!--  [![](external-authentication-services/_static/image64.png "Click to Expand the Image")](external-authentication-services/_static/image63.png) -->
+2. Wybierz **Dodaj aplikację** i wprowadź nazwę aplikacji po wyświetleniu monitu, a następnie kliknij przycisk **Utwórz**:
 
-    [![](external-authentication-services/_static/image66.png "Kliknij, aby rozwinąć obrazu")](external-authentication-services/_static/image65.png)
-3. Na **ustawień interfejsu API** stronie aplikacji, wprowadź domenę przekierowania dla aplikacji i skopiuj **identyfikator klienta** i **klucz tajny klienta** dla projektu, a następnie Kliknij przycisk **Zapisz**:
+    [![](external-authentication-services/_static/image79.png "Kliknij, aby rozwinąć obrazu")](external-authentication-services/_static/image79.png)
+3. Wybierz swoją aplikację w obszarze **nazwa** i zostanie wyświetlona jego strona właściwości aplikacji.
 
-    [![](external-authentication-services/_static/image68.png "Kliknij, aby rozwinąć obrazu")](external-authentication-services/_static/image67.png)
+4. Wprowadź domenę przekierowania aplikacji. Kopiuj **identyfikator aplikacji** i w obszarze **wpisów tajnych aplikacji**, wybierz opcję **wygenerować hasło**. Skopiuj hasło, które pojawia się. Identyfikator aplikacji i hasło są swojego Identyfikatora klienta i klucz tajny klienta. Wybierz **Ok** i następnie **Zapisz**.
+
+    [![](external-authentication-services/_static/image77.png "Kliknij, aby rozwinąć obrazu")](external-authentication-services/_static/image77.png)
 
 <a id="DISABLE"></a>
-### <a name="optional-disable-local-registration"></a>Opcjonalnie: Wyłącz lokalną rejestrację.
+### <a name="optional-disable-local-registration"></a>Opcjonalne: Wyłącz lokalne rejestracji
 
 Bieżącą funkcjonalność lokalnego rejestracji programu ASP.NET nie uniemożliwia tworzenie elementu członkowskiego kont; automatyczne programom (robotom) na przykład za pomocą zapobiegania bot i sprawdzanie poprawności technologii takich jak [CAPTCHA](../../../web-pages/overview/security/16-adding-security-and-membership.md). W związku z tym należy usunąć łącze formularza i rejestracji lokalny identyfikator logowania na stronie logowania. Aby to zrobić, otwórz  *\_Login.cshtml* strony w projekcie, a następnie przekształcić w komentarz wiersze dla panelu logowania lokalnego i link do rejestracji. Wynikowy strony powinien wyglądać jak w następującym przykładzie kodu:
 
