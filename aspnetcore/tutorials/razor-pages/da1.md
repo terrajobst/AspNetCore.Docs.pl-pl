@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.2'
 ms.author: riande
 ms.date: 12/20/2018
 uid: tutorials/razor-pages/da1
-ms.openlocfilehash: 396cb9b9eeaab2d3db6108feeba71dbc2bc8981d
-ms.sourcegitcommit: e1cc4c1ef6c9e07918a609d5ad7fadcb6abe3e12
+ms.openlocfilehash: c950d1654591fe3c78daae0e2cb7a9b37472284f
+ms.sourcegitcommit: a91e8dd2f4b788114c8bc834507277f4b5e8d6c5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53997204"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55712253"
 ---
 # <a name="update-the-generated-pages-in-an-aspnet-core-app"></a>Aktualizowanie stron wygenerowane w aplikacji ASP.NET Core
 
@@ -75,7 +75,7 @@ Aby przetestować działanie `@page "{id:int?}"`:
 * Ustaw punkt przerwania w `public async Task<IActionResult> OnGetAsync(int? id)` (w *Pages/Movies/Details.cshtml.cs*).
 * Przejdź do adresu `https://localhost:5001/Movies/Details/`.
 
-Za pomocą `@page "{id:int}"` dyrektywy, punkt przerwania zostanie nigdy osiągnięty. Aparat routingu zwrócić kod HTTP 404. Za pomocą `@page "{id:int?}"`, `OnGetAsync` metoda zwraca `NotFound` (HTTP 404).
+Za pomocą `@page "{id:int}"` dyrektywy, punkt przerwania zostanie nigdy osiągnięty. Aparat routingu zwraca HTTP 404. Za pomocą `@page "{id:int?}"`, `OnGetAsync` metoda zwraca `NotFound` (HTTP 404).
 
 Chociaż nie jest to zalecane, można napisać `OnGetAsync` — metoda (w *Pages/Movies/Delete.cshtml.cs*) jako:
 

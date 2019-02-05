@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 12/4/2018
 uid: tutorials/razor-pages/page
-ms.openlocfilehash: c902e9e258b4f436e2f19e2940246b80549238b8
-ms.sourcegitcommit: ca5f03210bedc61c6639a734ae5674bfe095dee8
+ms.openlocfilehash: f97930c9e09dbf46acc9e91aff9469db8970fa77
+ms.sourcegitcommit: a91e8dd2f4b788114c8bc834507277f4b5e8d6c5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55073117"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55712292"
 ---
 # <a name="scaffolded-razor-pages-in-aspnet-core"></a>Strony razor ze szkieletami w programie ASP.NET Core
 
@@ -175,4 +175,4 @@ Aparat tworzenia szkieletów tworzy znaczników Razor dla każdego pola w modelu
 
 > [!div class="step-by-step"]
 > [Poprzednie: Dodawanie modelu](xref:tutorials/razor-pages/model)
-> [dalej: Data Base](xref:tutorials/razor-pages/sql)
+> [dalej: Database](xref:tutorials/razor-pages/sql)

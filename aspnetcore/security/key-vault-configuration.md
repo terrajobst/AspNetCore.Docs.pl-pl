@@ -2,72 +2,288 @@
 title: Dostawca konfiguracji usługi Azure Key Vault w programie ASP.NET Core
 author: guardrex
 description: Dowiedz się, jak skonfigurować aplikację tak, za pomocą pary nazwa wartość ładowane w czasie wykonywania za pomocą dostawcy konfiguracji magazynu kluczy Azure.
-monikerRange: '>= aspnetcore-1.1'
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 01/28/2019
 uid: security/key-vault-configuration
-ms.openlocfilehash: c6dc8b9c462841351b3ada72deeae727da356a6c
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 8e40c8308a692731e71fb8ebebfc64e606874290
+ms.sourcegitcommit: 98e9c7187772d4ddefe6d8e85d0d206749dbd2ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207891"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55737658"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Dostawca konfiguracji usługi Azure Key Vault w programie ASP.NET Core
 
 Przez [Luke Latham](https://github.com/guardrex) i [Andrew Stanton pielęgniarki](https://github.com/anurse)
 
-W tym dokumencie wyjaśniono, jak używać [Microsoft Azure Key Vault](https://azure.microsoft.com/services/key-vault/) dostawcę konfiguracji, które można załadować wartości konfiguracji aplikacji z wpisy tajne w usłudze Azure Key Vault. Usługa Azure Key Vault to usługa oparta na chmurze, która pomaga chronić klucze kryptograficzne i wpisy tajne używane przez aplikacje i usługi. Typowe scenariusze obejmują kontrolę dostępu do danych poufnych konfiguracji i weryfikacja spełniające wymagania FIPS 140-2 poziom 2 sprzętowych modułów zabezpieczeń (HSM) w przypadku przechowywania danych konfiguracji. Ta funkcja jest dostępna dla aplikacji przeznaczonych dla platformy ASP.NET Core 1.1 lub nowszej.
+W tym dokumencie wyjaśniono, jak używać [Microsoft Azure Key Vault](https://azure.microsoft.com/services/key-vault/) dostawcę konfiguracji, które można załadować wartości konfiguracji aplikacji z wpisy tajne w usłudze Azure Key Vault. Usługa Azure Key Vault to usługa oparta na chmurze, które pomaga w ochronę kluczy kryptograficznych i wpisów tajnych używanych przez aplikacje i usługi. Typowe scenariusze dotyczące korzystania z usługi Azure Key Vault z aplikacji platformy ASP.NET Core obejmują:
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+* Kontrolowanie dostępu do danych poufnych konfiguracji.
+* Spełniające wymagania FIPS 140-2 Level 2 zweryfikować sprzętowych modułów zabezpieczeń (HSM), podczas zapisywania danych konfiguracji.
 
-## <a name="package"></a>Package
+Ten scenariusz jest dostępna dla aplikacji przeznaczonych dla platformy ASP.NET Core 2.1 lub nowszej.
 
-Aby użyć dostawcy, Dodaj odwołanie do [Microsoft.Extensions.Configuration.AzureKeyVault](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.AzureKeyVault/) pakietu.
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/sample) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
-## <a name="app-configuration"></a>Konfiguracja aplikacji
+## <a name="packages"></a>Pakiety
 
-Możesz zapoznać się z dostawcą z [przykładowe aplikacje](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples). Gdy magazynu kluczy i tworzenie wpisów tajnych w magazynie, przykładowych aplikacji bezpiecznego załadować wartościami wpisów tajnych do ich konfiguracji i wyświetlaj je w stron sieci Web.
+Aby używać dostawcy konfiguracji magazynu kluczy Azure, Dodaj odwołanie do pakietu [Microsoft.Extensions.Configuration.AzureKeyVault](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.AzureKeyVault/) pakietu.
 
-Dostawca zostanie dodany do konfiguracji aplikacji z `AddAzureKeyVault` rozszerzenia. W przykładowych aplikacji, rozszerzenia używa załadowane z trzech wartości konfiguracji *appsettings.json* pliku.
+Przyjęcie scenariusz tożsamości usługi zarządzanej platformy Azure, należy dodać odwołania do pakietu do [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/) pakietu.
 
-| Ustawienia aplikacji    | Opis                    | Przykład                                      |
-| -------------- | ------------------------------ | -------------------------------------------- |
-| `Vault`        | Nazwa usługi Azure Key Vault           | contosovault                                 |
-| `ClientId`     | Identyfikator aplikacji usługi Azure Active Directory  | 627e911e-43cc-61d4-992e-12db9c81b413         |
-| `ClientSecret` | Klucz aplikacji usługi Azure Active Directory | g58K3dtg59o1Pa+e59v2Tx829w6VxTB2yv9sv/101di= |
+> [!NOTE]
+> W czasie pisania najnowszą stabilną wersję `Microsoft.Azure.Services.AppAuthentication`, wersja `1.0.3`, zapewnia obsługę [przypisany systemowo zarządzanych tożsamości](/azure/active-directory/managed-identities-azure-resources/overview#how-does-the-managed-identities-for-azure-resources-worka-namehow-does-it-worka). Obsługa *przypisanych do użytkowników zarządzanych tożsamości* jest dostępna w `1.0.2-preview` pakietu. W tym temacie przedstawiono użycie tożsamości zarządzanych przez system, a podana Przykładowa aplikacja korzysta z wersji `1.0.3` z `Microsoft.Azure.Services.AppAuthentication` pakietu.
 
-[!code-csharp[Program](key-vault-configuration/samples/basic-sample/2.x/Program.cs?name=snippet1)]
+## <a name="sample-app"></a>Przykładowa aplikacja
 
-## <a name="create-key-vault-secrets-and-load-configuration-values-basic-sample"></a>Tworzenie magazynu kluczy, wpisów tajnych i załadować wartości konfiguracji (podstawowy przykład)
+Przykładowa aplikacja jest uruchamiana w jednym z dwóch trybów ustalany na podstawie `#define` instrukcji na górze *Program.cs* pliku:
 
-1. Tworzenie magazynu kluczy i konfigurowanie usługi Azure Active Directory (Azure AD) dla aplikacji, postępując zgodnie ze wskazówkami w [Rozpoczynanie pracy z usługą Azure Key Vault](https://azure.microsoft.com/documentation/articles/key-vault-get-started/).
-   * Dodawanie kluczy tajnych do magazynu kluczy przy użyciu [modułu programu PowerShell magazynu klucz AzureRM](/powershell/module/azurerm.keyvault) dostępnym [galerii programu PowerShell](https://www.powershellgallery.com/packages/AzureRM.KeyVault), [API REST usługi Azure Key Vault](/rest/api/keyvault/), lub [Witryny azure Portal](https://portal.azure.com/). Klucze tajne są tworzone jako *ręczne* lub *certyfikatu* wpisów tajnych. *Certyfikat* klucze tajne certyfikatów do użytku przez aplikacje i usługi, ale nie są obsługiwane przez dostawcę konfiguracji. Należy używać *ręczne* opcję, aby utworzyć klucze tajne pary nazwa wartość, do użytku z dostawcą konfiguracji.
-     * Proste hasła są tworzone jako pary nazwa wartość. Usługa Azure Key Vault nazw kluczy tajnych są ograniczone do znaki alfanumeryczne i łączniki.
-     * Użyj wartości hierarchicznych (sekcji konfiguracji) `--` (dwa łączniki) jako separatora w próbce. Dwukropki, które są zwykle używane do ograniczania sekcji w podkluczu w [konfiguracji platformy ASP.NET Core](xref:fundamentals/configuration/index), nie są dozwolone w nazwach wpisu tajnego. W związku z tym dwa łączniki są używane i zamienione dla dwukropek, gdy wpisy tajne są ładowane do konfiguracji aplikacji.
-     * Utworzyć dwa *ręczne* wpisów tajnych za pomocą poniższej pary nazwa wartość. Pierwszy wpis tajny jest prostą nazwę i wartość, a drugi wpis tajny tworzy wartość wpisu tajnego z sekcji i podklucz nazwa klucza tajnego:
-       * `SecretName`: `secret_value_1`
-       * `Section--SecretName`: `secret_value_2`
-   * Rejestrowanie przykładowej aplikacji z usługą Azure Active Directory.
-   * Zezwolić aplikacji na dostęp do magazynu kluczy. Kiedy używasz `Set-AzureRmKeyVaultAccessPolicy` polecenia cmdlet programu PowerShell, aby autoryzować aplikację do dostępu do magazynu kluczy, podaj `List` i `Get` dostęp do wpisów tajnych za pomocą `-PermissionsToSecrets list,get`.
+* `Basic` &ndash; Demonstruje użycie Identyfikatora aplikacji systemu Azure klucza magazynu i hasło (klucz tajny klienta), aby dostęp do danych poufnych przechowywanych w magazynie kluczy. Wdrażanie `Basic` wersja przykładu do dowolnego hosta, które umożliwia obsługę aplikacji ASP.NET Core.
+* `Managed` &ndash; Pokazuje sposób użycia platformy Azure [tożsamości usługi zarządzanej (MSI)](/azure/active-directory/managed-identities-azure-resources/overview) można uwierzytelnić aplikację usługi Azure Key Vault przy użyciu uwierzytelniania usługi Azure AD bez poświadczeń przechowywanych w kodzie aplikacji lub konfiguracji. Uwierzytelnianie za pomocą pliku MSI, identyfikator aplikacji w usłudze Azure AD i hasło (klucz tajny klienta) nie są wymagane. `Managed` Wersję przykładu, należy wdrożyć na platformie Azure.
 
-2. Aktualizowanie aplikacji *appsettings.json* pliku z wartościami `Vault`, `ClientId`, i `ClientSecret`.
-3. Uruchom przykładową aplikację, która uzyskuje jego wartości konfiguracji z `IConfigurationRoot` o takiej samej nazwie jak nazwa wpisu tajnego.
-   * Wartości inne niż hierarchiczne: wartość `SecretName` są uzyskiwane z `config["SecretName"]`.
-   * Hierarchiczna wartości (sekcje): Użyj `:` notacji (dwukropek) lub `GetSection` — metoda rozszerzenia. Użyj jednej z tych metod można uzyskać wartości konfiguracji:
-     * `config["Section:SecretName"]`
-     * `config.GetSection("Section")["SecretName"]`
+Aby uzyskać więcej informacji na temat konfigurowania przykładowej aplikacji za pomocą dyrektywy preprocesora (`#define`), zobacz <xref:index#preprocessor-directives-in-sample-code>.
 
-Po uruchomieniu aplikacji, strony sieci Web pokazuje załadowany wartości klucza tajnego:
+## <a name="secret-storage-in-the-development-environment"></a>Wpisu tajnego magazynu w środowisku programistycznym
 
-![Okno przeglądarki zawierające wartości klucza tajnego załadowany za pośrednictwem dostawcy konfiguracji magazynu kluczy Azure](key-vault-configuration/_static/sample1.png)
+Ustaw lokalnie przy użyciu kluczy tajnych [narzędzie Menedżer klucz tajny](xref:security/app-secrets). Jeśli przykładowa aplikacja jest uruchamiana na komputerze lokalnym w środowisku programistycznym, wpisów tajnych są ładowane z magazynu lokalnego Menedżera klucz tajny.
+
+Narzędzie Menedżer klucz tajny wymaga `<UserSecretsId>` właściwość w pliku projektu aplikacji. Ustaw wartość właściwości (`{GUID}`) do dowolnej Unikatowy identyfikator GUID:
+
+```xml
+<PropertyGroup>
+  <UserSecretsId>{GUID}</UserSecretsId>
+</PropertyGroup>
+```
+
+Klucze tajne są tworzone jako pary nazwa wartość. Użyj wartości hierarchicznych (sekcji konfiguracji) `:` (dwukropek) jako separator w [konfiguracji platformy ASP.NET Core](xref:fundamentals/configuration/index) nazw kluczy.
+
+Menedżer klucz tajny jest używany z powłoki poleceń, otwarte, aby zawartość katalogu głównego projektu, gdzie `{SECRET NAME}` nazywa się i `{SECRET VALUE}` jest wartością:
+
+```console
+dotnet user-secrets set "{SECRET NAME}" "{SECRET VALUE}"
+```
+
+W powłoce poleceń z katalogu głównego zawartości projektu, aby ustawić wpisów tajnych dla przykładowej aplikacji, wykonaj następujące polecenia:
+
+```console
+dotnet user-secrets set "SecretName" "secret_value_1_dev"
+dotnet user-secrets set "Section:SecretName" "secret_value_2_dev"
+```
+
+Kiedy te klucze tajne są przechowywane w usłudze Azure Key Vault w [wpisu tajnego magazynu w środowisku produkcyjnym za pomocą usługi Azure Key Vault](#secret-storage-in-the-production-environment-with-azure-key-vault) sekcji `_dev` sufiks jest zmieniana na `_prod`. Sufiks oferuje wizualną w danych wyjściowych aplikacji wskazujący źródła wartości konfiguracji.
+
+## <a name="secret-storage-in-the-production-environment-with-azure-key-vault"></a>Wpisu tajnego magazynu w środowisku produkcyjnym za pomocą usługi Azure Key Vault
+
+Z instrukcjami wyświetlanymi przez [Szybki Start: Ustawianie i pobieranie wpisu tajnego z usługi Azure Key Vault przy użyciu wiersza polecenia platformy Azure](/azure/key-vault/quick-create-cli) tematu są podsumowywane w tym miejscu służą do tworzenia usługi Azure Key Vault i przechowywania wpisów tajnych używanych przez aplikację przykładową. Zapoznaj się z tematem, aby uzyskać więcej informacji.
+
+1. Otwórz usługa Azure Cloud shell przy użyciu jednej z następujących metod w [witryny Azure portal](https://portal.azure.com/):
+
+   * Wybierz **wypróbuj** w prawym górnym rogu bloku kodu. W polu tekstowym, należy użyć ciągu "Wiersza polecenia platformy Azure".
+   * Otwórz usługę Cloud Shell w przeglądarce za pośrednictwem **Launch Cloud Shell** przycisku.
+   * Wybierz **Cloud Shell** przycisk menu w prawym górnym rogu witryny Azure portal.
+
+   Aby uzyskać więcej informacji, zobacz [interfejsu wiersza polecenia platformy Azure (CLI)](/cli/azure/) i [Omówienie usługi Azure Cloud Shell](/azure/cloud-shell/overview).
+
+1. Jeśli nie są już uwierzytelniony, zaloguj się przy użyciu `az login` polecenia.
+
+1. Utwórz grupę zasobów za pomocą następującego polecenia, gdzie `{RESOURCE GROUP NAME}` to nazwa grupy zasobów dla nowej grupy zasobów i `{LOCATION}` to region platformy Azure (datacenter):
+
+   ```console
+   az group create --name "{RESOURCE GROUP NAME}" --location {LOCATION}
+   ```
+
+1. Tworzenie magazynu kluczy w grupie zasobów za pomocą następującego polecenia, gdzie `{KEY VAULT NAME}` to nazwa dla nowego magazynu kluczy i `{LOCATION}` to region platformy Azure (datacenter):
+
+   ```console
+   az keyvault create --name "{KEY VAULT NAME}" --resource-group "{RESOURCE GROUP NAME}" --location {LOCATION}
+   ```
+
+1. Tworzenie wpisów tajnych w magazynie kluczy jako pary nazwa wartość.
+
+   Usługa Azure Key Vault nazw kluczy tajnych są ograniczone do znaki alfanumeryczne i łączniki. Użyj wartości hierarchicznych (sekcji konfiguracji) `--` (dwa łączniki) jako separatora. Dwukropki, które są zwykle używane do ograniczania sekcji w podkluczu w [konfiguracji platformy ASP.NET Core](xref:fundamentals/configuration/index), nie są dozwolone w nazwach wpisu tajnego usługi key vault. W związku z tym dwa łączniki są używane i zamienione dla dwukropek, gdy wpisy tajne są ładowane do konfiguracji aplikacji.
+
+   Następujące klucze tajne są do użytku z przykładowej aplikacji. Wartości obejmują `_prod` sufiks, aby odróżnić je od `_dev` sufiks wartości załadowane w środowisku programistycznym z wpisami tajnymi użytkowników. Zastąp `{KEY VAULT NAME}` nazwą magazynu kluczy, który został utworzony w poprzednim kroku:
+
+   ```console
+   az keyvault secret set --vault-name "{KEY VAULT NAME}" --name "SecretName" --value "secret_value_1_prod"
+   az keyvault secret set --vault-name "{KEY VAULT NAME}" --name "Section--SecretName" --value "secret_value_2_prod"
+   ```
+
+## <a name="use-application-id-and-client-secret"></a>Użyj Identyfikatora aplikacji i klucz tajny klienta
+
+Konfigurowanie usługi Azure AD, usługi Azure Key Vault i aplikacji do użycia aplikacji, identyfikator i hasło (klucz tajny klienta) do uwierzytelniania do magazynu kluczy, gdy aplikacja jest hostowana poza platformą Azure.
+
+> [!NOTE]
+> Przy użyciu Identyfikatora aplikacji i hasło (klucz tajny klienta) jest obsługiwana dla aplikacji hostowanych na platformie Azure, zalecamy używanie [dostawcy tożsamości usługi zarządzanej (MSI)](#use-the-managed-service-identity-msi-provider) odnośnie do hostowania aplikacji na platformie Azure. MSI nie wymaga przechowywania poświadczeń w aplikacji lub jej konfigurację, dzięki czemu jest traktowany jako ogólnie bezpieczniejszym rozwiązaniem.
+
+Przykładowa aplikacja korzysta z aplikacji, identyfikator i hasło (klucz tajny klienta) po `#define` instrukcji na górze *Program.cs* pliku jest ustawiona na `Basic`.
+
+1. Rejestrowanie aplikacji w usłudze Azure AD i ustanowić hasło (klucz tajny klienta) dla tożsamości aplikacji.
+1. Store nazwa magazynu kluczy, identyfikator aplikacji i hasło/klucz tajny aplikacji *appsettings.json* pliku.
+1. Przejdź do **klucza magazynów** w witrynie Azure portal.
+1. Wybierz magazyn kluczy, który został utworzony w [wpisu tajnego magazynu w środowisku produkcyjnym za pomocą usługi Azure Key Vault](#secret-storage-in-the-production-environment-with-azure-key-vault) sekcji.
+1. Wybierz **zasady dostępu**.
+1. Wybierz **Dodaj nowe**.
+1. Wybierz **Wybierz podmiot zabezpieczeń** i wybierz zarejestrowany aplikację według nazwy. Wybierz **wybierz** przycisku.
+1. Otwórz **uprawnienia klucza tajnego** i zapewniają aplikacji za pomocą **uzyskać** i **listy** uprawnienia.
+1. Kliknij przycisk **OK**.
+1. Wybierz pozycję **Zapisz**.
+1. Wdróż aplikację.
+
+`Basic` Przykładowa aplikacja uzyskuje jego wartości konfiguracji z `IConfigurationRoot` o takiej samej nazwie jak nazwa wpisu tajnego:
+
+* Wartości inne niż hierarchiczne: Wartość `SecretName` są uzyskiwane z `config["SecretName"]`.
+* Hierarchiczna wartości (sekcje): Użyj `:` notacji (dwukropek) lub `GetSection` — metoda rozszerzenia. Użyj jednej z tych metod można uzyskać wartości konfiguracji:
+  * `config["Section:SecretName"]`
+  * `config.GetSection("Section")["SecretName"]`
+
+Wywołania aplikacji `AddAzureKeyVault` przy użyciu wartości dostarczone przez *appsettings.json* pliku:
+
+[!code-csharp[](key-vault-configuration/sample/Program.cs?name=snippet1&highlight=11-14)]
+
+Przykładowe wartości:
+
+* Nazwa magazynu kluczy: `contosovault`
+* Identyfikator aplikacji: `627e911e-43cc-61d4-992e-12db9c81b413`
+* Hasło: `g58K3dtg59o1Pa+e59v2Tx829w6VxTB2yv9sv/101di=`
+
+*appsettings.json*:
+
+[!code-json[](key-vault-configuration/sample/appsettings.json)]
+
+Po uruchomieniu aplikacji, strony sieci Web wyświetlane są załadowane wartości klucza tajnego. W środowisku programistycznym wartościami wpisów tajnych załadować dane przy użyciu `_dev` sufiks. W środowisku produkcyjnym wartości załadować dane przy użyciu `_prod` sufiks.
+
+## <a name="use-the-managed-service-identity-msi-provider"></a>Użyj dostawcy tożsamości (MSI) usługi zarządzanej
+
+Aplikacja wdrożona na platformie Azure mogą korzystać z tożsamość usługi zarządzanej (MSI), który umożliwia aplikacji do uwierzytelniania za pomocą usługi Azure Key Vault przy użyciu uwierzytelniania usługi Azure AD bez poświadczeń (identyfikator aplikacji i hasło/klucz tajny) przechowywanych w aplikacji.
+
+Przykładowa aplikacja korzysta z pliku MSI po `#define` instrukcji na górze *Program.cs* pliku jest ustawiona na `Managed`.
+
+Wprowadź nazwę magazynu z aplikacją *appsettings.json* pliku. Przykładowa aplikacja nie wymaga Identyfikatora aplikacji i hasło (klucz tajny klienta), po ustawieniu `Managed` wersji, dzięki czemu można zignorować te pozycje konfiguracji. Aplikacja jest wdrożona na platformie Azure, a platforma Azure uwierzytelnia aplikacji dostępu do usługi Azure Key Vault tylko przy użyciu nazwy magazynu przechowywanych w *appsettings.json* pliku.
+
+Wdróż przykładową aplikację w usłudze Azure App Service.
+
+Wdrożenie aplikacji w usłudze Azure App Service jest automatycznie rejestrowane w usłudze Azure AD podczas tworzenia usługi. Uzyskaj identyfikator obiektu z wdrożenia do użycia w następującym poleceniu. Identyfikator obiektu są wyświetlane w witrynie Azure portal na **tożsamości** panelu usługi App Service.
+
+Przy użyciu wiersza polecenia platformy Azure i identyfikator obiektu aplikacji, zapewnić aplikacji za pomocą `list` i `get` uprawnienia do dostępu do magazynu kluczy:
+
+```console
+az keyvault set-policy --name '{KEY VAULT NAME}' --object-id {OBJECT ID} --secret-permissions get list
+```
+
+**Uruchom ponownie aplikację** przy użyciu wiersza polecenia platformy Azure, programu PowerShell lub witryny Azure portal.
+
+Przykładowa aplikacja:
+
+* Tworzy wystąpienie `AzureServiceTokenProvider` klasy bez parametrów połączenia. Gdy parametry połączenia nie jest podany dostawca podejmie próbę uzyskania tokenu dostępu z pliku MSI.
+* Nowy `KeyVaultClient` jest tworzona przy użyciu `AzureServiceTokenProvider` wystąpienie tokenu wywołania zwrotnego.
+* `KeyVaultClient` Wystąpienie jest używane z domyślną implementację elementu `IKeyVaultSecretManager` , ładuje wszystkie wartości klucza tajnego i zastępuje kresek podwójnej precyzji (`--`) z dwukropkiem (`:`) nazwy kluczy.
+
+[!code-csharp[](key-vault-configuration/sample/Program.cs?name=snippet2&highlight=13-21)]
+
+Po uruchomieniu aplikacji, strony sieci Web wyświetlane są załadowane wartości klucza tajnego. W środowisku programistycznym wartościami wpisów tajnych mają `_dev` sufiksu domeny, ponieważ są one udostępniane przez wpisami tajnymi użytkowników. W środowisku produkcyjnym wartości załadować dane przy użyciu `_prod` sufiksu domeny, ponieważ są one udostępniane przez usługę Azure Key Vault.
+
+Jeśli zostanie wyświetlony `Access denied` błąd, upewnij się, że aplikacja jest zarejestrowane w usłudze Azure AD i dostępu do magazynu kluczy. Upewnij się, że został uruchomiony ponownie usługi na platformie Azure.
+
+## <a name="use-a-key-name-prefix"></a>Użyj prefiksu nazwy klucza
+
+`AddAzureKeyVault` udostępnia przeciążenie, które akceptuje implementację `IKeyVaultSecretManager`, co pozwala na kontrolowanie sposobu klucza magazynu kluczy tajnych są konwertowane na klucze konfiguracji. Na przykład można zaimplementować interfejs służący do ładowania wartościami wpisów tajnych na podstawie wartości prefiks, który podajesz podczas uruchamiania aplikacji. Dzięki temu można na przykład, aby ładować wpisy tajne w oparciu o wersję aplikacji.
+
+> [!WARNING]
+> Nie używaj prefiksy na wpisy tajne usługi key vault, umieść wpisów tajnych dla wielu aplikacji w tym samym magazynie kluczy lub umieść środowiska wpisy tajne (na przykład *rozwoju* a *produkcji* wpisy tajne) w tej samej Magazyn. Zalecane jest różnych aplikacji i środowisk tworzenia/produkcyjnych użycie oddzielnych magazynów kluczy do izolowania aplikacji środowiska na najwyższy poziom zabezpieczeń.
+
+W poniższym przykładzie wpisu tajnego jest określana w klucza magazynu (i przy użyciu narzędzia menedżera klucz tajny dla środowiska programistycznego) dla `5000-AppSecret` (kropki nie są dozwolone w nazwach wpisu tajnego usługi key vault). Ten wpis tajny reprezentuje klucz tajny aplikacji dla 5.0.0.0 wersję aplikacji. Dla innej wersji aplikacji, 5.1.0.0, klucz tajny jest dodawany do klucza magazynu (i przy użyciu narzędzia menedżera klucz tajny) dla `5100-AppSecret`. Każda wersja aplikacji ładuje jego wersjonowany wartość wpisu tajnego do jego konfigurację jako `AppSecret`, oddzielającego off wersji podczas ładowania klucza tajnego.
+
+`AddAzureKeyVault` jest wywoływana z niestandardowego `IKeyVaultSecretManager`:
+
+[!code-csharp[](key-vault-configuration/sample_snapshot/Program.cs?name=snippet1&highlight=22)]
+
+Wartości dla nazwy usługi key vault, identyfikator aplikacji i hasło (klucz tajny klienta) są dostarczane przez *appsettings.json* pliku:
+
+[!code-json[](key-vault-configuration/sample/appsettings.json)]
+
+Przykładowe wartości:
+
+* Nazwa magazynu kluczy: `contosovault`
+* Identyfikator aplikacji: `627e911e-43cc-61d4-992e-12db9c81b413`
+* Hasło: `g58K3dtg59o1Pa+e59v2Tx829w6VxTB2yv9sv/101di=`
+
+`IKeyVaultSecretManager` Implementacji reaguje na prefiksy wersji wpisów tajnych można załadować odpowiedniego wpisu tajnego do konfiguracji:
+
+[!code-csharp[](key-vault-configuration/sample_snapshot/Startup.cs?name=snippet1)]
+
+`Load` Metoda jest wywoływana przez algorytm dostawcy, który iteruje po magazyn kluczy tajnych wyszukać te, które mają prefiks wersji. Gdy prefiks wersji znajduje się za pomocą `Load`, algorytm używa `GetKey` metodę, aby zwrócić nazwę konfiguracji nazwa wpisu tajnego. On paski Wyłącz prefiks wersji od nazwy klucza tajnego i zwraca pozostałe Nazwa wpisu tajnego do załadowania do konfiguracji aplikacji pary nazwa wartość.
+
+Gdy ta metoda jest zaimplementowana:
+
+1. Wersja aplikacji określony w pliku projektu aplikacji. W poniższym przykładzie ustawiono wersję aplikacji `5.0.0.0`:
+
+   ```xml
+   <PropertyGroup>
+     <Version>5.0.0.0</Version>
+   </PropertyGroup>
+   ```
+
+1. Upewnij się, że `<UserSecretsId>` właściwość znajduje się w pliku projektu aplikacji, gdzie `{GUID}` jest identyfikatorem GUID, dostarczone przez użytkownika:
+
+   ```xml
+   <PropertyGroup>
+     <UserSecretsId>{GUID}</UserSecretsId>
+   </PropertyGroup>
+   ```
+
+   Zapisz następujące wpisy tajne lokalnie za pomocą [narzędzie Menedżer klucz tajny](xref:security/app-secrets):
+
+   ```console
+   dotnet user-secrets set "5000-AppSecret" "5.0.0.0_secret_value_dev"
+   dotnet user-secrets set "5100-AppSecret" "5.1.0.0_secret_value_dev"
+   ```
+
+1. Klucze tajne są zapisywane w usłudze Azure Key Vault przy użyciu następujących poleceń interfejsu wiersza polecenia platformy Azure:
+
+   ```console
+   az keyvault secret set --vault-name "{KEY VAULT NAME}" --name "5000-AppSecret" --value "5.0.0.0_secret_value_prod"
+   az keyvault secret set --vault-name "{KEY VAULT NAME}" --name "5100-AppSecret" --value "5.1.0.0_secret_value_prod"
+   ```
+
+1. Gdy aplikacja jest uruchamiana, wpisy tajne usługi key vault są ładowane. Klucz tajny ciągu dla `5000-AppSecret` pasuje do wersji aplikacji określonej w pliku projektu aplikacji (`5.0.0.0`).
+
+1. Wersja, `5000` (przy użyciu dash), jest usuwany z nazwą klucza. W całej aplikacji odczytywanie konfiguracji przy użyciu klucza `AppSecret` ładuje wartość wpisu tajnego.
+
+1. Jeśli wersja aplikacji została zmieniona w pliku projektu do `5.1.0.0` i aplikacja jest uruchamiana ponownie, jest zwracana wartość wpisu tajnego `5.1.0.0_secret_value_dev` w środowisku deweloperskim i `5.1.0.0_secret_value_prod` w środowisku produkcyjnym.
+
+> [!NOTE]
+> Możesz również podać własne `KeyVaultClient` implementacji `AddAzureKeyVault`. Klient niestandardowy umożliwia udostępnianie jedno wystąpienie klienta w aplikacji.
+
+## <a name="authenticate-to-azure-key-vault-with-an-x509-certificate"></a>Uwierzytelnianie usługi Azure Key Vault za pomocą certyfikatu X.509
+
+Podczas tworzenia aplikacji programu .NET Framework w środowisku, które obsługuje certyfikaty, można wybrać metodę uwierzytelniania usługi Azure Key Vault za pomocą certyfikatu X.509. Klucz prywatny certyfikatu X.509 jest zarządzane przez system operacyjny. Aby uzyskać więcej informacji, zobacz [uwierzytelnianie przy użyciu certyfikatu zamiast wpisu tajnego klienta](/azure/key-vault/key-vault-use-from-web-application#authenticate-with-a-certificate-instead-of-a-client-secret). Użyj `AddAzureKeyVault` przeciążenie, które akceptuje `X509Certificate2` (`_env` w następującym przykładzie:
+
+```csharp
+var builtConfig = config.Build();
+
+var store = new X509Store(StoreLocation.CurrentUser);
+store.Open(OpenFlags.ReadOnly);
+var cert = store.Certificates
+    .Find(X509FindType.FindByThumbprint, 
+        config["CertificateThumbprint"], false);
+
+config.AddAzureKeyVault(
+    builtConfig["Vault"],
+    builtConfig["ClientId"],
+    cert.OfType<X509Certificate2>().Single(),
+    new EnvironmentSecretManager(context.HostingEnvironment.ApplicationName));
+
+store.Close();
+```
 
 ## <a name="bind-an-array-to-a-class"></a>Powiąż tablicę do klasy
 
 Dostawca jest zdolny do odczytywania wartości konfiguracji do tablicy, do powiązania z macierzą POCO.
 
-Podczas odczytywania ze źródła konfiguracji, która umożliwia klucze, aby zawierać dwukropek (`:`) separatory, liczbowych segment klucza jest używane do odróżniania klucze, które tworzą tablicę (`:0:`, `:1:`,... `:{n}:`). Aby uzyskać więcej informacji, zobacz [konfiguracji: powiązywanie tablicę do klasy](xref:fundamentals/configuration/index#bind-an-array-to-a-class).
+Podczas odczytywania ze źródła konfiguracji, która umożliwia klucze, aby zawierać dwukropek (`:`) separatory, liczbowych segment klucza jest używane do odróżniania klucze, które tworzą tablicę (`:0:`, `:1:`,... `:{n}:`). Aby uzyskać więcej informacji, zobacz [konfiguracji: Powiąż tablicę do klasy](xref:fundamentals/configuration/index#bind-an-array-to-a-class).
 
 Usługa Azure Key Vault klucze nie można użyć dwukropek jako separatora. Podejście opisane w tym temacie używa podwójnego kreski (`--`) jako separatora hierarchiczne wartości (sekcji). Tablicy klucze są przechowywane w usłudze Azure Key Vault, przy użyciu podwójnych kresek i numeryczne kluczowe segmenty (`--0--`, `--1--`,... `--{n}--`).
 
@@ -105,72 +321,6 @@ Konfiguracji przedstawionej w poprzednim pliku JSON jest przechowywany w usłudz
 | `Serilog--WriteTo--1--Args--endpointUrl` | `https://contoso.documents.azure.com:443` |
 | `Serilog--WriteTo--1--Args--authorizationKey` | `Eby8...GMGw==` |
 
-## <a name="create-prefixed-key-vault-secrets-and-load-configuration-values-key-name-prefix-sample"></a>Tworzenie prefiksem magazynu kluczy, wpisów tajnych i załadować wartości konfiguracji (klucz name prefiks sample)
-
-`AddAzureKeyVault` udostępnia również przeciążenie, które akceptuje implementację `IKeyVaultSecretManager`, co pozwala na kontrolowanie sposobu klucza magazynu kluczy tajnych są konwertowane na klucze konfiguracji. Na przykład można zaimplementować interfejs służący do ładowania wartościami wpisów tajnych na podstawie wartości prefiks, który podajesz podczas uruchamiania aplikacji. Dzięki temu można na przykład, aby ładować wpisy tajne w oparciu o wersję aplikacji.
-
-> [!WARNING]
-> Nie używaj prefiksy na wpisy tajne usługi key vault, umieść wpisów tajnych dla wielu aplikacji w tym samym magazynie kluczy lub umieść środowiska wpisy tajne (na przykład *rozwoju* a *produkcji* wpisy tajne) w tej samej Magazyn. Zalecane jest różnych aplikacji i środowisk tworzenia/produkcyjnych użycie oddzielnych magazynów kluczy do izolowania aplikacji środowiska na najwyższy poziom zabezpieczeń.
-
-Przy użyciu drugiej aplikacji przykładowej, Utwórz klucz tajny w usłudze key vault dla `5000-AppSecret` (kropki nie są dozwolone w nazwach wpisu tajnego usługi key vault) reprezentujący klucz tajny aplikacji dla 5.0.0.0 wersję aplikacji. Dla innej wersji, 5.1.0.0, Utwórz klucz tajny dla `5100-AppSecret`. Każda wersja aplikacji ładuje własną wartość wpisu tajnego do jego konfigurację jako `AppSecret`, oddzielającego off wersji podczas ładowania klucza tajnego. Poniżej przedstawiono przykładowe zastosowanie:
-
-[!code-csharp[Configuration builder](key-vault-configuration/samples/key-name-prefix-sample/2.x/Program.cs?name=snippet1&highlight=18)]
-
-[!code-csharp[PrefixKeyVaultSecretManager](key-vault-configuration/samples/key-name-prefix-sample/2.x/Startup.cs?name=snippet1)]
-
-`Load` Metoda jest wywoływana przez algorytm dostawcy, który iteruje po magazyn kluczy tajnych wyszukać te, które mają prefiks wersji. Gdy prefiks wersji znajduje się za pomocą `Load`, algorytm używa `GetKey` metodę, aby zwrócić nazwę konfiguracji nazwa wpisu tajnego. On paski Wyłącz prefiks wersji od nazwy klucza tajnego i zwraca pozostałe Nazwa wpisu tajnego do załadowania do konfiguracji aplikacji pary nazwa wartość.
-
-Podczas implementowania tego podejścia:
-
-1. Wpisy tajne usługi key vault są ładowane.
-2. Klucz tajny ciągu dla `5000-AppSecret` dopasowaniu.
-3. Wersja, `5000` (przy użyciu dash), jest usuwany poza nazwę klucza, pozostawiając `AppSecret` załadować dane przy użyciu wartość wpisu tajnego do konfiguracji aplikacji.
-
-> [!NOTE]
-> Możesz również podać własne `KeyVaultClient` implementacji `AddAzureKeyVault`. Dostarczanie niestandardowego klienta umożliwia udostępnianie jedno wystąpienie klienta między dostawcę konfiguracji i innych części aplikacji.
-
-1. Tworzenie magazynu kluczy i konfigurowanie usługi Azure Active Directory (Azure AD) dla aplikacji, postępując zgodnie ze wskazówkami w [Rozpoczynanie pracy z usługą Azure Key Vault](https://azure.microsoft.com/documentation/articles/key-vault-get-started/).
-   * Dodawanie kluczy tajnych do magazynu kluczy przy użyciu [modułu programu PowerShell magazynu klucz AzureRM](/powershell/module/azurerm.keyvault) dostępnym [galerii programu PowerShell](https://www.powershellgallery.com/packages/AzureRM.KeyVault), [API REST usługi Azure Key Vault](/rest/api/keyvault/), lub [Witryny azure Portal](https://portal.azure.com/). Klucze tajne są tworzone jako *ręczne* lub *certyfikatu* wpisów tajnych. *Certyfikat* klucze tajne certyfikatów do użytku przez aplikacje i usługi, ale nie są obsługiwane przez dostawcę konfiguracji. Należy używać *ręczne* opcję, aby utworzyć klucze tajne pary nazwa wartość, do użytku z dostawcą konfiguracji.
-     * Użyj wartości hierarchicznych (sekcji konfiguracji) `--` (dwa łączniki) jako separatora.
-     * Utworzyć dwa *ręczne* wpisów tajnych za pomocą poniższej pary nazwa wartość:
-       * `5000-AppSecret`: `5.0.0.0_secret_value`
-       * `5100-AppSecret`: `5.1.0.0_secret_value`
-   * Rejestrowanie przykładowej aplikacji z usługą Azure Active Directory.
-   * Zezwolić aplikacji na dostęp do magazynu kluczy. Kiedy używasz `Set-AzureRmKeyVaultAccessPolicy` polecenia cmdlet programu PowerShell, aby autoryzować aplikację do dostępu do magazynu kluczy, podaj `List` i `Get` dostęp do wpisów tajnych za pomocą `-PermissionsToSecrets list,get`.
-
-2. Aktualizowanie aplikacji *appsettings.json* pliku z wartościami `Vault`, `ClientId`, i `ClientSecret`.
-3. Uruchom przykładową aplikację, która uzyskuje jego wartości konfiguracji z `IConfigurationRoot` z taką samą nazwę jak prefiksem Nazwa wpisu tajnego. W tym przykładzie prefiks jest wersji aplikacji, która podano `PrefixKeyVaultSecretManager` podczas dodawania dostawcę konfiguracji usługi Azure Key Vault. Wartość `AppSecret` są uzyskiwane z `config["AppSecret"]`. Strony sieci Web, generowany przez aplikację pokazuje załadowany wartość:
-
-   ![Okno przeglądarki, pokazujący wartość tajna załadowany za pośrednictwem dostawcy konfiguracji magazynu kluczy Azure, gdy wersja aplikacji jest 5.0.0.0](key-vault-configuration/_static/sample2-1.png)
-
-4. Zmień wersję zestawu aplikacji w pliku projektu z `5.0.0.0` do `5.1.0.0` i ponownie uruchom aplikację. Tym razem, jest zwracana wartość wpisu tajnego `5.1.0.0_secret_value`. Strony sieci Web, generowany przez aplikację pokazuje załadowany wartość:
-
-   ![Okno przeglądarki, pokazujący wartość tajna załadowany za pośrednictwem dostawcy konfiguracji magazynu kluczy Azure, gdy wersja aplikacji jest 5.1.0.0](key-vault-configuration/_static/sample2-2.png)
-
-## <a name="control-access-to-the-clientsecret"></a>Kontrola dostępu do ClientSecret
-
-Użyj [narzędzie Menedżer klucz tajny](xref:security/app-secrets) do utrzymania `ClientSecret` spoza projektu drzewie źródłowym. Za pomocą Menedżera klucz tajny kojarzenie kluczy tajnych aplikacji z określonego projektu i udostępniać je w wielu projektach.
-
-Podczas tworzenia aplikacji programu .NET Framework w środowisku, które obsługuje certyfikaty, można wybrać metodę uwierzytelniania usługi Azure Key Vault za pomocą certyfikatu X.509. Klucz prywatny certyfikatu X.509 jest zarządzane przez system operacyjny. Aby uzyskać więcej informacji, zobacz [uwierzytelnianie przy użyciu certyfikatu zamiast wpisu tajnego klienta](/azure/key-vault/key-vault-use-from-web-application#authenticate-with-a-certificate-instead-of-a-client-secret). Użyj `AddAzureKeyVault` przeciążenie, które akceptuje `X509Certificate2` (`_env` w następującym przykładzie:
-
-```csharp
-var builtConfig = config.Build();
-
-var store = new X509Store(StoreLocation.CurrentUser);
-store.Open(OpenFlags.ReadOnly);
-var cert = store.Certificates
-    .Find(X509FindType.FindByThumbprint, 
-        config["CertificateThumbprint"], false);
-
-config.AddAzureKeyVault(
-    builtConfig["Vault"],
-    builtConfig["ClientId"],
-    cert.OfType<X509Certificate2>().Single(),
-    new EnvironmentSecretManager(context.HostingEnvironment.ApplicationName));
-
-store.Close();
-```
-
 ## <a name="reload-secrets"></a>Załaduj ponownie wpisy tajne
 
 Klucze tajne są buforowane do momentu `IConfigurationRoot.Reload()` jest wywoływana. Wygasłe, wyłączona, i zaktualizowanych wpisów tajnych w magazynie kluczy nie są przestrzegane przez aplikację do momentu `Reload` jest wykonywany.
@@ -199,7 +349,7 @@ Gdy aplikacja zakończy się niepowodzeniem, można załadować konfiguracji prz
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * <xref:fundamentals/configuration/index>
-* [Platformy Microsoft Azure: Magazyn kluczy](https://azure.microsoft.com/services/key-vault/)
-* [Platformy Microsoft Azure: Dokumentacja usługi Key Vault](/azure/key-vault/)
+* [Microsoft Azure: Magazyn kluczy](https://azure.microsoft.com/services/key-vault/)
+* [Microsoft Azure: Dokumentacja usługi Key Vault](/azure/key-vault/)
 * [Jak Generowanie i przenoszenie chronionego przez moduł HSM kluczy dla usługi Azure Key Vault](/azure/key-vault/key-vault-hsm-protected-keys)
 * [Klasa KeyVaultClient](/dotnet/api/microsoft.azure.keyvault.keyvaultclient)
