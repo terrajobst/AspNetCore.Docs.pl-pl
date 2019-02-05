@@ -22,7 +22,7 @@ ASP.NET Core to międzyplatformowa struktura typu [open source](https://github.c
 * Kompilowanie aplikacji i usług internetowych, aplikacji [IoT](https://www.microsoft.com/internet-of-things/) i zapleczy mobilnych.
 * Używanie ulubionych narzędzi programistycznych w systemach Windows, macOS i Linux.
 * Wdrażanie w chmurze lub lokalnie.
-* Uruchamianie na platformie [.NET Core lub .NET Framework](/dotnet/articles/standard/choosing-core-framework-server).
+* Uruchamianie aplikacji na platformie [.NET Core lub .NET Framework](/dotnet/articles/standard/choosing-core-framework-server).
 
 ## <a name="why-use-aspnet-core"></a>Dlaczego warto korzystać z platformy ASP.NET Core?
 
@@ -32,13 +32,13 @@ Miliony deweloperów korzystają z platformy [ASP.NET 4.x](/aspnet/overview) do 
 
 ## <a name="build-web-apis-and-web-ui-using-aspnet-core-mvc"></a>Tworzenie internetowego interfejsu użytkownika i internetowych interfejsów API przy użyciu wzorca MVC platformy ASP.NET Core
 
-Platforma ASP.NET Core MVC udostępnia funkcje, które umożliwiają tworzenie [internetowych interfejsów API](xref:tutorials/first-web-api) i [aplikacji internetowych](xref:tutorials/razor-pages/index):
+Platforma ASP.NET Core MVC udostępnia funkcje, które umożliwiają tworzenie [internetowych interfejsów API](xref:tutorials/first-web-api) i [aplikacji](xref:tutorials/razor-pages/index):
 
-* Wzorzec [MVC (Model View Controller)](xref:mvc/overview) ułatwia zapewnienie możliwości testowania aplikacji internetowych i internetowych interfejsów API.
+* Wzorzec [MVC (Model View Controller)](xref:mvc/overview) umożliwia testowanie internetowych interfejsów API i aplikacji.
 * [Razor Pages](xref:razor-pages/index) to oparty na stronach model programowania, który umożliwia łatwiejsze i bardziej wydajne tworzenie internetowego interfejsu użytkownika.
 * [Składnia Razor](xref:mvc/views/razor) zapewnia wydajny język dla [stron Razor](xref:razor-pages/index) i [widoków MVC](xref:mvc/views/overview).
-* [Pomocnicy tagów](xref:mvc/views/tag-helpers/intro) umożliwiają uczestniczenie kodu po stronie serwera w tworzeniu i renderowaniu elementów HTML w plikach Razor.
-* Wbudowana obsługa [wiele formatów danych i negocjacji zawartości](xref:web-api/advanced/formatting) umożliwia internetowym interfejsom API obsługę szerokiej gamy klientów, w tym przeglądarek i urządzeń przenośnych.
+* Specjalne funkcje pomocnicze (tzw. [pomocnicy tagów](xref:mvc/views/tag-helpers/intro)) umożliwiają tworzenie i renderowanie elementów HTML w plikach Razor z użyciem kodu po stronie serwera.
+* Wbudowana obsługa [wielu formatów danych i negocjacji zawartości](xref:web-api/advanced/formatting) umożliwia internetowym interfejsom API nawiązywanie połączeń z szeroką gamą klientów (dotyczy to m.in. przeglądarek i urządzeń przenośnych).
 * [Powiązanie modelu](xref:mvc/models/model-binding) automatycznie mapuje dane z żądań HTTP na parametry metod akcji.
 * [Walidacja modelu](xref:mvc/models/validation) automatycznie przeprowadza walidację po stronie klienta i serwera.
 
@@ -48,22 +48,22 @@ Platforma ASP.NET Core bezproblemowo integruje się z popularnymi strukturami i 
 
 <a name="target-framework"></a>
 
-## <a name="aspnet-core-targeting-net-framework"></a>Platforma ASP.NET Core ukierunkowana na platformę .NET Framework
+## <a name="aspnet-core-targeting-net-framework"></a>Platforma ASP.NET Core ukierunkowana na .NET Framework
 
-Platforma ASP.NET Core 2.x może jako cel mieć platformę .NET Core lub .NET Framework. Aplikacje platformy ASP.NET Core ukierunkowane na platformę .NET Framework nie są wieloplatformowe &mdash; działają tylko w systemie Windows. Ogólnie rzecz biorąc, platforma ASP.NET Core 2.x jest zbudowana z bibliotek [.NET Standard](/dotnet/standard/net-standard). Aplikacje napisane przy użyciu platformy .NET Standard 2.0 działają wszędzie tam, gdzie obsługiwana jest platforma .NET Standard 2.0.
+Platforma ASP.NET Core 2.x umożliwia obsługę aplikacji dedykowanych rozwiązaniom .NET Core lub .NET Framework. Aplikacje platformy ASP.NET Core ukierunkowane na rozwiązanie .NET Framework nie są wieloplatformowe &mdash; działają tylko w systemie Windows. Ogólnie rzecz biorąc, platforma ASP.NET Core 2.x jest zbudowana z bibliotek [.NET Standard](/dotnet/standard/net-standard). Aplikacje napisane przy użyciu platformy .NET Standard 2.0 działają wszędzie tam, gdzie obsługiwana jest platforma .NET Standard 2.0.
 
-Platforma ASP.NET Core 2.x jest obsługiwana w wersjach platformy .NET Framework zgodnych z platformą .NET Standard 2.0:
+Platforma ASP.NET Core 2.x jest obsługiwana w wersjach .NET Framework zgodnych z .NET Standard 2.0:
 
-* Zdecydowanie zaleca się platformę .NET Framework 4.7.1 lub nowszą.
+* Zdecydowanie zaleca się wersję .NET Framework 4.7.1 lub nowszą.
 * Platforma .NET Framework 4.6.1 lub nowsza.
 
 Platforma ASP.NET Core 3.0 i nowsze wersje będą działać tylko na platformie .NET Core. Aby uzyskać więcej informacji o tej zmianie, zobacz [A first look at changes coming in ASP.NET Core 3.0](https://blogs.msdn.microsoft.com/webdev/2018/10/29/a-first-look-at-changes-coming-in-asp-net-core-3-0/) (Pierwsze spojrzenie na zmiany wprowadzane na platformie ASP.NET Core 3.0).
 
-Jest kilka zalet przyjmowania platformy .NET Core jako docelowej, a ich liczba rośnie z każdym wydaniem. Niektóre z zalet platformy .NET Core nad platformą .NET Framework to:
+Tworzenie rozwiązań ukierunkowanych na .NET Core jest korzystne z wielu względów, a przewaga tej platformy rośnie z każdym wydaniem. Oto niektóre z czynników wpływających na przewagę platformy .NET Core nad .NET Framework:
 
-* Wieloplatformowość. Działa w systemach macOS, Linux i Windows.
+* Wieloplatformowość. Działanie w systemach macOS, Linux i Windows.
 * Większa wydajność
-* Przechowywanie wersji obok siebie
+* Równoległa obsługa różnych wersji
 * Nowe interfejsy API
 * Kod open source
 
@@ -71,15 +71,15 @@ Ciężko pracujemy nad zlikwidowaniem rozbieżności między interfejsami API pl
 
 ## <a name="how-to-download-a-sample"></a>Instrukcje: pobieranie pliku
 
-Wiele artykułów i samouczków zawiera linki do kodu przykładowego.
+Wiele artykułów i samouczków zawiera linki do przykładów kodu.
 
 1. [Pobierz plik zip repozytorium ASP.NET](https://codeload.github.com/aspnet/Docs/zip/master).
 1. Rozpakuj plik *Docs-master.zip*.
-1. Adres URL linku do przykładu pomoże Ci przejść do katalogu przykładu.
+1. Przejdź do katalogu przykładu, korzystając z adresu URL linku przykładu.
 
 ### <a name="preprocessor-directives-in-sample-code"></a>Dyrektywy preprocesora w przykładowym kodzie
 
-Aby zademonstrować wiele scenariuszy, przykładowe aplikacje używają instrukcji `#define` i `#if-#else/#elif-#endif` języka C# do selektywnego kompilowania i uruchamiania różnych sekcji przykładowego kodu. Aby w tych przykładach zastosować takie podejście, ustaw instrukcję `#define` w górnej części plików języka C# na symbol skojarzony ze scenariuszem, który chcesz uruchomić. Niektóre przykłady mogą wymagać ustawienia symbolu w górnej części wielu plików, aby umożliwić uruchomienie scenariusza.
+Aby zademonstrować wiele scenariuszy, przykładowe aplikacje używają instrukcji `#define` i `#if-#else/#elif-#endif` języka C# do selektywnego kompilowania i uruchamiania różnych sekcji przykładowego kodu. Jeśli chcesz skorzystać z tej możliwości w tych przykładach, ustaw instrukcję `#define` w górnej części plików języka C# na symbol skojarzony ze scenariuszem, który chcesz uruchomić. Niektóre przykłady mogą wymagać ustawienia symbolu w górnej części wielu plików, aby umożliwić uruchomienie scenariusza.
 
 Na przykład następująca lista symboli `#define` wskazuje, że są dostępne cztery scenariusze (jeden scenariusz na symbol). Aktualna konfiguracja przykładu powoduje uruchomienie scenariusza `TemplateCode`:
 
@@ -93,7 +93,7 @@ Aby zmienić przykład w celu uruchomienia scenariusza `ExpandDefault`, zdefiniu
 #define ExpandDefault // TemplateCode or LogFromMain or FilterInCode
 ```
 
-Więcej informacji na temat używania [ dyrektyw preprocesora języka C#](/dotnet/csharp/language-reference/preprocessor-directives/) do selektywnego kompilowania sekcji kodu można znaleźć w tematach [#define (C# Reference)](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-define) (#define (odwołanie w języku C#)) i [#if (C# Reference)](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-if) (#if (odwołanie w języku C#)).
+Więcej informacji na temat używania [ dyrektyw preprocesora języka C#](/dotnet/csharp/language-reference/preprocessor-directives/) do selektywnego kompilowania sekcji kodu można znaleźć w tematach [#define (C# Reference)](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-define) (#define (dokumentacja języka C#)) i [#if (C# Reference)](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-if) (#if (dokumentacja języka C#)).
 
 ### <a name="regions-in-sample-code"></a>Regiony w przykładowym kodzie
 
