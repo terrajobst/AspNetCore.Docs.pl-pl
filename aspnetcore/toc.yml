@@ -1,7 +1,7 @@
 items:
 - name: Dokumentacja platformy ASP.NET Core
   href: /aspnet/#pivot=core
-- name: Przegląd
+- name: Omówienie
   items:
   - uid: index
     name: Informacje o programie ASP.NET Core
@@ -10,8 +10,8 @@ items:
   - name: Porównanie programów .NET Core i .NET Framework
     href: /dotnet/standard/choosing-core-framework-server
 - uid: getting-started
-  name: Pierwsze kroki
-- name: Co nowego
+  name: Wprowadzenie
+- name: Co nowego?
   items:
   - uid: aspnetcore-2.2
     name: Co nowego w wersji 2.2
@@ -56,7 +56,7 @@ items:
 - name: Podstawy
   items:
   - uid: fundamentals/index
-    name: Przegląd
+    name: Omówienie
   - uid: fundamentals/startup
     name: Uruchamianie aplikacji
   - uid: fundamentals/dependency-injection
@@ -78,7 +78,7 @@ items:
   - name: Host
     items:
     - uid: fundamentals/host/index
-      name: Przegląd
+      name: Omówienie
     - uid: fundamentals/host/web-host
       name: Host internetowy
     - uid: fundamentals/host/generic-host
@@ -96,9 +96,9 @@ items:
     - name: Samouczek
       items:
       - uid: tutorials/razor-pages/index
-        name: Przegląd
+        name: Omówienie
       - uid: tutorials/razor-pages/razor-pages-start
-        name: Pierwsze kroki
+        name: Wprowadzenie
       - uid: tutorials/razor-pages/model
         name: Dodawanie modelu
       - uid: tutorials/razor-pages/page
@@ -126,12 +126,12 @@ items:
   - name: MVC
     items:
     - uid: mvc/overview
-      name: Przegląd
+      name: Omówienie
     - uid: tutorials/first-mvc-app/index
       name: Samouczek
       items:
       - uid: tutorials/first-mvc-app/start-mvc
-        name: Pierwsze kroki
+        name: Wprowadzenie
       - uid: tutorials/first-mvc-app/adding-controller
         name: Dodawanie kontrolera
       - uid: tutorials/first-mvc-app/adding-view
@@ -173,7 +173,7 @@ items:
   - name: Pomocnicy tagów
     items:
     - uid: mvc/views/tag-helpers/intro
-      name: Przegląd
+      name: Omówienie
     - uid: mvc/views/tag-helpers/authoring
       name: Tworzenie pomocników tagów
     - uid: mvc/views/working-with-forms
@@ -183,7 +183,7 @@ items:
     - name: Wbudowani pomocnicy tagów
       items:
       - uid: mvc/views/tag-helpers/builtin-th/anchor-tag-helper
-        name: Anchor
+        name: Kotwica
       - uid: mvc/views/tag-helpers/builtin-th/cache-tag-helper
         name: Pamięć podręczna
       - uid: mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper
@@ -239,7 +239,7 @@ items:
 - name: Aplikacje internetowego interfejsu API
   items:
   - uid: web-api/index
-    name: Przegląd
+    name: Omówienie
   - name: Samouczki
     items:
     - uid: tutorials/first-web-api
@@ -249,7 +249,7 @@ items:
   - name: Swagger / OpenAPI
     items:
     - uid: tutorials/web-api-help-pages-using-swagger
-      name: Przegląd
+      name: Omówienie
     - uid: tutorials/get-started-with-swashbuckle
       name: Wprowadzenie do pakietu Swashbuckle
     - uid: tutorials/get-started-with-nswag
@@ -307,7 +307,7 @@ items:
   - name: Hostowanie i skalowanie
     items:
     - uid: signalr/scale
-      name: Przegląd
+      name: Omówienie
     - name: Usługa Azure SignalR Service
       href: /azure/azure-signalr/signalr-overview
     - uid: signalr/redis-backplane
@@ -347,7 +347,7 @@ items:
   - uid: test/loadtests
     name: Obciążenie i testy przeciążeniowe
   - uid: test/troubleshoot
-    name: Rozwiąż problemy
+    name: Rozwiązywanie problemów
   - uid: fundamentals/logging/index
     name: Rejestrowanie
 - name: Dostęp do danych
@@ -357,9 +357,9 @@ items:
     - name: Program EF Core z produktem Razor Pages
       items:
       - uid: data/ef-rp/index
-        name: Przegląd
+        name: Omówienie
       - uid: data/ef-rp/intro
-        name: Pierwsze kroki
+        name: Wprowadzenie
       - uid: data/ef-rp/crud
         name: Tworzenie, odczytywanie, aktualizowanie i usuwanie
       - uid: data/ef-rp/sort-filter-page
@@ -381,9 +381,9 @@ items:
     - name: Program EF Core ze wzorcem MVC, długi samouczek
       items:
       - uid: data/ef-mvc/index
-        name: Przegląd
+        name: Omówienie
       - uid: data/ef-mvc/intro
-        name: Pierwsze kroki
+        name: Wprowadzenie
       - uid: data/ef-mvc/crud
         name: Tworzenie, odczytywanie, aktualizowanie i usuwanie
       - uid: data/ef-mvc/sort-filter-page
@@ -417,7 +417,7 @@ items:
 - name: Programowanie po stronie klienta
   items:
   - uid: client-side/index
-    name: Przegląd
+    name: Omówienie
   - uid: client-side/using-gulp
     name: Gulp
   - uid: client-side/using-grunt
@@ -425,7 +425,7 @@ items:
   - name: LibMan
     items:
     - uid: client-side/libman/index
-      name: Przegląd
+      name: Omówienie
     - uid: client-side/libman/libman-cli
       name: Interfejs wiersza polecenia
     - uid: client-side/libman/libman-vs
@@ -441,12 +441,12 @@ items:
   - name: Składniki Razor
     items:
     - uid: razor-components/index
-      name: Przegląd
+      name: Omówienie
     - uid: razor-components/faq
-      name: Często zadawane pytania
+      name: Najczęściej zadawane pytania
     - uid: razor-components/get-started
-      name: Pierwsze kroki
-    - uid: tutorials/first-blazor-app
+      name: Wprowadzenie
+    - uid: tutorials/first-razor-components-app
       name: Tworzenie pierwszej aplikacji
     - uid: razor-components/components
       name: Składniki
@@ -467,13 +467,13 @@ items:
     - name: Hostowanie i wdrażanie
       items:
       - uid: host-and-deploy/razor-components/index
-        name: Przegląd
+        name: Omówienie
       - uid: host-and-deploy/razor-components/configure-linker
         name: Konfigurowanie konsolidatora
   - name: Aplikacje jednostronicowe
     items:
     - uid: spa/index
-      name: Przegląd
+      name: Omówienie
     - uid: spa/angular
       name: Angular
     - uid: spa/react
@@ -485,11 +485,11 @@ items:
 - name: Hosting i wdrażanie
   items:
   - uid: host-and-deploy/index
-    name: Przegląd
+    name: Omówienie
   - name: Hostowanie w usłudze Azure App Service
     items:
     - uid: host-and-deploy/azure-apps/index
-      name: Przegląd
+      name: Omówienie
     - uid: tutorials/publish-to-azure-webapp-using-vs
       name: Publikowanie za pomocą programu Visual Studio
     - name: Publikowanie za pomocą programu Visual Studio dla komputerów Mac
@@ -503,13 +503,13 @@ items:
     - uid: host-and-deploy/aspnet-core-module
       name: Moduł ASP.NET Core
     - uid: host-and-deploy/azure-apps/troubleshoot
-      name: Rozwiąż problemy
+      name: Rozwiązywanie problemów
     - uid: host-and-deploy/azure-iis-errors-reference
       name: Informacje o błędach
   - name: DevOps
     items:
     - uid: azure/devops/index
-      name: Przegląd
+      name: Omówienie
     - uid: azure/devops/tools-and-downloads
       name: Narzędzia i pliki do pobrania
     - uid: azure/devops/deploy-to-app-service
@@ -523,7 +523,7 @@ items:
   - name: Hostowanie w systemie Windows za pomocą usług IIS
     items:
     - uid: host-and-deploy/iis/index
-      name: Przegląd
+      name: Omówienie
     - uid: host-and-deploy/aspnet-core-module
       name: Moduł ASP.NET Core
     - uid: host-and-deploy/iis/development-time-iis-support
@@ -531,7 +531,7 @@ items:
     - uid: host-and-deploy/iis/modules
       name: Moduły usług IIS
     - uid: host-and-deploy/iis/troubleshoot
-      name: Rozwiąż problemy
+      name: Rozwiązywanie problemów
     - uid: host-and-deploy/azure-iis-errors-reference
       name: Informacje o błędach
   - uid: fundamentals/servers/kestrel
@@ -547,7 +547,7 @@ items:
   - name: Hostowanie na platformie Docker
     items:
     - uid: host-and-deploy/docker/index
-      name: Przegląd
+      name: Omówienie
     - name: Kompilowanie obrazów platformy Docker
       href: /dotnet/core/docker/building-net-docker-images
     - uid: host-and-deploy/docker/visual-studio-tools-for-docker
@@ -571,13 +571,13 @@ items:
   - name: Składniki Razor
     items:
     - uid: host-and-deploy/razor-components/index
-      name: Przegląd
+      name: Omówienie
     - uid: host-and-deploy/razor-components/configure-linker
       name: Konfigurowanie konsolidatora
 - name: Zabezpieczenia i tożsamość
   items:
   - uid: security/index
-    name: Przegląd
+    name: Omówienie
   - name: Uwierzytelnianie
     items:
     - uid: security/authentication/identity
@@ -601,7 +601,7 @@ items:
     - name: Google, Facebook ...
       items:
       - uid: security/authentication/social/index
-        name: Przegląd
+        name: Omówienie
       - uid: security/authentication/google-logins
         name: Uwierzytelnianie przy użyciu usługi Google
       - uid: security/authentication/facebook-logins
@@ -627,7 +627,7 @@ items:
     - name: Azure Active Directory
       items:
       - uid: security/authentication/azure-active-directory/index
-        name: Przegląd
+        name: Omówienie
       - name: Integrowanie usługi Azure AD z aplikacją internetową
         href: https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore/
       - uid: security/authentication/azure-ad-b2c
@@ -647,7 +647,7 @@ items:
   - name: Autoryzacja
     items:
     - uid: security/authorization/introduction
-      name: Przegląd
+      name: Omówienie
     - uid: security/authorization/secure-data
       name: Tworzenie aplikacji internetowej z autoryzacją
     - uid: security/authorization/razor-pages-authorization
@@ -673,13 +673,13 @@ items:
   - name: Ochrona danych
     items:
     - uid: security/data-protection/introduction
-      name: Przegląd
+      name: Omówienie
     - uid: security/data-protection/using-data-protection
       name: Interfejsy API ochrony danych
     - name: Interfejsy API przeznaczone dla klientów
       items:
       - uid: security/data-protection/consumer-apis/overview
-        name: Przegląd
+        name: Omówienie
       - uid: security/data-protection/consumer-apis/purpose-strings
         name: Ciągi celów
       - uid: security/data-protection/consumer-apis/purpose-strings-multitenancy
@@ -693,7 +693,7 @@ items:
     - name: Konfiguracja
       items:
       - uid: security/data-protection/configuration/index
-        name: Przegląd
+        name: Omówienie
       - uid: security/data-protection/configuration/overview
         name: Konfigurowanie ochrony danych
       - uid: security/data-protection/configuration/default-settings
@@ -705,7 +705,7 @@ items:
     - name: Interfejsy API rozszerzalności
       items:
       - uid: security/data-protection/extensibility/index
-        name: Przegląd
+        name: Omówienie
       - uid: security/data-protection/extensibility/core-crypto
         name: Rozszerzalność kryptografii Core
       - uid: security/data-protection/extensibility/key-management
@@ -715,7 +715,7 @@ items:
     - name: Implementacja
       items:
       - uid: security/data-protection/implementation/index
-        name: Przegląd
+        name: Omówienie
       - uid: security/data-protection/implementation/authenticated-encryption-details
         name: Szczegóły uwierzytelnionego szyfrowania
       - uid: security/data-protection/implementation/subkeyderivation
@@ -737,7 +737,7 @@ items:
     - name: Zgodność
       items:
       - uid: security/data-protection/compatibility/index
-        name: Przegląd
+        name: Omówienie
       - uid: security/data-protection/compatibility/replacing-machinekey
         name: Zastępowanie atrybutu machineKey w programie ASP.NET
   - uid: security/app-secrets
@@ -763,11 +763,11 @@ items:
 - name: Wydajność
   items:
   - uid: performance/performance-best-practices
-    name: Przegląd
+    name: Omówienie
   - name: Buforowanie odpowiedzi
     items:
     - uid: performance/caching/response
-      name: Przegląd
+      name: Omówienie
     - uid: performance/caching/memory
       name: Pamięć podręczna w pamięci
     - uid: performance/caching/distributed
@@ -783,7 +783,7 @@ items:
 - name: Globalizacja i lokalizacja
   items:
   - uid: fundamentals/localization
-    name: Przegląd
+    name: Omówienie
   - uid: fundamentals/portable-object-localization
     name: Lokalizacja obiektu przenośnego
 - name: Zaawansowane
@@ -812,11 +812,10 @@ items:
     name: Rejestrowanie za pomocą funkcji LoggerMessage
   - uid: tutorials/dotnet-watch
     name: Używanie obserwatora plików
-    items:
-    - uid: fundamentals/middleware/extensibility
-      name: Oprogramowanie pośredniczące oparte na fabryce
-    - uid: fundamentals/middleware/extensibility-third-party-container
-      name: Oprogramowanie pośredniczące oparte na fabryce z kontenerem innej firmy
+  - uid: fundamentals/middleware/extensibility
+    name: Oprogramowanie pośredniczące oparte na fabryce
+  - uid: fundamentals/middleware/extensibility-third-party-container
+    name: Oprogramowanie pośredniczące oparte na fabryce z kontenerem innej firmy
 - name: Migracja
   items:
   - uid: migration/22-to-30
@@ -828,13 +827,13 @@ items:
   - name: Z wersji 1.x do 2.0
     items:
     - uid: migration/1x-to-2x/index
-      name: Przegląd
+      name: Omówienie
     - uid: migration/1x-to-2x/identity-2x
       name: Uwierzytelnianie i tożsamość
   - name: Z programu ASP.NET do ASP.NET Core
     items:
     - uid: migration/proper-to-2x/index
-      name: Przegląd
+      name: Omówienie
     - uid: migration/mvc
       name: MVC
     - uid: migration/webapi
@@ -855,9 +854,9 @@ items:
   href: /dotnet/api/?view=aspnetcore-2.1
 - name: Współtworzenie
   href: https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md
-ms.openlocfilehash: 4cd0cebdaa4e9821ce0e176be61d304f3a876d7e
-ms.sourcegitcommit: 98e9c7187772d4ddefe6d8e85d0d206749dbd2ef
+ms.openlocfilehash: ebe88d54a391dfe44e6fda02028f9103fceb2ef8
+ms.sourcegitcommit: 3c2ba9a0d833d2a096d9d800ba67a1a7f9491af0
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55737671"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55854370"
