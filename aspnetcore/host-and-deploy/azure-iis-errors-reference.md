@@ -4,14 +4,14 @@ author: guardrex
 description: Uzyskaj porady dotyczące rozwiązywania problemów dla typowych błędów, odnośnie do hostowania aplikacji platformy ASP.NET Core na usługi aplikacji Azure i usług IIS.
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/11/2018
+ms.date: 02/05/2019
 uid: host-and-deploy/azure-iis-errors-reference
-ms.openlocfilehash: 887482d61ffa74bc8ffb39d0af8507fd10199eb8
-ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
+ms.openlocfilehash: 976f7e3fbeab9e81ba99e2dd7d09a892b854651b
+ms.sourcegitcommit: 3c2ba9a0d833d2a096d9d800ba67a1a7f9491af0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54341501"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55854464"
 ---
 # <a name="common-errors-reference-for-azure-app-service-and-iis-with-aspnet-core"></a>Dokumentacja typowych błędów dla usługi Azure App Service i IIS za pomocą programu ASP.NET Core
 
@@ -193,7 +193,7 @@ Rozwiązywanie problemów:
 
 * Sprawdź *processPath* atrybutu na `<aspNetCore>` element *web.config* aby upewnić się, że jest `dotnet` wdrożenia zależny od struktury (stacje) lub `.\{ASSEMBLY}.exe` dla [niezależna wdrożenia (— SCD)](/dotnet/core/deploying/#self-contained-deployments-scd).
 
-* Dla Dyskietki *dotnet.exe* może nie być dostępne za pośrednictwem ustawienia ścieżki. Upewnij się, że * C:\Program Files\dotnet\* istnieje w ustawieniach ścieżki systemowej.
+* Dla Dyskietki *dotnet.exe* może nie być dostępne za pośrednictwem ustawienia ścieżki. Upewnij się, że *C:\Program Files\dotnet\\*  istnieje w ustawieniach ścieżki systemowej.
 
 * Dla Dyskietki *dotnet.exe* może nie być dostępny dla tożsamości puli aplikacji. Upewnij się, że tożsamość puli aplikacji ma dostęp do *C:\Program Files\dotnet* katalogu. Upewnij się, że nie istnieją żadne reguły odmowy skonfigurowane dla tożsamości użytkownika puli aplikacji na *C:\Program Files\dotnet* i katalogów aplikacji.
 

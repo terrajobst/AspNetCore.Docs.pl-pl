@@ -5,12 +5,12 @@ description: Wyjaśnienie przy użyciu uwierzytelniania plików cookie bez użyc
 ms.author: riande
 ms.date: 10/11/2017
 uid: security/authentication/cookie
-ms.openlocfilehash: f55b36cf3fc3b60e9d592348625f58ebaba90da7
-ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
+ms.openlocfilehash: f05e5b83359ec1739115293e092eaed0c811c046
+ms.sourcegitcommit: 3c2ba9a0d833d2a096d9d800ba67a1a7f9491af0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51570116"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55854383"
 ---
 # <a name="use-cookie-authentication-without-aspnet-core-identity"></a>Używania uwierzytelniania plików cookie bez użycia produktu ASP.NET Core Identity
 
@@ -44,7 +44,7 @@ W `Configure` metody, użyj `UseAuthentication` metodę do wywołania, oprogramo
 
 [!code-csharp[](cookie/samples/2.x/CookieSample/Startup.cs?name=snippet2)]
 
-**Opcje AddCookie**
+**AddCookie Options**
 
 [CookieAuthenticationOptions](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions?view=aspnetcore-2.0) klasa jest używana do konfigurowania opcji dostawcy uwierzytelniania.
 
@@ -53,7 +53,6 @@ W `Configure` metody, użyj `UseAuthentication` metodę do wywołania, oprogramo
 | [AccessDeniedPath](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.accessdeniedpath?view=aspnetcore-2.0) | Określa ścieżkę do dostarczania 302 Found (adres URL przekierowania) po wyzwoleniu przez `HttpContext.ForbidAsync`. Wartość domyślna to `/Account/AccessDenied`. |
 | [ClaimsIssuer](/dotnet/api/microsoft.aspnetcore.authentication.authenticationschemeoptions.claimsissuer?view=aspnetcore-2.0) | Wystawca używany dla [wystawcy](/dotnet/api/system.security.claims.claim.issuer) właściwość żadnych oświadczeń, utworzone przez usługę uwierzytelniania pliku cookie. |
 | [Cookie.Domain](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.domain?view=aspnetcore-2.0) | Nazwa domeny, w którym plik cookie jest obsługiwany. Domyślnie jest to nazwa hosta żądania. Przeglądarka wysyła tylko pliki cookie w żądaniach do takiej samej nazwie hosta. Możesz dostosować, aby pliki cookie dostępne dla każdego hosta w domenie. Na przykład ustawienie domeny pliku cookie `.contoso.com` udostępnia je zadaniom `contoso.com`, `www.contoso.com`, i `staging.www.contoso.com`. |
-| [Cookie.Expiration](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.expiration?view=aspnetcore-2.0) | Pobiera lub ustawia cyklem życia pliku cookie. Obecnie ta opcja żadnych operacji i staną się przestarzałe w programie ASP.NET Core 2.1 +. Użyj `ExpireTimeSpan` opcję, aby ustawić datę ważności pliku cookie. Aby uzyskać więcej informacji, zobacz [wyjaśnić zachowanie CookieAuthenticationOptions.Cookie.Expiration](https://github.com/aspnet/Security/issues/1293). |
 | [Cookie.HttpOnly](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.httponly?view=aspnetcore-2.0) | Flaga wskazująca, jeśli plik cookie ma być dostępne tylko dla serwerów. Zmiana tej wartości do `false` zezwala na skrypty po stronie klienta do dostępu do pliku cookie i mogą otwierać aplikację, aby kradzieży plików cookie, powinny mieć aplikację [skryptów między witrynami (XSS)](xref:security/cross-site-scripting) luk w zabezpieczeniach. Wartość domyślna to `true`. |
 | [Cookie.Name](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.name?view=aspnetcore-2.0) | Określa nazwę pliku cookie. |
 | [Cookie.Path](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.path?view=aspnetcore-2.0) | Używane do izolowania aplikacji uruchomionych na tej samej nazwy hosta. Jeśli masz aplikację, w którym uruchomiono `/app1` i ograniczenie liczby plików cookie do tej aplikacji, ustaw `CookiePath` właściwość `/app1`. W ten sposób plik cookie jest dostępny tylko dla żądań `/app1` oraz dowolnej aplikacji znajdujących się pod nim. |
@@ -102,7 +101,7 @@ app.UseCookieAuthentication(new CookieAuthenticationOptions()
 });
 ```
 
-**Opcje CookieAuthenticationOptions**
+**CookieAuthenticationOptions Options**
 
 [CookieAuthenticationOptions](/dotnet/api/Microsoft.AspNetCore.Builder.CookieAuthenticationOptions?view=aspnetcore-1.1) klasa jest używana do konfigurowania opcji dostawcy uwierzytelniania.
 
@@ -147,7 +146,7 @@ app.UseCookiePolicy(cookiePolicyOptions);
 | [MinimumSameSitePolicy](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions.minimumsamesitepolicy) | Wpływa na atrybut o tej samej lokacji plik cookie (patrz poniżej). Wartość domyślna to `SameSiteMode.Lax`. Ta opcja jest dostępna dla platformy ASP.NET Core 2.0 +. |
 | [OnAppendCookie](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions.onappendcookie) | Wywołuje się, gdy jest dołączany plik cookie. |
 | [OnDeleteCookie](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions.ondeletecookie) | Wywołuje się, gdy plik cookie zostanie usunięty. |
-| [Zabezpieczanie](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions.secure) | Wpływa na pliki cookie musi być bezpieczny. Wartość domyślna to `CookieSecurePolicy.None`. |
+| [Bezpieczeństwo](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions.secure) | Wpływa na pliki cookie musi być bezpieczny. Wartość domyślna to `CookieSecurePolicy.None`. |
 
 **MinimumSameSitePolicy** (ASP.NET Core 2.0+ only)
 

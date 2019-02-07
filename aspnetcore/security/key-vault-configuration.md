@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/28/2019
 uid: security/key-vault-configuration
-ms.openlocfilehash: 8e40c8308a692731e71fb8ebebfc64e606874290
-ms.sourcegitcommit: 98e9c7187772d4ddefe6d8e85d0d206749dbd2ef
+ms.openlocfilehash: d255321f6083747ce9b452e1efd4da5bc015bf64
+ms.sourcegitcommit: 3c2ba9a0d833d2a096d9d800ba67a1a7f9491af0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55737658"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55854435"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Dostawca konfiguracji usługi Azure Key Vault w programie ASP.NET Core
 
@@ -31,7 +31,7 @@ Ten scenariusz jest dostępna dla aplikacji przeznaczonych dla platformy ASP.NET
 
 Aby używać dostawcy konfiguracji magazynu kluczy Azure, Dodaj odwołanie do pakietu [Microsoft.Extensions.Configuration.AzureKeyVault](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.AzureKeyVault/) pakietu.
 
-Przyjęcie scenariusz tożsamości usługi zarządzanej platformy Azure, należy dodać odwołania do pakietu do [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/) pakietu.
+Przyjęcie [zarządzanych tożsamości dla zasobów platformy Azure](/azure/active-directory/managed-identities-azure-resources/overview) scenariusza, Dodaj odwołanie do pakietu [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/) pakietu.
 
 > [!NOTE]
 > W czasie pisania najnowszą stabilną wersję `Microsoft.Azure.Services.AppAuthentication`, wersja `1.0.3`, zapewnia obsługę [przypisany systemowo zarządzanych tożsamości](/azure/active-directory/managed-identities-azure-resources/overview#how-does-the-managed-identities-for-azure-resources-worka-namehow-does-it-worka). Obsługa *przypisanych do użytkowników zarządzanych tożsamości* jest dostępna w `1.0.2-preview` pakietu. W tym temacie przedstawiono użycie tożsamości zarządzanych przez system, a podana Przykładowa aplikacja korzysta z wersji `1.0.3` z `Microsoft.Azure.Services.AppAuthentication` pakietu.
@@ -40,8 +40,8 @@ Przyjęcie scenariusz tożsamości usługi zarządzanej platformy Azure, należy
 
 Przykładowa aplikacja jest uruchamiana w jednym z dwóch trybów ustalany na podstawie `#define` instrukcji na górze *Program.cs* pliku:
 
-* `Basic` &ndash; Demonstruje użycie Identyfikatora aplikacji systemu Azure klucza magazynu i hasło (klucz tajny klienta), aby dostęp do danych poufnych przechowywanych w magazynie kluczy. Wdrażanie `Basic` wersja przykładu do dowolnego hosta, które umożliwia obsługę aplikacji ASP.NET Core.
-* `Managed` &ndash; Pokazuje sposób użycia platformy Azure [tożsamości usługi zarządzanej (MSI)](/azure/active-directory/managed-identities-azure-resources/overview) można uwierzytelnić aplikację usługi Azure Key Vault przy użyciu uwierzytelniania usługi Azure AD bez poświadczeń przechowywanych w kodzie aplikacji lub konfiguracji. Uwierzytelnianie za pomocą pliku MSI, identyfikator aplikacji w usłudze Azure AD i hasło (klucz tajny klienta) nie są wymagane. `Managed` Wersję przykładu, należy wdrożyć na platformie Azure.
+* `Basic` &ndash; Demonstruje użycie Identyfikatora aplikacji systemu Azure klucza magazynu i hasło (klucz tajny klienta), aby dostęp do danych poufnych przechowywanych w magazynie kluczy. Wdrażanie `Basic` wersja przykładu do dowolnego hosta, które umożliwia obsługę aplikacji ASP.NET Core. Postępuj zgodnie ze wskazówkami w [Użyj Identyfikatora aplikacji oraz klucz tajny klienta dla aplikacji hostowanych Azure](#use-application-id-and-client-secret-for-non-azure-hosted-apps) sekcji.
+* `Managed` &ndash; Pokazuje sposób użycia [zarządzanych tożsamości dla zasobów platformy Azure](/azure/active-directory/managed-identities-azure-resources/overview) można uwierzytelnić aplikację usługi Azure Key Vault przy użyciu uwierzytelniania usługi Azure AD bez poświadczeń przechowywanych w kodzie aplikacji lub konfiguracji. Korzystając z zarządzanych tożsamości do uwierzytelniania, identyfikator aplikacji w usłudze Azure AD i hasło (klucz tajny klienta) nie są wymagane. `Managed` Wersję przykładu, należy wdrożyć na platformie Azure. Postępuj zgodnie ze wskazówkami w [używania tożsamości zarządzanych zasobów platformy Azure](#use-managed-identities-for-azure-resources) sekcji.
 
 Aby uzyskać więcej informacji na temat konfigurowania przykładowej aplikacji za pomocą dyrektywy preprocesora (`#define`), zobacz <xref:index#preprocessor-directives-in-sample-code>.
 
@@ -111,12 +111,12 @@ Z instrukcjami wyświetlanymi przez [Szybki Start: Ustawianie i pobieranie wpisu
    az keyvault secret set --vault-name "{KEY VAULT NAME}" --name "Section--SecretName" --value "secret_value_2_prod"
    ```
 
-## <a name="use-application-id-and-client-secret"></a>Użyj Identyfikatora aplikacji i klucz tajny klienta
+## <a name="use-application-id-and-client-secret-for-non-azure-hosted-apps"></a>Użyj Identyfikatora aplikacji i klucz tajny klienta dla aplikacji hostowanej platformy Azure
 
-Konfigurowanie usługi Azure AD, usługi Azure Key Vault i aplikacji do użycia aplikacji, identyfikator i hasło (klucz tajny klienta) do uwierzytelniania do magazynu kluczy, gdy aplikacja jest hostowana poza platformą Azure.
+Konfigurowanie usługi Azure AD, usługa Azure Key Vault i aplikacji na używanie aplikacji, identyfikator i hasło (klucz tajny klienta) do magazynu kluczy w celu uwierzytelniania **gdy aplikacja jest hostowana poza platformą Azure**.
 
 > [!NOTE]
-> Przy użyciu Identyfikatora aplikacji i hasło (klucz tajny klienta) jest obsługiwana dla aplikacji hostowanych na platformie Azure, zalecamy używanie [dostawcy tożsamości usługi zarządzanej (MSI)](#use-the-managed-service-identity-msi-provider) odnośnie do hostowania aplikacji na platformie Azure. MSI nie wymaga przechowywania poświadczeń w aplikacji lub jej konfigurację, dzięki czemu jest traktowany jako ogólnie bezpieczniejszym rozwiązaniem.
+> Przy użyciu Identyfikatora aplikacji i hasło (klucz tajny klienta) jest obsługiwana dla aplikacji hostowanych na platformie Azure, zalecamy używanie [zarządzanych tożsamości dla zasobów platformy Azure](#use-managed-identities-for-azure-resources) odnośnie do hostowania aplikacji na platformie Azure. Zarządzanych tożsamości wymaga przechowywania poświadczeń w aplikacji lub jej konfigurację, dzięki czemu jest traktowany jako ogólnie bezpieczniejszym rozwiązaniem.
 
 Przykładowa aplikacja korzysta z aplikacji, identyfikator i hasło (klucz tajny klienta) po `#define` instrukcji na górze *Program.cs* pliku jest ustawiona na `Basic`.
 
@@ -155,11 +155,11 @@ Przykładowe wartości:
 
 Po uruchomieniu aplikacji, strony sieci Web wyświetlane są załadowane wartości klucza tajnego. W środowisku programistycznym wartościami wpisów tajnych załadować dane przy użyciu `_dev` sufiks. W środowisku produkcyjnym wartości załadować dane przy użyciu `_prod` sufiks.
 
-## <a name="use-the-managed-service-identity-msi-provider"></a>Użyj dostawcy tożsamości (MSI) usługi zarządzanej
+## <a name="use-managed-identities-for-azure-resources"></a>Użyj tożsamości zarządzanych zasobów platformy Azure
 
-Aplikacja wdrożona na platformie Azure mogą korzystać z tożsamość usługi zarządzanej (MSI), który umożliwia aplikacji do uwierzytelniania za pomocą usługi Azure Key Vault przy użyciu uwierzytelniania usługi Azure AD bez poświadczeń (identyfikator aplikacji i hasło/klucz tajny) przechowywanych w aplikacji.
+**Aplikacja wdrożona na platformie Azure** korzystać z zalet [zarządzanych tożsamości dla zasobów platformy Azure](/azure/active-directory/managed-identities-azure-resources/overview), co pozwala aplikacji na uwierzytelnianie za pomocą usługi Azure Key Vault przy użyciu uwierzytelniania usługi Azure AD bez poświadczeń (identyfikator aplikacji i Klucz tajny Password/Client) przechowywanych w aplikacji.
 
-Przykładowa aplikacja korzysta z pliku MSI po `#define` instrukcji na górze *Program.cs* pliku jest ustawiona na `Managed`.
+Przykładowa aplikacja korzysta z tożsamości zarządzanego dla zasobów platformy Azure po `#define` instrukcji na górze *Program.cs* pliku jest ustawiona na `Managed`.
 
 Wprowadź nazwę magazynu z aplikacją *appsettings.json* pliku. Przykładowa aplikacja nie wymaga Identyfikatora aplikacji i hasło (klucz tajny klienta), po ustawieniu `Managed` wersji, dzięki czemu można zignorować te pozycje konfiguracji. Aplikacja jest wdrożona na platformie Azure, a platforma Azure uwierzytelnia aplikacji dostępu do usługi Azure Key Vault tylko przy użyciu nazwy magazynu przechowywanych w *appsettings.json* pliku.
 
@@ -177,7 +177,7 @@ az keyvault set-policy --name '{KEY VAULT NAME}' --object-id {OBJECT ID} --secre
 
 Przykładowa aplikacja:
 
-* Tworzy wystąpienie `AzureServiceTokenProvider` klasy bez parametrów połączenia. Gdy parametry połączenia nie jest podany dostawca podejmie próbę uzyskania tokenu dostępu z pliku MSI.
+* Tworzy wystąpienie `AzureServiceTokenProvider` klasy bez parametrów połączenia. Gdy parametry połączenia nie jest podany, dostawca próbuje uzyskać token dostępu z tożsamości zarządzanego dla zasobów platformy Azure.
 * Nowy `KeyVaultClient` jest tworzona przy użyciu `AzureServiceTokenProvider` wystąpienie tokenu wywołania zwrotnego.
 * `KeyVaultClient` Wystąpienie jest używane z domyślną implementację elementu `IKeyVaultSecretManager` , ładuje wszystkie wartości klucza tajnego i zastępuje kresek podwójnej precyzji (`--`) z dwukropkiem (`:`) nazwy kluczy.
 
