@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/03/2019
 uid: razor-components/get-started
-ms.openlocfilehash: 83f8bbcd415c6776ef14e1ce789f3f0a8cecc464
-ms.sourcegitcommit: a91e8dd2f4b788114c8bc834507277f4b5e8d6c5
+ms.openlocfilehash: d35245135139adbb5c0cb63b7d8e309a74948da8
+ms.sourcegitcommit: b72bbc9ae91e4bd37c9ea9b2d09ebf47afb25dd7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55712229"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55958107"
 ---
 # <a name="get-started-with-razor-components"></a>Wprowadzenie do składników Razor
 
@@ -170,4 +170,4 @@ Uruchom aplikację. Strona główna ma swój własny licznik, który zwiększa p
 
 ## <a name="next-steps"></a>Następne kroki
 
-<xref:tutorials/first-blazor-app>
+<xref:tutorials/first-razor-components-app>
