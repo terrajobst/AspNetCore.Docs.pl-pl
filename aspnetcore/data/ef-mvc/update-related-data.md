@@ -1,27 +1,20 @@
 ---
-title: Platforma ASP.NET Core MVC z programem EF Core — aktualizacja powiązanych danych - 7 10
-author: rick-anderson
+title: 'Samouczek: Aktualizowanie powiązanych danych — ASP.NET MVC z programem EF Core'
 description: W tym samouczku będziesz aktualizowanie powiązanych danych, aktualizując pola kluczy obcych i właściwości nawigacji.
+author: rick-anderson
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 02/05/2019
+ms.topic: tutorial
 uid: data/ef-mvc/update-related-data
-ms.openlocfilehash: 37985c945f2e4b15cfcefb0c126c3209e0bdeac4
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: ac94f2e2876c2d8d571a451e4641787ffe37b3d2
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090736"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56103036"
 ---
-# <a name="aspnet-core-mvc-with-ef-core---update-related-data---7-of-10"></a>Platforma ASP.NET Core MVC z programem EF Core — aktualizacja powiązanych danych - 7 10
-
-[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
-
-::: moniker range="= aspnetcore-2.0"
-
-Przez [Tom Dykstra](https://github.com/tdykstra) i [Rick Anderson](https://twitter.com/RickAndMSFT)
-
-Przykładową aplikację sieci web firmy Contoso University pokazuje, jak tworzyć aplikacje sieci web platformy ASP.NET Core MVC za pomocą platformy Entity Framework Core i Visual Studio. Aby uzyskać informacji na temat tej serii samouczka, zobacz [pierwszym samouczku tej serii](intro.md).
+# <a name="tutorial-update-related-data---aspnet-mvc-with-ef-core"></a>Samouczek: Aktualizowanie powiązanych danych — ASP.NET MVC z programem EF Core
 
 W poprzednim samouczku wyświetlane powiązanych danych; w tym samouczku będziesz aktualizowanie powiązanych danych, aktualizując pola kluczy obcych i właściwości nawigacji.
 
@@ -31,7 +24,20 @@ Na poniższych ilustracjach przedstawiono niektóre stron którymi będziesz pra
 
 ![Strona edytowania przez instruktorów](update-related-data/_static/instructor-edit-courses.png)
 
-## <a name="customize-the-create-and-edit-pages-for-courses"></a>Dostosowywanie tworzenie i Edycja stron dla kursów
+W ramach tego samouczka możesz:
+
+> [!div class="checklist"]
+> * Dostosowywanie stron kursów
+> * Dodaj stronę Edytuj instruktorów
+> * Dodaj kursy na stronie edycji
+> * Strona usuwanie aktualizacji
+> * Dodawanie lokalizacji biura i kursy do tworzenia strony
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+* [Odczytywanie powiązanych danych z programem EF Core dla aplikacji internetowej ASP.NET Core MVC](read-related-data.md)
+
+## <a name="customize-courses-pages"></a>Dostosowywanie stron kursów
 
 Po utworzeniu nowej jednostki kurs, musi on mieć relacji do istniejących działu. Aby ułatwić to zadanie, utworzony szkielet kodu zawiera metod kontrolera oraz tworzyć i edytować widoki, które zawierają listy rozwijanej, służąca do wybierania działu. Z listy rozwijanej zestawów `Course.DepartmentID` właściwości klucza obcego, i to wszystko Entity Framework wymaga, aby mogła załadować `Department` właściwość nawigacji z odpowiednią jednostką działu. Będziesz używać utworzony szkielet kodu, ale Zmień ją nieco na dodawanie obsługi błędów i sortowanie listy rozwijanej.
 
@@ -103,7 +109,7 @@ Kliknij przycisk **Edytuj** na kurs na stronie indeksu kursów.
 
 Zmiany danych na stronie, a następnie kliknij przycisk **Zapisz**. Z danymi zaktualizowany kurs zostanie wyświetlona strona indeksu kursów.
 
-## <a name="add-an-edit-page-for-instructors"></a>Dodawanie strony edytowania dla instruktorów
+## <a name="add-instructors-edit-page"></a>Dodaj stronę Edytuj instruktorów
 
 Podczas edytowania rekordu przez instruktorów chcesz można zaktualizować przez instruktorów biuro. Jednostka przez instruktorów ma relację jeden do zero lub jeden z jednostką OfficeAssignment, co oznacza, że Twój kod musi obsługiwać w następujących sytuacjach:
 
@@ -163,7 +169,7 @@ Uruchom aplikację, wybierz **Instruktorzy** kartę, a następnie kliknij przyci
 
 ![Strona edytowania przez instruktorów](update-related-data/_static/instructor-edit-office.png)
 
-## <a name="add-course-assignments-to-the-instructor-edit-page"></a>Dodaj kurs przypisania do strony edytowania przez instruktorów
+## <a name="add-courses-to-edit-page"></a>Dodaj kursy na stronie edycji
 
 Instruktorzy może nauczyć dowolnej liczby kursów. Teraz będzie ulepszenia strony edytowania przez instruktorów, dodając możliwość zmiany przypisania kurs przy użyciu grupy pól wyboru, jak pokazano na poniższym zrzucie ekranu:
 
@@ -236,7 +242,7 @@ Zmień niektóre przypisania kursów, a następnie kliknij przycisk Zapisz. Wpro
 > [!NOTE]
 > Tutaj podejście do edycji przez instruktorów kurs danych działa dobrze w przypadku, gdy istnieje ograniczona liczba kursów. Dla kolekcji, które są znacznie większe innego interfejsu użytkownika i inną metodę aktualizacji będą wymagane.
 
-## <a name="update-the-delete-page"></a>Aktualizuj stronę Delete
+## <a name="update-delete-page"></a>Strona usuwanie aktualizacji
 
 W *InstructorsController.cs*, Usuń `DeleteConfirmed` metody i Wstaw następujący kod w jego miejscu.
 
@@ -248,7 +254,7 @@ Ten kod wprowadza następujące zmiany:
 
 * Jeśli przez instruktorów do usunięcia jest przypisany jako administrator działy, usuwa przypisanie instruktora z tych działów.
 
-## <a name="add-office-location-and-courses-to-the-create-page"></a>Na stronie Utwórz Dodaj lokalizację pakietu office i kursy
+## <a name="add-office-location-and-courses-to-create-page"></a>Dodawanie lokalizacji biura i kursy do tworzenia strony
 
 W *InstructorsController.cs*, Usuń HttpGet i HttpPost `Create` metody, a następnie dodaj następujący kod w ich miejsce:
 
@@ -293,12 +299,21 @@ Testowanie, uruchamianie aplikacji, a następnie tworząc pod kierunkiem instruk
 
 Jak wyjaśniono w [samouczek CRUD](crud.md), platformy Entity Framework niejawnie wykonuje transakcji. Zobacz scenariusze, w którym możesz muszą większa kontrola — na przykład, jeśli chcesz dołączyć operacje wykonywane poza programem Entity Framework w ramach transakcji — [transakcji](/ef/core/saving/transactions).
 
-## <a name="summary"></a>Podsumowanie
+## <a name="get-the-code"></a>Pobierz kod
 
-Wprowadzenie do pracy z powiązanych danych zostało zakończone. W następnym samouczku zobaczysz sposób obsługi konfliktów współbieżności.
+[Pobieranie i wyświetlanie ukończonej aplikacji.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
-::: moniker-end
+## <a name="next-steps"></a>Następne kroki
 
-> [!div class="step-by-step"]
-> [Poprzednie](read-related-data.md)
-> [dalej](concurrency.md)
+W ramach tego samouczka możesz:
+
+> [!div class="checklist"]
+> * Niestandardowe strony kursów
+> * Dodano Instruktorzy edytowanie strony
+> * Dodano kursy do edycji strony
+> * Zaktualizowana strona Delete
+> * Lokalizacja biura dodano i kursów do tworzenia strony
+
+Przejdź do następnego artykułu, aby dowiedzieć się, jak obsługa konfliktów współbieżności.
+> [!div class="nextstepaction"]
+> [Obsługa konfliktów współbieżności](concurrency.md)

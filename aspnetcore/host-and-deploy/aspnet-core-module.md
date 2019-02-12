@@ -1,19 +1,19 @@
 ---
-title: ASP.NET Core Module
+title: Moduł ASP.NET Core
 author: guardrex
 description: Dowiedz się, jak skonfigurować modułu ASP.NET Core do hostowania aplikacji platformy ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
 ms.date: 01/22/2019
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: 4eea360d08c79b889db00132109cf49492f84de6
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.openlocfilehash: 3de50233987998d6e0072a261dee29dd09f4ef89
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54837783"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56103153"
 ---
-# <a name="aspnet-core-module"></a>ASP.NET Core Module
+# <a name="aspnet-core-module"></a>Moduł ASP.NET Core
 
 Przez [Tom Dykstra](https://github.com/tdykstra), [Rick Strahl](https://github.com/RickStrahl), [Chris Ross](https://github.com/Tratcher), [Rick Anderson](https://twitter.com/RickAndMSFT), [Sourabh Shirhatti](https://twitter.com/sshirhatti), [ Justin Kotalik](https://github.com/jkotalik), i [Luke Latham](https://github.com/guardrex)
 
@@ -33,7 +33,7 @@ W przypadku hostowania w procesie, moduł używa implementacji w procesie serwer
 
 Gdy w hostingu poza procesem, moduł działa tylko z Kestrel. Moduł nie jest zgodna z [HTTP.sys](xref:fundamentals/servers/httpsys).
 
-## <a name="hosting-models"></a>Modelach hostingu
+## <a name="hosting-models"></a>Modele hostingu
 
 ### <a name="in-process-hosting-model"></a>W trakcie modelu hostingu
 
@@ -111,7 +111,7 @@ Ponieważ aplikacje platformy ASP.NET Core, uruchom w procesie oddzielić od pro
 
 Na poniższym diagramie przedstawiono relację między usług IIS, modułu ASP.NET Core i aplikacji:
 
-![ASP.NET Core Module](aspnet-core-module/_static/ancm-outofprocess.png)
+![Moduł ASP.NET Core](aspnet-core-module/_static/ancm-outofprocess.png)
 
 Żądania pojawić się w sieci Web w trybie jądra sterownik HTTP.sys. Sterownik kieruje żądania do usługi IIS w witrynie sieci Web skonfigurowanego portu, zwykle 80 (HTTP) lub 443 (HTTPS). Moduł przekazuje żądania do Kestrel na losowy port aplikacji, która nie jest port 80 i 443.
 
@@ -497,6 +497,32 @@ Instalator modułu ASP.NET Core jest uruchamiany z uprawnieniami **systemu** kon
 1. Uruchom Instalatora.
 1. Eksportuj zaktualizowanego *applicationHost.config* plików do udziału.
 1. Ponownie włączyć konfiguracji udostępnionej usług IIS.
+
+::: moniker range=">= aspnetcore-2.2"
+
+## <a name="application-initialization"></a>Inicjowanie aplikacji
+
+[Inicjowanie aplikacji usług IIS](/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization) to funkcja usług IIS, która wysyła żądania HTTP do aplikacji, gdy pula aplikacji rozpoczyna się lub zostanie odtworzona. Żądanie wyzwala uruchomienie aplikacji. Inicjowanie aplikacji mogą być używane przez oba [modelu hostingu w trakcie](xref:fundamentals/servers/index#in-process-hosting-model) i [modelu hostingu poza procesem](xref:fundamentals/servers/index#out-of-process-hosting-model) przy użyciu modułu ASP.NET Core w wersji 2.
+
+Aby włączyć inicjowania aplikacji:
+
+1. Upewnij się, że włączona funkcja roli Inicjowanie aplikacji usług IIS w:
+   * Windows 7 lub nowszy: Przejdź do **Panelu sterowania** > **programy** > **programy i funkcje** > **Windows Włącz funkcje w lub wyłącz** (po lewej stronie ekranu). Otwórz **Internetowe usługi informacyjne** > **usługi World Wide Web** > **funkcje tworzenia aplikacji**. Zaznacz pole wyboru dla **Inicjowanie aplikacji**.
+   * W systemie Windows Server 2008 R2 lub nowszym, otwórz **Kreatora dodawania ról i funkcji**. Po przejściu **Wybieranie usług ról** panelu Otwórz **opracowywanie aplikacji** a następnie wybierz węzeł **Inicjowanie aplikacji** pole wyboru.
+1. W Menedżerze usług IIS wybierz **pul aplikacji** w **połączeń** panelu.
+1. Wybierz pulę aplikacji przez aplikację na liście.
+1. Wybierz **Zaawansowane ustawienia** w obszarze **edytowanie puli aplikacji** w **akcje** panelu.
+1. Ustaw **tryb uruchamiania** do **AlwaysRunning**.
+1. Otwórz **witryn** w węźle **połączeń** panelu.
+1. Wybierz aplikację.
+1. Wybierz **Zaawansowane ustawienia** w obszarze **Zarządzaj witryną internetową** w **akcje** panelu.
+1. Ustaw **wstępne załadowanie włączone** do **True**.
+
+Aby uzyskać więcej informacji, zobacz [Inicjowanie aplikacji programu IIS 8.0](/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization).
+
+Aplikacje korzystające z [modelu hostingu poza procesem](xref:fundamentals/servers/index#out-of-process-hosting-model) musi być okresowo wysyłać polecenie ping w aplikacji w celu zapewnienia jego działania usługi zewnętrznej.
+
+::: moniker-end
 
 ## <a name="module-version-and-hosting-bundle-installer-logs"></a>Wersja modułu oraz Dzienniki Instalatora pakietu hostingu
 

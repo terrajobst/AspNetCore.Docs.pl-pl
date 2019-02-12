@@ -4,14 +4,14 @@ author: rick-anderson
 description: Dowiedz się, jak dane w pamięci w programie ASP.NET Core z pamięci podręcznej.
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/15/2018
+ms.date: 02/11/2019
 uid: performance/caching/memory
-ms.openlocfilehash: 54b4029362c6b26254cb08397ef2e9131f6291d4
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 9a7727ad41a05f39d74877af3c8f2e3f7a620c7d
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207254"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56103075"
 ---
 # <a name="cache-in-memory-in-aspnet-core"></a>Buforowanie w pamięci w programie ASP.NET Core
 
@@ -33,7 +33,7 @@ Non trwałych sesji w ramach farmy sieci web wymagają [rozproszonej pamięci po
 
 ::: moniker-end
 
-Wewnątrzpamięciowa pamięć podręczna może przechowywać dowolny obiekt; Interfejs rozproszonej pamięci podręcznej jest ograniczona do `byte[]`.
+Wewnątrzpamięciowa pamięć podręczna może przechowywać dowolny obiekt; Interfejs rozproszonej pamięci podręcznej jest ograniczona do `byte[]`. Elementy w pamięci i rozproszonej pamięci podręcznej magazynu pamięci podręcznej jako pary klucz wartość.
 
 ## <a name="systemruntimecachingmemorycache"></a>System.Runtime.Caching/MemoryCache
 
@@ -97,7 +97,7 @@ Buforowane `DateTime` wartość pozostaje w pamięci podręcznej, gdy istnieją 
 
 ![Widok indeksu z dwóch różnych godzinach wyświetlane](memory/_static/time.png)
 
-Poniższy kod używa [GetOrCreate](/dotnet/api/microsoft.extensions.caching.memory.cacheextensions#Microsoft_Extensions_Caching_Memory_CacheExtensions_GetOrCreate__1_Microsoft_Extensions_Caching_Memory_IMemoryCache_System_Object_System_Func_Microsoft_Extensions_Caching_Memory_ICacheEntry___0__) i [GetOrCreateAsync](/dotnet/api/microsoft.extensions.caching.memory.cacheextensions#Microsoft_Extensions_Caching_Memory_CacheExtensions_GetOrCreateAsync__1_Microsoft_Extensions_Caching_Memory_IMemoryCache_System_Object_System_Func_Microsoft_Extensions_Caching_Memory_ICacheEntry_System_Threading_Tasks_Task___0___) do buforowania danych. 
+Poniższy kod używa [GetOrCreate](/dotnet/api/microsoft.extensions.caching.memory.cacheextensions#Microsoft_Extensions_Caching_Memory_CacheExtensions_GetOrCreate__1_Microsoft_Extensions_Caching_Memory_IMemoryCache_System_Object_System_Func_Microsoft_Extensions_Caching_Memory_ICacheEntry___0__) i [GetOrCreateAsync](/dotnet/api/microsoft.extensions.caching.memory.cacheextensions#Microsoft_Extensions_Caching_Memory_CacheExtensions_GetOrCreateAsync__1_Microsoft_Extensions_Caching_Memory_IMemoryCache_System_Object_System_Func_Microsoft_Extensions_Caching_Memory_ICacheEntry_System_Threading_Tasks_Task___0___) do buforowania danych.
 
 [!code-csharp[](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet2&highlight=3-7,14-19)]
 
@@ -105,7 +105,7 @@ Poniższy kod wywoła [uzyskać](/dotnet/api/microsoft.extensions.caching.memory
 
 [!code-csharp[](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet_gct)]
 
-Zobacz [metody IMemoryCache](/dotnet/api/microsoft.extensions.caching.memory.imemorycache) i [metody CacheExtensions](/dotnet/api/microsoft.extensions.caching.memory.cacheextensions) opis metod pamięci podręcznej.
+<xref:Microsoft.Extensions.Caching.Memory.CacheExtensions.GetOrCreate*> , <xref:Microsoft.Extensions.Caching.Memory.CacheExtensions.GetOrCreateAsync*>, i [uzyskać](/dotnet/api/microsoft.extensions.caching.memory.cacheextensions.get#Microsoft_Extensions_Caching_Memory_CacheExtensions_Get__1_Microsoft_Extensions_Caching_Memory_IMemoryCache_System_Object_) wchodzą w skład metod rozszerzenia [CacheExtensions](/dotnet/api/microsoft.extensions.caching.memory.cacheextensions) klasy, która rozszerza możliwości <xref:Microsoft.Extensions.Caching.Memory.IMemoryCache>. Zobacz [metody IMemoryCache](/dotnet/api/microsoft.extensions.caching.memory.imemorycache) i [metody CacheExtensions](/dotnet/api/microsoft.extensions.caching.memory.cacheextensions) opis innych metod pamięci podręcznej.
 
 ## <a name="memorycacheentryoptions"></a>MemoryCacheEntryOptions
 

@@ -5,14 +5,14 @@ description: Dowiedz się, jak skonfigurować aplikację tak, za pomocą pary na
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/28/2019
+ms.date: 02/08/2019
 uid: security/key-vault-configuration
-ms.openlocfilehash: d255321f6083747ce9b452e1efd4da5bc015bf64
-ms.sourcegitcommit: 3c2ba9a0d833d2a096d9d800ba67a1a7f9491af0
+ms.openlocfilehash: f70389c86420d81e284ecc863ac8386f726ed2cf
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55854435"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56103114"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Dostawca konfiguracji usługi Azure Key Vault w programie ASP.NET Core
 
@@ -271,8 +271,8 @@ var cert = store.Certificates
         config["CertificateThumbprint"], false);
 
 config.AddAzureKeyVault(
-    builtConfig["Vault"],
-    builtConfig["ClientId"],
+    builtConfig["KeyVaultName"],
+    builtConfig["AzureADApplicationId"],
     cert.OfType<X509Certificate2>().Single(),
     new EnvironmentSecretManager(context.HostingEnvironment.ApplicationName));
 
@@ -342,8 +342,8 @@ Gdy aplikacja zakończy się niepowodzeniem, można załadować konfiguracji prz
 * Aplikacji nie jest upoważniony do dostępu do magazynu kluczy.
 * Zasady dostępu nie zawiera `Get` i `List` uprawnienia.
 * W usłudze key vault dane konfiguracji (pary nazwa wartość) niepoprawnie nosi nazwę, Brak, wyłączone lub wygasła.
-* Aplikacja ma nazwę niewłaściwego magazynu kluczy (`Vault`), identyfikator aplikacji usługi Azure AD (`ClientId`), lub klucza usługi AD Azure (`ClientSecret`).
-* Klucz usługi Azure AD (`ClientSecret`) wygasł.
+* Aplikacja ma nazwę niewłaściwego magazynu kluczy (`KeyVaultName`), identyfikator aplikacji w usłudze Azure AD (`AzureADApplicationId`), lub haseł usługi Azure AD (klucz tajny klienta) (`AzureADPassword`).
+* Hasła usługi Azure AD (klucz tajny klienta) (`AzureADPassword`) wygasł.
 * Klucz konfiguracji (nazwa) jest niepoprawny w aplikacji dla wartości, które próbujesz załadować.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby

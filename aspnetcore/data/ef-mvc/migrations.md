@@ -1,41 +1,50 @@
 ---
-title: Platforma ASP.NET Core MVC z programem EF Core - Migrations - 4 z 10
-author: rick-anderson
+title: 'Samouczek: Za pomocą funkcji migracje — ASP.NET MVC z programem EF Core'
 description: W ramach tego samouczka możesz rozpocząć korzystanie z funkcji migracje EF Core dla zarządzania zmianami modelu danych w aplikacji ASP.NET Core MVC.
+author: rick-anderson
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 02/04/2019
+ms.topic: tutorial
 uid: data/ef-mvc/migrations
-ms.openlocfilehash: 21ef3a675579d8a6671343d84cbe4f4b62979679
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: ac924e7d6bee2f02ab11281a5c27f2c94a7183b3
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090813"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56102997"
 ---
-# <a name="aspnet-core-mvc-with-ef-core---migrations---4-of-10"></a>Platforma ASP.NET Core MVC z programem EF Core - Migrations - 4 z 10
-
-[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
-
-::: moniker range="= aspnetcore-2.0"
-
-Przez [Tom Dykstra](https://github.com/tdykstra) i [Rick Anderson](https://twitter.com/RickAndMSFT)
-
-Przykładową aplikację sieci web firmy Contoso University pokazuje, jak tworzyć aplikacje sieci web platformy ASP.NET Core MVC za pomocą platformy Entity Framework Core i Visual Studio. Aby uzyskać informacji na temat tej serii samouczka, zobacz [pierwszym samouczku tej serii](intro.md).
+# <a name="tutorial-using-the-migrations-feature---aspnet-mvc-with-ef-core"></a>Samouczek: Za pomocą funkcji migracje — ASP.NET MVC z programem EF Core
 
 W ramach tego samouczka możesz rozpocząć korzystanie z funkcji migracje EF Core dla zarządzania zmianami modelu danych. W kolejnych samouczkach należy dodać więcej migracji w przypadku zmiany modelu danych.
 
-## <a name="introduction-to-migrations"></a>Wprowadzenie do migracji
+W ramach tego samouczka możesz:
+
+> [!div class="checklist"]
+> * Dowiedz się więcej o migracji
+> * Dowiedz się więcej o pakietach NuGet usługi migracji
+> * Zmień parametry połączenia
+> * Tworzenie początkowej migracji
+> * Sprawdź metod w górę i w dół
+> * Dowiedz się więcej o migawki modelu danych
+> * Zastosuj migracji
+
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+* [Dodaj sortowanie, filtrowanie i stronicowanie z programem EF Core w aplikacji ASP.NET Core MVC](sort-filter-page.md)
+
+## <a name="about-migrations"></a>Dotyczące migracji
 
 Podczas tworzenia nowej aplikacji swój model danych zmienia często i za każdym razem zmiany modelu, otrzymuje zsynchronizowana z bazą danych. Te samouczki są uruchomione przez konfigurowanie platformy Entity Framework do tworzenia bazy danych, jeśli nie istnieje. Następnie zawsze możesz zmienić model danych — dodać, usunąć, lub zmienić klas jednostek lub zmienić klasy DbContext — można usunąć bazy danych i EF utworzony zostaje nowy indeks, który odpowiada modelu i inicjowania inicjuje ją z danymi.
 
 Ta metoda synchronizacja bazy danych z modelem danych działa poprawnie, dopóki nie możesz wdrożyć aplikację do środowiska produkcyjnego. Gdy aplikacja jest uruchomiona w środowisku produkcyjnym zazwyczaj zapisuje dane, które mają być przechowywane i nie chcesz utracić wszystko, czego zawsze upewnij się zmiany, takie jak dodawanie nowej kolumny. Funkcja migracji programu EF Core rozwiązuje ten problem, włączając EF do zaktualizowania schematu bazy danych zamiast tworzenia nowej bazy danych.
 
-## <a name="entity-framework-core-nuget-packages-for-migrations"></a>Entity Framework Core NuGet pakietów dla migracji
+## <a name="about-nuget-migration-packages"></a>O pakietach NuGet usługi migracji
 
 Aby pracować z migracji, można użyć **Konsola Menedżera pakietów** (PMC) lub interfejsu wiersza polecenia (CLI).  Tych samouczkach przedstawiono sposób użycia interfejsu wiersza polecenia. Informacje o konsoli zarządzania Pakietami wynosi [po ukończeniu tego samouczka](#pmc).
 
-Narzędzia platformy EF dla interfejsu wiersza polecenia (CLI) znajdują się w [Microsoft.EntityFrameworkCore.Tools.DotNet](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools.DotNet). Aby zainstalować ten pakiet, należy dodać go do `DotNetCliToolReference` kolekcji w *.csproj* pliku, jak pokazano. **Uwaga:** należy zainstalować ten pakiet, edytując *.csproj* pliku; nie można użyć `install-package` polecenia lub graficznego interfejsu użytkownika Menedżera pakietów. Możesz edytować *.csproj* pliku, klikając prawym przyciskiem myszy nazwę projektu w **Eksploratora rozwiązań** i wybierając polecenie **Edytuj ContosoUniversity.csproj**.
+Narzędzia platformy EF dla interfejsu wiersza polecenia (CLI) znajdują się w [Microsoft.EntityFrameworkCore.Tools.DotNet](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools.DotNet). Aby zainstalować ten pakiet, należy dodać go do `DotNetCliToolReference` kolekcji w *.csproj* pliku, jak pokazano. **Uwaga:** Musisz zainstalować ten pakiet, edytując *.csproj* pliku; nie można użyć `install-package` polecenia lub graficznego interfejsu użytkownika Menedżera pakietów. Możesz edytować *.csproj* pliku, klikając prawym przyciskiem myszy nazwę projektu w **Eksploratora rozwiązań** i wybierając polecenie **Edytuj ContosoUniversity.csproj**.
 
 [!code-xml[](intro/samples/cu/ContosoUniversity.csproj?range=12-15&highlight=2)]
 
@@ -60,7 +69,7 @@ Ta zmiana konfiguruje projekt tak, aby pierwszej migracji utworzy nową bazę da
 
 Zapisz zmiany i skompiluj projekt. Następnie otwórz okno polecenia i przejdź do folderu projektu. Poniżej przedstawiono szybki sposób, aby to zrobić:
 
-* W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Otwórz w Eksploratorze plików** z menu kontekstowego.
+* W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Otwórz Folder w Eksploratorze plików** z menu kontekstowego.
 
   ![Otwórz w elemencie menu Eksploratora plików](migrations/_static/open-in-file-explorer.png)
 
@@ -89,7 +98,7 @@ Done. To undo this action, use 'ef migrations remove'
 
 Jeśli zostanie wyświetlony komunikat o błędzie "*uzyskać dostępu do pliku... ContosoUniversity.dll, ponieważ jest on używany przez inny proces.* ", Znajdź ikonę usług IIS Express w zasobniku systemu Windows i kliknij go prawym przyciskiem myszy, a następnie kliknij przycisk **ContosoUniversity > Zatrzymaj witrynę**.
 
-## <a name="examine-the-up-and-down-methods"></a>Sprawdź w górę i w dół metody
+## <a name="examine-up-and-down-methods"></a>Sprawdź metod w górę i w dół
 
 Kiedy wykonać `migrations add` polecenia EF wygenerowany kod, który spowoduje utworzenie bazy danych od podstaw. Ten kod znajduje się w *migracje* folderu, w pliku o nazwie  *\<sygnatura czasowa > _InitialCreate.cs*. `Up` Metody `InitialCreate` klasy tworzy tabele bazy danych, które odpowiadają zestawy jednostek modelu danych i `Down` metoda spowoduje usunięcie ich, jak pokazano w poniższym przykładzie.
 
@@ -109,7 +118,7 @@ Podczas usuwania migracji, należy użyć [Usuń migracji ef dotnet](/ef/core/mi
 
 Zobacz [EF Core migracji w środowiskach zespołu](/ef/core/managing-schemas/migrations/teams) Aby uzyskać więcej informacji o sposobie korzystania z pliku migawki.
 
-## <a name="apply-the-migration-to-the-database"></a>Dotyczą migracji bazy danych
+## <a name="apply-the-migration"></a>Zastosuj migracji
 
 W oknie wiersza polecenia wprowadź następujące polecenie, aby utworzyć bazę danych i tabele w nim.
 
@@ -151,24 +160,36 @@ Uruchom aplikację, aby zweryfikować, że wszystko nadal działa tak jak wcześ
 ![Strona indeksu uczniów](migrations/_static/students-index.png)
 
 <a id="pmc"></a>
-## <a name="command-line-interface-cli-vs-package-manager-console-pmc"></a>W stosunku do interfejsu wiersza polecenia (CLI) Konsola Menedżera pakietów (PMC)
+
+## <a name="compare-cli-and-pmc"></a>Porównanie interfejsu wiersza polecenia i konsolę zarządzania Pakietami
 
 EF narzędzi do zarządzania migracji jest niedostępna, z poleceń interfejsu wiersza polecenia platformy .NET Core lub poleceń cmdlet programu PowerShell w programie Visual Studio **Konsola Menedżera pakietów** okna (PMC). W tym samouczku pokazano, jak używać interfejsu wiersza polecenia, ale można użyć konsoli zarządzania Pakietami, jeśli użytkownik sobie tego życzy.
 
 Polecenia EF poleceń PMC znajdują się w [Microsoft.EntityFrameworkCore.Tools](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools) pakietu. Ten pakiet jest objęta [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app), więc nie musisz dodać odwołanie do pakietu, jeśli aplikacja ma odwołania do pakietu dla `Microsoft.AspNetCore.App`.
 
-**Ważne:** nie jest to ten sam pakiet, instalowanie interfejsu wiersza polecenia, edytując *.csproj* pliku. Nazwa tego z nich kończy się na `Tools`, w odróżnieniu od nazwy pakiet interfejsu wiersza polecenia, którego nazwa kończy się na `Tools.DotNet`.
+**Ważne:** Nie jest to ten sam pakiet, instalowanie interfejsu wiersza polecenia, edytując *.csproj* pliku. Nazwa tego z nich kończy się na `Tools`, w odróżnieniu od nazwy pakiet interfejsu wiersza polecenia, którego nazwa kończy się na `Tools.DotNet`.
 
 Aby uzyskać więcej informacji na temat poleceń interfejsu wiersza polecenia, zobacz [interfejsu wiersza polecenia platformy .NET Core](/ef/core/miscellaneous/cli/dotnet).
 
 Aby uzyskać więcej informacji na temat poleceń konsoli zarządzania Pakietami, zobacz [Konsola Menedżera pakietów (Visual Studio)](/ef/core/miscellaneous/cli/powershell).
 
-## <a name="summary"></a>Podsumowanie
+## <a name="get-the-code"></a>Pobierz kod
 
-W tym samouczku pokazaliśmy już, jak tworzenie i stosowanie pierwszej migracji. W następnym samouczku rozpocznie się spojrzenie na bardziej zaawansowanych tematów, rozwijając modelu danych. Po drodze możesz utworzyć i zastosować potrzeby dodatkowych migracji.
+[Pobieranie i wyświetlanie ukończonej aplikacji.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
-::: moniker-end
+## <a name="next-step"></a>Następny krok
 
-> [!div class="step-by-step"]
-> [Poprzednie](sort-filter-page.md)
-> [dalej](complex-data-model.md)
+W ramach tego samouczka możesz:
+
+> [!div class="checklist"]
+> * Uzyskaliśmy informacje dotyczące migracji
+> * Przedstawia informacje na temat pakietów migracji NuGet
+> * Zmienić parametry połączenia
+> * Utworzone początkowej migracji
+> * Zbadanie metod w górę i w dół
+> * Przedstawia informacje na temat migawek modelu danych
+> * Stosowane migracji
+
+Przejdź do następnego artykułu, aby rozpocząć spojrzenie na bardziej zaawansowanych tematów dotyczących Rozszerzanie modelu danych. Po drodze możesz utworzyć i zastosować potrzeby dodatkowych migracji.
+> [!div class="nextstepaction"]
+> [Tworzenie i stosowanie potrzeby dodatkowych migracji](complex-data-model.md)

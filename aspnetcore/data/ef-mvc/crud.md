@@ -1,42 +1,38 @@
 ---
-title: Platforma ASP.NET Core MVC z programem EF Core — CRUD - 2 z 10
+title: 'Samouczek: Implementowanie funkcji CRUD - platformy ASP.NET MVC z programem EF Core'
+description: W tym samouczku będziesz przejrzenie i dostosowanie CRUD (Tworzenie, odczytywanie, aktualizowanie, usuwanie) kod, który MVC scaffolding automatycznie utworzy dla Ciebie w widoków i kontrolerów.
 author: rick-anderson
-description: ''
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 02/04/2019
+ms.topic: tutorial
 uid: data/ef-mvc/crud
-ms.openlocfilehash: 34927415beadaa3f5c9035a9101e3c99f7cbc395
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 368b1774ba977ec8020a02d48705200fd54c3bbd
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090826"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56102984"
 ---
-# <a name="aspnet-core-mvc-with-ef-core---crud---2-of-10"></a>Platforma ASP.NET Core MVC z programem EF Core — CRUD - 2 z 10
-
-[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
-
-::: moniker range="= aspnetcore-2.0"
-
-Przez [Tom Dykstra](https://github.com/tdykstra) i [Rick Anderson](https://twitter.com/RickAndMSFT)
-
-Przykładową aplikację sieci web firmy Contoso University pokazuje, jak tworzyć aplikacje sieci web platformy ASP.NET Core MVC za pomocą platformy Entity Framework Core i Visual Studio. Aby uzyskać informacji na temat tej serii samouczka, zobacz [pierwszym samouczku tej serii](intro.md).
+# <a name="tutorial-implement-crud-functionality---aspnet-mvc-with-ef-core"></a>Samouczek: Implementowanie funkcji CRUD - platformy ASP.NET MVC z programem EF Core
 
 W poprzednim samouczku utworzono aplikację MVC, która przechowuje i wyświetla dane przy użyciu platformy Entity Framework i programu SQL Server LocalDB. W tym samouczku będziesz przejrzenie i dostosowanie CRUD (Tworzenie, odczytywanie, aktualizowanie, usuwanie) kod, który MVC scaffolding automatycznie utworzy dla Ciebie w widoków i kontrolerów.
 
 > [!NOTE]
 > Jest to powszechną praktyką w celu zaimplementowania wzorca repozytorium, aby można było utworzyć warstwę abstrakcji między kontrolerem i warstwy dostępu do danych. Aby zachować te samouczki, prosty i skupiają się na nauczania, jak używać programu Entity Framework sam, nie używają repozytoriów. Informacje dla repozytoriów ze EF, zobacz [ostatni samouczek z tej serii](advanced.md).
 
-W tym samouczku będziesz pracować z następujących stron sieci web:
+W ramach tego samouczka możesz:
 
-![Strona szczegółów dla uczniów](crud/_static/student-details.png)
+> [!div class="checklist"]
+> * Dostosowywanie strony szczegółów
+> * Utwórz stronę aktualizacji
+> * Zaktualizuj strony edytowania
+> * Aktualizuj stronę Delete
+> * Połączenia bazy danych zamknij
 
-![Strona tworzenia dla uczniów](crud/_static/student-create.png)
+## <a name="prerequisites"></a>Wymagania wstępne
 
-![Strona edytowania dla uczniów](crud/_static/student-edit.png)
-
-![Strona usuwania dla uczniów](crud/_static/student-delete.png)
+* [Rozpoczynanie pracy z programem EF Core w aplikacji internetowej ASP.NET Core MVC](intro.md)
 
 ## <a name="customize-the-details-page"></a>Dostosowywanie strony szczegółów
 
@@ -172,7 +168,7 @@ Zmień datę na prawidłową wartość, a następnie kliknij przycisk **Utwórz*
 
 W *StudentController.cs*, HttpGet `Edit` — metoda (jeden bez `HttpPost` atrybutu) używa `SingleOrDefaultAsync` metody do pobierania wybranej jednostki dla uczniów, jak przedstawiono w `Details` metody. Nie trzeba zmienić tę metodę.
 
-### <a name="recommended-httppost-edit-code-read-and-update"></a>Zaleca się HttpPost edycji kodu: odczytu i aktualizacji
+### <a name="recommended-httppost-edit-code-read-and-update"></a>Zalecane HttpPost edycji kodu: Odczyt i aktualizacji
 
 Zastąp metodę akcji edycji HttpPost następującym kodem.
 
@@ -186,7 +182,7 @@ Najlepszym rozwiązaniem, aby zapobiec polegającymi pola, które mają być mo�
 
 W wyniku tych zmian, podpis metody HttpPost `Edit` metody jest taka sama jak HttpGet `Edit` metody; w związku z tym po zmianie nazwy metody `EditPost`.
 
-### <a name="alternative-httppost-edit-code-create-and-attach"></a>Alternatywne HttpPost edycji kodu: tworzenie i dołączanie
+### <a name="alternative-httppost-edit-code-create-and-attach"></a>Alternatywne HttpPost edycji kodu: Tworzenie i dołączanie
 
 Zalecane kodu Edytuj HttpPost gwarantuje, że tylko zmienione kolumny zostaje zaktualizowana i zachowuje dane we właściwościach, które nie mają włączone do wiązania modelu. Podejście pierwszy odczytu wymaga jednak dodatkowe bazy danych odczytu i może doprowadzić do bardziej skomplikowanym kodzie konfliktów współbieżności. Alternatywą jest dołączyć jednostkę utworzone przez integratora modelu dla kontekstu EF i oznaczyć go jako zmodyfikowane. (Nie zaktualizujesz projekt przy użyciu tego kodu tylko wykazał aby zilustrować podejście opcjonalne.)
 
@@ -270,13 +266,13 @@ Uruchom aplikację, wybierz **studentów** kartę, a następnie kliknij przycisk
 
 Kliknij przycisk **Usuń**. Nie usunięto uczniów zostanie wyświetlona strona indeksu. (Będziesz Zobacz przykład kodu w akcji, w tym samouczku współbieżności obsługi błędów).
 
-## <a name="closing-database-connections"></a>Zamykanie połączenia z bazą danych
+## <a name="close-database-connections"></a>Połączenia bazy danych zamknij
 
 Aby zwolnić zasoby, które zawiera połączenia z bazą danych, wystąpienie kontekstu musi zostać usunięty możliwie najszybciej po zakończeniu z nim. Wbudowane platformy ASP.NET Core [wstrzykiwanie zależności](../../fundamentals/dependency-injection.md) zajmie to zadanie dla Ciebie.
 
 W *Startup.cs*, należy wywołać [— metoda rozszerzenia AddDbContext](https://github.com/aspnet/EntityFrameworkCore/blob/03bcb5122e3f577a84498545fcf130ba79a3d987/src/Microsoft.EntityFrameworkCore/EntityFrameworkServiceCollectionExtensions.cs) aprowizację `DbContext` klasy w kontenerze platformy ASP.NET Core DI. Czy metoda Ustawia okres istnienia usługi `Scoped` domyślnie. `Scoped` oznacza, że okres istnienia obiektu kontekstu pokrywa się z czasem życia żądania sieci web, a `Dispose` metoda zostanie wywołana automatycznie na końcu żądania sieci web.
 
-## <a name="handling-transactions"></a>Obsługa transakcji
+## <a name="handle-transactions"></a>Obsługa transakcji
 
 Domyślnie platforma Entity Framework niejawnie implementuje transakcji. W scenariuszach, w którym zmiany do wielu wierszy lub tabeli, a następnie wywołać `SaveChanges`, platformy Entity Framework automatycznie tworzy się, że wszystkie zmiany powiedzie się lub nie ich wszystkich. Jeśli niektóre zmiany są najpierw wykonywane, a następnie błąd występuje, te zmiany są automatycznie przywracane. Zobacz scenariusze, w którym możesz muszą większa kontrola — na przykład, jeśli chcesz dołączyć operacje wykonywane poza programem Entity Framework w ramach transakcji — [transakcji](/ef/core/saving/transactions).
 
@@ -294,12 +290,21 @@ Możesz wyłączyć śledzenie obiekty obiektów w pamięci przez wywołanie met
 
 Aby uzyskać więcej informacji, zobacz [śledzenia programu vs. Bez śledzenia](/ef/core/querying/tracking).
 
-## <a name="summary"></a>Podsumowanie
+## <a name="get-the-code"></a>Pobierz kod
 
-Masz teraz kompletny zestaw stron, które wykonywać proste operacje CRUD dla jednostek dla uczniów. W następnym samouczku będziesz rozszerzyć funkcjonalność **indeksu** stronie przez dodanie sortowanie, filtrowanie i stronicowanie.
+[Pobieranie i wyświetlanie ukończonej aplikacji.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
-::: moniker-end
+## <a name="next-steps"></a>Następne kroki
 
-> [!div class="step-by-step"]
-> [Poprzednie](intro.md)
-> [dalej](sort-filter-page.md)
+W ramach tego samouczka możesz:
+
+> [!div class="checklist"]
+> * Dostosowanej strony szczegółów
+> * Zaktualizowana strona tworzenia
+> * Zaktualizowane strony edytowania
+> * Zaktualizowane strony usuwania
+> * Połączenia zamknięte bazy danych
+
+Przejdź do następnego artykułu, aby dowiedzieć się, jak rozszerzyć funkcjonalność **indeksu** stronie przez dodanie sortowanie, filtrowanie i stronicowanie.
+> [!div class="nextstepaction"]
+> [Sortowanie, filtrowanie i stronicowanie](sort-filter-page.md)

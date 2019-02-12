@@ -1,31 +1,41 @@
 ---
-title: Platforma ASP.NET Core MVC z programem EF Core — zaawansowane — 10 10
-author: rick-anderson
+title: 'Samouczek: Dowiedz się więcej o zaawansowanych scenariuszy — ASP.NET MVC z programem EF Core'
 description: W tym samouczku przedstawiono przydatnych tematów dla wykraczających poza podstawowe informacje dotyczące tworzenia aplikacji sieci web platformy ASP.NET Core, korzystających z platformy Entity Framework Core.
+author: rick-anderson
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 02/05/2019
+ms.topic: tutorial
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: ba3834b29e78972bf914a5cba1a2cae3cc19a315
-ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
+ms.openlocfilehash: f02aa1d6d8e431e7e2613835b3216786aed4ecd4
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "50090787"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56103101"
 ---
-# <a name="aspnet-core-mvc-with-ef-core---advanced---10-of-10"></a>Platforma ASP.NET Core MVC z programem EF Core — zaawansowane — 10 10
-
-[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
-
-::: moniker range="= aspnetcore-2.0"
-
-Przez [Tom Dykstra](https://github.com/tdykstra) i [Rick Anderson](https://twitter.com/RickAndMSFT)
-
-Przykładową aplikację sieci web firmy Contoso University pokazuje, jak tworzyć aplikacje sieci web platformy ASP.NET Core MVC za pomocą platformy Entity Framework Core i Visual Studio. Aby uzyskać informacji na temat tej serii samouczka, zobacz [pierwszym samouczku tej serii](intro.md).
+# <a name="tutorial-learn-about-advanced-scenarios---aspnet-mvc-with-ef-core"></a>Samouczek: Dowiedz się więcej o zaawansowanych scenariuszy — ASP.NET MVC z programem EF Core
 
 W poprzednim samouczku wdrożono Tabela wg hierarchii dziedziczenia. W tym samouczku przedstawiono kilka tematów, które są przydatne pod uwagę podczas czegoś podstawy tworzenia aplikacji sieci web platformy ASP.NET Core, które używają platformy Entity Framework Core.
 
-## <a name="raw-sql-queries"></a>Pierwotne zapytania SQL
+W ramach tego samouczka możesz:
+
+> [!div class="checklist"]
+> * Wykonaj pierwotne zapytania SQL
+> * Wywołania zapytania, aby powrócić do jednostki
+> * Wywołania zapytania do innych typów zwracanych
+> * Wywołaj zapytanie aktualizujące
+> * Sprawdź zapytania SQL
+> * Utwórz warstwę abstrakcji
+> * Więcej informacji na temat wykrywania automatyczna zmiana
+> * Dowiedz się więcej o planach kodu i rozwoju źródła programu EF Core
+> * Dowiedz się, jak uprościć kod za pomocą dynamicznego LINQ
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+* [Implementowanie dziedziczenia z programem EF Core w aplikacji internetowej ASP.NET Core MVC](inheritance.md)
+
+## <a name="perform-raw-sql-queries"></a>Wykonaj pierwotne zapytania SQL
 
 Jedną z zalet używający narzędzia Entity Framework jest, że takie rozwiązanie pomaga uniknąć wiązanie kodu zbyt ściśle do określonej metody przechowywania danych. Dzieje się tak, generując zapytań SQL i poleceń, która uwalnia użytkownika od konieczności pisania samodzielnie. Ale istnieją scenariusze wyjątkowe, gdy trzeba uruchomić określonego zapytania SQL, które zostały utworzone ręcznie. Dla tych scenariuszy interfejsu API z pierwszym kodu Entity Framework zawiera metody, które umożliwiają przekazywanie poleceń SQL bezpośrednio w bazie danych. W programu EF Core 1.0 są dostępne następujące opcje:
 
@@ -37,7 +47,7 @@ Jeśli potrzebujesz uruchomić zapytanie, które zwraca typy, które nie są jed
 
 Jak jest zawsze wartość true, gdy wykonywanie poleceń SQL w aplikacji sieci web, należy podjąć środki ostrożności, aby chronić witrynę przed atakami polegającymi na iniekcji SQL. Jednym sposobem wykonania tego zadania jest użyć sparametryzowanych zapytań, aby upewnić się, że ciągi przesłane przez stronę sieci web nie może być interpretowany jako polecenia SQL. W tym samouczku użyjesz zapytaniach parametrycznych podczas integrowania danych wejściowych użytkownika na kwerendę.
 
-## <a name="call-a-query-that-returns-entities"></a>Wywołania zapytania, które zwraca jednostek
+## <a name="call-a-query-to-return-entities"></a>Wywołania zapytania, aby powrócić do jednostki
 
 `DbSet<TEntity>` Klasa dostarcza metody, która służy do wykonywania zapytania, które zwraca jednostki typu `TEntity`. Aby zobaczyć, jak to działa możesz poznasz, jak zmienić kod w `Details` metody kontrolera działu.
 
@@ -49,7 +59,7 @@ Aby sprawdzić, czy nowy kod działa poprawnie, należy wybrać **działów** ka
 
 ![Szczegóły działu](advanced/_static/department-details.png)
 
-## <a name="call-a-query-that-returns-other-types"></a>Wywołania zapytania zwracającego innych typów
+## <a name="call-a-query-to-return-other-types"></a>Wywołania zapytania do innych typów zwracanych
 
 Wcześniej utworzono uczniów siatki statystyki dla strony informacje, które wykazało, że liczba studentów każdej daty rejestracji. Masz dane z zestawu jednostek uczniów (`_context.Students`) i używać programu LINQ do projektu wyniki w postaci listy `EnrollmentDateGroup` wyświetlić obiekty w modelu. Załóżmy, że chcesz napisać SQL sam, a nie za pomocą LINQ. Aby zrobić, należy uruchomić zapytanie SQL zwracającego coś innego niż obiekty jednostki. W programie EF Core 1.0 jednym ze sposobów, aby to zrobić jest pisanie kodu ADO.NET i uzyskać połączenia z bazą danych z programów EF.
 
@@ -83,7 +93,7 @@ Gdy **aktualizacji** przycisku, wywoływana jest metoda HttpPost i mnożnik zost
 
 W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *widoków/kursy* folder, a następnie kliknij **Dodaj > Nowy element**.
 
-W **Dodaj nowy element** okno dialogowe, kliknij przycisk **ASP.NET** w obszarze **zainstalowane** w okienku po lewej stronie kliknij **strona widoku MVC**i Nazwij nowy widok  *UpdateCourseCredits.cshtml*.
+W **Dodaj nowy element** okno dialogowe, kliknij przycisk **platformy ASP.NET Core** w obszarze **zainstalowane** w okienku po lewej stronie kliknij **widoku Razor**i Nazwij nowy widok  *UpdateCourseCredits.cshtml*.
 
 W *Views/Courses/UpdateCourseCredits.cshtml*, Zastąp kod szablonu poniższym kodem:
 
@@ -103,7 +113,7 @@ Należy pamiętać, że kodu produkcyjnego będą upewnij się, że zawsze aktua
 
 Aby uzyskać więcej informacji na temat pierwotne zapytania SQL, zobacz [pierwotne zapytania SQL](/ef/core/querying/raw-sql).
 
-## <a name="examine-sql-sent-to-the-database"></a>Sprawdź SQL wysyłane do bazy danych
+## <a name="examine-sql-queries"></a>Sprawdź zapytania SQL
 
 Czasami warto będą mogli zobaczyć rzeczywiste zapytania SQL, które są wysyłane do bazy danych. Funkcje wbudowane funkcje rejestrowania dla platformy ASP.NET Core jest automatycznie używany przez programu EF Core na zapisywanie dzienników, które zawierają SQL dla zapytań i aktualizacji. W tej sekcji zobaczysz niektóre przykłady rejestrowania SQL.
 
@@ -139,7 +149,7 @@ W tym miejscu coś, co mogą Cię zaskoczyć, zauważysz: SQL wybiera wiersze do
 
 Należy pamiętać, że nie trzeba użyć trybu debugowania i zatrzymywanie w punkcie przerwania, aby uzyskać wyniki rejestracji w **dane wyjściowe** okna. Jest po prostu wygodny sposób zatrzymywanie rejestrowania w momencie, który chcesz Przyjrzyj się dane wyjściowe. Jeśli nie zrobisz, kontynuuje rejestrowanie i masz wróć do części, które interesują Cię znaleźć.
 
-## <a name="repository-and-unit-of-work-patterns"></a>Repozytorium i jednostki pracy
+## <a name="create-an-abstraction-layer"></a>Utwórz warstwę abstrakcji
 
 Wielu programistów napisać kod, aby zaimplementować repozytorium i jednostki pracy jako otoka wokół kodu, który współdziała z platformą Entity Framework. Te wzorce są przeznaczone do tworzenia warstwę abstrakcji od warstwy dostępu do danych i warstwy logiki biznesowej aplikacji. Implementacji tych wzorców może pomóc ochronić aplikację przed zmianami w magazynie danych i może ułatwić automatyczne testy jednostkowe i Programowanie oparte na testach (TDD). Jednak tworzenia dodatkowego kodu, aby zaimplementować te wzorce nie zawsze jest najlepszym wyborem dla aplikacji, które używają programu EF, z kilku powodów:
 
@@ -169,7 +179,7 @@ Jeśli prześledzić dużą liczbę jednostek można wywołać jedną z następu
 _context.ChangeTracker.AutoDetectChangesEnabled = false;
 ```
 
-## <a name="entity-framework-core-source-code-and-development-plans"></a>Entity Framework Core źródła kodu i tworzenia planów
+## <a name="ef-core-source-code-and-development-plans"></a>EF Core źródła kodu i tworzenia planów
 
 Źródło platformy Entity Framework Core jest w [ https://github.com/aspnet/EntityFrameworkCore ](https://github.com/aspnet/EntityFrameworkCore). Repozytorium programu EF Core zawiera nocne kompilacje, śledzenia problemu, specyfikacji funkcji. zadaniem, notatek ze spotkań, projektowania i [plan do przyszłego rozwoju](https://github.com/aspnet/EntityFrameworkCore/wiki/Roadmap). Możesz plików lub znajdowania usterek i współtworzyć.
 
@@ -180,27 +190,19 @@ Mimo że kod źródłowy jest otwarty, platformy Entity Framework Core jest w pe
 Aby odtworzyć modelu danych, w tym klas jednostek z istniejącej bazy danych, należy użyć [dbcontext szkieletu](/ef/core/miscellaneous/cli/powershell#scaffold-dbcontext) polecenia. Zobacz [samouczek ułatwiający rozpoczęcie](/ef/core/get-started/aspnetcore/existing-db).
 
 <a id="dynamic-linq"></a>
-## <a name="use-dynamic-linq-to-simplify-sort-selection-code"></a>Korzystanie z dynamicznej LINQ w celu uproszczenia wybór rozliczeniowy
+
+## <a name="use-dynamic-linq-to-simplify-code"></a>Korzystanie z LINQ dynamiczne w celu uproszczenia kodu
 
 [Trzeci samouczek z tej serii](sort-filter-page.md) pokazuje, jak napisać kod LINQ, kodować nazwy kolumn w `switch` instrukcji. Dwie kolumny do wyboru to działa prawidłowo, ale jeśli masz wiele kolumn, kod można pobrać pełny. Aby rozwiązać ten problem, można użyć `EF.Property` metodę, aby określić nazwę właściwości jako ciąg. Aby wypróbować to podejście, Zastąp `Index` method in Class metoda `StudentsController` następującym kodem.
 
 [!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DynamicLinq)]
 
-## <a name="next-steps"></a>Następne kroki
-
-Na tym kończy się w tej serii samouczków na temat korzystania z programu Entity Framework Core w aplikacji ASP.NET Core MVC.
-
-Aby uzyskać więcej informacji na temat programu EF Core, zobacz [dokumentację programu Entity Framework Core](/ef/core). Książki jest również dostępna: [Entity Framework Core in Action](https://www.manning.com/books/entity-framework-core-in-action).
-
-Aby uzyskać informacje na temat wdrażania aplikacji sieci web, zobacz <xref:host-and-deploy/index>.
-
-Aby uzyskać informacje o innych tematów dotyczących platformy ASP.NET Core MVC, takie jak uwierzytelnianie i autoryzacja, zobacz <xref:index>.
-
 ## <a name="acknowledgments"></a>Potwierdzenia
 
-Tom Dykstra i Rick Anderson (twitter @RickAndMSFT) napisany w tym samouczku. Rowan Miller, Diego Vega i inni członkowie zespołu programu Entity Framework korzystającej z przeglądy kodu i pomogła debugowanie problemów, które powstały podczas, gdy firma Microsoft była pisanie kodu dla samouczków.
+Tom Dykstra i Rick Anderson (twitter @RickAndMSFT) napisany w tym samouczku. Rowan Miller, Diego Vega i inni członkowie zespołu programu Entity Framework korzystającej z przeglądy kodu i pomogła debugowanie problemów, które powstały podczas, gdy firma Microsoft była pisanie kodu dla samouczków. John Parente i Paul Goldman pracuje aktualizowanie samouczek dla platformy ASP.NET Core 2.2.
 
-## <a name="common-errors"></a>Typowe błędy
+<a id="common-errors"></a>
+## <a name="troubleshoot-common-errors"></a>Rozwiązywanie typowych problemów
 
 ### <a name="contosouniversitydll-used-by-another-process"></a>ContosoUniversity.dll używany przez inny proces
 
@@ -246,7 +248,33 @@ Rozwiązanie:
 
 Sprawdź parametry połączenia. Jeśli został ręcznie usunięty plik bazy danych, Zmień nazwę bazy danych w ciągu konstrukcji, aby zacząć od nowa z nową bazę danych.
 
-::: moniker-end
+## <a name="get-the-code"></a>Pobierz kod
 
-> [!div class="step-by-step"]
-> [Poprzednie](inheritance.md)
+[Pobieranie i wyświetlanie ukończonej aplikacji.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
+
+## <a name="additional-resources"></a>Dodatkowe zasoby
+
+Aby uzyskać więcej informacji na temat programu EF Core, zobacz [dokumentację programu Entity Framework Core](/ef/core). Książki jest również dostępna: [Entity Framework Core in Action](https://www.manning.com/books/entity-framework-core-in-action).
+
+Aby uzyskać informacje na temat wdrażania aplikacji sieci web, zobacz <xref:host-and-deploy/index>.
+
+Aby uzyskać informacje o innych tematów dotyczących platformy ASP.NET Core MVC, takie jak uwierzytelnianie i autoryzacja, zobacz <xref:index>.
+
+## <a name="next-steps"></a>Następne kroki
+
+W ramach tego samouczka możesz:
+
+> [!div class="checklist"]
+> * Wykonano pierwotne zapytania SQL
+> * Wywołuje zapytanie do zwrotu jednostek
+> * Wywołuje zapytanie do innych typów zwracanych
+> * Wywołuje zapytanie aktualizujące
+> * Zbadane zapytania SQL
+> * Utworzyć warstwę abstrakcji
+> * Przedstawia informacje na temat wykrywania automatyczna zmiana
+> * Przedstawia informacje na temat planów kodu i rozwoju źródła programu EF Core
+> * Pokazaliśmy, jak uprościć kod za pomocą dynamicznego LINQ
+
+Na tym kończy się w tej serii samouczków na temat korzystania z programu Entity Framework Core w aplikacji ASP.NET Core MVC. Jeśli chcesz dowiedzieć się więcej o korzystaniu z programów EF 6 z platformą ASP.NET Core, zobacz następny artykuł.
+> [!div class="nextstepaction"]
+> [Program EF 6 z programem ASP.NET Core](../entity-framework-6.md)

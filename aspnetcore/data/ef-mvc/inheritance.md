@@ -1,33 +1,40 @@
 ---
-title: Platforma ASP.NET Core MVC z programem EF Core — dziedziczenie - 9, 10
-author: rick-anderson
+title: 'Samouczek: Implementowanie dziedziczenia — ASP.NET MVC z programem EF Core'
 description: Ten samouczek przedstawia sposób implementowania dziedziczenia w modelu danych przy użyciu platformy Entity Framework Core w aplikacji ASP.NET Core.
+author: rick-anderson
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 02/05/2019
+ms.topic: tutorial
 uid: data/ef-mvc/inheritance
-ms.openlocfilehash: 60417040dd296311e1aecff8f224aadf8da82779
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 0a5eb1aba43bc2adf746202772c7f98eff49b4ff
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090761"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56103010"
 ---
-# <a name="aspnet-core-mvc-with-ef-core---inheritance---9-of-10"></a>Platforma ASP.NET Core MVC z programem EF Core — dziedziczenie - 9, 10
-
-[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
-
-::: moniker range="= aspnetcore-2.0"
-
-Przez [Tom Dykstra](https://github.com/tdykstra) i [Rick Anderson](https://twitter.com/RickAndMSFT)
-
-Przykładową aplikację sieci web firmy Contoso University pokazuje, jak tworzyć aplikacje sieci web platformy ASP.NET Core MVC za pomocą platformy Entity Framework Core i Visual Studio. Aby uzyskać informacji na temat tej serii samouczka, zobacz [pierwszym samouczku tej serii](intro.md).
+# <a name="tutorial-implement-inheritance---aspnet-mvc-with-ef-core"></a>Samouczek: Implementowanie dziedziczenia — ASP.NET MVC z programem EF Core
 
 W poprzednim samouczku obsługiwane są wyjątki współbieżności. Ten samouczek przedstawia sposób implementowania dziedziczenia w modelu danych.
 
 W programowanie zorientowane obiektowo, można użyć dziedziczenia ułatwiające ponowne wykorzystanie kodu. W tym samouczku poznasz, jak zmienić `Instructor` i `Student` klasy tak, że pochodzą one od `Person` podstawowej klasy, która zawiera właściwości, takie jak `LastName` , które są wspólne dla instruktorów i studentów. Nie będzie dodać lub zmienić dowolnymi stronami sieci web, ale zmienisz część kodu, a te zmiany są automatycznie odzwierciedlane w bazie danych.
 
-## <a name="options-for-mapping-inheritance-to-database-tables"></a>Opcje mapowania dziedziczenia w tabelach bazy danych
+W ramach tego samouczka możesz:
+
+> [!div class="checklist"]
+> * Mapowanie dziedziczenia do bazy danych
+> * Utwórz klasę osoby
+> * Aktualizacja przez instruktorów i uczniów
+> * Dodanie osoby do modelu
+> * Tworzenie i aktualizowanie migracji
+> * Testowanie wdrożenia
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+* [Obsługa współbieżności przy użyciu programu EF Core w aplikacji internetowej ASP.NET Core MVC](concurrency.md)
+
+## <a name="map-inheritance-to-database"></a>Mapowanie dziedziczenia do bazy danych
 
 `Instructor` i `Student` klasami w modelu danych School ma kilka właściwości, które są identyczne:
 
@@ -64,7 +71,7 @@ W folderze modele osoba.cs tworzenie i Zastąp kod szablonu poniższym kodem:
 
 [!code-csharp[](intro/samples/cu/Models/Person.cs)]
 
-## <a name="make-student-and-instructor-classes-inherit-from-person"></a>Utworzyć dla uczniów i instruktora klasy dziedziczyć od osoby
+## <a name="update-instructor-and-student"></a>Aktualizacja przez instruktorów i uczniów
 
 W *Instructor.cs*dziedziczyć klasy instruktora klasy osoby i usunąć klucza i nazwy pola. Ten kod będzie wyglądać następująco:
 
@@ -74,7 +81,7 @@ Wprowadzenie identycznych zmian w *Student.cs*.
 
 [!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_AfterInheritance&highlight=8)]
 
-## <a name="add-the-person-entity-type-to-the-data-model"></a>Dodaj osoby typu jednostki do modelu danych
+## <a name="add-person-to-the-model"></a>Dodanie osoby do modelu
 
 Dodaj typ jednostki osoby do *SchoolContext.cs*. Nowe wiersze są wyróżnione.
 
@@ -82,7 +89,7 @@ Dodaj typ jednostki osoby do *SchoolContext.cs*. Nowe wiersze są wyróżnione.
 
 To wszystko, co wymaga programu Entity Framework, w celu skonfigurowania Tabela wg hierarchii dziedziczenia. Jak można zauważyć, gdy baza danych zostanie zaktualizowany, będzie miał tabeli osób, zamiast tabel dla uczniów i instruktora.
 
-## <a name="create-and-customize-migration-code"></a>Tworzenie i dostosowywanie kodu migracji
+## <a name="create-and-update-migrations"></a>Tworzenie i aktualizowanie migracji
 
 Zapisz zmiany i skompiluj projekt. Następnie otwórz okno polecenia w folderze projektu i wprowadź następujące polecenie:
 
@@ -129,7 +136,7 @@ dotnet ef database update
 > [!NOTE]
 > Istnieje możliwość uzyskać inne błędy, podczas wprowadzania zmian schematu w bazie danych, która ma istniejące dane. Występują błędy migracji, których nie można rozwiązać, można zmienić nazwy bazy danych w parametrach połączenia lub Usuń bazę danych. Za pomocą nowej bazy danych nie ma żadnych danych do migracji, a polecenie update-database jest bardziej prawdopodobne zakończyć bez błędów. Aby usunąć bazy danych, użyj SSOX, lub uruchom `database drop` interfejsu wiersza polecenia.
 
-## <a name="test-with-inheritance-implemented"></a>Testowanie za pomocą dziedziczenia zaimplementowany
+## <a name="test-the-implementation"></a>Testowanie wdrożenia
 
 Uruchom aplikację i spróbuj różnych stronach. Wszystko działa to tak jak poprzednio.
 
@@ -141,12 +148,26 @@ Kliknij prawym przyciskiem myszy tabeli osób, a następnie kliknij przycisk **P
 
 ![Tabela osoby w SSOX - tabeli danych](inheritance/_static/ssox-person-data.png)
 
-## <a name="summary"></a>Podsumowanie
+## <a name="get-the-code"></a>Pobierz kod
 
-Tabela wg hierarchii dziedziczenia dla zastało zaimplementowane `Person`, `Student`, i `Instructor` klasy. Aby uzyskać więcej informacji dotyczących dziedziczenia w Entity Framework Core, zobacz [dziedziczenia](/ef/core/modeling/inheritance). W następnym samouczku pokazano, jak do obsługi różnorodnych stosunkowo zaawansowane scenariusze platformy Entity Framework.
+[Pobieranie i wyświetlanie ukończonej aplikacji.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
-::: moniker-end
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
-> [!div class="step-by-step"]
-> [Poprzednie](concurrency.md)
-> [dalej](advanced.md)
+Aby uzyskać więcej informacji dotyczących dziedziczenia w Entity Framework Core, zobacz [dziedziczenia](/ef/core/modeling/inheritance).
+
+## <a name="next-steps"></a>Następne kroki
+
+W ramach tego samouczka możesz:
+
+> [!div class="checklist"]
+> * Dziedziczenie mapowanego do bazy danych
+> * Utworzone klasy osoby
+> * Zaktualizowane przez instruktorów i uczniów
+> * Dodano osoby do modelu
+> * Utworzone i zaktualizuj migracji
+> * Przetestowane wdrożenia
+
+Przejdź do następnego artykułu, aby dowiedzieć się, jak obsługiwać różnych stosunkowo zaawansowane scenariusze platformy Entity Framework.
+> [!div class="nextstepaction"]
+> [Tematy zaawansowane](advanced.md)

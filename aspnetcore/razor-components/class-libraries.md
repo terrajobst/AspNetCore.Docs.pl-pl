@@ -5,14 +5,14 @@ description: Dowiedz się, jak składniki mogły zostać uwzględnione w taki sp
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/29/2019
+ms.date: 02/09/2019
 uid: razor-components/class-libraries
-ms.openlocfilehash: e43755f606d2c843fe6b12f06e1e96626e0f3cdf
-ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
+ms.openlocfilehash: f5073337db88f05f3911fdfb1f29e7302c7cddec
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55668124"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56102908"
 ---
 # <a name="razor-components-class-libraries"></a>Biblioteki klas składników razor
 
@@ -31,7 +31,7 @@ Składniki mogą być udostępniane w bibliotekach składnika w projektach. Skł
 
 Tak, jak składniki są regularnie typów .NET, składnik biblioteki są normalne zestawów platformy .NET.
 
-Aby utworzyć nową bibliotekę składników, należy użyć `blazorlib` szablon [dotnet nowe](/dotnet/core/tools/dotnet-new) polecenia. Szablon jest częścią szablonów zainstalowanych podczas [Konfigurowanie składników Razor](/docs/get-started.html#setup).
+Aby utworzyć nową bibliotekę składników, należy użyć `blazorlib` szablon [dotnet nowe](/dotnet/core/tools/dotnet-new) polecenia. Szablon jest częścią szablonów zainstalowanych podczas [Konfigurowanie składników Razor](xref:razor-components/get-started).
 
 ```console
 dotnet new blazorlib -o MyComponentLib1

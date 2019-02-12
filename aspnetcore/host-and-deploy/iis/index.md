@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/29/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 9392da14e589736b24790676c1c07c9964882737
-ms.sourcegitcommit: d22b3c23c45a076c4f394a70b1c8df2fbcdf656d
+ms.openlocfilehash: dfb67cd4c2a3f0e6fb270eb2e4850a664cdf5741
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55428463"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56103166"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host platformy ASP.NET Core na Windows za pomocą programu IIS
 
@@ -313,7 +313,7 @@ W przypadku wdrażania aplikacji na serwerach z [narzędzia Web Deploy](/iis/pub
 
 1. W systemie hostingu utworzyć folderu zawierającego pliki i foldery opublikowanych aplikacji. Układ wdrożenia aplikacji jest opisana w [strukturę katalogów](xref:host-and-deploy/directory-structure) tematu.
 
-1. W **Menedżera usług IIS**, otwórz węzeł serwera w **połączeń** panelu. Kliknij prawym przyciskiem myszy **witryn** folderu. Wybierz **Dodawanie witryny sieci Web** z menu kontekstowego.
+1. W Menedżerze usług IIS otwórz węzeł serwera w **połączeń** panelu. Kliknij prawym przyciskiem myszy **witryn** folderu. Wybierz **Dodawanie witryny sieci Web** z menu kontekstowego.
 
 1. Podaj **Nazwa lokacji** i ustaw **ścieżkę fizyczną** do folderu wdrożenia aplikacji. Podaj **powiązanie** konfiguracji i tworzyć witryny sieci Web, wybierając **OK**:
 
@@ -334,7 +334,7 @@ W przypadku wdrażania aplikacji na serwerach z [narzędzia Web Deploy](/iis/pub
 
 1. *Platforma ASP.NET Core 2,2 lub nowszej*: Dla (x64) 64-bitowych [niezależna wdrożenia](/dotnet/core/deploying/#self-contained-deployments-scd) , który używa [modelu hostingu w trakcie](xref:fundamentals/servers/index#in-process-hosting-model), Wyłącz pulę aplikacji dla procesów 32-bitowych (x 86).
 
-   W **akcje** Menedżera usług IIS na pasku bocznym **pul aplikacji**, wybierz opcję **ustawienia domyślne puli aplikacji** lub **Zaawansowane ustawienia**. Znajdź **Włącz 32-bitowych aplikacji** i ustaw wartość `False`. To ustawienie nie ma wpływu na aplikacje wdrożone dla [hostingu poza procesem](xref:host-and-deploy/aspnet-core-module#out-of-process-hosting-model).
+   W **akcje** paska bocznego Menedżera usług IIS > **pul aplikacji**, wybierz opcję **ustawienia domyślne puli aplikacji** lub **Zaawansowane ustawienia**. Znajdź **Włącz 32-bitowych aplikacji** i ustaw wartość `False`. To ustawienie nie ma wpływu na aplikacje wdrożone dla [hostingu poza procesem](xref:host-and-deploy/aspnet-core-module#out-of-process-hosting-model).
 
 1. Upewnij się, że tożsamość modelu procesu ma odpowiednie uprawnienia.
 

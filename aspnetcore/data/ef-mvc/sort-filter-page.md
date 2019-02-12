@@ -1,26 +1,19 @@
 ---
-title: Platforma ASP.NET Core MVC z programem EF Core — sortowanie, filtrowanie, stronicowanie - 3 10
+title: 'Samouczek: Dodaj sortowanie, filtrowanie i stronicowanie — ASP.NET MVC z programem EF Core'
+description: W tym samouczku dodasz sortowanie, filtrowanie i stronicowanie funkcji do strony indeksu studentów. Utworzysz też strony, która wykonuje prostą grupowania.
 author: rick-anderson
-description: W tym samouczku dodasz, sortowanie, filtrowanie i stronicowanie funkcjonalność do strony, przy użyciu platformy ASP.NET Core i Entity Framework Core.
 ms.author: tdykstra
-ms.date: 03/15/2017
+ms.date: 02/04/2019
+ms.topic: tutorial
 uid: data/ef-mvc/sort-filter-page
-ms.openlocfilehash: 1f80faf0e36332c28e8337ddc331cc8b4c4970d7
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 51b6b08d2410652f93427371aec299eb4c8789f1
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38193952"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56103062"
 ---
-# <a name="aspnet-core-mvc-with-ef-core---sort-filter-paging---3-of-10"></a>Platforma ASP.NET Core MVC z programem EF Core — sortowanie, filtrowanie, stronicowanie - 3 10
-
-[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
-
-::: moniker range="= aspnetcore-2.0"
-
-Przez [Tom Dykstra](https://github.com/tdykstra) i [Rick Anderson](https://twitter.com/RickAndMSFT)
-
-Przykładową aplikację sieci web firmy Contoso University pokazuje, jak tworzyć aplikacje sieci web platformy ASP.NET Core MVC za pomocą platformy Entity Framework Core i Visual Studio. Aby uzyskać informacji na temat tej serii samouczka, zobacz [pierwszym samouczku tej serii](intro.md).
+# <a name="tutorial-add-sorting-filtering-and-paging---aspnet-mvc-with-ef-core"></a>Samouczek: Dodaj sortowanie, filtrowanie i stronicowanie — ASP.NET MVC z programem EF Core
 
 W poprzednim samouczku wdrożono zestaw stron sieci web w przypadku podstawowych operacji CRUD dla jednostek dla uczniów. W tym samouczku dodasz sortowanie, filtrowanie i stronicowanie funkcji do strony indeksu studentów. Utworzysz też strony, która wykonuje prostą grupowania.
 
@@ -28,7 +21,21 @@ Na poniższej ilustracji przedstawiono wygląd strony po zakończeniu. Nagłówk
 
 ![Strona indeksu uczniów](sort-filter-page/_static/paging.png)
 
-## <a name="add-column-sort-links-to-the-students-index-page"></a>Dodaj kolumnę sortowania łącza do strony indeksu uczniów
+W ramach tego samouczka możesz:
+
+> [!div class="checklist"]
+> * Dodaj kolumnę sortowania łącza
+> * Dodawanie pola wyszukiwania
+> * Dodawanie stronicowania do indeksu uczniów
+> * Dodawanie stronicowania do Index — metoda
+> * Dodawanie łączy stronicowania
+> * Tworzenie strony informacje
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+* [Implementowanie funkcji CRUD z programem EF Core w aplikacji internetowej ASP.NET Core MVC](crud.md)
+
+## <a name="add-column-sort-links"></a>Dodaj kolumnę sortowania łącza
 
 Aby dodać sortowanie do strony indeksu dla uczniów, zmienisz `Index` metody kontrolera studentów i Dodaj kod do widoku indeksu dla uczniów.
 
@@ -71,7 +78,7 @@ Uruchom aplikację, wybierz **studentów** kartę, a następnie kliknij przycisk
 
 ![Strona indeksu studentów według nazwy](sort-filter-page/_static/name-order.png)
 
-## <a name="add-a-search-box-to-the-students-index-page"></a>Dodaj pole wyszukiwania do strony indeksu uczniów
+## <a name="add-a-search-box"></a>Dodawanie pola wyszukiwania
 
 Aby dodać filtrowanie do strony indeksu studentów, dodasz pole tekstowe i przycisk Prześlij do widoku i wprowadzić odpowiednie zmiany w `Index` metody. Pole tekstowe umożliwi wprowadź ciąg do wyszukania w imię pola imienia i nazwiska.
 
@@ -86,7 +93,7 @@ Po dodaniu `searchString` parametr `Index` metody. Wartość ciągu wyszukiwania
 > [!NOTE]
 > W tym miejscu wywołujesz `Where` metody `IQueryable` obiektu i filtr będą przetwarzane na serwerze. W niektórych scenariuszach może być wywołanie `Where` metodę jako metodę rozszerzenia w kolekcji w pamięci. (Na przykład, załóżmy, że możesz zmienić odwołanie do `_context.Students` tak, to zamiast elementu EF `DbSet` odwołuje się do metody repozytorium, która zwraca `IEnumerable` kolekcji.) Wynik będzie zazwyczaj taki sam, ale w niektórych przypadkach może być inna.
 >
->Na przykład implementacji .NET Framework z `Contains` metoda wykonuje porównania uwzględniającego wielkość liter, domyślnie, ale w programie SQL Server jest to określane przez ustawienia sortowania wystąpienia programu SQL Server. To ustawienie domyślne pozycji bez uwzględniania wielkości liter. Można wywołać `ToUpper` metody testu jawnie bez uwzględniania wielkości liter: *gdzie (s = > s.LastName.ToUpper(). Contains(searchString.ToUpper())*. Które zapewniają, że wyniki pozostają takie same, w przypadku zmiany kodu później, aby korzystać z repozytorium, które zwraca `IEnumerable` zbiór zamiast `IQueryable` obiektu. (Gdy wywołujesz `Contains` metody `IEnumerable` kolekcji, możesz pobrać wdrożenia programu .NET Framework; Jeśli wywołasz ją na `IQueryable` obiektu, możesz uzyskać implementację dostawcy bazy danych.) Jednak jest zmniejszenie wydajności dla tego rozwiązania. `ToUpper` Kodu umieścić funkcję w klauzuli WHERE w instrukcji TSQL SELECT. Które uniemożliwiłyby Optymalizator przy użyciu indeksu. Biorąc pod uwagę, że program SQL przede wszystkim jest zainstalowany jako bez uwzględniania wielkości liter, zaleca się unikać `ToUpper` kodu do momentu migracji do magazynu danych z uwzględnieniem wielkości liter.
+>Na przykład implementacji .NET Framework z `Contains` metoda wykonuje porównania uwzględniającego wielkość liter, domyślnie, ale w programie SQL Server jest to określane przez ustawienia sortowania wystąpienia programu SQL Server. To ustawienie domyślne pozycji bez uwzględniania wielkości liter. Można wywołać `ToUpper` metody testu jawnie bez uwzględniania wielkości liter:  *Where(s => s.LastName.ToUpper().Contains(searchString.ToUpper())*. Które zapewniają, że wyniki pozostają takie same, w przypadku zmiany kodu później, aby korzystać z repozytorium, które zwraca `IEnumerable` zbiór zamiast `IQueryable` obiektu. (Gdy wywołujesz `Contains` metody `IEnumerable` kolekcji, możesz pobrać wdrożenia programu .NET Framework; Jeśli wywołasz ją na `IQueryable` obiektu, możesz uzyskać implementację dostawcy bazy danych.) Jednak jest zmniejszenie wydajności dla tego rozwiązania. `ToUpper` Kodu umieścić funkcję w klauzuli WHERE w instrukcji TSQL SELECT. Które uniemożliwiłyby Optymalizator przy użyciu indeksu. Biorąc pod uwagę, że program SQL przede wszystkim jest zainstalowany jako bez uwzględniania wielkości liter, zaleca się unikać `ToUpper` kodu do momentu migracji do magazynu danych z uwzględnieniem wielkości liter.
 
 ### <a name="add-a-search-box-to-the-student-index-view"></a>Dodaj pole wyszukiwania do widoku indeksu dla uczniów
 
@@ -110,11 +117,11 @@ Jeśli Oznacz tę stronę zakładką uzyskasz filtrowana lista korzystając z za
 
 Na tym etapie, po kliknięciu łącza sortowania nagłówka kolumny utracisz wartość filtru, które wprowadziłeś w **wyszukiwania** pole. Można to naprawić w następnej sekcji.
 
-## <a name="add-paging-functionality-to-the-students-index-page"></a>Dodawanie funkcji stronicowania do strony indeksu uczniów
+## <a name="add-paging-to-students-index"></a>Dodawanie stronicowania do indeksu uczniów
 
 Aby dodać stronicowania do strony indeksu uczniów, należy utworzyć `PaginatedList` klasy, która używa `Skip` i `Take` instrukcje, aby filtrować dane na serwerze zamiast zawsze pobierać wszystkie wiersze z tabeli. Będzie wprowadzić dodatkowe zmiany w `Index` metody i dodać przyciski stronicowania `Index` widoku. Poniższa ilustracja przedstawia przyciski stronicowania.
 
-![Strona indeksu studentów wraz z łączami stronicowania](sort-filter-page/_static/paging.png)
+![Studenci indeksu stronę linkami stronicowania](sort-filter-page/_static/paging.png)
 
 W folderze projektu, należy utworzyć `PaginatedList.cs`, a następnie Zastąp kod szablonu poniższym kodem.
 
@@ -124,7 +131,7 @@ W folderze projektu, należy utworzyć `PaginatedList.cs`, a następnie Zastąp 
 
 A `CreateAsync` metoda jest używana zamiast konstruktora, aby utworzyć `PaginatedList<T>` obiektu, ponieważ konstruktory nie można uruchomić kod asynchroniczny.
 
-## <a name="add-paging-functionality-to-the-index-method"></a>Dodawanie funkcji stronicowania do Index — metoda
+## <a name="add-paging-to-index-method"></a>Dodawanie stronicowania do Index — metoda
 
 W *StudentsController.cs*, Zastąp `Index` metoda następującym kodem.
 
@@ -167,7 +174,7 @@ return View(await PaginatedList<Student>.CreateAsync(students.AsNoTracking(), pa
 
 `PaginatedList.CreateAsync` Metoda przyjmuje numeru strony. Dwa znaki zapytania reprezentują operatora łączenia wartości null. Operator łączenia wartości null określa wartość domyślną dla typu dopuszczającego wartość null; wyrażenie `(page ?? 1)` oznacza, że zwracają wartość `page` jeśli jego wartość, lub zwraca 1, jeśli `page` ma wartość null.
 
-## <a name="add-paging-links-to-the-student-index-view"></a>Dodawanie stronicowania łączy do widoku indeksu dla uczniów
+## <a name="add-paging-links"></a>Dodawanie łączy stronicowania
 
 W *Views/Students/Index.cshtml*, Zastąp istniejący kod następującym kodem. Zmiany są wyróżnione.
 
@@ -195,11 +202,11 @@ Przyciski stronicowania są wyświetlane przez pomocników tagów:
 
 Uruchom aplikację, a następnie przejdź do strony studentów.
 
-![Strona indeksu studentów wraz z łączami stronicowania](sort-filter-page/_static/paging.png)
+![Studenci indeksu stronę linkami stronicowania](sort-filter-page/_static/paging.png)
 
 Po kliknięciu łączy stronicowania w różnych sortowania, aby upewnić się, że działa stronicowania. Następnie wprowadź wyszukiwany ciąg i spróbuj stronicowania ponownie, aby sprawdzić, czy stronicowania również działa poprawnie przy użyciu sortowania i filtrowania.
 
-## <a name="create-an-about-page-that-shows-student-statistics"></a>Utwórz stronę informacje, które znajdują się dane statystyczne dla uczniów
+## <a name="create-an-about-page"></a>Tworzenie strony informacje
 
 Dla witryny internetowej firmy Contoso University **o** stronie będą wyświetlane, jak wiele studentów zostały zarejestrowane dla każdego dnia rejestracji. Wymaga to obliczeń grupowania i prostych grup. Aby to osiągnąć, wykonasz następujące czynności:
 
@@ -243,14 +250,22 @@ Zastąp kod w *Views/Home/About.cshtml* pliku następującym kodem:
 
 Uruchom aplikację, a następnie przejdź do strony informacje. Liczba studentów każdej daty rejestracji jest wyświetlany w tabeli.
 
-![Informacje o stronie](sort-filter-page/_static/about.png)
+## <a name="get-the-code"></a>Pobierz kod
 
-## <a name="summary"></a>Podsumowanie
+[Pobieranie i wyświetlanie ukończonej aplikacji.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
-W tym samouczku przedstawiono sposób wykonywania sortowanie, filtrowanie, stronicowanie i grupowanie. W następnym samouczku dowiesz się, jak obsługiwać zmiany w modelu danych przy użyciu migracji.
+## <a name="next-steps"></a>Następne kroki
 
-::: moniker-end
+W ramach tego samouczka możesz:
 
-> [!div class="step-by-step"]
-> [Poprzednie](crud.md)
-> [dalej](migrations.md)
+> [!div class="checklist"]
+> * Dodana kolumna sortowania łącza
+> * Dodano pole wyszukiwania
+> * Dodano stronicowania do indeksu uczniów
+> * Dodano stronicowania do Index — metoda
+> * Dodano linki stronicowania
+> * Utworzona na stronie informacje
+
+Przejdź do następnego artykułu, aby dowiedzieć się, jak obsługiwać zmiany w modelu danych przy użyciu migracji.
+> [!div class="nextstepaction"]
+> [Obsługa zmiany w modelu danych](migrations.md)

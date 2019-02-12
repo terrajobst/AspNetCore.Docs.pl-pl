@@ -4,14 +4,14 @@ author: ssougnez
 description: W tym samouczku skonfigurujesz Webpack połączyć w paczkę i Utwórz aplikację sieci web biblioteki SignalR platformy ASP.NET Core, którego klient został napisany w TypeScript.
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 11/30/2018
+ms.date: 02/11/2019
 uid: tutorials/signalr-typescript-webpack
-ms.openlocfilehash: 8292ab2e0ad1f5c67ac7f15c280b49700f6717ad
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.openlocfilehash: aaf9aa59928ed6b17bc0586d97dbdefc9e30362c
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54836327"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56102955"
 ---
 # <a name="use-aspnet-core-signalr-with-typescript-and-webpack"></a>Używanie biblioteki SignalR platformy ASP.NET Core za pomocą TypeScript i Webpack
 
@@ -80,13 +80,13 @@ Poniższe kroki konfigurowania konwersji TypeScript w kodzie JavaScript i paczki
 1. Zainstaluj pakiety npm wymagane. Wykonaj następujące polecenie w katalogu głównym projektu:
 
     ```console
-    npm install -D -E clean-webpack-plugin@0.1.19 css-loader@0.28.11 html-webpack-plugin@3.2.0 mini-css-extract-plugin@0.4.0 ts-loader@4.4.1 typescript@2.9.2 webpack@4.12.0 webpack-cli@3.0.6
+    npm install -D -E clean-webpack-plugin@1.0.1 css-loader@2.1.0 html-webpack-plugin@4.0.0-beta.5 mini-css-extract-plugin@0.5.0 ts-loader@5.3.3 typescript@3.3.3 webpack@4.29.3 webpack-cli@3.2.3
     ```
 
     Niektóre szczegóły polecenia należy pamiętać:
 
     * Numer wersji jest zgodna `@` podpisywania dla każdej nazwy pakietu. npm instaluje te wersje określonego pakietu.
-    * `-E` Opcja wyłącza npm domyślne zachowanie dotyczące pisania [wersji semantycznej](https://semver.org/) zakresu operatorom *package.json*. Na przykład `"webpack": "4.12.0"` jest używana zamiast `"webpack": "^4.12.0"`. Ta opcja uniemożliwia niezamierzone uaktualnienia do nowszej wersji pakietu.
+    * `-E` Opcja wyłącza npm domyślne zachowanie dotyczące pisania [wersji semantycznej](https://semver.org/) zakresu operatorom *package.json*. Na przykład `"webpack": "4.29.3"` jest używana zamiast `"webpack": "^4.29.3"`. Ta opcja uniemożliwia niezamierzone uaktualnienia do nowszej wersji pakietu.
 
     Można znaleźć w oficjalnej [npm install](https://docs.npmjs.com/cli/install) docs, aby uzyskać więcej szczegółów.
 

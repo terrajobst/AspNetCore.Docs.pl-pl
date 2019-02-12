@@ -1,27 +1,20 @@
 ---
-title: Platforma ASP.NET Core MVC z programem EF Core — współbieżności - 8, 10
-author: rick-anderson
+title: 'Samouczek: Obsługa współbieżności — ASP.NET MVC z programem EF Core'
 description: W tym samouczku przedstawiono sposób obsługi konfliktów, gdy wielu użytkowników aktualizacji tej samej jednostki w tym samym czasie.
+author: rick-anderson
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 02/05/2019
+ms.topic: tutorial
 uid: data/ef-mvc/concurrency
-ms.openlocfilehash: 0ae566a76a2ef656843452ed537b8fdfbddaed22
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 7b18927d5d528ec2951087502e26b2b30214f389
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090904"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56103023"
 ---
-# <a name="aspnet-core-mvc-with-ef-core---concurrency---8-of-10"></a>Platforma ASP.NET Core MVC z programem EF Core — współbieżności - 8, 10
-
-[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
-
-::: moniker range="= aspnetcore-2.0"
-
-Przez [Tom Dykstra](https://github.com/tdykstra) i [Rick Anderson](https://twitter.com/RickAndMSFT)
-
-Przykładową aplikację sieci web firmy Contoso University pokazuje, jak tworzyć aplikacje sieci web platformy ASP.NET Core MVC za pomocą platformy Entity Framework Core i Visual Studio. Aby uzyskać informacji na temat tej serii samouczka, zobacz [pierwszym samouczku tej serii](intro.md).
+# <a name="tutorial-handle-concurrency---aspnet-mvc-with-ef-core"></a>Samouczek: Obsługa współbieżności — ASP.NET MVC z programem EF Core
 
 W samouczkach wcześniej przedstawiono sposób zaktualizować dane. W tym samouczku przedstawiono sposób obsługi konfliktów, gdy wielu użytkowników aktualizacji tej samej jednostki w tym samym czasie.
 
@@ -30,6 +23,23 @@ Instrukcje dotyczące tworzenia stron sieci web, które współpracują z jednos
 ![Strona edytowania działu](concurrency/_static/edit-error.png)
 
 ![Strona usuwanie działu](concurrency/_static/delete-error.png)
+
+W ramach tego samouczka możesz:
+
+> [!div class="checklist"]
+> * Dowiedz się więcej o konfliktów współbieżności
+> * Dodawanie właściwości śledzenia
+> * Tworzenie kontrolera działów i widoków
+> * Aktualizacja widoku indeks
+> * Aktualizacja metod edycji
+> * Aktualizowanie widoku edycji
+> * Testowanie konfliktów współbieżności
+> * Aktualizuj stronę Delete
+> * Aktualizowanie szczegółów i tworzenia widoków
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+* [Aktualizowanie powiązanych danych z programem EF Core w aplikacji internetowej ASP.NET Core MVC](update-related-data.md)
 
 ## <a name="concurrency-conflicts"></a>Konfliktów współbieżności
 
@@ -87,7 +97,7 @@ Należy rozwiązać konflikty, obsługując `DbConcurrencyException` wyjątki, k
 
 W pozostałej części tego samouczka dodasz `rowversion` śledzenie właściwości do jednostki działu, Utwórz kontrolera i widoki, a test, aby sprawdzić, czy wszystko działa poprawnie.
 
-## <a name="add-a-tracking-property-to-the-department-entity"></a>Dodawanie właściwości śledzenia do jednostki działu
+## <a name="add-a-tracking-property"></a>Dodawanie właściwości śledzenia
 
 W *Models/Department.cs*, dodawanie właściwości śledzenia o nazwie RowVersion:
 
@@ -114,7 +124,7 @@ dotnet ef migrations add RowVersion
 dotnet ef database update
 ```
 
-## <a name="create-a-departments-controller-and-views"></a>Tworzenie kontrolera działów i widoków
+## <a name="create-departments-controller-and-views"></a>Tworzenie kontrolera działów i widoków
 
 Jak wcześniej dla uczniów, kursy i instruktorów, tworzenia szkieletu kontrolera działów i widoków.
 
@@ -124,7 +134,7 @@ W *DepartmentsController.cs* plików, zmienić wszystkie cztery wystąpienia "Fi
 
 [!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_Dropdown)]
 
-## <a name="update-the-departments-index-view"></a>Aktualizacja widoku indeks działów
+## <a name="update-index-view"></a>Aktualizacja widoku indeks
 
 Aparat tworzenia szkieletów utworzył RowVersion kolumny w widoku indeksu, ale nie powinny być wyświetlane to pole.
 
@@ -134,7 +144,7 @@ Zastąp kod w *Views/Departments/Index.cshtml* następującym kodem.
 
 Zmiany pozycji "Wydziałom", usuwa kolumnę RowVersion i pokazuje pełną nazwę zamiast imię administratora.
 
-## <a name="update-the-edit-methods-in-the-departments-controller"></a>Aktualizacja metod edycji w kontrolerze działów
+## <a name="update-edit-methods"></a>Aktualizacja metod edycji
 
 W obu narzędzia HttpGet `Edit` metody i `Details` metody, Dodaj `AsNoTracking`. W HttpGet `Edit` metody, Dodaj wczesne ładowanie dla administratora.
 
@@ -172,7 +182,7 @@ Na koniec kod ustawia `RowVersion` wartość `departmentToUpdate` na nową warto
 
 `ModelState.Remove` Instrukcji jest wymagana, ponieważ `ModelState` ma stary `RowVersion` wartość. W widoku `ModelState` wartość dla pola ma pierwszeństwo przed wartości właściwości modelu, jeśli obie są podane.
 
-## <a name="update-the-department-edit-view"></a>Aktualizacja widoku edycji działu
+## <a name="update-edit-view"></a>Aktualizowanie widoku edycji
 
 W *Views/Departments/Edit.cshtml*, wprowadź następujące zmiany:
 
@@ -182,7 +192,7 @@ W *Views/Departments/Edit.cshtml*, wprowadź następujące zmiany:
 
 [!code-html[](intro/samples/cu/Views/Departments/Edit.cshtml?highlight=16,34-36)]
 
-## <a name="test-concurrency-conflicts-in-the-edit-page"></a>Badanie konfliktów współbieżności na stronie edycji
+## <a name="test-concurrency-conflicts"></a>Testowanie konfliktów współbieżności
 
 Uruchom aplikację i przejdź do strony indeksu działów. Kliknij prawym przyciskiem myszy **Edytuj** hiperlink do działu w języku angielskim, a następnie wybierz pozycję **Otwórz na nowej karcie**, następnie kliknij przycisk **Edytuj** hiperłącze dla angielskiego działu. Karty przeglądarki dwa są teraz wyświetlane w tych samych informacji.
 
@@ -196,7 +206,7 @@ Zmień pole na drugiej karcie przeglądarki.
 
 ![Edytuj działu po zmianie — strona 2](concurrency/_static/edit-after-change-2.png)
 
-Kliknij przycisk **Zapisz**. Zobaczysz komunikat o błędzie:
+Kliknij pozycję **Zapisz**. Zobaczysz komunikat o błędzie:
 
 ![Komunikat o błędzie działu edycji strony](concurrency/_static/edit-error.png)
 
@@ -276,12 +286,29 @@ Zastąp kod w *Views/Departments/Create.cshtml* do dodania zaznacz opcję do lis
 
 [!code-html[](intro/samples/cu/Views/Departments/Create.cshtml?highlight=32-34)]
 
-## <a name="summary"></a>Podsumowanie
+## <a name="get-the-code"></a>Pobierz kod
 
-Na tym kończy się wprowadzenie do obsługi konfliktów współbieżności. Aby uzyskać więcej informacji na temat obsługi współbieżności w programie EF Core, zobacz [konfliktów współbieżności](/ef/core/saving/concurrency). Następny samouczek pokazuje, jak zaimplementować Tabela wg hierarchii dziedziczenia dla jednostek przez instruktorów i uczniów.
+[Pobieranie i wyświetlanie ukończonej aplikacji.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
-::: moniker-end
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
-> [!div class="step-by-step"]
-> [Poprzednie](update-related-data.md)
-> [dalej](inheritance.md)
+ Aby uzyskać więcej informacji na temat obsługi współbieżności w programie EF Core, zobacz [konfliktów współbieżności](/ef/core/saving/concurrency).
+
+## <a name="next-steps"></a>Następne kroki
+
+W ramach tego samouczka możesz:
+
+> [!div class="checklist"]
+> * Przedstawia informacje na temat konfliktów współbieżności
+> * Dodano właściwości śledzenia
+> * Utworzony kontroler działów i widoków
+> * Zaktualizowano widoku indeksu
+> * Zaktualizowano metod edycji
+> * Zaktualizowano widoku do edycji
+> * Konflikty współbieżności przetestowane
+> * Zaktualizowane strony usuwania
+> * Zaktualizowano szczegółowe informacje i tworzyć widoki
+
+Przejdź do następnego artykułu, aby dowiedzieć się, jak zaimplementować Tabela wg hierarchii dziedziczenia dla jednostek przez instruktorów i uczniów.
+> [!div class="nextstepaction"]
+> [Implementowanie Tabela wg hierarchii dziedziczenia](inheritance.md)

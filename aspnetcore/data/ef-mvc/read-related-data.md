@@ -1,26 +1,19 @@
 ---
-title: Platforma ASP.NET Core MVC z programem EF Core — odczytywanie powiązanych danych - 6 10
-author: rick-anderson
+title: 'Samouczek: Odczytywanie powiązanych danych — ASP.NET MVC z programem EF Core'
 description: W tym samouczku należy przeczytać i wyświetlanie powiązanych danych — oznacza to, że dane programu Entity Framework wczytywane właściwości nawigacji.
+author: rick-anderson
 ms.author: tdykstra
-ms.date: 03/15/2017
+ms.date: 02/05/2019
+ms.topic: tutorial
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: a310c9e4b9cec6e2ab2477461f395c9bbd3fa364
-ms.sourcegitcommit: e12f45ddcbe99102a74d4077df27d6c0ebba49c1
+ms.openlocfilehash: 73e225c2cd6d9f88079c54115cccad48f43d7d0c
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/15/2018
-ms.locfileid: "39063289"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56103049"
 ---
-# <a name="aspnet-core-mvc-with-ef-core---read-related-data---6-of-10"></a>Platforma ASP.NET Core MVC z programem EF Core — odczytywanie powiązanych danych - 6 10
-
-[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
-
-::: moniker range="= aspnetcore-2.0"
-
-Przez [Tom Dykstra](https://github.com/tdykstra) i [Rick Anderson](https://twitter.com/RickAndMSFT)
-
-Przykładową aplikację sieci web firmy Contoso University pokazuje, jak tworzyć aplikacje sieci web platformy ASP.NET Core MVC za pomocą platformy Entity Framework Core i Visual Studio. Aby uzyskać informacji na temat tej serii samouczka, zobacz [pierwszym samouczku tej serii](intro.md).
+# <a name="tutorial-read-related-data---aspnet-mvc-with-ef-core"></a>Samouczek: Odczytywanie powiązanych danych — ASP.NET MVC z programem EF Core
 
 W poprzednim samouczku można wykonać modelu danych służbowych. W tym samouczku należy przeczytać i wyświetlanie powiązanych danych — oznacza to, że dane programu Entity Framework wczytywane właściwości nawigacji.
 
@@ -30,7 +23,19 @@ Na poniższych ilustracjach przedstawiono strony, którą będziesz pracować.
 
 ![Strona indeksu instruktorów](read-related-data/_static/instructors-index.png)
 
-## <a name="eager-explicit-and-lazy-loading-of-related-data"></a>Zapoznamy wyraźne i powolne ładowanie powiązanych danych
+W ramach tego samouczka możesz:
+
+> [!div class="checklist"]
+> * Dowiedz się, jak załadować dane pokrewne
+> * Utwórz stronę kursów
+> * Tworzenie strony instruktorów
+> * Dowiedz się więcej o jawne ładowanie
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+* [Tworzenie bardziej złożonego modelu danych z programem EF Core dla aplikacji internetowej ASP.NET Core MVC](complex-data-model.md)
+
+## <a name="learn-how-to-load-related-data"></a>Dowiedz się, jak załadować dane pokrewne
 
 Istnieje kilka sposobów oprogramowanie obiektowo-relacyjny mapowanie (ORM), takie jak Entity Framework można załadować powiązane dane do właściwości nawigacji jednostki:
 
@@ -54,7 +59,7 @@ Jeśli znasz powiązane dane potrzebne dla każdej jednostki pobrać eager podcz
 
 Z drugiej strony w niektórych scenariuszach oddzielne zapytania jest bardziej wydajne. Wczesne ładowanie wszystkich powiązanych danych w jednym zapytaniu może spowodować bardzo złożone sprzężenia zostanie wygenerowany, której program SQL Server nie może przetworzyć wydajnie. Lub jeśli potrzebujesz dostępu do właściwości nawigacji jednostki, tylko dla podzbioru zestaw jednostek, które one przetwarzanie, oddzielne zapytania może działać lepiej ponieważ wczesne ładowanie wszystkich elementów na początku spowoduje pobieranie większej ilości danych niż jest Ci potrzebne. Jeśli wydajność ma kluczowe znaczenie, najlepiej testowania wydajności w obu kierunkach, aby można było dokonanie najlepszego wyboru.
 
-## <a name="create-a-courses-page-that-displays-department-name"></a>Tworzenie strony kursów, który wyświetla nazwy działu
+## <a name="create-a-courses-page"></a>Utwórz stronę kursów
 
 Jednostki kurs zawiera właściwość nawigacji, która zawiera jednostkę działu działu, przypisana do kursu. Aby wyświetlić nazwę działu przypisany na liście kursy, musisz pobrać właściwości nazwy jednostki działu, która znajduje się w `Course.Department` właściwości nawigacji.
 
@@ -88,7 +93,7 @@ Uruchom aplikację i wybierz **kursów** kartę, aby wyświetlić listę nazw dz
 
 ![Kursy strony indeksu](read-related-data/_static/courses-index.png)
 
-## <a name="create-an-instructors-page-that-shows-courses-and-enrollments"></a>Utwórz stronę instruktorów, pokazujący kursów i rejestracji
+## <a name="create-an-instructors-page"></a>Tworzenie strony instruktorów
 
 W tej sekcji utworzysz kontroler i widok dla jednostki przez instruktorów, aby wyświetlić stronę Instruktorzy:
 
@@ -226,7 +231,7 @@ Ponownie Odśwież stronę, a następnie wybierz pozycję pod kierunkiem instruk
 
 ![Instruktorzy indeks strony instruktora oraz przypisane kursów wybranych](read-related-data/_static/instructors-index.png)
 
-## <a name="explicit-loading"></a>Jawne ładowanie
+## <a name="about-explicit-loading"></a>Temat jawne ładowanie
 
 Po pobraniu listy Instruktorzy w *InstructorsController.cs*, określony wczesne ładowanie dla `CourseAssignments` właściwości nawigacji.
 
@@ -238,12 +243,20 @@ Nowy kod spada *ThenInclude* metoda wywołuje danych rejestracji z kodu, która 
 
 Uruchom aplikację, przejdź do strony indeksu Instruktorzy teraz i będzie żadnej widocznej różnicy w wyświetlanych na stronie, mimo że zostało zmienione, jak dane są pobierane.
 
-## <a name="summary"></a>Podsumowanie
+## <a name="get-the-code"></a>Pobierz kod
 
-Wczesne ładowanie została obecnie używany za pomocą jednego zapytania i z wieloma zapytaniami, aby odczytać powiązanych danych właściwości nawigacji. W następnym samouczku dowiesz się, jak zaktualizować powiązane dane.
+[Pobieranie i wyświetlanie ukończonej aplikacji.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
-::: moniker-end
+## <a name="next-steps"></a>Następne kroki
 
->[!div class="step-by-step"]
->[Poprzednie](complex-data-model.md)
->[dalej](update-related-data.md)
+W ramach tego samouczka możesz:
+
+> [!div class="checklist"]
+> * Dowiedzieliśmy się, jak załadować dane dotyczące
+> * Utworzona strona kursów
+> * Utworzona strona instruktorów
+> * Przedstawia informacje na temat jawne ładowanie
+
+Przejdź do następnego artykułu, aby dowiedzieć się, jak aktualizowanie powiązanych danych.
+> [!div class="nextstepaction"]
+> [Aktualizowanie powiązanych danych](update-related-data.md)

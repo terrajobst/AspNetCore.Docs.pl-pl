@@ -1,38 +1,44 @@
 ---
-title: Platforma ASP.NET Core MVC za pomocą platformy Entity Framework Core — samouczek 1, 10
+title: 'Samouczek: Rozpoczynanie pracy z programem EF Core w aplikacji sieci web platformy ASP.NET MVC'
+description: Jest to pierwszy z serii samouczków, które wyjaśniają, jak tworzyć Contoso University przykładowej aplikacji od podstaw.
 author: rick-anderson
-description: ''
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 02/06/2019
+ms.topic: tutorial
 uid: data/ef-mvc/intro
-ms.openlocfilehash: 1191632555dc9331f815c1bfb1f313459824754a
-ms.sourcegitcommit: 68a3081dd175d6518d1bfa31b4712bd8a2dd3864
+ms.openlocfilehash: f7b557c8e560393ae886c46fad95c48ccbcc65b4
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53577906"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56102971"
 ---
-# <a name="aspnet-core-mvc-with-entity-framework-core---tutorial-1-of-10"></a>Platforma ASP.NET Core MVC za pomocą platformy Entity Framework Core — samouczek 1, 10
-
-[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
-
-::: moniker range="= aspnetcore-2.0"
-
-Przez [Tom Dykstra](https://github.com/tdykstra) i [Rick Anderson](https://twitter.com/RickAndMSFT)
+# <a name="tutorial-get-started-with-ef-core-in-an-aspnet-mvc-web-app"></a>Samouczek: Rozpoczynanie pracy z programem EF Core w aplikacji sieci web platformy ASP.NET MVC
 
 [!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc.md)]
 
-Przykładową aplikację sieci web firmy Contoso University pokazuje, jak tworzyć aplikacje sieci web MVC programu ASP.NET Core 2.0 przy użyciu programu Entity Framework (EF) Core 2.0 oraz program Visual Studio 2017.
+Przykładową aplikację sieci web firmy Contoso University pokazuje, jak tworzyć aplikacje sieci web platformy ASP.NET Core 2.2 MVC przy użyciu programu Entity Framework (EF) Core 2.0 oraz program Visual Studio 2017.
 
 Przykładowa aplikacja jest witryną sieci web dla uniwersytetu fikcyjnej firmy Contoso. Obejmuje funkcje, takie jak czasowej dla uczniów, tworzenia kurs i przypisania instruktora. Jest to pierwszy z serii samouczków, które wyjaśniają, jak tworzyć Contoso University przykładowej aplikacji od podstaw.
-
-[Pobieranie i wyświetlanie ukończonej aplikacji.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
 EF Core 2.0 jest najnowsza wersja programu EF jeszcze nie wszystkie funkcje programu EF 6.x. Aby uzyskać informacje o tym, jak dokonać wyboru między EF 6.x i programem EF Core, zobacz [vs programu EF Core. EF6.x](/ef/efcore-and-ef6/). Jeśli wybierzesz EF w wersji 6.x, zobacz [poprzedniej wersji tej serii samouczków](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
 
 > [!NOTE]
 > Wersja platformy ASP.NET Core 1.1 po ukończeniu tego samouczka, zobacz [wersji programu VS 2017 Update 2 po ukończeniu tego samouczka w formacie PDF](https://webpifeed.blob.core.windows.net/webpifeed/Partners/efmvc1.1.pdf).
+
+W ramach tego samouczka możesz:
+
+> [!div class="checklist"]
+> * Tworzenie aplikacji sieci web platformy ASP.NET Core MVC
+> * Ustawianie stylów lokacji
+> * Dowiedz się więcej o pakietach EF Core NuGet
+> * Tworzenie modelu danych
+> * Utwórz kontekst bazy danych
+> * Zarejestruj SchoolContext
+> * Zainicjuj kontekst bazy danych przy użyciu danych testowych
+> * Tworzenie widoków i kontrolerów
+> * Widok bazy danych
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -45,7 +51,7 @@ Jeśli napotkasz problem, nie można rozpoznać ogólnie można znaleźć rozwi�
 > [!TIP]
 > Jest to szereg 10 samouczków, z których każdy jest oparta na czynności wykonane w starszych samouczków. Warto zapisać kopię projektu po każdym pomyślnym ukończeniu samouczka. Następnie, jeśli napotkasz problemy, można uruchomić za pośrednictwem z poprzedniego samouczka zamiast po powrocie do początku całej serii.
 
-## <a name="the-contoso-university-web-application"></a>Aplikacja sieci web firmy Contoso University
+## <a name="contoso-university-web-app"></a>Aplikacja sieci web firmy Contoso University
 
 Aplikacja, której można tworzyć w tych samouczkach znajduje university prostą witrynę sieci web.
 
@@ -57,7 +63,7 @@ Użytkownicy mogą przeglądać i aktualizacji dla uczniów, kursu i informacji 
 
 Styl interfejsu użytkownika w tej lokacji została zachowana blisko co to jest generowany przez wbudowane szablony, dzięki czemu samouczka można skupić się głównie na temat korzystania z programu Entity Framework.
 
-## <a name="create-an-aspnet-core-mvc-web-application"></a>Tworzenie aplikacji sieci web platformy ASP.NET Core MVC
+## <a name="create-aspnet-core-mvc-web-app"></a>Tworzenie aplikacji sieci web platformy ASP.NET Core MVC
 
 Otwórz program Visual Studio i Utwórz nowe platformy ASP.NET Core C# projektu sieci web o nazwie "ContosoUniversity".
 
@@ -69,19 +75,19 @@ Otwórz program Visual Studio i Utwórz nowe platformy ASP.NET Core C# projektu 
 
 * Wprowadź **ContosoUniversity** jako nazwę i kliknij przycisk **OK**.
 
-  ![Okno dialogowe nowego projektu](intro/_static/new-project.png)
+  ![Okno dialogowe nowego projektu](intro/_static/new-project2.png)
 
 * Poczekaj, aż **nowa Core aplikacja internetowa ASP.NET (.NET Core)** wyświetlać okno dialogowe
 
-* Wybierz **ASP.NET Core 2.0** i **aplikacji sieci Web (Model-View-Controller)** szablonu.
+  ![Okno dialogowe nowego projektu programu ASP.NET Core](intro/_static/new-aspnet2.png)
 
-  **Uwaga:** Ten samouczek wymaga platformy ASP.NET Core 2.0 i programu EF Core 2.0 lub nowszej — upewnij się, że **ASP.NET Core 1.1** nie jest zaznaczone.
+* Wybierz **platformy ASP.NET Core 2.2** i **aplikacji sieci Web (Model-View-Controller)** szablonu.
+
+  **Uwaga:** Ten samouczek wymaga platformy ASP.NET Core 2.2 i programem EF Core 2.0 lub nowszej.
 
 * Upewnij się, że **uwierzytelniania** ustawiono **bez uwierzytelniania**.
 
 * Kliknij przycisk **OK**
-
-  ![Okno dialogowe nowego projektu programu ASP.NET Core](intro/_static/new-aspnet.png)
 
 ## <a name="set-up-the-site-style"></a>Ustawianie stylów lokacji
 
@@ -91,11 +97,11 @@ Otwórz *Views/Shared/_Layout.cshtml* i wprowadź następujące zmiany:
 
 * Należy zmienić każde wystąpienie "ContosoUniversity" na "Uniwersytet firmy Contoso". Istnieją trzy wystąpienia.
 
-* Dodaj elementy menu dla **studentów**, **kursów**, **Instruktorzy**, i **działów**i Usuń **skontaktuj się z pomocą** wpis menu.
+* Dodaj elementy menu dla **o**, **studentów**, **kursów**, **Instruktorzy**, i **działów**, i Usuń **zachowania** wpis menu.
 
 Zmiany są wyróżnione.
 
-[!code-cshtml[](intro/samples/cu/Views/Shared/_Layout.cshtml?highlight=6,30,36-39,48)]
+[!code-cshtml[](intro/samples/cu/Views/Shared/_Layout.cshtml?highlight=6,32-36,51)]
 
 W *Views/Home/Index.cshtml*, Zastąp zawartość pliku następującym kodem, aby zamienić tekst o platformie ASP.NET i MVC z tekstem o tej aplikacji:
 
@@ -105,7 +111,7 @@ Naciśnij klawisze CTRL + F5, aby uruchomić projekt, lub wybierz **Debuguj > Ur
 
 ![Strona główna University firmy Contoso](intro/_static/home-page.png)
 
-## <a name="entity-framework-core-nuget-packages"></a>Entity Framework Core NuGet pakietów
+## <a name="about-ef-core-nuget-packages"></a>Temat pakietów programu EF Core NuGet
 
 Aby dodać obsługę programu EF Core do projektu, należy zainstalować dostawcy bazy danych, który ma pod kątem. Ten samouczek używa programu SQL Server i pakiet dostawcy jest [Microsoft.EntityFrameworkCore.SqlServer](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer/). Ten pakiet jest objęta [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app), więc nie trzeba tworzą odwołanie do pakietu, jeśli aplikacja ma odwołania do pakietu dla `Microsoft.AspNetCore.App` pakietu.
 
@@ -185,7 +191,7 @@ Po utworzeniu bazy danych EF tworzy tabel, które mają takie same jak nazwy `Db
 
 [!code-csharp[](intro/samples/cu/Data/SchoolContext.cs?name=snippet_TableNames&highlight=16-21)]
 
-## <a name="register-the-context-with-dependency-injection"></a>Zarejestrowanie kontekście wstrzykiwanie zależności
+## <a name="register-the-schoolcontext"></a>Zarejestruj SchoolContext
 
 Implementuje platformy ASP.NET Core [wstrzykiwanie zależności](../../fundamentals/dependency-injection.md) domyślnie. Usługi (takie jak EF kontekst bazy danych) zostały zarejestrowane przy użyciu iniekcji zależności podczas uruchamiania aplikacji. Składniki, które wymagają tych usług, (na przykład kontrolerów MVC) znajdują się tych usług za pomocą parametry konstruktora. Zobaczysz kod konstruktora kontrolera, pobierające wystąpienie kontekstu w dalszej części tego samouczka.
 
@@ -207,7 +213,7 @@ Otwórz *appsettings.json* pliku i dodaj ciąg połączenia, jak pokazano w poni
 
 Parametry połączenia określają bazę danych programu SQL Server LocalDB. LocalDB to Uproszczona wersja aparatu programu SQL Server Express bazy danych i jest przeznaczony do tworzenia aplikacji, nie do użytku produkcyjnego. LocalDB rozpoczyna się na żądanie i działa w trybie użytkownika, więc nie ma żadnych złożonej konfiguracji. Domyślnie tworzy LocalDB *.mdf* bazy danych plików w `C:/Users/<user>` katalogu.
 
-## <a name="add-code-to-initialize-the-database-with-test-data"></a>Dodaj kod, aby zainicjować bazy danych przy użyciu danych testowych
+## <a name="initialize-db-with-test-data"></a>Zainicjuj kontekst bazy danych przy użyciu danych testowych
 
 Entity Framework utworzy pustą bazę danych dla Ciebie. W tej sekcji możesz napisanie metody, która jest wywoływana po utworzeniu bazy danych, aby wypełnić je danymi testu.
 
@@ -235,7 +241,7 @@ W samouczkach starsze, może zostać wyświetlony podobny kod w `Configure` meth
 
 Teraz podczas pierwszego uruchomienia aplikacji, baza danych zostanie utworzona i zasilany z danymi. Zawsze wtedy, gdy zmienisz swój model danych, można usunąć bazę danych, zaktualizować seed — metoda i rozpoczynać się od nowa nową bazę danych tak samo. W kolejnych samouczkach pokazano, jak zmodyfikować bazy danych, gdy dane modelu zmiany, bez wcześniejszego usunięcia i ponownego utworzenia go.
 
-## <a name="create-a-controller-and-views"></a>Tworzenie kontrolera i widoki
+## <a name="create-controller-and-views"></a>Tworzenie widoków i kontrolerów
 
 Następnie użyjemy aparatu tworzenia szkieletów w programie Visual Studio można dodać kontroler MVC i widoki, które użyje EF w celu wykonywania zapytań i zapisywanie danych.
 
@@ -252,9 +258,9 @@ Jeśli **Dodaj zależności MVC** zostanie wyświetlone okno dialogowe:
 
   * Wybierz **kontroler MVC z widokami używający narzędzia Entity Framework**.
 
-  * Kliknij przycisk **Dodaj**.
+  * Kliknij przycisk **Dodaj**. **Dodaj kontroler MVC z widokami używający narzędzia Entity Framework** pojawi się okno dialogowe.
 
-* W **Dodaj kontroler** okno dialogowe:
+    ![Tworzenie szkieletu ucznia](intro/_static/scaffold-student2.png)
 
   * W **klasa modelu** wybierz **uczniów**.
 
@@ -263,8 +269,6 @@ Jeśli **Dodaj zależności MVC** zostanie wyświetlone okno dialogowe:
   * Zaakceptuj wartość domyślną **StudentsController** jako nazwę.
 
   * Kliknij przycisk **Dodaj**.
-
-  ![Tworzenie szkieletu ucznia](intro/_static/scaffold-student.png)
 
   Po kliknięciu **Dodaj**, aparat tworzenia szkieletów programu Visual Studio tworzy *StudentsController.cs* plików i zestaw widoków (*.cshtml* plików), pracować z kontrolerem.
 
@@ -326,7 +330,7 @@ Ilość kodu, który trzeba było pisać w kolejności programu Entity Framework
 
 * Właściwości jednostki, które noszą nazwy lub classnameID są rozpoznawane jako właściwości klucza podstawowego.
 
-* Właściwość jest interpretowany jako właściwość klucza obcego, jeśli jest on nazwany *<navigation property name> <primary key property name>* (na przykład `StudentID` dla `Student` właściwość nawigacji od `Student` jest klucz podstawowy jednostki `ID`). Właściwości klucza obcego może też po prostu nazwę *<primary key property name>* (na przykład `EnrollmentID` ponieważ `Enrollment` jest klucz podstawowy jednostki `EnrollmentID`).
+* Właściwość jest interpretowany jako właściwość klucza obcego, jeśli jest on nazwany * <navigation property name> <primary key property name> * (na przykład `StudentID` dla `Student` właściwość nawigacji od `Student` jest klucz podstawowy jednostki `ID`). Właściwości klucza obcego może też po prostu nazwę * <primary key property name> * (na przykład `EnrollmentID` ponieważ `Enrollment` jest klucz podstawowy jednostki `EnrollmentID`).
 
 Konwencjonalne zachowanie można przesłonić. Na przykład można jawnie określasz nazwy tabel, jak przedstawiono wcześniej w tym samouczku. I można ustawić nazwy kolumn i ustaw dowolną właściwość jako klucz podstawowy lub klucz obcy, jak można zauważyć w [dalszych samouczków](complex-data-model.md) w tej serii.
 
@@ -360,11 +364,27 @@ Niektóre elementy pod uwagę podczas pisania kodu asynchronicznego, który uży
 
 Aby uzyskać więcej informacji na temat programowania asynchronicznego w .NET, zobacz [Przegląd Async](/dotnet/articles/standard/async).
 
-## <a name="summary"></a>Podsumowanie
+## <a name="get-the-code"></a>Pobierz kod
 
-Utworzono prostą aplikację, która korzysta z platformy Entity Framework Core i SQL Server Express LocalDB do przechowywania i wyświetlania danych. W następującego samouczka, dowiesz się, jak do wykonywania podstawowych operacji CRUD (Tworzenie, odczytywanie, aktualizowanie, usuwanie) operacji.
+[Pobieranie i wyświetlanie ukończonej aplikacji.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
-::: moniker-end
+## <a name="next-steps"></a>Następne kroki
 
-> [!div class="step-by-step"]
-> [Next](crud.md)
+W ramach tego samouczka możesz:
+
+> [!div class="checklist"]
+> * Utworzoną aplikację sieci web platformy ASP.NET Core MVC
+> * Ustawianie stylów lokacji
+> * Przedstawia informacje na temat pakietów programu EF Core NuGet
+> * Utworzony model danych
+> * Utworzone kontekst bazy danych
+> * Zarejestrowany SchoolContext
+> * Zainicjowana klasa bazy danych przy użyciu danych testowych
+> * Utworzony kontroler i widoków
+> * Wyświetlać bazy danych
+
+W następującego samouczka, dowiesz się, jak do wykonywania podstawowych operacji CRUD (Tworzenie, odczytywanie, aktualizowanie, usuwanie) operacji.
+
+Przejdź do następnego artykułu, aby dowiedzieć się, jak i wykonywania podstawowych operacji CRUD (Tworzenie, odczytywanie, aktualizowanie, usuwanie) operacji.
+> [!div class="nextstepaction"]
+> [Implementowanie podstawowych funkcji CRUD](crud.md)

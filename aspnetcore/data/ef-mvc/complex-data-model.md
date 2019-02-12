@@ -1,27 +1,20 @@
 ---
-title: Platforma ASP.NET Core MVC z programem EF Core — Model danych — 5, 10
-author: rick-anderson
+title: 'Samouczek: Tworzenie złożonego modelu danych — ASP.NET MVC z programem EF Core'
 description: W tym samouczku należy dodać większą liczbę jednostek i relacji i Dostosuj model danych, określając formatowania i sprawdzania poprawności i reguł mapowania.
+author: rick-anderson
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 02/05/2019
+ms.topic: tutorial
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: 87212edbfe34af6de938cf95314501e56e64a8be
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: c08fd6ff7c19c63161135b4c87609f6edd3edb80
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50091044"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56103127"
 ---
-# <a name="aspnet-core-mvc-with-ef-core---data-model---5-of-10"></a>Platforma ASP.NET Core MVC z programem EF Core — Model danych — 5, 10
-
-[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
-
-::: moniker range="= aspnetcore-2.0"
-
-Przez [Tom Dykstra](https://github.com/tdykstra) i [Rick Anderson](https://twitter.com/RickAndMSFT)
-
-Przykładową aplikację sieci web firmy Contoso University pokazuje, jak tworzyć aplikacje sieci web platformy ASP.NET Core MVC za pomocą platformy Entity Framework Core i Visual Studio. Aby uzyskać informacji na temat tej serii samouczka, zobacz [pierwszym samouczku tej serii](intro.md).
+# <a name="tutorial-create-a-complex-data-model---aspnet-mvc-with-ef-core"></a>Samouczek: Tworzenie złożonego modelu danych — ASP.NET MVC z programem EF Core
 
 W poprzednich samouczkach doświadczenie w pracy z modelu prostego danych, który został składające się z trzech jednostek. W tym samouczku dodasz więcej jednostek i relacji i będzie Dostosuj model danych, określając formatowania i sprawdzania poprawności i reguł mapowania bazy danych.
 
@@ -29,7 +22,27 @@ Gdy skończysz, klas jednostek tworzących model danych ukończone, który jest 
 
 ![Diagram jednostek](complex-data-model/_static/diagram.png)
 
-## <a name="customize-the-data-model-by-using-attributes"></a>Dostosuj Model danych przy użyciu atrybutów
+W ramach tego samouczka możesz:
+
+> [!div class="checklist"]
+> * Dostosuj model danych
+> * Wprowadź zmiany do jednostki dla uczniów
+> * Tworzenie jednostki przez instruktorów
+> * Tworzenie jednostki OfficeAssignment
+> * Modyfikowanie jednostek kursu
+> * Tworzenie jednostki działu
+> * Modyfikowanie jednostek rejestracji
+> * Aktualizowanie kontekstu bazy danych
+> * Baza danych inicjatora, przy użyciu danych testowych
+> * Dodaj migrację
+> * Zmień parametry połączenia
+> * Aktualizowanie bazy danych
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+* [Korzystanie z funkcji migracje EF Core dla platformy ASP.NET Core w aplikacji internetowej MVC](migrations.md)
+
+## <a name="customize-the-data-model"></a>Dostosuj model danych
 
 W tej sekcji pokazano, jak dostosować model danych przy użyciu atrybutów, które określają, formatowanie, sprawdzanie poprawności i reguł mapowania bazy danych. Następnie w kilku z następujących sekcji, które zostaną utworzone pełnego modelu danych służbowych, dodając atrybutów do klasy została już utworzona oraz tworzenie nowych klas pozostałe typy jednostek w modelu.
 
@@ -97,9 +110,7 @@ dotnet ef database update
 
 Sygnatura czasowa prefiks do nazwy pliku migracji umożliwia przez program Entity Framework kolejność migracji. Możesz utworzyć wiele migracji przed uruchomieniem polecenia update-database, a następnie wszystkie migracje są stosowane w kolejności, w którym zostały utworzone.
 
-Uruchom aplikację, wybierz **studentów** kliknij pozycję **Utwórz nowy**, a następnie wprowadź nazwę, albo więcej niż 50 znaków. Po kliknięciu **Utwórz**, weryfikacji po stronie klienta zawiera komunikat o błędzie.
-
-![Studenci indeksu strona wyświetlająca błędy długość ciągu](complex-data-model/_static/string-length-errors.png)
+Uruchom aplikację, wybierz **studentów** kliknij pozycję **Utwórz nowy**i spróbuj wprowadzić albo nazwa jest dłuższa niż 50 znaków. Aplikację należy uniemożliwić temu. 
 
 ### <a name="the-column-attribute"></a>Atrybut kolumny
 
@@ -132,7 +143,7 @@ Przed zastosowaniem pierwsze dwie migracje nazwa kolumny były typu nvarchar(MAX
 > [!Note]
 > Jeśli spróbujesz skompilować przed zakończeniem, tworzenie wszystkich klas jednostek w poniższych sekcjach, możesz otrzymać błędy kompilatora.
 
-## <a name="final-changes-to-the-student-entity"></a>Ostateczne zmiany do jednostki dla uczniów
+## <a name="changes-to-student-entity"></a>Zmiany w jednostce ucznia
 
 ![Jednostki dla uczniów](complex-data-model/_static/student-entity.png)
 
@@ -160,7 +171,7 @@ public string LastName { get; set; }
 
 `FullName` jest właściwością obliczeniową, która zwraca wartość, która jest tworzona przez dołączenie dwóch innych właściwości. Dlatego ma tylko akcesor pobierania, a nie `FullName` kolumny zostanie wygenerowany w bazie danych.
 
-## <a name="create-the-instructor-entity"></a>Tworzenie jednostki przez instruktorów
+## <a name="create-instructor-entity"></a>Tworzenie jednostki przez instruktorów
 
 ![Jednostki przez instruktorów](complex-data-model/_static/instructor-entity.png)
 
@@ -196,7 +207,7 @@ Reguły biznesowe firmy Contoso University stanu, że pod kierunkiem instruktora
 public OfficeAssignment OfficeAssignment { get; set; }
 ```
 
-## <a name="create-the-officeassignment-entity"></a>Tworzenie jednostki OfficeAssignment
+## <a name="create-officeassignment-entity"></a>Tworzenie jednostki OfficeAssignment
 
 ![OfficeAssignment jednostki](complex-data-model/_static/officeassignment-entity.png)
 
@@ -223,7 +234,7 @@ Jednostka przez instruktorów ma wartość null `OfficeAssignment` właściwośc
 
 Możesz umieścić `[Required]` atrybutu właściwość nawigacji przez instruktorów, aby określić, że muszą być powiązane przez instruktorów, ale nie trzeba tego robić, ponieważ `InstructorID` nie dopuszczają wartości klucza obcego, (który również jest kluczem do tej tabeli).
 
-## <a name="modify-the-course-entity"></a>Modyfikowanie jednostek kursu
+## <a name="modify-course-entity"></a>Modyfikowanie jednostek kursu
 
 ![Kurs jednostki](complex-data-model/_static/course-entity.png)
 
@@ -272,7 +283,7 @@ Kurs może być prowadzone przez instruktorów wielu, więc `CourseAssignments` 
 public ICollection<CourseAssignment> CourseAssignments { get; set; }
 ```
 
-## <a name="create-the-department-entity"></a>Tworzenie jednostki działu
+## <a name="create-department-entity"></a>Tworzenie jednostki działu
 
 ![Dział jednostki](complex-data-model/_static/department-entity.png)
 
@@ -318,7 +329,7 @@ public ICollection<Course> Courses { get; set; }
 >    .OnDelete(DeleteBehavior.Restrict)
 > ```
 
-## <a name="modify-the-enrollment-entity"></a>Modyfikowanie jednostek rejestracji
+## <a name="modify-enrollment-entity"></a>Modyfikowanie jednostek rejestracji
 
 ![Jednostki rejestracji](complex-data-model/_static/enrollment-entity.png)
 
@@ -384,7 +395,7 @@ Dodaj następujący wyróżniony kod do *Data/SchoolContext.cs* pliku:
 
 Ten kod dodaje nowe jednostki i konfiguruje złożony klucz podstawowy jednostki CourseAssignment.
 
-## <a name="fluent-api-alternative-to-attributes"></a>Zamiast interfejsu API Fluent atrybutów
+## <a name="about-a-fluent-api-alternative"></a>Temat fluent zamiast interfejsu API
 
 Kod w `OnModelCreating` metody `DbContext` klasy używa *interfejsu API fluent* do konfigurowania zachowania EF. Interfejs API jest nazywany "fluent", ponieważ jest ona często używana przez centrali szereg wywołań metod, które razem w pojedynczej instrukcji, jak w poniższym przykładzie z [dokumentacji programu EF Core](/ef/core/modeling/#methods-of-configuration):
 
@@ -411,7 +422,7 @@ Poniższa ilustracja przedstawia diagram, który narzędzi Entity Framework Powe
 
 Oprócz liniach relacji jeden do wielu (1, aby \*), możesz teraz zobaczyć wiersz relacji jeden do zero lub jeden (1 się od 0 do 1) między jednostkami instruktora oraz przypisane OfficeAssignment i wiersz relacji zero lub jeden do wielu (od 0 do 1 do *) między Jednostki przez instruktorów i działu.
 
-## <a name="seed-the-database-with-test-data"></a>Inicjowanie bazy danych przy użyciu danych testowych
+## <a name="seed-database-with-test-data"></a>Baza danych inicjatora, przy użyciu danych testowych
 
 Zastąp kod w *Data/DbInitializer.cs* pliku następującym kodem w celu dostarczenia danych inicjatora dla nowych jednostek, które zostały utworzone.
 
@@ -456,7 +467,7 @@ W przypadku aplikacji produkcyjnych należy napisać kod lub skrypty do dodawani
 
 Zapisz zmiany i skompiluj projekt.
 
-## <a name="change-the-connection-string-and-update-the-database"></a>Zmień parametry połączenia i zaktualizować bazę danych
+## <a name="change-the-connection-string"></a>Zmień parametry połączenia
 
 Masz teraz nowy kod w `DbInitializer` klasę, która dodaje dane nowe jednostki do pustej bazy danych. Aby EF, Utwórz nową, pustą bazę danych, Zmień nazwę bazy danych w parametrach połączenia w *appsettings.json* ContosoUniversity3 lub innej nazwy, które nie były używane na komputerze używasz.
 
@@ -474,6 +485,8 @@ Zapisać zmiany do *appsettings.json*.
 > ```console
 > dotnet ef database drop
 > ```
+
+## <a name="update-the-database"></a>Aktualizowanie bazy danych
 
 Po zmianie nazwy bazy danych lub usunięte z bazy danych uruchom `database update` polecenia w oknie wiersza polecenia do wykonania migracji.
 
@@ -493,12 +506,28 @@ Kliknij prawym przyciskiem myszy **CourseAssignment** tabeli, a następnie wybie
 
 ![Dane CourseAssignment SSOX](complex-data-model/_static/ssox-ci-data.png)
 
-## <a name="summary"></a>Podsumowanie
+## <a name="get-the-code"></a>Pobierz kod
 
-Masz teraz bardziej złożonego modelu danych i odpowiednią bazę danych. W następującego samouczka dowiesz się więcej o tym, jak uzyskać dostęp do powiązanych danych.
+[Pobieranie i wyświetlanie ukończonej aplikacji.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
-::: moniker-end
+## <a name="next-steps"></a>Następne kroki
 
-> [!div class="step-by-step"]
-> [Poprzednie](migrations.md)
-> [dalej](read-related-data.md)
+W ramach tego samouczka możesz:
+
+> [!div class="checklist"]
+> * Dostosowany model danych
+> * Zmiany wykonane w jednostce ucznia
+> * Utworzonej jednostki przez instruktorów
+> * Utworzonej jednostki OfficeAssignment
+> * Zmodyfikowano jednostkę kursu
+> * Utworzonej jednostki działu
+> * Zmodyfikowano jednostkę rejestracji
+> * Zaktualizowano kontekst bazy danych
+> * Wypełnionych bazy danych za pomocą danych testowych
+> * Dodano migracji
+> * Zmienić parametry połączenia
+> * Aktualizacji bazy danych
+
+Przejdź do następnego artykułu, aby dowiedzieć się więcej o tym, jak uzyskać dostęp do powiązanych danych.
+> [!div class="nextstepaction"]
+> [Dostęp do powiązanych danych](read-related-data.md)
