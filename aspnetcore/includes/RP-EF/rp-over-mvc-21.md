@@ -1,11 +1,3 @@
----
-ms.openlocfilehash: b7c97f3b329bea452e1f49c351231f92310c97b5
-ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
-ms.translationtype: MT
-ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "53335075"
----
 ::: moniker range=">= aspnetcore-2.1"
 
 W tym samouczku nie został uaktualniony do platformy ASP.NET Core 2.1. Wybierając dostępna jest wersja ASP.NET Core 2.0 w tym samouczku **ASP.NET Core 2.0** powyższej tabeli treści lub w górnej części strony:
