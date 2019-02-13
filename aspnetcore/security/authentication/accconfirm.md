@@ -3,14 +3,14 @@ title: Potwierdzenie konta i odzyskiwanie hasła w programie ASP.NET Core
 author: rick-anderson
 description: Dowiedz się, jak utworzyć aplikację platformy ASP.NET Core za pomocą poczty e-mail potwierdzenia i resetowaniem hasła.
 ms.author: riande
-ms.date: 7/11/2018
+ms.date: 2/11/2019
 uid: security/authentication/accconfirm
-ms.openlocfilehash: 0dc9907f9f54c8a0daf2e05a3769897e5145935f
-ms.sourcegitcommit: e418cb9cddeb3de06fa0cb4fdb5529da03ff6d63
+ms.openlocfilehash: 77d7b209d57f9ee44f158798ff780ce85c87aaf2
+ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "54444145"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56159411"
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>Potwierdzenie konta i odzyskiwanie hasła w programie ASP.NET Core
 
@@ -76,7 +76,7 @@ Postępuj zgodnie z instrukcjami w [Włącz uwierzytelnianie](xref:security/auth
 
 ## <a name="test-new-user-registration"></a>Rejestrowanie nowego użytkownika testowego
 
-Uruchom aplikację, wybierz **zarejestrować** łącze, a następnie zarejestrować użytkownik. W tym momencie jest tylko sprawdzanie poprawności w wiadomości e-mail z [[EmailAddress]](/dotnet/api/system.componentmodel.dataannotations.emailaddressattribute) atrybutu. Po przesłaniu rejestracji, użytkownik jest zalogowany do aplikacji. W dalszej części samouczka kod jest aktualizowana, dzięki czemu nowi użytkownicy nie mogą zalogować, dopóki nie zostanie zweryfikowana poczty e-mail.
+Uruchom aplikację, wybierz **zarejestrować** łącze, a następnie zarejestrować użytkownik. W tym momencie jest tylko sprawdzanie poprawności w wiadomości e-mail z [[EmailAddress]](/dotnet/api/system.componentmodel.dataannotations.emailaddressattribute) atrybutu. Po przesłaniu rejestracji, użytkownik jest zalogowany do aplikacji. W dalszej części samouczka kod jest aktualizowana, aby nowi użytkownicy nie może się zalogować, dopóki nie zostanie zweryfikowana poczty e-mail.
 
 [!INCLUDE[](~/includes/view-identity-db.md)]
 
@@ -166,7 +166,7 @@ Zaimplementowanie `IEmailSender`, Utwórz *Services/EmailSender.cs* kodem podobn
 
 Dodaj następujący kod do `ConfigureServices` method in Class metoda *Startup.cs* pliku:
 
-* Dodaj `EmailSender` jako usługi singleton.
+* Dodaj `EmailSender` jako przejściowe usługi.
 * Zarejestruj `AuthMessageSenderOptions` wystąpienia konfiguracji.
 
 [!code-csharp[](accconfirm/sample/WebPWrecover21/Startup.cs?name=snippet2&highlight=12-99)]
@@ -213,7 +213,7 @@ Zostanie wyświetlona strona zarządzania, z **profilu** wybraną kartą. **E-ma
 * Jeśli zalogowano Cię, wybierz opcję **wylogowania**.
 * Wybierz **Zaloguj** łącze, a następnie wybierz pozycję **nie pamiętasz hasła?** łącza.
 * Wprowadź adres e-mail, którego użyłeś do zarejestrować konto.
-* Wiadomość e-mail z linkiem do zresetowania hasła są wysyłane. Sprawdź pocztę e-mail, a następnie kliknij link, aby zresetować hasło. Po pomyślnie zresetowano hasło można rejestrować się za pomocą poczty e-mail i nowe hasło.
+* Wiadomość e-mail z linkiem do zresetowania hasła są wysyłane. Sprawdź pocztę e-mail, a następnie kliknij link, aby zresetować hasło. Po pomyślnie zresetowano hasło możesz zarejestrować się przy użyciu poczty e-mail i nowe hasło.
 
 <a name="debug"></a>
 
@@ -246,7 +246,7 @@ Kliknij link do innej usługi, zaloguj się i akceptowania żądań aplikacji. N
 
 ![Zarządzanie wyświetlania listy Facebooku widoku logowań zewnętrznych](accconfirm/_static/fb.png)
 
-Te dwa konta zostały połączone. Możesz się zalogować przy użyciu dowolnego konta. Możesz zechcieć użytkownikom dodawanie kont lokalnych, w przypadku, gdy ich społecznościowych logowania uwierzytelniania usługa nie działa lub większe prawdopodobieństwo ich utraty dostępu do swojego konta w sieci społecznościowej.
+Te dwa konta zostały połączone. Jesteś w stanie zalogować się przy użyciu dowolnego konta. Możesz zechcieć użytkownikom dodawanie kont lokalnych, w przypadku, gdy ich społecznościowych logowania uwierzytelniania usługa nie działa lub większe prawdopodobieństwo ich utraty dostępu do swojego konta w sieci społecznościowej.
 
 ## <a name="enable-account-confirmation-after-a-site-has-users"></a>Włącz potwierdzenie konta, po lokacji ma użytkowników
 
