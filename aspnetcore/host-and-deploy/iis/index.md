@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/29/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: dfb67cd4c2a3f0e6fb270eb2e4850a664cdf5741
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: 9f7fc5571f8d1a6e5e2d84779082abb02d2fb292
+ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/12/2019
-ms.locfileid: "56103166"
+ms.locfileid: "56159398"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host platformy ASP.NET Core na Windows za pomocą programu IIS
 
@@ -410,7 +410,14 @@ Aby skonfigurować ochronę danych w środowisku usług IIS, aby utrwalić pier�
 
 * **Konfigurowanie puli aplikacji usług IIS, aby załadować profil użytkownika**
 
-  To ustawienie znajduje się w **Model procesu** sekcji **Zaawansowane ustawienia** dla puli aplikacji. Ustaw Załaduj profil użytkownika `True`. To są przechowywane klucze w ramach katalogu profilu użytkownika i ich ochrony za pomocą klucza, które są specyficzne dla konta użytkownika używanego przez pulę aplikacji przy użyciu interfejsu DPAPI.
+  To ustawienie znajduje się w **Model procesu** sekcji **Zaawansowane ustawienia** dla puli aplikacji. Ustaw **Załaduj profil użytkownika** do `True`. Po ustawieniu `True`, klucze są przechowywane w katalogu profilu użytkownika i chronione przy użyciu interfejsu DPAPI za pomocą klucza, które są specyficzne dla konta użytkownika. Klucze są zachowywane do *%LOCALAPPDATA%/ASP.NET/DataProtection-Keys* folderu.
+
+  Pula aplikacji [atrybut setProfileEnvironment](/iis/configuration/system.applicationhost/applicationpools/add/processmodel#configuration) musi być także włączona. Wartość domyślna `setProfileEnvironment` jest `true`. W niektórych przypadkach (na przykład Windows System operacyjny) `setProfileEnvironment` ustawiono `false`. Jeśli klucze nie są przechowywane w katalogu profilu użytkownika, co Oczekiwano:
+
+  1. Przejdź do *%windir%/system32/inetsrv/config* folderu.
+  1. Otwórz *applicationHost.config* pliku.
+  1. Znajdź `<system.applicationHost><applicationPools><applicationPoolDefaults><processModel>` elementu.
+  1. Upewnij się, że `setProfileEnvironment` atrybut nie jest obecny, które domyślnie używa wartości do `true`, lub jawnie ustawić wartość atrybutu `true`.
 
 * **System plików do przechowywania klucza pierścienia**
 

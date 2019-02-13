@@ -5,12 +5,12 @@ description: Więcej informacji na temat ochrony danych zarządzania kluczami i 
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/configuration/default-settings
-ms.openlocfilehash: beff17dd81143db02a0cbc79fa7cb3a6a4deeda6
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: 2f022a4c7519485fe629ce47c27d214c8c27d5bc
+ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095102"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56159214"
 ---
 # <a name="data-protection-key-management-and-lifetime-in-aspnet-core"></a>Zarządzanie kluczami ochrony danych i okres istnienia w programie ASP.NET Core
 
@@ -26,6 +26,13 @@ Aplikacja próbuje wykrywanie jego środowisku operacyjnym i usuwanie konfigurac
    * Gniazda wdrażane pojedynczo, takich jak przejściowe i produkcyjne, nie udostępniaj klucza pierścień. Podczas zamiany między miejscami wdrożenia, na przykład zamianę przejściowe i produkcyjne lub za pomocą / B, testowanie do odszyfrowywania danych przechowywanych w poprzednim miejsca przy użyciu pierścień klucza nie będzie można dowolną aplikację przy użyciu ochrony danych. Prowadzi to do użytkowników rejestrowane poza aplikację, która używa standardowego uwierzytelniania plików cookie programu ASP.NET Core, ponieważ używa ona ochrony danych, aby chronić swoje pliki cookie. W razie potrzeby pierścieni klucz niezależnie od miejsca, użyj dostawcę zewnętrznego pierścienia klucza, takich jak Azure Blob Storage, Azure Key Vault, magazynu SQL, lub pamięci podręcznej redis Cache.
 
 1. Jeśli profil użytkownika jest dostępna, kluczy zostaną utrwalone w *%LOCALAPPDATA%\ASP.NET\DataProtection-Keys* folderu. W przypadku systemu operacyjnego Windows kluczy są szyfrowane za pomocą DPAPI.
+
+   Pula aplikacji [atrybut setProfileEnvironment](/iis/configuration/system.applicationhost/applicationpools/add/processmodel#configuration) musi być także włączona. Wartość domyślna `setProfileEnvironment` jest `true`. W niektórych przypadkach (na przykład Windows System operacyjny) `setProfileEnvironment` ustawiono `false`. Jeśli klucze nie są przechowywane w katalogu profilu użytkownika, co Oczekiwano:
+
+   1. Przejdź do *%windir%/system32/inetsrv/config* folderu.
+   1. Otwórz *applicationHost.config* pliku.
+   1. Znajdź `<system.applicationHost><applicationPools><applicationPoolDefaults><processModel>` elementu.
+   1. Upewnij się, że `setProfileEnvironment` atrybut nie jest obecny, które domyślnie używa wartości do `true`, lub jawnie ustawić wartość atrybutu `true`.
 
 1. Jeśli aplikacja jest hostowana w usługach IIS, klucze są zachowywane do rejestru HKLM w kluczu rejestru specjalne, który ma ACLed tylko proces roboczy. Klucze są szyfrowane za pomocą DPAPI.
 

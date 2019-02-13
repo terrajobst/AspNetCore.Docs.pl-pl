@@ -7,18 +7,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/29/2019
 uid: razor-components/layouts
-ms.openlocfilehash: c67ef1ae79f7961c571af7db3da0028cb870c7ed
-ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
+ms.openlocfilehash: 23d8f441c0b3bbde7a73717f6257013831617ec0
+ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55668181"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56159470"
 ---
 # <a name="razor-components-layouts"></a>Układy składniki razor
 
 Przez [Rainer Stropek](https://www.timecockpit.com)
-
-[!INCLUDE[](~/includes/razor-components-preview-notice.md)]
 
 Aplikacje zwykle zawierają więcej niż jedną stronę. Układ elementów, takich jak menu, komunikaty o prawach autorskich i logo musi być obecny na wszystkich stronach. Skopiować kod z tych elementów układu do wszystkich stron aplikacji nie jest wydajne rozwiązanie. Takie duplikowanie jest trudne do utrzymania i prawdopodobnie prowadzi do niespójne zawartość wraz z upływem czasu. *Układy* rozwiązać ten problem.
 

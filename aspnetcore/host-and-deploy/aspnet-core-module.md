@@ -4,14 +4,14 @@ author: guardrex
 description: Dowiedz się, jak skonfigurować modułu ASP.NET Core do hostowania aplikacji platformy ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/22/2019
+ms.date: 02/08/2019
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: 3de50233987998d6e0072a261dee29dd09f4ef89
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: 9270d7b462bbac1ae0ad896c0937ea6dd909b2cd
+ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/12/2019
-ms.locfileid: "56103153"
+ms.locfileid: "56159558"
 ---
 # <a name="aspnet-core-module"></a>Moduł ASP.NET Core
 
@@ -51,7 +51,11 @@ Jeśli `<AspNetCoreHostingModel>` właściwość nie jest obecny w pliku, warto�
 
 Następujące właściwości mają zastosowanie w przypadku hostowania w procesie:
 
-* Serwer HTTP usług IIS (`IISHttpServer`) jest używany zamiast [Kestrel](xref:fundamentals/servers/kestrel) serwera.
+* Serwer HTTP usług IIS (`IISHttpServer`) jest używany zamiast [Kestrel](xref:fundamentals/servers/kestrel) serwera. W procesie [CreateDefaultBuilder](xref:fundamentals/host/web-host#set-up-a-host) wywołania <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIIS*> do:
+
+  * Zarejestruj `IISHttpServer`.
+  * Skonfiguruj port i ścieżka podstawowa serwera powinien nasłuchiwać podczas uruchamiania za modułu ASP.NET Core.
+  * Konfigurowanie hosta do przechwytywania błędów uruchamiania.
 
 * [Atrybut requestTimeout](#attributes-of-the-aspnetcore-element) nie ma zastosowania do hostowania w procesie.
 
@@ -83,6 +87,11 @@ Aby skonfigurować aplikację dla hostingu poza procesem, użyj jednej z poniżs
 ```
 
 [Kestrel](xref:fundamentals/servers/kestrel) serwer jest używany zamiast serwera HTTP usług IIS (`IISHttpServer`).
+
+Dla procesu,- [CreateDefaultBuilder](xref:fundamentals/host/web-host#set-up-a-host) wywołania <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*> do:
+
+* Skonfiguruj port i ścieżka podstawowa serwera powinien nasłuchiwać podczas uruchamiania za modułu ASP.NET Core.
+* Konfigurowanie hosta do przechwytywania błędów uruchamiania.
 
 ### <a name="hosting-model-changes"></a>Zmiany modelu hostingu
 

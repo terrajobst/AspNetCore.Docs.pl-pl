@@ -4,14 +4,14 @@ author: ardalis
 description: Dowiedz się, jak działa filtr i sposobu ich używania w programie ASP.NET Core MVC.
 ms.author: riande
 ms.custom: mvc
-ms.date: 1/15/2019
+ms.date: 02/08/2019
 uid: mvc/controllers/filters
-ms.openlocfilehash: fe3082481b51c968fd361dbcc9553c4e35a36f2a
-ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
+ms.openlocfilehash: 3cd576b389a2a4384c0ba90b5740ac42140533cc
+ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54444353"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56159317"
 ---
 # <a name="filters-in-aspnet-core"></a>Filtry w programie ASP.NET Core
 
@@ -71,6 +71,7 @@ Na wiele etapów filtru w jednej klasie mogą implementować interfejsy. Na przy
 > Implementowanie **albo** synchronicznej lub asynchronicznej wersję interfejsu filtru, nie obydwa. Struktura najpierw sprawdza, czy filtr implementuje interfejs asynchroniczne, a jeśli tak jest, wywołuje metodę. W przeciwnym razie wywołuje metody synchronicznej interfejsu. Gdyby zaimplementować obu interfejsów na jedną klasę, czy można wywołać tylko metody asynchronicznej. Podczas używania klas abstrakcyjnych, takich jak <xref:Microsoft.AspNetCore.Mvc.Filters.ActionFilterAttribute> należy przesłonić metodę tylko synchroniczne metody lub metody asynchronicznej dla każdego typu filtru.
 
 ### <a name="ifilterfactory"></a>IFilterFactory
+
 [IFilterFactory](/dotnet/api/microsoft.aspnetcore.mvc.filters.ifilterfactory) implementuje <xref:Microsoft.AspNetCore.Mvc.Filters.IFilterMetadata>. W związku z tym `IFilterFactory` wystąpienia mogą być używane jako `IFilterMetadata` wystąpienia w dowolnym miejscu w potoku filtru. Gdy w ramach przygotowuje się do wywołania filtr, próbuje rzutować go na `IFilterFactory`. Jeśli tego rzutowania zakończy się powodzeniem, [CreateInstance —](/dotnet/api/microsoft.aspnetcore.mvc.filters.ifilterfactory.createinstance) metoda jest wywoływana, aby utworzyć `IFilterMetadata` wystąpienia, która będzie wywołana. Dzięki temu elastycznością, ponieważ potoku filtru dokładne nie muszą być ustawiony w sposób jawny po uruchomieniu aplikacji.
 
 Możesz zaimplementować `IFilterFactory` na własnych implementacji atrybutu jako innego podejścia do tworzenia filtrów:
@@ -348,8 +349,12 @@ Preferuj oprogramowanie pośredniczące do obsługi wyjątków. Użyć filtry wy
 
 ## <a name="result-filters"></a>Filtry wyników
 
-* Implementowanie albo `IResultFilter` lub `IAsyncResultFilter` interfejsu.
+* Implementuj interfejs z:
+  * `IResultFilter` lub `IAsyncResultFilter`.
+  * `IAlwaysRunResultFilter` lub `IAsyncAlwaysRunResultFilter`
 * Ich wykonanie otacza wykonywania wyników akcji. 
+
+### <a name="iresultfilter-and-iasyncresultfilter"></a>IResultFilter i IAsyncResultFilter
 
 Oto przykład filtr wynik, który dodaje nagłówek HTTP.
 
@@ -371,6 +376,35 @@ Gdy `OnResultExecuted` metoda przebiegów, odpowiedź prawdopodobnie została wy
 Aby uzyskać `IAsyncResultFilter` wywołanie `await next` na `ResultExecutionDelegate` wykonuje wszystkie filtry kolejnych wyników i wyniku akcji. Aby zwarcie, ustaw `ResultExecutingContext.Cancel` na wartość true, a nie wywołuj `ResultExectionDelegate`.
 
 Struktura dostarcza abstrakcyjną `ResultFilterAttribute` można podklasę. [AddHeaderAttribute](#add-header-attribute) klasy wyświetlane wcześniej jest przykładem atrybutów filtru wyniku.
+
+### <a name="ialwaysrunresultfilter-and-iasyncalwaysrunresultfilter"></a>IAlwaysRunResultFilter i IAsyncAlwaysRunResultFilter
+
+<xref:Microsoft.AspNetCore.Mvc.Filters.IAlwaysRunResultFilter> i <xref:Microsoft.AspNetCore.Mvc.Filters.IAsyncAlwaysRunResultFilter> zadeklarować interfejsów <xref:Microsoft.AspNetCore.Mvc.Filters.IResultFilter> implementację, która jest uruchamiana dla wyników akcji. Filtr jest stosowany do wyniku akcji, chyba że <xref:Microsoft.AspNetCore.Mvc.Filters.IExceptionFilter> lub <xref:Microsoft.AspNetCore.Mvc.Filters.IAuthorizationFilter> ma zastosowanie i short-circuits odpowiedzi.
+
+Innymi słowy te "zawsze Uruchom" filtry, są zawsze uruchamiane, z wyjątkiem sytuacji, gdy filtr autoryzacji lub wyjątku short-circuits je. Filtry w innych niż `IExceptionFilter` i `IAuthorizationFilter` nie short circuit je.
+
+Na przykład następujący filtr zawsze uruchamia i ustawia wynik akcji (<xref:Microsoft.AspNetCore.Mvc.ObjectResult>) za pomocą *422 brakuje jednostki* kod stanu niepowodzenia negocjacji zawartości:
+
+```csharp
+public class UnprocessableResultFilter : Attribute, IAlwaysRunResultFilter
+{
+    public void OnResultExecuting(ResultExecutingContext context)
+    {
+        if (context.Result is StatusCodeResult statusCodeResult &&
+            statusCodeResult.StatusCode == 415)
+        {
+            context.Result = new ObjectResult("Can't process this!")
+            {
+                StatusCode = 422,
+            };
+        }
+    }
+
+    public void OnResultExecuted(ResultExecutedContext context)
+    {
+    }
+}
+```
 
 ## <a name="using-middleware-in-the-filter-pipeline"></a>Za pomocą oprogramowania pośredniczącego w potoku filtru
 

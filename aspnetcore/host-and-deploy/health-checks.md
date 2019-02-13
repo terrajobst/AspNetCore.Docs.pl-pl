@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/12/2018
 uid: host-and-deploy/health-checks
-ms.openlocfilehash: cf2aea91221887dad5646604214f810493d4b175
-ms.sourcegitcommit: 1ea1b4fc58055c62728143388562689f1ef96cb2
+ms.openlocfilehash: 8e1d29257738dd2902f8afb5685670a6e28b10e2
+ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53329149"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56159424"
 ---
 # <a name="health-checks-in-aspnet-core"></a>Kontroli kondycji w programie ASP.NET Core
 
@@ -415,6 +415,8 @@ dotnet run --scenario liveness
 
 W przeglądarce, odwiedź stronę `/health/ready` kilka razy, aż przeszły 15 sekund. Sprawdzanie kondycji raporty `Unhealthy` przez pierwsze 15 sekund. Po 15 sekundach raporty punktu końcowego `Healthy`, co odzwierciedla ukończenie długotrwałego zadania w usłudze hostowanej.
 
+W tym przykładzie tworzy również usługi kondycji Sprawdź wydawcy (`IHealthCheckPublisher` implementacji), które jest uruchamiane pierwszego sprawdzania gotowości za pomocą dwóch półsekundowym opóźnieniu. Aby uzyskać więcej informacji, zobacz [wydawcy sprawdzanie kondycji](#health-check-publisher) sekcji.
+
 ### <a name="kubernetes-example"></a>Przykład rozwiązania Kubernetes
 
 Przy użyciu oddzielnych kontroli gotowości i żywotności przydaje się w środowisku, takie jak [Kubernetes](https://kubernetes.io/). W usłudze Kubernetes aplikacja może być wymagane do wykonywania pracy czasochłonne uruchamiania przed zaakceptowaniem żądania, takie jak testu dostępności podstawowej bazy danych. Przy użyciu oddzielnych kontroli umożliwia programu orchestrator w celu odróżnienia, czy aplikacja działa, ale nie jest jeszcze gotowy, lub jeśli aplikacja nie powiodło się. Aby uzyskać więcej informacji o gotowości i sondy żywotności w usłudze Kubernetes, zobacz [skonfigurować żywotności i sondy gotowości](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/) w dokumentacji platformy Kubernetes.
@@ -638,6 +640,45 @@ Gdy `IHealthCheckPublisher` zostanie dodany do kontenera usługi systemu sprawdz
 ```csharp
 Task PublishAsync(HealthReport report, CancellationToken cancellationToken);
 ```
+
+`HealthCheckPublisherOptions` pozwala na ustawienie:
+
+* `Delay` &ndash; Opóźnienie początkowej zastosowane po aplikacji, który rozpoczyna się przed wykonaniem `IHealthCheckPublisher` wystąpień. Opóźnienie jest stosowana raz przy uruchamianiu i nie ma zastosowania do kolejnych iteracjach. Wartość domyślna to 5 sekund.
+* `Period` &ndash; Okres `IHealthCheckPublisher` wykonywania. Wartość domyślna to 30 sekund.
+* `Predicate` &ndash; Jeśli `Predicate` jest `null` (ustawienie domyślne), wszystkie kontrole kondycji zarejestrowanego działa usługa wydawcy sprawdzania kondycji. Aby uruchomić podzbiór kontroli kondycji, należy podać funkcji filtrującej zestawu testów. Predykat obliczone każdego okresu.
+* `Timeout` &ndash; Limit czasu wykonywania kondycji sprawdza wszystkie `IHealthCheckPublisher`wystąpień. Użyj <xref:System.Threading.Timeout.InfiniteTimeSpan> można wykonać bez limitu czasu. Wartość domyślna to 30 sekund.
+
+::: moniker range="= aspnetcore-2.2"
+
+> [!WARNING]
+> W wersji platformy ASP.NET Core 2.2 ustawienie `Period` nie są uznawane przez `IHealthCheckPublisher` wdrożenia; ustawia wartość `Delay`. Ten problem zostanie rozwiązany w programie ASP.NET Core 3.0. Aby uzyskać więcej informacji, zobacz [HealthCheckPublisherOptions.Period ustawia wartość. Opóźnienie](https://github.com/aspnet/Extensions/issues/1041).
+
+::: moniker-end
+
+W przykładowej aplikacji `ReadinessPublisher` jest `IHealthCheckPublisher` implementacji. Sprawdź stan kondycji jest rejestrowana w `Entries` i rejestrowane przy każdym sprawdzaniu:
+
+[!code-csharp[](health-checks/samples/2.x/HealthChecksSample/ReadinessPublisher.cs?name=snippet_ReadinessPublisher&highlight=20,22-23)]
+
+Przykładowa aplikacja `LivenessProbeStartup` przykład `StartupHostedService` sprawdzanie gotowości dwóch półsekundowym opóźnieniu uruchamiania i uruchamia kontrolę co 30 sekund. Aby aktywować `IHealthCheckPublisher` rejestruje przykład implementacji `ReadinessPublisher` jako pojedyncza usługa w [wstrzykiwanie zależności (DI)](xref:fundamentals/dependency-injection) kontenera:
+
+[!code-csharp[](health-checks/samples/2.x/HealthChecksSample/LivenessProbeStartup.cs?name=snippet_ConfigureServices&highlight=12-17,28)]
+
+::: moniker range="= aspnetcore-2.2"
+
+> [!NOTE]
+> Poniższe obejście pozwala na dodawanie `IHealthCheckPublisher` wystąpienie kontenera usługi, gdy jeden lub więcej innych usług hostowanych zostały już dodane do aplikacji. To rozwiązanie nie będzie wymagane wraz z wydaniem programu ASP.NET Core 3.0. Aby uzyskać więcej informacji, zobacz: https://github.com/aspnet/Extensions/issues/639.
+>
+> ```csharp
+> private const string HealthCheckServiceAssembly = 
+>     "Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherHostedService";
+>
+> services.TryAddEnumerable(
+>     ServiceDescriptor.Singleton(typeof(IHostedService), 
+>         typeof(HealthCheckPublisherOptions).Assembly
+>             .GetType(HealthCheckServiceAssembly)));
+> ```
+
+::: moniker-end
 
 > [!NOTE]
 > [BeatPulse](https://github.com/Xabaril/BeatPulse) obejmuje wydawcy dla kilku systemów, w tym [usługi Application Insights](/azure/application-insights/app-insights-overview).

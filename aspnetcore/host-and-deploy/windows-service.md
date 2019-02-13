@@ -5,14 +5,14 @@ description: Dowiedz się, jak udostępnić aplikację ASP.NET Core w usłudze W
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 01/22/2019
+ms.date: 02/07/2019
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: eedaf64710506f2a2aac65c178a9888d2ab33d38
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.openlocfilehash: 5393dcec4f5e2eb37ec9cac2435bf15eedb8e361
+ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54837484"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56159372"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Host platformy ASP.NET Core w usłudze Windows
 
@@ -147,11 +147,13 @@ dotnet publish --configuration Release --runtime win7-x64 --output c:\svc
 
 ### <a name="create-a-user-account"></a>Utwórz konto użytkownika
 
-Utwórz konto użytkownika dla usługi przy użyciu `net user` polecenia:
+Utwórz konto użytkownika dla usługi przy użyciu `net user` polecenia powłoki poleceń administracyjnych:
 
 ```console
 net user {USER ACCOUNT} {PASSWORD} /add
 ```
+
+Wygaśnięcie hasła domyślny to sześć tygodni.
 
 Dla przykładowej aplikacji, należy utworzyć konto użytkownika o nazwie `ServiceUser` i hasła. W poniższym poleceniu zastąp `{PASSWORD}` z [silne hasło](/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements).
 
@@ -167,9 +169,13 @@ net localgroup {GROUP} {USER ACCOUNT} /add
 
 Aby uzyskać więcej informacji, zobacz [kont użytkowników usług](/windows/desktop/services/service-user-accounts).
 
+Innym sposobem zarządzania użytkownikami, podczas korzystania z usługi Active Directory jest użycie kont usług zarządzanych. Aby uzyskać więcej informacji, zobacz [omówienie kont usług zarządzanych przez grupę](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview).
+
 ### <a name="set-permissions"></a>Ustawianie uprawnień
 
-Udzielanie zapisu/odczytu/wykonania dostępu do folderu aplikacji przy użyciu [icacls](/windows-server/administration/windows-commands/icacls) polecenia:
+#### <a name="access-to-the-app-folder"></a>Dostęp do folderu aplikacji
+
+Udzielanie zapisu/odczytu/wykonania dostępu do folderu aplikacji przy użyciu [icacls](/windows-server/administration/windows-commands/icacls) polecenia powłoki poleceń administracyjnych:
 
 ```console
 icacls "{PATH}" /grant {USER ACCOUNT}:(OI)(CI){PERMISSION FLAGS} /t
@@ -195,11 +201,23 @@ icacls "c:\svc" /grant ServiceUser:(OI)(CI)WRX /t
 
 Aby uzyskać więcej informacji, zobacz [icacls](/windows-server/administration/windows-commands/icacls).
 
+#### <a name="log-on-as-a-service"></a>Zaloguj się jako usługa
+
+Aby udzielić [Zaloguj się jako usługa](/windows/security/threat-protection/security-policy-settings/log-on-as-a-service) uprawnień do konta użytkownika:
+
+1. Znajdź **Przypisywanie praw użytkownika** zasad w konsoli programu zasady zabezpieczeń lokalnych lub konsoli Edytor lokalnych zasad grupy. Instrukcje można znaleźć w tematach: [Konfigurowanie ustawień zasad zabezpieczeń](/windows/security/threat-protection/security-policy-settings/how-to-configure-security-policy-settings).
+1. Znajdź `Log on as a service` zasad. Kliknij dwukrotnie zasadę, aby go otworzyć.
+1. Wybierz **Dodaj użytkownika lub grupę**.
+1. Wybierz **zaawansowane** i wybierz **Znajdź teraz**.
+1. Wybierz konto użytkownika utworzone w [Utwórz konto użytkownika](#create-a-user-account) wcześniejszej sekcji. Wybierz **OK** aby zaakceptować wybór.
+1. Wybierz **OK** po potwierdzeniu, że nazwa obiektu jest poprawna.
+1. Wybierz przycisk **Zastosuj**. Wybierz **OK** aby zamknąć okno zasady.
+
 ## <a name="manage-the-service"></a>Zarządzanie usługą
 
 ### <a name="create-the-service"></a>Tworzenie usługi
 
-Użyj [sc.exe](https://technet.microsoft.com/library/bb490995) narzędzie wiersza polecenia, aby utworzyć usługę. `binPath` Wartość jest ścieżką do pliku wykonywalnego aplikacji, która zawiera nazwę pliku wykonywalnego. **Odstęp między równości i znaku cudzysłowu każdego parametru i wartość jest wymagana.**
+Użyj [sc.exe](https://technet.microsoft.com/library/bb490995) narzędzie wiersza polecenia, aby utworzyć usługę z powłoki poleceń administracyjnych. `binPath` Wartość jest ścieżką do pliku wykonywalnego aplikacji, która zawiera nazwę pliku wykonywalnego. **Odstęp między równości i znaku cudzysłowu każdego parametru i wartość jest wymagana.**
 
 ```console
 sc create {SERVICE NAME} binPath= "{PATH}" obj= "{DOMAIN}\{USER ACCOUNT}" password= "{PASSWORD}"
@@ -207,7 +225,7 @@ sc create {SERVICE NAME} binPath= "{PATH}" obj= "{DOMAIN}\{USER ACCOUNT}" passwo
 
 * `{SERVICE NAME}` &ndash; Nazwa do przypisania do usługi w [Menedżera sterowania usługami](/windows/desktop/services/service-control-manager).
 * `{PATH}` &ndash; Ścieżka do pliku wykonywalnego usługi.
-* `{DOMAIN}` &ndash; Domena komputerze przyłączonym do domeny. Jeśli komputer nie jest przyłączone do domeny, nazwa komputera lokalnego.
+* `{DOMAIN}` &ndash; Domena komputerze przyłączonym do domeny. Jeśli komputer nie jest, przyłączone do domeny, należy użyć nazwy komputera lokalnego.
 * `{USER ACCOUNT}` &ndash; Konto użytkownika, pod którym działa usługa.
 * `{PASSWORD}` &ndash; Hasło konta użytkownika.
 

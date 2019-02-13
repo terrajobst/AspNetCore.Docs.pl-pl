@@ -7,18 +7,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/09/2019
 uid: razor-components/class-libraries
-ms.openlocfilehash: f5073337db88f05f3911fdfb1f29e7302c7cddec
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: 0e644627178bae2b8880760335860b3e0ebef156
+ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/12/2019
-ms.locfileid: "56102908"
+ms.locfileid: "56159232"
 ---
 # <a name="razor-components-class-libraries"></a>Biblioteki klas składników razor
 
 Przez [Simon Timms](https://github.com/stimms)
-
-[!INCLUDE[](~/includes/razor-components-preview-notice.md)]
 
 > [!NOTE]
 > Zestaw SDK platformy .NET Core 3.0 w wersji zapoznawczej 2 nie zawiera szablon projektu dla bibliotek klas składników Razor, ale oczekuje się dodać szablon w przyszłej wersji zapoznawczej. W międzyczasie można użyć szablonu biblioteki klas składników Blazor szczegółowo opisane w tym temacie.

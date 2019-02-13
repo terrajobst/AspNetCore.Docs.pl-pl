@@ -7,22 +7,22 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/29/2019
 uid: razor-components/hosting-models
-ms.openlocfilehash: 9aba63860fd8c566b866bb1d3b50b29a7a33c6e8
-ms.sourcegitcommit: 3c2ba9a0d833d2a096d9d800ba67a1a7f9491af0
+ms.openlocfilehash: d1e0c472d7d10eeb4cef0da735cf703c98dd1645
+ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55854469"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56159505"
 ---
 # <a name="razor-components-hosting-models"></a>Składniki razor modele obsługi
 
 Przez [Daniel Roth](https://github.com/danroth27)
 
-[!INCLUDE[](~/includes/razor-components-preview-notice.md)]
-
 Składniki razor to struktura sieci web przeznaczony do działania po stronie klienta w przeglądarce w środowisku uruchomieniowym .NET oparte na format WebAssembly (*Blazor*) lub po stronie serwera w programie ASP.NET Core (*składniki programu ASP.NET Core Razor*). Niezależnie od tego modelu, aplikacji i składników modelach hostingu *pozostają takie same*. W tym artykule omówiono dostępne modelach hostingu.
 
 ## <a name="client-side-hosting-model"></a>Model hostingu po stronie klienta
+
+[!INCLUDE[](~/includes/razor-components-preview-notice.md)]
 
 Jednostki modelu hostowania Blazor jest uruchomiona po stronie klienta w przeglądarce. W tym modelu aplikacja Blazor, jego zależności i środowisko uruchomieniowe platformy .NET są pobierane do przeglądarki. Aplikacja jest wykonywane bezpośrednio w przeglądarce wątku interfejsu użytkownika. Wszystkie aktualizacje interfejsu użytkownika i obsługa zdarzeń odbywa się w obrębie tego samego procesu. Zasoby aplikacji można wdrożyć jako pliki statyczne, za pomocą dowolnego serwera sieci web jest preferowana (zobacz [hosta i wdrażanie](xref:host-and-deploy/razor-components/index)).
 

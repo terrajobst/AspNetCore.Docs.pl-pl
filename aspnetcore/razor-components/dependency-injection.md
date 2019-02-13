@@ -7,18 +7,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/29/2019
 uid: razor-components/dependency-injection
-ms.openlocfilehash: 04be8371b6e746929448b24487b07c08cf03cb78
-ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
+ms.openlocfilehash: 6ce8fa74f20145f48797d267c20ef2593368b941
+ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55668188"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56159502"
 ---
 # <a name="razor-components-dependency-injection"></a>Wstrzykiwanie zależności składników razor
 
 Przez [Rainer Stropek](https://www.timecockpit.com)
-
-[!INCLUDE[](~/includes/razor-components-preview-notice.md)]
 
 [Wstrzykiwanie zależności (DI)](/aspnet/core/fundamentals/dependency-injection) jest wbudowana. Aplikacje mogą używać usług wbudowanych Pozwól, które są wstrzykiwane do składników. Aplikacje można zdefiniować niestandardowych usług i udostępnić je za pośrednictwem DI.
 

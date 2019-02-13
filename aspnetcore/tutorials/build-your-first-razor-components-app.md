@@ -1,18 +1,18 @@
 ---
 title: Tworzenie pierwszej aplikacji składniki Razor
 author: guardrex
-description: Tworzenie składników Razor aplikacji krok po kroku i pojęcia dotyczące podstawowych składników Razor framework.
+description: Tworzenie składników Razor aplikacji krok po kroku i pojęcia dotyczące podstawowych składników Razor.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/04/2019
+ms.date: 02/11/2019
 uid: tutorials/first-razor-components-app
-ms.openlocfilehash: 4bf3884d5d9575ebf2a09237e364b37fa1b35246
-ms.sourcegitcommit: 3c2ba9a0d833d2a096d9d800ba67a1a7f9491af0
+ms.openlocfilehash: 0c3dd2366581d73bad44e2911602e13c6c0daf9a
+ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55854607"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56159346"
 ---
 # <a name="build-your-first-razor-components-app"></a>Tworzenie pierwszej aplikacji składniki Razor
 
@@ -20,23 +20,31 @@ Przez [Daniel Roth](https://github.com/danroth27) i [Luke Latham](https://github
 
 [!INCLUDE[](~/includes/razor-components-preview-notice.md)]
 
-W tym samouczku dowiesz się, jak utworzyć aplikację składniki Razor i pokazuje podstawowe pojęcia framework składniki Razor.
+W tym samouczku pokazano, jak utworzyć aplikację ze składnikami Razor i pokazuje podstawowe pojęcia składniki Razor. Można korzystać z tego samouczka przy użyciu obu składników Razor na podstawie projektu (obsługiwane w programie .NET Core 3.0 lub nowszej) lub projektu na podstawie Blazor (obsługiwane w przyszłej wersji programu .NET Core).
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/build-your-first-razor-components-app/samples/) ([sposobu pobierania](xref:index#how-to-download-a-sample)). Zobacz [wprowadzenie](xref:razor-components/get-started) tematu wstępnie wymaganych składników.
+Środowisko za pomocą platformy ASP.NET Core Razor składników (*zalecane*):
 
-## <a name="create-an-app-from-the-razor-components-template"></a>Tworzenie aplikacji na podstawie szablonu Razor składników
+* Postępuj zgodnie ze wskazówkami w <xref:razor-components/get-started> do tworzenia projektu na podstawie składników Razor.
+* Nadaj projektowi nazwę `RazorComponents`.
+* Rozwiązanie z wieloma projektami jest tworzona z szablonu Razor składników. Projekt Razor składników zostanie wygenerowany jako *RazorComponents.App*.
 
-Postępuj zgodnie ze wskazówkami w [wprowadzenie](xref:razor-components/get-started) tematu, aby utworzyć projekt składniki Razor na podstawie szablonu Razor składników. Nazwij rozwiązanie *WebApplication1*. Za pomocą poleceń interfejsu wiersza polecenia platformy .NET Core, można użyć programu Visual Studio lub powłoki poleceń.
+Aby uzyskać doświadczenie w korzystaniu z Blazor:
+
+* Postępuj zgodnie ze wskazówkami w <xref:spa/blazor/get-started> do tworzenia projektu na podstawie Blazor.
+* Nadaj projektowi nazwę `Blazor`.
+* Rozwiązania jednego projektu jest tworzona z szablonu Blazor.
+
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/build-your-first-razor-components-app/samples/) ([sposobu pobierania](xref:index#how-to-download-a-sample)). Zobacz następujące tematy dotyczące wymagań wstępnych:
 
 ## <a name="build-components"></a>Tworzenie składników
 
-1. Przejdź do wszystkich aplikacji trzy strony: Strona główna licznik i pobierania danych. Te strony są implementowane przez pliki Razor w *WebApplication1.App/Pages* folderu: *Index.cshtml*, *Counter.cshtml*, i *FetchData.cshtml*.
+1. Przejdź do wszystkich aplikacji trzy strony: Strona główna licznik i pobierania danych. Te strony są implementowane przez pliki Razor w *stron* folderu: *Index.cshtml*, *Counter.cshtml*, i *FetchData.cshtml*.
 
 1. Na stronie licznika wybierz **kliknij mnie** przycisk, aby zwiększyć licznik bez odświeżania strony. Zwiększenie licznika, na stronie sieci Web zwykle wtedy konieczne napisanie kodu JavaScript, ale składniki Razor zapewnia lepsze przy użyciu podejścia C#.
 
 1. Zapoznania się z implementacją składnikiem licznika w *Counter.cshtml* pliku.
 
-   *WebApplication1.App/Pages/Counter.cshtml*:
+   *Pages/Counter.cshtml*:
 
    [!code-cshtml[](build-your-first-razor-components-app/samples_snapshot/3.x/Counter1.cshtml)]
 
@@ -63,7 +71,9 @@ Uwzględnij składnika w innym składniku przy użyciu składni notacji HTML.
 
 1. Dodaj składnik licznika do aplikacji, składnik indeksu (strona główna), dodając `<Counter />` elementu składnik indeksu.
 
-   *WebApplication1.App/Pages/Index.cshtml*:
+   Jeśli używasz Blazor dla tego środowiska, składnik ankiety monitu (`<SurveyPrompt>` elementu) znajduje się w składnik indeksu. Zastąp `<SurveyPrompt>` element z `<Counter>` elementu.
+
+   *Pages/Index.cshtml*:
 
    [!code-cshtml[](build-your-first-razor-components-app/samples_snapshot/3.x/Index.cshtml?highlight=7)]
 
@@ -78,9 +88,9 @@ Składniki mogą także mieć parametrów. Składnik parametry są definiowane z
    * Dodaj `IncrementAmount` ozdobione właściwość `[Parameter]` atrybutu.
    * Zmiana `IncrementCount` metodę `IncrementAmount` podczas zwiększenie wartości `currentCount`.
 
-   *WebApplication1.App/Pages/Counter.cshtml*:
+   *Pages/Counter.cshtml*:
 
-   [!code-cshtml[](build-your-first-razor-components-app/samples/3.x/WebApplication1/WebApplication1.App/Pages/Counter.cshtml?highlight=12,16)]
+   [!code-cshtml[](build-your-first-razor-components-app/samples/3.x/RazorComponents/RazorComponents.App/Pages/Counter.cshtml?highlight=12,16)]
 
 <!-- Add back when supported.
    > [!NOTE]
@@ -89,9 +99,9 @@ Składniki mogą także mieć parametrów. Składnik parametry są definiowane z
 
 1. Określ `IncrementAmount` parametru w części głównej `<Counter>` elementu za pomocą atrybutu. Ustaw wartość do zwiększenia licznika dziesięciu.
 
-   *WebApplication1.App/Pages/Index.cshtml*:
+   *Pages/Index.cshtml*:
 
-   [!code-cshtml[](build-your-first-razor-components-app/samples/3.x/WebApplication1/WebApplication1.App/Pages/Index.cshtml?highlight=7)]
+   [!code-cshtml[](build-your-first-razor-components-app/samples/3.x/RazorComponents/RazorComponents.App/Pages/Index.cshtml?highlight=7)]
 
 1. Ponownie załaduj stronę. Licznik strony głównej rośnie przez dziesięć za każdym razem **kliknij mnie** przycisk jest zaznaczony. Licznik na *licznika* stronie zwiększa o jeden.
 
@@ -103,7 +113,7 @@ Składniki mogą także mieć parametrów. Składnik parametry są definiowane z
 
 Zarejestrowane w kontenerze usługi app Services są dostępne dla składników za pomocą [wstrzykiwanie zależności (DI)](xref:fundamentals/dependency-injection). Wstrzyknięcie usług do składnika za pomocą `@inject` dyrektywy.
 
-Sprawdź dyrektywy składnika FetchData (*WebApplication1.App/Pages/FetchData.cshtml*). `@inject` Dyrektywy służy do dodania wystąpienia programu `WeatherForecastService` usługi do składnika:
+Sprawdź dyrektywy składnika FetchData (*Pages/FetchData.cshtml*). `@inject` Dyrektywy służy do dodania wystąpienia programu `WeatherForecastService` usługi do składnika:
 
 [!code-cshtml[](build-your-first-razor-components-app/samples_snapshot/3.x/FetchData1.cshtml?highlight=3)]
 
@@ -121,7 +131,7 @@ A [ @foreach ](/dotnet/csharp/language-reference/keywords/foreach-in) pętli jes
 
 Dodaj nową stronę do aplikacji, która implementuje listy zadań do wykonania prostego.
 
-1. Dodaj pusty plik do *WebApplication1.App/Pages* folder o nazwie *Todo.cshtml*.
+1. Dodaj pusty plik do *stron* folder o nazwie *Todo.cshtml*.
 
 1. Podaj początkowe znaczniki dla strony:
 
@@ -133,9 +143,9 @@ Dodaj nową stronę do aplikacji, która implementuje listy zadań do wykonania 
 
 1. Na stronie zadań do wykonania należy dodać do paska nawigacyjnego.
 
-   Składnik NavMenu (*WebApplication1/Shared/NavMenu.csthml*) jest używana w układzie aplikacji. Układy są składniki, które pozwalają uniknąć duplikowania zawartości w aplikacji. Aby uzyskać więcej informacji, zobacz <xref:razor-components/layouts>.
+   Składnik NavMenu (*Shared/NavMenu.csthml*) jest używana w układzie aplikacji. Układy są składniki, które pozwalają uniknąć duplikowania zawartości w aplikacji. Aby uzyskać więcej informacji, zobacz <xref:razor-components/layouts>.
 
-   Dodaj `<NavLink>` strony Todo, dodając następujące znaczniki elementu listy poniżej istniejące elementy listy w *WebApplication1/Shared/NavMenu.csthml* pliku:
+   Dodaj `<NavLink>` strony Todo, dodając następujące znaczniki elementu listy poniżej istniejące elementy listy w *Shared/NavMenu.csthml* pliku:
 
    ```cshtml
    <li class="nav-item px-3">
@@ -149,7 +159,7 @@ Dodaj nową stronę do aplikacji, która implementuje listy zadań do wykonania 
 
 1. Dodaj *TodoItem.cs* pliku w folderze głównym projektu na potrzeby przechowywania klasa, która reprezentuje element todo. Należy użyć następującego C# kod `TodoItem` klasy:
 
-   [!code-cshtml[](build-your-first-razor-components-app/samples/3.x/WebApplication1/WebApplication1.App/TodoItem.cs)]
+   [!code-cshtml[](build-your-first-razor-components-app/samples/3.x/RazorComponents/RazorComponents.App/TodoItem.cs)]
 
 1. Wróć do części Todo (*Todo.cshtml*):
 
@@ -196,7 +206,7 @@ Dodaj nową stronę do aplikacji, która implementuje listy zadań do wykonania 
 
 1. Ukończone składnika Todo (*Todo.cshtml*):
 
-   [!code-cshtml[](build-your-first-razor-components-app/samples/3.x/WebApplication1/WebApplication1.App/Pages/Todo.cshtml)]
+   [!code-cshtml[](build-your-first-razor-components-app/samples/3.x/RazorComponents/RazorComponents.App/Pages/Todo.cshtml)]
 
 1. Ponownie skompiluj i uruchom aplikację. Dodaj do testowania nowego kodu do wykonania.
 
