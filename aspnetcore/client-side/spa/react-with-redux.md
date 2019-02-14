@@ -2,26 +2,19 @@
 title: Szablon projektu platformy React z Redux za pomocą platformy ASP.NET Core
 author: SteveSandersonMS
 description: Dowiedz się, jak rozpocząć pracę przy użyciu szablonu projektu ASP.NET Core jednej strony aplikacji (SPA) dla platformy React z kontenera Redux i utworzyć react aplikacji.
-monikerRange: '>= aspnetcore-2.0'
+monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 02/21/2018
+ms.date: 02/13/2019
 uid: spa/react-with-redux
-ms.openlocfilehash: c1aedcf1e14a9e7b339b60dd02c4267cd5945a49
-ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
+ms.openlocfilehash: ed2e9aea449ddb09fef049a391f40f57452786a8
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54341623"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248085"
 ---
 # <a name="use-the-react-with-redux-project-template-with-aspnet-core"></a>Szablon projektu platformy React z Redux za pomocą platformy ASP.NET Core
-
-::: moniker range="= aspnetcore-2.0"
-
-> [!NOTE]
-> Ta dokumentacja nie odnoszą się do szablonu projektu platformy React z Redux, zawarte w ASP.NET Core 2.0. Odnoszą się do nowszej platformy React z Redux szablonu, który można aktualizować ręcznie. Szablon jest dostępna w programie ASP.NET Core 2.1 lub nowszej.
-
-::: moniker-end
 
 Zaktualizowany szablon projektu platformy React z kontenera Redux udostępnia dogodny punkt początkowy dla aplikacji platformy ASP.NET Core przy użyciu React i kontenera Redux, i [tworzenie platformy react aplikacji](https://github.com/facebookincubator/create-react-app) konwencje (CRA), aby zaimplementować interfejs rozbudowane, po stronie klienta użytkownika (UI).
 

@@ -4,18 +4,22 @@ title: 'Samouczek: Aktualizowanie powiązanych danych przy użyciu programu EF w
 description: W tym samouczku zostaną zaktualizowane powiązane dane. W przypadku większości relacji można to zrobić, aktualizując pola kluczy obcych lub właściwości nawigacji.
 author: tdykstra
 ms.author: riande
-ms.date: 01/17/2019
+ms.date: 01/19/2019
 ms.topic: tutorial
 ms.assetid: 7ba88418-5d0a-437d-b6dc-7c3816d4ec07
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: daefbcea39dc341c6fc72eb344b05eb2dbf0c3ba
-ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
+ms.openlocfilehash: 1ef4242ff3bd1dd86f4d58bd04ba08e8b90fdaa4
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54889850"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248280"
 ---
+<a name="updating-related-data-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Aktualizowanie powiązanych danych z platformą Entity Framework w aplikacji ASP.NET MVC
+====================
+
+
 # <a name="tutorial-update-related-data-with-ef-in-an-aspnet-mvc-app"></a>Samouczek: Aktualizowanie powiązanych danych przy użyciu programu EF w aplikacji ASP.NET MVC
 
 W poprzednim samouczku wyświetlane są powiązane dane. W tym samouczku zostaną zaktualizowane powiązane dane. W przypadku większości relacji można to zrobić, aktualizując pola kluczy obcych lub właściwości nawigacji. W przypadku relacji wiele do wielu platformy Entity Framework nie ujawnia tabelę sprzężenia bezpośrednio, dzięki czemu można dodawać i usuwać jednostki do i z właściwości nawigacji odpowiednie.
@@ -124,9 +128,12 @@ Zastąp `HttpPost` `Edit` metoda następującym kodem. który obsługuje aktuali
 
 [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample11.cs)]
 
-Odwołanie do `RetryLimitExceededException` wymaga `using` instrukcji. Aby dodać go, umieść kursor nad `RetryLimitExceededException`. Pojawi się wyjaśnienie tego problemu. Wybierz **Pokaż potencjalne rozwiązania** a następnie kliknij przycisk **przy użyciu System.Data.Entity.Infrastructure;**.
+Odwołanie do `RetryLimitExceededException` wymaga `using` instrukcji; można go dodać — umieść kursor myszy nad `RetryLimitExceededException`. Zostanie wyświetlony następujący komunikat: ![ Ponów próbę wykonania komunikat o wyjątku](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image13.png)
 
-![Rozwiąż wyjątku ponowienia próby](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image7.png)
+
+Wybierz **Pokaż poprawki potentital**, następnie **przy użyciu System.Data.Entity.Infrastructure**
+
+![Rozwiąż wyjątku ponowienia próby](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image14.png)
 
 Kod wykonuje następujące czynności:
 

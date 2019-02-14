@@ -5,7 +5,7 @@ Platforma ASP. NET Core oferuje następujące zalety:
 * [Strony razor](xref:razor-pages/index) sprawia, że kodowania skoncentrowane na stronie scenariuszy łatwiejsze i bardziej wydajne.
 * Możliwość tworzenia i systemem Windows, macOS i Linux.
 * Open source i [koncentracja na społeczności](https://live.asp.net/).
-* Integracja [nowoczesnych struktur po stronie klienta](xref:client-side/index) i programistycznych przepływów pracy.
+* Integracja [nowoczesnych struktur po stronie klienta](xref:razor-components/index) i programistycznych przepływów pracy.
 * Gotowy do pracy w chmurze, oparty na środowisku [system konfiguracji](xref:fundamentals/configuration/index).
 * Wbudowane [wstrzykiwanie zależności](xref:fundamentals/dependency-injection).
 * Uproszczony, modułowy potok żądań HTTP zapewniający [wysoką wydajność](https://github.com/aspnet/benchmarks).

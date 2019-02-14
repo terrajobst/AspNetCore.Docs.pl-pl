@@ -3,14 +3,14 @@ title: Migracja z programu ASP.NET MVC do platformy ASP.NET Core MVC
 author: ardalis
 description: Dowiedz się, jak rozpocząć pracę, migracji projektu MVC programu ASP.NET do ASP.NET Core MVC.
 ms.author: riande
-ms.date: 03/07/2017
+ms.date: 02/13/2019
 uid: migration/mvc
-ms.openlocfilehash: 7c9d927bbd06f96f130d53e946a2963b5804960b
-ms.sourcegitcommit: edb9d2d78c9a4d68b397e74ae2aff088b325a143
+ms.openlocfilehash: 2ca51a145243444722ad8081fd8cdbb65d72b53a
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51505742"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248046"
 ---
 # <a name="migrate-from-aspnet-mvc-to-aspnet-core-mvc"></a>Migracja z programu ASP.NET MVC do platformy ASP.NET Core MVC
 
@@ -27,9 +27,9 @@ Aby zademonstrować uaktualnienia, Zaczniemy od utworzenia aplikacji ASP.NET MVC
 
 ![Visual Studio okna dialogowego Nowy projekt](mvc/_static/new-project.png)
 
-![Okno dialogowe Nowy aplikacji sieci Web: szablon projektu MVC wybranego w panelu szablony platformy ASP.NET](mvc/_static/new-project-select-mvc-template.png)
+![Okno dialogowe Nowy aplikacji sieci Web: Szablon projektu MVC wybranego w panelu szablony platformy ASP.NET](mvc/_static/new-project-select-mvc-template.png)
 
-*Opcjonalnie:* zmiana nazwy rozwiązania z *WebApp1* do *Mvc5*. Visual Studio Wyświetla nową nazwę rozwiązania (*Mvc5*), co pozwala łatwiej mówić tego projektu z projektu dalej.
+*Opcjonalnie:* Zmiana nazwy rozwiązania z *WebApp1* do *Mvc5*. Visual Studio Wyświetla nową nazwę rozwiązania (*Mvc5*), co pozwala łatwiej mówić tego projektu z projektu dalej.
 
 ## <a name="create-the-aspnet-core-project"></a>Tworzenie projektu platformy ASP.NET Core
 
@@ -37,9 +37,9 @@ Utwórz nową *pusty* aplikacji internetowej ASP.NET Core z taką samą nazwę j
 
 ![Okno dialogowe nowego projektu](mvc/_static/new_core.png)
 
-![Okno dialogowe Nowy aplikacji sieci Web ASP.NET: pusty szablon projektu służący zaznaczonych w panelu szablony programu ASP.NET Core](mvc/_static/new-project-select-empty-aspnet5-template.png)
+![Okno dialogowe Nowy aplikacji sieci Web platformy ASP.NET: Pusty szablon projektu służący zaznaczonych w panelu szablony programu ASP.NET Core](mvc/_static/new-project-select-empty-aspnet5-template.png)
 
-* *Opcjonalnie:* Utwórz nową aplikację platformy ASP.NET Core, za pomocą *aplikacji sieci Web* szablonu projektu. Nadaj projektowi nazwę *WebApp1*i wybierz opcję uwierzytelniania programu **indywidualne konta użytkowników**. Zmień nazwę tej aplikacji do *FullAspNetCore*. Tworzenie projektu oszczędza czas do konwersji. Można sprawdzić kod wygenerowany szablon, aby zobaczyć efekt lub skopiować kod do projektu konwersji. Jest również przydatne, gdy użytkownik zatrzymywane w kroku konwersji do porównania z wygenerowanych przez szablon projektu.
+* *Opcjonalnie:* Tworzenie nowej aplikacji platformy ASP.NET Core, za pomocą *aplikacji sieci Web* szablonu projektu. Nadaj projektowi nazwę *WebApp1*i wybierz opcję uwierzytelniania programu **indywidualne konta użytkowników**. Zmień nazwę tej aplikacji do *FullAspNetCore*. Tworzenie projektu oszczędza czas do konwersji. Można sprawdzić kod wygenerowany szablon, aby zobaczyć efekt lub skopiować kod do projektu konwersji. Jest również przydatne, gdy użytkownik zatrzymywane w kroku konwersji do porównania z wygenerowanych przez szablon projektu.
 
 ## <a name="configure-the-site-to-use-mvc"></a>Konfigurowanie lokacji w celu korzystania z aplikacji MVC
 
@@ -149,7 +149,7 @@ Stary platformy ASP.NET MVC projekt używa [Bootstrap](https://getbootstrap.com/
 
 * Tworzenie *widoków/Shared* folderu.
 
-* *Opcjonalnie:* kopiowania *_ViewImports.cshtml* z *FullAspNetCore* projektu MVC *widoków* folderu do projektu programu ASP.NET Core  *Widoki* folderu. Usuń wszelkie deklarację przestrzeni nazw w *_ViewImports.cshtml* pliku. *_ViewImports.cshtml* plik zawiera przestrzenie nazw dla wszystkich plików w widoku i wiąże [pomocników tagów](xref:mvc/views/tag-helpers/intro). Pomocnicy tagów są używane w nowym pliku układu. *_ViewImports.cshtml* nowego pliku, dla platformy ASP.NET Core.
+* *Opcjonalnie:* Kopiuj *_ViewImports.cshtml* z *FullAspNetCore* projektu MVC *widoków* folderu do projektu programu ASP.NET Core *widoków* folder. Usuń wszelkie deklarację przestrzeni nazw w *_ViewImports.cshtml* pliku. *_ViewImports.cshtml* plik zawiera przestrzenie nazw dla wszystkich plików w widoku i wiąże [pomocników tagów](xref:mvc/views/tag-helpers/intro). Pomocnicy tagów są używane w nowym pliku układu. *_ViewImports.cshtml* nowego pliku, dla platformy ASP.NET Core.
 
 * Kopia *_Layout.cshtml* plików ze starego projektu ASP.NET MVC *widoków/Shared* folderu do projektu programu ASP.NET Core *widoków/Shared* folderu.
 
@@ -188,7 +188,7 @@ Zaktualizowany interfejs *_Layout.cshtml* plików znajdują się poniżej:
 
 Wyświetl witryny w przeglądarce. Teraz powinien on załadowany poprawnie, z oczekiwanym style w miejscu.
 
-* *Opcjonalnie:* możesz chcieć spróbuj użyć nowego pliku układu. Dla tego projektu można skopiować plik układu z *FullAspNetCore* projektu. Nowy plik układu używa [pomocników tagów](xref:mvc/views/tag-helpers/intro) i ma inne ulepszenia.
+* *Opcjonalnie:* Można spróbować użyć nowego pliku układu. Dla tego projektu można skopiować plik układu z *FullAspNetCore* projektu. Nowy plik układu używa [pomocników tagów](xref:mvc/views/tag-helpers/intro) i ma inne ulepszenia.
 
 ## <a name="configure-bundling-and-minification"></a>Skonfiguruj tworzenie pakietów i minimalizowanie
 
@@ -204,5 +204,5 @@ Platforma ASP.NET Core konwertuje nieobsługiwanych wyjątków w aplikacji sieci
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Programowanie po stronie klienta](xref:client-side/index)
-* [Pomocnicy tagów](xref:mvc/views/tag-helpers/intro)
+* <xref:razor-components/index>
+* <xref:mvc/views/tag-helpers/intro>

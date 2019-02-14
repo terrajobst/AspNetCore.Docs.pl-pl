@@ -4,17 +4,17 @@ title: 'Samouczek: Rozpoczynanie pracy z wykorzystaniem MVC 5 EF Database First'
 description: W tym samouczku pokazano, jak rozpocząć od istniejącej bazy danych i szybkie tworzenie aplikacji sieci web, która umożliwia użytkownikom na interakcję z danymi.
 author: Rick-Anderson
 ms.author: riande
-ms.date: 01/28/2019
+ms.date: 01/15/2019
 ms.topic: tutorial
 ms.assetid: 095abad4-3bfe-4f06-b092-ae6a735b7e49
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/setting-up-database
 msc.type: authoredcontent
-ms.openlocfilehash: dfc6c7a7083524a1e7049fdc879fe679f951084d
-ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
+ms.openlocfilehash: d99fdb5382037038d4428ff1946f39aee380fb75
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55667742"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248228"
 ---
 # <a name="tutorial-get-started-with-ef-database-first-using-mvc-5"></a>Samouczek: Rozpoczynanie pracy z wykorzystaniem MVC 5 EF Database First
 
@@ -33,17 +33,16 @@ W ramach tego samouczka możesz:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)
+[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
 
-## <a name="introduction"></a>Wprowadzenie
-
-Ten samouczek dotyczy sytuacji, w którym masz bazę danych i chcesz wygenerować kod dla aplikacji sieci web na podstawie pól tej bazy danych. To podejście jest nazywane tworzenie pierwszej bazy danych. Jeśli nie masz już istniejącą bazę danych, możesz zamiast tego użyć podejścia o nazwie rozwiązania deweloperskiego Code First, który obejmuje Definiowanie klas danych i generowanie bazy danych przy użyciu właściwości klasy.
 
 ## <a name="set-up-the-database"></a>Konfigurowanie bazy danych
 
 Aby mógł naśladować środowisko o istniejącą bazę danych, zostanie najpierw utwórz bazę danych z pewnymi wstępnie wypełniony danymi, a następnie utwórz aplikację sieci web, który nawiązuje połączenie z bazą danych.
 
-W tym samouczku został opracowany, używany program LocalDB. Można użyć istniejącego serwera baz danych, zamiast programu LocalDB, ale w zależności od używanej wersji programu Visual Studio i typ bazy danych, wszystkie narzędzia danych w programie Visual Studio może nie być obsługiwany. Jeśli narzędzia nie są dostępne dla bazy danych, może być konieczne do wykonania niektórych kroków określonej bazy danych w pakiecie zarządzania z bazą danych.
+
+W tym samouczku został opracowany przy użyciu LocalDB w programie Visual Studio 2017. Można użyć istniejącego serwera baz danych, zamiast programu LocalDB, ale w zależności od używanej wersji programu Visual Studio i typ bazy danych, wszystkie narzędzia danych w programie Visual Studio może nie być obsługiwany. Jeśli narzędzia nie są dostępne dla bazy danych, może być konieczne do wykonania niektórych kroków określonej bazy danych w pakiecie zarządzania z bazą danych.
+
 
 Jeśli masz problem z narzędzia graficzne bazy danych w wersji programu Visual Studio, upewnij się, że zainstalowano najnowszą wersję narzędzia graficzne bazy danych. Aby dowiedzieć się, czy instalujesz narzędzia graficzne bazy danych, zobacz [programu Microsoft SQL Server Data Tools](https://msdn.microsoft.com/data/hh297027).
 

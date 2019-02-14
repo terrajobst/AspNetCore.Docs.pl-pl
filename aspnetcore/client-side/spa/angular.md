@@ -2,44 +2,27 @@
 title: Szablon projektu biblioteki Angular za pomocą platformy ASP.NET Core
 author: SteveSandersonMS
 description: Dowiedz się, jak rozpocząć pracę przy użyciu szablonu projektu ASP.NET Core jednej strony aplikacji (SPA) do usługi Angular i Angular interfejsu wiersza polecenia.
-monikerRange: '>= aspnetcore-2.0'
-ms.author: scaddie
+monikerRange: '>= aspnetcore-2.1'
+ms.author: stevesa
 ms.custom: mvc
-ms.date: 02/21/2018
+ms.date: 02/13/2019
 uid: spa/angular
-ms.openlocfilehash: 8283fe9e96acb57942040dd4c90fabd204a19663
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: 35a839e31369e8dbf00f5dbfb3751a2985335755
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49326046"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248124"
 ---
 # <a name="use-the-angular-project-template-with-aspnet-core"></a>Szablon projektu biblioteki Angular za pomocą platformy ASP.NET Core
-
-::: moniker range="= aspnetcore-2.0"
-
-> [!NOTE]
-> Ta dokumentacja nie jest o szablon projektu biblioteki Angular zawarty w ASP.NET Core 2.0. Chodzi o nowszych szablonu Angular, do której można zaktualizować ręcznie. Szablon jest domyślnie w programie ASP.NET Core 2.1.
-
-::: moniker-end
 
 Szablon projektu biblioteki Angular zaktualizowane udostępnia dogodny punkt początkowy dla platformy ASP.NET Core aplikacji za pomocą usługi Angular i Angular interfejsu wiersza polecenia, aby zaimplementować interfejs rozbudowane, po stronie klienta użytkownika (UI).
 
 Szablon jest odpowiednikiem Tworzenie projektu ASP.NET Core jako zaplecza interfejsu API i projekt usługi Angular interfejsu wiersza polecenia pełnić rolę interfejsu użytkownika. Ten szablon oferuje wygodne hostingu obu typów projektów w projekcie pojedynczej aplikacji. W związku z tym projekt aplikacji można skompilować i opublikowane jako pojedyncza jednostka.
 
-## <a name="create-a-new-app"></a>Utwórz nową aplikację
-
-::: moniker range="= aspnetcore-2.0"
-
-Jeśli używasz programu ASP.NET Core 2.0, upewnij się, masz [zainstalowane szablon zaktualizowanego projektu biblioteki Angular](xref:spa/index#installation).
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.1"
+## <a name="create-a-new-app"></a>Tworzenie nowej aplikacji
 
 Jeśli masz zainstalowany program ASP.NET Core 2.1, nie ma potrzeby instalowania szablon projektu biblioteki Angular.
-
-::: moniker-end
 
 Utwórz nowy projekt z wiersza polecenia za pomocą polecenia `dotnet new angular` w pustym katalogu. Na przykład, następujące polecenia tworzą aplikację w *Moje aplikacyjnego nowe* katalogu i przełącz się do tego katalogu:
 
@@ -70,7 +53,7 @@ Now listening on: http://localhost:<port>
 
 Przejdź do tego adresu URL w przeglądarce.
 
-Wystąpienie serwera Angular interfejsu wiersza polecenia w tle uruchamiania aplikacji. Zostanie zarejestrowany komunikat podobny do następującego: *NG Live Development Server nasłuchuje na hoście lokalnym:&lt;otherport&gt;, otwórz przeglądarkę na http://localhost:&lt; otherport&gt; /*  . Zignoruj ten komunikat&mdash;ma **nie** adres URL dla połączonych aplikacji platformy ASP.NET Core i wiersza polecenia usługi Angular.
+Wystąpienie serwera Angular interfejsu wiersza polecenia w tle uruchamiania aplikacji. Zostanie zarejestrowany komunikat podobny do następującego: *NG Live Development Server nasłuchuje na hoście lokalnym:&lt;otherport&gt;, otwórz przeglądarkę na http://localhost:&lt; otherport&gt;/*. Zignoruj ten komunikat&mdash;ma **nie** adres URL dla połączonych aplikacji platformy ASP.NET Core i wiersza polecenia usługi Angular.
 
 ---
 

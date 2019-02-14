@@ -2,26 +2,19 @@
 title: Szablon projektu platformy React za pomocą platformy ASP.NET Core
 author: SteveSandersonMS
 description: Dowiedz się, jak rozpocząć pracę przy użyciu szablonu projektu ASP.NET Core jednej strony aplikacji (SPA) dla platformy React i utworzyć react aplikacji.
-monikerRange: '>= aspnetcore-2.0'
+monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 02/21/2018
+ms.date: 02/13/2019
 uid: spa/react
-ms.openlocfilehash: d83bff8abcd5b59d8bc4a51a101510755394f0c4
-ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
+ms.openlocfilehash: aa08a9d8d06d8b52be564fabf904d4923684d4e4
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55667690"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248033"
 ---
 # <a name="use-the-react-project-template-with-aspnet-core"></a>Szablon projektu platformy React za pomocą platformy ASP.NET Core
-
-::: moniker range="= aspnetcore-2.0"
-
-> [!NOTE]
-> Ta dokumentacja nie jest o szablon projektu platformy React zawarty w ASP.NET Core 2.0. Chodzi o nowszych szablonu platformy React, do której można zaktualizować ręcznie. Szablon jest domyślnie w programie ASP.NET Core 2.1.
-
-::: moniker-end
 
 Zaktualizowany szablon projektu platformy React udostępnia dogodny punkt początkowy dla platformy ASP.NET Core z aplikacji przy użyciu platformy React i [tworzenie platformy react aplikacji](https://github.com/facebookincubator/create-react-app) konwencje (CRA), aby zaimplementować interfejs rozbudowane, po stronie klienta użytkownika (UI).
 
@@ -29,17 +22,7 @@ Szablon jest odpowiednikiem Tworzenie projektu ASP.NET Core jako zaplecza interf
 
 ## <a name="create-a-new-app"></a>Tworzenie nowej aplikacji
 
-::: moniker range="= aspnetcore-2.0"
-
-Jeśli używasz programu ASP.NET Core 2.0, upewnij się, masz [zainstalowany zaktualizowany szablon projektu platformy React](xref:spa/index#installation).
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.1"
-
 Jeśli masz zainstalowany program ASP.NET Core 2.1, nie ma potrzeby instalowania szablon projektu platformy React.
-
-::: moniker-end
 
 Utwórz nowy projekt z wiersza polecenia za pomocą polecenia `dotnet new react` w pustym katalogu. Na przykład, następujące polecenia tworzą aplikację w *Moje aplikacyjnego nowe* katalogu i przełącz się do tego katalogu:
 

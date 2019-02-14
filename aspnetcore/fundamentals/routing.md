@@ -4,14 +4,14 @@ author: rick-anderson
 description: Dowiedz się, jak platformy ASP.NET Core, routing jest odpowiedzialny za mapowania żądania identyfikatorów URI punktu końcowego selektory i wysyłania żądania przychodzące do punktów końcowych.
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/14/2019
+ms.date: 02/13/2019
 uid: fundamentals/routing
-ms.openlocfilehash: c5303ad418660fa31fe9094f0e61ee31f5d988f7
-ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
+ms.openlocfilehash: 3dbb2d358ec9e3dcdd96c3771576911d906d796f
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54890019"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248436"
 ---
 # <a name="routing-in-aspnet-core"></a>Routing w programie ASP.NET Core
 
@@ -38,7 +38,7 @@ services.AddMvc()
     .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 ```
 
-`EnableEndpointRouting` Opcja określa, w przypadku routingu należy wewnętrznie używać oparte na punktach końcowych logiki lub <xref:Microsoft.AspNetCore.Routing.IRouter>— na podstawie logiki platformy ASP.NET Core 2.1 lub wcześniej. Gdy wersja zgodności jest ustawiona do wersji 2.2 lub nowszej, wartość domyślna to `true`. Ustaw wartość `false` do użycia z poprzedniego logikę routingu:
+<xref:Microsoft.AspNetCore.Mvc.MvcOptions.EnableEndpointRouting> Opcja określa, w przypadku routingu należy wewnętrznie używać oparte na punktach końcowych logiki lub <xref:Microsoft.AspNetCore.Routing.IRouter>— na podstawie logiki platformy ASP.NET Core 2.1 lub wcześniej. Gdy wersja zgodności jest ustawiona do wersji 2.2 lub nowszej, wartość domyślna to `true`. Ustaw wartość `false` do użycia z poprzedniego logikę routingu:
 
 ```csharp
 // Use the routing logic of ASP.NET Core 2.1 or earlier:
@@ -97,7 +97,7 @@ Routing system ma następujące cechy:
 
 * Składni szablonu trasy jest używane do definiowania trasy z parametrami trasy z tokenami.
 * Konfiguracja punktu końcowego konwencjonalne stylu i stylu dla atrybutu jest dozwolone.
-* `IRouteConstraint` Służy do określenia, czy parametr adresu URL zawiera prawidłową wartość dla ograniczenia danego punktu końcowego.
+* <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> Służy do określenia, czy parametr adresu URL zawiera prawidłową wartość dla ograniczenia danego punktu końcowego.
 * Modele aplikacji, takich jak strony MVC i Razor zarejestrować wszystkie ich punktów końcowych, które mają przewidywalny implementacji scenariuszy routingu.
 * Routing implementacji sprawia, że decyzje w kwestii routingu wszędzie tam, gdzie pożądana w potoku oprogramowania pośredniczącego.
 * Oprogramowanie pośredniczące, która pojawia się po oprogramowanie pośredniczące routingu można sprawdzić wynik decyzja punktu końcowego pośredniczącego routingu dla danego identyfikatora URI żądania.
@@ -105,8 +105,8 @@ Routing system ma następujące cechy:
 * Aplikację można używać routingu do generowania adresów URL (na przykład przekierowanie lub łączy) na podstawie informacji o punkcie końcowym i związku z tym należy unikać ustaloną adresów URL, co pomoże w utrzymaniu.
 * Generowanie adresu URL jest oparty na adresy, które obsługują dowolną rozszerzalności:
 
-  * Interfejs API Generator Link (`LinkGenerator`) może zostać rozpoznana w dowolnym miejscu przy użyciu [wstrzykiwanie zależności (DI)](xref:fundamentals/dependency-injection) do generowania adresów URL.
-  * W przypadku, gdy interfejs API Generator Link nie jest dostępna za pośrednictwem DI, `IUrlHelper` zapewnia metody do tworzenia adresów URL.
+  * Interfejs API Generator Link (<xref:Microsoft.AspNetCore.Routing.LinkGenerator>) może zostać rozpoznana w dowolnym miejscu przy użyciu [wstrzykiwanie zależności (DI)](xref:fundamentals/dependency-injection) do generowania adresów URL.
+  * W przypadku, gdy interfejs API Generator Link nie jest dostępna za pośrednictwem DI, <xref:Microsoft.AspNetCore.Mvc.IUrlHelper> zapewnia metody do tworzenia adresów URL.
 
 > [!NOTE]
 > Wraz z wydaniem punktu końcowego routingu w programie ASP.NET Core 2.2 łączenie punktu końcowego jest ograniczona do stron MVC i Razor akcje i stron. Rozszerzenia typu łączenia punktu końcowego w przyszłych wersjach planowane jest wprowadzenie możliwości.
@@ -126,10 +126,10 @@ Routing system ma następujące cechy:
 
 * Składni szablonu trasy jest używane do definiowania trasy z parametrami trasy z tokenami.
 * Konfiguracja punktu końcowego konwencjonalne stylu i stylu dla atrybutu jest dozwolone.
-* `IRouteConstraint` Służy do określenia, czy parametr adresu URL zawiera prawidłową wartość dla ograniczenia danego punktu końcowego.
+* <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> Służy do określenia, czy parametr adresu URL zawiera prawidłową wartość dla ograniczenia danego punktu końcowego.
 * Modele aplikacji, takich jak strony MVC i Razor zarejestrować wszystkie ich tras, które mają przewidywalny implementacji scenariuszy routingu.
 * Odpowiedź może używać routingu do generowania adresów URL (na przykład przekierowanie lub linki), w oparciu o trasach i związku z tym należy unikać ustaloną adresów URL, co pomoże w utrzymaniu.
-* Generowanie adresu URL opiera się na trasach, które obsługują dowolną rozszerzalności. `IUrlHelper` udostępnia metody do tworzenia adresów URL.
+* Generowanie adresu URL opiera się na trasach, które obsługują dowolną rozszerzalności. <xref:Microsoft.AspNetCore.Mvc.IUrlHelper> udostępnia metody do tworzenia adresów URL.
 
 ::: moniker-end
 
@@ -143,7 +143,7 @@ Dopasowanie adresu URL jest proces, który wysyła routingu przychodzącego żą
 
 System routingu w routingu punkt końcowy jest odpowiedzialny za wszystkie dispatching decyzje. Ponieważ oprogramowanie pośredniczące stosuje zasady, w oparciu o wybrany punkt końcowy, ważne jest, czy każda decyzja może wpłynąć na wysyłanie lub stosowania zasad zabezpieczeń składa się w systemie routingu.
 
-Kiedy delegat punkt końcowy jest wykonywana, sprawdzanie właściwości `RouteContext.RouteData` są ustawione na odpowiednie wartości oparte na przetwarzanie żądań wykonywane do tej pory.
+Kiedy delegat punkt końcowy jest wykonywana, sprawdzanie właściwości [RouteContext.RouteData](xref:Microsoft.AspNetCore.Routing.RouteContext.RouteData) są ustawione na odpowiednie wartości oparte na przetwarzanie żądań wykonywane do tej pory.
 
 ::: moniker-end
 
@@ -151,19 +151,19 @@ Kiedy delegat punkt końcowy jest wykonywana, sprawdzanie właściwości `RouteC
 
 Dopasowanie adresu URL jest proces, który wysyła routingu przychodzącego żądania *obsługi*. Ten proces jest na podstawie danych ze ścieżki adresu URL, ale może zostać rozszerzony do należy wziąć pod uwagę wszystkie dane w żądaniu. Możliwość wysyłania żądań do rozdzielenia obsługi to klucz do skalowania, rozmiar i złożoność aplikacji.
 
-Wprowadź żądań przychodzących `RouterMiddleware`, która wywołuje metodę <xref:Microsoft.AspNetCore.Routing.IRouter.RouteAsync*> metody dla każdej trasy w sekwencji. <xref:Microsoft.AspNetCore.Routing.IRouter> Wybierze wystąpienie czy *obsługi* żądania przez ustawienie [RouteContext.Handler](xref:Microsoft.AspNetCore.Routing.RouteContext.Handler*) do innych niż null <xref:Microsoft.AspNetCore.Http.RequestDelegate>. Jeśli trasa Ustawia program obsługi żądania, route zatrzymanie przetwarzania i program obsługi jest wywoływane w celu przetworzenia żądania. Jeśli żadna procedura obsługi trasy zostanie znaleziony można przetworzyć żądania, oprogramowanie pośredniczące przekazywało żądanie do następnego oprogramowania pośredniczącego w potoku żądania.
+Wprowadź żądań przychodzących <xref:Microsoft.AspNetCore.Builder.RouterMiddleware>, która wywołuje metodę <xref:Microsoft.AspNetCore.Routing.IRouter.RouteAsync*> metody dla każdej trasy w sekwencji. <xref:Microsoft.AspNetCore.Routing.IRouter> Wybierze wystąpienie czy *obsługi* żądania przez ustawienie [RouteContext.Handler](xref:Microsoft.AspNetCore.Routing.RouteContext.Handler*) do innych niż null <xref:Microsoft.AspNetCore.Http.RequestDelegate>. Jeśli trasa Ustawia program obsługi żądania, route zatrzymanie przetwarzania i program obsługi jest wywoływane w celu przetworzenia żądania. Jeśli żadna procedura obsługi trasy zostanie znaleziony można przetworzyć żądania, oprogramowanie pośredniczące przekazywało żądanie do następnego oprogramowania pośredniczącego w potoku żądania.
 
-Podstawowe dane wejściowe `RouteAsync` jest [RouteContext.HttpContext](xref:Microsoft.AspNetCore.Routing.RouteContext.HttpContext*) skojarzone z bieżącego żądania. `RouteContext.Handler` i [RouteContext.RouteData](xref:Microsoft.AspNetCore.Routing.RouteContext.RouteData*) są dane wyjściowe po dopasowaniu trasy.
+Podstawowe dane wejściowe <xref:Microsoft.AspNetCore.Routing.IRouter.RouteAsync*> jest [RouteContext.HttpContext](xref:Microsoft.AspNetCore.Routing.RouteContext.HttpContext*) skojarzone z bieżącego żądania. [RouteContext.Handler](xref:Microsoft.AspNetCore.Routing.RouteContext.Handler) i [RouteContext.RouteData](xref:Microsoft.AspNetCore.Routing.RouteContext.RouteData*) są dane wyjściowe po dopasowaniu trasy.
 
-Dopasowanie, która wywołuje `RouteAsync` spowoduje także ustawienie właściwości `RouteContext.RouteData` odpowiednie wartości oparte na przetwarzanie żądań wykonywane do tej pory.
+Dopasowanie, która wywołuje <xref:Microsoft.AspNetCore.Routing.IRouter.RouteAsync*> spowoduje także ustawienie właściwości [RouteContext.RouteData](xref:Microsoft.AspNetCore.Routing.RouteContext.RouteData) odpowiednie wartości oparte na przetwarzanie żądań wykonywane do tej pory.
 
 ::: moniker-end
 
 [RouteData.Values](xref:Microsoft.AspNetCore.Routing.RouteData.Values*) jest słownikiem *wartości trasy* wyprodukowanych z trasy. Wartości te są zwykle określane przez tokenizowanie adres URL i może służyć do przyjmowania danych wejściowych użytkownika lub dodatkowo dispatching decyzje wewnątrz aplikacji.
 
-[RouteData.DataTokens](xref:Microsoft.AspNetCore.Routing.RouteData.DataTokens*) to zbiór właściwości dodatkowych danych związanych z dopasowanej trasy. `DataTokens` dostarczone dane o pomocy technicznej kojarzenie stanu z każdej trasy tak, aby aplikacja podejmować decyzje oparte na trasie, która pasuje. Te wartości są definiowane przez projektanta i wykonaj **nie** mają wpływ na zachowanie routingu w dowolny sposób. Ponadto przechowalni wartości w `RouteData.DataTokens` może być dowolnego typu, w przeciwieństwie do `RouteData.Values`, która musi być konwertowany do i z ciągów.
+[RouteData.DataTokens](xref:Microsoft.AspNetCore.Routing.RouteData.DataTokens*) to zbiór właściwości dodatkowych danych związanych z dopasowanej trasy. <xref:Microsoft.AspNetCore.Routing.RouteData.DataTokens*> dostarczone dane o pomocy technicznej kojarzenie stanu z każdej trasy tak, aby aplikacja podejmować decyzje oparte na trasie, która pasuje. Te wartości są definiowane przez projektanta i wykonaj **nie** mają wpływ na zachowanie routingu w dowolny sposób. Ponadto przechowalni wartości w [RouteData.DataTokens](xref:Microsoft.AspNetCore.Routing.RouteData.DataTokens*) może być dowolnego typu, w przeciwieństwie do [RouteData.Values](xref:Microsoft.AspNetCore.Routing.RouteData.Values), która musi być konwertowany do i z ciągów.
 
-[RouteData.Routers](xref:Microsoft.AspNetCore.Routing.RouteData.Routers*) znajduje się lista tras, na których uczestniczyła w pomyślnie dopasowywania żądania. Trasy mogą być zagnieżdżone wewnątrz siebie nawzajem. `Routers` Właściwość odzwierciedla drogę przez drzewo logiczne tras, które spowodowały dopasowanie. Ogólnie rzecz biorąc, pierwszy element `Routers` jest kolekcją tras i powinny być używane do generowania adresu URL. Ostatnim elementem w `Routers` jest programu obsługi trasy, który jest zgodny.
+[RouteData.Routers](xref:Microsoft.AspNetCore.Routing.RouteData.Routers) znajduje się lista tras, na których uczestniczyła w pomyślnie dopasowywania żądania. Trasy mogą być zagnieżdżone wewnątrz siebie nawzajem. <xref:Microsoft.AspNetCore.Routing.RouteData.Routers> Właściwość odzwierciedla drogę przez drzewo logiczne tras, które spowodowały dopasowanie. Ogólnie rzecz biorąc, pierwszy element <xref:Microsoft.AspNetCore.Routing.RouteData.Routers> jest kolekcją tras i powinny być używane do generowania adresu URL. Ostatnim elementem w <xref:Microsoft.AspNetCore.Routing.RouteData.Routers> jest programu obsługi trasy, który jest zgodny.
 
 ### <a name="url-generation"></a>Generowanie adresu URL
 
@@ -171,45 +171,45 @@ Dopasowanie, która wywołuje `RouteAsync` spowoduje także ustawienie właściw
 
 Generowanie adresu URL to proces, routingu, które można utworzyć ścieżki adresu URL na podstawie zestawu wartości trasy. Dzięki temu do logicznego rozdzielania między punktami końcowymi usługi oraz w adresach URL, które do nich dostęp.
 
-Routing punktu końcowego zawiera interfejsu API Generator łącza (`LinkGenerator`). `LinkGenerator` to usługa singleton, który można pobrać z DI. Interfejs API mogą być używane poza Kontekst wykonywania żądania. MVC `IUrlHelper` i scenariusze, które zależą od `IUrlHelper`, takich jak [pomocników tagów](xref:mvc/views/tag-helpers/intro), pomocników HTML i [wyników akcji](xref:mvc/controllers/actions), użyj generatora łącze, aby podać możliwości generowania łącza.
+Routing punktu końcowego zawiera interfejsu API Generator łącza (<xref:Microsoft.AspNetCore.Routing.LinkGenerator>). <xref:Microsoft.AspNetCore.Routing.LinkGenerator> to usługa singleton, który można pobrać z DI. Interfejs API mogą być używane poza Kontekst wykonywania żądania. MVC <xref:Microsoft.AspNetCore.Mvc.IUrlHelper> i scenariusze, które zależą od <xref:Microsoft.AspNetCore.Mvc.IUrlHelper>, takich jak [pomocników tagów](xref:mvc/views/tag-helpers/intro), pomocników HTML i [wyników akcji](xref:mvc/controllers/actions), użyj generatora łącze, aby podać możliwości generowania łącza.
 
 Generator łącze opiera się na koncepcji *adres* i *adres, systemy*. Schemat adresów to sposób określenia punktów końcowych, które należy rozważyć dotyczącymi generowania łączy. Na przykład nazwy trasy i scenariusze wartości trasy, przez wielu użytkowników są znane ze strony MVC i Razor są implementowane jako schemat adresów.
 
 Generator łącza można połączyć do stron MVC i Razor akcje i stron za pomocą następujących metod rozszerzenia:
 
-* `GetPathByAction`
-* `GetUriByAction`
-* `GetPathByPage`
-* `GetUriByPage`
+* <xref:Microsoft.AspNetCore.Routing.ControllerLinkGeneratorExtensions.GetPathByAction*>
+* <xref:Microsoft.AspNetCore.Routing.ControllerLinkGeneratorExtensions.GetUriByAction*>
+* <xref:Microsoft.AspNetCore.Routing.PageLinkGeneratorExtensions.GetPathByPage*>
+* <xref:Microsoft.AspNetCore.Routing.PageLinkGeneratorExtensions.GetUriByPage*>
 
 Przeciążenia metody te akceptuje argumenty, które obejmują `HttpContext`. Te metody są funkcjonalnie równoważne `Url.Action` i `Url.Page` , ale oferują one większą elastyczność i opcje.
 
 `GetPath*` Metody są najbardziej podobny do `Url.Action` i `Url.Page` , generują identyfikatorem URI zawierającym ścieżką bezwzględną. `GetUri*` Metody zawsze Generuj bezwzględny identyfikator URI zawierający schematu i hosta. Metody, które akceptują `HttpContext` wygenerować identyfikator URI w kontekście wykonywania żądania. Wartości trasy otoczenia, adres URL ścieżki podstawowej, schematu i hosta z wykonywania żądania są używane, chyba że zastąpione.
 
-`LinkGenerator` jest wywoływana przy użyciu adresu. Generowanie identyfikatora URI odbywa się w dwóch etapach:
+<xref:Microsoft.AspNetCore.Routing.LinkGenerator> jest wywoływana przy użyciu adresu. Generowanie identyfikatora URI odbywa się w dwóch etapach:
 
 1. Adres jest powiązany z listy punktów końcowych, które pasują do adresu.
 1. Każdy punkt końcowy `RoutePattern` jest szacowana aż do znalezienia wzorzec trasy, który pasuje do podanej wartości. Dane wyjściowe w połączeniu z innymi częściami URI dostarczane do generatora łącze i zwrócony.
 
-Metod dostarczonych przez `LinkGenerator` obsługują możliwości generowania łącza standardowego dla dowolnego typu adresu. Jest Najwygodniejszym sposobem użycia link generator za pośrednictwem metody rozszerzenia, wykonujących operacje dla typu określonego adresu.
+Metod dostarczonych przez <xref:Microsoft.AspNetCore.Routing.LinkGenerator> obsługują możliwości generowania łącza standardowego dla dowolnego typu adresu. Jest Najwygodniejszym sposobem użycia link generator za pośrednictwem metody rozszerzenia, wykonujących operacje dla typu określonego adresu.
 
 | Metoda rozszerzenia   | Opis                                                         |
 | ------------------ | ------------------------------------------------------------------- |
-| `GetPathByAddress` | Generuje identyfikator URI przy użyciu ścieżki bezwzględnej na podstawie podanej wartości. |
-| `GetUriByAddress`  | Generuje bezwzględny identyfikator URI na podstawie podanej wartości.             |
+| <xref:Microsoft.AspNetCore.Routing.LinkGenerator.GetPathByAddress*> | Generuje identyfikator URI przy użyciu ścieżki bezwzględnej na podstawie podanej wartości. |
+| <xref:Microsoft.AspNetCore.Routing.LinkGenerator.GetUriByAddress*> | Generuje bezwzględny identyfikator URI na podstawie podanej wartości.             |
 
 > [!WARNING]
-> Należy zwrócić uwagę na następujące implikacje wywoływania `LinkGenerator` metody:
+> Należy zwrócić uwagę na następujące implikacje wywoływania <xref:Microsoft.AspNetCore.Routing.LinkGenerator> metody:
 >
 > * Użyj `GetUri*` metody rozszerzenia z rozwagą w konfiguracji aplikacji, która nie weryfikuje `Host` nagłówka żądania przychodzące. Jeśli `Host` nie jest zweryfikowany nagłówka żądania przychodzące, żądania niezaufanych danych wejściowych może zostać odesłany do klienta w identyfikatorach URI w widoku/strony. Zaleca się, że wszystkie aplikacje produkcyjne skonfigurować ich serwera, aby sprawdzić poprawność `Host` nagłówka przed znanym prawidłowych wartości.
 >
-> * Użyj `LinkGenerator` ostrożnie w oprogramowaniu pośredniczącym w połączeniu z `Map` lub `MapWhen`. `Map*` zmiany ścieżki podstawowej wykonywania żądania ma wpływ na dane wyjściowe generowania łączy. Wszystkie `LinkGenerator` interfejsy API umożliwiają określenie ścieżki podstawowej. Zawsze określać pustej ścieżki podstawowej, aby cofnąć `Map*`jego wpływ na generowanie konsolidacji.
+> * Użyj <xref:Microsoft.AspNetCore.Routing.LinkGenerator> ostrożnie w oprogramowaniu pośredniczącym w połączeniu z `Map` lub `MapWhen`. `Map*` zmiany ścieżki podstawowej wykonywania żądania ma wpływ na dane wyjściowe generowania łączy. Wszystkie <xref:Microsoft.AspNetCore.Routing.LinkGenerator> interfejsy API umożliwiają określenie ścieżki podstawowej. Zawsze określać pustej ścieżki podstawowej, aby cofnąć `Map*`jego wpływ na generowanie konsolidacji.
 
 ## <a name="differences-from-earlier-versions-of-routing"></a>Różnice z wcześniejszych wersji routingu
 
 Kilka istnieją różnice między punktu końcowego routingu w programie ASP.NET Core 2.2 lub nowszej i wcześniejszych wersjach routingu w programie ASP.NET Core:
 
-* System routingu punkt końcowy nie obsługuje `IRouter`— na podstawie rozszerzalności, w tym dziedziczenie z `Route`.
+* System routingu punkt końcowy nie obsługuje <xref:Microsoft.AspNetCore.Routing.IRouter>— na podstawie rozszerzalności, w tym dziedziczenie z <xref:Microsoft.AspNetCore.Routing.Route>.
 
 * Punkt końcowy routingu nie obsługuje [WebApiCompatShim](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.WebApiCompatShim). Użyj 2.1 [zgodność wersji](xref:mvc/compatibility-version) (`.SetCompatibilityVersion(CompatibilityVersion.Version_2_1)`) aby kontynuować korzystanie z podkładki zgodności.
 
@@ -230,7 +230,7 @@ Kilka istnieją różnice między punktu końcowego routingu w programie ASP.NET
   var link = Url.Action("ReadPost", "blog", new { id = 17, });
   ```
 
-  Za pomocą `IRouter`-routing oparty na, ten kod generuje identyfikator URI zestawu `/blog/ReadPost/17`, który uwzględnia wielkość liter w wyrazie wartość podana trasy. Tworzy punkt końcowy routingu w programie ASP.NET Core 2.2 lub nowszym `/Blog/ReadPost/17` (Wielka "Blog"). Udostępnia punkt końcowy routingu `IOutboundParameterTransformer` interfejsu, który może służyć do dostosowywania zachowania globalnie lub aby zastosować różnych konwencji mapowania adresów URL.
+  Za pomocą <xref:Microsoft.AspNetCore.Routing.IRouter>-routing oparty na, ten kod generuje identyfikator URI zestawu `/blog/ReadPost/17`, który uwzględnia wielkość liter w wyrazie wartość podana trasy. Tworzy punkt końcowy routingu w programie ASP.NET Core 2.2 lub nowszym `/Blog/ReadPost/17` (Wielka "Blog"). Udostępnia punkt końcowy routingu `IOutboundParameterTransformer` interfejsu, który może służyć do dostosowywania zachowania globalnie lub aby zastosować różnych konwencji mapowania adresów URL.
 
   Aby uzyskać więcej informacji, zobacz [odwołania do parametru transformatora](#parameter-transformer-reference) sekcji.
 
@@ -289,7 +289,7 @@ Kilka istnieją różnice między punktu końcowego routingu w programie ASP.NET
 
 ### <a name="middleware-example"></a>Przykład oprogramowania pośredniczącego
 
-W poniższym przykładzie korzysta z oprogramowania pośredniczącego `LinkGenerator` interfejsu API, aby utworzyć łącze do metody akcji, która wyświetla listę przechowywane produktów. Za pomocą generatora łącza, wstawianie go do klasy i wywoływania `GenerateLink` jest dostępny dla każdej klasy w aplikacji.
+W poniższym przykładzie korzysta z oprogramowania pośredniczącego <xref:Microsoft.AspNetCore.Routing.LinkGenerator> interfejsu API, aby utworzyć łącze do metody akcji, która wyświetla listę przechowywane produktów. Za pomocą generatora łącza, wstawianie go do klasy i wywoływania `GenerateLink` jest dostępny dla każdej klasy w aplikacji.
 
 ```csharp
 using Microsoft.AspNetCore.Routing;
@@ -320,20 +320,20 @@ public class ProductsLinkMiddleware
 
 Generowanie adresu URL to proces, routingu, które można utworzyć ścieżki adresu URL na podstawie zestawu wartości trasy. Dzięki temu do logicznego rozdzielania między obsługi trasy i adresów URL, które do nich dostęp.
 
-Generowanie adresu URL następuje podobny proces iteracyjny, ale zaczyna się od kodu użytkownika lub framework wywoływanie <xref:Microsoft.AspNetCore.Routing.IRouter.GetVirtualPath*> metoda kolekcji tras. Każdy *trasy* ma jego `GetVirtualPath` metoda wywoływana w sekwencji, aż do innych niż null <xref:Microsoft.AspNetCore.Routing.VirtualPathData> jest zwracana.
+Generowanie adresu URL następuje podobny proces iteracyjny, ale zaczyna się od kodu użytkownika lub framework wywoływanie <xref:Microsoft.AspNetCore.Routing.IRouter.GetVirtualPath*> metoda kolekcji tras. Każdy *trasy* ma jego <xref:Microsoft.AspNetCore.Routing.IRouter.GetVirtualPath*> metoda wywoływana w sekwencji, aż do innych niż null <xref:Microsoft.AspNetCore.Routing.VirtualPathData> jest zwracana.
 
-Podstawowy danych wejściowych do `GetVirtualPath` są:
+Podstawowy danych wejściowych do <xref:Microsoft.AspNetCore.Routing.IRouter.GetVirtualPath*> są:
 
-* [VirtualPathContext.HttpContext](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.HttpContext*)
-* [VirtualPathContext.Values](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.Values*)
-* [VirtualPathContext.AmbientValues](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.AmbientValues*)
+* [VirtualPathContext.HttpContext](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.HttpContext)
+* [VirtualPathContext.Values](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.Values)
+* [VirtualPathContext.AmbientValues](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.AmbientValues)
 
-Trasy przede wszystkim używasz wartości trasy, dostarczone przez `Values` i `AmbientValues` zdecydować, czy jest możliwe do generowania adresu URL i wartości, których do uwzględnienia. `AmbientValues` Zestaw wartości trasy, które zostały utworzone z dopasowywania bieżącego żądania. Z kolei `Values` są wartości trasy, które określają sposób generowania żądany adres URL dla bieżącej operacji. `HttpContext` Znajduje się w przypadku, gdy trasa należy pozyskać services lub dodatkowe dane skojarzone z bieżącym kontekstem.
+Trasy przede wszystkim używasz wartości trasy, dostarczone przez <xref:Microsoft.AspNetCore.Routing.VirtualPathContext.Values> i <xref:Microsoft.AspNetCore.Routing.VirtualPathContext.AmbientValues> zdecydować, czy jest możliwe do generowania adresu URL i wartości, których do uwzględnienia. <xref:Microsoft.AspNetCore.Routing.VirtualPathContext.AmbientValues> Zestaw wartości trasy, które zostały utworzone z dopasowywania bieżącego żądania. Z kolei <xref:Microsoft.AspNetCore.Routing.VirtualPathContext.Values> są wartości trasy, które określają sposób generowania żądany adres URL dla bieżącej operacji. <xref:Microsoft.AspNetCore.Routing.VirtualPathContext.HttpContext> Znajduje się w przypadku, gdy trasa należy pozyskać services lub dodatkowe dane skojarzone z bieżącym kontekstem.
 
 > [!TIP]
 > Traktować [VirtualPathContext.Values](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.Values*) jako zbiór zastąpienia [VirtualPathContext.AmbientValues](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.AmbientValues*). Generowanie adresu URL podejmie próbę ponownego użycia wartości tras z bieżącego żądania do generowania adresów URL dla łącza przy użyciu tego samego trasę lub wartości trasy.
 
-Dane wyjściowe `GetVirtualPath` jest `VirtualPathData`. `VirtualPathData` jest równolegle z `RouteData`. `VirtualPathData` zawiera `VirtualPath` dla adresu URL danych wyjściowych i niektóre dodatkowe właściwości, które powinny zostać ustawione przez trasę.
+Dane wyjściowe <xref:Microsoft.AspNetCore.Routing.IRouter.GetVirtualPath*> jest <xref:Microsoft.AspNetCore.Routing.VirtualPathData>. <xref:Microsoft.AspNetCore.Routing.VirtualPathData> jest równolegle z <xref:Microsoft.AspNetCore.Routing.RouteData>. <xref:Microsoft.AspNetCore.Routing.VirtualPathData> zawiera <xref:Microsoft.AspNetCore.Routing.VirtualPathData.VirtualPath> dla adresu URL danych wyjściowych i niektóre dodatkowe właściwości, które powinny zostać ustawione przez trasę.
 
 [VirtualPathData.VirtualPath](xref:Microsoft.AspNetCore.Routing.VirtualPathData.VirtualPath*) właściwość zawiera *ścieżka wirtualna* produkowane przez trasę. W zależności od potrzeb może być konieczne ścieżkę do dalszego przetwarzania. Jeśli chcesz renderować wygenerowany adres URL w formacie HTML, należy poprzedzić ścieżki podstawowej aplikacji.
 
@@ -347,25 +347,25 @@ Dane wyjściowe `GetVirtualPath` jest `VirtualPathData`. `VirtualPathData` jest 
 
 ::: moniker range="< aspnetcore-2.2"
 
-Routing zapewnia <xref:Microsoft.AspNetCore.Routing.Route> klasy jako standardowej implementacji <xref:Microsoft.AspNetCore.Routing.IRouter>. `Route` używa *szablon trasy* Składnia umożliwiająca zdefiniowanie wzorców do dopasowywania ścieżki adresu URL po <xref:Microsoft.AspNetCore.Routing.IRouter.RouteAsync*> jest wywoływana. `Route` używa tego samego szablonu trasy do wygenerowania adresu URL po `GetVirtualPath` jest wywoływana.
+Routing zapewnia <xref:Microsoft.AspNetCore.Routing.Route> klasy jako standardowej implementacji <xref:Microsoft.AspNetCore.Routing.IRouter>. <xref:Microsoft.AspNetCore.Routing.Route> używa *szablon trasy* Składnia umożliwiająca zdefiniowanie wzorców do dopasowywania ścieżki adresu URL po <xref:Microsoft.AspNetCore.Routing.IRouter.RouteAsync*> jest wywoływana. <xref:Microsoft.AspNetCore.Routing.Route> używa tego samego szablonu trasy do wygenerowania adresu URL po <xref:Microsoft.AspNetCore.Routing.IRouter.GetVirtualPath*> jest wywoływana.
 
 ::: moniker-end
 
-Większość aplikacji utworzyć trasy, wywołując <xref:Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions.MapRoute*> lub jednego z podobne metody rozszerzenia zdefiniowane na <xref:Microsoft.AspNetCore.Routing.IRouteBuilder>. Jedną z `IRouteBuilder` metody rozszerzenia Utwórz wystąpienie obiektu <xref:Microsoft.AspNetCore.Routing.Route> i dodać go do kolekcji tras.
+Większość aplikacji utworzyć trasy, wywołując <xref:Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions.MapRoute*> lub jednego z podobne metody rozszerzenia zdefiniowane na <xref:Microsoft.AspNetCore.Routing.IRouteBuilder>. Jedną z <xref:Microsoft.AspNetCore.Routing.IRouteBuilder> metody rozszerzenia Utwórz wystąpienie obiektu <xref:Microsoft.AspNetCore.Routing.Route> i dodać go do kolekcji tras.
 
 ::: moniker range=">= aspnetcore-2.2"
 
-`MapRoute` nie akceptuje parametrów programu obsługi trasy. `MapRoute` tylko dodaje trasy, które są obsługiwane przez <xref:Microsoft.AspNetCore.Routing.RouteBuilder.DefaultHandler*>. Aby dowiedzieć się więcej o trasach na platformie MVC, zobacz <xref:mvc/controllers/routing>.
+<xref:Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions.MapRoute*> nie akceptuje parametrów programu obsługi trasy. <xref:Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions.MapRoute*> tylko dodaje trasy, które są obsługiwane przez <xref:Microsoft.AspNetCore.Routing.RouteBuilder.DefaultHandler*>. Aby dowiedzieć się więcej o trasach na platformie MVC, zobacz <xref:mvc/controllers/routing>.
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.2"
 
-`MapRoute` nie akceptuje parametrów programu obsługi trasy. `MapRoute` tylko dodaje trasy, które są obsługiwane przez <xref:Microsoft.AspNetCore.Routing.RouteBuilder.DefaultHandler*>. Domyślny program obsługi jest `IRouter`, a program obsługi nie może obsłużyć żądania. Na przykład ASP.NET Core MVC jest zazwyczaj skonfigurowany jako domyślny program obsługi, który obsługuje tylko żądania które pasują do dostępnych kontrolerów i akcji. Aby dowiedzieć się więcej o trasach na platformie MVC, zobacz <xref:mvc/controllers/routing>.
+<xref:Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions.MapRoute*> nie akceptuje parametrów programu obsługi trasy. <xref:Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions.MapRoute*> tylko dodaje trasy, które są obsługiwane przez <xref:Microsoft.AspNetCore.Routing.RouteBuilder.DefaultHandler*>. Domyślny program obsługi jest `IRouter`, a program obsługi nie może obsłużyć żądania. Na przykład ASP.NET Core MVC jest zazwyczaj skonfigurowany jako domyślny program obsługi, który obsługuje tylko żądania które pasują do dostępnych kontrolerów i akcji. Aby dowiedzieć się więcej o trasach na platformie MVC, zobacz <xref:mvc/controllers/routing>.
 
 ::: moniker-end
 
-Poniższy przykład kodu jest przykładem `MapRoute` wywołania używany przez typowy definicję trasy ASP.NET Core MVC:
+Poniższy przykład kodu jest przykładem <xref:Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions.MapRoute*> wywołania używany przez typowy definicję trasy ASP.NET Core MVC:
 
 ```csharp
 routes.MapRoute(
@@ -391,9 +391,9 @@ routes.MapRoute(
 
 Ten szablon jest zgodny Ścieżka adresu URL, takich jak `/Products/Details/17` , ale nie `/Products/Details/Apples`. Implementowanie ograniczenia trasy <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> i badać wartości trasy, aby je zweryfikować. W tym przykładzie wartość trasy `id` musi być konwertowany na liczbę całkowitą. Zobacz [odwołanie w przypadku ograniczenia trasy](#route-constraint-reference) objaśnienia dotyczące ograniczenia trasy, dostarczanych przez szablon.
 
-Dodatkowe przeciążenia `MapRoute` akceptowanych wartości `constraints`, `dataTokens`, i `defaults`. Jest typowy tych parametrów do przekazania obiektu anonimowo wpisane, gdzie nazwy właściwości typu anonimowego dopasowania trasy nazwy parametrów.
+Dodatkowe przeciążenia <xref:Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions.MapRoute*> akceptowanych wartości `constraints`, `dataTokens`, i `defaults`. Jest typowy tych parametrów do przekazania obiektu anonimowo wpisane, gdzie nazwy właściwości typu anonimowego dopasowania trasy nazwy parametrów.
 
-Następujące `MapRoute` przykłady tworzą równoważne:
+Następujące <xref:Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions.MapRoute*> przykłady tworzą równoważne:
 
 ```csharp
 routes.MapRoute(
@@ -454,10 +454,10 @@ Powyższy szablon odpowiada Ścieżka adresu URL, takich jak `/en-US/Products/5`
 
 ### <a name="route-class-url-generation"></a>Generowanie adresu URL klasy trasy
 
-`Route` Klasy można również wykonać Generowanie adresu URL, łącząc zestaw wartości trasy przy użyciu szablonu trasy. Jest to logicznie procesu zgodnych ze ścieżką URL.
+<xref:Microsoft.AspNetCore.Routing.Route> Klasy można również wykonać Generowanie adresu URL, łącząc zestaw wartości trasy przy użyciu szablonu trasy. Jest to logicznie procesu zgodnych ze ścieżką URL.
 
 > [!TIP]
-> Aby lepiej zrozumieć Generowanie adresu URL, Wyobraź sobie adresu URL, które chcesz wygenerować, a następnie zastanów się, jak szablon trasy będzie odpowiadać tego adresu URL. Wartości, których będzie generowany? Jest to równoważne nierównej działania Generowanie adresu URL `Route` klasy.
+> Aby lepiej zrozumieć Generowanie adresu URL, Wyobraź sobie adresu URL, które chcesz wygenerować, a następnie zastanów się, jak szablon trasy będzie odpowiadać tego adresu URL. Wartości, których będzie generowany? Jest to równoważne nierównej działania Generowanie adresu URL <xref:Microsoft.AspNetCore.Routing.Route> klasy.
 
 W poniższym przykładzie użyto ogólne domyślnej trasy ASP.NET Core MVC:
 
@@ -514,22 +514,22 @@ Jeśli konfigurujesz jedną trasę wywołać <xref:Microsoft.AspNetCore.Builder.
 
 Framework udostępnia zestaw metod rozszerzenia do tworzenia tras (<xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions>):
 
-* `MapDelete`
-* `MapGet`
-* `MapMiddlewareDelete`
-* `MapMiddlewareGet`
-* `MapMiddlewarePost`
-* `MapMiddlewarePut`
-* `MapMiddlewareRoute`
-* `MapMiddlewareVerb`
-* `MapPost`
-* `MapPut`
-* `MapRoute`
-* `MapVerb`
+* <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapDelete*>
+* <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapGet*>
+* <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapMiddlewareDelete*>
+* <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapMiddlewareGet*>
+* <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapMiddlewarePost*>
+* <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapMiddlewarePut*>
+* <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapMiddlewareRoute*>
+* <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapMiddlewareVerb*>
+* <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapPost*>
+* <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapPut*>
+* <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapRoute*>
+* <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapVerb*>
 
 ::: moniker range="< aspnetcore-2.2"
 
-Niektóre z wymienionych metod, takich jak `MapGet`, wymagają `RequestDelegate`. `RequestDelegate` Służy jako *programu obsługi trasy* gdy trasa odpowiada. Inne metody w tej rodzinie umożliwiają konfigurowanie potoku oprogramowania pośredniczącego do użytku jako program obsługi trasy. Jeśli `Map*` metody nie zaakceptuje program obsługi, takie jak `MapRoute`, używa ona <xref:Microsoft.AspNetCore.Routing.RouteBuilder.DefaultHandler*>.
+Niektóre z wymienionych metod, takich jak <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapGet*>, wymagają <xref:Microsoft.AspNetCore.Http.RequestDelegate>. <xref:Microsoft.AspNetCore.Http.RequestDelegate> Służy jako *programu obsługi trasy* gdy trasa odpowiada. Inne metody w tej rodzinie umożliwiają konfigurowanie potoku oprogramowania pośredniczącego do użytku jako program obsługi trasy. Jeśli `Map*` metody nie zaakceptuje program obsługi, takie jak <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapRoute*>, używa ona <xref:Microsoft.AspNetCore.Routing.RouteBuilder.DefaultHandler*>.
 
 ::: moniker-end
 
@@ -588,7 +588,7 @@ Poniższa tabela przedstawia przykładowe szablony trasy i ich działania.
 Przy użyciu szablonu ogólnie jest najprostszym podejściem do obsługi routingu. Ograniczenia i ustawienia domyślne można również określić poza szablon trasy.
 
 > [!TIP]
-> Włącz [rejestrowania](xref:fundamentals/logging/index) aby zobaczyć, jak wbudowane, takie jak routing implementacji, `Route`, zgodne z żądaniami.
+> Włącz [rejestrowania](xref:fundamentals/logging/index) aby zobaczyć, jak wbudowane, takie jak routing implementacji, <xref:Microsoft.AspNetCore.Routing.Route>, zgodne z żądaniami.
 
 ## <a name="reserved-routing-names"></a>Zastrzeżone nazwy routingu
 
@@ -668,9 +668,9 @@ Aby ograniczyć parametr znany zestaw możliwych wartości, należy użyć wyra�
 
 ## <a name="custom-route-constraints"></a>Ograniczenia trasy niestandardowe
 
-Oprócz ograniczenia wbudowanych trasy, ograniczenia trasy niestandardowe można utworzyć przez zaimplementowanie <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> interfejsu. `IRouteConstraint` Interfejs zawiera jedną metodę `Match`, co powoduje zwrócenie `true` Jeśli ograniczenie jest spełniony i `false` inaczej.
+Oprócz ograniczenia wbudowanych trasy, ograniczenia trasy niestandardowe można utworzyć przez zaimplementowanie <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> interfejsu. <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> Interfejs zawiera jedną metodę `Match`, co powoduje zwrócenie `true` Jeśli ograniczenie jest spełniony i `false` inaczej.
 
-Aby użyć niestandardowego `IRouteConstraint`, typ ograniczenia trasy muszą być zarejestrowane w usłudze aplikacji `RouteOptions.ConstraintMap` w kontenerze usługi aplikacji. A <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap> jest słownik, który mapy trasy klucze ograniczenia do `IRouteConstraint` implementacji, które sprawdzają poprawność tych ograniczeń. Aplikacja `RouteOptions.ConstraintMap` mogą być aktualizowane w `Startup.ConfigureServices` albo w ramach `services.AddRouting` wywołania lub przez skonfigurowanie `RouteOptions` bezpośrednio z `services.Configure<RouteOptions>`. Na przykład:
+Aby użyć niestandardowego <xref:Microsoft.AspNetCore.Routing.IRouteConstraint>, typ ograniczenia trasy muszą być zarejestrowane w usłudze aplikacji <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap> w kontenerze usługi aplikacji. A <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap> jest słownik, który mapy trasy klucze ograniczenia do <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> implementacji, które sprawdzają poprawność tych ograniczeń. Aplikacja <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap> mogą być aktualizowane w `Startup.ConfigureServices` albo w ramach [usług. AddRouting](xref:Microsoft.Extensions.DependencyInjection.RoutingServiceCollectionExtensions.AddRouting*) wywołania lub przez skonfigurowanie <xref:Microsoft.AspNetCore.Routing.RouteOptions> bezpośrednio z `services.Configure<RouteOptions>`. Na przykład:
 
 ```csharp
 services.AddRouting(options =>
@@ -692,7 +692,7 @@ public ActionResult<string> Get(string id)
 
 Parametr transformatory:
 
-* Wykonania podczas generowania łącza dla `Route`.
+* Wykonania podczas generowania łącza dla <xref:Microsoft.AspNetCore.Routing.Route>.
 * Implementowanie `Microsoft.AspNetCore.Routing.IOutboundParameterTransformer`.
 * Zostały skonfigurowane za pomocą <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap>.
 * Pobrać parametru, wartości trasy i przekształć go w nową wartość ciągu.
@@ -734,9 +734,9 @@ Poniższy przykład pokazuje, jak wygenerować łącze do trasy, biorąc pod uwa
 
 [!code-csharp[](routing/samples/2.x/RoutingSample/Startup.cs?name=snippet_Dictionary)]
 
-`VirtualPath` Generowane na końcu poprzedniego przykładowe dane stanowią `/package/create/123`. Słownik dostarcza `operation` i `id` wartości szablonu "Śledzenie trasy pakietu" trasy `package/{operation}/{id}`. Aby uzyskać szczegółowe informacje, zobacz przykładowy kod [użycia routingu w oprogramowaniu pośredniczącym](#use-routing-middleware) sekcji lub [przykładową aplikację](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/routing/samples).
+<xref:Microsoft.AspNetCore.Routing.VirtualPathData.VirtualPath> Generowane na końcu poprzedniego przykładowe dane stanowią `/package/create/123`. Słownik dostarcza `operation` i `id` wartości szablonu "Śledzenie trasy pakietu" trasy `package/{operation}/{id}`. Aby uzyskać szczegółowe informacje, zobacz przykładowy kod [użycia routingu w oprogramowaniu pośredniczącym](#use-routing-middleware) sekcji lub [przykładową aplikację](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/routing/samples).
 
-Drugi parametr `VirtualPathContext` Konstruktor jest kolekcją *otoczenia wartości*. Otoczenia wartości są łatwe w użyciu, ponieważ ich Ogranicz liczbę wartości, które Deweloper należy określić w ramach kontekstu żądania. Bieżące wartości trasy, bieżącego żądania są traktowane jako wartości otoczenia dotyczącymi generowania łączy. W aplikacji ASP.NET Core MVC `About` akcji `HomeController`, nie musisz określić wartość trasy kontrolera, aby połączyć `Index` akcji&mdash;otoczenia wartość `Home` jest używany.
+Drugi parametr <xref:Microsoft.AspNetCore.Routing.VirtualPathContext> Konstruktor jest kolekcją *otoczenia wartości*. Otoczenia wartości są łatwe w użyciu, ponieważ ich Ogranicz liczbę wartości, które Deweloper należy określić w ramach kontekstu żądania. Bieżące wartości trasy, bieżącego żądania są traktowane jako wartości otoczenia dotyczącymi generowania łączy. W aplikacji ASP.NET Core MVC `About` akcji `HomeController`, nie musisz określić wartość trasy kontrolera, aby połączyć `Index` akcji&mdash;otoczenia wartość `Home` jest używany.
 
 Otoczenia wartości, które nie jest zgodny z parametrem są ignorowane. Otoczenia wartości również są ignorowane, gdy jawnie podana jest wartość zastępuje wartość otoczenia. Dopasowywanie występuje od lewej do prawej w adresie URL.
 

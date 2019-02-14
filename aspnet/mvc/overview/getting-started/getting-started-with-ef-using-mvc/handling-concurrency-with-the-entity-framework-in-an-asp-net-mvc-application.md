@@ -4,18 +4,21 @@ title: 'Samouczek: Obsługa współbieżności przy użyciu programu EF w aplika
 description: W tym samouczku pokazano, jak używać optymistycznej współbieżności do obsługi konfliktów, gdy wielu użytkowników aktualizacji tej samej jednostki w tym samym czasie.
 author: tdykstra
 ms.author: riande
-ms.date: 01/21/2019
 ms.topic: tutorial
+ms.date: 01/15/2019
 ms.assetid: be0c098a-1fb2-457e-b815-ddca601afc65
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 2b41b51de5fd6d87b9905ba2bb3ddf7cedb47e69
-ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
+ms.openlocfilehash: b513d7d86d382068bc1a8f1bcc61289ee946d38b
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54889837"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248306"
 ---
+<a name="handling-concurrency-with-the-entity-framework-6-in-an-aspnet-mvc-5-application-10-of-12"></a>Obsługa współbieżności przy użyciu programu Entity Framework 6 w aplikacji ASP.NET MVC 5 (10 12)
+====================
+
 # <a name="tutorial-handle-concurrency-with-ef-in-an-aspnet-mvc-5-app"></a>Samouczek: Obsługa współbieżności przy użyciu programu EF w aplikacji ASP.NET MVC 5
 
 W starszych samouczkach przedstawiono sposób aktualizacji danych. W tym samouczku pokazano, jak używać optymistycznej współbieżności do obsługi konfliktów, gdy wielu użytkowników aktualizacji tej samej jednostki w tym samym czasie. Zmienianie stron sieci web, które działają z `Department` jednostki tak, aby ich obsługi błędów współbieżności. Na poniższych ilustracjach przedstawiono edytowanie i usuwanie stron, w tym niektóre komunikaty, które są wyświetlane, jeśli wystąpi konflikt współbieżności.
@@ -26,12 +29,14 @@ W starszych samouczkach przedstawiono sposób aktualizacji danych. W tym samoucz
 
 W ramach tego samouczka możesz:
 
+
 > [!div class="checklist"]
 > * Dowiedz się więcej o konfliktów współbieżności
 > * Dodaj optymistycznej współbieżności
 > * Modyfikowanie kontrolera działu
 > * Obsługa współbieżności testowych
 > * Aktualizuj stronę Delete
+
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

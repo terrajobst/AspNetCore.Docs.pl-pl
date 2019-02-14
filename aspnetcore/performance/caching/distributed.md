@@ -4,14 +4,14 @@ author: guardrex
 description: Dowiedz się, jak poprawić wydajność aplikacji i skalowalności, szczególnie w środowisku farmy, chmurze i na serwerze za pomocą platformy ASP.NET Core rozproszonej pamięci podręcznej.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/19/2018
+ms.date: 02/13/2019
 uid: performance/caching/distributed
-ms.openlocfilehash: d80cde372535aa04604ce0cd5a731a1448515093
-ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
+ms.openlocfilehash: a157eb075874d2118e3e34b51410b539a1ec37df
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50253011"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248591"
 ---
 # <a name="distributed-caching-in-aspnet-core"></a>Rozproszonej pamięci podręcznej w programie ASP.NET Core
 
@@ -76,7 +76,7 @@ Zarejestruj implementację <xref:Microsoft.Extensions.Caching.Distributed.IDistr
 
 ### <a name="distributed-memory-cache"></a>Rozproszonej pamięci podręcznej
 
-Rozproszonej pamięci podręcznej (<xref:Microsoft.Extensions.DependencyInjection.MemoryCacheServiceCollectionExtensions.AddDistributedMemoryCache*>) to implementacja dostarczone przez framework `IDistributedCache` , elementy są przechowywane w pamięci. Rozproszonej pamięci podręcznej nie jest rzeczywisty rozproszonej pamięci podręcznej. Elementy pamięci podręcznej są przechowywane przez wystąpienie aplikacji na serwerze, na którym działa aplikacja.
+Rozproszonej pamięci podręcznej (<xref:Microsoft.Extensions.DependencyInjection.MemoryCacheServiceCollectionExtensions.AddDistributedMemoryCache*>) to implementacja dostarczone przez framework <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> , elementy są przechowywane w pamięci. Rozproszonej pamięci podręcznej nie jest rzeczywisty rozproszonej pamięci podręcznej. Elementy pamięci podręcznej są przechowywane przez wystąpienie aplikacji na serwerze, na którym działa aplikacja.
 
 Rozproszonej pamięci podręcznej jest przydatne w implementacji:
 
@@ -118,7 +118,7 @@ Table and index were created successfully.
 
 Tabelę utworzoną przez `sql-cache` narzędzie posiada zgodny z następującym schematem:
 
-![Tabeli pamięci podręcznej SqlServer](distributed/_static/SqlServerCacheTable.png)
+![SqlServer Cache Table](distributed/_static/SqlServerCacheTable.png)
 
 > [!NOTE]
 > Aplikacja powinna manipulowania wartości pamięci podręcznej przy użyciu wystąpienia <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache>, a nie <xref:Microsoft.Extensions.Caching.SqlServer.SqlServerCache>.
@@ -149,13 +149,13 @@ Aby zainstalować usługi Redis na maszynie lokalnej:
 
 ## <a name="use-the-distributed-cache"></a>Przy użyciu rozproszonej pamięci podręcznej
 
-Do użycia <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> interfejsu, żądań wystąpienie `IDistributedCache` z dowolnym konstruktora w aplikacji. Wystąpienie jest dostarczany przez [wstrzykiwanie zależności (DI)](xref:fundamentals/dependency-injection).
+Do użycia <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> interfejsu, żądań wystąpienie <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> z dowolnym konstruktora w aplikacji. Wystąpienie jest dostarczany przez [wstrzykiwanie zależności (DI)](xref:fundamentals/dependency-injection).
 
-Po uruchomieniu aplikacji, `IDistributedCache` są wstrzykiwane do `Startup.Configure`. Bieżący czas jest buforowana przy użyciu <xref:Microsoft.AspNetCore.Hosting.IApplicationLifetime> (Aby uzyskać więcej informacji, zobacz [hosta sieci Web: interfejs IApplicationLifetime](xref:fundamentals/host/web-host#iapplicationlifetime-interface)):
+Po uruchomieniu aplikacji, <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> są wstrzykiwane do `Startup.Configure`. Bieżący czas jest buforowana przy użyciu <xref:Microsoft.AspNetCore.Hosting.IApplicationLifetime> (Aby uzyskać więcej informacji, zobacz [hosta sieci Web: Interfejs IApplicationLifetime](xref:fundamentals/host/web-host#iapplicationlifetime-interface)):
 
 [!code-csharp[](distributed/samples/2.x/DistCacheSample/Startup.cs?name=snippet_Configure&highlight=10)]
 
-Przykładowa aplikacja wprowadza `IDistributedCache` do `IndexModel` do użytku przez stronę indeksu.
+Przykładowa aplikacja wprowadza <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> do `IndexModel` do użytku przez stronę indeksu.
 
 Każdym załadowaniu strony indeksu pamięci podręcznej są sprawdzane pod kątem pamięci podręcznej czas w `OnGetAsync`. Jeśli nie upłynął czas pamięci podręcznej, jest wyświetlany czas. Po upływie 20 sekund od czasu ostatniego czasu pamięci podręcznej uzyskano dostęp (ostatni czas, ta strona została załadowana), zostanie wyświetlona strona *upłynął limit czasu pamięci podręcznej*.
 
@@ -164,13 +164,13 @@ Natychmiast zaktualizować pamięci podręcznej czas bieżący czas, wybierając
 [!code-csharp[](distributed/samples/2.x/DistCacheSample/Pages/Index.cshtml.cs?name=snippet_IndexModel&highlight=7,14-20,25-29)]
 
 > [!NOTE]
-> Nie ma potrzeby używania pojedynczego wystąpienia lub polu Okres istnienia `IDistributedCache` wystąpienia (co najmniej wbudowanych implementacji).
+> Nie ma potrzeby używania pojedynczego wystąpienia lub polu Okres istnienia <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> wystąpienia (co najmniej wbudowanych implementacji).
 >
-> Można również utworzyć `IDistributedCache` wystąpienia wszędzie tam, gdzie może być konieczne zamiast DI, ale Tworzenie wystąpienia usługi w kodzie może być trudniejsze do testowania kodu i narusza [jawne zależności zasady](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies).
+> Można również utworzyć <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> wystąpienia wszędzie tam, gdzie może być konieczne zamiast DI, ale Tworzenie wystąpienia usługi w kodzie może być trudniejsze do testowania kodu i narusza [jawne zależności zasady](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies).
 
 ## <a name="recommendations"></a>Zalecenia
 
-Podczas podejmowania decyzji o życie `IDistributedCache` sprawdza się najlepiej w swojej aplikacji, należy wziąć pod uwagę następujące czynności:
+Podczas podejmowania decyzji o życie <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> sprawdza się najlepiej w swojej aplikacji, należy wziąć pod uwagę następujące czynności:
 
 * Istniejącą infrastrukturę
 * Wymagania dotyczące wydajności

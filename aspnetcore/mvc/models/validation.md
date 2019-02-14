@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/14/2019
 uid: mvc/models/validation
-ms.openlocfilehash: 7c8255097dfc72480794930ebe4d6cb568edbd7c
-ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
+ms.openlocfilehash: ca7ee54b8e6b6ae5091b0cb133e448ad9c04da8f
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396197"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248522"
 ---
 # <a name="model-validation-in-aspnet-core-mvc"></a>Weryfikacja modelu w programie ASP.NET Core MVC
 
@@ -151,9 +151,9 @@ W następującym przykładzie reguła biznesowa stwierdzający, że użytkownicy
 
 Gdy użytkownik modyfikuje `Genre` pola, a następnie przesyła formularz, `IsValid` metody `ClassicMovieAttribute` sprawdzi, czy jest klasycznej. Podobnie jak dowolny atrybut wbudowanych, należy zastosować `ClassicMovieAttribute` do właściwości, takie jak `ReleaseDate` aby zapewnić miejsce sprawdzania poprawności, jak pokazano w poprzednim przykładzie kodu. Ponieważ przykład działa tylko w przypadku `Movie` typów, lepszym rozwiązaniem jest użycie `IValidatableObject` jak pokazano w poniższym akapitu.
 
-Alternatywnie można umieścić ten sam kod w modelu implementując `Validate` metody `IValidatableObject` interfejsu. Gdy niestandardowego sprawdzania poprawności atrybutów działa dobrze w przypadku sprawdzania poprawności poszczególnych właściwości, implementowanie `IValidatableObject` może służyć do implementowania weryfikacji na poziomie klasy, jak pokazano tutaj.
+Alternatywnie można umieścić ten sam kod w modelu implementując `Validate` metody `IValidatableObject` interfejsu. Gdy niestandardowego sprawdzania poprawności atrybutów działa dobrze w przypadku sprawdzania poprawności poszczególnych właściwości, implementowanie `IValidatableObject` może służyć do implementowania weryfikacji na poziomie klasy:
 
-[!code-csharp[](validation/sample/MovieIValidatable.cs?name=snippet_Validate)]
+[!code-csharp[](validation/sample/MovieIValidatable.cs?name=snippet&highlight=1,26-34)]
 
 ## <a name="client-side-validation"></a>Weryfikacja po stronie klienta
 

@@ -4,26 +4,36 @@ title: Wyszukiwanie | Dokumentacja firmy Microsoft
 author: Rick-Anderson
 description: ''
 ms.author: riande
-ms.date: 05/22/2015
+ms.date: 01/17/2019
 ms.assetid: df001954-18bf-4550-b03d-43911a0ea186
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-search
 msc.type: authoredcontent
-ms.openlocfilehash: 31fd35ac63f3eb31d824e1710833ad83a0852ac9
-ms.sourcegitcommit: a91e8dd2f4b788114c8bc834507277f4b5e8d6c5
+ms.openlocfilehash: ada125c917656f3a83524ff39e53b4cfc041a497
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55712266"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248384"
 ---
 <a name="search"></a>Wyszukaj
 ====================
-Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 [!INCLUDE [Tutorial Note](sample/code-location.md)]
 
 ## <a name="adding-a-search-method-and-search-view"></a>Dodawanie metody wyszukiwania i widoku wyszukiwania
 
 W tej sekcji dodasz możliwości wyszukiwania do `Index` metody akcji, która umożliwia wyszukiwanie filmów według gatunku lub nazwy.
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+Aby dopasować zrzuty ekranu w tej sekcji, należy do uruchamiania aplikacji (F5) i dodaj następujące filmy w bazie danych.
+
+| Tytuł | Data wydania | Gatunku | Cena |
+| ----- | ------------ | ----- | ----- |
+| Ghostbusters | 6/8/1984 | Dokument | 6.99 |
+| Ghostbusters II | 6/16/1989 | Dokument | 6.99 |
+| Globalnej małpy | 3/27/1986 | Akcja | 5.99 |
+
 
 ## <a name="updating-the-index-form"></a>Aktualizowanie indeksu formularza
 
@@ -68,7 +78,7 @@ Tytuł wyszukiwania można teraz przekazywać jako dane trasy (segment adresu UR
 
 ![](adding-search/_static/image2.png)
 
-Jednak nie można oczekiwać od użytkowników, aby zmodyfikować adres URL, za każdym razem, gdy chcą wyszukiwania filmów. Teraz możesz dodasz interfejs użytkownika, aby pomóc im filtrowanie filmów. Jeśli zmienisz podpis `Index` metodę, aby przetestować sposób przekazywania parametru ID powiązane z tras, zmień ją tak, że Twoje `Index` metoda przyjmuje jako parametr ciągu o nazwie `searchString`:
+Jednak nie można oczekiwać od użytkowników, aby zmodyfikować adres URL, za każdym razem, gdy chcą wyszukiwania filmów. Teraz dodasz interfejs użytkownika, aby pomóc im filtrowanie filmów. Jeśli zmienisz podpis `Index` metodę, aby przetestować sposób przekazywania parametru ID powiązane z tras, zmień ją tak, że Twoje `Index` metoda przyjmuje jako parametr ciągu o nazwie `searchString`:
 
 [!code-csharp[Main](adding-search/samples/sample7.cs)]
 
@@ -120,7 +130,7 @@ Poniższy kod jest zapytanie LINQ, która pobiera wszystkie gatunki z bazy danyc
 
 [!code-csharp[Main](adding-search/samples/sample12.cs)]
 
-Kod używa `AddRange` metody ogólnej `List` kolekcję, aby dodać różne gatunki do listy. (Bez `Distinct` modyfikator, zostaną dodane zduplikowane gatunki — na przykład, zostaną dodane Komedia dwukrotnie w naszym przykładzie). Kod następnie przechowuje listę gatunki w `ViewBag.MovieGenre` obiektu. Przechowywanie danych kategorii (takie gatunku filmu firmy) jako [SelectList](https://msdn.microsoft.cus/library/system.web.mvc.selectlist(v=vs.108).aspx) obiektu `ViewBag`, uzyskiwanie dostępu do danych kategorii, w polu listy rozwijanej jest typowym podejściem dla aplikacji MVC.
+Kod używa `AddRange` metody ogólnej `List` kolekcję, aby dodać różne gatunki do listy. (Bez `Distinct` modyfikator, zostaną dodane zduplikowane gatunki — na przykład, zostaną dodane Komedia dwukrotnie w naszym przykładzie). Kod następnie przechowuje listę gatunki w `ViewBag.MovieGenre` obiektu. Przechowywanie danych kategorii (takie filmu gatunki) jako [SelectList](https://msdn.microsoft.cus/library/system.web.mvc.selectlist(v=vs.108).aspx) obiektu `ViewBag`, uzyskiwanie dostępu do danych kategorii, w polu listy rozwijanej jest typowym podejściem dla aplikacji MVC.
 
 Poniższy kod przedstawia sposób sprawdzić `movieGenre` parametru. Jeśli nie jest pusty, kod dodatkowo ogranicza zapytanie filmy, aby ograniczyć wybranych filmów na określonego rodzaju.
 
