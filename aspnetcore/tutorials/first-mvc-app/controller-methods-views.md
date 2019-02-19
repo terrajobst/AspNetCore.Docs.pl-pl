@@ -5,12 +5,12 @@ description: Dowiedz się, jak pracować z metody kontrolera, widoków i DataAnn
 ms.author: riande
 ms.date: 12/13/2018
 uid: tutorials/first-mvc-app/controller-methods-views
-ms.openlocfilehash: cd1b0f2ccffaa660f137b8d739933e56018f2702
-ms.sourcegitcommit: ec71fd5a988f927ae301813aae5ff764feb3bb6a
+ms.openlocfilehash: 36c8141ba5827366572dabcfd0fdf9600c745706
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54249415"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410524"
 ---
 # <a name="controller-methods-and-views-in-aspnet-core"></a>Metody kontrolera i widoki w programie ASP.NET Core
 
@@ -100,7 +100,7 @@ Zwróć uwagę, drugi `Edit` metody akcji jest poprzedzony `[HttpPost]` atrybutu
 
 [Pomocnik tagu formularza](xref:mvc/views/working-with-forms) generuje ukryte token zabezpieczający przed sfałszowaniem, które muszą być zgodne `[ValidateAntiForgeryToken]` wygenerowany token zabezpieczający przed sfałszowaniem w `Edit` metody kontrolera filmów. Aby uzyskać więcej informacji, zobacz [ochrona przed fałszerstwem żądań](xref:security/anti-request-forgery).
 
-`HttpGet Edit` Metoda przyjmuje filmu `ID` parametru wyszukuje filmu używający narzędzia Entity Framework `SingleOrDefaultAsync` metodę i zwraca wybrany film do widoku edycji. Jeśli nie można odnaleźć filmu, `NotFound` (HTTP 404) jest zwracany.
+`HttpGet Edit` Metoda przyjmuje filmu `ID` parametru wyszukuje filmu używający narzędzia Entity Framework `FindAsync` metodę i zwraca wybrany film do widoku edycji. Jeśli nie można odnaleźć filmu, `NotFound` (HTTP 404) jest zwracany.
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie21/Controllers/MC1.cs?name=snippet_edit1)]
 
@@ -151,7 +151,7 @@ Wszystkie `HttpGet` metodami w kontrolerze filmu wykonaj podobny wzorzec. Staną
 * [Tworzenie pomocników tagów](xref:mvc/views/tag-helpers/authoring)
 * [Ochrona przed fałszerstwem żądań](xref:security/anti-request-forgery)
 * Chroń swoje kontroler z [polegającymi](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application)
-* [Modele widoków](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/)
+* [ViewModels](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/)
 * [Pomocnik tagu formularza](xref:mvc/views/working-with-forms)
 * [Pomocnik tagu wejściowego](xref:mvc/views/working-with-forms)
 * [Pomocnik tagu etykiety](xref:mvc/views/working-with-forms)

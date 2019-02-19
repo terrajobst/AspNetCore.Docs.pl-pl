@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/21/2017
 uid: security/authorization/policies
-ms.openlocfilehash: 937c73c26cd3935c5069d4735e754d1a567f41f4
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.openlocfilehash: be4812487c92a16c44e3983b234bc9e31be65190
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248111"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410392"
 ---
 # <a name="policy-based-authorization-in-aspnet-core"></a>Autoryzacja oparta na zasadach w programie ASP.NET Core
 
@@ -120,7 +120,7 @@ Na przykład poprzedniej `BadgeEntryHandler` można dopasować w następujący s
 
 Na przykład MVC przekazuje wystąpienie [AuthorizationFilterContext](/dotnet/api/?term=AuthorizationFilterContext) w `Resource` właściwości. Ta właściwość zapewnia dostęp do `HttpContext`, `RouteData`, a wszystko inne podany, MVC i stron Razor.
 
-Korzystanie z `Resource` właściwość to struktura określone. Korzystając z informacji w `Resource` właściwość ogranicza zasad autoryzacji do określonej struktury. Należy rzutować `Resource` właściwość za pomocą `as` słowo kluczowe, a następnie potwierdź rzutowanie powiodło się, aby upewnić się, kod nie awarii przy użyciu `InvalidCastException` uruchamiania innych platform:
+Korzystanie z `Resource` właściwość to struktura określone. Korzystając z informacji w `Resource` właściwość ogranicza zasad autoryzacji do określonej struktury. Należy rzutować `Resource` właściwość za pomocą `is` słowo kluczowe, a następnie potwierdź rzutowanie zakończyła się pomyślnie, aby upewnić się, kod nie awarii przy użyciu `InvalidCastException` uruchamiania innych platform:
 
 ```csharp
 // Requires the following import:

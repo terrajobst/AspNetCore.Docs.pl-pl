@@ -1,104 +1,104 @@
 ---
-title: Dojście żądań z kontrolerami w programie ASP.NET MVC Core
+title: Dojście do żądań z kontrolerami platformy ASP.NET Core MVC
 author: ardalis
 description: ''
 ms.author: riande
 ms.date: 07/03/2017
 uid: mvc/controllers/actions
-ms.openlocfilehash: 3f3f565021d484b69401a3e03a2a966c92764a49
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 8289424b3cd3678bea18a25c7850e409795d1577
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36275663"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410442"
 ---
-# <a name="handle-requests-with-controllers-in-aspnet-core-mvc"></a>Dojście żądań z kontrolerami w programie ASP.NET MVC Core
+# <a name="handle-requests-with-controllers-in-aspnet-core-mvc"></a>Dojście do żądań z kontrolerami platformy ASP.NET Core MVC
 
 Przez [Steve Smith](https://ardalis.com/) i [Scott Addie](https://github.com/scottaddie)
 
-Kontrolery, akcje i wyniki akcji są integralną częścią jak deweloperom tworzenie aplikacji korzystających z platformy ASP.NET Core MVC.
+Kontrolerów, akcji i wyników akcji są integralną częścią jak deweloperom tworzyć aplikacje przy użyciu platformy ASP.NET Core MVC.
 
 ## <a name="what-is-a-controller"></a>Co to jest kontrolerem?
 
-Kontroler służy do definiowania i grupy działań. Akcja (lub *metody akcji*) jest metodą na kontrolerze, który obsługuje żądania. Kontrolery logicznie grupują podobnych działań. Ta agregacja akcje umożliwia wspólne zestawy reguł, takich jak routing, buforowanie i autoryzacji, mają być stosowane razem. Żądanie jest mapowane na akcji za pomocą [routingu](xref:mvc/controllers/routing).
+Kontroler jest używany do definiowania i grupy działań. Akcja (lub *metody akcji*) jest metodą na kontrolerze, który obsługuje żądania. Kontrolery logicznie pogrupować podobne działania. Ta agregacja akcje umożliwia wspólne zestawów reguł, takich jak routing, buforowanie i autoryzacji, mają być stosowane zbiorczo. Żądanie jest mapowane na operacje za pomocą [routingu](xref:mvc/controllers/routing).
 
-Według Konwencji klasy kontrolera:
+Zgodnie z Konwencją klas kontrolera:
 * Znajdują się w katalogu głównego projektu na poziomie *kontrolerów* folderu
 * Dziedzicz `Microsoft.AspNetCore.Mvc.Controller`
 
-Kontroler jest tworzone jako wystąpienia klasy co najmniej jeden z następujących warunków jest spełniony:
-* Nazwa klasy jest kończyły się słowem "Controller"
-* Klasa dziedziczy z klasy o nazwie kończyły się słowem "Controller"
+Kontroler jest tworzone jako wystąpienia klasy, co najmniej jeden z następujących warunków jest spełniony:
+* Nazwa klasy jest sufiks "Controller"
+* Klasa dziedziczy z klasy, których nazwa jest sufiks "Controller"
 * Klasa zostanie nadany `[Controller]` atrybutu
 
-Klasa kontrolera nie może mieć skojarzone `[NonController]` atrybutu.
+Klasa kontrolera nie może mieć skojarzoną `[NonController]` atrybutu.
 
-Należy stosować kontrolerów [jawne zależności zasady](http://deviq.com/explicit-dependencies-principle/). Istnieją dwa podejścia do wdrażania tej zasady. Jeśli wiele akcji kontrolera wymagają tej samej usługi, rozważ użycie [iniekcji konstruktora](xref:mvc/controllers/dependency-injection#constructor-injection) żądania tych zależności. Jeśli usługa jest wymagana przez metodę jednej akcji, należy rozważyć użycie [iniekcji akcji](xref:mvc/controllers/dependency-injection#action-injection-with-fromservices) żądania zależności.
+Należy przestrzegać kontrolerów [jawne zależności zasady](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies). Istnieje kilka sposobów implementowania tej zasady. Jeśli wiele akcji kontrolera wymagają tej samej usługi, należy wziąć pod uwagę przy użyciu [iniekcji konstruktora](xref:mvc/controllers/dependency-injection#constructor-injection) do żądania tych zależności. Jeśli usługa jest wymagana przez metodę jedną akcję, należy rozważyć użycie [iniekcji akcji](xref:mvc/controllers/dependency-injection#action-injection-with-fromservices) do żądania z zależności.
 
-W ramach **M**odelu -**V**rzeglądaj -**C**wzorzec ontroller kontrolera jest odpowiedzialny za początkowego przetwarzania żądania i wystąpienia modelu. Ogólnie rzecz biorąc decyzje biznesowe powinny być wykonywane w ramach modelu.
+W ramach **M**odelu -**V**idok -**C**wzorzec ontroller kontrolera jest odpowiedzialny za początkowe przetwarzania żądania i wystąpienia modelu. Ogólnie rzecz biorąc decyzje biznesowe powinny być wykonywane w ramach modelu.
 
-Kontroler ma wynik przetwarzania modelu (jeśli istnieje) i zwraca prawidłowego widoku i jego skojarzony widok danych lub wynik wywołania interfejsu API. Dowiedz się więcej o [Przegląd platformy ASP.NET Core MVC](xref:mvc/overview) i [wprowadzenie do platformy ASP.NET Core MVC i Visual Studio](xref:tutorials/first-mvc-app/start-mvc).
+Kontroler pobiera wynik modelu przetwarzania (jeśli istnieje) i zwraca odpowiedniego widoku i jego skojarzonego widoku danych lub wynik wywołania interfejsu API. Dowiedz się więcej o [omówienie platformy ASP.NET Core MVC](xref:mvc/overview) i [wprowadzenie do ASP.NET Core MVC i programu Visual Studio](xref:tutorials/first-mvc-app/start-mvc).
 
-Jest to kontroler *interfejsu użytkownika na poziomie* abstrakcji. Jego obowiązki jest zapewnienie dane żądania są prawidłowe oraz wybrać, które widoku (lub wynik dla interfejsu API) ma zostać zwrócony. W aplikacjach dobrze factored bezpośrednio nie zawiera danych dostępu lub logikę biznesową. Zamiast tego kontrolera deleguje do obsługi obowiązki tych usług.
+Jest to kontroler *interfejsu użytkownika na poziomie* abstrakcji. Jego obowiązki są aby upewnij się, dane żądania są prawidłowe i wybrać, które widoku (lub wyniku dla interfejsu API) ma zostać zwrócony. W aplikacjach dobrze uwarunkowaną bezpośrednio nie zawiera danych programu access lub logikę biznesową. Zamiast tego kontroler deleguje do usług obsługi obowiązków.
 
 ## <a name="defining-actions"></a>Definiowanie akcji
 
-Metody publiczne na kontrolerze, z wyjątkiem ozdobione `[NonAction]` atrybutu, akcje. Parametry akcjami powiązanych do żądania danych i są weryfikowane przy użyciu [modelu powiązania](xref:mvc/models/model-binding). Weryfikacja modelu występuje wszystko, co jest powiązane z modelu. `ModelState.IsValid` Wartość właściwości wskazuje, czy wiązanie modelu i sprawdzanie poprawności zakończyło się pomyślnie.
+Metody publiczne na kontrolerze, z wyjątkiem ozdobione `[NonAction]` atrybutu, akcji. Parametry na działania są powiązane dane żądania i są weryfikowane przy użyciu [wiązanie modelu](xref:mvc/models/model-binding). Sprawdzanie poprawności modelu występuje wszystko, co jest powiązany z modelu. `ModelState.IsValid` Wartość właściwości wskazuje na to, czy wiązania modelu i sprawdzanie poprawności zakończyło się pomyślnie.
 
-Metody akcji powinna zawierać logikę do mapowania żądania znaczenie biznesowe. Problemy biznesowe zwykle powinny być reprezentowane jako usługi, które kontrolera uzyskuje dostęp do za pośrednictwem [iniekcji zależności](xref:mvc/controllers/dependency-injection). Akcje są mapowane następnie wynik akcji biznesowych do stanu aplikacji.
+Metody akcji powinna zawierać logikę do zamapowania na żądanie na znaczenie biznesowe. Potencjalne problemy biznesowe, zazwyczaj powinna być reprezentowana jako usługi, do których kontroler, który uzyskuje dostęp za pośrednictwem [wstrzykiwanie zależności](xref:mvc/controllers/dependency-injection). Akcje są mapowane następnie wynik monitorowanej akcji biznesowych do stanu aplikacji.
 
-Akcje zwraca niczego, ale często zwrócić wystąpienia `IActionResult` (lub `Task<IActionResult>` dla metod asynchronicznych) daje odpowiedzi. Metoda akcji jest odpowiedzialny za wybranie *jakiego rodzaju odpowiedzi*. Wynik akcji *jest odpowiada*.
+Akcje zwraca niczego, ale często zwrócenia wystąpienia `IActionResult` (lub `Task<IActionResult>` do metod asynchronicznych) daje odpowiedzi. Metoda akcji jest odpowiedzialny za wybranie *jakiego rodzaju odpowiedzi*. Wynik akcji *jest odpowiada*.
 
 ### <a name="controller-helper-methods"></a>Metody pomocnicze kontrolera
 
-Dziedzicz zwykle kontrolery [kontrolera](/dotnet/api/microsoft.aspnetcore.mvc.controller), chociaż nie jest to wymagane. Wyprowadzanie z `Controller` zapewnia dostęp do metody pomocnicze trzy kategorie:
+Dziedzicz zwykle kontrolery [kontrolera](/dotnet/api/microsoft.aspnetcore.mvc.controller), chociaż nie jest to wymagane. Wyprowadzanie z `Controller` zapewnia dostęp do metody pomocnika trzy kategorie:
 
-#### <a name="1-methods-resulting-in-an-empty-response-body"></a>1. Metod co w treści odpowiedzi pusty
+#### <a name="1-methods-resulting-in-an-empty-response-body"></a>1. Metody skutkuje pusta treść odpowiedzi
 
-Nie `Content-Type` nagłówka odpowiedzi HTTP jest uwzględnione, ponieważ treść odpowiedzi nie ma zawartości do opisu.
+Nie `Content-Type` nagłówka odpowiedzi HTTP jest uwzględniona, ponieważ treść odpowiedzi nie ma zawartości, aby opisać.
 
-Istnieją dwa typy wyników w ramach tej kategorii: Przekierowanie i kod stanu HTTP.
+Istnieją dwa typy wyników w ramach tej kategorii: Przekierowania i kod stanu HTTP.
 
 * **Kod stanu HTTP**
 
-    Ten typ zwraca kod stanu HTTP. Kilka metody pomocnicze tego typu są `BadRequest`, `NotFound`, i `Ok`. Na przykład `return BadRequest();` generuje kod stanu 400 podczas wykonywania. Gdy metod, takich jak `BadRequest`, `NotFound`, i `Ok` są przeciążone, już nie kwalifikują się jako obiekty kod stanu HTTP odpowiadające, ponieważ negocjacje zawartości ma miejsce.
+    Ten typ zwracany jest kod stanu HTTP. Kilka metody pomocnika tego typu są `BadRequest`, `NotFound`, i `Ok`. Na przykład `return BadRequest();` generuje kod stanu 400, podczas wykonywania. Gdy metody takie jak `BadRequest`, `NotFound`, i `Ok` są przeciążone, już nie kwalifikują się jako obiektów odpowiadających kod stanu HTTP, ponieważ negocjacje zawartości odbywa się.
 
-* **przekierowania**
+* **Przekierowanie**
 
-    Ten typ zwraca przekierowanie do akcji lub docelowym (przy użyciu `Redirect`, `LocalRedirect`, `RedirectToAction`, lub `RedirectToRoute`). Na przykład `return RedirectToAction("Complete", new {id = 123});` przekierowuje do `Complete`, przekazywanie obiektu anonimowego.
+    Ten typ zwraca przekierowania do akcji lub docelowym (przy użyciu `Redirect`, `LocalRedirect`, `RedirectToAction`, lub `RedirectToRoute`). Na przykład `return RedirectToAction("Complete", new {id = 123});` przekierowuje do `Complete`, przekazując obiektu anonimowego.
 
-    Typ wyniku przekierowania różni się od typu kod stanu HTTP głównie w przypadku dodawania `Location` nagłówka odpowiedzi HTTP.
+    Typ wyniku przekierowania, który różni się od typu kod stanu HTTP, przede wszystkim podczas dodawania `Location` nagłówka odpowiedzi HTTP.
 
-#### <a name="2-methods-resulting-in-a-non-empty-response-body-with-a-predefined-content-type"></a>2. Metod co w treści odpowiedzi pusty z wstępnie zdefiniowany typ zawartości
+#### <a name="2-methods-resulting-in-a-non-empty-response-body-with-a-predefined-content-type"></a>2. Metody skutkuje treści odpowiedzi pusty wstępnie zdefiniowanego typu zawartości
 
-Większość metody pomocnika w tej kategorii obejmują `ContentType` właściwości, dzięki czemu można ustawić `Content-Type` nagłówek odpowiedzi do opisywania treść odpowiedzi.
+Większość metod pomocnika z tej kategorii należą `ContentType` właściwości, co pozwala ustawić `Content-Type` nagłówek odpowiedzi, aby opisać treść odpowiedzi.
 
-Istnieją dwa typy wyników w ramach tej kategorii: [widoku](xref:mvc/views/overview) i [sformatowany odpowiedzi](xref:web-api/advanced/formatting).
+Istnieją dwa typy wyników w ramach tej kategorii: [Widok](xref:mvc/views/overview) i [sformatowane odpowiedzi](xref:web-api/advanced/formatting).
 
 * **Widok**
 
-    Ten typ zwraca widoku, który korzysta z modelu do renderowania elementów HTML. Na przykład `return View(customer);` przekazuje model widoku dla powiązania danych.
+    Ten typ zwraca widok, który korzysta z modelu do renderowania elementów HTML. Na przykład `return View(customer);` przekazuje modelu do widoku dla powiązania danych.
 
-* **Sformatowany odpowiedzi**
+* **Sformatowana odpowiedzi**
 
-    Ten typ zwraca JSON lub podobny format wymiany danych, do reprezentowania obiektu w określonym czasie. Na przykład `return Json(customer);` serializuje podany obiekt do formatu JSON.
+    Ten typ zwraca JSON lub podobny format wymiany danych do reprezentowania obiektu w szczególny sposób. Na przykład `return Json(customer);` serializuje podany obiekt do formatu JSON.
     
-    Inne typowe metody tego typu to `File`, `PhysicalFile`, i `VirtualFile`. Na przykład `return PhysicalFile(customerFilePath, "text/xml");` zwraca opisanego przez plik XML `Content-Type` wartości nagłówka odpowiedzi "text/xml".
+    Inne typowe metody tego typu to `File` i `PhysicalFile`. Na przykład `return PhysicalFile(customerFilePath, "text/xml");` zwraca [PhysicalFileResult](/dotnet/api/microsoft.aspnetcore.mvc.physicalfileresult).
 
-#### <a name="3-methods-resulting-in-a-non-empty-response-body-formatted-in-a-content-type-negotiated-with-the-client"></a>3. Metod co w treści odpowiedzi pusty sformatowane typu zawartości negocjowane z klienta
+#### <a name="3-methods-resulting-in-a-non-empty-response-body-formatted-in-a-content-type-negotiated-with-the-client"></a>3. Metody skutkuje treści odpowiedzi pusty sformatowane typu zawartości negocjowane za pomocą klienta programu
 
-Ta kategoria jest lepiej znane jako **negocjacje zawartości**. [Negocjowanie zawartości](xref:web-api/advanced/formatting#content-negotiation) ma zastosowanie, gdy akcja zwraca [ObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.objectresult) typu lub coś innego niż [IActionResult](/dotnet/api/microsoft.aspnetcore.mvc.iactionresult) implementacji. Akcja, która zwraca niż`IActionResult` implementacji (na przykład `object`) również zwraca odpowiedź sformatowany.
+Ta kategoria jest lepiej znany jako **negocjacje zawartości**. [Negocjowanie zawartości](xref:web-api/advanced/formatting#content-negotiation) ma zastosowanie przy każdym zwraca akcję [ObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.objectresult) typu albo coś innego niż [IActionResult](/dotnet/api/microsoft.aspnetcore.mvc.iactionresult) implementacji. Akcja, która zwraca innej niż`IActionResult` implementacji (na przykład `object`) również zwraca odpowiedź sformatowany.
 
-Niektóre metody pomocnika tego typu obejmują `BadRequest`, `CreatedAtRoute`, i `Ok`. Przykłady te metody `return BadRequest(modelState);`, `return CreatedAtRoute("routename", values, newobject);`, i `return Ok(value);`odpowiednio. Należy pamiętać, że `BadRequest` i `Ok` przeprowadzania negocjacji zawartości tylko wtedy, gdy przekazana wartość; nie przekazano wartość, zamiast tego służą jako typy wyników kod stanu HTTP. `CreatedAtRoute` Metody z drugiej strony, zawsze przeprowadza negocjacje zawartości od momentu jego przeciążenia wszystkie wymagają, aby otrzymać wartość.
+Niektóre metody pomocnika tego typu obejmują `BadRequest`, `CreatedAtRoute`, i `Ok`. Przykłady te metody `return BadRequest(modelState);`, `return CreatedAtRoute("routename", values, newobject);`, i `return Ok(value);`, odpowiednio. Należy pamiętać, że `BadRequest` i `Ok` przeprowadzania negocjacji zawartości tylko wtedy, gdy przekazana wartość; bez przekazywana wartość, zamiast tego służą jako typy wyników kod stanu HTTP. `CreatedAtRoute` Metody, z drugiej strony, zawsze przeprowadza negocjowanie zawartości od momentu jej przeciążeń wszystkie wymagają przekazania wartości.
 
-### <a name="cross-cutting-concerns"></a>Dotyczy kompleksowymi
+### <a name="cross-cutting-concerns"></a>Cross-Cutting Concerns
 
-Aplikacje zazwyczaj współużytkować części przepływu pracy. Przykładami aplikacji, która wymaga uwierzytelnienia do koszyka lub aplikację, która przechowuje dane na kilka stron. Aby wykonać logiki przed lub po metody akcji, należy użyć *filtru*. Przy użyciu [filtry](xref:mvc/controllers/filters) dotyczy kompleksowymi można zmniejszyć duplikatów, umożliwiając wykonaj [zasady nie powtarzaj samodzielnie (BIBUŁĄ)](http://deviq.com/don-t-repeat-yourself/).
+Aplikacje zazwyczaj mają części przepływu pracy. Przykłady obejmują aplikację, która wymaga uwierzytelnienia dostępu do koszyka zakupów lub aplikację, która przechowuje dane na kilka stron. Aby wykonać logikę przed lub po metody akcji, użyj *filtru*. Za pomocą [filtry](xref:mvc/controllers/filters) odciąż przekrojowe zagadnienia może zmniejszyć dublowania.
 
-Najbardziej filtrowanie atrybutów, takich jak `[Authorize]`, można zastosować na poziomie kontrolera lub akcji, w zależności od żądany poziom szczegółowości.
+Najbardziej filtrowanie atrybutów, takich jak `[Authorize]`, można zastosować na poziomie kontroler lub akcję, zależnie od żądanego poziomu szczegółowości.
 
-Obsługa błędów i buforowanie odpowiedzi są często dotyczy kompleksowymi:
+Obsługa błędów i buforowanie odpowiedzi są często odciąż przekrojowe zagadnienia:
    * [Obsługa błędów](xref:mvc/controllers/filters#exception-filters)
    * [Buforowanie odpowiedzi](xref:performance/caching/response)
 
-Wiele problemów kompleksowymi można obsługiwać przy użyciu filtrów lub niestandardowe [oprogramowanie pośredniczące](xref:fundamentals/middleware/index).
+Wiele odciąż przekrojowe zagadnienia można obsługiwać przy użyciu filtrów lub niestandardowe [oprogramowania pośredniczącego](xref:fundamentals/middleware/index).

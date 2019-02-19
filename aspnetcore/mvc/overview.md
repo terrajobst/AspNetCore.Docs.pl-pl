@@ -5,12 +5,12 @@ description: Dowiedz się, jak ASP.NET Core MVC zaawansowaną strukturę do twor
 ms.author: riande
 ms.date: 01/08/2018
 uid: mvc/overview
-ms.openlocfilehash: d2a50e48c20fe69b1fe691bfc9c91a27d4219922
-ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
+ms.openlocfilehash: 205948cb45709b4eb6014aaf4960bf193a20dc30
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41902602"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410313"
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>Omówienie platformy ASP.NET Core MVC
 
@@ -20,13 +20,13 @@ Platforma ASP.NET Core MVC jest zaawansowaną strukturę do tworzenia aplikacji 
 
 ## <a name="what-is-the-mvc-pattern"></a>Co to jest wzorzec MVC?
 
-Wzorzec architektury Model-View-Controller (MVC) dzieli aplikację na trzy główne grupy składników: modeli, widoków i kontrolerów. Ten wzorzec pomaga osiągnąć [separacji](http://deviq.com/separation-of-concerns/). Korzystając z tego wzorca, żądań użytkowników są kierowane do kontrolera, który jest odpowiedzialny za współpracę z modelu, który ma wykonywać akcje użytkownika i/lub pobrać wyniki zapytania. Kontroler wybiera widok, aby wyświetlić użytkownikowi i dostarcza mu żadnych danych modelu, który wymaga.
+Wzorzec architektury Model-View-Controller (MVC) dzieli aplikację na trzy główne grupy składników: Modeli, widoków i kontrolerów. Ten wzorzec pomaga osiągnąć [separacji](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#separation-of-concerns). Korzystając z tego wzorca, żądań użytkowników są kierowane do kontrolera, który jest odpowiedzialny za współpracę z modelu, który ma wykonywać akcje użytkownika i/lub pobrać wyniki zapytania. Kontroler wybiera widok, aby wyświetlić użytkownikowi i dostarcza mu żadnych danych modelu, który wymaga.
 
 Na poniższym diagramie przedstawiono trzy główne składniki i te, które odwołują się inne:
 
 ![Wzorzec MVC](overview/_static/mvc.png)
 
-Ta nakreślenia obowiązki ułatwia skalowanie aplikacji w sensie złożoność, ponieważ jest łatwiejsza do kodu, debugowania i testowania (model, widok lub kontroler) coś, co ma pojedynczego zadania (i następuje [zasady pojedynczej odpowiedzialności ](http://deviq.com/single-responsibility-principle/)). Jest trudniejsze do aktualizacji, testowania i debugowania kodu, obejmującego zależności rozkładają się na dwóch lub więcej z tych trzech obszarów. Na przykład logika interfejsu użytkownika zwykle zmieniać częściej niż logiki biznesowej. Jeśli prezentacji kodu i logiki biznesowej są łączone w pojedynczy obiekt, można zmodyfikować obiekt zawierający logikę biznesową, za każdym razem, gdy interfejs użytkownika zostanie zmieniony. To często wprowadza błędy i wymaga przetestowanie logiki biznesowej po każdej zmianie interfejsu użytkownika minimalnej.
+Ta nakreślenia obowiązki ułatwia skalowanie aplikacji w sensie złożoność, ponieważ jest łatwiejsza do kodu, debugowania i testowania (model, widok lub kontroler) coś, co ma pojedynczego zadania. Jest trudniejsze do aktualizacji, testowania i debugowania kodu, obejmującego zależności rozkładają się na dwóch lub więcej z tych trzech obszarów. Na przykład logika interfejsu użytkownika zwykle zmieniać częściej niż logiki biznesowej. Jeśli prezentacji kodu i logiki biznesowej są łączone w pojedynczy obiekt, można zmodyfikować obiekt zawierający logikę biznesową, za każdym razem, gdy interfejs użytkownika zostanie zmieniony. To często wprowadza błędy i wymaga przetestowanie logiki biznesowej po każdej zmianie interfejsu użytkownika minimalnej.
 
 > [!NOTE]
 > Widok i kontroler zależeć od modelu. Jednak model jest zależna od widoku ani kontrolera. Jest to jedna z najważniejszych korzyści zapewnianych przez oddzielenie. Ta separacja pozwala modelu, który ma być tworzone i testowane na niezależne od wizualnej prezentacji.
@@ -34,9 +34,6 @@ Ta nakreślenia obowiązki ułatwia skalowanie aplikacji w sensie złożoność,
 ### <a name="model-responsibilities"></a>Obowiązki modelu
 
 Modelu w aplikacji MVC reprezentuje stan aplikacji, wszelka logika biznesowa i operacje, które powinny być wykonywane przez nią. Logika biznesowa powinna hermetyzowane w modelu wraz z wszelka logika implementacji na przechowywanie stanu aplikacji. Silnie typizowane widoki zwykle użyć typów ViewModel przeznaczone do wyświetlania danych do wyświetlenia w tym widoku. Kontroler tworzy i wypełnia te wystąpienia ViewModel z modelu.
-
-> [!NOTE]
-> Istnieje wiele sposobów, aby zorganizować modelu w aplikacji, która używa wzorzec architektury MVC. Dowiedz się więcej o niektórych [różne rodzaje typów modeli](http://deviq.com/kinds-of-models/).
 
 ### <a name="view-responsibilities"></a>Wyświetl zakres odpowiedzialności
 
@@ -47,12 +44,12 @@ Widoki są odpowiedzialny za prezentowanie zawartości za pomocą interfejsu uż
 Kontrolery są składnikami, które obsługują interakcję z użytkownikiem, pracy z modelem i ostatecznie wybierają widok do renderowania. W aplikacji MVC widok zawiera tylko informacje; Kontroler obsługuje i reaguje na dane wejściowe użytkownika i interakcji. We wzorcu MVC kontroler jest punktem wejścia początkowej i jest odpowiedzialny za wybranie model, który typy do pracy z i widok do renderowania (dlatego jego nazwa - kontroluje sposób aplikacja reaguje na dane żądanie).
 
 > [!NOTE]
-> Kontrolery nie powinien zbyt skomplikowane, przez zbyt wiele obowiązki. Aby zapobiec staje się zbyt skomplikowana logiką kontrolera, należy użyć [zasady pojedynczej odpowiedzialności](http://deviq.com/single-responsibility-principle/) do wypychania logika biznesowa z kontrolerem z do modelu domeny.
+> Kontrolery nie powinien zbyt skomplikowane, przez zbyt wiele obowiązki. Aby zapobiec logiką kontrolera staje się zbyt skomplikowana, Wypchnij logika biznesowa z kontrolerem z do modelu domeny.
 
 >[!TIP]
-> Jeśli okaże się, że akcje kontrolera często wykonują te same czynności, możesz wykonać [nie powtarzaj samodzielnie zasady](http://deviq.com/don-t-repeat-yourself/) , przenosząc następujące typowe akcje do [filtry](#filters).
+> Jeśli okaże się, że akcje kontrolera często wykonują te same czynności, Przenieś następujące typowe akcje do [filtry](#filters).
 
-## <a name="what-is-aspnet-core-mvc"></a>Co to jest ASP.NET Core MVC
+## <a name="what-is-aspnet-core-mvc"></a>What is ASP.NET Core MVC
 
 Platforma ASP.NET Core MVC jest uproszczone, typu open source, wysoce testowalna presentation framework zoptymalizowana do użytku z platformą ASP.NET Core.
 
@@ -99,7 +96,7 @@ public class ProductsController : Controller
 }
 ```
 
-### <a name="model-binding"></a>Wiązanie modelu
+### <a name="model-binding"></a>Powiązanie modelu
 
 Platforma ASP.NET Core MVC [wiązanie modelu](models/model-binding.md) konwertuje dane z żądania klienta (wartości formularza, danych trasy, parametry ciągu zapytania, nagłówki HTTP) na obiekty, które może obsłużyć kontrolera. Co w efekcie logikę kontrolera nie musi wykonywać pracę ustalenie dane przychodzące żądania; po prostu ma danych jako parametry do jego metod akcji.
 
@@ -146,7 +143,7 @@ Struktura obsługuje sprawdzanie poprawności danych żądania zarówno na klien
 
 ### <a name="dependency-injection"></a>Wstrzykiwanie zależności
 
-Platforma ASP.NET Core ma wbudowaną obsługę [wstrzykiwanie zależności (DI)](../fundamentals/dependency-injection.md). W programie ASP.NET Core MVC [kontrolerów](controllers/dependency-injection.md) można żądania potrzebnych usług za pośrednictwem ich konstruktory, umożliwiając im postępuj zgodnie z [jawne zależności zasady](http://deviq.com/explicit-dependencies-principle/).
+Platforma ASP.NET Core ma wbudowaną obsługę [wstrzykiwanie zależności (DI)](../fundamentals/dependency-injection.md). W programie ASP.NET Core MVC [kontrolerów](controllers/dependency-injection.md) można żądania potrzebnych usług za pośrednictwem ich konstruktory, umożliwiając im postępuj zgodnie z [jawne zależności zasady](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies).
 
 Aplikację można również użyć [wstrzykiwanie zależności w widoku plików](views/dependency-injection.md)przy użyciu `@inject` dyrektywy:
 
@@ -252,8 +249,8 @@ Pomocnicy tagów zapewniają środowisko programistyczne przyjaznego dla kodu HT
 
 [Wyświetlanie składników](views/view-components.md) umożliwiają pakietu logiki renderowania i użyć go ponownie w całej aplikacji. Są one podobne do [widoki częściowe](views/partial.md), ale przy użyciu skojarzonej logiki.
 
-## <a name="compatibility-version"></a>Zgodność wersji
+## <a name="compatibility-version"></a>Wersja zgodności
 
-<xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*> Metody umożliwia aplikacji opcjonalnych lub zrezygnować z potencjalnie przełomowe zmiany zachowania wprowadzonych w programie ASP.NET Core MVC 2.1 lub nowszej.
+Metoda <xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*> umożliwia aplikacji włączenie wykorzystania lub rezygnację ze zmian zachowania wprowadzanych w programie ASP.NET Core MVC w wersji 2.1 lub nowszej, które potencjalnie mogą prowadzić do awarii.
 
 Aby uzyskać więcej informacji, zobacz <xref:mvc/compatibility-version>.

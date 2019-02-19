@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 3626ce834b904db64c1976aefc77dc60a7bfdf1c
-ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
+ms.openlocfilehash: 5e5b9746da9bbc13a147b807aabfd3d9ab90a0ca
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50253172"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410511"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Wstrzykiwanie zależności w programie ASP.NET Core
 
@@ -342,15 +342,15 @@ Następujące dwa dane wyjściowe wyświetla wyniki dwa żądania:
 Operacje kontrolera:
 
 Przejściowy: d233e165-f417-469b-a866-1cf1935d2518  
-Zakres: 5d997e2d-55f5-4a64-8388-51c4e3a1ad19  
-Pojedyncze: 01271bc1-9e31-48e7-8f7c-7261b040ded9  
+O określonym zakresie: 5d997e2d-55f5-4a64-8388-51c4e3a1ad19  
+Singleton: 01271bc1-9e31-48e7-8f7c-7261b040ded9  
 Wystąpienie: 00000000-0000-0000-0000-000000000000
 
 `OperationService` operacje:
 
-Przejściowy: c6b049eb-1318-4e31-90f1-eb2dd849ff64  
-Zakres: 5d997e2d-55f5-4a64-8388-51c4e3a1ad19  
-Pojedyncze: 01271bc1-9e31-48e7-8f7c-7261b040ded9  
+Transient: c6b049eb-1318-4e31-90f1-eb2dd849ff64  
+O określonym zakresie: 5d997e2d-55f5-4a64-8388-51c4e3a1ad19  
+Singleton: 01271bc1-9e31-48e7-8f7c-7261b040ded9  
 Wystąpienie: 00000000-0000-0000-0000-000000000000
 
 **Drugie żądanie:**
@@ -358,15 +358,15 @@ Wystąpienie: 00000000-0000-0000-0000-000000000000
 Operacje kontrolera:
 
 Przejściowy: b63bd538-0a37-4ff1-90ba-081c5138dda0  
-Zakres: 31e820c5-4834-4d22-83fc-a60118acb9f4  
-Pojedyncze: 01271bc1-9e31-48e7-8f7c-7261b040ded9  
+O określonym zakresie: 31e820c5-4834-4d22-83fc-a60118acb9f4  
+Singleton: 01271bc1-9e31-48e7-8f7c-7261b040ded9  
 Wystąpienie: 00000000-0000-0000-0000-000000000000
 
 `OperationService` operacje:
 
 Przejściowy: c4cbacb8-36a2-436d-81c8-8c1b78808aaf  
-Zakres: 31e820c5-4834-4d22-83fc-a60118acb9f4  
-Pojedyncze: 01271bc1-9e31-48e7-8f7c-7261b040ded9  
+O określonym zakresie: 31e820c5-4834-4d22-83fc-a60118acb9f4  
+Singleton: 01271bc1-9e31-48e7-8f7c-7261b040ded9  
 Wystąpienie: 00000000-0000-0000-0000-000000000000
 
 Sprawdź, które `OperationId` wartości różnią się w ramach żądania i między żądaniami:
@@ -437,10 +437,9 @@ Ogólnie rzecz biorąc aplikacja nie należy bezpośrednio używać tych właśc
 Najlepsze rozwiązania są:
 
 * Projektowanie usług na potrzeby uzyskiwania ich zależności iniekcji zależności.
-* Uniknąć wywołania metody statycznej, stanowe (rozwiązaniem, znane jako [statyczne przylepna](https://deviq.com/static-cling/)).
+* Należy unikać wywołania metody statycznej, stanowe.
 * Należy unikać bezpośredniego wystąpienia klas zależnych w ramach usług. Bezpośrednie utworzenie wystąpienia couples kod do konkretnej implementacji.
-
-Postępując zgodnie z [stałych zasad z zorientowanej na projekt obiektu](https://deviq.com/solid/), klasy aplikacji naturalnie zwykle małe, dobrze uwarunkowaną i łatwo przetestowane.
+* Małe, dobrze uwarunkowaną i łatwo przetestowane, należy utworzyć klasy aplikacji.
 
 Jeśli klasa ma zbyt wiele zależności wprowadzonego, zwykle jest to znak, że klasa ma zbyt wiele obowiązki i narusza [pojedynczej odpowiedzialności zasady (SRP)](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#single-responsibility). Próba Refaktoryzuj klasy przez przeniesienie niektórych jego obowiązki do nowej klasy. Należy pamiętać, który stron Razor strony modelu klasy i klas kontrolera MVC należy skoncentrować się na kwestie interfejsu użytkownika. Business reguł oraz danych dostęp do szczegółów implementacji powinny być przechowywane w odpowiednich do tych klas [oddzielić wątpliwości](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#separation-of-concerns).
 
@@ -488,7 +487,7 @@ Kontener Wbudowane usługi jest przeznaczona do potrzebami ramach i większość
 * Zarządzanie okresem istnienia niestandardowe
 * `Func<T>` Obsługa inicjowania z opóźnieniem
 
-Zobacz [pliku readme.md wstrzykiwanie zależności](https://github.com/aspnet/DependencyInjection#using-other-containers-with-microsoftextensionsdependencyinjection) listę niektórych kontenerów, które obsługują kart.
+Zobacz [pliku readme.md wstrzykiwanie zależności](https://github.com/aspnet/Extensions/tree/master/src/DependencyInjection) listę niektórych kontenerów, które obsługują kart.
 
 Poniższy przykład zastępuje wbudowanych kontenerów za pomocą [Autofac](https://autofac.org/):
 
@@ -563,5 +562,4 @@ DI jest *alternatywnych* do wzorce dostępu i statyczne/globalne obiektu. Nie mo
 * [Projekt aplikacji zarządzanych przez kontener, Prelude: Gdzie jest należą kontenera?](https://blogs.msdn.microsoft.com/nblumhardt/2008/12/26/container-managed-application-design-prelude-where-does-the-container-belong/)
 * [Zasada jawne zależności](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies)
 * [Inwersja kontroli kontenerów i wzorzec wstrzykiwanie zależności (Martina Fowlera)](https://www.martinfowler.com/articles/injection.html)
-* [Nowością jest pośredniczącego ("klejenie" kod do konkretnej implementacji)](https://ardalis.com/new-is-glue)
 * [Jak zarejestrować usługi z wieloma interfejsami w programie ASP.NET Core DI](https://andrewlock.net/how-to-register-a-service-with-multiple-interfaces-for-in-asp-net-core-di/)

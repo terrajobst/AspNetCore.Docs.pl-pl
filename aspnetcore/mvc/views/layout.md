@@ -5,12 +5,12 @@ description: Dowiedz się, jak używać typowych układów, udostępnianie dyrek
 ms.author: riande
 ms.date: 10/18/2018
 uid: mvc/views/layout
-ms.openlocfilehash: b23fd4e0b1d91a4dd5aae548aa2b2081aa37a561
-ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
+ms.openlocfilehash: 1bd225c804b333efea834a46b7d9ba46b1bb69d8
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49391300"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410576"
 ---
 # <a name="layout-in-aspnet-core"></a>Układ w programie ASP.NET Core
 
@@ -22,7 +22,7 @@ Widoki i strony często Udostępnianie elementów wizualnych i programowe. W tym
 * Udostępnij dyrektywy.
 * Uruchom wspólny kod przed przystąpieniem do renderowania stron lub widoków.
 
-W tym dokumencie omówiono układów dla dwa różne podejścia do platformy ASP.NET Core MVC: stronami Razor i kontrolery, za pomocą widoków. W tym temacie różnice są minimalne:
+W tym dokumencie omówiono układów dla dwa różne podejścia do platformy ASP.NET Core MVC: Strony razor i kontrolery, za pomocą widoków. W tym temacie różnice są minimalne:
 
 * Strony razor znajdują się w *stron* folderu.
 * Kontrolery używa widoków *widoków* folderu dla widoków.
@@ -33,7 +33,7 @@ Większość aplikacji sieci web ma typowe układ, który zapewnia spójne środ
 
 ![Przykładowy układ strony](layout/_static/page-layout.png)
 
-Wspólnej struktury kodu HTML, takie jak skrypty i arkusze stylów również często są używane przez wielu stronach w obrębie aplikacji. Wszystkie te elementy udostępnione może być zdefiniowana w *układ* pliku, który można odwoływać się do dowolnego widoku używany w aplikacji. Układy zmniejszyć kodu zduplikowanego w widokach, pomagając im wykonaj [zasady nie Powtórz samodzielnie (PRÓBNEGO)](http://deviq.com/don-t-repeat-yourself/).
+Wspólnej struktury kodu HTML, takie jak skrypty i arkusze stylów również często są używane przez wielu stronach w obrębie aplikacji. Wszystkie te elementy udostępnione może być zdefiniowana w *układ* pliku, który można odwoływać się do dowolnego widoku używany w aplikacji. Układy zmniejszenie kodu zduplikowanego w widokach.
 
 Zgodnie z Konwencją, nosi nazwę domyślny układ dla aplikacji ASP.NET Core *_Layout.cshtml*. Plik układu dla nowych projektów ASP.NET Core utworzona przy użyciu szablonów:
 

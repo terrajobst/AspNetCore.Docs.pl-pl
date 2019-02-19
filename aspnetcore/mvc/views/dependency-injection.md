@@ -5,18 +5,18 @@ description: Dowiedz się, jak platforma ASP.NET Core obsługuje wstrzykiwanie z
 ms.author: riande
 ms.date: 10/14/2016
 uid: mvc/views/dependency-injection
-ms.openlocfilehash: 9b437d27a8d391db4533596674d144628a0c10b1
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: dfadafe9ebb5799b45ef68653f20c5fc1a2506b5
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207065"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410563"
 ---
 # <a name="dependency-injection-into-views-in-aspnet-core"></a>Wstrzykiwanie zależności do widoków w programie ASP.NET Core
 
 Przez [Steve Smith](https://ardalis.com/)
 
-Obsługuje platformy ASP.NET Core [wstrzykiwanie zależności](xref:fundamentals/dependency-injection) do widoków. Może to być przydatne w przypadku usługi specyficzne dla widoku, takie jak lokalizacja lub wymagane tylko w przypadku wypełnianie elementy widoku danych. Należy starać się utrzymać [separacji](http://deviq.com/separation-of-concerns/) między widoków i kontrolerów. Większość danych, których wyświetlanie widoków powinien być przekazywany w z kontrolera.
+Obsługuje platformy ASP.NET Core [wstrzykiwanie zależności](xref:fundamentals/dependency-injection) do widoków. Może to być przydatne w przypadku usługi specyficzne dla widoku, takie jak lokalizacja lub wymagane tylko w przypadku wypełnianie elementy widoku danych. Należy starać się utrzymać [separacji](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#separation-of-concerns) między widoków i kontrolerów. Większość danych, których wyświetlanie widoków powinien być przekazywany w z kontrolera.
 
 [Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/dependency-injection/sample) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
@@ -81,4 +81,4 @@ Jeśli chcesz rozszerzyć istniejące usługi, możesz po prostu użyć tej tech
 
 ## <a name="see-also"></a>Zobacz też
 
-* Simon Timms Blog: [pobierania danych wyszukiwania do widoku](http://blog.simontimms.com/2015/06/09/getting-lookup-data-into-you-view/)
+* Simon Timms Blog: [Pobieranie danych wyszukiwania do widoku](http://blog.simontimms.com/2015/06/09/getting-lookup-data-into-you-view/)

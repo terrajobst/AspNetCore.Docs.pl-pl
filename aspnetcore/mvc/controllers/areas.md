@@ -5,12 +5,12 @@ description: Dowiedz się, jak obszary są funkcją programu ASP.NET MVC, używa
 ms.author: riande
 ms.date: 02/14/2017
 uid: mvc/controllers/areas
-ms.openlocfilehash: b78bb5146f1ab9039fa9ff015471654510718ed6
-ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
+ms.openlocfilehash: 19e818fa198936ea1bee0da8039e88a3c0abbf6b
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43312221"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410615"
 ---
 # <a name="areas-in-aspnet-core"></a>Obszary w programie ASP.NET Core
 
@@ -38,40 +38,24 @@ Funkcje obszaru:
 
 * Obszary obsługuje wiele kontrolerów o takiej samej nazwie, tak długo, jak długo mają różne *obszarów*.
 
-Spójrzmy na przykład aby zilustrować, jak obszary są tworzone i używane. Załóżmy, że masz aplikację ze sklepu, która ma dwa oddzielne grupy widoków i kontrolerów: produktów i usług. Typowy folder struktury dla, że przy użyciu obszarów MVC wygląda jak poniżej:
+Spójrzmy na przykład aby zilustrować, jak obszary są tworzone i używane. Załóżmy, że masz aplikację ze sklepu, która ma dwa oddzielne grupy widoków i kontrolerów: Produkty i usługi. Typowy folder struktury dla, że przy użyciu obszarów MVC wygląda jak poniżej:
 
-* Nazwa projektu
-
+* Project name (Nazwa projektu)
   * Obszary
-
     * Produkty
-
       * Kontrolery
-
         * HomeController.cs
-
         * ManageController.cs
-
       * Widoki
-
         * Home
-
           * Index.cshtml
-
         * Zarządzanie
-
           * Index.cshtml
-
     * Usługi
-
       * Kontrolery
-
         * HomeController.cs
-
       * Widoki
-
         * Home
-
           * Index.cshtml
 
 Gdy do renderowania widoku w obszarze domyślnie podejmie próbę MVC, próbuje Szukaj w następujących lokalizacjach:

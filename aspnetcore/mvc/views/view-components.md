@@ -5,12 +5,12 @@ description: Dowiedz się, jak składniki widoków są używane w programie ASP.
 ms.author: riande
 ms.date: 1/30/2019
 uid: mvc/views/view-components
-ms.openlocfilehash: d0e528fcf9e20afee98e74fbc09c67b81e123e95
-ms.sourcegitcommit: d22b3c23c45a076c4f394a70b1c8df2fbcdf656d
+ms.openlocfilehash: d979c9480f7bffff993f0ea526bdc231b940baa2
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55428398"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410485"
 ---
 # <a name="view-components-in-aspnet-core"></a>Składniki widoków w programie ASP.NET Core
 
@@ -240,7 +240,7 @@ Jeśli nie jest renderowany widok PVC, sprawdź, czy są wywoływania składnika
 
 ![Dane wyjściowe zadań do wykonania, przy użyciu widoku składnika współużytkowanego](view-components/_static/shared.png)
 
-### <a name="avoiding-magic-strings"></a>Unikanie magic ciągów
+### <a name="avoiding-hard-coded-strings"></a>Unikanie zakodowane sprzętowo ciągi
 
 Jeśli chcesz skompilować bezpieczeństwa czasu, można zastąpić nazwy składnika ustaloną widoku nazwą klasy. Utwórz składnik widoku bez sufiksu "ViewComponent":
 

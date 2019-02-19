@@ -5,14 +5,14 @@ description: Dowiedz się, jak poprawić aplikacji ASP.NET Core z zestawu zewnę
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 11/22/2018
+ms.date: 02/14/2019
 uid: fundamentals/configuration/platform-specific-configuration
-ms.openlocfilehash: cf7114698635ab2d61fa19eb15b6a8c61a751e5b
-ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
+ms.openlocfilehash: cffad201c84414ee4788877d80d3619a9013ae99
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284724"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410498"
 ---
 # <a name="use-hosting-startup-assemblies-in-aspnet-core"></a>Korzystanie z obsługi zestawów uruchamiania w programie ASP.NET Core
 
@@ -82,7 +82,7 @@ Można podać hostingu ulepszenie uruchamiania w bibliotece klas. Biblioteka zaw
 * Zawiera klasę uruchomienia hostingu `ServiceKeyInjection`, który implementuje `IHostingStartup`. `ServiceKeyInjection` Dodaje parę ciągów usługi konfiguracji aplikacji przy użyciu dostawcy konfiguracji w pamięci ([AddInMemoryCollection](/dotnet/api/microsoft.extensions.configuration.memoryconfigurationbuilderextensions.addinmemorycollection)).
 * Obejmuje `HostingStartup` atrybut, który identyfikuje przestrzeni nazw i klasy uruchomienia hostingu.
 
-`ServiceKeyInjection` Klasy [Konfiguruj](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup.configure) metoda używa [IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder) na dodawanie rozszerzeń do aplikacji. `IHostingStartup.Configure` w hostingu uruchamiania zestawu jest wywoływana przez środowisko wykonawcze przed `Startup.Configure` w kodzie użytkownika, co pozwala kod użytkownika zastąpić żadnej konfiguracji zawartym w zestawie hostingu uruchamiania.
+`ServiceKeyInjection` Klasy [Konfiguruj](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup.configure) metoda używa [IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder) na dodawanie rozszerzeń do aplikacji.
 
 *HostingStartupLibrary/ServiceKeyInjection.cs*:
 
@@ -146,6 +146,46 @@ Podczas kompilowania `IHostingStartup` projektu pliku zależności (*\*. deps.js
 [!code-json[](platform-specific-configuration/samples-snapshot/2.x/StartupEnhancement1.deps.json?range=2-13&highlight=8)]
 
 Jest wyświetlana tylko część pliku. Nazwa zestawu w przykładzie jest `StartupEnhancement`.
+
+## <a name="configuration-provided-by-the-hosting-startup"></a>Konfiguracja podawana przez uruchomienia hostingu
+
+Dostępne są dwie opcje do obsługi konfiguracji w zależności od tego, czy chcesz, aby konfiguracji uruchamiania hostingu pierwszeństwo lub konfigurację aplikacji pierwszeństwo:
+
+1. Informacje konfiguracyjne do aplikacji przy użyciu <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder.ConfigureAppConfiguration*> można załadować konfiguracji po jej <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder.ConfigureAppConfiguration*> wykonania delegatów. Hostingu konfiguracji uruchamiania ma priorytet wyższy niż konfiguracji aplikacji przy użyciu tej metody.
+1. Informacje konfiguracyjne do aplikacji przy użyciu <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> można załadować konfiguracji przed jej <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder.ConfigureAppConfiguration*> wykonania delegatów. Wartości konfiguracji aplikacji mają większy priorytet niż udostępnianych przez hostingu startowe, użycie tej metody.
+
+```csharp
+public class ConfigurationInjection : IHostingStartup
+{
+    public void Configure(IWebHostBuilder builder)
+    {
+        Dictionary<string, string> dict;
+
+        builder.ConfigureAppConfiguration(config =>
+        {
+            dict = new Dictionary<string, string>
+            {
+                {"ConfigurationKey1", 
+                    "From IHostingStartup: Higher priority than the app's configuration."},
+            };
+
+            config.AddInMemoryCollection(dict);
+        });
+
+        dict = new Dictionary<string, string>
+        {
+            {"ConfigurationKey2", 
+                "From IHostingStartup: Lower priority than the app's configuration."},
+        };
+
+        var builtConfig = new ConfigurationBuilder()
+            .AddInMemoryCollection(dict)
+            .Build();
+
+        builder.UseConfiguration(builtConfig);
+    }
+}
+```
 
 ## <a name="specify-the-hosting-startup-assembly"></a>Określ hostingu zestawu startowego
 

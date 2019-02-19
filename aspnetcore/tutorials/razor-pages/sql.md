@@ -2,16 +2,15 @@
 title: Praca z bazy danych i ASP.NET Core
 author: rick-anderson
 description: W tym artykule wyjaśniono, pracy z bazą danych i ASP.NET Core.
-monikerRange: '>= aspnetcore-2.2'
 ms.author: riande
 ms.date: 12/07/2017
 uid: tutorials/razor-pages/sql
-ms.openlocfilehash: 817102a7b89ef4f078d7d0a0bf03ba7cb2745a5d
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 3e05f5dbc73c35f1f938346b2eaab8c0fa7d8ab9
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861280"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410300"
 ---
 # <a name="work-with-a-database-and-aspnet-core"></a>Praca z bazy danych i ASP.NET Core
 
@@ -133,7 +132,7 @@ Poniższy kod przedstawia zaktualizowanego *Program.cs* pliku.
 
 Nie może wywołać aplikacji produkcyjnej `Database.Migrate`. Jest ona dodawana do poprzedniego kodu, aby zapobiec następujący wyjątek podczas `Update-Database` nie zostały uruchomione:
 
-Sqlexception —: Nie można otworzyć bazy danych "RazorPagesMovieContext-21" żądanego podczas logowania. Logowanie nie powiodło się.
+SqlException: Nie można otworzyć bazy danych "RazorPagesMovieContext-21" żądanego podczas logowania. Logowanie nie powiodło się.
 Nie można zalogować użytkownika "Nazwa użytkownika".
 
 ### <a name="test-the-app"></a>Testowanie aplikacji
@@ -179,5 +178,5 @@ Aplikacja przedstawiono wprowadzonych danych:
 Następny samouczek spowoduje oczyszczenie prezentacji danych.
 
 > [!div class="step-by-step"]
-> [Poprzedni: Działanie stron Razor](xref:tutorials/razor-pages/page)
-> [dalej: aktualizowanie stron](xref:tutorials/razor-pages/da1)
+> [Poprzednie: Działanie stron Razor](xref:tutorials/razor-pages/page)
+> [dalej: Aktualizowanie stron](xref:tutorials/razor-pages/da1)

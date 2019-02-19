@@ -5,12 +5,12 @@ description: Dowiedz się, jak kontrolerów platformy ASP.NET Core MVC zażąda�
 ms.author: riande
 ms.date: 10/14/2016
 uid: mvc/controllers/dependency-injection
-ms.openlocfilehash: 12247dbbbb6de3f8feb7bc37caec4ecf4bd21719
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 9d9d0a68927da62fad8df72c868eaf4b8ada440d
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50206345"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410274"
 ---
 # <a name="dependency-injection-into-controllers-in-aspnet-core"></a>Wstrzykiwanie zależności do kontrolerów w programie ASP.NET Core
 
@@ -24,7 +24,7 @@ Kontrolerów MVC platformy ASP.NET Core powinien zażądać ich zależności, kt
 
 ## <a name="dependency-injection"></a>Wstrzykiwanie zależności
 
-Wstrzykiwanie zależności jest techniką, która następuje po [zasady odwrócenie zależności](http://deviq.com/dependency-inversion-principle/), dzięki czemu aplikacje mogą się składać z luźno powiązanych modułów. Platforma ASP.NET Core ma wbudowaną obsługę [wstrzykiwanie zależności](../../fundamentals/dependency-injection.md), która ułatwia aplikacji do testowania i obsługi.
+Platforma ASP.NET Core ma wbudowaną obsługę [wstrzykiwanie zależności](../../fundamentals/dependency-injection.md), która ułatwia aplikacji do testowania i obsługi.
 
 ## <a name="constructor-injection"></a>Iniekcji konstruktora
 
@@ -63,7 +63,7 @@ Po skonfigurowaniu usługi działania aplikacji i przejdź do strony głównej p
 ![Powitanie serwera](dependency-injection/_static/server-greeting.png)
 
 >[!TIP]
-> Zobacz [logikę kontrolera testu](testing.md) informacje na temat jawne żądanie zależności [ http://deviq.com/explicit-dependencies-principle/ ](http://deviq.com/explicit-dependencies-principle/) kontrolery ułatwia kodu do przetestowania.
+> Zobacz [logikę kontrolera testu](testing.md) dowiesz się, jak ułatwiają kodu do przetestowania przez jawne żądanie zależności w kontrolerach.
 
 Wstrzykiwanie zależności wbudowanych w platformy ASP.NET Core obsługuje posiadanie tylko jednego konstruktora dla klas żądania usługi. Jeśli masz więcej niż jeden konstruktor, może wystąpić wyjątek z informacją:
 
@@ -101,4 +101,4 @@ Po określeniu obiektu silnie typizowane konfiguracji (w tym przypadku `SampleWe
 
 [!code-csharp[](./dependency-injection/sample/src/ControllerDI/Controllers/SettingsController.cs?highlight=3,5,7&range=7-22)]
 
-Wzorzec opcje umożliwia ustawienia i konfigurację być całkowicie niezależni od siebie nawzajem i zapewnia obserwowanych kontrolera [separacji](http://deviq.com/separation-of-concerns/), ponieważ nie musi wiedzieć, jak i gdzie można znaleźć ustawienia informacje. On również ułatwia kontrolera testu jednostkowego [logikę kontrolera testu](testing.md), ponieważ istnieje nie [statyczne przylepna](http://deviq.com/static-cling/) lub bezpośrednie wystąpienia klasy ustawienia w obrębie klasy kontrolera.
+Wzorzec opcje umożliwia ustawienia i konfigurację być całkowicie niezależni od siebie nawzajem i zapewnia obserwowanych kontrolera [separacji](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#separation-of-concerns), ponieważ nie musi wiedzieć, jak i gdzie można znaleźć ustawienia informacje. Zapewnia także kontrolera łatwiej [testu jednostkowego](testing.md), ponieważ nie istnieje żadne bezpośrednie wystąpienia ustawienia klas w obrębie klasy kontrolera.

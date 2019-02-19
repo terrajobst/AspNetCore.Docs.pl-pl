@@ -8,12 +8,12 @@ ms.date: 10/11/2018
 ms.assetid: f79fbf7f-59e5-4279-a832-c1a0294630f4
 msc.legacyurl: /mvc/mvc5
 msc.type: content
-ms.openlocfilehash: c958d39c7eff0d581de6b05890b8e6df8bdb5207
-ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
+ms.openlocfilehash: 14fcf863a4ef5f6c9180cdf9e7b632ccdb1ebcb0
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49348263"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410472"
 ---
 <a name="aspnet-mvc-5"></a>ASP.NET MVC 5
 ====================
@@ -29,7 +29,7 @@ Aby uzyskać informacje na temat uaktualniania projektów MVC 4 do MVC 5, zobacz
 
 Szablony projektów MVC zostały zaktualizowane do użycia produktu ASP.NET Identity do uwierzytelniania i zarządzania tożsamościami. Samouczek uwierzytelniania serwisu Facebook i firmą Google i nowego członkostwa interfejsu API, można znaleźć w folderze [tworzenie aplikacji platformy ASP.NET MVC 5 za pomocą usługi Facebook i Google OAuth2 i OpenID logowanie jednokrotne](overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md) i [wdrażanie aplikacji platformy ASP.NET MVC Secure z Członkostwa, uwierzytelnianiem OAuth i bazy danych SQL do witryny sieci Web platformy Azure Windows](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data).
 
-### <a name="bootstrap"></a>Usługa ładowania początkowego
+### <a name="bootstrap"></a>Bootstrap
 
 Szablon projektu MVC została zaktualizowana w celu użycia [Bootstrap](http://getbootstrap.com/) zapewnienie elegancki i elastyczny wyglądu i działania, można łatwo dostosować. Aby uzyskać więcej informacji, zobacz [Bootstrap w szablonach projektu sieci web programu Visual Studio](../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#bootstrap).
 
@@ -43,7 +43,7 @@ Możesz teraz zastąpić, które filtry mają zastosowanie do metody danej akcji
 
 ### <a name="attribute-routing"></a>Routing atrybutów
 
-ASP.NET MVC obsługuje teraz [trasowanie atrybutów](https://blogs.msdn.com/b/webdev/archive/2013/10/17/attribute-routing-in-asp-net-mvc-5.aspx), dzięki udział Tim McCall, Autor [ http://attributerouting.net ](http://attributerouting.net). Z routingiem atrybutów można określić trasy, dodawanie adnotacji do Twojej akcji i kontrolerów.
+ASP.NET MVC obsługuje teraz [trasowanie atrybutów](https://blogs.msdn.com/b/webdev/archive/2013/10/17/attribute-routing-in-asp-net-mvc-5.aspx), dzięki udział Tim McCall, Autor [AttributeRouting](https://github.com/mccalltd/AttributeRouting). Z routingiem atrybutów można określić trasy, dodawanie adnotacji do Twojej akcji i kontrolerów.
 
 ## <a name="new-web-project-experience"></a>Nowe środowisko projektu sieci Web
 

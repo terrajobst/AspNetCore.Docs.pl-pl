@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 12/18/2018
 uid: aspnetcore-2.2
-ms.openlocfilehash: b8279588e674e3ada486f61bac2c216f1359e86d
-ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
+ms.openlocfilehash: 6dcdf71ec5271690718dd1fe750a9a74d498a0f8
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54444392"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410339"
 ---
 # <a name="whats-new-in-aspnet-core-22"></a>What's new in ASP.NET Core 2.2
 
@@ -29,7 +29,7 @@ Aby uzyskać więcej informacji, zobacz następujące zasoby:
 
 ## <a name="problem-details-support"></a>Obsługuje szczegóły problemu
 
-Platforma ASP.NET Core 2.1 wprowadzono `ProblemDetails`zgodnie z specyfikacją RFC 7807 zawierający szczegóły błędu z odpowiedzi HTTP. W 2.2 `ProblemDetails` jest standardowa odpowiedź do klienta kody błędów w kontrolerów z `ApiControllerAttribute`. `IActionResult` Zwracanie klient zwraca teraz (4xx) kod stanu błędu `ProblemDetails` treści. Wynik zawiera również identyfikator korelacji, który może służyć do skorelowania błędów przy użyciu dzienników żądania. Błędy klienta `ProducesResponseType` domyślnie używa `ProblemDetails` jako typ odpowiedzi. To jest udokumentowany w otwartych interfejsów API / Swagger dane wyjściowe generowane przy użyciu NSwag lub Swashbuckle.AspNetCore.
+Platforma ASP.NET Core 2.1 wprowadzono `ProblemDetails`na podstawie [RFC 7807](https://tools.ietf.org/html/rfc7807) specyfikacji przenoszenia szczegółów błędu z odpowiedzi HTTP. W 2.2 `ProblemDetails` jest standardowa odpowiedź do klienta kody błędów w kontrolerów z `ApiControllerAttribute`. `IActionResult` Zwracanie klient zwraca teraz (4xx) kod stanu błędu `ProblemDetails` treści. Wynik zawiera również identyfikator korelacji, który może służyć do skorelowania błędów przy użyciu dzienników żądania. Błędy klienta `ProducesResponseType` domyślnie używa `ProblemDetails` jako typ odpowiedzi. To jest udokumentowany w otwartych interfejsów API / Swagger dane wyjściowe generowane przy użyciu NSwag lub Swashbuckle.AspNetCore.
 
 ## <a name="endpoint-routing"></a>Punkt końcowy routingu
 

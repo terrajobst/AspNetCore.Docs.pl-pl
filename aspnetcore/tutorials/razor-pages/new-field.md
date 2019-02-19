@@ -2,17 +2,16 @@
 title: Dodaj nowe pole na stronę Razor programu ASP.NET Core
 author: rick-anderson
 description: Pokazuje, jak dodać nowe pole do strony Razor za pomocą platformy Entity Framework Core
-monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.custom: mvc
 ms.date: 12/5/2018
 uid: tutorials/razor-pages/new-field
-ms.openlocfilehash: 9b3ad5f6c4b1c9b5f016f5591127c8d1b213948d
-ms.sourcegitcommit: 1ea1b4fc58055c62728143388562689f1ef96cb2
+ms.openlocfilehash: 98de39c63c992dce7d60563df316d848339b811a
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53329136"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410378"
 ---
 # <a name="add-a-new-field-to-a-razor-page-in-aspnet-core"></a>Dodaj nowe pole na stronę Razor programu ASP.NET Core
 
@@ -115,7 +114,7 @@ Innym rozwiązaniem jest usunięcie bazy danych i użyć migracje ponownie utwor
   ```
 
 <!-- Code -------------------------->
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Program Visual Studio Code / Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code / Visual Studio for Mac](#tab/visual-studio-code+visual-studio-mac)
 
 <!-- copy/paste this tab to the next. Not worth an include  -->
 
@@ -145,7 +144,7 @@ dotnet ef database update
 
 > [!NOTE]
 > Wiele operacji zmiany schematu nie są obsługiwane przez dostawcę programu EF Core bazy danych SQLite. Na przykład dodawanie kolumny jest obsługiwane, ale usuwanie kolumny nie jest obsługiwane. Jeśli dodasz migracji, aby usunąć kolumnę, `ef migrations add` polecenie zakończy się pomyślnie, ale `ef database update` polecenie kończy się niepowodzeniem. Można obejść niektóre ograniczenia ręczne pisanie kodu migracji przeprowadzić odbudowania indeksu tabeli. Odbuduj tabelę obejmuje zmianę nazwy istniejącej tabeli, tworzenie nowej tabeli, kopiowanie danych do nowej tabeli i usunięcie starych tabeli. Aby uzyskać więcej informacji, zobacz następujące zasoby:
-> * [Ograniczenia dotyczące dostawcy bazy danych SQLite EF Core](/ef/core/providers/sqlite/limitations)
+> * [SQLite EF Core Database Provider Limitations](/ef/core/providers/sqlite/limitations)
 > * [Dostosowywanie kodu migracji](/ef/core/managing-schemas/migrations/#customize-migration-code)
 > * [Wstępne wypełnianie danych](/ef/core/modeling/data-seeding)
 
