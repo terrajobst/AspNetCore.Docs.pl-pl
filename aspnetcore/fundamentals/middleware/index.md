@@ -4,14 +4,8 @@ author: rick-anderson
 description: Więcej informacji na temat oprogramowania pośredniczącego platformy ASP.NET Core i potok żądań.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/10/2018
+ms.date: 02/17/2019
 uid: fundamentals/middleware/index
-ms.openlocfilehash: c55dbd5a9ac31f55daf1cb3146fb18b91b016919
-ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
-ms.translationtype: MT
-ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54341592"
 ---
 # <a name="aspnet-core-middleware"></a>ASP.NET Core Middleware
 
@@ -24,7 +18,7 @@ Oprogramowanie pośredniczące to oprogramowanie, które jest umieszczone w poto
 
 Delegaty żądania są używane do tworzenia potoku żądania. Delegaty żądania obsługi danego żądania HTTP.
 
-Żądania, obiekty delegowane są skonfigurowane przy użyciu <xref:Microsoft.AspNetCore.Builder.RunExtensions.Run*>, <xref:Microsoft.AspNetCore.Builder.MapExtensions.Map*>, i <xref:Microsoft.AspNetCore.Builder.UseExtensions.Use*> metody rozszerzenia. Delegat pojedynczego żądania może być określony w tekście jako metodę anonimową (nazywane w tekście oprogramowania pośredniczącego), lub można zdefiniować klasy wielokrotnego użytku. Te klasy wielokrotnego użytku i metod anonimowych w tekście są *oprogramowania pośredniczącego*, nazywane również *składników oprogramowania pośredniczącego*. Każdy składnik oprogramowania pośredniczącego w potoku żądania jest odpowiedzialny za wywoływanie następny składnik w potoku lub zwarcie potoku.
+Żądania, obiekty delegowane są skonfigurowane przy użyciu <xref:Microsoft.AspNetCore.Builder.RunExtensions.Run*>, <xref:Microsoft.AspNetCore.Builder.MapExtensions.Map*>, i <xref:Microsoft.AspNetCore.Builder.UseExtensions.Use*> metody rozszerzenia. Delegat pojedynczego żądania może być określony w tekście jako metodę anonimową (nazywane w tekście oprogramowania pośredniczącego), lub można zdefiniować klasy wielokrotnego użytku. Te klasy wielokrotnego użytku i metod anonimowych w tekście są *oprogramowania pośredniczącego*, nazywane również *składników oprogramowania pośredniczącego*. Każdy składnik oprogramowania pośredniczącego w potoku żądania jest odpowiedzialny za wywoływanie następny składnik w potoku lub zwarcie potoku. Gdy short-circuits oprogramowanie pośredniczące, jest on nazywany *terminalu oprogramowania pośredniczącego* ponieważ uniemożliwia dalsze oprogramowania pośredniczącego przetwarzania żądania.
 
 <xref:migration/http-modules> wyjaśnia różnicę pomiędzy potoki żądania w programie ASP.NET Core i ASP.NET 4.x i udostępnia więcej przykładów oprogramowania pośredniczącego.
 
@@ -34,7 +28,7 @@ Potok żądań ASP.NET Core składa się z sekwencji obiektów delegowanych żą
 
 ![Wyświetlanie żądań przychodzących, przetwarzania za pomocą trzech middlewares i odpowiedzi, wychodzenia z aplikacji wzorca przetwarzania żądania. Każdy oprogramowania pośredniczącego uruchamia swojej logiki i przekazywało żądanie do następnego oprogramowania pośredniczącego w instrukcji next(). Po trzecie oprogramowanie pośredniczące przetwarza żądanie, żądanie Przechodzi wstecz przez wcześniejsze middlewares dwa w odwrotnej kolejności dla dodatkowego przetwarzania po deklaracji metody next() przed opuszczeniem aplikację jako odpowiedzi do klienta.](index/_static/request-delegate-pipeline.png)
 
-Każdy delegat mogą wykonywać operacje, przed i po następnym delegata. Obiekt delegowany można też przekazuje żądania do następnej delegata, która jest wywoływana *zwarcie Potok żądań*. Zwarcie jest często pożądane, ponieważ takie rozwiązanie pomaga uniknąć niepotrzebnych pracy. Na przykład oprogramowanie pośredniczące plików statycznych wrócić żądanie dotyczące pliku statycznego i zwarcie pozostałego potoku. Delegatów obsługi wyjątków są nazywane na wczesnym etapie potoku, dlatego ich może przechwytywać wyjątki, które występują w późniejszym etapie w potoku.
+Każdy delegat mogą wykonywać operacje, przed i po następnym delegata. Delegatów obsługi wyjątków powinna być wywoływana na wczesnym etapie potoku, dlatego ich może przechwytywać wyjątki, które występują w późniejszym etapie w potoku.
 
 Najprostsza możliwa aplikacji ASP.NET Core ustawia delegat pojedynczego żądania, który obsługuje wszystkie żądania. Ten przypadek nie zawiera rzeczywistego żądania potoku. Zamiast tego jednego funkcja anonimowa jest wywoływana w odpowiedzi na każde żądanie HTTP.
 
@@ -45,6 +39,8 @@ Pierwszy <xref:Microsoft.AspNetCore.Builder.RunExtensions.Run*> delegata kończy
 Utworzyć łańcuch wielu delegatów żądanie, wraz z <xref:Microsoft.AspNetCore.Builder.UseExtensions.Use*>. `next` Parametr reprezentuje dalej delegata w potoku. Można zwarcie potok według *nie* wywoływania *dalej* parametru. Zazwyczaj można wykonywać akcje przed i po następnym delegata, tak jak pokazano w poniższym przykładzie:
 
 [!code-csharp[](index/snapshot/Chain/Startup.cs?name=snippet1)]
+
+Delegat nie przeszło żądania do następnej delegata, jest nazywany *zwarcie Potok żądań*. Zwarcie jest często pożądane, ponieważ takie rozwiązanie pomaga uniknąć niepotrzebnych pracy. Na przykład [oprogramowanie pośredniczące plików statycznych](xref:fundamentals/static-files) może działać jako *terminalu oprogramowania pośredniczącego* przetwarzania żądania pliku statycznego i zwarcie pozostałego potoku. Oprogramowanie pośredniczące było należy dodać do potoku oprogramowania pośredniczącego, które kończy się dalsze przetwarzanie nadal przetwarza kod po ich `next.Invoke` instrukcji. Jednakże zostanie wyświetlone następujące ostrzeżenie o podjęto próbę zapisania odpowiedzi, który już został wysłany.
 
 > [!WARNING]
 > Nie wywołuj `next.Invoke` po wysłaniu odpowiedzi do klienta. Zmienia się na <xref:Microsoft.AspNetCore.Http.HttpResponse> po rozpoczęciu odpowiedzi zgłoszenie wyjątku. Na przykład zmiany, takie jak ustawianie nagłówków i kod stanu zgłosić wyjątek. Zapisywanie w treści odpowiedzi po wywołaniu `next`:
@@ -228,7 +224,7 @@ app.Map("/level1", level1App => {
 
 ## <a name="built-in-middleware"></a>Wbudowane oprogramowania pośredniczącego
 
-Platforma ASP.NET Core jest dostarczany z następujących składników oprogramowania pośredniczącego. *Kolejności* kolumna zawiera uwagi dotyczące umieszczenia oprogramowanie pośredniczące w potoku żądanie i na jakich warunkach oprogramowanie pośredniczące może zakończyć żądania i uniemożliwić innym oprogramowaniu pośredniczącym przetwarzania żądania.
+Platforma ASP.NET Core jest dostarczany z następujących składników oprogramowania pośredniczącego. *Kolejności* kolumna zawiera uwagi dotyczące umieszczenia oprogramowanie pośredniczące w potoku przetwarzania żądań i na jakich warunkach oprogramowanie pośredniczące może rozwiązać niniejszą przetwarzania żądania. Oprogramowanie pośredniczące short-circuits potoku przetwarzania żądań i uniemożliwia dalsze podrzędnego oprogramowanie pośredniczące przetwarza żądanie, jest nazywany *terminalu oprogramowania pośredniczącego*. Aby uzyskać więcej informacji na temat zwarcie, zobacz [tworzenie potoku oprogramowania pośredniczącego z IApplicationBuilder](#create-a-middleware-pipeline-with-iapplicationbuilder) sekcji.
 
 | Oprogramowanie pośredniczące | Opis | Zamówienie |
 | ---------- | ----------- | ----- |

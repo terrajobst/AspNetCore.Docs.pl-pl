@@ -1,17 +1,11 @@
 ---
 title: Host platformy ASP.NET Core na Windows za pomocą programu IIS
 author: guardrex
-description: Dowiedz się, jak hostować aplikacje platformy ASP.NET Core na systemu Windows serwera Internet Information Services (IIS).
+description: 'Dowiedz się, jak hostować aplikacje platformy ASP.NET Core na systemu Windows serwera Internet Information Services (IIS).'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/13/2019
+ms.date: 02/19/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 5d6ba8b7ee6f09a7d00aa0285802cf0aad267a1d
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
-ms.translationtype: MT
-ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248423"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host platformy ASP.NET Core na Windows za pomocą programu IIS
 
@@ -296,13 +290,14 @@ Aby uzyskać starszej wersji Instalatora:
 
 ### <a name="install-the-hosting-bundle"></a>Zainstaluj pakiet hostingu
 
-1. Uruchom Instalatora na serwerze. Po uruchomieniu Instalatora z wiersza polecenia z uprawnieniami administratora, dostępne są następujące parametry:
+1. Uruchom Instalatora na serwerze. Podczas uruchamiania Instalatora jako administrator z powłoki poleceń, dostępne są następujące parametry:
 
    * `OPT_NO_ANCM=1` &ndash; Pomiń instalację modułu ASP.NET Core.
    * `OPT_NO_RUNTIME=1` &ndash; Pomiń instalację środowiska uruchomieniowego .NET Core.
    * `OPT_NO_SHAREDFX=1` &ndash; Pomiń instalację struktury programu ASP.NET udostępnione (środowisko uruchomieniowe programu ASP.NET).
-   * `OPT_NO_X86=1` &ndash; Pomiń instalację x86 środowisk uruchomieniowych. Użyj tego przełącznika, gdy wiadomo, że użytkownik nie będzie hostingu aplikacji 32-bitowych. W przypadku każdej okazji, że zarówno 32-bitowych i 64-bitowych aplikacji będzie obsługiwać w przyszłości, nie używaj tego przełącznika i zainstalować obie środowisk uruchomieniowych.
-1. Ponowne uruchamianie systemu lub wykonać **net stop został /y** następuje **net start w3svc** z poziomu wiersza polecenia. Ponowne uruchomienie usług IIS przejmuje zmiany w systemie ścieżki, która jest zmienną środowiskową, wprowadzone przez Instalatora.
+   * `OPT_NO_X86=1` &ndash; Pomiń instalację x86 środowisk uruchomieniowych. Użyj tego parametru, gdy wiadomo, że użytkownik nie będzie hostingu aplikacji 32-bitowych. W przypadku każdej okazji, że zarówno 32-bitowych i 64-bitowych aplikacji będzie obsługiwać w przyszłości, nie za pomocą tego parametru i zainstaluj obydwu środowisk uruchomieniowych.
+   * `OPT_NO_SHARED_CONFIG_CHECK=1` &ndash; Wyłącz sprawdzanie przy użyciu konfiguracji udostępnionej usług IIS podczas konfiguracji udostępnionej (*applicationHost.config*) znajduje się na tym samym komputerze co instalacji usług IIS. *Dostępne tylko w przypadku platformy ASP.NET Core 2.2 lub nowszej instalatory obsługującego program instalujący niezamówione pakiety.* Aby uzyskać więcej informacji, zobacz <xref:host-and-deploy/aspnet-core-module#aspnet-core-module-with-an-iis-shared-configuration>.
+1. Ponowne uruchamianie systemu lub wykonać **net stop został /y** następuje **net start w3svc** z powłoki poleceń. Ponowne uruchomienie usług IIS przejmuje zmiany w systemie ścieżki, która jest zmienną środowiskową, wprowadzone przez Instalatora.
 
 Jeśli Instalator Windows obsługującego pakietu wykryje, że usługi IIS wymaga zresetowania, aby dokończyć instalację, Instalator resetuje usług IIS. Jeśli Instalator wyzwala Resetowanie usług IIS, zostaną uruchomione ponownie wszystkie pule aplikacji usług IIS i witryn sieci Web.
 

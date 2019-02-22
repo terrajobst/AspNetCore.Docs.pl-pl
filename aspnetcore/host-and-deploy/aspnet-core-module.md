@@ -4,14 +4,14 @@ author: guardrex
 description: Dowiedz się, jak skonfigurować modułu ASP.NET Core do hostowania aplikacji platformy ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/08/2019
+ms.date: 02/19/2019
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: 9270d7b462bbac1ae0ad896c0937ea6dd909b2cd
-ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
+ms.openlocfilehash: e7eed467a0f54df5d0e067efabf6f821b7647d70
+ms.sourcegitcommit: 0945078a09c372f17e9b003758ed87e99c2449f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56159558"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56647970"
 ---
 # <a name="aspnet-core-module"></a>Moduł ASP.NET Core
 
@@ -500,12 +500,35 @@ Parowania tokenu jest używany w celu zagwarantowania, że przekazywane przez us
 
 ## <a name="aspnet-core-module-with-an-iis-shared-configuration"></a>Moduł ASP.NET Core z programem IIS konfigurację udostępnioną
 
-Instalator modułu ASP.NET Core jest uruchamiany z uprawnieniami **systemu** konta. Ponieważ lokalne konto systemowe nie ma uprawnienia do modyfikowania dla ścieżki udziału konfiguracji udostępnionej usług IIS, Instalator trafienia odmowa dostępu błąd podczas próby skonfigurowania ustawień modułu w *applicationHost.config* w udziale. Korzystając z konfiguracji udostępnionej usług IIS, wykonaj następujące kroki:
+Instalator modułu ASP.NET Core jest uruchamiany z uprawnieniami **zaufany Instalator** konta. Ponieważ lokalne konto systemowe nie ma uprawnienia do modyfikowania dla ścieżki udziału konfiguracji udostępnionej usług IIS, Instalator zgłasza odmowa dostępu błąd podczas próby skonfigurowania ustawień modułu w *applicationHost.config*  pliku w udziale.
+
+::: moniker range=">= aspnetcore-2.2"
+
+Podczas korzystania z konfiguracji udostępnionej usług IIS, w tym samym komputerze co instalacji usług IIS, uruchom Instalatora programu ASP.NET Core hostingu pakietu z `OPT_NO_SHARED_CONFIG_CHECK` parametr `1`:
+
+```console
+dotnet-hosting-{VERSION}.exe OPT_NO_SHARED_CONFIG_CHECK=1
+```
+
+Gdy na tym samym komputerze co instalacji usług IIS nie jest ścieżką do konfiguracji udostępnionej, wykonaj następujące kroki:
 
 1. Wyłącz konfiguracji udostępnionej usług IIS.
 1. Uruchom Instalatora.
 1. Eksportuj zaktualizowanego *applicationHost.config* plików do udziału.
 1. Ponownie włączyć konfiguracji udostępnionej usług IIS.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
+Korzystając z konfiguracji udostępnionej usług IIS, wykonaj następujące kroki:
+
+1. Wyłącz konfiguracji udostępnionej usług IIS.
+1. Uruchom Instalatora.
+1. Eksportuj zaktualizowanego *applicationHost.config* plików do udziału.
+1. Ponownie włączyć konfiguracji udostępnionej usług IIS.
+
+::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.2"
 

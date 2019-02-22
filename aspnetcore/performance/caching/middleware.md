@@ -5,14 +5,14 @@ description: Informacje o sposobie konfigurowania i używania oprogramowanie po�
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/16/2019
+ms.date: 02/20/2019
 uid: performance/caching/middleware
-ms.openlocfilehash: bb265d04022ec2f8fdb3f2f3bc42f6b3f0b2b338
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: c7c3dbd0c9cf029fa6921d77450e780768c8aa6e
+ms.sourcegitcommit: 0945078a09c372f17e9b003758ed87e99c2449f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410326"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56647918"
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Oprogramowanie pośredniczące w programie ASP.NET Core buforowania odpowiedzi
 
@@ -138,7 +138,7 @@ Podczas testowania i rozwiązywania problemów z zachowaniem buforowania, przegl
 
 * Żądanie musi spowodować odpowiedź z serwera z kodem stanu 200 (OK).
 * Metoda żądania musi być GET lub HEAD.
-* Oprogramowanie pośredniczące terminali nie musi przetwarzać odpowiedzi przed oprogramowanie pośredniczące buforowania odpowiedzi.
+* W `Startup.Configure`, oprogramowanie pośredniczące buforowania odpowiedzi musi być umieszczony przed oprogramowania pośredniczącego, które wymagają kompresji. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/middleware/index>.
 * `Authorization` Nagłówka nie może być obecny.
 * `Cache-Control` Parametry nagłówka musi być prawidłowy, a odpowiedzi muszą być oznaczone jako `public` , nie jest oznaczona `private`.
 * `Pragma: no-cache` Nagłówka nie może być obecny Jeśli `Cache-Control` nagłówka nie jest obecny, jako `Cache-Control` zastępuje nagłówek `Pragma` nagłówka, jeśli jest obecny.
