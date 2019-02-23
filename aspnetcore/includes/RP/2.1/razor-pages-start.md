@@ -13,7 +13,7 @@ W poniższej tabeli wymieniono pliki i foldery w projekcie. W tym samouczku *Sta
 | *wwwroot* | Zawiera zasoby statyczne. Zobacz [pliki statyczne](xref:fundamentals/static-files). |
 | *Strony* | Folder [stron Razor](xref:razor-pages/index). |
 | *appsettings.json* | [Konfiguracja](xref:fundamentals/configuration/index) |
-| *Program.cs* | Konfiguruje [hosta](xref:fundamentals/host/index) aplikacji platformy ASP.NET Core. |
+| *Program.cs* | Konfiguruje [hosta](xref:fundamentals/index#host) aplikacji platformy ASP.NET Core. |
 | *Startup.cs* | Umożliwia skonfigurowanie usług i potok żądań. Zobacz [uruchamiania](xref:fundamentals/startup). |
 
 ### <a name="the-pagesshared-folder"></a>Strony/Shared folder

@@ -4,16 +4,16 @@ title: Praca z protokołem SSL w składniku Web API | Dokumentacja firmy Microso
 author: MikeWasson
 description: Pokazuje, jak używać protokołu SSL przy użyciu interfejsu API sieci Web platformy ASP.NET, w tym o korzystaniu z certyfikatów klientów SSL.
 ms.author: riande
-ms.date: 12/12/2012
+ms.date: 02/22/2019
 ms.assetid: 97f6164f-59cf-45c0-b820-e4aa29b45396
 msc.legacyurl: /web-api/overview/security/working-with-ssl-in-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: b11b35f58a1f033423f5e6ea5f5373df0d1fcb5f
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 69c0d217f605096d968435c062ee9931f8dff75f
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41751857"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56744108"
 ---
 <a name="working-with-ssl-in-web-api"></a>Praca z protokołem SSL w składniku Web API
 ====================
@@ -58,8 +58,8 @@ Aby skonfigurować usługi IIS, aby zaakceptować certyfikaty klienta, otwórz M
 2. Kliknij dwukrotnie **ustawienia protokołu SSL** funkcji w środkowym okienku.
 3. W obszarze **certyfikaty klienta**, wybierz jedną z następujących opcji: 
 
-    - **Zaakceptuj**: IIS będzie akceptować certyfikat klienta, ale nie wymaga jednego.
-    - **Wymagaj**: wymagany certyfikat klienta. (Aby włączyć tę opcję, należy również wybrać "Wymagaj protokołu SSL")
+    - **Zaakceptuj**: Usługi IIS będzie akceptować certyfikat klienta, ale nie wymaga jednego.
+    - **Wymagaj**: Wymaga certyfikatu klienta. (Aby włączyć tę opcję, należy również wybrać "Wymagaj protokołu SSL")
 
 Te opcje można również ustawić w pliku ApplicationHost.config:
 
@@ -69,7 +69,7 @@ Te opcje można również ustawić w pliku ApplicationHost.config:
 
 ### <a name="creating-a-client-certificate-for-testing"></a>Tworzenie certyfikatu klienta do testowania
 
-Do celów testowych możesz użyć [MakeCert.exe](https://msdn.microsoft.com/library/bfsktky3.aspx) do utworzenia certyfikatu klienta. Najpierw utwórz urząd główny testu:
+Do celów testowych możesz użyć [MakeCert.exe](/windows/desktop/SecCrypto/makecert) do utworzenia certyfikatu klienta. Najpierw utwórz urząd główny testu:
 
 [!code-console[Main](working-with-ssl-in-web-api/samples/sample4.cmd)]
 

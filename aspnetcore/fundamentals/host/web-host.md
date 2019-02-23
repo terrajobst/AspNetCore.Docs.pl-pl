@@ -1,21 +1,23 @@
 ---
 title: Host sieci Web platformy ASP.NET Core
 author: guardrex
-description: Więcej informacji na temat hosta sieci web w programie ASP.NET Core, który jest odpowiedzialny za zarządzanie uruchamiania i czasu życia aplikacji.
+description: Więcej informacji na temat hosta sieci Web w programie ASP.NET Core, który jest odpowiedzialny za zarządzanie uruchamiania i czasu życia aplikacji.
 ms.author: riande
 ms.custom: mvc
 ms.date: 12/18/2018
 uid: fundamentals/host/web-host
-ms.openlocfilehash: 7215027a083c0ed0bc3b15196e390a31c5dcfc14
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: 878fbaa1a61946dadf23ba8fefbf22021e547cc2
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637849"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56744095"
 ---
 # <a name="aspnet-core-web-host"></a>Host sieci Web platformy ASP.NET Core
 
 Przez [Luke Latham](https://github.com/guardrex)
+
+Konfigurowanie aplikacji platformy ASP.NET Core i uruchamiania *hosta*. Host jest odpowiedzialny za zarządzanie uruchamiania i czasu życia aplikacji. Jako minimum host konfiguruje serwer i potoku przetwarzania żądań. Hosta można też skonfigurować rejestrowanie, wstrzykiwanie zależności i konfiguracji.
 
 ::: moniker range="<= aspnetcore-1.1"
 
@@ -23,7 +25,17 @@ Dla wersji 1.1 w tym temacie, Pobierz [hosta sieci Web programu ASP.NET Core (w 
 
 ::: moniker-end
 
-Konfigurowanie aplikacji platformy ASP.NET Core i uruchamiania *hosta*. Host jest odpowiedzialny za zarządzanie uruchamiania i czasu życia aplikacji. Jako minimum host konfiguruje serwer i potoku przetwarzania żądań. W tym temacie omówiono hosta sieci Web platformy ASP.NET Core ([IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder)), co jest przydatne do hostowania aplikacji sieci web. Pokrycia hosta ogólnego .NET ([IHostBuilder](/dotnet/api/microsoft.extensions.hosting.ihostbuilder)), zobacz <xref:fundamentals/host/generic-host>.
+::: moniker range=">= aspnetcore-2.1 <= aspnetcore-2.2"
+
+W tym artykule opisano hosta sieci Web platformy ASP.NET Core (<xref:Microsoft.AspNetCore.Hosting.IWebHostBuilder>), czyli do hostowania aplikacji sieci web. Aby uzyskać informacje o hoście ogólnego .NET ([IHostBuilder](/dotnet/api/microsoft.extensions.hosting.ihostbuilder)), zobacz <xref:fundamentals/host/generic-host>.
+
+::: moniker-end
+
+::: moniker range="> aspnetcore-2.2"
+
+W tym artykule opisano hosta sieci Web platformy ASP.NET Core ([IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder)). W programie ASP.NET Core 3.0 to ogólny hosta zastępuje hosta sieci Web. Aby uzyskać więcej informacji, zobacz [hosta](xref:fundamentals/index#host).
+
+::: moniker-end
 
 ## <a name="set-up-a-host"></a>Konfigurowanie hosta
 
@@ -52,7 +64,7 @@ public class Program
   * Argumenty wiersza polecenia.
 * Ładuje konfiguracji aplikacji w kolejności od:
   * *appsettings.json*.
-  * *appSettings. {Środowiska} .json*.
+  * *appsettings.{Environment}.json*.
   * [Klucz tajny Menedżera](xref:security/app-secrets) uruchamiania aplikacji `Development` środowisko przy użyciu zestawu wpisu.
   * Zmienne środowiskowe.
   * Argumenty wiersza polecenia.
@@ -313,7 +325,7 @@ Kestrel ma swój własny konfiguracji punktu końcowego interfejsu API. Aby uzys
 
 ### <a name="shutdown-timeout"></a>Limit czasu zamykania
 
-Określa ilość czasu oczekiwania dla hosta sieci web zamknąć.
+Określa ilość czasu oczekiwania na hosta sieci Web do zamknięcia.
 
 **Klucz**: shutdownTimeoutSeconds  
 **Typ**: *int*  
@@ -374,7 +386,7 @@ WebHost.CreateDefaultBuilder(args)
 
 ## <a name="override-configuration"></a>Zastąp konfigurację
 
-Użyj [konfiguracji](xref:fundamentals/configuration/index) skonfigurować hosta sieci web. W poniższym przykładzie konfiguracja hosta jest opcjonalnie określony w *hostsettings.json* pliku. Dowolna Konfiguracja ładowane z *hostsettings.json* pliku może być zastąpiona przez argumenty wiersza polecenia. Konfiguracja wbudowanych (w `config`) służy do konfigurowania hosta z [UseConfiguration](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.useconfiguration). `IWebHostBuilder` Konfiguracja zostanie dodany do konfiguracji aplikacji, ale prawdą nie dotyczy&mdash; `ConfigureAppConfiguration` nie ma wpływu na `IWebHostBuilder` konfiguracji.
+Użyj [konfiguracji](xref:fundamentals/configuration/index) skonfigurować hosta sieci Web. W poniższym przykładzie konfiguracja hosta jest opcjonalnie określony w *hostsettings.json* pliku. Dowolna Konfiguracja ładowane z *hostsettings.json* pliku może być zastąpiona przez argumenty wiersza polecenia. Konfiguracja wbudowanych (w `config`) służy do konfigurowania hosta z [UseConfiguration](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.useconfiguration). `IWebHostBuilder` Konfiguracja zostanie dodany do konfiguracji aplikacji, ale prawdą nie dotyczy&mdash; `ConfigureAppConfiguration` nie ma wpływu na `IWebHostBuilder` konfiguracji.
 
 Zastępowanie konfiguracji, jaką zapewnia `UseUrls` z *hostsettings.json* config argument po pierwsze, wiersza polecenia konfiguracji drugiego:
 
@@ -406,7 +418,7 @@ public class Program
 }
 ```
 
-*hostsettings.JSON*:
+*hostsettings.json*:
 
 ```json
 {
@@ -669,7 +681,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
-`IHostingEnvironment` może być wstrzykuje `Invoke` metody podczas tworzenia niestandardowych [oprogramowania pośredniczącego](xref:fundamentals/middleware/index#write-middleware):
+`IHostingEnvironment` może być wstrzykuje `Invoke` metody podczas tworzenia niestandardowych [oprogramowania pośredniczącego](xref:fundamentals/middleware/write):
 
 ```csharp
 public async Task Invoke(HttpContext context, IHostingEnvironment env)

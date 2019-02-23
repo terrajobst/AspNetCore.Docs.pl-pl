@@ -136,7 +136,7 @@ Jeśli `UseUrls` jest wywoływana w aplikacji ASP.NET Core 1.0, wywołaj ją **p
 
 ::: moniker-end
 
-Aby uzyskać więcej informacji o hostingu, zobacz [hostów w programie ASP.NET Core](xref:fundamentals/host/index).
+Aby uzyskać więcej informacji o hostingu, zobacz [hostów w programie ASP.NET Core](xref:fundamentals/index#host).
 
 ### <a name="iis-options"></a>Opcje programu IIS
 
@@ -478,7 +478,7 @@ Odnośnie do hostowania aplikacji — ASP.NET Core sub-poniżej aplikacji ASP.NE
 
 Łączy statycznych zasobów w obrębie aplikacji podrzędnej należy używać ukośnika tyldy (`~/`) notacji. Wyzwalacze notacji ukośnika tylda [Pomocnik tagu](xref:mvc/views/tag-helpers/intro) można poprzedzić pathbase aplikacji podrzędnych do renderowanej względnego linku. Sub-aplikacji na `/subapp_path`, obraz połączony z `src="~/image.png"` jest renderowane jako `src="/subapp_path/image.png"`. Oprogramowanie pośredniczące plików statycznych aplikacji głównego nie przetwarza żądanie plików statycznych. Żądanie jest przetwarzane przez oprogramowanie pośredniczące plików statycznych aplikacji podrzędnej.
 
-Jeśli statycznych zasobów `src` atrybut jest ustawiony na ścieżkę bezwzględną (na przykład `src="/image.png"`), łącze jest renderowane bez pathbase aplikacji podrzędnej. Oprogramowanie pośredniczące plików statycznych aplikacji głównej próbuje obsługiwać zasobów z poziomu katalogu głównego aplikacji [webroot](xref:fundamentals/index#web-root-webroot), które powoduje *404 — Nie można odnaleźć* odpowiedzi, chyba że statyczny element zawartości jest dostępny z poziomu katalogu głównego aplikacji.
+Jeśli statycznych zasobów `src` atrybut jest ustawiony na ścieżkę bezwzględną (na przykład `src="/image.png"`), łącze jest renderowane bez pathbase aplikacji podrzędnej. Oprogramowanie pośredniczące plików statycznych aplikacji głównej próbuje obsługiwać zasobów z poziomu katalogu głównego aplikacji [katalog główny sieci web](xref:fundamentals/index#web-root), które powoduje *404 — Nie można odnaleźć* odpowiedzi, chyba że statyczny element zawartości jest dostępny z poziomu katalogu głównego aplikacji.
 
 Do hostowania aplikacji ASP.NET Core jako aplikację podrzędne w ramach innej aplikacji platformy ASP.NET Core:
 

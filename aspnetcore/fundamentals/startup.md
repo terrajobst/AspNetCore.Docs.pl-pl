@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 01/17/2019
 uid: fundamentals/startup
-ms.openlocfilehash: 685b496943642b349321a36a7200d6d51ecf4d6e
-ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
+ms.openlocfilehash: cfd0a57d5d0b60862b017a170b6d5cbddf56f15a
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396236"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56744186"
 ---
 # <a name="app-startup-in-aspnet-core"></a>Uruchamianie aplikacji w programie ASP.NET Core
 
@@ -31,7 +31,7 @@ Użyj aplikacji platformy ASP.NET Core `Startup` klasy, która nosi nazwę `Star
 
 [!code-csharp[](startup/sample_snapshot/Startup1.cs?highlight=4,10)]
 
-`Startup` Określono klasę do aplikacji podczas aplikacji [hosta](xref:fundamentals/host/index) jest wbudowana. Host aplikacji jest wbudowany, kiedy `Build` jest wywoływana w Konstruktorze hosta w `Program` klasy. `Startup` Zwykle jest określona przez wywołanie metody [WebHostBuilderExtensions.UseStartup\<TStartup >](xref:Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions.UseStartup*) metody w Konstruktorze hosta:
+`Startup` Określono klasę do aplikacji podczas aplikacji [hosta](xref:fundamentals/index#host) jest wbudowana. Host aplikacji jest wbudowany, kiedy `Build` jest wywoływana w Konstruktorze hosta w `Program` klasy. `Startup` Zwykle jest określona przez wywołanie metody [WebHostBuilderExtensions.UseStartup\<TStartup >](xref:Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions.UseStartup*) metody w Konstruktorze hosta:
 
 [!code-csharp[](startup/sample_snapshot/Program3.cs?name=snippet_Program&highlight=10)]
 
@@ -47,7 +47,7 @@ Typowym zastosowaniem [wstrzykiwanie zależności](xref:fundamentals/dependency-
 
 Alternatywa wprowadza `IHostingEnvironment` jest wykorzystanie podejścia opartego na Konwencji. Kiedy aplikacja definiuje oddzielnych `Startup` klas w różnych środowiskach (na przykład `StartupDevelopment`), odpowiednie `Startup` klasy jest zaznaczona w czasie wykonywania. Klasy, w których sufiks nazwy pasuje do bieżącego środowiska jest podzielony na priorytety. Jeśli aplikacja jest uruchamiana w środowisku deweloperskim i obejmuje zarówno `Startup` klasy i `StartupDevelopment` klasy `StartupDevelopment` klasa jest używana. Aby uzyskać więcej informacji, zobacz [używanie wielu środowisk](xref:fundamentals/environments#environment-based-startup-class-and-methods).
 
-Aby dowiedzieć się więcej o hoście, zobacz <xref:fundamentals/host/index>. Aby uzyskać informacji na temat obsługi błędów podczas uruchamiania, zobacz [uruchamiania obsługi wyjątków](xref:fundamentals/error-handling#startup-exception-handling).
+Aby dowiedzieć się więcej o hoście, zobacz [hosta](xref:fundamentals/index#host). Aby uzyskać informacji na temat obsługi błędów podczas uruchamiania, zobacz [uruchamiania obsługi wyjątków](xref:fundamentals/error-handling#startup-exception-handling).
 
 ## <a name="the-configureservices-method"></a>Metoda ConfigureServices
 
@@ -59,7 +59,7 @@ Aby dowiedzieć się więcej o hoście, zobacz <xref:fundamentals/host/index>. A
 
 Typowy wzorzec polega na wywołaniu wszystkich `Add{Service}` metody, a następnie wywołać wszystkich `services.Configure{Service}` metody. Na przykład zobacz [Konfigurowanie tożsamości usługi](xref:security/authentication/identity#pw).
 
-Host może skonfigurować niektóre usługi przed `Startup` metody są wywoływane. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/host/index>.
+Host może skonfigurować niektóre usługi przed `Startup` metody są wywoływane. Aby uzyskać więcej informacji, zobacz [hosta](xref:fundamentals/index#host).
 
 W przypadku funkcji, które wymagają znacznej Instalatora, istnieją `Add{Service}` metod rozszerzenia <xref:Microsoft.Extensions.DependencyInjection.IServiceCollection>. Typowa aplikacja platformy ASP.NET Core rejestruje usługi Entity Framework, tożsamości i MVC:
 
@@ -134,7 +134,7 @@ Oprogramowanie pośredniczące kolejność wykonywania jest ustawiona według ko
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* <xref:fundamentals/host/index>
+* [Host](xref:fundamentals/index#host)
 * <xref:fundamentals/environments>
 * <xref:fundamentals/middleware/index>
 * <xref:fundamentals/logging/index>

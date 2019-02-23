@@ -4,14 +4,14 @@ author: guardrex
 description: Uzyskaj porady dotyczące rozwiązywania problemów dla typowych błędów, odnośnie do hostowania aplikacji platformy ASP.NET Core na usługi aplikacji Azure i usług IIS.
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/05/2019
+ms.date: 02/21/2019
 uid: host-and-deploy/azure-iis-errors-reference
-ms.openlocfilehash: 976f7e3fbeab9e81ba99e2dd7d09a892b854651b
-ms.sourcegitcommit: 3c2ba9a0d833d2a096d9d800ba67a1a7f9491af0
+ms.openlocfilehash: d1cdac4d27ee1bc3ebb4329c1bbd3bdacb34a58c
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55854464"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56743950"
 ---
 # <a name="common-errors-reference-for-azure-app-service-and-iis-with-aspnet-core"></a>Dokumentacja typowych błędów dla usługi Azure App Service i IIS za pomocą programu ASP.NET Core
 
@@ -162,6 +162,14 @@ Rozwiązywanie problemów:
   Aby uzyskać więcej informacji, zobacz [jest instalowany pakiet hostingu platformy .NET Core](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle).
 
 * Upewnij się, że **puli aplikacji** > **Model procesu** > **tożsamości** ustawiono **ApplicationPoolIdentity** lub tożsamość niestandardowa ma odpowiednie uprawnienia dostępu do folderu wdrożenia aplikacji.
+
+* Jeśli odinstalowanie pakietu hostingu platformy ASP.NET Core i zainstalować starszą wersję pakietu hostingu *applicationHost.config* plik nie zawiera sekcji dla modułu ASP.NET Core. Otwórz *applicationHost.config* na *%windir%/System32/inetsrv/config* i Znajdź `<configuration><configSections><sectionGroup name="system.webServer">` grupy sekcji. Jeśli grupy sekcji brakuje sekcji dla modułu ASP.NET Core, Dodaj element sekcji:
+
+  ```xml
+  <section name="aspNetCore" overrideModeDefault="Allow" />
+  ```
+  
+  Ewentualnie Zainstaluj najnowsza wersja pakietu hostingu platformy ASP.NET Core. Najnowsza wersja jest wstecznie zgodny z obsługiwane aplikacje platformy ASP.NET Core.
 
 ## <a name="incorrect-processpath-missing-path-variable-hosting-bundle-not-installed-systemiis-not-restarted-vc-redistributable-not-installed-or-dotnetexe-access-violation"></a>Niepoprawne processPath, Brak zmiennej PATH, hostingu pakietu nie jest zainstalowany, nie uruchomiono ponownie system/IIS, VC ++ Redistributable nie jest zainstalowany lub naruszenie zasad dostępu dotnet.exe
 

@@ -1,28 +1,51 @@
 ---
 title: Ogólny hosta platformy .NET
 author: guardrex
-description: Więcej informacji na temat ogólnych hosta na platformie .NET, który jest odpowiedzialny za zarządzanie uruchamiania i czasu życia aplikacji.
+description: Dowiedz się więcej o ogólnych Host platformy ASP.NET Core, który jest odpowiedzialny za zarządzanie uruchamiania i okres istnienia aplikacji.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 11/28/2018
 uid: fundamentals/host/generic-host
-ms.openlocfilehash: 4d435984d8169b558ab026ef8541c90f7a2a96b9
-ms.sourcegitcommit: 0fc89b80bb1952852ecbcf3c5c156459b02a6ceb
+ms.openlocfilehash: a128b7c19d544d1dd28ab16f7a208ceef680ce81
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52618158"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56743845"
 ---
 # <a name="net-generic-host"></a>Ogólny hosta platformy .NET
 
 Przez [Luke Latham](https://github.com/guardrex)
 
-Aplikacje platformy .NET core, konfigurowanie i uruchamianie *hosta*. Host jest odpowiedzialny za zarządzanie uruchamiania i czasu życia aplikacji. W tym temacie omówiono Host rodzajowego Core ASP.NET (<xref:Microsoft.Extensions.Hosting.HostBuilder>), co jest przydatne do hostowania aplikacji, które nie przetwarzają żądania HTTP. Pokrycia hosta sieci Web (<xref:Microsoft.AspNetCore.Hosting.WebHostBuilder>), zobacz <xref:fundamentals/host/web-host>.
+::: moniker range="<= aspnetcore-2.2"
 
-Celem ogólnego hosta jest rozdzielenie potoku HTTP z hosta internetowego interfejsu API, umożliwiające szersze gamę scenariuszy hosta. Komunikaty, zadania w tle i innych obciążeń innych niż HTTP oparte na korzyść ogólnego hosta z przekrojowe możliwości, takich jak konfiguracja, wstrzykiwanie zależności (DI) i rejestrowania.
+Aplikacje platformy ASP.NET Core, konfigurowanie i uruchamiania hosta. Host jest odpowiedzialny za zarządzanie uruchamiania i czasu życia aplikacji.
 
-Ogólny hosta jest nowa w programie ASP.NET Core 2.1 i nie jest odpowiednie w scenariuszach hostingu w sieci web. W przypadku scenariuszy hostingu w sieci web, użyj [hosta sieci Web](xref:fundamentals/host/web-host). Ogólny Host jest w fazie projektowania w celu zastąpienia hosta sieci Web w przyszłym wydaniu i pełnić rolę hosta podstawowego interfejsu API zarówno w przypadku protokołu HTTP, jak i scenariuszy innych niż HTTP.
+W tym artykule opisano Host rodzajowego Core ASP.NET (<xref:Microsoft.Extensions.Hosting.HostBuilder>), który jest używany w przypadku aplikacji, które nie przetwarzają żądania HTTP.
+
+Ogólny hosta ma na celu rozdzielenie potoku HTTP z hosta internetowego interfejsu API, umożliwiające szersze gamę scenariuszy hosta. Komunikaty, zadania w tle i innych obciążeń innych niż HTTP oparte na ogólnych hosta korzyści z możliwości przekrojowe, takie jak konfiguracja, wstrzykiwanie zależności (DI) i rejestrowania.
+
+Ogólny hosta jest nowa w programie ASP.NET Core 2.1 i nie jest odpowiednie w scenariuszach hostingu w sieci web. W przypadku scenariuszy hostingu w sieci web, użyj [hosta sieci Web](xref:fundamentals/host/web-host). Ogólny Host będzie Zastąp hosta sieci Web w przyszłym wydaniu i pełnić rolę hosta podstawowego interfejsu API zarówno w przypadku protokołu HTTP, jak i scenariuszy innych niż HTTP.
+
+::: moniker-end
+
+::: moniker range="> aspnetcore-2.2"
+
+Aplikacje platformy ASP.NET Core, konfigurowanie i uruchamiania hosta. Host jest odpowiedzialny za zarządzanie uruchamiania i czasu życia aplikacji.
+
+W tym artykule opisano hosta rodzajowego Core .NET (<xref:Microsoft.Extensions.Hosting.HostBuilder>).
+
+Ogólny hosta różni się od hosta sieci Web, w tym, że są oddzieleni potoku HTTP z hosta internetowego interfejsu API, umożliwiające szersze gamę scenariuszy hosta. Wiadomości, zadania w tle i innych obciążeń innych niż HTTP można używać ogólnych hosta i korzystać z możliwości przekrojowe, takie jak konfiguracja, wstrzykiwanie zależności (DI) i rejestrowania.
+
+Począwszy od programu ASP.NET Core 3.0 ogólnego hostów jest zalecane protokołów HTTP, jak i obciążeń innych niż HTTP. Implementację serwera HTTP, jeśli uwzględniony, działa jako implementację <xref:Microsoft.Extensions.Hosting.IHostedService>. `IHostedService` to interfejs, który może służyć także do innych obciążeń.
+
+Host sieci Web nie jest już zalecany dla aplikacji sieci web, ale pozostaje dostępna, zgodności z poprzednimi wersjami.
+
+> [!NOTE]
+> Ta dalszej części tego artykułu nie ma jeszcze zaktualizowane 3.0.
+
+::: moniker-end
 
 [Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/host/generic-host/samples/) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
@@ -95,7 +118,7 @@ Konfiguracja hosta jest tworzony przez:
 
 **Klucz**: applicationName  
 **Typ**: *ciągu*  
-**Domyślne**: Nazwa zestawu zawierającego punkt wejścia aplikacji.  
+**Domyślne**: Nazwa zestawu zawierającego wpis aplikacji punktu.  
 **Można ustawić przy użyciu**: `HostBuilderContext.HostingEnvironment.ApplicationName`  
 **Zmienna środowiskowa**: `<PREFIX_>APPLICATIONNAME` (`<PREFIX_>` jest [opcjonalne i zdefiniowane przez użytkownika](#configurehostconfiguration))
 
@@ -105,7 +128,7 @@ To ustawienie określa, gdzie hosta rozpoczyna się wyszukiwanie plików zawarto
 
 **Klucz**: contentRoot  
 **Typ**: *ciągu*  
-**Domyślne**: wartość domyślna to folder, w którym znajduje się zestaw aplikacji.  
+**Domyślne**: Wartość domyślna to folder, w którym znajduje się zestaw aplikacji.  
 **Można ustawić przy użyciu**: `UseContentRoot`  
 **Zmienna środowiskowa**: `<PREFIX_>CONTENTROOT` (`<PREFIX_>` jest [opcjonalne i zdefiniowane przez użytkownika](#configurehostconfiguration))
 
@@ -119,7 +142,7 @@ Ustawia aplikacji [środowiska](xref:fundamentals/environments).
 
 **Klucz**: środowisko  
 **Typ**: *ciągu*  
-**Domyślne**: produkcji  
+**Domyślne**: Produkcji  
 **Można ustawić przy użyciu**: `UseEnvironment`  
 **Zmienna środowiskowa**: `<PREFIX_>ENVIRONMENT` (`<PREFIX_>` jest [opcjonalne i zdefiniowane przez użytkownika](#configurehostconfiguration))
 
@@ -150,7 +173,7 @@ Podczas programowania, korzystając z [programu Visual Studio](https://www.visua
 
 [Wiersza polecenia konfiguracji](xref:fundamentals/configuration/index#command-line-configuration-provider) jest dodawany przez wywołanie <xref:Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions.AddCommandLine*>. Konfiguracja wiersza polecenia zostanie dodany ostatnio pozwalającą na argumenty wiersza polecenia, aby zastąpić konfiguracji udostępnianych przez starszych dostawców konfiguracji.
 
-*hostsettings.JSON*:
+*hostsettings.json*:
 
 [!code-csharp[](generic-host/samples/2.x/GenericHostSample/hostsettings.json)]
 
@@ -170,15 +193,15 @@ Przykład korzystającą configuration `ConfigureAppConfiguration`:
 
 [!code-csharp[](generic-host/samples-snapshot/2.x/GenericHostSample/Program.cs?name=snippet_ConfigureAppConfiguration)]
 
-*appSettings.JSON*:
+*appsettings.json*:
 
 [!code-csharp[](generic-host/samples/2.x/GenericHostSample/appsettings.json)]
 
-*appSettings. Development.JSON*:
+*appsettings.Development.json*:
 
 [!code-csharp[](generic-host/samples/2.x/GenericHostSample/appsettings.Development.json)]
 
-*appSettings. Production.JSON*:
+*appsettings.Production.json*:
 
 [!code-csharp[](generic-host/samples/2.x/GenericHostSample/appsettings.Production.json)]
 

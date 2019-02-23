@@ -5,14 +5,14 @@ description: Dowiedz się, jak skonfigurować aplikację tak, za pomocą pary na
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/08/2019
+ms.date: 02/22/2019
 uid: security/key-vault-configuration
-ms.openlocfilehash: f70389c86420d81e284ecc863ac8386f726ed2cf
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: 2188929d6f380327465e8ce0fd8ad659188416d3
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56103114"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56743988"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Dostawca konfiguracji usługi Azure Key Vault w programie ASP.NET Core
 
@@ -116,7 +116,7 @@ Z instrukcjami wyświetlanymi przez [Szybki Start: Ustawianie i pobieranie wpisu
 Konfigurowanie usługi Azure AD, usługa Azure Key Vault i aplikacji na używanie aplikacji, identyfikator i hasło (klucz tajny klienta) do magazynu kluczy w celu uwierzytelniania **gdy aplikacja jest hostowana poza platformą Azure**.
 
 > [!NOTE]
-> Przy użyciu Identyfikatora aplikacji i hasło (klucz tajny klienta) jest obsługiwana dla aplikacji hostowanych na platformie Azure, zalecamy używanie [zarządzanych tożsamości dla zasobów platformy Azure](#use-managed-identities-for-azure-resources) odnośnie do hostowania aplikacji na platformie Azure. Zarządzanych tożsamości wymaga przechowywania poświadczeń w aplikacji lub jej konfigurację, dzięki czemu jest traktowany jako ogólnie bezpieczniejszym rozwiązaniem.
+> Przy użyciu Identyfikatora aplikacji i hasło (klucz tajny klienta) jest obsługiwana dla aplikacji hostowanych na platformie Azure, zalecamy używanie [zarządzanych tożsamości dla zasobów platformy Azure](#use-managed-identities-for-azure-resources) odnośnie do hostowania aplikacji na platformie Azure. Zarządzanych tożsamości nie wymaga przechowywania poświadczeń w aplikacji lub jej konfigurację, dzięki czemu jest traktowany jako ogólnie bezpieczniejszym rozwiązaniem.
 
 Przykładowa aplikacja korzysta z aplikacji, identyfikator i hasło (klucz tajny klienta) po `#define` instrukcji na górze *Program.cs* pliku jest ustawiona na `Basic`.
 

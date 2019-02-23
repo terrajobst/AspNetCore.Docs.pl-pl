@@ -7,12 +7,12 @@ ms.author: anurse
 ms.custom: mvc
 ms.date: 11/06/2018
 uid: signalr/security
-ms.openlocfilehash: 52cfac6be8e61572acdf0b19dab574b607314d97
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.openlocfilehash: 6e9f849ed856cf1cbf989b8b16cab5209c465471
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54836067"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56743790"
 ---
 # <a name="security-considerations-in-aspnet-core-signalr"></a>Zagadnienia dotyczące zabezpieczeń w biblioteki SignalR platformy ASP.NET Core
 
@@ -77,7 +77,7 @@ info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
       Request starting HTTP/1.1 GET http://localhost:5000/myhub?access_token=1234
 ```
 
-Jeśli masz wątpliwości dotyczących rejestrowanie tych danych za pomocą dzienników serwera, można wyłączyć rejestrowanie wyłącznie przez skonfigurowanie `Microsoft.AspNetCore.Hosting` rejestratora `Warning` poziom lub nowszy (te komunikaty są zapisywane w `Info` poziom). Zobacz dokumentację na [filtrowanie dziennika](xref:fundamentals/logging/index#log-filtering) Aby uzyskać więcej informacji. Jeśli nadal chcesz rejestrować pewne informacje o żądaniu, możesz to zrobić [zapisu oprogramowanie pośredniczące](xref:fundamentals/middleware/index#write-middleware) rejestrowanie danych wymagają i odfiltrować `access_token` wartość ciągu zapytania, (jeśli istnieje).
+Jeśli masz wątpliwości dotyczących rejestrowanie tych danych za pomocą dzienników serwera, można wyłączyć rejestrowanie wyłącznie przez skonfigurowanie `Microsoft.AspNetCore.Hosting` rejestratora `Warning` poziom lub nowszy (te komunikaty są zapisywane w `Info` poziom). Zobacz dokumentację na [filtrowanie dziennika](xref:fundamentals/logging/index#log-filtering) Aby uzyskać więcej informacji. Jeśli nadal chcesz rejestrować pewne informacje o żądaniu, możesz to zrobić [zapisu oprogramowanie pośredniczące](xref:fundamentals/middleware/write) rejestrowanie danych wymagają i odfiltrować `access_token` wartość ciągu zapytania, (jeśli istnieje).
 
 ## <a name="exceptions"></a>Wyjątki
 

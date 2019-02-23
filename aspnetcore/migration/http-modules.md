@@ -5,12 +5,12 @@ description: ''
 ms.author: tdykstra
 ms.date: 12/07/2016
 uid: migration/http-modules
-ms.openlocfilehash: 9dd28b86966912cce87166feb37e65adf3dd6dcb
-ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
+ms.openlocfilehash: 601b93fb12ab5b37b7d8ad8fd9825accc6e314cd
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41902674"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56743858"
 ---
 # <a name="migrate-http-handlers-and-modules-to-aspnet-core-middleware"></a>Migrowanie moduły i programy obsługi HTTP do oprogramowania pośredniczącego platformy ASP.NET Core
 
@@ -96,7 +96,7 @@ Jak pokazano na [oprogramowania pośredniczącego](xref:fundamentals/middleware/
 
 [!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Middleware/MyMiddleware.cs?highlight=9,13,20,24,28,30,32)]
 
-Powyższy szablon oprogramowania pośredniczącego została pobrana z sekcji [pisanie oprogramowania pośredniczącego](xref:fundamentals/middleware/index#write-middleware).
+Powyższy szablon oprogramowania pośredniczącego została pobrana z sekcji [pisanie oprogramowania pośredniczącego](xref:fundamentals/middleware/write).
 
 *MyMiddlewareExtensions* klasy pomocnika ułatwia konfigurowanie oprogramowania pośredniczącego w swojej `Startup` klasy. `UseMyMiddleware` Metoda dodaje klasa oprogramowania pośredniczącego do potoku żądania. Usługi wymagane przez oprogramowanie pośredniczące Pobierz wprowadzony w Konstruktorze oprogramowania pośredniczącego.
 

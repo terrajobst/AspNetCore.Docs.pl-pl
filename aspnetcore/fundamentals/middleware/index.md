@@ -248,63 +248,9 @@ Platforma ASP.NET Core jest dostarczany z następujących składników oprogramo
 | [Ponownego zapisywania adresów URL](xref:fundamentals/url-rewriting) | Zapewnia obsługę ponownego zapisywania adresów URL przekierowywania żądań. | Przed składniki, których wartość użycia adresu URL. |
 | [Obiekty WebSocket](xref:fundamentals/websockets) | Włącza protokół Websocket. | Przed składniki, które są wymagane w celu umożliwienia akceptowania żądań protokołu WebSocket. |
 
-## <a name="write-middleware"></a>Pisanie oprogramowania pośredniczącego
-
-Oprogramowanie pośredniczące jest zazwyczaj hermetyzowane w klasie i widoczne z metodą rozszerzenia. Należy wziąć pod uwagę następujące oprogramowanie pośredniczące, które ustawia kulturę bieżącego żądania z ciągu zapytania:
-
-[!code-csharp[](index/snapshot/Culture/StartupCulture.cs?name=snippet1)]
-
-Poprzedni przykładowy kod jest używany do zademonstrowania tworzenia składników oprogramowania pośredniczącego. Obsługę wbudowanych lokalizacja platformy ASP.NET Core, zobacz <xref:fundamentals/localization>.
-
-Możesz przetestować oprogramowanie pośredniczące, przekazując w kulturze, na przykład `http://localhost:7997/?culture=no`.
-
-Poniższy kod powoduje delegata oprogramowania pośredniczącego do klasy:
-
-[!code-csharp[](index/snapshot/Culture/RequestCultureMiddleware.cs)]
-
-::: moniker range="< aspnetcore-2.0"
-
-Oprogramowanie pośredniczące `Task` nazwę metody musi być `Invoke`. W programie ASP.NET Core 2.0 lub nowszej, może to być albo `Invoke` lub `InvokeAsync`.
-
-::: moniker-end
-
-Następujące metody rozszerzenia udostępnia oprogramowanie pośredniczące za pośrednictwem <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder>:
-
-[!code-csharp[](index/snapshot/Culture/RequestCultureMiddlewareExtensions.cs)]
-
-Poniższy kod wywołuje oprogramowanie pośredniczące z `Startup.Configure`:
-
-[!code-csharp[](index/snapshot/Culture/Startup.cs?name=snippet1&highlight=5)]
-
-Oprogramowanie pośredniczące powinno wykonać [jawne zależności zasady](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies) uwidaczniając jego zależności w jego konstruktorze. Oprogramowanie pośredniczące jest tworzona raz na *okres istnienia aplikacji*. Zobacz [zależności żądania](#per-request-dependencies) sekcji, jeśli zachodzi potrzeba udostępniania usług za pomocą oprogramowania pośredniczącego w żądaniu.
-
-Składniki oprogramowania pośredniczącego może rozpoznać ich zależności z [wstrzykiwanie zależności (DI)](xref:fundamentals/dependency-injection) za pośrednictwem parametry konstruktora. [UseMiddleware&lt;T&gt; ](/dotnet/api/microsoft.aspnetcore.builder.usemiddlewareextensions.usemiddleware#Microsoft_AspNetCore_Builder_UseMiddlewareExtensions_UseMiddleware_Microsoft_AspNetCore_Builder_IApplicationBuilder_System_Type_System_Object___) mogą również akceptować dodatkowe parametry bezpośrednio.
-
-### <a name="per-request-dependencies"></a>Zależności żądania
-
-Ponieważ oprogramowanie pośredniczące jest konstruowany przy uruchamianiu aplikacji, nie dla poszczególnych żądań, *zakresie* okres istnienia, obejmujący usługi używane przez oprogramowanie pośredniczące konstruktory nie są udostępniane przy użyciu innych typów zależności, wprowadzony podczas każdego żądania. Jeśli musisz udostępnić *zakresie* usługi między oprogramowania pośredniczącego a innymi typami danych, należy dodać tych usług `Invoke` podpis metody. `Invoke` Metoda może obsługiwać dodatkowe parametry, które są wypełniane przez DI:
-
-```csharp
-public class CustomMiddleware
-{
-    private readonly RequestDelegate _next;
-
-    public CustomMiddleware(RequestDelegate next)
-    {
-        _next = next;
-    }
-
-    // IMyScopedService is injected into Invoke
-    public async Task Invoke(HttpContext httpContext, IMyScopedService svc)
-    {
-        svc.MyProperty = 1000;
-        await _next(httpContext);
-    }
-}
-```
-
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
+* <xref:fundamentals/middleware/write>
 * <xref:migration/http-modules>
 * <xref:fundamentals/startup>
 * <xref:fundamentals/request-features>

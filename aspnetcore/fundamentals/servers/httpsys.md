@@ -5,14 +5,14 @@ description: Więcej informacji na temat HTTP.sys, serwer sieci web platformy AS
 monikerRange: '>= aspnetcore-2.0'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 02/13/2019
+ms.date: 02/21/2019
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: 859e3daeba125ab1a9392c1bdbf2733de2f79a34
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.openlocfilehash: abb426b1a41226e52d9b9b5c00c41ff816890d36
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248345"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56744134"
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>Implementacja serwera sieci web HTTP.sys, w programie ASP.NET Core
 
@@ -86,7 +86,7 @@ Sterownik HTTP.sys delegatów, aby uwierzytelnianie trybu jądra za pomocą prot
 
 1. Odwołania do pakietu w pliku projektu nie jest wymagana, gdy za pomocą [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) ([nuget.org](https://www.nuget.org/packages/Microsoft.AspNetCore.App/)) (platformy ASP.NET Core 2.1 lub nowszej). Bez korzystania z `Microsoft.AspNetCore.App` meta Microsoft.aspnetcore.all, Dodaj odwołanie do pakietu [Microsoft.AspNetCore.Server.HttpSys](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.HttpSys/).
 
-2. Wywołaj <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderHttpSysExtensions.UseHttpSys*> — metoda rozszerzenia podczas tworzenia hosta sieci web, określając wymagane <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions>:
+2. Wywołaj <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderHttpSysExtensions.UseHttpSys*> — metoda rozszerzenia podczas tworzenia hosta sieci Web, określając wymagane <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions>:
 
    [!code-csharp[](httpsys/sample/Program.cs?name=snippet1&highlight=4-12)]
 
@@ -135,7 +135,9 @@ Sterownik HTTP.sys delegatów, aby uwierzytelnianie trybu jądra za pomocą prot
 
 ### <a name="configure-windows-server"></a>Konfigurowanie systemu Windows Server
 
-1. Określenia portów, aby otworzyć aplikację i użyj zapory Windows lub [poleceń cmdlet programu PowerShell](https://technet.microsoft.com/library/jj554906) otworzyć porty zapory muszą zezwalać na ruch do osiągnięcia HTTP.sys. Podczas wdrażania aplikacji na Maszynie wirtualnej platformy Azure, należy otworzyć ruch na portach [sieciowej grupy zabezpieczeń](/azure/virtual-network/security-overview). W poniższych poleceń i konfiguracji aplikacji używany jest port 443.
+1. Określenia portów, aby otworzyć aplikację i używania [zapory Windows](/windows/security/threat-protection/windows-firewall/create-an-inbound-port-rule) lub [New-NetFirewallRule](/powershell/module/netsecurity/new-netfirewallrule) polecenia cmdlet programu PowerShell, aby otworzyć porty zapory muszą zezwalać na ruch do osiągnięcia HTTP.sys. W poniższych poleceń i konfiguracji aplikacji używany jest port 443.
+
+1. Podczas wdrażania aplikacji na Maszynie wirtualnej platformy Azure, należy otworzyć ruch na portach [sieciowej grupy zabezpieczeń](/azure/virtual-machines/windows/nsg-quickstart-portal). W poniższych poleceń i konfiguracji aplikacji używany jest port 443.
 
 1. Uzyskaj i zainstaluj certyfikaty X.509, jeśli jest to wymagane.
 
@@ -272,5 +274,5 @@ Dla aplikacji hostowanych przez rozszerzenie HTTP.sys, które współdziałają 
 * [Włącz uwierzytelnianie Windows w pliku HTTP.sys](xref:security/authentication/windowsauth#enable-windows-authentication-with-httpsys)
 * [Serwer HTTP interfejsu API](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx)
 * [repozytorium GitHub ASPNET/HttpSysServer (kodu źródłowego)](https://github.com/aspnet/HttpSysServer/)
-* <xref:fundamentals/host/index>
+* [Host](xref:fundamentals/index#host)
 * <xref:test/troubleshoot>
