@@ -58,35 +58,35 @@ items:
   - uid: fundamentals/index
     name: Omówienie
   - uid: fundamentals/startup
-    name: Uruchamianie aplikacji
+    name: Klasa Startup
   - uid: fundamentals/dependency-injection
     name: Wstrzykiwanie zależności (usługi)
-  - uid: fundamentals/routing
-    name: Routing
-  - uid: fundamentals/environments
-    name: Środowiska (deweloperskie, przejściowe, produkcyjne)
-  - uid: fundamentals/configuration/index
-    name: Konfiguracja
-  - uid: fundamentals/configuration/options
-    name: Opcje
-  - uid: fundamentals/logging/index
-    name: Rejestrowanie
-  - uid: fundamentals/error-handling
-    name: Obsługa błędów
   - uid: fundamentals/middleware/index
     name: Oprogramowanie pośredniczące
   - name: Host
     items:
-    - uid: fundamentals/host/index
-      name: Omówienie
     - uid: fundamentals/host/web-host
       name: Host internetowy
     - uid: fundamentals/host/generic-host
       name: Host ogólny
   - uid: fundamentals/servers/index
     name: Serwery
+  - uid: fundamentals/configuration/index
+    name: Konfiguracja
+  - uid: fundamentals/configuration/options
+    name: Opcje
+  - uid: fundamentals/environments
+    name: Środowiska (deweloperskie, przejściowe, produkcyjne)
+  - uid: fundamentals/logging/index
+    name: Rejestrowanie
+  - uid: fundamentals/routing
+    name: Routing
+  - uid: fundamentals/error-handling
+    name: Obsługa błędów
   - uid: fundamentals/http-requests
     name: Zgłaszanie żądań HTTP
+  - uid: fundamentals/static-files
+    name: Pliki statyczne
 - name: Aplikacje internetowe
   items:
   - name: Razor Pages
@@ -210,8 +210,6 @@ items:
         href: mvc/views/working-with-forms.md#the-validation-summary-tag-helper
   - uid: mvc/views/layout
     name: Układ
-  - uid: fundamentals/static-files
-    name: Pliki statyczne
   - uid: mvc/models/model-binding
     name: Powiązanie modelu
   - uid: mvc/models/validation
@@ -814,6 +812,8 @@ items:
     name: Lokalizacja obiektu przenośnego
 - name: Zaawansowane
   items:
+  - uid: fundamentals/middleware/write
+    name: Pisanie oprogramowania pośredniczącego
   - uid: fundamentals/url-rewriting
     name: Ponowne zapisywanie adresów URL
   - uid: fundamentals/file-providers
@@ -880,9 +880,9 @@ items:
   href: /dotnet/api/?view=aspnetcore-2.2
 - name: Współtworzenie
   href: https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md
-ms.openlocfilehash: d2015955147460621d64ea6035f5f8118a02469b
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.openlocfilehash: e55cfa30103c2a89007f2bc5e9d133dea7f8c6d5
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248397"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56744001"

@@ -1,17 +1,11 @@
 ---
 title: Wprowadzenie do platformy ASP.NET Core
 author: rick-anderson
-description: Zapoznaj się z wprowadzeniem do rozwiązania ASP.NET Core, czyli międzyplatformowej struktury typu open source o wysokiej wydajności służącej do tworzenia nowoczesnych aplikacji internetowych opartych na chmurze.
+description: 'Zapoznaj się z wprowadzeniem do rozwiązania ASP.NET Core, czyli międzyplatformowej struktury typu open source o wysokiej wydajności służącej do tworzenia nowoczesnych aplikacji internetowych opartych na chmurze.'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/13/2019
+ms.date: 02/14/2019
 uid: index
-ms.openlocfilehash: c3f07814bfab19a0f070e0b48b0d2ef6cfc1594e
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
-ms.translationtype: HT
-ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248163"
 ---
 # <a name="introduction-to-aspnet-core"></a>Wprowadzenie do platformy ASP.NET Core
 
@@ -68,6 +62,34 @@ Jest kilka zalet przyjmowania platformy .NET Core jako docelowej, a ich liczba r
 * Kod open source
 
 Ciężko pracujemy nad zlikwidowaniem rozbieżności między interfejsami API platform .NET Framework i .NET Core. Pakiet [Windows Compatibility Pack](/dotnet/core/porting/windows-compat-pack) udostępnił tysiące interfejsów API specyficznych dla systemu Windows na platformie .NET Core. Te interfejsy API nie były dostępne na platformie .NET Core 1.x.
+
+## <a name="recommended-learning-path"></a>Zalecana ścieżka szkoleniowa
+
+Przy rozpoczynaniu programowania aplikacji platformy ASP.NET Core zalecamy następujący zestaw samouczków i artykułów:
+
+1. Wybierz samouczek odpowiedni dla typu aplikacji, którą chcesz programować lub konserwować:
+
+   |Typ aplikacji  |Scenariusz  |Samouczek  |
+   |----------|----------|----------|
+   |Aplikacja internetowa       | Programowanie od nowa        |[Wprowadzenie do korzystania ze stron Razor](xref:tutorials/razor-pages/razor-pages-start) |
+   |Aplikacja internetowa       | Konserwacja aplikacji MVC |[Wprowadzenie do wzorca MVC](xref:tutorials/first-mvc-app/start-mvc)|
+   |Interfejs API sieci Web       |                            |[Tworzenie internetowego interfejsu API](xref:tutorials/first-web-api)\*  |
+   |Aplikacja czasu rzeczywistego |                            |[Wprowadzenie do usługi SignalR](xref:tutorials/signalr) |
+
+1. Wybierz samouczek pokazujący, jak uzyskiwać podstawowy dostęp do danych:
+
+   |Scenariusz  |Samouczek  |
+   |----------|----------|
+   | Programowanie od nowa        |[Platforma Razor Pages z platformą Entity Framework Core](xref:data/ef-rp/intro) |
+   | Konserwacja aplikacji MVC |[Wzorzec MVC z platformą Entity Framework Core](xref:data/ef-mvc/intro)
+
+1. Zapoznaj się z omówieniem funkcji platformy ASP.NET Core, które mają zastosowanie do wszystkich typów aplikacji:
+
+   * [Podstawowe założenia](xref:fundamentals/index)
+
+1. Przeglądaj spis treści, aby znaleźć inne interesujące tematy.
+
+\* Jest już dostępny nowy [samouczek internetowego interfejsu API, który można przejść w całości w przeglądarce](https://docs.microsoft.com/learn/modules/build-web-api-net-core), bez konieczności instalowania lokalnego środowiska IDE.  Kod jest wykonywany w usłudze [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/), a do testowania służy narzędzie [curl](https://curl.haxx.se/).
 
 ## <a name="how-to-download-a-sample"></a>Instrukcje: pobieranie pliku
 
@@ -126,7 +148,7 @@ Aby uzyskać więcej informacji, zobacz [Współtworzenie dokumentacji platformy
 
 Aby uzyskać więcej informacji, zobacz następujące zasoby:
 
-* [Wprowadzenie do korzystania ze stron Razor](xref:tutorials/razor-pages/razor-pages-start)
+* <xref:getting-started>
 * <xref:tutorials/publish-to-azure-webapp-using-vs>
 * [Platforma ASP.NET Core — podstawy](xref:fundamentals/index)
 * [Cotygodniowe podsumowanie ASP.NET Community Standup](https://live.asp.net/) zawiera aktualności o postępach i planach zespołu. Zawiera też informacje o polecanych blogach i oprogramowaniu innych firm.
