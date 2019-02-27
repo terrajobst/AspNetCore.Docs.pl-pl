@@ -3,14 +3,14 @@ title: Układ w programie ASP.NET Core
 author: ardalis
 description: Dowiedz się, jak używać typowych układów, udostępnianie dyrektyw i uruchomienia wspólnego kodu przed renderowania widoków w aplikacji ASP.NET Core.
 ms.author: riande
-ms.date: 10/18/2018
+ms.date: 02/26/2019
 uid: mvc/views/layout
-ms.openlocfilehash: 1bd225c804b333efea834a46b7d9ba46b1bb69d8
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: 7a60ee15e688d6f0e531302457604fa759213758
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410576"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56899245"
 ---
 # <a name="layout-in-aspnet-core"></a>Układ w programie ASP.NET Core
 
@@ -49,15 +49,15 @@ Układ określa szablon najwyższego poziomu dla widoków w aplikacji. Aplikacje
 
 Poniższy kod przedstawia plik układu dla szablonu, który został utworzony projekt za pomocą kontrolera i widoki:
 
-[!code-html[](~/common/samples/WebApplication1/Views/Shared/_Layout.cshtml?highlight=44,72)]
+[!code-cshtml[](~/common/samples/WebApplication1/Views/Shared/_Layout.cshtml?highlight=44,72)]
 
 ## <a name="specifying-a-layout"></a>Określanie układu
 
 Widoki razor oferują `Layout` właściwości. Pojedyncze widoki określ układ przez ustawienie tej właściwości:
 
-[!code-html[](../../common/samples/WebApplication1/Views/_ViewStart.cshtml?highlight=2)]
+[!code-cshtml[](../../common/samples/WebApplication1/Views/_ViewStart.cshtml?highlight=2)]
 
-Określony układ, można użyć pełnej ścieżki (na przykład */Pages/Shared/_Layout.cshtml* lub */Views/Shared/_Layout.cshtml*) lub część nazwy (przykład: `_Layout`). Gdy część nazwy jest podana, aparat widoku Razor wyszuka plik układu przy użyciu swojego procesu odnajdywania standardowego. Folder, w której istnieje metoda obsługi (lub kontroler) jest przeszukiwany w pierwszej kolejności, a następnie *Shared* folderu. Ten proces odnajdywania jest taka sama jak używaną w celu odnalezienia [widoki częściowe](partial.md).
+Określony układ, można użyć pełnej ścieżki (na przykład */Pages/Shared/_Layout.cshtml* lub */Views/Shared/_Layout.cshtml*) lub część nazwy (przykład: `_Layout`). Częściowa nazwa zostanie podana, aparat widoku Razor wyszukuje plik układu przy użyciu swojego procesu odnajdywania standardowego. Folder, w której istnieje metoda obsługi (lub kontroler) jest przeszukiwany w pierwszej kolejności, a następnie *Shared* folderu. Ten proces odnajdywania jest taka sama jak proces używany do odnajdywania [widoki częściowe](xref:mvc/views/partial#partial-view-discovery).
 
 Domyślnie każdy układu musi wywołać `RenderBody`. Wszędzie tam, gdzie wywołanie `RenderBody` jest umieszczany, zawartość widoku będzie renderowana.
 
@@ -123,7 +123,7 @@ Plik nie obsługuje inne funkcje Razor, takie jak definicje sekcji i funkcji.
 
 Przykład `_ViewImports.cshtml` pliku:
 
-[!code-html[](../../common/samples/WebApplication1/Views/_ViewImports.cshtml)]
+[!code-cshtml[](../../common/samples/WebApplication1/Views/_ViewImports.cshtml)]
 
 *_ViewImports.cshtml* plików dla aplikacji ASP.NET Core MVC znajduje się zwykle w *stron* (lub *widoków*) folder. A *_ViewImports.cshtml* pliku można umieścić w dowolnym folderze, w którym to przypadku go one stosowane tylko do stron lub widoków w tym folderze i jego podfolderach. `_ViewImports` pliki są przetwarzane od na poziomie głównym, a następnie dla każdego folderu prowadzących do lokalizacji strony lub wyświetlić sam. `_ViewImports` na poziomie folderu, mogą zostać zastąpione ustawieniami określonymi na poziomie głównym.
 
@@ -151,7 +151,7 @@ Kod, który musi zostać uruchomiony przed każdym widoku lub strony powinny by�
 
 Przykład *_ViewStart.cshtml* pliku:
 
-[!code-html[](../../common/samples/WebApplication1/Views/_ViewStart.cshtml)]
+[!code-cshtml[](../../common/samples/WebApplication1/Views/_ViewStart.cshtml)]
 
 Pliku powyżej Określa, które będą używane we wszystkich widokach *_Layout.cshtml* układu.
 

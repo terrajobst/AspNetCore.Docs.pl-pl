@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/27/2018
 uid: fundamentals/httpcontext
-ms.openlocfilehash: babc637cdec8590ac14f7924c17e862e5b2f6a81
-ms.sourcegitcommit: d22b3c23c45a076c4f394a70b1c8df2fbcdf656d
+ms.openlocfilehash: 446882297524af3cbaed3ba7f941935debf5e7f4
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55428489"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56899206"
 ---
 # <a name="access-httpcontext-in-aspnet-core"></a>HttpContext dostępu w programie ASP.NET Core
 
@@ -131,3 +131,36 @@ public class UserRepository : IUserRepository
     }
 }
 ```
+
+## <a name="httpcontext-access-from-a-background-thread"></a>Dostęp do obiektu HttpContext, z wątku w tle
+
+`HttpContext` nie jest metodą o bezpiecznych wątkach. Odczyt lub zapis właściwości `HttpContext` poza przetwarzania żądania może spowodować `NullReferenceException`.
+
+> [!NOTE]
+> Za pomocą `HttpContext` poza przetwarzania żądania często skutkuje `NullReferenceException`. Jeśli aplikacja generuje sporadyczne `NullReferenceException`s, przejrzyj części kodu, która jest uruchamiana przetwarzania w tle lub który kontynuować przetwarzanie po ukończeniu żądania. Poszukaj błędów, takich jak definiowanie metody kontrolera jako `async void`.
+
+Aby bezpiecznie wykonać pracę w tle za pomocą `HttpContext` danych:
+
+* Skopiuj wymagane dane podczas przetwarzania żądania.
+* Przekaż dane skopiowane do zadania w tle.
+
+Aby uniknąć niebezpieczny kod, nigdy nie należy przekazać `HttpContext` do metody, która w tle work — należy przekazać dane, które należy w zamian.
+
+```csharp
+public class EmailController
+{
+    public ActionResult SendEmail(string email)
+    {
+        var correlationId = HttpContext.Request.Headers["x-correlation-id"].ToString();
+
+        // Starts sending an email, but doesn't wait for it to complete
+        _ = SendEmailCore(correlationId);
+        return View();
+    }
+
+    private async Task SendEmailCore(string correlationId)
+    {
+        // send the email
+    }
+}
+

@@ -4,14 +4,14 @@ author: guardrex
 description: Dowiedz się, jak platformy ASP.NET Core implementuje wstrzykiwanie zależności i jak z niej korzystać.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 02/25/2019
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: b08e9cb8a848675df1e25477a6aef85ddff7b070
-ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
+ms.openlocfilehash: 5e1522e0819d989a7029c2928c1c33624c1774c7
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56743975"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56899362"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Wstrzykiwanie zależności w programie ASP.NET Core
 
@@ -253,7 +253,7 @@ Gdy usługi są rozwiązywane przez `ActivatorUtilities`, iniekcji konstruktora 
 
 ## <a name="entity-framework-contexts"></a>Entity Framework kontekstów
 
-Entity Framework kontekstów powinna być dodana do kontenera usługi przy użyciu zakresu okresu istnienia. Jest to obsługiwane automatycznie przy użyciu wywołania do [AddDbContext](/dotnet/api/microsoft.extensions.dependencyinjection.entityframeworkservicecollectionextensions.adddbcontext) metody podczas rejestrowania kontekst bazy danych. Usługi, które używa kontekstu bazy danych należy używać również o określonym zakresie okresu istnienia.
+Entity Framework kontekstów są zwykle dodawane do usługi kontenera przy użyciu [o określonym zakresie okres istnienia](#service-lifetimes) ponieważ operacji bazy danych w aplikacji sieci web są zazwyczaj ograniczone do żądania. Domyślny okres istnienia jest zakresem, jeśli okres istnienia nie jest określony przez <xref:Microsoft.Extensions.DependencyInjection.EntityFrameworkServiceCollectionExtensions.AddDbContext*> przeciążenia podczas rejestrowania kontekst bazy danych. Usługi danego okresu istnienia nie używaj kontekstu bazy danych o okresie istnienia krótszy niż usługi.
 
 ## <a name="lifetime-and-registration-options"></a>Opcje okres istnienia i rejestracji
 

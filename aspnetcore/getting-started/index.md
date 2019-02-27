@@ -47,7 +47,7 @@ dotnet dev-certs https --trust
 
 Poprzednie polecenie wyświetla następujące okno dialogowe:
 
-![Okno dialogowe ostrzeżenia o zabezpieczeniach](_static/cert.png)
+![Okno dialogowe ostrzeżenia o zabezpieczeniach](~/getting-started/_static/cert.png)
 
 Wybierz **Tak**, jeśli zgadzasz się ufać certyfikatowi programistycznemu.
 
@@ -59,18 +59,17 @@ dotnet dev-certs https --trust
 
 Poprzednie polecenie wyświetli następujący komunikat:
 
-*Zażądano ufające certyfikatu deweloperskiego protokołu HTTPS. Jeśli certyfikat nie jest już zaufany możemy uruchom następujące polecenie:* `'sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain <<certificate>>'`.  
-* To polecenie może monitować o hasło, aby zainstalować certyfikat w pęku kluczy systemu.
-
-Hasło: *
-
-Wprowadź hasło, jeśli zgadzasz się ufać certyfikatowi programistycznemu.
+*Zażądano ufające certyfikatu deweloperskiego protokołu HTTPS. Jeśli certyfikat nie jest już zaufany możemy uruchom następujące polecenie:* `'sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain <<certificate>>'`.
+ 
+To polecenie może monitować o hasło zainstalować certyfikat w pęku kluczy systemu. Wprowadź hasło, jeśli zgadzasz się ufać certyfikatowi programistycznemu.
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
 Sprawdź w dokumentacji dla Twojej dystrybucji systemu Linux informacje na temat dodania certyfikatu deweloperskiego do zaufanych certyfikatów protokołu HTTPS.
 
 ---
+
+Aby uzyskać więcej informacji, zobacz [ufać certyfikatowi rozwoju platformy ASP.NET Core HTTPS](xref:security/enforcing-ssl#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos)
 
 ## <a name="run-the-app"></a>Uruchamianie aplikacji
 

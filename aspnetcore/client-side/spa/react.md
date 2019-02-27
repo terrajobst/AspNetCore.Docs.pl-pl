@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 02/13/2019
 uid: spa/react
-ms.openlocfilehash: aa08a9d8d06d8b52be564fabf904d4923684d4e4
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.openlocfilehash: 3b2b2e67b5d577872bafefef5624a13ca1a22449
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248033"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56899180"
 ---
 # <a name="use-the-react-project-template-with-aspnet-core"></a>Szablon projektu platformy React za pomocą platformy ASP.NET Core
 
@@ -102,3 +102,6 @@ Brak wadą tego ustawienia domyślnego. Po każdej zmianie kodu C# i ASP.NET Cor
     ```
 
 Po uruchomieniu aplikacji platformy ASP.NET Core, nie będzie on uruchomienia serwera kanadyjskiej administracji podatkowej. Wystąpienie, które można uruchomić ręcznie jest używana zamiast tego. To umożliwia uruchamianie i ponowne uruchamianie szybciej. Oczekuje się już na aplikację platformy React, aby odbudować każdorazowo.
+
+> [!IMPORTANT]
+> "Renderowania po stronie serwera" nie jest obsługiwaną funkcją tego szablonu. Naszym celem, korzystając z tego szablonu jest spełniają zgodność z "Utwórz react-app". Jako takie scenariusze i funkcje, które nie są uwzględnione w projekcie "Utwórz react-app" (na przykład SSR) nie są obsługiwane i są pozostawiane w charakterze ćwiczenia dla użytkownika.

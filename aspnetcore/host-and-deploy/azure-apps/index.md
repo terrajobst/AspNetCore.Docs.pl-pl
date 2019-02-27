@@ -5,7 +5,7 @@ description: Ten artykuł zawiera linki do hosta platformy Azure i wdrażanie za
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/25/2019
+ms.date: 02/26/2019
 uid: host-and-deploy/azure-apps/index
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Wdrażanie aplikacji platformy ASP.NET Core w usłudze Azure App Service
@@ -19,7 +19,7 @@ Azure [dokumentację usługi Web Apps](/azure/app-service/) to miejsce, dokument
 [Tworzenie aplikacji internetowej platformy ASP.NET Core na platformie Azure](/azure/app-service/app-service-web-get-started-dotnet)  
 Visual Studio umożliwia tworzenie i wdrażanie aplikacji sieci web ASP.NET Core w usłudze Azure App Service w Windows.
 
-[Utwórz .NET Core aplikacji w usłudze App Service w systemie Linux](/azure/app-service/containers/quickstart-dotnetcore)  
+[Tworzenie aplikacji platformy ASP.NET Core w usłudze App Service w systemie Linux](/azure/app-service/containers/quickstart-dotnetcore)  
 Tworzenie i wdrażanie aplikacji sieci web ASP.NET Core w usłudze Azure App Service w systemie Linux, należy użyć wiersza polecenia.
 
 Następujące artykuły są dostępne w dokumentacji platformy ASP.NET Core:

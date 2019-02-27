@@ -5,14 +5,14 @@ description: Dowiedz się, jak wdrożyć zadania w tle z usługami hostowanymi n
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/20/2019
+ms.date: 02/25/2019
 uid: fundamentals/host/hosted-services
-ms.openlocfilehash: 737cdac512f80955c6965dfe8675d42355ca7161
-ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
-ms.translationtype: HT
+ms.openlocfilehash: d10a335429752c1a52c1b3619adecc41725a819a
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833712"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56899310"
 ---
 # <a name="background-tasks-with-hosted-services-in-aspnet-core"></a>Zadania w tle z usług hostowanych w programie ASP.NET Core
 
@@ -21,7 +21,7 @@ Przez [Luke Latham](https://github.com/guardrex)
 W programie ASP.NET Core, można zaimplementować jako zadania w tle *usługi hostowane*. Usługa hostowana jest klasą z logiką zadań tła, który implementuje <xref:Microsoft.Extensions.Hosting.IHostedService> interfejsu. Ten temat zawiera trzy przykłady usługi hostowanej:
 
 * Zadanie w tle wykonywana przez czasomierz.
-* Usługa hostowana, które aktywuje usługę o określonym zakresie. Usługi o określonym zakresie służy iniekcji zależności.
+* Hostowana usługa, która aktywuje [zakresu usługi](xref:fundamentals/dependency-injection#service-lifetimes). Usługi o określonym zakresie służy iniekcji zależności.
 * Umieszczonych w kolejce zadania w tle wykonywane sekwencyjnie.
 
 [Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/host/hosted-services/samples/) ([sposobu pobierania](xref:index#how-to-download-a-sample))
@@ -71,7 +71,7 @@ Usługa jest zarejestrowana w `Startup.ConfigureServices` z `AddHostedService` �
 
 ## <a name="consuming-a-scoped-service-in-a-background-task"></a>Korzystanie z usługi o określonym zakresie w zadanie w tle
 
-Do korzystania z usług o określonym zakresie w ramach `IHostedService`, tworzenia zakresu. Zakres nie jest domyślnie tworzone dla usługi hostowanej.
+Aby użyć [zakresu usług](xref:fundamentals/dependency-injection#service-lifetimes) w ramach `IHostedService`, utworzyć zakres. Zakres nie jest domyślnie tworzone dla usługi hostowanej.
 
 Usługa zadań w tle o określonym zakresie zawiera logikę zadanie w tle. W poniższym przykładzie <xref:Microsoft.Extensions.Logging.ILogger> są wstrzykiwane do usługi:
 
@@ -102,7 +102,7 @@ Usługi są zarejestrowane w usłudze `Startup.ConfigureServices`. `IHostedServi
 W klasie modelu strony indeksu:
 
 * `IBackgroundTaskQueue` Wprowadzony do konstruktora i ma przypisaną do `Queue`.
-* <xref:Microsoft.Extensions.DependencyInjection.IServiceScopeFactory> Wprowadzony i ma przypisaną do `_serviceScopeFactory`. Fabryka jest używany do tworzenia wystąpień <xref:Microsoft.Extensions.DependencyInjection.IServiceScope>, który jest używany do tworzenia usług w obrębie zakresu. Zakres jest utworzone w celu korzystania z aplikacji `AppDbContext` (o określonym zakresie usługi) do zapisywania rekordów bazy danych `IBackgroundTaskQueue` (usługi singleton).
+* <xref:Microsoft.Extensions.DependencyInjection.IServiceScopeFactory> Wprowadzony i ma przypisaną do `_serviceScopeFactory`. Fabryka jest używany do tworzenia wystąpień <xref:Microsoft.Extensions.DependencyInjection.IServiceScope>, który jest używany do tworzenia usług w obrębie zakresu. Zakres jest utworzone w celu korzystania z aplikacji `AppDbContext` ( [zakresu usługi](xref:fundamentals/dependency-injection#service-lifetimes)) do zapisywania rekordów bazy danych `IBackgroundTaskQueue` (usługi singleton).
 
 [!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample-WebHost/Pages/Index.cshtml.cs?name=snippet1)]
 

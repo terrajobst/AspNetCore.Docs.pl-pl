@@ -1,18 +1,18 @@
 ---
-title: Kompilowanie pliku razor i wstępnej kompilacji w programie ASP.NET Core
+title: Kompilacja pliku razor w programie ASP.NET Core
 author: rick-anderson
-description: Więcej informacji na temat zalet wstępnej kompilacji w plikach Razor i sposób wykonania wstępnej kompilacji pliku Razor, w aplikacji ASP.NET Core.
+description: Dowiedz się, jak kompilacji plikach Razor odbywa się w aplikacji ASP.NET Core.
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/13/2019
 uid: mvc/views/view-compilation
-ms.openlocfilehash: c4e8f722fdf3d3f64807cc35ff9f349af7f32abd
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.openlocfilehash: 0b6173a7860f5f1d9d11219fbf3f57f76d703031
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248189"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56899271"
 ---
 # <a name="razor-file-compilation-in-aspnet-core"></a>Kompilacja pliku razor w programie ASP.NET Core
 
@@ -30,28 +30,31 @@ Pliku Razor jest kompilowana w czasie wykonywania, po wywołaniu skojarzonego wi
 
 ::: moniker-end
 
-::: moniker range=">= aspnetcore-2.1"
+::: moniker range=">= aspnetcore-2.1 <= aspnetcore-2.2"
 
 Pliku Razor jest kompilowana w czasie wykonywania, po wywołaniu skojarzonego widoku Razor strony lub MVC. Pliki razor są kompilowane w obu kompilacji i opublikować przy użyciu [Razor SDK](xref:razor-pages/sdk).
 
 ::: moniker-end
 
-## <a name="precompilation-considerations"></a>Zagadnienia dotyczące wstępnej kompilacji
+::: moniker range=">= aspnetcore-3.0"
 
-Prekompilowanie plikach Razor efekty uboczne są następujące:
+Pliki razor są kompilowane w obu kompilacji i opublikować przy użyciu [Razor SDK](xref:razor-pages/sdk). Kompilacja środowiska uruchomieniowego może być opcjonalnie włączona konfigurując aplikację
 
-* Mniejsze opublikowany pakiet
-* Krótszy czas uruchamiania
-* Nie można edytować pliki Razor&mdash;Brak powiązanej zawartości z opublikowanych pakietu.
+::: moniker-end
 
-## <a name="deploy-precompiled-files"></a>Wdrażanie wstępnie skompilowanych plików
+## <a name="razor-compilation"></a>Kompilacja razor
 
-::: moniker range=">= aspnetcore-2.1"
+::: moniker range=">= aspnetcore-3.0"
+Kompilacja i publikowania w czasie kompilacji plików Razor jest domyślnie włączona, przez zestaw SDK Razor. Po włączeniu kompilacja środowiska uruchomieniowego uzupełnienie utworzy czasu kompilacji, dzięki czemu plikach Razor do aktualizacji, jeśli są one editied.
 
-Kompilacja i publikowania w czasie kompilacji plików Razor jest domyślnie włączona, przez zestaw SDK Razor. Po te są aktualizowane w plikach Razor do edycji jest obsługiwana w czasie kompilacji. Domyślnie tylko skompilowanych *Views.dll* i nie *.cshtml* pliki zostały wdrożone za pomocą aplikacji.
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1 <= aspnetcore-2.2"
+
+Kompilacja i publikowania w czasie kompilacji plików Razor jest domyślnie włączona, przez zestaw SDK Razor. Po te są aktualizowane w plikach Razor do edycji jest obsługiwana w czasie kompilacji. Domyślnie tylko skompilowanych *Views.dll* i nie *.cshtml* plików lub odwołania do zestawów wymagane do kompilowania plików Razor są wdrażane przy użyciu aplikacji.
 
 > [!IMPORTANT]
-> Narzędzie wstępnej kompilacji zostaną usunięte w programie ASP.NET Core 3.0. Zalecamy przeprowadzić migrację do [Razor Sdk](xref:razor-pages/sdk).
+> Narzędzie wstępnej kompilacji jest przestarzała i zostanie usunięta w programie ASP.NET Core 3.0. Zalecamy przeprowadzić migrację do [Razor Sdk](xref:razor-pages/sdk).
 >
 > Zestaw Razor SDK jest efektywne tylko wtedy, gdy brak właściwości specyficzne dla wstępnej kompilacji są ustawione w pliku projektu. Na przykład ustawienie *.csproj* pliku `MvcRazorCompileOnPublish` właściwość `true` wyłącza zestaw Razor SDK.
 
@@ -68,7 +71,7 @@ Jeśli projekt jest przeznaczony dla platformy .NET Core, żadne zmiany nie są 
 Szablony projektów programu ASP.NET Core 2.x niejawnie ustaw `MvcRazorCompileOnPublish` właściwość `true` domyślnie. W związku z tym, ten element można bezpiecznie usunąć z *.csproj* pliku.
 
 > [!IMPORTANT]
-> Narzędzie wstępnej kompilacji zostaną usunięte w programie ASP.NET Core 3.0. Zalecamy przeprowadzić migrację do [Razor Sdk](xref:razor-pages/sdk).
+> Narzędzie wstępnej kompilacji jest przestarzała i zostanie usunięta w programie ASP.NET Core 3.0. Zalecamy przeprowadzić migrację do [Razor Sdk](xref:razor-pages/sdk).
 >
 > Wstępnej kompilacji pliku razor jest niedostępna podczas wykonywania [niezależna wdrożenia (— SCD)](/dotnet/core/deploying/#self-contained-deployments-scd) programu ASP.NET Core 2.0.
 
@@ -96,24 +99,44 @@ A *< project_name >. PrecompiledViews.dll* zawierający skompilowane pliki Razor
 
 ::: moniker-end
 
-## <a name="recompile-razor-files-on-change"></a>Skompiluj ponownie plikach Razor przy zmianie
+## <a name="runtime-compilation"></a>Kompilacja środowiska uruchomieniowego
 
-<xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions> <xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions.AllowRecompilingViewsOnFileChange> Pobiera lub ustawia wartość określającą, jeśli pliki Razor (widokami Razor i stron Razor) są ponownie kompilowane i zaktualizowany w przypadku plików zmienią się na dysku.
+::: moniker range="= aspnetcore-2.1"
 
-Po ustawieniu `true`, [IFileProvider.Watch](xref:Microsoft.Extensions.FileProviders.IFileProvider.Watch*) skonfigurowane zegarki zmian w plikach Razor w <xref:Microsoft.Extensions.FileProviders.IFileProvider> wystąpień.
+Czas kompilacji, kompilacja jest uzupełniana przez kompilacja środowiska uruchomieniowego plików Razor. Platforma ASP.NET Core MVC będzie ponownie kompilować Razor pliki, gdy zawartość *.cshtml* zmianę pliku.
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.2"
+
+Czas kompilacji, kompilacja jest uzupełniana przez kompilacja środowiska uruchomieniowego plików Razor. <xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions> <xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions.AllowRecompilingViewsOnFileChange> Pobiera lub ustawia wartość określającą, jeśli pliki Razor (widokami Razor i stron Razor) są ponownie kompilowane i zaktualizowany w przypadku plików zmienią się na dysku.
 
 Wartość domyślna to `true` dla:
 
-* Platforma ASP.NET Core 2.1 lub starszej aplikacji.
-* Aplikacje platformy ASP.NET Core 2,2 lub nowszym w środowisku programistycznym.
-
-<xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions.AllowRecompilingViewsOnFileChange> jest skojarzony z przełącznikiem zgodności i zapewniają różne zachowanie w zależności od skonfigurowanych zgodność wersji aplikacji. Konfigurowanie aplikacji przez ustawienie <xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions.AllowRecompilingViewsOnFileChange> ma pierwszeństwo przed wartość też dorozumianych przez wersja zgodności aplikacji.
-
-Jeśli wersja zgodności aplikacji jest równa <xref:Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1> lub wcześniej, <xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions.AllowRecompilingViewsOnFileChange> ustawiono `true` , chyba że jawnie skonfigurowane.
-
-Jeśli wersja zgodności aplikacji jest równa <xref:Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_2> lub nowszym, <xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions.AllowRecompilingViewsOnFileChange> ustawiono `false` chyba, że środowisko jest rozwoju lub wartość jest jawnie skonfigurowany.
+* Jeśli wersja zgodności aplikacji jest równa <xref:Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1> lub starszy
+* Wersja zgodności aplikacji czy zestaw do zestawu do <xref:Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_2> lub nowszej, a aplikacja jest w środowisku programistycznym <xref:Microsoft.AspNetCore.Hosting.HostingEnvironmentExtensions.IsDevelopment*>. Innymi słowy, plikach Razor będzie nie należy ponownie skompilować w środowisku programistycznym bez chyba że <xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions.AllowRecompilingViewsOnFileChange> jest jawnie ustawione.
 
 Wskazówki i przykłady ustawienie wersji zgodności aplikacji, zobacz <xref:mvc/compatibility-version>.
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.0"
+
+Kompilacja środowiska uruchomieniowego jest włączane przy użyciu `Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation` pakietu. Aby włączyć kompilacja środowiska uruchomieniowego, muszą aplikacji
+
+* Zainstaluj [Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation/) pakietu NuGet.
+* Aktualizuj aplikację `ConfigureServices` obejmujący wywołanie `AddMvcRazorRuntimeCompilation`:
+
+```csharp
+services
+    .AddMvc()
+    .AddMvcRazorRuntimeCompilation()
+```
+
+Kompilacja środowiska uruchomieniowego do pracy po wdrożeniu, aplikacje Ponadto należy zmodyfikować swoje pliki projektu, aby ustawić `PreserveCompilationReferences` do `true`.
+[!code-xml[](view-compilation/sample/RuntimeCompilation.csproj?highlight=3)]
+
+::: moniker-end
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

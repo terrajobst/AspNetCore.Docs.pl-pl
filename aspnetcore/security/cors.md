@@ -4,22 +4,31 @@ author: rick-anderson
 description: Dowiedz się, jak CORS jako standardowe rozwiązanie dla zezwolenie lub odrzucenie żądań cross-origin w aplikacji ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/27/2018
+ms.date: 02/08/2019
 uid: security/cors
-ms.openlocfilehash: f0e01cfa618184d8a3b19c06212dc3914183a2e4
-ms.sourcegitcommit: e7fafb153b9de7595c2558a0133f8d1c33a3bddb
+ms.openlocfilehash: bc3a0883043a4d6fa33c1ff76fcb7be457b6b840
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52458546"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56899349"
 ---
 # <a name="enable-cross-origin-requests-cors-in-aspnet-core"></a>Włączanie żądań Cross-Origin (CORS) w programie ASP.NET Core
 
-Przez [Mike Wasson](https://github.com/mikewasson), [Shayne Boyer](https://twitter.com/spboyer), i [Tom Dykstra](https://github.com/tdykstra)
+Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Poziom zabezpieczeń przeglądarki zapobiega wysyłania żądań do innej domeny niż ta, która obsłużyła stronę sieci web strony sieci web. To ograniczenie jest nazywany *zasadami tego samego źródła*. Zasada tego samego źródła uniemożliwia złośliwych witryn odczytywanie poufnych danych z innej lokacji. Czasami możesz chcieć zezwala na innych witryn wprowadzać żądań cross-origin Twojej aplikacji.
+W tym artykule pokazano, jak włączanie mechanizmu CORS w aplikacji ASP.NET Core.
 
-[Krzyżowe współużytkowanie zasobów](https://www.w3.org/TR/cors/) (między źródłami CORS) jest to standard W3C, dzięki któremu serwer może Poluzować zasady tego samego źródła. Przy użyciu mechanizmu CORS, serwer można jawnie zezwolić na niektórych żądań cross-origin jednocześnie odrzucając inne. CORS to bezpieczniejsze i bardziej elastyczne niż wcześniej technik, takich jak [JSONP](https://wikipedia.org/wiki/JSONP). W tym temacie pokazano, jak włączanie mechanizmu CORS w aplikacji ASP.NET Core.
+Poziom zabezpieczeń przeglądarki zapobiega wysyłania żądań do innej domeny niż ta, która obsłużyła stronę sieci web strony sieci web. To ograniczenie jest nazywany *zasadami tego samego źródła*. Zasada tego samego źródła uniemożliwia złośliwych witryn odczytywanie poufnych danych z innej lokacji. Czasami możesz chcieć zezwala na innych witryn wprowadzać żądań cross-origin Twojej aplikacji. Aby uzyskać więcej informacji, zobacz [artykułu Mozilla CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS).
+
+[Cross Origin Resource Sharing](https://www.w3.org/TR/cors/) (między źródłami CORS):
+
+* Jest W3C w warstwie standardowa, dzięki któremu serwer może Poluzować zasady tego samego źródła.
+* Jest **nie** to funkcja zabezpieczeń CORS dotyczących zabezpieczeń. Interfejs API nie jest bezpieczniejsze, umożliwiając mechanizmu CORS. Aby uzyskać więcej informacji, zobacz [działa jak CORS](#how-cors).
+* Zezwala serwerowi jawnie zezwolić na niektóre żądania między źródłami, jednocześnie odrzucając inne.
+* Jest bezpieczniejsze i bardziej elastyczne niż wcześniej technik, takich jak [JSONP](/dotnet/framework/wcf/samples/jsonp).
+
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/2.2-stage-samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 ## <a name="same-origin"></a>Tego samego źródła
 
@@ -37,94 +46,76 @@ Te adresy URL są różne źródła niż poprzednie dwa adresy URL:
 * `http://example.com/foo.html` &ndash; Inny schemat
 * `https://example.com:9000/foo.html` &ndash; Inny port
 
-> [!NOTE]
-> Program Internet Explorer nie bierze pod uwagę portu podczas porównywania źródeł.
+Program Internet Explorer nie bierze pod uwagę portu podczas porównywania źródeł.
 
-## <a name="register-cors-services"></a>Rejestrowanie usługi CORS
+## <a name="cors-with-named-policy-and-middleware"></a>Mechanizm CORS za pomocą nazwanych zasad i oprogramowania pośredniczącego
 
-::: moniker range=">= aspnetcore-2.1"
+Oprogramowanie pośredniczące CORS obsługuje żądań cross-origin. Poniższy kod obsługuje mechanizm CORS dla całej aplikacji z określonej lokalizacji:
 
-Odwołanie [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) lub Dodaj odwołanie do pakietu [Microsoft.AspNetCore.Cors](https://www.nuget.org/packages/Microsoft.AspNetCore.Cors/) pakietu.
+[!code-csharp[](cors/sample/Cors/WebAPI/Startup.cs?name=snippet&highlight=8,14-23,38)]
 
-::: moniker-end
+Powyższy kod:
 
-::: moniker range="= aspnetcore-2.0"
+* Ustawia nazwę zasad aby "_myAllowSpecificOrigins". Nazwa zasad jest dowolnego.
+* Wywołania <xref:Microsoft.AspNetCore.Builder.CorsMiddlewareExtensions.UseCors*> metodę rozszerzenia, która umożliwia rdzeni.
+* Wywołania <xref:Microsoft.Extensions.DependencyInjection.CorsServiceCollectionExtensions.AddCors*> z [wyrażenia lambda](/dotnet/csharp/programming-guide/statements-expressions-operators/lambda-expressions). Wyrażenie lambda ma <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder> obiektu. [Opcje konfiguracji](#cors-policy-options), takich jak `WithOrigins`, są opisane w dalszej części tego artykułu.
 
-Odwołanie [pakiet meta Microsoft.aspnetcore.all](xref:fundamentals/metapackage) lub Dodaj odwołanie do pakietu [Microsoft.AspNetCore.Cors](https://www.nuget.org/packages/Microsoft.AspNetCore.Cors/) pakietu.
+<xref:Microsoft.Extensions.DependencyInjection.MvcCorsMvcCoreBuilderExtensions.AddCors*> Wywołania metody dodaje mechanizmu CORS usługi do aplikacji kontenera usługi:
 
-::: moniker-end
+[!code-csharp[](cors/sample/Cors/WebAPI/Startup.cs?name=snippet2)]
 
-::: moniker range="< aspnetcore-2.0"
+Aby uzyskać więcej informacji, zobacz [opcje zasad CORS](#cpo) w tym dokumencie.
 
-Dodaj odwołanie do pakietu [Microsoft.AspNetCore.Cors](https://www.nuget.org/packages/Microsoft.AspNetCore.Cors/) pakietu.
+<xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder> Metoda można połączyć w łańcuch metod, jak pokazano w poniższym kodzie:
 
-::: moniker-end
+[!code-csharp[](cors/sample/Cors/WebAPI/Startup2.cs?name=snippet2)]
 
-Wywołaj <xref:Microsoft.Extensions.DependencyInjection.MvcCorsMvcCoreBuilderExtensions.AddCors*> w `Startup.ConfigureServices` nad dodaniem usług CORS do aplikacji kontenera usługi:
+Następujący wyróżniony kod stosuje zasady CORS do wszystkich aplikacji punktów końcowych, które za pośrednictwem [oprogramowanie pośredniczące CORS](#enable-cors-with-cors-middleware):
 
-[!code-csharp[](cors/sample/CorsExample1/Startup.cs?name=snippet_addcors&highlight=3)]
+[!code-csharp[](cors/sample/Cors/WebAPI/Startup.cs?name=snippet3&highlight=12)]
 
-## <a name="enable-cors"></a>Włączanie mechanizmu CORS
+Zobacz [Włączanie mechanizmu CORS w stron Razor, kontrolerów i metod akcji](#ecors) zastosować zasady CORS na poziomie akcji/kontrolera/strony.
 
-Po zarejestrowaniu mechanizmu CORS usługi, użyj jednej z następujących metod Włączanie mechanizmu CORS w aplikacji ASP.NET Core:
+Uwaga:
 
-* [Oprogramowanie pośredniczące CORS](#enable-cors-with-cors-middleware) &ndash; zasady CORS do zastosowania globalnie do aplikacji za pomocą oprogramowania pośredniczącego.
-* [Mechanizm CORS w MVC](#enable-cors-in-mvc) &ndash; zasady CORS do zastosowania na akcji lub kontrolera. Oprogramowanie pośredniczące CORS nie jest używany.
+* `UseCors` musi zostać wywołana przed `UseMvc`.
+* Adres URL powinien **nie** zawierać ukośnika (`/`). Jeśli adres URL kończy się za pomocą `/`, zwraca wynik porównania `false` i zostanie zwrócony bez nagłówka.
 
-### <a name="enable-cors-with-cors-middleware"></a>Włączanie mechanizmu CORS z oprogramowaniem pośredniczącym CORS
+Zobacz [CORS testu](#test) instrukcje dotyczące badania w poprzednim kodzie.
 
-Oprogramowanie pośredniczące CORS obsługuje żądań cross-origin w aplikacji. Aby włączyć oprogramowanie pośredniczące CORS w potoku przetwarzania żądań, należy wywołać <xref:Microsoft.AspNetCore.Builder.CorsMiddlewareExtensions.UseCors*> metody rozszerzenia w `Startup.Configure`.
+<a name="ecors"></a>
 
-Oprogramowanie pośredniczące CORS musi poprzedzać żadnych zdefiniowanych punktów końcowych w aplikacji, której chcesz obsługiwać żądań cross-origin (na przykład przed wywołaniem do `UseMvc` dla oprogramowania pośredniczącego stron MVC i Razor).
+## <a name="enable-cors-with-attributes"></a>Włączanie mechanizmu CORS za pomocą atrybutów
 
-A *zasad cross-origin* można określić podczas dodawania przy użyciu oprogramowanie pośredniczące CORS <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder> klasy. Dostępne są dwie opcje do definiowania zasad CORS:
+[ &lbrack;EnableCors&rbrack; ](xref:Microsoft.AspNetCore.Cors.EnableCorsAttribute) atrybut stanowi alternatywę dla globalnie stosowania mechanizmu CORS. `[EnableCors]` Atrybutu obsługuje mechanizm CORS dla wybranych punktów końcowych, a nie dla wszystkich punktów końcowych.
 
-* Wywołaj `UseCors` za pomocą wyrażenia lambda:
+Użyj `[EnableCors]` określić domyślne zasady i `[EnableCors("{Policy String}")]` można określić zasady.
 
-  [!code-csharp[](cors/sample/CorsExample1/Startup.cs?highlight=11,12&range=22-38)]
+`[EnableCors]` Atrybut można stosować do:
 
-  Wyrażenie lambda ma <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder> obiektu. [Opcje konfiguracji](#cors-policy-options), takich jak `WithOrigins`, są opisane w dalszej części tego tematu. W powyższym przykładzie zasady umożliwiają żądań cross-origin z `https://example.com` i innych źródeł.
+* Strona razor `PageModel`
+* Kontroler
+* Metoda akcji kontrolera
 
-  Należy określić adres URL bez znaku ukośnika na końcu (`/`). Jeśli adres URL kończy się za pomocą `/`, zwraca wynik porównania `false` i zostanie zwrócony bez nagłówka.
+Różne zasady można stosować do kontrolera/strony-/ Akcja modelu przy użyciu `[EnableCors]` atrybutu. Gdy `[EnableCors]` atrybut jest stosowany do metody kontrolerów/strony-/ Akcja modelu i mechanizmu CORS jest włączona w oprogramowaniu pośredniczącym, obie zasady są stosowane. Odradza się łączenie zasad. Użyj `[EnableCors]` atrybutu lub oprogramowanie pośredniczące nie oba w tej samej aplikacji.
 
-  `CorsPolicyBuilder` ma interfejs fluent API, dzięki czemu można połączyć w łańcuch wywołań metod:
+Poniższy kod mają zastosowanie inne zasady do każdej metody:
 
-  [!code-csharp[](cors/sample/CorsExample3/Startup.cs?highlight=2-3&range=29-32)]
+[!code-csharp[](cors/sample/Cors/WebAPI/Controllers/WidgetController.cs?name=snippet&highlight=6,14)]
 
-* Zdefiniuj co najmniej jedne zasady o nazwie CORS i wybierz zasady według nazwy w czasie wykonywania. W poniższym przykładzie dodano zasady CORS zdefiniowanych przez użytkownika o nazwie *AllowSpecificOrigin*. Aby wybrać zasady, należy przekazać nazwę aby `UseCors`:
+Poniższy kod tworzy domyślne zasady mechanizmu CORS i zasad o nazwie `"AnotherPolicy"`:
 
-  [!code-csharp[](cors/sample/CorsExample2/Startup.cs?name=snippet_begin&highlight=5-6,21)]
-
-### <a name="enable-cors-in-mvc"></a>Włączanie mechanizmu CORS na platformie MVC
-
-Można też użyć MVC zastosować określone zasady CORS na akcji lub kontrolera. Używanie wzorca MVC, aby włączyć mechanizm CORS, używane są zarejestrowane usługi CORS. Oprogramowanie pośredniczące CORS nie jest używany.
-
-### <a name="per-action"></a>Za akcję
-
-Aby określić zasad CORS dla danego działania, Dodaj [ &lbrack;EnableCors&rbrack; ](xref:Microsoft.AspNetCore.Cors.EnableCorsAttribute) atrybutu akcji. Podaj nazwę zasad.
-
-[!code-csharp[](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=EnableOnAction&highlight=2)]
-
-### <a name="per-controller"></a>Każdy kontroler
-
-Aby określić zasady CORS dla określonego kontrolera, należy dodać [ &lbrack;EnableCors&rbrack; ](xref:Microsoft.AspNetCore.Cors.EnableCorsAttribute) atrybutów do klasy kontrolera. Podaj nazwę zasad.
-
-[!code-csharp[](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=EnableOnController&highlight=2)]
-
-Kolejność pierwszeństwa jest:
-
-1. Akcja
-1. kontroler
+[!code-csharp[](cors/sample/Cors/WebAPI/StartupMultiPolicy.cs?name=snippet&highlight=12-28)]
 
 ### <a name="disable-cors"></a>Wyłączenia CORS
 
-Aby wyłączyć CORS dla kontrolera lub akcji, należy użyć [ &lbrack;DisableCors&rbrack; ](xref:Microsoft.AspNetCore.Cors.DisableCorsAttribute) atrybutu:
+[ &lbrack;DisableCors&rbrack; ](xref:Microsoft.AspNetCore.Cors.DisableCorsAttribute) atrybut wyłącza mechanizm CORS dla/strony — model/akcji kontrolera.
 
-[!code-csharp[](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=DisableOnAction&highlight=2)]
+<a name="cpo"></a>
 
 ## <a name="cors-policy-options"></a>Opcje zasad CORS
 
-W tej sekcji opisano różne opcje, które można ustawić zasady CORS. <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsOptions.AddPolicy*> Metoda jest wywoływana w `Startup.ConfigureServices`.
+W tej sekcji opisano różne opcje, które można ustawić zasady CORS:
 
 * [Ustaw dozwolone źródła](#set-the-allowed-origins)
 * [Ustaw dozwolone metody HTTP](#set-the-allowed-http-methods)
@@ -133,21 +124,11 @@ W tej sekcji opisano różne opcje, które można ustawić zasady CORS. <xref:Mi
 * [Poświadczenia w żądań cross-origin](#credentials-in-cross-origin-requests)
 * [Ustaw czas wygaśnięcia wstępnego](#set-the-preflight-expiration-time)
 
-Niektóre opcje mogą być pomocne dla odczytu [działa jak CORS](#how-cors-works) najpierw sekcji.
+ <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsOptions.AddPolicy*> jest wywoływana w `Startup.ConfigureServices`. Niektóre opcje mogą być pomocne dla odczytu [działa jak CORS](#how-cors) najpierw sekcji.
 
-### <a name="set-the-allowed-origins"></a>Ustaw dozwolone źródła
+## <a name="set-the-allowed-origins"></a>Ustaw dozwolone źródła
 
-Oprogramowanie pośredniczące CORS w aplikacji ASP.NET Core MVC ma kilka sposobów, aby określić dozwolone źródła:
-
-* <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.WithOrigins*> &ndash; Umożliwia określenie co najmniej jeden adres URL. Adres URL może zawierać schemat, nazwę hosta i portu bez żadnych informacji o ścieżce. Na przykład `https://example.com`. Należy określić adres URL bez znaku ukośnika na końcu (`/`).
-
-  [!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=20-25&highlight=4-5)]
-
-* <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.AllowAnyOrigin*> &ndash; Umożliwia żądań CORPS ze wszystkich źródeł przy użyciu dowolnego schematu (`http` lub `https`).
-
-  [!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=29-33&highlight=4)]
-
-  Starannie rozważ, przed zezwoleniem na żądania z dowolnego źródła. Zezwolenie na żądania z dowolnego źródła oznacza, że *dowolnej witrynie sieci Web* mogą wysyłać żądań cross-origin do swojej aplikacji.
+<xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.AllowAnyOrigin*> &ndash; Umożliwia żądań CORPS ze wszystkich źródeł przy użyciu dowolnego schematu (`http` lub `https`). `AllowAnyOrigin` jest niebezpieczne ponieważ *dowolnej witrynie sieci Web* mogą wysyłać żądań cross-origin do aplikacji.
 
   ::: moniker range=">= aspnetcore-2.2"
 
@@ -159,15 +140,24 @@ Oprogramowanie pośredniczące CORS w aplikacji ASP.NET Core MVC ma kilka sposob
   ::: moniker range="< aspnetcore-2.2"
 
   > [!NOTE]
-  > Określanie `AllowAnyOrigin` i `AllowCredentials` jest Konfiguracja niebezpieczne i może spowodować fałszerstwo żądania międzywitrynowego. Należy rozważyć Określanie dokładna lista źródeł, jeśli należy autoryzować klienta w samej dostęp do zasobów serwera.
+  > Określanie `AllowAnyOrigin` i `AllowCredentials` jest Konfiguracja niebezpieczne i może spowodować fałszerstwo żądania międzywitrynowego. Dla bezpiecznych aplikacji należy określić dokładnej listy źródeł, jeśli należy autoryzować klienta w samej dostęp do zasobów serwera.
 
   ::: moniker-end
 
-  To ustawienie dotyczy żądań wstępnych i `Access-Control-Allow-Origin` nagłówka. Aby uzyskać więcej informacji, zobacz [stanu wstępnego żądania](#preflight-requests) sekcji.
+<!-- REVIEW required
+I changed from
+Specifying `AllowAnyOrigin` and `AllowCredentials` is an insecure configuration. **This** setting affects preflight requests and the ...
+to
+**`AllowAnyOrigin`** affects preflight requests and the
+
+to remove the ambiguous **This**. 
+-->
+
+  `AllowAnyOrigin` wpływa na stanu wstępnego żądania i `Access-Control-Allow-Origin` nagłówka. Aby uzyskać więcej informacji, zobacz [stanu wstępnego żądania](#preflight-requests) sekcji.
 
 ::: moniker range=">= aspnetcore-2.0"
 
-* <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.SetIsOriginAllowedToAllowWildcardSubdomains*> &ndash; Zestawy <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicy.IsOriginAllowed*> właściwości zasad jako funkcja, która umożliwia źródeł dopasować domeny skonfigurowane ze znakami wieloznacznymi, gdy sprawdzanie, czy jest dozwolone pochodzenie.
+<xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.SetIsOriginAllowedToAllowWildcardSubdomains*> &ndash; Zestawy <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicy.IsOriginAllowed*> właściwości zasad jako funkcja, która umożliwia źródeł dopasować domeny z symbolami wieloznacznymi skonfigurowane podczas obliczania, jeśli źródło jest dozwolone.
 
   [!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=100-104&highlight=4)]
 
@@ -175,11 +165,10 @@ Oprogramowanie pośredniczące CORS w aplikacji ASP.NET Core MVC ma kilka sposob
 
 ### <a name="set-the-allowed-http-methods"></a>Ustaw dozwolone metody HTTP
 
-Aby zezwolić na wszystkie metody HTTP, należy wywołać <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.AllowAnyMethod*>:
+<xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.AllowAnyMethod*>:
 
-[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=46-51&highlight=5)]
-
-To ustawienie dotyczy żądań wstępnych i `Access-Control-Allow-Methods` nagłówka. Aby uzyskać więcej informacji, zobacz [stanu wstępnego żądania](#preflight-requests) sekcji.
+* Umożliwia dowolną metodę HTTP:
+* Wpływa na stanu wstępnego żądania i `Access-Control-Allow-Methods` nagłówka. Aby uzyskać więcej informacji, zobacz [stanu wstępnego żądania](#preflight-requests) sekcji.
 
 ### <a name="set-the-allowed-request-headers"></a>Ustawia nagłówki żądania dozwolone
 
@@ -238,7 +227,7 @@ Access-Control-Request-Headers: Cache-Control, Content-Language
 
 ### <a name="set-the-exposed-response-headers"></a>Ustawianie nagłówków odpowiedzi narażone
 
-Domyślnie przeglądarka nie uwidacznia wszystkie nagłówki odpowiedzi do aplikacji. Aby uzyskać więcej informacji, zobacz [W3C Cross-Origin Resource Sharing (terminologii): prosty nagłówek odpowiedzi](https://www.w3.org/TR/cors/#simple-response-header).
+Domyślnie przeglądarka nie uwidacznia wszystkie nagłówki odpowiedzi do aplikacji. Aby uzyskać więcej informacji, zobacz [W3C Cross-Origin Resource Sharing (terminologii): Nagłówek odpowiedzi proste](https://www.w3.org/TR/cors/#simple-response-header).
 
 Nagłówki odpowiedzi, które są domyślnie dostępne są następujące:
 
@@ -265,18 +254,27 @@ xhr.open('get', 'https://www.example.com/api/test');
 xhr.withCredentials = true;
 ```
 
-W technologii jQuery:
+Przy użyciu jQuery:
 
-```jQuery
+```javascript
 $.ajax({
   type: 'get',
-  url: 'https://www.example.com/home',
+  url: 'https://www.example.com/api/test',
   xhrFields: {
     withCredentials: true
-}
+  }
+});
 ```
 
-Ponadto serwer musi zezwalać na poświadczenia. Zezwalaj na współużytkowanie poświadczeń, należy wywołać <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.AllowCredentials*>:
+Za pomocą [interfejsu API Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API):
+
+```javascript
+fetch('https://www.example.com/api/test', {
+    credentials: 'include'
+});
+```
+
+Serwer musi zezwalać na poświadczenia. Zezwalaj na współużytkowanie poświadczeń, należy wywołać <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.AllowCredentials*>:
 
 [!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=82-87&highlight=5)]
 
@@ -284,7 +282,8 @@ Odpowiedź HTTP zawiera `Access-Control-Allow-Credentials` nagłówka, który in
 
 Jeśli przeglądarka wysyła poświadczenia, ale odpowiedź nie zawiera prawidłowej `Access-Control-Allow-Credentials` nagłówka, przeglądarka nie ujawnia odpowiedzi do aplikacji, a liczba nieudanych żądań cross-origin.
 
-Należy zachować ostrożność, dzięki czemu poświadczenia cross-origin. Witryny sieci Web w innej domenie może wysyłać poświadczeń zalogowanego użytkownika do aplikacji w imieniu użytkownika bez wiedzy użytkownika.
+Dzięki czemu poświadczenia cross-origin to zagrożenie bezpieczeństwa. Witryny sieci Web w innej domenie może wysyłać poświadczeń zalogowanego użytkownika do aplikacji w imieniu użytkownika bez wiedzy użytkownika. <!-- TODO Review: When using `AllowCredentials`, all CORS enabled domains must be trusted.
+I don't like "all CORS enabled domains must be trusted", because it implies that if you're not using  `AllowCredentials`, domains don't need to be trusted. -->
 
 Specyfikacja CORS również stany to ustawienie źródeł do `"*"` (wszystkie źródła) jest nieprawidłowa Jeśli `Access-Control-Allow-Credentials` nagłówka znajduje się.
 
@@ -355,11 +354,24 @@ W przypadku odmowy żądania wstępnego aplikacja zwróci *200 OK* odpowiedzi, a
 
 [!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=91-96&highlight=5)]
 
+<a name="how-cors"></a>
+
 ## <a name="how-cors-works"></a>Jak działa mechanizmu CORS
 
-W tej sekcji opisano, co się stanie, w ramach żądania CORS na poziomie wiadomości HTTP. Należy zrozumieć, jak CORS działa tak, aby zasady CORS może być prawidłowo skonfigurowane i debugowania, gdy wystąpią nieoczekiwane wyniki.
+W tej sekcji opisano, co dzieje się w [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) żądania na poziomie wiadomości HTTP.
 
-Specyfikacja CORS wprowadza kilka nowych nagłówki HTTP, które Włączanie żądań cross-origin. Jeśli przeglądarka obsługuje mechanizm CORS, ustawia nagłówki te automatycznie dla żądań cross-origin. Niestandardowy kod JavaScript nie jest wymagane, aby włączyć mechanizm CORS.
+* CORS to **nie** to funkcja zabezpieczeń. CORS to W3C standard, dzięki któremu serwer może Poluzować zasady tego samego źródła.
+  * Na przykład użyć złośliwego aktora [zapobiec Cross-Site Scripting (XSS)](xref:security/cross-site-scripting) względem lokacji, a następnie wykonaj fałszerstwo żądania do swojej lokacji włączono mechanizm CORS do wykradania informacji.
+* Interfejs API nie jest bezpieczniejsze, umożliwiając mechanizmu CORS.
+  * Wszystko zależy klienta (przeglądarki) wymuszenie mechanizmu CORS. Serwer ten wykonuje żądanie i zwraca odpowiedź okazał się klient, który zwraca błąd i bloków odpowiedź. Na przykład dowolne z następujących narzędzi spowoduje wyświetlenie odpowiedź serwera:
+     * [Fiddler](https://www.telerik.com/fiddler)
+     * [Postman](https://www.getpostman.com/)
+     * [.NET HttpClient](/dotnet/csharp/tutorials/console-webapiclient)
+     * Przeglądarki sieci web przy użyciu adresu URL w pasku adresu.
+* Jest to sposób wykonania cross-origin dla serwera umożliwić przeglądarki [XHR](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) lub [pobrania interfejsu API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) żądania, w przeciwnym razie mogłyby być zabroniony.
+  * Przeglądarek (CORS) nie można wykonać żądań cross-origin. Przed mechanizmu CORS [JSONP](https://www.w3schools.com/js/js_json_jsonp.asp) został użyty na obejście tego ograniczenia. Jest używany inny JSONP XHR, używa ona `<script>` tag do odbierania odpowiedzi. Skrypty mogą zostać załadowane cross-origin.
+
+[Specyfikacji CORS]() wprowadzono kilka nowych nagłówki HTTP, które Włączanie żądań cross-origin. Jeśli przeglądarka obsługuje mechanizm CORS, ustawia nagłówki te automatycznie dla żądań cross-origin. Niestandardowy kod JavaScript nie jest wymagane, aby włączyć mechanizm CORS.
 
 Oto przykład żądania między źródłami. `Origin` Nagłówek zapewnia domeny obiektu, z której wysłano żądanie:
 
@@ -389,6 +401,39 @@ Test message
 ```
 
 Jeżeli odpowiedź nie zawiera `Access-Control-Allow-Origin` nagłówka żądania między źródłami zakończy się niepowodzeniem. W szczególności przeglądarki nie zezwalają na żądanie. Nawet jeśli serwer zwraca odpowiedź oznaczająca Powodzenie, przeglądarka nie udostępnia odpowiedzi do aplikacji klienckiej.
+
+<a name="test"></a>
+
+## <a name="test-cors"></a>Test CORS
+
+Aby przetestować CORS:
+
+1. [Utwórz projekt interfejsu API](xref:tutorials/first-web-api). Możesz też [pobrać przykład](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/cors/sample/Cors).
+1. Włączanie mechanizmu CORS za pomocą jednej z metod, w tym dokumencie. Na przykład:
+
+  [!code-csharp[](cors/sample/Cors/WebAPI/StartupTest.cs?name=snippet2&highlight=13-18)]
+  
+  > [!WARNING]
+  > `WithOrigins("https://localhost:<port>");` powinna służyć wyłącznie do testowania podobne do przykładowej aplikacji [Pobierz przykładowy kod](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/cors/sample/Cors).
+
+1. Tworzenie projektu aplikacji sieci web (stron Razor lub MVC). W przykładzie użyto stron Razor. W tym samym rozwiązaniu co projekt interfejsu API, można utworzyć aplikację internetową.
+1. Dodaj następujący wyróżniony kod do *Index.cshtml* pliku:
+
+  [!code-csharp[](cors/sample/Cors/ClientApp/Pages/Index2.cshtml?highlight=7-99)]
+
+1. W poprzednim kodzie Zastąp `url: 'https://<web app>.azurewebsites.net/api/values/1',` z adresem URL wdrożonej aplikacji.
+1. Wdróż projekt interfejsu API. Na przykład [wdrażanie na platformie Azure](xref:host-and-deploy/azure-apps/index).
+1. Uruchamianie aplikacji stron Razor lub MVC z pulpitu, a następnie kliknij przycisk na **testu** przycisku. Użyj narzędzi F12, aby przejrzeć komunikaty o błędach.
+1. Usuń źródła localhost z `WithOrigins` i wdróż aplikację. Możesz też uruchomić aplikacji klienckiej, używając innego portu. Na przykład uruchomić z programu Visual Studio.
+1. Testowanie za pomocą aplikacji klienckiej. Błędy CORS zwróci błąd, ale komunikat o błędzie nie jest dostępna w kodzie JavaScript. Karta konsoli w F12 tools do wyświetlony błąd. W zależności od przeglądarki wystąpi błąd (w konsoli narzędzia F12) podobny do następującego:
+
+  * Korzystanie z przeglądarki Microsoft Edge:
+
+    **SEC7120: [CORS] źródło "https://localhost:44375"nie znaleziono"https://localhost:44375"w nagłówku odpowiedzi Access-Control-Allow-Origin zasobu cross-origin"https://webapi.azurewebsites.net/api/values/1".**
+
+  * Za pomocą przeglądarki Chrome:
+
+    **Dostęp do XMLHttpRequest na "https://webapi.azurewebsites.net/api/values/1"from. pochodzenie"https://localhost:44375" została zablokowana przez zasady CORS: Brak nagłówka "Access-Control-Allow-Origin" jest obecny dla żądanego zasobu.**
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

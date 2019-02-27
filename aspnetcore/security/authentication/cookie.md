@@ -5,12 +5,12 @@ description: Wyjaśnienie przy użyciu uwierzytelniania plików cookie bez użyc
 ms.author: riande
 ms.date: 02/25/2019
 uid: security/authentication/cookie
-ms.openlocfilehash: 7e975da3a276ffb6a3de7ee02f7cc5be67cbbebe
-ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
-ms.translationtype: HT
+ms.openlocfilehash: 29370a3ff25469b34edc2a71e00601cf6ecc00ca
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833621"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56899292"
 ---
 # <a name="use-cookie-authentication-without-aspnet-core-identity"></a>Używania uwierzytelniania plików cookie bez użycia produktu ASP.NET Core Identity
 
@@ -404,7 +404,7 @@ await HttpContext.Authentication.SignInAsync(
 
 ## <a name="absolute-cookie-expiration"></a>Datę ważności pliku cookie bezwzględne
 
-Można ustawić czasu wygaśnięcia bezwzględne za pomocą `ExpiresUtc`. Należy także ustawić `IsPersistent`; w przeciwnym razie `ExpiresUtc` jest ignorowany i zostanie utworzony plik cookie sesji dla jednego. Gdy `ExpiresUtc` jest ustawiona na `SignInAsync`, zastępuje ona wartość `ExpireTimeSpan` opcji `CookieAuthenticationOptions`, jeśli ustawiona.
+Można ustawić czasu wygaśnięcia bezwzględne za pomocą `ExpiresUtc`. Aby utworzyć trwały plik cookie, należy także ustawić `IsPersistent`; w przeciwnym wypadku plik cookie jest tworzony o okresie istnienia, oparte na sesji i może wygaśnie przed lub po biletu uwierzytelniania, który przechowuje. Gdy `ExpiresUtc` jest ustawiona na `SignInAsync`, zastępuje ona wartość `ExpireTimeSpan` opcji `CookieAuthenticationOptions`, jeśli ustawiona.
 
 Poniższy fragment kodu tworzy tożsamości i odpowiedniego pliku cookie, który jest ważny przez 20 minut. To ignoruje wszelkie przewijania wcześniej skonfigurowane ustawienia wygaśnięcia.
 
