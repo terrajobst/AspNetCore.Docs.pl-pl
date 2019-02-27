@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/19/2019
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: e7eed467a0f54df5d0e067efabf6f821b7647d70
-ms.sourcegitcommit: 0945078a09c372f17e9b003758ed87e99c2449f4
-ms.translationtype: MT
+ms.openlocfilehash: a955cc98dc60d2f8178cb771f31a8b243f2567f3
+ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56647970"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833595"
 ---
 # <a name="aspnet-core-module"></a>Moduł ASP.NET Core
 
@@ -69,9 +69,24 @@ Następujące właściwości mają zastosowanie w przypadku hostowania w procesi
 
 * Rozłącza klienta są wykrywane. [HttpContext.RequestAborted](xref:Microsoft.AspNetCore.Http.HttpContext.RequestAborted*) odwołano token anulowania, gdy klient odłączy się.
 
-* <xref:System.IO.Directory.GetCurrentDirectory*> Zwraca katalogu roboczego proces rozpoczęty przez usługi IIS, a nie w katalogu aplikacji (na przykład *C:\Windows\System32\inetsrv* dla *w3wp.exe*).
+* W programie ASP.NET Core 2.2.1 lub wcześniej, <xref:System.IO.Directory.GetCurrentDirectory*> zwraca katalogu roboczego proces rozpoczęty przez usługi IIS, a nie w katalogu aplikacji (na przykład *C:\Windows\System32\inetsrv* dla *w3wp.exe*) .
 
   Przykładowy kod, który ustawia bieżący katalog aplikacji, zobacz [klasy CurrentDirectoryHelpers](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/aspnet-core-module/samples_snapshot/2.x/CurrentDirectoryHelpers.cs). Wywołaj `SetCurrentDirectory` metody. Kolejne wywołania <xref:System.IO.Directory.GetCurrentDirectory*> zapewniają katalogu aplikacji.
+  
+* W przypadku hostowania w trakcie <xref:Microsoft.AspNetCore.Authentication.AuthenticationService.AuthenticateAsync*> nie jest wewnętrznie wywoływana w celu zainicjowania przez użytkownika. W związku z tym <xref:Microsoft.AspNetCore.Authentication.IClaimsTransformation> implementacji używanego do przekształcania oświadczeń, po każdym uwierzytelniania nie jest aktywowana domyślnie. Podczas transformowania oświadczenia, za pomocą <xref:Microsoft.AspNetCore.Authentication.IClaimsTransformation> implementacji, wywołanie <xref:Microsoft.Extensions.DependencyInjection.AuthenticationServiceCollectionExtensions.AddAuthentication*> nad dodaniem usług uwierzytelniania:
+
+  ```csharp
+  public void ConfigureServices(IServiceCollection services)
+  {
+      services.AddTransient<IClaimsTransformation, ClaimsTransformer>();
+      services.AddAuthentication(IISServerDefaults.AuthenticationScheme);
+  }
+  
+  public void Configure(IApplicationBuilder app)
+  {
+      app.UseAuthentication();
+  }
+  ```
 
 ### <a name="out-of-process-hosting-model"></a>Model hostingu poza procesem
 

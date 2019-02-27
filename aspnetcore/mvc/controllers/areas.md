@@ -3,42 +3,40 @@ title: Obszary w programie ASP.NET Core
 author: rick-anderson
 description: Dowiedz się, jak obszary są funkcją programu ASP.NET MVC, używane do organizowania powiązanych funkcji do grupy jako osobne przestrzeni nazw (w przypadku routingu) i struktury ich folderów (w przypadku widoków).
 ms.author: riande
-ms.date: 02/14/2017
+ms.date: 02/14/2019
 uid: mvc/controllers/areas
-ms.openlocfilehash: 19e818fa198936ea1bee0da8039e88a3c0abbf6b
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: c21eed04ea68512515da262b6b6895dc1a821039
+ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410615"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833530"
 ---
 # <a name="areas-in-aspnet-core"></a>Obszary w programie ASP.NET Core
 
 Przez [Kumara Dhananjay](https://twitter.com/debug_mode) i [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Obszary są funkcją programu ASP.NET MVC, używane do organizowania powiązanych funkcji do grupy jako osobne przestrzeni nazw (w przypadku routingu) i struktury ich folderów (w przypadku widoków). Za pomocą obszarów tworzą hierarchię na potrzeby routingu, dodając innego parametru trasy, `area`, `controller` i `action`.
+Obszary są funkcją programu ASP.NET, używane do organizowania powiązanych funkcji do grupy jako osobne przestrzeni nazw (w przypadku routingu) i struktury ich folderów (w przypadku widoków). Za pomocą obszarów tworzą hierarchię na potrzeby routingu, dodając innego parametru trasy, `area`, `controller` i `action` lub strony Razor `page`.
 
-Obszary zapewniają sposób dzielenia dużych aplikacji sieci Web platformy ASP.NET Core MVC na mniejsze grupy funkcjonalnej. Obszar jest skutecznie strukturę MVC w aplikacji. W projekcie MVC logiczne składniki, takie jak Model, kontroler i Widok są przechowywane w różnych folderach, i są używane konwencje nazewnictwa do utworzenia relacji między tymi składnikami. W przypadku dużych aplikacji może być korzystne podzielić ją na oddzielnych wysokiego poziomu obszary funkcji. Na przykład aplikacja handlu elektronicznego z wielu jednostek biznesowych, takich jak wyszukiwanie itp wyewidencjonowanie i rozliczeniami. Każda z tych jednostek ma swoje własne widoki logiczny składnik, kontrolery i modeli. W tym scenariuszu można użyć obszarów do partycjonowania fizycznie składniki biznesowej, w tym samym projekcie.
+Obszary umożliwiają partycji aplikacji sieci Web platformy ASP.NET Core na mniejsze grupy funkcjonalnej, każdy z swój własny zestaw stron Razor, kontrolerów, widoki i modele. Obszar skutecznie to struktura wewnątrz aplikacji. W projekcie sieci web platformy ASP.NET Core składników logicznych, takich jak strony, modelu, kontroler i Widok są przechowywane w różnych folderach. Środowisko uruchomieniowe programu ASP.NET Core używa konwencji nazewnictwa do utworzenia relacji między tymi składnikami. W przypadku dużych aplikacji może być korzystne podzielić ją na oddzielnych wysokiego poziomu obszary funkcji. Na przykład aplikacja handlu elektronicznego z wielu jednostek biznesowych, takich jak wyewidencjonowania, rozliczeń i wyszukiwania. Każda z tych jednostek ma swoje własne obszar zawiera widoki, kontrolery, stronami Razor i modeli.
 
-Obszar mogą być definiowane jako mniejsze jednostki organizacyjne w projekcie programu ASP.NET Core MVC za pomocą swój własny zestaw kontrolerów, widoki i modele.
+Należy rozważyć użycie obszarów w projekcie po:
 
-Należy rozważyć użycie obszarów w MVC projektu, gdy:
+* Aplikacja składa się z wielu wysokiego poziomu funkcjonalności składników, które mogą zostać logicznie oddzielone.
+* Chcesz podzielić na partycje aplikację tak, aby każdy obszar funkcjonalny może się opracowaniem niezależnie.
 
-* Aplikacja składa się z wielu wysokiego poziomu funkcjonalności składników, które powinny zostać logicznie oddzielone
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/areas/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample)). Przykład pobierania zawiera podstawową aplikację do testowania obszarów.
 
-* Chcesz podzielić projektu MVC tak, aby każdy obszar funkcjonalny może się opracowaniem niezależnie
+## <a name="areas-for-controllers-with-views"></a>Obszary dla kontrolerów z widokami
 
-Funkcje obszaru:
+Typowa aplikacja internetowa ASP.NET Core przy użyciu obszarów, widoków i kontrolerów zawiera następujące informacje:
 
-* Aplikacja ASP.NET Core MVC może mieć dowolną liczbę obszarów.
+* [Strukturę folderów obszaru](#area-folder-structure).
+* Kontrolery ozdobione [ &lbrack;obszaru&rbrack; ](#attribute) atrybutu, aby skojarzyć kontroler z obszaru: [!code-csharp[](areas/samples/MVCareas/Areas/Products/Controllers/ManageController.cs?name=snippet2)]
+* [Trasa obszaru dodana do uruchamiania](#add-area-route): [!code-csharp[](areas/samples/MVCareas/Startup.cs?name=snippet2&highlight=3-6)]
 
-* Każdy obszar ma swój własny, modeli, widoków i kontrolerów.
-
-* Obszary umożliwiają organizowanie dużymi projektami MVC w wielu składników wysokiego poziomu, które mogą być realizowane niezależnie.
-
-* Obszary obsługuje wiele kontrolerów o takiej samej nazwie, tak długo, jak długo mają różne *obszarów*.
-
-Spójrzmy na przykład aby zilustrować, jak obszary są tworzone i używane. Załóżmy, że masz aplikację ze sklepu, która ma dwa oddzielne grupy widoków i kontrolerów: Produkty i usługi. Typowy folder struktury dla, że przy użyciu obszarów MVC wygląda jak poniżej:
+## <a name="area-folder-structure"></a>Struktura folderów obszaru
+Należy wziąć pod uwagę aplikację, która ma dwa grup logicznych *produktów* i *usług*. Za pomocą obszarów, strukturę folderów będzie podobny do następującego:
 
 * Project name (Nazwa projektu)
   * Obszary
@@ -51,6 +49,7 @@ Spójrzmy na przykład aby zilustrować, jak obszary są tworzone i używane. Za
           * Index.cshtml
         * Zarządzanie
           * Index.cshtml
+          * About.cshtml
     * Usługi
       * Kontrolery
         * HomeController.cs
@@ -58,112 +57,80 @@ Spójrzmy na przykład aby zilustrować, jak obszary są tworzone i używane. Za
         * Home
           * Index.cshtml
 
-Gdy do renderowania widoku w obszarze domyślnie podejmie próbę MVC, próbuje Szukaj w następujących lokalizacjach:
+Podczas poprzedniego układ jest typowe w przypadku, gdy przy użyciu obszarów, Wyświetl pliki, należy użyć tej struktury folderów. Widok odnajdywania wyszukuje pasującego pliku widoku obszaru w następującej kolejności:
 
 ```text
 /Areas/<Area-Name>/Views/<Controller-Name>/<Action-Name>.cshtml
-   /Areas/<Area-Name>/Views/Shared/<Action-Name>.cshtml
-   /Views/Shared/<Action-Name>.cshtml
+/Areas/<Area-Name>/Views/Shared/<Action-Name>.cshtml
+/Views/Shared/<Action-Name>.cshtml
+/Pages/Shared/<Action-Name>.cshtml
    ```
 
-Są to domyślne lokalizacje, które można zmienić za pośrednictwem `AreaViewLocationFormats` na `Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions`.
+Lokalizacji-view, folderów, takie jak *kontrolerów* i *modeli* jest **nie** znaczenia. Na przykład *kontrolerów* i *modeli* folderu nie są wymagane. Zawartość *kontrolerów* i *modeli* jest kod, który zostanie skompilowany w dll. Zawartość *widoków* nie jest kompilowana, dopóki nie wykonano żądania do tego widoku.
 
-Na przykład w poniższego kodu, zamiast nazwy folderu jako "Obszary", został zmieniony na "Kategorie".
+<!-- TODO review:
+The content of the *Views* isn't compiled until a request to that view has been made.
 
-```csharp
-services.Configure<RazorViewEngineOptions>(options =>
-   {
-       options.AreaViewLocationFormats.Clear();
-       options.AreaViewLocationFormats.Add("/Categories/{2}/Views/{1}/{0}.cshtml");
-       options.AreaViewLocationFormats.Add("/Categories/{2}/Views/Shared/{0}.cshtml");
-       options.AreaViewLocationFormats.Add("/Views/Shared/{0}.cshtml");
-   });
-   ```
+What about precompiled views? 
+ -->
+<a name="attribute"></a>
 
-Jedno, należy pamiętać, jest strukturą *widoków* folder jest tylko jeden, co jest uznawane za ważne tutaj i zawartość w pozostałej części folderów, takich jak *kontrolerów* i *modeli* jest **nie** znaczenia. Na przykład, użytkownik nie musi mieć *kontrolerów* i *modeli* folderu w ogóle. To działa, ponieważ zawartość *kontrolerów* i *modeli* jest po prostu kod, który pobiera skompilowany w dll, gdzie jako zawartość *widoków* nie jest do żądania, Wyświetl zostały wprowadzone.
+### <a name="associate-the-controller-with-an-area"></a>Skojarzyć kontroler z obszaru
 
-Po zdefiniowaniu hierarchii folderów należy MVC stwierdzić, że każdy kontroler jest skojarzony z obszarem. Można to zrobić, dekoracji nazwy kontrolera, za pomocą `[Area]` atrybutu.
+Obszar kontrolerów zostały oznaczone za pomocą [ &lbrack;obszaru&rbrack; ](xref:Microsoft.AspNetCore.Mvc.AreaAttribute) atrybutu:
 
-```csharp
-...
-   namespace MyStore.Areas.Products.Controllers
-   {
-       [Area("Products")]
-       public class HomeController : Controller
-       {
-           // GET: /Products/Home/Index
-           public IActionResult Index()
-           {
-               return View();
-           }
+[!code-csharp[](areas/samples/MVCareas/Areas/Products/Controllers/ManageController.cs?highlight=5&name=snippet)]
 
-           // GET: /Products/Home/Create
-           public IActionResult Create()
-           {
-               return View();
-           }
-       }
-   }
-   ```
+### <a name="add-area-route"></a>Dodaj trasę obszaru
 
-Skonfiguruj definicję trasy, która współdziała z nowo utworzoną obszary. [Trasy do akcji kontrolera](routing.md) artykułu przechodzi do szczegółowych informacji dotyczących sposobu tworzenia definicji trasy, w tym o korzystaniu z konwencjonalnych trasy w porównaniu z trasami atrybutów. W tym przykładzie użyjemy konwencjonalne trasy. Aby to zrobić, otwórz *Startup.cs* plików i zmodyfikuj go, dodając `areaRoute` o nazwie definicji trasy.
+Obszar trasy używa się zazwyczaj do routingu konwencjonalna zamiast trasowanie atrybutów. Tradycyjnie routing jest zależna od kolejności. Ogólnie rzecz biorąc trasy z obszarami należy umieścić we wcześniejszej części tabeli tras, ponieważ są one bardziej szczegółowe niż trasy bez obszaru.
 
-```csharp
-...
-   app.UseMvc(routes =>
-   {
-     routes.MapRoute(
-         name: "areaRoute",
-         template: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+`{area:...}` może służyć jako token w szablonach tras Jeśli przestrzeń adresów url jest jednolita we wszystkich obszarach:
 
-     routes.MapRoute(
-         name: "default",
-         template: "{controller=Home}/{action=Index}/{id?}");
-   });
-   ```
+[!code-csharp[](areas/samples/MVCareas/Startup.cs?name=snippet&highlight=18-21)]
 
-Przechodzenie do `http://<yourApp>/products`, `Index` metody akcji `HomeController` w `Products` obszar, który zostanie wywołany.
+W poprzednim kodzie `exists` zastosuje ograniczenie, że trasy musi odpowiadać obszar. Za pomocą `{area:...}` jest najmniej skomplikowane mechanizm do dodawania routingu do obszarów.
 
-## <a name="link-generation"></a>Generowanie konsolidacji
+Poniższy kod używa <xref:Microsoft.AspNetCore.Builder.MvcAreaRouteBuilderExtensions.MapAreaRoute*> utworzyć dwa o nazwie obszaru trasy:
 
-* Podczas generowania łączy z akcji wewnątrz obszaru na podstawie kontrolera do innej akcji w obrębie tego samego kontrolera.
+[!code-csharp[](areas/samples/MVCareas/StartupMapAreaRoute.cs?name=snippet&highlight=18-27)]
 
-  Załóżmy, że ścieżka bieżącego żądania jest podobne `/Products/Home/Create`
+Korzystając z `MapAreaRoute` za pomocą platformy ASP.NET Core 2.2, zobacz [problem w usłudze GitHub](https://github.com/aspnet/AspNetCore/issues/7772).
 
-  Składnia HtmlHelper: `@Html.ActionLink("Go to Product's Home Page", "Index")`
+Aby uzyskać więcej informacji, zobacz [routingu obszaru](xref:mvc/controllers/routing#areas).
 
-  Składnia pomocnika tagów: `<a asp-action="Index">Go to Product's Home Page</a>`
+### <a name="link-generation-with-areas"></a>Generowanie konsolidacji z obszarami
 
-  Należy pamiętać, że, firma Microsoft nie musi dostarczać wartości "obszar" i "controller" tutaj, ponieważ są one już dostępne w kontekście bieżącego żądania. Ten rodzaj wartości są nazywane `ambient` wartości.
+Poniższy kod z [pobrania próbki](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/areas/samples) pokazuje połączenie generacji z użyciem obszaru określony:
 
-* Podczas generowania łączy z akcji wewnątrz obszaru na podstawie kontrolera do kolejnej akcji na innym kontrolerze
+[!code-cshtml[](areas/samples/MVCareas/Views/Shared/_testLinksPartial.cshtml?name=snippet)]
 
-  Załóżmy, że ścieżka bieżącego żądania jest podobne `/Products/Home/Create`
+Linki wygenerowane z poprzedniego kodu są prawidłowe w dowolnym miejscu aplikacji.
 
-  Składnia HtmlHelper: `@Html.ActionLink("Go to Manage Products Home Page", "Index", "Manage")`
+Przykładowe do pobrania obejmują programy [widoku częściowego](xref:mvc/views/partial) zawiera poprzednie linki i uruchamia łącze tak samo bez określenia obszaru. Odwołuje się widok częściowy [plik układu](), więc co w aplikacji stronę Wyświetla łącza wygenerowany. Linki wygenerowany bez określenia obszaru są prawidłowe tylko gdy występuje do ze strony, w tym samym regionie i kontrolera.
 
-  Składnia pomocnika tagów: `<a asp-controller="Manage" asp-action="Index">Go to Manage Products Home Page</a>`
+Jeśli nie określono obszaru lub kontrolera, routing zależy od *otoczenia* wartości. Bieżące wartości trasy, bieżącego żądania są traktowane jako wartości otoczenia dotyczącymi generowania łączy. W wielu przypadkach dla przykładowej aplikacji przy użyciu wartości otoczenia generuje nieprawidłowe linki.
 
-  Pamiętaj, że w tym miejscu zostanie użyta wartość otoczenia obszaru, ale jawnie określono wartość "controller", powyżej.
+Aby uzyskać więcej informacji, zobacz [Routing do akcji kontrolera](xref:mvc/controllers/routing).
 
-* Podczas generowania łączy z akcji w obrębie kontrolera do kolejnej akcji na podstawie innego kontrolera i innego obszaru.
+### <a name="shared-layout-for-areas-using-the-viewstartcshtml-file"></a>Udostępnione układu dla obszarów przy użyciu pliku _ViewStart.cshtml
 
-  Załóżmy, że ścieżka bieżącego żądania jest podobne `/Products/Home/Create`
+Aby udostępnić typowych układu dla całej aplikacji, należy przenieść *_ViewStart.cshtml* do folderu głównego aplikacji.
 
-  Składnia HtmlHelper: `@Html.ActionLink("Go to Services Home Page", "Index", "Home", new { area = "Services" })`
+<!-- This section will be completed after https://github.com/aspnet/Docs/pull/10978 is merged.
+<a name="arp"></a>
 
-  Składnia pomocnika tagów: `<a asp-area="Services" asp-controller="Home" asp-action="Index">Go to Services Home Page</a>`
+## Areas for Razor Pages
+-->
+<a name="rename"></a>
 
-  Należy pamiętać, że w tym miejscu są używane żadne wartości otoczenia.
+### <a name="change-default-area-folder-where-views-are-stored"></a>Zmień domyślny folder obszaru przechowywania widoków
 
-* Podczas generowania łączy z akcji w kontrolerze obszaru na podstawie innej akcji na innym kontrolerze i **nie** w obszarze.
+Poniższy kod zmienia domyślny folder obszaru z `"Areas"` do `"MyAreas"`:
 
-  Składnia HtmlHelper: `@Html.ActionLink("Go to Manage Products  Home Page", "Index", "Home", new { area = "" })`
+[!code-csharp[](areas/samples/MVCareas/Startup2.cs?name=snippet)]
 
-  Składnia pomocnika tagów: `<a asp-area="" asp-controller="Manage" asp-action="Index">Go to Manage Products Home Page</a>`
-
-  Ponieważ chcemy wygenerować łączy do innych obszaru na podstawie akcji kontrolera, możemy pusty otoczenia wartość "obszar" w tym miejscu.
-
-## <a name="publishing-areas"></a>Obszary publikowania
+<!-- TODO review - can we delete this. Areas doesn't change publishing - right? -->
+### <a name="publishing-areas"></a>Obszary publikowania
 
 Wszystkie `*.cshtml` i `wwwroot/**` plików, są publikowane dane wyjściowe, gdy `<Project Sdk="Microsoft.NET.Sdk.Web">` znajduje się w *.csproj* pliku.

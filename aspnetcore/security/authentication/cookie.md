@@ -3,14 +3,14 @@ title: Używania uwierzytelniania plików cookie bez użycia produktu ASP.NET Co
 author: rick-anderson
 description: Wyjaśnienie przy użyciu uwierzytelniania plików cookie bez użycia produktu ASP.NET Core Identity
 ms.author: riande
-ms.date: 10/11/2017
+ms.date: 02/25/2019
 uid: security/authentication/cookie
-ms.openlocfilehash: f05e5b83359ec1739115293e092eaed0c811c046
-ms.sourcegitcommit: 3c2ba9a0d833d2a096d9d800ba67a1a7f9491af0
-ms.translationtype: MT
+ms.openlocfilehash: 7e975da3a276ffb6a3de7ee02f7cc5be67cbbebe
+ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55854383"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833621"
 ---
 # <a name="use-cookie-authentication-without-aspnet-core-identity"></a>Używania uwierzytelniania plików cookie bez użycia produktu ASP.NET Core Identity
 
@@ -39,6 +39,8 @@ W `ConfigureServices` metody tworzenia usługi oprogramowania pośredniczącego 
 `AuthenticationScheme` przekazany do `AddAuthentication` ustawia domyślny schemat uwierzytelniania dla aplikacji. `AuthenticationScheme` jest przydatne, gdy istnieje wiele wystąpień pliku cookie uwierzytelniania, a użytkownik chce [autoryzacji przy użyciu określonego schematu](xref:security/authorization/limitingidentitybyscheme). Ustawienie `AuthenticationScheme` do `CookieAuthenticationDefaults.AuthenticationScheme` zawiera wartość "Plików cookie" dla schematu. Możesz podać dowolną wartość ciągu, która odróżnia systemu.
 
 Schemat uwierzytelniania aplikacji różni się od schematu uwierzytelniania pliku cookie aplikacji. Gdy nie jest udostępniane schematu uwierzytelniania pliku cookie <xref:Microsoft.Extensions.DependencyInjection.CookieExtensions.AddCookie*>, używa ona [CookieAuthenticationDefaults.AuthenticationScheme](xref:Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationDefaults.AuthenticationScheme) ("plików cookie" ").
+
+Plik cookie uwierzytelniania <xref:Microsoft.AspNetCore.Http.CookieBuilder.IsEssential> właściwość jest ustawiona na `true` domyślnie. Pliki cookie uwierzytelniania są dozwolone, gdy użytkownik nie wyraził zgodę, do zbierania danych. Aby uzyskać więcej informacji, zobacz <xref:security/gdpr#essential-cookies>.
 
 W `Configure` metody, użyj `UseAuthentication` metodę do wywołania, oprogramowanie pośredniczące uwierzytelniania, która ustawia `HttpContext.User` właściwości. Wywołaj `UseAuthentication` metoda przed wywołaniem `UseMvcWithDefaultRoute` lub `UseMvc`:
 

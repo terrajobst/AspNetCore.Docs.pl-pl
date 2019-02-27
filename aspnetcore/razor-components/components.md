@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/13/2019
 uid: razor-components/components
-ms.openlocfilehash: d1e8075ff1ac6695c98973e6abd8480a78761d92
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: 1533587f9f11e99f24d860c02f0efb6713119308
+ms.sourcegitcommit: 30f313c63c5b2922bcd1150fe8161b09c730fef0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410424"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56839080"
 ---
 # <a name="create-and-use-razor-components"></a>Tworzenie i używanie składników Razor
 
@@ -447,14 +447,14 @@ W poniższej tabeli przedstawiono dyrektywy razor.
 
 | — Dyrektywa | Opis |
 | --------- | ----------- |
-| [@functions](xref:mvc/views/razor#section-5) | Dodaje C# blok kodu do składnika. |
+| [\@Funkcje](xref:mvc/views/razor#section-5) | Dodaje C# blok kodu do składnika. |
 | `@implements` | Implementuje interfejs dla klasy wygenerowanej składnika. |
-| [@inherits](xref:mvc/views/razor#section-3) | Zapewnia pełną kontrolę nad klasę, która dziedziczy składnika. |
-| [@inject](xref:mvc/views/razor#section-4) | Włącza usługi iniekcji z [kontener usługi](xref:fundamentals/dependency-injection). Aby uzyskać więcej informacji, zobacz [wstrzykiwanie zależności do widoków](xref:mvc/views/dependency-injection). |
+| [\@Inherits](xref:mvc/views/razor#section-3) | Zapewnia pełną kontrolę nad klasę, która dziedziczy składnika. |
+| [\@wstrzykiwanie](xref:mvc/views/razor#section-4) | Włącza usługi iniekcji z [kontener usługi](xref:fundamentals/dependency-injection). Aby uzyskać więcej informacji, zobacz [wstrzykiwanie zależności do widoków](xref:mvc/views/dependency-injection). |
 | `@layout` | Określa składnik układu. Składniki układu są używane, aby uniknąć zduplikowania kodu i niespójności. |
-| [@page](xref:razor-pages/index#razor-pages) | Określa, że składnik obsługi żądań bezpośrednio. `@page` Dyrektywy można określić za pomocą trasy i opcjonalnych parametrów. W przeciwieństwie do stron Razor `@page` dyrektywy nie musi być pierwszą dyrektywę w górnej części pliku. Aby uzyskać więcej informacji, zobacz [Routing](xref:razor-components/routing). |
-| [@using](xref:mvc/views/razor#using) | Dodaje C# `using` dyrektywy do klasy wygenerowanej składnika. |
-| [@addTagHelper](xref:mvc/views/razor#tag-helpers) | Użyj `@addTagHelper` użycie składnika w innym zestawie niż zestaw aplikacji. |
+| [\@page](xref:razor-pages/index#razor-pages) | Określa, że składnik obsługi żądań bezpośrednio. `@page` Dyrektywy można określić za pomocą trasy i opcjonalnych parametrów. W przeciwieństwie do stron Razor `@page` dyrektywy nie musi być pierwszą dyrektywę w górnej części pliku. Aby uzyskać więcej informacji, zobacz [Routing](xref:razor-components/routing). |
+| [\@za pomocą](xref:mvc/views/razor#using) | Dodaje C# `using` dyrektywy do klasy wygenerowanej składnika. |
+| [\@addTagHelper](xref:mvc/views/razor#tag-helpers) | Użyj `@addTagHelper` użycie składnika w innym zestawie niż zestaw aplikacji. |
 
 **Atrybuty warunkowe**
 

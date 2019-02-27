@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/08/2019
 uid: mvc/controllers/filters
-ms.openlocfilehash: 3cd576b389a2a4384c0ba90b5740ac42140533cc
-ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
+ms.openlocfilehash: a9081a9938d56b7612bba13937eba384ff02455b
+ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56159317"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833738"
 ---
 # <a name="filters-in-aspnet-core"></a>Filtry w programie ASP.NET Core
 
@@ -316,7 +316,7 @@ Filtr akcji można użyć, aby zweryfikować stan modelu i zwraca wszystkie bł�
 `OnActionExecuted` Uruchamia metodę po metody akcji i może zobaczyć i manipulowania wynikami akcji za pomocą `ActionExecutedContext.Result` właściwości. `ActionExecutedContext.Canceled` będzie można ustawić wartość true, jeśli jest to zwartym został wykonanie akcji przez inny filtr. `ActionExecutedContext.Exception` zostaną ustawione na wartość inną niż null w przypadku akcji lub filtru akcji kolejnych zgłosiła wyjątek. Ustawienie `ActionExecutedContext.Exception` null:
 
 * Skutecznie "handles" wyjątek.
-* `ActionExectedContext.Result` jest wykonywane tak, jakby były zwracane normalnie przez metodę akcji.
+* `ActionExecutedContext.Result` jest wykonywane tak, jakby były zwracane normalnie przez metodę akcji.
 
 ## <a name="exception-filters"></a>Filtry wyjątków
 

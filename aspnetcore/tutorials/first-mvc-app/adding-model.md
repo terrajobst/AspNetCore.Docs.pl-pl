@@ -3,14 +3,14 @@ title: Dodawanie modelu do aplikacji ASP.NET Core MVC
 author: rick-anderson
 description: Dodawanie modelu do prostą aplikację platformy ASP.NET Core.
 ms.author: riande
-ms.date: 02/12/2019
+ms.date: 02/25/2019
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: da30c1c97cbf40a89d163b2116c8d5f9ad422b25
-ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
+ms.openlocfilehash: ccdb7b920517c94b9154fe73b4ef1633f4ad0157
+ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56159243"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833556"
 ---
 # <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>Dodawanie modelu do aplikacji ASP.NET Core MVC
 
@@ -173,15 +173,7 @@ W tej sekcji należy wykonać następujące zadania:
 
 Schemat bazy danych zależy od określonego w modelu `MvcMovieContext` klasy (w *Data/MvcMovieContext.cs* pliku). `InitialCreate` Argument jest nazwą migracji. Można dowolną nazwę, ale zgodnie z Konwencją nazwa jest zaznaczona, opisujący migracji.
 
----  
-
-Poprzednich poleceniach generuje następujące ostrzeżenie:
-
-```text
-No type was specified for the decimal column 'Price' on entity type 'Movie'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'HasColumnType()'.
-```
-
-Możesz zignorować ostrzeżenie o tym. Zostanie on rozwiązany później w samouczku.
+---
 
 ## <a name="examine-the-context-registered-with-dependency-injection"></a>Badanie kontekstu zarejestrowane przy użyciu iniekcji zależności
 

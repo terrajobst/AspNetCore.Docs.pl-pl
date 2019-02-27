@@ -5,14 +5,14 @@ description: Dowiedz się, jak testy integracji upewnij się, że składniki apl
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/11/2019
+ms.date: 02/25/2019
 uid: test/integration-tests
-ms.openlocfilehash: 0f919d7715a26f1efdb37d35b047a7050e46a272
-ms.sourcegitcommit: ec71fd5a988f927ae301813aae5ff764feb3bb6a
+ms.openlocfilehash: 053713e148df70b0be6bb567b55b2381a78d6c3e
+ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54249519"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833582"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>Testy integracji w programie ASP.NET Core
 
@@ -109,6 +109,10 @@ Te wymagania wstępne są widoczne w [przykładową aplikację](https://github.c
 * [xunit](https://www.nuget.org/packages/xunit/)
 * [xunit.Runner.VisualStudio](https://www.nuget.org/packages/xunit.runner.visualstudio/)
 * [AngleSharp](https://www.nuget.org/packages/AngleSharp/)
+
+## <a name="sut-environment"></a>Środowisko SUT
+
+Jeśli SUT [środowiska](xref:fundamentals/environments) nie ustawiono wartości domyślne środowisko do programowania.
 
 ## <a name="basic-tests-with-the-default-webapplicationfactory"></a>Podstawowe testy przy użyciu domyślnego WebApplicationFactory
 

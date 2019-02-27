@@ -8,14 +8,14 @@ ms.date: 10/02/2014
 ms.assetid: 0a8d6044-5fab-4213-82d6-5618d5601358
 msc.legacyurl: /web-forms/overview/security/create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset
 msc.type: authoredcontent
-ms.openlocfilehash: b964257165f8a50bef5cb5d8cee4fb30a5e91cf0
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: acc13776840408756901e20589b9efacc83ff2a9
+ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41756266"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833686"
 ---
-<a name="create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset-c"></a>Tworzenie bezpiecznej aplikacji ASP.NET Web Forms z rejestracją użytkownika wiadomości e-mail z potwierdzeniem i resetowaniem hasła (C#)
+<a name="create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset-c"></a>Tworzenie bezpiecznej aplikacji ASP.NET Web Forms z rejestracją użytkownika, potwierdzeniem adresu e-mail i resetowaniem hasła (C#)
 ====================
 przez [Erik Reitan](https://github.com/Erikre)
 
@@ -42,7 +42,7 @@ Ten samouczek przeprowadzi Cię przez kroki wymagane do tworzenia aplikacji form
 Rozpocznij od instalowania i uruchamiania [Visual Studio Express 2013 for Web](https://go.microsoft.com/fwlink/?LinkId=299058) lub [programu Visual Studio 2013](https://go.microsoft.com/fwlink/?LinkId=306566). Zainstaluj [Visual Studio 2013 Update 3](https://go.microsoft.com/fwlink/?LinkId=390465) lub wyższej oraz.
 
 > [!NOTE]
-> Ostrzeżenie: Musisz zainstalować [Visual Studio 2013 Update 3](https://go.microsoft.com/fwlink/?LinkId=390465) lub nowszej, aby ukończyć ten samouczek.
+> Ostrzeżenie: Należy zainstalować [Visual Studio 2013 Update 3](https://go.microsoft.com/fwlink/?LinkId=390465) lub nowszej, aby ukończyć ten samouczek.
 
 
 1. Utwórz nowy projekt (**pliku**  - &gt; **nowy projekt**) i wybierz **aplikacji sieci Web ASP.NET** szablonu i najnowszej wersji .NET Framework wersja z **nowy projekt** okno dialogowe.
@@ -55,10 +55,10 @@ Rozpocznij od instalowania i uruchamiania [Visual Studio Express 2013 for Web](h
 
     Na poniższej ilustracji przedstawiono `AspNetUsers` schematu tabeli:
 
-    ![Schemat tabeli AspNetUsers](create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset/_static/image2.png)
+    ![AspNetUsers table schema](create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset/_static/image2.png)
 6. W **Eksploratora serwera**, kliknij prawym przyciskiem myszy **AspNetUsers** tabeli, a następnie wybierz pozycję **Pokaż dane tabeli**.  
   
-    ![Dane tabeli AspNetUsers](create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset/_static/image3.png)  
+    ![AspNetUsers table data](create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset/_static/image3.png)  
  W tym momencie nie został potwierdzony adres e-mail zarejestrowany użytkownik.
 7. Kliknij wiersz i wybierz pozycję Usuń — Usuń użytkownika. Dodasz tę wiadomość e-mail ponownie w następnym kroku i Wyślij komunikat potwierdzenia adresu e-mail.
 
@@ -70,6 +70,8 @@ Zazwyczaj chcesz uniemożliwić nowym użytkownikom publikowanie żadnych danych
 
 <a id="SG"></a>
 ## <a name="hook-up-sendgrid"></a>Podpinanie usługi SendGrid
+
+SendGrid została zmieniona jego interfejsu API, ponieważ w tym samouczku został napisany. Bieżący SendGrid instrukcje można znaleźć [SendGrid](http://sendgrid.com/) lub [włączyć odzyskiwanie potwierdzenia i hasło konta](xref:security/authentication/accconfirm#enable-account-confirmation-and-password-recovery).
 
 Chociaż ten samouczek przedstawia tylko sposób dodawania powiadomienie e-mail za pośrednictwem [SendGrid](http://sendgrid.com/), możesz wysłać wiadomość e-mail przy użyciu SMTP i inne mechanizmy (zobacz [dodatkowe zasoby](#addRes)).
 
