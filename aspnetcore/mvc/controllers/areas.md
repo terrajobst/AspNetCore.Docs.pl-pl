@@ -3,167 +3,134 @@ title: Obszary w programie ASP.NET Core
 author: rick-anderson
 description: Dowiedz się, jak obszary są funkcją programu ASP.NET MVC, używane do organizowania powiązanych funkcji do grupy jako osobne przestrzeni nazw (w przypadku routingu) i struktury ich folderów (w przypadku widoków).
 ms.author: riande
-ms.date: 02/14/2017
+ms.date: 02/14/2019
 uid: mvc/controllers/areas
-ms.openlocfilehash: 19e818fa198936ea1bee0da8039e88a3c0abbf6b
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: c21eed04ea68512515da262b6b6895dc1a821039
+ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410615"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833530"
 ---
-# <a name="areas-in-aspnet-core"></a><span data-ttu-id="a0504-103">Obszary w programie ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="a0504-103">Areas in ASP.NET Core</span></span>
+# <a name="areas-in-aspnet-core"></a><span data-ttu-id="837bb-103">Obszary w programie ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="837bb-103">Areas in ASP.NET Core</span></span>
 
-<span data-ttu-id="a0504-104">Przez [Kumara Dhananjay](https://twitter.com/debug_mode) i [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="a0504-104">By [Dhananjay Kumar](https://twitter.com/debug_mode)  and [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
+<span data-ttu-id="837bb-104">Przez [Kumara Dhananjay](https://twitter.com/debug_mode) i [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="837bb-104">By [Dhananjay Kumar](https://twitter.com/debug_mode) and [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
 
-<span data-ttu-id="a0504-105">Obszary są funkcją programu ASP.NET MVC, używane do organizowania powiązanych funkcji do grupy jako osobne przestrzeni nazw (w przypadku routingu) i struktury ich folderów (w przypadku widoków).</span><span class="sxs-lookup"><span data-stu-id="a0504-105">Areas are an ASP.NET MVC feature used to organize related functionality into a group as a separate namespace (for routing) and folder structure (for views).</span></span> <span data-ttu-id="a0504-106">Za pomocą obszarów tworzą hierarchię na potrzeby routingu, dodając innego parametru trasy, `area`, `controller` i `action`.</span><span class="sxs-lookup"><span data-stu-id="a0504-106">Using areas creates a hierarchy for the purpose of routing by adding another route parameter, `area`, to `controller` and `action`.</span></span>
+<span data-ttu-id="837bb-105">Obszary są funkcją programu ASP.NET, używane do organizowania powiązanych funkcji do grupy jako osobne przestrzeni nazw (w przypadku routingu) i struktury ich folderów (w przypadku widoków).</span><span class="sxs-lookup"><span data-stu-id="837bb-105">Areas are an ASP.NET feature used to organize related functionality into a group as a separate namespace (for routing) and folder structure (for views).</span></span> <span data-ttu-id="837bb-106">Za pomocą obszarów tworzą hierarchię na potrzeby routingu, dodając innego parametru trasy, `area`, `controller` i `action` lub strony Razor `page`.</span><span class="sxs-lookup"><span data-stu-id="837bb-106">Using areas creates a hierarchy for the purpose of routing by adding another route parameter, `area`, to `controller` and `action` or a Razor Page `page`.</span></span>
 
-<span data-ttu-id="a0504-107">Obszary zapewniają sposób dzielenia dużych aplikacji sieci Web platformy ASP.NET Core MVC na mniejsze grupy funkcjonalnej.</span><span class="sxs-lookup"><span data-stu-id="a0504-107">Areas provide a way to partition a large ASP.NET Core MVC Web app into smaller functional groupings.</span></span> <span data-ttu-id="a0504-108">Obszar jest skutecznie strukturę MVC w aplikacji.</span><span class="sxs-lookup"><span data-stu-id="a0504-108">An area is effectively an MVC structure inside an application.</span></span> <span data-ttu-id="a0504-109">W projekcie MVC logiczne składniki, takie jak Model, kontroler i Widok są przechowywane w różnych folderach, i są używane konwencje nazewnictwa do utworzenia relacji między tymi składnikami.</span><span class="sxs-lookup"><span data-stu-id="a0504-109">In an MVC project, logical components like Model, Controller, and View are kept in different folders, and MVC uses naming conventions to create the relationship between these components.</span></span> <span data-ttu-id="a0504-110">W przypadku dużych aplikacji może być korzystne podzielić ją na oddzielnych wysokiego poziomu obszary funkcji.</span><span class="sxs-lookup"><span data-stu-id="a0504-110">For a large app, it may be advantageous to partition the  app into separate high level areas of functionality.</span></span> <span data-ttu-id="a0504-111">Na przykład aplikacja handlu elektronicznego z wielu jednostek biznesowych, takich jak wyszukiwanie itp wyewidencjonowanie i rozliczeniami. Każda z tych jednostek ma swoje własne widoki logiczny składnik, kontrolery i modeli.</span><span class="sxs-lookup"><span data-stu-id="a0504-111">For instance, an e-commerce app with multiple business units, such as checkout, billing, and search etc. Each of these units have their own logical component views, controllers, and models.</span></span> <span data-ttu-id="a0504-112">W tym scenariuszu można użyć obszarów do partycjonowania fizycznie składniki biznesowej, w tym samym projekcie.</span><span class="sxs-lookup"><span data-stu-id="a0504-112">In this scenario, you can use Areas to physically partition the business components in the same project.</span></span>
+<span data-ttu-id="837bb-107">Obszary umożliwiają partycji aplikacji sieci Web platformy ASP.NET Core na mniejsze grupy funkcjonalnej, każdy z swój własny zestaw stron Razor, kontrolerów, widoki i modele.</span><span class="sxs-lookup"><span data-stu-id="837bb-107">Areas provide a way to partition an ASP.NET Core Web app into smaller functional groups, each  with its own set of Razor Pages, controllers, views, and models.</span></span> <span data-ttu-id="837bb-108">Obszar skutecznie to struktura wewnątrz aplikacji.</span><span class="sxs-lookup"><span data-stu-id="837bb-108">An area is effectively a structure inside an app.</span></span> <span data-ttu-id="837bb-109">W projekcie sieci web platformy ASP.NET Core składników logicznych, takich jak strony, modelu, kontroler i Widok są przechowywane w różnych folderach.</span><span class="sxs-lookup"><span data-stu-id="837bb-109">In an ASP.NET Core web project, logical components like Pages, Model, Controller, and View are kept in different folders.</span></span> <span data-ttu-id="837bb-110">Środowisko uruchomieniowe programu ASP.NET Core używa konwencji nazewnictwa do utworzenia relacji między tymi składnikami.</span><span class="sxs-lookup"><span data-stu-id="837bb-110">The ASP.NET Core runtime uses naming conventions to create the relationship between these components.</span></span> <span data-ttu-id="837bb-111">W przypadku dużych aplikacji może być korzystne podzielić ją na oddzielnych wysokiego poziomu obszary funkcji.</span><span class="sxs-lookup"><span data-stu-id="837bb-111">For a large app, it may be advantageous to partition the app into separate high level areas of functionality.</span></span> <span data-ttu-id="837bb-112">Na przykład aplikacja handlu elektronicznego z wielu jednostek biznesowych, takich jak wyewidencjonowania, rozliczeń i wyszukiwania.</span><span class="sxs-lookup"><span data-stu-id="837bb-112">For instance, an e-commerce app with multiple business units, such as checkout, billing, and search.</span></span> <span data-ttu-id="837bb-113">Każda z tych jednostek ma swoje własne obszar zawiera widoki, kontrolery, stronami Razor i modeli.</span><span class="sxs-lookup"><span data-stu-id="837bb-113">Each of these units have their own area to contain views, controllers, Razor Pages, and models.</span></span>
 
-<span data-ttu-id="a0504-113">Obszar mogą być definiowane jako mniejsze jednostki organizacyjne w projekcie programu ASP.NET Core MVC za pomocą swój własny zestaw kontrolerów, widoki i modele.</span><span class="sxs-lookup"><span data-stu-id="a0504-113">An area can be defined as smaller functional units in an ASP.NET Core MVC project with its own set of controllers, views, and models.</span></span>
+<span data-ttu-id="837bb-114">Należy rozważyć użycie obszarów w projekcie po:</span><span class="sxs-lookup"><span data-stu-id="837bb-114">Consider using Areas in an project when:</span></span>
 
-<span data-ttu-id="a0504-114">Należy rozważyć użycie obszarów w MVC projektu, gdy:</span><span class="sxs-lookup"><span data-stu-id="a0504-114">Consider using Areas in an MVC project when:</span></span>
+* <span data-ttu-id="837bb-115">Aplikacja składa się z wielu wysokiego poziomu funkcjonalności składników, które mogą zostać logicznie oddzielone.</span><span class="sxs-lookup"><span data-stu-id="837bb-115">The app is made of multiple high-level functional components that can be logically separated.</span></span>
+* <span data-ttu-id="837bb-116">Chcesz podzielić na partycje aplikację tak, aby każdy obszar funkcjonalny może się opracowaniem niezależnie.</span><span class="sxs-lookup"><span data-stu-id="837bb-116">You want to partition the app so that each functional area can be worked on independently.</span></span>
 
-* <span data-ttu-id="a0504-115">Aplikacja składa się z wielu wysokiego poziomu funkcjonalności składników, które powinny zostać logicznie oddzielone</span><span class="sxs-lookup"><span data-stu-id="a0504-115">Your application is made of multiple high-level functional components that should be logically separated</span></span>
+<span data-ttu-id="837bb-117">[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/areas/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample)).</span><span class="sxs-lookup"><span data-stu-id="837bb-117">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/areas/samples) ([how to download](xref:index#how-to-download-a-sample)).</span></span> <span data-ttu-id="837bb-118">Przykład pobierania zawiera podstawową aplikację do testowania obszarów.</span><span class="sxs-lookup"><span data-stu-id="837bb-118">The download sample provides a basic app for testing areas.</span></span>
 
-* <span data-ttu-id="a0504-116">Chcesz podzielić projektu MVC tak, aby każdy obszar funkcjonalny może się opracowaniem niezależnie</span><span class="sxs-lookup"><span data-stu-id="a0504-116">You want to partition your MVC project so that each functional area can be worked on independently</span></span>
+## <a name="areas-for-controllers-with-views"></a><span data-ttu-id="837bb-119">Obszary dla kontrolerów z widokami</span><span class="sxs-lookup"><span data-stu-id="837bb-119">Areas for controllers with views</span></span>
 
-<span data-ttu-id="a0504-117">Funkcje obszaru:</span><span class="sxs-lookup"><span data-stu-id="a0504-117">Area features:</span></span>
+<span data-ttu-id="837bb-120">Typowa aplikacja internetowa ASP.NET Core przy użyciu obszarów, widoków i kontrolerów zawiera następujące informacje:</span><span class="sxs-lookup"><span data-stu-id="837bb-120">A typical ASP.NET Core web app using areas, controllers, and views contains the following:</span></span>
 
-* <span data-ttu-id="a0504-118">Aplikacja ASP.NET Core MVC może mieć dowolną liczbę obszarów.</span><span class="sxs-lookup"><span data-stu-id="a0504-118">An ASP.NET Core MVC app can have any number of areas.</span></span>
+* <span data-ttu-id="837bb-121">[Strukturę folderów obszaru](#area-folder-structure).</span><span class="sxs-lookup"><span data-stu-id="837bb-121">An [Area folder structure](#area-folder-structure).</span></span>
+* <span data-ttu-id="837bb-122">Kontrolery ozdobione [ &lbrack;obszaru&rbrack; ](#attribute) atrybutu, aby skojarzyć kontroler z obszaru: [!code-csharp[](areas/samples/MVCareas/Areas/Products/Controllers/ManageController.cs?name=snippet2)]</span><span class="sxs-lookup"><span data-stu-id="837bb-122">Controllers decorated with the [&lbrack;Area&rbrack;](#attribute) attribute to associate the controller with the area: [!code-csharp[](areas/samples/MVCareas/Areas/Products/Controllers/ManageController.cs?name=snippet2)]</span></span>
+* <span data-ttu-id="837bb-123">[Trasa obszaru dodana do uruchamiania](#add-area-route): [!code-csharp[](areas/samples/MVCareas/Startup.cs?name=snippet2&highlight=3-6)]</span><span class="sxs-lookup"><span data-stu-id="837bb-123">The [area route added to startup](#add-area-route): [!code-csharp[](areas/samples/MVCareas/Startup.cs?name=snippet2&highlight=3-6)]</span></span>
 
-* <span data-ttu-id="a0504-119">Każdy obszar ma swój własny, modeli, widoków i kontrolerów.</span><span class="sxs-lookup"><span data-stu-id="a0504-119">Each area has its own controllers, models, and views.</span></span>
+## <a name="area-folder-structure"></a><span data-ttu-id="837bb-124">Struktura folderów obszaru</span><span class="sxs-lookup"><span data-stu-id="837bb-124">Area folder structure</span></span>
+<span data-ttu-id="837bb-125">Należy wziąć pod uwagę aplikację, która ma dwa grup logicznych *produktów* i *usług*.</span><span class="sxs-lookup"><span data-stu-id="837bb-125">Consider an app that has two logical groups, *Products* and *Services*.</span></span> <span data-ttu-id="837bb-126">Za pomocą obszarów, strukturę folderów będzie podobny do następującego:</span><span class="sxs-lookup"><span data-stu-id="837bb-126">Using areas, the folder structure would be similar to the following:</span></span>
 
-* <span data-ttu-id="a0504-120">Obszary umożliwiają organizowanie dużymi projektami MVC w wielu składników wysokiego poziomu, które mogą być realizowane niezależnie.</span><span class="sxs-lookup"><span data-stu-id="a0504-120">Areas allow you to organize large MVC projects into multiple high-level components that can be worked on independently.</span></span>
+* <span data-ttu-id="837bb-127">Project name (Nazwa projektu)</span><span class="sxs-lookup"><span data-stu-id="837bb-127">Project name</span></span>
+  * <span data-ttu-id="837bb-128">Obszary</span><span class="sxs-lookup"><span data-stu-id="837bb-128">Areas</span></span>
+    * <span data-ttu-id="837bb-129">Produkty</span><span class="sxs-lookup"><span data-stu-id="837bb-129">Products</span></span>
+      * <span data-ttu-id="837bb-130">Kontrolery</span><span class="sxs-lookup"><span data-stu-id="837bb-130">Controllers</span></span>
+        * <span data-ttu-id="837bb-131">HomeController.cs</span><span class="sxs-lookup"><span data-stu-id="837bb-131">HomeController.cs</span></span>
+        * <span data-ttu-id="837bb-132">ManageController.cs</span><span class="sxs-lookup"><span data-stu-id="837bb-132">ManageController.cs</span></span>
+      * <span data-ttu-id="837bb-133">Widoki</span><span class="sxs-lookup"><span data-stu-id="837bb-133">Views</span></span>
+        * <span data-ttu-id="837bb-134">Home</span><span class="sxs-lookup"><span data-stu-id="837bb-134">Home</span></span>
+          * <span data-ttu-id="837bb-135">Index.cshtml</span><span class="sxs-lookup"><span data-stu-id="837bb-135">Index.cshtml</span></span>
+        * <span data-ttu-id="837bb-136">Zarządzanie</span><span class="sxs-lookup"><span data-stu-id="837bb-136">Manage</span></span>
+          * <span data-ttu-id="837bb-137">Index.cshtml</span><span class="sxs-lookup"><span data-stu-id="837bb-137">Index.cshtml</span></span>
+          * <span data-ttu-id="837bb-138">About.cshtml</span><span class="sxs-lookup"><span data-stu-id="837bb-138">About.cshtml</span></span>
+    * <span data-ttu-id="837bb-139">Usługi</span><span class="sxs-lookup"><span data-stu-id="837bb-139">Services</span></span>
+      * <span data-ttu-id="837bb-140">Kontrolery</span><span class="sxs-lookup"><span data-stu-id="837bb-140">Controllers</span></span>
+        * <span data-ttu-id="837bb-141">HomeController.cs</span><span class="sxs-lookup"><span data-stu-id="837bb-141">HomeController.cs</span></span>
+      * <span data-ttu-id="837bb-142">Widoki</span><span class="sxs-lookup"><span data-stu-id="837bb-142">Views</span></span>
+        * <span data-ttu-id="837bb-143">Home</span><span class="sxs-lookup"><span data-stu-id="837bb-143">Home</span></span>
+          * <span data-ttu-id="837bb-144">Index.cshtml</span><span class="sxs-lookup"><span data-stu-id="837bb-144">Index.cshtml</span></span>
 
-* <span data-ttu-id="a0504-121">Obszary obsługuje wiele kontrolerów o takiej samej nazwie, tak długo, jak długo mają różne *obszarów*.</span><span class="sxs-lookup"><span data-stu-id="a0504-121">Areas support multiple controllers with the same name, as long as they have different *areas*.</span></span>
-
-<span data-ttu-id="a0504-122">Spójrzmy na przykład aby zilustrować, jak obszary są tworzone i używane.</span><span class="sxs-lookup"><span data-stu-id="a0504-122">Let's take a look at an example to illustrate how Areas are created and used.</span></span> <span data-ttu-id="a0504-123">Załóżmy, że masz aplikację ze sklepu, która ma dwa oddzielne grupy widoków i kontrolerów: Produkty i usługi.</span><span class="sxs-lookup"><span data-stu-id="a0504-123">Let's say you have a store app that has two distinct groupings of controllers and views: Products and Services.</span></span> <span data-ttu-id="a0504-124">Typowy folder struktury dla, że przy użyciu obszarów MVC wygląda jak poniżej:</span><span class="sxs-lookup"><span data-stu-id="a0504-124">A typical folder structure for that using MVC areas looks like below:</span></span>
-
-* <span data-ttu-id="a0504-125">Project name (Nazwa projektu)</span><span class="sxs-lookup"><span data-stu-id="a0504-125">Project name</span></span>
-  * <span data-ttu-id="a0504-126">Obszary</span><span class="sxs-lookup"><span data-stu-id="a0504-126">Areas</span></span>
-    * <span data-ttu-id="a0504-127">Produkty</span><span class="sxs-lookup"><span data-stu-id="a0504-127">Products</span></span>
-      * <span data-ttu-id="a0504-128">Kontrolery</span><span class="sxs-lookup"><span data-stu-id="a0504-128">Controllers</span></span>
-        * <span data-ttu-id="a0504-129">HomeController.cs</span><span class="sxs-lookup"><span data-stu-id="a0504-129">HomeController.cs</span></span>
-        * <span data-ttu-id="a0504-130">ManageController.cs</span><span class="sxs-lookup"><span data-stu-id="a0504-130">ManageController.cs</span></span>
-      * <span data-ttu-id="a0504-131">Widoki</span><span class="sxs-lookup"><span data-stu-id="a0504-131">Views</span></span>
-        * <span data-ttu-id="a0504-132">Home</span><span class="sxs-lookup"><span data-stu-id="a0504-132">Home</span></span>
-          * <span data-ttu-id="a0504-133">Index.cshtml</span><span class="sxs-lookup"><span data-stu-id="a0504-133">Index.cshtml</span></span>
-        * <span data-ttu-id="a0504-134">Zarządzanie</span><span class="sxs-lookup"><span data-stu-id="a0504-134">Manage</span></span>
-          * <span data-ttu-id="a0504-135">Index.cshtml</span><span class="sxs-lookup"><span data-stu-id="a0504-135">Index.cshtml</span></span>
-    * <span data-ttu-id="a0504-136">Usługi</span><span class="sxs-lookup"><span data-stu-id="a0504-136">Services</span></span>
-      * <span data-ttu-id="a0504-137">Kontrolery</span><span class="sxs-lookup"><span data-stu-id="a0504-137">Controllers</span></span>
-        * <span data-ttu-id="a0504-138">HomeController.cs</span><span class="sxs-lookup"><span data-stu-id="a0504-138">HomeController.cs</span></span>
-      * <span data-ttu-id="a0504-139">Widoki</span><span class="sxs-lookup"><span data-stu-id="a0504-139">Views</span></span>
-        * <span data-ttu-id="a0504-140">Home</span><span class="sxs-lookup"><span data-stu-id="a0504-140">Home</span></span>
-          * <span data-ttu-id="a0504-141">Index.cshtml</span><span class="sxs-lookup"><span data-stu-id="a0504-141">Index.cshtml</span></span>
-
-<span data-ttu-id="a0504-142">Gdy do renderowania widoku w obszarze domyślnie podejmie próbę MVC, próbuje Szukaj w następujących lokalizacjach:</span><span class="sxs-lookup"><span data-stu-id="a0504-142">When MVC tries to render a view in an Area, by default, it tries to look in the following locations:</span></span>
+<span data-ttu-id="837bb-145">Podczas poprzedniego układ jest typowe w przypadku, gdy przy użyciu obszarów, Wyświetl pliki, należy użyć tej struktury folderów.</span><span class="sxs-lookup"><span data-stu-id="837bb-145">While the preceding layout is typical when using Areas, only the view files are required to use this folder structure.</span></span> <span data-ttu-id="837bb-146">Widok odnajdywania wyszukuje pasującego pliku widoku obszaru w następującej kolejności:</span><span class="sxs-lookup"><span data-stu-id="837bb-146">View discovery searches for a matching area view file in the following order:</span></span>
 
 ```text
 /Areas/<Area-Name>/Views/<Controller-Name>/<Action-Name>.cshtml
-   /Areas/<Area-Name>/Views/Shared/<Action-Name>.cshtml
-   /Views/Shared/<Action-Name>.cshtml
+/Areas/<Area-Name>/Views/Shared/<Action-Name>.cshtml
+/Views/Shared/<Action-Name>.cshtml
+/Pages/Shared/<Action-Name>.cshtml
    ```
 
-<span data-ttu-id="a0504-143">Są to domyślne lokalizacje, które można zmienić za pośrednictwem `AreaViewLocationFormats` na `Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions`.</span><span class="sxs-lookup"><span data-stu-id="a0504-143">These are the default locations which can be changed via the `AreaViewLocationFormats` on the `Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions`.</span></span>
+<span data-ttu-id="837bb-147">Lokalizacji-view, folderów, takie jak *kontrolerów* i *modeli* jest **nie** znaczenia.</span><span class="sxs-lookup"><span data-stu-id="837bb-147">The location of non-view folders like *Controllers* and *Models* does **not** matter.</span></span> <span data-ttu-id="837bb-148">Na przykład *kontrolerów* i *modeli* folderu nie są wymagane.</span><span class="sxs-lookup"><span data-stu-id="837bb-148">For example, the *Controllers* and *Models* folder are not required.</span></span> <span data-ttu-id="837bb-149">Zawartość *kontrolerów* i *modeli* jest kod, który zostanie skompilowany w dll.</span><span class="sxs-lookup"><span data-stu-id="837bb-149">The content of *Controllers* and *Models* is code which gets compiled into a .dll.</span></span> <span data-ttu-id="837bb-150">Zawartość *widoków* nie jest kompilowana, dopóki nie wykonano żądania do tego widoku.</span><span class="sxs-lookup"><span data-stu-id="837bb-150">The content of the *Views* isn't compiled until a request to that view has been made.</span></span>
 
-<span data-ttu-id="a0504-144">Na przykład w poniższego kodu, zamiast nazwy folderu jako "Obszary", został zmieniony na "Kategorie".</span><span class="sxs-lookup"><span data-stu-id="a0504-144">For example, in the below code instead of having the folder name as 'Areas', it has been changed to 'Categories'.</span></span>
+<!-- TODO review:
+The content of the *Views* isn't compiled until a request to that view has been made.
 
-```csharp
-services.Configure<RazorViewEngineOptions>(options =>
-   {
-       options.AreaViewLocationFormats.Clear();
-       options.AreaViewLocationFormats.Add("/Categories/{2}/Views/{1}/{0}.cshtml");
-       options.AreaViewLocationFormats.Add("/Categories/{2}/Views/Shared/{0}.cshtml");
-       options.AreaViewLocationFormats.Add("/Views/Shared/{0}.cshtml");
-   });
-   ```
+What about precompiled views? 
+ -->
+<a name="attribute"></a>
 
-<span data-ttu-id="a0504-145">Jedno, należy pamiętać, jest strukturą *widoków* folder jest tylko jeden, co jest uznawane za ważne tutaj i zawartość w pozostałej części folderów, takich jak *kontrolerów* i *modeli* jest **nie** znaczenia.</span><span class="sxs-lookup"><span data-stu-id="a0504-145">One thing to note is that the structure of the *Views* folder is the only one which is considered important here and the content of the rest of the folders like *Controllers* and *Models* does **not** matter.</span></span> <span data-ttu-id="a0504-146">Na przykład, użytkownik nie musi mieć *kontrolerów* i *modeli* folderu w ogóle.</span><span class="sxs-lookup"><span data-stu-id="a0504-146">For example, you need not have a *Controllers* and *Models* folder at all.</span></span> <span data-ttu-id="a0504-147">To działa, ponieważ zawartość *kontrolerów* i *modeli* jest po prostu kod, który pobiera skompilowany w dll, gdzie jako zawartość *widoków* nie jest do żądania, Wyświetl zostały wprowadzone.</span><span class="sxs-lookup"><span data-stu-id="a0504-147">This works because the content of *Controllers* and *Models* is just code which gets compiled into a .dll where as the content of the *Views* isn't until a request to that view has been made.</span></span>
+### <a name="associate-the-controller-with-an-area"></a><span data-ttu-id="837bb-151">Skojarzyć kontroler z obszaru</span><span class="sxs-lookup"><span data-stu-id="837bb-151">Associate the controller with an Area</span></span>
 
-<span data-ttu-id="a0504-148">Po zdefiniowaniu hierarchii folderów należy MVC stwierdzić, że każdy kontroler jest skojarzony z obszarem.</span><span class="sxs-lookup"><span data-stu-id="a0504-148">Once you've defined the folder hierarchy, you need to tell MVC that each controller is associated with an area.</span></span> <span data-ttu-id="a0504-149">Można to zrobić, dekoracji nazwy kontrolera, za pomocą `[Area]` atrybutu.</span><span class="sxs-lookup"><span data-stu-id="a0504-149">You do that by decorating the controller name with the `[Area]` attribute.</span></span>
+<span data-ttu-id="837bb-152">Obszar kontrolerów zostały oznaczone za pomocą [ &lbrack;obszaru&rbrack; ](xref:Microsoft.AspNetCore.Mvc.AreaAttribute) atrybutu:</span><span class="sxs-lookup"><span data-stu-id="837bb-152">Area controllers are designated with the [&lbrack;Area&rbrack;](xref:Microsoft.AspNetCore.Mvc.AreaAttribute) attribute:</span></span>
 
-```csharp
-...
-   namespace MyStore.Areas.Products.Controllers
-   {
-       [Area("Products")]
-       public class HomeController : Controller
-       {
-           // GET: /Products/Home/Index
-           public IActionResult Index()
-           {
-               return View();
-           }
+[!code-csharp[](areas/samples/MVCareas/Areas/Products/Controllers/ManageController.cs?highlight=5&name=snippet)]
 
-           // GET: /Products/Home/Create
-           public IActionResult Create()
-           {
-               return View();
-           }
-       }
-   }
-   ```
+### <a name="add-area-route"></a><span data-ttu-id="837bb-153">Dodaj trasę obszaru</span><span class="sxs-lookup"><span data-stu-id="837bb-153">Add Area route</span></span>
 
-<span data-ttu-id="a0504-150">Skonfiguruj definicję trasy, która współdziała z nowo utworzoną obszary.</span><span class="sxs-lookup"><span data-stu-id="a0504-150">Set up a route definition that works with your newly created areas.</span></span> <span data-ttu-id="a0504-151">[Trasy do akcji kontrolera](routing.md) artykułu przechodzi do szczegółowych informacji dotyczących sposobu tworzenia definicji trasy, w tym o korzystaniu z konwencjonalnych trasy w porównaniu z trasami atrybutów.</span><span class="sxs-lookup"><span data-stu-id="a0504-151">The [Route to controller actions](routing.md) article goes into detail about how to create route definitions, including using conventional routes versus attribute routes.</span></span> <span data-ttu-id="a0504-152">W tym przykładzie użyjemy konwencjonalne trasy.</span><span class="sxs-lookup"><span data-stu-id="a0504-152">In this example, we'll use a conventional route.</span></span> <span data-ttu-id="a0504-153">Aby to zrobić, otwórz *Startup.cs* plików i zmodyfikuj go, dodając `areaRoute` o nazwie definicji trasy.</span><span class="sxs-lookup"><span data-stu-id="a0504-153">To do so, open the *Startup.cs* file and modify it by adding the `areaRoute` named route definition below.</span></span>
+<span data-ttu-id="837bb-154">Obszar trasy używa się zazwyczaj do routingu konwencjonalna zamiast trasowanie atrybutów.</span><span class="sxs-lookup"><span data-stu-id="837bb-154">Area routes typically use conventional routing rather than attribute routing.</span></span> <span data-ttu-id="837bb-155">Tradycyjnie routing jest zależna od kolejności.</span><span class="sxs-lookup"><span data-stu-id="837bb-155">Conventional routing is order-dependent.</span></span> <span data-ttu-id="837bb-156">Ogólnie rzecz biorąc trasy z obszarami należy umieścić we wcześniejszej części tabeli tras, ponieważ są one bardziej szczegółowe niż trasy bez obszaru.</span><span class="sxs-lookup"><span data-stu-id="837bb-156">In general, routes with areas should be placed earlier in the route table as they're more specific than routes without an area.</span></span>
 
-```csharp
-...
-   app.UseMvc(routes =>
-   {
-     routes.MapRoute(
-         name: "areaRoute",
-         template: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+<span data-ttu-id="837bb-157">`{area:...}` może służyć jako token w szablonach tras Jeśli przestrzeń adresów url jest jednolita we wszystkich obszarach:</span><span class="sxs-lookup"><span data-stu-id="837bb-157">`{area:...}` can be used as a token in route templates if url space is uniform across all areas:</span></span>
 
-     routes.MapRoute(
-         name: "default",
-         template: "{controller=Home}/{action=Index}/{id?}");
-   });
-   ```
+[!code-csharp[](areas/samples/MVCareas/Startup.cs?name=snippet&highlight=18-21)]
 
-<span data-ttu-id="a0504-154">Przechodzenie do `http://<yourApp>/products`, `Index` metody akcji `HomeController` w `Products` obszar, który zostanie wywołany.</span><span class="sxs-lookup"><span data-stu-id="a0504-154">Browsing to `http://<yourApp>/products`, the `Index` action method of the `HomeController` in the `Products` area will be invoked.</span></span>
+<span data-ttu-id="837bb-158">W poprzednim kodzie `exists` zastosuje ograniczenie, że trasy musi odpowiadać obszar.</span><span class="sxs-lookup"><span data-stu-id="837bb-158">In the preceding code, `exists` applies a constraint that the route must match an area.</span></span> <span data-ttu-id="837bb-159">Za pomocą `{area:...}` jest najmniej skomplikowane mechanizm do dodawania routingu do obszarów.</span><span class="sxs-lookup"><span data-stu-id="837bb-159">Using `{area:...}` is the least complicated mechanism to adding routing to areas.</span></span>
 
-## <a name="link-generation"></a><span data-ttu-id="a0504-155">Generowanie konsolidacji</span><span class="sxs-lookup"><span data-stu-id="a0504-155">Link Generation</span></span>
+<span data-ttu-id="837bb-160">Poniższy kod używa <xref:Microsoft.AspNetCore.Builder.MvcAreaRouteBuilderExtensions.MapAreaRoute*> utworzyć dwa o nazwie obszaru trasy:</span><span class="sxs-lookup"><span data-stu-id="837bb-160">The following code uses <xref:Microsoft.AspNetCore.Builder.MvcAreaRouteBuilderExtensions.MapAreaRoute*> to create two named area routes:</span></span>
 
-* <span data-ttu-id="a0504-156">Podczas generowania łączy z akcji wewnątrz obszaru na podstawie kontrolera do innej akcji w obrębie tego samego kontrolera.</span><span class="sxs-lookup"><span data-stu-id="a0504-156">Generating links from an action within an area based controller to another action within the same controller.</span></span>
+[!code-csharp[](areas/samples/MVCareas/StartupMapAreaRoute.cs?name=snippet&highlight=18-27)]
 
-  <span data-ttu-id="a0504-157">Załóżmy, że ścieżka bieżącego żądania jest podobne `/Products/Home/Create`</span><span class="sxs-lookup"><span data-stu-id="a0504-157">Let's say the current request's path is like `/Products/Home/Create`</span></span>
+<span data-ttu-id="837bb-161">Korzystając z `MapAreaRoute` za pomocą platformy ASP.NET Core 2.2, zobacz [problem w usłudze GitHub](https://github.com/aspnet/AspNetCore/issues/7772).</span><span class="sxs-lookup"><span data-stu-id="837bb-161">When using `MapAreaRoute` with ASP.NET Core 2.2, see [this GitHub issue](https://github.com/aspnet/AspNetCore/issues/7772).</span></span>
 
-  <span data-ttu-id="a0504-158">Składnia HtmlHelper: `@Html.ActionLink("Go to Product's Home Page", "Index")`</span><span class="sxs-lookup"><span data-stu-id="a0504-158">HtmlHelper syntax: `@Html.ActionLink("Go to Product's Home Page", "Index")`</span></span>
+<span data-ttu-id="837bb-162">Aby uzyskać więcej informacji, zobacz [routingu obszaru](xref:mvc/controllers/routing#areas).</span><span class="sxs-lookup"><span data-stu-id="837bb-162">For more information, see [Area routing](xref:mvc/controllers/routing#areas).</span></span>
 
-  <span data-ttu-id="a0504-159">Składnia pomocnika tagów: `<a asp-action="Index">Go to Product's Home Page</a>`</span><span class="sxs-lookup"><span data-stu-id="a0504-159">TagHelper syntax: `<a asp-action="Index">Go to Product's Home Page</a>`</span></span>
+### <a name="link-generation-with-areas"></a><span data-ttu-id="837bb-163">Generowanie konsolidacji z obszarami</span><span class="sxs-lookup"><span data-stu-id="837bb-163">Link Generation with Areas</span></span>
 
-  <span data-ttu-id="a0504-160">Należy pamiętać, że, firma Microsoft nie musi dostarczać wartości "obszar" i "controller" tutaj, ponieważ są one już dostępne w kontekście bieżącego żądania.</span><span class="sxs-lookup"><span data-stu-id="a0504-160">Note that we need not supply the 'area' and 'controller' values here as they're already available in the context of the current request.</span></span> <span data-ttu-id="a0504-161">Ten rodzaj wartości są nazywane `ambient` wartości.</span><span class="sxs-lookup"><span data-stu-id="a0504-161">These kind of values are called `ambient` values.</span></span>
+<span data-ttu-id="837bb-164">Poniższy kod z [pobrania próbki](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/areas/samples) pokazuje połączenie generacji z użyciem obszaru określony:</span><span class="sxs-lookup"><span data-stu-id="837bb-164">The following code from the [sample download](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/areas/samples) shows link generation with the area specified:</span></span>
 
-* <span data-ttu-id="a0504-162">Podczas generowania łączy z akcji wewnątrz obszaru na podstawie kontrolera do kolejnej akcji na innym kontrolerze</span><span class="sxs-lookup"><span data-stu-id="a0504-162">Generating links from an action within an area based controller to another action on a different controller</span></span>
+[!code-cshtml[](areas/samples/MVCareas/Views/Shared/_testLinksPartial.cshtml?name=snippet)]
 
-  <span data-ttu-id="a0504-163">Załóżmy, że ścieżka bieżącego żądania jest podobne `/Products/Home/Create`</span><span class="sxs-lookup"><span data-stu-id="a0504-163">Let's say the current request's path is like `/Products/Home/Create`</span></span>
+<span data-ttu-id="837bb-165">Linki wygenerowane z poprzedniego kodu są prawidłowe w dowolnym miejscu aplikacji.</span><span class="sxs-lookup"><span data-stu-id="837bb-165">The links generated with the preceding code are valid anywhere in the app.</span></span>
 
-  <span data-ttu-id="a0504-164">Składnia HtmlHelper: `@Html.ActionLink("Go to Manage Products Home Page", "Index", "Manage")`</span><span class="sxs-lookup"><span data-stu-id="a0504-164">HtmlHelper syntax: `@Html.ActionLink("Go to Manage Products Home Page", "Index", "Manage")`</span></span>
+<span data-ttu-id="837bb-166">Przykładowe do pobrania obejmują programy [widoku częściowego](xref:mvc/views/partial) zawiera poprzednie linki i uruchamia łącze tak samo bez określenia obszaru.</span><span class="sxs-lookup"><span data-stu-id="837bb-166">The sample download includes a [partial view](xref:mvc/views/partial) that contains the preceding links and the same links without specifying the area.</span></span> <span data-ttu-id="837bb-167">Odwołuje się widok częściowy [plik układu](), więc co w aplikacji stronę Wyświetla łącza wygenerowany.</span><span class="sxs-lookup"><span data-stu-id="837bb-167">The partial view is referenced in the [layout file](), so every page in the app displays the generated links.</span></span> <span data-ttu-id="837bb-168">Linki wygenerowany bez określenia obszaru są prawidłowe tylko gdy występuje do ze strony, w tym samym regionie i kontrolera.</span><span class="sxs-lookup"><span data-stu-id="837bb-168">The links generated without specifying the area are only valid when referenced from a page in the same area and controller.</span></span>
 
-  <span data-ttu-id="a0504-165">Składnia pomocnika tagów: `<a asp-controller="Manage" asp-action="Index">Go to Manage Products Home Page</a>`</span><span class="sxs-lookup"><span data-stu-id="a0504-165">TagHelper syntax: `<a asp-controller="Manage" asp-action="Index">Go to Manage Products Home Page</a>`</span></span>
+<span data-ttu-id="837bb-169">Jeśli nie określono obszaru lub kontrolera, routing zależy od *otoczenia* wartości.</span><span class="sxs-lookup"><span data-stu-id="837bb-169">When the area or controller is not specified, routing depends on the *ambient* values.</span></span> <span data-ttu-id="837bb-170">Bieżące wartości trasy, bieżącego żądania są traktowane jako wartości otoczenia dotyczącymi generowania łączy.</span><span class="sxs-lookup"><span data-stu-id="837bb-170">The current route values of the current request are considered ambient values for link generation.</span></span> <span data-ttu-id="837bb-171">W wielu przypadkach dla przykładowej aplikacji przy użyciu wartości otoczenia generuje nieprawidłowe linki.</span><span class="sxs-lookup"><span data-stu-id="837bb-171">In many cases for the sample app, using the ambient values generates incorrect links.</span></span>
 
-  <span data-ttu-id="a0504-166">Pamiętaj, że w tym miejscu zostanie użyta wartość otoczenia obszaru, ale jawnie określono wartość "controller", powyżej.</span><span class="sxs-lookup"><span data-stu-id="a0504-166">Note that here the ambient value of an 'area' is used but the 'controller' value is specified explicitly above.</span></span>
+<span data-ttu-id="837bb-172">Aby uzyskać więcej informacji, zobacz [Routing do akcji kontrolera](xref:mvc/controllers/routing).</span><span class="sxs-lookup"><span data-stu-id="837bb-172">For more information, see [Routing to controller actions](xref:mvc/controllers/routing).</span></span>
 
-* <span data-ttu-id="a0504-167">Podczas generowania łączy z akcji w obrębie kontrolera do kolejnej akcji na podstawie innego kontrolera i innego obszaru.</span><span class="sxs-lookup"><span data-stu-id="a0504-167">Generating links from an action within an area based controller to another action on a different controller and a different area.</span></span>
+### <a name="shared-layout-for-areas-using-the-viewstartcshtml-file"></a><span data-ttu-id="837bb-173">Udostępnione układu dla obszarów przy użyciu pliku _ViewStart.cshtml</span><span class="sxs-lookup"><span data-stu-id="837bb-173">Shared layout for Areas using the _ViewStart.cshtml file</span></span>
 
-  <span data-ttu-id="a0504-168">Załóżmy, że ścieżka bieżącego żądania jest podobne `/Products/Home/Create`</span><span class="sxs-lookup"><span data-stu-id="a0504-168">Let's say the current request's path is like `/Products/Home/Create`</span></span>
+<span data-ttu-id="837bb-174">Aby udostępnić typowych układu dla całej aplikacji, należy przenieść *_ViewStart.cshtml* do folderu głównego aplikacji.</span><span class="sxs-lookup"><span data-stu-id="837bb-174">To share a common layout for the entire app, move the *_ViewStart.cshtml* to the application root folder.</span></span>
 
-  <span data-ttu-id="a0504-169">Składnia HtmlHelper: `@Html.ActionLink("Go to Services Home Page", "Index", "Home", new { area = "Services" })`</span><span class="sxs-lookup"><span data-stu-id="a0504-169">HtmlHelper syntax: `@Html.ActionLink("Go to Services Home Page", "Index", "Home", new { area = "Services" })`</span></span>
+<!-- This section will be completed after https://github.com/aspnet/Docs/pull/10978 is merged.
+<a name="arp"></a>
 
-  <span data-ttu-id="a0504-170">Składnia pomocnika tagów: `<a asp-area="Services" asp-controller="Home" asp-action="Index">Go to Services Home Page</a>`</span><span class="sxs-lookup"><span data-stu-id="a0504-170">TagHelper syntax: `<a asp-area="Services" asp-controller="Home" asp-action="Index">Go to Services Home Page</a>`</span></span>
+## Areas for Razor Pages
+-->
+<a name="rename"></a>
 
-  <span data-ttu-id="a0504-171">Należy pamiętać, że w tym miejscu są używane żadne wartości otoczenia.</span><span class="sxs-lookup"><span data-stu-id="a0504-171">Note that here no ambient values are used.</span></span>
+### <a name="change-default-area-folder-where-views-are-stored"></a><span data-ttu-id="837bb-175">Zmień domyślny folder obszaru przechowywania widoków</span><span class="sxs-lookup"><span data-stu-id="837bb-175">Change default area folder where views are stored</span></span>
 
-* <span data-ttu-id="a0504-172">Podczas generowania łączy z akcji w kontrolerze obszaru na podstawie innej akcji na innym kontrolerze i **nie** w obszarze.</span><span class="sxs-lookup"><span data-stu-id="a0504-172">Generating links from an action within an area based controller to another action on a different controller and **not** in an area.</span></span>
+<span data-ttu-id="837bb-176">Poniższy kod zmienia domyślny folder obszaru z `"Areas"` do `"MyAreas"`:</span><span class="sxs-lookup"><span data-stu-id="837bb-176">The following code changes the default area folder from `"Areas"` to `"MyAreas"`:</span></span>
 
-  <span data-ttu-id="a0504-173">Składnia HtmlHelper: `@Html.ActionLink("Go to Manage Products  Home Page", "Index", "Home", new { area = "" })`</span><span class="sxs-lookup"><span data-stu-id="a0504-173">HtmlHelper syntax: `@Html.ActionLink("Go to Manage Products  Home Page", "Index", "Home", new { area = "" })`</span></span>
+[!code-csharp[](areas/samples/MVCareas/Startup2.cs?name=snippet)]
 
-  <span data-ttu-id="a0504-174">Składnia pomocnika tagów: `<a asp-area="" asp-controller="Manage" asp-action="Index">Go to Manage Products Home Page</a>`</span><span class="sxs-lookup"><span data-stu-id="a0504-174">TagHelper syntax: `<a asp-area="" asp-controller="Manage" asp-action="Index">Go to Manage Products Home Page</a>`</span></span>
+<!-- TODO review - can we delete this. Areas doesn't change publishing - right? -->
+### <a name="publishing-areas"></a><span data-ttu-id="837bb-177">Obszary publikowania</span><span class="sxs-lookup"><span data-stu-id="837bb-177">Publishing Areas</span></span>
 
-  <span data-ttu-id="a0504-175">Ponieważ chcemy wygenerować łączy do innych obszaru na podstawie akcji kontrolera, możemy pusty otoczenia wartość "obszar" w tym miejscu.</span><span class="sxs-lookup"><span data-stu-id="a0504-175">Since we want to generate links to a non-area based controller action, we empty the ambient value for 'area' here.</span></span>
-
-## <a name="publishing-areas"></a><span data-ttu-id="a0504-176">Obszary publikowania</span><span class="sxs-lookup"><span data-stu-id="a0504-176">Publishing Areas</span></span>
-
-<span data-ttu-id="a0504-177">Wszystkie `*.cshtml` i `wwwroot/**` plików, są publikowane dane wyjściowe, gdy `<Project Sdk="Microsoft.NET.Sdk.Web">` znajduje się w *.csproj* pliku.</span><span class="sxs-lookup"><span data-stu-id="a0504-177">All `*.cshtml` and `wwwroot/**` files are published to output when `<Project Sdk="Microsoft.NET.Sdk.Web">` is included in the *.csproj* file.</span></span>
+<span data-ttu-id="837bb-178">Wszystkie `*.cshtml` i `wwwroot/**` plików, są publikowane dane wyjściowe, gdy `<Project Sdk="Microsoft.NET.Sdk.Web">` znajduje się w *.csproj* pliku.</span><span class="sxs-lookup"><span data-stu-id="837bb-178">All `*.cshtml` and `wwwroot/**` files are published to output when `<Project Sdk="Microsoft.NET.Sdk.Web">` is included in the *.csproj* file.</span></span>
