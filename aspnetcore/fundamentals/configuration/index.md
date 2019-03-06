@@ -4,7 +4,7 @@ author: guardrex
 description: 'Dowiedz się, jak skonfigurować aplikację ASP.NET Core za pomocą interfejsu API konfiguracji.'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/25/2019
+ms.date: 03/04/2019
 uid: fundamentals/configuration/index
 ---
 # <a name="configuration-in-aspnet-core"></a>Konfiguracja w programie ASP.NET Core
@@ -128,7 +128,26 @@ Przy uruchamianiu aplikacji źródła konfiguracji są do odczytu w kolejności,
 
 Dostawcy konfiguracji pliku mają możliwość Załaduj ponownie konfigurację, gdy podstawowy plik ustawień zostanie zmieniona po uruchomieniu aplikacji. Dostawca konfiguracji pliku jest opisane w dalszej części tego tematu.
 
-<xref:Microsoft.Extensions.Configuration.IConfiguration> jest dostępna w aplikacji [wstrzykiwanie zależności (DI)](xref:fundamentals/dependency-injection) kontenera. Dostawcy konfiguracji nie może wykorzystywać DI, ponieważ nie jest dostępna podczas konfigurowania one przez hosta.
+<xref:Microsoft.Extensions.Configuration.IConfiguration> jest dostępna w aplikacji [wstrzykiwanie zależności (DI)](xref:fundamentals/dependency-injection) kontenera. <xref:Microsoft.Extensions.Configuration.IConfiguration> być dodane do stron Razor <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel> można uzyskać konfiguracji dla klasy:
+
+```csharp
+// using Microsoft.Extensions.Configuration;
+
+public class IndexModel : PageModel
+{
+    private readonly IConfiguration _config;
+
+    public IndexModel(IConfiguration config)
+    {
+        _config = config;
+    }
+        
+    // The _config local variable is used to obtain configuration 
+    // throughout the class.
+}
+```
+
+Dostawcy konfiguracji nie może wykorzystywać DI, ponieważ nie jest dostępna podczas konfigurowania one przez hosta.
 
 Klucze konfiguracji przyjęcie następujących konwencji:
 
@@ -256,6 +275,8 @@ Wywołaj <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguratio
 [!code-csharp[](index/samples/2.x/ConfigurationSample/Program.cs?name=snippet_Program&highlight=19)]
 
 ::: moniker-end
+
+Dostarczony do aplikacji w konfiguracji <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> jest dostępna podczas uruchamiania aplikacji, w tym `Startup.ConfigureServices`. Aby uzyskać więcej informacji, zobacz [konfiguracji dostępu podczas uruchamiania](#access-configuration-during-startup) sekcji.
 
 ## <a name="command-line-configuration-provider"></a>Dostawca konfiguracji wiersza polecenia
 
@@ -1305,10 +1326,29 @@ var host = new WebHostBuilder()
 
 [ConfigurationBinder.GetValue&lt;T&gt; ](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.GetValue*) wyodrębnianie wartości z konfiguracji z określonym kluczem i konwertuje je do określonego typu. Przeciążenie umożliwia podanie wartości domyślnej, jeśli nie odnaleziono klucza.
 
-Poniższy przykład wyodrębnia wartość ciągu z konfiguracji przy użyciu klucza `NumberKey`, typy wartości jako `int`i przechowuje wartość w zmiennej `intValue`. Jeśli `NumberKey` nie zostanie odnaleziona w klucze konfiguracji `intValue` odbiera wartość domyślną `99`:
+Poniższy przykład:
+
+* Wyodrębnia wartość ciągu z konfiguracji przy użyciu klucza `NumberKey`. Jeśli `NumberKey` nie zostanie odnaleziona w klucze konfiguracji, wartość domyślna `99` jest używany.
+* Typy wartości jako `int`.
+* Przechowuje wartość w `NumberConfig` właściwości do użytku przez stronę.
 
 ```csharp
-var intValue = config.GetValue<int>("NumberKey", 99);
+// using Microsoft.Extensions.Configuration;
+
+public class IndexModel : PageModel
+{
+    public IndexModel(IConfiguration config)
+    {
+        _config = config;
+    }
+    
+    public int NumberConfig { get; private set; }
+        
+    public void OnGet()
+    {
+        NumberConfig = _config.GetValue<int>("NumberKey", 99);
+    }
+}
 ```
 
 ## <a name="getsection-getchildren-and-exists"></a>GetSection, GetChildren i istnieje

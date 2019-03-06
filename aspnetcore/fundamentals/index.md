@@ -4,14 +4,14 @@ author: rick-anderson
 description: 'Dowiedz się, podstawowe pojęcia do tworzenia aplikacji platformy ASP.NET Core.'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/14/2019
+ms.date: 03/02/2019
 uid: fundamentals/index
 ---
 # <a name="aspnet-core-fundamentals"></a>Podstawy platformy ASP.NET Core
 
 W tym artykule przedstawiono kluczowe tematy zrozumieć, jak opracowywać aplikacje platformy ASP.NET Core.
 
-## <a name="the-startup-class"></a>Klasa początkowa
+## <a name="the-startup-class"></a>Klasa Startup
 
 `Startup` Klasy jest, gdy:
 
@@ -83,7 +83,7 @@ Kod w celu utworzenia hosta jest `Program.Main` i następuje [wzorzec konstrukto
 
 ::: moniker range="<= aspnetcore-2.2"
 
-Platforma ASP.NET Core 2.x używa hosta sieci Web ( `WebHost` klasy) dla aplikacji sieci web. Udostępnia platformę `CreateDefaultBuilder` metody rozszerzenia, które Konfigurowanie hosta z powszechnie używane opcje, takie jak następujące:
+Platforma ASP.NET Core 2.x używa hosta sieci Web ( `WebHost` klasy) dla aplikacji sieci web. Udostępnia platformę `CreateDefaultBuilder` skonfigurować hosta z powszechnie używane opcje, takie jak następujące:
 
 * Użyj [Kestrel](#servers) jako integracja sieci web serwera i Włącz usługi IIS.
 * Konfiguracja obciążenia z *appsettings.json*, zmienne środowiskowe, argumenty wiersza polecenia i innych źródeł.
@@ -105,13 +105,13 @@ Aby uzyskać więcej informacji, zobacz [hosta sieci Web](xref:fundamentals/host
 
 W programie ASP.NET Core 3.0 to hosta sieci Web (`WebHost` klasy) lub ogólny hosta (`Host` klasy) może być używana w aplikacji sieci web. Ogólny hosta jest zalecana i hosta sieci Web jest dostępna dla zapewnienia zgodności.
 
-Udostępnia platformę `CreateDefaultBuilder` i `ConfigureWebHostDefaults` metody rozszerzenia, które Konfigurowanie hosta z powszechnie używane opcje, takie jak następujące:
+Udostępnia platformę `CreateDefaultBuilder` i `ConfigureWebHostDefaults` metody, aby skonfigurować hosta z powszechnie używane opcje, takie jak następujące:
 
 * Użyj [Kestrel](#servers) jako integracja sieci web serwera i Włącz usługi IIS.
 * Konfiguracja obciążenia z *appsettings.json*, *appsettings. [ .Json EnvironmentName]*, zmienne środowiskowe i argumenty wiersza polecenia.
 * Wyślij rejestrowania danych wyjściowych do konsoli i debugowanie dostawców.
 
-Oto przykładowy kod, który tworzy hosta. Metody rozszerzenia, które skonfigurować hosta z powszechnie używane opcje są wyróżnione.
+Oto przykładowy kod, który tworzy hosta. Metody, które skonfigurować hosta z powszechnie używane opcje są wyróżnione.
 
 [!code-csharp[](index/snapshots/3.x/Program1.cs?highlight=9-10)]
 

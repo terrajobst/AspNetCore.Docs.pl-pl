@@ -5,12 +5,12 @@ description: Dowiedz się, jak można dodać klas związanych z zarządzaniem fi
 ms.author: riande
 ms.date: 02/12/2019
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: c7341430e8e2ace7eb04faa308020095139d5b94
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 0ba00750dee1ccbef5d91d8c66f2de0db401c5c1
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56410235"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346362"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Dodawanie modelu strony Razor aplikacji w programie ASP.NET Core
 
@@ -147,10 +147,6 @@ Wykonaj **dodać strony Razor za pomocą programu Entity Framework (CRUD)** okno
 
 ---
 
-Poprzednich poleceniach generuje następujące ostrzeżenie: "Nie określono typu dziesiętną kolumny"Cena"jednostki typu"Filmu". To spowoduje, że wartości, aby dyskretnie obcięty, jeśli nie mieszczą się w domyślnej dokładności i skali. Jawnie określić typ kolumny serwera SQL, która może pomieścić wszystkie wartości przy użyciu "HasColumnType()"."
-
-Możesz zignorować ostrzeżenie o tym, zostanie rozwiązany później w samouczku.
-
 Proces szkieletu tworzy i aktualizuje następujące pliki:
 
 ### <a name="files-created"></a>Utworzone pliki
@@ -204,6 +200,10 @@ Update-Database
 
 ---  
 <!-- End of VS tabs -->
+
+Poprzednich poleceniach generuje następujące ostrzeżenie: "Nie określono typu dziesiętną kolumny"Cena"jednostki typu"Filmu". To spowoduje, że wartości, aby dyskretnie obcięty, jeśli nie mieszczą się w domyślnej dokładności i skali. Jawnie określić typ kolumny serwera SQL, która może pomieścić wszystkie wartości przy użyciu "HasColumnType()"."
+
+Możesz zignorować ostrzeżenie o tym, zostanie rozwiązany później w samouczku.
 
 `ef migrations add InitialCreate` Polecenie generuje kod, aby utworzyć schemat początkowej bazy danych. Schemat jest oparta na modelu, określone w `DbContext` (w *RazorPagesMovieContext.cs* pliku). `InitialCreate` Argument jest używany do nazywania migracje. Można dowolną nazwę, ale zgodnie z Konwencją, wybrane nazwę opisującą migracji.
 
@@ -271,6 +271,10 @@ Możesz pominąć [krok migracji](#pmc).
 * Test **Edytuj**, **szczegóły**, i **Usuń** łącza.
 
 Następnego samouczka opisano plików utworzonych przez tworzenie szkieletów.
+
+## <a name="additional-resources"></a>Dodatkowe zasoby
+
+* [Wersja usługi YouTube w tym samouczku](https://www.youtube.com/watch?v=sFVIsdR_RcM)
 
 > [!div class="step-by-step"]
 > [Poprzednie: Rozpoczynanie pracy](xref:tutorials/razor-pages/razor-pages-start)

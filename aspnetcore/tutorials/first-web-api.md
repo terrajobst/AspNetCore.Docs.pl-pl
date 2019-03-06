@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/4/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 686397cd25248ce7b37e505c7129a3b56d4ada1b
-ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
+ms.openlocfilehash: 24c87f2ad0446aef51f9d648fd20c181cbeaed2e
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833764"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346476"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core-mvc"></a>Samouczek: Tworzenie internetowego interfejsu API za pomocą platformy ASP.NET Core MVC
 
@@ -350,7 +350,7 @@ Dodaj następujący kod `PutTodoItem` metody:
 
 `PutTodoItem` jest podobny do `PostTodoItem`, z wyjątkiem używa HTTP PUT. Odpowiedź jest [204 (Brak zawartości)](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html). Zgodnie ze specyfikacją protokołu HTTP żądania PUT wymaga to klientowi wysłanie całego zaktualizowaną jednostkę, nie tylko zmiany. Aby obsługiwać aktualizacje częściowe, należy użyć [HTTP PATCH](xref:Microsoft.AspNetCore.Mvc.HttpPatchAttribute).
 
-Mogę uzyskać wystąpił błąd podczas wywoływania `PutTodoItem`, wywołania `GET` aby upewnić się, Brak elementu w bazie danych.
+Jeśli wystąpił błąd podczas wywoływania `PutTodoItem`, wywołaj `GET` aby upewnić się, Brak elementu w bazie danych.
 
 ### <a name="test-the-puttodoitem-method"></a>Metoda PutTodoItem testu
 
@@ -454,6 +454,7 @@ Aby uzyskać więcej informacji, zobacz następujące zasoby:
 * <xref:web-api/action-return-types>
 * <xref:host-and-deploy/azure-apps/index>
 * <xref:host-and-deploy/index>
+* [Wersja usługi youtube w tym samouczku](https://www.youtube.com/watch?v=TTkhEyGBfAk)
 
 ## <a name="next-steps"></a>Następne kroki
 

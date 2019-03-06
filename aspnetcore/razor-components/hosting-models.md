@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/29/2019
 uid: razor-components/hosting-models
-ms.openlocfilehash: d1e0c472d7d10eeb4cef0da735cf703c98dd1645
-ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
+ms.openlocfilehash: 8ffc22201b88b59077a98bd46cbf95e93d2d86e2
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56159505"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57345660"
 ---
 # <a name="razor-components-hosting-models"></a>Składniki razor modele obsługi
 
@@ -28,7 +28,7 @@ Jednostki modelu hostowania Blazor jest uruchomiona po stronie klienta w przegl�
 
 ![Blazor po stronie klienta: Aplikacja Blazor jest uruchamiana w wątku interfejsu użytkownika w przeglądarce.](hosting-models/_static/client-side.png)
 
-Aby utworzyć aplikację Blazor przy użyciu modelu hostingu w sieci po stronie klienta, należy użyć **Blazor** lub **Blazor (ASP.NET Core hostowane)** szablony projektów (`blazor` lub `blazorhosted` szablon, korzystając z [dotnet nowe](/dotnet/core/tools/dotnet-new) polecenie w wierszu polecenia). Dołączonej *blazor.webassembly.js* skryptu obsługuje:
+Aby utworzyć aplikację Blazor przy użyciu modelu hostingu w sieci po stronie klienta, należy użyć **Blazor** lub **Blazor (ASP.NET Core hostowane)** szablony projektów (`blazor` lub `blazorhosted` szablon, korzystając z [dotnet nowe](/dotnet/core/tools/dotnet-new) polecenie w wierszu polecenia). Dołączonej *components.webassembly.js* skryptu obsługuje:
 
 * Pobieranie środowiska uruchomieniowego .NET, aplikacji oraz jego zależności.
 * Inicjalizacja środowiska uruchomieniowego, aby uruchomić aplikację.
@@ -68,7 +68,7 @@ Aby utworzyć aplikację składniki Razor przy użyciu modelu hostingu w sieci p
 
 [!code-csharp[](hosting-models/samples_snapshot/Startup.cs?highlight=5,27)]
 
-*Blazor.server.js* skryptu&dagger; nawiązuje połączenie z klientem. To aplikacja odpowiada za utrwalanie i przywracanie stanu aplikacji, zgodnie z potrzebami (na przykład w przypadku połączenia sieciowego utracone).
+*Components.server.js* skryptu&dagger; nawiązuje połączenie z klientem. To aplikacja odpowiada za utrwalanie i przywracanie stanu aplikacji, zgodnie z potrzebami (na przykład w przypadku połączenia sieciowego utracone).
 
 Model hostingu w sieci po stronie serwera oferuje wiele korzyści:
 
@@ -86,4 +86,4 @@ Istnieją wad po stronie serwera hostingu:
 * Obniżyła skalowalność: Serwer musi zarządzać wieloma połączeń klientów i obsługi stanu klienta.
 * Wymaga serwera do obsługi aplikacji programu ASP.NET Core. Wdrożenie bez serwera (na przykład z sieci CDN) nie jest możliwe.
 
-&dagger;*Blazor.server.js* skryptu jest opublikowana w następującej ścieżce: *bin / {debugowanie | Zlecenia} / {struktury docelowej} /publish/ {Nazwa aplikacji}. Aplikacja/dist/_struktura*.
+&dagger;*Components.server.js* skryptu jest opublikowana w następującej ścieżce: *bin / {debugowanie | Zlecenia} / {struktury docelowej} /publish/ {Nazwa aplikacji}. Aplikacja/dist/_struktura*.

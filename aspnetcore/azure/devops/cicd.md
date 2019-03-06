@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.date: 10/24/2018
 ms.custom: seodec18
 uid: azure/devops/cicd
-ms.openlocfilehash: e5bddde41291c9573f58d749bbf830de9ea9319d
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: 906aae3fd4b4abd0becc8847b0f54c372bda300a
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121599"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346310"
 ---
 # <a name="continuous-integration-and-deployment"></a>Ciągła integracja i ciągłe wdrażanie
 
@@ -60,9 +60,9 @@ Usuń lokalne wdrożenie narzędzia Git wykonując następujące kroki. Potoki u
 
     ![tymczasową aplikację sieci Web wyszukiwany termin](media/cicd/portal-search-box.png)
 
-1. Kliknij przycisk **opcje wdrażania**. Zostanie wyświetlony nowy panel. Kliknij przycisk **rozłączenia** można usunąć lokalnej dodaną w poprzednim rozdziale konfiguracji kontroli źródła Git. Potwierdź operację usunięcia, klikając przycisk **tak** przycisku.
+1. Kliknij przycisk **Centrum wdrażania**. Zostanie wyświetlony nowy panel. Kliknij przycisk **rozłączenia** można usunąć lokalnej dodaną w poprzednim rozdziale konfiguracji kontroli źródła Git. Potwierdź operację usunięcia, klikając przycisk **tak** przycisku.
 1. Przejdź do *mywebapp < unique_number >* usługi App Service. Przypominamy pole wyszukiwania portalu można szybko zlokalizować usługi App Service.
-1. Kliknij przycisk **opcje wdrażania**. Zostanie wyświetlony nowy panel. Kliknij przycisk **rozłączenia** można usunąć lokalnej dodaną w poprzednim rozdziale konfiguracji kontroli źródła Git. Potwierdź operację usunięcia, klikając przycisk **tak** przycisku.
+1. Kliknij przycisk **Centrum wdrażania**. Zostanie wyświetlony nowy panel. Kliknij przycisk **rozłączenia** można usunąć lokalnej dodaną w poprzednim rozdziale konfiguracji kontroli źródła Git. Potwierdź operację usunięcia, klikając przycisk **tak** przycisku.
 
 ## <a name="create-an-azure-devops-organization"></a>Utwórz organizację DevOps platformy Azure
 
@@ -262,7 +262,7 @@ Są dwa główne składniki potoku tworzenia wersji **artefaktów** i **środowi
 
 ![Zrzut ekranu przedstawiający wersji potok zadań](media/cicd/release-definition-tasks.png)
 
-Potok wersji składa się z dwóch zadań: *wdrożenia usługi Azure App Service do gniazda* i *zarządzania usługi Azure App Service — gniazda wymiany*. Kliknięcie pierwszego zadania, co spowoduje wyświetlenie następującej konfiguracji zadania:
+Potok wydania składa się z dwóch zadań: *Wdrażanie usługi Azure App Service do gniazda* i *zarządzania usługi Azure App Service — zamiany*. Kliknięcie pierwszego zadania, co spowoduje wyświetlenie następującej konfiguracji zadania:
 
 ![Zadanie wdrażania zrzut ekranu przedstawiający wersji potoku](media/cicd/release-definition-task1.png)
 

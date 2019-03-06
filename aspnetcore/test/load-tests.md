@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/04/2019
 uid: test/loadtests
-ms.openlocfilehash: d989bc841a372bed7ebf2c84c6abe1a57762ad04
-ms.sourcegitcommit: cec77d5ad8a0cedb1ecbec32834111492afd0cd2
+ms.openlocfilehash: 587df6e216943d3eeec779df4d0554dd0fc2fda0
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54207359"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57345431"
 ---
 # <a name="load-and-stress-testing-aspnet-core"></a>Obciążeniowe testowania platformy ASP.NET Core
 
@@ -26,7 +26,11 @@ Testowanie obciążenia i testy obciążenia są ważne, aby upewnić się, że 
 
 Przy dużym obciążeniu można ją odzyskiwanie po awarii i bez problemu zmieniała powrócić do oczekiwane zachowanie? Przy dużym obciążeniu, aplikacja jest *nie* Uruchom w normalnych warunkach.
 
-## <a name="visual-studio-tools"></a>Narzędzia programu Visual Studio
+Visual Studio 2019 będzie ostatnią wersją programu Visual Studio wyposażoną w funkcje testów obciążeniowych. Klientom potrzebującym narzędzi do testowania obciążenia zalecamy korzystanie z alternatywnych narzędzi do testowania obciążenia, takich jak Apache JMeter, Akamai CloudTest czy Blazemeter. Aby uzyskać więcej informacji, zobacz [Visual Studio 2019 informacje o wersji zapoznawczej](/visualstudio/releases/2019/release-notes-preview#test-tools).
+
+Usługi testowania obciążeniowego w DevOps platformy Azure kończy się 2020 r. Aby uzyskać więcej informacji, zobacz [usługi koniec cyklu życia testowania obciążenia w chmurze](https://devblogs.microsoft.com/devops/cloud-based-load-testing-service-eol/).
+
+## <a name="visual-studio-tools"></a>Visual Studio Tools
 
 Program Visual Studio pozwala użytkownikom na tworzenie, opracowywanie i debugowanie testów wydajności i obciążenia sieci web. Opcja jest dostępna do utworzenia testów poprzez nagrywanie akcji w przeglądarce sieci web.
 

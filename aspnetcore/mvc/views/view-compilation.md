@@ -5,14 +5,14 @@ description: Dowiedz się, jak kompilacji plikach Razor odbywa się w aplikacji 
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/13/2019
+ms.date: 03/02/2019
 uid: mvc/views/view-compilation
-ms.openlocfilehash: 0b6173a7860f5f1d9d11219fbf3f57f76d703031
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 0b3aea584de63cb8032e4ca112d2441349bdfbb3
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56899271"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57345502"
 ---
 # <a name="razor-file-compilation-in-aspnet-core"></a>Kompilacja pliku razor w programie ASP.NET Core
 
@@ -38,7 +38,7 @@ Pliku Razor jest kompilowana w czasie wykonywania, po wywołaniu skojarzonego wi
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Pliki razor są kompilowane w obu kompilacji i opublikować przy użyciu [Razor SDK](xref:razor-pages/sdk). Kompilacja środowiska uruchomieniowego może być opcjonalnie włączona konfigurując aplikację
+Pliki razor są kompilowane w obu kompilacji i opublikować przy użyciu [Razor SDK](xref:razor-pages/sdk). Kompilacja środowiska uruchomieniowego może być opcjonalnie włączona konfigurując aplikację.
 
 ::: moniker-end
 
@@ -93,7 +93,7 @@ Przygotowywanie aplikacji dla [wdrożenia zależny od struktury](/dotnet/core/de
 dotnet publish -c Release
 ```
 
-A *< project_name >. PrecompiledViews.dll* zawierający skompilowane pliki Razor jest generowany po pomyślnym zakończeniu wstępnej kompilacji. Na przykład, poniższy zrzut ekranu przedstawia zawartość *Index.cshtml* w ramach *WebApplication1.PrecompiledViews.dll*:
+A  *\<project_name >. PrecompiledViews.dll* zawierający skompilowane pliki Razor jest generowany po pomyślnym zakończeniu wstępnej kompilacji. Na przykład, poniższy zrzut ekranu przedstawia zawartość *Index.cshtml* w ramach *WebApplication1.PrecompiledViews.dll*:
 
 ![Widokami razor wewnątrz biblioteki DLL](view-compilation/_static/razor-views-in-dll.png)
 
@@ -122,18 +122,19 @@ Wskazówki i przykłady ustawienie wersji zgodności aplikacji, zobacz <xref:mvc
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Kompilacja środowiska uruchomieniowego jest włączane przy użyciu `Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation` pakietu. Aby włączyć kompilacja środowiska uruchomieniowego, muszą aplikacji
+Kompilacja środowiska uruchomieniowego jest włączane przy użyciu `Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation` pakietu. Aby włączyć kompilacja środowiska uruchomieniowego, aplikacje muszą:
 
 * Zainstaluj [Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation/) pakietu NuGet.
 * Aktualizuj aplikację `ConfigureServices` obejmujący wywołanie `AddMvcRazorRuntimeCompilation`:
 
-```csharp
-services
-    .AddMvc()
-    .AddMvcRazorRuntimeCompilation()
-```
+  ```csharp
+  services
+      .AddMvc()
+      .AddMvcRazorRuntimeCompilation()
+  ```
 
 Kompilacja środowiska uruchomieniowego do pracy po wdrożeniu, aplikacje Ponadto należy zmodyfikować swoje pliki projektu, aby ustawić `PreserveCompilationReferences` do `true`.
+
 [!code-xml[](view-compilation/sample/RuntimeCompilation.csproj?highlight=3)]
 
 ::: moniker-end

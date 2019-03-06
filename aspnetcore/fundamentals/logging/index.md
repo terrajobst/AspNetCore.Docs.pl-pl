@@ -4,14 +4,8 @@ author: tdykstra
 description: Więcej informacji na temat struktury rejestrowania w programie ASP.NET Core. Odnajdywanie dostawcy wbudowane funkcje rejestrowania i Dowiedz się więcej na temat popularnych dostawców innych firm.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 01/14/2019
+ms.date: 03/02/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: 81620f0c844f3dbb1a2da0e9f1c319f87d9790b6
-ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
-ms.translationtype: MT
-ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55667703"
 ---
 # <a name="logging-in-aspnet-core"></a>Rejestrowanie w programie ASP.NET Core
 
@@ -31,7 +25,7 @@ Aby dodać dostawcę, należy wywołać dostawcy `Add{provider name}` metody roz
 
 [!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_ExpandDefault&highlight=17-19)]
 
-Wywołania szablonu projektu domyślnego <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder%2A> metodę rozszerzenia, który dodaje następujących dostawców rejestrowania:
+Wywołania szablonu projektu domyślnego <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder%2A>, która dodaje następujących dostawców rejestrowania:
 
 * Konsola
 * Debugowanie
@@ -98,7 +92,7 @@ Dziennik *poziom* wskazuje ważność rejestrowane zdarzenia. Dziennik *kategori
 
 Zapisywanie dzienników `Startup` klasy, należy umieścić `ILogger` parametru w sygnatury konstruktora:
 
-[!code-csharp[](index/samples/2.x/TodoApiSample/Startup.cs?name=snippet_Startup&highlight=3,5,8,19,26)]
+[!code-csharp[](index/samples/2.x/TodoApiSample/Startup.cs?name=snippet_Startup&highlight=3,5,8,20,27)]
 
 ### <a name="create-logs-in-program"></a>Twórz dzienniki w programie
 
@@ -806,7 +800,7 @@ Jeśli przeznaczony dla platformy .NET Core, pamiętaj o następujących kwestia
 
 * Nie jawnie wywołać <xref:Microsoft.Extensions.Logging.AzureAppServicesLoggerFactoryExtensions.AddAzureWebAppDiagnostics*>. Dostawca automatycznie staje się dostępny do aplikacji, gdy aplikacja jest wdrożona w usłudze Azure App Service.
 
-Jeśli przeznaczonych dla platformy .NET Framework lub odwołuje się do `Microsoft.AspNetCore.App` meta Microsoft.aspnetcore.all, Dodaj pakiet dostawcy do projektu. Wywoływanie `AddAzureWebAppDiagnostics` na <xref:Microsoft.Extensions.Logging.ILoggerFactory> wystąpienie:
+Jeśli przeznaczonych dla platformy .NET Framework lub odwołuje się do `Microsoft.AspNetCore.App` meta Microsoft.aspnetcore.all, Dodaj pakiet dostawcy do projektu. Wywoływanie `AddAzureWebAppDiagnostics`:
 
 ```csharp
 logging.AddAzureWebAppDiagnostics();
@@ -822,19 +816,27 @@ loggerFactory.AddAzureWebAppDiagnostics();
 
 ::: moniker-end
 
-::: moniker range=">= aspnetcore-1.1"
+::: moniker range="<= aspnetcore-2.1"
 
 <xref:Microsoft.Extensions.Logging.AzureAppServicesLoggerFactoryExtensions.AddAzureWebAppDiagnostics*> Przeciążenia umożliwia przekazywanie w <xref:Microsoft.Extensions.Logging.AzureAppServices.AzureAppServicesDiagnosticsSettings>. Obiekt ustawień można zastąpić domyślne ustawienia, takie jak rejestrowanie danych wyjściowych szablonu, nazwa obiektu blob i limit rozmiaru pliku. (*Danych wyjściowych szablonu* jest szablon wiadomości, która jest stosowana do wszystkich dzienników oprócz co to jest dostarczana z `ILogger` wywołania metody.)
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
+
+Aby skonfigurować ustawienia dostawcy, użyj <xref:Microsoft.Extensions.Logging.AzureAppServices.AzureFileLoggerOptions> i <xref:Microsoft.Extensions.Logging.AzureAppServices.AzureBlobLoggerOptions>, jak pokazano w poniższym przykładzie:
+
+[!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_AzLogOptions&highlight=19-27)]
+
+::: moniker-end
 
 Podczas wdrażania aplikacji usługi App Service aplikacja honoruje ustawienia w [dzienniki diagnostyczne](/azure/app-service/web-sites-enable-diagnostic-log/#enablediag) części **usługi App Service** strony w witrynie Azure Portal. Jeśli te ustawienia zostaną zaktualizowane, zmiany zaczynają obowiązywać natychmiast bez konieczności ponownego uruchomienia lub ponownego wdrażania aplikacji.
 
 ![Ustawienia rejestrowania platformy Azure](index/_static/azure-logging-settings.png)
 
-Domyślną lokalizacją dla plików dziennika jest *D:\\macierzystego\\LogFiles\\aplikacji* folder i nazwę pliku domyślny jest *yyyymmdd.txt diagnostyki*. Domyślnego limitu rozmiaru pliku to 10 MB, a maksymalną domyślną liczbę plików, które przechowywane jest 2. Domyślna nazwa obiektu blob to *{app-name}{timestamp}/yyyy/mm/dd/hh/{guid}-applicationLog.txt*. Aby uzyskać więcej informacji na temat zachowania domyślnego, zobacz <xref:Microsoft.Extensions.Logging.AzureAppServices.AzureAppServicesDiagnosticsSettings>.
+Domyślną lokalizacją dla plików dziennika jest *D:\\macierzystego\\LogFiles\\aplikacji* folder i nazwę pliku domyślny jest *yyyymmdd.txt diagnostyki*. Domyślnego limitu rozmiaru pliku to 10 MB, a maksymalną domyślną liczbę plików, które przechowywane jest 2. Domyślna nazwa obiektu blob to *{app-name}{timestamp}/yyyy/mm/dd/hh/{guid}-applicationLog.txt*.
 
 Dostawca działa tylko w przypadku, gdy projekt jest uruchamiany w środowisku platformy Azure. Nie ma wpływu, gdy projekt jest uruchamiany lokalnie&mdash;nie zapisywać pliki lokalne lub lokalnym magazynem projektowym dla obiektów blob.
-
-::: moniker-end
 
 ### <a name="azure-log-streaming"></a>Przesyłanie strumieniowe dzienników platformy Azure
 

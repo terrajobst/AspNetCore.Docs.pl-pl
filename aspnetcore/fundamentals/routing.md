@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/13/2019
 uid: fundamentals/routing
-ms.openlocfilehash: 3dbb2d358ec9e3dcdd96c3771576911d906d796f
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.openlocfilehash: 622f28f3b4348820c8781e0ba14ae5137136e797
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248436"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346570"
 ---
 # <a name="routing-in-aspnet-core"></a>Routing w programie ASP.NET Core
 
@@ -583,7 +583,7 @@ Poniższa tabela przedstawia przykładowe szablony trasy i ich działania.
 | `{Page=Home}`                            | `/Contact`              | Dopasowuje i ustawia `Page` do `Contact`.                                      |
 | `{controller}/{action}/{id?}`            | `/Products/List`        | Mapuje `Products` kontrolera i `List` akcji.                       |
 | `{controller}/{action}/{id?}`            | `/Products/Details/123` | Mapuje `Products` kontrolera i `Details` akcji (`id` równa 123). |
-| `{controller=Home}/{action=Index}/{id?`} | `/`                     | Mapuje `Home` kontrolera i `Index` — metoda (`id` jest ignorowana).        |
+| `{controller=Home}/{action=Index}/{id?}` | `/`                     | Mapuje `Home` kontrolera i `Index` — metoda (`id` jest ignorowana).        |
 
 Przy użyciu szablonu ogólnie jest najprostszym podejściem do obsługi routingu. Ograniczenia i ustawienia domyślne można również określić poza szablon trasy.
 

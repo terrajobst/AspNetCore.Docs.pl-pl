@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/29/2019
 uid: razor-components/layouts
-ms.openlocfilehash: 23d8f441c0b3bbde7a73717f6257013831617ec0
-ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
+ms.openlocfilehash: fdb352701cf664dfb1efab5d05c37ee6a930cc4f
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56159470"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57345796"
 ---
 # <a name="razor-components-layouts"></a>Układy składniki razor
 
@@ -22,13 +22,13 @@ Aplikacje zwykle zawierają więcej niż jedną stronę. Układ elementów, taki
 
 Technicznie rzecz biorąc układ jest po prostu inny składnik. Układ jest zdefiniowany w szablonie Razor lub w C# kodu i może zawierać wiązania danych, wstrzykiwanie zależności i inne funkcje zwykłych składników. Włącz dwa dodatkowe aspekty *składnika* do *układ*:
 
-* Składnik układu musi dziedziczyć `BlazorLayoutComponent`. `BlazorLayoutComponent` definiuje `Body` właściwość, która zawiera zawartość do wyrenderowania wewnątrz układu.
+* Składnik układu musi dziedziczyć `LayoutComponentBase`. `LayoutComponentBase` definiuje `Body` właściwość, która zawiera zawartość do wyrenderowania wewnątrz układu.
 * Składnik układ używa `Body` właściwości w celu określenia, w którym treść powinna być renderowany przy użyciu składni Razor `@Body`. Podczas renderowania, `@Body` zastępuje zawartość układu.
 
-Poniższy przykład kodu pokazuje szablon Razor składnika układu. Zwróć uwagę na użycie `BlazorLayoutComponent` i `@Body`:
+Poniższy przykład kodu pokazuje szablon Razor składnika układu. Zwróć uwagę na użycie `LayoutComponentBase` i `@Body`:
 
 ```csharp
-@inherits BlazorLayoutComponent
+@inherits LayoutComponentBase
 
 <header>
     <h1>ERP Master 3000</h1>
@@ -96,7 +96,7 @@ Poniższe przykłady kodu przedstawiają sposób używać zagnieżdżonych ukła
 
 ```csharp
 @layout MainLayout
-@inherits BlazorLayoutComponent
+@inherits LayoutComponentBase
 
 <nav>
     <!-- Menu structure of master data module -->
@@ -111,7 +111,7 @@ Na koniec `MainLayout` zawiera elementy układu najwyższego poziomu, takie jak 
 *MainLayout.cshtml*:
 
 ```csharp
-@inherits BlazorLayoutComponent
+@inherits LayoutComponentBase
 
 <header>...</header>
 <nav>...</nav>

@@ -5,14 +5,14 @@ description: Dowiedz się, jak rozpocząć pracę przy użyciu szablonu projektu
 monikerRange: '>= aspnetcore-2.1'
 ms.author: stevesa
 ms.custom: mvc
-ms.date: 02/13/2019
+ms.date: 02/27/2019
 uid: spa/angular
-ms.openlocfilehash: f33f4b96faf71440c3e8878c0480f2908ace70d1
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 41990be4910ad35cdc2826f268fcbb659be9de75
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56899258"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57345723"
 ---
 # <a name="use-the-angular-project-template-with-aspnet-core"></a>Szablon projektu biblioteki Angular za pomocą platformy ASP.NET Core
 
@@ -90,7 +90,7 @@ npm install --save <package_name>
 
 Na etapie opracowywania aplikacji jest uruchamiany w trybie zoptymalizowane pod kątem dla wygody deweloperów. Na przykład pakiety języka JavaScript obejmują map źródeł (tak, aby podczas debugowania, możesz zobaczyć oryginalnego kodu TypeScript). Aplikacja oczekuje na TypeScript, HTML i CSS zmian plików na dysku i automatycznie następuje rekompilacja i ponowne załadowanie po wykryciu tych plików, zmiany.
 
-W środowisku produkcyjnym obsługiwać wersję aplikacji, która jest zoptymalizowana pod kątem wydajności. Jest ona konfigurowana automatycznie. Podczas publikowania, zminimalizowany emituje konfigurację kompilacji, z wyprzedzeniem of-time (AoT) skompilowany kompilację kodu po stronie klienta. W przeciwieństwie do tworzenia kompilacji, kompilacja w produkcji nie wymaga środowiska Node.js można zainstalować na serwerze (Jeśli nie włączono [prerendering po stronie serwera](#server-side-rendering)).
+W środowisku produkcyjnym obsługiwać wersję aplikacji, która jest zoptymalizowana pod kątem wydajności. Jest ona konfigurowana automatycznie. Podczas publikowania, zminimalizowany emituje konfigurację kompilacji, z wyprzedzeniem of-time (AoT) skompilowany kompilację kodu po stronie klienta. W przeciwieństwie do tworzenia kompilacji kompilacja w produkcji nie wymaga środowiska Node.js można zainstalować na serwerze (o ile nie włączono renderowania po stronie serwera (SSR)).
 
 Można użyć standardowego [metody hosting i wdrażanie platformy ASP.NET Core](xref:host-and-deploy/index).
 

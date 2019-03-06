@@ -4,14 +4,14 @@ author: guardrex
 description: Dowiedz się, aktywnych i nieaktywnych moduły IIS dla aplikacji platformy ASP.NET Core oraz jak zarządzać moduły usług IIS.
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/17/2019
+ms.date: 02/28/2019
 uid: host-and-deploy/iis/modules
-ms.openlocfilehash: 8c32a668b3945f0da0194162e19e965b4aed3934
-ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
+ms.openlocfilehash: e5bb1a86453bb945789cc1f4b56616551e316615
+ms.sourcegitcommit: 6ddd8a7675c1c1d997c8ab2d4498538e44954cac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396275"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57400687"
 ---
 # <a name="iis-modules-with-aspnet-core"></a>Moduły usług IIS za pomocą programu ASP.NET Core
 
@@ -36,11 +36,12 @@ Tabela zawiera moduły macierzyste usług IIS, które zachowują swoją funkcjon
 | **Uwierzytelnianie szyfrowane**<br>`DigestAuthenticationModule`                                        | Tak | |
 | **Przeglądanie katalogów**<br>`DirectoryListingModule`                                               | Nie  | [Oprogramowanie pośredniczące przeglądania w katalogu](xref:fundamentals/static-files#enable-directory-browsing) |
 | **Kompresja dynamiczna**<br>`DynamicCompressionModule`                                            | Tak | [Oprogramowanie pośredniczące kompresji odpowiedzi](xref:performance/response-compression) |
-| **Śledzenie**<br>`FailedRequestsTracingModule`                                                     | Tak | [Rejestrowanie platformy ASP.NET Core](xref:fundamentals/logging/index#tracesource-provider) |
+| **Śledzenie żądań zakończonych niepowodzeniem**<br>`FailedRequestsTracingModule`                                     | Tak | [Rejestrowanie platformy ASP.NET Core](xref:fundamentals/logging/index#tracesource-provider) |
 | **Buforowanie plików**<br>`FileCacheModule`                                                            | Nie  | [Oprogramowanie pośredniczące buforowania odpowiedzi](xref:performance/caching/middleware) |
 | **Buforowanie HTTP**<br>`HttpCacheModule`                                                            | Nie  | [Oprogramowanie pośredniczące buforowania odpowiedzi](xref:performance/caching/middleware) |
 | **Rejestrowanie HTTP**<br>`HttpLoggingModule`                                                          | Tak | [Rejestrowanie platformy ASP.NET Core](xref:fundamentals/logging/index) |
 | **Przekierowywanie HTTP**<br>`HttpRedirectionModule`                                                  | Tak | [Oprogramowanie pośredniczące ponownego zapisywania adresów URL](xref:fundamentals/url-rewriting) |
+| **Śledzenia protokołu HTTP**<br>`TracingModule`                                                              | Tak | |
 | **Uwierzytelnianie mapowań certyfikatów klientów internetowych usług informacyjnych**<br>`IISCertificateMappingAuthenticationModule` | Tak | |
 | **Ograniczenia adresów IP i domen**<br>`IpRestrictionModule`                                          | Tak | |
 | **Filtry ISAPI**<br>`IsapiFilterModule`                                                         | Tak | [Oprogramowanie pośredniczące](xref:fundamentals/middleware/index) |

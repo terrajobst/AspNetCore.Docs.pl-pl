@@ -1,18 +1,18 @@
 ---
 title: Korzystanie z przesyłaniem strumieniowym w biblioteki SignalR platformy ASP.NET Core
 author: bradygaster
-description: ''
+description: Dowiedz się, jak zwracanie strumieni wartości z metod koncentratora serwera oraz wykorzystują strumienie przy użyciu klientów platformy .NET i języka JavaScript.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
 ms.date: 11/14/2018
 uid: signalr/streaming
-ms.openlocfilehash: ade2d6fb6e799d53ff3aaa69c641d0088acdee95
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.openlocfilehash: fb7183f7189d62c181f69ffdb170e3da25612919
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54837406"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57345590"
 ---
 # <a name="use-streaming-in-aspnet-core-signalr"></a>Korzystanie z przesyłaniem strumieniowym w biblioteki SignalR platformy ASP.NET Core
 
@@ -24,10 +24,32 @@ SignalR platformy ASP.NET Core obsługuje przesyłania strumieniowego wartości 
 
 ## <a name="set-up-the-hub"></a>Konfigurowanie Centrum
 
-Metody koncentratora automatycznie wybrana zostaje pierwsza przesyłania strumieniowego metody koncentratora po zwraca `ChannelReader<T>` lub `Task<ChannelReader<T>>`. Poniżej przedstawiono przykład przedstawiający podstawy przesyłanie strumieniowe danych do klienta. Zawsze, gdy obiekt jest zapisywany `ChannelReader` tego obiektu są natychmiast wysyłane do klienta. Na koniec `ChannelReader` zakończeniu to sprawdzić klientowi strumień jest zamknięty.
+::: moniker range=">= aspnetcore-3.0"
+
+Metody koncentratora automatycznie wybrana zostaje pierwsza przesyłania strumieniowego metody koncentratora po zwraca `ChannelReader<T>`, `IAsyncEnumerable<T>`, `Task<ChannelReader<T>>`, lub `Task<IAsyncEnumerable<T>>`.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+Metody koncentratora automatycznie wybrana zostaje pierwsza przesyłania strumieniowego metody koncentratora po zwraca `ChannelReader<T>` lub `Task<ChannelReader<T>>`.
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.0"
+
+W programie ASP.NET Core 3.0 lub nowszej, przesyłanie strumieniowe metod koncentratora może zwrócić `IAsyncEnumerable<T>` oprócz `ChannelReader<T>`. Najprostszym sposobem, aby zwrócić `IAsyncEnumerable<T>` energii jest upewnienie metody iteratora asynchronicznej metody koncentratora, tak jak pokazano w następującym przykładzie. Metody iteratora asynchroniczne Centrum może akceptować `CancellationToken` parametr, który zostanie wyzwolony, gdy klient anuluje subskrypcje ze strumienia. Asynchroniczne metody iteracyjne łatwo problemom, typowe kanały takich jak nie zwraca `ChannelReader` wystarczająco wczesne tryb konserwacji lub wychodzenia z metodą przerywając `ChannelWriter`.
+
+[!INCLUDE[](~/includes/csharp-8-required.md)]
+
+[!code-csharp[Streaming hub async iterator method](streaming/sample/Hubs/AsyncEnumerableHub.cs?name=snippet_AsyncIterator)]
+
+::: moniker-end
+
+Poniższy przykład pokazuje podstawy przesyłanie strumieniowe danych do klienta za pomocą kanałów. Zawsze, gdy obiekt jest zapisywany `ChannelWriter` tego obiektu są natychmiast wysyłane do klienta. Na koniec `ChannelWriter` zakończeniu to sprawdzić klientowi strumień jest zamknięty.
 
 > [!NOTE]
-> * Zapisać `ChannelReader` w wątku w tle i wróć `ChannelReader` tak szybko, jak to możliwe. Inne wywołania koncentratora będzie zablokowany do momentu `ChannelReader` jest zwracana.
+> * Zapisać `ChannelWriter` w wątku w tle i wróć `ChannelReader` tak szybko, jak to możliwe. Inne wywołania koncentratora będzie zablokowany do momentu `ChannelReader` jest zwracana.
 > * OPAKOWYWANIE logikę w `try ... catch` i ukończyć `Channel` w catch i na zewnątrz catch, aby upewnić się, że Centrum zakończyła wywołania metody.
 
 ::: moniker range="= aspnetcore-2.1"
@@ -44,15 +66,15 @@ W programie ASP.NET Core 2.2 lub nowszej, przesyłanie strumieniowe metod koncen
 
 ::: moniker-end
 
-## <a name="net-client"></a>Klient modelu .NET
+## <a name="net-client"></a>Klient .NET
 
 `StreamAsChannelAsync` Metody `HubConnection` służy do wywoływania metody przesyłania strumieniowego. Przekaż nazwę metody koncentratora oraz argumenty zdefiniowane w metody koncentratora `StreamAsChannelAsync`. Parametr generyczny na `StreamAsChannelAsync<T>` Określa typ obiektów zwróconych przez metodę przesyłania strumieniowego. Element `ChannelReader<T>` jest zwracany z wywołania usługi stream i reprezentuje strumienia na komputerze klienckim. Do odczytywania danych, typowym wzorcem jest pętli `WaitToReadAsync` i wywołać `TryRead` kiedy dane są dostępne. Pętla zakończy się po strumień został zamknięty przez serwer lub token anulowania jest przekazywany do `StreamAsChannelAsync` zostało anulowane.
 
 ::: moniker range=">= aspnetcore-2.2"
 
 ```csharp
-// Call "Cancel" on this CancellationTokenSource to send a cancellation message to 
-// the server, which will trigger the corresponding token in the Hub method.
+// Call "Cancel" on this CancellationTokenSource to send a cancellation message to
+// the server, which will trigger the corresponding token in the hub method.
 var cancellationTokenSource = new CancellationTokenSource();
 var channel = await hubConnection.StreamAsChannelAsync<int>(
     "Counter", 10, 500, cancellationTokenSource.Token);
@@ -113,6 +135,25 @@ Aby zakończyć strumień od klienta, należy wywołać `dispose` metody `ISubsc
 ::: moniker range=">= aspnetcore-2.2"
 
 Aby zakończyć strumień od klienta, należy wywołać `dispose` metody `ISubscription` zwrócone z `subscribe` metody. Wywołanie tej metody spowoduje, że `CancellationToken` parametru metody koncentratora (jeśli zostały zapewnione jest jeden) zostaną anulowane.
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.0"
+## <a name="java-client"></a>Klient Java
+Klient SignalR Java używa `stream` metody do wywołania metody przesyłania strumieniowego. Akceptuje ona co najmniej trzech argumentów:
+
+* Oczekiwany typ elementów strumienia 
+* Nazwa metody koncentratora.
+* Argumenty zdefiniowane w metody koncentratora. 
+
+```java
+hubConnection.stream(String.class, "ExampleStreamingHubMethod", "Arg1")
+    .subscribe(
+        (item) -> {/* Define your onNext handler here. */ },
+        (error) -> {/* Define your onError handler here. */},
+        () -> {/* Define your onCompleted handler here. */});
+```
+`stream` Metody `HubConnection` zwraca zauważalny typu elementu strumienia. Typ dostrzegalnych `subscribe` określa się za pomocą metody swoje `onNext`, `onError` i `onCompleted` programów obsługi.
 
 ::: moniker-end
 

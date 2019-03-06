@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 1dc9f1278e502cd5040e82c18d99e2da6f139568
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: 56c2d783e8c75aad7487aa03309bb962f4354567
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410589"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346531"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>Strony razor z programem EF Core w programie ASP.NET Core — Model danych — 5 8
 
@@ -666,6 +666,11 @@ Aplikacji produkcyjnej może:
 * Używaj działu "Temp" lub wartość domyślną dla `Course.DepartmentID`.
 
 Następny samouczek obejmuje powiązane dane.
+
+## <a name="additional-resources"></a>Dodatkowe zasoby
+
+* [Wersja usługi YouTube w tym samouczku (część 1)](https://www.youtube.com/watch?v=0n2f0ObgCoA)
+* [Wersja usługi YouTube w tym samouczku (część 2)](https://www.youtube.com/watch?v=Je0Z5K1TNmY)
 
 ::: moniker-end
 

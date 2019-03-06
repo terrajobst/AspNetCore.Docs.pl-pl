@@ -2,9 +2,9 @@
 
 Ten przykład przedstawia sposób używania metody autoryzacja stron Razor przy Konwencji. W tym przykładzie przedstawiono funkcje opisane w [konwencje autoryzacja stron Razor](https://docs.microsoft.com/aspnet/core/security/authorization/razor-pages-authorization) tematu.
 
-Autoryzacja użytkownika w tym przykładzie używa uwierzytelniania plików cookie, funkcje opisane w [Użyj plików cookie uwierzytelniania bez użycia produktu ASP.NET Core Identity](https://docs.microsoft.com/aspnet/core/security/authentication/cookie) tematu. Aby uzyskać informacje na temat używania tożsamości platformy ASP.NET Core, zobacz <xref:security/authentication/identity>.
+Autoryzacja użytkownika w tym przykładzie używa uwierzytelniania plików cookie, funkcje opisane w [Użyj plików cookie uwierzytelniania bez użycia produktu ASP.NET Core Identity](https://docs.microsoft.com/aspnet/core/security/authentication/cookie) tematu. Pojęcia i przykłady przedstawione w tym temacie stosuje się jednakowo do aplikacji, które używają tożsamości platformy ASP.NET Core. Aby uzyskać informacje na temat używania tożsamości platformy ASP.NET Core, zobacz [wprowadzenie do tożsamości programu ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/authentication/identity).
 
-Podczas uruchamiania przykładu, należy użyć adresu e-mail **maria.rodriguez@contoso.com** do uwierzytelnienia użytkownika.
+Użyj adresu e-mail **maria.rodriguez@contoso.com** do uwierzytelnienia użytkownika w dowolnym hasłem. Użytkownik jest uwierzytelniany w `AuthenticateUser` method in Class metoda *Pages/Account/Login.cshtml.cs* pliku. Przykład rzeczywistych użytkownika może być uwierzytelniani względem bazy danych.
 
 ## <a name="examples-in-this-sample"></a>Przykłady w tym przykładzie
 

@@ -5,12 +5,12 @@ description: Pokazuje, jak tworzyć, odczytywać, aktualizować, usuwać z progr
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/crud
-ms.openlocfilehash: 4af16bdf3928609214c1255cdd411312c8b7d3f3
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: adb281277599456356251c6ee30772a25f14ac58
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477439"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346057"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---crud---2-of-8"></a>Strony razor z programem EF Core w programie ASP.NET Core — CRUD - 2, 8
 
@@ -187,15 +187,15 @@ Przechowuje informacje o kontekst bazy danych, czy jednostki w pamięci są zsyn
 
 Jednostki mogą być w jednym z [następujące stany](/dotnet/api/microsoft.entityframeworkcore.entitystate):
 
-* `Added`: Jednostki jeszcze nie istnieje w bazie danych. `SaveChanges` Metoda generuje instrukcji INSERT.
+* `Added`: Jednostka jeszcze nie istnieje w bazie danych. `SaveChanges` Metoda generuje instrukcji INSERT.
 
-* `Unchanged`: Bez zmian konieczne zapisane przy użyciu tej jednostki. Określona jednostka ma ten stan, gdy jest do odczytu z bazy danych.
+* `Unchanged`: Brak zmian konieczne zapisane przy użyciu tej jednostki. Określona jednostka ma ten stan, gdy jest do odczytu z bazy danych.
 
-* `Modified`: Zmodyfikowano niektóre lub wszystkie wartości właściwości jednostki. `SaveChanges` Metoda generuje instrukcji UPDATE.
+* `Modified`: Niektóre lub wszystkie wartości właściwości jednostki zostały zmodyfikowane. `SaveChanges` Metoda generuje instrukcji UPDATE.
 
-* `Deleted`: Jednostki został oznaczony do usunięcia. `SaveChanges` Metoda generuje instrukcję DELETE.
+* `Deleted`: Jednostka została oznaczona do usunięcia. `SaveChanges` Metoda generuje instrukcję DELETE.
 
-* `Detached`: Jednostki nie jest śledzony przez kontekst bazy danych.
+* `Detached`: Jednostka nie jest śledzony przez kontekst bazy danych.
 
 W przypadku aplikacji klasycznej zmiany stanu są zazwyczaj ustawiane automatycznie. Jednostki jest do odczytu, zostaną wprowadzone zmiany i stanu jednostki automatycznie był zmieniany na `Modified`. Wywoływanie `SaveChanges` generuje instrukcję aktualizacji programu SQL, która aktualizuje tylko zmienionych właściwości.
 
@@ -247,6 +247,10 @@ Sprawdź stronę Razor zawiera poprawny `@page` dyrektywy. Na przykład strony R
 Musi zawierać każdej strony Razor `@page` dyrektywy.
 
 ::: moniker-end
+
+## <a name="additional-resources"></a>Dodatkowe zasoby
+
+* [Wersja usługi YouTube w tym samouczku](https://www.youtube.com/watch?v=F0SP7Ry4flQ&list=PLnVvOWNfuhGV45HnNgd0vuIIkoQ1UaVBf)
 
 > [!div class="step-by-step"]
 > [Poprzednie](xref:data/ef-rp/intro)

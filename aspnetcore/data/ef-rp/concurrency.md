@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/07/2018
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: 71d68a7ee249c31efa78d98247017e85c009ed8b
-ms.sourcegitcommit: e1cc4c1ef6c9e07918a609d5ad7fadcb6abe3e12
+ms.openlocfilehash: a6c264e460855c9f1d6f5a363eb7ee2cf69619ee
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53997321"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346297"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---concurrency---8-of-8"></a>Strony razor z programem EF Core w programie ASP.NET Core — współbieżności — 8 8
 
@@ -306,6 +306,9 @@ Zobacz [dziedziczenia](xref:data/ef-mvc/inheritance) na temat sposobu dziedzicz�
 
 * [Tokeny współbieżności w programie EF Core](/ef/core/modeling/concurrency)
 * [Obsługa współbieżności w programie EF Core](/ef/core/saving/concurrency)
+* [Wersja usługi YouTube w tym samouczku (Obsługa konfliktów współbieżności)](https://youtu.be/EosxHTFgYps)
+* [Wersja usługi YouTube w tym samouczku (część 2)](https://www.youtube.com/watch?v=kcxERLnaGO0)
+* [Wersja usługi YouTube w tym samouczku (część 3)](https://www.youtube.com/watch?v=d4RbpfvELRs)
 
 > [!div class="step-by-step"]
 > [Poprzednie](xref:data/ef-rp/update-related-data)

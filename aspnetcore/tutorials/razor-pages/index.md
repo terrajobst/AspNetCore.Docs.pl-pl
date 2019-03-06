@@ -1,16 +1,10 @@
 ---
 title: 'Samouczek: Tworzenie aplikacji internetowej strony Razor za pomocą programu ASP.NET Core'
 author: rick-anderson
-description: Utwórz aplikacja internetowa ze stronami Razor na Windows za pomocą programu Visual Studio, platformy ASP.NET Core i programem EF Core.
+description: 'Utwórz aplikacja internetowa ze stronami Razor na Windows za pomocą programu Visual Studio, platformy ASP.NET Core i programem EF Core.'
 ms.author: riande
 ms.date: 09/08/2017
 uid: tutorials/razor-pages/index
-ms.openlocfilehash: c543e86b58b37a120df22331043944757beeca3a
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
-ms.translationtype: MT
-ms.contentlocale: pl-PL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410063"
 ---
 # <a name="tutorial-create-a-razor-pages-web-app-with-aspnet-core"></a>Samouczek: Tworzenie aplikacji internetowej strony Razor za pomocą programu ASP.NET Core
 
@@ -32,3 +26,7 @@ Ta seria zawiera następujące samouczki:
 Po zakończeniu będziesz mieć aplikację, która może wyświetlać i zarządzać bazy danych filmów.
 
 ![Przykładowa strona przykładowej aplikacji](index/_static/sample-page.png)
+
+## <a name="additional-resources"></a>Dodatkowe zasoby
+
+* [Wersja usługi youtube w tym samouczku](https://www.youtube.com/watch?v=F0SP7Ry4flQ&feature=youtu.be)

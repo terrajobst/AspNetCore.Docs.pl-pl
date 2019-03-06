@@ -4,14 +4,14 @@ author: rick-anderson
 description: Dowiedz się, jak CORS jako standardowe rozwiązanie dla zezwolenie lub odrzucenie żądań cross-origin w aplikacji ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/08/2019
+ms.date: 02/27/2019
 uid: security/cors
-ms.openlocfilehash: bc3a0883043a4d6fa33c1ff76fcb7be457b6b840
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: eb8dd3b1c96d9060b0164dcd4d0fbe004ed4af84
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56899349"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346375"
 ---
 # <a name="enable-cross-origin-requests-cors-in-aspnet-core"></a>Włączanie żądań Cross-Origin (CORS) w programie ASP.NET Core
 
@@ -56,7 +56,7 @@ Oprogramowanie pośredniczące CORS obsługuje żądań cross-origin. Poniższy 
 
 Powyższy kod:
 
-* Ustawia nazwę zasad aby "_myAllowSpecificOrigins". Nazwa zasad jest dowolnego.
+* Ustawia nazwę zasady "\_myAllowSpecificOrigins". Nazwa zasad jest dowolnego.
 * Wywołania <xref:Microsoft.AspNetCore.Builder.CorsMiddlewareExtensions.UseCors*> metodę rozszerzenia, która umożliwia rdzeni.
 * Wywołania <xref:Microsoft.Extensions.DependencyInjection.CorsServiceCollectionExtensions.AddCors*> z [wyrażenia lambda](/dotnet/csharp/programming-guide/statements-expressions-operators/lambda-expressions). Wyrażenie lambda ma <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder> obiektu. [Opcje konfiguracji](#cors-policy-options), takich jak `WithOrigins`, są opisane w dalszej części tego artykułu.
 
@@ -70,9 +70,26 @@ Aby uzyskać więcej informacji, zobacz [opcje zasad CORS](#cpo) w tym dokumenci
 
 [!code-csharp[](cors/sample/Cors/WebAPI/Startup2.cs?name=snippet2)]
 
-Następujący wyróżniony kod stosuje zasady CORS do wszystkich aplikacji punktów końcowych, które za pośrednictwem [oprogramowanie pośredniczące CORS](#enable-cors-with-cors-middleware):
+Następujący wyróżniony kod stosuje zasady CORS do wszystkich aplikacji punktów końcowych, które przez oprogramowanie pośredniczące CORS:
 
-[!code-csharp[](cors/sample/Cors/WebAPI/Startup.cs?name=snippet3&highlight=12)]
+```csharp
+public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+{
+    if (env.IsDevelopment())
+    {
+        app.UseDeveloperExceptionPage();
+    }
+    else
+    {
+        app.UseHsts();
+    }
+
+    app.UseCors(); 
+
+    app.UseHttpsRedirection();
+    app.UseMvc();
+}
+```
 
 Zobacz [Włączanie mechanizmu CORS w stron Razor, kontrolerów i metod akcji](#ecors) zastosować zasady CORS na poziomie akcji/kontrolera/strony.
 

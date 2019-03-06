@@ -7,12 +7,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 02/07/2019
 uid: signalr/configuration
-ms.openlocfilehash: f5449a15743c1f38c550fe30945bdc19f069e3f5
-ms.sourcegitcommit: b72bbc9ae91e4bd37c9ea9b2d09ebf47afb25dd7
+ms.openlocfilehash: c5921db895a732c9663c9d962195a2c0635f5aa0
+ms.sourcegitcommit: 6ddd8a7675c1c1d997c8ab2d4498538e44954cac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55958118"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57400661"
 ---
 # <a name="aspnet-core-signalr-configuration"></a>Konfiguracja Core SignalR platformy ASP.NET
 
@@ -138,7 +138,7 @@ WebSocket transport ma dodatkowe opcje, które można skonfigurować przy użyci
 
 ## <a name="configure-client-options"></a>Skonfiguruj opcje klienta
 
-Opcje klienta można skonfigurować na `HubConnectionBuilder` typu (dostępne w klientach .NET i języka JavaScript) oraz stanu na `HubConnection` sam.
+Opcje klienta można skonfigurować na `HubConnectionBuilder` typu (dostępne w klientach .NET i języka JavaScript). Jest również dostępna w klienta Java, ale `HttpHubConnectionBuilder` podklasy to, co zawiera konstruktora opcje konfiguracji, a także jak na `HubConnection` sam.
 
 ### <a name="configure-logging"></a>Konfigurowanie rejestrowania
 
@@ -171,17 +171,23 @@ let connection = new signalR.HubConnectionBuilder()
 > [!NOTE]
 > Aby wyłączyć rejestrowanie w całości, należy określić `signalR.LogLevel.None` w `configureLogging` metody.
 
-Poniżej przedstawiono dostępne dla klienta JavaScript poziomy dziennika. Ustawienie poziomu dziennika na jedną z następujących wartości umożliwia rejestrowanie komunikatów na **lub nowszej** tego poziomu.
+Aby uzyskać więcej informacji na temat rejestrowania, zobacz [dokumentacja funkcji diagnostyki SignalR](xref:signalr/diagnostics).
 
-| Poziom | Opis |
-| ----- | ----------- |
-| `None` | Żadne komunikaty są rejestrowane. |
-| `Critical` | Komunikaty, które wskazują błędy w całej aplikacji. |
-| `Error` | Komunikaty, które wskazują błędy w bieżącej operacji. |
-| `Warning` | Komunikaty, które wskazują na problem krytyczny. |
-| `Information` | Komunikaty informacyjne. |
-| `Debug` | Komunikaty diagnostyczne przydatne podczas debugowania. |
-| `Trace` | Bardzo szczegółowe komunikaty diagnostyczne przeznaczone dla diagnozowanie konkretnych problemów. |
+Klient SignalR Java używa [SLF4J](https://www.slf4j.org/) biblioteki do rejestrowania. To API wysokiego poziomu rejestrowania, który umożliwia użytkownikom Biblioteka wybrana zapewniali własną implementację określonych rejestrowania, przenosząc powstanie zależności określonych rejestrowania. Poniższy fragment kodu przedstawia sposób użycia `java.util.logging` za pomocą klienta SignalR Java.
+
+```gradle
+implementation 'org.slf4j:slf4j-jdk14:1.7.25'
+```
+
+Jeśli nie skonfigurowano rejestrowanie, w zależności, SLF4J ładuje domyślny Rejestrator nie operacji następujący komunikat ostrzegawczy:
+
+```
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+```
+
+To można bezpiecznie zignorować.
 
 ### <a name="configure-allowed-transports"></a>Konfigurowanie transportów dozwolone
 
@@ -202,6 +208,26 @@ let connection = new signalR.HubConnectionBuilder()
     .withUrl("/myhub", { transport: signalR.HttpTransportType.WebSockets | signalR.HttpTransportType.LongPolling })
     .build();
 ```
+
+::: moniker range=">= aspnetcore-2.2"
+
+W tej wersji programu Java websockets klienta jest dostępne tylko transportu.
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-3.0"
+
+W kliencie Java transportu jest wybrane i ma ustawioną `withTransport` metody `HttpHubConnectionBuilder`. Ustawienia domyślne klienta Java za pomocą transportu WebSockets.
+
+```java
+HubConnection hubConnection = HubConnectionBuilder.create("https://example.com/myhub")
+    .withTransport(TransportEnum.WEBSOCKETS)
+    .build();
+```
+> [!NOTE]
+> Klienta SignalR Java nie obsługuje jeszcze transportu rezerwowego.
+
+::: moniker-end
 
 ### <a name="configure-bearer-authentication"></a>Konfigurowanie uwierzytelniania elementu nośnego
 
@@ -233,36 +259,79 @@ let connection = new signalR.HubConnectionBuilder()
     .build();
 ```
 
+
+W kliencie SignalR Java, można skonfigurować token elementu nośnego do użycia na potrzeby uwierzytelniania, zapewniając fabryki tokenów dostępu w celu [HttpHubConnectionBuilder](/java/api/com.microsoft.signalr._http_hub_connection_builder?view=aspnet-signalr-java). Użyj [withAccessTokenFactory](/java/api/com.microsoft.signalr._http_hub_connection_builder.withaccesstokenprovider?view=aspnet-signalr-java#com_microsoft_signalr__http_hub_connection_builder_withAccessTokenProvider_Single_String__) zapewnienie [RxJava](https://github.com/ReactiveX/RxJava) [pojedynczego<String>](http://reactivex.io/documentation/single.html). W wyniku wywołania [Single.defer](http://reactivex.io/RxJava/javadoc/io/reactivex/Single.html#defer-java.util.concurrent.Callable-), można napisać logikę do tworzenia tokenów dostępu klienta.
+
+```java
+HubConnection hubConnection = HubConnectionBuilder.create("https://example.com/myhub")
+    .withAccessTokenProvider(Single.defer(() -> {
+        // Your logic here.
+        return Single.just("An Access Token");
+    })).build();
+```
+
 ### <a name="configure-timeout-and-keep-alive-options"></a>Konfigurowanie limitu czasu i opcje keep-alive
 
 Dodatkowe opcje dotyczące konfigurowania limitu czasu i zachowanie keep-alive są dostępne na `HubConnection` samego obiektu:
 
-| .NET — opcja | JavaScript Option | Wartość domyślna | Opis |
-| ----------- | ----------------- | ------------- | ----------- |
-| `ServerTimeout` | `serverTimeoutInMilliseconds` | 30 sekund (ponad 30 000 MS) | Limit czasu aktywności serwera. Jeśli serwer nie wysłał wiadomości, w tym interwał, klient traktuje serwera odłączona i wyzwalacze `Closed` zdarzeń (`onclose` w języku JavaScript). Ta wartość musi być wystarczająco duży dla komunikat ping do wysłania z serwera **i** odebranych przez klienta w ciągu interwału limitu czasu. Zalecana wartość to co najmniej dwukrotnie serwera numeru `KeepAliveInterval` wartość, aby dać czas na polecenia ping do odbierania. |
-| `HandshakeTimeout` | Nie można konfigurować | 15 sekund | Limit czasu dla serwera początkowego uzgadniania. Jeśli serwer nie wysyłać odpowiedzi uzgadniania, w tym interwał, klient anuluje uzgadnianiu i wyzwalacze `Closed` zdarzeń (`onclose` w języku JavaScript). To ustawienie Zaawansowane, które powinny być modyfikowane tylko, jeśli występują błędy przekroczenia limitu czasu uzgadnianie ze względu na opóźnienie sieci poważne. Aby uzyskać więcej szczegółów na temat procesu uzgadniania, zobacz [specyfikacji protokołu Centrum SignalR](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md). |
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-W kliencie programu .NET wartości limitu czasu są określane jako `TimeSpan` wartości. W kliencie JavaScript wartości limitu czasu są określane jako liczba wskazująca czas trwania (w milisekundach).
+| Opcja | Wartość domyślna | Opis |
+| ------ | ------------- | ----------- |
+| `ServerTimeout` | 30 sekund (ponad 30 000 MS) | Limit czasu aktywności serwera. Jeśli serwer nie wysłał wiadomości, w tym interwał, klient traktuje serwera odłączona i wyzwalacze `Closed` zdarzeń (`onclose` w języku JavaScript). Ta wartość musi być wystarczająco duży dla komunikat ping do wysłania z serwera **i** odebranych przez klienta w ciągu interwału limitu czasu. Zalecana wartość to co najmniej dwukrotnie serwera numeru `KeepAliveInterval` wartość, aby dać czas na polecenia ping do odbierania. |
+| `HandshakeTimeout` | 15 sekund | Limit czasu dla serwera początkowego uzgadniania. Jeśli serwer nie wysyłać odpowiedzi uzgadniania, w tym interwał, klient anuluje uzgadnianiu i wyzwalacze `Closed` zdarzeń (`onclose` w języku JavaScript). To ustawienie Zaawansowane, które powinny być modyfikowane tylko, jeśli występują błędy przekroczenia limitu czasu uzgadnianie ze względu na opóźnienie sieci poważne. Aby uzyskać więcej szczegółów na temat procesu uzgadniania, zobacz [specyfikacji protokołu Centrum SignalR](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md). |
+
+W kliencie programu .NET wartości limitu czasu są określane jako `TimeSpan` wartości.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+| Opcja | Wartość domyślna | Opis |
+| ------ | ------------- | ----------- |
+| `serverTimeoutInMilliseconds` | 30 sekund (ponad 30 000 MS) | Limit czasu aktywności serwera. Jeśli serwer nie wysłał wiadomości, w tym interwał, klient traktuje serwera odłączona i wyzwalacze `onclose` zdarzeń. Ta wartość musi być wystarczająco duży dla komunikat ping do wysłania z serwera **i** odebranych przez klienta w ciągu interwału limitu czasu. Zalecana wartość to co najmniej dwukrotnie serwera numeru `KeepAliveInterval` wartość, aby dać czas na polecenia ping do odbierania. |
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+| Opcja | Wartość domyślna | Opis |
+| ----------- | ------------- | ----------- |
+|`getServerTimeout``setServerTimeout` | 30 sekund (ponad 30 000 MS) | Limit czasu aktywności serwera. Jeśli serwer nie wysłał wiadomości, w tym interwał, klient traktuje serwera odłączona i wyzwalacze `onClose` zdarzeń. Ta wartość musi być wystarczająco duży dla komunikat ping do wysłania z serwera **i** odebranych przez klienta w ciągu interwału limitu czasu. Zalecana wartość to co najmniej dwukrotnie serwera numeru `KeepAliveInterval` wartość, aby dać czas na polecenia ping do odbierania. |
+| `withHandshakeResponseTimeout` | 15 sekund | Limit czasu dla serwera początkowego uzgadniania. Jeśli serwer nie wysyłać odpowiedzi uzgadniania, w tym interwał, klient anuluje uzgadnianiu i wyzwalacze `onClose` zdarzeń. To ustawienie Zaawansowane, które powinny być modyfikowane tylko, jeśli występują błędy przekroczenia limitu czasu uzgadnianie ze względu na opóźnienie sieci poważne. Aby uzyskać więcej szczegółów na temat procesu uzgadniania, zobacz [specyfikacji protokołu Centrum SignalR](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md). |
+
+---
 
 ### <a name="configure-additional-options"></a>Konfigurowanie opcji dodatkowych
 
-Dodatkowe opcje można skonfigurować w `WithUrl` (`withUrl` w języku JavaScript) metody `HubConnectionBuilder`:
+Dodatkowe opcje można skonfigurować w `WithUrl` (`withUrl` w języku JavaScript) metody `HubConnectionBuilder` lub w konfiguracji różnych interfejsów API na `HttpHubConnectionBuilder` klienta Java:
 
-| .NET — opcja | JavaScript Option | Wartość domyślna | Opis |
-| ----------- | ----------------- | ------------- | ----------- |
-| `AccessTokenProvider` | `accessTokenFactory` | `null` | Funkcja zwraca ciąg, który jest dostarczana jako token uwierzytelniania elementu nośnego w żądaniach HTTP. |
-| `SkipNegotiation` | `skipNegotiation` | `false` | Ustaw tę opcję na `true` Aby pominąć krok negocjacji. **Obsługiwane tylko w przypadku transportu WebSockets jest tylko transportu włączone**. Nie można włączyć to ustawienie, korzystając z usługi Azure SignalR Service. |
-| `ClientCertificates` | Nie można skonfigurować * | Pusty | Kolekcja certyfikaty protokołu TLS do wysłania do uwierzytelniania żądań. |
-| `Cookies` | Nie można skonfigurować * | Pusty | Kolekcja plików cookie protokołu HTTP ma wysłać z każdym żądaniem HTTP. |
-| `Credentials` | Nie można skonfigurować * | Pusty | Poświadczenia, aby wysłać z każdym żądaniem HTTP. |
-| `CloseTimeout` | Nie można skonfigurować * | 5 sekund | Tylko WebSockets. Maksymalna ilość czasu klient odczekuje po zamknięciu dla serwera potwierdzić żądanie zamknięcia. Jeśli serwer nie potwierdzenia zamknięcia w tej chwili, klient odłączy się. |
-| `Headers` | Nie można skonfigurować * | Pusty | Słownik zawierający dodatkowe nagłówki HTTP ma wysłać z każdym żądaniem HTTP. |
-| `HttpMessageHandlerFactory` | Nie można skonfigurować * | `null` | Delegat, który może służyć do konfigurowania lub Zastąp `HttpMessageHandler` używane do wysyłania żądań HTTP. Nie są używane dla połączeń protokołu WebSocket. Ten delegat musi zwracać wartość inną niż null i otrzymuje wartość domyślna, jako parametr. Albo zmodyfikować ustawienia na tej wartości domyślne i przywrócić go albo zwraca nową `HttpMessageHandler` wystąpienia. **Podczas zastępowania programu obsługi upewnij się, że Skopiuj ustawienia które mają być przechowywane z podanego programu obsługi, w przeciwnym razie skonfigurowanych opcji (takich jak pliki cookie i nagłówki) nie zostaną zastosowane do nowego programu obsługi.** |
-| `Proxy` | Nie można skonfigurować * | `null` | Serwer proxy HTTP do użycia podczas wysyłania żądań HTTP. |
-| `UseDefaultCredentials` | Nie można skonfigurować * | `false` | Ustaw ten atrybut typu wartość logiczna do wysyłania poświadczeń domyślnych dla żądań HTTP i Websocket. Umożliwia to korzystanie z uwierzytelniania Windows. |
-| `WebSocketConfiguration` | Nie można skonfigurować * | `null` | Delegat, który można skonfigurować dodatkowe opcje protokołu WebSocket. Otrzymuje wystąpienie elementu [ClientWebSocketOptions](/dotnet/api/system.net.websockets.clientwebsocketoptions) można skonfigurować opcje. |
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-Nie można skonfigurować w klienta JavaScript, ze względu na ograniczenia w przeglądarce interfejsów API są opcje oznaczone gwiazdką (*).
+| .NET — opcja |  Wartość domyślna | Opis |
+| ----------- | -------------- | ----------- |
+| `AccessTokenProvider` | `null` | Funkcja zwraca ciąg, który jest dostarczana jako token uwierzytelniania elementu nośnego w żądaniach HTTP. |
+| `SkipNegotiation` | `false` | Ustaw tę opcję na `true` Aby pominąć krok negocjacji. **Obsługiwane tylko w przypadku transportu WebSockets jest tylko transportu włączone**. Nie można włączyć to ustawienie, korzystając z usługi Azure SignalR Service. |
+| `ClientCertificates` | Pusty | Kolekcja certyfikaty protokołu TLS do wysłania do uwierzytelniania żądań. |
+| `Cookies` | Pusty | Kolekcja plików cookie protokołu HTTP ma wysłać z każdym żądaniem HTTP. |
+| `Credentials` | Pusty | Poświadczenia, aby wysłać z każdym żądaniem HTTP. |
+| `CloseTimeout` | 5 sekund | Tylko WebSockets. Maksymalna ilość czasu klient odczekuje po zamknięciu dla serwera potwierdzić żądanie zamknięcia. Jeśli serwer nie potwierdzenia zamknięcia w tej chwili, klient odłączy się. |
+| `Headers` | Pusty | Mapa dodatkowych nagłówków HTTP ma wysłać z każdym żądaniem HTTP. |
+| `HttpMessageHandlerFactory` | `null` | Delegat, który może służyć do konfigurowania lub Zastąp `HttpMessageHandler` używane do wysyłania żądań HTTP. Nie są używane dla połączeń protokołu WebSocket. Ten delegat musi zwracać wartość inną niż null i otrzymuje wartość domyślna, jako parametr. Albo zmodyfikować ustawienia na tej wartości domyślne i przywrócić go albo zwraca nową `HttpMessageHandler` wystąpienia. **Podczas zastępowania programu obsługi upewnij się, że Skopiuj ustawienia które mają być przechowywane z podanego programu obsługi, w przeciwnym razie skonfigurowanych opcji (takich jak pliki cookie i nagłówki) nie zostaną zastosowane do nowego programu obsługi.** |
+| `Proxy` | `null` | Serwer proxy HTTP do użycia podczas wysyłania żądań HTTP. |
+| `UseDefaultCredentials` | `false` | Ustaw ten atrybut typu wartość logiczna do wysyłania poświadczeń domyślnych dla żądań HTTP i Websocket. Umożliwia to korzystanie z uwierzytelniania Windows. |
+| `WebSocketConfiguration` | `null` | Delegat, który można skonfigurować dodatkowe opcje protokołu WebSocket. Otrzymuje wystąpienie elementu [ClientWebSocketOptions](/dotnet/api/system.net.websockets.clientwebsocketoptions) można skonfigurować opcje. |
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+| JavaScript Option | Wartość domyślna | Opis |
+| ----------------- | ------------- | ----------- |
+| `accessTokenFactory` | `null` | Funkcja zwraca ciąg, który jest dostarczana jako token uwierzytelniania elementu nośnego w żądaniach HTTP. |
+| `skipNegotiation` | `false` | Ustaw tę opcję na `true` Aby pominąć krok negocjacji. **Obsługiwane tylko w przypadku transportu WebSockets jest tylko transportu włączone**. Nie można włączyć to ustawienie, korzystając z usługi Azure SignalR Service. |
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+| Opcja języka Java | Wartość domyślna | Opis |
+| ----------- | ------------- | ----------- |
+| `withAccessTokenProvider` | `null` | Funkcja zwraca ciąg, który jest dostarczana jako token uwierzytelniania elementu nośnego w żądaniach HTTP. |
+| `shouldSkipNegotiate` | `false` | Ustaw tę opcję na `true` Aby pominąć krok negocjacji. **Obsługiwane tylko w przypadku transportu WebSockets jest tylko transportu włączone**. Nie można włączyć to ustawienie, korzystając z usługi Azure SignalR Service. |
+| `withHeader``withHeaders` | Pusty | Mapa dodatkowych nagłówków HTTP ma wysłać z każdym żądaniem HTTP. |
+
+---
 
 W kliencie programu .NET, te opcje mogą być modyfikowane przez delegata opcje udostępnionego `WithUrl`:
 
@@ -285,6 +354,17 @@ let connection = new signalR.HubConnectionBuilder()
         transport: signalR.HttpTransportType.WebSockets
     })
     .build();
+```
+
+W kliencie Java, te opcje można skonfigurować za pomocą metod na `HttpHubConnectionBuilder` zwrócone w wyniku `HubConnectionBuilder.create("HUB URL")`
+
+
+```java
+HubConnection hubConnection = HubConnectionBuilder.create("https://example.com/myhub")
+        .withHeader("Foo", "Bar")
+        .shouldSkipNegotiate(true)
+        .withHandshakeResponseTimeout(30*1000)
+        .build();
 ```
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby

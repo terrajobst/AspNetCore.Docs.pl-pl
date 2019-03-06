@@ -5,12 +5,12 @@ description: W tym samouczku będziesz aktualizowanie powiązanych danych, aktua
 ms.author: riande
 ms.date: 11/15/2017
 uid: data/ef-rp/update-related-data
-ms.openlocfilehash: 4306118240c052585a5c2eeb2053ce03534b547c
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: c3dbfe57a832ba63c5da2f89c0d29e443a1277a7
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207546"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57345765"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---update-related-data---7-of-8"></a>Strony razor z programem EF Core w programie ASP.NET Core — aktualizowanie powiązanych danych - 7, 8
 
@@ -197,7 +197,7 @@ Gdy pole wyboru początkowo są renderowane, kursy przypisane do instruktora spr
 
 Uruchamianie aplikacji i przetestuj strony edytowania Instruktorzy zaktualizowane. Zmienić niektóre przypisania kursu. Zmiany zostaną odzwierciedlone na stronę indeksu.
 
-Uwaga: w tym miejscu podejście do edycji danych kurs przez instruktorów dobrze działa w przypadku istnieje ograniczona liczba kursów. Kolekcje, które są znacznie większe innego interfejsu użytkownika i inną metodę aktualizacji będzie bardziej użyteczny i efektywny.
+Uwaga: Tutaj podejście do edycji przez instruktorów kurs danych działa dobrze w przypadku, gdy istnieje ograniczona liczba kursów. Kolekcje, które są znacznie większe innego interfejsu użytkownika i inną metodę aktualizacji będzie bardziej użyteczny i efektywny.
 
 ### <a name="update-the-instructors-create-page"></a>Strona tworzenia Instruktorzy aktualizacji
 
@@ -224,6 +224,11 @@ Poprzedzający kod wprowadza następujące zmiany:
 * Używa wczesne ładowanie dla `CourseAssignments` właściwości nawigacji. `CourseAssignments` muszą być włączone lub nie zostały usunięte po usunięciu instruktora. Aby uniknąć konieczności je odczytać, należy skonfigurować usuwanie kaskadowe w bazie danych.
 
 * Jeśli przez instruktorów do usunięcia jest przypisany jako administrator działy, usuwa przypisanie instruktora z tych działów.
+
+## <a name="additional-resources"></a>Dodatkowe zasoby
+
+* [Wersja usługi YouTube w tym samouczku (część 1)](https://www.youtube.com/watch?v=Csh6gkmwc9E)
+* [Wersja usługi YouTube w tym samouczku (część 2)](https://www.youtube.com/watch?v=mOAankB_Zgc)
 
 > [!div class="step-by-step"]
 > [Poprzednie](xref:data/ef-rp/read-related-data)

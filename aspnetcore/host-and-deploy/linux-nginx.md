@@ -4,14 +4,14 @@ author: rick-anderson
 description: Dowiedz się, jak skonfigurować serwer Nginx jako zwrotny serwer proxy w systemie Ubuntu 16.04 do przesyłania ruchu HTTP do aplikacji sieci web ASP.NET Core uruchomionych na Kestrel.
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/13/2018
+ms.date: 02/27/2019
 uid: host-and-deploy/linux-nginx
-ms.openlocfilehash: a04927ca0377b965f3b4574e55fb9ed450959a7f
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.openlocfilehash: 11754279d18a2449451364b4aaba723b7afb06d5
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248319"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57345927"
 ---
 # <a name="host-aspnet-core-on-linux-with-nginx"></a>Host platformy ASP.NET Core w systemie Linux przy użyciu serwera Nginx
 
@@ -113,7 +113,7 @@ app.UseFacebookAuthentication(new FacebookOptions()
 
 Jeśli nie <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions> są określone oprogramowanie pośredniczące, są domyślne nagłówki do przekazywania `None`.
 
-Tylko serwery proxy uruchomiona na hoście lokalnym (127.0.0.1, [:: 1]) są zaufane domyślnie. Jeśli innych zaufanych serwerów proxy lub sieci w obrębie organizacji uchwyt żądania między Internetem a serwer sieci web Dodaj je do listy <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.KnownProxies*> lub <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.KnownNetworks*> z <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions>. Poniższy przykład dodaje serwer proxy zaufanych pod adresem IP 10.0.0.100 z oprogramowaniem pośredniczącym nagłówki przekazywane `KnownProxies` w `Startup.ConfigureServices`:
+Serwery proxy systemem adresy sprzężenia zwrotnego (127.0.0.0/8, [:: 1]), łącznie z adresem standard localhost (127.0.0.1), są zaufane domyślnie. Jeśli innych zaufanych serwerów proxy lub sieci w obrębie organizacji uchwyt żądania między Internetem a serwer sieci web Dodaj je do listy <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.KnownProxies*> lub <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.KnownNetworks*> z <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions>. Poniższy przykład dodaje serwer proxy zaufanych pod adresem IP 10.0.0.100 z oprogramowaniem pośredniczącym nagłówki przekazywane `KnownProxies` w `Startup.ConfigureServices`:
 
 ```csharp
 services.Configure<ForwardedHeadersOptions>(options =>

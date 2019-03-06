@@ -1,18 +1,13 @@
 ---
 title: Pomocnicy tagów wbudowanych w platformy ASP.NET Core
 author: pkellner
-description: Dowiedz się, jak pomocnicy tagów wbudowanych w platformy ASP.NET Core zwiększyć produktywność.
+description: 'Dowiedz się, jak pomocnicy tagów wbudowanych w platformy ASP.NET Core zwiększyć produktywność.'
 ms.author: riande
 ms.custom: mvc
 ms.date: 10/10/2018
 uid: mvc/views/tag-helpers/builtin-th/Index
-ms.openlocfilehash: 58840d6ecd09bd2ae7f96c046a0cb93c018f9645
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
-ms.translationtype: MT
-ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49325487"
 ---
+
 # <a name="aspnet-core-built-in-tag-helpers"></a>Pomocnicy tagów wbudowanych w platformy ASP.NET Core
 
 Przez [Peter Kellner](http://peterkellner.net)
@@ -28,13 +23,15 @@ Aby zapoznać się z omówieniem pomocnicy tagów, zobacz <xref:mvc/views/tag-he
 
 **[Pomocnik tagu pamięci podręcznej](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)**
 
-**[Pomocnik tagu rozproszonej pamięci podręcznej](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)**
+**[Distributed Cache Tag Helper](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)**
 
 **[Pomocnik tagu środowiska](xref:mvc/views/tag-helpers/builtin-th/environment-tag-helper)**
 
 [comment]: **[FormActionTagHelper](xref:mvc/views/tag-helpers/builtin-th/form-action-tag-helper)**
 
 **[Pomocnik tagu formularza](xref:mvc/views/working-with-forms#the-form-tag-helper)**
+
+**[Pomocnik tagu akcji formularza](xref:mvc/views/working-with-forms#the-form-action-tag-helper)**
 
 **[Pomocnik tagu obrazu](xref:mvc/views/tag-helpers/builtin-th/image-tag-helper)**
 

@@ -5,12 +5,12 @@ description: W ramach tego samouczka możesz rozpocząć korzystanie z funkcji m
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/migrations
-ms.openlocfilehash: 2051f55bfa7a9582486df78ec91315f0b03cb1e8
-ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
+ms.openlocfilehash: ef79aca700068aadf9b5b2b689213b6e78a5d729
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37938381"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346440"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---migrations---4-of-8"></a>Strony razor z programem EF Core w programie ASP.NET Core - Migrations - 4, 8
 
@@ -175,6 +175,7 @@ Rozwiązanie: Uruchom `dotnet ef database update`
 
 ### <a name="additional-resources"></a>Dodatkowe zasoby
 
+* [Wersja usługi YouTube w tym samouczku](https://www.youtube.com/watch?v=OWSUuMLKTJo)
 * [.NET core interfejsu wiersza polecenia](/ef/core/miscellaneous/cli/dotnet).
 * [Konsola menedżera pakietów (Visual Studio)](/ef/core/miscellaneous/cli/powershell)
 

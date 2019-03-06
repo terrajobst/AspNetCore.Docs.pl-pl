@@ -5,12 +5,12 @@ description: Dowiedz się, jak zaktualizować wygenerowanych stron w aplikacji A
 ms.author: riande
 ms.date: 12/20/2018
 uid: tutorials/razor-pages/da1
-ms.openlocfilehash: 62385f33dc86609726305728fbc19dd9ff27dc87
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: 19f54e04e748f5cf0469c2b5428800694d2c9344
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410197"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346109"
 ---
 # <a name="update-the-generated-pages-in-an-aspnet-core-app"></a>Aktualizowanie stron wygenerowane w aplikacji ASP.NET Core
 
@@ -130,6 +130,10 @@ Po opublikowaniu strony filmy oraz pozwala edytować:
 Metod HTTP GET, na stronach indeksu, tworzenie i usuwanie Razor wykonaj podobny wzorzec. HTTP POST `OnPostAsync` metody w tworzenie strony Razor ze wzorcem podobne do `OnPostAsync` metody w edytowanie strony Razor.
 
 Wyszukiwanie zostanie dodany do następnego samouczka.
+
+## <a name="additional-resources"></a>Dodatkowe zasoby
+
+* [Wersja usługi YouTube w tym samouczku](https://youtu.be/yLnnleREMtQ)
 
 > [!div class="step-by-step"]
 > [Poprzednie: Praca z bazą danych](xref:tutorials/razor-pages/sql)

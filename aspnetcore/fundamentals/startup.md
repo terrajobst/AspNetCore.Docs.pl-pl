@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 01/17/2019
 uid: fundamentals/startup
-ms.openlocfilehash: cfd0a57d5d0b60862b017a170b6d5cbddf56f15a
-ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
+ms.openlocfilehash: d629c2f02f9021454d8f8539018f3e2ca4703a00
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56744186"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346401"
 ---
 # <a name="app-startup-in-aspnet-core"></a>Uruchamianie aplikacji w programie ASP.NET Core
 
@@ -20,7 +20,7 @@ Przez [Tom Dykstra](https://github.com/tdykstra), [Luke Latham](https://github.c
 
 `Startup` Klasa służy do konfigurowania usług i potok żądań aplikacji.
 
-## <a name="the-startup-class"></a>Klasa początkowa
+## <a name="the-startup-class"></a>Klasa Startup
 
 Użyj aplikacji platformy ASP.NET Core `Startup` klasy, która nosi nazwę `Startup` przez Konwencję. `Startup` Klasy:
 
@@ -40,7 +40,7 @@ Host udostępnia usługi, które są dostępne dla `Startup` konstruktora klasy.
 Typowym zastosowaniem [wstrzykiwanie zależności](xref:fundamentals/dependency-injection) do `Startup` klasa jest do dodania:
 
 * <xref:Microsoft.AspNetCore.Hosting.IHostingEnvironment> Aby skonfigurować usługi przez środowisko.
-* <xref:Microsoft.Extensions.Configuration.IConfigurationBuilder> Odczytywanie konfiguracji.
+* <xref:Microsoft.Extensions.Configuration.IConfiguration> Odczytywanie konfiguracji.
 * <xref:Microsoft.Extensions.Logging.ILoggerFactory> można utworzyć rejestratora w `Startup.ConfigureServices`.
 
 [!code-csharp[](startup/sample_snapshot/Startup2.cs?highlight=7-8)]
@@ -73,7 +73,7 @@ Dodawanie usług do kontenera usługi udostępnia je w aplikacji, a w `Configure
 
 [Szablony ASP.NET Core](/dotnet/core/tools/dotnet-new) Konfiguruje potok o obsługę:
 
-* [Stronie wyjątków dla deweloperów](xref:fundamentals/error-handling#the-developer-exception-page)
+* [Stronie wyjątków dla deweloperów](xref:fundamentals/error-handling#developer-exception-page)
 * [Program obsługi wyjątków](xref:fundamentals/error-handling#configure-a-custom-exception-handling-page)
 * [Zabezpieczenia transportu Strict HTTP (HSTS)](xref:security/enforcing-ssl#http-strict-transport-security-protocol-hsts)
 * [Przekierowania protokołu HTTPS](xref:security/enforcing-ssl)

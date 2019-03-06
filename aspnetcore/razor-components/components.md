@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/13/2019
 uid: razor-components/components
-ms.openlocfilehash: 1533587f9f11e99f24d860c02f0efb6713119308
-ms.sourcegitcommit: 30f313c63c5b2922bcd1150fe8161b09c730fef0
+ms.openlocfilehash: 436a0eddd432d355d709262199344df47a920404
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56839080"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346247"
 ---
 # <a name="create-and-use-razor-components"></a>Tworzenie i używanie składników Razor
 
@@ -105,6 +105,14 @@ Za pomocą `bind` z `CurrentValue` właściwości (`<input bind="@CurrentValue" 
 
 Po wyrenderowaniu składnika `value` danego elementu wejściowego pochodzi z `CurrentValue` właściwości. Gdy użytkownik wpisuje w polu tekstowym `onchange` zdarzenie jest generowane i `CurrentValue` zostaje ustalona zmieniona wartość. W rzeczywistości generowania kodu jest nieco bardziej złożone, ponieważ `bind` obsługuje kilka przypadków, w którym konwersje są wykonywane. W zasadzie `bind` kojarzy bieżącą wartość wyrażenia z `value` atrybutu i uchwytów zmiany przy użyciu zarejestrowanego programu obsługi.
 
+Oprócz `onchange`, właściwości mogą być powiązane przy użyciu innych zdarzeń, takich jak `oninput` polegające na dokładniejsze o tym, co można powiązać:
+
+```cshtml
+<input type="text" bind-value-oninput="@CurrentValue" />
+```
+
+W odróżnieniu od `onchange`, `oninput` generowane dla każdego znaku, która jest wprowadzana do pola tekstowego.
+
 **Ciągi formatujące**
 
 Powiązanie danych w programach <xref:System.DateTime> ciągi formatujące. Inne wyrażenia formatu, takie jak waluta lub formaty liczbowe nie są dostępne w tej chwili.
@@ -168,8 +176,6 @@ Element podrzędny:
 }
 ```
 
-`Year` Parametr jest możliwej do wiązania, ponieważ ma ona towarzyszące `YearChanged` zdarzeń, który jest zgodny z typem `Year` parametru.
-
 Trwa ładowanie `ParentComponent` tworzy następujące znaczniki:
 
 ```html
@@ -193,6 +199,16 @@ Jeśli wartość `ParentYear` zmianie właściwości, wybierając przycisk w `Pa
 
 <p>Year: 1986</p>
 ```
+
+`Year` Parametr jest możliwej do wiązania, ponieważ ma ona towarzyszące `YearChanged` zdarzeń, który jest zgodny z typem `Year` parametru.
+
+Zgodnie z Konwencją `<ChildComponent bind-Year="@ParentYear" />` jest zasadniczo odpowiednikiem pisania,
+
+```cshtml
+    <ChildComponent bind-Year-YearChanged="@ParentYear" />
+```
+
+Ogólnie rzecz biorąc, można powiązać właściwości z odpowiedni program obsługi zdarzeń, za pomocą `bind-property-event` atrybutu.
 
 ## <a name="event-handling"></a>Obsługa zdarzeń
 
@@ -265,7 +281,7 @@ Często jest to wygodne zamknąć dodatkowe wartości, takich jak podczas iterac
 {
     var buttonNumber = i;
 
-    <button class="btn btn-primary" 
+    <button class="btn btn-primary"
             onclick="@(e => UpdateHeading(e, buttonNumber))">
         Button #@i
     </button>
@@ -281,6 +297,9 @@ Często jest to wygodne zamknąć dodatkowe wartości, takich jak podczas iterac
     }
 }
 ```
+
+> [!NOTE]
+> Czy **nie** zmienna pętli (`i`) w `for` pętli bezpośrednio w wyrażeniu lambda. W przeciwnym razie tę samą zmienną jest używany przez wszystkie wyrażenia lambda, powodując `i`przez wartość, która ma być taka sama we wszystkich wyrażenia lambda. Zawsze odzwierciedla jej wartość w zmiennej lokalnej (`buttonNumber` w powyższym przykładzie), a następnie użyj go.
 
 ## <a name="capture-references-to-components"></a>Przechwytywanie odwołania do składników
 
@@ -618,7 +637,7 @@ Na przykład przykładowa aplikacja określa informacje o motywie (`ThemeInfo`) 
 *Shared/CascadingValuesParametersLayout.cshtml*:
 
 ```cshtml
-@inherits BlazorLayoutComponent
+@inherits LayoutComponentBase
 @using BlazorSample.UIThemeClasses
 
 <div class="container-fluid">

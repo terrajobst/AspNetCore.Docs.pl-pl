@@ -5,12 +5,12 @@ description: Dowiedz się, jak kontrolować zachowanie aplikacji w wielu środow
 ms.author: riande
 ms.date: 01/22/2019
 uid: fundamentals/environments
-ms.openlocfilehash: 39e1b48481832a6d76de605b37410fe2e16dcd88
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.openlocfilehash: 4120453c36d1fc2a2303c2175df30ef9777bc54f
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54836743"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57345959"
 ---
 # <a name="use-multiple-environments-in-aspnet-core"></a>Używanie wielu środowisk w programie ASP.NET Core
 
@@ -43,7 +43,7 @@ W systemie Windows i macOS wartości i zmienne środowiskowe nie są z uwzględn
 
 ### <a name="development"></a>Tworzenie
 
-Środowisko projektowe można włączyć funkcje, które nie powinny być dostępne w środowisku produkcyjnym. Na przykład włączyć szablony ASP.NET Core [stronie wyjątków deweloperów](xref:fundamentals/error-handling#the-developer-exception-page) w środowisku programistycznym.
+Środowisko projektowe można włączyć funkcje, które nie powinny być dostępne w środowisku produkcyjnym. Na przykład włączyć szablony ASP.NET Core [stronie wyjątków deweloperów](xref:fundamentals/error-handling#developer-exception-page) w środowisku programistycznym.
 
 Środowisko do tworzenia aplikacji z komputera lokalnego można ustawić w *Properties\launchSettings.json* pliku projektu. Wartości środowiska ustawione w *launchSettings.json* zastąpienie wartości ustawionych w środowisku systemowym.
 

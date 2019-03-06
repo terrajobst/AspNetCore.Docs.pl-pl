@@ -2,15 +2,15 @@
 title: Uwierzytelnianie w chmurze za pomocą usługi Azure Active Directory B2C w programie ASP.NET Core
 author: camsoper
 description: Dowiedz się, jak skonfigurować uwierzytelnianie usługi Azure Active Directory B2C przy użyciu platformy ASP.NET Core.
-ms.date: 01/25/2018
+ms.date: 02/27/2019
 ms.custom: mvc
 uid: security/authentication/azure-ad-b2c
-ms.openlocfilehash: 2c544475ccd3eb76f2737fec1cf269ac86add372
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: 86be999e02cfe34193bd594dcf89e8872590cca5
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54098990"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346505"
 ---
 # <a name="cloud-authentication-with-azure-active-directory-b2c-in-aspnet-core"></a>Uwierzytelnianie w chmurze za pomocą usługi Azure Active Directory B2C w programie ASP.NET Core
 
@@ -84,7 +84,7 @@ W programie Visual Studio:
     |-------------------------------|-------------------------------------------------------|
     | **Nazwa domeny**               | *&lt;Nazwa domeny dzierżawy usługi B2C&gt;*          |
     | **Identyfikator aplikacji**            | *&lt;Wklej identyfikator aplikacji ze Schowka&gt;* |
-    | **Ścieżka wywołania zwrotnego**             | *&lt;Użyj wartości domyślnej&gt;*                       |
+    | **Callback Path**             | *&lt;Użyj wartości domyślnej&gt;*                       |
     | **Zasady tworzenia konta lub logowania** | `B2C_1_SiUpIn`                                        |
     | **Zasady resetowania haseł**     | `B2C_1_SSPR`                                          |
     | **Edytuj profil zasady**       | *&lt;Pozostaw to pole puste&gt;*                                 |
@@ -104,6 +104,30 @@ W dokumentacji usługi Azure AD B2C, wykonaj kroki [Tworzenie zasad rejestracji 
 
 > [!WARNING]
 > Upewnij się, nazwy zasad dokładnie zgodnie z opisem zamieszczonym w dokumentacji, jak te zasady zostały użyte w **Zmień uwierzytelnianie** okna dialogowego w programie Visual Studio. Nazwy zasad można sprawdzić w *appsettings.json*.
+
+## <a name="configure-the-underlying-openidconnectoptionsjwtbearercookie-options"></a>Konfigurowanie podstawowych opcji OpenIdConnectOptions/JwtBearer/pliku Cookie
+
+Można skonfigurować opcje bazowego bezpośrednio za pomocą stałej odpowiedni schemat w `Startup.ConfigureServices`:
+
+```csharp
+services.Configure<OpenIdConnectOptions>(
+    AzureAD[B2C]Defaults.OpenIdScheme, options => 
+    {
+        // Omitted for brevity
+    });
+
+services.Configure<CookieAuthenticationOptions>(
+    AzureAD[B2C]Defaults.CookieScheme, options => 
+    {
+        // Omitted for brevity
+    });
+
+services.Configure<JwtBearerOptions>(
+    AzureAD[B2C]Defaults.JwtBearerAuthenticationScheme, options => 
+    {
+        // Omitted for brevity
+    });
+```
 
 ## <a name="run-the-app"></a>Uruchamianie aplikacji
 

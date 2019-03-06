@@ -4,14 +4,14 @@ author: guardrex
 description: Uzyskaj porady dotyczące rozwiązywania problemów dla typowych błędów, odnośnie do hostowania aplikacji platformy ASP.NET Core na usługi aplikacji Azure i usług IIS.
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/21/2019
+ms.date: 02/28/2019
 uid: host-and-deploy/azure-iis-errors-reference
-ms.openlocfilehash: d1cdac4d27ee1bc3ebb4329c1bbd3bdacb34a58c
-ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
+ms.openlocfilehash: 1c8cb31b306b38ec17596af0a84f22ca0e3d911c
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56743950"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346229"
 ---
 # <a name="common-errors-reference-for-azure-app-service-and-iis-with-aspnet-core"></a>Dokumentacja typowych błędów dla usługi Azure App Service i IIS za pomocą programu ASP.NET Core
 
@@ -56,6 +56,39 @@ Jeśli system nie ma dostępu do Internetu podczas [Instalowanie pakietu hosting
 Rozwiązywanie problemów:
 
 Pliki systemu operacyjnego bez **C:\Windows\SysWOW64\inetsrv** katalogu nie są zachowywane w trakcie systemu operacyjnego uaktualnienia. Jeśli zainstalowano modułu ASP.NET Core przed uaktualnienie systemu operacyjnego, a następnie każdej puli aplikacji jest uruchamiana w trybie 32-bitowych po uaktualnieniu systemu operacyjnego, ten problem zostanie osiągnięty. Po uaktualnieniu systemu operacyjnego napraw modułu ASP.NET Core. Zobacz [instalacji pakietu .NET Core hostingu](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle). Wybierz **naprawy** po uruchomieniu Instalatora.
+
+## <a name="missing-site-extension-32-bit-x86-and-64-bit-x64-site-extensions-installed-or-wrong-process-bitness-set"></a>Brak rozszerzenia usługi site, (x86) 32-bitowych i 64-bitowych (x64) zainstalowane rozszerzenia witryny lub ustawić liczbę bitów procesu problem
+
+*Dotyczy aplikacji hostowanych przez usługi Azure App Service.*
+
+* **Przeglądarka:** Błąd HTTP 500.0 - ANCM w procesie programu obsługi błędu ładowania 
+
+* **Dziennik aplikacji:** Wywoływanie hostfxr można znaleźć programu obsługi żądania inprocess nie powiodła się bez znajdowanie wszelkie zależności natywnych. Nie można odnaleźć inprocess żądania obsługi. Przechwycone dane wyjściowe z wywołaniem hostfxr: Nie można odnaleźć żadnych zgodnych framework w wersji. Określony framework "Microsoft.AspNetCore.App", wersja "{VERSION} - preview -\*" nie został znaleziony. Nie można uruchomić aplikacji "/ LM/W3SVC/1416782824/ROOT", kod błędu "0x8000ffff".
+
+* **ASP.NET Core modułu strumienia wyjściowego stdout dziennika:** Nie można odnaleźć żadnych zgodnych framework w wersji. Określony framework "Microsoft.AspNetCore.App", wersja "{VERSION} - preview -\*" nie został znaleziony.
+
+::: moniker range=">= aspnetcore-2.2"
+
+* **Moduł ASP.NET Core dziennik debugowania:** Wywoływanie hostfxr można znaleźć programu obsługi żądania inprocess nie powiodła się bez znajdowanie wszelkie zależności natywnych. To najprawdopodobniej oznacza, że aplikacja jest nieprawidłowo skonfigurowane, sprawdź, czy wersje pakietów Microsoft.NetCore.App i Microsoft.AspNetCore.App są objęci aplikacji, które są zainstalowane na komputerze. Zwrócone HRESULT nie powiodło się: 0x8000ffff. Nie można odnaleźć inprocess żądania obsługi. Nie można odnaleźć żadnych zgodnych framework w wersji. Określony framework "Microsoft.AspNetCore.App", wersja "{VERSION} - preview -\*" nie został znaleziony.
+
+::: moniker-end
+
+Rozwiązywanie problemów:
+
+* Jeśli uruchamianie aplikacji w środowisku uruchomieniowym w wersji zapoznawczej, należy zainstalować (x86) 32-bitowych **lub** (x64) 64-bitowych lokacji rozszerzeniem odpowiadającym typowi bitowość wersji środowiska uruchomieniowego aplikacji i aplikacji. **Nie należy instalować zarówno rozszerzenia lub wielu wersji środowiska uruchomieniowego rozszerzenia.**
+
+  * ASP.NET Core {RUNTIME VERSION} (x86) Runtime
+  * Platforma ASP.NET Core {wersja środowiska URUCHOMIENIOWEGO} (x 64) środowiska uruchomieniowego
+
+  Uruchom ponownie aplikację. Odczekaj kilka sekund dla aplikacji, aby ponownie uruchomić. 
+
+* Jeśli aplikacja jest uruchomiona na runtime (wersja zapoznawcza) i (x86) 32-bitowych i 64-bitowych (x64) [rozszerzeń witryny](xref:host-and-deploy/azure-apps/index#install-the-preview-site-extension) są zainstalowane, odinstaluj rozszerzenie witryny, która nie odpowiada liczbie bitów aplikacji. Po usunięciu rozszerzenia witryny, należy ponownie uruchomić aplikację. Odczekaj kilka sekund dla aplikacji, aby ponownie uruchomić.
+
+* Jeśli aplikacja uruchomiona w środowisku uruchomieniowym w wersji zapoznawczej i rozszerzenia bitowości dopasowań, które aplikacji, upewnij się, które korzystania z wersji zapoznawczej witryny rozszerzenia *wersji środowiska uruchomieniowego* jest zgodna wersja środowiska uruchomieniowego aplikacji.
+
+* Upewnij się, że aplikacja **platformy** w **ustawienia aplikacji** odpowiada liczbie bitów w aplikacji.
+
+Aby uzyskać więcej informacji, zobacz <xref:host-and-deploy/azure-apps/index#install-the-preview-site-extension>.
 
 ## <a name="an-x86-app-is-deployed-but-the-app-pool-isnt-enabled-for-32-bit-apps"></a>X86 aplikacja jest wdrożona, ale pula aplikacji nie jest włączony dla aplikacji 32-bitowych
 

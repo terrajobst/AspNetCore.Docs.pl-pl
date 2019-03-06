@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: cf8733e1e806c4be0c4b217fc45c7a338a03a3ce
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 140f482e136acf4daba1248fecc87e06db6866f3
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207559"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57345898"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>Strony razor z programem EF Core w programie ASP.NET Core — odczytanie powiązanych danych — 6 8
 
@@ -42,11 +42,11 @@ Istnieje kilka sposobów, że programu EF Core można załadować powiązane dan
   * Jednej kwerendzie dla głównego zapytania 
   * Jednej kwerendzie dla każdej kolekcji "brzegu", w drzewie obciążenia.
 
-* Oddziel zapytań przy użyciu `Load`: dane można pobrać w oddzielne zapytania i programem EF Core termin "poprawki" właściwości nawigacji. oznacza "poprawki w górę" EF Core będzie automatycznie wypełnia właściwości nawigacji. Oddziel zapytań przy użyciu `Load` więcej takich jak ładowanie niż wczesne ładowanie stosowany jawny.
+* Oddziel zapytań przy użyciu `Load`: Dane można pobrać w oddzielne zapytania, a programem EF Core termin "poprawki" właściwości nawigacji. oznacza "poprawki w górę" EF Core będzie automatycznie wypełnia właściwości nawigacji. Oddziel zapytań przy użyciu `Load` więcej takich jak ładowanie niż wczesne ładowanie stosowany jawny.
 
   ![Przykład oddzielne zapytania](read-related-data/_static/separate-queries.png)
 
-  Uwaga: Programu EF Core jest automatycznie rozwiązuje właściwości nawigacji do innych jednostek, które wcześniej zostały załadowane do wystąpienia kontekstu. Nawet jeśli dane dla właściwości nawigacyjnej *nie* jawnie uwzględnione, nadal można wypełnić właściwość, jeśli niektóre lub wszystkie powiązane jednostki zostały wcześniej załadowane.
+  Uwaga: EF Core automatycznie rozwiązuje się właściwości nawigacji do innych jednostek, które wcześniej zostały załadowane do wystąpienia kontekstu. Nawet jeśli dane dla właściwości nawigacyjnej *nie* jawnie uwzględnione, nadal można wypełnić właściwość, jeśli niektóre lub wszystkie powiązane jednostki zostały wcześniej załadowane.
 
 * [Jawne ładowanie](/ef/core/querying/related-data#explicit-loading). Podczas odczytywania jednostki powiązane dane nie są pobierane. Musi być napisany kod można pobrać powiązanych danych, gdy jest to konieczne. Jawne ładowanie w oddzielnych zapytań powoduje wielu zapytań wysyłanych do bazy danych. Przy użyciu jawne ładowanie kod określa właściwości nawigacji, aby go załadować. Użyj `Load` celu jawne ładowanie metodę. Na przykład:
 
@@ -65,7 +65,7 @@ Aby wyświetlić listę kursów nazwa działu przypisane:
 * Pobierz `Name` właściwość `Department` jednostki.
 * `Department` Jednostki pochodzi z `Course.Department` właściwości nawigacji.
 
-![ourse. Dział](read-related-data/_static/dep-crs.png)
+![ourse.Department](read-related-data/_static/dep-crs.png)
 
 <a name="scaffold"></a>
 ### <a name="scaffold-the-course-model"></a>Tworzenie szkieletu modelu kursu
@@ -185,7 +185,7 @@ Sprawdź zapytania w *Pages/Instructors/Index.cshtml.cs* pliku:
 Zapytanie ma dwa obejmuje:
 
 * `OfficeAssignment`: Wyświetlane w [widoku Instruktorzy](#IP).
-* `CourseAssignments`: Wiąże które kursy prowadzone.
+* `CourseAssignments`: Który udostępnia w kursom prowadzonym.
 
 
 ### <a name="update-the-instructors-index-page"></a>Aktualizuj stronę indeksu instruktorów
@@ -330,6 +330,11 @@ Zwróć uwagę, poprzedni kod komentarze `.AsNoTracking()`. Właściwości nawig
 Testowanie aplikacji. Z punktu widzenia użytkowników aplikacji działa identycznie do poprzedniej wersji.
 
 Następny samouczek pokazuje, jak aktualizowanie powiązanych danych.
+
+## <a name="additional-resources"></a>Dodatkowe zasoby
+
+* [Wersja usługi YouTube w tym samouczku (część 1)](https://www.youtube.com/watch?v=PzKimUDmrvE)
+* [Wersja usługi YouTube w tym samouczku (część 2)](https://www.youtube.com/watch?v=xvDDrIHv5ko)
 
 >[!div class="step-by-step"]
 >[Poprzednie](xref:data/ef-rp/complex-data-model)

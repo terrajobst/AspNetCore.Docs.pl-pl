@@ -5,12 +5,12 @@ description: W tej serii samouczków pokazano, jak używać stron Razor w progra
 ms.author: riande
 ms.date: 12/5/2018
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: 81a2a76fc1cecc78b69226fe714d7c9272b04bf7
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 29d9369cfa6a4c76f015b5a819a27dfa280d4075
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56899201"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346414"
 ---
 # <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Samouczek: Rozpoczynanie pracy ze stronami Razor w programie ASP.NET Core
 
@@ -163,6 +163,10 @@ Zawiera punkt wejścia programu. Aby uzyskać więcej informacji, zobacz <xref:f
 ### <a name="startupcs"></a>Startup.cs
 
 Zawiera kod, który konfiguruje zachowania aplikacji, na przykład tego, czy wymaga zgody na pliki cookie. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/startup>.
+
+## <a name="additional-resources"></a>Dodatkowe zasoby
+
+* [Wersja usługi youtube w tym samouczku](https://www.youtube.com/watch?v=F0SP7Ry4flQ&feature=youtu.be)
 
 ## <a name="next-steps"></a>Następne kroki
 

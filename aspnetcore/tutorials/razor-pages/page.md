@@ -5,12 +5,12 @@ description: W tym artykule wyjaśniono stron Razor, generowane przez tworzenie 
 ms.author: riande
 ms.date: 12/4/2018
 uid: tutorials/razor-pages/page
-ms.openlocfilehash: ad87e3da72c3dd6adf8cf55d16da58fa47ed5542
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: 07ad142b369fab92589f63479533a769136a087b
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410352"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346453"
 ---
 # <a name="scaffolded-razor-pages-in-aspnet-core"></a>Strony razor ze szkieletami w programie ASP.NET Core
 
@@ -171,6 +171,11 @@ Aparat tworzenia szkieletów tworzy znaczników Razor dla każdego pola w modelu
 [Pomocnik tagu etykiet](xref:mvc/views/working-with-forms#the-label-tag-helper) (`<label asp-for="Movie.Title" class="control-label"></label>`) generuje podpis etykiety i `for` atrybutu dla `Title` właściwości.
 
 [Pomocnik tagu dane wejściowe](xref:mvc/views/working-with-forms) (`<input asp-for="Movie.Title" class="form-control" />`) używa [DataAnnotations](/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) atrybutów, a następnie tworzy atrybutów HTML potrzebne dla technologii jQuery weryfikacji po stronie klienta.
+
+## <a name="additional-resources"></a>Dodatkowe zasoby
+
+* [Wersja usługi YouTube w tym samouczku](https://youtu.be/zxgKjPYnOMM)
+
 
 > [!div class="step-by-step"]
 > [Poprzednie: Dodawanie modelu](xref:tutorials/razor-pages/model)

@@ -4,18 +4,18 @@ author: rick-anderson
 description: W tym artykule opisano wbudowane pomocników tagów używane w formularzach.
 ms.author: riande
 ms.custom: mvc
-ms.date: 1/11/2019
+ms.date: 02/27/2019
 uid: mvc/views/working-with-forms
-ms.openlocfilehash: cd15c641fbf702071bd57510a1d51737f6ab8e19
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: a0fbeac51bd1bfbc50c4d369a479ce5f3091358b
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54099016"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346258"
 ---
 # <a name="tag-helpers-in-forms-in-aspnet-core"></a>Pomocnicy tagów w formularzach w programie ASP.NET Core
 
-Przez [Rick Anderson](https://twitter.com/RickAndMSFT), [Dave Paquette](https://twitter.com/Dave_Paquette), i [Jerrie Pelser](https://github.com/jerriep)
+Przez [Rick Anderson](https://twitter.com/RickAndMSFT), [MULLENA N. Taylora](https://github.com/NTaylorMullen), [Dave Paquette](https://twitter.com/Dave_Paquette), i [Jerrie Pelser](https://github.com/jerriep)
 
 W tym dokumencie przedstawiono pracy z formularzami i często używane w formularzu elementów HTML. Kod HTML [formularza](https://www.w3.org/TR/html401/interact/forms.html) element udostępnia użycia aplikacji sieci web podstawowego mechanizmu publikować dane do serwera. Większość w tym dokumencie opisano [pomocników tagów](tag-helpers/intro.md) i jak mogą one pomóc produktywną tworzyć niezawodne formularzy HTML. Zalecamy przeczytanie [wprowadzenie do pomocników tagów](tag-helpers/intro.md) przed przeczytaniem tego dokumentu.
 
@@ -67,6 +67,98 @@ Wiele widoków w *widoków/konto* folder (generowane podczas tworzenia nowej apl
 >[!NOTE]
 >Za pomocą wbudowanych szablonów `returnUrl` tylko jest wypełniane automatycznie podczas spróbuj uzyskać dostęp do autoryzowanych zasobów, ale nie uwierzytelniony i autoryzowany. Podczas próby nieautoryzowanego dostępu do oprogramowania pośredniczącego zabezpieczeń przekieruje Cię do strony logowania za pomocą `returnUrl` zestawu.
 
+## <a name="the-form-action-tag-helper"></a>Pomocnik tagu akcji formularza
+
+Pomocnik tagu akcji formularza generuje `formaction` atrybutu w wygenerowanym `<button ...>` lub `<input type="image" ...>` tagu. `formaction` Atrybut kontroluje, gdzie formularza przesłaniu jego danych. Powiąże [ \<wejściowych >](https://www.w3.org/wiki/HTML/Elements/input) elementów typu `image` i [ \<przycisk >](https://www.w3.org/wiki/HTML/Elements/button) elementów. Pomocnik tagu akcji formularza umożliwia użycie kilku [AnchorTagHelper](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) `asp-` atrybuty można kontrolować, co `formaction` łącze jest generowany dla odpowiedniego elementu.
+
+Obsługiwane [AnchorTagHelper](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) atrybuty kontrolować wartość `formaction`:
+
+|Atrybut|Opis|
+|---|---|
+|[asp-controller](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-controller)|Nazwa kontrolera.|
+|[asp-action](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-action)|Nazwa metody akcji.|
+|[asp-area](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-area)|Nazwa obszaru.|
+|[asp-page](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-page)|Nazwa strony Razor.|
+|[asp-page-handler](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-page-handler)|Nazwa procedury obsługi stron Razor.|
+|[asp-route](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-route)|Nazwa trasy.|
+|[asp-route-{value}](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-route-value)|Adres URL trasy wartość typu single. Na przykład `asp-route-id="1234"`.|
+|[asp-all-route-data](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-all-route-data)|Wszystkie wartości trasy.|
+|[asp-fragment](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-fragment)|Fragmentu adresu URL.|
+
+### <a name="submit-to-controller-example"></a>Przedstawia przykład kontrolera
+
+Następujące znaczniki przesyła formularz, aby `Index` akcji `HomeController` po wybraniu danych wejściowych lub przycisk:
+
+```cshtml
+<form method="post">
+    <button asp-controller="Home" asp-action="Index">Click Me</button>
+    <input type="image" src="..." alt="Or Click Me" asp-controller="Home" 
+                                asp-action="Index" />
+</form>
+```
+
+Poprzednie znaczników generuje następujące HTML:
+
+```html
+<form method="post">
+    <button formaction="/Home">Click Me</button>
+    <input type="image" src="..." alt="Or Click Me" formaction="/Home" />
+</form>
+```
+
+### <a name="submit-to-page-example"></a>Przedstawia przykład strony
+
+Następujące znaczniki przesyła formularz, aby `About` strona Razor:
+
+```cshtml
+<form method="post">
+    <button asp-page="About">Click Me</button>
+    <input type="image" src="..." alt="Or Click Me" asp-page="About" />
+</form>
+```
+
+Poprzednie znaczników generuje następujące HTML:
+
+```html
+<form method="post">
+    <button formaction="/About">Click Me</button>
+    <input type="image" src="..." alt="Or Click Me" formaction="/About" />
+</form>
+```
+
+### <a name="submit-to-route-example"></a>Przedstawia przykład tras
+
+Należy wziąć pod uwagę `/Home/Test` punktu końcowego:
+
+```csharp
+public class HomeController : Controller
+{
+    [Route("/Home/Test", Name = "Custom")]
+    public string Test()
+    {
+        return "This is the test page";
+    }
+}
+```
+
+Następujące znaczniki przesyła formularz, aby `/Home/Test` punktu końcowego.
+
+```cshtml
+<form method="post">
+    <button asp-route="Custom">Click Me</button>
+    <input type="image" src="..." alt="Or Click Me" asp-route="Custom" />
+</form>
+```
+
+Poprzednie znaczników generuje następujące HTML:
+
+```html
+<form method="post">
+    <button formaction="/Home/Test">Click Me</button>
+    <input type="image" src="..." alt="Or Click Me" formaction="/Home/Test" />
+</form>
+```
+
 ## <a name="the-input-tag-helper"></a>Pomocnik tagu wejściowego
 
 Wejściowy Pomocnik tagu wiąże HTML [ \<wejściowych >](https://www.w3.org/wiki/HTML/Elements/input) element wyrażenia modelu, w tym widoku razor.
@@ -106,12 +198,12 @@ Type expected
 
 |Typ architektury .NET|Typ danych wejściowych|
 |---|---|
-|wartość logiczna|Typ = "checkbox"|
-|String|Typ = "text"|
-|DataGodzina|Typ =["datetime lokalnej"](https://developer.mozilla.org/docs/Web/HTML/Element/input/datetime-local)|
-|Byte|Typ = "number"|
-|int|Typ = "number"|
-|Pojedynczy Double|Typ = "number"|
+|Bool|type="checkbox"|
+|String|type="text"|
+|DataGodzina|type=["datetime-local"](https://developer.mozilla.org/docs/Web/HTML/Element/input/datetime-local)|
+|Byte|type="number"|
+|int|type="number"|
+|Pojedynczy Double|type="number"|
 
 
 W poniższej tabeli przedstawiono niektóre typowe [adnotacje danych](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) atrybutów, które Pomocnik tagu wejściowego będzie zmapowana do określonych typów wejściowych (nie każdy atrybut weryfikacji znajduje się):
@@ -119,13 +211,13 @@ W poniższej tabeli przedstawiono niektóre typowe [adnotacje danych](/dotnet/ap
 
 |Atrybut|Typ danych wejściowych|
 |---|---|
-|[EmailAddress]|Typ = "email"|
-|[Url]|Typ = "url"|
-|[HiddenInput]|Typ = "hidden"|
-|[Phone]|Typ = "tel"|
-|[DataType(DataType.Password)]| Typ = "password"|
-|[DataType(DataType.Date)]| Typ = "Data"|
-|[DataType(DataType.Time)]| Typ = "time"|
+|[EmailAddress]|type="email"|
+|[Url]|type="url"|
+|[HiddenInput]|type="hidden"|
+|[Phone]|type="tel"|
+|[DataType(DataType.Password)]| type="password"|
+|[DataType(DataType.Date)]| type="date"|
+|[DataType(DataType.Time)]| type="time"|
 
 
 Przykład:
@@ -360,7 +452,7 @@ Gdy pojawia się błąd weryfikacji po stronie serwera, (na przykład gdy masz w
 
 `Validation Summary Tag Helper` Służy do wyświetlania podsumowania komunikatów dotyczących sprawdzania poprawności. `asp-validation-summary` Wartość atrybutu może być dowolną z następujących czynności:
 
-|Podsumowanie w przypadku sprawdzania poprawności ASP|Wyświetlane komunikatów dotyczących sprawdzania poprawności|
+|asp-validation-summary|Wyświetlane komunikatów dotyczących sprawdzania poprawności|
 |--- |--- |
 |ValidationSummary.All|Poziom właściwości i model|
 |ValidationSummary.ModelOnly|Model|
