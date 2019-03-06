@@ -1,0 +1,3 @@
+# <a name="aspnet-core-response-cache-sample"></a><span data-ttu-id="076a2-101">ASP.NET Core Response Cache Sample</span><span class="sxs-lookup"><span data-stu-id="076a2-101">ASP.NET Core Response Cache Sample</span></span>
+
+<span data-ttu-id="076a2-102">W tym przykładzie pokazano użycie buforowanie odpowiedzi w programie ASP.NET Core, która ma towarzyszyć [buforowanie odpowiedzi w programie ASP.NET Core](https://docs.microsoft.com/aspnet/core/performance/caching/response).</span><span class="sxs-lookup"><span data-stu-id="076a2-102">This sample illustrates the usage of response caching in ASP.NET Core to accompany [Response caching in ASP.NET Core](https://docs.microsoft.com/aspnet/core/performance/caching/response).</span></span>
