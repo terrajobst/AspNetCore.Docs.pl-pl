@@ -6,16 +6,16 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 08/09/2018
 uid: client-side/bower
-ms.openlocfilehash: 06edf7ee791aac0984ff71c2f243f61093f0d503
-ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
+ms.openlocfilehash: 08e6daa537c6c6f92a1cf80d70745e8ef606f580
+ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51570025"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57665616"
 ---
 # <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a>Zarządzanie pakietami po stronie klienta za pomocą narzędzi Bower w programie ASP.NET Core
 
-Przez [Rick Anderson](https://twitter.com/RickAndMSFT), [ryżu Noel](https://blog.falafel.com/falafel-software-recognized-sitefinity-website-year/), i [Scott Addie](https://scottaddie.com)
+Przez [Rick Anderson](https://twitter.com/RickAndMSFT), [ryżu Noel](https://twitter.com/noelrice1), i [Scott Addie](https://scottaddie.com)
 
 > [!IMPORTANT]
 > Jednocześnie jest Bower, zaleca się jego maintainers przy użyciu innego rozwiązania. [Menedżer biblioteki](https://blogs.msdn.microsoft.com/webdev/2018/04/18/what-happened-to-bower/) (LibMan w skrócie) to narzędzie programu Visual Studio do pozyskiwania nowych biblioteki po stronie klienta (Visual Studio, należy zachować 15,8 lub nowszej). Aby uzyskać więcej informacji, zobacz <xref:client-side/libman/index>. Bower jest świadczona w programie Visual Studio w wersji 15.5.
@@ -91,7 +91,7 @@ Po wyświetleniu listy pakietów w *bower.json* plików, programu Visual Studio 
 
 * Utwórz nową aplikację sieci Web platformy ASP.NET Core za pomocą **aplikacja sieci Web programu ASP.NET Core (.NET Core)** szablonu. Wybierz **pusty** szablonu projektu i kliknij przycisk **OK**.
 
-* W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy Projekt > **Dodaj nowy element** i wybierz **plik konfiguracji programu Bower**. Uwaga: Element *.bowerrc* również zostanie dodany plik.
+* W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy Projekt > **Dodaj nowy element** i wybierz **plik konfiguracji programu Bower**. Uwaga: A *.bowerrc* również zostanie dodany plik.
 
 * Otwórz *bower.json*, Dodaj jquery i uruchamiania na `dependencies` sekcji. Wartość wynikowa *bower.json* plik będzie wyglądać podobnie jak w poniższym przykładzie. Wersje zmieni się wraz z upływem czasu i może nie odpowiadać na poniższej ilustracji.
 
@@ -101,7 +101,7 @@ Po wyświetleniu listy pakietów w *bower.json* plików, programu Visual Studio 
 
   Sprawdź projekt obejmuje *bootstrap* i *jQuery* katalogi *wwwroot/lib*. Zastosowań bower *.bowerrc* plik, aby zainstalować zasoby w *wwwroot/lib*.
 
-  Uwaga: Interfejsu użytkownika "Zarządzaj pakietami Bower" jest alternatywą dla ręcznego plik edycji.
+  Uwaga: Interfejs użytkownika "Zarządzaj pakietami Bower" stanowi alternatywę dla pliku ręcznej edycji.
 
 ### <a name="enable-static-files"></a>Włącz pliki statyczne
 

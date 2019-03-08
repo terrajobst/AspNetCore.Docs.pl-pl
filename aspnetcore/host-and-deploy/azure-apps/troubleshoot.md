@@ -4,14 +4,14 @@ author: guardrex
 description: Dowiedz się, jak diagnozować problemy z wdrożeniami platformy ASP.NET Core usługi Azure App Service.
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/11/2019
+ms.date: 03/05/2019
 uid: host-and-deploy/azure-apps/troubleshoot
-ms.openlocfilehash: 65a5e355bc15db6de9060331395c441160c8b62d
-ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
+ms.openlocfilehash: c3732bfab362ec034248eb3912d4b1337c94216e
+ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54341644"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57665431"
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service"></a>Rozwiązywanie problemów z platformą ASP.NET Core w usłudze Azure App Service
 
@@ -71,11 +71,56 @@ Wiele błędów uruchamiania przestaną generować przydatne informacje w dzienn
 
 1. Otwórz **Narzędzia zaawansowane** w **narzędzia programistyczne** obszaru. Wybierz **Przejdź&rarr;**  przycisku. W nowej karcie przeglądarki lub w oknie zostanie otwarta konsola Kudu.
 1. Za pomocą paska nawigacji u góry strony, otwórz **konsoli debugowania** i wybierz **CMD**.
-1. Otwieranie folderów w ścieżce **witryny** > **wwwroot**.
-1. W konsoli należy uruchomić tę aplikację, wykonując zestawu aplikacji.
-   * Jeśli aplikacja jest [wdrożenia zależny od struktury](/dotnet/core/deploying/#framework-dependent-deployments-fdd), uruchom zestaw aplikacji za pomocą *dotnet.exe*. W poniższym poleceniu zastąp nazwę zestawu aplikacji dla `<assembly_name>`: `dotnet .\<assembly_name>.dll`
-   * Jeśli aplikacja jest [niezależna wdrożenia](/dotnet/core/deploying/#self-contained-deployments-scd)Uruchom pliku wykonywalnym aplikacji. W poniższym poleceniu zastąp nazwę zestawu aplikacji dla `<assembly_name>`: `<assembly_name>.exe`
-1. Dane wyjściowe z aplikacji, przedstawiający wszystkie błędy z konsoli jest przekazywany w potoku do konsoli Kudu.
+
+#### <a name="test-a-32-bit-x86-app"></a>Testowanie aplikacji 32-bitowych (x 86)
+
+##### <a name="current-release"></a>Bieżąca wersja
+
+1. `cd d:\home\site\wwwroot`
+1. Uruchom aplikację:
+   * Jeśli aplikacja jest [wdrożenia zależny od struktury](/dotnet/core/deploying/#framework-dependent-deployments-fdd):
+
+     ```console
+     dotnet .\{ASSEMBLY NAME}.dll
+     ```
+   * Jeśli aplikacja jest [niezależna wdrożenia](/dotnet/core/deploying/#self-contained-deployments-scd):
+
+     ```console
+     {ASSEMBLY NAME}.exe
+     ```
+   
+Dane wyjściowe z aplikacji, przedstawiający wszystkie błędy z konsoli jest przekazywany w potoku do konsoli Kudu.
+   
+##### <a name="framework-depdendent-deployment-running-on-a-preview-release"></a>Wdrożenie Framework depdendent systemem w wersji zapoznawczej
+
+*Wymaga zainstalowania platformy ASP.NET Core {VERSION} (x86) rozszerzenia witryny środowiska uruchomieniowego.*
+
+1. `cd D:\home\SiteExtensions\AspNetCoreRuntime.{X.Y}.x32` (`{X.Y}` jest wersja środowiska wykonawczego)
+1. Uruchom aplikację: `dotnet \home\site\wwwroot\{ASSEMBLY NAME}.dll`
+
+Dane wyjściowe z aplikacji, przedstawiający wszystkie błędy z konsoli jest przekazywany w potoku do konsoli Kudu.
+
+#### <a name="test-a-64-bit-x64-app"></a>Testowanie aplikacji 64-bitowych (x 64)
+
+##### <a name="current-release"></a>Bieżąca wersja
+
+* Jeśli aplikacja jest (x64) 64-bitowych [wdrożenia zależny od struktury](/dotnet/core/deploying/#framework-dependent-deployments-fdd):
+  1. `cd D:\Program Files\dotnet`
+  1. Uruchom aplikację: `dotnet \home\site\wwwroot\{ASSEMBLY NAME}.dll`
+* Jeśli aplikacja jest [niezależna wdrożenia](/dotnet/core/deploying/#self-contained-deployments-scd):
+  1. `cd D:\home\site\wwwroot`
+  1. Uruchom aplikację: `{ASSEMBLY NAME}.exe`
+
+Dane wyjściowe z aplikacji, przedstawiający wszystkie błędy z konsoli jest przekazywany w potoku do konsoli Kudu.
+
+##### <a name="framework-depdendent-deployment-running-on-a-preview-release"></a>Wdrożenie Framework depdendent systemem w wersji zapoznawczej
+
+*Wymaga zainstalowania platformy ASP.NET Core {VERSION} (x64) rozszerzenia witryny środowiska uruchomieniowego.*
+
+1. `cd D:\home\SiteExtensions\AspNetCoreRuntime.{X.Y}.x64` (`{X.Y}` jest wersja środowiska wykonawczego)
+1. Uruchom aplikację: `dotnet \home\site\wwwroot\{ASSEMBLY NAME}.dll`
+
+Dane wyjściowe z aplikacji, przedstawiający wszystkie błędy z konsoli jest przekazywany w potoku do konsoli Kudu.
 
 ### <a name="aspnet-core-module-stdout-log"></a>ASP.NET Core modułu stdout dziennika
 

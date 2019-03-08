@@ -5,14 +5,14 @@ description: Dowiedz się, jak do obsługi błędów w aplikacji platformy ASP.N
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 03/01/2019
+ms.date: 03/05/2019
 uid: fundamentals/error-handling
-ms.openlocfilehash: a2ae2cb25c8cc5048b189b4035abbfc32a29aaff
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: d809c70b3fae6b2d21d5ec0871298d905b873d5d
+ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57345508"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57665366"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>Obsługa błędów w programie ASP.NET Core
 
@@ -24,9 +24,9 @@ W tym artykule opisano typowe metody obsługi błędów w aplikacji platformy AS
 
 ## <a name="developer-exception-page"></a>Stronie wyjątków dla deweloperów
 
-Aby skonfigurować aplikację tak, aby wyświetlić stronę, która zawiera szczegółowe informacje o wyjątkach, należy użyć *stronie wyjątków deweloperów*. Strona jest udostępniana przez [Microsoft.AspNetCore.Diagnostics](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics/) pakiet, który jest dostępny w [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app). Dodaj wiersz w celu `Startup.Configure` metody:
+Aby skonfigurować aplikację tak, aby wyświetlić strony, która przedstawia szczegółowe informacje dotyczące żądania, wyjątki, należy użyć *stronie wyjątków deweloperów*. Strona jest udostępniana przez [Microsoft.AspNetCore.Diagnostics](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics/) pakiet, który jest dostępny w [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app). Dodaj wiersz w celu `Startup.Configure` metody, gdy aplikacja jest uruchomiona w trakcie opracowywania [środowiska](xref:fundamentals/environments):
 
-[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_DevExceptionPage&highlight=5)]
+[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_UseDeveloperExceptionPage)]
 
 Umieść wywołanie <xref:Microsoft.AspNetCore.Builder.DeveloperExceptionPageExtensions.UseDeveloperExceptionPage*> przed dowolnego oprogramowania pośredniczącego, którym chcesz przechwytywać wyjątki.
 
@@ -50,7 +50,7 @@ Gdy aplikacja nie jest uruchomiona w środowisku programistycznym, wywołaj <xre
 
 W poniższym przykładzie z przykładowej aplikacji <xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*> dodaje oprogramowanie pośredniczące obsługi wyjątków w środowiskach innych niż. Określa metody rozszerzenia, stronę błędu lub kontrolera w `/Error` punktu końcowego dla żądań wykonany ponownie po wyjątki są przechwytywane i rejestrowane:
 
-[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_DevExceptionPage&highlight=9)]
+[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_UseExceptionHandler1)]
 
 Szablon aplikacji stron Razor zawiera stronę błędu (*.cshtml*) i <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel> klasy (`ErrorModel`) w folderze strony.
 
@@ -66,6 +66,36 @@ public IActionResult Error()
 ```
 
 Nie dekoracji metody akcji programu obsługi błędów z atrybutami metody HTTP, takich jak `HttpGet`. Jawne zleceń uniemożliwić metody osiągając niektórych żądań. Zezwalaj na anonimowy dostęp do metody, aby były nieuwierzytelnionym użytkownikom możliwość odbierania widoku błędów.
+
+## <a name="access-the-exception"></a>Dostęp do wyjątku
+
+Użyj <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature> uzyskać dostęp do wyjątku lub oryginalnej ścieżki żądania w kontrolerze lub na stronie:
+
+* Ścieżka jest dostępna z <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature.Path> właściwości.
+* Odczyt <xref:System.Exception?displayProperty=fullName> z dziedziczonego [IExceptionHandlerFeature.Error](xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerFeature.Error) właściwości.
+
+```csharp
+// using Microsoft.AspNetCore.Diagnostics;
+
+var exceptionHandlerPathFeature = 
+    HttpContext.Features.Get<IExceptionHandlerPathFeature>();
+var path = exceptionHandlerPathFeature?.Path;
+var error = exceptionHandlerPathFeature?.Error;
+```
+
+> [!WARNING]
+> Czy **nie** obsługiwać błąd poufnych informacji z <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerFeature> lub <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature> do klientów. Obsługuje błędy stanowi zagrożenie bezpieczeństwa.
+
+## <a name="configure-custom-exception-handling-code"></a>Konfigurowanie niestandardowego kodu obsługi wyjątków
+
+Alternatywa dla obsługująca punktu końcowego dla błędów przy użyciu [strony Obsługa niestandardowy wyjątek](#configure-a-custom-exception-handling-page) ma na celu dostarczenie wyrażenia lambda <xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*>. Używanie wyrażenia lambda z <xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*> zezwala na dostęp do błędu przed zwróceniem odpowiedzi.
+
+Przykładowa aplikacja pokazuje niestandardowy wyjątek, Obsługa kodu w `Startup.Configure`. Wywołanie wyjątku z **zgłosić wyjątek** łącze na stronie indeksu. Uruchamia następujące wyrażenie lambda:
+
+[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_UseExceptionHandler2)]
+
+> [!WARNING]
+> Czy **nie** obsługiwać błąd poufnych informacji z <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerFeature> lub <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature> do klientów. Obsługuje błędy stanowi zagrożenie bezpieczeństwa.
 
 ## <a name="configure-status-code-pages"></a>Konfigurowanie stanu strony kodowe
 
@@ -265,7 +295,7 @@ Ponadto należy pamiętać, że wysłany nagłówki odpowiedzi:
 
 ## <a name="server-exception-handling"></a>Obsługa wyjątków serwera
 
-Oprócz logiki aplikacji, obsługi wyjątków [implementacji serwera](xref:fundamentals/servers/index) może obsługiwać niektóre wyjątki. Jeśli serwer wyłapuje wyjątek, przed wysłaniem nagłówki odpowiedzi, serwer wysyła *500 — Wewnętrzny błąd serwera* odpowiedzi bez treści odpowiedzi. Jeśli serwer wyłapuje wyjątek po wysłaniu nagłówki odpowiedzi, serwer zamyka połączenie. Żądania, które nie są obsługiwane przez aplikację są obsługiwane przez serwer. Każdy wyjątek, który występuje odbywa się przez wyjątek serwera obsługi. Oprogramowanie pośredniczące obsługi wyjątków lub filtry nie wpływają na to zachowanie lub dowolne skonfigurowane strony błędów niestandardowych.
+Oprócz logiki aplikacji, obsługi wyjątków [implementacji serwera](xref:fundamentals/servers/index) może obsługiwać niektóre wyjątki. Jeśli serwer wyłapuje wyjątek, przed wysłaniem nagłówki odpowiedzi, serwer wysyła *500 — Wewnętrzny błąd serwera* odpowiedzi bez treści odpowiedzi. Jeśli serwer wyłapuje wyjątek po wysłaniu nagłówki odpowiedzi, serwer zamyka połączenie. Żądania, które nie są obsługiwane przez aplikację są obsługiwane przez serwer. Każdy wyjątek, który występuje, gdy ten serwer obsługuje żądania odbywa się przez wyjątek serwera obsługi. Strony błędów niestandardowych aplikacji, obsługi oprogramowania pośredniczącego i filtry wyjątków nie wpływają na to zachowanie.
 
 ## <a name="startup-exception-handling"></a>Obsługa wyjątków uruchamiania
 
@@ -285,10 +315,10 @@ Podczas uruchamiania na [IIS](/iis) lub [usług IIS Express](/iis/extensions/int
 
 ### <a name="exception-filters"></a>Filtry wyjątków
 
-Filtry wyjątków można skonfigurować globalnie lub na zasadzie na kontroler lub akcję w aplikacji MVC. Te filtry obsługi nieobsługiwanego wyjątku, który występuje podczas wykonywania akcji kontrolera lub inny filtr. Te filtry nie są wywoływane w przeciwnym razie. Aby dowiedzieć się więcej, zobacz <xref:mvc/controllers/filters>.
+Filtry wyjątków można skonfigurować globalnie lub na zasadzie na kontroler lub akcję w aplikacji MVC. Te filtry obsługi nieobsługiwanego wyjątku, który występuje podczas wykonywania akcji kontrolera lub inny filtr. Te filtry nie są wywoływane w przeciwnym razie. Aby uzyskać więcej informacji, zobacz <xref:mvc/controllers/filters#exception-filters>.
 
 > [!TIP]
-> Filtry wyjątków są przydatne zalewania wyjątków występujących w ramach akcji MVC, ale nie jest tak elastyczna jak błąd obsługi oprogramowania pośredniczącego. Firma Microsoft zaleca korzystanie z oprogramowania pośredniczącego. Użyj filtrów, tylko gdy potrzebujesz, aby wykonać obsługi błędów *inaczej* oparte na akcję MVC, która jest wybierany.
+> Filtry wyjątków są przydatne zalewania wyjątków występujących w ramach akcji MVC, ale nie jest tak elastyczna jak oprogramowanie pośredniczące obsługi wyjątków. Zalecamy używanie oprogramowania pośredniczącego. Użyj filtrów, tylko gdy potrzebujesz, aby wykonać obsługi błędów *inaczej* oparte na akcję MVC, która jest wybierany.
 
 ### <a name="handle-model-state-errors"></a>Obsługiwać błędy stanu modelu
 

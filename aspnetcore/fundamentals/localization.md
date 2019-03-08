@@ -5,16 +5,16 @@ description: Dowiedz się, jak platforma ASP.NET Core oferuje usługi oraz oprog
 ms.author: riande
 ms.date: 01/14/2017
 uid: fundamentals/localization
-ms.openlocfilehash: af11906f86fe4ea91ed520584daedc094ab2dc0b
-ms.sourcegitcommit: edb9d2d78c9a4d68b397e74ae2aff088b325a143
+ms.openlocfilehash: 70de86f2e8c4a5577b8a4b50c53d66eb3b205c09
+ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51505833"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57665548"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalizacja i lokalizacja w programie ASP.NET Core
 
-Przez [Rick Anderson](https://twitter.com/RickAndMSFT), [linkach Damien](https://twitter.com/damien_bod), [Calixto Roman](https://twitter.com/bartmax), [Nadeem Afana](https://twitter.com/NadeemAfana), i [Ateya Hisham pojemnika](https://twitter.com/hishambinateya)
+Przez [Rick Anderson](https://twitter.com/RickAndMSFT), [linkach Damien](https://twitter.com/damien_bod), [Calixto Roman](https://twitter.com/bartmax), [Nadeem Afana](https://afana.me/), i [Ateya Hisham pojemnika](https://twitter.com/hishambinateya)
 
 Tworzenie wielojęzycznych witryny sieci Web za pomocą platformy ASP.NET Core Twoja witryna będzie dotrzeć do większej liczby osób. ASP.NET Core oferuje usługi oraz oprogramowanie pośredniczące lokalizowanie w różnych językach i kultur.
 
@@ -44,7 +44,7 @@ Użyj `IHtmlLocalizer<T>` implementację dla zasobów, które zawierają HTML. `
 
 [!code-csharp[](../fundamentals/localization/sample/Localization/Controllers/BookController.cs?highlight=3,5,20&start=1&end=24)]
 
-**Uwaga:** zazwyczaj chcesz tylko lokalizowanie tekst i HTML nie.
+**Uwaga:** Zazwyczaj chcesz tylko lokalizowanie tekst i HTML nie.
 
 Na najniższym poziomie, możesz uzyskać `IStringLocalizerFactory` poza [wstrzykiwanie zależności](dependency-injection.md):
 
@@ -80,7 +80,7 @@ Plik francuska zasobów może zawierać następujące informacje:
 
 W widoku renderowanym zawierałoby kod znaczników HTML z pliku zasobów.
 
-**Uwaga:** zazwyczaj chcesz tylko lokalizowanie tekst i HTML nie.
+**Uwaga:** Zazwyczaj chcesz tylko lokalizowanie tekst i HTML nie.
 
 Aby użyć pliku udostępnionego zasobu w widoku, należy wstrzyknąć `IHtmlLocalizer<T>`:
 
@@ -330,13 +330,13 @@ Internacjonalizacja jest często skracana do "I18N". Skrót przyjmuje litery imi
 
 Warunki:
 
-* Globalizacja (G11N): Proces wprowadzania aplikacji pomocy technicznej w różnych językach i regionach.
+* Globalizacja (G11N): Proces tworzenia aplikacji pomocy technicznej w różnych językach i regionach.
 * Lokalizacja (L10N): Proces dostosowywania aplikacji dla danego języka i regionu.
-* Internacjonalizacja (I18N): w tym artykule opisano lokalizacja i globalizacja.
-* Kultura: Jest język i, opcjonalnie, region.
-* Kultury neutralnej: kultury, który ma określony język, ale nie w regionie. (na przykład "en", "es")
-* Określonej kultury: kultura, który ma określony język i region. (na przykład "en US", "en-GB", "es-CL")
-* Nadrzędny kultury: kultury neutralnej, który zawiera określoną kulturę. (na przykład "en" jest Kultura nadrzędna "en US" i "en-GB")
+* Internacjonalizacja (I18N): W tym artykule opisano, lokalizacja i globalizacja.
+* Kultura: Jest to język i, opcjonalnie, region.
+* Kultury neutralnej: Kultura, który ma określony język, ale nie w regionie. (na przykład "en", "es")
+* Określonej kultury: Kultura, która ma określony język i region. (na przykład "en US", "en-GB", "es-CL")
+* Kultura nadrzędna: Kultury neutralnej, który zawiera określoną kulturę. (na przykład "en" jest Kultura nadrzędna "en US" i "en-GB")
 * Ustawienia regionalne: Ustawienia regionalne jest taka sama jak kultury.
 
 [!INCLUDE[](~/includes/currency.md)]

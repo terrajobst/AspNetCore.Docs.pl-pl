@@ -120,7 +120,7 @@ Użyj jednej z następujących metod:
 
 ### <a name="install-the-preview-site-extension"></a>Zainstalować rozszerzenie witryny usługi (wersja zapoznawcza)
 
-Jeśli wystąpi problem, za pomocą rozszerzenia witryny (wersja zapoznawcza), otwórz problem w [GitHub](https://github.com/aspnet/azureintegration/issues/new).
+Jeśli wystąpi problem, za pomocą rozszerzenia witryny (wersja zapoznawcza), otworzyć [problem aspnet/AspNetCore](https://github.com/aspnet/AspNetCore/issues).
 
 1. W witrynie Azure Portal przejdź do usługi App Service.
 1. Wybierz aplikację sieci web.

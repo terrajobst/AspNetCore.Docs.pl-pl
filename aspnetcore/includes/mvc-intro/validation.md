@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 2dc43dc07d7aecfd6195ea69773ebc4818360f0d
+ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57665436"
+---
 # <a name="add-validation-to-an-aspnet-core-mvc-app"></a>Dodawanie walidacji do aplikacji ASP.NET Core MVC
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
@@ -46,7 +54,7 @@ Zwróć uwagę, jak formularz automatycznie renderowany komunikat o błędzie we
 
 Znaczące korzyści jest, że nie trzeba zmieniać jednego wiersza kodu w `MoviesController` klasy lub *Create.cshtml* widoku w celu włączenia tej weryfikacji interfejsu użytkownika. Kontrolera i widoki utworzone wcześniej w tym samouczku automatycznie wybrany w górę sprawdzania poprawności reguły określona za pomocą atrybutów weryfikacji właściwości `Movie` klasa modelu. Walidacja testu za pomocą `Edit` metody akcji i tego samego sprawdzania poprawności jest stosowana.
 
-Dane formularza nie jest wysyłana do serwera, aż nie wystąpią żadne błędy weryfikacji po stronie klienta. Można to sprawdzić przez umieszczenie punkt przerwania w `HTTP Post` metody, używając [narzędzie Fiddler](http://www.telerik.com/fiddler) , lub [narzędzi deweloperskich F12](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/).
+Dane formularza nie jest wysyłana do serwera, aż nie wystąpią żadne błędy weryfikacji po stronie klienta. Można to sprawdzić przez umieszczenie punkt przerwania w `HTTP Post` metody, używając [narzędzie Fiddler](http://www.telerik.com/fiddler) , lub [narzędzi deweloperskich F12](/microsoft-edge/devtools-guide).
 
 ## <a name="how-validation-works"></a>Działanie sprawdzania poprawności
 

@@ -286,7 +286,7 @@ Aby uzyskać starszej wersji Instalatora:
 1. Pobierz Instalatora przy użyciu **środowisko uruchomieniowe i pakiet hostingu** łącza.
 
 > [!WARNING]
-> Niektóre instalatory zawierają wersje, osiągnęły ich koniec cyklu życia (ma), które nie są już obsługiwane przez firmę Microsoft. Aby uzyskać więcej informacji, zobacz [zasady pomocy technicznej](https://www.microsoft.com/net/download/dotnet-core/2.0).
+> Niektóre instalatory zawierają wersje, osiągnęły ich koniec cyklu życia (ma), które nie są już obsługiwane przez firmę Microsoft. Aby uzyskać więcej informacji, zobacz [zasady pomocy technicznej](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
 
 ### <a name="install-the-hosting-bundle"></a>Zainstaluj pakiet hostingu
 

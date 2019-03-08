@@ -5,14 +5,14 @@ description: Dowiedz się, jak rozpocząć pracę przy użyciu szablonu projektu
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 02/13/2019
+ms.date: 03/07/2019
 uid: spa/react
-ms.openlocfilehash: 3b2b2e67b5d577872bafefef5624a13ca1a22449
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 7b07f696ae071531c88c9f8cf528fc6f0bf97b46
+ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56899180"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57665564"
 ---
 # <a name="use-the-react-project-template-with-aspnet-core"></a>Szablon projektu platformy React za pomocą platformy ASP.NET Core
 
@@ -105,3 +105,7 @@ Po uruchomieniu aplikacji platformy ASP.NET Core, nie będzie on uruchomienia se
 
 > [!IMPORTANT]
 > "Renderowania po stronie serwera" nie jest obsługiwaną funkcją tego szablonu. Naszym celem, korzystając z tego szablonu jest spełniają zgodność z "Utwórz react-app". Jako takie scenariusze i funkcje, które nie są uwzględnione w projekcie "Utwórz react-app" (na przykład SSR) nie są obsługiwane i są pozostawiane w charakterze ćwiczenia dla użytkownika.
+
+## <a name="additional-resources"></a>Dodatkowe zasoby
+
+* <xref:security/authentication/identity/spa>
