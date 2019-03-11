@@ -866,6 +866,7 @@ Zestaw SDK usługi Application Insights można zbierać i zgłaszać dzienniki g
 * [Omówienie usługi Application Insights](/azure/application-insights/app-insights-overview)
 * [Usługa Application Insights dla platformy ASP.NET Core](/azure/application-insights/app-insights-asp-net-core)
 * [Rejestrowanie kart w usłudze Application Insights](https://github.com/Microsoft/ApplicationInsights-dotnet-logging/blob/develop/README.md).
+* [Przykłady implementacji ILogger szczegółowych informacji w aplikacji](/azure/azure-monitor/app/ilogger)
 
 ::: moniker-end
 
