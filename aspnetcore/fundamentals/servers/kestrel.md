@@ -4,14 +4,14 @@ author: guardrex
 description: Więcej informacji na temat Kestrel, serwer sieci web dla wielu platform dla platformy ASP.NET Core.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 02/13/2019
+ms.date: 03/04/2019
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: dcf027c2c495cbecd8464e43749b9154a4360e36
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.openlocfilehash: 5fc6c78f3eb76fcf3dd663c8d878250f0051f153
+ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248410"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57665642"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>Implementacja serwera sieci web kestrel w programie ASP.NET Core
 
@@ -417,6 +417,17 @@ Domyślnie platforma ASP.NET Core wiąże:
 * `http://localhost:5000`
 * `https://localhost:5001` (gdy certyfikat rozwoju lokalnego znajduje się)
 
+Określ adresy URL przy użyciu:
+
+* `ASPNETCORE_URLS` zmiennej środowiskowej.
+* `--urls` argument wiersza polecenia.
+* `urls` Klucz konfiguracji hosta.
+* `UseUrls` metody rozszerzenia.
+
+Podana wartość przy użyciu tych metod może być co najmniej jeden protokół HTTP i HTTPS punktów końcowych (HTTPS Jeśli dostępny jest certyfikatu z domyślną). Konfiguracja uwzględnia wartość będącą rozdzielonej średnikami liście (na przykład `"Urls": "http://localhost:8000; http://localhost:8001"`).
+
+Aby uzyskać więcej informacji na temat tych metod, zobacz [adresy URL serwerów](xref:fundamentals/host/web-host#server-urls) i [zastępczą konfigurację](xref:fundamentals/host/web-host#override-configuration).
+
 Certyfikat programistyczny jest tworzony:
 
 * Gdy [zestawu .NET Core SDK](/dotnet/core/sdk) jest zainstalowany.
@@ -430,7 +441,7 @@ Wywołaj <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.Lis
 
 `UseUrls`, `--urls` argument wiersza polecenia `urls` klucz konfiguracji hosta, a `ASPNETCORE_URLS` zmiennej środowiskowej również działają, ale ma ograniczenia, zauważyć później, w tej sekcji (domyślny certyfikat musi być dostępny dla punktu końcowego protokołu HTTPS Konfiguracja).
 
-Platforma ASP.NET Core 2.1 `KestrelServerOptions` konfiguracji:
+Platforma ASP.NET Core 2.1 lub nowszej `KestrelServerOptions` konfiguracji:
 
 ### <a name="configureendpointdefaultsactionltlistenoptionsgt"></a>ConfigureEndpointDefaults(Action&lt;ListenOptions&gt;)
 
@@ -484,17 +495,6 @@ Obsługiwane konfiguracje opisane w dalszej części:
 *Brak konfiguracji*
 
 Nasłuchuje kestrel `http://localhost:5000` i `https://localhost:5001` (jeśli jest to domyślny certyfikat jest dostępny).
-
-Określ adresy URL przy użyciu:
-
-* `ASPNETCORE_URLS` zmiennej środowiskowej.
-* `--urls` argument wiersza polecenia.
-* `urls` Klucz konfiguracji hosta.
-* `UseUrls` metody rozszerzenia.
-
-Aby uzyskać więcej informacji, zobacz [adresy URL serwerów](xref:fundamentals/host/web-host#server-urls) i [zastępczą konfigurację](xref:fundamentals/host/web-host#override-configuration).
-
-Podana wartość przy użyciu tych metod może być co najmniej jeden protokół HTTP i HTTPS punktów końcowych (HTTPS Jeśli dostępny jest certyfikatu z domyślną). Konfiguracja uwzględnia wartość będącą rozdzielonej średnikami liście (na przykład `"Urls": "http://localhost:8000; http://localhost:8001"`).
 
 *Zamień domyślny certyfikat z konfiguracji*
 
