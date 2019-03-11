@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 10/04/2018
 uid: client-side/using-gulp
-ms.openlocfilehash: e280eabecbd427f3e1418b3d7a60e0ea3df46a5a
-ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
+ms.openlocfilehash: 43277dc5910971374187f49031e74769c9e29e1f
+ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52450609"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57665629"
 ---
 # <a name="use-gulp-in-aspnet-core"></a>Korzystanie z Gulp w programie ASP.NET Core
 
@@ -24,9 +24,9 @@ W aplikacji Typowa Nowoczesna sieć web może być procesu kompilacji:
 * Skompilować mniej lub SASS pliki CSS.
 * Skompiluj pliki CoffeeScript lub TypeScript w kodzie JavaScript.
 
-A *modułu uruchamiającego zadania* to narzędzie, które automatyzuje te zadania tworzenia procedur i nie tylko. Program Visual Studio udostępnia wbudowaną obsługę dla dwóch uczestników popularne zadania oparte na języku JavaScript: [Gulp](https://gulpjs.com/) i [Grunt](using-grunt.md).
+A *modułu uruchamiającego zadania* to narzędzie, które automatyzuje te zadania tworzenia procedur i nie tylko. Program Visual Studio udostępnia wbudowaną obsługę dla dwóch uczestników popularne zadania oparte na języku JavaScript: [Program gulp](https://gulpjs.com/) i [Grunt](using-grunt.md).
 
-## <a name="gulp"></a>Program gulp
+## <a name="gulp"></a>Gulp
 
 Gulp to oparte na języku JavaScript przesyłania strumieniowego kompilacji narzędzi kod po stronie klienta. Często służy do przesyłania plików po stronie klienta za pomocą szeregu procesy po wyzwoleniu określonego zdarzenia w środowisku kompilacji. Na przykład Gulp może służyć do automatyzowania [tworzenie pakietów i minimalizowanie](bundling-and-minification.md) lub czyszczenie środowisko programistyczne przed nową kompilację.
 
@@ -263,7 +263,7 @@ Po uruchomieniu wielu zadań, zadań jednocześnie domyślnie uruchamiane. Jedna
 
 Technologia IntelliSense zawiera uzupełniania kodu, opisy parametrów i inne funkcje, aby zwiększyć wydajność i zmniejszyć błędy. Zadań gulp są napisane w języku JavaScript. w związku z tym funkcja IntelliSense może zapewnić pomoc podczas tworzenia. Podczas pracy z użyciem języka JavaScript, IntelliSense wyświetla listę obiektów, funkcji, właściwości i parametrów, które są dostępne na podstawie Twojego bieżącego kontekstu. Wybierz opcję kodowania z wyskakującej listy dostarczonej przez technologię IntelliSense, aby uzupełnić kod.
 
-![Program gulp IntelliSense](using-gulp/_static/08-IntelliSense.png)
+![gulp IntelliSense](using-gulp/_static/08-IntelliSense.png)
 
 Aby uzyskać więcej informacji na temat technologii IntelliSense, zobacz [JavaScript IntelliSense](/visualstudio/ide/javascript-intellisense).
 
@@ -332,12 +332,12 @@ Zadań Gulp jest zarejestrowana z nazwą funkcji. Można określić zależności
 
 |Program gulp — funkcja|Składnia|Opis|
 |---   |--- |--- |
-|— zadanie  |`gulp.task(name[, deps], fn) { }`|`task` Funkcja tworzy zadanie. `name` Parametr określa nazwę zadania. `deps` Parametr zawiera tablicę zadań do wykonania przed uruchomieniem tego zadania. `fn` Parametr reprezentuje funkcję wywołania zwrotnego, która wykonuje operacje zadania.|
+| — zadanie  |`gulp.task(name[, deps], fn) { }`|`task` Funkcja tworzy zadanie. `name` Parametr określa nazwę zadania. `deps` Parametr zawiera tablicę zadań do wykonania przed uruchomieniem tego zadania. `fn` Parametr reprezentuje funkcję wywołania zwrotnego, która wykonuje operacje zadania.|
 |Wyrażenie kontrolne |`gulp.watch(glob [, opts], tasks) { }`|`watch` Funkcja monitoruje zadania plików i przebiegi po zmianie pliku. `glob` Parametr jest `string` lub `array` określający, plików, których obejrzeć. `opts` Parametr zawiera dodatkowy plik oglądania opcje.|
 |src   |`gulp.src(globs[, options]) { }`|`src` Funkcja zawiera pliki, które odpowiadają wartości glob. `glob` Parametr jest `string` lub `array` określający plików do odczytu. `options` Parametr zapewnia dodatkowe opcje pliku.|
-|docelowy  |`gulp.dest(path[, options]) { }`|`dest` Funkcja określa lokalizację, do którego można zapisywać pliki. `path` Parametru jest ciąg lub funkcja, która określa folder docelowy. `options` Parametru jest obiektem, który określa opcje folderów danych wyjściowych.|
+|dest  |`gulp.dest(path[, options]) { }`|`dest` Funkcja określa lokalizację, do którego można zapisywać pliki. `path` Parametru jest ciąg lub funkcja, która określa folder docelowy. `options` Parametru jest obiektem, który określa opcje folderów danych wyjściowych.|
 
-Aby uzyskać dodatkowe informacje Gulp interfejsu API zobacz [Gulp Docs API](https://github.com/gulpjs/gulp/blob/master/docs/API.md).
+Aby uzyskać dodatkowe informacje Gulp interfejsu API zobacz [Gulp Docs API](https://gulpjs.org/API.html).
 
 ## <a name="gulp-recipes"></a>Przepisy gulp
 
