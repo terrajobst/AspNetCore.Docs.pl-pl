@@ -3,14 +3,14 @@ title: Potwierdzenie konta i odzyskiwanie hasła w programie ASP.NET Core
 author: rick-anderson
 description: Dowiedz się, jak utworzyć aplikację platformy ASP.NET Core za pomocą poczty e-mail potwierdzenia i resetowaniem hasła.
 ms.author: riande
-ms.date: 2/11/2019
+ms.date: 3/11/2019
 uid: security/authentication/accconfirm
-ms.openlocfilehash: 77d7b209d57f9ee44f158798ff780ce85c87aaf2
-ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
+ms.openlocfilehash: 05efb75d26558702c88e87d191a780371034282c
+ms.sourcegitcommit: 34bf9fc6ea814c039401fca174642f0acb14be3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56159411"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57841478"
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>Potwierdzenie konta i odzyskiwanie hasła w programie ASP.NET Core
 
@@ -22,7 +22,7 @@ Zobacz [plik PDF](https://webpifeed.blob.core.windows.net/webpifeed/Partners/asp
 
 ::: moniker range=">= aspnetcore-2.1"
 
-Przez [Rick Anderson](https://twitter.com/RickAndMSFT) i [Audette Jan](https://twitter.com/joeaudette)
+Przez [Rick Anderson](https://twitter.com/RickAndMSFT), [Ponant](https://github.com/Ponant), i [Audette Jan](https://twitter.com/joeaudette)
 
 W tym samouczku przedstawiono sposób kompilowania aplikacji platformy ASP.NET Core za pomocą poczty e-mail potwierdzenia i resetowaniem hasła. Niniejszy samouczek jest **nie** początku tematu. Należy zapoznać się z:
 
@@ -34,45 +34,23 @@ W tym samouczku przedstawiono sposób kompilowania aplikacji platformy ASP.NET C
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-[!INCLUDE [](~/includes/2.1-SDK.md)]
+[Zestaw SDK programu .NET core 2.2 lub nowszej](https://www.microsoft.com/net/download/all)
 
 ## <a name="create-a-web--app-and-scaffold-identity"></a>Tworzenie aplikacji sieci web i tworzenia szkieletu tożsamości
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
-
-* W programie Visual Studio Utwórz nowy **aplikacji sieci Web** projektu o nazwie **WebPWrecover**.
-* Select **ASP.NET Core 2.1**.
-* Zachowaj wartość domyślną **uwierzytelniania** równa **bez uwierzytelniania**. Uwierzytelnianie jest dodawany w następnym kroku.
-
-W następnym kroku:
-
-* Ustaw układ strony *~/Pages/Shared/_Layout.cshtml*
-* Wybierz *konta/rejestrowanie*
-* Utwórz nową **klasa kontekstu danych**
-
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+Uruchom następujące polecenia, aby utworzyć aplikację sieci web przy użyciu uwierzytelniania.
 
 ```console
-dotnet new webapp -o WebPWrecover
+dotnet new webapp -au Individual -uld -o WebPWrecover
 cd WebPWrecover
-dotnet tool install -g dotnet-aspnet-codegenerator
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 dotnet restore
-dotnet aspnet-codegenerator identity -fi Account.Register -dc WebPWrecover.Models.WebPWrecoverContext
-dotnet ef migrations add CreateIdentitySchema
+dotnet aspnet-codegenerator identity -dc WebPWrecover.Data.ApplicationDbContext --files "Account.Register;Account.Login;Account.Logout;Account.ConfirmEmail
 dotnet ef database drop -f
 dotnet ef database update
-dotnet build
+dotnet run
+
 ```
-
-Uruchom `dotnet aspnet-codegenerator identity --help` Aby uzyskać pomoc na temat narzędzia do tworzenia szkieletów.
-
-------
-
-Postępuj zgodnie z instrukcjami w [Włącz uwierzytelnianie](xref:security/authentication/scaffold-identity#useauthentication):
-
-* Dodaj `app.UseAuthentication();` do `Startup.Configure`
-* Dodaj `<partial name="_LoginPartial" />` do pliku układu.
 
 ## <a name="test-new-user-registration"></a>Rejestrowanie nowego użytkownika testowego
 
@@ -91,9 +69,9 @@ Jest najlepszym rozwiązaniem, aby potwierdzić adres e-mail rejestrowanie noweg
 
 Zazwyczaj chcesz uniemożliwić nowym użytkownikom publikowanie żadnych danych do witryny sieci web, zanim potwierdzone pocztą e-mail.
 
-Aktualizacja *Areas/Identity/IdentityHostingStartup.cs* będą musieli potwierdzony adres e-mail:
+Aktualizacja `Startup.ConfigureServices` będą musieli potwierdzony adres e-mail:
 
-[!code-csharp[](accconfirm/sample/WebPWrecover21/Areas/Identity/IdentityHostingStartup.cs?name=snippet1&highlight=10-13)]
+[!code-csharp[](accconfirm/sample/WebPWrecover22/Startup.cs?name=snippet1&highlight=8-11)]
 
 `config.SignIn.RequireConfirmedEmail = true;` zarejestrowani użytkownicy uniemożliwia logowanie do momentu ich adres e-mail został potwierdzony.
 
@@ -103,13 +81,9 @@ W tym samouczku [SendGrid](https://sendgrid.com) służy do wysyłania wiadomoś
 
 Utwórz klasę, można pobrać klucza zabezpieczanie poczty e-mail. W tym przykładzie należy utworzyć *Services/AuthMessageSenderOptions.cs*:
 
-[!code-csharp[](accconfirm/sample/WebPWrecover21/Services/AuthMessageSenderOptions.cs?name=snippet1)]
+[!code-csharp[](accconfirm/sample/WebPWrecover22/Services/AuthMessageSenderOptions.cs?name=snippet1)]
 
 #### <a name="configure-sendgrid-user-secrets"></a>Konfigurowanie wpisami tajnymi użytkowników usługi SendGrid
-
-Dodaj unikatowy `<UserSecretsId>` wartość `<PropertyGroup>` elementu w pliku projektu:
-
-[!code-xml[](accconfirm/sample/WebPWrecover21/WebPWrecover.csproj?highlight=5)]
 
 Ustaw `SendGridUser` i `SendGridKey` z [narzędzie Menedżer klucz tajny](xref:security/app-secrets). Na przykład:
 
@@ -120,7 +94,7 @@ info: Successfully saved SendGridUser = RickAndMSFT to the secret store.
 
 Na Windows, klucza tajnego Manager przechowuje par kluczy i wartości w *secrets.json* w pliku `%APPDATA%/Microsoft/UserSecrets/<WebAppName-userSecretsId>` katalogu.
 
-Zawartość *secrets.json* pliku nie są szyfrowane. *Secrets.json* plików znajdują się poniżej ( `SendGridKey` wartość została usunięta.)
+Zawartość *secrets.json* pliku nie są szyfrowane. Ilustruje poniższy kod znaczników *secrets.json* pliku. `SendGridKey` Wartość została usunięta.
 
  ```json
   {
@@ -137,7 +111,7 @@ W tym samouczku przedstawiono sposób dodawania powiadomienia e-mail za pośredn
 
 Zainstaluj `SendGrid` pakietu NuGet:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 W konsoli Menedżera pakietów wprowadź następujące polecenie:
 
@@ -160,7 +134,7 @@ Zobacz [bezpłatnie Rozpocznij pracę za pomocą usługi SendGrid](https://sendg
 
 Zaimplementowanie `IEmailSender`, Utwórz *Services/EmailSender.cs* kodem podobny do następującego:
 
-[!code-csharp[](accconfirm/sample/WebPWrecover21/Services/EmailSender.cs)]
+[!code-csharp[](accconfirm/sample/WebPWrecover22/Services/EmailSender.cs)]
 
 ### <a name="configure-startup-to-support-email"></a>Konfigurowanie uruchamiania do obsługi poczty e-mail
 
@@ -169,13 +143,13 @@ Dodaj następujący kod do `ConfigureServices` method in Class metoda *Startup.c
 * Dodaj `EmailSender` jako przejściowe usługi.
 * Zarejestruj `AuthMessageSenderOptions` wystąpienia konfiguracji.
 
-[!code-csharp[](accconfirm/sample/WebPWrecover21/Startup.cs?name=snippet2&highlight=12-99)]
+[!code-csharp[](accconfirm/sample/WebPWrecover22/Startup.cs?name=snippet1&highlight=15-99)]
 
 ## <a name="enable-account-confirmation-and-password-recovery"></a>Włącz odzyskiwanie potwierdzenia i hasło konta
 
 Szablon zawiera kod odzyskiwania potwierdzenia i hasło konta. Znajdź `OnPostAsync` method in Class metoda *Areas/Identity/Pages/Account/Register.cshtml.cs*.
 
-Uniemożliwić nowym użytkownikom zalogowanie się automatycznie, zakomentowując następujący wiersz:
+Uniemożliwić nowym użytkownikom Trwa automatyczne logowanie, zakomentowując następujący wiersz:
 
 ```csharp
 await _signInManager.SignInAsync(user, isPersistent: false);
@@ -183,16 +157,13 @@ await _signInManager.SignInAsync(user, isPersistent: false);
 
 Za pomocą zmieniony wiersz wyróżniony pokazano całą metodę:
 
-[!code-csharp[](accconfirm/sample/WebPWrecover21/Areas/Identity/Pages/Account/Register.cshtml.cs?highlight=22&name=snippet_Register)]
+[!code-csharp[](accconfirm/sample/WebPWrecover22/Areas/Identity/Pages/Account/Register.cshtml.cs?highlight=22&name=snippet_Register)]
 
 ## <a name="register-confirm-email-and-reset-password"></a>Rejestrowania i resetowania hasła oraz Potwierdź adres e-mail
 
 Uruchamianie aplikacji sieci web i przetestować potwierdzenie konta i hasła odzyskiwania przepływu.
 
 * Uruchom aplikację i zarejestrować nowego użytkownika
-
-  ![Widok zarejestrować konto aplikacji sieci Web](accconfirm/_static/loginaccconfirm1.png)
-
 * Sprawdź pocztę e-mail, aby uzyskać link do potwierdzenia konta. Zobacz [debugowania e-mail](#debug) otrzymasz wiadomości e-mail.
 * Kliknij link, aby potwierdzić swój adres e-mail.
 * Zaloguj się przy użyciu poczty e-mail i hasło.
@@ -201,10 +172,6 @@ Uruchamianie aplikacji sieci web i przetestować potwierdzenie konta i hasła od
 ### <a name="view-the-manage-page"></a>Wyświetlanie strony zarządzania
 
 Wybierz swoją nazwę użytkownika w przeglądarce: ![okno przeglądarki z nazwą użytkownika](accconfirm/_static/un.png)
-
-Może być konieczne Rozwiń pasek nawigacyjny, aby wyświetlić nazwę użytkownika.
-
-![pasek nawigacyjny](accconfirm/_static/x.png)
 
 Zostanie wyświetlona strona zarządzania, z **profilu** wybraną kartą. **E-mail** przedstawia pole wyboru, wskazujący adres e-mail został potwierdzony.
 
@@ -215,8 +182,37 @@ Zostanie wyświetlona strona zarządzania, z **profilu** wybraną kartą. **E-ma
 * Wprowadź adres e-mail, którego użyłeś do zarejestrować konto.
 * Wiadomość e-mail z linkiem do zresetowania hasła są wysyłane. Sprawdź pocztę e-mail, a następnie kliknij link, aby zresetować hasło. Po pomyślnie zresetowano hasło możesz zarejestrować się przy użyciu poczty e-mail i nowe hasło.
 
-<a name="debug"></a>
+## <a name="change-email-and-activity-timeout"></a>Limit czasu wiadomości e-mail i działania zmiany
 
+Domyślny limit czasu braku aktywności to 14 dni. Poniższy kod ustawia limit czasu braku aktywności na 5 dni:
+
+[!code-csharp[](accconfirm/sample/WebPWrecover22/StartupAppCookie.cs?name=snippet1)]
+
+### <a name="change-all-data-protection-token-lifespans"></a>Zmień wszystkie lifespans tokenu ochrony danych
+
+Poniższy kod zmienia wszystkie dane ochrony tokenów limit czasu do 3 godzin:
+
+[!code-csharp[](accconfirm/sample/WebPWrecover22/StartupAllTokens.cs?name=snippet1&highlight=15-16)]
+
+Wbudowanej w tożsamości tokeny użytkowników (zobacz [AspNetCore/src/Identity/Extensions.Core/src/TokenOptions.cs](https://github.com/aspnet/AspNetCore/blob/v2.2.2/src/Identity/Extensions.Core/src/TokenOptions.cs) ) mają [limitu czasu w ciągu jednego dnia](https://github.com/aspnet/AspNetCore/blob/v2.2.2/src/Identity/Core/src/DataProtectionTokenProviderOptions.cs).
+
+### <a name="change-the-email-token-lifespan"></a>Zmień czas tokenu poczty e-mail
+
+Domyślny token żywotność [tokeny użytkowników tożsamości](https://github.com/aspnet/AspNetCore/blob/v2.2.2/src/Identity/Extensions.Core/src/TokenOptions.cs) jest [jeden dzień](https://github.com/aspnet/AspNetCore/blob/v2.2.2/src/Identity/Core/src/DataProtectionTokenProviderOptions.cs). W tej sekcji pokazano, jak zmienić czas tokenu wiadomości e-mail.
+
+Dodaj niestandardową [DataProtectorTokenProvider\<TUser >](/dotnet/api/microsoft.aspnetcore.identity.dataprotectortokenprovider-1) i <xref:Microsoft.AspNetCore.Identity.DataProtectionTokenProviderOptions>:
+
+[!code-csharp[](accconfirm/sample/WebPWrecover22/TokenProviders/CustomTokenProvider.cs?name=snippet1)]
+
+Dodaj niestandardowego dostawcę do kontenera usługi:
+
+[!code-csharp[](accconfirm/sample/WebPWrecover22/StartupEmail.cs?name=snippet1&highlight=10-13)]
+
+### <a name="resend-email-confirmation"></a>Ponownie wyślij e-mail z potwierdzeniem
+
+Zobacz [problem w usłudze GitHub](https://github.com/aspnet/AspNetCore/issues/5410).
+
+<a name="debug"></a>
 ### <a name="debug-email"></a>Debugowanie poczty e-mail
 
 Jeśli nie można rozpocząć pracę poczty e-mail:
