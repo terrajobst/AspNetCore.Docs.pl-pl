@@ -1,0 +1,24 @@
+---
+ms.openlocfilehash: 1f8d3913c83aaf5fe6ec2cec482a30f0f066c16b
+ms.sourcegitcommit: 34bf9fc6ea814c039401fca174642f0acb14be3c
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57841696"
+---
+
+> [!NOTE]
+> <span data-ttu-id="55379-101">W tym samouczku użyjesz programu Entity Framework Core *migracje* funkcji, jeśli jest to możliwe.</span><span class="sxs-lookup"><span data-stu-id="55379-101">For this tutorial you use the Entity Framework Core *migrations* feature where possible.</span></span> <span data-ttu-id="55379-102">Migracje aktualizuje schemat bazy danych, aby dopasować zmiany w modelu danych.</span><span class="sxs-lookup"><span data-stu-id="55379-102">Migrations updates the database schema to match changes in the data model.</span></span> <span data-ttu-id="55379-103">Jednak migracji można zrobić tylko rodzaje zmian, obsługiwane przez dostawcę programu EF Core i możliwości dostawcy bazy danych SQLite są ograniczone.</span><span class="sxs-lookup"><span data-stu-id="55379-103">However, migrations can only do the kinds of changes that the EF Core provider supports, and the SQLite provider's capabilities are limited.</span></span> <span data-ttu-id="55379-104">Na przykład dodawanie kolumny jest obsługiwane, ale usuwanie lub zmienianie kolumny nie jest obsługiwana.</span><span class="sxs-lookup"><span data-stu-id="55379-104">For example, adding a column is supported, but removing or changing a column is not supported.</span></span> <span data-ttu-id="55379-105">Jeśli migracji została utworzona, aby usunąć lub zmienić kolumny, `ef migrations add` polecenie zakończy się pomyślnie, ale `ef database update` polecenie kończy się niepowodzeniem.</span><span class="sxs-lookup"><span data-stu-id="55379-105">If a migration is created to remove or change a column, the `ef migrations add` command succeeds but the `ef database update` command fails.</span></span> <span data-ttu-id="55379-106">Ze względu na te ograniczenia w tym samouczku nie używa migracji na zmiany schematu bazy danych SQLite.</span><span class="sxs-lookup"><span data-stu-id="55379-106">Due to these limitations, this tutorial doesn't use migrations for SQLite schema changes.</span></span> <span data-ttu-id="55379-107">Zamiast tego po zmianie schematu, należy porzucić i ponownie utworzyć bazy danych.</span><span class="sxs-lookup"><span data-stu-id="55379-107">Instead, when the schema changes, you drop and re-create the database.</span></span>
+>
+><span data-ttu-id="55379-108">Obejście problemu w przypadku ograniczenia SQLite jest ręcznie napisać kod migracji do wykonywania odbudowie tabeli, gdy coś, co w przypadku zmiany w tabeli.</span><span class="sxs-lookup"><span data-stu-id="55379-108">The workaround for the SQLite limitations is to manually write migrations code to perform a table rebuild when something in the table changes.</span></span> <span data-ttu-id="55379-109">Wymaga odbudowania indeksu tabeli:</span><span class="sxs-lookup"><span data-stu-id="55379-109">A table rebuild involves:</span></span>
+>
+>* <span data-ttu-id="55379-110">Zmiana nazwy istniejącej tabeli.</span><span class="sxs-lookup"><span data-stu-id="55379-110">Renaming the existing table.</span></span>
+>* <span data-ttu-id="55379-111">Trwa tworzenie nowej tabeli.</span><span class="sxs-lookup"><span data-stu-id="55379-111">Creating a new table.</span></span>
+>* <span data-ttu-id="55379-112">Kopiowanie danych z tabeli starej do nowej tabeli.</span><span class="sxs-lookup"><span data-stu-id="55379-112">Copying data from the old table to the new table.</span></span>
+>* <span data-ttu-id="55379-113">Usunięcie starych tabeli.</span><span class="sxs-lookup"><span data-stu-id="55379-113">Dropping the old table.</span></span>
+>
+><span data-ttu-id="55379-114">Aby uzyskać więcej informacji, zobacz następujące zasoby:</span><span class="sxs-lookup"><span data-stu-id="55379-114">For more information, see the following resources:</span></span>
+>
+> * [<span data-ttu-id="55379-115">SQLite EF Core Database Provider Limitations</span><span class="sxs-lookup"><span data-stu-id="55379-115">SQLite EF Core Database Provider Limitations</span></span>](/ef/core/providers/sqlite/limitations)
+> * [<span data-ttu-id="55379-116">Dostosowywanie kodu migracji</span><span class="sxs-lookup"><span data-stu-id="55379-116">Customize migration code</span></span>](/ef/core/managing-schemas/migrations/#customize-migration-code)
+> * [<span data-ttu-id="55379-117">Wstępne wypełnianie danych</span><span class="sxs-lookup"><span data-stu-id="55379-117">Data seeding</span></span>](/ef/core/modeling/data-seeding)
