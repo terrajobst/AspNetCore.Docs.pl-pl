@@ -4,14 +4,14 @@ author: guardrex
 description: Dowiedz się, jak diagnozować problemy z wdrożeniami usług Internet Information Services (IIS) w aplikacji platformy ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2018
+ms.date: 03/06/2019
 uid: host-and-deploy/iis/troubleshoot
-ms.openlocfilehash: 68fcd578c051ae9ba6234cad0465a7ef42f1ed14
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: 2f36ae2bda8537e91a3bc925505986bdd6a22a47
+ms.sourcegitcommit: 34bf9fc6ea814c039401fca174642f0acb14be3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637693"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57841556"
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a>Rozwiązywanie problemów z platformą ASP.NET Core w usługach IIS
 
@@ -236,13 +236,51 @@ Zobacz <xref:host-and-deploy/azure-iis-errors-reference>. Najbardziej typowe pro
 
 Jeśli aplikacja jest w stanie odpowiadać na żądania, żądania, połączenia i dodatkowych danych można uzyskać z aplikację za pomocą oprogramowania pośredniczącego terminalu wbudowanego. Aby uzyskać więcej informacji i przykładowy kod, zobacz <xref:test/troubleshoot#obtain-data-from-an-app>.
 
-## <a name="slow-or-hanging-app"></a>Wolne lub zwisa aplikacji
+## <a name="create-a-dump"></a>Utwórz zrzut
 
-Gdy aplikacja będzie odpowiadać wolno lub zawiesza się na żądanie, Uzyskaj i analizowanie [plik zrzutu](/visualstudio/debugger/using-dump-files). Pliki zrzutu można uzyskać przy użyciu dowolnej z następujących narzędzi:
+A *zrzutu* jest migawką pamięci systemowej i mogą pomóc w określeniu przyczyny awarii aplikacji, Niepowodzenie uruchamiania lub powolne aplikacji.
 
-* [ProcDump](/sysinternals/downloads/procdump)
-* [DebugDiag](https://www.microsoft.com/download/details.aspx?id=49924)
-* WinDbg: [Pobierz narzędzia debugowania dla Windows](https://developer.microsoft.com/windows/hardware/download-windbg), [debugowania za pomocą narzędzia WinDbg](/windows-hardware/drivers/debugger/debugging-using-windbg)
+### <a name="app-crashes-or-encounters-an-exception"></a>Aplikacja ulegnie awarii lub napotka wyjątek
+
+Uzyskaj i analizowanie zrzutu z [raportowania błędów Windows (WER)](/windows/desktop/wer/windows-error-reporting):
+
+1. Utwórz folder do przechowywania plików zrzutu awaryjnego na `c:\dumps`. Pula aplikacji musi mieć dostęp do zapisu do folderu.
+1. Uruchom [skrypt programu EnableDumps PowerShell](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/troubleshoot/scripts/EnableDumps.ps1):
+   * Jeśli aplikacja korzysta z [modelu hostingu w trakcie](xref:fundamentals/servers/index#in-process-hosting-model), uruchom skrypt *w3wp.exe*:
+
+     ```console
+     .\EnableDumps w3wp.exe c:\dumps
+     ```
+   * Jeśli aplikacja korzysta z [modelu hostingu poza procesem](xref:fundamentals/servers/index#out-of-process-hosting-model), uruchom skrypt *dotnet.exe*:
+
+     ```console
+     .\EnableDumps dotnet.exe c:\dumps
+     ```
+1. Uruchom aplikację zgodnie z warunkami, które powodują awarię wystąpić.
+1. Po przeprowadzeniu awarii Uruchom [skrypt programu DisableDumps PowerShell](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/troubleshoot/scripts/DisableDumps.ps1):
+   * Jeśli aplikacja korzysta z [modelu hostingu w trakcie](xref:fundamentals/servers/index#in-process-hosting-model), uruchom skrypt *w3wp.exe*:
+
+     ```console
+     .\DisableDumps w3wp.exe
+     ```
+   * Jeśli aplikacja korzysta z [modelu hostingu poza procesem](xref:fundamentals/servers/index#out-of-process-hosting-model), uruchom skrypt *dotnet.exe*:
+
+     ```console
+     .\DisableDumps dotnet.exe
+     ```
+
+Po zakończeniu zbierania zrzutu awarii aplikacji oraz aplikację może zakończyć w zwykły sposób. Skrypt programu PowerShell umożliwia skonfigurowanie raportowania błędów systemu Windows do zbierania zrzutów maksymalnie pięć na aplikację.
+
+> [!WARNING]
+> Zrzuty awaryjne może potrwać dużą ilość miejsca na dysku (maksymalnie kilka gigabajtów każdego).
+
+### <a name="app-hangs-fails-during-startup-or-runs-normally"></a>Aplikacja zawiesza się zakończy się niepowodzeniem podczas uruchamiania i działa normalnie
+
+Gdy aplikacja *zawiesza się* (przestaje odpowiadać, ale nie awarii), zakończy się niepowodzeniem podczas uruchamiania lub działa normalnie, zobacz [plików zrzut trybu użytkownika: Wybieranie najlepszych narzędzi](/windows-hardware/drivers/debugger/user-mode-dump-files#choosing-the-best-tool) do wybrania odpowiedniego narzędzia do tworzenia zrzutu.
+
+### <a name="analyze-the-dump"></a>Analizowanie zrzutu
+
+Zrzut można analizować przy użyciu kilku metod. Aby uzyskać więcej informacji, zobacz [analizowanie plik zrzutu trybu użytkownika](/windows-hardware/drivers/debugger/analyzing-a-user-mode-dump-file).
 
 ## <a name="remote-debugging"></a>Debugowanie zdalne
 

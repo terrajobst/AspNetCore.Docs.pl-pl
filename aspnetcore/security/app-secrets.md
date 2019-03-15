@@ -4,14 +4,14 @@ author: rick-anderson
 description: Informacje o sposobie przechowywania i pobierania informacji poufnych jako wpisy tajne aplikacji podczas tworzenia aplikacji ASP.NET Core.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 01/31/2019
+ms.date: 03/13/2019
 uid: security/app-secrets
-ms.openlocfilehash: eaa2e9d1ba98d391a29a9ff55872d062df016b87
-ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
+ms.openlocfilehash: 1a10c4d035510c689e3eccadc5986df0cc06b71e
+ms.sourcegitcommit: 34bf9fc6ea814c039401fca174642f0acb14be3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55667781"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57841517"
 ---
 # <a name="safe-storage-of-app-secrets-in-development-in-aspnet-core"></a>Bezpieczne przechowywanie kluczy tajnych aplikacji w trakcie opracowywania w programie ASP.NET Core
 
@@ -27,7 +27,7 @@ Zmienne środowiskowe są używane w celu uniknięcia przechowywanie kluczy tajn
 
 ::: moniker range="<= aspnetcore-1.1"
 
-Konfigurowanie odczytywania wartości zmiennych środowiskowych, wywołując [AddEnvironmentVariables](/dotnet/api/microsoft.extensions.configuration.environmentvariablesextensions.addenvironmentvariables) w `Startup` Konstruktor:
+Konfigurowanie odczytywania wartości zmiennych środowiskowych, wywołując <xref:Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions.AddEnvironmentVariables*> w `Startup` Konstruktor:
 
 [!code-csharp[](app-secrets/samples/1.x/UserSecrets/Startup.cs?name=snippet_StartupConstructor&highlight=8)]
 
@@ -55,13 +55,7 @@ Narzędzie Menedżer klucz tajny ukrywa szczegóły implementacji, takich jak gd
 
 `%APPDATA%\Microsoft\UserSecrets\<user_secrets_id>\secrets.json`
 
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
-
-Ścieżka systemu plików:
-
-`~/.microsoft/usersecrets/<user_secrets_id>/secrets.json`
-
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# <a name="linux--macostablinuxmacos"></a>[Linux / macOS](#tab/linux+macos)
 
 Ścieżka systemu plików:
 
@@ -125,9 +119,27 @@ Use "dotnet user-secrets [command] --help" for more information about a command.
 
 ::: moniker-end
 
-## <a name="set-a-secret"></a>Ustaw klucz tajny
+## <a name="enable-secret-storage"></a>Włącz wpisu tajnego magazynu
 
-Narzędzie Menedżer klucz tajny działa na ustawień konfiguracji specyficznych dla projektu, przechowywane w profilu użytkownika. Aby korzystać z wpisami tajnymi użytkowników, należy zdefiniować `UserSecretsId` elemencie `PropertyGroup` z *.csproj* pliku. Wartość `UserSecretsId` jest określana, ale jest unikatowy dla projektu. Deweloperzy zazwyczaj Wygeneruj identyfikator GUID dla `UserSecretsId`.
+Narzędzie Menedżer klucz tajny działa na ustawień konfiguracji specyficznych dla projektu, przechowywane w profilu użytkownika.
+
+::: moniker range=">= aspnetcore-3.0"
+
+Narzędzie Menedżer wpis tajny zawiera `init` polecenia w pliku zestawu .NET Core SDK 3.0.100 lub nowszej. Aby korzystać z wpisami tajnymi użytkowników, uruchom następujące polecenie w katalogu projektu:
+
+```console
+dotnet user-secrets init
+```
+
+Poprzednie polecenie dodaje `UserSecretsId` elemencie `PropertyGroup` z *.csproj* pliku. Domyślnie tekst zawarty wewnątrz `UserSecretsId` jest identyfikatorem GUID. Tekst wewnętrzny jest określana, ale jest unikatowy dla projektu.
+
+::: moniker-end
+
+::: moniker range="<= aspnetcore-2.2"
+
+Aby korzystać z wpisami tajnymi użytkowników, należy zdefiniować `UserSecretsId` elemencie `PropertyGroup` z *.csproj* pliku. Tekst zawarty wewnątrz `UserSecretsId` jest określana, ale jest unikatowy dla projektu. Deweloperzy zazwyczaj Wygeneruj identyfikator GUID dla `UserSecretsId`.
+
+::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -142,21 +154,9 @@ Narzędzie Menedżer klucz tajny działa na ustawień konfiguracji specyficznych
 ::: moniker-end
 
 > [!TIP]
-> W programie Visual Studio, kliknij prawym przyciskiem myszy projekt w Eksploratorze rozwiązań i wybierz **zarządzania wpisami tajnymi użytkowników** z menu kontekstowego. Dodaje ten gest `UserSecretsId` elementu wypełniane przy użyciu identyfikatora GUID do *.csproj* pliku. Zostanie otwarty program Visual Studio *secrets.json* plik w edytorze tekstów. Zastąp zawartość *secrets.json* za pomocą pary klucz wartość, która ma być przechowywany. Na przykład:
-> ```json
-> {
->   "Movies": {
->     "ConnectionString": "Server=(localdb)\\mssqllocaldb;Database=Movie-1;Trusted_Connection=True;MultipleActiveResultSets=true",
->     "ServiceApiKey": "12345"
->   }
-> }
-> ```
-> Struktura JSON jest spłaszczany po modyfikacji za pośrednictwem `dotnet user-secrets remove` lub `dotnet user-secrets set`. Aby na przykład uruchomić `dotnet user-secrets remove "Movies:ConnectionString"` zwija `Movies` literału obiektu. Zmodyfikowany plik jest podobny do następującego:
-> ```json
-> {
->   "Movies:ServiceApiKey": "12345"
-> }
-> ```
+> W programie Visual Studio, kliknij prawym przyciskiem myszy projekt w Eksploratorze rozwiązań i wybierz **zarządzania wpisami tajnymi użytkowników** z menu kontekstowego. Dodaje ten gest `UserSecretsId` elementu wypełniane przy użyciu identyfikatora GUID do *.csproj* pliku.
+
+## <a name="set-a-secret"></a>Ustaw klucz tajny
 
 Zdefiniuj klucz tajny aplikacji składających się z klucza i wartości. Klucz tajny jest skojarzony z projektem `UserSecretsId` wartość. Na przykład, uruchom następujące polecenie z katalogu, w którym *.csproj* istnieje plik:
 
@@ -172,6 +172,27 @@ Narzędzie Menedżer klucz tajny może służyć za z innych katalogów. Użyj `
 dotnet user-secrets set "Movies:ServiceApiKey" "12345" --project "C:\apps\WebApp1\src\WebApp1"
 ```
 
+### <a name="json-structure-flattening-in-visual-studio"></a>Struktura JSON spłaszczanie w programie Visual Studio
+
+Visual Studio **zarządzania wpisami tajnymi użytkowników** gestu otwiera *secrets.json* plik w edytorze tekstów. Zastąp zawartość *secrets.json* za pomocą pary klucz wartość, która ma być przechowywany. Na przykład:
+
+```json
+{
+  "Movies": {
+    "ConnectionString": "Server=(localdb)\\mssqllocaldb;Database=Movie-1;Trusted_Connection=True;MultipleActiveResultSets=true",
+    "ServiceApiKey": "12345"
+  }
+}
+```
+
+Struktura JSON jest spłaszczany po modyfikacji za pośrednictwem `dotnet user-secrets remove` lub `dotnet user-secrets set`. Aby na przykład uruchomić `dotnet user-secrets remove "Movies:ConnectionString"` zwija `Movies` literału obiektu. Zmodyfikowany plik jest podobny do następującego:
+
+```json
+{
+  "Movies:ServiceApiKey": "12345"
+}
+```
+
 ## <a name="set-multiple-secrets"></a>Ustawianie wielu wpisów tajnych
 
 Seria wpisów tajnych można ustawić przez przekazanie w potoku JSON do `set` polecenia. W poniższym przykładzie *input.json* zawartość tego pliku są potokiem do `set` polecenia.
@@ -184,15 +205,7 @@ Otwórz powłokę wiersza polecenia, a następnie wykonaj następujące poleceni
   type .\input.json | dotnet user-secrets set
   ```
 
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
-
-Otwórz powłokę wiersza polecenia, a następnie wykonaj następujące polecenie:
-
-  ```console
-  cat ./input.json | dotnet user-secrets set
-  ```
-
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# <a name="linux--macostablinuxmacos"></a>[Linux / macOS](#tab/linux+macos)
 
 Otwórz powłokę wiersza polecenia, a następnie wykonaj następujące polecenie:
 
@@ -204,9 +217,15 @@ Otwórz powłokę wiersza polecenia, a następnie wykonaj następujące poleceni
 
 ## <a name="access-a-secret"></a>Dostęp do klucza tajnego
 
-::: moniker range=">= aspnetcore-2.0"
+[Interfejsu API platformy ASP.NET Core](xref:fundamentals/configuration/index) zapewnia dostęp do kluczy tajnych Menedżera klucz tajny.
 
-[Interfejsu API platformy ASP.NET Core](xref:fundamentals/configuration/index) zapewnia dostęp do kluczy tajnych Menedżera klucz tajny. Jeśli projekt jest przeznaczony dla .NET Framework, należy zainstalować [Microsoft.Extensions.Configuration.UserSecrets](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.UserSecrets) pakietu NuGet.
+::: moniker range=">= aspnetcore-2.0 <= aspnetcore-2.2"
+
+Jeśli projekt jest przeznaczony dla .NET Framework, należy zainstalować [Microsoft.Extensions.Configuration.UserSecrets](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.UserSecrets) pakietu NuGet.
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.0"
 
 W programie ASP.NET Core 2.0 lub nowszej, źródło konfiguracji kluczy tajnych użytkownika zostanie automatycznie dodana w trybie projektowania, przy projektu wywołuje <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> zainicjować nowe wystąpienie hosta przy użyciu wstępnie skonfigurowanych ustawień domyślnych. `CreateDefaultBuilder` wywołania <xref:Microsoft.Extensions.Configuration.UserSecretsConfigurationExtensions.AddUserSecrets*> podczas <xref:Microsoft.AspNetCore.Hosting.IHostingEnvironment.EnvironmentName> jest <xref:Microsoft.AspNetCore.Hosting.EnvironmentName.Development>:
 
@@ -220,9 +239,9 @@ Gdy `CreateDefaultBuilder` nie jest wywoływana, Dodaj źródło konfiguracji wp
 
 ::: moniker range="<= aspnetcore-1.1"
 
-[Interfejsu API platformy ASP.NET Core](xref:fundamentals/configuration/index) zapewnia dostęp do kluczy tajnych Menedżera klucz tajny. Zainstaluj [Microsoft.Extensions.Configuration.UserSecrets](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.UserSecrets) pakietu NuGet.
+Zainstaluj [Microsoft.Extensions.Configuration.UserSecrets](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.UserSecrets) pakietu NuGet.
 
-Dodawanie źródła konfiguracji kluczy tajnych użytkownika z wywołaniem [AddUserSecrets](/dotnet/api/microsoft.extensions.configuration.usersecretsconfigurationextensions.addusersecrets) w `Startup` Konstruktor:
+Dodawanie źródła konfiguracji kluczy tajnych użytkownika z wywołaniem <xref:Microsoft.Extensions.Configuration.UserSecretsConfigurationExtensions.AddUserSecrets*> w `Startup` Konstruktor:
 
 [!code-csharp[](app-secrets/samples/1.x/UserSecrets/Startup.cs?name=snippet_StartupConstructor&highlight=12)]
 
@@ -282,7 +301,7 @@ Usuń `Password` pary klucz wartość z parametrów połączenia w *appsettings.
 
 [!code-json[](app-secrets/samples/2.x/UserSecrets/appsettings.json?highlight=3)]
 
-Klucz tajny, wartość można ustawić na [SqlConnectionStringBuilder](/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder) obiektu [hasło](/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.password) właściwości, aby ukończyć parametry połączenia:
+Klucz tajny, wartość można ustawić na <xref:System.Data.SqlClient.SqlConnectionStringBuilder> obiektu <xref:System.Data.SqlClient.SqlConnectionStringBuilder.Password*> właściwości, aby ukończyć parametry połączenia:
 
 ::: moniker range=">= aspnetcore-2.0"
 

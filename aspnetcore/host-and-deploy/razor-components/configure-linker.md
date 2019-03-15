@@ -5,14 +5,14 @@ description: Dowiedz się, jak kontrolować konsolidatora języka pośredniego (
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/20/2019
+ms.date: 03/11/2019
 uid: host-and-deploy/razor-components/configure-linker
-ms.openlocfilehash: 7c53e7912ec3b0ae471ea38777f874f55a32487d
-ms.sourcegitcommit: 0945078a09c372f17e9b003758ed87e99c2449f4
+ms.openlocfilehash: 6f2c07eec6b98afbaaf21d2c1d172a1a54e6e808
+ms.sourcegitcommit: d913bca90373c07f89b1d1df01af5fc01fc908ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56647944"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57978374"
 ---
 # <a name="configure-the-linker-for-blazor"></a>Konfigurowanie konsolidatora dla Blazor
 
@@ -20,14 +20,14 @@ Przez [Luke Latham](https://github.com/guardrex)
 
 [!INCLUDE[](~/includes/razor-components-preview-notice.md)]
 
-Wykonuje Blazor [języka pośredniego (IL)](/dotnet/standard/managed-code#intermediate-language--execution) łączenia podczas każdej kompilacji tryb wersji, można usunąć niepotrzebne IL z zestawów danych wyjściowych.
+Wykonuje Blazor [języka pośredniego (IL)](/dotnet/standard/managed-code#intermediate-language--execution) łączenia podczas każdej kompilacji tryb wersji usuwanie niepotrzebnych IL aplikacji danych wyjściowych zestawów.
 
-Można kontrolować zestawu konsolidowanie za pomocą jednej z następujących metod:
+Zestaw Kontrola połączeń przy użyciu jednej z następujących metod:
 
-* Wyłącz konsolidowanie globalnie za pomocą właściwości programu MSBuild.
-* Kontrolka konsolidacji na podstawie poszczególnych zestawów przy użyciu pliku konfiguracji.
+* Wyłącz konsolidowanie globalnie za pomocą [właściwość MSBuild](#disable-linking-with-a-msBuild-property).
+* Formant konsolidacji na podstawie na zestawie [pliku konfiguracyjnego](#control-linking-with-a-configuration-file).
 
-## <a name="disable-linking-with-an-msbuild-property"></a>Wyłącz konsolidowanie za pomocą właściwości programu MSBuild
+## <a name="disable-linking-with-a-msbuild-property"></a>Wyłącz konsolidowanie za pomocą właściwości programu MSBuild
 
 Łączenie jest domyślnie włączanych w trybie wydania kompilowana jest aplikacja, która obejmuje publikowania. Aby wyłączyć łączenie dla wszystkich zestawów, należy ustawić `<BlazorLinkOnBuild>` właściwości programu MSBuild `false` w pliku projektu:
 
@@ -39,9 +39,15 @@ Można kontrolować zestawu konsolidowanie za pomocą jednej z następujących m
 
 ## <a name="control-linking-with-a-configuration-file"></a>Łączenie się z plikiem konfiguracyjnym kontroli
 
-Łączenie mogą być kontrolowane na podstawie poszczególnych zestawów, zapewniając plik konfiguracyjny XML i określenie pliku jako element programu MSBuild w pliku projektu.
+Kontrola konsolidacji na podstawie poszczególnych zestawów, zapewniając plik konfiguracyjny XML i określenie pliku jako element programu MSBuild w pliku projektu:
 
-Poniżej przedstawiono przykładowy plik konfiguracji (*Linker.xml*):
+```xml
+<ItemGroup>
+  <BlazorLinkerDescriptor Include="Linker.xml" />
+</ItemGroup>
+```
+
+*Linker.XML*:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -73,12 +79,4 @@ Poniżej przedstawiono przykładowy plik konfiguracji (*Linker.xml*):
 </linker>
 ```
 
-Aby dowiedzieć się więcej o formacie pliku dla pliku konfiguracji, zobacz [IL konsolidatora: Składnia xml deskryptora](https://github.com/mono/linker/blob/master/src/linker/README.md#syntax-of-xml-descriptor).
-
-Określ plik konfiguracji w pliku projektu za pomocą `BlazorLinkerDescriptor` elementu:
-
-```xml
-<ItemGroup>
-  <BlazorLinkerDescriptor Include="Linker.xml" />
-</ItemGroup>
-```
+Aby uzyskać więcej informacji, zobacz [IL konsolidatora: Składnia xml deskryptora](https://github.com/mono/linker/blob/master/src/linker/README.md#syntax-of-xml-descriptor).

@@ -8,14 +8,14 @@ ms.date: 04/10/2014
 ms.assetid: 7958d725-e958-4566-a85b-535eeb985f94
 msc.legacyurl: /mvc/overview/getting-started/recommended-resources-for-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: cbd72233fb5688c27d3675e2621eab58a64db80c
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 9adfba8260aa75751bb18ea612ae07c8809e7d00
+ms.sourcegitcommit: d913bca90373c07f89b1d1df01af5fc01fc908ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48578187"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57978536"
 ---
-<a name="mvc-recommended-resources"></a>Zalecane zasoby dla MVC
+<a name="mvc-recommended-resources"></a>Zalecane zasoby dla wzorca MVC
 ====================
 Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
@@ -31,8 +31,8 @@ Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 - [Opis Model View Controller we wzorcu Asp.Net MVC](http://www.dotnet-tricks.com/Tutorial/mvc/DIYG060113-Understanding-Model-View-Controller-in-Asp.Net-MVC.html) (blog krótkie wprowadzenie).
 - [ASP.NET MVC — omówienie](../older-versions-1/overview/asp-net-mvc-overview.md)
 - [Kurs online bezpłatne godziny 6 — Tworzenie platformy ASP.NET MVC 4 w sieci Web aplikacji Jump Start](https://weblogs.asp.net/jgalloway/archive/2013/10/09/free-6-hour-online-course-developing-asp-net-mvc-4-web-applications-jump-start.aspx)
-- [Learning MVC — część 1: Wprowadzenie do architektury MVC i separacji](http://www.codeproject.com/Articles/620195/Learning-MVC-Part-1-Introduction-to-MVC-Architectu)
-- Grafika ze składnikiem: [cykl życia aplikacji ASP.NET MVC 5](lifecycle-of-an-aspnet-mvc-5-application.md)
+- [Nauka MVC — część 1: Wprowadzenie do architektury MVC i separacji](http://www.codeproject.com/Articles/620195/Learning-MVC-Part-1-Introduction-to-MVC-Architectu)
+- Grafika ze składnikiem: [Cykl życia aplikacji ASP.NET MVC 5](lifecycle-of-an-aspnet-mvc-5-application.md)
 
 <a id="newfeatured"></a>
 
@@ -52,21 +52,21 @@ Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 ## <a name="microsoft-azure"></a>Microsoft Azure
 
 - [Pokaz usługi Azure największych na świecie](http://www.troyhunt.com/2014/03/the-worlds-greatest-azure-demo.html)
-- [Filmy wideo z //build/ 2014](https://channel9.msdn.com/Events/Build/2014?sort=sequential&amp;direction=desc&amp;page=2&amp;tag%5B0%5D=asp.net&amp;tag%5B1%5D=azure&amp;tag%5B2%5D=visual-studio&amp;tag%5B3%5D=web#theSessions): (platformy Azure i programu Visual Studio)
+- [Filmy wideo z //build/ 2014](https://channel9.msdn.com/Events/Build/2014?sort=sequential&amp;direction=desc&amp;page=2&amp;tag%5B0%5D=asp.net&amp;tag%5B1%5D=azure&amp;tag%5B2%5D=visual-studio&amp;tag%5B3%5D=web#theSessions): (Platformy azure i programu Visual Studio)
 
     - [Szczegółowo omówi Klejnoty ukryte, porady i wskazówki dotyczące usługa witryny sieci Web przez David Ebbo](https://channel9.msdn.com/Events/Build/2014/3-624)
     - [What's New for ASP.NET and Web w programie Visual Studio 2013 Update 2 i poza nim](https://channel9.msdn.com/Events/Build/2014/3-602) Scott hanselman Scottem Hunterem
     - [Unikanie błędów chmury: Uczysz się na podstawie błędów platformy Azure Mark Russinovich o usługach](https://channel9.msdn.com/Events/Build/2014/3-615)
-    - [Szczegółowe informacje na ten temat: Poprawa wydajności w aplikacji ASP.NET przez Levi Broderick](https://channel9.msdn.com/Events/Build/2014/3-605)
+    - [Szczegółowe informacje: Poprawa wydajności w aplikacji ASP.NET przez Levi Broderick](https://channel9.msdn.com/Events/Build/2014/3-605)
     - [Co nowego dla deweloperów platformy Azure w programie Visual Studio i zestawu Azure SDK dana Fernandeza, Paulem Yuknewiczem (MSFT)](https://channel9.msdn.com/Events/Build/2014/2-585)
     - [Microsoft Azure Storage — Co nowego, najlepsze rozwiązania i wzorce Jai Haridas, Serdar Ozler](https://channel9.msdn.com/Events/Build/2014/3-628)
     - [Porady i wskazówki w programie Visual Studio 2013](https://channel9.msdn.com/Events/Build/2014/2-582) przez Cathy Sullivan
     - [Automatyzacja w dowolnym miejscu przy użyciu nowych zestawów SDK, narzędzi i usług na platformie Azure](https://channel9.msdn.com/Events/Build/2014/3-621) przez Brady'ego Gastera Jan opłaty
     - [Co to jest nowego w usłudze Azure Web Sites Chris Compy, i Nir Mashkowski](https://channel9.msdn.com/Events/Build/2014/3-625)
-    - [Tworzenie dużych: Wnioski wyciągnięte z klientów platformy Azure](https://channel9.msdn.com/Events/Build/2014/3-633) przez Chrisa Clayton, — Markiem Simmsem   
+    - [Tworzenie dużych: Lekcje wyniesione z klientów platformy Azure](https://channel9.msdn.com/Events/Build/2014/3-633) przez Chrisa Clayton, — Markiem Simmsem   
         [Tworzenie aplikacji jednostronicowej przy użyciu platformy ASP.NET i AngularJS](https://channel9.msdn.com/Events/Build/2014/3-644) przez David Catuhe, Jan Galloway'em
     - [Projektowanie i implementowanie hybrydowych rozwiązań w chmurze dla architektów](https://channel9.msdn.com/Events/Build/2014/3-632)
-    - [Model grupy zasobów platformy Azure: Nowoczesne Zarządzanie nowoczesnym rozwiązaniom w chmurze](https://channel9.msdn.com/Events/Build/2014/2-607) przez Gautam Thapar, Totten Nathana
+    - [Model grupy zasobów platformy Azure: Nowoczesne zarządzanie w chmurze nowoczesnych](https://channel9.msdn.com/Events/Build/2014/2-607) przez Gautam Thapar, Totten Nathana
     - [Tworzenie aplikacji internetowych interfejsów API dla aplikacji mobilnych przy użyciu wzorca ASP.NET Web API 2.1](https://channel9.msdn.com/Events/Build/2014/3-603) przez Daniel Roth
     - [Nowy Model uwierzytelniania dla sieci Web, mobilnych i aplikacji w chmurze poprzez Lucasowi Adams, Kwan Stuartowi](https://channel9.msdn.com/Events/Build/2014/2-601)
     - [Rozszerzanie sieci lokalnych do platformy Azure, bezpieczne Srinivasana](https://channel9.msdn.com/Events/Build/2014/3-618)
@@ -75,8 +75,8 @@ Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
     - [Wyszukiwanie, skalowalność i wydajność, Autor: Charles Sterling za pomocą obciążenia oparte na chmurze, testowania usługi i usługi Application Insights](https://channel9.msdn.com/Events/Build/2014/3-595)
     - [Diagnozowanie problemów z aplikacjami w chmurze pracujących na platformie Azure przy użyciu programu Visual Studio Boris Scholl](https://channel9.msdn.com/Events/Build/2014/3-581)
     - [Szybkie wykrycie awarii aplikacji za pomocą usługi Application Insights przez Vlad Joanovic](https://channel9.msdn.com/Events/Build/2014/3-596)
-    - [Usługa witryny sieci Web: Projektowanie bardzo dużej skali gotowe dla firm w sieci Web Apps Yochay Kiriaty](https://channel9.msdn.com/Events/Build/2014/3-626)
-    - [Usługa Azure SQL Database: Pod maską Tobias Ternstrom](https://channel9.msdn.com/Events/Build/2014/3-630)
+    - [Azure Web Sites: Projektowanie bardzo dużej skali gotowe dla firm w sieci Web Apps Yochay Kiriaty](https://channel9.msdn.com/Events/Build/2014/3-626)
+    - [Azure SQL Database: W obszarze Tobias Ternstrom składniki](https://channel9.msdn.com/Events/Build/2014/3-630)
 
 <a id="security"></a>
 
@@ -85,7 +85,7 @@ Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 - [Tworzenie aplikacji ASP.NET MVC 5 z usług Facebook i logowania jednokrotnego Google OAuth2](../security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md)
 - [Czego nie robić na platformie ASP.NET i co zrobić zamiast tego](../../../aspnet/overview/web-development-best-practices/what-not-to-do-in-aspnet-and-what-to-do-instead.md)
 - [Jak tworzyć (i jak nie tworzyć) bezpiecznej funkcji "Zapamiętaj mnie"](http://www.troyhunt.com/2013/07/how-to-build-and-how-not-to-build.html) przez Troy Hunt
-- Wideo: [nowy Model uwierzytelniania dla sieci Web, mobilnych i aplikacji w chmurze poprzez Lucasowi Adams, Kwan Stuartowi](https://channel9.msdn.com/Events/Build/2014/2-601)
+- Wideo: [Nowy Model uwierzytelniania dla sieci Web, mobilnych i aplikacji w chmurze poprzez Lucasowi Adams, Kwan Stuartowi](https://channel9.msdn.com/Events/Build/2014/2-601)
 - [Wideo: Tworzenie przedsiębiorstwa i SaaS, aplikacji sieci Web oraz interfejsów API sieci Web za pomocą usługi Azure Active Directory do logowania się przez Vittorio Bertocci](https://channel9.msdn.com/Events/Build/2014/3-599)
 - [ASP.NET Identity 2.0.0](https://blogs.msdn.com/b/webdev/archive/2014/03/20/test-announcing-rtm-of-asp-net-identity-2-0-0.aspx)
 - [Omówienie platformy ASP.NET MVC filtry i atrybuty](http://www.dotnet-tricks.com/Tutorial/mvc/b11a280114-Understanding-ASP.NET-MVC-Filters-and-Attributes.html)
@@ -107,7 +107,7 @@ Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 - [Zapobieganie atakom na otwarte przekierowywanie](../security/preventing-open-redirection-attacks.md)
 - [Sposób tworzenia witryny intranetowej przy użyciu platformy ASP.NET MVC](https://msdn.microsoft.com/library/gg703322(v=vs.98).aspx)
 - [Dostawca wartości MVC ASP.NET dla ciągu zapytania zaszyfrowane](http://www.dotnetexpertguide.com/2013/01/aspnet-mvc-value-provider-for-encrypted-query-string.html?utm_source=dlvr.it&amp;utm_medium=twitter&amp;utm_campaign=Feed:_Dotnetexpertguide)
-- [Pokaż HaaHa: Zabezpieczeń Microsoft ASP.NET MVC za pomocą haack o i Hanselman](https://channel9.msdn.com/Events/MIX/MIX10/FT05) (wideo)
+- [Pokaż HaaHa: Microsoft ASP.NET MVC Security haack o i Hanselman](https://channel9.msdn.com/Events/MIX/MIX10/FT05) (wideo)
 - [Tożsamość oświadczeń użytkownika w programie ASP.NET:](http://brockallen.com/2013/01/26/replacing-forms-authentication-with-wifs-session-authentication-module-sam-to-enable-claims-aware-identity/)
 - [Dodawanie ról niestandardowych do ról systemu windows na platformie ASP.NET](http://brockallen.com/2013/01/17/adding-custom-roles-to-windows-roles-in-asp-net-using-claims/)
 - [Tworzenie niestandardowego ograniczenia trasy](../older-versions-1/controllers-and-routing/creating-a-custom-route-constraint-cs.md)
@@ -138,7 +138,7 @@ Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 ## <a name="data-access-in-aspnet-mvc"></a>Dostęp do danych we wzorcu ASP.NET MVC
 
 - [Wprowadzenie do programu Entity Framework przy użyciu platformy ASP.NET MVC](getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)
-- [Mapa zawartości dostępu do danych w programie ASP.NET](https://msdn.microsoft.com/library/6759sth4.aspx)
+- [ASP.NET Data Access Content Map](https://msdn.microsoft.com/library/6759sth4.aspx)
 - [Tworzenie aplikacji ASP.NET MVC4 przy użyciu struktury jednostek i interfejsu API sieci Web](http://net.tutsplus.com/tutorials/building-an-asp-net-mvc4-application-with-ef-and-webapi/)
 - [DataList we wzorcu ASP.NET MVC &amp; KnockoutJS](http://www.devcurry.com/2013/04/datalist-in-aspnet-mvc-knockoutjs.html)
 
@@ -157,13 +157,13 @@ Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 ## <a name="performance"></a>Wydajność
 
-- Wideo: [Deep Dive: poprawa wydajności w aplikacji ASP.NET](https://channel9.msdn.com/Events/Build/2014/3-605) przez Levi Broderick
-- Wideo: [przy użyciu obciążenia oparte na chmurze, testowania usługi i usługi Application Insights, można znaleźć, skalowalność i wydajność, Autor: Charles Sterling](https://channel9.msdn.com/Events/Build/2014/3-595)
+- Wideo: [Szczegółowe informacje: Poprawa wydajności w aplikacji ASP.NET](https://channel9.msdn.com/Events/Build/2014/3-605) przez Levi Broderick
+- Wideo: [Wyszukiwanie, skalowalność i wydajność, Autor: Charles Sterling za pomocą obciążenia oparte na chmurze, testowania usługi i usługi Application Insights](https://channel9.msdn.com/Events/Build/2014/3-595)
 - [Korzystanie z metod asynchronicznych we wzorcu ASP.NET MVC 4](../performance/using-asynchronous-methods-in-aspnet-mvc-4.md)
 - [Tworzenie pakietów, minimalizowanie i optymalizacja](../performance/bundling-and-minification.md)
 - [Przy użyciu usługi CDN i wygasa, aby zwiększyć wydajność witryny sieci Web](https://blogs.msdn.com/b/rickandy/archive/2011/05/21/using-cdns-to-improve-web-site-performance.aspx)
 - [Operacje przekazywania plików asynchronicznych na platformie MVC](https://weblogs.asp.net/bryansampica/archive/2013/01/15/AsyncMVCFileUpload.aspx)
-- [Wideo: Platforma sieci Web o wysokiej wydajności: rzeczywistych problemów i rozwiązań, Tobin Titus](https://channel9.msdn.com/Events/Build/2014/4-556)
+- [Wideo: Platforma sieci Web o wysokiej wydajności: Rzeczywiste problemy i rozwiązania wg Tobin Titus](https://channel9.msdn.com/Events/Build/2014/4-556)
 - [Wideo: Uzyskanie wczesnego ostrzegania problemów z wydajnością i błędów i określeniu przyczyny z aplikacją przez Bret Grinslade, Vlad Joanovic](https://channel9.msdn.com/Events/Build/2014/3-597)
 - [Wykres pierścieniowy pamięci podręcznej i dziura pierścieniowy buforowania platformy Asp.Net MVC 4](http://www.dotnet-tricks.com/Tutorial/mvc/ODJa210113-Donut-Caching-and-Donut-Hole-Caching-with-Asp.Net-MVC-4.html)
 - [Informacje o pamięci podręcznej we wzorcu Asp.Net MVC przy użyciu przykładu](http://www.dotnet-tricks.com/Tutorial/mvc/4R5c050113-Understanding-Caching-in-Asp.Net-MVC-with-example.html)
@@ -174,11 +174,11 @@ Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 - [Debugowanie i wydajności za pomocą możliwość wypróbowania](http://www.hanselman.com/blog/NuGetPackageOfTheWeek5DebuggingASPNETMVCApplicationsWithGlimpse.aspx)
 - [Zwiększyć obserwowaną wydajność witryn sieci Web platformy ASP.NET MVC, widoki częściowe asynchroniczne](http://blog.michaelckennedy.net/2012/11/13/improve-perceived-performance-of-asp-net-mvc-websites-with-async-partialviews/)
 - [Wywołania asynchroniczne bazy danych za pomocą opartego na zadaniach Model programowania asynchronicznego (TAP) we wzorcu ASP.NET MVC 4](http://www.tugberkugurlu.com/archive/asynchronous-database-calls-with-task-based-asynchronous-programming-model-tap-in-asp-net-mvc-4)
-- [Program ASP.NET 4.5 &amp; MVC 4: ponowne spojrzenie na IBundleTransform](http://www.dotnetexpertguide.com/2012/10/aspnet-45-mvc-4-revisiting-IBundleTransform-in-bundling.html)
-- [Platformy ASP.NET MVC 4: Domeny Cookieless Tworzenie pakietu i statycznych zasobów](http://www.dotnetexpertguide.com/2012/10/aspnet-mvc-4-cookieless-domain-for-bundling-and-static-resources.html)
+- [ASP.NET 4.5 &amp; MVC 4: Ponowne spojrzenie na IBundleTransform](http://www.dotnetexpertguide.com/2012/10/aspnet-45-mvc-4-revisiting-IBundleTransform-in-bundling.html)
+- [ASP.NET MVC 4: Cookieless domeny dla tworzenia pakietów i statycznych zasobów](http://www.dotnetexpertguide.com/2012/10/aspnet-mvc-4-cookieless-domain-for-bundling-and-static-resources.html)
 - [Zaawansowane opcje programu ASP.NET, tworzenie pakietów i minimalizowanie](https://weblogs.asp.net/imranbaloch/archive/2012/09/30/hidden-options-of-asp-net-bundling-and-minification.aspx)
 - [Ostrym przypomnienie o znaczeniu debug = "false"](http://encosia.com/a-harsh-reminder-about-the-importance-of-debug-false/)
-- [ELMAH i MiniProfiler we wzorcu ASP.NET MVC 4](http://odetocode.com/Blogs/scott/archive/2012/09/11/elmah-and-miniprofiler-in-asp-net-mvc-4.aspx)
+- [ELMAH and MiniProfiler In ASP.NET MVC 4](http://odetocode.com/Blogs/scott/archive/2012/09/11/elmah-and-miniprofiler-in-asp-net-mvc-4.aspx)
 - [Tworzenie pakietów platformy ASP.NET/minimalizowanie i zasobów osadzonych](http://dotnet.dzone.com/articles/aspnet-bundlingminification)
 - [Przy użyciu usługi CDN i wygasa, aby zwiększyć wydajność witryny sieci Web](https://blogs.msdn.com/b/rickandy/archive/2011/05/21/using-cdns-to-improve-web-site-performance.aspx)
 - [Tworzenie pakietów i Minifikacja wbudowane arkusze CSS i JavaScript](https://weblogs.asp.net/imranbaloch/archive/2012/07/25/bundling-and-minifying-inline-css-and-js.aspx)
@@ -221,7 +221,7 @@ Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 - [Powiązanie danych pomocnika DropDownList we wzorcu ASP.NET MVC](http://www.itorian.com/2013/02/dropdownlist-helper-data-binding-in-mvc.html)
 - [Wideo firmy Pluralsight, przedstawiający sposób pracy z języka JavaScript oraz Ajax](http://www.pluralsight-training.net/microsoft/players/PSODPlayer?author=scott-allen&amp;name=mvc3-building-ajax&amp;mode=live&amp;clip=0&amp;course=aspdotnet-mvc3-intro)
 - [Kaskadowa lista DropDownList na platformie ASP.NET MVC](https://blogs.msdn.com/b/rickandy/archive/2012/01/09/cascasding-dropdownlist-in-asp-net-mvc.aspx?CommentPosted=true#commentmessage)
-- [Kontrolki CascadingDropDown jQuery wtyczkę dla platformy ASP.NET MVC](https://weblogs.asp.net/rajbk/Contents/Item/Display/31)
+- [CascadingDropDown jQuery Plugin for ASP.NET MVC](https://weblogs.asp.net/rajbk/Contents/Item/Display/31)
 - [MVC, JsonResult, daty/godziny i strefy czasowej](http://msprogrammer.serviciipeweb.ro/2013/03/10/mvc-jsonresult-datetime-and-timezone/)
 - [Wymagana weryfikacja MVC — niestandardowe — lista DropDownList](http://codeblockdrive.blogspot.in/2012/12/mvc-custom-validation-required.html)
 - [Pasek postępu po stronie klienta na platformie ASP.NET MVC przy użyciu interfejs użytkownika jQuery, WebAPI i JsRender](http://www.devcurry.com/2012/10/responsive-aspnet-mvc-ui-using-webapi.html)
@@ -244,11 +244,11 @@ Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 - [Atrybut routingu we wzorcu ASP.NET MVC 5](https://blogs.msdn.com/b/webdev/archive/2013/10/17/attribute-routing-in-asp-net-mvc-5.aspx)
 - [Cykl życia aplikacji ASP.NET MVC 5](lifecycle-of-an-aspnet-mvc-5-application.md) (PDF)
 - [Używanie ograniczeń w celu ulepszania routingu MVC](http://blog.greatrexpectations.com/2012/08/03/using-constraints-for-better-routing-in-mvc/)
-- [W głębi: potok MVC ASP.NET](http://blog.stevensanderson.com/2007/11/20/aspnet-mvc-pipeline-lifecycle/)
-- [Routing na platformie ASP.NET MVC](http://evolpin.wordpress.com/2011/03/27/asp-net-mvc-routing/)
+- [W głębi: Potoku platformy ASP.NET MVC](http://blog.stevensanderson.com/2007/11/20/aspnet-mvc-pipeline-lifecycle/)
+- [ASP.NET MVC Routing](http://evolpin.wordpress.com/2011/03/27/asp-net-mvc-routing/)
 - [Rozszerzalność routingu platformy ASP.NET MVC](http://www.simple-talk.com/dotnet/.net-framework/asp.net-mvc-routing-extensibility/)
 - [Wprowadzenie do rozszerzalności programu ASP.NET MVC](http://www.simple-talk.com/content/article.aspx?article=1358)
-- [Routing na platformie ASP.NET MVC](http://evolpin.wordpress.com/2011/03/27/asp-net-mvc-routing/)
+- [ASP.NET MVC Routing](http://evolpin.wordpress.com/2011/03/27/asp-net-mvc-routing/)
 - [Silnie typizowane routingu dla MVC 4](http://dysphoria.net/2013/03/14/strongly-typed-action-references-in-microsoft-mvc4/)
 
 <a id="global"></a>
@@ -275,9 +275,9 @@ Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 <a id="mobile"></a>
 
-## <a name="mobile"></a>Telefon komórkowy
+## <a name="mobile"></a>Urządzenia przenośne
 
-- [Samouczek mobilnych platformy ASP.NET MVC 4](../older-versions/aspnet-mvc-4-mobile-features.md)
+- [ASP.NET MVC 4 Mobile Tutorial](../older-versions/aspnet-mvc-4-mobile-features.md)
 - [[Wideo] Tworzenie przenośnych przyjazna witryn sieci Web MVC 4](https://www.bitcast.io/v/building-mobile-friendly-websites-with-mvc-4)
 - [Tworzenie witryn sieci Web mobilnej o wysokiej wydajności](http://mobile.smashingmagazine.com/2013/08/12/creating-high-performance-mobile-websites/)
 - [Tworzenie widoków zoptymalizowane pod kątem Mobile we wzorcu ASP.NET MVC 4](https://msdn.microsoft.com/en-gb/magazine/dn296507.aspx)
@@ -319,11 +319,11 @@ Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 - [Dębu: Zapewnij zgodność dynamiczne i bezproblemowy rozwoju platformy ASP.NET MVC](http://amirrajan.github.com/Oak/)
 - [Tworzenie aplikacji ASP.NET MVC 4 dla przy użyciu xUnit i Moq TDD](http://www.dotnetcurry.com/ShowArticle.aspx?ID=836)
 - [Testowanie widoków MVC ASP.NET, z nowego projektu na serwerze kompilacji](https://channel9.msdn.com/Events/aspConf/aspConf/Testing-ASP-NET-MVC-Views-from-New-Project-to-the-Build-Server) (wideo)
-- [Szybki Start: Test Driven Development](https://channel9.msdn.com/Events/aspConf/aspConf/Quick-Start-Test-Driven-Development)(wideo)
+- [Szybki Start: Testowanie Driven Development](https://channel9.msdn.com/Events/aspConf/aspConf/Quick-Start-Test-Driven-Development)(wideo)
 - [Testowanie zachęcanie platformy ASP.NET MVC](https://channel9.msdn.com/Events/aspConf/aspConf/Test-Driving-ASP-NET-MVC) (wideo)
 - [Testowanie Integracja z SpecsFor.Mvc — platformy ASP.NET MVC, testowanie na Steroids!](https://channel9.msdn.com/Events/aspConf/aspConf/Integration-Testing-With-SpecsFor-Mvc-ASP-NET-MVC-Testing-on-Steroids) (wideo)
 - [Tworzenie aplikacji sprawdzalnego działa zgodnie z jednostki we wzorcu ASP.NET MVC — samouczek dla początkujących](http://www.codeproject.com/Articles/579035/Creating-Unit-Testable-Applications-in-ASP-NET-MVC)
-- [Przewodnik: Używanie TDD ze wzorca ASP.NET MVC](https://msdn.microsoft.com/library/gg416511(v=vs.98).aspx) (MVC 3)
+- [Przewodnik: Projektowanie oparte na testach przy użyciu platformy ASP.NET MVC](https://msdn.microsoft.com/library/gg416511(v=vs.98).aspx) (MVC 3)
 - [Zwalnianie SocialGoal — odwołanie do aplikacji sieci Web dla platformy ASP.NET MVC 5, EF 6 kodu po pierwsze, AutoMapper, Autofac, TDD i DDD](https://weblogs.asp.net/shijuvarghese/archive/2014/01/24/releasing-socialgoal-reference-web-app-for-asp-net-mvc-5-ef-6-code-first-automapper-autofac-tdd-and-ddd.aspx)
 
 <a id="best"></a>
@@ -332,12 +332,12 @@ Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 - [Czego nie robić na platformie ASP.NET i co zrobić zamiast tego](../../../aspnet/overview/web-development-best-practices/what-not-to-do-in-aspnet-and-what-to-do-instead.md)
 - [Lista kontrolna dla deweloperów sieci Web](http://webdevchecklist.com/aspnet)
-- [Wideo: Nie to zrobić, to zrobić!](http://vimeo.com/68390507)
+- [Wideo: Nie można to zrobić, to zrobić!](http://vimeo.com/68390507)
 - [ASP.NET MVC rozwiązań najlepszych rozwiązań](https://channel9.msdn.com/Events/aspConf/aspConf/ASP-NET-MVC-Solution-Best-Practices) (wideo)
 - [Interfejs API sieci Web SignalR, MVC,](https://channel9.msdn.com/Events/aspConf/aspConf/Ask-The-Experts) (wideo)
-- [Najlepsze rozwiązania dotyczące platformy ASP.NET MVC](https://blogs.msdn.com/b/aspnetue/archive/2010/09/17/second_2d00_post.aspx)
-- [ASP.NET MVC: najlepsze rozwiązania (część 1)](https://weblogs.asp.net/rashid/archive/2009/04/01/asp-net-mvc-best-practices-part-1.aspx)
-- [12 platformy ASP.NET MVC: najlepsze rozwiązania](http://codeclimber.net.nz/archive/2009/10/27/12-asp.net-mvc-best-practices.aspx)
+- [Best Practices for ASP.NET MVC](https://blogs.msdn.com/b/aspnetue/archive/2010/09/17/second_2d00_post.aspx)
+- [ASP.NET MVC Best Practices (Part 1)](https://weblogs.asp.net/rashid/archive/2009/04/01/asp-net-mvc-best-practices-part-1.aspx)
+- [12 ASP.NET MVC Best Practices](http://codeclimber.net.nz/archive/2009/10/27/12-asp.net-mvc-best-practices.aspx)
 
 <a id="deploy"></a>
 
@@ -352,7 +352,7 @@ Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 - [http://www.tinymce.com/](http://www.tinymce.com/)
 - [http://www.componentone.com/SuperProducts/StudioASPNET/](http://www.componentone.com/SuperProducts/StudioASPNET/)
 - [Edytowanie tekstu sformatowanego przy użyciu edytora HTML Infragistics w obu jQuery i ASP.NET MVC](http://www.infragistics.com/community/blogs/damyan_petev/archive/2012/02/24/rich-text-editing-with-infragistics-html-editor-in-both-jquery-and-asp-net-mvc.aspx)
-- [Kontrolka RichEdit MVC ASP.NET DevExpress](https://go.devexpress.com/AjaxControlToolkit_ASP_Resources_MVC_RichEdit.aspx)
+- [DevExpress ASP.NET MVC RichEdit Control](https://go.devexpress.com/AjaxControlToolkit_ASP_Resources_MVC_RichEdit.aspx)
 - [Zagnieżdżanie układów w MVC](http://astutelogic.com/nesting-layouts-in-mvc/) przez Dunker Russell
 
 <a id="general"></a>
@@ -398,7 +398,7 @@ Przez [Rick Anderson]((https://twitter.com/RickAndMSFT))
 - [Dlaczego metody pomocnika kodu HTML MVC ASP.NET przyjmuje wyrażenia lambda jako parametry](http://odetocode.com/blogs/scott/archive/2012/11/26/why-all-the-lambdas.aspx)
 - [Dla deweloperów sieci Web przyjrzeć Potok żądań MVC4](http://jameschambers.com/2012/10/a-web-developer-s-look-at-the-mvc4-request-pipeline/)
 - [Opis kodowania tekstu we wzorcu ASP.NET MVC](http://blog.michaelckennedy.net/2012/10/15/understanding-text-encoding-in-asp-net-mvc/)
-- [Uaktualnianie rozwiązania Visual Studio 2010 MVC4 do programu Visual Studio 2012 i .net 4.5 i programu EF 5](http://www.kevinlabranche.com/blog/UpgradingAnMVC4VisualStudio2010SolutionToVisualStudio2012AndNet45AndEF5.aspx)
+- [Uaktualnianie rozwiązania Visual Studio 2010 MVC4 do programu Visual Studio 2012 i .NET 4.5 i programu EF 5](http://www.kevinlabranche.com/blog/UpgradingAnMVC4VisualStudio2010SolutionToVisualStudio2012AndNet45AndEF5.aspx)
 - [DisplayTemplate platformy ASP.NET MVC i EditorTemplates dla typów przestrzennych programu Entity Framework DbGeography](http://www.hanselman.com/blog/ASPNETMVCDisplayTemplateAndEditorTemplatesForEntityFrameworkDbGeographySpatialTypes.aspx)
 - [ASP.NET MVC — wyróżnianie bieżącego Linku](http://odetocode.com/Blogs/scott/archive/2012/08/25/asp-net-mvc-highlight-current-link.aspx)
 - [ASP.NET MVC: Obsługa wyjątków i błędów 404](http://www.devcurry.com/2012/06/aspnet-mvc-handling-exceptions-and-404.html)

@@ -5,14 +5,14 @@ description: Dowiedz się, jak rozpocząć pracę ze składnikami Razor, tworzą
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/03/2019
+ms.date: 03/13/2019
 uid: razor-components/get-started
-ms.openlocfilehash: a9ada603e5ed4e0e75c4aebc5105c331118666e6
-ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
+ms.openlocfilehash: 86427f9d8a6bc70a65f58ff1b9f8f37c536a97a6
+ms.sourcegitcommit: d913bca90373c07f89b1d1df01af5fc01fc908ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56159322"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57978334"
 ---
 # <a name="get-started-with-razor-components"></a>Wprowadzenie do składników Razor
 
@@ -29,9 +29,6 @@ Aby utworzyć swój pierwszy projekt Razor składników w programie Visual Studi
 1. Wybierz **pliku** > **nowy projekt** > **Web** > **aplikacji sieci Web platformy ASP.NET Core**.
 1. Upewnij się, że **platformy .NET Core** i **platformy ASP.NET Core 3.0** wybrano u góry.
 1. Wybierz **składniki Razor** szablonu, a następnie wybierz **OK**.
-
-   ![Nowe okno dialogowe aplikacji](https://msdnshared.blob.core.windows.net/media/2019/01/razor-components-template.png)
-
 1. Naciśnij klawisz **F5** do uruchomienia aplikacji.
 
 Gratulacje! Po prostu uruchomieniu pierwszej aplikacji składniki Razor!
@@ -113,12 +110,14 @@ Gratulacje! Po prostu uruchomieniu pierwszej aplikacji składniki Razor!
 
 ## <a name="razor-components-project"></a>Razor składników projektów
 
-Rozwiązanie utworzone przez szablon Razor składników zawiera dwa projekty:
+Składniki razor są tworzone za pomocą składni Razor, ale są kompilowane w sposób inny niż widoki stron Razor i MVC. *.Razor* rozszerzenie pliku jest używany do określenia składnika Razor. Strony razor i MVC widoków w dalszym ciągu używać *.cshtml* rozszerzenie pliku.
 
-* *WebApplication1.Server* &ndash; Projekt serwera jest projektem platformy ASP.NET Core, ustawić, aby hostować aplikację składniki Razor.
-* *WebApplication1.App* &ndash; projektu interfejsu użytkownika sieci web po stronie klienta, który używa składników Razor.
-
-Logika interfejsu użytkownika w *WebApplication1.App* projektu jest oddzielony od pozostałej części aplikacji ze względu na ograniczenia techniczne w ASP.NET Core 3.0 w wersji zapoznawczej 2. Rozszerzenie pliku Razor (*.cshtml*) używany dla składników Razor jest również używany widoków stron Razor i MVC. Obecnie składniki Razor i stron Razor/MVC mają modeli różnych kompilacji, dlatego plikach Razor składniki Razor są oddzielone. W przyszłej wersji zapoznawczej, planujemy wprowadzenie nowe rozszerzenie pliku dla składników Razor (*.razor*). Składniki, strony i widoki będzie obsługiwana *w tym samym projekcie*.
+> [!NOTE]
+> Razor składniki mogą być tworzone za pomocą *.cshtml* rozszerzenie pliku, tak długo, jak te pliki są identyfikowane jako pliki składnika Razor przy użyciu `_RazorComponentInclude` właściwości programu MSBuild. Na przykład aplikacja utworzona za pomocą szablonu Razor składnika Określa, że wszystkie *.cshtml* plików w obszarze *składniki* folder powinien być traktowany jako składniki Razor:
+>
+> ```xml
+> <_RazorComponentInclude>Components\**\*.cshtml</_RazorComponentInclude>
+> ```
 
 Gdy aplikacja jest uruchamiana, wiele stron są dostępne na kartach w pasku bocznym:
 
@@ -128,9 +127,9 @@ Gdy aplikacja jest uruchamiana, wiele stron są dostępne na kartach w pasku boc
 
 Na stronie licznika wybierz **kliknij mnie** przycisk, aby zwiększyć licznik bez odświeżania strony. Zwiększenie licznika, na stronie sieci Web zwykle wtedy konieczne napisanie kodu JavaScript, ale składniki Razor zapewnia lepsze przy użyciu podejścia C#.
 
-*WebApplication1.App/Pages/Counter.cshtml*:
+*WebApplication1/Components/Pages/Counter.razor*:
 
-[!code-cshtml[](get-started/samples_snapshot/3.x/Counter1.cshtml)]
+[!code-cshtml[](get-started/samples_snapshot/3.x/Counter1.razor)]
 
 Żądanie dotyczące `/counter` w przeglądarce, określony przez `@page` dyrektywy u góry strony, powoduje, że składnik licznika do renderowania jego zawartości. Składniki renderowania do reprezentacji w pamięci drzewa renderowania, który następnie może służyć do aktualizowania interfejsu użytkownika w elastyczny i efektywny sposób.
 
@@ -145,9 +144,9 @@ Każdorazowo **kliknij mnie** wybrany przycisk:
 
 Dodaj składnik do innego składnika przy użyciu składni notacji HTML. Składnik parametry są określane, za pomocą atrybutów i zawartość elementu podrzędnego. Na przykład można dodać składnik licznika do strony głównej aplikacji, dodając `<Counter />` elementu składnik indeksu.
 
-*WebApplication1.App/Pages/Index.cshtml*:
+*WebApplication1/Components/Pages/Index.razor*:
 
-[!code-cshtml[](get-started/samples_snapshot/3.x/Index1.cshtml?highlight=7)]
+[!code-cshtml[](get-started/samples_snapshot/3.x/Index1.razor?highlight=7)]
 
 Uruchom aplikację. Strona główna ma swój własny licznika.
 
@@ -156,15 +155,15 @@ Aby dodać parametr do składnika licznika, należy zaktualizować składnika `@
 * Dodaj właściwość `IncrementAmount` ozdobione `[Parameter]` atrybutu.
 * Zmiana `IncrementCount` metodę `IncrementAmount` podczas zwiększenie wartości `currentCount`.
 
-*WebApplication1.App/Pages/Counter.cshtml*:
+*WebApplication1/Components/Pages/Counter.razor*:
 
-[!code-cshtml[](get-started/samples_snapshot/3.x/Counter2.cshtml?highlight=4,8)]
+[!code-cshtml[](get-started/samples_snapshot/3.x/Counter2.razor?highlight=4,8)]
 
 Określ `IncrementAmount` parametru w części głównej `<Counter>` elementu za pomocą atrybutu.
 
-*WebApplication1.App/Pages/Index.cshtml*:
+*WebApplication1/Components/Pages/Index.razor*:
 
-[!code-cshtml[](get-started/samples_snapshot/3.x/Index2.cshtml)]
+[!code-cshtml[](get-started/samples_snapshot/3.x/Index2.razor)]
 
 Uruchom aplikację. Strona główna ma swój własny licznik, który zwiększa przez dziesięć każdorazowo **kliknij mnie** przycisk jest zaznaczony.
 

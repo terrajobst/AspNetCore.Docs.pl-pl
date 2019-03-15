@@ -9,12 +9,12 @@ ms.date: 01/15/2019
 ms.assetid: be0c098a-1fb2-457e-b815-ddca601afc65
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: b513d7d86d382068bc1a8f1bcc61289ee946d38b
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.openlocfilehash: 431dba494682c58bb42e072ea0c734527e6a8943
+ms.sourcegitcommit: d913bca90373c07f89b1d1df01af5fc01fc908ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248306"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57978483"
 ---
 <a name="handling-concurrency-with-the-entity-framework-6-in-an-aspnet-mvc-5-application-10-of-12"></a>Obsługa współbieżności przy użyciu programu Entity Framework 6 w aplikacji ASP.NET MVC 5 (10 12)
 ====================
@@ -87,7 +87,7 @@ W *Models\Department.cs*, dodawanie właściwości śledzenia o nazwie `RowVersi
 
 [!code-csharp[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.cs?highlight=20-22)]
 
-[Sygnatura czasowa](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.timestampattribute.aspx) atrybut określa, że ta kolumna będzie załączona `Where` klauzuli `Update` i `Delete` polecenia wysyłane do bazy danych. Ten atrybut jest wywoływana [sygnatura czasowa](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.timestampattribute.aspx) ponieważ poprzednie wersje programu SQL Server SQL [sygnatura czasowa](https://msdn.microsoft.com/library/ms182776(v=SQL.90).aspx) typu danych, zanim SQL [rowversion](https://msdn.microsoft.com/library/ms182776(v=sql.110).aspx) zastąpiono ją. Typ architektury .net dla [rowversion](https://msdn.microsoft.com/library/ms182776(v=sql.110).aspx) jest tablicą bajtów.
+[Sygnatura czasowa](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.timestampattribute.aspx) atrybut określa, że ta kolumna będzie załączona `Where` klauzuli `Update` i `Delete` polecenia wysyłane do bazy danych. Ten atrybut jest wywoływana [sygnatura czasowa](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.timestampattribute.aspx) ponieważ poprzednie wersje programu SQL Server SQL [sygnatura czasowa](https://msdn.microsoft.com/library/ms182776(v=SQL.90).aspx) typu danych, zanim SQL [rowversion](https://msdn.microsoft.com/library/ms182776(v=sql.110).aspx) zastąpiono ją. Typ architektury .NET dla [rowversion](https://msdn.microsoft.com/library/ms182776(v=sql.110).aspx) jest tablicą bajtów.
 
 Jeśli wolisz używać interfejsu API fluent, możesz użyć [IsConcurrencyToken](https://msdn.microsoft.com/library/gg679501(v=VS.103).aspx) metodę, aby określić właściwości śledzenia, jak pokazano w poniższym przykładzie:
 

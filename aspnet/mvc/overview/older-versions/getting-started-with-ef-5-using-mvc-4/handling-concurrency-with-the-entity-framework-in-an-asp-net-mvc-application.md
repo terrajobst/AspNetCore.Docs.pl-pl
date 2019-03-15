@@ -8,18 +8,18 @@ ms.date: 07/30/2013
 ms.assetid: b83f47c4-8521-4d0a-8644-e8f77e39733e
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 07d4d673b7bb6bad6e9d8cbacbc965a60608db2a
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 5016c08b94ff6eff65cad8a8a01f27c50381bc8a
+ms.sourcegitcommit: d913bca90373c07f89b1d1df01af5fc01fc908ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41756219"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57978507"
 ---
 <a name="handling-concurrency-with-the-entity-framework-in-an-aspnet-mvc-application-7-of-10"></a>Obsługa współbieżności przy użyciu platformy Entity Framework w aplikacji ASP.NET MVC (7 10)
 ====================
 przez [Tom Dykstra](https://github.com/tdykstra)
 
-[Pobieranie ukończone projektu](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
+[Pobierz ukończony projekt](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
 > Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 4 przy użyciu Entity Framework 5 Code First i programu Visual Studio 2012. Aby uzyskać informacji na temat tej serii samouczka, zobacz [pierwszym samouczku tej serii](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). Można uruchomić tej serii samouczka od początku lub [pobrać projekt startowy w tym rozdziale](building-the-ef5-mvc4-chapter-downloads.md) i zacznij tutaj.
 > 
@@ -83,7 +83,7 @@ W *Models\Department.cs*, dodawanie właściwości śledzenia o nazwie `RowVersi
 
 [!code-csharp[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.cs?highlight=18-19)]
 
-[Sygnatura czasowa](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.timestampattribute.aspx) atrybut określa, że ta kolumna będzie załączona `Where` klauzuli `Update` i `Delete` polecenia wysyłane do bazy danych. Ten atrybut jest wywoływana [sygnatura czasowa](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.timestampattribute.aspx) ponieważ poprzednie wersje programu SQL Server SQL [sygnatura czasowa](https://msdn.microsoft.com/library/ms182776(v=SQL.90).aspx) typu danych, zanim SQL [rowversion](https://msdn.microsoft.com/library/ms182776(v=sql.110).aspx) zastąpiono ją. Typ architektury .net dla `rowversion` jest tablicą bajtów. Jeśli wolisz używać interfejsu API fluent, możesz użyć [IsConcurrencyToken](https://msdn.microsoft.com/library/gg679501(v=VS.103).aspx) metodę, aby określić właściwości śledzenia, jak pokazano w poniższym przykładzie:
+[Sygnatura czasowa](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.timestampattribute.aspx) atrybut określa, że ta kolumna będzie załączona `Where` klauzuli `Update` i `Delete` polecenia wysyłane do bazy danych. Ten atrybut jest wywoływana [sygnatura czasowa](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.timestampattribute.aspx) ponieważ poprzednie wersje programu SQL Server SQL [sygnatura czasowa](https://msdn.microsoft.com/library/ms182776(v=SQL.90).aspx) typu danych, zanim SQL [rowversion](https://msdn.microsoft.com/library/ms182776(v=sql.110).aspx) zastąpiono ją. Typ architektury .NET dla `rowversion` jest tablicą bajtów. Jeśli wolisz używać interfejsu API fluent, możesz użyć [IsConcurrencyToken](https://msdn.microsoft.com/library/gg679501(v=VS.103).aspx) metodę, aby określić właściwości śledzenia, jak pokazano w poniższym przykładzie:
 
 [!code-csharp[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample2.cs)]
 

@@ -59,8 +59,8 @@ dotnet dev-certs https --trust
 
 Poprzednie polecenie wyświetli następujący komunikat:
 
-*Zażądano ufające certyfikatu deweloperskiego protokołu HTTPS. Jeśli certyfikat nie jest już zaufany możemy uruchom następujące polecenie:* `'sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain <<certificate>>'`.
- 
+*Zażądano ufające certyfikatu deweloperskiego protokołu HTTPS. Jeśli certyfikat nie jest zaufany, firma Microsoft będzie uruchom następujące polecenie:* `'sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain <<certificate>>'`
+
 To polecenie może monitować o hasło zainstalować certyfikat w pęku kluczy systemu. Wprowadź hasło, jeśli zgadzasz się ufać certyfikatowi programistycznemu.
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
