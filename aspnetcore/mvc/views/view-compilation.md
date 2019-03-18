@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/02/2019
 uid: mvc/views/view-compilation
-ms.openlocfilehash: 0b3aea584de63cb8032e4ca112d2441349bdfbb3
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: 11195f00e922f6817a0fa0988fad9d8082dea30a
+ms.sourcegitcommit: a467828b5e4eaae291d961ffe2279a571900de23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57345502"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58142317"
 ---
 # <a name="razor-file-compilation-in-aspnet-core"></a>Kompilacja pliku razor w programie ASP.NET Core
 
@@ -130,7 +130,7 @@ Kompilacja środowiska uruchomieniowego jest włączane przy użyciu `Microsoft.
   ```csharp
   services
       .AddMvc()
-      .AddMvcRazorRuntimeCompilation()
+      .AddRazorRuntimeCompilation()
   ```
 
 Kompilacja środowiska uruchomieniowego do pracy po wdrożeniu, aplikacje Ponadto należy zmodyfikować swoje pliki projektu, aby ustawić `PreserveCompilationReferences` do `true`.
