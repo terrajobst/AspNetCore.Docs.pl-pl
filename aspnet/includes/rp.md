@@ -1,1 +1,0 @@
-W nowych wdrożeniach aplikacji sieci web zaleca się Stron Razor. Aby uzyskać więcej informacji, zobacz [Rozpoczynanie pracy ze stronami Razor](/aspnet/core/tutorials/razor-pages/razor-pages-start).
