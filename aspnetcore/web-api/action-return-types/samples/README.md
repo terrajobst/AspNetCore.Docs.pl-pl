@@ -1,11 +1,18 @@
-# <a name="aspnet-core-web-api-sample"></a><span data-ttu-id="772fe-101">Przykładowe Core interfejsu API sieci Web ASP.NET</span><span class="sxs-lookup"><span data-stu-id="772fe-101">ASP.NET Core Web API sample</span></span>
+---
+ms.openlocfilehash: 5a6ffa6d6083399cd9d4550608b71a89ea933ee2
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264823"
+---
+# <a name="aspnet-core-web-api-sample"></a><span data-ttu-id="1d5c6-101">Przykładowe Core Web API platformy ASP.NET</span><span class="sxs-lookup"><span data-stu-id="1d5c6-101">ASP.NET Core Web API sample</span></span>
 
-<span data-ttu-id="772fe-102">Poniższa tabela zawiera opis różnych folderach tworzących przykładowe rozwiązanie:</span><span class="sxs-lookup"><span data-stu-id="772fe-102">The following table provides a description of the various folders making up the sample solution:</span></span>
+<span data-ttu-id="1d5c6-102">Poniższa tabela zawiera opis różnych plików składających się na przykładowym rozwiązaniu:</span><span class="sxs-lookup"><span data-stu-id="1d5c6-102">The following table provides a description of the various folders making up the sample solution:</span></span>
 
-
-|              <span data-ttu-id="772fe-103">Folder</span><span class="sxs-lookup"><span data-stu-id="772fe-103">Folder</span></span>              |                                        <span data-ttu-id="772fe-104">Cel</span><span class="sxs-lookup"><span data-stu-id="772fe-104">Purpose</span></span>                                        |
+|              <span data-ttu-id="1d5c6-103">Folder</span><span class="sxs-lookup"><span data-stu-id="1d5c6-103">Folder</span></span>              |                                        <span data-ttu-id="1d5c6-104">Cel</span><span class="sxs-lookup"><span data-stu-id="1d5c6-104">Purpose</span></span>                                        |
 |----------------------------------|---------------------------------------------------------------------------------------|
-|   <span data-ttu-id="772fe-105"><em>WebApiSample.Api.21</em></span><span class="sxs-lookup"><span data-stu-id="772fe-105"><em>WebApiSample.Api.21</em></span></span>   |                         <span data-ttu-id="772fe-106">Projekt interfejsu API platformy ASP.NET Core 2.1 sieci Web.</span><span class="sxs-lookup"><span data-stu-id="772fe-106">An ASP.NET Core 2.1 Web API project.</span></span>                          |
-| <span data-ttu-id="772fe-107"><em>WebApiSample.Api.Pre21</em></span><span class="sxs-lookup"><span data-stu-id="772fe-107"><em>WebApiSample.Api.Pre21</em></span></span>  |                         <span data-ttu-id="772fe-108">Projekt interfejsu API platformy ASP.NET Core 2.0 sieci Web.</span><span class="sxs-lookup"><span data-stu-id="772fe-108">An ASP.NET Core 2.0 Web API project.</span></span>                          |
-| <span data-ttu-id="772fe-109"><em>WebApiSample.DataAccess</em></span><span class="sxs-lookup"><span data-stu-id="772fe-109"><em>WebApiSample.DataAccess</em></span></span> | <span data-ttu-id="772fe-110">.NET 2.0 standardowych danych dostępu warstwy projektu, który jest używany przez oba projekty interfejsu API sieci Web.</span><span class="sxs-lookup"><span data-stu-id="772fe-110">A .NET Standard 2.0 data access layer project which is used by both Web API projects.</span></span> |
+|   <span data-ttu-id="1d5c6-105">*WebApiSample.Api.21*</span><span class="sxs-lookup"><span data-stu-id="1d5c6-105">*WebApiSample.Api.21*</span></span>   |                         <span data-ttu-id="1d5c6-106">Projekt interfejsu API platformy ASP.NET Core 2.1 w sieci Web.</span><span class="sxs-lookup"><span data-stu-id="1d5c6-106">An ASP.NET Core 2.1 Web API project.</span></span>                          |
+| <span data-ttu-id="1d5c6-107">*WebApiSample.Api.Pre21*</span><span class="sxs-lookup"><span data-stu-id="1d5c6-107">*WebApiSample.Api.Pre21*</span></span>  |                         <span data-ttu-id="1d5c6-108">Projekt interfejsu API platformy ASP.NET Core 2.0 sieci Web.</span><span class="sxs-lookup"><span data-stu-id="1d5c6-108">An ASP.NET Core 2.0 Web API project.</span></span>                          |
+| <span data-ttu-id="1d5c6-109">*WebApiSample.DataAccess*</span><span class="sxs-lookup"><span data-stu-id="1d5c6-109">*WebApiSample.DataAccess*</span></span> | <span data-ttu-id="1d5c6-110">.NET Standard 2.0 danych dostęp do warstwy projekt, który jest używany przez oba projekty interfejsu API sieci Web.</span><span class="sxs-lookup"><span data-stu-id="1d5c6-110">A .NET Standard 2.0 data access layer project which is used by both Web API projects.</span></span> |
 

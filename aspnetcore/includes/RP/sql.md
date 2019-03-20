@@ -1,30 +1,38 @@
-# <a name="work-with-sqlite-in-an-aspnet-core-razor-pages-app"></a><span data-ttu-id="cc197-101">Praca z SQLite w programie ASP.NET Core Razor strony aplikacji</span><span class="sxs-lookup"><span data-stu-id="cc197-101">Work with SQLite in an ASP.NET Core Razor Pages app</span></span>
+---
+ms.openlocfilehash: 740573c3c6e23e6c9e48354d5b5a4a3c0a94a766
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265278"
+---
+# <a name="work-with-sqlite-in-an-aspnet-core-razor-pages-app"></a><span data-ttu-id="f94eb-101">Praca z SQLite w programie ASP.NET Core Razor strony aplikacji</span><span class="sxs-lookup"><span data-stu-id="f94eb-101">Work with SQLite in an ASP.NET Core Razor Pages app</span></span>
 
-<span data-ttu-id="cc197-102">Przez [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="cc197-102">By [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
+<span data-ttu-id="f94eb-102">Przez [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="f94eb-102">By [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
 
-<span data-ttu-id="cc197-103">`MovieContext` Obiektu obsługuje zadania z bazą danych i mapowania `Movie` obiekty do rekordów bazy danych.</span><span class="sxs-lookup"><span data-stu-id="cc197-103">The `MovieContext` object handles the task of connecting to the database and mapping `Movie` objects to database records.</span></span> <span data-ttu-id="cc197-104">Kontekst bazy danych jest zarejestrowany w [wstrzykiwanie zależności (DI)](xref:fundamentals/dependency-injection) kontenera w `ConfigureServices` method in Class metoda *Startup.cs* pliku:</span><span class="sxs-lookup"><span data-stu-id="cc197-104">The database context is registered with the [Dependency Injection (DI)](xref:fundamentals/dependency-injection) container in the `ConfigureServices` method in the *Startup.cs* file:</span></span>
+<span data-ttu-id="f94eb-103">`MovieContext` Obiektu obsługuje zadania z bazą danych i mapowania `Movie` obiekty do rekordów bazy danych.</span><span class="sxs-lookup"><span data-stu-id="f94eb-103">The `MovieContext` object handles the task of connecting to the database and mapping `Movie` objects to database records.</span></span> <span data-ttu-id="f94eb-104">Kontekst bazy danych jest zarejestrowany w [wstrzykiwanie zależności (DI)](xref:fundamentals/dependency-injection) kontenera w `ConfigureServices` method in Class metoda *Startup.cs* pliku:</span><span class="sxs-lookup"><span data-stu-id="f94eb-104">The database context is registered with the [Dependency Injection (DI)](xref:fundamentals/dependency-injection) container in the `ConfigureServices` method in the *Startup.cs* file:</span></span>
 
 [!code-csharp[](code/Startup.cs?name=snippet2&highlight=6-8)]
 
-<span data-ttu-id="cc197-105">Aby uzyskać więcej informacji na temat korzystania z `DbContext` DI, widoczne [przy użyciu typu DbContext z DI](/ef/core/miscellaneous/configuring-dbcontext#using-dbcontext-with-dependency-injection).</span><span class="sxs-lookup"><span data-stu-id="cc197-105">For more information on using `DbContext` with DI, see [Using DbContext with DI](/ef/core/miscellaneous/configuring-dbcontext#using-dbcontext-with-dependency-injection).</span></span>
+<span data-ttu-id="f94eb-105">Aby uzyskać więcej informacji na temat korzystania z `DbContext` DI, widoczne [przy użyciu typu DbContext z DI](/ef/core/miscellaneous/configuring-dbcontext#using-dbcontext-with-dependency-injection).</span><span class="sxs-lookup"><span data-stu-id="f94eb-105">For more information on using `DbContext` with DI, see [Using DbContext with DI](/ef/core/miscellaneous/configuring-dbcontext#using-dbcontext-with-dependency-injection).</span></span>
 
-## <a name="sqlite"></a><span data-ttu-id="cc197-106">Bazy danych SQLite</span><span class="sxs-lookup"><span data-stu-id="cc197-106">SQLite</span></span>
+## <a name="sqlite"></a><span data-ttu-id="f94eb-106">Bazy danych SQLite</span><span class="sxs-lookup"><span data-stu-id="f94eb-106">SQLite</span></span>
 
-<span data-ttu-id="cc197-107">[SQLite](https://www.sqlite.org/) stany witryny sieci Web:</span><span class="sxs-lookup"><span data-stu-id="cc197-107">The [SQLite](https://www.sqlite.org/) website states:</span></span>
+<span data-ttu-id="f94eb-107">[SQLite](https://www.sqlite.org/) stany witryny sieci Web:</span><span class="sxs-lookup"><span data-stu-id="f94eb-107">The [SQLite](https://www.sqlite.org/) website states:</span></span>
 
-> <span data-ttu-id="cc197-108">Bazy danych SQLite jest niezależna o wysokiej niezawodności, osadzonych, w pełni funkcjonalne, domeny publicznej, aparatu bazy danych SQL.</span><span class="sxs-lookup"><span data-stu-id="cc197-108">SQLite is a self-contained, high-reliability, embedded, full-featured, public-domain, SQL database engine.</span></span> <span data-ttu-id="cc197-109">Bazy danych SQLite jest najczęściej używanych aparatu bazy danych na całym świecie.</span><span class="sxs-lookup"><span data-stu-id="cc197-109">SQLite is the most used database engine in the world.</span></span>
+> <span data-ttu-id="f94eb-108">Bazy danych SQLite jest niezależna o wysokiej niezawodności, osadzonych, w pełni funkcjonalne, domeny publicznej, aparatu bazy danych SQL.</span><span class="sxs-lookup"><span data-stu-id="f94eb-108">SQLite is a self-contained, high-reliability, embedded, full-featured, public-domain, SQL database engine.</span></span> <span data-ttu-id="f94eb-109">Bazy danych SQLite jest najczęściej używanych aparatu bazy danych na całym świecie.</span><span class="sxs-lookup"><span data-stu-id="f94eb-109">SQLite is the most used database engine in the world.</span></span>
 
-<span data-ttu-id="cc197-110">Istnieje wiele narzędzi innych firm, które można pobrać do zarządzania oraz wyświetlić bazy danych SQLite.</span><span class="sxs-lookup"><span data-stu-id="cc197-110">There are many third party tools you can download to manage and view a SQLite database.</span></span> <span data-ttu-id="cc197-111">Poniższy obraz pochodzi z [przeglądarka bazy danych dla bazy danych SQLite](http://sqlitebrowser.org/).</span><span class="sxs-lookup"><span data-stu-id="cc197-111">The image below is from [DB Browser for SQLite](http://sqlitebrowser.org/).</span></span> <span data-ttu-id="cc197-112">Jeśli masz ulubionego Narzędzia bazy danych SQLite, pozostaw komentarz na takich jak na jego temat.</span><span class="sxs-lookup"><span data-stu-id="cc197-112">If you have a favorite SQLite tool, leave a comment on what you like about it.</span></span>
+<span data-ttu-id="f94eb-110">Istnieje wiele narzędzi innych firm, które można pobrać do zarządzania oraz wyświetlić bazy danych SQLite.</span><span class="sxs-lookup"><span data-stu-id="f94eb-110">There are many third party tools you can download to manage and view a SQLite database.</span></span> <span data-ttu-id="f94eb-111">Poniższy obraz pochodzi z [przeglądarka bazy danych dla bazy danych SQLite](http://sqlitebrowser.org/).</span><span class="sxs-lookup"><span data-stu-id="f94eb-111">The image below is from [DB Browser for SQLite](http://sqlitebrowser.org/).</span></span> <span data-ttu-id="f94eb-112">Jeśli masz ulubionego Narzędzia bazy danych SQLite, pozostaw komentarz na takich jak na jego temat.</span><span class="sxs-lookup"><span data-stu-id="f94eb-112">If you have a favorite SQLite tool, leave a comment on what you like about it.</span></span>
 
 ![Przeglądarka bazy danych dla bazy danych Film przedstawiający SQLite](../../tutorials/first-mvc-app-xplat/working-with-sql/_static/dbb.png)
 
-## <a name="seed-the-database"></a><span data-ttu-id="cc197-114">Inicjowanie bazy danych</span><span class="sxs-lookup"><span data-stu-id="cc197-114">Seed the database</span></span>
+## <a name="seed-the-database"></a><span data-ttu-id="f94eb-114">Inicjowanie bazy danych</span><span class="sxs-lookup"><span data-stu-id="f94eb-114">Seed the database</span></span>
 
-<span data-ttu-id="cc197-115">Utwórz nową klasę o nazwie `SeedData` w *modeli* folderu.</span><span class="sxs-lookup"><span data-stu-id="cc197-115">Create a new class named `SeedData` in the *Models* folder.</span></span> <span data-ttu-id="cc197-116">Zastąp wygenerowany kod następujących czynności:</span><span class="sxs-lookup"><span data-stu-id="cc197-116">Replace the generated code with the following:</span></span>
+<span data-ttu-id="f94eb-115">Utwórz nową klasę o nazwie `SeedData` w *modeli* folderu.</span><span class="sxs-lookup"><span data-stu-id="f94eb-115">Create a new class named `SeedData` in the *Models* folder.</span></span> <span data-ttu-id="f94eb-116">Zastąp wygenerowany kod następujących czynności:</span><span class="sxs-lookup"><span data-stu-id="f94eb-116">Replace the generated code with the following:</span></span>
 
 [!code-csharp[](code/Models/SeedData.cs)]
 
-<span data-ttu-id="cc197-117">Czy istnieją wszystkie filmy w bazie danych, zwraca wartość inicjator inicjatora.</span><span class="sxs-lookup"><span data-stu-id="cc197-117">If there are any movies in the DB, the seed initializer returns.</span></span>
+<span data-ttu-id="f94eb-117">Czy istnieją wszystkie filmy w bazie danych, zwraca wartość inicjator inicjatora.</span><span class="sxs-lookup"><span data-stu-id="f94eb-117">If there are any movies in the DB, the seed initializer returns.</span></span>
 
 ```csharp
 if (context.Movie.Any())
@@ -34,14 +42,15 @@ if (context.Movie.Any())
 ```
 
 <a name="si"></a>
-### <a name="add-the-seed-initializer"></a><span data-ttu-id="cc197-118">Dodaj inicjator inicjatora</span><span class="sxs-lookup"><span data-stu-id="cc197-118">Add the seed initializer</span></span>
 
-<span data-ttu-id="cc197-119">Dodaj inicjator inicjator, tak aby `Main` method in Class metoda *Program.cs* pliku:</span><span class="sxs-lookup"><span data-stu-id="cc197-119">Add the seed initializer to the `Main` method in the *Program.cs* file:</span></span>
+### <a name="add-the-seed-initializer"></a><span data-ttu-id="f94eb-118">Dodaj inicjator inicjatora</span><span class="sxs-lookup"><span data-stu-id="f94eb-118">Add the seed initializer</span></span>
+
+<span data-ttu-id="f94eb-119">Dodaj inicjator inicjator, tak aby `Main` method in Class metoda *Program.cs* pliku:</span><span class="sxs-lookup"><span data-stu-id="f94eb-119">Add the seed initializer to the `Main` method in the *Program.cs* file:</span></span>
 
 [!code-csharp[](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Program.cs)]
 
-### <a name="test-the-app"></a><span data-ttu-id="cc197-120">Testowanie aplikacji</span><span class="sxs-lookup"><span data-stu-id="cc197-120">Test the app</span></span>
+### <a name="test-the-app"></a><span data-ttu-id="f94eb-120">Testowanie aplikacji</span><span class="sxs-lookup"><span data-stu-id="f94eb-120">Test the app</span></span>
 
-<span data-ttu-id="cc197-121">(Aby uruchomi seed — metoda), należy usunąć wszystkie rekordy w bazie danych.</span><span class="sxs-lookup"><span data-stu-id="cc197-121">Delete all the records in the DB (So the seed method will run).</span></span> <span data-ttu-id="cc197-122">Zatrzymywanie i uruchamianie aplikacji w celu umieszczenia bazy danych.</span><span class="sxs-lookup"><span data-stu-id="cc197-122">Stop and start the app to seed the database.</span></span>
+<span data-ttu-id="f94eb-121">(Aby uruchomi seed — metoda), należy usunąć wszystkie rekordy w bazie danych.</span><span class="sxs-lookup"><span data-stu-id="f94eb-121">Delete all the records in the DB (So the seed method will run).</span></span> <span data-ttu-id="f94eb-122">Zatrzymywanie i uruchamianie aplikacji w celu umieszczenia bazy danych.</span><span class="sxs-lookup"><span data-stu-id="f94eb-122">Stop and start the app to seed the database.</span></span>
 
-<span data-ttu-id="cc197-123">Aplikacja zawiera wprowadzonych danych.</span><span class="sxs-lookup"><span data-stu-id="cc197-123">The app shows the seeded data.</span></span>
+<span data-ttu-id="f94eb-123">Aplikacja zawiera wprowadzonych danych.</span><span class="sxs-lookup"><span data-stu-id="f94eb-123">The app shows the seeded data.</span></span>
