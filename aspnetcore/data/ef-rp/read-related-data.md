@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: 140f482e136acf4daba1248fecc87e06db6866f3
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: a264cdaf0f577be6ea2043935b485f4fd16e0229
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57345898"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264955"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>Strony razor z programem EF Core w programie ASP.NET Core — odczytanie powiązanych danych — 6 8
 
@@ -65,9 +65,10 @@ Aby wyświetlić listę kursów nazwa działu przypisane:
 * Pobierz `Name` właściwość `Department` jednostki.
 * `Department` Jednostki pochodzi z `Course.Department` właściwości nawigacji.
 
-![ourse.Department](read-related-data/_static/dep-crs.png)
+![Course.Department](read-related-data/_static/dep-crs.png)
 
 <a name="scaffold"></a>
+
 ### <a name="scaffold-the-course-model"></a>Tworzenie szkieletu modelu kursu
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
@@ -115,6 +116,7 @@ Uruchom aplikację i wybierz **kursów** kartę, aby wyświetlić listę nazw dz
 ![Kursy strony indeksu](read-related-data/_static/courses-index.png)
 
 <a name="select"></a>
+
 ### <a name="loading-related-data-with-select"></a>Trwa ładowanie powiązanych danych z wybranymi
 
 `OnGetAsync` Metoda ładuje dane powiązane z `Include` metody:
@@ -187,7 +189,6 @@ Zapytanie ma dwa obejmuje:
 * `OfficeAssignment`: Wyświetlane w [widoku Instruktorzy](#IP).
 * `CourseAssignments`: Który udostępnia w kursom prowadzonym.
 
-
 ### <a name="update-the-instructors-index-page"></a>Aktualizuj stronę indeksu instruktorów
 
 Aktualizacja *Pages/Instructors/Index.cshtml* następującym kodem:
@@ -198,11 +199,11 @@ Poprzedni kod znaczników wprowadza następujące zmiany:
 
 * Aktualizacje `page` dyrektywy z `@page` do `@page "{id:int?}"`. `"{id:int?}"` jest szablon trasy. Szablon trasy zmiany liczby całkowitej ciągów zapytania w adresie URL danych trasy. Na przykład, klikając **wybierz** link pod kierunkiem instruktora tylko z `@page` dyrektywa generuje adres URL podobnie do poniższego:
 
-    `http://localhost:1234/Instructors?id=2`
+  `http://localhost:1234/Instructors?id=2`
 
-    Po dyrektywie page `@page "{id:int?}"`, jest poprzedniego adresu URL:
+  Po dyrektywie page `@page "{id:int?}"`, jest poprzedniego adresu URL:
 
-    `http://localhost:1234/Instructors/2`
+  `http://localhost:1234/Instructors/2`
 
 * Tytuł strony jest **Instruktorzy**.
 * Dodano **Office** kolumnę wyświetlającą `item.OfficeAssignment.Location` tylko wtedy, gdy `item.OfficeAssignment` nie ma wartości null. Ponieważ jest to relacja jeden do zero lub jeden, może nie być powiązana jednostka OfficeAssignment.

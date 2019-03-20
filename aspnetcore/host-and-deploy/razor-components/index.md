@@ -1,18 +1,12 @@
 ---
 title: Hostowanie i wdrażanie składników Razor
 author: guardrex
-description: Dowiedz się, jak hostowanie i wdrażanie składników Razor i Blazor aplikacje przy użyciu platformy ASP.NET Core, sieci dostarczania zawartości (CDN), serwery plików i stron w witrynie GitHub.
+description: 'Dowiedz się, jak hostowanie i wdrażanie składników Razor i Blazor aplikacje przy użyciu platformy ASP.NET Core, sieci dostarczania zawartości (CDN), serwery plików i stron w witrynie GitHub.'
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
 ms.date: 01/29/2019
 uid: host-and-deploy/razor-components/index
-ms.openlocfilehash: 9debd75128ceecb805fc673a8182a785fc9f7942
-ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
-ms.translationtype: MT
-ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55668189"
 ---
 # <a name="host-and-deploy-razor-components"></a>Hostowanie i wdrażanie składników Razor
 
@@ -115,7 +109,7 @@ Za pomocą [modelu hostingu po stronie klienta](xref:razor-components/hosting-mo
 * Aplikacja jest wykonywane bezpośrednio w przeglądarce wątku interfejsu użytkownika. Obsługiwany jest jedną z następujących strategii:
   * Aplikacja Blazor jest obsługiwany przez aplikację ASP.NET Core. Objęte [Blazor po stronie klienta hostowane wdrażanie za pomocą platformy ASP.NET Core](#client-side-blazor-hosted-deployment-with-aspnet-core) sekcji.
   * Aplikacji Blazor jest umieszczany na statyczne hostingu serwera sieci web lub usługi, której platformy .NET nie jest używany do obsługi aplikacji Blazor. Objęte [wdrażania autonomicznego Blazor po stronie klienta](#client-side-blazor-standalone-deployment) sekcji.
-  
+
 ### <a name="configure-the-linker"></a>Konfigurowanie konsolidatora
 
 Blazor wykonuje języka pośredniego (IL) łączenia każdego kompilacji, aby usunąć niepotrzebne IL z zestawów danych wyjściowych. Można kontrolować łączenie podczas kompilowania zestawu. Aby uzyskać więcej informacji, zobacz <xref:host-and-deploy/razor-components/configure-linker>.
@@ -197,7 +191,8 @@ Aby uzyskać więcej informacji na temat hosting aplikacji platformy ASP.NET Cor
 
 Aby uzyskać informacje na temat wdrażania w usłudze Azure App Service zobacz następujące tematy:
 
-<xref:tutorials/publish-to-azure-webapp-using-vs>  
+<xref:tutorials/publish-to-azure-webapp-using-vs>
+
 Dowiedz się, jak opublikować aplikację ASP.NET Core w usłudze Azure App Service przy użyciu programu Visual Studio.
 
 ### <a name="client-side-blazor-standalone-deployment"></a>Wdrażania autonomicznego Blazor po stronie klienta
@@ -273,7 +268,7 @@ Aby hostować Blazor na platformie Docker przy użyciu serwera Nginx, Konfigurac
 
 Dodaj jeden wiersz do pliku Dockerfile, jak pokazano w poniższym przykładzie:
 
-```
+```Dockerfile
 FROM nginx:alpine
 COPY ./bin/Release/netstandard2.0/publish /usr/share/nginx/html/
 COPY nginx.conf /etc/nginx/nginx.conf
@@ -305,5 +300,6 @@ Po opublikowaniu aplikacji ASP.NET Core Razor składniki aplikacji znajduje w op
 
 Aby uzyskać informacje na temat wdrażania w usłudze Azure App Service zobacz następujące tematy:
 
-<xref:tutorials/publish-to-azure-webapp-using-vs>  
+<xref:tutorials/publish-to-azure-webapp-using-vs>
+
 Dowiedz się, jak opublikować aplikację ASP.NET Core w usłudze Azure App Service przy użyciu programu Visual Studio.

@@ -5,12 +5,12 @@ description: Tożsamość za pomocą aplikacji ASP.NET Core. Dowiedz się, jak u
 ms.author: riande
 ms.date: 08/08/2018
 uid: security/authentication/identity
-ms.openlocfilehash: d57ab5f2fdfabdfe3a987475d2db68b3fc1dec72
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 355c53e0c957944cb35c37c6b01e724af5f93f44
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209203"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265468"
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>Wprowadzenie do tożsamości programu ASP.NET Core
 
@@ -27,6 +27,7 @@ W tym temacie możesz dowiedzieć się, jak zarejestrować, zaloguj się za pomo
 ::: moniker range=">= aspnetcore-2.1"
 
 <a name="adi"></a>
+
 ## <a name="adddefaultidentity-and-addidentity"></a>AddDefaultIdentity i AddIdentity
 
 [AddDefaultIdentity](/dotnet/api/microsoft.extensions.dependencyinjection.identityservicecollectionuiextensions.adddefaultidentity?view=aspnetcore-2.1#Microsoft_Extensions_DependencyInjection_IdentityServiceCollectionUIExtensions_AddDefaultIdentity__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_Microsoft_AspNetCore_Identity_IdentityOptions__) wprowadzono w programie ASP.NET Core 2.1. Wywoływanie `AddDefaultIdentity` jest podobny do wywoływania następujące czynności:
@@ -71,6 +72,7 @@ Uruchom aplikację i zarejestrować użytkownik. Zależności od wielkości ekra
 [!INCLUDE[](~/includes/view-identity-db.md)]
 
 <a name="pw"></a>
+
 ### <a name="configure-identity-services"></a>Konfigurowanie usługi zarządzania tożsamościami
 
 Usługi są dodawane w `ConfigureServices`. Typowy wzorzec polega na wywołaniu wszystkich `Add{Service}` metody, a następnie wywołania wszystkich `services.Configure{Service}` metody.

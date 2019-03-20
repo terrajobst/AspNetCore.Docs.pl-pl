@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 01/10/2019
 uid: migration/proper-to-2x/membership-to-core-identity
-ms.openlocfilehash: 0b7001a311eeaaa78e3d52e2ec66d33ad057c381
-ms.sourcegitcommit: cec77d5ad8a0cedb1ecbec32834111492afd0cd2
+ms.openlocfilehash: 3b708da13ff9f2887eee87ea17844312a4fe1b8d
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54207411"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264722"
 ---
 # <a name="migrate-from-aspnet-membership-authentication-to-aspnet-core-20-identity"></a>Migracja z uwierzytelniania członkostwa ASP.NET do ASP.NET Core 2.0 tożsamości
 
@@ -54,6 +54,7 @@ Jest to najszybszy sposób, aby wyświetlić schemat dla platformy ASP.NET Core 
       }
     }
     ```
+
 1. Wybierz **widoku** > **Eksplorator obiektów SQL Server**. Rozwiń węzeł odpowiadający nazwie bazy danych określonej w `ConnectionStrings:DefaultConnection` właściwość *appsettings.json*.
 
     `Update-Database` Polecenia utworzona baza danych określona ze schematem i wszystkie dane potrzebne do inicjowania aplikacji. Poniższa ilustracja przedstawia strukturę tabeli, który jest tworzony za pomocą powyższych kroków.
@@ -66,7 +67,7 @@ Istnieją drobne różnice w strukturę tabeli i pola dla członkostwa i tożsam
 
 ### <a name="users"></a>Użytkownicy
 
-|*Tożsamość<br>(dbo. AspNetUsers)*        ||*Członkostwo<br>(dbo.aspnet_Users / dbo.aspnet_Membership)*||
+|*Identity<br>(dbo.AspNetUsers)*        ||*Członkostwo<br>(dbo.aspnet_Users / dbo.aspnet_Membership)*||
 |----------------------------------------|-----------------------------------------------------------|
 |**Nazwa pola**                 |**Typ**|**Nazwa pola**                                    |**Typ**|
 |`Id`                           |string  |`aspnet_Users.UserId`                             |string  |
@@ -127,7 +128,7 @@ SELECT aspnet_Users.UserId,
        -- Creates an empty password since passwords don't map between the 2 schemas
        '',
        /*
-        The SecurityStamp token is used to verify the state of an account and 
+        The SecurityStamp token is used to verify the state of an account and
         is subject to change at any time. It should be initialized as a new ID.
        */
        NewID(),

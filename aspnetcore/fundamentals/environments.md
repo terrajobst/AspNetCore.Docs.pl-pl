@@ -5,12 +5,12 @@ description: Dowiedz się, jak kontrolować zachowanie aplikacji w wielu środow
 ms.author: riande
 ms.date: 01/22/2019
 uid: fundamentals/environments
-ms.openlocfilehash: 4120453c36d1fc2a2303c2175df30ef9777bc54f
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: 5982f3e51a68dfa29af482067156c42006f50c0c
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57345959"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208460"
 ---
 # <a name="use-multiple-environments-in-aspnet-core"></a>Używanie wielu środowisk w programie ASP.NET Core
 
@@ -31,9 +31,9 @@ Powyższy kod:
 * Wywołania [UseDeveloperExceptionPage](/dotnet/api/microsoft.aspnetcore.builder.developerexceptionpageextensions.usedeveloperexceptionpage) podczas `ASPNETCORE_ENVIRONMENT` ustawiono `Development`.
 * Wywołania [UseExceptionHandler](/dotnet/api/microsoft.aspnetcore.builder.exceptionhandlerextensions.useexceptionhandler) podczas wartość `ASPNETCORE_ENVIRONMENT` ustawiono jeden z następujących czynności:
 
-    * `Staging`
-    * `Production`
-    * `Staging_2`
+  * `Staging`
+  * `Production`
+  * `Staging_2`
 
 [Pomocnik tagu środowiska](xref:mvc/views/tag-helpers/builtin-th/environment-tag-helper) używa wartości `IHostingEnvironment.EnvironmentName` do dołączania lub wykluczania znaczników w elemencie:
 
@@ -290,7 +290,7 @@ Dystrybucje systemu Linux, można użyć `export` polecenie w wierszu polecenia 
 
 Aby załadować konfiguracji przez środowisko, zalecamy:
 
-* *appSettings* pliki (* appsettings.&lt; <Environment> &gt;JSON). Zobacz [konfiguracji: Dostawca konfiguracji pliku](xref:fundamentals/configuration/index#file-configuration-provider).
+* *appSettings* plików (*appsettings.\< Środowisko > .json*). Zobacz [konfiguracji: Dostawca konfiguracji pliku](xref:fundamentals/configuration/index#file-configuration-provider).
 * zmienne środowiskowe (ustawiona w każdym systemie którym hostowana jest aplikacja). Zobacz [konfiguracji: Dostawca konfiguracji pliku](xref:fundamentals/configuration/index#file-configuration-provider) i [bezpieczne przechowywanie kluczy tajnych aplikacji w trakcie opracowywania: Zmienne środowiskowe](xref:security/app-secrets#environment-variables).
 * Klucz tajny Menedżer (w środowisku programistycznym tylko). Zobacz <xref:security/app-secrets>.
 

@@ -5,12 +5,12 @@ description: Wyjaśnienie przy użyciu uwierzytelniania plików cookie bez użyc
 ms.author: riande
 ms.date: 02/25/2019
 uid: security/authentication/cookie
-ms.openlocfilehash: 29370a3ff25469b34edc2a71e00601cf6ecc00ca
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: c6cba588abb003ee677d8f1753b73a1ced1414b0
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56899292"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209378"
 ---
 # <a name="use-cookie-authentication-without-aspnet-core-identity"></a>Używania uwierzytelniania plików cookie bez użycia produktu ASP.NET Core Identity
 
@@ -119,7 +119,7 @@ app.UseCookieAuthentication(new CookieAuthenticationOptions()
 | [CookieSecure](/dotnet/api/microsoft.aspnetcore.builder.cookieauthenticationoptions.cookiesecure?view=aspnetcore-1.1) | Flaga wskazująca, jeśli utworzony plik cookie powinien być ograniczony do protokołu HTTPS (`CookieSecurePolicy.Always`), protokołu HTTP lub HTTPS (`CookieSecurePolicy.None`), lub ten sam protokół jako żądania (`CookieSecurePolicy.SameAsRequest`). Wartość domyślna to `CookieSecurePolicy.SameAsRequest`. |
 | [Opis](/dotnet/api/microsoft.aspnetcore.builder.authenticationoptions.description?view=aspnetcore-1.1) | Dodatkowe informacje o typie uwierzytelniania, który ma zostać udostępnione do aplikacji. |
 | [ExpireTimeSpan](/dotnet/api/microsoft.aspnetcore.builder.cookieauthenticationoptions.expiretimespan?view=aspnetcore-1.1) | `TimeSpan` Po którym wygaśnięcia biletu uwierzytelniania. Jest dodawany do bieżącego czasu, aby utworzyć czas wygaśnięcia biletu. Aby użyć `ExpireTimeSpan`, należy ustawić `IsPersistent` do `true` w `AuthenticationProperties` przekazany do `SignInAsync`. Wartość domyślna to 14 dni. |
-| [SlidingExpiration](/dotnet/api/microsoft.aspnetcore.builder.cookieauthenticationoptions.slidingexpiration?view=aspnetcore-1.1) | Flaga wskazująca, czy data wygaśnięcia pliku cookie resetuje, gdy więcej niż połowy `ExpireTimeSpan` upływie interwału. Nowy termin exipiration jest przenoszony do przodu do bieżącej daty plus `ExpireTimespan`. [Czas wygaśnięcia bezwzględną pliku cookie](xref:security/authentication/cookie#absolute-cookie-expiration) można ustawić za pomocą `AuthenticationProperties` klasy podczas wywoływania `SignInAsync`. Czas wygaśnięcia bezwzględny może zwiększyć zabezpieczenia aplikacji, ograniczając ilość czasu, który plik cookie uwierzytelniania jest prawidłowy. Wartość domyślna to `true`. |
+| [SlidingExpiration](/dotnet/api/microsoft.aspnetcore.builder.cookieauthenticationoptions.slidingexpiration?view=aspnetcore-1.1) | Flaga wskazująca, czy data wygaśnięcia pliku cookie resetuje, gdy więcej niż połowy `ExpireTimeSpan` upływie interwału. Nową wartość czasu wygaśnięcia jest przenoszony do przodu do bieżącej daty plus `ExpireTimespan`. [Czas wygaśnięcia bezwzględną pliku cookie](xref:security/authentication/cookie#absolute-cookie-expiration) można ustawić za pomocą `AuthenticationProperties` klasy podczas wywoływania `SignInAsync`. Czas wygaśnięcia bezwzględny może zwiększyć zabezpieczenia aplikacji, ograniczając ilość czasu, który plik cookie uwierzytelniania jest prawidłowy. Wartość domyślna to `true`. |
 
 Ustaw `CookieAuthenticationOptions` dla oprogramowania pośredniczącego uwierzytelniania pliku Cookie w `Configure` metody:
 

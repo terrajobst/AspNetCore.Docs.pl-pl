@@ -5,12 +5,12 @@ description: Dowiedz się, jak rozpocząć pracę z platformą ASP.NET Core MVC.
 ms.author: riande
 ms.date: 12/12/2018
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: 1bc5da7dcab5a5070260ca464a82b650cc4838bf
-ms.sourcegitcommit: d913bca90373c07f89b1d1df01af5fc01fc908ef
+ms.openlocfilehash: dbc07558d7d7672e60e8834dc3e4e9d8aab437e3
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57978461"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265289"
 ---
 # <a name="get-started-with-aspnet-core-mvc"></a>Rozpoczynanie pracy z platformą ASP.NET Core MVC
 
@@ -36,7 +36,6 @@ Na koniec masz aplikację, która może zarządzać i wyświetlić dane dotyczą
 
 ## <a name="create-a-web-app"></a>tworzenie aplikacji internetowej
 
-<!-- VS -------------------------->
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 W programie Visual Studio, wybierz **Plik > Nowy > Projekt**.
@@ -62,7 +61,6 @@ Wykonaj **nowa Core aplikacja internetowa ASP.NET (.NET Core) — MvcMovie** okn
 
 Visual Studio używał domyślnego szablonu projektu MVC, który został utworzony. Masz działającą aplikację z chwili, wprowadzając nazwę projektu i wybraniu kilku opcji. Jest to projekt startowy podstawowe i jest dobrym miejscem do rozpoczęcia.
 
-<!-- Code -------------------------->
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 W samouczku założono familarity z programem VS Code. Zobacz [wprowadzenie do programu VS Code](https://code.visualstudio.com/docs) i [pomocy programu Visual Studio Code](#visual-studio-code-help) Aby uzyskać więcej informacji.
@@ -81,7 +79,6 @@ W samouczku założono familarity z programem VS Code. Zobacz [wprowadzenie do p
   * `dotnet new mvc -o MvcMovie`: tworzy nowy projekt ASP.NET Core MVC w *MvcMovie* folderu.
   * `code -r MvcMovie`: Ładunki *MvcMovie.csproj* plik projektu w programie Visual Studio Code.
 
-<!-- Mac -------------------------->
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 * Wybierz **pliku** > **nowe rozwiązanie**.
@@ -96,12 +93,11 @@ W samouczku założono familarity z programem VS Code. Zobacz [wprowadzenie do p
 
 * Nadaj projektowi nazwę **MvcMovie**, a następnie wybierz pozycję **Utwórz**.
 
----  
-<!-- End of VS tabs -->
+---
 
 ### <a name="run-the-app"></a>Uruchamianie aplikacji
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Wybierz **Ctrl-F5** do uruchomienia aplikacji w trybie bez debugowania.
 
@@ -117,13 +113,13 @@ Wybierz **Ctrl-F5** do uruchomienia aplikacji w trybie bez debugowania.
 
   ![IIS Express](start-mvc/_static/iis_express.png)
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code) 
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Naciśnij klawisze Ctrl + F5, aby uruchomić bez debugowania.
 
 [!INCLUDE[](~/includes/trustCertVSC.md)]
 
-  Visual Studio Code rozpoczyna się rozpoczyna się [Kestrel](xref:fundamentals/servers/kestrel)otworzy w przeglądarce i przechodzi do `https://localhost:5001`. Przedstawia pasek adresu `localhost:port:5001` i nie mielibyśmy mieć czegoś podobnego `example.com`. To dlatego, że `localhost` jest standardowa nazwa hosta na komputerze lokalnym. Localhost obsługują tylko żądania sieci web z komputera lokalnego.
+  Uruchamia programu Visual Studio Code [Kestrel](xref:fundamentals/servers/kestrel)otworzy w przeglądarce i przechodzi do `https://localhost:5001`. Przedstawia pasek adresu `localhost:port:5001` i nie mielibyśmy mieć czegoś podobnego `example.com`. To dlatego, że `localhost` jest standardowa nazwa hosta na komputerze lokalnym. Localhost obsługują tylko żądania sieci web z komputera lokalnego.
 
   Uruchamianie aplikacji za pomocą klawiszy Ctrl + F5 (bez debugowania w trybie) umożliwia wprowadzać zmiany kodu, Zapisz plik, Odśwież przeglądarkę i zobaczyć zmiany kodu. Wielu programistów łatwiej jest w trybie bez debugowania odświeżenie strony i wyświetlić zmiany.
 
@@ -136,7 +132,7 @@ Wybierz **Uruchom** > **Rozpocznij bez debugowania** do uruchomienia aplikacji. 
 * Przedstawia pasek adresu `localhost:port#` i nie mielibyśmy mieć czegoś podobnego `example.com`. To dlatego, że `localhost` jest standardowa nazwa hosta komputera lokalnego. Gdy program Visual Studio tworzy projekt sieci web, losowy port jest używany dla serwera sieci web. Po uruchomieniu aplikacji, zobaczysz inny numer portu.
 * Możesz uruchomić aplikację w debugowaniu lub trybie bez debugowania z **Uruchom** menu.
 
-------
+---
 
 * Wybierz **Akceptuj** do wyrażenia zgody na śledzenie. Ta aplikacja nie może śledzić informacje osobiste. Kod wygenerowany szablon zawiera zasoby, które ułatwiają korzystanie z [ogólne rozporządzenie o ochronie danych (RODO)](xref:security/gdpr).
 
@@ -151,4 +147,4 @@ Wybierz **Uruchom** > **Rozpocznij bez debugowania** do uruchomienia aplikacji. 
 W następnej części tego samouczka Dowiedz się więcej o MVC i rozpocząć pisanie kodu.
 
 > [!div class="step-by-step"]
-> [Next](adding-controller.md)  
+> [Next](adding-controller.md)

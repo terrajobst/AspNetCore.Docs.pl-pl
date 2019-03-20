@@ -5,12 +5,12 @@ description: W tym samouczku będziesz aktualizowanie powiązanych danych, aktua
 ms.author: riande
 ms.date: 11/15/2017
 uid: data/ef-rp/update-related-data
-ms.openlocfilehash: c3dbfe57a832ba63c5da2f89c0d29e443a1277a7
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: e1407048157fccdbfdd854071a6fbf9785356026
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57345765"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208612"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---update-related-data---7-of-8"></a>Strony razor z programem EF Core w programie ASP.NET Core — aktualizowanie powiązanych danych - 7, 8
 
@@ -136,9 +136,9 @@ Aktualizowanie modelu strony edytowania Instruktorzy z następującym kodem:
 
 Powyższy kod:
 
-- Pobiera bieżący `Instructor` jednostki z bazy danych przy użyciu wczesne ładowanie dla `OfficeAssignment` właściwości nawigacji.
-- Aktualizuje pobrany `Instructor` jednostki z wartościami z integratora modelu. `TryUpdateModel` Zapobiega [polegającymi](xref:data/ef-rp/crud#overposting).
-- Jeśli lokalizacja pakietu office jest pusta, ustawia `Instructor.OfficeAssignment` na wartość null. Gdy `Instructor.OfficeAssignment` jest null, powiązane wiersza w `OfficeAssignment` tabeli zostanie usunięty.
+* Pobiera bieżący `Instructor` jednostki z bazy danych przy użyciu wczesne ładowanie dla `OfficeAssignment` właściwości nawigacji.
+* Aktualizuje pobrany `Instructor` jednostki z wartościami z integratora modelu. `TryUpdateModel` Zapobiega [polegającymi](xref:data/ef-rp/crud#overposting).
+* Jeśli lokalizacja pakietu office jest pusta, ustawia `Instructor.OfficeAssignment` na wartość null. Gdy `Instructor.OfficeAssignment` jest null, powiązane wiersza w `OfficeAssignment` tabeli zostanie usunięty.
 
 ### <a name="update-the-instructor-edit-page"></a>Zaktualizuj strony edytowania przez instruktorów
 

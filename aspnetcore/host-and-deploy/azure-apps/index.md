@@ -141,6 +141,7 @@ Po zakończeniu tej operacji jest zainstalowana najnowsza wersja zapoznawcza pla
    ```powershell
    Test-Path D:\home\SiteExtensions\AspNetCoreRuntime.{X.Y}.{PLATFORM}\
    ```
+
    Polecenie zwraca `True` podczas x64 czas wykonywania (wersja zapoznawcza) jest zainstalowany.
 
 > [!NOTE]
@@ -194,11 +195,13 @@ W przypadku wdrażania aplikacja samodzielna:
      <RuntimeIdentifier>win-x86</RuntimeIdentifier>
    </PropertyGroup>
    ```
+
 1. Z powłoki poleceń, Opublikuj aplikację w konfiguracji wydania dla aparatu plików wykonywalnych hosta [publikowania dotnet](/dotnet/core/tools/dotnet-publish) polecenia. W poniższym przykładzie aplikacja została opublikowana na potrzeby `win-x86` identyfikatorów RID. RID dostarczane do `--runtime` w musi być podana opcja `<RuntimeIdentifier>` (lub `<RuntimeIdentifiers>`) właściwość w pliku projektu.
 
    ```console
    dotnet publish --configuration Release --runtime win-x86
    ```
+
 1. Przenieś zawartość *wersji/bin / {w TARGET FRAMEWORK} / {identyfikator środowiska URUCHOMIENIOWEGO} / publish* katalogu do lokacji w usłudze App Service.
 
 ### <a name="use-docker-with-web-apps-for-containers"></a>Używać platformy Docker z funkcją Web Apps for containers

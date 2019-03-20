@@ -7,12 +7,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 11/14/2018
 uid: signalr/streaming
-ms.openlocfilehash: fb7183f7189d62c181f69ffdb170e3da25612919
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: 7c176e3f21ffca7b97d9d3c2e8861032f22587b8
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57345590"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264306"
 ---
 # <a name="use-streaming-in-aspnet-core-signalr"></a>Korzystanie z przesyłaniem strumieniowym w biblioteki SignalR platformy ASP.NET Core
 
@@ -139,12 +139,14 @@ Aby zakończyć strumień od klienta, należy wywołać `dispose` metody `ISubsc
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-3.0"
+
 ## <a name="java-client"></a>Klient Java
+
 Klient SignalR Java używa `stream` metody do wywołania metody przesyłania strumieniowego. Akceptuje ona co najmniej trzech argumentów:
 
-* Oczekiwany typ elementów strumienia 
+* Oczekiwany typ elementów strumienia
 * Nazwa metody koncentratora.
-* Argumenty zdefiniowane w metody koncentratora. 
+* Argumenty zdefiniowane w metody koncentratora.
 
 ```java
 hubConnection.stream(String.class, "ExampleStreamingHubMethod", "Arg1")
@@ -153,6 +155,7 @@ hubConnection.stream(String.class, "ExampleStreamingHubMethod", "Arg1")
         (error) -> {/* Define your onError handler here. */},
         () -> {/* Define your onCompleted handler here. */});
 ```
+
 `stream` Metody `HubConnection` zwraca zauważalny typu elementu strumienia. Typ dostrzegalnych `subscribe` określa się za pomocą metody swoje `onNext`, `onError` i `onCompleted` programów obsługi.
 
 ::: moniker-end

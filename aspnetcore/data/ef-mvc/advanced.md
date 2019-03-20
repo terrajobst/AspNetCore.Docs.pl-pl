@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 02/05/2019
 ms.topic: tutorial
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: f02aa1d6d8e431e7e2613835b3216786aed4ecd4
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: c4804bd6614c7d5a2a30c8f59a645f603929ad52
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56103101"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264587"
 ---
 # <a name="tutorial-learn-about-advanced-scenarios---aspnet-mvc-with-ef-core"></a>Samouczek: Dowiedz się więcej o zaawansowanych scenariuszy — ASP.NET MVC z programem EF Core
 
@@ -81,7 +81,7 @@ Załóżmy, że administratorzy Contoso University chce wykonywać globalnych zm
 
 ![Strona kurs środki na korzystanie z aktualizacji](advanced/_static/update-credits.png)
 
-W *CoursesContoller.cs*, Dodaj metody UpdateCourseCredits HttpGet i HttpPost:
+W *CoursesController.cs*, Dodaj metody UpdateCourseCredits HttpGet i HttpPost:
 
 [!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_UpdateGet)]
 
@@ -202,6 +202,7 @@ Aby odtworzyć modelu danych, w tym klas jednostek z istniejącej bazy danych, n
 Tom Dykstra i Rick Anderson (twitter @RickAndMSFT) napisany w tym samouczku. Rowan Miller, Diego Vega i inni członkowie zespołu programu Entity Framework korzystającej z przeglądy kodu i pomogła debugowanie problemów, które powstały podczas, gdy firma Microsoft była pisanie kodu dla samouczków. John Parente i Paul Goldman pracuje aktualizowanie samouczek dla platformy ASP.NET Core 2.2.
 
 <a id="common-errors"></a>
+
 ## <a name="troubleshoot-common-errors"></a>Rozwiązywanie typowych problemów
 
 ### <a name="contosouniversitydll-used-by-another-process"></a>ContosoUniversity.dll używany przez inny proces

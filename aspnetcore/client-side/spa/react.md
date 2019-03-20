@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 03/07/2019
 uid: spa/react
-ms.openlocfilehash: 7b07f696ae071531c88c9f8cf528fc6f0bf97b46
-ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
+ms.openlocfilehash: 91a71498574d6d96c2c06e896283fed801e8adb3
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57665564"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265225"
 ---
 # <a name="use-the-react-project-template-with-aspnet-core"></a>Szablon projektu platformy React za pomocą platformy ASP.NET Core
 
@@ -85,7 +85,7 @@ Brak wadą tego ustawienia domyślnego. Po każdej zmianie kodu C# i ASP.NET Cor
     ```
     BROWSER=none
     ```
-    
+
     Uniemożliwi to przeglądarki sieci web otwierania podczas uruchamiania serwera kanadyjskiej administracji podatkowej zewnętrznie.
 
 2. W wierszu polecenia przejdź do *ClientApp* podkatalogu, a następnie uruchom serwera wdrożeniowego programu kanadyjskiej administracji podatkowej:

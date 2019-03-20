@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/28/2019
 uid: host-and-deploy/iis/modules
-ms.openlocfilehash: e5bb1a86453bb945789cc1f4b56616551e316615
-ms.sourcegitcommit: 6ddd8a7675c1c1d997c8ab2d4498538e44954cac
+ms.openlocfilehash: de740775e124298f7c3d3be0c6f5a7311174116d
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57400687"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265480"
 ---
 # <a name="iis-modules-with-aspnet-core"></a>Moduły usług IIS za pomocą programu ASP.NET Core
 
@@ -123,7 +123,7 @@ Jeśli sposób, aby usunąć moduł z ustawieniem w *web.config*, odblokować mo
     </system.webServer>
    </configuration>
    ```
-   
+
 Aby dodać lub usunąć moduły usług IIS Express przy użyciu *web.config*, zmodyfikuj *applicationHost.config* do odblokowania `<modules>` sekcji:
 
 1. Otwórz *{katalog główny aplikacji}\\.vs\config\applicationhost.config*.
@@ -131,17 +131,17 @@ Aby dodać lub usunąć moduły usług IIS Express przy użyciu *web.config*, zm
 1. Znajdź `<section>` elementem moduły usług IIS i zmień `overrideModeDefault` z `Deny` do `Allow`:
 
    ```xml
-   <section name="modules" 
-            allowDefinition="MachineToApplication" 
+   <section name="modules"
+            allowDefinition="MachineToApplication"
             overrideModeDefault="Allow" />
    ```
-   
+
 1. Znajdź `<location path="" overrideMode="Allow"><system.webServer><modules>` sekcji. W przypadku modułów, które chcesz usunąć, ustawić `lockItem` z `true` do `false`. W poniższym przykładzie moduł CGI jest odblokowany:
 
    ```xml
    <add name="CgiModule" lockItem="false" />
    ```
-   
+
 1. Po `<modules>` sekcji i indywidualne moduły są odblokowane, możesz dodać lub usunąć moduły usług IIS przy użyciu aplikacji *web.config* pliku do uruchamiania aplikacji w usługach IIS Express.
 
 Moduł usług IIS może zostać także usunięty z *Appcmd.exe*. Podaj `MODULE_NAME` i `APPLICATION_NAME` w poleceniu:

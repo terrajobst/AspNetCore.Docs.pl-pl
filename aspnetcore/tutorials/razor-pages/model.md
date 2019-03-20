@@ -5,12 +5,12 @@ description: Dowiedz się, jak można dodać klas związanych z zarządzaniem fi
 ms.author: riande
 ms.date: 02/12/2019
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 0ba00750dee1ccbef5d91d8c66f2de0db401c5c1
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: b4f14241d50383ad4d1c1d8c9d00ca439f371b7d
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57346362"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265033"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Dodawanie modelu strony Razor aplikacji w programie ASP.NET Core
 
@@ -26,8 +26,6 @@ Klasy modelu są znane jako klasy POCO (od "old zwykły CLR obiekty"), ponieważ
 
 ## <a name="add-a-data-model"></a>Dodawanie modelu danych
 
-<!-- VS -------------------------->
-
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Kliknij prawym przyciskiem myszy **RazorPagesMovie** Projekt > **Dodaj** > **nowy Folder**. Nazwa folderu *modeli*.
@@ -35,8 +33,6 @@ Kliknij prawym przyciskiem myszy **RazorPagesMovie** Projekt > **Dodaj** > **now
 Kliknij prawym przyciskiem myszy *modeli* folderu. Wybierz **Dodaj** > **klasy**. Nazwa klasy **filmu**.
 
 [!INCLUDE [model 1b](~/includes/RP/model1b.md)]
-
-<!-- Code -------------------------->
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -47,7 +43,6 @@ Kliknij prawym przyciskiem myszy *modeli* folderu. Wybierz **Dodaj** > **klasy**
 
 [!INCLUDE [model 2](~/includes/RP/model2.md)]
 
-<!-- Mac -------------------------->
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 * W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy **RazorPagesMovie** projektu, a następnie wybierz **Dodaj** > **nowy Folder**. Nazwa folderu *modeli*.
@@ -62,8 +57,6 @@ Kliknij prawym przyciskiem myszy *modeli* folderu. Wybierz **Dodaj** > **klasy**
 
 [!INCLUDE [model 2](~/includes/RP/model2.md)]
 
-<!-- End of VS tabs -->
-
 ---
 
 Skompiluj projekt, aby sprawdzić, czy nie wystąpiły żadne błędy kompilacji.
@@ -71,8 +64,6 @@ Skompiluj projekt, aby sprawdzić, czy nie wystąpiły żadne błędy kompilacji
 ## <a name="scaffold-the-movie-model"></a>Tworzenie szkieletu modelu movie
 
 W tej sekcji modelu movie jest szkielet. Oznacza to, że narzędzie do tworzenia szkieletów tworzy strony dla operacji tworzenia, odczytu, aktualizowania lub usuwania (CRUD) do modelu movie.
-
-<!-- VS -------------------------->
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -98,8 +89,6 @@ Wykonaj **dodać strony Razor za pomocą programu Entity Framework (CRUD)** okno
 ![Obraz z poprzednich instrukcji.](model/_static/arp.png)
 
 *Appsettings.json* plik został zaktualizowany o parametry połączenia używane do łączenia z lokalnej bazy danych.
-
-<!-- Code -------------------------->
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -127,8 +116,6 @@ Wykonaj **dodać strony Razor za pomocą programu Entity Framework (CRUD)** okno
 
 [!INCLUDE [explains scaffold gen params](~/includes/RP/model4.md)]
 
-<!-- Mac -------------------------->
-
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 * Otwórz okno polecenia w katalogu projektu (katalog, który zawiera *Program.cs*, *Startup.cs*, i *.csproj* plików).
@@ -137,6 +124,7 @@ Wykonaj **dodać strony Razor za pomocą programu Entity Framework (CRUD)** okno
   ```console
    dotnet tool install --global dotnet-aspnet-codegenerator
    ```
+
 * Uruchom następujące polecenie:
 
   ```console
@@ -164,11 +152,7 @@ Pliki utworzone i zaktualizowane zostały wyjaśnione w kolejnej sekcji.
 
 ## <a name="initial-migration"></a>Początkowej migracji
 
-<!-- VS -------------------------->
-
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
-
-<!-- VS -------------------------->
 
 W tej sekcji konsoli Menedżera pakietów (PMC) służy do:
 
@@ -186,11 +170,7 @@ Add-Migration Initial
 Update-Database
 ```
 
-<!-- Code -------------------------->
-
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
-
-<!-- Mac -------------------------->
 
 [!INCLUDE [initial migration](~/includes/RP/model3.md)]
 
@@ -198,8 +178,7 @@ Update-Database
 
 [!INCLUDE [initial migration](~/includes/RP/model3.md)]
 
----  
-<!-- End of VS tabs -->
+---
 
 Poprzednich poleceniach generuje następujące ostrzeżenie: "Nie określono typu dziesiętną kolumny"Cena"jednostki typu"Filmu". To spowoduje, że wartości, aby dyskretnie obcięty, jeśli nie mieszczą się w domyślnej dokładności i skali. Jawnie określić typ kolumny serwera SQL, która może pomieścić wszystkie wartości przy użyciu "HasColumnType()"."
 
@@ -208,8 +187,6 @@ Możesz zignorować ostrzeżenie o tym, zostanie rozwiązany później w samoucz
 `ef migrations add InitialCreate` Polecenie generuje kod, aby utworzyć schemat początkowej bazy danych. Schemat jest oparta na modelu, określone w `DbContext` (w *RazorPagesMovieContext.cs* pliku). `InitialCreate` Argument jest używany do nazywania migracje. Można dowolną nazwę, ale zgodnie z Konwencją, wybrane nazwę opisującą migracji.
 
 `ef database update` Polecenia `Up` method in Class metoda *migracje /\<sygnatura czasowa > _InitialCreate.cs* pliku. `Up` Metoda tworzy bazę danych.
-
-<!-- VS -------------------------->
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -230,15 +207,10 @@ Sprawdź `Startup.ConfigureServices` metody. Wyróżniony wiersz został dodany 
 Powyższy kod tworzy [ `DbSet<Movie>` ](/dotnet/api/microsoft.entityframeworkcore.dbset-1) właściwość zestawu jednostek. W terminologii programu Entity Framework zwykle zestaw jednostek odnosi się do tabeli bazy danych. Jednostki odnosi się do wiersza w tabeli.
 
 Nazwa ciągu połączenia jest przekazywany do kontekstu przez wywołanie metody na [DbContextOptions](/dotnet/api/microsoft.entityframeworkcore.dbcontextoptions) obiektu. Na potrzeby lokalnego programowania dla [systemu konfiguracji platformy ASP.NET Core](xref:fundamentals/configuration/index) odczytuje parametry połączenia z *appsettings.json* pliku.
-<!-- Code -------------------------->
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-<!-- Mac -------------------------->
-
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
-
-<!-- End of VS tabs -->
 
 ---
 
@@ -264,7 +236,7 @@ Możesz pominąć [krok migracji](#pmc).
 * Test **Utwórz** łącza.
 
   ![Tworzenie strony](model/_static/conan.png)
-  
+
   > [!NOTE]
   > Nie można wprowadzić dziesiętna przecinkami w `Price` pola. Aby obsługiwać [dotyczącą weryfikacji jQuery](https://jqueryvalidation.org/) dla ustawień regionalnych innych niż angielski, które należy użyć przecinka (",") separator dziesiętny i formaty daty inne niż angielski, aplikacja musi globalizowana. Globalizacja instrukcje można znaleźć [problem w usłudze GitHub](https://github.com/aspnet/Docs/issues/4076#issuecomment-326590420).
 

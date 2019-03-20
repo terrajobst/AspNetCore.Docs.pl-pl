@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 10/14/2016
 uid: web-api/advanced/formatting
-ms.openlocfilehash: 819bf1b49b56e953a9a4398e82866ba0b01ab4db
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: b0fce0632fd2d885cb8e9a056923ec365d2f327d
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207111"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209989"
 ---
 # <a name="format-response-data-in-aspnet-core-web-api"></a>Formatowanie danych odpowiedzi w interfejsie API sieci Web platformy ASP.NET Core
 
@@ -129,13 +129,13 @@ services.AddMvc(options =>
 
 Po dodaniu obsługi formatowania XML metody kontroler powinien zwrócić odpowiedni format na podstawie żądania `Accept` nagłówka, jak Fiddler, ten przykład pokazuje:
 
-![Konsola programu fiddler: karta nieprzetworzonych dla żądania pokazuje wartość nagłówka Accept application/xml. Nieprzetworzone kartę odpowiedzi zawiera wartość nagłówka Content-Type application/XML.](formatting/_static/xml-response.png)
+![Konsola programu fiddler: Nieprzetworzone kartę dla żądania pokazuje wartość nagłówka Accept jest aplikacja/xml. Nieprzetworzone kartę odpowiedzi zawiera wartość nagłówka Content-Type application/XML.](formatting/_static/xml-response.png)
 
 Widoczne na karcie inspektorzy, która pierwotne Pobierz żądanie zostało wystosowane z `Accept: application/xml` zestaw nagłówka. Przedstawia okienko odpowiedzi `Content-Type: application/xml` nagłówka, a `Author` obiekt został serializowany do XML.
 
 Użyj karty Composer (kompozytor), aby zmodyfikować żądanie, aby określić `application/json` w `Accept` nagłówka. Wykonanie żądania i odpowiedzi będą formatowane jako dane JSON:
 
-![Konsola programu fiddler: karta nieprzetworzonych dla żądania pokazuje wartość nagłówka Accept application/json. Nieprzetworzone kartę odpowiedzi zawiera wartość nagłówka Content-Type application/JSON.](formatting/_static/json-response-fiddler.png)
+![Konsola programu fiddler: Nieprzetworzone kartę dla żądania pokazuje wartość nagłówka Accept jest application/json. Nieprzetworzone kartę odpowiedzi zawiera wartość nagłówka Content-Type application/JSON.](formatting/_static/json-response-fiddler.png)
 
 W tym zrzucie ekranu widać, żądanie ustawia nagłówek `Accept: application/json` i określa odpowiedź, taka sama jak jego `Content-Type`. `Author` Obiektu jest wyświetlany w treści odpowiedzi w formacie JSON.
 
@@ -180,10 +180,8 @@ public class ProductsController
 
 Ta trasa pozwoliłoby żądany format można określić jako rozszerzenie pliku opcjonalne. `[FormatFilter]` Atrybut sprawdza istnienie wartości formatu `RouteData` i będzie zmapowana format odpowiedzi do odpowiedniego obiektu formatującego, po utworzeniu odpowiedzi.
 
-
 |           trasy            |             Element formatujący              |
 |----------------------------|------------------------------------|
 |   `/products/GetById/5`    |    Domyślny element formatujący dane wyjściowe    |
 | `/products/GetById/5.json` | Element formatujący JSON (jeśli jest skonfigurowane) |
 | `/products/GetById/5.xml`  | Element formatujący XML (jeśli jest skonfigurowane)  |
-

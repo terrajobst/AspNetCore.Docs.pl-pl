@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: migration/mvc2
-ms.openlocfilehash: 9960932bd288ea12e346272f1838026778f1d355
-ms.sourcegitcommit: 54655f1e1abf0b64d19506334d94cfdb0caf55f6
+ms.openlocfilehash: 7f048f2f95f1a51a0b6ce3d36665420ff28ec26f
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50148866"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208476"
 ---
 # <a name="migrate-from-aspnet-to-aspnet-core-20"></a>Migrowanie z programu ASP.NET do ASP.NET Core 2.0
 
@@ -24,7 +24,7 @@ Ten artykuł służy jako przewodnik odwołania do migrowania aplikacji ASP.NET 
 Zainstaluj **jeden** z następujących czynności z [.NET pliki do pobrania: Windows](https://www.microsoft.com/net/download/windows):
 
 * Zestaw SDK dla platformy .NET core
-* Program Visual Studio for Windows
+* Visual Studio for Windows
   * **ASP.NET i tworzenie aplikacji internetowych** obciążenia
   * **Programowanie dla wielu platform .NET core** obciążenia
 
@@ -123,15 +123,15 @@ W aplikacjach ASP.NET deweloperzy zależy od innej biblioteki, aby zaimplementow
 
 Przykład konfigurowania wstrzykiwanie zależności za pomocą aparatu Unity implementuje `IDependencyResolver` to opakowuje `UnityContainer`:
 
-[!code-csharp[](../../../aspnet/web-api/overview/advanced/dependency-injection/samples/sample8.cs)]
+[!code-csharp[](samples/sample8.cs)]
 
 Utwórz wystąpienie usługi `UnityContainer`, a następnie zarejestrować usługę i ustawić mechanizm rozpoznawania zależności `HttpConfiguration` do nowego wystąpienia programu `UnityResolver` kontenera:
 
-[!code-csharp[](../../../aspnet/web-api/overview/advanced/dependency-injection/samples/sample9.cs)]
+[!code-csharp[](samples/sample9.cs)]
 
 Wstrzykiwanie `IProductRepository` w razie potrzeby:
 
-[!code-csharp[](../../../aspnet/web-api/overview/advanced/dependency-injection/samples/sample5.cs)]
+[!code-csharp[](samples/sample5.cs)]
 
 Wstrzykiwanie zależności jest częścią platformy ASP.NET Core, dlatego można dodać usługi `Startup.ConfigureServices`:
 

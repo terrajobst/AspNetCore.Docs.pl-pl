@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/06/2018
 uid: tutorials/publish-to-azure-webapp-using-vs
-ms.openlocfilehash: e71cb8badbbc852685c845e6bbb0bbb12ab5499f
-ms.sourcegitcommit: 68a3081dd175d6518d1bfa31b4712bd8a2dd3864
+ms.openlocfilehash: b2b5a155d0dff28e471af449731da787f19d1faf
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53577815"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208362"
 ---
 # <a name="publish-an-aspnet-core-app-to-azure-with-visual-studio"></a>Publikowanie aplikacji platformy ASP.NET Core na platformie Azure z programem Visual Studio
 
@@ -127,7 +127,7 @@ Program Visual Studio zwraca **Tworzenie usługi App Service** okna dialogowego.
 
 ![Konfigurowanie okna dialogowego baza danych SQL](publish-to-azure-webapp-using-vs/_static/conf_final.png)
 
-Visual Studio tworzy aplikację sieci Web i SQL Server na platformie Azure. Może to potrwać kilka minut. Aby uzyskać informacji na temat tworzenia zasobów, zobacz [dodatkowe zasoby](#additonal-resources).
+Visual Studio tworzy aplikację sieci Web i SQL Server na platformie Azure. Może to potrwać kilka minut. Aby uzyskać informacji na temat tworzenia zasobów, zobacz [dodatkowe zasoby](#additional-resources).
 
 Po zakończeniu wdrażania wybierz **ustawienia**:
 
@@ -135,8 +135,8 @@ Po zakończeniu wdrażania wybierz **ustawienia**:
 
 Na **ustawienia** strony **Publikuj** okno dialogowe:
 
-  * Rozwiń **baz danych** i sprawdź **Użyj tych parametrów połączenia w czasie wykonywania**.
-  * Rozwiń **migracją architektury jednostek** i sprawdź **Zastosuj tej migracji na publikowanie**.
+* Rozwiń **baz danych** i sprawdź **Użyj tych parametrów połączenia w czasie wykonywania**.
+* Rozwiń **migracją architektury jednostek** i sprawdź **Zastosuj tej migracji na publikowanie**.
 
 * Wybierz pozycję **Zapisz**. Program Visual Studio zwraca **Publikuj** okna dialogowego. 
 
@@ -172,11 +172,11 @@ Po zakończeniu testowania aplikacji, przejdź do [witryny Azure portal](https:/
 
 * Wybierz **grup zasobów**, następnie wybierz utworzoną grupę zasobów.
 
-![Witryna Azure Portal: Grupy zasobów, w menu bocznym](publish-to-azure-webapp-using-vs/_static/portalrg.png)
+![Azure Portal: Grupy zasobów, w menu bocznym](publish-to-azure-webapp-using-vs/_static/portalrg.png)
 
 * W **grup zasobów** wybierz opcję **Usuń**.
 
-![Witryna Azure Portal: Strony grup zasobów](publish-to-azure-webapp-using-vs/_static/rgd.png)
+![Azure Portal: Strony grup zasobów](publish-to-azure-webapp-using-vs/_static/rgd.png)
 
 * Wprowadź nazwę grupy zasobów, a następnie wybierz pozycję **Usuń**. Aplikacja i inne zasoby utworzone w ramach tego samouczka, teraz są usuwane z usługi Azure.
 
@@ -184,7 +184,7 @@ Po zakończeniu testowania aplikacji, przejdź do [witryny Azure portal](https:/
 
 * <xref:host-and-deploy/azure-apps/azure-continuous-deployment>
 
-## <a name="additonal-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Usługa Azure App Service](/azure/app-service/app-service-web-overview)
 * [Grupy zasobów platformy Azure](/azure/azure-resource-manager/resource-group-overview#resource-groups)

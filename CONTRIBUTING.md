@@ -1,4 +1,12 @@
-# <a name="contribute-to-the-aspnet-documentation"></a>Współtworzenie dokumentacji platformy ASP.NET
+---
+ms.openlocfilehash: f5002ae2d8317b2455298b9c5474d9bff52fa497
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264997"
+---
+# <a name="contribute-to-the-aspnet-core-documentation"></a>Współtworzenie dokumentacji platformy ASP.NET Core
 
 W tym dokumencie opisano proces współtworzenia artykułów i przykłady kodu, które są hostowane na [witrynie dokumentacji platformy ASP.NET](https://docs.microsoft.com/aspnet/). Błąd pisowni poprawki i nowe artykuły są powitalnej wkładów.
 
@@ -18,7 +26,7 @@ Potrzebujesz podstawową wiedzę na temat [Git i GitHub.com](https://guides.gith
 
 Aby uzyskać przykład, gdzie ten proces doprowadził do publikacji nowego artykułu, zobacz [problem &num;67](https://github.com/dotnet/docs/issues/67) i [żądania ściągnięcia &num;798](https://github.com/dotnet/docs/pull/798) w repozytorium dokumentacji platformy .NET. Nowy artykuł jest [dokumentowanie kodu](https://docs.microsoft.com/dotnet/articles/csharp/codedoc).
 
-## <a name="docs-authoring-pack-extension-in-visual-studio-code"></a>Docs Authoring Pack rozszerzenia programu Visual Studio Code 
+## <a name="docs-authoring-pack-extension-in-visual-studio-code"></a>Docs Authoring Pack rozszerzenia programu Visual Studio Code
 
 Jeśli używasz programu Visual Studio Code na potrzeby współtworzenia dokumentacji platformy ASP.NET, możesz zwiększyć produktywność, instalując [Docs Authoring Pack](https://marketplace.visualstudio.com/items?itemName=docsmsft.docs-authoring-pack) rozszerzenia. Rozszerzenie udostępnia szeroką gamą narzędzi, który pomaga w języku znaczników Markdown Zaznaczanie błędów, sprawdzanie pisowni kodu i szablony artykułów.
 
@@ -119,6 +127,7 @@ Wymaga DocFX:
   ```console
   docfx --serve
   ```
+
 * W przeglądarce przejdź do `http://localhost:8080/group1-dest/`.
 
 ### <a name="mono-instructions"></a>Instrukcje platformy mono
@@ -128,6 +137,7 @@ Wymaga DocFX:
   ```console
   brew install mono
   ```
+
 * Pobierz [najnowszą wersję DocFX](https://github.com/dotnet/docfx/releases).
 * Wyodrębnij archiwum do *$ głównej/bin/docfx*.
 * Tworzenie aliasów dla pary **docfx** w powłoce bash. Pierwszy alias jest używany do tworzenia w dokumentacji. Drugi aliasu jest używane do tworzenia i obsługi dokumentacji.
@@ -136,11 +146,13 @@ Wymaga DocFX:
   alias docfx='mono $HOME/bin/docfx/docfx.exe'
   alias docfx-serve='mono $HOME/bin/docfx/docfx.exe --serve'
   ```
+
 * W powłoce poleceń, przejdź do folderu, który zawiera *docfx.json* pliku (*aspnet* zawartości platformy ASP.NET lub *aspnetcore* zawartości platformy ASP.NET Core) i uruchom następujące polecenie, aby tworzyć i obsługiwać dokumenty za pomocą jego aliasu:
 
   ```console
   docfx-serve
   ```
+
 * W przeglądarce przejdź do `http://localhost:8080/group1-dest/`.
 
 ## <a name="voice-and-tone"></a>Głos i ton

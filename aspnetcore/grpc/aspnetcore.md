@@ -1,25 +1,25 @@
 ---
-title: gRPC usług z platformą ASP.NET Core
+title: Usługi gRPC na platformie ASP.NET Core
 author: juntaoluo
 description: Podstawowe informacje na temat podczas zapisywania gRPC usług z platformą ASP.NET Core.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 03/08/2019
 uid: grpc/aspnetcore
-ms.openlocfilehash: 92327a5feb3279ac33532b595efa69b4aef8e7ca
-ms.sourcegitcommit: a467828b5e4eaae291d961ffe2279a571900de23
+ms.openlocfilehash: 387c3134efc04bec740fc66a5ca4b84715264d35
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58142605"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209023"
 ---
-# <a name="grpc-services-with-aspnet-core"></a>gRPC usług z platformą ASP.NET Core
+# <a name="grpc-services-with-aspnet-core"></a>Usługi gRPC na platformie ASP.NET Core
 
 W tym dokumencie pokazano, jak rozpocząć pracę z usługami gRPC przy użyciu platformy ASP.NET Core.
 
 [!INCLUDE[](~/includes/net-core-prereqs-all-3.0.md)]
 
-## <a name="get-started-with-grpc-service-in-aspnet-core"></a>Rozpoczynanie pracy z usługą gRPC w programie ASP.NET Core
+## <a name="get-started-with-grpc-service-in-aspnet-core"></a>Wprowadzenie do usługi gRPC na platformie ASP.NET Core
 
 [!INCLUDE[View or download sample code](~/includes/grpc/download.md)]
 
@@ -40,7 +40,6 @@ gRPC wymaga następujących pakietów:
 * [Grpc.AspNetCore.Server](https://www.nuget.org/packages/Grpc.AspNetCore.Server)
 * [Google.Protobuf](https://www.nuget.org/packages/Google.Protobuf/) dla formatu protobuf komunikatu interfejsów API.
 * [Grpc.Tools](https://www.nuget.org/packages/Grpc.Tools/)
-
 
 ### <a name="configure-grpc"></a>Konfigurowanie gRPC
 

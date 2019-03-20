@@ -5,12 +5,12 @@ description: Dowiedz się, jak platforma ASP.NET Core oferuje usługi oraz oprog
 ms.author: riande
 ms.date: 01/14/2017
 uid: fundamentals/localization
-ms.openlocfilehash: 70de86f2e8c4a5577b8a4b50c53d66eb3b205c09
-ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
+ms.openlocfilehash: 0eda297b7df97a5d20fea035983f426eafa03775
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57665548"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264640"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalizacja i lokalizacja w programie ASP.NET Core
 
@@ -98,6 +98,7 @@ Komunikaty o błędach DataAnnotations są lokalizowane za pomocą `IStringLocal
 ASP.NET Core MVC 1.1.0 i nowszej, krzyżowa Weryfikacja atrybuty są zlokalizowane. Platforma ASP.NET Core MVC 1.0 jest **nie** wyszukiwania zlokalizowanych ciągów dla atrybutów bez sprawdzania poprawności.
 
 <a name="one-resource-string-multiple-classes"></a>
+
 ### <a name="using-one-resource-string-for-multiple-classes"></a>Przy użyciu jednego ciągu zasobu dla wielu klas
 
 Poniższy kod przedstawia sposób używania jednego ciągu zasobu dla atrybutów sprawdzania poprawności z wieloma klasami:
@@ -113,7 +114,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-W kodzie poprzedzającej `SharedResource` jest klasa odpowiadający resx przechowywania wiadomości sprawdzania poprawności. W tym podejściu DataAnnotations będzie używać tylko `SharedResource`, zamiast zasobów dla każdej klasy.
+W poprzednim kodzie `SharedResource` jest klasa odpowiadający resx przechowywania wiadomości sprawdzania poprawności. W tym podejściu DataAnnotations będzie używać tylko `SharedResource`, zamiast zasobów dla każdej klasy.
 
 ## <a name="provide-localized-resources-for-the-languages-and-cultures-you-support"></a>Podaj zlokalizowane zasoby dla języków i kultur, która jest obsługiwana
 
@@ -304,7 +305,6 @@ Użyj `RequestLocalizationOptions` do dodawania lub usuwania lokalizacji dostawc
 ### <a name="set-the-culture-programmatically"></a>Programowe Ustawianie kultury
 
 W tym przykładzie **Localization.StarterWeb** project [GitHub](https://github.com/aspnet/entropy) zawiera interfejs użytkownika, aby ustawić `Culture`. *Views/Shared/_SelectLanguagePartial.cshtml* pliku służy do wybierania kultury z listy obsługiwanych kultur:
-
 
 [!code-cshtml[](localization/sample/Localization/Views/Shared/_SelectLanguagePartial.cshtml)]
 

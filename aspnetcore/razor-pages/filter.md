@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 04/05/2018
 uid: razor-pages/filter
-ms.openlocfilehash: 5b233d95c9fbab09c64072377b85b40b127df7b7
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 32613d75d966a698c6478234f3f5f9d5fc0628bc
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50205941"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264797"
 ---
 # <a name="filter-methods-for-razor-pages-in-aspnet-core"></a>Metody filtrowania dla stron Razor w programie ASP.NET Core
 
@@ -35,14 +35,14 @@ Filtry stron razor zapewniają następujące metody, które mogą być stosowane
 
 * Synchroniczne metody:
 
-    * [OnPageHandlerSelected](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter.onpagehandlerselected?view=aspnetcore-2.0) : metoda wywoływana po metody obsługi został wybrany, ale przed modelu występuje powiązania.
-    * [OnPageHandlerExecuting](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter.onpagehandlerexecuting?view=aspnetcore-2.0) : metoda wywoływana przed wykonaniem metody obsługi, po zakończeniu wiązania modelu.
-    * [OnPageHandlerExecuted](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter.onpagehandlerexecuted?view=aspnetcore-2.0) : metoda wywoływana po wykonaniu metody obsługi, zanim wynik akcji.
+  * [OnPageHandlerSelected](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter.onpagehandlerselected?view=aspnetcore-2.0) : Metoda wywoływana po metody obsługi został wybrany, ale przed modelu występuje powiązania.
+  * [OnPageHandlerExecuting](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter.onpagehandlerexecuting?view=aspnetcore-2.0) : Metoda wywoływana przed wykonaniem metody obsługi, po zakończeniu wiązania modelu.
+  * [OnPageHandlerExecuted](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter.onpagehandlerexecuted?view=aspnetcore-2.0) : Wywoływane po wykonaniu metody obsługi, zanim wynik akcji.
 
 * Metody asynchroniczne:
 
-    * [OnPageHandlerSelectionAsync](/dotnet/api/microsoft.aspnetcore.mvc.filters.iasyncpagefilter.onpagehandlerselectionasync?view=aspnetcore-2.0) : wywoływane asynchronicznie po metody obsługi został wybrany, ale przed modelu występuje powiązania.
-    * [OnPageHandlerExecutionAsync](/dotnet/api/microsoft.aspnetcore.mvc.filters.iasyncpagefilter.onpagehandlerexecutionasync?view=aspnetcore-2.0) : wywoływane asynchronicznie przed wywołaniem metody obsługi po zakończeniu wiązania modelu.
+  * [OnPageHandlerSelectionAsync](/dotnet/api/microsoft.aspnetcore.mvc.filters.iasyncpagefilter.onpagehandlerselectionasync?view=aspnetcore-2.0) : Wywoływane asynchronicznie, po wybraniu metody obsługi, ale przed wystąpieniem wiązania modelu.
+  * [OnPageHandlerExecutionAsync](/dotnet/api/microsoft.aspnetcore.mvc.filters.iasyncpagefilter.onpagehandlerexecutionasync?view=aspnetcore-2.0) : Wywoływane asynchronicznie, przed wywołaniem metody obsługi po zakończeniu wiązania modelu.
 
 > [!NOTE]
 > Implementowanie **albo** synchronicznej lub asynchronicznej wersję interfejsu filtru, nie obydwa. Struktura najpierw sprawdza, czy filtr implementuje interfejs asynchroniczne, a jeśli tak jest, wywołuje metodę. W przeciwnym razie wywołuje metody synchronicznej interfejsu. Jeśli oba interfejsy są wdrożone, są nazywane tylko metody asynchronicznej. Ta sama zasada dotyczy przesłonięć na stronach, zaimplementuj synchronicznej lub asynchronicznej wersję override, nie obydwa.
@@ -86,6 +86,7 @@ Poniższy kod zastępuje synchroniczne filtrów stron Razor:
 ::: moniker-end
 
 <a name="ifa"></a>
+
 ## <a name="implement-a-filter-attribute"></a>Implementowanie atrybutu filtru
 
 Wbudowany filtr opartych na atrybutach [OnResultExecutionAsync](/dotnet/api/microsoft.aspnetcore.mvc.filters.iasyncresultfilter.onresultexecutionasync?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_Filters_IAsyncResultFilter_OnResultExecutionAsync_Microsoft_AspNetCore_Mvc_Filters_ResultExecutingContext_Microsoft_AspNetCore_Mvc_Filters_ResultExecutionDelegate_) filtru może być podklasą klasy. Następujący filtr dodaje do odpowiedzi nagłówek:
@@ -101,6 +102,7 @@ Zobacz [zastąpienie domyślnej kolejności](xref:mvc/controllers/filters#overri
 Zobacz [anulowania i krótki circuiting](xref:mvc/controllers/filters#cancellation-and-short-circuiting) instrukcje dotyczące zwarcie potoku filtru z filtru. 
 
 <a name="auth"></a>
+
 ## <a name="authorize-filter-attribute"></a>Autoryzuj atrybutu filtru
 
 [Autoryzuj](/dotnet/api/microsoft.aspnetcore.authorization.authorizeattribute?view=aspnetcore-2.0) atrybut można stosować do `PageModel`:

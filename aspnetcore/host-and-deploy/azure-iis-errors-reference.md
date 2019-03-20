@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/28/2019
 uid: host-and-deploy/azure-iis-errors-reference
-ms.openlocfilehash: 1c8cb31b306b38ec17596af0a84f22ca0e3d911c
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: 053dcce7f8c59b7afe7e52d2f704c992afce0b67
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57346229"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265174"
 ---
 # <a name="common-errors-reference-for-azure-app-service-and-iis-with-aspnet-core"></a>Dokumentacja typowych błędów dla usługi Azure App Service i IIS za pomocą programu ASP.NET Core
 
@@ -61,7 +61,7 @@ Pliki systemu operacyjnego bez **C:\Windows\SysWOW64\inetsrv** katalogu nie są 
 
 *Dotyczy aplikacji hostowanych przez usługi Azure App Service.*
 
-* **Przeglądarka:** Błąd HTTP 500.0 - ANCM w procesie programu obsługi błędu ładowania 
+* **Przeglądarka:** Błąd HTTP 500.0 - ANCM w procesie programu obsługi błędu ładowania
 
 * **Dziennik aplikacji:** Wywoływanie hostfxr można znaleźć programu obsługi żądania inprocess nie powiodła się bez znajdowanie wszelkie zależności natywnych. Nie można odnaleźć inprocess żądania obsługi. Przechwycone dane wyjściowe z wywołaniem hostfxr: Nie można odnaleźć żadnych zgodnych framework w wersji. Określony framework "Microsoft.AspNetCore.App", wersja "{VERSION} - preview -\*" nie został znaleziony. Nie można uruchomić aplikacji "/ LM/W3SVC/1416782824/ROOT", kod błędu "0x8000ffff".
 
@@ -80,7 +80,7 @@ Rozwiązywanie problemów:
   * ASP.NET Core {RUNTIME VERSION} (x86) Runtime
   * Platforma ASP.NET Core {wersja środowiska URUCHOMIENIOWEGO} (x 64) środowiska uruchomieniowego
 
-  Uruchom ponownie aplikację. Odczekaj kilka sekund dla aplikacji, aby ponownie uruchomić. 
+  Uruchom ponownie aplikację. Odczekaj kilka sekund dla aplikacji, aby ponownie uruchomić.
 
 * Jeśli aplikacja jest uruchomiona na runtime (wersja zapoznawcza) i (x86) 32-bitowych i 64-bitowych (x64) [rozszerzeń witryny](xref:host-and-deploy/azure-apps/index#install-the-preview-site-extension) są zainstalowane, odinstaluj rozszerzenie witryny, która nie odpowiada liczbie bitów aplikacji. Po usunięciu rozszerzenia witryny, należy ponownie uruchomić aplikację. Odczekaj kilka sekund dla aplikacji, aby ponownie uruchomić.
 
@@ -201,8 +201,8 @@ Rozwiązywanie problemów:
   ```xml
   <section name="aspNetCore" overrideModeDefault="Allow" />
   ```
-  
-  Ewentualnie Zainstaluj najnowsza wersja pakietu hostingu platformy ASP.NET Core. Najnowsza wersja jest wstecznie zgodny z obsługiwane aplikacje platformy ASP.NET Core.
+
+  Alternatywnie zainstalować najnowszą wersję pakietu hostingu platformy ASP.NET Core. Najnowsza wersja jest wstecznie zgodny z obsługiwane aplikacje platformy ASP.NET Core.
 
 ## <a name="incorrect-processpath-missing-path-variable-hosting-bundle-not-installed-systemiis-not-restarted-vc-redistributable-not-installed-or-dotnetexe-access-violation"></a>Niepoprawne processPath, Brak zmiennej PATH, hostingu pakietu nie jest zainstalowany, nie uruchomiono ponownie system/IIS, VC ++ Redistributable nie jest zainstalowany lub naruszenie zasad dostępu dotnet.exe
 

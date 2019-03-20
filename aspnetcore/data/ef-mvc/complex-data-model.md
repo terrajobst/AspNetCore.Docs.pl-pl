@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 02/05/2019
 ms.topic: tutorial
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: c08fd6ff7c19c63161135b4c87609f6edd3edb80
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: 5ab893dd77ff2cc9a735702eb3a547ed8bcb2197
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56103127"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264861"
 ---
 # <a name="tutorial-create-a-complex-data-model---aspnet-mvc-with-ef-core"></a>Samouczek: Tworzenie złożonego modelu danych — ASP.NET MVC z programem EF Core
 
@@ -287,7 +287,6 @@ public ICollection<CourseAssignment> CourseAssignments { get; set; }
 
 ![Dział jednostki](complex-data-model/_static/department-entity.png)
 
-
 Tworzenie *Models/Department.cs* następującym kodem:
 
 [!code-csharp[](intro/samples/cu/Models/Department.cs?name=snippet_Begin)]
@@ -322,6 +321,7 @@ public ICollection<Course> Courses { get; set; }
 
 > [!NOTE]
 > Zgodnie z Konwencją platformy Entity Framework umożliwia usuwanie kaskadowe nieprzyjmujące wartości kluczy obcych i w przypadku relacji wiele do wielu. Może to spowodować cykliczne cascade delete reguł, które spowoduje wyjątek podczas próby dodania do migracji. Na przykład jeśli właściwość Department.InstructorID nie zostały zdefiniowane jako dopuszczającego wartość null, EF konfigurowania cascade, Usuń regułę można usunąć instruktora, gdy usuniesz działu, która nie ma być możliwe. W razie potrzeby własne reguły biznesowe `InstructorID` właściwość jako wartość null, trzeba wyłączyć przy użyciu następującej instrukcji interfejsu API fluent usuwanie kaskadowe relacji:
+>
 > ```csharp
 > modelBuilder.Entity<Department>()
 >    .HasOne(d => d.Administrator)
@@ -482,6 +482,7 @@ Zapisać zmiany do *appsettings.json*.
 
 > [!NOTE]
 > Alternatywnie można zmienić nazwy bazy danych można usunąć bazy danych. Użyj **Eksplorator obiektów SQL Server** (SSOX) lub `database drop` interfejsu wiersza polecenia:
+>
 > ```console
 > dotnet ef database drop
 > ```

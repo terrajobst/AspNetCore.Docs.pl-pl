@@ -5,12 +5,12 @@ description: Dowiedz się, jak odczytywanie i przetwarzanie modelu aplikacji, ab
 ms.author: riande
 ms.date: 10/14/2016
 uid: mvc/controllers/application-model
-ms.openlocfilehash: f3e0aafa3e6a352c632e4abbf3943be61f11ea81
-ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
+ms.openlocfilehash: 6b0591a877c0d82e0ee6ab002eb6a6650753677b
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51225502"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208599"
 ---
 # <a name="work-with-the-application-model-in-aspnet-core"></a>Praca z modelem aplikacji w programie ASP.NET Core
 
@@ -25,9 +25,9 @@ Model aplikacji ASP.NET Core MVC obejmują zarówno abstrakcyjne interfejsów, j
 Model aplikacji platformy ASP.NET Core MVC ma następującą strukturę:
 
 * ApplicationModel
-    * Kontrolery (ControllerModel)
-        * Akcje (ActionModel)
-            * Parametry (ParameterModel)
+  * Kontrolery (ControllerModel)
+    * Akcje (ActionModel)
+      * Parametry (ParameterModel)
 
 Każdy poziom modelu ma dostęp do wspólnego `Properties` zbierania i niższych poziomach dostępu i zastąpić wartości właściwości ustawione przez wyższy poziom w hierarchii. Właściwości zostaną utrwalone w `ActionDescriptor.Properties` utworzenia akcji. Następnie podczas obsługi żądania żadnych właściwości Konwencji dodawany lub modyfikowany jest możliwy za pośrednictwem `ActionContext.ActionDescriptor.Properties`. Za pomocą właściwości to doskonały sposób, aby skonfigurować swoje filtry, integratorów modeli, itp. na podstawie poszczególnych akcji.
 
@@ -143,7 +143,7 @@ Mimo że w nazwie metody istotna jest `SomeName`, atrybut zastępuje Konwencji M
 > [!NOTE]
 > W tym przykładzie jest zasadniczo taki sam, jak przy użyciu wbudowanych [ActionName](/dotnet/api/microsoft.aspnetcore.mvc.actionnameattribute) atrybutu.
 
-### <a name="sample-custom-routing-convention"></a>Przykład: Niestandardowy Routing Konwencji
+### <a name="sample-custom-routing-convention"></a>Przykład: Niestandardowe Konwencji routingu
 
 Możesz użyć `IApplicationModelConvention` dostosować działa jak routingu. Na przykład następująca Konwencja będą zawierały kontrolerami przestrzenie nazw do ich tras, zastępując `.` w przestrzeni nazw za pomocą `/` dla trasy:
 

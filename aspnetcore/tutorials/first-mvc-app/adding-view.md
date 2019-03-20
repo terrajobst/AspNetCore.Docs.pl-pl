@@ -5,12 +5,12 @@ description: Dodawanie widoku na prostej aplikacji ASP.NET Core MVC
 ms.author: riande
 ms.date: 03/04/2017
 uid: tutorials/first-mvc-app/adding-view
-ms.openlocfilehash: 32eddb233a8a6b9b8f480926673d15d568ce6ede
-ms.sourcegitcommit: c47d7c131eebbcd8811e31edda210d64cf4b9d6b
+ms.openlocfilehash: 6ff706012dabbf9500a805708c1f058b59ebc610
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55236435"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265553"
 ---
 # <a name="add-a-view-to-an-aspnet-core-mvc-app"></a>Dodaj widok do aplikacji ASP.NET Core MVC
 
@@ -28,7 +28,6 @@ Powyższy kod wywołuje kontrolera <xref:Microsoft.AspNetCore.Mvc.Controller.Vie
 
 ## <a name="add-a-view"></a>Dodawanie widoku
 
-<!-- VS -------------------------->
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Kliknij prawym przyciskiem myszy *widoków* folder, a następnie **Dodaj > Nowy Folder** i nadaj folderowi *HelloWorld*.
@@ -47,7 +46,6 @@ Powyższy kod wywołuje kontrolera <xref:Microsoft.AspNetCore.Mvc.Controller.Vie
 
 ![Dodaj okno dialogowe Nowy element](adding-view/_static/add_view.png)
 
-<!-- Code -------------------------->
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Dodaj `Index` wyświetlić `HelloWorldController`.
@@ -55,7 +53,6 @@ Dodaj `Index` wyświetlić `HelloWorldController`.
 * Dodaj nowy folder o nazwie *widoków/HelloWorld*.
 * Dodaj nowy plik do *widoków/HelloWorld* nazwa folderu *Index.cshtml*.
 
-<!-- Mac -------------------------->
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 * Kliknij prawym przyciskiem myszy *widoków* folder, a następnie **Dodaj > Nowy Folder** i nadaj folderowi *HelloWorld*.
@@ -69,8 +66,7 @@ Dodaj `Index` wyświetlić `HelloWorldController`.
 
 ![Dodaj okno dialogowe Nowy element](adding-view/_static/add_view.png)
 
----  
-<!-- End of VS tabs -->
+---
 
 Zastąp zawartość *Views/HelloWorld/Index.cshtml* plik widoku Razor następującym kodem:
 
@@ -152,7 +148,7 @@ W *HelloWorldController.cs*, zmień `Welcome` metody w celu dodania `Message` i 
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_5)]
 
-`ViewData` Obiekt słownika zawiera dane, które zostaną przekazane do widoku. 
+`ViewData` Obiekt słownika zawiera dane, które zostaną przekazane do widoku.
 
 Tworzenie szablonu-Zapraszamy wyświetlanie o nazwie *Views/HelloWorld/Welcome.cshtml*.
 
@@ -168,7 +164,7 @@ Dane są pobierane z adresu URL i przekazywane do kontrolera, za pomocą [integr
 
 ![Widok zachowania powitalnej etykiety i frazy Hello Rick przedstawiono cztery razy](~/tutorials/first-mvc-app/adding-view/_static/rick2.png)
 
-W przykładzie powyżej `ViewData` słownika zostało użyte do przekazywania danych z kontrolera do widoku. W dalszej części samouczka model widoku jest używany do przekazywania danych za pomocą kontrolera do widoku. Widok modelu sposobem przekazywania danych jest zwykle znacznie preferowany nad `ViewData` podejście słownika. Zobacz [kiedy używać elementów ViewBag, ViewData i TempData ](http://www.rachelappel.com/when-to-use-viewbag-viewdata-or-tempdata-in-asp-net-mvc-3-applications/) Aby uzyskać więcej informacji.
+W przykładzie powyżej `ViewData` słownika zostało użyte do przekazywania danych z kontrolera do widoku. W dalszej części samouczka model widoku jest używany do przekazywania danych za pomocą kontrolera do widoku. Widok modelu sposobem przekazywania danych jest zwykle znacznie preferowany nad `ViewData` podejście słownika. Zobacz [kiedy używać elementów ViewBag, ViewData i TempData](http://www.rachelappel.com/when-to-use-viewbag-viewdata-or-tempdata-in-asp-net-mvc-3-applications/) Aby uzyskać więcej informacji.
 
 W następnym samouczku utworzeniu bazy danych filmów.
 

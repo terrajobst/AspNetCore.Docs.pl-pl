@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/07/2018
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: a6c264e460855c9f1d6f5a363eb7ee2cf69619ee
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: 3fb8ebe415d0619d33302a08e97da78db0ad1d1e
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57346297"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265513"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---concurrency---8-of-8"></a>Strony razor z programem EF Core w programie ASP.NET Core — współbieżności — 8 8
 
@@ -95,9 +95,9 @@ Do wykrywania konfliktów współbieżności [rowversion](/sql/t-sql/data-types/
 
 Baza danych generuje kolejna `rowversion` numer jest zwiększany po każdej wiersz jest aktualizowany. W `Update` lub `Delete` polecenia `Where` klauzula zawiera wartość pobrano `rowversion`. Jeśli zmieniono aktualizacji wiersza:
 
- * `rowversion` nie pasuje do wartości pobrano.
- * `Update` Lub `Delete` poleceń nie znajdziesz wiersza, ponieważ `Where` klauzula zawiera pobrano `rowversion`.
- * A `DbUpdateConcurrencyException` zgłaszany.
+* `rowversion` nie pasuje do wartości pobrano.
+* `Update` Lub `Delete` poleceń nie znajdziesz wiersza, ponieważ `Where` klauzula zawiera pobrano `rowversion`.
+* A `DbUpdateConcurrencyException` zgłaszany.
 
 W programie EF Core, gdy żadne wiersze nie zostały zaktualizowane przez `Update` lub `Delete` polecenia, jest zgłaszany wyjątek współbieżności.
 
@@ -152,6 +152,7 @@ Poprzedniego polecenia:
 * Uruchamia migracji można zaktualizować bazy danych.
 
 <a name="scaffold"></a>
+
 ## <a name="scaffold-the-departments-model"></a>Tworzenie szkieletu modelu działów
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
@@ -272,7 +273,6 @@ Strony usuwania wykrywa konfliktów współbieżności, jeśli jednostka został
 Aktualizacja *Pages/Departments/Delete.cshtml* następującym kodem:
 
 [!code-html[](intro/samples/cu/Pages/Departments/Delete.cshtml?highlight=1,10,39,51)]
-
 
 Poprzedni kod znaczników wprowadza następujące zmiany:
 

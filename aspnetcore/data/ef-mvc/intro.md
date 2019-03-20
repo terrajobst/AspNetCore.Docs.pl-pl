@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 02/06/2019
 ms.topic: tutorial
 uid: data/ef-mvc/intro
-ms.openlocfilehash: f7b557c8e560393ae886c46fad95c48ccbcc65b4
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: 31fca1b32942f9246e099c01669f77824edf521e
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56102971"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264845"
 ---
 # <a name="tutorial-get-started-with-ef-core-in-an-aspnet-mvc-web-app"></a>Samouczek: Rozpoczynanie pracy z programem EF Core w aplikacji sieci web platformy ASP.NET MVC
 
@@ -316,7 +316,7 @@ Kliknij prawym przyciskiem myszy **uczniów** tabeli, a następnie kliknij przyc
 
 ![Tabela student w SSOX](intro/_static/ssox-student-table.png)
 
-<em>.Mdf</em> i <em>ldf</em> pliki bazy danych znajdują się w <em>C:\Users\\ <yourusername> </em> folderu.
+*.Mdf* i *ldf* pliki bazy danych znajdują się w *C:\Users\\\<nazwa_użytkownika >* folderu.
 
 Ponieważ w przypadku wywoływania `EnsureCreated` w metodzie inicjatora, która działa na uruchomienie aplikacji, można teraz wprowadzić zmianę do `Student` klasy, Usuń bazę danych, uruchom ponownie aplikację i bazy danych będzie automatycznie ponownie tworzone, aby dopasować zmiany. Na przykład jeśli dodasz `EmailAddress` właściwości `Student` klasy, zostanie wyświetlony nowy `EmailAddress` kolumny w tabeli odtworzony.
 
@@ -330,7 +330,7 @@ Ilość kodu, który trzeba było pisać w kolejności programu Entity Framework
 
 * Właściwości jednostki, które noszą nazwy lub classnameID są rozpoznawane jako właściwości klucza podstawowego.
 
-* Właściwość jest interpretowany jako właściwość klucza obcego, jeśli jest on nazwany * <navigation property name> <primary key property name> * (na przykład `StudentID` dla `Student` właściwość nawigacji od `Student` jest klucz podstawowy jednostki `ID`). Właściwości klucza obcego może też po prostu nazwę * <primary key property name> * (na przykład `EnrollmentID` ponieważ `Enrollment` jest klucz podstawowy jednostki `EnrollmentID`).
+* Właściwość jest interpretowany jako właściwość klucza obcego, jeśli jest on nazwany  *\<nazwy właściwości nawigacji >\<nazwa właściwość klucza podstawowego >* (na przykład `StudentID` dla `Student` nawigacji Właściwość od `Student` jest klucz podstawowy jednostki `ID`). Właściwości klucza obcego może też po prostu nazwę  *\<właściwość klucza podstawowego name >* (na przykład `EnrollmentID` ponieważ `Enrollment` jest klucz podstawowy jednostki `EnrollmentID`).
 
 Konwencjonalne zachowanie można przesłonić. Na przykład można jawnie określasz nazwy tabel, jak przedstawiono wcześniej w tym samouczku. I można ustawić nazwy kolumn i ustaw dowolną właściwość jako klucz podstawowy lub klucz obcy, jak można zauważyć w [dalszych samouczków](complex-data-model.md) w tej serii.
 

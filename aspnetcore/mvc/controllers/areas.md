@@ -5,12 +5,12 @@ description: Dowiedz się, jak obszary są funkcją programu ASP.NET MVC, używa
 ms.author: riande
 ms.date: 02/14/2019
 uid: mvc/controllers/areas
-ms.openlocfilehash: 8904d217a18fff65113ae3469efe60258d20d5f0
-ms.sourcegitcommit: 6ddd8a7675c1c1d997c8ab2d4498538e44954cac
+ms.openlocfilehash: 79bc023a7bd00a9d4de375e3cddaafd148251469
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57400648"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264767"
 ---
 # <a name="areas-in-aspnet-core"></a>Obszary w programie ASP.NET Core
 
@@ -38,6 +38,7 @@ Typowa aplikacja internetowa ASP.NET Core przy użyciu obszarów, widoków i kon
 * [Trasa obszaru dodana do uruchamiania](#add-area-route): [!code-csharp[](areas/samples/MVCareas/Startup.cs?name=snippet2&highlight=3-6)]
 
 ### <a name="area-folder-structure"></a>Struktura folderów obszaru
+
 Należy wziąć pod uwagę aplikację, która ma dwa grup logicznych *produktów* i *usług*. Za pomocą obszarów, strukturę folderów będzie podobny do następującego:
 
 * Project name (Nazwa projektu)
@@ -172,7 +173,7 @@ Należy wziąć pod uwagę *usług* obszaru przykładowy kod, który nie zawiera
 W poprzednim znaczników:
 
 * W pełni kwalifikowana nazwa domeny może służyć do określania modelu (`@model RPareas.Areas.Services.Pages.Manage.AboutModel`).
-* [Pomocników tagów]() są włączane przez `@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers`
+* [Pomocników tagów](xref:mvc/views/tag-helpers/intro) są włączane przez `@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers`
 
 Do pobrania próbki, w obszarze produktów zawiera następujące *_ViewImports* pliku:
 

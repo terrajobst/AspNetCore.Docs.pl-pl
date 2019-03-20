@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/13/2018
 uid: tutorials/first-mvc-app/new-field
-ms.openlocfilehash: f352a9c3573119028d1bc42fd622919ce0560e7c
-ms.sourcegitcommit: 34bf9fc6ea814c039401fca174642f0acb14be3c
+ms.openlocfilehash: 44487b91c8bbd353157a5f5f1b834187e47e2f3e
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57841504"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264650"
 ---
 # <a name="add-a-new-field-to-an-aspnet-core-mvc-app"></a>Dodawanie nowego pola do aplikacji ASP.NET Core MVC
 
@@ -49,18 +49,17 @@ Edytuj */Views/Movies/Index.cshtml* pliku i Dodaj `Rating` pola:
 
 Aktualizacja */Views/Movies/Create.cshtml* z `Rating` pola.
 
-<!-- VS -------------------------->
 # <a name="visual-studio--visual-studio-for-mactabvisual-studiovisual-studio-mac"></a>[Visual Studio / Visual Studio for Mac](#tab/visual-studio+visual-studio-mac)
 
 Można kopiowanie/wklejanie poprzedniego formularza grupy"" i umożliwić pomoc intelliSense, zaktualizuj pola. Technologia IntelliSense działa z [pomocników tagów](xref:mvc/views/tag-helpers/intro).
 
 ![Deweloper wpisał literę R wartość atrybutu asp — dla w elemencie drugiego etykiety widoku. Menu kontekstowe Intellisense okazało, wyświetlanie dostępnych pól, w tym klasyfikacji, który jest automatycznie wyróżniona na liście. Gdy deweloper kliknie pole lub naciśnie klawisz Enter na klawiaturze, wartość zostanie ustawiona na ocenę.](new-field/_static/cr.png)
 
-<!-- Code -------------------------->
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+
 <!-- This tab intentionally left blank. -->
----  
-<!-- End of VS tabs -->
+
+---
 
 Aktualizacja `SeedData` klasy tak, aby go oferuje wartości dla nowej kolumny. Poniżej przedstawiono przykładowe zmiany, ale należy to zrobić dla każdego `new Movie`.
 
@@ -82,7 +81,6 @@ Istnieje kilka sposobów rozwiązania problemu:
 
 W tym samouczku jest używana migracje Code First.
 
-<!-- VS -------------------------->
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Z **narzędzia** menu, wybierz opcję **Menedżera pakietów NuGet > Konsola Menedżera pakietów**.
@@ -106,17 +104,17 @@ Jeśli zostaną usunięte wszystkie rekordy w bazie danych, metoda inicjowania b
 
 [!INCLUDE[](~/includes/RP-mvc-shared/sqlite-warn.md)]
 
-Usuń bazę danych, a następnie użyć migracje ponownie utworzyć bazę danych. Aby usunąć bazy danych, usuń plik bazy danych (*MvcMovie.db*). Następnie uruchom `ef database update` polecenia: 
+Usuń bazę danych, a następnie użyć migracje ponownie utworzyć bazę danych. Aby usunąć bazy danych, usuń plik bazy danych (*MvcMovie.db*). Następnie uruchom `ef database update` polecenia:
 
 ```console
 dotnet ef database update
 ```
 
----  
+---
 <!-- End of VS tabs -->
 
 Uruchom aplikację i sprawdź, można tworzenia/edycji/wyświetlania filmów z `Rating` pola. Należy dodać `Rating` pole `Edit`, `Details`, i `Delete` wyświetlać szablony.
 
 > [!div class="step-by-step"]
 > [Poprzednie](search.md)
-> [dalej](validation.md)  
+> [dalej](validation.md)

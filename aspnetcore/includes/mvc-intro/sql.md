@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 655279f0f744e96f1cf590b52e199ed2be3fa106
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264276"
+---
 # <a name="work-with-sqlite-in-an-aspnet-core-mvc-app"></a>Praca z SQLite w aplikacji MVC platformy ASP.NET Core
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
@@ -32,6 +40,7 @@ if (context.Movie.Any())
 ```
 
 <a name="si"></a>
+
 ### <a name="add-the-seed-initializer"></a>Dodaj inicjator inicjatora
 
 Dodaj inicjator inicjator, tak aby `Main` method in Class metoda *Program.cs* pliku:

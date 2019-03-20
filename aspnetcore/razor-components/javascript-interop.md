@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/29/2019
 uid: razor-components/javascript-interop
-ms.openlocfilehash: 9844bd5a63f1144867360ac4f31645d36710989c
-ms.sourcegitcommit: d913bca90373c07f89b1d1df01af5fc01fc908ef
+ms.openlocfilehash: ac772b052a8f61937350b0d999013b7ba06dfd74
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57978498"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265007"
 ---
 # <a name="razor-components-javascript-interop"></a>Razor Components JavaScript interop
 
@@ -115,13 +115,14 @@ Aby użyć `IJSRuntime` abstrakcji, przyjmuje żadnego z następujących metod:
           StocksService.OnStockTickerUpdated += stockUpdate =>
           {
               JSRuntime.InvokeAsync<object>(
-                  "handleTickerChanged", 
-                  stockUpdate.symbol, 
+                  "handleTickerChanged",
+                  stockUpdate.symbol,
                   stockUpdate.price);
           };
       }
   }
   ```
+
 * Wstrzykiwanie `IJSRuntime` abstrakcji do klasy (*.cs*):
 
   ```csharp
@@ -136,7 +137,7 @@ Aby użyć `IJSRuntime` abstrakcji, przyjmuje żadnego z następujących metod:
 
       public Task<string> DoSomething(string data)
       {
-          // The doSomething JavaScript method is implemented 
+          // The doSomething JavaScript method is implemented
           // in a JavaScript file, such as 'wwwroot/MyJsInterop.js'.
           return _jsRuntime.InvokeAsync<string>(
               "myJsFunctions.doSomething",
@@ -144,6 +145,7 @@ Aby użyć `IJSRuntime` abstrakcji, przyjmuje żadnego z następujących metod:
       }
   }
   ```
+
 * Dla dynamicznego generowania zawartości za pomocą `BuildRenderTree`, użyj `[Inject]` atrybutu:
 
   ```csharp

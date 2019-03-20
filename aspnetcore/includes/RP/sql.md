@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 740573c3c6e23e6c9e48354d5b5a4a3c0a94a766
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265278"
+---
 # <a name="work-with-sqlite-in-an-aspnet-core-razor-pages-app"></a>Praca z SQLite w programie ASP.NET Core Razor strony aplikacji
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
@@ -34,6 +42,7 @@ if (context.Movie.Any())
 ```
 
 <a name="si"></a>
+
 ### <a name="add-the-seed-initializer"></a>Dodaj inicjator inicjatora
 
 Dodaj inicjator inicjator, tak aby `Main` method in Class metoda *Program.cs* pliku:

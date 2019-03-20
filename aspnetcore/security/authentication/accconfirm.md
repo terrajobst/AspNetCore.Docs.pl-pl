@@ -5,12 +5,12 @@ description: Dowiedz się, jak utworzyć aplikację platformy ASP.NET Core za po
 ms.author: riande
 ms.date: 3/11/2019
 uid: security/authentication/accconfirm
-ms.openlocfilehash: d102ed0a4a75f6273fcda0a8cc7e9d091ff94b50
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 3bfc2ce46cfbc2ee308940f9e04eb2ffeec09073
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209932"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265495"
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>Potwierdzenie konta i odzyskiwanie hasła w programie ASP.NET Core
 
@@ -45,6 +45,7 @@ dotnet new webapp -au Individual -uld -o WebPWrecover
 cd WebPWrecover
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 dotnet restore
+dotnet tool install -g dotnet-aspnet-codegenerator
 dotnet aspnet-codegenerator identity -dc WebPWrecover.Data.ApplicationDbContext --files "Account.Register;Account.Login;Account.Logout;Account.ConfirmEmail"
 dotnet ef database drop -f
 dotnet ef database update
@@ -63,6 +64,7 @@ Należy pamiętać, tabeli `EmailConfirmed` pole jest `False`.
 Można używać tego adresu e-mail ponownie w następnym kroku, gdy aplikacja wysyła wiadomość e-mail z potwierdzeniem. Kliknij prawym przyciskiem myszy na wiersz i wybierz **Usuń**. Usuwanie aliasu adresu e-mail ułatwia w poniższych krokach.
 
 <a name="prevent-login-at-registration"></a>
+
 ## <a name="require-email-confirmation"></a>Wymagaj potwierdzenie adresu e-mail
 
 Jest najlepszym rozwiązaniem, aby potwierdzić adres e-mail rejestrowanie nowego użytkownika. Wiadomość e-mail potwierdzenia pomaga sprawdzić, mogą one nie personifikuje kogoś innego (oznacza to one nie zostały zarejestrowane przy użyciu adresu e-mail osoby). Załóżmy, że trzeba było forum dyskusyjnego i chcesz uniemożliwić "yli@example.com"z rejestracją jako"nolivetto@contoso.com". Bez potwierdzenia e-mail "nolivetto@contoso.com" może otrzymywać niechciane wiadomości e-mail z aplikacji. Załóżmy, że użytkownik przypadkowo zarejestrowana jako "ylo@example.com" i nie zostało już słowa "yli". W takich sytuacjach przydałaby się mogli używać hasła odzyskiwania, ponieważ aplikacja nie ma ich prawidłowy adres e-mail. Potwierdzenie adresu e-mail zapewnia ograniczoną ochronę, od botów. Potwierdzenie adresu e-mail nie zapewniają ochronę przed złośliwymi użytkownikami z wieloma kontami e-mail.
@@ -96,13 +98,13 @@ Na Windows, klucza tajnego Manager przechowuje par kluczy i wartości w *secrets
 
 Zawartość *secrets.json* pliku nie są szyfrowane. Ilustruje poniższy kod znaczników *secrets.json* pliku. `SendGridKey` Wartość została usunięta.
 
- ```json
-  {
-    "SendGridUser": "RickAndMSFT",
-    "SendGridKey": "<key removed>"
-  }
-  ```
- 
+```json
+{
+  "SendGridUser": "RickAndMSFT",
+  "SendGridKey": "<key removed>"
+}
+```
+
 Aby uzyskać więcej informacji, zobacz [wzorzec opcje](xref:fundamentals/configuration/options) i [konfiguracji](xref:fundamentals/configuration/index).
 
 ### <a name="install-sendgrid"></a>Instalowanie usługi SendGrid
@@ -130,6 +132,7 @@ dotnet add package SendGrid
 ------
 
 Zobacz [bezpłatnie Rozpocznij pracę za pomocą usługi SendGrid](https://sendgrid.com/free/) zarejestrować o utworzenie bezpłatnego konta SendGrid.
+
 ### <a name="implement-iemailsender"></a>Implementowanie IEmailSender
 
 Zaimplementowanie `IEmailSender`, Utwórz *Services/EmailSender.cs* kodem podobny do następującego:
@@ -213,6 +216,7 @@ Dodaj niestandardowego dostawcę do kontenera usługi:
 Zobacz [problem w usłudze GitHub](https://github.com/aspnet/AspNetCore/issues/5410).
 
 <a name="debug"></a>
+
 ### <a name="debug-email"></a>Debugowanie poczty e-mail
 
 Jeśli nie można rozpocząć pracę poczty e-mail:

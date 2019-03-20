@@ -5,12 +5,12 @@ description: Więcej informacji na temat składni znacznikowania Razor do osadza
 ms.author: riande
 ms.date: 10/26/2018
 uid: mvc/views/razor
-ms.openlocfilehash: 8e9ec3c5040e5a24cd5f773b1232897338741c0c
-ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
+ms.openlocfilehash: 254c85ee9e74dc72170b19d27fbc5f1ae7ccd3dc
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396262"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264757"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>Dokumentacja składni razor dla platformy ASP.NET Core
 
@@ -69,9 +69,9 @@ Niejawne wyrażeń **nie** zawierają C# ogólne jako znaki w nawiasie (`<>`) s�
 
 Powyższy kod generuje błąd kompilatora podobny do jednego z następujących czynności:
 
- * Element "int" nie został zamknięty. Wszystkie elementy muszą być albo samozamykający lub ma zgodnego tagu końcowego.
- *  Nie można przekonwertować grupy metod "GenericMethod" na typ "object" Niedelegowany. Czy zamierzane było wywołanie metody? " 
- 
+* Element "int" nie został zamknięty. Wszystkie elementy muszą być albo samozamykający lub ma zgodnego tagu końcowego.
+* Nie można przekonwertować grupy metod "GenericMethod" na typ "object" Niedelegowany. Czy zamierzane było wywołanie metody? "
+
 Wywołania metody ogólnej musi być ujęte w [wyrażenie jawne Razor](#explicit-razor-expressions) lub [blok kodu Razor](#razor-code-blocks).
 
 ## <a name="explicit-razor-expressions"></a>Jawne Razor wyrażeń
@@ -199,7 +199,7 @@ Tej metody można użyć do renderowania elementów HTML, który nie jest otoczo
 
 **\<Tekst >** tag jest przydatne do kontroli odstępu, podczas renderowania zawartości:
 
-* Tylko zawartości między  **\<tekst >** renderowanego tagu. 
+* Tylko zawartości między  **\<tekst >** renderowanego tagu.
 * Nie spacji przed ani po  **\<tekst >** tagów jest wyświetlana w danych wyjściowych HTML.
 
 ### <a name="explicit-line-transition-with-"></a>Jawne wiersz przejścia z @:
@@ -337,7 +337,6 @@ Obsługiwane są następujące instrukcje pętli:
 
 W C#, `using` instrukcja jest używane, aby upewnić się, obiekt zostanie usunięty. W elemencie Razor ten sam mechanizm służy do tworzenia pomocników HTML, który zawiera dodatkową zawartość. W poniższym kodzie pomocników HTML, renderowania tag formularza z `@using` instrukcji:
 
-
 ```cshtml
 @using (Html.BeginForm())
 {
@@ -425,6 +424,7 @@ public class _Views_Something_cshtml : RazorPage<dynamic>
 W dalszej części tego artykułu sekcji [sprawdzić Razor C# klasy wygenerowanej w celu wyświetlenia](#inspect-the-razor-c-class-generated-for-a-view) opisano sposób wyświetlania tego wygenerowanej klasy.
 
 <a name="using"></a>
+
 ### <a name="using"></a>@using
 
 `@using` Dodaje dyrektywy C# `using` dyrektywy do wygenerowanego widoku:
@@ -579,7 +579,7 @@ Możesz również dostarczyć wbudowany szablon Razor, jako argument do metody. 
 @using Microsoft.AspNetCore.Html
 
 @functions {
-    public static IHtmlContent Repeat(IEnumerable<dynamic> items, int times, 
+    public static IHtmlContent Repeat(IEnumerable<dynamic> items, int times,
         Func<dynamic, IHtmlContent> template)
     {
         var html = new HtmlContentBuilder();

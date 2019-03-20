@@ -1,8 +1,16 @@
+---
+ms.openlocfilehash: 927f9528eb6ca4fac10ccee47aa255d848b7daaa
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265004"
+---
 # <a name="scaffolded-razor-pages-in-aspnet-core"></a>Strony razor ze szkieletami w programie ASP.NET Core
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-W tym samouczku sprawdza, czy strony Razor, powstałe w wyniku tworzenia szkieletów w poprzednim samouczku. 
+W tym samouczku sprawdza, czy strony Razor, powstałe w wyniku tworzenia szkieletów w poprzednim samouczku.
 
 [Wyświetlanie lub pobieranie](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie21) próbki.
 
@@ -47,6 +55,7 @@ Sprawdź wyrażenie lambda, używane w następujących pomocnika kodu HTML:
 `DisplayNameFor` Sprawdza pomocnika kodu HTML `Title` właściwość, do którego odwołuje się wyrażenie lambda, aby ustalić nazwę wyświetlaną. Wyrażenie lambda jest kontrolowane zamiast ocenione. Oznacza, że ma nie naruszenie zasad dostępu podczas `model`, `model.Movie`, lub `model.Movie[0]` są `null` lub jest pusty. Kiedy jest obliczane wyrażenie lambda (na przykład za pomocą `@Html.DisplayFor(modelItem => item.Title)`), są oceniane wartości właściwości modelu.
 
 <a name="md"></a>
+
 ### <a name="the-model-directive"></a>@model — Dyrektywa
 
 [!code-cshtml[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?range=1-2&highlight=2)]
@@ -58,7 +67,8 @@ Sprawdź wyrażenie lambda, używane w następujących pomocnika kodu HTML:
 -->
 
 <a name="vd"></a>
-### ViewData i układu
+
+### <a name="viewdata-and-layout"></a>ViewData i układu
 
 Rozważmy poniższy kod:
 
@@ -66,7 +76,7 @@ Rozważmy poniższy kod:
 
 Poprzedni wyróżniony kod jest przykładem Razor przechodzi do języka C#. `{` i `}` znaków należy umieścić blok kodu C#.
 
-`PageModel` Ma klasę bazową `ViewData` słownika właściwości, który może służyć do dodania danych, które mają być przekazywane do widoku. Dodawanie obiektów do `ViewData` słownika przy użyciu wzorca klucz/wartość. W poprzednim przykładzie, właściwość "Title" zostanie dodany do `ViewData` słownika. 
+`PageModel` Ma klasę bazową `ViewData` słownika właściwości, który może służyć do dodania danych, które mają być przekazywane do widoku. Dodawanie obiektów do `ViewData` słownika przy użyciu wzorca klucz/wartość. W poprzednim przykładzie, właściwość "Title" zostanie dodany do `ViewData` słownika.
 
 ::: moniker range="= aspnetcore-2.0"
 
@@ -106,6 +116,7 @@ Znajdź następujący element zakotwiczenia w *Pages/Shared/_Layout.cshtml* plik
 ```cshtml
 <a asp-page="/Index" class="navbar-brand">RazorPagesMovie</a>
 ```
+
 Zastąp poprzedzający element następującym kodem.
 
 ```cshtml
@@ -132,7 +143,6 @@ Sprawdź *Pages/Movies/Create.cshtml.cs* modelu strony:
 
 ::: moniker-end
 
-
 `OnGet` Metoda inicjuje każdy stan potrzebne dla strony. Strona tworzenia nie ma każdy stan, aby zainicjować, więc `Page` jest zwracana. W dalszej części tego samouczka zostanie wyświetlony `OnGet` metoda inicjowania stanu. `Page` Metoda tworzy `PageResult` obiektu, który renderuje *Create.cshtml* strony.
 
 `Movie` Używa właściwości `[BindProperty]` atrybutu, aby wyrazić zgodę na [wiązanie modelu](xref:mvc/models/model-binding). Gdy formularz Utwórz publikuje wartości formularza, środowisko uruchomieniowe programu ASP.NET Core wiąże przesłanych wartości w celu `Movie` modelu.
@@ -153,7 +163,6 @@ Sprawdź *Pages/Movies/Create.cshtml* wartość pola plik strony Razor:
 
 <!--
 Visual Studio displays the `<form method="post">` tag in a distinctive font used for Tag Helpers. The `<form method="post">` element is a [Form Tag Helper](xref:mvc/views/working-with-forms#the-form-tag-helper). The Form Tag Helper automatically includes an [antiforgery token](xref:security/anti-request-forgery).
-
 
 ![VS17 view of Create.cshtml page](page/_static/th.png)
 -->

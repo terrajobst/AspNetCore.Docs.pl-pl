@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/21/2017
 uid: security/authorization/policies
-ms.openlocfilehash: c2bc626b2dd341dda878a151def6b405884357d7
-ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
+ms.openlocfilehash: e72f15c28fb7b62c671dd6475cc323cacce42de6
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57665405"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208324"
 ---
 # <a name="policy-based-authorization-in-aspnet-core"></a>Autoryzacja oparta na zasadach w programie ASP.NET Core
 
@@ -19,13 +19,25 @@ Wewnętrznie [autoryzacji opartej na rolach](xref:security/authorization/roles) 
 
 Zasady autoryzacji składa się z co najmniej jednego wymagania. Jest on zarejestrowany jako część konfiguracji usługi autoryzacji w `Startup.ConfigureServices` metody:
 
-[!code-csharp[](policies/samples/PoliciesAuthApp1/Startup.cs?range=40-41,50-55,63,72)]
+[!code-csharp[](policies/samples/PoliciesAuthApp1/Startup.cs?range=32-33,48-53,61,66)]
 
 W poprzednim przykładzie tworzona jest zasada "AtLeast21". Ma ona pojedynczy wymaganie&mdash;z minimalnym wieku, który jest dostarczany jako parametr do wymagań.
 
-Zasady są stosowane przy użyciu `[Authorize]` atrybutu o nazwie zasady. Na przykład:
+## <a name="applying-policies-to-mvc-controllers"></a>Stosowanie zasad do kontrolerów MVC
+
+Jeśli używasz stron Razor, zobacz [stosowanie zasad do stron Razor](#applying-policies-to-razor-pages) w tym dokumencie.
+
+Zasady są stosowane do kontrolerów, za pomocą `[Authorize]` atrybutu o nazwie zasady. Na przykład:
 
 [!code-csharp[](policies/samples/PoliciesAuthApp1/Controllers/AlcoholPurchaseController.cs?name=snippet_AlcoholPurchaseControllerClass&highlight=4)]
+
+## <a name="applying-policies-to-razor-pages"></a>Stosowanie zasad do stron Razor
+
+Zasady są stosowane do strony Razor za pomocą `[Authorize]` atrybutu o nazwie zasady. Na przykład:
+
+[!code-csharp[](policies/samples/PoliciesAuthApp2/Pages/AlcoholPurchase.cshtml.cs?name=snippet_AlcoholPurchaseModelClass&highlight=4)]
+
+Zasady mogą również będą stosowane do strony Razor za pomocą [Konwencji autoryzacji](xref:security/authorization/razor-pages-authorization).
 
 ## <a name="requirements"></a>Wymagania
 
@@ -70,7 +82,7 @@ Powyższy kod przechodzi przez [PendingRequirements](/dotnet/api/microsoft.aspne
 
 Programy obsługi są rejestrowane w kolekcji usługi podczas konfiguracji. Na przykład:
 
-[!code-csharp[](policies/samples/PoliciesAuthApp1/Startup.cs?range=40-41,50-55,63-65,72)]
+[!code-csharp[](policies/samples/PoliciesAuthApp1/Startup.cs?range=32-33,48-53,61,62-63,66)]
 
 Powyższy kod rejestruje `MinimumAgeHandler` jako pojedyncze wywołanie `services.AddSingleton<IAuthorizationHandler, MinimumAgeHandler>();`. Programy obsługi można zarejestrować przy użyciu dowolnej z wbudowanych [usługi okresy istnienia](xref:fundamentals/dependency-injection#service-lifetimes).
 
@@ -112,7 +124,7 @@ Mogą wystąpić sytuacje, w których wypełniając zasad jest proste wyrażenia
 
 Na przykład poprzedniej `BadgeEntryHandler` można dopasować w następujący sposób:
 
-[!code-csharp[](policies/samples/PoliciesAuthApp1/Startup.cs?range=52-53,57-63)]
+[!code-csharp[](policies/samples/PoliciesAuthApp1/Startup.cs?range=50-51,55-61)]
 
 ## <a name="accessing-mvc-request-context-in-handlers"></a>Uzyskiwanie dostępu do kontekstu żądania MVC w procedurach obsługi
 

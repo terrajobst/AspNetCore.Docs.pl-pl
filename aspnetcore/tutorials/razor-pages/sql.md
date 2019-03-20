@@ -5,12 +5,12 @@ description: W tym artykule wyjaśniono, pracy z bazą danych i ASP.NET Core.
 ms.author: riande
 ms.date: 12/07/2017
 uid: tutorials/razor-pages/sql
-ms.openlocfilehash: e2e9be0aa25166e216d34419859cd907d0423f70
-ms.sourcegitcommit: 34bf9fc6ea814c039401fca174642f0acb14be3c
+ms.openlocfilehash: 6cef55382d8c77e95280ea4eea2dbc2af1c81987
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57841569"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265566"
 ---
 # <a name="work-with-a-database-and-aspnet-core"></a>Praca z bazy danych i ASP.NET Core
 
@@ -20,23 +20,19 @@ Przez [Rick Anderson](https://twitter.com/RickAndMSFT) i [Audette Jan](https://t
 
 `RazorPagesMovieContext` Obiektu obsługuje zadania z bazą danych i mapowania `Movie` obiekty do rekordów bazy danych. Kontekst bazy danych jest zarejestrowany w [wstrzykiwanie zależności](xref:fundamentals/dependency-injection) kontenera w `ConfigureServices` method in Class metoda *Startup.cs*:
 
-<!-- VS -------------------------->
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Startup.cs?name=snippet_ConfigureServices&highlight=15-18)]
 
-<!-- Code -------------------------->
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Startup.cs?name=snippet_UseSqlite&highlight=11-12)]
 
-<!-- Mac -------------------------->
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Startup.cs?name=snippet_UseSqlite&highlight=11-12)]
 
----  
-<!-- End of VS tabs -->
+---
 
 Aby uzyskać więcej informacji na temat metod używanych w `ConfigureServices`, zobacz:
 
@@ -45,29 +41,24 @@ Aby uzyskać więcej informacji na temat metod używanych w `ConfigureServices`,
 
 ASP.NET Core [konfiguracji](xref:fundamentals/configuration/index) odczyty system `ConnectionString`. Dla wdrożenia lokalnego, pobiera parametry połączenia z *appsettings.json* pliku.
 
-<!-- VS -------------------------->
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Wartość nazwy bazy danych (`Database={Database name}`) będzie różna dla wygenerowanego kodu. Wartość nazwy jest dowolnego.
 
 [!code-json[](razor-pages-start/sample/RazorPagesMovie22/appsettings.json)]
 
-<!-- Code -------------------------->
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 [!code-json[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/appsettings_SQLite.json?highlight=8-10)]
 
-<!-- Mac -------------------------->
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 [!code-json[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/appsettings_SQLite.json?highlight=8-10)]
 
----  
-<!-- End of VS tabs -->
+---
 
 Po wdrożeniu aplikacji na serwerze testowym lub produkcyjnym zmiennej środowiskowej można ustawić parametrów połączenia z serwerem bazy danych rzeczywistych. Zobacz [konfiguracji](xref:fundamentals/configuration/index) Aby uzyskać więcej informacji.
 
-<!-- VS -------------------------->
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 ## <a name="sql-server-express-localdb"></a>SQL Server Express LocalDB
@@ -90,20 +81,18 @@ Należy zauważyć ikonę klucza, obok `ID`. Domyślnie program EF tworzy właś
 * Kliknij prawym przyciskiem myszy `Movie` tabeli, a następnie wybierz pozycję **dane widoku**:
 
   ![Tabela filmu otwarte, wyświetlanie tabeli danych](sql/_static/vd22.png)
-<!-- Code -------------------------->
+
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 [!INCLUDE[](~/includes/rp/sqlite.md)]
 [!INCLUDE[](~/includes/RP-mvc-shared/sqlite-warn.md)]
 
-<!-- Mac -------------------------->
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 [!INCLUDE[](~/includes/rp/sqlite.md)]
 [!INCLUDE[](~/includes/RP-mvc-shared/sqlite-warn.md)]
 
----  
-<!-- End of VS tabs -->
+---
 
 ## <a name="seed-the-database"></a>Inicjowanie bazy danych
 
@@ -119,7 +108,9 @@ if (context.Movie.Any())
     return;   // DB has been seeded.
 }
 ```
+
 <a name="si"></a>
+
 ### <a name="add-the-seed-initializer"></a>Dodaj inicjator inicjatora
 
 W *Program.cs*, zmodyfikuj `Main` metodę, aby wykonać następujące czynności:
@@ -139,7 +130,6 @@ Nie można zalogować użytkownika "Nazwa użytkownika".
 
 ### <a name="test-the-app"></a>Testowanie aplikacji
 
-<!-- VS -------------------------->
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Usuń wszystkie rekordy w bazie danych. Można to zrobić za pomocą łącza delete w przeglądarce, albo z [SSOX](xref:tutorials/razor-pages/new-field#ssox)
@@ -154,25 +144,20 @@ Nie można zalogować użytkownika "Nazwa użytkownika".
     * Podczas uruchamiania w trybie bez debugowania programu VS, naciśnij klawisz F5, aby uruchomić w trybie debugowania.
     * Podczas uruchamiania programu VS w trybie debugowania, Zatrzymaj debuger, a następnie naciśnij klawisz F5.
 
-<!-- Code -------------------------->
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 (Aby uruchomi seed — metoda), należy usunąć wszystkie rekordy w bazie danych. Zatrzymywanie i uruchamianie aplikacji w celu umieszczenia bazy danych.
 
 Aplikacja zawiera wprowadzonych danych.
 
-<!-- Mac -------------------------->
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 (Aby uruchomi seed — metoda), należy usunąć wszystkie rekordy w bazie danych. Zatrzymywanie i uruchamianie aplikacji w celu umieszczenia bazy danych.
 
 Aplikacja zawiera wprowadzonych danych.
 
----  
-<!-- End of VS tabs -->
+---
 
-
-   
 Aplikacja przedstawiono wprowadzonych danych:
 
 ![Otwórz w przeglądarce Chrome danych Film przedstawiający aplikacji filmów](sql/_static/m55.png)

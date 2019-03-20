@@ -1,11 +1,20 @@
-<!-- This include not used by windows version -->
+---
+ms.openlocfilehash: 088f347cee73e745882455e6882d24a1e949f095
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265066"
+---
 # <a name="add-a-new-field-to-an-aspnet-core-mvc-app"></a>Dodawanie nowego pola do aplikacji ASP.NET Core MVC
+
+<!-- This include not used by windows version -->
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-W tym samouczku spowoduje dodanie nowego pola do `Movies` tabeli. Utworzymy porzucenia bazy danych i utworzyć nową w przypadku zmiany schematu (Dodawanie nowego pola). Ten przepływ pracy działa również na wczesnym etapie projektowania, gdy nie ma żadnych danych produkcyjnych perserve.
+W tym samouczku spowoduje dodanie nowego pola do `Movies` tabeli. Utworzymy porzucenia bazy danych i utworzyć nową w przypadku zmiany schematu (Dodawanie nowego pola). Ten przepływ pracy działa również na wczesnym etapie projektowania, gdy firma Microsoft nie ma żadnych danych produkcyjnych, aby zachować.
 
-Gdy Twoja aplikacja jest wdrożona i mieć dane potrzebne do perserve, nie można porzucić użytkownika bazy danych, gdy zajdzie potrzeba zmiany schematu. Entity Framework [migracje Code First](/ef/core/get-started/aspnetcore/new-db) można aktualizować schematu i migracji bazy danych bez utraty danych. Migracje jest popularnych funkcji podczas przy użyciu programu SQL Server, ale SQLlite nie obsługuje wielu operacji migracji schematu więc tylko bardzo prosty sposób migracji są możliwe. Zobacz [ograniczenia SQLite](/ef/core/providers/sqlite/limitations) Aby uzyskać więcej informacji.
+Gdy Twoja aplikacja jest wdrożona i mieć dane, które musisz zachować, nie można porzucić użytkownika bazy danych, gdy zajdzie potrzeba zmiany schematu. Entity Framework [migracje Code First](/ef/core/get-started/aspnetcore/new-db) można aktualizować schematu i migracji bazy danych bez utraty danych. Migracje jest popularnych funkcji podczas przy użyciu programu SQL Server, ale SQLite nie obsługuje wielu operacji migracji schematu więc tylko bardzo prosty sposób migracji są możliwe. Zobacz [ograniczenia SQLite](/ef/core/providers/sqlite/limitations) Aby uzyskać więcej informacji.
 
 ## <a name="adding-a-rating-property-to-the-movie-model"></a>Dodawanie właściwości klasyfikacji do modelu Movie
 

@@ -5,12 +5,12 @@ description: Dodawanie modelu do prostą aplikację platformy ASP.NET Core.
 ms.author: riande
 ms.date: 02/25/2019
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: ccdb7b920517c94b9154fe73b4ef1633f4ad0157
-ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
+ms.openlocfilehash: ed83ab92c70ea87f3c805787303e24c9ecfc4e12
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833556"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265542"
 ---
 # <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>Dodawanie modelu do aplikacji ASP.NET Core MVC
 
@@ -26,14 +26,12 @@ W tym samouczku pisania klasy modeli i programem EF Core tworzy bazę danych. Al
 
 ## <a name="add-a-data-model-class"></a>Dodaj klasę modelu danych
 
-<!-- VS -------------------------->
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Kliknij prawym przyciskiem myszy *modeli* folder > **Dodaj** > **klasy**. Nazwa klasy **filmu**.
 
 [!INCLUDE [model 1b](~/includes/mvc-intro/model1b.md)]
 
-<!-- Code -------------------------->
 # <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code / Visual Studio for Mac](#tab/visual-studio-code+visual-studio-mac)
 
 * Dodaj klasę umożliwiającą *modeli* folder o nazwie *Movie.cs*.
@@ -41,14 +39,12 @@ Kliknij prawym przyciskiem myszy *modeli* folder > **Dodaj** > **klasy**. Nazwa 
 [!INCLUDE [model 1b](~/includes/mvc-intro/model1b.md)]
 [!INCLUDE [model 2](~/includes/mvc-intro/model2.md)]
 
----  
-<!-- End of VS tabs -->
+---
 
 ## <a name="scaffold-the-movie-model"></a>Tworzenie szkieletu modelu movie
 
 W tej sekcji modelu movie jest szkielet. Oznacza to, że narzędzie do tworzenia szkieletów tworzy strony dla operacji tworzenia, odczytu, aktualizowania lub usuwania (CRUD) do modelu movie.
 
-<!-- VS -------------------------->
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *kontrolerów* folderu **> Dodaj > Nowy element szkieletu**.
@@ -76,11 +72,10 @@ Program Visual Studio tworzy:
 
 * Entity Framework Core [bazy danych klasy kontekstu](xref:data/ef-mvc/intro#create-the-database-context) (*Data/MvcMovieContext.cs*)
 * Kontroler filmy (*Controllers/MoviesController.cs*)
-* Pliki widoku razor dla stron Create, Delete, szczegółowe informacje, edycji i indeksu (<em>widoków/filmy/&ast;.cshtml</em>)
+* Pliki widoku razor dla stron Create, Delete, szczegółowe informacje, edycji i indeksu (*widoków/filmy/\*.cshtml*)
 
 Automatyczne tworzenie kontekst bazy danych i [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) (tworzenia, odczytu, aktualizacji i usuwania) metody akcji i widoki są określane jako *tworzenia szkieletów*.
 
-<!-- Code -------------------------->
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 <!--  Until https://github.com/aspnet/Scaffolding/issues/582 is fixed windows needs backslash or the namespace is namespace RazorPagesMovie.Pages_Movies rather than namespace RazorPagesMovie.Pages.Movies
@@ -313,4 +308,4 @@ Ponieważ `Model` obiektu zdecydowanie jest wpisane (jako `IEnumerable<Movie>` o
 
 > [!div class="step-by-step"]
 > [Poprzednie, Dodawanie widoku](adding-view.md)
-> [obok pracy przy użyciu języka SQL](working-with-sql.md)  
+> [obok pracy przy użyciu języka SQL](working-with-sql.md)

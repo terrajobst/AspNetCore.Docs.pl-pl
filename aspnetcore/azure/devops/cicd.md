@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.date: 10/24/2018
 ms.custom: seodec18
 uid: azure/devops/cicd
-ms.openlocfilehash: 906aae3fd4b4abd0becc8847b0f54c372bda300a
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: 676620b5dd151c9cd009d7cb278ed2c2b122c83f
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57346310"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264891"
 ---
 # <a name="continuous-integration-and-deployment"></a>Ciągła integracja i ciągłe wdrażanie
 
@@ -39,17 +39,23 @@ W tej sekcji zostaną wykonane następujące zadania:
 1. Kliknij przycisk **tworzenia repozytorium** przycisku.
 1. Otwórz powłokę poleceń komputer lokalny. Przejdź do katalogu, w którym *prosty kanału informacyjnego czytników* jest przechowywany w repozytorium Git.
 1. Zmień nazwę istniejącego *pochodzenia* zdalnie *nadrzędnego*. Wykonaj następujące polecenie:
+
     ```console
     git remote rename origin upstream
     ```
+
 1. Dodaj nową *pochodzenia* zdalnego wskazuje swoją kopię repozytorium w witrynie GitHub. Wykonaj następujące polecenie:
+
     ```console
     git remote add origin https://github.com/<GitHub_username>/simple-feed-reader/
     ```
+
 1. Publikowanie lokalnego repozytorium Git do nowo utworzonego repozytorium GitHub. Wykonaj następujące polecenie:
+
     ```console
     git push -u origin master
     ```
+
 1. Otwórz okno przeglądarki i przejdź do `https://github.com/<GitHub_username>/simple-feed-reader/`. Sprawdź, czy kod jest wyświetlana w repozytorium GitHub.
 
 ## <a name="disconnect-local-git-deployment"></a>Odłącz lokalne wdrożenie narzędzia Git
@@ -192,6 +198,7 @@ Istnieją trzy różne kroki, aby zakończyć. Wykonując kroki w wynikach nast�
     ```console
     git commit -a -m "upgraded to V4"
     ```
+
 1. Wypychanie zmiany *wzorca* gałęzi do *pochodzenia* zdalnego repozytorium GitHub:
 
     ```console

@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 02/04/2019
 ms.topic: tutorial
 uid: data/ef-mvc/crud
-ms.openlocfilehash: 368b1774ba977ec8020a02d48705200fd54c3bbd
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: 83f5d4bdc3d5872109649818b61a6dbb656fd8be
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56102984"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264836"
 ---
 # <a name="tutorial-implement-crud-functionality---aspnet-mvc-with-ef-core"></a>Samouczek: Implementowanie funkcji CRUD - platformy ASP.NET MVC z programem EF Core
 
@@ -123,6 +123,7 @@ Inne niż `Bind` , bloku try / catch jest tylko zmiany wprowadzone do utworzony 
 `ValidateAntiForgeryToken` Atrybut zapobiega fałszerstwo żądania międzywitrynowego (CSRF) ataków. Token są automatycznie wstrzykiwane do widoku przez [FormTagHelper](xref:mvc/views/working-with-forms#the-form-tag-helper) i jest dostępne po przesłaniu formularza przez użytkownika. Token jest sprawdzana `ValidateAntiForgeryToken` atrybutu. Aby uzyskać więcej informacji na temat CSRF zobacz [ochrona przed fałszerstwem żądań](../../security/anti-request-forgery.md).
 
 <a id="overpost"></a>
+
 ### <a name="security-note-about-overposting"></a>Uwaga dotycząca zabezpieczeń dotyczące overposting
 
 `Bind` Atrybut, który zawiera utworzony szkielet kodu, na `Create` metodą jest jednym ze sposobów, aby zapewnić ochronę przed overposting w tworzenie scenariuszy. Załóżmy, że zawiera jednostki dla uczniów `Secret` właściwości, które nie mają tej strony sieci web, aby ustawić.

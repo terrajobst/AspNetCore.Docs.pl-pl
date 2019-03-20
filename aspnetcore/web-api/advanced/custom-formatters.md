@@ -5,12 +5,12 @@ description: Dowiedz się, jak utworzyć i używać niestandardowe elementy form
 ms.author: tdykstra
 ms.date: 02/08/2017
 uid: web-api/advanced/custom-formatters
-ms.openlocfilehash: 2861a15a80725dcc237d33313a24822cf8aa9c7e
-ms.sourcegitcommit: e1cc4c1ef6c9e07918a609d5ad7fadcb6abe3e12
+ms.openlocfilehash: 611840defd1da3b57b365c99deaf1c67f1568227
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53997295"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264628"
 ---
 # <a name="custom-formatters-in-aspnet-core-web-api"></a>Niestandardowe elementy formatujące w interfejsie API sieci Web platformy ASP.NET Core
 
@@ -85,7 +85,8 @@ W niektórych przypadkach trzeba zastąpić `CanWriteResult` zamiast `CanWriteTy
 Załóżmy, że podpis metody akcji, zwraca `Person` typu, ale może zwrócić `Student` lub `Instructor` typ, który pochodzi od klasy `Person`. Jeśli chcesz, aby Twoje elementu formatującego do obsługi tylko `Student` obiektów, sprawdź typ [obiektu](/dotnet/api/microsoft.aspnetcore.mvc.formatters.outputformattercanwritecontext#Microsoft_AspNetCore_Mvc_Formatters_OutputFormatterCanWriteContext_Object) w obiekcie kontekstu udostępniane `CanWriteResult` metody. Należy pamiętać, że nie jest konieczne użycie `CanWriteResult` gdy metoda akcji zwraca `IActionResult`; w takim przypadku `CanWriteType` metoda otrzymuje typ środowiska uruchomieniowego.
 
 <a id="read-write"></a>
-### <a name="override-readrequestbodyasyncwriteresponsebodyasync"></a>Zastąp ReadRequestBodyAsync/WriteResponseBodyAsync
+
+### <a name="override-readrequestbodyasyncwriteresponsebodyasync"></a>Override ReadRequestBodyAsync/WriteResponseBodyAsync
 
 Wykonują rzeczywistą pracę podczas deserializacji lub serializacji w `ReadRequestBodyAsync` lub `WriteResponseBodyAsync`. Wyróżnione wiersze w poniższym przykładzie pokazano, jak można pobrać usługi z kontenera iniekcji zależności (nie można dostać się je z parametrów konstruktora).
 

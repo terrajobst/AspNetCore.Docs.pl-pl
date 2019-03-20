@@ -5,12 +5,12 @@ description: W tym artykule wyjaśniono stron Razor, generowane przez tworzenie 
 ms.author: riande
 ms.date: 12/4/2018
 uid: tutorials/razor-pages/page
-ms.openlocfilehash: 07ad142b369fab92589f63479533a769136a087b
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: c4d0e5c7b7365edc0df5428c250037db7ef3da2a
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57346453"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265272"
 ---
 # <a name="scaffolded-razor-pages-in-aspnet-core"></a>Strony razor ze szkieletami w programie ASP.NET Core
 
@@ -51,6 +51,7 @@ Sprawdź wyrażenie lambda, używane w następujących pomocnika kodu HTML:
 `DisplayNameFor` Sprawdza pomocnika kodu HTML `Title` właściwość, do którego odwołuje się wyrażenie lambda, aby ustalić nazwę wyświetlaną. Wyrażenie lambda jest kontrolowane zamiast ocenione. Oznacza, że ma nie naruszenie zasad dostępu podczas `model`, `model.Movie`, lub `model.Movie[0]` są `null` lub jest pusty. Kiedy jest obliczane wyrażenie lambda (na przykład za pomocą `@Html.DisplayFor(modelItem => item.Title)`), są oceniane wartości właściwości modelu.
 
 <a name="md"></a>
+
 ### <a name="the-model-directive"></a>@model — Dyrektywa
 
 [!code-cshtml[](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?range=1-2&highlight=2)]
@@ -64,6 +65,7 @@ Wybierz linki menu (**RazorPagesMovie**, **Home**, i **zachowania**). Każda str
 [Układ](xref:mvc/views/layout) Szablony umożliwiają określ układ kontenera HTML Twojej witryny w jednym miejscu, a następnie zastosować je na wielu stronach w witrynie. Znajdź `@RenderBody()` wiersza. `RenderBody` jest symbolem zastępczym, gdzie wszystkie specyficzne dla strony widoki, których tworzenie pokazu, *opakowane* w stronę układu. Na przykład w przypadku wybrania **zachowania** linku **Pages/Privacy.cshtml** renderowania widoku w `RenderBody` metody.
 
 <a name="vd"></a>
+
 ### <a name="viewdata-and-layout"></a>ViewData i układu
 
 Rozważmy poniższy kod z *Pages/Movies/Index.cshtml* pliku:
@@ -72,12 +74,12 @@ Rozważmy poniższy kod z *Pages/Movies/Index.cshtml* pliku:
 
 Poprzedni wyróżniony kod jest przykładem Razor przechodzi do języka C#. `{` i `}` znaków należy umieścić blok kodu C#.
 
-`PageModel` Ma klasę bazową `ViewData` słownika właściwości, który może służyć do dodania danych, które mają być przekazywane do widoku. Dodawanie obiektów do `ViewData` słownika przy użyciu wzorca klucz/wartość. W poprzednim przykładzie, właściwość "Title" zostanie dodany do `ViewData` słownika. 
+`PageModel` Ma klasę bazową `ViewData` słownika właściwości, który może służyć do dodania danych, które mają być przekazywane do widoku. Dodawanie obiektów do `ViewData` słownika przy użyciu wzorca klucz/wartość. W poprzednim przykładzie, właściwość "Title" zostanie dodany do `ViewData` słownika.
 
 Właściwość "Title" jest używana w *Pages/Shared/_Layout.cshtml* pliku. Następujący kod przedstawia pierwszych kilka wierszy tego *_Layout.cshtml* pliku.
 
 <!-- we need a snapshot copy of layout because we are
-changing in in the next step. 
+changing in in the next step.
 -->
 [!code-cshtml[](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/NU/_Layout.cshtml?highlight=6-99)]
 
@@ -88,7 +90,6 @@ Wiersz `@*Markup removed for brevity.*@` komentarz Razor, które nie znajdują s
 Zmiana `<title>` element *Pages/Shared/_Layout.cshtml* pliku wyświetlania **filmu** zamiast **RazorPagesMovie**.
 
 [!code-cshtml[](razor-pages-start/sample/RazorPagesMovie22/Pages/Shared/_Layout.cshtml?range=1-6&highlight=6)]
-
 
 Znajdź następujący element zakotwiczenia w *Pages/Shared/_Layout.cshtml* pliku.
 
@@ -141,24 +142,21 @@ Sprawdź *Pages/Movies/Create.cshtml* wartość pola plik strony Razor:
 
 [!code-cshtml[](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml)]
 
-<!-- VS -------------------------->
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Visual Studio Wyświetla `<form method="post">` tag szczególne pogrubioną czcionką używany dla pomocników tagów:
 
 ![VS17 widok Create.cshtml strony](page/_static/th.png)
-<!-- Code -------------------------->
+
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Aby uzyskać więcej informacji na temat pomocnicy tagów, takie jak `<form method="post">`, zobacz [pomocników tagów w programie ASP.NET Core](xref:mvc/views/tag-helpers/intro).
 
-<!-- Mac -------------------------->
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 Program Visual Studio for Mac Wyświetla `<form method="post">` tag szczególne pogrubioną czcionką używany dla pomocników tagów.
 
----  
-<!-- End of VS tabs -->
+---
 
 `<form method="post">` Element jest [Pomocnik tagu formularza](xref:mvc/views/working-with-forms#the-form-tag-helper). Pomocnik tagu formularza automatycznie uwzględnia [antiforgery token](xref:security/anti-request-forgery).
 
@@ -175,7 +173,6 @@ Aparat tworzenia szkieletów tworzy znaczników Razor dla każdego pola w modelu
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Wersja usługi YouTube w tym samouczku](https://youtu.be/zxgKjPYnOMM)
-
 
 > [!div class="step-by-step"]
 > [Poprzednie: Dodawanie modelu](xref:tutorials/razor-pages/model)

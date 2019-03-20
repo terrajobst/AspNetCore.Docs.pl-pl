@@ -140,12 +140,12 @@ Podstawowy przepływ `OnPostAsync`:
 
 Sprawdź, czy błędy sprawdzania poprawności.
 
-*  Jeśli nie ma żadnych błędów, Zapisz dane i przekierować.
-*  Jeśli występują błędy, wyświetlenie strony ponownie przy użyciu komunikatów dotyczących sprawdzania poprawności. Weryfikacja po stronie klienta jest identyczna z tradycyjnych aplikacji ASP.NET Core MVC. W wielu przypadkach błędy sprawdzania poprawności będzie być wykryte na komputerze klienckim i nigdy nie zostały przekazane do serwera.
+* Jeśli nie ma żadnych błędów, Zapisz dane i przekierować.
+* Jeśli występują błędy, wyświetlenie strony ponownie przy użyciu komunikatów dotyczących sprawdzania poprawności. Weryfikacja po stronie klienta jest identyczna z tradycyjnych aplikacji ASP.NET Core MVC. W wielu przypadkach błędy sprawdzania poprawności będzie być wykryte na komputerze klienckim i nigdy nie zostały przekazane do serwera.
 
 Po pomyślnym wprowadzeniu danych `OnPostAsync` wywołań metody obsługi `RedirectToPage` metody pomocnika do zwrócenia wystąpienia `RedirectToPageResult`. `RedirectToPage` to nowy wynik akcji, podobnie jak `RedirectToAction` lub `RedirectToRoute`, ale dostosowane dla stron. W poprzednim przykładzie, zostanie przekierowany do strony indeksu głównego (`/Index`). `RedirectToPage` została szczegółowo opisana w [Generowanie adresu URL dla stron](#url_gen) sekcji.
 
-Kiedy przesłanego formularza ma błędy sprawdzania poprawności, (które są przekazywane do serwera),`OnPostAsync` wywołań metody obsługi `Page` metody pomocnika. `Page` Zwraca wystąpienie `PageResult`. Zwracanie `Page` jest podobny do sposobu Zwróć akcje w kontrolerach `View`. `PageResult` Wartość domyślna to <!-- Review  --> zwracany typ metody programu obsługi. Metody obsługi, która zwraca `void` renderuje stronę.
+Kiedy przesłanego formularza ma błędy sprawdzania poprawności, (które są przekazywane do serwera),`OnPostAsync` wywołań metody obsługi `Page` metody pomocnika. `Page` Zwraca wystąpienie `PageResult`. Zwracanie `Page` jest podobny do sposobu Zwróć akcje w kontrolerach `View`. `PageResult` jest wartością domyślną <!-- Review  --> zwracany typ metody programu obsługi. Metody obsługi, która zwraca `void` renderuje stronę.
 
 `Customer` Używa właściwości `[BindProperty]` atrybutu zgadzaj się na wiązania modelu.
 
@@ -264,6 +264,7 @@ services.AddMvc()
 Nie trzeba pisać kodu dla [antiforgery weryfikacji](xref:security/anti-request-forgery). Antiforgery generowania tokenu i sprawdzanie poprawności są automatycznie uwzględniane stron Razor.
 
 <a name="layout"></a>
+
 ## <a name="using-layouts-partials-templates-and-tag-helpers-with-razor-pages"></a>Za pomocą układów, częściowe, szablonów i pomocnicy tagów ze stron Razor
 
 Strony pracować ze wszystkimi funkcjami aparatu widoku Razor. Układy, częściowe, szablony, pomocników tagów *_ViewStart.cshtml*, *_ViewImports.cshtml* działają w taki sam sposób jak w przypadku konwencjonalnych widokami Razor.
@@ -389,7 +390,7 @@ Generowanie adresu URL dla stron obsługuje nazwy względnej. W poniższej tabel
 | RedirectToPage("../Index") | *Indeks strony* |
 | RedirectToPage("Index")  | *Strony/klientów/indeksu* |
 
-`RedirectToPage("Index")`, `RedirectToPage("./Index")`, i `RedirectToPage("../Index")` są <em>względne nazwy</em>. `RedirectToPage` Parametr jest <em>połączone</em> ze ścieżką bieżącej strony, aby obliczyć nazwę strony docelowej.  <!-- Review: Original had The provided string is combined with the page name of the current page to compute the name of the destination page.  page name, not page path -->
+`RedirectToPage("Index")`, `RedirectToPage("./Index")`, i `RedirectToPage("../Index")` są *względne nazwy*. `RedirectToPage` Parametr jest *połączone* ze ścieżką bieżącej strony, aby obliczyć nazwę strony docelowej.  <!-- Review: Original had The provided string is combined with the page name of the current page to compute the name of the destination page.  page name, not page path -->
 
 Nazwa względna łączenia jest przydatne w przypadku, gdy tworzenia witryn z złożonej strukturze. Jeśli używasz względne nazwy do połączenia między stronami w folderze, można zmienić nazwę tego folderu. Wszystkie łącza nadal działać (ponieważ nie obejmują one nazwę folderu).
 
@@ -465,6 +466,7 @@ public string Message { get; set; }
 Aby uzyskać więcej informacji, zobacz [TempData](xref:fundamentals/app-state#tempdata) .
 
 <a name="mhpp"></a>
+
 ## <a name="multiple-handlers-per-page"></a>Procedury obsługi wielu na stronę
 
 Następująca strona generuje kod znaczników dla dwóch stron przy użyciu programów obsługi `asp-page-handler` Pomocnik tagu:

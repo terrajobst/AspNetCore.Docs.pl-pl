@@ -5,12 +5,12 @@ description: Dowiedz się więcej o korzystaniu z programu SQL Server LocalDB lu
 ms.author: riande
 ms.date: 03/07/2017
 uid: tutorials/first-mvc-app/working-with-sql
-ms.openlocfilehash: a6b2026a43bda94a84a05749e9ea395308dec231
-ms.sourcegitcommit: 34bf9fc6ea814c039401fca174642f0acb14be3c
+ms.openlocfilehash: 983742276f3519b540cd62e4ada6eb5189650aa8
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57841440"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265219"
 ---
 # <a name="work-with-sql-in-aspnet-core"></a>Praca z SQL w programie ASP.NET Core
 
@@ -18,7 +18,6 @@ Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 `MvcMovieContext` Obiektu obsługuje zadania z bazą danych i mapowania `Movie` obiekty do rekordów bazy danych. Kontekst bazy danych jest zarejestrowany w [wstrzykiwanie zależności](xref:fundamentals/dependency-injection) kontenera w `ConfigureServices` method in Class metoda *Startup.cs* pliku:
 
-<!-- VS -------------------------->
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Startup.cs?name=snippet_ConfigureServices&highlight=13-99)]
@@ -27,7 +26,6 @@ ASP.NET Core [konfiguracji](xref:fundamentals/configuration/index) odczyty syste
 
 [!code-json[](start-mvc/sample/MvcMovie/appsettings.json?highlight=2&range=8-10)]
 
-<!-- Code -------------------------->
 # <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code / Visual Studio for Mac](#tab/visual-studio-code+visual-studio-mac)
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Startup.cs?name=snippet_UseSqlite&highlight=11-12)]
@@ -36,12 +34,10 @@ ASP.NET Core [konfiguracji](xref:fundamentals/configuration/index) odczyty syste
 
 [!code-json[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/appsettingsSQLite.json?highlight=2&range=8-10)]
 
----  
-<!-- End of VS tabs -->
+---
 
 Podczas wdrażania aplikacji na serwerze testowym lub produkcyjnym, można użyć zmiennej środowiskowej lub innej metody, które można ustawić parametrów połączenia do rzeczywistego programu SQL Server. Zobacz [konfiguracji](xref:fundamentals/configuration/index) Aby uzyskać więcej informacji.
 
-<!-- VS -------------------------->
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 ## <a name="sql-server-express-localdb"></a>SQL Server Express LocalDB
@@ -71,7 +67,7 @@ Należy zauważyć ikonę klucza, obok `ID`. Domyślnie program EF spowoduje, ż
 [!INCLUDE[](~/includes/rp/sqlite.md)]
 [!INCLUDE[](~/includes/RP-mvc-shared/sqlite-warn.md)]
 
----  
+---
 <!-- End of VS tabs -->
 
 ## <a name="seed-the-database"></a>Inicjowanie bazy danych
@@ -90,6 +86,7 @@ if (context.Movie.Any())
 ```
 
 <a name="si"></a>
+
 ### <a name="add-the-seed-initializer"></a>Dodaj inicjator inicjatora
 
 Zastąp zawartość *Program.cs* następującym kodem:
@@ -98,7 +95,6 @@ Zastąp zawartość *Program.cs* następującym kodem:
 
 Testowanie aplikacji
 
-<!-- VS -------------------------->
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Usuń wszystkie rekordy w bazie danych. Można to zrobić, wraz z łączami delete w przeglądarce lub SSOX.
@@ -113,13 +109,11 @@ Testowanie aplikacji
     * Podczas uruchamiania w trybie bez debugowania programu VS, naciśnij klawisz F5, aby uruchomić tryb debugowania
     * W przypadku uruchomienia programu VS w trybie debugowania, Zatrzymaj debuger, a następnie naciśnij klawisz F5
 
-<!-- Code -------------------------->
 # <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code / Visual Studio for Mac](#tab/visual-studio-code+visual-studio-mac)
 
 (Aby uruchomi seed — metoda), należy usunąć wszystkie rekordy w bazie danych. Zatrzymywanie i uruchamianie aplikacji w celu umieszczenia bazy danych.
 
----  
-<!-- End of VS tabs -->
+---
 
 Aplikacja zawiera wprowadzonych danych.
 
@@ -127,4 +121,4 @@ Aplikacja zawiera wprowadzonych danych.
 
 > [!div class="step-by-step"]
 > [Poprzednie](adding-model.md)
-> [dalej](controller-methods-views.md)  
+> [dalej](controller-methods-views.md)

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/06/2019
 uid: host-and-deploy/azure-apps/troubleshoot
-ms.openlocfilehash: 326f66070d51c04298abbf6292d2d350414311de
-ms.sourcegitcommit: 34bf9fc6ea814c039401fca174642f0acb14be3c
+ms.openlocfilehash: 36c2bdfa585a0fd54ca93bf4c0edb4cf6f7d934a
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57841407"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265444"
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service"></a>Rozwiązywanie problemów z platformą ASP.NET Core w usłudze Azure App Service
 
@@ -23,8 +23,7 @@ Ten artykuł zawiera instrukcje na temat platformy ASP.NET Core zdiagnozować pr
 
 ## <a name="app-startup-errors"></a>Błędy uruchamiania aplikacji
 
-**502.5 niepowodzenie procesu**  
-Proces roboczy kończy się niepowodzeniem. Nie zaczyna się aplikacja.
+**502.5 przetwarzania awarii** proces roboczy kończy się niepowodzeniem. Nie zaczyna się aplikacja.
 
 [Modułu ASP.NET Core](xref:host-and-deploy/aspnet-core-module) próby uruchomienia procesu roboczego, ale nie została uruchomiona. Badanie w dzienniku zdarzeń aplikacji często pomaga rozwiązać tego rodzaju problemów. Dostęp do dziennika zostało wyjaśnione w [dziennik zdarzeń aplikacji](#application-event-log) sekcji.
 
@@ -32,7 +31,8 @@ Proces roboczy kończy się niepowodzeniem. Nie zaczyna się aplikacja.
 
 ![Okno przeglądarki, przedstawiający 502.5 stronę niepowodzenia procesu](troubleshoot/_static/process-failure-page.png)
 
-**500 Wewnętrzny błąd serwera**  
+**500 Wewnętrzny błąd serwera**
+
 Uruchamia aplikację, ale błąd uniemożliwia spełnienie żądania przez serwer.
 
 Ten błąd występuje w kodzie aplikacji, podczas uruchamiania lub podczas tworzenia odpowiedzi. Odpowiedź może zawierać żadnej zawartości lub odpowiedzi może być wyświetlana jako *500 Wewnętrzny błąd serwera* w przeglądarce. W dzienniku zdarzeń aplikacji stwierdza, zwykle uruchomiona aplikacja. Z perspektywy serwera, który jest poprawna. Aplikacja została uruchomiona, ale nie może wygenerować prawidłowej odpowiedzi. [Uruchamianie aplikacji w konsoli Kudu](#run-the-app-in-the-kudu-console) lub [Włącz dziennik stdout modułu ASP.NET Core](#aspnet-core-module-stdout-log) do rozwiązania problemu.
@@ -83,15 +83,16 @@ Wiele błędów uruchamiania przestaną generować przydatne informacje w dzienn
      ```console
      dotnet .\{ASSEMBLY NAME}.dll
      ```
+
    * Jeśli aplikacja jest [niezależna wdrożenia](/dotnet/core/deploying/#self-contained-deployments-scd):
 
      ```console
      {ASSEMBLY NAME}.exe
      ```
-   
+
 Dane wyjściowe z aplikacji, przedstawiający wszystkie błędy z konsoli jest przekazywany w potoku do konsoli Kudu.
-   
-##### <a name="framework-depdendent-deployment-running-on-a-preview-release"></a>Wdrożenie Framework depdendent systemem w wersji zapoznawczej
+
+##### <a name="framework-dependent-deployment-running-on-a-preview-release"></a>Wdrożenie zależny od struktury usługi uruchomione w wersji zapoznawczej
 
 *Wymaga zainstalowania platformy ASP.NET Core {VERSION} (x86) rozszerzenia witryny środowiska uruchomieniowego.*
 
@@ -113,7 +114,7 @@ Dane wyjściowe z aplikacji, przedstawiający wszystkie błędy z konsoli jest p
 
 Dane wyjściowe z aplikacji, przedstawiający wszystkie błędy z konsoli jest przekazywany w potoku do konsoli Kudu.
 
-##### <a name="framework-depdendent-deployment-running-on-a-preview-release"></a>Wdrożenie Framework depdendent systemem w wersji zapoznawczej
+##### <a name="framework-dependent-deployment-running-on-a-preview-release"></a>Wdrożenie zależny od struktury usługi uruchomione w wersji zapoznawczej
 
 *Wymaga zainstalowania platformy ASP.NET Core {VERSION} (x64) rozszerzenia witryny środowiska uruchomieniowego.*
 
@@ -170,7 +171,7 @@ Dziennik debugowania modułu ASP.NET Core zapewnia rejestrowanie dodatkowych, le
 
 Aby wyłączyć rejestrowanie debugowania, po zakończeniu rozwiązywania problemów:
 
-1. Aby wyłączyć dziennik debugowania rozszerzone, wykonać jedną z następujących czynności:
+1. Aby wyłączyć dziennik debugowania rozszerzone, wykonaj jedną z następujących czynności:
    * Usuń `<handlerSettings>` z *web.config* lokalnie plik i ponownie wdrożyć aplikację.
    * Konsola Kudu umożliwia edytowanie *web.config* pliku i usuwania `<handlerSettings>` sekcji. Zapisz plik.
 
@@ -230,7 +231,7 @@ Przejdź do aktywowania rejestrowania diagnostycznego:
 
 1. W witrynie Azure portal wybierz **dzienniki diagnostyczne** bloku.
 1. Wybierz **na** przełączać **rejestrowanie aplikacji (system plików)** i **szczegółowe komunikaty o błędach**. Wybierz **Zapisz** znajdujący się u góry bloku.
-1. Aby dołączyć śledzenie nieudanych żądań, tzw. Niepowodzenie żądania zdarzenia buforowania (FREB) rejestrowanie, wybierz **na** przełączać **śledzenie nieudanych żądań**. 
+1. Aby dołączyć śledzenie nieudanych żądań, tzw. Niepowodzenie żądania zdarzenia buforowania (FREB) rejestrowanie, wybierz **na** przełączać **śledzenie nieudanych żądań**.
 1. Wybierz **strumień dziennika** bloku, który znajduje się natychmiast w obszarze **dzienniki diagnostyczne** bloku w portalu.
 1. Wysłać żądanie do aplikacji.
 1. W ramach transmisji danych dziennika wskazuje przyczynę błędu.

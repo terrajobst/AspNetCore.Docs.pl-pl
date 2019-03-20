@@ -5,12 +5,12 @@ description: Dowiedz się, jak dodać kontroler do prostą aplikację platformy 
 ms.author: riande
 ms.date: 02/28/2017
 uid: tutorials/first-mvc-app/adding-controller
-ms.openlocfilehash: bbb7b06e2c9c63f44cb7f7a8ee63bffa1e316b3e
-ms.sourcegitcommit: 4e87712029de2aceb1cf2c52e9e3dda8195a5b8e
+ms.openlocfilehash: dad9262e544fc216ddc694b11b0dfb88b58db9cd
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53381871"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265011"
 ---
 # <a name="add-a-controller-to-an-aspnet-core-mvc-app"></a>Dodawanie kontrolera do aplikacji ASP.NET Core MVC
 
@@ -30,7 +30,6 @@ Firma Microsoft obejmuje te pojęcia w tej serii samouczków i pokazują, jak ic
 
 ## <a name="add-a-controller"></a>Dodawanie kontrolera
 
-<!-- VS -------------------------->
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy **kontrolerów > Dodaj > kontrolera**
@@ -42,14 +41,12 @@ Firma Microsoft obejmuje te pojęcia w tej serii samouczków i pokazują, jak ic
 
 * W **okna dialogowego Dodaj pusty kontroler MVC**, wprowadź **HelloWorldController** i wybierz **Dodaj**.
 
-<!-- Code -------------------------->
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Wybierz **EXPLORER** ikonę i następnie kombinacji control + kliknięcie (kliknij prawym przyciskiem myszy) **kontrolerów > Nowy plik** i nadaj nowemu plikowi *HelloWorldController.cs*.
 
   ![Menu kontekstowe](~/tutorials/first-mvc-app-xplat/adding-controller/_static/new_file.png)
 
-<!-- Mac -------------------------->
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy **kontrolerów > Dodaj > Nowy plik**.
@@ -62,7 +59,6 @@ Nazwa kontrolera **HelloWorldController**.
 ![Dodaj kontroler MVC i nadaj mu nazwę](~/tutorials/first-mvc-app-mac/adding-controller/_static/ac.png)
 
 ---
-<!-- End of VS tabs -->
 
 Zastąp zawartość *Controllers/HelloWorldController.cs* następującym kodem:
 
@@ -130,7 +126,6 @@ Tym razem trzeci segment adresu URL dopasowane parametru trasy `id`. `Welcome` M
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
 
 W tych przykładach kontrolera została wykonując "VC" część MVC — widok i kontroler pracy. Kontroler zwraca HTML bezpośrednio. Ogólnie nie ma kontrolerów bezpośrednio, zwracając HTML, ponieważ staje się bardzo skomplikowane, kodu i obsługa. Zamiast tego używa się zazwyczaj oddzielny plik szablonu widoku Razor ułatwiający Generowanie odpowiedzi HTML. Można to zrobić w następnym samouczku.
-
 
 > [!div class="step-by-step"]
 > [Poprzednie](start-mvc.md)

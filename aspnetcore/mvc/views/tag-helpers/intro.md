@@ -4,20 +4,20 @@ author: rick-anderson
 description: Dowiedz się, czym są pomocnicy tagów i sposobu ich używania w programie ASP.NET Core.
 ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.date: 2/14/2018
+ms.date: 03/18/2019
 uid: mvc/views/tag-helpers/intro
-ms.openlocfilehash: 4b9bceb3ce0153af2d9a30c402febe09707145b7
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: 7768dd45bdbe40c16176d57a76823cbb9dd0b91b
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477309"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264622"
 ---
 # <a name="tag-helpers-in-aspnet-core"></a>Pomocnicy tagów w programie ASP.NET Core
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-## <a name="what-are-tag-helpers"></a>Co to są pomocnicy tagów?
+## <a name="what-are-tag-helpers"></a>Co to są pomocnicy tagów
 
 Pomocnicy tagów włączyć kodu po stronie serwera wziąć udział w tworzeniu i renderowaniu elementów HTML w plikach Razor. Na przykład wbudowane `ImageTagHelper` można dołączyć numer wersji do nazwy obrazu. Zmianie obrazu serwera generuje unikatowy nową wersję obrazu, dzięki czemu klienci są gwarantowane można pobrać bieżącego obrazu (zamiast przestarzałych obraz pamięci podręcznej). Istnieje wiele wbudowanych pomocników tagów dla typowych zadań — takich jak tworzenie formularzy, łącza, ładowanie zasobów i pakiety więcej — i jeszcze bardziej dostępne w publicznych repozytoriach GitHub oraz jak NuGet. Pomocnicy tagów są tworzone w języku C#, a ich celem są elementy HTML na podstawie nazwy elementu, atrybutu nazwy lub tagu nadrzędnym. Na przykład wbudowane `LabelTagHelper` mogą kierować HTML `<label>` elementu po `LabelTagHelper` atrybuty są stosowane. Jeśli znasz [pomocników HTML](http://stephenwalther.com/archive/2009/03/03/chapter-6-understanding-html-helpers), pomocników tagów zmniejszyć jawne przejścia pomiędzy HTML a C# w widokami Razor. W wielu przypadkach pomocników HTML zapewnić alternatywne podejście do określonych Pomocnik tagu, ale ważne jest, aby rozpoznać, czy pomocników tagów nie zastąpić pomocników HTML i nie jest pomocnika tagów dla każdego pomocnika kodu HTML. [W porównaniu do pomocników HTML pomocników tagów](#tag-helpers-compared-to-html-helpers) wyjaśnia różnice bardziej szczegółowo.
 
@@ -122,6 +122,7 @@ Pomocnik tagu znak rezygnacji muszą dotyczyć otwierający i zamykający tag. (
 ```cshtml
 @tagHelperPrefix th:
 ```
+
 Na poniższej ilustracji kodu jest równa prefiks Pomocnik tagu `th:`, więc tylko te elementy, które są przy użyciu prefiksu `th:` obsługuje pomocników tagów (włączone Pomocnik tagu elementy mają szczególne czcionki). `<label>` i `<input>` elementy mają prefiks Pomocnik tagu i obsługują Pomocnik tagu, podczas `<span>` nie elementu.
 
 ![obraz](intro/_static/thp.png)
@@ -186,37 +187,21 @@ U (`@`) symbol informuje Razor to początek kodu. Następne dwa parametry ("Firs
 new {@class="caption"}
 ```
 
-Anonimowy obiekt służy do reprezentowania atrybutów. Ponieważ <strong>klasy</strong> jest zastrzeżonym słowem kluczowym w języku C# użyj `@` symbolu, aby wymusić języka C# do interpretacji "@class=" jako symbol separatora (nazwa właściwości). Do frontonu projektanta (ktoś z HTML/CSS/JavaScript i innych technologii klienta, ale nie znają języka C# i Razor), większość wiersza jest obcy. Cały wiersz musi być utworzone przy użyciu pomoc od funkcji IntelliSense.
+Anonimowy obiekt służy do reprezentowania atrybutów. Ponieważ `class` jest zastrzeżonym słowem kluczowym w C#, możesz użyć `@` symbolu, aby wymusić C# do interpretacji `@class=` jako symbol separatora (nazwa właściwości). Do frontonu projektanta (ktoś z HTML/CSS/JavaScript i innych technologii klienta, ale nie znają języka C# i Razor), większość wiersza jest obcy. Cały wiersz musi być utworzone przy użyciu pomoc od funkcji IntelliSense.
 
 Za pomocą `LabelTagHelper`, ten sam kod znaczników, może być zapisana jako:
 
-![obraz](intro/_static/label2.png)
+```cshtml
+<label class="caption" asp-for="FirstName"></label>
+```
 
 Za pomocą wersji pomocnika tagów, zaraz po wprowadzeniu `<l` w edytorze programu Visual Studio, IntelliSense wyświetla zgodnych elementów:
 
 ![obraz](intro/_static/label.png)
 
-Technologia IntelliSense pomaga napisać cały wiersz. `LabelTagHelper` Również wartość domyślna to ustawienie zawartości `asp-for` atrybutu "Imię"; wartość ("FirstName") Właściwości w formacie camelcase są konwertowane na zdania składa się z nazwy właściwości z miejsca, w których występuje każdy nowy wielkie litery. W następujących znaczników:
+Technologia IntelliSense pomaga napisać cały wiersz.
 
-![obraz](intro/_static/label2.png)
-
-generuje:
-
-```cshtml
-<label class="caption" for="FirstName">First Name</label>
-```
-
--W formacie camelcase zawartości zdanie — z uwzględnieniem wielkości liter nie jest używany w przypadku dodania zawartości do `<label>`. Na przykład:
-
-![obraz](intro/_static/1stName.png)
-
-generuje:
-
-```cshtml
-<label class="caption" for="FirstName">Name First</label>
-```
-
-Na poniższej ilustracji kodzie przedstawiono część formularza *Views/Account/Register.cshtml* widoku Razor generowany na podstawie szablonu MVC starszych 4.5.x ASP.NET dołączone do programu Visual Studio 2015.
+Na poniższej ilustracji kodzie przedstawiono część formularza *Views/Account/Register.cshtml* widoku Razor generowany na podstawie szablonu ASP.NET MVC 4.5.x, w programie Visual Studio.
 
 ![obraz](intro/_static/regCS.png)
 
@@ -267,5 +252,5 @@ Można dostosować, czcionki i kolorowanie z **narzędzia** > **opcje** > **śro
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Tworzenie pomocników tagów](xref:mvc/views/tag-helpers/authoring)
-* [Praca z formularzami ](xref:mvc/views/working-with-forms)
+* [Praca z formularzami](xref:mvc/views/working-with-forms)
 * [TagHelperSamples w serwisie GitHub](https://github.com/dpaquette/TagHelperSamples) zawiera przykłady Pomocnik tagu do pracy z [Bootstrap](http://getbootstrap.com/).
