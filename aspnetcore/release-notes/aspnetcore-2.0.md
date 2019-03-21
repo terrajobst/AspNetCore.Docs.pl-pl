@@ -5,24 +5,24 @@ description: Dowiedz się więcej o nowych funkcjach w programie ASP.NET Core 2.
 ms.author: riande
 ms.date: 07/10/2017
 uid: aspnetcore-2.0
-ms.openlocfilehash: a6d3179c84bfef0b15c2772e696466b88d228de5
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 60e44e64bd1cfada0143e374f6f51dec0e4e84f8
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207124"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209888"
 ---
 # <a name="whats-new-in-aspnet-core-20"></a>What's new in ASP.NET Core 2.0
 
 W tym artykule przedstawiono najbardziej znaczących zmian w programie ASP.NET Core 2.0 wraz z łączami do odpowiedniej dokumentacji.
 
-## <a name="razor-pages"></a>Strony razor
+## <a name="razor-pages"></a>Razor Pages
 
 Strony razor jest to nowa funkcja usługi ASP.NET Core MVC, która sprawia, że kodowania skoncentrowane na stronie scenariuszy łatwiejsze i bardziej wydajne.
 
 Aby uzyskać więcej informacji zobacz wprowadzenie i samouczków:
 
-* [Wprowadzenie do stron Razor](xref:razor-pages/index)
+* [Wprowadzenie do produktu Razor Pages](xref:razor-pages/index)
 * [Wprowadzenie do korzystania ze stron Razor](xref:tutorials/razor-pages/razor-pages-start)
 
 ## <a name="aspnet-core-metapackage"></a>Meta Microsoft.aspnetcore.all platformy ASP.NET Core
@@ -37,7 +37,7 @@ Aplikacje, które używają `Microsoft.AspNetCore.All` meta Microsoft.aspnetcore
 
 Aby uzyskać więcej informacji, zobacz [magazynu środowiska uruchomieniowego](/dotnet/core/deploying/runtime-store)
 
-## <a name="net-standard-20"></a>.NET standard 2.0
+## <a name="net-standard-20"></a>.NET Standard 2.0
 
 Pakiety platformy ASP.NET Core 2.0 docelowych .NET Standard 2.0. Pakiety mogą być przywoływane przez inne biblioteki .NET Standard 2.0 i mogą być uruchamiane na .NET Standard 2.0 zgodne implementacji .NET, w tym .NET Core 2.0 i .NET Framework 4.6.1. 
 
@@ -81,9 +81,9 @@ Pojedynczy szablony projektu strona aplikacji (SPA) szablonów Angular, Aurelia,
 
 Serwer sieci web Kestrel ma nowe funkcje, które lepiej przystosować na serwerze dostępnym z Internetu. Liczba opcji konfiguracji ograniczenia serwera zostały dodane w `KestrelServerOptions` klasy przez nowe `Limits` właściwości. Dodaj następujące limity:
 
-- Maksymalna liczba połączeń klientów
-- Rozmiar treści żądania maksymalna
-- Szybkość danych treści żądania minimalne
+* Maksymalna liczba połączeń klientów
+* Rozmiar treści żądania maksymalna
+* Szybkość danych treści żądania minimalne
 
 Aby uzyskać więcej informacji, zobacz [implementacji serwera sieci web Kestrel w programie ASP.NET Core](xref:fundamentals/servers/kestrel).
 

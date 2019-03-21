@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 03/08/2019
 uid: grpc/migration
-ms.openlocfilehash: 520318cfe87708cf5c453c88a5eb54027350db4b
-ms.sourcegitcommit: a467828b5e4eaae291d961ffe2279a571900de23
+ms.openlocfilehash: 3c6e04694a33e953f6e1575f5ee9b0699cf1cdd3
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58142610"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58207956"
 ---
 # <a name="migrating-grpc-services-from-c-core-to-aspnet-core"></a>Migrowanie usług gRPC podstawowe języka C do platformy ASP.NET Core
 
@@ -89,7 +89,7 @@ Aplikacje oparte na C-core Konfigurowanie protokołu HTTPS za pośrednictwem [ `
 
 ## <a name="interceptors-and-middlewares"></a>Interceptory i Middlewares
 
-Platforma ASP.NET Core [middlewares](xref:fundamentals/middleware/index) gRPC aplikacji opartych na oferuje podobne funkcje w porównaniu do interceptory w języku C-core. Middlewares i interceptory są koncepcyjnie takie same jak oba są używane do konstruowania pipleline, która obsługuje żądania gRPC. Umożliwiają one zarówno pracy do wykonania przed lub po następny składnik w potoku. Middlewares platformy ASP.NET Core operują na podstawowej komunikaty HTTP/2 natomiast interceptory działają na gRPC warstwa abstrakcji za pomocą [ `ServerCallContext` ](https://grpc.io/grpc/csharp/api/Grpc.Core.ServerCallContext.html).
+Platforma ASP.NET Core [middlewares](xref:fundamentals/middleware/index) gRPC aplikacji opartych na oferuje podobne funkcje w porównaniu do interceptory w języku C-core. Middlewares i interceptory są koncepcyjnie takie same jak oba są używane do budowy potoku, który obsługuje żądania gRPC. Umożliwiają one zarówno pracy do wykonania przed lub po następny składnik w potoku. Middlewares platformy ASP.NET Core operują na podstawowej komunikaty HTTP/2 natomiast interceptory działają na gRPC warstwa abstrakcji za pomocą [ `ServerCallContext` ](https://grpc.io/grpc/csharp/api/Grpc.Core.ServerCallContext.html).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

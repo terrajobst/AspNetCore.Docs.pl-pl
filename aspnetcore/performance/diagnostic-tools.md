@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.date: 12/07/2018
 uid: performance/diagnostic-tools
-ms.openlocfilehash: 0b1de069e7892fff451617f2c6570fa789808c4f
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: 0fb9944d1082090f4f58f641a26ee96286920456
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54099055"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58210005"
 ---
 # <a name="performance-diagnostic-tools"></a>Narzędzia diagnostyczne wydajności
 
@@ -19,7 +19,7 @@ Przez [Mike Rousos](https://github.com/mjrousos)
 
 W tym artykule wymieniono narzędzia do diagnozowania problemów z wydajnością w programie ASP.NET Core.
 
-## <a name="visual-studio-diagnostic-tools"></a>Narzędzia diagnostyczne Visual Studio
+## <a name="visual-studio-diagnostic-tools"></a>Visual Studio Diagnostic Tools
 
 [Profilowania i narzędzia diagnostyczne](/visualstudio/profiling) wbudowany w program Visual Studio są dobrym miejscem, aby rozpocząć badanie problemów z wydajnością. Narzędzia te są wydajne i wygodnie korzystać ze środowiska projektowego programu Visual Studio. Narzędzi umożliwia analizę użycia procesora CPU, użycie pamięci i zdarzenia dotyczące wydajności w aplikacji platformy ASP.NET Core. Wbudowane są sprawia, że łatwo profilowania w czasie projektowania.
 
@@ -43,9 +43,9 @@ Usługa Azure Application Insights oferuje wiele sposobów, aby podać szczegó�
 
 Usługa Application Insights może służyć w różnych środowiskach:
 
-* Zoptymalizowana pod kątem pracy na platformie Azure.
-* Działa w środowisku produkcyjnym, rozwoju i przemieszczania.
-* Działa lokalnie z [programu Visual Studio](/azure/application-insights/app-insights-visual-studio) lub w innych środowiskach hostingu.
+- Zoptymalizowana pod kątem pracy na platformie Azure.
+- Działa w środowisku produkcyjnym, rozwoju i przemieszczania.
+- Działa lokalnie z [programu Visual Studio](/azure/application-insights/app-insights-visual-studio) lub w innych środowiskach hostingu.
 
 Aby uzyskać więcej informacji, zobacz [usługi Application Insights dla platformy ASP.NET Core](/azure/application-insights/app-insights-asp-net-core).
 

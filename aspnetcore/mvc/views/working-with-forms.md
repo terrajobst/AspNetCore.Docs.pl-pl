@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/27/2019
 uid: mvc/views/working-with-forms
-ms.openlocfilehash: a0fbeac51bd1bfbc50c4d369a479ce5f3091358b
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: 2d5168ed4b1e14e507262361de9fa959924b82f6
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57346258"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209560"
 ---
 # <a name="tag-helpers-in-forms-in-aspnet-core"></a>Pomocnicy tagów w formularzach w programie ASP.NET Core
 
@@ -205,9 +205,7 @@ Type expected
 |int|type="number"|
 |Pojedynczy Double|type="number"|
 
-
 W poniższej tabeli przedstawiono niektóre typowe [adnotacje danych](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) atrybutów, które Pomocnik tagu wejściowego będzie zmapowana do określonych typów wejściowych (nie każdy atrybut weryfikacji znajduje się):
-
 
 |Atrybut|Typ danych wejściowych|
 |---|---|
@@ -215,10 +213,9 @@ W poniższej tabeli przedstawiono niektóre typowe [adnotacje danych](/dotnet/ap
 |[Url]|type="url"|
 |[HiddenInput]|type="hidden"|
 |[Phone]|type="tel"|
-|[DataType(DataType.Password)]| type="password"|
-|[DataType(DataType.Date)]| type="date"|
-|[DataType(DataType.Time)]| type="time"|
-
+|[DataType(DataType.Password)]|type="password"|
+|[DataType(DataType.Date)]|type="date"|
+|[DataType(DataType.Time)]|type="time"|
 
 Przykład:
 
@@ -378,7 +375,7 @@ Poniższy kod HTML jest generowany:
 
 ## <a name="the-label-tag-helper"></a>Pomocnik tagu etykiet
 
-* Generuje podpis etykiety i `for` atrybutu na [ <label> ](https://www.w3.org/wiki/HTML/Elements/label) element to nazwa wyrażenia
+* Generuje podpis etykiety i `for` atrybutu na [ \<Etykieta >](https://www.w3.org/wiki/HTML/Elements/label) element to nazwa wyrażenia
 
 * Alternatywa pomocnika kodu HTML: `Html.LabelFor`.
 

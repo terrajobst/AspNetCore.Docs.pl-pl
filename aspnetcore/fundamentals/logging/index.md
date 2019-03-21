@@ -193,7 +193,6 @@ Poprzedni dzienniki wygenerowane przez wysłał żądanie HTTP Get do przykłado
 
 Oto przykład tego samego dzienników, w jakiej występują w oknie Debugowanie Uruchom przykładową aplikację w programie Visual Studio:
 
-
 ```console
 Microsoft.AspNetCore.Hosting.Internal.WebHost:Information: Request starting HTTP/1.1 GET http://localhost:53104/api/todo/0  
 Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker:Information: Executing action method TodoApi.Controllers.TodoController.GetById (TodoApi) with arguments (0) - ModelState is Valid
@@ -214,7 +213,7 @@ W dalszej części tego artykułu opisano niektóre szczegóły i opcje rejestro
 
 ## <a name="log-category"></a>Kategoria dziennika
 
-Gdy `ILogger` obiekt zostanie utworzony, *kategorii* określono dla niej. Tej kategorii jest uwzględnione w każdej wiadomości dziennika utworzone przez to wystąpienie `Ilogger`. Kategoria może być dowolnym ciągiem, ale Konwencji jest użycie nazwy klasy, takie jak "TodoApi.Controllers.TodoController".
+Gdy `ILogger` obiekt zostanie utworzony, *kategorii* określono dla niej. Tej kategorii jest uwzględnione w każdej wiadomości dziennika utworzone przez to wystąpienie `ILogger`. Kategoria może być dowolnym ciągiem, ale Konwencji jest użycie nazwy klasy, takie jak "TodoApi.Controllers.TodoController".
 
 Użyj `ILogger<T>` można pobrać `ILogger` wystąpienie, które korzysta z w pełni kwalifikowana nazwa typu z `T` kategorię:
 

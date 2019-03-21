@@ -531,8 +531,6 @@ Przeciążenia zezwala na określenie:
 * Czy konfiguracji jest załadowany ponownie, jeśli zmieni się plik.
 * <xref:Microsoft.Extensions.FileProviders.IFileProvider> Używane do uzyskania dostępu do pliku.
 
-
-
 `AddJsonFile` jest wywoływana automatycznie, dwa razy, podczas inicjowania nowego <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> z <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*>. Metoda jest wywoływana, aby załadować konfiguracji:
 
 * *appSettings.JSON* &ndash; ten plik jest najpierw do odczytu. Wersja środowiska pliku można zastąpić wartości dostarczone przez *appsettings.json* pliku.

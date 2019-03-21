@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/25/2019
 uid: test/integration-tests
-ms.openlocfilehash: 053713e148df70b0be6bb567b55b2381a78d6c3e
-ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
+ms.openlocfilehash: 50cb6b26be187c7f36f189e77fd29b4559221f2c
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833582"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209242"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>Testy integracji w programie ASP.NET Core
 
@@ -91,7 +91,7 @@ Składniki infrastruktury, takich jak test hosta sieci web i testu w pamięci se
 [Testów jednostkowych](/dotnet/articles/core/testing/unit-testing-with-dotnet-test) dokumentacji opisano sposób konfigurowania projektu i testowania modułu uruchamiającego testy, oraz szczegółowe instrukcje dotyczące sposobu uruchamiania testów oraz zalecenia dotyczące nazwy testów i klas testów.
 
 > [!NOTE]
-> Podczas tworzenia projektu testowego dla aplikacji, należy oddzielić testy jednostkowe z testów integracji do różnych projektów. Pozwala to zagwarantować, że testowanie składników infrastruktury nie są przypadkowo uwzględnione w testach jednostkowych. Umożliwia także rozdzielenie testów jednostkowych i integracji kontroli, przez który zestaw testów są uruchamiane.
+> Podczas tworzenia projektu testowego dla aplikacji, należy oddzielić testy jednostkowe z testów integracji do różnych projektów. Dzięki temu masz pewność, że testowanie składników infrastruktury przypadkowo nie są uwzględniane w testach jednostkowych. Umożliwia także rozdzielenie testów jednostkowych i integracji kontroli, przez który zestaw testów są uruchamiane.
 
 Praktycznie nie ma różnic między aplikacjami MVC i konfiguracji testów aplikacji stron Razor. Jedyną różnicą jest to w nazewnictwa testy. W aplikacji stron Razor testy punktów końcowych strony mają przeważnie nazwę po stronie klasy modelu (na przykład `IndexPageTests` się test integracji składnika strony indeksu). W aplikacji MVC testy są zwykle organizowane według klasy kontrolera i nazwana kontrolerów sprawdzają one, (na przykład `HomeControllerTests` się test integracji składnika dla kontrolera głównego).
 

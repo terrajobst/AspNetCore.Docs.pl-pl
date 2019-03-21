@@ -5,12 +5,6 @@ description: Odbieranie wskazówki dotyczące migrowania istniejących aplikacji
 ms.author: scaddie
 ms.date: 12/11/2018
 uid: migration/proper-to-2x/index
-ms.openlocfilehash: a9eef832a68afa1a73e3c7c545378da190602ce2
-ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
-ms.translationtype: MT
-ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284399"
 ---
 # <a name="migrate-from-aspnet-to-aspnet-core"></a>Migrowanie z programu ASP.NET do ASP.NET Core
 
@@ -66,10 +60,10 @@ Platforma ASP.NET Core korzysta z podobnego podejścia, ale nie jest zależny od
 
 `Startup` musi zawierać `Configure` metody. W `Configure`, dodać niezbędne oprogramowanie pośredniczące do potoku. W poniższym przykładzie (z domyślnego szablonu witryny sieci web) metody rozszerzenia, należy skonfigurować potok o obsługę:
 
-* Strony błędów
-* Zabezpieczenia transportu Strict HTTP
-* Przekierowywanie HTTP do HTTPS
-* ASP.NET Core MVC
+- Strony błędów
+- Zabezpieczenia transportu Strict HTTP
+- Przekierowywanie HTTP do HTTPS
+- ASP.NET Core MVC
 
 [!code-csharp[](samples/startup.cs)]
 
@@ -118,15 +112,15 @@ W aplikacjach ASP.NET deweloperzy zależy od innej biblioteki, aby zaimplementow
 
 Przykład konfigurowania wstrzykiwanie zależności za pomocą aparatu Unity implementuje `IDependencyResolver` to opakowuje `UnityContainer`:
 
-[!code-csharp[](../../../aspnet/web-api/overview/advanced/dependency-injection/samples/sample8.cs)]
+[!code-csharp[](samples/sample8.cs)]
 
 Utwórz wystąpienie usługi `UnityContainer`, a następnie zarejestrować usługę i ustawić mechanizm rozpoznawania zależności `HttpConfiguration` do nowego wystąpienia programu `UnityResolver` kontenera:
 
-[!code-csharp[](../../../aspnet/web-api/overview/advanced/dependency-injection/samples/sample9.cs)]
+[!code-csharp[](samples/sample9.cs)]
 
 Wstrzykiwanie `IProductRepository` w razie potrzeby:
 
-[!code-csharp[](../../../aspnet/web-api/overview/advanced/dependency-injection/samples/sample5.cs)]
+[!code-csharp[](samples/sample5.cs)]
 
 Wstrzykiwanie zależności jest częścią platformy ASP.NET Core, dlatego można dodać usługi `ConfigureServices` metody *Startup.cs*:
 

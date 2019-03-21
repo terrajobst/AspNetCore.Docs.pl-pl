@@ -5,12 +5,12 @@ description: Ten artykuł wprowadza plików przenośnych obiektów i opisano kro
 ms.author: scaddie
 ms.date: 09/26/2017
 uid: fundamentals/portable-object-localization
-ms.openlocfilehash: c9f892f5a886d7167b4705595ed2277279495201
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 466759b30e756a7cac8abab7352025df0462bb6f
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207631"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58210096"
 ---
 # <a name="configure-portable-object-localization-in-aspnet-core"></a>Konfigurowanie lokalizacji obiektu przenośnego w programie ASP.NET Core
 
@@ -33,7 +33,7 @@ Pliki PO są dystrybuowane jako pliki tekstowe, zawierający przetłumaczone ci�
 
 Poniżej przedstawiono przykładowy plik PO zawierających Translacja dwa ciągi w języku francuskim, łącznie z jego liczba mnoga:
 
-*FR.po*
+*fr.po*
 
 ```text
 #: Services/EmailService.cs:29
@@ -50,14 +50,14 @@ msgstr[1] "Les adresses email sont \"{0}\""
 W tym przykładzie używa następującej składni:
 
 - `#:`: Komentarz wskazujący kontekście ciąg, który ma zostać poddany translacji. Te same parametry mogą być tłumaczone różnie w zależności od tego, gdzie jest on używany.
-- `msgid`Nieprzetłumaczonych ciągów.
-- `msgstr`: Przetłumaczonego ciągu.
+- `msgid`: Nieprzetłumaczonych ciągów.
+- `msgstr`: Przetłumaczony ciąg.
 
 W przypadku obsługi pluralizacja można zdefiniować więcej wpisów.
 
-- `msgid_plural`Ciąg, liczba mnoga nieprzetłumaczony.
+- `msgid_plural`: Liczba mnoga nieprzetłumaczonych ciąg.
 - `msgstr[0]`: Przetłumaczonego ciągu w przypadku 0.
-- `msgstr[N]`: Przetłumaczonego ciągu przypadków N.
+- `msgstr[N]`: Przetłumaczony ciąg dla przypadków N.
 
 Specyfikacja pliku zamówienia zakupu można znaleźć [tutaj](https://www.gnu.org/savannah-checkouts/gnu/gettext/manual/html_node/PO-Files.html).
 
@@ -91,7 +91,7 @@ Dodaj następujący kod do wybranego widoku Razor. *About.cshtml* jest używany 
 
 ### <a name="creating-a-po-file"></a>Tworzenie pliku zamówienia zakupu
 
-Utwórz plik o nazwie  *<culture code>je* w folderze głównym aplikacji. W tym przykładzie nazwa pliku jest *fr.po* ponieważ jest używana w języku francuskim:
+Utwórz plik o nazwie  *\<kulturze kodu > je* w folderze głównym aplikacji. W tym przykładzie nazwa pliku jest *fr.po* ponieważ jest używana w języku francuskim:
 
 [!code-text[](localization/sample/POLocalization/fr.po)]
 
@@ -153,7 +153,7 @@ Edytuj *Views/Home/About.cshtml* pliku do renderowania ciągi zlokalizowane, plu
 <p>@Localizer.Plural(5, "There is one item.", "There are {0} items.")</p>
 ```
 
-**Uwaga:** w rzeczywistym scenariuszu, zmienna będzie używana do reprezentowania liczby. W tym miejscu możemy Powtórz ten sam kod za pomocą trzy różne wartości, aby ujawnić bardzo szczegółowych przypadków.
+**Uwaga:** W rzeczywistym scenariuszu zmienna może służyć do reprezentowania liczby. W tym miejscu możemy Powtórz ten sam kod za pomocą trzy różne wartości, aby ujawnić bardzo szczegółowych przypadków.
 
 Po przełączeniu kultur, zostaną wyświetlone następujące czynności:
 

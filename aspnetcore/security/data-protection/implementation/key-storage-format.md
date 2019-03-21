@@ -5,12 +5,12 @@ description: Dowiedz się, szczegóły implementacji format magazynu kluczy ochr
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/implementation/key-storage-format
-ms.openlocfilehash: bca19ad001dd20b5d02ae5470f7d928082496037
-ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
+ms.openlocfilehash: 81df124f3dd0cadf8fd895ab55f66eec6415705f
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219280"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208021"
 ---
 # <a name="key-storage-format-in-aspnet-core"></a>Format magazynu kluczy w programie ASP.NET Core
 
@@ -65,7 +65,7 @@ Format określonego \<deskryptora > element zależy od implementacji uwierzyteln
 
 **&lt;EncryptedSecret&gt;** element, który zawiera zaszyfrowane materiału klucza tajnego klucza mogą występować Jeśli [jest włączone szyfrowanie kluczy tajnych przechowywanych](xref:security/data-protection/implementation/key-encryption-at-rest). Ten atrybut `decryptorType` jest nazwą kwalifikowaną dla zestawu typu, która implementuje [IXmlDecryptor](/dotnet/api/microsoft.aspnetcore.dataprotection.xmlencryption.ixmldecryptor). Ten typ jest odpowiedzialna za odczytywanie wewnętrzny **&lt;encryptedKey&gt;** elementu i odszyfrowuje go, aby odzyskać oryginalnej postaci zwykłego tekstu.
 
-Podobnie jak w przypadku \<deskryptora >, określonego formatu <encryptedSecret> elementu jest zależna od mechanizm szyfrowania podczas spoczynku w użyciu. W powyższym przykładzie klucz główny są szyfrowane przy użyciu interfejsu DPAPI Windows na komentarz.
+Podobnie jak w przypadku `<descriptor>`, format określonego `<encryptedSecret>` elementu jest zależna od mechanizm szyfrowania podczas spoczynku w użyciu. W powyższym przykładzie klucz główny są szyfrowane przy użyciu interfejsu DPAPI Windows na komentarz.
 
 ## <a name="the-revocation-element"></a>\<Odwołania > element
 

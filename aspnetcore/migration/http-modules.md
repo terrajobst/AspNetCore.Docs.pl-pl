@@ -5,12 +5,12 @@ description: ''
 ms.author: tdykstra
 ms.date: 12/07/2016
 uid: migration/http-modules
-ms.openlocfilehash: 601b93fb12ab5b37b7d8ad8fd9825accc6e314cd
-ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
+ms.openlocfilehash: 516230a66ee3edba986c91d79684256aa8e4c994
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56743858"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209849"
 ---
 # <a name="migrate-http-handlers-and-modules-to-aspnet-core-middleware"></a>Migrowanie moduły i programy obsługi HTTP do oprogramowania pośredniczącego platformy ASP.NET Core
 
@@ -26,29 +26,29 @@ Przed przejściem do oprogramowania pośredniczącego platformy ASP.NET Core, na
 
 **Programy obsługi są:**
 
-   * Klasy, które implementują [IHttpHandler](/dotnet/api/system.web.ihttphandler)
+* Klasy, które implementują [IHttpHandler](/dotnet/api/system.web.ihttphandler)
 
-   * Używane do obsługi żądań przy użyciu określonej nazwy pliku lub rozszerzenie, takich jak *.report*
+* Używane do obsługi żądań przy użyciu określonej nazwy pliku lub rozszerzenie, takich jak *.report*
 
-   * [Skonfigurowane](/iis/configuration/system.webserver/handlers/) w *pliku Web.config*
+* [Skonfigurowane](/iis/configuration/system.webserver/handlers/) w *pliku Web.config*
 
 **Dostępne są następujące moduły:**
 
-   * Klasy, które implementują [IHttpModule](/dotnet/api/system.web.ihttpmodule)
+* Klasy, które implementują [IHttpModule](/dotnet/api/system.web.ihttpmodule)
 
-   * Wywoływane dla każdego żądania
+* Wywoływane dla każdego żądania
 
-   * Możliwość zwarcie (zatrzymać dalsze przetwarzanie żądania)
+* Możliwość zwarcie (zatrzymać dalsze przetwarzanie żądania)
 
-   * Możliwość dodania do odpowiedzi HTTP, lub Utwórz własne
+* Możliwość dodania do odpowiedzi HTTP, lub Utwórz własne
 
-   * [Skonfigurowane](/iis/configuration/system.webserver/modules/) w *pliku Web.config*
+* [Skonfigurowane](/iis/configuration/system.webserver/modules/) w *pliku Web.config*
 
 **Kolejność, w którym modułów przetworzyć żądań przychodzących jest określana przez:**
 
-   1. [Cyklu życia aplikacji](https://msdn.microsoft.com/library/ms227673.aspx), czyli zdarzenia serii, wywoływane przez platformę ASP.NET: [BeginRequest](/dotnet/api/system.web.httpapplication.beginrequest), [AuthenticateRequest](/dotnet/api/system.web.httpapplication.authenticaterequest)itp. Każdy moduł można utworzyć procedury obsługi dla jednego lub wielu zdarzeń.
+1. [Cyklu życia aplikacji](https://msdn.microsoft.com/library/ms227673.aspx), czyli zdarzenia serii, wywoływane przez platformę ASP.NET: [BeginRequest](/dotnet/api/system.web.httpapplication.beginrequest), [AuthenticateRequest](/dotnet/api/system.web.httpapplication.authenticaterequest)itp. Każdy moduł można utworzyć procedury obsługi dla jednego lub wielu zdarzeń.
 
-   2. Zdarzenie, dla którego, kolejność, w którym są one konfigurowane w *Web.config*.
+2. Zdarzenie, dla którego, kolejność, w którym są one konfigurowane w *Web.config*.
 
 Oprócz modułów, można dodać procedury obsługi zdarzeń cyklu życia do Twojej *Global.asax.cs* pliku. Te procedury obsługi uruchomić po obsługi w modułach skonfigurowany.
 
@@ -56,29 +56,29 @@ Oprócz modułów, można dodać procedury obsługi zdarzeń cyklu życia do Two
 
 **Oprogramowanie pośredniczące są prostsze niż moduły HTTP do programów obsługi:**
 
-   * Moduły, programy obsługi, *Global.asax.cs*, *Web.config* (z wyjątkiem konfiguracji usług IIS) i znikną cyklu życia aplikacji
+* Moduły, programy obsługi, *Global.asax.cs*, *Web.config* (z wyjątkiem konfiguracji usług IIS) i znikną cyklu życia aplikacji
 
-   * Role, moduły i programy obsługi zostały przejęte przez oprogramowanie pośredniczące
+* Role, moduły i programy obsługi zostały przejęte przez oprogramowanie pośredniczące
 
-   * Oprogramowanie pośredniczące są skonfigurowane przy użyciu kodu, a nie w *pliku Web.config*
+* Oprogramowanie pośredniczące są skonfigurowane przy użyciu kodu, a nie w *pliku Web.config*
 
-   * [Rozgałęzianie w potoku](xref:fundamentals/middleware/index#use-run-and-map) pozwala wysyłać żądania do określonej, opartego na oprogramowaniu pośredniczącym nie tylko adres URL, ale także dla nagłówków żądań, ciągi zapytań, itp.
+* [Rozgałęzianie w potoku](xref:fundamentals/middleware/index#use-run-and-map) pozwala wysyłać żądania do określonej, opartego na oprogramowaniu pośredniczącym nie tylko adres URL, ale także dla nagłówków żądań, ciągi zapytań, itp.
 
 **Oprogramowanie pośredniczące są bardzo podobne do modułów:**
 
-   * Wywoływane w zasadzie dla każdego żądania
+* Wywoływane w zasadzie dla każdego żądania
 
-   * Możliwość zwarcie żądanie, według [nie przekazaniem żądania do następnego oprogramowania pośredniczącego](#http-modules-shortcircuiting-middleware)
+* Możliwość zwarcie żądanie, według [nie przekazaniem żądania do następnego oprogramowania pośredniczącego](#http-modules-shortcircuiting-middleware)
 
-   * Możliwość tworzenia własnych odpowiedzi HTTP
+* Możliwość tworzenia własnych odpowiedzi HTTP
 
 **Oprogramowanie pośredniczące i moduły są przetwarzane w innej kolejności:**
 
-   * Kolejność oprogramowania pośredniczącego zależy od kolejności, w którym wstawiane są one potokiem żądań, gdy zamówienie modułów opiera się przede wszystkim na [cyklu życia aplikacji](https://msdn.microsoft.com/library/ms227673.aspx) zdarzenia
+* Kolejność oprogramowania pośredniczącego zależy od kolejności, w którym wstawiane są one potokiem żądań, gdy zamówienie modułów opiera się przede wszystkim na [cyklu życia aplikacji](https://msdn.microsoft.com/library/ms227673.aspx) zdarzenia
 
-   * Kolejność oprogramowania pośredniczącego w odpowiedzi jest odwrotnie niż to, w przypadku żądań, a kolejność modułów jest taka sama dla żądań i odpowiedzi
+* Kolejność oprogramowania pośredniczącego w odpowiedzi jest odwrotnie niż to, w przypadku żądań, a kolejność modułów jest taka sama dla żądań i odpowiedzi
 
-   * Zobacz [tworzenie potoku oprogramowania pośredniczącego z IApplicationBuilder](xref:fundamentals/middleware/index#create-a-middleware-pipeline-with-iapplicationbuilder)
+* Zobacz [tworzenie potoku oprogramowania pośredniczącego z IApplicationBuilder](xref:fundamentals/middleware/index#create-a-middleware-pipeline-with-iapplicationbuilder)
 
 ![Oprogramowanie pośredniczące](http-modules/_static/middleware.png)
 

@@ -5,12 +5,12 @@ description: Dowiedz się, artykułów opartych na projektach programu ASP.NET C
 ms.author: riande
 ms.date: 11/30/2017
 uid: security/authentication/individual
-ms.openlocfilehash: c73365eafaf2c38ef02c3c83ccf5ced4264f7dc0
-ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
+ms.openlocfilehash: f9c1be16386da935382275815bb5fd5c72894b1c
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56743777"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265433"
 ---
 # <a name="articles-based-on-aspnet-core-projects-created-with-individual-user-accounts"></a>Artykułów opartych na projektach programu ASP.NET Core utworzona za pomocą indywidualnych kont użytkowników
 
@@ -39,6 +39,7 @@ dotnet new razor -au Individual
 Zobacz [problem w usłudze GitHub](https://github.com/aspnet/AspNetCore/issues/5833) uwierzytelniania interfejsu API sieci web.
 
 <a name="no"></a>
+
 ## <a name="no-authentication"></a>Bez uwierzytelniania
 
 Uwierzytelnianie jest określona w .NET Core interfejsu wiersza polecenia przy użyciu `-au` opcji. W programie Visual Studio **Zmień uwierzytelnianie** okno dialogowe jest dostępna dla nowych aplikacji sieci web. Wartość domyślna w przypadku nowych aplikacji sieci web w programie Visual Studio to **bez uwierzytelniania**.
@@ -49,6 +50,7 @@ Projekty utworzone za pomocą bez uwierzytelniania:
 * Nie zawierają kod uwierzytelniania.
 
 <a name="win"></a>
+
 ## <a name="windows-authentication"></a>Uwierzytelnianie systemu Windows
 
 Uwierzytelnianie Windows jest określona dla nowej aplikacji sieci web w .NET Core interfejsu wiersza polecenia przy użyciu `-au Windows` opcji. W programie Visual Studio **Zmień uwierzytelnianie** okno dialogowe udostępnia **uwierzytelniania Windows** opcje.

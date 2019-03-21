@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/11/2019
 uid: host-and-deploy/razor-components/configure-linker
-ms.openlocfilehash: 6f2c07eec6b98afbaaf21d2c1d172a1a54e6e808
-ms.sourcegitcommit: d913bca90373c07f89b1d1df01af5fc01fc908ef
+ms.openlocfilehash: c73c972e22a51842c5d8dd209b7e1ed987f9090d
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57978374"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58207934"
 ---
 # <a name="configure-the-linker-for-blazor"></a>Konfigurowanie konsolidatora dla Blazor
 
@@ -24,7 +24,7 @@ Wykonuje Blazor [języka pośredniego (IL)](/dotnet/standard/managed-code#interm
 
 Zestaw Kontrola połączeń przy użyciu jednej z następujących metod:
 
-* Wyłącz konsolidowanie globalnie za pomocą [właściwość MSBuild](#disable-linking-with-a-msBuild-property).
+* Wyłącz konsolidowanie globalnie za pomocą [właściwość MSBuild](#disable-linking-with-a-msbuild-property).
 * Formant konsolidacji na podstawie na zestawie [pliku konfiguracyjnego](#control-linking-with-a-configuration-file).
 
 ## <a name="disable-linking-with-a-msbuild-property"></a>Wyłącz konsolidowanie za pomocą właściwości programu MSBuild

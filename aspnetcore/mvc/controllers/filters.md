@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/08/2019
 uid: mvc/controllers/filters
-ms.openlocfilehash: a9081a9938d56b7612bba13937eba384ff02455b
-ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
+ms.openlocfilehash: 4fe04cde2a234302845b2cbded106f1e809842bc
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833738"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209297"
 ---
 # <a name="filters-in-aspnet-core"></a>Filtry w programie ASP.NET Core
 
@@ -19,11 +19,11 @@ Przez [Rick Anderson](https://twitter.com/RickAndMSFT), [Tom Dykstra](https://gi
 
 *Filtry* we wzorcu ASP.NET Core MVC pozwala na uruchamianie kodu przed lub po określonych etapów w potoku przetwarzania żądań.
 
- Wbudowanych filtrów obsługi zadań, takich jak:
+Wbudowanych filtrów obsługi zadań, takich jak:
 
- * Autoryzacja (blokowanie dostępu do zasobów, których użytkownik nie jest autoryzowany do).
- * Zapewnienie, że wszystkie żądania przy użyciu protokołu HTTPS.
- * Odpowiedź buforowania (zwarcie Potok żądań do zwracania odpowiedzi pamięci podręcznej). 
+* Autoryzacja (blokowanie dostępu do zasobów, których użytkownik nie jest autoryzowany do).
+* Zapewnienie, że wszystkie żądania przy użyciu protokołu HTTPS.
+* Odpowiedź buforowania (zwarcie Potok żądań do zwracania odpowiedzi pamięci podręcznej). 
 
 Filtry niestandardowe mogą być tworzone do obsługi odciąż przekrojowe zagadnienia. Filtry można uniknąć duplikowania kodu w akcji. Na przykład błąd obsługi filtra wyjątku można skonsolidować obsługi błędów.
 
@@ -373,7 +373,7 @@ Gdy `OnResultExecuted` metoda przebiegów, odpowiedź prawdopodobnie została wy
 
 `ResultExecutedContext.Exception` zostaną ustawione na wartość inną niż null w przypadku wyniku akcji lub filtru kolejnych wyników zgłosiła wyjątek. Ustawienie `Exception` do wartości null skutecznie obsługuje wyjątek i uniemożliwia wyjątek z jest zgłaszany ponownie przez MVC później w potoku. Podczas one obsługi wyjątków w filtrze wynik, nie można zapisywać wszystkie dane na potrzeby odpowiedzi. Jeśli wynik akcji zatrzymuje zgłasza za pośrednictwem jej wykonanie, a już zostać wyczyszczona nagłówki do klienta, nie istnieje mechanizm niezawodne wysłać kod błędu.
 
-Aby uzyskać `IAsyncResultFilter` wywołanie `await next` na `ResultExecutionDelegate` wykonuje wszystkie filtry kolejnych wyników i wyniku akcji. Aby zwarcie, ustaw `ResultExecutingContext.Cancel` na wartość true, a nie wywołuj `ResultExectionDelegate`.
+Aby uzyskać `IAsyncResultFilter` wywołanie `await next` na `ResultExecutionDelegate` wykonuje wszystkie filtry kolejnych wyników i wyniku akcji. Aby zwarcie, ustaw `ResultExecutingContext.Cancel` na wartość true, a nie wywołuj `ResultExecutionDelegate`.
 
 Struktura dostarcza abstrakcyjną `ResultFilterAttribute` można podklasę. [AddHeaderAttribute](#add-header-attribute) klasy wyświetlane wcześniej jest przykładem atrybutów filtru wyniku.
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 12/18/2018
 uid: fundamentals/owin
-ms.openlocfilehash: 51982c7ebc4f66c2b0b73bf425d9ecbd0bf37826
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: de8548fe2396102fe44a8e6a000b44d4eea63285
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637797"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209935"
 ---
 # <a name="open-web-interface-for-net-owin-with-aspnet-core"></a>Otwarty interfejs internetowy dla platformy .NET (OWIN) za pomocą programu ASP.NET Core
 
@@ -237,12 +237,12 @@ Zależy od OWIN `IDictionary<string,object>` obiektu do przekazywania informacji
 | Key               | Wartość (typ) | Opis |
 | ----------------- | ------------ | ----------- |
 | owin.RequestScheme | `String` |  |
-| owin. RequestMethod  | `String` | |    
+| owin.RequestMethod  | `String` | |    
 | owin.RequestPathBase  | `String` | |    
 | owin.RequestPath | `String` | |     
 | owin.RequestQueryString  | `String` | |    
 | owin.RequestProtocol  | `String` | |    
-| owin. RequestHeaders | `IDictionary<string,string[]>`  | |
+| owin.RequestHeaders | `IDictionary<string,string[]>`  | |
 | owin.RequestBody | `Stream`  | |
 
 ### <a name="request-data-owin-v110"></a>Dane żądania (OWIN v1.1.0)
@@ -258,8 +258,7 @@ Zależy od OWIN `IDictionary<string,object>` obiektu do przekazywania informacji
 | owin.ResponseStatusCode | `int` | Optional |
 | owin.ResponseReasonPhrase | `String` | Optional |
 | owin.ResponseHeaders | `IDictionary<string,string[]>`  | |
-| owin. ResponseBody | `Stream`  | |
-
+| owin.ResponseBody | `Stream`  | |
 
 ### <a name="other-data-owin-v100"></a>Inne dane (wersja 1.0.0 OWIN)
 
@@ -267,7 +266,6 @@ Zależy od OWIN `IDictionary<string,object>` obiektu do przekazywania informacji
 | ----------------- | ------------ | ----------- |
 | owin.CallCancelled | `CancellationToken` |  |
 | owin. Wersja  | `String` | |   
-
 
 ### <a name="common-keys"></a>Klucze wspólne
 
@@ -279,9 +277,8 @@ Zależy od OWIN `IDictionary<string,object>` obiektu do przekazywania informacji
 | server.RemotePort | `String` | |     
 | server.LocalIpAddress  | `String` | |    
 | server.LocalPort  | `String` | |    
-| serwer. IsLocal  | `bool` | |    
+| server.IsLocal  | `bool` | |    
 | server.OnSendingHeaders  | `Action<Action<object>,object>` | |
-
 
 ### <a name="sendfiles-v030"></a>SendFiles v0.3.0
 
@@ -289,16 +286,14 @@ Zależy od OWIN `IDictionary<string,object>` obiektu do przekazywania informacji
 | ----------------- | ------------ | ----------- |
 | sendfile.SendAsync | Zobacz [podpis delegata](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) | Na żądanie |
 
-
 ### <a name="opaque-v030"></a>V0.3.0 nieprzezroczyste
 
 | Key               | Wartość (typ) | Opis |
 | ----------------- | ------------ | ----------- |
 | opaque.Version | `String` |  |
-| nieprzezroczysta. Uaktualnienie | `OpaqueUpgrade` | Zobacz [podpis delegata](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) |
+| opaque.Upgrade | `OpaqueUpgrade` | Zobacz [podpis delegata](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) |
 | opaque.Stream | `Stream` |  |
 | opaque.CallCancelled | `CancellationToken` |  |
-
 
 ### <a name="websocket-v030"></a>WebSocket v0.3.0
 

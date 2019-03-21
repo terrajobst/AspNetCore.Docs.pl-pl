@@ -1,13 +1,19 @@
+---
+ms.openlocfilehash: 0a9b5bc4a91607306a9f4a23756a740366b24933
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58207971"
+---
 <!--
 [!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout.cshtml?highlight=7,31)]
-
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_1stSearch)]
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_SearchNull)]
 
 ![Index view](~/tutorials/first-mvc-app/search/_static/ghost.png)
-
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?highlight=5&name=snippet_1)]
 
@@ -31,10 +37,10 @@ Dodaj następujący kod `MovieGenreViewModel` klasy *modeli* folderu:
 
 Model widoku gatunku filmu będzie zawierać:
 
-   * Lista filmów.
-   * A `SelectList` zawierającego listę gatunki. Dzięki temu użytkownikowi na wybranie określonego rodzaju z listy.
-   * `MovieGenre`, zawierającą wybrane gatunku.
-   * `SearchString`, który zawiera tekst, użytkownicy wprowadzają w polu tekstowym wyszukiwania.
+* Lista filmów.
+* A `SelectList` zawierającego listę gatunki. Dzięki temu użytkownikowi na wybranie określonego rodzaju z listy.
+* `MovieGenre`, zawierającą wybrane gatunku.
+* `SearchString`, który zawiera tekst, użytkownicy wprowadzają w polu tekstowym wyszukiwania.
 
 Zastąp `Index` method in Class metoda `MoviesController.cs` następującym kodem:
 
