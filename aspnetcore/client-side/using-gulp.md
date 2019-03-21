@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 10/04/2018
 uid: client-side/using-gulp
-ms.openlocfilehash: 43277dc5910971374187f49031e74769c9e29e1f
-ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
+ms.openlocfilehash: 9f6d03a1e8a81bceca15cb1e1aa664c22c31e1d3
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57665629"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209875"
 ---
 # <a name="use-gulp-in-aspnet-core"></a>Korzystanie z Gulp w programie ASP.NET Core
 
@@ -86,7 +86,7 @@ gulp.task("min:css", () => {
 });
 
 gulp.task("min", gulp.series(["min:js", "min:css"]));
-    
+
 // A 'default' task is required by Gulp v4
 gulp.task("default", gulp.series(["min"]));
 ```
@@ -108,7 +108,7 @@ Poniższa tabela zawiera wyjaśnienie zadania określone w powyższym kodzie:
 
 Jeśli nie zostało jeszcze utworzone Nowa aplikacja sieci Web, należy utworzyć nowy projekt aplikacji sieci Web ASP.NET w programie Visual Studio.
 
-1.  Otwórz *package.json* pliku (Dodaj Jeśli nie istnieje) i Dodaj następujący kod.
+1. Otwórz *package.json* pliku (Dodaj Jeśli nie istnieje) i Dodaj następujący kod.
 
     ```json
     {
@@ -122,71 +122,71 @@ Jeśli nie zostało jeszcze utworzone Nowa aplikacja sieci Web, należy utworzy�
     }
     ```
 
-2.  Dodaj nowy plik JavaScript do projektu i nadaj mu nazwę *gulpfile.js*, następnie skopiuj następujący kod.
+2. Dodaj nowy plik JavaScript do projektu i nadaj mu nazwę *gulpfile.js*, następnie skopiuj następujący kod.
 
     ```javascript
     /// <binding Clean='clean' />
     "use strict";
-    
+
     const gulp = require("gulp"),
           rimraf = require("rimraf"),
           concat = require("gulp-concat"),
           cssmin = require("gulp-cssmin"),
           uglify = require("gulp-uglify");
-    
+
     const paths = {
       webroot: "./wwwroot/"
     };
-    
+
     paths.js = paths.webroot + "js/**/*.js";
     paths.minJs = paths.webroot + "js/**/*.min.js";
     paths.css = paths.webroot + "css/**/*.css";
     paths.minCss = paths.webroot + "css/**/*.min.css";
     paths.concatJsDest = paths.webroot + "js/site.min.js";
     paths.concatCssDest = paths.webroot + "css/site.min.css";
-    
+
     gulp.task("clean:js", done => rimraf(paths.concatJsDest, done));
     gulp.task("clean:css", done => rimraf(paths.concatCssDest, done));
     gulp.task("clean", gulp.series(["clean:js", "clean:css"]));
 
     gulp.task("min:js", () => {
       return gulp.src([paths.js, "!" + paths.minJs], { base: "." })
-        .pipe(concat(paths.concatJsDest))
-        .pipe(uglify())
-        .pipe(gulp.dest("."));
+      .pipe(concat(paths.concatJsDest))
+      .pipe(uglify())
+      .pipe(gulp.dest("."));
     });
 
     gulp.task("min:css", () => {
       return gulp.src([paths.css, "!" + paths.minCss])
-        .pipe(concat(paths.concatCssDest))
-        .pipe(cssmin())
-        .pipe(gulp.dest("."));
+      .pipe(concat(paths.concatCssDest))
+      .pipe(cssmin())
+      .pipe(gulp.dest("."));
     });
 
     gulp.task("min", gulp.series(["min:js", "min:css"]));
-    
+
     // A 'default' task is required by Gulp v4
     gulp.task("default", gulp.series(["min"]));
     ```
 
-3.  W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *gulpfile.js*i wybierz **Eksplorator modułu uruchamiającego zadania**.
-    
+3. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *gulpfile.js*i wybierz **Eksplorator modułu uruchamiającego zadania**.
+
     ![Otwórz Eksplorator modułu uruchamiającego zadania za pomocą Eksploratora rozwiązań](using-gulp/_static/02-SolutionExplorer-TaskRunnerExplorer.png)
-    
+
     **Task Runner Explorer** pokazuje listę zadań Gulp. (Być może trzeba kliknąć **Odśwież** przycisk, który pojawia się po lewej stronie nazwy projektu.)
-    
+
     ![Eksplorator modułu uruchamiającego zadania](using-gulp/_static/03-TaskRunnerExplorer.png)
-    
+
     > [!IMPORTANT]
     > **Eksplorator modułu uruchamiającego zadania** element menu kontekstowego pojawia się tylko wtedy, gdy *gulpfile.js* znajduje się w katalogu głównym projektu.
 
-4.  Poniżej **zadania** w **Eksplorator modułu uruchamiającego zadania**, kliknij prawym przyciskiem myszy **czyste**i wybierz **Uruchom** z menu podręcznego.
+4. Poniżej **zadania** w **Eksplorator modułu uruchamiającego zadania**, kliknij prawym przyciskiem myszy **czyste**i wybierz **Uruchom** z menu podręcznego.
 
     ![Zadanie czysty Eksplorator modułu uruchamiającego zadania](using-gulp/_static/04-TaskRunner-clean.png)
 
     **Task Runner Explorer** zostanie utworzona nowa karta o nazwie **czyste** i wykonać zadanie czysty, ponieważ jest on zdefiniowany w *gulpfile.js*.
 
-5.  Kliknij prawym przyciskiem myszy **czyste** zadań, a następnie wybierz **powiązania** > **przed kompilacji**.
+5. Kliknij prawym przyciskiem myszy **czyste** zadań, a następnie wybierz **powiązania** > **przed kompilacji**.
 
     ![Powiązanie BeforeBuild Eksplorator modułu uruchamiającego zadania](using-gulp/_static/05-TaskRunner-BeforeBuild.png)
 
@@ -206,7 +206,7 @@ Teraz zadanie czysty jest wykonywany, gdy uruchamiasz projekt w programie Visual
 
 Aby zdefiniować nowe zadanie Gulp, zmodyfikuj *gulpfile.js*.
 
-1.  Dodaj następujący kod JavaScript do końca *gulpfile.js*:
+1. Dodaj następujący kod JavaScript do końca *gulpfile.js*:
 
     ```javascript
     gulp.task('first', done => {
@@ -217,11 +217,11 @@ Aby zdefiniować nowe zadanie Gulp, zmodyfikuj *gulpfile.js*.
 
     To zadanie o nazwie `first`, i po prostu wyświetla ciąg.
 
-2.  Zapisz *gulpfile.js*.
+2. Zapisz *gulpfile.js*.
 
-3.  W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *gulpfile.js*i wybierz *Eksplorator modułu uruchamiającego zadania*.
+3. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *gulpfile.js*i wybierz *Eksplorator modułu uruchamiającego zadania*.
 
-4.  W **Eksplorator modułu uruchamiającego zadania**, kliknij prawym przyciskiem myszy **pierwszy**i wybierz **Uruchom**.
+4. W **Eksplorator modułu uruchamiającego zadania**, kliknij prawym przyciskiem myszy **pierwszy**i wybierz **Uruchom**.
 
     ![Uruchamianie pierwszego zadania Eksplorator modułu uruchamiającego zadania](using-gulp/_static/06-TaskRunner-First.png)
 
@@ -231,7 +231,7 @@ Aby zdefiniować nowe zadanie Gulp, zmodyfikuj *gulpfile.js*.
 
 Po uruchomieniu wielu zadań, zadań jednocześnie domyślnie uruchamiane. Jednak jeśli zachodzi potrzeba uruchamiania zadań w określonej kolejności, należy określić kiedy każde zadanie jest zakończone, jak również jako zadania, które zależą od zakończenia inne zadanie.
 
-1.  Aby zdefiniować szereg zadań do wykonania w kolejności, Zastąp `first` zadanie, które zostały dodane powyżej w *gulpfile.js* następującym kodem:
+1. Aby zdefiniować szereg zadań do wykonania w kolejności, Zastąp `first` zadanie, które zostały dodane powyżej w *gulpfile.js* następującym kodem:
 
     ```javascript
     gulp.task('series:first', done => {
@@ -240,22 +240,22 @@ Po uruchomieniu wielu zadań, zadań jednocześnie domyślnie uruchamiane. Jedna
     });
     gulp.task('series:second', done => {
       console.log('second task! <-----');
-      done(); // signal completion
+        done(); // signal completion
     });
 
     gulp.task('series', gulp.series(['series:first', 'series:second']), () => { });
 
     // A 'default' task is required by Gulp v4
-    gulp.task('default', gulp.series('series'));
+      gulp.task('default', gulp.series('series'));
     ```
- 
+
     Masz teraz trzy zadania: `series:first`, `series:second`, i `series`. `series:second` Zadanie zawiera drugi parametr, który określa tablicę zadań do uruchomienia i ukończone przed `series:second` zadanie zostanie uruchomione. Jak określono w kodzie powyżej tylko `series:first` zadań muszą zostać wykonane przed `series:second` zadanie zostanie uruchomione.
 
-2.  Zapisz *gulpfile.js*.
+2. Zapisz *gulpfile.js*.
 
-3.  W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *gulpfile.js* i wybierz **Eksplorator modułu uruchamiającego zadania** Jeśli nie jest już otwarty.
+3. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *gulpfile.js* i wybierz **Eksplorator modułu uruchamiającego zadania** Jeśli nie jest już otwarty.
 
-4.  W **Eksplorator modułu uruchamiającego zadania**, kliknij prawym przyciskiem myszy **serii** i wybierz **Uruchom**.
+4. W **Eksplorator modułu uruchamiającego zadania**, kliknij prawym przyciskiem myszy **serii** i wybierz **Uruchom**.
 
     ![Uruchom zadanie serii Eksplorator modułu uruchamiającego zadania](using-gulp/_static/07-TaskRunner-Series.png)
 
@@ -298,27 +298,27 @@ Po Gulp jest używana do optymalizacji pliki po stronie klienta dla środowisk p
 
 Aby przełączać się między kompilowanie dla różnych środowisk, należy zmodyfikować **ASPNETCORE_ENVIRONMENT** wartość zmiennej środowiskowej.
 
-1.  W **Eksplorator modułu uruchamiającego zadania**, upewnij się, że **min** zadania został ustawiony na uruchomienie **przed kompilacji**.
+1. W **Eksplorator modułu uruchamiającego zadania**, upewnij się, że **min** zadania został ustawiony na uruchomienie **przed kompilacji**.
 
-2.  W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy nazwę projektu i wybierz **właściwości**.
+2. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy nazwę projektu i wybierz **właściwości**.
 
     Arkusz właściwości dla aplikacji sieci Web jest wyświetlany.
 
-3.  Kliknij przycisk **debugowania** kartę.
+3. Kliknij przycisk **debugowania** kartę.
 
-4.  Ustaw wartość **hostingu: środowisko** zmiennej środowiskowej, aby `Production`.
+4. Ustaw wartość **hostingu: środowisko** zmiennej środowiskowej, aby `Production`.
 
-5.  Naciśnij klawisz **F5** do uruchamiania aplikacji w przeglądarce.
+5. Naciśnij klawisz **F5** do uruchamiania aplikacji w przeglądarce.
 
-6.  W oknie przeglądarki, kliknij prawym przyciskiem myszy strony, a następnie wybierz **Wyświetl źródło** Aby wyświetlić kod HTML dla strony.
+6. W oknie przeglądarki, kliknij prawym przyciskiem myszy strony, a następnie wybierz **Wyświetl źródło** Aby wyświetlić kod HTML dla strony.
 
     Należy zauważyć, że łączy arkusza stylów wskazują zminimalizowany pliki CSS.
 
-7.  Zamknij przeglądarkę, aby zatrzymać aplikacji sieci Web.
+7. Zamknij przeglądarkę, aby zatrzymać aplikacji sieci Web.
 
-8.  W programie Visual Studio, wróć do arkusza właściwości dla aplikacji sieci Web i zmień **hostingu: środowisko** z powrotem do zmiennej środowiskowej `Development`.
+8. W programie Visual Studio, wróć do arkusza właściwości dla aplikacji sieci Web i zmień **hostingu: środowisko** z powrotem do zmiennej środowiskowej `Development`.
 
-9.  Naciśnij klawisz **F5** ponownie uruchomić aplikację w przeglądarce.
+9. Naciśnij klawisz **F5** ponownie uruchomić aplikację w przeglądarce.
 
 10. W oknie przeglądarki, kliknij prawym przyciskiem myszy strony, a następnie wybierz **Wyświetl źródło** Aby wyświetlić kod HTML dla strony.
 
