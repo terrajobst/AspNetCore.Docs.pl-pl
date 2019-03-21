@@ -5,12 +5,12 @@ description: Dowiedz się, jak platforma ASP.NET Core oferuje usługi oraz oprog
 ms.author: riande
 ms.date: 01/14/2017
 uid: fundamentals/localization
-ms.openlocfilehash: 0eda297b7df97a5d20fea035983f426eafa03775
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: 4e87423a02a275eae7e2f6054e7a3b6c22cd7cee
+ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264640"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58320224"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalizacja i lokalizacja w programie ASP.NET Core
 
@@ -76,7 +76,7 @@ Plik francuska zasobów może zawierać następujące informacje:
 
 | Key | Wartość |
 | ----- | ------ |
-| `<i>Hello</i> <b>{0}!</b>` | `<i>Bonjour</i> <b>{0} !</b> ` |
+| `<i>Hello</i> <b>{0}!</b>` | `<i>Bonjour</i> <b>{0} !</b>` |
 
 W widoku renderowanym zawierałoby kod znaczników HTML z pliku zasobów.
 
@@ -173,7 +173,7 @@ Jeśli główna przestrzeń nazw zestawu jest inna niż nazwa zestawu:
 
 Jeśli `RootNamespace` różni się od `AssemblyName`, obejmują następujące elementy w *AssemblyInfo.cs* (z wartościami parametru zastąpione rzeczywistymi wartościami):
 
-```Csharp
+```csharp
 using System.Reflection;
 using Microsoft.Extensions.Localization;
 

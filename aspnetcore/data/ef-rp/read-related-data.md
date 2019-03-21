@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: a264cdaf0f577be6ea2043935b485f4fd16e0229
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: 4b564e9e407dcb6b7fd71d0a6c41596269ed5e09
+ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264955"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58320124"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>Strony razor z programem EF Core w programie ASP.NET Core — odczytanie powiązanych danych — 6 8
 
@@ -83,7 +83,7 @@ Postępuj zgodnie z instrukcjami w [tworzenia szkieletu modelu uczniów](xref:da
   dotnet aspnet-codegenerator razorpage -m Course -dc SchoolContext -udl -outDir Pages\Courses --referenceScriptLibraries
   ```
 
-------
+---
 
 Poprzedni szkielety mechanizmów polecenia `Course` modelu. Otwórz projekt w programie Visual Studio.
 
@@ -170,7 +170,7 @@ Postępuj zgodnie z instrukcjami w [tworzenia szkieletu modelu uczniów](xref:da
   dotnet aspnet-codegenerator razorpage -m Instructor -dc SchoolContext -udl -outDir Pages\Instructors --referenceScriptLibraries
   ```
 
-------
+---
 
 Poprzedni szkielety mechanizmów polecenia `Instructor` modelu. Uruchom aplikację i przejdź do strony instruktorów.
 

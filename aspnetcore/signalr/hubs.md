@@ -7,12 +7,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 11/20/2018
 uid: signalr/hubs
-ms.openlocfilehash: 9bc74079235338c75c47e06bde2b78dc1c466bd6
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.openlocfilehash: 244ddc40e647bfcc3ca8cda2797c51bc49174822
+ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54836691"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58320150"
 ---
 # <a name="use-hubs-in-signalr-for-aspnet-core"></a>Na użytek koncentratory w SignalR platformy ASP.NET Core
 
@@ -52,6 +52,7 @@ Można określić zwracany typ i parametry, w tym typy złożone i tablice, tak 
 
 > [!NOTE]
 > Centra są przejściowe:
+>
 > * Nie należy przechowywać stanu właściwością klasy koncentratora. Każde wywołanie metody koncentratora jest wykonywane na nowe wystąpienie koncentratora.  
 > * Użyj `await` podczas wywoływania metod asynchronicznych, które są zależne od centrum pozostaje aktywne. Na przykład metoda takich jak `Clients.All.SendAsync(...)` może zakończyć się niepowodzeniem, jeśli jest wywoływana bez `await` i metody koncentratora zakończy się przed `SendAsync` zakończy się.
 

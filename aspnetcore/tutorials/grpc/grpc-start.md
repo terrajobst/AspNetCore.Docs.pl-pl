@@ -2,17 +2,18 @@
 title: 'Samouczek: Rozpoczynanie pracy z usługą gRPC w programie ASP.NET Core'
 author: juntaoluo
 description: Tej serii samouczków pokazano, jak utworzyć gRPC usługi programu ASP.NET Core. Dowiedz się, jak utworzyć projekt usługi gRPC, Edytuj plik proto i dodać dupleks przesyłania strumieniowego wywołania.
+monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 2/26/2019
 uid: tutorials/grpc/grpc-start
-ms.openlocfilehash: 793d13d0fbac4f2f46b7cd8490ded294e597ca9d
-ms.sourcegitcommit: a467828b5e4eaae291d961ffe2279a571900de23
+ms.openlocfilehash: 5f7a2f6b57804b3295b23c322dcbac553b05528b
+ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58142611"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58320059"
 ---
-# <a name="tutorial-get-started-with-grpc-service-in-aspnet-core"></a>Samouczek: Rozpoczynanie pracy z usługą gRPC w programie ASP.NET Core
+# <a name="tutorial-get-started-with-grpc-service-in-aspnet-core"></a>Samouczek: Wprowadzenie do usługi gRPC na platformie ASP.NET Core
 
 Przez [Luo Jan](https://github.com/juntaoluo)
 

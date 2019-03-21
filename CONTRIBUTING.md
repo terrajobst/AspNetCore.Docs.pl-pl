@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: f5002ae2d8317b2455298b9c5474d9bff52fa497
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: 98a03118954baa85b093a0514e1ac6f0fb6353e8
+ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264997"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58320111"
 ---
 # <a name="contribute-to-the-aspnet-core-documentation"></a>Współtworzenie dokumentacji platformy ASP.NET Core
 
@@ -38,7 +38,7 @@ Artykuły są pisane w [DocFx składni języka Markdown](https://dotnet.github.i
 
 Dla każdego pliku Markdown może istnieć folder obrazów i folder do przykładowego kodu. Jeśli artykuł jest [fundamentals/configuration/index.md](https://github.com/aspnet/Docs/blob/master/aspnetcore/fundamentals/configuration/index.md), obrazy znajdują się w [podstawy/configuration/index/\_statyczne](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/index/_static) i przykładowych plików projektu aplikacji znajdują się w [ podstawy/configuration / / przykładowy indeks](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/index/sample). Obraz w *fundamentals/configuration/index.md* pliku jest renderowany przez następujący kod Markdown:
 
-```
+```md
 ![description of image for alt attribute](configuration/index/_static/imagename.png)
 ```
 
@@ -50,13 +50,13 @@ Na użytek małe nazw plików języka Markdown i nazwy plików obrazów.
 
 Skorzystaj z łączy wewnętrznych `uid` artykułu docelowej z łączem xref (tekst łącza jest ustawiona na tytuł połączonej zawartości):
 
-```
+```md
 <xref:uid_of_the_topic>
 ```
 
 Tytuł artykułu nie nadaje się do tekstu łącza (na przykład wyraz lub frazę w zdaniu jest tekst łącza), z następującymi określić link odsyłaczy i tekst łącza:
 
-```
+```md
 [link text](xref:uid_of_the_topic)
 ```
 
@@ -81,13 +81,13 @@ Poniższe przykłady ilustrują [składni fragment kodu języka DFM](https://dot
 
 Do renderowania całego pliku z kodem jako fragment kodu:
 
-```
+```md
 [!code-csharp[](configuration/index/sample/Program.cs)]
 ```
 
 Aby renderować część pliku jako fragment, używając numerów wierszy:
 
-```
+```md
 [!code-csharp[](configuration/index/sample/Program.cs?range=1-10,20,30,40-50]
 [!code-html[](configuration/index/sample/Views/Home/Index.cshtml?range=1-10,20,30,40-50]
 ```
@@ -96,13 +96,13 @@ Aby uzyskać C# fragmenty kodu, dokumentacja [ C# region](https://docs.microsoft
 
 Aby renderować C# regionu o nazwie "snippet_Example":
 
-```
+```md
 [!code-csharp[](configuration/index/sample/Program.cs?name=snippet_Example)]
 ```
 
 Aby wyróżnić wybrane wiersze w renderowanym fragmentu kodu (zazwyczaj renderowany jako kolor tła żółty):
 
-```
+```md
 [!code-csharp[](configuration/index/sample/Program.cs?name=snippet_Example&highlight=1-3,10,20-25)]
 [!code-csharp[](configuration/index/sample/Program.cs?range=10-20&highlight=1-3]
 [!code-html[](configuration/index/sample/Views/Home/Index.cshtml?range=10-20&highlight=1-3]

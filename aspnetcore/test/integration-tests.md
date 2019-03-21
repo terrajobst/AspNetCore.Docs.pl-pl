@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/25/2019
 uid: test/integration-tests
-ms.openlocfilehash: 50cb6b26be187c7f36f189e77fd29b4559221f2c
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 11a8f4296e1b0b229c736645f1aa598307b88ec4
+ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209242"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58320189"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>Testy integracji w programie ASP.NET Core
 
@@ -311,7 +311,7 @@ Wywołaj [UseSolutionRelativeContentRoot](/dotnet/api/microsoft.aspnetcore.testh
 
 ## <a name="disable-shadow-copying"></a>Wyłącz kopiowania w tle
 
-Kopiowanie w tle powoduje, że testy do wykonania w innym folderze niż folder wyjściowy. W przypadku testów do poprawnego działania kopiowania w tle, należy wyłączyć. [Przykładową aplikację](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/integration-tests/samples) używa rozwiązania xUnit i wyłącza kopiowania w tle dla xUnit, umieszczając *xunit.runner.json* pliku z ustawieniem prawidłowej konfiguracji. Aby uzyskać więcej informacji, zobacz [Konfigurowanie xUnit.net kodem JSON](https://xunit.github.io/docs/configuring-with-json.html).
+Kopiowanie w tle powoduje, że testy do wykonania w innym folderze niż folder wyjściowy. W przypadku testów do poprawnego działania kopiowania w tle, należy wyłączyć. [Przykładową aplikację](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/integration-tests/samples) używa rozwiązania xUnit i wyłącza kopiowania w tle dla xUnit, umieszczając *xunit.runner.json* pliku z ustawieniem prawidłowej konfiguracji. Aby uzyskać więcej informacji, zobacz [Konfigurowanie xUnit kodem JSON](https://xunit.github.io/docs/configuring-with-json.html).
 
 Dodaj *xunit.runner.json* plik do katalogu głównego projektu testowego o następującej zawartości:
 
