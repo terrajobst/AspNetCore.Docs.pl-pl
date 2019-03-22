@@ -56,7 +56,7 @@ Dowiedz się więcej o [wbudowane funkcje rejestrowania dostawców](#built-in-lo
 
 ## <a name="create-logs"></a>Twórz dzienniki
 
-Pobierz <xref:Microsoft.Extensions.Logging.ILogger`1> obiekt z DI.
+Pobierz <xref:Microsoft.Extensions.Logging.ILogger%601> obiekt z DI.
 
 ::: moniker range=">= aspnetcore-2.0"
 

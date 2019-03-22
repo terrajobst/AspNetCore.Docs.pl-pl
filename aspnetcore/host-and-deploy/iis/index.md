@@ -4,7 +4,7 @@ author: guardrex
 description: 'Dowiedz się, jak hostować aplikacje platformy ASP.NET Core na systemu Windows serwera Internet Information Services (IIS).'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/19/2019
+ms.date: 03/21/2019
 uid: host-and-deploy/iis/index
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host platformy ASP.NET Core na Windows za pomocą programu IIS
@@ -297,9 +297,7 @@ Aby uzyskać starszej wersji Instalatora:
    * `OPT_NO_SHAREDFX=1` &ndash; Pomiń instalację struktury programu ASP.NET udostępnione (środowisko uruchomieniowe programu ASP.NET).
    * `OPT_NO_X86=1` &ndash; Pomiń instalację x86 środowisk uruchomieniowych. Użyj tego parametru, gdy wiadomo, że użytkownik nie będzie hostingu aplikacji 32-bitowych. W przypadku każdej okazji, że zarówno 32-bitowych i 64-bitowych aplikacji będzie obsługiwać w przyszłości, nie za pomocą tego parametru i zainstaluj obydwu środowisk uruchomieniowych.
    * `OPT_NO_SHARED_CONFIG_CHECK=1` &ndash; Wyłącz sprawdzanie przy użyciu konfiguracji udostępnionej usług IIS podczas konfiguracji udostępnionej (*applicationHost.config*) znajduje się na tym samym komputerze co instalacji usług IIS. *Dostępne tylko w przypadku platformy ASP.NET Core 2.2 lub nowszej instalatory obsługującego program instalujący niezamówione pakiety.* Aby uzyskać więcej informacji, zobacz <xref:host-and-deploy/aspnet-core-module#aspnet-core-module-with-an-iis-shared-configuration>.
-1. Ponowne uruchamianie systemu lub wykonać **net stop został /y** następuje **net start w3svc** z powłoki poleceń. Ponowne uruchomienie usług IIS przejmuje zmiany w systemie ścieżki, która jest zmienną środowiskową, wprowadzone przez Instalatora.
-
-Jeśli Instalator Windows obsługującego pakietu wykryje, że usługi IIS wymaga zresetowania, aby dokończyć instalację, Instalator resetuje usług IIS. Jeśli Instalator wyzwala Resetowanie usług IIS, zostaną uruchomione ponownie wszystkie pule aplikacji usług IIS i witryn sieci Web.
+1. Ponowne uruchamianie systemu lub wykonać **net stop został /y**, a następnie **net start w3svc** z powłoki poleceń. Ponowne uruchomienie usług IIS przejmuje zmiany w systemie ścieżki, która jest zmienną środowiskową, wprowadzone przez Instalatora.
 
 > [!NOTE]
 > Aby uzyskać informacji na temat konfiguracji udostępnionej usług IIS, zobacz [modułu ASP.NET Core przy użyciu konfiguracji udostępnionej usług IIS](xref:host-and-deploy/aspnet-core-module#aspnet-core-module-with-an-iis-shared-configuration).

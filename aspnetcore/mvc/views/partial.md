@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/11/2018
 uid: mvc/views/partial
-ms.openlocfilehash: ff4b99580990edbd768128d77214e664a1e29e56
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: b7c1545007086053e879bce6781802959da77901
+ms.sourcegitcommit: a1c43150ed46aa01572399e8aede50d4668745ca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207228"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58327381"
 ---
 # <a name="partial-views-in-aspnet-core"></a>Widoki częściowe w programie ASP.NET Core
 
@@ -136,7 +136,7 @@ Aby uzyskać więcej informacji, zobacz <xref:mvc/views/tag-helpers/builtin-th/p
 
 ### <a name="asynchronous-html-helper"></a>Asynchroniczne pomocnika kodu HTML
 
-Korzystając z Pomocnika kodu HTML, najlepszym rozwiązaniem jest użycie <xref:Microsoft.AspNetCore.Mvc.Rendering.HtmlHelperPartialExtensions.PartialAsync*>. `PartialAsync` Zwraca <xref:Microsoft.AspNetCore.Html.IHtmlContent> typu zapakowane w <xref:System.Threading.Tasks.Task`1>. Metoda odwołuje się do niej poprzedzania ich oczekiwane wywołanie za pomocą `@` znaków:
+Korzystając z Pomocnika kodu HTML, najlepszym rozwiązaniem jest użycie <xref:Microsoft.AspNetCore.Mvc.Rendering.HtmlHelperPartialExtensions.PartialAsync*>. `PartialAsync` Zwraca <xref:Microsoft.AspNetCore.Html.IHtmlContent> typu zapakowane w <xref:System.Threading.Tasks.Task%601>. Metoda odwołuje się do niej poprzedzania ich oczekiwane wywołanie za pomocą `@` znaków:
 
 ```cshtml
 @await Html.PartialAsync("_PartialName")
@@ -298,11 +298,11 @@ W czasie wykonywania, częściowe są renderowane w wyniku renderowania nadrzęd
 
 Drugi widoku częściowego powoduje wyświetlenie sekcji tego artykułu:
 
-> Sekcja jeden indeks: 0
+> Sekcja jednego indeksu: 0
 >
 > Wynik czterech i siedem lat temu...
 >
-> Indeks sekcji 2: 1
+> Indeks dwóch części: 1
 >
 > Teraz możemy są zaangażowane w doskonałe wojnę, testowanie...
 >

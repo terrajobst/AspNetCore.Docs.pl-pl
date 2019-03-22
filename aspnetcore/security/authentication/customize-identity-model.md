@@ -5,12 +5,12 @@ description: W tym artykule opisano, jak dostosować bazowy model danych Entity 
 ms.author: avickers
 ms.date: 09/24/2018
 uid: security/authentication/customize_identity_model
-ms.openlocfilehash: 55346c571f180fa17a1108a622d991d15f365bae
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 0aa7448ac37a97a4d09a04caf365f641f22f5997
+ms.sourcegitcommit: a1c43150ed46aa01572399e8aede50d4668745ca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209465"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58327304"
 ---
 # <a name="identity-model-customization-in-aspnet-core"></a>Dostosowywanie modelu tożsamości w programie ASP.NET Core
 
@@ -253,7 +253,7 @@ public abstract class IdentityDbContext<
          where TUserToken : IdentityUserToken<TKey>
 ```
 
-Istnieje również możliwość użycia tożsamości bez role (tylko oświadczenia), w którym to przypadku <xref:Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUserContext`1> należy używać klasy:
+Istnieje również możliwość użycia tożsamości bez role (tylko oświadczenia), w którym to przypadku <xref:Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUserContext%601> należy używać klasy:
 
 ```csharp
 // Uses the built-in non-role Identity types except with a custom User type
@@ -368,7 +368,7 @@ Wykonaj następujące kroki, aby zmienić typ klucza produktu:
 
 1. Jeśli baza danych została utworzona przed zmianą klucza produktu, uruchom `Drop-Database` (PMC) lub `dotnet ef database drop` (.NET Core interfejsu wiersza polecenia) go usunąć.
 2. Po potwierdzeniu operacji usuwania bazy danych, należy usunąć początkowej migracji za pomocą `Remove-Migration` (PMC) lub `dotnet ef migrations remove` (.NET Core interfejsu wiersza polecenia).
-3. Aktualizacja `ApplicationDbContext` pochodzi od klasy <xref:Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityDbContext`3>. Określ nowy typ klucza `TKey`. Na przykład, aby użyć `Guid` typ klucza:
+3. Aktualizacja `ApplicationDbContext` pochodzi od klasy <xref:Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityDbContext%603>. Określ nowy typ klucza `TKey`. Na przykład, aby użyć `Guid` typ klucza:
 
     ```csharp
     public class ApplicationDbContext
@@ -383,13 +383,13 @@ Wykonaj następujące kroki, aby zmienić typ klucza produktu:
 
     ::: moniker range=">= aspnetcore-2.0"
 
-    W poprzednim kodzie klas ogólnych <xref:Microsoft.AspNetCore.Identity.IdentityUser`1> i <xref:Microsoft.AspNetCore.Identity.IdentityRole`1> muszą określać używać nowego typu klucza.
+    W poprzednim kodzie klas ogólnych <xref:Microsoft.AspNetCore.Identity.IdentityUser%601> i <xref:Microsoft.AspNetCore.Identity.IdentityRole%601> muszą określać używać nowego typu klucza.
 
     ::: moniker-end
 
     ::: moniker range="<= aspnetcore-1.1"
 
-    W poprzednim kodzie klas ogólnych <xref:Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUser`1> i <xref:Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole`1> muszą określać używać nowego typu klucza.
+    W poprzednim kodzie klas ogólnych <xref:Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUser%601> i <xref:Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole%601> muszą określać używać nowego typu klucza.
 
     ::: moniker-end
 

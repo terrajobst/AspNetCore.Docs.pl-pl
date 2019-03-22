@@ -5,12 +5,12 @@ description: Więcej informacji na temat składni znacznikowania Razor do osadza
 ms.author: riande
 ms.date: 10/26/2018
 uid: mvc/views/razor
-ms.openlocfilehash: 254c85ee9e74dc72170b19d27fbc5f1ae7ccd3dc
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: 53d4dc608fbfd45bcc015a3af83f5d87f86c7f15
+ms.sourcegitcommit: a1c43150ed46aa01572399e8aede50d4668745ca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264757"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58327368"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>Dokumentacja składni razor dla platformy ASP.NET Core
 
@@ -534,7 +534,7 @@ Szablony razor umożliwiają definiowanie fragmentu interfejsu użytkownika w na
 @<tag>...</tag>
 ```
 
-Poniższy przykład ilustruje sposób określania oparte na szablonach delegata Razor jako <xref:System.Func`2>. [Typu dynamicznego](/dotnet/csharp/programming-guide/types/using-type-dynamic) jest określona dla parametru metody, która hermetyzuje delegata. [Typ obiektu](/dotnet/csharp/language-reference/keywords/object) jest określony jako wartość zwracaną przez delegata. Ten szablon jest używany z <xref:System.Collections.Generic.List`1> z `Pet` zawierający `Name` właściwości.
+Poniższy przykład ilustruje sposób określania oparte na szablonach delegata Razor jako <xref:System.Func%602>. [Typu dynamicznego](/dotnet/csharp/programming-guide/types/using-type-dynamic) jest określona dla parametru metody, która hermetyzuje delegata. [Typ obiektu](/dotnet/csharp/language-reference/keywords/object) jest określony jako wartość zwracaną przez delegata. Ten szablon jest używany z <xref:System.Collections.Generic.List%601> z `Pet` zawierający `Name` właściwości.
 
 ```csharp
 public class Pet
@@ -599,7 +599,7 @@ Możesz również dostarczyć wbudowany szablon Razor, jako argument do metody. 
 
 Za pomocą listę zwierząt domowych, z poprzedniego przykładu `Repeat` metoda jest wywoływana z:
 
-* <xref:System.Collections.Generic.List`1> z `Pet`.
+* <xref:System.Collections.Generic.List%601> z `Pet`.
 * Liczba powtórzeń każdego pet.
 * Wbudowany szablon do użycia dla elementów listy, listy nieuporządkowane.
 

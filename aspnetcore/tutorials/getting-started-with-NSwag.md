@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 12/30/2018
 uid: tutorials/get-started-with-nswag
-ms.openlocfilehash: 43f0f04ae63f4e74d8de6001a4a7518e4eb23d77
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 83a088a4cc3f1fc0ae94907c292fce2b3da4644f
+ms.sourcegitcommit: a1c43150ed46aa01572399e8aede50d4668745ca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209148"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58327329"
 ---
 # <a name="get-started-with-nswag-and-aspnet-core"></a>Rozpoczynanie pracy z usługą NSwag i ASP.NET Core
 
@@ -202,9 +202,9 @@ Interfejs użytkownika struktury Swagger Wyświetla informacje o wersji:
 
 ### <a name="xml-comments"></a>komentarze XML
 
- Aby włączyć komentarze XML, wykonaj następujące czynności:
+Aby włączyć komentarze XML, wykonaj następujące czynności:
 
-# <a name="visual-studiotabvisual-studio-xml"></a>[Visual Studio](#tab/visual-studio-xml/)
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -222,7 +222,7 @@ Interfejs użytkownika struktury Swagger Wyświetla informacje o wersji:
 
 ::: moniker-end
 
-# <a name="visual-studio-for-mactabvisual-studio-mac-xml"></a>[Visual Studio for Mac](#tab/visual-studio-mac-xml/)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -240,7 +240,7 @@ Interfejs użytkownika struktury Swagger Wyświetla informacje o wersji:
 
 ::: moniker-end
 
-# <a name="visual-studio-codetabvisual-studio-code-xml"></a>[Visual Studio Code](#tab/visual-studio-code-xml/)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Ręcznie Dodaj wyróżnione wiersze w celu *.csproj* pliku:
 
@@ -276,7 +276,7 @@ Poprzedni zwraca akcji `IActionResult`, ale wewnątrz akcji go zwraca albo [Crea
 
 ::: moniker range=">= aspnetcore-2.1"
 
-Ponieważ NSwag używa [odbicia](/dotnet/csharp/programming-guide/concepts/reflection), a zalecany typ zwracany dla akcji internetowego interfejsu API jest [ActionResult\<T >](xref:Microsoft.AspNetCore.Mvc.ActionResult`1), tylko można go wywnioskować zwracany typ zdefiniowany przez `T`. Nie można automatycznie wywnioskować inne możliwe zwracane typy.
+ Ponieważ NSwag używa [odbicia](/dotnet/csharp/programming-guide/concepts/reflection), a zalecany typ zwracany dla akcji internetowego interfejsu API jest [ActionResult\<T >](xref:Microsoft.AspNetCore.Mvc.ActionResult%601), tylko można go wywnioskować zwracany typ zdefiniowany przez `T`. Nie można automatycznie wywnioskować inne możliwe zwracane typy. 
 
 Rozważmy następujący przykład:
 
