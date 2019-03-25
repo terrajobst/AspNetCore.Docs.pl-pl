@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/19/2019
 uid: razor-components/dependency-injection
-ms.openlocfilehash: 804fdf0254723f5e5913f23c815f485bbf094321
-ms.sourcegitcommit: d913bca90373c07f89b1d1df01af5fc01fc908ef
+ms.openlocfilehash: 0228a236c820c76d9ca5186ca829a9606e7b5127
+ms.sourcegitcommit: 7d6019f762fc5b8cbedcd69801e8310f51a17c18
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57978501"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58419373"
 ---
 # <a name="razor-components-dependency-injection"></a>Wstrzykiwanie zależności składników razor
 
@@ -132,5 +132,5 @@ Wymagania wstępne dotyczące iniekcji konstruktora:
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* < xref:fundamentals / wstrzykiwanie zależności
+* <xref:fundamentals/dependency-injection>
 * <xref:mvc/views/dependency-injection>

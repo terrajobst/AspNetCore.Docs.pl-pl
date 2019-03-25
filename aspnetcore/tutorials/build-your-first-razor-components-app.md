@@ -5,14 +5,14 @@ description: Tworzenie składników Razor aplikacji krok po kroku i pojęcia dot
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/14/2019
+ms.date: 03/24/2019
 uid: tutorials/first-razor-components-app
-ms.openlocfilehash: c0f7b27fdfc770f8001625ecb3bf8d50af517b99
-ms.sourcegitcommit: d913bca90373c07f89b1d1df01af5fc01fc908ef
+ms.openlocfilehash: 2a987b3f2e687cd9d4dffa2c573c938e68ea3cc8
+ms.sourcegitcommit: 7d6019f762fc5b8cbedcd69801e8310f51a17c18
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57978426"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58419368"
 ---
 # <a name="build-your-first-razor-components-app"></a>Tworzenie pierwszej aplikacji składniki Razor
 
@@ -67,7 +67,7 @@ Aby uzyskać doświadczenie w korzystaniu z Blazor:
 
 Uwzględnij składnika w innym składniku przy użyciu składni notacji HTML.
 
-1. Dodaj składnik licznika do aplikacji, składnik indeksu (strona główna), dodając `<Counter />` elementu składnik indeksu.
+1. Dodaj składnik licznika do składnik indeksu (dom) aplikacji przez dodanie `<Counter />` elementu składnik indeksu.
 
    Jeśli używasz Blazor dla tego środowiska, składnik ankiety monitu (`<SurveyPrompt>` elementu) znajduje się w składnik indeksu. Zastąp `<SurveyPrompt>` element z `<Counter>` elementu.
 
@@ -101,7 +101,7 @@ Składniki mogą także mieć parametrów. Składnik parametry są definiowane z
 
    [!code-cshtml[](build-your-first-razor-components-app/samples/3.x/RazorComponents/Components/Pages/Index.razor?highlight=7)]
 
-1. Ponownie załaduj stronę. Licznik strony głównej rośnie przez dziesięć za każdym razem **kliknij mnie** przycisk jest zaznaczony. Licznik na *licznika* stronie zwiększa o jeden.
+1. Załaduj ponownie stronę główną. Licznik rośnie przez dziesięć za każdym razem **kliknij mnie** przycisk jest zaznaczony. Licznik w przyrostach strony liczników za pomocą jednej.
 
 ## <a name="route-to-components"></a>Kierowanie do składników
 
@@ -111,29 +111,38 @@ Składniki mogą także mieć parametrów. Składnik parametry są definiowane z
 
 Zarejestrowane w kontenerze usługi app Services są dostępne dla składników za pomocą [wstrzykiwanie zależności (DI)](xref:fundamentals/dependency-injection). Wstrzyknięcie usług do składnika za pomocą `@inject` dyrektywy.
 
-Sprawdź dyrektywy składnika FetchData. `@inject` Dyrektywy służy do dodania wystąpienia programu `WeatherForecastService` usługi do składnika:
+Sprawdź dyrektywy składnika FetchData w przykładowej aplikacji.
 
-*Components/Pages/FetchData.razor* (*Pages/FetchData.cshtml* w Blazor):
+Przykładowa aplikacja składniki Razor `WeatherForecastService` usługi jest zarejestrowana jako [pojedyncze](xref:fundamentals/dependency-injection#service-lifetimes), więc jedno wystąpienie usługi jest dostępne w całej aplikacji. `@inject` Dyrektywy służy do dodania wystąpienia programu `WeatherForecastService` usługi do składnika.
+
+*Components/Pages/FetchData.razor*:
 
 [!code-cshtml[](build-your-first-razor-components-app/samples_snapshot/3.x/FetchData1.razor?highlight=3)]
-
-`WeatherForecastService` Usługi jest zarejestrowana jako [pojedyncze](xref:fundamentals/dependency-injection#service-lifetimes), więc jedno wystąpienie usługi jest dostępne w całej aplikacji.
 
 Składnik FetchData używa usługi wprowadzonego jako `ForecastService`, aby pobrać tablicę `WeatherForecast` obiektów:
 
 [!code-cshtml[](build-your-first-razor-components-app/samples_snapshot/3.x/FetchData2.razor?highlight=6)]
 
-A [ @foreach ](/dotnet/csharp/language-reference/keywords/foreach-in) pętli jest używany do renderowania każde wystąpienie prognozy jako wiersz w tabeli danych o pogodzie:
+W przykładowej aplikacji w wersji Blazor `HttpClient` są wstrzykiwane można uzyskać prognozę pogody dane z *weather.json* w pliku *wwwroot/przykładowe data* folderu:
+
+*Pages/FetchData.cshtml*:
+
+[!code-cshtml[](build-your-first-razor-components-app/samples_snapshot/3.x/FetchData1.cshtml?highlight=7)]
+
+W obu przykładowe aplikacje [ @foreach ](/dotnet/csharp/language-reference/keywords/foreach-in) pętli jest używany do renderowania każde wystąpienie prognozy jako wiersz w tabeli danych o pogodzie:
 
 [!code-cshtml[](build-your-first-razor-components-app/samples_snapshot/3.x/FetchData3.razor?highlight=11-19)]
 
 ## <a name="build-a-todo-list"></a>Tworzenie listy zadań do wykonania
 
-Dodaj nową stronę do aplikacji, która implementuje listy zadań do wykonania prostego.
+Dodawanie nowego składnika do aplikacji, która implementuje listy zadań do wykonania prostego.
 
-1. Dodaj pusty plik do *składniki/strony* folder (*stron* folderu w Blazor) o nazwie *Todo.razor*.
+1. Dodaj pusty plik do przykładowej aplikacji:
 
-1. Podaj początkowe znaczniki dla strony:
+   * Dla składników Razor środowiska, Dodaj *Todo.razor* plik *składniki/strony* folderu.
+   * Środowisko pracy Blazor, Dodaj *Todo.cshtml* plik *stron* folderu.
+
+1. Podaj początkowe znaczniki dla składnika:
 
    ```cshtml
    @page "/todo"
@@ -141,11 +150,11 @@ Dodaj nową stronę do aplikacji, która implementuje listy zadań do wykonania 
    <h1>Todo</h1>
    ```
 
-1. Na stronie zadań do wykonania należy dodać do paska nawigacyjnego.
+1. Dodaj składnik zadań do wykonania na pasku nawigacyjnym.
 
    Składnik NavMenu (*Components/Shared/NavMenu.razor* lub *Shared/NavMenu.cshtml* w Blazor) jest używana w układzie aplikacji. Układy są składniki, które pozwalają uniknąć duplikowania zawartości w aplikacji. Aby uzyskać więcej informacji, zobacz <xref:razor-components/layouts>.
 
-   Dodaj `<NavLink>` strony Todo, dodając następujące znaczniki elementu listy poniżej istniejące elementy listy w *Components/Shared/NavMenu.razor* (*Shared/NavMenu.cshtml* w Blazor) pliku:
+   Dodaj `<NavLink>` składnika Todo, dodając następujące znaczniki elementu listy poniżej istniejące elementy listy w *Components/Shared/NavMenu.razor* (*Shared/NavMenu.cshtml* w Blazor) pliku:
 
    ```cshtml
    <li class="nav-item px-3">
@@ -155,7 +164,7 @@ Dodaj nową stronę do aplikacji, która implementuje listy zadań do wykonania 
    </li>
    ```
 
-1. Ponownie skompiluj i uruchom aplikację. Odwiedź nową stronę Todo, aby upewnić się, czy działa link do strony zadań do wykonania.
+1. Ponownie skompiluj i uruchom aplikację. Odwiedź nową stronę Todo, aby upewnić się, czy działa link do składnika zadań do wykonania.
 
 1. Dodaj *TodoItem.cs* pliku w folderze głównym projektu na potrzeby przechowywania klasa, która reprezentuje element todo. Należy użyć następującego C# kod `TodoItem` klasy:
 

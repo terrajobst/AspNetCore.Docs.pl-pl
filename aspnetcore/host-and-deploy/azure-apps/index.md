@@ -5,7 +5,7 @@ description: Ten artykuł zawiera linki do hosta platformy Azure i wdrażanie za
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/26/2019
+ms.date: 03/23/2019
 uid: host-and-deploy/azure-apps/index
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Wdrażanie aplikacji platformy ASP.NET Core w usłudze Azure App Service
@@ -78,7 +78,17 @@ Usługi IIS oprogramowania pośredniczącego integracji, który konfiguruje prze
 
 ## <a name="monitoring-and-logging"></a>Monitorowanie i rejestrowanie
 
-Aplikacje platformy ASP.NET Core, wdrożyć w usłudze App Service automatycznie otrzymywać rozszerzenie usługi App Service **platformy ASP.NET Core rejestrowania rozszerzenia**. Rozszerzenie udostępnia rejestrowania platformy Azure.
+::: moniker range=">= aspnetcore-3.0"
+
+Aplikacje platformy ASP.NET Core, wdrożyć w usłudze App Service automatycznie otrzymywać rozszerzenie usługi App Service **rejestrowania integracji programu ASP.NET Core**. Rozszerzenia umożliwiają integrację rejestrowanie dla aplikacji platformy ASP.NET Core w usłudze Azure App Service.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+Aplikacje platformy ASP.NET Core, wdrożyć w usłudze App Service automatycznie otrzymywać rozszerzenie usługi App Service **platformy ASP.NET Core rejestrowania rozszerzenia**. Rozszerzenia umożliwiają integrację rejestrowanie dla aplikacji platformy ASP.NET Core w usłudze Azure App Service.
+
+::: moniker-end
 
 Monitorowanie, rejestrowanie i informacje dotyczące rozwiązywania problemów zobacz następujące artykuły:
 

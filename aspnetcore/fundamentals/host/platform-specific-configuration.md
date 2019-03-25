@@ -5,14 +5,14 @@ description: Dowiedz się, jak poprawić aplikacji ASP.NET Core z zestawu zewnę
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 03/10/2019
+ms.date: 03/23/2019
 uid: fundamentals/configuration/platform-specific-configuration
-ms.openlocfilehash: 25564ecebf48f65a209ac48e77856ef36d897959
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: c174d658c84ada88eef17528c663735a91347ba7
+ms.sourcegitcommit: 7d6019f762fc5b8cbedcd69801e8310f51a17c18
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264985"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58419449"
 ---
 # <a name="use-hosting-startup-assemblies-in-aspnet-core"></a>Korzystanie z obsługi zestawów uruchamiania w programie ASP.NET Core
 
@@ -381,18 +381,7 @@ dotnet nuget locals all --clear
 **Aktywacja w zestawie środowiska uruchomieniowego wdrożonych w magazynie**
 
 1. *StartupDiagnostics* projekt używa [PowerShell](/powershell/scripting/powershell-scripting) do modyfikowania jej *StartupDiagnostics.deps.json* pliku. Program PowerShell jest instalowany domyślnie w systemie Windows, począwszy od Windows 7 z dodatkiem SP1 i Windows Server 2008 R2 z dodatkiem SP1. Aby uzyskać programu PowerShell na innych platformach, zobacz [Instalowanie programu Windows PowerShell](/powershell/scripting/setup/installing-powershell#powershell-core).
-1. Tworzenie *StartupDiagnostics* projektu. Po projekt został utworzony, element docelowy kompilacji, w pliku projektu automatycznie:
-   * Uruchamia skrypt programu PowerShell w celu zmodyfikowania *StartupDiagnostics.deps.json* pliku.
-   * Przenosi *StartupDiagnostics.deps.json* pliku do profilu użytkownika *additionalDeps* folderu.
-1. Wykonaj `dotnet store` polecenia na command prompt w hostingu uruchamiania katalog do przechowywania zestawu i jego zależności w magazynie środowiska uruchomieniowego profilu użytkownika:
-
-   ```console
-   dotnet store --manifest StartupDiagnostics.csproj --runtime <RID>
-   ```
-
-   Windows, polecenie używa `win7-x64` [identyfikator środowiska uruchomieniowego (RID)](/dotnet/core/rid-catalog). Podczas dostarczania hostingu uruchamiania różnych środowiska uruchomieniowego, podstawić poprawne identyfikatorów RID.
-1. Ustaw zmienne środowiskowe:
-   * Dodaj nazwę zestawu *StartupDiagnostics* do `ASPNETCORE_HOSTINGSTARTUPASSEMBLIES` zmiennej środowiskowej.
-   * Na Windows, ustaw `DOTNET_ADDITIONAL_DEPS` zmiennej środowiskowej, aby `%UserProfile%\.dotnet\x64\additionalDeps\StartupDiagnostics\`. W systemie macOS/Linux, należy ustawić `DOTNET_ADDITIONAL_DEPS` zmiennej środowiskowej, aby `/Users/<USER>/.dotnet/x64/additionalDeps/StartupDiagnostics/`, gdzie `<USER>` jest profil użytkownika, który zawiera uruchomienia hostingu.
+1. Wykonaj *build.ps1* skryptu w *RuntimeStore* folderu. `dotnet store` Polecenie w skrypcie używa `win7-x64` [identyfikator środowiska uruchomieniowego (RID)](/dotnet/core/rid-catalog) do uruchomienia hostingu, wdrożone Windows. Podczas dostarczania hostingu uruchamiania różnych środowiska uruchomieniowego, podstawić poprawne identyfikatorów RID.
+1. Uruchom *deploy.ps1* skryptu w *wdrożenia* folderu.
 1. Uruchom przykładową aplikację.
 1. Żądanie `/services` punktu końcowego, aby wyświetlić aplikację zarejestrowane usługi. Żądanie `/diag` punktu końcowego, aby wyświetlić informacje diagnostyczne.

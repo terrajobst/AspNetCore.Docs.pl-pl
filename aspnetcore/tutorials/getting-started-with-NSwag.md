@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 12/30/2018
 uid: tutorials/get-started-with-nswag
-ms.openlocfilehash: 83a088a4cc3f1fc0ae94907c292fce2b3da4644f
-ms.sourcegitcommit: a1c43150ed46aa01572399e8aede50d4668745ca
+ms.openlocfilehash: af07ad771c582cfad80f297748c3c1049ff4a7d6
+ms.sourcegitcommit: 7d6019f762fc5b8cbedcd69801e8310f51a17c18
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58327329"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58419410"
 ---
 # <a name="get-started-with-nswag-and-aspnet-core"></a>Rozpoczynanie pracy z usługą NSwag i ASP.NET Core
 
@@ -47,7 +47,7 @@ Aby użyć [NSwag](https://github.com/RSuter/NSwag) oprogramowanie pośredniczą
 
 Aby zainstalować pakiet NSwag NuGet, użyj jednej z następujących metod:
 
-### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Z **Konsola Menedżera pakietów** okna:
   * Przejdź do **widoku** > **innych Windows** > **Konsola Menedżera pakietów**
@@ -64,14 +64,14 @@ Aby zainstalować pakiet NSwag NuGet, użyj jednej z następujących metod:
   * W polu wyszukiwania wprowadź "NSwag.AspNetCore"
   * Wybierz pakiet "NSwag.AspNetCore" z **Przeglądaj** kartę, a następnie kliknij przycisk **instalacji**
 
-### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 * Kliknij prawym przyciskiem myszy *pakietów* folderu w **konsoli rozwiązania** > **Dodawanie pakietów...**
 * Ustaw **Dodawanie pakietów** okna **źródła** menu rozwijane "nuget.org"
 * W polu wyszukiwania wprowadź "NSwag.AspNetCore"
 * Wybierz pakiet "NSwag.AspNetCore" w okienku wyników, a następnie kliknij przycisk **Dodaj pakiet**
 
-### <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Uruchom następujące polecenie z **zintegrowany Terminal**:
 
@@ -79,7 +79,7 @@ Uruchom następujące polecenie z **zintegrowany Terminal**:
 dotnet add TodoApi.csproj package NSwag.AspNetCore
 ```
 
-### <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 Uruchom następujące polecenie:
 
@@ -240,7 +240,7 @@ Aby włączyć komentarze XML, wykonaj następujące czynności:
 
 ::: moniker-end
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code--net-core-clitabvisual-studio-codenetcore-cli"></a>[Program Visual Studio Code / .NET Core interfejsu wiersza polecenia](#tab/visual-studio-code+netcore-cli)
 
 Ręcznie Dodaj wyróżnione wiersze w celu *.csproj* pliku:
 

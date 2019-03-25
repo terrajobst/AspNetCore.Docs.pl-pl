@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/25/2019
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 72e3ae1c4be18edaa2e7f1906cf65269e5ed2288
-ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
+ms.openlocfilehash: 7ec14ddf1a741da92347825d935316533e8543fe
+ms.sourcegitcommit: 7d6019f762fc5b8cbedcd69801e8310f51a17c18
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57665499"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58419436"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Wstrzykiwanie zależności w programie ASP.NET Core
 
@@ -127,6 +127,12 @@ Ten interfejs jest implementowany przez konkretny typ `MyDependency`:
 `MyDependency` żądania [ILogger&lt;TCategoryName&gt; ](/dotnet/api/microsoft.extensions.logging.ilogger-1) w jego konstruktorze. Nie jest niczym niezwykłym używać wstrzykiwanie zależności w sposób połączonych. Poszczególne zależności żądanego żądań z kolei swoje własne zależności. Jest rozpoznawana jako zależności na wykresie i zwraca w pełni rozpoznać usługę kontenera. Zbiorczy zestaw zależności, które muszą być rozwiązane jest zwykle nazywany *drzewo zależności*, *wykres zależności*, lub *wykresu obiektu*.
 
 `IMyDependency` i `ILogger<TCategoryName>` musi być zarejestrowana w kontenerze usługi. `IMyDependency` jest zarejestrowany w `Startup.ConfigureServices`. `ILogger<TCategoryName>` jest on zarejestrowany infrastruktury abstrakcje rejestrowanie, dlatego ma [usługi dostarczane przez framework](#framework-provided-services) zarejestrowana domyślnie przez platformę.
+
+Kontener jest rozpoznawana jako `ILogger<TCategoryName>` , wykorzystując [typy (Ogólne) otwórz](/dotnet/csharp/language-reference/language-specification/types#open-and-closed-types), eliminując konieczność łączenia się zarejestrować co [(ogólny) skonstruowany typ](/dotnet/csharp/language-reference/language-specification/types#constructed-types):
+
+```csharp
+services.AddSingleton(typeof(ILogger<T>), typeof(Logger<T>));
+```
 
 W przykładowej aplikacji `IMyDependency` usługa jest zarejestrowana przy użyciu konkretnego typu `MyDependency`. Rejestracja zakresów okres istnienia usługi przez cały czas trwania pojedynczego żądania. [Okresy istnienia usługi](#service-lifetimes) są opisane w dalszej części tego tematu.
 

@@ -5,7 +5,7 @@ description: 'Dowiedz się, jak hostowanie i wdrażanie składników Razor i Bla
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/29/2019
+ms.date: 03/22/2019
 uid: host-and-deploy/razor-components/index
 ---
 # <a name="host-and-deploy-razor-components"></a>Hostowanie i wdrażanie składników Razor
@@ -284,7 +284,7 @@ Korzystając z witryny projektu zamiast witryny organizacji, Dodaj lub zaktualiz
 
 Za pomocą [po stronie serwera modelu hostingu](xref:razor-components/hosting-models#server-side-hosting-model), składniki Razor jest wykonywane na serwerze z poziomu aplikacji ASP.NET Core. Aktualizacje interfejsu użytkownika, obsługa zdarzeń i wywołania języka JavaScript są obsługiwane za pośrednictwem połączenia SignalR.
 
-Aplikacja jest dołączone do aplikacji platformy ASP.NET Core w opublikowanych danych wyjściowych, więc, że dwie aplikacje wdrażane razem. Wymagany jest serwer sieci web, który jest zdolny do obsługi aplikacji ASP.NET Core. Wdrożenia po stronie serwera, program Visual Studio obejmuje **Blazor (po stronie serwera w programie ASP.NET Core)** szablonu projektu (`blazorserver` szablon, korzystając z [dotnet nowe](/dotnet/core/tools/dotnet-new) polecenie).
+Aplikacja jest dołączone do aplikacji platformy ASP.NET Core w opublikowanych danych wyjściowych, więc, że dwie aplikacje wdrażane razem. Wymagany jest serwer sieci web, który jest zdolny do obsługi aplikacji ASP.NET Core. Wdrożenia po stronie serwera, program Visual Studio obejmuje **składniki Razor** szablonu projektu (`razorcomponents` szablon, korzystając z [dotnet nowe](/dotnet/core/tools/dotnet-new) polecenia).
 
 <!--
 

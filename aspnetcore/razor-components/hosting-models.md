@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/29/2019
 uid: razor-components/hosting-models
-ms.openlocfilehash: 8ffc22201b88b59077a98bd46cbf95e93d2d86e2
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: efb96ab628cb643d3fb6d221f68758039b195d47
+ms.sourcegitcommit: 7d6019f762fc5b8cbedcd69801e8310f51a17c18
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57345660"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58419357"
 ---
 # <a name="razor-components-hosting-models"></a>Składniki razor modele obsługi
 
@@ -61,7 +61,7 @@ W modelu hostingu po stronie serwera platformy ASP.NET Core Razor składniki apl
 
 ![ASP.NET Core Razor składniki po stronie serwera: Przeglądarka wchodzi w interakcję z aplikacją (obsługiwana wewnątrz aplikacji ASP.NET Core) na serwerze za pośrednictwem połączenia SignalR.](hosting-models/_static/server-side.png)
 
-Aby utworzyć aplikację składniki Razor przy użyciu modelu hostingu w sieci po stronie serwera, należy użyć **Blazor (po stronie serwera w programie ASP.NET Core)** szablonu (`blazorserver` przy użyciu [dotnet nowe](/dotnet/core/tools/dotnet-new) polecenie w wierszu polecenia). Aplikacji ASP.NET Core obsługuje składniki Razor aplikacji po stronie serwera i ustawia punkt końcowy SignalR, gdy klienci łączą. Aplikacja platformy ASP.NET Core odwołuje się do aplikacji `Startup` klasy do dodania:
+Aby utworzyć aplikację składniki Razor przy użyciu modelu hostingu w sieci po stronie serwera, należy użyć platformy ASP.NET Core **składniki Razor** szablonu (`razorcomponents` przy użyciu [dotnet nowe](/dotnet/core/tools/dotnet-new) polecenie w wierszu polecenia). Aplikacji ASP.NET Core obsługuje składniki Razor aplikacji po stronie serwera i ustawia punkt końcowy SignalR, gdy klienci łączą. Aplikacja platformy ASP.NET Core odwołuje się do aplikacji `Startup` klasy do dodania:
 
 * Usługi aparatu Razor składniki po stronie serwera.
 * Aplikacja do żądania obsługi potoku.
