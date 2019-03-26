@@ -3,14 +3,14 @@ title: Wprowadzenie do tożsamości programu ASP.NET Core
 author: rick-anderson
 description: Tożsamość za pomocą aplikacji ASP.NET Core. Dowiedz się, jak ustawić wymagania dotyczące hasła (RequireDigit, RequiredLength, RequiredUniqueChars i inne).
 ms.author: riande
-ms.date: 08/08/2018
+ms.date: 03/26/2019
 uid: security/authentication/identity
-ms.openlocfilehash: 355c53e0c957944cb35c37c6b01e724af5f93f44
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: efe8119c2d18db50dce3df57fa0e300d0d0df2cd
+ms.sourcegitcommit: 687ffb15ebe65379f75c84739ea851d5a0d788b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58265468"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58488676"
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>Wprowadzenie do tożsamości programu ASP.NET Core
 
@@ -64,6 +64,24 @@ Wygenerowany projekt zawiera [tożsamości platformy ASP.NET Core](xref:security
 * / Tożsamość/konta/logowania
 * / Tożsamość/konto/wylogowania
 * / Tożsamość/konto/Zarządzanie
+
+### <a name="apply-migrations"></a>Zastosuj migracji
+
+Zastosuj migracje zainicjować bazy danych.
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+Uruchom następujące polecenie w konsoli Menedżera pakietów (PMC):
+
+```PM> Update-Database```
+
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+
+```cli
+dotnet ef database update
+```
+
+---
 
 ### <a name="test-register-and-login"></a>Rejestrowanie testu i zaloguj się
 

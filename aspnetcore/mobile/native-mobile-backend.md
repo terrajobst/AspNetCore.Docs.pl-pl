@@ -5,18 +5,18 @@ description: Dowiedz się, jak tworzenie usług zaplecza za pomocą platformy AS
 ms.author: riande
 ms.date: 10/14/2016
 uid: mobile/native-mobile-backend
-ms.openlocfilehash: 3ebd30ad1ffbd66b256e7f3954a07d682f76a754
-ms.sourcegitcommit: 517bb1366da2a28b0014e384fa379755c21b47d8
+ms.openlocfilehash: 13149dd4b877b8c17d33d428779ad31d8c51ae9e
+ms.sourcegitcommit: 687ffb15ebe65379f75c84739ea851d5a0d788b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47230181"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58488731"
 ---
 # <a name="create-backend-services-for-native-mobile-apps-with-aspnet-core"></a>Tworzenie usług zaplecza dla natywnych aplikacji mobilnych za pomocą programu ASP.NET Core
 
 Przez [Steve Smith](https://ardalis.com/)
 
-Aplikacje mobilne może łatwo komunikować się z usług zaplecza programu ASP.NET Core.
+Aplikacje mobilne mogą komunikować się z usługami zaplecza programu ASP.NET Core. Aby uzyskać instrukcje dotyczące łączenia usługi sieci web w lokalnych z symulatorach systemu iOS i emulatory systemu Android, zobacz [Połącz z lokalnych usług sieci Web z poziomu systemu iOS symulatorach i emulatory systemu Android](/xamarin/cross-platform/deploy-test/connect-to-local-web-services).
 
 [Wyświetlanie lub pobieranie przykładowego kodu usługi wewnętrznej bazy danych](https://github.com/aspnet/Docs/tree/master/aspnetcore/mobile/native-mobile-backend/sample)
 
@@ -86,7 +86,7 @@ W tym momencie możesz przystąpić do tworzenia *ToDoItemsController*.
 
 ## <a name="creating-the-controller"></a>Tworzenie kontrolera
 
-Dodaj nowy kontroler do projektu, *ToDoItemsController*. Powinien on dziedziczyć Microsoft.AspNetCore.Mvc.Controller. Dodaj `Route` atrybutu, aby wskazać, że kontroler będzie obsługiwać żądania kierowane do ścieżki, począwszy od `api/todoitems`. `[controller]` Token dla trasy jest zastępowany przez nazwę kontrolera (z pominięciem `Controller` sufiks) i jest szczególnie przydatne w przypadku globalnych trasy. Dowiedz się więcej o [routingu](../fundamentals/routing.md).
+Dodaj nowy kontroler do projektu, *ToDoItemsController*. It should inherit from Microsoft.AspNetCore.Mvc.Controller. Dodaj `Route` atrybutu, aby wskazać, że kontroler będzie obsługiwać żądania kierowane do ścieżki, począwszy od `api/todoitems`. `[controller]` Token dla trasy jest zastępowany przez nazwę kontrolera (z pominięciem `Controller` sufiks) i jest szczególnie przydatne w przypadku globalnych trasy. Dowiedz się więcej o [routingu](../fundamentals/routing.md).
 
 Wymaga kontrolera `IToDoRepository` do funkcji; żądania wystąpienia tego typu za pośrednictwem konstruktora kontrolera. W czasie wykonywania, to wystąpienie uwarunkowane przestrzeganiem dzięki obsłudze struktury [wstrzykiwanie zależności](../fundamentals/dependency-injection.md).
 

@@ -5,14 +5,14 @@ description: Dowiedz się, jak skonfigurować kontrole kondycji infrastruktury p
 monikerRange: '>= aspnetcore-2.2'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/13/2019
+ms.date: 03/11/2019
 uid: host-and-deploy/health-checks
-ms.openlocfilehash: 9157c94c6e8f433869c8163ebf7772a7271b11ba
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: 0bb80a5fccc8240c6f1fb8e59b379766bfd90d9e
+ms.sourcegitcommit: 687ffb15ebe65379f75c84739ea851d5a0d788b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58265319"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58488718"
 ---
 # <a name="health-checks-in-aspnet-core"></a>Kontroli kondycji w programie ASP.NET Core
 
@@ -393,7 +393,7 @@ Sprawdzanie gotowości zwykle wykonuje bardziej rozbudowanym i czasochłonne zes
 
 Przykładowa aplikacja zawiera sprawdzenie kondycji, aby zgłosić ukończenie długotrwałego zadania uruchamiania w [usługi hostowanej](xref:fundamentals/host/hosted-services). `StartupHostedServiceHealthCheck` Ujawnia właściwość `StartupTaskCompleted`, które można ustawić usługi hostowanej `true` po zakończeniu jego długotrwałe zadanie (*StartupHostedServiceHealthCheck.cs*):
 
-[!code-csharp[](health-checks/samples/2.x/HealthChecksSample/StartupHostedServiceHealthCheck.cs?name=snippet1&highlight=5)]
+[!code-csharp[](health-checks/samples/2.x/HealthChecksSample/StartupHostedServiceHealthCheck.cs?name=snippet1&highlight=7-11)]
 
 Długotrwałe zadanie w tle jest uruchamiana przez [usługi hostowanej](xref:fundamentals/host/hosted-services) (*usług/StartupHostedService*). Po zakończeniu zadania `StartupHostedServiceHealthCheck.StartupTaskCompleted` ustawiono `true`:
 

@@ -4,14 +4,14 @@ author: mjrousos
 description: Dowiedz się, jak przeprowadzić migrację od ClaimsPrincipal.Current do pobrania aktualnego użytkownika uwierzytelnionego tożsamości i oświadczenia w programie ASP.NET Core.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 05/04/2018
+ms.date: 03/26/2019
 uid: migration/claimsprincipal-current
-ms.openlocfilehash: 35c3389798041e141c45bf0a76fa9d7285212768
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: 526cc3cf3a58a656e2a1b162cfaccacc7694dc51
+ms.sourcegitcommit: 687ffb15ebe65379f75c84739ea851d5a0d788b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41757307"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58488645"
 ---
 # <a name="migrate-from-claimsprincipalcurrent"></a>Migracja z ClaimsPrincipal.Current
 
@@ -56,4 +56,4 @@ Dostępnych jest kilka opcji do pobierania aktualnego użytkownika uwierzytelnio
   * Pobierz wystąpienia `IHttpContextAccessor` podczas uruchamiania i zapisz go w zmiennej statycznej. Wystąpienia staje się dostępny do kodu, który został wcześniej pobieranie bieżącego użytkownika z właściwości statycznej.
   * Pobieranie bieżącego użytkownika `ClaimsPrincipal` przy użyciu `HttpContextAccessor.HttpContext?.User`. Jeśli ten kod jest używany poza kontekstem żądania HTTP `HttpContext` ma wartość null.
 
-Końcowe opcji, za pomocą `IHttpContextAccessor`, jest sprzeczne z zasadami platformy ASP.NET Core (preferowanie wprowadzonego zależności zależności statyczne). Planowanie ostatecznie wyeliminować zależność od statycznej `IHttpContextAccessor` pomocnika. Można go przydatne most, jednak podczas migrowania dużych istniejących aplikacji programu ASP.NET, które były wcześniej używane `ClaimsPrincipal.Current`.
+Końcowe opcji, za pomocą `IHttpContextAccessor` wystąpienie przechowywane w zmiennej statycznej, jest sprzeczne z zasadami platformy ASP.NET Core (preferowanie wprowadzonego zależności zależności statyczne). Plan można pobrać po pewnym czasie `IHttpContextAccessor` zamiast tego wystąpienia z iniekcji zależności. Pomocnika statyczne mogą być przydatne most, jednak podczas migrowania dużych istniejących aplikacji programu ASP.NET, które były wcześniej używane `ClaimsPrincipal.Current`.

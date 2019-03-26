@@ -4,7 +4,7 @@ author: guardrex
 description: 'Dowiedz się, jak hostować aplikacje platformy ASP.NET Core na systemu Windows serwera Internet Information Services (IIS).'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/21/2019
+ms.date: 03/23/2019
 uid: host-and-deploy/iis/index
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host platformy ASP.NET Core na Windows za pomocą programu IIS
@@ -269,6 +269,8 @@ Zainstaluj *hostingu pakietu programu .NET Core* przez system operacyjny. Pakiet
 
 > [!IMPORTANT]
 > Po zainstalowaniu pakietu hostowanie usług IIS wcześniejsze instalacji pakietu musi zostać naprawiony. Uruchom Instalatora pakietu hostingu ponownie po zainstalowaniu usług IIS.
+>
+> Jeśli pakiet hostingu jest zainstalowany po zainstalowaniu programu .NET Core w wersji 64-bitowych (x 64), zestawy SDK może pojawić się brakuje ([zestawów .NET Core SDK nie zostały wykryte](xref:test/troubleshoot#no-net-core-sdks-were-detected)). Aby rozwiązać ten problem, zobacz <xref:test/troubleshoot#missing-sdk-after-installing-the-net-core-hosting-bundle>.
 
 ### <a name="direct-download-current-version"></a>Pobieranie bezpośrednie (bieżąca wersja)
 

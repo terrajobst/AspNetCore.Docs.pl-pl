@@ -5,14 +5,14 @@ description: Informacje o sposobie tworzenia i używania składników Razor, w t
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/13/2019
+ms.date: 03/26/2019
 uid: razor-components/components
-ms.openlocfilehash: c93ea62c7540aca8981294fe90855ff9d4d844dc
-ms.sourcegitcommit: d913bca90373c07f89b1d1df01af5fc01fc908ef
+ms.openlocfilehash: 59c8540ea297f8396d6aac9b3246639667ad0cd7
+ms.sourcegitcommit: 687ffb15ebe65379f75c84739ea851d5a0d788b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57978510"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58488681"
 ---
 # <a name="create-and-use-razor-components"></a>Tworzenie i używanie składników Razor
 
@@ -24,7 +24,15 @@ Razor składniki aplikacji są tworzone przy użyciu *składniki*. Składnik jes
 
 ## <a name="component-classes"></a>Klasy składników
 
-Składniki są zazwyczaj implementowane w plikach Razor składnika (*.razor*) przy użyciu kombinacji C# i kod znaczników HTML. W interfejsie użytkownika dla składnika jest zdefiniowana za pomocą kodu HTML. Logika renderowania dynamicznego (na przykład pętli, warunkowych, wyrażeń) zostanie dodany przy użyciu osadzonych C# składni o nazwie [Razor](xref:mvc/views/razor). Podczas kompilowania aplikacji Razor składników, kod znaczników HTML i C# logiki renderowania są konwertowane na klasy składnika. Nazwa wygenerowanej klasy odpowiada nazwie pliku.
+Składniki są zazwyczaj implementowane w plikach Razor składnika (*.razor*) przy użyciu kombinacji C# i kod znaczników HTML (*.cshtml* pliki są używane w aplikacjach Blazor).
+
+Składniki można tworzyć w aplikacjach składniki Razor przy użyciu *.cshtml* rozszerzenie pliku, tak długo, jak pliki są identyfikowane jako pliki składnika Razor przy użyciu `_RazorComponentInclude` właściwości programu MSBuild. Na przykład aplikacja utworzona za pomocą szablonu Razor składnika Określa, że wszystkie *.cshtml* plików w obszarze *składniki* folder powinien być traktowany jako plików składników Razor:
+
+```xml
+<_RazorComponentInclude>Components\**\*.cshtml</_RazorComponentInclude>
+```
+
+W interfejsie użytkownika dla składnika jest zdefiniowana za pomocą kodu HTML. Logika renderowania dynamicznego (na przykład pętli, warunkowych, wyrażeń) zostanie dodany przy użyciu osadzonych C# składni o nazwie [Razor](xref:mvc/views/razor). Podczas kompilowania aplikacji Razor składników, kod znaczników HTML i C# logiki renderowania są konwertowane na klasy składnika. Nazwa wygenerowanej klasy odpowiada nazwie pliku.
 
 Elementy członkowskie klasy składników są zdefiniowane w `@functions` bloku (więcej niż jeden `@functions` bloku jest dozwolone). W `@functions` bloku, stan składników (właściwości, pola) została określona wraz z metody obsługi zdarzeń lub Definiowanie logiki innych składników.
 
@@ -766,4 +774,60 @@ Wyniku renderowania:
 The time is 10/04/2018 01:26:52.
 
 Your pet's name is Rex.
+```
+
+## <a name="manual-rendertreebuilder-logic"></a>Ręczne logiki RenderTreeBuilder
+
+`Microsoft.AspNetCore.Components.RenderTree` udostępnia metody do manipulowania składników i elementów, w tym ręcznie w kompilowanie składników C# kodu.
+
+> [!NOTE]
+> Korzystanie z `RenderTreeBuilder` do tworzenia składników to zaawansowany scenariusz. Źle sformułowane składników (na przykład tag niezamknięty znaczników) może spowodować niezdefiniowane zachowanie.
+
+Należy wziąć pod uwagę następujące składnik szczegółów Pet (*PetDetails.razor* w składnikach Razor; *PetDetails.cshtml* w Blazor), które mogą być ręcznie wbudowane w innym składniku:
+
+```cshtml
+<h2>Pet Details Component</h2>
+
+<p>@PetDetailsQuote<p>
+
+@functions
+{
+    [Parameter]
+    string PetDetailsQuote { get; set; }
+}
+```
+
+W poniższym przykładzie pętli w `CreateComponent` metoda generuje trzy składniki Pet szczegóły. Podczas wywoływania `RenderTreeBuilder` metody tworzenia składników (`OpenComponent` i `AddAttribute`), numery sekwencyjne są numery wierszy kodu źródłowego. Składniki Razor, które algorytm różnica opiera się na numery sekwencyjne distinct wierszy kodu, nie odrębne wywołania wywołania. Podczas tworzenia składnika za pomocą `RenderTreeBuilder` metody, umieszczaj argumenty dla numerów sekwencji. **Za pomocą obliczeń lub licznika do generowania numer sekwencyjny może prowadzić do pogorszenia wydajności.**
+
+Wbudowany składnik (*BuiltContent.razor* w składnikach Razor; *BuiltContent.cshtml* w Blazor):
+
+```cshtml
+@page "/BuiltContent"
+
+<h1>Build a component</h1>
+
+@CustomRender
+
+<button type="button" onclick="@RenderComponent">
+    Create three Pet Details components
+</button>
+
+@functions {
+    RenderFragment CustomRender { get; set; }
+    
+    RenderFragment CreateComponent() => builder =>
+    {
+        for (var i = 0; i < 3; i++) 
+        {
+            builder.OpenComponent(0, typeof(PetDetails));
+            builder.AddAttribute(1, "PetDetailsQuote", "Someone's best friend!");
+            builder.CloseComponent();
+        }
+    };    
+    
+    void RenderComponent()
+    {
+        CustomRender = CreateComponent();
+    }
+}
 ```

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/25/2019
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 7ec14ddf1a741da92347825d935316533e8543fe
-ms.sourcegitcommit: 7d6019f762fc5b8cbedcd69801e8310f51a17c18
+ms.openlocfilehash: cc020d7397b03f8ecd6cebf98a14b4aaebb47940
+ms.sourcegitcommit: 687ffb15ebe65379f75c84739ea851d5a0d788b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58419436"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58488692"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Wstrzykiwanie zależności w programie ASP.NET Core
 
@@ -151,7 +151,7 @@ W przykładowej aplikacji `IMyDependency` usługa jest zarejestrowana przy użyc
 > [!NOTE]
 > Każdy `services.Add{SERVICE_NAME}` — metoda rozszerzenia dodaje (i potencjalnie konfiguruje) usługi. Na przykład `services.AddMvc()` dodaje usług, stronami Razor i wymagają MVC. Zaleca się, że aplikacje stosują taką Konwencję. Metody rozszerzające w miejscu [Microsoft.Extensions.DependencyInjection](/dotnet/api/microsoft.extensions.dependencyinjection) przestrzeni nazw w celu hermetyzacji grupy rejestracji usługi.
 
-Jeśli Konstruktor usługi wymaga elementu podstawowego, takich jak `string`, element pierwotny może wprowadzone za pomocą [konfiguracji](xref:fundamentals/configuration/index) lub [wzorzec opcje](xref:fundamentals/configuration/options):
+Jeśli Konstruktor usługi wymaga [typ wbudowany](/dotnet/csharp/language-reference/keywords/built-in-types-table), takich jak `string`, typ może wprowadzone za pomocą [konfiguracji](xref:fundamentals/configuration/index) lub [wzorzec opcje](xref:fundamentals/configuration/options):
 
 ```csharp
 public class MyDependency : IMyDependency
