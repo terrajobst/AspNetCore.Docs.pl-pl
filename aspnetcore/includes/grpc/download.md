@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: 40ab2cdad153bafb033f50af6b9a72efb3609bc2
-ms.sourcegitcommit: 10e14b85490f064395e9b2f423d21e3c2d39ed8b
+ms.openlocfilehash: 7a6ee2e98d4cf068af48f1494b9786b3efba7f42
+ms.sourcegitcommit: 7d6019f762fc5b8cbedcd69801e8310f51a17c18
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58161864"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58431580"
 ---
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/grpc/grpc-start/samples/) ([sposobu pobierania](xref:index#how-to-download-a-sample)).
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/grpc/grpc-start/samples/GrpcStart) ([sposobu pobierania](xref:index#how-to-download-a-sample)).
