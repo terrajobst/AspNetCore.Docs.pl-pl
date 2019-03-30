@@ -5,14 +5,14 @@ description: Dowiedz się, jak używać silnie typizowane oprogramowania pośred
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/14/2018
+ms.date: 03/27/2019
 uid: fundamentals/middleware/extensibility
-ms.openlocfilehash: 566a5c5f642a3f55e72a8e070c69d2bfddaee3a1
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: d29c4d3d72ddd8ec3c2a726ee35ae1dc82774537
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207202"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58750537"
 ---
 # <a name="factory-based-middleware-activation-in-aspnet-core"></a>Oprogramowanie pośredniczące oparte na fabryce aktywacji w programie ASP.NET Core
 
@@ -24,10 +24,10 @@ Przez [Luke Latham](https://github.com/guardrex)
 
 Korzyści:
 
-* Aktywacja na żądanie (iniekcji usługi o określonym zakresie)
+* Aktywacji dla każdego żądania klienta (iniekcji usługi o określonym zakresie)
 * Silne wpisywanie oprogramowania pośredniczącego
 
-`IMiddleware` aktywowano na żądanie, dzięki czemu usługi o określonym zakresie można wstrzyknięte do konstruktora oprogramowania pośredniczącego.
+`IMiddleware` została aktywowana dla każdego żądania klienta (połączenie), usługi o określonym zakresie może wprowadzone do konstruktora oprogramowania pośredniczącego.
 
 [Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/middleware/extensibility/sample) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 

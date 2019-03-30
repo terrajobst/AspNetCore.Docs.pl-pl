@@ -5,14 +5,14 @@ description: Zobacz, jak Blazor i składniki Razor aplikacje mogą używać usł
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/19/2019
+ms.date: 03/27/2019
 uid: razor-components/dependency-injection
-ms.openlocfilehash: 0228a236c820c76d9ca5186ca829a9606e7b5127
-ms.sourcegitcommit: 7d6019f762fc5b8cbedcd69801e8310f51a17c18
+ms.openlocfilehash: 40aec2e3a5032039c7d921f67d7d333b03c07fb1
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58419373"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58750524"
 ---
 # <a name="razor-components-dependency-injection"></a>Wstrzykiwanie zależności składników razor
 
@@ -53,8 +53,8 @@ Usługi mogą być skonfigurowane przy użyciu okresy istnienia pokazano w poni�
 
 | Okres istnienia | Opis |
 | -------- | ----------- |
-| <xref:Microsoft.Extensions.DependencyInjection.ServiceDescriptor.Singleton*> | Tworzy DI *pojedyncze wystąpienie* usługi. Wszystkie składniki, które wymagają zainstalowania tej usługi odbierać odwołanie do tego wystąpienia. |
-| <xref:Microsoft.Extensions.DependencyInjection.ServiceDescriptor.Transient*> | Zawsze, gdy składnik wymaga tej usługi, otrzymuje *nowe wystąpienie* usługi. |
+| <xref:Microsoft.Extensions.DependencyInjection.ServiceDescriptor.Singleton*> | Tworzy DI *pojedyncze wystąpienie* usługi. Wszystkie składniki wymagające `Singleton` usługa otrzymywać wystąpienia tej samej usługi. |
+| <xref:Microsoft.Extensions.DependencyInjection.ServiceDescriptor.Transient*> | Zawsze, gdy składnik uzyskuje wystąpienie `Transient` usługi z kontenera usługi odbiera *nowe wystąpienie* usługi. |
 | <xref:Microsoft.Extensions.DependencyInjection.ServiceDescriptor.Scoped*> | Blazor po stronie klienta nie ma obecnie koncepcji DI zakresów. `Scoped` zachowuje się jak `Singleton`. Jednak obsługuje składniki programu ASP.NET Core Razor `Scoped` okresu istnienia. W składniku Razor rejestracji usługi o określonym zakresie jest ograniczony do połączenia. Z tego powodu przy użyciu usługi o określonym zakresie była preferowana dla usług, które powinien być ograniczony do bieżącego użytkownika, nawet jeśli bieżącym celem jest do uruchomienia po stronie klienta w przeglądarce. |
 
 DI system jest oparty na systemie DI, w programie ASP.NET Core. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/dependency-injection>.

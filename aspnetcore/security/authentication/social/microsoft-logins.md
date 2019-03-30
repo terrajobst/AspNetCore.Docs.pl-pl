@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/11/2018
 uid: security/authentication/microsoft-logins
-ms.openlocfilehash: 4909a0084994654777ad7a6ebda866ac727f0528
-ms.sourcegitcommit: 3e94d192b2ed9409fe72e3735e158b333354964c
+ms.openlocfilehash: 1733d049d6752c24d7749b5b5ae2a4b866492358
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53735755"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58751006"
 ---
 # <a name="microsoft-account-external-login-setup-with-aspnet-core"></a>Konfigurowanie logowania zewnętrznego Account firmy Microsoft za pomocą programu ASP.NET Core
 
@@ -65,6 +65,8 @@ Jeśli nie masz jeszcze konta Microsoft, naciśnij przycisk  **[Zrób to!](https
 ![Nowe hasło wygenerowane okno dialogowe](index/_static/MicrosoftDevPassword.png)
 
 Link ustawienia poufne, takie jak Microsoft `Application ID` i `Password` z konfiguracji aplikacji za pomocą [Menedżera klucz tajny](xref:security/app-secrets). Do celów tego samouczka, nazwa tokeny `Authentication:Microsoft:ApplicationId` i `Authentication:Microsoft:Password`.
+
+[!INCLUDE[](~/includes/environmentVarableColon.md)]
 
 ## <a name="configure-microsoft-account-authentication"></a>Skonfiguruj uwierzytelnianie za pomocą konta Microsoft
 

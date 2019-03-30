@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc, seodec18
 ms.date: 12/18/2018
 uid: security/authentication/facebook-logins
-ms.openlocfilehash: 66f895c7c8dcc00d991c0ea57535f2ed56431a77
-ms.sourcegitcommit: 3e94d192b2ed9409fe72e3735e158b333354964c
+ms.openlocfilehash: 5fd40e7b42b17d4a3b858de15c8ed03fb64ce690
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53735781"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58751091"
 ---
 # <a name="facebook-external-login-setup-in-aspnet-core"></a>Ustawienia zewnętrznej nazwy logowania usługi Facebook w programie ASP.NET Core
 
@@ -59,6 +59,8 @@ W tym samouczku dowiesz się, jak umożliwić użytkownikom logowanie się przy 
 ## <a name="store-facebook-app-id-and-app-secret"></a>Identyfikator aplikacji Facebook Store i klucza tajnego aplikacji
 
 Link ustawień poufnych, takich jak Facebook `App ID` i `App Secret` z konfiguracji aplikacji za pomocą [Menedżera klucz tajny](xref:security/app-secrets). Do celów tego samouczka, nazwa tokeny `Authentication:Facebook:AppId` i `Authentication:Facebook:AppSecret`.
+
+[!INCLUDE[](~/includes/environmentVarableColon.md)]
 
 Wykonaj następujące polecenia, aby bezpiecznie przechowywać `App ID` i `App Secret` za pomocą Menedżera klucz tajny:
 

@@ -4,15 +4,15 @@ description: W tym samouczku przedstawiono przydatnych tematów dla wykraczając
 author: rick-anderson
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 02/05/2019
+ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: c4804bd6614c7d5a2a30c8f59a645f603929ad52
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: c6255e2b4fc67c6174bab4458ec82035b1886002
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264587"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58750615"
 ---
 # <a name="tutorial-learn-about-advanced-scenarios---aspnet-mvc-with-ef-core"></a>Samouczek: Dowiedz się więcej o zaawansowanych scenariuszy — ASP.NET MVC z programem EF Core
 
@@ -33,7 +33,7 @@ W ramach tego samouczka możesz:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Implementowanie dziedziczenia z programem EF Core w aplikacji internetowej ASP.NET Core MVC](inheritance.md)
+* [Implementowanie dziedziczenia](inheritance.md)
 
 ## <a name="perform-raw-sql-queries"></a>Wykonaj pierwotne zapytania SQL
 
@@ -53,7 +53,7 @@ Jak jest zawsze wartość true, gdy wykonywanie poleceń SQL w aplikacji sieci w
 
 W *DepartmentsController.cs*w `Details` metody, Zastąp kod, który pobiera działowi `FromSql` wywołania metody, jak pokazano na następujący wyróżniony kod:
 
-[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_RawSQL&highlight=8,9,10,13)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_RawSQL&highlight=8,9,10)]
 
 Aby sprawdzić, czy nowy kod działa poprawnie, należy wybrać **działów** kartę i następnie **szczegóły** dla jednego z działów.
 
@@ -276,6 +276,7 @@ W ramach tego samouczka możesz:
 > * Przedstawia informacje na temat planów kodu i rozwoju źródła programu EF Core
 > * Pokazaliśmy, jak uprościć kod za pomocą dynamicznego LINQ
 
-Na tym kończy się w tej serii samouczków na temat korzystania z programu Entity Framework Core w aplikacji ASP.NET Core MVC. Jeśli chcesz dowiedzieć się więcej o korzystaniu z programów EF 6 z platformą ASP.NET Core, zobacz następny artykuł.
+Na tym kończy się w tej serii samouczków na temat korzystania z programu Entity Framework Core w aplikacji ASP.NET Core MVC. Ta seria artykułów z nową bazę danych; Alternatywą jest odtwarzać modelu z istniejącej bazy danych.
+
 > [!div class="nextstepaction"]
-> [Program EF 6 z programem ASP.NET Core](../entity-framework-6.md)
+> [Samouczek: EF Core przy użyciu wzorca MVC, istniejąca baza danych](/ef/core/get-started/aspnetcore/new-db?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json)

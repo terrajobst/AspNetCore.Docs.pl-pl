@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 02/04/2019
 ms.topic: tutorial
 uid: data/ef-mvc/crud
-ms.openlocfilehash: 83f5d4bdc3d5872109649818b61a6dbb656fd8be
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: cee521eec3172c04b4d9d93c12076c42c9adff18
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264836"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58750625"
 ---
 # <a name="tutorial-implement-crud-functionality---aspnet-mvc-with-ef-core"></a>Samouczek: Implementowanie funkcji CRUD - platformy ASP.NET MVC z programem EF Core
 
@@ -32,7 +32,7 @@ W ramach tego samouczka możesz:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Rozpoczynanie pracy z programem EF Core w aplikacji internetowej ASP.NET Core MVC](intro.md)
+* [Rozpoczynanie pracy z programem EF Core i ASP.NET Core MVC](intro.md)
 
 ## <a name="customize-the-details-page"></a>Dostosowywanie strony szczegółów
 
@@ -243,7 +243,7 @@ Ten kod przyjmuje opcjonalny parametr, który wskazuje, czy metoda została wywo
 
 Zastąp HttpPost `Delete` metody akcji (o nazwie `DeleteConfirmed`) z następującym kodem, wykonuje operację usuwania rzeczywiste i przechwytującą wszystkie błędy aktualizacji bazy danych.
 
-[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DeleteWithReadFirst&highlight=6,8-11,13-14,18-23)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DeleteWithReadFirst&highlight=6-9,11-12,16-21)]
 
 Ten kod pobiera wybranej jednostki, następnie wywołuje `Remove` metodę, aby ustawić stan jednostki `Deleted`. Gdy `SaveChanges` nosi SQL DELETE polecenia jest generowany.
 
@@ -306,6 +306,7 @@ W ramach tego samouczka możesz:
 > * Zaktualizowane strony usuwania
 > * Połączenia zamknięte bazy danych
 
-Przejdź do następnego artykułu, aby dowiedzieć się, jak rozszerzyć funkcjonalność **indeksu** stronie przez dodanie sortowanie, filtrowanie i stronicowanie.
+Przejdź do następnego samouczka, aby dowiedzieć się, jak rozszerzyć funkcjonalność **indeksu** stronie przez dodanie sortowanie, filtrowanie i stronicowanie.
+
 > [!div class="nextstepaction"]
-> [Sortowanie, filtrowanie i stronicowanie](sort-filter-page.md)
+> [Dalej: Sortowanie, filtrowanie i stronicowanie](sort-filter-page.md)

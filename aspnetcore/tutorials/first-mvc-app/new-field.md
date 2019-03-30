@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/13/2018
 uid: tutorials/first-mvc-app/new-field
-ms.openlocfilehash: 44487b91c8bbd353157a5f5f1b834187e47e2f3e
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: cf8bb67703b564a711105123117498c94ab44e68
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264650"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58750522"
 ---
 # <a name="add-a-new-field-to-an-aspnet-core-mvc-app"></a>Dodawanie nowego pola do aplikacji ASP.NET Core MVC
 
@@ -38,7 +38,7 @@ Utwórz aplikację (Ctrl + Shift + B).
 Ponieważ zostały dodane nowe pole do `Movie` klasy, należy zaktualizować powiązania białą listę dzięki tej nowej właściwości zostaną dołączone. W *MoviesController.cs*, zaktualizuj `[Bind]` atrybutu dla obu `Create` i `Edit` metody akcji, aby uwzględnić `Rating` właściwości:
 
 ```csharp
-[Bind("ID,Title,ReleaseDate,Genre,Price,Rating")]
+[Bind("Id,Title,ReleaseDate,Genre,Price,Rating")]
    ```
 
 Aktualizowanie szablonów widoku, aby można było wyświetlić, tworzyć i edytować nowe `Rating` właściwości w widoku przeglądarki.

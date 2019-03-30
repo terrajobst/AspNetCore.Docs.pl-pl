@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 03/13/2019
 uid: security/app-secrets
-ms.openlocfilehash: 1a10c4d035510c689e3eccadc5986df0cc06b71e
-ms.sourcegitcommit: 34bf9fc6ea814c039401fca174642f0acb14be3c
+ms.openlocfilehash: 18313f8284e81d196cbe786f494a607ee97a299f
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57841517"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58750969"
 ---
 # <a name="safe-storage-of-app-secrets-in-development-in-aspnet-core"></a>Bezpieczne przechowywanie kluczy tajnych aplikacji w trakcie opracowywania w programie ASP.NET Core
 
@@ -37,6 +37,8 @@ Należy wziąć pod uwagę aplikację internetową platformy ASP.NET Core, w kt�
 
 > [!WARNING]
 > Zmienne środowiskowe są zazwyczaj przechowywane w zwykły tekst niezaszyfrowane. W przypadku naruszenia zabezpieczeń komputera lub proces, dostęp do zmiennych środowiskowych jest możliwy przez niezaufane. Dodatkowe środki, aby zapobiec ujawnieniu wpisami tajnymi użytkowników mogą być wymagane.
+
+[!INCLUDE[](~/includes/environmentVarableColon.md)]
 
 ## <a name="secret-manager"></a>Menedżer wpisu tajnego
 

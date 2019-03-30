@@ -4,15 +4,15 @@ description: W tym samouczku będziesz aktualizowanie powiązanych danych, aktua
 author: rick-anderson
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 02/05/2019
+ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/update-related-data
-ms.openlocfilehash: 1606b872df2df839266ef17efee1948065c4efae
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 6add725430380f0855fe660a70b90a4546ef0637
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209417"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58750908"
 ---
 # <a name="tutorial-update-related-data---aspnet-mvc-with-ef-core"></a>Samouczek: Aktualizowanie powiązanych danych — ASP.NET MVC z programem EF Core
 
@@ -35,7 +35,7 @@ W ramach tego samouczka możesz:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Odczytywanie powiązanych danych z programem EF Core dla aplikacji internetowej ASP.NET Core MVC](read-related-data.md)
+* [Odczytywanie powiązanych danych](read-related-data.md)
 
 ## <a name="customize-courses-pages"></a>Dostosowywanie stron kursów
 
@@ -123,7 +123,7 @@ Podczas edytowania rekordu przez instruktorów chcesz można zaktualizować prze
 
 W *InstructorsController.cs*, Zmień kod w HttpGet `Edit` metodę, tak że ładuje jednostki przez instruktorów `OfficeAssignment` właściwość nawigacji i wywołania `AsNoTracking`:
 
-[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?highlight=9,10&name=snippet_EditGetOA)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?highlight=8-11&name=snippet_EditGetOA)]
 
 Zastąp HttpPost `Edit` metody za pomocą następującego kodu, aby obsługiwać aktualizacje przypisania pakietu office:
 
@@ -225,7 +225,7 @@ W *Views/Instructors/Edit.cshtml*, Dodaj **kursów** pole z tablicą pola wyboru
 
 <a id="notepad"></a>
 > [!NOTE]
-> Po wklejeniu kodu w programie Visual Studio podziały wierszy zostanie zmieniona w taki sposób, że przerwanie wykonywania kodu. Naciśnij klawisze Ctrl + Z jeden raz, aby cofnąć, automatycznego formatowania. Rozwiąże podziałów wiersza, aby wyglądają jak wyświetlanych w tym miejscu. Wcięcie nie musi być idealna, ale `@</tr><tr>`, `@:<td>`, `@:</td>`, i `@:</tr>` linie muszą być w jednym wierszu pokazany lub otrzymasz błąd w czasie wykonywania. Za pomocą bloku wybrano nowego kodu naciśnij klawisz Tab, trzy razy na wiersz w górę nowego kodu przy użyciu istniejącego kodu. Możesz sprawdzić stan tego problemu [tutaj](https://developercommunity.visualstudio.com/content/problem/147795/razor-editor-malforms-pasted-markup-and-creates-in.html).
+> Po wklejeniu kodu w programie Visual Studio podziały wierszy może ulec zmianie w taki sposób, że przerwanie wykonywania kodu. Jeśli kod wygląda inaczej po wklejania, naciśnij klawisze Ctrl + Z jeden raz do cofania, automatycznego formatowania. Rozwiąże podziałów wiersza, aby wyglądają jak wyświetlanych w tym miejscu. Wcięcie nie musi być idealna, ale `@</tr><tr>`, `@:<td>`, `@:</td>`, i `@:</tr>` linie muszą być w jednym wierszu pokazany lub otrzymasz błąd w czasie wykonywania. Za pomocą bloku wybrano nowego kodu naciśnij klawisz Tab, trzy razy na wiersz w górę nowego kodu przy użyciu istniejącego kodu. Ten problem został rozwiązany w Visual Studio 2019 r.
 
 [!code-html[](intro/samples/cu/Views/Instructors/Edit.cshtml?range=35-61)]
 
@@ -314,6 +314,7 @@ W ramach tego samouczka możesz:
 > * Zaktualizowana strona Delete
 > * Lokalizacja biura dodano i kursów do tworzenia strony
 
-Przejdź do następnego artykułu, aby dowiedzieć się, jak obsługa konfliktów współbieżności.
+Przejdź do następnego samouczka, aby dowiedzieć się, jak obsługa konfliktów współbieżności.
+
 > [!div class="nextstepaction"]
 > [Obsługa konfliktów współbieżności](concurrency.md)

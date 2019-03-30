@@ -4,15 +4,15 @@ description: W tym samouczku przedstawiono sposób obsługi konfliktów, gdy wie
 author: rick-anderson
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 02/05/2019
+ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/concurrency
-ms.openlocfilehash: 7b18927d5d528ec2951087502e26b2b30214f389
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: 668cdafc078091b65035ecad854d2ecc62555721
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56103023"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58750861"
 ---
 # <a name="tutorial-handle-concurrency---aspnet-mvc-with-ef-core"></a>Samouczek: Obsługa współbieżności — ASP.NET MVC z programem EF Core
 
@@ -39,7 +39,7 @@ W ramach tego samouczka możesz:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Aktualizowanie powiązanych danych z programem EF Core w aplikacji internetowej ASP.NET Core MVC](update-related-data.md)
+* [Aktualizowanie powiązanych danych](update-related-data.md)
 
 ## <a name="concurrency-conflicts"></a>Konfliktów współbieżności
 
@@ -148,7 +148,7 @@ Zmiany pozycji "Wydziałom", usuwa kolumnę RowVersion i pokazuje pełną nazwę
 
 W obu narzędzia HttpGet `Edit` metody i `Details` metody, Dodaj `AsNoTracking`. W HttpGet `Edit` metody, Dodaj wczesne ładowanie dla administratora.
 
-[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_EagerLoading&highlight=2,3)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_EagerLoading)]
 
 Zastąp istniejący kod httppost `Edit` metoda następującym kodem:
 
@@ -309,6 +309,7 @@ W ramach tego samouczka możesz:
 > * Zaktualizowane strony usuwania
 > * Zaktualizowano szczegółowe informacje i tworzyć widoki
 
-Przejdź do następnego artykułu, aby dowiedzieć się, jak zaimplementować Tabela wg hierarchii dziedziczenia dla jednostek przez instruktorów i uczniów.
+Przejdź do następnego samouczka, aby dowiedzieć się, jak zaimplementować Tabela wg hierarchii dziedziczenia dla jednostek przez instruktorów i uczniów.
+
 > [!div class="nextstepaction"]
-> [Implementowanie Tabela wg hierarchii dziedziczenia](inheritance.md)
+> [Dalej: Implementowanie Tabela wg hierarchii dziedziczenia](inheritance.md)

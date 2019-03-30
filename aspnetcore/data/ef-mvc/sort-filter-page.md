@@ -3,15 +3,15 @@ title: 'Samouczek: Dodaj sortowanie, filtrowanie i stronicowanie — ASP.NET MVC
 description: W tym samouczku dodasz sortowanie, filtrowanie i stronicowanie funkcji do strony indeksu studentów. Utworzysz też strony, która wykonuje prostą grupowania.
 author: rick-anderson
 ms.author: tdykstra
-ms.date: 02/04/2019
+ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/sort-filter-page
-ms.openlocfilehash: 51b6b08d2410652f93427371aec299eb4c8789f1
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: dff5a5b1ba3c8ed07ccc8d134f8cfeb25b9f6689
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56103062"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58751037"
 ---
 # <a name="tutorial-add-sorting-filtering-and-paging---aspnet-mvc-with-ef-core"></a>Samouczek: Dodaj sortowanie, filtrowanie i stronicowanie — ASP.NET MVC z programem EF Core
 
@@ -33,7 +33,7 @@ W ramach tego samouczka możesz:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Implementowanie funkcji CRUD z programem EF Core w aplikacji internetowej ASP.NET Core MVC](crud.md)
+* [Implementowanie funkcji CRUD](crud.md)
 
 ## <a name="add-column-sort-links"></a>Dodaj kolumnę sortowania łącza
 
@@ -144,7 +144,7 @@ public async Task<IActionResult> Index(
     string sortOrder,
     string currentFilter,
     string searchString,
-    int? page)
+    int? pageNumber)
 ```
 
 Po raz pierwszy, ta strona jest wyświetlana, lub jeśli użytkownik nie kliknie, stronicowanie i sortowanie łącza, wszystkich parametrów będzie pusta.  Po kliknięciu łącza stronicowania zmienną strony będzie zawierać numer strony, aby wyświetlić.
@@ -158,7 +158,7 @@ Jeśli ciąg wyszukiwania została zmieniona podczas stronicowania, strony musi 
 ```csharp
 if (searchString != null)
 {
-    page = 1;
+    pageNumber = 1;
 }
 else
 {
@@ -169,10 +169,10 @@ else
 Na koniec `Index` metody `PaginatedList.CreateAsync` metoda konwertuje zapytań dla uczniów na pojedynczej strony uczniów na typ kolekcji, który obsługuje stronicowanie. Tego jednostronicowej studentów są następnie przekazywane do widoku.
 
 ```csharp
-return View(await PaginatedList<Student>.CreateAsync(students.AsNoTracking(), page ?? 1, pageSize));
+return View(await PaginatedList<Student>.CreateAsync(students.AsNoTracking(), pageNumber ?? 1, pageSize));
 ```
 
-`PaginatedList.CreateAsync` Metoda przyjmuje numeru strony. Dwa znaki zapytania reprezentują operatora łączenia wartości null. Operator łączenia wartości null określa wartość domyślną dla typu dopuszczającego wartość null; wyrażenie `(page ?? 1)` oznacza, że zwracają wartość `page` jeśli jego wartość, lub zwraca 1, jeśli `page` ma wartość null.
+`PaginatedList.CreateAsync` Metoda przyjmuje numeru strony. Dwa znaki zapytania reprezentują operatora łączenia wartości null. Operator łączenia wartości null określa wartość domyślną dla typu dopuszczającego wartość null; wyrażenie `(pageNumber ?? 1)` oznacza, że zwracają wartość `pageNumber` jeśli jego wartość, lub zwraca 1, jeśli `pageNumber` ma wartość null.
 
 ## <a name="add-paging-links"></a>Dodawanie łączy stronicowania
 
@@ -193,7 +193,7 @@ Przyciski stronicowania są wyświetlane przez pomocników tagów:
 ```html
 <a asp-action="Index"
    asp-route-sortOrder="@ViewData["CurrentSort"]"
-   asp-route-page="@(Model.PageIndex - 1)"
+   asp-route-pageNumber="@(Model.PageIndex - 1)"
    asp-route-currentFilter="@ViewData["CurrentFilter"]"
    class="btn btn-default @prevDisabled">
    Previous
@@ -234,7 +234,7 @@ Dodaj zmienną klasy kontekstu bazy danych bezpośrednio po otwierającym nawias
 
 [!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_AddContext&highlight=3,5,7)]
 
-Zastąp `About` metoda następującym kodem:
+Dodaj `About` metoda następującym kodem:
 
 [!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_UseDbSet)]
 
@@ -244,7 +244,7 @@ Instrukcji LINQ grup jednostek uczniów według daty rejestracji, oblicza liczb�
 
 ### <a name="modify-the-about-view"></a>Zmodyfikuj widok — informacje
 
-Zastąp kod w *Views/Home/About.cshtml* pliku następującym kodem:
+Dodaj *Views/Home/About.cshtml* pliku następującym kodem:
 
 [!code-html[](intro/samples/cu/Views/Home/About.cshtml)]
 
@@ -266,6 +266,7 @@ W ramach tego samouczka możesz:
 > * Dodano linki stronicowania
 > * Utworzona na stronie informacje
 
-Przejdź do następnego artykułu, aby dowiedzieć się, jak obsługiwać zmiany w modelu danych przy użyciu migracji.
+Przejdź do następnego samouczka, aby dowiedzieć się, jak obsługiwać zmiany w modelu danych przy użyciu migracji.
+
 > [!div class="nextstepaction"]
-> [Obsługa zmiany w modelu danych](migrations.md)
+> [Dalej: Obsługa zmiany w modelu danych](migrations.md)

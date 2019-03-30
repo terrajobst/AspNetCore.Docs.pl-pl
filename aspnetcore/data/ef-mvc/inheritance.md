@@ -4,15 +4,15 @@ description: Ten samouczek przedstawia sposób implementowania dziedziczenia w m
 author: rick-anderson
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 02/05/2019
+ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/inheritance
-ms.openlocfilehash: 0a5eb1aba43bc2adf746202772c7f98eff49b4ff
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: ba688b259206f21045376b6a38a266ad7528aec1
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56103010"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58750765"
 ---
 # <a name="tutorial-implement-inheritance---aspnet-mvc-with-ef-core"></a>Samouczek: Implementowanie dziedziczenia — ASP.NET MVC z programem EF Core
 
@@ -32,7 +32,7 @@ W ramach tego samouczka możesz:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Obsługa współbieżności przy użyciu programu EF Core w aplikacji internetowej ASP.NET Core MVC](concurrency.md)
+* [Obsługa współbieżności](concurrency.md)
 
 ## <a name="map-inheritance-to-database"></a>Mapowanie dziedziczenia do bazy danych
 
@@ -168,6 +168,7 @@ W ramach tego samouczka możesz:
 > * Utworzone i zaktualizuj migracji
 > * Przetestowane wdrożenia
 
-Przejdź do następnego artykułu, aby dowiedzieć się, jak obsługiwać różnych stosunkowo zaawansowane scenariusze platformy Entity Framework.
+Przejdź do następnego samouczka, aby dowiedzieć się, jak obsługiwać różnych stosunkowo zaawansowane scenariusze platformy Entity Framework.
+
 > [!div class="nextstepaction"]
-> [Tematy zaawansowane](advanced.md)
+> [Dalej: Tematy zaawansowane](advanced.md)

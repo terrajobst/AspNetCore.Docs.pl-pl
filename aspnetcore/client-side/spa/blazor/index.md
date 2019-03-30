@@ -1,18 +1,12 @@
 ---
 title: Wprowadzenie do Blazor
 author: guardrex
-description: Zapoznaj się z platformy ASP.NET Core Blazor, nowy sposób twórz interaktywne aplikacje po stronie klienta przy użyciu platformy .NET, które są uruchamiane w przeglądarce z format WebAssembly.
+description: 'Zapoznaj się z platformy ASP.NET Core Blazor, nowy sposób twórz interaktywne aplikacje po stronie klienta przy użyciu platformy .NET, które są uruchamiane w przeglądarce z format WebAssembly.'
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/11/2019
+ms.date: 03/27/2019
 uid: spa/blazor/index
-ms.openlocfilehash: a83863fa82595a875b73e04604167c7d00d39a81
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
-ms.translationtype: MT
-ms.contentlocale: pl-PL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410261"
 ---
 # <a name="introduction-to-blazor"></a>Wprowadzenie do Blazor
 
@@ -56,7 +50,7 @@ Blazor obsługuje urządzenia podstawowe wymagane przez większość aplikacji, 
 
 Aby zmniejszyć rozmiar aplikacji pobranych nieużywany kod usunięte z aplikacji publikowanych przez [konsolidatora języka pośredniego (IL)](xref:host-and-deploy/razor-components/configure-linker).
 
-Blazor jest modelu hostingu po stronie klienta dla składników Razor. Ponieważ składniki Razor oddzielenie logiki renderowania składnika w jaki sposób są stosowane aktualizacje interfejsu użytkownika, w jak Razor składniki mogą być hostowane jest elastyczność. Umożliwia składniki programu ASP.NET Core Razor hosta Razor składników w aplikacji ASP.NET Core na serwerze gdzie aktualizacje interfejsu użytkownika są obsługiwane za pośrednictwem połączenia SignalR. Aby uzyskać więcej informacji, zobacz <xref:razor-components/hosting-models#server-side-hosting-model>. 
+Blazor jest modelu hostingu po stronie klienta dla składników Razor. Ponieważ składniki Razor oddzielenie logiki renderowania składnika w jaki sposób są stosowane aktualizacje interfejsu użytkownika, w jak Razor składniki mogą być hostowane jest elastyczność. Umożliwia składniki programu ASP.NET Core Razor hosta Razor składników w aplikacji ASP.NET Core na serwerze gdzie aktualizacje interfejsu użytkownika są obsługiwane za pośrednictwem połączenia SignalR. Aby uzyskać więcej informacji, zobacz <xref:razor-components/index> i <xref:razor-components/hosting-models#server-side-hosting-model>. 
 
 ## <a name="components"></a>Składniki
 
