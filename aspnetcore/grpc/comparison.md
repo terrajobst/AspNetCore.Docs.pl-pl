@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
 ms.date: 03/26/2019
 uid: grpc/comparison
-ms.openlocfilehash: fbe1647ab6f5e890700eccf43f920e0ef2b37ce7
-ms.sourcegitcommit: 687ffb15ebe65379f75c84739ea851d5a0d788b7
+ms.openlocfilehash: 280d0c2be2a83e5d80cedeaa472e33c28ac983f9
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58489009"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58750495"
 ---
 # <a name="comparing-grpc-and-http-apis"></a>Porównanie gRPC i interfejsów API protokołu HTTP
 
@@ -40,7 +40,7 @@ gRPC komunikaty są serializowane, za pomocą [Protobuf](https://developers.goog
 
 gRPC jest przeznaczona dla protokołu HTTP/2, główne korektą protokołu HTTP, który zapewnia korzyści istotnie poprawiającą wydajność przy użyciu protokołu HTTP 1.x:
 
-* Binarny ramek i kompresji. Protokół HTTP/2 jest kompaktowego i wydajnego, wysyłanie i odbieranie.
+* Binarny ramek i kompresji. Protokół HTTP/2 jest zwarty i efektywne, zarówno w wysyłania i odbierania.
 * Funkcje multipleksowania wielu wywołań HTTP/2 za pośrednictwem jednego połączenia TCP. Eliminuje funkcje multipleksowania [blokuje head wiersza](https://en.wikipedia.org/wiki/Head-of-line_blocking).
 
 ### <a name="code-generation"></a>Generowanie kodu
@@ -93,7 +93,9 @@ Nie wszystkie funkcje gRPC firmy są obsługiwane przez gRPC w sieci Web. Klient
 
 Żądania interfejsu API protokołu HTTP są wysyłane w postaci tekstu i można przeczytać, a utworzone przez ludzi.
 
-gRPC komunikaty są zakodowane przy użyciu formatu Protobuf domyślnie. W trakcie efektywne wysyłanie i odbieranie Protobuf jego format binarny nie jest ludzi do odczytu. Formatu Protobuf wymaga komunikatu opis interfejsu określonego w `*.proto` pliku poprawnie zdeserializować. Aby obejść ten problem Protobuf komunikaty o [obsługi konwersji do i z formatu JSON](https://developers.google.com/protocol-buffers/docs/proto3#json). Ta funkcja umożliwia wysyłanie komunikatów czytelny dla człowieka podczas programowania, następnie przełączenie na efektywne komunikatów binarnych w środowiskach produkcyjnych.
+gRPC komunikaty są zakodowane przy użyciu formatu Protobuf domyślnie. W trakcie efektywne wysyłanie i odbieranie Protobuf jego format binarny nie jest ludzi do odczytu. Formatu Protobuf wymaga komunikatu opis interfejsu określonego w `*.proto` pliku poprawnie zdeserializować. Dodatkowe narzędzia musi służyć do analizowania ładunków Protobuf przesyłania i tworzą żądania ręcznie.
+Funkcje, takie jak [odbicia serwera](https://github.com/grpc/grpc/blob/master/doc/server-reflection.md) i [narzędzia wiersza polecenia gRPC](https://github.com/grpc/grpc/blob/master/doc/command_line_tool.md) istnieją, aby obejść to ograniczenie.
+Ponadto Protobuf komunikaty pomocy technicznej [konwersji do i z formatu JSON](https://developers.google.com/protocol-buffers/docs/proto3#json). Konwersja wbudowana JSON zapewnia sposób konwertować protobuf wiadomości w postaci czytelnej dla człowieka podczas debugowania.
 
 ## <a name="alternative-framework-scenarios"></a>Scenariusze alternatywnych Framework
 
