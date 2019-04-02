@@ -2,52 +2,54 @@
 title: Używanie wielu środowisk w programie ASP.NET Core
 author: rick-anderson
 description: Dowiedz się, jak kontrolować zachowanie aplikacji w wielu środowiskach, w aplikacji platformy ASP.NET Core.
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
-ms.date: 01/22/2019
+ms.custom: mvc
+ms.date: 03/30/2019
 uid: fundamentals/environments
-ms.openlocfilehash: 5982f3e51a68dfa29af482067156c42006f50c0c
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 4fc43935aa058efc4497d3d9eb607df6c0899443
+ms.sourcegitcommit: 5995f44e9e13d7e7aa8d193e2825381c42184e47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58208460"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58809240"
 ---
-# <a name="use-multiple-environments-in-aspnet-core"></a><span data-ttu-id="3f836-103">Używanie wielu środowisk w programie ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="3f836-103">Use multiple environments in ASP.NET Core</span></span>
+# <a name="use-multiple-environments-in-aspnet-core"></a><span data-ttu-id="07815-103">Używanie wielu środowisk w programie ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="07815-103">Use multiple environments in ASP.NET Core</span></span>
 
-<span data-ttu-id="3f836-104">Przez [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="3f836-104">By [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
+<span data-ttu-id="07815-104">Przez [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="07815-104">By [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
 
-<span data-ttu-id="3f836-105">Platforma ASP.NET Core konfiguruje zachowanie aplikacji, w zależności od środowiska czasu wykonywania przy użyciu zmiennej środowiskowej.</span><span class="sxs-lookup"><span data-stu-id="3f836-105">ASP.NET Core configures app behavior based on the runtime environment using an environment variable.</span></span>
+<span data-ttu-id="07815-105">Platforma ASP.NET Core konfiguruje zachowanie aplikacji, w zależności od środowiska czasu wykonywania przy użyciu zmiennej środowiskowej.</span><span class="sxs-lookup"><span data-stu-id="07815-105">ASP.NET Core configures app behavior based on the runtime environment using an environment variable.</span></span>
 
-<span data-ttu-id="3f836-106">[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/environments/sample) ([sposobu pobierania](xref:index#how-to-download-a-sample))</span><span class="sxs-lookup"><span data-stu-id="3f836-106">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/environments/sample) ([how to download](xref:index#how-to-download-a-sample))</span></span>
+<span data-ttu-id="07815-106">[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/environments/sample) ([sposobu pobierania](xref:index#how-to-download-a-sample))</span><span class="sxs-lookup"><span data-stu-id="07815-106">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/environments/sample) ([how to download](xref:index#how-to-download-a-sample))</span></span>
 
-## <a name="environments"></a><span data-ttu-id="3f836-107">Środowiska</span><span class="sxs-lookup"><span data-stu-id="3f836-107">Environments</span></span>
+## <a name="environments"></a><span data-ttu-id="07815-107">Środowiska</span><span class="sxs-lookup"><span data-stu-id="07815-107">Environments</span></span>
 
-<span data-ttu-id="3f836-108">Platforma ASP.NET Core odczytuje zmiennej środowiskowej `ASPNETCORE_ENVIRONMENT` przy uruchamianiu aplikacji i przechowuje wartość w [IHostingEnvironment.EnvironmentName](/dotnet/api/microsoft.aspnetcore.hosting.ihostingenvironment.environmentname).</span><span class="sxs-lookup"><span data-stu-id="3f836-108">ASP.NET Core reads the environment variable `ASPNETCORE_ENVIRONMENT` at app startup and stores the value in [IHostingEnvironment.EnvironmentName](/dotnet/api/microsoft.aspnetcore.hosting.ihostingenvironment.environmentname).</span></span> <span data-ttu-id="3f836-109">Możesz ustawić `ASPNETCORE_ENVIRONMENT` dowolną wartość, ale [trzech wartości](/dotnet/api/microsoft.aspnetcore.hosting.environmentname) są obsługiwane przez platformę: [Programowanie](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development), [przemieszczania](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging), i [produkcji](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production).</span><span class="sxs-lookup"><span data-stu-id="3f836-109">You can set `ASPNETCORE_ENVIRONMENT` to any value, but [three values](/dotnet/api/microsoft.aspnetcore.hosting.environmentname) are supported by the framework: [Development](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development), [Staging](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging), and [Production](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production).</span></span> <span data-ttu-id="3f836-110">Jeśli `ASPNETCORE_ENVIRONMENT` nie jest ustawiony, jego wartość domyślna to `Production`.</span><span class="sxs-lookup"><span data-stu-id="3f836-110">If `ASPNETCORE_ENVIRONMENT` isn't set, it defaults to `Production`.</span></span>
+<span data-ttu-id="07815-108">Platforma ASP.NET Core odczytuje zmiennej środowiskowej `ASPNETCORE_ENVIRONMENT` przy uruchamianiu aplikacji i przechowuje wartość w [IHostingEnvironment.EnvironmentName](/dotnet/api/microsoft.aspnetcore.hosting.ihostingenvironment.environmentname).</span><span class="sxs-lookup"><span data-stu-id="07815-108">ASP.NET Core reads the environment variable `ASPNETCORE_ENVIRONMENT` at app startup and stores the value in [IHostingEnvironment.EnvironmentName](/dotnet/api/microsoft.aspnetcore.hosting.ihostingenvironment.environmentname).</span></span> <span data-ttu-id="07815-109">Możesz ustawić `ASPNETCORE_ENVIRONMENT` dowolną wartość, ale [trzech wartości](/dotnet/api/microsoft.aspnetcore.hosting.environmentname) są obsługiwane przez platformę: [Programowanie](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development), [przemieszczania](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging), i [produkcji](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production).</span><span class="sxs-lookup"><span data-stu-id="07815-109">You can set `ASPNETCORE_ENVIRONMENT` to any value, but [three values](/dotnet/api/microsoft.aspnetcore.hosting.environmentname) are supported by the framework: [Development](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development), [Staging](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging), and [Production](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production).</span></span> <span data-ttu-id="07815-110">Jeśli `ASPNETCORE_ENVIRONMENT` nie jest ustawiony, jego wartość domyślna to `Production`.</span><span class="sxs-lookup"><span data-stu-id="07815-110">If `ASPNETCORE_ENVIRONMENT` isn't set, it defaults to `Production`.</span></span>
 
 [!code-csharp[](environments/sample/EnvironmentsSample/Startup.cs?name=snippet)]
 
-<span data-ttu-id="3f836-111">Powyższy kod:</span><span class="sxs-lookup"><span data-stu-id="3f836-111">The preceding code:</span></span>
+<span data-ttu-id="07815-111">Powyższy kod:</span><span class="sxs-lookup"><span data-stu-id="07815-111">The preceding code:</span></span>
 
-* <span data-ttu-id="3f836-112">Wywołania [UseDeveloperExceptionPage](/dotnet/api/microsoft.aspnetcore.builder.developerexceptionpageextensions.usedeveloperexceptionpage) podczas `ASPNETCORE_ENVIRONMENT` ustawiono `Development`.</span><span class="sxs-lookup"><span data-stu-id="3f836-112">Calls [UseDeveloperExceptionPage](/dotnet/api/microsoft.aspnetcore.builder.developerexceptionpageextensions.usedeveloperexceptionpage) when `ASPNETCORE_ENVIRONMENT` is set to `Development`.</span></span>
-* <span data-ttu-id="3f836-113">Wywołania [UseExceptionHandler](/dotnet/api/microsoft.aspnetcore.builder.exceptionhandlerextensions.useexceptionhandler) podczas wartość `ASPNETCORE_ENVIRONMENT` ustawiono jeden z następujących czynności:</span><span class="sxs-lookup"><span data-stu-id="3f836-113">Calls [UseExceptionHandler](/dotnet/api/microsoft.aspnetcore.builder.exceptionhandlerextensions.useexceptionhandler) when the value of `ASPNETCORE_ENVIRONMENT` is set one of the following:</span></span>
+* <span data-ttu-id="07815-112">Wywołania [UseDeveloperExceptionPage](/dotnet/api/microsoft.aspnetcore.builder.developerexceptionpageextensions.usedeveloperexceptionpage) podczas `ASPNETCORE_ENVIRONMENT` ustawiono `Development`.</span><span class="sxs-lookup"><span data-stu-id="07815-112">Calls [UseDeveloperExceptionPage](/dotnet/api/microsoft.aspnetcore.builder.developerexceptionpageextensions.usedeveloperexceptionpage) when `ASPNETCORE_ENVIRONMENT` is set to `Development`.</span></span>
+* <span data-ttu-id="07815-113">Wywołania [UseExceptionHandler](/dotnet/api/microsoft.aspnetcore.builder.exceptionhandlerextensions.useexceptionhandler) podczas wartość `ASPNETCORE_ENVIRONMENT` ustawiono jeden z następujących czynności:</span><span class="sxs-lookup"><span data-stu-id="07815-113">Calls [UseExceptionHandler](/dotnet/api/microsoft.aspnetcore.builder.exceptionhandlerextensions.useexceptionhandler) when the value of `ASPNETCORE_ENVIRONMENT` is set one of the following:</span></span>
 
   * `Staging`
   * `Production`
   * `Staging_2`
 
-<span data-ttu-id="3f836-114">[Pomocnik tagu środowiska](xref:mvc/views/tag-helpers/builtin-th/environment-tag-helper) używa wartości `IHostingEnvironment.EnvironmentName` do dołączania lub wykluczania znaczników w elemencie:</span><span class="sxs-lookup"><span data-stu-id="3f836-114">The [Environment Tag Helper](xref:mvc/views/tag-helpers/builtin-th/environment-tag-helper) uses the value of `IHostingEnvironment.EnvironmentName` to include or exclude markup in the element:</span></span>
+<span data-ttu-id="07815-114">[Pomocnik tagu środowiska](xref:mvc/views/tag-helpers/builtin-th/environment-tag-helper) używa wartości `IHostingEnvironment.EnvironmentName` do dołączania lub wykluczania znaczników w elemencie:</span><span class="sxs-lookup"><span data-stu-id="07815-114">The [Environment Tag Helper](xref:mvc/views/tag-helpers/builtin-th/environment-tag-helper) uses the value of `IHostingEnvironment.EnvironmentName` to include or exclude markup in the element:</span></span>
 
 [!code-cshtml[](environments/sample-snapshot/EnvironmentsSample/Pages/About.cshtml)]
 
-<span data-ttu-id="3f836-115">W systemie Windows i macOS wartości i zmienne środowiskowe nie są z uwzględnieniem wielkości liter.</span><span class="sxs-lookup"><span data-stu-id="3f836-115">On Windows and macOS, environment variables and values aren't case sensitive.</span></span> <span data-ttu-id="3f836-116">Zmienne środowiskowe systemu Linux i wartości są **z uwzględnieniem wielkości liter** domyślnie.</span><span class="sxs-lookup"><span data-stu-id="3f836-116">Linux environment variables and values are **case sensitive** by default.</span></span>
+<span data-ttu-id="07815-115">W systemie Windows i macOS wartości i zmienne środowiskowe nie są z uwzględnieniem wielkości liter.</span><span class="sxs-lookup"><span data-stu-id="07815-115">On Windows and macOS, environment variables and values aren't case sensitive.</span></span> <span data-ttu-id="07815-116">Zmienne środowiskowe systemu Linux i wartości są **z uwzględnieniem wielkości liter** domyślnie.</span><span class="sxs-lookup"><span data-stu-id="07815-116">Linux environment variables and values are **case sensitive** by default.</span></span>
 
-### <a name="development"></a><span data-ttu-id="3f836-117">Tworzenie</span><span class="sxs-lookup"><span data-stu-id="3f836-117">Development</span></span>
+### <a name="development"></a><span data-ttu-id="07815-117">Tworzenie</span><span class="sxs-lookup"><span data-stu-id="07815-117">Development</span></span>
 
-<span data-ttu-id="3f836-118">Środowisko projektowe można włączyć funkcje, które nie powinny być dostępne w środowisku produkcyjnym.</span><span class="sxs-lookup"><span data-stu-id="3f836-118">The development environment can enable features that shouldn't be exposed in production.</span></span> <span data-ttu-id="3f836-119">Na przykład włączyć szablony ASP.NET Core [stronie wyjątków deweloperów](xref:fundamentals/error-handling#developer-exception-page) w środowisku programistycznym.</span><span class="sxs-lookup"><span data-stu-id="3f836-119">For example, the ASP.NET Core templates enable the [Developer Exception Page](xref:fundamentals/error-handling#developer-exception-page) in the development environment.</span></span>
+<span data-ttu-id="07815-118">Środowisko projektowe można włączyć funkcje, które nie powinny być dostępne w środowisku produkcyjnym.</span><span class="sxs-lookup"><span data-stu-id="07815-118">The development environment can enable features that shouldn't be exposed in production.</span></span> <span data-ttu-id="07815-119">Na przykład włączyć szablony ASP.NET Core [stronie wyjątków deweloperów](xref:fundamentals/error-handling#developer-exception-page) w środowisku programistycznym.</span><span class="sxs-lookup"><span data-stu-id="07815-119">For example, the ASP.NET Core templates enable the [Developer Exception Page](xref:fundamentals/error-handling#developer-exception-page) in the development environment.</span></span>
 
-<span data-ttu-id="3f836-120">Środowisko do tworzenia aplikacji z komputera lokalnego można ustawić w *Properties\launchSettings.json* pliku projektu.</span><span class="sxs-lookup"><span data-stu-id="3f836-120">The environment for local machine development can be set in the *Properties\launchSettings.json* file of the project.</span></span> <span data-ttu-id="3f836-121">Wartości środowiska ustawione w *launchSettings.json* zastąpienie wartości ustawionych w środowisku systemowym.</span><span class="sxs-lookup"><span data-stu-id="3f836-121">Environment values set in *launchSettings.json* override values set in the system environment.</span></span>
+<span data-ttu-id="07815-120">Środowisko do tworzenia aplikacji z komputera lokalnego można ustawić w *Properties\launchSettings.json* pliku projektu.</span><span class="sxs-lookup"><span data-stu-id="07815-120">The environment for local machine development can be set in the *Properties\launchSettings.json* file of the project.</span></span> <span data-ttu-id="07815-121">Wartości środowiska ustawione w *launchSettings.json* zastąpienie wartości ustawionych w środowisku systemowym.</span><span class="sxs-lookup"><span data-stu-id="07815-121">Environment values set in *launchSettings.json* override values set in the system environment.</span></span>
 
-<span data-ttu-id="3f836-122">Następujący kod JSON zawiera trzy profile z *launchSettings.json* pliku:</span><span class="sxs-lookup"><span data-stu-id="3f836-122">The following JSON shows three profiles from a *launchSettings.json* file:</span></span>
+<span data-ttu-id="07815-122">Następujący kod JSON zawiera trzy profile z *launchSettings.json* pliku:</span><span class="sxs-lookup"><span data-stu-id="07815-122">The following JSON shows three profiles from a *launchSettings.json* file:</span></span>
 
 ```json
 {
@@ -91,10 +93,8 @@ ms.locfileid: "58208460"
 }
 ```
 
-::: moniker range=">= aspnetcore-2.1"
-
 > [!NOTE]
-> <span data-ttu-id="3f836-123">`applicationUrl` Właściwość *launchSettings.json* można określić listę adresów URL serwera.</span><span class="sxs-lookup"><span data-stu-id="3f836-123">The `applicationUrl` property in *launchSettings.json* can specify a list of server URLs.</span></span> <span data-ttu-id="3f836-124">Użyj średnika między adresami URL na liście:</span><span class="sxs-lookup"><span data-stu-id="3f836-124">Use a semicolon between the URLs in the list:</span></span>
+> <span data-ttu-id="07815-123">`applicationUrl` Właściwość *launchSettings.json* można określić listę adresów URL serwera.</span><span class="sxs-lookup"><span data-stu-id="07815-123">The `applicationUrl` property in *launchSettings.json* can specify a list of server URLs.</span></span> <span data-ttu-id="07815-124">Użyj średnika między adresami URL na liście:</span><span class="sxs-lookup"><span data-stu-id="07815-124">Use a semicolon between the URLs in the list:</span></span>
 >
 > ```json
 > "EnvironmentsSample": {
@@ -107,20 +107,18 @@ ms.locfileid: "58208460"
 > }
 > ```
 
-::: moniker-end
-
-<span data-ttu-id="3f836-125">Gdy aplikacja jest uruchamiana z [dotnet, uruchom](/dotnet/core/tools/dotnet-run), pierwszy profil z `"commandName": "Project"` jest używany.</span><span class="sxs-lookup"><span data-stu-id="3f836-125">When the app is launched with [dotnet run](/dotnet/core/tools/dotnet-run), the first profile with `"commandName": "Project"` is used.</span></span> <span data-ttu-id="3f836-126">Wartość `commandName` Określa serwer sieci web, aby uruchomić.</span><span class="sxs-lookup"><span data-stu-id="3f836-126">The value of `commandName` specifies the web server to launch.</span></span> <span data-ttu-id="3f836-127">`commandName` może być jednym z następujących czynności:</span><span class="sxs-lookup"><span data-stu-id="3f836-127">`commandName` can be any one of the following:</span></span>
+<span data-ttu-id="07815-125">Gdy aplikacja jest uruchamiana z [dotnet, uruchom](/dotnet/core/tools/dotnet-run), pierwszy profil z `"commandName": "Project"` jest używany.</span><span class="sxs-lookup"><span data-stu-id="07815-125">When the app is launched with [dotnet run](/dotnet/core/tools/dotnet-run), the first profile with `"commandName": "Project"` is used.</span></span> <span data-ttu-id="07815-126">Wartość `commandName` Określa serwer sieci web, aby uruchomić.</span><span class="sxs-lookup"><span data-stu-id="07815-126">The value of `commandName` specifies the web server to launch.</span></span> <span data-ttu-id="07815-127">`commandName` może być jednym z następujących czynności:</span><span class="sxs-lookup"><span data-stu-id="07815-127">`commandName` can be any one of the following:</span></span>
 
 * `IISExpress`
 * `IIS`
-* <span data-ttu-id="3f836-128">`Project` (który spowoduje uruchomienie Kestrel)</span><span class="sxs-lookup"><span data-stu-id="3f836-128">`Project` (which launches Kestrel)</span></span>
+* <span data-ttu-id="07815-128">`Project` (który spowoduje uruchomienie Kestrel)</span><span class="sxs-lookup"><span data-stu-id="07815-128">`Project` (which launches Kestrel)</span></span>
 
-<span data-ttu-id="3f836-129">Gdy aplikacja jest uruchamiana z [dotnet, uruchom](/dotnet/core/tools/dotnet-run):</span><span class="sxs-lookup"><span data-stu-id="3f836-129">When an app is launched with [dotnet run](/dotnet/core/tools/dotnet-run):</span></span>
+<span data-ttu-id="07815-129">Gdy aplikacja jest uruchamiana z [dotnet, uruchom](/dotnet/core/tools/dotnet-run):</span><span class="sxs-lookup"><span data-stu-id="07815-129">When an app is launched with [dotnet run](/dotnet/core/tools/dotnet-run):</span></span>
 
-* <span data-ttu-id="3f836-130">*launchSettings.json* jest do odczytu. Jeśli jest dostępny.</span><span class="sxs-lookup"><span data-stu-id="3f836-130">*launchSettings.json* is read if available.</span></span> <span data-ttu-id="3f836-131">`environmentVariables` ustawienia w *launchSettings.json* zastępują zmienne środowiskowe.</span><span class="sxs-lookup"><span data-stu-id="3f836-131">`environmentVariables` settings in *launchSettings.json* override environment variables.</span></span>
-* <span data-ttu-id="3f836-132">Środowisko hostingu jest wyświetlany.</span><span class="sxs-lookup"><span data-stu-id="3f836-132">The hosting environment is displayed.</span></span>
+* <span data-ttu-id="07815-130">*launchSettings.json* jest do odczytu. Jeśli jest dostępny.</span><span class="sxs-lookup"><span data-stu-id="07815-130">*launchSettings.json* is read if available.</span></span> <span data-ttu-id="07815-131">`environmentVariables` ustawienia w *launchSettings.json* zastępują zmienne środowiskowe.</span><span class="sxs-lookup"><span data-stu-id="07815-131">`environmentVariables` settings in *launchSettings.json* override environment variables.</span></span>
+* <span data-ttu-id="07815-132">Środowisko hostingu jest wyświetlany.</span><span class="sxs-lookup"><span data-stu-id="07815-132">The hosting environment is displayed.</span></span>
 
-<span data-ttu-id="3f836-133">Następujące dane wyjściowe zawierają aplikację wprowadzenie [dotnet, uruchom](/dotnet/core/tools/dotnet-run):</span><span class="sxs-lookup"><span data-stu-id="3f836-133">The following output shows an app started with [dotnet run](/dotnet/core/tools/dotnet-run):</span></span>
+<span data-ttu-id="07815-133">Następujące dane wyjściowe zawierają aplikację wprowadzenie [dotnet, uruchom](/dotnet/core/tools/dotnet-run):</span><span class="sxs-lookup"><span data-stu-id="07815-133">The following output shows an app started with [dotnet run](/dotnet/core/tools/dotnet-run):</span></span>
 
 ```bash
 PS C:\Websites\EnvironmentsSample> dotnet run
@@ -131,16 +129,16 @@ Now listening on: http://localhost:54340
 Application started. Press Ctrl+C to shut down.
 ```
 
-<span data-ttu-id="3f836-134">Właściwości projektu programu Visual Studio **debugowania** karta zawiera graficzny interfejs użytkownika do edycji *launchSettings.json* pliku:</span><span class="sxs-lookup"><span data-stu-id="3f836-134">The Visual Studio project properties **Debug** tab provides a GUI to edit the *launchSettings.json* file:</span></span>
+<span data-ttu-id="07815-134">Właściwości projektu programu Visual Studio **debugowania** karta zawiera graficzny interfejs użytkownika do edycji *launchSettings.json* pliku:</span><span class="sxs-lookup"><span data-stu-id="07815-134">The Visual Studio project properties **Debug** tab provides a GUI to edit the *launchSettings.json* file:</span></span>
 
 ![Zmienne środowiskowe ustawienie właściwości projektu](environments/_static/project-properties-debug.png)
 
-<span data-ttu-id="3f836-136">Zmiany wprowadzone do profilów projektu nie mogą zostać wprowadzone do czasu ponownego uruchomienia serwera sieci web.</span><span class="sxs-lookup"><span data-stu-id="3f836-136">Changes made to project profiles may not take effect until the web server is restarted.</span></span> <span data-ttu-id="3f836-137">Kestrel musi być dopiero po ponownym uruchomieniu potrafi wykrywać zmiany wprowadzone w swoim środowisku.</span><span class="sxs-lookup"><span data-stu-id="3f836-137">Kestrel must be restarted before it can detect changes made to its environment.</span></span>
+<span data-ttu-id="07815-136">Zmiany wprowadzone do profilów projektu nie mogą zostać wprowadzone do czasu ponownego uruchomienia serwera sieci web.</span><span class="sxs-lookup"><span data-stu-id="07815-136">Changes made to project profiles may not take effect until the web server is restarted.</span></span> <span data-ttu-id="07815-137">Kestrel musi być dopiero po ponownym uruchomieniu potrafi wykrywać zmiany wprowadzone w swoim środowisku.</span><span class="sxs-lookup"><span data-stu-id="07815-137">Kestrel must be restarted before it can detect changes made to its environment.</span></span>
 
 > [!WARNING]
-> <span data-ttu-id="3f836-138">*launchSettings.json* nie należy przechowywać wpisy tajne.</span><span class="sxs-lookup"><span data-stu-id="3f836-138">*launchSettings.json* shouldn't store secrets.</span></span> <span data-ttu-id="3f836-139">[Narzędzie Menedżer klucz tajny](xref:security/app-secrets) może służyć do przechowywania kluczy tajnych na potrzeby lokalnego programowania.</span><span class="sxs-lookup"><span data-stu-id="3f836-139">The [Secret Manager tool](xref:security/app-secrets) can be used to store secrets for local development.</span></span>
+> <span data-ttu-id="07815-138">*launchSettings.json* nie należy przechowywać wpisy tajne.</span><span class="sxs-lookup"><span data-stu-id="07815-138">*launchSettings.json* shouldn't store secrets.</span></span> <span data-ttu-id="07815-139">[Narzędzie Menedżer klucz tajny](xref:security/app-secrets) może służyć do przechowywania kluczy tajnych na potrzeby lokalnego programowania.</span><span class="sxs-lookup"><span data-stu-id="07815-139">The [Secret Manager tool](xref:security/app-secrets) can be used to store secrets for local development.</span></span>
 
-<span data-ttu-id="3f836-140">Korzystając z [programu Visual Studio Code](https://code.visualstudio.com/), zmienne środowiskowe można ustawić w *.vscode/launch.json* pliku.</span><span class="sxs-lookup"><span data-stu-id="3f836-140">When using [Visual Studio Code](https://code.visualstudio.com/), environment variables can be set in the *.vscode/launch.json* file.</span></span> <span data-ttu-id="3f836-141">Poniższy przykład ustawia środowisko `Development`:</span><span class="sxs-lookup"><span data-stu-id="3f836-141">The following example sets the environment to `Development`:</span></span>
+<span data-ttu-id="07815-140">Korzystając z [programu Visual Studio Code](https://code.visualstudio.com/), zmienne środowiskowe można ustawić w *.vscode/launch.json* pliku.</span><span class="sxs-lookup"><span data-stu-id="07815-140">When using [Visual Studio Code](https://code.visualstudio.com/), environment variables can be set in the *.vscode/launch.json* file.</span></span> <span data-ttu-id="07815-141">Poniższy przykład ustawia środowisko `Development`:</span><span class="sxs-lookup"><span data-stu-id="07815-141">The following example sets the environment to `Development`:</span></span>
 
 ```json
 {
@@ -159,90 +157,90 @@ Application started. Press Ctrl+C to shut down.
 }
 ```
 
-<span data-ttu-id="3f836-142">A *.vscode/launch.json* plik w projekcie nie jest do odczytu podczas uruchamiania aplikacji przy użyciu `dotnet run` w taki sam sposób jak *Properties/launchSettings.json*.</span><span class="sxs-lookup"><span data-stu-id="3f836-142">A *.vscode/launch.json* file in the project isn't read when starting the app with `dotnet run` in the same way as *Properties/launchSettings.json*.</span></span> <span data-ttu-id="3f836-143">Podczas uruchamiania aplikacji w trakcie programowania, który nie ma *launchSettings.json* pliku, należy ustawić środowisko przy użyciu zmiennej środowiskowej lub argument wiersza polecenia, aby `dotnet run` polecenia.</span><span class="sxs-lookup"><span data-stu-id="3f836-143">When launching an app in development that doesn't have a *launchSettings.json* file, either set the environment with an environment variable or a command-line argument to the `dotnet run` command.</span></span>
+<span data-ttu-id="07815-142">A *.vscode/launch.json* plik w projekcie nie jest do odczytu podczas uruchamiania aplikacji przy użyciu `dotnet run` w taki sam sposób jak *Properties/launchSettings.json*.</span><span class="sxs-lookup"><span data-stu-id="07815-142">A *.vscode/launch.json* file in the project isn't read when starting the app with `dotnet run` in the same way as *Properties/launchSettings.json*.</span></span> <span data-ttu-id="07815-143">Podczas uruchamiania aplikacji w trakcie programowania, który nie ma *launchSettings.json* pliku, należy ustawić środowisko przy użyciu zmiennej środowiskowej lub argument wiersza polecenia, aby `dotnet run` polecenia.</span><span class="sxs-lookup"><span data-stu-id="07815-143">When launching an app in development that doesn't have a *launchSettings.json* file, either set the environment with an environment variable or a command-line argument to the `dotnet run` command.</span></span>
 
-### <a name="production"></a><span data-ttu-id="3f836-144">Produkcji</span><span class="sxs-lookup"><span data-stu-id="3f836-144">Production</span></span>
+### <a name="production"></a><span data-ttu-id="07815-144">Produkcji</span><span class="sxs-lookup"><span data-stu-id="07815-144">Production</span></span>
 
-<span data-ttu-id="3f836-145">W środowisku produkcyjnym należy skonfigurować tak, aby zwiększyć poziom bezpieczeństwa, wydajności i niezawodności aplikacji.</span><span class="sxs-lookup"><span data-stu-id="3f836-145">The production environment should be configured to maximize security, performance, and app robustness.</span></span> <span data-ttu-id="3f836-146">Niektóre typowe ustawienia, które różnią się od etapu programowania obejmują:</span><span class="sxs-lookup"><span data-stu-id="3f836-146">Some common settings that differ from development include:</span></span>
+<span data-ttu-id="07815-145">W środowisku produkcyjnym należy skonfigurować tak, aby zwiększyć poziom bezpieczeństwa, wydajności i niezawodności aplikacji.</span><span class="sxs-lookup"><span data-stu-id="07815-145">The production environment should be configured to maximize security, performance, and app robustness.</span></span> <span data-ttu-id="07815-146">Niektóre typowe ustawienia, które różnią się od etapu programowania obejmują:</span><span class="sxs-lookup"><span data-stu-id="07815-146">Some common settings that differ from development include:</span></span>
 
-* <span data-ttu-id="3f836-147">Pamięć podręczna.</span><span class="sxs-lookup"><span data-stu-id="3f836-147">Caching.</span></span>
-* <span data-ttu-id="3f836-148">Zasoby po stronie klienta są powiązane, zminimalizowany i potencjalnie udostępnianej przez usługę CDN.</span><span class="sxs-lookup"><span data-stu-id="3f836-148">Client-side resources are bundled, minified, and potentially served from a CDN.</span></span>
-* <span data-ttu-id="3f836-149">Błąd diagnostyki strony wyłączone.</span><span class="sxs-lookup"><span data-stu-id="3f836-149">Diagnostic error pages disabled.</span></span>
-* <span data-ttu-id="3f836-150">Strony błędów przyjazna, włączone.</span><span class="sxs-lookup"><span data-stu-id="3f836-150">Friendly error pages enabled.</span></span>
-* <span data-ttu-id="3f836-151">Rejestrowanie produkcji i monitorowanie jest włączone.</span><span class="sxs-lookup"><span data-stu-id="3f836-151">Production logging and monitoring enabled.</span></span> <span data-ttu-id="3f836-152">Na przykład [usługi Application Insights](/azure/application-insights/app-insights-asp-net-core).</span><span class="sxs-lookup"><span data-stu-id="3f836-152">For example, [Application Insights](/azure/application-insights/app-insights-asp-net-core).</span></span>
+* <span data-ttu-id="07815-147">Pamięć podręczna.</span><span class="sxs-lookup"><span data-stu-id="07815-147">Caching.</span></span>
+* <span data-ttu-id="07815-148">Zasoby po stronie klienta są powiązane, zminimalizowany i potencjalnie udostępnianej przez usługę CDN.</span><span class="sxs-lookup"><span data-stu-id="07815-148">Client-side resources are bundled, minified, and potentially served from a CDN.</span></span>
+* <span data-ttu-id="07815-149">Błąd diagnostyki strony wyłączone.</span><span class="sxs-lookup"><span data-stu-id="07815-149">Diagnostic error pages disabled.</span></span>
+* <span data-ttu-id="07815-150">Strony błędów przyjazna, włączone.</span><span class="sxs-lookup"><span data-stu-id="07815-150">Friendly error pages enabled.</span></span>
+* <span data-ttu-id="07815-151">Rejestrowanie produkcji i monitorowanie jest włączone.</span><span class="sxs-lookup"><span data-stu-id="07815-151">Production logging and monitoring enabled.</span></span> <span data-ttu-id="07815-152">Na przykład [usługi Application Insights](/azure/application-insights/app-insights-asp-net-core).</span><span class="sxs-lookup"><span data-stu-id="07815-152">For example, [Application Insights](/azure/application-insights/app-insights-asp-net-core).</span></span>
 
-## <a name="set-the-environment"></a><span data-ttu-id="3f836-153">Ustaw środowisko</span><span class="sxs-lookup"><span data-stu-id="3f836-153">Set the environment</span></span>
+## <a name="set-the-environment"></a><span data-ttu-id="07815-153">Ustaw środowisko</span><span class="sxs-lookup"><span data-stu-id="07815-153">Set the environment</span></span>
 
-<span data-ttu-id="3f836-154">Często jest to przydatne do zestawu określonego środowiska na potrzeby testowania.</span><span class="sxs-lookup"><span data-stu-id="3f836-154">It's often useful to set a specific environment for testing.</span></span> <span data-ttu-id="3f836-155">Jeśli środowisko nie jest ustawiona, wartość domyślna to `Production`, która wyłącza większości funkcji debugowania.</span><span class="sxs-lookup"><span data-stu-id="3f836-155">If the environment isn't set, it defaults to `Production`, which disables most debugging features.</span></span> <span data-ttu-id="3f836-156">Metoda do ustawiania środowiska zależy od systemu operacyjnego.</span><span class="sxs-lookup"><span data-stu-id="3f836-156">The method for setting the environment depends on the operating system.</span></span>
+<span data-ttu-id="07815-154">Często jest to przydatne do zestawu określonego środowiska na potrzeby testowania.</span><span class="sxs-lookup"><span data-stu-id="07815-154">It's often useful to set a specific environment for testing.</span></span> <span data-ttu-id="07815-155">Jeśli środowisko nie jest ustawiona, wartość domyślna to `Production`, która wyłącza większości funkcji debugowania.</span><span class="sxs-lookup"><span data-stu-id="07815-155">If the environment isn't set, it defaults to `Production`, which disables most debugging features.</span></span> <span data-ttu-id="07815-156">Metoda do ustawiania środowiska zależy od systemu operacyjnego.</span><span class="sxs-lookup"><span data-stu-id="07815-156">The method for setting the environment depends on the operating system.</span></span>
 
-### <a name="azure-app-service"></a><span data-ttu-id="3f836-157">Usługa Azure App Service</span><span class="sxs-lookup"><span data-stu-id="3f836-157">Azure App Service</span></span>
+### <a name="azure-app-service"></a><span data-ttu-id="07815-157">Usługa Azure App Service</span><span class="sxs-lookup"><span data-stu-id="07815-157">Azure App Service</span></span>
 
-<span data-ttu-id="3f836-158">Aby ustawić środowiska w [usługi Azure App Service](https://azure.microsoft.com/services/app-service/), wykonaj następujące czynności:</span><span class="sxs-lookup"><span data-stu-id="3f836-158">To set the environment in [Azure App Service](https://azure.microsoft.com/services/app-service/), perform the following steps:</span></span>
+<span data-ttu-id="07815-158">Aby ustawić środowiska w [usługi Azure App Service](https://azure.microsoft.com/services/app-service/), wykonaj następujące czynności:</span><span class="sxs-lookup"><span data-stu-id="07815-158">To set the environment in [Azure App Service](https://azure.microsoft.com/services/app-service/), perform the following steps:</span></span>
 
-1. <span data-ttu-id="3f836-159">Wybierz aplikację z **App Services** bloku.</span><span class="sxs-lookup"><span data-stu-id="3f836-159">Select the app from the **App Services** blade.</span></span>
-1. <span data-ttu-id="3f836-160">W **ustawienia** grupy, wybierz opcję **ustawienia aplikacji** bloku.</span><span class="sxs-lookup"><span data-stu-id="3f836-160">In the **SETTINGS** group, select the **Application settings** blade.</span></span>
-1. <span data-ttu-id="3f836-161">W **ustawienia aplikacji** wybierz opcję **Dodaj nowe ustawienie**.</span><span class="sxs-lookup"><span data-stu-id="3f836-161">In the **Application settings** area, select **Add new setting**.</span></span>
-1. <span data-ttu-id="3f836-162">Aby uzyskać **wprowadź nazwę**, podaj `ASPNETCORE_ENVIRONMENT`.</span><span class="sxs-lookup"><span data-stu-id="3f836-162">For **Enter a name**, provide `ASPNETCORE_ENVIRONMENT`.</span></span> <span data-ttu-id="3f836-163">Aby uzyskać **wprowadź wartość**, zapewniają środowiska (na przykład `Staging`).</span><span class="sxs-lookup"><span data-stu-id="3f836-163">For **Enter a value**, provide the environment (for example, `Staging`).</span></span>
-1. <span data-ttu-id="3f836-164">Wybierz **ustawienie miejsca** pole wyboru, jeśli chcesz, aby ustawienie środowiska, aby pozostać z bieżącym gnieździe, gdy zostały zamienione miejscami wdrożenia.</span><span class="sxs-lookup"><span data-stu-id="3f836-164">Select the **Slot Setting** check box if you wish the environment setting to remain with the current slot when deployment slots are swapped.</span></span> <span data-ttu-id="3f836-165">Aby uzyskać więcej informacji, zobacz [dokumentacji platformy Azure: Ustawienia, które zostały zamienione? ](/azure/app-service/web-sites-staged-publishing).</span><span class="sxs-lookup"><span data-stu-id="3f836-165">For more information, see [Azure Documentation: Which settings are swapped?](/azure/app-service/web-sites-staged-publishing).</span></span>
-1. <span data-ttu-id="3f836-166">Wybierz **Zapisz** w górnej części bloku.</span><span class="sxs-lookup"><span data-stu-id="3f836-166">Select **Save** at the top of the blade.</span></span>
+1. <span data-ttu-id="07815-159">Wybierz aplikację z **App Services** bloku.</span><span class="sxs-lookup"><span data-stu-id="07815-159">Select the app from the **App Services** blade.</span></span>
+1. <span data-ttu-id="07815-160">W **ustawienia** grupy, wybierz opcję **ustawienia aplikacji** bloku.</span><span class="sxs-lookup"><span data-stu-id="07815-160">In the **SETTINGS** group, select the **Application settings** blade.</span></span>
+1. <span data-ttu-id="07815-161">W **ustawienia aplikacji** wybierz opcję **Dodaj nowe ustawienie**.</span><span class="sxs-lookup"><span data-stu-id="07815-161">In the **Application settings** area, select **Add new setting**.</span></span>
+1. <span data-ttu-id="07815-162">Aby uzyskać **wprowadź nazwę**, podaj `ASPNETCORE_ENVIRONMENT`.</span><span class="sxs-lookup"><span data-stu-id="07815-162">For **Enter a name**, provide `ASPNETCORE_ENVIRONMENT`.</span></span> <span data-ttu-id="07815-163">Aby uzyskać **wprowadź wartość**, zapewniają środowiska (na przykład `Staging`).</span><span class="sxs-lookup"><span data-stu-id="07815-163">For **Enter a value**, provide the environment (for example, `Staging`).</span></span>
+1. <span data-ttu-id="07815-164">Wybierz **ustawienie miejsca** pole wyboru, jeśli chcesz, aby ustawienie środowiska, aby pozostać z bieżącym gnieździe, gdy zostały zamienione miejscami wdrożenia.</span><span class="sxs-lookup"><span data-stu-id="07815-164">Select the **Slot Setting** check box if you wish the environment setting to remain with the current slot when deployment slots are swapped.</span></span> <span data-ttu-id="07815-165">Aby uzyskać więcej informacji, zobacz [dokumentacji platformy Azure: Ustawienia, które zostały zamienione? ](/azure/app-service/web-sites-staged-publishing).</span><span class="sxs-lookup"><span data-stu-id="07815-165">For more information, see [Azure Documentation: Which settings are swapped?](/azure/app-service/web-sites-staged-publishing).</span></span>
+1. <span data-ttu-id="07815-166">Wybierz **Zapisz** w górnej części bloku.</span><span class="sxs-lookup"><span data-stu-id="07815-166">Select **Save** at the top of the blade.</span></span>
 
-<span data-ttu-id="3f836-167">Usługa Azure App Service zostanie automatycznie uruchomiony ponownie aplikację po ustawienia aplikacji (zmienną środowiskową) jest dodanie, zmianę lub usunąć w witrynie Azure portal.</span><span class="sxs-lookup"><span data-stu-id="3f836-167">Azure App Service automatically restarts the app after an app setting (environment variable) is added, changed, or deleted in the Azure portal.</span></span>
+<span data-ttu-id="07815-167">Usługa Azure App Service zostanie automatycznie uruchomiony ponownie aplikację po ustawienia aplikacji (zmienną środowiskową) jest dodanie, zmianę lub usunąć w witrynie Azure portal.</span><span class="sxs-lookup"><span data-stu-id="07815-167">Azure App Service automatically restarts the app after an app setting (environment variable) is added, changed, or deleted in the Azure portal.</span></span>
 
-### <a name="windows"></a><span data-ttu-id="3f836-168">Windows</span><span class="sxs-lookup"><span data-stu-id="3f836-168">Windows</span></span>
+### <a name="windows"></a><span data-ttu-id="07815-168">Windows</span><span class="sxs-lookup"><span data-stu-id="07815-168">Windows</span></span>
 
-<span data-ttu-id="3f836-169">Aby ustawić `ASPNETCORE_ENVIRONMENT` dla bieżącej sesji, podczas uruchamiania aplikacji przy użyciu [dotnet, uruchom](/dotnet/core/tools/dotnet-run), służą następujące polecenia:</span><span class="sxs-lookup"><span data-stu-id="3f836-169">To set the `ASPNETCORE_ENVIRONMENT` for the current session when the app is started using [dotnet run](/dotnet/core/tools/dotnet-run), the following commands are used:</span></span>
+<span data-ttu-id="07815-169">Aby ustawić `ASPNETCORE_ENVIRONMENT` dla bieżącej sesji, podczas uruchamiania aplikacji przy użyciu [dotnet, uruchom](/dotnet/core/tools/dotnet-run), służą następujące polecenia:</span><span class="sxs-lookup"><span data-stu-id="07815-169">To set the `ASPNETCORE_ENVIRONMENT` for the current session when the app is started using [dotnet run](/dotnet/core/tools/dotnet-run), the following commands are used:</span></span>
 
-<span data-ttu-id="3f836-170">**Wiersz polecenia**</span><span class="sxs-lookup"><span data-stu-id="3f836-170">**Command prompt**</span></span>
+<span data-ttu-id="07815-170">**Wiersz polecenia**</span><span class="sxs-lookup"><span data-stu-id="07815-170">**Command prompt**</span></span>
 
 ```console
 set ASPNETCORE_ENVIRONMENT=Development
 ```
 
-<span data-ttu-id="3f836-171">**Program PowerShell**</span><span class="sxs-lookup"><span data-stu-id="3f836-171">**PowerShell**</span></span>
+<span data-ttu-id="07815-171">**Program PowerShell**</span><span class="sxs-lookup"><span data-stu-id="07815-171">**PowerShell**</span></span>
 
 ```powershell
 $Env:ASPNETCORE_ENVIRONMENT = "Development"
 ```
 
-<span data-ttu-id="3f836-172">Te polecenia tylko obowiązywać w przypadku bieżącego okna.</span><span class="sxs-lookup"><span data-stu-id="3f836-172">These commands only take effect for the current window.</span></span> <span data-ttu-id="3f836-173">Po zamknięciu okna `ASPNETCORE_ENVIRONMENT` przywraca ustawienie domyślne ustawienie lub wartość maszyny.</span><span class="sxs-lookup"><span data-stu-id="3f836-173">When the window is closed, the `ASPNETCORE_ENVIRONMENT` setting reverts to the default setting or machine value.</span></span>
+<span data-ttu-id="07815-172">Te polecenia tylko obowiązywać w przypadku bieżącego okna.</span><span class="sxs-lookup"><span data-stu-id="07815-172">These commands only take effect for the current window.</span></span> <span data-ttu-id="07815-173">Po zamknięciu okna `ASPNETCORE_ENVIRONMENT` przywraca ustawienie domyślne ustawienie lub wartość maszyny.</span><span class="sxs-lookup"><span data-stu-id="07815-173">When the window is closed, the `ASPNETCORE_ENVIRONMENT` setting reverts to the default setting or machine value.</span></span>
 
-<span data-ttu-id="3f836-174">Aby ustawić wartość globalnie w Windows, użyj jednej z następujących metod:</span><span class="sxs-lookup"><span data-stu-id="3f836-174">To set the value globally in Windows, use either of the following approaches:</span></span>
+<span data-ttu-id="07815-174">Aby ustawić wartość globalnie w Windows, użyj jednej z następujących metod:</span><span class="sxs-lookup"><span data-stu-id="07815-174">To set the value globally in Windows, use either of the following approaches:</span></span>
 
-* <span data-ttu-id="3f836-175">Otwórz **Panelu sterowania** > **systemu** > **Zaawansowane ustawienia systemu** i Dodaj lub Edytuj `ASPNETCORE_ENVIRONMENT` wartość:</span><span class="sxs-lookup"><span data-stu-id="3f836-175">Open the **Control Panel** > **System** > **Advanced system settings** and add or edit the `ASPNETCORE_ENVIRONMENT` value:</span></span>
+* <span data-ttu-id="07815-175">Otwórz **Panelu sterowania** > **systemu** > **Zaawansowane ustawienia systemu** i Dodaj lub Edytuj `ASPNETCORE_ENVIRONMENT` wartość:</span><span class="sxs-lookup"><span data-stu-id="07815-175">Open the **Control Panel** > **System** > **Advanced system settings** and add or edit the `ASPNETCORE_ENVIRONMENT` value:</span></span>
 
   ![Zaawansowane właściwości systemu](environments/_static/systemsetting_environment.png)
 
   ![Zmienna środowiskowa Core ASPNET](environments/_static/windows_aspnetcore_environment.png)
 
-* <span data-ttu-id="3f836-178">Otwórz administracyjny wiersz polecenia i użyj `setx` polecenia lub Otwórz administracyjny wiersz polecenia programu PowerShell i użyj `[Environment]::SetEnvironmentVariable`:</span><span class="sxs-lookup"><span data-stu-id="3f836-178">Open an administrative command prompt and use the `setx` command or open an administrative PowerShell command prompt and use `[Environment]::SetEnvironmentVariable`:</span></span>
+* <span data-ttu-id="07815-178">Otwórz administracyjny wiersz polecenia i użyj `setx` polecenia lub Otwórz administracyjny wiersz polecenia programu PowerShell i użyj `[Environment]::SetEnvironmentVariable`:</span><span class="sxs-lookup"><span data-stu-id="07815-178">Open an administrative command prompt and use the `setx` command or open an administrative PowerShell command prompt and use `[Environment]::SetEnvironmentVariable`:</span></span>
 
-  <span data-ttu-id="3f836-179">**Wiersz polecenia**</span><span class="sxs-lookup"><span data-stu-id="3f836-179">**Command prompt**</span></span>
+  <span data-ttu-id="07815-179">**Wiersz polecenia**</span><span class="sxs-lookup"><span data-stu-id="07815-179">**Command prompt**</span></span>
 
   ```console
   setx ASPNETCORE_ENVIRONMENT Development /M
   ```
 
-  <span data-ttu-id="3f836-180">`/M` Przełącznika wskazuje, aby ustawić zmienną środowiskową na poziomie systemu.</span><span class="sxs-lookup"><span data-stu-id="3f836-180">The `/M` switch indicates to set the environment variable at the system level.</span></span> <span data-ttu-id="3f836-181">Jeśli `/M` przełącznik nie jest używany, zmienna środowiskowa jest ustawiona dla konta użytkownika.</span><span class="sxs-lookup"><span data-stu-id="3f836-181">If the `/M` switch isn't used, the environment variable is set for the user account.</span></span>
+  <span data-ttu-id="07815-180">`/M` Przełącznika wskazuje, aby ustawić zmienną środowiskową na poziomie systemu.</span><span class="sxs-lookup"><span data-stu-id="07815-180">The `/M` switch indicates to set the environment variable at the system level.</span></span> <span data-ttu-id="07815-181">Jeśli `/M` przełącznik nie jest używany, zmienna środowiskowa jest ustawiona dla konta użytkownika.</span><span class="sxs-lookup"><span data-stu-id="07815-181">If the `/M` switch isn't used, the environment variable is set for the user account.</span></span>
 
-  <span data-ttu-id="3f836-182">**Program PowerShell**</span><span class="sxs-lookup"><span data-stu-id="3f836-182">**PowerShell**</span></span>
+  <span data-ttu-id="07815-182">**Program PowerShell**</span><span class="sxs-lookup"><span data-stu-id="07815-182">**PowerShell**</span></span>
 
   ```powershell
   [Environment]::SetEnvironmentVariable("ASPNETCORE_ENVIRONMENT", "Development", "Machine")
   ```
 
-  <span data-ttu-id="3f836-183">`Machine` Wskazuje wartość opcji, aby ustawić zmienną środowiskową na poziomie systemu.</span><span class="sxs-lookup"><span data-stu-id="3f836-183">The `Machine` option value indicates to set the environment variable at the system level.</span></span> <span data-ttu-id="3f836-184">Jeżeli wartość opcji została zmieniona na `User`, zmienna środowiskowa jest ustawiona dla konta użytkownika.</span><span class="sxs-lookup"><span data-stu-id="3f836-184">If the option value is changed to `User`, the environment variable is set for the user account.</span></span>
+  <span data-ttu-id="07815-183">`Machine` Wskazuje wartość opcji, aby ustawić zmienną środowiskową na poziomie systemu.</span><span class="sxs-lookup"><span data-stu-id="07815-183">The `Machine` option value indicates to set the environment variable at the system level.</span></span> <span data-ttu-id="07815-184">Jeżeli wartość opcji została zmieniona na `User`, zmienna środowiskowa jest ustawiona dla konta użytkownika.</span><span class="sxs-lookup"><span data-stu-id="07815-184">If the option value is changed to `User`, the environment variable is set for the user account.</span></span>
 
-<span data-ttu-id="3f836-185">Gdy `ASPNETCORE_ENVIRONMENT` zmienna środowiskowa jest ustawiona globalnie, wprowadzone `dotnet run` w dowolnym oknie polecenia otwarte po ustawieniu wartości.</span><span class="sxs-lookup"><span data-stu-id="3f836-185">When the `ASPNETCORE_ENVIRONMENT` environment variable is set globally, it takes effect for `dotnet run` in any command window opened after the value is set.</span></span>
+<span data-ttu-id="07815-185">Gdy `ASPNETCORE_ENVIRONMENT` zmienna środowiskowa jest ustawiona globalnie, wprowadzone `dotnet run` w dowolnym oknie polecenia otwarte po ustawieniu wartości.</span><span class="sxs-lookup"><span data-stu-id="07815-185">When the `ASPNETCORE_ENVIRONMENT` environment variable is set globally, it takes effect for `dotnet run` in any command window opened after the value is set.</span></span>
 
-<span data-ttu-id="3f836-186">**web.config**</span><span class="sxs-lookup"><span data-stu-id="3f836-186">**web.config**</span></span>
+<span data-ttu-id="07815-186">**web.config**</span><span class="sxs-lookup"><span data-stu-id="07815-186">**web.config**</span></span>
 
-<span data-ttu-id="3f836-187">Aby ustawić `ASPNETCORE_ENVIRONMENT` zmiennej środowiskowej *web.config*, zobacz *Ustawianie zmiennych środowiskowych* części <xref:host-and-deploy/aspnet-core-module#setting-environment-variables>.</span><span class="sxs-lookup"><span data-stu-id="3f836-187">To set the `ASPNETCORE_ENVIRONMENT` environment variable with *web.config*, see the *Setting environment variables* section of <xref:host-and-deploy/aspnet-core-module#setting-environment-variables>.</span></span> <span data-ttu-id="3f836-188">Gdy `ASPNETCORE_ENVIRONMENT` zmienna środowiskowa została ustawiona za pomocą *web.config*, jego wartość zastępuje ustawienie poziomie systemu.</span><span class="sxs-lookup"><span data-stu-id="3f836-188">When the `ASPNETCORE_ENVIRONMENT` environment variable is set with *web.config*, its value overrides a setting at the system level.</span></span>
+<span data-ttu-id="07815-187">Aby ustawić `ASPNETCORE_ENVIRONMENT` zmiennej środowiskowej *web.config*, zobacz *Ustawianie zmiennych środowiskowych* części <xref:host-and-deploy/aspnet-core-module#setting-environment-variables>.</span><span class="sxs-lookup"><span data-stu-id="07815-187">To set the `ASPNETCORE_ENVIRONMENT` environment variable with *web.config*, see the *Setting environment variables* section of <xref:host-and-deploy/aspnet-core-module#setting-environment-variables>.</span></span> <span data-ttu-id="07815-188">Gdy `ASPNETCORE_ENVIRONMENT` zmienna środowiskowa została ustawiona za pomocą *web.config*, jego wartość zastępuje ustawienie poziomie systemu.</span><span class="sxs-lookup"><span data-stu-id="07815-188">When the `ASPNETCORE_ENVIRONMENT` environment variable is set with *web.config*, its value overrides a setting at the system level.</span></span>
 
 ::: moniker range=">= aspnetcore-2.2"
 
-<span data-ttu-id="3f836-189">**Pliku projektu lub profil publikowania**</span><span class="sxs-lookup"><span data-stu-id="3f836-189">**Project file or publish profile**</span></span>
+<span data-ttu-id="07815-189">**Pliku projektu lub profil publikowania**</span><span class="sxs-lookup"><span data-stu-id="07815-189">**Project file or publish profile**</span></span>
 
-<span data-ttu-id="3f836-190">**W przypadku wdrożeń usługi IIS Windows:** Obejmują `<EnvironmentName>` właściwości w profilu publikowania (*.pubxml*) lub pliku projektu.</span><span class="sxs-lookup"><span data-stu-id="3f836-190">**For Windows IIS deployments:** Include the `<EnvironmentName>` property in the publish profile (*.pubxml*) or project file.</span></span> <span data-ttu-id="3f836-191">To podejście ustawia środowisko *web.config* po opublikowaniu projektu:</span><span class="sxs-lookup"><span data-stu-id="3f836-191">This approach sets the environment in *web.config* when the project is published:</span></span>
+<span data-ttu-id="07815-190">**W przypadku wdrożeń usługi IIS Windows:** Obejmują `<EnvironmentName>` właściwości w profilu publikowania (*.pubxml*) lub pliku projektu.</span><span class="sxs-lookup"><span data-stu-id="07815-190">**For Windows IIS deployments:** Include the `<EnvironmentName>` property in the publish profile (*.pubxml*) or project file.</span></span> <span data-ttu-id="07815-191">To podejście ustawia środowisko *web.config* po opublikowaniu projektu:</span><span class="sxs-lookup"><span data-stu-id="07815-191">This approach sets the environment in *web.config* when the project is published:</span></span>
 
 ```xml
 <PropertyGroup>
@@ -252,55 +250,55 @@ $Env:ASPNETCORE_ENVIRONMENT = "Development"
 
 ::: moniker-end
 
-<span data-ttu-id="3f836-192">**Na pulę aplikacji usług IIS**</span><span class="sxs-lookup"><span data-stu-id="3f836-192">**Per IIS Application Pool**</span></span>
+<span data-ttu-id="07815-192">**Na pulę aplikacji usług IIS**</span><span class="sxs-lookup"><span data-stu-id="07815-192">**Per IIS Application Pool**</span></span>
 
-<span data-ttu-id="3f836-193">Aby ustawić `ASPNETCORE_ENVIRONMENT` zmienną środowiskową dla aplikacji uruchomionej w izolowanej puli aplikacji (obsługiwane w usługach IIS 10.0 lub nowszy), zobacz *polecenia AppCmd.exe* części [zmienne środowiskowe &lt; environmentVariables&gt; ](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe) tematu.</span><span class="sxs-lookup"><span data-stu-id="3f836-193">To set the `ASPNETCORE_ENVIRONMENT` environment variable for an app running in an isolated Application Pool (supported on IIS 10.0 or later), see the *AppCmd.exe command* section of the [Environment Variables &lt;environmentVariables&gt;](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe) topic.</span></span> <span data-ttu-id="3f836-194">Gdy `ASPNETCORE_ENVIRONMENT` zmienna środowiskowa jest ustawiona dla puli aplikacji, jego wartość zastępuje ustawienie poziomie systemu.</span><span class="sxs-lookup"><span data-stu-id="3f836-194">When the `ASPNETCORE_ENVIRONMENT` environment variable is set for an app pool, its value overrides a setting at the system level.</span></span>
+<span data-ttu-id="07815-193">Aby ustawić `ASPNETCORE_ENVIRONMENT` zmienną środowiskową dla aplikacji uruchomionej w izolowanej puli aplikacji (obsługiwane w usługach IIS 10.0 lub nowszy), zobacz *polecenia AppCmd.exe* części [zmienne środowiskowe &lt; environmentVariables&gt; ](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe) tematu.</span><span class="sxs-lookup"><span data-stu-id="07815-193">To set the `ASPNETCORE_ENVIRONMENT` environment variable for an app running in an isolated Application Pool (supported on IIS 10.0 or later), see the *AppCmd.exe command* section of the [Environment Variables &lt;environmentVariables&gt;](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe) topic.</span></span> <span data-ttu-id="07815-194">Gdy `ASPNETCORE_ENVIRONMENT` zmienna środowiskowa jest ustawiona dla puli aplikacji, jego wartość zastępuje ustawienie poziomie systemu.</span><span class="sxs-lookup"><span data-stu-id="07815-194">When the `ASPNETCORE_ENVIRONMENT` environment variable is set for an app pool, its value overrides a setting at the system level.</span></span>
 
 > [!IMPORTANT]
-> <span data-ttu-id="3f836-195">Hostowanie aplikacji w usługach IIS i dodawania lub zmieniania `ASPNETCORE_ENVIRONMENT` środowiska, użycie zmiennej zbliża się jedną z następujących ma nowej wartości, które są pobierane przez aplikacje:</span><span class="sxs-lookup"><span data-stu-id="3f836-195">When hosting an app in IIS and adding or changing the `ASPNETCORE_ENVIRONMENT` environment variable, use any one of the following approaches to have the new value picked up by apps:</span></span>
+> <span data-ttu-id="07815-195">Hostowanie aplikacji w usługach IIS i dodawania lub zmieniania `ASPNETCORE_ENVIRONMENT` środowiska, użycie zmiennej zbliża się jedną z następujących ma nowej wartości, które są pobierane przez aplikacje:</span><span class="sxs-lookup"><span data-stu-id="07815-195">When hosting an app in IIS and adding or changing the `ASPNETCORE_ENVIRONMENT` environment variable, use any one of the following approaches to have the new value picked up by apps:</span></span>
 >
-> * <span data-ttu-id="3f836-196">Wykonaj `net stop was /y` następuje `net start w3svc` z poziomu wiersza polecenia.</span><span class="sxs-lookup"><span data-stu-id="3f836-196">Execute `net stop was /y` followed by `net start w3svc` from a command prompt.</span></span>
-> * <span data-ttu-id="3f836-197">Uruchom ponownie serwer.</span><span class="sxs-lookup"><span data-stu-id="3f836-197">Restart the server.</span></span>
+> * <span data-ttu-id="07815-196">Wykonaj `net stop was /y` następuje `net start w3svc` z poziomu wiersza polecenia.</span><span class="sxs-lookup"><span data-stu-id="07815-196">Execute `net stop was /y` followed by `net start w3svc` from a command prompt.</span></span>
+> * <span data-ttu-id="07815-197">Uruchom ponownie serwer.</span><span class="sxs-lookup"><span data-stu-id="07815-197">Restart the server.</span></span>
 
-### <a name="macos"></a><span data-ttu-id="3f836-198">macOS</span><span class="sxs-lookup"><span data-stu-id="3f836-198">macOS</span></span>
+### <a name="macos"></a><span data-ttu-id="07815-198">macOS</span><span class="sxs-lookup"><span data-stu-id="07815-198">macOS</span></span>
 
-<span data-ttu-id="3f836-199">Ustawienie bieżącego środowiska, dla systemu macOS może być wykonywane w tekście, podczas uruchamiania aplikacji:</span><span class="sxs-lookup"><span data-stu-id="3f836-199">Setting the current environment for macOS can be performed in-line when running the app:</span></span>
+<span data-ttu-id="07815-199">Ustawienie bieżącego środowiska, dla systemu macOS może być wykonywane w tekście, podczas uruchamiania aplikacji:</span><span class="sxs-lookup"><span data-stu-id="07815-199">Setting the current environment for macOS can be performed in-line when running the app:</span></span>
 
 ```bash
 ASPNETCORE_ENVIRONMENT=Development dotnet run
 ```
 
-<span data-ttu-id="3f836-200">Alternatywnie należy ustawić środowisko z `export` przed uruchomieniem aplikacji:</span><span class="sxs-lookup"><span data-stu-id="3f836-200">Alternatively, set the environment with `export` prior to running the app:</span></span>
+<span data-ttu-id="07815-200">Alternatywnie należy ustawić środowisko z `export` przed uruchomieniem aplikacji:</span><span class="sxs-lookup"><span data-stu-id="07815-200">Alternatively, set the environment with `export` prior to running the app:</span></span>
 
 ```bash
 export ASPNETCORE_ENVIRONMENT=Development
 ```
 
-<span data-ttu-id="3f836-201">Zmienne środowiskowe na poziomie komputera są ustawiane w *.bashrc* lub *.bash_profile* pliku.</span><span class="sxs-lookup"><span data-stu-id="3f836-201">Machine-level environment variables are set in the *.bashrc* or *.bash_profile* file.</span></span> <span data-ttu-id="3f836-202">Edytuj plik za pomocą dowolnego edytora tekstów.</span><span class="sxs-lookup"><span data-stu-id="3f836-202">Edit the file using any text editor.</span></span> <span data-ttu-id="3f836-203">Dodaj następującą instrukcję:</span><span class="sxs-lookup"><span data-stu-id="3f836-203">Add the following statement:</span></span>
+<span data-ttu-id="07815-201">Zmienne środowiskowe na poziomie komputera są ustawiane w *.bashrc* lub *.bash_profile* pliku.</span><span class="sxs-lookup"><span data-stu-id="07815-201">Machine-level environment variables are set in the *.bashrc* or *.bash_profile* file.</span></span> <span data-ttu-id="07815-202">Edytuj plik za pomocą dowolnego edytora tekstów.</span><span class="sxs-lookup"><span data-stu-id="07815-202">Edit the file using any text editor.</span></span> <span data-ttu-id="07815-203">Dodaj następującą instrukcję:</span><span class="sxs-lookup"><span data-stu-id="07815-203">Add the following statement:</span></span>
 
 ```bash
 export ASPNETCORE_ENVIRONMENT=Development
 ```
 
-### <a name="linux"></a><span data-ttu-id="3f836-204">Linux</span><span class="sxs-lookup"><span data-stu-id="3f836-204">Linux</span></span>
+### <a name="linux"></a><span data-ttu-id="07815-204">Linux</span><span class="sxs-lookup"><span data-stu-id="07815-204">Linux</span></span>
 
-<span data-ttu-id="3f836-205">Dystrybucje systemu Linux, można użyć `export` polecenie w wierszu polecenia dla ustawień zmiennych oparte na sesji i *bash_profile* ustawienia maszyn na poziomie środowiska w pliku.</span><span class="sxs-lookup"><span data-stu-id="3f836-205">For Linux distros, use the `export` command at a command prompt for session-based variable settings and *bash_profile* file for machine-level environment settings.</span></span>
+<span data-ttu-id="07815-205">Dystrybucje systemu Linux, można użyć `export` polecenie w wierszu polecenia dla ustawień zmiennych oparte na sesji i *bash_profile* ustawienia maszyn na poziomie środowiska w pliku.</span><span class="sxs-lookup"><span data-stu-id="07815-205">For Linux distros, use the `export` command at a command prompt for session-based variable settings and *bash_profile* file for machine-level environment settings.</span></span>
 
-### <a name="configuration-by-environment"></a><span data-ttu-id="3f836-206">Konfiguracja według środowiska</span><span class="sxs-lookup"><span data-stu-id="3f836-206">Configuration by environment</span></span>
+### <a name="configuration-by-environment"></a><span data-ttu-id="07815-206">Konfiguracja według środowiska</span><span class="sxs-lookup"><span data-stu-id="07815-206">Configuration by environment</span></span>
 
-<span data-ttu-id="3f836-207">Aby załadować konfiguracji przez środowisko, zalecamy:</span><span class="sxs-lookup"><span data-stu-id="3f836-207">To load configuration by environment, we recommend:</span></span>
+<span data-ttu-id="07815-207">Aby załadować konfiguracji przez środowisko, zalecamy:</span><span class="sxs-lookup"><span data-stu-id="07815-207">To load configuration by environment, we recommend:</span></span>
 
-* <span data-ttu-id="3f836-208">*appSettings* plików (*appsettings.\< Środowisko > .json*).</span><span class="sxs-lookup"><span data-stu-id="3f836-208">*appsettings* files (*appsettings.\<Environment>.json*).</span></span> <span data-ttu-id="3f836-209">Zobacz [konfiguracji: Dostawca konfiguracji pliku](xref:fundamentals/configuration/index#file-configuration-provider).</span><span class="sxs-lookup"><span data-stu-id="3f836-209">See [Configuration: File configuration provider](xref:fundamentals/configuration/index#file-configuration-provider).</span></span>
-* <span data-ttu-id="3f836-210">zmienne środowiskowe (ustawiona w każdym systemie którym hostowana jest aplikacja).</span><span class="sxs-lookup"><span data-stu-id="3f836-210">environment variables (set on each system where the app is hosted).</span></span> <span data-ttu-id="3f836-211">Zobacz [konfiguracji: Dostawca konfiguracji pliku](xref:fundamentals/configuration/index#file-configuration-provider) i [bezpieczne przechowywanie kluczy tajnych aplikacji w trakcie opracowywania: Zmienne środowiskowe](xref:security/app-secrets#environment-variables).</span><span class="sxs-lookup"><span data-stu-id="3f836-211">See [Configuration: File configuration provider](xref:fundamentals/configuration/index#file-configuration-provider) and [Safe storage of app secrets in development: Environment variables](xref:security/app-secrets#environment-variables).</span></span>
-* <span data-ttu-id="3f836-212">Klucz tajny Menedżer (w środowisku programistycznym tylko).</span><span class="sxs-lookup"><span data-stu-id="3f836-212">Secret Manager (in the Development environment only).</span></span> <span data-ttu-id="3f836-213">Zobacz <xref:security/app-secrets>.</span><span class="sxs-lookup"><span data-stu-id="3f836-213">See <xref:security/app-secrets>.</span></span>
+* <span data-ttu-id="07815-208">*appSettings* plików (*appsettings.\< Środowisko > .json*).</span><span class="sxs-lookup"><span data-stu-id="07815-208">*appsettings* files (*appsettings.\<Environment>.json*).</span></span> <span data-ttu-id="07815-209">Zobacz [konfiguracji: Dostawca konfiguracji pliku](xref:fundamentals/configuration/index#file-configuration-provider).</span><span class="sxs-lookup"><span data-stu-id="07815-209">See [Configuration: File configuration provider](xref:fundamentals/configuration/index#file-configuration-provider).</span></span>
+* <span data-ttu-id="07815-210">zmienne środowiskowe (ustawiona w każdym systemie którym hostowana jest aplikacja).</span><span class="sxs-lookup"><span data-stu-id="07815-210">environment variables (set on each system where the app is hosted).</span></span> <span data-ttu-id="07815-211">Zobacz [konfiguracji: Dostawca konfiguracji pliku](xref:fundamentals/configuration/index#file-configuration-provider) i [bezpieczne przechowywanie kluczy tajnych aplikacji w trakcie opracowywania: Zmienne środowiskowe](xref:security/app-secrets#environment-variables).</span><span class="sxs-lookup"><span data-stu-id="07815-211">See [Configuration: File configuration provider](xref:fundamentals/configuration/index#file-configuration-provider) and [Safe storage of app secrets in development: Environment variables](xref:security/app-secrets#environment-variables).</span></span>
+* <span data-ttu-id="07815-212">Klucz tajny Menedżer (w środowisku programistycznym tylko).</span><span class="sxs-lookup"><span data-stu-id="07815-212">Secret Manager (in the Development environment only).</span></span> <span data-ttu-id="07815-213">Zobacz <xref:security/app-secrets>.</span><span class="sxs-lookup"><span data-stu-id="07815-213">See <xref:security/app-secrets>.</span></span>
 
-## <a name="environment-based-startup-class-and-methods"></a><span data-ttu-id="3f836-214">Klasa początkowa oparte na środowisku i metody</span><span class="sxs-lookup"><span data-stu-id="3f836-214">Environment-based Startup class and methods</span></span>
+## <a name="environment-based-startup-class-and-methods"></a><span data-ttu-id="07815-214">Klasa początkowa oparte na środowisku i metody</span><span class="sxs-lookup"><span data-stu-id="07815-214">Environment-based Startup class and methods</span></span>
 
-### <a name="startup-class-conventions"></a><span data-ttu-id="3f836-215">Konwencje klasy uruchamiania</span><span class="sxs-lookup"><span data-stu-id="3f836-215">Startup class conventions</span></span>
+### <a name="startup-class-conventions"></a><span data-ttu-id="07815-215">Konwencje klasy uruchamiania</span><span class="sxs-lookup"><span data-stu-id="07815-215">Startup class conventions</span></span>
 
-<span data-ttu-id="3f836-216">Po uruchomieniu aplikacji ASP.NET Core [Klasa początkowa](xref:fundamentals/startup) używa do ładowania aplikacji.</span><span class="sxs-lookup"><span data-stu-id="3f836-216">When an ASP.NET Core app starts, the [Startup class](xref:fundamentals/startup) bootstraps the app.</span></span> <span data-ttu-id="3f836-217">Aplikację można zdefiniować w oddzielnym `Startup` klas w różnych środowiskach (na przykład `StartupDevelopment`), a odpowiedni `Startup` klasy jest zaznaczona w czasie wykonywania.</span><span class="sxs-lookup"><span data-stu-id="3f836-217">The app can define separate `Startup` classes for different environments (for example, `StartupDevelopment`), and the appropriate `Startup` class is selected at runtime.</span></span> <span data-ttu-id="3f836-218">Klasy, w których sufiks nazwy pasuje do bieżącego środowiska jest podzielony na priorytety.</span><span class="sxs-lookup"><span data-stu-id="3f836-218">The class whose name suffix matches the current environment is prioritized.</span></span> <span data-ttu-id="3f836-219">Jeśli pasujący obiekt typu `Startup{EnvironmentName}` klasy nie zostanie znaleziona, `Startup` klasa jest używana.</span><span class="sxs-lookup"><span data-stu-id="3f836-219">If a matching `Startup{EnvironmentName}` class isn't found, the `Startup` class is used.</span></span>
+<span data-ttu-id="07815-216">Po uruchomieniu aplikacji ASP.NET Core [Klasa początkowa](xref:fundamentals/startup) używa do ładowania aplikacji.</span><span class="sxs-lookup"><span data-stu-id="07815-216">When an ASP.NET Core app starts, the [Startup class](xref:fundamentals/startup) bootstraps the app.</span></span> <span data-ttu-id="07815-217">Aplikację można zdefiniować w oddzielnym `Startup` klas w różnych środowiskach (na przykład `StartupDevelopment`), a odpowiedni `Startup` klasy jest zaznaczona w czasie wykonywania.</span><span class="sxs-lookup"><span data-stu-id="07815-217">The app can define separate `Startup` classes for different environments (for example, `StartupDevelopment`), and the appropriate `Startup` class is selected at runtime.</span></span> <span data-ttu-id="07815-218">Klasy, w których sufiks nazwy pasuje do bieżącego środowiska jest podzielony na priorytety.</span><span class="sxs-lookup"><span data-stu-id="07815-218">The class whose name suffix matches the current environment is prioritized.</span></span> <span data-ttu-id="07815-219">Jeśli pasujący obiekt typu `Startup{EnvironmentName}` klasy nie zostanie znaleziona, `Startup` klasa jest używana.</span><span class="sxs-lookup"><span data-stu-id="07815-219">If a matching `Startup{EnvironmentName}` class isn't found, the `Startup` class is used.</span></span>
 
-<span data-ttu-id="3f836-220">Aby zaimplementować oparte na środowisku `Startup` Tworzenie klas, `Startup{EnvironmentName}` klasy dla każdego środowiska w użyciu i rezerwowe `Startup` klasy:</span><span class="sxs-lookup"><span data-stu-id="3f836-220">To implement environment-based `Startup` classes, create a `Startup{EnvironmentName}` class for each environment in use and a fallback `Startup` class:</span></span>
+<span data-ttu-id="07815-220">Aby zaimplementować oparte na środowisku `Startup` Tworzenie klas, `Startup{EnvironmentName}` klasy dla każdego środowiska w użyciu i rezerwowe `Startup` klasy:</span><span class="sxs-lookup"><span data-stu-id="07815-220">To implement environment-based `Startup` classes, create a `Startup{EnvironmentName}` class for each environment in use and a fallback `Startup` class:</span></span>
 
 ```csharp
 // Startup class to use in the Development environment
@@ -347,9 +345,7 @@ public class Startup
 }
 ```
 
-<span data-ttu-id="3f836-221">Użyj [UseStartup (IWebHostBuilder, ciąg)](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usestartup) przeciążenie, które akceptuje to nazwa zestawu:</span><span class="sxs-lookup"><span data-stu-id="3f836-221">Use the [UseStartup(IWebHostBuilder, String)](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usestartup) overload that accepts an assembly name:</span></span>
-
-::: moniker range=">= aspnetcore-2.1"
+<span data-ttu-id="07815-221">Użyj [UseStartup (IWebHostBuilder, ciąg)](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usestartup) przeciążenie, które akceptuje to nazwa zestawu:</span><span class="sxs-lookup"><span data-stu-id="07815-221">Use the [UseStartup(IWebHostBuilder, String)](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usestartup) overload that accepts an assembly name:</span></span>
 
 ```csharp
 public static void Main(string[] args)
@@ -366,56 +362,14 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args)
 }
 ```
 
-::: moniker-end
+### <a name="startup-method-conventions"></a><span data-ttu-id="07815-222">Konwencje metod uruchamiania</span><span class="sxs-lookup"><span data-stu-id="07815-222">Startup method conventions</span></span>
 
-::: moniker range="= aspnetcore-2.0"
+<span data-ttu-id="07815-223">[Konfigurowanie](/dotnet/api/microsoft.aspnetcore.hosting.startupbase.configure) i [ConfigureServices](/dotnet/api/microsoft.aspnetcore.hosting.startupbase.configureservices) obsługuje specyficznymi dla środowiska wersji formularza `Configure<EnvironmentName>` i `Configure<EnvironmentName>Services`:</span><span class="sxs-lookup"><span data-stu-id="07815-223">[Configure](/dotnet/api/microsoft.aspnetcore.hosting.startupbase.configure) and [ConfigureServices](/dotnet/api/microsoft.aspnetcore.hosting.startupbase.configureservices) support environment-specific versions of the form `Configure<EnvironmentName>` and `Configure<EnvironmentName>Services`:</span></span>
 
-```csharp
-public static void Main(string[] args)
-{
-    CreateWebHost(args).Run();
-}
+[!code-csharp[](environments/sample/EnvironmentsSample/Startup.cs?name=snippet_all&highlight=15,42)]
 
-public static IWebHost CreateWebHost(string[] args)
-{
-    var assemblyName = typeof(Startup).GetTypeInfo().Assembly.FullName;
-
-    return WebHost.CreateDefaultBuilder(args)
-        .UseStartup(assemblyName)
-        .Build();
-}
-```
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-```csharp
-public class Program
-{
-    public static void Main(string[] args)
-    {
-        var assemblyName = typeof(Startup).GetTypeInfo().Assembly.FullName;
-
-        var host = new WebHostBuilder()
-            .UseStartup(assemblyName)
-            .Build();
-
-        host.Run();
-    }
-}
-```
-
-::: moniker-end
-
-### <a name="startup-method-conventions"></a><span data-ttu-id="3f836-222">Konwencje metod uruchamiania</span><span class="sxs-lookup"><span data-stu-id="3f836-222">Startup method conventions</span></span>
-
-<span data-ttu-id="3f836-223">[Konfigurowanie](/dotnet/api/microsoft.aspnetcore.hosting.startupbase.configure) i [ConfigureServices](/dotnet/api/microsoft.aspnetcore.hosting.startupbase.configureservices) obsługuje specyficznymi dla środowiska wersji formularza `Configure<EnvironmentName>` i `Configure<EnvironmentName>Services`:</span><span class="sxs-lookup"><span data-stu-id="3f836-223">[Configure](/dotnet/api/microsoft.aspnetcore.hosting.startupbase.configure) and [ConfigureServices](/dotnet/api/microsoft.aspnetcore.hosting.startupbase.configureservices) support environment-specific versions of the form `Configure<EnvironmentName>` and `Configure<EnvironmentName>Services`:</span></span>
-
-[!code-csharp[](environments/sample/EnvironmentsSample/Startup.cs?name=snippet_all&highlight=15,51)]
-
-## <a name="additional-resources"></a><span data-ttu-id="3f836-224">Dodatkowe zasoby</span><span class="sxs-lookup"><span data-stu-id="3f836-224">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="07815-224">Dodatkowe zasoby</span><span class="sxs-lookup"><span data-stu-id="07815-224">Additional resources</span></span>
 
 * <xref:fundamentals/startup>
 * <xref:fundamentals/configuration/index>
-* [<span data-ttu-id="3f836-225">IHostingEnvironment.EnvironmentName</span><span class="sxs-lookup"><span data-stu-id="3f836-225">IHostingEnvironment.EnvironmentName</span></span>](/dotnet/api/microsoft.aspnetcore.hosting.ihostingenvironment.environmentname)
+* [<span data-ttu-id="07815-225">IHostingEnvironment.EnvironmentName</span><span class="sxs-lookup"><span data-stu-id="07815-225">IHostingEnvironment.EnvironmentName</span></span>](/dotnet/api/microsoft.aspnetcore.hosting.ihostingenvironment.environmentname)
