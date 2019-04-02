@@ -5,12 +5,12 @@ description: W tym artykule wyjaśniono stron Razor, generowane przez tworzenie 
 ms.author: riande
 ms.date: 12/4/2018
 uid: tutorials/razor-pages/page
-ms.openlocfilehash: 9acb30bbed6aaed893b8a6373a210ef18e5ee60b
-ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
+ms.openlocfilehash: b654138231440a0c63492cae70f794da0151890d
+ms.sourcegitcommit: 5995f44e9e13d7e7aa8d193e2825381c42184e47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58320137"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58809305"
 ---
 # <a name="scaffolded-razor-pages-in-aspnet-core"></a>Strony razor ze szkieletami w programie ASP.NET Core
 
@@ -87,7 +87,7 @@ Wiersz `@*Markup removed for brevity.*@` komentarz Razor, które nie znajdują s
 
 ### <a name="update-the-layout"></a>Aktualizowanie układu
 
-Zmiana `<title>` element *Pages/Shared/_Layout.cshtml* pliku wyświetlania **filmu** zamiast **RazorPagesMovie**.
+Zmiana `<title>` element *Pages/Shared/_Layout.cshtml* plik, aby wyświetlić **filmu** zamiast **RazorPagesMovie**.
 
 [!code-cshtml[](razor-pages-start/sample/RazorPagesMovie22/Pages/Shared/_Layout.cshtml?range=1-6&highlight=6)]
 

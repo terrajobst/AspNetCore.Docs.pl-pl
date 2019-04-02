@@ -5,14 +5,14 @@ description: Dowiedz się więcej o zarządzaniu logicznego wystąpienia klasy H
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 01/25/2019
+ms.date: 03/30/2019
 uid: fundamentals/http-requests
-ms.openlocfilehash: a4026addaa55d463c41aadd0a7a39606c88fcb84
-ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
+ms.openlocfilehash: 270727443f091306ac3e4ce4e2ceb99b88bbc609
+ms.sourcegitcommit: 5995f44e9e13d7e7aa8d193e2825381c42184e47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56744212"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58809211"
 ---
 # <a name="make-http-requests-using-ihttpclientfactory-in-aspnet-core"></a>Tworzenie żądania HTTP w programie ASP.NET Core przy użyciu IHttpClientFactory
 
@@ -199,7 +199,7 @@ Na udostępnianie stanu danego żądania obsługi komunikatów, użyj jednej z n
 
 Metody rozszerzenia są udostępniane, aby umożliwić korzystanie z zasad w usłudze Polly skonfigurowane `HttpClient` wystąpień. W dostępnych rozszerzeń Polly [Microsoft.Extensions.Http.Polly](https://www.nuget.org/packages/Microsoft.Extensions.Http.Polly/) pakietu NuGet. Ten pakiet nie jest zawarty w [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app). Aby korzystać z rozszerzeń, jawnie `<PackageReference />` powinny być uwzględnione w projekcie.
 
-[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/HttpClientFactorySample.csproj?highlight=9)]
+[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/HttpClientFactorySample.csproj?highlight=10)]
 
 Po przywróceniu tego pakietu, metody rozszerzenia są dostępne w celu umożliwienia obsługi dodawania na podstawie Polly programy obsługi dla klientów.
 

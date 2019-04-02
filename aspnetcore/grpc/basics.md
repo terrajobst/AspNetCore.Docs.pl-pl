@@ -4,18 +4,18 @@ author: juntaoluo
 description: Podstawowe informacje na temat podczas zapisywania gRPC usług za pomocą C#.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
-ms.date: 03/08/2019
+ms.date: 03/31/2019
 uid: grpc/basics
-ms.openlocfilehash: 936561a3ad04183aff4c3ba1c9b0e8ab20dcbe12
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: ce2682848dc6a81293545c27f0be779e12a3a600
+ms.sourcegitcommit: 5995f44e9e13d7e7aa8d193e2825381c42184e47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264773"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58809174"
 ---
 # <a name="grpc-services-with-c"></a>gRPC usług przy użyciu języka C\#
 
-W tym dokumencie przedstawiono podstawowe pojęcia, które są potrzebne do zapisania [gRPC](https://grpc.io/docs/guides/) aplikacje w C#. Tematy omówione w tym miejscu dotyczą zarówno [C-core](https://grpc.io/blog/grpc-stacks) i ASP.NET Core gRPC aplikacji.
+W tym dokumencie opisano pojęcia są potrzebne do zapisania [gRPC](https://grpc.io/docs/guides/) aplikacje w C#. Tematy omówione w tym miejscu dotyczą zarówno [C-core](https://grpc.io/blog/grpc-stacks)-gRPC opartych na platformy ASP.NET Core i zależności aplikacji.
 
 ## <a name="proto-file"></a>proto pliku
 
@@ -34,7 +34,7 @@ Na przykład, rozważmy *greet.proto* plik używany w [Rozpoczynanie pracy z us�
 
 [!code-proto[](~/tutorials/grpc/grpc-start/samples/GrpcStart/Protos/greet.proto)]
 
-## <a name="add-a-proto-file-to-a-c-app"></a>Dodaj plik .proto do C# aplikacji
+## <a name="add-a-proto-file-to-a-c-app"></a>Dodaj plik .proto do C\# aplikacji
 
 *.Proto* plik znajduje się w projekcie, dodając ją do `<Protobuf>` grupy elementów:
 
@@ -44,7 +44,7 @@ Na przykład, rozważmy *greet.proto* plik używany w [Rozpoczynanie pracy z us�
 
 Pakiet narzędzi [Grpc.Tools](https://www.nuget.org/packages/Grpc.Tools/) jest wymagany do wygenerowania C# zasoby z *.proto* plików. Wygenerowanych elementów zawartości (plików):
 
-* Są generowane na podstawie potrzeb jako każdym razem, gdy projekt jest kompilowany.
+* Są generowane na zgodnie z potrzebami każdorazowo, gdy projekt jest kompilowany.
 * Nie są dodawane do projektu lub sprawdzone w formancie źródła.
 * Czy artefakt kompilacji zawarte w *obj* katalogu.
 
@@ -52,19 +52,19 @@ Ten pakiet jest wymagane przez projekty serwera i klienta. `Grpc.Tools` można d
 
 [!code-xml[](~/tutorials/grpc/grpc-start/samples/GrpcStart/GrpcGreeter.Server/GrpcGreeter.Server.csproj?highlight=1&range=16)]
 
-Pakiet narzędzi nie jest wymagany w czasie wykonywania, w związku z tym, zależność powinna być oznaczona jako za pomocą `PrivateAssets="All"`.
+Pakiet narzędzi nie jest wymagane w czasie wykonywania, więc zależność jest oznaczona za pomocą `PrivateAssets="All"`.
 
 ## <a name="generated-c-assets"></a>Wygenerowany C# zasobów
 
-Pakiet narzędzi wygeneruje C# typy reprezentujące komunikatów zdefiniowany w dołączonej *.proto* plików.
+Generuje pakiet narzędzi C# typy reprezentujące komunikatów zdefiniowany w dołączonej *.proto* plików.
 
-Zasoby po stronie serwera generowany jest abstrakcyjny usługi typu podstawowego. Typ podstawowy zawiera definicje wszystkich wywołań gRPC zawarte w *.proto* pliku. Następnie utwórz konkretny implementacji usługi pochodzi od tego typu podstawowego i implementuje logikę wywołania gRPC. Dla `greet.proto` przykład opisanej powyżej, abstrakcyjną `GreeterBase` typu, który zawiera wirtualny `SayHello` ma generowaną metodę. Konkretną implementację `GreeterService` zastępuje metodę i implementuje logikę obsługi wywołań gRPC.
+Zasobów po stronie serwera generowany jest abstrakcyjny usługi typu podstawowego. Typ podstawowy zawiera definicje wszystkich wywołań gRPC zawarte w *.proto* pliku. Utwórz implementację konkretnych usług, pochodzi od tego typu podstawowego, który implementuje logikę dla wywołań gRPC. Dla `greet.proto`, przykład opisanej powyżej, abstrakcyjną `GreeterBase` typu, który zawiera wirtualny `SayHello` ma generowaną metodę. Konkretną implementację `GreeterService` zastępuje metodę i implementuje logikę obsługi wywołań gRPC.
 
-[!code-cs[](~/tutorials/grpc/grpc-start/samples/GrpcStart/GrpcGreeter.Server/Services/GreeterService.cs?name=snippet)]
+[!code-csharp[](~/tutorials/grpc/grpc-start/samples/GrpcStart/GrpcGreeter.Server/Services/GreeterService.cs?name=snippet)]
 
-Zasoby po stronie klienta generowany jest typu konkretnego klienta. Wywołuje gRPC *.proto* pliku są tłumaczone na konkretny typ, który można wywoływać metod. Aby uzyskać `greet.proto` wcześniej opisywanym przykładzie konkretny `GreeterClient` typ jest generowany. `GreeterClient` Typ zawiera `SayHello` metodę, która może być wywoływana na zainicjowanie połączenia gRPC z serwera.
+Dla zasobów po stronie klienta jest generowany typu konkretnego klienta. Wywołuje gRPC *.proto* pliku są tłumaczone na konkretny typ, który można wywoływać metod. Aby uzyskać `greet.proto`, wcześniej opisywanym przykładzie konkretny `GreeterClient` typ jest generowany. Wywołaj `GreeterClient.SayHello` na zainicjowanie połączenia gRPC z serwera.
 
-[!code-cs[](~/tutorials/grpc/grpc-start/samples/GrpcStart/GrpcGreeter.Client/Program.cs?highlight=9-11&name=snippet)]
+[!code-csharp[](~/tutorials/grpc/grpc-start/samples/GrpcStart/GrpcGreeter.Client/Program.cs?highlight=9-11&name=snippet)]
 
 Domyślnie zasoby serwera i klienta są generowane dla każdego *.proto* plik dołączony `<Protobuf>` grupy elementów. Aby upewnić się, tylko zasoby serwera są generowane w projekcie serwera `GrpcServices` ma ustawioną wartość atrybutu `Server`.
 
