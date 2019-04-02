@@ -2,16 +2,17 @@
 title: Host platformy ASP.NET Core w systemie Linux przy użyciu serwera Nginx
 author: rick-anderson
 description: Dowiedz się, jak skonfigurować serwer Nginx jako zwrotny serwer proxy w systemie Ubuntu 16.04 do przesyłania ruchu HTTP do aplikacji sieci web ASP.NET Core uruchomionych na Kestrel.
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/27/2019
+ms.date: 03/28/2019
 uid: host-and-deploy/linux-nginx
-ms.openlocfilehash: 11754279d18a2449451364b4aaba723b7afb06d5
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
-ms.translationtype: MT
+ms.openlocfilehash: e5189ff31607f99a35454177e3cee0c800fbffc0
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57345927"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58750666"
 ---
 # <a name="host-aspnet-core-on-linux-with-nginx"></a>Host platformy ASP.NET Core w systemie Linux przy użyciu serwera Nginx
 
@@ -43,6 +44,11 @@ Ten przewodnik:
 ## <a name="publish-and-copy-over-the-app"></a>Publikowanie i skopiuj aplikacji
 
 Konfigurowanie aplikacji na potrzeby [wdrożenia zależny od struktury](/dotnet/core/deploying/#framework-dependent-deployments-fdd).
+
+Jeśli aplikacja jest uruchamiany lokalnie i nie jest skonfigurowany nawiązać bezpieczne połączenia (HTTPS), należy przyjąć jedną z następujących metod:
+
+* Konfigurowanie aplikacji do obsługi bezpiecznego połączenia lokalne. Aby uzyskać więcej informacji, zobacz [Konfiguracja protokołu HTTPS](#https-configuration) sekcji.
+* Usuń `https://localhost:5001` (jeśli jest obecna) z `applicationUrl` właściwość *Properties/launchSettings.json* pliku.
 
 Uruchom [publikowania dotnet](/dotnet/core/tools/dotnet-publish) ze środowiska projektowego, aby utworzyć pakiet aplikacji do katalogu (na przykład *bin/wydawania/&lt;target_framework_moniker&gt;/ publish*), można Uruchom na serwerze:
 
@@ -76,8 +82,6 @@ Ponieważ żądania są przekazywane przez zwrotny serwer proxy, należy użyć 
 
 Dowolny składnik, który jest zależny od systemu, takie jak uwierzytelnianie, generowanie konsolidacji, przekierowań i geolokalizacja, muszą być umieszczone po wywołaniu oprogramowanie pośredniczące przekazane nagłówków. Zgodnie z ogólną zasadą przekazywane oprogramowania pośredniczącego nagłówki należy uruchomić przed innym oprogramowaniu pośredniczącym, z wyjątkiem diagnostyki i obsługi oprogramowania pośredniczącego błędów. Ta kolejność gwarantuje, że oprogramowanie pośredniczące, opierając się na nagłówki przekazywane informacje mogą wykorzystywać wartości nagłówka do przetworzenia.
 
-::: moniker range=">= aspnetcore-2.0"
-
 Wywoływanie <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions.UseForwardedHeaders*> method in Class metoda `Startup.Configure` przed wywołaniem <xref:Microsoft.AspNetCore.Builder.AuthAppBuilderExtensions.UseAuthentication*> lub podobne oprogramowanie pośredniczące schematu uwierzytelniania. Konfigurowanie oprogramowania pośredniczącego, aby przekazywać `X-Forwarded-For` i `X-Forwarded-Proto` nagłówków:
 
 ```csharp
@@ -88,28 +92,6 @@ app.UseForwardedHeaders(new ForwardedHeadersOptions
 
 app.UseAuthentication();
 ```
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-Wywoływanie <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions.UseForwardedHeaders*> method in Class metoda `Startup.Configure` przed wywołaniem <xref:Microsoft.AspNetCore.Builder.BuilderExtensions.UseIdentity*> i <xref:Microsoft.AspNetCore.Builder.FacebookAppBuilderExtensions.UseFacebookAuthentication*> lub podobne oprogramowanie pośredniczące schematu uwierzytelniania. Konfigurowanie oprogramowania pośredniczącego, aby przekazywać `X-Forwarded-For` i `X-Forwarded-Proto` nagłówków:
-
-```csharp
-app.UseForwardedHeaders(new ForwardedHeadersOptions
-{
-    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
-});
-
-app.UseIdentity();
-app.UseFacebookAuthentication(new FacebookOptions()
-{
-    AppId = Configuration["Authentication:Facebook:AppId"],
-    AppSecret = Configuration["Authentication:Facebook:AppSecret"]
-});
-```
-
-::: moniker-end
 
 Jeśli nie <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions> są określone oprogramowanie pośredniczące, są domyślne nagłówki do przekazywania `None`.
 
@@ -222,7 +204,7 @@ WantedBy=multi-user.target
 
 Jeśli użytkownik *danych www* nie jest używany przez tę konfigurację użytkownika zdefiniowane w tym miejscu należy najpierw utworzyć i podane odpowiednie prawa własności plików.
 
-Użyj `TimeoutStopSec` skonfigurować czas oczekiwania na aplikację, aby zamknięty po odebraniu sygnału przerwania początkowej. Jeśli aplikacja nie zamknięty w tym okresie, aby zakończyć aplikację zgłaszany jest SIGKILL. Podaj wartość jako unitless sekund (na przykład `150`), czas span wartości (na przykład `2min 30s`), lub `infinity` wyłączyć limit czasu. `TimeoutStopSec` Wartość domyślna to wartość `DefaultTimeoutStopSec` w pliku konfiguracji Menedżera (*systemd system.conf*, *system.conf.d*, *systemd user.conf*,  *User.conf.d*). Domyślna wartość limitu czasu dla większości dystrybucji wynosi 90 s.
+Użyj `TimeoutStopSec` skonfigurować czas oczekiwania na aplikację, aby zamknięty po odebraniu sygnału przerwania początkowej. Jeśli aplikacja nie zamknięty w tym okresie, aby zakończyć aplikację zgłaszany jest SIGKILL. Podaj wartość jako unitless sekund (na przykład `150`), czas span wartości (na przykład `2min 30s`), lub `infinity` wyłączyć limit czasu. `TimeoutStopSec` Wartość domyślna to wartość `DefaultTimeoutStopSec` w pliku konfiguracji Menedżera (*systemd system.conf*, *system.conf.d*, *systemd user.conf*, * User.conf.d*). Domyślna wartość limitu czasu dla większości dystrybucji wynosi 90 s.
 
 ```
 # The default value is 90 seconds for most distributions.
@@ -350,6 +332,17 @@ static char ngx_http_server_full_string[] = "Server: Web Server" CRLF;
 Konfigurowanie serwera przy użyciu dodatkowych wymaganych modułów. Należy wziąć pod uwagę przy użyciu zapory aplikacji sieci web, takich jak [zapory ModSecurity](https://www.modsecurity.org/), w celu ograniczenia funkcjonalności aplikacji.
 
 #### <a name="https-configuration"></a>Konfiguracja protokołu HTTPS
+
+**Konfigurowanie aplikacji na potrzeby bezpiecznego połączenia lokalnego (HTTPS)**
+
+[Dotnet, uruchom](/dotnet/core/tools/dotnet-run) polecenie używa aplikacji *Properties/launchSettings.json* pliku, który konfiguruje aplikację do nasłuchiwania na adresach URL, dostarczone przez `applicationUrl` właściwości (na przykład `https://localhost:5001;http://localhost:5000`) .
+
+Konfigurowanie aplikacji do korzystania z certyfikatu w rozwoju dla `dotnet run` polecenia lub tworzenia środowiska (F5 lub Ctrl + F5 w programie Visual Studio Code) przy użyciu zbliża się do jednej z następujących czynności:
+
+* [Zamień domyślny certyfikat z konfiguracji](xref:fundamentals/servers/kestrel#configuration) (*zalecane*)
+* [KestrelServerOptions.ConfigureHttpsDefaults](xref:fundamentals/servers/kestrel#configurehttpsdefaultsactionhttpsconnectionadapteroptions)
+
+**Konfigurowanie zwrotnego serwera proxy dla połączeń klienckich usługi bezpieczne (HTTPS)**
 
 * Konfigurowanie serwera do nasłuchiwania ruchu HTTPS na porcie `443` , określając prawidłowy certyfikat wystawiony przez zaufany urząd certyfikacji (CA).
 

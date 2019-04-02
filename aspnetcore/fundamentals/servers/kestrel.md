@@ -4,14 +4,14 @@ author: guardrex
 description: Więcej informacji na temat Kestrel, serwer sieci web dla wielu platform dla platformy ASP.NET Core.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 03/04/2019
+ms.date: 03/28/2019
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: 5fc6c78f3eb76fcf3dd663c8d878250f0051f153
-ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
+ms.openlocfilehash: ab56f01c000c5404b58d79727b5b426d801081c2
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57665642"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58751068"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>Implementacja serwera sieci web kestrel w programie ASP.NET Core
 
@@ -424,7 +424,7 @@ Określ adresy URL przy użyciu:
 * `urls` Klucz konfiguracji hosta.
 * `UseUrls` metody rozszerzenia.
 
-Podana wartość przy użyciu tych metod może być co najmniej jeden protokół HTTP i HTTPS punktów końcowych (HTTPS Jeśli dostępny jest certyfikatu z domyślną). Konfiguracja uwzględnia wartość będącą rozdzielonej średnikami liście (na przykład `"Urls": "http://localhost:8000; http://localhost:8001"`).
+Podana wartość przy użyciu tych metod może być co najmniej jeden protokół HTTP i HTTPS punktów końcowych (HTTPS Jeśli dostępny jest certyfikatu z domyślną). Konfiguracja uwzględnia wartość będącą rozdzielonej średnikami liście (na przykład `"Urls": "http://localhost:8000;http://localhost:8001"`).
 
 Aby uzyskać więcej informacji na temat tych metod, zobacz [adresy URL serwerów](xref:fundamentals/host/web-host#server-urls) i [zastępczą konfigurację](xref:fundamentals/host/web-host#override-configuration).
 
@@ -447,9 +447,83 @@ Platforma ASP.NET Core 2.1 lub nowszej `KestrelServerOptions` konfiguracji:
 
 Określa konfigurację `Action` do uruchamiania dla każdego określonego punktu końcowego. Wywoływanie `ConfigureEndpointDefaults` wielokrotnie zastępuje starszy `Action`s w ostatnich `Action` określony.
 
+::: moniker range=">= aspnetcore-3.0"
+
+```csharp
+Host.CreateDefaultBuilder(args)
+    .ConfigureWebHostDefaults(webBuilder =>
+    {
+        webBuilder.ConfigureKestrel(serverOptions =>
+        {
+            serverOptions.ConfigureEndpointDefaults(configureOptions =>
+            {
+                configureOptions.NoDelay = true;
+            });
+        });
+        webBuilder.UseStartup<Startup>();
+    });
+```
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+```csharp
+public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+    WebHost.CreateDefaultBuilder(args)
+        .UseStartup<Startup>()
+        .ConfigureKestrel((context, options) =>
+        {
+            options.ConfigureEndpointDefaults(configureOptions =>
+            {
+                configureOptions.NoDelay = true;
+            });
+        });
+```
+
+::: moniker-end
+
 ### <a name="configurehttpsdefaultsactionlthttpsconnectionadapteroptionsgt"></a>ConfigureHttpsDefaults(Action&lt;HttpsConnectionAdapterOptions&gt;)
 
 Określa konfigurację `Action` do uruchamiania dla każdego punktu końcowego protokołu HTTPS. Wywoływanie `ConfigureHttpsDefaults` wielokrotnie zastępuje starszy `Action`s w ostatnich `Action` określony.
+
+::: moniker range=">= aspnetcore-3.0"
+
+```csharp
+Host.CreateDefaultBuilder(args)
+    .ConfigureWebHostDefaults(webBuilder =>
+    {
+        webBuilder.ConfigureKestrel(serverOptions =>
+        {
+            serverOptions.ConfigureHttpsDefaults(options =>
+            {
+                // certificate is an X509Certificate2
+                options.ServerCertificate = certificate;
+            });
+        });
+        webBuilder.UseStartup<Startup>();
+    });
+```
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+```csharp
+public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+    WebHost.CreateDefaultBuilder(args)
+        .UseStartup<Startup>()
+        .ConfigureKestrel((context, options) =>
+        {
+            options.ConfigureHttpsDefaults(httpsOptions =>
+            {
+                // certificate is an X509Certificate2
+                httpsOptions.ServerCertificate = certificate;
+            });
+        });
+```
+
+::: moniker-end
 
 ### <a name="configureiconfiguration"></a>Configure(IConfiguration)
 
@@ -495,6 +569,8 @@ Obsługiwane konfiguracje opisane w dalszej części:
 *Brak konfiguracji*
 
 Nasłuchuje kestrel `http://localhost:5000` i `https://localhost:5001` (jeśli jest to domyślny certyfikat jest dostępny).
+
+<a name="configuration"></a>
 
 *Zamień domyślny certyfikat z konfiguracji*
 
