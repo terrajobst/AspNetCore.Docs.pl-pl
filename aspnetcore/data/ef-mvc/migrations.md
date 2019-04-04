@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/migrations
-ms.openlocfilehash: 8a14ada241330ca33811b7cce70daf26ff8fc13a
-ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
+ms.openlocfilehash: 3d2ae12bf8eda4f7997008758d4d29434a8371a7
+ms.sourcegitcommit: 1a7000630e55da90da19b284e1b2f2f13a393d74
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2019
-ms.locfileid: "58750633"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59012607"
 ---
 # <a name="tutorial-using-the-migrations-feature---aspnet-mvc-with-ef-core"></a>Samouczek: Za pomocą funkcji migracje — ASP.NET MVC z programem EF Core
 
@@ -54,6 +54,7 @@ Ta zmiana konfiguruje projekt tak, aby pierwszej migracji utworzy nową bazę da
 > ```console
 > dotnet ef database drop
 > ```
+>
 > Poniższej sekcji opisano sposób uruchamiania poleceń interfejsu wiersza polecenia platformy.
 
 ## <a name="create-an-initial-migration"></a>Tworzenie początkowej migracji

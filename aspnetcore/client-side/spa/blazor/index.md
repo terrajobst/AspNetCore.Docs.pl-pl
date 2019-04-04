@@ -1,12 +1,18 @@
 ---
 title: Wprowadzenie do Blazor
 author: guardrex
-description: 'Zapoznaj się z platformy ASP.NET Core Blazor, nowy sposób twórz interaktywne aplikacje po stronie klienta przy użyciu platformy .NET, które są uruchamiane w przeglądarce z format WebAssembly.'
+description: Zapoznaj się z platformy ASP.NET Core Blazor, nowy sposób twórz interaktywne aplikacje po stronie klienta przy użyciu platformy .NET, które są uruchamiane w przeglądarce z format WebAssembly.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
 ms.date: 03/27/2019
 uid: spa/blazor/index
+ms.openlocfilehash: c42363b0ce70a1a8edc19b1c428ee802a6eff3dd
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58750488"
 ---
 # <a name="introduction-to-blazor"></a>Wprowadzenie do Blazor
 

@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 02/06/2019
 ms.topic: tutorial
 uid: data/ef-mvc/intro
-ms.openlocfilehash: 282af56eb911aea53a6ce945e7c1177c158fc342
-ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
+ms.openlocfilehash: 5a2ec9a8d85925e55840962cc90b3092953e7920
+ms.sourcegitcommit: 1a7000630e55da90da19b284e1b2f2f13a393d74
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2019
-ms.locfileid: "58750582"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59012854"
 ---
 # <a name="tutorial-get-started-with-ef-core-in-an-aspnet-mvc-web-app"></a>Samouczek: Rozpoczynanie pracy z programem EF Core w aplikacji sieci web platformy ASP.NET MVC
 
@@ -39,8 +39,8 @@ W ramach tego samouczka możesz:
 
 * [.NET Core SDK 2.2](https://www.microsoft.com/net/download)
 * [Visual Studio 2017 lub 2019](https://visualstudio.microsoft.com/downloads/) z następującymi pakietami roboczymi:
-    * **ASP.NET i tworzenie aplikacji internetowych** obciążenia
-    * **Programowanie dla wielu platform .NET core** obciążenia
+  * **ASP.NET i tworzenie aplikacji internetowych** obciążenia
+  * **Programowanie dla wielu platform .NET core** obciążenia
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 

@@ -1,18 +1,24 @@
 ---
-title: Wprowadzenie do składników Razor
+title: Wprowadzenie do składników Razor programu ASP.NET Core
 author: guardrex
-description: 'Poznaj składniki programu ASP.NET Core Razor, umożliwia tworzenie interaktywnych po stronie klienta interfejsu użytkownika sieci web przy użyciu platformy .NET w aplikacji ASP.NET Core.'
+description: Poznaj składniki programu ASP.NET Core Razor, umożliwia tworzenie interaktywnych po stronie klienta interfejsu użytkownika sieci web przy użyciu platformy .NET w aplikacji ASP.NET Core.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
-ms.custom: mvc
-ms.date: 03/13/2019
+ms.custom: seoapril2019
+ms.date: 03/27/2019
 uid: razor-components/index
+ms.openlocfilehash: 43d5cf1d752b66a531c8d974deeb5a5fc8e94b43
+ms.sourcegitcommit: 1a7000630e55da90da19b284e1b2f2f13a393d74
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59012659"
 ---
 # <a name="introduction-to-razor-components"></a>Wprowadzenie do składników Razor
 
 Przez [Daniel Roth](https://github.com/danroth27) i [Luke Latham](https://github.com/guardrex)
 
-*Składniki razor* to sposób na tworzenie interaktywnych po stronie klienta interfejsu użytkownika sieci web przy użyciu platformy .NET:
+*Składniki razor*, wprowadzone w programie ASP.NET Core 3.0 (wersja zapoznawcza), jest sposób tworzenia interaktywnego po stronie klienta interfejsu użytkownika sieci web przy użyciu platformy .NET:
 
 * Tworzyć zaawansowane interaktywne UI za pomocą C# zamiast JavaScript.
 * Udostępnianie aplikacji po stronie serwera i klienta logiki napisane przy użyciu platformy .NET.
@@ -42,7 +48,7 @@ Połączenie używane przez składniki Razor do komunikowania się za pośrednic
 
 Aby uzyskać więcej informacji, zobacz <xref:razor-components/hosting-models#server-side-hosting-model>.
 
-*Blazor* jest eksperymentalna modelu hostingu po stronie klienta, składników Razor. Blazor działające na platformie .NET w przeglądarce, za pomocą standardów sieci web Otwórz bez transpilation wtyczki lub kodu. Aby uzyskać więcej informacji, zobacz <xref:razor-components/hosting-models#client-side-hosting-model>.
+*Blazor* jest eksperymentalna modelu hostingu po stronie klienta, składników Razor. Blazor działające na platformie .NET w przeglądarce, za pomocą standardów sieci web Otwórz bez transpilation wtyczki lub kodu. Aby uzyskać więcej informacji, zobacz <xref:spa/blazor/index> i <xref:razor-components/hosting-models#client-side-hosting-model>.
 
 ## <a name="components"></a>Składniki
 
@@ -80,6 +86,6 @@ W przypadku aplikacji wymagających bibliotek JavaScript innych firm i przegląd
 
 * <xref:spa/blazor/index>
 * [Format WebAssembly](http://webassembly.org/)
-* [Przewodnik dla języka C#](/dotnet/csharp/)
+* [Przewodnik po języku C#](/dotnet/csharp/)
 * <xref:mvc/views/razor>
 * [HTML](https://www.w3.org/html/)

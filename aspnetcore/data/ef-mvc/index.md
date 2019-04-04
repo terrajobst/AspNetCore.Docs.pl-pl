@@ -1,10 +1,16 @@
 ---
 title: Platforma ASP.NET Core MVC z programem EF Core — seria samouczków
 author: rick-anderson
-description: null
+description: ''
 ms.author: tdykstra
 ms.date: 03/27/2017
 uid: data/ef-mvc/index
+ms.openlocfilehash: 4a7b79faccdc76f090192e80d0450ca01ed8b58a
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58750675"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---tutorial-series"></a>Platforma ASP.NET Core MVC z programem EF Core — seria samouczków
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/01/2019
 uid: mvc/models/validation
-ms.openlocfilehash: b766d47f296745ba4be6ea8cb6335db9c3e2d975
-ms.sourcegitcommit: 5995f44e9e13d7e7aa8d193e2825381c42184e47
+ms.openlocfilehash: 621c379521bb711728b00c412bf63f90ff6d9ef4
+ms.sourcegitcommit: 1a7000630e55da90da19b284e1b2f2f13a393d74
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58809318"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59012815"
 ---
 # <a name="model-validation-in-aspnet-core-mvc-and-razor-pages"></a>Weryfikacja modelu w programie ASP.NET Core MVC i stron Razor
 
@@ -161,7 +161,6 @@ Jeśli potrzebujesz nie został dostarczony przez wbudowanych atrybutów sprawdz
 
 * [Tworzenie atrybutów niestandardowych, które](#custom-attributes).
 * [Implementowanie IValidatableObject](#ivalidatableobject).
-
 
 ## <a name="custom-attributes"></a>Atrybuty niestandardowe
 

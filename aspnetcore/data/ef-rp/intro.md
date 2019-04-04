@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: seodec18
 ms.date: 11/22/2018
 uid: data/ef-rp/intro
-ms.openlocfilehash: 7723f7ca6c5f9a21b2628933c6e7dabde20c3af6
-ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
+ms.openlocfilehash: aff62d760cf0899983cf841f6715f2658b113f82
+ms.sourcegitcommit: 1a7000630e55da90da19b284e1b2f2f13a393d74
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58320202"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59012685"
 ---
 # <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>Strony razor za pomocą platformy Entity Framework Core w programie ASP.NET Core — samouczek 1 8
 
@@ -29,11 +29,11 @@ Przykładowa aplikacja jest witryną sieci web dla uniwersytetu fikcyjnej firmy 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# [<a name="visual-studio"></a>Visual Studio](#tab/visual-studio)
 
 [!INCLUDE [](~/includes/net-core-prereqs-windows.md)]
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+# [<a name="net-core-cli"></a>.NET core interfejsu wiersza polecenia](#tab/netcore-cli)
 
 [!INCLUDE [](~/includes/2.1-SDK.md)]
 
@@ -59,7 +59,7 @@ Styl interfejsu użytkownika w tej lokacji znajduje się w pobliżu co to jest g
 
 ## <a name="create-the-contosouniversity-razor-pages-web-app"></a>Tworzenie aplikacji sieci web ContosoUniversity stron Razor
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# [<a name="visual-studio"></a>Visual Studio](#tab/visual-studio)
 
 * W programie Visual Studio **pliku** menu, wybierz opcję **New** > **projektu**.
 * Tworzenie nowej aplikacji sieci Web platformy ASP.NET Core. Nadaj projektowi nazwę **ContosoUniversity**. Ważne jest, aby nadaj projektowi nazwę *ContosoUniversity* , przestrzenie nazw dopasować sytuacje, kiedy kod jest skopiowane i wklejone.
@@ -68,7 +68,7 @@ Styl interfejsu użytkownika w tej lokacji znajduje się w pobliżu co to jest g
 Obrazy te czynności, zobacz [tworzenie aplikacji sieci web Razor](xref:tutorials/razor-pages/razor-pages-start#create-a-razor-pages-web-app).
 Uruchom aplikację.
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+# [<a name="net-core-cli"></a>.NET core interfejsu wiersza polecenia](#tab/netcore-cli)
 
 ```CLI
 dotnet new webapp -o ContosoUniversity
@@ -155,7 +155,7 @@ W tej sekcji jest szkieletu modelu dla uczniów. Oznacza to, że narzędzie do t
 * Skompiluj projekt.
 * Tworzenie *stron/uczniów* folderu.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# [<a name="visual-studio"></a>Visual Studio](#tab/visual-studio)
 
 * W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *stron/uczniów* folder > **Dodaj** > **nowy element szkieletu**.
 * W **Dodawanie szkieletu** okno dialogowe, wybierz opcję **strony Razor za pomocą programu Entity Framework (CRUD)** > **Dodaj**.
@@ -171,7 +171,7 @@ Wykonaj **dodać strony Razor za pomocą programu Entity Framework (CRUD)** okno
 
 Zobacz [tworzenia szkieletu modelu movie](xref:tutorials/razor-pages/model#scaffold-the-movie-model) Jeśli masz problem z poprzedniego kroku.
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+# [<a name="net-core-cli"></a>.NET core interfejsu wiersza polecenia](#tab/netcore-cli)
 
 Uruchom następujące polecenia, aby utworzyć szkielet modelu dla uczniów.
 
@@ -278,8 +278,9 @@ Usuń wszystkie rekordy dla uczniów i uruchom ponownie aplikację. Jeśli baza 
 
 ## <a name="view-the-db"></a>Widok bazy danych
 
+Nazwa bazy danych jest generowany na podstawie nazwy kontekstu, podane wcześniej plus kreską i identyfikator GUID. W związku z tym nazwa bazy danych będzie "SchoolContext-{GUID}". Identyfikator GUID będą inne dla każdego użytkownika.
 Otwórz **Eksplorator obiektów SQL Server** (SSOX) z **widoku** menu w programie Visual Studio.
-SSOX, kliknij **(localdb) \MSSQLLocalDB > bazy danych > ContosoUniversity1**.
+SSOX, kliknij **(localdb) \MSSQLLocalDB > bazy danych > SchoolContext-{GUID}**.
 
 Rozwiń **tabel** węzła.
 

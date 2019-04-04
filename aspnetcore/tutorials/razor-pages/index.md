@@ -1,10 +1,16 @@
 ---
 title: 'Samouczek: Tworzenie aplikacji internetowej strony Razor za pomocą programu ASP.NET Core'
 author: rick-anderson
-description: 'Utwórz aplikacja internetowa ze stronami Razor na Windows za pomocą programu Visual Studio, platformy ASP.NET Core i programem EF Core.'
+description: Utwórz aplikacja internetowa ze stronami Razor na Windows za pomocą programu Visual Studio, platformy ASP.NET Core i programem EF Core.
 ms.author: riande
 ms.date: 09/08/2017
 uid: tutorials/razor-pages/index
+ms.openlocfilehash: c3dcc18844f2a12a2a116b11cb007cb833203dc3
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57345603"
 ---
 # <a name="tutorial-create-a-razor-pages-web-app-with-aspnet-core"></a>Samouczek: Tworzenie aplikacji internetowej strony Razor za pomocą programu ASP.NET Core
 

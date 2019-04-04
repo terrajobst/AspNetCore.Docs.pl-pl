@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 03/05/2019
 uid: fundamentals/error-handling
-ms.openlocfilehash: d809c70b3fae6b2d21d5ec0871298d905b873d5d
-ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
+ms.openlocfilehash: ae0b80baed814cd4c7c1dddce2f26a6facfdbaad
+ms.sourcegitcommit: 1a7000630e55da90da19b284e1b2f2f13a393d74
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57665366"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59012711"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>Obsługa błędów w programie ASP.NET Core
 
@@ -103,7 +103,9 @@ Domyślnie aplikacji ASP.NET Core nie zapewnia stan stronę kodową dla kodów s
 
 Oprogramowanie pośredniczące jest udostępniana przez [Microsoft.AspNetCore.Diagnostics](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics/) pakiet, który jest dostępny w [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app).
 
-Dodaj wiersz w celu `Startup.Configure` metody:
+### <a name="usestatuscodepages"></a>UseStatusCodePages
+
+Aby włączyć domyślne tekstowy programy obsługi dla typowe kody stanu błędu, Dodaj następujący kod do `Startup.Configure` metody:
 
 ```csharp
 app.UseStatusCodePages();
@@ -111,7 +113,7 @@ app.UseStatusCodePages();
 
 Wywołaj <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePages*> metoda przed żądaniem obsługi oprogramowania pośredniczącego (na przykład oprogramowanie pośredniczące plików statycznych i oprogramowanie pośredniczące MVC).
 
-Domyślnie, oprogramowanie pośredniczące strony kod stanu dodaje tekstowy programy obsługi dla typowych kodów stanu, takie jak *404 — Nie można odnaleźć*:
+Oto przykład tekstu wyświetlanego przez programy obsługi domyślne:
 
 ```
 Status Code: 404; Not Found
@@ -119,9 +121,13 @@ Status Code: 404; Not Found
 
 Oprogramowanie pośredniczące obsługuje kilka metod rozszerzenia, które pozwalają dostosować jego zachowanie.
 
+### <a name="usestatuscodepages-with-lambda"></a>UseStatusCodePages przy użyciu lambda
+
 Przeciążenia <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePages*> pobiera Wyrażenie lambda, które służy do przetwarzania logiki niestandardowej obsługi błędów i ręcznie napisać odpowiedzi:
 
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePages)]
+
+### <a name="usestatuscodepages-with-format-string"></a>UseStatusCodePages za pomocą ciągu formatu
 
 Przeciążenia <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePages*> przyjmuje zawartości typu i formatu ciągu, który służy do dostosowywania zawartości tekstu typu i odpowiedzi:
 
@@ -129,7 +135,7 @@ Przeciążenia <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseS
 app.UseStatusCodePages("text/plain", "Status code page, status code: {0}");
 ```
 
-### <a name="redirect-and-re-execute-extension-methods"></a>Przekierowanie, a następnie wykonaj ponownie metody rozszerzenia
+### <a name="usestatuscodepageswithredirects"></a>UseStatusCodePagesWithRedirects
 
 <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePagesWithRedirects*>:
 
@@ -142,6 +148,8 @@ app.UseStatusCodePages("text/plain", "Status code page, status code: {0}");
 
 * Należy przekierowuje klienta do innego punktu końcowego, zazwyczaj w przypadkach, gdzie przetwarza błąd przez inną aplikację. W przypadku aplikacji sieci web paska adresu przeglądarki klienta odzwierciedla przekierowanego punktu końcowego.
 * Nie należy zachować i zwróć oryginalny kod stanu odpowiedzi przekierowania początkowej.
+
+### <a name="usestatuscodepageswithreexecute"></a>UseStatusCodePagesWithReExecute
 
 <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePagesWithReExecute*>:
 
@@ -163,6 +171,17 @@ Szablony mogą obejmować symbol zastępczy (`{0}`) dla kodu stanu. Szablon musi
 @page "{code?}"
 ```
 
+Punkt końcowy, który przetwarza błędu można uzyskać oryginalny adres URL, który wygenerował błąd, jak pokazano w poniższym przykładzie:
+
+```csharp
+var statusCodeReExecuteFeature = HttpContext.Features.Get<IStatusCodeReExecuteFeature>();
+var originalPathBase = statusCodeReExecuteFeature?.OriginalPathBase;
+var originalPath = statusCodeReExecuteFeature?.OriginalPath;
+var originalQueryString = statusCodeReExecuteFeature?.OriginalQueryString;
+```
+
+### <a name="disable-status-code-pages"></a>Wyłączanie kod stanu
+
 Strony kodowe stanu można wyłączyć dla określonych żądań w metodzie obsługi stron Razor lub kontroler MVC. Aby wyłączyć stron kodowych stanu, próba pobrania <xref:Microsoft.AspNetCore.Diagnostics.IStatusCodePagesFeature> w żądaniu [HttpContext.Features](xref:Microsoft.AspNetCore.Http.HttpContext.Features) kolekcji i wyłączyć tę funkcję, jeśli jest dostępna:
 
 ```csharp
@@ -173,6 +192,8 @@ if (statusCodePagesFeature != null)
     statusCodePagesFeature.Enabled = false;
 }
 ```
+
+### <a name="status-code-page-endpoints"></a>Punkty końcowe strony kodu stanu
 
 Aby użyć <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePages*> przeciążenia, że wskazuje punkt końcowy w ramach aplikacji, Utwórz widoku MVC lub strona Razor dla punktu końcowego. Na przykład szablon aplikacji stron Razor tworzy następującą stronę i klasy modelu strony:
 
