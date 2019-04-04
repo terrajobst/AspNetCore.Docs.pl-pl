@@ -1,11 +1,17 @@
 ---
 title: Wprowadzenie do stron Razor programu ASP.NET Core
 author: Rick-Anderson
-description: 'Dowiedz się, jak stron Razor w programie ASP.NET Core umożliwia kodowania scenariuszy skoncentrowane na stronie łatwiejsze i bardziej wydajne niż przy użyciu platformy MVC.'
+description: Dowiedz się, jak stron Razor w programie ASP.NET Core umożliwia kodowania scenariuszy skoncentrowane na stronie łatwiejsze i bardziej wydajne niż przy użyciu platformy MVC.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 05/12/2018
 uid: razor-pages/index
+ms.openlocfilehash: afdaa11c55b66366badf8facde62e3f215b6deb2
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264803"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a><span data-ttu-id="d2a2d-103">Wprowadzenie do stron Razor programu ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="d2a2d-103">Introduction to Razor Pages in ASP.NET Core</span></span>
 

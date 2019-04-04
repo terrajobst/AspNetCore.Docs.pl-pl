@@ -1,11 +1,17 @@
 ---
 title: Host platformy ASP.NET Core na Windows za pomocą programu IIS
 author: guardrex
-description: 'Dowiedz się, jak hostować aplikacje platformy ASP.NET Core na systemu Windows serwera Internet Information Services (IIS).'
+description: Dowiedz się, jak hostować aplikacje platformy ASP.NET Core na systemu Windows serwera Internet Information Services (IIS).
 ms.author: riande
 ms.custom: mvc
 ms.date: 03/23/2019
 uid: host-and-deploy/iis/index
+ms.openlocfilehash: 477568dd64fb1442011abb4229299e7dece40da9
+ms.sourcegitcommit: 687ffb15ebe65379f75c84739ea851d5a0d788b7
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58488757"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a><span data-ttu-id="13154-103">Host platformy ASP.NET Core na Windows za pomocą programu IIS</span><span class="sxs-lookup"><span data-stu-id="13154-103">Host ASP.NET Core on Windows with IIS</span></span>
 
