@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/30/2019
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: f9a74fdd94da4c913ac8822ee7bd58c85a9ce72c
-ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
-ms.translationtype: HT
+ms.openlocfilehash: 009ee97d954a21f5fca1713b2b45218cac235e33
+ms.sourcegitcommit: 1a7000630e55da90da19b284e1b2f2f13a393d74
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2019
-ms.locfileid: "58750925"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59012841"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Wdrażanie aplikacji platformy ASP.NET Core w usłudze Azure App Service
 
@@ -168,6 +168,7 @@ Po zakończeniu tej operacji jest zainstalowana najnowsza wersja zapoznawcza pla
 > ```powershell
 > Test-Path D:\home\SiteExtensions\AspNetCoreRuntime.{X.Y}.x64\
 > ```
+>
 > Polecenie zwraca `True` podczas x64 czas wykonywania (wersja zapoznawcza) jest zainstalowany.
 
 > [!NOTE]
