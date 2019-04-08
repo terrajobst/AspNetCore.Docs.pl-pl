@@ -4,14 +4,14 @@ author: rick-anderson
 description: Dowiedz się, jak CORS jako standardowe rozwiązanie dla zezwolenie lub odrzucenie żądań cross-origin w aplikacji ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/27/2019
+ms.date: 04/07/2019
 uid: security/cors
-ms.openlocfilehash: 2cad26d0f61519f63888a2bc399bb7e8a0f1ee04
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: fe5b750c44e5fad9ba80efb2cc8116d0a64b1a17
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58210135"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068300"
 ---
 # <a name="enable-cross-origin-requests-cors-in-aspnet-core"></a>Włączanie żądań Cross-Origin (CORS) w programie ASP.NET Core
 
@@ -57,7 +57,7 @@ Oprogramowanie pośredniczące CORS obsługuje żądań cross-origin. Poniższy 
 Powyższy kod:
 
 * Ustawia nazwę zasady "\_myAllowSpecificOrigins". Nazwa zasad jest dowolnego.
-* Wywołania <xref:Microsoft.AspNetCore.Builder.CorsMiddlewareExtensions.UseCors*> metodę rozszerzenia, która umożliwia rdzeni.
+* Wywołania <xref:Microsoft.AspNetCore.Builder.CorsMiddlewareExtensions.UseCors*> metody rozszerzenia, która obsługuje mechanizm CORS.
 * Wywołania <xref:Microsoft.Extensions.DependencyInjection.CorsServiceCollectionExtensions.AddCors*> z [wyrażenia lambda](/dotnet/csharp/programming-guide/statements-expressions-operators/lambda-expressions). Wyrażenie lambda ma <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder> obiektu. [Opcje konfiguracji](#cors-policy-options), takich jak `WithOrigins`, są opisane w dalszej części tego artykułu.
 
 <xref:Microsoft.Extensions.DependencyInjection.MvcCorsMvcCoreBuilderExtensions.AddCors*> Wywołania metody dodaje mechanizmu CORS usługi do aplikacji kontenera usługi:
@@ -170,7 +170,7 @@ to
 to remove the ambiguous **This**.
 -->
 
-`AllowAnyOrigin` wpływa na stanu wstępnego żądania i `Access-Control-Allow-Origin` nagłówka. Aby uzyskać więcej informacji, zobacz [stanu wstępnego żądania](#preflight-requests) sekcji.
+`AllowAnyOrigin` Wpływa na stanu wstępnego żądania i `Access-Control-Allow-Origin` nagłówka. Aby uzyskać więcej informacji, zobacz [stanu wstępnego żądania](#preflight-requests) sekcji.
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -381,7 +381,7 @@ W tej sekcji opisano, co dzieje się w [CORS](https://developer.mozilla.org/en-U
   * Na przykład użyć złośliwego aktora [zapobiec Cross-Site Scripting (XSS)](xref:security/cross-site-scripting) względem lokacji, a następnie wykonaj fałszerstwo żądania do swojej lokacji włączono mechanizm CORS do wykradania informacji.
 * Interfejs API nie jest bezpieczniejsze, umożliwiając mechanizmu CORS.
   * Wszystko zależy klienta (przeglądarki) wymuszenie mechanizmu CORS. Serwer ten wykonuje żądanie i zwraca odpowiedź okazał się klient, który zwraca błąd i bloków odpowiedź. Na przykład dowolne z następujących narzędzi spowoduje wyświetlenie odpowiedź serwera:
-    * [Fiddler](https://www.telerik.com/fiddler)
+    * [Narzędzie fiddler](https://www.telerik.com/fiddler)
     * [Postman](https://www.getpostman.com/)
     * [.NET HttpClient](/dotnet/csharp/tutorials/console-webapiclient)
     * Przeglądarki sieci web przy użyciu adresu URL w pasku adresu.
@@ -454,4 +454,4 @@ Aby przetestować CORS:
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Cross-Origin Resource Sharing (CORS)](https://developer.mozilla.org/docs/Web/HTTP/CORS)
+* [Współużytkowanie zasobów między źródłami (CORS)](https://developer.mozilla.org/docs/Web/HTTP/CORS)

@@ -4,14 +4,14 @@ author: zuckerthoben
 description: Dowiedz się, jak dodać pakiet Swashbuckle do swojego projektu interfejsu API sieci web platformy ASP.NET Core, aby zintegrować interfejs użytkownika struktury Swagger.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 02/06/2019
+ms.date: 04/04/2019
 uid: tutorials/get-started-with-swashbuckle
-ms.openlocfilehash: 9239a46889691135dce5c99f8fc9b8c7b38ab457
-ms.sourcegitcommit: 3c2ba9a0d833d2a096d9d800ba67a1a7f9491af0
+ms.openlocfilehash: 31d45eaa684118ab78d1b3ecac594e95712f631f
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55854422"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068352"
 ---
 # <a name="get-started-with-swashbuckle-and-aspnet-core"></a>Wprowadzenie do pakietu Swashbuckle i ASP.NET Core
 
@@ -31,7 +31,7 @@ Istnieją trzy główne składniki do narzędzia Swashbuckle:
 
 Pakiet Swashbuckle mogą być dodawane przy użyciu następujących metod:
 
-### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+### [<a name="visual-studio"></a>Visual Studio](#tab/visual-studio)
 
 * Z **Konsola Menedżera pakietów** okna:
   * Przejdź do **widoku** > **innych Windows** > **Konsola Menedżera pakietów**
@@ -48,14 +48,14 @@ Pakiet Swashbuckle mogą być dodawane przy użyciu następujących metod:
   * W polu wyszukiwania wprowadź "Swashbuckle.AspNetCore"
   * Wybierz pakiet "Swashbuckle.AspNetCore" z **Przeglądaj** kartę, a następnie kliknij przycisk **instalacji**
 
-### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+### [<a name="visual-studio-for-mac"></a>Visual Studio for Mac](#tab/visual-studio-mac)
 
 * Kliknij prawym przyciskiem myszy *pakietów* folderu w **konsoli rozwiązania** > **Dodawanie pakietów...**
 * Ustaw **Dodawanie pakietów** okna **źródła** menu rozwijane "nuget.org"
 * W polu wyszukiwania wprowadź "Swashbuckle.AspNetCore"
 * Wybierz pakiet "Swashbuckle.AspNetCore" w okienku wyników, a następnie kliknij przycisk **Dodaj pakiet**
 
-### <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+### [<a name="visual-studio-code"></a>Visual Studio Code](#tab/visual-studio-code)
 
 Uruchom następujące polecenie z **zintegrowany Terminal**:
 
@@ -63,7 +63,7 @@ Uruchom następujące polecenie z **zintegrowany Terminal**:
 dotnet add TodoApi.csproj package Swashbuckle.AspNetCore
 ```
 
-### <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+### [<a name="net-core-cli"></a>.NET core interfejsu wiersza polecenia](#tab/netcore-cli)
 
 Uruchom następujące polecenie:
 
@@ -128,7 +128,7 @@ Interfejs użytkownika struktury Swagger Wyświetla informacje o wersji:
 
 Komentarze XML można włączyć za pomocą następujących metod:
 
-#### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+#### [<a name="visual-studio"></a>Visual Studio](#tab/visual-studio)
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -146,7 +146,7 @@ Komentarze XML można włączyć za pomocą następujących metod:
 
 ::: moniker-end
 
-#### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+#### [<a name="visual-studio-for-mac"></a>Visual Studio for Mac](#tab/visual-studio-mac)
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -164,7 +164,7 @@ Komentarze XML można włączyć za pomocą następujących metod:
 
 ::: moniker-end
 
-#### <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+#### [<a name="visual-studio-code"></a>Visual Studio Code](#tab/visual-studio-code)
 
 Ręcznie Dodaj wyróżnione wiersze w celu *.csproj* pliku:
 
@@ -180,7 +180,7 @@ Ręcznie Dodaj wyróżnione wiersze w celu *.csproj* pliku:
 
 ::: moniker-end
 
-#### <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+#### [<a name="net-core-cli"></a>.NET core interfejsu wiersza polecenia](#tab/netcore-cli)
 
 Ręcznie Dodaj wyróżnione wiersze w celu *.csproj* pliku:
 
@@ -238,7 +238,7 @@ namespace TodoApi
 }
 ```
 
-Skonfiguruj strukturę Swagger, aby użyć wygenerowanego pliku XML. Dla systemu Linux lub w systemach operacyjnych innych niż Windows może być uwzględniana wielkość liter nazw plików oraz ścieżek. Na przykład *TodoApi.XML* plik jest prawidłowy w Windows, ale nie CentOS.
+Skonfiguruj strukturę Swagger, aby użyć pliku XML, który jest generowany przy użyciu poprzednich instrukcji. Dla systemu Linux lub w systemach operacyjnych innych niż Windows może być uwzględniana wielkość liter nazw plików oraz ścieżek. Na przykład *TodoApi.XML* plik jest prawidłowy w Windows, ale nie CentOS.
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -258,7 +258,7 @@ Skonfiguruj strukturę Swagger, aby użyć wygenerowanego pliku XML. Dla systemu
 
 ::: moniker-end
 
-W poprzednim kodzie [odbicia](/dotnet/csharp/programming-guide/concepts/reflection) jest używany do tworzenia nazwę pliku XML dopasowania, projekt interfejsu API sieci web. [AppContext.BaseDirectory](xref:System.AppContext.BaseDirectory*) właściwość jest używana do konstruowania ścieżkę do pliku XML.
+W poprzednim kodzie [odbicia](/dotnet/csharp/programming-guide/concepts/reflection) jest używany do tworzenia nazwę pliku XML dopasowania, projekt interfejsu API sieci web. [AppContext.BaseDirectory](xref:System.AppContext.BaseDirectory*) właściwość jest używana do konstruowania ścieżkę do pliku XML. Niektóre funkcje programu Swagger (na przykład wypełniana parametrów wejściowych lub metody HTTP i kodów odpowiedzi z odpowiednich atrybutów) działa bez użycia pliku dokumentacji XML. W przypadku większości funkcji, mianowicie podsumowania metody i opisy parametrów i kodów odpowiedzi korzystanie z pliku XML jest obowiązkowe.
 
 Dodawanie komentarze z potrójnym ukośnikiem akcję zwiększa interfejsu użytkownika programu Swagger, dodając opis do nagłówku sekcji. Dodaj [ \<podsumowania >](/dotnet/csharp/programming-guide/xmldoc/summary) element powyżej `Delete` akcji:
 

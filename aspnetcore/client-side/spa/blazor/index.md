@@ -5,14 +5,14 @@ description: Zapoznaj się z platformy ASP.NET Core Blazor, nowy sposób twórz 
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/27/2019
+ms.date: 03/28/2019
 uid: spa/blazor/index
-ms.openlocfilehash: c42363b0ce70a1a8edc19b1c428ee802a6eff3dd
-ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
+ms.openlocfilehash: 87e294a975e4168add046166a95e02e485db131d
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2019
-ms.locfileid: "58750488"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068251"
 ---
 # <a name="introduction-to-blazor"></a>Wprowadzenie do Blazor
 
@@ -54,7 +54,7 @@ Blazor obsługuje urządzenia podstawowe wymagane przez większość aplikacji, 
 * Tworzenie szablonów
 * Kaskadowe wartości
 
-Aby zmniejszyć rozmiar aplikacji pobranych nieużywany kod usunięte z aplikacji publikowanych przez [konsolidatora języka pośredniego (IL)](xref:host-and-deploy/razor-components/configure-linker).
+Aby zmniejszyć rozmiar pobranej aplikacji, nieużywany kod jest usuwany poza aplikacją, gdy zostanie opublikowany przez [konsolidatora języka pośredniego (IL)](xref:host-and-deploy/razor-components-blazor/configure-linker).
 
 Blazor jest modelu hostingu po stronie klienta dla składników Razor. Ponieważ składniki Razor oddzielenie logiki renderowania składnika w jaki sposób są stosowane aktualizacje interfejsu użytkownika, w jak Razor składniki mogą być hostowane jest elastyczność. Umożliwia składniki programu ASP.NET Core Razor hosta Razor składników w aplikacji ASP.NET Core na serwerze gdzie aktualizacje interfejsu użytkownika są obsługiwane za pośrednictwem połączenia SignalR. Aby uzyskać więcej informacji, zobacz <xref:razor-components/index> i <xref:razor-components/hosting-models#server-side-hosting-model>. 
 
@@ -92,7 +92,7 @@ W przypadku aplikacji wymagających bibliotek JavaScript innych firm i przegląd
 
 ## <a name="code-sharing-and-net-standard"></a>Udostępnianie kodu i .NET Standard
 
-Aplikacje można odwołać się i używać istniejącej [.NET Standard](/dotnet/standard/net-standard) bibliotek. .NET standard to formalną specyfikację interfejsów API platformy .NET, które są wspólne dla implementacji platformy .NET. .NET standard 2.0 lub nowszej jest obsługiwana. Interfejsy API, które nie są stosowane w przeglądarce sieci web (na przykład dostęp do systemu plików, gniazdo, wątki i inne funkcje) throw <xref:System.PlatformNotSupportedException>. Biblioteki klas .NET standard mogą być udostępniane w kodzie serwera oraz w aplikacjach opartych na przeglądarce.
+Aplikacje można odwołać się i używać istniejącej [.NET Standard](/dotnet/standard/net-standard) bibliotek. .NET standard to formalną specyfikację interfejsów API platformy .NET, które są wspólne dla implementacji platformy .NET. Blazor implementuje .NET Standard 2.0. Interfejsy API, które nie są stosowane w przeglądarce sieci web (na przykład dostęp do systemu plików, gniazdo, wątki i inne funkcje) throw <xref:System.PlatformNotSupportedException>. Biblioteki klas .NET standard mogą być udostępniane na różnych platformach .NET, takich jak Blazor, .NET Framework, .NET Core, Xamarin, narzędzie Mono i Unity.
 
 ## <a name="optimization"></a>Optymalizacja
 
@@ -108,6 +108,6 @@ Rozmiar ładunku jest czynnikiem wydajność krytycznych dla użyteczności apli
 
 * <xref:razor-components/index>
 * [Format WebAssembly](http://webassembly.org/)
-* [Przewodnik dla języka C#](/dotnet/csharp/)
+* [Przewodnik po języku C#](/dotnet/csharp/)
 * <xref:mvc/views/razor>
 * [HTML](https://www.w3.org/html/)

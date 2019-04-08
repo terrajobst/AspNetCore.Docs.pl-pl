@@ -5,14 +5,14 @@ description: Dowiedz się, jak skonfigurować uwierzytelnianie Windows w program
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 02/25/2019
+ms.date: 04/03/2019
 uid: security/authentication/windowsauth
-ms.openlocfilehash: 15fc41efba77f88fc8129f875b85836ac1b5f886
-ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
+ms.openlocfilehash: 9b53f523cf579aeb0e7dd37ccf5f161269a54913
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833699"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068264"
 ---
 # <a name="configure-windows-authentication-in-aspnet-core"></a>Konfigurowanie uwierzytelniania Windows w programie ASP.NET Core
 
@@ -26,15 +26,19 @@ Uwierzytelnianie Windows opiera się uwierzytelniać użytkowników aplikacji pl
 
 **Aplikacji sieci Web** szablonu dostępnego za pośrednictwem programu Visual Studio lub interfejsu wiersza polecenia platformy .NET Core może być skonfigurowane do obsługi uwierzytelniania Windows.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# [<a name="visual-studio"></a>Visual Studio](#tab/visual-studio)
 
 ### <a name="use-the-windows-authentication-app-template-for-a-new-project"></a>Korzystanie z szablonu aplikacji uwierzytelniania Windows dla nowego projektu
 
 W programie Visual Studio:
 
-1. Utwórz nową **aplikacji sieci Web programu ASP.NET Core**.
-1. Wybierz **aplikacji sieci Web** z listy szablonów.
-1. Wybierz **Zmień uwierzytelnianie** i wybrać **uwierzytelniania Windows**.
+1. Utwórz nowy projekt.
+1. Wybierz **aplikacji sieci Web platformy ASP.NET Core**. Wybierz opcję **Dalej**.
+1. Podaj nazwę w **Nazwa projektu** pola. Upewnij się, **lokalizacji** wpis jest poprawny lub podaj lokalizację dla projektu. Wybierz pozycję **Utwórz**.
+1. Wybierz **zmiany** w obszarze **uwierzytelniania**.
+1. W **Zmień uwierzytelnianie** wybierz **uwierzytelniania Windows**. Kliknij przycisk **OK**.
+1. Wybierz **aplikacji sieci Web**.
+1. Wybierz pozycję **Utwórz**.
 
 Uruchom aplikację. Nazwa użytkownika pojawia się w interfejsie użytkownika aplikacji renderowany.
 
@@ -51,7 +55,7 @@ Alternatywnie, można skonfigurować właściwości w `iisSettings` węźle *lau
 
 [!code-json[](windowsauth/sample_snapshot/launchSettings.json?highlight=2-3)]
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+# [<a name="net-core-cli"></a>.NET core interfejsu wiersza polecenia](#tab/netcore-cli)
 
 Użyj **uwierzytelniania Windows** szablonu aplikacji.
 
@@ -129,7 +133,7 @@ Za pomocą programu Visual Studio lub interfejsu wiersza polecenia platformy .NE
 
 Aby uzyskać więcej informacji dotyczących obsługi za pomocą programu IIS publikowania i wdrażania, zobacz następujące tematy:
 
-* [dotnet publish](/dotnet/core/tools/dotnet-publish)
+* [Publikowanie DotNet](/dotnet/core/tools/dotnet-publish)
 * <xref:host-and-deploy/iis/index>
 * <xref:host-and-deploy/aspnet-core-module>
 * <xref:host-and-deploy/visual-studio-publish-profiles>

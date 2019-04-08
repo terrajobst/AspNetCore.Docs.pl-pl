@@ -5,13 +5,14 @@ description: Więcej informacji o weryfikacji modelu w programie ASP.NET Core MV
 ms.author: riande
 ms.custom: mvc
 ms.date: 04/01/2019
+monikerRange: '>= aspnetcore-2.1'
 uid: mvc/models/validation
-ms.openlocfilehash: 621c379521bb711728b00c412bf63f90ff6d9ef4
-ms.sourcegitcommit: 1a7000630e55da90da19b284e1b2f2f13a393d74
+ms.openlocfilehash: 8d3d19791861b09d87eb3c85e8da0a8db061d4e9
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59012815"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068368"
 ---
 # <a name="model-validation-in-aspnet-core-mvc-and-razor-pages"></a>Weryfikacja modelu w programie ASP.NET Core MVC i stron Razor
 
@@ -23,23 +24,11 @@ W tym artykule opisano sposób sprawdzania poprawności danych wejściowych uży
 
 Stan modelu reprezentuje błędy, które pochodzą z dwóch podsystemów: wiązania modelu i sprawdzanie poprawności modelu. Błędy, które pochodzą z [wiązanie modelu](model-binding.md) są zwykle błędów konwersji danych (na przykład, "x" jest wprowadzana w polu, które oczekuje, że liczba całkowita). Sprawdzanie poprawności modelu występuje po wiązania modelu i raporty błędów, gdy dane nie są zgodne z regułami biznesowymi (na przykład 0 jest wprowadzana w polu, które oczekuje, że ma klasyfikację od 1 do 5).
 
-::: moniker range=">= aspnetcore-2.1"
-
-Zarówno powiązanie modelu, jak i weryfikacja odbywają się przed wykonaniem tej akcji kontrolera lub metody obsługi stron Razor. Odpowiada za aplikacji aby sprawdzić `ModelState.IsValid` i odpowiednio reagują. Aplikacje internetowe zazwyczaj ponownie wyświetlić stronę komunikatu o błędzie:
-
-[!code-csharp[](validation/sample_snapshot/Create.cshtml.cs?name=snippet&highlight=3-6)]
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.1"
-
 Zarówno powiązanie modelu, jak i weryfikacja odbywają się przed wykonaniem tej akcji kontrolera lub metody obsługi stron Razor. Dla aplikacji sieci web odpowiada aplikacji aby sprawdzić `ModelState.IsValid` i odpowiednio reagują. Aplikacje internetowe zazwyczaj ponownie wyświetlić stronę komunikatu o błędzie:
 
 [!code-csharp[](validation/sample_snapshot/Create.cshtml.cs?name=snippet&highlight=3-6)]
 
 Kontrolery interfejsu API sieci Web nie ma pod `ModelState.IsValid` jeśli mają one `[ApiController]` atrybutu. W takim przypadku automatyczne HTTP 400 odpowiedzi zawierające szczegółowe informacje o problemie zwracany jest stan modelu jest nieprawidłowy. Aby uzyskać więcej informacji, zobacz [odpowiedzi automatyczne HTTP 400](xref:web-api/index#automatic-http-400-responses).
-
-::: moniker-end
 
 ## <a name="rerun-validation"></a>Uruchom ponownie sprawdzanie poprawności
 
@@ -180,8 +169,6 @@ Poprzedni przykład działa tylko w przypadku `Movie` typów. Inna opcja weryfik
 
 [!code-csharp[](validation/sample/Models/MovieIValidatable.cs?name=snippet&highlight=1,26-34)]
 
-::: moniker range=">= aspnetcore-2.1"
-
 ## <a name="top-level-node-validation"></a>Sprawdzanie poprawności węzeł najwyższego poziomu
 
 Obejmują węzłów najwyższego poziomu:
@@ -209,15 +196,11 @@ Podczas korzystania z użyciem `CompatibilityVersion.Version_2_1` lub później,
 
 [!code-csharp[](validation/sample_snapshot/Startup.cs?name=snippet_AddMvc&highlight=4)]
 
-::: moniker-end
-
 ## <a name="maximum-errors"></a>Maksymalna liczba błędów
 
 Sprawdzanie poprawności zostanie zatrzymane, jeśli osiągnięto maksymalną liczbę błędów (200 domyślnie). Tę liczbę można skonfigurować w następującym kodem `Startup.ConfigureServices`:
 
 [!code-csharp[](validation/sample/Startup.cs?name=snippet_MaxModelValidationErrors&highlight=3)]
-
-::: moniker range=">= aspnetcore-2.1"
 
 ## <a name="maximum-recursion"></a>Maksymalna rekursji
 
@@ -226,8 +209,6 @@ Sprawdzanie poprawności zostanie zatrzymane, jeśli osiągnięto maksymalną li
 ## <a name="automatic-short-circuit"></a>Zwarcie automatyczne
 
 Sprawdzanie poprawności jest automatycznie zwartym (pominięto) Jeśli na wykresie modelu nie wymaga weryfikacji. Obiekty, których środowisko uruchomieniowe Pomija weryfikację obejmują kolekcje elementów podstawowych (takie jak `byte[]`, `string[]`, `Dictionary<string, string>`) i wykresów złożonych obiektów, które nie mają żadnych modułów weryfikacji.
-
-::: moniker-end
 
 ## <a name="disable-validation"></a>Wyłączyć sprawdzanie poprawności
 

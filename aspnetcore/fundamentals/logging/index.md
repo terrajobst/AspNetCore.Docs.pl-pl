@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 03/02/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: c6543ec1f2295c21c6a693ac8bd16ee07ec11381
-ms.sourcegitcommit: a1c43150ed46aa01572399e8aede50d4668745ca
+ms.openlocfilehash: 065b2016d3a2dcc2243ec6869e027c5fabe4dad8
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58327410"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068407"
 ---
 # <a name="logging-in-aspnet-core"></a>Rejestrowanie w programie ASP.NET Core
 
@@ -110,7 +110,7 @@ Zapisywanie dzienników `Program` klasy, Uzyskaj `ILogger` wystąpienia DI:
 
 ### <a name="no-asynchronous-logger-methods"></a>Nie metody asynchronicznej rejestratora
 
-Rejestrowanie powinno być tak szybko, że nie jest wart spadek wydajności kodu asynchronicznego. Jeśli magazyn danych rejestrowania jest powolne, nie zapisanie w nim bezpośrednio. Należy wziąć pod uwagę początkowo zapisywanie komunikatów dziennika do szybkiego magazynu, a następnie przenieść je do magazynu powolne później. Na przykład Zaloguj się do kolejki komunikatów, która ma odczytu utrwalana w magazynie powolne przez inny proces.
+Rejestrowanie powinno być tak szybko, że nie jest wart spadek wydajności kodu asynchronicznego. Jeśli magazyn danych rejestrowania jest powolne, nie zapisanie w nim bezpośrednio. Należy wziąć pod uwagę początkowo zapisywanie komunikatów dziennika do szybkiego magazynu, a następnie przenieść je do magazynu powolne później. Na przykład, jeśli masz rejestrowania programu SQL Server nie chcesz to zrobić bezpośrednio w `Log` metody, ponieważ `Log` metody są synchroniczne. Zamiast tego należy synchronicznie Dodawanie dziennika komunikatów do kolejki w pamięci i mieć procesu roboczego tła ściągają komunikaty z kolejki, aby wykonywać pracę asynchroniczną wypychanie danych do programu SQL Server.
 
 ## <a name="configuration"></a>Konfiguracja
 
@@ -610,10 +610,10 @@ warn: TodoApi.Controllers.TodoController[4000]
 
 ASP.NET Core jest dostarczana w następujących dostawców:
 
-* [Console](#console-provider)
+* [Konsola](#console-provider)
 * [Debugowanie](#debug-provider)
 * [EventSource](#eventsource-provider)
-* [EventLog](#windows-eventlog-provider)
+* [Dziennik zdarzeń](#windows-eventlog-provider)
 * [TraceSource](#tracesource-provider)
 
 Opcje dla [rejestrowania na platformie Azure](#logging-in-azure) zostały omówione w dalszej części tego artykułu.

@@ -1,44 +1,39 @@
 ---
 title: Testowanie obciążenia/obciążeniowe platformy ASP.NET Core
 author: Jeremy-Meng
-description: W tym artykule opisano kilka istotnych narzędzi i podejścia do testowania obciążenia i aplikacje platformy ASP.NET Core testowanie obciążeniowe.
+description: Informacje o kilku istotnych narzędzi i podejścia do testowania obciążenia i aplikacje platformy ASP.NET Core testowanie obciążeniowe.
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/04/2019
+ms.date: 04/05/2019
 uid: test/loadtests
-ms.openlocfilehash: 08c4251059b7d9f4549ad710054d8299c4943465
-ms.sourcegitcommit: 7d6019f762fc5b8cbedcd69801e8310f51a17c18
+ms.openlocfilehash: 0a8449ea2c9df0f2ac93058f03af0a1a2aa66508
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58419384"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068186"
 ---
-# <a name="load-and-stress-testing-aspnet-core"></a>Obciążeniowe testowania platformy ASP.NET Core
+# <a name="aspnet-core-loadstress-testing"></a>Testowanie obciążenia/obciążeniowe platformy ASP.NET Core
 
 Testowanie obciążenia i testy obciążenia są ważne, aby upewnić się, że aplikacja sieci web jest wydajne i skalowalne. Swoje cele są różne, nawet jeśli często mają podobne testów.
 
-**Testy obciążenia**: Sprawdza, czy aplikacja może obsługiwać określonego obciążenia użytkowników dla niektórych scenariuszy spełniając nadal docelowy odpowiedzi. Aplikacja jest uruchamiana w normalnych warunkach.
+**Testy obciążenia** &ndash; sprawdzić, czy aplikacja może obsługiwać określonego obciążenia użytkowników dla niektórych scenariuszy nadal spełniając docelowy odpowiedzi. Aplikacja jest uruchamiana w normalnych warunkach.
 
-**Testy obciążeniowe**: Testy stabilność aplikacji podczas uruchamiania w ekstremalnych warunków i często dłuższy czas:
+**Testy obciążeniowe** &ndash; testowych stabilność aplikacji, podczas działania w warunkach extreme często przez dłuższy czas. Testy umieść duże obciążenie użytkownikami, wzrostów lub stopniowo zwiększa obciążenie dla aplikacji lub ograniczać zasoby obliczeniowe aplikacji.
 
-* Duże obciążenie użytkownikami — wzrostów lub stopniowo zwiększając.
-* Ograniczone zasoby obliczeniowe.
+Testy obciążeniowe określają, czy aplikację przy dużym obciążeniu można dokonać odzyskiwania po awarii i bez problemu zmieniała powrócić do oczekiwane zachowanie. Przy dużym obciążeniu aplikacja nie jest uruchamiana w normalnych warunkach.
 
-Przy dużym obciążeniu można ją odzyskiwanie po awarii i bez problemu zmieniała powrócić do oczekiwane zachowanie? Przy dużym obciążeniu, aplikacja jest *nie* Uruchom w normalnych warunkach.
-
-Visual Studio 2019 będzie ostatnią wersją programu Visual Studio wyposażoną w funkcje testów obciążeniowych. Klientom potrzebującym narzędzi do testowania obciążenia zalecamy korzystanie z alternatywnych narzędzi do testowania obciążenia, takich jak Apache JMeter, Akamai CloudTest czy Blazemeter. Aby uzyskać więcej informacji, zobacz [Visual Studio 2019 informacje o wersji zapoznawczej](/visualstudio/releases/2019/release-notes-preview#test-tools).
+Visual Studio 2019 r jest najnowszej wersji programu Visual Studio za pomocą funkcji testów obciążeniowych. Dla klientów wymagających w przyszłości narzędzia do testowania obciążenia zalecamy alternatywne narzędzi, takich jak Apache JMeter Akamai CloudTest i BlazeMeter. Aby uzyskać więcej informacji, zobacz [Visual Studio 2019 informacje o wersji](/visualstudio/releases/2019/release-notes#test-tools).
 
 Usługi testowania obciążeniowego w DevOps platformy Azure kończy się 2020 r. Aby uzyskać więcej informacji, zobacz [usługi koniec cyklu życia testowania obciążenia w chmurze](https://devblogs.microsoft.com/devops/cloud-based-load-testing-service-eol/).
 
-## <a name="visual-studio-tools"></a>Visual Studio Tools
+## <a name="visual-studio-tools"></a>Visual Studio tools
 
 Program Visual Studio pozwala użytkownikom na tworzenie, opracowywanie i debugowanie testów wydajności i obciążenia sieci web. Opcja jest dostępna do utworzenia testów poprzez nagrywanie akcji w przeglądarce sieci web.
 
-[Szybki start: Tworzenie projektu testu obciążeniowego](/visualstudio/test/quickstart-create-a-load-test-project?view=vs-2017) pokazuje, jak tworzenie, konfigurowanie i uruchamianie testu obciążenia projektów przy użyciu programu Visual Studio 2017.
+Aby uzyskać informacje na temat sposobu tworzenie, konfigurowanie i uruchamianie testu obciążenia projektów przy użyciu programu Visual Studio 2017, zobacz [Szybki Start: Tworzenie projektu testu obciążeniowego](/visualstudio/test/quickstart-create-a-load-test-project?view=vs-2017). Aby uzyskać więcej informacji, zobacz [dodatkowe zasoby](#additional-resources) sekcji.
 
-Zobacz [dodatkowe zasoby](#add) Aby uzyskać więcej informacji.
-
-Testy obciążenia można skonfigurować do uruchamiania w lokalnych lub działają w chmurze przy użyciu DevOps platformy Azure.
+Testy obciążenia można skonfigurować do uruchamiania w środowisku lokalnym lub uruchamiania w chmurze przy użyciu DevOps platformy Azure.
 
 ## <a name="azure-devops"></a>Usługa Azure DevOps
 
@@ -46,24 +41,24 @@ Można uruchomić przebiegów testów obciążeniowych przy użyciu [plany test�
 
 ![Testowanie strony docelowej obciążenia DevOps platformy Azure](./load-tests/_static/azure-devops-load-test.png)
 
-Usługa obsługuje następujące typy format testu:
+Usługa obsługuje następujące formaty testu:
 
-* Test programu Visual Studio — testu sieci web w programie Visual Studio.
-* Archiwum HTTP testami — przechwyconych ruch HTTP w ramach archiwum jest odtwarzany podczas testowania.
-* [Test oparty na adresach URL](/azure/devops/test/load-test/get-started-simple-cloud-load-test?view=vsts) — umożliwia określenie adresów URL można załadować testu, typy żądań, nagłówki i ciągi zapytań. Uruchamianie, ustawianie parametrów, np. czas trwania, wzorca obciążenia, liczbę użytkowników itp., można skonfigurować.
-* [Apache JMeter](https://jmeter.apache.org/) testu.
+* Program Visual Studio &ndash; testu sieci Web w programie Visual Studio.
+* Archiwum HTTP &ndash; ruch HTTP przechwycone w ramach archiwum jest odtwarzany podczas testowania.
+* [Oparty na adresach URL](/azure/devops/test/load-test/get-started-simple-cloud-load-test?view=vsts) &ndash; umożliwia określenie adresów URL można załadować testu, typy żądań, nagłówki i ciągi zapytań. Uruchamianie, ustawianie parametrów, np. czas trwania, wzorca obciążenia oraz liczbę użytkowników, można skonfigurować.
+* [Apache JMeter](https://jmeter.apache.org/).
 
 ## <a name="azure-portal"></a>Azure Portal
 
-[Portal systemu Azure pozwala konfigurowania i uruchamiania, testowanie obciążeniowe aplikacji sieci Web](/azure/devops/test/load-test/app-service-web-app-performance-test?view=vsts) bezpośrednio z karty wydajność usługi App Service w witrynie Azure portal.
+[Portal systemu Azure pozwala konfigurowania i uruchamiania, testowanie obciążeniowe aplikacji sieci web](/azure/devops/test/load-test/app-service-web-app-performance-test?view=vsts) bezpośrednio z **wydajności** kartę usługi App Service w witrynie Azure portal.
 
-![Usługa Azure App Service w witrynie Azure Portal](./load-tests/_static/azure-appservice-perf-test.png)
+![Usługa Azure App Service w witrynie Azure portal](./load-tests/_static/azure-appservice-perf-test.png)
 
-Test może być testu ręcznego z określonego adresu URL lub plik sieci Web Test programu Visual Studio, który można przetestować wiele adresów URL.
+Test może być testu ręcznego z określonym adresem URL lub plik sieci Web Test programu Visual Studio, który można przetestować wiele adresów URL.
 
-![Nowa strona Test Wydajnościowy w witrynie Azure Portal](./load-tests/_static/azure-appservice-perf-test-config.png)
+![Nowa strona Test Wydajnościowy w witrynie Azure portal](./load-tests/_static/azure-appservice-perf-test-config.png)
 
-Na końcu testu raporty są generowane, aby pokazać charakterystyki wydajności aplikacji. Statystyka przykład zawiera:
+Na końcu testu generowane raporty pokazują charakterystyki wydajności aplikacji. Statystyka przykład zawiera:
 
 * Średni czas odpowiedzi
 * Maksymalna przepływność: żądań na sekundę
@@ -73,13 +68,13 @@ Na końcu testu raporty są generowane, aby pokazać charakterystyki wydajności
 
 Poniższa lista zawiera narzędzia wydajności sieci web innych firm, z różnymi zestawami funkcji:
 
-* [Apache JMeter](https://jmeter.apache.org/) : Pełny zestaw polecanych narzędziom do testowania obciążenia. Powiązane z wątku: muszą jeden wątek na użytkownika.
-* [AB — Apache HTTP server, narzędzia do testów porównawczych](https://httpd.apache.org/docs/2.4/programs/ab.html)
-* [Gatling](https://gatling.io/) : Narzędzia pulpitu za pomocą urządzenia graficznego interfejsu użytkownika i testowania. Wydajniej niż JMeter.
-* [Locust.IO](https://locust.io/) : Nie są ograniczone przez wątków.
-
-<a name="add"></a>
+* [Apache JMeter](https://jmeter.apache.org/)
+* [ApacheBench (ab)](https://httpd.apache.org/docs/2.4/programs/ab.html)
+* [Gatling](https://gatling.io/)
+* [Chleba](https://locust.io/)
+* [WebSurge wiatru zachodnie](http://websurge.west-wind.com/)
+* [Netling](https://github.com/hallatore/Netling)
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-[Ładowanie serię wpisów w blogu testu](https://blogs.msdn.microsoft.com/charles_sterling/2015/06/01/load-test-series-part-i-creating-web-performance-tests-for-a-load-test/) Autor: Charles Sterling. Z dnia, ale nadal dotyczą większości tematów.
+* [Serię wpisów w blogu testu obciążenia](https://blogs.msdn.microsoft.com/charles_sterling/2015/06/01/load-test-series-part-i-creating-web-performance-tests-for-a-load-test/)

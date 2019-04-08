@@ -5,20 +5,20 @@ description: Dowiedz się, jak rozpocząć pracę ze składnikami Razor, tworzą
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/13/2019
+ms.date: 04/07/2019
 uid: razor-components/get-started
-ms.openlocfilehash: 026bc5b3222a8ffa35a064bef8bbf64834b67a90
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 151e58497b0f22fa7c5a9bde1f665eeb73fd5dc3
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209697"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068149"
 ---
 # <a name="get-started-with-razor-components"></a>Wprowadzenie do składników Razor
 
 Przez [Daniel Roth](https://github.com/danroth27) i [Luke Latham](https://github.com/guardrex)
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# [<a name="visual-studio"></a>Visual Studio](#tab/visual-studio)
 
 Wymagania wstępne:
 
@@ -26,9 +26,16 @@ Wymagania wstępne:
 
 Aby utworzyć swój pierwszy projekt Razor składników w programie Visual Studio:
 
-1. Wybierz **pliku** > **nowy projekt** > **Web** > **aplikacji sieci Web platformy ASP.NET Core**.
+1. Zainstaluj najnowszą wersję [zestawu SDK programu .NET Core 3.0 w wersji zapoznawczej](https://dotnet.microsoft.com/download/dotnet-core/3.0) wydania.
+1. Włącz Visual Studio ma używać zestawów SDK w wersji zapoznawczej:
+   1. Otwórz **narzędzia** > **opcje** na pasku menu.
+   1. Otwórz **projekty i rozwiązania** węzła. Otwórz **platformy .NET Core** kartę.
+   1. Pole wyboru dla **Użyj wersji zapoznawczych programu .NET Core SDK**. Kliknij przycisk **OK**.
+1. Utwórz nowy projekt.
+1. Wybierz **aplikacji sieci Web platformy ASP.NET Core**. Wybierz opcję **Dalej**.
+1. Podaj nazwę w **Nazwa projektu** pola. Upewnij się, **lokalizacji** wpis jest poprawny lub podaj lokalizację dla projektu. Wybierz pozycję **Utwórz**.
 1. Upewnij się, że **platformy .NET Core** i **platformy ASP.NET Core 3.0** wybrano u góry.
-1. Wybierz **składniki Razor** szablonu, a następnie wybierz **OK**.
+1. Wybierz **składniki Razor** szablonu, a następnie wybierz **Utwórz**.
 1. Naciśnij klawisz **F5** do uruchomienia aplikacji.
 
 Gratulacje! Po prostu uruchomieniu pierwszej aplikacji składniki Razor!
@@ -87,7 +94,7 @@ To create your first project Razor Components project in Visual Studio for Mac:
 Congratulations! You just ran your first Razor Components app!
 -->
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli/)
+# [<a name="net-core-cli"></a>.NET core interfejsu wiersza polecenia](#tab/netcore-cli/)
 
 Wymagania wstępne:
 

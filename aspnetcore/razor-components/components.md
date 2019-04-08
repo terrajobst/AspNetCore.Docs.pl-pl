@@ -5,14 +5,14 @@ description: Informacje o sposobie tworzenia i używania składników Razor, w t
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/26/2019
+ms.date: 04/07/2019
 uid: razor-components/components
-ms.openlocfilehash: 59c8540ea297f8396d6aac9b3246639667ad0cd7
-ms.sourcegitcommit: 687ffb15ebe65379f75c84739ea851d5a0d788b7
+ms.openlocfilehash: 00e07d496f4471f56d4184d1cb7c07c0715bea3f
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58488681"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068357"
 ---
 # <a name="create-and-use-razor-components"></a>Tworzenie i używanie składników Razor
 
@@ -34,7 +34,7 @@ Składniki można tworzyć w aplikacjach składniki Razor przy użyciu *.cshtml*
 
 W interfejsie użytkownika dla składnika jest zdefiniowana za pomocą kodu HTML. Logika renderowania dynamicznego (na przykład pętli, warunkowych, wyrażeń) zostanie dodany przy użyciu osadzonych C# składni o nazwie [Razor](xref:mvc/views/razor). Podczas kompilowania aplikacji Razor składników, kod znaczników HTML i C# logiki renderowania są konwertowane na klasy składnika. Nazwa wygenerowanej klasy odpowiada nazwie pliku.
 
-Elementy członkowskie klasy składników są zdefiniowane w `@functions` bloku (więcej niż jeden `@functions` bloku jest dozwolone). W `@functions` bloku, stan składników (właściwości, pola) została określona wraz z metody obsługi zdarzeń lub Definiowanie logiki innych składników.
+Elementy członkowskie klasy składników są zdefiniowane w `@functions` bloku (więcej niż jeden `@functions` bloku jest dozwolone). W `@functions` bloku, stan składników (właściwości, pola) jest określony za pomocą metody obsługi zdarzeń lub Definiowanie logiki innych składników.
 
 Elementy członkowskie składnika mogą posłużyć jako część składnika przez renderowanie przy użyciu logiki C# wyrażeń, które zaczyna się `@`. Na przykład C# pole jest renderowane przez dodanie przedrostka `@` na nazwę pola. Poniższy przykład daje w wyniku i renderuje:
 
@@ -51,6 +51,25 @@ Elementy członkowskie składnika mogą posłużyć jako część składnika prz
 ```
 
 Po początkowo renderowania składnik składnika generuje jej drzewo renderowania w odpowiedzi na zdarzenia. Składniki razor następnie porównuje nowego drzewa renderowania względem poprzedniego i stosuje wszystkie zmiany do przeglądarki w modelu DOM (Document Object).
+
+## <a name="integrate-components-into-razor-pages-and-mvc-apps"></a>Integrowanie składników aplikacji stronami Razor i programem MVC
+
+Składniki za pomocą istniejących aplikacji stronami Razor i programem MVC. Nie ma potrzeby ponownego wpisywania istniejących stron lub widoków w celu używania składników Razor. Po wyrenderowaniu strony lub widoku składniki są prerendered&dagger; w tym samym czasie. 
+
+> [!NOTE]
+> &dagger;Prerendering po stronie serwera jest domyślnie włączona dla składników Razor aplikacji. Aplikacje Blazor po stronie klienta będzie obsługiwać prerendering w nadchodzącym wydaniu wersji zapoznawczej 4. Aby uzyskać więcej informacji, zobacz [aktualizacji szablonów/oprogramowanie pośredniczące MapFallbackToPage/pliku](https://github.com/aspnet/AspNetCore/issues/8852).
+
+Aby renderować składnika ze strony lub widok, należy użyć `RenderComponentAsync<TComponent>` metody pomocnika kodu HTML:
+
+```cshtml
+<div id="Counter">
+    @(await Html.RenderComponentAsync<Counter>(new { IncrementAmount = 10 }))
+</div>
+```
+
+Składniki, renderowane przy użyciu widoków i stron nie są jeszcze interactive w wersji 3 (wersja zapoznawcza). Na przykład naciśnięcie przycisku nie spowoduje wyzwolenia wywołania metody. Przyszłych wersji zapoznawczej będzie to ograniczenie adresów, a następnie dodaj wsparcie dla składników renderowania przy użyciu normalnych składni elementów i atrybutów.
+
+Gdy widoków i stron można użyć składników, prawdą nie dotyczy. Składniki nie można używać w scenariuszach specyficznych dla widoku i strony, takich jak widoki częściowe i sekcji. Aby użyć logiki z widoku częściowego w składniku, współczynnik logiki widoku częściowego do składnika.
 
 ## <a name="using-components"></a>Używanie składników
 
@@ -464,7 +483,7 @@ Pliki składników (*.cshtml*) mieszać kod znaczników HTML i C# przetwarzania 
 
 [!code-csharp[](common/samples/3.x/BlazorSample/Pages/BlazorRocksBase.cs)]
 
-Klasa bazowa powinien pochodzić od `BlazorComponent`.
+Klasa bazowa powinien pochodzić od `ComponentBase`.
 
 ## <a name="razor-support"></a>Obsługa razor
 
@@ -599,7 +618,7 @@ Oparte na szablonach składniki są często objęte wpisane. Na przykład ogóln
 
 *Components/ListViewTemplate.cshtml*:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Components/ListViewTemplate.cshtml?highlight=1)]
+[!code-cshtml[](common/samples/3.x/BlazorSample/Components/ListViewTemplate.cshtml)]
 
 Podczas korzystania z kontrolą typów ogólnych składników, jeśli jest to możliwe jest wnioskowany parametr typu:
 
