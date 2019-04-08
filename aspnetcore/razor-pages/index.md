@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 05/12/2018
 uid: razor-pages/index
-ms.openlocfilehash: afdaa11c55b66366badf8facde62e3f215b6deb2
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: 50db8cd9b0523239acb1d439b472ea5d3cb6cb7c
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264803"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068381"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Wprowadzenie do stron Razor programu ASP.NET Core
 
@@ -31,11 +31,11 @@ Ten dokument zawiera wprowadzenie do stron Razor. Nie jest samouczek krok po kro
 
 ## <a name="create-a-razor-pages-project"></a>Utwórz projekt stron Razor
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# [<a name="visual-studio"></a>Visual Studio](#tab/visual-studio)
 
 Zobacz [Rozpoczynanie pracy ze stronami Razor](xref:tutorials/razor-pages/razor-pages-start) szczegółowe instrukcje dotyczące sposobu tworzenia projektu stron Razor.
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+# [<a name="visual-studio-for-mac"></a>Visual Studio for Mac](#tab/visual-studio-mac)
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -51,7 +51,7 @@ Uruchom `dotnet new razor` z wiersza polecenia.
 
 Otwórz wygenerowany *.csproj* pliku z programu Visual Studio dla komputerów Mac.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# [<a name="visual-studio-code"></a>Visual Studio Code](#tab/visual-studio-code)
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -77,7 +77,7 @@ Należy wziąć pod uwagę strona podstawowa: <a name="OnGet"></a>
 
 [!code-cshtml[](index/sample/RazorPagesIntro/Pages/Index.cshtml)]
 
-Powyższy kod wygląda o wiele plik widoku Razor. Czym różni się on jest `@page` dyrektywy. `@page` sprawia, że plik do Akcja kontrolera MVC — oznacza to, obsługi żądań bezpośrednio, bez przechodzenia przez kontrolera. `@page` musi być pierwszym dyrektywy Razor na stronie. `@page` wpływa na działanie innych konstrukcji Razor.
+Powyższy kod wygląda o wiele [plik widoku Razor](xref:tutorials/first-mvc-app/adding-view) używane w aplikacji ASP.NET Core za pomocą kontrolerów i widoków. Czym różni się on jest `@page` dyrektywy. `@page` sprawia, że plik do Akcja kontrolera MVC — oznacza to, obsługi żądań bezpośrednio, bez przechodzenia przez kontrolera. `@page` musi być pierwszym dyrektywy Razor na stronie. `@page` wpływa na działanie innych konstrukcji Razor.
 
 Podobny strony, `PageModel` klasy, jest wyświetlany w następujące dwa pliki. *Pages/Index2.cshtml* pliku:
 
@@ -93,10 +93,10 @@ Skojarzenia ścieżki adresu URL do strony są określane według lokalizacji st
 
 | Nazwa pliku i ścieżka               | dopasowanie adresu URL |
 | ----------------- | ------------ |
-| */Pages/Index.cshtml* | `/` lub `/Index` |
+| */Pages/index.cshtml* | `/` lub `/Index` |
 | */Pages/Contact.cshtml* | `/Contact` |
 | */Pages/Store/Contact.cshtml* | `/Store/Contact` |
-| */Pages/Store/Index.cshtml* | `/Store` lub `/Store/Index` |
+| */Pages/Store/index.cshtml* | `/Store` lub `/Store/Index` |
 
 Uwagi:
 
