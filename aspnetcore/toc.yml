@@ -561,10 +561,14 @@ items:
       name: Omówienie
     - uid: razor-components/get-started
       name: Wprowadzenie
+    - uid: razor-components/hosting-models
+      name: Modele hostingu
     - uid: tutorials/first-razor-components-app
       name: Tworzenie pierwszej aplikacji
     - uid: razor-components/components
       name: Składniki
+    - uid: razor-components/forms-validation
+      name: Formularze i walidacja
     - uid: razor-components/class-libraries
       name: Biblioteki składników
     - uid: razor-components/layouts
@@ -577,14 +581,12 @@ items:
       name: Międzyoperacyjność w języku JavaScript
     - uid: razor-components/debug
       name: Debugowanie
-    - uid: razor-components/hosting-models
-      name: Modele hostingu
     - name: Hostowanie i wdrażanie
       items:
-      - uid: host-and-deploy/razor-components/index
+      - uid: host-and-deploy/razor-components-blazor/index
         name: Omówienie
-      - uid: host-and-deploy/razor-components/configure-linker
-        name: Konfigurowanie konsolidatora
+      - uid: host-and-deploy/razor-components-blazor/razor-components
+        name: Składniki Razor
   - name: Aplikacje jednostronicowe
     items:
     - name: Blazor
@@ -593,10 +595,14 @@ items:
         name: Omówienie
       - uid: spa/blazor/get-started
         name: Wprowadzenie
+      - uid: razor-components/hosting-models
+        name: Modele hostingu
       - uid: tutorials/first-razor-components-app
         name: Tworzenie pierwszej aplikacji
       - uid: razor-components/components
         name: Składniki
+      - uid: razor-components/forms-validation
+        name: Formularze i walidacja
       - uid: razor-components/class-libraries
         name: Biblioteki składników
       - uid: razor-components/layouts
@@ -609,13 +615,13 @@ items:
         name: Międzyoperacyjność w języku JavaScript
       - uid: razor-components/debug
         name: Debugowanie
-      - uid: razor-components/hosting-models
-        name: Modele hostingu
       - name: Hostowanie i wdrażanie
         items:
-        - uid: host-and-deploy/razor-components/index
+        - uid: host-and-deploy/razor-components-blazor/index
           name: Omówienie
-        - uid: host-and-deploy/razor-components/configure-linker
+        - uid: host-and-deploy/razor-components-blazor/blazor
+          name: Blazor
+        - uid: host-and-deploy/razor-components-blazor/configure-linker
           name: Konfigurowanie konsolidatora
     - uid: spa/angular
       name: Angular
@@ -774,11 +780,15 @@ items:
   - uid: host-and-deploy/health-checks
     name: Kontrole kondycji
     displayName: deploy, publish
-  - name: Składniki Razor
+  - name: Składniki Razor/Blazor
     items:
-    - uid: host-and-deploy/razor-components/index
+    - uid: host-and-deploy/razor-components-blazor/index
       name: Omówienie
-    - uid: host-and-deploy/razor-components/configure-linker
+    - uid: host-and-deploy/razor-components-blazor/blazor
+      name: Blazor
+    - uid: host-and-deploy/razor-components-blazor/razor-components
+      name: Składniki Razor
+    - uid: host-and-deploy/razor-components-blazor/configure-linker
       name: Konfigurowanie konsolidatora
 - name: Zabezpieczenia i tożsamość
   displayName: authentication, authorization
@@ -1083,9 +1093,9 @@ items:
   href: /dotnet/api/?view=aspnetcore-2.2
 - name: Współtworzenie
   href: https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md
-ms.openlocfilehash: d9ab9beacab19a0e004878d2645b1106bf5dc0d6
-ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
+ms.openlocfilehash: 0065707eeaf77327e553b3c43b65e11063edd7e0
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2019
-ms.locfileid: "58751105"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068394"
