@@ -4,14 +4,14 @@ author: rick-anderson
 description: W tym artykule opisano wbudowane pomocników tagów używane w formularzach.
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/27/2019
+ms.date: 04/06/2019
 uid: mvc/views/working-with-forms
-ms.openlocfilehash: 2d5168ed4b1e14e507262361de9fa959924b82f6
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 6eff3bf03e650e154b5c767c9bcdd915e7db8b47
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209560"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468805"
 ---
 # <a name="tag-helpers-in-forms-in-aspnet-core"></a>Pomocnicy tagów w formularzach w programie ASP.NET Core
 
@@ -44,7 +44,7 @@ Pomocnik tagu formularza powyżej generuje poniższy kod HTML:
 ```HTML
 <form method="post" action="/Demo/Register">
     <!-- Input and Submit elements -->
-    <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>" />
+    <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>">
 </form>
 ```
 
@@ -75,12 +75,12 @@ Obsługiwane [AnchorTagHelper](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-
 
 |Atrybut|Opis|
 |---|---|
-|[asp-controller](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-controller)|Nazwa kontrolera.|
-|[asp-action](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-action)|Nazwa metody akcji.|
-|[asp-area](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-area)|Nazwa obszaru.|
-|[asp-page](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-page)|Nazwa strony Razor.|
+|[Kontroler ASP](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-controller)|Nazwa kontrolera.|
+|[Akcja ASP](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-action)|Nazwa metody akcji.|
+|[obszar ASP](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-area)|Nazwa obszaru.|
+|[Strona ASP](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-page)|Nazwa strony Razor.|
 |[asp-page-handler](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-page-handler)|Nazwa procedury obsługi stron Razor.|
-|[asp-route](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-route)|Nazwa trasy.|
+|[trasy ASP](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-route)|Nazwa trasy.|
 |[asp-route-{value}](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-route-value)|Adres URL trasy wartość typu single. Na przykład `asp-route-id="1234"`.|
 |[asp-all-route-data](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-all-route-data)|Wszystkie wartości trasy.|
 |[asp-fragment](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-fragment)|Fragmentu adresu URL.|
@@ -93,7 +93,7 @@ Następujące znaczniki przesyła formularz, aby `Index` akcji `HomeController` 
 <form method="post">
     <button asp-controller="Home" asp-action="Index">Click Me</button>
     <input type="image" src="..." alt="Or Click Me" asp-controller="Home" 
-                                asp-action="Index" />
+                                asp-action="Index">
 </form>
 ```
 
@@ -102,7 +102,7 @@ Poprzednie znaczników generuje następujące HTML:
 ```html
 <form method="post">
     <button formaction="/Home">Click Me</button>
-    <input type="image" src="..." alt="Or Click Me" formaction="/Home" />
+    <input type="image" src="..." alt="Or Click Me" formaction="/Home">
 </form>
 ```
 
@@ -113,7 +113,7 @@ Następujące znaczniki przesyła formularz, aby `About` strona Razor:
 ```cshtml
 <form method="post">
     <button asp-page="About">Click Me</button>
-    <input type="image" src="..." alt="Or Click Me" asp-page="About" />
+    <input type="image" src="..." alt="Or Click Me" asp-page="About">
 </form>
 ```
 
@@ -122,7 +122,7 @@ Poprzednie znaczników generuje następujące HTML:
 ```html
 <form method="post">
     <button formaction="/About">Click Me</button>
-    <input type="image" src="..." alt="Or Click Me" formaction="/About" />
+    <input type="image" src="..." alt="Or Click Me" formaction="/About">
 </form>
 ```
 
@@ -146,7 +146,7 @@ Następujące znaczniki przesyła formularz, aby `/Home/Test` punktu końcowego.
 ```cshtml
 <form method="post">
     <button asp-route="Custom">Click Me</button>
-    <input type="image" src="..." alt="Or Click Me" asp-route="Custom" />
+    <input type="image" src="..." alt="Or Click Me" asp-route="Custom">
 </form>
 ```
 
@@ -155,7 +155,7 @@ Poprzednie znaczników generuje następujące HTML:
 ```html
 <form method="post">
     <button formaction="/Home/Test">Click Me</button>
-    <input type="image" src="..." alt="Or Click Me" formaction="/Home/Test" />
+    <input type="image" src="..." alt="Or Click Me" formaction="/Home/Test">
 </form>
 ```
 
@@ -166,7 +166,7 @@ Wejściowy Pomocnik tagu wiąże HTML [ \<wejściowych >](https://www.w3.org/wik
 Składnia:
 
 ```HTML
-<input asp-for="<Expression Name>" />
+<input asp-for="<Expression Name>">
 ```
 
 Pomocnik tagu wejściowego:
@@ -227,17 +227,17 @@ Powyższy kod generuje poniższy kod HTML:
 
 ```HTML
   <form method="post" action="/Demo/RegisterInput">
-       Email:
-       <input type="email" data-val="true"
-              data-val-email="The Email Address field is not a valid email address."
-              data-val-required="The Email Address field is required."
-              id="Email" name="Email" value="" /> <br>
-       Password:
-       <input type="password" data-val="true"
-              data-val-required="The Password field is required."
-              id="Password" name="Password" /><br>
-       <button type="submit">Register</button>
-     <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>" />
+      Email:
+      <input type="email" data-val="true"
+             data-val-email="The Email Address field is not a valid email address."
+             data-val-required="The Email Address field is required."
+             id="Email" name="Email" value=""><br>
+      Password:
+      <input type="password" data-val="true"
+             data-val-required="The Password field is required."
+             id="Password" name="Password"><br>
+      <button type="submit">Register</button>
+      <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>">
    </form>
 ```
 
@@ -264,18 +264,18 @@ Adnotacje danych dotyczą `Email` i `Password` właściwości Generowanie metada
 @{
        var joe = "Joe";
    }
-   <input asp-for="@joe" />
+   <input asp-for="@joe">
 ```
 
 Generuje następujące czynności:
 
 ```HTML
-<input type="text" id="joe" name="joe" value="Joe" />
+<input type="text" id="joe" name="joe" value="Joe">
 ```
 
 Z właściwościami kolekcji `asp-for="CollectionProperty[23].Member"` generuje taką samą nazwę jak `asp-for="CollectionProperty[i].Member"` podczas `i` ma wartość `23`.
 
-Gdy program ASP.NET Core MVC oblicza wartość `ModelExpression`, sprawdza ono kilka źródeł, w tym `ModelState`. Należy wziąć pod uwagę `<input type="text" asp-for="@Name" />`. Obliczony `value` atrybut jest pierwsza wartość inną niż null z:
+Gdy program ASP.NET Core MVC oblicza wartość `ModelExpression`, sprawdza ono kilka źródeł, w tym `ModelState`. Należy wziąć pod uwagę `<input type="text" asp-for="@Name">`. Obliczony `value` atrybut jest pierwsza wartość inną niż null z:
 
 * `ModelState` wpis z kluczem "Name".
 * Wynik wyrażenia `Model.Name`.
@@ -295,7 +295,7 @@ W widoku, możemy powiązać `Address.AddressLine1`:
 Poniższy kod HTML jest generowany dla `Address.AddressLine1`:
 
 ```HTML
-<input type="text" id="Address_AddressLine1" name="Address.AddressLine1" value="" />
+<input type="text" id="Address_AddressLine1" name="Address.AddressLine1" value="">
 ```
 
 ### <a name="expression-names-and-collections"></a>Wyrażenie nazwy i kolekcji
@@ -369,7 +369,7 @@ Poniższy kod HTML jest generowany:
    id="Description" name="Description">
   </textarea>
   <button type="submit">Test</button>
-  <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>" />
+  <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>">
 </form>
 ```
 
@@ -472,7 +472,7 @@ Wygenerowany kod HTML, (gdy model jest prawidłowy):
   Email:  <input name="Email" id="Email" type="email" value=""
    data-val-required="The Email field is required."
    data-val-email="The Email field is not a valid email address."
-   data-val="true"> <br>
+   data-val="true"><br>
   <span class="field-validation-valid" data-valmsg-replace="true"
    data-valmsg-for="Email"></span><br>
   Password: <input name="Password" id="Password" type="password"
@@ -480,7 +480,7 @@ Wygenerowany kod HTML, (gdy model jest prawidłowy):
   <span class="field-validation-valid" data-valmsg-replace="true"
    data-valmsg-for="Password"></span><br>
   <button type="submit">Register</button>
-  <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>" />
+  <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>">
 </form>
 ```
 
@@ -520,7 +520,7 @@ Która generuje poniższy kod HTML (się od liter "CA" wybrane):
        <option value="US">USA</option>
      </select>
        <br /><button type="submit">Register</button>
-     <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>" />
+     <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>">
    </form>
 ```
 
@@ -563,7 +563,7 @@ Poniższy kod HTML jest generowany:
              <option selected="selected" value="5">Spain</option>
          </select>
          <br /><button type="submit">Register</button>
-         <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>" />
+         <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>">
     </form>
 ```
 
@@ -596,7 +596,7 @@ Wygenerowany kod HTML:
           </optgroup>
       </select>
       <br /><button type="submit">Register</button>
-      <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>" />
+      <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>">
  </form>
 ```
 
@@ -624,7 +624,7 @@ Generuje poniższy kod HTML:
 <option value="DE">Germany</option>
 </select>
     <br /><button type="submit">Register</button>
-  <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>" />
+  <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>">
 </form>
 ```
 
@@ -655,7 +655,7 @@ Poprawny `<option>` element zostanie wybrana (zawierają `selected="selected"` a
           <option value="US">USA</option>
       </select>
       <br /><button type="submit">Register</button>
-   <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>" />
+   <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>">
  </form>
  ```
 

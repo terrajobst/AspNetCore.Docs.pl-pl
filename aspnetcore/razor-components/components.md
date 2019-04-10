@@ -5,14 +5,14 @@ description: Informacje o sposobie tworzenia i używania składników Razor, w t
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/07/2019
+ms.date: 04/08/2019
 uid: razor-components/components
-ms.openlocfilehash: 00e07d496f4471f56d4184d1cb7c07c0715bea3f
-ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
+ms.openlocfilehash: f8ac7f3844b94a162e8d1c45f80ae153d89536ee
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59068357"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468810"
 ---
 # <a name="create-and-use-razor-components"></a>Tworzenie i używanie składników Razor
 
@@ -116,18 +116,18 @@ Powiązanie danych do składników i elementów DOM odbywa się za pomocą `bind
 
 ```cshtml
 <input type="checkbox" class="form-check-input" id="italicsCheck" 
-    bind="@_italicsCheck" />
+    bind="@_italicsCheck">
 ```
 
 Gdy pole wyboru jest zaznaczone, a następnie wyczyszczone, wartość właściwości jest aktualizowany do `true` i `false`, odpowiednio.
 
 Pole wyboru jest aktualizowana w interfejsie użytkownika tylko wtedy, gdy składnik jest renderowany, nie w odpowiedzi na zmianę wartości właściwości. Ponieważ składniki renderować się po wykonaniu kod procedury obsługi zdarzeń, aktualizacje właściwości są zazwyczaj odzwierciedlane w interfejsie użytkownika od razu.
 
-Za pomocą `bind` z `CurrentValue` właściwości (`<input bind="@CurrentValue" />`) jest zasadniczo odpowiednikiem następujących czynności:
+Za pomocą `bind` z `CurrentValue` właściwości (`<input bind="@CurrentValue">`) jest zasadniczo odpowiednikiem następujących czynności:
 
 ```cshtml
 <input value="@CurrentValue" 
-    onchange="@((UIChangeEventArgs __e) => CurrentValue = __e.Value)" />
+    onchange="@((UIChangeEventArgs __e) => CurrentValue = __e.Value)">
 ```
 
 Po wyrenderowaniu składnika `value` danego elementu wejściowego pochodzi z `CurrentValue` właściwości. Gdy użytkownik wpisuje w polu tekstowym `onchange` zdarzenie jest generowane i `CurrentValue` zostaje ustalona zmieniona wartość. W rzeczywistości generowania kodu jest nieco bardziej złożone, ponieważ `bind` obsługuje kilka przypadków, w którym konwersje są wykonywane. W zasadzie `bind` kojarzy bieżącą wartość wyrażenia z `value` atrybutu i uchwytów zmiany przy użyciu zarejestrowanego programu obsługi.
@@ -135,7 +135,7 @@ Po wyrenderowaniu składnika `value` danego elementu wejściowego pochodzi z `Cu
 Oprócz `onchange`, właściwości mogą być powiązane przy użyciu innych zdarzeń, takich jak `oninput` polegające na dokładniejsze o tym, co można powiązać:
 
 ```cshtml
-<input type="text" bind-value-oninput="@CurrentValue" />
+<input type="text" bind-value-oninput="@CurrentValue">
 ```
 
 W odróżnieniu od `onchange`, `oninput` generowane dla każdego znaku, która jest wprowadzana do pola tekstowego.
@@ -145,7 +145,7 @@ W odróżnieniu od `onchange`, `oninput` generowane dla każdego znaku, która j
 Powiązanie danych w programach <xref:System.DateTime> ciągi formatujące. Inne wyrażenia formatu, takie jak waluta lub formaty liczbowe nie są dostępne w tej chwili.
 
 ```cshtml
-<input bind="@StartDate" format-value="yyyy-MM-dd" />
+<input bind="@StartDate" format-value="yyyy-MM-dd">
 
 @functions {
     [Parameter]
@@ -180,7 +180,7 @@ Składnik nadrzędny:
     [Parameter]
     private int ParentYear { get; set; } = 1978;
 
-    void ChangeTheYear()
+    private void ChangeTheYear()
     {
         ParentYear = 1986;
     }
@@ -249,7 +249,7 @@ Poniższy kod wywoła `UpdateHeading` metodę po wybraniu przycisku w interfejsi
 </button>
 
 @functions {
-    void UpdateHeading(UIMouseEventArgs e)
+    private void UpdateHeading(UIMouseEventArgs e)
     {
         ...
     }
@@ -259,10 +259,10 @@ Poniższy kod wywoła `UpdateHeading` metodę po wybraniu przycisku w interfejsi
 Poniższy kod wywoła `CheckboxChanged` metody, gdy pole wyboru jest zmieniana w interfejsie użytkownika:
 
 ```cshtml
-<input type="checkbox" class="form-check-input" onchange="@CheckboxChanged" />
+<input type="checkbox" class="form-check-input" onchange="@CheckboxChanged">
 
 @functions {
-    void CheckboxChanged()
+    private void CheckboxChanged()
     {
         ...
     }
@@ -277,7 +277,7 @@ Programy obsługi zdarzeń można też asynchronicznego i zwracają <xref:System
 </button>
 
 @functions {
-    async Task UpdateHeading(UIMouseEventArgs e)
+    private async Task UpdateHeading(UIMouseEventArgs e)
     {
         ...
     }
@@ -315,9 +315,9 @@ Często jest to wygodne zamknąć dodatkowe wartości, takich jak podczas iterac
 }
 
 @functions {
-    string message = "Select a button to learn its position.";
+    private string message = "Select a button to learn its position.";
 
-    void UpdateHeading(UIMouseEventArgs e, int buttonNumber)
+    private void UpdateHeading(UIMouseEventArgs e, int buttonNumber)
     {
         message = $"You selected Button #{buttonNumber} at " +
             "mouse position: {e.ClientX} X {e.ClientY}.";
@@ -336,9 +336,9 @@ Składnik odwołuje się do zapewnienia get sposób odwołania do wystąpienia s
 <MyLoginDialog ref="loginDialog" ... />
 
 @functions {
-    MyLoginDialog loginDialog;
+    private MyLoginDialog loginDialog;
 
-    void OnSomething()
+    private void OnSomething()
     {
         loginDialog.Show();
     }
@@ -509,7 +509,7 @@ Atrybuty warunkowe są renderowane na podstawie wartości platformy .NET. Jeśli
 W poniższym przykładzie `IsCompleted` Określa, czy `checked` jest renderowany w znacznikach formantu:
 
 ```cshtml
-<input type="checkbox" checked="@IsCompleted" />
+<input type="checkbox" checked="@IsCompleted">
 
 @functions {
     [Parameter]
@@ -520,13 +520,13 @@ W poniższym przykładzie `IsCompleted` Określa, czy `checked` jest renderowany
 Jeśli `IsCompleted` jest `true`, pole jest renderowane jako:
 
 ```html
-<input type="checkbox" checked />
+<input type="checkbox" checked>
 ```
 
 Jeśli `IsCompleted` jest `false`, pole jest renderowane jako:
 
 ```html
-<input type="checkbox" />
+<input type="checkbox">
 ```
 
 **Dodatkowe informacje na temat Razor**
@@ -546,7 +546,8 @@ Poniższy przykład pokazuje użycie `MarkupString` typu do dodania bloku zawart
 @((MarkupString)myMarkup)
 
 @functions {
-    string myMarkup = "<p class='markup'>This is a <em>markup string</em>.</p>";
+    private string myMarkup = 
+        "<p class='markup'>This is a <em>markup string</em>.</p>";
 }
 ```
 
@@ -683,7 +684,7 @@ Na przykład przykładowa aplikacja określa informacje o motywie (`ThemeInfo`) 
 </div>
 
 @functions {
-    ThemeInfo theme = new ThemeInfo { ButtonClass = "btn-success" };
+    private ThemeInfo theme = new ThemeInfo { ButtonClass = "btn-success" };
 }
 ```
 
@@ -692,7 +693,8 @@ Zapewnienie korzystania z wartości kaskadowych, składniki deklarować parametr
 ```cshtml
 <CascadingValue Value=@PermInfo Name="UserPermissions">...</CascadingValue>
 
-[CascadingParameter(Name = "UserPermissions")] PermInfo Permissions { get; set; }
+[CascadingParameter(Name = "UserPermissions")]
+private PermInfo Permissions { get; set; }
 ```
 
 Powiązanie z wartością nazwy ciągu jest istotne, jeśli masz wiele kaskadowych wartości tego samego typu i potrzebujesz odróżnić je w ramach tej samej poddrzewo.
@@ -725,11 +727,11 @@ W przykładowej aplikacji składnika kaskadowych wartości parametrów motyw wi�
 </p>
 
 @functions {
-    int currentCount = 0;
+    private int currentCount = 0;
 
     [CascadingParameter] protected ThemeInfo ThemeInfo { get; set; }
 
-    void IncrementCount()
+    private void IncrementCount()
     {
         currentCount++;
     }
@@ -832,9 +834,9 @@ Wbudowany składnik (*BuiltContent.razor* w składnikach Razor; *BuiltContent.cs
 </button>
 
 @functions {
-    RenderFragment CustomRender { get; set; }
+    private RenderFragment CustomRender { get; set; }
     
-    RenderFragment CreateComponent() => builder =>
+    private RenderFragment CreateComponent() => builder =>
     {
         for (var i = 0; i < 3; i++) 
         {
@@ -844,7 +846,7 @@ Wbudowany składnik (*BuiltContent.razor* w składnikach Razor; *BuiltContent.cs
         }
     };    
     
-    void RenderComponent()
+    private void RenderComponent()
     {
         CustomRender = CreateComponent();
     }

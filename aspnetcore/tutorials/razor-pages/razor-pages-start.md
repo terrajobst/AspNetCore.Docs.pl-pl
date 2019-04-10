@@ -5,12 +5,12 @@ description: W tej serii samouczków pokazano, jak używać stron Razor w progra
 ms.author: riande
 ms.date: 12/5/2018
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: 88449a0064dad42d8d2bf9fbdd67078e4c2ba8de
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 1d264ca4a605d8291e273a8f054c92e7eefa5548
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58210059"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468850"
 ---
 # <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Samouczek: Rozpoczynanie pracy ze stronami Razor w programie ASP.NET Core
 
@@ -39,7 +39,7 @@ Na końcu tego samouczka będziesz mieć działającą aplikację sieci web stro
 
 ## <a name="create-a-razor-pages-web-app"></a>Tworzenie aplikacji sieci web stron Razor
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# [<a name="visual-studio"></a>Visual Studio](#tab/visual-studio)
 
 * W programie Visual Studio **pliku** menu, wybierz opcję **New** > **projektu**.
 
@@ -55,7 +55,7 @@ Na końcu tego samouczka będziesz mieć działającą aplikację sieci web stro
 
   ![Eksplorator rozwiązań](razor-pages-start/_static/se2.2.png)
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# [<a name="visual-studio-code"></a>Visual Studio Code](#tab/visual-studio-code)
 
 * Otwórz [zintegrowany terminal](https://code.visualstudio.com/docs/editor/integrated-terminal).
 
@@ -75,15 +75,14 @@ Na końcu tego samouczka będziesz mieć działającą aplikację sieci web stro
 
 * Wybierz **tak**
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+# [<a name="visual-studio-for-mac"></a>Visual Studio for Mac](#tab/visual-studio-mac)
 
-W terminalu uruchom następujące polecenia:
+W terminalu uruchom następujące polecenie:
 
 <!-- TODO: update these instruction once mac support 2.2 projects -->
 
 ```console
 dotnet new webapp -o RazorPagesMovie
-cd RazorPagesMovie
 ```
 
 Poprzednie polecenia użyj [interfejsu wiersza polecenia platformy .NET Core](/dotnet/core/tools/dotnet) do utworzenia projektu stron Razor.
@@ -98,31 +97,13 @@ Z programu Visual Studio, wybierz **Plik > Otwórz**, a następnie wybierz pozyc
 
 ## <a name="run-the-app"></a>Uruchamianie aplikacji
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# [<a name="visual-studio"></a>Visual Studio](#tab/visual-studio)
 
 * Naciśnij klawisze Ctrl + F5, aby uruchomić bez debugowania.
 
   [!INCLUDE[](~/includes/trustCertVS.md)]
 
   Program Visual Studio uruchamia [usług IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) i uruchomienie aplikacji. Przedstawia pasek adresu `localhost:port#` i nie mielibyśmy mieć czegoś podobnego `example.com`. To dlatego, że `localhost` jest standardowa nazwa hosta komputera lokalnego. Localhost obsługują tylko żądania sieci web z komputera lokalnego. Gdy program Visual Studio tworzy projekt sieci web, losowy port jest używany dla serwera sieci web.
-  
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
-
-* Naciśnij klawisz **Ctrl-F5** do uruchomienia bez debugera.
-
-  [!INCLUDE[](~/includes/trustCertVSC.md)]
-
-  Uruchamia programu Visual Studio Code [Kestrel](xref:fundamentals/servers/kestrel)otworzy w przeglądarce i przechodzi do `http://localhost:5001`. Przedstawia pasek adresu `localhost:port#` i nie mielibyśmy mieć czegoś podobnego `example.com`. To dlatego, że `localhost` jest standardowa nazwa hosta na komputerze lokalnym. Localhost obsługują tylko żądania sieci web z komputera lokalnego.
-  
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
-
-Wybierz **Uruchom > Uruchom bez debugowania** do uruchomienia aplikacji. Program Visual Studio uruchamia [Kestrel](xref:fundamentals/servers/kestrel)otworzy w przeglądarce i przechodzi do `http://localhost:5001`.
-
-[!INCLUDE[](~/includes/trustCertMac.md)]
-
-<!-- End of VS tabs -->
-
----
 
 * Na stronie głównej aplikacji, wybierz **Akceptuj** do wyrażenia zgody na śledzenie.
 
@@ -133,6 +114,46 @@ Wybierz **Uruchom > Uruchom bez debugowania** do uruchomienia aplikacji. Program
   Na poniższej ilustracji przedstawiono aplikację po zgody śledzenia:
 
   ![Strona główna lub indeks](razor-pages-start/_static/home2.2.png)
+  
+# [<a name="visual-studio-code"></a>Visual Studio Code](#tab/visual-studio-code)
+
+  [!INCLUDE[](~/includes/trustCertVSC.md)]
+
+* Naciśnij klawisz **Ctrl-F5** do uruchomienia bez debugera.
+
+  Uruchamia programu Visual Studio Code [Kestrel](xref:fundamentals/servers/kestrel)otworzy w przeglądarce i przechodzi do `http://localhost:5001`. Przedstawia pasek adresu `localhost:port#` i nie mielibyśmy mieć czegoś podobnego `example.com`. To dlatego, że `localhost` jest standardowa nazwa hosta na komputerze lokalnym. Localhost obsługują tylko żądania sieci web z komputera lokalnego.
+
+* Na stronie głównej aplikacji, wybierz **Akceptuj** do wyrażenia zgody na śledzenie.
+
+  Ta aplikacja nie może śledzić informacje osobiste, ale szablonu projektu obejmuje funkcję zgody, w przypadku, gdy będą potrzebne do wykonania w Unii Europejskiej [ogólne rozporządzenie o ochronie danych (RODO)](xref:security/gdpr).
+
+  ![Strona główna lub indeks](razor-pages-start/_static/homeGDPR2.2.png)
+
+  Na poniższej ilustracji przedstawiono aplikację po zgody śledzenia:
+
+  ![Strona główna lub indeks](razor-pages-start/_static/home2.2.png)
+  
+# [<a name="visual-studio-for-mac"></a>Visual Studio for Mac](#tab/visual-studio-mac)
+
+  [!INCLUDE[](~/includes/trustCertMac.md)]
+
+* Naciśnij klawisz **Cmd-Opt — F5** do uruchomienia bez debugera.
+
+  Program Visual Studio uruchamia [Kestrel](xref:fundamentals/servers/kestrel)otworzy w przeglądarce i przechodzi do `http://localhost:5001`.
+
+* Na stronie głównej aplikacji, wybierz **Akceptuj** do wyrażenia zgody na śledzenie.
+
+  Ta aplikacja nie może śledzić informacje osobiste, ale szablonu projektu obejmuje funkcję zgody, w przypadku, gdy będą potrzebne do wykonania w Unii Europejskiej [ogólne rozporządzenie o ochronie danych (RODO)](xref:security/gdpr).
+
+  ![Strona główna lub indeks](razor-pages-start/_static/homeGDPR2.2_safari.png)
+
+  Na poniższej ilustracji przedstawiono aplikację po zgody śledzenia:
+
+  ![Strona główna lub indeks](razor-pages-start/_static/home2.2_safari.png)
+
+<!-- End of VS tabs -->
+
+---
 
 ## <a name="examine-the-project-files"></a>Przejrzyj pliki projektu
 

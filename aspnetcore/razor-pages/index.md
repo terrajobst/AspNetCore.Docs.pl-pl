@@ -4,14 +4,14 @@ author: Rick-Anderson
 description: Dowiedz się, jak stron Razor w programie ASP.NET Core umożliwia kodowania scenariuszy skoncentrowane na stronie łatwiejsze i bardziej wydajne niż przy użyciu platformy MVC.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 05/12/2018
+ms.date: 04/06/2019
 uid: razor-pages/index
-ms.openlocfilehash: 50db8cd9b0523239acb1d439b472ea5d3cb6cb7c
-ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
+ms.openlocfilehash: e79ce1e2ddfc0e1a4d72e3f67f702d6eb938b8d3
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59068381"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468698"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Wprowadzenie do stron Razor programu ASP.NET Core
 
@@ -157,7 +157,7 @@ Kiedy przesłanego formularza ma błędy sprawdzania poprawności, (które są p
 
 [!code-cs[](index/sample/RazorPagesContacts/Pages/Create.cshtml.cs?name=snippet_PageModel&highlight=10-11)]
 
-Strony razor domyślnie powiązania właściwości tylko zlecenia-GET. Powiązanie z właściwościami może zmniejszyć ilość kodu, który trzeba napisać. Powiązanie zmniejsza kodu przy użyciu tej samej właściwości do renderowania pól formularza (`<input asp-for="Customer.Name" />`) i akceptuje dane wejściowe.
+Strony razor domyślnie powiązania właściwości tylko zlecenia-GET. Powiązanie z właściwościami może zmniejszyć ilość kodu, który trzeba napisać. Powiązanie zmniejsza kodu przy użyciu tej samej właściwości do renderowania pól formularza (`<input asp-for="Customer.Name">`) i akceptuje dane wejściowe.
 
 [!INCLUDE[](~/includes/bind-get.md)]
 

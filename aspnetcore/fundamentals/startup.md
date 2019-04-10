@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 01/17/2019
 uid: fundamentals/startup
-ms.openlocfilehash: 9556ec076fce3500115cf0e934202f11b175ccd3
-ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
+ms.openlocfilehash: 362186be6feeeefeca3c56688ee6420de5fb9659
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2019
-ms.locfileid: "58750798"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468627"
 ---
 # <a name="app-startup-in-aspnet-core"></a>Uruchamianie aplikacji w programie ASP.NET Core
 
@@ -63,9 +63,11 @@ Host może skonfigurować niektóre usługi przed `Startup` metody są wywoływa
 
 W przypadku funkcji, które wymagają znacznej Instalatora, istnieją `Add{Service}` metod rozszerzenia <xref:Microsoft.Extensions.DependencyInjection.IServiceCollection>. Typowa aplikacja platformy ASP.NET Core rejestruje usługi Entity Framework, tożsamości i MVC:
 
-[!code-csharp[](startup/sample_snapshot/Startup3.cs?highlight=4,7,11)]
+[!code-csharp[](startup/sample_snapshot/Startup3.cs)]
 
 Dodawanie usług do kontenera usługi udostępnia je w aplikacji, a w `Configure` metody. Te usługi są rozpoznawane przez [wstrzykiwanie zależności](xref:fundamentals/dependency-injection) lub <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder.ApplicationServices*>.
+
+Zobacz [SetCompatibilityVersion](xref:mvc/compatibility-version) więcej informacji na temat `SetCompatibilityVersion`.
 
 ## <a name="the-configure-method"></a>Metoda Konfiguruj
 
@@ -74,7 +76,7 @@ Dodawanie usług do kontenera usługi udostępnia je w aplikacji, a w `Configure
 [Szablony ASP.NET Core](/dotnet/core/tools/dotnet-new) Konfiguruje potok o obsługę:
 
 * [Stronie wyjątków dla deweloperów](xref:fundamentals/error-handling#developer-exception-page)
-* [Program obsługi wyjątków](xref:fundamentals/error-handling#configure-a-custom-exception-handling-page)
+* [Program obsługi wyjątków](xref:fundamentals/error-handling#exception-handler-page)
 * [Zabezpieczenia transportu Strict HTTP (HSTS)](xref:security/enforcing-ssl#http-strict-transport-security-protocol-hsts)
 * [Przekierowania protokołu HTTPS](xref:security/enforcing-ssl)
 * [Pliki statyczne](xref:fundamentals/static-files)

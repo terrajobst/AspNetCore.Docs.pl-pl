@@ -6,18 +6,18 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
 ms.date: 03/31/2019
 uid: grpc/comparison
-ms.openlocfilehash: 05bd0357ada2d9a2c876469c533605ee7cbab5b3
-ms.sourcegitcommit: 5995f44e9e13d7e7aa8d193e2825381c42184e47
+ms.openlocfilehash: 0e9ef0e7ca8fb6d847b45f6dd7bd0aaa35fd149f
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58809229"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468603"
 ---
 # <a name="comparing-grpc-services-with-http-apis"></a>Porównanie usług gRPC za pomocą interfejsów API protokołu HTTP
 
 Przez [James Newton — King](https://twitter.com/jamesnk)
 
-W tym artykule opisano sposób [usług gRPC](https://grpc.io/docs/guides/) porównania z interfejsów API protokołu HTTP. Technologia używana do dostarczać interfejs API dla aplikacji jest ważne wybór, a gRPC zapewnia unikalne korzyści w porównaniu do interfejsów API protokołu HTTP. W tym artykule omówiono zalety i słabe strony gRPC i zalecane scenariusze użycia gRPC za pośrednictwem innych technologii.
+W tym artykule opisano sposób [usług gRPC](https://grpc.io/docs/guides/) porównania z interfejsów API protokołu HTTP (łącznie z platformą ASP.NET Core [interfejsów API sieci Web](xref: web-api/index)). Technologia używana do dostarczać interfejs API dla aplikacji jest ważne wybór, a gRPC zapewnia unikalne korzyści w porównaniu do interfejsów API protokołu HTTP. W tym artykule omówiono zalety i słabe strony gRPC i zalecane scenariusze użycia gRPC za pośrednictwem innych technologii.
 
 #### <a name="overview"></a>Omówienie
 

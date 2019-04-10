@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc, seodec18
 ms.date: 04/03/2019
 uid: security/authentication/windowsauth
-ms.openlocfilehash: 9b53f523cf579aeb0e7dd37ccf5f161269a54913
-ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
+ms.openlocfilehash: bd4ffa79c4d1e0070c820fa9c06b0a84c3aaae74
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59068264"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468656"
 ---
 # <a name="configure-windows-authentication-in-aspnet-core"></a>Konfigurowanie uwierzytelniania Windows w programie ASP.NET Core
 
@@ -167,7 +167,7 @@ Po włączeniu uwierzytelniania Windows i dostęp anonimowy używać `[Authorize
 W programie ASP.NET Core 2.x, `[Authorize]` atrybut wymaga dodatkowej konfiguracji w *Startup.cs* zażąda anonimowe żądania uwierzytelniania Windows. Zalecana konfiguracja zależy od nieco używany serwer sieci web.
 
 > [!NOTE]
-> Domyślnie użytkownicy, którzy nie mają autoryzacji do dostępu do strony są prezentowane z pustą odpowiedź HTTP 403. [Oprogramowania pośredniczącego StatusCodePages](xref:fundamentals/error-handling#configure-status-code-pages) można skonfigurować, aby zapewnić użytkownikom lepsze środowisko "Odmowa dostępu".
+> Domyślnie użytkownicy, którzy nie mają autoryzacji do dostępu do strony są prezentowane z pustą odpowiedź HTTP 403. [Oprogramowania pośredniczącego StatusCodePages](xref:fundamentals/error-handling#usestatuscodepages) można skonfigurować, aby zapewnić użytkownikom lepsze środowisko "Odmowa dostępu".
 
 #### <a name="iis"></a>IIS
 

@@ -4,14 +4,14 @@ author: ardalis
 description: Dowiedz się, jak za pomocą widoków częściowych Podziel znaczników dużych plików i zmniejszenia duplikowania typowych znaczników na stronach sieci web w aplikacji platformy ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/11/2018
+ms.date: 04/06/2019
 uid: mvc/views/partial
-ms.openlocfilehash: b7c1545007086053e879bce6781802959da77901
-ms.sourcegitcommit: a1c43150ed46aa01572399e8aede50d4668745ca
+ms.openlocfilehash: 65da78d6df3f179df9bdfa3a32af8736b71bbac5
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58327381"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468711"
 ---
 # <a name="partial-views-in-aspnet-core"></a>Widoki częściowe w programie ASP.NET Core
 
@@ -110,7 +110,7 @@ Jeśli występuje rozszerzenie pliku Pomocnik tagu odwołuje się widok części
 
 Poniższy przykład odwołuje się do widoku częściowego z katalogu głównego aplikacji. Ścieżki zaczynające się od ukośnika tyldy (`~/`) lub ukośnika (`/`) można znaleźć w katalogu głównym aplikacji:
 
-**Strony Razor**
+**Razor Pages**
 
 ```cshtml
 <partial name="~/Pages/Folder/_PartialName.cshtml" />
@@ -152,7 +152,7 @@ Poniższy przykład odwołuje się do widoku częściowego z katalogu głównego
 
 ::: moniker range=">= aspnetcore-2.1"
 
-**Strony Razor**
+**Razor Pages**
 
 ```cshtml
 @await Html.PartialAsync("~/Pages/Folder/_PartialName.cshtml")
@@ -203,7 +203,7 @@ Gdy widok częściowy odwołuje się nazwę bez rozszerzenia pliku, w określone
 
 ::: moniker range=">= aspnetcore-2.1"
 
-**Strony Razor**
+**Razor Pages**
 
 1. Na stronie folderu w trakcie wykonywania
 1. Wykres katalogu powyżej folderu strony
@@ -259,7 +259,7 @@ Model można przekazać do widoku częściowego. Model można niestandardowych o
 
 ::: moniker range=">= aspnetcore-2.1"
 
-**Strony Razor**
+**Razor Pages**
 
 Następujący kod zawiera Przykładowa aplikacja pochodzi z *Pages/ArticlesRP/ReadRP.cshtml* strony. Strona zawiera dwa widoki częściowe. Drugi widoku częściowego przekazuje się w modelu i `ViewData` widoku częściowego. `ViewDataDictionary` Przeciążenia konstruktora jest używany do przekazywania nowej `ViewData` słownika przy zachowaniu istniejących `ViewData` słownika.
 

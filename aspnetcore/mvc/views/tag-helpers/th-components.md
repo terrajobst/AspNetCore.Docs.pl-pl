@@ -4,14 +4,14 @@ author: scottaddie
 description: Dowiedz się, jakie są składniki pomocnika tagów i sposobu ich używania w programie ASP.NET Core.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: scaddie
-ms.date: 09/18/2018
+ms.date: 04/06/2019
 uid: mvc/views/tag-helpers/th-components
-ms.openlocfilehash: 3d21e12650d844f05bdfdf5b3451ab6219e3c3b7
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: fdad4ae367245cd3beabaf90587c1fe5e9162afe
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50206877"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468598"
 ---
 # <a name="tag-helper-components-in-aspnet-core"></a>Składniki Pomocnika tagów w programie ASP.NET Core
 
@@ -23,7 +23,7 @@ Platforma ASP.NET Core obejmuje dwie wbudowane składniki pomocnika tagów: `hea
 
 [Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/tag-helpers/th-components/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
-## <a name="use-cases"></a>Przypadki użycia
+## <a name="use-cases"></a>Przypadki zastosowań
 
 Dwie typowe przypadki użycia składników pomocnika tagów obejmują:
 
@@ -40,7 +40,7 @@ W kodzie HTML `<head>` elementu, pliki CSS są często zaimportowane z kodem HTM
 
 W poprzednim kodzie:
 
-* `AddressStyleTagHelperComponent` implementuje <xref:Microsoft.AspNetCore.Razor.TagHelpers.TagHelperComponent>. Abstrakcja:
+* `AddressStyleTagHelperComponent` Implementuje <xref:Microsoft.AspNetCore.Razor.TagHelpers.TagHelperComponent>. Abstrakcja:
   * Umożliwia inicjowanie klasy <xref:Microsoft.AspNetCore.Razor.TagHelpers.TagHelperContext>.
   * Umożliwia korzystanie z składniki pomocnika tagów do dodawania lub modyfikowania elementów HTML.
 * <xref:Microsoft.AspNetCore.Razor.TagHelpers.TagHelperComponent.Order*> Właściwość definiuje kolejność renderowania składników. `Order` jest to konieczne w przypadku użycia wielu składników pomocnika tagów w aplikacji.

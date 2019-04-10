@@ -4,15 +4,15 @@ author: tdykstra
 description: Więcej informacji o weryfikacji modelu w programie ASP.NET Core MVC i stron Razor.
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/01/2019
+ms.date: 04/06/2019
 monikerRange: '>= aspnetcore-2.1'
 uid: mvc/models/validation
-ms.openlocfilehash: 8d3d19791861b09d87eb3c85e8da0a8db061d4e9
-ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
+ms.openlocfilehash: 1ae3c20478b02d6f654e65fdf34c88e1ffb837f8
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59068368"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468740"
 ---
 # <a name="model-validation-in-aspnet-core-mvc-and-razor-pages"></a>Weryfikacja modelu w programie ASP.NET Core MVC i stron Razor
 
@@ -250,7 +250,7 @@ Poprzedni pomocnicy tagów, że poniższy kod HTML.
             <div class="col-md-10">
                 <input class="form-control" type="datetime"
                 data-val="true" data-val-required="The ReleaseDate field is required."
-                id="ReleaseDate" name="ReleaseDate" value="" />
+                id="ReleaseDate" name="ReleaseDate" value="">
                 <span class="text-danger field-validation-valid"
                 data-valmsg-for="ReleaseDate" data-valmsg-replace="true"></span>
             </div>
@@ -288,7 +288,7 @@ $.get({
 
 ### <a name="add-validation-to-dynamic-controls"></a>Dodawanie walidacji do kontrolek dynamicznych
 
-`$.validator.unobtrusive.parse()` Metoda działa na cały formularz, nie w poszczególnych formantów generowanych dynamicznie, takich jak `<input/>` i `<select/>`. Aby ponownej analizy formularza, Usuń danych weryfikacji, który został dodany podczas formularz był analizowany wcześniej, jak pokazano w poniższym przykładzie:
+`$.validator.unobtrusive.parse()` Metoda działa na cały formularz, nie w poszczególnych formantów generowanych dynamicznie, takich jak `<input>` i `<select/>`. Aby ponownej analizy formularza, Usuń danych weryfikacji, który został dodany podczas formularz był analizowany wcześniej, jak pokazano w poniższym przykładzie:
 
 ```js
 $.get({
@@ -329,7 +329,7 @@ W poniższym przykładzie przedstawiono `data-` atrybuty dla przykładowej aplik
     data-val-classicmovie1="Classic movies must have a release year earlier than 1960."
     data-val-classicmovie1-year="1960"
     data-val-required="The ReleaseDate field is required."
-    id="ReleaseDate" name="ReleaseDate" value="" />
+    id="ReleaseDate" name="ReleaseDate" value="">
 ```
 
 Jak wspomniano wcześniej, [pomocników tagów](xref:mvc/views/tag-helpers/intro) i [pomocników HTML](xref:mvc/views/overview) używać informacji z weryfikacji atrybutów w celu renderowania `data-` atrybutów. Dostępne są dwie opcje dotyczące pisania kodu, które powoduje utworzenie niestandardowego `data-` atrybuty kodu HTML:

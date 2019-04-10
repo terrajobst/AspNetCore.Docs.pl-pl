@@ -4,14 +4,14 @@ author: pkellner
 description: Pokazuje, jak pracować z Pomocnik tagu obrazu.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/10/2018
+ms.date: 04/06/2019
 uid: mvc/views/tag-helpers/builtin-th/image-tag-helper
-ms.openlocfilehash: 5eb74a6698911a1c594d11573192cb1b9ed53b49
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: 916a68c187cbf516a59d3c5d7578cdb6ada01b86
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49325838"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468821"
 ---
 # <a name="image-tag-helper-in-aspnet-core"></a>Pomocnik tagu obrazu w programie ASP.NET Core
 
@@ -36,20 +36,20 @@ Pomocnik tagu obrazu, aktywować `src` atrybut jest wymagany w `<img>` elementu.
 
 Źródło obrazu (`src`) musi wskazywać plik statyczny fizyczny na serwerze. Jeśli `src` jest zdalny identyfikator URI, nie są generowane przez parametr ciągu zapytania rozrywające pamięci podręcznej.
 
-### <a name="asp-append-version"></a>ASP Dołącz version
+### <a name="asp-append-version"></a>asp-append-version
 
 Gdy `asp-append-version` jest określony za pomocą `true` wartość wraz z `src` wywoływaną atrybutu, Pomocnik tagu obrazu.
 
 Pomocnik tagu obrazu można znaleźć w poniższym przykładzie:
 
 ```cshtml
-<img src="~/images/asplogo.png" asp-append-version="true" />
+<img src="~/images/asplogo.png" asp-append-version="true">
 ```
 
 Jeśli w katalogu istnieje plik statyczny */wwwroot/obrazy/*, wygenerowany kod HTML jest podobne do następujących (skrót będą się różnić):
 
 ```html
-<img src="/images/asplogo.png?v=Kl_dqr9NVtnMdsM2MUg4qthUnWZm5T1fCEimBPWDNgM" />
+<img src="/images/asplogo.png?v=Kl_dqr9NVtnMdsM2MUg4qthUnWZm5T1fCEimBPWDNgM">
 ```
 
 Wartość przypisana do parametru `v` jest wartość skrótu *asplogo.png* pliku na dysku. Jeśli serwer sieci web nie może uzyskać dostęp do odczytu do pliku statycznego nie `v` parametr jest dodawany do `src` atrybut renderowanego kodu znaczników.

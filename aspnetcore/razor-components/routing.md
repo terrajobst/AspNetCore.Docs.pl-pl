@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/07/2019
 uid: razor-components/routing
-ms.openlocfilehash: 8f917c94300bd21dde92d4533bee856adee98478
-ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
+ms.openlocfilehash: ef82fa7e0d571979a43fd8ce712bf4f22c06f9a7
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59068108"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468826"
 ---
 # <a name="razor-components-routing"></a>Składniki razor routingu
 
@@ -55,7 +55,7 @@ W poniższym przykładzie ustawiono składnikiem, który został zdefiniowany w 
 ```
 
 > [!IMPORTANT]
-> Aby prawidłowo wygenerować trasy, aplikacja musi zawierać `<base>` tagów w jego *wwwroot/index.html* pliku ze ścieżki podstawowej aplikacji określony w `href` atrybutu (`<base href="/" />`). Aby uzyskać więcej informacji, zobacz <xref:host-and-deploy/razor-components-blazor/blazor#app-base-path>.
+> Aby prawidłowo wygenerować trasy, aplikacja musi zawierać `<base>` tagów w jego *wwwroot/index.html* pliku ze ścieżki podstawowej aplikacji określony w `href` atrybutu (`<base href="/">`). Aby uzyskać więcej informacji, zobacz <xref:host-and-deploy/razor-components-blazor/blazor#app-base-path>.
 
 ## <a name="route-parameters"></a>Parametry trasy
 
@@ -83,11 +83,11 @@ Ograniczenia trasy, pokazano w poniższej tabeli są dostępne. Dla ograniczenia
 | `bool`     | `{active:bool}`   | `true`, `FALSE`                                                                  | Nie                               |
 | `datetime` | `{dob:datetime}`  | `2016-12-31`, `2016-12-31 7:32pm`                                                | Tak                              |
 | `decimal`  | `{price:decimal}` | `49.99`, `-1,000.01`                                                             | Tak                              |
-| `double`   | `{weight:double}` | `1.234`, `-1,001.01e8`                                                           | Tak                              |
-| `float`    | `{weight:float}`  | `1.234`, `-1,001.01e8`                                                           | Tak                              |
+| `double`   | `{weight:double}` | `1.234`, `-1,001.01e8`                                                           | Yes                              |
+| `float`    | `{weight:float}`  | `1.234`, `-1,001.01e8`                                                           | Yes                              |
 | `guid`     | `{id:guid}`       | `CD2C1638-1638-72D5-1638-DEADBEEF1638`, `{CD2C1638-1638-72D5-1638-DEADBEEF1638}` | Nie                               |
-| `int`      | `{id:int}`        | `123456789`, `-123456789`                                                        | Yes                              |
-| `long`     | `{ticks:long}`    | `123456789`, `-123456789`                                                        | Yes                              |
+| `int`      | `{id:int}`        | `123456789`, `-123456789`                                                        | Tak                              |
+| `long`     | `{ticks:long}`    | `123456789`, `-123456789`                                                        | Tak                              |
 
 > [!WARNING]
 > Trasy, ograniczenia, sprawdź adres URL, które są konwertowane na typ CLR (takie jak `int` lub `DateTime`) zawsze używają niezmiennej kultury. Te ograniczenia przyjęto założenie, że adres URL jest niemożliwe do zlokalizowania.
