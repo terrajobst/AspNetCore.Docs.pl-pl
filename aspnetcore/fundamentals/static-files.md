@@ -4,14 +4,14 @@ author: rick-anderson
 description: Dowiedz się, jak obsługiwać oraz zabezpieczanie plików statycznych i konfigurowanie plików statycznych hostingu zachowania oprogramowania pośredniczącego w aplikacji sieci web platformy ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2018
+ms.date: 04/08/2019
 uid: fundamentals/static-files
-ms.openlocfilehash: 114fee0795977043f3a74a81a15923a8bf5faf6b
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 12c7b39bee462ff83188a5a0f10b133ca273863b
+ms.sourcegitcommit: 258a97159da206f9009f23fdf6f8fa32f178e50b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58208638"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59425065"
 ---
 # <a name="static-files-in-aspnet-core"></a>Pliki statyczne z platformy ASP.NET Core
 
@@ -46,8 +46,8 @@ Ustaw zawartość katalogu głównego w bieżącym katalogu, wywołując [UseCon
 Pliki statyczne są dostępne za pośrednictwem ścieżki względem katalogu głównego sieci web. Na przykład **aplikacji sieci Web** szablonu projektu zawiera kilka folderów w ramach *wwwroot* folderu:
 
 * **wwwroot**
-  * **css**
-  * **images**
+  * **CSS**
+  * **obrazy**
   * **js**
 
 Format identyfikatora URI, aby uzyskać dostęp do pliku w *obrazów* podfolder jest *http://\<server_address > /images/\<image_file_name >*. Na przykład *http://localhost:9189/images/banner3.svg*.
@@ -89,11 +89,11 @@ W poprzednim kodzie znak tyldy `~/` wskazuje webroot. Aby uzyskać więcej infor
 Należy wziąć pod uwagę hierarchii katalogów, w którym znajdują się pliki statyczne, które ma zostać dostarczony poza katalog główny sieci web:
 
 * **wwwroot**
-  * **css**
-  * **images**
+  * **CSS**
+  * **obrazy**
   * **js**
 * **MyStaticFiles**
-  * **images**
+  * **obrazy**
     * *banner1.svg*
 
 Żądanie mogą uzyskiwać dostęp do *banner1.svg* pliku przez skonfigurowanie statycznych oprogramowanie pośredniczące plików w następujący sposób:
@@ -159,9 +159,9 @@ Ustawianie domyślnej strony głównej zawiera odwiedzających logiczne punkt po
 Za pomocą `UseDefaultFiles`, żądania do folderu wyszukiwania:
 
 * *default.htm*
-* *default.html*
+* *default.HTML*
 * *index.htm*
-* *index.html*
+* *index.HTML*
 
 Pierwszy plik znaleziono z listy jest obsługiwany, tak, jakby żądania zostały w pełni kwalifikowanego identyfikatora URI. Adres URL przeglądarki w dalszym ciągu odzwierciedla żądanego identyfikatora URI.
 
@@ -188,13 +188,13 @@ app.UseFileServer(enableDirectoryBrowsing: true);
 Należy wziąć pod uwagę następujące hierarchii katalogów:
 
 * **wwwroot**
-  * **css**
-  * **images**
+  * **CSS**
+  * **obrazy**
   * **js**
 * **MyStaticFiles**
-  * **images**
+  * **obrazy**
     * *banner1.svg*
-  * *default.html*
+  * *default.HTML*
 
 Poniższy kod umożliwia pliki statyczne, domyślne pliki i przeglądanie katalogów dla `MyStaticFiles`:
 
@@ -216,7 +216,7 @@ Jeśli plik o nazwie domyślnej, nie istnieje w *MyStaticFiles* katalogu *http:/
 ![Lista plików statycznych](static-files/_static/db2.png)
 
 > [!NOTE]
-> `UseDefaultFiles` i `UseDirectoryBrowser` Użyj adresu URL *http://\<server_address > / StaticFiles* bez ukośnika, aby wyzwolić po stronie klienta przekierowania do *http://\<server_address > / StaticFiles /*. Zwróć uwagę, dodanie końcowy ukośnik. Względnych adresów URL w ramach dokumenty zostaną uznane za nieprawidłowe bez znaku ukośnika na końcu.
+> <xref:Microsoft.AspNetCore.Builder.DefaultFilesExtensions.UseDefaultFiles*> i <xref:Microsoft.AspNetCore.Builder.DirectoryBrowserExtensions.UseDirectoryBrowser*> wykonania przekierowania klienta z `http://{SERVER ADDRESS}/StaticFiles` (bez znaku ukośnika na końcu) do `http://{SERVER ADDRESS}/StaticFiles/` (z ukośnikiem końcowym). Względnych adresów URL w ramach *StaticFiles* katalogu jest nieprawidłowa bez znaku ukośnika na końcu.
 
 ## <a name="fileextensioncontenttypeprovider"></a>FileExtensionContentTypeProvider
 
