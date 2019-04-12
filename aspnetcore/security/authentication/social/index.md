@@ -4,14 +4,14 @@ author: rick-anderson
 description: W tym samouczku przedstawiono sposób tworzenia platformy ASP.NET Core 2.x aplikacji przy użyciu protokołu OAuth 2.0 przy użyciu dostawcy uwierzytelniania zewnętrznego.
 ms.author: riande
 ms.custom: mvc
-ms.date: 1/19/2019
+ms.date: 4/19/2019
 uid: security/authentication/social/index
-ms.openlocfilehash: 48dd8b772234ff18158423a36ed1716102bc2f31
-ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
+ms.openlocfilehash: 61482481358256dc9ddd1a0a894541040a8a452f
+ms.sourcegitcommit: 9b7fcb4ce00a3a32e153a080ebfaae4ef417aafa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396145"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59516329"
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Facebook, Google i zewnętrznego dostawcy uwierzytelniania w programie ASP.NET Core
 
@@ -23,14 +23,60 @@ W tym samouczku pokazano, jak utworzyć aplikację platformy ASP.NET Core 2.2, k
 
 ![Ikony mediów społecznościowych usługi Facebook, Twitter, Google, plus i Windows](index/_static/social.png)
 
-Umożliwienie użytkownikom logowania się za pomocą istniejących poświadczeń jest wygodne w przypadku użytkowników i przenosi wiele złożoności zarządzania procesu logowania na innej. Aby przykładów jak społecznościowych nazw logowania, może zapewnić konwersje typów ruchu i klienta, zobacz przypadków przez [Facebook](https://www.facebook.com/unsupportedbrowser) i [Twitter](https://dev.twitter.com/resources/case-studies).
+Umożliwienie użytkownikom logowania się za pomocą istniejących poświadczeń:
+* Jest przydatna dla użytkowników.
+* Przenosi wiele złożoności zarządzania procesu logowania na innej. 
+
+Aby przykładów jak społecznościowych nazw logowania, może zapewnić konwersje typów ruchu i klienta, zobacz przypadków przez [Facebook](https://www.facebook.com/unsupportedbrowser) i [Twitter](https://dev.twitter.com/resources/case-studies).
 
 ## <a name="create-a-new-aspnet-core-project"></a>Utwórz nowy projekt platformy ASP.NET Core
 
-* W programie Visual Studio 2017, Utwórz nowy projekt z poziomu strony startowej lub za pośrednictwem **pliku** > **New** > **projektu**.
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Wybierz **aplikacji sieci Web programu ASP.NET Core** szablonu dostępnego w **Visual C#**   >  **platformy .NET Core** kategorii:
+* W programie Visual Studio **pliku** menu, wybierz opcję **New** > **projektu**.
+* Tworzenie nowej aplikacji sieci Web platformy ASP.NET Core.
+* Wybierz **platformy ASP.NET Core 2.2** w listy rozwijanej, a następnie wybierz pozycję **aplikacji sieci Web**.
 * Wybierz **Zmień uwierzytelnianie** i uwierzytelniania zestawu **indywidualne konta użytkowników**.
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+
+* Otwórz [zintegrowany terminal](https://code.visualstudio.com/docs/editor/integrated-terminal).
+
+* Zmień katalog (`cd`) do folderu, który będzie zawierać projekt.
+
+* Uruchom następujące polecenia:
+
+  ```console
+  dotnet new webapp -o WebApp1
+  code -r WebApp1
+  ```
+
+  * `dotnet new` Polecenie tworzy nowy projekt strony Razor w *WebApp1* folderu.
+  * `code` Polecenia otwiera *WebApp1* folderu w nowym wystąpieniu programu Visual Studio Code.
+
+  Zostanie wyświetlone okno dialogowe z **"WebApp1" brakuje wymagane zasoby do tworzenia i debugowania. Dodaj je?**
+
+* Wybierz **tak**
+
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+
+W terminalu uruchom następujące polecenie:
+
+<!-- TODO: update these instruction once mac support 2.2 projects -->
+
+```console
+dotnet new webapp -o WebApp1
+```
+
+Poprzednie polecenia użyj [interfejsu wiersza polecenia platformy .NET Core](/dotnet/core/tools/dotnet) do utworzenia projektu stron Razor.
+
+## <a name="open-the-project"></a>Otwórz projekt
+
+Z programu Visual Studio, wybierz **Plik > Otwórz**, a następnie wybierz pozycję *WebApp1.csproj* pliku.
+
+<!-- End of VS tabs -->
+
+---
 
 ## <a name="apply-migrations"></a>Zastosuj migracji
 

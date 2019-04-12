@@ -4,14 +4,14 @@ author: mjrousos
 description: Opis przydatnych narzędzi do diagnozowania problemów z wydajnością w aplikacji platformy ASP.NET Core.
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
-ms.date: 12/07/2018
+ms.date: 04/11/2019
 uid: performance/diagnostic-tools
-ms.openlocfilehash: 0fb9944d1082090f4f58f641a26ee96286920456
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 66676b5a2b95b87bfbbd50022e279e35a12b9793
+ms.sourcegitcommit: 9b7fcb4ce00a3a32e153a080ebfaae4ef417aafa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58210005"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59516225"
 ---
 # <a name="performance-diagnostic-tools"></a>Narzędzia diagnostyczne wydajności
 
@@ -32,7 +32,7 @@ Więcej informacji znajduje się w [dokumentację programu Visual Studio](/visua
 Usługa Azure Application Insights oferuje wiele sposobów, aby podać szczegółowe informacje dla monitorowanej aplikacji:
 
 - [Mapa aplikacji](/azure/application-insights/app-insights-app-map) — ułatwia wąskich gardeł wydajności dodatkowych lub chętnych hot niepowodzenie dotyczące wszystkich składników aplikacji rozproszonej.
-- [Blok metryk w portalu Application Insights](/azure/application-insights/app-insights-metrics-explorer?toc=/azure/azure-monitor/toc.json) liczby zdarzeń i pokazuje mierzonych wartości.
+- [Eksplorator metryk usługi Azure](/azure/azure-monitor/platform/metrics-getting-started) to składnik systemu Microsoft Azure portal, która umożliwia wykreślanie wykresów i wizualne korelowanie trendów, i badanie gwałtowne wzrosty i spadki wartości metryk.
 - [Blok wydajność w portalu Application Insights](/azure/application-insights/app-insights-tutorial-performance):
 
   - Przedstawia szczegóły wydajności dla różnych operacji w monitorowanej aplikacji.

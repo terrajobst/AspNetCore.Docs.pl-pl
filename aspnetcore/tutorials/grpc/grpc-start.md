@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 2/26/2019
 uid: tutorials/grpc/grpc-start
-ms.openlocfilehash: 5f7a2f6b57804b3295b23c322dcbac553b05528b
-ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
+ms.openlocfilehash: 84c98ed341adc48d4ecbeda4305100c492ffb5e1
+ms.sourcegitcommit: 9b7fcb4ce00a3a32e153a080ebfaae4ef417aafa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58320059"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59516238"
 ---
 # <a name="tutorial-get-started-with-grpc-service-in-aspnet-core"></a>Samouczek: Wprowadzenie do usługi gRPC na platformie ASP.NET Core
 
@@ -93,7 +93,7 @@ Z programu Visual Studio, wybierz **Plik > Otwórz**, a następnie wybierz pozyc
 
   ![Nowa aplikacja internetowa ASP.NET Core](grpc-start/_static/server_start.png)
 
-* Gdy usługa jest uruchomiona, należy ustawić **GrpcGreeter.Client** jest ustawiony jako projekt startowy, a następnie naciśnij klawisz Ctrl + F5, aby uruchomić klienta bez debugera.
+* Gdy usługa jest uruchomiona, należy ustawić **GrpcGreeter.Client** jako projekt startowy i naciśnij klawisze Ctrl + F5, aby uruchomić klienta bez debugera.
 
   Klient wysyła pozdrowienia z usługą za pomocą komunikatu zawierającego jego nazwę "GreeterClient". Usługa wyśle komunikat "Hello GreeterClient" jako odpowiedzi, który jest wyświetlany w wierszu polecenia.
 

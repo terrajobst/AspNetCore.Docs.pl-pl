@@ -4,14 +4,14 @@ author: rick-anderson
 description: Dowiedz się, jak skonfigurować ochronę danych w programie ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/08/2019
+ms.date: 04/11/2019
 uid: security/data-protection/configuration/overview
-ms.openlocfilehash: 36a06246513215ec29891df02688d113db11f914
-ms.sourcegitcommit: 32bc00435767189fa3ae5fb8a91a307bf889de9d
+ms.openlocfilehash: ee43427fa1e82a365d49df50567b4ca7afb5a5d3
+ms.sourcegitcommit: 9b7fcb4ce00a3a32e153a080ebfaae4ef417aafa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57733493"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59516251"
 ---
 # <a name="configure-aspnet-core-data-protection"></a>Konfigurowanie ochrony danych programu ASP.NET Core
 
@@ -44,7 +44,7 @@ public void ConfigureServices(IServiceCollection services)
 
 Ustaw lokalizację magazynu pierścień klucza (na przykład [PersistKeysToAzureBlobStorage](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.persistkeystoazureblobstorage)). Można ustawić lokalizację, ponieważ wywołanie `ProtectKeysWithAzureKeyVault` implementuje [IXmlEncryptor](/dotnet/api/microsoft.aspnetcore.dataprotection.xmlencryption.ixmlencryptor) wyłączają ustawienia ochrony danych, w tym lokalizacji przechowywania klucza pierścienia. Poprzedni przykład wykorzystuje usługi Azure Blob Storage, aby utrwalić pierścień klucza. Aby uzyskać więcej informacji, zobacz [dostawcy magazynu kluczy: Platforma Azure i Redis](xref:security/data-protection/implementation/key-storage-providers#azure-and-redis). Można również utrwalić pierścień klucz lokalnie za pomocą [PersistKeysToFileSystem](xref:security/data-protection/implementation/key-storage-providers#file-system).
 
-`keyIdentifier` Jest identyfikator klucza magazynu kluczy, używany do szyfrowania klucza (na przykład `https://contosokeyvault.vault.azure.net/keys/dataprotection/`).
+`keyIdentifier` Jest używany do szyfrowania klucza identyfikator klucza magazynu kluczy. Na przykład klucza utworzonego w usłudze key vault o nazwie `dataprotection` w `contosokeyvault` ma identyfikator klucza `https://contosokeyvault.vault.azure.net/keys/dataprotection/`. Podaj aplikacji za pomocą **Odpakuj klucz** i **Opakuj klucz** uprawnień do magazynu kluczy.
 
 `ProtectKeysWithAzureKeyVault` przeciążenia:
 
@@ -154,7 +154,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="disableautomatickeygeneration"></a>DisableAutomaticKeyGeneration
 
-Może być scenariusz, w których nie chcesz utworzyć aplikację do automatycznego przenoszenia kluczy (Tworzenie nowych kluczy), zgodnie z ich podejście do wygaśnięcia. Przykładem może być w relacji podstawowy/pomocniczy, gdzie głównej aplikacji jest odpowiedzialny za zarządzanie kluczami problemy i dodatkowej aplikacje mają po prostu widok tylko do odczytu pierścienia klucz aplikacji. Dodatkowej aplikacji można skonfigurować, aby traktować pierścień klucza jako tylko do odczytu przez skonfigurowanie systemu za pomocą [DisableAutomaticKeyGeneration](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.disableautomatickeygeneration):
+Może być scenariusz, w których nie chcesz utworzyć aplikację do automatycznego przenoszenia kluczy (Tworzenie nowych kluczy), zgodnie z ich podejście do wygaśnięcia. Przykładem może być w relacji podstawowy/pomocniczy, gdzie głównej aplikacji jest odpowiedzialny za zarządzanie kluczami problemy i dodatkowej aplikacje mają po prostu widok tylko do odczytu pierścienia klucz aplikacji. Dodatkowej aplikacji można skonfigurować, aby traktować pierścień klucza jako tylko do odczytu przez skonfigurowanie systemu za pomocą <xref:Microsoft.AspNetCore.DataProtection.DataProtectionBuilderExtensions.DisableAutomaticKeyGeneration*>:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -166,15 +166,14 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="per-application-isolation"></a>Na poziomie aplikacji
 
-System ochrony danych jest udostępniane przez hosta platformy ASP.NET Core, jego automatycznie izoluje aplikacje od siebie, nawet jeśli te aplikacje są uruchomione w ten sam proces roboczy i korzystają z tego samego materiał klucza głównego. Przypomina nieco modyfikator IsolateApps z elementu System.Web firmy  **\<machineKey >** elementu.
+System ochrony danych jest udostępniane przez hosta platformy ASP.NET Core, jego automatycznie izoluje aplikacje od siebie, nawet jeśli te aplikacje są uruchomione w ten sam proces roboczy i korzystają z tego samego materiał klucza głównego. Przypomina nieco modyfikator IsolateApps z elementu System.Web firmy `<machineKey>` elementu.
 
-Mechanizm izolacji działa, biorąc pod uwagę każdej aplikacji na komputerze lokalnym jako dzierżawca unikatowe, dlatego [interfejsu IDataProtector](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotector) dostęp do konta root dla danej aplikacji automatycznie zawiera identyfikator aplikacji jako dyskryminatora. Unikatowy identyfikator aplikacji pochodzi z jednym z dwóch miejsc:
+Mechanizm izolacji działa, biorąc pod uwagę każdej aplikacji na komputerze lokalnym jako dzierżawca unikatowe, dlatego <xref:Microsoft.AspNetCore.DataProtection.IDataProtector> dostęp do konta root dla danej aplikacji automatycznie zawiera identyfikator aplikacji jako dyskryminatora. Unikatowy identyfikator aplikacji jest ścieżka fizyczna aplikacji:
 
-1. Jeśli aplikacja jest hostowana w usługach IIS, unikatowy identyfikator jest ścieżki konfiguracji aplikacji. Jeśli aplikacja jest wdrażana w środowisku farmy sieci web, ta wartość powinna być stała, przy założeniu, że w środowiskach usług IIS są skonfigurowane w podobny sposób na wszystkich komputerach w farmie sieci web.
+* Dla aplikacji hostowanych w [IIS](xref:fundamentals/servers/index#iis-http-server), unikatowy identyfikator jest ścieżka fizyczna usług IIS aplikacji. Jeśli aplikacja jest wdrażana w środowisku farmy sieci web, ta wartość jest stabilna, przy założeniu, że w środowiskach usług IIS są skonfigurowane w podobny sposób na wszystkich komputerach w farmie sieci web.
+* Dla samodzielnie hostowanej aplikacji uruchomionej na [serwera Kestrel](xref:fundamentals/servers/index#kestrel), unikatowy identyfikator jest ścieżka fizyczna aplikacji na dysku.
 
-2. Jeśli aplikacja nie jest hostowana w usługach IIS, unikatowy identyfikator jest ścieżka fizyczna aplikacji.
-
-Unikatowy identyfikator zaprojektowano w celu przetrwania resetuje &mdash; zarówno poszczególnych aplikacji, jak i samą maszynę.
+Unikatowy identyfikator zaprojektowano w celu przetrwania resetuje&mdash;zarówno poszczególnych aplikacji, jak i samą maszynę.
 
 Ten mechanizm izolacji przyjęto założenie, że aplikacje nie są złośliwe. Złośliwy aplikacji zawsze może wpłynąć na innych aplikacji działających w ramach tego samego konta procesu roboczego. We współużytkowanym środowisku hostingu, gdzie aplikacje są wzajemnie niezaufanych dostawca hostingu powinno zająć kroki w celu zapewnienia izolacji poziomie systemu operacyjnego między aplikacjami, w tym oddzielenie aplikacji podstawowych repozytoriów klucza.
 
