@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 03/31/2019
 uid: grpc/basics
-ms.openlocfilehash: ce2682848dc6a81293545c27f0be779e12a3a600
-ms.sourcegitcommit: 5995f44e9e13d7e7aa8d193e2825381c42184e47
+ms.openlocfilehash: 7c5ecf21124414b21f5c36b76e90bde67ac1f958
+ms.sourcegitcommit: 57a974556acd09363a58f38c26f74dc21e0d4339
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58809174"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59672674"
 ---
 # <a name="grpc-services-with-c"></a>gRPC usług przy użyciu języka C\#
 
@@ -32,13 +32,13 @@ Na przykład, rozważmy *greet.proto* plik używany w [Rozpoczynanie pracy z us�
 * `Greeter` Usługa zawiera definicję `SayHello` wywołania.
 * `SayHello` wysyła `HelloRequest` wiadomości i odbiera `HelloResponse` komunikat:
 
-[!code-proto[](~/tutorials/grpc/grpc-start/samples/GrpcStart/Protos/greet.proto)]
+[!code-proto[](~/tutorials/grpc/grpc-start/samples/GrpcGreeter/Protos/greet.proto)]
 
 ## <a name="add-a-proto-file-to-a-c-app"></a>Dodaj plik .proto do C\# aplikacji
 
 *.Proto* plik znajduje się w projekcie, dodając ją do `<Protobuf>` grupy elementów:
 
-[!code-xml[](~/tutorials/grpc/grpc-start/samples/GrpcStart/GrpcGreeter.Server/GrpcGreeter.Server.csproj?highlight=2&range=7-10)]
+[!code-xml[](~/tutorials/grpc/grpc-start/samples/GrpcGreeter/GrpcGreeter.csproj?highlight=2&range=7-11)]
 
 ## <a name="c-tooling-support-for-proto-files"></a>C#Narzędzia do obsługi plików .proto
 
@@ -50,7 +50,7 @@ Pakiet narzędzi [Grpc.Tools](https://www.nuget.org/packages/Grpc.Tools/) jest w
 
 Ten pakiet jest wymagane przez projekty serwera i klienta. `Grpc.Tools` można dodać przy użyciu Menedżera pakietów w programie Visual Studio lub dodając `<PackageReference>` do pliku projektu:
 
-[!code-xml[](~/tutorials/grpc/grpc-start/samples/GrpcStart/GrpcGreeter.Server/GrpcGreeter.Server.csproj?highlight=1&range=16)]
+[!code-xml[](~/tutorials/grpc/grpc-start/samples/GrpcGreeter/GrpcGreeter.csproj?highlight=1&range=17)]
 
 Pakiet narzędzi nie jest wymagane w czasie wykonywania, więc zależność jest oznaczona za pomocą `PrivateAssets="All"`.
 
@@ -60,15 +60,15 @@ Generuje pakiet narzędzi C# typy reprezentujące komunikatów zdefiniowany w do
 
 Zasobów po stronie serwera generowany jest abstrakcyjny usługi typu podstawowego. Typ podstawowy zawiera definicje wszystkich wywołań gRPC zawarte w *.proto* pliku. Utwórz implementację konkretnych usług, pochodzi od tego typu podstawowego, który implementuje logikę dla wywołań gRPC. Dla `greet.proto`, przykład opisanej powyżej, abstrakcyjną `GreeterBase` typu, który zawiera wirtualny `SayHello` ma generowaną metodę. Konkretną implementację `GreeterService` zastępuje metodę i implementuje logikę obsługi wywołań gRPC.
 
-[!code-csharp[](~/tutorials/grpc/grpc-start/samples/GrpcStart/GrpcGreeter.Server/Services/GreeterService.cs?name=snippet)]
+[!code-csharp[](~/tutorials/grpc/grpc-start/samples/GrpcGreeter/Services/GreeterService.cs?name=snippet)]
 
 Dla zasobów po stronie klienta jest generowany typu konkretnego klienta. Wywołuje gRPC *.proto* pliku są tłumaczone na konkretny typ, który można wywoływać metod. Aby uzyskać `greet.proto`, wcześniej opisywanym przykładzie konkretny `GreeterClient` typ jest generowany. Wywołaj `GreeterClient.SayHello` na zainicjowanie połączenia gRPC z serwera.
 
-[!code-csharp[](~/tutorials/grpc/grpc-start/samples/GrpcStart/GrpcGreeter.Client/Program.cs?highlight=9-11&name=snippet)]
+[!code-csharp[](~/tutorials/grpc/grpc-start/samples/GrpcGreeterClient/Program.cs?highlight=5-8&name=snippet)]
 
 Domyślnie zasoby serwera i klienta są generowane dla każdego *.proto* plik dołączony `<Protobuf>` grupy elementów. Aby upewnić się, tylko zasoby serwera są generowane w projekcie serwera `GrpcServices` ma ustawioną wartość atrybutu `Server`.
 
-[!code-xml[](~/tutorials/grpc/grpc-start/samples/GrpcStart/GrpcGreeter.Server/GrpcGreeter.Server.csproj?highlight=2&range=7-10)]
+[!code-xml[](~/tutorials/grpc/grpc-start/samples/GrpcGreeter/GrpcGreeter.csproj?highlight=2&range=7-11)]
 
 Podobnie, ma ustawioną wartość atrybutu `Client` w projektach klienta.
 
