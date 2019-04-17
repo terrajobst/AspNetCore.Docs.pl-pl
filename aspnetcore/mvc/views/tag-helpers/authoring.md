@@ -4,14 +4,14 @@ author: rick-anderson
 description: Dowiedz się, jak tworzenie pomocników tagów w programie ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 04/12/2019
 uid: mvc/views/tag-helpers/authoring
-ms.openlocfilehash: ddfd7cb8c67e28709b8ce75d5a4d0a8c0c0cc43c
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 19b7df1abc8765cb9a77487e39c4365fdacf2b65
+ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58210083"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59614425"
 ---
 # <a name="author-tag-helpers-in-aspnet-core"></a>Tworzenie pomocników tagów w programie ASP.NET Core
 
@@ -65,7 +65,9 @@ Oznacza to, że tag kotwicy temu to łącze w wiadomości e-mail. Można to zrob
    public class Email : TagHelper
    ```
 
-1. Aby `EmailTagHelper` klasy dostępne dla wszystkich naszych widokami Razor, należy dodać `addTagHelper` dyrektywę *Views/_ViewImports.cshtml* pliku: [!code-html[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopyEmail.cshtml?highlight=2,3)]
+1. Aby `EmailTagHelper` klasy dostępne dla wszystkich naszych widokami Razor, należy dodać `addTagHelper` dyrektywę *Views/_ViewImports.cshtml* pliku:
+
+   [!code-html[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopyEmail.cshtml?highlight=2,3)]
 
    Powyższy kod używa składni symbolu wieloznacznego do określania, że wszystkie pomocników tagów w naszym zestawie będą dostępne. Pierwszy ciąg po `@addTagHelper` określa Pomocnik tagu, można załadować (Użyj "*" dla pomocników tagów), i drugi ciąg "AuthoringTagHelpers" Określa zestaw Pomocnik tagu. Należy również zauważyć, że drugi wiersz wiąże pomocników tagów ASP.NET Core MVC za pomocą składni symboli wieloznacznych (pomocników te zostały omówione w [wprowadzenie do pomocników tagów](intro.md).) Jest `@addTagHelper` dyrektywy, która udostępnia Pomocnik tagu w widoku Razor. Alternatywnie można podać w pełni kwalifikowana nazwa (FQN) pomocnika tagów, jak pokazano poniżej:
 

@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 03/02/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: 065b2016d3a2dcc2243ec6869e027c5fabe4dad8
-ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
+ms.openlocfilehash: f0e4dbb6fda4f676ad8e769c71cc9548a4d61d66
+ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59068407"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59614438"
 ---
 # <a name="logging-in-aspnet-core"></a>Rejestrowanie w programie ASP.NET Core
 
@@ -497,7 +497,8 @@ Każdy dostawca definiuje *alias* które mogą być używane w konfiguracji zami
 * Konsola
 * Debugowanie
 * Dziennik zdarzeń
-* AzureAppServices
+* AzureAppServicesFile
+* AzureAppServicesBlob
 * TraceSource
 * EventSource
 
@@ -610,10 +611,10 @@ warn: TodoApi.Controllers.TodoController[4000]
 
 ASP.NET Core jest dostarczana w następujących dostawców:
 
-* [Konsola](#console-provider)
+* [Console](#console-provider)
 * [Debugowanie](#debug-provider)
 * [EventSource](#eventsource-provider)
-* [Dziennik zdarzeń](#windows-eventlog-provider)
+* [EventLog](#windows-eventlog-provider)
 * [TraceSource](#tracesource-provider)
 
 Opcje dla [rejestrowania na platformie Azure](#logging-in-azure) zostały omówione w dalszej części tego artykułu.

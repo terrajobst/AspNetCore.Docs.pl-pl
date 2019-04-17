@@ -261,10 +261,82 @@ items:
       name: Wstrzykiwanie zależności — widoki
     - uid: mvc/controllers/testing
       name: Test jednostkowy
-  - uid: razor-components/index
-    name: Składniki Razor
+  - name: Blazor
+    items:
+    - uid: blazor/index
+      name: Omówienie
+    - uid: blazor/get-started
+      name: Wprowadzenie
+    - uid: blazor/hosting-models
+      name: Modele hostingu
+    - uid: tutorials/first-blazor-app
+      name: Tworzenie pierwszej aplikacji
+    - uid: blazor/components
+      name: Składniki
+    - uid: blazor/forms-validation
+      name: Formularze i walidacja
+    - uid: blazor/class-libraries
+      name: Biblioteki składników
+    - uid: blazor/layouts
+      name: Układy
+    - uid: blazor/dependency-injection
+      name: Wstrzykiwanie zależności
+    - uid: blazor/routing
+      name: Routing
+    - uid: blazor/javascript-interop
+      name: Międzyoperacyjność w języku JavaScript
+    - uid: blazor/debug
+      name: Debugowanie
+    - name: Hostowanie i wdrażanie
+      items:
+      - uid: host-and-deploy/blazor/index
+        name: Omówienie
+      - uid: host-and-deploy/blazor/client-side
+        name: Po stronie klienta
+      - uid: host-and-deploy/blazor/server-side
+        name: Po stronie serwera
+      - uid: host-and-deploy/blazor/configure-linker
+        name: Konfigurowanie konsolidatora
+  - name: Programowanie po stronie klienta
+    items:
+    - name: Aplikacje jednostronicowe
+      items:
+      - uid: spa/angular
+        name: Angular
+      - uid: spa/react
+        name: React
+      - uid: spa/react-with-redux
+        name: Biblioteka React z implementacją Redux
+      - uid: client-side/spa-services
+        name: JavaScriptServices
+    - name: LibMan
+      items:
+      - uid: client-side/libman/index
+        name: Omówienie
+      - uid: client-side/libman/libman-cli
+        name: Interfejs wiersza polecenia
+      - uid: client-side/libman/libman-vs
+        name: Visual Studio
+    - uid: client-side/using-gulp
+      name: Gulp
+    - uid: client-side/using-grunt
+      name: Grunt
+    - uid: client-side/bower
+      name: Bower
+    - uid: client-side/bundling-and-minification
+      name: Tworzenie pakietów i minimalizowanie
+    - uid: client-side/using-browserlink
+      name: Łączność z przeglądarkami
   - uid: fundamentals/app-state
     name: Stan sesji i aplikacji
+  - uid: mvc/views/layout
+    name: Układ
+  - uid: mvc/models/model-binding
+    name: Powiązanie modelu
+  - uid: mvc/models/validation
+    name: Walidacja modelu
+  - uid: mvc/views/razor
+    name: Składnia Razor
   - name: Pomocnicy tagów
     items:
     - uid: mvc/views/tag-helpers/intro
@@ -303,14 +375,6 @@ items:
         href: mvc/views/working-with-forms.md#the-validation-message-tag-helper
       - name: Podsumowanie walidacji
         href: mvc/views/working-with-forms.md#the-validation-summary-tag-helper
-  - uid: mvc/views/layout
-    name: Układ
-  - uid: mvc/models/model-binding
-    name: Powiązanie modelu
-  - uid: mvc/models/validation
-    name: Walidacja modelu
-  - uid: mvc/views/razor
-    name: Składnia Razor
   - name: Zaawansowane
     items:
     - uid: mvc/views/view-components
@@ -553,102 +617,6 @@ items:
       href: /azure/visual-studio/vs-storage-aspnet5-getting-started-queues?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
     - name: Table Storage
       href: /azure/visual-studio/vs-storage-aspnet5-getting-started-tables?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
-- name: Programowanie po stronie klienta
-  items:
-  - name: Składniki Razor
-    items:
-    - uid: razor-components/index
-      name: Omówienie
-    - uid: razor-components/get-started
-      name: Wprowadzenie
-    - uid: razor-components/hosting-models
-      name: Modele hostingu
-    - uid: tutorials/first-razor-components-app
-      name: Tworzenie pierwszej aplikacji
-    - uid: razor-components/components
-      name: Składniki
-    - uid: razor-components/forms-validation
-      name: Formularze i walidacja
-    - uid: razor-components/class-libraries
-      name: Biblioteki składników
-    - uid: razor-components/layouts
-      name: Układy
-    - uid: razor-components/dependency-injection
-      name: Wstrzykiwanie zależności
-    - uid: razor-components/routing
-      name: Routing
-    - uid: razor-components/javascript-interop
-      name: Międzyoperacyjność w języku JavaScript
-    - uid: razor-components/debug
-      name: Debugowanie
-    - name: Hostowanie i wdrażanie
-      items:
-      - uid: host-and-deploy/razor-components-blazor/index
-        name: Omówienie
-      - uid: host-and-deploy/razor-components-blazor/razor-components
-        name: Składniki Razor
-  - name: Aplikacje jednostronicowe
-    items:
-    - name: Blazor
-      items:
-      - uid: spa/blazor/index
-        name: Omówienie
-      - uid: spa/blazor/get-started
-        name: Wprowadzenie
-      - uid: razor-components/hosting-models
-        name: Modele hostingu
-      - uid: tutorials/first-razor-components-app
-        name: Tworzenie pierwszej aplikacji
-      - uid: razor-components/components
-        name: Składniki
-      - uid: razor-components/forms-validation
-        name: Formularze i walidacja
-      - uid: razor-components/class-libraries
-        name: Biblioteki składników
-      - uid: razor-components/layouts
-        name: Układy
-      - uid: razor-components/dependency-injection
-        name: Wstrzykiwanie zależności
-      - uid: razor-components/routing
-        name: Routing
-      - uid: razor-components/javascript-interop
-        name: Międzyoperacyjność w języku JavaScript
-      - uid: razor-components/debug
-        name: Debugowanie
-      - name: Hostowanie i wdrażanie
-        items:
-        - uid: host-and-deploy/razor-components-blazor/index
-          name: Omówienie
-        - uid: host-and-deploy/razor-components-blazor/blazor
-          name: Blazor
-        - uid: host-and-deploy/razor-components-blazor/configure-linker
-          name: Konfigurowanie konsolidatora
-    - uid: spa/angular
-      name: Angular
-    - uid: spa/react
-      name: React
-    - uid: spa/react-with-redux
-      name: Biblioteka React z implementacją Redux
-    - uid: client-side/spa-services
-      name: JavaScriptServices
-  - name: LibMan
-    items:
-    - uid: client-side/libman/index
-      name: Omówienie
-    - uid: client-side/libman/libman-cli
-      name: Interfejs wiersza polecenia
-    - uid: client-side/libman/libman-vs
-      name: Visual Studio
-  - uid: client-side/using-gulp
-    name: Gulp
-  - uid: client-side/using-grunt
-    name: Grunt
-  - uid: client-side/bower
-    name: Bower
-  - uid: client-side/bundling-and-minification
-    name: Tworzenie pakietów i minimalizowanie
-  - uid: client-side/using-browserlink
-    name: Łączność z przeglądarkami
 - name: Hosting i wdrażanie
   displayName: publish
   items:
@@ -777,15 +745,15 @@ items:
   - uid: host-and-deploy/health-checks
     name: Kontrole kondycji
     displayName: deploy, publish
-  - name: Składniki Razor/Blazor
+  - name: Blazor
     items:
-    - uid: host-and-deploy/razor-components-blazor/index
+    - uid: host-and-deploy/blazor/index
       name: Omówienie
-    - uid: host-and-deploy/razor-components-blazor/blazor
-      name: Blazor
-    - uid: host-and-deploy/razor-components-blazor/razor-components
-      name: Składniki Razor
-    - uid: host-and-deploy/razor-components-blazor/configure-linker
+    - uid: host-and-deploy/blazor/client-side
+      name: Po stronie klienta
+    - uid: host-and-deploy/blazor/server-side
+      name: Po stronie serwera
+    - uid: host-and-deploy/blazor/configure-linker
       name: Konfigurowanie konsolidatora
 - name: Zabezpieczenia i tożsamość
   displayName: authentication, authorization
@@ -1090,9 +1058,9 @@ items:
   href: /dotnet/api/?view=aspnetcore-2.2
 - name: Współtworzenie
   href: https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md
-ms.openlocfilehash: e788460a2de31aa570907b4561d30ad0da2ca854
-ms.sourcegitcommit: 9b7fcb4ce00a3a32e153a080ebfaae4ef417aafa
+ms.openlocfilehash: 1863125cec772262c41884af343f66ec8fcb53ad
+ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59516277"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59614301"

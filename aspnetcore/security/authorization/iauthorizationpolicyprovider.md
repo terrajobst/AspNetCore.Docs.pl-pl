@@ -4,14 +4,14 @@ author: mjrousos
 description: Dowiedz się, jak używać niestandardowego IAuthorizationPolicyProvider w aplikacji ASP.NET Core można dynamicznie wygenerować zasady autoryzacji.
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/21/2019
+ms.date: 04/15/2019
 uid: security/authorization/iauthorizationpolicyprovider
-ms.openlocfilehash: ca57a9fd8e3c11f15fe14bbe4538bc748c4c84b6
-ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
+ms.openlocfilehash: e17372bb0ec9091c385a70b1e907eaa3cff24003
+ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54444158"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59614412"
 ---
 # <a name="custom-authorization-policy-providers-using-iauthorizationpolicyprovider-in-aspnet-core"></a>Niestandardowi dostawcy zasad autoryzacji przy użyciu IAuthorizationPolicyProvider w programie ASP.NET Core 
 
@@ -44,7 +44,7 @@ Wdrażając te dwa interfejsy API, można dostosować, jak zasady autoryzacji s�
 
 Jeden scenariusz gdzie `IAuthorizationPolicyProvider` jest przydatne, jest zapewnienie niestandardowe `[Authorize]` atrybutów, którego wymagania zależą od parametru. Na przykład w [autoryzacji opartej na zasadach](xref:security/authorization/policies) dokumentacji, na podstawie wieku ("AtLeast21") zasad została użyta jako przykładu. Jeśli kontroler różnych akcji w aplikacji należy udostępniane użytkownikom *różnych* wieku, warto mieć wiele różnych zasad na podstawie wieku. Zamiast rejestracji wszystkie różne na podstawie wieku zasady wymagające aplikacji w `AuthorizationOptions`, można wygenerować zasady dynamicznie przy użyciu niestandardowego `IAuthorizationPolicyProvider`. Aby upewnić się, przy użyciu zasad jest łatwiejsze, może dodawać adnotacje akcji z atrybutem autoryzacja niestandardowa, takich jak `[MinimumAgeAuthorize(20)]`.
 
-## <a name="custom-authorization-attributes"></a>Autoryzacja niestandardowa atrybutów
+## <a name="custom-authorization-attributes"></a>Niestandardowe atrybuty autoryzacji
 
 Zasady autoryzacji są identyfikowane przez ich nazwy. Niestandardowy `MinimumAgeAuthorizeAttribute` opisanego wcześniej potrzebuje do mapowania argumentów na ciąg, który może służyć do pobierania odpowiednie zasady autoryzacji. Możesz to zrobić, wynikające z `AuthorizeAttribute` i dokonując `Age` zawijania właściwość `AuthorizeAttribute.Policy` właściwości.
 
@@ -119,12 +119,32 @@ internal class MinimumAgePolicyProvider : IAuthorizationPolicyProvider
 
 ## <a name="multiple-authorization-policy-providers"></a>Wielu dostawców zasad autoryzacji
 
-Korzystając z niestandardowego `IAuthorizationPolicyProvider` implementacji, należy pamiętać, który platformy ASP.NET Core używa tylko jedno wystąpienie `IAuthorizationPolicyProvider`. Jeśli niestandardowego dostawcy nie jest zapewnienie zasady autoryzacji dla wszystkich nazw zasady, jej należy wrócić do dostawcę kopii zapasowych. Nazwy zasad mogą obejmować te, które pochodzą z zasady domyślne dla `[Authorize]` atrybutów bez nazwy.
+Korzystając z niestandardowego `IAuthorizationPolicyProvider` implementacji, należy pamiętać, który platformy ASP.NET Core używa tylko jedno wystąpienie `IAuthorizationPolicyProvider`. Jeśli niestandardowego dostawcy nie jest w stanie zapewnić zasady autoryzacji dla wszystkich nazw zasad, które będą używane, jego powinien wrócić do tworzenia kopii zapasowych dostawcy. 
 
-Na przykład należy rozważyć aplikacji wymagane zasady dotyczące wieku niestandardowych i bardziej tradycyjny pobierania zasad oparta na rolach. Takiej aplikacji można użyć niestandardowego zasad dostawcę autoryzacji który:
+Rozważmy na przykład aplikację, która wymaga bardziej tradycyjny pobierania zasad oparta na rolach i zasady dotyczące wieku niestandardowych. Takiej aplikacji można użyć niestandardowego zasad dostawcę autoryzacji który:
 
 * Próbuje przeanalizować nazwy zasad. 
 * Wywołania do dostawcy inne zasady (takich jak `DefaultAuthorizationPolicyProvider`) Jeśli nazwa zasad nie zawiera wieku.
+
+Przykład `IAuthorizationPolicyProvider` implementacji powyżej można zaktualizować w celu zastosowania `DefaultAuthorizationPolicyProvider` , tworząc dostawcy zasad rezerwowej w jego konstruktorze (do użycia w przypadku, gdy nazwa zasad nie odpowiada jego oczekiwanym wzorcem "MinimumAge" + wiek).
+
+```csharp
+private DefaultAuthorizationPolicyProvider FallbackPolicyProvider { get; }
+
+public MinimumAgePolicyProvider(IOptions<AuthorizationOptions> options)
+{
+    // ASP.NET Core only uses one authorization policy provider, so if the custom implementation
+    // doesn't handle all policies it should fall back to an alternate provider.
+    FallbackPolicyProvider = new DefaultAuthorizationPolicyProvider(options);
+}
+```
+
+Następnie `GetPolicyAsync` metoda można zaktualizować w celu zastosowania `FallbackPolicyProvider` zamiast zwracać wartość null:
+
+```csharp
+...
+return FallbackPolicyProvider.GetPolicyAsync(policyName);
+```
 
 ## <a name="default-policy"></a>Zasady domyślne
 
@@ -137,10 +157,18 @@ public Task<AuthorizationPolicy> GetDefaultPolicyAsync() =>
     Task.FromResult(new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build());
 ```
 
-Podobnie jak w przypadku wszystkich aspektów niestandardowego `IAuthorizationPolicyProvider`, to ustawienie można dostosować, zgodnie z potrzebami. W niektórych przypadkach:
+Podobnie jak w przypadku wszystkich aspektów niestandardowego `IAuthorizationPolicyProvider`, to ustawienie można dostosować, zgodnie z potrzebami. W niektórych przypadkach może być pożądane, można pobrać domyślnej zasady z rezerwowe `IAuthorizationPolicyProvider`.
 
-* Domyślne zasady autoryzacji nie mogą być używane.
-* Pobiera zasady domyślne mogą być delegowane do rezerwowe `IAuthorizationPolicyProvider`.
+## <a name="required-policy"></a>Wymagane zasady
+
+Niestandardowy `IAuthorizationPolicyProvider` należy zaimplementować `GetRequiredPolicyAsync` zapewnienie, opcjonalnie, zasady, które jest zawsze wymagana. Jeśli `GetRequiredPolicyAsync` przywraca zasadom inną niż null, te zasady zostaną połączone z innymi (o nazwie lub domyślny) zasad, które są wymagane.
+
+W razie potrzeby nie wymagane zasady dostawca może po prostu zwracać wartość null lub odroczone do rezerwowego dostawcy:
+
+```csharp
+public Task<AuthorizationPolicy> GetRequiredPolicyAsync() => 
+    Task.FromResult<AuthorizationPolicy>(null);
+```
 
 ## <a name="use-a-custom-iauthorizationpolicyprovider"></a>Użyj niestandardowego IAuthorizationPolicyProvider
 
