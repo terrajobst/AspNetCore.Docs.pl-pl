@@ -934,12 +934,12 @@ items:
   - uid: security/app-secrets
     name: Ochrona wpisów tajnych w trakcie opracowywania
     displayName: password
+  - uid: security/key-vault-configuration
+    name: Dostawca konfiguracji usługi Azure Key Vault
   - uid: security/enforcing-ssl
     name: Wymuszanie protokołu HTTPS
   - uid: security/gdpr
     name: Obsługa Ogólnego rozporządzenia o ochronie danych (RODO) w UE
-  - uid: security/key-vault-configuration
-    name: Dostawca konfiguracji usługi Azure Key Vault
   - uid: security/anti-request-forgery
     name: Ochrona przed fałszerstwem żądań
   - uid: security/preventing-open-redirects
@@ -1062,9 +1062,9 @@ items:
   href: /dotnet/api/?view=aspnetcore-2.2
 - name: Współtworzenie
   href: https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md
-ms.openlocfilehash: 3df2e1461f644e0efd6e3e0b5457671cfc28d65f
-ms.sourcegitcommit: 57a974556acd09363a58f38c26f74dc21e0d4339
+ms.openlocfilehash: 721fb2d1042307c23e0858a7a1bf71a0b24d57ab
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/17/2019
-ms.locfileid: "59672596"
+ms.locfileid: "59705565"
