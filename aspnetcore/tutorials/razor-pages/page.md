@@ -6,10 +6,10 @@ ms.author: riande
 ms.date: 04/06/2019
 uid: tutorials/razor-pages/page
 ms.openlocfilehash: 2b8b9cde5a37a0754ca177cfc80163e2ffd2925b
-ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59468792"
 ---
 # <a name="scaffolded-razor-pages-in-aspnet-core"></a>Strony razor ze szkieletami w programie ASP.NET Core
@@ -142,17 +142,17 @@ Sprawdź *Pages/Movies/Create.cshtml* wartość pola plik strony Razor:
 
 [!code-cshtml[](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml)]
 
-# [<a name="visual-studio"></a>Visual Studio](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Visual Studio Wyświetla `<form method="post">` tag szczególne pogrubioną czcionką używany dla pomocników tagów:
 
 ![VS17 widok Create.cshtml strony](page/_static/th.png)
 
-# [<a name="visual-studio-code"></a>Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Aby uzyskać więcej informacji na temat pomocnicy tagów, takie jak `<form method="post">`, zobacz [pomocników tagów w programie ASP.NET Core](xref:mvc/views/tag-helpers/intro).
 
-# [<a name="visual-studio-for-mac"></a>Visual Studio for Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 Program Visual Studio for Mac Wyświetla `<form method="post">` tag szczególne pogrubioną czcionką używany dla pomocników tagów.
 

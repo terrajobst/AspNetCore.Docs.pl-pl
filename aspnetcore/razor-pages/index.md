@@ -7,10 +7,10 @@ ms.author: riande
 ms.date: 04/06/2019
 uid: razor-pages/index
 ms.openlocfilehash: e79ce1e2ddfc0e1a4d72e3f67f702d6eb938b8d3
-ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59468698"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Wprowadzenie do stron Razor programu ASP.NET Core
@@ -31,11 +31,11 @@ Ten dokument zawiera wprowadzenie do stron Razor. Nie jest samouczek krok po kro
 
 ## <a name="create-a-razor-pages-project"></a>Utwórz projekt stron Razor
 
-# [<a name="visual-studio"></a>Visual Studio](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Zobacz [Rozpoczynanie pracy ze stronami Razor](xref:tutorials/razor-pages/razor-pages-start) szczegółowe instrukcje dotyczące sposobu tworzenia projektu stron Razor.
 
-# [<a name="visual-studio-for-mac"></a>Visual Studio for Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -51,7 +51,7 @@ Uruchom `dotnet new razor` z wiersza polecenia.
 
 Otwórz wygenerowany *.csproj* pliku z programu Visual Studio dla komputerów Mac.
 
-# [<a name="visual-studio-code"></a>Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -93,10 +93,10 @@ Skojarzenia ścieżki adresu URL do strony są określane według lokalizacji st
 
 | Nazwa pliku i ścieżka               | dopasowanie adresu URL |
 | ----------------- | ------------ |
-| */Pages/index.cshtml* | `/` lub `/Index` |
+| */Pages/Index.cshtml* | `/` lub `/Index` |
 | */Pages/Contact.cshtml* | `/Contact` |
 | */Pages/Store/Contact.cshtml* | `/Store/Contact` |
-| */Pages/Store/index.cshtml* | `/Store` lub `/Store/Index` |
+| */Pages/Store/Index.cshtml* | `/Store` lub `/Store/Index` |
 
 Uwagi:
 

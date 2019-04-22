@@ -7,10 +7,10 @@ ms.custom: mvc
 ms.date: 04/06/2019
 uid: mvc/views/partial
 ms.openlocfilehash: 65da78d6df3f179df9bdfa3a32af8736b71bbac5
-ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59468711"
 ---
 # <a name="partial-views-in-aspnet-core"></a>Widoki częściowe w programie ASP.NET Core
@@ -110,7 +110,7 @@ Jeśli występuje rozszerzenie pliku Pomocnik tagu odwołuje się widok części
 
 Poniższy przykład odwołuje się do widoku częściowego z katalogu głównego aplikacji. Ścieżki zaczynające się od ukośnika tyldy (`~/`) lub ukośnika (`/`) można znaleźć w katalogu głównym aplikacji:
 
-**Razor Pages**
+**Strony Razor**
 
 ```cshtml
 <partial name="~/Pages/Folder/_PartialName.cshtml" />
@@ -152,7 +152,7 @@ Poniższy przykład odwołuje się do widoku częściowego z katalogu głównego
 
 ::: moniker range=">= aspnetcore-2.1"
 
-**Razor Pages**
+**Strony Razor**
 
 ```cshtml
 @await Html.PartialAsync("~/Pages/Folder/_PartialName.cshtml")
@@ -203,7 +203,7 @@ Gdy widok częściowy odwołuje się nazwę bez rozszerzenia pliku, w określone
 
 ::: moniker range=">= aspnetcore-2.1"
 
-**Razor Pages**
+**Strony Razor**
 
 1. Na stronie folderu w trakcie wykonywania
 1. Wykres katalogu powyżej folderu strony
@@ -259,7 +259,7 @@ Model można przekazać do widoku częściowego. Model można niestandardowych o
 
 ::: moniker range=">= aspnetcore-2.1"
 
-**Razor Pages**
+**Strony Razor**
 
 Następujący kod zawiera Przykładowa aplikacja pochodzi z *Pages/ArticlesRP/ReadRP.cshtml* strony. Strona zawiera dwa widoki częściowe. Drugi widoku częściowego przekazuje się w modelu i `ViewData` widoku częściowego. `ViewDataDictionary` Przeciążenia konstruktora jest używany do przekazywania nowej `ViewData` słownika przy zachowaniu istniejących `ViewData` słownika.
 

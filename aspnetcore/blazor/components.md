@@ -5,14 +5,14 @@ description: Informacje o sposobie tworzenia i używania składników Razor, w t
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/15/2019
+ms.date: 04/17/2019
 uid: blazor/components
-ms.openlocfilehash: f657b4ad82028881d04292b8ba54b8be0b1fa419
-ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
+ms.openlocfilehash: 610572c232f41210c60afcae0a660cbb808be65e
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59614871"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59705626"
 ---
 # <a name="create-and-use-razor-components"></a>Tworzenie i używanie składników Razor
 
@@ -527,6 +527,40 @@ Pliki składników mieszać kod znaczników HTML i C# przetwarzania kodu w tym s
 
 Klasa bazowa powinien pochodzić od `ComponentBase`.
 
+## <a name="import-components"></a>Importowanie elementów
+
+Przestrzeń nazw składnika utworzone przy użyciu Razor opiera się na:
+
+* Projekt `RootNamespace`.
+* Ścieżka z katalogu głównego projektu do składnika. Na przykład `ComponentsSample/Pages/Index.razor` znajduje się w przestrzeni nazw `ComponentsSample.Pages`. Postępuj zgodnie z składniki C# nazwy zasad powiązania. W przypadku właściwości *Index.razor*, wszystkie składniki w tym samym folderze *stron*i folder nadrzędny *ComponentsSample*, znajdują się w zakresie.
+
+Składniki zdefiniowane w innej przestrzeni nazw może być wprowadzana do zakresu przy użyciu firmy Razor [ \@przy użyciu](xref:mvc/views/razor#using) dyrektywy.
+
+Jeśli inny składnik `NavMenu.razor`, istnieje w folderze `ComponentsSample/Shared/`, składnika mogą być używane w `Index.razor` następującym `@using` instrukcji:
+
+```cshtml
+@using ComponentsSample.Shared
+
+This is the Index page.
+
+<NavMenu></NavMenu>
+```
+
+Składniki mogą się też odwoływać przy użyciu ich w pełni kwalifikowanych nazw, która eliminuje potrzebę [ \@przy użyciu](xref:mvc/views/razor#using) dyrektywy:
+
+```cshtml
+This is the Index page.
+
+<ComponentsSample.Shared.NavMenu></ComponentsSample.Shared.NavMenu>
+```
+
+> [!NOTE]
+> `global::` Kwalifikacji nie jest obsługiwane.
+>
+> Importowanie elementów z aliasem `using` instrukcji (na przykład `@using Foo = Bar`) nie jest obsługiwane.
+>
+> Częściowo kwalifikowane nazwy nie są obsługiwane. Na przykład dodanie `@using ComponentsSample` i odwoływanie się do `NavMenu.razor` z `<Shared.NavMenu></Shared.NavMenu>` nie jest obsługiwane.
+
 ## <a name="razor-support"></a>Obsługa razor
 
 **Dyrektywy razor**
@@ -541,8 +575,7 @@ W poniższej tabeli przedstawiono dyrektywy razor.
 | [\@wstrzykiwanie](xref:mvc/views/razor#section-4) | Włącza usługi iniekcji z [kontener usługi](xref:fundamentals/dependency-injection). Aby uzyskać więcej informacji, zobacz [wstrzykiwanie zależności do widoków](xref:mvc/views/dependency-injection). |
 | `@layout` | Określa składnik układu. Składniki układu są używane, aby uniknąć zduplikowania kodu i niespójności. |
 | [\@page](xref:razor-pages/index#razor-pages) | Określa, że składnik obsługi żądań bezpośrednio. `@page` Dyrektywy można określić za pomocą trasy i opcjonalnych parametrów. W przeciwieństwie do stron Razor `@page` dyrektywy nie musi być pierwszą dyrektywę w górnej części pliku. Aby uzyskać więcej informacji, zobacz [Routing](xref:blazor/routing). |
-| [\@za pomocą](xref:mvc/views/razor#using) | Dodaje C# `using` dyrektywy do klasy wygenerowanej składnika. |
-| [\@addTagHelper](xref:mvc/views/razor#tag-helpers) | Użyj `@addTagHelper` użycie składnika w innym zestawie niż zestaw aplikacji. |
+| [\@za pomocą](xref:mvc/views/razor#using) | Dodaje C# `using` dyrektywy do klasy wygenerowanej składnika. Udostępniono też wszystkich składników, które są zdefiniowane w tej przestrzeni nazw do zakresu. |
 
 **Atrybuty warunkowe**
 

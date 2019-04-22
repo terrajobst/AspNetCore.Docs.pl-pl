@@ -6,10 +6,10 @@ ms.author: riande
 ms.date: 02/25/2019
 uid: tutorials/first-mvc-app/adding-model
 ms.openlocfilehash: 08d8e9679bfee11f03e61cb4b9ae9b5b36186049
-ms.sourcegitcommit: 1a7000630e55da90da19b284e1b2f2f13a393d74
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59012828"
 ---
 # <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>Dodawanie modelu do aplikacji ASP.NET Core MVC
@@ -26,13 +26,13 @@ W tym samouczku pisania klasy modeli i programem EF Core tworzy bazę danych. Al
 
 ## <a name="add-a-data-model-class"></a>Dodaj klasę modelu danych
 
-# [<a name="visual-studio"></a>Visual Studio](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Kliknij prawym przyciskiem myszy *modeli* folder > **Dodaj** > **klasy**. Nazwa klasy **filmu**.
 
 [!INCLUDE [model 1b](~/includes/mvc-intro/model1b.md)]
 
-# [<a name="visual-studio-code--visual-studio-for-mac"></a>Visual Studio Code / Visual Studio for Mac](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code / Visual Studio for Mac](#tab/visual-studio-code+visual-studio-mac)
 
 * Dodaj klasę umożliwiającą *modeli* folder o nazwie *Movie.cs*.
 
@@ -45,7 +45,7 @@ Kliknij prawym przyciskiem myszy *modeli* folder > **Dodaj** > **klasy**. Nazwa 
 
 W tej sekcji modelu movie jest szkielet. Oznacza to, że narzędzie do tworzenia szkieletów tworzy strony dla operacji tworzenia, odczytu, aktualizowania lub usuwania (CRUD) do modelu movie.
 
-# [<a name="visual-studio"></a>Visual Studio](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *kontrolerów* folderu **> Dodaj > Nowy element szkieletu**.
 
@@ -76,7 +76,7 @@ Program Visual Studio tworzy:
 
 Automatyczne tworzenie kontekst bazy danych i [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) (tworzenia, odczytu, aktualizacji i usuwania) metody akcji i widoki są określane jako *tworzenia szkieletów*.
 
-# [<a name="visual-studio-code"></a>Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 <!--  Until https://github.com/aspnet/Scaffolding/issues/582 is fixed windows needs backslash or the namespace is namespace RazorPagesMovie.Pages_Movies rather than namespace RazorPagesMovie.Pages.Movies
 -->
@@ -98,7 +98,7 @@ Automatyczne tworzenie kontekst bazy danych i [CRUD](https://wikipedia.org/wiki/
 
 <!-- Mac -------------------------->
 
-# [<a name="visual-studio-for-mac"></a>Visual Studio for Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 * Otwórz okno polecenia w katalogu projektu (katalog, który zawiera *Program.cs*, *Startup.cs*, i *.csproj* plików).
 * Zainstaluj narzędzia do tworzenia szkieletów:
@@ -141,7 +141,7 @@ W tej sekcji należy wykonać następujące zadania:
 * Dodaj początkowej migracji.
 * Zaktualizuj bazy danych przy użyciu początkowej migracji.
 
-# [<a name="visual-studio"></a>Visual Studio](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 1. Z **narzędzia** menu, wybierz opcję **Menedżera pakietów NuGet** > **Konsola Menedżera pakietów** (PMC).
 
@@ -160,7 +160,7 @@ W tej sekcji należy wykonać następujące zadania:
 
    `Update-Database` Polecenia `Up` method in Class metoda *migracje / {sygnatura czasowa} _InitialCreate.cs* pliku, który tworzy bazę danych.
 
-# [<a name="visual-studio-code--visual-studio-for-mac"></a>Visual Studio Code / Visual Studio for Mac](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code / Visual Studio for Mac](#tab/visual-studio-code+visual-studio-mac)
 
 [!INCLUDE [initial migration](~/includes/RP/model3.md)]
 
@@ -174,7 +174,7 @@ Schemat bazy danych zależy od określonego w modelu `MvcMovieContext` klasy (w 
 
 Platforma ASP.NET Core został utworzony za pomocą [wstrzykiwanie zależności (DI)](xref:fundamentals/dependency-injection). Usługi (takie jak kontekst bazy danych programu EF Core) są rejestrowane przy użyciu DI podczas uruchamiania aplikacji. Składniki, które wymagają tych usług (np. strony Razor) znajdują się tych usług za pomocą parametry konstruktora. Kod konstruktora, który pobiera wystąpienia kontekstu bazy danych jest przedstawiony w dalszej części tego samouczka.
 
-# [<a name="visual-studio"></a>Visual Studio](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Narzędzie do tworzenia szkieletów automatycznie tworzone kontekst bazy danych i jest on zarejestrowany za pomocą kontenera DI.
 
@@ -190,7 +190,7 @@ Powyższy kod tworzy [DbSet\<film >](/dotnet/api/microsoft.entityframeworkcore.d
 
 Nazwa ciągu połączenia jest przekazywany do kontekstu przez wywołanie metody na [DbContextOptions](/dotnet/api/microsoft.entityframeworkcore.dbcontextoptions) obiektu. Na potrzeby lokalnego programowania dla [systemu konfiguracji platformy ASP.NET Core](xref:fundamentals/configuration/index) odczytuje parametry połączenia z *appsettings.json* pliku.
 
-# [<a name="visual-studio-code--visual-studio-for-mac"></a>Visual Studio Code / Visual Studio for Mac](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code / Visual Studio for Mac](#tab/visual-studio-code+visual-studio-mac)
 
 Kontekst bazy danych utworzone i jest on zarejestrowany za pomocą kontenera DI.
 

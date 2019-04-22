@@ -8,10 +8,10 @@ ms.custom: mvc, seodec18
 ms.date: 04/03/2019
 uid: security/authentication/windowsauth
 ms.openlocfilehash: bd4ffa79c4d1e0070c820fa9c06b0a84c3aaae74
-ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59468656"
 ---
 # <a name="configure-windows-authentication-in-aspnet-core"></a>Konfigurowanie uwierzytelniania Windows w programie ASP.NET Core
@@ -26,7 +26,7 @@ Uwierzytelnianie Windows opiera się uwierzytelniać użytkowników aplikacji pl
 
 **Aplikacji sieci Web** szablonu dostępnego za pośrednictwem programu Visual Studio lub interfejsu wiersza polecenia platformy .NET Core może być skonfigurowane do obsługi uwierzytelniania Windows.
 
-# [<a name="visual-studio"></a>Visual Studio](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 ### <a name="use-the-windows-authentication-app-template-for-a-new-project"></a>Korzystanie z szablonu aplikacji uwierzytelniania Windows dla nowego projektu
 
@@ -55,7 +55,7 @@ Alternatywnie, można skonfigurować właściwości w `iisSettings` węźle *lau
 
 [!code-json[](windowsauth/sample_snapshot/launchSettings.json?highlight=2-3)]
 
-# [<a name="net-core-cli"></a>.NET core interfejsu wiersza polecenia](#tab/netcore-cli)
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 Użyj **uwierzytelniania Windows** szablonu aplikacji.
 
@@ -133,7 +133,7 @@ Za pomocą programu Visual Studio lub interfejsu wiersza polecenia platformy .NE
 
 Aby uzyskać więcej informacji dotyczących obsługi za pomocą programu IIS publikowania i wdrażania, zobacz następujące tematy:
 
-* [Publikowanie DotNet](/dotnet/core/tools/dotnet-publish)
+* [dotnet publish](/dotnet/core/tools/dotnet-publish)
 * <xref:host-and-deploy/iis/index>
 * <xref:host-and-deploy/aspnet-core-module>
 * <xref:host-and-deploy/visual-studio-publish-profiles>

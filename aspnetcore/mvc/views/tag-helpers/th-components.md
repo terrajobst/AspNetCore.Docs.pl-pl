@@ -7,10 +7,10 @@ ms.author: scaddie
 ms.date: 04/06/2019
 uid: mvc/views/tag-helpers/th-components
 ms.openlocfilehash: fdad4ae367245cd3beabaf90587c1fe5e9162afe
-ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59468598"
 ---
 # <a name="tag-helper-components-in-aspnet-core"></a>Składniki Pomocnika tagów w programie ASP.NET Core
@@ -40,7 +40,7 @@ W kodzie HTML `<head>` elementu, pliki CSS są często zaimportowane z kodem HTM
 
 W poprzednim kodzie:
 
-* `AddressStyleTagHelperComponent` Implementuje <xref:Microsoft.AspNetCore.Razor.TagHelpers.TagHelperComponent>. Abstrakcja:
+* `AddressStyleTagHelperComponent` implementuje <xref:Microsoft.AspNetCore.Razor.TagHelpers.TagHelperComponent>. Abstrakcja:
   * Umożliwia inicjowanie klasy <xref:Microsoft.AspNetCore.Razor.TagHelpers.TagHelperContext>.
   * Umożliwia korzystanie z składniki pomocnika tagów do dodawania lub modyfikowania elementów HTML.
 * <xref:Microsoft.AspNetCore.Razor.TagHelpers.TagHelperComponent.Order*> Właściwość definiuje kolejność renderowania składników. `Order` jest to konieczne w przypadku użycia wielu składników pomocnika tagów w aplikacji.

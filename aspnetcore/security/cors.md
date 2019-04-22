@@ -7,10 +7,10 @@ ms.custom: mvc
 ms.date: 04/07/2019
 uid: security/cors
 ms.openlocfilehash: fe5b750c44e5fad9ba80efb2cc8116d0a64b1a17
-ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59068300"
 ---
 # <a name="enable-cross-origin-requests-cors-in-aspnet-core"></a>Włączanie żądań Cross-Origin (CORS) w programie ASP.NET Core
@@ -170,7 +170,7 @@ to
 to remove the ambiguous **This**.
 -->
 
-`AllowAnyOrigin` Wpływa na stanu wstępnego żądania i `Access-Control-Allow-Origin` nagłówka. Aby uzyskać więcej informacji, zobacz [stanu wstępnego żądania](#preflight-requests) sekcji.
+`AllowAnyOrigin` wpływa na stanu wstępnego żądania i `Access-Control-Allow-Origin` nagłówka. Aby uzyskać więcej informacji, zobacz [stanu wstępnego żądania](#preflight-requests) sekcji.
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -381,7 +381,7 @@ W tej sekcji opisano, co dzieje się w [CORS](https://developer.mozilla.org/en-U
   * Na przykład użyć złośliwego aktora [zapobiec Cross-Site Scripting (XSS)](xref:security/cross-site-scripting) względem lokacji, a następnie wykonaj fałszerstwo żądania do swojej lokacji włączono mechanizm CORS do wykradania informacji.
 * Interfejs API nie jest bezpieczniejsze, umożliwiając mechanizmu CORS.
   * Wszystko zależy klienta (przeglądarki) wymuszenie mechanizmu CORS. Serwer ten wykonuje żądanie i zwraca odpowiedź okazał się klient, który zwraca błąd i bloków odpowiedź. Na przykład dowolne z następujących narzędzi spowoduje wyświetlenie odpowiedź serwera:
-    * [Narzędzie fiddler](https://www.telerik.com/fiddler)
+    * [Fiddler](https://www.telerik.com/fiddler)
     * [Postman](https://www.getpostman.com/)
     * [.NET HttpClient](/dotnet/csharp/tutorials/console-webapiclient)
     * Przeglądarki sieci web przy użyciu adresu URL w pasku adresu.
@@ -454,4 +454,4 @@ Aby przetestować CORS:
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Współużytkowanie zasobów między źródłami (CORS)](https://developer.mozilla.org/docs/Web/HTTP/CORS)
+* [Cross-Origin Resource Sharing (CORS)](https://developer.mozilla.org/docs/Web/HTTP/CORS)

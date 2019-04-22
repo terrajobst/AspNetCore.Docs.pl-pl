@@ -1,19 +1,19 @@
 ---
 ms.openlocfilehash: 9a53dddd52f529ce24927249aa1fcb3e0020962d
-ms.sourcegitcommit: 1a7000630e55da90da19b284e1b2f2f13a393d74
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59041639"
 ---
-# [<a name="visual-studio"></a>Visual Studio](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 ## <a name="visual-studio-help"></a>Visual Studio help
 
 * [Dowiedz się, jak debugowanie C# kodu za pomocą programu Visual Studio](https://docs.microsoft.com/visualstudio/debugger/getting-started-with-the-debugger?view=vs-2017)
 * [Wprowadzenie do środowiska IDE programu Visual Studio](https://docs.microsoft.com/visualstudio/ide/visual-studio-ide?view=vs-2017)
 
-# [<a name="visual-studio-code"></a>Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 ## <a name="visual-studio-code-help"></a>Visual Studio Code help
 
@@ -26,7 +26,7 @@ ms.locfileid: "59041639"
   * [Skróty klawiaturowe w systemie Linux](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf)
   * [Skróty klawiaturowe Windows](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf)
 
-# [<a name="visual-studio-for-mac"></a>Visual Studio for Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 ## <a name="visual-studio-for-mac-help"></a>Program Visual Studio for Mac pomocy
 

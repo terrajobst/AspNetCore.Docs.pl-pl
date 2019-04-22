@@ -6,10 +6,10 @@ ms.author: riande
 ms.date: 05/31/2018
 uid: tutorials/dotnet-watch
 ms.openlocfilehash: 40ecca1c6f9d519b24649d0c28946d95b820c07c
-ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59068199"
 ---
 # <a name="develop-aspnet-core-apps-using-a-file-watcher"></a>Tworzenie aplikacji platformy ASP.NET Core za pomocą obserwator plików
@@ -154,7 +154,7 @@ Można dodać więcej elementów do listy obserwowanych przez edycję *.csproj* 
 
 `dotnet-watch` nie jest ograniczony do projektów C#. Obejrzyj niestandardowe projekty mogą być tworzone do obsługi różnych scenariuszy. Należy wziąć pod uwagę następujące układ projektu:
 
-* **Test /**
+* **test/**
   * *UnitTests/UnitTests.csproj*
   * *IntegrationTests/IntegrationTests.csproj*
 

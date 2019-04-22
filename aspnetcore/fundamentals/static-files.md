@@ -7,10 +7,10 @@ ms.custom: mvc
 ms.date: 04/08/2019
 uid: fundamentals/static-files
 ms.openlocfilehash: 12c7b39bee462ff83188a5a0f10b133ca273863b
-ms.sourcegitcommit: 258a97159da206f9009f23fdf6f8fa32f178e50b
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59425065"
 ---
 # <a name="static-files-in-aspnet-core"></a>Pliki statyczne z platformy ASP.NET Core
@@ -46,8 +46,8 @@ Ustaw zawartość katalogu głównego w bieżącym katalogu, wywołując [UseCon
 Pliki statyczne są dostępne za pośrednictwem ścieżki względem katalogu głównego sieci web. Na przykład **aplikacji sieci Web** szablonu projektu zawiera kilka folderów w ramach *wwwroot* folderu:
 
 * **wwwroot**
-  * **CSS**
-  * **obrazy**
+  * **css**
+  * **images**
   * **js**
 
 Format identyfikatora URI, aby uzyskać dostęp do pliku w *obrazów* podfolder jest *http://\<server_address > /images/\<image_file_name >*. Na przykład *http://localhost:9189/images/banner3.svg*.
@@ -89,11 +89,11 @@ W poprzednim kodzie znak tyldy `~/` wskazuje webroot. Aby uzyskać więcej infor
 Należy wziąć pod uwagę hierarchii katalogów, w którym znajdują się pliki statyczne, które ma zostać dostarczony poza katalog główny sieci web:
 
 * **wwwroot**
-  * **CSS**
-  * **obrazy**
+  * **css**
+  * **images**
   * **js**
 * **MyStaticFiles**
-  * **obrazy**
+  * **images**
     * *banner1.svg*
 
 Żądanie mogą uzyskiwać dostęp do *banner1.svg* pliku przez skonfigurowanie statycznych oprogramowanie pośredniczące plików w następujący sposób:
@@ -159,9 +159,9 @@ Ustawianie domyślnej strony głównej zawiera odwiedzających logiczne punkt po
 Za pomocą `UseDefaultFiles`, żądania do folderu wyszukiwania:
 
 * *default.htm*
-* *default.HTML*
+* *default.html*
 * *index.htm*
-* *index.HTML*
+* *index.html*
 
 Pierwszy plik znaleziono z listy jest obsługiwany, tak, jakby żądania zostały w pełni kwalifikowanego identyfikatora URI. Adres URL przeglądarki w dalszym ciągu odzwierciedla żądanego identyfikatora URI.
 
@@ -188,13 +188,13 @@ app.UseFileServer(enableDirectoryBrowsing: true);
 Należy wziąć pod uwagę następujące hierarchii katalogów:
 
 * **wwwroot**
-  * **CSS**
-  * **obrazy**
+  * **css**
+  * **images**
   * **js**
 * **MyStaticFiles**
-  * **obrazy**
+  * **images**
     * *banner1.svg*
-  * *default.HTML*
+  * *default.html*
 
 Poniższy kod umożliwia pliki statyczne, domyślne pliki i przeglądanie katalogów dla `MyStaticFiles`:
 

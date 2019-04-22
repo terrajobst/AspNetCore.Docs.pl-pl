@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 45fb8a8c0d6e98b002789a6fb7b2b0fce893ad63
-ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59468587"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59705570"
 ---
 `<form method="post">` Element jest [Pomocnik tagu formularza](xref:mvc/views/working-with-forms#the-form-tag-helper). Pomocnik tagu formularza automatycznie uwzględnia [antiforgery token](xref:security/anti-request-forgery).
 

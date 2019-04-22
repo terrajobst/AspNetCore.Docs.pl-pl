@@ -6,10 +6,10 @@ ms.author: riande
 ms.date: 04/03/2019
 uid: mvc/views/overview
 ms.openlocfilehash: 766996645bc6ef2b6be42d729baf5d57f55b6ddd
-ms.sourcegitcommit: 1a7000630e55da90da19b284e1b2f2f13a393d74
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59012802"
 ---
 # <a name="views-in-aspnet-core-mvc"></a>Widoki w programie ASP.NET Core MVC
@@ -91,7 +91,7 @@ Domyślne zachowanie `View` — metoda (`return View();`) jest do zwrócenia wid
 
 Nie ma znaczenia, jeśli zwróci niejawnie `ViewResult` z `return View();` lub jawnie przekazać nazwę widoku, aby `View` metody z `return View("<ViewName>");`. W obu przypadkach widok odnajdywania wyszukuje pasującego pliku widoku w następującej kolejności:
 
-   1. *Widoki /\[ControllerName] /\[Nazwa widoku] .cshtml*
+   1. *Views/\[ControllerName]/\[ViewName].cshtml*
    1. *Widoki/udostępnione/\[Nazwa widoku] .cshtml*
 
 Ścieżka pliku widoku można podać zamiast nazwy widoku. Jeśli przy użyciu ścieżką bezwzględną, zaczynając od katalogu głównego aplikacji (opcjonalnie, począwszy od "/" lub "~ /"), *.cshtml* rozszerzenia należy określić:

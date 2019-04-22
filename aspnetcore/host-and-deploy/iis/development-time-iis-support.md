@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.date: 04/08/2019
 uid: host-and-deploy/iis/development-time-iis-support
 ms.openlocfilehash: 6f555858239b4432d252f8b3ac7add5c3e8bfe62
-ms.sourcegitcommit: 258a97159da206f9009f23fdf6f8fa32f178e50b
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59425104"
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>Obsługa usług IIS czas opracowywania, w programie Visual Studio dla platformy ASP.NET Core
@@ -154,5 +154,5 @@ Użycie certyfikatu deweloperskiego niezaufanych przeglądarka może wymagać Ut
 * [Rozpoczęcie korzystania z Menedżera usług IIS w usługach IIS](/iis/get-started/getting-started-with-iis/getting-started-with-the-iis-manager-in-iis-7-and-iis-8)
 * [Host platformy ASP.NET Core na Windows za pomocą programu IIS](xref:host-and-deploy/iis/index)
 * [Wprowadzenie do modułu platformy ASP.NET Core](xref:host-and-deploy/aspnet-core-module)
-* [Informacje o konfiguracji ASP.NET Core modułu](xref:host-and-deploy/aspnet-core-module)
+* [Odwołania do konfiguracji modułu platformy ASP.NET Core](xref:host-and-deploy/aspnet-core-module)
 * [Wymuszanie protokołu HTTPS](xref:security/enforcing-ssl)

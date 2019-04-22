@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 12/13/2018
 uid: web-api/advanced/conventions
-ms.openlocfilehash: 64be4984779724eb60af3b70d4f52b22eae32213
-ms.sourcegitcommit: a467828b5e4eaae291d961ffe2279a571900de23
+ms.openlocfilehash: 25e8d5209f02683c533ef7c316b91d447f1b20ba
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58142306"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59705461"
 ---
 # <a name="use-web-api-conventions"></a>Użyj interfejsu API sieci web Konwencji
 
@@ -45,9 +45,9 @@ Konwencje nie tworzą; Każde działanie może być skojarzony z dokładnie jedn
 
     ```csharp
     [ProducesDefaultResponseType]
-    [ProducesResponseType(204)]
-    [ProducesResponseType(404)]
-    [ProducesResponseType(400)]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     ```
 
 Aby uzyskać więcej informacji na temat `[ProducesDefaultResponseType]`, zobacz [odpowiedź domyślna](https://swagger.io/docs/specification/describing-responses/#default).
@@ -78,8 +78,8 @@ Te metody są oznaczony za pomocą `[ProducesResponseType]` lub `[ProducesDefaul
 ```csharp
 public static class MyAppConventions
 {
-    [ProducesResponseType(200)]
-    [ProducesResponseType(404)]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     public static void Find(int id)
     {
     }
@@ -96,8 +96,8 @@ W przypadku nieobecności dokładniejszą atrybuty metadanych na stosowanie nini
 `[ApiConventionNameMatch]` i `[ApiConventionTypeMatch]` atrybuty mogą być stosowane do metody Konwencji, która określa akcje, których dotyczą. Na przykład:
 
 ```csharp
-[ProducesResponseType(200)]
-[ProducesResponseType(404)]
+[ProducesResponseType(StatusCodes.Status200OK)]
+[ProducesResponseType(StatusCodes.Status404NotFound)]
 [ApiConventionNameMatch(ApiConventionNameMatchBehavior.Prefix)]
 public static void Find(
     [ApiConventionNameMatch(ApiConventionNameMatchBehavior.Suffix)]

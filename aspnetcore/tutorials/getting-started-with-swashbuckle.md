@@ -7,10 +7,10 @@ ms.custom: mvc
 ms.date: 04/04/2019
 uid: tutorials/get-started-with-swashbuckle
 ms.openlocfilehash: 31d45eaa684118ab78d1b3ecac594e95712f631f
-ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59068352"
 ---
 # <a name="get-started-with-swashbuckle-and-aspnet-core"></a>Wprowadzenie do pakietu Swashbuckle i ASP.NET Core
@@ -31,7 +31,7 @@ Istnieją trzy główne składniki do narzędzia Swashbuckle:
 
 Pakiet Swashbuckle mogą być dodawane przy użyciu następujących metod:
 
-### [<a name="visual-studio"></a>Visual Studio](#tab/visual-studio)
+### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Z **Konsola Menedżera pakietów** okna:
   * Przejdź do **widoku** > **innych Windows** > **Konsola Menedżera pakietów**
@@ -48,14 +48,14 @@ Pakiet Swashbuckle mogą być dodawane przy użyciu następujących metod:
   * W polu wyszukiwania wprowadź "Swashbuckle.AspNetCore"
   * Wybierz pakiet "Swashbuckle.AspNetCore" z **Przeglądaj** kartę, a następnie kliknij przycisk **instalacji**
 
-### [<a name="visual-studio-for-mac"></a>Visual Studio for Mac](#tab/visual-studio-mac)
+### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 * Kliknij prawym przyciskiem myszy *pakietów* folderu w **konsoli rozwiązania** > **Dodawanie pakietów...**
 * Ustaw **Dodawanie pakietów** okna **źródła** menu rozwijane "nuget.org"
 * W polu wyszukiwania wprowadź "Swashbuckle.AspNetCore"
 * Wybierz pakiet "Swashbuckle.AspNetCore" w okienku wyników, a następnie kliknij przycisk **Dodaj pakiet**
 
-### [<a name="visual-studio-code"></a>Visual Studio Code](#tab/visual-studio-code)
+### <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Uruchom następujące polecenie z **zintegrowany Terminal**:
 
@@ -63,7 +63,7 @@ Uruchom następujące polecenie z **zintegrowany Terminal**:
 dotnet add TodoApi.csproj package Swashbuckle.AspNetCore
 ```
 
-### [<a name="net-core-cli"></a>.NET core interfejsu wiersza polecenia](#tab/netcore-cli)
+### <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 Uruchom następujące polecenie:
 
@@ -128,7 +128,7 @@ Interfejs użytkownika struktury Swagger Wyświetla informacje o wersji:
 
 Komentarze XML można włączyć za pomocą następujących metod:
 
-#### [<a name="visual-studio"></a>Visual Studio](#tab/visual-studio)
+#### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -146,7 +146,7 @@ Komentarze XML można włączyć za pomocą następujących metod:
 
 ::: moniker-end
 
-#### [<a name="visual-studio-for-mac"></a>Visual Studio for Mac](#tab/visual-studio-mac)
+#### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -164,7 +164,7 @@ Komentarze XML można włączyć za pomocą następujących metod:
 
 ::: moniker-end
 
-#### [<a name="visual-studio-code"></a>Visual Studio Code](#tab/visual-studio-code)
+#### <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Ręcznie Dodaj wyróżnione wiersze w celu *.csproj* pliku:
 
@@ -180,7 +180,7 @@ Ręcznie Dodaj wyróżnione wiersze w celu *.csproj* pliku:
 
 ::: moniker-end
 
-#### [<a name="net-core-cli"></a>.NET core interfejsu wiersza polecenia](#tab/netcore-cli)
+#### <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 Ręcznie Dodaj wyróżnione wiersze w celu *.csproj* pliku:
 

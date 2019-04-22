@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 41021e30ae85dd0ae42cbe6f1606727e21bd7707
-ms.sourcegitcommit: 5995f44e9e13d7e7aa8d193e2825381c42184e47
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58809410"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59705526"
 ---
 # <a name="aspnet-core-middleware-extensibility-sample"></a>Przykład rozszerzeń oprogramowania pośredniczącego platformy ASP.NET Core
 
