@@ -7,18 +7,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/15/2019
 uid: blazor/debug
-ms.openlocfilehash: 9d5924fbca300f0423fc3130ef749ae5a6639b4f
-ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
+ms.openlocfilehash: 40457b942061fb910a6311af78ff29ac3a1699de
+ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59614843"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59982793"
 ---
 # <a name="debug-blazor"></a>Debugowanie Blazor
 
 [Daniel Roth](https://github.com/danroth27)
-
-[!INCLUDE[](~/includes/razor-components-preview-notice.md)]
 
 *Wczesne* Obsługa istnieje, do debugowania po stronie klienta Blazor aplikacji uruchomionych na format WebAssembly w przeglądarce Chrome.
 
@@ -56,7 +54,7 @@ Jeśli zdalne debugowanie jest wyłączone, **nie można odnaleźć karty przegl
 
 ## <a name="debug-the-app"></a>Debugowanie aplikacji
 
-Gdy program Chrome jest uruchomiony z włączonym debugowaniem zdalnym, debugowania skrótu klawiaturowego zostanie otwarta nowa karta debugera. Po chwili **źródeł** karta zawiera listę zestawów .NET w aplikacji. Rozwiń każdy zestaw i Znajdź *.cs*/*.cshtml* dostępna do debugowania plików źródłowych. Ustawianie punktów przerwania, wrócić do karty aplikacji, a punkty przerwania są osiągane, gdy kod jest wykonywany. Punkt przerwania — po trafienie w jednym kroku (`F10`) za pomocą kodu lub Wznów (`F8`) wykonanie kodu w zwykły sposób.
+Gdy program Chrome jest uruchomiony z włączonym debugowaniem zdalnym, debugowania skrótu klawiaturowego zostanie otwarta nowa karta debugera. Po chwili **źródeł** karta zawiera listę zestawów .NET w aplikacji. Rozwiń każdy zestaw i Znajdź *.cs*/*.razor* dostępna do debugowania plików źródłowych. Ustawianie punktów przerwania, wrócić do karty aplikacji, a punkty przerwania są osiągane, gdy kod jest wykonywany. Punkt przerwania — po trafienie w jednym kroku (`F10`) za pomocą kodu lub Wznów (`F8`) wykonanie kodu w zwykły sposób.
 
 Blazor udostępnia serwer proxy debugowania, który implementuje [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/) i rozszerzają protokołu. Informacje dotyczące sieci. Po naciśnięciu klawisza skrótu klawiaturowego debugowania Blazor wskazuje Chrome DevTools serwera proxy. Serwer proxy łączy do okna przeglądarki, w przypadku znalezienia do debugowania (dlatego trzeba włączyć zdalne debugowanie).
 

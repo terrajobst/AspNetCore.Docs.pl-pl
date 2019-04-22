@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/15/2019
 uid: blazor/dependency-injection
-ms.openlocfilehash: f0bc7d3a948763827ae859475410fcf6d6ee4edb
-ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
+ms.openlocfilehash: 9e19596dec5582e11212d95a9fea72862baa2046
+ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59614863"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59983005"
 ---
 # <a name="blazor-dependency-injection"></a>Wstrzykiwanie zależności Blazor
 
@@ -73,7 +73,7 @@ Istnieje możliwość używania dostawcy niestandardowego usługi zamiast domyś
 
 ## <a name="request-a-service-in-a-component"></a>Żądanie usługi w składniku
 
-Po dodaniu usługi do kolekcji usługi wstrzyknąć usług do składników programu szablony Razor przy użyciu [ @inject ](xref:mvc/views/razor#section-4) dyrektywy Razor. `@inject` ma dwa parametry:
+Po dodaniu usługi do kolekcji usługi wstrzyknąć usług do składników programu szablony Razor przy użyciu [ \@wstrzyknąć](xref:mvc/views/razor#section-4) dyrektywy Razor. `@inject` ma dwa parametry:
 
 * Nazwa typu: Typ usługi do dodania.
 * Nazwa właściwości: Nazwa właściwości odbieranie usługi wprowadzonego kodu aplikacji. Należy pamiętać, że właściwość nie wymaga ręcznego tworzenia. Kompilator tworzy właściwość.
@@ -84,7 +84,7 @@ Używanych jest wiele `@inject` instrukcje, aby wstawić różnych usług.
 
 Poniższy przykład pokazuje, jak używać `@inject`. Wdrażanie usługi `Services.IDataAccess` są wstrzykiwane do właściwości składnika `DataRepository`. Należy zauważyć, jak kod jest wyłącznie przy użyciu `IDataAccess` abstrakcji:
 
-[!code-cshtml[](dependency-injection/samples_snapshot/3.x/CustomerList.cshtml?highlight=2-3,23)]
+[!code-cshtml[](dependency-injection/samples_snapshot/3.x/CustomerList.razor?highlight=2-3,23)]
 
 Wewnętrznie, wygenerowana właściwość (`DataRepository`) zostanie nadany `InjectAttribute` atrybutu. Zazwyczaj ten atrybut nie jest używany bezpośrednio. Jeśli klasa bazowa jest wymagana dla składników i właściwości wprowadzonego są również wymagane dla klasy bazowej, `InjectAttribute` można ręcznie dodać:
 

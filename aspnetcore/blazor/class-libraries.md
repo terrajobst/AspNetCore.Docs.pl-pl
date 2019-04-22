@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/15/2019
 uid: blazor/class-libraries
-ms.openlocfilehash: 6c0b741de1e3b9ad2b226cc376f06ad8365542e8
-ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
+ms.openlocfilehash: f7c9ce20bf23bc532e664764d6e48d9163db727f
+ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59614872"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59982983"
 ---
 # <a name="razor-components-class-libraries"></a>Biblioteki klas składników razor
 
@@ -32,7 +32,7 @@ Użyj `razorclasslib` szablonu (biblioteki klas Razor) za pomocą [dotnet nowe](
 dotnet new razorclasslib -o MyComponentLib1
 ```
 
-Dodaj pliki Razor składników (*.razor*) do biblioteki klas Razor.
+Dodaj pliki składników Razor (*.razor*) do biblioteki klas Razor.
 
 Aby dodać bibliotekę do istniejącego projektu, należy użyć [dotnet sln](/dotnet/core/tools/dotnet-sln) polecenia:
 
@@ -51,41 +51,44 @@ dotnet add WebApplication1 reference MyComponentLib1
 ---
 
 > [!NOTE]
-> Biblioteki klas razor nie są zgodne z aplikacjami Blazor w ASP.NET Core w wersji zapoznawczej 3.
+> Biblioteki klas razor nie są zgodne z aplikacjami Blazor w programie ASP.NET Core w wersji zapoznawczej 4.
 >
 > Do tworzenia składników w bibliotece, które mogą być udostępniane innym Blazor po stronie klienta i Razor składniki po stronie serwera aplikacji, użyj utworzonych przez bibliotekę klas Blazor `blazorlib` szablonu.
 >
-> Biblioteki klas razor statycznych zasobów w ASP.NET Core w wersji zapoznawczej 3 nie są obsługiwane. Biblioteki składników za pomocą `blazorlib` szablonu może zawierać pliki statyczne, takie jak obrazy, JavaScript i arkusze stylów. W czasie kompilacji, pliki statyczne są osadzone w pliku zestawu wbudowanego (*.dll*), co umożliwia użycie składniki bez konieczności martwienia się o tym, jak do uwzględnienia ich zasobów. Wszystkie pliki zawarte w `content` katalogu są oznaczone jako zasobu osadzonego.
+> Biblioteki klas razor statycznych zasobów nie są obsługiwane w programie ASP.NET Core w wersji zapoznawczej 4. Biblioteki składników za pomocą `blazorlib` szablonu może zawierać pliki statyczne, takie jak obrazy, JavaScript i arkusze stylów. W czasie kompilacji, pliki statyczne są osadzone w pliku zestawu wbudowanego (*.dll*), co umożliwia użycie składniki bez konieczności martwienia się o tym, jak do uwzględnienia ich zasobów. Wszystkie pliki zawarte w `content` katalogu są oznaczone jako zasobu osadzonego.
 
 ## <a name="consume-a-library-component"></a>Używanie składnik biblioteki
 
-Aby można było korzystających ze składników zdefiniowane w bibliotece w innym projekcie [ @addTagHelper ](xref:mvc/views/tag-helpers/intro#add-helper-label) dyrektywa musi być używana. Poszczególne składniki mogą być dodawane według nazwy.
+Aby można było używać składników zdefiniowane w bibliotece w innym projekcie, użyj jednej z następujących metod:
 
-Ogólny format dyrektywy jest:
+* Pełna nazwa typu z przestrzenią nazw.
+* Firmy razor [ \@przy użyciu](xref:mvc/views/razor#using) dyrektywy. Poszczególne składniki mogą być dodawane według nazwy.
+
+W poniższych przykładach `MyComponentLibrary` to biblioteka składnika zawierająca raport sprzedaży (`SalesReport`) składnika.
+
+Składnik raport sprzedaży mogą być przywoływane z przestrzenią nazw przy użyciu jego pełna nazwa typu:
 
 ```cshtml
-@addTagHelper MyComponentLib1.Component1, MyComponentLib1
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<MyComponentLibrary.SalesReport />
+```
+
+Składnik również mogą być przywoływane, jeśli biblioteka zostanie przełączony w tryb do zakresu za pomocą `@using` dyrektywy:
+
+```cshtml
+@using MyComponentLibrary
 
 <h1>Hello, world!</h1>
 
 Welcome to your new app.
 
-<Component1 />
+<SalesReport />
 ```
 
-Na przykład następująca dyrektywa dodaje `Component1` z `MyComponentLib1`:
-
-```cshtml
-@addTagHelper MyComponentLib1.Component1, MyComponentLib1
-```
-
-Jednak jest często obejmują wszystkie elementy z zestawu przy użyciu symboli wieloznacznych (`*`):
-
-```cshtml
-@addTagHelper *, MyComponentLib1
-```
-
-`@addTagHelper` Mogą być dołączane dyrektywą *_ViewImport.cshtml* dokonać składników dostępne dla całego projektu lub zastosowane pojedynczej strony lub zbiór stron w folderze. Za pomocą `@addTagHelper` dyrektywy w miejscu, składniki biblioteki składników mogą być używane tak, jakby znajdowały się w tym samym zestawie co aplikacja.
+`@using` Mogą być dołączane dyrektywą *_Import.razor* dokonać składników dostępne dla całego projektu lub zastosowane pojedynczej strony lub zbiór stron w folderze.
 
 ## <a name="build-pack-and-ship-to-nuget"></a>Kompilacji, pakiet i dostarczanie na potrzeby narzędzia NuGet
 

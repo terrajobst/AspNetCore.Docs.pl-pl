@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 04/06/2019
 monikerRange: '>= aspnetcore-2.1'
 uid: mvc/models/validation
-ms.openlocfilehash: 1ae3c20478b02d6f654e65fdf34c88e1ffb837f8
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
+ms.openlocfilehash: bd6585c9eec4412fe70c17b5ca94269027803733
+ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59468740"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59982775"
 ---
 # <a name="model-validation-in-aspnet-core-mvc-and-razor-pages"></a>Weryfikacja modelu w programie ASP.NET Core MVC i stron Razor
 
@@ -367,7 +367,11 @@ Poniższy kod wyłącza sprawdzanie poprawności klienta w MVC widoki:
 
 [!code-csharp[](validation/sample_snapshot/Startup2.cs?name=snippet_DisableClientValidation)]
 
-Ta działa tylko w przypadku widoków MVC, a nie w stron Razor. Inną opcją wyłączenia sprawdzanie poprawności klienta jest komentarz odwołanie do `_ValidationScriptsPartial` w swojej *.cshtml* pliku.
+W przypadku stron Razor:
+
+[!code-csharp[](validation/sample_snapshot/Startup3.cs?name=snippet_DisableClientValidation)]
+
+Inną opcją wyłączenia sprawdzanie poprawności klienta jest komentarz odwołanie do `_ValidationScriptsPartial` w swojej *.cshtml* pliku.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

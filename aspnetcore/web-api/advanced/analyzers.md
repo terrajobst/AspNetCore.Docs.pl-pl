@@ -7,12 +7,12 @@ ms.author: pranavkm
 ms.custom: mvc
 ms.date: 12/14/2018
 uid: web-api/advanced/analyzers
-ms.openlocfilehash: 7558552586d3056c43d8bfd9ef74cbcb3396726f
-ms.sourcegitcommit: 6548c19f345850ee22b50f7ef9fca732895d9e08
+ms.openlocfilehash: 5bfda6f19e4739c52a4b7c9d6e751634a4af438a
+ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53425097"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59982923"
 ---
 # <a name="use-web-api-analyzers"></a>Używane analizatory interfejsu API sieci web
 
@@ -36,14 +36,14 @@ ASP.NET Core 2,2 i nowszych obejmują [Microsoft.AspNetCore.Mvc.Api.Analyzers](h
 * Z **Zarządzaj pakietami NuGet** okno dialogowe:
   * Kliknij prawym przyciskiem myszy projekt w **Eksploratora rozwiązań** > **Zarządzaj pakietami NuGet**.
   * Ustaw **źródła pakietu** na stronie "nuget.org".
-  * Wprowadź "Microsoft.AspNetCore.Mvc.Api.Analyzers" w polu wyszukiwania.
+  * Enter "Microsoft.AspNetCore.Mvc.Api.Analyzers" in the search box.
   * Wybierz pakiet "Microsoft.AspNetCore.Mvc.Api.Analyzers" z **Przeglądaj** kartę, a następnie kliknij przycisk **zainstalować**.
 
 ### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 * Kliknij prawym przyciskiem myszy *pakietów* folderu w **konsoli rozwiązania** > **Dodawanie pakietów...** .
 * Ustaw **Dodawanie pakietów** okna **źródła** menu rozwijane "nuget.org".
-* Wprowadź "Microsoft.AspNetCore.Mvc.Api.Analyzers" w polu wyszukiwania.
+* Enter "Microsoft.AspNetCore.Mvc.Api.Analyzers" in the search box.
 * Wybierz pakiet "Microsoft.AspNetCore.Mvc.Api.Analyzers" w okienku wyników, a następnie kliknij przycisk **Dodaj pakiet**.
 
 ### <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
@@ -73,6 +73,8 @@ Jedną z analizatory w pakiecie sprawdza kontrolerów, oznaczony za pomocą <xre
 [!code-csharp[](conventions/sample/Controllers/ContactsController.cs?name=missing404docs&highlight=9)]
 
 Poprzednią akcję dokumenty HTTP 200 Powodzenie zwracany typ, ale nie dokumentu kod stanu błędu HTTP 404. Analizator raporty dokumentacji brakuje kod stanu HTTP 404 jako ostrzeżenie. Podano opcję, aby rozwiązać ten problem.
+
+![Analizator raportowania ostrzeżenie](conventions/_static/Analyzer.gif)
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

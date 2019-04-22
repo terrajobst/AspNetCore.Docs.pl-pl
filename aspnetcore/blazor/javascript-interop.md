@@ -5,14 +5,14 @@ description: Dowiedz się, jak wywoływać funkcje języka JavaScript z .NET i .
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/15/2019
+ms.date: 04/19/2019
 uid: blazor/javascript-interop
-ms.openlocfilehash: a211504389cbde18e5c146c8e607ca68fa48573a
-ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
+ms.openlocfilehash: bed1e3d33de5e8fb2d246b066803cdc95d6731ef
+ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59614880"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59982667"
 ---
 # <a name="blazor-javascript-interop"></a>Blazor JavaScript interop
 
@@ -30,6 +30,7 @@ W przypadku aplikacji po stronie serwera:
 
 * Wiele żądań użytkownika są przetwarzane przez aplikację po stronie serwera. Nie wywołuj `JSRuntime.Current` w składniku do wywoływania funkcji języka JavaScript.
 * Wstrzykiwanie `IJSRuntime` pozyskiwania i użycia wprowadzonego obiektu do wystawiania wywołań międzyoperacyjnych w języku JavaScript.
+* Gdy aplikacja Blazor jest prerendering, wywołanie JavaScript nie jest możliwe, ponieważ nie został utworzony połączenia za pośrednictwem przeglądarki. Aby uzyskać więcej informacji, zobacz [Wykryj, kiedy aplikacja Blazor jest prerendering](#detect-when-a-blazor-app-is-prerendering) sekcji.
 
 Poniższy przykład jest oparty na [TextDecoder](https://developer.mozilla.org/docs/Web/API/TextDecoder), eksperymentalne dekodera oparte na języku JavaScript. W przykładzie pokazano, jak wywołać funkcję JavaScript z C# metody. Funkcja języka JavaScript akceptuje tablicy bajtów z C# metody dekoduje tablicy i zwraca tekst do składnika do wyświetlenia.
 
@@ -104,7 +105,7 @@ Następujących składników:
 
 Aby użyć `IJSRuntime` abstrakcji, przyjmuje żadnego z następujących metod:
 
-* Wstrzykiwanie `IJSRuntime` abstrakcji w pliku Razor (*.razor*, *.cshtml*):
+* Wstrzykiwanie `IJSRuntime` abstrakcji w pliku Razor (*.razor*):
 
   ```cshtml
   @inject IJSRuntime JSRuntime
@@ -178,13 +179,17 @@ Przykładowa aplikacja zawiera składnik do zademonstrowania międzyoperacyjnego
 * Zwraca tekst do składnika do przetworzenia.
 * Wywołania drugiej funkcji języka JavaScript, która współdziała z modelu DOM w celu wyświetlania komunikatu powitalnego.
 
-*Pages/JSInterop.cshtml*:
+*Pages/JSInterop.razor*:
 
-[!code-cshtml[](./common/samples/3.x/BlazorSample/Pages/JsInterop.cshtml?name=snippet_JSInterop1&highlight=3,19-21,23-25)]
+[!code-cshtml[](./common/samples/3.x/BlazorSample/Pages/JsInterop.razor?name=snippet_JSInterop1&highlight=3,19-21,23-25)]
 
 1. Gdy `TriggerJsPrompt` jest wykonywana przez wybranie elementu **wyzwalacza JavaScript monitu** przycisk JavaScript `showPrompt` funkcja udostępniana w *wwwroot/exampleJsInterop.js* plik jest wywoływana.
 1. `showPrompt` Funkcja akceptuje dane wejściowe użytkownika (nazwa użytkownika), który jest kodowany w formacie HTML i zwrócone do składnika. Składnik nazwy użytkownika są przechowywane w zmiennej lokalnej `name`.
 1. Ten ciąg jest przechowywany w `name` jest włączona do komunikat powitalny, który jest przekazywany do funkcji języka JavaScript, `displayWelcome`, który renderuje wiadomość powitalna w tagu nagłówka.
+
+## <a name="detect-when-a-blazor-app-is-prerendering"></a>Wykryj, kiedy aplikacja Blazor jest prerendering
+ 
+[!INCLUDE[](~/includes/blazor-prerendering.md)]
 
 ## <a name="capture-references-to-elements"></a>Przechwytywanie odwołania do elementów
 
@@ -221,7 +226,7 @@ window.exampleJsFunctions = {
 
 Użyj `IJSRuntime.InvokeAsync<T>` i wywołać `exampleJsFunctions.focusElement` z `ElementRef` się elementu:
 
-[!code-cshtml[](javascript-interop/samples_snapshot/component1.cshtml?highlight=1,3,7,11-12)]
+[!code-cshtml[](javascript-interop/samples_snapshot/component1.razor?highlight=1,3,7,11-12)]
 
 Można użyć metody rozszerzenia do skoncentrowania się element, należy utworzyć metody statyczne rozszerzenie, który odbiera `IJSRuntime` wystąpienie:
 
@@ -235,7 +240,7 @@ public static Task Focus(this ElementRef elementRef, IJSRuntime jsRuntime)
 
 Metoda jest wywoływana bezpośrednio na obiekcie. W poniższym przykładzie założono, że statyczne `Focus` metoda jest dostępna z `JsInteropClasses` przestrzeni nazw:
 
-[!code-cshtml[](javascript-interop/samples_snapshot/component2.cshtml?highlight=1,4,8,12)]
+[!code-cshtml[](javascript-interop/samples_snapshot/component2.razor?highlight=1,4,8,12)]
 
 > [!IMPORTANT]
 > `username` Zmiennej tylko jest wypełniana po renderuje składnika i jego dane wyjściowe obejmują `>` elementu. Jeśli zostanie podjęta próba przekazania unpopulated `ElementRef` do kodu JavaScript, otrzyma kod JavaScript `null`. Do manipulowania odwołania do elementu, po zakończeniu renderowania (w celu ustawienie początkowy fokus w elemencie) Użyj składnika `OnAfterRenderAsync` lub `OnAfterRender` [metody cyklu życia składników](xref:blazor/components#lifecycle-methods).
@@ -248,9 +253,9 @@ Aby wywołać metodę statyczną .NET poziomu języka JavaScript, należy użyć
 
 Przykładowa aplikacja zawiera C# metodę, aby zwrócić tablicę `int`s. Metoda zostanie nadany `JSInvokable` atrybutu.
 
-*Pages/JsInterop.cshtml*:
+*Pages/JsInterop.razor*:
 
-[!code-cshtml[](./common/samples/3.x/BlazorSample/Pages/JsInterop.cshtml?name=snippet_JSInterop2&highlight=7-11)]
+[!code-cshtml[](./common/samples/3.x/BlazorSample/Pages/JsInterop.razor?name=snippet_JSInterop2&highlight=7-11)]
 
 JavaScript obsłużonych klient wywołuje C# metoda .NET.
 
@@ -277,9 +282,9 @@ Można również wywołać metody wystąpienia .NET poziomu języka JavaScript. 
 
 Gdy **metodę wystąpienia .NET wyzwalacza HelloHelper.SayHello** przycisk jest zaznaczony, `ExampleJsInterop.CallHelloHelperSayHello` nosi nazwę i przekazuje nazwę `Blazor`, do metody.
 
-*Pages/JsInterop.cshtml*:
+*Pages/JsInterop.razor*:
 
-[!code-cshtml[](./common/samples/3.x/BlazorSample/Pages/JsInterop.cshtml?name=snippet_JSInterop3&highlight=8-9)]
+[!code-cshtml[](./common/samples/3.x/BlazorSample/Pages/JsInterop.razor?name=snippet_JSInterop3&highlight=8-9)]
 
 `CallHelloHelperSayHello` wywołuje funkcję JavaScript `sayHello` o nowe wystąpienie klasy `HelloHelper`.
 
@@ -303,11 +308,11 @@ Konsola danych wyjściowych w narzędzia dla deweloperów sieci web w przegląda
 Hello, Blazor!
 ```
 
-## <a name="share-interop-code-in-a-razor-component-class-library"></a>Kód Interop SE udziału w bibliotece klas składników Razor
+## <a name="share-interop-code-in-a-blazor-class-library"></a>Kód Interop SE udziału w bibliotece klas Blazor
 
-Biblioteki klas Razor składnika mogą być dołączane międzyoperacyjnego kodu JavaScript (`dotnet new razorclasslib`), co pozwala na udostępnianie kodu w pakiecie NuGet.
+Kód Interop SE JavaScript może obejmować w bibliotece klas Blazor (`dotnet new blazorlib`), co pozwala na udostępnianie kodu w pakiecie NuGet.
 
-Biblioteki klas Razor składnik obsługuje osadzanie zasobów JavaScript skompilowany zestaw. Pliki JavaScript są umieszczane w *wwwroot* folderu. Osadzanie zasobów podczas kompilowania biblioteki zajmuje się narzędzi.
+Biblioteka klas Blazor obsługuje osadzanie zasobów JavaScript skompilowany zestaw. Pliki JavaScript są umieszczane w *wwwroot* folderu. Osadzanie zasobów podczas kompilowania biblioteki zajmuje się narzędzi.
 
 Skompilowany pakiet NuGet odwołuje się do pliku projektu aplikacji, tak samo, jak odwołuje się do dowolnego normalnego pakietu NuGet. Po przywróceniu aplikacji kod aplikacji może wywołać na język JavaScript, tak jakby C#.
 

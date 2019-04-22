@@ -4,15 +4,15 @@ description: W tym samouczku należy dodać większą liczbę jednostek i relacj
 author: rick-anderson
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 02/05/2019
+ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: 5ab893dd77ff2cc9a735702eb3a547ed8bcb2197
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: 2f1acb8d0d665b0ae809e596891b2487fd17e63e
+ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264861"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59983045"
 ---
 # <a name="tutorial-create-a-complex-data-model---aspnet-mvc-with-ef-core"></a>Samouczek: Tworzenie złożonego modelu danych — ASP.NET MVC z programem EF Core
 
@@ -40,7 +40,7 @@ W ramach tego samouczka możesz:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Korzystanie z funkcji migracje EF Core dla platformy ASP.NET Core w aplikacji internetowej MVC](migrations.md)
+* [Za pomocą migracje EF Core](migrations.md)
 
 ## <a name="customize-the-data-model"></a>Dostosuj model danych
 
@@ -320,7 +320,7 @@ public ICollection<Course> Courses { get; set; }
 ```
 
 > [!NOTE]
-> Zgodnie z Konwencją platformy Entity Framework umożliwia usuwanie kaskadowe nieprzyjmujące wartości kluczy obcych i w przypadku relacji wiele do wielu. Może to spowodować cykliczne cascade delete reguł, które spowoduje wyjątek podczas próby dodania do migracji. Na przykład jeśli właściwość Department.InstructorID nie zostały zdefiniowane jako dopuszczającego wartość null, EF konfigurowania cascade, Usuń regułę można usunąć instruktora, gdy usuniesz działu, która nie ma być możliwe. W razie potrzeby własne reguły biznesowe `InstructorID` właściwość jako wartość null, trzeba wyłączyć przy użyciu następującej instrukcji interfejsu API fluent usuwanie kaskadowe relacji:
+> Zgodnie z Konwencją platformy Entity Framework umożliwia usuwanie kaskadowe nieprzyjmujące wartości kluczy obcych i w przypadku relacji wiele do wielu. Może to spowodować cykliczne cascade delete reguł, które spowoduje wyjątek podczas próby dodania do migracji. Na przykład jeśli właściwość Department.InstructorID nie zostały zdefiniowane jako dopuszczającego wartość null, EF konfigurowania cascade, Usuń regułę do usunięcia z działu, po usunięciu przez instruktorów, która nie ma być możliwe. W razie potrzeby własne reguły biznesowe `InstructorID` właściwość jako wartość null, trzeba wyłączyć przy użyciu następującej instrukcji interfejsu API fluent usuwanie kaskadowe relacji:
 >
 > ```csharp
 > modelBuilder.Entity<Department>()
@@ -529,6 +529,7 @@ W ramach tego samouczka możesz:
 > * Zmienić parametry połączenia
 > * Aktualizacji bazy danych
 
-Przejdź do następnego artykułu, aby dowiedzieć się więcej o tym, jak uzyskać dostęp do powiązanych danych.
+Przejdź do następnego samouczka, aby dowiedzieć się więcej o tym, jak uzyskać dostęp do powiązanych danych.
+
 > [!div class="nextstepaction"]
-> [Dostęp do powiązanych danych](read-related-data.md)
+> [Dalej: Dostęp do powiązanych danych](read-related-data.md)

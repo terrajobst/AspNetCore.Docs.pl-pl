@@ -5,44 +5,32 @@ description: Tworzenie aplikacji Blazor krok po kroku.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/15/2019
+ms.date: 04/18/2019
 uid: tutorials/first-blazor-app
-ms.openlocfilehash: 310eb211f68076d6f52d6427940e07736d833e5b
-ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
+ms.openlocfilehash: c52efcb1224e2bbea56fa55c70faf253ef96d433
+ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59614877"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59982762"
 ---
 # <a name="build-your-first-blazor-app"></a>Utwórz swoją pierwszą aplikację Blazor
 
 Przez [Daniel Roth](https://github.com/danroth27) i [Luke Latham](https://github.com/guardrex)
 
-[!INCLUDE[](~/includes/razor-components-preview-notice.md)]
+W tym samouczku dowiesz się, jak tworzyć i modyfikować aplikację Blazor.
 
-W tym samouczku przedstawiono sposób tworzenia aplikacji za pomocą składników Razor po stronie serwera lub Blazor po stronie klienta.
-
-Środowisko przy użyciu platformy ASP.NET Core Razor składniki serwera (*zalecane*):
-
-* Postępuj zgodnie z *Razor składników środowiska* ze wskazówkami zawartymi w <xref:blazor/get-started#server-side-razor-components-experience> do tworzenia projektu na podstawie składników Razor.
-* Nadaj projektowi nazwę `RazorComponents`.
-
-Aby uzyskać doświadczenie w korzystaniu z Blazor:
-
-* Postępuj zgodnie z *środowisko Blazor* ze wskazówkami zawartymi w <xref:blazor/get-started#client-side-blazor-experience> do tworzenia projektu na podstawie Blazor.
-* Nadaj projektowi nazwę `Blazor`.
-
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/build-your-first-blazor-app/samples/) ([sposobu pobierania](xref:index#how-to-download-a-sample)). Zobacz następujące tematy dotyczące wymagań wstępnych:
+Postępuj zgodnie ze wskazówkami w <xref:blazor/get-started> artykuł, aby utworzyć projekt Blazor na potrzeby tego samouczka.
 
 ## <a name="build-components"></a>Tworzenie składników
 
-1. Przejdź do każdego z trzech stron aplikacji w *składniki/strony* folder (*stron* w Blazor): Strona główna licznik i pobierania danych. Te strony są implementowane przez pliki Razor składników: *Index.razor*, *Counter.razor*, i *FetchData.razor*. (Blazor w dalszym ciągu używa *.cshtml* rozszerzenie pliku: *Index.cshtml*, *Counter.cshtml*, i *FetchData.cshtml*.)
+1. Przejdź do każdego z trzech stron aplikacji w *stron* folderu: Strona główna licznik i pobierania danych. Te strony są implementowane przez pliki Razor składników: *Index.razor*, *Counter.razor*, i *FetchData.razor*.
 
 1. Na stronie licznika wybierz **kliknij mnie** przycisk, aby zwiększyć licznik bez odświeżania strony. Zwiększenie licznika, na stronie sieci Web zwykle wtedy konieczne napisanie kodu JavaScript, ale Blazor zapewnia lepsze przy użyciu podejścia C#.
 
 1. Zapoznania się z implementacją składnikiem licznika w *Counter.razor* pliku.
 
-   *Components/Pages/Counter.razor* (*Pages/Counter.cshtml* w Blazor):
+   *Pages/Counter.razor*:
 
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/Counter1.razor)]
 
@@ -71,9 +59,9 @@ Uwzględnij składnika w innym składniku przy użyciu składni notacji HTML.
 
    Jeśli używasz Blazor dla tego środowiska, składnik ankiety monitu (`<SurveyPrompt>` elementu) znajduje się w składnik indeksu. Zastąp `<SurveyPrompt>` element z `<Counter>` elementu.
 
-   *Components/Pages/Index.razor* (*Pages/Index.cshtml* w Blazor):
+   *Pages/Index.razor*:
 
-   [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/Index.razor?highlight=7)]
+   [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/Index1.razor?highlight=7)]
 
 1. Ponownie skompiluj i uruchom aplikację. Strona główna ma swój własny licznika.
 
@@ -86,9 +74,9 @@ Składniki mogą także mieć parametrów. Składnik parametry są definiowane z
    * Dodaj `IncrementAmount` ozdobione właściwość `[Parameter]` atrybutu.
    * Zmiana `IncrementCount` metodę `IncrementAmount` podczas zwiększenie wartości `currentCount`.
 
-   *Components/Pages/Counter.razor* (*Pages/Counter.cshtml* w Blazor):
+   *Pages/Counter.razor*:
 
-   [!code-cshtml[](build-your-first-blazor-app/samples/3.x/RazorComponents/Components/Pages/Counter.razor?highlight=12,16)]
+   [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/Counter.razor?highlight=12,16)]
 
 <!-- Add back when supported.
    > [!NOTE]
@@ -97,9 +85,9 @@ Składniki mogą także mieć parametrów. Składnik parametry są definiowane z
 
 1. Określ `IncrementAmount` parametru w części głównej `<Counter>` elementu za pomocą atrybutu. Ustaw wartość do zwiększenia licznika dziesięciu.
 
-   *Components/Pages/Index.razor* (*Pages/Index.cshtml* w Blazor):
+   *Pages/Index.razor*:
 
-   [!code-cshtml[](build-your-first-blazor-app/samples/3.x/RazorComponents/Components/Pages/Index.razor?highlight=7)]
+   [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/Index2.razor?highlight=7)]
 
 1. Załaduj ponownie stronę główną. Licznik rośnie przez dziesięć za każdym razem **kliknij mnie** przycisk jest zaznaczony. Licznik w przyrostach strony liczników za pomocą jednej.
 
@@ -111,11 +99,11 @@ Składniki mogą także mieć parametrów. Składnik parametry są definiowane z
 
 Zarejestrowane w kontenerze usługi app Services są dostępne dla składników za pomocą [wstrzykiwanie zależności (DI)](xref:fundamentals/dependency-injection). Wstrzyknięcie usług do składnika za pomocą `@inject` dyrektywy.
 
-Sprawdź dyrektywy składnika FetchData w przykładowej aplikacji.
+Sprawdź dyrektywy składnika FetchData.
 
-Przykładowa aplikacja składniki Razor `WeatherForecastService` usługi jest zarejestrowana jako [pojedyncze](xref:fundamentals/dependency-injection#service-lifetimes), więc jedno wystąpienie usługi jest dostępne w całej aplikacji. `@inject` Dyrektywy służy do dodania wystąpienia programu `WeatherForecastService` usługi do składnika.
+Jeśli praca z aplikacją po stronie serwera Blazor `WeatherForecastService` usługi jest zarejestrowana jako [pojedyncze](xref:fundamentals/dependency-injection#service-lifetimes), więc jedno wystąpienie usługi jest dostępne w całej aplikacji. `@inject` Dyrektywy służy do dodania wystąpienia programu `WeatherForecastService` usługi do składnika.
 
-*Components/Pages/FetchData.razor*:
+*Pages/FetchData.razor*:
 
 [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData1.razor?highlight=3)]
 
@@ -123,24 +111,22 @@ Składnik FetchData używa usługi wprowadzonego jako `ForecastService`, aby pob
 
 [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData2.razor?highlight=6)]
 
-W przykładowej aplikacji w wersji Blazor `HttpClient` są wstrzykiwane można uzyskać prognozę pogody dane z *weather.json* w pliku *wwwroot/przykładowe data* folderu:
+Pracy z aplikacją po stronie klienta Blazor `HttpClient` są wstrzykiwane mają zostać pobrane dane prognozy pogody *weather.json* w pliku *wwwroot/przykładowe data* folderu:
 
-*Pages/FetchData.cshtml*:
+*Pages/FetchData.razor*:
 
-[!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData1.cshtml?highlight=7)]
+[!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData1_client.razor?highlight=7)]
 
-W obu przykładowe aplikacje [ @foreach ](/dotnet/csharp/language-reference/keywords/foreach-in) pętli jest używany do renderowania każde wystąpienie prognozy jako wiersz w tabeli danych o pogodzie:
+A [ \@foreach](/dotnet/csharp/language-reference/keywords/foreach-in) pętli jest używany do renderowania każde wystąpienie prognozy jako wiersz w tabeli danych o pogodzie:
 
 [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData3.razor?highlight=11-19)]
+
 
 ## <a name="build-a-todo-list"></a>Tworzenie listy zadań do wykonania
 
 Dodawanie nowego składnika do aplikacji, która implementuje listy zadań do wykonania prostego.
 
-1. Dodaj pusty plik do przykładowej aplikacji:
-
-   * Dla składników Razor środowiska, Dodaj *Todo.razor* plik *składniki/strony* folderu.
-   * Środowisko pracy Blazor, Dodaj *Todo.cshtml* plik *stron* folderu.
+1. Dodaj pusty plik o nazwie *Todo.razor* do aplikacji w *stron* folderu:
 
 1. Podaj początkowe znaczniki dla składnika:
 
@@ -152,9 +138,9 @@ Dodawanie nowego składnika do aplikacji, która implementuje listy zadań do wy
 
 1. Dodaj składnik zadań do wykonania na pasku nawigacyjnym.
 
-   Składnik NavMenu (*Components/Shared/NavMenu.razor* lub *Shared/NavMenu.cshtml* w Blazor) jest używana w układzie aplikacji. Układy są składniki, które pozwalają uniknąć duplikowania zawartości w aplikacji. Aby uzyskać więcej informacji, zobacz <xref:blazor/layouts>.
+   Składnik NavMenu (*Pages/Shared/NavMenu.razor*) jest używana w układzie aplikacji. Układy są składniki, które pozwalają uniknąć duplikowania zawartości w aplikacji. Aby uzyskać więcej informacji, zobacz <xref:blazor/layouts>.
 
-   Dodaj `<NavLink>` składnika Todo, dodając następujące znaczniki elementu listy poniżej istniejące elementy listy w *Components/Shared/NavMenu.razor* (*Shared/NavMenu.cshtml* w Blazor) pliku:
+   Dodaj `<NavLink>` składnika Todo, dodając następujące znaczniki elementu listy poniżej istniejące elementy listy w *Pages/Shared/NavMenu.razor* pliku:
 
    ```cshtml
    <li class="nav-item px-3">
@@ -168,9 +154,9 @@ Dodawanie nowego składnika do aplikacji, która implementuje listy zadań do wy
 
 1. Dodaj *TodoItem.cs* pliku w folderze głównym projektu na potrzeby przechowywania klasa, która reprezentuje element todo. Należy użyć następującego C# kod `TodoItem` klasy:
 
-   [!code-cshtml[](build-your-first-blazor-app/samples/3.x/RazorComponents/TodoItem.cs)]
+   [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/TodoItem.cs)]
 
-1. Wróć do części Todo (*Components/Pages/Todo.razor* lub *Pages/Todo.cshtml* w Blazor):
+1. Wróć do części Todo (*Pages/Todo.razor*):
 
    * Dodaj pole do zadań do wykonania w `@functions` bloku. Składnik Todo to pole jest używane do zarządzania stanem listy rzeczy do zrobienia.
    * Dodaj listę nieuporządkowaną znaczników i `foreach` pętli do renderowania każdego elementu todo, jako element listy.
@@ -213,9 +199,9 @@ Dodawanie nowego składnika do aplikacji, która implementuje listy zadań do wy
    <h1>Todo (@todos.Count(todo => !todo.IsDone))</h1>
    ```
 
-1. Ukończone składnika Todo (*Components/Pages/Todo.razor* lub *Pages/Todo.cshtml* w Blazor):
+1. Ukończone składnika Todo (*Pages/Todo.razor*):
 
-   [!code-cshtml[](build-your-first-blazor-app/samples/3.x/RazorComponents/Components/Pages/Todo.razor)]
+   [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/Todo.razor)]
 
 1. Ponownie skompiluj i uruchom aplikację. Dodaj do testowania nowego kodu do wykonania.
 

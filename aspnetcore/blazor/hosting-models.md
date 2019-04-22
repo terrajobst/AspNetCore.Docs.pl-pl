@@ -1,31 +1,26 @@
 ---
 title: Blazor modelach hostingu
 author: guardrex
-description: Dowiedz się, Blazor po stronie klienta i po stronie serwera ASP.NET Razor składniki podstawowe modele obsługi.
+description: Dowiedz się, Blazor po stronie klienta i po stronie serwera, hostowania modeli.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/15/2019
+ms.date: 04/19/2019
 uid: blazor/hosting-models
-ms.openlocfilehash: 0e7598c9f27201a989d1088764e09461a37beae4
-ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
+ms.openlocfilehash: 7de93e8721b06e545b3125d78d5e9e0e34c04511
+ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59614847"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59982989"
 ---
 # <a name="blazor-hosting-models"></a>Blazor modelach hostingu
 
 Przez [Daniel Roth](https://github.com/danroth27)
 
-Blazor to struktura sieci web przeznaczony do działania po stronie klienta w przeglądarce na [format WebAssembly](http://webassembly.org/)— na podstawie środowiska uruchomieniowego .NET (*Blazor*) lub po stronie serwera w programie ASP.NET Core (*składniki aplikacji ASP.NET Core Razor*). Niezależnie od tego modelu, aplikacji i składników modelach hostingu *pozostają takie same*. W tym artykule omówiono dostępne modele hostingu:
+Blazor to struktura sieci web przeznaczony do działania po stronie klienta w przeglądarce na [format WebAssembly](http://webassembly.org/)— na podstawie środowiska uruchomieniowego .NET (*Blazor po stronie klienta*) lub po stronie serwera w programie ASP.NET Core (*Blazor po stronie serwera* ). Niezależnie od tego modelu, aplikacji i składników modelach hostingu *pozostają takie same*.
 
-* [Blazor po stronie klienta](#client-side-hosting-model)
-* [Po stronie serwera platformy ASP.NET Core Razor składników](#server-side-hosting-model)
-
-## <a name="client-side-hosting-model"></a>Model hostingu po stronie klienta
-
-[!INCLUDE[](~/includes/razor-components-preview-notice.md)]
+## <a name="client-side"></a>Po stronie klienta
 
 Jednostki modelu hostowania Blazor jest uruchomiona po stronie klienta w przeglądarce na format WebAssembly. Aplikacja Blazor, jego zależności i środowisko uruchomieniowe platformy .NET są pobierane do przeglądarki. Aplikacja jest wykonywane bezpośrednio w przeglądarce wątku interfejsu użytkownika. Aktualizacje interfejsu użytkownika i obsługa zdarzeń odbywa się w obrębie tego samego procesu. Zasoby aplikacji są wdrażane jako pliki statyczne z serwera sieci web lub usługą umożliwia obsługę zawartości statycznej dla klientów.
 
@@ -36,7 +31,7 @@ Aby utworzyć aplikację Blazor przy użyciu modelu hostingu w sieci po stronie 
 * **Blazor** ([blazor nowe dotnet](/dotnet/core/tools/dotnet-new)) &ndash; wdrożony jako zbiór plików statycznych.
 * **Blazor (ASP.NET Core hostowane)** ([blazorhosted nowe dotnet](/dotnet/core/tools/dotnet-new)) &ndash; obsługiwanej przez serwer programu ASP.NET Core. Aplikacja platformy ASP.NET Core udostępnia aplikacji Blazor klientom. Aplikacja Blazor po stronie klienta mogą wchodzić w interakcje z serwerem za pośrednictwem sieci przy użyciu wywołań interfejsu API sieci web lub [SignalR](xref:signalr/introduction).
 
-Szablony zawierają *components.webassembly.js* skrypt, który obsługuje:
+Szablony zawierają *blazor.webassembly.js* skrypt, który obsługuje:
 
 * Pobieranie, środowisko uruchomieniowe platformy .NET, aplikacji i zależności aplikacji.
 * Inicjalizacja środowiska uruchomieniowego, aby uruchomić aplikację.
@@ -55,34 +50,176 @@ Brak wad hostingu po stronie klienta. Blazor po stronie klienta:
 * Ma większy rozmiar pobierania i aplikacji dłuższy czas ładowania.
 * Ma mniejszą dla dorosłych, środowisko uruchomieniowe platformy .NET oraz narzędzia do obsługi (na przykład ograniczenia w [.NET Standard](/dotnet/standard/net-standard) pomocy technicznej i debugowania).
 
-## <a name="server-side-hosting-model"></a>Model hostingu po stronie serwera
+## <a name="server-side"></a>Po stronie serwera
 
 Za pomocą modelu hostingu po stronie serwera aplikacji jest wykonywana na serwerze z poziomu aplikacji ASP.NET Core. Aktualizacje interfejsu użytkownika, obsługa zdarzeń i wywołania języka JavaScript są obsługiwane za pośrednictwem [SignalR](xref:signalr/introduction) połączenia.
 
 ![Przeglądarka wchodzi w interakcję z aplikacją (obsługiwana wewnątrz aplikacji ASP.NET Core) na serwerze za pośrednictwem połączenia SignalR.](hosting-models/_static/server-side.png)
 
-Aby utworzyć aplikację Blazor przy użyciu modelu hostingu w sieci po stronie serwera, należy użyć platformy ASP.NET Core **składniki Razor** szablonu ([razorcomponents nowe dotnet](/dotnet/core/tools/dotnet-new)). Aplikacja platformy ASP.NET Core hostuje składniki Razor aplikacji po stronie serwera i ustawia punkt końcowy SignalR, gdy klienci łączą. Aplikacja platformy ASP.NET Core odwołuje się do aplikacji `Startup` klasy do dodania:
+Aby utworzyć aplikację Blazor przy użyciu modelu hostingu w sieci po stronie serwera, należy użyć platformy ASP.NET Core **Blazor (po stronie serwera)** szablonu ([blazorserverside nowe dotnet](/dotnet/core/tools/dotnet-new)). Aplikacja platformy ASP.NET Core obsługuje aplikacji po stronie serwera i ustawia punkt końcowy SignalR, gdy klienci łączą.
 
-* Usługi aparatu Razor składniki po stronie serwera.
+Aplikacja platformy ASP.NET Core odwołuje się do aplikacji `Startup` klasy do dodania:
+
+* Usługi po stronie serwera.
 * Aplikacja do żądania obsługi potoku.
 
 [!code-csharp[](hosting-models/samples_snapshot/Startup.cs?highlight=5,27)]
 
-*Components.server.js* skryptu&dagger; nawiązuje połączenie z klientem. To aplikacja odpowiada za utrwalanie i przywracanie stanu aplikacji, zgodnie z potrzebami (na przykład w przypadku połączenia sieciowego utracone).
+*Blazor.server.js* skryptu&dagger; nawiązuje połączenie z klientem. To aplikacja odpowiada za utrwalanie i przywracanie stanu aplikacji, zgodnie z potrzebami (na przykład w przypadku połączenia sieciowego utracone).
 
-Model hostingu w sieci po stronie serwera oferuje wiele korzyści. Składniki po stronie serwera Razor:
+Model hostingu w sieci po stronie serwera oferuje wiele korzyści:
 
-* Rozmiar aplikacji znacznie mniejszy niż aplikacja Blazor po stronie klienta i ładowane dużo szybciej.
-* Można wykorzystać możliwości serwera, w tym przy użyciu zgodnych interfejsów API dowolnej platformy .NET Core.
+* Znacznie aplikacja mniejszy rozmiar niż aplikacji po stronie klienta i ładowane dużo szybciej.
+* W pełni korzystać z możliwości serwera, takie jak przy użyciu zgodnych interfejsów API dowolnej platformy .NET Core.
 * Uruchom na platformie .NET Core na serwerze, dzięki czemu .NET istniejących narzędzi, takich jak debugowanie, działa zgodnie z oczekiwaniami.
 * Współpracuje z elastycznej klientów (na przykład przeglądarek, które nie obsługują format WebAssembly i zasobach ograniczonego urządzenia).
 * .NET /C# bazy kodu, w tym kodu składnika aplikacji, nie jest obsługiwane dla klientów.
 
-Brak wad hostingu po stronie serwera. Składniki po stronie serwera Razor:
+Istnieją wad po stronie serwera hostingu:
 
-* Mają wyższe opóźnienie: Każdy interakcja użytkownika obejmuje przeskok sieci.
-* Oferty obsługi w trybie offline: Jeśli połączenie klienta zakończy się niepowodzeniem, aplikacja przestaje działać.
-* Ograniczona skalowalność: Serwer musi zarządzać wieloma połączeń klientów i obsługi stanu klienta.
-* Wymaga platformy ASP.NET Core serwerze do obsługi aplikacji. Wdrożenie bez serwera (na przykład z sieci CDN) nie jest możliwe.
+* Czas oczekiwania: Każdy interakcja użytkownika obejmuje przeskok sieci.
+* Brak obsługi w trybie offline: Jeśli połączenie klienta zakończy się niepowodzeniem, aplikacja przestaje działać.
+* Ograniczoną skalowalność: Serwer musi zarządzać wieloma połączeń klientów i obsługi stanu klienta.
+* Serwer programu ASP.NET Core jest wymagana do obsługi aplikacji. Wdrożenie bez serwera (na przykład z sieci CDN) nie jest możliwe.
 
-&dagger;*Components.server.js* skryptu jest opublikowana w następującej ścieżce: *bin / {debugowanie | Zlecenia} / {struktury docelowej} /publish/ {Nazwa aplikacji}. Aplikacja/dist/_struktura*.
+&dagger;*Blazor.server.js* skryptu jest opublikowana w następującej ścieżce: *bin / {debugowanie | Zlecenia} / {struktury docelowej} /publish/ {Nazwa aplikacji}. Aplikacja/dist/_struktura*.
+
+### <a name="reconnection-to-the-same-server"></a>Ponowne nawiązanie połączenia z tym samym serwerem
+
+Aplikacje serwerowe Blazor wymagają aktywnego połączenia SignalR do serwera. Jeśli połączenie zostanie przerwane, aplikacja próbuje ponownie połączyć się z serwerem. Tak długo, jak stan klienta jest nadal w pamięci, nie tracąc dowolny stan zostanie wznowione sesji klienta.
+ 
+Klient wykryje, że połączenie zostało utracone, domyślny interfejs użytkownika jest wyświetlany użytkownikowi, gdy klient próbuje ponownie połączyć się. W przypadku niepowodzenia ponowne nawiązanie połączenia użytkownika podano opcję, aby spróbować ponownie. Aby dostosować interfejsu użytkownika, należy zdefiniować element z `components-reconnect-modal` jako jego `id`. Klient aktualizuje tego elementu z jedną z następujących klas CSS na podstawie stanu połączenia:
+ 
+* `components-reconnect-show` &ndash; Umożliwia wyświetlenie interfejsu użytkownika, aby wskazać, połączenie zostało utracone, a klient próbuje połączyć.
+* `components-reconnect-hide` &ndash; Klient ma aktywne połączenie, Ukryj interfejsu użytkownika.
+* `components-reconnect-failed` &ndash; Ponowne nawiązanie połączenia nie powiodło się. Próba ponownego połączenia ponownie, należy wywołać `window.Blazor.reconnect()`.
+
+### <a name="stateful-reconnection-after-prerendering"></a>Stanowe ponownego łączenia po prerendering
+ 
+Blazor po stronie serwera aplikacji są konfigurowane domyślnie prerender interfejsu użytkownika na serwerze, zanim zostanie nawiązane połączenie klienta z serwerem. Tę opcję można zdefiniować *_Host.cshtml* strona Razor:
+ 
+```cshtml
+<body>
+    <app>@(await Html.RenderComponentAsync<App>())</app>
+ 
+    <script src="_framework/blazor.server.js"></script>
+</body>
+```
+ 
+Klient ponownie nawiąże połączenie z serwerem za pomocą takiego samego stanu, który został użyty do prerender aplikacji. Jeśli stan aplikacji jest nadal w pamięci, stan składnika nie trzeba rerendered, po nawiązaniu połączenia SignalR.
+
+### <a name="render-stateful-interactive-components-from-razor-pages-and-views"></a>Renderowanie stanowych interaktywnych składników z widoków i stron Razor
+ 
+Stanowe interaktywnych składników można dodać do strony Razor lub widoku. Gdy powoduje wyświetlenie strony lub widoku składnika jest prerendered z nim. Aplikacja następnie ponownie nawiązuje połączenie stan składnika po ustanowieniu połączenia klienta, tak długo, jak stan jest nadal w pamięci.
+ 
+Na przykład następująca strona Razor renderuje składnikiem licznika z liczbą początkowej, który jest określony za pomocą formularza:
+ 
+```cshtml
+<h1>My Razor Page</h1>
+
+<form>
+    <input type="number" asp-for="InitialCount" />
+    <button type="submit">Set initial count</button>
+</form>
+ 
+@(await Html.RenderComponentAsync<Counter>(new { InitialCount = InitialCount }))
+ 
+@functions {
+    [BindProperty(SupportsGet=true)]
+    public int InitialCount { get; set; }
+}
+```
+
+### <a name="detect-when-the-app-is-prerendering"></a>Wykryj, kiedy aplikacja jest prerendering
+ 
+[!INCLUDE[](~/includes/blazor-prerendering.md)]
+
+### <a name="configure-the-signalr-client-for-blazor-server-side-apps"></a>Konfigurowanie klienta SignalR Blazor po stronie serwera aplikacji
+ 
+Czasami trzeba skonfigurować używane przez aplikacje serwerowe Blazor klienta SignalR. Na przykład można skonfigurować klienta SignalR, aby zdiagnozować problem z połączeniem.
+ 
+Aby skonfigurować klienta SignalR w *wwwroot/index.htm* pliku:
+
+* Dodaj `autostart="false"` atrybutu `<script>` tagu dla *blazor.server.js* skryptu.
+* Wywołaj `Blazor.start` i przekaż obiekt konfiguracji, który określa konstruktora SignalR:
+ 
+```html
+<script src="_framework/blazor.server.js" autostart="false"></script>
+<script>
+  Blazor.start({
+    configureSignalR: function (builder) {
+      builder.configureLogging(2); // LogLevel.Information
+    }
+  });
+</script>
+```
+
+### <a name="improved-signalr-connection-lifetime-handling"></a>Ulepszona obsługa okres istnienia połączenia w SignalR
+
+Można włączyć automatyczne ponowne podłączenia przez wywołanie metody `withAutomaticReconnect` metody `HubConnectionBuilder`:
+
+```csharp
+const connection = new signalR.HubConnectionBuilder()
+    .withUrl("/chatHub")
+    .withAutomaticReconnect()
+    .build();
+```
+
+Bez określania parametrów, `withAutomaticReconnect` konfiguruje klienta, aby ponowić próbę połączenia, oczekiwanie na 0, 2, 10 i 30 sekund między kolejnymi próbami.
+
+Aby skonfigurować inne niż domyślne liczbę prób ponownego połączenia przed awarią lub zmienić czas ponownego nawiązania połączenia `withAutomaticReconnect` akceptuje tablicy liczb reprezentujący opóźnienie (w milisekundach) oczekiwania przed uruchomieniem każdą próbę ponownego połączenia.
+
+```csharp
+const connection = new signalR.HubConnectionBuilder()
+    .withUrl("/chatHub")
+    .withAutomaticReconnect([0, 0, 2000, 5000]) // defaults to [0, 2000, 10000, 30000]
+    .build();
+```
+
+### <a name="improved-disconnect-and-reconnect-handling"></a>Ulepszone Odłącz i ponownie obsługi
+
+Przed rozpoczęciem wszelkich prób ponownego połączenia HubConnection, przechodzi do `Reconnecting` stanu i generowane jego `onreconnecting` wywołania zwrotnego. Zapewnia to możliwość ostrzegać użytkowników, że połączenie zostało utracone, wyłączający elementy interfejsu użytkownika i eliminowanie mylące scenariuszy użytkowników, które mogą wystąpić z powodu stanie odłączonym.
+
+```javascript
+connection.onreconnecting((error) => {
+  console.assert(connection.state === signalR.HubConnectionState.Reconnecting);
+
+  document.getElementById("messageInput").disabled = true;
+
+  const li = document.createElement("li");
+  li.textContent = `Connection lost due to error "${error}". Reconnecting.`;
+  document.getElementById("messagesList").appendChild(li);
+});
+```
+
+Jeśli klient pomyślnie połączy się ponownie w ramach jego pierwsze cztery prób `HubConnection`przejść z powrotem do `Connected` stanu i generowane `onreconnected` wywołań zwrotnych. To daje deweloperom możliwość zawiadomić użytkowników o tym, że połączenie zostało nawiązane ponownie.
+
+```javascript
+connection.onreconnected((connectionId) => {
+  console.assert(connection.state === signalR.HubConnectionState.Connected);
+
+  document.getElementById("messageInput").disabled = false;
+
+  const li = document.createElement("li");
+  li.textContent = `Connection reestablished. Connected with connectionId "${connectionId}".`;
+  document.getElementById("messagesList").appendChild(li);
+});
+```
+
+Jeśli klient nie pomyślnie ponownie połączyć w ramach jego pierwsze cztery prób `HubConnection` przechodzi do `Disconnected` stanu i generowane jego `onclosed` wywołań zwrotnych. Jest to doskonała okazja, aby zawiadomić użytkowników o tym, że połączenie jest trwale utracone i zaleca, aby odświeżyć stronę.
+
+```javascript
+connection.onclose((error) => {
+  console.assert(connection.state === signalR.HubConnectionState.Disconnected);
+
+  document.getElementById("messageInput").disabled = true;
+
+  const li = document.createElement("li");
+  li.textContent = `Connection closed due to error "${error}". Try refreshing this page to restart the connection.`;
+  document.getElementById("messagesList").appendChild(li);
+})
+```
+
+## <a name="additional-resources"></a>Dodatkowe zasoby
+
+* <xref:signalr/introduction>

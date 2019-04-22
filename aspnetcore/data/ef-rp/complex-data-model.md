@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 311f72699b6291996a43d56247bd3d2bfab596e6
-ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
+ms.openlocfilehash: 9f22841a55fd2c2db76e36a5f5389c220a8d2acd
+ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58320251"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59982894"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>Strony razor z programem EF Core w programie ASP.NET Core — Model danych — 5 8
 
@@ -385,19 +385,18 @@ public ICollection<Course> Courses { get; set; }
 
 Uwaga: Zgodnie z Konwencją programu EF Core umożliwia usuwanie kaskadowe dopuszcza FKs oraz relacji wiele do wielu. Usuwanie kaskadowe może spowodować cykliczne cascade delete reguły. Cykliczne usuwanie kaskadowe reguły powoduje, że wyjątek po dodaniu migracji.
 
-Na przykład jeśli `Department.InstructorID` właściwości nie został zdefiniowany jako dopuszczający wartość null:
+Na przykład jeśli `Department.InstructorID` właściwość została zdefiniowana jako nieprzyjmujące:
 
-* EF Core konfiguruje regułę usuwanie kaskadowe można usunąć instruktora, po usunięciu działu.
-* Usuwanie instruktora, po usunięciu działu nie jest to oczekiwane zachowanie.
+* EF Core konfiguruje regułę cascade delete do usunięcia z działu w przypadku usunięcia instruktora.
+* Usuwanie z działu, po usunięciu instruktora nie jest to oczekiwane zachowanie.
+* Następujący interfejs API fluent ustawiał zasadę ograniczania zamiast cascade.
 
-W razie potrzeby reguły biznesowe `InstructorID` właściwości nie dopuszcza, użyj następującej instrukcji fluent API:
-
- ```csharp
- modelBuilder.Entity<Department>()
-    .HasOne(d => d.Administrator)
-    .WithMany()
-    .OnDelete(DeleteBehavior.Restrict)
- ```
+   ```csharp
+   modelBuilder.Entity<Department>()
+      .HasOne(d => d.Administrator)
+      .WithMany()
+      .OnDelete(DeleteBehavior.Restrict)
+  ```
 
 Powyższy kod wyłącza usuwanie kaskadowe relacji przez instruktorów działu.
 

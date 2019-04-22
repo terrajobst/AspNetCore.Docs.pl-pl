@@ -5,14 +5,14 @@ description: Dowiedz się, jak kierować żądania w aplikacjach i informacje o 
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/15/2019
+ms.date: 04/18/2019
 uid: blazor/routing
-ms.openlocfilehash: bf2a2f6218b0fb4637d60565711c08aa31cebeef
-ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
+ms.openlocfilehash: d3356ceccd5a6ed3375b7eada9cac295ef7ad53b
+ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59614881"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59982867"
 ---
 # <a name="blazor-routing"></a>Blazor routing
 
@@ -22,33 +22,43 @@ Dowiedz się, jak kierować żądania w aplikacjach i informacje o składniku Na
 
 ## <a name="aspnet-core-endpoint-routing-integration"></a>Integracja routingu platformy ASP.NET Core punktu końcowego
 
-Jest zintegrowana z Blazor [platformy ASP.NET Core routingu](xref:fundamentals/routing). Aplikacji ASP.NET Core jest skonfigurowany do akceptowania połączeń przychodzących do interaktywnego składników za pomocą `MapComponentHub<TComponent>` w `Startup.Configure`. `MapComponentHub` Określa, że składnik główny `App` powinien być renderowany w obrębie elementu DOM, dopasowania selektor `app`:
+Blazor po stronie serwera jest zintegrowany z [routingu do Endpoint platformy ASP.NET Core](xref:fundamentals/routing). Aplikacji ASP.NET Core jest skonfigurowany do akceptowania połączeń przychodzących do interaktywnego składników za pomocą `MapBlazorHub` w `Startup.Configure`:
 
 ```csharp
-app.UseRouting(routes =>
+app.UseRouting();
+
+app.UseEndpoints(endpoints =>
 {
-    routes.MapRazorPages();
-    routes.MapComponentHub<App>("app");
+    endpoints.MapBlazorHub();
+    endpoints.MapFallbackToPage("/_Host");
 });
 ```
 
 ## <a name="route-templates"></a>Szablonów tras
 
-`<Router>` Składnika umożliwia routing i szablon trasy znajduje się na każdej części dostępny. `<Router>` Składnika, który pojawia się w *Components/App.razor* pliku:
+`<Router>` Składnika umożliwia routing i szablon trasy znajduje się na każdej części dostępny. `<Router>` Składnika, który pojawia się w *App.razor* pliku:
+
+W przypadku aplikacji po stronie serwera Blazor:
+
+```cshtml
+<Router AppAssembly="typeof(Startup).Assembly" />
+```
+
+Blazor aplikacji po stronie klienta:
 
 ```cshtml
 <Router AppAssembly="typeof(Program).Assembly" />
 ```
 
-Gdy *.razor* lub *.cshtml* plik z `@page` dyrektywa jest kompilowany, wygenerowana klasa otrzymuje <xref:Microsoft.AspNetCore.Mvc.RouteAttribute> Określanie szablonu trasy. W czasie wykonywania, router szuka klasy składników za pomocą `RouteAttribute` i renderuje, niezależnie od składnik ma szablon trasy, który pasuje do żądanego adresu URL.
+Gdy *.razor* plik z `@page` dyrektywa jest kompilowany, wygenerowana klasa otrzymuje <xref:Microsoft.AspNetCore.Mvc.RouteAttribute> Określanie szablonu trasy. W czasie wykonywania, router szuka klasy składników za pomocą `RouteAttribute` i renderuje, niezależnie od składnik ma szablon trasy, który pasuje do żądanego adresu URL.
 
 Wiele szablonów tras można zastosować do składnika. Następujący składnik, który będzie odpowiadał na żądania `/BlazorRoute` i `/DifferentBlazorRoute`:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/BlazorRoute.cshtml?name=snippet_BlazorRoute)]
+[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/BlazorRoute.razor?name=snippet_BlazorRoute)]
 
 `<Router>` obsługuje ustawienia rezerwowe składnika renderowanie, gdy żądanej trasie nie zostanie rozwiązany. Włącz w tym scenariuszu uczestnictwo, ustawiając `FallbackComponent` parametru na typ klasy składnika rezerwowego.
 
-W poniższym przykładzie ustawiono składnikiem, który został zdefiniowany w *Pages/MyFallbackRazorComponent.cshtml* jako rezerwowej składnik dla `<Router>`:
+W poniższym przykładzie ustawiono składnikiem, który został zdefiniowany w *Pages/MyFallbackRazorComponent.razor* jako rezerwowej składnik dla `<Router>`:
 
 ```cshtml
 <Router ... FallbackComponent="typeof(Pages.MyFallbackRazorComponent)" />
@@ -61,7 +71,7 @@ W poniższym przykładzie ustawiono składnikiem, który został zdefiniowany w 
 
 Router używa parametrów trasy do wypełnienia odpowiednich parametrów składnika o takiej samej nazwie (wielkich liter):
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/RouteParameter.cshtml?name=snippet_RouteParameter&highlight=2,7-8)]
+[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/RouteParameter.razor?name=snippet_RouteParameter&highlight=2,7-8)]
 
 Opcjonalne parametry nie są obsługiwane, dlatego dwie `@page` dyrektywy są stosowane w powyższym przykładzie. Pierwszy pozwala nawigacji do składnika bez parametrów. Drugi `@page` przyjmuje dyrektywy `{text}` kierowanie parametru, a następnie przypisuje wartość do `Text` właściwości.
 
@@ -74,7 +84,7 @@ W poniższym przykładzie trasy do składnika użytkowników tylko pasuje, jeśl
 * `Id` Segmentu trasy jest obecny w adresie URL żądania.
 * `Id` Segmentu jest liczbą całkowitą (`int`).
 
-[!code-cshtml[](routing/samples_snapshot/3.x/Constraint.cshtml?highlight=1)]
+[!code-cshtml[](routing/samples_snapshot/3.x/Constraint.razor?highlight=1)]
 
 Ograniczenia trasy, pokazano w poniższej tabeli są dostępne. Dla ograniczenia trasy, które odpowiadają przy użyciu niezmiennej kultury Zobacz ostrzeżenie w poniższej tabeli, aby uzyskać więcej informacji.
 
@@ -82,11 +92,11 @@ Ograniczenia trasy, pokazano w poniższej tabeli są dostępne. Dla ograniczenia
 | ---------- | ----------------- | -------------------------------------------------------------------------------- | :------------------------------: |
 | `bool`     | `{active:bool}`   | `true`, `FALSE`                                                                  | Nie                               |
 | `datetime` | `{dob:datetime}`  | `2016-12-31`, `2016-12-31 7:32pm`                                                | Yes                              |
-| `decimal`  | `{price:decimal}` | `49.99`, `-1,000.01`                                                             | Yes                              |
-| `double`   | `{weight:double}` | `1.234`, `-1,001.01e8`                                                           | Tak                              |
-| `float`    | `{weight:float}`  | `1.234`, `-1,001.01e8`                                                           | Yes                              |
+| `decimal`  | `{price:decimal}` | `49.99`, `-1,000.01`                                                             | Tak                              |
+| `double`   | `{weight:double}` | `1.234`, `-1,001.01e8`                                                           | Yes                              |
+| `float`    | `{weight:float}`  | `1.234`, `-1,001.01e8`                                                           | Tak                              |
 | `guid`     | `{id:guid}`       | `CD2C1638-1638-72D5-1638-DEADBEEF1638`, `{CD2C1638-1638-72D5-1638-DEADBEEF1638}` | Nie                               |
-| `int`      | `{id:int}`        | `123456789`, `-123456789`                                                        | Tak                              |
+| `int`      | `{id:int}`        | `123456789`, `-123456789`                                                        | Yes                              |
 | `long`     | `{ticks:long}`    | `123456789`, `-123456789`                                                        | Tak                              |
 
 > [!WARNING]
@@ -98,7 +108,7 @@ Składnik NavLink zamiast HTML używany `<a>` elementów podczas tworzenia łąc
 
 Tworzy następujący składnik NavMenu [Bootstrap](https://getbootstrap.com/docs/) pasek nawigacyjny, który pokazuje, jak używać składników NavLink:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Shared/NavMenu.cshtml?name=snippet_NavLinks&highlight=4-6,9-11)]
+[!code-cshtml[](common/samples/3.x/BlazorSample/Shared/NavMenu.razor?name=snippet_NavLinks&highlight=4-6,9-11)]
 
 Istnieją dwa `NavLinkMatch` opcje:
 

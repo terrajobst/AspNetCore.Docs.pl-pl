@@ -5,31 +5,31 @@ description: Informacje o sposobie tworzenia i używania składników Razor, w t
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/17/2019
+ms.date: 04/18/2019
 uid: blazor/components
-ms.openlocfilehash: 610572c232f41210c60afcae0a660cbb808be65e
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
+ms.openlocfilehash: e318d262063c83fc17068ef65018174e2a4c953c
+ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59705626"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59983034"
 ---
 # <a name="create-and-use-razor-components"></a>Tworzenie i używanie składników Razor
 
 Przez [Luke Latham](https://github.com/guardrex), [Daniel Roth](https://github.com/danroth27), i [Morné Zaayman](https://github.com/MorneZaayman)
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/blazor/common/samples/) ([sposobu pobierania](xref:index#how-to-download-a-sample)). Zobacz [wprowadzenie](xref:blazor/get-started) tematu wstępnie wymaganych składników.
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/blazor/common/samples/) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 Blazor aplikacje są tworzone przy użyciu *składniki*. Składnik jest niezależna fragmentu interfejsu użytkownika (UI), takich jak strony, okno dialogowe lub formularza. Składnik zawiera kod znaczników HTML i logika przetwarzania wymagane w celu wstrzyknięcia danych lub reagowania na zdarzenia interfejsu użytkownika. Składniki są elastyczne i uproszczone. Mogą być zagnieżdżone, ponownie i współużytkowane między projektami.
 
 ## <a name="component-classes"></a>Klasy składników
 
-Składniki są zazwyczaj implementowane w plikach Razor składnika (*.razor*) przy użyciu kombinacji C# i kod znaczników HTML (*.cshtml* pliki są używane w aplikacjach Blazor).
+Składniki są implementowane w plikach składnika Razor (*.razor*) przy użyciu kombinacji C# i kod znaczników HTML.
 
-Składniki można tworzyć w aplikacjach Blazor przy użyciu *.cshtml* rozszerzenie pliku, tak długo, jak pliki są identyfikowane jako pliki składnika Razor przy użyciu `_RazorComponentInclude` właściwości programu MSBuild. Na przykład aplikacja utworzona za pomocą szablonu Razor składnika Określa, że wszystkie *.cshtml* plików w obszarze *składniki* folder powinien być traktowany jako plików składników Razor:
+Składniki mogą być tworzone za pomocą *.cshtml* rozszerzenie pliku, tak długo, jak pliki są identyfikowane jako pliki składnika Razor przy użyciu `_RazorComponentInclude` właściwości programu MSBuild. Na przykład aplikacja utworzona za pomocą szablonu składnika Razor Określa, że wszystkie *.cshtml* plików w obszarze *stron* folder powinien być traktowany jako plików składników Razor:
 
 ```xml
-<_RazorComponentInclude>Components\**\*.cshtml</_RazorComponentInclude>
+<_RazorComponentInclude>Pages\**\*.cshtml</_RazorComponentInclude>
 ```
 
 W interfejsie użytkownika dla składnika jest zdefiniowana za pomocą kodu HTML. Logika renderowania dynamicznego (na przykład pętli, warunkowych, wyrażeń) zostanie dodany przy użyciu osadzonych C# składni o nazwie [Razor](xref:mvc/views/razor). Gdy aplikacja jest kompilowana, kod znaczników HTML i C# logiki renderowania są konwertowane na klasy składnika. Nazwa wygenerowanej klasy odpowiada nazwie pliku.
@@ -57,7 +57,7 @@ Po początkowo renderowania składnik składnika generuje jej drzewo renderowani
 Składniki za pomocą istniejących aplikacji stronami Razor i programem MVC. Nie ma potrzeby ponownego wpisywania istniejących stron lub widoków w celu używania składników Razor. Po wyrenderowaniu strony lub widoku składniki są prerendered&dagger; w tym samym czasie. 
 
 > [!NOTE]
-> &dagger;Prerendering po stronie serwera jest domyślnie włączona dla Blazor po stronie serwera aplikacji. Aplikacje Blazor po stronie klienta będzie obsługiwać prerendering w nadchodzącym wydaniu wersji zapoznawczej 4. Aby uzyskać więcej informacji, zobacz [aktualizacji szablonów/oprogramowanie pośredniczące MapFallbackToPage/pliku](https://github.com/aspnet/AspNetCore/issues/8852).
+> &dagger;Prerendering po stronie serwera jest domyślnie włączona dla Blazor po stronie serwera aplikacji. Aplikacje Blazor po stronie klienta będzie obsługiwać prerendering w nadchodzącej wersji 5 (wersja zapoznawcza). Aby uzyskać więcej informacji, zobacz [aktualizacji szablonów/oprogramowanie pośredniczące MapFallbackToPage/pliku](https://github.com/aspnet/AspNetCore/issues/8852).
 
 Aby renderować składnika ze strony lub widok, należy użyć `RenderComponentAsync<TComponent>` metody pomocnika kodu HTML:
 
@@ -67,9 +67,9 @@ Aby renderować składnika ze strony lub widok, należy użyć `RenderComponentA
 </div>
 ```
 
-Składniki, renderowane przy użyciu widoków i stron nie są jeszcze interactive w wersji 3 (wersja zapoznawcza). Na przykład naciśnięcie przycisku nie spowoduje wyzwolenia wywołania metody. Przyszłych wersji zapoznawczej będzie to ograniczenie adresów, a następnie dodaj wsparcie dla składników renderowania przy użyciu normalnych składni elementów i atrybutów.
-
 Gdy widoków i stron można użyć składników, prawdą nie dotyczy. Składniki nie można używać w scenariuszach specyficznych dla widoku i strony, takich jak widoki częściowe i sekcji. Aby użyć logiki z widoku częściowego w składniku, współczynnik logiki widoku częściowego do składnika.
+
+Aby uzyskać więcej informacji na temat sposobu Wyrenderowana i składnika, stan składników odbywa się w aplikacji po stronie serwera Blazor, zobacz <xref:blazor/hosting-models> artykułu.
 
 ## <a name="using-components"></a>Używanie składników
 
@@ -77,7 +77,7 @@ Składniki mogą zawierać inne składniki, deklarując je przy użyciu składni
 
 Renderuje następujące znaczniki `HeadingComponent` wystąpienie:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/Index.cshtml?name=snippet_HeadingComponent)]
+[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/Index.razor?name=snippet_HeadingComponent)]
 
 ## <a name="component-parameters"></a>Parametry składnika
 
@@ -87,11 +87,11 @@ W poniższym przykładzie `ParentComponent` ustawia wartość `Title` właściwo
 
 *Składnik nadrzędny*:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/ParentComponent.cshtml?name=snippet_ParentComponent&highlight=5-6)]
+[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/ParentComponent.razor?name=snippet_ParentComponent&highlight=5-6)]
 
 *Składnik podrzędnych*:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/ChildComponent.cshtml?highlight=11-12)]
+[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/ChildComponent.razor?highlight=11-12)]
 
 ## <a name="child-content"></a>Zawartość elementu podrzędnego
 
@@ -99,13 +99,13 @@ Składniki można ustawić zawartości innego składnika. Przypisywanie składni
 
 *Składnik nadrzędny*:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/ParentComponent.cshtml?name=snippet_ParentComponent&highlight=7-8)]
+[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/ParentComponent.razor?name=snippet_ParentComponent&highlight=7-8)]
 
 Składnik podrzędny ma `ChildContent` właściwość, która reprezentuje `RenderFragment`. Wartość `ChildContent` jest umieszczony w znaczniku elementu podrzędnego, której zawartość ma być renderowany. W poniższym przykładzie wartość `ChildContent` jest otrzymane od składnika nadrzędnego i renderowania wewnątrz panelu Bootstrap `panel-body`.
 
 *Składnik podrzędnych*:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/ChildComponent.cshtml?highlight=3,14-15)]
+[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/ChildComponent.razor?highlight=3,14-15)]
 
 > [!NOTE]
 > Odbieranie właściwość `RenderFragment` zawartość, musi nosić `ChildContent` przez Konwencję.
@@ -334,11 +334,11 @@ Typowy scenariusz w przypadku zagnieżdżonych składników jest wymaganą do ur
 
 Składnik podrzędnych Przykładowa aplikacja pokazuje, jak przycisk `onclick` program obsługi jest skonfigurowany do otrzymywać `EventCallback` delegatem przykładowy składnik nadrzędny. `EventCallback` Jest wypełniana `UIMouseEventArgs`, która jest odpowiednia dla `onclick` zdarzeń za pomocą urządzenia peryferyjne:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/ChildComponent.cshtml?highlight=5-7,17-18)]
+[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/ChildComponent.razor?highlight=5-7,17-18)]
 
 Składnik nadrzędny ustawia elementu podrzędnego `EventCallback<T>` do jego `ShowMessage` metody:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/ParentComponent.cshtml?name=snippet_ParentComponent&highlight=6,16-19)]
+[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/ParentComponent.razor?name=snippet_ParentComponent&highlight=6,16-19)]
 
 Po wybraniu przycisku w składniku podrzędne:
 
@@ -499,7 +499,7 @@ Gdy plik Razor za pomocą `@page` dyrektywa jest kompilowany, wygenerowana klasa
 
 Wiele szablonów tras można zastosować do składnika. Następujący składnik, który będzie odpowiadał na żądania `/BlazorRoute` i `/DifferentBlazorRoute`:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/BlazorRoute.cshtml?name=snippet_BlazorRoute)]
+[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/BlazorRoute.razor?name=snippet_BlazorRoute)]
 
 ## <a name="route-parameters"></a>Parametry trasy
 
@@ -507,7 +507,7 @@ Składniki mogą odbierać parametrów trasy z szablonu trasy dostępnego w `@pa
 
 *Składnik parametru trasy*:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/RouteParameter.cshtml?name=snippet_RouteParameter)]
+[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/RouteParameter.razor?name=snippet_RouteParameter)]
 
 Opcjonalne parametry nie są obsługiwane, dlatego dwie `@page` dyrektywy są stosowane w powyższym przykładzie. Pierwszy pozwala nawigacji do składnika bez parametrów. Drugi `@page` przyjmuje dyrektywy `{text}` kierowanie parametru, a następnie przypisuje wartość do `Text` właściwości.
 
@@ -519,7 +519,7 @@ Pliki składników mieszać kod znaczników HTML i C# przetwarzania kodu w tym s
 
 *Składnik Blazor Rocks*:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/BlazorRocks.cshtml?name=snippet_BlazorRocks)]
+[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/BlazorRocks.razor?name=snippet_BlazorRocks)]
 
 *BlazorRocksBase.cs*:
 
@@ -639,7 +639,7 @@ Oparte na szablonach składnika jest zdefiniowany, określając jeden lub więce
 
 *Części szablonu tabeli*:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Components/TableTemplate.cshtml)]
+[!code-cshtml[](common/samples/3.x/BlazorSample/Components/TableTemplate.razor)]
 
 Podczas korzystania z szablonem składnik, można określić parametry szablonu przy użyciu elementy podrzędne, które pasują do nazw parametrów (`TableHeader` i `RowTemplate` w poniższym przykładzie):
 
@@ -694,7 +694,7 @@ Oparte na szablonach składniki są często objęte wpisane. Na przykład ogóln
 
 *Części szablonu ListView*:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Components/ListViewTemplate.cshtml)]
+[!code-cshtml[](common/samples/3.x/BlazorSample/Components/ListViewTemplate.razor)]
 
 Podczas korzystania z kontrolą typów ogólnych składników, jeśli jest to możliwe jest wnioskowany parametr typu:
 
@@ -823,19 +823,19 @@ Przykładowa aplikacja ma `ITab` interfejs, który karty implementacji:
 
 Składnik kaskadowych wartości parametrów TabSet używa ustawienia karty składnik, który zawiera kilka składników karty:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/CascadingValuesParametersTabSet.cshtml?name=snippet_TabSet)]
+[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/CascadingValuesParametersTabSet.razor?name=snippet_TabSet)]
 
 Składniki karty podrzędnej jawnie nie są przekazywane jako parametry można ustawić kartę. Zamiast tego składniki karty podrzędnej są częścią zawartość elementu podrzędnego zestawu kartę. Jednak ustawienia karty nadal musi wiedzieć o poszczególnych składników karty, dzięki czemu można renderować, nagłówki i aktywną kartę. Włączyć koordynacja bez konieczności dodatkowego kodu, Ustaw kartę składnika *może zapewnić sama jako wartość kaskadowych* , następnie zostaje pobrana przez podrzędny składniki kartę.
 
 *Składnik TabSet*:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Components/TabSet.cshtml)]
+[!code-cshtml[](common/samples/3.x/BlazorSample/Components/TabSet.razor)]
 
 Podrzędny przechwytywania składniki kartę zawierającego ustawienia karty jako parametr kaskadowych, więc składniki kartę dodają same siebie do ustawienia karty i współrzędnych karty, które jest aktywny.
 
 *Karta składników*:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Components/Tab.cshtml)]
+[!code-cshtml[](common/samples/3.x/BlazorSample/Components/Tab.razor)]
 
 ## <a name="razor-templates"></a>Szablony razor
 

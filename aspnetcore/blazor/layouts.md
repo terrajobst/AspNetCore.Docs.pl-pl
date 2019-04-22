@@ -5,14 +5,14 @@ description: Dowiedz się, jak tworzyć składniki wielokrotnego użytku układu
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/15/2019
+ms.date: 04/18/2019
 uid: blazor/layouts
-ms.openlocfilehash: 42d5d03c50c525c3d819f6dac39109eff6534800
-ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
+ms.openlocfilehash: 4a412b86d72cf4489dc2244a23c8b5c334f31e62
+ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59614803"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59982648"
 ---
 # <a name="blazor-layouts"></a>Układy Blazor
 
@@ -29,7 +29,7 @@ Włącz dwa dodatkowe aspekty *składnika* do *układu*
 
 Poniższy przykład kodu pokazuje szablon Razor składnika układu. Zwróć uwagę na użycie `LayoutComponentBase` i `@Body`:
 
-[!code-cshtml[](layouts/sample_snapshot/3.x/MasterLayout.cshtml)]
+[!code-cshtml[](layouts/sample_snapshot/3.x/MasterLayout.razor)]
 
 ## <a name="use-a-layout-in-a-component"></a>Używanie układu w składniku
 
@@ -46,17 +46,31 @@ W poniższym przykładzie kodu pokazano pojęcia. Zawartość tego składnika je
 
 ## <a name="centralized-layout-selection"></a>Wybór układu scentralizowane
 
-Każdy folder z aplikacji, można opcjonalnie zawiera plik szablonu o nazwie *_ViewImports.cshtml*. Kompilator zawiera dyrektywy określone w pliku importu widoku we wszystkich szablony Razor, w tym samym folderze i cyklicznie we wszystkich jego podfolderów. W związku z tym *_ViewImports.cshtml* plik zawierający `@layout MainLayout` zapewnia, że wszystkie składniki użycie folderu *MainLayout* układu. Nie ma potrzeby można wielokrotnie dodać `@layout` do wszystkich *.razor* plików.
+Każdy folder z aplikacji, można opcjonalnie zawiera plik szablonu o nazwie *_Imports.razor*. Kompilator zawiera dyrektywy określone w pliku importu widoku we wszystkich szablony Razor, w tym samym folderze i cyklicznie we wszystkich jego podfolderów. W związku z tym *_Imports.razor* plik zawierający `@layout MainLayout` zapewnia, że wszystkie składniki użycie folderu *MainLayout* układu. Nie ma potrzeby można wielokrotnie dodać `@layout` do wszystkich *.razor* plików. `@using` dyrektywy są również stosowane do składników, w tym samym folderze lub jakiekolwiek foldery podrzędne.
 
-Należy zauważyć, że korzysta z domyślnego szablonu *_ViewImports.cshtml* mechanizm wyboru układu. Zawiera nowo utworzoną aplikację *_ViewImports.cshtml* w pliku *składniki/strony* folderu.
+Na przykład następująca *_Imports.razor* pliku importu:
+
+* `MainLayout`.
+* Wszystkie składniki Razor, w tym samym folderze i wszystkie podfoldery.
+* `BlazorApp1.Data` Przestrzeni nazw.
+ 
+```cshtml
+@layout MainLayout
+@using Microsoft.AspNetCore.Components.
+@using BlazorApp1.Data
+```
+
+Korzystanie z *_Imports.razor* pliku jest podobny do korzystania z *_ViewImports.cshtml* z widokami Razor i stron, ale stosowane do plików składników Razor.
+
+Należy zauważyć, że korzysta z domyślnego szablonu *_Imports.razor* mechanizm wyboru układu. Zawiera nowo utworzoną aplikację *_Imports.razor* w pliku *stron* folderu.
 
 ## <a name="nested-layouts"></a>Układy zagnieżdżonych
 
 Aplikacje może zawierać zagnieżdżone układów. Składnik może odwoływać się układ, który z kolei odwołuje się do innego układu. Na przykład zagnieżdżenia układów może służyć do odzwierciedlenia struktury wielopoziomowe menu.
 
-Poniższe przykłady kodu przedstawiają sposób używać zagnieżdżonych układów. *EpisodesComponent.cshtml* plik jest składnikiem do wyświetlenia. Należy pamiętać, że składnik odwołuje się do układu `MasterListLayout`.
+Poniższe przykłady kodu przedstawiają sposób używać zagnieżdżonych układów. *EpisodesComponent.razor* plik jest składnikiem do wyświetlenia. Należy pamiętać, że składnik odwołuje się do układu `MasterListLayout`.
 
-*EpisodesComponent.cshtml*:
+*EpisodesComponent.razor*:
 
 ```cshtml
 @layout MasterListLayout
@@ -65,9 +79,9 @@ Poniższe przykłady kodu przedstawiają sposób używać zagnieżdżonych ukła
 <h1>Episodes</h1>
 ```
 
-*MasterListLayout.cshtml* plik zawiera `MasterListLayout`. Układ odwołuje się do innego układu `MasterLayout`, gdzie ma to być osadzone.
+*MasterListLayout.razor* plik zawiera `MasterListLayout`. Układ odwołuje się do innego układu `MasterLayout`, gdzie ma to być osadzone.
 
-*MasterListLayout.cshtml*:
+*MasterListLayout.razor*:
 
 ```cshtml
 @layout MasterLayout
@@ -83,7 +97,7 @@ Poniższe przykłady kodu przedstawiają sposób używać zagnieżdżonych ukła
 
 Na koniec `MasterLayout` zawiera elementy układu najwyższego poziomu, takie jak nagłówek, stopka i menu głównego.
 
-*MasterLayout.cshtml*:
+*MasterLayout.razor*:
 
 ```cshtml
 @inherits LayoutComponentBase

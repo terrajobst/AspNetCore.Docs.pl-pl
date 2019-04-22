@@ -5,24 +5,22 @@ description: Dowiedz się, jak hostowanie i wdrażanie aplikacji Blazor przy uż
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/15/2019
+ms.date: 04/18/2019
 uid: host-and-deploy/blazor/client-side
-ms.openlocfilehash: 01a612029f415f583908c3bf2adc2e6d35167acb
-ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
+ms.openlocfilehash: 0a913dafafc5c17d2ff98e2c0a0319b591e02201
+ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59614885"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59983029"
 ---
 # <a name="host-and-deploy-blazor-client-side"></a>Hostowanie i wdrażanie Blazor po stronie klienta
 
 Przez [Luke Latham](https://github.com/guardrex), [Rainer Stropek](https://www.timecockpit.com), i [Daniel Roth](https://github.com/danroth27)
 
-[!INCLUDE[](~/includes/razor-components-preview-notice.md)]
-
 ## <a name="host-configuration-values"></a>Wartości konfiguracji hosta
 
-Blazor aplikacje, które używają [modelu hostingu po stronie klienta](xref:blazor/hosting-models#client-side-hosting-model) może akceptować następujące wartości konfiguracji hosta jako argumenty wiersza polecenia w czasie wykonywania w środowisku programistycznym.
+Blazor aplikacje, które używają [modelu hostingu po stronie klienta](xref:blazor/hosting-models#client-side) może akceptować następujące wartości konfiguracji hosta jako argumenty wiersza polecenia w czasie wykonywania w środowisku programistycznym.
 
 ### <a name="content-root"></a>Zawartość katalogu głównego
 
@@ -95,7 +93,7 @@ Blazor aplikacje, które używają [modelu hostingu po stronie klienta](xref:bla
 
 ## <a name="deployment"></a>wdrażania
 
-Za pomocą [modelu hostingu po stronie klienta](xref:blazor/hosting-models#client-side-hosting-model):
+Za pomocą [modelu hostingu po stronie klienta](xref:blazor/hosting-models#client-side):
 
 * Aplikacja Blazor, jego zależności i środowisko uruchomieniowe platformy .NET są pobierane do przeglądarki.
 * Aplikacja jest wykonywane bezpośrednio w przeglądarce wątku interfejsu użytkownika. Obsługiwany jest jedną z następujących strategii:
@@ -110,15 +108,15 @@ Blazor wykonuje języka pośredniego (IL) łączenia każdego kompilacji, aby us
 
 Routing żądań dla elementów strony w aplikacji po stronie klienta nie jest tak proste, jak kierowania żądań do aplikacji po stronie serwera, hostowaną. Należy wziąć pod uwagę aplikacji po stronie klienta, zawierający dwie strony:
 
-* **_Main.cshtml_**  &ndash; obciążeń w katalogu głównym aplikacji i zawiera łącza do strony informacje (`href="About"`).
-* **_About.cshtml_**  &ndash; o stronie.
+* **_Main.razor** &ndash; obciążeń w katalogu głównym aplikacji i zawiera łącza do strony informacje (`href="About"`).
+* **_About.razor** &ndash; o stronie.
 
 Gdy dokument domyślny aplikacji przy użyciu paska adresu w przeglądarce (na przykład `https://www.contoso.com/`):
 
 1. Żąda przeglądarki.
 1. Domyślna strona ma zostać zwrócona, co jest zazwyczaj *index.html*.
 1. *index.HTML* używa do ładowania aplikacji.
-1. Router firmy Blazor obciążenia i strony Razor Main (*Main.cshtml*) jest wyświetlana.
+1. Router firmy Blazor obciążenia i strony Razor Main (*Main.razor*) jest wyświetlana.
 
 Na stronie głównej wybierając link do strony informacje ładuje stronę informacje. Wybierając link do strony informacje działa na komputerze klienckim, ponieważ Blazor router zatrzymuje przeglądarki z żądania w Internecie, aby `www.contoso.com` dla `About` i służy sama strona informacje. Wszystkie żądania dla wewnętrznej stron *w aplikacji po stronie klienta* działają tak samo: Żądania nie wyzwalacza opartego na przeglądarce żądania hostowany serwer zasobów w Internecie. Wewnętrznie obsługuje żądania przez router.
 
@@ -144,7 +142,7 @@ Aplikacja reaguje lokalnie na `http://localhost:port/CoolApp`.
 
 Aby uzyskać więcej informacji, zobacz sekcję na [wartość konfiguracji podstawowej hosta ścieżki](#path-base).
 
-Jeśli aplikacja używa [modelu hostingu po stronie klienta](xref:blazor/hosting-models#client-side-hosting-model) (na podstawie **Blazor** szablon projektu) i jest hostowany jako aplikacja podrzędnych usług IIS w aplikacji ASP.NET Core, ważne jest, aby wyłączyć dziedziczone platformy ASP.NET Core Obsługi modułu lub upewnić się, że aplikacja głównego (nadrzędnego) `<handlers>` sekcji *web.config* pliku nie jest dziedziczona przez jej podrzędnych.
+Jeśli aplikacja używa [modelu hostingu po stronie klienta](xref:blazor/hosting-models#client-side) (na podstawie **Blazor** szablonu projektu; `blazor` szablon podczas korzystania [dotnet nowe](/dotnet/core/tools/dotnet-new) polecenia), a jest obsługiwana jako aplikacja podrzędnych usług IIS w aplikacji ASP.NET Core, ważne jest, aby wyłączyć dziedziczone obsługi modułu ASP.NET Core lub upewnić się, że aplikacja głównego (nadrzędnego) `<handlers>` sekcji *web.config* pliku nie jest dziedziczone przez Sub — aplikacja.
 
 Usuń procedurę obsługi w aplikacji — opublikowane *web.config* pliku, dodając `<handlers>` sekcji w pliku:
 

@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 03/31/2019
 uid: grpc/migration
-ms.openlocfilehash: 4d489b5aecf2e15fbbe3ac472b991a4365cd47c1
-ms.sourcegitcommit: 57a974556acd09363a58f38c26f74dc21e0d4339
+ms.openlocfilehash: 47d74edd821124f0c8390d704ca7931b7eb6c4cd
+ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59672622"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59982604"
 ---
 # <a name="migrating-grpc-services-from-c-core-to-aspnet-core"></a>Migrowanie usług gRPC podstawowe języka C do platformy ASP.NET Core
 
@@ -49,26 +49,19 @@ Jednak z implementacją usługi o okresie istnienia pojedynczego wystąpienia ni
 
 W aplikacjach na podstawie podstawowej C, ustawienia, takie jak `grpc.max_receive_message_length` i `grpc.max_send_message_length` są skonfigurowane przy użyciu `ChannelOption` podczas [konstruowanie wystąpienie serwera](https://grpc.io/grpc/csharp/api/Grpc.Core.Server.html#Grpc_Core_Server__ctor_System_Collections_Generic_IEnumerable_Grpc_Core_ChannelOption__).
 
-W programie ASP.NET Core `GrpcServiceOptions` zapewnia sposób, aby skonfigurować te ustawienia. Ustawienia mogą być stosowane globalnie do wszystkich usług gRPC lub typ implementacji poszczególnych usług. Opcje określone dla typów wdrożenia poszczególnych usług zastępują ustawienia globalne, w przypadku skonfigurowania.
+W programie ASP.NET Core gRPC udostępnia konfigurację za pomocą `GrpcServiceOptions` typu. Na przykład gRPC usługi maksymalny rozmiar wiadomości przychodzącej mogą być konfigurowane przez `AddGrpc`:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
-    services
-        .AddGrpc(globalOptions =>
-        {
-            // Global settings
-            globalOptions.SendMaxMessageSize = 4096
-            globalOptions.ReceiveMaxMessageSize = 4096
-        })
-        .AddServiceOptions<GreeterService>(greeterOptions =>
-        {
-            // GreeterService settings. These will override global settings
-            globalOptions.SendMaxMessageSize = 2048
-            globalOptions.ReceiveMaxMessageSize = 2048
-        })
+    services.AddGrpc(options =>
+    {
+        options.ReceiveMaxMessageSize = 16384; // 16 MB
+    });
 }
 ```
+
+Aby uzyskać więcej informacji na temat konfigurowania, zobacz <xref:grpc/configuration>.
 
 ## <a name="logging"></a>Rejestrowanie
 
