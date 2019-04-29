@@ -3,15 +3,15 @@ title: Strony razor za pomocą platformy Entity Framework Core w programie ASP.N
 author: rick-anderson
 description: Pokazuje, jak utworzyć aplikację strony Razor za pomocą platformy Entity Framework Core
 ms.author: riande
-ms.custom: seodec18
+ms.custom: mvc, seodec18
 ms.date: 11/22/2018
 uid: data/ef-rp/intro
-ms.openlocfilehash: aff62d760cf0899983cf841f6715f2658b113f82
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
-ms.translationtype: MT
+ms.openlocfilehash: 61bc1ab8f63fa2288bdb6aaffb4f6b557586ad94
+ms.sourcegitcommit: 8a84ce880b4c40d6694ba6423038f18fc2eb5746
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59012685"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60165263"
 ---
 # <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>Strony razor za pomocą platformy Entity Framework Core w programie ASP.NET Core — samouczek 1 8
 

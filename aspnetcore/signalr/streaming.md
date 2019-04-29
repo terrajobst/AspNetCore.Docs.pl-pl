@@ -7,12 +7,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 04/12/2019
 uid: signalr/streaming
-ms.openlocfilehash: 83bbb231482d9c1606be3c5bbbeb1cc3b8efcf7d
-ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
-ms.translationtype: MT
+ms.openlocfilehash: d185056d3bdda089eaa46ae9b8e13ab7a4354f93
+ms.sourcegitcommit: 8a84ce880b4c40d6694ba6423038f18fc2eb5746
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59982659"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60165079"
 ---
 # <a name="use-streaming-in-aspnet-core-signalr"></a>Korzystanie z przesyłaniem strumieniowym w biblioteki SignalR platformy ASP.NET Core
 
@@ -36,13 +36,13 @@ SignalR platformy ASP.NET Core obsługuje przesyłania strumieniowego wartości 
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Metody koncentratora automatycznie wybrana zostaje pierwsza przesyłania strumieniowego metody koncentratora po zwraca <xref:System.Threading.Channels.ChannelReader`1>, `IAsyncEnumerable<T>`, `Task<ChannelReader<T>>`, lub `Task<IAsyncEnumerable<T>>`.
+Metody koncentratora automatycznie wybrana zostaje pierwsza przesyłania strumieniowego metody koncentratora po zwraca <xref:System.Threading.Channels.ChannelReader%601>, `IAsyncEnumerable<T>`, `Task<ChannelReader<T>>`, lub `Task<IAsyncEnumerable<T>>`.
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
 
-Metody koncentratora automatycznie wybrana zostaje pierwsza przesyłania strumieniowego metody koncentratora po zwraca <xref:System.Threading.Channels.ChannelReader`1> lub `Task<ChannelReader<T>>`.
+Metody koncentratora automatycznie wybrana zostaje pierwsza przesyłania strumieniowego metody koncentratora po zwraca <xref:System.Threading.Channels.ChannelReader%601> lub `Task<ChannelReader<T>>`.
 
 ::: moniker-end
 
@@ -58,7 +58,7 @@ Przesyłanie strumieniowe metod koncentratora może zwrócić `IAsyncEnumerable<
 
 ::: moniker-end
 
-Poniższy przykład pokazuje podstawy przesyłanie strumieniowe danych do klienta za pomocą kanałów. Zawsze, gdy obiekt jest zapisywany <xref:System.Threading.Channels.ChannelWriter`1>, natychmiast wysyła obiekt do klienta. Na koniec `ChannelWriter` zakończeniu to sprawdzić klientowi strumień jest zamknięty.
+Poniższy przykład pokazuje podstawy przesyłanie strumieniowe danych do klienta za pomocą kanałów. Zawsze, gdy obiekt jest zapisywany <xref:System.Threading.Channels.ChannelWriter%601>, natychmiast wysyła obiekt do klienta. Na koniec `ChannelWriter` zakończeniu to sprawdzić klientowi strumień jest zamknięty.
 
 > [!NOTE]
 > Zapisać `ChannelWriter<T>` w wątku w tle i wróć `ChannelReader` tak szybko, jak to możliwe. Inne wywołania koncentratora są blokowane, aż do `ChannelReader` jest zwracana.

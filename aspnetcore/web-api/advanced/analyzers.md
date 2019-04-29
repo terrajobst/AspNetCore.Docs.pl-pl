@@ -7,12 +7,12 @@ ms.author: pranavkm
 ms.custom: mvc
 ms.date: 12/14/2018
 uid: web-api/advanced/analyzers
-ms.openlocfilehash: 5bfda6f19e4739c52a4b7c9d6e751634a4af438a
-ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
-ms.translationtype: MT
+ms.openlocfilehash: bcc89f856e0aeef80c46a44f76f86b4c09ac6746
+ms.sourcegitcommit: 8a84ce880b4c40d6694ba6423038f18fc2eb5746
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59982923"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60165122"
 ---
 # <a name="use-web-api-analyzers"></a>Używane analizatory interfejsu API sieci web
 
@@ -80,4 +80,4 @@ Poprzednią akcję dokumenty HTTP 200 Powodzenie zwracany typ, ale nie dokumentu
 
 * <xref:web-api/advanced/conventions>
 * <xref:tutorials/web-api-help-pages-using-swagger>
-* [Adnotacja z atrybutem klasy ApiController](xref:web-api/index#annotation-with-apicontroller-attribute)
+* <xref:web-api/index>

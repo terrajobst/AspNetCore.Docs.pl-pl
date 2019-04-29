@@ -1,21 +1,21 @@
 ---
-title: Microsoft.AspNetCore.App meta Microsoft.aspnetcore.all, dla platformy ASP.NET Core 2.1 lub nowszych
+title: Microsoft.AspNetCore.App meta Microsoft.aspnetcore.all, dla platformy ASP.NET Core 2.1 lub nowszej
 author: Rick-Anderson
 description: Meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App obejmuje wszystkie obsługiwane pakiety platformy ASP.NET Core i Entity Framework Core.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
-ms.date: 09/20/2017
+ms.date: 04/21/2019
 uid: fundamentals/metapackage-app
-ms.openlocfilehash: 68b5aca60273a8c6ef03c0a29842e6a5305adeb3
-ms.sourcegitcommit: 517bb1366da2a28b0014e384fa379755c21b47d8
-ms.translationtype: MT
+ms.openlocfilehash: 04cd628e2a2e4650fb4396b352aef008b430550e
+ms.sourcegitcommit: 8a84ce880b4c40d6694ba6423038f18fc2eb5746
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47230168"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60165212"
 ---
-# <a name="microsoftaspnetcoreapp-metapackage-for-aspnet-core-21"></a>Meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App, dla platformy ASP.NET Core 2.1
+# <a name="microsoftaspnetcoreapp-metapackage-for-aspnet-core-21-or-later"></a>Microsoft.AspNetCore.App meta Microsoft.aspnetcore.all, dla platformy ASP.NET Core 2.1 lub nowszej
 
-Ta funkcja wymaga platformy ASP.NET Core 2.1 i nowsze, przeznaczonych dla platformy .NET Core 2.1 lub nowszy.
+Ta funkcja wymaga platformy ASP.NET Core 2.1 lub nowszej, przeznaczonych dla platformy .NET Core 2.1 lub nowszej.
 
 [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App) [meta Microsoft.aspnetcore.all](/dotnet/core/packages#metapackages) dla platformy ASP.NET Core:
 
@@ -57,12 +57,17 @@ Jest ustawiona wersja niejawne `major.minor.0` przenośne aplikacji. Mechanizm p
 
 Określenie numeru wersji na `Microsoft.AspNetCore.App` odwołania jest **nie** gwarantuje daną wersję udostępnionego framework zostanie wybrany. Na przykład załóżmy, że wersja "2.1.1" jest określona, ale zainstalowano "2.1.3". W takim przypadku aplikacja będzie używać "2.1.3". Chociaż nie jest to zalecane, możesz wyłączyć przenoszenia do przodu (poprawki i/lub pomocnicze). Aby uzyskać więcej informacji na temat hosta dotnet przodu i konfigurowania jej zachowanie zobacz [dotnet hosta przenoszenia do przodu](https://github.com/dotnet/core-setup/blob/master/Documentation/design-docs/roll-forward-on-no-candidate-fx.md).
 
-`<Project Sdk` musi być równa `Microsoft.NET.Sdk.Web` do korzystania z wersji niejawne `Microsoft.AspNetCore.App`.  Gdy `<Project Sdk="Microsoft.NET.Sdk">` (bez końcowych `.Web`) jest używany:
+::: moniker range="= aspnetcore-2.1"
+
+`<Project Sdk` musi być równa `Microsoft.NET.Sdk.Web` do korzystania z wersji niejawne `Microsoft.AspNetCore.App`. Gdy `<Project Sdk="Microsoft.NET.Sdk">` (bez końcowych `.Web`) jest używany:
 
 * Jest generowany w następujące ostrzeżenie:
 
-     *Ostrzeżenie NU1604: Zależność projektu Microsoft.AspNetCore.App nie zawiera włącznie dolną granicę. Uwzględnij dolną granicę w wersji zależności, aby zapewnić przywracania na poziomie wyniki.*
-* Jest to znany problem z zestawu SDK programu .NET Core 2.1 i zostanie rozwiązany w .NET Core 2.2 SDK.
+  *Ostrzeżenie NU1604: Zależności projektu Microsoft.AspNetCore.App nie zawiera włącznie dolną granicę. Uwzględnij dolną granicę w wersji zależności, aby zapewnić przywracania na poziomie wyniki.*
+
+* Jest to znany problem z zestawu SDK programu .NET Core 2.1.
+
+::: moniker-end
 
 <a name="update"></a>
 
@@ -72,7 +77,7 @@ Określenie numeru wersji na `Microsoft.AspNetCore.App` odwołania jest **nie** 
 
 Aby zaktualizować platformy ASP.NET Core:
 
-* Na komputerach deweloperskich i serwery kompilacji: Pobierz i zainstaluj [zestawu .NET Core SDK](https://www.microsoft.com/net/download).
+* Na komputerach deweloperskich i serwerach kompilacji: Pobierz i zainstaluj [zestawu .NET Core SDK](https://www.microsoft.com/net/download).
 * Na serwerach wdrożenia: Pobierz i zainstaluj [środowisko uruchomieniowe programu .NET Core](https://www.microsoft.com/net/download).
 
  Aplikacje będą uaktualniane do najnowszej zainstalowanej wersji na ponowne uruchomienie aplikacji. Nie jest konieczne zaktualizować `Microsoft.AspNetCore.App` numer wersji w pliku projektu. Aby uzyskać więcej informacji, zobacz [zależny od struktury aplikacji uaktualniane](/dotnet/core/versions/selection#framework-dependent-apps-roll-forward).

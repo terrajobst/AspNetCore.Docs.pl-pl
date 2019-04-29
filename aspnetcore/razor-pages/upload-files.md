@@ -5,14 +5,14 @@ description: Dowiedz się, jak przekazać pliki na stronę Razor programu ASP.NE
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 11/10/2018
-ms.custom: seodec18
+ms.custom: mvc, seodec18
 uid: razor-pages/upload-files
-ms.openlocfilehash: 80929c6c1a95b46b942958def1540ac8ed5abc81
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
-ms.translationtype: MT
+ms.openlocfilehash: a12653e5dc99ad731de63e151af6dbdbe38ffefc
+ms.sourcegitcommit: 8a84ce880b4c40d6694ba6423038f18fc2eb5746
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121404"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60165225"
 ---
 # <a name="upload-files-to-a-razor-page-in-aspnet-core"></a>Przekazywanie plików na stronę Razor programu ASP.NET Core
 
@@ -159,7 +159,7 @@ Określ `DbSet` w `MovieContext` (*Models/MovieContext.cs*) dla harmonogramów:
 
 ## <a name="add-the-schedule-table-to-the-database"></a>Dodaj tabelę harmonogram do bazy danych
 
-Otwórz konsolę Menedżera pakietów (PMC): **narzędzia** > **Menedżera pakietów NuGet** > **Konsola Menedżera pakietów**.
+Otwórz konsolę Menedżera pakietów (PMC): **Narzędzia** > **Menedżera pakietów NuGet** > **Konsola Menedżera pakietów**.
 
 ![Menu konsoli zarządzania Pakietami](upload-files/_static/pmc.png)
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/4/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 24c87f2ad0446aef51f9d648fd20c181cbeaed2e
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
-ms.translationtype: MT
+ms.openlocfilehash: a5c0140b70a30acd05b532d32525f6df92619075
+ms.sourcegitcommit: 8a84ce880b4c40d6694ba6423038f18fc2eb5746
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57346476"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60165293"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core-mvc"></a>Samouczek: Tworzenie internetowego interfejsu API za pomocą platformy ASP.NET Core MVC
 
@@ -216,7 +216,7 @@ Powyższy kod:
 Powyższy kod:
 
 * Definiuje klasę kontrolera interfejsu API bez metody.
-* Rozszerza klasę za pomocą [ `[ApiController]` ](/dotnet/api/microsoft.aspnetcore.mvc.apicontrollerattribute) atrybutu. Ten atrybut wskazuje, czy kontroler ma odpowiadać na żądania sieci web interfejsu API. Aby uzyskać informacji na temat określonych zachowań, które umożliwia atrybutu, zobacz [adnotacji z atrybutem klasy ApiController](xref:web-api/index#annotation-with-apicontroller-attribute).
+* Rozszerza klasę za pomocą [[klasy ApiController]](/dotnet/api/microsoft.aspnetcore.mvc.apicontrollerattribute) atrybutu. Ten atrybut wskazuje, czy kontroler ma odpowiadać na żądania sieci web interfejsu API. Aby uzyskać informacji na temat określonych zachowań, które umożliwia atrybutu, zobacz <xref:web-api/index>.
 * Używa DI iniekcję kontekst bazy danych (`TodoContext`) do kontrolera. Kontekst bazy danych jest używany we wszystkich [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) metodami w kontrolerze.
 * Dodaje element o nazwie `Item1` do bazy danych, jeśli baza danych jest pusta. Ten kod jest w konstruktorze, aby była uruchamiania za każdym razem, gdy zostanie nowe żądanie HTTP. Jeśli usuniesz wszystkie elementy, Konstruktor tworzy `Item1` ponownie przy kolejnym wywoływana jest metoda interfejsu API. Może to wyglądać tak jak usunięcie nie działało, gdy rzeczywiście działa.
 

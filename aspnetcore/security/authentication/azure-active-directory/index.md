@@ -4,14 +4,14 @@ author: rick-anderson
 description: Odkryj tematy związane z uwierzytelnianiem w usłudze Azure Active Directory w programie ASP.NET Core.
 ms.author: riande
 ms.date: 10/4/2017
-ms.custom: seodec18
+ms.custom: mvc, seodec18
 uid: security/authentication/azure-active-directory/index
-ms.openlocfilehash: 9a5b77201f228567bea0850ae236eb6c977e915a
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
-ms.translationtype: MT
+ms.openlocfilehash: 5361f0202ddfde0dedd9d26decec0d20e74f7b52
+ms.sourcegitcommit: 8a84ce880b4c40d6694ba6423038f18fc2eb5746
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58208047"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60165273"
 ---
 # <a name="azure-active-directory-with-aspnet-core"></a>Usługa Azure Active Directory z platformą ASP.NET Core
 
