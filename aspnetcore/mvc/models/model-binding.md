@@ -7,11 +7,11 @@ ms.author: tdykstra
 ms.date: 11/13/2018
 uid: mvc/models/model-binding
 ms.openlocfilehash: 1dc9b41328ed78440622acc1865b6f088d394403
-ms.sourcegitcommit: 1d6ab43eed9cb3df6211c22b97bb3a9351ec4419
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51597787"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64898384"
 ---
 # <a name="model-binding-in-aspnet-core"></a>Wiązanie modelu w programie ASP.NET Core
 
@@ -39,9 +39,9 @@ MVC podejmie próbę żądania danych można powiązać parametry akcji według 
 
 1. `Form values`: Są to wartości formularza, które bardziej szczegółowo w żądaniu HTTP przy użyciu metody POST. (w tym żądania POST jQuery).
 
-2. `Route values`: Zestaw wartości trasy udostępniane przez [routingu](xref:fundamentals/routing)
+2. `Route values`: Zbiór wartości trasy udostępniane przez [routingu](xref:fundamentals/routing)
 
-3. `Query strings`Części ciągu zapytania identyfikatora URI.
+3. `Query strings`: Część ciągu zapytania identyfikatora URI.
 
 <!-- DocFX BUG
 The link works but generates an error when building with DocFX
@@ -49,7 +49,7 @@ The link works but generates an error when building with DocFX
 [Routing](xref:fundamentals/routing)
 -->
 
-Uwaga: Formularz wartości danych trasy i kwerend ciągów są przechowywane jako pary nazwa wartość.
+Uwaga: Wartości formularza, dane trasy i zbadać ciągów są przechowywane jako pary nazwa wartość.
 
 Ponieważ wiązania modelu o podanie klucza o nazwie `id` i nie ma nic o nazwie `id` wartości formularza go następnie przeszedł do obozów szuka klucza, wartości trasy. W naszym przykładzie jest zgodny. Powiązaniem i wartością jest konwertowany na liczbę całkowitą 2. Tego samego żądania za pomocą edycji (identyfikator ciągu) czy przekonwertować na ciąg "2".
 
@@ -59,13 +59,13 @@ Aby umożliwić wiązanie modelu, klasa musi mieć publicznego konstruktora domy
 
 Podczas wiązania parametru wiązania modelu zatrzymuje wyszukiwanie wartości o takiej nazwie i powoduje przeniesienie do powiązania następny parametr. W przeciwnym razie domyślne zachowanie wiązania modelu ustawia parametry domyślne wartości w zależności od ich typu:
 
-* `T[]`: Z wyjątkiem produktów tablic typu `byte[]`, powiązanie ustawia parametry typu `T[]` do `Array.Empty<T>()`. Tablice typu `byte[]` są ustawione na `null`.
+* `T[]`: Z wyjątkiem tablic typu `byte[]`, powiązanie ustawia parametry typu `T[]` do `Array.Empty<T>()`. Tablice typu `byte[]` są ustawione na `null`.
 
 * Typy odwołań: Powiązanie tworzy instancję klasy przy użyciu domyślnego konstruktora bez konieczności ustawiania właściwości. Jednak model powiązania zestawów `string` parametry `null`.
 
 * Typy dopuszczające wartości null: Typy dopuszczające wartości zerowe są ustawione na `null`. W powyższym przykładzie modelu powiązania zestawów `id` do `null` , ponieważ jest on typu `int?`.
 
-* Typów wartości: Typy niedopuszczające wartości typu `T` są ustawione na `default(T)`. Na przykład powiązanie modelu spowoduje ustawienie parametru `int id` na 0. Należy wziąć pod uwagę przy użyciu sprawdzania poprawności modelu lub typy dopuszczające wartości null, a nie opierając się na wartości domyślne.
+* Typy wartości: Typy wartości nieprzyjmujące typu `T` są ustawione na `default(T)`. Na przykład powiązanie modelu spowoduje ustawienie parametru `int id` na 0. Należy wziąć pod uwagę przy użyciu sprawdzania poprawności modelu lub typy dopuszczające wartości null, a nie opierając się na wartości domyślne.
 
 Jeśli powiązanie kończy się niepowodzeniem, MVC nie wyrzuca błąd. Należy sprawdzić wszystkie akcje, które akceptuje dane wejściowe użytkownika `ModelState.IsValid` właściwości.
 
@@ -73,9 +73,9 @@ Uwaga: Każdy wpis na kontrolerze `ModelState` właściwość `ModelStateEntry` 
 
 Ponadto istnieją pewne specjalne typy danych, które MVC należy wziąć pod uwagę podczas wiązania modelu:
 
-* `IFormFile`, `IEnumerable<IFormFile>`: Jeden lub więcej plików przekazanych, będące częścią żądania HTTP.
+* `IFormFile`, `IEnumerable<IFormFile>`: Jeden lub więcej przekazanych plików, które są częścią żądania HTTP.
 
-* `CancellationToken`: Służy do anulować działanie w asynchronicznej kontrolerów.
+* `CancellationToken`: Używane, aby anulować działanie w asynchronicznej kontrolerów.
 
 Te typy można powiązać parametry akcji lub właściwości w typie klasy.
 
@@ -87,15 +87,15 @@ MVC zawiera kilka atrybutów, które można użyć do kierowania jego domyślne 
 
 * `[BindRequired]`: Ten atrybut dodaje błąd stanu modelu, jeśli nie można powiązać.
 
-* `[BindNever]`: Zawiera informacje dla integratora modelu, który nigdy nie można powiązać ten parametr.
+* `[BindNever]`: Informuje obiekt wiążący modelu nigdy nie można powiązać ten parametr.
 
-* `[FromHeader]`, `[FromQuery]`, `[FromRoute]`, `[FromForm]`: Służą do określania źródło wiążące dokładnie, który chcesz zastosować.
+* `[FromHeader]`, `[FromQuery]`, `[FromRoute]`, `[FromForm]`: Służą do określania źródła dokładnie powiązania, które chcesz zastosować.
 
 * `[FromServices]`: Ten atrybut używa [wstrzykiwanie zależności](../../fundamentals/dependency-injection.md) by powiązać parametry z usług.
 
-* `[FromBody]`: Służy elementy formatujące skonfigurowane wiązanie danych z treści żądania. Element formatujący jest zaznaczone, na podstawie typu zawartości żądania.
+* `[FromBody]`: Użyj skonfigurowane elementy formatujące, aby powiązać dane z treści żądania. Element formatujący jest zaznaczone, na podstawie typu zawartości żądania.
 
-* `[ModelBinder]`: Służy do zastępowania domyślnego integratora modelu i źródło powiązania nazwy.
+* `[ModelBinder]`: Służy do zastępowania domyślnego integratora modelu powiązania źródłowego i nazwę.
 
 Atrybuty są bardzo przydatne narzędzia, gdy trzeba zastąpić domyślne zachowanie wiązania modelu.
 

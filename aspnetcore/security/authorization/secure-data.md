@@ -6,12 +6,12 @@ ms.author: riande
 ms.date: 12/18/2018
 ms.custom: mvc, seodec18
 uid: security/authorization/secure-data
-ms.openlocfilehash: 9b01aca0cb2b33f5561193ffdce4aa4950485fce
-ms.sourcegitcommit: 8a84ce880b4c40d6694ba6423038f18fc2eb5746
-ms.translationtype: HT
+ms.openlocfilehash: 7013a88aac26426d1f84d1f52e35e319b3764cdb
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60165241"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64900661"
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Tworzenie aplikacji platformy ASP.NET Core przy użyciu danych użytkownika chronionych przez autoryzację
 
@@ -19,7 +19,7 @@ Przez [Rick Anderson](https://twitter.com/RickAndMSFT) i [Audette Jan](https://t
 
 ::: moniker range="<= aspnetcore-1.1"
 
-Zobacz [ta](https://webpifeed.blob.core.windows.net/webpifeed/Partners/asp.net_repo_pdf_1-16-18.pdf) dla wersji platformy ASP.NET Core MVC. Wersja platformy ASP.NET Core 1.1 po ukończeniu tego samouczka jest [to](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data) folderu. 1.1, na przykład platforma ASP.NET Core jest w [przykłady](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/final2).
+Zobacz [ta](https://webpifeed.blob.core.windows.net/webpifeed/Partners/asp.net_repo_pdf_1-16-18.pdf) dla wersji platformy ASP.NET Core MVC. Wersja platformy ASP.NET Core 1.1 po ukończeniu tego samouczka jest [to](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data) folderu. 1.1, na przykład platforma ASP.NET Core jest w [przykłady](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/final2).
 
 ::: moniker-end
 
@@ -89,11 +89,11 @@ W programie ASP.NET Core 2.1 `User.IsInRole` zakończy się niepowodzeniem w prz
 
 ## <a name="the-starter-and-completed-app"></a>Starter i ukończonej aplikacji
 
-[Pobierz](xref:index#how-to-download-a-sample) [ukończone](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/samples) aplikacji. [Test](#test-the-completed-app) ukończonej aplikacji, dzięki czemu można zapoznać się z jej funkcjami zabezpieczeń.
+[Pobierz](xref:index#how-to-download-a-sample) [ukończone](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples) aplikacji. [Test](#test-the-completed-app) ukończonej aplikacji, dzięki czemu można zapoznać się z jej funkcjami zabezpieczeń.
 
 ### <a name="the-starter-app"></a>Aplikację startową
 
-[Pobierz](xref:index#how-to-download-a-sample) [starter](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter2) aplikacji.
+[Pobierz](xref:index#how-to-download-a-sample) [starter](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter2) aplikacji.
 
 Uruchom aplikację, naciśnij przycisk **ContactManager** link i sprawdź, tworzenie, edytowanie i usuwanie kontaktu.
 
@@ -275,7 +275,7 @@ Aktualizowanie modelu strony szczegółów:
 
 ## <a name="add-or-remove-a-user-to-a-role"></a>Dodawanie lub usuwanie użytkownika do roli
 
-Zobacz [ten problem](https://github.com/aspnet/Docs/issues/8502) uzyskać informacji na temat:
+Zobacz [ten problem](https://github.com/aspnet/AspNetCore.Docs/issues/8502) uzyskać informacji na temat:
 
 * Usuwanie uprawnień z użytkownikiem. Na przykład wyciszanie użytkownika w aplikacji do rozmów.
 * Dodawanie uprawnień dla użytkownika.
@@ -346,7 +346,7 @@ Utwórz kontakt w przeglądarce administratora. Skopiuj adres URL do usunięcia,
 
 ### <a name="seed-the-database"></a>Inicjowanie bazy danych
 
-Dodaj [SeedData](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter2.1/Data/SeedData.cs) klasy *danych* folderu.
+Dodaj [SeedData](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter2.1/Data/SeedData.cs) klasy *danych* folderu.
 
 Wywołaj `SeedData.Initialize` z `Main`:
 

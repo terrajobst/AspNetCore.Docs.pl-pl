@@ -1,11 +1,3 @@
----
-ms.openlocfilehash: 7fb5e956264f3cc7c04c4023ce69a058e5d0c0ed
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
-ms.translationtype: MT
-ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58265365"
----
 <a name="scaffold"></a>
 
 ### <a name="scaffold-the-movie-model"></a>Tworzenie szkieletu modelu Movie

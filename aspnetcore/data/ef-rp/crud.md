@@ -5,18 +5,14 @@ description: Pokazuje, jak tworzyć, odczytywać, aktualizować, usuwać z progr
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/crud
-ms.openlocfilehash: c104498a4411ac36672ffbb9660948d4e96bf1ee
-ms.sourcegitcommit: a467828b5e4eaae291d961ffe2279a571900de23
+ms.openlocfilehash: 43d133c61c0387ebcb4bcb2d22c800588d8534c3
+ms.sourcegitcommit: 3376f224b47a89acf329b2d2f9260046a372f924
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58142391"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65516921"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---crud---2-of-8"></a>Strony razor z programem EF Core w programie ASP.NET Core — CRUD - 2, 8
-
-[!INCLUDE[2.0 version](~/includes/RP-EF/20-pdf.md)]
-
-::: moniker range=">= aspnetcore-2.1"
 
 Przez [Tom Dykstra](https://github.com/tdykstra), [Jan Kowalski P](https://twitter.com/thereformedprog), i [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -161,7 +157,7 @@ Poniższy kod używa `StudentVM` model widoku, aby utworzyć nowego studenta:
 
 [SetValues](/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyvalues.setvalues#Microsoft_EntityFrameworkCore_ChangeTracking_PropertyValues_SetValues_System_Object_) metody ustawia wartości tego obiektu, odczytując wartości z innej [PropertyValues](/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyvalues) obiektu. `SetValues` używa Dopasowywanie nazw właściwości. Typ modelu widoku nie musi być powiązany typ modelu, po prostu musi ona mieć właściwości, które odpowiadają.
 
-Za pomocą `StudentVM` wymaga [CreateVM.cshtml](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu21/Pages/Students/CreateVM.cshtml) zaktualizowana w celu używania `StudentVM` zamiast `Student`.
+Za pomocą `StudentVM` wymaga [CreateVM.cshtml](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu21/Pages/Students/CreateVM.cshtml) zaktualizowana w celu używania `StudentVM` zamiast `Student`.
 
 W przypadku stron Razor `PageModel` klasy pochodnej jest model widoku.
 
@@ -246,7 +242,7 @@ Sprawdź stronę Razor zawiera poprawny `@page` dyrektywy. Na przykład strony R
 
 Musi zawierać każdej strony Razor `@page` dyrektywy.
 
-::: moniker-end
+
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

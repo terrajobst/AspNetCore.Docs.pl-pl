@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 02/11/2019
 uid: security/authentication/identity-configuration
 ms.openlocfilehash: 823182bed2cb953e07f9374d135868aeb2be9c60
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58210122"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64898801"
 ---
 # <a name="configure-aspnet-core-identity"></a>Konfigurowanie tożsamości platformy ASP.NET Core
 
@@ -104,7 +104,7 @@ Domyślnie tożsamości wymaga haseł zawierających wielkiej litery, małej lit
 
 ::: moniker-end
 
-### <a name="sign-in"></a>Zaloguj się
+### <a name="sign-in"></a>Logowanie
 
 Poniższy kod ustawia `SignIn` ustawień (wartości domyślne):
 

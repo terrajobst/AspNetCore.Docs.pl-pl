@@ -6,4 +6,4 @@ Klasy modeli, które możesz utworzyć są znane jako klasy POCO (od "old zwykł
 
 W tym samouczku pisania klasy modeli i programem EF Core tworzy bazę danych. Alternatywnym podejściu, nieuwzględnione w tym miejscu jest [wygenerowane klasy modelu z istniejącej bazy danych](/ef/core/get-started/aspnetcore/existing-db).
 
-[Wyświetlanie lub pobieranie](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie) próbki.
+[Wyświetlanie lub pobieranie](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie) próbki.

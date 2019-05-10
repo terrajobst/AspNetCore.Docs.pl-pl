@@ -1,11 +1,3 @@
----
-ms.openlocfilehash: 98a03118954baa85b093a0514e1ac6f0fb6353e8
-ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
-ms.translationtype: MT
-ms.contentlocale: pl-PL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58320111"
----
 # <a name="contribute-to-the-aspnet-core-documentation"></a>Współtworzenie dokumentacji platformy ASP.NET Core
 
 W tym dokumencie opisano proces współtworzenia artykułów i przykłady kodu, które są hostowane na [witrynie dokumentacji platformy ASP.NET](https://docs.microsoft.com/aspnet/). Błąd pisowni poprawki i nowe artykuły są powitalnej wkładów.

@@ -5,14 +5,14 @@ description: Dowiedz się, jak wywoływać funkcje języka JavaScript z .NET i .
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/19/2019
+ms.date: 04/25/2019
 uid: blazor/javascript-interop
-ms.openlocfilehash: bed1e3d33de5e8fb2d246b066803cdc95d6731ef
-ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
+ms.openlocfilehash: f249d96d310c3d28b56e4920adda145ba07b34ee
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59982667"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64898654"
 ---
 # <a name="blazor-javascript-interop"></a>Blazor JavaScript interop
 
@@ -36,17 +36,7 @@ Poniższy przykład jest oparty na [TextDecoder](https://developer.mozilla.org/d
 
 Wewnątrz `<head>` elementu *wwwroot/index.html*, zapewnia funkcję, która używa `TextDecoder` zdekodować tablicy przekazany:
 
-```html
-<script>
-  window.ConvertArray = (win1251Array) => {
-    var win1251decoder = new TextDecoder('windows-1251');
-    var bytes = new Uint8Array(win1251Array);
-    var decodedArray = win1251decoder.decode(bytes);
-    console.log(decodedArray);
-    return decodedArray;
-  };
-</script>
-```
+[!code-html[](javascript-interop/samples_snapshot/index-script.html)]
 
 Kod JavaScript, taki jak kod przedstawiony w poprzednim przykładzie, można również załadować z pliku JavaScript (*js*) za pomocą odwołania do pliku skryptu w *wwwroot/index.html* pliku:
 
@@ -59,99 +49,23 @@ Następujących składników:
 * Wywołuje `ConvertArray` funkcję języka JavaScript za pomocą `JsRuntime` przycisku składnika (**konwersji tablicy**) jest zaznaczona.
 * Po wywołaniu funkcji JavaScript przekazana tablica jest konwertowana na ciąg. Ten ciąg jest zwracany do składnika do wyświetlenia.
 
-```cshtml
-@page "/"
-@inject IJSRuntime JsRuntime;
-
-<h1>Call JavaScript Function Example</h1>
-
-<button type="button" class="btn btn-primary" onclick="@ConvertArray">
-    Convert Array
-</button>
-
-<p class="mt-2" style="font-size:1.6em">
-    <span class="badge badge-success">
-        @ConvertedText
-    </span>
-</p>
-
-@functions {
-    // Quote (c)2005 Universal Pictures: Serenity
-    // https://www.uphe.com/movies/serenity
-    // David Krumholtz on IMDB: https://www.imdb.com/name/nm0472710/
-
-    private MarkupString ConvertedText =
-        new MarkupString("Select the <b>Convert Array</b> button.");
-
-    private uint[] QuoteArray = new uint[]
-        {
-            60, 101, 109, 62, 67, 97, 110, 39, 116, 32, 115, 116, 111, 112, 32,
-            116, 104, 101, 32, 115, 105, 103, 110, 97, 108, 44, 32, 77, 97,
-            108, 46, 60, 47, 101, 109, 62, 32, 45, 32, 77, 114, 46, 32, 85, 110,
-            105, 118, 101, 114, 115, 101, 10, 10,
-        };
-
-    private async void ConvertArray()
-    {
-        var text =
-            await JsRuntime.InvokeAsync<string>("ConvertArray", QuoteArray);
-
-        ConvertedText = new MarkupString(text);
-
-        StateHasChanged();
-    }
-}
-```
+[!code-cshtml[](javascript-interop/samples_snapshot/call-js-example.razor?highlight=2,34-35)]
 
 Aby użyć `IJSRuntime` abstrakcji, przyjmuje żadnego z następujących metod:
 
-* Wstrzykiwanie `IJSRuntime` abstrakcji w pliku Razor (*.razor*):
+* Wstrzykiwanie `IJSRuntime` abstrakcji do składnika Razor (*.razor*):
 
-  ```cshtml
-  @inject IJSRuntime JSRuntime
-
-  @functions {
-      public override void OnInit()
-      {
-          StocksService.OnStockTickerUpdated += stockUpdate =>
-          {
-              JSRuntime.InvokeAsync<object>(
-                  "handleTickerChanged",
-                  stockUpdate.symbol,
-                  stockUpdate.price);
-          };
-      }
-  }
-  ```
+  [!code-cshtml[](javascript-interop/samples_snapshot/inject-abstraction.razor?highlight=1)]
 
 * Wstrzykiwanie `IJSRuntime` abstrakcji do klasy (*.cs*):
 
-  ```csharp
-  public class JsInteropClasses
-  {
-      private readonly IJSRuntime _jsRuntime;
+  [!code-csharp[](javascript-interop/samples_snapshot/inject-abstraction-class.cs?highlight=5)]
 
-      public JsInteropClasses(IJSRuntime jsRuntime)
-      {
-          _jsRuntime = jsRuntime;
-      }
-
-      public Task<string> TickerChanged(string data)
-      {
-          // The handleTickerChanged JavaScript method is implemented
-          // in a JavaScript file, such as 'wwwroot/tickerJsInterop.js'.
-          return _jsRuntime.InvokeAsync<object>(
-              "handleTickerChanged",
-              stockUpdate.symbol,
-              stockUpdate.price);
-      }
-  }
-  ```
-
-* Dla dynamicznego generowania zawartości za pomocą `BuildRenderTree`, użyj `[Inject]` atrybutu:
+* Dla dynamicznego generowania zawartości za pomocą [BuildRenderTree](xref:blazor/components#manual-rendertreebuilder-logic), użyj `[Inject]` atrybutu:
 
   ```csharp
-  [Inject] IJSRuntime JSRuntime { get; set; }
+  [Inject]
+  IJSRuntime JSRuntime { get; set; }
   ```
 
 W aplikacji przykładowej po stronie klienta, znajdująca się w tym temacie dwie funkcje języka JavaScript są dostępne dla aplikacji po stronie klienta, który wchodzić w interakcje z modelu DOM do odbierania danych wejściowych użytkownika i wyświetlania komunikatu powitalnego:
@@ -195,9 +109,12 @@ Przykładowa aplikacja zawiera składnik do zademonstrowania międzyoperacyjnego
 
 Niektóre [międzyoperacyjnego JavaScript](xref:blazor/javascript-interop) scenariusze wymagają odwołania do elementów HTML. Na przykład biblioteka interfejsów użytkownika może wymagać odwołanie do elementu inicjowania lub może być konieczne wywołania interfejsów API jak polecenie elementu, takie jak `focus` lub `play`.
 
-Odwołania do elementów HTML w składniku można przechwycić poprzez dodanie `ref` atrybutu do elementu HTML, a następnie zdefiniowanie pola typu `ElementRef` którego nazwa odpowiada wartości `ref` atrybutu.
+Istnieje możliwość przechwytywania odwołania do elementów HTML w składniku przy użyciu następujących podejść:
 
-Poniższy przykład pokazuje, przechwytywanie odwołanie do elementu wprowadzania nazwy użytkownika:
+* Dodaj `ref` atrybutu do elementu HTML.
+* Definiowanie pola typu `ElementRef` którego nazwa odpowiada wartości `ref` atrybutu.
+
+W poniższym przykładzie pokazano przechwytywania odwołania do `username` `<input>` elementu:
 
 ```cshtml
 <input ref="username" ...>
@@ -249,9 +166,9 @@ Metoda jest wywoływana bezpośrednio na obiekcie. W poniższym przykładzie za�
 
 ### <a name="static-net-method-call"></a>Statyczne wywołanie metody .NET
 
-Aby wywołać metodę statyczną .NET poziomu języka JavaScript, należy użyć `DotNet.invokeMethod` lub `DotNet.invokeMethodAsync` funkcji. Przekaż identyfikator statyczna metoda, którą chcesz wywołać, nazwa zestawu zawierającego funkcję i żadnych argumentów. Wersja asynchroniczna jest preferowane w scenariuszach, po stronie serwera. Jako element wywoływalny poziomu języka JavaScript, metoda .NET musi być publiczne, statycznych i dekorowane za pomocą `[JSInvokable]`. Domyślnie identyfikator metody jest nazwa metody, ale można określić przy użyciu innego identyfikatora `JSInvokableAttribute` konstruktora. Wywoływanie metod ogólnych open nie jest obecnie obsługiwane.
+Aby wywołać metodę statyczną .NET poziomu języka JavaScript, należy użyć `DotNet.invokeMethod` lub `DotNet.invokeMethodAsync` funkcji. Przekaż identyfikator statyczna metoda, którą chcesz wywołać, nazwa zestawu zawierającego funkcję i żadnych argumentów. Wersja asynchroniczna jest preferowane w scenariuszach, po stronie serwera. Aby wywołać metodę .NET poziomu języka JavaScript, metoda .NET muszą być publiczne, statyczne i `[JSInvokable]` atrybutu. Domyślnie identyfikator metody jest nazwa metody, ale można określić przy użyciu innego identyfikatora `JSInvokableAttribute` konstruktora. Wywoływanie metod ogólnych open nie jest obecnie obsługiwane.
 
-Przykładowa aplikacja zawiera C# metodę, aby zwrócić tablicę `int`s. Metoda zostanie nadany `JSInvokable` atrybutu.
+Przykładowa aplikacja zawiera C# metodę, aby zwrócić tablicę `int`s. `JSInvokable` Atrybut jest stosowany do metody.
 
 *Pages/JsInterop.razor*:
 
@@ -275,7 +192,10 @@ Czwarta wartość tablicy są wypychane do tablicy (`data.push(4);`) zwróciło 
 
 ### <a name="instance-method-call"></a>Wywołanie metody wystąpienia
 
-Można również wywołać metody wystąpienia .NET poziomu języka JavaScript. Aby wywołać metodę wystąpienia .NET poziomu języka JavaScript, najpierw przejść wystąpienia platformy .NET w kodzie JavaScript opakowując go w `DotNetObjectRef` wystąpienia. Wystąpienie platformy .NET jest przekazywany przez odwołanie w kodzie JavaScript i można wywołać metody wystąpienia platformy .NET przy użyciu wystąpienia `invokeMethod` lub `invokeMethodAsync` funkcji. Wystąpienie programu .NET może być przekazywany jako argument, podczas wywoływania innych metod .NET poziomu języka JavaScript.
+Można również wywołać metody wystąpienia .NET poziomu języka JavaScript. Aby wywołać metodę wystąpienia .NET poziomu języka JavaScript:
+
+* Przekaż wystąpienie platformy .NET w kodzie JavaScript, opakowując go w `DotNetObjectRef` wystąpienia. Wystąpienie platformy .NET jest przekazywany przez odwołanie w kodzie JavaScript.
+* Wywoływanie metod wystąpienia platformy .NET przy użyciu wystąpienia `invokeMethod` lub `invokeMethodAsync` funkcji. Wystąpienie programu .NET może być przekazywany jako argument, podczas wywoływania innych metod .NET poziomu języka JavaScript.
 
 > [!NOTE]
 > Przykładowa aplikacja rejestruje komunikaty w konsoli po stronie klienta. W poniższych przykładach pokazano przez aplikację przykładową Sprawdź dane wyjściowe konsoli w przeglądarce w narzędzia dla deweloperów w przeglądarce.
@@ -308,11 +228,11 @@ Konsola danych wyjściowych w narzędzia dla deweloperów sieci web w przegląda
 Hello, Blazor!
 ```
 
-## <a name="share-interop-code-in-a-blazor-class-library"></a>Kód Interop SE udziału w bibliotece klas Blazor
+## <a name="share-interop-code-in-a-class-library"></a>Kód Interop SE udziału w bibliotece klas
 
-Kód Interop SE JavaScript może obejmować w bibliotece klas Blazor (`dotnet new blazorlib`), co pozwala na udostępnianie kodu w pakiecie NuGet.
+Kód Interop SE JavaScript mogą być dołączane w bibliotece klas, co pozwala na udostępnianie kodu w pakiecie NuGet.
 
-Biblioteka klas Blazor obsługuje osadzanie zasobów JavaScript skompilowany zestaw. Pliki JavaScript są umieszczane w *wwwroot* folderu. Osadzanie zasobów podczas kompilowania biblioteki zajmuje się narzędzi.
+Biblioteka klas obsługuje osadzanie zasobów JavaScript skompilowany zestaw. Pliki JavaScript są umieszczane w *wwwroot* folderu. Osadzanie zasobów podczas kompilowania biblioteki zajmuje się narzędzi.
 
 Skompilowany pakiet NuGet odwołuje się do pliku projektu aplikacji, tak samo, jak odwołuje się do dowolnego normalnego pakietu NuGet. Po przywróceniu aplikacji kod aplikacji może wywołać na język JavaScript, tak jakby C#.
 

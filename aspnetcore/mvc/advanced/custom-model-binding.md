@@ -5,12 +5,12 @@ description: Dowiedz się, jak wiązanie modelu umożliwia akcji kontrolera do p
 ms.author: riande
 ms.date: 11/13/2018
 uid: mvc/advanced/custom-model-binding
-ms.openlocfilehash: 33551c9fc22561b992b4a09a4c7187ade136c09c
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: 3623a29976a2e2a7b1bdb22d35716b8a3b448958
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410248"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64903355"
 ---
 # <a name="custom-model-binding-in-aspnet-core"></a>Niestandardowe wiązanie modelu w programie ASP.NET Core
 
@@ -18,7 +18,7 @@ Przez [Steve Smith](https://ardalis.com/)
 
 Wiązanie modelu umożliwia akcji kontrolera pracować bezpośrednio z modelu typów (przekazanej jako argumenty tej metody), zamiast niż żądania HTTP. Mapowanie między przychodzących modeli danych i aplikacji żądanie jest obsługiwane przez integratorów modelu. Deweloperzy mogą rozszerzać funkcję wiązania modelu wbudowanych, implementując integratorów modelu niestandardowego (choć zazwyczaj nie trzeba zapisać własnego dostawcę).
 
-[Wyświetlanie lub pobieranie przykładowy z serwisu GitHub](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/custom-model-binding/)
+[Wyświetlanie lub pobieranie przykładowy z serwisu GitHub](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/custom-model-binding/)
 
 ## <a name="default-model-binder-limitations"></a>Domyślne ograniczenia integratora modelu
 
@@ -40,7 +40,7 @@ Niewielki fragment ciągu zakodowanego pokazano na poniższej ilustracji:
 
 ![bot DotNet zakodowane](custom-model-binding/images/encoded-bot.png "bot dotnet zakodowany")
 
-Postępuj zgodnie z instrukcjami w [README w próbce](https://github.com/aspnet/Docs/blob/master/aspnetcore/mvc/advanced/custom-model-binding/sample/CustomModelBindingSample/README.md) można przekonwertować ciągu zakodowanego algorytmem base64.
+Postępuj zgodnie z instrukcjami w [README w próbce](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/advanced/custom-model-binding/sample/CustomModelBindingSample/README.md) można przekonwertować ciągu zakodowanego algorytmem base64.
 
 ASP.NET Core MVC wykonać ciąg kodowany w formacie base64 i użyj `ByteArrayModelBinder` Aby przekonwertować go na tablicę bajtów. [ByteArrayModelBinderProvider](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.binders.bytearraymodelbinderprovider) który implementuje [IModelBinderProvider](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.imodelbinderprovider) mapuje `byte[]` argumenty `ByteArrayModelBinder`:
 

@@ -5,14 +5,14 @@ description: Informacje o sposobie konfigurowania aplikacji ASP.NET Core SignalR
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 02/07/2019
+ms.date: 04/15/2019
 uid: signalr/configuration
-ms.openlocfilehash: 2c1bb8d5e317813d1fdb8d474b7d7d892e6f67ec
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: 703357fd52805e01515e5bac3b1a364ce7fe00f0
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264574"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65087651"
 ---
 # <a name="aspnet-core-signalr-configuration"></a>Konfiguracja Core SignalR platformy ASP.NET
 
@@ -167,6 +167,31 @@ let connection = new signalR.HubConnectionBuilder()
     .configureLogging(signalR.LogLevel.Information)
     .build();
 ```
+
+::: moniker range=">= aspnetcore-3.0"
+
+Zamiast `LogLevel` wartości, można też podać `string` reprezentującą nazwę poziomu dziennika. Jest to przydatne podczas konfigurowania SignalR rejestrowania w środowiskach, w których nie mają dostępu do `LogLevel` stałe.
+
+```javascript
+let connection = new signalR.HubConnectionBuilder()
+    .withUrl("/myhub")
+    .configureLogging("warn")
+    .build();
+```
+
+W poniższej tabeli wymieniono poziomy dziennika dostępne. Wartość do `configureLogging` ustawia **minimalne** dziennika poziomu, które będą rejestrowane. Komunikaty zarejestrowane na tym poziomie **lub poziomy wymienione po nim w tabeli**, zostaną zarejestrowane.
+
+| string | LogLevel |
+| - | - |
+| `"trace"` | `LogLevel.Trace` |
+| `"debug"` | `LogLevel.Debug` |
+| `"info"` **lub** `"information"` | `LogLevel.Information` |
+| `"warn"` **lub** `"warning"` | `LogLevel.Warning` |
+| `"error"` | `LogLevel.Error` |
+| `"critical"` | `LogLevel.Critical` |
+| `"none"` | `LogLevel.None` |
+
+::: moniker-end
 
 > [!NOTE]
 > Aby wyłączyć rejestrowanie w całości, należy określić `signalR.LogLevel.None` w `configureLogging` metody.

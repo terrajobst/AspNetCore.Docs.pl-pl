@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 04/09/2019
 uid: host-and-deploy/docker/building-net-docker-images
-ms.openlocfilehash: e2673e64e18f942515f17982ab374a23392eb473
-ms.sourcegitcommit: 8a84ce880b4c40d6694ba6423038f18fc2eb5746
-ms.translationtype: HT
+ms.openlocfilehash: 48fc53a4c2139960c0f696af5732ff68fc6c4b8a
+ms.sourcegitcommit: a3926eae3f687013027a2828830c12a89add701f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60165108"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65451011"
 ---
 # <a name="docker-images-for-aspnet-core"></a>Obrazy platformy docker dla platformy ASP.NET Core
 
@@ -54,7 +54,7 @@ Przykładowy plik Dockerfile używa [wieloetapowych platformy Docker, tworzenie 
   * [macOS](https://docs.docker.com/docker-for-mac/install/)
   * [Windows](https://docs.docker.com/docker-for-windows/install/)
 
-* [git](https://git-scm.com/download)
+* [Usługa Git](https://git-scm.com/download)
 
 ## <a name="download-the-sample-app"></a>Pobierz przykładową aplikację
 
@@ -211,7 +211,7 @@ W ramach tego samouczka możesz:
 > * Uruchom aplikację przykładową, za pomocą w kontenerach Windows
 > * Utworzeniu i wdrożeniu ręcznie
 
-Następnie Dowiedz się więcej o narzędziach, których program Visual Studio zawiera do pracy z platformą Docker.
+Repozytorium Git, który zawiera Przykładowa aplikacja umożliwia także dokumentacji. Aby uzyskać omówienie dostępnych zasobów w repozytorium, zobacz [pliku README](https://github.com/dotnet/dotnet-docker/blob/master/samples/aspnetapp/README.md). W szczególności Dowiedz się, jak zaimplementować protokół HTTPS:
 
 > [!div class="nextstepaction"]
-> <xref:host-and-deploy/docker/visual-studio-tools-for-docker>
+> [Tworzenie aplikacji platformy ASP.NET Core za pomocą platformy Docker przy użyciu protokołu HTTPS](https://github.com/dotnet/dotnet-docker/blob/master/samples/aspnetapp/aspnetcore-docker-https-development.md)

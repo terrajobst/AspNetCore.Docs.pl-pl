@@ -5,14 +5,14 @@ description: Dowiedz się, jak skonfigurować kontrole kondycji infrastruktury p
 monikerRange: '>= aspnetcore-2.2'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/11/2019
+ms.date: 04/23/2019
 uid: host-and-deploy/health-checks
-ms.openlocfilehash: 0bb80a5fccc8240c6f1fb8e59b379766bfd90d9e
-ms.sourcegitcommit: 687ffb15ebe65379f75c84739ea851d5a0d788b7
+ms.openlocfilehash: 5119267a8da5c950989b14b7c2e818aa22806506
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58488718"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64901129"
 ---
 # <a name="health-checks-in-aspnet-core"></a>Kontroli kondycji w programie ASP.NET Core
 
@@ -26,7 +26,7 @@ Kontrole kondycji są udostępniane przez aplikację jako punktów końcowych HT
 * Można monitorować użycie pamięci, dysku i inne zasoby serwera fizycznego do stanu dobrej kondycji.
 * Kontrole kondycji można przetestować zależności aplikacji, takich jak bazy danych i punktów końcowych usługi zewnętrznej, aby upewnić się, dostępność i normalnego funkcjonowania.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/health-checks/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/health-checks/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 Przykładowa aplikacja zawiera przykładowe scenariusze opisane w tym temacie. Aby uruchomić przykładową aplikację w danej sytuacji, należy użyć [dotnet, uruchom](/dotnet/core/tools/dotnet-run) polecenia z folderu projektu w powłoce poleceń. Zobacz przykładową aplikację *README.md* plików i opisy scenariuszy, w tym temacie, aby uzyskać szczegółowe informacje na temat korzystania z przykładowej aplikacji.
 
@@ -36,7 +36,7 @@ Kontrole kondycji są zwykle używane z zewnętrznego monitorowania usługi lub 
 
 Odwołanie [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) lub Dodaj odwołanie do pakietu [Microsoft.AspNetCore.Diagnostics.HealthChecks](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics.HealthChecks) pakietu.
 
-Przykładowa aplikacja zawiera kod uruchamiający wykazanie, że kontrole kondycji dla kilku scenariuszy. [Sondowanie bazy danych](#database-probe) scenariusz sprawdza kondycję połączenia bazy danych przy użyciu [BeatPulse](https://github.com/Xabaril/BeatPulse). [Sondy DbContext](#entity-framework-core-dbcontext-probe) scenariusz sprawdza bazę danych przy użyciu programu EF Core `DbContext`. Aby zapoznać się w scenariuszach bazy danych dla przykładowej aplikacji:
+Przykładowa aplikacja zawiera kod uruchamiający wykazanie, że kontrole kondycji dla kilku scenariuszy. [Sondowanie bazy danych](#database-probe) scenariusz sprawdza kondycję połączenia bazy danych przy użyciu [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks). [Sondy DbContext](#entity-framework-core-dbcontext-probe) scenariusz sprawdza bazę danych przy użyciu programu EF Core `DbContext`. Aby zapoznać się w scenariuszach bazy danych dla przykładowej aplikacji:
 
 * Tworzy bazę danych i zapewnia jego parametry połączenia w *appsettings.json* pliku.
 * Ma następujące odwołania do pakietu w pliku projektu:
@@ -44,7 +44,7 @@ Przykładowa aplikacja zawiera kod uruchamiający wykazanie, że kontrole kondyc
   * [Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore](https://www.nuget.org/packages/Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore/)
 
 > [!NOTE]
-> [BeatPulse](https://github.com/Xabaril/BeatPulse) nie jest obsługiwany lub obsługiwane przez firmę Microsoft.
+> [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) jest port [BeatPulse](https://github.com/xabaril/beatpulse) i nie jest obsługiwany lub obsługiwane przez firmę Microsoft.
 
 Inny scenariusz sprawdzania kondycji pokazuje sposób filtrowania kontrole kondycji do portu zarządzania. Przykładowa aplikacja wymaga utworzenia *Properties/launchSettings.json* pliku, który zawiera adres URL zarządzania i port zarządzania. Aby uzyskać więcej informacji, zobacz [filtru według portów](#filter-by-port) sekcji.
 
@@ -286,18 +286,18 @@ private static Task WriteResponse(HttpContext httpContext,
 
 Sprawdzenie kondycji, można określić zapytanie bazy danych, aby był uruchamiany jako testu logicznego, aby wskazać, czy baza danych odpowiada normalnie.
 
-Ta aplikacja używa przykładowych [BeatPulse](https://github.com/Xabaril/BeatPulse), biblioteka sprawdzania kondycji dla aplikacji platformy ASP.NET Core, można sprawdzić kondycji bazy danych programu SQL Server. Wykonuje BeatPulse `SELECT 1` zapytania względem bazy danych, aby upewnić się, połączenie z bazą danych jest w dobrej kondycji.
+Ta aplikacja używa przykładowych [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks), biblioteka sprawdzania kondycji dla aplikacji platformy ASP.NET Core, można sprawdzić kondycji bazy danych programu SQL Server. `AspNetCore.Diagnostics.HealthChecks` wykonuje `SELECT 1` zapytania względem bazy danych, aby upewnić się, połączenie z bazą danych jest w dobrej kondycji.
 
 > [!WARNING]
 > Podczas sprawdzania połączenia z bazą danych przy użyciu zapytania, wybierz zapytanie zwracające szybko. Podejście zapytania jest zagrożona przeciążenia bazy danych i zmniejszenie jego wydajności. W większości przypadków Uruchamianie zapytania testu nie jest konieczne. Wystarczy jedynie wprowadzania udane połączenie z bazą danych. Jeśli możesz znaleźć niezbędne do uruchamiania kwerendy, wybierz prostego zapytania typu SELECT, taki jak `SELECT 1`.
 
-Aby można było używać biblioteki BeatPulse, zawierają odwołania do pakietu do [AspNetCore.HealthChecks.SqlServer](https://www.nuget.org/packages/AspNetCore.HealthChecks.SqlServer/).
+Odwołanie do pakietu [AspNetCore.HealthChecks.SqlServer](https://www.nuget.org/packages/AspNetCore.HealthChecks.SqlServer/).
 
 Podaj prawidłową bazą danych parametry połączenia w *appsettings.json* pliku przykładowej aplikacji. Aplikacja korzysta z bazy danych programu SQL Server o nazwie `HealthCheckSample`:
 
 [!code-json[](health-checks/samples/2.x/HealthChecksSample/appsettings.json?highlight=3)]
 
-Rejestrowanie usługi sprawdzania kondycji z <xref:Microsoft.Extensions.DependencyInjection.HealthCheckServiceCollectionExtensions.AddHealthChecks*> w `Startup.ConfigureServices`. Przykładowa aplikacja wywołuje firmy BeatPulse `AddSqlServer` metody przy użyciu parametrów połączenia bazy danych (*DbHealthStartup.cs*):
+Rejestrowanie usługi sprawdzania kondycji z <xref:Microsoft.Extensions.DependencyInjection.HealthCheckServiceCollectionExtensions.AddHealthChecks*> w `Startup.ConfigureServices`. Wywołania aplikacji przykładowej `AddSqlServer` metody przy użyciu parametrów połączenia bazy danych (*DbHealthStartup.cs*):
 
 [!code-csharp[](health-checks/samples/2.x/HealthChecksSample/DbHealthStartup.cs?name=snippet_ConfigureServices)]
 
@@ -312,7 +312,7 @@ dotnet run --scenario db
 ```
 
 > [!NOTE]
-> [BeatPulse](https://github.com/Xabaril/BeatPulse) nie jest obsługiwany lub obsługiwane przez firmę Microsoft.
+> [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) jest port [BeatPulse](https://github.com/xabaril/beatpulse) i nie jest obsługiwany lub obsługiwane przez firmę Microsoft.
 
 ## <a name="entity-framework-core-dbcontext-probe"></a>Entity Framework Core DbContext sondy
 
@@ -469,9 +469,9 @@ dotnet run --scenario writer
 ```
 
 > [!NOTE]
-> [BeatPulse](https://github.com/Xabaril/BeatPulse) obejmuje opartą na metryce kondycji sprawdzenie scenariuszy, w tym dysku magazynu i maksymalną wartość żywotności kontroli.
+> [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) obejmuje opartą na metryce kondycji sprawdzenie scenariuszy, w tym dysku magazynu i maksymalną wartość żywotności kontroli.
 >
-> [BeatPulse](https://github.com/Xabaril/BeatPulse) nie jest obsługiwany lub obsługiwane przez firmę Microsoft.
+> [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) jest port [BeatPulse](https://github.com/xabaril/beatpulse) i nie jest obsługiwany lub obsługiwane przez firmę Microsoft.
 
 ## <a name="filter-by-port"></a>Filtruj według portów
 
@@ -681,6 +681,6 @@ Przykładowa aplikacja `LivenessProbeStartup` przykład `StartupHostedService` s
 ::: moniker-end
 
 > [!NOTE]
-> [BeatPulse](https://github.com/Xabaril/BeatPulse) obejmuje wydawcy dla kilku systemów, w tym [usługi Application Insights](/azure/application-insights/app-insights-overview).
+> [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) obejmuje wydawcy dla kilku systemów, w tym [usługi Application Insights](/azure/application-insights/app-insights-overview).
 >
-> [BeatPulse](https://github.com/Xabaril/BeatPulse) nie jest obsługiwany lub obsługiwane przez firmę Microsoft.
+> [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) jest port [BeatPulse](https://github.com/xabaril/beatpulse) i nie jest obsługiwany lub obsługiwane przez firmę Microsoft.

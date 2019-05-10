@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: migration/1x-to-2x/index
-ms.openlocfilehash: f5bd2bc9862a7487658125e14837798886efad11
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: fb6157205ab5280eb982a61e834eea5074864830
+ms.sourcegitcommit: a3926eae3f687013027a2828830c12a89add701f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090533"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65450951"
 ---
 # <a name="migrate-from-aspnet-core-1x-to-20"></a>Migracja z programu ASP.NET Core 1.x do 2.0
 
@@ -41,6 +41,8 @@ Projekty przeznaczone dla .NET Framework, należy użyć elementu TFM wersji wi�
 
 > [!NOTE]
 > .NET core 2.0 oferuje znacznie większy obszar powierzchni niż .NET Core 1.x. Jeśli jest przeznaczony dla .NET Framework, wyłącznie ze względu na Brak interfejsów API na platformie .NET Core 1.x, przeznaczonych dla platformy .NET Core 2.0 jest zwykle działa.
+
+Jeśli plik projektu zawiera `<RuntimeFrameworkVersion>1.{sub-version}</RuntimeFrameworkVersion>`, zobacz [problem w usłudze GitHub](https://github.com/aspnet/AspNetCore/issues/3221#issuecomment-413094268).
 
 <a name="global-json"></a>
 

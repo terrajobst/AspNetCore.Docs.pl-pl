@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 02/21/2019
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: 6ec9b7bf3da0015b8ac3918a4d47644fffc14cdb
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 7ba27b404cd10752ff9e304cd0a272eff7fa627a
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209177"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65087054"
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>Implementacja serwera sieci web HTTP.sys, w programie ASP.NET Core
 
@@ -38,7 +38,7 @@ Obsługiwane wersje Windows:
 * Windows 7 lub nowszy
 * Windows Server 2008 R2 lub nowszy
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/httpsys/sample) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/httpsys/sample) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 ## <a name="when-to-use-httpsys"></a>Kiedy należy używać HTTP.sys
 
@@ -141,7 +141,7 @@ Sterownik HTTP.sys delegatów, aby uwierzytelnianie trybu jądra za pomocą prot
 
 1. Uzyskaj i zainstaluj certyfikaty X.509, jeśli jest to wymagane.
 
-   W Windows, tworzenie certyfikatów z podpisem własnym za pomocą [polecenia cmdlet programu PowerShell New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate). Na przykład nieobsługiwany zobacz [UpdateIISExpressSSLForChrome.ps1](https://github.com/aspnet/Docs/tree/master/aspnetcore/includes/make-x509-cert/UpdateIISExpressSSLForChrome.ps1).
+   W Windows, tworzenie certyfikatów z podpisem własnym za pomocą [polecenia cmdlet programu PowerShell New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate). Na przykład nieobsługiwany zobacz [UpdateIISExpressSSLForChrome.ps1](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/includes/make-x509-cert/UpdateIISExpressSSLForChrome.ps1).
 
    Instalowanie certyfikatów z podpisem własnym albo podpisanych przez urząd certyfikacji na serwerze **komputera lokalnego** > **osobistych** przechowywania.
 

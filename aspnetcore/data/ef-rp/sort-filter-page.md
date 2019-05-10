@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: 162586059e3115bc15efaa63a9a0652e09872f1b
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
-ms.translationtype: MT
+ms.openlocfilehash: 228722ecdc0fb19e024b7154393390fe6d34c5ff
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209968"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64900784"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---sort-filter-paging---3-of-8"></a>Strony razor z programem EF Core w programie ASP.NET Core — sortowanie, filtrowanie, stronicowania - 3, 8
 
@@ -29,7 +29,7 @@ Poniższa ilustracja przedstawia strony ukończone. Nagłówki kolumn odnoszą s
 
 ![Strona indeksu uczniów](sort-filter-page/_static/paging.png)
 
-Jeśli napotkasz problemy, nie można rozwiązać, Pobierz [ukończonej aplikacji](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples).
+Jeśli napotkasz problemy, nie można rozwiązać, Pobierz [ukończonej aplikacji](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples).
 
 ## <a name="add-sorting-to-the-index-page"></a>Dodaj sortowanie do strony indeksu
 
@@ -275,13 +275,13 @@ Zastąp kod w *Pages/About.cshtml* pliku następującym kodem:
 
 Uruchom aplikację i przejdź do strony informacje. Liczba studentów każdej daty rejestracji jest wyświetlany w tabeli.
 
-Jeśli napotkasz problemy, nie można rozwiązać, Pobierz [ukończonej aplikacji dla tego etapu](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part3-sorting).
+Jeśli napotkasz problemy, nie można rozwiązać, Pobierz [ukończonej aplikacji dla tego etapu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part3-sorting).
 
 ![Informacje o stronie](sort-filter-page/_static/about.png)
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Debugowanie ASP.NET Core 2.x źródła](https://github.com/aspnet/Docs/issues/4155)
+* [Debugowanie ASP.NET Core 2.x źródła](https://github.com/aspnet/AspNetCore.Docs/issues/4155)
 * [Wersja usługi YouTube w tym samouczku](https://www.youtube.com/watch?v=MDs7PFpoMqI)
 
 W następnym samouczku aplikacja używa migracji do aktualizacji modelu danych.

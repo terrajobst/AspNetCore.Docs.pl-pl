@@ -7,11 +7,11 @@ ms.custom: mvc
 ms.date: 02/17/2019
 uid: fundamentals/middleware/index
 ms.openlocfilehash: bac121441d6856ca79affe1a3130e5cbc76debd9
-ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57665392"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64901240"
 ---
 # <a name="aspnet-core-middleware"></a>ASP.NET Core Middleware
 
@@ -191,7 +191,7 @@ Konfigurowanie przy użyciu potoku HTTP `Use`, `Run`, i `Map`. `Use` Metoda moż
 
 W poniższej tabeli przedstawiono żądań i odpowiedzi z `http://localhost:1234` przy użyciu poprzedniego kodu.
 
-| Żądanie             | Odpowiedź                     |
+| Request             | Odpowiedź                     |
 | ------------------- | ---------------------------- |
 | localhost:1234      | Pozdrowienia ze-Map delegata. |
 | localhost:1234/map1 | Mapa badania 1                   |
@@ -206,7 +206,7 @@ Gdy `Map` jest używane, ścieżka dopasowane jej ewentualny związek są usuwan
 
 W poniższej tabeli przedstawiono żądań i odpowiedzi z `http://localhost:1234` przy użyciu poprzedniego kodu.
 
-| Żądanie                       | Odpowiedź                     |
+| Request                       | Odpowiedź                     |
 | ----------------------------- | ---------------------------- |
 | localhost:1234                | Pozdrowienia ze-Map delegata. |
 | localhost:1234/?branch=master | Używana gałąź = master         |

@@ -7,12 +7,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 02/04/2019
 uid: signalr/background-services
-ms.openlocfilehash: b359bd7f6b0667aeb8d9c8f5eb450637b1347b19
-ms.sourcegitcommit: e418cb9cddeb3de06fa0cb4fdb5529da03ff6d63
+ms.openlocfilehash: dcd62f0c7056a3f987291b6c8bb8b87f94160865
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55739673"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65087767"
 ---
 # <a name="host-aspnet-core-signalr-in-background-services"></a>Host platformy ASP.NET Core SignalR w usługi w tle
 
@@ -23,7 +23,7 @@ Ten artykuł zawiera wskazówki dotyczące:
 * Hosting centrów SignalR przy użyciu procesu roboczego tła hostowanych za pomocą programu ASP.NET Core.
 * Wysyłanie komunikatów do połączonych klientów z w ramach platformy .NET Core [BackgroundService](xref:Microsoft.Extensions.Hosting.BackgroundService).
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/background-service/sample/) [(jak pobrać)](xref:index#how-to-download-a-sample)
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/background-service/sample/) [(jak pobrać)](xref:index#how-to-download-a-sample)
 
 ## <a name="wire-up-signalr-during-startup"></a>Podłączanie SignalR podczas uruchamiania
 

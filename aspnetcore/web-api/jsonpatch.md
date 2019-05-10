@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 03/24/2019
 uid: web-api/jsonpatch
-ms.openlocfilehash: c5330f778ef202d366db5cdff5345d0db43a5c1b
-ms.sourcegitcommit: 1a7000630e55da90da19b284e1b2f2f13a393d74
+ms.openlocfilehash: 14710e6431a2a7ce60fa7f190bef184da85281a0
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59013215"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64901327"
 ---
 # <a name="jsonpatch-in-aspnet-core-web-api"></a>JsonPatch w interfejsie web API platformy ASP.NET Core
 
@@ -208,7 +208,7 @@ Następującego przykładowego dokumentu poprawki nie obowiązuje, jeśli warto�
 
 ## <a name="get-the-code"></a>Pobierz kod
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/jsonpatch/samples/2.2). ([Sposobu pobierania](xref:index#how-to-download-a-sample)).
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/jsonpatch/samples/2.2). ([Sposobu pobierania](xref:index#how-to-download-a-sample)).
 
 Aby przetestować próbki, należy uruchomić aplikację i wysyłać żądania HTTP z następującymi ustawieniami:
 

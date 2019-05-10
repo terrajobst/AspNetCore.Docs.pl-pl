@@ -1,5 +1,5 @@
 ---
-title: Ochrona danych platformy ASP.NET Core
+title: ASP.NET Core Data Protection
 author: rick-anderson
 description: Informacje na temat koncepcji ochrony danych i zasad dotyczących projektowania interfejsów API do ochrony danych usługi ASP.NET Core.
 ms.author: riande
@@ -7,13 +7,13 @@ ms.custom: mvc
 ms.date: 10/24/2018
 uid: security/data-protection/introduction
 ms.openlocfilehash: 37f170a3e8a46ef2215b0999358d46dd402636df
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50089551"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64903280"
 ---
-# <a name="aspnet-core-data-protection"></a>Ochrona danych platformy ASP.NET Core
+# <a name="aspnet-core-data-protection"></a>ASP.NET Core Data Protection
 
 Aplikacje sieci Web często muszą przechowywać dane dotyczące zabezpieczeń. Windows udostępnia DPAPI dla aplikacji klasycznych, ale to nie nadaje się do aplikacji sieci web. ASP.NET Core ochrony przy użyciu stosu danych zapewniają prosty i łatwy w użyciu cryptographic API Deweloper służy do ochrony danych, w tym zarządzania kluczami i wymiany.
 
@@ -21,7 +21,7 @@ Stos ochrony danych programu ASP.NET Core zaprojektowano w celu służyć jako z
 
 ## <a name="problem-statement"></a>Opis problemu
 
-Instrukcja zasadniczy problem może być krótkiej formie wyrażona w jednym zdaniu: musisz utrwalić zaufane informacje dotyczące pobierania nowsze, ale nie można zaufać mechanizmu stanu trwałego. W warunkach sieci web to mogą być zapisane jako "Potrzebuję obustronne zaufanego stanu za pomocą niezaufanego klienta".
+Instrukcja zasadniczy problem może być krótkiej formie wyrażona w jednym zdaniu: Musisz utrwalić zaufane informacje dotyczące pobierania nowsze, ale nie można zaufać mechanizmu stanu trwałego. W warunkach sieci web to mogą być zapisane jako "Potrzebuję obustronne zaufanego stanu za pomocą niezaufanego klienta".
 
 Przykład canonical jest plik cookie uwierzytelniania lub elementu nośnego tokenu. Serwer generuje "Jestem Groot i mają uprawnienia xyz" token i przekazuje go do klienta. W przyszłości klienta spowoduje wyświetlenie tego tokenu do serwera, ale serwer wymaga pewnego rodzaju zapewnienie, że klient nie zostało sfałszowane tokenu. Dlatego pierwszego zapotrzebowania: autentyczności (zwane) integralność, sprawdzające odporne).
 

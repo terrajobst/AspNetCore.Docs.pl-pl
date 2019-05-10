@@ -5,20 +5,20 @@ description: Dowiedz się, jak kontrolować konsolidatora języka pośredniego (
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/18/2019
+ms.date: 04/24/2019
 uid: host-and-deploy/blazor/configure-linker
-ms.openlocfilehash: 77016b6b1542becb2ccd49f0c0c5ba63da434a6c
-ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
+ms.openlocfilehash: 00676d4311f8955c3c1ef38d31219d62ea9f4a25
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59982617"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64901051"
 ---
 # <a name="configure-the-linker-for-blazor"></a>Konfigurowanie konsolidatora dla Blazor
 
 Przez [Luke Latham](https://github.com/guardrex)
 
-Wykonuje Blazor [języka pośredniego (IL)](/dotnet/standard/managed-code#intermediate-language--execution) łączenia podczas każdej kompilacji tryb wersji usuwanie niepotrzebnych IL aplikacji danych wyjściowych zestawów.
+Wykonuje Blazor [języka pośredniego (IL)](/dotnet/standard/managed-code#intermediate-language--execution) łączenia podczas kompilacji wydania, aby usunąć niepotrzebne IL z aplikacji danych wyjściowych zestawów.
 
 Zestaw Kontrola połączeń przy użyciu jednej z następujących metod:
 

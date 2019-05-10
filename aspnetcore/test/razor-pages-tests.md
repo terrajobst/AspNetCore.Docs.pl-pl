@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/27/2017
 uid: test/razor-pages-tests
-ms.openlocfilehash: 5116ec3c3d6c27f9b0e098f82c82dd7b7337b8f6
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: f1526b8803f43ec8cbe77c1d2c100d9daf6cd316
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207501"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64900037"
 ---
 # <a name="razor-pages-unit-tests-in-aspnet-core"></a>Testy jednostkowe stron razor w programie ASP.NET Core
 
@@ -26,20 +26,20 @@ Platforma ASP.NET Core obsługuje testy jednostkowe aplikacji stron Razor. Testy
 
 W tym temacie założono, że masz podstawową wiedzę na temat stron Razor aplikacji i testów jednostkowych. Jeśli jesteś zaznajomiony z aplikacji stron Razor i pojęcia, testów, zobacz następujące tematy:
 
-* [Wprowadzenie do stron Razor](xref:razor-pages/index)
+* [Wprowadzenie do produktu Razor Pages](xref:razor-pages/index)
 * [Wprowadzenie do korzystania ze stron Razor](xref:tutorials/razor-pages/razor-pages-start)
 * [Testowanie jednostek języka C# w .NET Core za pomocą polecenia dotnet test i struktury xUnit](/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/razor-pages-tests/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/razor-pages-tests/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 Przykładowy projekt składa się z dwóch aplikacji:
 
 | Aplikacja         | Folder projektu                        | Opis |
 | ----------- | ------------------------------------- | ----------- |
 | Komunikat o aplikacji | *src/RazorPagesTestSample*            | Umożliwia użytkownikowi Dodaj, Usuń jedno, Usuń wszystkie i analizowania komunikatów. |
-| Testowanie aplikacji    | *tests/RazorPagesTestSample.Tests*    | Używany do testów jednostkowych aplikacji wiadomości: warstwy (DAL) i indeks strony modelu dostępu do danych. |
+| Testowanie aplikacji    | *tests/RazorPagesTestSample.Tests*    | Używany do testów jednostkowych aplikacji wiadomości: Warstwa dostępu do danych (DAL) oraz model strony indeksu. |
 
-Testy mogą być uruchamiane przy użyciu funkcji wbudowanych testu środowisko IDE, takich jak [programu Visual Studio](https://www.visualstudio.com/vs/). Jeśli przy użyciu [programu Visual Studio Code](https://code.visualstudio.com/) lub wiersza polecenia, uruchom następujące polecenie w wierszu polecenia w *tests/RazorPagesTestSample.Tests* folderu:
+Testy mogą być uruchamiane przy użyciu funkcji wbudowanych testu środowisko IDE, takich jak [programu Visual Studio](https://visualstudio.microsoft.com). Jeśli przy użyciu [programu Visual Studio Code](https://code.visualstudio.com/) lub wiersza polecenia, uruchom następujące polecenie w wierszu polecenia w *tests/RazorPagesTestSample.Tests* folderu:
 
 ```console
 dotnet test
@@ -109,8 +109,8 @@ using (var db = new AppDbContext(Utilities.TestingDbContextOptions()))
 Każdej metody testowej w `DataAccessLayerTest` klasy (*UnitTests/DataAccessLayerTest.cs*) jest zgodna ze wzorcem podobne Assert Act Rozmieść:
 
 1. Rozmieść: Baza danych jest skonfigurowany do testu i/lub oczekiwany wynik jest zdefiniowana.
-1. Ustawa: Test jest wykonywany.
-1. Asercja: Potwierdzenia są wprowadzane do ustalenia, czy wynik testu jest sukcesu.
+1. Działanie: Test jest wykonywany.
+1. Assert: Potwierdzenia są wprowadzane do ustalenia, czy wynik testu jest sukcesu.
 
 Na przykład `DeleteMessageAsync` metoda jest odpowiedzialna za jeden komunikat o identyfikowane przez usunięcie jego `Id` (*src/RazorPagesTestSample/Data/AppDbContext.cs*):
 
@@ -124,7 +124,7 @@ Po pierwsze metoda wykonuje krok Rozmieść gdzie odbywa się przygotowanie do k
 
 [!code-csharp[](razor-pages-tests/samples/2.x/tests/RazorPagesTestSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet1)]
 
-Metoda działa: `DeleteMessageAsync` metoda jest wykonywana, przekazując `recId` z `1`:
+Metoda działa: `DeleteMessageAsync` Metoda jest wykonywana, przekazując `recId` z `1`:
 
 [!code-csharp[](razor-pages-tests/samples/2.x/tests/RazorPagesTestSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet2)]
 
@@ -167,7 +167,7 @@ Ta grupa testy często testowanie metody warstwy DAL do produkcji oczekiwanych d
 
 Gdy `OnGetAsync` metoda jest wykonywana w kroku Act, wywoływanych przez nią modelu strony `GetMessagesAsync` metody.
 
-Act krok testu jednostkowego (*tests/RazorPagesTestSample.Tests/UnitTests/IndexPageTests.cs*):
+Unit test Act step (*tests/RazorPagesTestSample.Tests/UnitTests/IndexPageTests.cs*):
 
 [!code-csharp[](razor-pages-tests/samples/2.x/tests/RazorPagesTestSample.Tests/UnitTests/IndexPageTests.cs?name=snippet2)]
 

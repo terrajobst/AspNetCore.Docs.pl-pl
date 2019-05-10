@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/08/2019
 uid: mvc/controllers/filters
-ms.openlocfilehash: 4fe04cde2a234302845b2cbded106f1e809842bc
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: f357df0bbc51e881132e36ccb20f4ffdc3035032
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209297"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64898606"
 ---
 # <a name="filters-in-aspnet-core"></a>Filtry w programie ASP.NET Core
 
@@ -27,7 +27,7 @@ Wbudowanych filtrów obsługi zadań, takich jak:
 
 Filtry niestandardowe mogą być tworzone do obsługi odciąż przekrojowe zagadnienia. Filtry można uniknąć duplikowania kodu w akcji. Na przykład błąd obsługi filtra wyjątku można skonsolidować obsługi błędów.
 
-[Wyświetlanie lub pobieranie przykładowy z serwisu GitHub](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/filters/sample).
+[Wyświetlanie lub pobieranie przykładowy z serwisu GitHub](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/sample).
 
 ## <a name="how-filters-work"></a>Jak działa filtr
 
@@ -425,4 +425,4 @@ Oprogramowanie pośredniczące filtry są uruchamiane na tym samym etapie potoku
 ## <a name="next-actions"></a>Następne akcje
 
 * Zobacz [metody filtrowania dla stron Razor](xref:razor-pages/filter)
-* Aby poeksperymentować z filtrami, [pobierania, testowania i zmodyfikować przykładowe Github](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/filters/sample).
+* Aby poeksperymentować z filtrami, [pobierania, testowania i zmodyfikować przykładowe Github](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/sample).

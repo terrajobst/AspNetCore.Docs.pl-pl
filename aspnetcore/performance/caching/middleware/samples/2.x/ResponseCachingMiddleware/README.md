@@ -1,7 +1,7 @@
-# <a name="aspnet-core-response-caching-sample"></a>Przykładowe buforowanie odpowiedzi platformy ASP.NET Core
+# <a name="aspnet-core-response-caching-sample"></a>Przykład buforowanie odpowiedzi platformy ASP.NET Core
 
-Ten przykład przedstawia użycie platformy ASP.NET Core [buforowanie odpowiedzi w oprogramowaniu pośredniczącym](https://docs.microsoft.com/aspnet/core/performance/caching/middleware).
+W tym przykładzie pokazano sposób użycia platformy ASP.NET Core [oprogramowanie pośredniczące buforowania odpowiedzi](https://docs.microsoft.com/aspnet/core/performance/caching/middleware).
 
-Aplikacja odpowiada jego strony indeksu w tym `Cache-Control` nagłówka, aby skonfigurować zachowanie buforowania. Ustawia również aplikacji `Vary` nagłówka, aby skonfigurować pamięć podręczną do obsługi odpowiedzi tylko wtedy, gdy `Accept-Encoding` nagłówka kolejne żądania jest zgodna z wersją z oryginalnego żądania.
+Aplikacja odpowiada za pomocą jego stronę indeksu w tym `Cache-Control` nagłówek, aby skonfigurować działanie buforowania. Aplikacja ustawia również `Vary` nagłówka, aby skonfigurować pamięć podręczną, aby obsługiwać odpowiedź tylko wtedy, gdy `Accept-Encoding` nagłówka kolejne żądania jest zgodna z wersją z oryginalnego żądania.
 
-Podczas uruchamiania próbki, strona indeksu jest wyświetlona z pamięci podręcznej podczas przechowywane i pamięci podręcznej do 10 sekund.
+Podczas uruchamiania przykładu, strony indeksu są dostarczane z pamięci podręcznej, gdy przechowywanych w pamięci podręcznej i maksymalnie 10 sekund.

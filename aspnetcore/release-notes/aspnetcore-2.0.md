@@ -5,12 +5,12 @@ description: Dowiedz się więcej o nowych funkcjach w programie ASP.NET Core 2.
 ms.author: riande
 ms.date: 07/10/2017
 uid: aspnetcore-2.0
-ms.openlocfilehash: 60e44e64bd1cfada0143e374f6f51dec0e4e84f8
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 07e490fd844f0f9044afce37651ef680ed0c894d
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209888"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64898354"
 ---
 # <a name="whats-new-in-aspnet-core-20"></a>What's new in ASP.NET Core 2.0
 
@@ -47,7 +47,7 @@ Pakiety platformy ASP.NET Core 2.0 docelowych .NET Standard 2.0. Pakiety mogą b
 
 `IConfiguration` Wystąpienia zostanie dodany do kontenera usług, domyślnie w programie ASP.NET Core 2.0. `IConfiguration` w usługach kontenerów ułatwia dla aplikacji, które można pobrać wartości konfiguracji z kontenera.
 
-Aby uzyskać informacje o stanie planowanej dokumentacji, zobacz [problem w usłudze GitHub](https://github.com/aspnet/Docs/issues/3387).
+Aby uzyskać informacje o stanie planowanej dokumentacji, zobacz [problem w usłudze GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/3387).
 
 ## <a name="logging-update"></a>Rejestrowanie aktualizacji
 
@@ -61,7 +61,7 @@ Nowy model uwierzytelniania ułatwia skonfigurowanie uwierzytelniania dla aplika
 
 Nowe szablony są dostępne do konfigurowania uwierzytelniania dla aplikacji sieci web i interfejsów API za pomocą [Azure AD B2C] (https://azure.microsoft.com/services/active-directory-b2c/).
 
-Aby uzyskać informacje o stanie planowanej dokumentacji, zobacz [problem w usłudze GitHub](https://github.com/aspnet/Docs/issues/3054).
+Aby uzyskać informacje o stanie planowanej dokumentacji, zobacz [problem w usłudze GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/3054).
 
 ## <a name="identity-update"></a>Aktualizacja tożsamości
 
@@ -113,7 +113,7 @@ Jeśli aplikacja obiektu odwiedzającego zażąda zawartości z nagłówkiem ż�
 
 W programie ASP.NET Core 2.0, ta funkcja jest używana, można automatycznie włączyć diagnostykę usługi Application Insights podczas debugowania w programie Visual Studio i (po zgodzie na rozwiązanie) podczas uruchamiania w usłudze Azure App Services. W rezultacie szablony projektów nie jest już dodać pakiety usługi Application Insights i kod domyślnie.
 
-Aby uzyskać informacje o stanie planowanej dokumentacji, zobacz [problem w usłudze GitHub](https://github.com/aspnet/Docs/issues/3389).
+Aby uzyskać informacje o stanie planowanej dokumentacji, zobacz [problem w usłudze GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/3389).
 
 ## <a name="automatic-use-of-anti-forgery-tokens"></a>Automatyczne użycie tokeny zabezpieczające przed fałszerstwem
 

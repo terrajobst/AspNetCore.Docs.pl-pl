@@ -7,11 +7,11 @@ ms.custom: mvc
 ms.date: 04/16/2019
 uid: tutorials/publish-to-azure-webapp-using-vscode
 ms.openlocfilehash: 64d82835f6a47a458802692c99658b964c07f807
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59711558"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64901978"
 ---
 # <a name="publish-an-aspnet-core-app-to-azure-with-visual-studio-code"></a>Publikowanie aplikacji platformy ASP.NET Core na platformie Azure przy użyciu programu Visual Studio Code
 

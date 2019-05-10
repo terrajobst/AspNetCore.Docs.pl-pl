@@ -5,12 +5,12 @@ description: W tym samouczku będziesz aktualizowanie powiązanych danych, aktua
 ms.author: riande
 ms.date: 11/15/2017
 uid: data/ef-rp/update-related-data
-ms.openlocfilehash: e1407048157fccdbfdd854071a6fbf9785356026
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: b996e7f9c8e422060f6378a6004a53906e2af7c7
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58208612"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65087098"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---update-related-data---7-of-8"></a>Strony razor z programem EF Core w programie ASP.NET Core — aktualizowanie powiązanych danych - 7, 8
 
@@ -18,7 +18,7 @@ Przez [Tom Dykstra](https://github.com/tdykstra), i [Rick Anderson](https://twit
 
 [!INCLUDE [about the series](../../includes/RP-EF/intro.md)]
 
-Ten samouczek pokazuje, aktualizowanie powiązanych danych. Jeśli napotkasz problemy, nie można rozwiązać, [pobrania lub wyświetlenia ukończonej aplikacji.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples) [Instrukcje pobierania](xref:index#how-to-download-a-sample).
+Ten samouczek pokazuje, aktualizowanie powiązanych danych. Jeśli napotkasz problemy, nie można rozwiązać, [pobrania lub wyświetlenia ukończonej aplikacji.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples) [Instrukcje pobierania](xref:index#how-to-download-a-sample).
 
 Poniższa ilustracja przedstawia niektóre strony ukończone.
 

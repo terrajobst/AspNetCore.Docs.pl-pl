@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc, seodec18
 ms.date: 09/11/2018
 uid: fundamentals/choose-between-aspnet-and-aspnetcore
-ms.openlocfilehash: a89af3ba8d95c80356439ee89601bda00d171d3b
-ms.sourcegitcommit: 8a84ce880b4c40d6694ba6423038f18fc2eb5746
-ms.translationtype: HT
+ms.openlocfilehash: 454f1021520f8f22eb2b0417a958b78690f89cef
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60165144"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64900625"
 ---
 # <a name="choose-between-aspnet-4x-and-aspnet-core"></a>Wybieranie między ASP.NET 4.x i ASP.NET Core
 
@@ -36,7 +36,7 @@ W poniższej tabeli porównano platformy ASP.NET Core, platformy ASP.NET 4.x.
 |Tworzenie dla systemu Windows, system macOS lub Linux|Tworzenie dla systemu Windows|
 |[Strony razor](xref:razor-pages/index) przedstawia zalecane podejście do tworzenia interfejsu użytkownika sieci Web począwszy od platformy ASP.NET Core 2.x. Zobacz też [MVC](xref:mvc/overview), [interfejs API sieci Web](xref:tutorials/first-web-api), i [SignalR](xref:signalr/introduction).|Użyj [Web Forms](/aspnet/web-forms), [SignalR](/aspnet/signalr), [MVC](/aspnet/mvc), [interfejs API sieci Web](/aspnet/web-api/), [elementów Webhook](/aspnet/webhooks/), lub [stron sieci Web](/aspnet/web-pages)|
 |Wiele wersji na maszynie|Jedna wersja na maszynie|
-|Programowanie za pomocą programu Visual Studio [programu Visual Studio dla komputerów Mac](https://www.visualstudio.com/vs/visual-studio-mac/), lub [programu Visual Studio Code](https://code.visualstudio.com/) przy użyciu C# lubF#|Programowanie za pomocą programu Visual Studio przy użyciu C#, VB, lubF#|
+|Programowanie za pomocą programu Visual Studio [programu Visual Studio dla komputerów Mac](https://visualstudio.microsoft.com/vs/mac/), lub [programu Visual Studio Code](https://code.visualstudio.com/) przy użyciu C# lubF#|Programowanie za pomocą programu Visual Studio przy użyciu C#, VB, lubF#|
 |Wyższą wydajność niż ASP.NET 4.x|Dobra wydajność|
 |[Wybierz środowisko uruchomieniowe platformy .NET Framework lub .NET Core](/dotnet/standard/choosing-core-framework-server)|Używasz środowiska uruchomieniowego .NET Framework|
 
