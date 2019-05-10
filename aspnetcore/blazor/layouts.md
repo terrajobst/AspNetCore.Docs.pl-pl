@@ -5,105 +5,72 @@ description: Dowiedz się, jak tworzyć składniki wielokrotnego użytku układu
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/18/2019
+ms.date: 04/24/2019
 uid: blazor/layouts
-ms.openlocfilehash: 2b898110052420b43ef3ee1f4f80909ec5d71a10
-ms.sourcegitcommit: 8a84ce880b4c40d6694ba6423038f18fc2eb5746
-ms.translationtype: HT
+ms.openlocfilehash: 8641400cd97a74572d1bcd8c6eb6891656903e1b
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60165095"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64898489"
 ---
-# <a name="blazor-layouts"></a><span data-ttu-id="3970f-103">Układy Blazor</span><span class="sxs-lookup"><span data-stu-id="3970f-103">Blazor layouts</span></span>
+# <a name="blazor-layouts"></a><span data-ttu-id="31c76-103">Układy Blazor</span><span class="sxs-lookup"><span data-stu-id="31c76-103">Blazor layouts</span></span>
 
-<span data-ttu-id="3970f-104">Przez [Rainer Stropek](https://www.timecockpit.com)</span><span class="sxs-lookup"><span data-stu-id="3970f-104">By [Rainer Stropek](https://www.timecockpit.com)</span></span>
+<span data-ttu-id="31c76-104">Przez [Rainer Stropek](https://www.timecockpit.com)</span><span class="sxs-lookup"><span data-stu-id="31c76-104">By [Rainer Stropek](https://www.timecockpit.com)</span></span>
 
-<span data-ttu-id="3970f-105">Aplikacje zwykle zawierają więcej niż jeden składnik.</span><span class="sxs-lookup"><span data-stu-id="3970f-105">Apps typically contain more than one component.</span></span> <span data-ttu-id="3970f-106">Układ elementów, takich jak menu, komunikaty o prawach autorskich i logo musi być obecny na wszystkie elementy.</span><span class="sxs-lookup"><span data-stu-id="3970f-106">Layout elements, such as menus, copyright messages, and logos, must be present on all components.</span></span> <span data-ttu-id="3970f-107">Skopiować kod z tych elementów układu do wszystkich składników aplikacji nie jest wydajne podejście.</span><span class="sxs-lookup"><span data-stu-id="3970f-107">Copying the code of these layout elements into all of the components of an app isn't an efficient approach.</span></span> <span data-ttu-id="3970f-108">Takie duplikowanie jest trudne do utrzymania i prawdopodobnie prowadzi do niespójne zawartość wraz z upływem czasu.</span><span class="sxs-lookup"><span data-stu-id="3970f-108">Such duplication is hard to maintain and probably leads to inconsistent content over time.</span></span> <span data-ttu-id="3970f-109">*Układy* rozwiązać ten problem.</span><span class="sxs-lookup"><span data-stu-id="3970f-109">*Layouts* solve this problem.</span></span>
+<span data-ttu-id="31c76-105">Niektóre elementy aplikacji, takich jak menu, komunikaty o prawach autorskich i logo firmy, są zazwyczaj ogólny układu aplikacji i używane przez każdy składnik w aplikacji.</span><span class="sxs-lookup"><span data-stu-id="31c76-105">Some app elements, such as menus, copyright messages, and company logos, are usually part of app's overall layout and used by every component in the app.</span></span> <span data-ttu-id="31c76-106">Skopiować kod z tych elementów do wszystkich składników aplikacji nie jest wydajne podejście&mdash;za każdym razem, gdy jeden z elementów wymaga aktualizacji, każdy składnik musi zostać zaktualizowany.</span><span class="sxs-lookup"><span data-stu-id="31c76-106">Copying the code of these elements into all of the components of an app isn't an efficient approach&mdash;every time one of the elements requires an update, every component must be updated.</span></span> <span data-ttu-id="31c76-107">Takie duplikowanie jest trudne do utrzymania i może spowodować niespójne zawartość wraz z upływem czasu.</span><span class="sxs-lookup"><span data-stu-id="31c76-107">Such duplication is difficult to maintain and can lead to inconsistent content over time.</span></span> <span data-ttu-id="31c76-108">*Układy* rozwiązać ten problem.</span><span class="sxs-lookup"><span data-stu-id="31c76-108">*Layouts* solve this problem.</span></span>
 
-<span data-ttu-id="3970f-110">Technicznie rzecz biorąc układ jest po prostu inny składnik.</span><span class="sxs-lookup"><span data-stu-id="3970f-110">Technically, a layout is just another component.</span></span> <span data-ttu-id="3970f-111">Układ jest zdefiniowany w szablonie Razor lub w C# kodu i może zawierać [powiązanie danych](xref:blazor/components#data-binding), [wstrzykiwanie zależności](xref:blazor/dependency-injection)i inne funkcje zwykłych składników.</span><span class="sxs-lookup"><span data-stu-id="3970f-111">A layout is defined in a Razor template or in C# code and can contain [data binding](xref:blazor/components#data-binding), [dependency injection](xref:blazor/dependency-injection), and other ordinary features of components.</span></span>
+<span data-ttu-id="31c76-109">Technicznie rzecz biorąc układ jest po prostu inny składnik.</span><span class="sxs-lookup"><span data-stu-id="31c76-109">Technically, a layout is just another component.</span></span> <span data-ttu-id="31c76-110">Układ jest zdefiniowany w szablonie Razor lub w C# kod i użyć [powiązanie danych](xref:blazor/components#data-binding), [wstrzykiwanie zależności](xref:blazor/dependency-injection)oraz innych scenariuszy składnika.</span><span class="sxs-lookup"><span data-stu-id="31c76-110">A layout is defined in a Razor template or in C# code and can use [data binding](xref:blazor/components#data-binding), [dependency injection](xref:blazor/dependency-injection), and other component scenarios.</span></span>
 
-<span data-ttu-id="3970f-112">Włącz dwa dodatkowe aspekty *składnika* do *układu*</span><span class="sxs-lookup"><span data-stu-id="3970f-112">Two additional aspects turn a *component* into a *layout*</span></span>
+<span data-ttu-id="31c76-111">Aby włączyć *składnika* do *układ*, składnik:</span><span class="sxs-lookup"><span data-stu-id="31c76-111">To turn a *component* into a *layout*, the component:</span></span>
 
-* <span data-ttu-id="3970f-113">Składnik układu musi dziedziczyć `LayoutComponentBase`.</span><span class="sxs-lookup"><span data-stu-id="3970f-113">The layout component must inherit from `LayoutComponentBase`.</span></span> <span data-ttu-id="3970f-114">`LayoutComponentBase` definiuje `Body` właściwość, która zawiera zawartość do wyrenderowania wewnątrz układu.</span><span class="sxs-lookup"><span data-stu-id="3970f-114">`LayoutComponentBase` defines a `Body` property that contains the content to be rendered inside the layout.</span></span>
-* <span data-ttu-id="3970f-115">Składnik układ używa `Body` właściwości w celu określenia, w którym treść powinna być renderowany przy użyciu składni Razor `@Body`.</span><span class="sxs-lookup"><span data-stu-id="3970f-115">The layout component uses the `Body` property to specify where the body content should be rendered using the Razor syntax `@Body`.</span></span> <span data-ttu-id="3970f-116">Podczas renderowania, `@Body` zastępuje zawartość układu.</span><span class="sxs-lookup"><span data-stu-id="3970f-116">During rendering, `@Body` is replaced by the content of the layout.</span></span>
+* <span data-ttu-id="31c76-112">Dziedziczy `LayoutComponentBase`, która definiuje `Body` właściwość, która zawiera zawartość do wyrenderowania wewnątrz układu.</span><span class="sxs-lookup"><span data-stu-id="31c76-112">Inherits from `LayoutComponentBase`, which defines a `Body` property that contains the content to be rendered inside the layout.</span></span>
+* <span data-ttu-id="31c76-113">Używa składni Razor `@Body` Aby określić lokalizację, w znacznikach, której zawartość ma być renderowany.</span><span class="sxs-lookup"><span data-stu-id="31c76-113">Uses the Razor syntax `@Body` to specify the location in the markup where the content should be rendered.</span></span>
 
-<span data-ttu-id="3970f-117">Poniższy przykład kodu pokazuje szablon Razor składnika układu.</span><span class="sxs-lookup"><span data-stu-id="3970f-117">The following code sample shows the Razor template of a layout component.</span></span> <span data-ttu-id="3970f-118">Zwróć uwagę na użycie `LayoutComponentBase` i `@Body`:</span><span class="sxs-lookup"><span data-stu-id="3970f-118">Note the use of `LayoutComponentBase` and `@Body`:</span></span>
+<span data-ttu-id="31c76-114">Poniższy przykład kodu pokazuje szablon Razor składnika układ *MainLayout.razor*.</span><span class="sxs-lookup"><span data-stu-id="31c76-114">The following code sample shows the Razor template of a layout component, *MainLayout.razor*.</span></span> <span data-ttu-id="31c76-115">Układ dziedziczy `LayoutComponentBase` i ustawia `@Body` między paskiem nawigacji i stopki:</span><span class="sxs-lookup"><span data-stu-id="31c76-115">The layout inherits `LayoutComponentBase` and sets the `@Body` between the navigation bar and the footer:</span></span>
 
-[!code-cshtml[](layouts/sample_snapshot/3.x/MasterLayout.razor)]
+[!code-cshtml[](layouts/sample_snapshot/3.x/MainLayout.razor?highlight=1,13)]
 
-## <a name="use-a-layout-in-a-component"></a><span data-ttu-id="3970f-119">Używanie układu w składniku</span><span class="sxs-lookup"><span data-stu-id="3970f-119">Use a layout in a component</span></span>
+## <a name="specify-a-layout-in-a-component"></a><span data-ttu-id="31c76-116">Określ układ w składniku</span><span class="sxs-lookup"><span data-stu-id="31c76-116">Specify a layout in a component</span></span>
 
-<span data-ttu-id="3970f-120">Użyj dyrektywy Razor `@layout` można zastosować układu do składnika.</span><span class="sxs-lookup"><span data-stu-id="3970f-120">Use the Razor directive `@layout` to apply a layout to a component.</span></span> <span data-ttu-id="3970f-121">Kompilator konwertuje tej dyrektywy do `LayoutAttribute`, który jest stosowany do klasy składnika.</span><span class="sxs-lookup"><span data-stu-id="3970f-121">The compiler converts this directive into a `LayoutAttribute`, which is applied to the component class.</span></span>
+<span data-ttu-id="31c76-117">Użyj dyrektywy Razor `@layout` można zastosować układu do składnika.</span><span class="sxs-lookup"><span data-stu-id="31c76-117">Use the Razor directive `@layout` to apply a layout to a component.</span></span> <span data-ttu-id="31c76-118">Kompilator konwertuje `@layout` do `LayoutAttribute`, który jest stosowany do klasy składnika.</span><span class="sxs-lookup"><span data-stu-id="31c76-118">The compiler converts `@layout` into a `LayoutAttribute`, which is applied to the component class.</span></span>
 
-<span data-ttu-id="3970f-122">W poniższym przykładzie kodu pokazano pojęcia.</span><span class="sxs-lookup"><span data-stu-id="3970f-122">The following code sample demonstrates the concept.</span></span> <span data-ttu-id="3970f-123">Zawartość tego składnika jest wstawiany do *MasterLayout* w położeniu `@Body`:</span><span class="sxs-lookup"><span data-stu-id="3970f-123">The content of this component is inserted into the *MasterLayout* at the position of `@Body`:</span></span>
+<span data-ttu-id="31c76-119">Zawartość następującym składniku *MasterList.razor*, jest wstawiany do *MainLayout* w położeniu `@Body`.</span><span class="sxs-lookup"><span data-stu-id="31c76-119">The content of the following component, *MasterList.razor*, is inserted into the *MainLayout* at the position of `@Body`.</span></span>
 
-```cshtml
-@layout MasterLayout
-@page "/master-list"
+[!code-cshtml[](layouts/sample_snapshot/3.x/MasterList.razor?highlight=1)]
 
-<h2>Master Episode List</h2>
-```
+## <a name="centralized-layout-selection"></a><span data-ttu-id="31c76-120">Wybór układu scentralizowane</span><span class="sxs-lookup"><span data-stu-id="31c76-120">Centralized layout selection</span></span>
 
-## <a name="centralized-layout-selection"></a><span data-ttu-id="3970f-124">Wybór układu scentralizowane</span><span class="sxs-lookup"><span data-stu-id="3970f-124">Centralized layout selection</span></span>
+<span data-ttu-id="31c76-121">Każdy folder aplikacji opcjonalnie mogą zawierać plik szablonu o nazwie *_Imports.razor*.</span><span class="sxs-lookup"><span data-stu-id="31c76-121">Every folder of an app can optionally contain a template file named *_Imports.razor*.</span></span> <span data-ttu-id="31c76-122">Kompilator zawiera dyrektywy określone w pliku importu we wszystkich szablony Razor, w tym samym folderze i cyklicznie we wszystkich jego podfolderów.</span><span class="sxs-lookup"><span data-stu-id="31c76-122">The compiler includes the directives specified in the imports file in all of the Razor templates in the same folder and recursively in all of its subfolders.</span></span> <span data-ttu-id="31c76-123">W związku z tym *_Imports.razor* plik zawierający `@layout MainLayout` zapewnia, że wszystkie składniki użycie folderu *MainLayout*.</span><span class="sxs-lookup"><span data-stu-id="31c76-123">Therefore, a *_Imports.razor* file containing `@layout MainLayout` ensures that all of the components in a folder use *MainLayout*.</span></span> <span data-ttu-id="31c76-124">Nie ma potrzeby można wielokrotnie dodać `@layout MainLayout` do wszystkich *.razor* pliki znajdujące się w folderze i jego podfolderach.</span><span class="sxs-lookup"><span data-stu-id="31c76-124">There's no need to repeatedly add `@layout MainLayout` to all of the *.razor* files within the folder and subfolders.</span></span> <span data-ttu-id="31c76-125">`@using` dyrektywy są również stosowane do składników w taki sam sposób.</span><span class="sxs-lookup"><span data-stu-id="31c76-125">`@using` directives are also applied to components in the same way.</span></span>
 
-<span data-ttu-id="3970f-125">Każdy folder z aplikacji, można opcjonalnie zawiera plik szablonu o nazwie *_Imports.razor*.</span><span class="sxs-lookup"><span data-stu-id="3970f-125">Every folder of a an app can optionally contain a template file named *_Imports.razor*.</span></span> <span data-ttu-id="3970f-126">Kompilator zawiera dyrektywy określone w pliku importu widoku we wszystkich szablony Razor, w tym samym folderze i cyklicznie we wszystkich jego podfolderów.</span><span class="sxs-lookup"><span data-stu-id="3970f-126">The compiler includes the directives specified in the view imports file in all of the Razor templates in the same folder and recursively in all of its subfolders.</span></span> <span data-ttu-id="3970f-127">W związku z tym *_Imports.razor* plik zawierający `@layout MainLayout` zapewnia, że wszystkie składniki użycie folderu *MainLayout* układu.</span><span class="sxs-lookup"><span data-stu-id="3970f-127">Therefore, a *_Imports.razor* file containing `@layout MainLayout` ensures that all of the components in a folder use the *MainLayout* layout.</span></span> <span data-ttu-id="3970f-128">Nie ma potrzeby można wielokrotnie dodać `@layout` do wszystkich *.razor* plików.</span><span class="sxs-lookup"><span data-stu-id="3970f-128">There's no need to repeatedly add `@layout` to all of the *.razor* files.</span></span> <span data-ttu-id="3970f-129">`@using` dyrektywy są również stosowane do składników, w tym samym folderze lub jakiekolwiek foldery podrzędne.</span><span class="sxs-lookup"><span data-stu-id="3970f-129">`@using` directives are also applied to components in the same folder or any sub folders.</span></span>
+<span data-ttu-id="31c76-126">Następujące *_Imports.razor* pliku importu:</span><span class="sxs-lookup"><span data-stu-id="31c76-126">The following *_Imports.razor* file imports:</span></span>
 
-<span data-ttu-id="3970f-130">Na przykład następująca *_Imports.razor* pliku importu:</span><span class="sxs-lookup"><span data-stu-id="3970f-130">For example, the following *_Imports.razor* file imports:</span></span>
-
-* <span data-ttu-id="3970f-131">`MainLayout`.</span><span class="sxs-lookup"><span data-stu-id="3970f-131">`MainLayout`.</span></span>
-* <span data-ttu-id="3970f-132">Wszystkie składniki Razor, w tym samym folderze i wszystkie podfoldery.</span><span class="sxs-lookup"><span data-stu-id="3970f-132">All Razor components in a the same folder and any sub folders.</span></span>
-* <span data-ttu-id="3970f-133">`BlazorApp1.Data` Przestrzeni nazw.</span><span class="sxs-lookup"><span data-stu-id="3970f-133">The `BlazorApp1.Data` namespace.</span></span>
+* <span data-ttu-id="31c76-127">`MainLayout`.</span><span class="sxs-lookup"><span data-stu-id="31c76-127">`MainLayout`.</span></span>
+* <span data-ttu-id="31c76-128">Wszystkie składniki Razor, w tym samym folderze i wszelkich podfolderów.</span><span class="sxs-lookup"><span data-stu-id="31c76-128">All Razor components in a the same folder and any subfolders.</span></span>
+* <span data-ttu-id="31c76-129">`BlazorApp1.Data` Przestrzeni nazw.</span><span class="sxs-lookup"><span data-stu-id="31c76-129">The `BlazorApp1.Data` namespace.</span></span>
  
-```cshtml
-@layout MainLayout
-@using Microsoft.AspNetCore.Components
-@using BlazorApp1.Data
-```
+[!code-cshtml[](layouts/sample_snapshot/3.x/_Imports.razor)]
 
-<span data-ttu-id="3970f-134">Korzystanie z *_Imports.razor* pliku jest podobny do korzystania z *_ViewImports.cshtml* z widokami Razor i stron, ale stosowane do plików składników Razor.</span><span class="sxs-lookup"><span data-stu-id="3970f-134">Use of the *_Imports.razor* file is similar to how you can use *_ViewImports.cshtml* with Razor views and pages, but applied specifically to Razor component files.</span></span>
+<span data-ttu-id="31c76-130">*_Imports.razor* pliku jest podobny do [widokami Razor i stron w pliku _ViewImports.cshtml](xref:mvc/views/layout#importing-shared-directives) jednak stosowane do plików składników Razor.</span><span class="sxs-lookup"><span data-stu-id="31c76-130">The *_Imports.razor* file is similar to the [_ViewImports.cshtml file for Razor views and pages](xref:mvc/views/layout#importing-shared-directives) but applied specifically to Razor component files.</span></span>
 
-<span data-ttu-id="3970f-135">Należy zauważyć, że korzysta z domyślnego szablonu *_Imports.razor* mechanizm wyboru układu.</span><span class="sxs-lookup"><span data-stu-id="3970f-135">Note that the default template uses the *_Imports.razor* mechanism for layout selection.</span></span> <span data-ttu-id="3970f-136">Zawiera nowo utworzoną aplikację *_Imports.razor* w pliku *stron* folderu.</span><span class="sxs-lookup"><span data-stu-id="3970f-136">A newly created app contains the *_Imports.razor* file in the *Pages* folder.</span></span>
+<span data-ttu-id="31c76-131">Użyj szablonów Blazor *_Imports.razor* pliki do wyboru układu.</span><span class="sxs-lookup"><span data-stu-id="31c76-131">The Blazor templates use *_Imports.razor* files for layout selection.</span></span> <span data-ttu-id="31c76-132">Zawiera aplikacji utworzonych na podstawie szablonu Blazor *_Imports.razor* plik w folderze głównym projektu i w *stron* folderu.</span><span class="sxs-lookup"><span data-stu-id="31c76-132">An app created from a Blazor template contains the *_Imports.razor* file in the root of the project and in the *Pages* folder.</span></span>
 
-## <a name="nested-layouts"></a><span data-ttu-id="3970f-137">Układy zagnieżdżonych</span><span class="sxs-lookup"><span data-stu-id="3970f-137">Nested layouts</span></span>
+## <a name="nested-layouts"></a><span data-ttu-id="31c76-133">Układy zagnieżdżonych</span><span class="sxs-lookup"><span data-stu-id="31c76-133">Nested layouts</span></span>
 
-<span data-ttu-id="3970f-138">Aplikacje może zawierać zagnieżdżone układów.</span><span class="sxs-lookup"><span data-stu-id="3970f-138">Apps can consist of nested layouts.</span></span> <span data-ttu-id="3970f-139">Składnik może odwoływać się układ, który z kolei odwołuje się do innego układu.</span><span class="sxs-lookup"><span data-stu-id="3970f-139">A component can reference a layout which in turn references another layout.</span></span> <span data-ttu-id="3970f-140">Na przykład zagnieżdżenia układów może służyć do odzwierciedlenia struktury wielopoziomowe menu.</span><span class="sxs-lookup"><span data-stu-id="3970f-140">For example, nesting layouts can be used to reflect a multi-level menu structure.</span></span>
+<span data-ttu-id="31c76-134">Aplikacje może zawierać zagnieżdżone układów.</span><span class="sxs-lookup"><span data-stu-id="31c76-134">Apps can consist of nested layouts.</span></span> <span data-ttu-id="31c76-135">Składnik może odwoływać się układ, który z kolei odwołuje się do innego układu.</span><span class="sxs-lookup"><span data-stu-id="31c76-135">A component can reference a layout which in turn references another layout.</span></span> <span data-ttu-id="31c76-136">Na przykład układy zagnieżdżenia może służyć do tworzenia struktury wielopoziomowe menu.</span><span class="sxs-lookup"><span data-stu-id="31c76-136">For example, nesting layouts can be used to create a multi-level menu structure.</span></span>
 
-<span data-ttu-id="3970f-141">Poniższe przykłady kodu przedstawiają sposób używać zagnieżdżonych układów.</span><span class="sxs-lookup"><span data-stu-id="3970f-141">The following code samples show how to use nested layouts.</span></span> <span data-ttu-id="3970f-142">*EpisodesComponent.razor* plik jest składnikiem do wyświetlenia.</span><span class="sxs-lookup"><span data-stu-id="3970f-142">The *EpisodesComponent.razor* file is the component to display.</span></span> <span data-ttu-id="3970f-143">Należy pamiętać, że składnik odwołuje się do układu `MasterListLayout`.</span><span class="sxs-lookup"><span data-stu-id="3970f-143">Note that the component references the layout `MasterListLayout`.</span></span>
+<span data-ttu-id="31c76-137">Poniższy przykład pokazuje, jak używać zagnieżdżonych układów.</span><span class="sxs-lookup"><span data-stu-id="31c76-137">The following example shows how to use nested layouts.</span></span> <span data-ttu-id="31c76-138">*EpisodesComponent.razor* plik jest składnikiem do wyświetlenia.</span><span class="sxs-lookup"><span data-stu-id="31c76-138">The *EpisodesComponent.razor* file is the component to display.</span></span> <span data-ttu-id="31c76-139">Odwołania do składników `MasterListLayout`:</span><span class="sxs-lookup"><span data-stu-id="31c76-139">The component references the `MasterListLayout`:</span></span>
 
-<span data-ttu-id="3970f-144">*EpisodesComponent.razor*:</span><span class="sxs-lookup"><span data-stu-id="3970f-144">*EpisodesComponent.razor*:</span></span>
+[!code-cshtml[](layouts/sample_snapshot/3.x/EpisodesComponent.razor?highlight=1)]
 
-```cshtml
-@layout MasterListLayout
-@page "/master-list/episodes"
+<span data-ttu-id="31c76-140">*MasterListLayout.razor* plik zawiera `MasterListLayout`.</span><span class="sxs-lookup"><span data-stu-id="31c76-140">The *MasterListLayout.razor* file provides the `MasterListLayout`.</span></span> <span data-ttu-id="31c76-141">Układ odwołuje się do innego układu `MasterLayout`, gdy jest on renderowany.</span><span class="sxs-lookup"><span data-stu-id="31c76-141">The layout references another layout, `MasterLayout`, where it's rendered.</span></span> <span data-ttu-id="31c76-142">`EpisodesComponent` gdzie renderowanego `@Body` pojawia się:</span><span class="sxs-lookup"><span data-stu-id="31c76-142">`EpisodesComponent` is rendered where `@Body` appears:</span></span>
 
-<h1>Episodes</h1>
-```
+[!code-cshtml[](layouts/sample_snapshot/3.x/MasterListLayout.razor?highlight=1,9)]
 
-<span data-ttu-id="3970f-145">*MasterListLayout.razor* plik zawiera `MasterListLayout`.</span><span class="sxs-lookup"><span data-stu-id="3970f-145">The *MasterListLayout.razor* file provides the `MasterListLayout`.</span></span> <span data-ttu-id="3970f-146">Układ odwołuje się do innego układu `MasterLayout`, gdzie ma to być osadzone.</span><span class="sxs-lookup"><span data-stu-id="3970f-146">The layout references another layout, `MasterLayout`, where it's going to be embedded.</span></span>
+<span data-ttu-id="31c76-143">Na koniec `MasterLayout` w *MasterLayout.razor* zawiera elementy układu najwyższego poziomu, takie jak nagłówek, menu głównego i stopki.</span><span class="sxs-lookup"><span data-stu-id="31c76-143">Finally, `MasterLayout` in *MasterLayout.razor* contains the top-level layout elements, such as the header, main menu, and footer.</span></span> <span data-ttu-id="31c76-144">*MasterListLayout* z *EpisodesComponent* — zostaną zrenderowane gdzie `@Body` pojawia się:</span><span class="sxs-lookup"><span data-stu-id="31c76-144">*MasterListLayout* with *EpisodesComponent* are rendered where `@Body` appears:</span></span>
 
-<span data-ttu-id="3970f-147">*MasterListLayout.razor*:</span><span class="sxs-lookup"><span data-stu-id="3970f-147">*MasterListLayout.razor*:</span></span>
+[!code-cshtml[](layouts/sample_snapshot/3.x/MasterLayout.razor?highlight=6)]
 
-```cshtml
-@layout MasterLayout
-@inherits LayoutComponentBase
+## <a name="additional-resources"></a><span data-ttu-id="31c76-145">Dodatkowe zasoby</span><span class="sxs-lookup"><span data-stu-id="31c76-145">Additional resources</span></span>
 
-<nav>
-    <!-- Menu structure of master list -->
-    ...
-</nav>
-
-@Body
-```
-
-<span data-ttu-id="3970f-148">Na koniec `MasterLayout` zawiera elementy układu najwyższego poziomu, takie jak nagłówek, stopka i menu głównego.</span><span class="sxs-lookup"><span data-stu-id="3970f-148">Finally, `MasterLayout` contains the top-level layout elements, such as the header, footer, and main menu.</span></span>
-
-<span data-ttu-id="3970f-149">*MasterLayout.razor*:</span><span class="sxs-lookup"><span data-stu-id="3970f-149">*MasterLayout.razor*:</span></span>
-
-```cshtml
-@inherits LayoutComponentBase
-
-<header>...</header>
-<nav>...</nav>
-
-@Body
-```
+* <xref:mvc/views/layout>
