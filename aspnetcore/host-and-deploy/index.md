@@ -7,11 +7,11 @@ ms.custom: mvc
 ms.date: 12/06/2018
 uid: host-and-deploy/index
 ms.openlocfilehash: f443a8ee28a859b5075a8bb03016407af9a3ddb1
-ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284529"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64899260"
 ---
 # <a name="host-and-deploy-aspnet-core"></a>Hostowanie i wdrażanie platformy ASP.NET Core
 
@@ -42,7 +42,7 @@ Aplikacja platformy ASP.NET Core to aplikacja konsolowa, która musi zostać uru
   * [Apache](xref:host-and-deploy/linux-apache)
 * Windows
   * [IIS](xref:host-and-deploy/iis/index)
-  * [Usługa Windows](xref:host-and-deploy/windows-service)
+  * [Windows Service](xref:host-and-deploy/windows-service)
 
 ## <a name="set-up-a-reverse-proxy"></a>Konfigurowanie zwrotnego serwera proxy
 
@@ -78,7 +78,7 @@ Zobacz <xref:tutorials/publish-to-azure-webapp-using-vs> instrukcje dotyczące s
 
 Zobacz <xref:host-and-deploy/visual-studio-publish-profiles> dla profilu publikowania instrukcje dotyczące sposobu publikowania aplikacji za pomocą programu Visual Studio, łącznie z wiersza polecenia Windows przy użyciu [dotnet msbuild](/dotnet/core/tools/dotnet-msbuild) polecenia.
 
-## <a name="host-in-a-web-farm"></a>Hosting w ramach farmy sieci web
+## <a name="host-in-a-web-farm"></a>Hosting w farmie internetowej
 
 Instrukcje dotyczące konfiguracji do hostowania aplikacji platformy ASP.NET Core w środowisku farmy sieci web (na przykład wdrożenie wielu wystąpień aplikacji w przypadku skalowalności), zobacz <xref:host-and-deploy/web-farm>.
 

@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 12/18/2018
 uid: aspnetcore-1.1
 ms.openlocfilehash: a21b2b82bfefb5b24898cf58ef97284a143e2e4a
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637602"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65086412"
 ---
 # <a name="whats-new-in-aspnet-core-11"></a>What's new in ASP.NET Core 1.1
 
@@ -33,5 +33,5 @@ Platforma ASP.NET Core 1.1 ma więcej funkcji niż 1.0. Ogólnie rzecz biorąc z
 
 ## <a name="additional-information"></a>Dodatkowe informacje
 
-- [Informacje o wersji platformy ASP.NET Core 1.1.0](https://github.com/aspnet/Home/releases/tag/1.1.0)
+- [ASP.NET Core 1.1.0 Release Notes](https://github.com/aspnet/Home/releases/tag/1.1.0)
 - Aby połączyć się z postępach i planach zespołu projektowego ASP.NET Core, obejrzyj Konferencję [ASP.NET Community Standup](https://live.asp.net/).

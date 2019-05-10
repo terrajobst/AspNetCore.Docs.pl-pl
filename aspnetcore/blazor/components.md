@@ -5,28 +5,28 @@ description: Informacje o sposobie tworzenia i używania składników Razor, w t
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/21/2019
+ms.date: 05/02/2019
 uid: blazor/components
-ms.openlocfilehash: 19fdf2b87299ebdaf2c2cac10280192db73c4c7a
-ms.sourcegitcommit: 8a84ce880b4c40d6694ba6423038f18fc2eb5746
-ms.translationtype: HT
+ms.openlocfilehash: 6c174fc16ecc755c5c43e59a77db7d4ce9e00da3
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60165230"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65085619"
 ---
 # <a name="create-and-use-razor-components"></a>Tworzenie i używanie składników Razor
 
 Przez [Luke Latham](https://github.com/guardrex), [Daniel Roth](https://github.com/danroth27), i [Morné Zaayman](https://github.com/MorneZaayman)
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/blazor/common/samples/) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 Blazor aplikacje są tworzone przy użyciu *składniki*. Składnik jest niezależna fragmentu interfejsu użytkownika (UI), takich jak strony, okno dialogowe lub formularza. Składnik zawiera kod znaczników HTML i logika przetwarzania wymagane w celu wstrzyknięcia danych lub reagowania na zdarzenia interfejsu użytkownika. Składniki są elastyczne i uproszczone. Mogą być zagnieżdżone, ponownie i współużytkowane między projektami.
 
 ## <a name="component-classes"></a>Klasy składników
 
-Składniki są implementowane w plikach składnika Razor (*.razor*) przy użyciu kombinacji C# i kod znaczników HTML.
+Składniki są implementowane w [Razor](xref:mvc/views/razor) pliki składników (*.razor*) przy użyciu kombinacji C# i kod znaczników HTML.
 
-Składniki mogą być tworzone za pomocą *.cshtml* rozszerzenie pliku, tak długo, jak pliki są identyfikowane jako pliki składnika Razor przy użyciu `_RazorComponentInclude` właściwości programu MSBuild. Na przykład aplikacja utworzona za pomocą szablonu składnika Razor Określa, że wszystkie *.cshtml* plików w obszarze *stron* folder powinien być traktowany jako plików składników Razor:
+Składniki mogą być tworzone za pomocą *.cshtml* rozszerzenie pliku, tak długo, jak pliki są identyfikowane jako pliki składnika Razor przy użyciu `_RazorComponentInclude` właściwości programu MSBuild. Na przykład aplikację, która określa, że wszystkie *.cshtml* plików w obszarze *stron* folder powinien być traktowany jako plików składników Razor:
 
 ```xml
 <_RazorComponentInclude>Pages\**\*.cshtml</_RazorComponentInclude>
@@ -75,13 +75,13 @@ Aby uzyskać więcej informacji na temat sposobu Wyrenderowana i składnika, sta
 
 Składniki mogą zawierać inne składniki, deklarując je przy użyciu składni elementu HTML. Znaczniki dla za pomocą składnika wygląda jak HTML tag, gdzie nazwa tagu jest typ składnika.
 
-Renderuje następujące znaczniki `HeadingComponent` wystąpienie:
+Następujące znaczniki w *Index.razor* renderuje `HeadingComponent` wystąpienia, znajdujący się w innym pliku *HeadingComponent.razor*:
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Pages/Index.razor?name=snippet_HeadingComponent)]
 
 ## <a name="component-parameters"></a>Parametry składnika
 
-Składniki mogą mieć *Parametry składnika*, które są definiowane za pomocą *niepublicznych* ozdobione właściwości klasy składnika `[Parameter]`. Używanie atrybutów, aby określić argumenty dla składnika w znacznikach.
+Składniki mogą mieć *Parametry składnika*, które są definiowane za pomocą *niepublicznych* właściwości klasy składnika za pomocą `[Parameter]` atrybutu. Używanie atrybutów, aby określić argumenty dla składnika w znacznikach.
 
 W poniższym przykładzie `ParentComponent` ustawia wartość `Title` właściwość `ChildComponent`:
 
@@ -112,7 +112,7 @@ Składnik podrzędny ma `ChildContent` właściwość, która reprezentuje `Rend
 
 ## <a name="data-binding"></a>Powiązanie danych
 
-Powiązanie danych do składników i elementów DOM odbywa się za pomocą `bind` atrybutu. Poniższy przykład tworzy powiązanie `ItalicsCheck` właściwość z polem wyboru zaznaczone stanu:
+Powiązanie danych do składników i elementów DOM odbywa się za pomocą `bind` atrybutu. Poniższy przykład tworzy powiązanie `_italicsCheck` pole do pola wyboru zaznaczone stanu:
 
 ```cshtml
 <input type="checkbox" class="form-check-input" id="italicsCheck" 
@@ -199,9 +199,11 @@ Element podrzędny:
     private int Year { get; set; }
 
     [Parameter]
-    private Action<int> YearChanged { get; set; }
+    private EventCallback<int> YearChanged { get; set; }
 }
 ```
+
+`EventCallback<T>` została wyjaśniona w [EventCallback](#eventcallback) sekcji.
 
 Trwa ładowanie `ParentComponent` tworzy następujące znaczniki:
 
@@ -232,7 +234,7 @@ Jeśli wartość `ParentYear` zmianie właściwości, wybierając przycisk w `Pa
 Zgodnie z Konwencją `<ChildComponent bind-Year="@ParentYear" />` jest zasadniczo odpowiednikiem pisania,
 
 ```cshtml
-    <ChildComponent bind-Year-YearChanged="@ParentYear" />
+<ChildComponent bind-Year-YearChanged="@ParentYear" />
 ```
 
 Ogólnie rzecz biorąc, można powiązać właściwości z odpowiedni program obsługi zdarzeń, za pomocą `bind-property-event` atrybutu.
@@ -347,7 +349,7 @@ Po wybraniu przycisku w składniku podrzędne:
 
 `EventCallback` i `EventCallback<T>` zezwolić delegatów asynchronicznych. `EventCallback<T>` Zdecydowanie jest wpisane i wymaga określonych argumentów. `EventCallback` słabo został wpisany oraz umożliwia dowolny typ argumentu.
 
-```chstml
+```cshtml
 <p><b>@messageText</b></p>
 
 @{ var message = "Default Text"; }
@@ -356,7 +358,7 @@ Po wybraniu przycisku w składniku podrzędne:
     OnClick="@(async () => { await Task.Yield(); messageText = "Blaze It!"; }" />
 
 @function {
-    string messageText;
+    private string messageText;
 }
 ```
 
@@ -372,7 +374,7 @@ Preferuj silnie typizowaną `EventCallback<T>`, które zapewniają lepszy błąd
 
 ## <a name="capture-references-to-components"></a>Przechwytywanie odwołania do składników
 
-Składnik odwołuje się do zapewnienia get sposób odwołania do wystąpienia składnika, dzięki czemu można wysyłać polecenia do tego wystąpienia, takie jak `Show` lub `Reset`. Do przechwycenia odwołania do składników, należy dodać `ref` atrybutu do elementu podrzędnego, a następnie zdefiniować pole o tej samej nazwie i typie jako element podrzędny.
+Odwołania do składników zapewnia sposób odwołania wystąpienie składnika, dzięki czemu można wysyłać polecenia do tego wystąpienia, takie jak `Show` lub `Reset`. Do przechwycenia odwołania do składników, należy dodać `ref` atrybutu do elementu podrzędnego, a następnie zdefiniować pole o tej samej nazwie i typie jako element podrzędny.
 
 ```cshtml
 <MyLoginDialog ref="loginDialog" ... />
@@ -392,7 +394,7 @@ Po wyrenderowaniu składnika `loginDialog` pole jest wypełniane `MyLoginDialog`
 > [!IMPORTANT]
 > `loginDialog` Zmiennej tylko jest wypełniana po składnik jest renderowana i jego dane wyjściowe obejmują `MyLoginDialog` elementu. Do tego momentu nie ma nic do odwołania. Do manipulowania odwołania do składników, po zakończeniu renderowania składnik, należy użyć `OnAfterRenderAsync` lub `OnAfterRender` metody.
 
-Podczas gdy przechwytywania odwołania do składników używa składni podobnie [przechwytywania odwołania do elementu](xref:blazor/javascript-interop#capture-references-to-elements), nie jest [międzyoperacyjnego JavaScript](xref:blazor/javascript-interop) funkcji. Odwołania do składników nie są przekazywane do kodu JavaScript; są one używane tylko w kodzie .NET.
+Podczas przechwytywania odwołania do składników użyj podobnej składni do [przechwytywania odwołania do elementu](xref:blazor/javascript-interop#capture-references-to-elements), nie jest [międzyoperacyjnego JavaScript](xref:blazor/javascript-interop) funkcji. Odwołania do składników nie są przekazywane do kodu w języku JavaScript&mdash;są używane tylko w kodzie .NET.
 
 > [!NOTE]
 > Czy **nie** umożliwia odwołania do składników mutować stan składnikach podrzędnych. Zamiast tego należy użyć normalnego parametry deklaratywne, aby przekazać dane do elementów podrzędnych. To sprawia, że podrzędnych automatycznie rerender w właściwym czasie.
@@ -417,7 +419,7 @@ protected override void OnInit()
 }
 ```
 
-`OnParametersSetAsync` i `OnParametersSet` są wywoływane, gdy składnik, który otrzyma parametry od jego elementu nadrzędnego, a wartości są przypisywane do właściwości. Te metody są wykonywane po zainicjowaniu składnik, a następnie każdorazowo składnika renderowania:
+`OnParametersSetAsync` i `OnParametersSet` są wywoływane, gdy składnik, który otrzyma parametry od jego elementu nadrzędnego, a wartości są przypisywane do właściwości. Te metody są wykonywane po zainicjowaniu składnika i każdym składniku jest renderowany:
 
 ```csharp
 protected override async Task OnParametersSetAsync()
@@ -515,7 +517,7 @@ Opcjonalne parametry nie są obsługiwane, dlatego dwie `@page` dyrektywy są st
 
 Pliki składników mieszać kod znaczników HTML i C# przetwarzania kodu w tym samym pliku. `@inherits` Dyrektywy może służyć do zapewnienia Blazor aplikacji w środowisku "związane z kodem" oddzielający składnika znaczników, od przetwarzania kodu.
 
-[Przykładową aplikację](https://github.com/aspnet/Docs/tree/master/aspnetcore/blazor/common/samples/) pokazuje, jak składnik może dziedziczyć klasy bazowej, `BlazorRocksBase`w celu zapewnienia składnika właściwości i metody.
+[Przykładową aplikację](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) pokazuje, jak składnik może dziedziczyć klasy bazowej, `BlazorRocksBase`w celu zapewnienia składnika właściwości i metody.
 
 *Składnik Blazor Rocks*:
 
@@ -776,7 +778,7 @@ Powiązanie z wartością nazwy ciągu jest istotne, jeśli masz wiele kaskadowy
 
 Kaskadowe wartości są powiązane kaskadowych parametry według typu.
 
-W przykładowej aplikacji składnika kaskadowych wartości parametrów motyw wiąże `ThemeInfo` kaskadowa wartość parametru kaskadowych. Parametr służy do ustawiania klasę CSS dla jednego z przyciski wyświetlane przez składnik.
+W przykładowej aplikacji wiąże składnika kaskadowych wartości parametrów motyw `ThemeInfo` kaskadowa wartość parametru kaskadowych. Parametr służy do ustawiania klasę CSS dla jednego z przyciski wyświetlane przez składnik.
 
 *Kaskadowe składnik wartości parametrów motyw*:
 

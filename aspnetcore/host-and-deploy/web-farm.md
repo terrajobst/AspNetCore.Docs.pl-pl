@@ -7,11 +7,11 @@ ms.custom: mvc
 ms.date: 11/26/2018
 uid: host-and-deploy/web-farm
 ms.openlocfilehash: 4873665e6174a6acf885e1ebb41fb005d646bd1f
-ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52450674"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64899245"
 ---
 # <a name="host-aspnet-core-in-a-web-farm"></a>Host platformy ASP.NET Core w ramach farmy sieci web
 
@@ -61,8 +61,8 @@ Następujące scenariusze nie wymaga dodatkowych czynności konfiguracyjnych, al
 | -------- | ------------------- |
 | Uwierzytelnianie | Ochrona danych (zobacz <xref:security/data-protection/configuration/overview>).<br><br>Aby uzyskać więcej informacji, zobacz <xref:security/authentication/cookie> i <xref:security/cookie-sharing>. |
 | Tożsamość | Konfiguracja uwierzytelniania i bazy danych.<br><br>Aby uzyskać więcej informacji, zobacz <xref:security/authentication/identity>. |
-| Sesja | Ochrona danych (zaszyfrowanych plików cookie) (zobacz <xref:security/data-protection/configuration/overview>) i pamięć podręczna (zobacz <xref:performance/caching/distributed>).<br><br>Aby uzyskać więcej informacji, zobacz [stan sesji i aplikacji: stan sesji](xref:fundamentals/app-state#session-state). |
-| TempData | Ochrona danych (zaszyfrowanych plików cookie) (zobacz <xref:security/data-protection/configuration/overview>) lub sesji (zobacz [stan sesji i aplikacji: stan sesji](xref:fundamentals/app-state#session-state)).<br><br>Aby uzyskać więcej informacji, zobacz [stan sesji i aplikacji: TempData](xref:fundamentals/app-state#tempdata). |
+| Sesja | Ochrona danych (zaszyfrowanych plików cookie) (zobacz <xref:security/data-protection/configuration/overview>) i pamięć podręczna (zobacz <xref:performance/caching/distributed>).<br><br>Aby uzyskać więcej informacji, zobacz [stan sesji i aplikacji: Stan sesji](xref:fundamentals/app-state#session-state). |
+| TempData | Ochrona danych (zaszyfrowanych plików cookie) (zobacz <xref:security/data-protection/configuration/overview>) lub sesji (zobacz [stan sesji i aplikacji: Stan sesji](xref:fundamentals/app-state#session-state)).<br><br>Aby uzyskać więcej informacji, zobacz [stan sesji i aplikacji: TempData](xref:fundamentals/app-state#tempdata). |
 | Zabezpieczający przed sfałszowaniem | Ochrona danych (zobacz <xref:security/data-protection/configuration/overview>).<br><br>Aby uzyskać więcej informacji, zobacz <xref:security/anti-request-forgery>. |
 
 ## <a name="troubleshoot"></a>Rozwiązywanie problemów

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/18/2018
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: d2dd5e9b7f196bcbd1940f7ef58331dabd2367a1
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: 72d5b2e902a95442ccffb7a149b917c50373775b
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637810"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64902203"
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>Adres URL ponowne napisanie oprogramowania pośredniczącego w programie ASP.NET Core
 
@@ -38,7 +38,7 @@ Ponownego zapisywania adresów URL jest działaniem zmiany żądania, których a
 > [!NOTE]
 > Ponownego zapisywania adresów URL może zmniejszyć wydajność aplikacji. Jeśli jest to możliwe, należy ograniczyć liczbę i złożoność reguł.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 ## <a name="url-redirect-and-url-rewrite"></a>Ponowne zapisywanie adresów URL przekierowania i adres URL
 
@@ -68,7 +68,7 @@ Mimo że klienta może mieć możliwość pobrania zasobu pod adresem URL nowych
 
 ## <a name="url-rewriting-sample-app"></a>Przykładowa aplikacja ponownego zapisywania adresów URL
 
-Możesz eksplorować funkcje pośredniczącym ponownego zapisywania adresów URL przy użyciu [przykładową aplikację](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/). Aplikacja ma zastosowanie przekierowania i ponowne zapisywanie adresów reguł i zawiera adres URL przekierowanego lub nowych dla kilku scenariuszy.
+Możesz eksplorować funkcje pośredniczącym ponownego zapisywania adresów URL przy użyciu [przykładową aplikację](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/). Aplikacja ma zastosowanie przekierowania i ponowne zapisywanie adresów reguł i zawiera adres URL przekierowanego lub nowych dla kilku scenariuszy.
 
 ## <a name="when-to-use-url-rewriting-middleware"></a>Kiedy należy używać oprogramowanie pośredniczące ponownego zapisywania adresów URL
 
@@ -201,7 +201,7 @@ Reguły ponownego pisania `^rewrite-rule/(\d+)/(\d+)`, tylko dopasowuje ścieże
 
 | Ścieżka                              | Dopasowanie |
 | --------------------------------- | :---: |
-| `/rewrite-rule/1234/5678`         | Tak   |
+| `/rewrite-rule/1234/5678`         | Yes   |
 | `/my-cool-rewrite-rule/1234/5678` | Nie    |
 | `/anotherrewrite-rule/1234/5678`  | Nie    |
 
@@ -242,7 +242,7 @@ Oprogramowanie pośredniczące obsługuje następujące zmienne serwera Apache m
 * HTTP_REFERER
 * HTTP_USER_AGENT
 * HTTPS
-* PROTOKÓŁ IPV6
+* IPV6
 * QUERY_STRING
 * REMOTE_ADDR
 * REMOTE_PORT

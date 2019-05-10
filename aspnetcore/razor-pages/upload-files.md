@@ -7,24 +7,24 @@ ms.author: riande
 ms.date: 11/10/2018
 ms.custom: mvc, seodec18
 uid: razor-pages/upload-files
-ms.openlocfilehash: a12653e5dc99ad731de63e151af6dbdbe38ffefc
-ms.sourcegitcommit: 8a84ce880b4c40d6694ba6423038f18fc2eb5746
-ms.translationtype: HT
+ms.openlocfilehash: 07457d57b7d3b444c8cea818149569407f1dd8e8
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60165225"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65085716"
 ---
 # <a name="upload-files-to-a-razor-page-in-aspnet-core"></a>Przekazywanie plików na stronę Razor programu ASP.NET Core
 
 Przez [Luke Latham](https://github.com/guardrex)
 
-Ten temat opiera się na [przykładową aplikację](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample) w <xref:tutorials/razor-pages/razor-pages-start>.
+Ten temat opiera się na [przykładową aplikację](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample) w <xref:tutorials/razor-pages/razor-pages-start>.
 
 W tym temacie pokazano, jak przekazać pliki, za pomocą prostego modelu powiązania, co sprawdza się dobrze w przypadku przekazywania plików na małe. Aby uzyskać informacje na przesyłanie strumieniowe dużych plików, zobacz [przekazywanie dużych plików z przesyłaniem strumieniowym](xref:mvc/models/file-uploads#uploading-large-files-with-streaming).
 
 W poniższych krokach funkcji przekazywania plików harmonogram film zostanie dodany do przykładowej aplikacji. Harmonogram film jest reprezentowany przez `Schedule` klasy. Klasa zawiera dwie wersje harmonogramu. Jedna wersja są przekazywane klientom, `PublicSchedule`. Druga wersja jest używana w przypadku pracowników firmy `PrivateSchedule`. Każda wersja jest przekazywany jako oddzielny plik. Samouczek pokazuje, jak wykonać dwie operacje przekazywania plików ze strony za pomocą pojedynczego wpisu do serwera.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/razor-pages/upload-files/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/upload-files/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 ## <a name="security-considerations"></a>Zagadnienia dotyczące bezpieczeństwa
 

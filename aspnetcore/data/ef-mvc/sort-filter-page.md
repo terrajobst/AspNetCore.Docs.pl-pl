@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/sort-filter-page
-ms.openlocfilehash: dff5a5b1ba3c8ed07ccc8d134f8cfeb25b9f6689
-ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
+ms.openlocfilehash: 921e27bf56587813f835357c9090c91a155c087b
+ms.sourcegitcommit: b508b115107e0f8d7f62b25cfcc8ad45e1373459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2019
-ms.locfileid: "58751037"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65212550"
 ---
 # <a name="tutorial-add-sorting-filtering-and-paging---aspnet-mvc-with-ef-core"></a>Samouczek: Dodaj sortowanie, filtrowanie i stronicowanie — ASP.NET MVC z programem EF Core
 
@@ -211,10 +211,8 @@ Po kliknięciu łączy stronicowania w różnych sortowania, aby upewnić się, 
 Dla witryny internetowej firmy Contoso University **o** stronie będą wyświetlane, jak wiele studentów zostały zarejestrowane dla każdego dnia rejestracji. Wymaga to obliczeń grupowania i prostych grup. Aby to osiągnąć, wykonasz następujące czynności:
 
 * Utwórz klasę modelu widoku danych potrzebnych do przekazania do widoku.
-
-* Zmodyfikuj metodę informacje w kontrolera głównego.
-
-* Zmodyfikuj widok informacje.
+* Utwórz metodę informacje w kontrolera głównego.
+* Utwórz widok informacje.
 
 ### <a name="create-the-view-model"></a>Tworzenie modelu widoku
 
@@ -239,10 +237,8 @@ Dodaj `About` metoda następującym kodem:
 [!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_UseDbSet)]
 
 Instrukcji LINQ grup jednostek uczniów według daty rejestracji, oblicza liczbę jednostek w każdej grupie i przechowuje wyniki w zbiorze `EnrollmentDateGroup` wyświetlić obiekty w modelu.
-> [!NOTE]
-> W wersji 1.0 programu Entity Framework Core cały zestaw wyników jest zwracany do klienta, a grupowania odbywa się na komputerze klienckim. W niektórych scenariuszach utworzyć to, problemy z wydajnością. Należy przetestować wydajność produkcji ilości danych i w razie potrzeby użyj pierwotne SQL celu grupowania na serwerze. Uzyskać informacji o sposobie używania pierwotne SQL, zobacz [ostatni samouczek z tej serii](advanced.md).
 
-### <a name="modify-the-about-view"></a>Zmodyfikuj widok — informacje
+### <a name="create-the-about-view"></a>Utwórz widok — informacje
 
 Dodaj *Views/Home/About.cshtml* pliku następującym kodem:
 
@@ -252,7 +248,7 @@ Uruchom aplikację, a następnie przejdź do strony informacje. Liczba studentó
 
 ## <a name="get-the-code"></a>Pobierz kod
 
-[Pobieranie i wyświetlanie ukończonej aplikacji.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
+[Pobieranie i wyświetlanie ukończonej aplikacji.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
 ## <a name="next-steps"></a>Następne kroki
 
