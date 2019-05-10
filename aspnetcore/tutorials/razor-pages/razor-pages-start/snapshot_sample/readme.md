@@ -1,1 +1,1 @@
-<span data-ttu-id="76474-101">Kod w tym folderze jest migawki w czasie z serii stron Razor.</span><span class="sxs-lookup"><span data-stu-id="76474-101">The code in this folder is snapshots in time from the Razor Pages series.</span></span>
+<span data-ttu-id="1c699-101">Kod w tym folderze jest migawki w czasie z serii stron Razor.</span><span class="sxs-lookup"><span data-stu-id="1c699-101">The code in this folder is snapshots in time from the Razor Pages series.</span></span>
