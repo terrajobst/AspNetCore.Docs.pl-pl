@@ -5,12 +5,12 @@ description: Dowiedz się, jak platforma ASP.NET Core obsługuje wstrzykiwanie z
 ms.author: riande
 ms.date: 10/14/2016
 uid: mvc/views/dependency-injection
-ms.openlocfilehash: 940e237fd73a864d9fd59f5447fe486f93648f62
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
-ms.translationtype: HT
+ms.openlocfilehash: b411b164bfea81f82c5c9fc1052e0ecfe65f0bc2
+ms.sourcegitcommit: 3376f224b47a89acf329b2d2f9260046a372f924
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087469"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65517051"
 ---
 # <a name="dependency-injection-into-views-in-aspnet-core"></a>Wstrzykiwanie zależności do widoków w programie ASP.NET Core
 
@@ -20,13 +20,38 @@ Obsługuje platformy ASP.NET Core [wstrzykiwanie zależności](xref:fundamentals
 
 [Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/dependency-injection/sample) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
-## <a name="a-simple-example"></a>Prosty przykład
+## <a name="configuration-injection"></a>Iniekcja konfiguracji
 
-Usługa może wprowadzać w widoku, używając `@inject` dyrektywy. Można potraktować `@inject` Dodawanie właściwości do widoku i wypełnienie właściwości, używając DI.
+*appSettings.JSON* wartości może wprowadzone bezpośrednio w widoku.
+
+Przykład *appsettings.json* pliku:
+
+```json
+{
+   "root": {
+      "parent": {
+         "child": "myvalue"
+      }
+   }
+}
+```
 
 Składnia `@inject`: `@inject <type> <name>`
 
-Przykładem `@inject` w akcji:
+Przykłady dotyczące używania `@inject`:
+
+```csharp
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+   string myValue = Configuration["root:parent:child"];
+   ...
+}
+```
+
+## <a name="service-injection"></a>Uruchomienie usługi
+
+Usługa może zostać wprowadzona w widoku, używając `@inject` dyrektywy. Można potraktować `@inject` Dodawanie właściwości do widoku i wypełnienie właściwości, używając DI.
 
 [!code-csharp[](../../mvc/views/dependency-injection/sample/src/ViewInjectSample/Views/ToDo/Index.cshtml?highlight=4,5,15,16,17)]
 

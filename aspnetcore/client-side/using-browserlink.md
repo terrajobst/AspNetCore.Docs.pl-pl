@@ -7,11 +7,11 @@ ms.custom: H1Hack27Feb2017
 ms.date: 09/22/2017
 uid: client-side/using-browserlink
 ms.openlocfilehash: 452ba5149563c186750466f471c7b950f0017614
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41754246"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64900850"
 ---
 # <a name="browser-link-in-aspnet-core"></a>Łączność z przeglądarkami w programie ASP.NET Core
 
@@ -83,7 +83,7 @@ Z formantem paska narzędzi łącza przeglądarki możesz wykonywać następują
 
 * Odświeżanie aplikacji sieci web w kilku przeglądarkach naraz.
 * Otwórz **nawigacyjnym łącza przeglądarki**.
-* Włączanie lub wyłączanie **łączność z przeglądarkami**. Uwaga: Łącze przeglądarki jest domyślnie wyłączona w programie Visual Studio 2017 (15.3).
+* Włączanie lub wyłączanie **łączność z przeglądarkami**. Uwaga: Łącze przeglądarki jest domyślnie wyłączona, w programie Visual Studio 2017 (15.3).
 * Włączanie lub wyłączanie [automatyczna synchronizacja CSS](#enable-or-disable-css-auto-sync).
 
 > [!NOTE]
@@ -117,15 +117,15 @@ Zmień widok indeksu i wszystkich połączonych przeglądarek są aktualizowane,
 
 Otwórz pulpicie nawigacyjnym łącza przeglądarki z przeglądarkami rozwijanego menu, aby zarządzać połączeniem z przeglądarkami Otwórz:
 
-![Open — browserslink — pulpit nawigacyjny](using-browserlink/_static/open-browserlink-dashboard.png)
+![open-browserslink-dashboard](using-browserlink/_static/open-browserlink-dashboard.png)
 
 Jeśli przeglądarka nie jest połączony, można uruchomić sesji bez debugowania, wybierając *Pokaż w przeglądarce* łącza:
 
-![nie połączenia, browserlink pulpitu nawigacyjnego w-](using-browserlink/_static/browserlink-dashboard-no-connections.png)
+![browserlink-dashboard-no-connections](using-browserlink/_static/browserlink-dashboard-no-connections.png)
 
 W przeciwnym razie połączonych przeglądarek są wyświetlane ze ścieżką do strony, która jest wyświetlane w każdej przeglądarce:
 
-![dwa połączenia, browserlink pulpitu nawigacyjnego w-](using-browserlink/_static/browserlink-dashboard-two-connections.png)
+![browserlink-dashboard-two-connections](using-browserlink/_static/browserlink-dashboard-two-connections.png)
 
 Jeśli chcesz możesz kliknąć nazwę listy przeglądarki, aby odświeżyć tego jednej przeglądarki.
 

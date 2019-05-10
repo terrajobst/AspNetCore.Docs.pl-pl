@@ -1,6 +1,6 @@
 # <a name="response-compression-sample-application-aspnet-core-2x"></a>Aplikacja przykładowa kompresji odpowiedzi (Platforma ASP.NET Core 2.x)
 
-Ten przykład ilustruje sposób używania programu ASP.NET Core 2.x oprogramowanie pośredniczące kompresji odpowiedzi, aby kompresowały odpowiedzi HTTP. Próbka pokazuje Gzip, Brotli i dostawców niestandardowych kompresji odpowiedzi tekstu i obrazów i pokazuje, jak dodać typ MIME dla kompresji. Dla platformy ASP.NET Core 1.x przykładu, zobacz [aplikacji przykładowej kompresji odpowiedzi (Platforma ASP.NET Core 1.x)](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/response-compression/samples/1.x).
+Ten przykład ilustruje sposób używania programu ASP.NET Core 2.x oprogramowanie pośredniczące kompresji odpowiedzi, aby kompresowały odpowiedzi HTTP. Próbka pokazuje Gzip, Brotli i dostawców niestandardowych kompresji odpowiedzi tekstu i obrazów i pokazuje, jak dodać typ MIME dla kompresji. Dla platformy ASP.NET Core 1.x przykładu, zobacz [aplikacji przykładowej kompresji odpowiedzi (Platforma ASP.NET Core 1.x)](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples/1.x).
 
 ## <a name="examples-in-this-sample"></a>Przykłady w tym przykładzie
 

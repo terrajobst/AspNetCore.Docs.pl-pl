@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 11/30/2017
 uid: security/authentication/individual
 ms.openlocfilehash: f9c1be16386da935382275815bb5fd5c72894b1c
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58265433"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64898876"
 ---
 # <a name="articles-based-on-aspnet-core-projects-created-with-individual-user-accounts"></a>Artykułów opartych na projektach programu ASP.NET Core utworzona za pomocą indywidualnych kont użytkowników
 

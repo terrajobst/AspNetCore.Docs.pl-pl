@@ -6,7 +6,7 @@
 
   ![Utwórz widok z polami gatunku, ceny, Data wydania i tytuł](~/tutorials/first-mvc-app/adding-model/_static/movies.png)
 
-* Nie można wprowadzić, kropki i przecinki w `Price` pola. Aby obsługiwać [dotyczącą weryfikacji jQuery](https://jqueryvalidation.org/) dla ustawień regionalnych innych niż angielski, które należy użyć przecinka (",") dla punktu dziesiętnego i formaty daty inne niż angielski, należy wykonać kroki, aby sprzedawać aplikację. Zobacz [ https://github.com/aspnet/Docs/issues/4076 ](https://github.com/aspnet/Docs/issues/4076) i [dodatkowe zasoby](#additional-resources) Aby uzyskać więcej informacji. Teraz po prostu wprowadź liczbami całkowitymi, takich jak 10.
+* Nie można wprowadzić, kropki i przecinki w `Price` pola. Aby obsługiwać [dotyczącą weryfikacji jQuery](https://jqueryvalidation.org/) dla ustawień regionalnych innych niż angielski, które należy użyć przecinka (",") dla punktu dziesiętnego i formaty daty inne niż angielski, należy wykonać kroki, aby sprzedawać aplikację. Zobacz [ https://github.com/aspnet/AspNetCore.Docs/issues/4076 ](https://github.com/aspnet/AspNetCore.Docs/issues/4076) i [dodatkowe zasoby](#additional-resources) Aby uzyskać więcej informacji. Teraz po prostu wprowadź liczbami całkowitymi, takich jak 10.
 
 <a name="displayformatdatelocal"></a>
 

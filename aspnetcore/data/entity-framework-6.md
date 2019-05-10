@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: data/entity-framework-6
-ms.openlocfilehash: b7679afbe4c364386fe8f16d22d7e9797a3e0c27
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 50f51a72341cbad017872df581da214211b9920a
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090062"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64900616"
 ---
 # <a name="get-started-with-aspnet-core-and-entity-framework-6"></a>Rozpoczynanie pracy z platformą ASP.NET Core i Entity Framework 6
 
@@ -23,7 +23,7 @@ W tym artykule pokazano, jak używać platformy Entity Framework 6 w aplikacji A
 
 Aby korzystać z platformy Entity Framework 6, projekt ma kompilowanie z użyciem platformy .NET Framework, zgodnie z platformy Entity Framework 6 nie obsługuje platformy .NET Core. Jeśli potrzebujesz funkcji dla wielu platform należy uaktualnić do [Entity Framework Core](/ef/).
 
-Zalecanym sposobem użycia platformy Entity Framework 6 w aplikacji ASP.NET Core jest umieszczenie kontekstu EF6 i klasy modeli w bibliotece klas projektu przeznaczonego pełny framework. Dodaj odwołanie do biblioteki klas z projektów ASP.NET Core. Zobacz przykład [rozwiązania Visual Studio z projektami EF6 i ASP.NET Core](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/entity-framework-6/sample/).
+Zalecanym sposobem użycia platformy Entity Framework 6 w aplikacji ASP.NET Core jest umieszczenie kontekstu EF6 i klasy modeli w bibliotece klas projektu przeznaczonego pełny framework. Dodaj odwołanie do biblioteki klas z projektów ASP.NET Core. Zobacz przykład [rozwiązania Visual Studio z projektami EF6 i ASP.NET Core](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/entity-framework-6/sample/).
 
 Nie można umieścić uprawnieniami EF6 w projektach programu ASP.NET Core, ponieważ projektów .NET Core nie obsługują wszystkie funkcje, które EF6 polecenia, takie jak *Enable-Migrations* wymagają.
 
@@ -61,7 +61,7 @@ Następnie można pobrać wystąpienia kontekstu w kontrolerach przy użyciu DI.
 
 ## <a name="sample-application"></a>Przykładowa aplikacja
 
-Pracy przykładowej aplikacji, zobacz [przykładowe rozwiązanie programu Visual Studio](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/entity-framework-6/sample/) dołączony w tym artykule.
+Pracy przykładowej aplikacji, zobacz [przykładowe rozwiązanie programu Visual Studio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/entity-framework-6/sample/) dołączony w tym artykule.
 
 W tym przykładzie można tworzyć od podstaw przez następujące kroki w programie Visual Studio:
 

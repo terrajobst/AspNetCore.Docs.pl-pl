@@ -7,11 +7,11 @@ ms.custom: mvc
 ms.date: 11/20/2018
 uid: client-side/bundling-and-minification
 ms.openlocfilehash: 5d5f0aadb7740c9b2b959d12a585cd8c91758ce8
-ms.sourcegitcommit: 4225e2c49a0081e6ac15acff673587201f54b4aa
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282147"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64900451"
 ---
 # <a name="bundle-and-minify-static-assets-in-aspnet-core"></a>Tworzenie pakietów i minimalizowanie statycznych zasobów w programie ASP.NET Core
 
@@ -87,13 +87,13 @@ Opcje konfiguracji obejmują:
 
 * `outputFileName`: Nazwa pliku pakietu w danych wyjściowych. Może zawierać ścieżki względnej z *bundleconfig.json* pliku. **Wymagane**
 * `inputFiles`: Tablica plików, aby powiązać razem. To są ścieżki względne do pliku konfiguracji. **Opcjonalnie**, * wartość pustą wyniki w pliku wyjściowym puste. [symboli wieloznacznych](http://www.tldp.org/LDP/abs/html/globbingref.html) wzorce są obsługiwane.
-* `minify`: Minimalizację opcje dla typu danych wyjściowych. **Opcjonalnie**, *domyślnie — `minify: { enabled: true }`*
+* `minify`: Minimalizowanie opcje typu danych wyjściowych. **Opcjonalnie**, *domyślnie — `minify: { enabled: true }`*
   * Opcje konfiguracji są dostępne na typ pliku wyjściowego.
     * [Element minimalizujący CSS](https://github.com/madskristensen/BundlerMinifier/wiki/cssminifier)
     * [JavaScript Minifier](https://github.com/madskristensen/BundlerMinifier/wiki/JavaScript-Minifier-settings)
     * [Element minimalizujący HTML](https://github.com/madskristensen/BundlerMinifier/wiki)
-* `includeInProject`: Flaga oznaczająca, czy dodać wygenerowanych plików do pliku projektu. **Opcjonalnie**, *ustawienie domyślne — FAŁSZ.*
-* `sourceMap`: Flaga oznaczająca, czy można wygenerować mapy źródła dla plików powiązane. **Opcjonalnie**, *ustawienie domyślne — FAŁSZ.*
+* `includeInProject`: Flaga oznaczająca, czy należy dodać wygenerowanych plików do pliku projektu. **Opcjonalnie**, *ustawienie domyślne — FAŁSZ.*
+* `sourceMap`: Flaga wskazująca, czy mają zostać wygenerowane mapę źródłową, powiązane pliku. **Opcjonalnie**, *ustawienie domyślne — FAŁSZ.*
 * `sourceMapRootPath`: Ścieżka katalogu głównego do przechowywania pliku mapy wygenerowanego źródła.
 
 ## <a name="build-time-execution-of-bundling-and-minification"></a>Czas kompilacji wykonywanie tworzenie pakietów i minimalizowanie
@@ -254,7 +254,7 @@ Następujące `environment` tag renderuje pliki CSS powiązane i zminimalizowany
 
 ::: moniker-end
 
-## <a name="consume-bundleconfigjson-from-gulp"></a>Używanie bundleconfig.json z Gulp
+## <a name="consume-bundleconfigjson-from-gulp"></a>Consume bundleconfig.json from Gulp
 
 Istnieją przypadki, w których aplikacja tworzenie pakietów i minimalizowanie przepływ pracy wymaga dodatkowego przetwarzania. Przykłady obejmują optymalizacji obrazu, rozrywające pamięci podręcznej i przetwarzanie zasobów w sieci CDN. Aby spełnić te wymagania, możesz przekonwertować tworzenie pakietów i minimalizowanie przepływu pracy korzystanie z Gulp.
 

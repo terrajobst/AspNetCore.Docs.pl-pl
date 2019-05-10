@@ -5,12 +5,12 @@ description: Dowiedz się, jak tworzenie usług zaplecza za pomocą platformy AS
 ms.author: riande
 ms.date: 10/14/2016
 uid: mobile/native-mobile-backend
-ms.openlocfilehash: 13149dd4b877b8c17d33d428779ad31d8c51ae9e
-ms.sourcegitcommit: 687ffb15ebe65379f75c84739ea851d5a0d788b7
+ms.openlocfilehash: b50d2593d7dc4b89472033898373e3a22fc9a7a3
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58488731"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64899080"
 ---
 # <a name="create-backend-services-for-native-mobile-apps-with-aspnet-core"></a>Tworzenie usług zaplecza dla natywnych aplikacji mobilnych za pomocą programu ASP.NET Core
 
@@ -18,7 +18,7 @@ Przez [Steve Smith](https://ardalis.com/)
 
 Aplikacje mobilne mogą komunikować się z usługami zaplecza programu ASP.NET Core. Aby uzyskać instrukcje dotyczące łączenia usługi sieci web w lokalnych z symulatorach systemu iOS i emulatory systemu Android, zobacz [Połącz z lokalnych usług sieci Web z poziomu systemu iOS symulatorach i emulatory systemu Android](/xamarin/cross-platform/deploy-test/connect-to-local-web-services).
 
-[Wyświetlanie lub pobieranie przykładowego kodu usługi wewnętrznej bazy danych](https://github.com/aspnet/Docs/tree/master/aspnetcore/mobile/native-mobile-backend/sample)
+[Wyświetlanie lub pobieranie przykładowego kodu usługi wewnętrznej bazy danych](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mobile/native-mobile-backend/sample)
 
 ## <a name="the-sample-native-mobile-app"></a>Przykładowe natywnej aplikacji mobilnej
 

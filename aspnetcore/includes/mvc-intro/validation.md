@@ -1,11 +1,3 @@
----
-ms.openlocfilehash: 2dc43dc07d7aecfd6195ea69773ebc4818360f0d
-ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
-ms.translationtype: MT
-ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57665436"
----
 # <a name="add-validation-to-an-aspnet-core-mvc-app"></a>Dodawanie walidacji do aplikacji ASP.NET Core MVC
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT)

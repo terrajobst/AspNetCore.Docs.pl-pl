@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/07/2019
 uid: razor-pages/razor-pages-conventions
-ms.openlocfilehash: c160d93e22fc5b3511ba4e5539cce8576346898b
-ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
+ms.openlocfilehash: 4e07b5803adbce94982584212fa65afbfd427b64
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57665551"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64899737"
 ---
 # <a name="razor-pages-route-and-app-conventions-in-aspnet-core"></a>Razor konwencje tras i aplikacji stron w programie ASP.NET Core
 
@@ -26,7 +26,7 @@ Aby określić trasę strony, Dodaj trasę segmentów lub dodać parametry do tr
 
 Brak słów zastrzeżonych, których nie można użyć jako trasy segmentów lub nazw parametrów. Aby uzyskać więcej informacji, zobacz [routingu: Zastrzeżone nazwy routingu](xref:fundamentals/routing#reserved-routing-names).
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 | Scenariusz | W przykładzie pokazano... |
 | -------- | --------------------------- |
@@ -94,7 +94,7 @@ Przykładowa aplikacja dodaje `{globalTemplate?}` szablon trasy do wszystkich st
 
 Wszędzie tam, gdzie to możliwe, nie należy ustawiać `Order`, które powoduje `Order = 0`. Polegaj na routingu, aby wybrać poprawny trasy.
 
-Opcje strony razor, takich jak dodawanie <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions>, są dodawane, gdy MVC zostanie dodany do kolekcji usługi w `Startup.ConfigureServices`. Aby uzyskać przykład, zobacz [przykładową aplikację](https://github.com/aspnet/Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/).
+Opcje strony razor, takich jak dodawanie <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions>, są dodawane, gdy MVC zostanie dodany do kolekcji usługi w `Startup.ConfigureServices`. Aby uzyskać przykład, zobacz [przykładową aplikację](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/).
 
 [!code-csharp[](razor-pages-conventions/samples/2.x/SampleApp/Startup.cs?name=snippet1)]
 

@@ -7,18 +7,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/13/2019
 uid: performance/response-compression
-ms.openlocfilehash: e87480ebb81791ed233f3e2308e35e21e081824f
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.openlocfilehash: e312d43fb62106f6ecb98367c29daa377bb227c9
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248371"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64899638"
 ---
 # <a name="response-compression-in-aspnet-core"></a>Kompresja odpowiedzi w programie ASP.NET Core
 
 Przez [Luke Latham](https://github.com/guardrex)
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/response-compression/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 Przepustowość sieci jest ograniczona zasobów. Zazwyczaj zmniejszenie rozmiaru odpowiedzi często znacznie zwiększa szybkość reakcji aplikacji. Jednym ze sposobów, aby zmniejszyć rozmiar ładunku jest kompresji odpowiedzi aplikacji.
 
@@ -49,8 +49,8 @@ W przypadku klienta może przetwarzać skompresowanej treści, klient musi powia
 | `br`                            | Tak (ustawienie domyślne)        | [Format skompresowanych danych Brotli](https://tools.ietf.org/html/rfc7932) |
 | `deflate`                       | Nie                   | [Format skompresowanych danych DEFLATE](https://tools.ietf.org/html/rfc1951) |
 | `exi`                           | Nie                   | [Wymiana wydajne XML W3C](https://tools.ietf.org/id/draft-varga-netconf-exi-capability-00.html) |
-| `gzip`                          | Tak                  | [Format pliku gzip](https://tools.ietf.org/html/rfc1952) |
-| `identity`                      | Tak                  | Identyfikator "Bez kodowania": Odpowiedź nie musi być zakodowany. |
+| `gzip`                          | Yes                  | [Format pliku gzip](https://tools.ietf.org/html/rfc1952) |
+| `identity`                      | Yes                  | Identyfikator "Bez kodowania": Odpowiedź nie musi być zakodowany. |
 | `pack200-gzip`                  | Nie                   | [Format Transfer sieci archiwa Java](https://jcp.org/aboutJava/communityprocess/review/jsr200/index.html) |
 | `*`                             | Tak                  | Kodowanie nie jest jawnie żądanej zawartości dostępne |
 
@@ -89,7 +89,7 @@ Zaangażowane w żądanie nagłówki wysyłanie, buforowanie i odbieranie skompr
 | `Content-Type`     | Określa typ MIME zawartości. Należy określić w każdej odpowiedzi jego `Content-Type`. Oprogramowanie pośredniczące sprawdza tę wartość, aby określić, jeśli odpowiedź powinien być skompresowany. Oprogramowanie pośredniczące określa zestaw [domyślne typy MIME](#mime-types) można kodować, ale można zastąpić, lub dodać typy MIME. |
 | `Vary`             | Gdy wysyłane przez serwer o wartości `Accept-Encoding` do klientów i serwerów proxy, `Vary` nagłówek wskazuje do klienta lub serwera proxy, który powinien pamięci podręcznej (różne) odpowiedzi na podstawie wartości z `Accept-Encoding` nagłówku żądania. Wynik zwracania zawartości przy użyciu `Vary: Accept-Encoding` nagłówek jest zarówno skompresowane i bez kompresji odpowiedzi są buforowane osobno. |
 
-Zapoznaj się z funkcjami oprogramowanie pośredniczące kompresji odpowiedzi z [przykładową aplikację](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/response-compression/samples). Ilustruje przykład:
+Zapoznaj się z funkcjami oprogramowanie pośredniczące kompresji odpowiedzi z [przykładową aplikację](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples). Ilustruje przykład:
 
 * Kompresja odpowiedzi aplikacji za pomocą Gzip i dostawców niestandardowych kompresji.
 * Jak dodać typ MIME do domyślnej listy typów MIME dla kompresji.

@@ -1,11 +1,3 @@
----
-ms.openlocfilehash: de093954fedc0fef1f945e881e1c7a6a24178bdb
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
-ms.translationtype: MT
-ms.contentlocale: pl-PL
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58265410"
----
 ## <a name="add-initial-migration-and-update-the-database"></a>Dodawanie początkowej migracji i aktualizowanie bazy danych
 
 * Otwórz wiersz polecenia i przejdź do katalogu projektu. (Katalogu zawierającego *Startup.cs* pliku).

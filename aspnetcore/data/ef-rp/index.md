@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 03/15/2017
 uid: data/ef-rp/index
 ms.openlocfilehash: 1e8d38ba3db014c68717f90b7216dc84a9c496a8
-ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37938368"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64899797"
 ---
 # <a name="aspnet-core-razor-pages-with-ef-core---tutorial-series"></a>Stronami ASP.NET Core Razor z programem EF Core — seria samouczków
 

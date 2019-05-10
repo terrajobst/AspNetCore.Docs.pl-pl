@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/18/2018
 uid: fundamentals/host/web-host
-ms.openlocfilehash: 94d7e3436b52646166733e9e7334ac533c72b7b8
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: b391b5e514e750f64f30d33cf4eb91e489242eba
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57346475"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64901579"
 ---
 # <a name="aspnet-core-web-host"></a>Host sieci Web platformy ASP.NET Core
 
@@ -124,7 +124,7 @@ Konfiguracja zdefiniowane przez `CreateDefaultBuilder` zastąpienia i wzmacnia [
 
 ::: moniker-end
 
-*Zawartości głównego* Określa, gdzie hosta wyszukuje pliki zawartości, takich jak pliki widoku MVC. Po uruchomieniu aplikacji z folderu głównego projektu, folder główny projektu jest używany jako katalogu głównego zawartości. Jest to opcja domyślna używana w [programu Visual Studio](https://www.visualstudio.com/) i [dotnet nowe szablony](/dotnet/core/tools/dotnet-new).
+*Zawartości głównego* Określa, gdzie hosta wyszukuje pliki zawartości, takich jak pliki widoku MVC. Po uruchomieniu aplikacji z folderu głównego projektu, folder główny projektu jest używany jako katalogu głównego zawartości. Jest to opcja domyślna używana w [programu Visual Studio](https://visualstudio.microsoft.com) i [dotnet nowe szablony](/dotnet/core/tools/dotnet-new).
 
 Aby uzyskać więcej informacji na temat konfiguracji aplikacji, zobacz <xref:fundamentals/configuration/index>.
 
@@ -219,7 +219,7 @@ Ustawia środowiska Twojej aplikacji.
 **Można ustawić przy użyciu**: `UseEnvironment`  
 **Zmienna środowiskowa**: `ASPNETCORE_ENVIRONMENT`
 
-Środowisko można ustawić dowolną wartość. Wartości zdefiniowane w ramach obejmują `Development`, `Staging`, i `Production`. Wartości nie są z uwzględnieniem wielkości liter. Domyślnie *środowiska* są odczytywane z `ASPNETCORE_ENVIRONMENT` zmiennej środowiskowej. Korzystając z [programu Visual Studio](https://www.visualstudio.com/), zmienne środowiskowe, może być ustawiona w *launchSettings.json* pliku. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/environments>.
+Środowisko można ustawić dowolną wartość. Wartości zdefiniowane w ramach obejmują `Development`, `Staging`, i `Production`. Wartości nie są z uwzględnieniem wielkości liter. Domyślnie *środowiska* są odczytywane z `ASPNETCORE_ENVIRONMENT` zmiennej środowiskowej. Korzystając z [programu Visual Studio](https://visualstudio.microsoft.com), zmienne środowiskowe, może być ustawiona w *launchSettings.json* pliku. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/environments>.
 
 ```csharp
 WebHost.CreateDefaultBuilder(args)
@@ -532,7 +532,7 @@ using (var host = WebHost.Start(router => router
 
 W przykładzie, należy użyć następujących żądań przeglądarki:
 
-| Żądanie                                    | Odpowiedź                                 |
+| Request                                    | Odpowiedź                                 |
 | ------------------------------------------ | ---------------------------------------- |
 | `http://localhost:5000/hello/Martin`       | Witaj, Martin!                           |
 | `http://localhost:5000/buenosdias/Catrina` | Buenos diasem, Catrina!                    |

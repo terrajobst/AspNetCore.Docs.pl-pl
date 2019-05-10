@@ -1,11 +1,3 @@
----
-ms.openlocfilehash: 5278527c86d5e2c895496663401964b6b9914c46
-ms.sourcegitcommit: a1c43150ed46aa01572399e8aede50d4668745ca
-ms.translationtype: MT
-ms.contentlocale: pl-PL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58327399"
----
 Wyróżniony kod powyżej przedstawiono kontekst bazy danych filmów, które są dodawane do [wstrzykiwanie zależności](xref:fundamentals/dependency-injection) kontenera (w *Startup.cs* pliku). `services.AddDbContext<MvcMovieContext>(options =>` Określa bazę danych i parametry połączenia. `=>` jest [operatora lambda](/dotnet/articles/csharp/language-reference/operators/lambda-operator).
 
 Otwórz *Controllers/MoviesController.cs* plików i zbadaj konstruktora:

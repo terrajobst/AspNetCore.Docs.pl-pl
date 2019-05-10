@@ -7,11 +7,11 @@ ms.custom: H1Hack27Feb2017
 ms.date: 08/02/2017
 uid: client-side/spa-services
 ms.openlocfilehash: ee772e67ef14608bcc6e3498ade00424ff6090e5
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121379"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64900211"
 ---
 # <a name="use-javascriptservices-to-create-single-page-applications-in-aspnet-core"></a>Korzystanie z technologii JavaScriptServices do tworzenia aplikacji jednostronicowej w programie ASP.NET Core
 
@@ -67,7 +67,7 @@ Aby pracować z SpaServices, należy zainstalować następujące elementy:
     node -v && npm -v
     ```
 
-Uwaga: Jeśli wdrażasz do witryny sieci web systemu Azure, nie trzeba wykonywać żadnych czynności w tym miejscu &mdash; Node.js jest zainstalowany i dostępny w środowisku serwerów.
+Uwaga: Jeśli wdrażasz do witryny sieci web systemu Azure, nie musisz tutaj niczego robić &mdash; Node.js jest zainstalowany i dostępny w środowisku serwerów.
 
 * [!INCLUDE [](~/includes/net-core-sdk-download-link.md)]
 
@@ -123,7 +123,7 @@ Odebrano `UserName` argument jest serializowana, za pomocą wbudowanych serializ
 
 [!code-typescript[](../client-side/spa-services/sample/SpaServicesSampleApp/ClientApp/boot-server.ts?range=6,10-21,38-52,79-)]
 
-Uwaga: Nazwy właściwości przekazanej pomocników tagów są reprezentowane przez **PascalCase** notacji. Natomiast, w kodzie JavaScript, w których takie same nazwy właściwości są reprezentowane za pomocą **camelCase**. Domyślna konfiguracja serializacji JSON jest odpowiedzialny za tę różnicę.
+Uwaga: Nazwy właściwości przekazanej pomocników tagów są reprezentowane z **PascalCase** notacji. Natomiast, w kodzie JavaScript, w których takie same nazwy właściwości są reprezentowane za pomocą **camelCase**. Domyślna konfiguracja serializacji JSON jest odpowiedzialny za tę różnicę.
 
 Aby rozszerzyć na poprzednim przykładzie kodu, dane mogą być przekazywane z serwera do widoku przez nawilżania `globals` właściwości udostępniane `resolve` funkcji:
 
