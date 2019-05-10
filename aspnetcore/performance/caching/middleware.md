@@ -7,18 +7,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/20/2019
 uid: performance/caching/middleware
-ms.openlocfilehash: c7c3dbd0c9cf029fa6921d77450e780768c8aa6e
-ms.sourcegitcommit: 0945078a09c372f17e9b003758ed87e99c2449f4
+ms.openlocfilehash: ddbd547ec0fdd09da1f3e3ce30f8fa35a34870c2
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56647918"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64903019"
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Oprogramowanie pośredniczące w programie ASP.NET Core buforowania odpowiedzi
 
 Przez [Luke Latham](https://github.com/guardrex) i [Luo Jan](https://github.com/JunTaoLuo)
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/middleware/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample)).
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/caching/middleware/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample)).
 
 W tym artykule wyjaśniono, jak skonfigurować oprogramowanie pośredniczące buforowania odpowiedzi w aplikacji ASP.NET Core. Oprogramowanie pośredniczące Określa, kiedy podlega buforowaniu, na są odpowiedzi, magazyny odpowiedzi i służy odpowiedzi z pamięci podręcznej. Wprowadzenie do buforowania HTTP i `ResponseCache` atrybutów, zobacz [buforowanie odpowiedzi](xref:performance/caching/response).
 

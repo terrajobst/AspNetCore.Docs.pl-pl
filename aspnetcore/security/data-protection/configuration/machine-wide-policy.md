@@ -1,71 +1,71 @@
 ---
-title: Obsługuje zasady komputera ochrony danych w ASP.NET Core
+title: Zasady komputera ochrony danych obsługi w programie ASP.NET Core
 author: rick-anderson
-description: Więcej informacji na temat obsługują ustawiania domyślnych zasad komputera dla wszystkich aplikacji używających platformy ASP.NET Core do ochrony danych.
+description: Więcej informacji na temat pomocy technicznej do ustawiania domyślnych zasad komputera dla wszystkich aplikacji korzystających z ochrony danych programu ASP.NET Core.
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/configuration/machine-wide-policy
 ms.openlocfilehash: 70aaca7afcd3df22cebb4466fbd9845a2277688c
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36275191"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64902980"
 ---
-# <a name="data-protection-machine-wide-policy-support-in-aspnet-core"></a>Obsługuje zasady komputera ochrony danych w ASP.NET Core
+# <a name="data-protection-machine-wide-policy-support-in-aspnet-core"></a>Zasady komputera ochrony danych obsługi w programie ASP.NET Core
 
-przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Podczas uruchamiania w systemie Windows, system ochrony danych ma ograniczoną obsługę ustawienie domyślne zasady komputera dla wszystkich aplikacji używających platformy ASP.NET Core Data Protection. Ogólne informacje o tym jest administrator może chcieć zmienić ustawienie domyślne, takie jak używane algorytmy lub okres istnienia klucza, bez konieczności ręcznej aktualizacji każdej aplikacji na maszynie.
+Gdy w systemie Windows, system ochrony danych ma ograniczoną obsługę ustawienie domyślnych zasad komputera dla wszystkich aplikacji korzystających z ochrony danych programu ASP.NET Core. Ogólne chodzi o to, że administrator może chcieć zmienić ustawienie domyślne, takie jak używane algorytmy lub okres istnienia klucza, bez konieczności ręcznie zaktualizować wszystkie aplikacje na maszynie.
 
 > [!WARNING]
-> Administrator systemu może ustawić domyślną zasadę, ale nie mogą jej wymusić. Deweloper aplikacji zawsze można zmienić wartości z swój wybór. Domyślna zasada dotyczy tylko aplikacji, gdzie dewelopera nie określono jawnej wartości dla ustawień.
+> Administrator systemu może ustawić domyślną zasadę, ale nie mogą jej wymusić. Deweloper aplikacji zawsze można zmienić dowolną wartość z swój wybór. Domyślne zasady dotyczy tylko aplikacji, w których deweloper nie zostało określone jawną wartość dla ustawienia.
 
 ## <a name="setting-default-policy"></a>Ustawienie domyślne zasady
 
-Aby ustawić domyślną zasadę, administrator może ustawić znane wartości w rejestrze systemu w następującym kluczu rejestru:
+Aby ustawić domyślną zasadę, administrator może ustawić znane wartości w rejestrze systemowym w następującym kluczu rejestru:
 
 **HKLM\SOFTWARE\Microsoft\DotNetPackages\Microsoft.AspNetCore.DataProtection**
 
-Jeśli komputer znajduje się w 64-bitowym systemie operacyjnym i mają wpływ na działanie aplikacji 32-bitowych, pamiętaj, aby skonfigurować odpowiednikiem Wow6432Node klucz powyżej.
+Jeśli jesteś na 64-bitowym systemie operacyjnym i chcesz mieć wpływ na zachowanie aplikacji 32-bitowych, pamiętaj, aby skonfigurować Wow6432Node wielokrotność powyżej klucza.
 
-Poniżej przedstawiono obsługiwane wartości.
+Obsługiwane wartości zostały wymienione poniżej.
 
 | Wartość              | Typ   | Opis |
 | ------------------ | :----: | ----------- |
-| EncryptionType     | string | Określa, jakie algorytmy powinny być używane do ochrony danych. Wartość musi być CNG CBC, CNG GCM lub zarządzane i jest opisany bardziej szczegółowo poniżej. |
-| DefaultKeyLifetime | DWORD  | Określa okres istnienia dla nowo wygenerować kluczy. Wartość jest określona w dni i musi być > = 7. |
-| KeyEscrowSinks     | string | Określa typy, które są używane do depozytu klucza. Wartość jest rozdzielana średnikami lista wychwytywanie kluczy depozytu, gdzie każdy element na liście jest nazwa kwalifikowana zestawu typu, który implementuje [IKeyEscrowSink](/dotnet/api/microsoft.aspnetcore.dataprotection.keymanagement.ikeyescrowsink). |
+| EncryptionType     | string | Określa, jakie algorytmy powinna być używana do ochrony danych. Wartość musi być CNG CBC, CNG GCM lub zarządzane i jest opisany bardziej szczegółowo poniżej. |
+| DefaultKeyLifetime | DWORD  | Określa okres istnienia dla nowo wygenerowane klucze. Wartość określona w dniach, musi być > = 7. |
+| KeyEscrowSinks     | string | Określa typy, które są używane na potrzeby kluczy depozytu. Wartość jest rozdzieloną średnikami listę kluczy depozytu ujścia, gdzie każdy element na liście jest nazwą kwalifikowaną dla zestawu typu, który implementuje [IKeyEscrowSink](/dotnet/api/microsoft.aspnetcore.dataprotection.keymanagement.ikeyescrowsink). |
 
 ## <a name="encryption-types"></a>Typy szyfrowania
 
-Jeśli EncryptionType CNG CBC, system jest skonfigurowany do używania szyfrowania symetrycznego bloku trybie CBC poufności oraz HMAC autentyczności z usług świadczonych przez CNG systemu Windows (zobacz [Określanie niestandardowych algorytmów Windows CNG](xref:security/data-protection/configuration/overview#specifying-custom-windows-cng-algorithms) dla więcej szczegółów). Obsługiwane są następujące dodatkowe wartości, z których każdy odpowiada właściwości w typie CngCbcAuthenticatedEncryptionSettings.
+Jeśli EncryptionType CNG CBC, system jest skonfigurowany za pomocą szyfrowania symetrycznego bloku trybie CBC poufności oraz HMAC autentyczności usługi świadczone przez Windows CNG (zobacz [określania niestandardowych algorytmy Windows CNG](xref:security/data-protection/configuration/overview#specifying-custom-windows-cng-algorithms) dla więcej szczegółów). Obsługiwane są następujące dodatkowe wartości, z których każdy odnosi się do właściwości w typie CngCbcAuthenticatedEncryptionSettings.
 
 | Wartość                       | Typ   | Opis |
 | --------------------------- | :----: | ----------- |
-| Algorytm szyfrowania         | string | Nazwa algorytmu szyfrowania symetrycznego bloku zrozumiałe CNG. Ten algorytm jest otwarty w trybie CBC. |
-| EncryptionAlgorithmProvider | string | Nazwa implementacji dostawcy CNG, które mogą wytwarzać algorytmu EncryptionAlgorithm. |
-| EncryptionAlgorithmKeySize  | DWORD  | Długość (w bitach) klucza pochodzić dla algorytmu szyfrowania symetrycznego bloku. |
-| Algorytm skrótu               | string | Nazwa algorytmu wyznaczania wartości skrótu, zrozumiałe CNG. Ten algorytm jest otwarty w trybie HMAC. |
-| HashAlgorithmProvider       | string | Nazwa implementacja dostawcy CNG, które mogą wytwarzać algorytm algorytm skrótu. |
+| EncryptionAlgorithm         | string | Nazwa algorytmu szyfrowania symetrycznego bloku zrozumiałe CNG. Ten algorytm jest otwarty w trybie CBC. |
+| EncryptionAlgorithmProvider | string | Nazwa implementacja dostawcy CNG, które mogą wytwarzać algorytm usuwają elementy EncryptionAlgorithm. |
+| EncryptionAlgorithmKeySize  | DWORD  | Długość (w bitach) klucz do wyprowadzenia dla algorytmu szyfrowania symetrycznego bloku. |
+| Algorytm               | string | Nazwa algorytmu wyznaczania wartości skrótu, zrozumiałym CNG. Ten algorytm jest otwarty w trybie HMAC. |
+| HashAlgorithmProvider       | string | Nazwa implementacja dostawcy CNG, które mogą wytwarzać algorytm algorytm. |
 
-Jeśli EncryptionType CNG GCM, system został skonfigurowany do użycia szyfrowania symetrycznego bloku liczników Galois trybu poufności oraz autentyczności z usług świadczonych przez CNG systemu Windows (zobacz [Określanie niestandardowych algorytmów Windows CNG](xref:security/data-protection/configuration/overview#specifying-custom-windows-cng-algorithms) Aby uzyskać więcej informacji). Obsługiwane są następujące dodatkowe wartości, z których każdy odpowiada właściwości w typie CngGcmAuthenticatedEncryptionSettings.
+Jeśli EncryptionType CNG GCM, system jest skonfigurowany za pomocą szyfrowania symetrycznego bloku liczników Galois trybu poufności oraz autentyczności usługi świadczone przez Windows CNG (zobacz [określania niestandardowych algorytmy Windows CNG](xref:security/data-protection/configuration/overview#specifying-custom-windows-cng-algorithms) Aby uzyskać więcej informacji). Obsługiwane są następujące dodatkowe wartości, z których każdy odnosi się do właściwości w typie CngGcmAuthenticatedEncryptionSettings.
 
 | Wartość                       | Typ   | Opis |
 | --------------------------- | :----: | ----------- |
-| Algorytm szyfrowania         | string | Nazwa algorytmu szyfrowania symetrycznego bloku zrozumiałe CNG. Ten algorytm jest otwarty w trybie Galois liczników. |
-| EncryptionAlgorithmProvider | string | Nazwa implementacji dostawcy CNG, które mogą wytwarzać algorytmu EncryptionAlgorithm. |
-| EncryptionAlgorithmKeySize  | DWORD  | Długość (w bitach) klucza pochodzić dla algorytmu szyfrowania symetrycznego bloku. |
+| EncryptionAlgorithm         | string | Nazwa algorytmu szyfrowania symetrycznego bloku zrozumiałe CNG. Ten algorytm jest otwarty w trybie Galois liczników. |
+| EncryptionAlgorithmProvider | string | Nazwa implementacja dostawcy CNG, które mogą wytwarzać algorytm usuwają elementy EncryptionAlgorithm. |
+| EncryptionAlgorithmKeySize  | DWORD  | Długość (w bitach) klucz do wyprowadzenia dla algorytmu szyfrowania symetrycznego bloku. |
 
-Jeśli EncryptionType jest zarządzany, system jest skonfigurowany do używania zarządzanych SymmetricAlgorithm poufności oraz KeyedHashAlgorithm autentyczności (zobacz [Określanie niestandardowych zarządzane algorytmów](xref:security/data-protection/configuration/overview#specifying-custom-managed-algorithms) więcej szczegółów). Obsługiwane są następujące dodatkowe wartości, z których każdy odpowiada właściwości w typie ManagedAuthenticatedEncryptionSettings.
+Jeśli EncryptionType jest zarządzany, system został skonfigurowany na potrzeby zarządzanych SymmetricAlgorithm poufności i KeyedHashAlgorithm autentyczności (zobacz [Określanie niestandardowego zarządzane algorytmy](xref:security/data-protection/configuration/overview#specifying-custom-managed-algorithms) Aby uzyskać więcej informacji). Obsługiwane są następujące dodatkowe wartości, z których każdy odnosi się do właściwości w typie ManagedAuthenticatedEncryptionSettings.
 
 | Wartość                      | Typ   | Opis |
 | -------------------------- | :----: | ----------- |
-| EncryptionAlgorithmType    | string | Nazwa kwalifikowana zestawu typu, który implementuje SymmetricAlgorithm. |
-| EncryptionAlgorithmKeySize | DWORD  | Długość (w bitach) klucza pochodzić dla algorytmu szyfrowania symetrycznego. |
-| ValidationAlgorithmType    | string | Nazwa kwalifikowana zestawu typu, który implementuje KeyedHashAlgorithm. |
+| EncryptionAlgorithmType    | string | Nazwa kwalifikowanego dla zestawu typu, który implementuje SymmetricAlgorithm. |
+| EncryptionAlgorithmKeySize | DWORD  | Długość (w bitach) klucz do wyprowadzenia dla algorytmu szyfrowania symetrycznego. |
+| ValidationAlgorithmType    | string | Nazwa kwalifikowanego dla zestawu typu, który implementuje KeyedHashAlgorithm. |
 
-Jeśli EncryptionType ma inne wartości innych niż null lub jest pusty, system ochrony danych zgłasza wyjątek podczas uruchamiania.
+Jeśli EncryptionType ma inne wartości innych niż null lub jest pusta, system ochrony danych zgłasza wyjątek podczas uruchamiania.
 
 > [!WARNING]
-> Podczas konfigurowania domyślne ustawienie zasad, które wymaga nazwy typu (EncryptionAlgorithmType, ValidationAlgorithmType, KeyEscrowSinks), typy muszą być dostępne dla aplikacji. Oznacza to, że dla aplikacji działających na Desktop CLR, zestawy, które zawierają te typy powinien znajdować się w globalnej pamięci podręcznej zestawów (GAC). Aplikacji platformy ASP.NET Core działających na .NET Core należy zainstalować pakiety, które zawierają te typy.
+> Podczas konfigurowania domyślne ustawienie zasad, która obejmuje nazwy typów (EncryptionAlgorithmType ValidationAlgorithmType, KeyEscrowSinks), typy muszą być dostępne dla aplikacji. Oznacza to, że dla aplikacji działających w Desktop CLR, zestawy, które zawierają te typy powinien być obecny w globalnej pamięci podręcznej zestawów (GAC). W przypadku aplikacji platformy ASP.NET Core uruchomiony na platformie .NET Core należy zainstalować pakiety, które zawierają te typy.

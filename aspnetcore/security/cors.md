@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/07/2019
 uid: security/cors
-ms.openlocfilehash: fe5b750c44e5fad9ba80efb2cc8116d0a64b1a17
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
+ms.openlocfilehash: 655d9be894c677f8adf0fecc2b465d5ae7af2b61
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59068300"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64903052"
 ---
 # <a name="enable-cross-origin-requests-cors-in-aspnet-core"></a>Włączanie żądań Cross-Origin (CORS) w programie ASP.NET Core
 
@@ -28,7 +28,7 @@ Poziom zabezpieczeń przeglądarki zapobiega wysyłania żądań do innej domeny
 * Zezwala serwerowi jawnie zezwolić na niektóre żądania między źródłami, jednocześnie odrzucając inne.
 * Jest bezpieczniejsze i bardziej elastyczne niż wcześniej technik, takich jak [JSONP](/dotnet/framework/wcf/samples/jsonp).
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/2.2-stage-samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/cors/sample) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 ## <a name="same-origin"></a>Tego samego źródła
 
@@ -425,13 +425,13 @@ Jeżeli odpowiedź nie zawiera `Access-Control-Allow-Origin` nagłówka żądani
 
 Aby przetestować CORS:
 
-1. [Utwórz projekt interfejsu API](xref:tutorials/first-web-api). Możesz też [pobrać przykład](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/cors/sample/Cors).
+1. [Utwórz projekt interfejsu API](xref:tutorials/first-web-api). Możesz też [pobrać przykład](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/cors/sample/Cors).
 1. Włączanie mechanizmu CORS za pomocą jednej z metod, w tym dokumencie. Na przykład:
 
   [!code-csharp[](cors/sample/Cors/WebAPI/StartupTest.cs?name=snippet2&highlight=13-18)]
 
   > [!WARNING]
-  > `WithOrigins("https://localhost:<port>");` powinna służyć wyłącznie do testowania podobne do przykładowej aplikacji [Pobierz przykładowy kod](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/cors/sample/Cors).
+  > `WithOrigins("https://localhost:<port>");` powinna służyć wyłącznie do testowania podobne do przykładowej aplikacji [Pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/live/aspnetcore/security/cors/sample/Cors).
 
 1. Tworzenie projektu aplikacji sieci web (stron Razor lub MVC). W przykładzie użyto stron Razor. W tym samym rozwiązaniu co projekt interfejsu API, można utworzyć aplikację internetową.
 1. Dodaj następujący wyróżniony kod do *Index.cshtml* pliku:

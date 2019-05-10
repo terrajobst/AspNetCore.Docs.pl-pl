@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/23/2018
 uid: mvc/controllers/testing
-ms.openlocfilehash: 429af1fb6d0388a5c57894851832969e1ef629e2
-ms.sourcegitcommit: a1c43150ed46aa01572399e8aede50d4668745ca
+ms.openlocfilehash: 2e58be2c9818a6fb39d4cbcf0e77a51623ca3aef
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58327436"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64903214"
 ---
 # <a name="test-controller-logic-in-aspnet-core"></a>Logikę kontrolera testu w programie ASP.NET Core
 
@@ -19,7 +19,7 @@ Przez [Steve Smith](https://ardalis.com/)
 
 [Kontrolery](xref:mvc/controllers/actions) odgrywają główną rolę w dowolnej aplikacji platformy ASP.NET Core MVC. W efekcie powinien mieć pewność, że kontrolery zachowują się zgodnie z oczekiwaniami. Aplikacja jest wdrażana w środowisku produkcyjnym, zautomatyzowanych testów można wykrywać błędy.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/testing/sample) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/testing/sample) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 ## <a name="unit-tests-of-controller-logic"></a>Testy jednostkowe z logiką kontrolera
 
@@ -75,7 +75,7 @@ Pozorowane wywołania, które nie są wywoływane są zwykle zignorowane, ale wy
 > [!NOTE]
 > Biblioteka Moq używane w tym przykładzie sprawia, że można mieszać mocks weryfikowalny lub "strict" z-weryfikowalny mocks (nazywanych również "luźne" mocks wycinków). Dowiedz się więcej o [Dostosowywanie zachowania pozorny przy użyciu Moq](https://github.com/Moq/moq4/wiki/Quickstart#customizing-mock-behavior).
 
-[SessionController](https://github.com/aspnet/Docs/blob/master/aspnetcore/mvc/controllers/testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs) w przykładzie aplikacja wyświetla informacje dotyczące sesji określonego Diagram burzy. Kontroler zawiera logikę do czynienia z nieprawidłowy `id` wartości (istnieją dwa `return` scenariuszy, w poniższym przykładzie, aby uwzględnić te scenariusze). Końcowe `return` instrukcja zwraca nową `StormSessionViewModel` do widoku (*Controllers/SessionController.cs*):
+[SessionController](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/controllers/testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs) w przykładzie aplikacja wyświetla informacje dotyczące sesji określonego Diagram burzy. Kontroler zawiera logikę do czynienia z nieprawidłowy `id` wartości (istnieją dwa `return` scenariuszy, w poniższym przykładzie, aby uwzględnić te scenariusze). Końcowe `return` instrukcja zwraca nową `StormSessionViewModel` do widoku (*Controllers/SessionController.cs*):
 
 [!code-csharp[](testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs?name=snippet_SessionController&highlight=12-16,18-22,31)]
 

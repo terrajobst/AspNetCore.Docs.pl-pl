@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 4/19/2019
 uid: security/authentication/social/index
-ms.openlocfilehash: 61482481358256dc9ddd1a0a894541040a8a452f
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
+ms.openlocfilehash: e2d68ac93bdcfa2fc015e8447ea38626787cdb02
+ms.sourcegitcommit: a3926eae3f687013027a2828830c12a89add701f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59516329"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65451043"
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Facebook, Google i zewnętrznego dostawcy uwierzytelniania w programie ASP.NET Core
 
@@ -47,11 +47,13 @@ Aby przykładów jak społecznościowych nazw logowania, może zapewnić konwers
 * Uruchom następujące polecenia:
 
   ```console
-  dotnet new webapp -o WebApp1
+  dotnet new webapp -o WebApp1 -au Individual -uld
   code -r WebApp1
   ```
 
   * `dotnet new` Polecenie tworzy nowy projekt strony Razor w *WebApp1* folderu.
+  * `-uld` używa LocalDB zamiast bazy danych SQLite. Pomiń `-uld` używać bazy danych SQLite.
+  * `-au Individual` Tworzy kod dla poszczególnych uwierzytelniania.
   * `code` Polecenia otwiera *WebApp1* folderu w nowym wystąpieniu programu Visual Studio Code.
 
   Zostanie wyświetlone okno dialogowe z **"WebApp1" brakuje wymagane zasoby do tworzenia i debugowania. Dodaj je?**
@@ -65,7 +67,7 @@ W terminalu uruchom następujące polecenie:
 <!-- TODO: update these instruction once mac support 2.2 projects -->
 
 ```console
-dotnet new webapp -o WebApp1
+dotnet new webapp -o WebApp1 -au Individual
 ```
 
 Poprzednie polecenia użyj [interfejsu wiersza polecenia platformy .NET Core](/dotnet/core/tools/dotnet) do utworzenia projektu stron Razor.

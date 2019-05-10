@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 04/11/2019
 uid: web-api/index
-ms.openlocfilehash: 334e5732269921a62356e7854824deccc051c291
-ms.sourcegitcommit: 8a84ce880b4c40d6694ba6423038f18fc2eb5746
+ms.openlocfilehash: d804a7f1b4f0e89f433a3674116c97804705f7cc
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60165179"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64902581"
 ---
 # <a name="create-web-apis-with-aspnet-core"></a>Tworzenie interfejsów API sieci web za pomocą platformy ASP.NET Core
 
@@ -20,7 +20,7 @@ Przez [Scott Addie](https://github.com/scottaddie) i [Tom Dykstra](https://githu
 
 Platforma ASP.NET Core obsługuje tworzenia usługi RESTful, nazywana również internetowych interfejsów API, za pomocą C#. Do obsługi żądań, internetowy interfejs API korzysta z kontrolerów. *Kontrolery* w internetowym interfejsie API są klas, które wynikają z `ControllerBase`. W tym artykule pokazano, jak używać kontrolery do obsługi żądań interfejsu API.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/index/samples). ([Sposobu pobierania](xref:index#how-to-download-a-sample)).
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/index/samples). ([Sposobu pobierania](xref:index#how-to-download-a-sample)).
 
 ## <a name="controllerbase-class"></a>Klasa ControllerBase
 

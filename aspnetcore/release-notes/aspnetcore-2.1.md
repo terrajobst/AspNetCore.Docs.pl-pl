@@ -4,14 +4,14 @@ author: isaac2004
 description: Dowiedz się więcej o nowych funkcjach w programie ASP.NET Core 2.1.
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/13/2019
+ms.date: 04/30/2019
 uid: aspnetcore-2.1
-ms.openlocfilehash: 8299af819f86d3d2371650ce3d87deb817f0feb8
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.openlocfilehash: 359f961db768b9048427c8ab296ee3e035879408
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248176"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65086403"
 ---
 # <a name="whats-new-in-aspnet-core-21"></a>Co nowego w programie ASP.NET Core 2.1
 
@@ -28,7 +28,7 @@ SignalR został przepisany dla platformy ASP.NET Core 2.1. SignalR dla ASP.NET C
 * Nowy model odpowiedzi przesyłania strumieniowego.
 * Obsługa klientów opartych bezpośrednio na WebSockets.
 
-Aby uzyskać więcej informacji, zobacz [biblioteki SignalR platformy ASP.NET Core](xref:signalr/index).
+Aby uzyskać więcej informacji, zobacz [biblioteki SignalR platformy ASP.NET Core](xref:signalr/introduction).
 
 ## <a name="razor-class-libraries"></a>Biblioteki klas Razor
 
@@ -75,7 +75,7 @@ W środowisku produkcyjnym należy jawnie skonfigurować protokół HTTPS. W wer
 
 ## <a name="gdpr"></a>GDPR
 
-Platforma ASP.NET Core udostępnia interfejsy API i szablony, które ułatwiają spełnienie niektórych wymagań [Ogólnego rozporządzenia o ochronie danych (RODO)](https://www.eugdpr.org/). Aby uzyskać więcej informacji, zobacz [Obsługa RODO w programie ASP.NET Core](xref:security/gdpr). W [przykładowej aplikacji](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/gdpr/sample) pokazano sposób użycia umożliwiono przetestowanie większości punktów rozszerzenia i interfejsów API związanych z RODO, które dodano w szablonach ASP.NET Core 2.1.
+Platforma ASP.NET Core udostępnia interfejsy API i szablony, które ułatwiają spełnienie niektórych wymagań [Ogólnego rozporządzenia o ochronie danych (RODO)](https://www.eugdpr.org/). Aby uzyskać więcej informacji, zobacz [Obsługa RODO w programie ASP.NET Core](xref:security/gdpr). W [przykładowej aplikacji](https://github.com/aspnet/AspNetCore.Docs/tree/live/aspnetcore/security/gdpr/sample) pokazano sposób użycia umożliwiono przetestowanie większości punktów rozszerzenia i interfejsów API związanych z RODO, które dodano w szablonach ASP.NET Core 2.1.
 
 ## <a name="integration-tests"></a>Testy integracyjne
 

@@ -5,12 +5,12 @@ description: W ramach tego samouczka możesz rozpocząć korzystanie z funkcji m
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/migrations
-ms.openlocfilehash: 1803c6d3956121e4e7091f4f951917425e87c335
-ms.sourcegitcommit: 7d6019f762fc5b8cbedcd69801e8310f51a17c18
-ms.translationtype: MT
+ms.openlocfilehash: 5b8228130378059aebe21c9c3ea1eb72e4c6aad9
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58419475"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65086172"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---migrations---4-of-8"></a>Strony razor z programem EF Core w programie ASP.NET Core - Migrations - 4, 8
 
@@ -25,7 +25,7 @@ Przez [Tom Dykstra](https://github.com/tdykstra), [Jan Kowalski P](https://twitt
 W tym samouczku jest używana funkcja migracje EF Core do zarządzania zmianami modelu danych.
 
 Jeśli napotkasz problemy, nie można rozwiązać, Pobierz [ukończonej aplikacji](
-https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples).
+https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples).
 
 Gdy nowa aplikacja jest rozwinięte, dane często modelu zmiany. Każdorazowo zostanie zmieniony na model model jest niezsynchronizowana z bazą danych. W tym samouczku jest uruchamiany przez konfigurowanie platformy Entity Framework do tworzenia bazy danych, jeśli nie istnieje. Każdorazowo podczas zmiany modelu danych:
 
@@ -161,7 +161,7 @@ Używa programu EF Core `__MigrationsHistory` tabelę, aby sprawdzić wszystkie 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
 Pobierz [ukończonej aplikacji](
-https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part4-migrations).
+https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part4-migrations).
 
 Aplikacja wygeneruje następujący wyjątek:
 

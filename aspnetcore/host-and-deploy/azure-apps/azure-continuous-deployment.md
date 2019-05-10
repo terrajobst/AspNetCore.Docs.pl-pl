@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/06/2018
 uid: host-and-deploy/azure-apps/azure-continuous-deployment
-ms.openlocfilehash: e12c2ee0b78db105b431770e8644e7d19d915765
-ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
+ms.openlocfilehash: 3b344505739bb4292ed1683c73ff314b6e4e01e9
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284446"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64902332"
 ---
 # <a name="continuous-deployment-to-azure-with-visual-studio-and-git-with-aspnet-core"></a>Ciągłe wdrażanie na platformie Azure za pomocą programu Visual Studio i rozwiązania Git na platformie ASP.NET Core
 
@@ -30,7 +30,7 @@ Zobacz też [Tworzenie pierwszego potoku za pomocą potoków usługi Azure](/azu
 
 W tym samouczku przyjęto założenie, że zainstalowano następujące oprogramowanie:
 
-* [Visual Studio](https://www.visualstudio.com)
+* [Visual Studio](https://visualstudio.microsoft.com)
 * [!INCLUDE [](~/includes/net-core-sdk-download-link.md)]
 * [Git](https://git-scm.com/downloads) dla Windows
 
@@ -71,7 +71,7 @@ Poniższe kroki umożliwiają utworzenie aplikacji sieci web w witrynie Azure Po
 
 1. Wybierz **sieci Web i mobilność** > **aplikacja sieci Web**.
 
-   ![Portal Microsoft Azure: Nowy przycisk: Sieć Web i mobilność w portalu Marketplace: Przycisk aplikacji sieci Web w obszarze polecane aplikacje](azure-continuous-deployment/_static/05-azure-newwebapp.png)
+   ![Microsoft Azure Portal: Nowy przycisk: Sieć Web i mobilność w portalu Marketplace: Przycisk aplikacji sieci Web w obszarze polecane aplikacje](azure-continuous-deployment/_static/05-azure-newwebapp.png)
 
 1. W **aplikacji sieci Web** bloku, należy wprowadzić unikatową wartość dla **nazwa usługi App Service**.
 
@@ -84,7 +84,7 @@ Poniższe kroki umożliwiają utworzenie aplikacji sieci web w witrynie Azure Po
 
 1. Wybierz pozycję **Utwórz**. Platforma Azure będzie aprowizować i uruchomić aplikacji sieci web.
 
-   ![Witryna Azure Portal: Blok podstawy 01 wersji demonstracyjnej aplikacji sieci Web próbki](azure-continuous-deployment/_static/07-azure-webappblade.png)
+   ![Azure Portal: Blok podstawy 01 wersji demonstracyjnej aplikacji sieci Web próbki](azure-continuous-deployment/_static/07-azure-webappblade.png)
 
 ## <a name="enable-git-publishing-for-the-new-web-app"></a>Włączanie publikowania usługi Git dla nowej aplikacji sieci web
 
@@ -184,7 +184,7 @@ Sprawdź, czy powiodła się przesyłanie aplikacji sieci web ze środowiska lok
 
 W [witryny Azure Portal](https://portal.azure.com), wybierz aplikację sieci web. Wybierz **wdrożenia** > **opcje wdrażania**.
 
-![Witryna Azure Portal: Blok ustawień: Pomyślne wdrożenie przedstawiający bloku wdrożenia](azure-continuous-deployment/_static/13-verify-deployment.png)
+![Azure Portal: Blok ustawień: Pomyślne wdrożenie przedstawiający bloku wdrożenia](azure-continuous-deployment/_static/13-verify-deployment.png)
 
 ## <a name="run-the-app-in-azure"></a>Uruchom aplikację na platformie Azure
 

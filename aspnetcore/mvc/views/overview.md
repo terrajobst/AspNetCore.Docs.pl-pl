@@ -5,12 +5,12 @@ description: Dowiedz się, jak widoki obsługiwać prezentacji danych aplikacji 
 ms.author: riande
 ms.date: 04/03/2019
 uid: mvc/views/overview
-ms.openlocfilehash: 766996645bc6ef2b6be42d729baf5d57f55b6ddd
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
+ms.openlocfilehash: 5e56c6bb18cb5d2389c11eb3e4aa9869228da47d
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59012802"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64903406"
 ---
 # <a name="views-in-aspnet-core-mvc"></a>Widoki w programie ASP.NET Core MVC
 
@@ -135,7 +135,7 @@ Najbardziej niezawodną metodą jest określenie [modelu](xref:mvc/models/model-
 
 Aby przekazać dane do widoku przy użyciu viewmodel umożliwia widok móc korzystać z *silne* sprawdzania typu. *Silne wpisywanie* (lub *silnie typizowane*) oznacza, że każda zmienna i stała ma jawnie zdefiniowanych typów (na przykład `string`, `int`, lub `DateTime`). Poprawność typów używanych w widoku jest sprawdzany w czasie kompilacji.
 
-[Program Visual Studio](https://www.visualstudio.com/vs/) i [programu Visual Studio Code](https://code.visualstudio.com/) listy elementów członkowskich silnie typizowanej klasy przy użyciu funkcji o nazwie [IntelliSense](/visualstudio/ide/using-intellisense). Jeśli chcesz wyświetlić właściwości viewmodel, wpisz nazwę zmiennej viewmodel następuje kropka (`.`). Dzięki temu można napisać kod szybciej z mniejszą liczbą błędów.
+[Program Visual Studio](https://visualstudio.microsoft.com) i [programu Visual Studio Code](https://code.visualstudio.com/) listy elementów członkowskich silnie typizowanej klasy przy użyciu funkcji o nazwie [IntelliSense](/visualstudio/ide/using-intellisense). Jeśli chcesz wyświetlić właściwości viewmodel, wpisz nazwę zmiennej viewmodel następuje kropka (`.`). Dzięki temu można napisać kod szybciej z mniejszą liczbą błędów.
 
 Określ model za pomocą `@model` dyrektywy. Użyj modelu z `@Model`:
 

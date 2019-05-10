@@ -1,34 +1,34 @@
 ---
-title: Autoryzacji opartej na oświadczeniach w ASP.NET Core
+title: Autoryzacja oparta na oświadczeniach w programie ASP.NET Core
 author: rick-anderson
-description: Dowiedz się, jak dodać sprawdzeń autoryzacji oświadczeń w aplikacji platformy ASP.NET Core.
+description: Dowiedz się, jak dodać sprawdzanie oświadczenia dotyczące autoryzacji w aplikacji ASP.NET Core.
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/authorization/claims
 ms.openlocfilehash: 6b60ae5515819b017ab577f655ed91ee4d8ed0dd
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36275230"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65086151"
 ---
-# <a name="claims-based-authorization-in-aspnet-core"></a>Autoryzacji opartej na oświadczeniach w ASP.NET Core
+# <a name="claims-based-authorization-in-aspnet-core"></a>Autoryzacja oparta na oświadczeniach w programie ASP.NET Core
 
 <a name="security-authorization-claims-based"></a>
 
-Po utworzeniu tożsamości może być przypisana co najmniej jednego oświadczenia wystawione przez zaufany. Oświadczenie to pary nazwa-wartość reprezentującą jakie podmiot, nie jakie tematu może. Na przykład masz prawa jazdy, wystawiony przez urząd lokalny licencji jazdy. W sterowniku licencji znajdują się datę urodzenia. W takim przypadku nazwa oświadczenia jest `DateOfBirth`, wartość oświadczenia będą datę urodzenia, na przykład `8th June 1970` i Wystawca byłaby pobudzenie urzędu licencji. Autoryzacji oświadczeń, w najprostszym sprawdza wartość oświadczenia i zezwala na dostęp do zasobu na podstawie tej wartości. Na przykład, jeśli chcesz uzyskać dostęp do klub nocy proces autoryzacji. może to być:
+Po utworzeniu tożsamości może być przypisany co najmniej jeden oświadczeń wystawione przez zaufany. Oświadczenie to pary nazwa-wartość reprezentującą jakie podmiot, nie jakie podmiotu można zrobić. Na przykład masz prawa jazdy, wystawiony przez urząd lokalny opracowuje licencji. Twoje prawa jazdy znajdują się informacje o dacie urodzenia. W tym przypadku wyniesie Nazwa oświadczenia `DateOfBirth`, wartość oświadczenia będą informacje o dacie urodzenia, na przykład `8th June 1970` i wystawca, którego będzie kierowania organu licencji. Autoryzacji oświadczeń, w najprostszym sprawdza wartość oświadczenia i umożliwia dostęp do zasobu na podstawie tej wartości. Na przykład jeśli chcesz, aby uzyskać dostęp do club nocy proces autoryzacji mogą być:
 
-Drzwi urzędnika oceni wartość daty urodzenia oświadczeń i określa, czy ufają wystawcy (pobudzenie urzędu licencji) zanim zostanie przyznany dostęp.
+Ze specjalistą ds. zabezpieczeń drzwi biblioteki używane do oceny wartość Twojej daty urodzenia oświadczeń i czy ufają one wystawcy (opracowuje urzędu licencji) przed udzieleniem im dostępu.
 
-Tożsamość może zawierać wielu oświadczeń z wieloma wartościami i może zawierać wielu oświadczenia tego samego typu.
+Tożsamość może zawierać wielu oświadczeń z wieloma wartościami i może zawierać wielu oświadczeń tego samego typu.
 
 ## <a name="adding-claims-checks"></a>Dodawanie oświadczenia kontroli
 
-Oświadczenia deklaratywne sprawdzeń autoryzacji na podstawie — dewelopera umieszcza je ich kodem, kontrolera lub akcji w obrębie kontrolera, określając oświadczenia, które bieżący użytkownik musi posiadać i opcjonalnie wartość oświadczenia musi posiadać dostępu żądany zasób. Oświadczeń wymagania są oparte na zasadach, deweloper musi kompilacji i zarejestruj zasad, przedstawiając wymagania oświadczeń.
+Oświadczenia deklaratywne sprawdzanie autoryzacji na podstawie — Deweloper umieszcza je w ramach ich kodować, kontrolera lub akcji w kontrolerze, określając oświadczenia, które musi posiadać bieżącego użytkownika i opcjonalnie wartość oświadczenia musi posiadać dostęp do żądany zasób. Oświadczenia, że wymagania są oparte na zasadach, deweloper musi kompilacji i zarejestrowania zasadę wyrażania wymagań oświadczeń.
 
-Najprostszy typ oświadczenia zasad szuka obecności oświadczenia i nie zostanie zaewidencjonowane wartość.
+Najprostszy typ oświadczenia zasad szuka obecności oświadczenia i nie sprawdza wartość.
 
-Należy najpierw skompilować i zarejestrować zasad. Ma to miejsce w ramach konfiguracji usługi autoryzacji, które zwykle bierze udział w `ConfigureServices()` w Twojej *Startup.cs* pliku.
+Najpierw należy do kompilacji i zarejestrowania zasad. Ma to miejsce w ramach konfiguracji usługi autoryzacji, które normalnie bierze udział w `ConfigureServices()` w swojej *Startup.cs* pliku.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -42,9 +42,9 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-W takim przypadku `EmployeeOnly` zasad sprawdza obecność `EmployeeNumber` oświadczeń w bieżącej tożsamości.
+W tym przypadku `EmployeeOnly` zasad sprawdza obecność `EmployeeNumber` oświadczenia na bieżącej tożsamości.
 
-Następnie Zastosuj zasad przy użyciu opcji `Policy` właściwość `AuthorizeAttribute` atrybutu, aby określić nazwę zasady;
+Następnie zastosować zasady za pomocą `Policy` właściwość `AuthorizeAttribute` atrybutu, aby określić nazwę zasad;
 
 ```csharp
 [Authorize(Policy = "EmployeeOnly")]
@@ -54,7 +54,7 @@ public IActionResult VacationBalance()
 }
 ```
 
-`AuthorizeAttribute` Atrybut można stosować do całego kontrolera, w tym wystąpieniu tylko tożsamości pasujących zasady będą miały dostęp do dowolnej akcji na kontrolerze.
+`AuthorizeAttribute` Atrybut można stosować do całego kontrolera, w tym wystąpieniu tylko do tożsamości dopasowania zasad będą miały dostęp do dowolnej akcji w kontrolerze.
 
 ```csharp
 [Authorize(Policy = "EmployeeOnly")]
@@ -66,7 +66,7 @@ public class VacationController : Controller
 }
 ```
 
-Jeśli masz kontroler, która jest chroniona przez `AuthorizeAttribute` atrybutu, ale chcesz zezwolić na dostęp anonimowy do określonej akcji, należy zastosować `AllowAnonymousAttribute` atrybutu.
+Jeśli masz kontrolera, który jest chroniony przez `AuthorizeAttribute` atrybutu, ale chcesz zezwolić na dostęp anonimowy do określonej akcji, które można zastosować `AllowAnonymousAttribute` atrybutu.
 
 ```csharp
 [Authorize(Policy = "EmployeeOnly")]
@@ -83,7 +83,7 @@ public class VacationController : Controller
 }
 ```
 
-Większość oświadczenia mają wartość. Można określić listę dozwolonych wartości podczas tworzenia zasad. Poniższy przykład tylko powiedzie się dla pracowników, których liczba pracowników była 1, 2, 3, 4 lub 5.
+Większość oświadczenia pochodzą z wartością. Podczas tworzenia zasad, można określić listę dozwolonych wartości. Poniższy przykład tylko powiedzie się dla pracowników, których liczba pracowników wyniosła 1, 2, 3, 4 lub 5.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -98,13 +98,13 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-### <a name="add-a-generic-claim-check"></a>Dodaj znacznik wyboru oświadczeń ogólny
+### <a name="add-a-generic-claim-check"></a>Dodaj sprawdzanie oświadczenia ogólny
 
-Jeśli wartość oświadczenia nie jest pojedynczą wartość lub transformację jest wymagana, należy użyć [RequireAssertion](/dotnet/api/microsoft.aspnetcore.authorization.authorizationpolicybuilder.requireassertion). Aby uzyskać więcej informacji, zobacz [przy użyciu func do zrealizowania zasady](xref:security/authorization/policies#using-a-func-to-fulfill-a-policy).
+Jeśli wartość oświadczenia nie jest pojedynczą wartość lub transformacji jest wymagany, użyj [RequireAssertion](/dotnet/api/microsoft.aspnetcore.authorization.authorizationpolicybuilder.requireassertion). Aby uzyskać więcej informacji, zobacz [spełniają zasady za pomocą func](xref:security/authorization/policies#using-a-func-to-fulfill-a-policy).
 
-## <a name="multiple-policy-evaluation"></a>Wiele ocena zasad
+## <a name="multiple-policy-evaluation"></a>Wielokrotne obliczenie zasad
 
-Jeśli wiele zasad można zastosować do kontrolera lub akcji, wszystkie zasady muszą upłynąć, zanim zostanie przyznany dostęp. Na przykład:
+Jeśli wiele zasad są stosowane do kontrolera lub akcji, wszystkie zasady muszą minąć, zanim można udzielić dostępu. Na przykład:
 
 ```csharp
 [Authorize(Policy = "EmployeeOnly")]
@@ -121,6 +121,6 @@ public class SalaryController : Controller
 }
 ```
 
-W powyższym przykładzie wszystkie tożsamości, która spełnia `EmployeeOnly` zasady mogą uzyskiwać dostęp do `Payslip` akcji, jak te zasady są wymuszane na kontrolerze. Jednak aby można było wywołać `UpdateSalary` akcji, które należy spełnić tożsamość *zarówno* `EmployeeOnly` zasad i `HumanResources` zasad.
+W powyższym przykładzie dowolnej tożsamości, która spełnia `EmployeeOnly` zasady mogą uzyskiwać dostęp do `Payslip` akcji, jak te zasady są wymuszane na kontrolerze. Jednak aby można było wywołać `UpdateSalary` akcji, które należy spełnić tożsamości *zarówno* `EmployeeOnly` zasad i `HumanResources` zasad.
 
-Jeśli chcesz bardziej złożone zasady, takie jak pobieranie daty urodzenia oświadczenia, obliczanie wieku z niego, a następnie sprawdzanie wiek to 21 lub starsze, a następnie należy napisać [zasady niestandardowe programy obsługi](xref:security/authorization/policies).
+Jeśli chcesz bardziej złożone zasady, takie jak biorąc datę urodzenia oświadczenia, obliczenia wieku z niego, a następnie sprawdzając wiek to 21 lub starszy, a następnie należy napisać [zasady niestandardowe programy obsługi](xref:security/authorization/policies).

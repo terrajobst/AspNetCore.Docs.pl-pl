@@ -6,15 +6,15 @@ ms.author: riande
 ms.date: 05/04/2018
 uid: migration/index
 ms.openlocfilehash: 709e6434e4b3083d4262bc1f89748ca163474888
-ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37938158"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64903175"
 ---
 # <a name="migration-to-aspnet-core"></a>Migracja do platformy ASP.NET Core
 
-## <a name="aspnet-to-aspnet-core"></a>ASP.NET do ASP.NET Core
+## <a name="aspnet-to-aspnet-core"></a>Z programu ASP.NET do ASP.NET Core
 
 * [Migrowanie z programu ASP.NET do ASP.NET Core](xref:migration/proper-to-2x/index)
 * [Migracja z programu ASP.NET MVC do platformy ASP.NET Core MVC](xref:migration/mvc)

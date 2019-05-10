@@ -1,11 +1,3 @@
----
-ms.openlocfilehash: 3113220696eb3e3cb8c126cd1287e60203d96378
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
-ms.translationtype: MT
-ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58208337"
----
 # <a name="aspnet-core-built-in-tag-helpers-sample"></a>Przykładowe pomocników wbudowany Tag platformy ASP.NET Core
 
 W tym przykładzie pokazano odmiany wbudowanych pomocników tagów za pomocą MVC i stron Razor:
@@ -25,5 +17,5 @@ W tym przykładzie pokazano odmiany wbudowanych pomocników tagów za pomocą MV
 - [Pomocnik tagu częściowego](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/partial-tag-helper)
   - [for](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/partial-tag-helper#for)
   - [model](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/partial-tag-helper#model)
-  - [Nazwa](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/partial-tag-helper#name)
+  - [name](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/partial-tag-helper#name)
   - [view-data](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/partial-tag-helper#view-data)

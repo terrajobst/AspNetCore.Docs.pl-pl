@@ -5,14 +5,14 @@ description: Dowiedz się, jak składniki mogły zostać uwzględnione w taki sp
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/15/2019
+ms.date: 05/06/2019
 uid: blazor/class-libraries
-ms.openlocfilehash: f7c9ce20bf23bc532e664764d6e48d9163db727f
-ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
+ms.openlocfilehash: 9ca1d54da584c2957be98708782437e28b619e3b
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59982983"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65085842"
 ---
 # <a name="razor-components-class-libraries"></a>Biblioteki klas składników razor
 
@@ -26,45 +26,72 @@ Składniki mogą być udostępniane w bibliotekach klas Razor w projektach. Skł
 
 Tak, jak składniki są regularnie typów .NET, składniki dostarczony przez biblioteki klas Razor są normalne zestawów platformy .NET.
 
-Użyj `razorclasslib` szablonu (biblioteki klas Razor) za pomocą [dotnet nowe](/dotnet/core/tools/dotnet-new) polecenia:
+## <a name="create-a-razor-class-library"></a>Tworzenie biblioteki klas Razor
 
-```console
-dotnet new razorclasslib -o MyComponentLib1
-```
-
-Dodaj pliki składników Razor (*.razor*) do biblioteki klas Razor.
-
-Aby dodać bibliotekę do istniejącego projektu, należy użyć [dotnet sln](/dotnet/core/tools/dotnet-sln) polecenia:
+Postępuj zgodnie ze wskazówkami w <xref:blazor/get-started> artykuł, aby skonfigurować środowisko dla Blazor.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-```console
-dotnet sln add .\MyComponentLib1
-```
+1. Utwórz nowy projekt.
+1. Wybierz **aplikacji sieci Web platformy ASP.NET Core**. Wybierz opcję **Dalej**.
+1. Podaj nazwę projektu w **Nazwa projektu** pola lub zaakceptuj domyślną nazwę projektu. Przykłady w tym temacie użyje nazwy projektu `MyComponentLib1`. Wybierz pozycję **Utwórz**.
+1. W **Tworzenie nowej aplikacji sieci Web platformy ASP.NET Core** okna dialogowego, upewnij się, że **platformy .NET Core** i **platformy ASP.NET Core 3.0** są zaznaczone.
+1. Wybierz **biblioteki klas Razor** szablonu. Wybierz pozycję **Utwórz**.
+1. Dodawanie biblioteki klas Razor do rozwiązania:
+   1. Kliknij prawym przyciskiem myszy rozwiązanie. Wybierz **Dodaj** > **istniejący projekt**.
+   1. Przejdź do pliku projektu biblioteki klas Razor.
+   1. Wybierz plik projektu biblioteki klas Razor (*.csproj*).
+1. Dodaj odwołanie do biblioteki klas Razor z poziomu aplikacji:
+   1. Kliknij prawym przyciskiem myszy projekt aplikacji. Wybierz **Dodaj** > **odwołania**.
+   1. Wybierz projekt biblioteki klas Razor. Kliknij przycisk **OK**.
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+# <a name="visual-studio-code--net-core-clitabvisual-studio-codenetcore-cli"></a>[Program Visual Studio Code / .NET Core interfejsu wiersza polecenia](#tab/visual-studio-code+netcore-cli)
 
-```console
-dotnet add WebApplication1 reference MyComponentLib1
-```
+1. Użyj biblioteki klas Razor (`razorclasslib`) szablon [dotnet nowe](/dotnet/core/tools/dotnet-new) polecenia powłoki poleceń. W poniższym przykładzie jest tworzony o nazwie biblioteki klas Razor `MyComponentLib1`. Folder, który przechowuje `MyComponentLib1` jest tworzona automatycznie podczas wykonywania polecenia.
+
+   ```console
+   dotnet new razorclasslib -o MyComponentLib1
+   ```
+
+1. Aby dodać bibliotekę do istniejącego projektu, należy użyć [dotnet Dodaj odwołanie](/dotnet/core/tools/dotnet-add-reference) polecenia powłoki poleceń. W poniższym przykładzie biblioteki klas Razor jest dodawany do aplikacji. Wykonaj następujące polecenie z folderu projektu aplikacji ze ścieżką do biblioteki:
+
+   ```console
+   dotnet add reference {PATH TO LIBRARY}
+   ```
 
 ---
 
+Dodaj pliki składników Razor (*.razor*) do biblioteki klas Razor.
+
+## <a name="razor-class-libraries-not-supported-for-client-side-apps"></a>Biblioteki klas razor nie jest obsługiwane dla aplikacji po stronie klienta
+
+W programie ASP.NET Core 3.0 (wersja zapoznawcza) biblioteki klas Razor nie są zgodne z aplikacji po stronie klienta Blazor.
+
+W przypadku aplikacji po stronie klienta Blazor używać biblioteki składników Blazor utworzone przez `blazorlib` szablonu z powłoki poleceń:
+
+```console
+dotnet new blazorlib -o MyComponentLib1
+```
+
+Biblioteki składników za pomocą `blazorlib` szablonu może zawierać pliki statyczne, takie jak obrazy, JavaScript i arkusze stylów. W czasie kompilacji, pliki statyczne są osadzone w pliku zestawu wbudowanego (*.dll*), co umożliwia użycie składniki bez konieczności martwienia się o tym, jak do uwzględnienia ich zasobów. Wszystkie pliki zawarte w `content` katalogu są oznaczone jako zasobu osadzonego.
+
+## <a name="static-assets-not-supported-for-server-side-apps"></a>Statyczne elementy zawartości, które nie są obsługiwane w przypadku aplikacji po stronie serwera
+
+W programie ASP.NET Core 3.0 (wersja zapoznawcza), Blazor po stronie serwera aplikacji nie może zużywać zasoby statyczne z obu biblioteki klas Razor (`razorclasslib`) lub bibliotekę Blazor (`blazorlib`).
+
+Jako rozwiązanie tymczasowe, możesz spróbować [BlazorEmbedLibrary](https://www.nuget.org/packages/BlazorEmbedLibrary/).
+
 > [!NOTE]
-> Biblioteki klas razor nie są zgodne z aplikacjami Blazor w programie ASP.NET Core w wersji zapoznawczej 4.
->
-> Do tworzenia składników w bibliotece, które mogą być udostępniane innym Blazor po stronie klienta i Razor składniki po stronie serwera aplikacji, użyj utworzonych przez bibliotekę klas Blazor `blazorlib` szablonu.
->
-> Biblioteki klas razor statycznych zasobów nie są obsługiwane w programie ASP.NET Core w wersji zapoznawczej 4. Biblioteki składników za pomocą `blazorlib` szablonu może zawierać pliki statyczne, takie jak obrazy, JavaScript i arkusze stylów. W czasie kompilacji, pliki statyczne są osadzone w pliku zestawu wbudowanego (*.dll*), co umożliwia użycie składniki bez konieczności martwienia się o tym, jak do uwzględnienia ich zasobów. Wszystkie pliki zawarte w `content` katalogu są oznaczone jako zasobu osadzonego.
+> [BlazorEmbedLibrary](https://www.nuget.org/packages/BlazorEmbedLibrary/) nie jest obsługiwany lub obsługiwane przez firmę Microsoft.
 
 ## <a name="consume-a-library-component"></a>Używanie składnik biblioteki
 
 Aby można było używać składników zdefiniowane w bibliotece w innym projekcie, użyj jednej z następujących metod:
 
-* Pełna nazwa typu z przestrzenią nazw.
-* Firmy razor [ \@przy użyciu](xref:mvc/views/razor#using) dyrektywy. Poszczególne składniki mogą być dodawane według nazwy.
+* Pełna nazwa typu za pomocą przestrzeni nazw.
+* Użyj firmy Razor [ \@przy użyciu](xref:mvc/views/razor#using) dyrektywy. Poszczególne składniki można dodać według nazwy.
 
-W poniższych przykładach `MyComponentLibrary` to biblioteka składnika zawierająca raport sprzedaży (`SalesReport`) składnika.
+W poniższych przykładach `MyComponentLib1` to biblioteka składnika zawierająca raport sprzedaży (`SalesReport`) składnika.
 
 Składnik raport sprzedaży mogą być przywoływane z przestrzenią nazw przy użyciu jego pełna nazwa typu:
 
@@ -73,13 +100,13 @@ Składnik raport sprzedaży mogą być przywoływane z przestrzenią nazw przy u
 
 Welcome to your new app.
 
-<MyComponentLibrary.SalesReport />
+<MyComponentLib1.SalesReport />
 ```
 
 Składnik również mogą być przywoływane, jeśli biblioteka zostanie przełączony w tryb do zakresu za pomocą `@using` dyrektywy:
 
 ```cshtml
-@using MyComponentLibrary
+@using MyComponentLib1
 
 <h1>Hello, world!</h1>
 
@@ -88,20 +115,20 @@ Welcome to your new app.
 <SalesReport />
 ```
 
-`@using` Mogą być dołączane dyrektywą *_Import.razor* dokonać składników dostępne dla całego projektu lub zastosowane pojedynczej strony lub zbiór stron w folderze.
+Obejmują `@using MyComponentLib1` dyrektywy w najwyższego poziomu *_Import.razor* pliku udostępniania biblioteki składników dla całego projektu. Dodaj dyrektywę do *_Import.razor* plik na dowolnym poziomie, aby zastosować przestrzeń nazw pojedynczej strony lub zbiór stron w folderze.
 
 ## <a name="build-pack-and-ship-to-nuget"></a>Kompilacji, pakiet i dostarczanie na potrzeby narzędzia NuGet
 
-Ponieważ biblioteki składnik to biblioteki .NET standard, pakowania i wysyłania ich do narzędzia NuGet nie różni się od pakowania i wysyłania każdą bibliotekę do narzędzia NuGet. Pakowanie odbywa się przy użyciu [pakietu dotnet](/dotnet/core/tools/dotnet-pack) polecenia:
+Ponieważ biblioteki składnik to biblioteki .NET standard, pakowania i wysyłania ich do narzędzia NuGet nie różni się od pakowania i wysyłania każdą bibliotekę do narzędzia NuGet. Pakowanie odbywa się przy użyciu [pakietu dotnet](/dotnet/core/tools/dotnet-pack) polecenia powłoki poleceń:
 
 ```console
 dotnet pack
 ```
 
-Przekazywanie pakietu NuGet za pomocą [dotnet nuget publikowania](/dotnet/core/tools/dotnet-nuget-push) polecenia:
+Przekazywanie pakietu NuGet za pomocą [dotnet nuget publikowania](/dotnet/core/tools/dotnet-nuget-push) polecenia powłoki poleceń:
 
 ```console
 dotnet nuget publish
 ```
 
-Korzystając z `blazorlib` szablonu, zasoby statyczne są dołączone do pakietu NuGet. Konsumenci biblioteki automatycznie otrzymywać skrypty i arkusze stylów, dzięki czemu użytkownicy nie są wymagane do ręcznego zainstalowania zasobów.
+Korzystając z `blazorlib` szablonu, zasoby statyczne są dołączone do pakietu NuGet. Konsumenci biblioteki automatycznie otrzymywać skrypty i arkusze stylów, dzięki czemu użytkownicy nie są wymagane do ręcznego zainstalowania zasobów. Należy pamiętać, że [statycznych zasobów nie są obsługiwane w przypadku aplikacji po stronie serwera](#static-assets-not-supported-for-server-side-apps), w tym przypadku biblioteki Blazor (`blazorlib`) odwołuje się do aplikacji po stronie serwera.

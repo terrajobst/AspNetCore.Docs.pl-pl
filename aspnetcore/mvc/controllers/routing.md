@@ -5,12 +5,12 @@ description: Dowiedz się, jak ASP.NET Core MVC używa routingu oprogramowania p
 ms.author: riande
 ms.date: 01/24/2019
 uid: mvc/controllers/routing
-ms.openlocfilehash: f5104bc53581a41fa8c25d8c67e08e038c275391
-ms.sourcegitcommit: c6db8b14521814f1f7e528d7aa06e474e4c04a1f
+ms.openlocfilehash: b4d5cd3add3fda6b70873eb5cce1dcee651f9185
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "55065012"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65087504"
 ---
 # <a name="routing-to-controller-actions-in-aspnet-core"></a>Routing do akcji kontrolera, w programie ASP.NET Core
 
@@ -559,7 +559,7 @@ Akcje albo są tradycyjnie kierowane lub atrybut kierowany. Wprowadzenie do tras
 
 ## <a name="complex-segments"></a>Złożone segmentów
 
-Złożone segmenty (na przykład `[Route("/dog{token}cat")]`), są przetwarzane przez dopasowanie się literały od prawej do lewej w sposób niezachłanne. Zobacz [kod źródłowy](https://github.com/aspnet/Routing/blob/9cea167cfac36cf034dbb780e3f783114ef94780/src/Microsoft.AspNetCore.Routing/Patterns/RoutePatternMatcher.cs#L296) opis. Aby uzyskać więcej informacji, zobacz [ten problem](https://github.com/aspnet/Docs/issues/8197).
+Złożone segmenty (na przykład `[Route("/dog{token}cat")]`), są przetwarzane przez dopasowanie się literały od prawej do lewej w sposób niezachłanne. Zobacz [kod źródłowy](https://github.com/aspnet/Routing/blob/9cea167cfac36cf034dbb780e3f783114ef94780/src/Microsoft.AspNetCore.Routing/Patterns/RoutePatternMatcher.cs#L296) opis. Aby uzyskać więcej informacji, zobacz [ten problem](https://github.com/aspnet/AspNetCore.Docs/issues/8197).
 
 <a name="routing-url-gen-ref-label"></a>
 

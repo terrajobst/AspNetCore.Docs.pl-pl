@@ -4,14 +4,14 @@ author: tdykstra
 description: Więcej informacji na temat struktury rejestrowania w programie ASP.NET Core. Odnajdywanie dostawcy wbudowane funkcje rejestrowania i Dowiedz się więcej na temat popularnych dostawców innych firm.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 03/02/2019
+ms.date: 05/01/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: 8a2e310b47e32e9015b0c127ed79d8f6bdf2e44d
-ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
+ms.openlocfilehash: ee7d4b2ae04b5f6c262acc5da0f86f90ab50585f
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59982856"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65085670"
 ---
 # <a name="logging-in-aspnet-core"></a>Rejestrowanie w programie ASP.NET Core
 
@@ -19,7 +19,7 @@ Przez [Steve Smith](https://ardalis.com/) i [Tom Dykstra](https://github.com/tdy
 
 Platforma ASP.NET Core obsługuje interfejs API rejestrowania, która współdziała z różnych dostawców rejestrowania wbudowanych oraz innych firm. W tym artykule przedstawiono sposób korzystania z interfejsu API rejestrowania za pomocą wbudowanych dostawców.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/index/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/logging/index/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 ## <a name="add-providers"></a>Dodawanie dostawcy
 
@@ -54,7 +54,7 @@ Można użyć dostawcy, instalowanie pakietu NuGet i wywołanie metody rozszerze
 Platforma ASP.NET Core [wstrzykiwanie zależności (DI)](xref:fundamentals/dependency-injection) zapewnia `ILoggerFactory` wystąpienia. `AddConsole` i `AddDebug` metody rozszerzenia są zdefiniowane w [Microsoft.Extensions.Logging.Console](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console/) i [Microsoft.Extensions.Logging.Debug](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Debug/) pakietów. Każda metoda rozszerzenia wywołuje `ILoggerFactory.AddProvider` jest metoda w wystąpieniu dostawcy.
 
 > [!NOTE]
-> [Przykładową aplikację](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/index/samples/1.x) dodaje rejestrowania dostawców w `Startup.Configure` metody. Aby uzyskać dane wyjściowe dziennika z kodu, który jest wykonywany wcześniej, należy dodać rejestrowania dostawców w `Startup` konstruktora klasy.
+> [Przykładową aplikację](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/logging/index/samples/1.x) dodaje rejestrowania dostawców w `Startup.Configure` metody. Aby uzyskać dane wyjściowe dziennika z kodu, który jest wykonywany wcześniej, należy dodać rejestrowania dostawców w `Startup` konstruktora klasy.
 
 ::: moniker-end
 
@@ -496,11 +496,12 @@ Każdy dostawca definiuje *alias* które mogą być używane w konfiguracji zami
 
 * Konsola
 * Debugowanie
+* EventSource
 * Dziennik zdarzeń
+* TraceSource
 * AzureAppServicesFile
 * AzureAppServicesBlob
-* TraceSource
-* EventSource
+* ApplicationInsights
 
 ### <a name="default-minimum-level"></a>Minimalny poziom domyślny
 
@@ -616,8 +617,9 @@ ASP.NET Core jest dostarczana w następujących dostawców:
 * [EventSource](#eventsource-provider)
 * [EventLog](#windows-eventlog-provider)
 * [TraceSource](#tracesource-provider)
-
-Opcje dla [rejestrowania na platformie Azure](#logging-in-azure) zostały omówione w dalszej części tego artykułu.
+* [AzureAppServicesFile](#azure-app-service-provider)
+* [AzureAppServicesBlob](#azure-app-service-provider)
+* [ApplicationInsights](#azure-application-insights-trace-logging)
 
 Informacje dotyczące rejestrowania strumienia wyjściowego stdout, zobacz <xref:host-and-deploy/iis/troubleshoot#aspnet-core-module-stdout-log> i <xref:host-and-deploy/azure-apps/troubleshoot#aspnet-core-module-stdout-log>.
 
@@ -767,19 +769,6 @@ Poniższy przykład umożliwia skonfigurowanie `TraceSource` dostawcy, która re
 
 ::: moniker-end
 
-## <a name="logging-in-azure"></a>Rejestrowanie na platformie Azure
-
-Aby uzyskać informacji na temat rejestrowania na platformie Azure zobacz następujące sekcje:
-
-* [Dostawca usługi Azure App Service](#azure-app-service-provider)
-* [Przesyłanie strumieniowe dzienników platformy Azure](#azure-log-streaming)
-
-::: moniker range=">= aspnetcore-1.1"
-
-* [Rejestrowanie śledzenia w usłudze Azure Application Insights](#azure-application-insights-trace-logging)
-
-::: moniker-end
-
 ### <a name="azure-app-service-provider"></a>Dostawca usługi Azure App Service
 
 [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) pakiet dostawcy zapisuje dzienniki w plikach tekstowych w systemie plików aplikacji w usłudze Azure App Service i do [magazynu obiektów blob](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#what-is-blob-storage) na koncie usługi Azure Storage. Pakiet dostawcy jest dostępna dla aplikacji przeznaczonych dla platformy .NET Core 1.1 lub nowszej.
@@ -842,7 +831,7 @@ Domyślną lokalizacją dla plików dziennika jest *D:\\macierzystego\\LogFiles\
 
 Dostawca działa tylko w przypadku, gdy projekt jest uruchamiany w środowisku platformy Azure. Nie ma wpływu, gdy projekt jest uruchamiany lokalnie&mdash;nie zapisywać pliki lokalne lub lokalnym magazynem projektowym dla obiektów blob.
 
-### <a name="azure-log-streaming"></a>Przesyłanie strumieniowe dzienników platformy Azure
+#### <a name="azure-log-streaming"></a>Przesyłanie strumieniowe dzienników platformy Azure
 
 Przesyłanie strumieniowe dzienników platformy Azure umożliwia wyświetlanie dzienników aktywności w czasie rzeczywistym z:
 
@@ -865,14 +854,23 @@ Przejdź do **przesyłanie strumieniowe dzienników** strony, aby wyświetlić k
 
 ### <a name="azure-application-insights-trace-logging"></a>Rejestrowanie śledzenia w usłudze Azure Application Insights
 
-Zestaw SDK usługi Application Insights można zbierać i zgłaszać dzienniki generowane przez infrastrukturę rejestrowania platformy ASP.NET Core. Aby uzyskać więcej informacji, zobacz następujące zasoby:
+[Microsoft.Extensions.Logging.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights) pakiet dostawcy zapisuje dzienniki do usługi Azure Application Insights. Application Insights to usługa, która monitoruje aplikację internetową i udostępnia narzędzia do tworzenia zapytań i analizowania danych telemetrycznych. Jeśli używasz tego dostawcy, można zbadać i analizowanie dzienników za pomocą narzędzi usługi Application Insights.
+
+Dostawcy logowania jest uwzględniona jako zależą od elementu [Microsoft.ApplicationInsights.AspNetCore](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore), czyli pakiet, który zawiera wszystkie dostępne dane telemetryczne dla platformy ASP.NET Core. Jeśli używasz tego pakietu, nie trzeba zainstalować pakiet dostawcy.
+
+Nie używaj [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) pakietu&mdash;to ASP.NET 4.x.
+
+Aby uzyskać więcej informacji, zobacz następujące zasoby:
 
 * [Omówienie usługi Application Insights](/azure/application-insights/app-insights-overview)
-* [Usługa Application Insights dla platformy ASP.NET Core](/azure/application-insights/app-insights-asp-net-core)
+* [Usługa Application Insights dla aplikacji platformy ASP.NET Core](/azure/azure-monitor/app/asp-net-core-no-visualstudio) — zacznij tutaj, aby zaimplementować pełnego zakresu z telemetria usługi Application Insights wraz z rejestrowania.
+* [Rejestruje ApplicationInsightsLoggerProvider dla platformy .NET Core ILogger](/azure/azure-monitor/app/ilogger) — zacznij tutaj, aby zaimplementować dostawcę rejestrowania bez reszty telemetria usługi Application Insights.
 * [Rejestrowanie kart w usłudze Application Insights](https://github.com/Microsoft/ApplicationInsights-dotnet-logging/blob/develop/README.md).
-* [Przykłady implementacji ILogger szczegółowych informacji w aplikacji](/azure/azure-monitor/app/ilogger)
-
+* [Instalowanie, konfigurowanie i zainicjuj zestaw SDK usługi Application Insights](/learn/modules/instrument-web-app-code-with-application-insights) — interaktywnych samouczków witrynie Learn firmy Microsoft.
 ::: moniker-end
+
+> [!NOTE]
+> Począwszy od 5/1/2019 artykuł zatytułowany [usługi Application Insights dla platformy ASP.NET Core](/azure/azure-monitor/app/asp-net-core) jest nieaktualne i samouczek kroki nie zadziałają. Zapoznaj się [usługi Application Insights dla aplikacji platformy ASP.NET Core](/azure/azure-monitor/app/asp-net-core-no-visualstudio) zamiast tego. Firma Microsoft zdawali sobie sprawę z problemu i jego tego problemu.
 
 ## <a name="third-party-logging-providers"></a>Rejestrowanie innych dostawców
 
@@ -885,7 +883,7 @@ Struktury rejestrowania innych firm, które działają z platformą ASP.NET Core
 * [Loggr](http://loggr.net/) ([repozytorium GitHub](https://github.com/imobile3/Loggr.Extensions.Logging))
 * [NLog](http://nlog-project.org/) ([repozytorium GitHub](https://github.com/NLog/NLog.Extensions.Logging))
 * [Sentry](https://sentry.io/welcome/) ([repozytorium GitHub](https://github.com/getsentry/sentry-dotnet))
-* [Serilog](https://serilog.net/) ([repozytorium GitHub](https://github.com/serilog/serilog-extensions-logging))
+* [Serilog](https://serilog.net/) ([repozytorium GitHub](https://github.com/serilog/serilog-aspnetcore))
 * [Stackdriver](https://cloud.google.com/dotnet/docs/stackdriver#logging) ([repozytorium Github](https://github.com/googleapis/google-cloud-dotnet))
 
 Niektóre środowiska innych producentów mogą wykonywać [semantycznego rejestrowania, nazywana również rejestrowaniem strukturalnym](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).

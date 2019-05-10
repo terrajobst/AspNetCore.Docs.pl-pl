@@ -7,11 +7,11 @@ ms.custom: mvc
 ms.date: 11/11/2018
 uid: security/authentication/microsoft-logins
 ms.openlocfilehash: 1733d049d6752c24d7749b5b5ae2a4b866492358
-ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
-ms.translationtype: MT
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2019
-ms.locfileid: "58751006"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64903424"
 ---
 # <a name="microsoft-account-external-login-setup-with-aspnet-core"></a>Konfigurowanie logowania zewnętrznego Account firmy Microsoft za pomocą programu ASP.NET Core
 

@@ -5,12 +5,12 @@ description: Dowiedz się, jak kontrolerów platformy ASP.NET Core MVC zażąda�
 ms.author: riande
 ms.date: 02/24/2019
 uid: mvc/controllers/dependency-injection
-ms.openlocfilehash: 898e98f4c5d472ca96c6a8ad07dddd1a4ef54fe9
-ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
+ms.openlocfilehash: 6b08c321f4cae1f4efd8ea40300eaf4dfc2f63a1
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56743832"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64903070"
 ---
 # <a name="dependency-injection-into-controllers-in-aspnet-core"></a>Wstrzykiwanie zależności do kontrolerów w programie ASP.NET Core
 
@@ -20,7 +20,7 @@ Przez [Shadi Namrouti](https://github.com/shadinamrouti), [Rick Anderson](https:
 
 Kontrolerów MVC platformy ASP.NET Core żądania zależności jawnie za pomocą konstruktorów. Platforma ASP.NET Core ma wbudowaną obsługę [wstrzykiwanie zależności (DI)](xref:fundamentals/dependency-injection). DI ułatwia aplikacji do testowania i obsługi.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/dependency-injection/sample) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/dependency-injection/sample) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 ## <a name="constructor-injection"></a>Iniekcji konstruktora
 
