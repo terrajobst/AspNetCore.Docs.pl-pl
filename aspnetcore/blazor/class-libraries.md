@@ -5,81 +5,108 @@ description: Dowiedz się, jak składniki mogły zostać uwzględnione w taki sp
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/15/2019
+ms.date: 05/06/2019
 uid: blazor/class-libraries
-ms.openlocfilehash: f7c9ce20bf23bc532e664764d6e48d9163db727f
-ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
+ms.openlocfilehash: 9ca1d54da584c2957be98708782437e28b619e3b
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59982983"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65085842"
 ---
-# <a name="razor-components-class-libraries"></a><span data-ttu-id="b649a-103">Biblioteki klas składników razor</span><span class="sxs-lookup"><span data-stu-id="b649a-103">Razor components class libraries</span></span>
+# <a name="razor-components-class-libraries"></a><span data-ttu-id="f7b23-103">Biblioteki klas składników razor</span><span class="sxs-lookup"><span data-stu-id="f7b23-103">Razor components class libraries</span></span>
 
-<span data-ttu-id="b649a-104">Przez [Simon Timms](https://github.com/stimms)</span><span class="sxs-lookup"><span data-stu-id="b649a-104">By [Simon Timms](https://github.com/stimms)</span></span>
+<span data-ttu-id="f7b23-104">Przez [Simon Timms](https://github.com/stimms)</span><span class="sxs-lookup"><span data-stu-id="f7b23-104">By [Simon Timms](https://github.com/stimms)</span></span>
 
-<span data-ttu-id="b649a-105">Składniki mogą być udostępniane w bibliotekach klas Razor w projektach.</span><span class="sxs-lookup"><span data-stu-id="b649a-105">Components can be shared in Razor class libraries across projects.</span></span> <span data-ttu-id="b649a-106">Składniki można uwzględnić od:</span><span class="sxs-lookup"><span data-stu-id="b649a-106">Components can be included from:</span></span>
+<span data-ttu-id="f7b23-105">Składniki mogą być udostępniane w bibliotekach klas Razor w projektach.</span><span class="sxs-lookup"><span data-stu-id="f7b23-105">Components can be shared in Razor class libraries across projects.</span></span> <span data-ttu-id="f7b23-106">Składniki można uwzględnić od:</span><span class="sxs-lookup"><span data-stu-id="f7b23-106">Components can be included from:</span></span>
 
-* <span data-ttu-id="b649a-107">Innego projektu w rozwiązaniu.</span><span class="sxs-lookup"><span data-stu-id="b649a-107">Another project in the solution.</span></span>
-* <span data-ttu-id="b649a-108">Pakiet NuGet.</span><span class="sxs-lookup"><span data-stu-id="b649a-108">A NuGet package.</span></span>
-* <span data-ttu-id="b649a-109">Odwołania biblioteki .NET.</span><span class="sxs-lookup"><span data-stu-id="b649a-109">A referenced .NET library.</span></span>
+* <span data-ttu-id="f7b23-107">Innego projektu w rozwiązaniu.</span><span class="sxs-lookup"><span data-stu-id="f7b23-107">Another project in the solution.</span></span>
+* <span data-ttu-id="f7b23-108">Pakiet NuGet.</span><span class="sxs-lookup"><span data-stu-id="f7b23-108">A NuGet package.</span></span>
+* <span data-ttu-id="f7b23-109">Odwołania biblioteki .NET.</span><span class="sxs-lookup"><span data-stu-id="f7b23-109">A referenced .NET library.</span></span>
 
-<span data-ttu-id="b649a-110">Tak, jak składniki są regularnie typów .NET, składniki dostarczony przez biblioteki klas Razor są normalne zestawów platformy .NET.</span><span class="sxs-lookup"><span data-stu-id="b649a-110">Just as components are regular .NET types, components provided by Razor class libraries are normal .NET assemblies.</span></span>
+<span data-ttu-id="f7b23-110">Tak, jak składniki są regularnie typów .NET, składniki dostarczony przez biblioteki klas Razor są normalne zestawów platformy .NET.</span><span class="sxs-lookup"><span data-stu-id="f7b23-110">Just as components are regular .NET types, components provided by Razor class libraries are normal .NET assemblies.</span></span>
 
-<span data-ttu-id="b649a-111">Użyj `razorclasslib` szablonu (biblioteki klas Razor) za pomocą [dotnet nowe](/dotnet/core/tools/dotnet-new) polecenia:</span><span class="sxs-lookup"><span data-stu-id="b649a-111">Use the `razorclasslib` (Razor class library) template with the [dotnet new](/dotnet/core/tools/dotnet-new) command:</span></span>
+## <a name="create-a-razor-class-library"></a><span data-ttu-id="f7b23-111">Tworzenie biblioteki klas Razor</span><span class="sxs-lookup"><span data-stu-id="f7b23-111">Create a Razor class library</span></span>
 
-```console
-dotnet new razorclasslib -o MyComponentLib1
-```
+<span data-ttu-id="f7b23-112">Postępuj zgodnie ze wskazówkami w <xref:blazor/get-started> artykuł, aby skonfigurować środowisko dla Blazor.</span><span class="sxs-lookup"><span data-stu-id="f7b23-112">Follow the guidance in the <xref:blazor/get-started> article to configure your environment for Blazor.</span></span>
 
-<span data-ttu-id="b649a-112">Dodaj pliki składników Razor (*.razor*) do biblioteki klas Razor.</span><span class="sxs-lookup"><span data-stu-id="b649a-112">Add Razor component files (*.razor*) to the Razor class library.</span></span>
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="f7b23-113">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="f7b23-113">Visual Studio</span></span>](#tab/visual-studio)
 
-<span data-ttu-id="b649a-113">Aby dodać bibliotekę do istniejącego projektu, należy użyć [dotnet sln](/dotnet/core/tools/dotnet-sln) polecenia:</span><span class="sxs-lookup"><span data-stu-id="b649a-113">To add the library to an existing project, use the [dotnet sln](/dotnet/core/tools/dotnet-sln) command:</span></span>
+1. <span data-ttu-id="f7b23-114">Utwórz nowy projekt.</span><span class="sxs-lookup"><span data-stu-id="f7b23-114">Create a new project.</span></span>
+1. <span data-ttu-id="f7b23-115">Wybierz **aplikacji sieci Web platformy ASP.NET Core**.</span><span class="sxs-lookup"><span data-stu-id="f7b23-115">Select **ASP.NET Core Web Application**.</span></span> <span data-ttu-id="f7b23-116">Wybierz opcję **Dalej**.</span><span class="sxs-lookup"><span data-stu-id="f7b23-116">Select **Next**.</span></span>
+1. <span data-ttu-id="f7b23-117">Podaj nazwę projektu w **Nazwa projektu** pola lub zaakceptuj domyślną nazwę projektu.</span><span class="sxs-lookup"><span data-stu-id="f7b23-117">Provide a project name in the **Project name** field or accept the default project name.</span></span> <span data-ttu-id="f7b23-118">Przykłady w tym temacie użyje nazwy projektu `MyComponentLib1`.</span><span class="sxs-lookup"><span data-stu-id="f7b23-118">The examples in this topic use the project name `MyComponentLib1`.</span></span> <span data-ttu-id="f7b23-119">Wybierz pozycję **Utwórz**.</span><span class="sxs-lookup"><span data-stu-id="f7b23-119">Select **Create**.</span></span>
+1. <span data-ttu-id="f7b23-120">W **Tworzenie nowej aplikacji sieci Web platformy ASP.NET Core** okna dialogowego, upewnij się, że **platformy .NET Core** i **platformy ASP.NET Core 3.0** są zaznaczone.</span><span class="sxs-lookup"><span data-stu-id="f7b23-120">In the **Create a new ASP.NET Core Web Application** dialog, confirm that **.NET Core** and **ASP.NET Core 3.0** are selected.</span></span>
+1. <span data-ttu-id="f7b23-121">Wybierz **biblioteki klas Razor** szablonu.</span><span class="sxs-lookup"><span data-stu-id="f7b23-121">Select the **Razor Class Library** template.</span></span> <span data-ttu-id="f7b23-122">Wybierz pozycję **Utwórz**.</span><span class="sxs-lookup"><span data-stu-id="f7b23-122">Select **Create**.</span></span>
+1. <span data-ttu-id="f7b23-123">Dodawanie biblioteki klas Razor do rozwiązania:</span><span class="sxs-lookup"><span data-stu-id="f7b23-123">Add the Razor class library to a solution:</span></span>
+   1. <span data-ttu-id="f7b23-124">Kliknij prawym przyciskiem myszy rozwiązanie.</span><span class="sxs-lookup"><span data-stu-id="f7b23-124">Right-click the solution.</span></span> <span data-ttu-id="f7b23-125">Wybierz **Dodaj** > **istniejący projekt**.</span><span class="sxs-lookup"><span data-stu-id="f7b23-125">Select **Add** > **Existing Project**.</span></span>
+   1. <span data-ttu-id="f7b23-126">Przejdź do pliku projektu biblioteki klas Razor.</span><span class="sxs-lookup"><span data-stu-id="f7b23-126">Navigate to the Razor class library's project file.</span></span>
+   1. <span data-ttu-id="f7b23-127">Wybierz plik projektu biblioteki klas Razor (*.csproj*).</span><span class="sxs-lookup"><span data-stu-id="f7b23-127">Select the Razor class library's project file (*.csproj*).</span></span>
+1. <span data-ttu-id="f7b23-128">Dodaj odwołanie do biblioteki klas Razor z poziomu aplikacji:</span><span class="sxs-lookup"><span data-stu-id="f7b23-128">Add a reference the Razor class library from the app:</span></span>
+   1. <span data-ttu-id="f7b23-129">Kliknij prawym przyciskiem myszy projekt aplikacji.</span><span class="sxs-lookup"><span data-stu-id="f7b23-129">Right-click the app project.</span></span> <span data-ttu-id="f7b23-130">Wybierz **Dodaj** > **odwołania**.</span><span class="sxs-lookup"><span data-stu-id="f7b23-130">Select **Add** > **Reference**.</span></span>
+   1. <span data-ttu-id="f7b23-131">Wybierz projekt biblioteki klas Razor.</span><span class="sxs-lookup"><span data-stu-id="f7b23-131">Select the Razor class library project.</span></span> <span data-ttu-id="f7b23-132">Kliknij przycisk **OK**.</span><span class="sxs-lookup"><span data-stu-id="f7b23-132">Select **OK**.</span></span>
 
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="b649a-114">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="b649a-114">Visual Studio</span></span>](#tab/visual-studio)
+# <a name="visual-studio-code--net-core-clitabvisual-studio-codenetcore-cli"></a>[<span data-ttu-id="f7b23-133">Program Visual Studio Code / .NET Core interfejsu wiersza polecenia</span><span class="sxs-lookup"><span data-stu-id="f7b23-133">Visual Studio Code / .NET Core CLI</span></span>](#tab/visual-studio-code+netcore-cli)
 
-```console
-dotnet sln add .\MyComponentLib1
-```
+1. <span data-ttu-id="f7b23-134">Użyj biblioteki klas Razor (`razorclasslib`) szablon [dotnet nowe](/dotnet/core/tools/dotnet-new) polecenia powłoki poleceń.</span><span class="sxs-lookup"><span data-stu-id="f7b23-134">Use the Razor class library (`razorclasslib`) template with the [dotnet new](/dotnet/core/tools/dotnet-new) command from a command shell.</span></span> <span data-ttu-id="f7b23-135">W poniższym przykładzie jest tworzony o nazwie biblioteki klas Razor `MyComponentLib1`.</span><span class="sxs-lookup"><span data-stu-id="f7b23-135">In the following example, a Razor class library is created named `MyComponentLib1`.</span></span> <span data-ttu-id="f7b23-136">Folder, który przechowuje `MyComponentLib1` jest tworzona automatycznie podczas wykonywania polecenia.</span><span class="sxs-lookup"><span data-stu-id="f7b23-136">The folder that holds `MyComponentLib1` is created automatically when the command is executed.</span></span>
 
-# <a name="net-core-clitabnetcore-cli"></a>[<span data-ttu-id="b649a-115">.NET Core CLI</span><span class="sxs-lookup"><span data-stu-id="b649a-115">.NET Core CLI</span></span>](#tab/netcore-cli)
+   ```console
+   dotnet new razorclasslib -o MyComponentLib1
+   ```
 
-```console
-dotnet add WebApplication1 reference MyComponentLib1
-```
+1. <span data-ttu-id="f7b23-137">Aby dodać bibliotekę do istniejącego projektu, należy użyć [dotnet Dodaj odwołanie](/dotnet/core/tools/dotnet-add-reference) polecenia powłoki poleceń.</span><span class="sxs-lookup"><span data-stu-id="f7b23-137">To add the library to an existing project, use the [dotnet add reference](/dotnet/core/tools/dotnet-add-reference) command from a command shell.</span></span> <span data-ttu-id="f7b23-138">W poniższym przykładzie biblioteki klas Razor jest dodawany do aplikacji.</span><span class="sxs-lookup"><span data-stu-id="f7b23-138">In the following example, the Razor class library is added to the app.</span></span> <span data-ttu-id="f7b23-139">Wykonaj następujące polecenie z folderu projektu aplikacji ze ścieżką do biblioteki:</span><span class="sxs-lookup"><span data-stu-id="f7b23-139">Execute the following command from the app's project folder with the path to the library:</span></span>
+
+   ```console
+   dotnet add reference {PATH TO LIBRARY}
+   ```
 
 ---
+
+<span data-ttu-id="f7b23-140">Dodaj pliki składników Razor (*.razor*) do biblioteki klas Razor.</span><span class="sxs-lookup"><span data-stu-id="f7b23-140">Add Razor component files (*.razor*) to the Razor class library.</span></span>
+
+## <a name="razor-class-libraries-not-supported-for-client-side-apps"></a><span data-ttu-id="f7b23-141">Biblioteki klas razor nie jest obsługiwane dla aplikacji po stronie klienta</span><span class="sxs-lookup"><span data-stu-id="f7b23-141">Razor class libraries not supported for client-side apps</span></span>
+
+<span data-ttu-id="f7b23-142">W programie ASP.NET Core 3.0 (wersja zapoznawcza) biblioteki klas Razor nie są zgodne z aplikacji po stronie klienta Blazor.</span><span class="sxs-lookup"><span data-stu-id="f7b23-142">In ASP.NET Core 3.0 Preview, Razor class libraries aren't compatible with Blazor client-side apps.</span></span>
+
+<span data-ttu-id="f7b23-143">W przypadku aplikacji po stronie klienta Blazor używać biblioteki składników Blazor utworzone przez `blazorlib` szablonu z powłoki poleceń:</span><span class="sxs-lookup"><span data-stu-id="f7b23-143">For Blazor client-side apps, use a Blazor component library created by the `blazorlib` template from a command shell:</span></span>
+
+```console
+dotnet new blazorlib -o MyComponentLib1
+```
+
+<span data-ttu-id="f7b23-144">Biblioteki składników za pomocą `blazorlib` szablonu może zawierać pliki statyczne, takie jak obrazy, JavaScript i arkusze stylów.</span><span class="sxs-lookup"><span data-stu-id="f7b23-144">Component libraries using the `blazorlib` template can include static files, such as images, JavaScript, and stylesheets.</span></span> <span data-ttu-id="f7b23-145">W czasie kompilacji, pliki statyczne są osadzone w pliku zestawu wbudowanego (*.dll*), co umożliwia użycie składniki bez konieczności martwienia się o tym, jak do uwzględnienia ich zasobów.</span><span class="sxs-lookup"><span data-stu-id="f7b23-145">At build time, static files are embedded into the built assembly file (*.dll*), which allows consumption of the components without having to worry about how to include their resources.</span></span> <span data-ttu-id="f7b23-146">Wszystkie pliki zawarte w `content` katalogu są oznaczone jako zasobu osadzonego.</span><span class="sxs-lookup"><span data-stu-id="f7b23-146">Any files included in the `content` directory are marked as an embedded resource.</span></span>
+
+## <a name="static-assets-not-supported-for-server-side-apps"></a><span data-ttu-id="f7b23-147">Statyczne elementy zawartości, które nie są obsługiwane w przypadku aplikacji po stronie serwera</span><span class="sxs-lookup"><span data-stu-id="f7b23-147">Static assets not supported for server-side apps</span></span>
+
+<span data-ttu-id="f7b23-148">W programie ASP.NET Core 3.0 (wersja zapoznawcza), Blazor po stronie serwera aplikacji nie może zużywać zasoby statyczne z obu biblioteki klas Razor (`razorclasslib`) lub bibliotekę Blazor (`blazorlib`).</span><span class="sxs-lookup"><span data-stu-id="f7b23-148">In ASP.NET Core 3.0 Preview, Blazor server-side apps can't consume static assets from either a Razor class library (`razorclasslib`) or a Blazor library (`blazorlib`).</span></span>
+
+<span data-ttu-id="f7b23-149">Jako rozwiązanie tymczasowe, możesz spróbować [BlazorEmbedLibrary](https://www.nuget.org/packages/BlazorEmbedLibrary/).</span><span class="sxs-lookup"><span data-stu-id="f7b23-149">As a temporary workaround, you can try [BlazorEmbedLibrary](https://www.nuget.org/packages/BlazorEmbedLibrary/).</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="b649a-116">Biblioteki klas razor nie są zgodne z aplikacjami Blazor w programie ASP.NET Core w wersji zapoznawczej 4.</span><span class="sxs-lookup"><span data-stu-id="b649a-116">Razor class libraries aren't compatible with Blazor apps in ASP.NET Core Preview 4.</span></span>
->
-> <span data-ttu-id="b649a-117">Do tworzenia składników w bibliotece, które mogą być udostępniane innym Blazor po stronie klienta i Razor składniki po stronie serwera aplikacji, użyj utworzonych przez bibliotekę klas Blazor `blazorlib` szablonu.</span><span class="sxs-lookup"><span data-stu-id="b649a-117">To create components in a library that can be shared with Blazor client-side and Razor components server-side apps, use a Blazor class library created by the `blazorlib` template.</span></span>
->
-> <span data-ttu-id="b649a-118">Biblioteki klas razor statycznych zasobów nie są obsługiwane w programie ASP.NET Core w wersji zapoznawczej 4.</span><span class="sxs-lookup"><span data-stu-id="b649a-118">Razor class libraries don't support static assets in ASP.NET Core Preview 4.</span></span> <span data-ttu-id="b649a-119">Biblioteki składników za pomocą `blazorlib` szablonu może zawierać pliki statyczne, takie jak obrazy, JavaScript i arkusze stylów.</span><span class="sxs-lookup"><span data-stu-id="b649a-119">Component libraries using the `blazorlib` template can include static files, such as images, JavaScript, and stylesheets.</span></span> <span data-ttu-id="b649a-120">W czasie kompilacji, pliki statyczne są osadzone w pliku zestawu wbudowanego (*.dll*), co umożliwia użycie składniki bez konieczności martwienia się o tym, jak do uwzględnienia ich zasobów.</span><span class="sxs-lookup"><span data-stu-id="b649a-120">At build time, static files are embedded into the built assembly file (*.dll*), which allows consumption of the components without having to worry about how to include their resources.</span></span> <span data-ttu-id="b649a-121">Wszystkie pliki zawarte w `content` katalogu są oznaczone jako zasobu osadzonego.</span><span class="sxs-lookup"><span data-stu-id="b649a-121">Any files included in the `content` directory are marked as an embedded resource.</span></span>
+> <span data-ttu-id="f7b23-150">[BlazorEmbedLibrary](https://www.nuget.org/packages/BlazorEmbedLibrary/) nie jest obsługiwany lub obsługiwane przez firmę Microsoft.</span><span class="sxs-lookup"><span data-stu-id="f7b23-150">[BlazorEmbedLibrary](https://www.nuget.org/packages/BlazorEmbedLibrary/) isn't maintained or supported by Microsoft.</span></span>
 
-## <a name="consume-a-library-component"></a><span data-ttu-id="b649a-122">Używanie składnik biblioteki</span><span class="sxs-lookup"><span data-stu-id="b649a-122">Consume a library component</span></span>
+## <a name="consume-a-library-component"></a><span data-ttu-id="f7b23-151">Używanie składnik biblioteki</span><span class="sxs-lookup"><span data-stu-id="f7b23-151">Consume a library component</span></span>
 
-<span data-ttu-id="b649a-123">Aby można było używać składników zdefiniowane w bibliotece w innym projekcie, użyj jednej z następujących metod:</span><span class="sxs-lookup"><span data-stu-id="b649a-123">In order to consume components defined in a library in another project, use either of the following approaches:</span></span>
+<span data-ttu-id="f7b23-152">Aby można było używać składników zdefiniowane w bibliotece w innym projekcie, użyj jednej z następujących metod:</span><span class="sxs-lookup"><span data-stu-id="f7b23-152">In order to consume components defined in a library in another project, use either of the following approaches:</span></span>
 
-* <span data-ttu-id="b649a-124">Pełna nazwa typu z przestrzenią nazw.</span><span class="sxs-lookup"><span data-stu-id="b649a-124">Full type name with the namespace.</span></span>
-* <span data-ttu-id="b649a-125">Firmy razor [ \@przy użyciu](xref:mvc/views/razor#using) dyrektywy.</span><span class="sxs-lookup"><span data-stu-id="b649a-125">Razor's [\@using](xref:mvc/views/razor#using) directive.</span></span> <span data-ttu-id="b649a-126">Poszczególne składniki mogą być dodawane według nazwy.</span><span class="sxs-lookup"><span data-stu-id="b649a-126">Individual components may be added by name.</span></span>
+* <span data-ttu-id="f7b23-153">Pełna nazwa typu za pomocą przestrzeni nazw.</span><span class="sxs-lookup"><span data-stu-id="f7b23-153">Use the full type name with the namespace.</span></span>
+* <span data-ttu-id="f7b23-154">Użyj firmy Razor [ \@przy użyciu](xref:mvc/views/razor#using) dyrektywy.</span><span class="sxs-lookup"><span data-stu-id="f7b23-154">Use Razor's [\@using](xref:mvc/views/razor#using) directive.</span></span> <span data-ttu-id="f7b23-155">Poszczególne składniki można dodać według nazwy.</span><span class="sxs-lookup"><span data-stu-id="f7b23-155">Individual components can be added by name.</span></span>
 
-<span data-ttu-id="b649a-127">W poniższych przykładach `MyComponentLibrary` to biblioteka składnika zawierająca raport sprzedaży (`SalesReport`) składnika.</span><span class="sxs-lookup"><span data-stu-id="b649a-127">In the following examples, `MyComponentLibrary` is a component library containing the Sales Report (`SalesReport`) component.</span></span>
+<span data-ttu-id="f7b23-156">W poniższych przykładach `MyComponentLib1` to biblioteka składnika zawierająca raport sprzedaży (`SalesReport`) składnika.</span><span class="sxs-lookup"><span data-stu-id="f7b23-156">In the following examples, `MyComponentLib1` is a component library containing a Sales Report (`SalesReport`) component.</span></span>
 
-<span data-ttu-id="b649a-128">Składnik raport sprzedaży mogą być przywoływane z przestrzenią nazw przy użyciu jego pełna nazwa typu:</span><span class="sxs-lookup"><span data-stu-id="b649a-128">The Sales Report component can be referenced using its full type name with namespace:</span></span>
+<span data-ttu-id="f7b23-157">Składnik raport sprzedaży mogą być przywoływane z przestrzenią nazw przy użyciu jego pełna nazwa typu:</span><span class="sxs-lookup"><span data-stu-id="f7b23-157">The Sales Report component can be referenced using its full type name with namespace:</span></span>
 
 ```cshtml
 <h1>Hello, world!</h1>
 
 Welcome to your new app.
 
-<MyComponentLibrary.SalesReport />
+<MyComponentLib1.SalesReport />
 ```
 
-<span data-ttu-id="b649a-129">Składnik również mogą być przywoływane, jeśli biblioteka zostanie przełączony w tryb do zakresu za pomocą `@using` dyrektywy:</span><span class="sxs-lookup"><span data-stu-id="b649a-129">The component can also be referenced if the library is brought into scope with an `@using` directive:</span></span>
+<span data-ttu-id="f7b23-158">Składnik również mogą być przywoływane, jeśli biblioteka zostanie przełączony w tryb do zakresu za pomocą `@using` dyrektywy:</span><span class="sxs-lookup"><span data-stu-id="f7b23-158">The component can also be referenced if the library is brought into scope with an `@using` directive:</span></span>
 
 ```cshtml
-@using MyComponentLibrary
+@using MyComponentLib1
 
 <h1>Hello, world!</h1>
 
@@ -88,20 +115,20 @@ Welcome to your new app.
 <SalesReport />
 ```
 
-<span data-ttu-id="b649a-130">`@using` Mogą być dołączane dyrektywą *_Import.razor* dokonać składników dostępne dla całego projektu lub zastosowane pojedynczej strony lub zbiór stron w folderze.</span><span class="sxs-lookup"><span data-stu-id="b649a-130">The `@using` directive can be included in *_Import.razor* to make the components available for an entire project or applied to a single page or set of pages within a folder.</span></span>
+<span data-ttu-id="f7b23-159">Obejmują `@using MyComponentLib1` dyrektywy w najwyższego poziomu *_Import.razor* pliku udostępniania biblioteki składników dla całego projektu.</span><span class="sxs-lookup"><span data-stu-id="f7b23-159">Include the `@using MyComponentLib1` directive in the top-level *_Import.razor* file to make the library's components available to an entire project.</span></span> <span data-ttu-id="f7b23-160">Dodaj dyrektywę do *_Import.razor* plik na dowolnym poziomie, aby zastosować przestrzeń nazw pojedynczej strony lub zbiór stron w folderze.</span><span class="sxs-lookup"><span data-stu-id="f7b23-160">Add the directive to an *_Import.razor* file at any level to apply the namespace to a single page or set of pages within a folder.</span></span>
 
-## <a name="build-pack-and-ship-to-nuget"></a><span data-ttu-id="b649a-131">Kompilacji, pakiet i dostarczanie na potrzeby narzędzia NuGet</span><span class="sxs-lookup"><span data-stu-id="b649a-131">Build, pack, and ship to NuGet</span></span>
+## <a name="build-pack-and-ship-to-nuget"></a><span data-ttu-id="f7b23-161">Kompilacji, pakiet i dostarczanie na potrzeby narzędzia NuGet</span><span class="sxs-lookup"><span data-stu-id="f7b23-161">Build, pack, and ship to NuGet</span></span>
 
-<span data-ttu-id="b649a-132">Ponieważ biblioteki składnik to biblioteki .NET standard, pakowania i wysyłania ich do narzędzia NuGet nie różni się od pakowania i wysyłania każdą bibliotekę do narzędzia NuGet.</span><span class="sxs-lookup"><span data-stu-id="b649a-132">Because component libraries are standard .NET libraries, packaging and shipping them to NuGet is no different from packaging and shipping any library to NuGet.</span></span> <span data-ttu-id="b649a-133">Pakowanie odbywa się przy użyciu [pakietu dotnet](/dotnet/core/tools/dotnet-pack) polecenia:</span><span class="sxs-lookup"><span data-stu-id="b649a-133">Packaging is performed using the [dotnet pack](/dotnet/core/tools/dotnet-pack) command:</span></span>
+<span data-ttu-id="f7b23-162">Ponieważ biblioteki składnik to biblioteki .NET standard, pakowania i wysyłania ich do narzędzia NuGet nie różni się od pakowania i wysyłania każdą bibliotekę do narzędzia NuGet.</span><span class="sxs-lookup"><span data-stu-id="f7b23-162">Because component libraries are standard .NET libraries, packaging and shipping them to NuGet is no different from packaging and shipping any library to NuGet.</span></span> <span data-ttu-id="f7b23-163">Pakowanie odbywa się przy użyciu [pakietu dotnet](/dotnet/core/tools/dotnet-pack) polecenia powłoki poleceń:</span><span class="sxs-lookup"><span data-stu-id="f7b23-163">Packaging is performed using the [dotnet pack](/dotnet/core/tools/dotnet-pack) command from a command shell:</span></span>
 
 ```console
 dotnet pack
 ```
 
-<span data-ttu-id="b649a-134">Przekazywanie pakietu NuGet za pomocą [dotnet nuget publikowania](/dotnet/core/tools/dotnet-nuget-push) polecenia:</span><span class="sxs-lookup"><span data-stu-id="b649a-134">Upload the package to NuGet using the [dotnet nuget publish](/dotnet/core/tools/dotnet-nuget-push) command:</span></span>
+<span data-ttu-id="f7b23-164">Przekazywanie pakietu NuGet za pomocą [dotnet nuget publikowania](/dotnet/core/tools/dotnet-nuget-push) polecenia powłoki poleceń:</span><span class="sxs-lookup"><span data-stu-id="f7b23-164">Upload the package to NuGet using the [dotnet nuget publish](/dotnet/core/tools/dotnet-nuget-push) command from a command shell:</span></span>
 
 ```console
 dotnet nuget publish
 ```
 
-<span data-ttu-id="b649a-135">Korzystając z `blazorlib` szablonu, zasoby statyczne są dołączone do pakietu NuGet.</span><span class="sxs-lookup"><span data-stu-id="b649a-135">When using the `blazorlib` template, static resources are included in the NuGet package.</span></span> <span data-ttu-id="b649a-136">Konsumenci biblioteki automatycznie otrzymywać skrypty i arkusze stylów, dzięki czemu użytkownicy nie są wymagane do ręcznego zainstalowania zasobów.</span><span class="sxs-lookup"><span data-stu-id="b649a-136">Library consumers automatically receive scripts and stylesheets, so consumers aren't required to manually install the resources.</span></span>
+<span data-ttu-id="f7b23-165">Korzystając z `blazorlib` szablonu, zasoby statyczne są dołączone do pakietu NuGet.</span><span class="sxs-lookup"><span data-stu-id="f7b23-165">When using the `blazorlib` template, static resources are included in the NuGet package.</span></span> <span data-ttu-id="f7b23-166">Konsumenci biblioteki automatycznie otrzymywać skrypty i arkusze stylów, dzięki czemu użytkownicy nie są wymagane do ręcznego zainstalowania zasobów.</span><span class="sxs-lookup"><span data-stu-id="f7b23-166">Library consumers automatically receive scripts and stylesheets, so consumers aren't required to manually install the resources.</span></span> <span data-ttu-id="f7b23-167">Należy pamiętać, że [statycznych zasobów nie są obsługiwane w przypadku aplikacji po stronie serwera](#static-assets-not-supported-for-server-side-apps), w tym przypadku biblioteki Blazor (`blazorlib`) odwołuje się do aplikacji po stronie serwera.</span><span class="sxs-lookup"><span data-stu-id="f7b23-167">Note that [static assets aren't supported for server-side apps](#static-assets-not-supported-for-server-side-apps), including when a Blazor library (`blazorlib`) is referenced by a server-side app.</span></span>
