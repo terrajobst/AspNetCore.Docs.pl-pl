@@ -1,12 +1,12 @@
-* Pliku Startup.CS: [Klasa początkowa](xref:fundamentals/startup) — klasa Konfiguruje potok żądań, która obsługuje wszystkie żądania kierowane do aplikacji.
-* Plik program.CS: [klasy Program](xref:fundamentals/index) zawiera główny punkt wejścia aplikacji.
-* firstapp.csproj: [pliku projektu](/dotnet/articles/core/preview3/tools/csproj) format pliku projektu MSBuild dla aplikacji platformy ASP.NET Core. Zawiera odwołań projektów odwołań NuGet i inne powiązane elementy projektu.
-* appSettings.JSON / appsettings. Development.JSON: Ustawienia pliku konfiguracji środowisko podstawowej aplikacji. [Zobacz Konfiguracja](xref:fundamentals/configuration/index).
-* bower.JSON: Bower zależności pakietów dla projektu.
-* .bowerrc: plik konfiguracyjny bower, który określa, gdzie można zainstalować składniki, gdy Bower pobiera zasoby.
-* bundleconfig.JSON: pliki konfiguracji tworzenie pakietów i zminimalizowania liczby frontonu zasoby JavaScript i CSS.
-* Widoki: Zawiera widoki Razor. Widoki są składnikami wyświetlającymi interfejs użytkownika aplikacji (UI). Ogólnie rzecz biorąc to interfejs użytkownika wyświetla dane modelu.
-* Kontrolery: Początkowo zawiera kontrolerów MVC *HomeController.cs*. Kontrolery są klasy, które obsługuje żądania przeglądarki.
-* Wwwroot: folder główny aplikacji sieci Web.
+* Pliku Startup.CS: [Klasa początkowa](xref:fundamentals/startup) — klasa Konfiguruje potok żądań, która obsługuje wszystkie żądania przekazywane do aplikacji.
+* Program.cs : [Program klasy](xref:fundamentals/index) zawierający punkt wejścia głównego aplikacji.
+* firstapp.csproj : [Plik projektu](/dotnet/articles/core/preview3/tools/csproj) formatu pliku projektu MSBuild dla aplikacji platformy ASP.NET Core. Odwołania projekt-projekt zawiera odwołania do NuGet i inne powiązane elementy projektu.
+* appSettings.JSON / appsettings. Development.JSON: Plik konfiguracji ustawień aplikacji podstawowego środowiska. [Zobacz Konfiguracja](xref:fundamentals/configuration/index).
+* bower.json : Zależności pakietów bower dla projektu.
+* .bowerrc: Plik konfiguracji programu bower, która określa miejsce zainstalować składniki, gdy Bower pobiera zasoby.
+* bundleconfig.JSON: pliki konfiguracji tworzenie pakietów i minifikacja frontonu zasoby języka JavaScript i CSS.
+* Widoki: Zawiera widoki Razor. Widoki są składnikami aplikacji interfejsu użytkownika (UI). Ogólnie rzecz biorąc ten interfejs użytkownika Wyświetla określone dane modelu.
+* Kontrolery: Początkowo zawiera kontrolerów MVC *HomeController.cs*. Kontrolery są w klasach, które obsługują żądania przeglądarki.
+* Wwwroot: Folder główny aplikacji sieci Web.
 
 Aby uzyskać więcej informacji, zobacz [wzorzec MVC](xref:mvc/overview).

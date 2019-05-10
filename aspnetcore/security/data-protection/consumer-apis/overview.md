@@ -1,55 +1,55 @@
 ---
-title: Omówienie interfejsów API klienta dla platformy ASP.NET Core
+title: Omówienie interfejsów API przeznaczonych dla klientów dla platformy ASP.NET Core
 author: rick-anderson
-description: Odbieranie krótki przegląd różnych konsumenta interfejsami API dostępnymi w bibliotece platformy ASP.NET Core ochrony danych.
+description: Odbierać krótkie omówienie różnych odbiorców interfejsami API dostępnymi w bibliotece programu ASP.NET Core ochrony danych.
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/consumer-apis/overview
 ms.openlocfilehash: b0d11d097ee2d448b6781f6fa84445f6400fbc76
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36279119"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65087536"
 ---
-# <a name="consumer-apis-overview-for-aspnet-core"></a>Omówienie interfejsów API klienta dla platformy ASP.NET Core
+# <a name="consumer-apis-overview-for-aspnet-core"></a>Omówienie interfejsów API przeznaczonych dla klientów dla platformy ASP.NET Core
 
-`IDataProtectionProvider` i `IDataProtector` interfejsy są podstawowe interfejsy, za pomocą których użytkowników na korzystanie z systemu ochrony danych. W przypadku się one w [Microsoft.AspNetCore.DataProtection.Abstractions](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.Abstractions/) pakietu.
+`IDataProtectionProvider` i `IDataProtector` interfejsy są podstawowe interfejsy, za pomocą których użytkownicy korzystają z systemu ochrony danych. Znajdują się one w [Microsoft.AspNetCore.DataProtection.Abstractions](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.Abstractions/) pakietu.
 
 ## <a name="idataprotectionprovider"></a>IDataProtectionProvider
 
-Interfejs dostawcy reprezentuje katalog główny systemu ochrony danych. Nie można go bezpośrednio służyć do Włączanie lub wyłączanie ochrony danych. Zamiast tego klient musi pobrać odwołanie do `IDataProtector` przez wywołanie metody `IDataProtectionProvider.CreateProtector(purpose)`, której celem jest ciąg, który opisuje zamierzone konsumenta przypadek użycia. Zobacz [ciągów w celu](xref:security/data-protection/consumer-apis/purpose-strings) znacznie więcej informacji na celem tego parametru i jak wybrać odpowiednią wartość.
+Interfejs dostawcy reprezentuje katalog główny system ochrony danych. Nie można go bezpośrednio służyć do ochrony lub wyłączanie ochrony danych. Zamiast tego użytkownik musi uzyskać odwołanie do `IDataProtector` przez wywołanie metody `IDataProtectionProvider.CreateProtector(purpose)`, której celem jest ciąg, który opisuje przypadek użycia zamierzonych odbiorców. Zobacz [ciągi celów](xref:security/data-protection/consumer-apis/purpose-strings) uzyskać znacznie więcej informacji na temat celem tego parametru i jak wybrać odpowiednią wartość.
 
-## <a name="idataprotector"></a>Interfejsu IDataProtector
+## <a name="idataprotector"></a>IDataProtector
 
-Interfejs ochrony jest zwracany przez wywołanie do `CreateProtector`, a jego użytkowników można używać do wykonywania tego interfejsu ustawiania i usuwania ochrony operacji.
+Interfejs ochrony jest zwracany przez wywołanie `CreateProtector`, a jego ten interfejs, który użytkownicy mogą używać do wykonywania włączania i wyłączania ochrony operacji.
 
-Aby chronić element danych, należy przekazać dane do `Protect` metody. Podstawowy interfejs definiuje metody, które byte [] konwertuje -> byte [], ale jest także przeciążenia (pod warunkiem jako metodę rozszerzenie) konwertuje ciągu -> ciągu. Zabezpieczenia oferowane przez te dwie metody są identyczne; Deweloper powinien wybrać, niezależnie od przeciążenia jest najbardziej odpowiednim ich przypadek użycia. Niezależnie od przeciążenia wybrane, wartość zwracana przez Chroń metody są teraz chronione (enciphered oraz potwierdzone odporne na próby), a aplikacja może przesyłać je do niezaufanego klienta.
+Aby chronić część danych, należy przekazać dane do `Protect` metody. Podstawowy interfejs definiuje metody, które byte [] konwertuje -> byte [], ale ma również przeciążenia (udostępniane jako metodę rozszerzenia), która konwertuje ciąg -> ciągu. Zabezpieczenia oferowanych przez te dwie metody jest identyczna; Deweloper należy wybrać, niezależnie od przeciążenia jest najbardziej odpowiednim ich przypadkach użycia. Niezależnie od przeciążenia wybrane, wartość zwracana przez ochrony jest teraz chroniony (enciphered i potwierdzone odporne), a aplikacja może wysłać ją do niezaufanego klienta.
 
-Aby wyłączyć ochronę element poprzednio chronionych danych, należy przekazać chronionych danych `Unprotect` metody. (Brak byte [] — na podstawie i na podstawie ciągu przeciążenia dla wygody deweloperów.) Jeśli chronione ładunek został wygenerowany przez wywołanie wcześniejszych `Protect` na tym samym `IDataProtector`, `Unprotect` metoda zwróci oryginalnego ładunku niechronione. Jeśli chroniony ładunku została naruszona lub został utworzony przez inną `IDataProtector`, `Unprotect` metoda zgłosi cryptographicexception —.
+Aby wyłączyć ochronę elementu poprzednio chronionych danych, należy przekazać chronionych danych `Unprotect` metody. (Brak byte [] — przeciążenia opartego na ciąg i zależności dla wygody deweloperów.) Jeśli chronione ładunek został wygenerowany przez podczas wcześniejszego wywołania `Protect` na tym samym `IDataProtector`, `Unprotect` metoda zwróci oryginalnego ładunku niechronione. Jeśli chronione ładunku została naruszona lub został utworzony przez inną `IDataProtector`, `Unprotect` metoda zgłosi cryptographicexception —.
 
-Pojęcie sam a inną `IDataProtector` powiązań z powrotem do koncepcji cel. Jeśli dwa `IDataProtector` wystąpienia zostały wygenerowane z tego samego głównego `IDataProtectionProvider` , ale za pomocą innego celu ciągów w wywołaniu `IDataProtectionProvider.CreateProtector`, następnie jest uznawany za [różne funkcje ochrony](xref:security/data-protection/consumer-apis/purpose-strings), i nie będzie mógł wyłączyć ochronę ładunki generowane przez innych.
+Pojęcie tego samego a inną `IDataProtector` więzi z powrotem do koncepcji przeznaczenia. Dwóch `IDataProtector` wystąpienia zostały wygenerowane z takim samym certyfikatem głównym `IDataProtectionProvider` za pośrednictwem innego celu ciągów w wywołaniu, ale `IDataProtectionProvider.CreateProtector`, a następnie były uważane za [różne funkcje ochrony kluczy](xref:security/data-protection/consumer-apis/purpose-strings), i nie będzie mogła zostać wyłączona ochrona ładunki generowane przez drugi.
 
 ## <a name="consuming-these-interfaces"></a>Korzystanie z tych interfejsów
 
-Składnik obsługujący Podpisane zamierzonego użycia jest, że składnik stosować `IDataProtectionProvider` parametr w swoich konstruktorach i czy system Podpisane automatycznie udostępnia tę usługę, gdy składnik zostanie uruchomiony.
+DI aware składnika zamierzonego użycia to, że składnik podejmowanie `IDataProtectionProvider` parametru w jego konstruktorze i czy DI system automatycznie udostępnia tę usługę, podczas tworzenia wystąpienia składnika.
 
 > [!NOTE]
-> Niektóre aplikacje (np. aplikacje konsoli lub aplikacji ASP.NET 4.x) może nie być Podpisane obsługujący, nie można używać mechanizmu opisane w tym miejscu. Dla tych scenariuszy, zapoznaj się [z systemem innym niż scenariusze pamiętać Podpisane](xref:security/data-protection/configuration/non-di-scenarios) dokumentu, aby uzyskać więcej informacji na temat pobierania wystąpienia `IDataProtection` dostawcy bez pośrednictwa Podpisane.
+> Niektóre aplikacje (na przykład aplikacje konsoli lub aplikacji programu ASP.NET 4.x) może nie być DI-aware, więc nie można użyć mechanizm opisane w tym miejscu. Dla tych scenariuszy, zapoznaj się z [innych scenariuszy pamiętać DI](xref:security/data-protection/configuration/non-di-scenarios) dokumentu, aby uzyskać więcej informacji na temat pobierania wystąpienia `IDataProtection` dostawcy bez pośrednictwa DI.
 
 W poniższym przykładzie pokazano trzy pojęcia:
 
-1. [Dodaj systemu ochrony danych](xref:security/data-protection/configuration/overview) do kontenera usługi
+1. [Dodaj system ochrony danych](xref:security/data-protection/configuration/overview) do kontenera usługi
 
-2. Przy użyciu Podpisane do odbierania wystąpienia `IDataProtectionProvider`, i
+2. Za pomocą DI do odbierania wystąpienia `IDataProtectionProvider`, i
 
-3. Tworzenie `IDataProtector` z `IDataProtectionProvider` i używanie go do zabezpieczania i odbezpieczania danych.
+3. Tworzenie `IDataProtector` z `IDataProtectionProvider` i używanie ich do włączania i wyłączania ochrony danych.
 
 [!code-csharp[](../using-data-protection/samples/protectunprotect.cs?highlight=26,34,35,36,37,38,39,40)]
 
-Pakiet Microsoft.AspNetCore.DataProtection.Abstractions zawiera metody rozszerzenia `IServiceProvider.GetDataProtector` dla wygody deweloperów. Hermetyzuje jako jedna operacja pobierania zarówno `IDataProtectionProvider` od dostawcy usług i wywoływania `IDataProtectionProvider.CreateProtector`. W poniższym przykładzie pokazano sposób jego użycia.
+Pakiet Microsoft.AspNetCore.DataProtection.Abstractions zawiera metodę rozszerzającą `IServiceProvider.GetDataProtector` jako udogodnienie dla deweloperów. Hermetyzuje jako pojedyncza operacja zarówno pobieranie `IDataProtectionProvider` od dostawcy usług i wywoływania `IDataProtectionProvider.CreateProtector`. W poniższym przykładzie pokazano jej użycie.
 
 [!code-csharp[](./overview/samples/getdataprotector.cs?highlight=15)]
 
 >[!TIP]
-> Wystąpienia `IDataProtectionProvider` i `IDataProtector` są wątkowo dla wielu wywołań. Ma ona która po składnika pobiera odwołanie do `IDataProtector` za pośrednictwem wywołania do `CreateProtector`, będzie używać tego odwołania na wiele wywołań `Protect` i `Unprotect`. Wywołanie `Unprotect` zgłosi cryptographicexception — Jeśli chroniony ładunku nie można zweryfikować lub odszyfrowywane. Niektóre składniki mogą chcieć ignorowanie błędów podczas wyłączania ochrony operacji; składnik, który brzmi plików cookie uwierzytelniania może obsługi tego błędu i traktować żądania tak, jakby zawierał pliki cookie nie na wszystkich zamiast Niepowodzenie żądania bezpośrednich. Składniki, które mają to zachowanie w szczególności powinny catch cryptographicexception — zamiast spożycie wszystkie wyjątki.
+> Wystąpienia elementu `IDataProtectionProvider` i `IDataProtector` są wątkowo dla wielu obiektów wywołujących. Ma zamierzone, gdy składnik pobiera odwołanie do `IDataProtector` poprzez wywołanie `CreateProtector`, użyje tego odwołania dla wielu wywołań `Protect` i `Unprotect`. Wywołanie `Unprotect` zgłosi cryptographicexception — Jeśli chroniony ładunku nie można zweryfikować lub odszyfrowywane. Niektóre składniki mogą chcieć ignorowanie błędów podczas wyłączania ochrony operacji; składnik, który odczytuje pliki cookie uwierzytelniania może obsługiwać ten błąd i traktować żądania tak, jakby był w ogóle pliki cookie nie zamiast zwraca Niepowodzenie żądania od razu wykupić. Składniki, które chcesz tego zachowania, należy w szczególności złapać cryptographicexception — zamiast powodu spożycia wszystkie wyjątki.

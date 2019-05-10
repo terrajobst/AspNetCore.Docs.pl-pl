@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/13/2019
 uid: fundamentals/routing
-ms.openlocfilehash: 622f28f3b4348820c8781e0ba14ae5137136e797
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: 0c2df3ec63f393b961754f496830cccb26f1cb76
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57346570"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64899512"
 ---
 # <a name="routing-in-aspnet-core"></a>Routing w programie ASP.NET Core
 
@@ -70,7 +70,7 @@ services.AddMvc()
 > [!IMPORTANT]
 > W tym dokumencie opisano niskiego poziomu routingu platformy ASP.NET Core. Aby uzyskać informacji na temat routingu platformy ASP.NET Core MVC, zobacz <xref:mvc/controllers/routing>. Aby uzyskać informacji na temat Konwencji tras w stron Razor, zobacz <xref:razor-pages/razor-pages-conventions>.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/routing/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 ## <a name="routing-basics"></a>Podstawy routingu
 
@@ -655,7 +655,7 @@ Wyrażenia regularne użyte w routingu często rozpoczynać się od karetki (`^`
 
 | Wyrażenie   | String    | Dopasowanie | Komentarz               |
 | ------------ | --------- | :---: |  -------------------- |
-| `[a-z]{2}`   | Cześć     | Tak   | podciąg dopasowania     |
+| `[a-z]{2}`   | Cześć     | Yes   | podciąg dopasowania     |
 | `[a-z]{2}`   | 123abc456 | Tak   | podciąg dopasowania     |
 | `[a-z]{2}`   | mz        | Tak   | zgodne z wyrażeniem    |
 | `[a-z]{2}`   | MZ        | Tak   | bez uwzględniania wielkości liter    |
@@ -734,7 +734,7 @@ Poniższy przykład pokazuje, jak wygenerować łącze do trasy, biorąc pod uwa
 
 [!code-csharp[](routing/samples/2.x/RoutingSample/Startup.cs?name=snippet_Dictionary)]
 
-<xref:Microsoft.AspNetCore.Routing.VirtualPathData.VirtualPath> Generowane na końcu poprzedniego przykładowe dane stanowią `/package/create/123`. Słownik dostarcza `operation` i `id` wartości szablonu "Śledzenie trasy pakietu" trasy `package/{operation}/{id}`. Aby uzyskać szczegółowe informacje, zobacz przykładowy kod [użycia routingu w oprogramowaniu pośredniczącym](#use-routing-middleware) sekcji lub [przykładową aplikację](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/routing/samples).
+<xref:Microsoft.AspNetCore.Routing.VirtualPathData.VirtualPath> Generowane na końcu poprzedniego przykładowe dane stanowią `/package/create/123`. Słownik dostarcza `operation` i `id` wartości szablonu "Śledzenie trasy pakietu" trasy `package/{operation}/{id}`. Aby uzyskać szczegółowe informacje, zobacz przykładowy kod [użycia routingu w oprogramowaniu pośredniczącym](#use-routing-middleware) sekcji lub [przykładową aplikację](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples).
 
 Drugi parametr <xref:Microsoft.AspNetCore.Routing.VirtualPathContext> Konstruktor jest kolekcją *otoczenia wartości*. Otoczenia wartości są łatwe w użyciu, ponieważ ich Ogranicz liczbę wartości, które Deweloper należy określić w ramach kontekstu żądania. Bieżące wartości trasy, bieżącego żądania są traktowane jako wartości otoczenia dotyczącymi generowania łączy. W aplikacji ASP.NET Core MVC `About` akcji `HomeController`, nie musisz określić wartość trasy kontrolera, aby połączyć `Index` akcji&mdash;otoczenia wartość `Home` jest używany.
 

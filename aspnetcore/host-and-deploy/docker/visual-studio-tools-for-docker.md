@@ -6,27 +6,27 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 09/12/2018
 uid: host-and-deploy/docker/visual-studio-tools-for-docker
-ms.openlocfilehash: 42f8071eadabba3eb8cb738be1720f4c6195808c
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 3bf3d8d0a627d97090e3ce9fef7e380f03c7626d
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207241"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64901309"
 ---
 # <a name="visual-studio-tools-for-docker-with-aspnet-core"></a>Visual Studio Tools for Docker z platformą ASP.NET Core
 
 Program Visual Studio 2017 obsługuje kompilowania, debugowania i uruchamiania konteneryzowanych platformy ASP.NET Core z aplikacji przeznaczonych dla platformy .NET Core. Są obsługiwane kontenerów systemów Windows i Linux.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/docker/visual-studio-tools-for-docker/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/docker/visual-studio-tools-for-docker/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * [Docker for Windows](https://docs.docker.com/docker-for-windows/install/)
-* [Program Visual Studio 2017](https://www.visualstudio.com/) z **programowanie dla wielu platform .NET Core** obciążenia
+* [Program Visual Studio 2017](https://visualstudio.microsoft.com) z **programowanie dla wielu platform .NET Core** obciążenia
 
 ## <a name="installation-and-setup"></a>Instalacja i Konfiguracja
 
-Instalacja platformy Docker, najpierw zapoznaj się z informacjami o [Docker for Windows: co należy wiedzieć przed zainstalowaniem](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install). Następnie zainstaluj [Docker For Windows](https://docs.docker.com/docker-for-windows/install/).
+Instalacja platformy Docker, najpierw zapoznaj się z informacjami o [Docker for Windows: Co należy wiedzieć przed zainstalowaniem](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install). Następnie zainstaluj [Docker For Windows](https://docs.docker.com/docker-for-windows/install/).
 
 **[Udostępnione dyski](https://docs.docker.com/docker-for-windows/#shared-drives)**  w Docker for Windows musi być skonfigurowana do obsługi mapowania woluminu i debugowania. Kliknij prawym przyciskiem myszy ikonę platformy Docker w zasobniku systemowym, wybierz **ustawienia**i wybierz **udostępnione dyski**. Wybierz dysk, na którym Docker przechowuje pliki. Kliknij przycisk **zastosować**.
 
@@ -84,9 +84,9 @@ Poprzedni *pliku Dockerfile* opiera się na [microsoft/aspnetcore](https://hub.d
 
 Obsługa Visual Studio 2017 w wersji 15.7 lub wcześniejszych [narzędzia Docker Compose](https://docs.docker.com/compose/overview/) jako rozwiązania do organizowania kontenerów wyłącznie. Artefakty narzędzia Docker Compose są dodane za pośrednictwem **Dodaj** > **obsługę platformy Docker**.
 
-Visual Studio 2017 w wersji, należy zachować 15,8 lub nowszej, Dodaj rozwiązania do organizowania tylko wtedy, gdy zgodnie z instrukcjami otrzymywanymi. Kliknij prawym przyciskiem myszy projekt w **Eksploratora rozwiązań** i wybierz **Dodaj** > **obsługi Orkiestratora kontenerów**. Są dostępne dwie różne opcje: [narzędzia Docker Compose](#docker-compose) i [usługi Service Fabric](#service-fabric).
+Visual Studio 2017 w wersji, należy zachować 15,8 lub nowszej, Dodaj rozwiązania do organizowania tylko wtedy, gdy zgodnie z instrukcjami otrzymywanymi. Kliknij prawym przyciskiem myszy projekt w **Eksploratora rozwiązań** i wybierz **Dodaj** > **obsługi Orkiestratora kontenerów**. Oferowane są dwa różne opcje: [Narzędzia docker Compose](#docker-compose) i [usługi Service Fabric](#service-fabric).
 
-### <a name="docker-compose"></a>Narzędzia docker Compose
+### <a name="docker-compose"></a>Docker Compose
 
 Dodaj program Visual Studio Tools for Docker *docker-compose* projekt do rozwiązania przy użyciu następujących plików:
 
@@ -107,7 +107,7 @@ Różne zachowania na podstawie konfiguracji kompilacji (na przykład Debug i Re
 
 Za pomocą plików zastąpienie specyficznych dla konfiguracji, można określić różnych ustawień konfiguracji (np. zmienne środowiskowe lub punkty wejścia) dla konfiguracji kompilacji debugowania, jak i wydania.
 
-### <a name="service-fabric"></a>Usługa Service Fabric
+### <a name="service-fabric"></a>Service Fabric
 
 Oprócz base [wymagania wstępne](#prerequisites), [usługi Service Fabric](/azure/service-fabric/) rozwiązania do organizowania zapotrzebowania na następujące wymagania wstępne:
 
@@ -232,7 +232,7 @@ Może to być oczekiwanie produkcji lub wersji obrazu na mniejszy rozmiar w por�
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Tworzenie kontenerów za pomocą programu Visual Studio](/visualstudio/containers)
-* [Usługa Azure Service Fabric: Przygotowywanie środowiska projektowego](/azure/service-fabric/service-fabric-get-started)
+* [Azure Service Fabric: Przygotowywanie środowiska projektowego](/azure/service-fabric/service-fabric-get-started)
 * [Wdrażanie aplikacji .NET w kontenerze Windows w usłudze Azure Service Fabric](/azure/service-fabric/service-fabric-host-app-in-a-container)
 * [Rozwiązywanie problemów z programowania Visual Studio 2017 przy użyciu rozwiązania Docker](/azure/vs-azure-tools-docker-troubleshooting-docker-errors)
 * [Visual Studio Tools dla repozytorium GitHub platformy Docker](https://github.com/Microsoft/DockerTools)

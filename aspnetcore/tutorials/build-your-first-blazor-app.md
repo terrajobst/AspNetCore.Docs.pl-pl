@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/18/2019
 uid: tutorials/first-blazor-app
-ms.openlocfilehash: c52efcb1224e2bbea56fa55c70faf253ef96d433
-ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
+ms.openlocfilehash: d235fec4e128ad8622a06d301eeac15c4862c159
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59982762"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65087724"
 ---
 # <a name="build-your-first-blazor-app"></a>Utwórz swoją pierwszą aplikację Blazor
 
@@ -24,7 +24,7 @@ Postępuj zgodnie ze wskazówkami w <xref:blazor/get-started> artykuł, aby utwo
 
 ## <a name="build-components"></a>Tworzenie składników
 
-1. Przejdź do każdego z trzech stron aplikacji w *stron* folderu: Strona główna licznik i pobierania danych. Te strony są implementowane przez pliki Razor składników: *Index.razor*, *Counter.razor*, i *FetchData.razor*.
+1. Przejdź do każdego z trzech stron aplikacji w *stron* folderu: Strona główna licznik i pobierania danych. Te strony są implementowane przez pliki składników Razor *Index.razor*, *Counter.razor*, i *FetchData.razor*.
 
 1. Na stronie licznika wybierz **kliknij mnie** przycisk, aby zwiększyć licznik bez odświeżania strony. Zwiększenie licznika, na stronie sieci Web zwykle wtedy konieczne napisanie kodu JavaScript, ale Blazor zapewnia lepsze przy użyciu podejścia C#.
 
@@ -49,21 +49,21 @@ Postępuj zgodnie ze wskazówkami w <xref:blazor/get-started> artykuł, aby utwo
 
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/Counter2.razor?highlight=14)]
 
-1. Ponownie skompiluj i uruchom aplikację, aby zobaczyć zmiany. Wybierz **kliknij mnie** przycisk i zwiększa licznik przez dwa.
+1. Ponownie skompiluj i uruchom aplikację, aby zobaczyć zmiany. Wybierz **kliknij mnie** przycisku. Zwiększa licznik przez dwa.
 
 ## <a name="use-components"></a>Używanie składników
 
-Uwzględnij składnika w innym składniku przy użyciu składni notacji HTML.
+Obejmują składnika w innym składniku przy użyciu składni HTML.
 
-1. Dodaj składnik licznika do składnik indeksu (dom) aplikacji przez dodanie `<Counter />` elementu składnik indeksu.
+1. Dodaj składnik licznika do składnik indeksu aplikacji przez dodanie `<Counter />` elementu składnik indeksu (*Index.razor*).
 
-   Jeśli używasz Blazor dla tego środowiska, składnik ankiety monitu (`<SurveyPrompt>` elementu) znajduje się w składnik indeksu. Zastąp `<SurveyPrompt>` element z `<Counter>` elementu.
+   Jeśli używasz Blazor po stronie klienta dla tego środowiska, składnik ankiety monitu (`<SurveyPrompt>` elementu) znajduje się w składnik indeksu. Zastąp `<SurveyPrompt>` element z `<Counter>` elementu. Jeśli używasz aplikacji po stronie serwera Blazor dla tego środowiska, należy dodać `<Counter>` elementu składnik indeksu:
 
    *Pages/Index.razor*:
 
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/Index1.razor?highlight=7)]
 
-1. Ponownie skompiluj i uruchom aplikację. Strona główna ma swój własny licznika.
+1. Ponownie skompiluj i uruchom aplikację. Składnik indeksu ma swój własny licznika.
 
 ## <a name="component-parameters"></a>Parametry składnika
 
@@ -76,24 +76,24 @@ Składniki mogą także mieć parametrów. Składnik parametry są definiowane z
 
    *Pages/Counter.razor*:
 
-   [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/Counter.razor?highlight=12,16)]
+   [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/Counter.razor?highlight=13,17)]
 
 <!-- Add back when supported.
    > [!NOTE]
    > From Visual Studio, you can quickly add a component parameter by using the `para` snippet. Type `para` and press the `Tab` key twice.
 -->
 
-1. Określ `IncrementAmount` parametru w części głównej `<Counter>` elementu za pomocą atrybutu. Ustaw wartość do zwiększenia licznika dziesięciu.
+1. Określ `IncrementAmount` parametru w składnik indeksu `<Counter>` elementu za pomocą atrybutu. Ustaw wartość do zwiększenia licznika dziesięciu.
 
    *Pages/Index.razor*:
 
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/Index2.razor?highlight=7)]
 
-1. Załaduj ponownie stronę główną. Licznik rośnie przez dziesięć za każdym razem **kliknij mnie** przycisk jest zaznaczony. Licznik w przyrostach strony liczników za pomocą jednej.
+1. Załaduj ponownie składnik indeksu. Licznik rośnie przez dziesięć za każdym razem **kliknij mnie** przycisk jest zaznaczony. Licznik w składniku licznika w dalszym ciągu o jeden.
 
 ## <a name="route-to-components"></a>Kierowanie do składników
 
-`@page` Dyrektywę w górnej części *Counter.razor* pliku Określa, że ten składnik jest routingu punkt końcowy. Składnik licznika obsługuje żądania wysyłane do `/Counter`. Bez `@page` dyrektywy, składnik nie obsługuje żądania trasowane, ale nadal można używać składnika przez inne składniki.
+`@page` Dyrektywę w górnej części *Counter.razor* pliku Określa, że składnik licznika routingu punkt końcowy. Składnik licznika obsługuje żądania wysyłane do `/counter`. Bez `@page` dyrektywy, składnik nie obsługuje żądania trasowane, ale nadal można używać składnika przez inne składniki.
 
 ## <a name="dependency-injection"></a>Wstrzykiwanie zależności
 
@@ -115,7 +115,7 @@ Pracy z aplikacją po stronie klienta Blazor `HttpClient` są wstrzykiwane mają
 
 *Pages/FetchData.razor*:
 
-[!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData1_client.razor?highlight=7)]
+[!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData1_client.razor?highlight=7-8)]
 
 A [ \@foreach](/dotnet/csharp/language-reference/keywords/foreach-in) pętli jest używany do renderowania każde wystąpienie prognozy jako wiersz w tabeli danych o pogodzie:
 
@@ -138,9 +138,9 @@ Dodawanie nowego składnika do aplikacji, która implementuje listy zadań do wy
 
 1. Dodaj składnik zadań do wykonania na pasku nawigacyjnym.
 
-   Składnik NavMenu (*Pages/Shared/NavMenu.razor*) jest używana w układzie aplikacji. Układy są składniki, które pozwalają uniknąć duplikowania zawartości w aplikacji. Aby uzyskać więcej informacji, zobacz <xref:blazor/layouts>.
+   Składnik NavMenu (*Shared/NavMenu.razor*) jest używana w układzie aplikacji. Układy są składniki, które pozwalają uniknąć duplikowania zawartości w aplikacji. Aby uzyskać więcej informacji, zobacz <xref:blazor/layouts>.
 
-   Dodaj `<NavLink>` składnika Todo, dodając następujące znaczniki elementu listy poniżej istniejące elementy listy w *Pages/Shared/NavMenu.razor* pliku:
+   Dodaj `<NavLink>` składnika Todo, dodając następujące znaczniki elementu listy poniżej istniejące elementy listy w *Shared/NavMenu.razor* pliku:
 
    ```cshtml
    <li class="nav-item px-3">
@@ -158,12 +158,12 @@ Dodawanie nowego składnika do aplikacji, która implementuje listy zadań do wy
 
 1. Wróć do części Todo (*Pages/Todo.razor*):
 
-   * Dodaj pole do zadań do wykonania w `@functions` bloku. Składnik Todo to pole jest używane do zarządzania stanem listy rzeczy do zrobienia.
+   * Dodaj pole do wykonania w `@functions` bloku. Składnik Todo to pole jest używane do zarządzania stanem listy rzeczy do zrobienia.
    * Dodaj listę nieuporządkowaną znaczników i `foreach` pętli do renderowania każdego elementu todo, jako element listy.
 
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo4.razor?highlight=5-10,12-14)]
 
-1. Aplikacja wymaga elementów interfejsu użytkownika do dodawania zadań do wykonania do listy. Dodaj przycisk poniżej listy i tekstowych danych wejściowych:
+1. Aplikacja wymaga elementów interfejsu użytkownika do dodawania zadania do wykonania do listy. Dodaj przycisk poniżej listy i tekstowych danych wejściowych:
 
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo5.razor?highlight=12-13)]
 
@@ -187,7 +187,7 @@ Dodawanie nowego składnika do aplikacji, która implementuje listy zadań do wy
 
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo8.razor?highlight=19-26)]
 
-1. Ponownie skompiluj i uruchom aplikację. Niektórych zadań do wykonania należy dodać do listy rzeczy do zrobienia, aby przetestować nowy kod.
+1. Ponownie skompiluj i uruchom aplikację. Niektóre zadania do wykonania należy dodać do listy rzeczy do zrobienia, aby przetestować nowy kod.
 
 1. Tekst tytułu dla każdego elementu todo zyski, można edytować i pola wyboru mogą pomóc użytkownikowi informacje o ukończonych elementów. Dodaj dane wejściowe pola wyboru dla każdego elementu todo i powiązać jej wartość na `IsDone` właściwości. Zmiana `@todo.Title` do `<input>` powiązany element `@todo.Title`:
 

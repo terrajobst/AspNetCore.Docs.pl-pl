@@ -7,19 +7,19 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 04/20/2018
 uid: signalr/publish-to-azure-web-app
-ms.openlocfilehash: 66fa855590c49c4284e4b42cae57f3d4d81dd0fc
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.openlocfilehash: 1c472711a86edae8dc6e207734aa54e48c02d47d
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54837679"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65087699"
 ---
 # <a name="publish-an-aspnet-core-signalr-app-to-an-azure-web-app"></a>Publikowanie platformy ASP.NET Core aplikacji SignalR na aplikację internetową platformy Azure
 
 [Usługa Azure Web Apps](/azure/app-service/app-service-web-overview) jest [przetwarzanie w chmurze firmy Microsoft](https://azure.microsoft.com/) usługa platformy do hostowania aplikacji sieci web, w tym platformy ASP.NET Core.
 
 > [!NOTE]
-> Ten artykuł odnosi się do publikowania aplikacji biblioteki SignalR platformy ASP.NET Core w programie Visual Studio. Odwiedź stronę [usługi SignalR platformy Azure](https://azure.microsoft.com/en-gb/services/signalr-service?) Aby uzyskać więcej informacji na temat przy użyciu biblioteki SignalR na platformie Azure.
+> Ten artykuł odnosi się do publikowania aplikacji biblioteki SignalR platformy ASP.NET Core w programie Visual Studio. Odwiedź stronę [usługi SignalR platformy Azure](https://azure.microsoft.com/services/signalr-service) Aby uzyskać więcej informacji na temat przy użyciu biblioteki SignalR na platformie Azure.
 
 ## <a name="publish-the-app"></a>Publikowanie aplikacji
 

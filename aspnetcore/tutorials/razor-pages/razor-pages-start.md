@@ -3,14 +3,14 @@ title: 'Samouczek: Rozpoczynanie pracy ze stronami Razor w programie ASP.NET Cor
 author: rick-anderson
 description: W tej serii samouczków pokazano, jak używać stron Razor w programie ASP.NET Core. Dowiedz się, jak utworzyć model, generowanie kodu dla stron Razor, platformy Entity Framework Core i SQL Server na użytek dostęp do danych, dodać funkcje wyszukiwania, dodać sprawdzanie poprawności danych wejściowych i użyć migracje do aktualizacji modelu.
 ms.author: riande
-ms.date: 12/5/2018
+ms.date: 05/09/2019
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: 1d264ca4a605d8291e273a8f054c92e7eefa5548
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
-ms.translationtype: HT
+ms.openlocfilehash: 9307291756baf1bef714d6dae2f8d25d3aa6f922
+ms.sourcegitcommit: 3376f224b47a89acf329b2d2f9260046a372f924
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64903295"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65517110"
 ---
 # <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Samouczek: Rozpoczynanie pracy ze stronami Razor w programie ASP.NET Core
 
@@ -59,7 +59,7 @@ Na końcu tego samouczka będziesz mieć działającą aplikację sieci web stro
 
 * Otwórz [zintegrowany terminal](https://code.visualstudio.com/docs/editor/integrated-terminal).
 
-* Zmień katalog (`cd`) do folderu, który będzie zawierać projekt.
+* Przejdź do katalogu (`cd`) zawierający projekt.
 
 * Uruchom następujące polecenia:
 
@@ -69,7 +69,7 @@ Na końcu tego samouczka będziesz mieć działającą aplikację sieci web stro
   ```
 
   * `dotnet new` Polecenie tworzy nowy projekt strony Razor w *RazorPagesMovie* folderu.
-  * `code` Polecenia otwiera *RazorPagesMovie* folderu w nowym wystąpieniu programu Visual Studio Code.
+  * `code` Polecenia otwiera *RazorPagesMovie* folderu w bieżącym wystąpieniu programu Visual Studio Code.
 
   Zostanie wyświetlone okno dialogowe z **"RazorPagesMovie" brakuje wymagane zasoby do tworzenia i debugowania. Dodaj je?**
 

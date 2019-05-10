@@ -5,14 +5,14 @@ description: Dowiedz się, jak do obsługi błędów w aplikacji platformy ASP.N
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 04/07/2019
+ms.date: 05/03/2019
 uid: fundamentals/error-handling
-ms.openlocfilehash: cbb9462a3c6010e074dc391aa128ac2cbb901456
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
+ms.openlocfilehash: 36cd9fdac0b9159900e82327705a73d561e7ce6b
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59705581"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65086964"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>Obsługa błędów w programie ASP.NET Core
 
@@ -20,7 +20,7 @@ Przez [Tom Dykstra](https://github.com/tdykstra/), [Luke Latham](https://github.
 
 W tym artykule opisano typowe metody obsługi błędów w aplikacji platformy ASP.NET Core.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples). ([Sposobu pobierania](xref:index#how-to-download-a-sample).) Artykuł zawiera instrukcje dotyczące sposobu ustawiania dyrektywy preprocesora (`#if`, `#endif`, `#define`) Przykładowa aplikacja do obsługi różnych scenariuszy.
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples). ([Sposobu pobierania](xref:index#how-to-download-a-sample).) Artykuł zawiera instrukcje dotyczące sposobu ustawiania dyrektywy preprocesora (`#if`, `#endif`, `#define`) Przykładowa aplikacja do obsługi różnych scenariuszy.
 
 ## <a name="developer-exception-page"></a>Stronie wyjątków dla deweloperów
 
@@ -40,7 +40,7 @@ Strona zawiera następujące informacje dotyczące wyjątku i żądanie:
 * Pliki cookie (jeśli istnieje)
 * Nagłówki
 
-Aby wyświetlić stronę wyjątek dla deweloperów w [przykładową aplikację](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples), użyj `DevEnvironment` preprocesora dyrektywy i wybierz pozycję **wywołanie wyjątku** na stronie głównej.
+Aby wyświetlić stronę wyjątek dla deweloperów w [przykładową aplikację](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples), użyj `DevEnvironment` preprocesora dyrektywy i wybierz pozycję **wywołanie wyjątku** na stronie głównej.
 
 ## <a name="exception-handler-page"></a>Strona obsługi wyjątków
 
@@ -75,7 +75,7 @@ Użyj <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature> dost�
 > [!WARNING]
 > Czy **nie** udostępniają informacje o błędzie poufnych klientom. Obsługuje błędy stanowi zagrożenie bezpieczeństwa.
 
-Aby wyświetlić stronę obsługi wyjątków w [przykładową aplikację](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples), użyj `ProdEnvironment` i `ErrorHandlerPage` dyrektywy preprocesora, a następnie wybierz **wywołanie wyjątku** na stronie głównej.
+Aby wyświetlić stronę obsługi wyjątków w [przykładową aplikację](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples), użyj `ProdEnvironment` i `ErrorHandlerPage` dyrektywy preprocesora, a następnie wybierz **wywołanie wyjątku** na stronie głównej.
 
 ## <a name="exception-handler-lambda"></a>Lambda obsługi wyjątków
 
@@ -88,7 +88,7 @@ Poniżej przedstawiono przykład użycia wyrażenia lambda do obsługi wyjątku:
 > [!WARNING]
 > Czy **nie** obsługiwać błąd poufnych informacji z <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerFeature> lub <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature> do klientów. Obsługuje błędy stanowi zagrożenie bezpieczeństwa.
 
-Aby wyświetlić wynik wyrażenia lambda obsługi wyjątków w [przykładową aplikację](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples), użyj `ProdEnvironment` i `ErrorHandlerLambda` dyrektywy preprocesora, a następnie wybierz **wywołanie wyjątku** na stronie głównej.
+Aby wyświetlić wynik wyrażenia lambda obsługi wyjątków w [przykładową aplikację](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples), użyj `ProdEnvironment` i `ErrorHandlerLambda` dyrektywy preprocesora, a następnie wybierz **wywołanie wyjątku** na stronie głównej.
 
 ## <a name="usestatuscodepages"></a>UseStatusCodePages
 
@@ -108,7 +108,7 @@ Oto przykład tekstu wyświetlanego przez programy obsługi domyślne:
 Status Code: 404; Not Found
 ```
 
-Aby znajduje się w różnych formatach kod stanu strony w [przykładową aplikację](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples), użyj jednej z dyrektywy preprocesora, które zaczynają się od `StatusCodePages`i wybierz **wyzwalacza a 404** na stronie głównej.
+Aby znajduje się w różnych formatach kod stanu strony w [przykładową aplikację](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples), użyj jednej z dyrektywy preprocesora, które zaczynają się od `StatusCodePages`i wybierz **wyzwalacza a 404** na stronie głównej.
 
 ## <a name="usestatuscodepages-with-format-string"></a>UseStatusCodePages za pomocą ciągu formatu
 
@@ -131,7 +131,7 @@ Aby określić niestandardową obsługę błędów i zapisywanie odpowiedzi kodu
 
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePagesWithRedirect)]
 
-Szablon adresu URL może zawierać `{0}` symbol zastępczy dla kodu stanu, jak pokazano w przykładzie. Jeśli szablon adresu URL zaczyna się tyldą (~), za pomocą aplikacji zastępuje tylda `PathBase`. Po wskazaniu punktu końcowego w aplikacji, Utwórz widoku składnika MVC lub strona Razor dla punktu końcowego. Na przykład stron Razor, zobacz [StatusCode.cshtml](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples/2.x/Pages/StatusCode.cshtml) w [przykładową aplikację](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples).
+Szablon adresu URL może zawierać `{0}` symbol zastępczy dla kodu stanu, jak pokazano w przykładzie. Jeśli szablon adresu URL zaczyna się tyldą (~), za pomocą aplikacji zastępuje tylda `PathBase`. Po wskazaniu punktu końcowego w aplikacji, Utwórz widoku składnika MVC lub strona Razor dla punktu końcowego. Na przykład stron Razor, zobacz *Pages/StatusCode.cshtml* w [przykładową aplikację](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples).
 
 Ta metoda jest często używana, gdy aplikacja:
 
@@ -147,7 +147,7 @@ Ta metoda jest często używana, gdy aplikacja:
 
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePagesWithReExecute)]
 
-Po wskazaniu punktu końcowego w aplikacji, Utwórz widoku składnika MVC lub strona Razor dla punktu końcowego. Na przykład stron Razor, zobacz [StatusCode.cshtml](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples/2.x/Pages/StatusCode.cshtml) w [przykładową aplikację](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples).
+Po wskazaniu punktu końcowego w aplikacji, Utwórz widoku składnika MVC lub strona Razor dla punktu końcowego. Na przykład stron Razor, zobacz *Pages/StatusCode.cshtml* w [przykładową aplikację](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples).
 
 Ta metoda jest często używana aplikacja powinna:
 

@@ -8,11 +8,11 @@ ms.custom: mvc
 ms.date: 11/28/2018
 uid: signalr/scale
 ms.openlocfilehash: 4ac4509acc89d0091a3757c7cfbc9981614f29ad
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54836925"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64901201"
 ---
 # <a name="aspnet-core-signalr-hosting-and-scaling"></a>ASP.NET Core SignalR hostowania i skalowania
 
@@ -66,7 +66,7 @@ Z tego względu zalecamy Azure SignalR Service dla wszystkich aplikacji bibliote
 
 Aby uzyskać więcej informacji, zobacz [dokumentacji usługi Azure SignalR Service](/azure/azure-signalr/signalr-overview).
 
-## <a name="redis-backplane"></a>Redis płyty montażowej
+## <a name="redis-backplane"></a>Płyta montażowa Redis
 
 [Redis](https://redis.io/) jest parach klucz wartość w pamięci, który obsługuje system obsługi komunikatów za pomocą modelu publikowania/subskrybowania. Płyty montażowej Redis w SignalR używa funkcji publikowania/subskrybowania do przekazywania wiadomości na inne serwery. Gdy klient nawiązuje połączenie, informacje o połączeniu są przekazywane do systemu backplane. Gdy serwer chce, aby wysłać wiadomość do wszystkich klientów, wysyła do systemu backplane. Systemu backplane zna wszystkich podłączonych klientów, które serwery są włączone. Wysyła wiadomość do wszystkich klientów za pośrednictwem ich odpowiednich serwerów. Ten proces jest zilustrowany na poniższym diagramie:
 

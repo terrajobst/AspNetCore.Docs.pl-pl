@@ -5,14 +5,14 @@ description: Zobacz, jak aplikacje Blazor można wstawić usług do składników
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/15/2019
+ms.date: 04/24/2019
 uid: blazor/dependency-injection
-ms.openlocfilehash: 9e19596dec5582e11212d95a9fea72862baa2046
-ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
+ms.openlocfilehash: 49948cd8e31473a4901957356d372d49fc3b0f5f
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59983005"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64898468"
 ---
 # <a name="blazor-dependency-injection"></a>Wstrzykiwanie zależności Blazor
 
@@ -55,7 +55,7 @@ Usługi mogą być skonfigurowane przy użyciu okresy istnienia pokazano w poni�
 | -------- | ----------- |
 | <xref:Microsoft.Extensions.DependencyInjection.ServiceDescriptor.Singleton*> | Tworzy DI *pojedyncze wystąpienie* usługi. Wszystkie składniki wymagające `Singleton` usługa otrzymywać wystąpienia tej samej usługi. |
 | <xref:Microsoft.Extensions.DependencyInjection.ServiceDescriptor.Transient*> | Zawsze, gdy składnik uzyskuje wystąpienie `Transient` usługi z kontenera usługi odbiera *nowe wystąpienie* usługi. |
-| <xref:Microsoft.Extensions.DependencyInjection.ServiceDescriptor.Scoped*> | Blazor po stronie klienta nie ma obecnie koncepcji DI zakresów. `Scoped` zachowuje się jak `Singleton`. Jednak model hostowania po stronie serwera obsługuje `Scoped` okresu istnienia. W składniku Razor rejestracji usługi o określonym zakresie jest ograniczony do połączenia. Z tego powodu przy użyciu usługi o określonym zakresie była preferowana dla usług, które powinien być ograniczony do bieżącego użytkownika, nawet jeśli bieżącym celem jest do uruchomienia po stronie klienta w przeglądarce. |
+| <xref:Microsoft.Extensions.DependencyInjection.ServiceDescriptor.Scoped*> | Po stronie klienta Blazor aktualnie nie ma koncepcji DI zakresów. `Scoped` zachowuje się jak `Singleton`. Jednak model hostowania po stronie serwera obsługuje `Scoped` okresu istnienia. W składniku Razor rejestracji usługi o określonym zakresie jest ograniczony do połączenia. Z tego powodu przy użyciu usługi o określonym zakresie była preferowana dla usług, które powinien być ograniczony do bieżącego użytkownika, nawet jeśli bieżącym celem jest do uruchomienia po stronie klienta w przeglądarce. |
 
 DI system jest oparty na systemie DI, w programie ASP.NET Core. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/dependency-injection>.
 
@@ -63,20 +63,20 @@ DI system jest oparty na systemie DI, w programie ASP.NET Core. Aby uzyskać wi�
 
 Usługi domyślne są automatycznie dodawane do kolekcji usługi aplikacji.
 
-| Usługa | Opis |
-| ------- | ----------- |
-| <xref:System.Net.Http.HttpClient> | Zawiera metody służące do wysyłania żądań HTTP i odbierania odpowiedzi HTTP z zasobu zidentyfikowanego z użyciem identyfikatora URI (pojedyncze wystąpienie). Należy pamiętać, że to wystąpienie `HttpClient` korzysta z przeglądarki do obsługi ruchu HTTP w tle. [HttpClient.BaseAddress](xref:System.Net.Http.HttpClient.BaseAddress) automatycznie zostaje ustawiony poziom podstawowy prefiks identyfikatora URI aplikacji. `HttpClient` jest dostępna wyłącznie dla aplikacji Blazor po stronie klienta. |
-| `IJSRuntime` | Reprezentuje wystąpienie środowiska uruchomieniowego JavaScript, do której może być wysyłane wywołania. Aby uzyskać więcej informacji, zobacz <xref:blazor/javascript-interop>. |
-| `IUriHelper` | Zawiera pomocnicy do pracy ze stanem identyfikatory URI i nawigacji (pojedyncze wystąpienie). |
+| Usługa | Okres istnienia | Opis |
+| ------- | -------- | ----------- |
+| <xref:System.Net.Http.HttpClient> | pojedyncze | Zawiera metody służące do wysyłania żądań HTTP i odbierania odpowiedzi HTTP z zasobu zidentyfikowanego z użyciem identyfikatora URI. Należy pamiętać, że to wystąpienie `HttpClient` korzysta z przeglądarki do obsługi ruchu HTTP w tle. [HttpClient.BaseAddress](xref:System.Net.Http.HttpClient.BaseAddress) automatycznie zostaje ustawiony poziom podstawowy prefiks identyfikatora URI aplikacji. `HttpClient` jest dostępna wyłącznie dla aplikacji po stronie klienta Blazor. |
+| `IJSRuntime` | pojedyncze | Reprezentuje wystąpienie środowiska uruchomieniowego JavaScript gdzie wysłaniem wywołania języka JavaScript. Aby uzyskać więcej informacji, zobacz <xref:blazor/javascript-interop>. |
+| `IUriHelper` | pojedyncze | Zawiera pomocnicy do pracy ze stanem identyfikatory URI i nawigacji. |
 
-Istnieje możliwość używania dostawcy niestandardowego usługi zamiast domyślnego dostawcę usługi dodane przez szablon domyślny. Niestandardowe usługodawcy automatycznie nie dostarcza usługi domyślne wymienione w tabeli. Jeśli używasz niestandardowego usługodawcy i wymaga żadnej usług przedstawionych w tabeli, Dodaj wymagane usługi, do nowego dostawcę usługi.
+Niestandardowe usługodawcy automatycznie nie dostarcza usługi domyślne wymienione w tabeli. Jeśli używasz niestandardowego usługodawcy i wymaga żadnej usług przedstawionych w tabeli, Dodaj wymagane usługi, do nowego dostawcę usługi.
 
 ## <a name="request-a-service-in-a-component"></a>Żądanie usługi w składniku
 
 Po dodaniu usługi do kolekcji usługi wstrzyknąć usług do składników programu szablony Razor przy użyciu [ \@wstrzyknąć](xref:mvc/views/razor#section-4) dyrektywy Razor. `@inject` ma dwa parametry:
 
-* Nazwa typu: Typ usługi do dodania.
-* Nazwa właściwości: Nazwa właściwości odbieranie usługi wprowadzonego kodu aplikacji. Należy pamiętać, że właściwość nie wymaga ręcznego tworzenia. Kompilator tworzy właściwość.
+* Wpisz: Typ usługi do dodania.
+* Właściwość: Nazwa właściwości odbieranie usługi wprowadzonego kodu aplikacji. Właściwość nie wymaga ręcznego tworzenia. Kompilator tworzy właściwość.
 
 Aby uzyskać więcej informacji, zobacz <xref:mvc/views/dependency-injection>.
 
@@ -86,7 +86,7 @@ Poniższy przykład pokazuje, jak używać `@inject`. Wdrażanie usługi `Servic
 
 [!code-cshtml[](dependency-injection/samples_snapshot/3.x/CustomerList.razor?highlight=2-3,23)]
 
-Wewnętrznie, wygenerowana właściwość (`DataRepository`) zostanie nadany `InjectAttribute` atrybutu. Zazwyczaj ten atrybut nie jest używany bezpośrednio. Jeśli klasa bazowa jest wymagana dla składników i właściwości wprowadzonego są również wymagane dla klasy bazowej, `InjectAttribute` można ręcznie dodać:
+Wewnętrznie, wygenerowana właściwość (`DataRepository`) zostanie nadany `InjectAttribute` atrybutu. Zazwyczaj ten atrybut nie jest używany bezpośrednio. Jeśli klasa bazowa jest wymagana dla składników i właściwości wprowadzonego są również wymagane dla klasy bazowej, ręcznie Dodaj `InjectAttribute`:
 
 ```csharp
 public class ComponentBase : IComponent
@@ -126,9 +126,9 @@ public class DataAccess : IDataAccess
 
 Wymagania wstępne dotyczące iniekcji konstruktora:
 
-* Musi to być jeden konstruktor, w której argumenty mogą wszystkie zostać spełnione przez wstrzykiwanie zależności. Pamiętaj, że dodatkowe parametry, które nie są objęte DI są dozwolone, jeśli są określone wartości domyślne.
+* Jeden konstruktor musi istnieć, której argumenty mogą wszystkie zostać spełnione przez wstrzykiwanie zależności. Dodatkowe parametry, które nie są objęte DI są dozwolone, gdy ich określanie wartości domyślnych.
 * Zastosowanie Konstruktor musi być *publicznych*.
-* Musi istnieć tylko jeden konstruktor dotyczy. W przypadku niejednoznaczności DI zgłasza wyjątek.
+* Musi istnieć jeden konstruktor dotyczy. W przypadku niejednoznaczności DI zgłasza wyjątek.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

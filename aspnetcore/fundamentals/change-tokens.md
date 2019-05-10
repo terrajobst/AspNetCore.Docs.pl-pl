@@ -5,12 +5,12 @@ description: Dowiedz się, jak używać tokenów zmian do śledzenia zmian.
 ms.author: riande
 ms.date: 11/10/2017
 uid: fundamentals/change-tokens
-ms.openlocfilehash: 7ad580a7e999a4eae006ce5dd07cca0cbdbe9ab6
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: f7dad52fc19b6dc5c8668ad852e69acd65a72162
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50206422"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64900598"
 ---
 # <a name="detect-changes-with-change-tokens-in-aspnet-core"></a>Wykrywanie zmian za pomocą tokenów zmiany w programie ASP.NET Core
 
@@ -18,7 +18,7 @@ Przez [Luke Latham](https://github.com/guardrex)
 
 A *zmienić token* jest ogólnego przeznaczenia, niskiego poziomu bloku konstrukcyjnego używane do śledzenia zmian.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/change-tokens/sample/) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/change-tokens/sample/) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 ## <a name="ichangetoken-interface"></a>Interfejs IChangeToken
 
