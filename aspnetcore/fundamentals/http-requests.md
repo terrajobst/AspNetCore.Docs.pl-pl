@@ -5,14 +5,14 @@ description: Dowiedz się więcej o zarządzaniu logicznego wystąpienia klasy H
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 03/30/2019
+ms.date: 05/10/2019
 uid: fundamentals/http-requests
-ms.openlocfilehash: 84cdbca20e7c7aaa1941c78483cc36a9f0b24505
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 540f14ad2b290d276436033a94d4c815888e5a95
+ms.sourcegitcommit: ffe3ed7921ec6c7c70abaac1d10703ec9a43374c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64901570"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65536005"
 ---
 # <a name="make-http-requests-using-ihttpclientfactory-in-aspnet-core"></a>Tworzenie żądania HTTP w programie ASP.NET Core przy użyciu IHttpClientFactory
 
@@ -27,9 +27,13 @@ Przez [Glenn Condron](https://github.com/glennc), [Ryan Nowak](https://github.co
 
 [Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/http-requests/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
+::: moniker range="<= aspnetcore-2.2"
+
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Projekty przeznaczone dla .NET Framework wymagają instalacji [Microsoft.Extensions.Http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) pakietu NuGet. Projekty przeznaczone dla platformy .NET Core i odwołania [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) uwzględniają już `Microsoft.Extensions.Http` pakietu.
+
+::: moniker-end
 
 ## <a name="consumption-patterns"></a>Wzorce użycia
 
@@ -197,11 +201,10 @@ Na udostępnianie stanu danego żądania obsługi komunikatów, użyj jednej z n
 
 `IHttpClientFactory` integruje się z popularnymi biblioteki innej firmy o nazwie [Polly](https://github.com/App-vNext/Polly). Polly jest odporność kompleksowe i przejściowych Biblioteka obsługi błędów dla platformy .NET. Dzięki niej deweloperzy mogą express zasad, takich jak ponownych prób, wyłącznik, limit czasu, grodziowym izolacji i rezerwowe w sposób fluent i metodą o bezpiecznych wątkach.
 
-Metody rozszerzenia są udostępniane, aby umożliwić korzystanie z zasad w usłudze Polly skonfigurowane `HttpClient` wystąpień. W dostępnych rozszerzeń Polly [Microsoft.Extensions.Http.Polly](https://www.nuget.org/packages/Microsoft.Extensions.Http.Polly/) pakietu NuGet. Ten pakiet nie jest zawarty w [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app). Aby korzystać z rozszerzeń, jawnie `<PackageReference />` powinny być uwzględnione w projekcie.
+Metody rozszerzenia są udostępniane, aby umożliwić korzystanie z zasad w usłudze Polly skonfigurowane `HttpClient` wystąpień. Polly rozszerzenia:
 
-[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/HttpClientFactorySample.csproj?highlight=10)]
-
-Po przywróceniu tego pakietu, metody rozszerzenia są dostępne w celu umożliwienia obsługi dodawania na podstawie Polly programy obsługi dla klientów.
+* Obsługuje dodawanie na podstawie Polly programów obsługi dla klientów.
+* Mogą być używane po zainstalowaniu [Microsoft.Extensions.Http.Polly](https://www.nuget.org/packages/Microsoft.Extensions.Http.Polly/) pakietu NuGet. Pakiet nie jest zawarty w udostępnionej platformy ASP.NET Core.
 
 ### <a name="handle-transient-faults"></a>Obsługa błędów przejściowych
 
@@ -219,7 +222,7 @@ Metody rozszerzające dodatkowe istnieje, który może służyć do dodawania ob
 
 [!code-csharp[Main](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet8)]
 
-W poprzednim kodzie Jeśli wychodzące żądanie GET, 10-sekundowy limit jest stosowany. Inna metoda HTTP używany jest limit czasu 30 sekund.
+W poprzednim kodzie przypadku wychodzące żądanie HTTP GET, 10-sekundowy limit jest stosowany. Inna metoda HTTP używany jest limit czasu 30 sekund.
 
 ### <a name="add-multiple-polly-handlers"></a>Dodawanie wielu obsług Polly
 

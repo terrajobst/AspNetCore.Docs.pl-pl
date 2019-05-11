@@ -3,14 +3,14 @@ title: Obszary w programie ASP.NET Core
 author: rick-anderson
 description: Dowiedz się, jak obszary są funkcją programu ASP.NET MVC, używane do organizowania powiązanych funkcji do grupy jako osobne przestrzeni nazw (w przypadku routingu) i struktury ich folderów (w przypadku widoków).
 ms.author: riande
-ms.date: 05/06/2019
+ms.date: 05/10/2019
 uid: mvc/controllers/areas
-ms.openlocfilehash: 35c7682861f7392b0bcda7326e4d7f5ccc356bda
-ms.sourcegitcommit: b508b115107e0f8d7f62b25cfcc8ad45e1373459
+ms.openlocfilehash: f3a75bc307a206e43241b421f448b09011868d08
+ms.sourcegitcommit: ffe3ed7921ec6c7c70abaac1d10703ec9a43374c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65212588"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65535969"
 ---
 # <a name="areas-in-aspnet-core"></a>Obszary w programie ASP.NET Core
 
@@ -169,9 +169,9 @@ Dla poprzedniego kodu:
 
 ### <a name="import-namespace-and-tag-helpers-with-viewimports-file"></a>Importowanie przy użyciu pliku _ViewImports przestrzeni nazw i pomocnicy tagów
 
-A *_ViewImports* plik może zostać dodany do każdego obszaru *stron* folderu importowania przestrzeni nazw i pomocnicy tagów do każdej strony Razor, w tym folderze.
+A *_ViewImports.cshtml* plik może zostać dodany do każdego obszaru *stron* folderu importowania przestrzeni nazw i pomocnicy tagów do każdej strony Razor, w tym folderze.
 
-Należy wziąć pod uwagę *usług* obszaru przykładowy kod, który nie zawiera *_ViewImports* pliku. Ilustruje poniższy kod znaczników */Services/Manage/About* strona Razor:
+Należy wziąć pod uwagę *usług* obszaru przykładowy kod, który nie zawiera *_ViewImports.cshtml* pliku. Ilustruje poniższy kod znaczników */Services/Manage/About* strona Razor:
 
 [!code-cshtml[](areas/samples/RPareas/Areas/Services/Pages/Manage/About.cshtml)]
 
@@ -180,7 +180,7 @@ W poprzednim znaczników:
 * W pełni kwalifikowana nazwa domeny może służyć do określania modelu (`@model RPareas.Areas.Services.Pages.Manage.AboutModel`).
 * [Pomocników tagów](xref:mvc/views/tag-helpers/intro) są włączane przez `@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers`
 
-Do pobrania próbki, w obszarze produktów zawiera następujące *_ViewImports* pliku:
+Do pobrania próbki, w obszarze produktów zawiera następujące *_ViewImports.cshtml* pliku:
 
 [!code-cshtml[](areas/samples/RPareas/Areas/Products/Pages/_ViewImports.cshtml)]
 
@@ -198,4 +198,4 @@ Aby udostępnić typowych układu dla całej aplikacji, należy przenieść *_Vi
 
 ### <a name="publishing-areas"></a>Obszary publikowania
 
-Wszystkie `*.cshtml` i `wwwroot/**` plików, są publikowane dane wyjściowe, gdy `<Project Sdk="Microsoft.NET.Sdk.Web">` znajdują się w pliku the.csproj*.
+*.Cshtml wszystkie pliki i pliki w obrębie *wwwroot* katalogu są publikowane dane wyjściowe, gdy `<Project Sdk="Microsoft.NET.Sdk.Web">` znajdują się w pliku *.csproj.

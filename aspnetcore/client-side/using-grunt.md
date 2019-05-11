@@ -3,20 +3,20 @@ title: Korzystanie z Grunt w programie ASP.NET Core
 author: rick-anderson
 description: ''
 ms.author: riande
-ms.date: 10/14/2016
+ms.date: 05/10/2019
 uid: client-side/using-grunt
-ms.openlocfilehash: fc912974fb6ed3c65bb46a7d616d9e531587d946
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 73b7704726db9d93588dddd3f3b05a23fb3425b3
+ms.sourcegitcommit: ffe3ed7921ec6c7c70abaac1d10703ec9a43374c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64900814"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65535938"
 ---
 # <a name="use-grunt-in-aspnet-core"></a>Korzystanie z Grunt w programie ASP.NET Core
 
 Przez [ryżu Noel](https://blog.falafel.com/falafel-software-recognized-sitefinity-website-year/)
 
-Grunt jest modułu uruchamiającego zadania JavaScript, który automatyzuje minimalizację skryptu, kompilacji TypeScript, narzędzia "lint" jakość kodu, procesory wstępne CSS i niemal dowolnym powtarzających się kwestii, wymagającym, wykonując obsługi opracowywania aplikacji klienta. Grunt jest w pełni obsługiwana w programie Visual Studio, choć szablony projektów programu ASP.NET za pomocą Gulp domyślne (zobacz [Użyj Gulp](using-gulp.md)).
+Grunt jest modułu uruchamiającego zadania JavaScript, który automatyzuje minimalizację skryptu, kompilacji TypeScript, narzędzia "lint" jakość kodu, procesory wstępne CSS i niemal dowolnym powtarzających się kwestii, wymagającym, wykonując obsługi opracowywania aplikacji klienta. Grunt jest w pełni obsługiwany w programie Visual Studio.
 
 W tym przykładzie używa pusty projekt platformy ASP.NET Core jako punktu wyjścia laboratorium, aby pokazać, jak zautomatyzować proces kompilacji klienta od podstaw.
 
@@ -286,7 +286,3 @@ Zwolnij i ponownie Załaduj projekt. Gdy projekt ładuje się ponownie, zadanie 
 ## <a name="summary"></a>Podsumowanie
 
 Grunt jest modułu uruchamiającego zadania zaawansowane, który może służyć do zautomatyzowania większości zadań kompilacji klienta. Grunt korzysta z programu NPM dostarczanie pakietów i funkcje narzędzi integracji z programem Visual Studio. Eksplorator modułu uruchamiającego zadania programu Visual Studio wykrywa zmiany w plikach konfiguracji i oferuje wygodny interfejs do uruchamiania zadań, Wyświetl uruchomione zadania podrzędne i powiąż zadania ze zdarzenia programu Visual Studio.
-
-## <a name="additional-resources"></a>Dodatkowe zasoby
-
-* [Korzystanie z Gulp](using-gulp.md)

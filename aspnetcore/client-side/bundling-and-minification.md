@@ -4,14 +4,14 @@ author: scottaddie
 description: Dowiedz się, jak zoptymalizować zasoby statyczne w aplikacji sieci web platformy ASP.NET Core za pomocą metod minifikacji i tworzenia pakietów.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 11/20/2018
+ms.date: 05/10/2019
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: 5d5f0aadb7740c9b2b959d12a585cd8c91758ce8
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: ba01d365a25dfbd13fed89263d7489b2ce2a8771
+ms.sourcegitcommit: ffe3ed7921ec6c7c70abaac1d10703ec9a43374c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64900451"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65535934"
 ---
 # <a name="bundle-and-minify-static-assets-in-aspnet-core"></a>Tworzenie pakietów i minimalizowanie statycznych zasobów w programie ASP.NET Core
 
@@ -63,7 +63,7 @@ Przeglądarki są dość pełne w odniesieniu do nagłówków żądań HTTP. Ca�
 
 ## <a name="choose-a-bundling-and-minification-strategy"></a>Wybierz strategię tworzenie pakietów i minimalizowanie
 
-Szablony projektów MVC i stron Razor zapewniają rozwiązanie poza pole do tworzenie pakietów i minimalizowanie składający się z pliku konfiguracji JSON. Narzędzia innych firm, takich jak [Gulp](xref:client-side/using-gulp) i [Grunt](xref:client-side/using-grunt) task Runner, należy wykonać te same zadania przy użyciu bardziej złożoności. Narzędzia innych firm jest doskonałym rozwiązaniem, gdy przepływie pracy wymaga przetwarzania poza tworzenie pakietów i minimalizowanie&mdash;takich jak Optymalizacja Zaznaczanie błędów i obrazów. Za pomocą tworzenie pakietów i minimalizowanie czasu projektowania, zminimalizowany pliki zostaną utworzone przed wdrożeniem aplikacji. Tworzenie pakietów i minifikacja przed przystąpieniem do wdrożenia zawiera dzięki zmniejszeniu obciążenia. Jednak ważne jest, aby rozpoznać tego czasu projektowania tworzenie pakietów i minimalizowanie zwiększa złożonością kompilacji i działa tylko z plikami statycznymi.
+Szablony projektów MVC i stron Razor zapewniają rozwiązanie poza pole do tworzenie pakietów i minimalizowanie składający się z pliku konfiguracji JSON. Narzędzia innych firm, takich jak [Grunt](xref:client-side/using-grunt) task runner, wykonać te same zadania przy użyciu bardziej złożoności. Narzędzia innych firm jest doskonałym rozwiązaniem, gdy przepływie pracy wymaga przetwarzania poza tworzenie pakietów i minimalizowanie&mdash;takich jak Optymalizacja Zaznaczanie błędów i obrazów. Za pomocą tworzenie pakietów i minimalizowanie czasu projektowania, zminimalizowany pliki zostaną utworzone przed wdrożeniem aplikacji. Tworzenie pakietów i minifikacja przed przystąpieniem do wdrożenia zawiera dzięki zmniejszeniu obciążenia. Jednak ważne jest, aby rozpoznać tego czasu projektowania tworzenie pakietów i minimalizowanie zwiększa złożonością kompilacji i działa tylko z plikami statycznymi.
 
 ## <a name="configure-bundling-and-minification"></a>Skonfiguruj tworzenie pakietów i minimalizowanie
 
@@ -325,11 +325,9 @@ W tym przykładzie wszystkie zadania zdefiniowane w ramach `MyPreCompileTarget` 
 ========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
 ```
 
-Alternatywnie Eksplorator modułu uruchamiającego zadania programu Visual Studio pozwala powiązać zadań Gulp określonych zdarzeń programu Visual Studio. Zobacz [uruchomionych zadań domyślne](xref:client-side/using-gulp#running-default-tasks) instrukcje dotyczące tych czynności.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Korzystanie z Gulp](xref:client-side/using-gulp)
 * [Korzystanie z Grunt](xref:client-side/using-grunt)
 * [Używanie wielu środowisk](xref:fundamentals/environments)
 * [Pomocnicy tagów](xref:mvc/views/tag-helpers/intro)

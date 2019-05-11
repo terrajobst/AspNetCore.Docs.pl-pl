@@ -5,14 +5,14 @@ description: Dowiedz się, Blazor po stronie klienta i po stronie serwera, hosto
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/25/2019
+ms.date: 05/10/2019
 uid: blazor/hosting-models
-ms.openlocfilehash: e5d0d74b6ad3f6b7d53c4fc2cb962daf6566287e
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 9bd177e05b9108e82fd76ba78a92710330930bb2
+ms.sourcegitcommit: ffe3ed7921ec6c7c70abaac1d10703ec9a43374c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64898630"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65535895"
 ---
 # <a name="blazor-hosting-models"></a>Blazor modelach hostingu
 
@@ -84,7 +84,7 @@ Istnieją wad po stronie serwera hostingu:
 * Ograniczoną skalowalność: Serwer musi zarządzać wieloma połączeń klientów i obsługi stanu klienta.
 * Serwer programu ASP.NET Core jest wymagana do obsługi aplikacji. Wdrożenie bez serwera (na przykład z sieci CDN) nie jest możliwe.
 
-&dagger;*Blazor.server.js* skryptu jest opublikowana w następującej ścieżce: *bin / {debugowanie | Zlecenia} / {struktury docelowej} /publish/ {Nazwa aplikacji}. Aplikacja/dist/_struktura*.
+&dagger;*Blazor.server.js* skrypt jest obsługiwany z zasobu osadzonego w udostępnionej platformy ASP.NET Core.
 
 ### <a name="reconnection-to-the-same-server"></a>Ponowne nawiązanie połączenia z tym samym serwerem
 
