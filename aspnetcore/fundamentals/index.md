@@ -5,14 +5,14 @@ description: Dowiedz się, podstawowe pojęcia do tworzenia aplikacji platformy 
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/31/2019
+ms.date: 05/11/2019
 uid: fundamentals/index
-ms.openlocfilehash: a1fed574db0baab391ebb9cfc44664ceddbfa69b
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 9c7bc25d813ad17825ef03f5176882993cc2dd63
+ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64901567"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610331"
 ---
 # <a name="aspnet-core-fundamentals"></a>Podstawy platformy ASP.NET Core
 
@@ -78,6 +78,8 @@ Kod w celu utworzenia hosta jest `Program.Main` i następuje [wzorzec konstrukto
 
 ::: moniker range=">= aspnetcore-3.0"
 
+`CreateHostBuilder` jest nazwą specjalną, który identyfikuje metodę konstruktora do składników zewnętrznych, takich jak [Entity Framework](/ef/core/).
+
 W ASP.NET Core 3.0 lub nowszej, ogólne hosta (`Host` klasy) lub hosta sieci Web (`WebHost` klasy) może być używana w aplikacji sieci web. Ogólny hosta jest zalecana i hosta sieci Web jest dostępna dla zapewnienia zgodności.
 
 Udostępnia platformę `CreateDefaultBuilder` i `ConfigureWebHostDefaults` metody, aby skonfigurować hosta z powszechnie używane opcje, takie jak następujące:
@@ -95,6 +97,8 @@ Aby uzyskać więcej informacji, zobacz <xref:fundamentals/host/generic-host> i 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
+
+`CreateWebHostBuilder` jest nazwą specjalną, który identyfikuje metodę konstruktora do składników zewnętrznych, takich jak [Entity Framework](/ef/core/).
 
 Platforma ASP.NET Core 2.x używa hosta sieci Web (`WebHost` klasy) dla aplikacji sieci web. Udostępnia platformę `CreateDefaultBuilder` skonfigurować hosta z powszechnie używane opcje, takie jak następujące:
 

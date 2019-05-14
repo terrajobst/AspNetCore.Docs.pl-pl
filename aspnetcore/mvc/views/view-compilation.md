@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/02/2019
 uid: mvc/views/view-compilation
-ms.openlocfilehash: eba9de26e1af8c4df06b846748d8aa9380fc1862
-ms.sourcegitcommit: a3926eae3f687013027a2828830c12a89add701f
+ms.openlocfilehash: df25c9ad03ff52c43aac1a761462772547b3b954
+ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65450883"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610143"
 ---
 # <a name="razor-file-compilation-in-aspnet-core"></a>Kompilacja pliku razor w programie ASP.NET Core
 
@@ -114,7 +114,7 @@ Czas kompilacji, kompilacja jest uzupełniana przez kompilacja środowiska uruch
 Wartość domyślna to `true` dla:
 
 * Jeśli wersja zgodności aplikacji jest równa <xref:Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1> lub starszy
-* Wersja zgodności aplikacji czy zestaw do zestawu do <xref:Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_2> lub nowszej, a aplikacja jest w środowisku programistycznym <xref:Microsoft.AspNetCore.Hosting.HostingEnvironmentExtensions.IsDevelopment*>. Innymi słowy, plikach Razor będzie nie należy ponownie skompilować w środowisku programistycznym bez chyba że <xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions.AllowRecompilingViewsOnFileChange> jest jawnie ustawione.
+* Jeśli wersja zgodności aplikacji jest równa <xref:Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_2> lub nowszej, a aplikacja jest w środowisku programistycznym <xref:Microsoft.AspNetCore.Hosting.HostingEnvironmentExtensions.IsDevelopment*>. Innymi słowy, plikach Razor będzie nie należy ponownie skompilować w środowisku programistycznym bez chyba że <xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions.AllowRecompilingViewsOnFileChange> jest jawnie ustawione.
 
 Wskazówki i przykłady ustawienie wersji zgodności aplikacji, zobacz <xref:mvc/compatibility-version>.
 

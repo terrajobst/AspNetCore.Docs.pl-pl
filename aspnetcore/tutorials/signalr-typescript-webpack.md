@@ -6,12 +6,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 04/23/2019
 uid: tutorials/signalr-typescript-webpack
-ms.openlocfilehash: 8bebdd9102f93d2b2a8bf142db1053def9d001a0
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: b186dffd724fb2fed49bbc2587ec066db319dffc
+ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64899536"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610437"
 ---
 # <a name="use-aspnet-core-signalr-with-typescript-and-webpack"></a>Używanie biblioteki SignalR platformy ASP.NET Core za pomocą TypeScript i Webpack
 
@@ -34,7 +34,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* [Visual Studio 2017 w wersji 15.9 lub nowszej](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017) z **ASP.NET i tworzenie aplikacji internetowych** obciążenia
+* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) z **ASP.NET i tworzenie aplikacji internetowych** obciążenia
 * [.NET core SDK 2,2 lub nowszy](https://www.microsoft.com/net/download/all)
 * [Node.js](https://nodejs.org/) z [npm](https://www.npmjs.com/)
 

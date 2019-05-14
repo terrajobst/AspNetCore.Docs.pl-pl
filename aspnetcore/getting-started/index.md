@@ -1,27 +1,27 @@
 ---
 title: Wprowadzenie do platformy ASP.NET Core
 author: rick-anderson
-description: Samouczek szybki, które tworzy i uruchamia prostej aplikacji Hello World przy użyciu platformy ASP.NET Core.
+description: Krótki samouczek, który tworzy i uruchamia podstawową aplikację Hello World przy użyciu platformy ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/15/2019
+ms.date: 5/15/2019
 uid: getting-started
-ms.openlocfilehash: 76728c484368a8b63130c259a9663473970846d3
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 9227dcfbc84376d9d73bc6fc0dd76085779acae1
+ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209479"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610307"
 ---
 # <a name="tutorial-get-started-with-aspnet-core"></a>Samouczek: Wprowadzenie do platformy ASP.NET Core
 
-W tym samouczku pokazano, jak utworzyć aplikację sieci web platformy ASP.NET Core przy użyciu interfejsu wiersza polecenia platformy .NET Core.
+W tym samouczku przedstawiono sposób tworzenia i uruchamiania aplikacji sieci web platformy ASP.NET Core przy użyciu interfejsu wiersza polecenia platformy .NET Core.
 
 Dowiesz się, jak:
 
 > [!div class="checklist"]
 > * Tworzenie projektu aplikacji sieci web.
-> * Włączanie obsługi protokołu HTTPS w lokalnym.
+> * Zaufanie certyfikatu deweloperskiego.
 > * Uruchom aplikację.
 > * Edytuj stronę Razor.
 
@@ -41,7 +41,7 @@ Otwórz powłokę wiersza polecenia i wpisz następujące polecenie:
 dotnet new webapp -o aspnetcoreapp
 ```
 
-## <a name="enable-local-https"></a>Włączanie obsługi protokołu HTTPS w lokalnym
+### <a name="trust-the-development-certificate"></a>Zaufanie certyfikatu deweloperskiego
 
 Zaufanie certyfikatu deweloperskiego HTTPS:
 
@@ -70,6 +70,8 @@ Poprzednie polecenie wyświetli następujący komunikat:
 To polecenie może monitować o hasło, aby zainstalować certyfikat w pęku kluczy systemu. Wprowadź hasło, jeśli zgadzasz się ufać certyfikatowi programistycznemu.
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
+Dla podsystemu Windows dla systemu Linux, zobacz [z podsystemu Windows dla systemu Linux przy użyciu certyfikatu HTTPS zaufania](xref:security/enforcing-ssl#wsl).
 
 Sprawdź w dokumentacji dla Twojej dystrybucji systemu Linux informacje na temat dodania certyfikatu deweloperskiego do zaufanych certyfikatów protokołu HTTPS.
 
@@ -102,7 +104,7 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 
 > [!div class="checklist"]
 > * Tworzenie projektu aplikacji sieci web.
-> * Włączanie obsługi protokołu HTTPS w lokalnym.
+> * Zaufanie certyfikatu deweloperskiego.
 > * Uruchom projekt.
 > * Wprowadź zmiany.
 

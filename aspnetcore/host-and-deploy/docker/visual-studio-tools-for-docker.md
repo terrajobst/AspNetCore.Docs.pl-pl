@@ -6,23 +6,23 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 09/12/2018
 uid: host-and-deploy/docker/visual-studio-tools-for-docker
-ms.openlocfilehash: 3bf3d8d0a627d97090e3ce9fef7e380f03c7626d
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: b0d884fe2fe56f267ad70c388a08cd3fe6256364
+ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64901309"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610382"
 ---
 # <a name="visual-studio-tools-for-docker-with-aspnet-core"></a>Visual Studio Tools for Docker z platformą ASP.NET Core
 
-Program Visual Studio 2017 obsługuje kompilowania, debugowania i uruchamiania konteneryzowanych platformy ASP.NET Core z aplikacji przeznaczonych dla platformy .NET Core. Są obsługiwane kontenerów systemów Windows i Linux.
+Program Visual Studio 2017 i nowsze wersje obsługują kompilowania, debugowania i uruchamiania konteneryzowanych platformy ASP.NET Core z aplikacji przeznaczonych dla platformy .NET Core. Są obsługiwane kontenerów systemów Windows i Linux.
 
 [Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/docker/visual-studio-tools-for-docker/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * [Docker for Windows](https://docs.docker.com/docker-for-windows/install/)
-* [Program Visual Studio 2017](https://visualstudio.microsoft.com) z **programowanie dla wielu platform .NET Core** obciążenia
+* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) z **programowanie dla wielu platform .NET Core** obciążenia
 
 ## <a name="installation-and-setup"></a>Instalacja i Konfiguracja
 
@@ -112,7 +112,7 @@ Za pomocą plików zastąpienie specyficznych dla konfiguracji, można określi�
 Oprócz base [wymagania wstępne](#prerequisites), [usługi Service Fabric](/azure/service-fabric/) rozwiązania do organizowania zapotrzebowania na następujące wymagania wstępne:
 
 * [Zestaw SDK Microsoft Azure Service Fabric](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK) wersji 2.6 lub nowszej
-* W programie Visual Studio 2017 **programowanie na platformie Azure** obciążenia
+* Visual Studio **programowanie na platformie Azure** obciążenia
 
 Usługa Service Fabric nie obsługuje uruchamianie kontenerów systemu Linux w lokalnym klastrze projektowym na Windows. Jeśli projekt jest już używany w kontenerze systemu Linux, aby przełączyć się do kontenerów Windows wyświetla monit o Visual Studio.
 

@@ -5,14 +5,14 @@ description: Informacje o sposobie tworzenia i używania składników Razor, w t
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/02/2019
+ms.date: 05/10/2019
 uid: blazor/components
-ms.openlocfilehash: 6c174fc16ecc755c5c43e59a77db7d4ce9e00da3
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: e4a9e4a229304fa9d984b035a834c6f3bbb24186
+ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65085619"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610161"
 ---
 # <a name="create-and-use-razor-components"></a>Tworzenie i używanie składników Razor
 
@@ -895,7 +895,7 @@ Należy wziąć pod uwagę następujący składnik Pet szczegóły mogą być r�
 }
 ```
 
-W poniższym przykładzie pętli w `CreateComponent` metoda generuje trzy składniki Pet szczegóły. Podczas wywoływania `RenderTreeBuilder` metody tworzenia składników (`OpenComponent` i `AddAttribute`), numery sekwencyjne są numery wierszy kodu źródłowego. Algorytm różnica Blazor opiera się na numery sekwencyjne distinct wierszy kodu, a nie odrębne wywołania wywołania. Podczas tworzenia składnika za pomocą `RenderTreeBuilder` metody, umieszczaj argumenty dla numerów sekwencji. **Za pomocą obliczeń lub licznika do generowania numer sekwencyjny może prowadzić do pogorszenia wydajności.**
+W poniższym przykładzie pętli w `CreateComponent` metoda generuje trzy składniki Pet szczegóły. Podczas wywoływania `RenderTreeBuilder` metody tworzenia składników (`OpenComponent` i `AddAttribute`), numery sekwencyjne są numery wierszy kodu źródłowego. Algorytm różnica Blazor opiera się na numery sekwencyjne distinct wierszy kodu, a nie odrębne wywołania wywołania. Podczas tworzenia składnika za pomocą `RenderTreeBuilder` metody, umieszczaj argumenty dla numerów sekwencji. **Za pomocą obliczeń lub licznika do generowania numer sekwencyjny może prowadzić do pogorszenia wydajności.** Aby uzyskać więcej informacji, zobacz [sekwencji liczb odnoszą się do kolejności cyfry i nie wykonywania linii kodu](#sequence-numbers-relate-to-code-line-numbers-and-not-execution-order) sekcji.
 
 *Wbudowane składnika zawartość*:
 
@@ -929,3 +929,90 @@ W poniższym przykładzie pętli w `CreateComponent` metoda generuje trzy skład
     }
 }
 ```
+
+### <a name="sequence-numbers-relate-to-code-line-numbers-and-not-execution-order"></a>Numery sekwencyjne odnoszą się do kolejności cyfry i nie wykonywania wiersza kodu
+
+Blazor `.razor` pliki są zawsze kompilowane. Jest to potencjalnie dużą zaletą dla `.razor` kroku kompilacji można się posłużyć do dodania informacji, który zwiększa wydajność aplikacji w czasie wykonywania.
+
+Przykład klawisza ulepszeniami obejmują *sekwencji numerów*. Numery sekwencyjne wskazuje środowiska uruchomieniowego, które dane wyjściowe pochodzą które odrębne i uporządkowanych wiersze kodu. Środowisko wykonawcze używa tych informacji do wygenerowania różnic wydajne drzewa liniowo, który jest znacznie szybsze niż zazwyczaj dla algorytmu diff drzewo Ogólne.
+
+Należy wziąć pod uwagę następujące proste `.razor` pliku:
+
+```cshtml
+@if (someFlag)
+{
+    <text>First</text>
+}
+
+Second
+```
+
+To kompiluje, aby podobny do poniższego:
+
+```csharp
+if (someFlag)
+{
+    builder.AddContent(0, "First");
+}
+
+builder.AddContent(1, "Second");
+```
+
+Kiedy ten kod jest wykonywany po raz pierwszy, jeśli `someFlag` jest `true`, otrzymuje konstruktora:
+
+| Sekwencja | Typ      | Dane   |
+| :------: | --------- | :----: |
+| 0        | Węzeł tekstowy | pierwszy  |
+| 1        | Węzeł tekstowy | Sekunda |
+
+Teraz załóżmy, że `someFlag` staje się `false`, i możemy ponownie renderowania. Tym razem odbiera konstruktora:
+
+| Sekwencja | Typ       | Dane   |
+| :------: | ---------- | :----: |
+| 1        | Węzeł tekstowy  | Sekunda |
+
+Gdy środowisko uruchomieniowe wykonuje różnic, widzi, elementu w sekwencji `0` została wyjęta, co generuje następujące proste *Przeprowadź edycję skryptu*:
+
+* Usuń pierwszy węzeł tekstowy.
+
+#### <a name="what-goes-wrong-if-you-generate-sequence-numbers-programmatically"></a>Co się nie uda, jeśli programowo wygenerować numery sekwencyjne
+
+Sobie wyobrazić, autorem Poniższa logika konstruktora rendertree:
+
+```csharp
+var seq = 0;
+
+if (someFlag)
+{
+    builder.AddContent(seq++, "First");
+}
+
+builder.AddContent(seq++, "Second");
+```
+
+Po pierwsze dane wyjściowe będą:
+
+| Sekwencja | Typ | Dane || :------: | --------- | :--- : | | 0 | Węzeł tekstowy | Pierwszy || 1 | Węzeł tekstowy | Drugi |
+
+Ten wynik jest identyczne z poprzednich przypadkiem, więc Brak problemów ujemna. W drugiej renderowanie, gdy `someFlag` jest `false`, dane wyjściowe to:
+
+| Sekwencja | Typ      | Dane   |
+| :------: | --------- | ------ |
+| 0        | Węzeł tekstowy | Sekunda |
+
+Tym razem algorytm diff widzi, który *dwóch* nastąpiły zmiany, a algorytm generuje poniższy skrypt edycji:
+
+* Zmień wartość pierwszy węzeł tekstowy w celu `Second`.
+* Usuń drugi węzeł tekstowy.
+
+Generowanie numery sekwencyjne utracił przydatne informacje o tym, gdzie `if/else` gałęzie i pętle znajdowały się w kodzie oryginalnym. Skutkuje to różnic **dwa razy dłużej** tak jak poprzednio.
+
+Jest to uproszczony przykład. W przypadku bardziej realistycznego o złożone i głęboko zagnieżdżonych struktur, a w szczególności z pętli przeprowadzanie bardziej dotkliwych jest spadek wydajności. Zamiast natychmiast identyfikowanie, które bloki pętli lub gałęzi zostało wstawionych lub usunięty, algorytm różnicowego musi recurse głęboko do drzewa renderowania i zazwyczaj skompilować znacznie dłużej edycji skryptów, ponieważ jest on misinformed o tym, jak starych i nowych struktur odnoszą się do siebie nawzajem.
+
+#### <a name="guidance-and-conclusions"></a>Wskazówki i wniosków
+
+* Wydajność aplikacji wystąpi, jeśli numerów sekwencji są generowane dynamicznie.
+* Struktura nie można utworzyć liczby sekwencji automatycznie w czasie wykonywania, ponieważ nie istnieje niezbędne informacje, o ile nie są przechwytywane w czasie kompilacji.
+* Nie zapisuj długie bloki konstrukcyjne ręcznie zaimplementowane `RenderTreeBuilder` logiki. Preferuj `.razor` pliki i umożliwić kompilatorowi do czynienia z numerami sekwencji. Jeśli nie można uniknąć ręcznego `RenderTreeBuilder` logiki, podzielić długie bloków kodu na mniejsze części w `OpenRegion` / `CloseRegion` wywołania. W każdym regionie istnieje własną przestrzeń oddzielne numerów sekwencji, dzięki czemu będzie można ponownie rozpocząć od zera (lub dowolna inna liczba dowolnego) w każdym regionie.
+* Jeśli numery sekwencyjne są zapisane na stałe, algorytm diff wymaga jedynie, czy numery sekwencyjne wzrost wartości. Wartość początkowa i luki są nieistotne. Jedną z opcji uzasadnione jest wykorzystanie numer wiersza kodu jako numer sekwencyjny lub zacznij od zera i zwiększenia z nich lub setki (lub dowolnym preferowanym interwale). 
+* Blazor używa numerów sekwencji, podczas gdy innych platform tworzenia interfejsu użytkownika porównywanie drzewa nie są używane. Porównywanie jest znacznie szybszy, numery sekwencyjne są używane, gdy Blazor ma tę zaletę krok kompilacji, który dotyczy numerów sekwencyjnych automatycznie dla deweloperów autorstwa `.razor` plików.
