@@ -5,14 +5,14 @@ description: Tworzenie aplikacji Blazor krok po kroku.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/18/2019
+ms.date: 05/14/2019
 uid: tutorials/first-blazor-app
-ms.openlocfilehash: d235fec4e128ad8622a06d301eeac15c4862c159
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: c1b142ebdbd85eb10ddf8c8b70edd9782732a4f1
+ms.sourcegitcommit: 3ee6ee0051c3d2c8d47a58cb17eef1a84a4c46a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087724"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65621107"
 ---
 # <a name="build-your-first-blazor-app"></a>Utwórz swoją pierwszą aplikację Blazor
 
@@ -151,6 +151,14 @@ Dodawanie nowego składnika do aplikacji, która implementuje listy zadań do wy
    ```
 
 1. Ponownie skompiluj i uruchom aplikację. Odwiedź nową stronę Todo, aby upewnić się, czy działa link do składnika zadań do wykonania.
+
+1. Tworzenie aplikacji po stronie serwera Blazor, dodać przestrzeń nazw aplikacji w celu  *\_Imports.razor* pliku. Następujące `@using` instrukcji zakłada, że przestrzeń nazw aplikacji jest `WebApplication`:
+
+   ```cshtml
+   @using WebApplication
+   ```
+   
+   Aplikacje klienta Blazor to przestrzeń nazw aplikacji domyślnie  *\_Imports.razor* pliku.
 
 1. Dodaj *TodoItem.cs* pliku w folderze głównym projektu na potrzeby przechowywania klasa, która reprezentuje element todo. Należy użyć następującego C# kod `TodoItem` klasy:
 

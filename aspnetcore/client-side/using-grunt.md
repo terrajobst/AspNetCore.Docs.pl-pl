@@ -3,14 +3,14 @@ title: Korzystanie z Grunt w programie ASP.NET Core
 author: rick-anderson
 description: Korzystanie z Grunt w programie ASP.NET Core
 ms.author: riande
-ms.date: 05/10/2019
+ms.date: 05/14/2019
 uid: client-side/using-grunt
-ms.openlocfilehash: 718a1358c0474711b05bb2c90dc86ec9edacbf1e
-ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
+ms.openlocfilehash: 4d9b6cf6f9a0007e9722bc054f0d9a7608f1473b
+ms.sourcegitcommit: 3ee6ee0051c3d2c8d47a58cb17eef1a84a4c46a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610215"
+ms.locfileid: "65620999"
 ---
 # <a name="use-grunt-in-aspnet-core"></a>Korzystanie z Grunt w programie ASP.NET Core
 
@@ -113,12 +113,12 @@ Skonfiguruj, aby pobrać grunt i grunt zadania programu NPM.
 
 4. Zapisz *package.json* pliku.
 
-Pakiety dla każdego elementu devDependencies pobierze oraz wszystkie pliki, które wymaga każdego pakietu. Można znaleźć plików pakietu w `node_modules` katalogu, włączając **Pokaż wszystkie pliki** przycisku w Eksploratorze rozwiązań.
+Pakiety dla każdego `devDependencies` elementu pobierze oraz wszystkie pliki, które wymaga każdego pakietu. Można znaleźć plików pakietu w *node_modules* katalogu, włączając **Pokaż wszystkie pliki** znajdujący się w **Eksploratora rozwiązań**.
 
 ![grunt node_modules](using-grunt/_static/node-modules.png)
 
 > [!NOTE]
-> Jeśli zachodzi potrzeba, można ręcznie przywrócić zależności w Eksploratorze rozwiązań kliknij prawym przyciskiem myszy `Dependencies\NPM` i wybierając polecenie **przywracania pakietów** opcji menu.
+> Jeśli zachodzi potrzeba, można ręcznie przywrócić zależności w **Eksploratora rozwiązań** przez kliknięcie prawym przyciskiem myszy `Dependencies\NPM` i wybierając polecenie **przywracania pakietów** opcji menu.
 
 ![Przywracanie pakietów](using-grunt/_static/restore-packages.png)
 
@@ -126,9 +126,9 @@ Pakiety dla każdego elementu devDependencies pobierze oraz wszystkie pliki, kt�
 
 Grunt jest konfigurowana przy użyciu manifestu o nazwie *plik Gruntfile.js* który definiuje, ładuje i rejestruje zadania, które mogą być uruchamiane ręcznie lub skonfigurowany do uruchamiania automatycznie na podstawie zdarzeń w programie Visual Studio.
 
-1. Kliknij prawym przyciskiem myszy projekt i wybierz **Dodaj > Nowy element**. Wybierz **plik konfiguracyjny Grunt** opcji, pozostaw nazwę domyślną *plik Gruntfile.js*i kliknij przycisk **Dodaj** przycisku.
+1. Kliknij prawym przyciskiem myszy projekt i wybierz **Dodaj** > **nowy element**. Wybierz **plik JavaScript** szablonu elementu, Zmień nazwę na *plik Gruntfile.js*i kliknij przycisk **Dodaj** przycisku.
 
-   Kod początkowy obejmuje definicji modułu i `grunt.initConfig()` metody. `initConfig()` Służy do ustawiania opcji dla każdego pakietu, a pozostała część modułu zostaną załadowane i zarejestrować zadań.
+1. Dodaj następujący kod do *plik Gruntfile.js*. `initConfig` Funkcja ustawia opcje dla każdego pakietu, a pozostała część moduł ładuje i zarejestrować zadań.
 
    ```javascript
    module.exports = function (grunt) {
@@ -137,7 +137,7 @@ Grunt jest konfigurowana przy użyciu manifestu o nazwie *plik Gruntfile.js* kt�
    };
    ```
 
-2. Wewnątrz `initConfig()` metody, dodać opcje dla `clean` zadań, jak pokazano w przykładzie *plik Gruntfile.js* poniżej. Zadanie czysty akceptuje tablicę ciągów katalogów. To zadanie usuwa pliki z wwwroot/lib i usuwa całą/tymczasowego katalogu.
+1. Wewnątrz `initConfig` funkcji, dodać opcje dla `clean` zadań, jak pokazano w przykładzie *plik Gruntfile.js* poniżej. `clean` Zadanie akceptuje tablicę ciągów katalogów. To zadanie usuwa pliki z *wwwroot/lib* i usuwa całą */temp* katalogu.
 
     ```javascript
     module.exports = function (grunt) {
@@ -147,32 +147,32 @@ Grunt jest konfigurowana przy użyciu manifestu o nazwie *plik Gruntfile.js* kt�
     };
     ```
 
-3. Poniżej metody initConfig(), dodaj wywołanie `grunt.loadNpmTasks()`. Dzięki temu zadania możliwe do uruchomienia w programie Visual Studio.
+1. Poniżej `initConfig` funkcji, dodaj wywołanie do `grunt.loadNpmTasks`. Dzięki temu zadania możliwe do uruchomienia w programie Visual Studio.
 
     ```javascript
     grunt.loadNpmTasks("grunt-contrib-clean");
     ```
 
-4. Zapisz *plik Gruntfile.js*. Plik powinien wyglądać podobnie jak na poniższym zrzucie ekranu.
+1. Zapisz *plik Gruntfile.js*. Plik powinien wyglądać podobnie jak na poniższym zrzucie ekranu.
 
     ![początkowa gruntfile](using-grunt/_static/gruntfile-js-initial.png)
 
-5. Kliknij prawym przyciskiem myszy *plik Gruntfile.js* i wybierz **Eksplorator modułu uruchamiającego zadania** z menu kontekstowego. Zostanie otwarte okno Eksplorator modułu uruchamiającego zadania.
+1. Kliknij prawym przyciskiem myszy *plik Gruntfile.js* i wybierz **Eksplorator modułu uruchamiającego zadania** z menu kontekstowego. **Eksplorator modułu uruchamiającego zadania** zostanie otwarte okno.
 
     ![menu Eksploratora modułu uruchamiającego zadania](using-grunt/_static/task-runner-explorer-menu.png)
 
-6. Upewnij się, że `clean` pokazuje, w obszarze **zadania** w Eksplorator modułu uruchamiającego zadania.
+1. Upewnij się, że `clean` pokazuje, w obszarze **zadania** w **Eksplorator modułu uruchamiającego zadania**.
 
     ![Lista zadań Eksploratora modułu uruchamiającego zadania](using-grunt/_static/task-runner-explorer-tasks.png)
 
-7. Kliknij prawym przyciskiem myszy zadanie czysty, a następnie wybierz pozycję **Uruchom** z menu kontekstowego. Okno polecenia wyświetla postęp zadania.
+1. Kliknij prawym przyciskiem myszy zadanie czysty, a następnie wybierz pozycję **Uruchom** z menu kontekstowego. Okno polecenia wyświetla postęp zadania.
 
     ![zadanie czysty Uruchom Eksploratora modułu uruchamiającego zadania](using-grunt/_static/task-runner-explorer-run-clean.png)
 
     > [!NOTE]
     > Brak plików i katalogów, aby wyczyścić jeszcze. Jeśli chcesz możesz ręcznie utworzyć je w Eksploratorze rozwiązań i następnie uruchom zadanie czysty jako test.
 
-8. W metodzie initConfig() Dodaj wpis dla `concat` przy użyciu kodu poniżej.
+1. W `initConfig` funkcji, Dodaj wpis dla `concat` przy użyciu kodu poniżej.
 
     `src` Tablicy właściwości zawiera listę plików, połączyć w kolejności, powinny być połączone. `dest` Właściwość przypisuje ścieżce do połączonego pliku, który jest generowany.
 
@@ -186,11 +186,11 @@ Grunt jest konfigurowana przy użyciu manifestu o nazwie *plik Gruntfile.js* kt�
     ```
 
     > [!NOTE]
-    > `all` Właściwość w powyższym kodzie jest nazwą obiektu docelowego. Obiekty docelowe są używane w niektórych zadań Grunt do wielu środowisk kompilacji. Możesz wyświetlić wbudowane obiekty docelowe za pomocą technologii Intellisense lub przypisać własne.
+    > `all` Właściwość w powyższym kodzie jest nazwą obiektu docelowego. Obiekty docelowe są używane w niektórych zadań Grunt do wielu środowisk kompilacji. Możesz wyświetlić wbudowane obiekty docelowe za pomocą technologii IntelliSense lub przypisać własne.
 
-9. Dodaj `jshint` zadań przy użyciu kodu poniżej.
+1. Dodaj `jshint` zadań przy użyciu kodu poniżej.
 
-    Narzędzie jakości kodu jshint jest wykonywany dla każdego pliku JavaScript, znajduje się w katalogu temp.
+    Jshint `code-quality` narzędzie jest uruchamiane co plik JavaScript w *temp* katalogu.
 
     ```javascript
     jshint: {
@@ -204,7 +204,7 @@ Grunt jest konfigurowana przy użyciu manifestu o nazwie *plik Gruntfile.js* kt�
     > [!NOTE]
     > Opcja "-W069" jest błąd generowany przez jshint podczas używa języka JavaScript dopasowywanie składni, aby przypisać właściwość zamiast notacji z kropką, czyli `Tastes["Sweet"]` zamiast `Tastes.Sweet`. Opcja wyłącza ostrzeżenie, aby umożliwić resztą procesu, aby kontynuować.
 
-10. Dodaj `uglify` zadań przy użyciu kodu poniżej.
+1. Dodaj `uglify` zadań przy użyciu kodu poniżej.
 
     Zadanie minimalizuje *combined.js* plików znajduje się w katalogu temp i tworzy plik wyników w wwwroot/lib zgodnie ze standardową konwencją nazewnictwa  *\<nazwy pliku\>. min.js*.
 
@@ -217,7 +217,7 @@ Grunt jest konfigurowana przy użyciu manifestu o nazwie *plik Gruntfile.js* kt�
     },
     ```
 
-11. W obszarze grunt.loadNpmTasks() wywołań, który ładuje, wyczyść contrib grunt należy uwzględnić to samo wywołanie dla jshint, concat i uglify przy użyciu poniższego kodu.
+1. W obszarze wywołanie `grunt.loadNpmTasks` , ładuje `grunt-contrib-clean`uwzględnić to samo wywołanie dla jshint, concat oraz uglify przy użyciu poniższego kodu.
 
     ```javascript
     grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -225,15 +225,15 @@ Grunt jest konfigurowana przy użyciu manifestu o nazwie *plik Gruntfile.js* kt�
     grunt.loadNpmTasks('grunt-contrib-uglify');
     ```
 
-12. Zapisz *plik Gruntfile.js*. Plik powinien wyglądać podobnie do poniższego przykładu.
+1. Zapisz *plik Gruntfile.js*. Plik powinien wyglądać podobnie do poniższego przykładu.
 
     ![przykład pliku pełną grunt](using-grunt/_static/gruntfile-js-complete.png)
 
-13. Należy zauważyć, że lista zadań Eksploratora modułu uruchamiającego zadania zawiera `clean`, `concat`, `jshint` i `uglify` zadania. Każde zadanie podrzędne są uruchamiane w kolejności i obserwują rezultaty w Eksploratorze rozwiązań. Każde zadanie powinno działać bez błędów.
+1. Należy zauważyć, że **Eksplorator modułu uruchamiającego zadania** zawiera listę zadań `clean`, `concat`, `jshint` i `uglify` zadania. Każde zadanie podrzędne są uruchamiane w kolejności i obserwują rezultaty w **Eksploratora rozwiązań**. Każde zadanie powinno działać bez błędów.
 
     ![Eksplorator modułu uruchamiającego zadania, każde zadanie podrzędne uruchamiania](using-grunt/_static/task-runner-explorer-run-each-task.png)
 
-    Zadanie concat tworzy nową *combined.js* pliku i umieszcza go w katalogu tymczasowego. Zadanie jshint po prostu działa i nie generuje danych wyjściowych. Zadanie uglify tworzy nową *combined.min.js* pliku i umieszcza go w wwwroot/lib. Po zakończeniu rozwiązania powinien wyglądać podobnie jak na poniższym zrzucie ekranu:
+    Zadanie concat tworzy nową *combined.js* pliku i umieszcza go w katalogu tymczasowego. `jshint` Zadań po prostu działa i nie generuje danych wyjściowych. `uglify` Zadanie tworzy nową *combined.min.js* pliku i umieszcza je w *wwwroot/lib*. Po zakończeniu rozwiązania powinien wyglądać podobnie jak na poniższym zrzucie ekranu:
 
     ![Eksplorator rozwiązań po wszystkich zadań.](using-grunt/_static/solution-explorer-after-all-tasks.png)
 

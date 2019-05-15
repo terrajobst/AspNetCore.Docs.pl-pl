@@ -3,14 +3,15 @@ title: Składniki widoków w programie ASP.NET Core
 author: rick-anderson
 description: Dowiedz się, jak składniki widoków są używane w programie ASP.NET Core oraz dodać je do aplikacji.
 ms.author: riande
-ms.date: 1/30/2019
+ms.custom: mvc
+ms.date: 5/14/2019
 uid: mvc/views/view-components
-ms.openlocfilehash: 2bcf6411933b884c2f96d926827079dfbc25ca74
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 17fd7aa977868d522df9f27e0c23d07b016bfb7c
+ms.sourcegitcommit: 3ee6ee0051c3d2c8d47a58cb17eef1a84a4c46a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64903379"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65621071"
 ---
 # <a name="view-components-in-aspnet-core"></a>Składniki widoków w programie ASP.NET Core
 
@@ -40,6 +41,8 @@ Składniki widoków mają na celu dowolnym miejscu mieć logikę renderowania wi
 * Panel logowania, który będzie renderowany na każdej stronie i Pokaż łącza Wyloguj się lub zaloguj się w zależności od tego, w dzienniku w stan użytkownika
 
 Składnik Widok składa się z dwóch części: klasy (zazwyczaj uzyskiwane ze [ViewComponent](/dotnet/api/microsoft.aspnetcore.mvc.viewcomponent)), a wynik zwraca (zazwyczaj widok). Np. kontrolery, składnik widok może być POCO, ale większość programistów będą chcieli korzystać z zalet metody i właściwości dostępne przez pochodząca od `ViewComponent`.
+
+Podczas wybierania, jeśli składniki widoków specyfikacjami aplikacji, składników Razor zamiast tego Rozważ użycie. Składniki razor także połączyć znaczników za pomocą C# kodu w celu utworzenia jednostki usługi do ponownego użycia interfejsu użytkownika. Składniki razor są przeznaczone do pracy deweloperskiej, podczas dostarczania logika interfejsu użytkownika po stronie klienta i kompozycji. Aby uzyskać więcej informacji, zobacz <xref:blazor/components>.
 
 ## <a name="creating-a-view-component"></a>Tworzenie widoku składnika
 
