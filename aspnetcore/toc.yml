@@ -92,7 +92,11 @@
     - name: Aplikacje zdalnego wywołania procedury
       items:
         - name: Wprowadzenie do usługi gRPC na platformie ASP.NET Core
+          uid: tutorials/grpc/index
+        - name: Tworzenie usługi gRPC Greeter na platformie ASP.NET Core
           uid: tutorials/grpc/grpc-start
+        - name: Tworzenie klienta gRPC platformy .NET Core
+          uid: tutorials/grpc/grpc-client
     - name: Dostęp do danych
       items:
         - name: Program EF Core z produktem Razor Pages
@@ -230,8 +234,9 @@
         - name: Omówienie
           uid: mvc/overview
         - name: Samouczek
-          uid: tutorials/first-mvc-app/index
           items:
+            - name: Omówienie
+              uid: tutorials/first-mvc-app/index
             - name: Wprowadzenie
               uid: tutorials/first-mvc-app/start-mvc
             - name: Dodawanie kontrolera
@@ -324,8 +329,6 @@
               uid: client-side/libman/libman-cli
             - name: Visual Studio
               uid: client-side/libman/libman-vs
-        - name: Gulp
-          uid: client-side/using-gulp
         - name: Grunt
           uid: client-side/using-grunt
         - name: Bower
@@ -338,13 +341,10 @@
       uid: fundamentals/app-state
     - name: Układ
       uid: mvc/views/layout
-    - name: Powiązanie modelu
-      uid: mvc/models/model-binding
-    - name: Walidacja modelu
-      uid: mvc/models/validation
     - name: Składnia Razor
       uid: mvc/views/razor
     - name: Pomocnicy tagów
+      uid: mvc/views/tag-helpers/builtin-th/Index
       items:
         - name: Omówienie
           uid: mvc/views/tag-helpers/intro
@@ -396,10 +396,6 @@
           uid: mvc/controllers/areas
         - name: Części aplikacji
           uid: mvc/extensibility/app-parts
-        - name: Niestandardowe powiązanie modelu
-          uid: mvc/advanced/custom-model-binding
-        - name: Wersja zgodności
-          uid: mvc/compatibility-version
 - name: Aplikacje internetowego interfejsu API
   items:
     - name: Omówienie
@@ -1000,6 +996,14 @@
       uid: fundamentals/troubleshoot-aspnet-core-localization
 - name: Zaawansowane
   items:
+    - name: Powiązanie modelu
+      uid: mvc/models/model-binding
+    - name: Niestandardowe powiązanie modelu
+      uid: mvc/advanced/custom-model-binding
+    - name: Walidacja modelu
+      uid: mvc/models/validation
+    - name: Wersja zgodności
+      uid: mvc/compatibility-version
     - name: Pisanie oprogramowania pośredniczącego
       uid: fundamentals/middleware/write
     - name: Operacje żądań i odpowiedzi
@@ -1076,4 +1080,4 @@
 - name: Odwołanie API
   href: /dotnet/api/?view=aspnetcore-2.2
 - name: Współtworzenie
-  href: 'https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md'
+  href: 'https://github.com/aspnet/AspNetCore.Docs/blob/master/CONTRIBUTING.md'
