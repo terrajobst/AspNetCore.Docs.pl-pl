@@ -5,14 +5,14 @@ description: Dowiedz się, jak hostowanie i wdrażanie aplikacji Blazor przy uż
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/18/2019
+ms.date: 05/13/2019
 uid: host-and-deploy/blazor/client-side
-ms.openlocfilehash: 0a913dafafc5c17d2ff98e2c0a0319b591e02201
-ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
+ms.openlocfilehash: ea8ece266809913e32ac212bc55cb3c2499c234f
+ms.sourcegitcommit: ccbb84ae307a5bc527441d3d509c20b5c1edde05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59983029"
+ms.lasthandoff: 05/19/2019
+ms.locfileid: "65874975"
 ---
 # <a name="host-and-deploy-blazor-client-side"></a>Hostowanie i wdrażanie Blazor po stronie klienta
 
@@ -126,13 +126,19 @@ Ponieważ przeglądarki wysyłać żądania do internetowego hostów dla stron p
 
 ## <a name="app-base-path"></a>Podstawowa ścieżka aplikacji
 
-*Ścieżki podstawowej aplikacji* to ścieżka katalogu głównego aplikacji wirtualnej na serwerze. Na przykład aplikację, która znajduje się na serwerze Contoso folder wirtualny o `/CoolApp/` zostanie osiągnięty w `https://www.contoso.com/CoolApp` i ma wirtualnej ścieżki podstawowej z `/CoolApp/`. Ustawiając ścieżki podstawowej aplikacji `CoolApp/`, aplikacja jest powiadamianym o którym praktycznie znajduje się na serwerze. Aplikacja może używać ścieżki podstawowej aplikacji do tworzenia adresów URL, względem katalogu głównego aplikacji ze składnika, który nie znajduje się w katalogu głównym. Dzięki temu składniki, które istnieją na różnych poziomach struktury katalogów, tworzenie łączy do innych zasobów w lokalizacjach w całej aplikacji. Ścieżka podstawowa aplikacja jest również używane do przechwycenia hiperłącze kliknie gdzie `href` miejsce docelowe łącza jest w ramach ścieżki podstawowej aplikacji identyfikator URI przestrzeni&mdash;routera Blazor obsługuje wewnętrzny nawigacji.
+*Ścieżki podstawowej aplikacji* to ścieżka katalogu głównego aplikacji wirtualnej na serwerze. Na przykład aplikację, która znajduje się na serwerze Contoso folder wirtualny o `/CoolApp/` zostanie osiągnięty w `https://www.contoso.com/CoolApp` i ma wirtualnej ścieżki podstawowej z `/CoolApp/`. Ustawiając ścieżki podstawowej aplikacji na ścieżkę wirtualną (`<base href="/CoolApp/">`), aplikacja jest powiadamianym o którym praktycznie znajduje się na serwerze. Aplikacja może używać ścieżki podstawowej aplikacji do tworzenia adresów URL, względem katalogu głównego aplikacji ze składnika, który nie znajduje się w katalogu głównym. Dzięki temu składniki, które istnieją na różnych poziomach struktury katalogów, tworzenie łączy do innych zasobów w lokalizacjach w całej aplikacji. Ścieżka podstawowa aplikacja jest również używane do przechwycenia hiperłącze kliknie gdzie `href` miejsce docelowe łącza jest w ramach ścieżki podstawowej aplikacji identyfikator URI przestrzeni&mdash;routera Blazor obsługuje wewnętrzny nawigacji.
 
-W wielu scenariuszach hostingu serwer ścieżka wirtualna do aplikacji jest głównym aplikacji. W takich przypadkach ścieżki podstawowej aplikacji jest ukośnikiem (`<base href="/" />`), która jest domyślna konfiguracja dla aplikacji. W innych scenariuszach hostingu, takich jak katalogi wirtualne stronach GitHub oraz usług IIS lub aplikacje podrzędne ścieżki podstawowej aplikacji należy określić ścieżkę wirtualną serwera aplikacji. Aby ustawić ścieżki podstawowej aplikacji, dodać lub zaktualizować `<base>` tagów w *index.html* można znaleźć w `<head>` tagów elementów. Ustaw `href` wartość do atrybutu `virtual-path/` (wymagane jest podanie końcowy ukośnik), gdzie `virtual-path/` to ścieżka katalogu głównego aplikacji pełna wirtualna na serwerze aplikacji. W powyższym przykładzie, ścieżka wirtualna jest ustawiona na `CoolApp/`: `<base href="CoolApp/">`.
+W wielu scenariuszach hostingu serwer ścieżka wirtualna do aplikacji jest głównym aplikacji. W takich przypadkach ścieżki podstawowej aplikacji jest ukośnikiem (`<base href="/" />`), która jest domyślna konfiguracja dla aplikacji. W innych scenariuszach hostingu, takich jak katalogi wirtualne stronach GitHub oraz usług IIS lub aplikacje podrzędne ścieżki podstawowej aplikacji należy określić ścieżkę wirtualną serwera aplikacji. Aby ustawić ścieżki podstawowej aplikacji, należy zaktualizować `<base>` tagów w ramach `<head>` tagów elementów *wwwroot/index.html* pliku. Ustaw `href` wartość do atrybutu `/virtual-path/` (wymagane jest podanie końcowy ukośnik), gdzie `/virtual-path/` to ścieżka katalogu głównego aplikacji pełna wirtualna na serwerze aplikacji. W powyższym przykładzie, ścieżka wirtualna jest ustawiona na `/CoolApp/`: `<base href="/CoolApp/">`.
 
-Dla aplikacji za pomocą innego niż główny ścieżki wirtualnej skonfigurowane (na przykład `<base href="CoolApp/">`), aplikacja nie może odnaleźć swoich zasobów *uruchomienia lokalnie*. Aby rozwiązać ten problem, podczas lokalnego opracowywania i testowania, możesz podać *podstawa ścieżki* argument, który odpowiada `href` wartość `<base>` tagu w czasie wykonywania.
+Dla aplikacji za pomocą innego niż główny ścieżki wirtualnej skonfigurowane (na przykład `<base href="/CoolApp/">`), aplikacja nie może odnaleźć swoich zasobów *uruchomienia lokalnie*. Aby rozwiązać ten problem, podczas lokalnego opracowywania i testowania, możesz podać *podstawa ścieżki* argument, który odpowiada `href` wartość `<base>` tagu w czasie wykonywania.
 
-Aby przekazać argument podstawowa ścieżka o ścieżce katalogu głównego (`/`) podczas uruchamiania aplikacji lokalnie, uruchom następujące polecenie z katalogu aplikacji:
+Aby przekazać argument podstawowa ścieżka o ścieżce katalogu głównego (`/`) podczas uruchamiania aplikacji lokalnie, należy wykonać `dotnet run` polecenie z katalogu aplikacji z `--pathbase` — opcja:
+
+```console
+dotnet run --pathbase=/{Virtual Path (no trailing slash)}
+```
+
+Dla aplikacji za pomocą wirtualnej ścieżki podstawowej z `/CoolApp/` (`<base href="/CoolApp/">`), to polecenie:
 
 ```console
 dotnet run --pathbase=/CoolApp

@@ -5,14 +5,14 @@ description: Dowiedz się, jak wywoływać funkcje języka JavaScript z .NET i .
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/25/2019
+ms.date: 05/13/2019
 uid: blazor/javascript-interop
-ms.openlocfilehash: f249d96d310c3d28b56e4920adda145ba07b34ee
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 8711c9ec0dd5d9bf59fc74b44285329165a21ba4
+ms.sourcegitcommit: ccbb84ae307a5bc527441d3d509c20b5c1edde05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64898654"
+ms.lasthandoff: 05/19/2019
+ms.locfileid: "65874859"
 ---
 # <a name="blazor-javascript-interop"></a>Blazor JavaScript interop
 
@@ -34,11 +34,11 @@ W przypadku aplikacji po stronie serwera:
 
 Poniższy przykład jest oparty na [TextDecoder](https://developer.mozilla.org/docs/Web/API/TextDecoder), eksperymentalne dekodera oparte na języku JavaScript. W przykładzie pokazano, jak wywołać funkcję JavaScript z C# metody. Funkcja języka JavaScript akceptuje tablicy bajtów z C# metody dekoduje tablicy i zwraca tekst do składnika do wyświetlenia.
 
-Wewnątrz `<head>` elementu *wwwroot/index.html*, zapewnia funkcję, która używa `TextDecoder` zdekodować tablicy przekazany:
+Wewnątrz `<head>` elementu *wwwroot/index.html* (Blazor po stronie klienta) lub *stron /\_Host.cshtml* (Blazor po stronie serwera), zapewnia funkcję, która używa `TextDecoder` do dekodowanie przekazana tablica:
 
 [!code-html[](javascript-interop/samples_snapshot/index-script.html)]
 
-Kod JavaScript, taki jak kod przedstawiony w poprzednim przykładzie, można również załadować z pliku JavaScript (*js*) za pomocą odwołania do pliku skryptu w *wwwroot/index.html* pliku:
+Kod JavaScript, taki jak kod przedstawiony w poprzednim przykładzie, można również załadować z pliku JavaScript (*js*) za pomocą odwołania do pliku skryptu:
 
 ```html
 <script src="exampleJsInterop.js"></script>
@@ -77,9 +77,15 @@ W aplikacji przykładowej po stronie klienta, znajdująca się w tym temacie dwi
 
 [!code-javascript[](./common/samples/3.x/BlazorSample/wwwroot/exampleJsInterop.js?highlight=2-7)]
 
-Miejsce `<script>` tag, który odwołuje się do pliku JavaScript w *wwwroot/index.html* pliku:
+Miejsce `<script>` tag, który odwołuje się do pliku JavaScript w *wwwroot/index.html* pliku (Blazor po stronie klienta) lub *stron /\_Host.cshtml* pliku (Blazor po stronie serwera).
+
+*Wwwroot/index.HTML* (Blazor po stronie klienta):
 
 [!code-html[](./common/samples/3.x/BlazorSample/wwwroot/index.html?highlight=15)]
+
+*Strony /\_Host.cshtml* (Blazor po stronie serwera):
+
+[!code-cshtml[](javascript-interop/samples_snapshot/_Host.cshtml?highlight=29)]
 
 Nie należy umieszczać `<script>` tagów w pliku składnika, ponieważ `<script>` tagów nie można zaktualizować dynamicznie.
 

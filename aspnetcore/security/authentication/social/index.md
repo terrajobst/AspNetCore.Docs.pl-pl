@@ -4,14 +4,14 @@ author: rick-anderson
 description: W tym samouczku przedstawiono sposób tworzenia platformy ASP.NET Core 2.x aplikacji przy użyciu protokołu OAuth 2.0 przy użyciu dostawcy uwierzytelniania zewnętrznego.
 ms.author: riande
 ms.custom: mvc
-ms.date: 4/19/2019
+ms.date: 05/10/2019
 uid: security/authentication/social/index
-ms.openlocfilehash: e2d68ac93bdcfa2fc015e8447ea38626787cdb02
-ms.sourcegitcommit: a3926eae3f687013027a2828830c12a89add701f
+ms.openlocfilehash: 8dac8a8a2276388414b6bb1211e970617b001637
+ms.sourcegitcommit: ccbb84ae307a5bc527441d3d509c20b5c1edde05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65451043"
+ms.lasthandoff: 05/19/2019
+ms.locfileid: "65874807"
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Facebook, Google i zewnętrznego dostawcy uwierzytelniania w programie ASP.NET Core
 
@@ -33,10 +33,12 @@ Aby przykładów jak społecznościowych nazw logowania, może zapewnić konwers
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* W programie Visual Studio **pliku** menu, wybierz opcję **New** > **projektu**.
-* Tworzenie nowej aplikacji sieci Web platformy ASP.NET Core.
-* Wybierz **platformy ASP.NET Core 2.2** w listy rozwijanej, a następnie wybierz pozycję **aplikacji sieci Web**.
-* Wybierz **Zmień uwierzytelnianie** i uwierzytelniania zestawu **indywidualne konta użytkowników**.
+* Utwórz nowy projekt.
+* Wybierz **aplikacji sieci Web platformy ASP.NET Core** i **dalej**.
+* Podaj **Nazwa projektu** i potwierdzić lub zmienić **lokalizacji**. Wybierz pozycję **Utwórz**.
+* Wybierz **platformy ASP.NET Core 2.2** na liście rozwijanej. Wybierz **aplikacji sieci Web** na liście szablonów.
+* W obszarze **uwierzytelniania**, wybierz opcję **zmiany** i ustaw uwierzytelnianie **indywidualne konta użytkowników**. Kliknij przycisk **OK**.
+* W **Tworzenie nowej aplikacji sieci Web platformy ASP.NET Core** wybierz **Utwórz**.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -56,27 +58,14 @@ Aby przykładów jak społecznościowych nazw logowania, może zapewnić konwers
   * `-au Individual` Tworzy kod dla poszczególnych uwierzytelniania.
   * `code` Polecenia otwiera *WebApp1* folderu w nowym wystąpieniu programu Visual Studio Code.
 
-  Zostanie wyświetlone okno dialogowe z **"WebApp1" brakuje wymagane zasoby do tworzenia i debugowania. Dodaj je?**
-
-* Wybierz **tak**
+* Zostanie wyświetlone okno dialogowe z **"WebApp1" brakuje wymagane zasoby do tworzenia i debugowania. Dodaj je?** Wybierz **tak**.
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
-W terminalu uruchom następujące polecenie:
-
-<!-- TODO: update these instruction once mac support 2.2 projects -->
-
-```console
-dotnet new webapp -o WebApp1 -au Individual
-```
-
-Poprzednie polecenia użyj [interfejsu wiersza polecenia platformy .NET Core](/dotnet/core/tools/dotnet) do utworzenia projektu stron Razor.
-
-## <a name="open-the-project"></a>Otwórz projekt
-
-Z programu Visual Studio, wybierz **Plik > Otwórz**, a następnie wybierz pozycję *WebApp1.csproj* pliku.
-
-<!-- End of VS tabs -->
+* Wybierz **pliku** > **nowe rozwiązanie**.
+* Wybierz **platformy .NET Core** > **aplikacji** na pasku bocznym. Wybierz **aplikacji sieci Web** szablonu. Wybierz opcję **Dalej**.
+* Ustaw **platformę docelową** listy rozwijanej **platformy .NET Core 2.2**. Wybierz opcję **Dalej**.
+* Podaj **nazwy projektu**. Upewnij się, lub zmień **lokalizacji**. Wybierz pozycję **Utwórz**.
 
 ---
 

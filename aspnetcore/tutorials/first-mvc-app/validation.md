@@ -5,12 +5,12 @@ description: Jak dodać sprawdzanie poprawności do aplikacji ASP.NET Core.
 ms.author: riande
 ms.date: 04/13/2017
 uid: tutorials/first-mvc-app/validation
-ms.openlocfilehash: 49db8d7c1d3e54f416c66685c19b3a2e3b14251c
-ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
+ms.openlocfilehash: 6c59d0188f67872c7dd5599967551d7d390bfdcf
+ms.sourcegitcommit: ccbb84ae307a5bc527441d3d509c20b5c1edde05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57665447"
+ms.lasthandoff: 05/19/2019
+ms.locfileid: "65875034"
 ---
 # <a name="add-validation-to-an-aspnet-core-mvc-app"></a>Dodawanie walidacji do aplikacji ASP.NET Core MVC
 
@@ -27,25 +27,9 @@ Jednym z założenia projektowania MVC jest [susz](https://wikipedia.org/wiki/Do
 
 Obsługa sprawdzania poprawności, dostarczone przez MVC i Entity Framework Core Code First jest dobrym przykładem susz zasady w akcji. Można deklaratywne określenie reguł sprawdzania poprawności w jednym miejscu (w klasie modelu), a zasady są wymuszane wszędzie, gdzie w aplikacji.
 
-## <a name="adding-validation-rules-to-the-movie-model"></a>Dodawania reguł sprawdzania poprawności do modelu movie
+[!INCLUDE[](~/includes/RP-MVC/validation.md)]
 
-Otwórz *Movie.cs* pliku. DataAnnotations zawiera zestaw wbudowanych atrybutów sprawdzania poprawności, które można zastosować w sposób deklaratywny do dowolnej klasy lub właściwości. (Zawiera także formatowania atrybutów, takich jak `DataType` , ułatwić formatowanie i nie udostępniamy żadnych sprawdzania poprawności.)
-
-Aktualizacja `Movie` klasy, aby skorzystać z wbudowanych `Required`, `StringLength`, `RegularExpression`, i `Range` atrybutów sprawdzania poprawności.
-
-[!code-csharp[](~/tutorials/first-mvc-app/start-mvc//sample/MvcMovie22/Models/MovieDateRatingDA.cs?name=snippet1)]
-
-Atrybuty weryfikacji określić zachowanie, które mają zostać wymuszone we właściwościach modelu, w których są one stosowane do:
-
-* `Required` i `MinimumLength` atrybuty wskazuje, że właściwość musi mieć wartość, ale nic nie uniemożliwia użytkownikowi wprowadzanie odstępów do zaspokojenia tej weryfikacji. 
-* `RegularExpression` Atrybut jest używany do ograniczania znaków, które można danych wejściowych. W powyższym kodzie `Genre` i `Rating` należy używać tylko liter (pierwsze litery wielkie litery, białe miejsca, cyfry i znaki specjalne są niedozwolone).
-* `Range` Atrybut ogranicza wartości do określonego zakresu. 
-* `StringLength` Atrybut pozwala ustawić maksymalną długość właściwości ciągu i opcjonalnie długości minimalnej. 
-* Typy wartości (takie jak `decimal`, `int`, `float`, `DateTime`) są założenia wymagane i nie ma potrzeby `[Required]` atrybutu.
-
-Posiadanie reguły sprawdzania poprawności, które automatycznie wymuszanych przez platformy ASP.NET Core ułatwia zapewnienie Twojej aplikacji bardziej niezawodne. Gwarantuje również, że nie pamiętasz do sprawdzania poprawności coś i przypadkowo umożliwiają złe dane do bazy danych.
-
-## <a name="validation-error-ui-in-mvc"></a>Błąd sprawdzania poprawności UI platformie MVC
+## <a name="validation-error-ui"></a>Błąd sprawdzania poprawności UI
 
 Uruchom aplikację i przejdź do kontrolera filmów.
 

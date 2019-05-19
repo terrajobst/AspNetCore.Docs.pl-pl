@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 01/17/2019
 uid: fundamentals/startup
-ms.openlocfilehash: 362186be6feeeefeca3c56688ee6420de5fb9659
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 7e1741d2bed15f36a967713a2f9bd0d93801c8d0
+ms.sourcegitcommit: ccbb84ae307a5bc527441d3d509c20b5c1edde05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64899491"
+ms.lasthandoff: 05/19/2019
+ms.locfileid: "65874951"
 ---
 # <a name="app-startup-in-aspnet-core"></a>Uruchamianie aplikacji w programie ASP.NET Core
 
@@ -27,7 +27,7 @@ Użyj aplikacji platformy ASP.NET Core `Startup` klasy, która nosi nazwę `Star
 * Opcjonalnie zawiera <xref:Microsoft.AspNetCore.Hosting.StartupBase.ConfigureServices*> metodę, aby skonfigurować aplikację *usług*. Usługa jest komponentów wielokrotnego użytku, który udostępnia funkcjonalność aplikacji. Usługi są skonfigurowane&mdash;też opisany jako *zarejestrowany*&mdash;w `ConfigureServices` , które są używane przez aplikację za pośrednictwem [wstrzykiwanie zależności (DI)](xref:fundamentals/dependency-injection) lub <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder.ApplicationServices*>.
 * Obejmuje <xref:Microsoft.AspNetCore.Hosting.StartupBase.Configure*> metodę, aby utworzyć potok przetwarzania żądania przez aplikację.
 
-`ConfigureServices` i `Configure` są wywoływane przez środowisko uruchomieniowe, po uruchomieniu aplikacji:
+`ConfigureServices` i `Configure` są wywoływane przez środowisko uruchomieniowe programu ASP.NET Core, po uruchomieniu aplikacji:
 
 [!code-csharp[](startup/sample_snapshot/Startup1.cs?highlight=4,10)]
 

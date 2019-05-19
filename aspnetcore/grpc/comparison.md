@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
 ms.date: 03/31/2019
 uid: grpc/comparison
-ms.openlocfilehash: 8f4cefe1dedcf4cfd9650e73e6a1ba30dbbfeffa
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 655c921788deb30f3c0f3b47f4440dc8701c0f59
+ms.sourcegitcommit: ccbb84ae307a5bc527441d3d509c20b5c1edde05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087399"
+ms.lasthandoff: 05/19/2019
+ms.locfileid: "65874937"
 ---
 # <a name="comparing-grpc-services-with-http-apis"></a>Porównanie usług gRPC za pomocą interfejsów API protokołu HTTP
 
@@ -28,7 +28,7 @@ W tym artykule opisano sposób [usług gRPC](https://grpc.io/docs/guides/) poró
 |    ładunek             |    [Formatu Protobuf (mały, dane binarne)](#performance)             |    JSON (dużych do odczytu)              |
 |    Prescriptiveness    |    [Specyfikacja Strict](#strict-specification)        |    Luźne. Wszelkie HTTP jest prawidłowa                  |
 |    Przesyłanie strumieniowe           |    [Klienta, serwera, dwukierunkowych](#streaming)         |    Klienta, serwera                            |
-|    Obsługa przeglądarek     |    [Nie (wymaga grpc w sieci web)](#limited-browser-support)   |    Tak                                       |
+|    Obsługa przeglądarek     |    [Nie (wymaga grpc w sieci web)](#limited-browser-support)   |    Yes                                       |
 |    Zabezpieczenia            |    Transport (HTTPS)                                    |    Transport (HTTPS)                         |
 |    Generacji kodu klienta     |    [Tak](#code-generation)                              |    Plik OpenAPI i narzędzia innych firm             |
 
@@ -76,7 +76,7 @@ Propagowanie terminu ostatecznego i anulowania przy użyciu podrzędnych gRPC wy
 
 gRPC dobrze nadaje się do następujących scenariuszy:
 
-* **Mikrousługi** &ndash; gRPC jest zaprojektowana małe opóźnienia i wysoką przepływność komunikacji. gRPC to idealne narzędzie do uproszczonego mikrousług, gdzie wydajność ma kluczowe znaczenie.
+* **Mikrousługi** &ndash; gRPC jest przeznaczona dla małych opóźnień i wysoką przepływność komunikacji. gRPC to idealne narzędzie do uproszczonego mikrousług, gdzie wydajność ma kluczowe znaczenie.
 * **Punkt-punkt w czasie rzeczywistym komunikacji** &ndash; gRPC zapewnia doskonałą obsługę dwukierunkowe przesyłanie strumieniowe. gRPC usług można wypchnąć wiadomości w czasie rzeczywistym bez sondowania.
 * **Środowisk Polygot** &ndash; gRPC wspomagają wszystkich języków programowania popularnych wprowadzania gRPC dobrym rozwiązaniem w środowiskach wielojęzycznych.
 * **Ograniczone środowiskach sieci** &ndash; gRPC komunikaty są serializowane przy użyciu formatu Protobuf, format wiadomości uproszczone. Komunikat gRPC zawsze jest mniejszy niż równoważna komunikat JSON.

@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 05/10/2019
 uid: fundamentals/http-requests
-ms.openlocfilehash: 540f14ad2b290d276436033a94d4c815888e5a95
-ms.sourcegitcommit: ffe3ed7921ec6c7c70abaac1d10703ec9a43374c
+ms.openlocfilehash: 8b95f63c0e06a2b7d1d66064def192f91b8ffbb4
+ms.sourcegitcommit: ccbb84ae307a5bc527441d3d509c20b5c1edde05
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65536005"
+ms.lasthandoff: 05/19/2019
+ms.locfileid: "65874962"
 ---
 # <a name="make-http-requests-using-ihttpclientfactory-in-aspnet-core"></a>Tworzenie żądania HTTP w programie ASP.NET Core przy użyciu IHttpClientFactory
 
@@ -20,7 +20,7 @@ Przez [Glenn Condron](https://github.com/glennc), [Ryan Nowak](https://github.co
 
 <xref:System.Net.Http.IHttpClientFactory> Były rejestrowane i umożliwia konfigurowanie i tworzenie <xref:System.Net.Http.HttpClient> wystąpień w aplikacji. Oferuje następujące korzyści:
 
-* Stanowi centralną lokalizację do nazywania i konfigurowanie logiczne `HttpClient` wystąpień. Na przykład *github* klienta można zarejestrować i skonfigurowane do korzystania z usługi GitHub. Domyślne klienta można zarejestrować do innych celów.
+* Stanowi centralną lokalizację do nazywania i konfigurowanie logiczne `HttpClient` wystąpień. Na przykład *github* klienta można zarejestrować i skonfigurowany do dostępu [GitHub](https://github.com/). Domyślne klienta można zarejestrować do innych celów.
 * Określa zasady koncepcji wychodzących oprogramowania pośredniczącego za pośrednictwem Delegowanie obsługi w `HttpClient` i zapewnia rozszerzenia na podstawie Polly oprogramowaniu pośredniczącym, aby korzystać z zalet, który.
 * Zarządza buforowanie i okresem istnienia bazowego `HttpClientMessageHandler` wystąpienia, aby uniknąć problemów DNS, które występują, gdy ręcznego zarządzania `HttpClient` okresy istnienia.
 * Dodanie obsługi można skonfigurować rejestrowania (za pośrednictwem `ILogger`) dla wszystkich żądań wysłanych przez klientów utworzonych przez fabrykę.
