@@ -2,16 +2,17 @@
 title: Moduły usług IIS za pomocą programu ASP.NET Core
 author: guardrex
 description: Dowiedz się, aktywnych i nieaktywnych moduły IIS dla aplikacji platformy ASP.NET Core oraz jak zarządzać moduły usług IIS.
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/28/2019
+ms.date: 05/12/2019
 uid: host-and-deploy/iis/modules
-ms.openlocfilehash: 9770801b527829b131257da7c6e670bd33c23634
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: eb6cedfc572b4ffea969b3583ea6ec44cae1f575
+ms.sourcegitcommit: b4ef2b00f3e1eb287138f8b43c811cb35a100d3e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64899242"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65970056"
 ---
 # <a name="iis-modules-with-aspnet-core"></a>Moduły usług IIS za pomocą programu ASP.NET Core
 
@@ -26,28 +27,28 @@ Tabela zawiera moduły macierzyste usług IIS, które zachowują swoją funkcjon
 | Moduł | Funkcjonalność aplikacji platformy ASP.NET Core | Opcja platformy ASP.NET Core |
 | --- | :---: | --- |
 | **Uwierzytelnianie anonimowe**<br>`AnonymousAuthenticationModule`                                  | Tak | |
-| **Uwierzytelnianie podstawowe**<br>`BasicAuthenticationModule`                                          | Yes | |
+| **Uwierzytelnianie podstawowe**<br>`BasicAuthenticationModule`                                          | Tak | |
 | **Uwierzytelnianie mapowań certyfikacji klientów**<br>`CertificateMappingAuthenticationModule`      | Tak | |
 | **CGI**<br>`CgiModule`                                                                           | Nie  | |
-| **Weryfikacja konfiguracji**<br>`ConfigurationValidationModule`                                  | Yes | |
+| **Weryfikacja konfiguracji**<br>`ConfigurationValidationModule`                                  | Tak | |
 | **Błędy HTTP**<br>`CustomErrorModule`                                                           | Nie  | [Oprogramowanie pośredniczące strony kodu stanu](xref:fundamentals/error-handling#usestatuscodepages) |
 | **Funkcja Rejestrowanie niestandardowe**<br>`CustomLoggingModule`                                                      | Tak | |
 | **Dokument domyślny**<br>`DefaultDocumentModule`                                                  | Nie  | [Oprogramowanie pośredniczące plików domyślne](xref:fundamentals/static-files#serve-a-default-document) |
-| **Uwierzytelnianie szyfrowane**<br>`DigestAuthenticationModule`                                        | Yes | |
+| **Uwierzytelnianie szyfrowane**<br>`DigestAuthenticationModule`                                        | Tak | |
 | **Przeglądanie katalogów**<br>`DirectoryListingModule`                                               | Nie  | [Oprogramowanie pośredniczące przeglądania w katalogu](xref:fundamentals/static-files#enable-directory-browsing) |
-| **Kompresja dynamiczna**<br>`DynamicCompressionModule`                                            | Yes | [Oprogramowanie pośredniczące kompresji odpowiedzi](xref:performance/response-compression) |
-| **Śledzenie żądań zakończonych niepowodzeniem**<br>`FailedRequestsTracingModule`                                     | Tak | [Rejestrowanie platformy ASP.NET Core](xref:fundamentals/logging/index#tracesource-provider) |
+| **Kompresja dynamiczna**<br>`DynamicCompressionModule`                                            | Tak | [Oprogramowanie pośredniczące kompresji odpowiedzi](xref:performance/response-compression) |
+| **Śledzenie żądań zakończonych niepowodzeniem**<br>`FailedRequestsTracingModule`                                     | Yes | [Rejestrowanie platformy ASP.NET Core](xref:fundamentals/logging/index#tracesource-provider) |
 | **Buforowanie plików**<br>`FileCacheModule`                                                            | Nie  | [Oprogramowanie pośredniczące buforowania odpowiedzi](xref:performance/caching/middleware) |
 | **Buforowanie HTTP**<br>`HttpCacheModule`                                                            | Nie  | [Oprogramowanie pośredniczące buforowania odpowiedzi](xref:performance/caching/middleware) |
-| **Rejestrowanie HTTP**<br>`HttpLoggingModule`                                                          | Yes | [Rejestrowanie platformy ASP.NET Core](xref:fundamentals/logging/index) |
-| **Przekierowywanie HTTP**<br>`HttpRedirectionModule`                                                  | Tak | [Oprogramowanie pośredniczące ponownego zapisywania adresów URL](xref:fundamentals/url-rewriting) |
-| **Śledzenia protokołu HTTP**<br>`TracingModule`                                                              | Yes | |
+| **Rejestrowanie HTTP**<br>`HttpLoggingModule`                                                          | Tak | [Rejestrowanie platformy ASP.NET Core](xref:fundamentals/logging/index) |
+| **Przekierowywanie HTTP**<br>`HttpRedirectionModule`                                                  | Yes | [Oprogramowanie pośredniczące ponownego zapisywania adresów URL](xref:fundamentals/url-rewriting) |
+| **Śledzenia protokołu HTTP**<br>`TracingModule`                                                              | Tak | |
 | **Uwierzytelnianie mapowań certyfikatów klientów internetowych usług informacyjnych**<br>`IISCertificateMappingAuthenticationModule` | Tak | |
-| **Ograniczenia adresów IP i domen**<br>`IpRestrictionModule`                                          | Tak | |
+| **Ograniczenia adresów IP i domen**<br>`IpRestrictionModule`                                          | Yes | |
 | **Filtry ISAPI**<br>`IsapiFilterModule`                                                         | Yes | [Oprogramowanie pośredniczące](xref:fundamentals/middleware/index) |
 | **ISAPI**<br>`IsapiModule`                                                                       | Tak | [Oprogramowanie pośredniczące](xref:fundamentals/middleware/index) |
-| **Obsługa protokołów**<br>`ProtocolSupportModule`                                                  | Yes | |
-| **Filtrowanie żądań**<br>`RequestFilteringModule`                                                | Yes | [Oprogramowanie pośredniczące ponownego zapisywania adresów URL `IRule`](xref:fundamentals/url-rewriting#irule-based-rule) |
+| **Obsługa protokołów**<br>`ProtocolSupportModule`                                                  | Tak | |
+| **Filtrowanie żądań**<br>`RequestFilteringModule`                                                | Tak | [Oprogramowanie pośredniczące ponownego zapisywania adresów URL `IRule`](xref:fundamentals/url-rewriting#irule-based-rule) |
 | **Monitor żądań**<br>`RequestMonitorModule`                                                    | Tak | |
 | **Ponownego zapisywania adresów URL**&#8224;<br>`RewriteModule`                                                      | Tak | [Oprogramowanie pośredniczące ponownego zapisywania adresów URL](xref:fundamentals/url-rewriting) |
 | **Server-Side Includes**<br>`ServerSideIncludeModule`                                            | Nie  | |
@@ -55,7 +56,7 @@ Tabela zawiera moduły macierzyste usług IIS, które zachowują swoją funkcjon
 | **Zawartość statyczna**<br>`StaticFileModule`                                                         | Nie  | [Oprogramowanie pośredniczące plików statycznych](xref:fundamentals/static-files) |
 | **Buforowanie tokenów**<br>`TokenCacheModule`                                                          | Tak | |
 | **Identyfikator URI w pamięci podręcznej**<br>`UriCacheModule`                                                              | Tak | |
-| **Autoryzacja adresów URL**<br>`UrlAuthorizationModule`                                                | Yes | [ASP.NET Core Identity](xref:security/authentication/identity) |
+| **Autoryzacja adresów URL**<br>`UrlAuthorizationModule`                                                | Tak | [ASP.NET Core Identity](xref:security/authentication/identity) |
 | **Uwierzytelnianie Windows**<br>`WindowsAuthenticationModule`                                      | Tak | |
 
 &#8224;Adres URL Nadpisz modułu `isFile` i `isDirectory` typów dopasowania nie działają z aplikacji platformy ASP.NET Core z powodu zmian w [strukturę katalogów](xref:host-and-deploy/directory-structure).

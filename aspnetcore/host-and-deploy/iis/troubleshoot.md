@@ -2,16 +2,17 @@
 title: Rozwiązywanie problemów z platformą ASP.NET Core w usługach IIS
 author: guardrex
 description: Dowiedz się, jak diagnozować problemy z wdrożeniami usług Internet Information Services (IIS) w aplikacji platformy ASP.NET Core.
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/14/2019
+ms.date: 05/12/2019
 uid: host-and-deploy/iis/troubleshoot
-ms.openlocfilehash: f89eac3ae6fc704bc8bf38a9707fc3c6c3568e91
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 80994cb84e9e0658ee90198b6bf992e5b374bf3c
+ms.sourcegitcommit: b4ef2b00f3e1eb287138f8b43c811cb35a100d3e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64899410"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65970035"
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a>Rozwiązywanie problemów z platformą ASP.NET Core w usługach IIS
 

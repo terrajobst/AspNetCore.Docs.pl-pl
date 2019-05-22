@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/10/2019
 uid: blazor/components
-ms.openlocfilehash: e4a9e4a229304fa9d984b035a834c6f3bbb24186
-ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
+ms.openlocfilehash: db99ee4460dfa3def4d8b8f5fec26eff3bb73d6b
+ms.sourcegitcommit: b4ef2b00f3e1eb287138f8b43c811cb35a100d3e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610161"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65969868"
 ---
 # <a name="create-and-use-razor-components"></a>Tworzenie i używanie składników Razor
 
@@ -355,9 +355,9 @@ Po wybraniu przycisku w składniku podrzędne:
 @{ var message = "Default Text"; }
 
 <ChildComponent 
-    OnClick="@(async () => { await Task.Yield(); messageText = "Blaze It!"; }" />
+    OnClick="@(async () => { await Task.Yield(); messageText = "Blaze It!"; })" />
 
-@function {
+@functions {
     private string messageText;
 }
 ```
@@ -960,14 +960,14 @@ builder.AddContent(1, "Second");
 
 Kiedy ten kod jest wykonywany po raz pierwszy, jeśli `someFlag` jest `true`, otrzymuje konstruktora:
 
-| Sekwencja | Typ      | Dane   |
+| Sequence | Typ      | Dane   |
 | :------: | --------- | :----: |
 | 0        | Węzeł tekstowy | pierwszy  |
 | 1        | Węzeł tekstowy | Sekunda |
 
 Teraz załóżmy, że `someFlag` staje się `false`, i możemy ponownie renderowania. Tym razem odbiera konstruktora:
 
-| Sekwencja | Typ       | Dane   |
+| Sequence | Typ       | Dane   |
 | :------: | ---------- | :----: |
 | 1        | Węzeł tekstowy  | Sekunda |
 
@@ -996,7 +996,7 @@ Po pierwsze dane wyjściowe będą:
 
 Ten wynik jest identyczne z poprzednich przypadkiem, więc Brak problemów ujemna. W drugiej renderowanie, gdy `someFlag` jest `false`, dane wyjściowe to:
 
-| Sekwencja | Typ      | Dane   |
+| Sequence | Typ      | Dane   |
 | :------: | --------- | ------ |
 | 0        | Węzeł tekstowy | Sekunda |
 
