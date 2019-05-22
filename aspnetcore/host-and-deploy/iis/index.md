@@ -2,16 +2,17 @@
 title: Host platformy ASP.NET Core na Windows za pomocą programu IIS
 author: guardrex
 description: Dowiedz się, jak hostować aplikacje platformy ASP.NET Core na systemu Windows serwera Internet Information Services (IIS).
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/07/2019
+ms.date: 05/19/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: c8e742047230339434b910de9a8a2492bc4da1ff
-ms.sourcegitcommit: a3926eae3f687013027a2828830c12a89add701f
+ms.openlocfilehash: 6ba4da913ef712ef897a4c8418263e3060ea85ac
+ms.sourcegitcommit: e67356f5e643a5d43f6d567c5c998ce6002bdeb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65450982"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004977"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host platformy ASP.NET Core na Windows za pomocą programu IIS
 
@@ -32,17 +33,17 @@ Aby uzyskać informacji na temat obsługi na platformie Azure, zobacz <xref:host
 
 ## <a name="supported-platforms"></a>Obsługiwane platformy
 
-Aplikacje opublikowane (x86) 32-bitowych i 64-bitowych (x 64) wdrożenia są obsługiwane. Wdrażanie aplikacji 32-bitowych, chyba że aplikacja:
+Aplikacje opublikowane (x86) 32-bitowy lub 64-bitowych (x 64) wdrożenia są obsługiwane. Wdrażanie aplikacji 32-bitowy z (x86) 32-bitowych .NET Core SDK, chyba że aplikacja:
 
 * Wymaga większych pamięci wirtualnej przestrzeni adresowej dostępne dla aplikacji 64-bitowych.
 * Wymaga większy rozmiar stosu usług IIS.
 * Ma zależności natywnych 64-bitowych.
 
+Aby opublikować aplikację 64-bitowych, należy użyć 64-bitowych (x 64) .NET Core SDK. 64-bitowego środowiska uruchomieniowego musi być obecny w systemie hosta.
+
 ## <a name="application-configuration"></a>Konfiguracja aplikacji
 
 ### <a name="enable-the-iisintegration-components"></a>Włącz składniki IISIntegration
-
-::: moniker range=">= aspnetcore-2.1"
 
 Typowa *Program.cs* wywołania <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> aby rozpocząć konfigurowanie hosta:
 
@@ -51,20 +52,6 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
     WebHost.CreateDefaultBuilder(args)
         ...
 ```
-
-::: moniker-end
-
-::: moniker range="= aspnetcore-2.0"
-
-Typowa *Program.cs* wywołania <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> aby rozpocząć konfigurowanie hosta:
-
-```csharp
-public static IWebHost BuildWebHost(string[] args) =>
-    WebHost.CreateDefaultBuilder(args)
-        ...
-```
-
-::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.2"
 
@@ -90,7 +77,7 @@ Aby uzyskać więcej informacji o modelach hostingu w procesie i poza procesem, 
 
 ::: moniker-end
 
-::: moniker range="= aspnetcore-2.1"
+::: moniker range="< aspnetcore-2.2"
 
 `CreateDefaultBuilder` Konfiguruje [Kestrel](xref:fundamentals/servers/kestrel) serwera jako serwera sieci web i umożliwia integrację usług IIS, konfigurując ścieżki podstawowej i port [modułu ASP.NET Core](xref:host-and-deploy/aspnet-core-module).
 
@@ -101,44 +88,6 @@ Modułu ASP.NET Core generuje portów dynamicznych do przypisania do procesu zap
 * [Konfiguracja](xref:fundamentals/configuration/index) (lub [opcji wiersza polecenia — adresy URL](xref:fundamentals/host/web-host#override-configuration))
 
 Wywołania `UseUrls` lub jego Kestrel `Listen` interfejsu API nie są wymagane w przypadku korzystania z modułu. Jeśli `UseUrls` lub `Listen` jest wywoływane Kestrel nasłuchuje na porcie określony tylko podczas uruchamiania aplikacji bez usług IIS.
-
-::: moniker-end
-
-::: moniker range="= aspnetcore-2.0"
-
-`CreateDefaultBuilder` Konfiguruje [Kestrel](xref:fundamentals/servers/kestrel) serwera jako serwera sieci web i umożliwia integrację usług IIS, konfigurując ścieżki podstawowej i port [modułu ASP.NET Core](xref:host-and-deploy/aspnet-core-module).
-
-Modułu ASP.NET Core generuje portów dynamicznych do przypisania do procesu zaplecza. `CreateDefaultBuilder` wywołania <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*> metody. `UseIISIntegration` Konfiguruje usługi Kestrel do nasłuchiwania na port dynamiczny adres IP hosta lokalnego (`localhost`). Jeśli port dynamiczny jest 1234, Kestrel nasłuchuje na `localhost:1234`. Ta konfiguracja zastępuje inne konfiguracje adresu URL, dostarczone przez:
-
-* `UseUrls`
-* [Interfejs API nasłuchiwania kestrel firmy](xref:fundamentals/servers/kestrel#endpoint-configuration)
-* [Konfiguracja](xref:fundamentals/configuration/index) (lub [opcji wiersza polecenia — adresy URL](xref:fundamentals/host/web-host#override-configuration))
-
-Wywołania `UseUrls` lub jego Kestrel `Listen` interfejsu API nie są wymagane w przypadku korzystania z modułu. Jeśli `UseUrls` lub `Listen` jest wywoływane Kestrel nasłuchuje na porcie określony tylko podczas uruchamiania aplikacji bez usług IIS.
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-Obejmują zależności na [Microsoft.AspNetCore.Server.IISIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IISIntegration/) pakietu w zależnościach aplikacji. Używanie oprogramowania pośredniczącego integracji usług IIS przez dodanie <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*> metodę rozszerzenia, aby <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder>:
-
-```csharp
-var host = new WebHostBuilder()
-    .UseKestrel()
-    .UseIISIntegration()
-    ...
-```
-
-Zarówno <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions.UseKestrel*> i <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*> są wymagane. Wywoływanie kodu `UseIISIntegration` nie ma wpływu na przenoszenie kodu. Jeśli aplikacja nie jest uruchamiana za usług IIS (na przykład, aplikacja jest uruchamiana bezpośrednio na Kestrel), `UseIISIntegration` nie działa.
-
-Modułu ASP.NET Core generuje portów dynamicznych do przypisania do procesu zaplecza. `UseIISIntegration` Konfiguruje usługi Kestrel do nasłuchiwania na port dynamiczny adres IP hosta lokalnego (`localhost`). Jeśli port dynamiczny jest 1234, Kestrel nasłuchuje na `localhost:1234`. Ta konfiguracja zastępuje inne konfiguracje adresu URL, dostarczone przez:
-
-* `UseUrls`
-* [Konfiguracja](xref:fundamentals/configuration/index) (lub [opcji wiersza polecenia — adresy URL](xref:fundamentals/host/web-host#override-configuration))
-
-Wywołanie `UseUrls` nie jest wymagana podczas korzystania z modułu. Jeśli `UseUrls` jest wywoływane Kestrel nasłuchuje na porcie określony tylko podczas uruchamiania aplikacji bez usług IIS.
-
-Jeśli `UseUrls` jest wywoływana w aplikacji ASP.NET Core 1.0, wywołaj ją **przed** wywoływania `UseIISIntegration` tak, aby moduł skonfigurowany port nie są zastępowane. Ta kolejność wywoływania nie jest wymagana przy użyciu platformy ASP.NET Core 1.1, ponieważ zastępuje ustawienia modułu `UseUrls`.
 
 ::: moniker-end
 
@@ -174,12 +123,16 @@ services.Configure<IISServerOptions>(options =>
 
 ::: moniker-end
 
-::: moniker range="= aspnetcore-2.2"
+::: moniker range="< aspnetcore-3.0"
 
 | Opcja                         | Domyślny | Ustawienie |
 | ------------------------------ | :-----: | ------- |
 | `AutomaticAuthentication`      | `true`  | Jeśli `true`, ustawia serwer IIS `HttpContext.User` uwierzytelnione przez [uwierzytelniania Windows](xref:security/authentication/windowsauth). Jeśli `false`, serwer tylko zapewnia usługi tożsamości dla `HttpContext.User` i sprostać wymaganiom, gdy wyraźnie żąda przez `AuthenticationScheme`. Należy włączyć uwierzytelnianie Windows w usługach IIS dla `AutomaticAuthentication` funkcji. Aby uzyskać więcej informacji, zobacz [uwierzytelniania Windows](xref:security/authentication/windowsauth). |
 | `AuthenticationDisplayName`    | `null`  | Określa nazwę wyświetlaną, widocznym dla użytkowników na stronach logowania. |
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
 
 **Model hostingu poza procesem**
 
@@ -218,7 +171,7 @@ Jeśli *web.config* plik znajduje się w projekcie, plik jest przekształcana z 
 
 *Web.config* plik mogą dostarczać dodatkowych ustawień konfiguracji usług IIS, które kontrolują aktywne moduły usług IIS. Aby uzyskać informacji na temat moduły usług IIS, które są w stanie przetwarzania żądań z aplikacji platformy ASP.NET Core, zobacz [moduły usług IIS](xref:host-and-deploy/iis/modules) tematu.
 
-Aby zapobiec przekształcania zestawu SDK sieci Web *web.config* pliku, użyj  **\<IsTransformWebConfigDisabled >** właściwość w pliku projektu:
+Aby zapobiec przekształcania zestawu SDK sieci Web *web.config* pliku, użyj **\<IsTransformWebConfigDisabled >** właściwość w pliku projektu:
 
 ```xml
 <PropertyGroup>
@@ -232,7 +185,7 @@ Zestaw SDK sieci Web z transformacji pliku, wyłączając *processPath* i *argum
 
 Aby skonfigurować [modułu ASP.NET Core](xref:host-and-deploy/aspnet-core-module) poprawnie, *web.config* plik musi znajdować się w ścieżce głównej zawartości (zwykle ścieżki podstawowej aplikacji) wdrożonej aplikacji. Jest to tej samej lokalizacji co ścieżka fizyczna witryny sieci Web dostarczone do usług IIS. *Web.config* plik jest wymagany w katalogu głównym aplikacji, aby umożliwić publikowanie wielu aplikacji za pomocą narzędzia Web Deploy.
 
-Poufne pliki istnieją na ścieżkę fizyczną aplikacji, takich jak  *\<zestawu >. runtimeconfig.json*,  *\<zestawu > .xml* (komentarze dokumentacji XML), a  *\<zestawu >. deps.json*. Gdy *web.config* plik jest obecny i lokacji uruchamia się normalnie, usługi IIS nie obsługuje tych poufnych plików, jeśli są one wymagane. Jeśli *web.config* brakuje pliku, niepoprawnie o nazwie lub nie można skonfigurować witrynę podczas normalnego uruchamiania, usług IIS może obsługiwać poufnych plików publicznie.
+Poufne pliki istnieją na ścieżkę fizyczną aplikacji, takich jak *\<zestawu >. runtimeconfig.json*, *\<zestawu > .xml* (komentarze dokumentacji XML), a *\<zestawu >. deps.json*. Gdy *web.config* plik jest obecny i lokacji uruchamia się normalnie, usługi IIS nie obsługuje tych poufnych plików, jeśli są one wymagane. Jeśli *web.config* brakuje pliku, niepoprawnie o nazwie lub nie można skonfigurować witrynę podczas normalnego uruchamiania, usług IIS może obsługiwać poufnych plików publicznie.
 
 ***Web.config* plik musi być obecny w ramach wdrożenia przez cały czas nazwane poprawnie i możliwe jest skonfigurowanie lokacji do rozpoczęcia normalnego się. Nigdy nie należy usunąć *web.config* plik z wdrożenia produkcyjnego.**
 
@@ -352,7 +305,7 @@ W przypadku wdrażania aplikacji na serwerach z [narzędzia Web Deploy](/iis/pub
 
    ![Ustaw bez kodu zarządzanego dla wersji środowiska .NET CLR.](index/_static/edit-apppool-ws2016.png)
 
-    Platforma ASP.NET Core działa w oddzielnym procesie i zarządza środowiska uruchomieniowego. Platforma ASP.NET Core nie jest zależny od ładowanie klasycznych CLR. Ustawienie **wersja środowiska .NET CLR** do **bez kodu zarządzanego** jest opcjonalne.
+    Platforma ASP.NET Core działa w oddzielnym procesie i zarządza środowiska uruchomieniowego. Platforma ASP.NET Core nie jest zależny od ładowanie klasycznych CLR (CLR platformy .NET)&mdash;rozruchu podstawowe środowisko uruchomieniowe języka wspólnego (CoreCLR) dla platformy .NET Core do hostowania tej aplikacji w procesie roboczym. Ustawienie **wersja środowiska .NET CLR** do **bez kodu zarządzanego** jest opcjonalne, ale zalecane.
 
 1. *Platforma ASP.NET Core 2,2 lub nowszej*: Dla (x64) 64-bitowych [niezależna wdrożenia](/dotnet/core/deploying/#self-contained-deployments-scd) , który używa [modelu hostingu w trakcie](xref:fundamentals/servers/index#in-process-hosting-model), Wyłącz pulę aplikacji dla procesów 32-bitowych (x 86).
 
@@ -505,7 +458,7 @@ Jeśli statycznych zasobów `src` atrybut jest ustawiony na ścieżkę bezwzglę
 
 Do hostowania aplikacji ASP.NET Core jako aplikację podrzędne w ramach innej aplikacji platformy ASP.NET Core:
 
-1. Ustanów pulę aplikacji do aplikacji podrzędnej. Ustaw **wersja środowiska .NET CLR** do **bez kodu zarządzanego**.
+1. Ustanów pulę aplikacji do aplikacji podrzędnej. Ustaw **wersja środowiska .NET CLR** do **bez kodu zarządzanego** ponieważ środowisko uruchomieniowe języka wspólnego Core (CoreCLR) dla platformy .NET Core jest rozruchu do hostowania tej aplikacji w procesie roboczym, nie pulpitu środowiska CLR (CLR platformy .NET).
 
 1. Dodawanie katalogu głównego witryny w Menedżerze usług IIS przy użyciu aplikacji podrzędne w folderze w katalogu głównego witryny.
 
@@ -629,6 +582,83 @@ Protokołu HTTP/2 jest domyślnie włączona. Jeśli nie jest nawiązane połąc
 *Ta sekcja dotyczy tylko aplikacji platformy ASP.NET Core środowiska .NET Framework.*
 
 Dla aplikacji ASP.NET Core przeznaczonego programu .NET Framework, opcje żądania nie są przekazywane do aplikacji domyślnie w usługach IIS. Informacje na temat konfigurowania obsługi usług IIS aplikacji w *web.config* do przekazania żądania OPTIONS, zobacz [Włączanie żądań cross-origin w programie ASP.NET Web API 2: Jak działa CORS](/aspnet/web-api/overview/security/enabling-cross-origin-requests-in-web-api#how-cors-works).
+
+::: moniker range=">= aspnetcore-2.2"
+
+## <a name="application-initialization-module-and-idle-timeout"></a>Moduł inicjowania aplikacji i limit czasu bezczynności
+
+W przypadku hostowania w usługach IIS przez modułu ASP.NET Core w wersji 2:
+
+* [Aplikacja inicjowania modułu](#application-initialization-module) &ndash; aplikacji hostowanych [w trakcie](xref:fundamentals/servers/index#in-process-hosting-model) lub [spoza procesu](xref:fundamentals/servers/index#out-of-process-hosting-model), można skonfigurować do automatycznego uruchamiania na serwerze lub ponowne uruchomienie procesu roboczego Uruchom ponownie.
+* [Limit czasu bezczynności](#idle-timeout) &ndash; aplikacji hostowanych [w trakcie](xref:fundamentals/servers/index#in-process-hosting-model) można skonfigurować do przekroczenia limitu czasu podczas nieaktywności.
+
+### <a name="application-initialization-module"></a>Moduł Inicjowanie aplikacji
+
+*Dotyczy aplikacji hostowanych w procesie i spoza procesu.*
+
+[Inicjowanie aplikacji usług IIS](/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization) to funkcja usług IIS, która wysyła żądania HTTP do aplikacji, gdy pula aplikacji rozpoczyna się lub zostanie odtworzona. Żądanie wyzwala uruchomienie aplikacji. Domyślnie usługi IIS generuje żądanie do adresu URL katalogu głównego aplikacji (`/`) do zainicjowania aplikacji (zobacz [dodatkowe zasoby](#application-initialization-module-and-idle-timeout-additional-resources) więcej informacji na temat konfiguracji).
+
+Upewnij się, że włączona funkcja roli Inicjowanie aplikacji usług IIS w:
+
+Windows 7 lub nowszych systemach pulpitu, korzystając z usług IIS lokalnie:
+
+1. Przejdź do **Panelu sterowania** > **programy** > **programy i funkcje** > **Windows Włącz funkcje w lub wyłącz** (po lewej stronie ekranu).
+1. Otwórz **Internetowe usługi informacyjne** > **usługi World Wide Web** > **funkcje tworzenia aplikacji**.
+1. Zaznacz pole wyboru dla **Inicjowanie aplikacji**.
+
+W systemie Windows Server 2008 R2 lub nowszym:
+
+1. Otwórz **Dodaj role i funkcje kreatora**.
+1. W **Wybieranie usług ról** panelu Otwórz **opracowywanie aplikacji** węzła.
+1. Zaznacz pole wyboru dla **Inicjowanie aplikacji**.
+
+Użyj jednej z poniższych metod, aby włączyć moduł inicjowania aplikacji dla witryny:
+
+* Za pomocą Menedżera usług IIS:
+
+  1. Wybierz **pul aplikacji** w **połączeń** panelu.
+  1. Kliknij prawym przyciskiem myszy pulę aplikacji aplikacji na liście i wybierz pozycję **Zaawansowane ustawienia**.
+  1. Wartość domyślna **Uruchom tryb** jest **OnDemand**. Ustaw **tryb uruchamiania** do **AlwaysRunning**. Kliknij przycisk **OK**.
+  1. Otwórz **witryn** w węźle **połączeń** panelu.
+  1. Kliknij prawym przyciskiem myszy aplikację i wybierz **Zarządzaj witryną internetową** > **Zaawansowane ustawienia**.
+  1. Wartość domyślna **wstępne załadowanie włączone** jest ustawienie **False**. Ustaw **wstępne załadowanie włączone** do **True**. Kliknij przycisk **OK**.
+
+* Za pomocą *web.config*, Dodaj `<applicationInitialization>` element z `doAppInitAfterRestart` równa `true` do `<system.webServer>` elementów w aplikacji *web.config* pliku:
+
+  ```xml
+  <?xml version="1.0" encoding="utf-8"?>
+  <configuration>
+    <location path="." inheritInChildApplications="false">
+      <system.webServer>
+        <applicationInitialization doAppInitAfterRestart="true" />
+      </system.webServer>
+    </location>
+  </configuration>
+  ```
+
+### <a name="idle-timeout"></a>Limit czasu bezczynności
+
+*Dotyczy tylko aplikacji hostowanych w procesie.*
+
+Aby zapobiec sytuacji, w której aplikacja biegu, należy ustawić za pomocą Menedżera usług IIS limitu czasu bezczynności puli aplikacji:
+
+1. Wybierz **pul aplikacji** w **połączeń** panelu.
+1. Kliknij prawym przyciskiem myszy pulę aplikacji aplikacji na liście i wybierz pozycję **Zaawansowane ustawienia**.
+1. Wartość domyślna **limitu czasu bezczynności (w minutach)** jest **20** minut. Ustaw **limitu czasu bezczynności (w minutach)** do **0** (zero). Kliknij przycisk **OK**.
+1. Odtwórz proces roboczy.
+
+Aby uniemożliwić aplikacji hostowanych [spoza procesu](xref:fundamentals/servers/index#out-of-process-hosting-model) z przekroczeniem limitu czasu, użyj jednej z następujących metod:
+
+* Zbadaj aplikację z usługi zewnętrznej w celu zapewnienia jego działania.
+* Jeśli aplikacja obsługuje tylko usługi działające w tle, należy unikać hostowanie usług IIS i użyć [Windows Service do hostowania tej aplikacji ASP.NET Core](xref:host-and-deploy/windows-service).
+
+### <a name="application-initialization-module-and-idle-timeout-additional-resources"></a>Moduł inicjowania aplikacji i limitu czasu bezczynności dodatkowe zasoby
+
+* [Inicjowanie 8.0 aplikacji usług IIS](/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization)
+* [Inicjowanie aplikacji \<applicationInitialization >](/iis/configuration/system.webserver/applicationinitialization/).
+* [Ustawienia modelu procesów puli aplikacji \<processModel >](/iis/configuration/system.applicationhost/applicationpools/add/processmodel).
+
+::: moniker-end
 
 ## <a name="deployment-resources-for-iis-administrators"></a>Zasoby dotyczące wdrażania dla administratorów usług IIS
 
