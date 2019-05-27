@@ -5,14 +5,14 @@ description: Dowiedz się, jak kierować żądania w aplikacjach i informacje o 
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/13/2019
+ms.date: 05/14/2019
 uid: blazor/routing
-ms.openlocfilehash: 8402089dd818d519eeecfdd3c85e309bffd4d20d
-ms.sourcegitcommit: b4ef2b00f3e1eb287138f8b43c811cb35a100d3e
+ms.openlocfilehash: b7f040292484f77c3cd12d9a0c07019782597882
+ms.sourcegitcommit: e1623d8279b27ff83d8ad67a1e7ef439259decdf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969860"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66223126"
 ---
 # <a name="blazor-routing"></a>Blazor routing
 
@@ -85,10 +85,10 @@ Ograniczenia trasy, pokazano w poniższej tabeli są dostępne. Dla ograniczenia
 | `bool`     | `{active:bool}`   | `true`, `FALSE`                                                                  | Nie                               |
 | `datetime` | `{dob:datetime}`  | `2016-12-31`, `2016-12-31 7:32pm`                                                | Tak                              |
 | `decimal`  | `{price:decimal}` | `49.99`, `-1,000.01`                                                             | Yes                              |
-| `double`   | `{weight:double}` | `1.234`, `-1,001.01e8`                                                           | Yes                              |
+| `double`   | `{weight:double}` | `1.234`, `-1,001.01e8`                                                           | Tak                              |
 | `float`    | `{weight:float}`  | `1.234`, `-1,001.01e8`                                                           | Yes                              |
 | `guid`     | `{id:guid}`       | `CD2C1638-1638-72D5-1638-DEADBEEF1638`, `{CD2C1638-1638-72D5-1638-DEADBEEF1638}` | Nie                               |
-| `int`      | `{id:int}`        | `123456789`, `-123456789`                                                        | Tak                              |
+| `int`      | `{id:int}`        | `123456789`, `-123456789`                                                        | Yes                              |
 | `long`     | `{ticks:long}`    | `123456789`, `-123456789`                                                        | Yes                              |
 
 > [!WARNING]
@@ -108,3 +108,37 @@ Istnieją dwa `NavLinkMatch` opcje:
 * `NavLinkMatch.Prefix` &ndash; Określa, że NavLink powinien być aktywny, gdy są one zgodne z dowolnego prefiksu bieżący adres URL.
 
 W powyższym przykładzie Home NavLink (`href=""`) dopasowuje wszystkie adresy URL i zawsze będzie otrzymywał `active` klasę CSS. Drugi NavLink tylko odbiera `active` klasy, gdy użytkownik odwiedza składnika trasy Blazor (`href="BlazorRoute"`).
+
+## <a name="uri-and-navigation-state-helpers"></a>Identyfikator URI i nawigacji pomocników stanu
+
+Użyj `Microsoft.AspNetCore.Components.IUriHelper` do pracy z identyfikatorów URI i nawigacja w C# kodu. `IUriHelper` zapewnia zdarzenia i metody, które przedstawiono w poniższej tabeli.
+
+| Element członkowski | Opis |
+| ------ | ----------- |
+| `GetAbsoluteUri` | Pobiera bieżący bezwzględny identyfikator URI. |
+| `GetBaseUri` | Pobiera podstawowy identyfikator URI (z ukośnikiem końcowym), może zostać dołączony do ścieżek względnych identyfikatora URI, aby utworzyć bezwzględny identyfikator URI. Zazwyczaj `GetBaseUri` odpowiada `href` atrybutu do dokumentu `<base>` element *wwwroot/index.html* (Blazor po stronie klienta) lub *stron /\_Host.cshtml* (Blazor po stronie serwera). |
+| `NavigateTo` | Powoduje przejście do określonego identyfikatora URI. Jeśli `forceLoad` jest `true`:<ul><li>Routing po stronie klienta jest pomijany.</li><li>Przeglądarki jest zmuszony do ładowania nowej strony z serwera, czy identyfikator URI zwykle odbywa się przez router po stronie klienta.</li></ul> |
+| `OnLocationChanged` | Zdarzenie, które są generowane, gdy lokalizacja nawigacji została zmieniona. |
+| `ToAbsoluteUri` | Konwertuje względny identyfikator URI na bezwzględny identyfikator URI. |
+| `ToBaseRelativePath` | Biorąc pod uwagę podstawowy identyfikator URI (na przykład identyfikator URI wcześniej zwracany przez `GetBaseUri`), konwertuje bezwzględny identyfikator URI identyfikatora URI, względem podstawowego prefiks identyfikatora URI. |
+
+Następujący składnik przechodzi do składnika licznika aplikacji po wybraniu przycisku:
+
+```cshtml
+@page "/navigate"
+@using Microsoft.AspNetCore.Components
+@inject IUriHelper UriHelper
+
+<h1>Navigate in Code Example</h1>
+
+<button class="btn btn-primary" onclick="@NavigateToCounterComponent">
+    Navigate to the Counter component
+</button>
+
+@functions {
+    private void NavigateToCounterComponent()
+    {
+        UriHelper.NavigateTo("counter");
+    }
+}
+```

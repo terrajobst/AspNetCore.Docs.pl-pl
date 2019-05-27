@@ -5,14 +5,14 @@ description: Dowiedz się, jak rozpocząć pracę z gniazda Websocket w programi
 monikerRange: '>= aspnetcore-1.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 01/17/2019
+ms.date: 05/10/2019
 uid: fundamentals/websockets
-ms.openlocfilehash: 1b62dc91453437518e4b8f6f8dd0915977130766
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: bba9cf051deaf57efdd82ca2fb1318fce79bd6cc
+ms.sourcegitcommit: e1623d8279b27ff83d8ad67a1e7ef439259decdf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64901252"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66223222"
 ---
 # <a name="websockets-support-in-aspnet-core"></a>Obsługa protokółu Websocket w programie ASP.NET Core
 
@@ -122,6 +122,15 @@ Poniższy przykład znajduje się w dalszej części w `Configure` metody:
 ::: moniker-end
 
 Żądanie protokołu WebSocket może występować na dowolny adres URL, ale ten przykładowy kod akceptuje tylko żądania dotyczące `/ws`.
+
+Korzystając z protokołu WebSocket, możesz **musi** zachować potoku oprogramowania pośredniczącego, uruchomione przez czas trwania połączenia. Jeśli użytkownik podejmie próbę wysłania lub odebrania komunikatu protokołu WebSocket, po zakończeniu potoku oprogramowania pośredniczącego, może wystąpić wyjątek, jak pokazano poniżej:
+
+```
+System.Net.WebSockets.WebSocketException (0x80004005): The remote party closed the WebSocket connection without completing the close handshake. ---> System.ObjectDisposedException: Cannot write to the response body, the response has completed.
+Object name: 'HttpResponseStream'.
+```
+
+Jeśli używasz usługę w tle do zapisywania danych WebSocket, upewnij się, że nadal uruchomione potoku oprogramowania pośredniczącego. To zrobić za pomocą <xref:System.Threading.Tasks.TaskCompletionSource%601>. Przekaż `TaskCompletionSource` do tła usługi i jego wywołania <xref:System.Threading.Tasks.TaskCompletionSource%601.TrySetResult%2A> po zakończeniu za pomocą protokołu WebSocket. Następnie `await` <xref:System.Threading.Tasks.TaskCompletionSource%601.Task> właściwości podczas żądania.
 
 ### <a name="send-and-receive-messages"></a>Wysyłanie i odbieranie komunikatów
 

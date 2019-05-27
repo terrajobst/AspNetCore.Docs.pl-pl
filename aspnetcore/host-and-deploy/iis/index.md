@@ -5,14 +5,14 @@ description: Dowiedz się, jak hostować aplikacje platformy ASP.NET Core na sys
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/19/2019
+ms.date: 05/24/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 6ba4da913ef712ef897a4c8418263e3060ea85ac
-ms.sourcegitcommit: e67356f5e643a5d43f6d567c5c998ce6002bdeb4
+ms.openlocfilehash: f0efe6c0edc71c5e2c45aeaa175c8a5643ef0fde
+ms.sourcegitcommit: e1623d8279b27ff83d8ad67a1e7ef439259decdf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004977"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66223145"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host platformy ASP.NET Core na Windows za pomocą programu IIS
 
@@ -199,7 +199,7 @@ Jeśli potrzebujesz do przekształcania *web.config* przy publikowaniu (na przyk
 
 Włącz **serwer sieci Web (IIS)** roli serwera i ustanowić usług ról.
 
-1. Użyj **Dodaj role i funkcje** kreatora z **Zarządzaj** menu lub linku w **Menedżera serwera**. Na **ról serwera** kroku, pole wyboru dla **serwer sieci Web (IIS)**.
+1. Użyj **Dodaj role i funkcje** kreatora z **Zarządzaj** menu lub linku w **Menedżera serwera**. Na **ról serwera** kroku, pole wyboru dla **serwer sieci Web (IIS)** .
 
    ![W kroku role serwera wybierz zaznaczona została rola Serwer sieci Web IIS.](index/_static/server-roles-ws2016.png)
 
@@ -282,7 +282,7 @@ Aby uzyskać starszej wersji Instalatora:
 
 ## <a name="install-web-deploy-when-publishing-with-visual-studio"></a>Zainstaluj pakiet Webdeploy podczas publikowania za pomocą programu Visual Studio
 
-W przypadku wdrażania aplikacji na serwerach z [narzędzia Web Deploy](/iis/publish/using-web-deploy/introduction-to-web-deploy), zainstaluj najnowszą wersję narzędzia Web Deploy na serwerze. Aby zainstalować narzędzie Web Deploy, należy użyć [Instalatora platformy sieci Web (WebPI)](https://www.microsoft.com/web/downloads/platform.aspx) lub uzyskać bezpośrednio z poziomu Instalatora [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=43717). Jest to preferowana metoda do użycia Instalatora WebPI. WebPI oferuje instalację autonomiczną i konfiguracji dla dostawców hostingu.
+W przypadku wdrażania aplikacji na serwerach z [narzędzia Web Deploy](/iis/install/installing-publishing-technologies/installing-and-configuring-web-deploy-on-iis-80-or-later), zainstaluj najnowszą wersję narzędzia Web Deploy na serwerze. Aby zainstalować narzędzie Web Deploy, należy użyć [Instalatora platformy sieci Web (WebPI)](https://www.microsoft.com/web/downloads/platform.aspx) lub uzyskać bezpośrednio z poziomu Instalatora [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=43717). Jest to preferowana metoda do użycia Instalatora WebPI. WebPI oferuje instalację autonomiczną i konfiguracji dla dostawców hostingu.
 
 ## <a name="create-the-iis-site"></a>Tworzenie witryny usług IIS
 

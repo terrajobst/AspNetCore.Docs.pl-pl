@@ -5,14 +5,14 @@ description: Dowiedz się, jak hostowanie i wdrażanie aplikacji Blazor przy uż
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/13/2019
+ms.date: 05/21/2019
 uid: host-and-deploy/blazor/client-side
-ms.openlocfilehash: ea8ece266809913e32ac212bc55cb3c2499c234f
-ms.sourcegitcommit: ccbb84ae307a5bc527441d3d509c20b5c1edde05
+ms.openlocfilehash: b572067e688d7e7f7c654a7a25703009c1a7e855
+ms.sourcegitcommit: e1623d8279b27ff83d8ad67a1e7ef439259decdf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2019
-ms.locfileid: "65874975"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66223189"
 ---
 # <a name="host-and-deploy-blazor-client-side"></a>Hostowanie i wdrażanie Blazor po stronie klienta
 
@@ -210,8 +210,8 @@ Po opublikowaniu projektu Blazor *web.config* plik jest tworzony przy użyciu na
   * `application/octet-stream`
   * `application/wasm`
 * Ustanawiane są reguły moduł ponowne zapisywanie adresów URL:
-  * Obsługiwać podkatalogu, gdzie znajdują się zasoby statyczne aplikacji (*/dist/ {Nazwa zestawu} {ŻĄDANA ŚCIEŻKA}*).
-  * Utwórz SPA rezerwowego routingu, tak aby żądania innego niż plik zasobów są przekierowywane do aplikacji dokumentu domyślnego w folderze statycznych zasobów (*{NAME}/dist/index.html zestawu*).
+  * Obsługiwać podkatalogu, gdzie znajdują się zasoby statyczne aplikacji ( */dist/ {Nazwa zestawu} {ŻĄDANA ŚCIEŻKA}* ).
+  * Utwórz SPA rezerwowego routingu, tak aby żądania innego niż plik zasobów są przekierowywane do aplikacji dokumentu domyślnego w folderze statycznych zasobów ( *{NAME}/dist/index.html zestawu*).
 
 #### <a name="install-the-url-rewrite-module"></a>Zainstaluj moduł ponowne zapisywanie adresów URL
 
@@ -232,6 +232,17 @@ Ustaw witrynę sieci Web **ścieżkę fizyczną** do folderu aplikacji. Folder z
 Jeśli *500 — Wewnętrzny błąd serwera* odebraniu i Menedżera usług IIS zgłasza błędy podczas próby dostępu do konfiguracji witryny sieci Web, upewnij się, że zainstalowano moduł ponowne zapisywanie adresów URL. Jeśli moduł nie jest zainstalowany, *web.config* nie można przeanalizować pliku przez usługi IIS. Zapobiega to ładowania konfiguracji witryny sieci Web i witryny sieci Web z dostarczania plików statycznych dla Blazor Menedżera usług IIS.
 
 Aby uzyskać więcej informacji na temat Rozwiązywanie problemów z wdrożeniami usług IIS, zobacz <xref:host-and-deploy/iis/troubleshoot>.
+
+### <a name="azure-storage"></a>Azure Storage
+
+Usługi Azure Storage plików statycznych hostingu umożliwia hosting bezserwerowy Blazor aplikacji. Niestandardowe nazwy domen, Azure Content Delivery Network (CDN) i HTTPS są obsługiwane.
+
+Po włączeniu usługi blob service do hostowania statycznej witryny internetowej na koncie magazynu:
+
+* Ustaw **nazwa dokumentu indeksu** do `index.html`.
+* Ustaw **ścieżka dokumentu błędu** do `index.html`. Składniki razor i inne punkty końcowe inną niż pliki nie znajdują się w ścieżkach fizycznych w zawartości statycznej, przechowywane w usłudze obiektów blob. Po odebraniu żądania dla jednego z tych zasobów, Blazor router powinna obsługiwać, *404 — Nie można odnaleźć* błąd generowane przez usługę blob service kieruje żądanie do **ścieżka dokumentu błędu**. *Index.html* obiektów blob są zwracane i Blazor router ładuje i przetwarza ścieżkę.
+
+Aby uzyskać więcej informacji, zobacz [hostowania statycznej witryny internetowej w usłudze Azure Storage](/azure/storage/blobs/storage-blob-static-website).
 
 ### <a name="nginx"></a>Nginx
 

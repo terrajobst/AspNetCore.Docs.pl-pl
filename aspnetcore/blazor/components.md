@@ -5,14 +5,14 @@ description: Informacje o sposobie tworzenia i używania składników Razor, w t
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/10/2019
+ms.date: 05/21/2019
 uid: blazor/components
-ms.openlocfilehash: db99ee4460dfa3def4d8b8f5fec26eff3bb73d6b
-ms.sourcegitcommit: b4ef2b00f3e1eb287138f8b43c811cb35a100d3e
+ms.openlocfilehash: 57f8debb4e13967ceadab96d448e5825b2ef4669
+ms.sourcegitcommit: e1623d8279b27ff83d8ad67a1e7ef439259decdf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969868"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66223130"
 ---
 # <a name="create-and-use-razor-components"></a>Tworzenie i używanie składników Razor
 
@@ -24,7 +24,7 @@ Blazor aplikacje są tworzone przy użyciu *składniki*. Składnik jest niezale�
 
 ## <a name="component-classes"></a>Klasy składników
 
-Składniki są implementowane w [Razor](xref:mvc/views/razor) pliki składników (*.razor*) przy użyciu kombinacji C# i kod znaczników HTML.
+Składniki są implementowane w [Razor](xref:mvc/views/razor) pliki składników ( *.razor*) przy użyciu kombinacji C# i kod znaczników HTML.
 
 Składniki mogą być tworzone za pomocą *.cshtml* rozszerzenie pliku, tak długo, jak pliki są identyfikowane jako pliki składnika Razor przy użyciu `_RazorComponentInclude` właściwości programu MSBuild. Na przykład aplikację, która określa, że wszystkie *.cshtml* plików w obszarze *stron* folder powinien być traktowany jako plików składników Razor:
 
@@ -116,18 +116,18 @@ Powiązanie danych do składników i elementów DOM odbywa się za pomocą `bind
 
 ```cshtml
 <input type="checkbox" class="form-check-input" id="italicsCheck" 
-    bind="@_italicsCheck">
+    bind="@_italicsCheck" />
 ```
 
 Gdy pole wyboru jest zaznaczone, a następnie wyczyszczone, wartość właściwości jest aktualizowany do `true` i `false`, odpowiednio.
 
 Pole wyboru jest aktualizowana w interfejsie użytkownika tylko wtedy, gdy składnik jest renderowany, nie w odpowiedzi na zmianę wartości właściwości. Ponieważ składniki renderować się po wykonaniu kod procedury obsługi zdarzeń, aktualizacje właściwości są zazwyczaj odzwierciedlane w interfejsie użytkownika od razu.
 
-Za pomocą `bind` z `CurrentValue` właściwości (`<input bind="@CurrentValue">`) jest zasadniczo odpowiednikiem następujących czynności:
+Za pomocą `bind` z `CurrentValue` właściwości (`<input bind="@CurrentValue" />`) jest zasadniczo odpowiednikiem następujących czynności:
 
 ```cshtml
 <input value="@CurrentValue" 
-    onchange="@((UIChangeEventArgs __e) => CurrentValue = __e.Value)">
+    onchange="@((UIChangeEventArgs __e) => CurrentValue = __e.Value)" />
 ```
 
 Po wyrenderowaniu składnika `value` danego elementu wejściowego pochodzi z `CurrentValue` właściwości. Gdy użytkownik wpisuje w polu tekstowym `onchange` zdarzenie jest generowane i `CurrentValue` zostaje ustalona zmieniona wartość. W rzeczywistości generowania kodu jest nieco bardziej złożone, ponieważ `bind` obsługuje kilka przypadków, w którym konwersje są wykonywane. W zasadzie `bind` kojarzy bieżącą wartość wyrażenia z `value` atrybutu i uchwytów zmiany przy użyciu zarejestrowanego programu obsługi.
@@ -135,7 +135,7 @@ Po wyrenderowaniu składnika `value` danego elementu wejściowego pochodzi z `Cu
 Oprócz `onchange`, właściwości mogą być powiązane przy użyciu innych zdarzeń, takich jak `oninput` polegające na dokładniejsze o tym, co można powiązać:
 
 ```cshtml
-<input type="text" bind-value-oninput="@CurrentValue">
+<input type="text" bind-value-oninput="@CurrentValue" />
 ```
 
 W odróżnieniu od `onchange`, `oninput` generowane dla każdego znaku, która jest wprowadzana do pola tekstowego.
@@ -145,7 +145,7 @@ W odróżnieniu od `onchange`, `oninput` generowane dla każdego znaku, która j
 Powiązanie danych w programach <xref:System.DateTime> ciągi formatujące. Inne wyrażenia formatu, takie jak waluta lub formaty liczbowe nie są dostępne w tej chwili.
 
 ```cshtml
-<input bind="@StartDate" format-value="yyyy-MM-dd">
+<input bind="@StartDate" format-value="yyyy-MM-dd" />
 
 @functions {
     [Parameter]
@@ -261,7 +261,7 @@ Poniższy kod wywoła `UpdateHeading` metodę po wybraniu przycisku w interfejsi
 Poniższy kod wywoła `CheckboxChanged` metody, gdy pole wyboru jest zmieniana w interfejsie użytkownika:
 
 ```cshtml
-<input type="checkbox" class="form-check-input" onchange="@CheckboxChanged">
+<input type="checkbox" class="form-check-input" onchange="@CheckboxChanged" />
 
 @functions {
     private void CheckboxChanged()
@@ -586,7 +586,7 @@ Atrybuty warunkowe są renderowane na podstawie wartości platformy .NET. Jeśli
 W poniższym przykładzie `IsCompleted` Określa, czy `checked` jest renderowany w znacznikach formantu:
 
 ```cshtml
-<input type="checkbox" checked="@IsCompleted">
+<input type="checkbox" checked="@IsCompleted" />
 
 @functions {
     [Parameter]
@@ -597,13 +597,13 @@ W poniższym przykładzie `IsCompleted` Określa, czy `checked` jest renderowany
 Jeśli `IsCompleted` jest `true`, pole jest renderowane jako:
 
 ```html
-<input type="checkbox" checked>
+<input type="checkbox" checked />
 ```
 
 Jeśli `IsCompleted` jest `false`, pole jest renderowane jako:
 
 ```html
-<input type="checkbox">
+<input type="checkbox" />
 ```
 
 **Dodatkowe informacje na temat Razor**
