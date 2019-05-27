@@ -2,26 +2,21 @@
 title: Implementacja serwera sieci web kestrel w programie ASP.NET Core
 author: guardrex
 description: Więcej informacji na temat Kestrel, serwer sieci web dla wielu platform dla platformy ASP.NET Core.
+monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 03/28/2019
+ms.date: 05/17/2019
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: b5b05dbd553124cecac2ec7ddb55c939cb91c8ad
-ms.sourcegitcommit: a3926eae3f687013027a2828830c12a89add701f
+ms.openlocfilehash: 6f9eee1ed46f02232bed977f8f60a3d77db48784
+ms.sourcegitcommit: e1623d8279b27ff83d8ad67a1e7ef439259decdf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65450994"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66223158"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>Implementacja serwera sieci web kestrel w programie ASP.NET Core
 
 Przez [Tom Dykstra](https://github.com/tdykstra), [Chris Ross](https://github.com/Tratcher), i [Halter Autor: Stephen](https://twitter.com/halter73)
-
-::: moniker range="<= aspnetcore-1.1"
-
-Dla wersji 1.1 w tym temacie, Pobierz [implementacji serwera sieci web Kestrel w programie ASP.NET Core (w wersji 1.1, plików PDF)](https://webpifeed.blob.core.windows.net/webpifeed/Partners/Kestrel_1.1.pdf).
-
-::: moniker-end
 
 Kestrel jest dla wielu platform [serwera sieci web dla platformy ASP.NET Core](xref:fundamentals/servers/index). Kestrel jest serwer sieci web, który znajduje się domyślnie w szablonach projektu ASP.NET Core.
 
@@ -166,6 +161,32 @@ Serwer sieci web Kestrel ma ograniczenie opcje konfiguracji, które są szczegó
 
 Ustawianie ograniczeń na <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.Limits> właściwość <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions> klasy. `Limits` Właściwość posiada wystąpienie <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerLimits> klasy.
 
+### <a name="keep-alive-timeout"></a>Limit czasu utrzymywania aktywności
+
+<xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerLimits.KeepAliveTimeout>
+
+Pobiera lub ustawia [limitu czasu podtrzymania](https://tools.ietf.org/html/rfc7230#section-6.5). Wartość domyślna to 2 minuty.
+
+::: moniker range=">= aspnetcore-2.2"
+
+[!code-csharp[](kestrel/samples/2.x/KestrelSample/Program.cs?name=snippet_Limits&highlight=15)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
+```csharp
+public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+    WebHost.CreateDefaultBuilder(args)
+        .UseStartup<Startup>()
+        .UseKestrel(options =>
+        {
+            options.Limits.KeepAliveTimeout = TimeSpan.FromMinutes(2);
+        });
+```
+
+::: moniker-end
+
 ### <a name="maximum-client-connections"></a>Maksymalna liczba połączeń klientów
 
 <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerLimits.MaxConcurrentConnections>  
@@ -258,6 +279,8 @@ Można zastąpić ustawienia dla konkretnego żądania w oprogramowaniu pośredn
 
 Wyjątek jest generowany, Jeśli spróbujesz skonfigurować limit na żądanie, po uruchomieniu aplikacji do odczytania żądania. Brak `IsReadOnly` właściwość, która wskazuje, czy `MaxRequestBodySize` właściwość jest w stanie tylko do odczytu, co oznacza, jest za późno, aby skonfigurować limit.
 
+Gdy aplikacja jest uruchamiana [spoza procesu](xref:fundamentals/servers/index#out-of-process-hosting-model) za [modułu ASP.NET Core](xref:host-and-deploy/aspnet-core-module), limit rozmiaru w treści żądania Kestrel firmy jest wyłączony, ponieważ usługi IIS ustawiają już limit.
+
 ### <a name="minimum-request-body-data-rate"></a>Szybkość danych treści żądania minimalne
 
 <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerLimits.MinRequestBodyDataRate>  
@@ -301,6 +324,32 @@ Można zastąpić minimalne limitom na żądanie w oprogramowaniu pośrednicząc
 ::: moniker range=">= aspnetcore-2.2"
 
 Ani funkcji szybkości, do którego odwołuje się poprzedniego przykładu znajdują się w `HttpContext.Features` dla żądania HTTP/2, ponieważ modyfikowanie limitów szybkości na podstawie danego żądania nie jest obsługiwane ze względu na obsługę protokołu Multipleksowanie żądania protokołu HTTP/2. Limity szybkości całego serwera, konfigurować za pośrednictwem `KestrelServerOptions.Limits` nadal mają zastosowanie do połączeń zarówno HTTP/1.x, jak i protokołu HTTP/2.
+
+::: moniker-end
+
+### <a name="request-headers-timeout"></a>Limit czasu nagłówki żądania
+
+<xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerLimits.RequestHeadersTimeout>
+
+Pobiera lub ustawia maksymalną ilość czasu serwer zużywa odbieranie nagłówki żądania. Wartość domyślna to 30 sekund.
+
+::: moniker range=">= aspnetcore-2.2"
+
+[!code-csharp[](kestrel/samples/2.x/KestrelSample/Program.cs?name=snippet_Limits&highlight=16)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
+```csharp
+public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+    WebHost.CreateDefaultBuilder(args)
+        .UseStartup<Startup>()
+        .UseKestrel(options =>
+        {
+            options.Limits.RequestHeadersTimeout = TimeSpan.FromMinutes(1);
+        });
+```
 
 ::: moniker-end
 
