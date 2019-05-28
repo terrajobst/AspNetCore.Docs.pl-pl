@@ -4,14 +4,14 @@ author: rick-anderson
 description: W tym artykule wyjaśniono vs platformy ASP.NET Core. ASP.NET 4.x i jak dokonać wyboru między nimi.
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 09/11/2018
+ms.date: 05/02/2019
 uid: fundamentals/choose-between-aspnet-and-aspnetcore
-ms.openlocfilehash: 454f1021520f8f22eb2b0417a958b78690f89cef
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: a51d9946c9e65bd1665c610153f724c6087c9f7f
+ms.sourcegitcommit: b8ed594ab9f47fa32510574f3e1b210cff000967
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64900625"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66251368"
 ---
 # <a name="choose-between-aspnet-4x-and-aspnet-core"></a>Wybieranie między ASP.NET 4.x i ASP.NET Core
 
@@ -44,7 +44,6 @@ Zobacz [platformy ASP.NET Core przeznaczone dla .NET Framework](xref:index#targe
 
 ## <a name="aspnet-core-scenarios"></a>Scenariusze platformy ASP.NET Core
 
-* [Strony razor](xref:razor-pages/index) przedstawia zalecane podejście do tworzenia interfejsu użytkownika sieci Web począwszy od platformy ASP.NET Core 2.x.
 * [Witryny sieci Web](xref:tutorials/first-mvc-app/index)
 * [Interfejsy API](xref:tutorials/first-web-api)
 * [W czasie rzeczywistym](xref:signalr/index)
