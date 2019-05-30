@@ -5,14 +5,14 @@ description: Dowiedz się, jak wywoływać funkcje języka JavaScript z .NET i .
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/21/2019
+ms.date: 05/29/2019
 uid: blazor/javascript-interop
-ms.openlocfilehash: bc9aef78311355cb388a1f573e89a84a5febcbfc
-ms.sourcegitcommit: e1623d8279b27ff83d8ad67a1e7ef439259decdf
+ms.openlocfilehash: ae95cc05d6773813aefbbf4c1f5884dcc09c0a98
+ms.sourcegitcommit: 4d05e30567279072f1b070618afe58ae1bcefd5a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66223129"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66376327"
 ---
 # <a name="blazor-javascript-interop"></a>Blazor JavaScript interop
 
@@ -106,6 +106,10 @@ Przykładowa aplikacja zawiera składnik do zademonstrowania międzyoperacyjnego
 1. Gdy `TriggerJsPrompt` jest wykonywana przez wybranie elementu **wyzwalacza JavaScript monitu** przycisk JavaScript `showPrompt` funkcja udostępniana w *wwwroot/exampleJsInterop.js* plik jest wywoływana.
 1. `showPrompt` Funkcja akceptuje dane wejściowe użytkownika (nazwa użytkownika), który jest kodowany w formacie HTML i zwrócone do składnika. Składnik nazwy użytkownika są przechowywane w zmiennej lokalnej `name`.
 1. Ten ciąg jest przechowywany w `name` jest włączona do komunikat powitalny, który jest przekazywany do funkcji języka JavaScript, `displayWelcome`, który renderuje wiadomość powitalna w tagu nagłówka.
+
+## <a name="call-a-void-javascript-function"></a>Wywołanie funkcji JavaScript void
+
+Funkcji w języku JavaScript zwracające [void (0) / void 0](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Operators/void) lub [niezdefiniowane](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined) są wywoływane przy użyciu `IJSRuntime.InvokeAsync<object>`, co powoduje zwrócenie `null`.
 
 ## <a name="detect-when-a-blazor-app-is-prerendering"></a>Wykryj, kiedy aplikacja Blazor jest prerendering
  

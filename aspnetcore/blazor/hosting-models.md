@@ -5,14 +5,14 @@ description: Dowiedz się, Blazor po stronie klienta i po stronie serwera, hosto
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/13/2019
+ms.date: 05/28/2019
 uid: blazor/hosting-models
-ms.openlocfilehash: 23821757bc541c8d17a2c1d6d75c5443b57a9135
-ms.sourcegitcommit: ccbb84ae307a5bc527441d3d509c20b5c1edde05
+ms.openlocfilehash: d9e430c90d9a01976a8e6222a15504b43f91e2ed
+ms.sourcegitcommit: 4d05e30567279072f1b070618afe58ae1bcefd5a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2019
-ms.locfileid: "65874854"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66376330"
 ---
 # <a name="blazor-hosting-models"></a>Blazor modelach hostingu
 
@@ -64,8 +64,6 @@ Aplikacja platformy ASP.NET Core odwołuje się do aplikacji `Startup` klasy do 
 
 * Usługi po stronie serwera.
 * Aplikacja do żądania obsługi potoku.
-
-[!code-csharp[](hosting-models/samples_snapshot/Startup.cs?highlight=5,27)]
 
 *Blazor.server.js* skryptu&dagger; nawiązuje połączenie z klientem. To aplikacja odpowiada za utrwalanie i przywracanie stanu aplikacji, zgodnie z potrzebami (na przykład w przypadku połączenia sieciowego utracone).
 

@@ -2,7 +2,7 @@
 
 ### <a name="add-a-database-context-class"></a>Dodawanie klasy kontekstu bazy danych
 
-Dodaj następujący kod `RazorPagesMovieContext` klasy *modeli* folderu:
+Dodaj następujący kod `RazorPagesMovieContext` klasy *danych* folderu:
 
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Data/RazorPagesMovieContext.cs)]
 

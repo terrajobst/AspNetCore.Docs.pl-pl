@@ -5,14 +5,14 @@ description: Informacje o sposobie tworzenia i używania składników Razor, w t
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/21/2019
+ms.date: 05/26/2019
 uid: blazor/components
-ms.openlocfilehash: 57f8debb4e13967ceadab96d448e5825b2ef4669
-ms.sourcegitcommit: e1623d8279b27ff83d8ad67a1e7ef439259decdf
+ms.openlocfilehash: c048568952c4757bcd5ac3ed0f7e5616409c88b2
+ms.sourcegitcommit: 4d05e30567279072f1b070618afe58ae1bcefd5a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66223130"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66376333"
 ---
 # <a name="create-and-use-razor-components"></a>Tworzenie i używanie składników Razor
 
@@ -1013,6 +1013,6 @@ Jest to uproszczony przykład. W przypadku bardziej realistycznego o złożone i
 
 * Wydajność aplikacji wystąpi, jeśli numerów sekwencji są generowane dynamicznie.
 * Struktura nie można utworzyć liczby sekwencji automatycznie w czasie wykonywania, ponieważ nie istnieje niezbędne informacje, o ile nie są przechwytywane w czasie kompilacji.
-* Nie zapisuj długie bloki konstrukcyjne ręcznie zaimplementowane `RenderTreeBuilder` logiki. Preferuj `.razor` pliki i umożliwić kompilatorowi do czynienia z numerami sekwencji. Jeśli nie można uniknąć ręcznego `RenderTreeBuilder` logiki, podzielić długie bloków kodu na mniejsze części w `OpenRegion` / `CloseRegion` wywołania. W każdym regionie istnieje własną przestrzeń oddzielne numerów sekwencji, dzięki czemu będzie można ponownie rozpocząć od zera (lub dowolna inna liczba dowolnego) w każdym regionie.
+* Nie zapisuj długie bloki konstrukcyjne ręcznie zaimplementowane `RenderTreeBuilder` logiki. Preferuj `.razor` pliki i umożliwić kompilatorowi do czynienia z numerami sekwencji.
 * Jeśli numery sekwencyjne są zapisane na stałe, algorytm diff wymaga jedynie, czy numery sekwencyjne wzrost wartości. Wartość początkowa i luki są nieistotne. Jedną z opcji uzasadnione jest wykorzystanie numer wiersza kodu jako numer sekwencyjny lub zacznij od zera i zwiększenia z nich lub setki (lub dowolnym preferowanym interwale). 
 * Blazor używa numerów sekwencji, podczas gdy innych platform tworzenia interfejsu użytkownika porównywanie drzewa nie są używane. Porównywanie jest znacznie szybszy, numery sekwencyjne są używane, gdy Blazor ma tę zaletę krok kompilacji, który dotyczy numerów sekwencyjnych automatycznie dla deweloperów autorstwa `.razor` plików.

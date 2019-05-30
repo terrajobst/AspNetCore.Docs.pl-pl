@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/21/2019
 uid: host-and-deploy/blazor/client-side
-ms.openlocfilehash: b572067e688d7e7f7c654a7a25703009c1a7e855
-ms.sourcegitcommit: e1623d8279b27ff83d8ad67a1e7ef439259decdf
+ms.openlocfilehash: b50516b4dce28a6b105b2ab8b9386060d5392983
+ms.sourcegitcommit: 4d05e30567279072f1b070618afe58ae1bcefd5a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66223189"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66376393"
 ---
 # <a name="host-and-deploy-blazor-client-side"></a>Hostowanie i wdrażanie Blazor po stronie klienta
 
@@ -188,7 +188,9 @@ Aby uzyskać informacje na temat wdrażania w usłudze Azure App Service, zobacz
 
 ## <a name="standalone-deployment"></a>Wdrażania autonomicznego
 
-A *wdrażania autonomicznego* służy aplikacja Blazor po stronie klienta jako zbiór plików statycznych, które są żądane bezpośrednio przez klientów. Serwer sieci web nie jest używany do obsługi aplikacji Blazor.
+A *wdrażania autonomicznego* służy aplikacja Blazor po stronie klienta jako zbiór plików statycznych, które są żądane bezpośrednio przez klientów. Można udostępniać aplikację Blazor jest dowolnego serwera plików statycznych.
+
+Zasoby wdrożenia autonomicznych są publikowane w *wersji/bin / {w TARGET FRAMEWORK} /publish/ {Nazwa zestawu} / dist* folderu.
 
 ### <a name="iis"></a>IIS
 
