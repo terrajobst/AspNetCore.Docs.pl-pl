@@ -92,10 +92,6 @@
     - name: Aplikacje zdalnego wywołania procedury
       items:
         - name: Wprowadzenie do usługi gRPC na platformie ASP.NET Core
-          uid: tutorials/grpc/index
-        - name: Tworzenie usługi gRPC Greeter na platformie ASP.NET Core
-          uid: tutorials/grpc/grpc-start
-        - name: Tworzenie klienta gRPC platformy .NET Core
           uid: tutorials/grpc/grpc-client
     - name: Dostęp do danych
       items:
@@ -321,7 +317,7 @@
               uid: spa/react
             - name: Biblioteka React z implementacją Redux
               uid: spa/react-with-redux
-            - name: JavaScriptServices
+            - name: Usługi języka JavaScript
               uid: client-side/spa-services
         - name: LibMan
           items:
@@ -534,14 +530,8 @@
       uid: grpc/migration
     - name: Porównanie usług gRPC za pomocą interfejsów API protokołu HTTP
       uid: grpc/comparison
-    - name: Samouczki
-      items:
-        - name: Wprowadzenie do usługi gRPC na platformie ASP.NET Core
-          uid: tutorials/grpc/index
-        - name: Tworzenie usługi gRPC Greeter na platformie ASP.NET Core
-          uid: tutorials/grpc/grpc-start
-        - name: Tworzenie klienta gRPC platformy .NET Core
-          uid: tutorials/grpc/grpc-client
+    - name: Tworzenie klienta i serwera gRPC
+      uid: tutorials/grpc/grpc-client
 - name: 'Testowanie, debugowanie i rozwiązywanie problemów'
   items:
     - name: Testowanie jednostek
