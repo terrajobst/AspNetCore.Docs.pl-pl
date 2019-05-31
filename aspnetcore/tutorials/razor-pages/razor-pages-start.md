@@ -3,14 +3,14 @@ title: 'Samouczek: Rozpoczynanie pracy ze stronami Razor w programie ASP.NET Cor
 author: rick-anderson
 description: W tej serii samouczków pokazano, jak używać stron Razor w programie ASP.NET Core. Dowiedz się, jak utworzyć model, generowanie kodu dla stron Razor, platformy Entity Framework Core i SQL Server na użytek dostęp do danych, dodać funkcje wyszukiwania, dodać sprawdzanie poprawności danych wejściowych i użyć migracje do aktualizacji modelu.
 ms.author: riande
-ms.date: 05/09/2019
+ms.date: 05/30/2019
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: 9307291756baf1bef714d6dae2f8d25d3aa6f922
-ms.sourcegitcommit: 3376f224b47a89acf329b2d2f9260046a372f924
+ms.openlocfilehash: e9f11f68aa138ab74a0ffbbd0e32067bc984606d
+ms.sourcegitcommit: 9ae1fd11f39b0a72b2ae42f0b450345e6e306bc0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65517110"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66415664"
 ---
 # <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Samouczek: Rozpoczynanie pracy ze stronami Razor w programie ASP.NET Core
 
@@ -71,9 +71,9 @@ Na końcu tego samouczka będziesz mieć działającą aplikację sieci web stro
   * `dotnet new` Polecenie tworzy nowy projekt strony Razor w *RazorPagesMovie* folderu.
   * `code` Polecenia otwiera *RazorPagesMovie* folderu w bieżącym wystąpieniu programu Visual Studio Code.
 
-  Zostanie wyświetlone okno dialogowe z **"RazorPagesMovie" brakuje wymagane zasoby do tworzenia i debugowania. Dodaj je?**
+* Po technologię OmniSharp pasek stanu gaśniczego ikona zmieni kolor na zielony, okno dialogowe prosi **"RazorPagesMovie" brakuje wymagane zasoby do tworzenia i debugowania. Dodaj je?** Wybierz **tak**.
 
-* Wybierz **tak**
+  A *.vscode* katalog zawierający *launch.json* i *tasks.json* pliki, zostanie dodany do katalogu głównego projektu.
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
