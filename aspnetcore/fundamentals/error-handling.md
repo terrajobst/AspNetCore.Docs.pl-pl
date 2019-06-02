@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 05/03/2019
 uid: fundamentals/error-handling
-ms.openlocfilehash: 36cd9fdac0b9159900e82327705a73d561e7ce6b
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 6b92cb6b68b1c70d67f42284d548729e598f9a8b
+ms.sourcegitcommit: c5339594101d30b189f61761275b7d310e80d18a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65086964"
+ms.lasthandoff: 06/02/2019
+ms.locfileid: "66458432"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>Obsługa błędów w programie ASP.NET Core
 
@@ -53,7 +53,7 @@ W poniższym przykładzie <xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExt
 
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_DevPageAndHandlerPage&highlight=5-9)]
 
-Szablon aplikacji stron Razor zawiera stronę błędu (*.cshtml*) i <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel> klasy (`ErrorModel`) w *stron* folderu. Dla aplikacji MVC szablon projektu obejmuje metodę akcji błędu i widoku błędów. Poniżej przedstawiono metody akcji:
+Szablon aplikacji stron Razor zawiera stronę błędu ( *.cshtml*) i <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel> klasy (`ErrorModel`) w *stron* folderu. Dla aplikacji MVC szablon projektu obejmuje metodę akcji błędu i widoku błędów. Poniżej przedstawiono metody akcji:
 
 ```csharp
 [AllowAnonymous]
@@ -166,7 +166,9 @@ Punkt końcowy, który przetwarza błędu można uzyskać oryginalny adres URL, 
 
 ## <a name="disable-status-code-pages"></a>Wyłączanie kod stanu
 
-Strony kodowe stanu można wyłączyć dla określonych żądań w metodzie obsługi stron Razor lub kontroler MVC. Aby wyłączyć stron kodowych stanu, użyj <xref:Microsoft.AspNetCore.Diagnostics.IStatusCodePagesFeature>:
+Aby wyłączyć stan stron kodowych MVC kontrolera lub metody akcji, należy użyć [[SkipStatusCodePages]](xref:Microsoft.AspNetCore.Mvc.SkipStatusCodePagesAttribute) atrybutu.
+
+Aby wyłączyć stanu strony kodowe dla określonych żądań w metodzie obsługi stron Razor lub kontroler MVC, użyj <xref:Microsoft.AspNetCore.Diagnostics.IStatusCodePagesFeature>:
 
 ```csharp
 var statusCodePagesFeature = HttpContext.Features.Get<IStatusCodePagesFeature>();

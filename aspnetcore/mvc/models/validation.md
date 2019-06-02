@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 04/06/2019
 monikerRange: '>= aspnetcore-2.1'
 uid: mvc/models/validation
-ms.openlocfilehash: acb0ae989f6e82a5bc80935a8acfc96e51073d2f
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 9737e45729b4e5abd9a33824c4d6610ca21681c0
+ms.sourcegitcommit: c5339594101d30b189f61761275b7d310e80d18a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64898396"
+ms.lasthandoff: 06/02/2019
+ms.locfileid: "66458476"
 ---
 # <a name="model-validation-in-aspnet-core-mvc-and-razor-pages"></a>Weryfikacja modelu w programie ASP.NET Core MVC i stron Razor
 
@@ -122,7 +122,9 @@ Aby zaimplementować weryfikację zdalną:
 1. W klasie modelu, dodawać adnotacje do właściwości o `[Remote]` atrybut, który wskazuje sprawdzania poprawności metody akcji, jak pokazano w poniższym przykładzie:
 
    [!code-csharp[](validation/sample/Models/User.cs?name=snippet_UserEmailProperty)]
-
+ 
+   `[Remote]` Atrybut jest `Microsoft.AspNetCore.Mvc` przestrzeni nazw. Zainstaluj [Microsoft.AspNetCore.Mvc.ViewFeatures](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.ViewFeatures) pakietu NuGet, jeśli nie używasz `Microsoft.AspNetCore.App` lub `Microsoft.AspNetCore.All` meta Microsoft.aspnetcore.all.
+   
 ### <a name="additional-fields"></a>Dodatkowe pola
 
 `AdditionalFields` Właściwość `[Remote]` atrybut umożliwia weryfikowanie kombinacje pól w odniesieniu do danych na serwerze. Na przykład jeśli `User` modelu ma `FirstName` i `LastName` właściwości, warto sprawdzić, czy nie istniejący użytkownicy mają już tej pary nazw. Poniższy przykład pokazuje, jak używać `AdditionalFields`:

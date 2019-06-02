@@ -6,18 +6,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/11/2018
 uid: security/anti-request-forgery
-ms.openlocfilehash: 4498bd88e7188ea6c0063aeec054bc20e13ed5f1
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: a32e0e2dbd7fab95562a562cb88767d4c1e8049d
+ms.sourcegitcommit: c5339594101d30b189f61761275b7d310e80d18a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65086444"
+ms.lasthandoff: 06/02/2019
+ms.locfileid: "66458484"
 ---
 # <a name="prevent-cross-site-request-forgery-xsrfcsrf-attacks-in-aspnet-core"></a>Ataki zapobiec Cross-Site Request Forgery (XSRF/CSRF) w programie ASP.NET Core
 
 Przez [Steve Smith](https://ardalis.com/), [Fiyaz Hasan](https://twitter.com/FiyazBinHasan), i [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Fałszowanie żądań między witrynami (znany także jako Wymowa XSRF lub CSRF, *szkl zobacz*) jest ataku na aplikacje hostowane w sieci web, zgodnie z którą aplikacja sieci web złośliwego mogą mieć wpływ na interakcję między przeglądarką klienta i aplikacji sieci web, która ufa Przeglądarka. Te ataki są możliwe, ponieważ przeglądarki sieci web wysyłać niektóre typy tokenów uwierzytelniania automatycznie za pomocą każdego żądania do witryny sieci Web. Ta forma wykorzystać jest także znana jako *ataku jednym kliknięciem* lub *sesji jazda* ponieważ ataku korzysta z zalet użytkownik wcześniej uwierzytelniona sesji.
+Fałszowanie żądań między witrynami (znany także jako XSRF lub CSRF) jest ataku na aplikacje hostowane w sieci web, zgodnie z którą aplikacja sieci web złośliwego mogą mieć wpływ na interakcję między przeglądarką klienta i aplikacji sieci web, która ufa tej przeglądarki. Te ataki są możliwe, ponieważ przeglądarki sieci web wysyłać niektóre typy tokenów uwierzytelniania automatycznie za pomocą każdego żądania do witryny sieci Web. Ta forma wykorzystać jest także znana jako *ataku jednym kliknięciem* lub *sesji jazda* ponieważ ataku korzysta z zalet użytkownik wcześniej uwierzytelniona sesji.
 
 Przykład ataku typu CSRF:
 

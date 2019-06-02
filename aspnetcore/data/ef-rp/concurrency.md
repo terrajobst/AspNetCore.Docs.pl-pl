@@ -4,14 +4,14 @@ author: rick-anderson
 description: W tym samouczku przedstawiono sposób obsługi konfliktów, gdy wielu użytkowników aktualizacji tej samej jednostki w tym samym czasie.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/07/2018
+ms.date: 05/31/2019
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: 17ce0c111daabe2c7bbf4795b658856568c85158
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 8430f8e720870a7b541655ea8bcfe2f67c942bb3
+ms.sourcegitcommit: c5339594101d30b189f61761275b7d310e80d18a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64900259"
+ms.lasthandoff: 06/02/2019
+ms.locfileid: "66458430"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---concurrency---8-of-8"></a>Strony razor z programem EF Core w programie ASP.NET Core — współbieżności — 8 8
 
@@ -189,7 +189,7 @@ Następujący kod przedstawia zaktualizowaną stronę:
 
 ### <a name="update-the-edit-page-model"></a>Aktualizowanie modelu strony edycji
 
-Aktualizacja *pages\departments\edit.cshtml.cs* następującym kodem:
+Aktualizacja *Pages\Departments\Edit.cshtml.cs* następującym kodem:
 
 [!code-csharp[](intro/samples/cu/Pages/Departments/Edit.cshtml.cs?name=snippet)]
 
