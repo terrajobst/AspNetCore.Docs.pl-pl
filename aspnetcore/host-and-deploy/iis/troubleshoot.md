@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/12/2019
 uid: host-and-deploy/iis/troubleshoot
-ms.openlocfilehash: 80994cb84e9e0658ee90198b6bf992e5b374bf3c
-ms.sourcegitcommit: b4ef2b00f3e1eb287138f8b43c811cb35a100d3e
+ms.openlocfilehash: e4c93459f2030c7c0a55ea90e0cc8c8d30b76c51
+ms.sourcegitcommit: a04eb20e81243930ec829a9db5dd5de49f669450
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65970035"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66470461"
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a>Rozwiązywanie problemów z platformą ASP.NET Core w usługach IIS
 
@@ -50,13 +50,13 @@ Proces roboczy kończy się niepowodzeniem. Nie zaczyna się aplikacja.
 
 Modułu ASP.NET Core próbuje uruchomić proces dotnet wewnętrznej bazy danych, ale nie została uruchomiona. Zazwyczaj można ustalić przyczyny niepowodzenia uruchamiania procesu na podstawie wpisów w [dziennik zdarzeń aplikacji](#application-event-log) i [dziennika stdout modułu ASP.NET Core](#aspnet-core-module-stdout-log).
 
-Aplikacja jest błędnie skonfigurowane z powodu przeznaczony dla wersji udostępnionej platformy ASP.NET Core, która nie jest obecny jest jakiś wspólny warunek błędu. Sprawdź, które wersje udostępnionej platformy ASP.NET Core są zainstalowane na komputerze docelowym. *Udostępnionej platformy* to zbiór zestawów (*.dll* plików), są zainstalowane na komputerze i odwołuje się meta Microsoft.aspnetcore.all, takich jak `Microsoft.AspNetCore.App`. Dokumentacja meta Microsoft.aspnetcore.all można określić minimalnej wymaganej wersji. Aby uzyskać więcej informacji, zobacz [udostępnionej platformy](https://natemcmaster.com/blog/2018/08/29/netcore-primitives-2/).
+Aplikacja jest błędnie skonfigurowane z powodu przeznaczony dla wersji udostępnionej platformy ASP.NET Core, która nie jest obecny jest jakiś wspólny warunek błędu. Sprawdź, które wersje udostępnionej platformy ASP.NET Core są zainstalowane na komputerze docelowym. *Udostępnionej platformy* to zbiór zestawów ( *.dll* plików), są zainstalowane na komputerze i odwołuje się meta Microsoft.aspnetcore.all, takich jak `Microsoft.AspNetCore.App`. Dokumentacja meta Microsoft.aspnetcore.all można określić minimalnej wymaganej wersji. Aby uzyskać więcej informacji, zobacz [udostępnionej platformy](https://natemcmaster.com/blog/2018/08/29/netcore-primitives-2/).
 
 *502.5 niepowodzenia procesu* strony błędu jest zwracany, jeśli aplikacji lub obsługującego błędnej konfiguracji powoduje niepowodzenie procesu roboczego:
 
 ![Okno przeglądarki, przedstawiający 502.5 stronę niepowodzenia procesu](troubleshoot/_static/process-failure-page.png)
 
-::: moniker range=">= aspnetcore-2.2"
+::: moniker range="= aspnetcore-2.2"
 
 ### <a name="50030-in-process-startup-failure"></a>500.30 w procesie Niepowodzenie uruchamiania
 
@@ -83,6 +83,93 @@ Modułu ASP.NET Core nie powiedzie się znaleźć spoza procesu hostingu Obsług
 
 ::: moniker-end
 
+::: moniker range=">= aspnetcore-3.0"
+
+### <a name="50031-ancm-failed-to-find-native-dependencies"></a>500.31 nie można odnaleźć zależności natywnych ANCM
+
+Proces roboczy kończy się niepowodzeniem. Nie zaczyna się aplikacja.
+
+Próbuje uruchomić platformy .NET Core środowiska uruchomieniowego w procesie modułu ASP.NET Core, ale nie została uruchomiona. Najczęstszą przyczyną tego błędu uruchamiania jest, gdy `Microsoft.NETCore.App` lub `Microsoft.AspNetCore.App` środowisko uruchomieniowe nie jest zainstalowany. Jeśli aplikacja jest wdrażana na docelowej platformy ASP.NET Core 3.0, a ta wersja nie istnieje na maszynie, ten błąd występuje. Przykładowy komunikat o błędzie:
+
+```
+The specified framework 'Microsoft.NETCore.App', version '3.0.0' was not found.
+  - The following frameworks were found:
+      2.2.1 at [C:\Program Files\dotnet\x64\shared\Microsoft.NETCore.App]
+      3.0.0-preview5-27626-15 at [C:\Program Files\dotnet\x64\shared\Microsoft.NETCore.App]
+      3.0.0-preview6-27713-13 at [C:\Program Files\dotnet\x64\shared\Microsoft.NETCore.App]
+      3.0.0-preview6-27714-15 at [C:\Program Files\dotnet\x64\shared\Microsoft.NETCore.App]
+      3.0.0-preview6-27723-08 at [C:\Program Files\dotnet\x64\shared\Microsoft.NETCore.App]
+```
+
+Komunikat o błędzie zawiera listę wszystkich zainstalowanych wersji platformy .NET Core i wersji, żądane przez aplikację. Aby naprawić ten błąd, to:
+
+* Na komputerze, należy zainstalować odpowiednią wersję programu .NET Core.
+* Zmień aplikacji pod kątem określonej wersji programu .NET Core, który znajduje się na komputerze.
+* Opublikuj aplikację jako [niezależna wdrożenia](/dotnet/core/deploying/#self-contained-deployments-scd).
+
+Podczas uruchamiania w trakcie opracowywania ( `ASPNETCORE_ENVIRONMENT` ustawiono zmienną środowiskową `Development`), ten błąd jest zapisywany do odpowiedzi HTTP. Przyczyny niepowodzenia uruchamiania procesu znajduje się również w [dziennik zdarzeń aplikacji](#application-event-log).
+
+### <a name="50032-ancm-failed-to-load-dll"></a>500.32 ANCM nie udało się ładowanie biblioteki dll
+
+Proces roboczy kończy się niepowodzeniem. Nie zaczyna się aplikacja.
+
+Najczęstszą przyczyną tego błędu jest to, że aplikacja została opublikowana na potrzeby architektury procesora niezgodne. Jeśli aplikacja została opublikowana do obiektu docelowego w 64-bitowy proces roboczy działa jako aplikacja 32-bitowych, ten błąd występuje.
+
+Aby naprawić ten błąd, to:
+
+* Ponownie opublikować aplikację dla architektury procesorów jako procesu roboczego.
+* Opublikuj aplikację jako [wdrożenia zależny od struktury](/dotnet/core/deploying/#framework-dependent-executables-fde).
+
+### <a name="50033-ancm-request-handler-load-failure"></a>500.33 błąd ładowania program obsługi żądania ANCM
+
+Proces roboczy kończy się niepowodzeniem. Nie zaczyna się aplikacja.
+
+Nie odwoływać się do aplikacji `Microsoft.AspNetCore.App` framework. Tylko aplikacje przeznaczone dla `Microsoft.AspNetCore.App` framework może być obsługiwany przez modułu ASP.NET Core.
+
+Aby naprawić ten błąd, upewnij się, że aplikacja jest przeznaczony dla `Microsoft.AspNetCore.App` framework. Sprawdź `.runtimeconfig.json` Aby zweryfikować framework docelowe przez aplikację.
+
+### <a name="50034-ancm-mixed-hosting-models-not-supported"></a>500.34 ANCM mieszane modelach hostingu nie jest obsługiwane
+
+Proces roboczy nie może uruchomić aplikację spoza procesu i aplikacji w trakcie tego samego procesu.
+
+Aby naprawić ten błąd, należy uruchamiać aplikacje w oddzielnych pul aplikacji usług IIS.
+
+### <a name="50035-ancm-multiple-in-process-applications-in-same-process"></a>500.35 wiele aplikacji w trakcie ANCM w tym samym procesie
+
+Proces roboczy nie może uruchomić aplikację spoza procesu i aplikacji w trakcie tego samego procesu.
+
+Aby naprawić ten błąd, należy uruchamiać aplikacje w oddzielnych pul aplikacji usług IIS.
+
+### <a name="50036-ancm-out-of-process-handler-load-failure"></a>500.36 błąd ładowania spoza procesu obsługi ANCM
+
+Obsługa żądań poza procesem, *aspnetcorev2_outofprocess.dll*, obok pozycji nie jest *aspnetcorev2.dll* pliku. Oznacza to uszkodzenie instalacji modułu ASP.NET Core.
+
+Aby naprawić ten błąd, napraw instalację [hostingu pakietu programu .NET Core](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle) (dla usług IIS) lub Visual Studio (dla usług IIS Express).
+
+### <a name="50037-ancm-failed-to-start-within-startup-time-limit"></a>500.37 ANCM uruchomienie nie powiodło się przed upływem limitu czasu uruchamiania
+
+ANCM nie można uruchomić w ramach limitu czasu uruchamiania dostarczają. Domyślnie limit czasu wynosi 120 sekund.
+
+Ten błąd może wystąpić podczas uruchamiania dużej liczby aplikacji na tym samym komputerze. Sprawdź, czy wzrostów użycia Procesora/pamięci na serwerze podczas uruchamiania. Może być konieczne przesunąć procesu uruchamiania wielu aplikacji.
+
+### <a name="50030-in-process-startup-failure"></a>500.30 w procesie Niepowodzenie uruchamiania
+
+Proces roboczy kończy się niepowodzeniem. Nie zaczyna się aplikacja.
+
+Próbuje uruchomić platformy .NET Core środowiska uruchomieniowego w procesie modułu ASP.NET Core, ale nie została uruchomiona. Przyczyny niepowodzenia uruchamiania procesu jest zazwyczaj określana na podstawie wpisów w [dziennik zdarzeń aplikacji](#application-event-log) i [dziennika stdout modułu ASP.NET Core](#aspnet-core-module-stdout-log).
+
+### <a name="5000-in-process-handler-load-failure"></a>500.0 w procesie programu obsługi błędu ładowania
+
+Proces roboczy kończy się niepowodzeniem. Nie zaczyna się aplikacja.
+
+Wystąpił nieznany błąd podczas ładowania składników modułu ASP.NET Core. Wykonaj jedną z następujących czynności:
+
+* Skontaktuj się z pomocą [Microsoft Support](https://support.microsoft.com/oas/default.aspx?prid=15832) (wybierz **narzędzi deweloperskich** następnie **platformy ASP.NET Core**).
+* Zadaj pytanie w witrynie Stack Overflow.
+* Prześlij zgłoszenie na naszych [repozytorium GitHub](https://github.com/aspnet/AspNetCore).
+
+::: moniker-end
+
 ### <a name="500-internal-server-error"></a>500 Wewnętrzny błąd serwera
 
 Uruchamia aplikację, ale błąd uniemożliwia spełnienie żądania przez serwer.
@@ -97,7 +184,7 @@ Source: IIS AspNetCore Module V2
 Failed to start application '/LM/W3SVC/6/ROOT/', ErrorCode '0x800700c1'.
 ```
 
-Aplikacji nie powiodło się, ponieważ zestaw aplikacji (*.dll*) nie można go załadować.
+Aplikacji nie powiodło się, ponieważ zestaw aplikacji ( *.dll*) nie można go załadować.
 
 Ten błąd występuje, gdy występuje niezgodność liczby bitów opublikowanej aplikacji i procesu w3wp/programu iisexpress.
 

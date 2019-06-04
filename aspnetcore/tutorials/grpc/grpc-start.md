@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 5/30/2019
 uid: tutorials/grpc/grpc-start
-ms.openlocfilehash: 2b4325d2413e335a3061a7695def88a1b23ee52b
-ms.sourcegitcommit: 4d05e30567279072f1b070618afe58ae1bcefd5a
+ms.openlocfilehash: a0bb5c087a712ccd890344d2fc52cc58adc914ab
+ms.sourcegitcommit: a04eb20e81243930ec829a9db5dd5de49f669450
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66376372"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66470421"
 ---
 # <a name="tutorial-create-a-grpc-client-and-server-in-aspnet-core"></a>Samouczek: Utworzenie gRPC klienta i serwera w programie ASP.NET Core
 
@@ -161,7 +161,7 @@ GRPC projekt klienta, należy dodać następujące pakiety:
 
 Instalowanie pakietów przy użyciu konsoli Menedżera pakietów (PMC) "lub" Zarządzaj pakietami NuGet
 
-####  <a name="pmc-option-to-install-packages"></a>Konsolę zarządzania Pakietami opcję, aby zainstalować pakiety
+#### <a name="pmc-option-to-install-packages"></a>Konsolę zarządzania Pakietami opcję, aby zainstalować pakiety
 
 * W programie Visual Studio, wybierz **narzędzia** > **Menedżera pakietów NuGet** > **Konsola Menedżera pakietów**
 * Z **Konsola Menedżera pakietów** okna, przejdź do katalogu, w którym *GrpcGreeterClient.csproj* plik istnieje.
@@ -218,7 +218,7 @@ dotnet add GrpcGreeterClient.csproj package Grpc.Tools
 
   Kliknij prawym przyciskiem myszy projekt i wybierz **Narzędzia > Edytuj plik**.
 
-  ------
+  ---
 
 * Dodaj **greet.proto** plik `<Protobuf>` grupy elementów GrpcGreeterClient pliku projektu:
 

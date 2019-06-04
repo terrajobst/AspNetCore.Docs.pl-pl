@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/24/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 12aa1b86e0b9078566f1c64cb4b83c4dddef09f7
-ms.sourcegitcommit: b8ed594ab9f47fa32510574f3e1b210cff000967
+ms.openlocfilehash: 41c07b86b50ea50df7420cb81f7b10133d395231
+ms.sourcegitcommit: a04eb20e81243930ec829a9db5dd5de49f669450
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66251355"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66470388"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host platformy ASP.NET Core na Windows za pomocą programu IIS
 
@@ -458,7 +458,7 @@ Jeśli statycznych zasobów `src` atrybut jest ustawiony na ścieżkę bezwzglę
 
 Do hostowania aplikacji ASP.NET Core jako aplikację podrzędne w ramach innej aplikacji platformy ASP.NET Core:
 
-1. Ustanów pulę aplikacji do aplikacji podrzędnej. Ustaw **wersja środowiska .NET CLR** do **bez kodu zarządzanego** ponieważ środowisko uruchomieniowe języka wspólnego Core (CoreCLR) dla platformy .NET Core jest rozruchu do hostowania tej aplikacji w procesie roboczym, nie pulpitu środowiska CLR (CLR platformy .NET).
+1. Ustanów pulę aplikacji do aplikacji podrzędnej. Ustaw **wersja środowiska .NET CLR** do **bez kodu zarządzanego** ponieważ środowisko uruchomieniowe języka wspólnego Core (CoreCLR) dla platformy .NET Core rozruchu do hostowania tej aplikacji w proces roboczy proces, nie pulpitu środowiska CLR (CLR platformy .NET).
 
 1. Dodawanie katalogu głównego witryny w Menedżerze usług IIS przy użyciu aplikacji podrzędne w folderze w katalogu głównego witryny.
 
