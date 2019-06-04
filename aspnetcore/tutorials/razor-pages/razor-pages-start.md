@@ -3,14 +3,14 @@ title: 'Samouczek: Rozpoczynanie pracy ze stronami Razor w programie ASP.NET Cor
 author: rick-anderson
 description: W tej serii samouczków pokazano, jak używać stron Razor w programie ASP.NET Core. Dowiedz się, jak utworzyć model, generowanie kodu dla stron Razor, platformy Entity Framework Core i SQL Server na użytek dostęp do danych, dodać funkcje wyszukiwania, dodać sprawdzanie poprawności danych wejściowych i użyć migracje do aktualizacji modelu.
 ms.author: riande
-ms.date: 05/30/2019
+ms.date: 6/3/2019
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: e9f11f68aa138ab74a0ffbbd0e32067bc984606d
-ms.sourcegitcommit: 9ae1fd11f39b0a72b2ae42f0b450345e6e306bc0
+ms.openlocfilehash: d843e47ccb5180fab34b4c4c4a4b5cbda21289bf
+ms.sourcegitcommit: a1364109d11d414121a6337b611bee61d6e489e9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66415664"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66491208"
 ---
 # <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Samouczek: Rozpoczynanie pracy ze stronami Razor w programie ASP.NET Core
 
@@ -43,13 +43,17 @@ Na końcu tego samouczka będziesz mieć działającą aplikację sieci web stro
 
 * W programie Visual Studio **pliku** menu, wybierz opcję **New** > **projektu**.
 
-* Tworzenie nowej aplikacji sieci Web platformy ASP.NET Core. Nadaj projektowi nazwę **RazorPagesMovie**. Ważne jest, aby nadaj projektowi nazwę *RazorPagesMovie* , przestrzenie nazw będą zgodne po skopiuj i Wklej kod.
+* Tworzenie nowej aplikacji sieci Web platformy ASP.NET Core i wybierz **dalej**.
 
   ![Nowa aplikacja internetowa ASP.NET Core](razor-pages-start/_static/np_2.1.png)
 
-* Wybierz **platformy ASP.NET Core 2.2** w listy rozwijanej, a następnie wybierz pozycję **aplikacji sieci Web**.
+* Nadaj projektowi nazwę **RazorPagesMovie**. Ważne jest, aby nadaj projektowi nazwę *RazorPagesMovie* , przestrzenie nazw będzie odpowiadał podczas kopiowania i Wklej kod do kodu.
 
-  ![Nowa aplikacja internetowa ASP.NET Core](razor-pages-start/_static/np_2_2.2.png)
+  ![Nowa aplikacja internetowa ASP.NET Core](razor-pages-start/_static/config.png)
+
+* Wybierz **platformy ASP.NET Core 2.2** na liście rozwijanej **aplikacji sieci Web**, a następnie wybierz pozycję **Utwórz**.
+
+![Nowa aplikacja internetowa ASP.NET Core](razor-pages-start/_static/np_2_2.2.png)
 
   Utworzono następujący projekt startowy:
 

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/26/2019
 uid: blazor/components
-ms.openlocfilehash: c048568952c4757bcd5ac3ed0f7e5616409c88b2
-ms.sourcegitcommit: 4d05e30567279072f1b070618afe58ae1bcefd5a
+ms.openlocfilehash: f9964dfdc3ae3108b6dbd6d0f5290254e2fc09cd
+ms.sourcegitcommit: a1364109d11d414121a6337b611bee61d6e489e9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66376333"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66491204"
 ---
 # <a name="create-and-use-razor-components"></a>Tworzenie i używanie składników Razor
 
@@ -75,37 +75,41 @@ Aby uzyskać więcej informacji na temat sposobu Wyrenderowana i składnika, sta
 
 Składniki mogą zawierać inne składniki, deklarując je przy użyciu składni elementu HTML. Znaczniki dla za pomocą składnika wygląda jak HTML tag, gdzie nazwa tagu jest typ składnika.
 
-Następujące znaczniki w *Index.razor* renderuje `HeadingComponent` wystąpienia, znajdujący się w innym pliku *HeadingComponent.razor*:
+Następujące znaczniki w *Index.razor* renderuje `HeadingComponent` wystąpienie:
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Pages/Index.razor?name=snippet_HeadingComponent)]
+
+*Components/HeadingComponent.razor*:
+
+[!code-cshtml[](common/samples/3.x/BlazorSample/Components/HeadingComponent.razor)]
 
 ## <a name="component-parameters"></a>Parametry składnika
 
 Składniki mogą mieć *Parametry składnika*, które są definiowane za pomocą *niepublicznych* właściwości klasy składnika za pomocą `[Parameter]` atrybutu. Używanie atrybutów, aby określić argumenty dla składnika w znacznikach.
 
-W poniższym przykładzie `ParentComponent` ustawia wartość `Title` właściwość `ChildComponent`:
+W poniższym przykładzie `ParentComponent` ustawia wartość `Title` właściwość `ChildComponent`.
 
-*Składnik nadrzędny*:
+*Pages/ParentComponent.razor*:
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Pages/ParentComponent.razor?name=snippet_ParentComponent&highlight=5-6)]
 
-*Składnik podrzędnych*:
+*Components/ChildComponent.razor*:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/ChildComponent.razor?highlight=11-12)]
+[!code-cshtml[](common/samples/3.x/BlazorSample/Components/ChildComponent.razor?highlight=11-12)]
 
 ## <a name="child-content"></a>Zawartość elementu podrzędnego
 
 Składniki można ustawić zawartości innego składnika. Przypisywanie składnik udostępnia zawartości między tagami, które określają odbieranie składnika. Na przykład `ParentComponent` może zapewnić zawartości dla renderowania przez składnik podrzędnych przez umieszczenie zawartość wewnątrz `<ChildComponent>` tagów.
 
-*Składnik nadrzędny*:
+*Pages/ParentComponent.razor*:
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Pages/ParentComponent.razor?name=snippet_ParentComponent&highlight=7-8)]
 
 Składnik podrzędny ma `ChildContent` właściwość, która reprezentuje `RenderFragment`. Wartość `ChildContent` jest umieszczony w znaczniku elementu podrzędnego, której zawartość ma być renderowany. W poniższym przykładzie wartość `ChildContent` jest otrzymane od składnika nadrzędnego i renderowania wewnątrz panelu Bootstrap `panel-body`.
 
-*Składnik podrzędnych*:
+*Components/ChildComponent.razor*:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/ChildComponent.razor?highlight=3,14-15)]
+[!code-cshtml[](common/samples/3.x/BlazorSample/Components/ChildComponent.razor?highlight=3,14-15)]
 
 > [!NOTE]
 > Odbieranie właściwość `RenderFragment` zawartość, musi nosić `ChildContent` przez Konwencję.
@@ -336,7 +340,7 @@ Typowy scenariusz w przypadku zagnieżdżonych składników jest wymaganą do ur
 
 Składnik podrzędnych Przykładowa aplikacja pokazuje, jak przycisk `onclick` program obsługi jest skonfigurowany do otrzymywać `EventCallback` delegatem przykładowy składnik nadrzędny. `EventCallback` Jest wypełniana `UIMouseEventArgs`, która jest odpowiednia dla `onclick` zdarzeń za pomocą urządzenia peryferyjne:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/ChildComponent.razor?highlight=5-7,17-18)]
+[!code-cshtml[](common/samples/3.x/BlazorSample/Components/ChildComponent.razor?highlight=5-7,17-18)]
 
 Składnik nadrzędny ustawia elementu podrzędnego `EventCallback<T>` do jego `ShowMessage` metody:
 
