@@ -5,14 +5,14 @@ description: Dowiedz się, jak udostępnić aplikację ASP.NET Core w usłudze W
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 05/21/2019
+ms.date: 06/03/2019
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: ab36bc1b2827c80bb1e7b9e8cee558b346a991f8
-ms.sourcegitcommit: b8ed594ab9f47fa32510574f3e1b210cff000967
+ms.openlocfilehash: 4cfca4b38543ff073bb98dc09b483d96096928ae
+ms.sourcegitcommit: 5dd2ce9709c9e41142771e652d1a4bd0b5248cec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66251422"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66692569"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Host platformy ASP.NET Core w usłudze Windows
 
@@ -26,6 +26,35 @@ Aplikacji ASP.NET Core może być hostowana na Windows jako [usługi Windows](/d
 
 * [Platforma ASP.NET Core SDK 2.1 lub nowszej](https://dotnet.microsoft.com/download)
 * [PowerShell 6.2 lub nowszej](https://github.com/PowerShell/PowerShell)
+
+::: moniker range=">= aspnetcore-3.0"
+
+## <a name="worker-service-template"></a>Szablon usługi procesu roboczego
+
+Szablon usługi procesu roboczego programu ASP.NET Core stanowi punkt wyjścia do pisania długo działające usługi App Service. Aby użyć szablonu jako podstawy dla aplikacji Windows Service:
+
+1. Tworzenie aplikacji usługi procesu roboczego na podstawie szablonu platformy .NET Core.
+1. Postępuj zgodnie ze wskazówkami w [konfiguracji aplikacji](#app-configuration) sekcji, aby zaktualizować aplikację Usługa procesu roboczego, dzięki czemu można uruchomić jako usługę Windows.
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+1. Utwórz nowy projekt.
+1. Wybierz **aplikacji sieci Web platformy ASP.NET Core**. Wybierz opcję **Dalej**.
+1. Podaj nazwę projektu w **Nazwa projektu** pola lub zaakceptuj domyślną nazwę projektu. Wybierz pozycję **Utwórz**.
+1. W **Tworzenie nowej aplikacji sieci Web platformy ASP.NET Core** okna dialogowego, upewnij się, że **platformy .NET Core** i **platformy ASP.NET Core 3.0** są zaznaczone.
+1. Wybierz **Usługa procesu roboczego** szablonu. Wybierz pozycję **Utwórz**.
+
+# <a name="visual-studio-code--net-core-clitabvisual-studio-codenetcore-cli"></a>[Program Visual Studio Code / .NET Core interfejsu wiersza polecenia](#tab/visual-studio-code+netcore-cli)
+
+Usługa procesu roboczego (`worker`) szablon [dotnet nowe](/dotnet/core/tools/dotnet-new) polecenia powłoki poleceń. W poniższym przykładzie tworzony jest aplikacją usługi procesu roboczego o nazwie `ContosoWorkerService`. Folder `ContosoWorkerService` aplikacji jest tworzona automatycznie podczas wykonywania polecenia.
+
+```console
+dotnet new worker -o ContosoWorkerService
+```
+
+---
+
+::: moniker-end
 
 ## <a name="app-configuration"></a>Konfiguracja aplikacji
 

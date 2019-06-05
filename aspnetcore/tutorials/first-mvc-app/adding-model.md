@@ -5,12 +5,12 @@ description: Dodawanie modelu do prostą aplikację platformy ASP.NET Core.
 ms.author: riande
 ms.date: 02/25/2019
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: 0580c2cb7717a89d0d16cd3f431a63db78fa27cb
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 0de1b7e69298af8299e0ca6c8ebd3c2b995b7471
+ms.sourcegitcommit: 5dd2ce9709c9e41142771e652d1a4bd0b5248cec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64900856"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66692485"
 ---
 # <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>Dodawanie modelu do aplikacji ASP.NET Core MVC
 
@@ -156,7 +156,7 @@ W tej sekcji należy wykonać następujące zadania:
 
    `Add-Migration` Polecenie generuje kod, aby utworzyć schemat początkowej bazy danych.
 
-   Schemat bazy danych zależy od określonego w modelu `MvcMovieContext` klasy (w *Data/MvcMovieContext.cs* pliku). `Initial` Argument jest nazwą migracji. Można dowolną nazwę, ale zgodnie z Konwencją, jest używany na nazwę opisującą migracji. Aby uzyskać więcej informacji, zobacz <xref:data/ef-mvc/migrations>.
+   Schemat bazy danych zależy od określonego w modelu `MvcMovieContext` klasy. `Initial` Argument jest nazwą migracji. Można dowolną nazwę, ale zgodnie z Konwencją, jest używany na nazwę opisującą migracji. Aby uzyskać więcej informacji, zobacz <xref:data/ef-mvc/migrations>.
 
    `Update-Database` Polecenia `Up` method in Class metoda *migracje / {sygnatura czasowa} _InitialCreate.cs* pliku, który tworzy bazę danych.
 

@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 04/06/2019
 uid: razor-pages/index
-ms.openlocfilehash: 7df57153efc58b6a19ce663eb31d173da11b1005
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 93796fa1edfa316790794d3775342147ea28ae2e
+ms.sourcegitcommit: 5dd2ce9709c9e41142771e652d1a4bd0b5248cec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64898633"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66692544"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Wprowadzenie do stron Razor programu ASP.NET Core
 
@@ -22,8 +22,6 @@ Strony razor jest nowy aspekt ASP.NET Core MVC, która sprawia, że kodowania sk
 Jeśli szukasz samouczka, który korzysta z metody Model-View-Controller [Rozpoczynanie pracy z platformą ASP.NET Core MVC](xref:tutorials/first-mvc-app/start-mvc).
 
 Ten dokument zawiera wprowadzenie do stron Razor. Nie jest samouczek krok po kroku. Jeśli znajdziesz niektóre sekcje zbyt zaawansowany, zobacz [Rozpoczynanie pracy ze stronami Razor](xref:tutorials/razor-pages/razor-pages-start). Aby uzyskać omówienie platformy ASP.NET Core, zobacz [wprowadzenie do platformy ASP.NET Core](xref:index).
-
-## <a name="prerequisites"></a>Wymagania wstępne
 
 [!INCLUDE[](~/includes/net-core-prereqs-all-2.2.md)]
 

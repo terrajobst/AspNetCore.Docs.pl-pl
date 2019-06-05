@@ -4,14 +4,14 @@ author: juntaoluo
 description: W tym samouczku przedstawiono sposób tworzenia klienta usługi i gRPC gRPC programu ASP.NET Core. Dowiedz się, jak utworzyć projekt usługi gRPC, Edytuj plik proto i dodać dupleks, przesyłanie strumieniowe wywołania.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
-ms.date: 5/30/2019
+ms.date: 06/05/2019
 uid: tutorials/grpc/grpc-start
-ms.openlocfilehash: 2e1768e82f670750621257fec10457c11e9b601b
-ms.sourcegitcommit: a1364109d11d414121a6337b611bee61d6e489e9
+ms.openlocfilehash: 71e3321819eb7169f0896abe3e07849f59ea6fc7
+ms.sourcegitcommit: 5dd2ce9709c9e41142771e652d1a4bd0b5248cec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66491222"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66692533"
 ---
 # <a name="tutorial-create-a-grpc-client-and-server-in-aspnet-core"></a>Samouczek: Utworzenie gRPC klienta i serwera w programie ASP.NET Core
 
@@ -230,7 +230,7 @@ dotnet add GrpcGreeterClient.csproj package Grpc.Tools
 
 Skompiluj projekt klienta, aby wyzwolić Generowanie C# zasobów klienta.
 
-### <a name="create-the-greater-client"></a>Utwórz większe klienta
+### <a name="create-the-greeter-client"></a>Tworzenie klienta Greeter
 
 Skompiluj projekt, aby utworzyć typy w **Greeter** przestrzeni nazw. `Greeter` Typy są generowane automatycznie przez proces kompilacji.
 
@@ -240,14 +240,14 @@ Aktualizacja klienta gRPC *Program.cs* pliku następującym kodem:
 
 *Plik program.cs* zawiera punktu wejścia, a logika gRPC klienta.
 
-Większa klienta jest tworzony przez:
+Klient Greeter jest tworzony przez:
 
 * Utworzenie wystąpienia `Channel` zawierające informacje dotyczące tworzenia połączenia z usługą gRPC.
-* Za pomocą `Channel` do konstruowania większa klienta:
+* Za pomocą `Channel` do konstruowania klienta Greeter:
 
 [!code-cs[](~/tutorials/grpc/grpc-start/sample/GrpcGreeterClient/Program.cs?name=snippet&highlight=4-6)]
 
-Większa klient wywołuje asynchroniczną `SayHello` metody. Wynik `SayHello` wywołań jest wyświetlany:
+Klient Greeter wywołuje asynchroniczną `SayHello` metody. Wynik `SayHello` wywołań jest wyświetlany:
 
 [!code-cs[](~/tutorials/grpc/grpc-start/sample/GrpcGreeterClient/Program.cs?name=snippet&highlight=7-9)]
 

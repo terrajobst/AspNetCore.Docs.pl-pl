@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/13/2019
 uid: fundamentals/routing
-ms.openlocfilehash: 0c2df3ec63f393b961754f496830cccb26f1cb76
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 2a7a942f43de94326e84977f09dc9a2e24dd00f0
+ms.sourcegitcommit: 5dd2ce9709c9e41142771e652d1a4bd0b5248cec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64899512"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66692580"
 ---
 # <a name="routing-in-aspnet-core"></a>Routing w programie ASP.NET Core
 
@@ -165,7 +165,9 @@ Dopasowanie, która wywołuje <xref:Microsoft.AspNetCore.Routing.IRouter.RouteAs
 
 [RouteData.Routers](xref:Microsoft.AspNetCore.Routing.RouteData.Routers) znajduje się lista tras, na których uczestniczyła w pomyślnie dopasowywania żądania. Trasy mogą być zagnieżdżone wewnątrz siebie nawzajem. <xref:Microsoft.AspNetCore.Routing.RouteData.Routers> Właściwość odzwierciedla drogę przez drzewo logiczne tras, które spowodowały dopasowanie. Ogólnie rzecz biorąc, pierwszy element <xref:Microsoft.AspNetCore.Routing.RouteData.Routers> jest kolekcją tras i powinny być używane do generowania adresu URL. Ostatnim elementem w <xref:Microsoft.AspNetCore.Routing.RouteData.Routers> jest programu obsługi trasy, który jest zgodny.
 
-### <a name="url-generation"></a>Generowanie adresu URL
+<a name="lg"></a>
+
+### <a name="url-generation-with-linkgenerator"></a>Generowanie adresu URL przy użyciu LinkGenerator
 
 ::: moniker range=">= aspnetcore-2.2"
 
@@ -655,10 +657,10 @@ Wyrażenia regularne użyte w routingu często rozpoczynać się od karetki (`^`
 
 | Wyrażenie   | String    | Dopasowanie | Komentarz               |
 | ------------ | --------- | :---: |  -------------------- |
-| `[a-z]{2}`   | Cześć     | Yes   | podciąg dopasowania     |
-| `[a-z]{2}`   | 123abc456 | Tak   | podciąg dopasowania     |
+| `[a-z]{2}`   | Cześć     | Tak   | podciąg dopasowania     |
+| `[a-z]{2}`   | 123abc456 | Yes   | podciąg dopasowania     |
 | `[a-z]{2}`   | mz        | Tak   | zgodne z wyrażeniem    |
-| `[a-z]{2}`   | MZ        | Tak   | bez uwzględniania wielkości liter    |
+| `[a-z]{2}`   | MZ        | Yes   | bez uwzględniania wielkości liter    |
 | `^[a-z]{2}$` | Cześć     | Nie    | zobacz `^` i `$` powyżej |
 | `^[a-z]{2}$` | 123abc456 | Nie    | zobacz `^` i `$` powyżej |
 
