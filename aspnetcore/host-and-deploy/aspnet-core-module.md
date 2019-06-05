@@ -5,14 +5,14 @@ description: Dowiedz się, jak skonfigurować modułu ASP.NET Core do hostowania
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/17/2019
+ms.date: 06/05/2019
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: 11906f34f4aa358fda126772e2147dc805c28e81
-ms.sourcegitcommit: 06c4f2910dd54ded25e1b8750e09c66578748bc9
+ms.openlocfilehash: f287a9bad623c5ff5c41868c7c4408b572b39000
+ms.sourcegitcommit: c716ea9155a6b404c1f3d3d34e2388454cd276d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66395941"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66716355"
 ---
 # <a name="aspnet-core-module"></a>Moduł ASP.NET Core
 
@@ -156,7 +156,7 @@ Modułu ASP.NET Core może również:
 
 ## <a name="how-to-install-and-use-the-aspnet-core-module"></a>Jak zainstalować i używać modułu ASP.NET Core
 
-Aby uzyskać instrukcje na temat sposobu instalowania i używania modułu ASP.NET Core, zobacz <xref:host-and-deploy/iis/index>.
+Aby uzyskać instrukcje dotyczące sposobu instalowania modułu ASP.NET Core, zobacz [jest instalowany pakiet hostingu platformy .NET Core](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle).
 
 ## <a name="configuration-with-webconfig"></a>Konfiguracja z pliku web.config
 

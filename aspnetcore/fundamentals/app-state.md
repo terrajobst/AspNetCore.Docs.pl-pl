@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/12/2019
 uid: fundamentals/app-state
-ms.openlocfilehash: cf5a1da78f3918bc4a49209157b9aa4bc7ed8458
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 3d878a389462aa7f3932f374034fb7cf11fd191c
+ms.sourcegitcommit: c716ea9155a6b404c1f3d3d34e2388454cd276d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64900595"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66716330"
 ---
 # <a name="session-and-app-state-in-aspnet-core"></a>Stan sesji i aplikacji w programie ASP.NET Core
 
@@ -65,7 +65,7 @@ Stan sesji wykazuje następujące zachowania:
 * Aplikacja zachowuje sesję przez ograniczony czas, po wykonaniu ostatniego żądania. Aplikacja ustawia limit czasu sesji lub domyślną wartość 20 minut. Stan sesji jest idealnym rozwiązaniem do przechowywania danych użytkownika, który jest specyficzny dla określonej sesji, ale których danych nie wymaga trwałego magazynu między sesjami.
 * Dane sesji zostaną usunięte albo gdy [ISession.Clear](/dotnet/api/microsoft.aspnetcore.http.isession.clear) implementacja jest nazywany lub utraty ważności sesji.
 * Nie ma domyślnego mechanizmu do informowania kod aplikacji przeglądarki klienta został zamknięty lub gdy plik cookie sesji został usunięty lub wygasła w dniu klienta.
-* ASP.NET Core MVC i szablony stron Razor obejmują wsparcie dla ogólnych danych (GDPR Protection Regulation). Pliki cookie z sesji stanu nie są oznaczone essential domyślnie, aby stan sesji nie jest funkcjonalności, chyba że śledzenie jest dozwolone przez obiekt odwiedzający witrynę. Aby uzyskać więcej informacji, zobacz <xref:security/gdpr#tempdata-provider-and-session-state-cookies-are-not-essential>.
+* ASP.NET Core MVC i szablony stron Razor obejmują wsparcie dla ogólnych danych (GDPR Protection Regulation). Pliki cookie z sesji stanu nie są oznaczone essential domyślnie, aby stan sesji nie jest funkcjonalności, chyba że śledzenie jest dozwolone przez obiekt odwiedzający witrynę. Aby uzyskać więcej informacji, zobacz <xref:security/gdpr#tempdata-provider-and-session-state-cookies-arent-essential>.
 
 > [!WARNING]
 > Nie należy przechowywać poufne dane stanu sesji. Użytkownik może nie Zamknij przeglądarkę i wyczyść plik cookie sesji. Niektóre przeglądarki pliki cookie z sesji prawidłowe zachowanie okna przeglądarki. Sesja nie może być ograniczone do pojedynczego użytkownika&mdash;następnego użytkownika mogą w dalszym ciągu Przeglądaj aplikację przy użyciu tego samego pliku cookie sesji.

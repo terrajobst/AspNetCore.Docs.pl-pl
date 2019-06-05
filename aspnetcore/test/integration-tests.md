@@ -5,14 +5,14 @@ description: Dowiedz się, jak testy integracji upewnij się, że składniki apl
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/25/2019
+ms.date: 06/05/2019
 uid: test/integration-tests
-ms.openlocfilehash: 46c3b227ca0b3def5ab7d527a2f6ef2497d55f83
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 3af2a1f7c6a65d7ff42597972ee151a50fc95fb6
+ms.sourcegitcommit: c716ea9155a6b404c1f3d3d34e2388454cd276d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64898657"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66716376"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>Testy integracji w programie ASP.NET Core
 
@@ -84,7 +84,7 @@ Składniki infrastruktury, takich jak test hosta sieci web i testu w pamięci se
 
 `Microsoft.AspNetCore.Mvc.Testing` Pakietu obsługuje następujące zadania:
 
-* Kopiuje plik zależności (*\*.deps*) z SUT do projektu testowego *bin* folderu.
+* Kopiuje plik zależności ( *\*.deps*) z SUT do projektu testowego *bin* katalogu.
 * Ustawia zawartości głównego katalogu głównego projektu SUT tak, aby pliki statyczne i stron/widoki są dostępne, gdy testy są wykonywane.
 * Udostępnia [WebApplicationFactory](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1) klasy, aby usprawnić uruchamianie SUT z `TestServer`.
 
@@ -127,6 +127,8 @@ Następującego testu, klasy, `BasicTests`, używa `WebApplicationFactory` boots
 [CreateClient](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1.createclient) tworzy wystąpienie `HttpClient` , następuje przekierowania i automatycznie obsługuje pliki cookie.
 
 [!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/BasicTests.cs?name=snippet1)]
+
+Domyślnie, inne niż niezbędne pliki cookie nie są zachowywane na żądania, gdy [RODO zgody zasad](xref:security/gdpr) jest włączona. Aby zachować inne niż niezbędne pliki cookie, takich jak używane przez dostawcę TempData należy oznaczyć je jako istotne w testach. Aby uzyskać instrukcje dotyczące oznaczanie jako niezbędne pliki cookie, zobacz [niezbędne pliki cookie](xref:security/gdpr#essential-cookies).
 
 ### <a name="test-a-secure-endpoint"></a>Testowanie bezpiecznego punktu końcowego
 
@@ -270,7 +272,7 @@ Znaczniki generowane podczas wykonywania testów odzwierciedla tekst oferty, dos
 
 ## <a name="how-the-test-infrastructure-infers-the-app-content-root-path"></a>Jak infrastrukturę testowania wnioskuje ścieżka zawartości katalogu głównego aplikacji
 
-`WebApplicationFactory` Konstruktor wnioskuje ścieżka zawartości katalogu głównego aplikacji, wyszukując [WebApplicationFactoryContentRootAttribute](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactorycontentrootattribute) na zestaw zawierający testy integracji przy użyciu klucza równą `TEntryPoint` zestawu `System.Reflection.Assembly.FullName`. W przypadku, gdy atrybut z poprawnym kluczem nie zostanie znaleziona, `WebApplicationFactory` powraca do wyszukiwania pliku rozwiązań (*\*.sln*) i dołącza `TEntryPoint` nazwy zestawu w katalogu rozwiązania. Katalog główny aplikacji (ścieżka katalogu głównego zawartości) służy do odnajdywania, widoki i plików zawartości.
+`WebApplicationFactory` Konstruktor wnioskuje ścieżka zawartości katalogu głównego aplikacji, wyszukując [WebApplicationFactoryContentRootAttribute](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactorycontentrootattribute) na zestaw zawierający testy integracji przy użyciu klucza równą `TEntryPoint` zestawu `System.Reflection.Assembly.FullName`. W przypadku, gdy atrybut z poprawnym kluczem nie zostanie znaleziona, `WebApplicationFactory` powraca do wyszukiwania pliku rozwiązań ( *\*.sln*) i dołącza `TEntryPoint` nazwy zestawu w katalogu rozwiązania. Katalog główny aplikacji (ścieżka katalogu głównego zawartości) służy do odnajdywania, widoki i plików zawartości.
 
 W większości przypadków nie trzeba jawnie ustawić katalogu głównego zawartości aplikacji, ponieważ logika wyszukiwania zwykle znajduje poprawne zawartości katalogu głównego w czasie wykonywania. W scenariuszach specjalne, której nie odnaleziono katalogu głównego zawartości przy użyciu algorytmu wyszukiwania wbudowanych, zawartości, można określić katalogu głównego jawnie lub za pomocą niestandardowej logiki aplikacji. Aby ustawić katalogu głównego zawartości aplikacji w tych scenariuszach, należy wywołać `UseSolutionRelativeContentRoot` metoda rozszerzenia z [Microsoft.AspNetCore.TestHost](https://www.nuget.org/packages/Microsoft.AspNetCore.TestHost) pakietu. Podaj ścieżkę względną rozwiązania i wzorzec nazwy lub glob pliku rozwiązania opcjonalne (domyślny = `*.sln`).
 
@@ -311,7 +313,7 @@ Wywołaj [UseSolutionRelativeContentRoot](/dotnet/api/microsoft.aspnetcore.testh
 
 ## <a name="disable-shadow-copying"></a>Wyłącz kopiowania w tle
 
-Kopiowanie w tle powoduje, że testy do wykonania w innym folderze niż folder wyjściowy. W przypadku testów do poprawnego działania kopiowania w tle, należy wyłączyć. [Przykładową aplikację](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) używa rozwiązania xUnit i wyłącza kopiowania w tle dla xUnit, umieszczając *xunit.runner.json* pliku z ustawieniem prawidłowej konfiguracji. Aby uzyskać więcej informacji, zobacz [Konfigurowanie xUnit kodem JSON](https://xunit.github.io/docs/configuring-with-json.html).
+Kopiowanie w tle powoduje, że testy do wykonania w innym katalogu niż katalog wyjściowy. W przypadku testów do poprawnego działania kopiowania w tle, należy wyłączyć. [Przykładową aplikację](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) używa rozwiązania xUnit i wyłącza kopiowania w tle dla xUnit, umieszczając *xunit.runner.json* pliku z ustawieniem prawidłowej konfiguracji. Aby uzyskać więcej informacji, zobacz [Konfigurowanie xUnit kodem JSON](https://xunit.github.io/docs/configuring-with-json.html).
 
 Dodaj *xunit.runner.json* plik do katalogu głównego projektu testowego o następującej zawartości:
 
@@ -329,12 +331,12 @@ Po przeprowadzeniu testów z `IClassFixture` wdrożenia są wykonywane, [element
 
 [Przykładową aplikację](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) składa się z dwóch aplikacji:
 
-| Aplikacja | Folder projektu | Opis |
-| --- | -------------- | ----------- |
+| Aplikacja | Katalog projektu | Opis |
+| --- | ----------------- | ----------- |
 | Wiadomości w aplikacji (SUT) | *src/RazorPagesProject* | Umożliwia użytkownikowi Dodaj, Usuń jedno, Usuń wszystkie i analizowania komunikatów. |
 | Testowanie aplikacji | *tests/RazorPagesProject.Tests* | Używany do testów integracji SUT. |
 
-Testy mogą być uruchamiane przy użyciu funkcji wbudowanych testu środowisko IDE, takich jak [programu Visual Studio](https://visualstudio.microsoft.com). Jeśli przy użyciu [programu Visual Studio Code](https://code.visualstudio.com/) lub wiersza polecenia, uruchom następujące polecenie w wierszu polecenia w *tests/RazorPagesProject.Tests* folderu:
+Testy mogą być uruchamiane przy użyciu funkcji wbudowanych testu środowisko IDE, takich jak [programu Visual Studio](https://visualstudio.microsoft.com). Jeśli przy użyciu [programu Visual Studio Code](https://code.visualstudio.com/) lub wiersza polecenia, uruchom następujące polecenie w wierszu polecenia w *tests/RazorPagesProject.Tests* katalogu:
 
 ```console
 dotnet test
@@ -357,10 +359,10 @@ Mimo że aplikacja nie korzysta z wzorca repozytorium i nie jest skuteczne przyk
 
 ### <a name="test-app-organization"></a>Testowanie aplikacji organizacji
 
-Aplikacja testowa jest aplikacją konsoli wewnątrz *tests/RazorPagesProject.Tests* folderu.
+Aplikacja testowa jest aplikacją konsoli wewnątrz *tests/RazorPagesProject.Tests* katalogu.
 
-| Folder aplikacji testowego | Opis |
-| --------------- | ----------- |
+| Katalog aplikacji testowy | Opis |
+| ------------------ | ----------- |
 | *BasicTests* | *BasicTests.cs* zawiera metody testowe dla routingu, uzyskiwanie dostępu do bezpiecznego strony nieuwierzytelniony użytkownik i Uzyskiwanie profilu użytkownika usługi GitHub i sprawdzanie danych logowania użytkownika w profilu. |
 | *IntegrationTests* | *IndexPageTests.cs* zawiera testy integracji strony indeksu przy użyciu niestandardowego `WebApplicationFactory` klasy. |
 | *Pomocnicy/narzędzia* | <ul><li>*Utilities.cs* zawiera `InitializeDbForTests` metodę używaną do umieszczenia w bazie danych testowych.</li><li>*HtmlHelpers.cs* udostępnia metodę, aby zwrócić AngleSharp `IHtmlDocument` do użytku przez metod testowych.</li><li>*HttpClientExtensions.cs* , zapewnienia przeciążenia dla `SendAsync` do przesyłania żądań do SUT.</li></ul> |

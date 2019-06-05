@@ -5,14 +5,14 @@ description: Rozpoczynanie pracy z usługą Blazor, tworząc aplikację Blazor, 
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/26/2019
+ms.date: 06/05/2019
 uid: blazor/get-started
-ms.openlocfilehash: a67f9742184716338bf6235c0b340900b17b19dc
-ms.sourcegitcommit: b8ed594ab9f47fa32510574f3e1b210cff000967
+ms.openlocfilehash: 9df18b25f6d82d655c093a17fe498615c0ff535e
+ms.sourcegitcommit: c716ea9155a6b404c1f3d3d34e2388454cd276d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66251191"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66716285"
 ---
 # <a name="get-started-with-blazor"></a>Rozpoczynanie pracy z usługą Blazor
 
@@ -32,29 +32,29 @@ Rozpoczynanie pracy z usługą Blazor:
 
    # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-   1.&nbsp;zainstaluj najnowszą wersję [programu Visual Studio w wersji zapoznawczej](https://visualstudio.com/preview) za pomocą **ASP.NET i tworzenie aplikacji internetowych** obciążenia.
+   1\. Zainstaluj najnowszą wersję [programu Visual Studio preview](https://visualstudio.com/preview) z **ASP.NET i tworzenie aplikacji internetowych** obciążenia.
 
-   2.&nbsp;zainstaluj najnowszą wersję [rozszerzenia Blazor](https://go.microsoft.com/fwlink/?linkid=870389) z witryny Marketplace programu Visual Studio. Ten krok udostępnia Blazor szablony programu Visual Studio.
+   2\. Zainstaluj najnowszą wersję [rozszerzenia Blazor](https://go.microsoft.com/fwlink/?linkid=870389) z witryny Marketplace programu Visual Studio. Ten krok udostępnia Blazor szablony programu Visual Studio.
 
-   3.&nbsp;Utwórz nowy projekt.
+   3\. Utwórz nowy projekt.
 
-   4.&nbsp;wybierz **aplikacji sieci Web platformy ASP.NET Core**. Wybierz opcję **Dalej**.
+   4\. Wybierz **aplikacji sieci Web platformy ASP.NET Core**. Wybierz opcję **Dalej**.
 
-   5.&nbsp;Podaj nazwę projektu w **Nazwa projektu** pola lub zaakceptuj domyślną nazwę projektu. Upewnij się, **lokalizacji** wpis jest poprawny lub podaj lokalizację dla projektu. Wybierz pozycję **Utwórz**.
+   5\. Podaj nazwę projektu w **Nazwa projektu** pola lub zaakceptuj domyślną nazwę projektu. Upewnij się, **lokalizacji** wpis jest poprawny lub podaj lokalizację dla projektu. Wybierz pozycję **Utwórz**.
 
-   6.&nbsp;w **Tworzenie nowej aplikacji sieci Web platformy ASP.NET Core** okna dialogowego, upewnij się, że **platformy .NET Core** i **platformy ASP.NET Core 3.0** są zaznaczone.
+   6\. W **Tworzenie nowej aplikacji sieci Web platformy ASP.NET Core** okna dialogowego, upewnij się, że **platformy .NET Core** i **platformy ASP.NET Core 3.0** są zaznaczone.
 
-   7.&nbsp;Blazor środowisko pracy klienta, wybierz **Blazor (po stronie klienta)** szablonu. Środowisko pracy Blazor po stronie serwera, wybierz **Blazor (po stronie serwera)** szablonu. Wybierz pozycję **Utwórz**. Aby uzyskać informacje dotyczące dwóch modelach hostingu Blazor, po stronie serwera i klienta, zobacz <xref:blazor/hosting-models>.
+   7\. Środowisko pracy klienta Blazor, wybierz **Blazor (po stronie klienta)** szablonu. Środowisko pracy Blazor po stronie serwera, wybierz **Blazor (po stronie serwera)** szablonu. Wybierz pozycję **Utwórz**. Aby uzyskać informacje dotyczące dwóch modelach hostingu Blazor, po stronie serwera i klienta, zobacz <xref:blazor/hosting-models>.
 
-   8.&nbsp;naciśnij **F5** do uruchomienia aplikacji.
+   8\. Naciśnij klawisz **F5** do uruchomienia aplikacji.
 
    # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
    
-   1.&nbsp;zainstalować [programu Visual Studio Code](https://code.visualstudio.com/).
+   1\. Zainstaluj [programu Visual Studio Code](https://code.visualstudio.com/).
 
-   2.&nbsp;zainstaluj najnowszą wersję [ C# rozszerzenia programu Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
+   2\. Zainstaluj najnowszą wersję [ C# rozszerzenia programu Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
 
-   3.&nbsp;Blazor środowisko pracy klienta, wykonaj następujące polecenie z powłoki poleceń:
+   3\. Środowisko pracy klienta Blazor wykonaj następujące polecenie z powłoki poleceń:
 
       ```console
       dotnet new blazor -o WebApplication1
@@ -68,29 +68,29 @@ Rozpoczynanie pracy z usługą Blazor:
 
       Aby uzyskać informacje dotyczące dwóch modelach hostingu Blazor, po stronie serwera i klienta, zobacz <xref:blazor/hosting-models>.
 
-   4.&nbsp;Otwórz *WebApplication1* folderu w programie Visual Studio Code.
+   4\. Otwórz *WebApplication1* folderu w programie Visual Studio Code.
 
-   5.&nbsp;projektu po stronie serwera dla Blazor, IDE żądań, dodać zasoby do tworzenia i debugowania projektu. Wybierz **tak**.
+   5\. W projekcie po stronie serwera Blazor IDE żądań, dodać zasoby do tworzenia i debugowania projektu. Wybierz **tak**.
 
-   6.&nbsp;Jeśli za pomocą Blazor aplikacji po stronie serwera, uruchom aplikację za pomocą debugera programu Visual Studio Code. Jeśli używasz aplikacji po stronie klienta Blazor, wykonaj `dotnet run` z folderu projektu aplikacji.
+   6\. Jeśli używasz aplikacji po stronie serwera Blazor, uruchom aplikację za pomocą debugera programu Visual Studio Code. Jeśli używasz aplikacji po stronie klienta Blazor, wykonaj `dotnet run` z folderu projektu aplikacji.
 
    <!--
 
    # [Visual Studio for Mac](#tab/visual-studio-mac)
 
-   1.&nbsp;Install [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/). Switch the [Update channel to Preview](/visualstudio/mac/install-preview).
+   1\. Install [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/). Switch the [Update channel to Preview](/visualstudio/mac/install-preview).
 
-   2.&nbsp;Select **File** > **New Solution** or **New Project**.
+   2\. Select **File** > **New Solution** or **New Project**.
 
-   3.&nbsp;In the sidebar, select **.NET Core** > **App**.
+   3\. In the sidebar, select **.NET Core** > **App**.
 
-   4.&nbsp;For a Blazor server-side experience, select the **ASP.NET Core Blazor (server-side)** template. For a Blazor client-side experience, select the **ASP.NET Core Blazor (client-side)** template. Select **Next**. For information on the two Blazor hosting models, server-side and client-side, see <xref:blazor/hosting-models>.
+   4\. For a Blazor server-side experience, select the **ASP.NET Core Blazor (server-side)** template. For a Blazor client-side experience, select the **ASP.NET Core Blazor (client-side)** template. Select **Next**. For information on the two Blazor hosting models, server-side and client-side, see <xref:blazor/hosting-models>.
 
-   5.&nbsp;The **Target Framework** defaults to **.NET Core 3.0**. Select **Next**.
+   5\. The **Target Framework** defaults to **.NET Core 3.0**. Select **Next**.
 
-   6.&nbsp;In the **Project Name** field, enter `WebApplication1`. Select **Create**.
+   6\. In the **Project Name** field, enter `WebApplication1`. Select **Create**.
 
-   7.&nbsp;Select **Run** > **Run Without Debugging** to run the app *without the debugger*. Running with the debugger isn't supported at this time.
+   7\. Select **Run** > **Run Without Debugging** to run the app *without the debugger*. Running with the debugger isn't supported at this time.
 
    -->
 
@@ -141,7 +141,7 @@ Każdorazowo **kliknij mnie** wybrany przycisk:
 
 Środowisko uruchomieniowe porównuje nową zawartość do poprzedniego zawartości i ma zastosowanie tylko zmiany zawartości do modelu DOM (Document Object).
 
-Dodaj składnik do innego składnika przy użyciu składni HTML. Składnik parametry są określane, za pomocą atrybutów i zawartość elementu podrzędnego. Na przykład można dodać składnik licznika do strony głównej aplikacji, dodając `<Counter />` elementu składnik indeksu.
+Dodaj składnik do innego składnika przy użyciu składni języka HTML. Na przykład można dodać składnik licznika do strony głównej aplikacji, dodając `<Counter />` elementu składnik indeksu.
 
 *Pages/Index.razor*:
 
@@ -149,7 +149,7 @@ Dodaj składnik do innego składnika przy użyciu składni HTML. Składnik param
 
 Uruchom aplikację. Strona główna ma swój własny licznika, dostarczone przez składnik licznika.
 
-Aby dodać parametr do składnika licznika, należy zaktualizować składnika `@functions` bloku:
+Składnik parametry są określane za pomocą atrybutów lub [zawartość elementu podrzędnego](xref:blazor/components#child-content), co pozwala użytkownikowi na ustawianie właściwości w składniku podrzędnych. Aby dodać parametr do składnika licznika, należy zaktualizować składnika `@functions` bloku:
 
 * Dodaj właściwość `IncrementAmount` z `[Parameter]` atrybutu.
 * Zmiana `IncrementCount` metodę `IncrementAmount` podczas zwiększenie wartości `currentCount`.
