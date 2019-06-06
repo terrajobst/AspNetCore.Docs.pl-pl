@@ -5,14 +5,14 @@ description: Dowiedz się, jak uzyskać dostęp do punktów rozszerzenia RODO w 
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/29/2018
+ms.date: 06/05/2019
 uid: security/gdpr
-ms.openlocfilehash: c5c13dbd1006d10aba0f54b0b9d72b527ee98945
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 967f3246836c93a1af56f7109edb056220606b58
+ms.sourcegitcommit: c716ea9155a6b404c1f3d3d34e2388454cd276d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64900331"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66716348"
 ---
 # <a name="eu-general-data-protection-regulation-gdpr-support-in-aspnet-core"></a>Obsługa Unii Europejskiej ogólnego danych (GDPR Protection Regulation) w programie ASP.NET Core
 
@@ -30,13 +30,13 @@ Platformy ASP.NET Core udostępnia interfejsów API i szablony, które ułatwiaj
 
 [Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/live/aspnetcore/security/gdpr/sample) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
-## <a name="aspnet-core-gdpr-support-in-template-generated-code"></a>Obsługa rozporządzenia RODO platformy ASP.NET Core w szablonie wygenerowanego kodu
+## <a name="aspnet-core-gdpr-support-in-template-generated-code"></a>ASP.NET Core RODO obsługi w kodzie wygenerowany szablon
 
 Strony razor i MVC projekty utworzone za pomocą szablonów projektu obejmują obsługę RODO:
 
-* [CookiePolicyOptions](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions) i [UseCookiePolicy](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyappbuilderextensions.usecookiepolicy) są ustawiane w `Startup`.
-* *_CookieConsentPartial.cshtml* [widoku częściowego](xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper).
-* *Pages/Privacy.cshtml* strony lub *Views/Home/Privacy.cshtml* widok zawiera stronę, aby szczegółowo opisują zasady zachowania poufności informacji witryny. *_CookieConsentPartial.cshtml* plik generuje łącze do strony ochrony prywatności.
+* [CookiePolicyOptions](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions) i [UseCookiePolicy](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyappbuilderextensions.usecookiepolicy) są ustawiane w `Startup` klasy.
+* *\_CookieConsentPartial.cshtml* [widoku częściowego](xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper). **Akceptuj** przycisk znajduje się w tym pliku. Kiedy użytkownik kliknie **Akceptuj** przycisk, wyrażanie zgody do przechowywania plików cookie znajduje się.
+* *Pages/Privacy.cshtml* strony lub *Views/Home/Privacy.cshtml* widok zawiera stronę, aby szczegółowo opisują zasady zachowania poufności informacji witryny. *\_CookieConsentPartial.cshtml* plik generuje łącze do strony ochrony prywatności.
 * W przypadku aplikacji utworzonych za pomocą indywidualnych kont użytkowników, na stronie Zarządzanie zawiera łącza do pobierające i usuwające [dane osobiste użytkownika](#pd).
 
 ### <a name="cookiepolicyoptions-and-usecookiepolicy"></a>CookiePolicyOptions i UseCookiePolicy
@@ -49,29 +49,29 @@ Strony razor i MVC projekty utworzone za pomocą szablonów projektu obejmują o
 
 [!code-csharp[](gdpr/sample/Startup.cs?name=snippet1&highlight=51)]
 
-### <a name="cookieconsentpartialcshtml-partial-view"></a>_CookieConsentPartial.cshtml partial view
+### <a name="cookieconsentpartialcshtml-partial-view"></a>\_CookieConsentPartial.cshtml partial view
 
-The *_CookieConsentPartial.cshtml* partial view:
+*\_CookieConsentPartial.cshtml* widoku częściowego:
 
 [!code-html[](gdpr/sample/RP/Pages/Shared/_CookieConsentPartial.cshtml)]
 
 Tej części:
 
-* Pobiera stan śledzenia dla użytkownika. Jeśli aplikacja jest skonfigurowana do wymagają zgody, użytkownik musi wyrazić zgodę przed pliki cookie mogą być śledzone. Jeśli wymagana jest zgoda, panel zgody plik cookie jest ustalony na górnej części paska nawigacyjnego, utworzone przez *_Layout.cshtml* pliku.
+* Pobiera stan śledzenia dla użytkownika. Jeśli aplikacja jest skonfigurowana do wymagają zgody, użytkownik musi wyrazić zgodę przed pliki cookie mogą być śledzone. Jeśli wymagana jest zgoda, panel zgody plik cookie jest ustalony na górnej części paska nawigacyjnego, utworzone przez  *\_Layout.cshtml* pliku.
 * Udostępnia kodu HTML `<p>` element, aby podsumować, prywatności i plików cookie przy użyciu zasad.
 * Zawiera również link do strony prywatności lub widok, gdzie możesz szczegółowo opisują zasady zachowania poufności informacji witryny.
 
 ## <a name="essential-cookies"></a>Podstawowe pliki cookie
 
-Jeśli nie udzielono zgody, tylko pliki cookie oznaczone niezbędne są wysyłane do przeglądarki. Poniższy kod sprawia, że plik cookie jest podstawowe:
+Jeśli zgody do przechowywania plików cookie udzielona, tylko pliki cookie oznaczone niezbędne są wysyłane do przeglądarki. Poniższy kod sprawia, że plik cookie jest podstawowe:
 
 [!code-csharp[Main](gdpr/sample/RP/Pages/Cookie.cshtml.cs?name=snippet1&highlight=5)]
 
 <a name="tempdata"></a>
 
-## <a name="tempdata-provider-and-session-state-cookies-are-not-essential"></a>Tempdata dostawcy sesji stanu plików cookie i nie są istotne
+### <a name="tempdata-provider-and-session-state-cookies-arent-essential"></a>TempData dostawcy sesji stanu plików cookie i nie są istotne
 
-[Dostawcy Tempdata](xref:fundamentals/app-state#tempdata) pliku cookie nie jest niezbędne. Jeśli śledzenie jest wyłączone, dostawca Tempdata nie jest funkcjonalności. Aby umożliwić dostawcy Tempdata, gdy śledzenie jest wyłączone, Oznacz plik cookie TempData za istotne w `Startup.ConfigureServices`:
+[Dostawcy TempData](xref:fundamentals/app-state#tempdata) pliku cookie nie jest niezbędne. Jeśli śledzenie jest wyłączone, dostawca TempData nie jest funkcjonalności. Aby umożliwić dostawcy TempData, gdy śledzenie jest wyłączone, Oznacz plik cookie TempData za istotne w `Startup.ConfigureServices`:
 
 [!code-csharp[Main](gdpr/sample/RP/Startup.cs?name=snippet1)]
 
