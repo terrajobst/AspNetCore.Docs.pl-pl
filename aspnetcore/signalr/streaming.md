@@ -5,14 +5,14 @@ description: Dowiedz się, jak przesłać strumień danych między klientem a se
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 04/12/2019
+ms.date: 06/05/2019
 uid: signalr/streaming
-ms.openlocfilehash: 8f39fdfa45766b5bbec572970f009abefefdc419
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: a75156f398e113393ddb891d16eec3f09de80c09
+ms.sourcegitcommit: e7e04a45195d4e0527af6f7cf1807defb56dc3c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64902950"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66750185"
 ---
 # <a name="use-streaming-in-aspnet-core-signalr"></a>Korzystanie z przesyłaniem strumieniowym w biblioteki SignalR platformy ASP.NET Core
 
@@ -36,7 +36,7 @@ SignalR platformy ASP.NET Core obsługuje przesyłania strumieniowego wartości 
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Metody koncentratora automatycznie wybrana zostaje pierwsza przesyłania strumieniowego metody koncentratora po zwraca <xref:System.Threading.Channels.ChannelReader%601>, `IAsyncEnumerable<T>`, `Task<ChannelReader<T>>`, lub `Task<IAsyncEnumerable<T>>`.
+Metody koncentratora automatycznie wybrana zostaje pierwsza przesyłania strumieniowego metody koncentratora po zwraca <xref:System.Collections.Generic.IAsyncEnumerable`1>, <xref:System.Threading.Channels.ChannelReader%601>, `Task<IAsyncEnumerable<T>>`, lub `Task<ChannelReader<T>>`.
 
 ::: moniker-end
 
@@ -93,9 +93,23 @@ Można zaakceptować przesyłania strumieniowego metod koncentratora klienta ser
 
 ### <a name="client-to-server-streaming"></a>Klient serwer przesyłania strumieniowego
 
-Metody koncentratora automatycznie wybrana zostaje pierwsza klient serwer przesyłania strumieniowego metody koncentratora po przyjmuje jeden lub więcej <xref:System.Threading.Channels.ChannelReader`1>s. Poniższy przykład pokazuje podstawy odczytywanie danych przesyłanych strumieniowo wysłanych z klienta. Zawsze, gdy klient zapisuje <xref:System.Threading.Channels.ChannelWriter`1>, dane są zapisywane do `ChannelReader` na serwerze, który odczytuje z metody koncentratora.
+Metody koncentratora automatycznie wybrana zostaje pierwsza klient serwer przesyłania strumieniowego metody koncentratora po przyjmuje jeden lub więcej obiektów typu <xref:System.Threading.Channels.ChannelReader%601> lub <xref:System.Collections.Generic.IAsyncEnumerable%601>. Poniższy przykład pokazuje podstawy odczytywanie danych przesyłanych strumieniowo wysłanych z klienta. Zawsze, gdy klient zapisuje <xref:System.Threading.Channels.ChannelWriter%601>, dane są zapisywane do `ChannelReader` na serwerze, z którego odczytuje metody koncentratora.
 
 [!code-csharp[Streaming upload hub method](streaming/samples/3.0/Hubs/StreamHub.cs?name=snippet2)]
+
+<xref:System.Collections.Generic.IAsyncEnumerable%601> Zgodna wersja metody.
+
+[!INCLUDE[](~/includes/csharp-8-required.md)]
+
+```csharp
+public async Task UploadStream(IAsyncEnumerable<Stream> stream) 
+{
+    await foreach (var item in stream)
+    {
+        Console.WriteLine(item);
+    }
+}
+```
 
 ::: moniker-end
 
@@ -103,9 +117,55 @@ Metody koncentratora automatycznie wybrana zostaje pierwsza klient serwer przesy
 
 ### <a name="server-to-client-streaming"></a>Przesyłanie strumieniowe serwera do klienta
 
-`StreamAsChannelAsync` Metody `HubConnection` służy do wywoływania metody przesyłania strumieniowego serwera do klienta. Przekaż nazwę metody koncentratora i argumenty zdefiniowane w metody koncentratora `StreamAsChannelAsync`. Parametr generyczny na `StreamAsChannelAsync<T>` Określa typ obiektów zwróconych przez metodę przesyłania strumieniowego. Element `ChannelReader<T>` jest zwracany z wywołania strumienia i reprezentuje strumienia na komputerze klienckim.
+
+::: moniker range=">= aspnetcore-3.0"
+
+`StreamAsync` i `StreamAsChannelAsync` metod `HubConnection` są używane do wywołania metody przesyłania strumieniowego serwera do klienta. Przekaż nazwę metody koncentratora i argumenty zdefiniowane w metody koncentratora `StreamAsync` lub `StreamAsChannelAsync`. Parametr generyczny na `StreamAsync<T>` i `StreamAsChannelAsync<T>` Określa typ obiektów zwróconych przez metodę przesyłania strumieniowego. Obiekt typu `IAsyncEnumerable<T>` lub `ChannelReader<T>` jest zwracany z wywołania strumienia i reprezentuje strumienia na komputerze klienckim.
+
+A `StreamAsync` przykładu, który zwraca `IAsyncEnumerable<int>`:
+
+```csharp
+// Call "Cancel" on this CancellationTokenSource to send a cancellation message to
+// the server, which will trigger the corresponding token in the hub method.
+var cancellationTokenSource = new CancellationTokenSource();
+var stream = await hubConnection.StreamAsync<int>(
+    "Counter", 10, 500, cancellationTokenSource.Token);
+
+await foreach (var count in stream)
+{
+    Console.WriteLine($"{count}");
+}
+
+Console.WriteLine("Streaming completed");
+```
+
+Odpowiedni `StreamAsChannelAsync` przykładu, który zwraca `ChannelReader<int>`:
+
+```csharp
+// Call "Cancel" on this CancellationTokenSource to send a cancellation message to
+// the server, which will trigger the corresponding token in the hub method.
+var cancellationTokenSource = new CancellationTokenSource();
+var channel = await hubConnection.StreamAsChannelAsync<int>(
+    "Counter", 10, 500, cancellationTokenSource.Token);
+
+// Wait asynchronously for data to become available
+while (await channel.WaitToReadAsync())
+{
+    // Read all currently available data synchronously, before waiting for more data
+    while (channel.TryRead(out var count))
+    {
+        Console.WriteLine($"{count}");
+    }
+}
+
+Console.WriteLine("Streaming completed");
+```
+
+::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.2"
+
+`StreamAsChannelAsync` Metody `HubConnection` służy do wywoływania metody przesyłania strumieniowego serwera do klienta. Przekaż nazwę metody koncentratora i argumenty zdefiniowane w metody koncentratora `StreamAsChannelAsync`. Parametr generyczny na `StreamAsChannelAsync<T>` Określa typ obiektów zwróconych przez metodę przesyłania strumieniowego. Element `ChannelReader<T>` jest zwracany z wywołania strumienia i reprezentuje strumienia na komputerze klienckim.
 
 ```csharp
 // Call "Cancel" on this CancellationTokenSource to send a cancellation message to
@@ -131,6 +191,8 @@ Console.WriteLine("Streaming completed");
 
 ::: moniker range="= aspnetcore-2.1"
 
+`StreamAsChannelAsync` Metody `HubConnection` służy do wywoływania metody przesyłania strumieniowego serwera do klienta. Przekaż nazwę metody koncentratora i argumenty zdefiniowane w metody koncentratora `StreamAsChannelAsync`. Parametr generyczny na `StreamAsChannelAsync<T>` Określa typ obiektów zwróconych przez metodę przesyłania strumieniowego. Element `ChannelReader<T>` jest zwracany z wywołania strumienia i reprezentuje strumienia na komputerze klienckim.
+
 ```csharp
 var channel = await hubConnection
     .StreamAsChannelAsync<int>("Counter", 10, 500, CancellationToken.None);
@@ -154,11 +216,29 @@ Console.WriteLine("Streaming completed");
 
 ### <a name="client-to-server-streaming"></a>Klient serwer przesyłania strumieniowego
 
-Aby wywołać przesyłania strumieniowego metody koncentratora klienta z serwerem z klienta .NET, należy utworzyć `Channel` i przekazać `ChannelReader` jako argument do `SendAsync`, `InvokeAsync`, lub `StreamAsChannelAsync`, w zależności od wywoływane metody koncentratora.
+Istnieją dwa sposoby, aby wywołać przesyłania strumieniowego metody koncentratora klienta z serwerem z klienta .NET. Możesz albo Przekaż `IAsyncEnumerable<T>` lub `ChannelReader` jako argument do `SendAsync`, `InvokeAsync`, lub `StreamAsChannelAsync`, w zależności od wywoływane metody koncentratora.
 
-Zawsze, gdy dane są zapisywane do `ChannelWriter`, metody koncentratora na serwerze odbiera nowy element z danymi od klienta.
+Zawsze, gdy dane są zapisywane do `IAsyncEnumerable` lub `ChannelWriter` obiektu metody koncentratora na serwerze odbiera nowy element z danymi od klienta.
 
-Do końca strumienia, wykonaj kanału z `channel.Writer.Complete()`.
+Jeśli przy użyciu `IAsyncEnumerable` obiektu strumienia, który kończy się po metoda zwracania strumienia elementy wyjść.
+
+[!INCLUDE[](~/includes/csharp-8-required.md)]
+
+```csharp
+async IAsyncEnumerable<string> clientStreamData()
+{
+    for (var i = 0; i < 5; i++)
+    {
+        var data = await FetchSomeData();
+        yield return data;
+    }
+    //After the for loop has completed and the local function exits the stream completion will be sent.
+}
+
+await connection.SendAsync("UploadStream", clientStreamData());
+```
+
+Czy używasz `ChannelWriter`, wykonaniu kanale przy użyciu `channel.Writer.Complete()`:
 
 ```csharp
 var channel = Channel.CreateBounded<string>(10);

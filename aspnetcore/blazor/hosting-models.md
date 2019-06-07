@@ -5,14 +5,14 @@ description: Dowiedz się, Blazor po stronie klienta i po stronie serwera, hosto
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/28/2019
+ms.date: 06/05/2019
 uid: blazor/hosting-models
-ms.openlocfilehash: d9e430c90d9a01976a8e6222a15504b43f91e2ed
-ms.sourcegitcommit: 4d05e30567279072f1b070618afe58ae1bcefd5a
+ms.openlocfilehash: 27a0387990d4a268cde854583c76ec03cd50a026
+ms.sourcegitcommit: e7e04a45195d4e0527af6f7cf1807defb56dc3c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66376330"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66750140"
 ---
 # <a name="blazor-hosting-models"></a>Blazor modelach hostingu
 
@@ -152,72 +152,6 @@ Aby skonfigurować klienta SignalR w *stron /\_Host.cshtml* pliku:
     }
   });
 </script>
-```
-
-### <a name="improved-signalr-connection-lifetime-handling"></a>Ulepszona obsługa okres istnienia połączenia w SignalR
-
-Można włączyć automatyczne ponowne podłączenia przez wywołanie metody `withAutomaticReconnect` metody `HubConnectionBuilder`:
-
-```csharp
-const connection = new signalR.HubConnectionBuilder()
-    .withUrl("/chatHub")
-    .withAutomaticReconnect()
-    .build();
-```
-
-Bez określania parametrów, `withAutomaticReconnect` konfiguruje klienta, aby ponowić próbę połączenia, oczekiwanie na 0, 2, 10 i 30 sekund między kolejnymi próbami.
-
-Aby skonfigurować inne niż domyślne liczbę prób ponownego połączenia przed awarią lub zmienić czas ponownego nawiązania połączenia `withAutomaticReconnect` akceptuje tablicy liczb reprezentujący opóźnienie (w milisekundach) oczekiwania przed uruchomieniem każdą próbę ponownego połączenia:
-
-```csharp
-const connection = new signalR.HubConnectionBuilder()
-    .withUrl("/chatHub")
-    .withAutomaticReconnect([0, 0, 2000, 5000]) // defaults to [0, 2000, 10000, 30000]
-    .build();
-```
-
-### <a name="improved-disconnect-and-reconnect-handling"></a>Ulepszone Odłącz i ponownie obsługi
-
-Przed rozpoczęciem wszelkich prób ponownego połączenia `HubConnection` przechodzi do `Reconnecting` stanu i generowane jego `onreconnecting` wywołania zwrotnego. Zapewnia to możliwość ostrzegać użytkowników, że połączenie zostało utracone, wyłączający elementy interfejsu użytkownika i eliminowanie mylące scenariuszy użytkowników, które mogą wystąpić z powodu stanie rozłączonym:
-
-```javascript
-connection.onreconnecting((error) => {
-  console.assert(connection.state === signalR.HubConnectionState.Reconnecting);
-
-  document.getElementById("messageInput").disabled = true;
-
-  const li = document.createElement("li");
-  li.textContent = `Connection lost due to error "${error}". Reconnecting.`;
-  document.getElementById("messagesList").appendChild(li);
-});
-```
-
-Jeśli klient pomyślnie połączy się ponownie w ramach jego pierwsze cztery prób `HubConnection` przejść z powrotem do `Connected` stanu i generowane `onreconnected` wywołania zwrotnego. Zapewnia to możliwość zawiadomić użytkowników o tym, że połączenie zostało nawiązane ponownie:
-
-```javascript
-connection.onreconnected((connectionId) => {
-  console.assert(connection.state === signalR.HubConnectionState.Connected);
-
-  document.getElementById("messageInput").disabled = false;
-
-  const li = document.createElement("li");
-  li.textContent = `Connection reestablished. Connected with connectionId "${connectionId}".`;
-  document.getElementById("messagesList").appendChild(li);
-});
-```
-
-Jeśli klient nie pomyślnie ponownie połączyć w ramach jego pierwsze cztery prób `HubConnection` przechodzi do `Disconnected` stanu i generowane jego `onclosed` wywołania zwrotnego. Jest to okazja, aby zawiadomić użytkowników o tym, że połączenie jest trwale utracone i zaleca, aby odświeżyć stronę.
-
-```javascript
-connection.onclose((error) => {
-  console.assert(connection.state === signalR.HubConnectionState.Disconnected);
-
-  document.getElementById("messageInput").disabled = true;
-
-  const li = document.createElement("li");
-  li.textContent = `Connection closed due to error "${error}". Try refreshing this page to restart the connection.`;
-  document.getElementById("messagesList").appendChild(li);
-})
 ```
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby

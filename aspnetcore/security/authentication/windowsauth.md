@@ -5,14 +5,14 @@ description: Dowiedz się, jak skonfigurować uwierzytelnianie Windows w program
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 05/29/2019
+ms.date: 06/05/2019
 uid: security/authentication/windowsauth
-ms.openlocfilehash: 9dfff5dcba409ddca7e05c771b864ab121e0ea85
-ms.sourcegitcommit: 06c4f2910dd54ded25e1b8750e09c66578748bc9
+ms.openlocfilehash: 900bbf5f14b1876ad537b2b77e4ba07d7aa168f2
+ms.sourcegitcommit: e7e04a45195d4e0527af6f7cf1807defb56dc3c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66395929"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66750166"
 ---
 # <a name="configure-windows-authentication-in-aspnet-core"></a>Konfigurowanie uwierzytelniania Windows w programie ASP.NET Core
 
@@ -22,9 +22,17 @@ Przez [Scott Addie](https://twitter.com/Scott_Addie) i [Luke Latham](https://git
 
 Uwierzytelnianie Windows opiera się uwierzytelniać użytkowników aplikacji platformy ASP.NET Core w systemie operacyjnym. Możesz użyć uwierzytelniania Windows, gdy serwer działa w sieci firmowej przy użyciu tożsamości domeny usługi Active Directory lub konta Windows do identyfikacji użytkowników. Uwierzytelnianie Windows najlepiej nadaje się do środowisk intranetowych, w którym użytkownicy, aplikacje klienckie i serwery sieci web należą do tej samej domeny Windows.
 
-## <a name="launch-settings-debugger"></a>Ustawienia (debuger) uruchamiania
+## <a name="iisiis-express"></a>Usługi IIS/IIS Express
 
-Konfiguracja ustawień uruchamiania ma wpływ tylko na *Properties/launchSettings.json* pliku i nie powoduje skonfigurowania serwera usług IIS lub sterownik HTTP.sys uwierzytelniania Windows. Konfiguracja serwera została wyjaśniona w [włączenie usług uwierzytelniania usług IIS lub sterownik HTTP.sys](#authentication-services-for-iis-or-httpsys) sekcji.
+Dodawanie usług uwierzytelniania za pomocą wywołania <xref:Microsoft.Extensions.DependencyInjection.AuthenticationServiceCollectionExtensions.AddAuthentication*> (<xref:Microsoft.AspNetCore.Server.IISIntegration?displayProperty=fullName> przestrzeni nazw) w `Startup.ConfigureServices`:
+
+```csharp
+services.AddAuthentication(IISDefaults.AuthenticationScheme);
+```
+
+### <a name="launch-settings-debugger"></a>Ustawienia (debuger) uruchamiania
+
+Konfiguracja ustawień uruchamiania ma wpływ tylko na *Properties/launchSettings.json* plików dla usług IIS Express i nie skonfigurować uwierzytelnianie usług IIS dla Windows. Konfiguracja serwera została wyjaśniona w [IIS](#iis) sekcji.
 
 **Aplikacji sieci Web** szablonu dostępnego za pośrednictwem programu Visual Studio lub interfejsu wiersza polecenia platformy .NET Core, można skonfigurować do obsługi uwierzytelniania Windows, która aktualizuje *Properties/launchSettings.json* pliku automatycznie.
 
@@ -76,17 +84,7 @@ Aktualizacja `iisSettings` węźle *launchSettings.json* pliku:
 
 Podczas modyfikowania istniejącego projektu, upewnij się, że plik projektu zawiera odwołania do pakietu dla [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) **lub** [ Microsoft.AspNetCore.Authentication](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication/) pakietu NuGet.
 
-## <a name="authentication-services-for-iis-or-httpsys"></a>Usługi uwierzytelniania dla usług IIS lub sterownik HTTP.sys
-
-W zależności od scenariusza hostingu, postępuj zgodnie ze wskazówkami w **albo** [IIS](#iis) sekcji **lub** [HTTP.sys](#httpsys) sekcji.
-
 ### <a name="iis"></a>IIS
-
-Dodawanie usług uwierzytelniania za pomocą wywołania <xref:Microsoft.Extensions.DependencyInjection.AuthenticationServiceCollectionExtensions.AddAuthentication*> (<xref:Microsoft.AspNetCore.Server.IISIntegration?displayProperty=fullName> przestrzeni nazw) w `Startup.ConfigureServices`:
-
-```csharp
-services.AddAuthentication(IISDefaults.AuthenticationScheme);
-```
 
 Usługi IIS używają [modułu ASP.NET Core](xref:host-and-deploy/aspnet-core-module) hostująca aplikacje platformy ASP.NET Core. Uwierzytelnianie Windows jest skonfigurowany dla usług IIS za pomocą *web.config* pliku. Następujące sekcje show jak:
 
@@ -127,9 +125,9 @@ Użyj **albo** z następujących metod:
   * Użyj Menedżera usług IIS, aby zresetować ustawienia w *web.config* pliku po plik jest zastępowany we wdrożeniu.
   * Dodaj *pliku web.config* aplikacji lokalnie przy użyciu ustawień.
 
-### <a name="httpsys"></a>HTTP.sys
+## <a name="httpsys"></a>HTTP.sys
 
-Mimo że [Kestrel](xref:fundamentals/servers/kestrel) nie obsługuje uwierzytelniania Windows, możesz użyć [HTTP.sys](xref:fundamentals/servers/httpsys) do obsługi scenariuszy samodzielnie hostowanego na Windows.
+W scenariuszach Self-Hosted [Kestrel](xref:fundamentals/servers/kestrel) nie obsługę uwierzytelniania Windows, ale Wy możecie użyć [HTTP.sys](xref:fundamentals/servers/httpsys).
 
 Dodawanie usług uwierzytelniania za pomocą wywołania <xref:Microsoft.Extensions.DependencyInjection.AuthenticationServiceCollectionExtensions.AddAuthentication*> (<xref:Microsoft.AspNetCore.Server.HttpSys?displayProperty=fullName> przestrzeni nazw) w `Startup.ConfigureServices`:
 

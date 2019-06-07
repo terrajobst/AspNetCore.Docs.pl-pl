@@ -5,14 +5,14 @@ description: Informacje o sposobie tworzenia i używania składników Razor, w t
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/26/2019
+ms.date: 06/05/2019
 uid: blazor/components
-ms.openlocfilehash: f9964dfdc3ae3108b6dbd6d0f5290254e2fc09cd
-ms.sourcegitcommit: a1364109d11d414121a6337b611bee61d6e489e9
+ms.openlocfilehash: fdd755a245b0ef9697b500c734a44fac8942f068
+ms.sourcegitcommit: e7e04a45195d4e0527af6f7cf1807defb56dc3c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66491204"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66750143"
 ---
 # <a name="create-and-use-razor-components"></a>Tworzenie i używanie składników Razor
 
@@ -51,6 +51,12 @@ Elementy członkowskie składnika mogą posłużyć jako część składnika prz
 ```
 
 Po początkowo renderowania składnik składnika generuje jej drzewo renderowania w odpowiedzi na zdarzenia. Blazor następnie porównuje nowego drzewa renderowania względem poprzedniego i stosuje wszystkie zmiany do przeglądarki w modelu DOM (Document Object).
+
+Składniki są zwykłe C# klasy i można umieścić w dowolnym miejscu w obrębie projektu. Składniki, które zwykle tworzą stron sieci Web znajdują się w *stron* folderu. Składniki strony inne niż często są umieszczane w *Shared* folder lub folder niestandardowy dodane do projektu. Aby korzystać z folderu niestandardowego, Dodaj niestandardowego folderu obszaru nazw do składnika nadrzędnego lub w aplikacji  *\_Imports.razor* pliku. Na przykład następująca przestrzeń nazw sprawia, że składniki *składniki* dostępne w przypadku aplikacji głównej przestrzeni nazw jest folder `WebApplication`:
+
+```cshtml
+@using WebApplication.Components
+```
 
 ## <a name="integrate-components-into-razor-pages-and-mvc-apps"></a>Integrowanie składników aplikacji stronami Razor i programem MVC
 

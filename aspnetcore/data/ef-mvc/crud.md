@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 02/04/2019
 ms.topic: tutorial
 uid: data/ef-mvc/crud
-ms.openlocfilehash: 61669dca24b552012ee057b89de28b7de1702c2b
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 442570cdc79fe7c496392ffbcbc527cf841aefa9
+ms.sourcegitcommit: e7e04a45195d4e0527af6f7cf1807defb56dc3c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64900256"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66750079"
 ---
 # <a name="tutorial-implement-crud-functionality---aspnet-mvc-with-ef-core"></a>Samouczek: Implementowanie funkcji CRUD - platformy ASP.NET MVC z programem EF Core
 
@@ -177,7 +177,7 @@ Zastąp metodę akcji edycji HttpPost następującym kodem.
 
 Te zmiany zaimplementować najlepszym rozwiązaniem w zakresie zabezpieczeń zapobiec overposting. Generator szkieletu generowane `Bind` atrybutu i dodać jednostki utworzone przez integratora modelu do zestawu przy użyciu jednostek `Modified` flagi. Czy kod nie jest zalecane dla wielu scenariuszy, ponieważ `Bind` atrybutu powoduje danych zapisanych w polach, które nie są wymienione w `Include` parametru.
 
-Nowy kod odczytuje istniejącej jednostki i wywołania `TryUpdateModel` można zaktualizować pola w pobraną jednostkę [oparte na danych wejściowych użytkownika w danych przesłanego formularza](xref:mvc/models/model-binding#how-model-binding-works). Entity Framework automatyczne śledzenie zestawy zmian `Modified` flagi w polach, które zostaną zmienione przez dane wejściowe formularza. Gdy `SaveChanges` metoda jest wywoływana, platformy Entity Framework tworzy instrukcji SQL, aby zaktualizować wiersz bazy danych. Konflikty współbieżności są ignorowane, a kolumny tabeli, które zostały zaktualizowane przez użytkownika są aktualizowane w bazie danych. (Dalszych samouczków pokazano, jak obsługa konfliktów współbieżności).
+Nowy kod odczytuje istniejącej jednostki i wywołania `TryUpdateModel` można zaktualizować pola w pobraną jednostkę [oparte na danych wejściowych użytkownika w danych przesłanego formularza](xref:mvc/models/model-binding). Entity Framework automatyczne śledzenie zestawy zmian `Modified` flagi w polach, które zostaną zmienione przez dane wejściowe formularza. Gdy `SaveChanges` metoda jest wywoływana, platformy Entity Framework tworzy instrukcji SQL, aby zaktualizować wiersz bazy danych. Konflikty współbieżności są ignorowane, a kolumny tabeli, które zostały zaktualizowane przez użytkownika są aktualizowane w bazie danych. (Dalszych samouczków pokazano, jak obsługa konfliktów współbieżności).
 
 Najlepszym rozwiązaniem, aby zapobiec polegającymi pola, które mają być można aktualizować za **Edytuj** strony są na liście dozwolonych w `TryUpdateModel` parametrów. (Jest pusty ciąg poprzedzający listę pól na liście parametrów dla prefiksu nazwy pola formularza za pomocą.) Aktualnie nie istnieją żadne dodatkowe pola, które chronisz, ale lista pól, które chcesz integratora modelu do powiązania gwarantuje, że po dodaniu pola do modelu danych w przyszłości, są automatycznie chroniona, dopóki nie dodasz je tutaj.
 
