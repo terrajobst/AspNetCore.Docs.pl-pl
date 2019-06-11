@@ -4,14 +4,14 @@ author: prkhandelwal
 description: Ten samouczek przedstawia sposób tworzenia sieci web platformy ASP.NET Core interfejsu API przy użyciu bazy danych NoSQL bazy danych MongoDB.
 ms.author: scaddie
 ms.custom: mvc, seodec18
-ms.date: 06/04/2019
+ms.date: 06/10/2019
 uid: tutorials/first-mongo-app
-ms.openlocfilehash: 6a8c5d75f562b38015101e039a2f5d96a5491595
-ms.sourcegitcommit: 5dd2ce9709c9e41142771e652d1a4bd0b5248cec
+ms.openlocfilehash: 5e3bdb10f0e192ba98df442959ceb68dc7c7adc5
+ms.sourcegitcommit: 9691b742134563b662948b0ed63f54ef7186801e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66692553"
+ms.lasthandoff: 06/10/2019
+ms.locfileid: "66824784"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-mongodb"></a>Tworzenie internetowego interfejsu API za pomocą platformy ASP.NET Core i usługi MongoDB
 
@@ -26,6 +26,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Tworzenie bazy danych MongoDB
 > * Definiowanie kolekcji usługi MongoDB i schematu
 > * Wykonywanie operacji CRUD bazy danych MongoDB z internetowego interfejsu API
+> * Dostosować serializacji JSON
 
 [Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/first-mongo-app/sample) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
@@ -187,7 +188,29 @@ Baza danych jest gotowy. Możesz rozpocząć tworzenie interfejsu API sieci web 
 1. Dodaj *modeli* katalogu głównym projektu.
 1. Dodaj `Book` klasy *modeli* katalogu z następującym kodem:
 
-    [!code-csharp[](first-mongo-app/sample/BooksApi/Models/Book.cs)]
+    ```csharp
+    using MongoDB.Bson;
+    using MongoDB.Bson.Serialization.Attributes;
+    
+    namespace BooksApi.Models
+    {
+        public class Book
+        {
+            [BsonId]
+            [BsonRepresentation(BsonType.ObjectId)]
+            public string Id { get; set; }
+    
+            [BsonElement("Name")]
+            public string BookName { get; set; }
+    
+            public decimal Price { get; set; }
+    
+            public string Category { get; set; }
+    
+            public string Author { get; set; }
+        }
+    }
+    ```
 
     W klasie poprzedniego `Id` właściwości:
     
@@ -195,7 +218,7 @@ Baza danych jest gotowy. Możesz rozpocząć tworzenie interfejsu API sieci web 
     * Jest oznaczony za pomocą [[BsonId]](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_Serialization_Attributes_BsonIdAttribute.htm) można określić tę właściwość jako klucz podstawowy dokumentu.
     * Jest oznaczony za pomocą [[BsonRepresentation(BsonType.ObjectId)]](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_Serialization_Attributes_BsonRepresentationAttribute.htm) umożliwia przekazanie parametru jako typu `string` zamiast [ObjectId](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_ObjectId.htm) struktury. MONGO obsługuje konwersję z `string` do `ObjectId`.
     
-    Inne właściwości w klasie jest oznaczony za pomocą [[BsonElement]](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_Serialization_Attributes_BsonElementAttribute.htm) atrybutu. Wartość ten atrybut reprezentuje nazwę właściwości w kolekcji usługi MongoDB.
+    `BookName` Właściwość jest oznaczona za pomocą [[BsonElement]](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_Serialization_Attributes_BsonElementAttribute.htm) atrybutu. Wartość atrybutu `Name` reprezentuje nazwę właściwości w kolekcji usługi MongoDB.
 
 ## <a name="add-a-configuration-model"></a>Dodaj model konfiguracji
 
@@ -209,9 +232,9 @@ Baza danych jest gotowy. Możesz rozpocząć tworzenie interfejsu API sieci web 
 
     Poprzedni `BookstoreDatabaseSettings` klasa jest używana do przechowywania *appsettings.json* pliku `BookstoreDatabaseSettings` wartości właściwości. Za pomocą pliku JSON i C# nazwy właściwości są nazywane tak samo, aby ułatwić proces mapowania.
 
-1. Dodaj następujący kod do `Startup.ConfigureServices`, przed wywołaniem do `AddMvc`:
+1. Dodaj następujący wyróżniony kod do `Startup.ConfigureServices`:
 
-    [!code-csharp[](first-mongo-app/sample/BooksApi/Startup.cs?name=snippet_ConfigureDatabaseSettings)]
+    [!code-csharp[](first-mongo-app/sample_snapshot/BooksApi/Startup.ConfigureServices.AddDbSettings.cs?highlight=3-7)]
 
     W poprzednim kodzie:
 
@@ -231,9 +254,9 @@ Baza danych jest gotowy. Możesz rozpocząć tworzenie interfejsu API sieci web 
 
     W poprzednim kodzie `IBookstoreDatabaseSettings` wystąpienia jest pobierana z DI przy użyciu iniekcji konstruktora. Ta metoda zapewnia dostęp do *appsettings.json* wartości konfiguracji, które zostały dodane w [Dodaj model konfiguracji](#add-a-configuration-model) sekcji.
 
-1. W `Startup.ConfigureServices`, zarejestruj `BookService` klasie z atrybutem DI:
+1. Dodaj następujący wyróżniony kod do `Startup.ConfigureServices`:
 
-    [!code-csharp[](first-mongo-app/sample/BooksApi/Startup.cs?name=snippet_ConfigureServices&highlight=9)]
+    [!code-csharp[](first-mongo-app/sample_snapshot/BooksApi/Startup.ConfigureServices.AddSingletonService.cs?highlight=9)]
 
     W poprzednim kodzie `BookService` klasy jest zarejestrowane w usłudze DI w celu obsługi iniekcji konstruktora w korzystających z tych klas. Okres istnienia usługi singleton jest najbardziej odpowiednia ponieważ `BookService` zdobywa bezpośredniej zależności `MongoClient`. Na official będzie przydatna [wytycznych ponowne użycie klienta Mongo](https://mongodb.github.io/mongo-csharp-driver/2.8/reference/driver/connecting/#re-use), `MongoClient` powinien być zarejestrowany w DI o okresie istnienia usługi singleton.
 
@@ -306,6 +329,33 @@ Poprzedni kontroler internetowego interfejsu API:
       "author":"Robert C. Martin"
     }
     ```
+
+## <a name="configure-json-serialization-options"></a>Skonfiguruj opcje serializacji JSON
+
+Istnieją dwa szczegóły, aby zmienić zwracany w odpowiedzi JSON [Test internetowy interfejs API](#test-the-web-api) sekcji:
+
+* Wielkość liter w wyrazie pisane domyślnej nazwy właściwości powinna zostać zmieniona tak, aby dopasować Pascal wielkość liter nazw właściwości obiektu CLR.
+* `bookName` Właściwości powinny być zwracane jako `Name`.
+
+Spełnienie wymagań poprzedniej, należy wprowadzić następujące zmiany:
+
+1. W `Startup.ConfigureServices`, połączyć w łańcuch następujący wyróżniony kod do `AddMvc` wywołanie metody:
+
+    [!code-csharp[](first-mongo-app/sample/BooksApi/Startup.cs?name=snippet_ConfigureServices&highlight=12)]
+
+    Z powyższej zmiany nazwy właściwości w internetowego interfejsu API serializacji dopasowania odpowiedzi JSON odpowiadających im nazw właściwości w typie obiektu CLR. Na przykład `Book` klasy `Author` właściwość serializuje jako `Author`.
+
+1. W *Models/Book.cs*, dodawać adnotacje do `BookName` właściwości z następującym [[JsonProperty]](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_JsonPropertyAttribute.htm) atrybutu:
+
+    [!code-csharp[](first-mongo-app/sample/BooksApi/Models/Book.cs?name=snippet_BookNameProperty&highlight=2)]
+
+    `[JsonProperty]` Wartość atrybutu `Name` reprezentuje właściwość nazwy internetowego interfejsu API serializacji odpowiedź w formacie JSON.
+
+1. Dodaj następujący kod na górze *Models/Book.cs* rozpoznać `[JsonProperty]` odwołanie do atrybutu:
+
+    [!code-csharp[](first-mongo-app/sample/BooksApi/Models/Book.cs?name=snippet_NewtonsoftJsonImport)]
+
+1. Powtórz kroki zdefiniowane w [Test internetowy interfejs API](#test-the-web-api) sekcji. Należy zauważyć różnicę w nazwach właściwości JSON.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -5,14 +5,14 @@ description: Więcej informacji o konfiguracji dla aplikacji hostowanych za serw
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/24/2019
+ms.date: 06/07/2019
 uid: host-and-deploy/proxy-load-balancer
-ms.openlocfilehash: 2423b5bed760ad879d1c47c5e64b0f815b50397e
-ms.sourcegitcommit: b8ed594ab9f47fa32510574f3e1b210cff000967
+ms.openlocfilehash: 582664071e8eb3d817cab10ea12c1df7c6d09ea7
+ms.sourcegitcommit: 9691b742134563b662948b0ed63f54ef7186801e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66251380"
+ms.lasthandoff: 06/10/2019
+ms.locfileid: "66824821"
 ---
 # <a name="configure-aspnet-core-to-work-with-proxy-servers-and-load-balancers"></a>Konfigurowanie platformy ASP.NET Core pracować z serwerów proxy i moduły równoważenia obciążenia
 
@@ -225,6 +225,38 @@ services.Configure<ForwardedHeadersOptions>(options =>
         IPAddress.Parse("::ffff:10.11.12.1"), 104));
 });
 ```
+
+::: moniker range=">= aspnetcore-2.1 <= aspnetcore-2.2"
+
+## <a name="forward-the-scheme-for-linux-and-non-iis-reverse-proxies"></a>Do przodu schematu dla systemów Linux i innej niż IIS zwrotnych serwerów proxy
+
+Wywołanie szablonów platformy .NET core <xref:Microsoft.AspNetCore.Builder.HttpsPolicyBuilderExtensions.UseHttpsRedirection*> i <xref:Microsoft.AspNetCore.Builder.HstsBuilderExtensions.UseHsts*>. Te metody umieść lokacji wejścia w nieskończoną pętlę Jeśli wdrożony do usługi aplikacji systemu Linux platformy Azure, Azure Linux maszyny wirtualnej (VM), lub za wszystkie pozostałe zwrotny serwer proxy oprócz usług IIS. Protokół TLS jest zakończony przez zwrotny serwer proxy i Kestrel nie jest powiadomieni schematu właściwe żądanie. OAuth i OIDC również zakończyć się niepowodzeniem w tej konfiguracji ponieważ generują niepoprawne przekierowania. <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*> dodaje i konfiguruje przekazany oprogramowania pośredniczącego nagłówków, gdy działające poza usługą IIS, ale brak pasującego automatycznej konfiguracji dla systemu Linux (Integracja Apache i Nginx).
+
+Aby przesłać dalej schemat z serwera proxy w scenariuszach innej niż IIS, należy dodać i skonfigurować przekazywane oprogramowania pośredniczącego nagłówków. W `Startup.ConfigureServices`, użyj następującego kodu:
+
+```csharp
+// using Microsoft.AspNetCore.HttpOverrides;
+
+if (string.Equals(
+    Environment.GetEnvironmentVariable("ASPNETCORE_FORWARDEDHEADERS_ENABLED"), 
+    "true", StringComparison.OrdinalIgnoreCase))
+{
+    services.Configure<ForwardedHeadersOptions>(options =>
+    {
+        options.ForwardedHeaders = ForwardedHeaders.XForwardedFor | 
+            ForwardedHeaders.XForwardedProto;
+        // Only loopback proxies are allowed by default.
+        // Clear that restriction because forwarders are enabled by explicit 
+        // configuration.
+        options.KnownNetworks.Clear();
+        options.KnownProxies.Clear();
+    });
+}
+```
+
+Dopóki nowe obrazy kontenera znajdują się na platformie Azure, musisz utworzyć ustawienie aplikacji (zmienną środowiskową) dla `ASPNETCORE_FORWARDEDHEADERS_ENABLED` równa `true`. Aby uzyskać więcej informacji, zobacz [szablony nie działają w systemie Linux dostawcy Antares ze względu na Brak schematu usług przesyłania dalej (aspnet/AspNetCore #4135)](https://github.com/aspnet/AspNetCore/issues/4135).
+
+::: moniker-end
 
 ## <a name="troubleshoot"></a>Rozwiązywanie problemów
 

@@ -6,18 +6,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/06/2019
 uid: mvc/views/partial
-ms.openlocfilehash: e13b2ea974697bb12c121d1a70fb5079d6aadb2d
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 9564639dcff0cff7f21b123cec39f0c96ebda208
+ms.sourcegitcommit: 9691b742134563b662948b0ed63f54ef7186801e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64900874"
+ms.lasthandoff: 06/10/2019
+ms.locfileid: "66824842"
 ---
 # <a name="partial-views-in-aspnet-core"></a>Widoki częściowe w programie ASP.NET Core
 
 Przez [Steve Smith](https://ardalis.com/), [Luke Latham](https://github.com/guardrex), [Maher JENDOUBI](https://twitter.com/maherjend), [Rick Anderson](https://twitter.com/RickAndMSFT), i [Scott Sauber](https://twitter.com/scottsauber)
 
-Widok częściowy jest [Razor](xref:mvc/views/razor) pliku znaczników (*.cshtml*) który powoduje wyświetlenie danych wyjściowych HTML *w ramach* innego pliku znaczników użytkownika renderowania danych wyjściowych.
+Widok częściowy jest [Razor](xref:mvc/views/razor) pliku znaczników ( *.cshtml*) który powoduje wyświetlenie danych wyjściowych HTML *w ramach* innego pliku znaczników użytkownika renderowania danych wyjściowych.
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -48,7 +48,7 @@ Nie używaj widoku częściowego których wykonywanie złożonych renderowania l
 
 Widok częściowy jest *.cshtml* pliku znaczników utrzymane w *widoków* folder (MVC) lub *stron* folder (stron Razor).
 
-W przypadku platformy ASP.NET Core MVC, kontroler <xref:Microsoft.AspNetCore.Mvc.ViewResult> zwraca widok lub widok częściowy. Podobne możliwości jest planowana na stron Razor programu ASP.NET Core 2.2. W przypadku stron Razor <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel> może zwrócić <xref:Microsoft.AspNetCore.Mvc.PartialViewResult>. Odwoływanie się do i renderowania widoków częściowych, które jest opisane w [odwoływać się do widoku częściowego](#reference-a-partial-view) sekcji.
+W przypadku platformy ASP.NET Core MVC, kontroler <xref:Microsoft.AspNetCore.Mvc.ViewResult> zwraca widok lub widok częściowy. W przypadku stron Razor <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel> może zwrócić <xref:Microsoft.AspNetCore.Mvc.PartialViewResult>. Odwoływanie się do i renderowania widoków częściowych, które jest opisane w [odwoływać się do widoku częściowego](#reference-a-partial-view) sekcji.
 
 W przeciwieństwie do widoku składnika MVC lub renderowania stron widoku częściowego nie zostanie uruchomiona *_ViewStart.cshtml*. Aby uzyskać więcej informacji na temat *_ViewStart.cshtml*, zobacz <xref:mvc/views/layout>.
 
@@ -263,7 +263,7 @@ Model można przekazać do widoku częściowego. Model można niestandardowych o
 
 Następujący kod zawiera Przykładowa aplikacja pochodzi z *Pages/ArticlesRP/ReadRP.cshtml* strony. Strona zawiera dwa widoki częściowe. Drugi widoku częściowego przekazuje się w modelu i `ViewData` widoku częściowego. `ViewDataDictionary` Przeciążenia konstruktora jest używany do przekazywania nowej `ViewData` słownika przy zachowaniu istniejących `ViewData` słownika.
 
-[!code-cshtml[](partial/sample/PartialViewsSample/Pages/ArticlesRP/ReadRP.cshtml?name=snippet_ReadPartialViewRP&highlight=5,15-19)]
+[!code-cshtml[](partial/sample/PartialViewsSample/Pages/ArticlesRP/ReadRP.cshtml?name=snippet_ReadPartialViewRP&highlight=5,15-20)]
 
 *Pages/Shared/_AuthorPartialRP.cshtml* jest pierwszy widok częściowy odwołuje się *ReadRP.cshtml* pliku znaczników:
 
@@ -279,7 +279,7 @@ Następujący kod zawiera Przykładowa aplikacja pochodzi z *Pages/ArticlesRP/Re
 
 Następujące znaczniki w pokazuje aplikacji przykładowej *Views/Articles/Read.cshtml* widoku. Widok zawiera dwa widoki częściowe. Drugi widoku częściowego przekazuje się w modelu i `ViewData` widoku częściowego. `ViewDataDictionary` Przeciążenia konstruktora jest używany do przekazywania nowej `ViewData` słownika przy zachowaniu istniejących `ViewData` słownika.
 
-[!code-cshtml[](partial/sample/PartialViewsSample/Views/Articles/Read.cshtml?name=snippet_ReadPartialView&highlight=5,15-19)]
+[!code-cshtml[](partial/sample/PartialViewsSample/Views/Articles/Read.cshtml?name=snippet_ReadPartialView&highlight=5,15-20)]
 
 *Views/Shared/_AuthorPartial.cshtml* jest pierwszy widok częściowy odwołuje się *ReadRP.cshtml* pliku znaczników:
 

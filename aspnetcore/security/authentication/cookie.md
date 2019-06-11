@@ -5,12 +5,12 @@ description: Wyjaśnienie przy użyciu uwierzytelniania plików cookie bez użyc
 ms.author: riande
 ms.date: 02/25/2019
 uid: security/authentication/cookie
-ms.openlocfilehash: 2bc3e16b1b32816b14ad5bb4ca905ae5ed51ab87
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: f3e02b357a83cf5fc4b9fcdc79b2fbe80da98507
+ms.sourcegitcommit: 9691b742134563b662948b0ed63f54ef7186801e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64903154"
+ms.lasthandoff: 06/10/2019
+ms.locfileid: "66824753"
 ---
 # <a name="use-cookie-authentication-without-aspnet-core-identity"></a>Używania uwierzytelniania plików cookie bez użycia produktu ASP.NET Core Identity
 
@@ -195,7 +195,7 @@ await HttpContext.Authentication.SignInAsync(
 
 `SignInAsync` Tworzy zaszyfrowanego pliku cookie i dodaje go do bieżącej odpowiedzi. Jeśli nie określisz `AuthenticationScheme`, używany jest domyślny schemat.
 
-Dzieje się w tle, szyfrowanie, używana jest platforma ASP.NET Core [ochrony danych](xref:security/data-protection/using-data-protection#security-data-protection-getting-started) systemu. Jeśli hostujesz aplikację na wielu maszynach, równoważenia obciążenia w aplikacjach lub przy użyciu farmy sieci web, a następnie należy [skonfigurować ochronę danych](xref:security/data-protection/configuration/overview) korzystać z tej samej pierścień klucz i identyfikator aplikacji.
+Dzieje się w tle, szyfrowanie, używana jest platforma ASP.NET Core [ochrony danych](xref:security/data-protection/using-data-protection) systemu. Jeśli hostujesz aplikację na wielu maszynach, równoważenia obciążenia w aplikacjach lub przy użyciu farmy sieci web, a następnie należy [skonfigurować ochronę danych](xref:security/data-protection/configuration/overview) korzystać z tej samej pierścień klucz i identyfikator aplikacji.
 
 ## <a name="sign-out"></a>Wyloguj
 
