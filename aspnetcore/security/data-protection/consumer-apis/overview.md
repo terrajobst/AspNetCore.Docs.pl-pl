@@ -3,14 +3,14 @@ title: Omówienie interfejsów API przeznaczonych dla klientów dla platformy AS
 author: rick-anderson
 description: Odbierać krótkie omówienie różnych odbiorców interfejsami API dostępnymi w bibliotece programu ASP.NET Core ochrony danych.
 ms.author: riande
-ms.date: 10/14/2016
+ms.date: 06/11/2019
 uid: security/data-protection/consumer-apis/overview
-ms.openlocfilehash: b0d11d097ee2d448b6781f6fa84445f6400fbc76
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: ff9badb55813cae0aa72d3a95dc53792332f109b
+ms.sourcegitcommit: 1bb3f3f1905b4e7d4ca1b314f2ce6ee5dd8be75f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087536"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66837376"
 ---
 # <a name="consumer-apis-overview-for-aspnet-core"></a>Omówienie interfejsów API przeznaczonych dla klientów dla platformy ASP.NET Core
 
@@ -32,7 +32,7 @@ Pojęcie tego samego a inną `IDataProtector` więzi z powrotem do koncepcji prz
 
 ## <a name="consuming-these-interfaces"></a>Korzystanie z tych interfejsów
 
-DI aware składnika zamierzonego użycia to, że składnik podejmowanie `IDataProtectionProvider` parametru w jego konstruktorze i czy DI system automatycznie udostępnia tę usługę, podczas tworzenia wystąpienia składnika.
+DI aware składnika, że składnik przyjmowana jest zamierzone użycie `IDataProtectionProvider` parametru w jego konstruktorze i czy DI system automatycznie udostępnia tę usługę, podczas tworzenia wystąpienia składnika.
 
 > [!NOTE]
 > Niektóre aplikacje (na przykład aplikacje konsoli lub aplikacji programu ASP.NET 4.x) może nie być DI-aware, więc nie można użyć mechanizm opisane w tym miejscu. Dla tych scenariuszy, zapoznaj się z [innych scenariuszy pamiętać DI](xref:security/data-protection/configuration/non-di-scenarios) dokumentu, aby uzyskać więcej informacji na temat pobierania wystąpienia `IDataProtection` dostawcy bez pośrednictwa DI.

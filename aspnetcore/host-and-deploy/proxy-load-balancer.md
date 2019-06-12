@@ -5,14 +5,14 @@ description: Więcej informacji o konfiguracji dla aplikacji hostowanych za serw
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/07/2019
+ms.date: 06/11/2019
 uid: host-and-deploy/proxy-load-balancer
-ms.openlocfilehash: 582664071e8eb3d817cab10ea12c1df7c6d09ea7
-ms.sourcegitcommit: 9691b742134563b662948b0ed63f54ef7186801e
+ms.openlocfilehash: bcafc33b8faf81912d536d3df8941d196685ecad
+ms.sourcegitcommit: 1bb3f3f1905b4e7d4ca1b314f2ce6ee5dd8be75f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2019
-ms.locfileid: "66824821"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66837361"
 ---
 # <a name="configure-aspnet-core-to-work-with-proxy-servers-and-load-balancers"></a>Konfigurowanie platformy ASP.NET Core pracować z serwerów proxy i moduły równoważenia obciążenia
 
@@ -342,6 +342,53 @@ services.Configure<ForwardedHeadersOptions>(options =>
 
 > [!IMPORTANT]
 > Zezwalaj tylko zaufanych serwerów proxy i sieci do przekazywania nagłówków. W przeciwnym razie [fałszowanie adresów IP](https://www.iplocation.net/ip-spoofing) ataki są możliwe.
+
+## <a name="certificate-forwarding"></a>Przekazywanie certyfikatu 
+
+### <a name="on-azure"></a>Na platformie Azure
+
+Zobacz [dokumentacji platformy Azure](/azure/app-service/app-service-web-configure-tls-mutual-auth) do konfigurowania usługi Azure Web Apps. W swojej aplikacji `Startup.Configure` metody, Dodaj następujący kod przed wywołaniem do `app.UseAuthentication();`:
+
+```csharp
+app.UseCertificateForwarding();
+```
+
+Należy również skonfigurować oprogramowanie pośredniczące przekazywania certyfikatu, aby określić nazwę nagłówka, która korzysta z platformy Azure. W swojej aplikacji `Startup.ConfigureServices` metody, Dodaj następujący kod, aby skonfigurować nagłówek, w którym oprogramowanie pośredniczące tworzy certyfikat:
+
+```csharp
+services.AddCertificateForwarding(options =>
+    options.CertificateHeader = "X-ARR-ClientCert");
+```
+
+### <a name="with-other-web-proxies"></a>Za pomocą innych serwerów proxy sieci web
+
+Jeśli używasz serwera proxy, który nie jest lub platformy Azure Web Apps Routing żądań aplikacji IIS, należy skonfigurować serwer proxy do przekazywania certyfikatu otrzymanego w nagłówku HTTP. W swojej aplikacji `Startup.Configure` metody, Dodaj następujący kod przed wywołaniem do `app.UseAuthentication();`:
+
+```csharp
+app.UseCertificateForwarding();
+```
+
+Należy również skonfigurować oprogramowanie pośredniczące przekazywania certyfikatu, aby określić nazwę nagłówka. W swojej aplikacji `Startup.ConfigureServices` metody, Dodaj następujący kod, aby skonfigurować nagłówek, w którym oprogramowanie pośredniczące tworzy certyfikat:
+
+```csharp
+services.AddCertificateForwarding(options =>
+    options.CertificateHeader = "YOUR_CERTIFICATE_HEADER_NAME");
+```
+
+Ponadto jeśli serwer proxy jest coś innego niż base64 kodowanie certyfikatu (tak jak w przypadku przy użyciu serwera Nginx) ustaw `HeaderConverter` opcji. Rozważmy następujący przykład w `Startup.ConfigureServices`:
+
+```csharp
+services.AddCertificateForwarding(options =>
+{
+    options.CertificateHeader = "YOUR_CUSTOM_HEADER_NAME";
+    options.HeaderConverter = (headerValue) => 
+    {
+        var clientCertificate = 
+           /* some conversion logic to create an X509Certificate2 */
+        return clientCertificate;
+    }
+});
+```
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

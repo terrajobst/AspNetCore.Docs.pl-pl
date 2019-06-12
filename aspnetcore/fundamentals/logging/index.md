@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 05/01/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: ee7d4b2ae04b5f6c262acc5da0f86f90ab50585f
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 435f06b85af4a1a5a78a870c2add3e15ff1ffe89
+ms.sourcegitcommit: 1bb3f3f1905b4e7d4ca1b314f2ce6ee5dd8be75f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65085670"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66837274"
 ---
 # <a name="logging-in-aspnet-core"></a>Rejestrowanie w programie ASP.NET Core
 
@@ -823,9 +823,10 @@ Aby skonfigurować ustawienia dostawcy, użyj <xref:Microsoft.Extensions.Logging
 
 ::: moniker-end
 
-Podczas wdrażania aplikacji usługi App Service aplikacja honoruje ustawienia w [dzienniki diagnostyczne](/azure/app-service/web-sites-enable-diagnostic-log/#enablediag) części **usługi App Service** strony w witrynie Azure Portal. Jeśli te ustawienia zostaną zaktualizowane, zmiany zaczynają obowiązywać natychmiast bez konieczności ponownego uruchomienia lub ponownego wdrażania aplikacji.
+Podczas wdrażania aplikacji usługi App Service aplikacja honoruje ustawienia w [usługi App Service, dzienniki](/azure/app-service/web-sites-enable-diagnostic-log/#enablediag) części **usługi App Service** strony w witrynie Azure Portal. Po zaktualizowaniu następujące ustawienia zmiany zaczynają obowiązywać natychmiast bez konieczności ponownego uruchomienia lub ponownego wdrażania aplikacji.
 
-![Ustawienia rejestrowania platformy Azure](index/_static/azure-logging-settings.png)
+* **Rejestrowanie aplikacji (system plików)**
+* **Rejestrowanie aplikacji (Blob)**
 
 Domyślną lokalizacją dla plików dziennika jest *D:\\macierzystego\\LogFiles\\aplikacji* folder i nazwę pliku domyślny jest *yyyymmdd.txt diagnostyki*. Domyślnego limitu rozmiaru pliku to 10 MB, a maksymalną domyślną liczbę plików, które przechowywane jest 2. Domyślna nazwa obiektu blob to *{app-name}{timestamp}/yyyy/mm/dd/hh/{guid}-applicationLog.txt*.
 
@@ -841,14 +842,11 @@ Przesyłanie strumieniowe dzienników platformy Azure umożliwia wyświetlanie d
 
 Aby skonfigurować, przesyłanie strumieniowe dzienników platformy Azure:
 
-* Przejdź do **dzienniki diagnostyczne** strony na stronie portalu swojej aplikacji.
+* Przejdź do **usługi App Service, dzienniki** strony na stronie portalu swojej aplikacji.
 * Ustaw **rejestrowanie aplikacji (system plików)** do **na**.
+* Wybierz dziennik **poziom**.
 
-![Strona portalu dzienniki diagnostyczne platformy Azure](index/_static/azure-diagnostic-logs.png)
-
-Przejdź do **przesyłanie strumieniowe dzienników** strony, aby wyświetlić komunikaty aplikacji. Logowanie przeprowadzono za pomocą aplikacji za pośrednictwem `ILogger` interfejsu.
-
-![Przesyłanie strumieniowe dzienników aplikacji z portalu Azure](index/_static/azure-log-streaming.png)
+Przejdź do **Stream dziennika** strony, aby wyświetlić komunikaty aplikacji. Logowanie przeprowadzono za pomocą aplikacji za pośrednictwem `ILogger` interfejsu.
 
 ::: moniker range=">= aspnetcore-1.1"
 
