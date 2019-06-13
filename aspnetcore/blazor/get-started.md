@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/05/2019
 uid: blazor/get-started
-ms.openlocfilehash: 9df18b25f6d82d655c093a17fe498615c0ff535e
-ms.sourcegitcommit: c716ea9155a6b404c1f3d3d34e2388454cd276d7
+ms.openlocfilehash: 417f2ad79c14351487763888a9a3b022232b3766
+ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66716285"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67034435"
 ---
 # <a name="get-started-with-blazor"></a>Rozpoczynanie pracy z usługą Blazor
 
@@ -25,7 +25,7 @@ Rozpoczynanie pracy z usługą Blazor:
 1. Zainstaluj szablony Blazor, uruchamiając następujące polecenie w powłoce poleceń:
 
    ```console
-   dotnet new -i Microsoft.AspNetCore.Blazor.Templates::3.0.0-preview5-19227-01
+   dotnet new -i Microsoft.AspNetCore.Blazor.Templates::3.0.0-preview6.19307.2
    ```
 
 1. Zgodnie z wytycznymi z dowolnie wybranych narzędzi:
@@ -149,7 +149,7 @@ Dodaj składnik do innego składnika przy użyciu składni języka HTML. Na przy
 
 Uruchom aplikację. Strona główna ma swój własny licznika, dostarczone przez składnik licznika.
 
-Składnik parametry są określane za pomocą atrybutów lub [zawartość elementu podrzędnego](xref:blazor/components#child-content), co pozwala użytkownikowi na ustawianie właściwości w składniku podrzędnych. Aby dodać parametr do składnika licznika, należy zaktualizować składnika `@functions` bloku:
+Składnik parametry są określane za pomocą atrybutów lub [zawartość elementu podrzędnego](xref:blazor/components#child-content), co pozwala użytkownikowi na ustawianie właściwości w składniku podrzędnych. Aby dodać parametr do składnika licznika, należy zaktualizować składnika `@code` bloku:
 
 * Dodaj właściwość `IncrementAmount` z `[Parameter]` atrybutu.
 * Zmiana `IncrementCount` metodę `IncrementAmount` podczas zwiększenie wartości `currentCount`.

@@ -5,14 +5,14 @@ description: Dowiedz się, jak używać formularzy i scenariusze weryfikacji pol
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/15/2019
+ms.date: 06/12/2019
 uid: blazor/forms-validation
-ms.openlocfilehash: ebd2e1294b4fb78f47f505e1aa8e77c7fb035a6e
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 52f53cbfbb335a4a0d681a378d383924c901ef57
+ms.sourcegitcommit: 739a3d7ca4fd2908ea0984940eca589a96359482
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64898465"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67040694"
 ---
 # <a name="blazor-forms-and-validation"></a>Blazor formularze i Walidacja
 
@@ -43,12 +43,12 @@ Formularz jest definiowana za pomocą `<EditForm>` składnika. Następującą po
     <DataAnnotationsValidator />
     <ValidationSummary />
 
-    <InputText id="name" bind-Value="@exampleModel.Name" />
+    <InputText id="name" @bind-Value="@exampleModel.Name" />
 
     <button type="submit">Submit</button>
 </EditForm>
 
-@functions {
+@code {
     private ExampleModel exampleModel = new ExampleModel();
 
     private void HandleValidSubmit()
@@ -58,7 +58,7 @@ Formularz jest definiowana za pomocą `<EditForm>` składnika. Następującą po
 }
 ```
 
-* Formularz sprawdza poprawność danych wejściowych użytkownika w `name` pola za pomocą weryfikacji zdefiniowane w `ExampleModel` typu. Model jest tworzony w składniku `@functions` zablokować, a także przechowywane w pole prywatne (`exampleModel`). Pole jest przypisany do `Model` atrybutu `<EditForm>`.
+* Formularz sprawdza poprawność danych wejściowych użytkownika w `name` pola za pomocą weryfikacji zdefiniowane w `ExampleModel` typu. Model jest tworzony w składniku `@code` zablokować, a także przechowywane w pole prywatne (`exampleModel`). Pole jest przypisany do `Model` atrybutu `<EditForm>`.
 * Składnik weryfikacji adnotacji danych (`<DataAnnotationsValidator>`) dołącza Obsługa weryfikacji przy użyciu adnotacji danych.
 * Składnik podsumowania sprawdzania poprawności (`<ValidationSummary>`) znajduje się podsumowanie komunikatów dotyczących sprawdzania poprawności.
 * `HandleValidSubmit` jest wyzwalany, gdy formularz pomyślnie przesyła (przebiegów weryfikacji).
@@ -73,6 +73,8 @@ Zestaw wbudowanych składników danych wejściowych są dostępne do odbierania 
 | `<InputNumber>`   | `<input type="number">`   |
 | `<InputCheckbox>` | `<input type="checkbox">` |
 | `<InputDate>`     | `<input type="date">`     |
+
+Wszystkich składników danych wejściowych, włącznie z `<EditForm>`, obsługuje dowolne atrybutów. Dowolny atrybut, który nie jest zgodny z parametrem jest dodawany do wygenerowany `<form>`, `<input>`, `<select>`, lub `<textarea>` elementu.
 
 Składniki danych wejściowych udostępniają domyślne zachowanie sprawdzania poprawności po edycji i zmienianie ich klasy CSS, aby odzwierciedlić stan pola. Niektóre składniki zawierają przydatne podczas analizowania logiki. Na przykład `<InputDate>` i `<InputNumber>` bezpiecznie obsłużyć niemożliwy do przeanalizowania wartości, rejestrując je jako błędy sprawdzania poprawności. Typy, które może akceptować wartości null obsługuje również dopuszczanie wartości null dla pola docelowego (na przykład `int?`).
 
@@ -123,16 +125,16 @@ Następującą postać weryfikuje użytkownika danych wejściowych za pomocą we
 
     <p>
         <label for="identifier">Identifier: </label>
-        <InputText id="identifier" bind-Value="@starship.Identifier" />
+        <InputText id="identifier" @bind-Value="@starship.Identifier" />
     </p>
     <p>
         <label for="description">Description (optional): </label>
-        <InputTextArea Id="description" bind-Value="@starship.Description" />
+        <InputTextArea Id="description" @bind-Value="@starship.Description" />
     </p>
     <p>
         <label for="classification">Primary Classification: </label>
-        <InputSelect id="classification" bind-Value="@starship.Classification">
-            <option value"">Select classification ...</option>
+        <InputSelect id="classification" @bind-Value="@starship.Classification">
+            <option value="">Select classification ...</option>
             <option value="Defense">Defense</option>
             <option value="Exploration">Exploration</option>
             <option value="Diplomacy">Diplomacy</option>
@@ -141,15 +143,15 @@ Następującą postać weryfikuje użytkownika danych wejściowych za pomocą we
     <p>
         <label for="accommodation">Maximum Accommodation: </label>
         <InputNumber id="accommodation" 
-            bind-Value="@starship.MaximumAccommodation" />
+            @bind-Value="@starship.MaximumAccommodation" />
     </p>
     <p>
         <label for="valid">Engineering Approval: </label>
-        <InputCheckbox id="valid" bind-Value="@starship.IsValidatedDesign" />
+        <InputCheckbox id="valid" @bind-Value="@starship.IsValidatedDesign" />
     </p>
     <p>
         <label for="productionDate">Production Date: </label>
-        <InputDate Id="productionDate" bind-Value="@starship.ProductionDate" />
+        <InputDate Id="productionDate" @bind-Value="@starship.ProductionDate" />
     </p>
 
     <button type="submit">Submit</button>
@@ -161,7 +163,7 @@ Następującą postać weryfikuje użytkownika danych wejściowych za pomocą we
     </p>
 </EditForm>
 
-@functions {
+@code {
     private Starship starship = new Starship();
 
     private void HandleValidSubmit()
@@ -183,5 +185,4 @@ Składnik komunikat sprawdzania poprawności (`<ValidationMessage>`) wyświetla 
 <ValidationMessage For="@(() => starship.MaximumAccommodation)" />
 ```
 
-> [!NOTE]
-> Wbudowanych składników danych wejściowych ma ograniczenia, które oczekuje się, aby rozwiązać w przyszłych wersjach. Na przykład nie można określić dowolne atrybutów w wygenerowanym `<input>` tagów. Twórz własne podklasy składnik do obsługi scenariuszy niedostępny.
+`<ValidationMessage>` i `<ValidationSummary>` składniki obsługują dowolnymi atrybutami. Dowolny atrybut, który nie jest zgodny z parametrem jest dodawany do wygenerowany `<div>` lub `<ul>` elementu.

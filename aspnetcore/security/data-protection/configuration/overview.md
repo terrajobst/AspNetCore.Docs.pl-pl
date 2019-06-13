@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/11/2019
 uid: security/data-protection/configuration/overview
-ms.openlocfilehash: ee43427fa1e82a365d49df50567b4ca7afb5a5d3
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 65a927b6288ca6cc41ee1bedd1080e52ffe0d3e1
+ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64902992"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67034925"
 ---
 # <a name="configure-aspnet-core-data-protection"></a>Konfigurowanie ochrony danych programu ASP.NET Core
 
@@ -23,7 +23,7 @@ Po zainicjowaniu system ochrony danych dotyczy [domyślne ustawienia](xref:secur
 Dla tych scenariuszy system ochrony danych oferuje interfejs API konfiguracji zaawansowanych.
 
 > [!WARNING]
-> Podobnie jak w plikach konfiguracji, pierścień klucz ochrony danych powinny być chronione przy użyciu odpowiednich uprawnień. Istnieje możliwość szyfrowania kluczy w spoczynku, ale to nie uniemożliwiają osobom atakującym tworzenia nowych kluczy. W związku z tym ma wpływ na zabezpieczenia aplikacji. Lokalizacja magazynu skonfigurowaną z ochroną danych powinny mieć jego dostęp ograniczony do aplikacji, podobnie jak będzie chronić pliki konfiguracji. Na przykład jeśli chcesz przechowywać swoje pierścień klucza na dysku, Użyj uprawnień systemu plików. Upewnij się jedynie tożsamość, której działa aplikacja sieci web ma odczytu, zapisu i tworzenia dostęp do tego katalogu. Jeśli używasz usługi Azure Table Storage, w aplikacji sieci web powinien mieć możliwość odczytu, zapisu lub tworzenia nowych wpisów w tabeli store itp.
+> Podobnie jak w plikach konfiguracji, pierścień klucz ochrony danych powinny być chronione przy użyciu odpowiednich uprawnień. Istnieje możliwość szyfrowania kluczy w spoczynku, ale to nie uniemożliwiają osobom atakującym tworzenia nowych kluczy. W związku z tym ma wpływ na zabezpieczenia aplikacji. Lokalizacja magazynu skonfigurowaną z ochroną danych powinny mieć jego dostęp ograniczony do aplikacji, podobnie jak będzie chronić pliki konfiguracji. Na przykład jeśli chcesz przechowywać swoje pierścień klucza na dysku, Użyj uprawnień systemu plików. Upewnij się jedynie tożsamość, której działa aplikacja sieci web ma odczytu, zapisu i tworzenia dostęp do tego katalogu. Jeśli używasz usługi Azure Blob Storage, w aplikacji sieci web powinien mieć możliwość odczytu, zapisu lub tworzenia nowych wpisów w magazynie obiektów blob itp.
 >
 > Metoda rozszerzenia [AddDataProtection](/dotnet/api/microsoft.extensions.dependencyinjection.dataprotectionservicecollectionextensions.adddataprotection) zwraca [IDataProtectionBuilder](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotectionbuilder). `IDataProtectionBuilder` udostępnia metody rozszerzenia, czy można połączyć w łańcuch ze sobą, aby skonfigurować ochronę danych opcje.
 
@@ -42,7 +42,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Ustaw lokalizację magazynu pierścień klucza (na przykład [PersistKeysToAzureBlobStorage](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.persistkeystoazureblobstorage)). Można ustawić lokalizację, ponieważ wywołanie `ProtectKeysWithAzureKeyVault` implementuje [IXmlEncryptor](/dotnet/api/microsoft.aspnetcore.dataprotection.xmlencryption.ixmlencryptor) wyłączają ustawienia ochrony danych, w tym lokalizacji przechowywania klucza pierścienia. Poprzedni przykład wykorzystuje usługi Azure Blob Storage, aby utrwalić pierścień klucza. Aby uzyskać więcej informacji, zobacz [dostawcy magazynu kluczy: Platforma Azure i Redis](xref:security/data-protection/implementation/key-storage-providers#azure-and-redis). Można również utrwalić pierścień klucz lokalnie za pomocą [PersistKeysToFileSystem](xref:security/data-protection/implementation/key-storage-providers#file-system).
+Ustaw lokalizację magazynu pierścień klucza (na przykład [PersistKeysToAzureBlobStorage](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.persistkeystoazureblobstorage)). Można ustawić lokalizację, ponieważ wywołanie `ProtectKeysWithAzureKeyVault` implementuje [IXmlEncryptor](/dotnet/api/microsoft.aspnetcore.dataprotection.xmlencryption.ixmlencryptor) wyłączają ustawienia ochrony danych, w tym lokalizacji przechowywania klucza pierścienia. Poprzedni przykład wykorzystuje usługi Azure Blob Storage, aby utrwalić pierścień klucza. Aby uzyskać więcej informacji, zobacz [dostawcy magazynu kluczy: Azure Storage](xref:security/data-protection/implementation/key-storage-providers#azure-storage). Można również utrwalić pierścień klucz lokalnie za pomocą [PersistKeysToFileSystem](xref:security/data-protection/implementation/key-storage-providers#file-system).
 
 `keyIdentifier` Jest używany do szyfrowania klucza identyfikator klucza magazynu kluczy. Na przykład klucza utworzonego w usłudze key vault o nazwie `dataprotection` w `contosokeyvault` ma identyfikator klucza `https://contosokeyvault.vault.azure.net/keys/dataprotection/`. Podaj aplikacji za pomocą **Odpakuj klucz** i **Opakuj klucz** uprawnień do magazynu kluczy.
 
@@ -170,7 +170,7 @@ System ochrony danych jest udostępniane przez hosta platformy ASP.NET Core, jeg
 
 Mechanizm izolacji działa, biorąc pod uwagę każdej aplikacji na komputerze lokalnym jako dzierżawca unikatowe, dlatego <xref:Microsoft.AspNetCore.DataProtection.IDataProtector> dostęp do konta root dla danej aplikacji automatycznie zawiera identyfikator aplikacji jako dyskryminatora. Unikatowy identyfikator aplikacji jest ścieżka fizyczna aplikacji:
 
-* Dla aplikacji hostowanych w [IIS](xref:fundamentals/servers/index#iis-http-server), unikatowy identyfikator jest ścieżka fizyczna usług IIS aplikacji. Jeśli aplikacja jest wdrażana w środowisku farmy sieci web, ta wartość jest stabilna, przy założeniu, że w środowiskach usług IIS są skonfigurowane w podobny sposób na wszystkich komputerach w farmie sieci web.
+* W przypadku aplikacji hostowanych w usługach IIS Unikatowy identyfikator jest ścieżka fizyczna usług IIS aplikacji. Jeśli aplikacja jest wdrażana w środowisku farmy sieci web, ta wartość jest stabilna, przy założeniu, że w środowiskach usług IIS są skonfigurowane w podobny sposób na wszystkich komputerach w farmie sieci web.
 * Dla samodzielnie hostowanej aplikacji uruchomionej na [serwera Kestrel](xref:fundamentals/servers/index#kestrel), unikatowy identyfikator jest ścieżka fizyczna aplikacji na dysku.
 
 Unikatowy identyfikator zaprojektowano w celu przetrwania resetuje&mdash;zarówno poszczególnych aplikacji, jak i samą maszynę.

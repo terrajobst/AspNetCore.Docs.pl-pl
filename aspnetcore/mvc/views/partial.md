@@ -4,14 +4,14 @@ author: ardalis
 description: Dowiedz się, jak za pomocą widoków częściowych Podziel znaczników dużych plików i zmniejszenia duplikowania typowych znaczników na stronach sieci web w aplikacji platformy ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/06/2019
+ms.date: 06/12/2019
 uid: mvc/views/partial
-ms.openlocfilehash: 9564639dcff0cff7f21b123cec39f0c96ebda208
-ms.sourcegitcommit: 9691b742134563b662948b0ed63f54ef7186801e
+ms.openlocfilehash: 901fd52f89969141713e443890781a77308bd901
+ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2019
-ms.locfileid: "66824842"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67034915"
 ---
 # <a name="partial-views-in-aspnet-core"></a>Widoki częściowe w programie ASP.NET Core
 
@@ -48,7 +48,7 @@ Nie używaj widoku częściowego których wykonywanie złożonych renderowania l
 
 Widok częściowy jest *.cshtml* pliku znaczników utrzymane w *widoków* folder (MVC) lub *stron* folder (stron Razor).
 
-W przypadku platformy ASP.NET Core MVC, kontroler <xref:Microsoft.AspNetCore.Mvc.ViewResult> zwraca widok lub widok częściowy. W przypadku stron Razor <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel> może zwrócić <xref:Microsoft.AspNetCore.Mvc.PartialViewResult>. Odwoływanie się do i renderowania widoków częściowych, które jest opisane w [odwoływać się do widoku częściowego](#reference-a-partial-view) sekcji.
+W przypadku platformy ASP.NET Core MVC, kontroler <xref:Microsoft.AspNetCore.Mvc.ViewResult> zwraca widok lub widok częściowy. W przypadku stron Razor <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel> może zwrócić reprezentowane jako widok częściowy <xref:Microsoft.AspNetCore.Mvc.PartialViewResult> obiektu. Odwoływanie się do i renderowania widoków częściowych, które jest opisane w [odwoływać się do widoku częściowego](#reference-a-partial-view) sekcji.
 
 W przeciwieństwie do widoku składnika MVC lub renderowania stron widoku częściowego nie zostanie uruchomiona *_ViewStart.cshtml*. Aby uzyskać więcej informacji na temat *_ViewStart.cshtml*, zobacz <xref:mvc/views/layout>.
 
@@ -60,7 +60,7 @@ Nazwy plików widoku częściowego często rozpoczynają się od znaku podkreśl
 
 Widok częściowy jest *.cshtml* pliku znaczników utrzymane w *widoków* folderu.
 
-Kontroler <xref:Microsoft.AspNetCore.Mvc.ViewResult> zwraca widok lub widok częściowy.
+Kontroler <xref:Microsoft.AspNetCore.Mvc.ViewResult> zwraca widok lub widok częściowy. Odwoływanie się do i renderowania widoków częściowych, które jest opisane w [odwoływać się do widoku częściowego](#reference-a-partial-view) sekcji.
 
 W przeciwieństwie do renderowania widoku MVC, nie zostanie uruchomiona widoku częściowego *_ViewStart.cshtml*. Aby uzyskać więcej informacji na temat *_ViewStart.cshtml*, zobacz <xref:mvc/views/layout>.
 
@@ -69,6 +69,33 @@ Nazwy plików widoku częściowego często rozpoczynają się od znaku podkreśl
 ::: moniker-end
 
 ## <a name="reference-a-partial-view"></a>Odwołanie do widoku częściowego
+
+::: moniker range=">= aspnetcore-2.0"
+
+### <a name="use-a-partial-view-in-a-razor-pages-pagemodel"></a>Użyj widoku częściowego w PageModel stron Razor
+
+W programie ASP.NET Core 2.0 lub 2.1 renderuje następującą metodę programu obsługi  *\_AuthorPartialRP.cshtml* widoku częściowego na potrzeby odpowiedzi:
+
+```csharp
+public IActionResult OnGetPartial() =>
+    new PartialViewResult
+    {
+        ViewName = "_AuthorPartialRP",
+        ViewData = ViewData,
+    };
+```
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
+
+W programie ASP.NET Core 2.2 lub nowszej, można również wywołać metody obsługi <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageBase.Partial*> metody do tworzenia `PartialViewResult` obiektu:
+
+[!code-csharp[](partial/sample/PartialViewsSample/Pages/DiscoveryRP.cshtml.cs?name=snippet_OnGetPartial)]
+
+::: moniker-end
+
+### <a name="use-a-partial-view-in-a-markup-file"></a>Użyj widoku częściowego w pliku znaczników
 
 ::: moniker range=">= aspnetcore-2.1"
 

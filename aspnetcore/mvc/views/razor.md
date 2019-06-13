@@ -3,14 +3,14 @@ title: Dokumentacja składni razor dla platformy ASP.NET Core
 author: rick-anderson
 description: Więcej informacji na temat składni znacznikowania Razor do osadzania kodu na serwerze do stron sieci Web.
 ms.author: riande
-ms.date: 10/26/2018
+ms.date: 06/12/2019
 uid: mvc/views/razor
-ms.openlocfilehash: 7f97be651c067e94f29eef4956c10d87ec031bed
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 87c5b97a653c139b8b79f4270e0d9d0081815433
+ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64901108"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67034940"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>Dokumentacja składni razor dla platformy ASP.NET Core
 
@@ -574,9 +574,39 @@ Ten kod Renderuje poniższy kod HTML:
 
 ::: moniker-end
 
+### <a name="attribute"></a>@attribute
+
+`@attribute` Dyrektywy dodaje nadano mu atrybut klasy wygenerowanej strony lub widoku. W poniższym przykładzie dodano `[Authorize]` atrybutu:
+
+```cshtml
+@attribute [Authorize]
+```
+
+> [!WARNING]
+> W wersji platformy ASP.NET Core 3.0 w wersji zapoznawczej 6, jest to znany problem gdzie `@attribute` dyrektywy nie działają w  *\_Imports.razor* i  *\_ViewImports.cshtml* plików. Ten problem zostanie rozwiązany w wersji 7 (wersja zapoznawcza).
+
+### <a name="namespace"></a>@namespace
+
+`@namespace` Dyrektywa określa przestrzeń nazw, klasy wygenerowanej strony lub widoku:
+
+```cshtml
+@namespace Your.Namespace.Here
+```
+
+Jeśli strony lub widoku importuje interfejsu API za pomocą `@namespace` dyrektywy, przestrzeń nazw oryginalnego pliku ustawiono względem tej przestrzeni nazw. 
+
+Jeśli *MyApp/stron/\_ViewImports.cshtml* zawiera `@namespace Hello.World`, stron lub widoki, które importują przestrzeń nazw `Hello.World` przestrzeni nazw jest ustawiona, jak pokazano w poniższej tabeli.
+
+| Strona (lub widoku)                     | Przestrzeń nazw               |
+| ---------------------------------- | ----------------------- |
+| *MyApp/Pages/Index.cshtml*         | `Hello.World`           |
+| *MyApp/Pages/MorePages/Bar.cshtml* | `Hello.World.MorePages` |
+
+Jeśli masz wiele plików importu `@namespace` dyrektywy, zostanie użyty plik najbliższego widoku w łańcuchu katalogu lub strony.
+
 ### <a name="section"></a>@section
 
-`@section` Dyrektywa jest używany w połączeniu z [układ](xref:mvc/views/layout) do przedstawiania do renderowania zawartości w różnych częściach strony HTML. Aby uzyskać więcej informacji, zobacz [sekcje](xref:mvc/views/layout#layout-sections-label).
+`@section` Dyrektywa jest używany w połączeniu z [układ](xref:mvc/views/layout) umożliwiające stron lub widoków w celu renderowania zawartości w różnych częściach strony HTML. Aby uzyskać więcej informacji, zobacz [sekcje](xref:mvc/views/layout#layout-sections-label).
 
 ## <a name="templated-razor-delegates"></a>Oparte na szablonach delegatów Razor
 

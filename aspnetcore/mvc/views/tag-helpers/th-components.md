@@ -4,14 +4,14 @@ author: scottaddie
 description: Dowiedz się, jakie są składniki pomocnika tagów i sposobu ich używania w programie ASP.NET Core.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: scaddie
-ms.date: 04/06/2019
+ms.date: 06/12/2019
 uid: mvc/views/tag-helpers/th-components
-ms.openlocfilehash: 777bbcca3d1c2f03f386fa62df2a2e0b00409318
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: b5b3abea6492cfaa7d6acd0e54073a8db12eb2a5
+ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64902083"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67034751"
 ---
 # <a name="tag-helper-components-in-aspnet-core"></a>Składniki Pomocnika tagów w programie ASP.NET Core
 
@@ -62,9 +62,16 @@ Powyższy kod wiąże [Bootstrap etykietka narzędzia elementu widget](https://g
 
 Składnik pomocnika tagów, należy dodać do kolekcji składników pomocnika tagów aplikacji. Istnieją trzy sposoby dodania do kolekcji:
 
-1. [Rejestracja za pośrednictwem usługi kontenera](#registration-via-services-container)
-1. [Rejestracja za pośrednictwem pliku Razor](#registration-via-razor-file)
-1. [Rejestracja za pośrednictwem modelu strony lub kontrolera](#registration-via-page-model-or-controller)
+* [Składniki Pomocnika tagów w programie ASP.NET Core](#tag-helper-components-in-aspnet-core)
+  * [Przypadki użycia](#use-cases)
+    * [Wstrzyknięcie do głównego elementu HTML](#inject-into-html-head-element)
+    * [Wstrzyknięcie do elementu body HTML](#inject-into-html-body-element)
+  * [Zarejestruj składnik](#register-a-component)
+    * [Rejestracja za pośrednictwem usługi kontenera](#registration-via-services-container)
+    * [Rejestracja za pośrednictwem pliku Razor](#registration-via-razor-file)
+    * [Rejestracja za pośrednictwem modelu strony lub kontrolera](#registration-via-page-model-or-controller)
+  * [Tworzenie składnika](#create-a-component)
+  * [Dodatkowe zasoby](#additional-resources)
 
 ### <a name="registration-via-services-container"></a>Rejestracja za pośrednictwem usługi kontenera
 

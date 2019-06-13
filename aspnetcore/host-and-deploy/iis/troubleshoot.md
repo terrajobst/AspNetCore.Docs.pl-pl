@@ -5,14 +5,14 @@ description: Dowiedz się, jak diagnozować problemy z wdrożeniami usług Inter
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/12/2019
+ms.date: 05/28/2019
 uid: host-and-deploy/iis/troubleshoot
-ms.openlocfilehash: e4c93459f2030c7c0a55ea90e0cc8c8d30b76c51
-ms.sourcegitcommit: a04eb20e81243930ec829a9db5dd5de49f669450
+ms.openlocfilehash: cb42a262c89c27fa350e936184f8ddb3a02788f0
+ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66470461"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67034740"
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a>Rozwiązywanie problemów z platformą ASP.NET Core w usługach IIS
 
@@ -330,13 +330,13 @@ Uzyskaj i analizowanie zrzutu z [raportowania błędów Windows (WER)](/windows/
 
 1. Utwórz folder do przechowywania plików zrzutu awaryjnego na `c:\dumps`. Pula aplikacji musi mieć dostęp do zapisu do folderu.
 1. Uruchom [skrypt programu EnableDumps PowerShell](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/host-and-deploy/iis/troubleshoot/scripts/EnableDumps.ps1):
-   * Jeśli aplikacja korzysta z [modelu hostingu w trakcie](xref:fundamentals/servers/index#in-process-hosting-model), uruchom skrypt *w3wp.exe*:
+   * Jeśli aplikacja korzysta z [modelu hostingu w trakcie](xref:host-and-deploy/iis/index#in-process-hosting-model), uruchom skrypt *w3wp.exe*:
 
      ```console
      .\EnableDumps w3wp.exe c:\dumps
      ```
 
-   * Jeśli aplikacja korzysta z [modelu hostingu poza procesem](xref:fundamentals/servers/index#out-of-process-hosting-model), uruchom skrypt *dotnet.exe*:
+   * Jeśli aplikacja korzysta z [modelu hostingu poza procesem](xref:host-and-deploy/iis/index#out-of-process-hosting-model), uruchom skrypt *dotnet.exe*:
 
      ```console
      .\EnableDumps dotnet.exe c:\dumps
@@ -344,13 +344,13 @@ Uzyskaj i analizowanie zrzutu z [raportowania błędów Windows (WER)](/windows/
 
 1. Uruchom aplikację zgodnie z warunkami, które powodują awarię wystąpić.
 1. Po przeprowadzeniu awarii Uruchom [skrypt programu DisableDumps PowerShell](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/host-and-deploy/iis/troubleshoot/scripts/DisableDumps.ps1):
-   * Jeśli aplikacja korzysta z [modelu hostingu w trakcie](xref:fundamentals/servers/index#in-process-hosting-model), uruchom skrypt *w3wp.exe*:
+   * Jeśli aplikacja korzysta z [modelu hostingu w trakcie](xref:host-and-deploy/iis/index#in-process-hosting-model), uruchom skrypt *w3wp.exe*:
 
      ```console
      .\DisableDumps w3wp.exe
      ```
 
-   * Jeśli aplikacja korzysta z [modelu hostingu poza procesem](xref:fundamentals/servers/index#out-of-process-hosting-model), uruchom skrypt *dotnet.exe*:
+   * Jeśli aplikacja korzysta z [modelu hostingu poza procesem](xref:host-and-deploy/iis/index#out-of-process-hosting-model), uruchom skrypt *dotnet.exe*:
 
      ```console
      .\DisableDumps dotnet.exe

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/11/2019
 uid: fundamentals/index
-ms.openlocfilehash: 9c7bc25d813ad17825ef03f5176882993cc2dd63
-ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
+ms.openlocfilehash: 3cf311f8e6be4ed12c79ceecc15ccc1babfb0117
+ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610331"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67034861"
 ---
 # <a name="aspnet-core-fundamentals"></a>Podstawy platformy ASP.NET Core
 
@@ -22,11 +22,12 @@ W tym artykule przedstawiono kluczowe tematy zrozumieć, jak opracowywać aplika
 
 `Startup` Klasy jest, gdy:
 
-* Wszystkie wymagane przez aplikację usługi są skonfigurowane.
+* Skonfigurowano usługi wymagane przez aplikację.
 * Żądanie obsługi potoku jest zdefiniowana.
 
-* Kod, aby skonfigurować (lub *zarejestrować*) usługi jest dodawany do `Startup.ConfigureServices` metody. *Usługi* przedstawiono składniki, które są używane przez aplikację. Na przykład obiekt kontekstu platformy Entity Framework Core to usługa.
-* Kod, aby skonfigurować żądanie obsługi potoku jest dodawany do `Startup.Configure` metody. Potok składa się jako serię *oprogramowania pośredniczącego* składników. Na przykład oprogramowanie pośredniczące może obsługiwać żądań dotyczących plików statycznych lub przekierowywanie żądań HTTP do HTTPS. Każdy oprogramowania pośredniczącego wykonuje operacje asynchroniczne na `HttpContext` i następnie wywoła następne oprogramowanie pośredniczące w potoku lub kończy żądanie.
+*Usługi* przedstawiono składniki, które są używane przez aplikację. Na przykład rejestrowanie składnik to usługa. Kod, aby skonfigurować (lub *zarejestrować*) usługi jest dodawany do `Startup.ConfigureServices` metody.
+
+Żądanie obsługi Potok składa się jako serię *oprogramowania pośredniczącego* składników. Na przykład oprogramowanie pośredniczące może obsługiwać żądań dotyczących plików statycznych lub przekierowywanie żądań HTTP do HTTPS. Każdy oprogramowania pośredniczącego wykonuje operacje asynchroniczne na `HttpContext` i następnie wywoła następne oprogramowanie pośredniczące w potoku lub kończy żądanie. Kod, aby skonfigurować żądanie obsługi potoku jest dodawany do `Startup.Configure` metody.
 
 Poniżej znajduje się przykładowy `Startup` klasy:
 
@@ -60,9 +61,7 @@ Platforma ASP.NET Core zawiera bogaty zestaw wbudowanych oprogramowania pośredn
 
 Aby uzyskać więcej informacji, zobacz <xref:fundamentals/middleware/index>.
 
-<a id="host"/>
-
-## <a name="the-host"></a>Host
+## <a name="host"></a>Host
 
 Tworzy aplikację ASP.NET Core *hosta* przy uruchamianiu. Host jest obiektem, który hermetyzuje wszystkie zasoby aplikacji, takich jak:
 
@@ -74,61 +73,45 @@ Tworzy aplikację ASP.NET Core *hosta* przy uruchamianiu. Host jest obiektem, kt
 
 Głównym powodem wraz ze wszystkimi zasobami współzależne aplikacji w jeden obiekt jest zarządzanie okresem istnienia: kontrolę nad uruchamianiem aplikacji i łagodne zamykanie.
 
-Kod w celu utworzenia hosta jest `Program.Main` i następuje [wzorzec konstruktora](https://wikipedia.org/wiki/Builder_pattern). Metody są wywoływane w celu skonfigurowania każdego zasobu należącego do hosta. Metoda Konstruktor jest wywoływana w celu wyciągniesz go razem i Utwórz wystąpienie obiektu hosta.
-
 ::: moniker range=">= aspnetcore-3.0"
 
-`CreateHostBuilder` jest nazwą specjalną, który identyfikuje metodę konstruktora do składników zewnętrznych, takich jak [Entity Framework](/ef/core/).
+Dostępne są dwa hosty: ogólne hosta i hosta sieci Web. Ogólny hosta jest zalecana i hosta sieci Web jest dostępna tylko dla zapewnienia zgodności.
 
-W ASP.NET Core 3.0 lub nowszej, ogólne hosta (`Host` klasy) lub hosta sieci Web (`WebHost` klasy) może być używana w aplikacji sieci web. Ogólny hosta jest zalecana i hosta sieci Web jest dostępna dla zapewnienia zgodności.
+Kod w celu utworzenia hosta jest `Program.Main`:
 
-Udostępnia platformę `CreateDefaultBuilder` i `ConfigureWebHostDefaults` metody, aby skonfigurować hosta z powszechnie używane opcje, takie jak następujące:
+[!code-csharp[](index/snapshots/3.x/Program1.cs)]
+
+`CreateDefaultBuilder` i `ConfigureWebHostDefaults` metody Konfigurowanie hosta z powszechnie używane opcje, takie jak następujące:
 
 * Użyj [Kestrel](#servers) jako integracja sieci web serwera i Włącz usługi IIS.
 * Konfiguracja obciążenia z *appsettings.json*, *appsettings. { Nazwa środowiska} .json*, zmienne środowiskowe, argumenty wiersza polecenia i inne źródła konfiguracji.
 * Wyślij rejestrowania danych wyjściowych do konsoli i debugowanie dostawców.
 
-Oto przykładowy kod, który tworzy hosta. Metody, które skonfigurować hosta z powszechnie używane opcje są wyróżnione:
-
-[!code-csharp[](index/snapshots/3.x/Program1.cs?highlight=9-10)]
-
-Aby uzyskać więcej informacji, zobacz <xref:fundamentals/host/generic-host> i <xref:fundamentals/host/web-host>.
+Aby uzyskać więcej informacji, zobacz <xref:fundamentals/host/generic-host>.
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
 
-`CreateWebHostBuilder` jest nazwą specjalną, który identyfikuje metodę konstruktora do składników zewnętrznych, takich jak [Entity Framework](/ef/core/).
+Dostępne są dwa hosty: Host sieci Web i ogólny hosta. W programie ASP.NET Core 2.x, ogólny Host znajduje się tylko w scenariuszach bez sieci web.
 
-Platforma ASP.NET Core 2.x używa hosta sieci Web (`WebHost` klasy) dla aplikacji sieci web. Udostępnia platformę `CreateDefaultBuilder` skonfigurować hosta z powszechnie używane opcje, takie jak następujące:
+Kod w celu utworzenia hosta jest `Program.Main`:
+
+[!code-csharp[](index/snapshots/2.x/Program1.cs)]
+
+`CreateDefaultBuilder` Metoda konfiguruje hosta przy użyciu powszechnie używane opcje, takie jak następujące:
 
 * Użyj [Kestrel](#servers) jako integracja sieci web serwera i Włącz usługi IIS.
 * Konfiguracja obciążenia z *appsettings.json*, *appsettings. { Nazwa środowiska} .json*, zmienne środowiskowe, argumenty wiersza polecenia i inne źródła konfiguracji.
 * Wyślij rejestrowania danych wyjściowych do konsoli i debugowanie dostawców.
-
-Oto przykładowy kod, który tworzy hosta:
-
-[!code-csharp[](index/snapshots/2.x/Program1.cs?highlight=9)]
 
 Aby uzyskać więcej informacji, zobacz <xref:fundamentals/host/web-host>.
 
 ::: moniker-end
 
-### <a name="advanced-host-scenarios"></a>Scenariusze zaawansowane hosta
+### <a name="non-web-scenarios"></a>Scenariusze non-sieci web
 
-::: moniker range=">= aspnetcore-3.0"
-
-Ogólny Host jest dostępny dla dowolnej aplikacji platformy .NET Core użyć&mdash;nie tylko aplikacje platformy ASP.NET Core. Ogólny hosta (`Host` klasy) umożliwia innych typów aplikacji, aby korzystać z kompleksowych framework rozszerzeń, takich jak zarządzanie okresem istnienia rejestrowania, DI, konfiguracji i aplikacji. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/host/generic-host>.
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-3.0"
-
-Host sieci Web zaprojektowano do uwzględnienia implementację serwera HTTP, który nie jest wymagane dla innych typów aplikacji .NET. Począwszy od platformy ASP.NET Core 2.1, ogólny hosta (`Host` klasy) jest dostępna dla dowolnej aplikacji platformy .NET Core użyć&mdash;nie tylko aplikacje platformy ASP.NET Core. Ogólny hosta umożliwia innych typów aplikacji, aby korzystać z kompleksowych framework rozszerzeń, takich jak zarządzanie okresem istnienia rejestrowania, DI, konfiguracji i aplikacji. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/host/generic-host>.
-
-::: moniker-end
-
-Host umożliwia również uruchamianie zadań w tle. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/host/hosted-services>.
+Ogólny hosta umożliwia innych typów aplikacji, aby korzystać z kompleksowych framework rozszerzeń, takich jak rejestrowanie, wstrzykiwanie zależności (DI), Konfiguracja i zarządzanie okresem istnienia aplikacji. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/host/generic-host> i <xref:fundamentals/host/hosted-services>.
 
 ## <a name="servers"></a>Serwery
 
@@ -287,6 +270,6 @@ Aby uzyskać więcej informacji, zobacz [zawartości głównego](xref:fundamenta
 
 Katalog główny sieci web (znany także jako *webroot*) to ścieżka podstawowa do publicznej, statycznej zasobów, takich jak CSS, JavaScript i plików obrazów. Oprogramowanie pośredniczące plików statycznych posłużą tylko pliki z katalogu głównego sieci web (i jego podkatalogi) domyślnie. Ścieżka katalogu głównego sieci web, wartość domyślna to *{głównego zawartości} / wwwroot*, ale może innej lokalizacji, należy określić podczas [tworzenia hosta](#host).
 
-W aparacie Razor (*.cshtml*) plików ukośnika tylda `~/` wskazuje katalog główny sieci web. Począwszy od ścieżki `~/` są określane jako ścieżek wirtualnych.
+W aparacie Razor ( *.cshtml*) plików ukośnika tylda `~/` wskazuje katalog główny sieci web. Począwszy od ścieżki `~/` są określane jako ścieżek wirtualnych.
 
 Aby uzyskać więcej informacji, zobacz <xref:fundamentals/static-files>.

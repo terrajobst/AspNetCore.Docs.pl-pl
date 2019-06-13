@@ -5,22 +5,35 @@ description: Dowiedz się, jak skonfigurować uwierzytelnianie Windows w program
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 06/05/2019
+ms.date: 06/12/2019
 uid: security/authentication/windowsauth
-ms.openlocfilehash: 900bbf5f14b1876ad537b2b77e4ba07d7aa168f2
-ms.sourcegitcommit: e7e04a45195d4e0527af6f7cf1807defb56dc3c3
+ms.openlocfilehash: 93f833adff95f25d570947cd1a9035d652f522c2
+ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66750166"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67034955"
 ---
 # <a name="configure-windows-authentication-in-aspnet-core"></a>Konfigurowanie uwierzytelniania Windows w programie ASP.NET Core
 
 Przez [Scott Addie](https://twitter.com/Scott_Addie) i [Luke Latham](https://github.com/guardrex)
 
-[Uwierzytelnianie Windows](/iis/configuration/system.webServer/security/authentication/windowsAuthentication/) można skonfigurować dla aplikacji platformy ASP.NET Core z [IIS](xref:host-and-deploy/iis/index) lub [HTTP.sys](xref:fundamentals/servers/httpsys).
+::: moniker range=">= aspnetcore-3.0"
+
+Windows Authentication (nazywanego też uwierzytelnianiem Negotiate, Kerberos lub NTLM) można skonfigurować dla aplikacji platformy ASP.NET Core z [IIS](xref:host-and-deploy/iis/index), [Kestrel](xref:fundamentals/servers/kestrel), lub [HTTP.sys](xref:fundamentals/servers/httpsys) .
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+Windows Authentication (nazywanego też uwierzytelnianiem Negotiate, Kerberos lub NTLM) można skonfigurować dla aplikacji platformy ASP.NET Core z [IIS](xref:host-and-deploy/iis/index) lub [HTTP.sys](xref:fundamentals/servers/httpsys).
+
+::: moniker-end
 
 Uwierzytelnianie Windows opiera się uwierzytelniać użytkowników aplikacji platformy ASP.NET Core w systemie operacyjnym. Możesz użyć uwierzytelniania Windows, gdy serwer działa w sieci firmowej przy użyciu tożsamości domeny usługi Active Directory lub konta Windows do identyfikacji użytkowników. Uwierzytelnianie Windows najlepiej nadaje się do środowisk intranetowych, w którym użytkownicy, aplikacje klienckie i serwery sieci web należą do tej samej domeny Windows.
+
+> [!NOTE]
+> Uwierzytelnianie Windows nie jest obsługiwane przy użyciu protokołu HTTP/2. Mogą być wysyłane wezwań do uwierzytelnienia w odpowiedzi HTTP/2, ale klient musi obniżyć wersję usługi do protokołu HTTP/1.1 przed uwierzytelnieniem.
 
 ## <a name="iisiis-express"></a>Usługi IIS/IIS Express
 
@@ -125,9 +138,65 @@ Użyj **albo** z następujących metod:
   * Użyj Menedżera usług IIS, aby zresetować ustawienia w *web.config* pliku po plik jest zastępowany we wdrożeniu.
   * Dodaj *pliku web.config* aplikacji lokalnie przy użyciu ustawień.
 
+::: moniker range=">= aspnetcore-3.0"
+
+## <a name="kestrel"></a>Kestrel
+
+ [Microsoft.AspNetCore.Authentication.Negotiate](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Negotiate) pakietu NuGet może być używany z [Kestrel](xref:fundamentals/servers/kestrel) do obsługi uwierzytelniania Windows przy użyciu Negotiate, Kerberos i NTLM w Windows, Linux i macOS.
+
+> [!WARNING]
+> Poświadczenia mogą zostać utrwalone na żądań połączenia. *Negocjowania uwierzytelniania nie może być używany z serwerami proxy, chyba że serwer proxy przechowuje koligacji połączenia 1:1 (trwałe połączenie), za pomocą Kestrel.* Oznacza to, że uwierzytelniania Negotiate nie mogą być używane z Kestrel za IIS [poza procesem programu ASP.NET Core modułu (ANCM)](xref:host-and-deploy/iis/index#out-of-process-hosting-model).
+
+ Dodawanie usług uwierzytelniania za pomocą wywołania <xref:Microsoft.Extensions.DependencyInjection.AuthenticationServiceCollectionExtensions.AddAuthentication*> (`Microsoft.AspNetCore.Authentication.Negotiate` przestrzeni nazw) i `AddNegotitate` (`Microsoft.AspNetCore.Authentication.Negotiate` przestrzeni nazw) w `Startup.ConfigureServices`:
+
+ ```csharp
+services.AddAuthentication(NegotiateDefaults.AuthenticationScheme)
+    .AddNegotiate();
+```
+
+Dodaj oprogramowanie pośredniczące uwierzytelniania przez wywołanie metody <xref:Microsoft.AspNetCore.Builder.AuthAppBuilderExtensions.UseAuthentication*> w `Startup.Configure`:
+
+ ```csharp
+app.UseAuthentication();
+
+app.UseMvc();
+```
+
+Aby uzyskać więcej informacji na temat oprogramowania pośredniczącego, zobacz <xref:fundamentals/middleware/index>.
+
+Anonimowe żądania są dozwolone. Użyj [autoryzacja w programie ASP.NET Core](xref:security/authorization/introduction) zażąda anonimowe żądania uwierzytelniania.
+
+### <a name="windows-environment-configuration"></a>Konfiguracja środowiska Windows
+
+[Microsoft.AspNetCore.Authentication.Negotiate](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Negotiate) składnik przeprowadza uwierzytelnianie w trybie użytkownika. Główne nazwy usług (SPN), należy dodać do konta użytkownika uruchamiającego usługi, a nie na koncie komputera. Wykonaj `setspn -S HTTP/mysrevername.mydomain.com myuser` w powłoce poleceń administracyjnych.
+
+### <a name="linux-and-macos-environment-configuration"></a>Konfiguracja środowiska systemu Linux i macOS
+
+Instrukcje dotyczące przyłączania komputera z systemem Linux lub macOS do domeny Windows są dostępne w [Połącz Studio danych platformy Azure z serwerem SQL przy użyciu uwierzytelniania Windows - Kerberos](/sql/azure-data-studio/enable-kerberos?view=sql-server-2017#join-your-os-to-the-active-directory-domain-controller) artykułu. Instrukcje Utwórz konto komputera dla maszyny z systemem Linux w domenie. Nazwy SPN należy dodać do tego konta maszyny.
+
+> [!NOTE]
+> Gdy postępując zgodnie ze wskazówkami w [Połącz Studio danych platformy Azure z serwerem SQL przy użyciu uwierzytelniania Windows - Kerberos](/sql/azure-data-studio/enable-kerberos?view=sql-server-2017#join-your-os-to-the-active-directory-domain-controller) artykuł, Zastąp `python-software-properties` z `python3-software-properties` w razie potrzeby.
+
+Po w systemie Linux lub macOS komputer jest przyłączony do domeny, są wymagane dodatkowe kroki w celu zapewnienia [pliku keytab](https://blogs.technet.microsoft.com/pie/2018/01/03/all-you-need-to-know-about-keytab-files/) za pomocą nazw SPN:
+
+* Na kontrolerze domeny Dodaj nową usługę sieci web nazwy SPN konta na komputerze:
+  * `setspn -S HTTP/mywebservice.mydomain.com mymachine`
+  * `setspn -S HTTP/mywebservice@MYDOMAIN.COM mymachine`
+* Użyj [ktpass](/windows-server/administration/windows-commands/ktpass) do generowania pliku keytab:
+  * `ktpass -princ HTTP/mywebservice.mydomain.com@MYDOMAIN.COM -pass myKeyTabFilePassword -mapuser MYDOMAIN\mymachine$ -pType KRB5_NT_PRINCIPAL -out c:\temp\mymachine.HTTP.keytab -crypto AES256-SHA1`
+  * Niektóre pola musi być określona w wielkie wskazane.
+* Skopiuj plik keytab do komputera w systemie Linux lub macOS.
+* Wybierz plik keytab za pośrednictwem zmiennej środowiskowej: `export KRB5_KTNAME=/tmp/mymachine.HTTP.keytab`
+* Wywoływanie `klist` aby pokazać nazwy SPN aktualnie dostępne do użycia.
+
+> [!NOTE]
+> Plik keytab zawiera poświadczenia dostępu do domeny i muszą być odpowiednio chronione.
+
+::: moniker-end
+
 ## <a name="httpsys"></a>HTTP.sys
 
-W scenariuszach Self-Hosted [Kestrel](xref:fundamentals/servers/kestrel) nie obsługę uwierzytelniania Windows, ale Wy możecie użyć [HTTP.sys](xref:fundamentals/servers/httpsys).
+[Sterownik HTTP.sys](xref:fundamentals/servers/httpsys) obsługuje Windows uwierzytelnianie trybu jądra, przy użyciu Negotiate, NTLM lub uwierzytelniania podstawowego.
 
 Dodawanie usług uwierzytelniania za pomocą wywołania <xref:Microsoft.Extensions.DependencyInjection.AuthenticationServiceCollectionExtensions.AddAuthentication*> (<xref:Microsoft.AspNetCore.Server.HttpSys?displayProperty=fullName> przestrzeni nazw) w `Startup.ConfigureServices`:
 
@@ -177,6 +246,12 @@ Platforma ASP.NET Core nie implementuje personifikacji. Aplikacje są uruchamian
 [!code-csharp[](windowsauth/sample_snapshot/Startup.cs?highlight=10-19)]
 
 `RunImpersonated` nie obsługuje operacji asynchronicznych i nie powinny być używane w przypadku złożonych scenariuszy. Na przykład zawijania całego żądania lub łańcuchów oprogramowanie pośredniczące nie jest obsługiwany lub zalecane.
+
+::: moniker range=">= aspnetcore-3.0"
+
+Gdy [Microsoft.AspNetCore.Authentication.Negotiate](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Negotiate) pakiet umożliwia uwierzytelnianie na Windows, Linux i macOS, personifikacja jest obsługiwana tylko na Windows.
+
+::: moniker-end
 
 ## <a name="claims-transformations"></a>Przekształcenia oświadczeń
 

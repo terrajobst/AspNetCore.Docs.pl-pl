@@ -6,9 +6,9 @@ Opóźnienie JavaScript interop wywołuje aż po nawiązaniu połączenia za po�
 @using Microsoft.JSInterop
 @inject IJSRuntime JSRuntime
 
-<input ref="myInput" value="Value set during render" />
+<input @ref="myInput" value="Value set during render" />
 
-@functions {
+@code {
     ElementRef myInput;
 
     protected override void OnAfterRender()
@@ -41,10 +41,10 @@ Gdzie `JSRuntime.InvokeAsync` jest wywoływana, `ElementRef` jest używana tylko
 
 <p>
     Set value via JS interop call:
-    <input id="val-set-by-interop" ref="@myElem" />
+    <input id="val-set-by-interop" @ref="@myElem" />
 </p>
 
-@functions {
+@code {
     string infoFromJs;
     ElementRef myElem;
 
@@ -89,10 +89,10 @@ Aby warunkowo renderować różną zawartość w oparciu o tego, czy aplikacja j
 <p>
     Clicks:
     <strong id="count">@count</strong>
-    <button id="increment-count" onclick="@(() => count++)">Click me</button>
+    <button id="increment-count" @onclick="@(() => count++)">Click me</button>
 </p>
 
-@functions {
+@code {
     private int count;
 }
 ```

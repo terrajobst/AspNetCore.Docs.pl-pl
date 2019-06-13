@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/05/2019
 uid: blazor/hosting-models
-ms.openlocfilehash: 27a0387990d4a268cde854583c76ec03cd50a026
-ms.sourcegitcommit: e7e04a45195d4e0527af6f7cf1807defb56dc3c3
+ms.openlocfilehash: 0d800a9e6b66be18b80723cb5b8109fec5f69e38
+ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66750140"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67034701"
 ---
 # <a name="blazor-hosting-models"></a>Blazor modelach hostingu
 
@@ -124,7 +124,7 @@ Na przykład następująca strona Razor renderuje składnikiem licznika z liczb�
  
 @(await Html.RenderComponentAsync<Counter>(new { InitialCount = InitialCount }))
  
-@functions {
+@code {
     [BindProperty(SupportsGet=true)]
     public int InitialCount { get; set; }
 }

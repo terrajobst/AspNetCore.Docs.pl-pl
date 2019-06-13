@@ -5,14 +5,14 @@ description: Informacje o sposobie tworzenia i używania składników Razor, w t
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/05/2019
+ms.date: 06/12/2019
 uid: blazor/components
-ms.openlocfilehash: fdd755a245b0ef9697b500c734a44fac8942f068
-ms.sourcegitcommit: e7e04a45195d4e0527af6f7cf1807defb56dc3c3
+ms.openlocfilehash: f88497195d9a108a4b8890522078736e335c5b0a
+ms.sourcegitcommit: 739a3d7ca4fd2908ea0984940eca589a96359482
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66750143"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67040692"
 ---
 # <a name="create-and-use-razor-components"></a>Tworzenie i używanie składników Razor
 
@@ -34,7 +34,10 @@ Składniki mogą być tworzone za pomocą *.cshtml* rozszerzenie pliku, tak dłu
 
 W interfejsie użytkownika dla składnika jest zdefiniowana za pomocą kodu HTML. Logika renderowania dynamicznego (na przykład pętli, warunkowych, wyrażeń) zostanie dodany przy użyciu osadzonych C# składni o nazwie [Razor](xref:mvc/views/razor). Gdy aplikacja jest kompilowana, kod znaczników HTML i C# logiki renderowania są konwertowane na klasy składnika. Nazwa wygenerowanej klasy odpowiada nazwie pliku.
 
-Elementy członkowskie klasy składników są zdefiniowane w `@functions` bloku (więcej niż jeden `@functions` bloku jest dozwolone). W `@functions` bloku, stan składników (właściwości, pola) jest określony za pomocą metody obsługi zdarzeń lub Definiowanie logiki innych składników.
+Elementy członkowskie klasy składników są zdefiniowane w `@code` bloku. W `@code` bloku, stan składników (właściwości, pola) jest określony za pomocą metody obsługi zdarzeń lub Definiowanie logiki innych składników. Więcej niż jeden `@code` bloku jest dozwolone.
+
+> [!NOTE]
+> W poprzednich wersjach programu ASP.NET Core `@functions` bloki były używane dla tego samego celu co `@code` bloków. `@functions` bloki w dalszym ciągu działać, ale firma Microsoft zaleca używanie `@code` dyrektywy.
 
 Elementy członkowskie składnika mogą posłużyć jako część składnika przez renderowanie przy użyciu logiki C# wyrażeń, które zaczyna się `@`. Na przykład C# pole jest renderowane przez dodanie przedrostka `@` na nazwę pola. Poniższy przykład daje w wyniku i renderuje:
 
@@ -44,7 +47,7 @@ Elementy członkowskie składnika mogą posłużyć jako część składnika prz
 ```cshtml
 <h1 style="font-style:@_headingFontStyle">@_headingText</h1>
 
-@functions {
+@code {
     private string _headingFontStyle = "italic";
     private string _headingText = "Put on your new Blazor!";
 }
@@ -122,30 +125,30 @@ Składnik podrzędny ma `ChildContent` właściwość, która reprezentuje `Rend
 
 ## <a name="data-binding"></a>Powiązanie danych
 
-Powiązanie danych do składników i elementów DOM odbywa się za pomocą `bind` atrybutu. Poniższy przykład tworzy powiązanie `_italicsCheck` pole do pola wyboru zaznaczone stanu:
+Powiązanie danych do składników i elementów DOM odbywa się za pomocą `@bind` atrybutu. Poniższy przykład tworzy powiązanie `_italicsCheck` pole do pola wyboru zaznaczone stanu:
 
 ```cshtml
 <input type="checkbox" class="form-check-input" id="italicsCheck" 
-    bind="@_italicsCheck" />
+    @bind="_italicsCheck" />
 ```
 
 Gdy pole wyboru jest zaznaczone, a następnie wyczyszczone, wartość właściwości jest aktualizowany do `true` i `false`, odpowiednio.
 
 Pole wyboru jest aktualizowana w interfejsie użytkownika tylko wtedy, gdy składnik jest renderowany, nie w odpowiedzi na zmianę wartości właściwości. Ponieważ składniki renderować się po wykonaniu kod procedury obsługi zdarzeń, aktualizacje właściwości są zazwyczaj odzwierciedlane w interfejsie użytkownika od razu.
 
-Za pomocą `bind` z `CurrentValue` właściwości (`<input bind="@CurrentValue" />`) jest zasadniczo odpowiednikiem następujących czynności:
+Za pomocą `@bind` z `CurrentValue` właściwości (`<input @bind="CurrentValue" />`) jest zasadniczo odpowiednikiem następujących czynności:
 
 ```cshtml
 <input value="@CurrentValue" 
-    onchange="@((UIChangeEventArgs __e) => CurrentValue = __e.Value)" />
+    @onchange="@((UIChangeEventArgs __e) => CurrentValue = __e.Value)" />
 ```
 
-Po wyrenderowaniu składnika `value` danego elementu wejściowego pochodzi z `CurrentValue` właściwości. Gdy użytkownik wpisuje w polu tekstowym `onchange` zdarzenie jest generowane i `CurrentValue` zostaje ustalona zmieniona wartość. W rzeczywistości generowania kodu jest nieco bardziej złożone, ponieważ `bind` obsługuje kilka przypadków, w którym konwersje są wykonywane. W zasadzie `bind` kojarzy bieżącą wartość wyrażenia z `value` atrybutu i uchwytów zmiany przy użyciu zarejestrowanego programu obsługi.
+Po wyrenderowaniu składnika `value` danego elementu wejściowego pochodzi z `CurrentValue` właściwości. Gdy użytkownik wpisuje w polu tekstowym `onchange` zdarzenie jest generowane i `CurrentValue` zostaje ustalona zmieniona wartość. W rzeczywistości generowania kodu jest nieco bardziej złożone, ponieważ `@bind` obsługuje kilka przypadków, w którym konwersje są wykonywane. W zasadzie `@bind` kojarzy bieżącą wartość wyrażenia z `value` atrybutu i uchwytów zmiany przy użyciu zarejestrowanego programu obsługi.
 
-Oprócz `onchange`, właściwości mogą być powiązane przy użyciu innych zdarzeń, takich jak `oninput` polegające na dokładniejsze o tym, co można powiązać:
+Oprócz `onchange`, właściwości mogą być powiązane przy użyciu innych zdarzeń, takich jak `oninput` , dodając `@bind` atrybutem `event` parametru:
 
 ```cshtml
-<input type="text" bind-value-oninput="@CurrentValue" />
+<input type="text" @bind-value="@CurrentValue" @bind-value:event="oninput" />
 ```
 
 W odróżnieniu od `onchange`, `oninput` generowane dla każdego znaku, która jest wprowadzana do pola tekstowego.
@@ -155,19 +158,19 @@ W odróżnieniu od `onchange`, `oninput` generowane dla każdego znaku, która j
 Powiązanie danych w programach <xref:System.DateTime> ciągi formatujące. Inne wyrażenia formatu, takie jak waluta lub formaty liczbowe nie są dostępne w tej chwili.
 
 ```cshtml
-<input bind="@StartDate" format-value="yyyy-MM-dd" />
+<input @bind="StartDate" @bind:format="yyyy-MM-dd" />
 
-@functions {
+@code {
     [Parameter]
     private DateTime StartDate { get; set; } = new DateTime(2020, 1, 1);
 }
 ```
 
-`format-value` Atrybut określa format daty do zastosowania do `value` z `input` elementu. Format umożliwia również przeanalizować wartość po `onchange` wystąpi zdarzenie.
+`@bind:format` Atrybut określa format daty do zastosowania do `value` z `<input>` elementu. Format umożliwia również przeanalizować wartość po `onchange` wystąpi zdarzenie.
 
 **Parametry składnika**
 
-Powiązanie rozpoznaje również Parametry składnika, gdzie `bind-{property}` można powiązać wartości właściwości między składnikami.
+Powiązanie rozpoznaje również Parametry składnika, gdzie `@bind-{property}` można powiązać wartości właściwości między składnikami.
 
 Używa następującego składnika `ChildComponent` i wiąże `ParentYear` parametru z obiektu `Year` parametru w składniku podrzędne:
 
@@ -180,13 +183,13 @@ Składnik nadrzędny:
 
 <p>ParentYear: @ParentYear</p>
 
-<ChildComponent bind-Year="@ParentYear" />
+<ChildComponent @bind-Year="ParentYear" />
 
-<button class="btn btn-primary" onclick="@ChangeTheYear">
+<button class="btn btn-primary" @onclick="@ChangeTheYear">
     Change Year to 1986
 </button>
 
-@functions {
+@code {
     [Parameter]
     private int ParentYear { get; set; } = 1978;
 
@@ -204,7 +207,7 @@ Element podrzędny:
 
 <p>Year: @Year</p>
 
-@functions {
+@code {
     [Parameter]
     private int Year { get; set; }
 
@@ -241,26 +244,30 @@ Jeśli wartość `ParentYear` zmianie właściwości, wybierając przycisk w `Pa
 
 `Year` Parametr jest możliwej do wiązania, ponieważ ma ona towarzyszące `YearChanged` zdarzeń, który jest zgodny z typem `Year` parametru.
 
-Zgodnie z Konwencją `<ChildComponent bind-Year="@ParentYear" />` jest zasadniczo odpowiednikiem pisania,
+Zgodnie z Konwencją `<ChildComponent @bind-Year="ParentYear" />` jest zasadniczo odpowiednikiem pisania,
 
 ```cshtml
-<ChildComponent bind-Year-YearChanged="@ParentYear" />
+<ChildComponent @bind-Year="ParentYear" @bind-Year:event="YearChanged" />
 ```
 
-Ogólnie rzecz biorąc, można powiązać właściwości z odpowiedni program obsługi zdarzeń, za pomocą `bind-property-event` atrybutu.
+Ogólnie rzecz biorąc, można powiązać właściwości z odpowiedni program obsługi zdarzeń, za pomocą `@bind-property:event` atrybutu. Na przykład właściwość `MyProp` może być powiązana z `MyEventHandler` przy użyciu następujące atrybuty:
+
+```cshtml
+<FooComponent @bind-MyProp="MyValue" @bind-MyProp:event="MyEventHandler" />
+```
 
 ## <a name="event-handling"></a>Obsługa zdarzeń
 
-Składniki razor udostępniają funkcje obsługi zdarzeń. Atrybut elementu HTML o nazwie `on<event>` (na przykład `onclick`, `onsubmit`) z wartością wpisane delegata składniki Razor traktuje wartość atrybutu jako program obsługi zdarzeń. Nazwa atrybutu zawsze zaczyna się od `on`.
+Składniki razor udostępniają funkcje obsługi zdarzeń. Atrybut elementu HTML o nazwie `on<event>` (na przykład `onclick`, `onsubmit`) z wartością wpisane delegata składniki Razor traktuje wartość atrybutu jako program obsługi zdarzeń. Nazwa atrybutu zawsze zaczyna się od `@on`.
 
 Poniższy kod wywoła `UpdateHeading` metodę po wybraniu przycisku w interfejsie użytkownika:
 
 ```cshtml
-<button class="btn btn-primary" onclick="@UpdateHeading">
+<button class="btn btn-primary" @onclick="@UpdateHeading">
     Update heading
 </button>
 
-@functions {
+@code {
     private void UpdateHeading(UIMouseEventArgs e)
     {
         ...
@@ -271,9 +278,9 @@ Poniższy kod wywoła `UpdateHeading` metodę po wybraniu przycisku w interfejsi
 Poniższy kod wywoła `CheckboxChanged` metody, gdy pole wyboru jest zmieniana w interfejsie użytkownika:
 
 ```cshtml
-<input type="checkbox" class="form-check-input" onchange="@CheckboxChanged" />
+<input type="checkbox" class="form-check-input" @onchange="@CheckboxChanged" />
 
-@functions {
+@code {
     private void CheckboxChanged()
     {
         ...
@@ -284,11 +291,11 @@ Poniższy kod wywoła `CheckboxChanged` metody, gdy pole wyboru jest zmieniana w
 Programy obsługi zdarzeń można też asynchronicznego i zwracają <xref:System.Threading.Tasks.Task>. Nie ma konieczności ręcznego wywoływania `StateHasChanged()`. Wyjątki są rejestrowane w momencie ich wystąpienia.
 
 ```cshtml
-<button class="btn btn-primary" onclick="@UpdateHeading">
+<button class="btn btn-primary" @onclick="@UpdateHeading">
     Update heading
 </button>
 
-@functions {
+@code {
     private async Task UpdateHeading(UIMouseEventArgs e)
     {
         ...
@@ -308,7 +315,7 @@ Lista argumentów zdarzeń obsługiwanych jest:
 Wyrażenia lambda może również służyć:
 
 ```cshtml
-<button onclick="@(e => Console.WriteLine("Hello, world!"))">Say hello</button>
+<button @onclick="@(e => Console.WriteLine("Hello, world!"))">Say hello</button>
 ```
 
 Często jest to wygodne zamknąć dodatkowe wartości, takich jak podczas iteracji w zestawie elementów. Poniższy przykład tworzy trzy przyciski wszystkich, która wywołuje metodę `UpdateHeading` przekazywaniem argumentu zdarzenia (`UIMouseEventArgs`) i jego numer przycisku (`buttonNumber`) w przypadku wybrania w interfejsie użytkownika:
@@ -321,12 +328,12 @@ Często jest to wygodne zamknąć dodatkowe wartości, takich jak podczas iterac
     var buttonNumber = i;
 
     <button class="btn btn-primary"
-            onclick="@(e => UpdateHeading(e, buttonNumber))">
+            @onclick="@(e => UpdateHeading(e, buttonNumber))">
         Button #@i
     </button>
 }
 
-@functions {
+@code {
     private string message = "Select a button to learn its position.";
 
     private void UpdateHeading(UIMouseEventArgs e, int buttonNumber)
@@ -367,7 +374,7 @@ Po wybraniu przycisku w składniku podrzędne:
 <ChildComponent 
     OnClick="@(async () => { await Task.Yield(); messageText = "Blaze It!"; })" />
 
-@functions {
+@code {
     private string messageText;
 }
 ```
@@ -384,12 +391,12 @@ Preferuj silnie typizowaną `EventCallback<T>`, które zapewniają lepszy błąd
 
 ## <a name="capture-references-to-components"></a>Przechwytywanie odwołania do składników
 
-Odwołania do składników zapewnia sposób odwołania wystąpienie składnika, dzięki czemu można wysyłać polecenia do tego wystąpienia, takie jak `Show` lub `Reset`. Do przechwycenia odwołania do składników, należy dodać `ref` atrybutu do elementu podrzędnego, a następnie zdefiniować pole o tej samej nazwie i typie jako element podrzędny.
+Odwołania do składników zapewnia sposób odwołania wystąpienie składnika, dzięki czemu można wysyłać polecenia do tego wystąpienia, takie jak `Show` lub `Reset`. Do przechwycenia odwołania do składników, należy dodać `@ref` atrybutu do elementu podrzędnego, a następnie zdefiniować pole o tej samej nazwie i typie jako element podrzędny.
 
 ```cshtml
-<MyLoginDialog ref="loginDialog" ... />
+<MyLoginDialog @ref="loginDialog" ... />
 
-@functions {
+@code {
     private MyLoginDialog loginDialog;
 
     private void OnSomething()
@@ -408,6 +415,80 @@ Podczas przechwytywania odwołania do składników użyj podobnej składni do [p
 
 > [!NOTE]
 > Czy **nie** umożliwia odwołania do składników mutować stan składnikach podrzędnych. Zamiast tego należy użyć normalnego parametry deklaratywne, aby przekazać dane do elementów podrzędnych. To sprawia, że podrzędnych automatycznie rerender w właściwym czasie.
+
+## <a name="use-key-to-control-the-preservation-of-elements-and-components"></a>Użyj @key do kontrolowania zachowania elementów i składniki
+
+Podczas renderowania listę elementów lub składniki i elementy lub składniki później zmienić, algorytm porównywanie Blazor firmy należy zdecydować, które z poprzednich elementów lub składniki mogą być zachowywane przez i jak obiekty modelu powinny być mapowane do nich. Zwykle ten proces odbywa się automatycznie i można zignorować, ale istnieją przypadki, gdzie możesz chcieć kontrolować ten proces.
+
+Rozważmy następujący przykład:
+
+```csharp
+@foreach (var person in People)
+{
+    <DetailsEditor Details="@person.Details" />
+}
+
+@code {
+    [Parameter]
+    private IEnumerable<Person> People { get; set; }
+}
+```
+
+Zawartość `People` kolekcji mogą ulec zmianie z wstawiania, usunięty lub nowo porządkować wpisów. Gdy składnik rerenders, `<DetailsEditor>` składnika mogą ulec zmianie, aby otrzymać inny `Details` wartości parametrów. Może to spowodować rerendering bardziej skomplikowane niż oczekiwano. W niektórych przypadkach rerendering może prowadzić do widocznych różnicami, takie jak element utracone fokus.
+
+Proces mapowania mogą być kontrolowane za pomocą `@key` atrybutu dyrektywy. `@key` powoduje, że algorytm porównywanie zagwarantowanie zachowywania elementów lub składników opartych na wartość klucza:
+
+```csharp
+@foreach (var person in People)
+{
+    <DetailsEditor @key="@person" Details="@person.Details" />
+}
+
+@code {
+    [Parameter]
+    private IEnumerable<Person> People { get; set; }
+}
+```
+
+Gdy `People` zmiany kolekcji algorytm porównywanie zachowuje skojarzenie między `<DetailsEditor>` wystąpień i `person` wystąpień:
+
+* Jeśli `Person` są usuwane z `People` listy, tylko odpowiednie `<DetailsEditor>` wystąpienie zostanie usunięte z interfejsu użytkownika. Pozostałe wystąpienia są pozostawione bez zmian.
+* Jeśli `Person` zostanie wstawione w niektórych pozycji na liście, jeden nowy `<DetailsEditor>` wystąpienia zostanie wstawione w tym w odpowiednim miejscu. Pozostałe wystąpienia są pozostawione bez zmian.
+* Jeśli `Person` wpisy są reorganizowane, odpowiedni `<DetailsEditor>` wystąpienia są zachowywane i nowo porządkować w interfejsie użytkownika.
+
+W niektórych przypadkach użycie `@key` zmniejsza złożoność rerendering i pozwala uniknąć potencjalnych problemów za pomocą stanowe części DOM zmiany, takie jak pozycja fokus.
+
+> [!IMPORTANT]
+> Klucze są lokalne dla każdego elementu kontenera lub składnika. Klucze są *nie* porównane globalnie w dokumencie.
+
+### <a name="when-to-use-key"></a>Kiedy należy używać @key
+
+Zazwyczaj warto użyć `@key` zawsze, gdy lista jest renderowany (na przykład w `@foreach` bloku) oraz odpowiednią wartość istnieje w celu definiowania `@key`.
+
+Można również użyć `@key` aby zapobiec Blazor zachowywanie poddrzewo elementu lub składnika, gdy ulegnie zmianie obiektu:
+
+```cshtml
+<div @key="@currentPerson">
+    ... content that depends on @currentPerson ...
+</div>
+```
+
+Jeśli `@currentPerson` zmian `@key` atrybutu dyrektywy wymusza Blazor można odrzucić cały `<div>` i jego elementy podrzędne, jak i ponownej kompilacji poddrzewo w Interfejsie użytkownika za pomocą nowych elementów i składników. Może to być przydatne, jeśli potrzebujesz gwarantuje nie stan interfejsu użytkownika są zachowywane podczas `@currentPerson` zmiany.
+
+### <a name="when-not-to-use-key"></a>Kiedy nie należy używać @key
+
+Występuje po negatywnie na wydajność, porównywanie za pomocą `@key`. Spadek wydajności nie jest duża, ale tylko określić `@key` Jeżeli kontrolowanie zachowania element lub składnika reguły korzystania z aplikacji.
+
+Nawet wtedy, gdy `@key` nie jest używany, Blazor zachowuje wystąpienia elementu, jak i składnika podrzędnego możliwie. Tylko zaletą używania `@key` jest kontrola nad *jak* wystąpień modelu są mapowane na wystąpieniach zachowanych składnika, zamiast algorytm porównywanie, wybierając mapowania.
+
+### <a name="what-values-to-use-for-key"></a>Wartości, których można użyć dla @key
+
+Ogólnie rzecz biorąc, dobrym pomysłem będzie podać jedną z następujących rodzajów wartość `@key`:
+
+* Model wystąpień obiektu (na przykład `Person` wystąpienia, tak jak w poprzednim przykładzie). Gwarantuje to zachowanie oparte na równość odwołań obiektu.
+* Unikatowe identyfikatory (na przykład wartości klucza podstawowego typu `int`, `string`, lub `Guid`).
+
+Należy unikać podawania wartość, która może zostać nieoczekiwanie kolidują. Jeśli `@key="@someObject.GetHashCode()"` jest podany, mogą wystąpić nieoczekiwane kolizji kody skrótów niepowiązanych obiektów mogą być takie same. W przypadku konfliktu `@key` wartości są żądane w ramach tego samego nadrzędnego `@key` wartości nie będą uznawane.
 
 ## <a name="lifecycle-methods"></a>Cykl życia metody
 
@@ -495,7 +576,7 @@ Jeśli składnik implementuje <xref:System.IDisposable>, [Dispose — metoda](/d
 
 ...
 
-@functions {
+@code {
     public void Dispose()
     {
         ...
@@ -581,13 +662,16 @@ W poniższej tabeli przedstawiono dyrektywy razor.
 
 | — Dyrektywa | Opis |
 | --------- | ----------- |
-| [\@Funkcje](xref:mvc/views/razor#section-5) | Dodaje C# blok kodu do składnika. |
+| [\@Kod](xref:mvc/views/razor#section-5) | Dodaje C# blok kodu do składnika. `@code` jest aliasem `@functions`. `@code` Zaleca się za pośrednictwem `@functions`. Więcej niż jeden `@code` bloku jest dozwolone. |
+| [\@Funkcje](xref:mvc/views/razor#section-5) | Dodaje C# blok kodu do składnika. Wybierz `@code` za pośrednictwem `@functions` dla C# bloków kodu. |
 | `@implements` | Implementuje interfejs dla klasy wygenerowanej składnika. |
 | [\@Inherits](xref:mvc/views/razor#section-3) | Zapewnia pełną kontrolę nad klasę, która dziedziczy składnika. |
 | [\@wstrzykiwanie](xref:mvc/views/razor#section-4) | Włącza usługi iniekcji z [kontener usługi](xref:fundamentals/dependency-injection). Aby uzyskać więcej informacji, zobacz [wstrzykiwanie zależności do widoków](xref:mvc/views/dependency-injection). |
 | `@layout` | Określa składnik układu. Składniki układu są używane, aby uniknąć zduplikowania kodu i niespójności. |
 | [\@page](xref:razor-pages/index#razor-pages) | Określa, że składnik obsługi żądań bezpośrednio. `@page` Dyrektywy można określić za pomocą trasy i opcjonalnych parametrów. W przeciwieństwie do stron Razor `@page` dyrektywy nie musi być pierwszą dyrektywę w górnej części pliku. Aby uzyskać więcej informacji, zobacz [Routing](xref:blazor/routing). |
 | [\@za pomocą](xref:mvc/views/razor#using) | Dodaje C# `using` dyrektywy do klasy wygenerowanej składnika. Udostępniono też wszystkich składników, które są zdefiniowane w tej przestrzeni nazw do zakresu. |
+| [\@Namespace](xref:mvc/views/razor#section-6) | Ustawia obszar nazw, klasy wygenerowanej składnika. |
+| [\@Atrybut](xref:mvc/views/razor#section-7) | Dodaje atrybut do klasy wygenerowanej składnika. |
 
 **Atrybuty warunkowe**
 
@@ -598,7 +682,7 @@ W poniższym przykładzie `IsCompleted` Określa, czy `checked` jest renderowany
 ```cshtml
 <input type="checkbox" checked="@IsCompleted" />
 
-@functions {
+@code {
     [Parameter]
     private bool IsCompleted { get; set; }
 }
@@ -632,7 +716,7 @@ Poniższy przykład pokazuje użycie `MarkupString` typu do dodania bloku zawart
 ```html
 @((MarkupString)myMarkup)
 
-@functions {
+@code {
     private string myMarkup = 
         "<p class='markup'>This is a <em>markup string</em>.</p>";
 }
@@ -770,7 +854,7 @@ Na przykład przykładowa aplikacja określa informacje o motywie (`ThemeInfo`) 
     </div>
 </div>
 
-@functions {
+@code {
     private ThemeInfo theme = new ThemeInfo { ButtonClass = "btn-success" };
 }
 ```
@@ -802,18 +886,18 @@ W przykładowej aplikacji wiąże składnika kaskadowych wartości parametrów m
 <p>Current count: @currentCount</p>
 
 <p>
-    <button class="btn" onclick="@IncrementCount">
+    <button class="btn" @onclick="@IncrementCount">
         Increment Counter (Unthemed)
     </button>
 </p>
 
 <p>
-    <button class="btn @ThemeInfo.ButtonClass" onclick="@IncrementCount">
+    <button class="btn @ThemeInfo.ButtonClass" @onclick="@IncrementCount">
         Increment Counter (Themed)
     </button>
 </p>
 
-@functions {
+@code {
     private int currentCount = 0;
 
     [CascadingParameter] protected ThemeInfo ThemeInfo { get; set; }
@@ -898,7 +982,7 @@ Należy wziąć pod uwagę następujący składnik Pet szczegóły mogą być r�
 
 <p>@PetDetailsQuote<p>
 
-@functions
+@code
 {
     [Parameter]
     string PetDetailsQuote { get; set; }
@@ -916,11 +1000,11 @@ W poniższym przykładzie pętli w `CreateComponent` metoda generuje trzy skład
 
 @CustomRender
 
-<button type="button" onclick="@RenderComponent">
+<button type="button" @onclick="@RenderComponent">
     Create three Pet Details components
 </button>
 
-@functions {
+@code {
     private RenderFragment CustomRender { get; set; }
     
     private RenderFragment CreateComponent() => builder =>

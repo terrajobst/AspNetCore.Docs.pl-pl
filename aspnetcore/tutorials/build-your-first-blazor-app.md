@@ -5,14 +5,14 @@ description: Tworzenie aplikacji Blazor krok po kroku.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/19/2019
+ms.date: 06/12/2019
 uid: tutorials/first-blazor-app
-ms.openlocfilehash: d48b891127f4db929b631c0ddf199c07658e604c
-ms.sourcegitcommit: b4ef2b00f3e1eb287138f8b43c811cb35a100d3e
+ms.openlocfilehash: df27dad17133f287b1c73dc308b4cc69426e0a63
+ms.sourcegitcommit: 739a3d7ca4fd2908ea0984940eca589a96359482
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65970124"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67040712"
 ---
 # <a name="build-your-first-blazor-app"></a>Utwórz swoją pierwszą aplikację Blazor
 
@@ -36,7 +36,7 @@ Postępuj zgodnie ze wskazówkami w <xref:blazor/get-started> artykuł, aby utwo
 
    Interfejs użytkownika składnika licznika jest zdefiniowana za pomocą kodu HTML. Logika renderowania dynamicznego (na przykład pętli, warunkowych, wyrażeń) zostanie dodany przy użyciu osadzonych C# składni o nazwie [Razor](xref:mvc/views/razor). Kod znaczników HTML i C# logiki renderowania są konwertowane na klasę składnika w czasie kompilacji. Nazwa wygenerowanej klasy .NET zgodny z nazwą pliku.
 
-   Elementy członkowskie klasy składników są zdefiniowane w `@functions` bloku. W `@functions` blokować stan składnika (właściwości, pola) i metod są określone dla obsługi zdarzeń lub Definiowanie logiki innych składników. Te elementy członkowskie są następnie używane w ramach składnika renderowania logiki oraz obsługi zdarzeń.
+   Elementy członkowskie klasy składników są zdefiniowane w `@code` bloku. W `@code` blokować stan składnika (właściwości, pola) i metod są określone dla obsługi zdarzeń lub Definiowanie logiki innych składników. Te elementy członkowskie są następnie używane w ramach składnika renderowania logiki oraz obsługi zdarzeń.
 
    Gdy **kliknij mnie** wybrany przycisk:
 
@@ -69,7 +69,7 @@ Obejmują składnika w innym składniku przy użyciu składni HTML.
 
 Składniki mogą także mieć parametrów. Składnik parametry są definiowane za pomocą właściwości niepubliczne klasy składnika ozdobione `[Parameter]`. Używanie atrybutów, aby określić argumenty dla składnika w znacznikach.
 
-1. Aktualizowanie składnika `@functions` C# kodu:
+1. Aktualizowanie składnika `@code` C# kodu:
 
    * Dodaj `IncrementAmount` ozdobione właściwość `[Parameter]` atrybutu.
    * Zmiana `IncrementCount` metodę `IncrementAmount` podczas zwiększenie wartości `currentCount`.
@@ -152,21 +152,13 @@ Dodawanie nowego składnika do aplikacji, która implementuje listy zadań do wy
 
 1. Ponownie skompiluj i uruchom aplikację. Odwiedź nową stronę Todo, aby upewnić się, czy działa link do składnika zadań do wykonania.
 
-1. Tworzenie aplikacji po stronie serwera Blazor, dodać przestrzeń nazw aplikacji w celu  *\_Imports.razor* pliku. Następujące `@using` instrukcji zakłada, że przestrzeń nazw aplikacji jest `WebApplication`:
-
-   ```cshtml
-   @using WebApplication
-   ```
-   
-   Aplikacje klienta Blazor to przestrzeń nazw aplikacji domyślnie  *\_Imports.razor* pliku.
-
 1. Dodaj *TodoItem.cs* pliku w folderze głównym projektu na potrzeby przechowywania klasa, która reprezentuje element todo. Należy użyć następującego C# kod `TodoItem` klasy:
 
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/TodoItem.cs)]
 
 1. Wróć do części Todo (*Pages/Todo.razor*):
 
-   * Dodaj pole do wykonania w `@functions` bloku. Składnik Todo to pole jest używane do zarządzania stanem listy rzeczy do zrobienia.
+   * Dodaj pole do wykonania w `@code` bloku. Składnik Todo to pole jest używane do zarządzania stanem listy rzeczy do zrobienia.
    * Dodaj listę nieuporządkowaną znaczników i `foreach` pętli do renderowania każdego elementu todo, jako element listy.
 
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo4.razor?highlight=5-10,12-14)]
@@ -177,7 +169,7 @@ Dodawanie nowego składnika do aplikacji, która implementuje listy zadań do wy
 
 1. Ponownie skompiluj i uruchom aplikację. Gdy **dodawania zadań do wykonania** przycisk jest zaznaczony, nic się nie dzieje, ponieważ program obsługi zdarzeń nie jest powiązaną przycisku.
 
-1. Dodaj `AddTodo` metodę, aby składnik zadań do wykonania i zarejestruj go dla przycisku kliknie, za pomocą `onclick` atrybutu:
+1. Dodaj `AddTodo` metodę, aby składnik zadań do wykonania i zarejestruj go dla przycisku kliknie, za pomocą `@onclick` atrybutu:
 
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo6.razor?highlight=2,7-10)]
 
@@ -188,7 +180,7 @@ Dodawanie nowego składnika do aplikacji, która implementuje listy zadań do wy
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo7.razor?highlight=2)]
 
    ```cshtml
-   <input placeholder="Something todo" bind="@newTodo" />
+   <input placeholder="Something todo" @bind="@newTodo" />
    ```
 
 1. Aktualizacja `AddTodo` metody w celu dodania `TodoItem` o określonym tytule do listy. Wyczyść wartość wprowadzania tekstu, ustawiając `newTodo` na pusty ciąg:
