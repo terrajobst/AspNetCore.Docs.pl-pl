@@ -5,14 +5,14 @@ description: Więcej informacji na temat Kestrel, serwer sieci web dla wielu pla
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 05/17/2019
+ms.date: 05/28/2019
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: 37274873f2bd4127f8743399d95d3cf7fef435c5
-ms.sourcegitcommit: b8ed594ab9f47fa32510574f3e1b210cff000967
+ms.openlocfilehash: 0ba207bf6c78476a8c778b95710fd89be50d397a
+ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66251332"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67034834"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>Implementacja serwera sieci web kestrel w programie ASP.NET Core
 
@@ -285,7 +285,7 @@ Można zastąpić ustawienia dla konkretnego żądania w oprogramowaniu pośredn
 
 Wyjątek jest generowany, Jeśli spróbujesz skonfigurować limit na żądanie, po uruchomieniu aplikacji do odczytania żądania. Brak `IsReadOnly` właściwość, która wskazuje, czy `MaxRequestBodySize` właściwość jest w stanie tylko do odczytu, co oznacza, jest za późno, aby skonfigurować limit.
 
-Gdy aplikacja jest uruchamiana [spoza procesu](xref:fundamentals/servers/index#out-of-process-hosting-model) za [modułu ASP.NET Core](xref:host-and-deploy/aspnet-core-module), limit rozmiaru w treści żądania Kestrel firmy jest wyłączony, ponieważ usługi IIS ustawiają już limit.
+Gdy aplikacja jest uruchamiana [spoza procesu](xref:host-and-deploy/iis/index#out-of-process-hosting-model) za [modułu ASP.NET Core](xref:host-and-deploy/aspnet-core-module), limit rozmiaru w treści żądania Kestrel firmy jest wyłączony, ponieważ usługi IIS ustawiają już limit.
 
 ### <a name="minimum-request-body-data-rate"></a>Szybkość danych treści żądania minimalne
 
