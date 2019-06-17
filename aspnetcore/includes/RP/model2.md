@@ -12,7 +12,7 @@ Powyższy kod tworzy `DbSet` właściwość zestawu jednostek. W terminologii pr
 
 ### <a name="add-a-database-connection-string"></a>Dodaj parametry połączenia bazy danych
 
-Dodaj parametry połączenia, aby *appsettings.json* pliku:
+Dodaj parametry połączenia, aby *appsettings.json* pliku, jak pokazano na następujący wyróżniony kod:
 
 [!code-json[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/appsettings_SQLite.json?highlight=8-10)]
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/28/2019
 uid: aspnetcore-2.0
-ms.openlocfilehash: 5cf7b9aa7ccf86f1a89e6145cfc185c5ef803e66
-ms.sourcegitcommit: 4d05e30567279072f1b070618afe58ae1bcefd5a
+ms.openlocfilehash: dac5a48042a71774cb884e30a166be68bee69691
+ms.sourcegitcommit: f5762967df3be8b8c868229e679301f2f7954679
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66376412"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67048110"
 ---
 # <a name="whats-new-in-aspnet-core-20"></a>What's new in ASP.NET Core 2.0
 
@@ -60,7 +60,7 @@ Aby uzyskać więcej informacji, zobacz [wprowadzenie do rejestrowania](xref:fun
 
 Nowy model uwierzytelniania ułatwia skonfigurowanie uwierzytelniania dla aplikacji przy użyciu DI.
 
-Nowe szablony są dostępne do konfigurowania uwierzytelniania dla aplikacji sieci web i interfejsów API za pomocą [Azure AD B2C] (https://azure.microsoft.com/services/active-directory-b2c/).
+Nowe szablony są dostępne do konfigurowania uwierzytelniania dla aplikacji sieci web i interfejsów API sieci web przy użyciu [usługi Azure AD B2C](https://azure.microsoft.com/services/active-directory-b2c/).
 
 Aby uzyskać informacje o stanie planowanej dokumentacji, zobacz [problem w usłudze GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/3054).
 

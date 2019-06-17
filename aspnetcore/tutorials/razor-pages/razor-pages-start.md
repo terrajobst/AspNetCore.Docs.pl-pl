@@ -5,12 +5,12 @@ description: W tej serii samouczków pokazano, jak używać stron Razor w progra
 ms.author: riande
 ms.date: 6/3/2019
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: e7d0312bd4b54586f4a3d403f464ded1aa49bcac
-ms.sourcegitcommit: 9691b742134563b662948b0ed63f54ef7186801e
+ms.openlocfilehash: ee5ef572db8b3c4e152fd864177c0eea3edc1f20
+ms.sourcegitcommit: f5762967df3be8b8c868229e679301f2f7954679
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2019
-ms.locfileid: "66824706"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67048218"
 ---
 # <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Samouczek: Rozpoczynanie pracy ze stronami Razor w programie ASP.NET Core
 
@@ -182,7 +182,7 @@ Zawiera dane konfiguracyjne, takie jak parametry połączenia. Aby uzyskać wię
 
 ### <a name="programcs"></a>Program.cs
 
-Zawiera punkt wejścia programu. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/host/web-host>.
+Zawiera punkt wejścia programu. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/host/generic-host>.
 
 ### <a name="startupcs"></a>Startup.cs
 
