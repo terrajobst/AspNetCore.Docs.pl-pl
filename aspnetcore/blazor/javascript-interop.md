@@ -1,20 +1,20 @@
 ---
-title: Blazor JavaScript interop
+title: ASP.NET Core Blazor JavaScript interop
 author: guardrex
 description: Dowiedz się, jak wywoływać funkcje języka JavaScript z .NET i .NET metody z kodu JavaScript w aplikacjach Blazor.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/29/2019
+ms.date: 06/14/2019
 uid: blazor/javascript-interop
-ms.openlocfilehash: be5afcc33e527e36892e409cc87d6d8725d40290
-ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
+ms.openlocfilehash: df511fe77661cd1474e869b28e6858e0452eaae5
+ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67034416"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67152801"
 ---
-# <a name="blazor-javascript-interop"></a>Blazor JavaScript interop
+# <a name="aspnet-core-blazor-javascript-interop"></a>ASP.NET Core Blazor JavaScript interop
 
 Przez [Javier Calvarro Nelson](https://github.com/javiercn), [Daniel Roth](https://github.com/danroth27), i [Luke Latham](https://github.com/guardrex)
 

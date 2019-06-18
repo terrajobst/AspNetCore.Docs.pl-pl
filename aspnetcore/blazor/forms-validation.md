@@ -1,20 +1,20 @@
 ---
-title: Blazor formularze i Walidacja
+title: ASP.NET Core Blazor formularze i Walidacja
 author: guardrex
 description: Dowiedz się, jak używać formularzy i scenariusze weryfikacji pola w Blazor.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/12/2019
+ms.date: 06/14/2019
 uid: blazor/forms-validation
-ms.openlocfilehash: 52f53cbfbb335a4a0d681a378d383924c901ef57
-ms.sourcegitcommit: 739a3d7ca4fd2908ea0984940eca589a96359482
+ms.openlocfilehash: a3e47844d5d0611371f2fce24ed8d3ccb07754d7
+ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67040694"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67152721"
 ---
-# <a name="blazor-forms-and-validation"></a>Blazor formularze i Walidacja
+# <a name="aspnet-core-blazor-forms-and-validation"></a>ASP.NET Core Blazor formularze i Walidacja
 
 Przez [Daniel Roth](https://github.com/danroth27) i [Luke Latham](https://github.com/guardrex)
 

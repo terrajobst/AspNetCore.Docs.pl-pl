@@ -7,12 +7,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 11/28/2018
 uid: signalr/redis-backplane
-ms.openlocfilehash: 9d2a942dba6abe669126efee7f2b3cdd6560658e
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: adf9bbce1353fd811a4044e173533f76bc4193de
+ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087665"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67152913"
 ---
 # <a name="set-up-a-redis-backplane-for-aspnet-core-signalr-scale-out"></a>Konfigurowanie systemu backplane Redis dla biblioteki SignalR platformy ASP.NET Core skalowalnego w poziomie
 
@@ -184,9 +184,9 @@ services.AddSignalR()
 
 ::: moniker-end
 
-## <a name="clustering"></a>Klastrowanie
+## <a name="redis-clustering"></a>Redis klastrowania
 
-Klastrowanie jest metoda dla osiągnięcia wysokiej dostępności przy użyciu wielu serwerów Redis. Klaster nie jest oficjalnie obsługiwany, ale może ona działać.
+[Klastrowanie redis](https://redis.io/topics/cluster-spec) to metoda osiągnięcie wysokiej dostępności przy użyciu wielu serwerów Redis. Klaster nie jest oficjalnie obsługiwany, ale może ona działać.
 
 ## <a name="next-steps"></a>Następne kroki
 

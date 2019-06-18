@@ -1,19 +1,19 @@
 ---
-title: 'Samouczek: Tworzenie internetowego interfejsu API za pomocą platformy ASP.NET Core MVC'
+title: 'Samouczek: Tworzenie internetowego interfejsu API za pomocą platformy ASP.NET Core'
 author: rick-anderson
-description: Tworzenie internetowego interfejsu API platformy ASP.NET Core MVC
+description: Dowiedz się, jak utworzyć internetowy interfejs API za pomocą programu ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/4/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: dce2926e3cb19d6ac8d2af0e9b96c31dee1d92fd
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 7e37e408f32b2e490a0d248a14940fc68d4bda0a
+ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087524"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67153225"
 ---
-# <a name="tutorial-create-a-web-api-with-aspnet-core-mvc"></a>Samouczek: Tworzenie internetowego interfejsu API za pomocą platformy ASP.NET Core MVC
+# <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Samouczek: Tworzenie internetowego interfejsu API za pomocą platformy ASP.NET Core
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT) i [Mike Wasson](https://github.com/mikewasson)
 
@@ -315,7 +315,7 @@ Powyższy kod jest metodą HTTP POST, wskazane przez [[HttpPost]](/dotnet/api/mi
 * W narzędziu Postman, Ustawia metodę HTTP `POST`.
 * Wybierz **treści** kartę.
 * Wybierz **pierwotne** przycisku radiowego.
-* Ustaw typ **JSON (application/json)**.
+* Ustaw typ **JSON (application/json)** .
 * W treści żądania wprowadź JSON element do wykonania:
 
     ```json

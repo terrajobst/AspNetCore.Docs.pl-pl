@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 06/12/2019
 uid: tutorials/grpc/grpc-start
-ms.openlocfilehash: 76c40d108bc0ce9dec7099b10812c896f0b7777d
-ms.sourcegitcommit: f5762967df3be8b8c868229e679301f2f7954679
+ms.openlocfilehash: 6aef56ecd61ad71e166c03c12b28b25b931cdd88
+ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67048200"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67152933"
 ---
 # <a name="tutorial-create-a-grpc-client-and-server-in-aspnet-core"></a>Samouczek: Utworzenie gRPC klienta i serwera w programie ASP.NET Core
 
@@ -124,6 +124,7 @@ info: Microsoft.Hosting.Lifetime[0]
 
 ## <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
+* Otwórz drugie wystąpienie programu Visual Studio.
 * Wybierz **pliku** > **New** > **projektu** z paska menu.
 * W **Utwórz nowy projekt** okno dialogowe, wybierz opcję **Aplikacja konsoli (.NET Core)** .
 * Wybierz **dalej**
@@ -151,7 +152,7 @@ Postępuj zgodnie z instrukcjami [tutaj](/dotnet/core/tutorials/using-on-mac-vs-
 
 ### <a name="add-required-packages"></a>Dodawanie wymaganych pakietów
 
-GRPC projekt klienta, należy dodać następujące pakiety:
+GRPC projekt klienta wymaga następujących pakietów:
 
 * [Grpc.Net.Client](https://www.nuget.org/packages/Grpc.Net.Client), który zawiera klienta programu .NET Core.
 * [Google.Protobuf](https://www.nuget.org/packages/Google.Protobuf/), który zawiera protobuf komunikatu interfejsów API na potrzeby C#.
@@ -208,7 +209,7 @@ dotnet add GrpcGreeterClient.csproj package Grpc.Tools
 
   # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
 
-  Kliknij prawym przyciskiem myszy projekt i wybierz **Edytuj GrpcGreeterClient.csproj**.
+  Kliknij prawym przyciskiem myszy projekt i wybierz **edycji pliku projektu**.
 
   # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code) 
 
@@ -220,7 +221,7 @@ dotnet add GrpcGreeterClient.csproj package Grpc.Tools
 
   ---
 
-* Dodaj **greet.proto** plik `<Protobuf>` grupy elementów GrpcGreeterClient pliku projektu:
+* Dodaj grupy elementów `<Protobuf>` element, który odwołuje się do **greet.proto** pliku:
 
   ```XML
   <ItemGroup>
@@ -228,11 +229,9 @@ dotnet add GrpcGreeterClient.csproj package Grpc.Tools
   </ItemGroup>
   ```
 
-Skompiluj projekt klienta, aby wyzwolić Generowanie C# zasobów klienta.
-
 ### <a name="create-the-greeter-client"></a>Tworzenie klienta Greeter
 
-Skompiluj projekt, aby utworzyć typy w **Greeter** przestrzeni nazw. `Greeter` Typy są generowane automatycznie przez proces kompilacji.
+Skompiluj projekt, aby utworzyć typy w `GrpcGreeter` przestrzeni nazw. `GrpcGreeter` Typy są generowane automatycznie przez proces kompilacji.
 
 Aktualizacja klienta gRPC *Program.cs* pliku następującym kodem:
 

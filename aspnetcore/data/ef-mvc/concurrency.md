@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/concurrency
-ms.openlocfilehash: d3954800f4f1358565a627768e34465215dc4f6e
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: bfe417a6153f74cf0ca2d9bcde4db1bba8453b3b
+ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64900511"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67152894"
 ---
 # <a name="tutorial-handle-concurrency---aspnet-mvc-with-ef-core"></a>Samouczek: Obsługa współbieżności — ASP.NET MVC z programem EF Core
 
@@ -154,7 +154,7 @@ Zastąp istniejący kod httppost `Edit` metoda następującym kodem:
 
 [!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_EditPost)]
 
-Na początku kodu próby odczytu z działu do zaktualizowania. Jeśli `SingleOrDefaultAsync` metoda zwraca wartość null, dział został usunięty przez innego użytkownika. W takiej sytuacji kod używa wartości przesłanego formularza, aby utworzyć jednostki dział strony edytowania mogą być wyświetlane ponownie komunikatu o błędzie. Jako alternatywę nie trzeba ponownie utworzyć jednostki działu, jeśli wyświetla komunikat o błędzie bez wyświetlania pól działu.
+Na początku kodu próby odczytu z działu do zaktualizowania. Jeśli `FirstOrDefaultAsync` metoda zwraca wartość null, dział został usunięty przez innego użytkownika. W takiej sytuacji kod używa wartości przesłanego formularza, aby utworzyć jednostki dział strony edytowania mogą być wyświetlane ponownie komunikatu o błędzie. Jako alternatywę nie trzeba ponownie utworzyć jednostki działu, jeśli wyświetla komunikat o błędzie bez wyświetlania pól działu.
 
 Widok przechowuje oryginalny `RowVersion` wartości w ukrytym polu, a ta metoda odbiera tę wartość w `rowVersion` parametru. Przed wywołaniem `SaveChanges`, musisz umieścić te oryginalnego `RowVersion` wartości właściwości w `OriginalValues` kolekcji jednostki.
 

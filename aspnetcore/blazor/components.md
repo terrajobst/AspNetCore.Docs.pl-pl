@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/12/2019
 uid: blazor/components
-ms.openlocfilehash: f88497195d9a108a4b8890522078736e335c5b0a
-ms.sourcegitcommit: 739a3d7ca4fd2908ea0984940eca589a96359482
+ms.openlocfilehash: 34800a9235892a6462f6d0f43b33ab40e847c628
+ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67040692"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67152750"
 ---
 # <a name="create-and-use-razor-components"></a>Tworzenie i używanie składników Razor
 
@@ -385,9 +385,9 @@ Wywoływanie `EventCallback` lub `EventCallback<T>` z `InvokeAsync` i await <xre
 await callback.InvokeAsync(arg);
 ```
 
-Użyj `EventCallback` i `EventCallback<T>` dla zdarzenia, obsługi i wiązania parametrów na części. Nie używaj `EventCallback` i `EventCallback<T>` dla zawartość elementu podrzędnego&mdash;nadal używać `RenderFragment` i `RenderFragment<T>` dla zawartość elementu podrzędnego.
+Użyj `EventCallback` i `EventCallback<T>` dla zdarzenia, obsługi i wiązania parametrów na części.
 
-Preferuj silnie typizowaną `EventCallback<T>`, które zapewniają lepszy błąd dla użytkowników składnika. Podobnie jak inne procedury obsługi zdarzeń interfejsu użytkownika, określając parametr zdarzeń jest opcjonalny. Użyj `EventCallback` po żadnej wartości przekazanej do wywołania zwrotnego.
+Preferuj silnie typizowaną `EventCallback<T>` za pośrednictwem `EventCallback`. `EventCallback<T>` zapewniają lepszy błąd dla użytkowników składnika. Podobnie jak inne procedury obsługi zdarzeń interfejsu użytkownika, określając parametr zdarzeń jest opcjonalny. Użyj `EventCallback` po żadnej wartości przekazanej do wywołania zwrotnego.
 
 ## <a name="capture-references-to-components"></a>Przechwytywanie odwołania do składników
 

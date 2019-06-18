@@ -1,20 +1,20 @@
 ---
-title: Rozpoczynanie pracy z usługą Blazor
+title: Wprowadzenie do platformy ASP.NET Core Blazor
 author: guardrex
 description: Rozpoczynanie pracy z usługą Blazor, tworząc aplikację Blazor, za pomocą narzędzi dostępnych w wybranym.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/05/2019
+ms.date: 06/14/2019
 uid: blazor/get-started
-ms.openlocfilehash: 417f2ad79c14351487763888a9a3b022232b3766
-ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
+ms.openlocfilehash: 11637ef1c4b54961cc3094c263196be222cc2c60
+ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67034435"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67152698"
 ---
-# <a name="get-started-with-blazor"></a>Rozpoczynanie pracy z usługą Blazor
+# <a name="get-started-with-aspnet-core-blazor"></a>Wprowadzenie do platformy ASP.NET Core Blazor
 
 Przez [Daniel Roth](https://github.com/danroth27) i [Luke Latham](https://github.com/guardrex)
 

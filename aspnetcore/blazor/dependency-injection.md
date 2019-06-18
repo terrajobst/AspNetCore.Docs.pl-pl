@@ -1,20 +1,20 @@
 ---
-title: Wstrzykiwanie zależności Blazor
+title: Wstrzykiwanie zależności programu ASP.NET Core Blazor
 author: guardrex
 description: Zobacz, jak aplikacje Blazor można wstawić usług do składników.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/24/2019
+ms.date: 06/14/2019
 uid: blazor/dependency-injection
-ms.openlocfilehash: 49948cd8e31473a4901957356d372d49fc3b0f5f
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: bd8ad3f0883adbf827f565dcd8d2309691dd1f3c
+ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64898468"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67152700"
 ---
-# <a name="blazor-dependency-injection"></a>Wstrzykiwanie zależności Blazor
+# <a name="aspnet-core-blazor-dependency-injection"></a>Wstrzykiwanie zależności programu ASP.NET Core Blazor
 
 Przez [Rainer Stropek](https://www.timecockpit.com)
 

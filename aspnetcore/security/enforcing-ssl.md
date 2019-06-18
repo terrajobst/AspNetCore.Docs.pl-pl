@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/01/2018
 uid: security/enforcing-ssl
-ms.openlocfilehash: 8d48877153d6d75348e29299c669125904236de8
-ms.sourcegitcommit: 5dd2ce9709c9e41142771e652d1a4bd0b5248cec
+ms.openlocfilehash: 08ce50775d1b5348cb0528a1724cec2e5c72dae2
+ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66692593"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67152900"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>Wymuszanie protokołu HTTPS w programie ASP.NET Core
 
@@ -24,11 +24,32 @@ W tym dokumencie przedstawiono sposób:
 
 Nie interfejsu API mogą uniemożliwić wysyłanie danych poufnych na pierwsze żądanie klienta.
 
+::: moniker range="< aspnetcore-3.0"
+
 > [!WARNING]
+> ## <a name="api-projects"></a>Projekty interfejsu API
+>
 > Czy **nie** użyj [RequireHttpsAttribute](/dotnet/api/microsoft.aspnetcore.mvc.requirehttpsattribute) na interfejsy API sieci Web, która odbierać poufne informacje. `RequireHttpsAttribute` używa kodów stanu HTTP do przekierowania przeglądarki z protokołu HTTP do HTTPS. Klienci interfejsu API może zrozumieć lub nie przestrzegają przekierowuje z protokołu HTTP do HTTPS. Tacy klienci mogą wysłać informacje za pośrednictwem protokołu HTTP. Interfejsy API sieci Web powinien:
 >
 > * Nasłuchuj od protokołu HTTP.
 > * Zamknij połączenie z kodem stanu 400 (złe żądanie), a nie obsłużyć żądania.
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.0"
+
+> [!WARNING]
+> ## <a name="api-projects"></a>Projekty interfejsu API
+>
+> Czy **nie** użyj [RequireHttpsAttribute](/dotnet/api/microsoft.aspnetcore.mvc.requirehttpsattribute) na interfejsy API sieci Web, która odbierać poufne informacje. `RequireHttpsAttribute` używa kodów stanu HTTP do przekierowania przeglądarki z protokołu HTTP do HTTPS. Klienci interfejsu API może zrozumieć lub nie przestrzegają przekierowuje z protokołu HTTP do HTTPS. Tacy klienci mogą wysłać informacje za pośrednictwem protokołu HTTP. Interfejsy API sieci Web powinien:
+>
+> * Nasłuchuj od protokołu HTTP.
+> * Zamknij połączenie z kodem stanu 400 (złe żądanie), a nie obsłużyć żądania.
+>
+> ## <a name="hsts-and-api-projects"></a>Projekty HSTS i interfejsu API
+>
+> Domyślne projekty interfejsu API nie uwzględniają [HSTS](#hsts) ponieważ HSTS to zazwyczaj instrukcja tylko przeglądarki. Wykonaj innych klientów, takie jak telefon lub aplikacje klasyczne **nie** przestrzegają instrukcji. Nawet w ramach przeglądarki uwierzytelnione wywołanie interfejsu API za pośrednictwem protokołu HTTP nie ma ryzyka na niezabezpieczonej sieci. Bezpieczną metodą jest konfigurować projekty interfejsu API do tylko nasłuchiwania i odpowiadania za pośrednictwem protokołu HTTPS.
+
+::: moniker-end
 
 ## <a name="require-https"></a>Wymaganie protokołu HTTPS
 
@@ -159,6 +180,8 @@ Globalnie wymagania protokołu HTTPS (`options.Filters.Add(new RequireHttpsAttri
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
+
+<a name="hsts"></a>
 
 ## <a name="http-strict-transport-security-protocol-hsts"></a>Protokół zabezpieczeń Strict transportu HTTP (HSTS)
 
