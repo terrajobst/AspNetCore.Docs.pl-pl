@@ -5,12 +5,12 @@ description: Dodawanie widoku na prostej aplikacji ASP.NET Core MVC
 ms.author: riande
 ms.date: 03/04/2017
 uid: tutorials/first-mvc-app/adding-view
-ms.openlocfilehash: 6ff706012dabbf9500a805708c1f058b59ebc610
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 70c96b4838b37ea2c193c328f00a410642338369
+ms.sourcegitcommit: 28a2874765cefe9eaa068dceb989a978ba2096aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64903031"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67167081"
 ---
 # <a name="add-a-view-to-an-aspnet-core-mvc-app"></a>Dodaj widok do aplikacji ASP.NET Core MVC
 
@@ -72,7 +72,7 @@ Zastąp zawartość *Views/HelloWorld/Index.cshtml* plik widoku Razor następuj�
 
 [!code-HTML[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Views/HelloWorld/Index1.cshtml?highlight=7)]
 
-Przejdź do adresu `https://localhost:xxxx/HelloWorld`. `Index` Method in Class metoda `HelloWorldController` nie znacznie; został uruchomiony instrukcji `return View();`, które określone metody należy używać pliku szablonu widoku do renderowania odpowiedzi do przeglądarki. Ponieważ nie zostały jawnie określić nazwę pliku szablonu widoku, MVC używa domyślnie *Index.cshtml* plik widoku w */widoków/HelloWorld* folderu. Na poniższym obrazie przedstawiono ciąg "Hello z naszych Wyświetl szablon"! zakodowane w widoku.
+Przejdź do adresu `https://localhost:xxxx/HelloWorld`. `Index` Method in Class metoda `HelloWorldController` nie znacznie; został uruchomiony instrukcji `return View();`, które określone metody należy używać pliku szablonu widoku do renderowania odpowiedzi do przeglądarki. Ponieważ nie określono nazwę pliku szablonu w widoku, MVC domyślnie przy użyciu domyślnego pliku widoku. Widok domyślny plik ma taką samą nazwę jak metody (`Index`), więc w */Views/HelloWorld/Index.cshtml* jest używany. Na poniższym obrazie przedstawiono ciąg "Hello z naszych Wyświetl szablon"! zakodowane w widoku.
 
 ![Okno przeglądarki](~/tutorials/first-mvc-app/adding-view/_static/hell_template.png)
 

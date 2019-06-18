@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/14/2019
 uid: blazor/get-started
-ms.openlocfilehash: 11637ef1c4b54961cc3094c263196be222cc2c60
-ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
+ms.openlocfilehash: 7b235fea5b85516b9e3ececf6509a369cd483c8d
+ms.sourcegitcommit: 516f166c5f7cec54edf3d9c71e6e2ba53fb3b0e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67152698"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67196276"
 ---
 # <a name="get-started-with-aspnet-core-blazor"></a>Wprowadzenie do platformy ASP.NET Core Blazor
 
@@ -74,6 +74,8 @@ Rozpoczynanie pracy z usługą Blazor:
 
    6\. Jeśli używasz aplikacji po stronie serwera Blazor, uruchom aplikację za pomocą debugera programu Visual Studio Code. Jeśli używasz aplikacji po stronie klienta Blazor, wykonaj `dotnet run` z folderu projektu aplikacji.
 
+   7\. W przeglądarce przejdź do `https://localhost:5001`.
+
    <!--
 
    # [Visual Studio for Mac](#tab/visual-studio-mac)
@@ -114,9 +116,9 @@ Rozpoczynanie pracy z usługą Blazor:
 
    Aby uzyskać informacje dotyczące dwóch modelach hostingu Blazor, po stronie serwera i klienta, zobacz <xref:blazor/hosting-models>.
 
-   ---
+   W przeglądarce przejdź do `https://localhost:5001`.
 
-W przeglądarce przejdź do `https://localhost:5001`.
+   ---
 
 Wiele stron są dostępne na kartach w pasku bocznym:
 
@@ -141,7 +143,7 @@ Każdorazowo **kliknij mnie** wybrany przycisk:
 
 Środowisko uruchomieniowe porównuje nową zawartość do poprzedniego zawartości i ma zastosowanie tylko zmiany zawartości do modelu DOM (Document Object).
 
-Dodaj składnik do innego składnika przy użyciu składni języka HTML. Na przykład można dodać składnik licznika do strony głównej aplikacji, dodając `<Counter />` elementu składnik indeksu.
+Dodaj składnik do innego składnika przy użyciu składni języka HTML. Na przykład dodać składnik licznika do strony głównej aplikacji, dodając `<Counter />` elementu składnik indeksu.
 
 *Pages/Index.razor*:
 

@@ -4,14 +4,14 @@ author: rick-anderson
 description: Dowiedz się, jak platformy ASP.NET Core, routing jest odpowiedzialny za mapowania żądania identyfikatorów URI punktu końcowego selektory i wysyłania żądania przychodzące do punktów końcowych.
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/13/2019
+ms.date: 06/17/2019
 uid: fundamentals/routing
-ms.openlocfilehash: 2a7a942f43de94326e84977f09dc9a2e24dd00f0
-ms.sourcegitcommit: 5dd2ce9709c9e41142771e652d1a4bd0b5248cec
+ms.openlocfilehash: 71cb7215651a263e588531c9be644326c0b6eda6
+ms.sourcegitcommit: 28a2874765cefe9eaa068dceb989a978ba2096aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66692580"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67167095"
 ---
 # <a name="routing-in-aspnet-core"></a>Routing w programie ASP.NET Core
 
@@ -140,6 +140,21 @@ Routing jest podłączony do [oprogramowania pośredniczącego](xref:fundamental
 ::: moniker range=">= aspnetcore-2.2"
 
 Dopasowanie adresu URL jest proces, który wysyła routingu przychodzącego żądania *punktu końcowego*. Ten proces jest na podstawie danych ze ścieżki adresu URL, ale może zostać rozszerzony do należy wziąć pod uwagę wszystkie dane w żądaniu. Możliwość wysyłania żądań do rozdzielenia obsługi to klucz do skalowania, rozmiar i złożoność aplikacji.
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.0"
+
+Oprogramowanie pośredniczące Routing wykonuje, ustawia punkt końcowy (`Endpoint`) i wartości, z funkcją trasy na <xref:Microsoft.AspNetCore.Http.HttpContext>. Dla bieżącego żądania:
+
+* Wywoływanie `HttpContext.GetEndpoint` pobiera punktu końcowego.
+* `HttpRequest.RouteValues` pobiera kolekcję wartości trasy.
+
+Oprogramowanie pośredniczące uruchomiony po oprogramowanie pośredniczące routingu mogą zobaczyć punktu końcowego i podjąć działania. Na przykład pośredniczące autoryzacji można interrogate kolekcji metadanych punktu końcowego dla zasad autoryzacji. Po wykonaniu wszystkich oprogramowanie pośredniczące w potoku przetwarzania żądań wybrany punkt końcowy w obiekt delegowany jest wywoływany.
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
 
 System routingu w routingu punkt końcowy jest odpowiedzialny za wszystkie dispatching decyzje. Ponieważ oprogramowanie pośredniczące stosuje zasady, w oparciu o wybrany punkt końcowy, ważne jest, czy każda decyzja może wpłynąć na wysyłanie lub stosowania zasad zabezpieczeń składa się w systemie routingu.
 
@@ -660,7 +675,7 @@ Wyrażenia regularne użyte w routingu często rozpoczynać się od karetki (`^`
 | `[a-z]{2}`   | Cześć     | Tak   | podciąg dopasowania     |
 | `[a-z]{2}`   | 123abc456 | Yes   | podciąg dopasowania     |
 | `[a-z]{2}`   | mz        | Tak   | zgodne z wyrażeniem    |
-| `[a-z]{2}`   | MZ        | Yes   | bez uwzględniania wielkości liter    |
+| `[a-z]{2}`   | MZ        | Tak   | bez uwzględniania wielkości liter    |
 | `^[a-z]{2}$` | Cześć     | Nie    | zobacz `^` i `$` powyżej |
 | `^[a-z]{2}$` | 123abc456 | Nie    | zobacz `^` i `$` powyżej |
 

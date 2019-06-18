@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/12/2019
 uid: blazor/components
-ms.openlocfilehash: 34800a9235892a6462f6d0f43b33ab40e847c628
-ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
+ms.openlocfilehash: 25743550c60e1d027066cdefe137148de74b0715
+ms.sourcegitcommit: 516f166c5f7cec54edf3d9c71e6e2ba53fb3b0e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67152750"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67196292"
 ---
 # <a name="create-and-use-razor-components"></a>Tworzenie i używanie składników Razor
 
@@ -673,11 +673,11 @@ W poniższej tabeli przedstawiono dyrektywy razor.
 | [\@Namespace](xref:mvc/views/razor#section-6) | Ustawia obszar nazw, klasy wygenerowanej składnika. |
 | [\@Atrybut](xref:mvc/views/razor#section-7) | Dodaje atrybut do klasy wygenerowanej składnika. |
 
-**Atrybuty warunkowe**
+**Warunkowe atrybutów elementów HTML**
 
-Atrybuty warunkowe są renderowane na podstawie wartości platformy .NET. Jeśli wartość jest `false` lub `null`, ten atrybut nie jest renderowany. Jeśli wartość jest `true`, ten atrybut jest renderowany zminimalizowane.
+Atrybutów elementów HTML warunkowo są renderowane w oparciu o wartość .NET. Jeśli wartość jest `false` lub `null`, ten atrybut nie jest renderowany. Jeśli wartość jest `true`, ten atrybut jest renderowany zminimalizowane.
 
-W poniższym przykładzie `IsCompleted` Określa, czy `checked` jest renderowany w znacznikach formantu:
+W poniższym przykładzie `IsCompleted` Określa, czy `checked` jest renderowany w znaczniku elementu:
 
 ```cshtml
 <input type="checkbox" checked="@IsCompleted" />

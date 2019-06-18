@@ -5,14 +5,14 @@ description: Dowiedz się, jak skonfigurować modułu ASP.NET Core do hostowania
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/05/2019
+ms.date: 06/17/2019
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: f287a9bad623c5ff5c41868c7c4408b572b39000
-ms.sourcegitcommit: c716ea9155a6b404c1f3d3d34e2388454cd276d7
+ms.openlocfilehash: d5392ff6b15eeb3a4502df578665538b936aae6f
+ms.sourcegitcommit: 28a2874765cefe9eaa068dceb989a978ba2096aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66716355"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67167067"
 ---
 # <a name="aspnet-core-module"></a>Moduł ASP.NET Core
 
@@ -451,11 +451,27 @@ Modułu ASP.NET Core jest konfigurowane w celu zapewnienia dzienniki diagnostyki
     stdoutLogFile="\\?\%home%\LogFiles\stdout"
     hostingModel="InProcess">
   <handlerSettings>
-    <handlerSetting name="debugFile" value="aspnetcore-debug.log" />
+    <handlerSetting name="debugFile" value=".\logs\aspnetcore-debug.log" />
     <handlerSetting name="debugLevel" value="FILE,TRACE" />
   </handlerSettings>
 </aspNetCore>
 ```
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.0"
+
+Wszystkie foldery w ścieżce (*dzienniki* w powyższym przykładzie) są tworzone przez moduł, gdy plik dziennika jest tworzony. Pula aplikacji musi mieć dostęp do zapisu do lokalizacji, w którym zapisywane są dzienniki (Użyj `IIS AppPool\<app_pool_name>` zapewnienie uprawnienia do zapisu).
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+Foldery w ścieżce podanej do `<handlerSetting>` wartość (*dzienniki* w powyższym przykładzie) nie są tworzone automatycznie przez moduł i wstępnie powinno istnieć we wdrożeniu. Pula aplikacji musi mieć dostęp do zapisu do lokalizacji, w którym zapisywane są dzienniki (Użyj `IIS AppPool\<app_pool_name>` zapewnienie uprawnienia do zapisu).
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
 
 Poziom debugowania (`debugLevel`) wartości mogą obejmować zarówno na poziomie, jak i lokalizację.
 
