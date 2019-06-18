@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/05/2019
 uid: security/gdpr
-ms.openlocfilehash: 967f3246836c93a1af56f7109edb056220606b58
-ms.sourcegitcommit: c716ea9155a6b404c1f3d3d34e2388454cd276d7
+ms.openlocfilehash: 1580187afef56e8e2f5be7a4bae32912e6305c5a
+ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66716348"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67152859"
 ---
 # <a name="eu-general-data-protection-regulation-gdpr-support-in-aspnet-core"></a>Obsługa Unii Europejskiej ogólnego danych (GDPR Protection Regulation) w programie ASP.NET Core
 
@@ -32,7 +32,17 @@ Platformy ASP.NET Core udostępnia interfejsów API i szablony, które ułatwiaj
 
 ## <a name="aspnet-core-gdpr-support-in-template-generated-code"></a>ASP.NET Core RODO obsługi w kodzie wygenerowany szablon
 
+::: moniker range="< aspnetcore-2.2"
+
+Strony razor i MVC projekty utworzone za pomocą szablonów projektu mają zgody RODO lub plik cookie nie są obsługiwane. Aby dodać RODO, skopiuj kod wygenerowany w szablonach platformy ASP.NET Core 2.2.
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
+
 Strony razor i MVC projekty utworzone za pomocą szablonów projektu obejmują obsługę RODO:
+
+::: moniker-end
 
 * [CookiePolicyOptions](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions) i [UseCookiePolicy](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyappbuilderextensions.usecookiepolicy) są ustawiane w `Startup` klasy.
 * *\_CookieConsentPartial.cshtml* [widoku częściowego](xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper). **Akceptuj** przycisk znajduje się w tym pliku. Kiedy użytkownik kliknie **Akceptuj** przycisk, wyrażanie zgody do przechowywania plików cookie znajduje się.
