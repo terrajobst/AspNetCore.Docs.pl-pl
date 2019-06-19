@@ -4,14 +4,14 @@ author: rick-anderson
 description: Dowiedz się, jak utworzyć internetowy interfejs API za pomocą programu ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/4/2019
+ms.date: 06/18/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 7e37e408f32b2e490a0d248a14940fc68d4bda0a
-ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
+ms.openlocfilehash: 17e8ee08fca775b8fccc3f2e6cd6067caca9c79f
+ms.sourcegitcommit: a1283d486ac1dcedfc7ea302e1cc882833e2c515
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67153225"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67207781"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Samouczek: Tworzenie internetowego interfejsu API za pomocą platformy ASP.NET Core
 
@@ -276,7 +276,7 @@ Zwracany typ `GetTodoItems` i `GetTodoItem` metody jest [ActionResult\<T > typu]
 
 Ten samouczek używa narzędzia Postman do testowania internetowego interfejsu API.
 
-* Zainstaluj [narzędzia Postman](https://www.getpostman.com/apps)
+* Zainstaluj [narzędzia Postman](https://www.getpostman.com/downloads/)
 * Uruchamiają aplikację sieci web.
 * Uruchom narzędzie Postman.
 * Wyłącz **weryfikacji certyfikatu SSL**

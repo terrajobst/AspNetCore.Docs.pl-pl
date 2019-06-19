@@ -5,14 +5,14 @@ description: Rozpoczynanie pracy z usługą Blazor, tworząc aplikację Blazor, 
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/14/2019
+ms.date: 06/18/2019
 uid: blazor/get-started
-ms.openlocfilehash: 7b235fea5b85516b9e3ececf6509a369cd483c8d
-ms.sourcegitcommit: 516f166c5f7cec54edf3d9c71e6e2ba53fb3b0e5
+ms.openlocfilehash: c614ff52600434158c75e288e0b15985c0eb8e68
+ms.sourcegitcommit: a1283d486ac1dcedfc7ea302e1cc882833e2c515
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 06/18/2019
-ms.locfileid: "67196276"
+ms.locfileid: "67207659"
 ---
 # <a name="get-started-with-aspnet-core-blazor"></a>Wprowadzenie do platformy ASP.NET Core Blazor
 
@@ -32,7 +32,7 @@ Rozpoczynanie pracy z usługą Blazor:
 
    # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-   1\. Zainstaluj najnowszą wersję [programu Visual Studio preview](https://visualstudio.com/preview) z **ASP.NET i tworzenie aplikacji internetowych** obciążenia.
+   1\. Zainstaluj najnowszą wersję [programu Visual Studio preview](https://visualstudio.com/vs/preview) z **ASP.NET i tworzenie aplikacji internetowych** obciążenia.
 
    2\. Zainstaluj najnowszą wersję [rozszerzenia Blazor](https://go.microsoft.com/fwlink/?linkid=870389) z witryny Marketplace programu Visual Studio. Ten krok udostępnia Blazor szablony programu Visual Studio.
 

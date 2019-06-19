@@ -4,14 +4,14 @@ author: tdykstra
 description: Dowiedz się, jak używać opublikowanych obrazów Docker w programie .NET Core z rejestru platformy Docker. Ściąganie obrazów i tworzenie własnych obrazów.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 04/09/2019
+ms.date: 06/18/2019
 uid: host-and-deploy/docker/building-net-docker-images
-ms.openlocfilehash: 48fc53a4c2139960c0f696af5732ff68fc6c4b8a
-ms.sourcegitcommit: a3926eae3f687013027a2828830c12a89add701f
+ms.openlocfilehash: ea96ae6d36c7e8320ea49e666a807ece72645865
+ms.sourcegitcommit: a1283d486ac1dcedfc7ea302e1cc882833e2c515
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65451011"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67207795"
 ---
 # <a name="docker-images-for-aspnet-core"></a>Obrazy platformy docker dla platformy ASP.NET Core
 
@@ -140,7 +140,7 @@ W niektórych przypadkach warto wdrożyć aplikację do kontenera przez skopiowa
 
 * Przejdź do folderu projektu w *dotnet-docker/samples/aspnetapp/aspnetapp*.
 
-* Uruchom [publikowania dotnet](https://docs.microsoft.com/dotnet/core/tools/dotnet-publish.md) polecenia:
+* Uruchom [publikowania dotnet](/dotnet/core/tools/dotnet-publish) polecenia:
 
   ```console
   dotnet publish -c Release -o published

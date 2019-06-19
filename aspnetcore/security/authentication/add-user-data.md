@@ -3,15 +3,15 @@ title: Dodawanie, pobieranie i usuwanie danych tożsamości użytkownika w proje
 author: rick-anderson
 description: Dowiedz się, jak dodać danych niestandardowych użytkownika w tożsamości w projektach programu ASP.NET Core. Usuń dane na RODO.
 ms.author: riande
-ms.date: 6/16/2018
+ms.date: 06/18/2019
 ms.custom: mvc, seodec18
 uid: security/authentication/add-user-data
-ms.openlocfilehash: d704041f73a7d4773c3da9a23f120b07a03d64ac
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: c219500b7595fd8d200e4e5e742b1e1fda836ba3
+ms.sourcegitcommit: a1283d486ac1dcedfc7ea302e1cc882833e2c515
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65086493"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67207738"
 ---
 # <a name="add-download-and-delete-custom-user-data-to-identity-in-an-aspnet-core-project"></a>Dodawanie, pobieranie i usuwanie danych niestandardowych użytkownika w tożsamości w projektach programu ASP.NET Core
 
@@ -20,11 +20,11 @@ Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 W tym artykule przedstawiono sposób:
 
 * Dodawanie danych niestandardowych użytkownika do aplikacji sieci web platformy ASP.NET Core.
-* Dekoracji modelu danych niestandardowych użytkownika za pomocą [PersonalData](/dotnet/api/microsoft.aspnetcore.identity.personaldataattribute?view=aspnetcore-2.1) atrybutu, więc jest automatycznie dostępne do pobrania i usuwania. Udostępnianie danych może zostać pobrana i usunąć pomaga spełnić wymagania [RODO](xref:security/gdpr) wymagania.
+* Dekoracji modelu danych niestandardowych użytkownika za pomocą <xref:Microsoft.AspNetCore.Identity.PersonalDataAttribute> atrybutu, więc jest automatycznie dostępne do pobrania i usuwania. Udostępnianie danych może zostać pobrana i usunąć pomaga spełnić wymagania [RODO](xref:security/gdpr) wymagania.
 
 Przykładowy projekt jest tworzony na podstawie aplikacja internetowa ze stronami Razor, ale instrukcje są podobne dla aplikacji sieci web platformy ASP.NET Core MVC.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/live/aspnetcore/security/authentication/add-user-data) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/add-user-data) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -34,7 +34,7 @@ Przykładowy projekt jest tworzony na podstawie aplikacja internetowa ze stronam
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* W programie Visual Studio **pliku** menu, wybierz opcję **New** > **projektu**. Nadaj projektowi nazwę **WebApp1** Jeśli chcesz go odpowiada przestrzeni nazw z [Pobierz przykładowe](https://github.com/aspnet/AspNetCore.Docs/tree/live/aspnetcore/security/authentication/add-user-data/sample) kodu.
+* W programie Visual Studio **pliku** menu, wybierz opcję **New** > **projektu**. Nadaj projektowi nazwę **WebApp1** Jeśli chcesz go odpowiada przestrzeni nazw z [Pobierz przykładowe](https://github.com/aspnet/AspNetCore.Docs/tree/live/aspnetcore/security/authentication/add-user-data) kodu.
 * Wybierz **aplikacji sieci Web platformy ASP.NET Core** > **OK**
 * Wybierz **platformy ASP.NET Core 2.2** na liście rozwijanej
 * Wybierz **aplikacji sieci Web**  > **OK**

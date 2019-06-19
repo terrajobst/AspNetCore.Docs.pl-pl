@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/18/2019
 uid: host-and-deploy/visual-studio-publish-profiles
-ms.openlocfilehash: 7006b73ea9a424a3c9530cf526727bc71a88838f
-ms.sourcegitcommit: 516f166c5f7cec54edf3d9c71e6e2ba53fb3b0e5
+ms.openlocfilehash: ac243a3898553b2e14a6c15d311afaf62f112a24
+ms.sourcegitcommit: a1283d486ac1dcedfc7ea302e1cc882833e2c515
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 06/18/2019
-ms.locfileid: "67196316"
+ms.locfileid: "67207814"
 ---
 # <a name="visual-studio-publish-profiles-for-aspnet-core-app-deployment"></a>Program Visual Studio publikowania profile na potrzeby wdrażania aplikacji platformy ASP.NET Core
 
@@ -402,7 +402,10 @@ Done Building Project "C:\Webs\Web1\Web1.csproj" (default targets).
 
 ## <a name="include-files"></a>Dołącz pliki
 
-Obejmuje następujące znaczniki *obrazów* folderu poza katalogiem projektu do *wwwroot/obrazów* folderów witrynie publikowania:
+Następujący kod:
+
+* Obejmuje *obrazów* folderu poza katalogiem projektu do *wwwroot/obrazów* folderów witrynie publikowania.
+* Mogą być dodawane do *.csproj* pliku lub profilu publikowania. Jeśli jest dodawany do *.csproj* pliku, jest on zawarty w każdym profilu publikowania w projekcie.
 
 ```xml
 <ItemGroup>
@@ -412,8 +415,6 @@ Obejmuje następujące znaczniki *obrazów* folderu poza katalogiem projektu do 
   </DotnetPublishFiles>
 </ItemGroup>
 ```
-
-Znaczniki mogą być dodawane do *.csproj* pliku lub profilu publikowania. Jeśli jest dodawany do *.csproj* pliku, jest on zawarty w każdym profilu publikowania w projekcie.
 
 Następujące wyróżnione znaczników pokazuje jak do:
 
@@ -454,7 +455,7 @@ MSBuild file.
 </Project>
 ```
 
-Zobacz [WebSDK Readme](https://github.com/aspnet/websdk) więcej przykładów wdrożenia.
+Zobacz [repozytorium zestawu SDK sieci Web Readme](https://github.com/aspnet/websdk) więcej przykładów wdrożenia.
 
 ## <a name="run-a-target-before-or-after-publishing"></a>Uruchom element docelowy, przed lub po opublikowaniu
 
@@ -493,6 +494,6 @@ Wybierz [konsoli debugowania](https://github.com/projectkudu/kudu/wiki/Kudu-cons
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Web Deploy](https://www.iis.net/downloads/microsoft/web-deploy) (MSDeploy) upraszcza wdrażanie aplikacji sieci web i witryn sieci Web na serwerach usług IIS.
-* [https://github.com/aspnet/websdk](https://github.com/aspnet/websdk/issues): Plik problemów i funkcje do wdrożenia na żądanie.
+* [Repozytorium GitHub zestawu SDK sieci Web](https://github.com/aspnet/websdk/issues): Plik problemów i funkcje do wdrożenia na żądanie.
 * [Publikowanie aplikacji sieci Web platformy ASP.NET na maszynie Wirtualnej platformy Azure z programu Visual Studio](/azure/virtual-machines/windows/publish-web-app-from-visual-studio)
 * <xref:host-and-deploy/iis/transform-webconfig>

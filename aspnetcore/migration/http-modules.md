@@ -5,16 +5,14 @@ description: ''
 ms.author: tdykstra
 ms.date: 12/07/2016
 uid: migration/http-modules
-ms.openlocfilehash: 516230a66ee3edba986c91d79684256aa8e4c994
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 84381210910c66a7d121120b8c6b0f046cae8c4f
+ms.sourcegitcommit: a1283d486ac1dcedfc7ea302e1cc882833e2c515
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087019"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67207804"
 ---
 # <a name="migrate-http-handlers-and-modules-to-aspnet-core-middleware"></a>Migrowanie moduły i programy obsługi HTTP do oprogramowania pośredniczącego platformy ASP.NET Core
-
-Przez [Matt Perdeck](https://www.linkedin.com/in/mattperdeck)
 
 W tym artykule pokazano, jak przeprowadzić migrację istniejących ASP.NET [moduły HTTP do programów obsługi z system.webserver](/iis/configuration/system.webserver/) do platformy ASP.NET Core [oprogramowania pośredniczącego](xref:fundamentals/middleware/index).
 
