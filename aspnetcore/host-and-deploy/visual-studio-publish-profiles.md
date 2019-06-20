@@ -5,14 +5,14 @@ description: Dowiedz się, jak utworzyć profile publikowania w programie Visual
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/18/2019
+ms.date: 06/20/2019
 uid: host-and-deploy/visual-studio-publish-profiles
-ms.openlocfilehash: ac243a3898553b2e14a6c15d311afaf62f112a24
-ms.sourcegitcommit: a1283d486ac1dcedfc7ea302e1cc882833e2c515
+ms.openlocfilehash: f1711f3ee73b773cee82161668e76bcbcee55507
+ms.sourcegitcommit: 3eedd6180fbbdcb81a8e1ebdbeb035bf4f2feb92
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67207814"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67284540"
 ---
 # <a name="visual-studio-publish-profiles-for-aspnet-core-app-deployment"></a>Program Visual Studio publikowania profile na potrzeby wdrażania aplikacji platformy ASP.NET Core
 
@@ -20,7 +20,7 @@ Przez [Sayed Ibrahim Hashimi](https://github.com/sayedihashimi) i [Rick Anderson
 
 Ten dokument koncentruje się na temat korzystania z programu Visual Studio 2017 lub nowszej, aby tworzenie i używanie profilów publikowania. Profile publikowania utworzonych za pomocą programu Visual Studio można uruchomić z programu MSBuild i Visual Studio. Zobacz [publikowania aplikacji sieci web ASP.NET Core w usłudze Azure App Service przy użyciu programu Visual Studio](xref:tutorials/publish-to-azure-webapp-using-vs) instrukcje dotyczące publikowania na platformie Azure.
 
-`dotnet new mvc` Polecenie tworzy plik projektu, które zawierają najwyższego poziomu `<Project>` elementu:
+`dotnet new mvc` Polecenie tworzy plik projektu zawierający następujący poziom główny [ \<Projekt > element](/visualstudio/msbuild/project-element-msbuild):
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -83,7 +83,7 @@ dotnet new mvc
 dotnet publish
 ```
 
-[Publikowania dotnet](/dotnet/core/tools/dotnet-publish) polecenie generuje dane wyjściowe podobne do następujących:
+[Publikowania dotnet](/dotnet/core/tools/dotnet-publish) polecenie generuje odmianą następujące dane wyjściowe:
 
 ```console
 C:\Webs\Web1>dotnet publish
@@ -402,57 +402,44 @@ Done Building Project "C:\Webs\Web1\Web1.csproj" (default targets).
 
 ## <a name="include-files"></a>Dołącz pliki
 
-Następujący kod:
+Następujące sekcje konspektu podejścia do dołączania plików w czasie publikacji. [Dołączania plików ogólnego](#general-file-inclusion) sekcji używa `DotNetPublishFiles` elementu, który jest dostarczany przez plik elementów docelowych publikowania w zestawie SDK sieci Web. [Dołączania plików selektywne](#selective-file-inclusion) sekcji używa `ResolvedFileToPublish` elementu, który jest dostarczany przez plik elementów docelowych publikowania w zestawie SDK programu .NET Core. Ponieważ zestaw SDK sieci Web jest zależny od zestawu .NET Core SDK, albo element może służyć w projektach programu ASP.NET Core. 
 
-* Obejmuje *obrazów* folderu poza katalogiem projektu do *wwwroot/obrazów* folderów witrynie publikowania.
-* Mogą być dodawane do *.csproj* pliku lub profilu publikowania. Jeśli jest dodawany do *.csproj* pliku, jest on zawarty w każdym profilu publikowania w projekcie.
+### <a name="general-file-inclusion"></a>Włączenie pliku ogólny
+
+Poniższy przykład `<ItemGroup>` element pokazuje kopiowania folderu znajduje się poza katalogiem projektu do folderu opublikowanej witryny. Wszelkie pliki dodane do niej następujące znaczniki `<ItemGroup>` są domyślnie dołączone.
 
 ```xml
 <ItemGroup>
   <_CustomFiles Include="$(MSBuildProjectDirectory)/../images/**/*" />
-  <DotnetPublishFiles Include="@(_CustomFiles)">
+  <DotNetPublishFiles Include="@(_CustomFiles)">
     <DestinationRelativePath>wwwroot/images/%(RecursiveDir)%(Filename)%(Extension)</DestinationRelativePath>
-  </DotnetPublishFiles>
+  </DotNetPublishFiles>
 </ItemGroup>
 ```
 
-Następujące wyróżnione znaczników pokazuje jak do:
+Poprzedni kod znaczników:
 
-* Skopiuj plik z poza projektem do *wwwroot* folderu.
-* Wyklucz *wwwroot\Content* folderu.
-* Wyklucz *Views\Home\About2.cshtml*.
+* Mogą być dodawane do *.csproj* pliku lub profilu publikowania. Jeśli jest dodawany do *.csproj* pliku, jest on zawarty w każdym profilu publikowania w projekcie.
+* Deklaruje `_CustomFiles` elementu do przechowywania plików pasujących `Include` wzoru symboli wieloznacznych atrybutu. *Obrazów* folder, do którego odwołuje się do wzorca znajduje się poza katalogiem projektu. A [zastrzeżone właściwość](/visualstudio/msbuild/msbuild-reserved-and-well-known-properties)o nazwie `$(MSBuildProjectDirectory)`, jest rozpoznawana jako ścieżka bezwzględna do pliku projektu.
+* Zawiera listę plików do `DotNetPublishFiles` elementu. Domyślnie element firmy `<DestinationRelativePath>` element jest pusty. Wartością domyślną jest zastępowany w znaczniku i używa [metadane dobrze znanego elementu](/visualstudio/msbuild/msbuild-well-known-item-metadata) takich jak `%(RecursiveDir)`. Reprezentuje tekst wewnętrzny *wwwroot/obrazów* folderu opublikowanej witryny.
+
+### <a name="selective-file-inclusion"></a>Włączenie pliku selektywnego
+
+Przedstawia podświetlony znaczniki w poniższym przykładzie:
+
+* Kopiowanie pliku znajdującego się poza projektem w opublikowanej witryny *wwwroot* folderu. Nazwa pliku *ReadMe2.md* jest obsługiwane.
+* Z wyjątkiem *wwwroot\Content* folderu.
+* Z wyjątkiem *Views\Home\About2.cshtml*.
+
+[!code-xml[](visual-studio-publish-profiles/samples/Web1.pubxml?highlight=18-23)]
+
+W poprzednim przykładzie użyto `ResolvedFileToPublish` elementu, którego domyślne zachowanie to zawsze skopiuj pliki udostępniane w `Include` atrybutu do opublikowanej witryny. Zastąpić domyślne zachowanie, umieszczając `<CopyToPublishDirectory>` elementu podrzędnego z tekstu wewnętrznego albo `Never` lub `PreserveNewest`. Na przykład:
 
 ```xml
-<?xml version="1.0" encoding="utf-8"?>
-<!--
-This file is used by the publish/package process of your Web project.
-You can customize the behavior of this process by editing this 
-MSBuild file.
--->
-<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup>
-    <WebPublishMethod>FileSystem</WebPublishMethod>
-    <PublishProvider>FileSystem</PublishProvider>
-    <LastUsedBuildConfiguration>Release</LastUsedBuildConfiguration>
-    <LastUsedPlatform>Any CPU</LastUsedPlatform>
-    <SiteUrlToLaunchAfterPublish />
-    <LaunchSiteAfterPublish>True</LaunchSiteAfterPublish>
-    <ExcludeApp_Data>False</ExcludeApp_Data>
-    <PublishFramework />
-    <ProjectGuid>afa9f185-7ce0-4935-9da1-ab676229d68a</ProjectGuid>
-    <publishUrl>bin\Release\PublishOutput</publishUrl>
-    <DeleteExistingFiles>False</DeleteExistingFiles>
-  </PropertyGroup>
-  <ItemGroup>
-    <ResolvedFileToPublish Include="..\ReadMe2.MD">
-      <RelativePath>wwwroot\ReadMe2.MD</RelativePath>
-    </ResolvedFileToPublish>
-
-    <Content Update="wwwroot\Content\**\*" CopyToPublishDirectory="Never" />
-    <Content Update="Views\Home\About2.cshtml" CopyToPublishDirectory="Never" />
-
-  </ItemGroup>
-</Project>
+<ResolvedFileToPublish Include="..\ReadMe2.md">
+  <RelativePath>wwwroot\ReadMe2.md</RelativePath>
+  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+</ResolvedFileToPublish>
 ```
 
 Zobacz [repozytorium zestawu SDK sieci Web Readme](https://github.com/aspnet/websdk) więcej przykładów wdrożenia.
