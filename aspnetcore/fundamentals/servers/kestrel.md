@@ -5,14 +5,14 @@ description: Więcej informacji na temat Kestrel, serwer sieci web dla wielu pla
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 05/28/2019
+ms.date: 06/18/2019
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: 0ba207bf6c78476a8c778b95710fd89be50d397a
-ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
+ms.openlocfilehash: b18e7139970accd504a83e458afb2c7f9035a921
+ms.sourcegitcommit: a1283d486ac1dcedfc7ea302e1cc882833e2c515
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67034834"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67207763"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>Implementacja serwera sieci web kestrel w programie ASP.NET Core
 
@@ -479,7 +479,7 @@ Określ adresy URL przy użyciu:
 * `urls` Klucz konfiguracji hosta.
 * `UseUrls` metody rozszerzenia.
 
-Podana wartość przy użyciu tych metod może być co najmniej jeden protokół HTTP i HTTPS punktów końcowych (HTTPS Jeśli dostępny jest certyfikatu z domyślną). Konfiguracja uwzględnia wartość będącą rozdzielonej średnikami liście (na przykład `"Urls": "http://localhost:8000;http://localhost:8001"`).
+Podana wartość przy użyciu tych metod może być co najmniej jeden protokół HTTP i HTTPS punktów końcowych (HTTPS Jeśli dostępny jest certyfikatu z domyślną). Konfiguracja uwzględnia wartość będącą rozdzielonej średnikami liście (na przykład `"Urls": "http://localhost:8000; http://localhost:8001"`).
 
 Aby uzyskać więcej informacji na temat tych metod, zobacz [adresy URL serwerów](xref:fundamentals/host/web-host#server-urls) i [zastępczą konfigurację](xref:fundamentals/host/web-host#override-configuration).
 
@@ -639,7 +639,7 @@ W następującym *appsettings.json* przykładu:
 ```json
 {
 "Kestrel": {
-  "EndPoints": {
+  "Endpoints": {
     "Http": {
       "Url": "http://localhost:5000"
     },
@@ -1056,7 +1056,7 @@ W następującym *appsettings.json* przykład domyślnym protokołem połączeni
 ```json
 {
   "Kestrel": {
-    "EndPointDefaults": {
+    "EndpointDefaults": {
       "Protocols": "Http1AndHttp2"
     }
   }
@@ -1068,7 +1068,7 @@ W poniższym przykładzie plik konfiguracji nawiązuje połączenie protokół d
 ```json
 {
   "Kestrel": {
-    "EndPoints": {
+    "Endpoints": {
       "HttpsDefaultCert": {
         "Url": "https://localhost:5001",
         "Protocols": "Http1AndHttp2"
