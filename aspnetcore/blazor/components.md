@@ -5,14 +5,14 @@ description: Informacje o sposobie tworzenia i używania składników Razor, w t
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/12/2019
+ms.date: 06/16/2019
 uid: blazor/components
-ms.openlocfilehash: 3a3940f6862a6699f47ac9b5622008bb1953a4d9
-ms.sourcegitcommit: a1283d486ac1dcedfc7ea302e1cc882833e2c515
+ms.openlocfilehash: eb8f72147c98ff1dab17c130122c441a2dd4de4d
+ms.sourcegitcommit: 28646e8ca62fb094db1557b5c0c02d5b45531824
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67207655"
+ms.lasthandoff: 06/23/2019
+ms.locfileid: "67333429"
 ---
 # <a name="create-and-use-razor-components"></a>Tworzenie i używanie składników Razor
 
@@ -145,13 +145,13 @@ Za pomocą `@bind` z `CurrentValue` właściwości (`<input @bind="CurrentValue"
 
 Po wyrenderowaniu składnika `value` danego elementu wejściowego pochodzi z `CurrentValue` właściwości. Gdy użytkownik wpisuje w polu tekstowym `onchange` zdarzenie jest generowane i `CurrentValue` zostaje ustalona zmieniona wartość. W rzeczywistości generowania kodu jest nieco bardziej złożone, ponieważ `@bind` obsługuje kilka przypadków, w którym konwersje są wykonywane. W zasadzie `@bind` kojarzy bieżącą wartość wyrażenia z `value` atrybutu i uchwytów zmiany przy użyciu zarejestrowanego programu obsługi.
 
-Oprócz `onchange`, właściwości mogą być powiązane przy użyciu innych zdarzeń, takich jak `oninput` , dodając `@bind` atrybutem `event` parametru:
+Oprócz obsługi `onchange` zdarzeń za pomocą `@bind` składni, właściwość lub pole może być powiązana, za pomocą innych zdarzeń, określając `@bind-value` atrybutem `event` parametru. Poniższy przykład tworzy powiązanie `CurrentValue` właściwość `oninput` zdarzeń:
 
 ```cshtml
-<input type="text" @bind-value="@CurrentValue" @bind-value:event="oninput" />
+<input @bind-value="CurrentValue" @bind-value:event="oninput" />
 ```
 
-W odróżnieniu od `onchange`, `oninput` generowane dla każdego znaku, która jest wprowadzana do pola tekstowego.
+W odróżnieniu od `onchange`, która jest uruchamiana, gdy element traci fokus, `oninput` generowane, gdy zmienia się wartość tekstu pola.
 
 **Ciągi formatujące**
 
@@ -305,13 +305,24 @@ Programy obsługi zdarzeń można też asynchronicznego i zwracają <xref:System
 
 Niektóre zdarzenia są dozwolone typy argumentów zdarzenia określonego zdarzenia. Jeśli dostęp do jednego z następujących typów zdarzeń nie jest to konieczne, nie jest to wymagane w wywołaniu metody.
 
-Lista argumentów zdarzeń obsługiwanych jest:
+Obsługiwane [UIEventArgs](https://github.com/aspnet/AspNetCore/blob/master/src/Components/Components/src/UIEventArgs.cs) przedstawiono w poniższej tabeli.
 
-* UIEventArgs
-* UIChangeEventArgs
-* UIKeyboardEventArgs
-* UIMouseEventArgs
+| Zdarzenie | Class |
+| ----- | ----- |
+| Schowek | `UIClipboardEventArgs` |
+| Przeciągnij  | `UIDragEventArgs` &ndash; `DataTransfer` Służy do przechowywania danych przeciąganego podczas operacji przeciągania i upuszczania oraz może zawierać co najmniej jeden `UIDataTransferItem`. `UIDataTransferItem` reprezentuje jeden przeciągnij element danych. |
+| Błąd | `UIErrorEventArgs` |
+| fokus | `UIFocusEventArgs` &ndash; Nie obejmuje pomocy technicznej dla `relatedTarget`. |
+| `<input>` Zmiany | `UIChangeEventArgs` |
+| Klawiatury | `UIKeyboardEventArgs` |
+| Myszy | `UIMouseEventArgs` |
+| Wskaźnik myszy | `UIPointerEventArgs` |
+| Obrót kółkiem myszy | `UIWheelEventArgs` |
+| Postęp | `UIProgressEventArgs` |
+| Dotyk | `UITouchEventArgs` &ndash; `UITouchPoint` reprezentuje jeden punkt pomocy na urządzeniu dotykowej. |
 
+Aby uzyskać informacji na temat właściwości i zdarzeń zachowanie zdarzenia w powyższej tabeli, zobacz [UIEventArgs](https://github.com/aspnet/AspNetCore/blob/master/src/Components/Components/src/UIEventArgs.cs) w źródło odwołania.
+  
 Wyrażenia lambda może również służyć:
 
 ```cshtml

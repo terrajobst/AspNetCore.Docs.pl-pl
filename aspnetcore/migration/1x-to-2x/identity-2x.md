@@ -3,14 +3,14 @@ title: Migrowanie uwierzytelnianie i tożsamość do ASP.NET Core 2.0
 author: scottaddie
 description: W tym artykule omówiono najbardziej typowe kroki dla migracji platformy ASP.NET Core 1.x uwierzytelnianie i tożsamość ASP.NET Core 2.0.
 ms.author: scaddie
-ms.date: 06/13/2019
+ms.date: 06/21/2019
 uid: migration/1x-to-2x/identity-2x
-ms.openlocfilehash: 3e8bc75b87a85159c9668b52eea32bb7d700be6c
-ms.sourcegitcommit: 516f166c5f7cec54edf3d9c71e6e2ba53fb3b0e5
+ms.openlocfilehash: c83356e12fa5ae581b369265b9d857b08445ed51
+ms.sourcegitcommit: 9f11685382eb1f4dd0fb694dea797adacedf9e20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67196381"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67313745"
 ---
 # <a name="migrate-authentication-and-identity-to-aspnet-core-20"></a>Migrowanie uwierzytelnianie i tożsamość do ASP.NET Core 2.0
 
@@ -304,18 +304,31 @@ W projektach 2.0, należy zaimportować `Microsoft.AspNetCore.Authentication` pr
 ## <a name="windows-authentication-httpsys--iisintegration"></a>Uwierzytelnianie Windows (plik HTTP.sys / IISIntegration)
 
 Istnieją dwie odmiany uwierzytelniania Windows:
-1. Host zezwala tylko uwierzytelnieni użytkownicy
-2. Host umożliwia zarówno anonimowe i uwierzytelnionych użytkowników
 
-Pierwsza wersja opisanych powyżej jest niezależny od zmiany 2.0.
+* Host zezwala tylko uwierzytelnionym użytkownikom. Ta różnica nie ma wpływu na zmiany 2.0.
+* Host umożliwia zarówno anonimowe i uwierzytelnionych użytkowników. Ta zmiana dotyczy 2.0 zmiany. Na przykład, aplikacja powinna umożliwiać użytkowników anonimowych [IIS](xref:host-and-deploy/iis/index) lub [HTTP.sys](xref:fundamentals/servers/httpsys) warstwy, ale zezwolić użytkownikom na poziomie kontrolera. W tym scenariuszu należy ustawić domyślny schemat w `Startup.ConfigureServices` metody.
 
-Druga opisanych powyżej jest wpływ zmiany 2.0. Na przykład możesz może być co anonimowych użytkowników w swojej aplikacji w usługach IIS lub [HTTP.sys](xref:fundamentals/servers/httpsys) warstwy, ale autoryzowanie użytkowników na poziomie kontrolera. W tym scenariuszu ustawiono domyślny schemat `IISDefaults.AuthenticationScheme` w `Startup.ConfigureServices` metody:
+  Aby uzyskać [Microsoft.AspNetCore.Server.IISIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IISIntegration/), Ustaw domyślny schemat `IISDefaults.AuthenticationScheme`:
 
-```csharp
-services.AddAuthentication(IISDefaults.AuthenticationScheme);
-```
+  ```csharp
+  using Microsoft.AspNetCore.Server.IISIntegration;
 
-Można ustawić domyślny schemat zapobiega żądania autoryzacji jako wezwania od pracy.
+  services.AddAuthentication(IISDefaults.AuthenticationScheme);
+  ```
+
+  Aby uzyskać [Microsoft.AspNetCore.Server.HttpSys](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.HttpSys/), Ustaw domyślny schemat `HttpSysDefaults.AuthenticationScheme`:
+
+  ```csharp
+  using Microsoft.AspNetCore.Server.HttpSys;
+
+  services.AddAuthentication(HttpSysDefaults.AuthenticationScheme);
+  ```
+
+  Można ustawić domyślny schemat uniemożliwia żądania autoryzacji (żądanie) działanie z następującym wyjątkiem:
+
+  > `System.InvalidOperationException`: AuthenticationScheme nie została określona, a nie było żadnych DefaultChallengeScheme znaleziono.
+
+Aby uzyskać więcej informacji, zobacz <xref:security/authentication/windowsauth>.
 
 <a name="identity-cookie-options"></a>
 

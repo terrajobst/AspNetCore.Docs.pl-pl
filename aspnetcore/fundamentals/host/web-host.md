@@ -4,14 +4,14 @@ author: guardrex
 description: Więcej informacji na temat hosta sieci Web w programie ASP.NET Core, który jest odpowiedzialny za zarządzanie uruchamiania i czasu życia aplikacji.
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/11/2019
+ms.date: 06/14/2019
 uid: fundamentals/host/web-host
-ms.openlocfilehash: 48f3b664d901bdfb27cdf9e798fa60c0587d1def
-ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
+ms.openlocfilehash: c5d5b723b31a5c211a47e378e50be858fda0b2bd
+ms.sourcegitcommit: 9f11685382eb1f4dd0fb694dea797adacedf9e20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610288"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67313800"
 ---
 # <a name="aspnet-core-web-host"></a>Host sieci Web platformy ASP.NET Core
 
@@ -19,27 +19,21 @@ Przez [Luke Latham](https://github.com/guardrex)
 
 Konfigurowanie aplikacji platformy ASP.NET Core i uruchamiania *hosta*. Host jest odpowiedzialny za zarządzanie uruchamiania i czasu życia aplikacji. Jako minimum host konfiguruje serwer i potoku przetwarzania żądań. Hosta można też skonfigurować rejestrowanie, wstrzykiwanie zależności i konfiguracji.
 
-::: moniker range="<= aspnetcore-1.1"
+::: moniker range=">= aspnetcore-3.0"
 
-Dla wersji 1.1 w tym temacie, Pobierz [hosta sieci Web programu ASP.NET Core (w wersji 1.1, plików PDF)](https://webpifeed.blob.core.windows.net/webpifeed/Partners/Web-Host_1.1.pdf).
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.1 <= aspnetcore-2.2"
-
-W tym artykule opisano hosta sieci Web platformy ASP.NET Core (<xref:Microsoft.AspNetCore.Hosting.IWebHostBuilder>), czyli do hostowania aplikacji sieci web. Aby uzyskać informacje o hoście ogólnego .NET ([IHostBuilder](/dotnet/api/microsoft.extensions.hosting.ihostbuilder)), zobacz <xref:fundamentals/host/generic-host>.
+W tym artykule opisano hosta sieci Web, która pozostaje dostępna tylko dla zgodności z poprzednimi wersjami. [Ogólnego hosta](xref:fundamentals/host/generic-host) jest zalecana dla wszystkich typów aplikacji.
 
 ::: moniker-end
 
-::: moniker range="> aspnetcore-2.2"
+::: moniker range="<= aspnetcore-2.2"
 
-W tym artykule opisano hosta sieci Web platformy ASP.NET Core ([IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder)). W programie ASP.NET Core 3.0 to ogólny hosta zastępuje hosta sieci Web. Aby uzyskać więcej informacji, zobacz [hosta](xref:fundamentals/index#host).
+W tym artykule opisano hosta sieci Web, czyli do hostowania aplikacji sieci web. W przypadku innych rodzajów aplikacji, użyj [ogólnego hosta](xref:fundamentals/host/generic-host).
 
 ::: moniker-end
 
 ## <a name="set-up-a-host"></a>Konfigurowanie hosta
 
-Tworzenie hosta przy użyciu wystąpienia [IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder). To jest zwykle wykonywany w punkcie wejścia aplikacji, `Main` metody. Nazwa metody konstruktora, `CreateWebHostBuilder`, jest nazwą specjalną, który identyfikuje metodę konstruktora do składników zewnętrznych, takich jak [Entity Framework](/ef/core/).
+Tworzenie hosta przy użyciu wystąpienia [IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder). To jest zwykle wykonywany w punkcie wejścia aplikacji, `Main` metody.
 
 W szablonach projektu `Main` znajduje się w *Program.cs*. Typowa aplikacja wywołuje [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) do rozpoczęcia konfigurowania hosta:
 
@@ -56,6 +50,8 @@ public class Program
             .UseStartup<Startup>();
 }
 ```
+
+Kod, który wywołuje `CreateDefaultBuilder` znajduje się w metodę o nazwie `CreateWebHostBuilder`, która oddziela go od kodu w `Main` wywołująca `Run` do konstruktora obiektu. Ta separacja jest wymagany, jeśli używasz [narzędzia Entity Framework Core](/ef/core/miscellaneous/cli/). Narzędzia poszukiwać `CreateWebHostBuilder` metody, które wywołują w czasie projektowania, aby skonfigurować hosta bez uruchamiania aplikacji. Alternatywą jest zaimplementowanie `IDesignTimeDbContextFactory`. Aby uzyskać więcej informacji, zobacz [Tworzenie typu DbContext w czasie projektowania](/ef/core/miscellaneous/cli/dbcontext-creation).
 
 `CreateDefaultBuilder` wykonuje następujące zadania:
 
@@ -131,9 +127,9 @@ Konfiguracja zdefiniowane przez `CreateDefaultBuilder` zastąpienia i wzmacnia [
 Aby uzyskać więcej informacji na temat konfiguracji aplikacji, zobacz <xref:fundamentals/configuration/index>.
 
 > [!NOTE]
-> Jako alternatywa dla użycia statycznego `CreateDefaultBuilder` metody tworzenia hosta z [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) metoda przy użyciu obsługiwanych za pomocą programu ASP.NET Core 2.x. Aby uzyskać więcej informacji zobacz kartę 1.x platformy ASP.NET Core.
+> Jako alternatywa dla użycia statycznego `CreateDefaultBuilder` metody tworzenia hosta z [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) metoda przy użyciu obsługiwanych za pomocą programu ASP.NET Core 2.x.
 
-Podczas konfigurowania hostów [Konfiguruj](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configure?view=aspnetcore-1.1) i [ConfigureServices](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder.configureservices?view=aspnetcore-1.1) można przedstawić metody. Jeśli `Startup` klasy jest określony, należy ją zdefiniować `Configure` metody. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/startup>. Wiele wywołań `ConfigureServices` dołączenia do siebie nawzajem. Wiele wywołań `Configure` lub `UseStartup` na `WebHostBuilder` zastąpienia poprzednich ustawień.
+Podczas konfigurowania hostów [Konfiguruj](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configure) i [ConfigureServices](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder.configureservices) można przedstawić metody. Jeśli `Startup` klasy jest określony, należy ją zdefiniować `Configure` metody. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/startup>. Wiele wywołań `ConfigureServices` dołączenia do siebie nawzajem. Wiele wywołań `Configure` lub `UseStartup` na `WebHostBuilder` zastąpienia poprzednich ustawień.
 
 ## <a name="host-configuration-values"></a>Wartości konfiguracji hosta
 
@@ -509,7 +505,7 @@ using (var host = WebHost.Start("http://localhost:8080", app => app.Response.Wri
 }
 ```
 
-Daje ten sam wynik jako **Start (aplikacja RequestDelegate)**, chyba że aplikacja reaguje na `http://localhost:8080`.
+Daje ten sam wynik jako **Start (aplikacja RequestDelegate)** , chyba że aplikacja reaguje na `http://localhost:8080`.
 
 **Uruchom (Akcja&lt;IRouteBuilder&gt; routeBuilder)**
 
@@ -566,7 +562,7 @@ using (var host = WebHost.Start("http://localhost:8080", router => router
 }
 ```
 
-Daje ten sam wynik jako **Start (Akcja&lt;IRouteBuilder&gt; routeBuilder)**, chyba że aplikacja reaguje na `http://localhost:8080`.
+Daje ten sam wynik jako **Start (Akcja&lt;IRouteBuilder&gt; routeBuilder)** , chyba że aplikacja reaguje na `http://localhost:8080`.
 
 **StartWith (Akcja&lt;IApplicationBuilder&gt; aplikacji)**
 
@@ -608,7 +604,7 @@ using (var host = WebHost.StartWith("http://localhost:8080", app =>
 }
 ```
 
-Daje ten sam wynik jako **StartWith (Akcja&lt;IApplicationBuilder&gt; aplikacji)**, chyba że aplikacja reaguje na `http://localhost:8080`.
+Daje ten sam wynik jako **StartWith (Akcja&lt;IApplicationBuilder&gt; aplikacji)** , chyba że aplikacja reaguje na `http://localhost:8080`.
 
 ## <a name="ihostingenvironment-interface"></a>Interfejs IHostingEnvironment
 

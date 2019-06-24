@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/18/2019
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: fe74583cdc1c8fa40ab12b4b31dc47f5e0296a6c
-ms.sourcegitcommit: 3eedd6180fbbdcb81a8e1ebdbeb035bf4f2feb92
+ms.openlocfilehash: b96aff5c41bbca80caf0d2d11bc52b9b7b55043e
+ms.sourcegitcommit: 9f11685382eb1f4dd0fb694dea797adacedf9e20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67284528"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67313772"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>Implementacja serwera sieci web kestrel w programie ASP.NET Core
 
@@ -327,7 +327,15 @@ Można zastąpić minimalne limitom na żądanie w oprogramowaniu pośrednicząc
 
 [!code-csharp[](kestrel/samples/2.x/KestrelSample/Startup.cs?name=snippet_Limits&highlight=6-21)]
 
-::: moniker range=">= aspnetcore-2.2"
+::: moniker range=">= aspnetcore-3.0"
+
+<xref:Microsoft.AspNetCore.Server.Kestrel.Core.Features.IHttpMinResponseDataRateFeature> Do którego odwołuje się wcześniej nie znajduje się w próbce `HttpContext.Features` dla żądania protokołu HTTP/2, ponieważ modyfikowanie limitów szybkości na podstawie danego żądania ogólnie nie jest obsługiwane dla protokołu HTTP/2 ze względu na obsługę protokołu Multipleksowanie żądania. Jednak <xref:Microsoft.AspNetCore.Server.Kestrel.Core.Features.IHttpMinRequestBodyDataRateFeature> nadal znajdują się `HttpContext.Features` dla żądania HTTP/2, ponieważ limit żądań odczytu mogą nadal być *całkowicie wyłączony* na podstawie danego żądania, ustawiając `IHttpMinRequestBodyDataRateFeature.MinDataRate` do `null` nawet w przypadku protokołu HTTP/2 żądanie. Podjęto próbę odczytu `IHttpMinRequestBodyDataRateFeature.MinDataRate` lub próba innych niż ustawienie na wartość `null` spowoduje `NotSupportedException` zgłaszane danego żądania HTTP/2.
+
+Limity szybkości całego serwera, konfigurować za pośrednictwem `KestrelServerOptions.Limits` nadal mają zastosowanie do połączeń zarówno HTTP/1.x, jak i protokołu HTTP/2.
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.2"
 
 Ani funkcji szybkości, do którego odwołuje się poprzedniego przykładu znajdują się w `HttpContext.Features` dla żądania HTTP/2, ponieważ modyfikowanie limitów szybkości na podstawie danego żądania nie jest obsługiwane ze względu na obsługę protokołu Multipleksowanie żądania protokołu HTTP/2. Limity szybkości całego serwera, konfigurować za pośrednictwem `KestrelServerOptions.Limits` nadal mają zastosowanie do połączeń zarówno HTTP/1.x, jak i protokołu HTTP/2.
 

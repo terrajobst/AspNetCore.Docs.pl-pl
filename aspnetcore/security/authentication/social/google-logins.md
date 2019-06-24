@@ -4,14 +4,14 @@ author: rick-anderson
 description: Ten samouczek przedstawia integracja uwierzytelniania użytkownika konta Google do istniejącej aplikacji platformy ASP.NET Core.
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 1/11/2019
+ms.date: 06/19/2019
 uid: security/authentication/google-logins
-ms.openlocfilehash: 44c79b3279db7946b6d89a726bd3f5acfb5f51af
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: b0edac411e73cd2eec7c4e212b99971577f59cfb
+ms.sourcegitcommit: 06a455d63ff7d6b571ca832e8117f4ac9d646baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64902062"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67316455"
 ---
 # <a name="google-external-login-setup-in-aspnet-core"></a>Ustawienia logowania zewnętrznego Google w programie ASP.NET Core
 
@@ -44,7 +44,9 @@ Możesz zarządzać poświadczeniami interfejsu API i jego użycia w [Konsola in
 
 ## <a name="configure-google-authentication"></a>Konfigurowanie uwierzytelniania serwisu Google
 
-Dodaj usługę Google, aby `Startup.ConfigureServices`.
+Dodaj usługę Google, aby `Startup.ConfigureServices`:
+
+[!code-csharp[](~/security/authentication/social/social-code/StartupGoogle.cs?name=snippet_ConfigureServices&highlight=10-18)]
 
 [!INCLUDE [default settings configuration](includes/default-settings2-2.md)]
 
@@ -58,7 +60,7 @@ Dodaj usługę Google, aby `Startup.ConfigureServices`.
 
 [!INCLUDE[](includes/chain-auth-providers.md)]
 
-Zobacz [GoogleOptions](/dotnet/api/microsoft.aspnetcore.authentication.google.googleoptions) dokumentacja interfejsu API, aby uzyskać więcej informacji na temat opcji konfiguracji obsługiwanych przez uwierzytelnianie serwisu Google. Może to służyć do żądania różne informacje o użytkowniku.
+Zobacz <xref:Microsoft.AspNetCore.Authentication.Google.GoogleOptions> dokumentacja interfejsu API, aby uzyskać więcej informacji na temat opcji konfiguracji obsługiwanych przez uwierzytelnianie serwisu Google. Może to służyć do żądania różne informacje o użytkowniku.
 
 ## <a name="change-the-default-callback-uri"></a>Zmień domyślny identyfikator URI wywołania zwrotnego
 
@@ -68,7 +70,7 @@ Segmentem identyfikatora URI `/signin-google` jest ustawiony jako zwrotnym domy�
 
 * Jeśli nie otrzymujesz błędy logowania nie działa, przełącz się do trybu opracowywania, aby ułatwić debugowanie problemu.
 * Jeśli tożsamość nie jest skonfigurowana, wywołując `services.AddIdentity` w `ConfigureServices`podjęto próbę uwierzytelnienia powoduje *ArgumentException: Opcja "SignInScheme" musi być podana*. Szablon projektu, w tym samouczku używane gwarantuje, że odbywa się.
-* Jeśli nie utworzono bazy danych lokacji, stosując początkowej migracji, możesz uzyskać *operacji bazy danych nie powiodło się podczas przetwarzania żądania* błędu. Naciśnij pozycję **zastosować migracje** do tworzenia bazy danych i Odśwież, aby kontynuować po błędzie.
+* Jeśli nie utworzono bazy danych lokacji, stosując początkowej migracji, możesz uzyskać *operacji bazy danych nie powiodło się podczas przetwarzania żądania* błędu. Wybierz **zastosować migracje** do utworzenia bazy danych, a następnie odśwież stronę, aby kontynuować po błędzie.
 
 ## <a name="next-steps"></a>Następne kroki
 
