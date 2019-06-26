@@ -5,28 +5,28 @@ description: Dowiedz się, jak składniki mogły zostać uwzględnione w taki sp
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/14/2019
+ms.date: 06/24/2019
 uid: blazor/class-libraries
-ms.openlocfilehash: 40dc029b35e0997e526fdfc02c275da5a84450b9
-ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
+ms.openlocfilehash: 8676e0fd660b7d281c80d06d24d5593c2df6348b
+ms.sourcegitcommit: 763af2cbdab0da62d1f1cfef4bcf787f251dfb5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67152882"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67394620"
 ---
 # <a name="aspnet-core-razor-components-class-libraries"></a>Platforma ASP.NET Core Razor składniki klasy biblioteki
 
 Przez [Simon Timms](https://github.com/stimms)
 
-Składniki mogą być udostępniane w bibliotekach klas Razor w projektach. Składniki można uwzględnić od:
+Składniki mogą być współużytkowane w [biblioteki klas Razor (RCL)](xref:razor-pages/ui-class) w projektach. A *Biblioteka klas składników Razor* można uwzględnić od:
 
 * Innego projektu w rozwiązaniu.
 * Pakiet NuGet.
 * Odwołania biblioteki .NET.
 
-Tak, jak składniki są regularnie typów .NET, składniki dostarczony przez biblioteki klas Razor są normalne zestawów platformy .NET.
+Tak, jak składniki są regularnie typów .NET, składniki dostarczony przez RCL są normalne zestawów platformy .NET.
 
-## <a name="create-a-razor-class-library"></a>Tworzenie biblioteki klas Razor
+## <a name="create-an-rcl"></a>Utwórz RCL
 
 Postępuj zgodnie ze wskazówkami w <xref:blazor/get-started> artykuł, aby skonfigurować środowisko dla Blazor.
 
@@ -37,23 +37,23 @@ Postępuj zgodnie ze wskazówkami w <xref:blazor/get-started> artykuł, aby skon
 1. Podaj nazwę projektu w **Nazwa projektu** pola lub zaakceptuj domyślną nazwę projektu. Przykłady w tym temacie użyje nazwy projektu `MyComponentLib1`. Wybierz pozycję **Utwórz**.
 1. W **Tworzenie nowej aplikacji sieci Web platformy ASP.NET Core** okna dialogowego, upewnij się, że **platformy .NET Core** i **platformy ASP.NET Core 3.0** są zaznaczone.
 1. Wybierz **biblioteki klas Razor** szablonu. Wybierz pozycję **Utwórz**.
-1. Dodawanie biblioteki klas Razor do rozwiązania:
+1. Dodawanie RCL do rozwiązania:
    1. Kliknij prawym przyciskiem myszy rozwiązanie. Wybierz **Dodaj** > **istniejący projekt**.
-   1. Przejdź do pliku projektu biblioteki klas Razor.
-   1. Wybierz plik projektu biblioteki klas Razor ( *.csproj*).
-1. Dodaj odwołanie do biblioteki klas Razor z poziomu aplikacji:
+   1. Przejdź do pliku projektu RCL.
+   1. Wybierz plik projektu RCL ( *.csproj*).
+1. Dodaj odwołanie RCL z poziomu aplikacji:
    1. Kliknij prawym przyciskiem myszy projekt aplikacji. Wybierz **Dodaj** > **odwołania**.
-   1. Wybierz projekt biblioteki klas Razor. Kliknij przycisk **OK**.
+   1. Wybierz projekt RCL. Kliknij przycisk **OK**.
 
 # <a name="visual-studio-code--net-core-clitabvisual-studio-codenetcore-cli"></a>[Program Visual Studio Code / .NET Core interfejsu wiersza polecenia](#tab/visual-studio-code+netcore-cli)
 
-1. Użyj biblioteki klas Razor (`razorclasslib`) szablon [dotnet nowe](/dotnet/core/tools/dotnet-new) polecenia powłoki poleceń. W poniższym przykładzie jest tworzony o nazwie biblioteki klas Razor `MyComponentLib1`. Folder, który przechowuje `MyComponentLib1` jest tworzona automatycznie podczas wykonywania polecenia.
+1. Szablon biblioteki klas Razor (`razorclasslib`) za pomocą [dotnet nowe](/dotnet/core/tools/dotnet-new) polecenia powłoki poleceń. W poniższym przykładzie jest tworzony o nazwie RCL `MyComponentLib1`. Folder, który przechowuje `MyComponentLib1` jest tworzona automatycznie podczas wykonywania polecenia.
 
    ```console
    dotnet new razorclasslib -o MyComponentLib1
    ```
 
-1. Aby dodać bibliotekę do istniejącego projektu, należy użyć [dotnet Dodaj odwołanie](/dotnet/core/tools/dotnet-add-reference) polecenia powłoki poleceń. W poniższym przykładzie biblioteki klas Razor jest dodawany do aplikacji. Wykonaj następujące polecenie z folderu projektu aplikacji ze ścieżką do biblioteki:
+1. Aby dodać bibliotekę do istniejącego projektu, należy użyć [dotnet Dodaj odwołanie](/dotnet/core/tools/dotnet-add-reference) polecenia powłoki poleceń. W poniższym przykładzie RCL zostanie dodany do aplikacji. Wykonaj następujące polecenie z folderu projektu aplikacji ze ścieżką do biblioteki:
 
    ```console
    dotnet add reference {PATH TO LIBRARY}
@@ -61,9 +61,9 @@ Postępuj zgodnie ze wskazówkami w <xref:blazor/get-started> artykuł, aby skon
 
 ---
 
-Dodaj pliki składników Razor ( *.razor*) do biblioteki klas Razor.
+Dodaj pliki składników Razor ( *.razor*) do RCL.
 
-## <a name="razor-class-libraries-not-supported-for-client-side-apps"></a>Biblioteki klas razor nie jest obsługiwane dla aplikacji po stronie klienta
+## <a name="rcls-not-supported-for-client-side-apps"></a>RCLs nie jest obsługiwane dla aplikacji po stronie klienta
 
 W programie ASP.NET Core 3.0 (wersja zapoznawcza) biblioteki klas Razor nie są zgodne z aplikacji po stronie klienta Blazor.
 
@@ -74,15 +74,6 @@ dotnet new blazorlib -o MyComponentLib1
 ```
 
 Biblioteki składników za pomocą `blazorlib` szablonu może zawierać pliki statyczne, takie jak obrazy, JavaScript i arkusze stylów. W czasie kompilacji, pliki statyczne są osadzone w pliku zestawu wbudowanego ( *.dll*), co umożliwia użycie składniki bez konieczności martwienia się o tym, jak do uwzględnienia ich zasobów. Wszystkie pliki zawarte w `content` katalogu są oznaczone jako zasobu osadzonego.
-
-## <a name="static-assets-not-supported-for-server-side-apps"></a>Statyczne elementy zawartości, które nie są obsługiwane w przypadku aplikacji po stronie serwera
-
-W programie ASP.NET Core 3.0 (wersja zapoznawcza), Blazor po stronie serwera aplikacji nie może zużywać zasoby statyczne z obu biblioteki klas Razor (`razorclasslib`) lub bibliotekę Blazor (`blazorlib`).
-
-Jako rozwiązanie tymczasowe, możesz spróbować [BlazorEmbedLibrary](https://www.nuget.org/packages/BlazorEmbedLibrary/).
-
-> [!NOTE]
-> [BlazorEmbedLibrary](https://www.nuget.org/packages/BlazorEmbedLibrary/) nie jest obsługiwany lub obsługiwane przez firmę Microsoft.
 
 ## <a name="consume-a-library-component"></a>Używanie składnik biblioteki
 
@@ -131,29 +122,12 @@ Przekazywanie pakietu NuGet za pomocą [dotnet nuget publikowania](/dotnet/core/
 dotnet nuget publish
 ```
 
-Korzystając z `blazorlib` szablonu, zasoby statyczne są dołączone do pakietu NuGet. Konsumenci biblioteki automatycznie otrzymywać skrypty i arkusze stylów, dzięki czemu użytkownicy nie są wymagane do ręcznego zainstalowania zasobów. Należy pamiętać, że [statycznych zasobów nie są obsługiwane w przypadku aplikacji po stronie serwera](#static-assets-not-supported-for-server-side-apps), w tym przypadku biblioteki Blazor (`blazorlib`) odwołuje się do aplikacji po stronie serwera.
+Korzystając z `blazorlib` szablonu, zasoby statyczne są dołączone do pakietu NuGet. Konsumenci biblioteki automatycznie otrzymywać skrypty i arkusze stylów, dzięki czemu użytkownicy nie są wymagane do ręcznego zainstalowania zasobów.
 
-## <a name="create-a-razor-class-library-with-static-assets"></a>Tworzenie biblioteki klas Razor przy użyciu statycznych zasobów
+## <a name="create-a-razor-components-class-library-with-static-assets"></a>Tworzenie biblioteki klas Razor składników za pomocą statycznych zasobów
 
-Biblioteki klas razor (RCL) często wymagają pomocnika statycznych zasobów, które mogą być przywoływane przez aplikację odbierającą RCL. Platforma ASP.NET Core umożliwia tworzenie RCLs, które obejmują zasoby statyczne, które są dostępne dla aplikacji.
+RCL mogą obejmować zasoby statyczne. Statyczne elementy zawartości są dostępne dla żadnej aplikacji, która korzysta z biblioteki. Aby uzyskać więcej informacji, zobacz <xref:razor-pages/ui-class#create-an-rcl-with-static-assets>.
 
-Aby uwzględnić zasoby pomocnika jako część biblioteki klas Razor, utworzyć *wwwroot* folder w ułatwieniach i zawierać wszystkie wymagane pliki w tym folderze.
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
-Podczas pakowania, biblioteki klas Razor, wszystkie pomocnika zasobów w *wwwroot* folderów są automatycznie uwzględnione w pakiecie i są dostępne dla aplikacji, które odwołuje się do pakietu.
-
-### <a name="consume-content-from-a-referenced-razor-class-library"></a>Korzystanie z zawartości z przywoływanych biblioteki klas Razor
-
-Pliki zawarte w *wwwroot* folder biblioteki klas Razor są widoczne dla aplikacji w ramach prefiksu `_content/{LIBRARY NAME}/`. Aplikacja odbierająca komunikaty odwołuje się do tych zasobów za pomocą `<script>`, `<style>`, `<img>`, a inne tagi HTML.
-
-### <a name="multi-project-development-flow"></a>Przepływ rozwoju wielu projektów
-
-Po uruchomieniu aplikacji:
-
-* Zasoby pozostają w ich oryginalnych folderów.
-* Wszelkie zmiany w bibliotece klas *wwwroot* folder jest widoczny w aplikacji bez ponownie skompilować.
-
-W czasie kompilacji manifest jest generowany ze wszystkich lokalizacji zasobów statyczną sieci web. Manifest jest do odczytu w czasie wykonywania i umożliwia aplikacji korzystanie z zasobów w projektach odwołania i pakietów.
-
-### <a name="publish"></a>Publikowanie
-
-Po opublikowaniu aplikacji zasoby pomocnika z wszystkie przywoływane projekty i pakiety są kopiowane do *wwwroot* folderu opublikowanej aplikacji, w obszarze `_content/{LIBRARY NAME}/`.
+* <xref:razor-pages/ui-class>

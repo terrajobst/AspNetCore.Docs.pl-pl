@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/27/2017
 uid: test/razor-pages-tests
-ms.openlocfilehash: f1526b8803f43ec8cbe77c1d2c100d9daf6cd316
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: f0e47f975579dc114eaeda375028ec62696f58ed
+ms.sourcegitcommit: 763af2cbdab0da62d1f1cfef4bcf787f251dfb5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64900037"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67394737"
 ---
 # <a name="razor-pages-unit-tests-in-aspnet-core"></a>Testy jednostkowe stron razor w programie ASP.NET Core
 
@@ -66,7 +66,7 @@ Aplikacja testowa jest aplikacją konsoli wewnątrz *tests/RazorPagesTestSample.
 | Folder aplikacji testowego | Opis |
 | --------------- | ----------- |
 | *UnitTests*     | <ul><li>*DataAccessLayerTest.cs* zawiera testy jednostkowe dla warstwy DAL.</li><li>*IndexPageTests.cs* zawiera testy jednostkowe dla modelu strony indeksu.</li></ul> |
-| *Narzędzia*     | Zawiera `TestingDbContextOptions` metodę używaną do tworzenia nowej bazy danych opcji kontekst dla każdego testu jednostkowego DAL tak, aby baza danych jest resetowany do stanu punktu odniesienia dla każdego testu. |
+| *Narzędzia*     | Zawiera `TestDbContextOptions` metodę używaną do tworzenia nowej bazy danych opcji kontekst dla każdego testu jednostkowego DAL tak, aby baza danych jest resetowany do stanu punktu odniesienia dla każdego testu. |
 
 Framework testów jest [xUnit](https://xunit.github.io/). Obiekt pozorowanie framework jest [Moq](https://github.com/moq/moq4).
 
@@ -93,14 +93,14 @@ using (var db = new AppDbContext(optionsBuilder.Options))
 }
 ```
 
-Problem w przypadku tej metody polega na tym, że każdy test odbiera bazy danych w niezależnie od stanu poprzedni test, że pozostała. Może to być problematyczne, przy próbie zapisania testy pojedynczej Atomowej jednostki, które nie kolidują ze sobą. Aby wymusić `AppDbContext` używać nowy kontekst bazy danych dla każdego testu, należy podać `DbContextOptions` wystąpienia, która jest oparta na nowego dostawcę usługi. Aplikacja testowa pokazuje, jak to zrobić za pomocą jego `Utilities` metody klasy `TestingDbContextOptions` (*tests/RazorPagesTestSample.Tests/Utilities/Utilities.cs*):
+Problem w przypadku tej metody polega na tym, że każdy test odbiera bazy danych w niezależnie od stanu poprzedni test, że pozostała. Może to być problematyczne, przy próbie zapisania testy pojedynczej Atomowej jednostki, które nie kolidują ze sobą. Aby wymusić `AppDbContext` używać nowy kontekst bazy danych dla każdego testu, należy podać `DbContextOptions` wystąpienia, która jest oparta na nowego dostawcę usługi. Aplikacja testowa pokazuje, jak to zrobić za pomocą jego `Utilities` metody klasy `TestDbContextOptions` (*tests/RazorPagesTestSample.Tests/Utilities/Utilities.cs*):
 
 [!code-csharp[](razor-pages-tests/samples/2.x/tests/RazorPagesTestSample.Tests/Utilities/Utilities.cs?name=snippet1)]
 
 Za pomocą `DbContextOptions` w jednostce warstwa DAL testów umożliwia każdy test do uruchomienia niepodzielne przy użyciu wystąpienia nową bazą danych:
 
 ```csharp
-using (var db = new AppDbContext(Utilities.TestingDbContextOptions()))
+using (var db = new AppDbContext(Utilities.TestDbContextOptions()))
 {
     // Use the db here in the unit test.
 }

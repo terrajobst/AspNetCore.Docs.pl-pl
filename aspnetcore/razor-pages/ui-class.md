@@ -4,21 +4,21 @@ author: Rick-Anderson
 description: Wyjaśnia, jak tworzyć wielokrotnego użytku Razor interfejsu użytkownika przy użyciu widoków częściowych w bibliotece klas, w programie ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
-ms.date: 09/07/2018
+ms.date: 06/24/2019
 ms.custom: mvc, seodec18
 uid: razor-pages/ui-class
-ms.openlocfilehash: 7ec36cc8f4832fb1e1a50831dfcb88f3cafb5ca9
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 96ef8fc055a6b92cd0808d02031d917b8446f305
+ms.sourcegitcommit: 763af2cbdab0da62d1f1cfef4bcf787f251dfb5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64901888"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67394745"
 ---
-# <a name="create-reusable-ui-using-the-razor-class-library-project-in-aspnet-core"></a>Tworzenie interfejsu użytkownika wielokrotnego użytku, używając projektu biblioteki klas Razor w programie ASP.NET Core
+# <a name="create-reusable-ui-using-the-razor-class-library-project-in-aspnet-core"></a>Tworzenie interfejsu użytkownika do wielokrotnego użytku, przy użyciu projektu biblioteki klas Razor w programie ASP.NET Core
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Widokami razor, strony, kontrolerów, modele strony [wyświetlanie składników](xref:mvc/views/view-components), a modeli danych może być kompilowany do biblioteki klas Razor (RCL). RCL może spakowane i ponownie używane. Aplikacje mogą zawierać RCL oraz zastąpić widoków i stron, które zawiera. Gdy widoku, widoku częściowego lub strona Razor znajduje się w RCL, znaczników Razor i aplikacji sieci web (*.cshtml* pliku) w sieci web aplikacji ma pierwszeństwo.
+Widokami razor, strony, kontrolerów, modele strony [składniki Razor](xref:blazor/class-libraries), [wyświetlanie składników](xref:mvc/views/view-components), i modeli danych może zostać wbudowana w bibliotekę klas Razor (RCL). RCL może spakowane i ponownie używane. Aplikacje mogą zawierać RCL oraz zastąpić widoków i stron, które zawiera. Gdy widoku, widoku częściowego lub strona Razor znajduje się w RCL, znaczników Razor i aplikacji sieci web ( *.cshtml* pliku) w sieci web aplikacji ma pierwszeństwo.
 
 Ta funkcja wymaga [!INCLUDE[](~/includes/2.1-SDK.md)]
 
@@ -34,7 +34,7 @@ Ta funkcja wymaga [!INCLUDE[](~/includes/2.1-SDK.md)]
 * Sprawdź **platformy ASP.NET Core 2.1** lub nowszej jest zaznaczone.
 * Wybierz **biblioteki klas Razor** > **OK**.
 
-Biblioteki klas Razor ma następujący plik projektu:
+RCL ma następujący plik projektu:
 
 [!code-xml[Main](ui-class/samples/cli/RazorUIClassLib/RazorUIClassLib.csproj)]
 
@@ -54,20 +54,20 @@ Dodaj pliki Razor do RCL.
 
 Szablony ASP.NET Core przyjęto założenie, zawartość RCL znajduje się w *obszarów* folderu. Zobacz [układ stron RCL](#afs) utworzyć RCL, który udostępnia zawartość `~/Pages` zamiast `~/Areas/Pages`.
 
-## <a name="referencing-razor-class-library-content"></a>Odwoływanie się do zawartości biblioteki klas Razor
+## <a name="referencing-rcl-content"></a>Odwoływanie się do zawartości RCL
 
 RCL mogą być przywoływane przez:
 
 * Pakiet NuGet. Zobacz [pakiety NuGet tworzenia](/nuget/create-packages/creating-a-package) i [dotnet Dodaj pakiet](/dotnet/core/tools/dotnet-add-package) i [tworzenie i publikowanie pakietu NuGet](/nuget/quickstart/create-and-publish-a-package-using-visual-studio).
 * *{Nazwa_projektu} .csproj*. Zobacz [dotnet-Dodaj odwołanie](/dotnet/core/tools/dotnet-add-reference).
 
-## <a name="walkthrough-create-a-razor-class-library-project-and-use-from-a-razor-pages-project"></a>Przewodnik: Utwórz projekt biblioteki klas Razor i korzystać z projektu stron Razor
+## <a name="walkthrough-create-an-rcl-project-and-use-from-a-razor-pages-project"></a>Przewodnik: Utwórz projekt RCL i korzystać z projektu stron Razor
 
 Możesz pobrać [kompletnego projektu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/ui-class/samples) i przetestuj go, a nie jej tworzenia. Pobierz przykładowy zawiera dodatkowy kod i łącza, które ułatwiają Testowanie projektu. Możesz pozostawić opinię w [problem w usłudze GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/6098) z komentarzami pobierania próbek i instrukcje krok po kroku.
 
 ### <a name="test-the-download-app"></a>Testowanie aplikacji pobierania
 
-Jeśli nie zostały pobrane ukończonej aplikacji i raczej utworzyć projekt wskazówki, przejdź do [następnej sekcji](#create-a-razor-class-library).
+Jeśli nie zostały pobrane ukończonej aplikacji i raczej utworzyć projekt wskazówki, przejdź do [następnej sekcji](#create-an-rcl).
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -91,9 +91,9 @@ dotnet run
 
 Postępuj zgodnie z instrukcjami w [WebApp1 testu](#test)
 
-## <a name="create-a-razor-class-library"></a>Tworzenie biblioteki klas Razor
+## <a name="create-an-rcl"></a>Utwórz RCL
 
-W tej sekcji jest tworzony biblioteki klas Razor (RCL). Pliki razor są dodawane do RCL.
+W tej sekcji RCL jest tworzony. Pliki razor są dodawane do RCL.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -118,7 +118,7 @@ dotnet new viewstart -o RazorUIClassLib/Areas/MyFeature/Pages
 
 Poprzedniego polecenia:
 
-* Tworzy `RazorUIClassLib` biblioteki klas Razor (RCL).
+* Tworzy `RazorUIClassLib` RCL.
 * Tworzy stronę _Message Razor i dodaje go do RCL. `-np` Parametr tworzy tę stronę bez `PageModel`.
 * Tworzy [_ViewStart.cshtml](xref:mvc/views/layout#running-code-before-each-view) plików i dodaje go do RCL.
 
@@ -174,7 +174,7 @@ Uruchom aplikację.
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
-Tworzenie, aplikacja internetowa ze stronami Razor i plikiem rozwiązania zawierającego aplikację stron Razor i biblioteki klas Razor:
+Tworzenie, aplikacja internetowa ze stronami Razor i plikiem rozwiązania zawierającego aplikację stron Razor i RCL:
 
 ```console
 dotnet new webapp -o WebApp1
@@ -197,13 +197,13 @@ dotnet run
 
 ### <a name="test-webapp1"></a>WebApp1 testu
 
-Sprawdź, czy jest on używany biblioteki klas Razor interfejsu użytkownika.
+Sprawdź, czy biblioteki klas Razor interfejsu użytkownika jest w użyciu:
 
 * Przejdź do `/MyFeature/Page1`.
 
 ## <a name="override-views-partial-views-and-pages"></a>Zastąp widoki, widoki częściowe i strony
 
-Gdy widoku, widoku częściowego lub strona Razor znajduje się w aplikacji sieci web i biblioteki klas Razor znaczników Razor (*.cshtml* pliku) w sieci web aplikacji ma pierwszeństwo. Na przykład dodać *WebApp1/Areas/MyFeature/Pages/Page1.cshtml* do WebApp1, a strona 1 w WebApp1 mają wyższy priorytet niż strona 1 w bibliotece klas Razor.
+Gdy widoku, widoku częściowego lub strona Razor znajduje się w RCL, znaczników Razor i aplikacji sieci web ( *.cshtml* pliku) w sieci web aplikacji ma pierwszeństwo. Na przykład dodać *WebApp1/Areas/MyFeature/Pages/Page1.cshtml* do WebApp1, a strona 1 w WebApp1 mają wyższy priorytet niż strona 1 w RCL.
 
 Do pobrania próbki, Zmień nazwę *WebApp1/obszarów/MyFeature2* do *WebApp1/obszarów/MyFeature* do testowania pierwszeństwo.
 
@@ -227,3 +227,30 @@ Załóżmy, że *RazorUIClassLib/stron/Shared* zawiera dwa pliki częściowa: *_
   <partial name="_Footer">
 </body>
 ```
+
+## <a name="create-an-rcl-with-static-assets"></a>Tworzenie RCL przy użyciu statycznych zasobów
+
+RCL może wymagać pomocnika statycznych zasobów, które mogą być przywoływane przez aplikację odbierającą RCL. Platforma ASP.NET Core umożliwia tworzenie RCLs, które obejmują zasoby statyczne, które są dostępne dla aplikacji.
+
+Aby dołączyć zasoby pomocnika jako część RCL, utworzyć *wwwroot* folder w ułatwieniach i zawierać wszystkie wymagane pliki w tym folderze.
+
+Podczas pakowania RCL, wszystkie pomocnika zasobów w *wwwroot* folderów są automatycznie uwzględnione w pakiecie i są dostępne dla aplikacji, które odwołuje się do pakietu.
+
+### <a name="consume-content-from-a-referenced-rcl"></a>Używać zawartości od RCL odwołania
+
+Pliki zawarte w *wwwroot* folderu RCL są widoczne dla aplikacji w ramach prefiksu `_content/{LIBRARY NAME}/`. `{LIBRARY NAME}` Nazwa projektu biblioteki jest konwertowany na małe litery z kropek (`.`) usunięte. Na przykład, biblioteka o nazwie *Razor.Class.Lib* wyników w ścieżce do zawartości statycznej w `_content/razorclasslib/`.
+
+Aplikacja odbierająca komunikaty odwołuje się do statycznych zasobów dostarczone przez bibliotekę z `<script>`, `<style>`, `<img>`, a inne tagi HTML. Aplikacja odbierająca komunikaty musi mieć [obsługi plików statycznych](xref:fundamentals/static-files) włączone.
+
+### <a name="multi-project-development-flow"></a>Przepływ rozwoju wielu projektów
+
+Podczas wykonywania aplikacji:
+
+* Zasoby w pobytu RCL w ich oryginalnych folderów. Zasoby nie są przenoszone do aplikacji.
+* Wszelkie zmiany w ramach RCL *wwwroot* folderu znajduje odzwierciedlenie w aplikacji po odbudowaniu RCL i bez odbudowywania odbierającą aplikację.
+
+Podczas kompilowania RCL manifest jest generowany, opisujący lokalizacje zasobów statyczną sieci web. Aplikacja odbierająca komunikaty odczytuje manifest w czasie wykonywania, korzystanie z zasobów w projektach odwołania i pakietów. Po dodaniu nowego elementu zawartości RCL RCL musi zostać zrekompilowany, aby zaktualizować manifest, zanim aplikacja odbierająca komunikaty mogą uzyskiwać dostęp do nowego elementu zawartości.
+
+### <a name="publish"></a>Publikowanie
+
+Po opublikowaniu aplikacji zasoby pomocnika z wszystkie przywoływane projekty i pakiety są kopiowane do *wwwroot* folderu opublikowanej aplikacji, w obszarze `_content/{LIBRARY NAME}/`.

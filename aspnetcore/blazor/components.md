@@ -1,20 +1,20 @@
 ---
-title: Tworzenie i używanie składników Razor
+title: Tworzenie i używanie składników platformy ASP.NET Core Razor
 author: guardrex
 description: Informacje o sposobie tworzenia i używania składników Razor, w tym jak powiązać z danymi, obsługa zdarzeń i Zarządzaj cyklami życia składników.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/16/2019
+ms.date: 06/24/2019
 uid: blazor/components
-ms.openlocfilehash: eb8f72147c98ff1dab17c130122c441a2dd4de4d
-ms.sourcegitcommit: 28646e8ca62fb094db1557b5c0c02d5b45531824
+ms.openlocfilehash: cd4d4f9d85f2fad6fe769340ab7a49e6ccb05861
+ms.sourcegitcommit: 763af2cbdab0da62d1f1cfef4bcf787f251dfb5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2019
-ms.locfileid: "67333429"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67394690"
 ---
-# <a name="create-and-use-razor-components"></a>Tworzenie i używanie składników Razor
+# <a name="create-and-use-aspnet-core-razor-components"></a>Tworzenie i używanie składników platformy ASP.NET Core Razor
 
 Przez [Luke Latham](https://github.com/guardrex) i [Daniel Roth](https://github.com/danroth27)
 
@@ -55,7 +55,7 @@ Elementy członkowskie składnika mogą posłużyć jako część składnika prz
 
 Po początkowo renderowania składnik składnika generuje jej drzewo renderowania w odpowiedzi na zdarzenia. Blazor następnie porównuje nowego drzewa renderowania względem poprzedniego i stosuje wszystkie zmiany do przeglądarki w modelu DOM (Document Object).
 
-Składniki są zwykłe C# klasy i można umieścić w dowolnym miejscu w obrębie projektu. Składniki, które zwykle tworzą stron sieci Web znajdują się w *stron* folderu. Składniki strony inne niż często są umieszczane w *Shared* folder lub folder niestandardowy dodane do projektu. Aby korzystać z folderu niestandardowego, Dodaj niestandardowego folderu obszaru nazw do składnika nadrzędnego lub w aplikacji  *\_Imports.razor* pliku. Na przykład następująca przestrzeń nazw sprawia, że składniki *składniki* dostępne w przypadku aplikacji głównej przestrzeni nazw jest folder `WebApplication`:
+Składniki są zwykłe C# klasy i można umieścić w dowolnym miejscu w obrębie projektu. Składniki, które zwykle tworzą stron sieci Web znajdują się w *stron* folderu. Składniki strony inne niż często są umieszczane w *Shared* folder lub folder niestandardowy dodane do projektu. Aby korzystać z folderu niestandardowego, Dodaj niestandardowego folderu obszaru nazw do składnika nadrzędnego lub w aplikacji *_Imports.razor* pliku. Na przykład następująca przestrzeń nazw sprawia, że składniki *składniki* dostępne w przypadku aplikacji głównej przestrzeni nazw jest folder `WebApplication`:
 
 ```cshtml
 @using WebApplication.Components
@@ -553,6 +553,18 @@ protected override void OnAfterRender()
 }
 ```
 
+### <a name="handle-incomplete-async-actions-at-render"></a>Obsługa async niekompletne działań na renderowania
+
+Asynchroniczne operacje wykonywane w zdarzenia cyklu życia mogła nie zostać ukończona przed wyświetleniem składnika. Obiekty mogą być `null` lub nie w pełni wypełniony danych podczas wykonywania metody cyklu życia. Zapewnić logikę renderowania, aby upewnić się, że obiekty są inicjowane. Renderowanie elementów interfejsu użytkownika (na przykład komunikat ładowania) symbol zastępczy podczas obiekty są `null`.
+
+W składniku pobierania danych szablonów Blazor `OnInitAsync` zostanie zastąpiony asychronously odbierać dane prognozy (`forecasts`). Gdy `forecasts` jest `null`, wyświetlany jest komunikat ładowania dla użytkownika. Po `Task` zwrócone przez `OnInitAsync` zakończeniu składnik to rerendered zaktualizowany stan.
+
+*Pages/FetchData.razor*:
+
+[!code-cshtml[](components/samples_snapshot/3.x/FetchData.razor?highlight=9)]
+
+### <a name="execute-code-before-parameters-are-set"></a>Wykonanie kodu, zanim parametry są ustawione
+
 `SetParameters` może zostać zastąpiona w celu wykonania kodu, zanim parametry są ustawione:
 
 ```csharp
@@ -565,6 +577,8 @@ public override void SetParameters(ParameterCollection parameters)
 ```
 
 Jeśli `base.SetParameters` nie jest wywoływana, niestandardowy kod może interpretować przychodzących wartości parametrów w sposób wymagane. Na przykład przychodzące parametry nie są wymagane do przypisania do właściwości w klasie.
+
+### <a name="suppress-refreshing-of-the-ui"></a>Pomiń odświeżanie interfejsu użytkownika
 
 `ShouldRender` może zostać zastąpiona w celu pomijania odświeżanie interfejsu użytkownika. Jeśli implementacja zwraca `true`, interfejs użytkownika są odświeżane. Nawet wtedy, gdy `ShouldRender` jest została zastąpiona, składnik jest zawsze wstępnie renderowane.
 

@@ -4,14 +4,14 @@ author: rick-anderson
 description: Dowiedz się, jak utworzyć internetowy interfejs API za pomocą programu ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/18/2019
+ms.date: 06/23/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 17e8ee08fca775b8fccc3f2e6cd6067caca9c79f
-ms.sourcegitcommit: a1283d486ac1dcedfc7ea302e1cc882833e2c515
+ms.openlocfilehash: 0f069a75868bcbb988ade3f80d1f64c2cef4e972
+ms.sourcegitcommit: 763af2cbdab0da62d1f1cfef4bcf787f251dfb5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67207781"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67394775"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Samouczek: Tworzenie internetowego interfejsu API za pomocą platformy ASP.NET Core
 
@@ -49,7 +49,7 @@ Ten samouczek tworzy następujący interfejs API:
 
 Na poniższym diagramie przedstawiono projekt aplikacji.
 
-![Klient jest reprezentowany przez pole po lewej stronie i przesyła żądanie i odbiera odpowiedź od aplikacji rysowania po prawej stronie pola. W polu aplikacji trzy pola reprezentują kontrolera, model i warstwy dostępu do danych. Żądanie jest dostarczany do kontrolera aplikacji, a operacje odczytu/zapisu występują między kontrolerem i warstwy dostępu do danych. Model jest serializowany i zwracany do klienta w odpowiedzi.](first-web-api/_static/architecture.png)
+![Klient jest reprezentowany przez pole po lewej stronie. On przesyła żądanie i odbiera odpowiedź od aplikacji rysowania po prawej stronie pola. W polu aplikacji trzy pola reprezentują kontrolera, model i warstwy dostępu do danych. Żądanie jest dostarczany do kontrolera aplikacji, a operacje odczytu/zapisu występują między kontrolerem i warstwy dostępu do danych. Model jest serializowany i zwracany do klienta w odpowiedzi.](first-web-api/_static/architecture.png)
 
 [!INCLUDE[](~/includes/net-core-prereqs-all-2.2.md)]
 
@@ -58,8 +58,9 @@ Na poniższym diagramie przedstawiono projekt aplikacji.
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Z **pliku** menu, wybierz opcję **New** > **projektu**.
-* Wybierz **aplikacji sieci Web programu ASP.NET Core** szablonu. Nadaj projektowi nazwę *TodoApi* i kliknij przycisk **OK**.
-* W **nowej podstawowej aplikacji sieci Web ASP.NET - TodoApi** okno dialogowe, wybierz wersję platformy ASP.NET Core. Wybierz **API** szablon i kliknij przycisk **OK**. Czy **nie** wybierz **włączyć obsługę platformy Docker**.
+* Wybierz **aplikacji sieci Web programu ASP.NET Core** szablon i kliknij przycisk **dalej**.
+* Nadaj projektowi nazwę *TodoApi* i kliknij przycisk **Utwórz**.
+* W **Tworzenie nowej aplikacji sieci Web platformy ASP.NET Core** okna dialogowego, upewnij się, że **platformy .NET Core** i **platformy ASP.NET Core 2.2** są zaznaczone. Wybierz **API** szablon i kliknij przycisk **Utwórz**. **Nie** wybierz **włączyć obsługę platformy Docker**.
 
 ![Okno dialogowe programu VS nowego projektu](first-web-api/_static/vs.png)
 
@@ -386,13 +387,13 @@ Użyj narzędzia Postman, aby usunąć zadanie do wykonania:
 * Ustaw identyfikator URI obiektu, aby usunąć, na przykład `https://localhost:5001/api/todo/1`
 * Wybierz **wysyłania**
 
-Przykładowa aplikacja umożliwia usunięcie wszystkich elementów, ale po usunięciu ostatniego elementu jest tworzony nowy przez konstruktora klasy modelu podczas następnego wywołania interfejsu API.
+Przykładowa aplikacja umożliwia usunięcie wszystkich elementów. Jednak po usunięciu ostatniego elementu nowy katalog jest tworzony przez konstruktora klasy modelu podczas następnego wywołania interfejsu API.
 
 ## <a name="call-the-api-with-jquery"></a>Wywoływanie interfejsu API przy użyciu jQuery
 
 W tej sekcji strony HTML jest dodawany, który używa technologii jQuery do wywołania sieci web interfejsu api. jQuery inicjuje żądanie i aktualizowanie strony ze szczegółami z odpowiedzi interfejsu API.
 
-Konfigurowanie aplikacji w celu [Obsługa plików statycznych](/dotnet/api/microsoft.aspnetcore.builder.staticfileextensions.usestaticfiles#Microsoft_AspNetCore_Builder_StaticFileExtensions_UseStaticFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) i [włączyć domyślne mapowanie plików](/dotnet/api/microsoft.aspnetcore.builder.defaultfilesextensions.usedefaultfiles#Microsoft_AspNetCore_Builder_DefaultFilesExtensions_UseDefaultFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_):
+Konfigurowanie aplikacji w celu [Obsługa plików statycznych](/dotnet/api/microsoft.aspnetcore.builder.staticfileextensions.usestaticfiles#Microsoft_AspNetCore_Builder_StaticFileExtensions_UseStaticFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) i [włączyć domyślne mapowanie plików](/dotnet/api/microsoft.aspnetcore.builder.defaultfilesextensions.usedefaultfiles#Microsoft_AspNetCore_Builder_DefaultFilesExtensions_UseDefaultFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) , aktualizując *Startup.cs* przy użyciu następujących wyróżniony kod:
 
 [!code-csharp[](first-web-api/samples/2.2/TodoApi/Startup.cs?highlight=14-15&name=snippet_configure)]
 
@@ -454,7 +455,7 @@ Aby uzyskać więcej informacji, zobacz następujące zasoby:
 * <xref:web-api/action-return-types>
 * <xref:host-and-deploy/azure-apps/index>
 * <xref:host-and-deploy/index>
-* [Wersja usługi youtube w tym samouczku](https://www.youtube.com/watch?v=TTkhEyGBfAk)
+* [Wersja usługi YouTube w tym samouczku](https://www.youtube.com/watch?v=TTkhEyGBfAk)
 
 ## <a name="next-steps"></a>Następne kroki
 

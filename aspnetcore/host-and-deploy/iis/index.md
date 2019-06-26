@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/28/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 7906891599b90fa73926781ca1a111e687798f63
-ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
+ms.openlocfilehash: 2dab8b4839d6778d5dc6a3daf96c1719eecfe0fb
+ms.sourcegitcommit: 763af2cbdab0da62d1f1cfef4bcf787f251dfb5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67034783"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67394625"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host platformy ASP.NET Core na Windows za pomocą programu IIS
 
@@ -69,6 +69,17 @@ Po przetworzeniu żądania przez serwer HTTP usług IIS, żądania są przesyła
 W trakcie obsługi jest zoptymalizowany pod kątem w przypadku istniejących aplikacji, ale [dotnet nowe](/dotnet/core/tools/dotnet-new) szablony domyślne do modelu hostowania w trakcie we wszystkich scenariuszach usługi IIS i usług IIS Express.
 
 `CreateDefaultBuilder` dodaje <xref:Microsoft.AspNetCore.Hosting.Server.IServer> wystąpienia, wywołując <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIIS*> metoda rozruchu [CoreCLR](/dotnet/standard/glossary#coreclr) i hostowania aplikacji wewnątrz proces roboczy usług IIS (*w3wp.exe* lub *iisexpress.exe*). Testy wydajności wskazują, że hostowanie platformy .NET Core app w procesie zapewnia znacznie większą przepływność żądania, w porównaniu do hostowania aplikacji spoza procesu i pośredniczenie żądania do [Kestrel](xref:fundamentals/servers/kestrel) serwera.
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.0"
+
+> [!NOTE]
+> Aplikacje opublikowane jako pojedynczy plik wykonywalny nie może zostać załadowany z modelem wewnątrzprocesowego hostingu.
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
 
 ### <a name="out-of-process-hosting-model"></a>Model hostingu poza procesem
 
