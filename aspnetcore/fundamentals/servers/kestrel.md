@@ -5,14 +5,14 @@ description: Więcej informacji na temat Kestrel, serwer sieci web dla wielu pla
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 06/18/2019
+ms.date: 06/24/2019
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: b96aff5c41bbca80caf0d2d11bc52b9b7b55043e
-ms.sourcegitcommit: 9f11685382eb1f4dd0fb694dea797adacedf9e20
+ms.openlocfilehash: 7d66d04ec3b91d0ab1a67cacb2030cf52054454b
+ms.sourcegitcommit: 763af2cbdab0da62d1f1cfef4bcf787f251dfb5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67313772"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67394723"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>Implementacja serwera sieci web kestrel w programie ASP.NET Core
 
@@ -464,6 +464,47 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
 ```
 
 Wartość domyślna to (98304) o rozmiarze 96 KB.
+
+::: moniker-end
+
+### <a name="synchronous-io"></a>Synchroniczne we/wy
+
+::: moniker range=">= aspnetcore-3.0"
+
+<xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.AllowSynchronousIO> Określa, czy synchronicznych operacji We/Wy jest dozwolone dla żądań i odpowiedzi. Wartość domyślna to `false`.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+<xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.AllowSynchronousIO> Określa, czy synchronicznych operacji We/Wy jest dozwolone dla żądań i odpowiedzi. Wartość domyślna to `true`.
+
+::: moniker-end
+
+> [!WARNING]
+> Dużej liczby blokuje synchroniczne operacje We/Wy może prowadzić do wyczerpania puli wątków, co sprawia, że aplikacja nie odpowiada. Włącz tylko `AllowSynchronousIO` podczas korzystania z biblioteki, która nie obsługuje asynchroniczne We/Wy.
+
+::: moniker range=">= aspnetcore-2.2"
+
+Poniższy przykład umożliwia synchronicznych operacji We/Wy:
+
+[!code-csharp[](kestrel/samples/2.x/KestrelSample/Program.cs?name=snippet_SyncIO&highlight=3)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
+Poniższy przykład wyłącza synchronicznych operacji We/Wy:
+
+```csharp
+public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+    WebHost.CreateDefaultBuilder(args)
+        .UseStartup<Startup>()
+        .UseKestrel(options =>
+        {
+            options.AllowSynchronousIO = false;
+        });
+```
 
 ::: moniker-end
 
