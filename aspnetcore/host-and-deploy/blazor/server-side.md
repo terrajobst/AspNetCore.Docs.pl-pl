@@ -1,18 +1,18 @@
 ---
-title: Hostowanie i wdrażanie Blazor po stronie serwera
+title: Hostowanie i wdrażanie platformy ASP.NET Core Blazor po stronie serwera
 author: guardrex
 description: Dowiedz się, jak hostowanie i wdrażanie aplikacji po stronie serwera Blazor, przy użyciu platformy ASP.NET Core.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/26/2019
+ms.date: 06/11/2019
 uid: host-and-deploy/blazor/server-side
-ms.openlocfilehash: 8e44be09a4cceba2509f3e86abf3ce5fd2d077bd
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 8b332c2fb439e9832d604ed26f972b266eed2507
+ms.sourcegitcommit: 9bb29f9ba6f0645ee8b9cabda07e3a5aa52cd659
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64901048"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67406119"
 ---
 # <a name="host-and-deploy-blazor-server-side"></a>Hostowanie i wdrażanie Blazor po stronie serwera
 
@@ -28,19 +28,19 @@ Za pomocą [po stronie serwera modelu hostingu](xref:blazor/hosting-models#serve
 
 Wymagany jest serwer sieci web, zdolne do obsługi aplikacji ASP.NET Core. Program Visual Studio obejmuje **Blazor (po stronie serwera)** szablonu projektu (`blazorserverside` szablon, korzystając z [dotnet nowe](/dotnet/core/tools/dotnet-new) polecenie).
 
-<!--
+## <a name="connection-scale-out"></a>Skalowanie do połączenia
 
-**INSERT: Concerns are the same as publishing an ASP.NET Core SignalR app**
+Aplikacje serwerowe Blazor wymagają jednego aktywnego połączenia SignalR dla każdego użytkownika. Produkcyjne wdrożenie po stronie serwera Blazor wymaga rozwiązanie do obsługi dowolnej liczby jednoczesnych połączeń, zgodnie z wymaganiami aplikacji. [Usługi Azure SignalR Service](/azure/azure-signalr/) obsługuje skalowanie połączeń i jest zalecana jako rozwiązanie skalowania dla aplikacji po stronie serwera Blazor. Aby uzyskać więcej informacji, zobacz <xref:signalr/publish-to-azure-web-app>.
 
-**INSERT: Content on the Azure SignalR Service**
+## <a name="signalr-configuration"></a>Konfiguracja SignalR
 
-**INSERT: Manually turn on WebSockets support**
-
--->
+Dla najbardziej typowych scenariuszy serwerowych Blazor skonfigurowano SignalR, ASP.NET Core. Niestandardowe i zaawansowane scenariusze, można znaleźć w artykułach SignalR w [dodatkowe zasoby](#additional-resources) sekcji.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * <xref:signalr/introduction>
+* [Dokumentacja usługi Azure SignalR Service](/azure/azure-signalr/)
+* [Szybki start: Tworzenie pokoju rozmów przy użyciu usługi SignalR](/azure/azure-signalr/signalr-quickstart-dotnet-core)
 * <xref:host-and-deploy/index>
 * <xref:tutorials/publish-to-azure-webapp-using-vs>
 * [Wdrażanie platformy ASP.NET Core w wersji zapoznawczej w usłudze Azure App Service](xref:host-and-deploy/azure-apps/index#deploy-aspnet-core-preview-release-to-azure-app-service)
