@@ -5,14 +5,14 @@ description: Dowiedz się, jak używać klienta platformy ASP.NET Core SignalR w
 monikerRange: '>= aspnetcore-2.2'
 ms.author: mimengis
 ms.custom: mvc
-ms.date: 03/14/2019
+ms.date: 06/27/2019
 uid: signalr/java-client
-ms.openlocfilehash: e5a4a2d7df7e5b95f8f814aad5ff2844476c8b3d
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: eea1dfb7d8afcd34c0dacd8315ad196d7235c9f7
+ms.sourcegitcommit: 6d9cf728465cdb0de1037633a8b7df9a8989cccb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64898810"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67463270"
 ---
 # <a name="aspnet-core-signalr-java-client"></a>Klienta programu ASP.NET Core SignalR w języku Java
 
@@ -98,9 +98,20 @@ HubConnection hubConnection = HubConnectionBuilder.create("YOUR HUB URL HERE")
 
 ## <a name="known-limitations"></a>Znane ograniczenia
 
+::: moniker range=">= aspnetcore-3.0"
+
+* Tylko protokół JSON jest obsługiwany.
+* Transportu rezerwowy oraz transportu zdarzenia wysyłane serwera nie są obsługiwane.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
 * Tylko protokół JSON jest obsługiwany.
 * Tylko transport gniazda Websocket jest obsługiwany.
 * Przesyłanie strumieniowe nie jest jeszcze obsługiwane.
+
+::: moniker-end
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

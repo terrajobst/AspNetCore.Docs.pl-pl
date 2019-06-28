@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 12/13/2018
 uid: web-api/advanced/conventions
-ms.openlocfilehash: 671e39ded50e50bbfe6d12879895bee74367f754
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: ae409158defe15ffaa7454039b302cf3c6437e54
+ms.sourcegitcommit: 6d9cf728465cdb0de1037633a8b7df9a8989cccb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64902869"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67463280"
 ---
 # <a name="use-web-api-conventions"></a>Użyj interfejsu API sieci web Konwencji
 
@@ -50,7 +50,7 @@ Konwencje nie tworzą; Każde działanie może być skojarzony z dokładnie jedn
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     ```
 
-Aby uzyskać więcej informacji na temat `[ProducesDefaultResponseType]`, zobacz [odpowiedź domyślna](https://swagger.io/docs/specification/describing-responses/#default).
+    Aby uzyskać więcej informacji na temat `[ProducesDefaultResponseType]`, zobacz [odpowiedź domyślna](https://swagger.io/docs/specification/describing-responses/#default).
 
 1. `Microsoft.AspNetCore.Mvc.ApiConventionTypeAttribute` stosowane do kontrolera &mdash; dotyczy typ określonej Konwencji wszystkich akcji w kontrolerze. Metoda Konwencji zostanie nadany wskazówek, które określają akcje, do których zostanie zastosowana metoda Konwencji. Aby uzyskać więcej informacji na temat wskazówek dotyczących serwerów, zobacz [utworzyć internetowy interfejs API konwencje](#create-web-api-conventions)).
 
