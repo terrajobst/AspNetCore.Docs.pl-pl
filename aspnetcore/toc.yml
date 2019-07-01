@@ -220,8 +220,6 @@
               uid: tutorials/razor-pages/validation
         - name: Filtry
           uid: razor-pages/filter
-        - name: Biblioteki klas Razor
-          uid: razor-pages/ui-class
         - name: Konwencje tras i aplikacji
           uid: razor-pages/razor-pages-conventions
         - name: Przekazywanie plików
@@ -298,9 +296,13 @@
           uid: blazor/routing
         - name: Międzyoperacyjność w języku JavaScript
           uid: blazor/javascript-interop
+        - name: Zabezpieczenia i tożsamość
+          uid: security/blazor/index
         - name: Debugowanie
           uid: blazor/debug
-        - name: Hostowanie i wdrażanie
+        - name: Wywoływanie interfejsu API sieci Web
+          uid: blazor/call-web-api
+        - name: Hosting i wdrażanie
           items:
             - name: Omówienie
               uid: host-and-deploy/blazor/index
@@ -344,6 +346,8 @@
       uid: mvc/views/layout
     - name: Składnia Razor
       uid: mvc/views/razor
+    - name: Biblioteki klas Razor
+      uid: razor-pages/ui-class
     - name: Pomocnicy tagów
       uid: mvc/views/tag-helpers/builtin-th/Index
       items:
@@ -454,9 +458,6 @@
         - name: Użytkownicy i grupy
           uid: signalr/groups
           displayName: signalr
-        - name: Publikowanie na platformie Azure
-          uid: signalr/publish-to-azure-web-app
-          displayName: signalr
         - name: Zagadnienia dotyczące projektowania interfejsów API
           uid: signalr/api-design
           displayName: signalr
@@ -487,9 +488,9 @@
         - name: Omówienie
           displayName: signalr
           uid: signalr/scale
-        - name: Usługa Azure SignalR Service
+        - name: Azure App Service
+          uid: signalr/publish-to-azure-web-app
           displayName: signalr
-          href: /azure/azure-signalr/signalr-overview?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
         - name: Płyta montażowa Redis
           displayName: signalr
           uid: signalr/redis-backplane
@@ -960,6 +961,8 @@
       uid: security/ip-safelist
     - name: Zabezpieczenia aplikacji — OWASP
       href: 'https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/DotNet_Security_Cheat_Sheet.md'
+    - name: Blazor
+      uid: security/blazor/index
 - name: Wydajność
   items:
     - name: Omówienie
