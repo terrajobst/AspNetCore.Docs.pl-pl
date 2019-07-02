@@ -9,7 +9,7 @@ Opóźnienie JavaScript interop wywołuje aż po nawiązaniu połączenia za po�
 <input @ref="myInput" value="Value set during render" />
 
 @code {
-    ElementRef myInput;
+    private ElementRef myInput;
 
     protected override void OnAfterRender()
     {
@@ -19,11 +19,9 @@ Opóźnienie JavaScript interop wywołuje aż po nawiązaniu połączenia za po�
 }
 ```
 
-Ten składnik następujące pokazuje sposób użycia międzyoperacyjnego JavaScript jako część logiki inicjowania składnika w sposób, który jest zgodny z prerendering.
+Następujące części przedstawiono sposób użycia międzyoperacyjnego JavaScript jako część logiki inicjowania składnika w sposób, który jest zgodny z prerendering. Składnik wskazuje, że jest możliwe do wyzwalania aktualizacji renderowanie z wewnątrz `OnAfterRenderAsync`. Deweloper musi należy unikać tworzenia wejścia w nieskończoną pętlę w tym scenariuszu.
 
-Składnik wskazuje, że jest możliwe do wyzwalania aktualizacji renderowanie z wewnątrz `OnAfterRenderAsync`. W tym scenariuszu. Deweloper musi należy unikać tworzenia wejścia w nieskończoną pętlę.
-
-Gdzie `JSRuntime.InvokeAsync` jest wywoływana, `ElementRef` jest używana tylko w `OnAfterRenderAsync` i nie wszystkie wcześniejsze metody cyklu życia, ponieważ nie ma żadnego elementu języka JavaScript, do czasu, po składnik jest renderowany.
+Gdzie `JSRuntime.InvokeAsync` jest wywoływana, `ElementRef` jest używana tylko w `OnAfterRenderAsync` a nie w dowolnej wcześniejszej metody cyklu życia, ponieważ nie ma żadnego elementu języka JavaScript, aż po składnika renderowania.
 
 `StateHasChanged` jest wywoływana, aby rerender składnika za pomocą nowego Państwa uzyskany z wywołania międzyoperacyjnego JavaScript. Kod nie tworzy wejścia w nieskończoną pętlę, ponieważ `StateHasChanged` tylko jest wywoływana, gdy `infoFromJs` jest `null`.
 
@@ -41,12 +39,12 @@ Gdzie `JSRuntime.InvokeAsync` jest wywoływana, `ElementRef` jest używana tylko
 
 <p>
     Set value via JS interop call:
-    <input id="val-set-by-interop" @ref="@myElem" />
+    <input id="val-set-by-interop" @ref="myElem" />
 </p>
 
 @code {
-    string infoFromJs;
-    ElementRef myElem;
+    private string infoFromJs;
+    private ElementRef myElem;
 
     protected override async Task OnAfterRenderAsync()
     {

@@ -5,14 +5,14 @@ description: Dowiedz się, jak skonfigurować uwierzytelnianie Windows w program
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 06/12/2019
+ms.date: 07/01/2019
 uid: security/authentication/windowsauth
-ms.openlocfilehash: 93f833adff95f25d570947cd1a9035d652f522c2
-ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
+ms.openlocfilehash: 30f1f554a29412ed6b84115d457d2da1aba91c17
+ms.sourcegitcommit: eb3e51d58dd713eefc242148f45bd9486be3a78a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67034955"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67500502"
 ---
 # <a name="configure-windows-authentication-in-aspnet-core"></a>Konfigurowanie uwierzytelniania Windows w programie ASP.NET Core
 
@@ -145,7 +145,10 @@ Użyj **albo** z następujących metod:
  [Microsoft.AspNetCore.Authentication.Negotiate](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Negotiate) pakietu NuGet może być używany z [Kestrel](xref:fundamentals/servers/kestrel) do obsługi uwierzytelniania Windows przy użyciu Negotiate, Kerberos i NTLM w Windows, Linux i macOS.
 
 > [!WARNING]
-> Poświadczenia mogą zostać utrwalone na żądań połączenia. *Negocjowania uwierzytelniania nie może być używany z serwerami proxy, chyba że serwer proxy przechowuje koligacji połączenia 1:1 (trwałe połączenie), za pomocą Kestrel.* Oznacza to, że uwierzytelniania Negotiate nie mogą być używane z Kestrel za IIS [poza procesem programu ASP.NET Core modułu (ANCM)](xref:host-and-deploy/iis/index#out-of-process-hosting-model).
+> Poświadczenia mogą zostać utrwalone na żądań połączenia. *Negocjowania uwierzytelniania nie może być używany z serwerami proxy, chyba że serwer proxy przechowuje koligacji połączenia 1:1 (trwałe połączenie), za pomocą Kestrel.*
+
+> [!NOTE]
+> Program obsługi Negotiate wykrywa, jeśli podstawowy serwer obsługuje uwierzytelnianie Windows natywnie, a jeśli jest włączone. Jeśli serwer obsługuje uwierzytelnianie Windows, ale jest ono wyłączone, zostanie zgłoszony błąd, pytaniem, aby umożliwić implementacji serwera. Po włączeniu uwierzytelniania Windows na serwerze programu obsługi Negotiate przezroczyste przekazuje do niego.
 
  Dodawanie usług uwierzytelniania za pomocą wywołania <xref:Microsoft.Extensions.DependencyInjection.AuthenticationServiceCollectionExtensions.AddAuthentication*> (`Microsoft.AspNetCore.Authentication.Negotiate` przestrzeni nazw) i `AddNegotitate` (`Microsoft.AspNetCore.Authentication.Negotiate` przestrzeni nazw) w `Startup.ConfigureServices`:
 
@@ -255,7 +258,17 @@ Gdy [Microsoft.AspNetCore.Authentication.Negotiate](https://www.nuget.org/packag
 
 ## <a name="claims-transformations"></a>Przekształcenia oświadczeń
 
+::: moniker range=">= aspnetcore-3.0"
+
+W przypadku hostowania za pomocą programu IIS, <xref:Microsoft.AspNetCore.Authentication.AuthenticationService.AuthenticateAsync*> nie jest wewnętrznie wywoływana w celu zainicjowania przez użytkownika. W związku z tym <xref:Microsoft.AspNetCore.Authentication.IClaimsTransformation> implementacji używanego do przekształcania oświadczeń, po każdym uwierzytelniania nie jest aktywowana domyślnie. Aby uzyskać więcej informacji i przykładowy kod, który aktywuje przekształcenia oświadczeń, zobacz <xref:host-and-deploy/aspnet-core-module#in-process-hosting-model>.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
 W przypadku hostowania w trybie usług IIS w trakcie <xref:Microsoft.AspNetCore.Authentication.AuthenticationService.AuthenticateAsync*> nie jest wewnętrznie wywoływana w celu zainicjowania przez użytkownika. W związku z tym <xref:Microsoft.AspNetCore.Authentication.IClaimsTransformation> implementacji używanego do przekształcania oświadczeń, po każdym uwierzytelniania nie jest aktywowana domyślnie. Aby uzyskać więcej informacji i przykładowy kod, który aktywuje przekształcenia oświadczeń w przypadku hostowania w procesie, zobacz <xref:host-and-deploy/aspnet-core-module#in-process-hosting-model>.
+
+::: moniker-end
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

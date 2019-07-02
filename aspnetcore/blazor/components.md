@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/24/2019
 uid: blazor/components
-ms.openlocfilehash: cd4d4f9d85f2fad6fe769340ab7a49e6ccb05861
-ms.sourcegitcommit: 763af2cbdab0da62d1f1cfef4bcf787f251dfb5c
+ms.openlocfilehash: 2f0447fa6fbc5e57954558d521e4ce047bdb6ab1
+ms.sourcegitcommit: eb3e51d58dd713eefc242148f45bd9486be3a78a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67394690"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67500436"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Tworzenie i używanie składników platformy ASP.NET Core Razor
 
@@ -66,7 +66,7 @@ Składniki są zwykłe C# klasy i można umieścić w dowolnym miejscu w obrębi
 Składniki za pomocą istniejących aplikacji stronami Razor i programem MVC. Nie ma potrzeby ponownego wpisywania istniejących stron lub widoków w celu używania składników Razor. Po wyrenderowaniu strony lub widoku składniki są prerendered&dagger; w tym samym czasie. 
 
 > [!NOTE]
-> &dagger;Prerendering po stronie serwera jest domyślnie włączona dla Blazor po stronie serwera aplikacji. Aplikacje Blazor po stronie klienta będzie obsługiwać prerendering w nadchodzącej wersji 5 (wersja zapoznawcza). Aby uzyskać więcej informacji, zobacz [aktualizacji szablonów/oprogramowanie pośredniczące MapFallbackToPage/pliku](https://github.com/aspnet/AspNetCore/issues/8852).
+> &dagger;Prerendering po stronie serwera jest domyślnie włączona dla Blazor po stronie serwera aplikacji. Aplikacje klienta Blazor będzie obsługiwać prerendering w nadchodzącej wersji 5 (wersja zapoznawcza). Aby uzyskać więcej informacji, zobacz [aktualizacji szablonów/oprogramowanie pośredniczące MapFallbackToPage/pliku](https://github.com/aspnet/AspNetCore/issues/8852).
 
 Aby renderować składnika ze strony lub widok, należy użyć `RenderComponentAsync<TComponent>` metody pomocnika kodu HTML:
 

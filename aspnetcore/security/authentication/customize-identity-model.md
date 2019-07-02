@@ -3,14 +3,14 @@ title: Dostosowywanie modelu tożsamości w programie ASP.NET Core
 author: ajcvickers
 description: W tym artykule opisano, jak dostosować bazowy model danych Entity Framework Core dla tożsamości platformy ASP.NET Core.
 ms.author: avickers
-ms.date: 04/24/2019
+ms.date: 07/01/2019
 uid: security/authentication/customize_identity_model
-ms.openlocfilehash: 53ce77e20722f3ba3282ff4455a0b70d30e635b0
-ms.sourcegitcommit: ffe3ed7921ec6c7c70abaac1d10703ec9a43374c
+ms.openlocfilehash: f549fdff4a416b5fadcb2b1078b051bbab8e402e
+ms.sourcegitcommit: eb3e51d58dd713eefc242148f45bd9486be3a78a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65536023"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67500480"
 ---
 # <a name="identity-model-customization-in-aspnet-core"></a>Dostosowywanie modelu tożsamości w programie ASP.NET Core
 
@@ -72,7 +72,7 @@ Model tożsamości składa się z następujących typów jednostki.
 
 ### <a name="default-model-configuration"></a>Domyślna konfiguracja modelu
 
-Tożsamość definiuje wiele *klasy kontekst* , dziedziczą z <xref:Microsoft.EntityFrameworkCore.DbContext> do konfigurowania i używania tego modelu. Ta konfiguracja jest implementowana przy użyciu [EF Core kodu pierwszy Fluent API](/ef/core/modeling/) w <xref:Microsoft.EntityFrameworkCore.DbContext.OnModelCreating*> metody z klasy kontekstu. Domyślna konfiguracja polega:
+Tożsamość definiuje wiele *klasy kontekst* , dziedziczą z [DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext) do konfigurowania i używania tego modelu. Ta konfiguracja jest implementowana przy użyciu [EF Core kodu pierwszy Fluent API](/ef/core/modeling/) w [OnModelCreating](/dotnet/api/microsoft.entityframeworkcore.dbcontext.onmodelcreating) metody z klasy kontekstu. Domyślna konfiguracja polega:
 
 ```csharp
 builder.Entity<TUser>(b =>
@@ -463,7 +463,7 @@ Wykonaj następujące kroki, aby zmienić typ klucza produktu:
             .AddDefaultTokenProviders();
     ```
 
-    Typ danych klucza podstawowego jest wnioskowany, analizując <xref:Microsoft.EntityFrameworkCore.DbContext> obiektu.
+    Typ danych klucza podstawowego jest wnioskowany, analizując [DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext) obiektu.
 
     W programie ASP.NET Core 2.1 lub nowszej tożsamość jest dostarczany jako biblioteki klas Razor. Aby uzyskać więcej informacji, zobacz <xref:security/authentication/scaffold-identity>. W związku z tym, poprzedni kod wymaga wywołania <xref:Microsoft.AspNetCore.Identity.IdentityBuilderUIExtensions.AddDefaultUI*>. Jeśli Generator szkieletu tożsamości zostało użyte do dodania tożsamości plików do projektu, Usuń wywołanie funkcji `AddDefaultUI`.
 
@@ -477,7 +477,7 @@ Wykonaj następujące kroki, aby zmienić typ klucza produktu:
             .AddDefaultTokenProviders();
     ```
 
-    Typ danych klucza podstawowego jest wnioskowany, analizując <xref:Microsoft.EntityFrameworkCore.DbContext> obiektu.
+    Typ danych klucza podstawowego jest wnioskowany, analizując [DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext) obiektu.
 
     ::: moniker-end
 
@@ -507,7 +507,7 @@ Wykonaj następujące kroki, aby zmienić typ klucza produktu:
 
     [!code-csharp[](customize-identity-model/samples/2.1/RazorPagesSampleApp/Startup.cs?name=snippet_ConfigureServices&highlight=13-16)]
 
-    Typ danych klucza podstawowego jest wnioskowany, analizując <xref:Microsoft.EntityFrameworkCore.DbContext> obiektu.
+    Typ danych klucza podstawowego jest wnioskowany, analizując [DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext) obiektu.
 
     W programie ASP.NET Core 2.1 lub nowszej tożsamość jest dostarczany jako biblioteki klas Razor. Aby uzyskać więcej informacji, zobacz <xref:security/authentication/scaffold-identity>. W związku z tym, poprzedni kod wymaga wywołania <xref:Microsoft.AspNetCore.Identity.IdentityBuilderUIExtensions.AddDefaultUI*>. Jeśli Generator szkieletu tożsamości zostało użyte do dodania tożsamości plików do projektu, Usuń wywołanie funkcji `AddDefaultUI`.
 
@@ -521,7 +521,7 @@ Wykonaj następujące kroki, aby zmienić typ klucza produktu:
 
     [!code-csharp[](customize-identity-model/samples/2.0/RazorPagesSampleApp/Startup.cs?name=snippet_ConfigureServices&highlight=7-9)]
 
-    Typ danych klucza podstawowego jest wnioskowany, analizując <xref:Microsoft.EntityFrameworkCore.DbContext> obiektu.
+    Typ danych klucza podstawowego jest wnioskowany, analizując [DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext) obiektu.
 
     ::: moniker-end
 
@@ -962,7 +962,7 @@ W tej sekcji zostanie dodana jego obsługa dla proxy ładowanych z opóźnieniem
 Typy jednostek można wprowadzić odpowiednie dla powolne ładowanie na kilka sposobów, zgodnie z opisem w [dokumentacji programu EF Core](/ef/core/querying/related-data#lazy-loading). Dla uproszczenia należy użyć serwerów proxy ładowanych z opóźnieniem, co wymaga:
 
 * Instalacja [Microsoft.EntityFrameworkCore.Proxies](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Proxies/) pakietu.
-* Wywołanie <xref:Microsoft.EntityFrameworkCore.ProxiesExtensions.UseLazyLoadingProxies*> wewnątrz <xref:Microsoft.Extensions.DependencyInjection.EntityFrameworkServiceCollectionExtensions.AddDbContext*>.
+* Wywołanie <xref:Microsoft.EntityFrameworkCore.ProxiesExtensions.UseLazyLoadingProxies*> wewnątrz [AddDbContext\<TContext >](/dotnet/api/microsoft.extensions.dependencyinjection.entityframeworkservicecollectionextensions.adddbcontext).
 * Publiczna typów z `public virtual` właściwości nawigacji.
 
 W poniższym przykładzie pokazano wywołanie `UseLazyLoadingProxies` w `Startup.ConfigureServices`:

@@ -5,14 +5,14 @@ description: Dowiedz się, jak skonfigurować modułu ASP.NET Core do hostowania
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/17/2019
+ms.date: 07/01/2019
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: d5392ff6b15eeb3a4502df578665538b936aae6f
-ms.sourcegitcommit: 28a2874765cefe9eaa068dceb989a978ba2096aa
+ms.openlocfilehash: 4a360023cc7fab2f066d490f7f368fc35815703a
+ms.sourcegitcommit: eb3e51d58dd713eefc242148f45bd9486be3a78a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67167067"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67500452"
 ---
 # <a name="aspnet-core-module"></a>Moduł ASP.NET Core
 
@@ -108,6 +108,29 @@ Dla procesu,- [CreateDefaultBuilder](xref:fundamentals/host/web-host#set-up-a-ho
 
 * Skonfiguruj port i ścieżka podstawowa serwera powinien nasłuchiwać podczas uruchamiania za modułu ASP.NET Core.
 * Konfigurowanie hosta do przechwytywania błędów uruchamiania.
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.0"
+
+W przypadku hostowania procesu,- <xref:Microsoft.AspNetCore.Authentication.AuthenticationService.AuthenticateAsync*> nie jest wewnętrznie wywoływana w celu zainicjowania przez użytkownika. W związku z tym <xref:Microsoft.AspNetCore.Authentication.IClaimsTransformation> implementacji używanego do przekształcania oświadczeń, po każdym uwierzytelniania nie jest aktywowana domyślnie. Podczas transformowania oświadczenia, za pomocą <xref:Microsoft.AspNetCore.Authentication.IClaimsTransformation> implementacji, wywołanie <xref:Microsoft.Extensions.DependencyInjection.AuthenticationServiceCollectionExtensions.AddAuthentication*> nad dodaniem usług uwierzytelniania:
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddTransient<IClaimsTransformation, ClaimsTransformer>();
+    services.AddAuthentication(IISDefaults.AuthenticationScheme);
+}
+
+public void Configure(IApplicationBuilder app)
+{
+    app.UseAuthentication();
+}
+```
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
 
 ### <a name="hosting-model-changes"></a>Zmiany modelu hostingu
 

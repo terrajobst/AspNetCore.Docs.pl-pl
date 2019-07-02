@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 05/01/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: 435f06b85af4a1a5a78a870c2add3e15ff1ffe89
-ms.sourcegitcommit: 1bb3f3f1905b4e7d4ca1b314f2ce6ee5dd8be75f
+ms.openlocfilehash: f028a94a9b2014129a96cff2c06ba00f99ea5d15
+ms.sourcegitcommit: eb3e51d58dd713eefc242148f45bd9486be3a78a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66837274"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67500393"
 ---
 # <a name="logging-in-aspnet-core"></a>Rejestrowanie w programie ASP.NET Core
 
@@ -29,7 +29,7 @@ Dostawcy logowania Wyświetla lub są przechowywane dzienniki. Na przykład kons
 
 Aby dodać dostawcę, należy wywołać dostawcy `Add{provider name}` metody rozszerzenia w *Program.cs*:
 
-[!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_ExpandDefault&highlight=17-19)]
+[!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_ExpandDefault&highlight=18-20)]
 
 Wywołania szablonu projektu domyślnego <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder%2A>, która dodaje następujących dostawców rejestrowania:
 
@@ -443,7 +443,7 @@ Aby pominąć wszystkie dzienniki, określ `LogLevel.None` jako minimalny poziom
 
 Kod wywołuje szablon projektu `CreateDefaultBuilder` skonfigurować rejestrowanie dla dostawców konsoli i debugowania. `CreateDefaultBuilder` Metoda konfiguruje również rejestrowania do wyszukania konfiguracji w `Logging` sekcji przy użyciu kodu, podobnie do poniższego:
 
-[!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_ExpandDefault&highlight=16)]
+[!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_ExpandDefault&highlight=17)]
 
 Dane konfiguracji Określa poziomy minimalna dziennika przez dostawcę i kategorii, jak w poniższym przykładzie:
 

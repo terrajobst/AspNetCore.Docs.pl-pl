@@ -5,14 +5,14 @@ description: Rozpoczynanie pracy z usługą Blazor, tworząc aplikację Blazor, 
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/18/2019
+ms.date: 07/01/2019
 uid: blazor/get-started
-ms.openlocfilehash: c614ff52600434158c75e288e0b15985c0eb8e68
-ms.sourcegitcommit: a1283d486ac1dcedfc7ea302e1cc882833e2c515
+ms.openlocfilehash: 51fb531c07de35b08911c8475b192f3bda281ea4
+ms.sourcegitcommit: eb3e51d58dd713eefc242148f45bd9486be3a78a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67207659"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67500439"
 ---
 # <a name="get-started-with-aspnet-core-blazor"></a>Wprowadzenie do platformy ASP.NET Core Blazor
 
@@ -54,13 +54,13 @@ Rozpoczynanie pracy z usługą Blazor:
 
    2\. Zainstaluj najnowszą wersję [ C# rozszerzenia programu Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
 
-   3\. Środowisko pracy klienta Blazor wykonaj następujące polecenie z powłoki poleceń:
+   3\. Środowisko pracy klienta Blazor wykonaj następujące polecenie w powłoce poleceń:
 
       ```console
       dotnet new blazor -o WebApplication1
       ```
 
-      Środowisko pracy Blazor po stronie serwera wykonaj następujące polecenie z powłoki poleceń:
+      Środowisko pracy Blazor po stronie serwera wykonaj następujące polecenie w powłoce poleceń:
 
       ```console
       dotnet new blazorserverside -o WebApplication1
@@ -98,7 +98,7 @@ Rozpoczynanie pracy z usługą Blazor:
 
    # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli/)
 
-   Środowisko pracy klienta Blazor wykonaj następujące polecenia z powłoki poleceń:
+   Środowisko pracy klienta Blazor wykonaj następujące polecenia w powłoce poleceń:
 
    ```console
    dotnet new blazor -o WebApplication1
@@ -106,7 +106,7 @@ Rozpoczynanie pracy z usługą Blazor:
    dotnet run
    ```
 
-   Środowisko pracy Blazor po stronie serwera wykonaj następujące polecenia z powłoki poleceń:
+   Środowisko pracy Blazor po stronie serwera wykonaj następujące polecenia w powłoce poleceń:
 
    ```console
    dotnet new blazorserverside -o WebApplication1
@@ -132,7 +132,7 @@ Na stronie licznika wybierz **kliknij mnie** przycisk, aby zwiększyć licznik b
 
 [!code-cshtml[](get-started/samples_snapshot/3.x/Counter1.razor?highlight=7,12-15)]
 
-Żądanie dotyczące `/counter` w przeglądarce, określony przez `@page` dyrektywy u góry strony, powoduje, że składnik licznika do renderowania jego zawartości. Składniki renderowania do reprezentacji w pamięci drzewa renderowania, który następnie może służyć do aktualizowania interfejsu użytkownika w elastyczny i efektywny sposób.
+Żądanie dotyczące `/counter` w przeglądarce, określony przez `@page` dyrektywy u góry strony, powoduje, że `Counter` składnik do renderowania jego zawartości. Składniki renderowania do reprezentacji w pamięci drzewa renderowania, który następnie może służyć do aktualizowania interfejsu użytkownika w elastyczny i efektywny sposób.
 
 Każdorazowo **kliknij mnie** wybrany przycisk:
 
@@ -143,15 +143,15 @@ Każdorazowo **kliknij mnie** wybrany przycisk:
 
 Środowisko uruchomieniowe porównuje nową zawartość do poprzedniego zawartości i ma zastosowanie tylko zmiany zawartości do modelu DOM (Document Object).
 
-Dodaj składnik do innego składnika przy użyciu składni języka HTML. Na przykład dodać składnik licznika do strony głównej aplikacji, dodając `<Counter />` elementu składnik indeksu.
+Dodaj składnik do innego składnika przy użyciu składni języka HTML. Na przykład dodać `Counter` składnik do strony głównej aplikacji, dodając `<Counter />` elementu `Index` składnika.
 
 *Pages/Index.razor*:
 
 [!code-cshtml[](get-started/samples_snapshot/3.x/Index1.razor?highlight=7)]
 
-Uruchom aplikację. Strona główna ma swój własny licznika, dostarczone przez składnik licznika.
+Uruchom aplikację. Strona główna ma swój własny licznika, dostarczone przez `Counter` składnika.
 
-Składnik parametry są określane za pomocą atrybutów lub [zawartość elementu podrzędnego](xref:blazor/components#child-content), co pozwala użytkownikowi na ustawianie właściwości w składniku podrzędnych. Aby dodać parametr do składnika licznika, należy zaktualizować składnika `@code` bloku:
+Składnik parametry są określane za pomocą atrybutów lub [zawartość elementu podrzędnego](xref:blazor/components#child-content), co pozwala użytkownikowi na ustawianie właściwości w składniku podrzędnych. Aby dodać parametr do `Counter` składnika, zaktualizuj składnika `@code` bloku:
 
 * Dodaj właściwość `IncrementAmount` z `[Parameter]` atrybutu.
 * Zmiana `IncrementCount` metodę `IncrementAmount` podczas zwiększenie wartości `currentCount`.
@@ -160,13 +160,13 @@ Składnik parametry są określane za pomocą atrybutów lub [zawartość elemen
 
 [!code-cshtml[](get-started/samples_snapshot/3.x/Counter2.razor?highlight=12-13,17)]
 
-Określ `IncrementAmount` w składnik indeksu `<Counter>` elementu za pomocą atrybutu.
+Określ `IncrementAmount` w `Index` składnika `<Counter>` elementu za pomocą atrybutu.
 
 *Pages/Index.razor*:
 
 [!code-cshtml[](get-started/samples_snapshot/3.x/Index2.razor?highlight=7)]
 
-Uruchom aplikację. Składnik indeksu ma swój własny licznik, który zwiększa przez dziesięć każdorazowo **kliknij mnie** przycisk jest zaznaczony. Składnik Counter (*Counter.razor*) na `/counter` w dalszym ciągu o jeden.
+Uruchom aplikację. `Index` Składnik ma swoje własne licznik, który rośnie przez dziesięć za każdym razem **kliknij mnie** przycisk jest zaznaczony. `Counter` Składnika (*Counter.razor*) na `/counter` w dalszym ciągu o jeden.
 
 ## <a name="next-steps"></a>Następne kroki
 

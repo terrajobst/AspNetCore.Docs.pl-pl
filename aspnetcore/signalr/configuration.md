@@ -7,12 +7,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 06/03/2019
 uid: signalr/configuration
-ms.openlocfilehash: 6c7bd602e621917c491bfb1e26ff0fcfc3a565b0
-ms.sourcegitcommit: a04eb20e81243930ec829a9db5dd5de49f669450
+ms.openlocfilehash: 662565e537fa0eb13ed80e558949740739a63558
+ms.sourcegitcommit: eb3e51d58dd713eefc242148f45bd9486be3a78a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66470370"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67500379"
 ---
 # <a name="aspnet-core-signalr-configuration"></a>Konfiguracja Core SignalR platformy ASP.NET
 
@@ -74,11 +74,22 @@ W poniższej tabeli opisano opcje dotyczące konfigurowania centrów SignalR:
 
 ::: moniker-end
 
-::: moniker range="<= aspnetcore-2.2"
+::: moniker range="= aspnetcore-2.2"
 
 | Opcja | Wartość domyślna | Opis |
 | ------ | ------------- | ----------- |
 | `ClientTimeoutInterval` | 30 sekund | Serwer będzie należy wziąć pod uwagę klient odłączony, jeśli go nie odebrał komunikat (w tym keep-alive) w tym zakresie. Może potrwać dłużej niż ten interwał limitu czasu dla klienta faktycznie był oznaczony jako rozłączona, ze względu na to implementacji. Zalecana wartość to double `KeepAliveInterval` wartość.|
+| `HandshakeTimeout` | 15 sekund | Jeśli klient nie wysyła komunikat uzgadniania połączenia początkowego, w tym przedziale czasu, połączenie jest zamknięte. To ustawienie Zaawansowane, które powinny być modyfikowane tylko, jeśli występują błędy przekroczenia limitu czasu uzgadnianie ze względu na opóźnienie sieci poważne. Aby uzyskać więcej szczegółów na temat procesu uzgadniania, zobacz [specyfikacji protokołu Centrum SignalR](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md). |
+| `KeepAliveInterval` | 15 sekund | Jeśli serwer nie wysłał wiadomości, w tym przedziale czasu, wiadomość ping są wysyłane automatycznie do utrzymanie otwartego połączenia. Po zmianie `KeepAliveInterval`, zmień `ServerTimeout` / `serverTimeoutInMilliseconds` ustawienie na komputerze klienckim. Zalecanym `ServerTimeout` / `serverTimeoutInMilliseconds` wartość double `KeepAliveInterval` wartość.  |
+| `SupportedProtocols` | Wszystkie zainstalowane protokołów | Protokoły obsługiwane przez tego koncentratora. Domyślnie są dozwolone wszystkie protokoły zarejestrowany na serwerze, ale protokoły mogą być usunięte z tej listy, aby wyłączyć określone protokoły dla poszczególnych centrów. |
+| `EnableDetailedErrors` | `false` | Jeśli `true`, szczegółowe komunikaty o wyjątkach są zwracane do klientów, gdy wyjątek jest zgłaszany w przypadku metody koncentratora. Wartość domyślna to `false`, jak te komunikaty o wyjątkach mogą zawierać poufne informacje. |
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.1"
+
+| Opcja | Wartość domyślna | Opis |
+| ------ | ------------- | ----------- |
 | `HandshakeTimeout` | 15 sekund | Jeśli klient nie wysyła komunikat uzgadniania połączenia początkowego, w tym przedziale czasu, połączenie jest zamknięte. To ustawienie Zaawansowane, które powinny być modyfikowane tylko, jeśli występują błędy przekroczenia limitu czasu uzgadnianie ze względu na opóźnienie sieci poważne. Aby uzyskać więcej szczegółów na temat procesu uzgadniania, zobacz [specyfikacji protokołu Centrum SignalR](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md). |
 | `KeepAliveInterval` | 15 sekund | Jeśli serwer nie wysłał wiadomości, w tym przedziale czasu, wiadomość ping są wysyłane automatycznie do utrzymanie otwartego połączenia. Po zmianie `KeepAliveInterval`, zmień `ServerTimeout` / `serverTimeoutInMilliseconds` ustawienie na komputerze klienckim. Zalecanym `ServerTimeout` / `serverTimeoutInMilliseconds` wartość double `KeepAliveInterval` wartość.  |
 | `SupportedProtocols` | Wszystkie zainstalowane protokołów | Protokoły obsługiwane przez tego koncentratora. Domyślnie są dozwolone wszystkie protokoły zarejestrowany na serwerze, ale protokoły mogą być usunięte z tej listy, aby wyłączyć określone protokoły dla poszczególnych centrów. |

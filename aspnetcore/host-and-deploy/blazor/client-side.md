@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/14/2019
 uid: host-and-deploy/blazor/client-side
-ms.openlocfilehash: 7567473ae8acd9e1072954907f0fe9c7beea29ad
-ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
+ms.openlocfilehash: b6d08189280e9ca58362265d9b6f2536a3ad1d38
+ms.sourcegitcommit: eb3e51d58dd713eefc242148f45bd9486be3a78a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67153191"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67500492"
 ---
 # <a name="host-and-deploy-aspnet-core-blazor-client-side"></a>Hostowanie i wdrażanie platformy ASP.NET Core Blazor po stronie klienta
 
@@ -178,7 +178,7 @@ Usuwanie obsługi lub wyłączając dziedziczenie jest wykonywane Oprócz konfig
 
 ## <a name="hosted-deployment-with-aspnet-core"></a>Wdrożenie hostowane za pomocą programu ASP.NET Core
 
-A *hostowanych wdrożenia* służy aplikacja Blazor po stronie klienta do przeglądarki z [aplikacji ASP.NET Core](xref:index) , które jest uruchamiane na serwerze.
+A *hostowanych wdrożenia* służy Blazor aplikacji po stronie klienta do przeglądarki z [aplikacji ASP.NET Core](xref:index) , które jest uruchamiane na serwerze.
 
 Aplikacja Blazor jest dołączone do aplikacji platformy ASP.NET Core w opublikowanych danych wyjściowych, więc, że dwie aplikacje wdrażane razem. Wymagany jest serwer sieci web, który jest zdolny do obsługi aplikacji ASP.NET Core. W przypadku wdrożenia hostowanego obejmuje program Visual Studio **Blazor (platformy ASP.NET Core, obsługiwane)** szablonu projektu (`blazorhosted` szablon, korzystając z [dotnet nowe](/dotnet/core/tools/dotnet-new) polecenia).
 
@@ -188,7 +188,7 @@ Aby uzyskać informacje na temat wdrażania w usłudze Azure App Service, zobacz
 
 ## <a name="standalone-deployment"></a>Wdrażania autonomicznego
 
-A *wdrażania autonomicznego* służy aplikacja Blazor po stronie klienta jako zbiór plików statycznych, które są żądane bezpośrednio przez klientów. Można udostępniać aplikację Blazor jest dowolnego serwera plików statycznych.
+A *wdrażania autonomicznego* służy Blazor aplikacji po stronie klienta jako zbiór plików statycznych, które są żądane bezpośrednio przez klientów. Można udostępniać aplikację Blazor jest dowolnego serwera plików statycznych.
 
 Zasoby wdrożenia autonomicznych są publikowane w *wersji/bin / {w TARGET FRAMEWORK} /publish/ {Nazwa zestawu} / dist* folderu.
 

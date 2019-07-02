@@ -5,14 +5,14 @@ description: Dowiedz się więcej o obsługiwanych platform dla platformy ASP.NE
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/21/2019
+ms.date: 07/01/2019
 uid: blazor/supported-platforms
-ms.openlocfilehash: 12ef3885044cfca17c2e7ffdb248fdebef26c48a
-ms.sourcegitcommit: e67356f5e643a5d43f6d567c5c998ce6002bdeb4
+ms.openlocfilehash: a1ed725de64459edfa2f84d320b2101fb628b1d3
+ms.sourcegitcommit: eb3e51d58dd713eefc242148f45bd9486be3a78a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66005346"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67500416"
 ---
 # <a name="aspnet-core-blazor-supported-platforms"></a>Platformy obsługiwane przez Blazor platformy ASP.NET Core
 
@@ -32,8 +32,6 @@ Przez [Luke Latham](https://github.com/guardrex)
 
 &dagger;Program Microsoft Internet Explorer nie obsługuje [format WebAssembly](http://webassembly.org).
 
-Aby uzyskać więcej informacji na temat modelu hostingu Blazor po stronie klienta, zobacz <xref:blazor/hosting-models#client-side>.
-
 ### <a name="blazor-server-side"></a>Blazor po stronie serwera
 
 | Przeglądarka                          | Wersja    |
@@ -46,4 +44,6 @@ Aby uzyskać więcej informacji na temat modelu hostingu Blazor po stronie klien
 
 &dagger;Wymagane są dodatkowe polyfills (na przykład można dodać obietnic za pośrednictwem [Polyfill.io](https://polyfill.io/v3/) pakietu).
 
-Aby uzyskać więcej informacji na temat modelu hostingu Blazor po stronie serwera, zobacz <xref:blazor/hosting-models#server-side>.
+## <a name="additional-resources"></a>Dodatkowe zasoby
+
+* <xref:blazor/hosting-models>
