@@ -3,16 +3,16 @@ title: Host platformy ASP.NET Core w systemie Linux z Apache
 author: guardrex
 description: Dowiedz się, jak skonfigurować przekierowywanie ruchu HTTP do aplikacji sieci web platformy ASP.NET Core uruchomionych na Kestrel Apache jako zwrotny serwer proxy serwera na CentOS.
 monikerRange: '>= aspnetcore-2.1'
-ms.author: spboyer
+ms.author: shboyer
 ms.custom: mvc
 ms.date: 03/31/2019
 uid: host-and-deploy/linux-apache
-ms.openlocfilehash: 34da0653ff29acf3044e69e032307d1a3da7044a
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 0b523627f8236d79dfc61f0693309d6f4d715e7e
+ms.sourcegitcommit: 0b9e767a09beaaaa4301915cdda9ef69daaf3ff2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64901750"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67538709"
 ---
 # <a name="host-aspnet-core-on-linux-with-apache"></a>Host platformy ASP.NET Core w systemie Linux z Apache
 
@@ -316,7 +316,7 @@ rich rules:
 
 **Konfigurowanie aplikacji na potrzeby bezpiecznego połączenia lokalnego (HTTPS)**
 
-[Dotnet, uruchom](/dotnet/core/tools/dotnet-run) polecenie używa aplikacji *Properties/launchSettings.json* pliku, który konfiguruje aplikację do nasłuchiwania na adresach URL, dostarczone przez `applicationUrl` właściwości (na przykład `https://localhost:5001; http://localhost:5000`) .
+[Dotnet, uruchom](/dotnet/core/tools/dotnet-run) polecenie używa aplikacji *Properties/launchSettings.json* pliku, który konfiguruje aplikację do nasłuchiwania na adresach URL, dostarczone przez `applicationUrl` właściwości (na przykład `https://localhost:5001;http://localhost:5000`) .
 
 Konfigurowanie aplikacji do korzystania z certyfikatu w rozwoju dla `dotnet run` polecenia lub tworzenia środowiska (F5 lub Ctrl + F5 w programie Visual Studio Code) przy użyciu zbliża się do jednej z następujących czynności:
 

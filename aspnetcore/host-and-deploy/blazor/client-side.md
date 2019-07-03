@@ -5,14 +5,14 @@ description: Dowiedz się, jak hostowanie i wdrażanie aplikacji Blazor przy uż
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/14/2019
+ms.date: 07/02/2019
 uid: host-and-deploy/blazor/client-side
-ms.openlocfilehash: b6d08189280e9ca58362265d9b6f2536a3ad1d38
-ms.sourcegitcommit: eb3e51d58dd713eefc242148f45bd9486be3a78a
+ms.openlocfilehash: 46c99364098557557bff0c38cab5a91ee2d3979b
+ms.sourcegitcommit: 0b9e767a09beaaaa4301915cdda9ef69daaf3ff2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67500492"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67538646"
 ---
 # <a name="host-and-deploy-aspnet-core-blazor-client-side"></a>Hostowanie i wdrażanie platformy ASP.NET Core Blazor po stronie klienta
 
@@ -106,19 +106,19 @@ Blazor wykonuje języka pośredniego (IL) łączenia każdego kompilacji, aby us
 
 ## <a name="rewrite-urls-for-correct-routing"></a>Ponowne zapisywanie adresów URL poprawne routingu
 
-Routing żądań dla elementów strony w aplikacji po stronie klienta nie jest tak proste, jak kierowania żądań do aplikacji po stronie serwera, hostowaną. Należy wziąć pod uwagę aplikacji po stronie klienta, zawierający dwie strony:
+Routing żądań dla elementów strony w aplikacji po stronie klienta nie jest tak proste, jak kierowania żądań do aplikacji po stronie serwera, hostowaną. Należy wziąć pod uwagę aplikacji po stronie klienta za pomocą dwóch składników:
 
-* **_Main.razor** &ndash; obciążeń w katalogu głównym aplikacji i zawiera łącza do strony informacje (`href="About"`).
-* **_About.razor** &ndash; o stronie.
+* *Main.razor* &ndash; obciążeń w katalogu głównym aplikacji i zawiera łącza do `About` składnika (`href="About"`).
+* *About.razor* &ndash; `About` składnika.
 
 Gdy dokument domyślny aplikacji przy użyciu paska adresu w przeglądarce (na przykład `https://www.contoso.com/`):
 
 1. Żąda przeglądarki.
 1. Domyślna strona ma zostać zwrócona, co jest zazwyczaj *index.html*.
 1. *index.HTML* używa do ładowania aplikacji.
-1. Router firmy Blazor obciążenia i strony Razor Main (*Main.razor*) jest wyświetlana.
+1. Router firmy Blazor obciążenia i Razor `Main` składnik jest renderowany.
 
-Na stronie głównej wybierając link do strony informacje ładuje stronę informacje. Wybierając link do strony informacje działa na komputerze klienckim, ponieważ Blazor router zatrzymuje przeglądarki z żądania w Internecie, aby `www.contoso.com` dla `About` i służy sama strona informacje. Wszystkie żądania dla wewnętrznej stron *w aplikacji po stronie klienta* działają tak samo: Żądania nie wyzwalacza opartego na przeglądarce żądania hostowany serwer zasobów w Internecie. Wewnętrznie obsługuje żądania przez router.
+Na stronie głównej, wybierając łącze do `About` składnik działa na komputerze klienckim, ponieważ Blazor router zatrzymuje przeglądarki z żądania w Internecie, aby `www.contoso.com` dla `About` i służy renderowanych `About` sam składnik. Wszystkie żądania dla wewnętrznych punktów końcowych *w aplikacji po stronie klienta* działają tak samo: Żądania nie wyzwalacza opartego na przeglądarce żądania hostowany serwer zasobów w Internecie. Wewnętrznie obsługuje żądania przez router.
 
 Jeśli żądanie zostało nawiązane za pomocą paska adresu w przeglądarce dla `www.contoso.com/About`, żądanie kończy się niepowodzeniem. Żaden z tych zasobów istnieje na hoście Internet aplikacji, więc *404 — Nie można odnaleźć* zwróceniem odpowiedzi.
 
@@ -148,7 +148,7 @@ Aplikacja reaguje lokalnie na `http://localhost:port/CoolApp`.
 
 Aby uzyskać więcej informacji, zobacz sekcję na [wartość konfiguracji podstawowej hosta ścieżki](#path-base).
 
-Jeśli aplikacja używa [modelu hostingu po stronie klienta](xref:blazor/hosting-models#client-side) (na podstawie **Blazor** szablonu projektu; `blazor` szablon podczas korzystania [dotnet nowe](/dotnet/core/tools/dotnet-new) polecenia), a jest obsługiwana jako aplikacja podrzędnych usług IIS w aplikacji ASP.NET Core, ważne jest, aby wyłączyć dziedziczone obsługi modułu ASP.NET Core lub upewnić się, że aplikacja głównego (nadrzędnego) `<handlers>` sekcji *web.config* pliku nie jest dziedziczone przez Sub — aplikacja.
+Jeśli aplikacja używa [modelu hostingu po stronie klienta](xref:blazor/hosting-models#client-side) (na podstawie **Blazor (po stronie klienta)** szablonu projektu `blazor` szablon, korzystając z [dotnet nowe](/dotnet/core/tools/dotnet-new) polecenie), a jest obsługiwana jako dla usług IIS sub aplikacji w aplikacji ASP.NET Core, ważne jest, aby wyłączyć dziedziczone obsługi modułu ASP.NET Core lub upewnić się, że aplikacja głównego (nadrzędnego) `<handlers>` w sekcji *web.config* plik nie jest dziedziczone przez jej podrzędnych.
 
 Usuń procedurę obsługi w aplikacji — opublikowane *web.config* pliku, dodając `<handlers>` sekcji w pliku:
 
@@ -178,7 +178,7 @@ Usuwanie obsługi lub wyłączając dziedziczenie jest wykonywane Oprócz konfig
 
 ## <a name="hosted-deployment-with-aspnet-core"></a>Wdrożenie hostowane za pomocą programu ASP.NET Core
 
-A *hostowanych wdrożenia* służy Blazor aplikacji po stronie klienta do przeglądarki z [aplikacji ASP.NET Core](xref:index) , które jest uruchamiane na serwerze.
+A *hostowanych wdrożenia* służy Blazor aplikacji po stronie klienta do przeglądarki z [aplikacji ASP.NET Core](xref:index) , które jest uruchamiane na serwerze sieci web.
 
 Aplikacja Blazor jest dołączone do aplikacji platformy ASP.NET Core w opublikowanych danych wyjściowych, więc, że dwie aplikacje wdrażane razem. Wymagany jest serwer sieci web, który jest zdolny do obsługi aplikacji ASP.NET Core. W przypadku wdrożenia hostowanego obejmuje program Visual Studio **Blazor (platformy ASP.NET Core, obsługiwane)** szablonu projektu (`blazorhosted` szablon, korzystając z [dotnet nowe](/dotnet/core/tools/dotnet-new) polecenia).
 

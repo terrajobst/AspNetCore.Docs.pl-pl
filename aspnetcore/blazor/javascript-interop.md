@@ -5,14 +5,14 @@ description: Dowiedz się, jak wywoływać funkcje języka JavaScript z .NET i .
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/14/2019
+ms.date: 07/02/2019
 uid: blazor/javascript-interop
-ms.openlocfilehash: df511fe77661cd1474e869b28e6858e0452eaae5
-ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
+ms.openlocfilehash: 5d90a83acae3864c40ce38b6259d1938e56a2c54
+ms.sourcegitcommit: 0b9e767a09beaaaa4301915cdda9ef69daaf3ff2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67152801"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67538543"
 ---
 # <a name="aspnet-core-blazor-javascript-interop"></a>ASP.NET Core Blazor JavaScript interop
 
@@ -34,7 +34,7 @@ W przypadku aplikacji po stronie serwera:
 
 Poniższy przykład jest oparty na [TextDecoder](https://developer.mozilla.org/docs/Web/API/TextDecoder), eksperymentalne dekodera oparte na języku JavaScript. W przykładzie pokazano, jak wywołać funkcję JavaScript z C# metody. Funkcja języka JavaScript akceptuje tablicy bajtów z C# metody dekoduje tablicy i zwraca tekst do składnika do wyświetlenia.
 
-Wewnątrz `<head>` elementu *wwwroot/index.html* (Blazor po stronie klienta) lub *stron /\_Host.cshtml* (Blazor po stronie serwera), zapewnia funkcję, która używa `TextDecoder` do dekodowanie przekazana tablica:
+Wewnątrz `<head>` elementu *wwwroot/index.html* (Blazor po stronie klienta) lub *Pages/_Host.cshtml* (Blazor po stronie serwera), zapewnia funkcję, która używa `TextDecoder` zdekodować przekazany Tablica:
 
 [!code-html[](javascript-interop/samples_snapshot/index-script.html)]
 
@@ -77,13 +77,13 @@ W aplikacji przykładowej po stronie klienta, znajdująca się w tym temacie dwi
 
 [!code-javascript[](./common/samples/3.x/BlazorSample/wwwroot/exampleJsInterop.js?highlight=2-7)]
 
-Miejsce `<script>` tag, który odwołuje się do pliku JavaScript w *wwwroot/index.html* pliku (Blazor po stronie klienta) lub *stron /\_Host.cshtml* pliku (Blazor po stronie serwera).
+Miejsce `<script>` tag, który odwołuje się do pliku JavaScript w *wwwroot/index.html* pliku (Blazor po stronie klienta) lub *Pages/_Host.cshtml* pliku (Blazor po stronie serwera).
 
 *Wwwroot/index.HTML* (Blazor po stronie klienta):
 
 [!code-html[](./common/samples/3.x/BlazorSample/wwwroot/index.html?highlight=15)]
 
-*Strony /\_Host.cshtml* (Blazor po stronie serwera):
+*Pages/_Host.cshtml* (Blazor po stronie serwera):
 
 [!code-cshtml[](javascript-interop/samples_snapshot/_Host.cshtml?highlight=29)]
 
@@ -170,7 +170,7 @@ Metoda jest wywoływana bezpośrednio na obiekcie. W poniższym przykładzie za�
 [!code-cshtml[](javascript-interop/samples_snapshot/component2.razor?highlight=1,4,8,12)]
 
 > [!IMPORTANT]
-> `username` Zmiennej tylko jest wypełniana po renderuje składnika i jego dane wyjściowe obejmują `>` elementu. Jeśli zostanie podjęta próba przekazania unpopulated `ElementRef` do kodu JavaScript, otrzyma kod JavaScript `null`. Do manipulowania odwołania do elementu, po zakończeniu renderowania (w celu ustawienie początkowy fokus w elemencie) Użyj składnika `OnAfterRenderAsync` lub `OnAfterRender` [metody cyklu życia składników](xref:blazor/components#lifecycle-methods).
+> `username` Zmiennej tylko jest wypełniana po składnik jest renderowany. Jeśli unpopulated `ElementRef` jest przekazywany do kodu JavaScript, JavaScript, kod otrzymuje wartość `null`. Do manipulowania odwołania do elementu, po zakończeniu renderowania (w celu ustawienie początkowy fokus w elemencie) Użyj składnika `OnAfterRenderAsync` lub `OnAfterRender` [metody cyklu życia składników](xref:blazor/components#lifecycle-methods).
 
 ## <a name="invoke-net-methods-from-javascript-functions"></a>Wywoływanie metod .NET z funkcji języka JavaScript
 
@@ -244,6 +244,6 @@ Kód Interop SE JavaScript mogą być dołączane w bibliotece klas, co pozwala 
 
 Biblioteka klas obsługuje osadzanie zasobów JavaScript skompilowany zestaw. Pliki JavaScript są umieszczane w *wwwroot* folderu. Osadzanie zasobów podczas kompilowania biblioteki zajmuje się narzędzi.
 
-Skompilowany pakiet NuGet odwołuje się do pliku projektu aplikacji, tak samo, jak odwołuje się do dowolnego normalnego pakietu NuGet. Po przywróceniu aplikacji kod aplikacji może wywołać na język JavaScript, tak jakby C#.
+Skompilowany pakiet NuGet odwołuje się do pliku projektu aplikacji taki sam sposób, że odwołuje się do dowolnego pakietu NuGet. Po przywróceniu pakietu kodu aplikacji, można wywołać na język JavaScript, jak gdyby C#.
 
 Aby uzyskać więcej informacji, zobacz <xref:blazor/class-libraries>.

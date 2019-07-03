@@ -3,16 +3,16 @@ title: Używane analizatory interfejsu API sieci web
 author: pranavkm
 description: Więcej informacji o analizatorach interfejsu API sieci web w Microsoft.AspNetCore.Mvc.Api.Analyzers.
 monikerRange: '>= aspnetcore-2.2'
-ms.author: pranavkm
+ms.author: prkrishn
 ms.custom: mvc
 ms.date: 12/14/2018
 uid: web-api/advanced/analyzers
-ms.openlocfilehash: bcc89f856e0aeef80c46a44f76f86b4c09ac6746
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 2aaef738ab2a64f85cb85708f63d2375c04cacb5
+ms.sourcegitcommit: 0b9e767a09beaaaa4301915cdda9ef69daaf3ff2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64902917"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67538563"
 ---
 # <a name="use-web-api-analyzers"></a>Używane analizatory interfejsu API sieci web
 

@@ -5,20 +5,20 @@ description: Dowiedz się, jak kierować żądania w aplikacjach i informacje o 
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/26/2019
+ms.date: 07/02/2019
 uid: blazor/routing
-ms.openlocfilehash: ddbb43f897decc94218ad950ef8dda6ea153d0d3
-ms.sourcegitcommit: 9bb29f9ba6f0645ee8b9cabda07e3a5aa52cd659
+ms.openlocfilehash: d2f0ce608d7368871f508754d7bbe4f75cc9701f
+ms.sourcegitcommit: 0b9e767a09beaaaa4301915cdda9ef69daaf3ff2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67406083"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67538523"
 ---
 # <a name="aspnet-core-blazor-routing"></a>ASP.NET Core Blazor routingu
 
 Przez [Luke Latham](https://github.com/guardrex)
 
-Dowiedz się, jak kierować żądania w aplikacjach i o `NavLink` składnika.
+Dowiedz się, jak kierować żądania i sposobu użycia `NavLink` składnika do utworzenia łącza nawigacji w aplikacjach Blazor.
 
 ## <a name="aspnet-core-endpoint-routing-integration"></a>Integracja routingu platformy ASP.NET Core punktu końcowego
 
@@ -92,12 +92,12 @@ Ograniczenia trasy, pokazano w poniższej tabeli są dostępne. Dla ograniczenia
 | Ograniczenia | Przykład           | Przykład dopasowań                                                                  | Niezmiennej<br>kultura<br>parowanie |
 | ---------- | ----------------- | -------------------------------------------------------------------------------- | :------------------------------: |
 | `bool`     | `{active:bool}`   | `true`, `FALSE`                                                                  | Nie                               |
-| `datetime` | `{dob:datetime}`  | `2016-12-31`, `2016-12-31 7:32pm`                                                | Tak                              |
-| `decimal`  | `{price:decimal}` | `49.99`, `-1,000.01`                                                             | Yes                              |
+| `datetime` | `{dob:datetime}`  | `2016-12-31`, `2016-12-31 7:32pm`                                                | Yes                              |
+| `decimal`  | `{price:decimal}` | `49.99`, `-1,000.01`                                                             | Tak                              |
 | `double`   | `{weight:double}` | `1.234`, `-1,001.01e8`                                                           | Tak                              |
 | `float`    | `{weight:float}`  | `1.234`, `-1,001.01e8`                                                           | Tak                              |
 | `guid`     | `{id:guid}`       | `CD2C1638-1638-72D5-1638-DEADBEEF1638`, `{CD2C1638-1638-72D5-1638-DEADBEEF1638}` | Nie                               |
-| `int`      | `{id:int}`        | `123456789`, `-123456789`                                                        | Tak                              |
+| `int`      | `{id:int}`        | `123456789`, `-123456789`                                                        | Yes                              |
 | `long`     | `{ticks:long}`    | `123456789`, `-123456789`                                                        | Tak                              |
 
 > [!WARNING]
@@ -105,18 +105,18 @@ Ograniczenia trasy, pokazano w poniższej tabeli są dostępne. Dla ograniczenia
 
 ## <a name="navlink-component"></a>Składnik NavLink
 
-Użyj `NavLink` składnika zamiast HTML `<a>` elementów podczas tworzenia łączy nawigacji. A `NavLink` składnik zachowuje się jak `<a>` elementu, z wyjątkiem go Włącza/wyłącza `active` klasy CSS na ich podstawie jego `href` zgodny z bieżącym adresem URL. `active` Pomaga użytkownikom zrozumieć stronę, która jest stroną aktywną między łącza nawigacji wyświetlane, klasy.
+Użyj `NavLink` składnika zamiast elementów hiperłącze HTML (`<a>`) podczas tworzenia łączy nawigacji. A `NavLink` składnik zachowuje się jak `<a>` elementu, z wyjątkiem go Włącza/wyłącza `active` klasy CSS na ich podstawie jego `href` zgodny z bieżącym adresem URL. `active` Pomaga użytkownikom zrozumieć stronę, która jest stroną aktywną między łącza nawigacji wyświetlane, klasy.
 
 Następujące `NavMenu` składnik tworzy [Bootstrap](https://getbootstrap.com/docs/) pasek nawigacyjny, który demonstruje sposób skorzystania `NavLink` składników:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Shared/NavMenu.razor?name=snippet_NavLinks&highlight=4-6,9-11)]
+[!code-cshtml[](routing/samples_snapshot/3.x/NavMenu.razor?highlight=4,9)]
 
-Istnieją dwa `NavLinkMatch` opcje:
+Istnieją dwa `NavLinkMatch` opcje, które można przypisać do `Match` atrybutu `<NavLink>` elementu:
 
-* `NavLinkMatch.All` &ndash; Określa, że NavLink powinien być aktywny, gdy są one zgodne z bieżącą cały adres URL.
-* `NavLinkMatch.Prefix` &ndash; Określa, że NavLink powinien być aktywny, gdy są one zgodne z dowolnego prefiksu bieżący adres URL.
+* `NavLinkMatch.All` &ndash; `NavLink` Jest aktywna, gdy są one zgodne z bieżącą cały adres URL.
+* `NavLinkMatch.Prefix` (*domyślne*) &ndash; `NavLink` jest aktywna, gdy są one zgodne z dowolnego prefiksu bieżący adres URL.
 
-W powyższym przykładzie Home NavLink (`href=""`) dopasowuje wszystkie adresy URL i zawsze będzie otrzymywał `active` klasę CSS. Drugi NavLink tylko odbiera `active` klasy, gdy użytkownik odwiedza `BlazorRoute` składnika (`href="BlazorRoute"`).
+W powyższym przykładzie miejsce, w którym `NavLink` `href=""` adresowi URL głównego i odbiera tylko `active` klasy CSS w aplikacji domyślnej ścieżki podstawowego adresu URL (na przykład `https://localhost:5001/`). Drugi `NavLink` odbiera `active` klasy, gdy użytkownik odwiedza dowolnego adresu URL za pomocą `MyComponent` prefiksu (na przykład `https://localhost:5001/MyComponent` i `https://localhost:5001/MyComponent/AnotherSegment`).
 
 ## <a name="uri-and-navigation-state-helpers"></a>Identyfikator URI i nawigacji pomocników stanu
 
@@ -131,7 +131,7 @@ Użyj `Microsoft.AspNetCore.Components.IUriHelper` do pracy z identyfikatorów U
 | `ToAbsoluteUri` | Konwertuje względny identyfikator URI na bezwzględny identyfikator URI. |
 | `ToBaseRelativePath` | Biorąc pod uwagę podstawowy identyfikator URI (na przykład identyfikator URI wcześniej zwracany przez `GetBaseUri`), konwertuje bezwzględny identyfikator URI identyfikatora URI, względem podstawowego prefiks identyfikatora URI. |
 
-Następujący składnik przechodzi do składnika licznika aplikacji po wybraniu przycisku:
+Następujący składnik przechodzi do aplikacji `Counter` składnika po wybraniu przycisku:
 
 ```cshtml
 @page "/navigate"

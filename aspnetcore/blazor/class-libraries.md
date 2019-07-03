@@ -5,14 +5,14 @@ description: Dowiedz się, jak składniki mogły zostać uwzględnione w taki sp
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/24/2019
+ms.date: 07/02/2019
 uid: blazor/class-libraries
-ms.openlocfilehash: 8676e0fd660b7d281c80d06d24d5593c2df6348b
-ms.sourcegitcommit: 763af2cbdab0da62d1f1cfef4bcf787f251dfb5c
+ms.openlocfilehash: e99dd63200dc863552f099b5d715f78a9732165c
+ms.sourcegitcommit: 0b9e767a09beaaaa4301915cdda9ef69daaf3ff2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67394620"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67538504"
 ---
 # <a name="aspnet-core-razor-components-class-libraries"></a>Platforma ASP.NET Core Razor składniki klasy biblioteki
 
@@ -47,13 +47,13 @@ Postępuj zgodnie ze wskazówkami w <xref:blazor/get-started> artykuł, aby skon
 
 # <a name="visual-studio-code--net-core-clitabvisual-studio-codenetcore-cli"></a>[Program Visual Studio Code / .NET Core interfejsu wiersza polecenia](#tab/visual-studio-code+netcore-cli)
 
-1. Szablon biblioteki klas Razor (`razorclasslib`) za pomocą [dotnet nowe](/dotnet/core/tools/dotnet-new) polecenia powłoki poleceń. W poniższym przykładzie jest tworzony o nazwie RCL `MyComponentLib1`. Folder, który przechowuje `MyComponentLib1` jest tworzona automatycznie podczas wykonywania polecenia.
+1. Użyj **biblioteki klas Razor** szablonu (`razorclasslib`) za pomocą [dotnet nowe](/dotnet/core/tools/dotnet-new) polecenie w powłoce poleceń. W poniższym przykładzie jest tworzony o nazwie RCL `MyComponentLib1`. Folder, który przechowuje `MyComponentLib1` jest tworzona automatycznie podczas wykonywania polecenia:
 
    ```console
    dotnet new razorclasslib -o MyComponentLib1
    ```
 
-1. Aby dodać bibliotekę do istniejącego projektu, należy użyć [dotnet Dodaj odwołanie](/dotnet/core/tools/dotnet-add-reference) polecenia powłoki poleceń. W poniższym przykładzie RCL zostanie dodany do aplikacji. Wykonaj następujące polecenie z folderu projektu aplikacji ze ścieżką do biblioteki:
+1. Aby dodać bibliotekę do istniejącego projektu, należy użyć [dotnet Dodaj odwołanie](/dotnet/core/tools/dotnet-add-reference) polecenie w powłoce poleceń. W poniższym przykładzie RCL zostanie dodany do aplikacji. Wykonaj następujące polecenie z folderu projektu aplikacji ze ścieżką do biblioteki:
 
    ```console
    dotnet add reference {PATH TO LIBRARY}
@@ -61,13 +61,9 @@ Postępuj zgodnie ze wskazówkami w <xref:blazor/get-started> artykuł, aby skon
 
 ---
 
-Dodaj pliki składników Razor ( *.razor*) do RCL.
-
 ## <a name="rcls-not-supported-for-client-side-apps"></a>RCLs nie jest obsługiwane dla aplikacji po stronie klienta
 
-W programie ASP.NET Core 3.0 (wersja zapoznawcza) biblioteki klas Razor nie są zgodne z aplikacji po stronie klienta Blazor.
-
-W przypadku aplikacji po stronie klienta Blazor używać biblioteki składników Blazor utworzone przez `blazorlib` szablonu z powłoki poleceń:
+W bieżącej platformy ASP.NET Core 3.0 wersji zapoznawczej biblioteki klas Razor nie są zgodne z aplikacji po stronie klienta Blazor. W przypadku aplikacji po stronie klienta Blazor używać biblioteki składników Blazor utworzone przez `blazorlib` szablonu w powłoce poleceń:
 
 ```console
 dotnet new blazorlib -o MyComponentLib1
@@ -82,9 +78,9 @@ Aby można było używać składników zdefiniowane w bibliotece w innym projekc
 * Pełna nazwa typu za pomocą przestrzeni nazw.
 * Użyj firmy Razor [ \@przy użyciu](xref:mvc/views/razor#using) dyrektywy. Poszczególne składniki można dodać według nazwy.
 
-W poniższych przykładach `MyComponentLib1` to biblioteka składnika zawierająca raport sprzedaży (`SalesReport`) składnika.
+W poniższych przykładach `MyComponentLib1` jest zawierającego biblioteki składników `SalesReport` składnika.
 
-Składnik raport sprzedaży mogą być przywoływane z przestrzenią nazw przy użyciu jego pełna nazwa typu:
+`SalesReport` Składnika mogą być przywoływane z przestrzenią nazw przy użyciu jego pełna nazwa typu:
 
 ```cshtml
 <h1>Hello, world!</h1>
@@ -110,13 +106,13 @@ Obejmują `@using MyComponentLib1` dyrektywy w najwyższego poziomu *_Import.raz
 
 ## <a name="build-pack-and-ship-to-nuget"></a>Kompilacji, pakiet i dostarczanie na potrzeby narzędzia NuGet
 
-Ponieważ biblioteki składnik to biblioteki .NET standard, pakowania i wysyłania ich do narzędzia NuGet nie różni się od pakowania i wysyłania każdą bibliotekę do narzędzia NuGet. Pakowanie odbywa się przy użyciu [pakietu dotnet](/dotnet/core/tools/dotnet-pack) polecenia powłoki poleceń:
+Ponieważ biblioteki składnik to biblioteki .NET standard, pakowania i wysyłania ich do narzędzia NuGet nie różni się od pakowania i wysyłania każdą bibliotekę do narzędzia NuGet. Pakowanie odbywa się przy użyciu [pakietu dotnet](/dotnet/core/tools/dotnet-pack) polecenie w powłoce poleceń:
 
 ```console
 dotnet pack
 ```
 
-Przekazywanie pakietu NuGet za pomocą [dotnet nuget publikowania](/dotnet/core/tools/dotnet-nuget-push) polecenia powłoki poleceń:
+Przekazywanie pakietu NuGet za pomocą [dotnet nuget publikowania](/dotnet/core/tools/dotnet-nuget-push) polecenie w powłoce poleceń:
 
 ```console
 dotnet nuget publish

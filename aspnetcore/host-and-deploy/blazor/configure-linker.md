@@ -5,14 +5,14 @@ description: Dowiedz się, jak kontrolować konsolidatora języka pośredniego (
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/14/2019
+ms.date: 07/02/2019
 uid: host-and-deploy/blazor/configure-linker
-ms.openlocfilehash: bdddae16885f45df2c10e4d98b1c33eb11dfdf24
-ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
+ms.openlocfilehash: 03be18e7ee6ca8103e1a666da9e693ff67267d83
+ms.sourcegitcommit: 0b9e767a09beaaaa4301915cdda9ef69daaf3ff2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67153211"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67538630"
 ---
 # <a name="configure-the-linker-for-aspnet-core-blazor"></a>Konfigurowanie konsolidatora dla Blazor platformy ASP.NET Core
 
@@ -27,7 +27,7 @@ Zestaw Kontrola połączeń przy użyciu jednej z następujących metod:
 
 ## <a name="disable-linking-with-a-msbuild-property"></a>Wyłącz konsolidowanie za pomocą właściwości programu MSBuild
 
-Łączenie jest domyślnie włączanych w trybie wydania kompilowana jest aplikacja, która obejmuje publikowania. Aby wyłączyć łączenie dla wszystkich zestawów, należy ustawić `<BlazorLinkOnBuild>` właściwości programu MSBuild `false` w pliku projektu:
+Łączenie jest domyślnie włączanych w trybie wydania kompilowana jest aplikacja, która obejmuje publikowania. Aby wyłączyć łączenie dla wszystkich zestawów, należy ustawić `BlazorLinkOnBuild` właściwości programu MSBuild `false` w pliku projektu:
 
 ```xml
 <PropertyGroup>

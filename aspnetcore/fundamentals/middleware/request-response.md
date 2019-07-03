@@ -3,16 +3,16 @@ title: Operacje żądań i odpowiedzi w programie ASP.NET Core
 author: jkotalik
 description: Dowiedz się, jak treści żądania odczytu i zapisu treści odpowiedzi w programie ASP.NET Core.
 monikerRange: '>= aspnetcore-3.0'
-ms.author: jkotalik
+ms.author: jukotali
 ms.custom: mvc
 ms.date: 02/26/2019
 uid: fundamentals/middleware/request-response
-ms.openlocfilehash: b6e3cd4b79e0c062b271c65cd5ecbdb4ef80c3a1
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 0c321dad256e239b61907980c09d2c088c1407ff
+ms.sourcegitcommit: 0b9e767a09beaaaa4301915cdda9ef69daaf3ff2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65085517"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67538572"
 ---
 # <a name="request-and-response-operations-in-aspnet-core"></a>Operacje żądań i odpowiedzi w programie ASP.NET Core
 
@@ -22,7 +22,7 @@ W tym artykule wyjaśniono, jak czytać z treści żądania i zapisywać w treś
 
 W programie ASP.NET Core 3.0 są dwa elementy abstrakcji do treści żądania i odpowiedzi: <xref:System.IO.Stream> i <xref:System.IO.Pipelines.Pipe>. Żądanie czytelności [HttpRequest.Body](xref:Microsoft.AspNetCore.Http.HttpRequest.Body) jest <xref:System.IO.Stream>, i `HttpRequest.BodyPipe` jest <xref:System.IO.Pipelines.PipeReader>. Do zapisu odpowiedzi [HttpResponse.Body](xref:Microsoft.AspNetCore.Http.HttpResponse.Body) jest `HttpResponse.BodyPipe` jest <xref:System.IO.Pipelines.PipeWriter>.
 
-Firma Microsoft zaleca potoki za pośrednictwem strumieni. Strumienie może być łatwiejszy w obsłudze dla niektórych prostych operacji, ale potoki mają korzystać wydajność i są łatwiejsze w obsłudze w większości scenariuszy. 3.0 ASP.NET Core zaczyna używać potoków zamiast strumieni wewnętrznie. Przykłady obejmują:
+Firma Microsoft zaleca potoki za pośrednictwem strumieni. Strumienie może być łatwiejszy w obsłudze dla niektórych prostych operacji, ale potoki mają korzystać wydajność i są łatwiejsze w obsłudze w większości scenariuszy. 3\.0 ASP.NET Core zaczyna używać potoków zamiast strumieni wewnętrznie. Przykłady obejmują:
 
 - `FormReader`
 - `TextReader`
@@ -72,7 +72,7 @@ W tym przykładzie rozwiązuje wiele problemów, które miały implementacje str
 
 ## <a name="adapters"></a>Karty
 
-Skoro zarówno `Body` i `BodyPipe` właściwości są dostępne dla `HttpRequest` i `HttpResponse`, co się stanie po ustawieniu `Body` do różnych strumienia? 3.0 nowy zbiór kart automatycznie Adaptowane każdego typu na drugi. Na przykład jeśli ustawisz `HttpRequest.Body` na nowy strumień `HttpRequest.BodyPipe` automatycznie zostaje ustawiony nowy `PipeReader` to opakowuje `HttpRequest.Body`. Takie samo zachowanie dotyczy ustawienie `BodyPipe` właściwości. Jeśli `HttpResponse.BodyPipe` ustawiono nową `PipeWriter`, `HttpResponse.Body` automatycznie zostaje ustawiony nowy strumień, który otacza `HttpResponse.BodyPipe`.
+Skoro zarówno `Body` i `BodyPipe` właściwości są dostępne dla `HttpRequest` i `HttpResponse`, co się stanie po ustawieniu `Body` do różnych strumienia? 3\.0 nowy zbiór kart automatycznie Adaptowane każdego typu na drugi. Na przykład jeśli ustawisz `HttpRequest.Body` na nowy strumień `HttpRequest.BodyPipe` automatycznie zostaje ustawiony nowy `PipeReader` to opakowuje `HttpRequest.Body`. Takie samo zachowanie dotyczy ustawienie `BodyPipe` właściwości. Jeśli `HttpResponse.BodyPipe` ustawiono nową `PipeWriter`, `HttpResponse.Body` automatycznie zostaje ustawiony nowy strumień, który otacza `HttpResponse.BodyPipe`.
 
 ## <a name="startasync"></a>StartAsync
 
