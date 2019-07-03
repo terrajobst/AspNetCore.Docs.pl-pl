@@ -6,12 +6,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 11/30/2018
 uid: tutorials/signalr
-ms.openlocfilehash: 9a77460cfd8201ca357aad3415725d4b9a30b187
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 9a4296550a17ac2c348f2406e9f5b39877b02b59
+ms.sourcegitcommit: d6e51c60439f03a8992bda70cc982ddb15d3f100
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64899764"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67555926"
 ---
 # <a name="tutorial-get-started-with-aspnet-core-signalr"></a>Samouczek: Wprowadzenie do biblioteki SignalR platformy ASP.NET Core
 
@@ -30,7 +30,21 @@ Po zakończeniu będziesz mieć działającą aplikację rozmowy:
 
 [Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/signalr/sample) ([sposobu pobierania](xref:index#how-to-download-a-sample)).
 
-[!INCLUDE [|Prerequisites](~/includes/net-core-prereqs-all-2.2.md)]
+## <a name="prerequisites"></a>Wymagania wstępne
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+[!INCLUDE[](~/includes/net-core-prereqs-vs2017-2.2.md)]
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+
+[!INCLUDE[](~/includes/net-core-prereqs-vsc-2.2.md)]
+
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+
+[!INCLUDE[](~/includes/net-core-prereqs-mac-2.2.md)]
+
+---
 
 ## <a name="create-a-web-project"></a>Tworzenie projektu sieci web
 
@@ -63,7 +77,7 @@ Po zakończeniu będziesz mieć działającą aplikację rozmowy:
 
 * W menu, wybierz opcję **Plik > nowe rozwiązanie**.
 
-* Wybierz **platformy .NET Core > aplikacji > aplikacji internetowej ASP.NET Core** (nie wybieraj **ASP.NET Core Web App (MVC)**).
+* Wybierz **platformy .NET Core > aplikacji > aplikacji internetowej ASP.NET Core** (nie wybieraj **ASP.NET Core Web App (MVC)** ).
 
 * Wybierz opcję **Dalej**.
 

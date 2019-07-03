@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/23/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 0f069a75868bcbb988ade3f80d1f64c2cef4e972
-ms.sourcegitcommit: 763af2cbdab0da62d1f1cfef4bcf787f251dfb5c
+ms.openlocfilehash: a53f7019c1079296f073e743ddbf9d90fc5abad3
+ms.sourcegitcommit: d6e51c60439f03a8992bda70cc982ddb15d3f100
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67394775"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67555878"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Samouczek: Tworzenie internetowego interfejsu API za pomocą platformy ASP.NET Core
 
@@ -51,7 +51,21 @@ Na poniższym diagramie przedstawiono projekt aplikacji.
 
 ![Klient jest reprezentowany przez pole po lewej stronie. On przesyła żądanie i odbiera odpowiedź od aplikacji rysowania po prawej stronie pola. W polu aplikacji trzy pola reprezentują kontrolera, model i warstwy dostępu do danych. Żądanie jest dostarczany do kontrolera aplikacji, a operacje odczytu/zapisu występują między kontrolerem i warstwy dostępu do danych. Model jest serializowany i zwracany do klienta w odpowiedzi.](first-web-api/_static/architecture.png)
 
-[!INCLUDE[](~/includes/net-core-prereqs-all-2.2.md)]
+## <a name="prerequisites"></a>Wymagania wstępne
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+[!INCLUDE[](~/includes/net-core-prereqs-vs2019-2.2.md)]
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+
+[!INCLUDE[](~/includes/net-core-prereqs-vsc-2.2.md)]
+
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+
+[!INCLUDE[](~/includes/net-core-prereqs-mac-2.2.md)]
+
+---
 
 ## <a name="create-a-web-project"></a>Tworzenie projektu sieci web
 

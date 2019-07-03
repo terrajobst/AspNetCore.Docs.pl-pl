@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 12/10/2018
 uid: migration/webapi
-ms.openlocfilehash: ea14b7128582a21b36c70041d59fb638eebdbef0
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 74c7730a667ebc979241489733cdace149cacdf2
+ms.sourcegitcommit: d6e51c60439f03a8992bda70cc982ddb15d3f100
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64901096"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67555750"
 ---
 # <a name="migrate-from-aspnet-web-api-to-aspnet-core"></a>Migrowanie z interfejsu API sieci Web platformy ASP.NET do ASP.NET Core
 
@@ -23,7 +23,7 @@ Interfejsu API sieci Web programu ASP.NET 4.x jest usługą HTTP, która osiąga
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-[!INCLUDE [net-core-prereqs-vs-2.2](../includes/net-core-prereqs-vs-2.2.md)]
+[!INCLUDE [prerequisites](../includes/net-core-prereqs-vs2019-2.2.md)]
 
 ## <a name="review-aspnet-4x-web-api-project"></a>Przejrzyj projekt interfejsu API sieci Web programu ASP.NET 4.x
 
