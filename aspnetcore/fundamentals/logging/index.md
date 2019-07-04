@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 05/01/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: f028a94a9b2014129a96cff2c06ba00f99ea5d15
-ms.sourcegitcommit: eb3e51d58dd713eefc242148f45bd9486be3a78a
+ms.openlocfilehash: 41135f04c9587f77dd417f63df2c2a70c2d545cd
+ms.sourcegitcommit: f6e6730872a7d6f039f97d1df762f0d0bd5e34cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67500393"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561675"
 ---
 # <a name="logging-in-aspnet-core"></a>Rejestrowanie w programie ASP.NET Core
 
@@ -30,6 +30,8 @@ Dostawcy logowania Wyświetla lub są przechowywane dzienniki. Na przykład kons
 Aby dodać dostawcę, należy wywołać dostawcy `Add{provider name}` metody rozszerzenia w *Program.cs*:
 
 [!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_ExpandDefault&highlight=18-20)]
+
+Powyższy kod wymaga odwołania do `Microsoft.Extensions.Logging` i `Microsoft.Extensions.Configuration`.
 
 Wywołania szablonu projektu domyślnego <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder%2A>, która dodaje następujących dostawców rejestrowania:
 

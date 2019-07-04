@@ -5,12 +5,12 @@ description: Omówienie usługi Facebook, Google, Twitter, itp. konto użytkowni
 ms.author: riande
 ms.date: 07/04/2019
 uid: security/authentication/social/social-without-identity
-ms.openlocfilehash: e67da513fef1ce453110c465b08e9c7965e71df5
-ms.sourcegitcommit: d6e51c60439f03a8992bda70cc982ddb15d3f100
+ms.openlocfilehash: 1e7124e8b07c0faf2d005ec3ef55c0414a697d64
+ms.sourcegitcommit: f6e6730872a7d6f039f97d1df762f0d0bd5e34cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67557666"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561565"
 ---
 # <a name="use-social-sign-in-provider-authentication-without-aspnet-core-identity"></a>Użyj uwierzytelniania społecznościowych dostawcy logowania bez tożsamości platformy ASP.NET Core
 
@@ -47,7 +47,7 @@ W `Configure` metody, wywołanie `UseAuthentication` metodę do wywołania, opro
 
 Aby dowiedzieć się więcej na temat uwierzytelniania plików cookie i schematy uwierzytelniania, zobacz <xref:security/authentication/cookie>.
 
-## <a name="applying-basic-authorization"></a>Stosowanie uwierzytelniania basic authorization
+## <a name="applying-authorization"></a>Stosowanie autoryzacji
 
 Testowanie konfigurację uwierzytelniania aplikacji, stosując `AuthorizeAttribute` atrybutu kontrolerze, akcji lub strony. Poniższy kod ogranicza dostęp do *zachowania* strony do użytkowników uwierzytelnionych:
 

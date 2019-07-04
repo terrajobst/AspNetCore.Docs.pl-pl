@@ -2,16 +2,17 @@
 title: ASP.NET Core Middleware
 author: rick-anderson
 description: Więcej informacji na temat oprogramowania pośredniczącego platformy ASP.NET Core i potok żądań.
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/17/2019
+ms.date: 07/03/2019
 uid: fundamentals/middleware/index
-ms.openlocfilehash: bac121441d6856ca79affe1a3130e5cbc76debd9
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: cdb4916f277c64e4f273b2a0b9a7a4074600f7b7
+ms.sourcegitcommit: f6e6730872a7d6f039f97d1df762f0d0bd5e34cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64901240"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561600"
 ---
 # <a name="aspnet-core-middleware"></a>ASP.NET Core Middleware
 
@@ -26,7 +27,7 @@ Delegaty żądania są używane do tworzenia potoku żądania. Delegaty żądani
 
 Żądania, obiekty delegowane są skonfigurowane przy użyciu <xref:Microsoft.AspNetCore.Builder.RunExtensions.Run*>, <xref:Microsoft.AspNetCore.Builder.MapExtensions.Map*>, i <xref:Microsoft.AspNetCore.Builder.UseExtensions.Use*> metody rozszerzenia. Delegat pojedynczego żądania może być określony w tekście jako metodę anonimową (nazywane w tekście oprogramowania pośredniczącego), lub można zdefiniować klasy wielokrotnego użytku. Te klasy wielokrotnego użytku i metod anonimowych w tekście są *oprogramowania pośredniczącego*, nazywane również *składników oprogramowania pośredniczącego*. Każdy składnik oprogramowania pośredniczącego w potoku żądania jest odpowiedzialny za wywoływanie następny składnik w potoku lub zwarcie potoku. Gdy short-circuits oprogramowanie pośredniczące, jest on nazywany *terminalu oprogramowania pośredniczącego* ponieważ uniemożliwia dalsze oprogramowania pośredniczącego przetwarzania żądania.
 
-<xref:migration/http-modules> wyjaśnia różnicę pomiędzy potoki żądania w programie ASP.NET Core i ASP.NET 4.x i udostępnia więcej przykładów oprogramowania pośredniczącego.
+<xref:migration/http-modules> wyjaśnia różnicę pomiędzy potoki żądania w programie ASP.NET Core i ASP.NET 4.x i zawiera przykłady dodatkowego oprogramowania pośredniczącego.
 
 ## <a name="create-a-middleware-pipeline-with-iapplicationbuilder"></a>Tworzenie potoku oprogramowania pośredniczącego z IApplicationBuilder
 
@@ -62,94 +63,42 @@ Kolejność dodaną składników oprogramowania pośredniczącego w `Startup.Con
 
 Następujące `Startup.Configure` metoda dodaje składników oprogramowania pośredniczącego dla typowych scenariuszy aplikacji:
 
-::: moniker range=">= aspnetcore-2.0"
-
 1. Obsługa wyjątku/błędów
-1. Protokół zabezpieczeń Strict transportu HTTP
-1. Przekierowania protokołu HTTPS
-1. Serwer plików statycznych
-1. Wymuszanie zasad plików cookie
-1. Uwierzytelnianie
-1. Sesja
-1. MVC
+   * Gdy aplikacja jest uruchamiana w środowisku deweloperskim:
+     * Oprogramowanie pośredniczące strony wyjątek dla deweloperów (<xref:Microsoft.AspNetCore.Builder.DeveloperExceptionPageExtensions.UseDeveloperExceptionPage*>) zgłasza błędy czasu wykonywania aplikacji.
+     * Baza danych oprogramowanie pośredniczące strony błędu (<xref:Microsoft.AspNetCore.Builder.DatabaseErrorPageExtensions.UseDatabaseErrorPage*>) raportów bazy danych błędy w czasie wykonywania.
+   * Gdy aplikacja jest uruchamiana w środowisku produkcyjnym:
+     * Oprogramowanie pośredniczące programu obsługi wyjątków (<xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*>) przechwytują wyjątki zgłaszane w następujących middlewares.
+     * Oprogramowanie pośredniczące Strict transportu zabezpieczeń protokołu (HSTS) HTTP (<xref:Microsoft.AspNetCore.Builder.HstsBuilderExtensions.UseHsts*>) dodaje `Strict-Transport-Security` nagłówka.
+1. Oprogramowanie pośredniczące przekierowania protokołu HTTPS (<xref:Microsoft.AspNetCore.Builder.HttpsPolicyBuilderExtensions.UseHttpsRedirection*>) przekierowuje żądania HTTP do HTTPS.
+1. Oprogramowanie pośredniczące plików statycznych (<xref:Microsoft.AspNetCore.Builder.StaticFileExtensions.UseStaticFiles*>) zwraca statyczną, pliki i short-circuits dalsze przetwarzanie żądania.
+1. Oprogramowaniu pośredniczącym pliku cookie zasad (<xref:Microsoft.AspNetCore.Builder.CookiePolicyAppBuilderExtensions.UseCookiePolicy*>) odpowiada aplikacji przepisów Unii Europejskiej ogólnego danych (GDPR Protection Regulation).
+1. Oprogramowanie pośredniczące uwierzytelniania (<xref:Microsoft.AspNetCore.Builder.AuthAppBuilderExtensions.UseAuthentication*>) próbuje uwierzytelnić użytkownika przed uzyskaniem dostępu do zabezpieczania zasobów.
+1. Oprogramowanie pośredniczące sesji (<xref:Microsoft.AspNetCore.Builder.SessionMiddlewareExtensions.UseSession*>) ustanawia i zachowuje stan sesji. Jeśli aplikacja korzysta z stanu sesji, należy wywołać oprogramowanie pośredniczące sesji po oprogramowaniu pośredniczącym pliku Cookie zasad i przed MVC oprogramowania pośredniczącego.
+1. MVC (<xref:Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions.UseMvc*>) aby dodać MVC do Potok żądań.
 
 ```csharp
 public void Configure(IApplicationBuilder app)
 {
     if (env.IsDevelopment())
     {
-        // When the app runs in the Development environment:
-        //   Use the Developer Exception Page to report app runtime errors.
-        //   Use the Database Error Page to report database runtime errors.
         app.UseDeveloperExceptionPage();
         app.UseDatabaseErrorPage();
     }
     else
     {
-        // When the app doesn't run in the Development environment:
-        //   Enable the Exception Handler Middleware to catch exceptions
-        //     thrown in the following middlewares.
-        //   Use the HTTP Strict Transport Security Protocol (HSTS)
-        //     Middleware.
         app.UseExceptionHandler("/Error");
         app.UseHsts();
     }
 
-    // Use HTTPS Redirection Middleware to redirect HTTP requests to HTTPS.
     app.UseHttpsRedirection();
-
-    // Return static files and end the pipeline.
     app.UseStaticFiles();
-
-    // Use Cookie Policy Middleware to conform to EU General Data 
-    // Protection Regulation (GDPR) regulations.
     app.UseCookiePolicy();
-
-    // Authenticate before the user accesses secure resources.
     app.UseAuthentication();
-
-    // If the app uses session state, call Session Middleware after Cookie 
-    // Policy Middleware and before MVC Middleware.
     app.UseSession();
-
-    // Add MVC to the request pipeline.
     app.UseMvc();
 }
 ```
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-1. Obsługa wyjątku/błędów
-1. Pliki statyczne
-1. Uwierzytelnianie
-1. Sesja
-1. MVC
-
-```csharp
-public void Configure(IApplicationBuilder app)
-{
-    // Enable the Exception Handler Middleware to catch exceptions
-    //   thrown in the following middlewares.
-    app.UseExceptionHandler("/Home/Error");
-
-    // Return static files and end the pipeline.
-    app.UseStaticFiles();
-
-    // Authenticate before you access secure resources.
-    app.UseIdentity();
-
-    // If the app uses session state, call UseSession before 
-    // MVC Middleware.
-    app.UseSession();
-
-    // Add MVC to the request pipeline.
-    app.UseMvcWithDefaultRoute();
-}
-```
-
-::: moniker-end
 
 W poprzednim kodzie przykład, każda metoda rozszerzenia oprogramowanie pośredniczące jest uwidaczniany w <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder> za pośrednictwem <xref:Microsoft.AspNetCore.Builder?displayProperty=fullName> przestrzeni nazw.
 
@@ -157,17 +106,7 @@ W poprzednim kodzie przykład, każda metoda rozszerzenia oprogramowanie pośred
 
 Oprogramowanie pośredniczące plików statycznych jest wywoływana na wczesnym etapie potoku, dzięki czemu mogą obsługiwać żądania i zwarcie bez pośrednictwa pozostałe składniki. Dostarcza statycznej oprogramowanie pośredniczące plików **nie** sprawdzeń autoryzacji. Wszystkich plików obsługiwanych przez, łącznie z tymi w ramach *wwwroot*, są publicznie dostępne. Podejścia do zabezpieczania plików statycznych, zobacz <xref:fundamentals/static-files>.
 
-::: moniker range=">= aspnetcore-2.0"
-
 Jeśli żądanie nie jest obsługiwany przez statyczne oprogramowanie pośredniczące plików, będzie przekazany z oprogramowaniem pośredniczącym uwierzytelniania (<xref:Microsoft.AspNetCore.Builder.AuthAppBuilderExtensions.UseAuthentication*>), który przeprowadza uwierzytelnianie. Uwierzytelnianie nie powodują pominięcie nieuwierzytelnione żądania. Mimo że uwierzytelniania oprogramowania pośredniczącego uwierzytelniania na podstawie żądań autoryzacji (i odrzucenia) występuje tylko wtedy, gdy MVC wybiera określonych akcji i kontrolerów MVC lub strony Razor.
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-Jeśli żądanie nie jest obsługiwany przez oprogramowanie pośredniczące plików statycznych, przekazaniem do oprogramowania pośredniczącego tożsamości (<xref:Microsoft.AspNetCore.Builder.BuilderExtensions.UseIdentity*>), który przeprowadza uwierzytelnianie. Tożsamość nie powodują pominięcie nieuwierzytelnione żądania. Mimo że tożsamość uwierzytelniania na podstawie żądań autoryzacji (i odrzucenia) występuje tylko wtedy, gdy MVC wybiera określonego kontrolera i akcji.
-
-::: moniker-end
 
 Poniższy przykład pokazuje kolejność oprogramowania pośredniczącego, w którym żądań dotyczących plików statycznych są obsługiwane przez oprogramowanie pośredniczące plików statycznych przed oprogramowanie pośredniczące kompresji odpowiedzi. Pliki statyczne nie są kompresowane z tym zamówieniem oprogramowania pośredniczącego. Odpowiedzi MVC z <xref:Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions.UseMvcWithDefaultRoute*> można skompresować.
 
@@ -181,9 +120,9 @@ public void Configure(IApplicationBuilder app)
 }
 ```
 
-### <a name="use-run-and-map"></a>Użyj, uruchom i mapy
+## <a name="use-run-and-map"></a>Użyj, uruchom i mapy
 
-Konfigurowanie przy użyciu potoku HTTP `Use`, `Run`, i `Map`. `Use` Metoda może zwarcie potoku (to znaczy, jeśli on nie wywołać `next` delegata żądania). `Run` jest to Konwencja i niektórych składników oprogramowania pośredniczącego może narazić `Run[Middleware]` metod, które są uruchamiane na końcu potoku.
+Konfigurowanie przy użyciu potoku HTTP <xref:Microsoft.AspNetCore.Builder.UseExtensions.Use*>, <xref:Microsoft.AspNetCore.Builder.RunExtensions.Run*>, i <xref:Microsoft.AspNetCore.Builder.MapExtensions.Map*>. `Use` Metoda może zwarcie potoku (to znaczy, jeśli on nie wywołać `next` delegata żądania). `Run` jest to Konwencja i niektórych składników oprogramowania pośredniczącego może narazić `Run[Middleware]` metod, które są uruchamiane na końcu potoku.
 
 <xref:Microsoft.AspNetCore.Builder.MapExtensions.Map*> rozszerzenia są używane jako Konwencję do tworzenia odgałęzień potoku. `Map*` gałęzie potoku żądania na podstawie dopasowań podanej ścieżki żądania. Jeśli ścieżka żądania rozpoczyna się od podanej ścieżce, jest wykonywana gałąź.
 
@@ -198,9 +137,9 @@ W poniższej tabeli przedstawiono żądań i odpowiedzi z `http://localhost:1234
 | localhost:1234/map2 | Mapa badania 2                   |
 | localhost:1234/map3 | Pozdrowienia ze-Map delegata. |
 
-Gdy `Map` jest używane, ścieżka dopasowane jej ewentualny związek są usuwane z `HttpRequest.Path` i dołączonych do `HttpRequest.PathBase` dla każdego żądania.
+Gdy `Map` jest, segmenty ścieżki dopasowane są usuwane z `HttpRequest.Path` i dołączany do `HttpRequest.PathBase` dla każdego żądania.
 
-[MapWhen](/dotnet/api/microsoft.aspnetcore.builder.mapwhenextensions) odgałęzień potoku żądania na podstawie wyniku danego predykatu. Wszelkie predykatu typu `Func<HttpContext, bool>` może być używany do mapowania żądania do nowej gałęzi w potoku. W poniższym przykładzie, predykat jest używany do wykrywania obecności zmiennej ciągu zapytania `branch`:
+<xref:Microsoft.AspNetCore.Builder.MapWhenExtensions.MapWhen*> gałęzie potoku żądania na podstawie wyniku danego predykatu. Wszelkie predykatu typu `Func<HttpContext, bool>` może być używany do mapowania żądania do nowej gałęzi w potoku. W poniższym przykładzie, predykat jest używany do wykrywania obecności zmiennej ciągu zapytania `branch`:
 
 [!code-csharp[](index/snapshot/Chain/StartupMapWhen.cs?name=snippet1)]
 
@@ -238,12 +177,12 @@ Platforma ASP.NET Core jest dostarczany z następujących składników oprogramo
 | [Zasady plików cookie](xref:security/gdpr) | Śledzi zgody od użytkowników do przechowywania informacji osobistych i wymusza standardy minimalne dla pliku cookie pól, takich jak `secure` i `SameSite`. | Zanim oprogramowanie pośredniczące, która wystawia pliki cookie. Przykłady: Uwierzytelnianie, sesji, MVC (TempData). |
 | [CORS](xref:security/cors) | Konfiguruje, Cross-Origin Resource Sharing. | Przed składników, które korzystają z mechanizmu CORS. |
 | [Obsługa wyjątków](xref:fundamentals/error-handling) | Obsługuje wyjątki. | Przed składniki, które generują błędy. |
-| [Nagłówki przekazywane](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions) | Przekazuje nagłówki przekazywane do bieżącego żądania. | Przed składniki, które zużywają zaktualizowanymi polami. Przykłady: schematu, hosta, adres IP klienta, metoda. |
+| [Nagłówki przekazywane](xref:host-and-deploy/proxy-load-balancer) | Przekazuje nagłówki przekazywane do bieżącego żądania. | Przed składniki, które zużywają zaktualizowanymi polami. Przykłady: schematu, hosta, adres IP klienta, metoda. |
 | [Kontrola kondycji](xref:host-and-deploy/health-checks) | Sprawdza kondycję aplikacji ASP.NET Core oraz jego zależności, takich jak sprawdzanie dostępności bazy danych. | Terminal, gdy żądanie pasuje do endpoint sprawdzania kondycji. |
-| [Zastąpienie metody HTTP](/dotnet/api/microsoft.aspnetcore.builder.httpmethodoverrideextensions) | Zezwala na przychodzące żądania POST przesłonić metodę. | Przed składniki, które zużywają zaktualizowana metoda. |
-| [HTTPS Redirection](xref:security/enforcing-ssl#require-https) | Przekieruj wszystkie żądania HTTP do HTTPS (platformy ASP.NET Core 2.1 lub nowszej). | Przed składniki, których wartość użycia adresu URL. |
-| [Zabezpieczenia transportu Strict HTTP (HSTS)](xref:security/enforcing-ssl#http-strict-transport-security-protocol-hsts) | Oprogramowanie ulepszenie pośredniczące zabezpieczeń, który dodaje nagłówek odpowiedzi specjalne (platformy ASP.NET Core 2.1 lub nowszej). | Przed wysłaniem odpowiedzi i po składniki, które modyfikują żądań. Przykłady: Nagłówki przekazywane ponownego zapisywania adresów URL. |
-| [MVC](xref:mvc/overview) | Przetwarza żądania przy użyciu stron MVC i Razor (platformy ASP.NET Core w wersji 2.0 lub nowszej). | Terminal, jeśli żądanie jest zgodny z trasą. |
+| [Zastąpienie metody HTTP](xref:Microsoft.AspNetCore.Builder.HttpMethodOverrideExtensions) | Zezwala na przychodzące żądania POST przesłonić metodę. | Przed składniki, które zużywają zaktualizowana metoda. |
+| [HTTPS Redirection](xref:security/enforcing-ssl#require-https) | Przekieruj wszystkie żądania HTTP do HTTPS. | Przed składniki, których wartość użycia adresu URL. |
+| [Zabezpieczenia transportu Strict HTTP (HSTS)](xref:security/enforcing-ssl#http-strict-transport-security-protocol-hsts) | Oprogramowanie ulepszenie pośredniczące zabezpieczeń, który dodaje nagłówek odpowiedzi specjalne. | Przed wysłaniem odpowiedzi i po składniki, które modyfikują żądań. Przykłady: Nagłówki przekazywane ponownego zapisywania adresów URL. |
+| [MVC](xref:mvc/overview) | Przetwarza żądania przy użyciu stron MVC i Razor. | Terminal, jeśli żądanie jest zgodny z trasą. |
 | [OWIN](xref:fundamentals/owin) | Współdziałanie z aplikacji opartych na OWIN, serwerów i oprogramowania pośredniczącego. | Terminal, jeśli oprogramowanie pośredniczące OWIN w pełni przetwarza żądanie. |
 | [Buforowanie odpowiedzi](xref:performance/caching/middleware) | Zapewnia obsługę buforowania odpowiedzi. | Przed składniki, które wymagają buforowania. |
 | [Kompresja odpowiedzi](xref:performance/response-compression) | Zapewnia obsługę kompresowania odpowiedzi. | Przed składniki, które wymagają kompresji. |
