@@ -1,3 +1,4 @@
+
 ## <a name="add-validation-rules-to-the-movie-model"></a>Dodawanie reguł sprawdzania poprawności do modelu movie
 
 Otwórz *Movie.cs* pliku. Przestrzeń nazw DataAnnotations zawiera zestaw atrybutów weryfikacji wbudowanych, które są stosowane w sposób deklaratywny do klasa lub właściwość. DataAnnotations zawiera też atrybuty formatowania, takich jak `DataType` , ułatwić formatowanie i nie udostępniamy żadnych sprawdzania poprawności.
