@@ -5,14 +5,14 @@ description: Informacje o sposobie tworzenia i używania składników Razor, w t
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/01/2019
+ms.date: 07/05/2019
 uid: blazor/components
-ms.openlocfilehash: c52f23ea319d30d871ecdfc9648a4e30aa877324
-ms.sourcegitcommit: 0b9e767a09beaaaa4301915cdda9ef69daaf3ff2
+ms.openlocfilehash: ca715457604f08e50628d1c1189ea3c570321112
+ms.sourcegitcommit: b9e914ef274b5ec359582f299724af6234dce135
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67538508"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67596102"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Tworzenie i używanie składników platformy ASP.NET Core Razor
 
@@ -961,34 +961,34 @@ Podrzędny `Tab` składniki przechwytywania, zawierający `TabSet` jako parametr
 Renderowanie fragmentów można zdefiniować przy użyciu składni szablonów Razor. Szablony razor służą do definiowania fragmentu interfejsu użytkownika i założono następujący format:
 
 ```cshtml
-@<tag>...</tag>
+@<{HTML tag}>...</{HTML tag}>
 ```
 
-Poniższy przykład ilustruje sposób określania `RenderFragment` i `RenderFragment<T>` wartości.
-
-`RazorTemplates` Składnik:
+Poniższy przykład ilustruje sposób określania `RenderFragment` i `RenderFragment<T>` wartości i renderowania szablonów bezpośrednio w składniku. Renderowanie fragmentów, również mogą być przekazywane jako argumenty [oparte na szablonach składniki](#templated-components).
 
 ```cshtml
-@{
-    RenderFragment template = @<p>The time is @DateTime.Now.</p>;
-    RenderFragment<Pet> petTemplate = (pet) => @<p>Your pet's name is @pet.Name.</p>;
+@timeTemplate
+
+@petTemplate(new Pet { Name = "Rex" })
+
+@code {
+    private RenderFragment timeTemplate = @<p>The time is @DateTime.Now.</p>;
+    private RenderFragment<Pet> petTemplate = 
+        (pet) => @<p>Your pet's name is @pet.Name.</p>;
+
+    private class Pet
+    {
+        public string Name { get; set; }
+    }
 }
 ```
 
-Renderowanie fragmentów zdefiniowane przy użyciu Razor szablony mogą być przekazywane jako argumenty do składników oparte na szablonach lub renderowane bezpośrednio. Na przykład szablony poprzedniego bezpośrednio są renderowane w następującym kodem Razor:
+Renderowany dane wyjściowe dla poprzedniego kodu:
 
-```cshtml
-@template
+```html
+<p>The time is 10/04/2018 01:26:52.</p>
 
-@petTemplate(new Pet { Name = "Rex" })
-```
-
-Wyniku renderowania:
-
-```
-The time is 10/04/2018 01:26:52.
-
-Your pet's name is Rex.
+<p>Your pet's name is Rex.</p>
 ```
 
 ## <a name="manual-rendertreebuilder-logic"></a>Ręczne logiki RenderTreeBuilder
@@ -1003,12 +1003,12 @@ Należy wziąć pod uwagę następujące `PetDetails` składnik, który może zo
 ```cshtml
 <h2>Pet Details Component</h2>
 
-<p>@PetDetailsQuote<p>
+<p>@PetDetailsQuote</p>
 
 @code
 {
     [Parameter]
-    string PetDetailsQuote { get; set; }
+    private string PetDetailsQuote { get; set; }
 }
 ```
 

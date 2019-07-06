@@ -1,16 +1,17 @@
 ---
 title: polecenie elementu codegenerator aspnet DotNet
 author: rick-anderson
+description: Polecenia dotnet elementu codegenerator aspnet szkielety mechanizmów projektów ASP.NET Core.
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
-description: Polecenia dotnet elementu codegenerator aspnet szkielety mechanizmów projektów ASP.NET Core
 ms.date: 07/04/2019
 uid: fundamentals/tools/dotnet-aspnet-codegenerator
-ms.openlocfilehash: 55b592d9d203970777c84438e210519957abb35d
-ms.sourcegitcommit: f6e6730872a7d6f039f97d1df762f0d0bd5e34cf
+ms.openlocfilehash: c96362f320efd84c35dc07294a2968a2c687ee94
+ms.sourcegitcommit: b9e914ef274b5ec359582f299724af6234dce135
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67561740"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67596140"
 ---
 # <a name="dotnet-aspnet-codegenerator"></a>dotnet aspnet-codegenerator
 
@@ -18,20 +19,20 @@ Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 `dotnet aspnet-codegenerator` — Działa aparat tworzenia szkieletu ASP.NET Core. `dotnet aspnet-codegenerator` jest tylko wymagane do tworzenia szkieletu z wiersza polecenia, nie jest konieczność tworzenia szkieletu za pomocą programu Visual Studio.
 
-Ten artykuł dotyczy [zestawu .NET Core 2.2 SDK](https://dotnet.microsoft.com/download/dotnet-core/2.2) i nowszych.
+Ten artykuł dotyczy [zestawu SDK programu .NET Core 2.1](https://dotnet.microsoft.com/download/dotnet-core/2.1) i nowszych.
 
 ## <a name="installing-aspnet-codegenerator"></a>Instalowanie elementu codegenerator aspnet
 
-`aspnet-codegenerator` jest [narzędzie globalne](/dotnet/core/tools/global-tools) musi być zainstalowany. Poniższe polecenie instaluje najnowszą stabilną wersję `aspnet-codegenerator` narzędzie:
+`dotnet-aspnet-codegenerator` jest [narzędzie globalne](/dotnet/core/tools/global-tools) musi być zainstalowany. Poniższe polecenie instaluje najnowszą stabilną wersję `dotnet-aspnet-codegenerator` narzędzie:
 
 ```console
-dotnet tool install -g aspnet-codegenerator
+dotnet tool install -g dotnet-aspnet-codegenerator
 ```
 
-Następujące polecenie aktualizacji `aspnet-codegenerator` do najnowszej stabilnej wersji dostępne z zainstalowanych zestawów .NET Core SDK:
+Następujące polecenie aktualizacji `dotnet-aspnet-codegenerator` do najnowszej stabilnej wersji dostępne z zainstalowanych zestawów .NET Core SDK:
 
 ```console
-dotnet tool update -g aspnet-codegenerator
+dotnet tool update -g dotnet-aspnet-codegenerator
 ```
 
 ## <a name="synopsis"></a>Streszczenie
@@ -43,7 +44,7 @@ dotnet aspnet-codegenerator [-h|--help]
 
 ## <a name="description"></a>Opis
 
-`dotnet aspnet-codegenerator ` Globalnego polecenie uruchamia platformy ASP.NET Core, generator kodu i aparatu do tworzenia szkieletów.
+`dotnet aspnet-codegenerator` Globalnego polecenie uruchamia platformy ASP.NET Core, generator kodu i aparatu do tworzenia szkieletów.
 
 ## <a name="arguments"></a>Argumenty
 
