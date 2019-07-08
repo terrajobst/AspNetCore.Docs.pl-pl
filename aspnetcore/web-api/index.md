@@ -5,14 +5,14 @@ description: Poznaj podstawy tworzenia internetowego interfejsu API w programie 
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 05/07/2019
+ms.date: 07/08/2019
 uid: web-api/index
-ms.openlocfilehash: 593fd33babc81cddfc4db2150a37e5ec3bc1a0be
-ms.sourcegitcommit: a3926eae3f687013027a2828830c12a89add701f
+ms.openlocfilehash: 4f9c334f74dd2a8b7c31c7a42703fa361ccf9139
+ms.sourcegitcommit: 91cc1f07ef178ab709ea42f8b3a10399c970496e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65450836"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67622794"
 ---
 # <a name="create-web-apis-with-aspnet-core"></a>Tworzenie interfejsów API sieci web za pomocą platformy ASP.NET Core
 
@@ -28,7 +28,7 @@ Interfejs API sieci web ma co najmniej jedną klasę kontrolera, które wynikaj�
 
 [!code-csharp[](index/samples/2.x/Controllers/ValuesController.cs?name=snippet_Signature&highlight=3)]
 
-Nie należy tworzyć kontroler internetowego interfejsu API przez pochodząca od <xref:Microsoft.AspNetCore.Mvc.Controller> klasy bazowej. `Controller` pochodzi od klasy `ControllerBase` i dodaje obsługę widoków, więc w przypadku stron sieci web obsługi żądań internetowego interfejsu API.  Wyjątkiem od tej reguły: Jeśli planujesz używać tego samego kontrolera zarówno dla widoków i interfejsów API, pochodzi z `Controller`.
+Nie należy tworzyć kontroler internetowego interfejsu API przez pochodząca od <xref:Microsoft.AspNetCore.Mvc.Controller> klasy. `Controller` pochodzi od klasy `ControllerBase` i dodaje obsługę widoków, więc w przypadku stron sieci web obsługi żądań internetowego interfejsu API.  Wyjątkiem od tej reguły: Jeśli planujesz używać tego samego kontrolera zarówno dla widoków i interfejsów API, pochodzi z `Controller`.
 
 `ControllerBase` Klasy zawiera wiele właściwości i metod, które są przydatne do obsługi żądań HTTP. Na przykład `ControllerBase.CreatedAtAction` zwraca kod stanu 201:
 
