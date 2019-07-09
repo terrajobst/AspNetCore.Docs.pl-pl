@@ -5,12 +5,12 @@ description: Schematy zasady uwierzytelniania ułatwiają ma jeden logiczne sche
 ms.author: riande
 ms.date: 2/28/2019
 uid: security/authentication/policyschemes
-ms.openlocfilehash: c310b61e14df2b7846e32a602bb75914a5850aff
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 1a2d92e6fa54189b8154fc501b31c8a99d1f9081
+ms.sourcegitcommit: 357a7120632b20465801c093e4e5bd4a315496a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64901648"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67649180"
 ---
 # <a name="policy-schemes-in-aspnet-core"></a>Zasady programów w programie ASP.NET Core
 
@@ -32,7 +32,7 @@ Poniższy przykład pokazuje wyższe schematu poziomu, który łączy niższym p
 
 [!code-csharp[sample](policyschemes/samples/Startup.cs?name=snippet1)]
 
-Poniższy przykład umożliwia dynamiczne Wybieranie schematów na podstawie danego żądania. Oznacza to jak łączyć pliki cookie i uwierzytelniania interfejsu API.
+Poniższy przykład umożliwia dynamiczne Wybieranie schematów na podstawie danego żądania. Oznacza to jak łączyć pliki cookie i uwierzytelniania interfejsu API:
 
  <!-- REVIEW, missing If set in public Func<HttpContext, string> ForwardDefaultSelector -->
 

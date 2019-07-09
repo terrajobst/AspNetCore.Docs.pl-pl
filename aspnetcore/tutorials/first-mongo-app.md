@@ -4,14 +4,14 @@ author: prkhandelwal
 description: Ten samouczek przedstawia sposób tworzenia sieci web platformy ASP.NET Core interfejsu API przy użyciu bazy danych NoSQL bazy danych MongoDB.
 ms.author: scaddie
 ms.custom: mvc, seodec18
-ms.date: 06/10/2019
+ms.date: 07/10/2019
 uid: tutorials/first-mongo-app
-ms.openlocfilehash: 426b4c0dee290153b9b1bf83deec14fa728183cb
-ms.sourcegitcommit: f5762967df3be8b8c868229e679301f2f7954679
+ms.openlocfilehash: c64f6e69a19e294a18cc72c860af0a03ef70d444
+ms.sourcegitcommit: 357a7120632b20465801c093e4e5bd4a315496a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67048081"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67649193"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-mongodb"></a>Tworzenie internetowego interfejsu API za pomocą platformy ASP.NET Core i usługi MongoDB
 
@@ -109,6 +109,9 @@ Użyj powłoki mongo w poniższych krokach umożliwia tworzenie bazy danych, wpr
       ]
     }
     ```
+  
+  > [!NOTE]
+  > Identyfikatory przedstawione w tym artykule nie będą zgodne identyfikatory, po uruchomieniu tego przykładu.
 
 1. Wyświetl dokumenty w bazie danych, używając następującego polecenia:
 
@@ -318,11 +321,11 @@ Poprzedni kontroler internetowego interfejsu API:
     ]
     ```
 
-1. Przejdź do `http://localhost:<port>/api/books/5bfd996f7b8e48dc15ff215e` do kontrolera testowego użytkownika przeciążone `Get` metody akcji. Wyświetlane są następujące odpowiedź w formacie JSON:
+1. Przejdź do `http://localhost:<port>/api/books/{id here}` do kontrolera testowego użytkownika przeciążone `Get` metody akcji. Wyświetlane są następujące odpowiedź w formacie JSON:
 
     ```json
     {
-      "id":"5bfd996f7b8e48dc15ff215e",
+      "id":"{ID}",
       "bookName":"Clean Code",
       "price":43.15,
       "category":"Computers",
