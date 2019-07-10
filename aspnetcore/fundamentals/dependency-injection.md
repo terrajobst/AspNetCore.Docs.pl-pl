@@ -5,14 +5,14 @@ description: Dowiedz się, jak platformy ASP.NET Core implementuje wstrzykiwanie
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/01/2019
+ms.date: 07/09/2019
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 815838e72bc51c70ca1d3d3c1fc6c196bd08ee70
-ms.sourcegitcommit: eb3e51d58dd713eefc242148f45bd9486be3a78a
+ms.openlocfilehash: 1455aa9ce4ea24eaeb396134f91b6d089b346c17
+ms.sourcegitcommit: bee530454ae2b3c25dc7ffebf93536f479a14460
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67500466"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67724442"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Wstrzykiwanie zależności w programie ASP.NET Core
 
@@ -68,8 +68,8 @@ Klasa tworzy i zależy od bezpośrednio `MyDependency` wystąpienia. Zależnośc
 
 Wstrzykiwanie zależności rozwiązuje te problemy za pomocą:
 
-* Użycie interfejsu tworzących warstwę abstrakcji implementacji zależności.
-* Rejestracja zależności w kontenerze usługi. Platforma ASP.NET Core zapewnia kontener wbudowanej usługi [IServiceProvider](/dotnet/api/system.iserviceprovider). Usługi są zarejestrowane w usłudze aplikacji `Startup.ConfigureServices` metody.
+* Użycie interfejsu lub klasy bazowej tworzących warstwę abstrakcji implementacji zależności.
+* Rejestracja zależności w kontenerze usługi. Platforma ASP.NET Core zapewnia kontener wbudowanej usługi <xref:System.IServiceProvider>. Usługi są zarejestrowane w usłudze aplikacji `Startup.ConfigureServices` metody.
 * *Iniekcja* usługi do konstruktora klasy, w których jest używany. Struktura przejmuje odpowiedzialność za tworzenie wystąpienia zależności i usuwania je, gdy nie jest już potrzebny.
 
 W [przykładową aplikację](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/dependency-injection/samples), `IMyDependency` interfejs definiuje metodę, która udostępnia usługę do aplikacji:
@@ -80,7 +80,7 @@ Ten interfejs jest implementowany przez konkretny typ `MyDependency`:
 
 [!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Services/MyDependency.cs?name=snippet1)]
 
-`MyDependency` żądania [ILogger&lt;TCategoryName&gt; ](/dotnet/api/microsoft.extensions.logging.ilogger-1) w jego konstruktorze. Nie jest niczym niezwykłym używać wstrzykiwanie zależności w sposób połączonych. Poszczególne zależności żądanego żądań z kolei swoje własne zależności. Jest rozpoznawana jako zależności na wykresie i zwraca w pełni rozpoznać usługę kontenera. Zbiorczy zestaw zależności, które muszą być rozwiązane jest zwykle nazywany *drzewo zależności*, *wykres zależności*, lub *wykresu obiektu*.
+`MyDependency` żądania <xref:Microsoft.Extensions.Logging.ILogger`1> w jego konstruktorze. Nie jest niczym niezwykłym używać wstrzykiwanie zależności w sposób połączonych. Poszczególne zależności żądanego żądań z kolei swoje własne zależności. Jest rozpoznawana jako zależności na wykresie i zwraca w pełni rozpoznać usługę kontenera. Zbiorczy zestaw zależności, które muszą być rozwiązane jest zwykle nazywany *drzewo zależności*, *wykres zależności*, lub *wykresu obiektu*.
 
 `IMyDependency` i `ILogger<TCategoryName>` musi być zarejestrowana w kontenerze usługi. `IMyDependency` jest zarejestrowany w `Startup.ConfigureServices`. `ILogger<TCategoryName>` jest on zarejestrowany infrastruktury abstrakcje rejestrowanie, dlatego ma [usługi dostarczane przez framework](#framework-provided-services) zarejestrowana domyślnie przez platformę.
 
@@ -95,7 +95,7 @@ W przykładowej aplikacji `IMyDependency` usługa jest zarejestrowana przy użyc
 [!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Startup.cs?name=snippet1&highlight=5)]
 
 > [!NOTE]
-> Każdy `services.Add{SERVICE_NAME}` — metoda rozszerzenia dodaje (i potencjalnie konfiguruje) usługi. Na przykład `services.AddMvc()` dodaje usług, stronami Razor i wymagają MVC. Zaleca się, że aplikacje stosują taką Konwencję. Metody rozszerzające w miejscu [Microsoft.Extensions.DependencyInjection](/dotnet/api/microsoft.extensions.dependencyinjection) przestrzeni nazw w celu hermetyzacji grupy rejestracji usługi.
+> Każdy `services.Add{SERVICE_NAME}` — metoda rozszerzenia dodaje (i potencjalnie konfiguruje) usługi. Na przykład `services.AddMvc()` dodaje usług, stronami Razor i wymagają MVC. Zaleca się, że aplikacje stosują taką Konwencję. Metody rozszerzające w miejscu <xref:Microsoft.Extensions.DependencyInjection?displayProperty=fullName> przestrzeni nazw w celu hermetyzacji grupy rejestracji usługi.
 
 Jeśli Konstruktor usługi wymaga [typ wbudowany](/dotnet/csharp/language-reference/keywords/built-in-types-table), takich jak `string`, typ może wprowadzone za pomocą [konfiguracji](xref:fundamentals/configuration/index) lub [wzorzec opcje](xref:fundamentals/configuration/options):
 
@@ -125,22 +125,22 @@ W przykładowej aplikacji `IMyDependency` wystąpienie jest wymagane i używane 
 
 | Typ usługi | Okres istnienia |
 | ------------ | -------- |
-| [Microsoft.AspNetCore.Hosting.Builder.IApplicationBuilderFactory](/dotnet/api/microsoft.aspnetcore.hosting.builder.iapplicationbuilderfactory) | Przejściowe |
-| [Microsoft.AspNetCore.Hosting.IApplicationLifetime](/dotnet/api/microsoft.aspnetcore.hosting.iapplicationlifetime) | pojedyncze |
-| [Microsoft.AspNetCore.Hosting.IHostingEnvironment](/dotnet/api/microsoft.aspnetcore.hosting.ihostingenvironment) | pojedyncze |
-| [Microsoft.AspNetCore.Hosting.IStartup](/dotnet/api/microsoft.aspnetcore.hosting.istartup) | pojedyncze |
-| [Microsoft.AspNetCore.Hosting.IStartupFilter](/dotnet/api/microsoft.aspnetcore.hosting.istartupfilter) | Przejściowe |
-| [Microsoft.AspNetCore.Hosting.Server.IServer](/dotnet/api/microsoft.aspnetcore.hosting.server.iserver) | pojedyncze |
-| [Microsoft.AspNetCore.Http.IHttpContextFactory](/dotnet/api/microsoft.aspnetcore.http.ihttpcontextfactory) | Przejściowe |
-| [Microsoft.Extensions.Logging.ILogger&lt;T&gt;](/dotnet/api/microsoft.extensions.logging.ilogger) | pojedyncze |
-| [Microsoft.Extensions.Logging.ILoggerFactory](/dotnet/api/microsoft.extensions.logging.iloggerfactory) | pojedyncze |
-| [Microsoft.Extensions.ObjectPool.ObjectPoolProvider](/dotnet/api/microsoft.extensions.objectpool.objectpoolprovider) | pojedyncze |
-| [Microsoft.Extensions.Options.IConfigureOptions&lt;T&gt;](/dotnet/api/microsoft.extensions.options.iconfigureoptions-1) | Przejściowe |
-| [Microsoft.Extensions.Options.IOptions&lt;T&gt;](/dotnet/api/microsoft.extensions.options.ioptions-1) | pojedyncze |
-| [System.Diagnostics.DiagnosticSource](/dotnet/core/api/system.diagnostics.diagnosticsource) | pojedyncze |
-| [System.Diagnostics.DiagnosticListener](/dotnet/core/api/system.diagnostics.diagnosticlistener) | pojedyncze |
+| <xref:Microsoft.AspNetCore.Hosting.Builder.IApplicationBuilderFactory?displayProperty=fullName> | Przejściowe |
+| <xref:Microsoft.AspNetCore.Hosting.IApplicationLifetime?displayProperty=fullName> | pojedyncze |
+| <xref:Microsoft.AspNetCore.Hosting.IHostingEnvironment?displayProperty=fullName> | pojedyncze |
+| <xref:Microsoft.AspNetCore.Hosting.IStartup?displayProperty=fullName> | pojedyncze |
+| <xref:Microsoft.AspNetCore.Hosting.IStartupFilter?displayProperty=fullName> | Przejściowe |
+| <xref:Microsoft.AspNetCore.Hosting.Server.IServer?displayProperty=fullName> | pojedyncze |
+| <xref:Microsoft.AspNetCore.Http.IHttpContextFactory?displayProperty=fullName> | Przejściowe |
+| <xref:Microsoft.Extensions.Logging.ILogger`1?displayProperty=fullName> | pojedyncze |
+| <xref:Microsoft.Extensions.Logging.ILoggerFactory?displayProperty=fullName> | pojedyncze |
+| <xref:Microsoft.Extensions.ObjectPool.ObjectPoolProvider?displayProperty=fullName> | pojedyncze |
+| <xref:Microsoft.Extensions.Options.IConfigureOptions`1?displayProperty=fullName> | Przejściowe |
+| <xref:Microsoft.Extensions.Options.IOptions`1?displayProperty=fullName> | pojedyncze |
+| <xref:System.Diagnostics.DiagnosticSource?displayProperty=fullName> | pojedyncze |
+| <xref:System.Diagnostics.DiagnosticListener?displayProperty=fullName> | pojedyncze |
 
-Po udostępnieniu register a service (i jej usługi zależne, jeśli jest to wymagane) metody rozszerzenia kolekcji usługi Konwencji jest użycie pojedynczego `Add{SERVICE_NAME}` metodę rozszerzenia, aby zarejestrować wszystkich usług wymaganych przez tę usługę. Poniższy kod jest przykładem sposobu dodawania dodatkowych usług do kontenera przy użyciu metody rozszerzenia [AddDbContext](/dotnet/api/microsoft.extensions.dependencyinjection.entityframeworkservicecollectionextensions.adddbcontext), [AddIdentity](/dotnet/api/microsoft.extensions.dependencyinjection.identityservicecollectionextensions.addidentity), i [AddMvc](/dotnet/api/microsoft.extensions.dependencyinjection.mvcservicecollectionextensions.addmvc):
+Po udostępnieniu register a service (i jej usługi zależne, jeśli jest to wymagane) metody rozszerzenia kolekcji usługi Konwencji jest użycie pojedynczego `Add{SERVICE_NAME}` metodę rozszerzenia, aby zarejestrować wszystkich usług wymaganych przez tę usługę. Poniższy kod jest przykładem sposobu dodawania dodatkowych usług do kontenera przy użyciu metody rozszerzenia <xref:Microsoft.Extensions.DependencyInjection.EntityFrameworkServiceCollectionExtensions.AddDbContext*>, <xref:Microsoft.Extensions.DependencyInjection.IdentityServiceCollectionExtensions.AddIdentityCore*>, i <xref:Microsoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions.AddMvc*>:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -156,36 +156,83 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Aby uzyskać więcej informacji, zobacz [klasy ServiceCollection](/dotnet/api/microsoft.extensions.dependencyinjection.servicecollection) w dokumentacji interfejsu API.
+Aby uzyskać więcej informacji, zobacz <xref:Microsoft.Extensions.DependencyInjection.ServiceCollection> clss w dokumentacji interfejsu API.
 
 ## <a name="service-lifetimes"></a>Okresy istnienia usługi
 
 Wybierz odpowiedni okres istnienia dla każdej zarejestrowanej usługi. Usługi ASP.NET Core mogą być skonfigurowane przy użyciu następujących okresów istnienia:
 
-**Przejściowe**
+### <a name="transient"></a>Przejściowe
 
-Przejściowych okres istnienia usługi są tworzone za każdym razem, zleconej z kontenera usługi przez. Ten okres istnienia najlepiej uproszczone, bezstanowych usług.
+Usługi przejściowych okres istnienia (<xref:Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddTransient*>) są tworzone za każdym razem, zleconej z kontenera usług. Ten okres istnienia najlepiej uproszczone, bezstanowych usług.
 
-**O określonym zakresie**
+### <a name="scoped"></a>O określonym zakresie
 
-Okres istnienia w zakresie usług są tworzone w jeden raz dla każdego żądania klienta (połączenie).
+Zakres usług okres istnienia (<xref:Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped*>) są tworzone w jeden raz dla każdego żądania klienta (połączenie).
 
 > [!WARNING]
 > Korzystając z usługi o określonym zakresie w oprogramowaniu pośredniczącym, wprowadzić usługę do `Invoke` lub `InvokeAsync` metody. Nie wstrzyknąć przy użyciu iniekcji konstruktora, ponieważ wymusza usługę, aby zachowywać się jak wzorzec singleton. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/middleware/index>.
 
-**pojedyncze**
+### <a name="singleton"></a>pojedyncze
 
-Pojedyncze okres istnienia usługi są tworzone po raz pierwszy masz żądanej (lub gdy `ConfigureServices` jest uruchamiany i wystąpienie jest określony za pomocą rejestracji usługi). Każde kolejne żądanie używa tego samego wystąpienia. Jeśli aplikacja wymaga pojedynczego zachowanie, umożliwiając kontener usługi zarządzać okresem istnienia usługi jest zalecane. Nie implementuje wzorzec projektowy pojedyncze i podać kod użytkownika do zarządzania okres istnienia obiektu w klasie.
+Pojedyncze okres istnienia usługi (<xref:Microsoft.AspNet.OData.Builder.ODataModelBuilder.AddSingleton*>) są tworzone po raz pierwszy masz żądanej (lub gdy `Startup.ConfigureServices` jest uruchamiany i wystąpienie jest określony za pomocą rejestracji usługi). Każde kolejne żądanie używa tego samego wystąpienia. Jeśli aplikacja wymaga pojedynczego zachowanie, umożliwiając kontener usługi zarządzać okresem istnienia usługi jest zalecane. Nie implementuje wzorzec projektowy pojedyncze i podać kod użytkownika do zarządzania okres istnienia obiektu w klasie.
 
 > [!WARNING]
 > Niebezpiecznie usługi o określonym zakresie z pojedynczego rozwiązania. Może to spowodować usługi, aby nieprawidłowym stanie podczas przetwarzania kolejnych żądań.
+
+## <a name="service-registration-methods"></a>Metody rejestracji usługi
+
+Każda metoda rozszerzenia rejestracji usługa oferuje przeciążenia, które są przydatne w określonych scenariuszach.
+
+| Metoda | Automatyczne<br>object<br>likwidacji | Wielokrotne<br>implementacje | Przekazywanie argumentów |
+| ------ | :-----------------------------: | :-------------------------: | :-------: |
+| `Add{LIFETIME}<{SERVICE}, {IMPLEMENTATION}>()`<br>Przykład:<br>`services.AddScoped<IMyDep, MyDep>();` | Yes | Yes | Nie |
+| `Add{LIFETIME}<{SERVICE}>(sp => new {IMPLEMENTATION})`<br>Przykłady:<br>`services.AddScoped<IMyDep>(sp => new MyDep());`<br>`services.AddScoped<IMyDep>(sp => new MyDep("A string!"));` | Yes | Yes | Tak |
+| `Add{LIFETIME}<{IMPLEMENTATION}>()`<br>Przykład:<br>`services.AddScoped<MyDep>();` | Yes | Nie | Nie |
+| `Add{LIFETIME}<{SERVICE}>(new {IMPLEMENTATION})`<br>Przykłady:<br>`services.AddScoped<IMyDep>(new MyDep());`<br>`services.AddScoped<IMyDep>(new MyDep("A string!"));` | Nie | Yes | Yes |
+| `Add{LIFETIME}(new {IMPLEMENTATION})`<br>Przykłady:<br>`services.AddScoped(new MyDep());`<br>`services.AddScoped(new MyDep("A string!"));` | Nie | Nie | Tak |
+
+Aby uzyskać więcej informacji na temat usuwania typów, zobacz [usuwania usług](#disposal-of-services) sekcji. Jest to typowy scenariusz, w wielu implementacjach [pozorowanie typów testowych](xref:test/integration-tests#inject-mock-services).
+
+`TryAdd{LIFETIME}` metody zarejestrować usługę tylko, jeśli go nie ma już implementację zarejestrowany.
+
+W poniższym przykładzie pierwszy wiersz rejestruje `MyDependency` dla `IMyDependency`. Drugi wiersz nie obowiązuje, ponieważ `IMyDependency` ma już zarejestrowanej implementacji:
+
+```csharp
+services.AddSingleton<IMyDependency, MyDependency>();
+// The following line has no effect:
+services.TryAddSingleton<IMyDependency, DifferentDependency>();
+```
+
+Aby uzyskać więcej informacji, zobacz:
+
+* <xref:Microsoft.Extensions.DependencyInjection.Extensions.ServiceCollectionDescriptorExtensions.TryAdd*>
+* <xref:Microsoft.Extensions.DependencyInjection.Extensions.ServiceCollectionDescriptorExtensions.TryAddTransient*>
+* <xref:Microsoft.Extensions.DependencyInjection.Extensions.ServiceCollectionDescriptorExtensions.TryAddScoped*>
+* <xref:Microsoft.Extensions.DependencyInjection.Extensions.ServiceCollectionDescriptorExtensions.TryAddSingleton*>
+
+[TryAddEnumerable(ServiceDescriptor)](xref:Microsoft.Extensions.DependencyInjection.Extensions.ServiceCollectionDescriptorExtensions.TryAddEnumerable*) Jeśli go nie ma już implementację metody tylko zarejestrować usługę *tego samego typu*. Wiele usług są rozwiązywane za pośrednictwem `IEnumerable<{SERVICE}>`. Podczas rejestrowania usług, deweloper tylko chce, aby dodać wystąpienie, jeśli jeden z tego samego typu nie został już dodany. Ogólnie rzecz biorąc ta metoda jest używana przez autorów biblioteki w celu uniknięcia rejestrowanie dwie kopie wystąpienia w kontenerze.
+
+W poniższym przykładzie pierwszy wiersz rejestruje `MyDep` dla `IMyDep1`. Drugi wiersz rejestruje `MyDep` dla `IMyDep2`. Trzeci wiersz nie obowiązuje, ponieważ `IMyDep1` ma już zarejestrowanej implementacji `MyDep`:
+
+```csharp
+public interface IMyDep1 {}
+public interface IMyDep2 {}
+
+public class MyDep : IMyDep1, IMyDep2 {}
+
+services.TryAddEnumerable(ServiceDescriptor.Singleton<IMyDep1, MyDep>());
+services.TryAddEnumerable(ServiceDescriptor.Singleton<IMyDep2, MyDep>());
+// Two registrations of MyDep for IMyDep1 is avoided by the following line:
+services.TryAddEnumerable(ServiceDescriptor.Singleton<IMyDep1, MyDep>());
+```
 
 ### <a name="constructor-injection-behavior"></a>Zachowanie iniekcji konstruktora
 
 Usługi można rozwiązać przez dwa mechanizmy:
 
-* `IServiceProvider`
-* [ActivatorUtilities](/dotnet/api/microsoft.extensions.dependencyinjection.activatorutilities) &ndash; pozwala na tworzenie obiektów bez rejestracji usługi w kontenera iniekcji zależności. `ActivatorUtilities` jest używana z abstrakcji widocznych dla użytkownika, takich jak pomocnicy tagów, integratorów modeli i kontrolerów MVC.
+* <xref:System.IServiceProvider>
+* <xref:Microsoft.Extensions.DependencyInjection.ActivatorUtilities> &ndash; Pozwala na tworzenie obiektów bez rejestracji usługi w kontenera iniekcji zależności. `ActivatorUtilities` jest używana z abstrakcji widocznych dla użytkownika, takich jak pomocnicy tagów, integratorów modeli i kontrolerów MVC.
 
 Konstruktory może akceptować argumenty, które nie są dostarczane przez wstrzykiwanie zależności, ale argumenty należy przypisać wartości domyślne.
 
@@ -263,11 +310,11 @@ Sprawdź, które `OperationId` wartości różnią się w ramach żądania i mi�
 
 * *Przejściowy* obiektów zawsze są różne. Przejściowy `OperationId` wartość pierwszego i drugiego klient żąda różnią się w obu `OperationService` operacje wielu żądań klientów. Nowe wystąpienie znajduje się do każdego żądania obsługi i żądanie klienta.
 * *Zakres* obiekty są takie same, w ramach żądania klienta, ale o różnych żądań klienta.
-* *Pojedyncze* obiekty są takie same dla każdego obiektu, a każde żądanie, niezależnie od tego, czy `Operation` wystąpienie znajduje się w `ConfigureServices`.
+* *Pojedyncze* obiekty są takie same dla każdego obiektu, a każde żądanie, niezależnie od tego, czy `Operation` wystąpienie znajduje się w `Startup.ConfigureServices`.
 
 ## <a name="call-services-from-main"></a>Wywoływanie usług z głównego
 
-Tworzenie [IServiceScope](/dotnet/api/microsoft.extensions.dependencyinjection.iservicescope) z [IServiceScopeFactory.CreateScope](/dotnet/api/microsoft.extensions.dependencyinjection.iservicescopefactory.createscope) rozpoznawanie zakresu usługi w zakresie aplikacji. Takie podejście jest przydatne do dostępu do usługi o określonym zakresie przy uruchamianiu do uruchamiania zadań inicjowania. Poniższy przykład pokazuje, jak uzyskać kontekst dla `MyScopedService` w `Program.Main`:
+Tworzenie <xref:Microsoft.Extensions.DependencyInjection.IServiceScope> z [IServiceScopeFactory.CreateScope](xref:Microsoft.Extensions.DependencyInjection.IServiceScopeFactory.CreateScope*) rozpoznawanie zakresu usługi w zakresie aplikacji. Takie podejście jest przydatne do dostępu do usługi o określonym zakresie przy uruchamianiu do uruchamiania zadań inicjowania. Poniższy przykład pokazuje, jak uzyskać kontekst dla `MyScopedService` w `Program.Main`:
 
 ```csharp
 public static void Main(string[] args)
@@ -301,7 +348,7 @@ Gdy aplikacja jest uruchomiona w środowisku programistycznym, domyślny dostawc
 * Usługi o określonym zakresie nie są bezpośrednio lub pośrednio rozwiązane od dostawcy usług w katalogu głównego.
 * Usługi o określonym zakresie nie są bezpośrednio lub pośrednio wprowadzony do pojedynczych wystąpień.
 
-Dostawcy usług główny jest tworzone, gdy [BuildServiceProvider](/dotnet/api/microsoft.extensions.dependencyinjection.servicecollectioncontainerbuilderextensions.buildserviceprovider) jest wywoływana. Okres istnienia dostawcy usług głównego odnosi się do aplikacji/serwera. okres istnienia, gdy dostawca rozpoczyna się od aplikacji i zostanie usunięty podczas zamykania aplikacji.
+Dostawcy usług główny jest tworzone, gdy <xref:Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider*> jest wywoływana. Okres istnienia dostawcy usług głównego odnosi się do aplikacji/serwera. okres istnienia, gdy dostawca rozpoczyna się od aplikacji i zostanie usunięty podczas zamykania aplikacji.
 
 Usługi o określonym zakresie są usuwane przez kontener, który je utworzył. Jeśli usługi o określonym zakresie zostanie utworzony w kontenerze katalogu głównego, okres istnienia usługi skutecznie zostanie podwyższony do pojedynczego wystąpienia, ponieważ tylko są usuwane przez nadrzędny kontener, gdy serwer/aplikacji zostanie zamknięta. Sprawdzanie poprawności usługi zakresy przechwytuje tych sytuacji gdy `BuildServiceProvider` jest wywoływana.
 
@@ -309,7 +356,7 @@ Aby uzyskać więcej informacji, zobacz <xref:fundamentals/host/web-host#scope-v
 
 ## <a name="request-services"></a>Żądanie usługi
 
-Usługi dostępne w ramach platformy ASP.NET Core poprosić `HttpContext` są udostępniane za pośrednictwem [HttpContext.RequestServices](/dotnet/api/microsoft.aspnetcore.http.httpcontext.requestservices) kolekcji.
+Usługi dostępne w ramach platformy ASP.NET Core poprosić `HttpContext` są udostępniane za pośrednictwem [HttpContext.RequestServices](xref:Microsoft.AspNetCore.Http.HttpContext.RequestServices) kolekcji.
 
 Żądanie usługi reprezentują usługi skonfigurowane, a żądane w ramach aplikacji. Gdy obiekty określić zależności, są one spełnione przez typów znalezionych w `RequestServices`, a nie `ApplicationServices`.
 
@@ -331,7 +378,7 @@ Jeśli klasa ma zbyt wiele zależności wprowadzonego, zwykle jest to znak, że 
 
 ### <a name="disposal-of-services"></a>Usuwanie usługi
 
-Wywołania kontenera `Dispose` dla `IDisposable` tworzy typy. Jeśli wystąpienie zostanie dodany do kontenera przez kod użytkownika, nie są usuwane automatycznie.
+Wywołania kontenera <xref:System.IDisposable.Dispose*> dla <xref:System.IDisposable> tworzy typy. Jeśli wystąpienie zostanie dodany do kontenera przez kod użytkownika, nie są usuwane automatycznie.
 
 ```csharp
 // Services that implement IDisposable:
@@ -412,7 +459,7 @@ W czasie wykonywania Autofac umożliwia rozwiązanie typów oraz wstrzykiwania z
 
 Tworzenie usługi singleton metodą o bezpiecznych wątkach. Usługi singleton ma zależność od usługi przejściowy, przejściowe usługa może również wymagać bezpieczeństwo wątków, w zależności od sposobu ich wykorzystania przez wzorzec singleton.
 
-Metoda fabryki pojedynczej usługi, takie jak drugi argument [AddSingleton&lt;TService&gt;(IServiceCollection, Func&lt;IServiceProvider, TService&gt;)](/dotnet/api/microsoft.extensions.dependencyinjection.servicecollectionserviceextensions.addsingleton#Microsoft_Extensions_DependencyInjection_ServiceCollectionServiceExtensions_AddSingleton__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_System_IServiceProvider___0__), nie musi być metodą o bezpiecznych wątkach. Typ, takich jak (`static`) konstruktora, jego ma gwarantuje lze volat pouze jednou przez pojedynczy wątek.
+Metoda fabryki pojedynczej usługi, takie jak drugi argument [AddSingleton\<TService > (IServiceCollection, Func\<IServiceProvider, TService >)](xref:Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton*), nie musi być metodą o bezpiecznych wątkach. Typ, takich jak (`static`) konstruktora, jego ma gwarantuje lze volat pouze jednou przez pojedynczy wątek.
 
 ## <a name="recommendations"></a>Zalecenia
 
@@ -420,7 +467,7 @@ Metoda fabryki pojedynczej usługi, takie jak drugi argument [AddSingleton&lt;TS
 
 * Unikaj przechowywania danych i konfiguracji bezpośrednio w kontenerze usługi. Na przykład koszyka użytkownika zwykle nie należy dodać do kontenera usługi. Należy użyć konfiguracji [wzorzec opcje](xref:fundamentals/configuration/options). Podobnie należy unikać obiektów "symbol zastępczy danych", które istnieją tylko w celu umożliwienia dostępu do innego obiektu. Jest lepszym rozwiązaniem rzeczywisty element za pośrednictwem DI żądania.
 
-* Unikaj statycznych dostęp do usług (na przykład statycznie — wpisanie [IApplicationBuilder.ApplicationServices](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder.applicationservices) użytku innym miejscu).
+* Unikaj statycznych dostęp do usług (na przykład statycznie — wpisanie [IApplicationBuilder.ApplicationServices](xref:Microsoft.AspNetCore.Builder.IApplicationBuilder.ApplicationServices) użytku innym miejscu).
 
 * Unikaj używania *wzorzec lokalizatora usług*. Na przykład nie wywołać <xref:System.IServiceProvider.GetService*> uzyskać wystąpienie usługi, gdy zamiast tego użyj DI:
 
@@ -457,7 +504,7 @@ Metoda fabryki pojedynczej usługi, takie jak drugi argument [AddSingleton&lt;TS
 
 * Inna wersja locator service, aby uniknąć wprowadza fabryki, który jest rozpoznawany jako zależności w czasie wykonywania. Oba te rozwiązania mieszanego [Inwersja kontroli](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) strategii.
 
-* Unikaj statycznych dostęp do `HttpContext` (na przykład [IHttpContextAccessor.HttpContext](/dotnet/api/microsoft.aspnetcore.http.ihttpcontextaccessor.httpcontext)).
+* Unikaj statycznych dostęp do `HttpContext` (na przykład [IHttpContextAccessor.HttpContext](xref:Microsoft.AspNetCore.Http.IHttpContextAccessor.HttpContext)).
 
 Podobnie jak wszystkie zestawy zaleceń mogą wystąpić sytuacje, w których wymagane jest ignorowanie zaleceniem. Wyjątki występują rzadko&mdash;przede wszystkim specjalne przypadki w samej strukturze.
 

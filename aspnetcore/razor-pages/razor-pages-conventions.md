@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/07/2019
 uid: razor-pages/razor-pages-conventions
-ms.openlocfilehash: 4e07b5803adbce94982584212fa65afbfd427b64
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 59c8af648b50deb51f3762c14348d08acd48886e
+ms.sourcegitcommit: bee530454ae2b3c25dc7ffebf93536f479a14460
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64899737"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67724445"
 ---
 # <a name="razor-pages-route-and-app-conventions-in-aspnet-core"></a>Razor konwencje tras i aplikacji stron w programie ASP.NET Core
 
@@ -270,7 +270,7 @@ W przykładzie pokazano użycie `AddPageApplicationModelConvention` przez dodani
 
 Model aplikacji strony służy do sprawdzania ścieżkę względną do segmentów, które mogą prowadzić do strony Strona2 *OtherPages* folderu. Jeśli warunek zostanie spełniony, zostanie dodany nagłówek. Jeśli nie, `EmptyFilter` jest stosowany.
 
-`EmptyFilter` jest [filtr akcji](xref:mvc/controllers/filters#action-filters). Ponieważ filtry akcji są ignorowane przez stron Razor `EmptyFilter` żadnych operacji zgodnie z oczekiwaniami, jeśli ścieżka nie zawiera `OtherPages/Page2`.
+`EmptyFilter` jest [filtr akcji](xref:mvc/controllers/filters#action-filters). Ponieważ filtry akcji są ignorowane przez stron Razor `EmptyFilter` nie ma wpływu zgodnie z oczekiwaniami, jeśli ścieżka nie zawiera `OtherPages/Page2`.
 
 Żądanie strony Strona2 przykładu w `localhost:5000/OtherPages/Page2` i sprawdzić te nagłówki, aby wyświetlić wynik:
 

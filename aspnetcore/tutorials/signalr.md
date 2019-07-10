@@ -4,14 +4,14 @@ author: bradygaster
 description: W tym samouczku utworzysz aplikację rozmowy, która korzysta z biblioteki SignalR platformy ASP.NET Core.
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 11/30/2018
+ms.date: 07/08/2019
 uid: tutorials/signalr
-ms.openlocfilehash: 9a4296550a17ac2c348f2406e9f5b39877b02b59
-ms.sourcegitcommit: d6e51c60439f03a8992bda70cc982ddb15d3f100
+ms.openlocfilehash: fd3324dfa0731ae16747178d83bd93ed95dd15ce
+ms.sourcegitcommit: bee530454ae2b3c25dc7ffebf93536f479a14460
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67555926"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67724475"
 ---
 # <a name="tutorial-get-started-with-aspnet-core-signalr"></a>Samouczek: Wprowadzenie do biblioteki SignalR platformy ASP.NET Core
 
@@ -28,39 +28,37 @@ Po zakończeniu będziesz mieć działającą aplikację rozmowy:
 
 ![SignalR przykładowej aplikacji](signalr/_static/signalr-get-started-finished.png)
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/signalr/sample) ([sposobu pobierania](xref:index#how-to-download-a-sample)).
-
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-[!INCLUDE[](~/includes/net-core-prereqs-vs2017-2.2.md)]
+[!INCLUDE[](~/includes/net-core-prereqs-vs-3.0.md)]
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-[!INCLUDE[](~/includes/net-core-prereqs-vsc-2.2.md)]
+[!INCLUDE[](~/includes/net-core-prereqs-vsc-3.0.md)]
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
-[!INCLUDE[](~/includes/net-core-prereqs-mac-2.2.md)]
+[!INCLUDE[](~/includes/net-core-prereqs-mac-3.0.md)]
 
 ---
 
-## <a name="create-a-web-project"></a>Tworzenie projektu sieci web
+## <a name="create-a-web-app-project"></a>Tworzenie projektu aplikacji sieci web
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
 
 * W menu, wybierz opcję **Plik > Nowy projekt**.
 
-* W **nowy projekt** okno dialogowe, wybierz opcję **zainstalowane > Visual C# > sieci Web > Aplikacja sieci Web programu ASP.NET Core**. Nadaj projektowi nazwę *SignalRChat*.
+* W **Utwórz nowy projekt** okno dialogowe, wybierz opcję **aplikacji sieci Web programu ASP.NET Core**, a następnie wybierz pozycję **dalej**.
+
+* W **konfigurowania nowego projektu** okno dialogowe, nazwę projektu *SignalRChat*, a następnie wybierz pozycję **Utwórz**.
+
+* W **Tworzenie nowej aplikacji sieci Web platformy ASP.NET Core** okno dialogowe, wybierz opcję **platformy .NET Core** i **platformy ASP.NET Core 3.0**. 
+
+* Wybierz **aplikacji sieci Web** utworzyć projekt, który korzysta ze stronami Razor, a następnie wybierz pozycję **Utwórz**.
 
   ![Okno dialogowe nowego projektu w programie Visual Studio](signalr/_static/signalr-new-project-dialog.png)
-
-* Wybierz **aplikacji sieci Web** do tworzenia projektu, który używa stron Razor.
-
-* Wybierz docelową platformę **platformy .NET Core**, wybierz opcję **platformy ASP.NET Core 2.2**i kliknij przycisk **OK**.
-
-  ![Okno dialogowe nowego projektu w programie Visual Studio](signalr/_static/signalr-new-project-choose-type.png)
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
 
@@ -77,9 +75,9 @@ Po zakończeniu będziesz mieć działającą aplikację rozmowy:
 
 * W menu, wybierz opcję **Plik > nowe rozwiązanie**.
 
-* Wybierz **platformy .NET Core > aplikacji > aplikacji internetowej ASP.NET Core** (nie wybieraj **ASP.NET Core Web App (MVC)** ).
+* Wybierz **platformy .NET Core > aplikacji > Aplikacja sieci Web** (nie wybieraj **aplikacji sieci Web (Model-View-Controller)** ), a następnie wybierz pozycję **dalej**.
 
-* Wybierz opcję **Dalej**.
+* Upewnij się, że **platformy docelowej** jest ustawiona na **.NET Core 3.0 to**, a następnie wybierz pozycję **dalej**.
 
 * Nadaj projektowi nazwę *SignalRChat*, a następnie wybierz pozycję **Utwórz**.
 
@@ -87,7 +85,7 @@ Po zakończeniu będziesz mieć działającą aplikację rozmowy:
 
 ## <a name="add-the-signalr-client-library"></a>Dodaj bibliotekę klienta SignalR
 
-Serwer biblioteki SignalR znajduje się w `Microsoft.AspNetCore.App` meta Microsoft.aspnetcore.all. Biblioteki klienta JavaScript automatycznie nie jest zawarty w projekcie. W tym samouczku używasz Library Manager (LibMan) można pobrać z biblioteki klienta z *unpkg*. unpkg jest usługa content delivery network (CDN)), można dostarczać niczego w Menedżer pakietów npm oraz Menedżera pakietów środowiska Node.js.
+Serwer biblioteki SignalR znajduje się w udostępnionej platformy ASP.NET Core 3.0. Biblioteki klienta JavaScript automatycznie nie jest zawarty w projekcie. W tym samouczku używasz Library Manager (LibMan) można pobrać z biblioteki klienta z *unpkg*. unpkg jest usługa content delivery network (CDN)), można dostarczać niczego w Menedżer pakietów npm oraz Menedżera pakietów środowiska Node.js.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
 
@@ -95,15 +93,14 @@ Serwer biblioteki SignalR znajduje się w `Microsoft.AspNetCore.App` meta Micros
 
 * W **Dodaj biblioteki po stronie klienta** okno dialogowe, aby uzyskać **dostawcy** wybierz **unpkg**.
 
-* Aby uzyskać **biblioteki**, wprowadź `@aspnet/signalr@1`i wybierz najnowszą wersję, która nie jest w wersji zapoznawczej.
-
-  ![Dodaj okno dialogowe biblioteki po stronie klienta — Wybieranie biblioteki](signalr/_static/libman1.png)
+* Aby uzyskać **biblioteki**, wprowadź `@aspnet/signalr@next`.
+<!-- when 3.0 is released, change @next to @latest -->
 
 * Wybierz **wybierz konkretne pliki**, rozwiń węzeł *dist/przeglądarki* folder, a następnie wybierz *signalr.js* i *signalr.min.js*.
 
 * Ustaw **lokalizacji docelowej** do *wwwroot/lib/signalr/* i wybierz **zainstalować**.
 
-  ![Dodaj okno dialogowe z biblioteki klienta - wybranie plików i miejsce docelowe](signalr/_static/libman2.png)
+  ![Dodaj okno dialogowe biblioteki po stronie klienta — Wybieranie biblioteki](signalr/_static/libman1.png)
 
   Tworzy LibMan *wwwroot/lib/signalr* folder i kopiuje wybrane pliki.
 
@@ -118,7 +115,7 @@ Serwer biblioteki SignalR znajduje się w `Microsoft.AspNetCore.App` meta Micros
 * Uruchom następujące polecenie, aby przy użyciu LibMan uzyskać biblioteki klienta SignalR. Być może musisz odczekaj kilka sekund, zanim dane wyjściowe.
 
   ```console
-  libman install @aspnet/signalr -p unpkg -d wwwroot/lib/signalr --files dist/browser/signalr.js --files dist/browser/signalr.min.js
+  libman install @aspnet/signalr@next -p unpkg -d wwwroot/lib/signalr --files dist/browser/signalr.js --files dist/browser/signalr.min.js
   ```
 
   Parametry określ następujące opcje:
@@ -131,7 +128,7 @@ Serwer biblioteki SignalR znajduje się w `Microsoft.AspNetCore.App` meta Micros
   ```console
   wwwroot/lib/signalr/dist/browser/signalr.js written to disk
   wwwroot/lib/signalr/dist/browser/signalr.min.js written to disk
-  Installed library "@aspnet/signalr@1.0.3" to "wwwroot/lib/signalr"
+  Installed library "@aspnet/signalr@next" to "wwwroot/lib/signalr"
   ```
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
@@ -147,7 +144,7 @@ Serwer biblioteki SignalR znajduje się w `Microsoft.AspNetCore.App` meta Micros
 * Uruchom następujące polecenie, aby przy użyciu LibMan uzyskać biblioteki klienta SignalR.
 
   ```console
-  libman install @aspnet/signalr -p unpkg -d wwwroot/lib/signalr --files dist/browser/signalr.js --files dist/browser/signalr.min.js
+  libman install @aspnet/signalr@next -p unpkg -d wwwroot/lib/signalr --files dist/browser/signalr.js --files dist/browser/signalr.min.js
   ```
 
   Parametry określ następujące opcje:
@@ -160,7 +157,7 @@ Serwer biblioteki SignalR znajduje się w `Microsoft.AspNetCore.App` meta Micros
   ```console
   wwwroot/lib/signalr/dist/browser/signalr.js written to disk
   wwwroot/lib/signalr/dist/browser/signalr.min.js written to disk
-  Installed library "@aspnet/signalr@1.0.3" to "wwwroot/lib/signalr"
+  Installed library "@aspnet/signalr@next" to "wwwroot/lib/signalr"
   ```
 
 ---
@@ -173,7 +170,7 @@ A *Centrum* jest klasa, która służy jako ogólny potok, który obsługuje kom
 
 * W *Hubs* folderze utwórz *ChatHub.cs* pliku następującym kodem:
 
-  [!code-csharp[Startup](signalr/sample/Hubs/ChatHub.cs)]
+  [!code-csharp[Startup](signalr/sample-snapshot/ChatHub.cs)]
 
   `ChatHub` Klasa dziedziczy z elementu SignalR `Hub` klasy. `Hub` Klasa zarządza połączeń, grup i komunikatów.
 
@@ -185,15 +182,15 @@ Serwer biblioteki SignalR musi być skonfigurowany do przekazywania żądań Sig
 
 * Dodaj następujący wyróżniony kod do *Startup.cs* pliku.
 
-  [!code-csharp[Startup](signalr/sample/Startup.cs?highlight=7,33,52-55)]
+  [!code-csharp[Startup](signalr/sample-snapshot/Startup.cs?highlight=6,30,58)]
 
-  Te zmiany dodanie SignalR systemu iniekcji zależności platformy ASP.NET Core i potoku oprogramowania pośredniczącego.
+  Te zmiany dodanie SignalR do wstrzykiwania zależności platformy ASP.NET Core i routing systemów.
 
 ## <a name="add-signalr-client-code"></a>Dodaj kod klienta SignalR
 
 * Zastąp zawartość *Pages\Index.cshtml* następującym kodem:
 
-  [!code-cshtml[Index](signalr/sample/Pages/Index.cshtml)]
+  [!code-cshtml[Index](signalr/sample-snapshot/Index.cshtml)]
 
   Powyższy kod:
 
@@ -203,7 +200,7 @@ Serwer biblioteki SignalR musi być skonfigurowany do przekazywania żądań Sig
 
 * W *wwwroot/js* folderze utwórz *chat.js* pliku następującym kodem:
 
-  [!code-javascript[Index](signalr/sample/wwwroot/js/chat.js)]
+  [!code-javascript[Index](signalr/sample-snapshot/chat.js)]
 
   Powyższy kod:
 
@@ -240,19 +237,15 @@ Serwer biblioteki SignalR musi być skonfigurowany do przekazywania żądań Sig
   ![SignalR przykładowej aplikacji](signalr/_static/signalr-get-started-finished.png)
 
 > [!TIP]
-> Jeśli aplikacja nie działa, Otwórz swoje narzędzia deweloperskie przeglądarki (F12) i przejdź do konsoli. Może pojawić się błędy związane z Twoim kodem HTML i JavaScript. Załóżmy, że możesz umieścić *signalr.js* w innym folderze niż bezpośredniego. W takim przypadku odwołania do tego pliku nie będzie działać, a następnie zostanie wyświetlony błąd 404 w konsoli.
-> ![błąd — nie znaleziono signalr.js](signalr/_static/f12-console.png)
+> * Jeśli aplikacja nie działa, Otwórz swoje narzędzia deweloperskie przeglądarki (F12) i przejdź do konsoli. Może pojawić się błędy związane z Twoim kodem HTML i JavaScript. Załóżmy, że możesz umieścić *signalr.js* w innym folderze niż bezpośredniego. W takim przypadku odwołania do tego pliku nie będzie działać, a następnie zostanie wyświetlony błąd 404 w konsoli.
+>   ![błąd — nie znaleziono signalr.js](signalr/_static/f12-console.png)
+> * Jeśli wystąpi błąd, ERR_SPDY_INADEQUATE_TRANSPORT_SECURITY w przeglądarce Chrome lub NS_ERROR_NET_INADEQUATE_SECURITY w przeglądarce Firefox, uruchom następujące polecenia, aby zaktualizować certyfikat deweloperski:
+>   ```
+>   dotnet dev-certs https --clean
+>   dotnet dev-certs https --trust
+>   ```
 
 ## <a name="next-steps"></a>Następne kroki
-
-W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
-
-> [!div class="checklist"]
-> * Tworzenie projektu aplikacji sieci web.
-> * Dodaj bibliotekę klienta SignalR.
-> * Utwórz Centrum SignalR.
-> * Skonfiguruj projekt do korzystania z SignalR.
-> * Dodaj kod używający koncentratora, aby wysyłać komunikaty z dowolnego klienta do wszystkich połączonych klientów.
 
 Aby dowiedzieć się więcej na temat biblioteki SignalR, zobacz wprowadzenie:
 
