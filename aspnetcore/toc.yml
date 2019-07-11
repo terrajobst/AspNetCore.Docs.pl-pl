@@ -981,6 +981,8 @@
           uid: performance/caching/distributed
         - name: Oprogramowanie pośredniczące buforowania odpowiedzi
           uid: performance/caching/middleware
+        - name: Ponowne używanie obiektów dzięki elementowi ObjectPool
+          uid: performance/ObjectPool
     - name: Kompresja odpowiedzi
       uid: performance/response-compression
     - name: Narzędzia diagnostyczne
