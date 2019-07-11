@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/05/2019
 uid: test/loadtests
-ms.openlocfilehash: 3c21da6c799bc3080a1a16cb62ae4535b8890a1b
-ms.sourcegitcommit: bee530454ae2b3c25dc7ffebf93536f479a14460
+ms.openlocfilehash: 4b07dd1af7e0c1d3ce9baa167b69fd8f80df204a
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67724489"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815169"
 ---
 # <a name="aspnet-core-loadstress-testing"></a>Testowanie obciążenia/obciążeniowe platformy ASP.NET Core
 
@@ -23,7 +23,7 @@ Testowanie obciążenia i testy obciążenia są ważne, aby upewnić się, że 
 
 Testy obciążeniowe określają, czy aplikację przy dużym obciążeniu można dokonać odzyskiwania po awarii i bez problemu zmieniała powrócić do oczekiwane zachowanie. Przy dużym obciążeniu aplikacja nie jest uruchamiana w normalnych warunkach.
 
-Visual Studio 2019 r jest najnowszej wersji programu Visual Studio za pomocą funkcji testów obciążeniowych. Dla klientów wymagających w przyszłości narzędzia do testowania obciążenia zalecamy alternatywne narzędzi, takich jak Apache JMeter Akamai CloudTest i BlazeMeter. Aby uzyskać więcej informacji, zobacz [Visual Studio 2019 informacje o wersji](/visualstudio/releases/2019/release-notes#test-tools).
+Visual Studio 2019 r jest najnowszej wersji programu Visual Studio za pomocą funkcji testów obciążeniowych. Dla klientów wymagających w przyszłości narzędzia do testowania obciążenia zalecamy alternatywne narzędzi, takich jak Apache JMeter Akamai CloudTest i BlazeMeter. Aby uzyskać więcej informacji, zobacz [Visual Studio 2019 informacje o wersji](/visualstudio/releases/2019/release-notes-v16.0#test-tools).
 
 Usługi testowania obciążeniowego w DevOps platformy Azure kończy się 2020 r. Aby uzyskać więcej informacji, zobacz [usługi koniec cyklu życia testowania obciążenia w chmurze](https://devblogs.microsoft.com/devops/cloud-based-load-testing-service-eol/).
 
@@ -72,7 +72,7 @@ Poniższa lista zawiera narzędzia wydajności sieci web innych firm, z różnym
 * [ApacheBench (ab)](https://httpd.apache.org/docs/2.4/programs/ab.html)
 * [Gatling](https://gatling.io/)
 * [Chleba](https://locust.io/)
-* [WebSurge wiatru zachodnie](http://websurge.west-wind.com/)
+* [WebSurge wiatru zachodnie](https://websurge.west-wind.com/)
 * [Netling](https://github.com/hallatore/Netling)
 * [Vegeta](https://github.com/tsenart/vegeta)
 

@@ -6,12 +6,12 @@ ms.author: casoper
 ms.date: 09/21/2018
 ms.custom: mvc, seodec18
 uid: security/authentication/azure-ad-b2c-webapi
-ms.openlocfilehash: 0eb8b533f44a1f72cfc3c4ec5ec060adb37eed6c
-ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
+ms.openlocfilehash: c917a5130857165716bd801ac19dad0f53a7d214
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610370"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815382"
 ---
 # <a name="authentication-in-web-apis-with-azure-active-directory-b2c-in-aspnet-core"></a>Uwierzytelnianie w interfejsie web API za pomocą usługi Azure Active Directory B2C w programie ASP.NET Core
 
@@ -46,11 +46,11 @@ Tworzenie dzierżawy usługi Azure AD B2C [zgodnie z opisem w dokumentacji](/azu
 
 ## <a name="configure-a-sign-up-or-sign-in-policy"></a>Konfigurowanie zasad rejestracji lub logowania
 
-W dokumentacji usługi Azure AD B2C, wykonaj kroki [Tworzenie zasad rejestracji lub logowania](/azure/active-directory-b2c/active-directory-b2c-reference-policies#create-a-sign-up-or-sign-in-policy). Nazwa zasad **SiUpIn**.  Użyj przykładowych wartości podane w dokumentacji dotyczącej **dostawców tożsamości**, **atrybuty tworzenia konta**, i **oświadczeń aplikacji**. Za pomocą **Uruchom teraz** przycisk, aby przetestować zasady, zgodnie z opisem w dokumentacji jest opcjonalne.
+W dokumentacji usługi Azure AD B2C, wykonaj kroki [Tworzenie zasad rejestracji lub logowania](/azure/active-directory-b2c/active-directory-b2c-reference-policies#user-flow-versions). Nazwa zasad **SiUpIn**.  Użyj przykładowych wartości podane w dokumentacji dotyczącej **dostawców tożsamości**, **atrybuty tworzenia konta**, i **oświadczeń aplikacji**. Za pomocą **Uruchom teraz** przycisk, aby przetestować zasady, zgodnie z opisem w dokumentacji jest opcjonalne.
 
 ## <a name="register-the-api-in-azure-ad-b2c"></a>Rejestrowanie interfejsu API w usłudze Azure AD B2C
 
-W nowo utworzonej dzierżawy usługi Azure AD B2C należy zarejestrować przy użyciu interfejsu API [kroki opisane w dokumentacji](/azure/active-directory-b2c/active-directory-b2c-app-registration#register-a-web-api) w obszarze **zarejestrować internetowy interfejs API** sekcji.
+W nowo utworzonej dzierżawy usługi Azure AD B2C należy zarejestrować przy użyciu interfejsu API [kroki opisane w dokumentacji](/azure/active-directory-b2c/tutorial-register-applications#register-a-web-application) w obszarze **zarejestrować internetowy interfejs API** sekcji.
 
 Użyj następujących wartości:
 
@@ -106,7 +106,7 @@ W programie Visual Studio, uruchamianie interfejsu API. Visual Studio otworzy w 
 
 ### <a name="register-postman-as-a-web-app"></a>Zarejestruj Postman jako aplikacja sieci web
 
-Ponieważ Postman symuluje aplikację sieci web, która uzyskuje dostęp do tokenów z dzierżawy usługi Azure AD B2C, musi być zarejestrowany w dzierżawie jako aplikacja sieci web. Rejestrowanie przy użyciu narzędzia Postman [kroki opisane w dokumentacji](/azure/active-directory-b2c/active-directory-b2c-app-registration#register-a-web-app) w obszarze **rejestrowanie aplikacji internetowej** sekcji. Zatrzyma **Tworzenie klucza tajnego klienta aplikacji sieci web** sekcji. Klucz tajny klienta nie jest wymagana na potrzeby tego samouczka. 
+Ponieważ Postman symuluje aplikację sieci web, która uzyskuje dostęp do tokenów z dzierżawy usługi Azure AD B2C, musi być zarejestrowany w dzierżawie jako aplikacja sieci web. Rejestrowanie przy użyciu narzędzia Postman [kroki opisane w dokumentacji](/azure/active-directory-b2c/tutorial-register-applications#register-a-web-application) w obszarze **rejestrowanie aplikacji internetowej** sekcji. Zatrzyma **Tworzenie klucza tajnego klienta aplikacji sieci web** sekcji. Klucz tajny klienta nie jest wymagana na potrzeby tego samouczka. 
 
 Użyj następujących wartości:
 

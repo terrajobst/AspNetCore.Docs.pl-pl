@@ -5,12 +5,12 @@ description: Dowiedz się, jak można dodać klas związanych z zarządzaniem fi
 ms.author: riande
 ms.date: 02/12/2019
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 44e6f53d517b0470c5e6fa785a4061e59cda9ce6
-ms.sourcegitcommit: 20ca93d72cb0b3998637724b44523e57b089c8fd
+ms.openlocfilehash: be9f515178d0169a69487f917c7d39c6f11f1292
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65473611"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815051"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Dodawanie modelu strony Razor aplikacji w programie ASP.NET Core
 
@@ -76,13 +76,17 @@ Kliknij prawym przyciskiem myszy *stron/filmów* folder > **Dodaj** > **nowy ele
 
 ![Obraz z poprzednich instrukcji.](model/_static/sca.png)
 
-W **Dodawanie szkieletu** okno dialogowe, wybierz opcję **strony Razor za pomocą programu Entity Framework (CRUD)** > **Dodaj**.
+W **Dodawanie szkieletu** okno dialogowe, wybierz opcję **strony Razor za pomocą programu Entity Framework (CRUD)**  > **Dodaj**.
 
 ![Obraz z poprzednich instrukcji.](model/_static/add_scaffold.png)
 
 Wykonaj **dodać strony Razor za pomocą programu Entity Framework (CRUD)** okno dialogowe:
+<!-- In the next section, change 
+(plus) sign and accept the generated name 
+to use Data, it should not use models. That will make the namespace the same for the VS version and the CLI version
+-->
 
-* W **klasa modelu** listę rozwijaną, wybierz **Movie (RazorPagesMovie.Models)**.
+* W **klasa modelu** listę rozwijaną, wybierz **Movie (RazorPagesMovie.Models)** .
 * W **klasa kontekstu danych** wiersz, wybierz opcję **+** (plus) Zaloguj się i zaakceptuj wygenerowaną nazwę **RazorPagesMovie.Models.RazorPagesMovieContext**.
 * Wybierz pozycję **Dodaj**.
 

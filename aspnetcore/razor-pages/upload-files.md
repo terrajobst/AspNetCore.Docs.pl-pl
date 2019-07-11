@@ -7,12 +7,12 @@ ms.author: riande
 ms.date: 11/10/2018
 ms.custom: mvc, seodec18
 uid: razor-pages/upload-files
-ms.openlocfilehash: 07457d57b7d3b444c8cea818149569407f1dd8e8
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 14d10424951e8ec3c7909d001c6f86e5fcb45d26
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65085716"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815040"
 ---
 # <a name="upload-files-to-a-razor-page-in-aspnet-core"></a>Przekazywanie plików na stronę Razor programu ASP.NET Core
 
@@ -64,7 +64,7 @@ Klasa ma właściwość Tytuł harmonogram i właściwości dla każdego z dwóc
 
 ## <a name="add-a-helper-method-to-upload-files"></a>Dodaj metodę pomocnika do przekazywania plików
 
-Aby uniknąć zduplikowania kodu do przetwarzania plików przekazanych harmonogram, najpierw Dodaj metodę pomocnika statyczne. Tworzenie *narzędzia* folderu w aplikacji i Dodaj *FileHelpers.cs* pliku o następującej zawartości. Metoda pomocnika `ProcessFormFile`, przyjmuje [IFormFile](/dotnet/api/microsoft.aspnetcore.http.iformfile) i [ModelStateDictionary](/api/microsoft.aspnetcore.mvc.modelbinding.modelstatedictionary) i zwraca ciąg zawierający rozmiar i zawartości pliku. Typ zawartości i długość są sprawdzane. Jeśli plik nie przeszły sprawdzanie poprawności, błąd jest dodawany do `ModelState`.
+Aby uniknąć zduplikowania kodu do przetwarzania plików przekazanych harmonogram, najpierw Dodaj metodę pomocnika statyczne. Tworzenie *narzędzia* folderu w aplikacji i Dodaj *FileHelpers.cs* pliku o następującej zawartości. Metoda pomocnika `ProcessFormFile`, przyjmuje [IFormFile](/dotnet/api/microsoft.aspnetcore.http.iformfile) i [ModelStateDictionary](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.modelstatedictionary) i zwraca ciąg zawierający rozmiar i zawartości pliku. Typ zawartości i długość są sprawdzane. Jeśli plik nie przeszły sprawdzanie poprawności, błąd jest dodawany do `ModelState`.
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -117,7 +117,7 @@ Proces roboczy musi mieć uprawnienia do zapisu w lokalizacji określonej przez 
 
 ### <a name="save-the-file-to-azure-blob-storage"></a>Zapisz plik w usłudze Azure Blob Storage
 
-Aby przekazać zawartość pliku do usługi Azure Blob Storage, zobacz [Rozpoczynanie pracy z usługą Azure Blob Storage przy użyciu platformy .NET](/azure/storage/blobs/storage-dotnet-how-to-use-blobs). Temat demonstruje sposób skorzystania [UploadFromStream](/dotnet/api/microsoft.windowsazure.storage.file.cloudfile.uploadfromstreamasync) można zapisać [FileStream](/dotnet/api/system.io.filestream) do magazynu obiektów blob.
+Aby przekazać zawartość pliku do usługi Azure Blob Storage, zobacz [Rozpoczynanie pracy z usługą Azure Blob Storage przy użyciu platformy .NET](/azure/storage/blobs/storage-dotnet-how-to-use-blobs). Temat demonstruje sposób skorzystania [UploadFromStream](/dotnet/api/microsoft.azure.storage.file.cloudfile.uploadfromstreamasync) można zapisać [FileStream](/dotnet/api/system.io.filestream) do magazynu obiektów blob.
 
 ## <a name="add-the-schedule-class"></a>Dodaj klasę harmonogramu
 
@@ -188,7 +188,7 @@ W *stron* folderze utwórz *harmonogramy* folderu. W *harmonogramy* folderu, Utw
 
 Każda grupa formularz zawiera  **\<Etykieta >** wyświetlającą nazwa każdej właściwości klasy. `Display` Atrybutów w `FileUpload` modelu podanie wartości wyświetlania etykiet. Na przykład `UploadPublicSchedule` nazwy wyświetlania właściwości została ustawiona za pomocą `[Display(Name="Public Schedule")]` i dlatego wyświetla "Harmonogram publiczny" w etykiecie, gdy powoduje wyświetlenie formularza.
 
-Każda grupa formularz zawiera weryfikacji  **\<span >**. Jeśli użytkownik wejściowych nie spełniają atrybuty właściwości ustawione w `FileUpload` klasy lub jeśli któryś z `ProcessFormFile` sprawdzanie poprawności pliku metoda kończyć się niepowodzeniem, modelu nie powiedzie się sprawdzić poprawność. Podczas sprawdzania poprawności modelu nie powiedzie się, komunikat dotyczący sprawdzania poprawności pomocne jest renderowany do użytkownika. Na przykład `Title` właściwość jest oznaczona za pomocą `[Required]` i `[StringLength(60, MinimumLength = 3)]`. Jeśli użytkownik nie może wpisać tytuł, otrzyma komunikat informujący, że wartość jest wymagana. Jeśli użytkownik wprowadzi wartości, mniej niż trzy znaki lub więcej niż 60 znaków, otrzyma komunikat informujący, że wartość ma niepoprawną długość. Jeśli plik jest pod warunkiem, że nie ma zawartości, zostanie wyświetlony komunikat, że plik jest pusty.
+Każda grupa formularz zawiera weryfikacji  **\<span >** . Jeśli użytkownik wejściowych nie spełniają atrybuty właściwości ustawione w `FileUpload` klasy lub jeśli któryś z `ProcessFormFile` sprawdzanie poprawności pliku metoda kończyć się niepowodzeniem, modelu nie powiedzie się sprawdzić poprawność. Podczas sprawdzania poprawności modelu nie powiedzie się, komunikat dotyczący sprawdzania poprawności pomocne jest renderowany do użytkownika. Na przykład `Title` właściwość jest oznaczona za pomocą `[Required]` i `[StringLength(60, MinimumLength = 3)]`. Jeśli użytkownik nie może wpisać tytuł, otrzyma komunikat informujący, że wartość jest wymagana. Jeśli użytkownik wprowadzi wartości, mniej niż trzy znaki lub więcej niż 60 znaków, otrzyma komunikat informujący, że wartość ma niepoprawną długość. Jeśli plik jest pod warunkiem, że nie ma zawartości, zostanie wyświetlony komunikat, że plik jest pusty.
 
 ## <a name="add-the-page-model"></a>Dodawanie modelu strony
 

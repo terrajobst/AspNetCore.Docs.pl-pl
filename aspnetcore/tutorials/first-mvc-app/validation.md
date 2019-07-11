@@ -5,12 +5,12 @@ description: Jak dodać sprawdzanie poprawności do aplikacji ASP.NET Core.
 ms.author: riande
 ms.date: 04/13/2017
 uid: tutorials/first-mvc-app/validation
-ms.openlocfilehash: 6c59d0188f67872c7dd5599967551d7d390bfdcf
-ms.sourcegitcommit: e7e04a45195d4e0527af6f7cf1807defb56dc3c3
+ms.openlocfilehash: f94d1003732b8ff04ec8aba3005f8c95a876cd67
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "65875034"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815117"
 ---
 # <a name="add-validation-to-an-aspnet-core-mvc-app"></a>Dodawanie walidacji do aplikacji ASP.NET Core MVC
 
@@ -43,7 +43,7 @@ Zwróć uwagę, jak formularz automatycznie renderowany komunikat o błędzie we
 
 Znaczące korzyści jest, że nie trzeba zmieniać jednego wiersza kodu w `MoviesController` klasy lub *Create.cshtml* widoku w celu włączenia tej weryfikacji interfejsu użytkownika. Kontrolera i widoki utworzone wcześniej w tym samouczku automatycznie wybrany w górę sprawdzania poprawności reguły określona za pomocą atrybutów weryfikacji właściwości `Movie` klasa modelu. Walidacja testu za pomocą `Edit` metody akcji i tego samego sprawdzania poprawności jest stosowana.
 
-Dane formularza nie jest wysyłana do serwera, aż nie wystąpią żadne błędy weryfikacji po stronie klienta. Można to sprawdzić przez umieszczenie punkt przerwania w `HTTP Post` metody, używając [narzędzie Fiddler](http://www.telerik.com/fiddler) , lub [narzędzi deweloperskich F12](/microsoft-edge/devtools-guide).
+Dane formularza nie jest wysyłana do serwera, aż nie wystąpią żadne błędy weryfikacji po stronie klienta. Można to sprawdzić przez umieszczenie punkt przerwania w `HTTP Post` metody, używając [narzędzie Fiddler](https://www.telerik.com/fiddler) , lub [narzędzi deweloperskich F12](/microsoft-edge/devtools-guide).
 
 ## <a name="how-validation-works"></a>Działanie sprawdzania poprawności
 

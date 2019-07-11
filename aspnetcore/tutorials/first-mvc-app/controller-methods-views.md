@@ -5,12 +5,12 @@ description: Dowiedz się, jak pracować z metody kontrolera, widoków i DataAnn
 ms.author: riande
 ms.date: 12/13/2018
 uid: tutorials/first-mvc-app/controller-methods-views
-ms.openlocfilehash: 36c8141ba5827366572dabcfd0fdf9600c745706
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 6d960da5acecbb95893bd339b4391560bedffb3d
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64902098"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815414"
 ---
 # <a name="controller-methods-and-views-in-aspnet-core"></a>Metody kontrolera i widoki w programie ASP.NET Core
 
@@ -76,7 +76,7 @@ Poniższy kod przedstawia `HTTP POST Edit` metody, która przetwarza wartości p
 
 ::: moniker-end
 
-`[Bind]` Atrybut jest jednym ze sposobów, aby zapewnić ochronę przed [polegającymi](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost). Powinien zawierać tylko właściwości w `[Bind]` atrybut, który chcesz zmienić. Aby uzyskać więcej informacji, zobacz [chronić kontroler z nadmiernego księgowania](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application). [Modele widoków](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/) zawierają alternatywne podejście, aby uniknąć nadmiernego ogłaszania.
+`[Bind]` Atrybut jest jednym ze sposobów, aby zapewnić ochronę przed [polegającymi](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost). Powinien zawierać tylko właściwości w `[Bind]` atrybut, który chcesz zmienić. Aby uzyskać więcej informacji, zobacz [chronić kontroler z nadmiernego księgowania](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application). [Modele widoków](https://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/) zawierają alternatywne podejście, aby uniknąć nadmiernego ogłaszania.
 
 Zwróć uwagę, drugi `Edit` metody akcji jest poprzedzony `[HttpPost]` atrybutu.
 
@@ -151,7 +151,7 @@ Wszystkie `HttpGet` metodami w kontrolerze filmu wykonaj podobny wzorzec. Staną
 * [Tworzenie pomocników tagów](xref:mvc/views/tag-helpers/authoring)
 * [Ochrona przed fałszerstwem żądań](xref:security/anti-request-forgery)
 * Chroń swoje kontroler z [polegającymi](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application)
-* [ViewModels](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/)
+* [ViewModels](https://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/)
 * [Pomocnik tagu formularza](xref:mvc/views/working-with-forms)
 * [Pomocnik tagu wejściowego](xref:mvc/views/working-with-forms)
 * [Pomocnik tagu etykiety](xref:mvc/views/working-with-forms)

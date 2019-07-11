@@ -5,12 +5,12 @@ description: Dowiedz się, szczegóły implementacji ochrony danych programu ASP
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/implementation/subkeyderivation
-ms.openlocfilehash: 37e7b01700e8a6b755b5ed16a9d7d75a9eeb970e
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: bbfde378755b09cd5b1217b8cf66249b9fa1d6ad
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64898435"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67814384"
 ---
 # <a name="subkey-derivation-and-authenticated-encryption-in-aspnet-core"></a>Wyprowadzanie podkluczy i uwierzytelnione szyfrowanie w programie ASP.NET Core
 
@@ -37,7 +37,7 @@ Usługi AAD jest unikatowy dla krotki wszystkie trzy składniki, możemy użyć 
 
 (K_E, K_H) = SP800_108_CTR_HMACSHA512 (contextHeader K_M, usługi AAD, || keyModifier)
 
-W tym miejscu Zadzwonimy pod numer telefonu KDF SP800 108 NIST w trybie licznika (zobacz [NIST SP800-108](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-108.pdf), s. 5.1) z następującymi parametrami:
+W tym miejscu Zadzwonimy pod numer telefonu KDF SP800 108 NIST w trybie licznika (zobacz [NIST SP800-108](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-108.pdf), s. 5.1) z następującymi parametrami:
 
 * Klucz klucza pochodnego (KDK) = K_M
 

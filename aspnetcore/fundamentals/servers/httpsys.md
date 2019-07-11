@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/20/2019
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: eefe507efadb5ef0a03854d931402f9eaa23a266
-ms.sourcegitcommit: 763af2cbdab0da62d1f1cfef4bcf787f251dfb5c
+ms.openlocfilehash: 3f48cda8f89d3f3dcce220cad4e405472b510df4
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67394761"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67814877"
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>Implementacja serwera sieci web HTTP.sys, w programie ASP.NET Core
 
@@ -195,7 +195,7 @@ Sterownik HTTP.sys delegatów, aby uwierzytelnianie trybu jądra za pomocą prot
    * **.NET core** &ndash; Jeśli aplikacja wymaga platformy .NET Core, uzyskanie i uruchomienie **środowisko uruchomieniowe programu .NET Core** Instalator [pobierania programu .NET Core](https://dotnet.microsoft.com/download). Nie należy instalować pełnego zestawu SDK na serwerze.
    * **.NET framework** &ndash; Jeśli aplikacja wymaga programu .NET Framework, zobacz [Przewodnik instalacji .NET Framework](/dotnet/framework/install/). Zainstaluj wymagane .NET Framework. Instalator dla najnowszej wersji .NET Framework jest dostępna z [pobierania programu .NET Core](https://dotnet.microsoft.com/download) strony.
 
-   Jeśli aplikacja jest [niezależna wdrożenia](/dotnet/core/deploying/#framework-dependent-deployments-scd), aplikacja zawiera środowisko uruchomieniowe w jej wdrożenia. Instalacja framework nie jest wymagane na serwerze.
+   Jeśli aplikacja jest [niezależna wdrożenia](/dotnet/core/deploying/#self-contained-deployments-scd), aplikacja zawiera środowisko uruchomieniowe w jej wdrożenia. Instalacja framework nie jest wymagane na serwerze.
 
 1. Konfigurowanie adresów URL i portów w aplikacji.
 

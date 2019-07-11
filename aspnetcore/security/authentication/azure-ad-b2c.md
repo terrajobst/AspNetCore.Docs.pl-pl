@@ -6,12 +6,12 @@ ms.author: casoper
 ms.custom: mvc
 ms.date: 02/27/2019
 uid: security/authentication/azure-ad-b2c
-ms.openlocfilehash: 3cb878aff7bf0c6c8efe7f3f0c0f06c74acef477
-ms.sourcegitcommit: 0b9e767a09beaaaa4301915cdda9ef69daaf3ff2
+ms.openlocfilehash: 54117bf0dd45305d060eef5fecfb98ed45f8ecdb
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67538729"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815303"
 ---
 # <a name="cloud-authentication-with-azure-active-directory-b2c-in-aspnet-core"></a>Uwierzytelnianie w chmurze za pomocą usługi Azure Active Directory B2C w programie ASP.NET Core
 
@@ -43,7 +43,7 @@ Tworzenie dzierżawy usługi Azure Active Directory B2C [zgodnie z opisem w doku
 
 ## <a name="register-the-app-in-azure-ad-b2c"></a>Rejestrowanie aplikacji w usłudze Azure AD B2C
 
-W nowo utworzonej dzierżawy usługi Azure AD B2C, rejestrowania aplikacji przy użyciu [kroki opisane w dokumentacji](/azure/active-directory-b2c/active-directory-b2c-app-registration#register-a-web-app) w obszarze **rejestrowanie aplikacji internetowej** sekcji. Zatrzyma **Tworzenie klucza tajnego klienta aplikacji sieci web** sekcji. Klucz tajny klienta nie jest wymagana na potrzeby tego samouczka. 
+W nowo utworzonej dzierżawy usługi Azure AD B2C, rejestrowania aplikacji przy użyciu [kroki opisane w dokumentacji](/azure/active-directory-b2c/tutorial-register-applications#register-a-web-application) w obszarze **rejestrowanie aplikacji internetowej** sekcji. Zatrzyma **Tworzenie klucza tajnego klienta aplikacji sieci web** sekcji. Klucz tajny klienta nie jest wymagana na potrzeby tego samouczka. 
 
 Użyj następujących wartości:
 
@@ -57,7 +57,7 @@ Użyj następujących wartości:
 | **Dołącz klienta natywnego**     | Nie                        |                                                                                                                                                                                                    |
 
 > [!WARNING]
-> Konfigurowanie adresu URL odpowiedzi inne niż localhost, należy pamiętać o [ograniczenia dotyczące dozwolonych na liście adres URL odpowiedzi](/azure/active-directory-b2c/active-directory-b2c-app-registration#choosing-a-web-app-or-api-reply-url). 
+> Konfigurowanie adresu URL odpowiedzi inne niż localhost, należy pamiętać o [ograniczenia dotyczące dozwolonych na liście adres URL odpowiedzi](/azure/active-directory-b2c/tutorial-register-applications#register-a-web-application). 
 
 Po zarejestrowaniu aplikacji zostanie wyświetlona lista aplikacji w dzierżawie. Wybierz aplikację, który właśnie został zarejestrowany. Wybierz **kopiowania** ikony po prawej stronie **identyfikator aplikacji** pola, aby skopiować go do Schowka.
 
@@ -101,7 +101,7 @@ Wróć do okna przeglądarki, za pomocą właściwości aplikacji B2C wciąż ot
 
 ## <a name="configure-policies"></a>Konfigurowanie zasad
 
-W dokumentacji usługi Azure AD B2C, wykonaj kroki [Tworzenie zasad rejestracji lub logowania](/azure/active-directory-b2c/active-directory-b2c-reference-policies#create-a-sign-up-or-sign-in-policy), a następnie [Tworzenie zasad resetowania haseł](/azure/active-directory-b2c/active-directory-b2c-reference-policies#create-a-password-reset-policy). Użyj przykładowych wartości podane w dokumentacji dotyczącej **dostawców tożsamości**, **atrybuty tworzenia konta**, i **oświadczeń aplikacji**. Za pomocą **Uruchom teraz** przycisk, aby przetestować zasady, zgodnie z opisem w dokumentacji jest opcjonalne.
+W dokumentacji usługi Azure AD B2C, wykonaj kroki [Tworzenie zasad rejestracji lub logowania](/azure/active-directory-b2c/active-directory-b2c-reference-policies#user-flow-versions), a następnie [Tworzenie zasad resetowania haseł](/azure/active-directory-b2c/active-directory-b2c-reference-policies#user-flow-versions). Użyj przykładowych wartości podane w dokumentacji dotyczącej **dostawców tożsamości**, **atrybuty tworzenia konta**, i **oświadczeń aplikacji**. Za pomocą **Uruchom teraz** przycisk, aby przetestować zasady, zgodnie z opisem w dokumentacji jest opcjonalne.
 
 > [!WARNING]
 > Upewnij się, nazwy zasad dokładnie zgodnie z opisem zamieszczonym w dokumentacji, jak te zasady zostały użyte w **Zmień uwierzytelnianie** okna dialogowego w programie Visual Studio. Nazwy zasad można sprawdzić w *appsettings.json*.

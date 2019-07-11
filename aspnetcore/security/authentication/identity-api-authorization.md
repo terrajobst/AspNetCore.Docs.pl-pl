@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 03/07/2019
 uid: security/authentication/identity/spa
-ms.openlocfilehash: 4afc9ac0a3c54b452c6a1b23e4de31d7e2fc5284
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 302a5e10a70e40e75ab9fe4b3e5a98c4e847b822
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64900349"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815221"
 ---
 # <a name="authentication-and-authorization-for-spas"></a>Uwierzytelnianie i autoryzację dla aplikacji jednostronicowych
 
@@ -251,7 +251,7 @@ W tej sekcji opisano wdrażanie aplikacji w usłudze Azure websites przy użyciu
 
 Aby wdrożyć w usłudze Azure Websites, wdrażanie aplikacji, wykonaj czynności w [wdrażanie aplikacji na platformie Azure](xref:tutorials/publish-to-azure-webapp-using-vs#deploy-the-app-to-azure) zasobów platformy Azure niezbędnych do tworzenia i wdrażania aplikacji w środowisku produkcyjnym.
 
-Po wykonaniu poprzednich instrukcji, aplikacja jest wdrażana na platformie Azure, ale nie jest jeszcze funkcjonalności. Certyfikat używany przez aplikację, która jest nadal potrzebuje do skonfigurowania. Znajdź odcisk palca certyfikatu, który ma być używany, a następnie wykonaj kroki opisane w [ładowanie certyfikatów](/azure/app-service/app-service-web-ssl-cert-load#load-your-certificates).
+Po wykonaniu poprzednich instrukcji, aplikacja jest wdrażana na platformie Azure, ale nie jest jeszcze funkcjonalności. Certyfikat używany przez aplikację, która jest nadal potrzebuje do skonfigurowania. Znajdź odcisk palca certyfikatu, który ma być używany, a następnie wykonaj kroki opisane w [ładowanie certyfikatów](/azure/app-service/app-service-web-ssl-cert-load#load-the-certificate-in-code).
 
 Podczas tych czynności wspomina o identyfikatorach protokołu SSL znajduje się **certyfikaty prywatne** sekcji w portalu, gdzie możesz przekazać certyfikat aprowizowane za pomocą aplikacji.
 

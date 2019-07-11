@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/05/2019
 uid: test/integration-tests
-ms.openlocfilehash: 3af2a1f7c6a65d7ff42597972ee151a50fc95fb6
-ms.sourcegitcommit: c716ea9155a6b404c1f3d3d34e2388454cd276d7
+ms.openlocfilehash: a4e22e53b4658a7c6da3c9e15671a355b212f559
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66716376"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815365"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>Testy integracji w programie ASP.NET Core
 
@@ -184,7 +184,7 @@ Wszelkie żądania POST do SUT musi spełniać antiforgery upewnij się, że sta
   * Przycisk Prześlij (`IHtmlElement`) i wartości pól (`IEnumerable<KeyValuePair<string, string>>`)
 
 > [!NOTE]
-> [AngleSharp](https://anglesharp.github.io/) jest analiza kodu innych firm używane w celach demonstracyjnych, w tym temacie i przykładowa aplikacja biblioteki. AngleSharp nie jest obsługiwana lub wymaganych do testowania integracji aplikacji platformy ASP.NET Core. Inne analizatory mogą być używane, takich jak [pakiet elastyczność Html (HAP)](http://html-agility-pack.net/). Innym rozwiązaniem jest napisać kod, aby obsłużyć żądania tokenu weryfikacji i plików cookie antiforgery antiforgery systemu bezpośrednio.
+> [AngleSharp](https://anglesharp.github.io/) jest analiza kodu innych firm używane w celach demonstracyjnych, w tym temacie i przykładowa aplikacja biblioteki. AngleSharp nie jest obsługiwana lub wymaganych do testowania integracji aplikacji platformy ASP.NET Core. Inne analizatory mogą być używane, takich jak [pakiet elastyczność Html (HAP)](https://html-agility-pack.net/). Innym rozwiązaniem jest napisać kod, aby obsłużyć żądania tokenu weryfikacji i plików cookie antiforgery antiforgery systemu bezpośrednio.
 
 ## <a name="customize-the-client-with-withwebhostbuilder"></a>Dostosowywanie klienta z WithWebHostBuilder
 

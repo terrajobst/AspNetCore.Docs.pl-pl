@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/18/2018
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: 72d5b2e902a95442ccffb7a149b917c50373775b
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 5be53baf4b9eb8774501fbf7f781370f7f687d0c
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64902203"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67814953"
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>Adres URL ponowne napisanie oprogramowania pośredniczącego w programie ASP.NET Core
 
@@ -201,11 +201,11 @@ Reguły ponownego pisania `^rewrite-rule/(\d+)/(\d+)`, tylko dopasowuje ścieże
 
 | Ścieżka                              | Dopasowanie |
 | --------------------------------- | :---: |
-| `/rewrite-rule/1234/5678`         | Yes   |
+| `/rewrite-rule/1234/5678`         | Tak   |
 | `/my-cool-rewrite-rule/1234/5678` | Nie    |
 | `/anotherrewrite-rule/1234/5678`  | Nie    |
 
-Następujące `^rewrite-rule/` część wyrażenia, istnieją dwie grupy przechwytywania, `(\d+)/(\d+)`. `\d` Oznacza *dopasowania cyfrę (numer)*. Znak plus (`+`) oznacza, że *zgodne z co najmniej jeden znak poprzedzający*. W związku z tym adres URL musi zawierać liczbę następuje ukośnikiem do przodu następuje inny numer. Przechwytywanie, te grupy są wstrzykiwane do nowych adresu URL jako `$1` i `$2`. Ciąg zastępujący reguły ponownego zapisywania umieszcza przechwyconych grupach w ciągu zapytania. Żądana ścieżka `/rewrite-rule/1234/5678` jest przepisany można uzyskać zasobu w `/rewritten?var1=1234&var2=5678`. Jeśli ciąg zapytania jest obecna na oryginalne żądanie, są zachowywane, gdy adres URL jest przepisany.
+Następujące `^rewrite-rule/` część wyrażenia, istnieją dwie grupy przechwytywania, `(\d+)/(\d+)`. `\d` Oznacza *dopasowania cyfrę (numer)* . Znak plus (`+`) oznacza, że *zgodne z co najmniej jeden znak poprzedzający*. W związku z tym adres URL musi zawierać liczbę następuje ukośnikiem do przodu następuje inny numer. Przechwytywanie, te grupy są wstrzykiwane do nowych adresu URL jako `$1` i `$2`. Ciąg zastępujący reguły ponownego zapisywania umieszcza przechwyconych grupach w ciągu zapytania. Żądana ścieżka `/rewrite-rule/1234/5678` jest przepisany można uzyskać zasobu w `/rewritten?var1=1234&var2=5678`. Jeśli ciąg zapytania jest obecna na oryginalne żądanie, są zachowywane, gdy adres URL jest przepisany.
 
 Nie ma żadnych komunikacji dwustronnej z serwerem, można uzyskać zasobu. Jeśli zasób istnieje, ma pobrać i zwracany do klienta z *200 — OK* kod stanu. Ponieważ klient nie jest przekierowany, nie powoduje zmiany adresu URL w pasku adresu przeglądarki. Klienci nie może wykryć, że operacja ponownego zapisywania adresu URL wystąpił na serwerze.
 
@@ -254,7 +254,7 @@ Oprogramowanie pośredniczące obsługuje następujące zmienne serwera Apache m
 * SERVER_ADDR
 * SERVER_PORT
 * SERVER_PROTOCOL
-* CZAS
+* TIME
 * TIME_DAY
 * TIME_HOUR
 * TIME_MIN
@@ -384,5 +384,5 @@ Oryginalne żądanie: `/image.jpg`
 * [Odwołania do konfiguracji modułu ponowne zapisywanie adresów URL](/iis/extensions/url-rewrite-module/url-rewrite-module-configuration-reference)
 * [Forum moduł ponowne zapisywanie adresów URL usług IIS](https://forums.iis.net/1152.aspx)
 * [Zachowaj proste Struktura adresu URL](https://support.google.com/webmasters/answer/76329?hl=en)
-* [10 ponownego zapisywania adresów URL porady i wskazówki](http://ruslany.net/2009/04/10-url-rewriting-tips-and-tricks/)
+* [10 ponownego zapisywania adresów URL porady i wskazówki](https://ruslany.net/2009/04/10-url-rewriting-tips-and-tricks/)
 * [Slash — lub nie ukośnika](https://webmasters.googleblog.com/2010/04/to-slash-or-not-to-slash.html)

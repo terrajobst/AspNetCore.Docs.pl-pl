@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/08/2019
 uid: host-and-deploy/iis/development-time-iis-support
-ms.openlocfilehash: d2b2456c7ab6b72f2270b6edc17000695061cc2b
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: f2d5dbbdc80eec035616ddea234ee5d3343eeae8
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64901045"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815181"
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>Obsługa usług IIS czas opracowywania, w programie Visual Studio dla platformy ASP.NET Core
 
@@ -108,7 +108,7 @@ Utwórz nowy profil uruchamiania do dodania obsługi usług IIS w czasie projekt
 
 ::: moniker-end
 
-Kiedy nie przy użyciu programu Visual Studio, ręcznie dodać profil uruchamiania, aby [launchSettings.json](http://json.schemastore.org/launchsettings) w pliku *właściwości* folderu. Poniższy przykład umożliwia skonfigurowanie profilu do używania protokołu HTTPS:
+Kiedy nie przy użyciu programu Visual Studio, ręcznie dodać profil uruchamiania, aby [launchSettings.json](https://json.schemastore.org/launchsettings) w pliku *właściwości* folderu. Poniższy przykład umożliwia skonfigurowanie profilu do używania protokołu HTTPS:
 
 ```json
 {

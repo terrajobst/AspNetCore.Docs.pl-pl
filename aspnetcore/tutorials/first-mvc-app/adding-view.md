@@ -5,12 +5,12 @@ description: Dodawanie widoku na prostej aplikacji ASP.NET Core MVC
 ms.author: riande
 ms.date: 03/04/2017
 uid: tutorials/first-mvc-app/adding-view
-ms.openlocfilehash: 70c96b4838b37ea2c193c328f00a410642338369
-ms.sourcegitcommit: 28a2874765cefe9eaa068dceb989a978ba2096aa
+ms.openlocfilehash: c86e5aba6dbd1e39460cc3d2c266ce704282ee09
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67167081"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815432"
 ---
 # <a name="add-a-view-to-an-aspnet-core-mvc-app"></a>Dodaj widok do aplikacji ASP.NET Core MVC
 
@@ -164,7 +164,7 @@ Dane są pobierane z adresu URL i przekazywane do kontrolera, za pomocą [integr
 
 ![Widok zachowania powitalnej etykiety i frazy Hello Rick przedstawiono cztery razy](~/tutorials/first-mvc-app/adding-view/_static/rick2.png)
 
-W przykładzie powyżej `ViewData` słownika zostało użyte do przekazywania danych z kontrolera do widoku. W dalszej części samouczka model widoku jest używany do przekazywania danych za pomocą kontrolera do widoku. Widok modelu sposobem przekazywania danych jest zwykle znacznie preferowany nad `ViewData` podejście słownika. Zobacz [kiedy używać elementów ViewBag, ViewData i TempData](http://www.rachelappel.com/when-to-use-viewbag-viewdata-or-tempdata-in-asp-net-mvc-3-applications/) Aby uzyskać więcej informacji.
+W przykładzie powyżej `ViewData` słownika zostało użyte do przekazywania danych z kontrolera do widoku. W dalszej części samouczka model widoku jest używany do przekazywania danych za pomocą kontrolera do widoku. Widok modelu sposobem przekazywania danych jest zwykle znacznie preferowany nad `ViewData` podejście słownika. Zobacz [kiedy używać elementów ViewBag, ViewData i TempData](https://www.rachelappel.com/when-to-use-viewbag-viewdata-or-tempdata-in-asp-net-mvc-3-applications/) Aby uzyskać więcej informacji.
 
 W następnym samouczku utworzeniu bazy danych filmów.
 

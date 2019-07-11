@@ -3,14 +3,14 @@ title: Rozszerzalność kryptografii Core w programie ASP.NET Core
 author: rick-anderson
 description: Więcej informacji na temat IAuthenticatedEncryptor, IAuthenticatedEncryptorDescriptor, IAuthenticatedEncryptorDescriptorDeserializer i fabryki najwyższego poziomu.
 ms.author: riande
-ms.date: 8/11/2017
+ms.date: 08/11/2017
 uid: security/data-protection/extensibility/core-crypto
-ms.openlocfilehash: cf4a142992efe5b00a75285ef9ad9735fe7be411
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: a5f651e3313cc579b995b45905826a5bffcc241c
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64902680"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67814704"
 ---
 # <a name="core-cryptography-extensibility-in-aspnet-core"></a>Rozszerzalność kryptografii Core w programie ASP.NET Core
 

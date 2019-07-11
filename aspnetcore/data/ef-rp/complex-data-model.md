@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: a65543f805b197031bd46ef1974d4d4a5018b2d1
-ms.sourcegitcommit: 3376f224b47a89acf329b2d2f9260046a372f924
+ms.openlocfilehash: f995f3f74da4910de518af875eb89349a8457573
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65516904"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67813709"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>Strony razor z programem EF Core w programie ASP.NET Core — Model danych — 5 8
 
@@ -43,7 +43,7 @@ Aktualizacja *Models/Student.cs* przy użyciu następujących wyróżniony kod:
 
 [!code-csharp[](intro/samples/cu21/Models/Student.cs?name=snippet_DataType&highlight=3,12-13)]
 
-[DataType](/dotnet/api/system.componentmodel.dataannotations.datatypeattribute?view=netframework-4.7.1) atrybut określa typ danych, który jest bardziej szczegółowe niż typ wewnętrznej bazy danych. W tym przypadku tylko data powinna być wyświetlana, nie daty i godziny. [Wyliczenie typu danych](/dotnet/api/system.componentmodel.dataannotations.datatype?view=netframework-4.7.1) udostępnia wiele typów danych, takich jak daty, godziny, numer telefonu, waluty, EmailAddress itp. `DataType` Atrybut można również włączyć automatyczne udostępnianie funkcji specyficznych dla typu aplikacji. Na przykład:
+[DataType](/dotnet/api/system.componentmodel.dataannotations.datatypeattribute?view=netframework-4.7.1) atrybut określa typ danych, który jest bardziej szczegółowe niż typ wewnętrznej bazy danych. W tym przypadku tylko data powinna być wyświetlana, nie daty i godziny. [Wyliczenie typu danych](/dotnet/api/system.componentmodel.dataannotations.datatype?view=netframework-4.7.1) udostępnia wiele typów danych, takich jak daty, godziny, numer telefonu, waluty, EmailAddress itp. `DataType` Atrybut można również włączyć automatyczne udostępnianie funkcji specyficznych dla typu aplikacji. Przykład:
 
 * `mailto:` Łącze jest tworzona automatycznie dla `DataType.EmailAddress`.
 * Selektor daty towarzyszy `DataType.Date` w większości przeglądarek.
@@ -486,7 +486,7 @@ Poprzedzający kod dodaje nowe jednostki i konfiguruje `CourseAssignment` PK. z�
 
 ## <a name="fluent-api-alternative-to-attributes"></a>Zamiast interfejsu API Fluent atrybutów
 
-`OnModelCreating` Metody w poprzednim kodzie używa *interfejsu API fluent* do konfigurowania zachowania programu EF Core. Interfejs API jest nazywany "fluent", ponieważ jest ona często używana przez centrali szereg wywołań metod w pojedynczej instrukcji. [Następujący kod](/ef/core/modeling/#methods-of-configuration) jest przykładem wygodnego interfejsu API:
+`OnModelCreating` Metody w poprzednim kodzie używa *interfejsu API fluent* do konfigurowania zachowania programu EF Core. Interfejs API jest nazywany "fluent", ponieważ jest ona często używana przez centrali szereg wywołań metod w pojedynczej instrukcji. [Następujący kod](/ef/core/modeling/#use-fluent-api-to-configure-a-model) jest przykładem wygodnego interfejsu API:
 
 ```csharp
 protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -512,7 +512,7 @@ Niektóre atrybuty używane w tym samouczku są używane do:
 * EF Core tylko konfiguracji (na przykład `HasKey`).
 * Sprawdzanie poprawności i programem EF Core konfiguracji (na przykład `[StringLength(50)]`).
 
-Aby uzyskać więcej informacji na temat atrybutów, a interfejs fluent API zobacz [metod konfiguracji](/ef/core/modeling/#methods-of-configuration).
+Aby uzyskać więcej informacji na temat atrybutów, a interfejs fluent API zobacz [metod konfiguracji](/ef/core/modeling/).
 
 ## <a name="entity-diagram-showing-relationships"></a>Jednostki Diagram przedstawiający relacje
 

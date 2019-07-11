@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/29/2019
 uid: mvc/views/tag-helpers/authoring
-ms.openlocfilehash: d7a5656131189ffafb60a7b1db0b8d93a3787ae2
-ms.sourcegitcommit: 3ee6ee0051c3d2c8d47a58cb17eef1a84a4c46a0
+ms.openlocfilehash: c13e63725298975fc882aa45c4e75de53e1d66a8
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65621051"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815155"
 ---
 # <a name="author-tag-helpers-in-aspnet-core"></a>Tworzenie pomocników tagów w programie ASP.NET Core
 
@@ -193,7 +193,7 @@ Można również użyć `[HtmlTargetElement]` do zmiany nazwy elementu doceloweg
 
    [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/WebsiteInformationTagHelper.cs)]
 
-   * Jak wspomniano wcześniej, dokonuje translacji pomocnicy tagów, Pascal — z uwzględnieniem wielkości liter C# klasy nazwy i właściwości dla pomocników tagów w [przypadek kebab](http://wiki.c2.com/?KebabCase). W związku z tym Aby użyć `WebsiteInformationTagHelper` w aparacie Razor, Ty napiszesz `<website-information />`.
+   * Jak wspomniano wcześniej, dokonuje translacji pomocnicy tagów, Pascal — z uwzględnieniem wielkości liter C# klasy nazwy i właściwości dla pomocników tagów w [przypadek kebab](https://wiki.c2.com/?KebabCase). W związku z tym Aby użyć `WebsiteInformationTagHelper` w aparacie Razor, Ty napiszesz `<website-information />`.
 
    * Nie są jawnie identyfikuje element docelowy z `[HtmlTargetElement]` atrybutu, więc domyślną `website-information` docelowe. Jeśli zastosowano atrybut (Uwaga nie jest przypadek kebab, ale jest zgodna z nazwą klasy):
 
@@ -207,7 +207,7 @@ Można również użyć `[HtmlTargetElement]` do zmiany nazwy elementu doceloweg
    [HtmlTargetElement("Website-Information")]
    ```
 
-   * Elementy, które są samozamykającego nie ma zawartości. W tym przykładzie znaczników Razor użyje tagu samozamykającego, ale zostanie utworzona Pomocnik tagu [sekcji](http://www.w3.org/TR/html5/sections.html#the-section-element) element (który nie jest samozamykającego i pisania zawartości wewnątrz `section` elementu). W związku z tym, należy ustawić `TagMode` do `StartTagAndEndTag` do zapisywania danych wyjściowych. Alternatywnie możesz przekształcić w komentarz ustawienia linii `TagMode` i Zapisywanie kodu znaczników przy użyciu tagu zamykającego. (Przykład znaczników znajduje się w dalszej części tego samouczka).
+   * Elementy, które są samozamykającego nie ma zawartości. W tym przykładzie znaczników Razor użyje tagu samozamykającego, ale zostanie utworzona Pomocnik tagu [sekcji](https://www.w3.org/TR/html5/sections.html#the-section-element) element (który nie jest samozamykającego i pisania zawartości wewnątrz `section` elementu). W związku z tym, należy ustawić `TagMode` do `StartTagAndEndTag` do zapisywania danych wyjściowych. Alternatywnie możesz przekształcić w komentarz ustawienia linii `TagMode` i Zapisywanie kodu znaczników przy użyciu tagu zamykającego. (Przykład znaczników znajduje się w dalszej części tego samouczka).
 
    * `$` (Znak dolara) w następującym wierszu używa [ciągiem interpolowanym](/dotnet/csharp/language-reference/keywords/interpolated-strings):
 

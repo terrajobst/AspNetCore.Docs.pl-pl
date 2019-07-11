@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 08/20/2018
 uid: client-side/libman/libman-vs
-ms.openlocfilehash: d0494b96447ad2b256acbde7748209ff430ae7c1
-ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
+ms.openlocfilehash: ebfb405516d968bf5d5b8cff956a9892457027f2
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610187"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67813459"
 ---
 # <a name="use-libman-with-aspnet-core-in-visual-studio"></a>LibMan za pomocą platformy ASP.NET Core w programie Visual Studio
 
@@ -94,13 +94,13 @@ Aby otworzyć *libman.json* do edycji, istnieją następujące opcje:
 
 **&#8224;** Jeśli *libman.json* plik jeszcze nie istnieje w katalogu głównym projektu, zostanie on utworzony za pomocą szablonu elementu domyślnej zawartości.
 
-Visual Studio oferuje bogate JSON edycję pomocy technicznej, takie jak kolorowanie, formatowanie, IntelliSense i sprawdzanie poprawności schematu. Schemat JSON manifestu LibMan znajduje się na [ http://json.schemastore.org/libman ](http://json.schemastore.org/libman).
+Visual Studio oferuje bogate JSON edycję pomocy technicznej, takie jak kolorowanie, formatowanie, IntelliSense i sprawdzanie poprawności schematu. Schemat JSON manifestu LibMan znajduje się na [ https://json.schemastore.org/libman ](https://json.schemastore.org/libman).
 
 Za pomocą następującego pliku manifestu, LibMan pobiera pliki na konfiguracją zdefiniowaną w `libraries` właściwości. Wyjaśnienie literałów obiektu zdefiniowany w ramach `libraries` poniżej:
 
 * Podzbiór [jQuery](https://jquery.com/) w wersji 3.3.1 jest pobierana z CDNJS dostawcy. Podzbiór jest zdefiniowany w `files` właściwość&mdash;*jquery.min.js*, *jquery.js*, i *jquery.min.map*. Pliki są umieszczane w projekcie *wwwroot/lib/jquery* folderu.
 * Całość [Bootstrap](https://getbootstrap.com/) wersji 4.1.3 jest pobierana i umieszczana w *wwwroot/lib/bootstrap* folderu. Literał obiektu `provider` zastąpienia właściwości `defaultProvider` wartości właściwości. LibMan pobiera ładowania plików od dostawcy unpkg.
-* Podzbiór [Lodash](https://lodash.com/) została zatwierdzona przez jednostkę zarządzającej w organizacji. *Lodash.js* i *lodash.min.js* pliki są pobierane z lokalnego systemu plików w *C:\\temp\\lodash\\*. Pliki są kopiowane w projekcie *wwwroot/lib/lodash* folderu.
+* Podzbiór [Lodash](https://lodash.com/) została zatwierdzona przez jednostkę zarządzającej w organizacji. *Lodash.js* i *lodash.min.js* pliki są pobierane z lokalnego systemu plików w *C:\\temp\\lodash\\* . Pliki są kopiowane w projekcie *wwwroot/lib/lodash* folderu.
 
 [!code-json[](samples/LibManSample/libman.json)]
 
@@ -201,7 +201,7 @@ Aby odinstalować plików biblioteki:
 
 * Otwórz *libman.json*.
 * Położenie karetki wewnątrz odpowiadającego `libraries` literału obiektu.
-* Kliknij ikonę żarówki, która pojawia się na lewym marginesie, a następnie wybierz pozycję **Odinstaluj \<library_name > @\<library_version >**:
+* Kliknij ikonę żarówki, która pojawia się na lewym marginesie, a następnie wybierz pozycję **Odinstaluj \<library_name > @\<library_version >** :
 
   ![Odinstaluj menu kontekstowego biblioteki](_static/uninstall-menu-option.png)
 

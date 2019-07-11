@@ -51,7 +51,7 @@ Poniższy kod przedstawia `HTTP POST Edit` metody, która przetwarza wartości p
 
 ::: moniker-end
 
-`[Bind]` Atrybut jest jednym ze sposobów, aby zapewnić ochronę przed [polegającymi](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost). Powinien zawierać tylko właściwości w `[Bind]` atrybut, który chcesz zmienić. Zobacz [chronić kontroler z nadmiernego księgowania](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application) Aby uzyskać więcej informacji. [Modele widoków](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/) zawierają alternatywne podejście, aby uniknąć nadmiernego ogłaszania.
+`[Bind]` Atrybut jest jednym ze sposobów, aby zapewnić ochronę przed [polegającymi](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost). Powinien zawierać tylko właściwości w `[Bind]` atrybut, który chcesz zmienić. Zobacz [chronić kontroler z nadmiernego księgowania](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application) Aby uzyskać więcej informacji. [Modele widoków](https://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/) zawierają alternatywne podejście, aby uniknąć nadmiernego ogłaszania.
 
 Zwróć uwagę, drugi `Edit` metody akcji jest poprzedzony `[HttpPost]` atrybutu.
 
@@ -136,7 +136,7 @@ Wszystkie `HttpGet` metodami w kontrolerze filmu wykonaj podobny wzorzec. Staną
 * [Tworzenie pomocników tagów](xref:mvc/views/tag-helpers/authoring)
 * [Ochrona przed fałszerstwem żądań](xref:security/anti-request-forgery)
 * Chroń swoje kontroler z [polegającymi](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application)
-* [ViewModels](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/)
+* [ViewModels](https://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/)
 * [Pomocnik tagu formularza](xref:mvc/views/working-with-forms)
 * [Pomocnik tagu wejściowego](xref:mvc/views/working-with-forms)
 * [Pomocnik tagu etykiety](xref:mvc/views/working-with-forms)

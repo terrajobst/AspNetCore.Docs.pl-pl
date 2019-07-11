@@ -4,14 +4,14 @@ author: ardalis
 description: Dowiedz się, jak działa filtr i sposobu ich używania w programie ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 5/08/2019
+ms.date: 05/08/2019
 uid: mvc/controllers/filters
-ms.openlocfilehash: cdf121b97396cb23103d49cd141b9ef19b8c0cc6
-ms.sourcegitcommit: e1623d8279b27ff83d8ad67a1e7ef439259decdf
+ms.openlocfilehash: df6f144f23f36d8009a5638859846e3cfb768b37
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66223023"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815444"
 ---
 # <a name="filters-in-aspnet-core"></a>Filtry w programie ASP.NET Core
 

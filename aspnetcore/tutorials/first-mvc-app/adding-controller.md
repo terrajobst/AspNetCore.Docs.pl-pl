@@ -5,12 +5,12 @@ description: Dowiedz się, jak dodać kontroler do prostą aplikację platformy 
 ms.author: riande
 ms.date: 02/28/2017
 uid: tutorials/first-mvc-app/adding-controller
-ms.openlocfilehash: 9dbfb52109260dbfe0c6c094a7ac4edae47d24e7
-ms.sourcegitcommit: 1bb3f3f1905b4e7d4ca1b314f2ce6ee5dd8be75f
+ms.openlocfilehash: f28dc96b66fce736242d26a2584fea0a23375e23
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66837339"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815191"
 ---
 # <a name="add-a-controller-to-an-aspnet-core-mvc-app"></a>Dodawanie kontrolera do aplikacji ASP.NET Core MVC
 
@@ -68,7 +68,7 @@ Każdy `public` metody w kontrolerze jest wywoływany jako punktu końcowego HTT
 
 Punkt końcowy HTTP jest targetable adres URL aplikacji sieci web, takich jak `https://localhost:5001/HelloWorld`i łączy protokół używany: `HTTPS`, lokalizacji sieciowej serwera sieci web (w tym z portem TCP): `localhost:5001` i docelowy identyfikator URI `HelloWorld`.
 
-Pierwszy komentarz stany to [HTTP GET](https://www.w3schools.com/tags/ref_httpmethods.asp) metodę, która jest wywoływana przez dołączenie `/HelloWorld/` do podstawowego adresu URL. Określa drugi komentarz [HTTP GET](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) metodę, która jest wywoływana przez dołączenie `/HelloWorld/Welcome/` do adresu URL. Później w samouczku silnika tworzenia szkieletów służy do generowania `HTTP POST` metod, które aktualizacji danych.
+Pierwszy komentarz stany to [HTTP GET](https://www.w3schools.com/tags/ref_httpmethods.asp) metodę, która jest wywoływana przez dołączenie `/HelloWorld/` do podstawowego adresu URL. Określa drugi komentarz [HTTP GET](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) metodę, która jest wywoływana przez dołączenie `/HelloWorld/Welcome/` do adresu URL. Później w samouczku silnika tworzenia szkieletów służy do generowania `HTTP POST` metod, które aktualizacji danych.
 
 Uruchom aplikację w trybie bez debugowania i Dołącz "nazwę HelloWorld" w ścieżce w pasku adresu. `Index` Metoda zwraca ciąg.
 

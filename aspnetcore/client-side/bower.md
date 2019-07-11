@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 08/09/2018
 uid: client-side/bower
-ms.openlocfilehash: 08e6daa537c6c6f92a1cf80d70745e8ef606f580
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 1292b75bdfe1cea56d9c8bc282b0dd90fc945a33
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64899284"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67813532"
 ---
 # <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a>Zarządzanie pakietami po stronie klienta za pomocą narzędzi Bower w programie ASP.NET Core
 
@@ -22,9 +22,9 @@ Przez [Rick Anderson](https://twitter.com/RickAndMSFT), [ryżu Noel](https://twi
 >
 > Yarn z Webpack jest jeden popularną alternatywę dla którego [instrukcjach migracji](https://bower.io/blog/2017/how-to-migrate-away-from-bower/) są dostępne.
 
-[Program bower](https://bower.io/) wywołuje sam siebie "Menedżer pakietów dla sieci web". W ramach ekosystemu .NET umieszcza void pozostawiony przez brakiem NuGet, aby dostarczać plików zawartości statycznej. Dla projektów ASP.NET Core, te pliki statyczne są wbudowane w bibliotek po stronie klienta, takich jak [jQuery](http://jquery.com/) i [Bootstrap](http://getbootstrap.com/). Dla bibliotek .NET, możesz nadal używać [NuGet](https://www.nuget.org/) Menedżera pakietów.
+[Program bower](https://bower.io/) wywołuje sam siebie "Menedżer pakietów dla sieci web". W ramach ekosystemu .NET umieszcza void pozostawiony przez brakiem NuGet, aby dostarczać plików zawartości statycznej. Dla projektów ASP.NET Core, te pliki statyczne są wbudowane w bibliotek po stronie klienta, takich jak [jQuery](https://jquery.com/) i [Bootstrap](https://getbootstrap.com/). Dla bibliotek .NET, możesz nadal używać [NuGet](https://www.nuget.org/) Menedżera pakietów.
 
-Proces kompilacji nowe projekty utworzone za pomocą szablonów projektu ASP.NET Core, skonfiguruj po stronie klienta. [jQuery](http://jquery.com/) i [Bootstrap](http://getbootstrap.com/) są zainstalowane, i Bower jest obsługiwany.
+Proces kompilacji nowe projekty utworzone za pomocą szablonów projektu ASP.NET Core, skonfiguruj po stronie klienta. [jQuery](https://jquery.com/) i [Bootstrap](https://getbootstrap.com/) są zainstalowane, i Bower jest obsługiwany.
 
 Pakiety po stronie klienta są wymienione w *bower.json* pliku. Szablony projektów programu ASP.NET Core konfiguruje *bower.json* przy użyciu jQuery i dotyczącą weryfikacji jQuery, Bootstrap.
 
@@ -50,7 +50,7 @@ Otwórz *bower.json* pliku i Dodaj "font-awesome" do zależności. Funkcja Intel
 
 ![wersja programu bower IntelliSense](bower/_static/version-intelliSense.png)
 
-Bower używa [wersji semantycznej](http://semver.org/) do organizowania zależności. Semantyczne przechowywania wersji, znany także jako SemVer identyfikuje pakiety ze schematu numerowania \<główna >.\< pomocnicza >. \<poprawki >. IntelliSense ułatwia semantycznego versioning przedstawiający kilka typowe opcje. Pierwszy element na liście funkcji IntelliSense (4.6.3 w powyższym przykładzie), jest uznawana za stabilną najnowszą wersję pakietu. Symbolu daszka (^) odpowiada najbardziej aktualną wersję główną i tyldy (~) dopasowuje najbardziej aktualną wersję pomocniczą.
+Bower używa [wersji semantycznej](https://semver.org/) do organizowania zależności. Semantyczne przechowywania wersji, znany także jako SemVer identyfikuje pakiety ze schematu numerowania \<główna >.\< pomocnicza >. \<poprawki >. IntelliSense ułatwia semantycznego versioning przedstawiający kilka typowe opcje. Pierwszy element na liście funkcji IntelliSense (4.6.3 w powyższym przykładzie), jest uznawana za stabilną najnowszą wersję pakietu. Symbolu daszka (^) odpowiada najbardziej aktualną wersję główną i tyldy (~) dopasowuje najbardziej aktualną wersję pomocniczą.
 
 Zapisz *bower.json* pliku. Program Visual Studio obserwuje *bower.json* zmiany w pliku. Po zapisaniu, *Zainstaluj program bower* polecenie jest wykonywane. Zobacz okno dane wyjściowe **Bower/npm** widok pełne polecenie wykonane.
 

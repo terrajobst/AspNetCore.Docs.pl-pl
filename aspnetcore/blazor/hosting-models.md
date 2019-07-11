@@ -7,18 +7,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/01/2019
 uid: blazor/hosting-models
-ms.openlocfilehash: 893cde6ee6f4cbcc4051453c66b7405153a55d36
-ms.sourcegitcommit: eb3e51d58dd713eefc242148f45bd9486be3a78a
+ms.openlocfilehash: 80f5e3260ce991ef67fa2a0dd36f8be1f70b6271
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67500442"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67813377"
 ---
 # <a name="aspnet-core-blazor-hosting-models"></a>ASP.NET Core Blazor hostingu modeli
 
 Przez [Daniel Roth](https://github.com/danroth27)
 
-Blazor to struktura sieci web przeznaczony do działania po stronie klienta w przeglądarce na [format WebAssembly](http://webassembly.org/)— na podstawie środowiska uruchomieniowego .NET (*Blazor po stronie klienta*) lub po stronie serwera w programie ASP.NET Core (*Blazor po stronie serwera* ). Niezależnie od tego modelu, aplikacji i składników modelach hostingu *są takie same*.
+Blazor to struktura sieci web przeznaczony do działania po stronie klienta w przeglądarce na [format WebAssembly](https://webassembly.org/)— na podstawie środowiska uruchomieniowego .NET (*Blazor po stronie klienta*) lub po stronie serwera w programie ASP.NET Core (*Blazor po stronie serwera* ). Niezależnie od tego modelu, aplikacji i składników modelach hostingu *są takie same*.
 
 Aby utworzyć projekt modelach hostingu opisane w tym artykule, zobacz <xref:blazor/get-started>.
 

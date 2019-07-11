@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/13/2019
 uid: performance/response-compression
-ms.openlocfilehash: e312d43fb62106f6ecb98367c29daa377bb227c9
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: d5d2da3dc0a8a452de97d98161d429389d2f7638
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64899638"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815614"
 ---
 # <a name="response-compression-in-aspnet-core"></a>Kompresja odpowiedzi w programie ASP.NET Core
 
@@ -30,7 +30,7 @@ Oprogramowanie pośredniczące kompresji odpowiedzi należy użyć, jeśli:
 
 * Nie można użyć następujących technologii serwerowych kompresji:
   * [Moduł dynamicznej kompresji usług IIS](https://www.iis.net/overview/reliability/dynamiccachingandcompression)
-  * [Moduł mod_deflate Apache](http://httpd.apache.org/docs/current/mod/mod_deflate.html)
+  * [Moduł mod_deflate Apache](https://httpd.apache.org/docs/current/mod/mod_deflate.html)
   * [Serwer Nginx kompresja i Dekompresja](https://www.nginx.com/resources/admin-guide/compression-and-decompression/)
 * Hosting bezpośrednio na:
   * [Serwer HTTP.sys](xref:fundamentals/servers/httpsys) (dawniej nazywanych WebListener)
@@ -52,7 +52,7 @@ W przypadku klienta może przetwarzać skompresowanej treści, klient musi powia
 | `gzip`                          | Yes                  | [Format pliku gzip](https://tools.ietf.org/html/rfc1952) |
 | `identity`                      | Yes                  | Identyfikator "Bez kodowania": Odpowiedź nie musi być zakodowany. |
 | `pack200-gzip`                  | Nie                   | [Format Transfer sieci archiwa Java](https://jcp.org/aboutJava/communityprocess/review/jsr200/index.html) |
-| `*`                             | Tak                  | Kodowanie nie jest jawnie żądanej zawartości dostępne |
+| `*`                             | Yes                  | Kodowanie nie jest jawnie żądanej zawartości dostępne |
 
 ::: moniker-end
 
@@ -70,7 +70,7 @@ W przypadku klienta może przetwarzać skompresowanej treści, klient musi powia
 
 ::: moniker-end
 
-Aby uzyskać więcej informacji, zobacz [IANA oficjalne kodowania listy zawartości](http://www.iana.org/assignments/http-parameters/http-parameters.xml#http-content-coding-registry).
+Aby uzyskać więcej informacji, zobacz [IANA oficjalne kodowania listy zawartości](https://www.iana.org/assignments/http-parameters/http-parameters.xml#http-content-coding-registry).
 
 Oprogramowanie pośredniczące pozwala na dodawanie kompresji dodatkowych dostawców na potrzeby niestandardowych `Accept-Encoding` wartości nagłówka. Aby uzyskać więcej informacji, zobacz [niestandardowi](#custom-providers) poniżej.
 
@@ -80,7 +80,7 @@ Algorytmy kompresji podlegają zależność między szybkości kompresji i efekt
 
 Zaangażowane w żądanie nagłówki wysyłanie, buforowanie i odbieranie skompresowanej treści są opisane w poniższej tabeli.
 
-| nagłówek             | Rola |
+| nagłówek             | Role |
 | ------------------ | ---- |
 | `Accept-Encoding`  | Wysłanych z klienta do serwera w celu wskazania kodowania schematy dopuszczalne klientowi zawartości. |
 | `Content-Encoding` | Wysyłane z serwera do klienta w celu wskazania kodowania zawartości w ładunku. |
@@ -146,7 +146,7 @@ public class Startup
 Uwagi:
 
 * `app.UseResponseCompression` musi zostać wywołana przed `app.UseMvc`.
-* Użyj narzędzia takiego jak [Fiddler](http://www.telerik.com/fiddler), [Firebug](http://getfirebug.com/), lub [Postman](https://www.getpostman.com/) można ustawić `Accept-Encoding` nagłówek żądania i badanie nagłówki odpowiedzi, rozmiar i treść.
+* Użyj narzędzia takiego jak [Fiddler](https://www.telerik.com/fiddler), [Firebug](https://getfirebug.com/), lub [Postman](https://www.getpostman.com/) można ustawić `Accept-Encoding` nagłówek żądania i badanie nagłówki odpowiedzi, rozmiar i treść.
 
 Prześlij żądanie do przykładowej aplikacji bez `Accept-Encoding` nagłówka i sprawdź, czy odpowiedź jest bez kompresji. `Content-Encoding` i `Vary` nagłówki nie są obecne w odpowiedzi.
 
@@ -385,4 +385,4 @@ Użyj narzędzia, takiego jak [Fiddler](https://www.telerik.com/fiddler), [Fireb
 * [Mozilla Developer Network: Accept-Encoding](https://developer.mozilla.org/docs/Web/HTTP/Headers/Accept-Encoding)
 * [RFC 7231 Section 3.1.2.1: Zawierać zawartości](https://tools.ietf.org/html/rfc7231#section-3.1.2.1)
 * [RFC 7230 sekcja 4.2.3: Kodowanie w formacie gzip](https://tools.ietf.org/html/rfc7230#section-4.2.3)
-* [Wersja specyfikacji formatu pliku GZIP 4.3](http://www.ietf.org/rfc/rfc1952.txt)
+* [Wersja specyfikacji formatu pliku GZIP 4.3](https://www.ietf.org/rfc/rfc1952.txt)

@@ -17,6 +17,6 @@ Jeśli żądanie zawiera `Accept-Encoding` nagłówka Przykładowa aplikacja dod
 
 ## <a name="using-the-sample"></a>Przy użyciu przykładu
 
-1. Upewnij się, żądanie, używając [Fiddler](http://www.telerik.com/fiddler), [Firebug](http://getfirebug.com/), lub [Postman](https://www.getpostman.com/) do aplikacji bez `Accept-Encoding` nagłówka i zanotuj ładunek odpowiedzi rozmiar odpowiedzi i nagłówki odpowiedzi.
+1. Upewnij się, żądanie, używając [Fiddler](https://www.telerik.com/fiddler), [Firebug](https://getfirebug.com/), lub [Postman](https://www.getpostman.com/) do aplikacji bez `Accept-Encoding` nagłówka i zanotuj ładunek odpowiedzi rozmiar odpowiedzi i nagłówki odpowiedzi.
 1. Dodaj `Accept-Encoding: gzip` nagłówka i zwróć uwagę, Rozmiar skompresowanych odpowiedzi i nagłówkami odpowiedzi. Zostanie wyświetlony rozmiar odpowiedzi, porzucić i `Content-Encoding: gzip` nagłówek odpowiedzi znajduje się za pomocą aplikacji przykładowej. Patrząc na treść odpowiedzi dla Lorem Ipsum lub **testfile1kb.txt** odpowiedzi, możesz zobaczyć, że tekst jest skompresowany i nie można go odczytać.
 1. Dodaj `Accept-Encoding: mycustomcompression` nagłówka i zanotuj nagłówki odpowiedzi. `CustomCompressionProvider` Jest pusty implementacji, które faktycznie nie Kompresuj odpowiedzi, ale można utworzyć otokę strumienia niestandardowe kompresji dla `CreateStream()` metody.

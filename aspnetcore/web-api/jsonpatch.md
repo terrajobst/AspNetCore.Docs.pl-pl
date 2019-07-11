@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 03/24/2019
 uid: web-api/jsonpatch
-ms.openlocfilehash: 14710e6431a2a7ce60fa7f190bef184da85281a0
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 97264903d85dbb397e85fdbf7b070e2aaae74bc8
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64901327"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815544"
 ---
 # <a name="jsonpatch-in-aspnet-core-web-api"></a>JsonPatch w interfejsie web API platformy ASP.NET Core
 
@@ -71,7 +71,7 @@ Zmiany wprowadzone przez zastosowanie dokumentu poprawki JSON do zasobu są niep
 
 ## <a name="path-syntax"></a>Składnia ścieżki
 
-[Ścieżki](http://tools.ietf.org/html/rfc6901) właściwości obiektu operacja ma ukośników poziomów. Na przykład `"/address/zipCode"`.
+[Ścieżki](https://tools.ietf.org/html/rfc6901) właściwości obiektu operacja ma ukośników poziomów. Na przykład `"/address/zipCode"`.
 
 Liczony od zera indeksy są używane do określenia elementów tablicy. Pierwszy element `addresses` tablicy byłoby w `/addresses/0`. Aby `add` do końca tablicy, należy użyć łącznika (-) zamiast numer indeksu: `/addresses/-`.
 
@@ -221,6 +221,6 @@ Aby przetestować próbki, należy uruchomić aplikację i wysyłać żądania H
 
 * [Specyfikacja IETF RFC 5789 PATCH — metoda](https://tools.ietf.org/html/rfc5789)
 * [Specyfikacja IETF RFC 6902 JSON poprawki](https://tools.ietf.org/html/rfc6902)
-* [Specyfikacja formatu ścieżki poprawki JSON 6901 RFC organizacji IETF](http://tools.ietf.org/html/rfc6901)
-* [Dokumentacja poprawki JSON](http://jsonpatch.com/). Zawiera łącza do zasobów dotyczących tworzenia dokumentów poprawki JSON.
+* [Specyfikacja formatu ścieżki poprawki JSON 6901 RFC organizacji IETF](https://tools.ietf.org/html/rfc6901)
+* [Dokumentacja poprawki JSON](https://jsonpatch.com/). Zawiera łącza do zasobów dotyczących tworzenia dokumentów poprawki JSON.
 * [Kod źródłowy poprawki JSON Core ASP.NET](https://github.com/aspnet/AspNetCore/tree/master/src/Features/JsonPatch/src)

@@ -5,12 +5,12 @@ description: Dowiedz się, jak ASP.NET Core MVC zaawansowaną strukturę do twor
 ms.author: riande
 ms.date: 01/08/2018
 uid: mvc/overview
-ms.openlocfilehash: eb636616ab952f506993ae5f4692e5e966bb20f4
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 819bc93a7580626bf586b984b0ce169306df56d9
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087308"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815354"
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>Omówienie platformy ASP.NET Core MVC
 
@@ -179,7 +179,7 @@ Oprócz znakomitą platformę dla tworzenia witryn sieci web, ASP.NET Core MVC o
 
 Struktura obsługuje negocjowanie zawartości HTTP z wbudowaną obsługą do [formatowania danych](xref:web-api/advanced/formatting) jak JSON lub XML. Zapis [niestandardowe elementy formatujące](xref:web-api/advanced/custom-formatters) dodanie obsługi własnych formatów.
 
-Użyj generowania łącza, aby włączyć obsługę hipermediach. Łatwo włączyć obsługę [współużytkowanie zasobów między źródłami (cors)](http://www.w3.org/TR/cors/) tak, aby interfejsy API sieci Web mogą być współużytkowane przez wiele aplikacji sieci Web.
+Użyj generowania łącza, aby włączyć obsługę hipermediach. Łatwo włączyć obsługę [współużytkowanie zasobów między źródłami (cors)](https://www.w3.org/TR/cors/) tak, aby interfejsy API sieci Web mogą być współużytkowane przez wiele aplikacji sieci Web.
 
 ### <a name="testability"></a>Testowalności
 

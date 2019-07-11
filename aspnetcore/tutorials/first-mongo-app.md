@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc, seodec18
 ms.date: 07/10/2019
 uid: tutorials/first-mongo-app
-ms.openlocfilehash: c64f6e69a19e294a18cc72c860af0a03ef70d444
-ms.sourcegitcommit: 357a7120632b20465801c093e4e5bd4a315496a8
+ms.openlocfilehash: 99b28407a249a5c0bc6a0cf3a285c04f1d6187a7
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67649193"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815646"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-mongodb"></a>Tworzenie internetowego interfejsu API za pomocą platformy ASP.NET Core i usługi MongoDB
 
@@ -294,7 +294,7 @@ Poprzedni kontroler internetowego interfejsu API:
 
 * Używa `BookService` klasy w celu wykonywania operacji CRUD.
 * Zawiera metody akcji w celu obsługi żądań GET, POST, PUT i DELETE protokołu HTTP.
-* Wywołania <xref:System.Web.Http.ApiController.CreatedAtRoute*> w `Create` metody akcji do zwrócenia [201 protokołu HTTP](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) odpowiedzi. Kod stanu 201 to standardowa odpowiedź na metodę POST protokołu HTTP, która tworzy nowy zasób na serwerze. `CreatedAtRoute` dodaje także `Location` nagłówka odpowiedzi. `Location` Nagłówek Określa identyfikator URI nowo utworzonego książki.
+* Wywołania <xref:System.Web.Http.ApiController.CreatedAtRoute*> w `Create` metody akcji do zwrócenia [201 protokołu HTTP](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) odpowiedzi. Kod stanu 201 to standardowa odpowiedź na metodę POST protokołu HTTP, która tworzy nowy zasób na serwerze. `CreatedAtRoute` dodaje także `Location` nagłówka odpowiedzi. `Location` Nagłówek Określa identyfikator URI nowo utworzonego książki.
 
 ## <a name="test-the-web-api"></a>Testowanie interfejsu API sieci web
 

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/07/2019
 uid: host-and-deploy/iis/transform-webconfig
-ms.openlocfilehash: bd8cf7d8515e874eefd2c326727f56d0a4b502a7
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 58dee024f5b032d1ef13df02648727b6a07eac1f
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087080"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67813359"
 ---
 # <a name="transform-webconfig"></a>Przekształcanie pliku web.config
 
@@ -182,5 +182,5 @@ dotnet publish /p:IsWebConfigTransformDisabled=true
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Składni przekształcania Web.config wdrażania projektu aplikacji sieci Web](http://go.microsoft.com/fwlink/?LinkId=301874)
+* [Składni przekształcania Web.config wdrażania projektu aplikacji sieci Web](https://go.microsoft.com/fwlink/?LinkId=301874)
 * [Składnia przekształcania Web.config wdrażanie projektu sieci Web przy użyciu programu Visual Studio](https://docs.microsoft.com/previous-versions/aspnet/dd465326(v=vs.110))

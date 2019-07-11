@@ -4,14 +4,14 @@ author: rick-anderson
 description: Dowiedz się, jak dodać sprawdzanie poprawności na stronę Razor programu ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/5/2018
+ms.date: 12/05/2018
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: 38e1fff9c7a212af992951dbf57e124cae69d36f
-ms.sourcegitcommit: ccbb84ae307a5bc527441d3d509c20b5c1edde05
+ms.openlocfilehash: 8495849c89ca3d6fd2b2006b61ce2ec75ff504a5
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2019
-ms.locfileid: "65874992"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815665"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>Dodawanie walidacji do strony ASP.NET Core Razor
 
@@ -47,7 +47,7 @@ Jest to znaczące korzyści, że **nie** zmian w kodzie były konieczne na stron
 Dane formularza nie jest opublikowana na serwerze, aż nie wystąpią żadne błędy weryfikacji po stronie klienta. Sprawdź formularza, którego dane nie są opublikowane przez co najmniej jeden z następujących metod:
 
 * Umieść punkt przerwania w `OnPostAsync` metody. Walidacja (wybierz **Utwórz** lub **Zapisz**). Nigdy nie zostanie osiągnięty punkt przerwania.
-* Użyj [narzędzie Fiddler](http://www.telerik.com/fiddler).
+* Użyj [narzędzie Fiddler](https://www.telerik.com/fiddler).
 * Narzędzia dla deweloperów przeglądarki do monitorowania ruchu sieciowego.
 
 ### <a name="server-side-validation"></a>Weryfikacja po stronie serwera

@@ -5,12 +5,12 @@ description: Odbieranie wskazówki dotyczące migrowania istniejących aplikacji
 ms.author: scaddie
 ms.date: 12/11/2018
 uid: migration/proper-to-2x/index
-ms.openlocfilehash: 7b6aec621efa5e1400fcfd4396a2322733113ec1
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 9c97b9c0f13a265ab5c90225dcd5a581a1272701
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64902212"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815465"
 ---
 # <a name="migrate-from-aspnet-to-aspnet-core"></a>Migrowanie z programu ASP.NET do ASP.NET Core
 
@@ -54,7 +54,7 @@ Platforma ASP.NET Core wprowadzono nowy mechanizm do uruchomienia aplikacji. Pun
 
 [!code-csharp[](samples/globalasax-sample.cs)]
 
-To podejście couples aplikacji i serwera, na którym jest wdrożona w taki sposób, że koliduje z wykonywaniem. W ramach działań zmierzających do oddzielenia [OWIN](http://owin.org/) została wprowadzona w celu zapewnienia bardziej przejrzysty sposób na korzystanie z wielu platform ze sobą. OWIN zawiera potoku można dodać tylko do modułów, które są potrzebne. Środowisko hostingu zajmuje [uruchamiania](xref:fundamentals/startup) funkcja Konfigurowanie usług i potok żądań aplikacji. `Startup` rejestruje zestaw oprogramowania pośredniczącego z aplikacją. Dla każdego żądania aplikacja wywołuje wszystkich składników oprogramowania pośredniczącego przy użyciu głównego wskaźnika połączonej listy do istniejącego zestawu obsługi. Każdy składnik oprogramowania pośredniczącego można dodać jeden lub więcej programów obsługi żądania obsługi potoku. Jest to realizowane przez zwracanie odwołania do programu obsługi, który jest nowy nagłówek listy. Każdy program obsługi jest odpowiedzialny za zapamiętywania i wywoływanie kolejna procedura obsługi na liście. Platforma ASP.NET Core jest punkt wejścia do aplikacji `Startup`, i nie ma już zależności *Global.asax*. Korzystając z OWIN za pomocą .NET Framework, należy użyć podobną do następującej jako potok:
+To podejście couples aplikacji i serwera, na którym jest wdrożona w taki sposób, że koliduje z wykonywaniem. W ramach działań zmierzających do oddzielenia [OWIN](https://owin.org/) została wprowadzona w celu zapewnienia bardziej przejrzysty sposób na korzystanie z wielu platform ze sobą. OWIN zawiera potoku można dodać tylko do modułów, które są potrzebne. Środowisko hostingu zajmuje [uruchamiania](xref:fundamentals/startup) funkcja Konfigurowanie usług i potok żądań aplikacji. `Startup` rejestruje zestaw oprogramowania pośredniczącego z aplikacją. Dla każdego żądania aplikacja wywołuje wszystkich składników oprogramowania pośredniczącego przy użyciu głównego wskaźnika połączonej listy do istniejącego zestawu obsługi. Każdy składnik oprogramowania pośredniczącego można dodać jeden lub więcej programów obsługi żądania obsługi potoku. Jest to realizowane przez zwracanie odwołania do programu obsługi, który jest nowy nagłówek listy. Każdy program obsługi jest odpowiedzialny za zapamiętywania i wywoływanie kolejna procedura obsługi na liście. Platforma ASP.NET Core jest punkt wejścia do aplikacji `Startup`, i nie ma już zależności *Global.asax*. Korzystając z OWIN za pomocą .NET Framework, należy użyć podobną do następującej jako potok:
 
 [!code-csharp[](samples/webapi-owin.cs)]
 
@@ -143,7 +143,7 @@ Ważnym elementem programowania dla sieci web jest możliwość obsługi zasoby 
 
 W programie ASP.NET: pliki statyczne są przechowywane w różnych katalogach i przywoływany w widokach.
 
-W programie ASP.NET Core, pliki statyczne są przechowywane w "root sieci web" (*&lt;zawartości głównego&gt;/wwwroot*), chyba że skonfigurowano inaczej. Pliki są ładowane do potoku żądania za pomocą wywołania `UseStaticFiles` metoda rozszerzenia z `Startup.Configure`:
+W programie ASP.NET Core, pliki statyczne są przechowywane w "root sieci web" ( *&lt;zawartości głównego&gt;/wwwroot*), chyba że skonfigurowano inaczej. Pliki są ładowane do potoku żądania za pomocą wywołania `UseStaticFiles` metoda rozszerzenia z `Startup.Configure`:
 
 [!code-csharp[](../../fundamentals/static-files/samples/1x/StartupStaticFiles.cs?highlight=3&name=snippet_ConfigureMethod)]
 

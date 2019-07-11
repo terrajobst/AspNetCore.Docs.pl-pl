@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/08/2019
 uid: fundamentals/static-files
-ms.openlocfilehash: bcd179bd89b90d80fc81645b24296a1fa70cca0a
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 8d75db7b6e21da39949a7f7c04be826d4d10008e
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64901318"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67814854"
 ---
 # <a name="static-files-in-aspnet-core"></a>Pliki statyczne z platformy ASP.NET Core
 
@@ -50,7 +50,7 @@ Pliki statyczne są dostępne za pośrednictwem ścieżki względem katalogu gł
   * **images**
   * **js**
 
-Format identyfikatora URI, aby uzyskać dostęp do pliku w *obrazów* podfolder jest *http://\<server_address > /images/\<image_file_name >*. Na przykład *http://localhost:9189/images/banner3.svg*.
+Format identyfikatora URI, aby uzyskać dostęp do pliku w *obrazów* podfolder jest *http://\<server_address > /images/\<image_file_name >* . Na przykład *http://localhost:9189/images/banner3.svg* .
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -224,7 +224,7 @@ Jeśli plik o nazwie domyślnej, nie istnieje w *MyStaticFiles* katalogu *http:/
 
 [!code-csharp[](static-files/samples/1x/StartupFileExtensionContentTypeProvider.cs?name=snippet_ConfigureMethod&highlight=3-12,19)]
 
-Zobacz [typu MIME](http://www.iana.org/assignments/media-types/media-types.xhtml).
+Zobacz [typu MIME](https://www.iana.org/assignments/media-types/media-types.xhtml).
 
 ## <a name="non-standard-content-types"></a>Niestandardowe typy zawartości
 

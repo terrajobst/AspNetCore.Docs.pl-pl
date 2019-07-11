@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/11/2019
 uid: performance/caching/memory
-ms.openlocfilehash: 1474dd397f2a8f83c7a1b0ead511b7f5751865bb
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: ffd21f014c02f46d19364a7a54686b8d5c95dc1a
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64900514"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815029"
 ---
 # <a name="cache-in-memory-in-aspnet-core"></a>Buforowanie w pamięci w programie ASP.NET Core
 
@@ -97,7 +97,7 @@ Buforowane `DateTime` wartość pozostaje w pamięci podręcznej, gdy istnieją 
 
 ![Widok indeksu z dwóch różnych godzinach wyświetlane](memory/_static/time.png)
 
-Poniższy kod używa [GetOrCreate](/dotnet/api/microsoft.extensions.caching.memory.cacheextensions#Microsoft_Extensions_Caching_Memory_CacheExtensions_GetOrCreate__1_Microsoft_Extensions_Caching_Memory_IMemoryCache_System_Object_System_Func_Microsoft_Extensions_Caching_Memory_ICacheEntry___0__) i [GetOrCreateAsync](/dotnet/api/microsoft.extensions.caching.memory.cacheextensions#Microsoft_Extensions_Caching_Memory_CacheExtensions_GetOrCreateAsync__1_Microsoft_Extensions_Caching_Memory_IMemoryCache_System_Object_System_Func_Microsoft_Extensions_Caching_Memory_ICacheEntry_System_Threading_Tasks_Task___0___) do buforowania danych.
+Poniższy kod używa [GetOrCreate](/dotnet/api/microsoft.extensions.caching.memory.cacheextensions.getorcreate#Microsoft_Extensions_Caching_Memory_CacheExtensions_GetOrCreate__1_Microsoft_Extensions_Caching_Memory_IMemoryCache_System_Object_System_Func_Microsoft_Extensions_Caching_Memory_ICacheEntry___0__) i [GetOrCreateAsync](/dotnet/api/microsoft.extensions.caching.memory.cacheextensions.getorcreateasync#Microsoft_Extensions_Caching_Memory_CacheExtensions_GetOrCreateAsync__1_Microsoft_Extensions_Caching_Memory_IMemoryCache_System_Object_System_Func_Microsoft_Extensions_Caching_Memory_ICacheEntry_System_Threading_Tasks_Task___0___) do buforowania danych.
 
 [!code-csharp[](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet2&highlight=3-7,14-19)]
 
@@ -124,7 +124,7 @@ Poniższy przykład:
 
 A `MemoryCache` wystąpienia, mogą opcjonalnie ustalenie i wymuszenie limit rozmiaru. Limit rozmiaru pamięci nie ma zdefiniowanych jednostka miary, ponieważ żaden mechanizm do mierzenia rozmiar wpisów pamięci podręcznej. Jeśli ustawiono limit rozmiaru pamięci podręcznej, wszystkie wpisy, należy określić rozmiar. Środowisko uruchomieniowe programu ASP.NET Core nie ogranicza rozmiar pamięci podręcznej, w oparciu o braku pamięci. To Ty dla deweloperów, aby ograniczyć rozmiar pamięci podręcznej. Określony rozmiar jest wyrażona w jednostkach, który wybiera dewelopera.
 
-Na przykład:
+Przykład:
 
 * Jeśli aplikacja sieci web został przede wszystkim buforowania ciągów, rozmiar każdego wpisu pamięci podręcznej może być długość ciągu.
 * Aplikacja może określić rozmiar wszystkich wpisów jako 1, a limit rozmiaru wynosi liczba wpisów.

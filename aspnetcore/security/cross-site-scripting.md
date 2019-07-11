@@ -5,12 +5,12 @@ description: Więcej informacji na temat skryptów między witrynami (XSS) i tec
 ms.author: riande
 ms.date: 10/02/2018
 uid: security/cross-site-scripting
-ms.openlocfilehash: 50f0211a2c64708d9b788dd10ce9064e66014d55
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 1e9e988be68313cfd493832519c1be89335d6e48
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64901957"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815208"
 ---
 # <a name="prevent-cross-site-scripting-xss-in-aspnet-core"></a>Zapobiegaj Cross-Site skrypty (XSS) w programie ASP.NET Core
 
@@ -57,7 +57,7 @@ Ten widok wyświetla zawartość *untrustedInput* zmiennej. Ta zmienna zawiera n
 
 ## <a name="javascript-encoding-using-razor"></a>JavaScript, kodowanie, za pomocą Razor
 
-Mogą wystąpić sytuacje, które chcesz wstawić wartość na język JavaScript do przetworzenia w danym widoku. Istnieją dwa sposoby, aby to zrobić. Najbezpieczniejszy sposób wstawiania wartości jest umieszczenie wartości w atrybucie dane tagu i pobierać Twój kod JavaScript. Na przykład:
+Mogą wystąpić sytuacje, które chcesz wstawić wartość na język JavaScript do przetworzenia w danym widoku. Istnieją dwa sposoby, aby to zrobić. Najbezpieczniejszy sposób wstawiania wartości jest umieszczenie wartości w atrybucie dane tagu i pobierać Twój kod JavaScript. Przykład:
 
 ```cshtml
 @{
@@ -214,7 +214,7 @@ W tym przykładzie rozszerzenie listy bezpiecznych, aby uwzględnić CjkUnifiedI
 <p>This link text is in Chinese: <a href="/">汉语/漢語</a></p>
    ```
 
-Listy bezpiecznych zakresy są określane jako wykresy kodu Unicode i nie języków. [Standardu Unicode](http://unicode.org/) zawiera listę [kodu wykresy](http://www.unicode.org/charts/index.html) umożliwia znalezienie wykresów zawierających znaki. Każdy encoder, Html, JavaScript i adres Url, musi być skonfigurowany oddzielnie.
+Listy bezpiecznych zakresy są określane jako wykresy kodu Unicode i nie języków. [Standardu Unicode](https://unicode.org/) zawiera listę [kodu wykresy](https://www.unicode.org/charts/index.html) umożliwia znalezienie wykresów zawierających znaki. Każdy encoder, Html, JavaScript i adres Url, musi być skonfigurowany oddzielnie.
 
 > [!NOTE]
 > Dostosowywanie listy bezpiecznych dotyczy tylko koderów źródło za pośrednictwem DI. Jeśli bezpośrednio uzyskać dostęp za pośrednictwem koder `System.Text.Encodings.Web.*Encoder.Default` następnie domyślnie Łaciński podstawowy tylko bezpiecznej liście będzie używany.

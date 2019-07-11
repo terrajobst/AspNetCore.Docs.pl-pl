@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 03/18/2019
 uid: mvc/views/tag-helpers/intro
-ms.openlocfilehash: 11d2914b5797735fb6a262a31bdb49f58391579f
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 870ce2eb28f384b380cc1178842325dc28199f09
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64899122"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67814992"
 ---
 # <a name="tag-helpers-in-aspnet-core"></a>Pomocnicy tagów w programie ASP.NET Core
 
@@ -19,7 +19,7 @@ Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ## <a name="what-are-tag-helpers"></a>Co to są pomocnicy tagów
 
-Pomocnicy tagów włączyć kodu po stronie serwera wziąć udział w tworzeniu i renderowaniu elementów HTML w plikach Razor. Na przykład wbudowane `ImageTagHelper` można dołączyć numer wersji do nazwy obrazu. Zmianie obrazu serwera generuje unikatowy nową wersję obrazu, dzięki czemu klienci są gwarantowane można pobrać bieżącego obrazu (zamiast przestarzałych obraz pamięci podręcznej). Istnieje wiele wbudowanych pomocników tagów dla typowych zadań — takich jak tworzenie formularzy, łącza, ładowanie zasobów i pakiety więcej — i jeszcze bardziej dostępne w publicznych repozytoriach GitHub oraz jak NuGet. Pomocnicy tagów są tworzone w języku C#, a ich celem są elementy HTML na podstawie nazwy elementu, atrybutu nazwy lub tagu nadrzędnym. Na przykład wbudowane `LabelTagHelper` mogą kierować HTML `<label>` elementu po `LabelTagHelper` atrybuty są stosowane. Jeśli znasz [pomocników HTML](http://stephenwalther.com/archive/2009/03/03/chapter-6-understanding-html-helpers), pomocników tagów zmniejszyć jawne przejścia pomiędzy HTML a C# w widokami Razor. W wielu przypadkach pomocników HTML zapewnić alternatywne podejście do określonych Pomocnik tagu, ale ważne jest, aby rozpoznać, czy pomocników tagów nie zastąpić pomocników HTML i nie jest pomocnika tagów dla każdego pomocnika kodu HTML. [W porównaniu do pomocników HTML pomocników tagów](#tag-helpers-compared-to-html-helpers) wyjaśnia różnice bardziej szczegółowo.
+Pomocnicy tagów włączyć kodu po stronie serwera wziąć udział w tworzeniu i renderowaniu elementów HTML w plikach Razor. Na przykład wbudowane `ImageTagHelper` można dołączyć numer wersji do nazwy obrazu. Zmianie obrazu serwera generuje unikatowy nową wersję obrazu, dzięki czemu klienci są gwarantowane można pobrać bieżącego obrazu (zamiast przestarzałych obraz pamięci podręcznej). Istnieje wiele wbudowanych pomocników tagów dla typowych zadań — takich jak tworzenie formularzy, łącza, ładowanie zasobów i pakiety więcej — i jeszcze bardziej dostępne w publicznych repozytoriach GitHub oraz jak NuGet. Pomocnicy tagów są tworzone w języku C#, a ich celem są elementy HTML na podstawie nazwy elementu, atrybutu nazwy lub tagu nadrzędnym. Na przykład wbudowane `LabelTagHelper` mogą kierować HTML `<label>` elementu po `LabelTagHelper` atrybuty są stosowane. Jeśli znasz [pomocników HTML](https://stephenwalther.com/archive/2009/03/03/chapter-6-understanding-html-helpers), pomocników tagów zmniejszyć jawne przejścia pomiędzy HTML a C# w widokami Razor. W wielu przypadkach pomocników HTML zapewnić alternatywne podejście do określonych Pomocnik tagu, ale ważne jest, aby rozpoznać, czy pomocników tagów nie zastąpić pomocników HTML i nie jest pomocnika tagów dla każdego pomocnika kodu HTML. [W porównaniu do pomocników HTML pomocników tagów](#tag-helpers-compared-to-html-helpers) wyjaśnia różnice bardziej szczegółowo.
 
 ## <a name="what-tag-helpers-provide"></a>Podaj pomocnicy tagów
 
@@ -175,7 +175,7 @@ Funkcja IntelliSense wyświetla właściwości i metody dostępne dla modelu, na
 
 ## <a name="tag-helpers-compared-to-html-helpers"></a>Pomocnicy tagów w porównaniu do pomocników HTML
 
-Pomocnicy tagów, Dołącz do elementów kodu HTML w widokami Razor podczas [pomocników HTML](http://stephenwalther.com/archive/2009/03/03/chapter-6-understanding-html-helpers) jest wywołana, zgodnie z metody grupową HTML widokami Razor. Należy wziąć pod uwagę następujące znaczniki Razor, który tworzy element label kodu HTML z klasy CSS "podpis":
+Pomocnicy tagów, Dołącz do elementów kodu HTML w widokami Razor podczas [pomocników HTML](https://stephenwalther.com/archive/2009/03/03/chapter-6-understanding-html-helpers) jest wywołana, zgodnie z metody grupową HTML widokami Razor. Należy wziąć pod uwagę następujące znaczniki Razor, który tworzy element label kodu HTML z klasy CSS "podpis":
 
 ```cshtml
 @Html.Label("FirstName", "First Name:", new {@class="caption"})
@@ -255,4 +255,4 @@ Można dostosować, czcionki i kolorowanie z **narzędzia** > **opcje** > **śro
 
 * [Tworzenie pomocników tagów](xref:mvc/views/tag-helpers/authoring)
 * [Praca z formularzami](xref:mvc/views/working-with-forms)
-* [TagHelperSamples w serwisie GitHub](https://github.com/dpaquette/TagHelperSamples) zawiera przykłady Pomocnik tagu do pracy z [Bootstrap](http://getbootstrap.com/).
+* [TagHelperSamples w serwisie GitHub](https://github.com/dpaquette/TagHelperSamples) zawiera przykłady Pomocnik tagu do pracy z [Bootstrap](https://getbootstrap.com/).

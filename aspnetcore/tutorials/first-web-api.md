@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/23/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: a53f7019c1079296f073e743ddbf9d90fc5abad3
-ms.sourcegitcommit: d6e51c60439f03a8992bda70cc982ddb15d3f100
+ms.openlocfilehash: 1c3d911593a288aa897373dc01616498706e7069
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67555878"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815144"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Samouczek: Tworzenie internetowego interfejsu API za pomocą platformy ASP.NET Core
 
@@ -99,7 +99,7 @@ Na poniższym diagramie przedstawiono projekt aplikacji.
 
   ![Nowe rozwiązanie w systemie macOS](first-web-api-mac/_static/sln.png)
 
-* Wybierz **aplikacji programu .NET Core** > **interfejsu API sieci Web platformy ASP.NET Core** > **dalej**.
+* Wybierz **platformy .NET Core** > **aplikacji** > **API** > **dalej**.
 
   ![okno dialogowe z systemem macOS nowego projektu](first-web-api-mac/_static/1.png)
   
@@ -127,7 +127,7 @@ Naciśnij klawisze Ctrl + F5, aby uruchomić aplikację. W przeglądarce przejd�
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
-Wybierz **Uruchom** > **Rozpocznij z debugowanie** do uruchomienia aplikacji. Program Visual Studio for Mac otworzy w przeglądarce i przechodzi do `https://localhost:<port>`, gdzie `<port>` jest numer portu wybranego losowo. Jest zwracany błąd HTTP 404 (nie znaleziono). Dołącz `/api/values` do adresu URL (adres URL, aby zmienić `https://localhost:<port>/api/values`).
+Wybierz **Uruchom** > **Rozpocznij debugowanie** do uruchomienia aplikacji. Program Visual Studio for Mac otworzy w przeglądarce i przechodzi do `https://localhost:<port>`, gdzie `<port>` jest numer portu wybranego losowo. Jest zwracany błąd HTTP 404 (nie znaleziono). Dołącz `/api/values` do adresu URL (adres URL, aby zmienić `https://localhost:<port>/api/values`).
 
 ---
 
@@ -245,6 +245,8 @@ Te metody zaimplementować dwa GET punkty końcowe:
 
 * `GET /api/todo`
 * `GET /api/todo/{id}`
+
+Zatrzymaj aplikację, jeśli jest nadal uruchomiona. Następnie uruchom go ponownie, aby uwzględnić najnowsze zmiany.
 
 Testowanie aplikacji, wywołując dwa punkty końcowe w przeglądarce. Na przykład:
 

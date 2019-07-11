@@ -5,12 +5,12 @@ description: Dowiedz się, jak odczytywanie i przetwarzanie modelu aplikacji, ab
 ms.author: riande
 ms.date: 10/14/2016
 uid: mvc/controllers/application-model
-ms.openlocfilehash: 6b0591a877c0d82e0ee6ab002eb6a6650753677b
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: f7f64c8b3a63ec66936772e724edb57037654059
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64903178"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815509"
 ---
 # <a name="work-with-the-application-model-in-aspnet-core"></a>Praca z modelem aplikacji w programie ASP.NET Core
 
@@ -63,7 +63,7 @@ Następnie (`Order=-990`):
 * Dodawanie parametrów metody akcji dla kontekstu
 * Stosowanie się trasy i innych atrybutów
 
-Niektóre z wbudowanymi zachowaniami są implementowane przez `DefaultApplicationModelProvider`. Ten dostawca jest odpowiedzialny za konstruowanie [ `ControllerModel` ](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.controllermodel), który z kolei odwołuje się do [ `ActionModel` ](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.actionmodel#Microsoft_AspNetCore_Mvc_ApplicationModels_ActionModel), [ `PropertyModel` ](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.propertymodel), i [ `ParameterModel` ](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.parametermodel#Microsoft_AspNetCore_Mvc_ApplicationModels_ParameterModel) wystąpień. `DefaultApplicationModelProvider` Klasa to szczegół implementacji wewnętrzną strukturę, który może i zmieni się w przyszłości. 
+Niektóre z wbudowanymi zachowaniami są implementowane przez `DefaultApplicationModelProvider`. Ten dostawca jest odpowiedzialny za konstruowanie [ `ControllerModel` ](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.controllermodel), który z kolei odwołuje się do [ `ActionModel` ](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.actionmodel), [ `PropertyModel` ](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.propertymodel), i [ `ParameterModel` ](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.parametermodel) wystąpień. `DefaultApplicationModelProvider` Klasa to szczegół implementacji wewnętrzną strukturę, który może i zmieni się w przyszłości. 
 
 `AuthorizationApplicationModelProvider` Odpowiada za stosowanie zachowania związanego z `AuthorizeFilter` i `AllowAnonymousFilter` atrybutów. [Dowiedz się więcej o tych atrybutów](xref:security/authorization/simple).
 

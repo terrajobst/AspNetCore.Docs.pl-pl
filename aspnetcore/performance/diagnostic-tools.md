@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.date: 04/11/2019
 uid: performance/diagnostic-tools
-ms.openlocfilehash: 66676b5a2b95b87bfbbd50022e279e35a12b9793
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: d273897b9ad26d57eb94b196b58f14019a96d07d
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64900382"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815620"
 ---
 # <a name="performance-diagnostic-tools"></a>Narzędzia diagnostyczne wydajności
 
@@ -53,7 +53,7 @@ Aby uzyskać więcej informacji, zobacz [usługi Application Insights dla platfo
 
 [Narzędzia PerfView](https://github.com/Microsoft/perfview) jest narzędzie do analizy wydajności utworzonych przez zespół .NET specjalnie do diagnozowania problemów z wydajnością .NET. Narzędzia PerfView pozwala na analizę Procesora użycia pamięci i GC zachowanie, zdarzenia dotyczące wydajności i czas zegarowy.
 
-Dowiedz się więcej na temat narzędzia PerfView i jak rozpocząć pracę z [samouczki wideo narzędzia PerfView](http://channel9.msdn.com/Series/PerfView-Tutorial) lub, zapoznając się z podręcznika użytkownika dostępnych w narzędziu lub [w serwisie GitHub](https://github.com/Microsoft/perfview).
+Dowiedz się więcej na temat narzędzia PerfView i jak rozpocząć pracę z [samouczki wideo narzędzia PerfView](https://channel9.msdn.com/Series/PerfView-Tutorial) lub, zapoznając się z podręcznika użytkownika dostępnych w narzędziu lub [w serwisie GitHub](https://github.com/Microsoft/perfview).
 
 ## <a name="windows-performance-toolkit"></a>Zestaw narzędzi wydajności Windows
 

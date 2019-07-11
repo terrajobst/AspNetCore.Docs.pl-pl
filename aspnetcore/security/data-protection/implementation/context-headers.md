@@ -5,12 +5,12 @@ description: Dowiedz się, szczegóły implementacji nagłówki kontekstu ochron
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/implementation/context-headers
-ms.openlocfilehash: 2b8fd594672bf623d38bfae90d05a984f92ce6a3
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 518423f5df93924d3df144994e4beb1755cd0bfc
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087563"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67814014"
 ---
 # <a name="context-headers-in-aspnet-core"></a>Nagłówki kontekstu w programie ASP.NET Core
 
@@ -48,7 +48,7 @@ Nagłówek kontekst składa się z następujących składników:
 
 W idealnym przypadku K_E i K_H można przekazywać wektorów wszystko od zera. Jednakże chcemy uniknąć sytuacji, w której algorytm sprawdza istnienie słabe kluczy przed wykonaniem jakiejkolwiek operacji (szczególnie DES i 3DES), co wyklucza przy użyciu prostego lub repeatable wzorca takich jak wektor wszystko od zera.
 
-Zamiast tego stosujemy KDF SP800 108 NIST w trybie licznika (zobacz [NIST SP800-108](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-108.pdf), s. 5.1) z kluczem o zerowej długości, etykiety i kontekstu i HMACSHA512 jako podstawowej PRF. Pobieramy | K_E | + | K_H | bajty danych wyjściowych, następnie rozłożyć wynik K_E i K_H samodzielnie. Matematycznych jest reprezentowane w następujący sposób.
+Zamiast tego stosujemy KDF SP800 108 NIST w trybie licznika (zobacz [NIST SP800-108](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-108.pdf), s. 5.1) z kluczem o zerowej długości, etykiety i kontekstu i HMACSHA512 jako podstawowej PRF. Pobieramy | K_E | + | K_H | bajty danych wyjściowych, następnie rozłożyć wynik K_E i K_H samodzielnie. Matematycznych jest reprezentowane w następujący sposób.
 
 (K_E || K_H) = SP800_108_CTR (prf = HMACSHA512, key = "", label = "", kontekst = "")
 

@@ -5,12 +5,12 @@ description: Pokazuje, jak zapobiegać atakom na otwarte przekierowywanie wzglę
 ms.author: riande
 ms.date: 07/07/2017
 uid: security/preventing-open-redirects
-ms.openlocfilehash: 0896189d2caaccb19647eb7c6d57f29dfc0290dd
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 9d8cac8708fe9aeadba5af1287362a20df7f6bfe
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64898300"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815499"
 ---
 # <a name="prevent-open-redirect-attacks-in-aspnet-core"></a>Zapobieganie atakom na otwarte przekierowywanie w programie ASP.NET Core
 
@@ -58,7 +58,7 @@ public IActionResult SomeAction(string redirectUrl)
 
 ### <a name="islocalurl"></a>IsLocalUrl
 
-Użyj [IsLocalUrl](/dotnet/api/Microsoft.AspNetCore.Mvc.IUrlHelper?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_IUrlHelper_IsLocalUrl_System_String_) metodę, aby przetestować, zanim zostaną przekierowywanie adresów URL:
+Użyj [IsLocalUrl](/dotnet/api/Microsoft.AspNetCore.Mvc.IUrlHelper.islocalurl#Microsoft_AspNetCore_Mvc_IUrlHelper_IsLocalUrl_System_String_) metodę, aby przetestować, zanim zostaną przekierowywanie adresów URL:
 
 Poniższy przykład pokazuje, jak sprawdzić, czy adres URL jest lokalny, przed przekierowaniem.
 

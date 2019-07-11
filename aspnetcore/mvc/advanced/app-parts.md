@@ -5,12 +5,12 @@ description: Dowiedz się, jak za pomocą części aplikacji, które abstrakcje 
 ms.author: riande
 ms.date: 01/04/2017
 uid: mvc/extensibility/app-parts
-ms.openlocfilehash: 5d5e79d3afe0eee6d0b126d4642ccd5f61bff409
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 9d0b4b5fadcc287172f23fa36c421f04ca2ade4a
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64901210"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815480"
 ---
 # <a name="application-parts-in-aspnet-core"></a>Części aplikacji w programie ASP.NET Core
 
@@ -20,7 +20,7 @@ ms.locfileid: "64901210"
 
 ## <a name="introducing-application-parts"></a>Wprowadzenie do części aplikacji
 
-Aplikacje MVC ładować swoje funkcje [części aplikacji](/dotnet/api/microsoft.aspnetcore.mvc.applicationparts.applicationpart). W szczególności [AssemblyPart](/dotnet/api/microsoft.aspnetcore.mvc.applicationparts.assemblypart#Microsoft_AspNetCore_Mvc_ApplicationParts_AssemblyPart) klasa reprezentuje część aplikacji, która jest wspierana przez zespół. W ramach tych zajęć umożliwia wykrycie i załadowanie funkcji MVC, takich jak kontrolery, składniki widoków, pomocników tagów i źródła kompilacji razor. [ApplicationPartManager](/dotnet/api/microsoft.aspnetcore.mvc.applicationparts.applicationpartmanager) jest odpowiedzialny za śledzenie części aplikacji i dostawców funkcji dostępnych w aplikacji MVC. Możesz wchodzić w interakcje z `ApplicationPartManager` w `Startup` po skonfigurowaniu MVC:
+Aplikacje MVC ładować swoje funkcje [części aplikacji](/dotnet/api/microsoft.aspnetcore.mvc.applicationparts.applicationpart). W szczególności [AssemblyPart](/dotnet/api/microsoft.aspnetcore.mvc.applicationparts.assemblypart) klasa reprezentuje część aplikacji, która jest wspierana przez zespół. W ramach tych zajęć umożliwia wykrycie i załadowanie funkcji MVC, takich jak kontrolery, składniki widoków, pomocników tagów i źródła kompilacji razor. [ApplicationPartManager](/dotnet/api/microsoft.aspnetcore.mvc.applicationparts.applicationpartmanager) jest odpowiedzialny za śledzenie części aplikacji i dostawców funkcji dostępnych w aplikacji MVC. Możesz wchodzić w interakcje z `ApplicationPartManager` w `Startup` po skonfigurowaniu MVC:
 
 ```csharp
 // create an assembly part from a class's assembly

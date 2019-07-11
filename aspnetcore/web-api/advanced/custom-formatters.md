@@ -5,12 +5,12 @@ description: Dowiedz się, jak utworzyć i używać niestandardowe elementy form
 ms.author: tdykstra
 ms.date: 02/08/2017
 uid: web-api/advanced/custom-formatters
-ms.openlocfilehash: ece60b47f345235a084faacf8e59b792856614d2
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 03456f0a20cf1849bcd29101fda951f81edda31c
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64900664"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67814835"
 ---
 # <a name="custom-formatters-in-aspnet-core-web-api"></a>Niestandardowe elementy formatujące w interfejsie API sieci Web platformy ASP.NET Core
 
@@ -82,7 +82,7 @@ W niektórych przypadkach trzeba zastąpić `CanWriteResult` zamiast `CanWriteTy
 * Brak klasy pochodne, które mogą być zwracane w czasie wykonywania.
 * Należy znać w czasie wykonywania, który pochodne klasy został zwrócony przez akcję.
 
-Załóżmy, że podpis metody akcji, zwraca `Person` typu, ale może zwrócić `Student` lub `Instructor` typ, który pochodzi od klasy `Person`. Jeśli chcesz, aby Twoje elementu formatującego do obsługi tylko `Student` obiektów, sprawdź typ [obiektu](/dotnet/api/microsoft.aspnetcore.mvc.formatters.outputformattercanwritecontext#Microsoft_AspNetCore_Mvc_Formatters_OutputFormatterCanWriteContext_Object) w obiekcie kontekstu udostępniane `CanWriteResult` metody. Należy pamiętać, że nie jest konieczne użycie `CanWriteResult` gdy metoda akcji zwraca `IActionResult`; w takim przypadku `CanWriteType` metoda otrzymuje typ środowiska uruchomieniowego.
+Załóżmy, że podpis metody akcji, zwraca `Person` typu, ale może zwrócić `Student` lub `Instructor` typ, który pochodzi od klasy `Person`. Jeśli chcesz, aby Twoje elementu formatującego do obsługi tylko `Student` obiektów, sprawdź typ [obiektu](/dotnet/api/microsoft.aspnetcore.mvc.formatters.outputformattercanwritecontext.object#Microsoft_AspNetCore_Mvc_Formatters_OutputFormatterCanWriteContext_Object) w obiekcie kontekstu udostępniane `CanWriteResult` metody. Należy pamiętać, że nie jest konieczne użycie `CanWriteResult` gdy metoda akcji zwraca `IActionResult`; w takim przypadku `CanWriteType` metoda otrzymuje typ środowiska uruchomieniowego.
 
 <a id="read-write"></a>
 

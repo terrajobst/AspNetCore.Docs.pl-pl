@@ -3,14 +3,14 @@ title: 'Samouczek: Rozpoczynanie pracy ze stronami Razor w programie ASP.NET Cor
 author: rick-anderson
 description: W tej serii samouczków pokazano, jak używać stron Razor w programie ASP.NET Core. Dowiedz się, jak utworzyć model, generowanie kodu dla stron Razor, platformy Entity Framework Core i SQL Server na użytek dostęp do danych, dodać funkcje wyszukiwania, dodać sprawdzanie poprawności danych wejściowych i użyć migracje do aktualizacji modelu.
 ms.author: riande
-ms.date: 6/3/2019
+ms.date: 06/3/2019
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: 207f5a5ab5e21d8cd8f6cf2f63641b94d8077ae5
-ms.sourcegitcommit: d6e51c60439f03a8992bda70cc982ddb15d3f100
+ms.openlocfilehash: b0cbb4dda5328d305686f21a0b3e8f8e83575a39
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67555802"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815259"
 ---
 # <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Samouczek: Rozpoczynanie pracy ze stronami Razor w programie ASP.NET Core
 

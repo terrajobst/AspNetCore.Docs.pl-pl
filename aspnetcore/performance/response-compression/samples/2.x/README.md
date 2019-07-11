@@ -22,6 +22,6 @@ Jeśli żądanie zawiera `Accept-Encoding` kompresja nagłówków i odpowiedzi z
 
 ## <a name="use-the-sample"></a>Skorzystaj z przykładu
 
-1. Upewnij się, żądanie, używając [Fiddler](http://www.telerik.com/fiddler), [Firebug](http://getfirebug.com/), lub [Postman](https://www.getpostman.com/) do aplikacji bez `Accept-Encoding` nagłówka i zanotuj ładunek odpowiedzi rozmiar odpowiedzi i nagłówki odpowiedzi.
+1. Upewnij się, żądanie, używając [Fiddler](https://www.telerik.com/fiddler), [Firebug](https://getfirebug.com/), lub [Postman](https://www.getpostman.com/) do aplikacji bez `Accept-Encoding` nagłówka i zanotuj ładunek odpowiedzi rozmiar odpowiedzi i nagłówki odpowiedzi.
 1. Dodaj `Accept-Encoding: br` lub `Accept-Encoding: gzip` nagłówka i zwróć uwagę, Rozmiar skompresowanych odpowiedzi i nagłówkami odpowiedzi. Rozmiar odpowiedzi spadnie i `Content-Encoding` nagłówek odpowiedzi znajduje się przez oprogramowanie pośredniczące wskazująca, że kompresja za pomocą dowolnego narzędzia Gzip lub Brotli wystąpił. Patrząc na treść odpowiedzi dla Lorem Ipsum lub **testfile1kb.txt** odpowiedzi, możesz zobaczyć, że tekst jest skompresowany i nie można go odczytać.
 1. Dodaj `Accept-Encoding: mycustomcompression` nagłówka i zanotuj nagłówki odpowiedzi. `CustomCompressionProvider` Jest pusty implementacji, które faktycznie nie Kompresuj odpowiedzi, ale można utworzyć otokę strumienia niestandardowe kompresji dla `CreateStream()` metody.
