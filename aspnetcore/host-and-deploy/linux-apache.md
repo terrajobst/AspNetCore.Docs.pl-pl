@@ -7,18 +7,18 @@ ms.author: shboyer
 ms.custom: mvc
 ms.date: 03/31/2019
 uid: host-and-deploy/linux-apache
-ms.openlocfilehash: 0b523627f8236d79dfc61f0693309d6f4d715e7e
-ms.sourcegitcommit: 0b9e767a09beaaaa4301915cdda9ef69daaf3ff2
+ms.openlocfilehash: 1a092a302bbffa74fa7a861901046ebda1998989
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67538709"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67813389"
 ---
 # <a name="host-aspnet-core-on-linux-with-apache"></a>Host platformy ASP.NET Core w systemie Linux z Apache
 
 Przez [Shayne Boyer](https://github.com/spboyer)
 
-Za pomocą tego przewodnika, Dowiedz się, jak skonfigurować [Apache](https://httpd.apache.org/) jako zwrotny serwer proxy serwera na [CentOS 7](https://www.centos.org/) przekierowywania ruchu HTTP do aplikacji sieci web platformy ASP.NET Core uruchomionej na [Kestrel](xref:fundamentals/servers/kestrel) serwera. [Rozszerzenia mod_proxy](http://httpd.apache.org/docs/2.4/mod/mod_proxy.html) i powiązane moduły Utwórz zwrotny serwer proxy serwera.
+Za pomocą tego przewodnika, Dowiedz się, jak skonfigurować [Apache](https://httpd.apache.org/) jako zwrotny serwer proxy serwera na [CentOS 7](https://www.centos.org/) przekierowywania ruchu HTTP do aplikacji sieci web platformy ASP.NET Core uruchomionej na [Kestrel](xref:fundamentals/servers/kestrel) serwera. [Rozszerzenia mod_proxy](https://httpd.apache.org/docs/2.4/mod/mod_proxy.html) i powiązane moduły Utwórz zwrotny serwer proxy serwera.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -316,7 +316,7 @@ rich rules:
 
 **Konfigurowanie aplikacji na potrzeby bezpiecznego połączenia lokalnego (HTTPS)**
 
-[Dotnet, uruchom](/dotnet/core/tools/dotnet-run) polecenie używa aplikacji *Properties/launchSettings.json* pliku, który konfiguruje aplikację do nasłuchiwania na adresach URL, dostarczone przez `applicationUrl` właściwości (na przykład `https://localhost:5001;http://localhost:5000`) .
+[Dotnet, uruchom](/dotnet/core/tools/dotnet-run) polecenie używa aplikacji *Properties/launchSettings.json* pliku, który konfiguruje aplikację do nasłuchiwania na adresach URL, dostarczone przez `applicationUrl` właściwości (na przykład `https://localhost:5001; http://localhost:5000`) .
 
 Konfigurowanie aplikacji do korzystania z certyfikatu w rozwoju dla `dotnet run` polecenia lub tworzenia środowiska (F5 lub Ctrl + F5 w programie Visual Studio Code) przy użyciu zbliża się do jednej z następujących czynności:
 
