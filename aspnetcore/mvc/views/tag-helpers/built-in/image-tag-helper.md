@@ -6,16 +6,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/06/2019
 uid: mvc/views/tag-helpers/builtin-th/image-tag-helper
-ms.openlocfilehash: 916a68c187cbf516a59d3c5d7578cdb6ada01b86
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 964072ad276f7e3e411ee41cb03a2efb9d05c585
+ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64901000"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67856116"
 ---
 # <a name="image-tag-helper-in-aspnet-core"></a>Pomocnik tagu obrazu w programie ASP.NET Core
 
-Przez [Peter Kellner](http://peterkellner.net)
+Przez [Peter Kellner](https://peterkellner.net)
 
 Pomocnik tagu obrazu zwiększa `<img>` tag, aby zapewnić zachowanie rozrywające pamięci podręcznej na pliki obraz statyczny.
 
@@ -46,7 +46,7 @@ Pomocnik tagu obrazu można znaleźć w poniższym przykładzie:
 <img src="~/images/asplogo.png" asp-append-version="true">
 ```
 
-Jeśli w katalogu istnieje plik statyczny */wwwroot/obrazy/*, wygenerowany kod HTML jest podobne do następujących (skrót będą się różnić):
+Jeśli w katalogu istnieje plik statyczny */wwwroot/obrazy/* , wygenerowany kod HTML jest podobne do następujących (skrót będą się różnić):
 
 ```html
 <img src="/images/asplogo.png?v=Kl_dqr9NVtnMdsM2MUg4qthUnWZm5T1fCEimBPWDNgM">

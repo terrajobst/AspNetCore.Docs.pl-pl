@@ -6,16 +6,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/10/2018
 uid: mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper
-ms.openlocfilehash: a5b33451a763c297c6d7885855a321c43435abb4
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 4e4d383bac67c73bad8b0a31b9ceb9452251761b
+ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64902626"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67856200"
 ---
 # <a name="distributed-cache-tag-helper-in-aspnet-core"></a>Pomocnik tagu pamięci podręcznej w programie ASP.NET Core rozproszonych
 
-Przez [Peter Kellner](http://peterkellner.net) i [Luke Latham](https://github.com/guardrex)
+Przez [Peter Kellner](https://peterkellner.net) i [Luke Latham](https://github.com/guardrex)
 
 Pomocnik tagu usługi rozproszonej pamięci podręcznej umożliwia znacznie zwiększyć wydajność aplikacji platformy ASP.NET Core, buforując zawartość ze źródłem rozproszonej pamięci podręcznej.
 

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/09/2019
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: f1282e9bf34a96e9495f35dcb51974594c938fde
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: 9293de38dcca1c0672f9cc3defa8d3c1b0b13d5a
+ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67814800"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67855897"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Wstrzykiwanie zależności w programie ASP.NET Core
 
@@ -95,7 +95,7 @@ W przykładowej aplikacji `IMyDependency` usługa jest zarejestrowana przy użyc
 [!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Startup.cs?name=snippet1&highlight=5)]
 
 > [!NOTE]
-> Każdy `services.Add{SERVICE_NAME}` — metoda rozszerzenia dodaje (i potencjalnie konfiguruje) usługi. Na przykład `services.AddMvc()` dodaje usług, stronami Razor i wymagają MVC. Zaleca się, że aplikacje stosują taką Konwencję. Metody rozszerzające w miejscu <xref:Microsoft.Extensions.DependencyInjection?displayProperty=fullName> przestrzeni nazw w celu hermetyzacji grupy rejestracji usługi.
+> Każdy `services.Add{SERVICE_NAME}` — metoda rozszerzenia dodaje (i potencjalnie konfiguruje) usługi. Na przykład `services.AddMvc()` dodaje usług, stronami Razor i wymagają MVC. Zaleca się, że aplikacje stosują taką Konwencję. Metody rozszerzające w miejscu [Microsoft.Extensions.DependencyInjection](/dotnet/api/microsoft.extensions.dependencyinjection) przestrzeni nazw w celu hermetyzacji grupy rejestracji usługi.
 
 Jeśli Konstruktor usługi wymaga [typ wbudowany](/dotnet/csharp/language-reference/keywords/built-in-types-table), takich jak `string`, typ może wprowadzone za pomocą [konfiguracji](xref:fundamentals/configuration/index) lub [wzorzec opcje](xref:fundamentals/configuration/options):
 
@@ -187,10 +187,10 @@ Każda metoda rozszerzenia rejestracji usługa oferuje przeciążenia, które s�
 | Metoda | Automatyczne<br>object<br>likwidacji | Wielokrotne<br>implementacje | Przekazywanie argumentów |
 | ------ | :-----------------------------: | :-------------------------: | :-------: |
 | `Add{LIFETIME}<{SERVICE}, {IMPLEMENTATION}>()`<br>Przykład:<br>`services.AddScoped<IMyDep, MyDep>();` | Yes | Yes | Nie |
-| `Add{LIFETIME}<{SERVICE}>(sp => new {IMPLEMENTATION})`<br>Przykłady:<br>`services.AddScoped<IMyDep>(sp => new MyDep());`<br>`services.AddScoped<IMyDep>(sp => new MyDep("A string!"));` | Tak | Yes | Tak |
+| `Add{LIFETIME}<{SERVICE}>(sp => new {IMPLEMENTATION})`<br>Przykłady:<br>`services.AddScoped<IMyDep>(sp => new MyDep());`<br>`services.AddScoped<IMyDep>(sp => new MyDep("A string!"));` | Yes | Yes | Yes |
 | `Add{LIFETIME}<{IMPLEMENTATION}>()`<br>Przykład:<br>`services.AddScoped<MyDep>();` | Tak | Nie | Nie |
 | `Add{LIFETIME}<{SERVICE}>(new {IMPLEMENTATION})`<br>Przykłady:<br>`services.AddScoped<IMyDep>(new MyDep());`<br>`services.AddScoped<IMyDep>(new MyDep("A string!"));` | Nie | Yes | Tak |
-| `Add{LIFETIME}(new {IMPLEMENTATION})`<br>Przykłady:<br>`services.AddScoped(new MyDep());`<br>`services.AddScoped(new MyDep("A string!"));` | Nie | Nie | Tak |
+| `Add{LIFETIME}(new {IMPLEMENTATION})`<br>Przykłady:<br>`services.AddScoped(new MyDep());`<br>`services.AddScoped(new MyDep("A string!"));` | Nie | Nie | Yes |
 
 Aby uzyskać więcej informacji na temat usuwania typów, zobacz [usuwania usług](#disposal-of-services) sekcji. Jest to typowy scenariusz, w wielu implementacjach [pozorowanie typów testowych](xref:test/integration-tests#inject-mock-services).
 

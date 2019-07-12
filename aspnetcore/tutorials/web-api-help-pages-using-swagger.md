@@ -6,16 +6,16 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 09/20/2018
 uid: tutorials/web-api-help-pages-using-swagger
-ms.openlocfilehash: 456e1dcac583705d815c7578c0dba5c52c5dbb3a
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: 06a942ca213c7c0a58932494be0ed23cb6896d48
+ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67815401"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67856093"
 ---
 # <a name="aspnet-core-web-api-help-pages-with-swagger--openapi"></a>Strony sieci web platformy ASP.NET Core pomocy interfejsu API, w strukturze Swagger / interfejsu OpenAPI
 
-Przez [Christoph Nienaber](https://twitter.com/zuckerthoben) i [Rico Suter](http://rsuter.com)
+Przez [Christoph Nienaber](https://twitter.com/zuckerthoben) i [Rico Suter](https://blog.rsuter.com/)
 
 Podczas korzystania z internetowego interfejsu API, informacje o jego różne metody może stanowić wyzwanie dla dewelopera. [Struktury swagger](https://swagger.io/), znane również jako [OpenAPI](https://www.openapis.org/), rozwiązuje problem Generowanie przydatne stron pomocy i dokumentacji dla interfejsów API sieci Web. Zapewnia korzyści, takich jak dokumentacja interaktywne, generowanie zestawów SDK klienta i odnajdywania interfejsu API.
 

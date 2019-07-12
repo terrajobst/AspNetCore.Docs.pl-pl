@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc, seoapril2019
 ms.date: 07/01/2019
 uid: blazor/index
-ms.openlocfilehash: d91ba4fd5ada714a539375715745241f05e9fc70
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: e0af0f27d79973f10493251c3f6c6daebe1b99a8
+ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67813368"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67855770"
 ---
 # <a name="introduction-to-blazor"></a>Wprowadzenie do Blazor
 
@@ -105,7 +105,7 @@ Składniki renderowania do reprezentacji w pamięci z przeglądarki w modelu DOM
 
 Blazor po stronie klienta jest aplikacja jednostronicowa umożliwiająca tworzenie aplikacji sieci web po stronie klienta interactive na platformie .NET. Blazor po stronie klienta używa standardów sieci web Otwórz bez transpilation wtyczki lub kodu i działa we wszystkich przeglądarkach nowoczesne rozwiązania sieci web, w tym przeglądarki dla urządzeń przenośnych.
 
-Uruchamianie kodu platformy .NET w przeglądarkach sieci web jest możliwe, [format WebAssembly](http://webassembly.org) (skrócona *wasm*). Format WebAssembly to format compact kodu bajtowego zoptymalizowane pod kątem szybkiego pobierania i wykonywania maksymalną szybkość. Format WebAssembly to open sieci web, standard i obsługiwane w przeglądarkach sieci web bez wtyczek.
+Uruchamianie kodu platformy .NET w przeglądarkach sieci web jest możliwe, [format WebAssembly](https://webassembly.org) (skrócona *wasm*). Format WebAssembly to format compact kodu bajtowego zoptymalizowane pod kątem szybkiego pobierania i wykonywania maksymalną szybkość. Format WebAssembly to open sieci web, standard i obsługiwane w przeglądarkach sieci web bez wtyczek.
 
 Format WebAssembly kod może uzyskiwać dostęp do pełnej funkcjonalności przeglądarki przy użyciu języka JavaScript, o nazwie *współdziałanie JavaScript* (lub *międzyoperacyjnego JavaScript*). Kod .NET, wykonywane przy użyciu format WebAssembly w przeglądarce jest uruchamiany w piaskownicy JavaScript w przeglądarce, za pomocą zabezpieczeń zapewnianych przez piaskownicy przed złośliwymi działaniami na komputerze klienckim.
 

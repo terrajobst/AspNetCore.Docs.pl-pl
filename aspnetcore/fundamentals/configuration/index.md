@@ -5,14 +5,14 @@ description: Dowiedz się, jak skonfigurować aplikację ASP.NET Core za pomocą
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/24/2019
+ms.date: 07/11/2019
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 81820e8161965fcca2f97d00708df5a29df668de
-ms.sourcegitcommit: 9691b742134563b662948b0ed63f54ef7186801e
+ms.openlocfilehash: 3351ab743ce38b78b1c5857e52020fdeda12cbe7
+ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2019
-ms.locfileid: "66824838"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67855813"
 ---
 # <a name="configuration-in-aspnet-core"></a>Konfiguracja w programie ASP.NET Core
 
@@ -21,6 +21,7 @@ Przez [Luke Latham](https://github.com/guardrex)
 Konfiguracja aplikacji w programie ASP.NET Core opiera się na parach klucz wartość ustanowione przez *dostawcy konfiguracji*. Dostawcy konfiguracji odczytania danych konfiguracyjnych do pary klucz wartość z wielu źródeł w konfiguracji:
 
 * W usłudze Azure Key Vault
+* Konfiguracja aplikacji platformy Azure
 * Argumenty wiersza polecenia
 * Niestandardowi dostawcy (zainstalowane lub utworzone)
 * Pliki katalogu
@@ -38,7 +39,7 @@ using Microsoft.Extensions.Configuration;
 
 [Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
-## <a name="host-vs-app-configuration"></a>Hostowanie i konfiguracji aplikacji
+## <a name="host-versus-app-configuration"></a>Hostowanie w zależności od konfiguracji aplikacji
 
 Zanim aplikacja jest skonfigurowana i uruchomiona, *hosta* skonfigurowany i uruchomiony. Host jest odpowiedzialny za zarządzanie uruchamiania i czasu życia aplikacji. Zarówno aplikacja, jak i hosta są skonfigurowane przy użyciu dostawcy konfiguracji opisanych w tym temacie. Pary klucz wartość konfiguracji hosta stają się częścią globalnej konfiguracji aplikacji. Aby uzyskać więcej informacji na temat sposobu konfiguracji dostawcy są używane, gdy host jest wbudowana i wpływ źródła konfiguracji hosta konfiguracji, zobacz [hosta](xref:fundamentals/index#host).
 
@@ -145,6 +146,7 @@ W poniższej tabeli przedstawiono dostępne dla aplikacji platformy ASP.NET Core
 | Dostawca | Udostępnia konfigurację z&hellip; |
 | -------- | ----------------------------------- |
 | [Dostawca konfiguracji magazynu w usłudze Azure klucza](xref:security/key-vault-configuration) (*zabezpieczeń* tematy) | W usłudze Azure Key Vault |
+| [Dostawca konfiguracji usługi Azure App](/azure/azure-app-configuration/quickstart-aspnet-core-app) (dokumentacja platformy Azure) | Konfiguracja aplikacji platformy Azure |
 | [Dostawca konfiguracji wiersza polecenia](#command-line-configuration-provider) | Parametry wiersza polecenia |
 | [Dostawca konfiguracji niestandardowej](#custom-configuration-provider) | Źródło niestandardowe |
 | [Dostawca konfiguracji zmiennych środowiskowych](#environment-variables-configuration-provider) | Zmienne środowiskowe |
@@ -331,7 +333,7 @@ Aby aktywować środowisko zmiennych konfiguracji, należy wywołać <xref:Micro
 
 [Usługa Azure App Service](https://azure.microsoft.com/services/app-service/) pozwala na Ustawianie zmiennych środowiskowych w portalu Azure, które mogą zastąpić konfigurację aplikacji przy użyciu dostawcy konfiguracji zmiennych środowiskowych. Aby uzyskać więcej informacji, zobacz [aplikacje platformy Azure: Zastąpienie konfiguracji aplikacji przy użyciu witryny Azure Portal](xref:host-and-deploy/azure-apps/index#override-app-configuration-using-the-azure-portal).
 
-`AddEnvironmentVariables` Służy do ładowania zmienne środowiskowe z prefiksem `ASPNETCORE_` dla [konfiguracji hosta](#host-vs-app-configuration) gdy nowy <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> został zainicjowany. Aby uzyskać więcej informacji, zobacz [hosta sieci Web: Konfigurowanie hosta](xref:fundamentals/host/web-host#set-up-a-host).
+`AddEnvironmentVariables` Służy do ładowania zmienne środowiskowe z prefiksem `ASPNETCORE_` dla [konfiguracji hosta](#host-versus-app-configuration) gdy nowy <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> został zainicjowany. Aby uzyskać więcej informacji, zobacz [hosta sieci Web: Konfigurowanie hosta](xref:fundamentals/host/web-host#set-up-a-host).
 
 `CreateDefaultBuilder` także obciążenia:
 
@@ -966,7 +968,7 @@ Tworzone są następujące pary klucz wartość konfiguracji:
 | starship: klasy        | Tworzenia                                      |
 | starship: długość       | 304.8                                             |
 | starship: upoważnione | False                                             |
-| Znak towarowy             | Paramount obrazy Corp. http://www.paramount.com |
+| Znak towarowy             | Paramount obrazy Corp. https://www.paramount.com |
 
 Wywołania aplikacji przykładowej `GetSection` z `starship` klucza. `starship` Pary klucz wartość są izolowane. `Bind` Metoda jest wywoływana w podsekcji, przekazując wystąpienie `Starship` klasy. Po powiązaniu wartości wystąpienia, wystąpienie jest przypisany do właściwości w celu renderowania:
 

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/01/2019
 uid: blazor/supported-platforms
-ms.openlocfilehash: a1ed725de64459edfa2f84d320b2101fb628b1d3
-ms.sourcegitcommit: eb3e51d58dd713eefc242148f45bd9486be3a78a
+ms.openlocfilehash: 01f3a55a8536feedf713e07ea3724a0bc51e7c63
+ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67500416"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67855799"
 ---
 # <a name="aspnet-core-blazor-supported-platforms"></a>Platformy obsługiwane przez Blazor platformy ASP.NET Core
 
@@ -30,7 +30,7 @@ Przez [Luke Latham](https://github.com/guardrex)
 | Safari, łącznie z systemem iOS            | bieżący               |
 | Microsoft Internet Explorer      | Nie jest obsługiwany&dagger; |
 
-&dagger;Program Microsoft Internet Explorer nie obsługuje [format WebAssembly](http://webassembly.org).
+&dagger;Program Microsoft Internet Explorer nie obsługuje [format WebAssembly](https://webassembly.org).
 
 ### <a name="blazor-server-side"></a>Blazor po stronie serwera
 

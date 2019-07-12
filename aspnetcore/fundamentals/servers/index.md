@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/01/2019
 uid: fundamentals/servers/index
-ms.openlocfilehash: 6b4debdaf386bb596c600d3216e78c0cd0380f93
-ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
+ms.openlocfilehash: 10876a61d40679b1a022ce9c58329bf53c36c1bb
+ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67034846"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67855981"
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>Implementacje serwera sieci Web w programie ASP.NET Core
 
@@ -30,7 +30,7 @@ Użyj Kestrel:
 
   ![Kestrel komunikuje się bezpośrednio z Internetu bez zwrotnego serwera proxy](kestrel/_static/kestrel-to-internet2.png)
 
-* Za pomocą *zwrotnego serwera proxy*, takich jak [Internet Information Services (IIS)](https://www.iis.net/), [Nginx](http://nginx.org), lub [Apache](https://httpd.apache.org/). Serwer proxy odwrotnej odbiera żądania HTTP z Internetu i przekazuje je do Kestrel.
+* Za pomocą *zwrotnego serwera proxy*, takich jak [Internet Information Services (IIS)](https://www.iis.net/), [Nginx](https://nginx.org), lub [Apache](https://httpd.apache.org/). Serwer proxy odwrotnej odbiera żądania HTTP z Internetu i przekazuje je do Kestrel.
 
   ![Kestrel komunikuje się bezpośrednio z Internetem za pośrednictwem serwera zwrotny serwer proxy, na przykład serwer Nginx, Apache lub IIS](kestrel/_static/kestrel-to-internet.png)
 

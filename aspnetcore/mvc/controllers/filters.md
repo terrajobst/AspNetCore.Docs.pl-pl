@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/08/2019
 uid: mvc/controllers/filters
-ms.openlocfilehash: df6f144f23f36d8009a5638859846e3cfb768b37
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: 50b199744f32ad19335080da406db69665ec1ae9
+ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67815444"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67856163"
 ---
 # <a name="filters-in-aspnet-core"></a>Filtry w programie ASP.NET Core
 
@@ -259,7 +259,7 @@ W poniższym kodzie `ServiceFilter` atrybut pobiera wystąpienia `AddHeaderResul
 
 [!code-csharp[](./filters/sample/FiltersSample/Controllers/HomeController.cs?name=snippet_ServiceFilter&highlight=1)]
 
-[ServiceFilterAttribute.IsReusable](xref:Microsoft.AspNetCore.Mvc.ServiceFilterAttribute.IsReusable):
+Korzystając z `ServiceFilterAttribute`, ustawiając [ServiceFilterAttribute.IsReusable](xref:Microsoft.AspNetCore.Mvc.ServiceFilterAttribute.IsReusable):
 
 * Stanowi wskazówkę wystąpienie filtru *może* być ponownie używane poza zakres żądania został utworzony w ciągu. Środowisko uruchomieniowe programu ASP.NET Core nie gwarantuje:
 
@@ -279,7 +279,10 @@ Ponieważ `TypeFilterAttribute` typy nie są rozwiązane bezpośrednio w kontene
 * Typy, które są wywoływane przy użyciu `TypeFilterAttribute` nie muszą być zarejestrowane przy użyciu kontenera DI.  Mają zależności są spełnione przez kontener DI.
 * `TypeFilterAttribute` Opcjonalnie można zaakceptować argumentów konstruktora dla typu.
 
-Korzystając z `TypeFilterAttribute`, ustawiając `IsReusable` jest to wskazówka, wystąpienie filtru *może* być ponownie używane poza zakres żądania został utworzony w ciągu. Środowisko uruchomieniowe programu ASP.NET Core zapewnia żadnej gwarancji, które zostaną utworzone pojedyncze wystąpienie filtru. `IsReusable` Nie można używać z filtrem, który zależy od usługi z okresem istnienia innego niż pojedyncze.
+Korzystając z `TypeFilterAttribute`, ustawiając [TypeFilterAttribute.IsReusable](xref:Microsoft.AspNetCore.Mvc.TypeFilterAttribute.IsReusable):
+* Zawiera wskazówki, które wystąpienie filtru *może* być ponownie używane poza zakres żądania został utworzony w ciągu. Środowisko uruchomieniowe programu ASP.NET Core zapewnia żadnej gwarancji, które zostaną utworzone pojedyncze wystąpienie filtru.
+
+* Nie można używać z filtrem, który zależy od usługi z okresem istnienia innego niż pojedyncze.
 
 Poniższy przykład pokazuje, jak przekazywać argumenty do typu przy użyciu `TypeFilterAttribute`:
 

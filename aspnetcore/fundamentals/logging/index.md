@@ -4,14 +4,14 @@ author: tdykstra
 description: Więcej informacji na temat struktury rejestrowania w programie ASP.NET Core. Odnajdywanie dostawcy wbudowane funkcje rejestrowania i Dowiedz się więcej na temat popularnych dostawców innych firm.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 05/01/2019
+ms.date: 07/11/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: 03d494706fb18a28792fa2cfb93bed4c73791873
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: 51433cbf35e434300fbefae29f33594e765bcc7b
+ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67815101"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67855922"
 ---
 # <a name="logging-in-aspnet-core"></a>Rejestrowanie w programie ASP.NET Core
 
@@ -51,7 +51,7 @@ Jeśli używasz `CreateDefaultBuilder`, domyślnych dostawców można zastąpić
 
 Można użyć dostawcy, instalowanie pakietu NuGet i wywołanie metody rozszerzenia dostawcy w wystąpieniu <xref:Microsoft.Extensions.Logging.ILoggerFactory>:
 
-[!code-csharp[](index/samples/1.x/TodoApiSample//Startup.cs?name=snippet_AddConsoleAndDebug&highlight=3,5-7)]
+[!code-csharp[](index/samples/1.x/TodoApiSample/Startup.cs?name=snippet_AddConsoleAndDebug&highlight=3,5-7)]
 
 Platforma ASP.NET Core [wstrzykiwanie zależności (DI)](xref:fundamentals/dependency-injection) zapewnia `ILoggerFactory` wystąpienia. `AddConsole` i `AddDebug` metody rozszerzenia są zdefiniowane w [Microsoft.Extensions.Logging.Console](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console/) i [Microsoft.Extensions.Logging.Debug](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Debug/) pakietów. Każda metoda rozszerzenia wywołuje `ILoggerFactory.AddProvider` jest metoda w wystąpieniu dostawcy.
 
@@ -515,7 +515,7 @@ Jeśli nie zostanie jawnie ustawiona minimalny poziom, wartością domyślną je
 
 ### <a name="filter-functions"></a>Funkcje filtrowania
 
-Funkcja filtru jest wywoływana dla wszystkich dostawców i kategorie, które nie mają zasady przypisane do nich przez konfiguracji czy kodu. Kod w funkcji ma dostęp do typu Dostawca, kategoria i poziom dziennika. Na przykład:
+Funkcja filtru jest wywoływana dla wszystkich dostawców i kategorie, które nie mają zasady przypisane do nich przez konfiguracji czy kodu. Kod w funkcji ma dostęp do typu Dostawca, kategoria i poziom dziennika. Przykład:
 
 [!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_FilterFunction&highlight=5-13)]
 
@@ -645,6 +645,8 @@ loggerFactory.AddConsole();
 
 [Przeciążenia AddConsole](xref:Microsoft.Extensions.Logging.ConsoleLoggerExtensions) pozwalają przekazać minimalny poziom rejestrowania, funkcję filtru i atrybut typu wartość logiczna, która wskazuje, czy zakresy są obsługiwane. Innym rozwiązaniem jest przekazywanie `IConfiguration` obiektu, który można określić zakresy pomocy technicznej i poziomów rejestrowania.
 
+Konsola dostawcy opcjach, zobacz temat <xref:Microsoft.Extensions.Logging.Console.ConsoleLoggerOptions>.
+
 Dostawca konsola ma znaczący wpływ na wydajność i zwykle nie jest przeznaczone do użycia w środowisku produkcyjnym.
 
 Podczas tworzenia nowego projektu w programie Visual Studio, `AddConsole` metoda wygląda następująco:
@@ -655,7 +657,7 @@ loggerFactory.AddConsole(Configuration.GetSection("Logging"));
 
 Ten kod, który odwołuje się do `Logging` części *appSettings.json* pliku:
 
-[!code-json[](index/samples/1.x/TodoApiSample//appsettings.json)]
+[!code-json[](index/samples/1.x/TodoApiSample/appsettings.json)]
 
 Ustawienia pokazano limit framework dzienniki, aby ostrzeżenia zezwalając aplikacji do logowania na poziomie debugowania, jak wyjaśniono w [filtrowanie dziennika](#log-filtering) sekcji. Aby uzyskać więcej informacji, zobacz [konfiguracji](xref:fundamentals/configuration/index).
 
