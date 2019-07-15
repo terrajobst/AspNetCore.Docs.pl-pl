@@ -1,3 +1,3 @@
-* [Visual Studio Code](https://code.visualstudio.com/)
+* [Visual Studio Code](https://code.visualstudio.com/download)
 * [.NET Core SDK 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0)
-* [C#dla wersji programu Visual Studio Code 1.17.1 lub nowszej](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
+* [C#dla programu Visual Studio Code (Najnowsza wersja)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)

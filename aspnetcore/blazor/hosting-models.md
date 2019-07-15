@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/01/2019
 uid: blazor/hosting-models
-ms.openlocfilehash: 80f5e3260ce991ef67fa2a0dd36f8be1f70b6271
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: 2f5a8a037534f4a881b474dd8bcc3119f504123a
+ms.sourcegitcommit: 040aedca220ed24ee1726e6886daf6906f95a028
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67813377"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67892243"
 ---
 # <a name="aspnet-core-blazor-hosting-models"></a>ASP.NET Core Blazor hostingu modeli
 
@@ -58,7 +58,7 @@ Za pomocą modelu hostingu po stronie serwera aplikacji jest wykonywana na serwe
 
 ![Przeglądarka wchodzi w interakcję z aplikacją (obsługiwana wewnątrz aplikacji ASP.NET Core) na serwerze za pośrednictwem połączenia SignalR.](hosting-models/_static/server-side.png)
 
-Aby utworzyć aplikację Blazor przy użyciu modelu hostingu w sieci po stronie serwera, należy użyć platformy ASP.NET Core **Blazor (po stronie serwera)** szablonu ([blazorserverside nowe dotnet](/dotnet/core/tools/dotnet-new)). Aplikacja platformy ASP.NET Core obsługuje aplikacji po stronie serwera i tworzy końcowy SignalR, w którym klienci łączą.
+Aby utworzyć aplikację Blazor przy użyciu modelu hostingu w sieci po stronie serwera, należy użyć platformy ASP.NET Core **Blazor serwera aplikacji** szablonu ([blazorserverside nowe dotnet](/dotnet/core/tools/dotnet-new)). Aplikacja platformy ASP.NET Core obsługuje aplikacji po stronie serwera i tworzy końcowy SignalR, w którym klienci łączą.
 
 Aplikacja platformy ASP.NET Core odwołuje się do aplikacji `Startup` klasy do dodania:
 

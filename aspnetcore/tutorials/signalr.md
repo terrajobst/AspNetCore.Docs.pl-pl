@@ -6,12 +6,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 07/08/2019
 uid: tutorials/signalr
-ms.openlocfilehash: 5588cab1ebbe8fbd6d134025f07f9580ecafd89f
-ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
+ms.openlocfilehash: 53d3763a93cc72b6bcf85b64a706500299b3597f
+ms.sourcegitcommit: 040aedca220ed24ee1726e6886daf6906f95a028
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67855792"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67893735"
 ---
 # <a name="tutorial-get-started-with-aspnet-core-signalr"></a>Samouczek: Wprowadzenie do biblioteki SignalR platformy ASP.NET Core
 
@@ -494,8 +494,6 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 > * Utwórz Centrum SignalR.
 > * Skonfiguruj projekt do korzystania z SignalR.
 > * Dodaj kod używający koncentratora, aby wysyłać komunikaty z dowolnego klienta do wszystkich połączonych klientów.
-
-## <a name="next-steps"></a>Następne kroki
 
 Aby dowiedzieć się więcej na temat biblioteki SignalR, zobacz wprowadzenie:
 

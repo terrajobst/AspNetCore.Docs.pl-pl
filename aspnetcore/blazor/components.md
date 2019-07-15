@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/05/2019
 uid: blazor/components
-ms.openlocfilehash: ca715457604f08e50628d1c1189ea3c570321112
-ms.sourcegitcommit: b9e914ef274b5ec359582f299724af6234dce135
+ms.openlocfilehash: 81100ebb0fdaf877df8c9e696c81b86324f8c0d0
+ms.sourcegitcommit: 040aedca220ed24ee1726e6886daf6906f95a028
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67596102"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67892247"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Tworzenie i używanie składników platformy ASP.NET Core Razor
 
@@ -1109,7 +1109,10 @@ builder.AddContent(seq++, "Second");
 
 Teraz jest pierwszym dane wyjściowe:
 
-| Sekwencja | Typ | Dane || :------: | --------- | :--- : | | 0 | Węzeł tekstowy | Pierwszy || 1 | Węzeł tekstowy | Drugi |
+| Sequence | Typ      | Dane   |
+| :------: | --------- | :----: |
+| 0        | Węzeł tekstowy | pierwszy  |
+| 1        | Węzeł tekstowy | Sekunda |
 
 Ten wynik jest identyczne z poprzednich przypadkiem, więc Brak problemów ujemna. `someFlag` jest `false` w drugiej renderowania, a dane wyjściowe to:
 

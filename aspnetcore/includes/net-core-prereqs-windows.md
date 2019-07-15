@@ -1,4 +1,4 @@
-[Visual Studio 2017 w wersji 15.7.3 lub nowszej](https://visualstudio.microsoft.com/downloads/) z następującymi pakietami roboczymi:
+[Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) z następującymi pakietami roboczymi:
 
 * **ASP.NET i tworzenie aplikacji internetowych**
 * **Programowanie dla wielu platform .NET core**

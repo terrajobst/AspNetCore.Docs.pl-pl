@@ -44,7 +44,7 @@ W folderze projektu należy uruchomić Generator szkieletu tożsamości z wybran
 dotnet aspnet-codegenerator identity -dc MyWeb.Data.ApplicationDbContext --files Account.Register
 ```
 
-PowerShell używa średnika jako separatora polecenia. Przy użyciu programu PowerShell, ucieczki średnikami, na liście plików lub umieścić na liście plików w cudzysłów. Na przykład:
+PowerShell używa średnika jako separatora polecenia. Przy użyciu programu PowerShell, ucieczki średnikami, na liście plików lub umieścić na liście plików w cudzysłów. Przykład:
 
 ```console
 dotnet aspnet-codegenerator identity -dc MyWeb.Data.ApplicationDbContext --files "Account.Register;Account.Login;Account.Logout"
