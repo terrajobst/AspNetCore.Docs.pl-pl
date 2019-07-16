@@ -1,31 +1,24 @@
 ---
-title: Udostępnianie plików cookie między aplikacjami ASP.NET i ASP.NET Core
+title: Udostępnianie plików cookie uwierzytelniania między aplikacjami ASP.NET
 author: rick-anderson
 description: Dowiedz się, jak udostępnianie plików cookie uwierzytelniania między ASP.NET 4.x i aplikacje platformy ASP.NET Core.
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/06/2019
+ms.date: 07/15/2019
 uid: security/cookie-sharing
-ms.openlocfilehash: 94fafc91012b5a7e0888a6ebf37f517c129af2ac
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: b2f906ac97fe79b2a66a5ab709bcbcb03ab8cc39
+ms.sourcegitcommit: 1bf80f4acd62151ff8cce517f03f6fa891136409
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64899053"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68223921"
 ---
-# <a name="share-cookies-among-apps-with-aspnet-and-aspnet-core"></a>Udostępnianie plików cookie między aplikacjami ASP.NET i ASP.NET Core
+# <a name="share-authentication-cookies-among-aspnet-apps"></a>Udostępnianie plików cookie uwierzytelniania między aplikacjami ASP.NET
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT) i [Luke Latham](https://github.com/guardrex)
 
 Witryny sieci Web często składają się z poszczególnych aplikacji web apps pracujących razem. Aby zapewnić środowisko logowania jednokrotnego (SSO), aplikacje sieci web w obrębie lokacji muszą współużytkować pliki cookie uwierzytelniania. Aby zapewnić obsługę tego scenariusza, stosu ochrony danych umożliwia udostępnianie Katana uwierzytelniania plików cookie i biletów uwierzytelniania pliku cookie platformy ASP.NET Core.
-
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/cookie-sharing/sample/) ([sposobu pobierania](xref:index#how-to-download-a-sample))
-
-Przykład ilustruje udostępnianie między trzy aplikacje, które korzystają z plików cookie uwierzytelniania plików cookie:
-
-* ASP.NET Core 2.0 Razor strony aplikacji bez korzystania z [tożsamości platformy ASP.NET Core](xref:security/authentication/identity)
-* Aplikacja MVC platformy ASP.NET Core 2.0 przy użyciu tożsamości platformy ASP.NET Core
-* Aplikacja MVC platformy ASP.NET Framework 4.6.1 w produkcie ASP.NET Identity
 
 W przykładach, wykonaj następujące czynności:
 
@@ -33,152 +26,145 @@ W przykładach, wykonaj następujące czynności:
 * `AuthenticationType` Ustawiono `Identity.Application` jawnie lub domyślnie.
 * Nazwa pospolita aplikacji służy do włączania systemu ochrony danych udostępnić klucze ochrony danych (`SharedCookieApp`).
 * `Identity.Application` jest używana jako schematu uwierzytelniania. Niezależnie od schematu jest używany, musi być stosowane konsekwentnie *wewnątrz i pomiędzy* aplikacji udostępnionych plików cookie, jako domyślny schemat lub przez jawne ustawienie go. Schemat jest używany podczas szyfrowania i odszyfrowywania plików cookie, dzięki czemu spójny schemat musi być używana w różnych aplikacjach.
-* Często [klucz ochrony danych](xref:security/data-protection/implementation/key-management) lokalizacja magazynu jest używana. Przykładowa aplikacja korzysta z folderem o nazwie *pęku kluczy* w katalogu głównym rozwiązanie do przechowywania kluczy ochrony danych.
-* W aplikacji platformy ASP.NET Core [PersistKeysToFileSystem](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.persistkeystofilesystem) służy do ustawiania lokalizacji magazynu kluczy. [SetApplicationName](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.setapplicationname) służy do konfigurowania nazwą pospolitą udostępnionej aplikacji.
-* W aplikacji .NET Framework, oprogramowanie pośredniczące uwierzytelniania plików cookie korzysta z implementacją [DataProtectionProvider](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionprovider). `DataProtectionProvider` udostępnia usługi ochrony danych do szyfrowania i odszyfrowywania danych ładunku plików cookie uwierzytelniania. `DataProtectionProvider` Wystąpienie jest izolowane od system ochrony danych, które są używane przez inne części aplikacji.
-  * [DataProtectionProvider.Create (System.IO.DirectoryInfo, Akcja\<IDataProtectionBuilder >)](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionprovider.create?view=aspnetcore-2.0#Microsoft_AspNetCore_DataProtection_DataProtectionProvider_Create_System_IO_DirectoryInfo_System_Action_Microsoft_AspNetCore_DataProtection_IDataProtectionBuilder__) akceptuje [DirectoryInfo](/dotnet/api/system.io.directoryinfo) Określ lokalizację do przechowywania kluczy ochrony danych. Przykładowa aplikacja udostępnia ścieżkę *pęku kluczy* folder `DirectoryInfo`. [DataProtectionBuilderExtensions.SetApplicationName](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.setapplicationname?view=aspnetcore-2.0#Microsoft_AspNetCore_DataProtection_DataProtectionBuilderExtensions_SetApplicationName_Microsoft_AspNetCore_DataProtection_IDataProtectionBuilder_System_String_) wspólnej nazwy aplikacji.
-  * [DataProtectionProvider](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionprovider) wymaga [Microsoft.AspNetCore.DataProtection.Extensions](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.Extensions/) pakietu NuGet. Aby uzyskać tego pakietu dla platformy ASP.NET Core 2.1 i nowsze aplikacji, należy odwołać [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app). Podczas określania wartości docelowej programu .NET Framework, Dodaj odwołanie do pakietu `Microsoft.AspNetCore.DataProtection.Extensions`.
+* Często [klucz ochrony danych](xref:security/data-protection/implementation/key-management) lokalizacja magazynu jest używana.
+  * W aplikacji platformy ASP.NET Core <xref:Microsoft.AspNetCore.DataProtection.DataProtectionBuilderExtensions.PersistKeysToFileSystem*> służy do ustawiania lokalizacji magazynu kluczy.
+  * W aplikacjach .NET Framework, oprogramowanie pośredniczące uwierzytelniania plików Cookie korzysta z implementacją <xref:Microsoft.AspNetCore.DataProtection.DataProtectionProvider>. `DataProtectionProvider` udostępnia usługi ochrony danych do szyfrowania i odszyfrowywania danych ładunku plików cookie uwierzytelniania. `DataProtectionProvider` Wystąpienie jest izolowane od system ochrony danych, które są używane przez inne części aplikacji. [DataProtectionProvider.Create (System.IO.DirectoryInfo, Akcja\<IDataProtectionBuilder >)](xref:Microsoft.AspNetCore.DataProtection.DataProtectionProvider.Create*) akceptuje <xref:System.IO.DirectoryInfo> Określ lokalizację do przechowywania kluczy ochrony danych.
+* `DataProtectionProvider` wymaga [Microsoft.AspNetCore.DataProtection.Extensions](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.Extensions/) pakietu NuGet:
+  * W aplikacjach ASP.NET Core 2.x odwołania [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app).
+  * W aplikacjach .NET Framework, należy dodać odwołanie do pakietu [Microsoft.AspNetCore.DataProtection.Extensions](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.Extensions/).
+* <xref:Microsoft.AspNetCore.DataProtection.DataProtectionBuilderExtensions.SetApplicationName*> Ustawia nazwę pospolitą aplikacji.
 
 ## <a name="share-authentication-cookies-among-aspnet-core-apps"></a>Udostępnianie plików cookie uwierzytelniania między aplikacjami ASP.NET Core
 
 W przypadku używania tożsamości platformy ASP.NET Core:
 
-::: moniker range=">= aspnetcore-2.0"
+* Klucze ochrony danych i nazwę aplikacji musi być współużytkowany przez aplikacje. Wspólnej lokalizacji magazynu kluczy jest dostarczany w celu <xref:Microsoft.AspNetCore.DataProtection.DataProtectionBuilderExtensions.PersistKeysToFileSystem*> metody w poniższych przykładach. Użyj <xref:Microsoft.AspNetCore.DataProtection.DataProtectionBuilderExtensions.SetApplicationName*> skonfigurować nazwę pospolitą udostępnionej aplikacji (`SharedCookieApp` w poniższych przykładach). Aby uzyskać więcej informacji, zobacz <xref:security/data-protection/configuration/overview>.
+* Użyj <xref:Microsoft.Extensions.DependencyInjection.IdentityServiceCollectionExtensions.ConfigureApplicationCookie*> metodę rozszerzenia, aby skonfigurować usługi ochrony danych plików cookie.
+* W poniższym przykładzie ustawiono typ uwierzytelniania `Identity.Application` domyślnie.
 
-W `ConfigureServices` metody, użyj [ConfigureApplicationCookie](/dotnet/api/microsoft.extensions.dependencyinjection.identityservicecollectionextensions.configureapplicationcookie) metodę rozszerzenia, aby skonfigurować usługi ochrony danych plików cookie.
-
-[!code-csharp[](cookie-sharing/sample/CookieAuthWithIdentity.Core/Startup.cs?name=snippet1)]
-
-Klucze ochrony danych i nazwę aplikacji musi być współużytkowany przez aplikacje. W przykładowym aplikacjom oraz `GetKeyRingDirInfo` zwraca wspólnej lokalizacji magazynu kluczy w celu [PersistKeysToFileSystem](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.persistkeystofilesystem) metody. Użyj [SetApplicationName](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.setapplicationname) skonfigurować nazwę pospolitą udostępnionej aplikacji (`SharedCookieApp` w przykładzie). Aby uzyskać więcej informacji, zobacz [konfigurowania ochrony danych](xref:security/data-protection/configuration/overview).
-
-Hostowania aplikacji, które udostępnianie plików cookie między domenami podrzędnymi, należy określić w typowych domeny [Cookie.Domain](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.domain) właściwości. Udostępnianie plików cookie między aplikacjami na `contoso.com`, takich jak `first_subdomain.contoso.com` i `second_subdomain.contoso.com`, określ `Cookie.Domain` jako `.contoso.com`:
-
-```csharp
-options.Cookie.Domain = ".contoso.com";
-```
-
-Zobacz *CookieAuthWithIdentity.Core* projektu w [przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/cookie-sharing/sample/) ([sposobu pobierania](xref:index#how-to-download-a-sample)).
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-W `Configure` metody, użyj [CookieAuthenticationOptions](/dotnet/api/microsoft.aspnetcore.builder.cookieauthenticationoptions) do skonfigurowania:
-
-* Usługa ochrony danych plików cookie.
-* `AuthenticationScheme` Do dopasowania ASP.NET 4.x.
-
-```csharp
-app.AddIdentity<ApplicationUser, IdentityRole>(options =>
-{
-    options.Cookies.ApplicationCookie.AuthenticationScheme = 
-        "ApplicationCookie";
-
-    var protectionProvider = 
-        DataProtectionProvider.Create(
-            new DirectoryInfo(@"PATH_TO_KEY_RING_FOLDER"));
-
-    options.Cookies.ApplicationCookie.DataProtectionProvider = 
-        protectionProvider;
-
-    options.Cookies.ApplicationCookie.TicketDataFormat = 
-        new TicketDataFormat(protectionProvider.CreateProtector(
-            "Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationMiddleware", 
-            "Cookies", 
-            "v2"));
-});
-```
-
-::: moniker-end
-
-W przypadku używania plików cookie bezpośrednio:
-
-::: moniker range=">= aspnetcore-2.0"
-
-[!code-csharp[](cookie-sharing/sample/CookieAuth.Core/Startup.cs?name=snippet1)]
-
-Klucze ochrony danych i nazwę aplikacji musi być współużytkowany przez aplikacje. W przykładowym aplikacjom oraz `GetKeyRingDirInfo` zwraca wspólnej lokalizacji magazynu kluczy w celu [PersistKeysToFileSystem](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.persistkeystofilesystem) metody. Użyj [SetApplicationName](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.setapplicationname) skonfigurować nazwę pospolitą udostępnionej aplikacji (`SharedCookieApp` w przykładzie). Aby uzyskać więcej informacji, zobacz [konfigurowania ochrony danych](xref:security/data-protection/configuration/overview).
-
-Hostowania aplikacji, które udostępnianie plików cookie między domenami podrzędnymi, należy określić w typowych domeny [Cookie.Domain](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.domain) właściwości. Udostępnianie plików cookie między aplikacjami na `contoso.com`, takich jak `first_subdomain.contoso.com` i `second_subdomain.contoso.com`, określ `Cookie.Domain` jako `.contoso.com`:
-
-```csharp
-options.Cookie.Domain = ".contoso.com";
-```
-
-Zobacz *CookieAuth.Core* projektu w [przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/cookie-sharing/sample/) ([sposobu pobierania](xref:index#how-to-download-a-sample)).
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-```csharp
-app.UseCookieAuthentication(new CookieAuthenticationOptions
-{
-    DataProtectionProvider = 
-        DataProtectionProvider.Create(
-            new DirectoryInfo(@"PATH_TO_KEY_RING_FOLDER"))
-});
-```
-
-::: moniker-end
-
-## <a name="encrypting-data-protection-keys-at-rest"></a>Szyfrowanie kluczy ochrony danych magazynowanych
-
-W przypadku wdrożeń produkcyjnych należy skonfigurować `DataProtectionProvider` do szyfrowania kluczy w stanie spoczynku przy użyciu interfejsu DPAPI lub X509Certificate. Zobacz [klucza szyfrowania na Rest](xref:security/data-protection/implementation/key-encryption-at-rest) Aby uzyskać więcej informacji.
-
-::: moniker range=">= aspnetcore-2.0"
+W `Startup.ConfigureServices`:
 
 ```csharp
 services.AddDataProtection()
-    .ProtectKeysWithCertificate("thumbprint");
+    .PersistKeysToFileSystem({PATH TO COMMON KEY RING FOLDER})
+    .SetApplicationName("SharedCookieApp");
+
+services.ConfigureApplicationCookie(options => {
+    options.Cookie.Name = ".AspNet.SharedCookie";
+});
 ```
 
-::: moniker-end
+Korzystając z plików cookie bezpośrednio, bez tożsamości platformy ASP.NET Core, skonfiguruj ochronę danych i uwierzytelniania w `Startup.ConfigureServices`. W poniższym przykładzie ustawiono typ uwierzytelniania `Identity.Application`:
 
-::: moniker range="< aspnetcore-2.0"
+```csharp
+services.AddDataProtection()
+    .PersistKeysToFileSystem({PATH TO COMMON KEY RING FOLDER})
+    .SetApplicationName("SharedCookieApp");
+
+services.AddAuthentication("Identity.Application")
+    .AddCookie("Identity.Application", options =>
+    {
+        options.Cookie.Name = ".AspNet.SharedCookie";
+    });
+```
+
+Hostowania aplikacji, które udostępnianie plików cookie między domenami podrzędnymi, należy określić w typowych domeny [Cookie.Domain](xref:Microsoft.AspNetCore.Http.CookieBuilder.Domain) właściwości. Udostępnianie plików cookie między aplikacjami na `contoso.com`, takich jak `first_subdomain.contoso.com` i `second_subdomain.contoso.com`, określ `Cookie.Domain` jako `.contoso.com`:
+
+```csharp
+options.Cookie.Domain = ".contoso.com";
+```
+
+## <a name="encrypt-data-protection-keys-at-rest"></a>Szyfruj klucze ochrony danych magazynowanych
+
+W przypadku wdrożeń produkcyjnych należy skonfigurować `DataProtectionProvider` do szyfrowania kluczy w stanie spoczynku przy użyciu interfejsu DPAPI lub X509Certificate. Aby uzyskać więcej informacji, zobacz <xref:security/data-protection/implementation/key-encryption-at-rest>. W poniższym przykładzie przedstawiono odcisk palca certyfikatu do <xref:Microsoft.AspNetCore.DataProtection.DataProtectionBuilderExtensions.ProtectKeysWithCertificate*>:
+
+```csharp
+services.AddDataProtection()
+    .ProtectKeysWithCertificate("{CERTIFICATE THUMBPRINT}");
+```
+
+## <a name="share-authentication-cookies-between-aspnet-4x-and-aspnet-core-apps"></a>Udostępnianie plików cookie uwierzytelniania między ASP.NET 4.x i aplikacje platformy ASP.NET Core
+
+Aplikacje ASP.NET 4.x, korzystających z oprogramowania pośredniczącego uwierzytelniania pliku Cookie Katana można skonfigurować do generowania plików cookie uwierzytelniania, które są zgodne z oprogramowaniem pośredniczącym uwierzytelniania platformy ASP.NET Core pliku Cookie. Dzięki temu uaktualniania dużej witryny poszczególnych aplikacji w kilku krokach, zapewniając bezproblemowe środowisko logowania jednokrotnego w lokacji.
+
+Jeśli aplikacja używa oprogramowania pośredniczącego uwierzytelniania pliku Cookie Katana, wywołuje `UseCookieAuthentication` w projekcie *Startup.Auth.cs* pliku. Projekty aplikacji sieci web programu ASP.NET 4.x utworzonych za pomocą programu Visual Studio 2013, a później użyć oprogramowanie pośredniczące uwierzytelniania plików Cookie Katana domyślnie. Mimo że `UseCookieAuthentication` jest obsługiwany w przypadku aplikacji platformy ASP.NET Core i wywoływania `UseCookieAuthentication` w programie ASP.NET 4.x aplikacji, która używa oprogramowania pośredniczącego uwierzytelniania pliku Cookie Katana jest prawidłowy.
+
+Aplikacja platformy ASP.NET 4.x musi być przeznaczony dla .NET Framework 4.5.1 lub nowszej. W przeciwnym razie niezbędne pakiety NuGet uniemożliwić instalację.
+
+Aby udostępnić pliki cookie uwierzytelniania między aplikację ASP.NET 4.x i aplikacji ASP.NET Core, konfigurowania aplikacji ASP.NET Core zgodnie z [udostępnianie plików cookie uwierzytelniania między aplikacjami ASP.NET Core](#share-authentication-cookies-among-aspnet-core-apps) sekcji, a następnie skonfigurować aplikację ASP.NET 4.x, jako poniżej.
+
+Upewnij się, że pakiety aplikacji zostały zaktualizowane do najnowszej wersji. Zainstaluj [Microsoft.Owin.Security.Interop](https://www.nuget.org/packages/Microsoft.Owin.Security.Interop/) pakietu do każdej aplikacji 4.x ASP.NET.
+
+Zlokalizuj i zmodyfikuj wywołanie `UseCookieAuthentication`:
+
+* Zmień nazwę pliku cookie, aby dopasować nazwę używaną przez oprogramowanie pośredniczące programu ASP.NET Core pliku Cookie uwierzytelniania (`.AspNet.SharedCookie` w przykładzie).
+* W poniższym przykładzie ustawiono typ uwierzytelniania `Identity.Application`.
+* Podaj wystąpienia `DataProtectionProvider` inicjowany do wspólnej lokalizacji magazynu kluczy ochrony danych.
+* Upewnij się, że nazwa aplikacji jest ustawiona na nazwę pospolitą aplikacji używane przez wszystkie aplikacje, których udostępnianie plików cookie uwierzytelniania (`SharedCookieApp` w przykładzie).
+
+Jeśli to ustawienie nie zostanie `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` i `http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider`ustaw <xref:System.Web.Helpers.AntiForgeryConfig.UniqueClaimTypeIdentifier> do oświadczeń, która odróżnia unikatowych użytkowników.
+
+*App_Start/Startup.auth.cs*:
 
 ```csharp
 app.UseCookieAuthentication(new CookieAuthenticationOptions
 {
-    DataProtectionProvider = DataProtectionProvider.Create(
-        new DirectoryInfo(@"PATH_TO_KEY_RING"),
-        configure =>
-        {
-            configure.ProtectKeysWithCertificate("thumbprint");
-        })
+    AuthenticationType = "Identity.Application",
+    CookieName = ".AspNet.SharedCookie",
+    LoginPath = new PathString("/Account/Login"),
+    Provider = new CookieAuthenticationProvider
+    {
+        OnValidateIdentity =
+            SecurityStampValidator
+                .OnValidateIdentity<ApplicationUserManager, ApplicationUser>(
+                    validateInterval: TimeSpan.FromMinutes(30),
+                    regenerateIdentity: (manager, user) =>
+                        user.GenerateUserIdentityAsync(manager))
+    },
+    TicketDataFormat = new AspNetTicketDataFormat(
+        new DataProtectorShim(
+            DataProtectionProvider.Create({PATH TO COMMON KEY RING FOLDER},
+                (builder) => { builder.SetApplicationName("SharedCookieApp"); })
+            .CreateProtector(
+                "Microsoft.AspNetCore.Authentication.Cookies." +
+                    "CookieAuthenticationMiddleware",
+                "Identity.Application",
+                "v2"))),
+    CookieManager = new ChunkingCookieManager()
 });
+
+System.Web.Helpers.AntiForgeryConfig.UniqueClaimTypeIdentifier =
+    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name";
 ```
 
-::: moniker-end
-
-## <a name="sharing-authentication-cookies-between-aspnet-4x-and-aspnet-core-apps"></a>Udostępnianie plików cookie uwierzytelniania między ASP.NET 4.x i aplikacje platformy ASP.NET Core
-
-Aplikacje platformy ASP.NET 4.x, które używają oprogramowania pośredniczącego uwierzytelniania pliku cookie Katana można skonfigurować do generowania plików cookie uwierzytelniania, które są zgodne z oprogramowaniem pośredniczącym uwierzytelniania pliku cookie platformy ASP.NET Core. Dzięki temu można przyjąć uaktualniania dużej witryny poszczególnych aplikacji, zapewniając bezproblemowe środowisko logowania jednokrotnego w lokacji.
-
-Jeśli aplikacja używa oprogramowania pośredniczącego uwierzytelniania pliku cookie Katana, wywołuje `UseCookieAuthentication` w projekcie *Startup.Auth.cs* pliku. Projekty aplikacji sieci web programu ASP.NET 4.x utworzonych za pomocą programu Visual Studio 2013, a później użyć oprogramowanie pośredniczące uwierzytelniania plików cookie Katana domyślnie. Mimo że `UseCookieAuthentication` jest obsługiwany w przypadku aplikacji platformy ASP.NET Core i wywoływania `UseCookieAuthentication` w aplikacji 4.x ASP.NET, która używa Katana oprogramowania pośredniczącego uwierzytelniania pliku cookie jest prawidłowy.
-
-Aplikacja platformy ASP.NET 4.x musi być przeznaczony dla .NET Framework 4.5.1 lub nowszej. W przeciwnym razie niezbędne pakiety NuGet uniemożliwić instalację.
-
-Aby udostępnić pliki cookie uwierzytelniania między aplikację ASP.NET 4.x i aplikacji ASP.NET Core, skonfigurować aplikację ASP.NET Core, jak wspomniano powyżej, a następnie konfigurowania aplikacji ASP.NET 4.x, wykonaj następujące czynności:
-
-1. Zainstaluj pakiet [Microsoft.Owin.Security.Interop](https://www.nuget.org/packages/Microsoft.Owin.Security.Interop/) do każdej aplikacji 4.x ASP.NET.
-
-2. W *Startup.Auth.cs*, Znajdź wywołanie `UseCookieAuthentication` i zmodyfikuj go w następujący sposób. Zmień nazwę pliku cookie, aby dopasować nazwę używaną przez oprogramowanie pośredniczące uwierzytelniania plików cookie programu ASP.NET Core. Podaj wystąpienia `DataProtectionProvider` inicjowany do wspólnej lokalizacji magazynu kluczy ochrony danych. Upewnij się, że nazwa aplikacji jest ustawiona na nazwę pospolitą aplikacji używane przez wszystkie aplikacje, których udostępnianie plików cookie, `SharedCookieApp` w przykładowej aplikacji.
-
-[!code-csharp[](cookie-sharing/sample/CookieAuthWithIdentity.NETFramework/CookieAuthWithIdentity.NETFramework/App_Start/Startup.Auth.cs?name=snippet1)]
-
-Zobacz *CookieAuthWithIdentity.NETFramework* projektu w [przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/cookie-sharing/sample/) ([sposobu pobierania](xref:index#how-to-download-a-sample)).
-
-Podczas generowania tożsamości użytkownika, typ uwierzytelniania musi być zgodny z typem zdefiniowanym w `AuthenticationType` zestawu przy użyciu `UseCookieAuthentication`.
+Podczas generowania tożsamości użytkownika, typ uwierzytelniania (`Identity.Application`) musi być zgodny z typem zdefiniowanym w `AuthenticationType` zestawu przy użyciu `UseCookieAuthentication` w *App_Start/Startup.Auth.cs*.
 
 *Models/IdentityModels.cs*:
 
-[!code-csharp[](cookie-sharing/sample/CookieAuthWithIdentity.NETFramework/CookieAuthWithIdentity.NETFramework/Models/IdentityModels.cs?name=snippet1)]
+```csharp
+public class ApplicationUser : IdentityUser
+{
+    public async Task<ClaimsIdentity> GenerateUserIdentityAsync(
+        UserManager<ApplicationUser> manager)
+    {
+        // The authenticationType must match the one defined in 
+        // CookieAuthenticationOptions.AuthenticationType
+        var userIdentity = 
+            await manager.CreateIdentityAsync(this, "Identity.Application");
+
+        // Add custom user claims here
+
+        return userIdentity;
+    }
+}
+```
 
 ## <a name="use-a-common-user-database"></a>Użyj wspólnej bazy danych użytkownika
 
-Upewnij się, że system tożsamości dla każdej aplikacji jest wskazywany w tej samej bazy danych użytkownika. W przeciwnym razie systemu tożsamości generuje błędy w czasie wykonywania, gdy podejmuje próbę dopasowania informacje zawarte w pliku cookie uwierzytelniania względem informacji w bazie danych.
+Gdy aplikacje używają tej samej tożsamości schematu (wersja tej samej tożsamości), upewnij się, że system tożsamości dla każdej aplikacji jest wskazywany w tej samej bazy danych użytkownika. W przeciwnym razie systemu tożsamości generuje błędy w czasie wykonywania, gdy podejmuje próbę dopasowania informacje zawarte w pliku cookie uwierzytelniania względem informacji w bazie danych.
+
+Gdy schematu tożsamości różni się między aplikacjami, zwykle ponieważ aplikacje korzystają z różnych wersji tożsamości, udostępnianie wspólną bazę danych na podstawie najnowszej wersji tożsamości nie jest możliwe bez konieczności ponownego mapowania i dodawanie kolumn w schematach tożsamości innej aplikacji. Jest często bardziej efektywne uaktualnienia innych aplikacji, aby korzystać z najnowszej wersji tożsamości, tak aby wspólnej bazy danych mogą być współużytkowane przez aplikacje.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-<xref:host-and-deploy/web-farm>
+* <xref:host-and-deploy/web-farm>

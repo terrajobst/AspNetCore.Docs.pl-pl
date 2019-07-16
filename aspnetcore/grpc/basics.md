@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 03/31/2019
 uid: grpc/basics
-ms.openlocfilehash: 00772144cb484b78a256f178642463577d316be2
-ms.sourcegitcommit: 516f166c5f7cec54edf3d9c71e6e2ba53fb3b0e5
+ms.openlocfilehash: 78d744d641396c449a142375c69730333f8183cd
+ms.sourcegitcommit: 1bf80f4acd62151ff8cce517f03f6fa891136409
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67196352"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68223883"
 ---
 # <a name="grpc-services-with-c"></a>gRPC usług przy użyciu języka C\#
 
@@ -30,9 +30,9 @@ Na przykład, rozważmy *greet.proto* plik używany w [Rozpoczynanie pracy z us�
 
 * Definiuje `Greeter` usługi.
 * `Greeter` Usługa zawiera definicję `SayHello` wywołania.
-* `SayHello` wysyła `HelloRequest` wiadomości i odbiera `HelloResponse` komunikat:
+* `SayHello` wysyła `HelloRequest` wiadomości i odbiera `HelloReply` komunikat:
 
-[!code-proto[](~/tutorials//grpc/grpc-start/sample/GrpcGreeter/Protos/greet.proto)]
+[!code-protobuf[](~/tutorials//grpc/grpc-start/sample/GrpcGreeter/Protos/greet.proto)]
 
 ## <a name="add-a-proto-file-to-a-c-app"></a>Dodaj plik .proto do C\# aplikacji
 

@@ -3,14 +3,14 @@ title: Strony razor z programem EF Core w programie ASP.NET Core - Migrations - 
 author: rick-anderson
 description: W ramach tego samouczka możesz rozpocząć korzystanie z funkcji migracje EF Core dla zarządzania zmianami modelu danych w aplikacji ASP.NET Core MVC.
 ms.author: riande
-ms.date: 06/31/2017
+ms.date: 06/30/2017
 uid: data/ef-rp/migrations
-ms.openlocfilehash: b887be91a0c8332e7bd5fb7b1acc90eae138d9ed
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: 54225a8126e04eb4ff3a6a0cde9d305249299887
+ms.sourcegitcommit: 1bf80f4acd62151ff8cce517f03f6fa891136409
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67813629"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68223869"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---migrations---4-of-8"></a>Strony razor z programem EF Core w programie ASP.NET Core - Migrations - 4, 8
 

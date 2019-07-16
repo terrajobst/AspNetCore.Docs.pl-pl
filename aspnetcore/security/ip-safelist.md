@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 08/31/2018
 uid: security/ip-safelist
-ms.openlocfilehash: cfbb50ea33ae3af577f13b00bccc75fe0be57f79
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: ca05989efabea3a71c6912e98055a6746e0f5966
+ms.sourcegitcommit: 1bf80f4acd62151ff8cce517f03f6fa891136409
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64903373"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68223935"
 ---
 # <a name="client-ip-safelist-for-aspnet-core"></a>Dla platformy ASP.NET Core, bezpiecznej liście adresów IP klienta
 
@@ -23,7 +23,7 @@ W tym artykule przedstawiono trzy sposoby, aby zaimplementować bezpiecznej liś
 * Filtry akcji, aby sprawdzić adres IP zdalnego żądań dotyczących określonego kontrolery lub metody akcji.
 * Filtry stron razor do sprawdzenia zdalny adres IP żądań dla stron Razor.
 
-Przykładowa aplikacja pokazano oba podejścia. W każdym przypadku ciąg zawierający adresy IP zatwierdzone klienta są przechowywane w ustawieniu aplikacji. Oprogramowanie pośredniczące lub filtr analizuje ciąg w postaci listy i sprawdza, czy zdalny adres IP na liście. W przeciwnym razie zostanie zwrócony kod stanu HTTP 403 — Dostęp zabroniony.
+W każdym przypadku ciąg zawierający adresy IP zatwierdzone klienta są przechowywane w ustawieniu aplikacji. Oprogramowanie pośredniczące lub filtr analizuje ciąg w postaci listy i sprawdza, czy zdalny adres IP na liście. W przeciwnym razie zostanie zwrócony kod stanu HTTP 403 — Dostęp zabroniony.
 
 [Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/ip-safelist/samples/2.x/ClientIpAspNetCore) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
@@ -37,7 +37,7 @@ Lista jest skonfigurowana w *appsettings.json* pliku. Jest rozdzielaną średnik
 
 `Configure` Metoda dodaje oprogramowanie pośredniczące i przekazuje do niego ciąg bezpiecznej liście parametr konstruktora.
 
-[!code-csharp[](ip-safelist/samples/2.x/ClientIpAspNetCore/Startup.cs?name=snippet_Configure&highlight=7)]
+[!code-csharp[](ip-safelist/samples/2.x/ClientIpAspNetCore/Startup.cs?name=snippet_Configure&highlight=10)]
 
 Oprogramowanie pośredniczące analizuje ciąg do tablicy, a także szuka zdalny adres IP w tablicy. Jeśli zdalny adres IP nie zostanie znaleziony, oprogramowanie pośredniczące zwraca HTTP 401 — Dostęp zabroniony. Ten proces sprawdzania poprawności jest pomijana dla żądań HTTP Get.
 
