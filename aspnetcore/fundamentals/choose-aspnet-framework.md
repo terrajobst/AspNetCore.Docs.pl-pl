@@ -4,14 +4,14 @@ author: rick-anderson
 description: W tym artykule wyjaśniono vs platformy ASP.NET Core. ASP.NET 4.x i jak dokonać wyboru między nimi.
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 05/02/2019
+ms.date: 07/15/2019
 uid: fundamentals/choose-between-aspnet-and-aspnetcore
-ms.openlocfilehash: 97d65df8df1e27694d818098958288874e8ab92e
-ms.sourcegitcommit: 47cc13ab90913af9a2887cef0896bb4e9aba4dd5
+ms.openlocfilehash: 9e093e83a1f6367cbb244076a8351644244f9874
+ms.sourcegitcommit: 7e00e8236ca4eabf058f07020a5a3882daf7564f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67399177"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68239202"
 ---
 # <a name="choose-between-aspnet-4x-and-aspnet-core"></a>Wybieranie między ASP.NET 4.x i ASP.NET Core
 
@@ -38,7 +38,7 @@ W poniższej tabeli porównano platformy ASP.NET Core, platformy ASP.NET 4.x.
 |Wiele wersji na maszynie|Jedna wersja na maszynie|
 |Programowanie z użyciem [programu Visual Studio](https://visualstudio.microsoft.com/vs/), [programu Visual Studio dla komputerów Mac](https://visualstudio.microsoft.com/vs/mac/), lub [programu Visual Studio Code](https://code.visualstudio.com/) przy użyciu C# lubF#|Programowanie z użyciem [programu Visual Studio](https://visualstudio.microsoft.com/vs/) przy użyciu C#, VB, lubF#|
 |Wyższą wydajność niż ASP.NET 4.x|Dobra wydajność|
-|[Wybierz środowisko uruchomieniowe platformy .NET Framework lub .NET Core](/dotnet/standard/choosing-core-framework-server)|Używasz środowiska uruchomieniowego .NET Framework|
+|[Użyj środowiska uruchomieniowego .NET Core](/dotnet/standard/choosing-core-framework-server)|Używasz środowiska uruchomieniowego .NET Framework|
 
 Zobacz [platformy ASP.NET Core przeznaczone dla .NET Framework](xref:index#target-framework) informacje na temat platformy ASP.NET Core 2.x obsługi w programie .NET Framework.
 

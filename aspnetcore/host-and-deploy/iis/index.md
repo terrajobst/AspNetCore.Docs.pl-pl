@@ -5,14 +5,14 @@ description: Dowiedz się, jak hostować aplikacje platformy ASP.NET Core na sys
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/28/2019
+ms.date: 07/16/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 2dab8b4839d6778d5dc6a3daf96c1719eecfe0fb
-ms.sourcegitcommit: 763af2cbdab0da62d1f1cfef4bcf787f251dfb5c
+ms.openlocfilehash: 644d84f9adba650b3ef10ba69cc75c22845be211
+ms.sourcegitcommit: 7e00e8236ca4eabf058f07020a5a3882daf7564f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67394625"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68239239"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host platformy ASP.NET Core na Windows za pomocą programu IIS
 
@@ -338,7 +338,7 @@ W przypadku wdrażania aplikacji na serwerach z [narzędzia Web Deploy](/iis/ins
 
 ## <a name="create-the-iis-site"></a>Tworzenie witryny usług IIS
 
-1. W systemie hostingu utworzyć folderu zawierającego pliki i foldery opublikowanych aplikacji. Układ wdrożenia aplikacji jest opisana w [strukturę katalogów](xref:host-and-deploy/directory-structure) tematu.
+1. W systemie hostingu utworzyć folderu zawierającego pliki i foldery opublikowanych aplikacji. W poniższym kroku ścieżki folderu jest dostarczany w usługach IIS jako ścieżka fizyczna do aplikacji. Aby uzyskać więcej informacji na temat układ pliku i folderu wdrożenia aplikacji, zobacz <xref:host-and-deploy/directory-structure>.
 
 1. W Menedżerze usług IIS otwórz węzeł serwera w **połączeń** panelu. Kliknij prawym przyciskiem myszy **witryn** folderu. Wybierz **Dodawanie witryny sieci Web** z menu kontekstowego.
 
@@ -372,11 +372,11 @@ Aby uzyskać więcej informacji, zobacz [uwierzytelniania Windows skonfiguruj](x
 
 ## <a name="deploy-the-app"></a>Wdrażanie aplikacji
 
-Wdróż aplikację w folderze, który został utworzony przez system operacyjny. [Web Deploy](/iis/publish/using-web-deploy/introduction-to-web-deploy) zalecane mechanizm dla wdrożenia.
+Wdrażanie aplikacji programu IIS **ścieżkę fizyczną** folder, który został ustanowiony w [tworzenia witryny usług IIS](#create-the-iis-site) sekcji. [Web Deploy](/iis/publish/using-web-deploy/introduction-to-web-deploy) jest zalecane mechanizmu dla wdrażania, ale istnieje kilka opcji przenoszenie aplikacji z poziomu projektu *publikowania* folderu do folderu wdrożenia systemu macierzystego.
 
 ### <a name="web-deploy-with-visual-studio"></a>Narzędzie Web Deploy w programie Visual Studio
 
-Zobacz [profilów publikowania programu Visual Studio dla wdrożenia aplikacji platformy ASP.NET Core](xref:host-and-deploy/visual-studio-publish-profiles#publish-profiles) tematu, aby dowiedzieć się, jak utworzyć profil publikowania do użycia za pomocą narzędzia Web Deploy. Jeśli dostawca hostingu oferuje pomocy technicznej lub profilu publikacji tworzenia jeden, Pobierz swój profil i zaimportuj go za pomocą programu Visual Studio **Publikuj** okna dialogowego.
+Zobacz [profilów publikowania programu Visual Studio dla wdrożenia aplikacji platformy ASP.NET Core](xref:host-and-deploy/visual-studio-publish-profiles#publish-profiles) tematu, aby dowiedzieć się, jak utworzyć profil publikowania do użycia za pomocą narzędzia Web Deploy. Jeśli dostawca hostingu oferuje pomocy technicznej lub profilu publikacji tworzenia jeden, Pobierz swój profil i zaimportuj go za pomocą programu Visual Studio **Publikuj** okno dialogowe:
 
 ![Strona okna dialogowego publikowania](index/_static/pub-dialog.png)
 
@@ -386,11 +386,15 @@ Zobacz [profilów publikowania programu Visual Studio dla wdrożenia aplikacji p
 
 ### <a name="alternatives-to-web-deploy"></a>Wdrażanie rozwiązania alternatywne w sieci Web
 
-Przenoszenie aplikacji do hostowania systemu, takie jak ręcznego kopiowania, polecenia Xcopy, Robocopy lub programu PowerShell przy użyciu jednej z kilku metod.
+Użyć dowolnej z kilku metod, aby przenieść aplikację do obsługi systemu, takie jak ręcznego kopiowania [Xcopy](/windows-server/administration/windows-commands/xcopy), [Robocopy](/windows-server/administration/windows-commands/robocopy), lub [PowerShell](/powershell/).
 
 Aby uzyskać więcej informacji na temat wdrażania programu ASP.NET Core w usługach IIS, zobacz [zasoby dotyczące wdrażania dla administratorów usług IIS](#deployment-resources-for-iis-administrators) sekcji.
 
 ## <a name="browse-the-website"></a>Przeglądanie witryny sieci Web
+
+Po wdrożeniu aplikacji do hostowania systemu należy wysłać żądanie do jednej z aplikacji publicznych punktów końcowych.
+
+W poniższym przykładzie witryna jest powiązana z usługą IIS **nazwy hosta** z `www.mysite.com` na **portu** `80`. Pojawieniu się żądania `http://www.mysite.com`:
 
 ![Przeglądarka Microsoft Edge został załadowany strony uruchamiania usług IIS.](index/_static/browsewebsite.png)
 
