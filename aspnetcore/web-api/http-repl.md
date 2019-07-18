@@ -1,39 +1,39 @@
 ---
-title: Test sieci web, interfejsów API za pomocą HTTP REPL
+title: Testowanie interfejsów API sieci Web przy użyciu protokołu HTTP REPL
 author: scottaddie
-description: Dowiedz się, jak przeglądanie i testu internetowego interfejsu API platformy ASP.NET Core za pomocą narzędzia HTTP REPL środowiska .NET Core globalnego.
+description: Dowiedz się, jak przeglądać i testować ASP.NET Core internetowy interfejs API przy użyciu globalnego narzędzia REPL .NET Core.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 07/12/2019
 uid: web-api/http-repl
-ms.openlocfilehash: 920561fc86ed90eef64af49fa5936a080a096de2
-ms.sourcegitcommit: 040aedca220ed24ee1726e6886daf6906f95a028
+ms.openlocfilehash: 1774382305cc3d479291700390807d277a24bfa7
+ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67919262"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68308342"
 ---
-# <a name="test-web-apis-with-the-http-repl"></a>Test sieci web, interfejsów API za pomocą HTTP REPL
+# <a name="test-web-apis-with-the-http-repl"></a>Testowanie interfejsów API sieci Web przy użyciu protokołu HTTP REPL
 
 Przez [Scott Addie](https://twitter.com/Scott_Addie)
 
-Jest pętlą odczytu HTTP — Eval-Print (REPL):
+Pętla HTTP Read-eval-Print (REPL) to:
 
-* Lekkie, Międzyplatformowe narzędzie wiersza polecenia, które ma obsługiwane wszędzie, gdzie platformy .NET Core jest obsługiwane.
-* Używany do wysyłania żądań HTTP do testowania interfejsów API sieci web platformy ASP.NET Core i wyświetlania ich wyników.
+* Lekkie, międzyplatformowe narzędzie wiersza polecenia, które jest obsługiwane wszędzie tam, gdzie jest obsługiwane środowisko .NET Core.
+* Służy do wykonywania żądań HTTP do testowania ASP.NET Core interfejsów API sieci Web i wyświetlania ich wyników.
 
-Następujące [zleceń HTTP](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#74-supported-methods) są obsługiwane:
+Obsługiwane są następujące [czasowniki http](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#74-supported-methods) :
 
-* [USUŃ](#test-http-delete-requests)
+* [USUNIĘTY](#test-http-delete-requests)
 * [GET](#test-http-get-requests)
-* [GŁÓWNY](#test-http-head-requests)
-* [OPTIONS](#test-http-options-requests)
-* [POPRAWKI](#test-http-patch-requests)
+* [MTP](#test-http-head-requests)
+* [OPCJE](#test-http-options-requests)
+* [WYSŁANA](#test-http-patch-requests)
 * [POST](#test-http-post-requests)
-* [PUT](#test-http-put-requests)
+* [UBRANI](#test-http-put-requests)
 
-Aby kontynuować, [wyświetlanie lub pobieranie przykładowego interfejsu API sieci web platformy ASP.NET Core](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/http-repl/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample)).
+Aby wykonać te czynności, [Wyświetl lub Pobierz przykładowy ASP.NET Core internetowy interfejs API](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/http-repl/samples) ([jak pobrać](xref:index#how-to-download-a-sample)).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -41,7 +41,7 @@ Aby kontynuować, [wyświetlanie lub pobieranie przykładowego interfejsu API si
 
 ## <a name="installation"></a>Instalacja
 
-Aby zainstalować HTTP REPL, uruchom następujące polecenie:
+Aby zainstalować REPL HTTP, uruchom następujące polecenie:
 
 ```console
 dotnet tool install -g dotnet-httprepl
@@ -49,18 +49,18 @@ dotnet tool install -g dotnet-httprepl
     --add-source https://dotnet.myget.org/F/dotnet-core/api/v3/index.json
 ```
 
-A [narzędzia programu .NET Core globalnego](/dotnet/core/tools/global-tools#install-a-global-tool) jest instalowany z [dotnet httprepl](https://dotnet.myget.org/feed/dotnet-core/package/nuget/dotnet-httprepl
-) pakietu NuGet hostowanymi na platformie MyGet.
+[Narzędzie globalne platformy .NET Core](/dotnet/core/tools/global-tools#install-a-global-tool) jest instalowane z pakietu [NuGet programu dotnet](https://dotnet.myget.org/feed/dotnet-core/package/nuget/dotnet-httprepl
+) -httprepl hostowanego na MyGet.
 
 ## <a name="usage"></a>Użycie
 
-Po pomyślnej instalacji tego narzędzia uruchom następujące polecenie, aby uruchomić HTTP REPL:
+Po pomyślnej instalacji narzędzia Uruchom następujące polecenie, aby uruchomić REPL HTTP:
 
 ```console
 dotnet httprepl
 ```
 
-Aby wyświetlić dostępne polecenia HTTP REPL, uruchom jedną z następujących poleceń:
+Aby wyświetlić dostępne polecenia HTTP REPL, Uruchom jedno z następujących poleceń:
 
 ```console
 dotnet httprepl -h
@@ -70,7 +70,7 @@ dotnet httprepl -h
 dotnet httprepl --help
 ```
 
-Są wyświetlane następujące dane wyjściowe:
+Wyświetlane są następujące dane wyjściowe:
 
 ```console
 Usage: dotnet httprepl [<BASE_ADDRESS>] [options]
@@ -81,7 +81,7 @@ Arguments:
 Options:
   --help - Show help information.
 
-REPL Commands:
+Once the REPL starts, these commands are valid:
 
 HTTP Commands:
 Use these commands to execute requests against your application.
@@ -122,23 +122,23 @@ ui             Displays the Swagger UI page, if available, in the default browse
 Use help <COMMAND> to learn more details about individual commands. e.g. `help get`
 ```
 
-HTTP REPL oferuje ukończenie polecenia. Naciśnięcie klawisza <kbd>kartę</kbd> klucza, który wykonuje iterację przez listę poleceń, kończące znaki lub punkt końcowy interfejsu API, która została wpisana. W poniższych sekcjach opisano dostępne polecenia interfejsu wiersza polecenia.
+REPL HTTP oferuje polecenie uzupełniania. Naciśnięcie klawisza <kbd>Tab</kbd> wykonuje iterację na liście poleceń, które uzupełniają wpisane znaki lub punkt końcowy interfejsu API. W poniższych sekcjach znajduje się opis dostępnych poleceń interfejsu wiersza polecenia.
 
-## <a name="connect-to-the-web-api"></a>Połącz się z internetowym interfejsem API
+## <a name="connect-to-the-web-api"></a>Nawiązywanie połączenia z interfejsem API sieci Web
 
-Podłącz do internetowego interfejsu API, uruchamiając następujące polecenie:
+Połącz się z interfejsem API sieci Web, uruchamiając następujące polecenie:
 
 ```console
 dotnet httprepl <BASE URI>
 ```
 
-`<BASE URI>` jest podstawowy identyfikator URI dla internetowego interfejsu API. Przykład:
+`<BASE URI>`jest podstawowym identyfikatorem URI dla internetowego interfejsu API. Na przykład:
 
 ```console
 dotnet httprepl https://localhost:5001
 ```
 
-Alternatywnie uruchom następujące polecenie w dowolnym momencie po uruchomieniu HTTP REPL:
+Alternatywnie Uruchom następujące polecenie w dowolnym momencie podczas działania REPL HTTP:
 
 ```console
 set base <BASE URI>
@@ -150,9 +150,9 @@ Na przykład:
 (Disconnected)~ set base https://localhost:5001
 ```
 
-## <a name="point-to-the-swagger-document-for-the-web-api"></a>Wskaż dokument struktury Swagger dla interfejsu API sieci web
+## <a name="point-to-the-swagger-document-for-the-web-api"></a>Wskaż dokument struktury Swagger dla internetowego interfejsu API
 
-Aby prawidłowo sprawdzić interfejsu API sieci web, należy ustawić względny identyfikator URI do dokumentu Swagger dla interfejsu API sieci web. Uruchom następujące polecenie:
+Aby poprawnie sprawdzić internetowy interfejs API, ustaw względny identyfikator URI na dokument struktury Swagger dla internetowego interfejsu API. Uruchom następujące polecenie:
 
 ```console
 set swagger <RELATIVE URI>
@@ -164,17 +164,17 @@ Na przykład:
 https://localhost:5001/~ set swagger /swagger/v1/swagger.json
 ```
 
-## <a name="navigate-the-web-api"></a>Przejdź do interfejsu API sieci web
+## <a name="navigate-the-web-api"></a>Nawigowanie po interfejsie API sieci Web
 
 ### <a name="view-available-endpoints"></a>Wyświetl dostępne punkty końcowe
 
-Aby wyświetlić listę różnych punktów końcowych (kontrolery) w bieżącej ścieżce adresu interfejsu API sieci web, należy uruchomić `ls` lub `dir` polecenia:
+Aby wyświetlić listę różnych punktów końcowych (kontrolerów) znajdujących się w bieżącej ścieżce adresu internetowego interfejsu API `ls` , `dir` Uruchom polecenie lub:
 
 ```console
 https://localhot:5001/~ ls
 ```
 
-Zostanie wyświetlony następujący format danych wyjściowych:
+Wyświetlany jest następujący format danych wyjściowych:
 
 ```console
 .        []
@@ -184,9 +184,9 @@ People   [get|post]
 https://localhost:5001/~
 ```
 
-Dane wyjściowe poprzedniego oznacza, że są dwa kontrolery: `Fruits` i `People`. Oba kontrolery obsługuje bez parametrów operacji HTTP GET i POST.
+Powyższe dane wyjściowe wskazują, że dostępne są dwa kontrolery: `Fruits` i `People`. Oba kontrolery obsługują bez parametrów operacje GET i POST HTTP.
 
-Przejdź do określonego kontrolera, co spowoduje wyświetlenie bardziej szczegółowo. Na przykład następujące polecenie na dane wyjściowe `Fruits` kontroler obsługuje również operacje HTTP GET, PUT i DELETE. Każda z tych operacji oczekuje `id` parametr trasy:
+Przechodzenie do określonego kontrolera ujawnia więcej szczegółów. Na przykład następujące dane wyjściowe polecenia pokazują `Fruits` kontroler obsługuje również operacje Get, PUT i DELETE protokołu HTTP. Każda z tych operacji oczekuje `id` parametru w marszrucie:
 
 ```console
 https://localhost:5001/fruits~ ls
@@ -197,7 +197,7 @@ https://localhost:5001/fruits~ ls
 https://localhost:5001/fruits~
 ```
 
-Możesz też uruchomić `ui` polecenie, aby otworzyć stronę interfejs użytkownika struktury Swagger interfejsu API sieci web w przeglądarce. Przykład:
+Alternatywnie można uruchomić `ui` polecenie, aby otworzyć stronę interfejsu użytkownika programu Swagger interfejsu API sieci Web w przeglądarce. Przykład:
 
 ```console
 https://localhost:5001/~ ui
@@ -205,13 +205,13 @@ https://localhost:5001/~ ui
 
 ### <a name="navigate-to-an-endpoint"></a>Przejdź do punktu końcowego
 
-Aby przejść do innego punktu końcowego na interfejs API sieci web, należy uruchomić `cd` polecenia:
+Aby przejść do innego punktu końcowego w internetowym interfejsie API, `cd` Uruchom polecenie:
 
 ```console
 https://localhost:5001/~ cd people
 ```
 
-Następujące ścieżki `cd` polecenia jest uwzględniana wielkość liter. Zostanie wyświetlony następujący format danych wyjściowych:
+W ścieżce następującego `cd` polecenia jest rozróżniana wielkość liter. Wyświetlany jest następujący format danych wyjściowych:
 
 ```console
 /people    [get|post]
@@ -219,35 +219,35 @@ Następujące ścieżki `cd` polecenia jest uwzględniana wielkość liter. Zost
 https://localhost:5001/people~
 ```
 
-## <a name="customize-the-http-repl"></a>Dostosowywanie HTTP REPL
+## <a name="customize-the-http-repl"></a>Dostosowywanie REPL HTTP
 
-Domyślne HTTP REPL [kolory](#set-color-preferences) można dostosować. Ponadto [domyślny edytor tekstu](#set-the-default-text-editor) można zdefiniować. Preferencje HTTP REPL są utrwalane w bieżącej sesji i są uwzględniane w przyszłych sesjach. Po zmodyfikowaniu preferencje są przechowywane w następującym pliku:
+Domyślne [kolory](#set-color-preferences) REPL http można dostosować. Ponadto można zdefiniować [domyślny edytor tekstu](#set-the-default-text-editor) . Preferencje HTTP REPL są utrwalane w bieżącej sesji i są honorowane w przyszłych sesjach. Po zmodyfikowaniu preferencje są przechowywane w następującym pliku:
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
-*%HOME%/.httpreplprefs*
+*% HOME%/.httpreplprefs*
 
 # <a name="macostabmacos"></a>[macOS](#tab/macos)
 
-*%HOME%/.httpreplprefs*
+*% HOME%/.httpreplprefs*
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
-*%USERPROFILE%\\.httpreplprefs*
+*% USERPROFILE%\\. httpreplprefs*
 
 ---
 
-*.Httpreplprefs* plik jest ładowany podczas uruchamiania i nie są monitorowane pod kątem zmian w czasie wykonywania. Ręcznej modyfikacje pliku obowiązywać dopiero po ponownym uruchomieniu narzędzia.
+Plik *. httpreplprefs* jest ładowany podczas uruchamiania i nie jest monitorowany pod kątem zmian w czasie wykonywania. Ręczne modyfikacje pliku zaczną obowiązywać dopiero po ponownym uruchomieniu narzędzia.
 
-### <a name="view-the-settings"></a>Wyświetl ustawienia
+### <a name="view-the-settings"></a>Wyświetlanie ustawień
 
-Aby wyświetlić dostępnych ustawień, uruchom `pref get` polecenia. Na przykład:
+Aby wyświetlić dostępne ustawienia, uruchom `pref get` polecenie. Na przykład:
 
 ```console
 https://localhost:5001/~ pref get
 ```
 
-Poprzednie polecenie wyświetli dostępne pary klucz wartość:
+Poprzednie polecenie wyświetla dostępne pary klucz-wartość:
 
 ```console
 colors.json=Green
@@ -262,70 +262,24 @@ colors.status=BoldYellow
 
 ### <a name="set-color-preferences"></a>Ustawianie preferencji koloru
 
-Kolorowanie odpowiedzi obecnie obsługiwany tylko dla formatu JSON. Aby dostosować domyślne narzędzie HTTP REPL, kolorowanie, zlokalizuj klucz odpowiadający kolorów, które mają być zmienione. Aby uzyskać instrukcje na temat znajdowania kluczy, zobacz [wyświetlić ustawienia](#view-the-settings) sekcji. Na przykład zmienić `colors.json` wartość z klucza `Green` do `White` w następujący sposób:
+Kolorowanie odpowiedzi jest obecnie obsługiwane tylko w przypadku formatu JSON. Aby dostosować domyślne kolorowanie narzędzi HTTP REPL, Znajdź klucz odpowiadający kolorowi do zmiany. Aby uzyskać instrukcje dotyczące znajdowania kluczy, zobacz sekcję [Wyświetlanie ustawień](#view-the-settings) . Na przykład zmień `colors.json` wartość klucza z `Green` na `White` w następujący sposób:
 
 ```console
 https://localhost:5001/people~ pref set colors.json White
 ```
 
-Tylko [dozwolone kolory](https://github.com/aspnet/HttpRepl/blob/01d5c3c3373e98fe566ff5ef8a17c571de880293/src/Microsoft.Repl/ConsoleHandling/AllowedColors.cs) mogą być używane. Kolejne HTTP żądania wyświetlania danych wyjściowych za pomocą nowego kolorowanie.
+Można używać tylko [dozwolonych kolorów](https://github.com/aspnet/HttpRepl/blob/01d5c3c3373e98fe566ff5ef8a17c571de880293/src/Microsoft.Repl/ConsoleHandling/AllowedColors.cs) . Kolejne żądania HTTP wyświetlają dane wyjściowe z nowym kolorem.
 
-Gdy określony kolor klucze nie są ustawione, są uważane za klucze bardziej ogólnymi. Aby zademonstrować to działanie rezerwowe, rozważmy następujący przykład:
+Jeśli określone klucze kolorów nie są ustawione, brane są więcej kluczy ogólnych. Aby zademonstrować to zachowanie rezerwowe, należy wziąć pod uwagę następujący przykład:
 
-* Jeśli `colors.json.name` nie ma wartości `colors.json.string` jest używany.
-* Jeśli `colors.json.string` nie ma wartości `colors.json.literal` jest używany.
-* Jeśli `colors.json.literal` nie ma wartości `colors.json` jest używany. 
-* Jeśli `colors.json` nie ma wartości, powłoki poleceń domyślny kolor tekstu (`AllowedColors.None`) jest używany.
+* Jeśli `colors.json.name` nie ma wartości, `colors.json.string` jest używana.
+* Jeśli `colors.json.string` nie ma wartości, `colors.json.literal` jest używana.
+* Jeśli `colors.json.literal` nie ma wartości, `colors.json` jest używana. 
+* Jeśli `colors.json` nie ma wartości, używany jest domyślny kolor tekstu powłoki poleceń (`AllowedColors.None`).
 
-### <a name="set-indentation-size"></a>Ustaw rozmiar wcięć
+### <a name="set-indentation-size"></a>Ustaw rozmiar wcięcia
 
-Dostosowywanie rozmiaru wcięcia odpowiedzi obecnie obsługiwany tylko dla formatu JSON. Domyślny rozmiar to dwa miejsca do magazynowania. Na przykład:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Apple"
-  },
-  {
-    "id": 2,
-    "name": "Orange"
-  },
-  {
-    "id": 3,
-    "name": "Strawberry"
-  }
-]
-```
-
-Aby zmienić domyślny rozmiar, należy ustawić `formatting.json.indentSize` klucza. Na przykład aby zawsze użycie czterech spacji:
-
-```console
-pref set formatting.json.indentSize 4
-```
-
-Kolejne odpowiedzi uwzględnić ustawienie czterech miejsc do magazynowania:
-
-```json
-[
-    {
-        "id": 1,
-        "name": "Apple"
-    },
-    {
-        "id": 2,
-        "name": "Orange"
-    },
-    {
-        "id": 3,
-        "name": "Strawberry"
-    }
-]
-```
-
-### <a name="set-indentation-size"></a>Ustaw rozmiar wcięć
-
-Dostosowywanie rozmiaru wcięcia odpowiedzi obecnie obsługiwany tylko dla formatu JSON. Domyślny rozmiar to dwa miejsca do magazynowania. Przykład:
+Dostosowanie rozmiaru wcięcia odpowiedzi jest obecnie obsługiwane tylko w przypadku formatu JSON. Domyślny rozmiar to dwie spacje. Przykład:
 
 ```json
 [
@@ -344,13 +298,13 @@ Dostosowywanie rozmiaru wcięcia odpowiedzi obecnie obsługiwany tylko dla forma
 ]
 ```
 
-Aby zmienić domyślny rozmiar, należy ustawić `formatting.json.indentSize` klucza. Na przykład aby zawsze użycie czterech spacji:
+Aby zmienić rozmiar domyślny, ustaw `formatting.json.indentSize` klucz. Na przykład, aby zawsze używać czterech spacji:
 
 ```console
 pref set formatting.json.indentSize 4
 ```
 
-Kolejne odpowiedzi uwzględnić ustawienie czterech miejsc do magazynowania:
+Kolejne odpowiedzi przestrzegają ustawień czterech spacji:
 
 ```json
 [
@@ -369,15 +323,61 @@ Kolejne odpowiedzi uwzględnić ustawienie czterech miejsc do magazynowania:
 ]
 ```
 
-### <a name="set-the-default-text-editor"></a>Ustaw domyślny edytor tekstu
+### <a name="set-indentation-size"></a>Ustaw rozmiar wcięcia
 
-Domyślnie HTTP REPL ma nie Edytor tekstu, skonfigurowany do użycia. Aby przetestować metody interfejsu API sieci web wymaga treści żądania HTTP, można ustawić domyślnego edytora tekstu. HTTP REPL zostanie uruchomione narzędzie do edytora tekstów skonfigurowane wyłącznie w celu tworzenia treści żądania. Uruchom następujące polecenie, aby ustawić preferowanym edytorze tekstu jako domyślny:
+Dostosowanie rozmiaru wcięcia odpowiedzi jest obecnie obsługiwane tylko w przypadku formatu JSON. Domyślny rozmiar to dwie spacje. Na przykład:
+
+```json
+[
+  {
+    "id": 1,
+    "name": "Apple"
+  },
+  {
+    "id": 2,
+    "name": "Orange"
+  },
+  {
+    "id": 3,
+    "name": "Strawberry"
+  }
+]
+```
+
+Aby zmienić rozmiar domyślny, ustaw `formatting.json.indentSize` klucz. Na przykład, aby zawsze używać czterech spacji:
+
+```console
+pref set formatting.json.indentSize 4
+```
+
+Kolejne odpowiedzi przestrzegają ustawień czterech spacji:
+
+```json
+[
+    {
+        "id": 1,
+        "name": "Apple"
+    },
+    {
+        "id": 2,
+        "name": "Orange"
+    },
+    {
+        "id": 3,
+        "name": "Strawberry"
+    }
+]
+```
+
+### <a name="set-the-default-text-editor"></a>Ustawianie domyślnego edytora tekstu
+
+Domyślnie REPL HTTP nie ma edytora tekstu skonfigurowanego do użycia. Aby przetestować metody interfejsu API sieci Web wymagające treści żądania HTTP, należy ustawić domyślny edytor tekstu. Narzędzie HTTP REPL uruchamia skonfigurowany Edytor tekstów wyłącznie na potrzeby redagowania treści żądania. Uruchom następujące polecenie, aby ustawić preferowany Edytor tekstu jako domyślny:
 
 ```console
 pref set editor.command.default "<EXECUTABLE>"
 ```
 
-W poprzednim poleceniu `<EXECUTABLE>` jest pełną ścieżką do pliku wykonywalnego w edytorze tekstów. Na przykład uruchom następujące polecenie, aby ustawić Visual Studio Code jako domyślny edytor tekstu:
+W poprzednim poleceniu `<EXECUTABLE>` jest pełną ścieżką do pliku wykonywalnego edytora tekstu. Na przykład uruchom następujące polecenie, aby ustawić Visual Studio Code jako domyślny edytor tekstu:
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
@@ -399,13 +399,13 @@ pref set editor.command.default "C:\Program Files\Microsoft VS Code\Code.exe"
 
 ---
 
-Aby uruchomić domyślny edytor tekstu przy użyciu określonych argumentów wiersza polecenia platformy, należy ustawić `editor.command.default.arguments` klucza. Załóżmy na przykład, Visual Studio Code to domyślny edytor tekstu i zawsze ma REPL HTTP, które można otworzyć programu Visual Studio Code w nowej sesji przy użyciu rozszerzeń wyłączone. Uruchom następujące polecenie:
+Aby uruchomić domyślny edytor tekstu z określonymi argumentami interfejsu wiersza polecenia, `editor.command.default.arguments` należy ustawić klucz. Załóżmy na przykład, że Visual Studio Code jest domyślnym edytorem tekstu i zawsze chcesz, aby REPL HTTP mógł otworzyć Visual Studio Code w nowej sesji z wyłączonymi rozszerzeniami. Uruchom następujące polecenie:
 
 ```console
 pref set editor.command.default.arguments "--disable-extensions --new-window"
 ```
 
-## <a name="test-http-get-requests"></a>Testowanie żądania HTTP GET
+## <a name="test-http-get-requests"></a>Testuj żądania HTTP GET
 
 ### <a name="synopsis"></a>Streszczenie
 
@@ -417,25 +417,25 @@ get <PARAMETER> [-F|--no-formatting] [-h|--header] [--response] [--response:body
 
 `PARAMETER`
 
-Parametr trasy, oczekiwany przez metodę akcji kontrolera skojarzone.
+Parametr trasy, jeśli istnieje, oczekiwany przez skojarzoną metodę akcji kontrolera.
 
 ### <a name="options"></a>Opcje
 
-Poniższe opcje są dostępne dla `get` polecenia:
+Następujące opcje są dostępne dla `get` polecenia:
 
 [!INCLUDE [standard CLI options](~/includes/http-repl/standard-options.md)]
 
 ### <a name="example"></a>Przykład
 
-Wysłanie żądania HTTP GET:
+Aby wydać żądanie HTTP GET:
 
-1. Uruchom `get` polecenia w punkcie końcowym, który ją obsługuje:
+1. `get` Uruchom polecenie w punkcie końcowym, który go obsługuje:
 
     ```console
     https://localhost:5001/people~ get
     ```
 
-    Poprzednie polecenie wyświetli następujący format danych wyjściowych:
+    Poprzednie polecenie wyświetla następujący format danych wyjściowych:
 
     ```console
     HTTP/1.1 200 OK
@@ -463,13 +463,13 @@ Wysłanie żądania HTTP GET:
     https://localhost:5001/people~
     ```
 
-1. Pobieranie określonego rekordu przez przekazanie parametru, aby `get` polecenia:
+1. Pobierz konkretny rekord, przekazując parametr do `get` polecenia:
 
     ```console
     https://localhost:5001/people~ get 2
     ```
 
-    Poprzednie polecenie wyświetli następujący format danych wyjściowych:
+    Poprzednie polecenie wyświetla następujący format danych wyjściowych:
 
     ```console
     HTTP/1.1 200 OK
@@ -489,7 +489,7 @@ Wysłanie żądania HTTP GET:
     https://localhost:5001/people~
     ```
 
-## <a name="test-http-post-requests"></a>Testowanie żądania HTTP POST
+## <a name="test-http-post-requests"></a>Testowanie żądań POST protokołu HTTP
 
 ### <a name="synopsis"></a>Streszczenie
 
@@ -501,7 +501,7 @@ post <PARAMETER> [-c|--content] [-f|--file] [-h|--header] [--no-body] [-F|--no-f
 
 `PARAMETER`
 
-Parametr trasy, oczekiwany przez metodę akcji kontrolera skojarzone.
+Parametr trasy, jeśli istnieje, oczekiwany przez skojarzoną metodę akcji kontrolera.
 
 ### <a name="options"></a>Opcje
 
@@ -511,15 +511,15 @@ Parametr trasy, oczekiwany przez metodę akcji kontrolera skojarzone.
 
 ### <a name="example"></a>Przykład
 
-Wysłanie żądania POST protokołu HTTP:
+Aby wydać żądanie HTTP POST:
 
-1. Uruchom `post` polecenia w punkcie końcowym, który ją obsługuje:
+1. `post` Uruchom polecenie w punkcie końcowym, który go obsługuje:
 
     ```console
     https://localhost:5001/people~ post -h Content-Type=application/json
     ```
 
-    W poprzednim poleceniu `Content-Type` nagłówek żądania HTTP jest ustawiona, aby wskazać typ nośnika treści żądania JSON. Zostanie otwarty Edytor tekstu domyślne *.tmp* pliku przy użyciu szablonu JSON reprezentująca treść żądania HTTP. Przykład:
+    W poprzednim poleceniu nagłówek żądania `Content-Type` http jest ustawiany w taki sposób, aby wskazywał typ nośnika treści żądania JSON. Domyślny edytor tekstu otwiera plik *. tmp* z szablonem JSON reprezentującym treść żądania HTTP. Na przykład:
 
     ```json
     {
@@ -529,9 +529,9 @@ Wysłanie żądania POST protokołu HTTP:
     ```
 
     > [!TIP]
-    > Aby ustawić domyślny edytor tekstu, zobacz [ustawiony domyślny edytor tekstu](#set-the-default-text-editor) sekcji.
+    > Aby ustawić domyślny edytor tekstu, zobacz sekcję [Ustawianie domyślnego edytora tekstu](#set-the-default-text-editor) .
 
-1. Zmodyfikuj szablon JSON w celu spełnienia wymagań weryfikacji modelu:
+1. Zmodyfikuj szablon JSON, aby spełniał wymagania dotyczące weryfikacji modelu:
 
   ```json
   {
@@ -540,7 +540,7 @@ Wysłanie żądania POST protokołu HTTP:
   }
   ```
 
-1. Zapisz *.tmp* plik i zamknij Edytor tekstu. Następujące dane wyjściowe pojawia się w powłoce poleceń:
+1. Zapisz plik *. tmp* i Zamknij Edytor tekstu. Następujące dane wyjściowe są wyświetlane w powłoce poleceń:
 
     ```console
     HTTP/1.1 201 Created
@@ -559,7 +559,7 @@ Wysłanie żądania POST protokołu HTTP:
     https://localhost:5001/people~
     ```
 
-## <a name="test-http-put-requests"></a>Testowanie żądania HTTP PUT
+## <a name="test-http-put-requests"></a>Testowanie żądań HTTP PUT
 
 ### <a name="synopsis"></a>Streszczenie
 
@@ -571,7 +571,7 @@ put <PARAMETER> [-c|--content] [-f|--file] [-h|--header] [--no-body] [-F|--no-fo
 
 `PARAMETER`
 
-Parametr trasy, oczekiwany przez metodę akcji kontrolera skojarzone.
+Parametr trasy, jeśli istnieje, oczekiwany przez skojarzoną metodę akcji kontrolera.
 
 ### <a name="options"></a>Opcje
 
@@ -581,9 +581,9 @@ Parametr trasy, oczekiwany przez metodę akcji kontrolera skojarzone.
 
 ### <a name="example"></a>Przykład
 
-Wysłanie żądania HTTP PUT:
+Aby wydać żądanie HTTP PUT:
 
-1. *Opcjonalnie*: Uruchom `get` polecenie, aby wyświetlić dane przed zmodyfikowaniem:
+1. *Opcjonalne*: `get` Uruchom polecenie, aby wyświetlić dane przed zmodyfikowaniem:
 
     ```console
     https://localhost:5001/fruits~ get
@@ -614,7 +614,7 @@ Wysłanie żądania HTTP PUT:
     https://localhost:5001/fruits~ put 2 -h Content-Type=application/json
     ```
 
-    W poprzednim poleceniu `Content-Type` nagłówek żądania HTTP jest ustawiona, aby wskazać typ nośnika treści żądania JSON. Zostanie otwarty Edytor tekstu domyślne *.tmp* pliku przy użyciu szablonu JSON reprezentująca treść żądania HTTP. Przykład:
+    W poprzednim poleceniu nagłówek żądania `Content-Type` http jest ustawiany w taki sposób, aby wskazywał typ nośnika treści żądania JSON. Domyślny edytor tekstu otwiera plik *. tmp* z szablonem JSON reprezentującym treść żądania HTTP. Na przykład:
 
     ```json
     {
@@ -624,9 +624,9 @@ Wysłanie żądania HTTP PUT:
     ```
 
     > [!TIP]
-    > Aby ustawić domyślny edytor tekstu, zobacz [ustawiony domyślny edytor tekstu](#set-the-default-text-editor) sekcji.
+    > Aby ustawić domyślny edytor tekstu, zobacz sekcję [Ustawianie domyślnego edytora tekstu](#set-the-default-text-editor) .
 
-1. Zmodyfikuj szablon JSON w celu spełnienia wymagań weryfikacji modelu:
+1. Zmodyfikuj szablon JSON, aby spełniał wymagania dotyczące weryfikacji modelu:
 
     ```json
     {
@@ -635,7 +635,7 @@ Wysłanie żądania HTTP PUT:
     }
     ```
 
-1. Zapisz *.tmp* plik i zamknij Edytor tekstu. Następujące dane wyjściowe pojawia się w powłoce poleceń:
+1. Zapisz plik *. tmp* i Zamknij Edytor tekstu. Następujące dane wyjściowe są wyświetlane w powłoce poleceń:
 
     ```console
     [main 2019-06-28T17:27:01.805Z] update#setState idle
@@ -644,7 +644,7 @@ Wysłanie żądania HTTP PUT:
     Server: Kestrel
     ```
 
-1. *Opcjonalnie*: Problem `get` polecenie, aby wyświetlić modyfikacje. Na przykład, jeśli wpiszesz "Wykonywanie operacji Cherry" w edytorze tekstów `get` zwraca następujące:
+1. *Opcjonalne*: `get` Wydaj polecenie, aby zobaczyć modyfikacje. Na przykład, jeśli wpisano "wiśnię" w edytorze tekstu, `get` zwraca następujące polecenie:
 
     ```console
     https://localhost:5001/fruits~ get
@@ -673,7 +673,7 @@ Wysłanie żądania HTTP PUT:
     https://localhost:5001/fruits~
     ```
 
-## <a name="test-http-delete-requests"></a>Testowanie żądania HTTP DELETE
+## <a name="test-http-delete-requests"></a>Testowanie żądań HTTP DELETE
 
 ### <a name="synopsis"></a>Streszczenie
 
@@ -685,7 +685,7 @@ delete <PARAMETER> [-F|--no-formatting] [-h|--header] [--response] [--response:b
 
 `PARAMETER`
 
-Parametr trasy, oczekiwany przez metodę akcji kontrolera skojarzone.
+Parametr trasy, jeśli istnieje, oczekiwany przez skojarzoną metodę akcji kontrolera.
 
 ### <a name="options"></a>Opcje
 
@@ -693,9 +693,9 @@ Parametr trasy, oczekiwany przez metodę akcji kontrolera skojarzone.
 
 ### <a name="example"></a>Przykład
 
-Wysłanie żądania HTTP DELETE:
+Aby wydać żądanie HTTP DELETE:
 
-1. *Opcjonalnie*: Uruchom `get` polecenie, aby wyświetlić dane przed zmodyfikowaniem:
+1. *Opcjonalne*: `get` Uruchom polecenie, aby wyświetlić dane przed zmodyfikowaniem:
 
     ```console
     https://localhost:5001/fruits~ get
@@ -726,7 +726,7 @@ Wysłanie żądania HTTP DELETE:
     https://localhost:5001/fruits~ delete 2
     ```
 
-    Poprzednie polecenie wyświetli następujący format danych wyjściowych:
+    Poprzednie polecenie wyświetla następujący format danych wyjściowych:
 
     ```console
     HTTP/1.1 204 No Content
@@ -734,7 +734,7 @@ Wysłanie żądania HTTP DELETE:
     Server: Kestrel
     ```
 
-1. *Opcjonalnie*: Problem `get` polecenie, aby wyświetlić modyfikacje. W tym przykładzie `get` zwraca następujące:
+1. *Opcjonalne*: `get` Wydaj polecenie, aby zobaczyć modyfikacje. W tym przykładzie `get` zwraca następujące polecenie:
 
     ```console
     https://localhost:5001/fruits~ get
@@ -759,7 +759,7 @@ Wysłanie żądania HTTP DELETE:
     https://localhost:5001/fruits~
     ```
 
-## <a name="test-http-patch-requests"></a>Testowanie żądania HTTP PATCH
+## <a name="test-http-patch-requests"></a>Testuj żądania poprawek HTTP
 
 ### <a name="synopsis"></a>Streszczenie
 
@@ -771,7 +771,7 @@ patch <PARAMETER> [-c|--content] [-f|--file] [-h|--header] [--no-body] [-F|--no-
 
 `PARAMETER`
 
-Parametr trasy, oczekiwany przez metodę akcji kontrolera skojarzone.
+Parametr trasy, jeśli istnieje, oczekiwany przez skojarzoną metodę akcji kontrolera.
 
 ### <a name="options"></a>Opcje
 
@@ -779,7 +779,7 @@ Parametr trasy, oczekiwany przez metodę akcji kontrolera skojarzone.
 
 [!INCLUDE [HTTP request body CLI options](~/includes/http-repl/requires-body-options.md)]
 
-## <a name="test-http-head-requests"></a>Testowanie żądania HTTP HEAD
+## <a name="test-http-head-requests"></a>Testowanie żądań głównych HTTP
 
 ### <a name="synopsis"></a>Streszczenie
 
@@ -791,13 +791,13 @@ head <PARAMETER> [-F|--no-formatting] [-h|--header] [--response] [--response:bod
 
 `PARAMETER`
 
-Parametr trasy, oczekiwany przez metodę akcji kontrolera skojarzone.
+Parametr trasy, jeśli istnieje, oczekiwany przez skojarzoną metodę akcji kontrolera.
 
 ### <a name="options"></a>Opcje
 
 [!INCLUDE [standard CLI options](~/includes/http-repl/standard-options.md)]
 
-## <a name="test-http-options-requests"></a>Testowanie żądania OPTIONS protokołu HTTP
+## <a name="test-http-options-requests"></a>Testowe żądania opcji HTTP
 
 ### <a name="synopsis"></a>Streszczenie
 
@@ -809,50 +809,50 @@ options <PARAMETER> [-F|--no-formatting] [-h|--header] [--response] [--response:
 
 `PARAMETER`
 
-Parametr trasy, oczekiwany przez metodę akcji kontrolera skojarzone.
+Parametr trasy, jeśli istnieje, oczekiwany przez skojarzoną metodę akcji kontrolera.
 
 ### <a name="options"></a>Opcje
 
 [!INCLUDE [standard CLI options](~/includes/http-repl/standard-options.md)]
 
-## <a name="set-http-request-headers"></a>Ustawia nagłówki żądania HTTP
+## <a name="set-http-request-headers"></a>Ustawianie nagłówków żądań HTTP
 
-Aby ustawić nagłówek żądania HTTP, użyj jednej z następujących metod:
+Aby ustawić nagłówek żądania HTTP, należy użyć jednej z następujących metod:
 
-1. Wbudowany zestaw z żądania HTTP. Przykład:
+1. Ustaw wartość inline z żądaniem HTTP. Na przykład:
 
   ```console
   https://localhost:5001/people~ post -h Content-Type=application/json
   ```
 
-  Z poprzednim przypadku każdego distinct nagłówek żądania HTTP wymaga własnej `-h` opcji.
+  W przypadku wcześniejszego podejścia każdy unikatowy nagłówek żądania HTTP wymaga własnej `-h` opcji.
 
-1. Ustaw przed wysłaniem żądania HTTP. Na przykład:
+1. Ustaw przed wysłaniem żądania HTTP. Przykład:
 
   ```console
   https://localhost:5001/people~ set header Content-Type application/json
   ```
 
-  Podczas ustawiania nagłówka przed wysłaniem żądania, nagłówek pozostanie ustawiony na czas trwania sesji powłoki poleceń. Aby usunąć nagłówek, podaj wartość pustą. Na przykład:
+  Podczas ustawiania nagłówka przed wysłaniem żądania nagłówek pozostaje ustawiony na czas trwania sesji powłoki poleceń. Aby wyczyścić nagłówek, podaj wartość pustą. Przykład:
 
   ```console
   https://localhost:5001/people~ set header Content-Type
   ```
 
-## <a name="toggle-http-request-display"></a>Przełącz wyświetlanie żądania HTTP
+## <a name="toggle-http-request-display"></a>Przełącz wyświetlanie żądań HTTP
 
-Domyślnie pomijane jest wyświetlana wysłanie żądania HTTP. Istnieje możliwość Zmień odpowiednie ustawienia na czas trwania sesji powłoki poleceń.
+Domyślnie wyświetlanie wysyłanego żądania HTTP jest pomijane. Istnieje możliwość zmiany odpowiedniego ustawienia dla czasu trwania sesji powłoki poleceń.
 
-### <a name="enable-request-display"></a>Włącz wyświetlanie żądania
+### <a name="enable-request-display"></a>Włącz wyświetlanie żądań
 
-Wyświetl żądania HTTP są wysyłane przez uruchomienie `echo on` polecenia. Na przykład:
+Wyświetl wysyłane żądanie HTTP, uruchamiając `echo on` polecenie. Przykład:
 
 ```console
 https://localhost:5001/people~ echo on
 Request echoing is on
 ```
 
-Kolejne żądania HTTP w bieżącej sesji, wyświetlanie nagłówków żądania. Na przykład:
+Kolejne żądania HTTP w bieżącej sesji wyświetlają nagłówki żądań. Na przykład:
 
 ```console
 https://localhost:5001/people~ post
@@ -888,9 +888,9 @@ Transfer-Encoding: chunked
 https://localhost:5001/people~
 ```
 
-### <a name="disable-request-display"></a>Wyłącz wyświetlanie żądania
+### <a name="disable-request-display"></a>Wyłącz wyświetlanie żądań
 
-Pomija wyświetlanie żądania HTTP są wysyłane przez uruchomienie `echo off` polecenia. Przykład:
+Pomijaj wyświetlanie wysyłanego żądania HTTP przez uruchomienie `echo off` polecenia. Na przykład:
 
 ```console
 https://localhost:5001/people~ echo off
@@ -899,9 +899,9 @@ Request echoing is off
 
 ## <a name="run-a-script"></a>Uruchamianie skryptu
 
-Jeśli ten sam zestaw poleceń HTTP REPL jest często wykonywane, należy wziąć pod uwagę przechowywania ich w pliku tekstowym. Polecenia w pliku formę ten sam jak wykonywane ręcznie, w wierszu polecenia. Polecenia mogą być wykonywane w sposób wsadowej za pomocą `run` polecenia. Przykład:
+Jeśli często wykonujesz ten sam zestaw poleceń HTTP REPL, Rozważ przechowywanie ich w pliku tekstowym. Polecenia w pliku mają taki sam formularz jak te wykonywane ręcznie w wierszu polecenia. Polecenia mogą być wykonywane w sposób wsadowy przy użyciu `run` polecenia. Na przykład:
 
-1. Utwórz plik tekstowy zawierający zestaw poleceń rozdzielonych znakami nowego wiersza. Aby zilustrować, należy wziąć pod uwagę *script.txt osób* plik zawierający następujące polecenia:
+1. Utwórz plik tekstowy zawierający zestaw poleceń rozdzielanych znakami nowego wiersza. Aby to zilustrować, należy rozważyć plik *People-Script. txt* zawierający następujące polecenia:
 
     ```text
     set base https://localhost:5001
@@ -911,13 +911,13 @@ Jeśli ten sam zestaw poleceń HTTP REPL jest często wykonywane, należy wzią�
     get 1
     ```
 
-1. Wykonaj `run` polecenia, przekazując ścieżkę do pliku tekstowego. Na przykład:
+1. `run` Wykonaj polecenie, przekazując w ścieżce pliku tekstowego. Przykład:
 
     ```console
     https://localhost:5001/~ run C:\http-repl-scripts\people-script.txt
     ```
 
-    Zostanie wyświetlone następujące dane wyjściowe:
+    Wyświetlane są następujące dane wyjściowe:
 
     ```console
     https://localhost:5001/~ set base https://localhost:5001
@@ -954,7 +954,7 @@ Jeśli ten sam zestaw poleceń HTTP REPL jest często wykonywane, należy wzią�
 
 ## <a name="clear-the-output"></a>Wyczyść dane wyjściowe
 
-Aby usunąć wszystkich danych wyjściowych zapisywanych powłoki poleceń narzędzia HTTP REPL, uruchom `clear` lub `cls` polecenia. Aby zilustrować, załóżmy, że powłoka poleceń zawiera następujące dane wyjściowe:
+Aby usunąć wszystkie dane wyjściowe zapisywane do powłoki poleceń za pomocą narzędzia http REPL, uruchom `clear` polecenie lub. `cls` Do zilustrowania, Załóżmy, że powłoka poleceń zawiera następujące dane wyjściowe:
 
 ```console
 dotnet httprepl https://localhost:5001
@@ -975,7 +975,7 @@ Uruchom następujące polecenie, aby wyczyścić dane wyjściowe:
 https://localhost:5001/~ clear
 ```
 
-Po uruchomieniu poprzedniego polecenia, powłokę poleceń zawiera tylko następujące dane wyjściowe:
+Po uruchomieniu poprzedniego polecenia powłoka poleceń zawiera tylko następujące dane wyjściowe:
 
 ```console
 https://localhost:5001/~
@@ -983,5 +983,5 @@ https://localhost:5001/~
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Żądań interfejsu API REST](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#74-supported-methods)
-* [Repozytorium HTTP REPL GitHub](https://github.com/aspnet/HttpRepl)
+* [Żądania interfejsu API REST](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#74-supported-methods)
+* [Repozytorium usługi GitHub HTTP REPL](https://github.com/aspnet/HttpRepl)

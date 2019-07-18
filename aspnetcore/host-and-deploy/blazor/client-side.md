@@ -1,69 +1,69 @@
 ---
-title: Hostowanie i wdrażanie platformy ASP.NET Core Blazor po stronie klienta
+title: Hostowanie i wdrażanie ASP.NET Core Blazor po stronie klienta
 author: guardrex
-description: Dowiedz się, jak hostowanie i wdrażanie aplikacji Blazor przy użyciu platformy ASP.NET Core, sieci dostarczania zawartości (CDN), serwery plików i stron w witrynie GitHub.
+description: Dowiedz się, jak hostować i wdrażać aplikację Blazor przy użyciu ASP.NET Core, usługi Content Delivery Networks (CDN), serwerów plików i stron usługi GitHub.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/02/2019
+ms.date: 07/10/2019
 uid: host-and-deploy/blazor/client-side
-ms.openlocfilehash: 60fe45626efef70adbf6204e67d011e01b4bc7cb
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: be6b6c245440cb085a1a6b115f4f087306f7cc83
+ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67815254"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68308087"
 ---
-# <a name="host-and-deploy-aspnet-core-blazor-client-side"></a>Hostowanie i wdrażanie platformy ASP.NET Core Blazor po stronie klienta
+# <a name="host-and-deploy-aspnet-core-blazor-client-side"></a>Hostowanie i wdrażanie ASP.NET Core Blazor po stronie klienta
 
-Przez [Luke Latham](https://github.com/guardrex), [Rainer Stropek](https://www.timecockpit.com), i [Daniel Roth](https://github.com/danroth27)
+[Luke Latham](https://github.com/guardrex), [Rainer Stropek](https://www.timecockpit.com)i [Daniel Roth](https://github.com/danroth27)
 
 ## <a name="host-configuration-values"></a>Wartości konfiguracji hosta
 
-Blazor aplikacje, które używają [modelu hostingu po stronie klienta](xref:blazor/hosting-models#client-side) może akceptować następujące wartości konfiguracji hosta jako argumenty wiersza polecenia w czasie wykonywania w środowisku programistycznym.
+Aplikacje Blazor korzystające z [modelu hostingu po stronie klienta](xref:blazor/hosting-models#client-side) mogą akceptować następujące wartości konfiguracji hosta jako argumenty wiersza polecenia w środowisku uruchomieniowym.
 
-### <a name="content-root"></a>Zawartość katalogu głównego
+### <a name="content-root"></a>Katalog główny zawartości
 
-`--contentroot` Argument ustawia ścieżkę bezwzględną do katalogu, który zawiera pliki zawartości aplikacji. W poniższych przykładach `/content-root-path` jest ścieżką zawartości katalogu głównego aplikacji.
+`--contentroot` Argument ustawia ścieżkę bezwzględną do katalogu, który zawiera pliki zawartości aplikacji. W poniższych przykładach `/content-root-path` jest ścieżką katalogu głównego zawartości aplikacji.
 
-* Przekazać argument podczas uruchamiania aplikacji lokalnie w wierszu polecenia. W katalogu aplikacji wykonaj polecenie:
+* Przekaż argument podczas lokalnego uruchamiania aplikacji w wierszu polecenia. W katalogu aplikacji wykonaj następujące polecenie:
 
   ```console
   dotnet run --contentroot=/content-root-path
   ```
 
-* Dodawanie wpisu do aplikacji *launchSettings.json* w pliku **usług IIS Express** profilu. To ustawienie jest używane, gdy aplikacja jest uruchamiana za pomocą debugera programu Visual Studio i w wierszu polecenia za pomocą `dotnet run`.
+* Dodaj wpis do pliku *profilu launchsettings. JSON* aplikacji w profilu **IIS Express** . To ustawienie jest używane, gdy aplikacja jest uruchamiana z debugerem programu Visual Studio i z wiersza polecenia `dotnet run`z.
 
   ```json
   "commandLineArgs": "--contentroot=/content-root-path"
   ```
 
-* W programie Visual Studio, należy określić argument w **właściwości** > **debugowania** > **argumenty aplikacji**. Ustawienie argumentu na stronie właściwości programu Visual Studio dodaje argument *launchSettings.json* pliku.
+* W programie Visual Studio Określ argument w **właściwościach** > **Debuguj** > **argumenty aplikacji**. Ustawienie argumentu na stronie właściwości programu Visual Studio powoduje dodanie argumentu do pliku *profilu launchsettings. JSON* .
 
   ```console
   --contentroot=/content-root-path
   ```
 
-### <a name="path-base"></a>Podstawa ścieżki
+### <a name="path-base"></a>Baza ścieżki
 
-`--pathbase` Argument określa podstawową ścieżkę aplikacji dla aplikacji, które działają lokalnie z innego niż główny ścieżki wirtualnej ( `<base>` tag `href` ustawiono ścieżki innego niż `/` dla środowisk przejściowych i produkcyjnych). W poniższych przykładach `/virtual-path` jest podstawowa ścieżka aplikacji. Aby uzyskać więcej informacji, zobacz [ścieżki podstawowej aplikacji](#app-base-path) sekcji.
+Argument ustawia ścieżkę bazową aplikacji dla aplikacji uruchamianej lokalnie z niegłówną ścieżką wirtualną `<base>` (tag `href` jest ustawiony na ścieżkę inną niż `/` w przypadku przemieszczania i produkcji). `--pathbase` W poniższych przykładach `/virtual-path` jest podstawą ścieżki aplikacji. Aby uzyskać więcej informacji, zobacz sekcję [Ścieżka podstawowa aplikacji](#app-base-path) .
 
 > [!IMPORTANT]
-> W odróżnieniu od podana ścieżka do `href` z `<base>` tag, nie dołączaj końcowy ukośnik (`/`) podczas przekazywania `--pathbase` wartość argumentu. Jeśli ścieżka podstawowa aplikacja znajduje się w `<base>` otaguj jako `<base href="/CoolApp/">` (w tym znakiem ukośnika), Przekaż wartość argumentu wiersza polecenia jako `--pathbase=/CoolApp` (nie ukośnikiem końcowym).
+> W przeciwieństwie `href` do ścieżki przekazanej do `<base>` tagu, nie dodawaj końcowego ukośnika `--pathbase` (`/`) podczas przekazywania wartości argumentu. Jeśli ścieżka podstawowa aplikacji jest podana w `<base>` tagu jako `<base href="/CoolApp/">` (zawiera końcowy ukośnik), należy przekazać wartość argumentu wiersza polecenia jako `--pathbase=/CoolApp` (bez ukośnika na końcu).
 
-* Przekazać argument podczas uruchamiania aplikacji lokalnie w wierszu polecenia. W katalogu aplikacji wykonaj polecenie:
+* Przekaż argument podczas lokalnego uruchamiania aplikacji w wierszu polecenia. W katalogu aplikacji wykonaj następujące polecenie:
 
   ```console
   dotnet run --pathbase=/virtual-path
   ```
 
-* Dodawanie wpisu do aplikacji *launchSettings.json* w pliku **usług IIS Express** profilu. To ustawienie jest używane podczas uruchamiania aplikacji przy użyciu debugera programu Visual Studio i w wierszu polecenia za pomocą `dotnet run`.
+* Dodaj wpis do pliku *profilu launchsettings. JSON* aplikacji w profilu **IIS Express** . To ustawienie jest używane podczas uruchamiania aplikacji za pomocą debugera programu Visual Studio i z wiersza polecenia w programie `dotnet run`.
 
   ```json
   "commandLineArgs": "--pathbase=/virtual-path"
   ```
 
-* W programie Visual Studio, należy określić argument w **właściwości** > **debugowania** > **argumenty aplikacji**. Ustawienie argumentu na stronie właściwości programu Visual Studio dodaje argument *launchSettings.json* pliku.
+* W programie Visual Studio Określ argument w **właściwościach** > **Debuguj** > **argumenty aplikacji**. Ustawienie argumentu na stronie właściwości programu Visual Studio powoduje dodanie argumentu do pliku *profilu launchsettings. JSON* .
 
   ```console
   --pathbase=/virtual-path
@@ -71,21 +71,21 @@ Blazor aplikacje, które używają [modelu hostingu po stronie klienta](xref:bla
 
 ### <a name="urls"></a>adresy URL
 
-`--urls` Argument ustawia adresów IP lub adresy hostów, porty i protokoły do nasłuchiwania żądań.
+`--urls` Argument ustawia adresy IP lub adresy hosta z portami i protokołami, aby nasłuchiwać żądań.
 
-* Przekazać argument podczas uruchamiania aplikacji lokalnie w wierszu polecenia. W katalogu aplikacji wykonaj polecenie:
+* Przekaż argument podczas lokalnego uruchamiania aplikacji w wierszu polecenia. W katalogu aplikacji wykonaj następujące polecenie:
 
   ```console
   dotnet run --urls=http://127.0.0.1:0
   ```
 
-* Dodawanie wpisu do aplikacji *launchSettings.json* w pliku **usług IIS Express** profilu. To ustawienie jest używane podczas uruchamiania aplikacji przy użyciu debugera programu Visual Studio i w wierszu polecenia za pomocą `dotnet run`.
+* Dodaj wpis do pliku *profilu launchsettings. JSON* aplikacji w profilu **IIS Express** . To ustawienie jest używane podczas uruchamiania aplikacji za pomocą debugera programu Visual Studio i z wiersza polecenia w programie `dotnet run`.
 
   ```json
   "commandLineArgs": "--urls=http://127.0.0.1:0"
   ```
 
-* W programie Visual Studio, należy określić argument w **właściwości** > **debugowania** > **argumenty aplikacji**. Ustawienie argumentu na stronie właściwości programu Visual Studio dodaje argument *launchSettings.json* pliku.
+* W programie Visual Studio Określ argument w **właściwościach** > **Debuguj** > **argumenty aplikacji**. Ustawienie argumentu na stronie właściwości programu Visual Studio powoduje dodanie argumentu do pliku *profilu launchsettings. JSON* .
 
   ```console
   --urls=http://127.0.0.1:0
@@ -93,64 +93,64 @@ Blazor aplikacje, które używają [modelu hostingu po stronie klienta](xref:bla
 
 ## <a name="deployment"></a>wdrażania
 
-Za pomocą [modelu hostingu po stronie klienta](xref:blazor/hosting-models#client-side):
+Z [modelem hostingu po stronie klienta](xref:blazor/hosting-models#client-side):
 
-* Aplikacja Blazor, jego zależności i środowisko uruchomieniowe platformy .NET są pobierane do przeglądarki.
-* Aplikacja jest wykonywane bezpośrednio w przeglądarce wątku interfejsu użytkownika. Obsługiwany jest jedną z następujących strategii:
-  * Aplikacja Blazor jest obsługiwany przez aplikację ASP.NET Core. Ta strategia jest objęte [hostowanych wdrażanie za pomocą platformy ASP.NET Core](#hosted-deployment-with-aspnet-core) sekcji.
-  * Aplikacji Blazor jest umieszczany na statyczne hostingu serwera sieci web lub usługi, której platformy .NET nie jest używany do obsługi aplikacji Blazor. Ta strategia jest objęte [wdrażania autonomicznego](#standalone-deployment) sekcji.
+* Aplikacja Blazor, jej zależności i środowisko uruchomieniowe platformy .NET są pobierane do przeglądarki.
+* Aplikacja jest wykonywana bezpośrednio w wątku interfejsu użytkownika przeglądarki. Obsługiwane są następujące strategie:
+  * Aplikacja Blazor jest obsługiwana przez aplikację ASP.NET Core. Ta strategia jest objęta [wdrożeniem hostowanym za pomocą ASP.NET Core](#hosted-deployment-with-aspnet-core) sekcji.
+  * Aplikacja Blazor jest umieszczana na statycznym, hostingowym serwerze sieci Web lub usłudze, w której program .NET nie jest używany do obsługi aplikacji Blazor. Ta strategia została omówiona w sekcji [wdrażanie autonomiczne](#standalone-deployment) .
 
 ## <a name="configure-the-linker"></a>Konfigurowanie konsolidatora
 
-Blazor wykonuje języka pośredniego (IL) łączenia każdego kompilacji, aby usunąć niepotrzebne IL z zestawów danych wyjściowych. Łączenie zestawu mogą być kontrolowane na kompilację. Aby uzyskać więcej informacji, zobacz <xref:host-and-deploy/blazor/configure-linker>.
+Blazor wykonuje konsolidację języka pośredniego (IL) dla każdej kompilacji, aby usunąć niepotrzebny kod IL z zestawów wyjściowych. Łączenie zestawu może być kontrolowane podczas kompilacji. Aby uzyskać więcej informacji, zobacz <xref:host-and-deploy/blazor/configure-linker>.
 
-## <a name="rewrite-urls-for-correct-routing"></a>Ponowne zapisywanie adresów URL poprawne routingu
+## <a name="rewrite-urls-for-correct-routing"></a>Ponownie Napisz adresy URL pod kątem prawidłowego routingu
 
-Routing żądań dla elementów strony w aplikacji po stronie klienta nie jest tak proste, jak kierowania żądań do aplikacji po stronie serwera, hostowaną. Należy wziąć pod uwagę aplikacji po stronie klienta za pomocą dwóch składników:
+Żądania routingu dla składników strony w aplikacji po stronie klienta nie są tak proste jak żądania routingu do aplikacji hostowanej po stronie serwera. Rozważ użycie aplikacji po stronie klienta z dwoma składnikami:
 
-* *Main.razor* &ndash; obciążeń w katalogu głównym aplikacji i zawiera łącza do `About` składnika (`href="About"`).
-* *About.razor* &ndash; `About` składnika.
+* *Główny. Razor* &ndash; ładuje się w katalogu głównym aplikacji i zawiera link do `About` składnika (`href="About"`).
+* *Informacje o* &ndash; składniku Razor `About` .
 
-Gdy dokument domyślny aplikacji przy użyciu paska adresu w przeglądarce (na przykład `https://www.contoso.com/`):
+Gdy zażądano dokumentu domyślnego aplikacji przy użyciu paska adresu przeglądarki (na przykład `https://www.contoso.com/`):
 
-1. Żąda przeglądarki.
-1. Domyślna strona ma zostać zwrócona, co jest zazwyczaj *index.html*.
-1. *index.HTML* używa do ładowania aplikacji.
-1. Router firmy Blazor obciążenia i Razor `Main` składnik jest renderowany.
+1. Przeglądarka wykonuje żądanie.
+1. Zostanie zwrócona strona domyślna, która jest zwykle *index. html*.
+1. *index. html* Bootstrap aplikację.
+1. Ładowanie routera Blazor, a składnik Razor `Main` jest renderowany.
 
-Na stronie głównej, wybierając łącze do `About` składnik działa na komputerze klienckim, ponieważ Blazor router zatrzymuje przeglądarki z żądania w Internecie, aby `www.contoso.com` dla `About` i służy renderowanych `About` sam składnik. Wszystkie żądania dla wewnętrznych punktów końcowych *w aplikacji po stronie klienta* działają tak samo: Żądania nie wyzwalacza opartego na przeglądarce żądania hostowany serwer zasobów w Internecie. Wewnętrznie obsługuje żądania przez router.
+Na stronie głównej wybranie `About` linku do składnika działa na kliencie, ponieważ router Blazor zatrzyma w przeglądarce żądanie połączenia z `www.contoso.com` Internetem `About` i obsługuje wyrenderowany `About` składnik. Wszystkie żądania dotyczące wewnętrznych punktów końcowych *w aplikacji po stronie klienta* działają w taki sam sposób: Żądania nie wyzwalają żądań przeglądarki do zasobów hostowanych przez serwer w Internecie. Router obsługuje wewnętrznie żądania.
 
-Jeśli żądanie zostało nawiązane za pomocą paska adresu w przeglądarce dla `www.contoso.com/About`, żądanie kończy się niepowodzeniem. Żaden z tych zasobów istnieje na hoście Internet aplikacji, więc *404 — Nie można odnaleźć* zwróceniem odpowiedzi.
+Żądanie kończy się niepowodzeniem `www.contoso.com/About`, jeśli żądanie zostanie wykonane przy użyciu paska adresu przeglądarki. Ten zasób nie istnieje na hoście internetowym aplikacji, więc zwracana jest odpowiedź *404 — nie znaleziono* .
 
-Ponieważ przeglądarki wysyłać żądania do internetowego hostów dla stron po stronie klienta, serwery sieci web i usług hostingu należy przepisać wszystkie żądania dotyczące zasobów bez fizycznego na serwerze, aby *index.html* strony. Gdy *index.html* jest zwracany przez aplikację klienta routera przejmuje i odpowiada za pomocą odpowiedniego zasobu.
+Ponieważ przeglądarki wysyłają żądania do hostów internetowych dla stron po stronie klienta, serwery sieci Web i usługi hostingu muszą ponownie zapisywać wszystkie żądania dotyczące zasobów, które nie znajdują się fizycznie na serwerze, na stronie *index. html* . Gdy jest zwracany *plik index. html* , router po stronie klienta aplikacji przejmuje i reaguje na prawidłowy zasób.
 
-## <a name="app-base-path"></a>Podstawowa ścieżka aplikacji
+## <a name="app-base-path"></a>Ścieżka podstawowa aplikacji
 
-*Ścieżki podstawowej aplikacji* to ścieżka katalogu głównego aplikacji wirtualnej na serwerze. Na przykład aplikację, która znajduje się na serwerze Contoso folder wirtualny o `/CoolApp/` zostanie osiągnięty w `https://www.contoso.com/CoolApp` i ma wirtualnej ścieżki podstawowej z `/CoolApp/`. Ustawiając ścieżki podstawowej aplikacji na ścieżkę wirtualną (`<base href="/CoolApp/">`), aplikacja jest powiadamianym o którym praktycznie znajduje się na serwerze. Aplikacja może używać ścieżki podstawowej aplikacji do tworzenia adresów URL, względem katalogu głównego aplikacji ze składnika, który nie znajduje się w katalogu głównym. Dzięki temu składniki, które istnieją na różnych poziomach struktury katalogów, tworzenie łączy do innych zasobów w lokalizacjach w całej aplikacji. Ścieżka podstawowa aplikacja jest również używane do przechwycenia hiperłącze kliknie gdzie `href` miejsce docelowe łącza jest w ramach ścieżki podstawowej aplikacji identyfikator URI przestrzeni&mdash;routera Blazor obsługuje wewnętrzny nawigacji.
+*Ścieżka podstawowa aplikacji* jest ścieżką katalogu głównego aplikacji wirtualnej na serwerze. Na przykład aplikacja, która znajduje się na serwerze firmy Contoso w folderze `/CoolApp/` wirtualnym, jest dostępna pod adresem `https://www.contoso.com/CoolApp` i ma wirtualną ścieżkę `/CoolApp/`bazową. Ustawiając ścieżkę bazową aplikacji na ścieżkę wirtualną (`<base href="/CoolApp/">`), aplikacja zostanie powiadomiona o tym, gdzie praktycznie znajduje się na serwerze. Aplikacja może używać ścieżki podstawowej aplikacji do konstruowania adresów URL względem katalogu głównego aplikacji ze składnika, który nie znajduje się w katalogu głównym. Dzięki temu składniki, które znajdują się na różnych poziomach struktury katalogów, umożliwiają tworzenie linków do innych zasobów w lokalizacji w całej aplikacji. Ścieżka podstawowa aplikacji jest również używana do przechwytywania hiperłącze, gdzie `href` element docelowy linku znajduje się w przestrzeni&mdash;URI ścieżki bazowej aplikacji. router Blazor obsługuje nawigację wewnętrzną.
 
-W wielu scenariuszach hostingu serwer ścieżka wirtualna do aplikacji jest głównym aplikacji. W takich przypadkach ścieżki podstawowej aplikacji jest ukośnikiem (`<base href="/" />`), która jest domyślna konfiguracja dla aplikacji. W innych scenariuszach hostingu, takich jak katalogi wirtualne stronach GitHub oraz usług IIS lub aplikacje podrzędne ścieżki podstawowej aplikacji należy określić ścieżkę wirtualną serwera aplikacji. Aby ustawić ścieżki podstawowej aplikacji, należy zaktualizować `<base>` tagów w ramach `<head>` tagów elementów *wwwroot/index.html* pliku. Ustaw `href` wartość do atrybutu `/virtual-path/` (wymagane jest podanie końcowy ukośnik), gdzie `/virtual-path/` to ścieżka katalogu głównego aplikacji pełna wirtualna na serwerze aplikacji. W powyższym przykładzie, ścieżka wirtualna jest ustawiona na `/CoolApp/`: `<base href="/CoolApp/">`.
+W wielu scenariuszach hostingu ścieżka wirtualna serwera do aplikacji jest katalogiem głównym aplikacji. W takich przypadkach Ścieżka podstawowa aplikacji jest ukośnikiem (`<base href="/" />`), który jest domyślną konfiguracją dla aplikacji. W innych scenariuszach hostingu, takich jak strony GitHub i katalogi wirtualne lub aplikacje podrzędne usług IIS, ścieżka podstawowa aplikacji musi być ustawiona na ścieżkę wirtualną serwera do aplikacji. Aby ustawić ścieżkę bazową aplikacji, zaktualizuj `<base>` tag `<head>` wewnątrz elementów tagów pliku *wwwroot/index.html* . Ustaw wartość `/virtual-path/`atrybutuna (wymagany jest końcowy ukośnik), gdzie `/virtual-path/` to pełna ścieżka katalogu głównego aplikacji wirtualnej na serwerze dla aplikacji. `href` W poprzednim przykładzie ścieżka wirtualna jest ustawiona na `/CoolApp/`:. `<base href="/CoolApp/">`
 
-Dla aplikacji za pomocą innego niż główny ścieżki wirtualnej skonfigurowane (na przykład `<base href="/CoolApp/">`), aplikacja nie może odnaleźć swoich zasobów *uruchomienia lokalnie*. Aby rozwiązać ten problem, podczas lokalnego opracowywania i testowania, możesz podać *podstawa ścieżki* argument, który odpowiada `href` wartość `<base>` tagu w czasie wykonywania.
+W przypadku aplikacji z skonfigurowaną niegłówną ścieżką wirtualną (na przykład `<base href="/CoolApp/">`) aplikacja nie będzie mogła znaleźć zasobów w *przypadku uruchamiania lokalnego*. Aby rozwiązać ten problem podczas lokalnego tworzenia i testowania, można podać podstawowy argument *ścieżki* , który jest zgodny `href` z wartością `<base>` tagu w czasie wykonywania.
 
-Aby przekazać argument podstawowa ścieżka o ścieżce katalogu głównego (`/`) podczas uruchamiania aplikacji lokalnie, należy wykonać `dotnet run` polecenie z katalogu aplikacji z `--pathbase` — opcja:
+Aby przekazać argument podstawowy ścieżki z ścieżką główną (`/`) podczas lokalnego uruchamiania aplikacji, `dotnet run` wykonaj polecenie z katalogu `--pathbase` aplikacji z opcją:
 
 ```console
 dotnet run --pathbase=/{Virtual Path (no trailing slash)}
 ```
 
-Dla aplikacji za pomocą wirtualnej ścieżki podstawowej z `/CoolApp/` (`<base href="/CoolApp/">`), to polecenie:
+W przypadku aplikacji z wirtualną ścieżką `/CoolApp/` bazową (`<base href="/CoolApp/">`) polecenie to:
 
 ```console
 dotnet run --pathbase=/CoolApp
 ```
 
-Aplikacja reaguje lokalnie na `http://localhost:port/CoolApp`.
+Aplikacja reaguje lokalnie o `http://localhost:port/CoolApp`.
 
-Aby uzyskać więcej informacji, zobacz sekcję na [wartość konfiguracji podstawowej hosta ścieżki](#path-base).
+Aby uzyskać więcej informacji, zapoznaj się z sekcją w sekcji [Konfiguracja podstawowego hosta ścieżki](#path-base).
 
-Jeśli aplikacja używa [modelu hostingu po stronie klienta](xref:blazor/hosting-models#client-side) (na podstawie **Blazor (po stronie klienta)** szablonu projektu `blazor` szablon, korzystając z [dotnet nowe](/dotnet/core/tools/dotnet-new) polecenie), a jest obsługiwana jako dla usług IIS sub aplikacji w aplikacji ASP.NET Core, ważne jest, aby wyłączyć dziedziczone obsługi modułu ASP.NET Core lub upewnić się, że aplikacja głównego (nadrzędnego) `<handlers>` w sekcji *web.config* plik nie jest dziedziczone przez jej podrzędnych.
+Jeśli aplikacja korzysta z [modelu hostingu po stronie klienta](xref:blazor/hosting-models#client-side) (na podstawie `blazor` szablonu projektu **Blazor (po stronie klienta)** , szablonu w przypadku użycia polecenia [dotnet New](/dotnet/core/tools/dotnet-new) ) i jest hostowana jako podaplikacja IIS w aplikacji ASP.NET Core, ważne jest, aby Wyłącz procedurę obsługi modułu dziedziczonego ASP.NET Core lub upewnij się, że `<handlers>` sekcja główna (nadrzędna) aplikacji w pliku *Web. config* nie jest dziedziczona przez aplikację podrzędną.
 
-Usuń procedurę obsługi w aplikacji — opublikowane *web.config* pliku, dodając `<handlers>` sekcji w pliku:
+Usuń program obsługi w opublikowanym pliku *Web. config* aplikacji, dodając `<handlers>` sekcję do pliku:
 
 ```xml
 <handlers>
@@ -158,7 +158,7 @@ Usuń procedurę obsługi w aplikacji — opublikowane *web.config* pliku, dodaj
 </handlers>
 ```
 
-Alternatywnie wyłączyć funkcję dziedziczenia aplikacji głównej (nadrzędnej) `<system.webServer>` sekcji przy użyciu `<location>` element z `inheritInChildApplications` równa `false`:
+Alternatywnie można wyłączyć dziedziczenie `<system.webServer>` sekcji głównej (nadrzędnej) aplikacji `<location>` przy użyciu elementu z `inheritInChildApplications` ustawionym na `false`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -174,81 +174,81 @@ Alternatywnie wyłączyć funkcję dziedziczenia aplikacji głównej (nadrzędne
 </configuration>
 ```
 
-Usuwanie obsługi lub wyłączając dziedziczenie jest wykonywane Oprócz konfigurowania ścieżki podstawowej aplikacji, zgodnie z opisem w tej sekcji. Ustawianie ścieżki podstawowej aplikacji w aplikacji *index.html* pliku do aliasu usług IIS, używane podczas konfigurowania aplikacji podrzędnej w usługach IIS.
+Usuwanie procedury obsługi lub wyłączanie dziedziczenia jest wykonywane poza konfiguracją ścieżki podstawowej aplikacji zgodnie z opisem w tej sekcji. Ustaw ścieżkę bazową aplikacji w pliku *index. html* aplikacji na alias IIS używany podczas konfigurowania aplikacji podrzędnej w usługach IIS.
 
-## <a name="hosted-deployment-with-aspnet-core"></a>Wdrożenie hostowane za pomocą programu ASP.NET Core
+## <a name="hosted-deployment-with-aspnet-core"></a>Hostowane wdrożenie z ASP.NET Core
 
-A *hostowanych wdrożenia* służy Blazor aplikacji po stronie klienta do przeglądarki z [aplikacji ASP.NET Core](xref:index) , które jest uruchamiane na serwerze sieci web.
+*Wdrożenie hostowane* umożliwia Blazor aplikacji po stronie klienta w przeglądarkach z [aplikacji ASP.NET Core](xref:index) działającej na serwerze sieci Web.
 
-Aplikacja Blazor jest dołączone do aplikacji platformy ASP.NET Core w opublikowanych danych wyjściowych, więc, że dwie aplikacje wdrażane razem. Wymagany jest serwer sieci web, który jest zdolny do obsługi aplikacji ASP.NET Core. W przypadku wdrożenia hostowanego obejmuje program Visual Studio **Blazor (platformy ASP.NET Core, obsługiwane)** szablonu projektu (`blazorhosted` szablon, korzystając z [dotnet nowe](/dotnet/core/tools/dotnet-new) polecenia).
+Aplikacja Blazor jest dołączana do aplikacji ASP.NET Core w publikowanym danych wyjściowych, dzięki czemu dwie aplikacje są wdrażane razem. Wymagany jest serwer sieci Web, który umożliwia hostowanie aplikacji ASP.NET Core. W przypadku wdrożenia hostowanego program Visual Studio zawiera szablon projektu **Blazor (ASP.NET Core Hosted)** (`blazorhosted` szablon w przypadku używania polecenia [dotnet New](/dotnet/core/tools/dotnet-new) ).
 
-Aby uzyskać więcej informacji na temat hosting aplikacji platformy ASP.NET Core i wdrażanie, zobacz <xref:host-and-deploy/index>.
+Aby uzyskać więcej informacji na temat ASP.NET Core hostingu i wdrażania aplikacji <xref:host-and-deploy/index>, zobacz.
 
-Aby uzyskać informacje na temat wdrażania w usłudze Azure App Service, zobacz <xref:tutorials/publish-to-azure-webapp-using-vs>.
+Aby uzyskać informacje na temat wdrażania do Azure App Service <xref:tutorials/publish-to-azure-webapp-using-vs>, zobacz.
 
-## <a name="standalone-deployment"></a>Wdrażania autonomicznego
+## <a name="standalone-deployment"></a>Wdrożenie autonomiczne
 
-A *wdrażania autonomicznego* służy Blazor aplikacji po stronie klienta jako zbiór plików statycznych, które są żądane bezpośrednio przez klientów. Można udostępniać aplikację Blazor jest dowolnego serwera plików statycznych.
+*Wdrożenie autonomiczne* służy aplikacji Blazor po stronie klienta jako zestawu plików statycznych, które są żądane bezpośrednio przez klientów programu. Każdy statyczny serwer plików jest w stanie obsłużyć aplikację Blazor.
 
-Zasoby wdrożenia autonomicznych są publikowane w *wersji/bin / {w TARGET FRAMEWORK} /publish/ {Nazwa zestawu} / dist* folderu.
+Zasoby wdrażania autonomicznego są publikowane w folderze *bin/Release/{Target Framework}/Publish/{Assembly Name}/dist* .
 
 ### <a name="iis"></a>IIS
 
-Program IIS jest serwerem plików statycznych z możliwością Blazor aplikacji. Aby skonfigurować usługi IIS do hosta Blazor, zobacz [Tworzenie statycznej witryny sieci Web w usługach IIS](/iis/manage/creating-websites/scenario-build-a-static-website-on-iis).
+Usługi IIS to obsługujący statyczny serwer plików dla aplikacji Blazor. Aby skonfigurować usługi IIS do hostowania Blazor, zobacz [Tworzenie statycznej witryny sieci Web w usługach IIS](/iis/manage/creating-websites/scenario-build-a-static-website-on-iis).
 
-Opublikowane zasoby są tworzone w */bin/wersji / {struktury docelowej} / publish* folderu. Hostowanie zawartości *publikowania* folderu na serwerze sieci web lub innej usługi hostingu.
+Opublikowane zasoby są tworzone w folderze */bin/Release/{Target Framework}/Publish* . Hostowanie zawartości folderu *publikowania* na serwerze sieci Web lub w usłudze hostingu.
 
 #### <a name="webconfig"></a>web.config
 
-Po opublikowaniu projektu Blazor *web.config* plik jest tworzony przy użyciu następującej konfiguracji usług IIS:
+Po opublikowaniu projektu Blazor zostanie utworzony plik *Web. config* z następującą konfiguracją usług IIS:
 
-* Typy MIME są ustawiane dla następujących rozszerzeń pliku:
+* Typy MIME są ustawiane dla następujących rozszerzeń plików:
   * *.dll* &ndash; `application/octet-stream`
   * *.json* &ndash; `application/json`
   * *.wasm* &ndash; `application/wasm`
-  * *.woff* &ndash; `application/font-woff`
-  * *.woff2* &ndash; `application/font-woff`
-* Kompresja protokołu HTTP jest włączone dla następujących typów MIME:
+  * *. WOFF* &ndash;`application/font-woff`
+  * *. woff2* &ndash;`application/font-woff`
+* Kompresja HTTP jest włączona dla następujących typów MIME:
   * `application/octet-stream`
   * `application/wasm`
-* Ustanawiane są reguły moduł ponowne zapisywanie adresów URL:
-  * Obsługiwać podkatalogu, gdzie znajdują się zasoby statyczne aplikacji ( */dist/ {Nazwa zestawu} {ŻĄDANA ŚCIEŻKA}* ).
-  * Utwórz SPA rezerwowego routingu, tak aby żądania innego niż plik zasobów są przekierowywane do aplikacji dokumentu domyślnego w folderze statycznych zasobów ( *{NAME}/dist/index.html zestawu*).
+* Reguły modułu ponownego zapisywania adresu URL zostały ustanowione:
+  * Obsługuj podkatalog, w którym znajdują się zasoby statyczne aplikacji ( *{Assembly Name}/dist/{Path*).
+  * Utwórz Routing awaryjny SPA, aby żądania dotyczące zasobów nienależących do pliku zostały przekierowane do domyślnego dokumentu aplikacji w folderze zasobów statycznych ( *{Assembly Name}/dist/index.html*).
 
-#### <a name="install-the-url-rewrite-module"></a>Zainstaluj moduł ponowne zapisywanie adresów URL
+#### <a name="install-the-url-rewrite-module"></a>Zainstaluj moduł ponownego zapisywania adresów URL
 
-[Moduł ponowne zapisywanie adresów URL](https://www.iis.net/downloads/microsoft/url-rewrite) jest wymagany do ponownego zapisywania adresów URL. Moduł nie jest instalowany domyślnie i nie jest dostępna do zainstalowania jako funkcja usługi roli Serwer sieci Web (IIS). Moduł musi zostać pobrany z witryny sieci Web usług IIS. Aby zainstalować moduł, należy użyć Instalatora platformy sieci Web:
+[Moduł ponownego zapisywania adresu URL](https://www.iis.net/downloads/microsoft/url-rewrite) jest wymagany do ponownego zapisywania adresów URL. Moduł nie jest instalowany domyślnie i nie jest dostępny do zainstalowania jako funkcja usługi roli Serwer sieci Web (IIS). Moduł musi zostać pobrany z witryny sieci Web usług IIS. Zainstaluj moduł przy użyciu Instalatora platformy sieci Web:
 
-1. Lokalnie, przejdź do [moduł ponowne zapisywanie adresów URL strony pobierania](https://www.iis.net/downloads/microsoft/url-rewrite#additionalDownloads). W wersji angielskiej, wybierz **WebPI** do pobierania Instalatora WebPI. W przypadku języków wybierz odpowiednią architekturę dla serwera — x86/x64 64 do pobierania Instalatora.
-1. Skopiuj Instalatora na serwerze. Uruchom Instalatora. Wybierz **zainstalować** przycisk i zaakceptuj postanowienia licencyjne. Ponowne uruchomienie serwera nie jest wymagane po ukończeniu instalacji.
+1. Lokalnie przejdź do [strony pobierania modułu ponowne zapisywanie adresów URL](https://www.iis.net/downloads/microsoft/url-rewrite#additionalDownloads). W przypadku wersji angielskiej wybierz pozycję **Instalatora WebPI** , aby pobrać Instalatora Instalatora WebPI. W przypadku innych języków wybierz odpowiednią architekturę dla serwera (x86/x64), aby pobrać Instalatora.
+1. Skopiuj Instalatora na serwer. Uruchom Instalatora. Wybierz przycisk **Zainstaluj** i zaakceptuj postanowienia licencyjne. Po zakończeniu instalacji nie jest wymagane ponowne uruchomienie serwera.
 
-#### <a name="configure-the-website"></a>Konfigurowanie witryny sieci Web
+#### <a name="configure-the-website"></a>Skonfiguruj witrynę sieci Web
 
-Ustaw witrynę sieci Web **ścieżkę fizyczną** do folderu aplikacji. Folder zawiera:
+Ustaw **ścieżkę fizyczną** witryny sieci Web do folderu aplikacji. Folder zawiera:
 
-* *Web.config* pliku wykorzystywanym przez usługi IIS do konfigurowania witryny sieci Web, łącznie z regułami wymagane przekierowania i typy zawartości plików.
-* Folder statycznych zasobów aplikacji.
+* Plik *Web. config* , za pomocą którego usługi IIS konfigurują witrynę sieci Web, w tym wymagane reguły przekierowań i typy zawartości plików.
+* Folder elementu zawartości statycznej aplikacji.
 
 #### <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-Jeśli *500 — Wewnętrzny błąd serwera* odebraniu i Menedżera usług IIS zgłasza błędy podczas próby dostępu do konfiguracji witryny sieci Web, upewnij się, że zainstalowano moduł ponowne zapisywanie adresów URL. Jeśli moduł nie jest zainstalowany, *web.config* nie można przeanalizować pliku przez usługi IIS. Zapobiega to ładowania konfiguracji witryny sieci Web i witryny sieci Web z dostarczania plików statycznych dla Blazor Menedżera usług IIS.
+W przypadku odebrania *500 — wewnętrzny błąd serwera* , a Menedżer usług IIS zgłasza błędy przy próbie uzyskania dostępu do konfiguracji witryny sieci Web, upewnij się, że zainstalowano moduł ponownego zapisywania adresu URL. Gdy moduł nie jest zainstalowany, nie można przeanalizować pliku *Web. config* przez usługi IIS. Zapobiega to załadowaniu przez Menedżera usług IIS konfiguracji witryny sieci Web i witryny sieci Web do obsługi plików statycznych Blazor.
 
-Aby uzyskać więcej informacji na temat Rozwiązywanie problemów z wdrożeniami usług IIS, zobacz <xref:host-and-deploy/iis/troubleshoot>.
+Aby uzyskać więcej informacji na temat rozwiązywania problemów z <xref:test/troubleshoot-azure-iis>WDROŻENIAMI w usługach IIS, zobacz.
 
 ### <a name="azure-storage"></a>Azure Storage
 
-Usługi Azure Storage plików statycznych hostingu umożliwia hosting bezserwerowy Blazor aplikacji. Niestandardowe nazwy domen, Azure Content Delivery Network (CDN) i HTTPS są obsługiwane.
+Hosting pliku statycznego usługi Azure Storage umożliwia hosting aplikacji bezserwerowych Blazor. Obsługiwane są niestandardowe nazwy domen, usługa Azure Content Delivery Network (CDN) i protokół HTTPS.
 
-Po włączeniu usługi blob service do hostowania statycznej witryny internetowej na koncie magazynu:
+Gdy usługa BLOB jest włączona dla hostingu statycznej witryny sieci Web na koncie magazynu:
 
-* Ustaw **nazwa dokumentu indeksu** do `index.html`.
-* Ustaw **ścieżka dokumentu błędu** do `index.html`. Składniki razor i inne punkty końcowe inną niż pliki nie znajdują się w ścieżkach fizycznych w zawartości statycznej, przechowywane w usłudze obiektów blob. Po odebraniu żądania dla jednego z tych zasobów, Blazor router powinna obsługiwać, *404 — Nie można odnaleźć* błąd generowane przez usługę blob service kieruje żądanie do **ścieżka dokumentu błędu**. *Index.html* obiektów blob są zwracane i Blazor router ładuje i przetwarza ścieżkę.
+* Ustaw **nazwę dokumentu indeksu** na `index.html`.
+* Ustaw `index.html` **ścieżkę do dokumentu błędu** . Składniki Razor i inne punkty końcowe inne niż pliki nie znajdują się w ścieżkach fizycznych w zawartości statycznej przechowywanej przez usługę BLOB. Po otrzymaniu żądania dla jednego z tych zasobów, który powinien zostać obsłużony przez router Blazor, błąd *404-nie znaleziono* przez usługę BLOB Service kieruje żądanie do **ścieżki dokumentu błędu**. Zwracany jest obiekt BLOB *index. html* , a router Blazor ładuje i przetwarza ścieżkę.
 
-Aby uzyskać więcej informacji, zobacz [hostowania statycznej witryny internetowej w usłudze Azure Storage](/azure/storage/blobs/storage-blob-static-website).
+Aby uzyskać więcej informacji, zobacz [Obsługa statycznej witryny sieci Web w usłudze Azure Storage](/azure/storage/blobs/storage-blob-static-website).
 
 ### <a name="nginx"></a>Nginx
 
-Następujące *nginx.conf* pliku została uproszczona w celu pokazują, jak skonfigurować serwer Nginx, aby wysłać *index.html* plików zawsze wtedy, gdy nie można odnaleźć odpowiedniego pliku na dysku.
+Następujący plik *Nginx. conf* został uproszczony, aby pokazać, jak skonfigurować Nginx do wysyłania pliku *index. html* za każdym razem, gdy nie można znaleźć odpowiedniego pliku na dysku.
 
 ```
 events { }
@@ -264,13 +264,13 @@ http {
 }
 ```
 
-Aby uzyskać więcej informacji na temat konfiguracji serwera sieci web Nginx produkcji, zobacz [tworzenia serwer NGINX Plus i pliki konfiguracji NGINX](https://docs.nginx.com/nginx/admin-guide/basic-functionality/managing-configuration-files/).
+Aby uzyskać więcej informacji na temat konfiguracji serwera sieci Web w środowisku produkcyjnym, zobacz [Tworzenie plików konfiguracji Nginx Plus i Nginx](https://docs.nginx.com/nginx/admin-guide/basic-functionality/managing-configuration-files/).
 
-### <a name="nginx-in-docker"></a>Serwer Nginx na platformie Docker
+### <a name="nginx-in-docker"></a>Nginx w Docker
 
-Aby hostować Blazor na platformie Docker przy użyciu serwera Nginx, Konfiguracja pliku Dockerfile, aby użyć obrazu Alpine na podstawie serwera Nginx. Aktualizacja pliku Dockerfile, aby skopiować *nginx.config* pliku do kontenera.
+Aby hostować Blazor w platformie Docker przy użyciu Nginx, skonfiguruj pliku dockerfile do korzystania z obrazu Nginx opartego na Alpine. Zaktualizuj pliku dockerfile, aby skopiować plik *Nginx. config* do kontenera.
 
-Dodaj jeden wiersz do pliku Dockerfile, jak pokazano w poniższym przykładzie:
+Dodaj jeden wiersz do pliku dockerfile, jak pokazano w następującym przykładzie:
 
 ```Dockerfile
 FROM nginx:alpine
@@ -278,8 +278,8 @@ COPY ./bin/Release/netstandard2.0/publish /usr/share/nginx/html/
 COPY nginx.conf /etc/nginx/nginx.conf
 ```
 
-### <a name="github-pages"></a>Strony w witrynie GitHub
+### <a name="github-pages"></a>Strony serwisu GitHub
 
-Aby obsłużyć ponownego adresu URL, Dodaj *404. html* pliku ze skryptem, który obsługuje żądanie przekierowania *index.html* strony. Przykładem implementacji dostarczane przez społeczność, można zobaczyć [pojedynczej aplikacji strony dla strony GitHub](https://spa-github-pages.rafrex.com/) ([rafrex/spa-github strony w witrynie GitHub](https://github.com/rafrex/spa-github-pages#readme)). Przykładem dotyczącym używania podejścia społeczności są widoczne w [blazor-demo/blazor-demo.github.io w serwisie GitHub](https://github.com/blazor-demo/blazor-demo.github.io) ([aktywnej witryny](https://blazor-demo.github.io/)).
+Aby obsłużyć ponowne zapisywanie adresów URL, Dodaj plik *404. html* ze skryptem, który obsługuje przekierowywanie żądania do strony *index. html* . Aby zapoznać się z przykładową implementacją dostarczoną przez społeczność, zobacz [aplikacje jednostronicowe dla stron usługi GitHub](https://spa-github-pages.rafrex.com/) ([rafrex/Spa-GitHub-Pages w witrynie GitHub](https://github.com/rafrex/spa-github-pages#readme)). Przykład użycia podejścia społecznościowego można znaleźć w witrynie GitHub[(](https://blazor-demo.github.io/) [blazor — Demonstracja/blazor-Demonstracja](https://github.com/blazor-demo/blazor-demo.github.io) ).
 
-Korzystając z witryny projektu zamiast witryny organizacji, Dodaj lub zaktualizuj `<base>` tagów w *index.html*. Ustaw `href` wartość atrybutu Nazwa repozytorium GitHub kończących się ukośnikiem (na przykład `my-repository/`.
+W przypadku korzystania z witryny projektu zamiast witryny organizacji Dodaj lub zaktualizuj `<base>` tag w *pliku index. html*. Ustaw wartość `my-repository/`atrybutu na nazwę repozytorium GitHub z końcowym ukośnikiem (na przykład. `href`

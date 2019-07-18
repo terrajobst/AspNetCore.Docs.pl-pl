@@ -1,41 +1,41 @@
 ---
-title: Host platformy ASP.NET Core w kontenerach platformy Docker
+title: ASP.NET Core hosta w kontenerach platformy Docker
 author: rick-anderson
-description: Dowiedz się, linki do zasobów do nauki, jak hostować aplikacje platformy ASP.NET Core w kontenerach platformy Docker.
+description: Odkryj linki do zasobów, aby dowiedzieć się, jak hostować aplikacje ASP.NET Core w kontenerach platformy Docker.
 ms.author: riande
 ms.custom: mvc
 ms.date: 01/08/2018
 uid: host-and-deploy/docker/index
-ms.openlocfilehash: 9189e1fbb21abcc8c8bdea947e672ee53b59bc4f
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: cb5f774db5fab46a57f8ca4bbbca148f20f371ba
+ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65085477"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68308044"
 ---
-# <a name="host-aspnet-core-in-docker-containers"></a>Host platformy ASP.NET Core w kontenerach platformy Docker
+# <a name="host-aspnet-core-in-docker-containers"></a>ASP.NET Core hosta w kontenerach platformy Docker
 
-Dla szkoleniowe dotyczące hostowania aplikacji platformy ASP.NET Core na platformie Docker dostępne są następujące artykuły:
+Następujące artykuły są dostępne na potrzeby uczenia się, jak hostować ASP.NET Core aplikacje w programie Docker:
 
 [Wprowadzenie do kontenerów i platformy Docker](/dotnet/standard/microservices-architecture/container-docker-introduction/index)  
-Zobacz, jak konteneryzacji to podejście do tworzenia oprogramowania, w którym aplikacji lub usługi, jego zależności i jego konfigurację jednym pakiecie w postaci obrazu kontenera. Obraz, który można przetestować i następnie wdrożona na hoście.
+Zobacz, jak kontenerach jest podejściem do tworzenia oprogramowania, w którym aplikacja lub usługa, jej zależności i jej konfiguracja są pakowane razem jako obraz kontenera. Obraz może zostać przetestowany, a następnie wdrożony na hoście.
 
-[Co to jest Docker](/dotnet/standard/microservices-architecture/container-docker-introduction/docker-defined)  
-Dowiedz się, jak Docker to projekt typu open source umożliwiająca automatyzację wdrażania aplikacji jako przenośny, samowystarczalne kontenery, które można uruchomić w chmurze lub lokalnie.
+[Co to jest platforma Docker](/dotnet/standard/microservices-architecture/container-docker-introduction/docker-defined)  
+Odkryj, jak platforma Docker to projekt typu "open source" służący do automatyzowania wdrażania aplikacji jako przenośnych, samowystarczalnych kontenerów, które mogą być uruchamiane w chmurze lub lokalnie.
 
-[Terminologia platformy docker](/dotnet/standard/microservices-architecture/container-docker-introduction/docker-terminology)  
-Dowiedz się, terminy i definicje dla technologii platformy Docker.
+[Terminologia platformy Docker](/dotnet/standard/microservices-architecture/container-docker-introduction/docker-terminology)  
+Poznaj warunki i definicje dotyczące technologii platformy Docker.
 
 [Kontenery, obrazy i rejestry platformy Docker](/dotnet/standard/microservices-architecture/container-docker-introduction/docker-containers-images-registries)  
-Dowiedz się, jak obrazów kontenerów platformy Docker są przechowywane w rejestrze obraz spójne wdrażanie w środowiskach.
+Dowiedz się, w jaki sposób obrazy kontenerów platformy Docker są przechowywane w rejestrze obrazów na potrzeby spójnego wdrażania w różnych środowiskach.
 
-<xref:host-and-deploy/docker/building-net-docker-images> Dowiedz się, jak tworzyć i przekształcać aplikacji ASP.NET Core. Zapoznaj się z obrazów platformy Docker, obsługiwane przez firmę Microsoft i zbadaj przypadki użycia.
+<xref:host-and-deploy/docker/building-net-docker-images>Dowiedz się, jak kompilować i przekształcać aplikację ASP.NET Core. Eksploruj obrazy platformy Docker obsługiwane przez firmę Microsoft i badaj przypadki użycia.
 
-[Visual Studio Tools for Docker](xref:host-and-deploy/docker/visual-studio-tools-for-docker)  
-Dowiedz się, jak program Visual Studio 2017 obsługuje kompilowania, debugowania i uruchamiania programu ASP.NET Core z aplikacji przeznaczonych dla środowiska .NET Framework lub .NET Core w Docker for Windows. Są obsługiwane kontenerów systemów Windows i Linux.
+[Narzędzia kontenera programu Visual Studio](xref:host-and-deploy/docker/visual-studio-tools-for-docker)  
+Dowiedz się, w jaki sposób program Visual Studio obsługuje kompilowanie, debugowanie i uruchamianie aplikacji ASP.NET Core przeznaczonych dla .NET Framework lub .NET Core w Docker for Windows. Obsługiwane są kontenery systemów Windows i Linux.
 
-[Publikowanie w obrazie platformy Docker](/azure/vs-azure-tools-docker-hosting-web-apps-in-docker)  
-Dowiedz się, jak wdrożyć aplikację ASP.NET Core na hosta platformy Docker na platformie Azure przy użyciu programu PowerShell za pomocą Visual Studio Tools dla rozszerzenia platformy Docker.
+[Publikuj w Azure Container Registry](/azure/vs-azure-tools-docker-hosting-web-apps-in-docker)  
+Dowiedz się, jak za pomocą rozszerzenia Visual Studio Container Tools wdrożyć aplikację ASP.NET Core na hoście Docker na platformie Azure przy użyciu programu PowerShell.
 
-[Konfigurowanie platformy ASP.NET Core pracować z serwerów proxy i moduły równoważenia obciążenia](xref:host-and-deploy/proxy-load-balancer)  
-Dodatkowa konfiguracja może być wymagane dla aplikacji hostowanych za serwery proxy i moduły równoważenia obciążenia. Przekazywanie żądań za pośrednictwem serwera proxy, często ukrycie informacji na temat oryginalne żądanie, takie jak adres IP schemat i klienta. Konieczne może być przesyłane dalej niektóre informacje o żądaniu ręcznie do aplikacji.
+[Konfigurowanie ASP.NET Core do pracy z serwerami proxy i usługami równoważenia obciążenia](xref:host-and-deploy/proxy-load-balancer)  
+Dodatkowa konfiguracja może być wymagana dla aplikacji hostowanych w ramach serwerów proxy i modułów równoważenia obciążenia. Przekazywanie żądań za pomocą serwera proxy często zasłania informacje o oryginalnym żądaniu, takie jak schemat i adres IP klienta. Może być konieczne ręczne przekazanie pewnych informacji dotyczących żądania do aplikacji.

@@ -4,14 +4,14 @@ author: CamSoper
 description: Monitorowania i debugowania kodu jako części rozwiązania DevOps z platformą ASP.NET Core i platformy Azure
 ms.author: casoper
 ms.custom: mvc, seodec18
-ms.date: 10/24/2018
+ms.date: 07/10/2019
 uid: azure/devops/monitor
-ms.openlocfilehash: 00489bd92dfff8fd80bd24c2e60193d32031d7c4
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 1d8ed99f4387dbc99929164c558cc2ce14bd9ea0
+ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64899380"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68307958"
 ---
 # <a name="monitor-and-debug"></a>Monitorowanie i debugowania
 
@@ -37,11 +37,11 @@ Aplikacje sieci web usługi App Service są łatwo monitorowana w czasie rzeczyw
 
     ![Zrzut ekranu przedstawiający Przegląd panelu](./media/monitoring/overview.png)
 
-    * **Http 5xx**: Liczba błędów po stronie serwera, zwykle wyjątków w kodzie ASP.NET Core.
-    * **Dane w**: Transfer danych przychodzących do aplikacji sieci web.
-    * **Dane wyjściowe**: Wyjście danych z aplikacji sieci web dla klientów.
-    * **Żądania**: Liczba HTTP żądania.
-    * **Średni czas odpowiedzi**: Średni czas dla aplikacji sieci web do odpowiadania na żądania HTTP.
+    * **5Xx http**: Liczba błędów po stronie serwera, zazwyczaj wyjątków w kodzie ASP.NET Core.
+    * **Dane w**: Dane przychodzące do aplikacji sieci Web.
+    * **Dane**wychodzące: Dane wychodzące z aplikacji sieci Web do klientów.
+    * **Żądania**: Liczba żądań HTTP.
+    * **Średni czas odpowiedzi**: Średni czas odpowiedzi aplikacji sieci Web na żądania HTTP.
 
     Kilka Samoobsługowe narzędzia do optymalizacji i rozwiązywania problemów znajdują się również na tej stronie.
 
@@ -89,7 +89,7 @@ Dzienniki serwera i aplikacji sieci Web są wyłączone domyślnie w usłudze Az
 
     ![Link do dzienników diagnostycznych](./media/monitoring/logging.png)
 
-1. Włącz **rejestrowanie aplikacji (system plików)**. Jeśli zostanie wyświetlony monit, kliknij pole, aby zainstalować rozszerzenia, aby włączyć rejestrowanie w aplikacji sieci web aplikacji.
+1. Włącz **rejestrowanie aplikacji (system plików)** . Jeśli zostanie wyświetlony monit, kliknij pole, aby zainstalować rozszerzenia, aby włączyć rejestrowanie w aplikacji sieci web aplikacji.
 1. Ustaw **rejestrowanie serwera sieci Web** do **System plików**.
 1. Wprowadź **okres przechowywania** w dniach. Na przykład 30.
 1. Kliknij pozycję **Zapisz**.
@@ -111,7 +111,7 @@ Dzienniki można też [strumieniowo przy użyciu wiersza polecenia platformy Azu
 
 Usługa Azure Monitor udostępnia również [alerty w czasie rzeczywistym](/azure/monitoring-and-diagnostics/insights-alerts-portal) na podstawie metryk, zdarzenia administracyjne i innych kryteriów.
 
-> *Uwaga: Obecnie alertów dotyczących metryk aplikacji sieci web jest dostępna tylko w usłudze alerty (klasyczne).*
+> *Uwaga: Obecnie alerty dotyczące metryk aplikacji sieci Web są dostępne tylko w usłudze alertów (klasycznych).*
 
 [Alerty (klasyczne) usługa](/azure/monitoring-and-diagnostics/monitor-quick-resource-metric-alert-portal) znajduje się w usłudze Azure Monitor lub w obszarze **monitorowanie** sekcji ustawień usługi App Service.
 
@@ -135,7 +135,7 @@ W tej sekcji należy wykonać następujące zadania:
 
 ## <a name="additional-reading"></a>Materiały uzupełniające
 
-* <xref:host-and-deploy/azure-apps/troubleshoot>
+* <xref:test/troubleshoot-azure-iis>
 * <xref:host-and-deploy/azure-iis-errors-reference>
 * [Monitorowanie wydajności aplikacji sieci web platformy Azure z usługą Application Insights](/azure/application-insights/app-insights-azure-web-apps)
 * [Włączanie rejestrowania diagnostycznego dla aplikacji sieci web w usłudze Azure App Service](/azure/app-service/web-sites-enable-diagnostic-log)

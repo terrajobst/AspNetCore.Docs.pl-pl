@@ -4,14 +4,14 @@ author: rick-anderson
 description: Dowiedz się, jak opublikować aplikację ASP.NET Core w usłudze Azure App Service przy użyciu programu Visual Studio.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/06/2018
+ms.date: 07/10/2019
 uid: tutorials/publish-to-azure-webapp-using-vs
-ms.openlocfilehash: c0251032d83349d4d3925d1ec594c9230ed6ad2d
-ms.sourcegitcommit: 6d9cf728465cdb0de1037633a8b7df9a8989cccb
+ms.openlocfilehash: dbb8229a52c8c93da94406ad64d03eff9631afb4
+ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67207642"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68308335"
 ---
 # <a name="publish-an-aspnet-core-app-to-azure-with-visual-studio"></a>Publikowanie aplikacji platformy ASP.NET Core na platformie Azure z programem Visual Studio
 
@@ -21,7 +21,7 @@ Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Zobacz [Opublikuj na platformie Azure z programu Visual Studio dla komputerów Mac](https://blog.xamarin.com/publish-azure-visual-studio-mac/) Jeśli pracujesz w systemie macOS.
 
-Aby rozwiązać problem wdrożenia usługi App Service, zobacz <xref:host-and-deploy/azure-apps/troubleshoot>.
+Aby rozwiązać problem wdrożenia usługi App Service, zobacz <xref:test/troubleshoot-azure-iis>.
 
 ## <a name="set-up"></a>Konfigurowanie
 
@@ -68,10 +68,10 @@ Program Visual Studio tworzy rozwiązanie.
 
 * Wybierz **zarejestrować** i rejestrowanie nowego użytkownika. Można użyć adresu e-mail fikcyjne. Podczas przesyłania, zostanie wyświetlona strona następujący błąd:
 
-    *"Wewnętrzny błąd serwera: Operacja bazy danych nie powiodło się podczas przetwarzania żądania. Wyjątek SQL: Nie można otworzyć bazy danych. Stosowanie migracji istniejących w kontekście bazy danych aplikacji może rozwiązać ten problem."*
+    *"Wewnętrzny błąd serwera: Operacja bazy danych nie powiodła się podczas przetwarzania żądania. Wyjątek SQL: Nie można otworzyć bazy danych. Stosowanie migracji istniejących w kontekście bazy danych aplikacji może rozwiązać ten problem."*
 * Wybierz **zastosować migracje** i, po aktualizacji strony, Odśwież stronę.
 
-![Wewnętrzny błąd serwera: Operacja bazy danych nie powiodło się podczas przetwarzania żądania. Wyjątek SQL: Nie można otworzyć bazy danych. Stosowanie migracji istniejących w kontekście bazy danych aplikacji może rozwiązać ten problem.](publish-to-azure-webapp-using-vs/_static/mig.png)
+![Wewnętrzny błąd serwera: Operacja bazy danych nie powiodła się podczas przetwarzania żądania. Wyjątek SQL: Nie można otworzyć bazy danych. Stosowanie migracji istniejących w kontekście bazy danych aplikacji może rozwiązać ten problem.](publish-to-azure-webapp-using-vs/_static/mig.png)
 
 Aplikacja wyświetla adres e-mail używany do rejestrowania nowych użytkowników i **Wyloguj** łącza.
 
@@ -140,7 +140,7 @@ Na **ustawienia** strony **Publikuj** okno dialogowe:
 
 * Wybierz pozycję **Zapisz**. Program Visual Studio zwraca **Publikuj** okna dialogowego. 
 
-![Okno dialogowe publikowanie: Panel ustawień](publish-to-azure-webapp-using-vs/_static/pubs.png)
+![Okno dialogowe publikowania: Panel ustawień](publish-to-azure-webapp-using-vs/_static/pubs.png)
 
 Kliknij przycisk **publikowania**. Program Visual Studio publikuje aplikację na platformie Azure. Po zakończeniu wdrażania aplikacji jest otwarty w przeglądarce.
 
@@ -154,7 +154,7 @@ Kliknij przycisk **publikowania**. Program Visual Studio publikuje aplikację na
 
 ### <a name="update-the-app"></a>Aktualizowanie aplikacji
 
-* Edytuj *Pages/About.cshtml* Razor strony i zmienić jego zawartość. Na przykład można zmodyfikować akapitu powiedzieć "Hello platformy ASP.NET Core!":
+* Edytuj *Pages/About.cshtml* Razor strony i zmienić jego zawartość. Na przykład można zmodyfikować akapit, aby powiedzieć "Hello ASP.NET Core!":
 
     [!code-html[About](publish-to-azure-webapp-using-vs/sample/about.cshtml?highlight=9&range=1-9)]
 
@@ -172,11 +172,11 @@ Po zakończeniu testowania aplikacji, przejdź do [witryny Azure portal](https:/
 
 * Wybierz **grup zasobów**, następnie wybierz utworzoną grupę zasobów.
 
-![Azure Portal: Grupy zasobów, w menu bocznym](publish-to-azure-webapp-using-vs/_static/portalrg.png)
+![Azure Portal: Grupy zasobów w menu paska bocznego](publish-to-azure-webapp-using-vs/_static/portalrg.png)
 
 * W **grup zasobów** wybierz opcję **Usuń**.
 
-![Azure Portal: Strony grup zasobów](publish-to-azure-webapp-using-vs/_static/rgd.png)
+![Azure Portal: Strona grupy zasobów](publish-to-azure-webapp-using-vs/_static/rgd.png)
 
 * Wprowadź nazwę grupy zasobów, a następnie wybierz pozycję **Usuń**. Aplikacja i inne zasoby utworzone w ramach tego samouczka, teraz są usuwane z usługi Azure.
 
@@ -186,9 +186,9 @@ Po zakończeniu testowania aplikacji, przejdź do [witryny Azure portal](https:/
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* Dla programu Visual Studio Code, zobacz [profilów publikowania](xref:host-and-deploy/visual-studio-publish-profiles#publish-profiles).
+* Aby uzyskać Visual Studio Code, zobacz temat [Publikowanie profilów](xref:host-and-deploy/visual-studio-publish-profiles#publish-profiles).
 * [Usługa Azure App Service](/azure/app-service/app-service-web-overview)
 * [Grupy zasobów platformy Azure](/azure/azure-resource-manager/resource-group-overview#resource-groups)
 * [Azure SQL Database](/azure/sql-database/)
 * <xref:host-and-deploy/visual-studio-publish-profiles>
-* <xref:host-and-deploy/azure-apps/troubleshoot>
+* <xref:test/troubleshoot-azure-iis>
