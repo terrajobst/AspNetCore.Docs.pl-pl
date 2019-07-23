@@ -1,15 +1,17 @@
-<a name="codegenerator"></a> W poniższej tabeli przedstawiono parametry generator kodu ASP.NET Core:
+<a name="codegenerator"></a>W poniższej tabeli przedstawiono szczegóły ASP.NET Core parametrów generatora kodu:
 
 | Parametr               | Opis|
 | ----------------- | ------------ |
 | -m  | Nazwa modelu. |
-| -dc  | `DbContext` Klasy. |
-| -udl | Użyj domyślnego układu. |
-| -outDir | Ścieżka folderu wyjściowego względne do tworzenia widoków. |
-| --referenceScriptLibraries | Dodaje `_ValidationScriptsPartial` to edytowanie i tworzenie stron |
+| -DC  | Klasa `DbContext` , która ma zostać użyta. |
+| -UDL | Użyj układu domyślnego. |
+| -outDir | Ścieżka względna folderu wyjściowego do tworzenia widoków. |
+| --referenceScriptLibraries | Dodaje `_ValidationScriptsPartial` do edycji i tworzenia stron |
 
-Użyj `h` przełącznika, aby uzyskać pomoc dotyczącą `aspnet-codegenerator razorpage` polecenia:
+Użyj przełącznika `h` , aby uzyskać pomoc `aspnet-codegenerator razorpage` dotyczącą polecenia:
 
 ```console
 dotnet aspnet-codegenerator razorpage -h
 ```
+
+Aby uzyskać więcej informacji, zobacz [dotnet ASPNET-CodeGenerator](xref:fundamentals/tools/dotnet-aspnet-codegenerator) 
