@@ -1,27 +1,27 @@
 ---
-title: Wprowadzenie do stron Razor programu ASP.NET Core
+title: Wprowadzenie do Razor Pages w ASP.NET Core
 author: Rick-Anderson
 description: Dowiedz się, jak stron Razor w programie ASP.NET Core umożliwia kodowania scenariuszy skoncentrowane na stronie łatwiejsze i bardziej wydajne niż przy użyciu platformy MVC.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 04/06/2019
 uid: razor-pages/index
-ms.openlocfilehash: 419355d670536fef1a38fbcb8ce1fd880c0e9b0d
-ms.sourcegitcommit: d6e51c60439f03a8992bda70cc982ddb15d3f100
+ms.openlocfilehash: 406e89c96ea63493091d0287077e244faee5f730
+ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67555729"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68308006"
 ---
-# <a name="introduction-to-razor-pages-in-aspnet-core"></a>Wprowadzenie do stron Razor programu ASP.NET Core
+# <a name="introduction-to-razor-pages-in-aspnet-core"></a>Wprowadzenie do Razor Pages w ASP.NET Core
 
-Przez [Rick Anderson](https://twitter.com/RickAndMSFT) i [Ryan Nowak](https://github.com/rynowak)
+[Rick Anderson](https://twitter.com/RickAndMSFT) i [Ryan Nowak](https://github.com/rynowak)
 
-Strony razor jest nowy aspekt ASP.NET Core MVC, która sprawia, że kodowania skoncentrowane na stronie scenariuszy łatwiejsze i bardziej wydajne.
+Razor Pages jest nowym aspektem ASP.NET Core MVC, który sprawia, że kodowanie scenariuszy ukierunkowanych na strony jest łatwiejsze i bardziej produktywne.
 
-Jeśli szukasz samouczka, który korzysta z metody Model-View-Controller [Rozpoczynanie pracy z platformą ASP.NET Core MVC](xref:tutorials/first-mvc-app/start-mvc).
+Jeśli szukasz samouczka korzystającego z podejścia Model-View-Controller, zobacz Wprowadzenie do [ASP.NET Core MVC](xref:tutorials/first-mvc-app/start-mvc).
 
-Ten dokument zawiera wprowadzenie do stron Razor. Nie jest samouczek krok po kroku. Jeśli znajdziesz niektóre sekcje zbyt zaawansowany, zobacz [Rozpoczynanie pracy ze stronami Razor](xref:tutorials/razor-pages/razor-pages-start). Aby uzyskać omówienie platformy ASP.NET Core, zobacz [wprowadzenie do platformy ASP.NET Core](xref:index).
+Ten dokument zawiera wprowadzenie do Razor Pages. Nie jest to samouczek krok po kroku. Jeśli okaże się, że niektóre sekcje są zbyt zaawansowane, zobacz [wprowadzenie do Razor Pages](xref:tutorials/razor-pages/razor-pages-start). Aby zapoznać się z omówieniem ASP.NET Core, zobacz [wprowadzenie do ASP.NET Core](xref:index).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -41,39 +41,39 @@ Ten dokument zawiera wprowadzenie do stron Razor. Nie jest samouczek krok po kro
 
 <a name="rpvs17"></a>
 
-## <a name="create-a-razor-pages-project"></a>Utwórz projekt stron Razor
+## <a name="create-a-razor-pages-project"></a>Tworzenie projektu Razor Pages
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-Zobacz [Rozpoczynanie pracy ze stronami Razor](xref:tutorials/razor-pages/razor-pages-start) szczegółowe instrukcje dotyczące sposobu tworzenia projektu stron Razor.
+Aby uzyskać szczegółowe instrukcje dotyczące sposobu tworzenia projektu Razor Pages, zobacz Wprowadzenie do [Razor Pages](xref:tutorials/razor-pages/razor-pages-start) .
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 ::: moniker range=">= aspnetcore-2.1"
 
-Uruchom `dotnet new webapp` z wiersza polecenia.
+Uruchom `dotnet new webapp` polecenie w wierszu polecenia.
 
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.0"
 
-Uruchom `dotnet new razor` z wiersza polecenia.
+Uruchom `dotnet new razor` polecenie w wierszu polecenia.
 
 ::: moniker-end
 
-Otwórz wygenerowany *.csproj* pliku z programu Visual Studio dla komputerów Mac.
+Otwórz wygenerowany plik *csproj* z Visual Studio dla komputerów Mac.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 ::: moniker range=">= aspnetcore-2.1"
 
-Uruchom `dotnet new webapp` z wiersza polecenia.
+Uruchom `dotnet new webapp` polecenie w wierszu polecenia.
 
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.0"
 
-Uruchom `dotnet new razor` z wiersza polecenia.
+Uruchom `dotnet new razor` polecenie w wierszu polecenia.
 
 ::: moniker-end
 
@@ -81,29 +81,29 @@ Uruchom `dotnet new razor` z wiersza polecenia.
 
 ## <a name="razor-pages"></a>Razor Pages
 
-Strony razor jest włączone w *Startup.cs*:
+Razor Pages jest włączona w *Startup.cs*:
 
 [!code-cs[](index/sample/RazorPagesIntro/Startup.cs?name=snippet_Startup)]
 
-Należy wziąć pod uwagę strona podstawowa: <a name="OnGet"></a>
+Weź pod uwagę podstawową stronę:<a name="OnGet"></a>
 
 [!code-cshtml[](index/sample/RazorPagesIntro/Pages/Index.cshtml)]
 
-Powyższy kod wygląda o wiele [plik widoku Razor](xref:tutorials/first-mvc-app/adding-view) używane w aplikacji ASP.NET Core za pomocą kontrolerów i widoków. Czym różni się on jest `@page` dyrektywy. `@page` sprawia, że plik do Akcja kontrolera MVC — oznacza to, obsługi żądań bezpośrednio, bez przechodzenia przez kontrolera. `@page` musi być pierwszym dyrektywy Razor na stronie. `@page` wpływa na działanie innych konstrukcji Razor.
+Poprzedni kod wygląda podobnie jak [plik widoku Razor](xref:tutorials/first-mvc-app/adding-view) używany w aplikacji ASP.NET Core z kontrolerami i widokami. Co sprawia, `@page` że jest to dyrektywa. `@page`sprawia, że plik jest akcją MVC, co oznacza, że obsługuje żądania bezpośrednio, bez przechodzenia przez kontroler. `@page`musi być pierwszą dyrektywą Razor na stronie. `@page`wpływa na zachowanie innych konstrukcji Razor.
 
-Podobny strony, `PageModel` klasy, jest wyświetlany w następujące dwa pliki. *Pages/Index2.cshtml* pliku:
+Podobna Strona, za pomocą `PageModel` klasy, jest pokazana w następujących dwóch plikach. Plik *Pages/index2. cshtml* :
 
 [!code-cshtml[](index/sample/RazorPagesIntro/Pages/Index2.cshtml)]
 
-*Pages/Index2.cshtml.cs* modelu strony:
+Model strony *stron/index2. cshtml. cs* :
 
 [!code-cs[](index/sample/RazorPagesIntro/Pages/Index2.cshtml.cs)]
 
-Zgodnie z Konwencją `PageModel` plik klasy ma taką samą nazwę jak plik strony Razor za pomocą *.cs* dołączane. Na przykład jest poprzedniej strony Razor *Pages/Index2.cshtml*. Plik zawierający `PageModel` nosi nazwę klasy *Pages/Index2.cshtml.cs*.
+Zgodnie z Konwencją `PageModel` plik klasy ma taką samą nazwę jak plik stronicowania Razor z dołączonym rozszerzeniem *. cs* . Na przykład Poprzednia strona Razor to *Pages/index2. cshtml*. Plik zawierający `PageModel` klasę ma nazwę Pages */index2. cshtml. cs*.
 
-Skojarzenia ścieżki adresu URL do strony są określane według lokalizacji strony w systemie plików. W poniższej tabeli przedstawiono ścieżki strony Razor i dopasowywania adresu URL:
+Skojarzenia ścieżek adresów URL ze stronami są określane przez lokalizację strony w systemie plików. W poniższej tabeli przedstawiono ścieżkę strony Razor i pasujący adres URL:
 
-| Nazwa pliku i ścieżka               | dopasowanie adresu URL |
+| Nazwa i ścieżka pliku               | pasujący adres URL |
 | ----------------- | ------------ |
 | */Pages/Index.cshtml* | `/` lub `/Index` |
 | */Pages/Contact.cshtml* | `/Contact` |
@@ -112,14 +112,14 @@ Skojarzenia ścieżki adresu URL do strony są określane według lokalizacji st
 
 Uwagi:
 
-* Środowisko uruchomieniowe szuka plików stron Razor w *stron* folderu domyślnie.
-* `Index` jest domyślną stroną, podczas gdy adres URL nie zawiera strony.
+* Środowisko wykonawcze domyślnie wyszukuje pliki Razor Pages  w folderze Pages.
+* `Index`jest stroną domyślną, gdy adres URL nie zawiera strony.
 
-## <a name="write-a-basic-form"></a>Zapis formularza podstawowego
+## <a name="write-a-basic-form"></a>Napisz podstawowy formularz
 
-Strony razor zaprojektowaną do podejmowania typowe wzorce używane w przeglądarkach, łatwe do wdrożenia podczas kompilowania aplikacji. [Wiązanie modelu](xref:mvc/models/model-binding), [pomocników tagów](xref:mvc/views/tag-helpers/intro)i wszystkich pomocników HTML *po prostu działają* z właściwościami, zdefiniowanej w klasie strony Razor. Należy wziąć pod uwagę strona, która implementuje podstawową "Skontaktuj się z nami" formularza dla `Contact` modelu:
+Razor Pages zaprojektowano tak, aby wspólne wzorce używane z przeglądarkami sieci Web były łatwe do wdrożenia podczas kompilowania aplikacji. [Powiązania modelu](xref:mvc/models/model-binding), [pomocników tagów](xref:mvc/views/tag-helpers/intro)i pomocników HTML same *działają* z właściwościami zdefiniowanymi w klasie strony Razor. Weź pod uwagę stronę implementującą podstawowy formularz "contact us" (kontakt `Contact` z nami) dla modelu:
 
-Aby wyświetlić przykłady w niniejszym dokumencie `DbContext` jest inicjowana w [Startup.cs](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/razor-pages/index/sample/RazorPagesContacts/Startup.cs#L15-L16) pliku.
+Przykłady w tym dokumencie `DbContext` są inicjowane w pliku [Startup.cs](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/razor-pages/index/sample/RazorPagesContacts/Startup.cs#L15-L16) .
 
 [!code-cs[](index/sample/RazorPagesContacts/Startup.cs?highlight=15-16)]
 
@@ -131,119 +131,119 @@ Kontekst bazy danych:
 
 [!code-cs[](index/sample/RazorPagesContacts/Data/AppDbContext.cs)]
 
-*Pages/Create.cshtml* Wyświetl plik:
+Plik widoku *Pages/Create. cshtml* :
 
 [!code-cshtml[](index/sample/RazorPagesContacts/Pages/Create.cshtml)]
 
-*Pages/Create.cshtml.cs* modelu strony:
+Model strony *Pages/Create. cshtml. cs* :
 
 [!code-cs[](index/sample/RazorPagesContacts/Pages/Create.cshtml.cs?name=snippet_ALL)]
 
-Zgodnie z Konwencją `PageModel` nosi nazwę klasy `<PageName>Model` i znajduje się w tej samej przestrzeni nazw, gdy ta strona.
+Zgodnie z Konwencją `PageModel` Klasa jest wywoływana `<PageName>Model` i znajduje się w tej samej przestrzeni nazw co strona.
 
-`PageModel` Klasa umożliwia oddzielenie logiki strony z jej prezentacji. Definiuje stronę obsługi żądań wysyłanych do strony i dane używane do renderowania strony. Ta separacja pozwala na zarządzanie zależnościami strony za pomocą [wstrzykiwanie zależności](xref:fundamentals/dependency-injection) i [testu jednostkowego](xref:test/razor-pages-tests) stron.
+`PageModel` Klasa umożliwia rozdzielenie logiki strony od jej prezentacji. Definiuje procedury obsługi stron dla żądań wysyłanych do strony oraz dane używane do renderowania strony. To Separacja umożliwia zarządzanie zależnościami stron za pomocą [iniekcji zależności](xref:fundamentals/dependency-injection) oraz do [testowania jednostkowego](xref:test/razor-pages-tests) stron.
 
-Strona ta zawiera `OnPostAsync` *metody obsługi*, która działa w `POST` żądania (po użytkownik wpisy formularza). Możesz dodać metody obsługi dla dowolnego zlecenie HTTP. Najbardziej typowe procedury obsługi są:
+Strona ma `OnPostAsync` *metodę obsługi*, która jest uruchamiana na `POST` żądaniach (gdy użytkownik księguje formularz). Można dodać metody obsługi dla dowolnego zlecenia HTTP. Najczęstszymi obsłudze są:
 
-* `OnGet` Aby zainicjować stanu potrzebne dla strony. [OnGet](#OnGet) próbki.
-* `OnPost` do obsługi przesyłania formularza.
+* `OnGet`do zainicjowania stanu wymaganego dla strony. Przykład [OnGet](#OnGet) .
+* `OnPost`do obsługi przesłanych formularzy.
 
-`Async` Sufiks nazwy jest opcjonalne, ale jest często używana przez Konwencję w funkcji asynchronicznej. `OnPostAsync` Kodu w powyższym przykładzie jest podobny do będzie zwykle napisany w kontrolerze. Powyższy kod jest typowe dla stron Razor. Większość elementów podstawowych MVC, takie jak [wiązanie modelu](xref:mvc/models/model-binding), [weryfikacji](xref:mvc/models/validation), wyniki akcji są współdzielone.  <!-- Review: Ryan, can we get a list of what is shared and what isn't? -->
+Sufiks `Async` nazewnictwa jest opcjonalny, ale jest często używany przez Konwencję dla funkcji asynchronicznych. `OnPostAsync` Kod w poprzednim przykładzie wygląda podobnie jak w przypadku normalnego zapisu w kontrolerze. Poprzedni kod jest typowy dla Razor Pages. Większość elementów podstawowych MVC, takich jak [powiązanie modelu](xref:mvc/models/model-binding), [Walidacja](xref:mvc/models/validation)i wyniki akcji, jest udostępniana.  <!-- Review: Ryan, can we get a list of what is shared and what isn't? -->
 
-Poprzedni `OnPostAsync` metody:
+Poprzednia `OnPostAsync` Metoda:
 
 [!code-cs[](index/sample/RazorPagesContacts/Pages/Create.cshtml.cs?name=snippet_OnPostAsync)]
 
 Podstawowy przepływ `OnPostAsync`:
 
-Sprawdź, czy błędy sprawdzania poprawności.
+Sprawdź, czy występują błędy walidacji.
 
-* Jeśli nie ma żadnych błędów, Zapisz dane i przekierować.
-* Jeśli występują błędy, wyświetlenie strony ponownie przy użyciu komunikatów dotyczących sprawdzania poprawności. Weryfikacja po stronie klienta jest identyczna z tradycyjnych aplikacji ASP.NET Core MVC. W wielu przypadkach błędy sprawdzania poprawności będzie być wykryte na komputerze klienckim i nigdy nie zostały przekazane do serwera.
+* Jeśli nie ma żadnych błędów, Zapisz dane i Przekieruj.
+* W przypadku wystąpienia błędów ponownie Wyświetl stronę z komunikatami walidacji. Walidacja po stronie klienta jest taka sama jak w przypadku tradycyjnych ASP.NET Core aplikacji MVC. W wielu przypadkach błędy sprawdzania poprawności zostaną wykryte na kliencie i nigdy nie przesłano ich do serwera.
 
-Po pomyślnym wprowadzeniu danych `OnPostAsync` wywołań metody obsługi `RedirectToPage` metody pomocnika do zwrócenia wystąpienia `RedirectToPageResult`. `RedirectToPage` to nowy wynik akcji, podobnie jak `RedirectToAction` lub `RedirectToRoute`, ale dostosowane dla stron. W poprzednim przykładzie, zostanie przekierowany do strony indeksu głównego (`/Index`). `RedirectToPage` została szczegółowo opisana w [Generowanie adresu URL dla stron](#url_gen) sekcji.
+Po pomyślnym `OnPostAsync` wprowadzeniu danych metoda obsługi `RedirectToPage` wywołuje metodę pomocnika zwracającą wystąpienie elementu `RedirectToPageResult`. `RedirectToPage`to nowy wynik akcji, podobny do `RedirectToAction` lub `RedirectToRoute`, ale dostosowany do stron. W powyższym przykładzie przekierowuje do strony indeksu głównego (`/Index`). `RedirectToPage`szczegółowo znajduje się w sekcji [generowanie adresów URL dla stron](#url_gen) .
 
-Kiedy przesłanego formularza ma błędy sprawdzania poprawności, (które są przekazywane do serwera),`OnPostAsync` wywołań metody obsługi `Page` metody pomocnika. `Page` Zwraca wystąpienie `PageResult`. Zwracanie `Page` jest podobny do sposobu Zwróć akcje w kontrolerach `View`. `PageResult` jest wartością domyślną <!-- Review  --> zwracany typ metody programu obsługi. Metody obsługi, która zwraca `void` renderuje stronę.
+Gdy przesłany formularz ma błędy walidacji (które są przekazywane do serwera),`OnPostAsync` metoda obsługi `Page` wywołuje metodę pomocnika. `Page`Zwraca wystąpienie elementu `PageResult`. Zwracanie `Page` jest podobne do sposobu, w jaki akcje `View`w kontrolerach zwracają. `PageResult`jest wartością domyślną <!-- Review  --> zwracany typ dla metody obsługi. Metoda obsługi, która zwraca `void` renderowanie strony.
 
-`Customer` Używa właściwości `[BindProperty]` atrybutu zgadzaj się na wiązania modelu.
+`Customer` Właściwość używa`[BindProperty]` atrybutu, aby zrezygnować z powiązania modelu.
 
 [!code-cs[](index/sample/RazorPagesContacts/Pages/Create.cshtml.cs?name=snippet_PageModel&highlight=10-11)]
 
-Strony razor domyślnie powiązania właściwości tylko zlecenia-GET. Powiązanie z właściwościami może zmniejszyć ilość kodu, który trzeba napisać. Powiązanie zmniejsza kodu przy użyciu tej samej właściwości do renderowania pól formularza (`<input asp-for="Customer.Name">`) i akceptuje dane wejściowe.
+Razor Pages domyślnie Powiąż właściwości tylko z`GET` niezleceniami. Powiązanie z właściwościami może zmniejszyć ilość kodu, który trzeba napisać. Powiązanie zmniejsza kod, używając tej samej właściwości do renderowania pól formularza (`<input asp-for="Customer.Name">`) i akceptuję dane wejściowe.
 
 [!INCLUDE[](~/includes/bind-get.md)]
 
-Strona główna (*Index.cshtml*):
+Strona główna (*index. cshtml*):
 
 [!code-cshtml[](index/sample/RazorPagesContacts/Pages/Index.cshtml)]
 
-Skojarzone `PageModel` klasy (*Index.cshtml.cs*):
+Skojarzona `PageModel` Klasa (*index.cshtml.cs*):
 
 [!code-cs[](index/sample/RazorPagesContacts/Pages/Index.cshtml.cs)]
 
-*Index.cshtml* plik zawiera następujące znaczniki, aby utworzyć link edycji dla każdego kontaktu:
+Plik *index. cshtml* zawiera następujące znaczniki, aby utworzyć łącze do edycji dla każdego kontaktu:
 
 [!code-cshtml[](index/sample/RazorPagesContacts/Pages/Index.cshtml?range=21)]
 
-[Pomocnik tagu kotwicy](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) używane `asp-route-{value}` atrybutu, aby wygenerować łącze do strony edytowania. Ten link zawiera dane trasy z kontaktem identyfikatora. Na przykład `http://localhost:5000/Edit/1`. Użyj `asp-area` atrybutu, aby określić obszar. Aby uzyskać więcej informacji, zobacz <xref:mvc/controllers/areas>.
+[Pomocnik tagu kotwicy](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) użył `asp-route-{value}` atrybutu w celu wygenerowania linku do strony edycji. Link zawiera dane trasy z IDENTYFIKATORem kontaktu. Na przykład `http://localhost:5000/Edit/1`. Użyj atrybutu `asp-area` , aby określić obszar. Aby uzyskać więcej informacji, zobacz <xref:mvc/controllers/areas>.
 
-*Pages/Edit.cshtml* pliku:
+Plik *Pages/Edit. cshtml* :
 
 [!code-cshtml[](index/sample/RazorPagesContacts/Pages/Edit.cshtml?highlight=1)]
 
-Pierwszy wiersz zawiera `@page "{id:int}"` dyrektywy. Ograniczenia routingu`"{id:int}"` informuje strony aby akceptował żądania do strony, które zawierają `int` przekierowywanie danych. Jeśli żądanie strony nie zawiera danych trasy, który może zostać przekonwertowany na `int`, środowisko wykonawcze zwraca błąd HTTP 404 (nie znaleziono). Aby wprowadzić identyfikator jest opcjonalne, należy dołączyć `?` do ograniczenia trasy:
+Pierwszy wiersz zawiera `@page "{id:int}"` dyrektywę. Ograniczenie`"{id:int}"` routingu instruuje stronę, aby akceptowała żądania do strony `int` zawierającej dane trasy. Jeśli żądanie do strony nie zawiera danych trasy, które można przekonwertować na obiekt `int`, środowisko uruchomieniowe zwróci błąd HTTP 404 (nie znaleziono). Aby identyfikator był opcjonalny, Dołącz `?` do ograniczenia trasy:
 
  ```cshtml
 @page "{id:int?}"
 ```
 
-*Pages/Edit.cshtml.cs* pliku:
+Plik *stron/Edytuj. cshtml. cs* :
 
 [!code-cs[](index/sample/RazorPagesContacts/Pages/Edit.cshtml.cs)]
 
-*Index.cshtml* plik zawiera także znaczników, aby utworzyć przycisk Usuń, dla każdego kontaktu klienta:
+Plik *index. cshtml* zawiera również znaczniki umożliwiające utworzenie przycisku usuwania dla każdego kontaktu z klientem:
 
 [!code-cshtml[](index/sample/RazorPagesContacts/Pages/Index.cshtml?range=22-23)]
 
-Gdy przycisk Usuń jest renderowany w języku HTML, jego `formaction` obejmuje parametry:
+Gdy przycisk Usuń jest renderowany w języku HTML, jego `formaction` parametry obejmują:
 
-* Określony przez identyfikator kontaktu klienta z `asp-route-id` atrybutu.
-* `handler` Określony przez `asp-page-handler` atrybutu.
+* Identyfikator osoby kontaktowej klienta określony przez `asp-route-id` atrybut.
+* `handler` Określony`asp-page-handler` przez atrybut.
 
-Oto przykład przycisku Usuń renderowany przy użyciu klienta skontaktować się z Identyfikatora `1`:
+Oto przykład renderowanego przycisku usuwania z IDENTYFIKATORem `1`kontaktu klienta:
 
 ```html
 <button type="submit" formaction="/?id=1&amp;handler=delete">delete</button>
 ```
 
-Po wybraniu przycisku, formularz `POST` żądanie jest wysyłane do serwera. Zgodnie z Konwencją Nazwa metody obsługi jest zaznaczona, na podstawie wartości z `handler` parametru, zgodnie ze schematem `OnPost[handler]Async`.
+Po wybraniu przycisku do serwera zostanie wysłane `POST` żądanie formularza. Według Konwencji, nazwa metody obsługi jest wybierana na podstawie wartości `handler` parametru zgodnie z schematem. `OnPost[handler]Async`
 
-Ponieważ `handler` jest `delete` w tym przykładzie `OnPostDeleteAsync` metody obsługi jest używany do procesu `POST` żądania. Jeśli `asp-page-handler` jest ustawiona na inną wartość, takich jak `remove`, metodę programu obsługi strony o nazwie `OnPostRemoveAsync` jest zaznaczone.
+`handler` Ponieważ jest `delete` w`OnPostDeleteAsync` tym przykładzie, metoda obsługi jest używana do przetwarzania `POST` żądania. Jeśli jest ustawiona na inną wartość, na przykład `remove`, jest wybierana metoda obsługi o nazwie `OnPostRemoveAsync`. `asp-page-handler`
 
 [!code-cs[](index/sample/RazorPagesContacts/Pages/Index.cshtml.cs?range=26-37)]
 
 `OnPostDeleteAsync` Metody:
 
-* Akceptuje `id` z ciągu zapytania.
-* Zapytania bazy danych dla kontaktu klienta z `FindAsync`.
-* Jeśli zostanie znaleziony kontakt z klientem, zostali oni usunięci z listy kontaktów klienta. Baza danych jest aktualizowana.
-* Wywołania `RedirectToPage` do przekierowania do strony indeksu głównego (`/Index`).
+* `id` Akceptuje z ciągu zapytania.
+* Wysyła zapytanie do bazy danych w celu skontaktowania się z klientem za pomocą `FindAsync`programu.
+* Jeśli kontakt z klientem zostanie znaleziony, zostanie on usunięty z listy kontaktów klientów. Baza danych jest aktualizowana.
+* Wywołania `RedirectToPage` do przekierowania na stronę indeksu głównego (`/Index`).
 
 ::: moniker range=">= aspnetcore-2.1"
 
-## <a name="mark-page-properties-as-required"></a>Oznacz właściwości strony zgodnie z potrzebami
+## <a name="mark-page-properties-as-required"></a>Oznacz właściwości strony jako wymagane
 
-Właściwości `PageModel` być dekorowane za pomocą [wymagane](/dotnet/api/system.componentmodel.dataannotations.requiredattribute) atrybutu:
+Właściwości na serwerze `PageModel` mogą być dekoracyjne z [wymaganym](/dotnet/api/system.componentmodel.dataannotations.requiredattribute) atrybutem:
 
 [!code-cs[](index/sample/Create.cshtml.cs?highlight=3,15-16)]
 
 Aby uzyskać więcej informacji, zobacz [Walidacja modelu](xref:mvc/models/validation).
 
-## <a name="manage-head-requests-with-the-onget-handler"></a>Zarządzanie żądaniami HEAD za pomocą obsługi OnGet
+## <a name="handle-head-requests-with-an-onget-handler-fallback"></a>Obsługa żądań głównych przy użyciu rezerwy procedury obsługi OnGet
 
-Żądania HEAD umożliwiają pobieranie nagłówki dla określonego zasobu. Inaczej niż w przypadku żądania GET HEAD żądań nie zwracają treść odpowiedzi.
+`HEAD`żądania umożliwiają pobranie nagłówków dla określonego zasobu. W przeciwieństwie `GET` do `HEAD` żądań, żądania nie zwracają treści odpowiedzi.
 
-Zazwyczaj obsługi HEAD jest tworzony i wywołana dla żądania HEAD: 
+Zwykle program obsługi jest tworzony i wywoływany dla `HEAD` żądań: `OnHead` 
 
 ```csharp
 public void OnHead()
@@ -252,18 +252,16 @@ public void OnHead()
 }
 ```
 
-Jeśli żadna procedura obsługi HEAD (`OnHead`) jest zdefiniowany, stron Razor powraca do wywoływania procedury obsługi strony GET (`OnGet`) w programie ASP.NET Core 2.1 lub nowszej. W programie ASP.NET Core 2.1 i 2.2 to zachowanie dotyczy [SetCompatibilityVersion](xref:mvc/compatibility-version) w `Startup.Configure`:
+W ASP.NET Core 2,1 lub nowszej Razor Pages powracać do wywoływania procedury `OnGet` obsługi, jeśli `OnHead` nie zdefiniowano procedury obsługi. To zachowanie jest włączane przez wywołanie [SetCompatibilityVersion](xref:mvc/compatibility-version) w `Startup.ConfigureServices`:
 
 ```csharp
 services.AddMvc()
-    .SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1);
+    .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 ```
 
-Generowanie szablonów domyślnych `SetCompatibilityVersion` wywołania platformy ASP.NET Core 2.1 i 2.2.
+Szablony domyślne generują `SetCompatibilityVersion` wywołanie w ASP.NET Core 2,1 i 2,2. `SetCompatibilityVersion`efektywnie ustawia opcję `AllowMappingHeadRequestsToGetHandler` Razor Pages na `true`.
 
-`SetCompatibilityVersion` efektywnie ustawia opcję stron Razor `AllowMappingHeadRequestsToGetHandler` do `true`.
-
-Zamiast włączenie wszystkich 2.1 zachowania `SetCompatibilityVersion`, użytkownik może jawnie wyrazić zgodę na konkretne zachowania. Poniższy kod zdecyduje się na żądania HEAD mapowanie programu obsługi GET.
+Zamiast korzystać z wszystkich zachowań w programie `SetCompatibilityVersion`, można jawnie zrezygnować z *określonych* zachowań. Poniższy kod pozwala na umożliwienie `HEAD` mapowania żądań `OnGet` do programu obsługi:
 
 ```csharp
 services.AddMvc()
@@ -277,27 +275,27 @@ services.AddMvc()
 
 <a name="xsrf"></a>
 
-## <a name="xsrfcsrf-and-razor-pages"></a>XSRF/CSRF i stron Razor
+## <a name="xsrfcsrf-and-razor-pages"></a>XSRF/CSRF i Razor Pages
 
-Nie trzeba pisać kodu dla [antiforgery weryfikacji](xref:security/anti-request-forgery). Antiforgery generowania tokenu i sprawdzanie poprawności są automatycznie uwzględniane stron Razor.
+Nie trzeba pisać kodu do [weryfikacji](xref:security/anti-request-forgery)przed fałszerstwem. Generowanie i sprawdzanie poprawności tokenów antysfałszowanych są automatycznie dołączane do Razor Pages.
 
 <a name="layout"></a>
 
-## <a name="using-layouts-partials-templates-and-tag-helpers-with-razor-pages"></a>Za pomocą układów, częściowe, szablonów i pomocnicy tagów ze stron Razor
+## <a name="using-layouts-partials-templates-and-tag-helpers-with-razor-pages"></a>Używanie układów, częściowych, szablonów i pomocników tagów z Razor Pages
 
-Strony pracować ze wszystkimi funkcjami aparatu widoku Razor. Układy, częściowe, szablony, pomocników tagów *_ViewStart.cshtml*, *_ViewImports.cshtml* działają w taki sam sposób jak w przypadku konwencjonalnych widokami Razor.
+Strony współpracują ze wszystkimi funkcjami aparatu widoku Razor. Układy, części, szablony, pomocników tagów, *_ViewStart. cshtml*, *_ViewImports. cshtml* działają w taki sam sposób, jak w przypadku konwencjonalnych widoków Razor.
 
-Teraz declutter tę stronę, wykorzystując niektóre z tych możliwości.
+Zanotujmy Tę stronę, korzystając z zalet niektórych z tych funkcji.
 
 ::: moniker range=">= aspnetcore-2.1"
 
-Dodaj [stronę układu](xref:mvc/views/layout) do *Pages/Shared/_Layout.cshtml*:
+Dodaj [stronę układu](xref:mvc/views/layout) do *stron/Shared/_Layout. cshtml*:
 
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.0"
 
-Dodaj [stronę układu](xref:mvc/views/layout) do *Pages/_Layout.cshtml*:
+Dodaj [stronę układu](xref:mvc/views/layout) do *stron/_Layout. cshtml*:
 
 ::: moniker-end
 
@@ -305,116 +303,116 @@ Dodaj [stronę układu](xref:mvc/views/layout) do *Pages/_Layout.cshtml*:
 
 [Układ](xref:mvc/views/layout):
 
-* Kontroluje układ każdej strony (chyba że strona oznacza brak zgody na układ).
-* Importuje HTML struktur, takich jak JavaScript i arkusze stylów.
+* Steruje układem każdej strony (chyba że strona nie jest częścią układu).
+* Importuje struktury HTML, takie jak JavaScript i stylesheets.
 
-Zobacz [stronę układu](xref:mvc/views/layout) Aby uzyskać więcej informacji.
+Aby uzyskać więcej informacji, zobacz [stronę układu](xref:mvc/views/layout) .
 
-[Układ](xref:mvc/views/layout#specifying-a-layout) właściwość jest ustawiona *Pages/_ViewStart.cshtml*:
+Właściwość [układu](xref:mvc/views/layout#specifying-a-layout) jest ustawiana na *stronie/_ViewStart. cshtml*:
 
 [!code-cshtml[](index/sample/RazorPagesContacts2/Pages/_ViewStart.cshtml)]
 
 ::: moniker range=">= aspnetcore-2.1"
 
-Układ jest *stron/Shared* folderu. Strony wyszukać inne widoki (układów, szablony, częściowe) hierarchiczny, w tym samym folderze co bieżącej strony. Układ w *stron/Shared* folderu można używać na dowolnej strony Razor, w obszarze *stron* folderu.
+Układ znajduje się w *stronie/* w folderze udostępnionym. Strony szukają innych widoków (układów, szablonów, częściowych) hierarchicznie, rozpoczynając w tym samym folderze, w którym znajduje się bieżąca strona. Układ na *stronach/* w folderze udostępnionym może być używany z dowolnej strony Razor w folderze *Pages* .
 
-Plik układu powinny przejść *stron/Shared* folderu.
+Plik układu powinien przejść do *stron/folderu udostępnionego* .
 
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.0"
 
-Układ jest *stron* folderu. Strony wyszukać inne widoki (układów, szablony, częściowe) hierarchiczny, w tym samym folderze co bieżącej strony. Układ w *stron* folderu można używać na dowolnej strony Razor, w obszarze *stron* folderu.
+Układ znajduje się w folderze *strony* . Strony szukają innych widoków (układów, szablonów, częściowych) hierarchicznie, rozpoczynając w tym samym folderze, w którym znajduje się bieżąca strona. Układ w folderze *Pages* może być używany z dowolnej strony Razor w folderze *Pages* .
 
 ::: moniker-end
 
-Firma Microsoft zaleca **nie** umieścić ten plik układu w *widoków/Shared* folderu. *Widoki/Shared* jest wzorzec widoków MVC. Strony razor są przeznaczone do zależą od hierarchii folderów, nie ścieżka Konwencji.
+Zalecamy **umieszczenie pliku** układu w widokach */* folderze udostępnionym. *Widoki/udostępnione* są wzorcem widoków MVC. Razor Pages są przeznaczone do korzystania z hierarchii folderów, a nie Konwencji ścieżek.
 
-Wyszukiwanie w widoku ze strony Razor obejmuje *stron* folderu. Układy, szablony i częściowych używasz konwencjonalnych Razor widoków i kontrolerów MVC *po prostu działają*.
+Widok wyszukiwania na stronie Razor zawiera folder *strony* . Układy, szablony i częściowe, które są używane z kontrolerami MVC i konwencjonalnymi widokami Razor, *działają tylko*.
 
-Dodaj *Pages/_ViewImports.cshtml* pliku:
+Dodaj plik *Pages/_ViewImports. cshtml* :
 
 [!code-cshtml[](index/sample/RazorPagesContacts2/Pages/_ViewImports.cshtml)]
 
-`@namespace` zostało wyjaśnione w dalszej części tego samouczka. `@addTagHelper` Wiąże dyrektywy [wbudowanych pomocników tagów](xref:mvc/views/tag-helpers/builtin-th/Index) do wszystkich stron w *stron* folderu.
+`@namespace`wyjaśniono w dalszej części tego samouczka. Dyrektywa `@addTagHelper` znajduje się w [wbudowanych pomocników tagów](xref:mvc/views/tag-helpers/builtin-th/Index) do wszystkich stron w folderze *strony* .
 
 <a name="namespace"></a>
 
-Gdy `@namespace` dyrektywa jest używany jawnie na stronie:
+`@namespace` Gdy dyrektywa jest używana jawnie na stronie:
 
 [!code-cshtml[](index/sample/RazorPagesIntro/Pages/Customers/Namespace2.cshtml?highlight=2)]
 
-Dyrektywa ustawia obszar nazw dla strony. `@model` Dyrektywy nie musi zawierać przestrzeń nazw.
+Dyrektywa ustawia przestrzeń nazw dla strony. `@model` Dyrektywa nie musi zawierać przestrzeni nazw.
 
-Gdy `@namespace` dyrektywy znajduje się w *_ViewImports.cshtml*, określonego obszaru nazw dostarcza prefiksu dla przestrzeni nazw wygenerowanej na stronie, który importuje `@namespace` dyrektywy. Pozostała część wygenerowana przestrzeń nazw (sufiks fragment) jest oddzielona względnej ścieżki między folder zawierający *_ViewImports.cshtml* i folderu zawierającego strony.
+Gdy dyrektywa jest zawarta w *_ViewImports. cshtml*, określona przestrzeń nazw udostępnia prefiks dla wygenerowanej przestrzeni nazw na `@namespace` stronie, która importuje dyrektywę. `@namespace` Pozostała część wygenerowanej przestrzeni nazw (część sufiksu) jest ścieżką względną oddzieloną kropką między folderem zawierającym *_ViewImports. cshtml* i folderem zawierającym stronę.
 
-Na przykład `PageModel` klasy *Pages/Customers/Edit.cshtml.cs* jawnie określa przestrzeń nazw:
+Na przykład `PageModel` Klasa Pages */Customers/Edit. cshtml. cs* jawnie ustawia przestrzeń nazw:
 
 [!code-cs[](index/sample/RazorPagesContacts2/Pages/Customers/Edit.cshtml.cs?name=snippet_namespace)]
 
-*Pages/_ViewImports.cshtml* pliku ustawia następująca przestrzeń nazw:
+Plik *Pages/_ViewImports. cshtml* ustawia następującą przestrzeń nazw:
 
 [!code-cshtml[](index/sample/RazorPagesContacts2/Pages/_ViewImports.cshtml?highlight=1)]
 
-Wygenerowany obszar nazw dla *Pages/Customers/Edit.cshtml* strona Razor jest taka sama jak `PageModel` klasy.
+Wygenerowana przestrzeń nazw dla strony */Customers/Edit. cshtml* Razor jest taka sama jak `PageModel` Klasa.
 
-`@namespace` *współpracuje również z konwencjonalnych widokami Razor.*
+`@namespace`*działa również z konwencjonalnymi widokami Razor.*
 
-Oryginalny *Pages/Create.cshtml* Wyświetl plik:
+Oryginalne *strony/Utwórz plik widoku. cshtml* :
 
 [!code-cshtml[](index/sample/RazorPagesContacts/Pages/Create.cshtml?highlight=2)]
 
-Zaktualizowany interfejs *Pages/Create.cshtml* Wyświetl plik:
+Zaktualizowane *strony/Utwórz plik widoku. cshtml* :
 
 [!code-cshtml[](index/sample/RazorPagesContacts2/Pages/Customers/Create.cshtml?highlight=2)]
 
-[Projekt startowy stron Razor](#rpvs17) zawiera *Pages/_ValidationScriptsPartial.cshtml*, która przechwytuje sprawdzania poprawności po stronie klienta.
+[Razor Pages początkowy projekt](#rpvs17) zawiera *stronę/_ValidationScriptsPartial. cshtml*, który łączy weryfikację po stronie klienta.
 
-Aby uzyskać więcej informacji na temat widoki częściowe, zobacz <xref:mvc/views/partial>.
+Aby uzyskać więcej informacji o widokach częściowych, zobacz <xref:mvc/views/partial>.
 
 <a name="url_gen"></a>
 
 ## <a name="url-generation-for-pages"></a>Generowanie adresu URL dla stron
 
-`Create` Strona, pokazana wcześniej, używa `RedirectToPage`:
+Strona, pokazana wcześniej, używa `RedirectToPage`: `Create`
 
 [!code-cs[](index/sample/RazorPagesContacts/Pages/Create.cshtml.cs?name=snippet_OnPostAsync&highlight=10)]
 
-Aplikacja ma następującą strukturę pliku/folderu:
+Aplikacja ma następującą strukturę plików/folderów:
 
-* */ Stron*
+* */Pages*
 
   * *Index.cshtml*
-  * */ Klientów*
+  * */Customers*
 
     * *Create.cshtml*
     * *Edit.cshtml*
     * *Index.cshtml*
 
-*Pages/Customers/Create.cshtml* i *Pages/Customers/Edit.cshtml* strony przekierowania do *Pages/Index.cshtml* po pomyślnym zakończeniu. Ciąg `/Index` jest częścią identyfikatora URI, aby uzyskać dostęp do poprzedniej strony. Ciąg `/Index` może służyć do generowania identyfikatorów URI *Pages/Index.cshtml* strony. Na przykład:
+Strony */Customers/Create. cshtml* i Pages/ *Customers/Edit. cshtml* przekierują do *stron/index. cshtml* po powodzeniu. Ciąg `/Index` jest częścią identyfikatora URI, aby uzyskać dostęp do poprzedniej strony. Ten ciąg `/Index` może służyć do generowania identyfikatorów URI na stronie *stron/index. cshtml* . Przykład:
 
 * `Url.Page("/Index", ...)`
 * `<a asp-page="/Index">My Index Page</a>`
 * `RedirectToPage("/Index")`
 
-Nazwa strony jest ścieżką do strony z katalogu głównego */strony* folder, w tym wiodący `/` (na przykład `/Index`). Poprzednich przykładów generowania adresu URL oferują rozszerzone opcje i funkcji za pośrednictwem hardcoding adresu URL. Generowanie adresu URL używa [routingu](xref:mvc/controllers/routing) można wygenerować i kodowanie parametrów, zgodnie z jak trasy jest zdefiniowany w ścieżce docelowej.
+Nazwa strony jest ścieżką do strony z folderu głównego */Pages* , włącznie z wiodącym `/` `/Index`(na przykład). Powyższe przykłady generowania adresów URL oferują ulepszone opcje i możliwości funkcjonalne w porównaniu z zakodowana adresem URL. Generowanie adresów URL używa [routingu](xref:mvc/controllers/routing) i może generować i kodować parametry zgodnie ze sposobem zdefiniowania trasy w ścieżce docelowej.
 
-Generowanie adresu URL dla stron obsługuje nazwy względnej. W poniższej tabeli przedstawiono strony indeksu, który wybrano z różnymi `RedirectToPage` parametry z *Pages/Customers/Create.cshtml*:
+Generowanie adresów URL dla stron obsługuje nazwy względne. W poniższej tabeli przedstawiono, która strona indeksu została wybrana z `RedirectToPage` różnymi parametrami *stron/Customers/Create. cshtml*:
 
-| RedirectToPage(x)| Strona |
+| RedirectToPage(x)| Stronic |
 | ----------------- | ------------ |
-| RedirectToPage("/Index") | *Indeks strony* |
-| RedirectToPage("./Index"); | *Strony/klientów/indeksu* |
-| RedirectToPage("../Index") | *Indeks strony* |
-| RedirectToPage("Index")  | *Strony/klientów/indeksu* |
+| RedirectToPage("/Index") | *Strony/indeks* |
+| RedirectToPage("./Index"); | *Strony/klienci/indeks* |
+| RedirectToPage("../Index") | *Strony/indeks* |
+| RedirectToPage("Index")  | *Strony/klienci/indeks* |
 
-`RedirectToPage("Index")`, `RedirectToPage("./Index")`, i `RedirectToPage("../Index")` są *względne nazwy*. `RedirectToPage` Parametr jest *połączone* ze ścieżką bieżącej strony, aby obliczyć nazwę strony docelowej.  <!-- Review: Original had The provided string is combined with the page name of the current page to compute the name of the destination page.  page name, not page path -->
+`RedirectToPage("Index")`, `RedirectToPage("./Index")`, i `RedirectToPage("../Index")` są *nazwami względnymi*. Parametr jest połączony ze ścieżką bieżącej strony, aby obliczyć nazwę strony docelowej.  `RedirectToPage`  <!-- Review: Original had The provided string is combined with the page name of the current page to compute the name of the destination page.  page name, not page path -->
 
-Nazwa względna łączenia jest przydatne w przypadku, gdy tworzenia witryn z złożonej strukturze. Jeśli używasz względne nazwy do połączenia między stronami w folderze, można zmienić nazwę tego folderu. Wszystkie łącza nadal działać (ponieważ nie obejmują one nazwę folderu).
+Łączenie nazw względnych jest przydatne podczas kompilowania lokacji ze złożoną strukturą. Jeśli używasz nazw względnych do łączenia między stronami w folderze, możesz zmienić nazwę tego folderu. Wszystkie linki nadal działają (ponieważ nie zawierają nazwy folderu).
 
 ::: moniker range=">= aspnetcore-2.1"
 
-Przekierowywanie do strony w innej [obszaru](xref:mvc/controllers/areas), określ obszar:
+Aby przekierować do strony w innym [obszarze](xref:mvc/controllers/areas), określ obszar:
 
 ```csharp
 RedirectToPage("/Index", new { area = "Services" });
@@ -422,11 +420,11 @@ RedirectToPage("/Index", new { area = "Services" });
 
 Aby uzyskać więcej informacji, zobacz <xref:mvc/controllers/areas>.
 
-## <a name="viewdata-attribute"></a>Atrybut viewData
+## <a name="viewdata-attribute"></a>ViewData — atrybut
 
-Dane mogą być przekazywane do stron z [ViewDataAttribute](/dotnet/api/microsoft.aspnetcore.mvc.viewdataattribute). Właściwości na kontrolerach ani w modelach strony Razor ozdobione `[ViewData]` ich wartości przechowywane i ładowane z [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary).
+Dane można przekazywać do strony z [ViewDataAttribute](/dotnet/api/microsoft.aspnetcore.mvc.viewdataattribute). Właściwości na kontrolerach lub modelach stron Razor, `[ViewData]` których wartości są przechowywane i ładowane z [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary).
 
-W poniższym przykładzie `AboutModel` zawiera `Title` ozdobione właściwość `[ViewData]`. `Title` Właściwość jest ustawiona na tytuł strony informacje:
+W poniższym przykładzie `AboutModel` `Title` zawiera właściwość z `[ViewData]`właściwością. `Title` Właściwość jest ustawiona na tytuł strony informacje:
 
 ```csharp
 public class AboutModel : PageModel
@@ -440,13 +438,13 @@ public class AboutModel : PageModel
 }
 ```
 
-Na stronie informacje dostępu `Title` właściwość jako właściwość modelu:
+Na stronie informacje uzyskaj dostęp do `Title` właściwości jako właściwości modelu:
 
 ```cshtml
 <h1>@Model.Title</h1>
 ```
 
-W układzie tytuł jest do odczytu ze słownika ViewData:
+W układzie tytuł jest odczytywany ze słownika ViewData:
 
 ```cshtml
 <!DOCTYPE html>
@@ -460,21 +458,21 @@ W układzie tytuł jest do odczytu ze słownika ViewData:
 
 ## <a name="tempdata"></a>TempData
 
-Udostępnia platformy ASP.NET Core [TempData](/dotnet/api/microsoft.aspnetcore.mvc.controller.tempdata?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_Controller_TempData) właściwość [kontrolera](/dotnet/api/microsoft.aspnetcore.mvc.controller). Ta właściwość przechowuje dane, dopóki nie jest do odczytu. `Keep` i `Peek` metody może służyć do sprawdzenia danych bez usuwania. `TempData` jest przydatne w przypadku przekierowania, gdy dane są potrzebne dla więcej niż jedno żądanie.
+ASP.NET Core uwidacznia Właściwość [TempData](/dotnet/api/microsoft.aspnetcore.mvc.controller.tempdata?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_Controller_TempData) na [kontrolerze](/dotnet/api/microsoft.aspnetcore.mvc.controller). Ta właściwość przechowuje dane, dopóki nie zostanie odczytana. Metody `Keep` i`Peek` mogą służyć do badania danych bez usuwania. `TempData`jest przydatne w przypadku przekierowania, gdy dane są potrzebne dla więcej niż jednego żądania.
 
-`[TempData]` Atrybut jest nowego w programie ASP.NET Core 2.0 i jest obsługiwane na stronach i kontrolerów.
+Ten `[TempData]` atrybut jest nowy w ASP.NET Core 2,0 i jest obsługiwany na kontrolerach i stronach.
 
-Poniższy kod ustawia wartość `Message` przy użyciu `TempData`:
+Poniższy kod ustawia wartość `Message` użycia: `TempData`
 
 [!code-cs[](index/sample/RazorPagesContacts2/Pages/Customers/CreateDot.cshtml.cs?highlight=10-11,25&name=snippet_Temp)]
 
-Następujące znaczniki w *Pages/Customers/Index.cshtml* pliku wyświetlana jest wartość `Message` przy użyciu `TempData`.
+W poniższym znaczniku w pliku *Pages/Customers/index. cshtml* jest wyświetlana wartość `Message` using `TempData`.
 
 ```cshtml
 <h3>Msg: @Model.Message</h3>
 ```
 
-*Pages/Customers/Index.cshtml.cs* stosowany model strony `[TempData]` atrybutu `Message` właściwości.
+Model strony *Pages/Customers/index. cshtml. cs* stosuje `[TempData]` atrybut do `Message` właściwości.
 
 ```cs
 [TempData]
@@ -485,63 +483,63 @@ Aby uzyskać więcej informacji, zobacz [TempData](xref:fundamentals/app-state#t
 
 <a name="mhpp"></a>
 
-## <a name="multiple-handlers-per-page"></a>Procedury obsługi wielu na stronę
+## <a name="multiple-handlers-per-page"></a>Wiele programów obsługi na stronie
 
-Następująca strona generuje kod znaczników dla dwóch stron przy użyciu programów obsługi `asp-page-handler` Pomocnik tagu:
+Poniższa Strona generuje znaczniki dla dwóch programów obsługi przy użyciu `asp-page-handler` pomocnika tagów:
 
 [!code-cshtml[](index/sample/RazorPagesContacts2/Pages/Customers/CreateFATH.cshtml?highlight=12-13)]
 
 <!-- Review: the FormActionTagHelper applies to all <form /> elements on a Razor page, even when there's no `asp-` attribute   -->
 
-Formularz w poprzednim przykładzie ma dwa przesłać przyciski, za pomocą każdego `FormActionTagHelper` do przesłania do innego adresu URL. `asp-page-handler` Atrybutu jest uzupełnieniem do `asp-page`. `asp-page-handler` generuje adresy URL, którzy przesłali do każdej metody obsługi zdefiniowane przez stronę. `asp-page` nie jest określona, ponieważ plik jest tworzenie łączy do bieżącej strony.
+Formularz w poprzednim przykładzie ma dwa przyciski przesyłania, z których `FormActionTagHelper` każdy używa do przesłania do innego adresu URL. Ten `asp-page-handler` atrybut jest towarzyszący do `asp-page`. `asp-page-handler`generuje adresy URL, które przesyłają do każdej metody obsługi zdefiniowanej przez stronę. `asp-page`nie została określona, ponieważ próbka jest łączona z bieżącą stroną.
 
 Model strony:
 
 [!code-cs[](index/sample/RazorPagesContacts2/Pages/Customers/CreateFATH.cshtml.cs?highlight=20,32)]
 
-W poprzednim kodzie użyto *o nazwie metody obsługi*. Metody obsługi o nazwie są tworzone przez przyjęcie tekst nazwę po `On<HTTP Verb>` i przed `Async` (jeśli istnieje). W poprzednim przykładzie, metody strony są OnPost**JoinList**Async i OnPost**JoinListUC**Async. Za pomocą *OnPost* i *Async* usunięty, są nazwy programów obsługi `JoinList` i `JoinListUC`.
+Poprzedni kod używa *nazwanych metod obsługi*. Nazwane metody obsługi są tworzone przez pobranie tekstu w nazwie po `On<HTTP Verb>` i przed `Async` (jeśli istnieje). W poprzednim przykładzie metody strony są onpost**JoinList**Async i Onpost**JoinListUC**Async. Po  usunięciu funkcji onpost i *Async* nazwy programów obsługi `JoinList` są `JoinListUC`i.
 
 [!code-cshtml[](index/sample/RazorPagesContacts2/Pages/Customers/CreateFATH.cshtml?range=12-13)]
 
-Za pomocą poprzedniego kodu Ścieżka adresu URL, które są przesyłane `OnPostJoinListAsync` jest `http://localhost:5000/Customers/CreateFATH?handler=JoinList`. Ścieżka adresu URL, które są przesyłane `OnPostJoinListUCAsync` jest `http://localhost:5000/Customers/CreateFATH?handler=JoinListUC`.
+Korzystając z powyższego kodu, ścieżka URL, która jest `OnPostJoinListAsync` przesyłana do usługi, to `http://localhost:5000/Customers/CreateFATH?handler=JoinList`. Ścieżka URL, która jest przesyłana `OnPostJoinListUCAsync` do `http://localhost:5000/Customers/CreateFATH?handler=JoinListUC`programu, to.
 
 ## <a name="custom-routes"></a>Trasy niestandardowe
 
-Użyj `@page` dyrektywę:
+Użyj dyrektywy `@page` , aby:
 
-* Określ niestandardowe trasy do strony. Na przykład można ustawić trasy do strony informacje `/Some/Other/Path` z `@page "/Some/Other/Path"`.
-* Dołącz segmentów do trasy domyślnej strony. Na przykład "item" segmentu można dodać do trasy domyślnej strony z `@page "item"`.
-* Dodaj parametry do trasy domyślnej strony. Na przykład parametru ID, `id`, może być wymagane dla strony z `@page "{id}"`.
+* Określ trasę niestandardową dla strony. Na przykład trasy do strony informacje można ustawić na `/Some/Other/Path` wartość z. `@page "/Some/Other/Path"`
+* Dołącz segmenty do domyślnej trasy strony. Na przykład segment "Item" można dodać do domyślnej trasy strony przy użyciu `@page "item"`.
+* Dołącz parametry do domyślnej trasy strony. Na przykład parametr ID, `id`, może być wymagany dla strony z. `@page "{id}"`
 
-Ścieżka względem katalogu głównego, w wyznaczonym przez tyldy (`~`) na początku ścieżki jest obsługiwana. Na przykład `@page "~/Some/Other/Path"` jest taka sama jak `@page "/Some/Other/Path"`.
+Ścieżka względna elementu głównego wypisana przez tyldę`~`() na początku ścieżki jest obsługiwana. Na przykład `@page "~/Some/Other/Path"` jest taka sama jak `@page "/Some/Other/Path"`.
 
-Możesz zmienić ciągu zapytania `?handler=JoinList` w adresie URL do segmentu trasy `/JoinList` , określając szablon trasy `@page "{handler?}"`.
+Można zmienić ciąg `?handler=JoinList` zapytania w adresie URL na segment `/JoinList` trasy, określając szablon `@page "{handler?}"`trasy.
 
-Jeśli nie chcesz, aby ciąg zapytania `?handler=JoinList` w adresie URL, możesz zmienić trasy, aby umieścić nazwę programu obsługi w część ścieżki adresu URL. Trasy można dostosować, dodając szablon trasy, ujęte w podwójny cudzysłów po `@page` dyrektywy.
+Jeśli nie podoba Ci się ciąg `?handler=JoinList` zapytania w adresie URL, możesz zmienić trasy, aby umieścić nazwę programu obsługi w części adresu URL. Możesz dostosować trasę, dodając szablon trasy ujęty w podwójne cudzysłowy po `@page` dyrektywie.
 
 [!code-cshtml[](index/sample/RazorPagesContacts2/Pages/Customers/CreateRoute.cshtml?highlight=1)]
 
-Za pomocą poprzedniego kodu Ścieżka adresu URL, które są przesyłane `OnPostJoinListAsync` jest `http://localhost:5000/Customers/CreateFATH/JoinList`. Ścieżka adresu URL, które są przesyłane `OnPostJoinListUCAsync` jest `http://localhost:5000/Customers/CreateFATH/JoinListUC`.
+Korzystając z powyższego kodu, ścieżka URL, która jest `OnPostJoinListAsync` przesyłana do usługi, to `http://localhost:5000/Customers/CreateFATH/JoinList`. Ścieżka URL, która jest przesyłana `OnPostJoinListUCAsync` do `http://localhost:5000/Customers/CreateFATH/JoinListUC`programu, to.
 
-`?` Następujące `handler` oznacza, że parametr trasy jest opcjonalny.
+Poniżej przedstawiono `handler` , że parametr trasy jest opcjonalny. `?`
 
 ## <a name="configuration-and-settings"></a>Konfiguracja i ustawienia
 
-Aby skonfigurować opcje zaawansowane, należy użyć metody rozszerzenia `AddRazorPagesOptions` w Konstruktorze MVC:
+Aby skonfigurować opcje zaawansowane, użyj metody `AddRazorPagesOptions` rozszerzenia w konstruktorze MVC:
 
 [!code-cs[](index/sample/RazorPagesContacts/StartupAdvanced.cs?name=snippet_1)]
 
-Obecnie możesz używać `RazorPagesOptions` katalog główny strony lub Dodaj konwencje modelu aplikacji dla stron. Firma Microsoft będzie włączyć więcej rozszerzeń w ten sposób w przyszłości.
+Obecnie można użyć, `RazorPagesOptions` aby ustawić katalog główny dla stron lub dodać konwencje modelu aplikacji dla stron. W przyszłości włączysz więcej rozszerzeń w ten sposób.
 
-Przeprowadzać prekompilowanie widoków, zobacz [kompilacja widoku Razor](xref:mvc/views/view-compilation) .
+Aby wstępnie skompilować widoki, zobacz [kompilacja widoku Razor](xref:mvc/views/view-compilation) .
 
-[Pobieranie i wyświetlanie przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/index/sample).
+[Pobierz lub Wyświetl przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/index/sample).
 
-Zobacz [Rozpoczynanie pracy ze stronami Razor](xref:tutorials/razor-pages/razor-pages-start), która jest oparta na wprowadzeniu.
+Zobacz Rozpoczynanie [pracy z usługą Razor Pages](xref:tutorials/razor-pages/razor-pages-start), która kompiluje się w tym wprowadzeniu.
 
-### <a name="specify-that-razor-pages-are-at-the-content-root"></a>Określ, czy w katalogu głównym zawartości stron Razor
+### <a name="specify-that-razor-pages-are-at-the-content-root"></a>Określ, że Razor Pages znajdują się w katalogu głównym zawartości
 
-Domyślnie strony Razor są umieszczone w */strony* katalogu. Dodaj [WithRazorPagesAtContentRoot](/dotnet/api/microsoft.extensions.dependencyinjection.mvcrazorpagesmvcbuilderextensions.withrazorpagesatcontentroot) do [AddMvc](/dotnet/api/microsoft.extensions.dependencyinjection.mvcservicecollectionextensions.addmvc#Microsoft_Extensions_DependencyInjection_MvcServiceCollectionExtensions_AddMvc_Microsoft_Extensions_DependencyInjection_IServiceCollection_) do określenia, czy strony Razor zawartości katalogu głównego ([ContentRootPath](/dotnet/api/microsoft.aspnetcore.hosting.ihostingenvironment.contentrootpath)) aplikacji:
+Domyślnie Razor Pages są umieszczane w katalogu */Pages* . Dodaj [WithRazorPagesAtContentRoot](/dotnet/api/microsoft.extensions.dependencyinjection.mvcrazorpagesmvcbuilderextensions.withrazorpagesatcontentroot) do [AddMvc](/dotnet/api/microsoft.extensions.dependencyinjection.mvcservicecollectionextensions.addmvc#Microsoft_Extensions_DependencyInjection_MvcServiceCollectionExtensions_AddMvc_Microsoft_Extensions_DependencyInjection_IServiceCollection_) , aby określić, że Razor Pages znajdują się w katalogu głównym zawartości ([ContentRootPath](/dotnet/api/microsoft.aspnetcore.hosting.ihostingenvironment.contentrootpath)) aplikacji:
 
 ```csharp
 services.AddMvc()
@@ -552,9 +550,9 @@ services.AddMvc()
     .WithRazorPagesAtContentRoot();
 ```
 
-### <a name="specify-that-razor-pages-are-at-a-custom-root-directory"></a>Określ, czy w katalogu głównym niestandardowych stron Razor
+### <a name="specify-that-razor-pages-are-at-a-custom-root-directory"></a>Określ, że Razor Pages znajdują się w niestandardowym katalogu głównym
 
-Dodaj [WithRazorPagesRoot](/dotnet/api/microsoft.extensions.dependencyinjection.mvcrazorpagesmvccorebuilderextensions.withrazorpagesroot) do [AddMvc](/dotnet/api/microsoft.extensions.dependencyinjection.mvcservicecollectionextensions.addmvc#Microsoft_Extensions_DependencyInjection_MvcServiceCollectionExtensions_AddMvc_Microsoft_Extensions_DependencyInjection_IServiceCollection_) do określenia, czy strony Razor w katalogu głównym niestandardowego w aplikacji (podaj ścieżkę względną):
+Dodaj [WithRazorPagesRoot](/dotnet/api/microsoft.extensions.dependencyinjection.mvcrazorpagesmvccorebuilderextensions.withrazorpagesroot) do [AddMvc](/dotnet/api/microsoft.extensions.dependencyinjection.mvcservicecollectionextensions.addmvc#Microsoft_Extensions_DependencyInjection_MvcServiceCollectionExtensions_AddMvc_Microsoft_Extensions_DependencyInjection_IServiceCollection_) , aby określić, że Razor Pages znajdują się w niestandardowym katalogu głównym w aplikacji (podaj ścieżkę względną):
 
 ```csharp
 services.AddMvc()
