@@ -1,37 +1,204 @@
 ---
-title: 'Samouczek: Rozpoczynanie pracy ze stronami Razor w programie ASP.NET Core'
+title: 'Samouczek: Wprowadzenie do Razor Pages w ASP.NET Core'
 author: rick-anderson
-description: W tej serii samouczków pokazano, jak używać stron Razor w programie ASP.NET Core. Dowiedz się, jak utworzyć model, generowanie kodu dla stron Razor, platformy Entity Framework Core i SQL Server na użytek dostęp do danych, dodać funkcje wyszukiwania, dodać sprawdzanie poprawności danych wejściowych i użyć migracje do aktualizacji modelu.
+description: W tej serii samouczków pokazano, jak używać Razor Pages w ASP.NET Core. Dowiedz się, jak utworzyć model, wygenerować kod dla stron Razor, użyć Entity Framework Core i SQL Server na potrzeby dostępu do danych, dodać funkcję wyszukiwania, dodać sprawdzanie poprawności danych wejściowych i użyć migracji w celu zaktualizowania modelu.
 ms.author: riande
-ms.date: 06/03/2019
+ms.date: 07/25/2019
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: 7e228c99b4d55c14cea9c915cf06a7fbbbd5af44
-ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
+ms.openlocfilehash: 1605197188d97f27a884739a72400da2d5818b1a
+ms.sourcegitcommit: 849af69ee3c94cdb9fd8fa1f1bb8f5a5dda7b9eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67855735"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68372001"
 ---
-# <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Samouczek: Rozpoczynanie pracy ze stronami Razor w programie ASP.NET Core
+# <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Samouczek: Wprowadzenie do Razor Pages w ASP.NET Core
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-To jest pierwszy samouczek serii. [Seria](xref:tutorials/razor-pages/index) uczy podstaw tworzenia aplikacji platformy ASP.NET Core Razor strony sieci web.
+::: moniker range=">= aspnetcore-3.0"
+Jest to pierwszy samouczek dotyczący serii, który uczy się podstaw tworzenia aplikacji sieci Web Razor Pages ASP.NET Core.
 
 [!INCLUDE[](~/includes/advancedRP.md)]
 
-Na końcu serii będziesz mieć aplikację, która zarządza bazy danych filmów.  
+Na końcu serii będziesz mieć aplikację, która zarządza bazą danych filmów.  
 
 [!INCLUDE[View or download sample code](~/includes/rp/download.md)]
 
-W ramach tego samouczka możesz:
+W tym samouczku przedstawiono następujące instrukcje:
 
 > [!div class="checklist"]
-> * Tworzenie aplikacji internetowej stron Razor.
+> * Utwórz aplikację sieci Web Razor Pages.
 > * Uruchom aplikację.
-> * Sprawdź pliki projektu.
+> * Przejrzyj pliki projektu.
 
-Na końcu tego samouczka będziesz mieć działającą aplikację sieci web stron Razor, które utworzysz w kolejnych samouczkach.
+Na końcu tego samouczka będziesz mieć działającą Razor Pagesową aplikację internetową, która zostanie wdrożona w kolejnych samouczkach.
+
+![Strona główna lub indeks](razor-pages-start/_static/home2.2.png)
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+[!INCLUDE[](~/includes/net-core-prereqs-vs-3.0.md)]
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+
+[!INCLUDE[](~/includes/net-core-prereqs-vsc-3.0.md)]
+
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+
+[!INCLUDE[](~/includes/net-core-prereqs-mac-3.0.md)]
+
+---
+
+## <a name="create-a-razor-pages-web-app"></a>Tworzenie aplikacji sieci Web Razor Pages
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+* W programie Visual Studio **pliku** menu, wybierz opcję **New** > **projektu**.
+* Utwórz nową aplikację sieci Web ASP.NET Core a następnie wybierz pozycję **dalej**.
+  ![Nowa aplikacja sieci Web ASP.NET Core](razor-pages-start/_static/np_2.1.png)
+* Nazwij projekt **RazorPagesMovie**. Ważne jest, aby nazwa projektu *RazorPagesMovie* , tak aby przestrzenie nazw były zgodne podczas kopiowania i wklejania kodu.
+  ![Nowa aplikacja sieci Web ASP.NET Core](razor-pages-start/_static/config.png)
+
+* Wybierz pozycję **ASP.NET Core 3,0** na liście rozwijanej, **aplikacji sieci Web**, a następnie wybierz pozycję **Utwórz**.
+
+![Nowa aplikacja sieci Web ASP.NET Core](razor-pages-start/_static/3/npx.png)
+
+  Tworzony jest następujący projekt początkowy:
+
+  ![Eksplorator rozwiązań](razor-pages-start/_static/se2.2.png)
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+
+* Otwórz [zintegrowany terminal](https://code.visualstudio.com/docs/editor/integrated-terminal).
+
+* Przejdź do katalogu (`cd`), który będzie zawierać projekt.
+
+* Uruchom następujące polecenia:
+
+  ```console
+  dotnet new webapp -o RazorPagesMovie
+  code -r RazorPagesMovie
+  ```
+
+  * Polecenie tworzy nowy projekt Razor Pages w folderze RazorPagesMovie.  `dotnet new`
+  * Polecenie otwiera folder RazorPagesMovie w bieżącym wystąpieniu Visual Studio Code.  `code`
+
+* Gdy ikona płomienia OmniSharp na pasku stanu zmieni kolor na zielony, w **oknie dialogowym zostanie wyświetlony monit o podanie wymaganych zasobów do skompilowania i debugowania z elementu "RazorPagesMovie". Dodać je?** Wybierz pozycję **tak**.
+
+  Katalog *. programu vscode* , zawierający pliki *Launch. JSON* i *Tasks. JSON* , jest dodawany do katalogu głównego projektu.
+
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+
+W terminalu uruchom następujące polecenie:
+
+<!-- TODO: update these instruction once mac support 2.2 projects -->
+
+```console
+dotnet new webapp -o RazorPagesMovie
+```
+
+Poprzednie polecenia używają [interfejs wiersza polecenia platformy .NET Core](/dotnet/core/tools/dotnet) do tworzenia projektu Razor Pages.
+
+## <a name="open-the-project"></a>Otwórz projekt
+
+W programie Visual Studio wybierz pozycję **plik > Otwórz**, a następnie wybierz plik *RazorPagesMovie. csproj* .
+
+<!-- End of VS tabs -->
+
+---
+
+## <a name="run-the-app"></a>Uruchamianie aplikacji
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+* Naciśnij klawisze CTRL + F5, aby uruchomić bez debugera.
+
+  [!INCLUDE[](~/includes/trustCertVS.md)]
+
+  Program Visual Studio jest uruchamiany [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) i uruchomi aplikację. Na pasku adresu są `localhost:port#` wyświetlane inne elementy, `example.com`takie jak. Wynika `localhost` to z tego, że jest standardową nazwą hosta dla komputera lokalnego. Host lokalny obsługuje tylko żądania sieci Web z komputera lokalnego. Gdy program Visual Studio tworzy projekt sieci Web, dla serwera sieci Web jest używany port losowy.
+ 
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+
+  [!INCLUDE[](~/includes/trustCertVSC.md)]
+
+* Naciśnij **klawisze CTRL + F5** , aby uruchomić bez debugera.
+
+  Visual Studio Code uruchamia [Kestrel](xref:fundamentals/servers/kestrel), uruchamia przeglądarkę i nawiguje do `http://localhost:5001`. Na pasku adresu są `localhost:port#` wyświetlane inne elementy, `example.com`takie jak. Wynika `localhost` to z tego, że jest standardową nazwą hosta dla komputera lokalnego. Host lokalny obsługuje tylko żądania sieci Web z komputera lokalnego.
+
+  
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+
+  [!INCLUDE[](~/includes/trustCertMac.md)]
+
+* Naciśnij **polecenie cmd-opt-F5** , aby uruchomić program bez debugera.
+
+  Program Visual Studio uruchamia [Kestrel](xref:fundamentals/servers/kestrel), uruchamia przeglądarkę i przechodzi do `http://localhost:5001`.
+
+<!-- End of VS tabs -->
+
+---
+
+## <a name="examine-the-project-files"></a>Sprawdzanie plików projektu
+
+Poniżej przedstawiono Omówienie folderów i plików projektu głównego, z których będziesz korzystać w kolejnych samouczkach.
+
+### <a name="pages-folder"></a>Folder stron
+
+Zawiera strony Razor i pliki pomocnicze. Każda Strona Razor to para plików:
+
+* Plik *. cshtml* , który zawiera znaczniki HTML z C# kodem przy użyciu składnia Razor.
+* Plik *. cshtml.cs* , który zawiera C# kod, który obsługuje zdarzenia strony.
+
+Pliki pomocnicze mają nazwy zaczynające się od znaku podkreślenia. Na przykład plik *_Layout. cshtml* służy do konfigurowania elementów interfejsu użytkownika wspólnych dla wszystkich stron. Ten plik konfiguruje menu nawigacji w górnej części strony i informacje o prawach autorskich w dolnej części strony. Aby uzyskać więcej informacji, zobacz <xref:mvc/views/layout>.
+
+### <a name="wwwroot-folder"></a>folder wwwroot
+
+Zawiera pliki statyczne, takie jak pliki HTML, pliki JavaScript i pliki CSS. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/static-files>.
+
+### <a name="appsettingsjson"></a>appSettings.json
+
+Zawiera dane konfiguracyjne, takie jak parametry połączenia. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/configuration/index>.
+
+### <a name="programcs"></a>Program.cs
+
+Zawiera punkt wejścia dla programu. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/host/generic-host>.
+
+### <a name="startupcs"></a>Startup.cs
+
+Zawiera kod, który konfiguruje zachowanie aplikacji. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/startup>.
+
+## <a name="next-steps"></a>Następne kroki
+
+Przejdź do następnego samouczka z serii:
+
+> [!div class="step-by-step"]
+> [Dodawanie modelu](xref:tutorials/razor-pages/model)
+
+::: moniker-end
+
+<!--::: moniker range=">= aspnetcore-3.0" -->
+
+::: moniker range="< aspnetcore-3.0"
+
+Jest to pierwszy samouczek dotyczący serii. [Seria zawiera](xref:tutorials/razor-pages/index) podstawowe informacje na temat tworzenia aplikacji sieci web ASP.NET Core Razor Pages.
+
+[!INCLUDE[](~/includes/advancedRP.md)]
+
+Na końcu serii będziesz mieć aplikację, która zarządza bazą danych filmów.  
+
+[!INCLUDE[View or download sample code](~/includes/rp/download.md)]
+
+W tym samouczku przedstawiono następujące instrukcje:
+
+> [!div class="checklist"]
+> * Utwórz aplikację sieci Web Razor Pages.
+> * Uruchom aplikację.
+> * Przejrzyj pliki projektu.
+
+Na końcu tego samouczka będziesz mieć działającą Razor Pagesową aplikację internetową, która zostanie wdrożona w kolejnych samouczkach.
 
 ![Strona główna lub indeks](razor-pages-start/_static/home2.2.png)
 
@@ -51,25 +218,25 @@ Na końcu tego samouczka będziesz mieć działającą aplikację sieci web stro
 
 ---
 
-## <a name="create-a-razor-pages-web-app"></a>Tworzenie aplikacji sieci web stron Razor
+## <a name="create-a-razor-pages-web-app"></a>Tworzenie aplikacji sieci Web Razor Pages
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * W programie Visual Studio **pliku** menu, wybierz opcję **New** > **projektu**.
 
-* Tworzenie nowej aplikacji sieci Web platformy ASP.NET Core i wybierz **dalej**.
+* Utwórz nową aplikację sieci Web ASP.NET Core a następnie wybierz pozycję **dalej**.
 
-  ![Nowa aplikacja internetowa ASP.NET Core](razor-pages-start/_static/np_2.1.png)
+  ![Nowa aplikacja sieci Web ASP.NET Core](razor-pages-start/_static/np_2.1.png)
 
-* Nadaj projektowi nazwę **RazorPagesMovie**. Ważne jest, aby nadaj projektowi nazwę *RazorPagesMovie* , przestrzenie nazw będą zgodne po skopiuj i Wklej kod.
+* Nazwij projekt **RazorPagesMovie**. Ważne jest, aby nazwa projektu *RazorPagesMovie* , tak aby przestrzenie nazw były zgodne podczas kopiowania i wklejania kodu.
 
-  ![Nowa aplikacja internetowa ASP.NET Core](razor-pages-start/_static/config.png)
+  ![Nowa aplikacja sieci Web ASP.NET Core](razor-pages-start/_static/config.png)
 
-* Wybierz **platformy ASP.NET Core 2.2** na liście rozwijanej **aplikacji sieci Web**, a następnie wybierz pozycję **Utwórz**.
+* Wybierz pozycję **ASP.NET Core 2,2** na liście rozwijanej, **aplikacji sieci Web**, a następnie wybierz pozycję **Utwórz**.
 
-![Nowa aplikacja internetowa ASP.NET Core](razor-pages-start/_static/np_2_2.2.png)
+![Nowa aplikacja sieci Web ASP.NET Core](razor-pages-start/_static/np_2_2.2.png)
 
-  Utworzono następujący projekt startowy:
+  Tworzony jest następujący projekt początkowy:
 
   ![Eksplorator rozwiązań](razor-pages-start/_static/se2.2.png)
 
@@ -77,7 +244,7 @@ Na końcu tego samouczka będziesz mieć działającą aplikację sieci web stro
 
 * Otwórz [zintegrowany terminal](https://code.visualstudio.com/docs/editor/integrated-terminal).
 
-* Przejdź do katalogu (`cd`) zawierający projekt.
+* Przejdź do katalogu (`cd`), który będzie zawierać projekt.
 
 * Uruchom następujące polecenia:
 
@@ -86,12 +253,12 @@ Na końcu tego samouczka będziesz mieć działającą aplikację sieci web stro
   code -r RazorPagesMovie
   ```
 
-  * `dotnet new` Polecenie tworzy nowy projekt strony Razor w *RazorPagesMovie* folderu.
-  * `code` Polecenia otwiera *RazorPagesMovie* folderu w bieżącym wystąpieniu programu Visual Studio Code.
+  * Polecenie tworzy nowy projekt Razor Pages w folderze RazorPagesMovie.  `dotnet new`
+  * Polecenie otwiera folder RazorPagesMovie w bieżącym wystąpieniu Visual Studio Code.  `code`
 
-* Po technologię OmniSharp pasek stanu gaśniczego ikona zmieni kolor na zielony, okno dialogowe prosi **"RazorPagesMovie" brakuje wymagane zasoby do tworzenia i debugowania. Dodaj je?** Wybierz **tak**.
+* Gdy ikona płomienia OmniSharp na pasku stanu zmieni kolor na zielony, w **oknie dialogowym zostanie wyświetlony monit o podanie wymaganych zasobów do skompilowania i debugowania z elementu "RazorPagesMovie". Dodać je?** Wybierz pozycję **tak**.
 
-  A *.vscode* katalog zawierający *launch.json* i *tasks.json* pliki, zostanie dodany do katalogu głównego projektu.
+  Katalog *. programu vscode* , zawierający pliki *Launch. JSON* i *Tasks. JSON* , jest dodawany do katalogu głównego projektu.
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
@@ -103,11 +270,11 @@ W terminalu uruchom następujące polecenie:
 dotnet new webapp -o RazorPagesMovie
 ```
 
-Poprzednie polecenia użyj [interfejsu wiersza polecenia platformy .NET Core](/dotnet/core/tools/dotnet) do utworzenia projektu stron Razor.
+Poprzednie polecenia używają [interfejs wiersza polecenia platformy .NET Core](/dotnet/core/tools/dotnet) do tworzenia projektu Razor Pages.
 
 ## <a name="open-the-project"></a>Otwórz projekt
 
-Z programu Visual Studio, wybierz **Plik > Otwórz**, a następnie wybierz pozycję *RazorPagesMovie.csproj* pliku.
+W programie Visual Studio wybierz pozycję **plik > Otwórz**, a następnie wybierz plik *RazorPagesMovie. csproj* .
 
 <!-- End of VS tabs -->
 
@@ -117,19 +284,19 @@ Z programu Visual Studio, wybierz **Plik > Otwórz**, a następnie wybierz pozyc
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Naciśnij klawisze Ctrl + F5, aby uruchomić bez debugowania.
+* Naciśnij klawisze CTRL + F5, aby uruchomić bez debugera.
 
   [!INCLUDE[](~/includes/trustCertVS.md)]
 
-  Program Visual Studio uruchamia [usług IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) i uruchomienie aplikacji. Przedstawia pasek adresu `localhost:port#` i nie mielibyśmy mieć czegoś podobnego `example.com`. To dlatego, że `localhost` jest standardowa nazwa hosta komputera lokalnego. Localhost obsługują tylko żądania sieci web z komputera lokalnego. Gdy program Visual Studio tworzy projekt sieci web, losowy port jest używany dla serwera sieci web.
+  Program Visual Studio jest uruchamiany [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) i uruchomi aplikację. Na pasku adresu są `localhost:port#` wyświetlane inne elementy, `example.com`takie jak. Wynika `localhost` to z tego, że jest standardową nazwą hosta dla komputera lokalnego. Host lokalny obsługuje tylko żądania sieci Web z komputera lokalnego. Gdy program Visual Studio tworzy projekt sieci Web, dla serwera sieci Web jest używany port losowy.
 
-* Na stronie głównej aplikacji, wybierz **Akceptuj** do wyrażenia zgody na śledzenie.
+* Na stronie głównej aplikacji wybierz pozycję **Akceptuj** , aby wyrazić zgodę na śledzenie.
 
-  Ta aplikacja nie może śledzić informacje osobiste, ale szablonu projektu obejmuje funkcję zgody, w przypadku, gdy będą potrzebne do wykonania w Unii Europejskiej [ogólne rozporządzenie o ochronie danych (RODO)](xref:security/gdpr).
+  Ta aplikacja nie śledzi informacji osobistych, ale szablon projektu zawiera funkcję zgody na wypadek, gdyby była niezbędna do przestrzegania Ogólne rozporządzenie o ochronie danych Unii Europejskiej [(Rodo)](xref:security/gdpr).
 
   ![Strona główna lub indeks](razor-pages-start/_static/homeGDPR2.2.png)
 
-  Na poniższej ilustracji przedstawiono aplikację po zgody śledzenia:
+  Na poniższej ilustracji przedstawiono aplikację po udzieleniu zgody na śledzenie:
 
   ![Strona główna lub indeks](razor-pages-start/_static/home2.2.png)
   
@@ -137,17 +304,17 @@ Z programu Visual Studio, wybierz **Plik > Otwórz**, a następnie wybierz pozyc
 
   [!INCLUDE[](~/includes/trustCertVSC.md)]
 
-* Naciśnij klawisz **Ctrl-F5** do uruchomienia bez debugera.
+* Naciśnij **klawisze CTRL + F5** , aby uruchomić bez debugera.
 
-  Uruchamia programu Visual Studio Code [Kestrel](xref:fundamentals/servers/kestrel)otworzy w przeglądarce i przechodzi do `http://localhost:5001`. Przedstawia pasek adresu `localhost:port#` i nie mielibyśmy mieć czegoś podobnego `example.com`. To dlatego, że `localhost` jest standardowa nazwa hosta na komputerze lokalnym. Localhost obsługują tylko żądania sieci web z komputera lokalnego.
+  Visual Studio Code uruchamia [Kestrel](xref:fundamentals/servers/kestrel), uruchamia przeglądarkę i nawiguje do `http://localhost:5001`. Na pasku adresu są `localhost:port#` wyświetlane inne elementy, `example.com`takie jak. Wynika `localhost` to z tego, że jest standardową nazwą hosta dla komputera lokalnego. Host lokalny obsługuje tylko żądania sieci Web z komputera lokalnego.
 
-* Na stronie głównej aplikacji, wybierz **Akceptuj** do wyrażenia zgody na śledzenie.
+* Na stronie głównej aplikacji wybierz pozycję **Akceptuj** , aby wyrazić zgodę na śledzenie.
 
-  Ta aplikacja nie może śledzić informacje osobiste, ale szablonu projektu obejmuje funkcję zgody, w przypadku, gdy będą potrzebne do wykonania w Unii Europejskiej [ogólne rozporządzenie o ochronie danych (RODO)](xref:security/gdpr).
+  Ta aplikacja nie śledzi informacji osobistych, ale szablon projektu zawiera funkcję zgody na wypadek, gdyby była niezbędna do przestrzegania Ogólne rozporządzenie o ochronie danych Unii Europejskiej [(Rodo)](xref:security/gdpr).
 
   ![Strona główna lub indeks](razor-pages-start/_static/homeGDPR2.2.png)
 
-  Na poniższej ilustracji przedstawiono aplikację po zgody śledzenia:
+  Na poniższej ilustracji przedstawiono aplikację po udzieleniu zgody na śledzenie:
 
   ![Strona główna lub indeks](razor-pages-start/_static/home2.2.png)
   
@@ -155,17 +322,17 @@ Z programu Visual Studio, wybierz **Plik > Otwórz**, a następnie wybierz pozyc
 
   [!INCLUDE[](~/includes/trustCertMac.md)]
 
-* Naciśnij klawisz **Cmd-Opt — F5** do uruchomienia bez debugera.
+* Naciśnij **polecenie cmd-opt-F5** , aby uruchomić program bez debugera.
 
-  Program Visual Studio uruchamia [Kestrel](xref:fundamentals/servers/kestrel)otworzy w przeglądarce i przechodzi do `http://localhost:5001`.
+  Program Visual Studio uruchamia [Kestrel](xref:fundamentals/servers/kestrel), uruchamia przeglądarkę i przechodzi do `http://localhost:5001`.
 
-* Na stronie głównej aplikacji, wybierz **Akceptuj** do wyrażenia zgody na śledzenie.
+* Na stronie głównej aplikacji wybierz pozycję **Akceptuj** , aby wyrazić zgodę na śledzenie.
 
-  Ta aplikacja nie może śledzić informacje osobiste, ale szablonu projektu obejmuje funkcję zgody, w przypadku, gdy będą potrzebne do wykonania w Unii Europejskiej [ogólne rozporządzenie o ochronie danych (RODO)](xref:security/gdpr).
+  Ta aplikacja nie śledzi informacji osobistych, ale szablon projektu zawiera funkcję zgody na wypadek, gdyby była niezbędna do przestrzegania Ogólne rozporządzenie o ochronie danych Unii Europejskiej [(Rodo)](xref:security/gdpr).
 
   ![Strona główna lub indeks](razor-pages-start/_static/homeGDPR2.2_safari.png)
 
-  Na poniższej ilustracji przedstawiono aplikację po zgody śledzenia:
+  Na poniższej ilustracji przedstawiono aplikację po udzieleniu zgody na śledzenie:
 
   ![Strona główna lub indeks](razor-pages-start/_static/home2.2_safari.png)
 
@@ -173,22 +340,22 @@ Z programu Visual Studio, wybierz **Plik > Otwórz**, a następnie wybierz pozyc
 
 ---
 
-## <a name="examine-the-project-files"></a>Przejrzyj pliki projektu
+## <a name="examine-the-project-files"></a>Sprawdzanie plików projektu
 
-Poniżej przedstawiono omówienie folderów głównego projektu i plików, które będziesz pracować w kolejnych samouczkach.
+Poniżej przedstawiono Omówienie folderów i plików projektu głównego, z których będziesz korzystać w kolejnych samouczkach.
 
 ### <a name="pages-folder"></a>Folder stron
 
-Zawiera stronami Razor i pliki pomocnicze. Każda strona Razor jest parę plików:
+Zawiera strony Razor i pliki pomocnicze. Każda Strona Razor to para plików:
 
-* A *.cshtml* pliku, który zawiera kod znaczników HTML za pomocą C# kodu przy użyciu składni Razor.
-* A *. cshtml.cs* pliku, który zawiera C# kod, który obsługuje zdarzenia strony.
+* Plik *. cshtml* , który zawiera znaczniki HTML z C# kodem przy użyciu składnia Razor.
+* Plik *. cshtml.cs* , który zawiera C# kod, który obsługuje zdarzenia strony.
 
-Pliki obsługi mają nazwy rozpoczynające się od znaku podkreślenia. Na przykład *_Layout.cshtml* plik konfiguruje elementy interfejsu użytkownika dla wszystkich stron. Ten plik konfiguruje menu nawigacji w górnej części strony i informacje o prawach autorskich w dolnej części strony. Aby uzyskać więcej informacji, zobacz <xref:mvc/views/layout>.
+Pliki pomocnicze mają nazwy zaczynające się od znaku podkreślenia. Na przykład plik *_Layout. cshtml* służy do konfigurowania elementów interfejsu użytkownika wspólnych dla wszystkich stron. Ten plik konfiguruje menu nawigacji w górnej części strony i informacje o prawach autorskich w dolnej części strony. Aby uzyskać więcej informacji, zobacz <xref:mvc/views/layout>.
 
-### <a name="wwwroot-folder"></a>Wwwroot folder
+### <a name="wwwroot-folder"></a>folder wwwroot
 
-Zawiera pliki statyczne, takie jak pliki HTML, plików JavaScript i plików CSS. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/static-files>.
+Zawiera pliki statyczne, takie jak pliki HTML, pliki JavaScript i pliki CSS. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/static-files>.
 
 ### <a name="appsettingsjson"></a>appSettings.json
 
@@ -196,26 +363,21 @@ Zawiera dane konfiguracyjne, takie jak parametry połączenia. Aby uzyskać wię
 
 ### <a name="programcs"></a>Program.cs
 
-Zawiera punkt wejścia programu. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/host/generic-host>.
+Zawiera punkt wejścia dla programu. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/host/generic-host>.
 
 ### <a name="startupcs"></a>Startup.cs
 
-Zawiera kod, który konfiguruje zachowania aplikacji, na przykład tego, czy wymaga zgody na pliki cookie. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/startup>.
+Zawiera kod, który konfiguruje zachowanie aplikacji, na przykład czy wymaga zgody na pliki cookie. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/startup>.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Wersja usługi youtube w tym samouczku](https://www.youtube.com/watch?v=F0SP7Ry4flQ&feature=youtu.be)
+* [Wersja tego samouczka usługi YouTube](https://www.youtube.com/watch?v=F0SP7Ry4flQ&feature=youtu.be)
 
 ## <a name="next-steps"></a>Następne kroki
 
-W ramach tego samouczka możesz:
-
-> [!div class="checklist"]
-> * Utworzona aplikacja internetowa ze stronami Razor.
-> * Uruchomienia aplikacji.
-> * Zbadane plików projektu.
-
-Przejdź do następnego samouczka w serii:
+Przejdź do następnego samouczka z serii:
 
 > [!div class="step-by-step"]
 > [Dodawanie modelu](xref:tutorials/razor-pages/model)
+
+::: moniker-end
