@@ -1,5 +1,5 @@
 ---
-title: ASP.NET Core Blazor routingu
+title: ASP.NET Core Routing Blazor
 author: guardrex
 description: Dowiedz się, jak kierować żądania w aplikacjach i informacje o składniku NavLink.
 monikerRange: '>= aspnetcore-3.0'
@@ -7,28 +7,28 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/02/2019
 uid: blazor/routing
-ms.openlocfilehash: d2f0ce608d7368871f508754d7bbe4f75cc9701f
-ms.sourcegitcommit: 0b9e767a09beaaaa4301915cdda9ef69daaf3ff2
+ms.openlocfilehash: 70cae6b3a21fe3537d6841a6716398a5fc45db62
+ms.sourcegitcommit: f30b18442ed12831c7e86b0db249183ccd749f59
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67538523"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68412393"
 ---
-# <a name="aspnet-core-blazor-routing"></a>ASP.NET Core Blazor routingu
+# <a name="aspnet-core-blazor-routing"></a>ASP.NET Core Routing Blazor
 
 Przez [Luke Latham](https://github.com/guardrex)
 
-Dowiedz się, jak kierować żądania i sposobu użycia `NavLink` składnika do utworzenia łącza nawigacji w aplikacjach Blazor.
+Dowiedz się, jak kierować żądania oraz jak używać `NavLink` składnika do tworzenia linków nawigacji w aplikacjach Blazor.
 
-## <a name="aspnet-core-endpoint-routing-integration"></a>Integracja routingu platformy ASP.NET Core punktu końcowego
+## <a name="aspnet-core-endpoint-routing-integration"></a>ASP.NET Core integracja z routingiem punktu końcowego
 
-Blazor po stronie serwera jest zintegrowany z [routingu do Endpoint platformy ASP.NET Core](xref:fundamentals/routing). Aplikacji ASP.NET Core jest skonfigurowany do akceptowania połączeń przychodzących do interaktywnego składników za pomocą `MapBlazorHub` w `Startup.Configure`:
+Blazor po stronie serwera jest zintegrowana z [routingiem punktu końcowego ASP.NET Core](xref:fundamentals/routing). Aplikacja ASP.NET Core jest skonfigurowana do akceptowania połączeń przychodzących dla składników interaktywnych za `MapBlazorHub` pomocą `Startup.Configure`programu w programie:
 
 [!code-csharp[](routing/samples_snapshot/3.x/Startup.cs?highlight=5)]
 
-## <a name="route-templates"></a>Szablonów tras
+## <a name="route-templates"></a>Szablony tras
 
-`Router` Składnika umożliwia routing i szablon trasy znajduje się na każdej części dostępny. `Router` Składnika, który pojawia się w *App.razor* pliku:
+`Router` Składnik włącza Routing, a szablon trasy jest dostarczany do każdego dostępnego składnika. Składnik pojawi się w pliku *App. Razor:* `Router`
 
 W aplikacji po stronie serwera Blazor:
 
@@ -42,20 +42,20 @@ W aplikacji po stronie klienta Blazor:
 <Router AppAssembly="typeof(Program).Assembly" />
 ```
 
-Gdy *.razor* plik z `@page` dyrektywa jest kompilowany, wygenerowana klasa znajduje się <xref:Microsoft.AspNetCore.Mvc.RouteAttribute> Określanie szablonu trasy. W czasie wykonywania, router szuka klasy składników za pomocą `RouteAttribute` i renderuje składnika za pomocą szablonu trasy, który pasuje do żądanego adresu URL.
+Gdy plik *Razor* z `@page` dyrektywą jest kompilowany, wygenerowana Klasa jest dostarczana z <xref:Microsoft.AspNetCore.Mvc.RouteAttribute> określeniem szablonu trasy. W czasie wykonywania router szuka klas składników z `RouteAttribute` i renderuje składnik przy użyciu szablonu trasy zgodnego z żądanym adresem URL.
 
-Wiele szablonów tras można zastosować do składnika. Następujący składnik, który będzie odpowiadał na żądania `/BlazorRoute` i `/DifferentBlazorRoute`:
+Do składnika można zastosować wiele szablonów tras. Poniższy składnik odpowiada na żądania dla `/BlazorRoute` i: `/DifferentBlazorRoute`
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Pages/BlazorRoute.razor?name=snippet_BlazorRoute)]
 
 > [!IMPORTANT]
-> Aby prawidłowo wygenerować trasy, aplikacja musi zawierać `<base>` tagów w jego *wwwroot/index.html* pliku (Blazor po stronie klienta) lub *Pages/_Host.cshtml* pliku (Blazor po stronie serwera) przy użyciu ścieżki podstawowej aplikacji określonych w `href` atrybutu (`<base href="/">`). Aby uzyskać więcej informacji, zobacz <xref:host-and-deploy/blazor/client-side#app-base-path>.
+> Aby prawidłowo generować trasy, aplikacja `<base>` musi zawierać tag w pliku *wwwroot/index.html* (po stronie klienta Blazor) lub *strony/_Host. cshtml* (po stronie serwera) z ścieżką bazową `href` aplikacji określoną w atrybucie ( `<base href="/">`). Aby uzyskać więcej informacji, zobacz <xref:host-and-deploy/blazor/client-side#app-base-path>.
 
-## <a name="provide-custom-content-when-content-isnt-found"></a>Podaj niestandardową zawartość, gdy zawartość nie zostanie znalezione
+## <a name="provide-custom-content-when-content-isnt-found"></a>Podaj zawartość niestandardową, jeśli nie można odnaleźć zawartości
 
-`Router` Składnik umożliwia aplikacji określić niestandardową zawartość, jeśli zawartość nie zostanie znalezione na trasie.
+`Router` Składnik umożliwia aplikacji określenie zawartości niestandardowej, jeśli nie można odnaleźć zawartości dla żądanej trasy.
 
-W *App.razor* pliku niestandardowej zawartości zestawu w `<NotFoundContent>` elementu `Router` składników:
+W pliku *App. Razor* Ustaw zawartość niestandardową w `<NotFoundContent>` elemencie `Router` składnika:
 
 ```cshtml
 <Router AppAssembly="typeof(Startup).Assembly">
@@ -70,26 +70,26 @@ Zawartość `<NotFoundContent>` może zawierać dowolne elementy, takie jak inne
 
 ## <a name="route-parameters"></a>Parametry trasy
 
-Router używa parametrów trasy do wypełnienia odpowiednich parametrów składnika o takiej samej nazwie (wielkich liter):
+Router używa parametrów trasy do wypełniania odpowiednich parametrów składnika o tej samej nazwie (bez uwzględniania wielkości liter):
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Pages/RouteParameter.razor?name=snippet_RouteParameter&highlight=2,7-8)]
 
-Opcjonalne parametry nie są obsługiwane w przypadku aplikacji Blazor w programie ASP.NET Core 3.0 (wersja zapoznawcza). Dwa `@page` dyrektywy są stosowane w poprzednim przykładzie. Pierwszy pozwala nawigacji do składnika bez parametrów. Drugi `@page` przyjmuje dyrektywy `{text}` kierowanie parametru, a następnie przypisuje wartość do `Text` właściwości.
+Parametry opcjonalne nie są obsługiwane w przypadku aplikacji Blazor w wersji zapoznawczej ASP.NET Core 3,0. W `@page` poprzednim przykładzie są stosowane dwie dyrektywy. Pierwszy zezwala na nawigowanie do składnika bez parametru. Druga `@page` dyrektywa `Text` przyjmuje parametr Route i przypisuje wartość do właściwości. `{text}`
 
 ## <a name="route-constraints"></a>Ograniczenia trasy
 
-Ograniczenia trasy wymusza typ zgodny w segmencie trasy do składnika.
+Ograniczenie trasy wymusza dopasowanie typu w segmencie trasy do składnika.
 
-W poniższym przykładzie trasy do `Users` składnik jest zgodny tylko, jeśli:
+W poniższym przykładzie trasa do `Users` składnika dopasowuje się tylko wtedy, gdy:
 
-* `Id` Segmentu trasy jest obecny w adresie URL żądania.
-* `Id` Segmentu jest liczbą całkowitą (`int`).
+* Segment `Id` trasy jest obecny w adresie URL żądania.
+* Segment jest liczbą całkowitą (`int`). `Id`
 
 [!code-cshtml[](routing/samples_snapshot/3.x/Constraint.razor?highlight=1)]
 
-Ograniczenia trasy, pokazano w poniższej tabeli są dostępne. Dla ograniczenia trasy, które odpowiadają przy użyciu niezmiennej kultury Zobacz ostrzeżenie w poniższej tabeli, aby uzyskać więcej informacji.
+Dostępne są ograniczenia trasy podane w poniższej tabeli. W przypadku ograniczeń trasy, które pasują do niezmiennej kultury, zobacz ostrzeżenie poniżej tabeli, aby uzyskać więcej informacji.
 
-| Ograniczenia | Przykład           | Przykład dopasowań                                                                  | Niezmiennej<br>kultura<br>parowanie |
+| Typu | Przykład           | Przykładowe dopasowania                                                                  | Niezmiennej<br>kultura<br>parowanie |
 | ---------- | ----------------- | -------------------------------------------------------------------------------- | :------------------------------: |
 | `bool`     | `{active:bool}`   | `true`, `FALSE`                                                                  | Nie                               |
 | `datetime` | `{dob:datetime}`  | `2016-12-31`, `2016-12-31 7:32pm`                                                | Yes                              |
@@ -101,37 +101,37 @@ Ograniczenia trasy, pokazano w poniższej tabeli są dostępne. Dla ograniczenia
 | `long`     | `{ticks:long}`    | `123456789`, `-123456789`                                                        | Tak                              |
 
 > [!WARNING]
-> Trasy, ograniczenia, sprawdź adres URL, które są konwertowane na typ CLR (takie jak `int` lub `DateTime`) zawsze używają niezmiennej kultury. Te ograniczenia przyjęto założenie, że adres URL jest niemożliwe do zlokalizowania.
+> Ograniczenia trasy, które weryfikują adres URL i są konwertowane na typ CLR (takie `int` jak `DateTime`lub), zawsze używają niezmiennej kultury. W tych ograniczeniach przyjęto założenie, że adres URL nie jest Lokalizowalny.
 
 ## <a name="navlink-component"></a>Składnik NavLink
 
-Użyj `NavLink` składnika zamiast elementów hiperłącze HTML (`<a>`) podczas tworzenia łączy nawigacji. A `NavLink` składnik zachowuje się jak `<a>` elementu, z wyjątkiem go Włącza/wyłącza `active` klasy CSS na ich podstawie jego `href` zgodny z bieżącym adresem URL. `active` Pomaga użytkownikom zrozumieć stronę, która jest stroną aktywną między łącza nawigacji wyświetlane, klasy.
+Podczas tworzenia linków nawigacji Użyj`<a>` składnikazamiastelementówhiperlinkówHTML().`NavLink` Składnik zachowuje się `<a>` jak element, `active` z wyjątkiem przełączenia klasy CSS w zależności od tego, czy `href` jest on zgodny z bieżącym adresem URL. `NavLink` `active` Klasa pomaga użytkownikowi zrozumieć, która strona jest aktywną stroną między wyświetlanymi łączami nawigacji.
 
-Następujące `NavMenu` składnik tworzy [Bootstrap](https://getbootstrap.com/docs/) pasek nawigacyjny, który demonstruje sposób skorzystania `NavLink` składników:
+Poniższy `NavMenu` składnik tworzy pasek nawigacyjny [Bootstrap](https://getbootstrap.com/docs/) , który pokazuje, jak używać `NavLink` składników:
 
 [!code-cshtml[](routing/samples_snapshot/3.x/NavMenu.razor?highlight=4,9)]
 
-Istnieją dwa `NavLinkMatch` opcje, które można przypisać do `Match` atrybutu `<NavLink>` elementu:
+Dostępne są dwie `NavLinkMatch` opcje, które można przypisać `Match` do atrybutu `<NavLink>` elementu:
 
-* `NavLinkMatch.All` &ndash; `NavLink` Jest aktywna, gdy są one zgodne z bieżącą cały adres URL.
-* `NavLinkMatch.Prefix` (*domyślne*) &ndash; `NavLink` jest aktywna, gdy są one zgodne z dowolnego prefiksu bieżący adres URL.
+* `NavLinkMatch.All`Jest aktywny, `NavLink` gdy jest zgodny z całym bieżącym adresem URL. &ndash;
+* `NavLinkMatch.Prefix`(*ustawienie domyślne*) Jest aktywny, `NavLink` gdy pasuje do dowolnego prefiksu bieżącego adresu URL. &ndash;
 
-W powyższym przykładzie miejsce, w którym `NavLink` `href=""` adresowi URL głównego i odbiera tylko `active` klasy CSS w aplikacji domyślnej ścieżki podstawowego adresu URL (na przykład `https://localhost:5001/`). Drugi `NavLink` odbiera `active` klasy, gdy użytkownik odwiedza dowolnego adresu URL za pomocą `MyComponent` prefiksu (na przykład `https://localhost:5001/MyComponent` i `https://localhost:5001/MyComponent/AnotherSegment`).
+W `NavLink` poprzednim przykładzie Strona główna `href=""` odpowiada głównemu `active` adresowi URL i odbiera tylko klasy CSS przy `https://localhost:5001/`domyślnym adresie URL ścieżki podstawowej aplikacji (na przykład). Druga `NavLink` otrzymuje klasę, `active` gdy użytkownik `MyComponent` odwiedzi dowolny adres URL z prefiksem (na przykład `https://localhost:5001/MyComponent` i `https://localhost:5001/MyComponent/AnotherSegment`).
 
-## <a name="uri-and-navigation-state-helpers"></a>Identyfikator URI i nawigacji pomocników stanu
+## <a name="uri-and-navigation-state-helpers"></a>Pomoc dotycząca stanu identyfikatora URI i nawigacji
 
-Użyj `Microsoft.AspNetCore.Components.IUriHelper` do pracy z identyfikatorów URI i nawigacja w C# kodu. `IUriHelper` zapewnia zdarzenia i metody, które przedstawiono w poniższej tabeli.
+Służy `Microsoft.AspNetCore.Components.IUriHelper` do pracy z identyfikatorami URI i C# nawigacją w kodzie. `IUriHelper`zawiera zdarzenie i metody przedstawione w poniższej tabeli.
 
 | Element członkowski | Opis |
 | ------ | ----------- |
 | `GetAbsoluteUri` | Pobiera bieżący bezwzględny identyfikator URI. |
-| `GetBaseUri` | Pobiera podstawowy identyfikator URI (z ukośnikiem końcowym), może zostać dołączony do ścieżek względnych identyfikatora URI, aby utworzyć bezwzględny identyfikator URI. Zazwyczaj `GetBaseUri` odnosi się do `href` atrybutu w dokumencie `<base>` element *wwwroot/index.html* (Blazor po stronie klienta) lub *Pages/_Host.cshtml* () Blazor po stronie serwera). |
-| `NavigateTo` | Powoduje przejście do określonego identyfikatora URI. Jeśli `forceLoad` jest `true`:<ul><li>Routing po stronie klienta jest pomijany.</li><li>Przeglądarki jest zmuszony do ładowania nowej strony z serwera, czy identyfikator URI zwykle odbywa się przez router po stronie klienta.</li></ul> |
-| `OnLocationChanged` | Zdarzenie, które są generowane, gdy lokalizacja nawigacji została zmieniona. |
+| `GetBaseUri` | Pobiera podstawowy identyfikator URI (z końcowym ukośnikiem), który można dołączać do względnych ścieżek URI w celu utworzenia bezwzględnego identyfikatora URI. `GetBaseUri` Zazwyczaj odpowiada `href` *atrybutowi* elementu dokumentu w wwwroot/index.html (Blazor po stronie klienta) lub *stron/_Host. cshtml* (Blazor po stronie serwera). `<base>` |
+| `NavigateTo` | Przechodzi do określonego identyfikatora URI. Jeśli `forceLoad` jest `true`:<ul><li>Routing po stronie klienta jest pomijany.</li><li>W przeglądarce wymuszone jest załadowanie nowej strony z serwera, niezależnie od tego, czy identyfikator URI jest zwykle obsługiwany przez router po stronie klienta.</li></ul> |
+| `OnLocationChanged` | Zdarzenie, które jest wyzwalane po zmianie lokalizacji nawigacji. |
 | `ToAbsoluteUri` | Konwertuje względny identyfikator URI na bezwzględny identyfikator URI. |
-| `ToBaseRelativePath` | Biorąc pod uwagę podstawowy identyfikator URI (na przykład identyfikator URI wcześniej zwracany przez `GetBaseUri`), konwertuje bezwzględny identyfikator URI identyfikatora URI, względem podstawowego prefiks identyfikatora URI. |
+| `ToBaseRelativePath` | Przy użyciu podstawowego identyfikatora URI (na przykład identyfikatora URI zwróconego wcześniej `GetBaseUri`przez), program konwertuje bezwzględny identyfikator URI na identyfikator URI względem podstawowego prefiksu URI. |
 
-Następujący składnik przechodzi do aplikacji `Counter` składnika po wybraniu przycisku:
+Poniższy składnik przechodzi do `Counter` składnika aplikacji po wybraniu przycisku:
 
 ```cshtml
 @page "/navigate"
@@ -140,7 +140,7 @@ Następujący składnik przechodzi do aplikacji `Counter` składnika po wybraniu
 
 <h1>Navigate in Code Example</h1>
 
-<button class="btn btn-primary" @onclick="@NavigateToCounterComponent">
+<button class="btn btn-primary" @onclick="NavigateToCounterComponent">
     Navigate to the Counter component
 </button>
 

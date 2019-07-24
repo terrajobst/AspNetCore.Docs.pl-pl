@@ -1,30 +1,30 @@
 ---
-title: Uwierzytelnianie i autoryzacja w biblioteki SignalR platformy ASP.NET Core
+title: Uwierzytelnianie i autoryzacja w usłudze ASP.NET Core sygnalizujący
 author: bradygaster
-description: Dowiedz się, jak używać uwierzytelniania i autoryzacji w biblioteki SignalR platformy ASP.NET Core.
+description: Dowiedz się, jak używać uwierzytelniania i autoryzacji w usłudze ASP.NET Core sygnalizujący.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 05/09/2019
+ms.date: 07/15/2019
 uid: signalr/authn-and-authz
-ms.openlocfilehash: e8f9dc48be780fb91bdec6ea4d579f5e4f16197b
-ms.sourcegitcommit: 3376f224b47a89acf329b2d2f9260046a372f924
+ms.openlocfilehash: e7e7a9fd537ba89b64c15594652a290357a00038
+ms.sourcegitcommit: f30b18442ed12831c7e86b0db249183ccd749f59
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65516939"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68412531"
 ---
-# <a name="authentication-and-authorization-in-aspnet-core-signalr"></a>Uwierzytelnianie i autoryzacja w biblioteki SignalR platformy ASP.NET Core
+# <a name="authentication-and-authorization-in-aspnet-core-signalr"></a>Uwierzytelnianie i autoryzacja w usłudze ASP.NET Core sygnalizujący
 
-Przez [Andrew Stanton pielęgniarki](https://twitter.com/anurse)
+Według [Andrew Stanton-pielęgniarki](https://twitter.com/anurse)
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/authn-and-authz/sample/) [(jak pobrać)](xref:index#how-to-download-a-sample)
+[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/authn-and-authz/sample/) [(jak pobrać)](xref:index#how-to-download-a-sample)
 
-## <a name="authenticate-users-connecting-to-a-signalr-hub"></a>Uwierzytelnianie użytkowników łączących się z Centrum SignalR
+## <a name="authenticate-users-connecting-to-a-signalr-hub"></a>Uwierzytelnianie użytkowników łączących się z centrum sygnałów
 
-SignalR mogą być używane z [uwierzytelnianie programu ASP.NET Core](xref:security/authentication/identity) do skojarzenia użytkownika z każdego połączenia. W centrum danych uwierzytelniania są dostępne z [ `HubConnectionContext.User` ](/dotnet/api/microsoft.aspnetcore.signalr.hubconnectioncontext.user) właściwości. Uwierzytelnianie umożliwia piaście aby wywoływać metody na wszystkie połączenia skojarzone z użytkownikiem (zobacz [zarządzania użytkownikami i grupami w SignalR](xref:signalr/groups) Aby uzyskać więcej informacji). Wiele połączeń mogą być skojarzone z żadnym użytkownikiem.
+Program sygnalizujący może być używany z [uwierzytelnianiem ASP.NET Core](xref:security/authentication/identity) , aby skojarzyć użytkownika z każdym połączeniem. W centrum dane uwierzytelniania są dostępne z [`HubConnectionContext.User`](/dotnet/api/microsoft.aspnetcore.signalr.hubconnectioncontext.user) właściwości. Uwierzytelnianie umożliwia centrum wywoływanie metod we wszystkich połączeniach skojarzonych z użytkownikiem (zobacz [Zarządzanie użytkownikami i grupami w programie sygnalizującym](xref:signalr/groups) ), aby uzyskać więcej informacji. Wiele połączeń może być skojarzonych z pojedynczym użytkownikiem.
 
-Oto przykład `Startup.Configure` , który używa uwierzytelniania SignalR i ASP.NET Core:
+Poniżej przedstawiono przykład, w `Startup.Configure` którym jest używany program sygnalizujący i ASP.NET Core Authentication:
 
 ```csharp
 public void Configure(IApplicationBuilder app)
@@ -48,25 +48,25 @@ public void Configure(IApplicationBuilder app)
 ```
 
 > [!NOTE]
-> Kolejność, w którym należy zarejestrować SignalR i ASP.NET Core spraw oprogramowania pośredniczącego uwierzytelniania. Zawsze wywołuj `UseAuthentication` przed `UseSignalR` tak, aby SignalR użytkownika `HttpContext`.
+> Kolejność, w której zarejestrowano sygnał i ASP.NET Core uwierzytelniania oprogramowania pośredniczącego. Zawsze wywołuj `UseAuthentication` przed `UseSignalR` tym, że sygnalizujący `HttpContext`ma użytkownika na.
 
-### <a name="cookie-authentication"></a>Plik cookie uwierzytelniania
+### <a name="cookie-authentication"></a>Uwierzytelnianie plików cookie
 
-W aplikacji opartej na przeglądarce uwierzytelniania plików cookie umożliwia istniejących poświadczeń użytkownika w taki sposób, aby automatycznie przekazywane z połączeniami SignalR. Podczas korzystania z klienta przeglądarki, dodatkowa konfiguracja nie jest potrzebna. Jeśli użytkownik jest zalogowany do aplikacji, połączenia SignalR automatycznie dziedziczy tego uwierzytelnienia.
+W aplikacji opartej na przeglądarce uwierzytelnianie plików cookie umożliwia istniejące poświadczenia użytkownika w celu automatycznego przepływania do połączeń sygnałów. W przypadku korzystania z klienta przeglądarki nie jest wymagana dodatkowa konfiguracja. Jeśli użytkownik jest zalogowany do aplikacji, połączenie sygnalizujące automatycznie dziedziczy to uwierzytelnianie.
 
-Pliki cookie są specyficzne dla przeglądarki sposób przesyłania tokenów dostępu, ale klientów nie korzystających z przeglądarki mogą wysyłać je. Korzystając z [klient modelu .NET](xref:signalr/dotnet-client), `Cookies` właściwości można skonfigurować w `.WithUrl` wywołanie w celu zapewnienia pliku cookie. Jednak przy użyciu uwierzytelniania plików cookie z klienta .NET wymaga aplikacji, aby dostarczać interfejs API w celu wymiany danych uwierzytelniania dla pliku cookie.
+Pliki cookie to specyficzny dla przeglądarki sposób wysyłania tokenów dostępu, ale Klienci niebędący przeglądarkami mogą je wysyłać. W przypadku korzystania z `Cookies` [klienta platformy .NET](xref:signalr/dotnet-client)Właściwość można skonfigurować w `.WithUrl` wywołaniu w celu udostępnienia pliku cookie. Jednak używanie uwierzytelniania plików cookie z poziomu klienta platformy .NET wymaga, aby aplikacja zapewniała interfejs API do wymiany danych uwierzytelniania dla plików cookie.
 
-### <a name="bearer-token-authentication"></a>Uwierzytelnianie przy użyciu tokenów elementu nośnego
+### <a name="bearer-token-authentication"></a>Uwierzytelnianie tokenu okaziciela
 
-Klient może dostarczyć token dostępu, zamiast korzystać z pliku cookie. Serwer sprawdza poprawność tokenu i używa ich do identyfikacji użytkownika. To jest sprawdzana tylko wtedy, gdy połączenie zostanie nawiązane. W okresie obowiązywania połączenia serwera nie automatycznie ponownie sprawdź poprawność pod kątem tokenu odwołania.
+Klient może dostarczyć token dostępu zamiast korzystać z pliku cookie. Serwer sprawdza token i używa go do identyfikowania użytkownika. Sprawdzanie poprawności jest wykonywane tylko wtedy, gdy połączenie zostało nawiązane. W trakcie trwania połączenia serwer nie zostanie automatycznie ponownie sprawdzony w celu sprawdzenia odwołania tokenu.
 
-Na serwerze uwierzytelniania tokenu elementu nośnego jest skonfigurowany przy użyciu [oprogramowanie pośredniczące elementu nośnego JWT](/dotnet/api/microsoft.extensions.dependencyinjection.jwtbearerextensions.addjwtbearer).
+Na serwerze uwierzytelnianie tokenu okaziciela jest konfigurowane przy użyciu [oprogramowania pośredniczącego okaziciela JWT](/dotnet/api/microsoft.extensions.dependencyinjection.jwtbearerextensions.addjwtbearer).
 
-W kliencie JavaScript, można określić token za pomocą [accessTokenFactory](xref:signalr/configuration#configure-bearer-authentication) opcji.
+W kliencie JavaScript token może być dostarczony przy użyciu opcji [accessTokenFactory](xref:signalr/configuration#configure-bearer-authentication) .
 
 [!code-typescript[Configure Access Token](authn-and-authz/sample/wwwroot/js/chat.ts?range=63-65)]
 
-W kliencie programu .NET jest podobny [AccessTokenProvider](xref:signalr/configuration#configure-bearer-authentication) właściwość, która może służyć do konfigurowania tokenu:
+W kliencie .NET istnieje podobna Właściwość [AccessTokenProvider](xref:signalr/configuration#configure-bearer-authentication) , której można użyć do skonfigurowania tokenu:
 
 ```csharp
 var connection = new HubConnectionBuilder()
@@ -78,30 +78,30 @@ var connection = new HubConnectionBuilder()
 ```
 
 > [!NOTE]
-> Funkcja tokenu dostępu, należy podać jest wywoływana przed **co** żądania HTTP przez SignalR. Jeśli musisz odnowić token, aby zachować połączenie jako aktywne (ponieważ mogą stracić ważność podczas nawiązywania połączenia), to zrobić w ramach tej funkcji i zwróć zaktualizowanego tokenu.
+> Funkcja tokenu dostępu dostarczana jest wywoływana przed **każdym** żądaniem http wykonywanym przez sygnalizujący. Jeśli musisz odnowić token, aby zachować aktywne połączenie (ponieważ może ono wygasnąć podczas połączenia), zrób to w ramach tej funkcji i zwróć zaktualizowany token.
 
-W standardowych interfejsów API sieci web tokenów elementu nośnego, są wysyłane w nagłówku HTTP. Nie można ustawić tych nagłówków w przeglądarkach, korzystając z niektórych transportu jest jednak SignalR. Korzystając z funkcji WebSockets i zdarzenia Server-Sent, token jest przekazywany jako parametr ciągu zapytania. Aby to umożliwić, na serwerze, wymagana jest dodatkowa konfiguracja:
+W standardowym interfejsie API sieci Web tokeny okaziciela są wysyłane w nagłówku HTTP. Jednak sygnalizujący nie może ustawić tych nagłówków w przeglądarkach podczas korzystania z niektórych transportów. W przypadku korzystania z obiektów WebSockets i zdarzeń wysyłanych przez serwer token jest przekazywany jako parametr ciągu zapytania. Aby można było obsługiwać ten serwer na serwerze, wymagana jest dodatkowa konfiguracja:
 
 [!code-csharp[Configure Server to accept access token from Query String](authn-and-authz/sample/Startup.cs?name=snippet)]
 
-### <a name="cookies-vs-bearer-tokens"></a>Pliki cookie, a tokenów elementu nośnego 
+### <a name="cookies-vs-bearer-tokens"></a>Pliki cookie a tokeny okaziciela 
 
-Ponieważ pliki cookie są specyficzne dla przeglądarek, wysyłając je od innych rodzajów klientów dodaje złożoności w porównaniu do wysyłania tokenów elementu nośnego. Z tego powodu uwierzytelniania plików cookie nie jest zalecane, chyba że aplikacja musi się tylko do uwierzytelniania użytkowników z klienta przeglądarki. Uwierzytelnianie przy użyciu tokenów elementu nośnego zaleca się podczas korzystania z klientów innych niż klient przeglądarki.
+Ponieważ pliki cookie są specyficzne dla przeglądarek, wysyłanie ich z innych rodzajów klientów zwiększa złożoność w porównaniu z wysyłaniem tokenów okaziciela. Z tego powodu uwierzytelnianie plików cookie nie jest zalecane, chyba że aplikacja wymaga tylko uwierzytelnienia użytkowników z poziomu klienta przeglądarki. Uwierzytelnianie tokenów okaziciela jest zalecanym rozwiązaniem w przypadku korzystania z klientów innych niż klient przeglądarki.
 
 ### <a name="windows-authentication"></a>Uwierzytelnianie systemu Windows
 
-Jeśli [uwierzytelniania Windows](xref:security/authentication/windowsauth) jest skonfigurowana w Twojej aplikacji SignalR można użyć tej tożsamości do zabezpieczania koncentratorów. Jednak aby można było wysyłać komunikaty do poszczególnych użytkowników, należy dodać niestandardowego dostawcy Identyfikatora użytkownika. Jest to spowodowane uwierzytelniania systemu Windows nie zapewnia roszczenia "Identyfikator nazwy", która korzysta z biblioteki SignalR można ustalić nazwy użytkownika.
+Jeśli w aplikacji skonfigurowano [uwierzytelnianie systemu Windows](xref:security/authentication/windowsauth) , program sygnalizujący może użyć tej tożsamości do zabezpieczania centrów. Jednak w celu wysyłania komunikatów do poszczególnych użytkowników należy dodać niestandardowego dostawcę identyfikatora użytkownika. Wynika to z faktu, że system uwierzytelniania systemu Windows nie udostępnia "identyfikatora nazwy", którego używa program sygnalizujący do określenia nazwy użytkownika.
 
-Dodaj nową klasę, która implementuje `IUserIdProvider` i pobieranie jedno z oświadczeń użytkownika do wykorzystania jako identyfikator. Na przykład, aby użyć oświadczenia "Name" (czyli nazwę użytkownika Windows w postaci `[Domain]\[Username]`), utworzyć następujące klasy:
+Dodaj nową klasę, która implementuje `IUserIdProvider` i pobiera jedno z oświadczeń od użytkownika do użycia jako identyfikator. Aby na przykład użyć żądania "name" (czyli nazwy użytkownika systemu Windows w formularzu `[Domain]\[Username]`), Utwórz następującą klasę:
 
 [!code-csharp[Name based provider](authn-and-authz/sample/nameuseridprovider.cs?name=NameUserIdProvider)]
 
-Zamiast `ClaimTypes.Name`, możesz użyć dowolnej wartości z `User` (np. identyfikator Windows SID itd.).
+`ClaimTypes.Name`Zamiast tego`User` można użyć dowolnej wartości z (na przykład identyfikatora SID systemu Windows itp.).
 
 > [!NOTE]
-> Wartość, którą wybierzesz musi być unikatowa wśród wszystkich użytkowników w Twoim systemie. W przeciwnym razie komunikat przeznaczony dla jednego użytkownika może się okazać, przechodząc do innego użytkownika.
+> Wybrana wartość musi być unikatowa wśród wszystkich użytkowników w systemie. W przeciwnym razie komunikat przeznaczony dla jednego użytkownika może zostać zakończony przez innego użytkownika.
 
-Zarejestruj ten składnik w usługi `Startup.ConfigureServices` metody.
+Zarejestruj ten składnik w `Startup.ConfigureServices` metodzie.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -113,7 +113,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-W kliencie programu .NET, należy włączyć uwierzytelnianie Windows, ustawiając [UseDefaultCredentials](/dotnet/api/microsoft.aspnetcore.http.connections.client.httpconnectionoptions.usedefaultcredentials) właściwości:
+W kliencie .NET należy włączyć uwierzytelnianie systemu Windows, ustawiając właściwość [UseDefaultCredentials](/dotnet/api/microsoft.aspnetcore.http.connections.client.httpconnectionoptions.usedefaultcredentials) :
 
 ```csharp
 var connection = new HubConnectionBuilder()
@@ -124,49 +124,49 @@ var connection = new HubConnectionBuilder()
     .Build();
 ```
 
-Uwierzytelnianie Windows tylko jest obsługiwany przez klienta przeglądarki, korzystając z programu Microsoft Internet Explorer lub Microsoft Edge.
+Uwierzytelnianie systemu Windows jest obsługiwane tylko przez klienta przeglądarki tylko w przypadku korzystania z programu Microsoft Internet Explorer lub Microsoft Edge.
 
-### <a name="use-claims-to-customize-identity-handling"></a>Dostosuj obsługę tożsamości oświadczeń użycia
+### <a name="use-claims-to-customize-identity-handling"></a>Używanie oświadczeń do dostosowywania obsługi tożsamości
 
-Aplikacja, która uwierzytelnia użytkowników mogą dziedziczyć identyfikatory użytkowników SignalR oświadczenia użytkownika. Aby określić, jak SignalR tworzy identyfikatorów użytkowników, należy zaimplementować `IUserIdProvider` i zarejestruj wdrożenia.
+Aplikacja, która uwierzytelnia użytkowników, może dziedziczyć identyfikatory użytkowników z oświadczeń użytkowników. Aby określić, jak program sygnalizujący tworzy identyfikatory użytkowników `IUserIdProvider` , zaimplementuj i zarejestruj implementację.
 
-Przykładowy kod pokazuje, jak skorzystać z oświadczeń wybrać adres e-mail użytkownika jako właściwości identyfikującej. 
+Przykładowy kod demonstruje, jak używać oświadczeń do wybierania adresu e-mail użytkownika jako właściwości identyfikującej. 
 
 > [!NOTE]
-> Wartość, którą wybierzesz musi być unikatowa wśród wszystkich użytkowników w Twoim systemie. W przeciwnym razie komunikat przeznaczony dla jednego użytkownika może się okazać, przechodząc do innego użytkownika.
+> Wybrana wartość musi być unikatowa wśród wszystkich użytkowników w systemie. W przeciwnym razie komunikat przeznaczony dla jednego użytkownika może zostać zakończony przez innego użytkownika.
 
 [!code-csharp[Email provider](authn-and-authz/sample/EmailBasedUserIdProvider.cs?name=EmailBasedUserIdProvider)]
 
-Rejestracja konta dodaje oświadczenie z typem `ClaimsTypes.Email` do bazy danych tożsamości ASP.NET.
+Rejestracja konta dodaje do bazy danych tożsamości ASP.NET `ClaimsTypes.Email` zgłoszenie typu.
 
 [!code-csharp[Adding the email to the ASP.NET identity claims](authn-and-authz/sample/pages/account/Register.cshtml.cs?name=AddEmailClaim)]
 
-Zarejestruj ten składnik w usługi `Startup.ConfigureServices`.
+Zarejestruj ten składnik w `Startup.ConfigureServices`.
 
 ```csharp
 services.AddSingleton<IUserIdProvider, EmailBasedUserIdProvider>();
 ```
 
-## <a name="authorize-users-to-access-hubs-and-hub-methods"></a>Zezwolić użytkownikom na dostęp do koncentratorów i metod koncentratorów
+## <a name="authorize-users-to-access-hubs-and-hub-methods"></a>Autoryzuj użytkowników do uzyskiwania dostępu do centrów i metod centrów
 
-Domyślnie wszystkie metody w Centrum można wywoływać za pomocą nieuwierzytelniony użytkownik. Aby wymagać uwierzytelniania, należy zastosować [Autoryzuj](/dotnet/api/microsoft.aspnetcore.authorization.authorizeattribute) atrybutu do Centrum:
+Domyślnie wszystkie metody w koncentratorze mogą być wywoływane przez nieuwierzytelniony użytkownik. W celu wymagania uwierzytelniania należy zastosować atrybut [Autoryzuj](/dotnet/api/microsoft.aspnetcore.authorization.authorizeattribute) do centrum:
 
 [!code-csharp[Restrict a hub to only authorized users](authn-and-authz/sample/Hubs/ChatHub.cs?range=8-10,32)]
 
-Można użyć w argumentach konstruktora i właściwości działania `[Authorize]` atrybutu, aby ograniczyć dostęp do użytkowników tylko pasujących do określonych [zasady autoryzacji](xref:security/authorization/policies). Na przykład, jeśli masz niestandardowych zasad autoryzacji o nazwie `MyAuthorizationPolicy` upewnij się, tylko użytkownicy dopasowania tych zasad mają dostęp do Centrum, używając następującego kodu:
+Można użyć argumentów konstruktora i właściwości `[Authorize]` atrybutu w celu ograniczenia dostępu tylko do użytkowników zgodnych z określonymi [zasadami autoryzacji](xref:security/authorization/policies). Na przykład jeśli masz niestandardowe zasady autoryzacji o nazwie `MyAuthorizationPolicy` , możesz upewnić się, że tylko użytkownicy pasujący do tych zasad mogą uzyskać dostęp do centrum przy użyciu następującego kodu:
 
 ```csharp
 [Authorize("MyAuthorizationPolicy")]
-public class ChatHub: Hub
+public class ChatHub : Hub
 {
 }
 ```
 
-Może mieć metod koncentratora poszczególnych `[Authorize]` zastosowany także. Jeśli bieżący użytkownik nie jest zgodny zasady zastosowane do metody, błąd jest zwracany do obiektu wywołującego:
+Do `[Authorize]` poszczególnych metod centrów można również zastosować atrybut. Jeśli bieżący użytkownik nie jest zgodny z zasadami zastosowanymi do metody, zwracany jest błąd do obiektu wywołującego:
 
 ```csharp
 [Authorize]
-public class ChatHub: Hub
+public class ChatHub : Hub
 {
     public async Task Send(string message)
     {
@@ -181,6 +181,81 @@ public class ChatHub: Hub
 }
 ```
 
+::: moniker range=">= aspnetcore-3.0"
+
+### <a name="use-authorization-handlers-to-customize-hub-method-authorization"></a>Używanie programów obsługi autoryzacji do dostosowywania autoryzacji metody centrum
+
+Sygnalizujący udostępnia zasób niestandardowy do obsługi autoryzacji, gdy metoda centrum wymaga autoryzacji. Zasób jest wystąpieniem `HubInvocationContext`. `HubInvocationContext` Obejmuje,nazwęwywoływanejmetodycentrum`HubCallerContext`oraz argumenty metody centrum.
+
+Rozważmy przykład pokoju czatu umożliwiającego logowanie do wielu organizacji za pośrednictwem Azure Active Directory. Każda osoba mająca konto Microsoft może zalogować się do programu chat, ale tylko członkowie organizacji będącej właścicielem będą mogli uniemożliwić użytkownikom lub wyświetlać historie rozmów użytkowników. Ponadto możemy chcieć ograniczyć niektóre funkcje do określonych użytkowników. Korzystanie z zaktualizowanych funkcji w ASP.NET Core 3,0 jest to w całości możliwe. Zwróć uwagę na `DomainRestrictedRequirement` to, jak służy `IAuthorizationRequirement`jako niestandardowy. Teraz, gdy parametr zasobujestprzesyłany,wewnętrznalogikamożesprawdzićkontekst,wktórymjestwywoływanacentrum,ipodjąćdecyzjedotycząceumożliwieniaużytkownikowiwykonywaniaposzczególnychmetodcentrów.`HubInvocationContext`
+
+```csharp
+[Authorize]
+public class ChatHub : Hub
+{
+    public void SendMessage(string message)
+    {
+    }
+
+    [Authorize("DomainRestricted")]
+    public void BanUser(string username)
+    {
+    }
+
+    [Authorize("DomainRestricted")]
+    public void ViewUserHistory(string username)
+    {
+    }
+}
+
+public class DomainRestrictedRequirement : 
+    AuthorizationHandler<DomainRestrictedRequirement, HubInvocationContext>, 
+    IAuthorizationRequirement
+{
+    protected override Task HandleRequirementAsync(AuthorizationHandlerContext context,
+        DomainRestrictedRequirement requirement, 
+        HubInvocationContext resource)
+    {
+        if (IsUserAllowedToDoThis(resource.HubMethodName, context.User.Identity.Name) && 
+            context.User.Identity.Name.EndsWith("@microsoft.com"))
+        {
+            context.Succeed(requirement);
+        }
+        return Task.CompletedTask;
+    }
+
+    private bool IsUserAllowedToDoThis(string hubMethodName,
+        string currentUsername)
+    {
+        return !(currentUsername.Equals("asdf42@microsoft.com") && 
+            hubMethodName.Equals("banUser", StringComparison.OrdinalIgnoreCase));
+    }
+}
+```
+
+W `Startup.ConfigureServices`programie Dodaj nowe zasady, dostarczając niestandardowe `DomainRestrictedRequirement` wymagania jako parametr do tworzenia `DomainRestricted` zasad.
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    // ... other services ...
+
+    services
+        .AddAuthorization(options =>
+        {
+            options.AddPolicy("DomainRestricted", policy =>
+            {
+                policy.Requirements.Add(new DomainRestrictedRequirement());
+            });
+        });
+}
+```
+
+W poprzednim przykładzie `DomainRestrictedRequirement` Klasa jest `IAuthorizationRequirement` zarówno, jak i `AuthorizationHandler` dla tego wymagania. Można podzielić te dwa składniki na osobne klasy w celu oddzielenia obaw. Zaletą podejścia przykładowego jest brak konieczności wstrzykiwania `AuthorizationHandler` podczas uruchamiania, ponieważ wymaganie i procedura obsługi są takie same.
+
+::: moniker-end
+
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Uwierzytelnianie przy użyciu tokenów elementu nośnego w programie ASP.NET Core](https://blogs.msdn.microsoft.com/webdev/2016/10/27/bearer-token-authentication-in-asp-net-core/)
+* [Uwierzytelnianie tokenu okaziciela w ASP.NET Core](https://blogs.msdn.microsoft.com/webdev/2016/10/27/bearer-token-authentication-in-asp-net-core/)
+* [Autoryzacja na podstawie zasobów](xref:security/authorization/resourcebased)
