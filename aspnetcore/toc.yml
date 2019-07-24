@@ -826,7 +826,7 @@
           uid: security/authentication/identity-enable-qrcodes
         - name: Uwierzytelnianie dwuskładnikowe za pomocą wiadomości SMS
           uid: security/authentication/2fa
-        - name: Korzystanie z uwierzytelniania za pomocą plików cookie bez użycia systemu Identity
+        - name: Korzystanie z uwierzytelniania za pomocą plików cookie bez użycia produktu Identity
           uid: security/authentication/cookie
         - name: Uwierzytelnianie przy użyciu sieci społecznościowych bez korzystania z systemu Identity
           uid: security/authentication/social/social-without-identity
