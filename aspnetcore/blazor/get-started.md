@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/23/2019
 uid: blazor/get-started
-ms.openlocfilehash: 9ebe1e2d36f96bfa214c2389535c28db5db5020a
-ms.sourcegitcommit: f30b18442ed12831c7e86b0db249183ccd749f59
+ms.openlocfilehash: b4609858be43acf9d1b2d8be5eff4879fd56f49f
+ms.sourcegitcommit: 051f068c78931432e030b60094c38376d64d013e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68412408"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68440309"
 ---
 # <a name="get-started-with-aspnet-core-blazor"></a>Wprowadzenie do ASP.NET Core Blazor
 
@@ -34,19 +34,18 @@ Rozpocznij pracę z usługą Blazor:
 
    1\. Zainstaluj najnowszą wersję [zapoznawczą programu Visual Studio](https://visualstudio.com/vs/preview) , korzystając z obciążeń **ASP.NET i Web Development** .
 
-   2\. Zainstaluj najnowsze [rozszerzenie Blazor](https://go.microsoft.com/fwlink/?linkid=870389) z Visual Studio Marketplace. Ten krok sprawia, że szablony Blazor są dostępne dla programu Visual Studio.
+   2\. Utwórz nowy projekt.
 
-   3 \. Utwórz nowy projekt.
+   3 \. Wybierz pozycję **aplikacja Blazor**. Wybierz opcję **Dalej**.
 
-   4\. Wybierz **aplikacji sieci Web platformy ASP.NET Core**. Wybierz opcję **Dalej**.
+   4\. Podaj nazwę projektu w polu **Nazwa projektu** lub zaakceptuj nazwę domyślną projektu. Potwierdź, że wpis **lokalizacji** jest poprawny lub podaj lokalizację dla projektu. Wybierz pozycję **Utwórz**.
 
-   5 \. Podaj nazwę projektu w polu **Nazwa projektu** lub zaakceptuj nazwę domyślną projektu. Potwierdź, że wpis **lokalizacji** jest poprawny lub podaj lokalizację dla projektu. Wybierz pozycję **Utwórz**.
+   5 \. W przypadku środowiska po stronie klienta Blazor wybierz szablon **Blazor (po stronie klienta)** . W przypadku środowiska po stronie serwera Blazor wybierz szablon **aplikacji Blazor Server** . Wybierz pozycję **Utwórz**. Aby uzyskać informacje na temat dwóch Blazorch modeli hostingu, po stronie serwera i klienta, zobacz <xref:blazor/hosting-models>.
 
-   6 \. W oknie dialogowym **Tworzenie nowej ASP.NET Core aplikacji sieci Web** upewnij się, że wybrano opcję **.net Core** i **ASP.NET Core 3,0** .
+   6 \. Naciśnij klawisz **F5** , aby uruchomić aplikację.
 
-   7 \. W przypadku środowiska po stronie klienta Blazor wybierz szablon **aplikacji Blazor webassembly** . W przypadku środowiska po stronie serwera Blazor wybierz szablon **aplikacji Blazor Server** . Wybierz pozycję **Utwórz**. Aby uzyskać informacje na temat dwóch Blazorch modeli hostingu, po stronie serwera i klienta, zobacz <xref:blazor/hosting-models>.
-
-   8 \. Naciśnij klawisz **F5** , aby uruchomić aplikację.
+   > [!NOTE]
+   > Jeśli zainstalowano rozszerzenie Blazor programu Visual Studio dla starszej wersji zapoznawczej programu ASP.NET Core Blazor (wersja zapoznawcza 6 lub wcześniejsza), można odinstalować rozszerzenie w wersji zapoznawczej 7. Instalowanie szablonów Blazor w powłoce poleceń jest teraz wystarczające do poszycia szablonów w programie Visual Studio.
 
    # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 

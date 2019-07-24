@@ -5,14 +5,14 @@ description: Dowiedz się, jak tworzyć i używać składników Razor, w tym jak
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/05/2019
+ms.date: 07/23/2019
 uid: blazor/components
-ms.openlocfilehash: efed57f20c64b0f9c9bd5cc29a98e01408546a18
-ms.sourcegitcommit: f30b18442ed12831c7e86b0db249183ccd749f59
+ms.openlocfilehash: 123e6e1f798aa5a111bd9eabb492c3e015ae0c5d
+ms.sourcegitcommit: 051f068c78931432e030b60094c38376d64d013e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68412412"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68440314"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Tworzenie i używanie składników ASP.NET Core Razor
 
@@ -121,6 +121,75 @@ Poniższe elementy `ParentComponent` mogą zapewnić zawartość do `ChildCompon
 *Strony/ParentComponent. Razor*:
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Pages/ParentComponent.razor?name=snippet_ParentComponent&highlight=7-8)]
+
+## <a name="attribute-splatting-and-arbitrary-parameters"></a>Korzystając atrybutów i dowolne parametry
+
+Składniki mogą przechwytywać i renderować dodatkowe atrybuty oprócz zadeklarowanych parametrów składnika. Dodatkowe atrybuty mogą być przechwytywane w słowniku, a następnie *splatted* do elementu, gdy składnik jest renderowany przy `@attributes` użyciu dyrektywy Razor. Ten scenariusz jest przydatny podczas definiowania składnika, który generuje element znaczników, który obsługuje różne dostosowania. Na przykład może być żmudnym do definiowania atrybutów oddzielnie dla `<input>` , który obsługuje wiele parametrów.
+
+W `<input>` poniższym przykładzie pierwszy element (`id="useIndividualParams"`) używa pojedynczych parametrów składnika, podczas gdy drugi `<input>` element (`id="useAttributesDict"`) używa atrybutu korzystając:
+
+```cshtml
+<input id="useIndividualParams"
+       maxlength="@Maxlength"
+       placeholder="@Placeholder"
+       required="@Required"
+       size="@Size" />
+
+<input id="useAttributesDict"
+       @attributes="InputAttributes" />
+
+@code {
+    [Parameter]
+    private string Maxlength { get; set; } = "10";
+
+    [Parameter]
+    private string Placeholder { get; set; } = "Input placeholder text";
+
+    [Parameter]
+    private string Required { get; set; } = "required";
+
+    [Parameter]
+    private string Size { get; set; } = "50";
+
+    [Parameter]
+    private Dictionary<string, object> InputAttributes { get; set; } =
+        new Dictionary<string, object>()
+        {
+            { "maxlength", "10" }, 
+            { "placeholder", "Input placeholder text" }, 
+            { "required", "true" }, 
+            { "size", "50" }
+        };
+```
+
+Typ parametru musi być możliwy do przypisania z `Dictionary<string, object>` klucza ciągu. W tym `IReadOnlyDictionary<string, object>` scenariuszu są również dostępne opcje i.`IEnumerable<KeyValuePair<string, object>>`
+
+Renderowane `<input>` elementy korzystające z obu metod są identyczne:
+
+```html
+<input id="useIndividualParams"
+       maxlength="10"
+       placeholder="Input placeholder text"
+       required="required"
+       size="50">
+
+<input id="useAttributesDict"
+       maxlength="10"
+       placeholder="Input placeholder text"
+       required="true"
+       size="50">
+```
+
+Aby zaakceptować dowolne atrybuty, zdefiniuj parametr składnika przy użyciu `[Parameter]` atrybutu `CaptureUnmatchedAttributes` z właściwością ustawioną na `true`:
+
+```cshtml
+@code {
+    [Parameter(CaptureUnmatchedAttributes = true)]
+    private Dictionary<string, object> InputAttributes { get; set; }
+}
+```
+
+`CaptureUnmatchedAttributes` Właściwość na`[Parameter]` umożliwia temu parametrowi dopasowanie wszystkich atrybutów, które nie są zgodne z żadnym innym parametrem. Składnik może definiować tylko jeden parametr z `CaptureUnmatchedAttributes`.
 
 ## <a name="data-binding"></a>Powiązanie danych
 
