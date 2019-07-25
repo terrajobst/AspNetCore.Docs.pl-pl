@@ -1,75 +1,77 @@
 ---
-title: Dodaj nowe pole na stronę Razor programu ASP.NET Core
+title: Dodaj nowe pole do strony Razor w ASP.NET Core
 author: rick-anderson
-description: Pokazuje, jak dodać nowe pole do strony Razor za pomocą platformy Entity Framework Core
+description: Pokazuje, jak dodać nowe pole do strony Razor przy użyciu Entity Framework Core
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/05/2018
+ms.date: 7/23/2019
 uid: tutorials/razor-pages/new-field
-ms.openlocfilehash: 904207ed775cc689c36953c29d202788580d8f60
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: a1c0622d97e0d2b0a5601e27688f4be7cbe068dc
+ms.sourcegitcommit: 16502797ea749e2690feaa5e652a65b89c007c89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67815310"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68483298"
 ---
-# <a name="add-a-new-field-to-a-razor-page-in-aspnet-core"></a>Dodaj nowe pole na stronę Razor programu ASP.NET Core
+# <a name="add-a-new-field-to-a-razor-page-in-aspnet-core"></a>Dodaj nowe pole do strony Razor w ASP.NET Core
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
+::: moniker range=">= aspnetcore-3.0"
+
 [!INCLUDE[](~/includes/rp/download.md)]
 
-W tej sekcji [Entity Framework](/ef/core/get-started/aspnetcore/new-db) migracje Code First jest używana do:
+W tej sekcji [Entity Framework](/ef/core/get-started/aspnetcore/new-db) migracje Code First służy do:
 
-* Dodawanie nowego pola do modelu.
-* Migruj nowej zmiany schematu pola w bazie danych.
+* Dodaj nowe pole do modelu.
+* Migruj nową zmianę schematu pola do bazy danych.
 
-Jeśli przy użyciu programu EF Code First automatycznie utworzyć bazę danych, Code First:
+W przypadku automatycznego tworzenia bazy danych przy użyciu narzędzia EF Code First Code First:
 
-* Dodanie tabeli do sprawdzenia, czy schemat bazy danych jest zsynchronizowany z klasy modelu, który został wygenerowany z bazy danych.
-* Jeśli klasy modelu nie są zsynchronizowane z bazy danych, EF zgłasza wyjątek.
+* Dodaje tabelę do bazy danych, aby sprawdzić, czy schemat bazy danych jest zsynchronizowany z klasami modelu, z których została wygenerowana.
+* Jeśli klasy modelu nie są zsynchronizowane z bazą danych, EF zgłasza wyjątek.
 
-Automatyczne weryfikacji/model schematu synchronizacji ułatwia znajdowanie problemów z niespójne bazy danych/code.
+Automatyczna weryfikacja schematu/modelu w ramach synchronizacji ułatwia znalezienie niespójnych problemów z bazą danych i kodem.
 
-## <a name="adding-a-rating-property-to-the-movie-model"></a>Dodawanie właściwości klasyfikacji do modelu Movie
+## <a name="adding-a-rating-property-to-the-movie-model"></a>Dodawanie właściwości oceny do modelu filmu
 
-Otwórz *Models/Movie.cs* pliku i Dodaj `Rating` właściwości:
+Otwórz plik *models/Movie. cs* i Dodaj `Rating` Właściwość:
 
-[!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Models/MovieDateRating.cs?highlight=13&name=snippet)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie30/Models/MovieDateRating.cs?highlight=13&name=snippet)]
 
-Tworzenie aplikacji.
+Skompiluj aplikację.
 
-Edytuj *Pages/Movies/Index.cshtml*i Dodaj `Rating` pola:
+Edycja *stron/filmów/index. cshtml*i Dodawanie `Rating` pola:
 
-[!code-cshtml[](razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/IndexRating.cshtml.?highlight=40-42,61-63)]
+[!code-cshtml[](razor-pages-start/sample/RazorPagesMovie30/SnapShots/IndexRating.cshtml?highlight=40-42,61-63)]
 
-Zaktualizuj następujące strony:
+Aktualizowanie następujących stron:
 
-* Dodaj `Rating` pola strony Delete i szczegółowe informacje.
-* Aktualizacja [Create.cshtml](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/Create.cshtml) z `Rating` pola.
-* Dodaj `Rating` pole edytowanie strony.
+* `Rating` Dodaj pole do stron usuwanie i szczegóły.
+* Zaktualizuj element `Rating` [Create. cshtml](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie30/Pages/Movies/Create.cshtml) przy użyciu pola.
+* `Rating` Dodaj pole do strony Edycja.
 
-Aplikacja nie będzie działać, dopóki baza danych została zaktualizowana do nowego pola. Jeśli teraz uruchomić zgłasza aplikacji `SqlException`:
+Aplikacja nie będzie działała, dopóki baza danych nie zostanie zaktualizowana w celu uwzględnienia nowego pola. Jeśli uruchomisz teraz, aplikacja zgłasza `SqlException`:
 
 `SqlException: Invalid column name 'Rating'.`
 
-Ten błąd jest spowodowany przez zaktualizowane klasy modelu film jest inny niż schemat tabeli filmu bazy danych. (Brak nie `Rating` kolumny w tabeli bazy danych.)
+Ten błąd jest spowodowany przez zaktualizowaną klasę filmu inną niż schemat tabeli filmów bazy danych. (Brak `Rating` kolumn w tabeli bazy danych).
 
-Istnieje kilka sposobów rozwiązania problemu:
+Istnieje kilka metod rozpoznawania błędu:
 
-1. Ma automatycznie Porzuć i ponownie utworzyć bazę danych przy użyciu nowego schematu klasy modelu Entity Framework. To podejście jest wygodne na wczesnym etapie cyklu tworzenia oprogramowania; Umożliwia szybkie razem rozwijania schematu za jego modelu i bazie danych. Minusem jest to utraty istniejących danych w bazie danych. Nie używaj tego podejścia w produkcyjnej bazie danych! Usunięcie bazy danych na zmiany schematu i automatycznie inicjowanie bazy danych z danymi za pomocą inicjatora jest często produktywny sposób do tworzenia aplikacji.
+1. Entity Framework automatycznie porzucić i ponownie utworzyć bazę danych przy użyciu nowego schematu klasy modelu. Takie podejście jest wygodnie wczesne w cyklu rozwoju; pozwala ona szybko rozwijać model i schemat bazy danych. Minusem polega na utracie istniejących danych w bazie danych. Nie używaj tego podejścia w produkcyjnej bazie danych. Porzucenie bazy danych w ramach zmian schematu i użycie inicjatora do automatycznego wypełniania bazy danych za pomocą danych testowych jest często wydajnym sposobem na tworzenie aplikacji.
 
-2. Jawnie zmodyfikować schemat istniejącej bazy danych, aby odpowiadały one klasy modelu. Zaletą tego podejścia jest, aby zachować dane. Można to zrobić to ręcznie lub przez tworzenie bazy danych zmiana skryptu.
+2. Jawnie zmodyfikuj schemat istniejącej bazy danych, tak aby pasował do klas modelu. Zaletą tego podejścia jest utrzymywanie danych. Tę zmianę można wprowadzić ręcznie lub przez utworzenie skryptu zmiany bazy danych.
 
-3. Aby zaktualizować schemat bazy danych, należy użyć migracje Code First.
+3. Użyj Migracje Code First, aby zaktualizować schemat bazy danych.
 
-W tym samouczku należy użyć migracje Code First.
+Na potrzeby tego samouczka Użyj Migracje Code First.
 
-Aktualizacja `SeedData` klasy tak, aby go oferuje wartości dla nowej kolumny. Poniżej przedstawiono przykładowe zmiany, ale należy to zrobić dla każdego `new Movie` bloku.
+`SeedData` Zaktualizuj klasę, aby zapewnić wartość nowej kolumny. Poniżej przedstawiono przykładową zmianę, ale trzeba wprowadzić tę zmianę dla każdego `new Movie` bloku.
 
-[!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Models/SeedDataRating.cs?name=snippet1&highlight=8)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie30/Models/SeedDataRating.cs?name=snippet1&highlight=8)]
 
-Zobacz [ukończone pliku SeedData.cs](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Models/SeedDataRating.cs).
+Zobacz [ukończony plik SeedData.cs](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie30/Models/SeedDataRating.cs).
 
 Skompiluj rozwiązanie.
 
@@ -77,9 +79,9 @@ Skompiluj rozwiązanie.
 
 <a name="pmc"></a>
 
-### <a name="add-a-migration-for-the-rating-field"></a>Dodaj migrację dla pola klasyfikacji
+### <a name="add-a-migration-for-the-rating-field"></a>Dodawanie migracji dla pola oceny
 
-Z **narzędzia** menu, wybierz opcję **Menedżera pakietów NuGet > Konsola Menedżera pakietów**.
+W menu **Narzędzia** wybierz kolejno pozycje **menedżer pakietów NuGet > konsola Menedżera pakietów**.
 W konsoli zarządzania Pakietami wprowadź następujące polecenia:
 
 ```powershell
@@ -87,38 +89,163 @@ Add-Migration Rating
 Update-Database
 ```
 
-`Add-Migration` Polecenie informuje platformę, by:
+`Add-Migration` Polecenie informuje platformę, aby:
 
-* Porównaj `Movie` modelu przy użyciu `Movie` schematu bazy danych.
-* Utwórz kod, aby migrować schemat bazy danych do nowego modelu.
+* Porównaj model ze schematem `Movie`bazydanych. `Movie`
+* Utwórz kod, aby zmigrować schemat bazy danych do nowego modelu.
 
-Nazwa "Ocena" dowolnej i jest używany do nazywania plików migracji. Warto użyć znaczącą nazwę pliku migracji.
+Nazwa "Rating" jest arbitralna i jest używana do nazwy pliku migracji. Warto użyć zrozumiałej nazwy dla pliku migracji.
 
-`Update-Database` Polecenie informuje platformę, by zastosować zmiany schematu w bazie danych.
+`Update-Database` Polecenie informuje platformę, aby zastosować zmiany schematu do bazy danych programu.
 
 <a name="ssox"></a>
 
-Jeśli usuniesz wszystkie rekordy w bazie danych, inicjatora będzie obsługiwał bazy danych i obejmują `Rating` pola. Można to zrobić za pomocą łącza delete w przeglądarce, albo z [Eksplorator obiektów Sql Server](xref:tutorials/razor-pages/sql#ssox) (SSOX).
+W przypadku usunięcia wszystkich rekordów w bazie danych inicjator będzie wypełniać bazę danych i zawierać `Rating` pole. Można to zrobić za pomocą linków usuwania w przeglądarce lub z [programu SQL Server Eksplorator obiektów](xref:tutorials/razor-pages/sql#ssox) (SSOX).
 
-Innym rozwiązaniem jest usunięcie bazy danych i użyć migracje ponownie utworzyć bazę danych. Aby usunąć bazę danych w SSOX:
+Innym rozwiązaniem jest usunięcie bazy danych i użycie migracji w celu ponownego utworzenia bazy danych. Aby usunąć bazę danych w programie SSOX:
 
 * Wybierz bazę danych w SSOX.
-* Kliknij prawym przyciskiem myszy w bazie danych, a następnie wybierz pozycję *Usuń*.
-* Sprawdź **Zamknij istniejące połączenia**.
+* Kliknij prawym przyciskiem myszy bazę danych, a następnie wybierz pozycję *Usuń*.
+* Zaznacz pole wyboru **Zamknij istniejące połączenia**.
 * Kliknij przycisk **OK**.
-* W [PMC](xref:tutorials/razor-pages/new-field#pmc), aktualizują bazę danych:
+* W obszarze [PMC](xref:tutorials/razor-pages/new-field#pmc)zaktualizuj bazę danych:
 
   ```powershell
   Update-Database
   ```
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code / Visual Studio for Mac](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
 
-### <a name="drop-and-re-create-the-database"></a>Porzuć i ponownie utworzyć bazę danych
+### <a name="drop-and-re-create-the-database"></a>Porzuć i ponownie utwórz bazę danych
 
 [!INCLUDE[](~/includes/RP-mvc-shared/sqlite-warn.md)]
 
-Usuń bazę danych, a następnie użyć migracje ponownie utworzyć bazę danych. Aby usunąć bazy danych, usuń plik bazy danych (*MvcMovie.db*). Następnie uruchom `ef database update` polecenia:
+Usuń folder migracji.  Użyj następujących poleceń, aby ponownie utworzyć bazę danych.
+
+```console
+dotnet ef database drop
+dotnet ef migrations add InitialCreate
+dotnet ef database update
+```
+
+---
+
+Uruchom aplikację i sprawdź, czy można tworzyć/edytować/wyświetlać filmy z `Rating` polem. Jeśli baza danych nie jest zainicjowana, ustaw punkt przerwania `SeedData.Initialize` w metodzie.
+
+## <a name="additional-resources"></a>Dodatkowe zasoby
+
+* [Wersja tego samouczka usługi YouTube](https://youtu.be/3i7uMxiGGR8)
+
+> [!div class="step-by-step"]
+> [Ubiegł Dodawanie wyszukiwania](xref:tutorials/razor-pages/search)
+> dalej[: Dodawanie walidacji](xref:tutorials/razor-pages/validation)
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+[!INCLUDE[](~/includes/rp/download.md)]
+
+W tej sekcji [Entity Framework](/ef/core/get-started/aspnetcore/new-db) migracje Code First służy do:
+
+* Dodaj nowe pole do modelu.
+* Migruj nową zmianę schematu pola do bazy danych.
+
+W przypadku automatycznego tworzenia bazy danych przy użyciu narzędzia EF Code First Code First:
+
+* Dodaje tabelę do bazy danych, aby sprawdzić, czy schemat bazy danych jest zsynchronizowany z klasami modelu, z których została wygenerowana.
+* Jeśli klasy modelu nie są zsynchronizowane z bazą danych, EF zgłasza wyjątek.
+
+Automatyczna weryfikacja schematu/modelu w ramach synchronizacji ułatwia znalezienie niespójnych problemów z bazą danych i kodem.
+
+## <a name="adding-a-rating-property-to-the-movie-model"></a>Dodawanie właściwości oceny do modelu filmu
+
+Otwórz plik *models/Movie. cs* i Dodaj `Rating` Właściwość:
+
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Models/MovieDateRating.cs?highlight=13&name=snippet)]
+
+Skompiluj aplikację.
+
+Edycja *stron/filmów/index. cshtml*i Dodawanie `Rating` pola:
+
+[!code-cshtml[](razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/IndexRating.cshtml?highlight=40-42,61-63)]
+
+Aktualizowanie następujących stron:
+
+* `Rating` Dodaj pole do stron usuwanie i szczegóły.
+* Zaktualizuj element `Rating` [Create. cshtml](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/Create.cshtml) przy użyciu pola.
+* `Rating` Dodaj pole do strony Edycja.
+
+Aplikacja nie będzie działała, dopóki baza danych nie zostanie zaktualizowana w celu uwzględnienia nowego pola. Jeśli uruchomisz teraz, aplikacja zgłasza `SqlException`:
+
+`SqlException: Invalid column name 'Rating'.`
+
+Ten błąd jest spowodowany przez zaktualizowaną klasę filmu inną niż schemat tabeli filmów bazy danych. (Brak `Rating` kolumn w tabeli bazy danych).
+
+Istnieje kilka metod rozpoznawania błędu:
+
+1. Entity Framework automatycznie porzucić i ponownie utworzyć bazę danych przy użyciu nowego schematu klasy modelu. Takie podejście jest wygodnie wczesne w cyklu rozwoju; pozwala ona szybko rozwijać model i schemat bazy danych. Minusem polega na utracie istniejących danych w bazie danych. Nie używaj tego podejścia w produkcyjnej bazie danych. Porzucenie bazy danych w ramach zmian schematu i użycie inicjatora do automatycznego wypełniania bazy danych za pomocą danych testowych jest często wydajnym sposobem na tworzenie aplikacji.
+
+2. Jawnie zmodyfikuj schemat istniejącej bazy danych, tak aby pasował do klas modelu. Zaletą tego podejścia jest utrzymywanie danych. Tę zmianę można wprowadzić ręcznie lub przez utworzenie skryptu zmiany bazy danych.
+
+3. Użyj Migracje Code First, aby zaktualizować schemat bazy danych.
+
+Na potrzeby tego samouczka Użyj Migracje Code First.
+
+`SeedData` Zaktualizuj klasę, aby zapewnić wartość nowej kolumny. Poniżej przedstawiono przykładową zmianę, ale trzeba wprowadzić tę zmianę dla każdego `new Movie` bloku.
+
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Models/SeedDataRating.cs?name=snippet1&highlight=8)]
+
+Zobacz [ukończony plik SeedData.cs](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Models/SeedDataRating.cs).
+
+Skompiluj rozwiązanie.
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+<a name="pmc"></a>
+
+### <a name="add-a-migration-for-the-rating-field"></a>Dodawanie migracji dla pola oceny
+
+W menu **Narzędzia** wybierz kolejno pozycje **menedżer pakietów NuGet > konsola Menedżera pakietów**.
+W konsoli zarządzania Pakietami wprowadź następujące polecenia:
+
+```powershell
+Add-Migration Rating
+Update-Database
+```
+
+`Add-Migration` Polecenie informuje platformę, aby:
+
+* Porównaj model ze schematem `Movie`bazydanych. `Movie`
+* Utwórz kod, aby zmigrować schemat bazy danych do nowego modelu.
+
+Nazwa "Rating" jest arbitralna i jest używana do nazwy pliku migracji. Warto użyć zrozumiałej nazwy dla pliku migracji.
+
+`Update-Database` Polecenie informuje platformę, aby zastosować zmiany schematu do bazy danych programu.
+
+<a name="ssox"></a>
+
+W przypadku usunięcia wszystkich rekordów w bazie danych inicjator będzie wypełniać bazę danych i zawierać `Rating` pole. Można to zrobić za pomocą linków usuwania w przeglądarce lub z [programu SQL Server Eksplorator obiektów](xref:tutorials/razor-pages/sql#ssox) (SSOX).
+
+Innym rozwiązaniem jest usunięcie bazy danych i użycie migracji w celu ponownego utworzenia bazy danych. Aby usunąć bazę danych w programie SSOX:
+
+* Wybierz bazę danych w SSOX.
+* Kliknij prawym przyciskiem myszy bazę danych, a następnie wybierz pozycję *Usuń*.
+* Zaznacz pole wyboru **Zamknij istniejące połączenia**.
+* Kliknij przycisk **OK**.
+* W obszarze [PMC](xref:tutorials/razor-pages/new-field#pmc)zaktualizuj bazę danych:
+
+  ```powershell
+  Update-Database
+  ```
+
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
+
+### <a name="drop-and-re-create-the-database"></a>Porzuć i ponownie utwórz bazę danych
+
+[!INCLUDE[](~/includes/RP-mvc-shared/sqlite-warn.md)]
+
+Usuń bazę danych i użyj migracji, aby ponownie utworzyć bazę danych. Aby usunąć bazę danych, usuń plik bazy danych (*MvcMovie. DB*). Następnie uruchom `ef database update` polecenie:
 
 ```console
 dotnet ef database update
@@ -126,12 +253,14 @@ dotnet ef database update
 
 ---
 
-Uruchom aplikację i sprawdź, można tworzenia/edycji/wyświetlania filmów z `Rating` pola. Jeśli baza danych nie jest obsługiwany, należy ustawić punkt przerwania w `SeedData.Initialize` metody.
+Uruchom aplikację i sprawdź, czy można tworzyć/edytować/wyświetlać filmy z `Rating` polem. Jeśli baza danych nie jest zainicjowana, ustaw punkt przerwania `SeedData.Initialize` w metodzie.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Wersja usługi YouTube w tym samouczku](https://youtu.be/3i7uMxiGGR8)
+* [Wersja tego samouczka usługi YouTube](https://youtu.be/3i7uMxiGGR8)
 
 > [!div class="step-by-step"]
-> [Poprzednie: Dodawanie wyszukiwania](xref:tutorials/razor-pages/search)
-> [dalej: Dodawanie walidacji](xref:tutorials/razor-pages/validation)
+> [Ubiegł Dodawanie wyszukiwania](xref:tutorials/razor-pages/search)
+> dalej[: Dodawanie walidacji](xref:tutorials/razor-pages/validation)
+
+::: moniker-end

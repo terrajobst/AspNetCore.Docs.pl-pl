@@ -5,14 +5,14 @@ description: Dowiedz się, jak zdiagnozować problemy z wdrożeniami Azure App S
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/17/2019
+ms.date: 07/18/2019
 uid: test/troubleshoot-azure-iis
-ms.openlocfilehash: 46d4a11c594844e059fa8555255d7321f7b48631
-ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
+ms.openlocfilehash: deae568a6ba88c9a8365b9d7f2df629899bc64a1
+ms.sourcegitcommit: 16502797ea749e2690feaa5e652a65b89c007c89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308822"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68483319"
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service-and-iis"></a>Rozwiązywanie problemów ASP.NET Core na Azure App Service i usługach IIS
 
@@ -48,6 +48,31 @@ W programie Visual Studio ma domyślnie wartość projektu ASP.NET Core [usług 
 W programie Visual Studio ma domyślnie wartość projektu ASP.NET Core [usług IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) hostingu podczas debugowania. *Błąd procesu 502,5* , który występuje, gdy debugowanie lokalne można zdiagnozować przy użyciu porady w tym temacie.
 
 ::: moniker-end
+
+### <a name="40314-forbidden"></a>403,14 zabronione
+
+Nie można uruchomić aplikacji. Rejestrowany jest następujący błąd:
+
+```
+The Web server is configured to not list the contents of this directory.
+```
+
+Ten błąd jest zwykle spowodowany przez uszkodzone wdrożenie w systemie hostingu, który obejmuje następujące scenariusze:
+
+* Aplikacja jest wdrażana w niewłaściwym folderze w systemie hostingu.
+* W procesie wdrażania nie powiodło się przeniesienie wszystkich plików i folderów aplikacji do folderu wdrożenia w systemie hostingu.
+* Brak pliku *Web. config* w wdrożeniu lub zawartość pliku *Web. config* jest nieprawidłowo sformułowana.
+
+Wykonaj następujące czynności:
+
+1. Usuń wszystkie pliki i foldery z folderu wdrożenia w systemie hostingu.
+1. Wdróż ponownie zawartość folderu *publikowania* aplikacji w systemie hostingu przy użyciu zwykłej metody wdrażania, takiej jak Visual Studio, PowerShell lub wdrażanie ręczne:
+   * Upewnij się, że plik *Web. config* znajduje się we wdrożeniu i że jego zawartość jest poprawna.
+   * Podczas hostowania w Azure App Service upewnij się, że aplikacja została wdrożona `D:\home\site\wwwroot` w folderze.
+   * Jeśli aplikacja jest hostowana przez usługi IIS, upewnij się, że aplikacja jest wdrożona w **ścieżce fizycznej** usług IIS pokazanej w **ustawieniach podstawowych**w **Menedżerze usług IIS**.
+1. Upewnij się, że wszystkie pliki i foldery aplikacji zostały wdrożone, porównując wdrożenie w systemie hostingu z zawartością folderu *publikowania* projektu.
+
+Aby uzyskać więcej informacji na temat układu opublikowanej aplikacji ASP.NET Core, zobacz <xref:host-and-deploy/directory-structure>. Aby uzyskać więcej informacji na temat pliku *Web. config* , <xref:host-and-deploy/aspnet-core-module#configuration-with-webconfig>Zobacz.
 
 ### <a name="500-internal-server-error"></a>500 Wewnętrzny błąd serwera
 
@@ -192,6 +217,8 @@ Upewnij się, że ustawienie 32-bitowych puli aplikacji jest prawidłowy:
 1. Ustaw **Włącz aplikacje 32-bitowe**:
    * Jeśli wdrażanie (x86) 32-bitowych aplikacji, ustaw wartość `True`.
    * Jeśli wdrażanie (x64) 64-bitowych aplikacji, ustaw wartość `False`.
+
+Upewnij się, że nie występuje konflikt między `<Platform>` właściwością programu MSBuild w pliku projektu a opublikowaną bitową w aplikacji.
 
 ### <a name="connection-reset"></a>Resetowanie połączenia
 

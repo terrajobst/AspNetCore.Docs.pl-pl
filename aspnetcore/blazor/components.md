@@ -5,14 +5,14 @@ description: Dowiedz się, jak tworzyć i używać składników Razor, w tym jak
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/23/2019
+ms.date: 07/24/2019
 uid: blazor/components
-ms.openlocfilehash: 123e6e1f798aa5a111bd9eabb492c3e015ae0c5d
-ms.sourcegitcommit: 051f068c78931432e030b60094c38376d64d013e
+ms.openlocfilehash: 0bca723ba32d96a69bff1b3138051611d94b2a37
+ms.sourcegitcommit: 16502797ea749e2690feaa5e652a65b89c007c89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68440314"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68483151"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Tworzenie i używanie składników ASP.NET Core Razor
 
@@ -160,9 +160,10 @@ W `<input>` poniższym przykładzie pierwszy element (`id="useIndividualParams"`
             { "required", "true" }, 
             { "size", "50" }
         };
+}
 ```
 
-Typ parametru musi być możliwy do przypisania z `Dictionary<string, object>` klucza ciągu. W tym `IReadOnlyDictionary<string, object>` scenariuszu są również dostępne opcje i.`IEnumerable<KeyValuePair<string, object>>`
+Typ parametru musi być zaimplementowany `IEnumerable<KeyValuePair<string, object>>` przy użyciu kluczy ciągu. Korzystanie `IReadOnlyDictionary<string, object>` z programu jest również opcją w tym scenariuszu.
 
 Renderowane `<input>` elementy korzystające z obu metod są identyczne:
 
@@ -189,7 +190,7 @@ Aby zaakceptować dowolne atrybuty, zdefiniuj parametr składnika przy użyciu `
 }
 ```
 
-`CaptureUnmatchedAttributes` Właściwość na`[Parameter]` umożliwia temu parametrowi dopasowanie wszystkich atrybutów, które nie są zgodne z żadnym innym parametrem. Składnik może definiować tylko jeden parametr z `CaptureUnmatchedAttributes`.
+`CaptureUnmatchedAttributes` Właściwość on`[Parameter]` umożliwia dopasowanie parametru do wszystkich atrybutów, które nie są zgodne z żadnym innym parametrem. Składnik może definiować tylko jeden parametr z `CaptureUnmatchedAttributes`. Typ właściwości używany z elementem `CaptureUnmatchedAttributes` musi być możliwy do przypisania `Dictionary<string, object>` z klucza ciągu. `IEnumerable<KeyValuePair<string, object>>`lub `IReadOnlyDictionary<string, object>` są również opcje w tym scenariuszu.
 
 ## <a name="data-binding"></a>Powiązanie danych
 
@@ -1148,7 +1149,7 @@ Gdy kod jest wykonywany po raz pierwszy, jeśli `someFlag` jest `true`, Konstruk
 
 | Sequence | Typ      | Dane   |
 | :------: | --------- | :----: |
-| 0        | Węzeł tekstu | pierwszego  |
+| 0        | Węzeł tekstu | Pierwszego  |
 | 1        | Węzeł tekstu | Sekunda |
 
 Wyobraź sobie `someFlag` , `false`że zostanie ona przerenderowana, a znaczniki są renderowane ponownie. Tym razem Konstruktor odbiera:
@@ -1180,7 +1181,7 @@ Teraz pierwsze dane wyjściowe to:
 
 | Sequence | Typ      | Dane   |
 | :------: | --------- | :----: |
-| 0        | Węzeł tekstu | pierwszego  |
+| 0        | Węzeł tekstu | Pierwszego  |
 | 1        | Węzeł tekstu | Sekunda |
 
 Ten wynik jest identyczny z poprzednim przypadkiem, dlatego nie istnieją żadne negatywne problemy. `someFlag`znajduje `false` się na drugim renderingu, a dane wyjściowe:

@@ -1,11 +1,12 @@
+<!-- USED in RP and MVC tutorial -->
 
 ## <a name="add-validation-rules-to-the-movie-model"></a>Dodawanie reguł walidacji do modelu filmu
 
-Otwórz plik *Movie.cs* . Przestrzeń nazw DataAnnotations zawiera zestaw wbudowanych atrybutów walidacji, które są stosowane deklaratywnie do klasy lub właściwości. Adnotacje DataAnnotation zawierają również atrybuty `DataType` formatowania, takie jak pomoc dotycząca formatowania i nie zapewniają weryfikacji.
+Przestrzeń nazw DataAnnotations zawiera zestaw wbudowanych atrybutów walidacji, które są stosowane deklaratywnie do klasy lub właściwości. Adnotacje DataAnnotation zawierają również atrybuty `DataType` formatowania, takie jak pomoc dotycząca formatowania i nie zapewniają weryfikacji.
 
 `Range` `RegularExpression` `StringLength` `Required`Zaktualizuj klasę, aby skorzystać z wbudowanych atrybutów,, i walidacji. `Movie`
 
-[!code-csharp[](~/tutorials/first-mvc-app/start-mvc//sample/MvcMovie22/Models/MovieDateRatingDA.cs?name=snippet1)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Models/MovieDateRatingDA.cs?name=snippet1)]
 
 Atrybuty walidacji określają zachowanie, które chcesz wymusić na właściwościach modelu, do których są stosowane:
 
