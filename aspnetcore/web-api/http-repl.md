@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 07/23/2019
 uid: web-api/http-repl
-ms.openlocfilehash: 1ceda6182c62bb1be06cd95f14e6a46a1809253e
-ms.sourcegitcommit: 059ab380744fa3be3b69aa90d431b563c57092cf
+ms.openlocfilehash: 29a29b98b31ac8e48545789928a8e83573ca9af5
+ms.sourcegitcommit: b1662379b6aeca66ef6c696bd2300c81aa74a514
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68410889"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68485810"
 ---
 # <a name="test-web-apis-with-the-http-repl"></a>Testowanie interfejsów API sieci Web przy użyciu protokołu HTTP REPL
 
@@ -44,7 +44,7 @@ Aby wykonać te czynności, [Wyświetl lub Pobierz przykładowy ASP.NET Core int
 Aby zainstalować REPL HTTP, uruchom następujące polecenie:
 
 ```console
-dotnet tool install -g Microsoft.dotnet-httprepl --version 3.0.0-*
+dotnet tool install -g Microsoft.dotnet-httprepl --version "3.0.0-*"
 ```
 
 [Narzędzie globalne platformy .NET Core](/dotnet/core/tools/global-tools#install-a-global-tool) jest instalowane z pakietu NuGet [Microsoft. dotnet-httprepl](https://www.nuget.org/packages/Microsoft.dotnet-httprepl) .
@@ -142,7 +142,7 @@ Alternatywnie Uruchom następujące polecenie w dowolnym momencie podczas dział
 set base <BASE URI>
 ```
 
-Na przykład:
+Przykład:
 
 ```console
 (Disconnected)~ set base https://localhost:5001
@@ -156,7 +156,7 @@ Aby poprawnie sprawdzić internetowy interfejs API, ustaw względny identyfikato
 set swagger <RELATIVE URI>
 ```
 
-Przykład:
+Na przykład:
 
 ```console
 https://localhost:5001/~ set swagger /swagger/v1/swagger.json
@@ -195,7 +195,7 @@ https://localhost:5001/fruits~ ls
 https://localhost:5001/fruits~
 ```
 
-Alternatywnie można uruchomić `ui` polecenie, aby otworzyć stronę interfejsu użytkownika programu Swagger interfejsu API sieci Web w przeglądarce. Przykład:
+Alternatywnie można uruchomić `ui` polecenie, aby otworzyć stronę interfejsu użytkownika programu Swagger interfejsu API sieci Web w przeglądarce. Na przykład:
 
 ```console
 https://localhost:5001/~ ui
@@ -517,7 +517,7 @@ Aby wydać żądanie HTTP POST:
     https://localhost:5001/people~ post -h Content-Type=application/json
     ```
 
-    W poprzednim poleceniu nagłówek żądania `Content-Type` http jest ustawiany w taki sposób, aby wskazywał typ nośnika treści żądania JSON. Domyślny edytor tekstu otwiera plik *. tmp* z szablonem JSON reprezentującym treść żądania HTTP. Przykład:
+    W poprzednim poleceniu nagłówek żądania `Content-Type` http jest ustawiany w taki sposób, aby wskazywał typ nośnika treści żądania JSON. Domyślny edytor tekstu otwiera plik *. tmp* z szablonem JSON reprezentującym treść żądania HTTP. Na przykład:
 
     ```json
     {
@@ -612,7 +612,7 @@ Aby wydać żądanie HTTP PUT:
     https://localhost:5001/fruits~ put 2 -h Content-Type=application/json
     ```
 
-    W poprzednim poleceniu nagłówek żądania `Content-Type` http jest ustawiany w taki sposób, aby wskazywał typ nośnika treści żądania JSON. Domyślny edytor tekstu otwiera plik *. tmp* z szablonem JSON reprezentującym treść żądania HTTP. Przykład:
+    W poprzednim poleceniu nagłówek żądania `Content-Type` http jest ustawiany w taki sposób, aby wskazywał typ nośnika treści żądania JSON. Domyślny edytor tekstu otwiera plik *. tmp* z szablonem JSON reprezentującym treść żądania HTTP. Na przykład:
 
     ```json
     {
@@ -843,14 +843,14 @@ Domyślnie wyświetlanie wysyłanego żądania HTTP jest pomijane. Istnieje moż
 
 ### <a name="enable-request-display"></a>Włącz wyświetlanie żądań
 
-Wyświetl wysyłane żądanie HTTP, uruchamiając `echo on` polecenie. Przykład:
+Wyświetl wysyłane żądanie HTTP, uruchamiając `echo on` polecenie. Na przykład:
 
 ```console
 https://localhost:5001/people~ echo on
 Request echoing is on
 ```
 
-Kolejne żądania HTTP w bieżącej sesji wyświetlają nagłówki żądań. Przykład:
+Kolejne żądania HTTP w bieżącej sesji wyświetlają nagłówki żądań. Na przykład:
 
 ```console
 https://localhost:5001/people~ post
@@ -909,7 +909,7 @@ Jeśli często wykonujesz ten sam zestaw poleceń HTTP REPL, Rozważ przechowywa
     get 1
     ```
 
-1. `run` Wykonaj polecenie, przekazując w ścieżce pliku tekstowego. Przykład:
+1. `run` Wykonaj polecenie, przekazując w ścieżce pliku tekstowego. Na przykład:
 
     ```console
     https://localhost:5001/~ run C:\http-repl-scripts\people-script.txt
