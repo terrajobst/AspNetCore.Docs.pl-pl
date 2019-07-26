@@ -5,12 +5,12 @@ description: Więcej informacji na temat składni znacznikowania Razor do osadza
 ms.author: riande
 ms.date: 06/12/2019
 uid: mvc/views/razor
-ms.openlocfilehash: 87c5b97a653c139b8b79f4270e0d9d0081815433
-ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
+ms.openlocfilehash: 634623aa6df860a2ff728da4e65d277326db37e2
+ms.sourcegitcommit: 051f068c78931432e030b60094c38376d64d013e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67034940"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68440358"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>Dokumentacja składni razor dla platformy ASP.NET Core
 
@@ -174,7 +174,7 @@ Ten kod Renderuje poniższy kod HTML:
 
 ::: moniker range=">= aspnetcore-3.0"
 
-W blokach kodu, należy zadeklarować [funkcje lokalne](/dotnet/csharp/programming-guide/classes-and-structs/local-functions) przy użyciu znaczników, która będzie służyć jako metody tworzenia szablonów:
+W blokach kodu Zadeklaruj [funkcje lokalne](/dotnet/csharp/programming-guide/classes-and-structs/local-functions) z adiustacją, aby zapewnić metody tworzenia szablonów:
 
 ```cshtml
 @{
@@ -241,7 +241,7 @@ Aby renderować pozostałą część całego wiersza jako HTML wewnątrz bloku k
 
 Bez `@:` w kodzie, jest generowany błąd czasu wykonywania Razor.
 
-Ostrzeżenie: Dodatkowe `@` znaków w pliku Razor może spowodować błędy kompilatora w instrukcji w dalszej części tego bloku. Te błędy kompilatora może być trudne do zrozumienia, ponieważ rzeczywista błąd wystąpi przed zgłoszonego błędu. Ten błąd jest wspólne po połączeniu wiele wyrażeń niejawnej/jawnej w jednym bloku kodu.
+Ostrzeżenie: Dodatkowe `@` znaki w pliku Razor mogą spowodować błędy kompilatora w instrukcjach znajdujących się w dalszej części bloku. Te błędy kompilatora może być trudne do zrozumienia, ponieważ rzeczywista błąd wystąpi przed zgłoszonego błędu. Ten błąd jest wspólne po połączeniu wiele wyrażeń niejawnej/jawnej w jednym bloku kodu.
 
 ## <a name="control-structures"></a>Struktury sterujące
 
@@ -549,7 +549,7 @@ Poniższy kod jest wygenerowany Razor C# klasy:
 
 ::: moniker range=">= aspnetcore-3.0"
 
-`@functions` metody służą jako metody tworzenia szablonów, gdy kod znaczników:
+`@functions`metody służą jako metody tworzenia szablonów, gdy mają znaczniki:
 
 ```cshtml
 @{
@@ -576,37 +576,34 @@ Ten kod Renderuje poniższy kod HTML:
 
 ### <a name="attribute"></a>@attribute
 
-`@attribute` Dyrektywy dodaje nadano mu atrybut klasy wygenerowanej strony lub widoku. W poniższym przykładzie dodano `[Authorize]` atrybutu:
+`@attribute` Dyrektywa dodaje dany atrybut do klasy wygenerowanej strony lub widoku. Poniższy przykład dodaje `[Authorize]` atrybut:
 
 ```cshtml
 @attribute [Authorize]
 ```
 
-> [!WARNING]
-> W wersji platformy ASP.NET Core 3.0 w wersji zapoznawczej 6, jest to znany problem gdzie `@attribute` dyrektywy nie działają w  *\_Imports.razor* i  *\_ViewImports.cshtml* plików. Ten problem zostanie rozwiązany w wersji 7 (wersja zapoznawcza).
-
 ### <a name="namespace"></a>@namespace
 
-`@namespace` Dyrektywa określa przestrzeń nazw, klasy wygenerowanej strony lub widoku:
+`@namespace` Dyrektywa ustawia przestrzeń nazw klasy wygenerowanej strony lub widoku:
 
 ```cshtml
 @namespace Your.Namespace.Here
 ```
 
-Jeśli strony lub widoku importuje interfejsu API za pomocą `@namespace` dyrektywy, przestrzeń nazw oryginalnego pliku ustawiono względem tej przestrzeni nazw. 
+Jeśli strona lub widok importuje interfejs API z `@namespace` dyrektywą, przestrzeń nazw oryginalnego pliku jest ustawiana względem tej przestrzeni nazw. 
 
-Jeśli *MyApp/stron/\_ViewImports.cshtml* zawiera `@namespace Hello.World`, stron lub widoki, które importują przestrzeń nazw `Hello.World` przestrzeni nazw jest ustawiona, jak pokazano w poniższej tabeli.
+Jeśli polecenie *MojaApl/Pages\_/ViewImports. cshtml* zawiera `@namespace Hello.World`, w poniższej tabeli przedstawiono przestrzeń nazw stron `Hello.World` lub widoków, które zaimportują przestrzeń nazw.
 
-| Strona (lub widoku)                     | Przestrzeń nazw               |
+| Strona (lub widok)                     | Przestrzeń nazw               |
 | ---------------------------------- | ----------------------- |
-| *MyApp/Pages/Index.cshtml*         | `Hello.World`           |
-| *MyApp/Pages/MorePages/Bar.cshtml* | `Hello.World.MorePages` |
+| *MojaApl/Pages/index. cshtml*         | `Hello.World`           |
+| *MojaApl/Pages/MorePages/bar. cshtml* | `Hello.World.MorePages` |
 
-Jeśli masz wiele plików importu `@namespace` dyrektywy, zostanie użyty plik najbliższego widoku w łańcuchu katalogu lub strony.
+Jeśli do `@namespace` dyrektywy istnieje wiele plików importu, używany jest plik znajdujący się najbliżej strony lub widoku w łańcuchu katalogów.
 
 ### <a name="section"></a>@section
 
-`@section` Dyrektywa jest używany w połączeniu z [układ](xref:mvc/views/layout) umożliwiające stron lub widoków w celu renderowania zawartości w różnych częściach strony HTML. Aby uzyskać więcej informacji, zobacz [sekcje](xref:mvc/views/layout#layout-sections-label).
+Dyrektywa jest używana w połączeniu z układem, aby umożliwić stronom lub widokom renderowanie zawartości w różnych częściach strony html. [](xref:mvc/views/layout) `@section` Aby uzyskać więcej informacji, zobacz [sekcje](xref:mvc/views/layout#layout-sections-label).
 
 ## <a name="templated-razor-delegates"></a>Oparte na szablonach delegatów Razor
 
@@ -819,7 +816,7 @@ Aparat widoku Razor wykonuje wyszukiwanie z uwzględnieniem wielkości liter dla
 * Na podstawie źródła pliku:
   * W systemach operacyjnych z systemami plików bez uwzględniania wielkości liter (na przykład Windows) plik fizyczny dostawcy wyszukiwania jest rozróżniana wielkość liter. Na przykład `return View("Test")` skutkuje dopasowań dla */Views/Home/Test.cshtml*, */Views/home/test.cshtml*i inne wariant wielkość liter w wyrazie.
   * W systemach plików rozróżniana wielkość liter (na przykład, Linux, OSX i `EmbeddedFileProvider`), wyszukiwania jest rozróżniana wielkość liter. Na przykład `return View("Test")` specjalnie dopasowania */Views/Home/Test.cshtml*.
-* Prekompilowany widoki: Za pomocą platformy ASP.NET Core 2.0 i nowszych wyszukiwania prekompilowanego widoków jest uwzględniana wielkość liter, we wszystkich systemach operacyjnych. Zachowanie jest taka sama jak zachowanie dostawcy plików fizycznych w Windows. Jeśli dwa widoki wstępnie skompilowanych różnią się tylko wielkością liter, wynikiem wyszukiwania jest niedeterministyczny.
+* Wstępnie skompilowane widoki: W przypadku ASP.NET Core 2,0 i nowszych wyszukiwanie wstępnie skompilowanych widoków nie uwzględnia wielkości liter we wszystkich systemach operacyjnych. Zachowanie jest taka sama jak zachowanie dostawcy plików fizycznych w Windows. Jeśli dwa widoki wstępnie skompilowanych różnią się tylko wielkością liter, wynikiem wyszukiwania jest niedeterministyczny.
 
 Deweloperzy są zachęcani do pasuje do wielkości liter w nazwach plików i katalogów na wielkość liter w wyrazie:
 

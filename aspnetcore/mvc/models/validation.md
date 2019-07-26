@@ -1,246 +1,246 @@
 ---
-title: Weryfikacja modelu w programie ASP.NET Core MVC
+title: Walidacja modelu w ASP.NET Core MVC
 author: tdykstra
-description: Więcej informacji o weryfikacji modelu w programie ASP.NET Core MVC i stron Razor.
+description: Dowiedz się więcej o walidacji modelu w ASP.NET Core MVC i Razor Pages.
 ms.author: riande
 ms.custom: mvc
 ms.date: 04/06/2019
 monikerRange: '>= aspnetcore-2.1'
 uid: mvc/models/validation
 ms.openlocfilehash: 43b69e9b7588ad575f203200c5bc59a4272d0066
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.sourcegitcommit: 849af69ee3c94cdb9fd8fa1f1bb8f5a5dda7b9eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2019
+ms.lasthandoff: 07/22/2019
 ms.locfileid: "67814113"
 ---
-# <a name="model-validation-in-aspnet-core-mvc-and-razor-pages"></a>Weryfikacja modelu w programie ASP.NET Core MVC i stron Razor
+# <a name="model-validation-in-aspnet-core-mvc-and-razor-pages"></a>Walidacja modelu w ASP.NET Core MVC i Razor Pages
 
-W tym artykule opisano sposób sprawdzania poprawności danych wejściowych użytkownika w aplikacji ASP.NET Core MVC lub stron Razor.
+W tym artykule wyjaśniono, jak sprawdzić poprawność danych wprowadzonych przez użytkownika w aplikacji ASP.NET Core MVC lub Razor Pages.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/validation/sample) ([sposobu pobierania](xref:index#how-to-download-a-sample)).
+[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/validation/sample) ([jak pobrać](xref:index#how-to-download-a-sample)).
 
 ## <a name="model-state"></a>Stan modelu
 
-Stan modelu reprezentuje błędy, które pochodzą z dwóch podsystemów: wiązania modelu i sprawdzanie poprawności modelu. Błędy, które pochodzą z [wiązanie modelu](model-binding.md) są zwykle błędów konwersji danych (na przykład, "x" jest wprowadzana w polu, które oczekuje, że liczba całkowita). Sprawdzanie poprawności modelu występuje po wiązania modelu i raporty błędów, gdy dane nie są zgodne z regułami biznesowymi (na przykład 0 jest wprowadzana w polu, które oczekuje, że ma klasyfikację od 1 do 5).
+Stan modelu reprezentuje błędy pochodzące z dwóch podsystemów: powiązanie modelu i walidacja modelu. Błędy, które pochodzą z [powiązania modelu](model-binding.md) , to zwykle Błędy konwersji danych (na przykład "x" jest wprowadzany w polu, w którym jest oczekiwana liczba całkowita). Walidacja modelu odbywa się po powiązaniu modelu i zgłasza błędy, gdy dane nie są zgodne z regułami biznesowymi (na przykład wartość 0 jest wprowadzana w polu, w którym oczekiwana jest Ocena z zakresu od 1 do 5).
 
-Zarówno powiązanie modelu, jak i weryfikacja odbywają się przed wykonaniem tej akcji kontrolera lub metody obsługi stron Razor. Dla aplikacji sieci web odpowiada aplikacji aby sprawdzić `ModelState.IsValid` i odpowiednio reagują. Aplikacje internetowe zazwyczaj ponownie wyświetlić stronę komunikatu o błędzie:
+Zarówno powiązanie modelu, jak i walidacja są wykonywane przed wykonaniem akcji kontrolera lub metody obsługi Razor Pages. W przypadku aplikacji sieci Web jest odpowiedzialna za jej sprawdzenie `ModelState.IsValid` i reagowanie. Aplikacja internetowa zazwyczaj ponownie wyświetla stronę z komunikatem o błędzie:
 
 [!code-csharp[](validation/sample_snapshot/Create.cshtml.cs?name=snippet&highlight=3-6)]
 
-Kontrolery interfejsu API sieci Web nie ma pod `ModelState.IsValid` jeśli mają one `[ApiController]` atrybutu. W takim przypadku automatyczne HTTP 400 odpowiedzi zawierające szczegółowe informacje o problemie zwracany jest stan modelu jest nieprawidłowy. Aby uzyskać więcej informacji, zobacz [odpowiedzi automatyczne HTTP 400](xref:web-api/index#automatic-http-400-responses).
+Kontrolery interfejsu API sieci Web nie muszą `ModelState.IsValid` sprawdzać, `[ApiController]` czy mają atrybut. W takim przypadku zostanie zwrócona automatyczna odpowiedź HTTP 400 zawierającej Szczegóły problemu, gdy stan modelu jest nieprawidłowy. Aby uzyskać więcej informacji, zobacz [Automatyczne HTTP 400 odpowiedzi](xref:web-api/index#automatic-http-400-responses).
 
-## <a name="rerun-validation"></a>Uruchom ponownie sprawdzanie poprawności
+## <a name="rerun-validation"></a>Uruchom ponownie weryfikację
 
-Sprawdzanie poprawności jest automatyczne, ale może być konieczne powtórzenie go ręcznie. Na przykład możesz obliczyć wartość dla właściwości i aby ponownie uruchomić sprawdzanie poprawności po ustawieniu właściwości na podstawie wartości. Ponowne uruchamianie sprawdzania poprawności, należy wywołać `TryValidateModel` metody, jak pokazano poniżej:
+Walidacja jest automatyczna, ale warto powtórzyć ją ręcznie. Na przykład można obliczyć wartość właściwości i chcieć ponownie uruchomić weryfikację po ustawieniu właściwości na wartość obliczaną. Aby ponownie uruchomić weryfikację, `TryValidateModel` Wywołaj metodę, jak pokazano poniżej:
 
 [!code-csharp[](validation/sample/Controllers/MoviesController.cs?name=snippet_TryValidateModel&highlight=11)]
 
-## <a name="validation-attributes"></a>Sprawdzanie poprawności atrybutów
+## <a name="validation-attributes"></a>Atrybuty walidacji
 
-Sprawdzanie poprawności atrybutów umożliwiają określenie reguł sprawdzania poprawności dla właściwości modelu. Poniższy przykład z [przykładową aplikację](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/validation/sample) zawiera klasę modelu, który jest oznaczony za pomocą atrybutów sprawdzania poprawności. `[ClassicMovie]` Atrybut jest atrybutem niestandardowego sprawdzania poprawności, a pozostałe są wbudowane. (Niewyświetlany jest `[ClassicMovie2]`, który zawiera alternatywny sposób implementacji atrybutu niestandardowego.)
+Atrybuty walidacji umożliwiają określanie reguł walidacji dla właściwości modelu. W poniższym przykładzie z [przykładowej aplikacji](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/validation/sample) przedstawiono klasę modelu, która ma adnotację z atrybutami walidacji. Ten `[ClassicMovie]` atrybut jest niestandardowym atrybutem walidacji, a inne są wbudowane. (Niepokazywany `[ClassicMovie2]`jest, który pokazuje alternatywny sposób implementacji atrybutu niestandardowego).
 
 [!code-csharp[](validation/sample/Models/Movie.cs?name=snippet_ModelClass)]
 
-## <a name="built-in-attributes"></a>Wbudowanych atrybutów
+## <a name="built-in-attributes"></a>Atrybuty wbudowane
 
-Oto niektóre atrybuty weryfikacji wbudowane:
+Poniżej przedstawiono niektóre wbudowane atrybuty walidacji:
 
-* `[CreditCard]`: Weryfikuje, że właściwość ma format karty kredytowej.
-* `[Compare]`: Sprawdza poprawność tego dwie właściwości w modelu są zgodne.
-* `[EmailAddress]`: Weryfikuje, że właściwość ma format adresu e-mail.
-* `[Phone]`: Weryfikuje, że właściwość ma format numeru telefonu.
-* `[Range]`: Sprawdza, czy wartość właściwości mieści się w określonym zakresie.
-* `[RegularExpression]`: Weryfikuje, że wartość właściwości odpowiada określonemu wyrażeniu regularnemu.
-* `[Required]`: Sprawdza, czy pole nie jest null. Zobacz [atrybutu [wymagane]](#required-attribute) szczegółowe informacje na temat zachowania tego atrybutu.
-* `[StringLength]`: Weryfikuje, że wartość właściwości ciągu nie przekracza limit określonej długości.
-* `[Url]`: Weryfikuje, że właściwość ma format adresu URL.
-* `[Remote]`: Sprawdza poprawność danych wejściowych na komputerze klienckim przez wywołanie metody akcji, na serwerze. Zobacz [atrybutu [zdalnego]](#remote-attribute) szczegółowe informacje na temat zachowania tego atrybutu.
+* `[CreditCard]`: Sprawdza, czy właściwość ma format karty kredytowej.
+* `[Compare]`: Sprawdza, czy dwie właściwości w modelu pasują do siebie.
+* `[EmailAddress]`: Sprawdza, czy właściwość ma format wiadomości e-mail.
+* `[Phone]`: Sprawdza, czy właściwość ma format numeru telefonu.
+* `[Range]`: Sprawdza, czy wartość właściwości znajduje się w określonym zakresie.
+* `[RegularExpression]`: Sprawdza, czy wartość właściwości jest zgodna z określonym wyrażeniem regularnym.
+* `[Required]`: Sprawdza, czy pole nie ma wartości null. Aby uzyskać szczegółowe informacje o zachowaniu tego atrybutu, zobacz [[Required]](#required-attribute) .
+* `[StringLength]`: Sprawdza, czy wartość właściwości String nie przekracza podanego limitu długości.
+* `[Url]`: Sprawdza, czy właściwość ma format adresu URL.
+* `[Remote]`: Sprawdza poprawność danych wejściowych na kliencie przez wywołanie metody akcji na serwerze. Zobacz [atrybut [Remote]](#remote-attribute) , aby uzyskać szczegółowe informacje o zachowaniu tego atrybutu.
 
-Pełna lista atrybutów weryfikacji można znaleźć w [System.ComponentModel.DataAnnotations](xref:System.ComponentModel.DataAnnotations) przestrzeni nazw.
+Pełną listę atrybutów sprawdzania poprawności można znaleźć w przestrzeni nazw [System. ComponentModel.](xref:System.ComponentModel.DataAnnotations) DataAnnotations.
 
 ### <a name="error-messages"></a>Komunikaty o błędach
 
-Sprawdzanie poprawności atrybutów umożliwiają określenie komunikat o błędzie do wyświetlenia w nieprawidłowe dane wejściowe. Na przykład:
+Atrybuty walidacji pozwalają określić komunikat o błędzie, który ma być wyświetlany dla nieprawidłowych danych wejściowych. Na przykład:
 
 ```csharp
 [StringLength(8, ErrorMessage = "Name length can't be more than 8.")]
 ```
 
-Wewnętrznie, wywołanie atrybuty `String.Format` z symbolem zastępczym dla nazwy pola i czasami dodatkowe symboli zastępczych. Na przykład:
+Wewnętrznie atrybuty są wywoływane `String.Format` przy użyciu symbolu zastępczego dla nazwy pola i czasami dodatkowych symboli zastępczych. Przykład:
 
 ```csharp
 [StringLength(8, ErrorMessage = "{0} length must be between {2} and {1}.", MinimumLength = 6)]
 ```
 
-Po zastosowaniu do `Name` właściwości, komunikat o błędzie, utworzone przez poprzedni kod będzie "długość nazwy musi wynosić od 6 i 8.".
+W przypadku zastosowania do `Name` właściwości komunikat o błędzie utworzony przez poprzedni kod powinien mieć wartość "nazwa musi zawierać się w przedziale od 6 do 8".
 
-Aby dowiedzieć się, które parametry są przekazywane do `String.Format` określonego atrybutu komunikatu o błędzie, zobacz [kod źródłowy DataAnnotations](https://github.com/dotnet/corefx/tree/master/src/System.ComponentModel.Annotations/src/System/ComponentModel/DataAnnotations).
+Aby dowiedzieć się, które parametry są `String.Format` przesyłane do komunikatu o błędzie określonego atrybutu, zobacz [kod źródłowy adnotacji](https://github.com/dotnet/corefx/tree/master/src/System.ComponentModel.Annotations/src/System/ComponentModel/DataAnnotations)danych.
 
-## <a name="required-attribute"></a>Atrybut [wymagane]
+## <a name="required-attribute"></a>[Required] — atrybut
 
-Domyślnie system sprawdzania poprawności traktuje parametrów innych niż null lub właściwości, tak, jakby mieli oni `[Required]` atrybutu. [Typy wartości](/dotnet/csharp/language-reference/keywords/value-types) takich jak `decimal` i `int` nie dopuszczają wartości.
+Domyślnie system walidacji traktuje niedopuszczające wartości null parametry lub właściwości tak, jakby miały `[Required]` atrybut. [Typy wartości](/dotnet/csharp/language-reference/keywords/value-types) , takie `decimal` jak `int` i, nie dopuszczają wartości null.
 
-### <a name="required-validation-on-the-server"></a>[Wymagane] sprawdzanie poprawności na serwerze
+### <a name="required-validation-on-the-server"></a>[Wymagane] Walidacja na serwerze
 
-Na serwerze wymagana wartość jest uważana za brak, jeśli właściwość ma wartość null. Dopuszcza pole zawsze jest prawidłowy, a komunikat o błędzie atrybutu [wymagane] nigdy nie jest wyświetlane.
+Na serwerze, wymagana wartość jest uważana za brakującą, jeśli właściwość ma wartość null. Pole niedopuszczające wartości null jest zawsze prawidłowe, a komunikat o błędzie [Required] nie jest nigdy wyświetlany.
 
-Jednak wiązanie modelu dla właściwości niedopuszczającej może zakończyć się niepowodzeniem, co w komunikacie o błędzie, takich jak `The value '' is invalid`. Aby określić niestandardowy komunikat o błędzie weryfikacji po stronie serwera typów innych niż null, dostępne są następujące opcje:
+Jednak powiązanie modelu dla właściwości niedopuszczających wartości null może zakończyć się niepowodzeniem, co spowoduje wystąpienie komunikatu `The value '' is invalid`o błędzie, takiego jak. Aby określić niestandardowy komunikat o błędzie dla weryfikacji po stronie serwera dla typów niedopuszczających wartości null, dostępne są następujące opcje:
 
-* Zmień pole na wartość null (na przykład `decimal?` zamiast `decimal`). [Dopuszcza wartości null\<T >](/dotnet/csharp/programming-guide/nullable-types/) typy wartości są traktowane jak standardowe typy dopuszczające wartości null.
-* Określ domyślny komunikat o błędzie do użycia przez powiązanie modelu, jak pokazano w poniższym przykładzie:
+* Wprowadź wartość pola Nullable (np `decimal?` . `decimal`zamiast). [Wartości\<null T >](/dotnet/csharp/programming-guide/nullable-types/) są traktowane jak standardowe typy dopuszczające wartości null.
+* Określ domyślny komunikat o błędzie, który ma być używany przez powiązanie modelu, jak pokazano w następującym przykładzie:
 
   [!code-csharp[](validation/sample/Startup.cs?name=snippet_MaxModelValidationErrors&highlight=4-5)]
 
-  Aby uzyskać więcej informacji na temat błędów powiązanie modelu ustawić domyślne komunikaty dla, zobacz <xref:Microsoft.AspNetCore.Mvc.ModelBinding.Metadata.DefaultModelBindingMessageProvider#methods>.
+  Aby uzyskać więcej informacji o błędach powiązania modelu, dla których można ustawić domyślne komunikaty <xref:Microsoft.AspNetCore.Mvc.ModelBinding.Metadata.DefaultModelBindingMessageProvider#methods>dla programu, zobacz.
 
-### <a name="required-validation-on-the-client"></a>Walidacja [wymagane] na komputerze klienckim
+### <a name="required-validation-on-the-client"></a>[Wymagane] weryfikacja na kliencie
 
-Typy dopuszczające wartości inne niż null i ciągi są obsługiwane inaczej na komputerze klienckim, w porównaniu do serwera. Na komputerze klienckim:
+Typy niedopuszczające wartości null i ciągi są obsługiwane inaczej na kliencie w porównaniu z serwerem. Na kliencie:
 
-* Wartość jest obecna, tylko wtedy, gdy dane wejściowe podano dla niego. W związku z tym weryfikacji po stronie klienta obsługuje typy niedopuszczające takie same jak typy dopuszczające wartości null.
-* Białe znaki w polu ciągu jest uznawany za prawidłowych danych wejściowych przez jQuery weryfikacji [wymagane](https://jqueryvalidation.org/required-method/) metody. Weryfikacji po stronie serwera uwzględnia pola wymaganego ciągu nieprawidłowy, jeśli tylko białe znaki jest wprowadzana.
+* Wartość jest uważana za obecną tylko wtedy, gdy wprowadzono dla niej dane wejściowe. W związku z tym, walidacja po stronie klienta obsługuje niedopuszczające wartości null typy takie same jak typy dopuszczające wartości null.
+* Biały znak w polu ciągu jest uznawany za prawidłowe dane wejściowe przez [wymaganą](https://jqueryvalidation.org/required-method/) metodę weryfikacji jQuery. Walidacja po stronie serwera traktuje wymagane pole ciągu nieprawidłowe, jeśli wprowadzono tylko odstępy.
 
-Jak wspomniano wcześniej, typy niedopuszczające są traktowane tak, jakby mieli oni `[Required]` atrybutu. Oznacza to, że uzyskujesz weryfikacji po stronie klienta, nawet wtedy, gdy nie mają zastosowania `[Required]` atrybutu. Ale jeśli ten atrybut nie jest używana, otrzymasz domyślnego komunikatu o błędzie. Aby określić niestandardowy komunikat o błędzie, należy użyć atrybutu.
+Jak wspomniano wcześniej, typy niedopuszczające wartości null są traktowane tak, `[Required]` jakby miały atrybut. Oznacza to, że można uzyskać weryfikację po stronie klienta, nawet jeśli `[Required]` nie zastosowano atrybutu. Ale jeśli nie używasz tego atrybutu, zostanie wyświetlony domyślny komunikat o błędzie. Aby określić niestandardowy komunikat o błędzie, Użyj atrybutu.
 
-## <a name="remote-attribute"></a>Atrybut [zdalnego]
+## <a name="remote-attribute"></a>[Remote] — atrybut
 
-`[Remote]` Atrybut implementuje walidacji po stronie klienta, czy wymagane jest wywołanie metody na serwerze, aby ustalić, czy pole danych wejściowych jest nieprawidłowy. Na przykład aplikacja może być konieczne Sprawdź, czy nazwa użytkownika jest już używana.
+Ten `[Remote]` atrybut implementuje walidację po stronie klienta, która wymaga wywołania metody na serwerze w celu określenia, czy dane wejściowe pola są prawidłowe. Na przykład aplikacja może wymagać sprawdzenia, czy nazwa użytkownika jest już używana.
 
-Aby zaimplementować weryfikację zdalną:
+Aby zaimplementować zdalne sprawdzanie poprawności:
 
-1. Utwórz metodę akcji dla języka JavaScript do wywołania.  Sprawdź poprawność jQuery [zdalnego](https://jqueryvalidation.org/remote-method/) metoda oczekuje na odpowiedź JSON:
+1. Utwórz metodę akcji dla języka JavaScript do wywołania.  Metoda zdalna [](https://jqueryvalidation.org/remote-method/) walidacji jQuery oczekuje odpowiedzi JSON:
 
-   * `"true"` oznacza, że dane wejściowe są prawidłowe.
-   * `"false"`, `undefined`, lub `null` oznacza, że dane wejściowe są nieprawidłowe.  Wyświetl domyślny komunikat o błędzie.
-   * Inny ciąg oznacza, że dane wejściowe są nieprawidłowe. Wyświetlenie ciągu jako niestandardowy komunikat o błędzie.
+   * `"true"`oznacza, że dane wejściowe są prawidłowe.
+   * `"false"`, `undefined` lub`null` oznacza, że dane wejściowe są nieprawidłowe.  Wyświetl domyślny komunikat o błędzie.
+   * Każdy inny ciąg oznacza, że dane wejściowe są nieprawidłowe. Wyświetl ciąg jako niestandardowy komunikat o błędzie.
 
    Oto przykład metody akcji, która zwraca niestandardowy komunikat o błędzie:
 
    [!code-csharp[](validation/sample/Controllers/UsersController.cs?name=snippet_VerifyEmail)]
 
-1. W klasie modelu, dodawać adnotacje do właściwości o `[Remote]` atrybut, który wskazuje sprawdzania poprawności metody akcji, jak pokazano w poniższym przykładzie:
+1. W klasie modelu Dodaj adnotację do właściwości z `[Remote]` atrybutem wskazującym na metodę akcji walidacji, jak pokazano w następującym przykładzie:
 
    [!code-csharp[](validation/sample/Models/User.cs?name=snippet_UserEmailProperty)]
  
-   `[Remote]` Atrybut jest `Microsoft.AspNetCore.Mvc` przestrzeni nazw. Zainstaluj [Microsoft.AspNetCore.Mvc.ViewFeatures](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.ViewFeatures) pakietu NuGet, jeśli nie używasz `Microsoft.AspNetCore.App` lub `Microsoft.AspNetCore.All` meta Microsoft.aspnetcore.all.
+   Ten `[Remote]` atrybut znajduje się `Microsoft.AspNetCore.Mvc` w przestrzeni nazw. Zainstaluj pakiet NuGet [Microsoft. AspNetCore. MVC. ViewFeatures](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.ViewFeatures) , jeśli nie używasz programu `Microsoft.AspNetCore.App` lub `Microsoft.AspNetCore.All` pakietu.
    
 ### <a name="additional-fields"></a>Dodatkowe pola
 
-`AdditionalFields` Właściwość `[Remote]` atrybut umożliwia weryfikowanie kombinacje pól w odniesieniu do danych na serwerze. Na przykład jeśli `User` modelu ma `FirstName` i `LastName` właściwości, warto sprawdzić, czy nie istniejący użytkownicy mają już tej pary nazw. Poniższy przykład pokazuje, jak używać `AdditionalFields`:
+`AdditionalFields` Właściwość`[Remote]` atrybutu umożliwia Weryfikowanie kombinacji pól względem danych na serwerze. Na przykład jeśli `User` model ma `FirstName` i `LastName` właściwości, można sprawdzić, czy żaden istniejący użytkownik już ma tę parę nazw. Poniższy przykład przedstawia sposób użycia `AdditionalFields`:
 
 [!code-csharp[](validation/sample/Models/User.cs?name=snippet_UserNameProperties)]
 
-`AdditionalFields` można jawnie ustawić do ciągów `"FirstName"` i `"LastName"`, ale przy użyciu [ `nameof` ](/dotnet/csharp/language-reference/keywords/nameof) operator upraszcza później refaktoryzacji. Metody akcji dla tej weryfikacji musi zaakceptować, imię i ostatnie argumenty nazwy:
+`AdditionalFields`może być jawnie ustawiona dla ciągów `"FirstName"` i `"LastName"`, ale użycie [`nameof`](/dotnet/csharp/language-reference/keywords/nameof) operatora upraszcza późniejsze refaktoryzacji. Metoda akcji dla tej weryfikacji musi akceptować zarówno imiona, jak i nazwiska:
 
 [!code-csharp[](validation/sample/Controllers/UsersController.cs?name=snippet_VerifyName)]
 
-Gdy użytkownik wprowadza imię lub nazwisko, JavaScript sprawia, że zdalnego wywołania, aby zobaczyć, że pary nazw jest już zajęta.
+Gdy użytkownik wprowadzi imię lub nazwisko, kod JavaScript wykonuje zdalne wywołanie, aby sprawdzić, czy ta para nazw została podjęta.
 
-Aby sprawdzić, co najmniej dwa dodatkowe pola, podaj je jako listę rozdzielonych przecinkami. Na przykład, aby dodać `MiddleName` właściwością modelu, `[Remote]` atrybutu, jak pokazano w poniższym przykładzie:
+Aby sprawdzić poprawność dwóch lub więcej pól, podaj je jako listę rozdzielaną przecinkami. Na przykład aby dodać `MiddleName` właściwość do modelu, należy `[Remote]` ustawić atrybut, jak pokazano w następującym przykładzie:
 
 ```cs
 [Remote(action: "VerifyName", controller: "Users", AdditionalFields = nameof(FirstName) + "," + nameof(LastName))]
 public string MiddleName { get; set; }
 ```
 
-`AdditionalFields`, podobnie jak wszystkie argumenty atrybutu, musi być wyrażeniem stałym. W związku z tym, nie używaj [ciągiem interpolowanym](/dotnet/csharp/language-reference/keywords/interpolated-strings) lub zadzwoń <xref:System.String.Join*> zainicjować `AdditionalFields`.
+`AdditionalFields`, podobnie jak wszystkie argumenty atrybutu, musi być wyrażeniem stałym. W związku z tym nie [](/dotnet/csharp/language-reference/keywords/interpolated-strings) należy używać interpolowanego ciągu <xref:System.String.Join*> ani wywołania `AdditionalFields`do inicjowania.
 
 ## <a name="alternatives-to-built-in-attributes"></a>Alternatywy dla wbudowanych atrybutów
 
-Jeśli potrzebujesz nie został dostarczony przez wbudowanych atrybutów sprawdzania poprawności, można:
+Jeśli potrzebujesz weryfikacji niedostarczonej przez wbudowane atrybuty, możesz:
 
-* [Tworzenie atrybutów niestandardowych, które](#custom-attributes).
-* [Implementowanie IValidatableObject](#ivalidatableobject).
+* [Tworzenie atrybutów niestandardowych](#custom-attributes).
+* [Zaimplementuj IValidatableObject](#ivalidatableobject).
 
 ## <a name="custom-attributes"></a>Atrybuty niestandardowe
 
-Dla scenariuszy, które nie obsługują atrybuty weryfikacji wbudowanych można utworzyć niestandardowego sprawdzania poprawności atrybutów. Utwórz klasę, która dziedziczy z <xref:System.ComponentModel.DataAnnotations.ValidationAttribute>i zastępowania <xref:System.ComponentModel.DataAnnotations.ValidationAttribute.IsValid*> metody.
+W przypadku scenariuszy, w których wbudowane atrybuty walidacji nie obsługują, można utworzyć niestandardowe atrybuty walidacji. Utwórz klasę, która dziedziczy z <xref:System.ComponentModel.DataAnnotations.ValidationAttribute>, i <xref:System.ComponentModel.DataAnnotations.ValidationAttribute.IsValid*> Zastąp metodę.
 
-`IsValid` Metoda przyjmuje obiekt o nazwie *wartość*, czyli danych wejściowych, które ma zostać zweryfikowana. Akceptuje także przeciążenia `ValidationContext` obiektu, który zawiera dodatkowe informacje, takie jak wystąpienie modelu, utworzone przez wiązania modelu.
+Metoda akceptuje obiekt o nazwie Value, czyli dane wejściowe do zweryfikowania.  `IsValid` Przeciążenie akceptuje `ValidationContext` również obiekt, który zawiera dodatkowe informacje, takie jak wystąpienie modelu utworzone przez powiązanie modelu.
 
-Poniższy przykład sprawdza, czy data wydania dla filmu w *klasycznego* gatunku nie jest późniejsza niż określonego roku. `[ClassicMovie2]` Atrybutu najpierw sprawdza gatunek i kontynuuje tylko, jeśli zawiera on *klasycznego*. Dla filmów zidentyfikowane jako klasyka sprawdza daty wydania, aby upewnić się, że nie jest nowszy niż limit przekazany do konstruktora atrybutu.)
+Poniższy przykład sprawdza, czy Data wydania filmu w klasycznym gatunku nie jest  późniejsza niż określony rok. Ten `[ClassicMovie2]` atrybut najpierw sprawdza gatunek i kontynuuje działanie tylko wtedy, gdy jest on *klasyczny*. W przypadku filmów identyfikowanych jako Classics sprawdza datę wydania, aby upewnić się, że nie jest ona późniejsza niż limit przesłany do konstruktora atrybutu.
 
 [!code-csharp[](validation/sample/Attributes/ClassicMovieAttribute.cs?name=snippet_ClassicMovieAttribute)]
 
-`movie` Reprezentuje zmienną w poprzednim przykładzie `Movie` obiekt, który zawiera dane z przesyłania formularza. `IsValid` Metoda sprawdza, czy data i gatunku. Po pomyślnej weryfikacji `IsValid` zwraca `ValidationResult.Success` kodu. Podczas sprawdzania poprawności zakończy się niepowodzeniem, `ValidationResult` ze względu na błąd jest zwracany komunikat.
+Zmienna w poprzednim przykładzie `Movie` reprezentuje obiekt, który zawiera dane z przesłania formularza. `movie` `IsValid` Metoda sprawdza datę i gatunek. Po pomyślnej `IsValid` weryfikacji program `ValidationResult.Success` zwraca kod. Gdy Walidacja nie powiedzie się, `ValidationResult` zostanie zwrócony komunikat o błędzie.
 
 ## <a name="ivalidatableobject"></a>IValidatableObject
 
-Poprzedni przykład działa tylko w przypadku `Movie` typów. Inna opcja weryfikacji na poziomie klasy jest zaimplementowanie `IValidatableObject` w klasie modelu, jak pokazano w poniższym przykładzie:
+Poprzedni przykład działa tylko z `Movie` typami. Kolejną opcją weryfikacji na poziomie klasy jest implementacja `IValidatableObject` w klasie modelu, jak pokazano w następującym przykładzie:
 
 [!code-csharp[](validation/sample/Models/MovieIValidatable.cs?name=snippet&highlight=1,26-34)]
 
-## <a name="top-level-node-validation"></a>Sprawdzanie poprawności węzeł najwyższego poziomu
+## <a name="top-level-node-validation"></a>Sprawdzanie poprawności węzła najwyższego poziomu
 
-Obejmują węzłów najwyższego poziomu:
+Węzły najwyższego poziomu obejmują:
 
 * Parametry akcji
 * Właściwości kontrolera
-* Parametry obsługi strony
-* Strona właściwości modelu
+* Parametry procedury obsługi stron
+* Właściwości modelu strony
 
-Powiązane z modelu węzłów najwyższego poziomu są weryfikowane oprócz weryfikacji właściwości modelu. W poniższym przykładzie z przykładowej aplikacji `VerifyPhone` metoda używa <xref:System.ComponentModel.DataAnnotations.RegularExpressionAttribute> do sprawdzania poprawności `phone` parametr akcji:
+Węzły najwyższego poziomu powiązane z modelem są weryfikowane jako uzupełnienie właściwości modelu. W poniższym przykładzie z przykładowej aplikacji `VerifyPhone` Metoda <xref:System.ComponentModel.DataAnnotations.RegularExpressionAttribute> używa do walidacji `phone` parametru Action:
 
 [!code-csharp[](validation/sample/Controllers/UsersController.cs?name=snippet_VerifyPhone)]
 
-Można użyć węzłów najwyższego poziomu <xref:Microsoft.AspNetCore.Mvc.ModelBinding.BindRequiredAttribute> za pomocą atrybutów sprawdzania poprawności. W poniższym przykładzie z przykładowej aplikacji `CheckAge` Metoda określa, że `age` parametru musi być powiązana z ciągu zapytania po przesłaniu formularza:
+Węzły najwyższego poziomu mogą <xref:Microsoft.AspNetCore.Mvc.ModelBinding.BindRequiredAttribute> korzystać z atrybutów walidacji. W poniższym przykładzie z przykładowej aplikacji `CheckAge` Metoda określa `age` , że parametr musi być powiązany z ciągu zapytania, gdy formularz zostanie przesłany:
 
 [!code-csharp[](validation/sample/Controllers/UsersController.cs?name=snippet_CheckAge)]
 
-Na stronie Sprawdzanie wiekowa (*CheckAge.cshtml*), istnieją dwie formy. Pierwszy formularz przesyła `Age` wartość `99` jako ciąg zapytania: `https://localhost:5001/Users/CheckAge?Age=99`.
+Na stronie sprawdzanie wieku (*Sprawdź. cshtml*) Istnieją dwa formy. Pierwszy formularz przesyła `Age` `99` wartość jako ciąg zapytania: `https://localhost:5001/Users/CheckAge?Age=99`.
 
-Gdy jest to poprawnie sformatowany `age` jest przesyłany przez parametr ciągu zapytania, sprawdza poprawność formularza.
+Po przesłaniu poprawnie `age` sformatowanego parametru z ciągu zapytania, formularz sprawdza poprawność.
 
-Drugi formularz na stronie Sprawdzanie wiekowa przesyła `Age` wartością w treści żądania, a weryfikacja zakończy się niepowodzeniem. Powiązanie kończy się niepowodzeniem, ponieważ `age` parametru muszą pochodzić z ciągu zapytania.
+Drugi formularz na stronie sprawdzanie wieku przesyła `Age` wartość w treści żądania, a Walidacja nie powiedzie się. Powiązanie nie powiodło `age` się, ponieważ parametr musi pochodzić z ciągu zapytania.
 
-Podczas korzystania z użyciem `CompatibilityVersion.Version_2_1` lub później, sprawdzanie poprawności węzeł najwyższego poziomu jest domyślnie włączona. W przeciwnym razie Weryfikacja węzeł najwyższego poziomu jest wyłączona. Opcja domyślna może zostać zastąpione przez ustawienie <xref:Microsoft.AspNetCore.Mvc.MvcOptions.AllowValidatingTopLevelNodes*> właściwości (`Startup.ConfigureServices`), jak pokazano poniżej:
+W przypadku korzystania `CompatibilityVersion.Version_2_1` z programu lub nowszego Walidacja węzła najwyższego poziomu jest domyślnie włączona. W przeciwnym razie Walidacja węzła najwyższego poziomu jest wyłączona. Opcję domyślną można przesłonić, ustawiając <xref:Microsoft.AspNetCore.Mvc.MvcOptions.AllowValidatingTopLevelNodes*> właściwość w (`Startup.ConfigureServices`), jak pokazano poniżej:
 
 [!code-csharp[](validation/sample_snapshot/Startup.cs?name=snippet_AddMvc&highlight=4)]
 
 ## <a name="maximum-errors"></a>Maksymalna liczba błędów
 
-Sprawdzanie poprawności zostanie zatrzymane, jeśli osiągnięto maksymalną liczbę błędów (200 domyślnie). Tę liczbę można skonfigurować w następującym kodem `Startup.ConfigureServices`:
+Walidacja jest zatrzymywana, gdy zostanie osiągnięta maksymalna liczba błędów (domyślnie 200). Tę liczbę można skonfigurować przy użyciu następującego kodu w programie `Startup.ConfigureServices`:
 
 [!code-csharp[](validation/sample/Startup.cs?name=snippet_MaxModelValidationErrors&highlight=3)]
 
-## <a name="maximum-recursion"></a>Maksymalna rekursji
+## <a name="maximum-recursion"></a>Maksymalna rekursja
 
-<xref:Microsoft.AspNetCore.Mvc.ModelBinding.Validation.ValidationVisitor> przechodzi przez wykres obiektu modelu, w trakcie sprawdzania poprawności. W przypadku modeli, które są bardzo szczegółowe lub nieskończenie cyklicznego sprawdzania poprawności może spowodować przepełnienie stosu. [MvcOptions.MaxValidationDepth](xref:Microsoft.AspNetCore.Mvc.MvcOptions.MaxValidationDepth) umożliwia powstrzymywanie weryfikacji wcześnie, jeśli rekursji odwiedzający przekracza skonfigurowaną głębokość. Wartość domyślna `MvcOptions.MaxValidationDepth` to 200, podczas korzystania z użyciem `CompatibilityVersion.Version_2_2` lub nowszej. W przypadku starszych wersji ma wartość null, co oznacza, że określono ograniczenia głębi.
+<xref:Microsoft.AspNetCore.Mvc.ModelBinding.Validation.ValidationVisitor>przechodzi do grafu obiektów sprawdzanego przez model. W przypadku modeli, które są bardzo głębokie lub nieskończonie cykliczne, walidacja może spowodować przepełnienie stosu. [MvcOptions. MaxValidationDepth](xref:Microsoft.AspNetCore.Mvc.MvcOptions.MaxValidationDepth) umożliwia szybkie zakończenie sprawdzania poprawności, Jeśli rekursja odwiedzających przekracza skonfigurowaną głębokość. Wartość `MvcOptions.MaxValidationDepth` domyślna to 200 w przypadku uruchamiania z `CompatibilityVersion.Version_2_2` systemem lub nowszym. W przypadku wcześniejszych wersji wartość jest równa null, co oznacza brak ograniczenia głębokości.
 
-## <a name="automatic-short-circuit"></a>Zwarcie automatyczne
+## <a name="automatic-short-circuit"></a>Automatyczny krótki obwód
 
-Sprawdzanie poprawności jest automatycznie zwartym (pominięto) Jeśli na wykresie modelu nie wymaga weryfikacji. Obiekty, których środowisko uruchomieniowe Pomija weryfikację obejmują kolekcje elementów podstawowych (takie jak `byte[]`, `string[]`, `Dictionary<string, string>`) i wykresów złożonych obiektów, które nie mają żadnych modułów weryfikacji.
+Sprawdzanie poprawności jest automatycznie skracane (pomijane), jeśli wykres modelu nie wymaga weryfikacji. Obiekty, dla których środowisko uruchomieniowe pomija sprawdzanie poprawności dla dołączania kolekcji elementów `byte[]`podstawowych `string[]`( `Dictionary<string, string>`takich jak,,) i złożonych wykresów obiektów, które nie mają żadnych modułów sprawdzania poprawności.
 
-## <a name="disable-validation"></a>Wyłączyć sprawdzanie poprawności
+## <a name="disable-validation"></a>Wyłącz weryfikację
 
-Aby wyłączyć sprawdzanie poprawności:
+Aby wyłączyć weryfikację:
 
-1. Utworzenie implementacji klasy `IObjectModelValidator` , nie Oznacz wszystkie pola jako nieprawidłowy.
+1. Utwórz implementację `IObjectModelValidator` , która nie oznacza żadnych pól jako nieprawidłowych.
 
    [!code-csharp[](validation/sample/Attributes/NullObjectModelValidator.cs?name=snippet_DisableValidation)]
 
-1. Dodaj następujący kod do `Startup.ConfigureServices` zastąpić domyślną `IObjectModelValidator` implementacji kontenera iniekcji zależności.
+1. Dodaj następujący kod, aby `Startup.ConfigureServices` zastąpić domyślną `IObjectModelValidator` implementację w kontenerze iniekcji zależności.
 
    [!code-csharp[](validation/sample/Startup.cs?name=snippet_DisableValidation)]
 
-Nadal mogą pojawiać się błędy stanu modelu, które pochodzą z wiązania modelu.
+Nadal mogą pojawić się błędy stanu modelu pochodzące z powiązania modelu.
 
 ## <a name="client-side-validation"></a>Weryfikacja po stronie klienta
 
-Weryfikacji po stronie klienta zapobiega przesyłanie, aż formularz jest nieprawidłowy. Przycisk Zatwierdź uruchamia JavaScript, która przesyła formularz lub wyświetla komunikaty o błędach.
+Weryfikacja po stronie klienta uniemożliwia przesyłanie, dopóki formularz nie będzie prawidłowy. Przycisk Prześlij uruchamia kod JavaScript, który przesyła formularz lub wyświetla komunikaty o błędach.
 
-Weryfikacji po stronie klienta pozwala uniknąć niepotrzebnych komunikacji dwustronnej z serwerem, gdy istnieją błędy w danych wejściowych w formularzu. Poniższy skrypt, który odwołuje się w *_Layout.cshtml* i *_ValidationScriptsPartial.cshtml* obsługi weryfikacji po stronie klienta:
+Weryfikacja po stronie klienta umożliwia uniknięcie niepotrzebnej komunikacji z serwerem w przypadku błędów danych wejściowych w formularzu. Następujące odwołania do skryptu w *_Layout. cshtml* i *_ValidationScriptsPartial. cshtml* obsługują weryfikację po stronie klienta:
 
 [!code-cshtml[](validation/sample/Views/Shared/_Layout.cshtml?name=snippet_ScriptTag)]
 
 [!code-cshtml[](validation/sample/Views/Shared/_ValidationScriptsPartial.cshtml?name=snippet_ScriptTags)]
 
-[JQuery sprawdzania poprawności dyskretnego kodu](https://github.com/aspnet/jquery-validation-unobtrusive) skrypt jest niestandardową biblioteką frontonu firmy Microsoft, która jest oparta na popularnej [jQuery weryfikacji](https://jqueryvalidation.org/) wtyczki. Bez sprawdzania poprawności dyskretnego kodu jQuery, trzeba by code tę samą logikę weryfikacji w dwóch miejscach: jeden raz w atrybutach weryfikacji po stronie serwera właściwości model, a następnie ponownie w skryptach po stronie klienta. Zamiast tego [pomocników tagów](xref:mvc/views/tag-helpers/intro) i [pomocników HTML](xref:mvc/views/overview) należy użyć atrybutów sprawdzania poprawności i wpisać metadane z właściwości modelu do renderowania kodu HTML 5 `data-` atrybutów dla elementów formularza, które wymagają weryfikacji. analizuje sprawdzania poprawności dyskretnego kodu jQuery `data-` atrybutów, a następnie przekazuje logikę do technologii jQuery sprawdzania poprawności, efektywnie "kopiowanie" logiki weryfikacji po stronie serwera do klienta. Błędy sprawdzania poprawności można wyświetlać na kliencie, używanie pomocników tagów, jak pokazano poniżej:
+Skrypt [niezauważalnego sprawdzania poprawności jQuery](https://github.com/aspnet/jquery-validation-unobtrusive) jest niestandardową biblioteką frontonu firmy Microsoft, która kompiluje się w popularnej wersji interfejsu [jQuery](https://jqueryvalidation.org/) . Bez dyskretnej weryfikacji jQuery należy wykonać kod tej samej logiki walidacji w dwóch miejscach: raz w atrybuty walidacji po stronie serwera we właściwościach modelu, a następnie ponownie w skryptach po stronie klienta. Zamiast tego, [pomocników tagów](xref:mvc/views/tag-helpers/intro) i [pomocników HTML](xref:mvc/views/overview) używają atrybutów walidacji i metadanych typu z właściwości modelu do renderowania atrybutów `data-` HTML 5 dla elementów formularza, które wymagają walidacji. niezauważalne sprawdzenie poprawności przez `data-` program jQuery umożliwia przeanalizowanie atrybutów i przekazanie logiki do programu jQuery Validate, efektywne "Kopiowanie" logiki walidacji po stronie serwera do klienta. Błędy sprawdzania poprawności można wyświetlić na kliencie przy użyciu pomocników tagów, jak pokazano poniżej:
 
 [!code-cshtml[](validation/sample/Views/Movies/Create.cshtml?name=snippet_ReleaseDate&highlight=4-5)]
 
-Poprzedni pomocnicy tagów, że poniższy kod HTML.
+Poprzednie pomocnicy tagów renderują następujący kod HTML.
 
 ```html
 <form action="/Movies/Create" method="post">
@@ -261,13 +261,13 @@ Poprzedni pomocnicy tagów, że poniższy kod HTML.
 </form>
 ```
 
-Należy zauważyć, że `data-` atrybuty w kodzie HTML dane wyjściowe odnoszą się do atrybutów weryfikacji `ReleaseDate` właściwości. `data-val-required` Atrybut zawiera komunikat o błędzie wyświetlany w sytuacji, gdy użytkownik nie wypełnić pole daty wydania. jQuery sprawdzania poprawności dyskretnego kodu przekazuje tę wartość do weryfikacji jQuery [ `required()` ](https://jqueryvalidation.org/required-method/) metody, która wyświetla ten komunikat w towarzyszącego  **\<span >** elementu.
+Zauważ, że `data-` atrybuty w danych wyjściowych HTML odpowiadają atrybutom `ReleaseDate` walidacji właściwości. Ten `data-val-required` atrybut zawiera komunikat o błędzie, który zostanie wyświetlony, jeśli użytkownik nie wypełni pola Data wydania. niezauważalne sprawdzenie poprawności przez funkcję jQuery powoduje, że [`required()`](https://jqueryvalidation.org/required-method/) ta wartość jest przekazywana do metody weryfikacji jQuery, która następnie wyświetla ten komunikat w polu towarzyszący  **\<zakres >** .
 
-Sprawdzanie poprawności typu danych opiera się na typ architektury .NET własności, chyba że, który jest zastępowany przez `[DataType]` atrybutu. Przeglądarek ma swoje własne komunikaty o błędach domyślne, ale pakietu sprawdzania poprawności dyskretnego kodu weryfikacji jQuery można zastąpić te komunikaty. `[DataType]` atrybuty i podklas, takie jak `[EmailAddress]` umożliwiają określenie komunikat o błędzie.
+Walidacja typu danych jest oparta na typie .NET właściwości, chyba że zostanie zastąpiona przez `[DataType]` atrybut. Przeglądarki mają własne domyślne komunikaty o błędach, ale pakietem weryfikacji jQuery nie dyskretnego sprawdzania poprawności może przesłonić te komunikaty. `[DataType]`atrybuty i podklasy, takie jak `[EmailAddress]` pozwalają określić komunikat o błędzie.
 
 ### <a name="add-validation-to-dynamic-forms"></a>Dodawanie walidacji do formularzy dynamicznych
 
-jQuery sprawdzania poprawności dyskretnego kodu przekazuje logikę weryfikacji i parametry do technologii jQuery sprawdzania poprawności, po pierwszym załadowaniu strony. W związku z tym sprawdzanie poprawności nie działa automatycznie na dynamicznie generowanym formularzy. Aby włączyć sprawdzanie poprawności, poinformuj jQuery dyskretny kod sprawdzania poprawności, aby przeanalizować dynamiczny formularz natychmiast, po jego utworzeniu. Na przykład poniższy kod konfiguruje weryfikacji po stronie klienta w formularzu dodane za pośrednictwem technologii AJAX.
+w przypadku niedyskretnego sprawdzania poprawności jest sprawdzana logika walidacji i parametry do jQuery podczas pierwszego ładowania strony. W związku z tym sprawdzanie poprawności nie działa automatycznie na formularzach generowanych dynamicznie. Aby włączyć weryfikację, poinformuj jQuery o niezauważalnej weryfikacji, aby przeanalizować formularz dynamiczny bezpośrednio po jego utworzeniu. Na przykład poniższy kod konfiguruje walidację po stronie klienta w formularzu dodanym przez AJAX.
 
 ```js
 $.get({
@@ -286,11 +286,11 @@ $.get({
 })
 ```
 
-`$.validator.unobtrusive.parse()` Metoda przyjmuje selektor jQuery, jego jednego argumentu. Ta metoda informuje jQuery dyskretny kod sprawdzania poprawności, aby przeanalizować `data-` atrybuty odeśle selektora. Wartości te atrybuty są następnie przekazywane do wtyczki weryfikacji jQuery.
+`$.validator.unobtrusive.parse()` Metoda akceptuje selektor jQuery dla jednego argumentu. Ta metoda informuje niedyskretną weryfikację jQuery do `data-` analizy atrybutów formularzy w ramach tego selektora. Wartości tych atrybutów są następnie przesyłane do wtyczki do walidacji jQuery.
 
-### <a name="add-validation-to-dynamic-controls"></a>Dodawanie walidacji do kontrolek dynamicznych
+### <a name="add-validation-to-dynamic-controls"></a>Dodawanie walidacji do formantów dynamicznych
 
-`$.validator.unobtrusive.parse()` Metoda działa na cały formularz, nie w poszczególnych formantów generowanych dynamicznie, takich jak `<input>` i `<select/>`. Aby ponownej analizy formularza, Usuń danych weryfikacji, który został dodany podczas formularz był analizowany wcześniej, jak pokazano w poniższym przykładzie:
+Metoda działa na całym formularzu, a nie na poszczególnych dynamicznie generowanych kontrolkach, takich `<input>` jak `<select/>`i. `$.validator.unobtrusive.parse()` Aby przeanalizować formularz, Usuń dane sprawdzania poprawności, które zostały dodane, gdy formularz został wcześniej przeanalizowany, jak pokazano w następującym przykładzie:
 
 ```js
 $.get({
@@ -309,21 +309,21 @@ $.get({
 })
 ```
 
-## <a name="custom-client-side-validation"></a>Niestandardowe weryfikacji po stronie klienta
+## <a name="custom-client-side-validation"></a>Niestandardowe sprawdzanie poprawności po stronie klienta
 
-Niestandardowe sprawdzanie poprawności klienta jest wykonywane przez generowanie `data-` współpracujące z kartą weryfikacji jQuery niestandardowych atrybutów HTML. Następujący przykładowy kod adapter został napisany dla `ClassicMovie` i `ClassicMovie2` atrybuty, które zostały wprowadzone wcześniej w tym artykule:
+Niestandardowe sprawdzanie poprawności po stronie klienta jest wykonywane przez `data-` generowanie atrybutów HTML, które działają z niestandardowym identyfikatorem platformy jQuery. Następujący przykładowy kod karty został zapisany dla `ClassicMovie` atrybutów i `ClassicMovie2` , które zostały wprowadzone wcześniej w tym artykule:
 
 [!code-javascript[](validation/sample/wwwroot/js/classicMovieValidator.js?name=snippet_UnobtrusiveValidation)]
 
-Aby dowiedzieć się, jak napisać kart, zobacz [jQuery dokumentacji weryfikacji](https://jqueryvalidation.org/documentation/).
+Aby uzyskać informacje o sposobach pisania kart sieciowych, zobacz [dokumentację dotyczącą platformy jQuery Validate](https://jqueryvalidation.org/documentation/).
 
-Użycie adaptera dla danego pola jest wyzwalany przez `data-` atrybuty, które:
+Użycie karty dla danego pola jest wyzwalane przez `data-` atrybuty, które:
 
-* Flaga pole jako podlegające weryfikacji (`data-val="true"`).
-* Identyfikowanie sprawdzania poprawności reguły nazwy i błąd tekst komunikatu (na przykład `data-val-rulename="Error message."`).
-* Podaj wszelkie dodatkowe parametry modułu sprawdzania poprawności musi (na przykład `data-val-rulename-parm1="value"`).
+* Oznacz pole jako podlegające walidacji (`data-val="true"`).
+* Zidentyfikuj nazwę reguły walidacji i tekst komunikatu o błędzie (na przykład `data-val-rulename="Error message."`).
+* Podaj wszelkie dodatkowe parametry wymagane przez moduł sprawdzania poprawności (na `data-val-rulename-parm1="value"`przykład).
 
-W poniższym przykładzie przedstawiono `data-` atrybuty dla przykładowej aplikacji `ClassicMovie` atrybutu:
+W poniższym przykładzie przedstawiono `data-` atrybuty dla `ClassicMovie` atrybutu przykładowej aplikacji:
 
 ```html
 <input class="form-control" type="datetime"
@@ -334,48 +334,48 @@ W poniższym przykładzie przedstawiono `data-` atrybuty dla przykładowej aplik
     id="ReleaseDate" name="ReleaseDate" value="">
 ```
 
-Jak wspomniano wcześniej, [pomocników tagów](xref:mvc/views/tag-helpers/intro) i [pomocników HTML](xref:mvc/views/overview) używać informacji z weryfikacji atrybutów w celu renderowania `data-` atrybutów. Dostępne są dwie opcje dotyczące pisania kodu, które powoduje utworzenie niestandardowego `data-` atrybuty kodu HTML:
+Jak wspomniano wcześniej, [pomocników tagów](xref:mvc/views/tag-helpers/intro) i [pomocników HTML](xref:mvc/views/overview) wykorzystują informacje z atrybutów walidacji do renderowania `data-` atrybutów. Istnieją dwie opcje pisania kodu, które powoduje tworzenie niestandardowych `data-` atrybutów HTML:
 
-* Utwórz klasę, która pochodzi od klasy `AttributeAdapterBase<TAttribute>` i klasę, która implementuje `IValidationAttributeAdapterProvider`i zarejestrować swoje atrybutu i jego karty w DI. Ta metoda jest zgodna [jednostki pojedynczej odpowiedzialności](https://wikipedia.org/wiki/Single_responsibility_principle) , kod sprawdzania poprawności związanych z serwerami i związanych z klientem znajduje się w osobnych klas. Karta ma też tę zaletę, że ponieważ jest on zarejestrowany DI, inne usługi w ramach DI są dostępne do niego w razie potrzeby.
-* Implementowanie `IClientModelValidator` w swojej `ValidationAttribute` klasy. Ta metoda może być odpowiednie, jeśli atrybut nie wykonuje żadnych weryfikacji po stronie serwera i nie wymaga żadnych usług z DI.
+* Utwórz klasę, która pochodzi od `AttributeAdapterBase<TAttribute>` i klasy implementującej `IValidationAttributeAdapterProvider`, i Zarejestruj swój atrybut oraz jego kartę w programie di. Ta metoda jest zgodna z [pojedynczym podmiotem odpowiedzialnym](https://wikipedia.org/wiki/Single_responsibility_principle) w odniesieniu do kodu weryfikacyjnego związanego z serwerem i klienta jest w osobnych klasach. Adapter ma również zalety, że ponieważ jest on zarejestrowany w programie DI, w razie potrzeby są dostępne inne usługi w programie DI.
+* `IClientModelValidator` Zaimplementuj`ValidationAttribute` w klasie. Ta metoda może być odpowiednia, jeśli atrybut nie wykonuje walidacji po stronie serwera i nie wymaga żadnych usług z programu DI.
 
-### <a name="attributeadapter-for-client-side-validation"></a>AttributeAdapter weryfikacji po stronie klienta
+### <a name="attributeadapter-for-client-side-validation"></a>AttributeAdapter dla weryfikacji po stronie klienta
 
-Ta metoda renderowania `data-` atrybutów w formacie HTML jest używany przez `ClassicMovie` atrybutu w przykładowej aplikacji. Aby dodać sprawdzanie poprawności klienta za pomocą tej metody:
+Ta metoda renderowania `data-` atrybutów w kodzie HTML jest używana `ClassicMovie` przez atrybut w przykładowej aplikacji. Aby dodać weryfikację klienta przy użyciu tej metody:
 
-1. Utwórz klasę atrybutów adapter dla atrybutu niestandardowego sprawdzania poprawności. Pochodną klasy z [AttributeAdapterBase\<T >](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.attributeadapterbase-1?view=aspnetcore-2.2). Tworzenie `AddValidation` metodę, która dodaje `data-` atrybuty do wyniku renderowania, jak pokazano w poniższym przykładzie:
+1. Utwórz klasę adaptera atrybutów dla niestandardowego atrybutu walidacji. Utwórz klasę z [\<AttributeAdapterBase T >](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.attributeadapterbase-1?view=aspnetcore-2.2). Utwórz metodę, która dodaje `data-` atrybuty do renderowanych danych wyjściowych, jak pokazano w tym przykładzie: `AddValidation`
 
    [!code-csharp[](validation/sample/Attributes/ClassicMovieAttributeAdapter.cs?name=snippet_ClassicMovieAttributeAdapter)]
 
-1. Tworzenie klasy dostawcy karty, która implementuje <xref:Microsoft.AspNetCore.Mvc.DataAnnotations.IValidationAttributeAdapterProvider>. W `GetAttributeAdapter` metoda przekazać w atrybucie niestandardowym do konstruktora karty, jak pokazano w poniższym przykładzie:
+1. Utwórz klasę dostawcy kart implementującą <xref:Microsoft.AspNetCore.Mvc.DataAnnotations.IValidationAttributeAdapterProvider>. `GetAttributeAdapter` W metodzie Przekaż atrybut niestandardowy do konstruktora adaptera, jak pokazano w tym przykładzie:
 
    [!code-csharp[](validation/sample/Attributes/CustomValidationAttributeAdapterProvider.cs?name=snippet_CustomValidationAttributeAdapterProvider)]
 
-1. Zarejestruj dostawcę karty dla DI w `Startup.ConfigureServices`:
+1. Zarejestruj dostawcę karty dla DI in `Startup.ConfigureServices`:
 
    [!code-csharp[](validation/sample/Startup.cs?name=snippet_MaxModelValidationErrors&highlight=8-10)]
 
-### <a name="iclientmodelvalidator-for-client-side-validation"></a>IClientModelValidator weryfikacji po stronie klienta
+### <a name="iclientmodelvalidator-for-client-side-validation"></a>IClientModelValidator dla weryfikacji po stronie klienta
 
-Ta metoda renderowania `data-` atrybutów w formacie HTML jest używany przez `ClassicMovie2` atrybutu w przykładowej aplikacji. Aby dodać sprawdzanie poprawności klienta za pomocą tej metody:
+Ta metoda renderowania `data-` atrybutów w kodzie HTML jest używana `ClassicMovie2` przez atrybut w przykładowej aplikacji. Aby dodać weryfikację klienta przy użyciu tej metody:
 
-* W atrybucie niestandardowego sprawdzania poprawności, należy zaimplementować `IClientModelValidator` interfejs i utworzyć `AddValidation` metody. W `AddValidation` metody, Dodaj `data-` atrybuty weryfikacji, jak pokazano w poniższym przykładzie:
+* W atrybucie niestandardowego sprawdzania poprawności Zaimplementuj `IClientModelValidator` interfejs i `AddValidation` Utwórz metodę. W metodzie Dodaj `data-` atrybuty do walidacji, jak pokazano w następującym przykładzie: `AddValidation`
 
   [!code-csharp[](validation/sample/Attributes/ClassicMovie2Attribute.cs?name=snippet_ClassicMovie2Attribute)]
 
 ## <a name="disable-client-side-validation"></a>Wyłącz weryfikację po stronie klienta
 
-Poniższy kod wyłącza sprawdzanie poprawności klienta w MVC widoki:
+Poniższy kod wyłącza weryfikację klienta w widokach MVC:
 
 [!code-csharp[](validation/sample_snapshot/Startup2.cs?name=snippet_DisableClientValidation)]
 
-W przypadku stron Razor:
+I w Razor Pages:
 
 [!code-csharp[](validation/sample_snapshot/Startup3.cs?name=snippet_DisableClientValidation)]
 
-Inną opcją wyłączenia sprawdzanie poprawności klienta jest komentarz odwołanie do `_ValidationScriptsPartial` w swojej *.cshtml* pliku.
+Kolejną opcją wyłączenia sprawdzania poprawności klienta jest komentarz do odwołania do `_ValidationScriptsPartial` w pliku *. cshtml* .
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Przestrzeń nazw System.ComponentModel.DataAnnotations](xref:System.ComponentModel.DataAnnotations)
+* [Przestrzeń nazw System. ComponentModel. DataAnnotations](xref:System.ComponentModel.DataAnnotations)
 * [Wiązanie modelu](model-binding.md)

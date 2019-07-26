@@ -1,47 +1,47 @@
 ---
-title: Rejestrowanie w programie ASP.NET Core
+title: Logowanie ASP.NET Core
 author: tdykstra
-description: Więcej informacji na temat struktury rejestrowania w programie ASP.NET Core. Odnajdywanie dostawcy wbudowane funkcje rejestrowania i Dowiedz się więcej na temat popularnych dostawców innych firm.
+description: Dowiedz się więcej na temat struktury rejestrowania w ASP.NET Core. Odkryj wbudowanych dostawców rejestrowania i Dowiedz się więcej o popularnych dostawcach innych firm.
 ms.author: tdykstra
 ms.custom: mvc
 ms.date: 07/11/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: 51433cbf35e434300fbefae29f33594e765bcc7b
-ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
+ms.openlocfilehash: 4fe677e69478284db2ccab655c35b5744b6f63f9
+ms.sourcegitcommit: 059ab380744fa3be3b69aa90d431b563c57092cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67855922"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68410910"
 ---
-# <a name="logging-in-aspnet-core"></a>Rejestrowanie w programie ASP.NET Core
+# <a name="logging-in-aspnet-core"></a>Logowanie ASP.NET Core
 
-Przez [Steve Smith](https://ardalis.com/) i [Tom Dykstra](https://github.com/tdykstra)
+[Steve Kowalski](https://ardalis.com/) i [Tomasz Dykstra](https://github.com/tdykstra)
 
-Platforma ASP.NET Core obsługuje interfejs API rejestrowania, która współdziała z różnych dostawców rejestrowania wbudowanych oraz innych firm. W tym artykule przedstawiono sposób korzystania z interfejsu API rejestrowania za pomocą wbudowanych dostawców.
+ASP.NET Core obsługuje interfejs API rejestrowania, który współpracuje z różnymi dostawcami rejestrowania wbudowanych i innych firm. W tym artykule pokazano, jak używać interfejsu API rejestrowania z wbudowanymi dostawcami.
 
 [Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/logging/index/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
-## <a name="add-providers"></a>Dodawanie dostawcy
+## <a name="add-providers"></a>Dodaj dostawców
 
-Dostawcy logowania Wyświetla lub są przechowywane dzienniki. Na przykład konsola dostawca Wyświetla dzienniki konsoli i dostawcy usługi Azure Application Insights przechowuje je w usłudze Azure Application Insights. Dzienniki mogą być wysyłane do wielu miejsc docelowych, dodając wielu dostawców.
+Dostawca rejestrowania wyświetla lub przechowuje dzienniki. Na przykład dostawca konsoli wyświetla dzienniki w konsoli programu, a Dostawca usługi Azure Application Insights przechowuje je na platformie Azure Application Insights. Dzienniki mogą być wysyłane do wielu miejsc docelowych przez dodanie wielu dostawców.
 
 ::: moniker range=">= aspnetcore-2.0"
 
-Aby dodać dostawcę, należy wywołać dostawcy `Add{provider name}` metody rozszerzenia w *Program.cs*:
+Aby dodać dostawcę, wywołaj metodę `Add{provider name}` rozszerzenia dostawcy w *program.cs*:
 
 [!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_ExpandDefault&highlight=18-20)]
 
-Powyższy kod wymaga odwołania do `Microsoft.Extensions.Logging` i `Microsoft.Extensions.Configuration`.
+Poprzedzający kod wymaga odwołania do `Microsoft.Extensions.Logging` i `Microsoft.Extensions.Configuration`.
 
-Wywołania szablonu projektu domyślnego <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder%2A>, która dodaje następujących dostawców rejestrowania:
+Domyślne wywołania <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder%2A>szablonu projektu, które dodaje następujących dostawców rejestrowania:
 
 * Konsola
 * Debugowanie
-* EventSource (począwszy od programu ASP.NET Core 2.2)
+* EventSource (rozpoczęcie w ASP.NET Core 2,2)
 
 [!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_TemplateCode&highlight=7)]
 
-Jeśli używasz `CreateDefaultBuilder`, domyślnych dostawców można zastąpić własnymi wartościami. Wywołaj <xref:Microsoft.Extensions.Logging.LoggingBuilderExtensions.ClearProviders%2A>, i dostawców, o których chcesz dodać.
+Jeśli używasz `CreateDefaultBuilder`programu, możesz zastąpić domyślnych dostawców własnymi opcjami. Wywołaj <xref:Microsoft.Extensions.Logging.LoggingBuilderExtensions.ClearProviders%2A>i Dodaj żądanych dostawców.
 
 [!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_LogFromMain&highlight=18-22)]
 
@@ -49,32 +49,32 @@ Jeśli używasz `CreateDefaultBuilder`, domyślnych dostawców można zastąpić
 
 ::: moniker range="< aspnetcore-2.0"
 
-Można użyć dostawcy, instalowanie pakietu NuGet i wywołanie metody rozszerzenia dostawcy w wystąpieniu <xref:Microsoft.Extensions.Logging.ILoggerFactory>:
+Aby użyć dostawcy, zainstaluj jego pakiet NuGet i Wywołaj metodę rozszerzenia dostawcy w wystąpieniu <xref:Microsoft.Extensions.Logging.ILoggerFactory>:
 
 [!code-csharp[](index/samples/1.x/TodoApiSample/Startup.cs?name=snippet_AddConsoleAndDebug&highlight=3,5-7)]
 
-Platforma ASP.NET Core [wstrzykiwanie zależności (DI)](xref:fundamentals/dependency-injection) zapewnia `ILoggerFactory` wystąpienia. `AddConsole` i `AddDebug` metody rozszerzenia są zdefiniowane w [Microsoft.Extensions.Logging.Console](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console/) i [Microsoft.Extensions.Logging.Debug](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Debug/) pakietów. Każda metoda rozszerzenia wywołuje `ILoggerFactory.AddProvider` jest metoda w wystąpieniu dostawcy.
+ASP.NET Core [iniekcja zależności (di)](xref:fundamentals/dependency-injection) udostępnia `ILoggerFactory` wystąpienie. Metody rozszerzenia `AddDebug`isą zdefiniowane w pakietach [Microsoft. Extensions. Logging. Console](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console/) i [Microsoft. Extensions. Logging. Debug.](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Debug/) `AddConsole` Każda metoda rozszerzenia wywołuje `ILoggerFactory.AddProvider` metodę, przekazując do wystąpienia dostawcy.
 
 > [!NOTE]
-> [Przykładową aplikację](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/logging/index/samples/1.x) dodaje rejestrowania dostawców w `Startup.Configure` metody. Aby uzyskać dane wyjściowe dziennika z kodu, który jest wykonywany wcześniej, należy dodać rejestrowania dostawców w `Startup` konstruktora klasy.
+> [Przykładowa aplikacja](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/logging/index/samples/1.x) dodaje dostawców rejestrowania w `Startup.Configure` metodzie. Aby uzyskać dane wyjściowe dziennika z kodu, który jest wykonywany wcześniej, Dodaj dostawców `Startup` rejestrowania w konstruktorze klas.
 
 ::: moniker-end
 
-Dowiedz się więcej o [wbudowane funkcje rejestrowania dostawców](#built-in-logging-providers) i [rejestrowania innych dostawców](#third-party-logging-providers) w dalszej części artykułu.
+Więcej informacji na temat [wbudowanych dostawców rejestrowania](#built-in-logging-providers) i [dostawców rejestrowania innych](#third-party-logging-providers) firm znajduje się w dalszej części artykułu.
 
-## <a name="create-logs"></a>Twórz dzienniki
+## <a name="create-logs"></a>Tworzenie dzienników
 
-Pobierz <xref:Microsoft.Extensions.Logging.ILogger%601> obiekt z DI.
+Pobierz obiekt <xref:Microsoft.Extensions.Logging.ILogger%601> z elementu di.
 
 ::: moniker range=">= aspnetcore-2.0"
 
-Poniższy przykład kontrolera tworzy `Information` i `Warning` dzienniki. *Kategorii* jest `TodoApiSample.Controllers.TodoController` (w pełni kwalifikowaną nazwę klasy z `TodoController` w przykładowej aplikacji):
+Poniższy przykład kontrolera tworzy `Information` i `Warning` rejestruje. *Kategoria* to `TodoApiSample.Controllers.TodoController` (w pełni `TodoController` kwalifikowana nazwa klasy w aplikacji przykładowej):
 
 [!code-csharp[](index/samples/2.x/TodoApiSample/Controllers/TodoController.cs?name=snippet_LoggerDI&highlight=4,7)]
 
 [!code-csharp[](index/samples/2.x/TodoApiSample/Controllers/TodoController.cs?name=snippet_CallLogMethods&highlight=3,7)]
 
-W poniższym przykładzie stron Razor utworzy dzienników za pomocą `Information` jako *poziom* i `TodoApiSample.Pages.AboutModel` jako *kategorii*:
+Poniższy Razor Pages przykład tworzy dzienniki z użyciem `Information` jako *poziomu* i `TodoApiSample.Pages.AboutModel` jako *kategorii*:
 
 [!code-csharp[](index/samples/2.x/TodoApiSample/Pages/About.cshtml.cs?name=snippet_LoggerDI&highlight=3, 7)]
 
@@ -88,45 +88,45 @@ W poniższym przykładzie stron Razor utworzy dzienników za pomocą `Informatio
 
 [!code-csharp[](index/samples/1.x/TodoApiSample/Controllers/TodoController.cs?name=snippet_CallLogMethods&highlight=3,7)]
 
-Poprzedni przykład tworzy dzienniki za pomocą `Information` i `Warning` jako *poziom* i `TodoController` klasy *kategorii*. 
+Poprzedni przykład tworzy dzienniki z `Information` i `Warning` jako  `TodoController` *Kategoria*. 
 
 ::: moniker-end
 
-Dziennik *poziom* wskazuje ważność rejestrowane zdarzenia. Dziennik *kategorii* jest ciągiem, który jest skojarzony z każdym dzienniku. `ILogger<T>` Wystąpienie tworzy dzienniki, które mają w pełni kwalifikowaną nazwę typu `T` kategorię. [Poziomy](#log-level) i [kategorie](#log-category) omówiona bardziej szczegółowo w dalszej części tego artykułu. 
+*Poziom* dziennika wskazuje ważność rejestrowanego zdarzenia. *Kategoria* dziennika jest ciągiem, który jest skojarzony z każdym dziennikiem. Wystąpienie tworzy dzienniki, które mają w pełni kwalifikowaną nazwę typu `T` jako kategorię. `ILogger<T>` [Poziomy](#log-level) i [Kategorie](#log-category) zostały wyjaśnione bardziej szczegółowo w dalszej części tego artykułu. 
 
 ::: moniker range=">= aspnetcore-2.0"
 
-### <a name="create-logs-in-startup"></a>Twórz dzienniki przy uruchamianiu
+### <a name="create-logs-in-startup"></a>Tworzenie dzienników w programie startowym
 
-Zapisywanie dzienników `Startup` klasy, należy umieścić `ILogger` parametru w sygnatury konstruktora:
+Aby napisać dzienniki w `Startup` klasie, `ILogger` Dołącz parametr do sygnatury konstruktora:
 
 [!code-csharp[](index/samples/2.x/TodoApiSample/Startup.cs?name=snippet_Startup&highlight=3,5,8,20,27)]
 
-### <a name="create-logs-in-program"></a>Twórz dzienniki w programie
+### <a name="create-logs-in-program"></a>Tworzenie dzienników w programie
 
-Zapisywanie dzienników `Program` klasy, Uzyskaj `ILogger` wystąpienia DI:
+Aby napisać dzienniki w `Program` klasie, Pobierz wystąpienie z elementu `ILogger` di:
 
 [!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_LogFromMain&highlight=9,10)]
 
 ::: moniker-end
 
-### <a name="no-asynchronous-logger-methods"></a>Nie metody asynchronicznej rejestratora
+### <a name="no-asynchronous-logger-methods"></a>Brak metod rejestratora asynchronicznego
 
-Rejestrowanie powinno być tak szybko, że nie jest wart spadek wydajności kodu asynchronicznego. Jeśli magazyn danych rejestrowania jest powolne, nie zapisanie w nim bezpośrednio. Należy wziąć pod uwagę początkowo zapisywanie komunikatów dziennika do szybkiego magazynu, a następnie przenieść je do magazynu powolne później. Na przykład, jeśli masz rejestrowania programu SQL Server nie chcesz to zrobić bezpośrednio w `Log` metody, ponieważ `Log` metody są synchroniczne. Zamiast tego należy synchronicznie Dodawanie dziennika komunikatów do kolejki w pamięci i mieć procesu roboczego tła ściągają komunikaty z kolejki, aby wykonywać pracę asynchroniczną wypychanie danych do programu SQL Server.
+Rejestracja powinna być tak szybka, że nie jest to koszt wydajności kodu asynchronicznego. Jeśli magazyn danych rejestrowania jest wolny, nie zapisuj go bezpośrednio. Najpierw Rozważ zapisanie komunikatów dziennika do szybkiego sklepu, a następnie przeniesienie ich do wolnego magazynu później. Na przykład jeśli rejestrujesz się do SQL Server, nie chcesz tego robić bezpośrednio w `Log` metodzie, `Log` ponieważ metody są synchroniczne. Zamiast tego można synchronicznie dodawać komunikaty dziennika do kolejki w pamięci, a proces roboczy w tle ściągał komunikaty z kolejki, aby wykonać asynchroniczne działanie wypychania danych do SQL Server.
 
 ## <a name="configuration"></a>Konfiguracja
 
-Rejestrowanie dostawcy konfiguracji jest dostarczane przez przynajmniej jednego dostawcy konfiguracji:
+Konfiguracja dostawcy rejestrowania jest świadczona przez co najmniej jednego dostawcę konfiguracji:
 
 * Formaty plików (INI, JSON i XML).
 * Argumenty wiersza polecenia.
 * Zmienne środowiskowe.
-* Obiekty .NET w pamięci.
-* Niezaszyfrowane [Menedżera klucz tajny](xref:security/app-secrets) magazynu.
-* Użytkownik zaszyfrowanych przechowywanych informacji, takich jak [usługi Azure Key Vault](xref:security/key-vault-configuration).
-* Dostawcy niestandardowi (zainstalowane lub utworzone).
+* Obiekty platformy .NET w pamięci.
+* Magazyn niezaszyfrowanego [klucza tajnego](xref:security/app-secrets) .
+* Zaszyfrowany magazyn użytkowników, taki jak [Azure Key Vault](xref:security/key-vault-configuration).
+* Dostawcy niestandardowi (instalowani lub utworzony).
 
-Na przykład konfiguracja rejestrowania są często dostarczane przez `Logging` części plików ustawień aplikacji. W poniższym przykładzie pokazano zawartość typowej *appsettings. Development.JSON* pliku:
+Na przykład konfiguracja rejestrowania jest zwykle dostarczana przez `Logging` sekcję plików ustawień aplikacji. Poniższy przykład pokazuje zawartość typowej wartości *appSettings. Plik Development. JSON* :
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -146,13 +146,13 @@ Na przykład konfiguracja rejestrowania są często dostarczane przez `Logging` 
 }
 ```
 
-`Logging` Właściwość może mieć `LogLevel` dziennika właściwości dostawcy (konsoli znajduje się) i innych źródeł.
+Właściwość może mieć `LogLevel` właściwości dostawcy dzienników i. `Logging`
 
-`LogLevel` Właściwości `Logging` Określa minimalny [poziom](#log-level) logowania dla wybranych kategorii. W tym przykładzie `System` i `Microsoft` kategorie dziennika na `Information` poziom, a wszystkie pozostałe rejestrowania `Debug` poziom.
+Właściwość w obszarze `Logging` określa minimalny poziom rejestrowania wybranych kategorii. [](#log-level) `LogLevel` W przykładzie, `System` i `Microsoft` kategorie są rejestrowane na `Information` poziomie, a wszystkie inne logowania na `Debug` poziomie.
 
-Inne właściwości w obszarze `Logging` Określ rejestrowania dostawców. W przykładzie występuje dla dostawcy konsoli. Jeśli dostawca obsługuje [dziennika zakresy](#log-scopes), `IncludeScopes` wskazuje, czy są włączone. Właściwość dostawcy (takich jak `Console` w przykładzie) mogą także określić `LogLevel` właściwości. `LogLevel` w obszarze dostawcy określa poziomy dziennika dla tego dostawcy.
+Inne właściwości w `Logging` obszarze Określ dostawców rejestrowania. Przykład dotyczy dostawcy konsoli. Jeśli dostawca obsługuje [zakresy rejestrowania](#log-scopes), wskazuje `IncludeScopes` , czy są one włączone. Właściwość dostawcy (taka jak `Console` w przykładzie) może także `LogLevel` określić właściwość. `LogLevel`w obszarze dostawca Określa poziomy do rejestrowania dla tego dostawcy.
 
-Jeśli nie określono poziomy w `Logging.{providername}.LogLevel`, że zastępują one nic w `Logging.LogLevel`.
+Jeśli w programie `Logging.{providername}.LogLevel`są określone poziomy, zastępują one wszystko `Logging.LogLevel`ustawione w.
 
 ::: moniker-end
 
@@ -170,15 +170,15 @@ Jeśli nie określono poziomy w `Logging.{providername}.LogLevel`, że zastępuj
 }
 ```
 
-`LogLevel` klucze reprezentują nazwy dziennika. `Default` Klucz ma zastosowanie do dzienników, które nie zostały jawnie wymienione. Reprezentuje wartość [poziom dziennika](#log-level) stosowane do danego dziennika.
+`LogLevel`klucze reprezentują nazwy dzienników. `Default` Klucz ma zastosowanie do dzienników, które nie są jawnie wymienione. Wartość reprezentuje [poziom dziennika](#log-level) zastosowany do danego dziennika.
 
 ::: moniker-end
 
-Aby uzyskać informacje dotyczące implementowania dostawcy konfiguracji, zobacz <xref:fundamentals/configuration/index>.
+Informacje o implementowaniu dostawców konfiguracji znajdują <xref:fundamentals/configuration/index>się w temacie.
 
-## <a name="sample-logging-output"></a>Przykładowe dane wyjściowe z rejestrowania
+## <a name="sample-logging-output"></a>Przykładowe dane wyjściowe rejestrowania
 
-Za pomocą przykładowego kodu pokazano w poprzedniej sekcji dzienniki są wyświetlane w konsoli, gdy aplikacja jest uruchamiana z poziomu wiersza polecenia. Oto przykład danych wyjściowych konsoli:
+W przypadku przykładowego kodu podanego w poprzedniej sekcji Dzienniki są wyświetlane w konsoli programu, gdy aplikacja jest uruchamiana z wiersza polecenia. Oto przykład danych wyjściowych konsoli:
 
 ```console
 info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
@@ -197,9 +197,9 @@ info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
       Request finished in 148.889ms 404
 ```
 
-Poprzedni dzienniki wygenerowane przez wysłał żądanie HTTP Get do przykładowej aplikacji pod `http://localhost:5000/api/todo/0`.
+Poprzednie dzienniki zostały wygenerowane przez utworzenie żądania HTTP GET do przykładowej aplikacji w lokalizacji `http://localhost:5000/api/todo/0`.
 
-Oto przykład tego samego dzienników, w jakiej występują w oknie Debugowanie Uruchom przykładową aplikację w programie Visual Studio:
+Oto przykład tych samych dzienników, które są wyświetlane w oknie debugowania podczas uruchamiania przykładowej aplikacji w programie Visual Studio:
 
 ```console
 Microsoft.AspNetCore.Hosting.Internal.WebHost:Information: Request starting HTTP/1.1 GET http://localhost:53104/api/todo/0  
@@ -211,19 +211,19 @@ Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker:Information: Executed 
 Microsoft.AspNetCore.Hosting.Internal.WebHost:Information: Request finished in 316.3195ms 404
 ```
 
-Dzienniki, które są tworzone przez `ILogger` wywołania pokazano w poprzedniej sekcji zaczyna się od "TodoApi.Controllers.TodoController". Dzienniki, które zaczynają się od "Microsoft" kategorie pochodzą z kodu struktury programu ASP.NET Core. Platforma ASP.NET Core i kodu aplikacji korzystają z tego samego interfejsu API rejestrowania i dostawców.
+Dzienniki utworzone przez `ILogger` wywołania pokazane w poprzedniej sekcji zaczynają się od "TodoApi. controllers. TodoController". Dzienniki zaczynające się od kategorii "Microsoft" pochodzą z kodu ASP.NET Core Framework. ASP.NET Core i kod aplikacji używają tego samego rejestrowania interfejsu API i dostawców.
 
-W dalszej części tego artykułu opisano niektóre szczegóły i opcje rejestrowania.
+W pozostałej części tego artykułu opisano niektóre szczegóły i opcje rejestrowania.
 
 ## <a name="nuget-packages"></a>Pakiety NuGet
 
-`ILogger` i `ILoggerFactory` interfejsy są w [Microsoft.Extensions.Logging.Abstractions](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Abstractions/), i znajdują się w domyślnej implementacji dla nich [Microsoft.Extensions.Logging](https://www.nuget.org/packages/microsoft.extensions.logging/).
+Interfejsy `ILogger` i`ILoggerFactory` są w [Microsoft. Extensions. Logging. Abstracts](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Abstractions/)i domyślne implementacje dla nich są w [Microsoft. Extensions. Logging](https://www.nuget.org/packages/microsoft.extensions.logging/).
 
 ## <a name="log-category"></a>Kategoria dziennika
 
-Gdy `ILogger` obiekt zostanie utworzony, *kategorii* określono dla niej. Tej kategorii jest uwzględnione w każdej wiadomości dziennika utworzone przez to wystąpienie `ILogger`. Kategoria może być dowolnym ciągiem, ale Konwencji jest użycie nazwy klasy, takie jak "TodoApi.Controllers.TodoController".
+Po utworzeniu obiektu jest dla niego określona *Kategoria.* `ILogger` Ta kategoria jest dołączona do każdego komunikatu dziennika utworzonego przez to wystąpienie `ILogger`. Kategoria może być dowolnym ciągiem, ale Konwencja ma używać nazwy klasy, takiej jak "TodoApi. controllers. TodoController".
 
-Użyj `ILogger<T>` można pobrać `ILogger` wystąpienie, które korzysta z w pełni kwalifikowana nazwa typu z `T` kategorię:
+Użyj `ILogger<T>` , aby `ILogger` uzyskać wystąpienie używające w `T` pełni kwalifikowanej nazwy typu jako kategorii:
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -237,7 +237,7 @@ Użyj `ILogger<T>` można pobrać `ILogger` wystąpienie, które korzysta z w pe
 
 ::: moniker-end
 
-Aby jawnie określić kategorię, należy wywołać `ILoggerFactory.CreateLogger`:
+Aby jawnie określić kategorię, wywołaj `ILoggerFactory.CreateLogger`:
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -251,13 +251,13 @@ Aby jawnie określić kategorię, należy wywołać `ILoggerFactory.CreateLogger
 
 ::: moniker-end
 
-`ILogger<T>` jest równoważne z wywoływaniem `CreateLogger` z w pełni kwalifikowana nazwa typu z `T`.
+`ILogger<T>`jest odpowiednikiem wywołania `CreateLogger` z w pełni kwalifikowaną `T`nazwą typu.
 
 ## <a name="log-level"></a>Poziom dziennika
 
-Każdy dziennik Określa <xref:Microsoft.Extensions.Logging.LogLevel> wartość. Poziom dziennika wskazuje ważność lub ważność. Na przykład można napisać `Information` logowania, jeśli metoda zakończy się normalnie, a jeśli tak, to a `Warning` Zaloguj się, gdy metoda zwróci wartość *404 Nie znaleziono* kod stanu.
+Każdy dziennik Określa <xref:Microsoft.Extensions.Logging.LogLevel> wartość. Poziom dziennika wskazuje ważność lub ważność. Przykładowo można napisać `Information` dziennik, gdy metoda jest zwykle zakończona `Warning` , a dziennik, gdy metoda zwraca 404, *nie znaleziono* kodu stanu.
 
-Poniższy kod tworzy `Information` i `Warning` dzienników:
+Poniższy kod tworzy `Information` i `Warning` rejestruje:
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -271,44 +271,44 @@ Poniższy kod tworzy `Information` i `Warning` dzienników:
 
 ::: moniker-end
 
-W poprzednim kodzie pierwszy parametr jest [identyfikator zdarzenia dziennika](#log-event-id). Drugi parametr jest szablon wiadomości z symboli zastępczych dla wartości argumentów dostarczone przez pozostałe parametry metody. Parametry metody są wyjaśnione w [komunikatu sekcji szablonu](#log-message-template) w dalszej części tego artykułu.
+W powyższym kodzie pierwszy parametr jest IDENTYFIKATORem [zdarzenia dziennika](#log-event-id). Drugi parametr jest szablonem wiadomości z symbolami zastępczymi dla wartości argumentów dostarczonych przez pozostałe parametry metody. Parametry metody zostały wyjaśnione w [sekcji szablon komunikatu](#log-message-template) w dalszej części tego artykułu.
 
-Metody, które obejmują poziom w nazwie metody logowania (na przykład `LogInformation` i `LogWarning`) są [metody rozszerzenia dla ILogger](xref:Microsoft.Extensions.Logging.LoggerExtensions). Wywoływanie tych metod `Log` metody, która przyjmuje `LogLevel` parametru. Możesz wywołać `Log` bezpośrednio zamiast jednej z tych metod rozszerzenia, ale składnia jest stosunkowo skomplikowane. Aby uzyskać więcej informacji, zobacz <xref:Microsoft.Extensions.Logging.ILogger> i [kod źródłowy rozszerzenia rejestratora](https://github.com/aspnet/Extensions/blob/release/2.2/src/Logging/Logging.Abstractions/src/LoggerExtensions.cs).
+Metody rejestrowania, które obejmują poziom w nazwie metody (na przykład `LogInformation` i `LogWarning`) są metodami [rozszerzającymi dla ILogger](xref:Microsoft.Extensions.Logging.LoggerExtensions). Te metody wywołują `Log` metodę, która `LogLevel` pobiera parametr. `Log` Metodę można wywołać bezpośrednio zamiast jednej z tych metod rozszerzających, ale składnia jest stosunkowo skomplikowana. Aby uzyskać więcej informacji, <xref:Microsoft.Extensions.Logging.ILogger> Zobacz i [kod źródłowy rozszerzeń rejestratora](https://github.com/aspnet/Extensions/blob/release/2.2/src/Logging/Logging.Abstractions/src/LoggerExtensions.cs).
 
-Platforma ASP.NET Core definiuje następujące poziomy dziennika, w tym miejscu uporządkowane od najniższej do najwyższej ważności.
+ASP.NET Core definiuje następujące poziomy dziennika uporządkowane w tym miejscu od najniższej do najwyższej wagi.
 
-* Śledzenie = 0
+* Ślad = 0
 
-  Aby uzyskać informacje, które są zazwyczaj przydatne tylko w przypadku debugowania. Te komunikaty mogą zawierać dane poufne aplikacji i dlatego nie można włączyć w środowisku produkcyjnym. *Domyślnie wyłączone.*
+  Aby uzyskać informacje, które są zazwyczaj cenne tylko dla debugowania. Komunikaty te mogą zawierać poufne dane aplikacji, dlatego nie powinny być włączone w środowisku produkcyjnym. *Domyślnie wyłączona.*
 
-* Debugowanie = 1
+* Debuguj = 1
 
-  Aby uzyskać informacje, które mogą być użyteczne podczas programowania i debugowania. Przykład: `Entering method Configure with flag set to true.` Włącz `Debug` poziom dzienniki w środowisku produkcyjnym, tylko wtedy, gdy rozwiązywania problemów, z powodu dużej liczby dzienników.
+  Informacje, które mogą być przydatne podczas tworzenia i debugowania. Przykład: `Entering method Configure with flag set to true.`Włącz `Debug` dzienniki poziomów w środowisku produkcyjnym tylko w przypadku rozwiązywania problemów, ze względu na dużą ilość dzienników.
 
-* Informacje o = 2
+* Informacje = 2
 
-  Do śledzenia ogólny przebieg aplikacji. Te dzienniki są zazwyczaj mają niektóre wartości długoterminowe. Przykład: `Request received for path /api/todo`
+  Do śledzenia ogólnego przepływu aplikacji. Te dzienniki zwykle mają pewną wartość długoterminową. Przykład: `Request received for path /api/todo`
 
 * Ostrzeżenie = 3
 
-  Nietypowe lub nieoczekiwanych zdarzeń w usłudze flow aplikacji. Mogą one zawierać błędy lub inne warunki, które nie powodują aplikacji zatrzymać, ale może być konieczne należy zbadać. Obsługiwane wyjątki są spójne użyj `Warning` poziom dziennika. Przykład: `FileNotFoundException for file quotes.txt.`
+  Dla nietypowych lub nieoczekiwanych zdarzeń w przepływie aplikacji. Mogą to być błędy lub inne warunki, które nie powodują zatrzymania aplikacji, ale konieczne może być zbadanie. Obsłużone wyjątki są typowym miejscem do korzystania `Warning` z poziomu dziennika. Przykład: `FileNotFoundException for file quotes.txt.`
 
 * Błąd = 4
 
-  Błędy i wyjątki, które nie mogą być obsługiwane. Te komunikaty wskazują wystąpił błąd podczas bieżącego działania lub operacji (takie jak bieżące żądanie HTTP), nie wystąpił błąd całej aplikacji. Przykładowy komunikat dziennika: `Cannot insert record due to duplicate key violation.`
+  W przypadku błędów i wyjątków, których nie można obsłużyć. Te komunikaty wskazują niepowodzenie w bieżącym działaniu lub operacji (np. bieżące żądanie HTTP), a nie awaria całej aplikacji. Przykładowy komunikat dziennika:`Cannot insert record due to duplicate key violation.`
 
 * Krytyczne = 5
 
-  Dla błędów, które wymagają natychmiastowej uwagi. Przykłady: utratą danych, brak miejsca na dysku.
+  Dla niepowodzeń, które wymagają natychmiastowej uwagi. Przykłady: scenariusze utraty danych, brak miejsca na dysku.
 
-Umożliwia kontrolowanie, ile dane wyjściowe dziennika są zapisywane na nośniku określonego poziomu dziennika lub wyświetlić okno. Na przykład:
+Poziom dziennika służy do kontrolowania, ile danych wyjściowych dziennika jest zapisywana w określonym nośniku lub oknie wyświetlania. Na przykład:
 
-* W środowisku produkcyjnym, należy wysłać `Trace` za pośrednictwem `Information` poziomu do woluminu magazynu danych. Wyślij `Warning` za pośrednictwem `Critical` danych wartość przechowywania.
-* Podczas tworzenia aplikacji, Wyślij `Warning` za pośrednictwem `Critical` do konsoli i Dodaj `Trace` za pośrednictwem `Information` podczas rozwiązywania problemów.
+* W obszarze produkcja, `Trace` Wyślij `Information` przez poziom do magazynu danych woluminu. Wyślij `Warning`domagazynudanych wartości.`Critical`
+* `Warning` Podczas tworzenia, wysyłaj `Critical` do `Trace` konsoli i dodawaj podczas rozwiązywania problemów. `Information`
 
-[Filtrowanie dziennika](#log-filtering) sekcję w dalszej części tego artykułu opisano sposób kontrolowania poziomy dziennika, który dostawca obsługuje.
+W sekcji [filtrowanie dzienników](#log-filtering) w dalszej części tego artykułu wyjaśniono, jak kontrolować poziomy dzienników obsługiwane przez dostawcę.
 
-Platforma ASP.NET Core zapisuje dzienniki zdarzeń framework. Przykłady dzienników wcześniej w tym artykule wykluczone dzienniki poniżej `Information` poziomie, więc nie `Debug` lub `Trace` poziom Dzienniki zostały utworzone. Oto przykład dzienniki konsoli produkowanych przez przykładową aplikację skonfigurowana do wyświetlania `Debug` dzienników:
+ASP.NET Core zapisuje dzienniki dla zdarzeń struktury. Przykłady dzienników znajdujące się wcześniej w tym artykule nie `Information` wykluczają dzienników `Debug` poniżej `Trace` , dlatego nie zostały utworzone dzienniki. Oto przykład dzienników konsoli utworzonych przez uruchomienie przykładowej aplikacji skonfigurowanej do wyświetlania `Debug` dzienników:
 
 ```console
 info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
@@ -339,9 +339,9 @@ info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
       Request finished in 2.7286ms 404
 ```
 
-## <a name="log-event-id"></a>Identyfikator zdarzenia logowania
+## <a name="log-event-id"></a>Identyfikator zdarzenia dziennika
 
-Można określić w każdym dzienniku *identyfikator zdarzenia*. Przykładowa aplikacja robi to przy użyciu zdefiniowanej lokalnie `LoggingEvents` klasy:
+Każdy dziennik może określać *Identyfikator zdarzenia*. Aplikacja Przykładowa wykonuje to przy użyciu lokalnie zdefiniowanej `LoggingEvents` klasy:
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -359,9 +359,9 @@ Można określić w każdym dzienniku *identyfikator zdarzenia*. Przykładowa ap
 
 ::: moniker-end
 
-Identyfikator zdarzenia kojarzy zestaw zdarzeń. Na przykład wszystkie dzienniki związane z wyświetlanie listy elementów na stronie może być 1001.
+Identyfikator zdarzenia kojarzy zestaw zdarzeń. Na przykład wszystkie dzienniki związane z wyświetlaniem listy elementów na stronie mogą być 1001.
 
-Dostawcy logowania mogą być przechowywane identyfikator zdarzenia w polu Identyfikator w komunikacie rejestrowania lub wcale. Dostawca debugowania nie Wyświetla identyfikatory zdarzeń. Konsola dostawca przedstawia identyfikatory zdarzeń w nawiasach kwadratowych po kategorii:
+Dostawca rejestrowania może przechowywać identyfikator zdarzenia w polu identyfikatora, w komunikacie rejestrowania lub wcale. Dostawca debugowania nie pokazuje identyfikatorów zdarzeń. Dostawca konsoli pokazuje identyfikatory zdarzeń w nawiasach po kategorii:
 
 ```console
 info: TodoApi.Controllers.TodoController[1002]
@@ -370,9 +370,9 @@ warn: TodoApi.Controllers.TodoController[4000]
       GetById(invalidid) NOT FOUND
 ```
 
-## <a name="log-message-template"></a>Szablon wiadomości dziennika
+## <a name="log-message-template"></a>Szablon komunikatu dziennika
 
-Każdy dziennik Określa szablon wiadomości. Szablon wiadomości mogą zawierać symbole zastępcze, dla których są podane argumenty. Użyj nazw symboli zastępczych, nie liczby.
+Każdy dziennik Określa szablon wiadomości. Szablon wiadomości może zawierać symbole zastępcze, dla których podano argumenty. Użyj nazw dla symboli zastępczych, a nie liczby.
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -386,7 +386,7 @@ Każdy dziennik Określa szablon wiadomości. Szablon wiadomości mogą zawiera�
 
 ::: moniker-end
 
-Kolejność symboli zastępczych, nie ich nazwy, określa parametry, które służą do zapewniania ich wartości. W poniższym kodzie Zauważ, że nazwy parametrów są poza kolejnością w szablonie wiadomości:
+Kolejność symboli zastępczych, nie ich nazw, określa, które parametry są używane do dostarczania ich wartości. W poniższym kodzie Zwróć uwagę, że nazwy parametrów są poza kolejnością w szablonie wiadomości:
 
 ```csharp
 string p1 = "parm1";
@@ -394,23 +394,23 @@ string p2 = "parm2";
 _logger.LogInformation("Parameter values: {p2}, {p1}", p1, p2);
 ```
 
-Ten kod tworzy komunikat dziennika przy użyciu wartości parametrów w sekwencji:
+Ten kod tworzy komunikat dziennika z wartościami parametrów w kolejności:
 
 ```
 Parameter values: parm1, parm2
 ```
 
-Struktury rejestrowania działa w ten sposób, aby zaimplementować rejestrowania dostawców [semantycznego rejestrowania, nazywana również rejestrowaniem strukturalnym](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging). Same argumenty są przekazywane do systemu rejestrowania, a nie tylko szablon sformatowany komunikat. Te informacje umożliwiają dostawcom rejestrowania do przechowywania wartości parametrów jako pola. Załóżmy na przykład, rejestratora metody wywołania się następująco:
+Struktura rejestrowania działa w ten sposób, aby dostawcy rejestrowania mogli zaimplementować [Rejestrowanie semantyczne, znane także jako rejestrowanie strukturalne](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging). Same argumenty są przesyłane do systemu rejestrowania, a nie tylko dla sformatowanego szablonu wiadomości. Te informacje umożliwiają dostawcom rejestrowania przechowywanie wartości parametrów jako pól. Na przykład załóżmy, że wywołania metod rejestratora wyglądają następująco:
 
 ```csharp
 _logger.LogInformation("Getting item {ID} at {RequestTime}", id, DateTime.Now);
 ```
 
-Jeśli dzienniki jest wysyłana do usługi Azure Table Storage, każda jednostka usługi Azure Table może mieć `ID` i `RequestTime` właściwości, które upraszcza zapytań dotyczących danych dziennika. Zapytania można znaleźć wszystkie dzienniki w ramach określonego `RequestTime` zakresu bez analizowania limit czasu wiadomości SMS.
+W przypadku wysyłania dzienników do usługi Azure Table Storage każda jednostka tabeli platformy Azure może mieć `ID` właściwości i `RequestTime` , które upraszczają zapytania dotyczące danych dziennika. Zapytanie może znaleźć wszystkie dzienniki w określonym `RequestTime` zakresie bez analizowania limitu czasu wiadomości tekstowej.
 
-## <a name="logging-exceptions"></a>Rejestrowania wyjątków
+## <a name="logging-exceptions"></a>Wyjątki rejestrowania
 
-Metody rejestratora mają przeciążenia, które umożliwiają przekazywanie wyjątek, jak w poniższym przykładzie:
+Metody rejestratora mają przeciążenia umożliwiające przekazanie wyjątku, jak w poniższym przykładzie:
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -424,7 +424,7 @@ Metody rejestratora mają przeciążenia, które umożliwiają przekazywanie wyj
 
 ::: moniker-end
 
-Różnych dostawców obsługiwać informacje o wyjątku na różne sposoby. Oto przykład danych wyjściowych debugowania dostawcy w kodzie pokazanym powyżej.
+Różni dostawcy obsługują informacje o wyjątkach na różne sposoby. Oto przykład danych wyjściowych dostawcy debugowania z kodu pokazanego powyżej.
 
 ```
 TodoApi.Controllers.TodoController:Warning: GetById(036dd898-fb01-47e8-9a65-f92eb73cf924) NOT FOUND
@@ -433,39 +433,39 @@ System.Exception: Item not found exception.
  at TodoApi.Controllers.TodoController.GetById(String id) in C:\logging\sample\src\TodoApi\Controllers\TodoController.cs:line 226
 ```
 
-## <a name="log-filtering"></a>Filtrowanie dziennika
+## <a name="log-filtering"></a>Filtrowanie dzienników
 
 ::: moniker range=">= aspnetcore-2.0"
 
-Można określić minimalny poziom rejestrowania dla określonego dostawcy i kategorii lub dla wszystkich dostawców lub wszystkich kategorii. Żadnych dzienników poniżej minimalnego poziomu nie są przekazywane do tego dostawcy, dzięki czemu nie uzyskać wyświetlane lub przechowywane.
+Można określić minimalny poziom rejestrowania dla określonego dostawcy i kategorii lub dla wszystkich dostawców lub wszystkich kategorii. Wszystkie dzienniki poniżej minimalnego poziomu nie są przesyłane do tego dostawcy, więc nie są wyświetlane ani przechowywane.
 
-Aby pominąć wszystkie dzienniki, określ `LogLevel.None` jako minimalny poziom rejestrowania. Wartość całkowitą `LogLevel.None` to 6, która jest wyższa niż `LogLevel.Critical` (5).
+Aby pominąć wszystkie dzienniki, określ `LogLevel.None` jako minimalny poziom dziennika. Wartość `LogLevel.None` całkowita wynosi 6, która jest większa niż `LogLevel.Critical` (5).
 
-### <a name="create-filter-rules-in-configuration"></a>Tworzenie reguły filtrów w konfiguracji
+### <a name="create-filter-rules-in-configuration"></a>Utwórz reguły filtru w konfiguracji
 
-Kod wywołuje szablon projektu `CreateDefaultBuilder` skonfigurować rejestrowanie dla dostawców konsoli i debugowania. `CreateDefaultBuilder` Metoda konfiguruje również rejestrowania do wyszukania konfiguracji w `Logging` sekcji przy użyciu kodu, podobnie do poniższego:
+Kod szablonu projektu wywołuje `CreateDefaultBuilder` w celu skonfigurowania rejestrowania dla dostawców konsoli i debugowania. Metoda konfiguruje również rejestrowanie, aby wyszukać konfigurację `Logging` w sekcji przy użyciu kodu jak poniżej: `CreateDefaultBuilder`
 
 [!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_ExpandDefault&highlight=17)]
 
-Dane konfiguracji Określa poziomy minimalna dziennika przez dostawcę i kategorii, jak w poniższym przykładzie:
+Dane konfiguracyjne określają minimalne poziomy dziennika według dostawcy i kategorii, jak w poniższym przykładzie:
 
 [!code-json[](index/samples/2.x/TodoApiSample/appsettings.json)]
 
-Ten kod JSON tworzy sześć reguły filtru: jeden dla dostawcy debugowania, cztery dla dostawcy konsoli i jeden dla wszystkich dostawców. Wybrano jedną regułę dla każdego dostawcy podczas `ILogger` obiekt zostanie utworzony.
+Ten kod JSON tworzy sześć reguł filtrowania: jeden dla dostawcy debugowania, cztery dla dostawcy konsoli i jeden dla wszystkich dostawców. Dla każdego dostawcy wybierana jest pojedyncza reguła, `ILogger` gdy tworzony jest obiekt.
 
-### <a name="filter-rules-in-code"></a>Reguły filtrowania w kodzie
+### <a name="filter-rules-in-code"></a>Filtrowanie reguł w kodzie
 
-Poniższy przykład pokazuje, jak zarejestrować reguły filtrów w kodzie:
+Poniższy przykład pokazuje, jak zarejestrować reguły filtru w kodzie:
 
 [!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_FilterInCode&highlight=4-5)]
 
-Drugi `AddFilter` określa dostawcę debugowania przy użyciu jego nazwy. Pierwszy `AddFilter` ma zastosowanie do wszystkich dostawców, ponieważ nie określa typ dostawcy.
+Drugi `AddFilter` określa dostawcę debugowania za pomocą nazwy typu. Pierwszy `AddFilter` ma zastosowanie do wszystkich dostawców, ponieważ nie określa typu dostawcy.
 
-### <a name="how-filtering-rules-are-applied"></a>Jak reguły filtrowania zostaną zastosowane.
+### <a name="how-filtering-rules-are-applied"></a>Jak są stosowane reguły filtrowania
 
-Dane konfiguracji i `AddFilter` kod przedstawiony w powyższych przykładach Tworzenie reguły pokazano w poniższej tabeli. Pierwsze sześć pochodzą przykład konfiguracji i ostatnie dwa pochodzą w przykładzie kodu.
+Dane konfiguracji i `AddFilter` kod przedstawiony w powyższych przykładach tworzą reguły pokazane w poniższej tabeli. Pierwsze sześć pochodzi z przykładu konfiguracji, a ostatnie dwa pochodzą z przykładu kodu.
 
-| Wartość liczbowa | Dostawca      | Kategorie, które zaczynają się od...          | Minimalny poziom rejestrowania |
+| Wartość liczbowa | Dostawca      | Kategorie zaczynające się od...          | Minimalny poziom rejestrowania |
 | :----: | ------------- | --------------------------------------- | ----------------- |
 | 1      | Debugowanie         | Wszystkie kategorie                          | Informacje       |
 | 2      | Konsola       | Microsoft.AspNetCore.Mvc.Razor.Internal | Ostrzeżenie           |
@@ -474,48 +474,48 @@ Dane konfiguracji i `AddFilter` kod przedstawiony w powyższych przykładach Two
 | 5      | Konsola       | Wszystkie kategorie                          | Informacje       |
 | 6      | Wszyscy dostawcy | Wszystkie kategorie                          | Debugowanie             |
 | 7      | Wszyscy dostawcy | System                                  | Debugowanie             |
-| 8      | Debugowanie         | Microsoft                               | Śledzenia             |
+| 8      | Debugowanie         | Microsoft                               | Szuka             |
 
-Gdy `ILogger` obiekt zostanie utworzony, `ILoggerFactory` obiektu wybiera jedną regułę na dostawcy, aby zastosować do tego rejestratora. Wszystkie komunikaty napisane przez `ILogger` wystąpienia są filtrowane w zależności od wybranej reguły. Najbardziej określonej reguły dla każdego dostawcy i pary kategoria możliwe jest wybrana w zaufanym dostępne reguły.
+Po utworzeniu `ILogger` `ILoggerFactory` obiektu obiekt wybiera jedną regułę dla każdego dostawcy, która ma zostać zastosowana do tego rejestratora. Wszystkie komunikaty zapisywane przez `ILogger` wystąpienie są filtrowane na podstawie wybranych reguł. Najbardziej konkretną regułą można wybrać dla każdego dostawcy i pary kategorii z dostępnych reguł.
 
-Następujące algorytm jest używany dla każdego dostawcy podczas `ILogger` jest tworzona dla danej kategorii:
+Następujący algorytm jest używany dla każdego dostawcy, `ILogger` gdy jest tworzony dla danej kategorii:
 
-* Wybierz wszystkie reguły, które odpowiadają przez dostawcę lub jego alias. Jeśli nie zostanie znalezione dopasowanie, zaznacz wszystkie reguły przy użyciu dostawcy puste.
-* W wyniku poprzedniego kroku wybierz reguły z najdłużej dopasowania prefiksu kategorii. Jeśli nie zostanie znalezione dopasowanie, zaznacz wszystkie reguły, które nie określają kategorii.
-* Jeśli wybrano wiele reguł, **ostatniego** jeden.
-* Jeśli nie zaznaczono żadnych reguł, użyj `MinimumLevel`.
+* Wybierz wszystkie reguły, które pasują do dostawcy lub jego aliasu. Jeśli nie zostanie znalezione dopasowanie, zaznacz wszystkie reguły z pustym dostawcą.
+* W wyniku poprzedniego kroku wybierz pozycję reguły z najdłuższym prefiksem kategorii. Jeśli nie zostanie znalezione dopasowanie, zaznacz wszystkie reguły, które nie określają kategorii.
+* Jeśli wybrano wiele reguł, zrób to **ostatnie** .
+* Jeśli nie wybrano żadnych reguł, `MinimumLevel`Użyj.
 
-Przy użyciu poprzednich listę reguł, załóżmy, że możesz utworzyć `ILogger` obiektu dla kategorii "Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine":
+Na powyższej liście reguł Załóżmy, że `ILogger` tworzysz obiekt dla kategorii "Microsoft. AspNetCore. MVC. Razor. RazorViewEngine":
 
-* W przypadku dostawcy debugowania mają zastosowanie reguły 1, 6 i 8. Reguła 8 jest najbardziej specyficzną, więc to jest zaznaczony.
-* W przypadku dostawcy konsoli mają zastosowanie reguły, 3, 4, 5 i 6. Reguła 3 jest bardziej konkretny od pozostałych.
+* Dla dostawcy debugowania obowiązują reguły 1, 6 i 8. Reguła 8 jest najbardziej specyficzna, więc jest to jedna wybrana.
+* W przypadku dostawcy konsoli obowiązują reguły 3, 4, 5 i 6. Reguła 3 jest najbardziej specyficzna.
 
-Wynikowy `ILogger` wystąpienia wysyła dzienniki `Trace` poziom i nowsze wersje do debugowania dostawcy. Dzienniki programu `Debug` poziomu i nowszych są wysyłane do dostawcy konsoli.
+Wystąpienie wyników `ILogger` wysyła `Trace` dzienniki poziomu i powyżej do dostawcy debugowania. `Debug` Dzienniki poziomów i powyżej są wysyłane do dostawcy konsoli.
 
-### <a name="provider-aliases"></a>Aliasy dostawcy
+### <a name="provider-aliases"></a>Aliasy dostawców
 
-Każdy dostawca definiuje *alias* które mogą być używane w konfiguracji zamiast w pełni kwalifikowana nazwa typu.  W przypadku dostawców wbudowanych należy stosować następujące aliasy:
+Każdy dostawca definiuje *alias* , który może być używany w konfiguracji zamiast w pełni kwalifikowanej nazwy typu.  W przypadku dostawców wbudowanych Użyj następujących aliasów:
 
 * Konsola
 * Debugowanie
 * EventSource
-* Dziennik zdarzeń
+* Elemencie
 * TraceSource
 * AzureAppServicesFile
 * AzureAppServicesBlob
 * ApplicationInsights
 
-### <a name="default-minimum-level"></a>Minimalny poziom domyślny
+### <a name="default-minimum-level"></a>Domyślny poziom minimalny
 
-Istnieje minimalne ustawienie poziomie staje się skuteczny tylko wtedy, gdy nie z konfiguracji czy kodu reguły dla danego dostawcy i kategorii. Poniższy przykład pokazuje, jak ustawić minimalny poziom:
+Istnieje ustawienie minimalnego poziomu, które działa tylko wtedy, gdy nie mają zastosowania żadne reguły z konfiguracji lub kodu dla danego dostawcy i kategorii. Poniższy przykład pokazuje, jak ustawić poziom minimalny:
 
 [!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_MinLevel&highlight=3)]
 
-Jeśli nie zostanie jawnie ustawiona minimalny poziom, wartością domyślną jest `Information`, co oznacza, że `Trace` i `Debug` dzienniki są ignorowane.
+Jeśli poziom minimalny nie został jawnie ustawiony, wartość domyślna to `Information`, co oznacza, że `Trace` dzienniki i `Debug` są ignorowane.
 
 ### <a name="filter-functions"></a>Funkcje filtrowania
 
-Funkcja filtru jest wywoływana dla wszystkich dostawców i kategorie, które nie mają zasady przypisane do nich przez konfiguracji czy kodu. Kod w funkcji ma dostęp do typu Dostawca, kategoria i poziom dziennika. Przykład:
+Funkcja filtru jest wywoływana dla wszystkich dostawców i kategorii, które nie mają przypisanych do nich reguł przez konfigurację lub kod. Kod w funkcji ma dostęp do typu dostawcy, kategorii i poziomu dziennika. Przykład:
 
 [!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_FilterFunction&highlight=5-13)]
 
@@ -523,49 +523,49 @@ Funkcja filtru jest wywoływana dla wszystkich dostawców i kategorie, które ni
 
 ::: moniker range="< aspnetcore-2.0"
 
-Niektórzy dostawcy rejestrowania umożliwiają określenie, kiedy zapisany na nośniku lub ignorowane dzienniki na podstawie poziomu dziennika i kategorii.
+Niektórzy dostawcy rejestrowania umożliwiają określenie, kiedy dzienniki mają być zapisywane na nośniku magazynu, lub ignorowane na podstawie poziomu dziennika i kategorii.
 
-`AddConsole` i `AddDebug` metody rozszerzenia, zapewnienia przeciążenia, które akceptują kryteria filtrowania. Następujący przykładowy kod powoduje, że Konsola dostawca ignorowanie dzienniki poniżej `Warning` poziomu, podczas gdy dostawca debugowania ignoruje dzienniki tworzonych w ramach.
+Metody rozszerzające `AddDebug`izapewniają przeciążenia, które akceptują kryteria filtrowania. `AddConsole` Następujący przykładowy kod powoduje, że dostawca konsoli ignoruje dzienniki poniżej `Warning` poziomu, podczas gdy dostawca debugowania ignoruje dzienniki tworzone przez strukturę.
 
 [!code-csharp[](index/samples/1.x/TodoApiSample/Startup.cs?name=snippet_AddConsoleAndDebugWithFilter&highlight=6-7)]
 
-`AddEventLog` Metoda ma przeciążenia, które przyjmuje `EventLogSettings` wystąpienia, co może zawierać funkcji filtrowania w jego `Filter` właściwości. Dostawca TraceSource nie zapewnia żadnego z tych przeciążeń, ponieważ jej poziom rejestrowania i inne parametry są oparte na `SourceSwitch` i `TraceListener` używa.
+Metoda ma Przeciążenie, które `EventLogSettings` przyjmuje wystąpienie, które może zawierać funkcję filtrowania w swojej `Filter` właściwości. `AddEventLog` Dostawca TraceSource nie zapewnia żadnego z tych przeciążeń, ponieważ jego poziom rejestrowania i inne parametry są oparte na `SourceSwitch` i `TraceListener` używa.
 
-Aby ustawić reguły filtrowania dla wszystkich dostawców, które są zarejestrowane w usłudze `ILoggerFactory` wystąpienia, należy użyć `WithFilter` — metoda rozszerzenia. Poniższy przykład ogranicza framework dzienniki (kategoria zaczyna się od "Microsoft" lub "System") ostrzeżeń podczas logowania się na poziomie debugowania dla dzienników tworzona przez kod aplikacji.
+Aby ustawić reguły filtrowania dla wszystkich dostawców zarejestrowanych w `ILoggerFactory` wystąpieniu, `WithFilter` Użyj metody rozszerzenia. Poniższy przykład ogranicza dzienniki struktury (kategoria zaczyna się od "Microsoft" lub "system") do ostrzeżeń podczas rejestrowania na poziomie debugowania dla dzienników utworzonych przez kod aplikacji.
 
 [!code-csharp[](index/samples/1.x/TodoApiSample/Startup.cs?name=snippet_FactoryFilter&highlight=6-11)]
 
-Aby zapobiec sytuacji, w której wszelkie dzienniki zapisywana, podaj `LogLevel.None` jako minimalny poziom rejestrowania. Wartość całkowitą `LogLevel.None` to 6, która jest wyższa niż `LogLevel.Critical` (5).
+Aby uniemożliwić zapisywanie jakichkolwiek dzienników, określ `LogLevel.None` jako minimalny poziom dziennika. Wartość `LogLevel.None` całkowita wynosi 6, która jest większa niż `LogLevel.Critical` (5).
 
-`WithFilter` Metody rozszerzenia są dostarczane przez [Microsoft.Extensions.Logging.Filter](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Filter) pakietu NuGet. Metoda ta zwraca nowy `ILoggerFactory` zarejestrowano wystąpienia, która będzie filtrować komunikaty dziennika, przekazywane do wszystkich dostawców rejestratora. Nie wpływa na inne `ILoggerFactory` wystąpienia, w tym oryginalny `ILoggerFactory` wystąpienia.
+Metoda rozszerzenia jest dostarczana przez pakiet NuGet [Microsoft. Extensions. Logging. Filter.](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Filter) `WithFilter` Metoda zwraca nowe `ILoggerFactory` wystąpienie, które będzie odfiltrować komunikaty dziennika przesłane do wszystkich dostawców rejestratorów zarejestrowanych z nim. Nie ma to wpływu na `ILoggerFactory` żadne inne wystąpienia, łącznie `ILoggerFactory` z oryginalnym wystąpieniem.
 
 ::: moniker-end
 
-## <a name="system-categories-and-levels"></a>Kategorie systemu i poziomy
+## <a name="system-categories-and-levels"></a>Kategorie i poziomy systemu
 
-Poniżej przedstawiono niektóre kategorie używane przez platformy ASP.NET Core i Entity Framework Core, z uwagi na temat co dzienniki można oczekiwać od nich:
+Poniżej przedstawiono niektóre kategorie używane przez ASP.NET Core i Entity Framework Core, z informacjami o dziennikach, od których należy się spodziewać:
 
 | Kategoria                            | Uwagi |
 | ----------------------------------- | ----- |
-| Microsoft.AspNetCore                | Diagnostyka ogólnego ASP.NET Core. |
-| Microsoft.AspNetCore.DataProtection | Klucze, które zostały uznane za znaleziono i używane. |
-| Microsoft.AspNetCore.HostFiltering  | Hosty dozwolone. |
-| Microsoft.AspNetCore.Hosting        | Ile żądań HTTP potrzebny do ukończenia, a także czas rozpoczęcia pracy. Zestawy startowe, które hostingu zostały załadowane. |
-| Microsoft.AspNetCore.Mvc            | Diagnostyka MVC i Razor. Powiązanie modelu, wykonywanie filtru, kompilacja widoku wybór akcji. |
-| Microsoft.AspNetCore.Routing        | Trasę odpowiednią dla informacji. |
-| Microsoft.AspNetCore.Server         | Rozpoczęcie połączenia zatrzymać i zachować aktywności odpowiedzi. Informacje o certyfikacie protokołu HTTPS. |
+| Microsoft.AspNetCore                | Ogólna Diagnostyka ASP.NET Core. |
+| Microsoft.AspNetCore.DataProtection | Które klucze zostały wzięte pod uwagę, znaleziono i użyte. |
+| Microsoft.AspNetCore.HostFiltering  | Dozwolone hosty. |
+| Microsoft.AspNetCore.Hosting        | Jak długo trwa wykonywanie żądań HTTP i czas ich uruchomienia. Które hostowanie zestawów uruchamiania zostało załadowane. |
+| Microsoft.AspNetCore.Mvc            | Diagnostyka MVC i Razor. Powiązanie modelu, wykonywanie filtru, kompilacja widoku, wybór akcji. |
+| Microsoft.AspNetCore.Routing        | Informacje o trasie. |
+| Microsoft.AspNetCore.Server         | Reagowanie na uruchamianie, zatrzymywanie i utrzymywanie aktywności. Informacje o certyfikacie HTTPS. |
 | Microsoft.AspNetCore.StaticFiles    | Obsługiwane pliki. |
-| Microsoft.EntityFrameworkCore       | Ogólne Diagnostyka platformy Entity Framework Core. Działanie i konfiguracji wykrywania zmian migracje baz danych. |
+| Microsoft.EntityFrameworkCore       | Ogólna Diagnostyka Entity Framework Core. Aktywność i Konfiguracja bazy danych, wykrywanie zmian, migracje. |
 
 ## <a name="log-scopes"></a>Zakresy dziennika
 
- A *zakres* można grupować zestaw operacji logicznej. Ta metoda grupowania może służyć do dołączenia do tych samych danych do każdego dziennika, który jest tworzony jako część zestawu. Na przykład każdy dziennik utworzony jako część przetwarzania transakcji może zawierać identyfikator transakcji.
+ *Zakres* może grupować zestaw operacji logicznych. Takie grupowanie może służyć do dołączania tych samych danych do każdego dziennika, który został utworzony jako część zestawu. Na przykład każdy dziennik utworzony w ramach przetwarzania transakcji może zawierać identyfikator transakcji.
 
-Zakres jest `IDisposable` typu, który jest zwracany przez <xref:Microsoft.Extensions.Logging.ILogger.BeginScope*> metody i trwa do momentu jego usunięcia. Użyj zakresu opakowując wywołania rejestratora w `using` bloku:
+Zakres jest `IDisposable` typem zwracanym <xref:Microsoft.Extensions.Logging.ILogger.BeginScope*> przez metodę i obowiązuje do momentu jego usunięcia. Użyj zakresu przez Zawijanie wywołań rejestratora w `using` bloku:
 
 [!code-csharp[](index/samples/1.x/TodoApiSample/Controllers/TodoController.cs?name=snippet_Scopes&highlight=4-5,13)]
 
-Poniższy kod umożliwia zakresy dla dostawcy konsoli:
+Poniższy kod włącza zakresy dla dostawcy konsoli:
 
 ::: moniker range="> aspnetcore-2.0"
 
@@ -574,9 +574,9 @@ Poniższy kod umożliwia zakresy dla dostawcy konsoli:
 [!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_Scopes&highlight=4)]
 
 > [!NOTE]
-> Konfigurowanie `IncludeScopes` opcja rejestratora konsoli jest wymagana, aby włączyć rejestrowanie zakresu.
+> Konfigurowanie opcji rejestratora konsoli jest wymagane do włączenia rejestrowania na podstawie zakresu. `IncludeScopes`
 >
-> Aby uzyskać informacji na temat konfigurowania, zobacz [konfiguracji](#configuration) sekcji.
+> Informacje o konfiguracji znajdują się w sekcji [Konfiguracja](#configuration) .
 
 ::: moniker-end
 
@@ -587,7 +587,7 @@ Poniższy kod umożliwia zakresy dla dostawcy konsoli:
 [!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_Scopes&highlight=4)]
 
 > [!NOTE]
-> Konfigurowanie `IncludeScopes` opcja rejestratora konsoli jest wymagana, aby włączyć rejestrowanie zakresu.
+> Konfigurowanie opcji rejestratora konsoli jest wymagane do włączenia rejestrowania na podstawie zakresu. `IncludeScopes`
 
 ::: moniker-end
 
@@ -599,7 +599,7 @@ Poniższy kod umożliwia zakresy dla dostawcy konsoli:
 
 ::: moniker-end
 
-Każdy komunikat dziennika zawiera informacje o określonym zakresie:
+Każdy komunikat dziennika zawiera informacje o zakresie:
 
 ```
 info: TodoApi.Controllers.TodoController[1002]
@@ -610,9 +610,9 @@ warn: TodoApi.Controllers.TodoController[4000]
       GetById(0) NOT FOUND
 ```
 
-## <a name="built-in-logging-providers"></a>Wbudowane funkcje rejestrowania dostawców
+## <a name="built-in-logging-providers"></a>Wbudowani dostawcy rejestrowania
 
-ASP.NET Core jest dostarczana w następujących dostawców:
+ASP.NET Core dostarcza następujących dostawców:
 
 * [Console](#console-provider)
 * [Debugowanie](#debug-provider)
@@ -623,11 +623,11 @@ ASP.NET Core jest dostarczana w następujących dostawców:
 * [AzureAppServicesBlob](#azure-app-service-provider)
 * [ApplicationInsights](#azure-application-insights-trace-logging)
 
-Informacje dotyczące rejestrowania strumienia wyjściowego stdout, zobacz <xref:host-and-deploy/iis/troubleshoot#aspnet-core-module-stdout-log> i <xref:host-and-deploy/azure-apps/troubleshoot#aspnet-core-module-stdout-log>.
+Aby uzyskać informacje na temat strumienia stdout i rejestrowania debugowania za pomocą modułu <xref:test/troubleshoot-azure-iis> ASP.NET Core <xref:host-and-deploy/aspnet-core-module#log-creation-and-redirection>, zobacz i.
 
-### <a name="console-provider"></a>Konsola dostawcy
+### <a name="console-provider"></a>Dostawca konsoli
 
-[Microsoft.Extensions.Logging.Console](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console) pakiet dostawcy wysyła dane wyjściowe dziennika do konsoli. 
+Pakiet [Microsoft. Extensions. Logging. Console](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console) Provider wysyła dane wyjściowe dziennika do konsoli programu. 
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -643,37 +643,37 @@ logging.AddConsole();
 loggerFactory.AddConsole();
 ```
 
-[Przeciążenia AddConsole](xref:Microsoft.Extensions.Logging.ConsoleLoggerExtensions) pozwalają przekazać minimalny poziom rejestrowania, funkcję filtru i atrybut typu wartość logiczna, która wskazuje, czy zakresy są obsługiwane. Innym rozwiązaniem jest przekazywanie `IConfiguration` obiektu, który można określić zakresy pomocy technicznej i poziomów rejestrowania.
+[](xref:Microsoft.Extensions.Logging.ConsoleLoggerExtensions) Funkcja addoverloads umożliwia przekazywanie na minimalnym poziomie dziennika, funkcji filtru i wartości logicznej, która wskazuje, czy zakresy są obsługiwane. Kolejną opcją jest przekazanie `IConfiguration` obiektu, który może określać obsługę zakresów i poziomy rejestrowania.
 
-Konsola dostawcy opcjach, zobacz temat <xref:Microsoft.Extensions.Logging.Console.ConsoleLoggerOptions>.
+Aby zapoznać się z opcjami <xref:Microsoft.Extensions.Logging.Console.ConsoleLoggerOptions>dostawcy konsoli, zobacz.
 
-Dostawca konsola ma znaczący wpływ na wydajność i zwykle nie jest przeznaczone do użycia w środowisku produkcyjnym.
+Dostawca konsoli ma znaczny wpływ na wydajność i zwykle nie jest odpowiedni do użycia w środowisku produkcyjnym.
 
-Podczas tworzenia nowego projektu w programie Visual Studio, `AddConsole` metoda wygląda następująco:
+Podczas tworzenia nowego projektu w programie Visual Studio `AddConsole` Metoda wygląda następująco:
 
 ```csharp
 loggerFactory.AddConsole(Configuration.GetSection("Logging"));
 ```
 
-Ten kod, który odwołuje się do `Logging` części *appSettings.json* pliku:
+Ten kod odnosi się `Logging` do sekcji pliku *appSettings. JSON* :
 
 [!code-json[](index/samples/1.x/TodoApiSample/appsettings.json)]
 
-Ustawienia pokazano limit framework dzienniki, aby ostrzeżenia zezwalając aplikacji do logowania na poziomie debugowania, jak wyjaśniono w [filtrowanie dziennika](#log-filtering) sekcji. Aby uzyskać więcej informacji, zobacz [konfiguracji](xref:fundamentals/configuration/index).
+Ustawienia pokazują, że można ograniczyć dzienniki struktury do ostrzeżeń, jednocześnie umożliwiając aplikacji rejestrowanie na poziomie debugowania, zgodnie z opisem w sekcji [filtrowanie dzienników](#log-filtering) . Aby uzyskać więcej informacji, zobacz [konfiguracji](xref:fundamentals/configuration/index).
 
 ::: moniker-end
 
-Aby wyświetlić rejestrowania danych wyjściowych konsoli, otwórz wiersz polecenia w folderze projektu, a następnie uruchom następujące polecenie:
+Aby wyświetlić dane wyjściowe rejestrowania konsoli, Otwórz wiersz polecenia w folderze projektu i uruchom następujące polecenie:
 
 ```console
 dotnet run
 ```
 
-### <a name="debug-provider"></a>Debugowanie dostawcy
+### <a name="debug-provider"></a>Dostawca debugowania
 
-[Microsoft.Extensions.Logging.Debug](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Debug) pakiet dostawcy zapisuje dane wyjściowe dziennika za pomocą [system.Diagnostics.Debug —](/dotnet/api/system.diagnostics.debug) klasy (`Debug.WriteLine` wywołania metody).
+Pakiet [Microsoft. Extensions. Logging. Debug](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Debug) Provider zapisuje dane wyjściowe dziennika przy użyciu klasy [System. Diagnostics. Debug](/dotnet/api/system.diagnostics.debug) (`Debug.WriteLine` wywołania metod).
 
-W systemie Linux, tego dostawcy zapisuje dzienniki na */var/log/message*.
+W systemie Linux ten dostawca zapisuje dzienniki do */var/log/Message*.
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -689,13 +689,13 @@ logging.AddDebug();
 loggerFactory.AddDebug();
 ```
 
-[Przeciążenia AddDebug](xref:Microsoft.Extensions.Logging.DebugLoggerFactoryExtensions) pozwalają przekazać minimalny poziom rejestrowania lub funkcję filtru.
+[](xref:Microsoft.Extensions.Logging.DebugLoggerFactoryExtensions) Funkcja adddebug overloads pozwala przekazać minimalny poziom rejestrowania lub funkcję filtru.
 
 ::: moniker-end
 
-### <a name="eventsource-provider"></a>Dostawca źródła zdarzeń
+### <a name="eventsource-provider"></a>Dostawca EventSource
 
-W przypadku aplikacji przeznaczonych dla platformy ASP.NET Core 1.1.0 lub nowszym, [Microsoft.Extensions.Logging.EventSource](https://www.nuget.org/packages/Microsoft.Extensions.Logging.EventSource) zaimplementować pakiet dostawcy śledzenia zdarzeń. W Windows, używa [ETW](https://msdn.microsoft.com/library/windows/desktop/bb968803). Dostawca jest dla wielu platform, ale nie są dostępne żadne zdarzenie gromadzenia i wyświetlania narzędzia jeszcze dla systemu Linux lub macOS.
+W przypadku aplikacji przeznaczonych do ASP.NET Core 1.1.0 lub nowszych pakiet dostawcy [Microsoft. Extensions. Logging. EventSource](https://www.nuget.org/packages/Microsoft.Extensions.Logging.EventSource) może zaimplementować śledzenie zdarzeń. W systemie Windows używa [funkcji ETW](https://msdn.microsoft.com/library/windows/desktop/bb968803). Dostawca jest międzyplatformowy, ale nie ma jeszcze kolekcji zdarzeń i narzędzi do wyświetlania dla systemu Linux lub macOS.
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -713,15 +713,15 @@ loggerFactory.AddEventSourceLogger();
 
 ::: moniker-end
 
-Dobrym sposobem na zbieranie i wyświetlanie dzienników jest użycie [narzędzia PerfView](https://github.com/Microsoft/perfview). Istnieją inne narzędzia umożliwiające wyświetlanie dzienników zdarzeń systemu Windows, ale narzędzia PerfView zapewnia najlepsze środowisko do pracy z zdarzenia ETW emitowane przez platformę ASP.NET.
+Dobrym sposobem na zbieranie i wyświetlanie dzienników jest użycie [Narzędzia Narzędzia PerfView](https://github.com/Microsoft/perfview). Istnieją inne narzędzia do wyświetlania dzienników ETW, ale narzędzia PerfView zapewnia najlepsze środowisko pracy z zdarzeniami ETW emitowanymi przez ASP.NET.
 
-Aby skonfigurować narzędzia PerfView do zbierania zdarzeń rejestrowanych przez tego dostawcę, Dodaj parametry `*Microsoft-Extensions-Logging` do **dodatkowych dostawców** listy. (Nie przegap gwiazdki na początku ciągu).
+Aby skonfigurować narzędzia PerfView do zbierania zdarzeń rejestrowanych przez tego dostawcę, Dodaj ciąg `*Microsoft-Extensions-Logging` do listy **dodatkowych dostawców** . (Nie przegap gwiazdki na początku ciągu znaków).
 
-![Narzędzia Perfview dodatkowych dostawców](index/_static/perfview-additional-providers.png)
+![Narzędzia PerfView dodatkowych dostawców](index/_static/perfview-additional-providers.png)
 
-### <a name="windows-eventlog-provider"></a>Dostawca dziennika zdarzeń Windows
+### <a name="windows-eventlog-provider"></a>Dostawca dziennika zdarzeń systemu Windows
 
-[Microsoft.Extensions.Logging.EventLog](https://www.nuget.org/packages/Microsoft.Extensions.Logging.EventLog) pakiet dostawcy wysyła dane wyjściowe dziennika w dzienniku zdarzeń Windows.
+Pakiet dostawcy [Microsoft. Extensions. Logging. EventLog](https://www.nuget.org/packages/Microsoft.Extensions.Logging.EventLog) wysyła dane wyjściowe dziennika do dziennika zdarzeń systemu Windows.
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -737,13 +737,13 @@ logging.AddEventLog();
 loggerFactory.AddEventLog();
 ```
 
-[Przeciążenia AddEventLog](xref:Microsoft.Extensions.Logging.EventLoggerFactoryExtensions) umożliwiają przekazanej `EventLogSettings` lub minimalny poziom rejestrowania.
+[Przeciążenia addeventlog](xref:Microsoft.Extensions.Logging.EventLoggerFactoryExtensions) umożliwiają przekazywanie `EventLogSettings` lub minimalny poziom dziennika.
 
 ::: moniker-end
 
-### <a name="tracesource-provider"></a>TraceSource dostawcy
+### <a name="tracesource-provider"></a>Dostawca TraceSource
 
-[Microsoft.Extensions.Logging.TraceSource](https://www.nuget.org/packages/Microsoft.Extensions.Logging.TraceSource) używa dostawcy pakietu <xref:System.Diagnostics.TraceSource> bibliotek i dostawców.
+Pakiet dostawcy [Microsoft. Extensions. Logging. TraceSource](https://www.nuget.org/packages/Microsoft.Extensions.Logging.TraceSource) używa <xref:System.Diagnostics.TraceSource> bibliotek i dostawców.
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -761,43 +761,43 @@ loggerFactory.AddTraceSource(sourceSwitchName);
 
 ::: moniker-end
 
-[Przeciążenia AddTraceSource](xref:Microsoft.Extensions.Logging.TraceSourceFactoryExtensions) pozwalają przekazać przełącznik źródła i odbiornika śledzenia.
+[Przeciążenia AddTraceSource](xref:Microsoft.Extensions.Logging.TraceSourceFactoryExtensions) umożliwiają przekazywanie danych w przełączniku źródłowym i odbiorniku śledzenia.
 
-Aby użyć tego dostawcy, aplikacja ma do uruchamiania na .NET Framework (a nie .NET Core). Dostawca komunikaty można kierować do różnych [odbiorników](/dotnet/framework/debug-trace-profile/trace-listeners), takie jak <xref:System.Diagnostics.TextWriterTraceListener> używane w przykładowej aplikacji.
+Aby można było korzystać z tego dostawcy, aplikacja musi działać na .NET Framework (a nie na platformie .NET Core). Dostawca może kierować komunikaty do różnych odbiorników, [](/dotnet/framework/debug-trace-profile/trace-listeners)takich jak <xref:System.Diagnostics.TextWriterTraceListener> używane w przykładowej aplikacji.
 
 ::: moniker range="< aspnetcore-2.0"
 
-Poniższy przykład umożliwia skonfigurowanie `TraceSource` dostawcy, która rejestruje `Warning` i wyższych komunikaty w oknie konsoli.
+Poniższy przykład konfiguruje `TraceSource` dostawcę, który rejestruje `Warning` i wyższych komunikatów do okna konsoli.
 
 [!code-csharp[](index/samples/1.x/TodoApiSample/Startup.cs?name=snippet_TraceSource&highlight=9-12)]
 
 ::: moniker-end
 
-### <a name="azure-app-service-provider"></a>Dostawca usługi Azure App Service
+### <a name="azure-app-service-provider"></a>Dostawca Azure App Service
 
-[Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) pakiet dostawcy zapisuje dzienniki w plikach tekstowych w systemie plików aplikacji w usłudze Azure App Service i do [magazynu obiektów blob](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#what-is-blob-storage) na koncie usługi Azure Storage. Pakiet dostawcy jest dostępna dla aplikacji przeznaczonych dla platformy .NET Core 1.1 lub nowszej.
+Pakiet [Microsoft. Extensions. Logging. AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) Provider zapisuje dzienniki w plikach tekstowych w systemie plików aplikacji Azure App Service i w usłudze [BLOB Storage](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#what-is-blob-storage) na koncie usługi Azure Storage. Pakiet dostawcy jest dostępny dla aplikacji przeznaczonych dla platformy .NET Core 1,1 lub nowszej.
 
 ::: moniker range=">= aspnetcore-2.0"
 
-Jeśli przeznaczony dla platformy .NET Core, pamiętaj o następujących kwestiach:
+W przypadku określania wartości .NET Core należy zwrócić uwagę na następujące kwestie:
 
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.0"
 
-* Pakiet dostawcy znajduje się w programie ASP.NET Core [pakiet meta Microsoft.aspnetcore.all](xref:fundamentals/metapackage).
+* Pakiet dostawcy jest zawarty w ASP.NET Core [Microsoft. AspNetCore. All](xref:fundamentals/metapackage).
 
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
 
-* Pakiet dostawcy nie jest zawarty w [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app). Aby użyć dostawcy, zainstaluj pakiet.
+* Pakiet dostawcy nie jest uwzględniony w [pakiecie Microsoft. AspNetCore. app](xref:fundamentals/metapackage-app). Aby użyć dostawcy, zainstaluj pakiet.
 
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.0"
 
-Jeśli przeznaczonych dla platformy .NET Framework lub odwołuje się do `Microsoft.AspNetCore.App` meta Microsoft.aspnetcore.all, Dodaj pakiet dostawcy do projektu. Wywoływanie `AddAzureWebAppDiagnostics`:
+Jeśli element docelowy .NET Framework lub odwołuje się `Microsoft.AspNetCore.App` do pakietu, Dodaj pakiet dostawcy do projektu. Wywołaj `AddAzureWebAppDiagnostics`:
 
 ```csharp
 logging.AddAzureWebAppDiagnostics();
@@ -815,87 +815,84 @@ loggerFactory.AddAzureWebAppDiagnostics();
 
 ::: moniker range="<= aspnetcore-2.1"
 
-<xref:Microsoft.Extensions.Logging.AzureAppServicesLoggerFactoryExtensions.AddAzureWebAppDiagnostics*> Przeciążenia umożliwia przekazywanie w <xref:Microsoft.Extensions.Logging.AzureAppServices.AzureAppServicesDiagnosticsSettings>. Obiekt ustawień można zastąpić domyślne ustawienia, takie jak rejestrowanie danych wyjściowych szablonu, nazwa obiektu blob i limit rozmiaru pliku. (*Danych wyjściowych szablonu* jest szablon wiadomości, która jest stosowana do wszystkich dzienników oprócz co to jest dostarczana z `ILogger` wywołania metody.)
+<xref:Microsoft.Extensions.Logging.AzureAppServicesLoggerFactoryExtensions.AddAzureWebAppDiagnostics*> Przeciążenie umożliwia <xref:Microsoft.Extensions.Logging.AzureAppServices.AzureAppServicesDiagnosticsSettings>przekazywanie. Obiekt Settings może przesłonić ustawienia domyślne, takie jak szablon danych wyjściowych rejestrowania, nazwa obiektu BLOB i limit rozmiaru pliku. (*Szablon danych wyjściowych* to szablon wiadomości, który jest stosowany do wszystkich dzienników oprócz tego, co jest dostępne `ILogger` w wywołaniu metody).
 
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.2"
 
-Aby skonfigurować ustawienia dostawcy, użyj <xref:Microsoft.Extensions.Logging.AzureAppServices.AzureFileLoggerOptions> i <xref:Microsoft.Extensions.Logging.AzureAppServices.AzureBlobLoggerOptions>, jak pokazano w poniższym przykładzie:
+Aby skonfigurować ustawienia dostawcy, użyj <xref:Microsoft.Extensions.Logging.AzureAppServices.AzureFileLoggerOptions> i <xref:Microsoft.Extensions.Logging.AzureAppServices.AzureBlobLoggerOptions>, jak pokazano w następującym przykładzie:
 
 [!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_AzLogOptions&highlight=19-27)]
 
 ::: moniker-end
 
-Podczas wdrażania aplikacji usługi App Service aplikacja honoruje ustawienia w [usługi App Service, dzienniki](/azure/app-service/web-sites-enable-diagnostic-log/#enablediag) części **usługi App Service** strony w witrynie Azure Portal. Po zaktualizowaniu następujące ustawienia zmiany zaczynają obowiązywać natychmiast bez konieczności ponownego uruchomienia lub ponownego wdrażania aplikacji.
+Po wdrożeniu w aplikacji App Service, aplikacja będzie przestrzegać ustawień w sekcji [dzienniki App Service](/azure/app-service/web-sites-enable-diagnostic-log/#enablediag) na stronie **App Service** Azure Portal. Po zaktualizowaniu następujących ustawień zmiany zaczynają obowiązywać natychmiast, bez konieczności ponownego uruchomienia lub ponownej wdrożenia aplikacji.
 
 * **Rejestrowanie aplikacji (system plików)**
-* **Rejestrowanie aplikacji (Blob)**
+* **Rejestrowanie aplikacji (BLOB)**
 
-Domyślną lokalizacją dla plików dziennika jest *D:\\macierzystego\\LogFiles\\aplikacji* folder i nazwę pliku domyślny jest *yyyymmdd.txt diagnostyki*. Domyślnego limitu rozmiaru pliku to 10 MB, a maksymalną domyślną liczbę plików, które przechowywane jest 2. Domyślna nazwa obiektu blob to *{app-name}{timestamp}/yyyy/mm/dd/hh/{guid}-applicationLog.txt*.
+Domyślną lokalizacją plików dziennika jest folder *D\\:\\Home\\LogFiles* , a domyślna nazwa pliku to *Diagnostics-YYYYMMDD. txt*. Domyślny limit rozmiaru pliku wynosi 10 MB, a domyślna maksymalna liczba zachowywanych plików to 2. Domyślną nazwą obiektu BLOB jest *{App-Name} {timestamp}/yyyy/mm/dd/hh/{GUID}-applicationLog.txt*.
 
-Dostawca działa tylko w przypadku, gdy projekt jest uruchamiany w środowisku platformy Azure. Nie ma wpływu, gdy projekt jest uruchamiany lokalnie&mdash;nie zapisywać pliki lokalne lub lokalnym magazynem projektowym dla obiektów blob.
+Dostawca działa tylko wtedy, gdy projekt jest uruchomiony w środowisku platformy Azure. Nie ma ono wpływu, gdy projekt jest uruchamiany lokalnie&mdash;, nie zapisuje w plikach lokalnych ani w lokalnym magazynie programistycznym dla obiektów BLOB.
 
-#### <a name="azure-log-streaming"></a>Przesyłanie strumieniowe dzienników platformy Azure
+#### <a name="azure-log-streaming"></a>Przesyłanie strumieniowe dzienników Azure
 
-Przesyłanie strumieniowe dzienników platformy Azure umożliwia wyświetlanie dzienników aktywności w czasie rzeczywistym z:
+Usługa przesyłania strumieniowego w usłudze Azure log umożliwia wyświetlanie dziennika aktywności w czasie rzeczywistym z:
 
 * Serwer aplikacji
-* Serwer sieci web
-* Śledzenie żądań zakończonych niepowodzeniem
+* Serwer sieci Web
+* Śledzenie nieudanych żądań
 
-Aby skonfigurować, przesyłanie strumieniowe dzienników platformy Azure:
+Aby skonfigurować przesyłanie strumieniowe dzienników Azure:
 
-* Przejdź do **usługi App Service, dzienniki** strony na stronie portalu swojej aplikacji.
-* Ustaw **rejestrowanie aplikacji (system plików)** do **na**.
-* Wybierz dziennik **poziom**.
+* Przejdź do strony **dzienników App Service** ze strony portalu aplikacji.
+* Ustaw **Rejestrowanie aplikacji (system plików)** na **włączone**.
+* Wybierz **poziom**dziennika.
 
-Przejdź do **Stream dziennika** strony, aby wyświetlić komunikaty aplikacji. Logowanie przeprowadzono za pomocą aplikacji za pośrednictwem `ILogger` interfejsu.
+Przejdź do strony **strumień dziennika** , aby wyświetlić komunikaty aplikacji. Są one rejestrowane przez aplikację za pomocą `ILogger` interfejsu.
 
 ::: moniker range=">= aspnetcore-1.1"
 
-### <a name="azure-application-insights-trace-logging"></a>Rejestrowanie śledzenia w usłudze Azure Application Insights
+### <a name="azure-application-insights-trace-logging"></a>Rejestrowanie śledzenia Application Insights platformy Azure
 
-[Microsoft.Extensions.Logging.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights) pakiet dostawcy zapisuje dzienniki do usługi Azure Application Insights. Application Insights to usługa, która monitoruje aplikację internetową i udostępnia narzędzia do tworzenia zapytań i analizowania danych telemetrycznych. Jeśli używasz tego dostawcy, można zbadać i analizowanie dzienników za pomocą narzędzi usługi Application Insights.
+Pakiet [Microsoft. Extensions. Logging. ApplicationInsights](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights) Provider zapisuje dzienniki na platformie Azure Application Insights. Application Insights to usługa, która monitoruje aplikację internetową i udostępnia narzędzia do wykonywania zapytań i analizowania danych telemetrycznych. Jeśli używasz tego dostawcy, możesz wysyłać zapytania i analizować dzienniki przy użyciu narzędzi Application Insights.
 
-Dostawcy logowania jest uwzględniona jako zależą od elementu [Microsoft.ApplicationInsights.AspNetCore](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore), czyli pakiet, który zawiera wszystkie dostępne dane telemetryczne dla platformy ASP.NET Core. Jeśli używasz tego pakietu, nie trzeba zainstalować pakiet dostawcy.
+Dostawca rejestrowania jest dołączony jako zależność [Microsoft. ApplicationInsights. AspNetCore](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore), który jest pakietem, który zapewnia wszystkie dostępne dane telemetryczne dla ASP.NET Core. Jeśli używasz tego pakietu, nie musisz instalować pakietu dostawcy.
 
-Nie używaj [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) pakietu&mdash;to ASP.NET 4.x.
+Nie używaj&mdash;pakietu [Microsoft. ApplicationInsights. Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) , który jest przeznaczony dla ASP.NET 4. x.
 
 Aby uzyskać więcej informacji, zobacz następujące zasoby:
 
-* [Omówienie usługi Application Insights](/azure/application-insights/app-insights-overview)
-* [Usługa Application Insights dla aplikacji platformy ASP.NET Core](/azure/azure-monitor/app/asp-net-core-no-visualstudio) — zacznij tutaj, aby zaimplementować pełnego zakresu z telemetria usługi Application Insights wraz z rejestrowania.
-* [Rejestruje ApplicationInsightsLoggerProvider dla platformy .NET Core ILogger](/azure/azure-monitor/app/ilogger) — zacznij tutaj, aby zaimplementować dostawcę rejestrowania bez reszty telemetria usługi Application Insights.
-* [Rejestrowanie kart w usłudze Application Insights](https://github.com/Microsoft/ApplicationInsights-dotnet-logging/blob/develop/README.md).
-* [Instalowanie, konfigurowanie i zainicjuj zestaw SDK usługi Application Insights](/learn/modules/instrument-web-app-code-with-application-insights) — interaktywnych samouczków witrynie Learn firmy Microsoft.
+* [Przegląd Application Insights](/azure/application-insights/app-insights-overview)
+* [Application Insights dla ASP.NET Core aplikacji](/azure/azure-monitor/app/asp-net-core) — Zacznij tutaj, jeśli chcesz zaimplementować cały zakres Application Insights telemetrii wraz z rejestrowaniem.
+* [ApplicationInsightsLoggerProvider for .NET Core ILogger](/azure/azure-monitor/app/ilogger) — Rozpocznij tutaj, jeśli chcesz zaimplementować dostawcę rejestrowania bez pozostałej części telemetrii Application Insights.
+* [Karty rejestrowania Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-trace-logs).
+* [Zainstaluj, skonfiguruj i zainicjuj samouczek Application INSIGHTS SDK](/learn/modules/instrument-web-app-code-with-application-insights) — interaktywny w witrynie Microsoft Learn.
 ::: moniker-end
 
-> [!NOTE]
-> Począwszy od 5/1/2019 artykuł zatytułowany [usługi Application Insights dla platformy ASP.NET Core](/azure/azure-monitor/app/asp-net-core) jest nieaktualne i samouczek kroki nie zadziałają. Zapoznaj się [usługi Application Insights dla aplikacji platformy ASP.NET Core](/azure/azure-monitor/app/asp-net-core-no-visualstudio) zamiast tego. Firma Microsoft zdawali sobie sprawę z problemu i jego tego problemu.
+## <a name="third-party-logging-providers"></a>Dostawcy rejestrowania innych firm
 
-## <a name="third-party-logging-providers"></a>Rejestrowanie innych dostawców
+Platformy rejestrowania innych firm, które współpracują z ASP.NET Core:
 
-Struktury rejestrowania innych firm, które działają z platformą ASP.NET Core:
+* [ELMAH.IO](https://elmah.io/) ([repozytorium GitHub](https://github.com/elmahio/Elmah.Io.Extensions.Logging))
+* [Gelf](https://docs.graylog.org/en/2.3/pages/gelf.html) ([Repozytorium GitHub](https://github.com/mattwcole/gelf-extensions-logging))
+* [JSNLog](https://jsnlog.com/) ([Repozytorium GitHub](https://github.com/mperdeck/jsnlog))
+* [KissLog.NET](https://kisslog.net/) ([repozytorium GitHub](https://github.com/catalingavan/KissLog-net))
+* [Loggr](https://loggr.net/) ([Repozytorium GitHub](https://github.com/imobile3/Loggr.Extensions.Logging))
+* [NLOG](https://nlog-project.org/) ([Repozytorium GitHub](https://github.com/NLog/NLog.Extensions.Logging))
+* [Sentry](https://sentry.io/welcome/) ([Repozytorium GitHub](https://github.com/getsentry/sentry-dotnet))
+* [Serilog](https://serilog.net/) ([Repozytorium GitHub](https://github.com/serilog/serilog-aspnetcore))
+* [Stackdriver](https://cloud.google.com/dotnet/docs/stackdriver#logging) ([Repozytorium GitHub](https://github.com/googleapis/google-cloud-dotnet))
 
-* [elmah.IO](https://elmah.io/) ([repozytorium GitHub](https://github.com/elmahio/Elmah.Io.Extensions.Logging))
-* [Gelf](https://docs.graylog.org/en/2.3/pages/gelf.html) ([repozytorium GitHub](https://github.com/mattwcole/gelf-extensions-logging))
-* [JSNLog](https://jsnlog.com/) ([repozytorium GitHub](https://github.com/mperdeck/jsnlog))
-* [KissLog.net](https://kisslog.net/) ([repozytorium GitHub](https://github.com/catalingavan/KissLog-net))
-* [Loggr](https://loggr.net/) ([repozytorium GitHub](https://github.com/imobile3/Loggr.Extensions.Logging))
-* [NLog](https://nlog-project.org/) ([repozytorium GitHub](https://github.com/NLog/NLog.Extensions.Logging))
-* [Sentry](https://sentry.io/welcome/) ([repozytorium GitHub](https://github.com/getsentry/sentry-dotnet))
-* [Serilog](https://serilog.net/) ([repozytorium GitHub](https://github.com/serilog/serilog-aspnetcore))
-* [Stackdriver](https://cloud.google.com/dotnet/docs/stackdriver#logging) ([repozytorium Github](https://github.com/googleapis/google-cloud-dotnet))
+Niektóre struktury innych firm mogą wykonywać [Rejestrowanie semantyczne, znane także jako rejestrowanie strukturalne](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
 
-Niektóre środowiska innych producentów mogą wykonywać [semantycznego rejestrowania, nazywana również rejestrowaniem strukturalnym](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
-
-Za pomocą środowiska innych producentów są podobne do przy użyciu jednej z wbudowanych dostawców:
+Korzystanie z struktury innej firmy jest podobne do korzystania z jednego z wbudowanych dostawców:
 
 1. Dodaj pakiet NuGet do projektu.
-1. Wywołaj `ILoggerFactory`.
+1. Wywołaj `ILoggerFactory`metodę.
 
-Aby uzyskać więcej informacji można znaleźć w temacie każdy dostawca dokumentacji. Rejestrowanie innych firm nie są obsługiwani przez firmę Microsoft.
+Aby uzyskać więcej informacji, zobacz dokumentację każdego dostawcy. Dostawcy rejestrowania innych firm nie są obsługiwani przez firmę Microsoft.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

@@ -1,29 +1,29 @@
 ---
-title: ASP.NET Core Blazor formularze i Walidacja
+title: ASP.NET Core formularzy i walidacji Blazor
 author: guardrex
-description: Dowiedz się, jak używać formularzy i scenariusze weryfikacji pola w Blazor.
+description: Dowiedz się, jak używać scenariuszy formularzy i walidacji pól w Blazor.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
 ms.date: 07/02/2019
 uid: blazor/forms-validation
 ms.openlocfilehash: e1b7de6e31adae8102bbefba5d08418c4daac687
-ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
+ms.sourcegitcommit: 849af69ee3c94cdb9fd8fa1f1bb8f5a5dda7b9eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/12/2019
+ms.lasthandoff: 07/22/2019
 ms.locfileid: "67855781"
 ---
-# <a name="aspnet-core-blazor-forms-and-validation"></a>ASP.NET Core Blazor formularze i Walidacja
+# <a name="aspnet-core-blazor-forms-and-validation"></a>ASP.NET Core formularzy i walidacji Blazor
 
-Przez [Daniel Roth](https://github.com/danroth27) i [Luke Latham](https://github.com/guardrex)
+Autorzy [Daniel Roth](https://github.com/danroth27) i [Luke Latham](https://github.com/guardrex)
 
-Formularze i Walidacja są obsługiwane w Blazor przy użyciu [adnotacje danych](xref:mvc/models/validation).
+Formularze i walidacje są obsługiwane w programie Blazor przy użyciu [adnotacji danych](xref:mvc/models/validation).
 
 > [!NOTE]
-> Formularze i scenariusze weryfikacji prawdopodobnie ulegną zmianie po każdym wydaniu wersji zapoznawczej.
+> Scenariusze formularzy i weryfikacji mogą ulec zmianie w przypadku każdej wersji zapoznawczej.
 
-Następujące `ExampleModel` typ definiuje logikę weryfikacji przy użyciu adnotacji danych:
+Następujący `ExampleModel` typ definiuje logikę walidacji przy użyciu adnotacji danych:
 
 ```csharp
 using System.ComponentModel.DataAnnotations;
@@ -36,7 +36,7 @@ public class ExampleModel
 }
 ```
 
-Formularz jest definiowana za pomocą `EditForm` składnika. Następującą postać przedstawia typowe elementy, składników i kod Razor:
+Formularz jest definiowany przy użyciu `EditForm` składnika. W poniższej formie przedstawiono typowe elementy, składniki i kod Razor:
 
 ```csharp
 <EditForm Model="@exampleModel" OnValidSubmit="@HandleValidSubmit">
@@ -58,14 +58,14 @@ Formularz jest definiowana za pomocą `EditForm` składnika. Następującą post
 }
 ```
 
-* Formularz sprawdza poprawność danych wejściowych użytkownika w `name` pola za pomocą weryfikacji zdefiniowane w `ExampleModel` typu. Model jest tworzony w składniku `@code` zablokować, a także przechowywane w pole prywatne (`exampleModel`). Pole jest przypisany do `Model` atrybutu `<EditForm>` elementu.
-* `DataAnnotationsValidator` Składnika dołącza Obsługa weryfikacji przy użyciu adnotacji danych.
-* `ValidationSummary` Składnik znajduje się podsumowanie komunikatów dotyczących sprawdzania poprawności.
-* `HandleValidSubmit` jest wyzwalany, gdy formularz pomyślnie przesyła (przebiegów weryfikacji).
+* Formularz sprawdza poprawność danych wejściowych użytkownika `name` w polu przy użyciu walidacji zdefiniowanej `ExampleModel` w typie. Model jest tworzony w `@code` bloku składnika i przechowywany w prywatnym polu (`exampleModel`). Pole jest przypisane do `Model` atrybutu `<EditForm>` elementu.
+* `DataAnnotationsValidator` Składnik dołącza obsługę walidacji przy użyciu adnotacji danych.
+* `ValidationSummary` Składnik podsumowuje komunikaty weryfikacyjne.
+* `HandleValidSubmit`jest wyzwalany po pomyślnym przesłaniu formularza (kończy walidację).
 
-Zestaw wbudowanych składników danych wejściowych są dostępne do odbierania i weryfikowanie danych wejściowych użytkownika. Dane wejściowe są prawidłowe, gdy są one zmienione i podczas przesyłania formularza. Dostępne składniki wejściowe są pokazane w poniższej tabeli.
+Zestaw wbudowanych składników wejściowych jest dostępny do odbierania i weryfikowania danych wejściowych użytkownika. Dane wejściowe są weryfikowane po ich zmianie i po przesłaniu formularza. W poniższej tabeli przedstawiono dostępne składniki danych wejściowych.
 
-| Składnika danych wejściowych | Renderowane jako&hellip;       |
+| Składnik wejściowy | Renderowane jako&hellip;       |
 | --------------- | ------------------------- |
 | `InputText`     | `<input>`                 |
 | `InputTextArea` | `<textarea>`              |
@@ -74,11 +74,11 @@ Zestaw wbudowanych składników danych wejściowych są dostępne do odbierania 
 | `InputCheckbox` | `<input type="checkbox">` |
 | `InputDate`     | `<input type="date">`     |
 
-Wszystkich składników danych wejściowych, włącznie z `EditForm`, obsługuje dowolne atrybutów. Dowolny atrybut, który nie jest zgodny z parametrem składnika jest dodawany do renderowanego elementu HTML.
+Wszystkie składniki danych wejściowych, w tym `EditForm`, obsługują dowolne atrybuty. Dowolny atrybut, który nie jest zgodny z parametrem składnika, jest dodawany do renderowanego elementu HTML.
 
-Składniki danych wejściowych udostępniają domyślne zachowanie sprawdzania poprawności po edycji i zmienianie ich klasy CSS, aby odzwierciedlić stan pola. Niektóre składniki zawierają przydatne podczas analizowania logiki. Na przykład `InputDate` i `InputNumber` bezpiecznie obsłużyć niemożliwy do przeanalizowania wartości, rejestrując je jako błędy sprawdzania poprawności. Typy, które może akceptować wartości null obsługuje również dopuszczanie wartości null dla pola docelowego (na przykład `int?`).
+Składniki wejściowe zapewniają domyślne zachowanie podczas sprawdzania poprawności edycji i zmiany ich klasy CSS, aby odzwierciedlały stan pola. Niektóre składniki obejmują przydatne logiki analizy. Na przykład i `InputDate` `InputNumber` bezproblemowo obsłużyć wartości, które można przeanalizować, rejestrując je jako błędy walidacji. Typy, które mogą akceptować wartości null, obsługują również wartość null pola docelowego (na przykład `int?`).
 
-Następujące `Starship` typ definiuje logikę weryfikacji za pomocą większy zbiór właściwości i danych adnotacje niż wcześniej `ExampleModel`:
+Następujący `Starship` typ definiuje logikę walidacji przy użyciu większego zestawu właściwości i adnotacji danych niż wcześniej `ExampleModel`:
 
 ```csharp
 using System;
@@ -108,9 +108,9 @@ public class Starship
 }
 ```
 
-W powyższym przykładzie `Description` jest opcjonalny, ponieważ brak adnotacji danych.
+W powyższym przykładzie `Description` jest opcjonalne, ponieważ nie są obecne adnotacje danych.
 
-Następującą postać weryfikuje użytkownika danych wejściowych za pomocą weryfikacji zdefiniowane w `Starship` modelu:
+Następujący formularz sprawdza poprawność danych wejściowych użytkownika przy użyciu weryfikacji zdefiniowanej w `Starship` modelu:
 
 ```cshtml
 @page "/FormsValidation"
@@ -173,16 +173,16 @@ Następującą postać weryfikuje użytkownika danych wejściowych za pomocą we
 }
 ```
 
-`EditForm` Tworzy `EditContext` jako [cascading wartość](xref:blazor/components#cascading-values-and-parameters) , śledzi metadane dotyczące procesu edycji, takie jak pola, które zostały zmodyfikowane oraz bieżące wiadomości sprawdzania poprawności. `EditForm` Udostępnia również wygodną zdarzenia dla prawidłowe i nieprawidłowe przesyła (`OnValidSubmit`, `OnInvalidSubmit`). Można również użyć `OnSubmit` wyzwolić weryfikacji i sprawdź wartości pola z kodu niestandardowego sprawdzania poprawności.
+Tworzy jako wartość kaskadową, która śledzi metadane dotyczące procesu edycji, w tym pola, które zostały zmodyfikowane i bieżące komunikaty weryfikacyjne. [](xref:blazor/components#cascading-values-and-parameters) `EditForm` `EditContext` Zapewnia również wygodne zdarzenia dla prawidłowych i nieprawidłowych przesyłania`OnValidSubmit`( `OnInvalidSubmit`,). `EditForm` Alternatywnie można użyć `OnSubmit` do wyzwolenia walidacji i sprawdzenia wartości pól z niestandardowym kodem walidacji.
 
-`DataAnnotationsValidator` Składnika dołącza Obsługa weryfikacji przy użyciu adnotacji danych w celu kaskadowy `EditContext`. Włączanie obsługi sprawdzania poprawności obecnie przy użyciu adnotacji danych wymaga to jawne gestu, ale rozważamy, dzięki czemu to zachowanie domyślne, które można przesłonić. Aby korzystać z systemu weryfikacji innego niż adnotacje danych, należy zastąpić `DataAnnotationsValidator` przy użyciu niestandardowych implementacji. Implementacja platformy ASP.NET Core jest dostępny do kontroli źródła odwołania: [DataAnnotationsValidator](https://github.com/aspnet/AspNetCore/blob/master/src/Components/Components/src/Forms/DataAnnotationsValidator.cs)/[AddDataAnnotationsValidation](https://github.com/aspnet/AspNetCore/blob/master/src/Components/Components/src/Forms/EditContextDataAnnotationsExtensions.cs). *Implementacja programu ASP.NET Core podlega szybkiej aktualizacji w wersji zapoznawczej.*
+Składnik dołącza obsługę walidacji przy użyciu adnotacji danych do `EditContext`kaskadowo. `DataAnnotationsValidator` Włączenie obsługi walidacji przy użyciu adnotacji danych obecnie wymaga tego jawnego gestu, ale rozważamy, że to zachowanie domyślne można przesłonić. Aby użyć innego systemu sprawdzania poprawności niż adnotacje danych, Zastąp zmienną `DataAnnotationsValidator` implementacją niestandardową. Implementacja ASP.NET Core jest dostępna do inspekcji w źródle odwołania: [](https://github.com/aspnet/AspNetCore/blob/master/src/Components/Components/src/Forms/DataAnnotationsValidator.cs)DataAnnotationsValidator/[AddDataAnnotationsValidation](https://github.com/aspnet/AspNetCore/blob/master/src/Components/Components/src/Forms/EditContextDataAnnotationsExtensions.cs). *Implementacja ASP.NET Core podlega szybkim aktualizacjom w okresie wersji zapoznawczej.*
 
-`ValidationSummary` Składnika znajduje się podsumowanie wszystkich komunikatów o weryfikacji, który przypomina [Pomocnik tagu podsumowania sprawdzania poprawności](xref:mvc/views/working-with-forms#the-validation-summary-tag-helper).
+Składnik podsumowuje wszystkie komunikaty weryfikacyjne podobne do [pomocnika tagów podsumowania walidacji.](xref:mvc/views/working-with-forms#the-validation-summary-tag-helper) `ValidationSummary`
 
-`ValidationMessage` Składnik wyświetla komunikaty sprawdzania poprawności dla określonego pola, które są podobne do [Pomocnik tagu komunikat sprawdzania poprawności](xref:mvc/views/working-with-forms#the-validation-message-tag-helper). Należy określić to pole do weryfikacji za pomocą `For` atrybutu i wyrażenia lambda nazewnictwa właściwości modelu:
+Składnik wyświetla komunikaty sprawdzania poprawności dla określonego pola, które jest podobne do pomocnika [tagów komunikatu weryfikacji.](xref:mvc/views/working-with-forms#the-validation-message-tag-helper) `ValidationMessage` Określ pole do walidacji z `For` atrybutem i wyrażeniem lambda, które nazywa właściwość modelu:
 
 ```cshtml
 <ValidationMessage For="@(() => starship.MaximumAccommodation)" />
 ```
 
-`ValidationMessage` i `ValidationSummary` składniki obsługują dowolnymi atrybutami. Dowolny atrybut, który nie jest zgodny z parametrem składnik zostanie dodany do wygenerowany `<div>` lub `<ul>` elementu.
+Składniki `ValidationMessage` i`ValidationSummary` obsługują dowolne atrybuty. Dowolny atrybut, który nie jest zgodny z parametrem składnika, jest `<div>` dodawany `<ul>` do wygenerowanego elementu or.

@@ -6,10 +6,10 @@ ms.author: riande
 ms.date: 04/13/2017
 uid: tutorials/first-mvc-app/validation
 ms.openlocfilehash: f94d1003732b8ff04ec8aba3005f8c95a876cd67
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.sourcegitcommit: 849af69ee3c94cdb9fd8fa1f1bb8f5a5dda7b9eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2019
+ms.lasthandoff: 07/22/2019
 ms.locfileid: "67815117"
 ---
 # <a name="add-validation-to-an-aspnet-core-mvc-app"></a>Dodawanie walidacji do aplikacji ASP.NET Core MVC
@@ -18,114 +18,114 @@ Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 W tej sekcji:
 
-* Logika sprawdzania poprawności jest dodawany do `Movie` modelu.
-* Upewnij się, że reguły sprawdzania poprawności są wymuszane ilekroć użytkownik tworzy lub edytowania filmu.
+* Logika walidacji jest dodawana do `Movie` modelu.
+* Upewnij się, że reguły walidacji są wymuszane za każdym razem, gdy użytkownik tworzy lub edytuje film.
 
-## <a name="keeping-things-dry"></a>Utrzymywanie rzeczy PRÓBNEGO
+## <a name="keeping-things-dry"></a>Przechowywanie SUCHEj zawartości
 
-Jednym z założenia projektowania MVC jest [susz](https://wikipedia.org/wiki/Don%27t_repeat_yourself) ("nie należy powtórzyć samodzielnie"). Platforma ASP.NET Core MVC zachęca można określić funkcji lub zachowanie tylko raz, a następnie go wszędzie, gdzie odzwierciedlone w aplikacji. Zmniejsza ilość kodu, który trzeba było pisać i sprawia, że kod, który pisanie mniej błędów, podatne, łatwiejsze testowanie i łatwiejsze w utrzymaniu.
+Jeden z założenia projektu MVC jest suchy [](https://wikipedia.org/wiki/Don%27t_repeat_yourself) ("nie powtarzaj się"). ASP.NET Core MVC zachęca do określania funkcjonalności lub zachowania tylko raz, a następnie znajdować się w dowolnym miejscu w aplikacji. Pozwala to zmniejszyć ilość kodu, który trzeba napisać, i sprawia, że kod jest mniej podatny na błędy, łatwiejszy do testowania i łatwiejszy w obsłudze.
 
-Obsługa sprawdzania poprawności, dostarczone przez MVC i Entity Framework Core Code First jest dobrym przykładem susz zasady w akcji. Można deklaratywne określenie reguł sprawdzania poprawności w jednym miejscu (w klasie modelu), a zasady są wymuszane wszędzie, gdzie w aplikacji.
+Obsługa walidacji świadczona przez MVC i Entity Framework Core Code First jest dobrym przykładem zasady SUCHa w działaniu. Można deklaratywnie określić reguły walidacji w jednym miejscu (w klasie modelu), a reguły są wymuszane wszędzie w aplikacji.
 
 [!INCLUDE[](~/includes/RP-MVC/validation.md)]
 
-## <a name="validation-error-ui"></a>Błąd sprawdzania poprawności UI
+## <a name="validation-error-ui"></a>Interfejs użytkownika błędu walidacji
 
 Uruchom aplikację i przejdź do kontrolera filmów.
 
-Naciśnij pozycję **Utwórz nowy** łącze, aby dodać nowy film. Wypełnij formularz z niektórych z nieprawidłowymi wartościami. Jak najszybciej po weryfikacji po stronie klienta jQuery wykryje błąd, wyświetla komunikat o błędzie.
+Naciśnij link **Utwórz nowy** , aby dodać nowy film. Wypełnij formularz nieprawidłowymi wartościami. Gdy tylko Walidacja po stronie klienta jQuery wykryje błąd, zostanie wyświetlony komunikat o błędzie.
 
-![Film wyświetlanie formularza za pomocą wielu błędy weryfikacji po stronie klienta jQuery](~/tutorials/first-mvc-app/validation/_static/val.png)
+![Formularz wyświetlania filmu z wieloma błędami walidacji po stronie klienta jQuery](~/tutorials/first-mvc-app/validation/_static/val.png)
 
 [!INCLUDE[](~/includes/currency.md)]
 
-Zwróć uwagę, jak formularz automatycznie renderowany komunikat o błędzie weryfikacji odpowiednie w każdym polu zawierający nieprawidłową wartość. Błędy są wymuszane, zarówno po stronie klienta (przy użyciu języków JavaScript i jQuery) i po stronie serwera (w przypadku, gdy użytkownik ma Obsługa skryptów JavaScript wyłączona).
+Zwróć uwagę, jak formularz automatycznie renderuje odpowiedni komunikat o błędzie walidacji w każdym polu zawierającym nieprawidłową wartość. Błędy są wymuszane po stronie klienta (przy użyciu języków JavaScript i jQuery) i po stronie serwera (w przypadku, gdy użytkownik ma wyłączony kod JavaScript).
 
-Znaczące korzyści jest, że nie trzeba zmieniać jednego wiersza kodu w `MoviesController` klasy lub *Create.cshtml* widoku w celu włączenia tej weryfikacji interfejsu użytkownika. Kontrolera i widoki utworzone wcześniej w tym samouczku automatycznie wybrany w górę sprawdzania poprawności reguły określona za pomocą atrybutów weryfikacji właściwości `Movie` klasa modelu. Walidacja testu za pomocą `Edit` metody akcji i tego samego sprawdzania poprawności jest stosowana.
+Znacząca korzyść polega na tym, że nie trzeba zmieniać pojedynczego wiersza kodu w `MoviesController` klasie lub w widoku *Create. cshtml* , aby włączyć ten interfejs użytkownika weryfikacji. Kontroler i widoki utworzone wcześniej w tym samouczku automatycznie pobierają reguły sprawdzania poprawności określone przy użyciu atrybutów walidacji we właściwościach `Movie` klasy modelu. Sprawdzanie poprawności testu przy `Edit` użyciu metody akcji i zastosowanie tej samej walidacji.
 
-Dane formularza nie jest wysyłana do serwera, aż nie wystąpią żadne błędy weryfikacji po stronie klienta. Można to sprawdzić przez umieszczenie punkt przerwania w `HTTP Post` metody, używając [narzędzie Fiddler](https://www.telerik.com/fiddler) , lub [narzędzi deweloperskich F12](/microsoft-edge/devtools-guide).
+Dane formularza nie są wysyłane do serwera, dopóki nie zostaną wykryte błędy weryfikacji po stronie klienta. Można to sprawdzić, umieszczając punkt przerwania w `HTTP Post` metodzie przy użyciu [Narzędzia programu Fiddler](https://www.telerik.com/fiddler) lub [narzędzi programistycznych F12](/microsoft-edge/devtools-guide).
 
-## <a name="how-validation-works"></a>Działanie sprawdzania poprawności
+## <a name="how-validation-works"></a>Jak działa Walidacja
 
-Być może zastanawiasz się, jak sprawdzanie poprawności UI został wygenerowany bez wykonywania żadnych aktualizacji do kodu w kontrolerze lub widoków. W poniższym kodzie pokazano dwa `Create` metody.
+Możesz zastanawiać się, jak został wygenerowany interfejs użytkownika weryfikacji bez aktualizacji kodu w kontrolerze lub widokach. Poniższy kod przedstawia dwie `Create` metody.
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Controllers/MoviesController.cs?name=snippetCreate)]
 
-Pierwszy (HTTP GET) `Create` metody akcji Wyświetla początkowej formularza tworzenia. Drugi (`[HttpPost]`) wersja obsługuje post formularza. Drugi `Create` — metoda ( `[HttpPost]` wersji) wywołań `ModelState.IsValid` do sprawdzenia, czy ten film zawiera wszystkie błędy weryfikacji. Wywołanie tej metody ocenia wszelkie atrybuty weryfikacji, które zostały zastosowane do obiektu. Jeśli obiekt ma błędy sprawdzania poprawności `Create` metoda ponownie zostanie wyświetlony formularz. Jeśli nie ma żadnych błędów, metoda zapisuje ten nowy film w bazie danych. W naszym przykładzie filmu formularza nie jest opublikowane w do serwera, gdy występują błędy sprawdzania poprawności wykrywane po stronie klienta; drugi `Create` metoda nigdy nie jest wywoływana, gdy występują błędy sprawdzania poprawności po stronie klienta. Jeśli wyłączysz JavaScript w przeglądarce, sprawdzanie poprawności klienta jest wyłączona, a można przetestować HTTP POST `Create` metoda `ModelState.IsValid` wykrywanie wszelkie błędy sprawdzania poprawności.
+Pierwsza metoda akcji (http get `Create` ) zawiera początkowy formularz tworzenia. Druga wersja (`[HttpPost]`) obsługuje wpis w formularzu. Druga `Create` Metoda `ModelState.IsValid` (wersja) wywołania, aby sprawdzić, czy film ma jakiekolwiek błędy walidacji. `[HttpPost]` Wywołanie tej metody szacuje wszystkie atrybuty walidacji, które zostały zastosowane do obiektu. Jeśli obiekt ma błędy walidacji, `Create` Metoda ponowna wyświetli formularz. Jeśli nie ma żadnych błędów, Metoda zapisuje nowy film w bazie danych. W naszym przykładzie filmu nie jest on ogłaszany na serwerze, gdy na stronie klienta wykryto błędy walidacji. Druga `Create` Metoda nie jest nigdy wywoływana, gdy występują błędy walidacji po stronie klienta. W przypadku wyłączenia języka JavaScript w przeglądarce sprawdzanie poprawności klienta jest wyłączone i można przetestować metodę `Create` `ModelState.IsValid` post protokołu HTTP w celu wykrycia błędów walidacji.
 
-Możesz ustawić punkt przerwania w `[HttpPost] Create` metody i sprawdź, nigdy nie jest wywoływana metoda, weryfikacji po stronie klienta nie będzie przesyłać dane formularza, gdy wykryto błędy sprawdzania poprawności. Jeśli można wyłączyć języka JavaScript w przeglądarce, a następnie Prześlij formularz z błędami, punkt przerwania zostanie osiągnięty. Będzie nadal się pojawiać pełna Walidacja bez kodu JavaScript. 
+Można ustawić punkt przerwania w `[HttpPost] Create` metodzie i sprawdzić, czy metoda nie jest nigdy wywoływana, podczas walidacji po stronie klienta nie będą przesyłane dane formularza po wykryciu błędów walidacji. Jeśli wyłączysz JavaScript w przeglądarce, a następnie prześlesz formularz z błędami, zostanie osiągnięty punkt przerwania. Nadal będziesz mieć pełną weryfikację bez języka JavaScript. 
 
-Na poniższej ilustracji przedstawiono sposób wyłączania JavaScript w przeglądarce FireFox.
+Na poniższej ilustracji przedstawiono sposób wyłączania języka JavaScript w przeglądarce FireFox.
 
-![Firefox: Na karcie Zawartość opcje Usuń zaznaczenie pola wyboru Włącz język Javascript.](~/tutorials/first-mvc-app/validation/_static/ff.png)
+![Firefox Na karcie zawartość w obszarze Opcje usuń zaznaczenie pola wyboru Włącz język JavaScript.](~/tutorials/first-mvc-app/validation/_static/ff.png)
 
-Na poniższej ilustracji przedstawiono sposób wyłączania JavaScript w przeglądarce Chrome.
+Na poniższej ilustracji przedstawiono sposób wyłączania języka JavaScript w przeglądarce Chrome.
 
-![Google Chrome: W sekcji kodu Javascript w zawartości ustawień wybierz opcję nie zezwalają na dowolnej lokacji do uruchomienia kodu JavaScript.](~/tutorials/first-mvc-app/validation/_static/chrome.png)
+![Google Chrome: W sekcji JavaScript ustawień zawartości wybierz opcję nie Zezwalaj na uruchamianie skryptów JavaScript przez żadną lokację.](~/tutorials/first-mvc-app/validation/_static/chrome.png)
 
-Po wyłączeniu JavaScript Opublikuj nieprawidłowe dane i krok po kroku debugera.
+Po wyłączeniu języka JavaScript Opublikuj nieprawidłowe dane i przechodzenie przez debuger.
 
-![Podczas debugowania na wpis nieprawidłowych danych, funkcję Intellisense w ModelState.IsValid pokazuje, że wartość to false.](~/tutorials/first-mvc-app/validation/_static/ms.png)
+![Podczas debugowania wpisu nieprawidłowych danych funkcja IntelliSense w ModelState. IsValid pokazuje wartość false.](~/tutorials/first-mvc-app/validation/_static/ms.png)
 
-Część *Create.cshtml* Wyświetl szablon jest wyświetlany w niej następujące znaczniki:
+Część szablonu widoku *Create. cshtml* jest pokazana w następującej postaci:
 
 [!code-HTML[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Views/Movies/CreateRatingBrevity.html)]
 
-Poprzedni kod znaczników jest używany przez metody akcji, aby wyświetlić początkowy formularz i wyświetlić ją ponownie w przypadku wystąpienia błędu.
+Poprzedzające znaczniki są używane przez metody akcji, aby wyświetlić początkowy formularz i ponownie wyświetlić go w przypadku błędu.
 
-[Pomocnik tagu dane wejściowe](xref:mvc/views/working-with-forms) używa [DataAnnotations](/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) atrybutów, a następnie tworzy atrybutów HTML potrzebne dla technologii jQuery weryfikacji po stronie klienta. [Pomocnik tagu weryfikacji](xref:mvc/views/working-with-forms#the-validation-tag-helpers) wyświetla błędy sprawdzania poprawności. Zobacz [weryfikacji](xref:mvc/models/validation) Aby uzyskać więcej informacji.
+[Pomocnik tagu wejściowego](xref:mvc/views/working-with-forms) używa atrybutów [](/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) DataAnnotations i tworzy atrybuty HTML, które są zbędne do walidacji jQuery po stronie klienta. [Pomocnik tagów walidacji](xref:mvc/views/working-with-forms#the-validation-tag-helpers) wyświetla błędy walidacji. Aby [](xref:mvc/models/validation) uzyskać więcej informacji, zobacz Walidacja.
 
-Co to jest bardzo NAS cieszy się o tego podejścia jest to, że żaden kontroler ani `Create` Wyświetl szablon wie, nic o regułach rzeczywista weryfikacja wymuszany ani o zbyt małą określone komunikaty o błędach wyświetlane. Reguł sprawdzania poprawności i ciągi błędów są określane tylko w `Movie` klasy. Te same zasady sprawdzania poprawności są automatycznie stosowane do `Edit` widoku i wszystkich innych widoków szablonów można utworzyć, które edytować modelu.
+W rzeczywistości to podejście jest takie, że ani kontroler, ani `Create` szablon widoku nie wie o faktycznych regułach walidacji lub o określonych komunikatach o błędach. Reguły walidacji i ciągi błędów są określone tylko w `Movie` klasie. Te same reguły sprawdzania poprawności są automatycznie stosowane do `Edit` widoku i wszystkich innych szablonów widoków, które można utworzyć, edytując model.
 
-Jeśli potrzebujesz zmienić logikę weryfikacji, możesz to zrobić w dokładnie jednego miejsca przez dodanie atrybutów sprawdzania poprawności do modelu (w tym przykładzie `Movie` klasy). Nie trzeba już martwić się o różnych części aplikacji jest niespójna z jak zasady są wymuszane — całą logikę weryfikacji będą zdefiniowane w jednym miejscu i użyć wszędzie. Zapewnia bardzo czystym kodzie i ułatwia utrzymanie i rozwój. I oznacza, że można będzie można w pełni zapewniane susz zasady.
+W przypadku konieczności zmiany logiki walidacji można to zrobić w dokładnie jednym miejscu przez dodanie atrybutów sprawdzania poprawności do modelu (w tym przykładzie `Movie` Klasa). Nie trzeba martwić się o różne części aplikacji, które nie są zgodne z zasadami, w których są wymuszane — Cała logika walidacji zostanie zdefiniowana w jednym miejscu i użyta wszędzie. Dzięki temu kod jest bardzo czysty i ułatwia utrzymanie i rozwój. Oznacza to, że będziesz w pełni przestrzegać SUCHEj zasady.
 
-## <a name="using-datatype-attributes"></a>Przy użyciu atrybutów typu danych
+## <a name="using-datatype-attributes"></a>Używanie atrybutów DataType
 
-Otwórz *Movie.cs* plików i zbadaj `Movie` klasy. `System.ComponentModel.DataAnnotations` Przestrzeń nazw zawiera atrybuty formatowania, oprócz wbudowanych zestaw atrybutów weryfikacji. Firma Microsoft została już zastosowana `DataType` wartości wyliczenia, Data wydania i pola Cena. Poniższy kod przedstawia `ReleaseDate` i `Price` właściwości z odpowiednią `DataType` atrybutu.
+Otwórz plik *Movie.cs* i zapoznaj się `Movie` z klasą. `System.ComponentModel.DataAnnotations` Przestrzeń nazw zawiera atrybuty formatowania oprócz wbudowanego zestawu atrybutów walidacji. Wartość `DataType` wyliczenia została już zastosowana do daty wydania i do pól cen. Poniższy kod pokazuje `ReleaseDate` właściwości i `Price` z odpowiednim `DataType` atrybutem.
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDA.cs?highlight=2,6&name=snippet2)]
 
-`DataType` Atrybuty zawierają tylko wskazówki dotyczące aparatu widoku do formatowania danych (i dostarcza elementy i atrybuty, takie jak `<a>` dla adresu URL i `<a href="mailto:EmailAddress.com">` do obsługi poczty e-mail. Możesz użyć `RegularExpression` atrybutu, aby sprawdzić poprawność formatu danych. `DataType` Atrybut jest używany do określenia typu danych, który jest bardziej szczegółowe niż typ wewnętrznej bazy danych, nie ma atrybutów sprawdzania poprawności. W tym przypadku ma być uruchamiany tylko do śledzenia daty, a nie godziny. `DataType` Wyliczenie udostępnia dla wielu typów danych, takie jak data, w czasie, numer telefonu, waluty, EmailAddress i wiele innych. `DataType` Atrybut można również włączyć automatyczne udostępnianie funkcji specyficznych dla typu aplikacji. Na przykład `mailto:` łącza mogą być tworzone dla `DataType.EmailAddress`, i można podać selektora daty `DataType.Date` w przeglądarkach obsługujących HTML5. `DataType` Atrybuty emitować HTML 5 `data-` atrybutów (Wymowa: dane dash), które może zrozumieć przeglądarki HTML 5. `DataType` Atrybuty czy **nie** Podaj wszelkie sprawdzania poprawności.
+Atrybuty zawierają tylko wskazówki dla aparatu widoku do formatowania danych (i udostępniają elementy/atrybuty, takie jak `<a>` adresy URL i `<a href="mailto:EmailAddress.com">` wiadomości e-mail. `DataType` Możesz użyć atrybutu, `RegularExpression` aby sprawdzić poprawność formatu danych. Ten `DataType` atrybut służy do określania typu danych, który jest bardziej szczegółowy niż typ wewnętrzny bazy danych, nie są atrybutami walidacji. W tym przypadku chcemy tylko śledzić datę, a nie godzinę. `DataType` Wyliczenie zawiera wiele typów danych, takich jak data, godzina, numer telefonu, waluta, EmailAddress i inne. Ten `DataType` atrybut może również umożliwić aplikacji automatyczne udostępnianie funkcji specyficznych dla typu. Na przykład `mailto:` można utworzyć łącze dla `DataType.EmailAddress`i dla programu `DataType.Date` w przeglądarkach, które obsługują HTML5, można podać selektor daty. Atrybuty emitują HTML 5 `data-` (wymawiane kreski danych), które mogą zrozumieć przeglądarki HTML 5. `DataType` Atrybuty nie zapewniają żadnej weryfikacji.  `DataType`
 
-`DataType.Date` nie określa format daty, która jest wyświetlana. Domyślnie pole danych są wyświetlane domyślne formaty oparte na tym serwerze `CultureInfo`.
+`DataType.Date`nie określa formatu wyświetlanej daty. Domyślnie pole dane jest wyświetlane zgodnie z domyślnymi formatami opartymi na serwerze `CultureInfo`.
 
-`DisplayFormat` Atrybut jest używany jawnie określić format daty:
+Ten `DisplayFormat` atrybut służy do jawnego określenia formatu daty:
 
 ```csharp
 [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
 public DateTime ReleaseDate { get; set; }
 ```
 
-`ApplyFormatInEditMode` Ustawienie określa, że formatowanie powinien również będą stosowane, gdy wartość jest wyświetlana w polu tekstowym do edycji. (Nie może być, w przypadku niektórych pól — na przykład w przypadku wartości waluty, nie będzie prawdopodobnie symbol waluty w polu tekstowym do edycji.)
+`ApplyFormatInEditMode` Ustawienie określa, że formatowanie powinno być również stosowane, gdy wartość jest wyświetlana w polu tekstowym do edycji. (Możesz nie chcieć, aby w przypadku niektórych pól — na przykład w przypadku wartości walutowych, prawdopodobnie nie chcesz, aby symbol waluty był widoczny w polu tekstowym do edycji).
 
-Możesz użyć `DisplayFormat` atrybutu przez sam, ale zazwyczaj jest dobry pomysł, aby użyć `DataType` atrybutu. `DataType` Atrybut umożliwia przekazywanie semantykę dane, a nie jak renderować ją na ekranie i zapewnia następujące korzyści, które nie można uzyskać za pomocą DisplayFormat:
+Możesz użyć `DisplayFormat` atrybutu przez siebie, ale zazwyczaj dobrym pomysłem jest `DataType` użycie atrybutu. Ten `DataType` atrybut przekazuje semantykę danych w przeciwieństwie do sposobu renderowania na ekranie i zapewnia następujące korzyści, których nie można uzyskać za pomocą DisplayFormat:
 
-* Przeglądarka można włączyć funkcje HTML5 (na przykład pokazać kontrolki kalendarza, symbol waluty odpowiednich ustawień regionalnych, przesyłanie pocztą e-mail łączy, itp.)
+* Przeglądarka może włączać funkcje HTML5 (na przykład w celu wyświetlania kontrolki kalendarza, symbolu waluty właściwej dla ustawień regionalnych, linków e-mail itp.).
 
-* Domyślnie przeglądarka wyświetli dane przy użyciu poprawny format, w oparciu o ustawienia regionalne.
+* Domyślnie przeglądarka będzie renderować dane przy użyciu poprawnego formatu na podstawie ustawień regionalnych.
 
-* `DataType` Atrybutu aby umożliwić MVC wybrać szablon po prawej stronie pola w celu przedstawienia tych danych ( `DisplayFormat` Jeśli używany przez samego korzysta z szablonu ciągu).
+* Ten `DataType` atrybut umożliwia wybranie odpowiedniego szablonu pola do renderowania danych przez MVC. `DisplayFormat` (Jeśli używane przez siebie korzysta z szablonu ciągu).
 
 > [!NOTE]
-> dotyczącą weryfikacji jQuery nie działa w przypadku `Range` atrybutu i `DateTime`. Na przykład poniższy kod zawsze będzie wyświetlała błąd weryfikacji po stronie klienta, nawet wtedy, gdy jest to data mieści się w określonym zakresie:
+> Walidacja jQuery nie działa z `Range` atrybutem `DateTime`i. Na przykład poniższy kod zawsze będzie wyświetlał błąd walidacji po stronie klienta, nawet wtedy, gdy data jest w określonym zakresie:
 >
 > `[Range(typeof(DateTime), "1/1/1966", "1/1/2020")]`
 
-Należy wyłączyć sprawdzanie poprawności Data jQuery, aby użyć `Range` atrybutem `DateTime`. Ogólnie nie jest dobrą praktyką jest kompilowanie twardych dat w ramach modeli za pomocą `Range` atrybutu i `DateTime` jest niezalecane.
+Należy wyłączyć sprawdzanie poprawności daty jQuery, aby użyć `Range` atrybutu z. `DateTime` Ogólnie rzecz biorąc, nie jest dobrym sposobem kompilowania dat stałych w modelach, dlatego przy użyciu `Range` atrybutu i `DateTime` nie jest to odradzane.
 
-Poniższy kod pokazuje atrybuty łączenie w jednym wierszu:
+Poniższy kod ilustruje łączenie atrybutów w jednym wierszu:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Models/MovieDateRatingDAmult.cs?name=snippet1)]
 
-W następnej części serii, firma Microsoft recenzji aplikacji i wprowadzić kilka ulepszeń do automatycznie generowanego `Details` i `Delete` metody.
+W następnej części serii przeglądamy aplikację i wprowadzamy pewne ulepszenia dla automatycznie generowanych `Details` i `Delete` metod.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Praca z formularzami](xref:mvc/views/working-with-forms)
 * [Globalizacja i lokalizacja](xref:fundamentals/localization)
-* [Wprowadzenie do pomocnicy tagów](xref:mvc/views/tag-helpers/intro)
-* [Tworzenie pomocników tagów](xref:mvc/views/tag-helpers/authoring)
+* [Wprowadzenie do pomocy tagów](xref:mvc/views/tag-helpers/intro)
+* [Autorzy tagów](xref:mvc/views/tag-helpers/authoring)
 
 > [!div class="step-by-step"]
-> [Poprzednie](new-field.md)
-> [dalej](details.md)  
+> [Poprzedni](new-field.md)Następny
+> [](details.md)  
