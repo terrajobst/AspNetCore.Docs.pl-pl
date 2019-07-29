@@ -5,14 +5,14 @@ description: Dowiedz się, jak tworzyć i używać składników Razor, w tym jak
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/24/2019
+ms.date: 07/25/2019
 uid: blazor/components
-ms.openlocfilehash: fa98f5c16d926db9c056032eff6d1edc5721aadd
-ms.sourcegitcommit: fbc66827e319d28bebed678ea5fd42f582fe3c34
+ms.openlocfilehash: 38f6512315a63b1ac5831c43a7a5efac231a27d5
+ms.sourcegitcommit: 0efb9e219fef481dee35f7b763165e488aa6cf9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68493529"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68602419"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Tworzenie i używanie składników ASP.NET Core Razor
 
@@ -107,7 +107,7 @@ W poniższym przykładzie `ParentComponent` `Title` Właściwość ustawia warto
 
 Składniki mogą ustawiać zawartość innego składnika. Składnik Assigner zawiera zawartość między tagami, które określają składnik do odbioru.
 
-W poniższym przykładzie `ChildComponent` `ChildContent` ma właściwość, która reprezentuje `RenderFragment`. Wartość `ChildContent` jest umieszczana w znacznikach składnika, gdzie zawartość powinna być renderowana. Wartość `ChildContent` jest odbierana ze składnika nadrzędnego i renderowany w `panel-body`panelu uruchamiania.
+W poniższym przykładzie `ChildComponent` `ChildContent` ma właściwość, która reprezentuje element `RenderFragment`, który reprezentuje segment interfejsu użytkownika do renderowania. Wartość `ChildContent` jest umieszczana w znacznikach składnika, gdzie zawartość powinna być renderowana. Wartość `ChildContent` jest odbierana ze składnika nadrzędnego i renderowany w `panel-body`panelu uruchamiania.
 
 *Składniki/ChildComponent. Razor*:
 
@@ -825,7 +825,7 @@ Składniki z szablonami są składnikami, które akceptują jeden lub więcej sz
 
 ### <a name="template-parameters"></a>Parametry szablonu
 
-Składnik szablonu jest definiowany przez określenie co najmniej jednego parametru składnika typu `RenderFragment` lub. `RenderFragment<T>` Fragment renderowania reprezentuje segment interfejsu użytkownika, który jest renderowany przez składnik. Fragment renderowania opcjonalnie przyjmuje parametr, który można określić podczas wywoływania fragmentu renderowania.
+Składnik szablonu jest definiowany przez określenie co najmniej jednego parametru składnika typu `RenderFragment` lub. `RenderFragment<T>` Fragment renderowania reprezentuje segment interfejsu użytkownika do renderowania. `RenderFragment<T>`przyjmuje parametr typu, który można określić podczas wywoływania fragmentu renderowania.
 
 `TableTemplate`składnika
 

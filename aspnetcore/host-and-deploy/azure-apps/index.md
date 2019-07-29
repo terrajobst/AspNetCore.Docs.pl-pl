@@ -5,14 +5,14 @@ description: Ten artykuł zawiera linki do hosta platformy Azure i wdrażania za
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/16/2019
+ms.date: 07/28/2019
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: bbdb3e92b6b8afb44d9c0c95c240002c7b7c17db
-ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
+ms.openlocfilehash: 5035a31526e0290964e0fdee05753aeaf6cb3790
+ms.sourcegitcommit: 0efb9e219fef481dee35f7b763165e488aa6cf9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308155"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68602440"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Wdróż aplikacje ASP.NET Core w Azure App Service
 
@@ -41,6 +41,9 @@ Skonfiguruj kompilację CI dla aplikacji ASP.NET Core, a następnie Utwórz wers
 
 [Piaskownica aplikacji sieci Web platformy Azure](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox)  
 Odkryj ograniczenia wykonywania w środowisku uruchomieniowym Azure App Service wymuszane przez platformę Azure Apps.
+
+<xref:test/troubleshoot>  
+Zrozumienie i rozwiązywanie problemów z ostrzeżeniami i błędami w projektach ASP.NET Core.
 
 ## <a name="application-configuration"></a>Konfiguracja aplikacji
 
@@ -186,7 +189,7 @@ Po zakończeniu operacji zostanie zainstalowana najnowsza wersja programu .NET C
 
 **Używanie rozszerzenia witryny w wersji zapoznawczej z szablonem ARM**
 
-Jeśli szablon ARM jest używany do tworzenia i wdrażania aplikacji, `siteextensions` typ zasobu może służyć do dodawania rozszerzenia witryny do aplikacji sieci Web. Przykład:
+Jeśli szablon ARM jest używany do tworzenia i wdrażania aplikacji, `siteextensions` typ zasobu może służyć do dodawania rozszerzenia witryny do aplikacji sieci Web. Na przykład:
 
 [!code-json[](index/sample/arm.json?highlight=2)]
 

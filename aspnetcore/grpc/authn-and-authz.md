@@ -4,14 +4,14 @@ author: jamesnk
 description: Dowiedz się, jak używać uwierzytelniania i autoryzacji w programie gRPC for ASP.NET Core.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
-ms.date: 06/07/2019
+ms.date: 07/26/2019
 uid: grpc/authn-and-authz
-ms.openlocfilehash: 49024295e4db7976924397bb24567d92d6298562
-ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
+ms.openlocfilehash: 34f7f8a5a22159329b3d6c4524943434c460c7fb
+ms.sourcegitcommit: 0efb9e219fef481dee35f7b763165e488aa6cf9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308816"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68602426"
 ---
 # <a name="authentication-and-authorization-in-grpc-for-aspnet-core"></a>Uwierzytelnianie i autoryzacja w programie gRPC for ASP.NET Core
 
@@ -106,12 +106,25 @@ public Ticketer.TicketerClient CreateClientWithCert(
 
 ### <a name="other-authentication-mechanisms"></a>Inne mechanizmy uwierzytelniania
 
-Oprócz tokenu okaziciela i uwierzytelniania certyfikatu klienta wszystkie ASP.NET Core obsługiwane mechanizmy uwierzytelniania, takie jak OAuth, OpenID Connect i Negotiate, powinny współpracować z gRPC. Aby uzyskać więcej informacji na temat konfigurowania uwierzytelniania po stronie serwera, odwiedź stronę [ASP.NET Core Authentication](xref:security/authentication/identity) .
+Wiele ASP.NET Core obsługiwanych mechanizmów uwierzytelniania współpracuje z gRPC:
 
-Konfiguracja po stronie klienta będzie zależeć od używanego mechanizmu uwierzytelniania. W poprzednim tokenie okaziciela i uwierzytelniania certyfikatu klienta przedstawiono kilka sposobów skonfigurowania klienta gRPC do wysyłania metadanych uwierzytelniania z wywołaniami gRPC:
+* Azure Active Directory
+* Certyfikat klienta
+* IdentityServer
+* Token JWT
+* OAuth 2,0
+* OpenID Connect połączenie
+* WS-Federation
+
+Aby uzyskać więcej informacji na temat konfigurowania uwierzytelniania na serwerze, zobacz [ASP.NET Core Authentication](xref:security/authentication/identity).
+
+Skonfigurowanie klienta gRPC do korzystania z uwierzytelniania będzie zależeć od używanego mechanizmu uwierzytelniania. W poprzednim tokenie okaziciela i certyfikatach klienta przedstawiono kilka sposobów skonfigurowania klienta gRPC do wysyłania metadanych uwierzytelniania z wywołaniami gRPC:
 
 * Klienci z jednoznacznie określonym typem `HttpClient` gRPC używają wewnętrznie. Uwierzytelnianie można skonfigurować w [`HttpClientHandler`](/dotnet/api/system.net.http.httpclienthandler)programie lub poprzez dodanie wystąpień niestandardowych [`HttpMessageHandler`](/dotnet/api/system.net.http.httpmessagehandler) do programu. `HttpClient`
 * Każde wywołanie gRPC ma opcjonalny `CallOptions` argument. Nagłówki niestandardowe można wysyłać przy użyciu kolekcji nagłówków opcji.
+
+> [!NOTE]
+> Uwierzytelnianie systemu Windows (NTLM/Kerberos/Negotiate) nie może być używane z gRPC. gRPC wymaga protokołu HTTP/2, a protokół HTTP/2 nie obsługuje uwierzytelniania systemu Windows.
 
 ## <a name="authorize-users-to-access-services-and-service-methods"></a>Autoryzuj użytkowników do uzyskiwania dostępu do usług i metod usług
 
