@@ -8,9 +8,9 @@
       uid: fundamentals/choose-between-aspnet-and-aspnetcore
     - name: Porównanie programów .NET Core i .NET Framework
       href: /dotnet/standard/choosing-core-framework-server?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
-- name: Wprowadzenie
+- name: Rozpoczęcie pracy
   uid: getting-started
-- name: Co nowego?
+- name: Co nowego
   items:
     - name: Co nowego w wersji 2.2
       uid: aspnetcore-2.2
@@ -29,7 +29,7 @@
           items:
             - name: Omówienie
               uid: tutorials/razor-pages/index
-            - name: Wprowadzenie
+            - name: Rozpoczęcie pracy
               uid: tutorials/razor-pages/razor-pages-start
             - name: Dodawanie modelu
               uid: tutorials/razor-pages/model
@@ -50,7 +50,7 @@
           items:
             - name: Omówienie
               uid: tutorials/first-mvc-app/index
-            - name: Wprowadzenie
+            - name: Rozpoczęcie pracy
               uid: tutorials/first-mvc-app/start-mvc
             - name: Dodawanie kontrolera
               uid: tutorials/first-mvc-app/adding-controller
@@ -81,6 +81,9 @@
         - name: Internetowy interfejs API w programie MongoDB
           displayName: tutorial
           uid: tutorials/first-mongo-app
+        - name: Internetowy interfejs API w środowisku jQuery
+          displayName: tutorial
+          uid: tutorials/web-api-jquery
         - name: Zaplecze dla urządzeń przenośnych
           displayName: tutorial
           uid: mobile/native-mobile-backend
@@ -103,7 +106,7 @@
           items:
             - name: Omówienie
               uid: data/ef-rp/index
-            - name: Wprowadzenie
+            - name: Rozpoczęcie pracy
               uid: data/ef-rp/intro
             - name: 'Tworzenie, odczytywanie, aktualizowanie i usuwanie'
               uid: data/ef-rp/crud
@@ -129,7 +132,7 @@
           items:
             - name: Omówienie
               uid: data/ef-mvc/index
-            - name: Wprowadzenie
+            - name: Rozpoczęcie pracy
               uid: data/ef-mvc/intro
             - name: 'Tworzenie, odczytywanie, aktualizowanie i usuwanie'
               uid: data/ef-mvc/crud
@@ -175,7 +178,7 @@
           uid: fundamentals/host/web-host
     - name: Serwery
       uid: fundamentals/servers/index
-    - name: Konfiguracja
+    - name: Konfigurowanie
       uid: fundamentals/configuration/index
     - name: Opcje
       uid: fundamentals/configuration/options
@@ -202,7 +205,7 @@
           items:
             - name: Omówienie
               uid: tutorials/razor-pages/index
-            - name: Wprowadzenie
+            - name: Rozpoczęcie pracy
               uid: tutorials/razor-pages/razor-pages-start
             - name: Dodawanie modelu
               uid: tutorials/razor-pages/model
@@ -234,7 +237,7 @@
           items:
             - name: Omówienie
               uid: tutorials/first-mvc-app/index
-            - name: Wprowadzenie
+            - name: Rozpoczęcie pracy
               uid: tutorials/first-mvc-app/start-mvc
             - name: Dodawanie kontrolera
               uid: tutorials/first-mvc-app/adding-controller
@@ -276,7 +279,7 @@
           uid: blazor/index
         - name: Obsługiwane platformy
           uid: blazor/supported-platforms
-        - name: Wprowadzenie
+        - name: Rozpoczęcie pracy
           uid: blazor/get-started
         - name: Modele hostingu
           uid: blazor/hosting-models
@@ -371,15 +374,15 @@
               uid: mvc/views/tag-helpers/builtin-th/environment-tag-helper
             - name: Formularz
               href: 'mvc/views/working-with-forms.md#the-form-tag-helper'
-            - name: Obraz
+            - name: Image (Obraz)
               uid: mvc/views/tag-helpers/builtin-th/image-tag-helper
             - name: Dane wejściowe
               href: 'mvc/views/working-with-forms.md#the-input-tag-helper'
-            - name: Etykieta
+            - name: Label
               href: 'mvc/views/working-with-forms.md#the-label-tag-helper'
-            - name: Częściowe
+            - name: Częściowo
               uid: mvc/views/tag-helpers/builtin-th/partial-tag-helper
-            - name: Wybierz
+            - name: Wybierz pozycję
               href: 'mvc/views/working-with-forms.md#the-select-tag-helper'
             - name: Obszar tekstu
               href: 'mvc/views/working-with-forms.md#the-textarea-tag-helper'
@@ -429,7 +432,7 @@
       uid: web-api/advanced/custom-formatters
     - name: Analizatory
       uid: web-api/advanced/analyzers
-    - name: Konwencje
+    - name: Konwencja
       uid: web-api/advanced/conventions
     - name: Testowanie interfejsów API za pomocą narzędzia HTTP REPL
       uid: web-api/http-repl
@@ -500,13 +503,13 @@
           uid: signalr/redis-backplane
         - name: Usługa SignalR z usługami w tle
           uid: signalr/background-services
-    - name: Konfiguracja
+    - name: Konfigurowanie
       uid: signalr/configuration
       displayName: signalr
     - name: Uwierzytelnianie i autoryzacja
       uid: signalr/authn-and-authz
       displayName: signalr
-    - name: Zagadnienia dotyczące bezpieczeństwa
+    - name: Zagadnienia związane z zabezpieczeniami
       uid: signalr/security
       displayName: signalr
     - name: Protokół centrum MessagePack
@@ -532,11 +535,11 @@
       uid: grpc/basics
     - name: Usługi gRPC na platformie ASP.NET Core
       uid: grpc/aspnetcore
-    - name: Konfiguracja
+    - name: Konfigurowanie
       uid: grpc/configuration
     - name: Uwierzytelnianie i autoryzacja
       uid: grpc/authn-and-authz
-    - name: Zagadnienia dotyczące bezpieczeństwa
+    - name: Zagadnienia związane z zabezpieczeniami
       uid: grpc/security
     - name: Migracja usług gRPC ze środowiska C Core do platformy ASP.NET Core
       uid: grpc/migration
@@ -544,7 +547,7 @@
       uid: grpc/comparison
 - name: 'Testowanie, debugowanie i rozwiązywanie problemów'
   items:
-    - name: Testowanie jednostek
+    - name: Testy jednostkowe
       href: /dotnet/core/testing/unit-testing-with-dotnet-test?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
     - name: Testy jednostkowe Razor Pages
       uid: test/razor-pages-tests
@@ -576,7 +579,7 @@
           items:
             - name: Omówienie
               uid: data/ef-rp/index
-            - name: Wprowadzenie
+            - name: Rozpoczęcie pracy
               uid: data/ef-rp/intro
             - name: 'Tworzenie, odczytywanie, aktualizowanie i usuwanie'
               uid: data/ef-rp/crud
@@ -600,7 +603,7 @@
           items:
             - name: Omówienie
               uid: data/ef-mvc/index
-            - name: Wprowadzenie
+            - name: Rozpoczęcie pracy
               uid: data/ef-mvc/intro
             - name: 'Tworzenie, odczytywanie, aktualizowanie i usuwanie'
               uid: data/ef-mvc/crud
@@ -630,7 +633,7 @@
           href: /azure/visual-studio/vs-storage-aspnet5-getting-started-blobs?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
         - name: Queue Storage
           href: /azure/visual-studio/vs-storage-aspnet5-getting-started-queues?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
-        - name: Table Storage
+        - name: Magazyn tabel
           href: /azure/visual-studio/vs-storage-aspnet5-getting-started-tables?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
 - name: Hosting i wdrażanie
   displayName: publish
@@ -778,7 +781,7 @@
   items:
     - name: Omówienie
       uid: security/index
-    - name: Uwierzytelnianie
+    - name: Authentication
       items:
         - name: Wprowadzenie do systemu Identity
           uid: security/authentication/identity
@@ -830,7 +833,7 @@
           uid: security/authentication/cookie
         - name: Uwierzytelnianie przy użyciu sieci społecznościowych bez korzystania z systemu Identity
           uid: security/authentication/social/social-without-identity
-        - name: Azure Active Directory
+        - name: Usługa Azure Active Directory
           items:
             - name: Omówienie
               uid: security/authentication/azure-active-directory/index
@@ -899,7 +902,7 @@
               uid: security/data-protection/consumer-apis/limited-lifetime-payloads
             - name: 'Wyłączanie ochrony ładunków, których klucze zostały odwołane'
               uid: security/data-protection/consumer-apis/dangerous-unprotect
-        - name: Konfiguracja
+        - name: Konfigurowanie
           items:
             - name: Omówienie
               uid: security/data-protection/configuration/index
@@ -921,7 +924,7 @@
               uid: security/data-protection/extensibility/key-management
             - name: Różne interfejsy API
               uid: security/data-protection/extensibility/misc-apis
-        - name: Implementacja
+        - name: Wdrażanie
           items:
             - name: Omówienie
               uid: security/data-protection/implementation/index
@@ -1078,7 +1081,7 @@
           uid: migration/mvc
         - name: Interfejs API sieci Web
           uid: migration/webapi
-        - name: Konfiguracja
+        - name: Konfigurowanie
           uid: migration/configuration
         - name: Uwierzytelnianie i tożsamość
           uid: migration/identity
@@ -1091,7 +1094,7 @@
     - name: Rejestrowanie (nie na platformie ASP.NET Core)
       displayName: 'migrate, migration'
       uid: migration/logging-nonaspnetcore
-- name: Odwołanie API
+- name: Dokumentacja interfejsu API
   href: /dotnet/api/?view=aspnetcore-2.2
 - name: Współtworzenie
   href: 'https://github.com/aspnet/AspNetCore.Docs/blob/master/CONTRIBUTING.md'
