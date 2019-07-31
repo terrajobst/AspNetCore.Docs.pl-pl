@@ -5,12 +5,12 @@ description: W tej serii samouczków pokazano, jak używać Razor Pages w ASP.NE
 ms.author: riande
 ms.date: 07/25/2019
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: 1605197188d97f27a884739a72400da2d5818b1a
-ms.sourcegitcommit: 849af69ee3c94cdb9fd8fa1f1bb8f5a5dda7b9eb
+ms.openlocfilehash: 57a10895c718c539ece280afcb27cb4033c7fb45
+ms.sourcegitcommit: 979dbfc5e9ce09b9470789989cddfcfb57079d94
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68372001"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68682792"
 ---
 # <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Samouczek: Wprowadzenie do Razor Pages w ASP.NET Core
 
@@ -83,8 +83,8 @@ Na końcu tego samouczka będziesz mieć działającą Razor Pagesową aplikacj�
   code -r RazorPagesMovie
   ```
 
-  * Polecenie tworzy nowy projekt Razor Pages w folderze RazorPagesMovie.  `dotnet new`
-  * Polecenie otwiera folder RazorPagesMovie w bieżącym wystąpieniu Visual Studio Code.  `code`
+  * Polecenie tworzy nowy projekt Razor Pages w folderze RazorPagesMovie. `dotnet new`
+  * Polecenie otwiera folder RazorPagesMovie w bieżącym wystąpieniu Visual Studio Code. `code`
 
 * Gdy ikona płomienia OmniSharp na pasku stanu zmieni kolor na zielony, w **oknie dialogowym zostanie wyświetlony monit o podanie wymaganych zasobów do skompilowania i debugowania z elementu "RazorPagesMovie". Dodać je?** Wybierz pozycję **tak**.
 
@@ -133,7 +133,7 @@ W programie Visual Studio wybierz pozycję **plik > Otwórz**, a następnie wybi
 
   [!INCLUDE[](~/includes/trustCertMac.md)]
 
-* Naciśnij **polecenie cmd-opt-F5** , aby uruchomić program bez debugera.
+* Naciśnij klawisze **Alt-cmd-Enter** , aby uruchomić bez debugera. Alternatywnie przejdź do paska menu i przejdź do pozycji Uruchom > Uruchom bez debugowania.
 
   Program Visual Studio uruchamia [Kestrel](xref:fundamentals/servers/kestrel), uruchamia przeglądarkę i przechodzi do `http://localhost:5001`.
 
@@ -253,8 +253,8 @@ Na końcu tego samouczka będziesz mieć działającą Razor Pagesową aplikacj�
   code -r RazorPagesMovie
   ```
 
-  * Polecenie tworzy nowy projekt Razor Pages w folderze RazorPagesMovie.  `dotnet new`
-  * Polecenie otwiera folder RazorPagesMovie w bieżącym wystąpieniu Visual Studio Code.  `code`
+  * Polecenie tworzy nowy projekt Razor Pages w folderze RazorPagesMovie. `dotnet new`
+  * Polecenie otwiera folder RazorPagesMovie w bieżącym wystąpieniu Visual Studio Code. `code`
 
 * Gdy ikona płomienia OmniSharp na pasku stanu zmieni kolor na zielony, w **oknie dialogowym zostanie wyświetlony monit o podanie wymaganych zasobów do skompilowania i debugowania z elementu "RazorPagesMovie". Dodać je?** Wybierz pozycję **tak**.
 
