@@ -1,84 +1,200 @@
 ---
 title: Dodawanie kontrolera do aplikacji ASP.NET Core MVC
 author: rick-anderson
-description: Dowiedz się, jak dodać kontroler do prostą aplikację platformy ASP.NET Core MVC.
+description: Dowiedz się, jak dodać kontroler do prostej aplikacji ASP.NET Core MVC.
 ms.author: riande
 ms.date: 02/28/2017
 uid: tutorials/first-mvc-app/adding-controller
-ms.openlocfilehash: f28dc96b66fce736242d26a2584fea0a23375e23
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: ab97b875956ec262623ed9862ace6a930331d80d
+ms.sourcegitcommit: 979dbfc5e9ce09b9470789989cddfcfb57079d94
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67815191"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68682326"
 ---
 # <a name="add-a-controller-to-an-aspnet-core-mvc-app"></a>Dodawanie kontrolera do aplikacji ASP.NET Core MVC
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Wzorzec architektury Model-View-Controller (MVC) dzieli aplikację na trzy główne składniki: **M**odelu, **V**idok, i **C**ontroller. Wzorzec MVC pomaga w tworzeniu aplikacji, które są bardziej zakresie testować i łatwiejszy do aktualizacji niż tradycyjne aplikacje monolityczne. Aplikacje korzystające z platformy MVC zawiera:
+::: moniker range=">= aspnetcore-3.0"
 
-* **M**odels: Klasy, które reprezentują dane aplikacji. Klasy modeli Użyj logikę weryfikacji, aby wymuszać reguły biznesowe do tych danych. Zazwyczaj obiekty modelu pobierania i przechowywania stanu modelu w bazie danych. W tym samouczku `Movie` model pobiera filmu dane z bazy danych, przekazuje go do widoku lub aktualizuje. Zaktualizowane dane są zapisywane do bazy danych.
+Wzorzec architektoniczny Model-View-Controller (MVC) oddziela aplikację do trzech głównych składników: **M**odelu, **V**każ i **C**ontroller. Wzorzec MVC pomaga tworzyć aplikacje, które są bardziej weryfikowalne i łatwiej aktualizować niż tradycyjne aplikacje monolityczne. Aplikacje oparte na MVC zawierają:
 
-* **V**iews: Widoki są składnikami aplikacji interfejsu użytkownika (UI). Ogólnie rzecz biorąc ten interfejs użytkownika Wyświetla określone dane modelu.
+* Odels **M**: Klasy reprezentujące dane aplikacji. Klasy modeli używają logiki walidacji, aby wymusić reguły biznesowe dla tych danych. Zazwyczaj obiekty modelu pobierają i przechowują stan modelu w bazie danych. W tym samouczku `Movie` model pobiera dane filmu z bazy danych, udostępnia je widokowi lub aktualizuje. Zaktualizowane dane są zapisywane w bazie danych.
 
-* **C**ontrollers: Klasy, które obsługują żądania przeglądarki. Pobierają dane z modelu i wywołać Przeglądanie szablonów, które zwracają odpowiedzi. W aplikacji MVC widok zawiera tylko informacje; Kontroler obsługuje i reaguje na dane wejściowe użytkownika i interakcji. Przykładowo kontroler obsługuje wartości trasy danymi i ciągiem zapytania i przekazuje te wartości do modelu. Model może ich użyć do wykonywania zapytań w bazie danych. Na przykład `https://localhost:1234/Home/About` ma dane trasy `Home` (kontroler) i `About` (metoda akcji do wywołania na głównym kontrolerze). `https://localhost:1234/Movies/Edit/5` to żądanie Edytuj film o identyfikatorze = 5 za pomocą kontrolera filmu. Dane trasy zostało wyjaśnione w dalszej części tego samouczka.
+* Iews **V**: Widoki to składniki, które wyświetlają interfejs użytkownika aplikacji. Zazwyczaj ten interfejs użytkownika wyświetla dane modelu.
 
-Wzorzec MVC pomaga w tworzeniu aplikacji, których różnych aspektów aplikacji (logika danych wejściowych, logika biznesowa i logika interfejsu użytkownika), zapewniając tym luźne powiązanie tych elementów. Wzorzec Określa, gdzie każdy rodzaj logiki powinien znajdować się w aplikacji. Logika interfejsu użytkownika, należy w widoku. Logika danych wejściowych jest powiązana z kontrolerem. Logika biznesowa jest powiązana w modelu. Ta separacja ułatwia zarządzanie złożonością podczas tworzenia aplikacji, ponieważ umożliwia pracę na jednym aspekcie implementacji w danym momencie, bez wywierania wpływu na kod innego. Na przykład można pracować nad kodem widoku bez zależności od kodu logiki biznesowej.
+* Ontrollers języka **C**: Klasy obsługujące żądania przeglądarki. Pobierają one dane modelu i szablony widoków wywołań, które zwracają odpowiedź. W aplikacji MVC widok wyświetla tylko informacje; kontroler obsługuje i reaguje na dane wejściowe użytkownika i interakcje. Na przykład kontroler obsługuje dane tras i wartości ciągu zapytania i przekazuje te wartości do modelu. Model może używać tych wartości do wykonywania zapytań w bazie danych. Na przykład `https://localhost:5001/Home/Privacy` ma `Home` dane trasy (kontroler) i `Privacy` (Metoda akcji do wywołania na kontrolerze głównym). `https://localhost:5001/Movies/Edit/5`jest żądaniem edycji filmu o IDENTYFIKATORze 5 przy użyciu kontrolera filmu. Dane trasy są wyjaśnione w dalszej części samouczka.
 
-Firma Microsoft obejmuje te pojęcia w tej serii samouczków i pokazują, jak ich używać do tworzenia aplikacji filmu. Projektu MVC zawiera foldery dla *kontrolerów* i *widoków*.
+Wzorzec MVC ułatwia tworzenie aplikacji, które oddzielają różne aspekty aplikacji (logiki wejściowej, logiki biznesowej i logiki interfejsu użytkownika), jednocześnie zapewniając swobodny sprzężenie między tymi elementami. Wzorzec określa, gdzie poszczególne rodzaje logiki powinny znajdować się w aplikacji. Logika interfejsu użytkownika należy do widoku. Logika wejściowa należy do kontrolera. Logika biznesowa należy do modelu. Ta separacja ułatwia zarządzanie złożonością podczas kompilowania aplikacji, ponieważ umożliwia pracę nad jednym aspektem implementacji jednocześnie bez wpływu na kod innego. Na przykład można korzystać z kodu widoku bez w zależności od kodu logiki biznesowej.
+
+Omawiamy te koncepcje w tej serii samouczków i pokazano, jak używać ich do kompilowania aplikacji filmowej. Projekt MVC zawiera foldery dla *kontrolerów* i *widoków*.
 
 ## <a name="add-a-controller"></a>Dodawanie kontrolera
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy **kontrolerów > Dodaj > kontrolera**
-  ![menu kontekstowe](adding-controller/_static/add_controller.png)
+* W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy pozycję **Kontrolery > Dodaj**
+  menu kontekstowe kontrolera![>](adding-controller/_static/add_controller.png)
 
-* W **Dodawanie szkieletu** okno dialogowe, wybierz opcję **kontroler MVC — pusty**
+* W oknie dialogowym **Dodawanie szkieletu** wybierz pozycję **kontroler MVC — pusty**
 
   ![Dodaj kontroler MVC i nadaj mu nazwę](adding-controller/_static/ac.png)
 
-* W **okna dialogowego Dodaj pusty kontroler MVC**, wprowadź **HelloWorldController** i wybierz **Dodaj**.
+* W **oknie dialogowym Dodaj pusty kontroler MVC**wpisz **HelloWorldController** i wybierz pozycję **Dodaj**.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-Wybierz **EXPLORER** ikonę i następnie kombinacji control + kliknięcie (kliknij prawym przyciskiem myszy) **kontrolerów > Nowy plik** i nadaj nowemu plikowi *HelloWorldController.cs*.
+Wybierz ikonę **Eksploratora** , a następnie kliknij przycisk Control (kliknij prawym przyciskiem myszy) **Kontrolery > nowy plik** i Nadaj nowemu plikowi nazwę *HelloWorldController.cs*.
 
   ![Menu kontekstowe](~/tutorials/first-mvc-app-xplat/adding-controller/_static/new_file.png)
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
-W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy **kontrolerów > Dodaj > Nowy plik**.
+W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy pozycję **kontrolery > Dodaj > nowy plik**.
 ![Menu kontekstowe](~/tutorials/first-mvc-app-mac/adding-controller/_static/add_controller.png)
 
-Wybierz **platformy ASP.NET Core** i **Klasa kontrolera MVC**.
+Wybierz klasę **ASP.NET Core** i **kontrolera MVC**.
 
-Nazwa kontrolera **HelloWorldController**.
+Nadaj nazwę kontrolerowi **HelloWorldController**.
 
 ![Dodaj kontroler MVC i nadaj mu nazwę](~/tutorials/first-mvc-app-mac/adding-controller/_static/ac.png)
 
 ---
 
-Zastąp zawartość *Controllers/HelloWorldController.cs* następującym kodem:
+Zastąp zawartość *controllers/HelloWorldController. cs* następującymi kwestiami:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_1)]
 
-Każdy `public` metody w kontrolerze jest wywoływany jako punktu końcowego HTTP. W powyższym przykładzie obu tych metod zwraca ciąg. Należy pamiętać, komentarze poprzedzających każdej metody.
+Każda `public` Metoda w kontrolerze jest wywoływana jako punkt końcowy HTTP. W powyższym przykładzie obie metody zwracają ciąg. Zwróć uwagę na komentarze poprzedzające każdą metodę.
 
-Punkt końcowy HTTP jest targetable adres URL aplikacji sieci web, takich jak `https://localhost:5001/HelloWorld`i łączy protokół używany: `HTTPS`, lokalizacji sieciowej serwera sieci web (w tym z portem TCP): `localhost:5001` i docelowy identyfikator URI `HelloWorld`.
+Punkt końcowy HTTP to docelowy adres URL w aplikacji sieci Web `https://localhost:5001/HelloWorld`, na przykład i łączy używany protokół: `HTTPS`, lokalizację sieciową serwera sieci Web (w tym port TCP): `localhost:5001` i docelowy identyfikator URI `HelloWorld`.
 
-Pierwszy komentarz stany to [HTTP GET](https://www.w3schools.com/tags/ref_httpmethods.asp) metodę, która jest wywoływana przez dołączenie `/HelloWorld/` do podstawowego adresu URL. Określa drugi komentarz [HTTP GET](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) metodę, która jest wywoływana przez dołączenie `/HelloWorld/Welcome/` do adresu URL. Później w samouczku silnika tworzenia szkieletów służy do generowania `HTTP POST` metod, które aktualizacji danych.
+Pierwszy komentarz wskazuje, że jest to metoda [http Get](https://www.w3schools.com/tags/ref_httpmethods.asp) , która jest wywoływana przez dołączenie `/HelloWorld/` do podstawowego adresu URL. Drugi komentarz określa metodę [http Get](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) , która jest wywoływana przez dołączenie `/HelloWorld/Welcome/` do adresu URL. W dalszej części tego samouczka aparat szkieletu służy do generowania `HTTP POST` metod, które aktualizują dane.
 
-Uruchom aplikację w trybie bez debugowania i Dołącz "nazwę HelloWorld" w ścieżce w pasku adresu. `Index` Metoda zwraca ciąg.
+Uruchom aplikację w trybie innym niż debugowanie i Dołącz do niej plik "HelloWorld" do ścieżki na pasku adresu. `Index` Metoda zwraca ciąg.
 
-![Okno przeglądarki, wyświetlanie odpowiedzi aplikacji, to jest Moja Akcja domyślna](~/tutorials/first-mvc-app/adding-controller/_static/hell1.png)
+![Okno przeglądarki pokazujące odpowiedź aplikacji to moja domyślna akcja](~/tutorials/first-mvc-app/adding-controller/_static/hell1.png)
 
-MVC wywołuje klasy kontrolera (i metod akcji w nich), w zależności od przychodzącego adresu URL. Wartość domyślna [logikę routingu adresów URL](xref:mvc/controllers/routing) używany przez MVC używa formatu to w celu określenia, jakie kodu do wywołania:
+MVC wywołuje klasy kontrolera (i w nich metody akcji) w zależności od przychodzącego adresu URL. Domyślna [logika routingu adresów URL](xref:mvc/controllers/routing) używana przez MVC korzysta z formatu takiego jak ten, aby określić kod, który ma zostać wywołany:
 
 `/[Controller]/[ActionName]/[Parameters]`
 
-Ustawiono formatu routingu `Configure` method in Class metoda *Startup.cs* pliku.
+Format routingu jest ustawiany w `Configure` metodzie w pliku *Startup.cs* .
+
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie3/Startup.cs?name=snippet_1&highlight=5)]
+
+Gdy przejdziesz do aplikacji i nie podasz żadnych segmentów adresu URL, domyślnym kontrolerem "Home" i metodą "index" określoną w wierszu szablonu wyróżnionym powyżej.
+
+Pierwszy segment adresu URL określa klasę kontrolera do uruchomienia. Dlatego `localhost:xxxx/HelloWorld` mapuje do klasy kontrolera **HelloWorld**. Druga część segmentu adresu URL określa metodę akcji klasy. Mogłoby to spowodować uruchomienie `HelloWorldController`metodyklasy. `Index` `localhost:xxxx/HelloWorld/Index` Zwróć uwagę, że trzeba tylko przeglądać do `localhost:xxxx/HelloWorld` `Index` i metoda została wywołana domyślnie. Dzieje się tak `Index` dlatego, że jest to metoda domyślna, która będzie wywoływana na kontrolerze, jeśli nazwa metody nie jest jawnie określona. Trzecia część segmentu URL ( `id`) jest dla danych trasy. Dane trasy są wyjaśnione w dalszej części samouczka.
+
+Przejdź do `https://localhost:xxxx/HelloWorld/Welcome`. Metoda jest uruchamiana i zwraca ciąg `This is the Welcome action method...`. `Welcome` Dla tego adresu URL kontroler jest `HelloWorld` i `Welcome` jest metodą akcji. Nie użyto `[Parameters]` jeszcze części adresu URL.
+
+![Okno przeglądarki pokazujące odpowiedź aplikacji jest to metoda akcji powitalnej](~/tutorials/first-mvc-app/adding-controller/_static/welcome.png)
+
+Zmodyfikuj kod, aby przekazać do kontrolera informacje o parametrach z adresu URL. Na przykład `/HelloWorld/Welcome?name=Rick&numtimes=4`. `Welcome` Zmień metodę, tak aby obejmowała dwa parametry, jak pokazano w poniższym kodzie.
+
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_2)]
+
+Powyższy kod:
+
+* Używa funkcji C# opcjonalnej parametru, aby wskazać, że `numTimes` parametr domyślnie przyjmuje wartość 1, jeśli dla tego parametru nie jest przenoszona żadna wartooć. <!-- remove for simplified -->
+* Program `HtmlEncoder.Default.Encode` używa programu do ochrony aplikacji przed złośliwymi danymi wejściowymi (tj. JavaScript).
+* Używa [interpolowanych ciągów](/dotnet/articles/csharp/language-reference/keywords/interpolated-strings) w `$"Hello {name}, NumTimes is: {numTimes}"`. <!-- remove for simplified -->
+
+Uruchom aplikację i przejdź do:
+
+   `https://localhost:xxxx/HelloWorld/Welcome?name=Rick&numtimes=4`
+
+(Zastąp xxxx numerem portu). Możesz wypróbować różne wartości `name` dla `numtimes` i w adresie URL. System [powiązania modelu](xref:mvc/models/model-binding) MVC automatycznie mapuje nazwane parametry z ciągu zapytania na pasku adresu na parametry w metodzie. Aby uzyskać więcej informacji, zobacz [powiązanie modelu](xref:mvc/models/model-binding) .
+
+![Okno przeglądarki pokazujące odpowiedź aplikacji Hello Rick, NumTimes to: 4](~/tutorials/first-mvc-app/adding-controller/_static/rick4.png)
+
+Na powyższym obrazie segment adresu URL`Parameters`() nie jest używany `name` , `numTimes` a parametry i są przesyłane jako [ciągi zapytań](https://wikipedia.org/wiki/Query_string). `?` (Znak zapytania) w powyższym adresie URL jest separatorem, a ciągi zapytania są zgodne. `&` Znak oddziela ciągi zapytań.
+
+Zastąp `Welcome` metodę następującym kodem:
+
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_3)]
+
+Uruchom aplikację i wprowadź następujący adres URL:`https://localhost:xxx/HelloWorld/Welcome/3?name=Rick`
+
+Tym razem trzeci segment adresu URL pasuje do parametru `id`Route. Metoda zawiera parametr `id` , który `MapControllerRoute` jest zgodny z szablonem adresu URL w metodzie. `Welcome` Końcowe `?` (w `id?`) wskazuje, że `id` parametr jest opcjonalny.
+
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie3/Startup.cs?name=snippet_1&highlight=5)]
+
+W tych przykładach kontroler wykonywał część "VC" MVC, czyli każ **V**i **C**ontroller Work. Kontroler zwraca bezpośrednio kod HTML. Zazwyczaj nie ma potrzeby, aby kontrolery zwracające kod HTML bezpośrednio, ponieważ staną się bardzo nieskomplikowane w kodzie i obsłudze. Zamiast tego zwykle używasz oddzielnego pliku szablonu widoku Razor do wygenerowania odpowiedzi HTML. Należy to zrobić w następnym samouczku.
+
+> [!div class="step-by-step"]
+> [Poprzedni](start-mvc.md)
+> [Następny](adding-view.md)
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+Wzorzec architektoniczny Model-View-Controller (MVC) oddziela aplikację do trzech głównych składników: **M**odelu, **V**każ i **C**ontroller. Wzorzec MVC pomaga tworzyć aplikacje, które są bardziej weryfikowalne i łatwiej aktualizować niż tradycyjne aplikacje monolityczne. Aplikacje oparte na MVC zawierają:
+
+* Odels **M**: Klasy reprezentujące dane aplikacji. Klasy modeli używają logiki walidacji, aby wymusić reguły biznesowe dla tych danych. Zazwyczaj obiekty modelu pobierają i przechowują stan modelu w bazie danych. W tym samouczku `Movie` model pobiera dane filmu z bazy danych, udostępnia je widokowi lub aktualizuje. Zaktualizowane dane są zapisywane w bazie danych.
+
+* Iews **V**: Widoki to składniki, które wyświetlają interfejs użytkownika aplikacji. Zazwyczaj ten interfejs użytkownika wyświetla dane modelu.
+
+* Ontrollers języka **C**: Klasy obsługujące żądania przeglądarki. Pobierają one dane modelu i szablony widoków wywołań, które zwracają odpowiedź. W aplikacji MVC widok wyświetla tylko informacje; kontroler obsługuje i reaguje na dane wejściowe użytkownika i interakcje. Na przykład kontroler obsługuje dane tras i wartości ciągu zapytania i przekazuje te wartości do modelu. Model może używać tych wartości do wykonywania zapytań w bazie danych. Na przykład `https://localhost:5001/Home/About` ma `Home` dane trasy (kontroler) i `About` (Metoda akcji do wywołania na kontrolerze głównym). `https://localhost:5001/Movies/Edit/5`jest żądaniem edycji filmu o IDENTYFIKATORze 5 przy użyciu kontrolera filmu. Dane trasy są wyjaśnione w dalszej części samouczka.
+
+Wzorzec MVC ułatwia tworzenie aplikacji, które oddzielają różne aspekty aplikacji (logiki wejściowej, logiki biznesowej i logiki interfejsu użytkownika), jednocześnie zapewniając swobodny sprzężenie między tymi elementami. Wzorzec określa, gdzie poszczególne rodzaje logiki powinny znajdować się w aplikacji. Logika interfejsu użytkownika należy do widoku. Logika wejściowa należy do kontrolera. Logika biznesowa należy do modelu. Ta separacja ułatwia zarządzanie złożonością podczas kompilowania aplikacji, ponieważ umożliwia pracę nad jednym aspektem implementacji jednocześnie bez wpływu na kod innego. Na przykład można korzystać z kodu widoku bez w zależności od kodu logiki biznesowej.
+
+Omawiamy te koncepcje w tej serii samouczków i pokazano, jak używać ich do kompilowania aplikacji filmowej. Projekt MVC zawiera foldery dla *kontrolerów* i *widoków*.
+
+## <a name="add-a-controller"></a>Dodawanie kontrolera
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+* W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy pozycję **Kontrolery > Dodaj**
+  menu kontekstowe kontrolera![>](adding-controller/_static/add_controller.png)
+
+* W oknie dialogowym **Dodawanie szkieletu** wybierz pozycję **kontroler MVC — pusty**
+
+  ![Dodaj kontroler MVC i nadaj mu nazwę](adding-controller/_static/ac.png)
+
+* W **oknie dialogowym Dodaj pusty kontroler MVC**wpisz **HelloWorldController** i wybierz pozycję **Dodaj**.
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+
+Wybierz ikonę **Eksploratora** , a następnie kliknij przycisk Control (kliknij prawym przyciskiem myszy) **Kontrolery > nowy plik** i Nadaj nowemu plikowi nazwę *HelloWorldController.cs*.
+
+  ![Menu kontekstowe](~/tutorials/first-mvc-app-xplat/adding-controller/_static/new_file.png)
+
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+
+W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy pozycję **kontrolery > Dodaj > nowy plik**.
+![Menu kontekstowe](~/tutorials/first-mvc-app-mac/adding-controller/_static/add_controller.png)
+
+Wybierz klasę **ASP.NET Core** i **kontrolera MVC**.
+
+Nadaj nazwę kontrolerowi **HelloWorldController**.
+
+![Dodaj kontroler MVC i nadaj mu nazwę](~/tutorials/first-mvc-app-mac/adding-controller/_static/ac.png)
+
+---
+
+Zastąp zawartość *controllers/HelloWorldController. cs* następującymi kwestiami:
+
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_1)]
+
+Każda `public` Metoda w kontrolerze jest wywoływana jako punkt końcowy HTTP. W powyższym przykładzie obie metody zwracają ciąg. Zwróć uwagę na komentarze poprzedzające każdą metodę.
+
+Punkt końcowy HTTP to docelowy adres URL w aplikacji sieci Web `https://localhost:5001/HelloWorld`, na przykład i łączy używany protokół: `HTTPS`, lokalizację sieciową serwera sieci Web (w tym port TCP): `localhost:5001` i docelowy identyfikator URI `HelloWorld`.
+
+Pierwszy komentarz wskazuje, że jest to metoda [http Get](https://www.w3schools.com/tags/ref_httpmethods.asp) , która jest wywoływana przez dołączenie `/HelloWorld/` do podstawowego adresu URL. Drugi komentarz określa metodę [http Get](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) , która jest wywoływana przez dołączenie `/HelloWorld/Welcome/` do adresu URL. W dalszej części tego samouczka aparat szkieletu służy do generowania `HTTP POST` metod, które aktualizują dane.
+
+Uruchom aplikację w trybie innym niż debugowanie i Dołącz do niej plik "HelloWorld" do ścieżki na pasku adresu. `Index` Metoda zwraca ciąg.
+
+![Okno przeglądarki pokazujące odpowiedź aplikacji to moja domyślna akcja](~/tutorials/first-mvc-app/adding-controller/_static/hell1.png)
+
+MVC wywołuje klasy kontrolera (i w nich metody akcji) w zależności od przychodzącego adresu URL. Domyślna [logika routingu adresów URL](xref:mvc/controllers/routing) używana przez MVC korzysta z formatu takiego jak ten, aby określić kod, który ma zostać wywołany:
+
+`/[Controller]/[ActionName]/[Parameters]`
+
+Format routingu jest ustawiany w `Configure` metodzie w pliku *Startup.cs* .
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
 
@@ -87,46 +203,48 @@ Add link to explain lambda.
 Remove link for simplified tutorial.
 -->
 
-Podczas przechodzenia do aplikacji, a nie podasz żadnych segmentów adresu URL, jego wartość domyślna to kontroler "Home", a metoda "Index" określona w wiersza szablonu wyróżnione powyżej.
+Gdy przejdziesz do aplikacji i nie podasz żadnych segmentów adresu URL, domyślnym kontrolerem "Home" i metodą "index" określoną w wierszu szablonu wyróżnionym powyżej.
 
-Pierwszy segment adresu URL określa klasę kontrolera do uruchomienia. Dlatego `localhost:xxxx/HelloWorld` mapuje `HelloWorldController` klasy. Druga część segment adresu URL określa metody akcji w klasie. Dlatego `localhost:xxxx/HelloWorld/Index` spowodowałoby `Index` metody `HelloWorldController` klasy do uruchomienia. Należy zauważyć, że masz aby przejść do `localhost:xxxx/HelloWorld` i `Index` wywołano metodę domyślnie. Jest to spowodowane `Index` jest domyślną metodą, która zostanie wywołana na kontrolerze, jeśli nazwa metody nie jest jawnie określona. Trzecia część segment adresu URL ( `id`) dla danych trasy. Dane trasy zostało wyjaśnione w dalszej części tego samouczka.
+Pierwszy segment adresu URL określa klasę kontrolera do uruchomienia. Dlatego `localhost:xxxx/HelloWorld` mapuje `HelloWorldController` do klasy. Druga część segmentu adresu URL określa metodę akcji klasy. Mogłoby to spowodować uruchomienie `HelloWorldController`metodyklasy. `Index` `localhost:xxxx/HelloWorld/Index` Zwróć uwagę, że trzeba tylko przeglądać do `localhost:xxxx/HelloWorld` `Index` i metoda została wywołana domyślnie. Jest tak dlatego `Index` , że jest to metoda domyślna, która będzie wywoływana na kontrolerze, jeśli nazwa metody nie jest jawnie określona. Trzecia część segmentu URL ( `id`) jest dla danych trasy. Dane trasy są wyjaśnione w dalszej części samouczka.
 
-Przejdź do `https://localhost:xxxx/HelloWorld/Welcome`. `Welcome` Metoda uruchamia i zwraca ciąg `This is the Welcome action method...`. Dla tego adresu URL jest kontroler `HelloWorld` i `Welcome` jest metodą akcji. Pierwszy raz używasz `[Parameters]` wchodzi w skład jeszcze adresu URL.
+Przejdź do `https://localhost:xxxx/HelloWorld/Welcome`. Metoda jest uruchamiana i zwraca ciąg `This is the Welcome action method...`. `Welcome` Dla tego adresu URL kontroler jest `HelloWorld` i `Welcome` jest metodą akcji. Nie użyto `[Parameters]` jeszcze części adresu URL.
 
-![Okno przeglądarki, wyświetlanie odpowiedzi aplikacji, to jest metoda akcji-Zapraszamy!](~/tutorials/first-mvc-app/adding-controller/_static/welcome.png)
+![Okno przeglądarki pokazujące odpowiedź aplikacji jest to metoda akcji powitalnej](~/tutorials/first-mvc-app/adding-controller/_static/welcome.png)
 
-Zmodyfikuj kod, aby przekazać niektóre informacje o parametrach z adresu URL do kontrolera. Na przykład `/HelloWorld/Welcome?name=Rick&numtimes=4`. Zmiana `Welcome` metodę, aby uwzględnić dwa parametry, jak pokazano w poniższym kodzie.
+Zmodyfikuj kod, aby przekazać do kontrolera informacje o parametrach z adresu URL. Na przykład `/HelloWorld/Welcome?name=Rick&numtimes=4`. `Welcome` Zmień metodę, tak aby obejmowała dwa parametry, jak pokazano w poniższym kodzie.
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_2)]
 
 Powyższy kod:
 
-* Używa funkcji opcjonalny parametr języka C# w celu wskazania, że `numTimes` parametru wartość domyślna to 1, jeśli nie przekazano żadnej wartości tego parametru. <!-- remove for simplified -->
-* Używa `HtmlEncoder.Default.Encode` chronić aplikację przed złośliwe dane wejściowe (to znaczy JavaScript).
-* Używa [ciągi interpolowane](/dotnet/articles/csharp/language-reference/keywords/interpolated-strings) w `$"Hello {name}, NumTimes is: {numTimes}"`. <!-- remove for simplified -->
+* Używa funkcji C# opcjonalnej parametru, aby wskazać, że `numTimes` parametr domyślnie przyjmuje wartość 1, jeśli dla tego parametru nie jest przenoszona żadna wartooć. <!-- remove for simplified -->
+* Program `HtmlEncoder.Default.Encode` używa programu do ochrony aplikacji przed złośliwymi danymi wejściowymi (tj. JavaScript).
+* Używa [interpolowanych ciągów](/dotnet/articles/csharp/language-reference/keywords/interpolated-strings) w `$"Hello {name}, NumTimes is: {numTimes}"`. <!-- remove for simplified -->
 
 Uruchom aplikację i przejdź do:
 
    `https://localhost:xxxx/HelloWorld/Welcome?name=Rick&numtimes=4`
 
-(Zamiast xxxx numeru portu). Możesz spróbować różne wartości `name` i `numtimes` w adresie URL. MVC [wiązanie modelu](xref:mvc/models/model-binding) system automatycznie mapuje parametry nazwane z ciągu zapytania w pasku adresu do parametrów w metodzie. Zobacz [powiązań modelu](xref:mvc/models/model-binding) Aby uzyskać więcej informacji.
+(Zastąp xxxx numerem portu). Możesz wypróbować różne wartości `name` dla `numtimes` i w adresie URL. System [powiązania modelu](xref:mvc/models/model-binding) MVC automatycznie mapuje nazwane parametry z ciągu zapytania na pasku adresu na parametry w metodzie. Aby uzyskać więcej informacji, zobacz [powiązanie modelu](xref:mvc/models/model-binding) .
 
-![Wyświetlanie odpowiedzi aplikacji Hello Rick jest NumTimes okna przeglądarki: 4](~/tutorials/first-mvc-app/adding-controller/_static/rick4.png)
+![Okno przeglądarki pokazujące odpowiedź aplikacji Hello Rick, NumTimes to: 4](~/tutorials/first-mvc-app/adding-controller/_static/rick4.png)
 
-Na ilustracji powyżej segment adresu URL (`Parameters`) nie jest używany, `name` i `numTimes` parametry są przekazywane jako [ciągów zapytania](https://wikipedia.org/wiki/Query_string). `?` (Znak zapytania) w powyższym adresie URL jest separatorem, a następnie wykonaj ciągi zapytań. `&` Rozdziela ciągi zapytań.
+Na powyższym obrazie segment adresu URL`Parameters`() nie jest używany `name` , `numTimes` a parametry i są przesyłane jako [ciągi zapytań](https://wikipedia.org/wiki/Query_string). `?` (Znak zapytania) w powyższym adresie URL jest separatorem, a ciągi zapytania są zgodne. `&` Znak oddziela ciągi zapytań.
 
-Zastąp `Welcome` metoda następującym kodem:
+Zastąp `Welcome` metodę następującym kodem:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_3)]
 
-Uruchom aplikację, a następnie wprowadź następujący adres URL: `https://localhost:xxx/HelloWorld/Welcome/3?name=Rick`
+Uruchom aplikację i wprowadź następujący adres URL:`https://localhost:xxx/HelloWorld/Welcome/3?name=Rick`
 
-Tym razem trzeci segment adresu URL dopasowane parametru trasy `id`. `Welcome` Metody zawiera parametr `id` pasujących szablon adresu URL w `MapRoute` metody. Końcowe `?` (w `id?`) wskazuje `id` parametr jest opcjonalny.
+Tym razem trzeci segment adresu URL pasuje do parametru `id`Route. Metoda zawiera parametr `id` , który `MapRoute` jest zgodny z szablonem adresu URL w metodzie. `Welcome` Końcowe `?` (w `id?`) wskazuje, że `id` parametr jest opcjonalny.
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
 
-W tych przykładach kontrolera została wykonując "VC" część MVC — widok i kontroler pracy. Kontroler zwraca HTML bezpośrednio. Ogólnie nie ma kontrolerów bezpośrednio, zwracając HTML, ponieważ staje się bardzo skomplikowane, kodu i obsługa. Zamiast tego używa się zazwyczaj oddzielny plik szablonu widoku Razor ułatwiający Generowanie odpowiedzi HTML. Można to zrobić w następnym samouczku.
+W tych przykładach kontroler wykonywał część "VC" składnika MVC, czyli działania widoku i kontrolera. Kontroler zwraca bezpośrednio kod HTML. Zazwyczaj nie ma potrzeby, aby kontrolery zwracające kod HTML bezpośrednio, ponieważ staną się bardzo nieskomplikowane w kodzie i obsłudze. Zamiast tego zwykle używany jest oddzielny plik szablonu widoku Razor, aby ułatwić generowanie odpowiedzi HTML. Należy to zrobić w następnym samouczku.
 
 > [!div class="step-by-step"]
-> [Poprzednie](start-mvc.md)
-> [dalej](adding-view.md)
+> [Poprzedni](start-mvc.md)
+> [Następny](adding-view.md)
+
+::: moniker-end
