@@ -1,69 +1,75 @@
 ---
-title: Debug ASP.NET Core Blazor
+title: Debuguj ASP.NET Core Blazor
 author: guardrex
-description: Dowiedz się, jak można debugować aplikacje Blazor.
+description: Dowiedz się, jak debugować aplikacje Blazor.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/14/2019
+ms.date: 07/31/2019
 uid: blazor/debug
-ms.openlocfilehash: 6d71296417c57f01e675bdbb31a0d4fe2fd7db63
-ms.sourcegitcommit: eb3e51d58dd713eefc242148f45bd9486be3a78a
+ms.openlocfilehash: 37c6009727a4f62b61793adca0d83cdd53be4b9a
+ms.sourcegitcommit: 3204bc89ae6354b61ee0a9b2770ebe5214b7790c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67500432"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707808"
 ---
-# <a name="debug-aspnet-core-blazor"></a>Debug ASP.NET Core Blazor
+# <a name="debug-aspnet-core-blazor"></a>Debuguj ASP.NET Core Blazor
 
 [Daniel Roth](https://github.com/danroth27)
 
-*Wczesne* Obsługa istnieje, do debugowania aplikacji po stronie klienta Blazor działających na format WebAssembly w przeglądarce Chrome.
+Na potrzeby debugowania Blazor aplikacje po stronie klienta działające w zestawie webassembly w programie Chrome istnieje wczesna pomoc techniczna.
 
-Debuger możliwości są ograniczone. Dostępne scenariusze obejmują:
+Możliwości debugera są ograniczone. Dostępne scenariusze obejmują:
 
-* Ustaw i usuwanie punktów przerwania.
-* Pojedynczy krok (`F10`) za pomocą kodu lub Wznów (`F8`) wykonanie kodu.
-* W *lokalne* wyświetlane, sprawdź wartości wszelkich zmiennych lokalnych typu `int`, `string`, i `bool`.
-* Zobaczyć stos wywołań, w tym łańcuchy wywołania, które bardziej szczegółowo w kodzie JavaScript z języka JavaScript w środowisku .NET i .NET.
+* Ustawianie i usuwanie punktów przerwania.
+* Pojedynczy krok (`F10`) za pomocą kodu lub wznowienia kodu`F8`().
+* Na ekranie *Ustawienia lokalne* Obserwuj wartości wszelkich zmiennych lokalnych typu `int`, `string`, i `bool`.
+* Zobacz stos wywołań, w tym łańcuchy wywołań, które pochodzą z języka JavaScript do platformy .NET i z programu .NET do języka JavaScript.
 
-Możesz *nie*:
+*Nie*można:
 
-* Sprawdź wartości wszelkich zmiennych lokalnych, które nie są `int`, `string`, lub `bool`.
-* Sprawdź wartości właściwości klasy lub pola.
-* Umieść kursor nad zmienne, aby zobaczyć ich wartości.
-* Ocena wyrażeń w konsoli.
-* Przejść przez wywołania asynchronicznego.
-* Wykonywać większości innych zwykłych scenariuszy debugowania.
+* Obserwuj wartości wszelkich zmiennych lokalnych `int`, które nie są, `string`lub `bool`.
+* Obserwuj wartości właściwości lub pól klas.
+* Umieść kursor nad zmiennymi, aby zobaczyć ich wartości.
+* Oceń wyrażenia w konsoli programu.
+* Krok w ramach wywołań asynchronicznych.
+* Wykonuj większość innych typowych scenariuszy debugowania.
 
-Rozwój dalszego debugowania scenariusze jest w toku celem zespołu inżynieryjnego.
+Programowanie dalszych scenariuszy debugowania jest tym samym punktem zespołu inżynierów.
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+Debugowanie wymaga jednej z następujących przeglądarek:
+
+* Google Chrome (wersja 70 lub nowsza)
+* Podgląd Microsoft Edge ([kanał dev Edge](https://www.microsoftedgeinsider.com))
 
 ## <a name="procedure"></a>Procedura
 
-Aby debugować Blazor aplikacji po stronie klienta, w przeglądarce Chrome:
+1. Uruchom aplikację Blazor po stronie klienta w `Debug` konfiguracji. Przekaż opcję do polecenia [Run dotnet](/dotnet/core/tools/dotnet-run) : `dotnet run --configuration Debug`. `--configuration Debug`
+1. Uzyskaj dostęp do aplikacji w przeglądarce.
+1. Umieść fokus klawiatury w aplikacji, a nie na panelu Narzędzia deweloperskie. Po zainicjowaniu debugowania można zamknąć panel Narzędzia deweloperskie.
+1. Wybierz następujący skrót klawiaturowy dotyczący Blazor:
+   * `Shift+Alt+D`w systemie Windows/Linux
+   * `Shift+Cmd+D`na macOS
 
-* Tworzenie aplikacji Blazor w `Debug` konfiguracji (domyślnie dla nieopublikowane aplikacje).
-* Uruchom aplikację Blazor w przeglądarce Chrome (wersja 70 lub nowszej).
-* Fokus klawiatury w aplikacji (nie w panelu Narzędzia dla deweloperów, które prawdopodobnie należy zamknąć mniej mylące środowisko debugowania) wybierz następujący skrót klawiaturowy specyficzne dla Blazor:
-  * `Shift+Alt+D` w systemie Windows/Linux
-  * `Shift+Cmd+D` W systemie macOS
+## <a name="enable-remote-debugging"></a>Włącz debugowanie zdalne
 
-## <a name="enable-remote-debugging"></a>Włączanie debugowania zdalnego
-
-Jeśli zdalne debugowanie jest wyłączone, **nie można odnaleźć karty przeglądarki debugowania** strony błędu jest generowany przez przeglądarki Chrome. Strona błędu zawiera instrukcje na temat uruchamiania dla programu Chrome z portem debugowania Otwórz tak, aby serwer proxy debugowania Blazor podłączeniem do aplikacji. *Zamknij wszystkie wystąpienia dla programu Chrome* i ponownie uruchomić przeglądarkę Chrome, zgodnie z instrukcjami.
+Jeśli debugowanie zdalne jest wyłączone, **nie można odnaleźć strony błędu karty przeglądarki możliwością debugowania w przeglądarce** Chrome. Strona błędu zawiera instrukcje dotyczące uruchamiania programu Chrome z otwartym portem debugowania, dzięki czemu serwer proxy debugowania Blazor może połączyć się z aplikacją. *Zamknij wszystkie wystąpienia programu Chrome* i uruchom ponownie program Chrome zgodnie z instrukcją.
 
 ## <a name="debug-the-app"></a>Debugowanie aplikacji
 
-Gdy program Chrome jest uruchomiony z włączonym debugowaniem zdalnym, debugowania skrótu klawiaturowego zostanie otwarta nowa karta debugera. Po chwili **źródeł** karta zawiera listę zestawów .NET w aplikacji. Rozwiń każdy zestaw i Znajdź *.cs*/ *.razor* dostępna do debugowania plików źródłowych. Ustawianie punktów przerwania, wrócić do karty aplikacji, a punkty przerwania są osiągane, gdy kod jest wykonywany. Punkt przerwania — po trafienie w jednym kroku (`F10`) za pomocą kodu lub Wznów (`F8`) wykonanie kodu w zwykły sposób.
+Gdy program Chrome jest uruchomiony z włączonym debugowaniem zdalnym, skrót klawiaturowy debugowania otwiera nową kartę debugera. Po chwili na karcie **źródła** zostanie wyświetlona lista zestawów .NET w aplikacji. Rozwiń każdy zestaw i Znajdź pliki źródłowe *CS*/ *. Razor* dostępne do debugowania. Ustaw punkty przerwania, przełącz się z powrotem do karty aplikacji, a punkty przerwania są trafień, gdy kod jest wykonywany. Po trafieniu punktu przerwania pojedynczy krok (`F10`) przez wykonanie kodu kodu lub wznowienia (`F8`).
 
-Blazor udostępnia serwer proxy debugowania, który implementuje [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/) i rozszerzają protokołu. Informacje dotyczące sieci. Po naciśnięciu klawisza skrótu klawiaturowego debugowania Blazor wskazuje Chrome DevTools serwera proxy. Serwer proxy łączy do okna przeglądarki, w przypadku znalezienia do debugowania (dlatego trzeba włączyć zdalne debugowanie).
+Blazor udostępnia serwer proxy debugowania, który implementuje [Protokół Chrome devtools](https://chromedevtools.github.io/devtools-protocol/) i rozszerza protokół z. Informacje specyficzne dla sieci. Gdy skrót klawiaturowy debugowania zostanie naciśnięty, Blazor punkty Chrome DevTools na serwerze proxy. Serwer proxy nawiązuje połączenie z oknem przeglądarki, które próbujesz debugować (w związku z tym trzeba włączyć debugowanie zdalne).
 
-## <a name="browser-source-maps"></a>Mapy źródła przeglądarki
+## <a name="browser-source-maps"></a>Mapy źródeł przeglądarki
 
-Mapy źródła przeglądarki Zezwalaj na używanie przeglądarki zamapować skompilowane pliki do ich oryginalnych plików źródłowych i są często używane do debugowania po stronie klienta. Jednak nie jest obecnie mapowany Blazor C# bezpośrednio do języka JavaScript/WASM. Zamiast tego Blazor wykonuje interpretacji IL w przeglądarce, więc map źródeł nie są istotne.
+Mapy źródeł przeglądarki umożliwiają przeglądarce mapowanie skompilowanych plików z powrotem do ich oryginalnych plików źródłowych i są często używane do debugowania po stronie klienta. Jednak Blazor nie jest obecnie mapowany C# bezpośrednio na język JavaScript/WASM. Zamiast tego Blazor wykonuje interpretację IL w przeglądarce, dlatego mapy źródłowe nie są istotne.
 
-## <a name="troubleshooting-tip"></a>Porada dotyczącą rozwiązywania problemów
+## <a name="troubleshooting-tip"></a>Porady dotyczące rozwiązywania problemów
 
-Jeśli pracujesz w błędy, poniższe porady mogą pomóc:
+Jeśli występują błędy, Poniższa Wskazówka może pomóc:
 
-W **debugera** karcie, Otwórz narzędzia deweloperskie w przeglądarce. W konsoli, należy wykonać `localStorage.clear()` do usunięcia żadnych punktów przerwania.
+Na karcie **debuger** Otwórz narzędzia deweloperskie w przeglądarce. W konsoli programu wykonaj `localStorage.clear()` polecenie, aby usunąć wszystkie punkty przerwania.
