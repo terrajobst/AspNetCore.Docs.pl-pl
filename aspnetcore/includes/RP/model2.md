@@ -2,7 +2,7 @@
 
 ### <a name="add-a-database-context-class"></a>Dodaj klasę kontekstu bazy danych
 
-Dodaj następującą `RazorPagesMovieContext` klasę do folderu *danych* :
+W projekcie RazorPagesMovie Utwórz nowy folder o nazwie *dane*. Dodaj następującą `RazorPagesMovieContext` klasę do folderu *danych* :
 
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Data/RazorPagesMovieContext.cs)]
 
@@ -20,7 +20,7 @@ Dodaj parametry połączenia do pliku *appSettings. JSON* , jak pokazano w nast�
 
 ### <a name="add-required-nuget-packages"></a>Dodaj wymagane pakiety NuGet
 
-Uruchom następujące polecenia interfejs wiersza polecenia platformy .NET Core, aby dodać do projektu oprogramowania SQLite, Entity Framework Core i CodeGeneration. Design:
+Otwórz Terminal dla projektu RazorPagesMovie.  Kliknij prawym przyciskiem myszy nazwę projektu na pasku projektowania/układu i przejdź do pozycji **narzędzia > Otwórz** w terminalu. Uruchom następujące polecenia interfejs wiersza polecenia platformy .NET Core w tym czasie. Polecenia dodają oprogramowania SQLite, Entity Framework Core i CodeGeneration. Design do projektu:
 
 ```console
 dotnet add package Microsoft.EntityFrameworkCore.SQLite --version 3.0.0-*
