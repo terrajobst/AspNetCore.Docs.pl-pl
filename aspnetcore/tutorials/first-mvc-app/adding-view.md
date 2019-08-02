@@ -5,12 +5,12 @@ description: Dodawanie widoku do prostej aplikacji ASP.NET Core MVC
 ms.author: riande
 ms.date: 03/04/2017
 uid: tutorials/first-mvc-app/adding-view
-ms.openlocfilehash: 38efd234d919cd0427928df73388e65ce13527d1
-ms.sourcegitcommit: 979dbfc5e9ce09b9470789989cddfcfb57079d94
+ms.openlocfilehash: b6a3b1e673b8b67530b82c7d850e810a6c11e555
+ms.sourcegitcommit: 3204bc89ae6354b61ee0a9b2770ebe5214b7790c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68681886"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707861"
 ---
 # <a name="add-a-view-to-an-aspnet-core-mvc-app"></a>Dodawanie widoku do aplikacji ASP.NET Core MVC
 
@@ -168,8 +168,8 @@ W powyższym `ViewData` przykładzie słownik został użyty do przekazania dany
 W następnym samouczku zostanie utworzona baza danych filmów.
 
 > [!div class="step-by-step"]
-> [Poprzedni](adding-controller.md)
-> [Następny](adding-model.md)
+> [Poprzedni](adding-controller.md)Następny
+> [](adding-model.md)
 
 ::: moniker-end
 
@@ -223,7 +223,7 @@ Poprzedni kod wywołuje <xref:Microsoft.AspNetCore.Mvc.Controller.View*> metodę
   * Wpisz *index. cshtml* w polu **Nazwa** .
   * Wybierz pozycję **Nowy**.
 
-![Okno dialogowe Dodawanie nowego elementu](adding-view/_static/add_view.png)
+![Okno dialogowe Dodawanie nowego elementu](adding-view/_static/add_view_mac.png)
 
 ---
 
@@ -328,7 +328,7 @@ W powyższym `ViewData` przykładzie słownik został użyty do przekazania dany
 W następnym samouczku zostanie utworzona baza danych filmów.
 
 > [!div class="step-by-step"]
-> [Poprzedni](adding-controller.md)
-> [Następny](adding-model.md)
+> [Poprzedni](adding-controller.md)Następny
+> [](adding-model.md)
 
 ::: moniker-end
