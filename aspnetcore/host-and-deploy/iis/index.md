@@ -5,14 +5,14 @@ description: Dowiedz się, jak hostować aplikacje platformy ASP.NET Core na sys
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/16/2019
+ms.date: 07/28/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: a3d8c87fdb1cbc3b8b11b15f797190d626edad59
-ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
+ms.openlocfilehash: 7677173493e68f5a5656c18533e0ae13a7c5bece
+ms.sourcegitcommit: 0efb9e219fef481dee35f7b763165e488aa6cf9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308063"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68602473"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host platformy ASP.NET Core na Windows za pomocą programu IIS
 
@@ -30,6 +30,8 @@ Obsługiwane są następujące systemy operacyjne:
 [Serwer http. sys](xref:fundamentals/servers/httpsys) (dawniej nazywany webListener) nie działa w konfiguracji zwrotnego serwera proxy z usługami IIS. Użyj [serwera Kestrel](xref:fundamentals/servers/kestrel).
 
 Aby uzyskać informacji na temat obsługi na platformie Azure, zobacz <xref:host-and-deploy/azure-apps/index>.
+
+Aby uzyskać wskazówki dotyczące rozwiązywania problemów, zobacz <xref:test/troubleshoot>.
 
 ## <a name="supported-platforms"></a>Obsługiwane platformy
 
@@ -68,7 +70,7 @@ Po przetworzeniu żądania przez serwer HTTP IIS żądanie jest wypychane do pot
 
 Hosting w procesie jest nieobecny w przypadku istniejących aplikacji, ale w przypadku wszystkich scenariuszy z usługami w ramach programu z obsługą IIS Express usług w toku są domyślnie obsługiwane [nowe](/dotnet/core/tools/dotnet-new) szablony.
 
-`CreateDefaultBuilder`<xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIIS*> [](/dotnet/standard/glossary#coreclr)  dodaje wystąpienie przez wywołanie metody w celu uruchomienia CoreCLR i hostowania aplikacji w procesie roboczym usług IIS (w3wp. exe lub iisexpress. exe). <xref:Microsoft.AspNetCore.Hosting.Server.IServer> Testy wydajności wskazują, że hostowanie platformy .NET Core app w procesie zapewnia znacznie większą przepływność żądania, w porównaniu do hostowania aplikacji spoza procesu i pośredniczenie żądania do [Kestrel](xref:fundamentals/servers/kestrel) serwera.
+`CreateDefaultBuilder`<xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIIS*> [](/dotnet/standard/glossary#coreclr)dodaje wystąpienie przez wywołanie metody w celu uruchomienia CoreCLR i hostowania aplikacji w procesie roboczym usług IIS (w3wp. exe lub iisexpress. exe). <xref:Microsoft.AspNetCore.Hosting.Server.IServer> Testy wydajności wskazują, że hostowanie platformy .NET Core app w procesie zapewnia znacznie większą przepływność żądania, w porównaniu do hostowania aplikacji spoza procesu i pośredniczenie żądania do [Kestrel](xref:fundamentals/servers/kestrel) serwera.
 
 ::: moniker-end
 
@@ -260,10 +262,10 @@ Włącz **serwer sieci Web (IIS)** roli serwera i ustanowić usług ról.
    ![Domyślne usługi ról są wybrane w kroku wybierz rolę usług.](index/_static/role-services-ws2016.png)
 
    **Windows Authentication (opcjonalnie)**  
-   Aby włączyć uwierzytelnianie systemu Windows, rozwiń następujące węzły:  > **Zabezpieczenia**serwera sieci Web. Wybierz **uwierzytelniania Windows** funkcji. Aby uzyskać więcej informacji, zobacz [uwierzytelniania Windows \<windowsAuthentication >](/iis/configuration/system.webServer/security/authentication/windowsAuthentication/) i [uwierzytelniania Windows skonfiguruj](xref:security/authentication/windowsauth).
+   Aby włączyć uwierzytelnianie systemu Windows, rozwiń następujące węzły: > **Zabezpieczenia**serwera sieci Web. Wybierz **uwierzytelniania Windows** funkcji. Aby uzyskać więcej informacji, zobacz [uwierzytelniania Windows \<windowsAuthentication >](/iis/configuration/system.webServer/security/authentication/windowsAuthentication/) i [uwierzytelniania Windows skonfiguruj](xref:security/authentication/windowsauth).
 
    **Gniazda Websocket (opcjonalnie)**  
-   Funkcja WebSockets jest obsługiwana przy użyciu platformy ASP.NET Core 1.1 lub nowszej. Aby włączyć obsługę obiektów WebSockets, rozwiń następujące węzły:  > **Tworzenie aplikacji**serwera sieci Web. Wybierz **protokołu WebSocket** funkcji. Aby uzyskać więcej informacji, zobacz [WebSockets](xref:fundamentals/websockets).
+   Funkcja WebSockets jest obsługiwana przy użyciu platformy ASP.NET Core 1.1 lub nowszej. Aby włączyć obsługę obiektów WebSockets, rozwiń następujące węzły: > **Tworzenie aplikacji**serwera sieci Web. Wybierz **protokołu WebSocket** funkcji. Aby uzyskać więcej informacji, zobacz [WebSockets](xref:fundamentals/websockets).
 
 1. Postępuj zgodnie z instrukcjami **potwierdzenie** krok w celu zainstalowania roli Serwer sieci web i usług. Ponowne uruchomienie serwera/IIS nie jest wymagane po zainstalowaniu **serwer sieci Web (IIS)** roli.
 
@@ -285,7 +287,7 @@ Włącz **Konsola zarządzania usługami IIS** i **usługi World Wide Web**.
    Aby włączyć uwierzytelnianie systemu Windows, rozwiń następujące węzły: **Zabezpieczenia usług World Wide Web Services** > . Wybierz **uwierzytelniania Windows** funkcji. Aby uzyskać więcej informacji, zobacz [uwierzytelniania Windows \<windowsAuthentication >](/iis/configuration/system.webServer/security/authentication/windowsAuthentication/) i [uwierzytelniania Windows skonfiguruj](xref:security/authentication/windowsauth).
 
    **Gniazda Websocket (opcjonalnie)**  
-   Funkcja WebSockets jest obsługiwana przy użyciu platformy ASP.NET Core 1.1 lub nowszej. Aby włączyć obsługę obiektów WebSockets, rozwiń następujące węzły:  > **Funkcje projektowania aplikacji**World Wide Web Services. Wybierz **protokołu WebSocket** funkcji. Aby uzyskać więcej informacji, zobacz [WebSockets](xref:fundamentals/websockets).
+   Funkcja WebSockets jest obsługiwana przy użyciu platformy ASP.NET Core 1.1 lub nowszej. Aby włączyć obsługę obiektów WebSockets, rozwiń następujące węzły: > **Funkcje projektowania aplikacji**World Wide Web Services. Wybierz **protokołu WebSocket** funkcji. Aby uzyskać więcej informacji, zobacz [WebSockets](xref:fundamentals/websockets).
 
 1. Jeśli instalacja usług IIS wymaga ponownego uruchomienia komputera, uruchom ponownie system.
 
