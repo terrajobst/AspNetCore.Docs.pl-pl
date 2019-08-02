@@ -5,14 +5,14 @@ description: Dowiedz się, jak tworzyć i używać składników Razor, w tym jak
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/25/2019
+ms.date: 08/02/2019
 uid: blazor/components
-ms.openlocfilehash: 38f6512315a63b1ac5831c43a7a5efac231a27d5
-ms.sourcegitcommit: 0efb9e219fef481dee35f7b763165e488aa6cf9c
+ms.openlocfilehash: 278a593ebd6d0b18d2850f90e1b34ce5ec93e507
+ms.sourcegitcommit: b5e63714afc26e94be49a92619586df5189ed93a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68602419"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68739486"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Tworzenie i używanie składników ASP.NET Core Razor
 
@@ -55,7 +55,7 @@ Elementy członkowskie składnika mogą być następnie używane jako część l
 
 Po pierwszym wyrenderowaniu składnika składnik generuje jego drzewo renderowania w odpowiedzi na zdarzenia. Blazor następnie porównuje nowe drzewo renderowania z poprzednią i zastosuje wszelkie modyfikacje Document Object Model przeglądarki (DOM).
 
-Składniki są zwykłymi C# klasami i mogą być umieszczane w dowolnym miejscu w projekcie. Składniki, które generują strony sieci Web, zwykle znajdują się w folderze *strony* . Składniki niestronicowe są często umieszczane w  folderze udostępnionym lub w folderze niestandardowym dodanym do projektu. Aby użyć folderu niestandardowego, należy dodać przestrzeń nazw folderu niestandardowego do składnika nadrzędnego lub do pliku *_Imports. Razor* aplikacji. Na przykład następująca przestrzeń nazw sprawia, że składniki w  folderze Components są dostępne, gdy główna przestrzeń nazw `WebApplication`aplikacji to:
+Składniki są zwykłymi C# klasami i mogą być umieszczane w dowolnym miejscu w projekcie. Składniki, które generują strony sieci Web, zwykle znajdują się w folderze *strony* . Składniki niestronicowe są często umieszczane w folderze udostępnionym lub w folderze niestandardowym dodanym do projektu. Aby użyć folderu niestandardowego, należy dodać przestrzeń nazw folderu niestandardowego do składnika nadrzędnego lub do pliku *_Imports. Razor* aplikacji. Na przykład następująca przestrzeń nazw sprawia, że składniki w folderze Components są dostępne, gdy główna przestrzeń nazw `WebApplication`aplikacji to:
 
 ```cshtml
 @using WebApplication.Components
@@ -91,7 +91,7 @@ Poniższy znacznik w *indeksie. Razor* renderuje `HeadingComponent` wystąpienie
 
 ## <a name="component-parameters"></a>Parametry składnika
 
-Składniki mogą mieć *Parametry składnika*, które są zdefiniowane przy użyciu właściwości ( zwykle niepubliczny) w `[Parameter]` klasie składnika z atrybutem. Użyj atrybutów, aby określić argumenty dla składnika w znaczniku.
+Składniki mogą mieć *Parametry składnika*, które są zdefiniowane przy użyciu właściwości (zwykle niepubliczny) w `[Parameter]` klasie składnika z atrybutem. Użyj atrybutów, aby określić argumenty dla składnika w znaczniku.
 
 *Składniki/ChildComponent. Razor*:
 
@@ -374,7 +374,7 @@ W poniższym przykładzie `UpdateHeading` jest wywoływana asynchronicznie po wy
 
 W przypadku niektórych zdarzeń dozwolone są typy argumentów zdarzeń specyficznych dla zdarzeń. Jeśli dostęp do jednego z tych typów zdarzeń nie jest konieczny, nie jest to wymagane w wywołaniu metody.
 
-Obsługiwane [UIEventArgs](https://github.com/aspnet/AspNetCore/blob/master/src/Components/Components/src/UIEventArgs.cs) są przedstawione w poniższej tabeli.
+Obsługiwane [UIEventArgs](https://github.com/aspnet/AspNetCore/blob/release/3.0-preview8/src/Components/Components/src/UIEventArgs.cs) są przedstawione w poniższej tabeli.
 
 | Zdarzenie | Class |
 | ----- | ----- |
@@ -383,14 +383,14 @@ Obsługiwane [UIEventArgs](https://github.com/aspnet/AspNetCore/blob/master/src/
 | Błąd | `UIErrorEventArgs` |
 | Fokus | `UIFocusEventArgs`Nie obejmuje obsługi dla `relatedTarget`. &ndash; |
 | `<input>`stąp | `UIChangeEventArgs` |
-| Klawiatury | `UIKeyboardEventArgs` |
+| Klawiatura | `UIKeyboardEventArgs` |
 | Wskaźnik | `UIMouseEventArgs` |
 | Wskaźnik myszy | `UIPointerEventArgs` |
 | Kółko myszy | `UIWheelEventArgs` |
 | Postęp | `UIProgressEventArgs` |
 | Dotyk | `UITouchEventArgs`&ndash; reprezentujepojedynczypunktkontaktunaurządzeniuz`UITouchPoint` wrażliwym dotknięciem. |
 
-Aby uzyskać informacje o zachowaniu właściwości i obsłudze zdarzeń zdarzeń w powyższej tabeli, zobacz [UIEventArgs](https://github.com/aspnet/AspNetCore/blob/master/src/Components/Components/src/UIEventArgs.cs) w źródle odwołania.
+Aby uzyskać informacje o zachowaniu właściwości i obsłudze zdarzeń zdarzeń w powyższej tabeli, zobacz [klasy EventArgs w źródle odwołania](https://github.com/aspnet/AspNetCore/tree/release/3.0-preview8/src/Components/Web/src).
   
 Wyrażenia lambda mogą być również używane:
 

@@ -1,29 +1,29 @@
 ---
-title: Tworzenie żądania HTTP w programie ASP.NET Core przy użyciu IHttpClientFactory
+title: Wykonywanie żądań HTTP przy użyciu IHttpClientFactory w ASP.NET Core
 author: stevejgordon
-description: Dowiedz się więcej o zarządzaniu logicznego wystąpienia klasy HttpClient w programie ASP.NET Core za pomocą interfejsu IHttpClientFactory.
+description: Dowiedz się więcej o używaniu interfejsu IHttpClientFactory do zarządzania wystąpieniami logicznych HttpClient w ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 05/10/2019
+ms.date: 08/01/2019
 uid: fundamentals/http-requests
-ms.openlocfilehash: 8b95f63c0e06a2b7d1d66064def192f91b8ffbb4
-ms.sourcegitcommit: ccbb84ae307a5bc527441d3d509c20b5c1edde05
+ms.openlocfilehash: bcf2a2eaf6910222d274c38bac343c92fab9cb5b
+ms.sourcegitcommit: b5e63714afc26e94be49a92619586df5189ed93a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2019
-ms.locfileid: "65874962"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68739536"
 ---
-# <a name="make-http-requests-using-ihttpclientfactory-in-aspnet-core"></a>Tworzenie żądania HTTP w programie ASP.NET Core przy użyciu IHttpClientFactory
+# <a name="make-http-requests-using-ihttpclientfactory-in-aspnet-core"></a>Wykonywanie żądań HTTP przy użyciu IHttpClientFactory w ASP.NET Core
 
-Przez [Glenn Condron](https://github.com/glennc), [Ryan Nowak](https://github.com/rynowak), i [Steve Gordon](https://github.com/stevejgordon)
+[Glenn Condron](https://github.com/glennc), [Ryan Nowak](https://github.com/rynowak)i [Steve Gordon](https://github.com/stevejgordon)
 
-<xref:System.Net.Http.IHttpClientFactory> Były rejestrowane i umożliwia konfigurowanie i tworzenie <xref:System.Net.Http.HttpClient> wystąpień w aplikacji. Oferuje następujące korzyści:
+Może być zarejestrowany i używany do konfigurowania i tworzenia <xref:System.Net.Http.HttpClient> wystąpień w aplikacji. <xref:System.Net.Http.IHttpClientFactory> Oferuje następujące korzyści:
 
-* Stanowi centralną lokalizację do nazywania i konfigurowanie logiczne `HttpClient` wystąpień. Na przykład *github* klienta można zarejestrować i skonfigurowany do dostępu [GitHub](https://github.com/). Domyślne klienta można zarejestrować do innych celów.
-* Określa zasady koncepcji wychodzących oprogramowania pośredniczącego za pośrednictwem Delegowanie obsługi w `HttpClient` i zapewnia rozszerzenia na podstawie Polly oprogramowaniu pośredniczącym, aby korzystać z zalet, który.
-* Zarządza buforowanie i okresem istnienia bazowego `HttpClientMessageHandler` wystąpienia, aby uniknąć problemów DNS, które występują, gdy ręcznego zarządzania `HttpClient` okresy istnienia.
-* Dodanie obsługi można skonfigurować rejestrowania (za pośrednictwem `ILogger`) dla wszystkich żądań wysłanych przez klientów utworzonych przez fabrykę.
+* Zapewnia centralną lokalizację do nazywania i konfigurowania `HttpClient` wystąpień logicznych. Na przykład klient usługi *GitHub* można zarejestrować i skonfigurować do uzyskiwania dostępu do usługi [GitHub](https://github.com/). Domyślny klient można zarejestrować do innych celów.
+* Skodyfikował koncepcję wychodzącego oprogramowania pośredniczącego przez delegowanie programów `HttpClient` obsługi w programie i udostępnia rozszerzenia dla oprogramowania pośredniczącego opartego na Polly, aby skorzystać z tego programu.
+* Zarządza buforowaniem i okresem istnienia `HttpClientMessageHandler` podstawowych wystąpień, aby uniknąć typowych problemów z usługą DNS występujących podczas ręcznego zarządzania `HttpClient` okresami istnienia.
+* Dodaje konfigurowalne środowisko rejestrowania (za `ILogger`pośrednictwem programu) dla wszystkich żądań wysyłanych przez klientów utworzonych przez fabrykę.
 
 [Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/http-requests/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
@@ -31,82 +31,87 @@ Przez [Glenn Condron](https://github.com/glennc), [Ryan Nowak](https://github.co
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Projekty przeznaczone dla .NET Framework wymagają instalacji [Microsoft.Extensions.Http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) pakietu NuGet. Projekty przeznaczone dla platformy .NET Core i odwołania [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) uwzględniają już `Microsoft.Extensions.Http` pakietu.
+Projekty docelowe .NET Framework wymagają instalacji pakietu NuGet [Microsoft. Extensions. http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) . Projekty przeznaczone dla platformy .NET Core i odwołujące się do [pakietu Microsoft. AspNetCore. appbinding](xref:fundamentals/metapackage-app) zawierają `Microsoft.Extensions.Http` już pakiet.
 
 ::: moniker-end
 
-## <a name="consumption-patterns"></a>Wzorce użycia
+## <a name="consumption-patterns"></a>Wzorce zużycia
 
-Istnieje kilka sposobów `IHttpClientFactory` mogą być używane w aplikacji:
+W aplikacji można używać `IHttpClientFactory` kilku sposobów:
 
-* [Podstawowe użycia](#basic-usage)
-* [Nazwane klientów](#named-clients)
-* [Wpisane klientów](#typed-clients)
-* [Wygenerowany klientów](#generated-clients)
+* [Podstawowe użycie](#basic-usage)
+* [Nazwani klienci](#named-clients)
+* [Wpisane komputery klienckie](#typed-clients)
+* [Wygenerowane klienci](#generated-clients)
 
-Żadna z nich są ściśle nadrzędne w stosunku do innego. Najlepszym rozwiązaniem, zależy od ograniczeń aplikacji.
+Żadna z nich nie jest ściśle wyższa od siebie. Najlepsze podejście zależy od ograniczeń aplikacji.
 
-### <a name="basic-usage"></a>Podstawowe użycia
+### <a name="basic-usage"></a>Podstawowe użycie
 
-`IHttpClientFactory` Mogą być rejestrowane przez wywołanie metody `AddHttpClient` metody rozszerzenia `IServiceCollection`w programie `Startup.ConfigureServices` metody.
+Można zarejestrować `IServiceCollection`, `AddHttpClient` wywołując metodę rozszerzenia `Startup.ConfigureServices` na, wewnątrz metody. `IHttpClientFactory`
 
 [!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet1)]
 
-Po zarejestrowaniu kod może akceptować `IHttpClientFactory` dowolnym usług może wprowadzone z [wstrzykiwanie zależności (DI)](xref:fundamentals/dependency-injection). `IHttpClientFactory` Może służyć do tworzenia `HttpClient` wystąpienie:
+Po zarejestrowaniu kod może zaakceptować `IHttpClientFactory` usługi z dowolnego miejsca przy użyciu [iniekcji zależności (di)](xref:fundamentals/dependency-injection). Można go użyć do `HttpClient` utworzenia wystąpienia: `IHttpClientFactory`
 
 [!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Pages/BasicUsage.cshtml.cs?name=snippet1&highlight=9-12,21)]
 
-Za pomocą `IHttpClientFactory` w ten sposób jest to dobry sposób, w jakie możesz refaktoryzować istniejącej aplikacji. Nie ma ona wpływu na sposób `HttpClient` jest używany. W miejscach gdzie `HttpClient` aktualnie są tworzone wystąpienia, Zastąp wywołanie w celu te wystąpienia <xref:System.Net.Http.IHttpClientFactory.CreateClient*>.
+Użycie `IHttpClientFactory` w ten sposób jest dobrym sposobem refaktoryzacji istniejącej aplikacji. Nie ma to wpływu na sposób `HttpClient` użycia. W miejscach, `HttpClient` w których są obecnie tworzone wystąpienia, Zastąp te wystąpienia <xref:System.Net.Http.IHttpClientFactory.CreateClient*>wywołaniem.
 
-### <a name="named-clients"></a>Nazwane klientów
+### <a name="named-clients"></a>Nazwani klienci
 
-Jeśli aplikacja wymaga wielu różnych zastosowań `HttpClient`, każdy z innej konfiguracji opcją jest użycie **o nazwie klientów**. Konfiguracja nazwane `HttpClient` można określić podczas rejestracji w `Startup.ConfigureServices`.
+Jeśli aplikacja wymaga wielu odrębnych użycia `HttpClient`, z których każdy ma inną konfigurację, opcja służy do korzystania z **nazwanych klientów**. Konfigurację dla nazwy `HttpClient` można określić podczas rejestracji w `Startup.ConfigureServices`.
 
 [!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet2)]
 
-W poprzednim kodzie `AddHttpClient` jest wywoływana, podając nazwę *github*. Ten klient ma kilka zastosowano konfigurację domyślną&mdash;mianowicie adres podstawowy i dwa nagłówki wymagane do pracy z interfejsem API usługi GitHub.
+W powyższym kodzie `AddHttpClient` jest wywoływana, dostarczając nazwę *GitHub*. Ten klient ma zainstalowaną domyślną&mdash;konfigurację, a w tym adres podstawowy i dwa nagłówki wymagane do pracy z interfejsem API usługi GitHub.
 
-Każdorazowo `CreateClient` jest wywoływana, nowe wystąpienie klasy `HttpClient` jest tworzony i jest wywoływana Akcja konfiguracji.
+Przy każdym wywołaniu jest tworzone nowe wystąpienie programu `HttpClient` i zostanie wywołana akcja konfiguracji. `CreateClient`
 
-Korzystanie z klienta o nazwie, mogą być przekazywane jako parametr ciągu `CreateClient`. Określ nazwę klienta, który ma zostać utworzony:
+Aby użyć nazwanego klienta, parametr ciągu może być przekazaniem `CreateClient`do. Określ nazwę klienta, który ma zostać utworzony:
 
 [!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Pages/NamedClient.cshtml.cs?name=snippet1&highlight=21)]
 
-W poprzednim kodzie żądania nie należy określić nazwę hosta. Go przekazać tylko ścieżki, ponieważ jest używany adres podstawowy skonfigurowaną dla klienta.
+W powyższym kodzie żądanie nie musi określać nazwy hosta. Można przekazać tylko ścieżkę, ponieważ jest używany adres podstawowy skonfigurowany dla klienta.
 
-### <a name="typed-clients"></a>Wpisane klientów
+### <a name="typed-clients"></a>Wpisane komputery klienckie
 
-Wpisane klientów zapewniają takie same możliwości jak nazwane klientów bez konieczności używania ciągów jako klucze. Podejście klient z typowaniem zawiera funkcję IntelliSense i kompilatora pomoc podczas korzystania z klientów. Zapewniają one pojedyncza lokalizacja umożliwiająca Konfigurowanie i wchodzić w interakcje z określonym `HttpClient`. Na przykład klient z typowaniem pojedynczego mogą być używane dla punktu końcowego pojedynczego zaplecza i hermetyzacji wszystkich logiki radzenia sobie z tym punktem końcowym. Inną zaletą jest praca z DI i może zostać wprowadzona, gdy jest to wymagane w aplikacji.
+Wpisane komputery klienckie:
 
-Klient z typowaniem akceptuje `HttpClient` parametru w jego konstruktorze:
+* Podaj te same możliwości co nazwanych klientów bez konieczności używania ciągów jako kluczy.
+* Zapewnia obsługę funkcji IntelliSense i kompilatora podczas konsumowania klientów.
+* Podaj jedną lokalizację do konfiguracji i współpracy z konkretną `HttpClient`. Na przykład pojedynczy klient z określonym typem może być używany w przypadku pojedynczego punktu końcowego zaplecza i hermetyzował wszystkie logike związane z tym punktem końcowym.
+* Pracuj z opcją DI i można ją wstrzyknąć, gdy jest to wymagane w aplikacji.
+
+Klient z określonym typem akceptuje `HttpClient` parametr w jego konstruktorze:
 
 [!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/GitHub/GitHubService.cs?name=snippet1&highlight=5)]
 
-W poprzednim kodzie konfiguracji jest przenoszony do klient z typowaniem. `HttpClient` Obiektu jest przedstawiany jako właściwość publiczną. Można zdefiniować metody specyficzne dla interfejsu API, które uwidaczniają `HttpClient` funkcji. `GetAspNetDocsIssues` Metoda umożliwia hermetyzację kodu wymaganego do kwerendy i przeanalizuj najnowsze otwarte problemy z repozytorium GitHub.
+W poprzednim kodzie konfiguracja jest przenoszona do określonego klienta. `HttpClient` Obiekt jest ujawniany jako właściwość publiczna. Istnieje możliwość zdefiniowania metod specyficznych dla interfejsu API, `HttpClient` które uwidaczniają funkcjonalność. `GetAspNetDocsIssues` Metoda hermetyzuje kod potrzebny do zbadania i wyanalizowania najnowszych otwartych problemów z repozytorium GitHub.
 
-Aby zarejestrować klient z typowaniem, ogólnego <xref:Microsoft.Extensions.DependencyInjection.HttpClientFactoryServiceCollectionExtensions.AddHttpClient*> — metoda rozszerzenia mogą być używane w `Startup.ConfigureServices`, określanie klasy klient z typowaniem:
+Aby zarejestrować klienta z określonym typem, można <xref:Microsoft.Extensions.DependencyInjection.HttpClientFactoryServiceCollectionExtensions.AddHttpClient*> użyć generycznej metody rozszerzenia w `Startup.ConfigureServices`programie, określając klasę klienta z określonym typem:
 
 [!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet3)]
 
-Klient z typowaniem jest zarejestrowany jako przejściowy z DI. Klient z typowaniem można wprowadzony i używane bezpośrednio:
+Typ klienta jest rejestrowany jako przejściowy z DI. Określony klient może zostać dodany i wykorzystany bezpośrednio:
 
 [!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Pages/TypedClient.cshtml.cs?name=snippet1&highlight=11-14,20)]
 
-Jeśli preferowane, można określić konfigurację klient z typowaniem podczas rejestracji w `Startup.ConfigureServices`, zamiast w Konstruktorze wpisane klienta:
+Jeśli jest preferowana, konfiguracja dla klienta z określonym typem może być określona podczas `Startup.ConfigureServices`rejestracji w, a nie w konstruktorze określonego klienta:
 
 [!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet4)]
 
-Istnieje możliwość całkowicie hermetyzacji `HttpClient` w ramach klient z typowaniem. Zamiast uwidaczniania go jako właściwość, można podać metody publiczne która wywołuje metodę `HttpClient` wystąpienia wewnętrznie.
+Można całkowicie hermetyzować `HttpClient` w ramach określonego klienta. Zamiast uwidaczniać je jako właściwość, można dostarczyć metody publiczne, które wywołują `HttpClient` wystąpienie wewnętrznie.
 
 [!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/GitHub/RepoService.cs?name=snippet1&highlight=4)]
 
-W poprzednim kodzie `HttpClient` jest przechowywany jako pole prywatne. Dostęp do nawiązywania połączeń zewnętrznych przechodzi przez `GetRepos` metody.
+W poprzednim kodzie, `HttpClient` jest przechowywany jako pole prywatne. Cały dostęp do wykonywania wywołań zewnętrznych odbywa się `GetRepos` za pomocą metody.
 
-### <a name="generated-clients"></a>Wygenerowany klientów
+### <a name="generated-clients"></a>Wygenerowane klienci
 
-`IHttpClientFactory` mogą być używane w połączeniu z innymi bibliotekami innych firm takich jak [ponownego ustawienia](https://github.com/paulcbetts/refit). Refit jest biblioteką REST dla platformy .NET. Interfejsów API REST są konwertowane na żywo interfejsów. Implementacja interfejsu jest generowana dynamicznie przez `RestService`przy użyciu `HttpClient` zapewnienie zewnętrznych HTTP wywołuje.
+`IHttpClientFactory`może być używany w połączeniu z innymi bibliotekami innych firm, takimi jak [REFIT](https://github.com/paulcbetts/refit). REFIT to biblioteka REST dla platformy .NET. Konwertuje interfejsy API REST na interfejsy na żywo. Implementacja interfejsu jest generowana dynamicznie przez `RestService`, przy użyciu polecenia `HttpClient` , aby utworzyć zewnętrzne wywołania http.
 
-Interfejs i odpowiedzi są zdefiniowane do reprezentowania zewnętrznego interfejsu API i odpowiedzi przez punkt końcowy:
+Interfejs i odpowiedź są zdefiniowane do reprezentowania zewnętrznego interfejsu API i jego odpowiedzi:
 
 ```csharp
 public interface IHelloClient
@@ -121,7 +126,7 @@ public class Reply
 }
 ```
 
-Klient z typowaniem mogą być dodawane przy użyciu Refit można wygenerować wdrożenia:
+Można dodać klienta z określonym typem, używając REFIT do wygenerowania implementacji:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -136,7 +141,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Interfejs zdefiniowany mogą być używane w przypadku, gdy jest to konieczne, z implementacją dostarczone przez DI i Refit:
+Zdefiniowany interfejs może być używany, w razie potrzeby, z implementacją podaną przez DI i REFIT:
 
 ```csharp
 [ApiController]
@@ -157,129 +162,157 @@ public class ValuesController : ControllerBase
 }
 ```
 
-## <a name="outgoing-request-middleware"></a>Wychodzące żądanie oprogramowania pośredniczącego.
+## <a name="outgoing-request-middleware"></a>Oprogramowanie pośredniczące żądania wychodzące
 
-`HttpClient` ma już pojęcie Delegowanie obsługi, które mogą być połączone ze sobą dla wychodzących żądań HTTP. `IHttpClientFactory` Ułatwia do definiowania programów obsługi do zastosowania dla każdego klienta o nazwie. Obsługuje rejestrację i tworzenie łańcuchów z wielu obsług do tworzenia potoku oprogramowania pośredniczącego usługi wychodzące żądanie. Każda z tych programów obsługi jest możliwość wykonywania pracy przed i po nim żądania wychodzącego. Wzorzec ten jest podobny do potoku oprogramowanie pośredniczące dla ruchu przychodzącego w programie ASP.NET Core. Wzorzec zapewnia mechanizm zarządzania odciąż przekrojowe zagadnienia dotyczące żądań HTTP, w tym usługi pamięć podręczna obsługi serializacji i rejestrowania błędów.
+`HttpClient`ma już koncepcję delegowania programów obsługi, które mogą być połączone ze sobą w przypadku wychodzących żądań HTTP. `IHttpClientFactory` Ułatwia definiowanie programów obsługi do zastosowania dla każdego nazwanego klienta. Obsługuje rejestrację i łańcuchowanie wielu programów obsługi w celu utworzenia potoku pośredniczącego żądania wychodzącego. Każdy z tych programów obsługi jest w stanie wykonać zadania przed i po żądaniu wychodzącym. Ten wzorzec jest podobny do przychodzącego potoku oprogramowania pośredniczącego w ASP.NET Core. Wzorzec zapewnia mechanizm zarządzania problemami z wycinaniem między żądaniami HTTP, takimi jak buforowanie, obsługa błędów, serializacja i rejestrowanie.
 
-Aby utworzyć program obsługi, zdefiniuj Klasa pochodząca od <xref:System.Net.Http.DelegatingHandler>. Zastąp `SendAsync` metodę, aby wykonać kod przed przekazaniem żądania do następnej procedury obsługi w potoku:
+Aby utworzyć procedurę obsługi, zdefiniuj klasę pochodną z <xref:System.Net.Http.DelegatingHandler>elementu. Zastąp `SendAsync` metodę w celu wykonania kodu przed przekazaniem żądania do następnego programu obsługi w potoku:
 
-[!code-csharp[Main](http-requests/samples/2.x/HttpClientFactorySample/Handlers/ValidateHeaderHandler.cs?name=snippet1)]
+[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Handlers/ValidateHeaderHandler.cs?name=snippet1)]
 
-Powyższy kod określa podstawowe programu obsługi. Sprawdza, czy `X-API-KEY` nagłówka zostało uwzględnione w żądaniu. Jeśli brakuje nagłówka, może uniknąć wywołania HTTP i zwracają odpowiedniej odpowiedzi.
+Poprzedni kod definiuje procedurę obsługi podstawowej. Sprawdza, czy `X-API-KEY` nagłówek został uwzględniony w żądaniu. Jeśli brakuje nagłówka, można uniknąć wywołania HTTP i zwrócić odpowiednią odpowiedź.
 
-Podczas rejestracji, jeden lub więcej programów obsługi można dodać do konfiguracji `HttpClient`. To zadanie jest realizowane za pośrednictwem metody rozszerzenia na <xref:Microsoft.Extensions.DependencyInjection.IHttpClientBuilder>.
+Podczas rejestracji do konfiguracji `HttpClient`można dodać co najmniej jeden program obsługi. To zadanie jest realizowane za pośrednictwem metod rozszerzających <xref:Microsoft.Extensions.DependencyInjection.IHttpClientBuilder>na.
 
 [!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet5)]
 
 ::: moniker range=">= aspnetcore-2.2"
 
-W poprzednim kodzie `ValidateHeaderHandler` DI jest zarejestrowany. `IHttpClientFactory` Tworzy oddzielny zakres DI dla każdej procedury obsługi. Programy obsługi mogą być zależne od usług z dowolnego zakresu. Usługi, które zależą od obsługi są usuwane po usunięciu programu obsługi.
+W poprzednim kodzie, `ValidateHeaderHandler` jest zarejestrowany przy użyciu di. `IHttpClientFactory` Tworzy oddzielny zakres di dla każdej procedury obsługi. Programy obsługi są bezpłatne, aby zależeć od usług dowolnego zakresu. Usługi, które są zależne od programów obsługi, są usuwane, gdy program obsługi zostanie usunięty.
 
-Gdy zarejestrowana, <xref:Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions.AddHttpMessageHandler*> może być wywoływana, przekazując typ dla programu obsługi.
+Po zarejestrowaniu <xref:Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions.AddHttpMessageHandler*> można wywołać, przekazując typ do procedury obsługi.
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.2"
 
-W poprzednim kodzie `ValidateHeaderHandler` DI jest zarejestrowany. Program obsługi **musi** być zarejestrowany w DI jako usługa przejściowy, nigdy nie o określonym zakresie. Jeśli program obsługi jest zarejestrowany jako usługa o określonym zakresie, wszystkie usługi, które zależy od programu obsługi są możliwe do rozporządzania programu obsługi usług można zlikwidowany, zanim program obsługi wykracza poza zakres, co spowoduje, że program obsługi ma zakończyć się niepowodzeniem.
+W poprzednim kodzie, `ValidateHeaderHandler` jest zarejestrowany przy użyciu di. Procedura obsługi **musi** być zarejestrowana w programie di jako przejściowa usługa, nigdy nie jest objęta zakresem. Jeśli program obsługi jest zarejestrowany jako usługa objęta zakresem, a wszystkie usługi, od których zależy program obsługi, są jednorazowe:
 
-Gdy zarejestrowana, <xref:Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions.AddHttpMessageHandler*> może być wywoływana, przekazując typ procedury obsługi.
+* Usługi programu obsługi mogły zostać zlikwidowane, zanim program obsługi znajdzie się poza zakresem.
+* Usunięte usługi obsługi powodują niepowodzenie procedury obsługi.
+
+Po zarejestrowaniu <xref:Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions.AddHttpMessageHandler*> można wywołać, przekazując w typie procedury obsługi.
 
 ::: moniker-end
 
-Procedury obsługi wielu można zarejestrować w kolejności ich powinien zostać wykonany. Każdy program obsługi kolejna procedura obsługi jest zawijany do momentu końcowe `HttpClientHandler` wykonuje żądanie:
+Wiele programów obsługi można zarejestrować w kolejności, w jakiej powinny być wykonywane. Każdy program obsługi otacza następną procedurę obsługi do momentu zakończenia `HttpClientHandler` żądania:
 
 [!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet6)]
 
-Na udostępnianie stanu danego żądania obsługi komunikatów, użyj jednej z następujących metod:
+Użyj jednego z następujących metod, aby udostępnić stan dla żądania za pomocą programów obsługi komunikatów:
 
-* Przekazywanie danych do obsługi przy użyciu `HttpRequestMessage.Properties`.
-* Użyj `IHttpContextAccessor` do dostępu do bieżącego żądania.
-* Utwórz niestandardową `AsyncLocal` obiekt magazynu, aby przekazać dane.
+* Przekaż dane do procedury obsługi przy `HttpRequestMessage.Properties`użyciu polecenia.
+* Użyj `IHttpContextAccessor` , aby uzyskać dostęp do bieżącego żądania.
+* Utwórz niestandardowy `AsyncLocal` obiekt magazynu, aby przekazać dane.
 
-## <a name="use-polly-based-handlers"></a>Użyj obsługi na podstawie Polly
+## <a name="use-polly-based-handlers"></a>Korzystanie z programów obsługi opartych na Polly
 
-`IHttpClientFactory` integruje się z popularnymi biblioteki innej firmy o nazwie [Polly](https://github.com/App-vNext/Polly). Polly jest odporność kompleksowe i przejściowych Biblioteka obsługi błędów dla platformy .NET. Dzięki niej deweloperzy mogą express zasad, takich jak ponownych prób, wyłącznik, limit czasu, grodziowym izolacji i rezerwowe w sposób fluent i metodą o bezpiecznych wątkach.
+`IHttpClientFactory`integruje się z popularną biblioteką innej firmy o nazwie [Polly](https://github.com/App-vNext/Polly). Polly to kompleksowa i przejściowa Biblioteka obsługi błędów dla platformy .NET. Pozwala to deweloperom na tworzenie zasad, takich jak ponawianie próby, wyłączniki, przekroczenie limitu czasu, izolacja grodziowa i rezerwa w sposób bezpieczny dla bezpieczeństwa i bezpiecznego wątkowo.
 
-Metody rozszerzenia są udostępniane, aby umożliwić korzystanie z zasad w usłudze Polly skonfigurowane `HttpClient` wystąpień. Polly rozszerzenia:
+Dostarczone metody rozszerzające umożliwiają korzystanie z zasad Pollyymi ze skonfigurowanymi `HttpClient` wystąpieniami. Rozszerzenia Polly:
 
-* Obsługuje dodawanie na podstawie Polly programów obsługi dla klientów.
-* Mogą być używane po zainstalowaniu [Microsoft.Extensions.Http.Polly](https://www.nuget.org/packages/Microsoft.Extensions.Http.Polly/) pakietu NuGet. Pakiet nie jest zawarty w udostępnionej platformy ASP.NET Core.
+* Obsługa dodawania programów obsługi opartych na Pollych do klientów.
+* Można go użyć po zainstalowaniu pakietu NuGet [Microsoft. Extensions. http. Polly](https://www.nuget.org/packages/Microsoft.Extensions.Http.Polly/) . Pakiet nie znajduje się w ASP.NET Core udostępnionej platformy.
 
 ### <a name="handle-transient-faults"></a>Obsługa błędów przejściowych
 
-Najbardziej typowe błędy występują, gdy zewnętrznych połączeń HTTP jest przejściowy. Wywołana metoda wygodne rozszerzenie `AddTransientHttpErrorPolicy` jest włączone, co pozwala zasad w celu zdefiniowania do obsługi błędów przejściowych. Zasady skonfigurowane przy użyciu tego uchwytu — metoda rozszerzenia `HttpRequestException`, odpowiedzi 5xx protokołu HTTP i odpowiedzi HTTP 408.
+Najczęstsze błędy występują, gdy zewnętrzne wywołania HTTP są przejściowe. Dołączono wygodną metodę `AddTransientHttpErrorPolicy` rozszerzenia, która umożliwia zdefiniowanie zasad w celu obsługi błędów przejściowych. Zasady skonfigurowane przy użyciu tego uchwytu `HttpRequestException`metody rozszerzenia, odpowiedzi HTTP 5xx i odpowiedzi HTTP 408.
 
-`AddTransientHttpErrorPolicy` Rozszerzenia mogą być używane w `Startup.ConfigureServices`. Rozszerzenie udostępnia `PolicyBuilder` obiektu skonfigurowane do obsługi reprezentujący możliwych błędów przejściowych błędów:
+Rozszerzenie może być używane w `Startup.ConfigureServices`. `AddTransientHttpErrorPolicy` Rozszerzenie zapewnia dostęp do `PolicyBuilder` obiektu skonfigurowanego do obsługi błędów reprezentujących możliwy błąd przejściowy:
 
-[!code-csharp[Main](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet7)]
+[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet7)]
 
-W poprzednim kodzie `WaitAndRetryAsync` zdefiniowano zasad. Żądania zakończone niepowodzeniem są zwalniane maksymalnie trzy razy z opóźnieniem, 600 ms między próbami.
+W poprzednim kodzie `WaitAndRetryAsync` zdefiniowane są zasady. Żądania zakończone niepowodzeniem są ponawiane do trzech razy z opóźnieniem 600 MS między próbami.
 
 ### <a name="dynamically-select-policies"></a>Dynamiczne Wybieranie zasad
 
-Metody rozszerzające dodatkowe istnieje, który może służyć do dodawania obsługi na podstawie Polly. Jedno z rozszerzeń jest `AddPolicyHandler`, który ma wiele przeciążeń. Jednego przeciążenia umożliwia wysłanie żądania do kontroli podczas definiowania zasad do zastosowania:
+Istnieją dodatkowe metody rozszerzające, których można użyć do dodawania programów obsługi opartych na Polly. Jedno takie rozszerzenie ma `AddPolicyHandler`wiele przeciążeń. Jedno Przeciążenie umożliwia sprawdzenie żądania podczas definiowania zasad, które mają zostać zastosowane:
 
-[!code-csharp[Main](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet8)]
+[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet8)]
 
-W poprzednim kodzie przypadku wychodzące żądanie HTTP GET, 10-sekundowy limit jest stosowany. Inna metoda HTTP używany jest limit czasu 30 sekund.
+W poprzednim kodzie, jeśli żądanie wychodzące jest GET HTTP, zostanie zastosowany 10-sekundowy limit czasu. Dla każdej innej metody HTTP jest używany 30-sekundowy limit czasu.
 
-### <a name="add-multiple-polly-handlers"></a>Dodawanie wielu obsług Polly
+### <a name="add-multiple-polly-handlers"></a>Dodaj wiele programów obsługi Polly
 
-Powszechne jest wprowadzanie zagnieździć Polly zasady, aby zapewnić ulepszone funkcje:
+Jest to typowy sposób zagnieżdżania zasad Pollyymi w celu zapewnienia zwiększonej funkcjonalności:
 
-[!code-csharp[Main](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet9)]
+[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet9)]
 
-W powyższym przykładzie dwóch metod obsługi są dodawane. Używa pierwszego `AddTransientHttpErrorPolicy` rozszerzenia, aby dodać zasady ponawiania prób. Żądania zakończone niepowodzeniem są zwalniane maksymalnie trzy razy. Drugie wywołanie `AddTransientHttpErrorPolicy` dodaje zasady wyłącznika. Dalsze zewnętrznych żądania są blokowane przez 30 sekund, jeśli pięć nieudanych prób występują po kolei. Wyłącznik zasady są stanowe. Wszystkie połączenia za pośrednictwem tego klienta współużytkować ten sam stan obwodu.
+W poprzednim przykładzie dodawane są dwa programy obsługi. Pierwsze używa rozszerzenia, `AddTransientHttpErrorPolicy` aby dodać zasady ponawiania. Nieudane żądania są ponawiane do trzech razy. Drugie wywołanie `AddTransientHttpErrorPolicy` dodaje zasady wyłącznika. Dalsze żądania zewnętrzne są blokowane przez 30 sekund, jeśli pięć nieudanych prób wystąpi sekwencyjnie. Zasady wyłącznika są stanowe. Wszystkie wywołania przez tego klienta współdzielą ten sam stan obwodu.
 
 ### <a name="add-policies-from-the-polly-registry"></a>Dodawanie zasad z rejestru Polly
 
-Podejście do zarządzania zasadami regularnie używane dotyczy je jeden raz zdefiniować i zarejestrować ich za pomocą `PolicyRegistry`. Metody rozszerzenia jest pod warunkiem, co pozwala program obsługi ma zostać dodana za pomocą zasad z rejestru:
+Podejście do zarządzania regularnie używanymi zasadami polega na ich definiowaniu i zarejestrowaniu za `PolicyRegistry`pomocą. Zapewniana jest metoda rozszerzająca, która umożliwia dodanie programu obsługi przy użyciu zasad z rejestru:
 
-[!code-csharp[Main](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet10)]
+[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet10)]
 
-W poprzednim kodzie dwie zasady są rejestrowane podczas `PolicyRegistry` jest dodawany do `ServiceCollection`. Aby użyć zasad z rejestru, `AddPolicyHandlerFromRegistry` metoda jest używana nazwa zasady do zastosowania.
+W poprzednim kodzie dwie zasady są rejestrowane po `PolicyRegistry` dodaniu `ServiceCollection`do. Aby użyć zasad z rejestru, `AddPolicyHandlerFromRegistry` Metoda jest używana, przekazując nazwę zasad do zastosowania.
 
-Więcej informacji o `IHttpClientFactory` Polly integracji można znaleźć na [Polly wiki](https://github.com/App-vNext/Polly/wiki/Polly-and-HttpClientFactory).
+Więcej informacji na `IHttpClientFactory` temat integracji z programem i Polly można znaleźć w witrynie [typu wiki Polly](https://github.com/App-vNext/Polly/wiki/Polly-and-HttpClientFactory).
 
-## <a name="httpclient-and-lifetime-management"></a>Zarządzanie HttpClient i okresu istnienia
+## <a name="httpclient-and-lifetime-management"></a>HttpClient i zarządzanie okresem istnienia
 
-Nowy `HttpClient` wystąpienie jest zwracane każdorazowo `CreateClient` jest wywoływana w `IHttpClientFactory`. Brak <xref:System.Net.Http.HttpMessageHandler> na klienta o nazwie. Fabryka zarządza okresy istnienia `HttpMessageHandler` wystąpień.
+Nowe `HttpClient` wystąpienie jest zwracane za każdym razem `CreateClient` , `IHttpClientFactory`gdy jest wywoływana w. <xref:System.Net.Http.HttpMessageHandler> Istnieje za nazwany klient. Fabryka zarządza okresami istnienia `HttpMessageHandler` wystąpień.
 
-`IHttpClientFactory` pule `HttpMessageHandler` wystąpienia utworzone przez fabryki, aby zmniejszyć wykorzystanie zasobów. `HttpMessageHandler` Wystąpienia może być ponownie używane z puli podczas tworzenia nowego `HttpClient` wystąpienia, jeśli nie upłynął jego okres istnienia.
+`IHttpClientFactory``HttpMessageHandler` pule wystąpień tworzonych przez fabrykę w celu zmniejszenia zużycia zasobów. Wystąpienie może być ponownie używane z puli podczas tworzenia nowego `HttpClient` wystąpienia, jeśli jego okres istnienia nie wygasł. `HttpMessageHandler`
 
-Buforowanie obsługi jest pożądane, ponieważ każdy program obsługi zwykle zarządza własną bazowego połączeń HTTP. Tworzenie więcej obsługi niż jest to konieczne może spowodować opóźnienia w połączeniu. Niektóre procedury obsługi również nie zamykaj połączeń przez czas nieokreślony, co może uniemożliwić obsługi reagowanie na zmiany DNS.
+Buforowanie programów obsługi jest pożądane, ponieważ każdy program obsługi zazwyczaj zarządza własnymi połączeniami HTTP. Utworzenie większej liczby programów obsługi niż to konieczne może skutkować opóźnieniami połączeń. Niektóre programy obsługi powodują również, że połączenia są otwarte w nieskończoność, co może uniemożliwić obsłużenie zmian DNS przez program obsługi.
 
-Domyślny okres istnienia obsługi wynosi dwie minuty. Wartość domyślna może zostać zastąpiona przez poszczególnych klientów o nazwie. Aby zastąpić go, należy wywołać <xref:Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions.SetHandlerLifetime*> na `IHttpClientBuilder` , jest zwracana podczas tworzenia klienta:
+Domyślny okres istnienia programu obsługi wynosi dwie minuty. Wartość domyślną można przesłonić na podstawie nazwy klienta. Aby zastąpić ten element, <xref:Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions.SetHandlerLifetime*> Wywołaj `IHttpClientBuilder` metodę zwracaną podczas tworzenia klienta:
 
-[!code-csharp[Main](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet11)]
+[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet11)]
 
-Usuwanie klienta nie jest wymagana. Usuwanie anuluje wychodzących żądań i gwarancje danego `HttpClient` wystąpienia nie można używać po wywołaniu <xref:System.IDisposable.Dispose*>. `IHttpClientFactory` śledzi i usuwa zasoby używane przez `HttpClient` wystąpień. `HttpClient` Wystąpień ogólnie można traktować jako obiektów platformy .NET nie wymaga usunięcia.
+Usuwanie klienta nie jest wymagane. Likwidacja anuluje żądania wychodzące i `HttpClient` gwarantuje, że danego wystąpienia nie <xref:System.IDisposable.Dispose*>można użyć po wywołaniu. `IHttpClientFactory`śledzi i usuwa zasoby używane przez `HttpClient` wystąpienia. `HttpClient` Wystąpienia mogą być zwykle traktowane jako obiekty .NET, które nie wymagają usuwania.
 
-Utrzymywanie pojedynczej `HttpClient` wystąpienie aktywności przez długi czas jest typowy wzorzec używany przed powstania `IHttpClientFactory`. Ten wzorzec staje się niepotrzebne po przeprowadzeniu migracji do `IHttpClientFactory`.
+Utrzymywanie pojedynczego `HttpClient` wystąpienia aktywności przez długi czas jest typowym wzorcem używanym przed rozpoczęciem `IHttpClientFactory`. Ten wzorzec będzie niepotrzebny po `IHttpClientFactory`migracji do programu.
 
 ## <a name="logging"></a>Rejestrowanie
 
-Klientów utworzonych za pomocą `IHttpClientFactory` rejestrowania komunikatów dziennika dla wszystkich żądań. Włącz poziom odpowiednie informacje w swojej konfiguracji rejestrowania, aby wyświetlić komunikaty dziennika domyślne. Dodatkowe rejestrowanie, takich jak rejestrowanie nagłówków żądania, jest dostępny tylko na poziom śledzenia.
+Klienci utworzeni `IHttpClientFactory` za pomocą rejestrowania komunikatów dzienników dla wszystkich żądań. Włącz odpowiedni poziom informacji w konfiguracji rejestrowania, aby wyświetlić domyślne komunikaty dziennika. Dodatkowe rejestrowanie, takie jak rejestrowanie nagłówków żądań, jest uwzględniane tylko na poziomie śledzenia.
 
-Kategoria dziennika używane dla każdego klienta zawiera nazwę klienta. Klient o nazwie *MyNamedClient*, na przykład rejestruje komunikaty z kategorii `System.Net.Http.HttpClient.MyNamedClient.LogicalHandler`. Sufiks wiadomości *LogicalHandler* odbywa się poza potoku program obsługi żądania. Na żądanie komunikaty są rejestrowane, zanim innych programów obsługi w potoku zostały przetworzone go. W odpowiedzi komunikaty są rejestrowane po innych obsługi potoku otrzymane odpowiedzi.
+Kategoria dziennika używana dla każdego klienta zawiera nazwę klienta programu. Klient o nazwie *MyNamedClient*, na przykład rejestruje komunikaty z kategorią `System.Net.Http.HttpClient.MyNamedClient.LogicalHandler`. Komunikaty z sufiksem *LogicalHandler* występują poza potokiem obsługi żądań. Na żądanie komunikaty są rejestrowane przed przetworzeniem przez inne procedury obsługi w potoku. W odpowiedzi komunikaty są rejestrowane po odebraniu odpowiedzi przez inne programy obsługi potoków.
 
-Rejestrowanie występuje także w potoku programu obsługi żądania. W *MyNamedClient* przykład te komunikaty są rejestrowane względem kategoria dziennika `System.Net.Http.HttpClient.MyNamedClient.ClientHandler`. Dla żądania dzieje się po wykonaniu innych programów obsługi i od razu, zanim żądanie zostanie wysłane w sieci. W odpowiedzi rejestrowanie obejmuje stan odpowiedzi przed przekazaniem za pośrednictwem potoku programu obsługi.
+Rejestrowanie odbywa się również w potoku obsługi żądania. W przykładzie *MyNamedClient* te komunikaty są rejestrowane w kategorii `System.Net.Http.HttpClient.MyNamedClient.ClientHandler`dzienników. W przypadku żądania dzieje się tak po uruchomieniu wszystkich innych programów obsługi i natychmiast przed wysłaniem żądania w sieci. W odpowiedzi to rejestrowanie obejmuje stan odpowiedzi, zanim przejdzie do powrotem za pomocą potoku programu obsługi.
 
-Włączanie rejestrowania na zewnątrz i wewnątrz potok umożliwia inspekcję zmian wprowadzonych przez inne programy obsługi potoku. Może to obejmować zmiany nagłówki, żądań, na przykład lub kod stanu odpowiedzi.
+Włączenie rejestrowania poza i wewnątrz potoku umożliwia inspekcję zmian wprowadzonych przez inne programy obsługi potoku. Może to obejmować zmiany nagłówków żądań, na przykład lub do kodu stanu odpowiedzi.
 
-W tym nazwa klienta w kategorii dziennika umożliwia dziennika filtrowania dla określonych klientów o nazwie, gdy jest to konieczne.
+Dołączenie nazwy klienta w kategorii dziennika umożliwia filtrowanie dzienników dla określonych nazwanych klientów, jeśli jest to konieczne.
 
-## <a name="configure-the-httpmessagehandler"></a>Klasa HttpMessageHandler skonfigurować
+## <a name="configure-the-httpmessagehandler"></a>Konfigurowanie HttpMessageHandler
 
-Może być konieczne do kontrolowania konfiguracji wewnętrzny `HttpMessageHandler` używany przez klienta.
+Może być konieczne sterowanie konfiguracją wewnętrznej `HttpMessageHandler` używanej przez klienta.
 
-`IHttpClientBuilder` Jest zwracany, podczas dodawania o nazwie lub wpisane klientów. <xref:Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions.ConfigurePrimaryHttpMessageHandler*> — Metoda rozszerzenia może służyć do definiowania delegata. Delegat jest używany do tworzenia i konfigurowania podstawowego `HttpMessageHandler` używane przez tego klienta:
+`IHttpClientBuilder` Jest zwracany podczas dodawania nazwanych lub wpisanych klientów. Metoda <xref:Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions.ConfigurePrimaryHttpMessageHandler*> rozszerzająca może służyć do definiowania delegata. Delegat służy do tworzenia i konfigurowania głównej `HttpMessageHandler` używanej przez tego klienta:
 
-[!code-csharp[Main](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet12)]
+[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet12)]
+
+## <a name="use-ihttpclientfactory-in-a-console-app"></a>Korzystanie z IHttpClientFactory w aplikacji konsolowej
+
+W aplikacji konsoli Dodaj następujące odwołania do pakietu do projektu:
+
+* [Microsoft. Extensions. hosting](https://www.nuget.org/packages/Microsoft.Extensions.Hosting)
+* [Microsoft. Extensions. http](https://www.nuget.org/packages/Microsoft.Extensions.Http)
+
+W poniższym przykładzie:
+
+* <xref:System.Net.Http.IHttpClientFactory>jest zarejestrowany w kontenerze usługi [hosta ogólnego](xref:fundamentals/host/generic-host) .
+* `MyService`tworzy wystąpienie fabryki klienta na podstawie usługi, która jest używana do tworzenia `HttpClient`. `HttpClient`służy do pobierania strony sieci Web.
+* `Main`tworzy zakres do wykonania `GetPage` metody usługi i zapisuje pierwsze 500 znaków zawartości strony sieci Web w konsoli programu.
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](http-requests/samples/3.x/HttpClientFactoryConsoleSample/Program.cs?highlight=14-15,20,26-27,59-62)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+[!code-csharp[](http-requests/samples/2.x/HttpClientFactoryConsoleSample/Program.cs?highlight=14-15,20,26-27,59-62)]
+
+::: moniker-end
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Używanie elementu HttpClientFactory do implementowania odpornych na błędy żądań HTTP](/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests)
-* [Implementowanie ponownych prób wywołania HTTP z wykorzystaniem wykładniczego wycofywania z zasadami dotyczącymi HttpClientFactory i Polly](/dotnet/standard/microservices-architecture/implement-resilient-applications/implement-http-call-retries-exponential-backoff-polly)
+* [Zaimplementuj ponowne próby wywołania HTTP przy użyciu wykładniczej wycofywania z zasadami HttpClientFactory i Polly](/dotnet/standard/microservices-architecture/implement-resilient-applications/implement-http-call-retries-exponential-backoff-polly)
 * [Implementowanie wzorca wyłącznika](/dotnet/standard/microservices-architecture/implement-resilient-applications/implement-circuit-breaker-pattern)
