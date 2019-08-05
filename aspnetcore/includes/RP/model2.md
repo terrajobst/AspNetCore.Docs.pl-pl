@@ -18,18 +18,19 @@ Dodaj parametry połączenia do pliku *appSettings. JSON* , jak pokazano w nast�
 
 [!code-json[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie30/appsettings_SQLite.json?highlight=10-12)]
 
-### <a name="add-required-nuget-packages"></a>Dodaj wymagane pakiety NuGet
+### <a name="add-nuget-packages-and-ef-tools"></a>Dodawanie pakietów NuGet i narzędzi EF
 
-Otwórz Terminal dla projektu RazorPagesMovie.  Kliknij prawym przyciskiem myszy nazwę projektu na pasku projektowania/układu i przejdź do pozycji **narzędzia > Otwórz** w terminalu. Uruchom następujące polecenia interfejs wiersza polecenia platformy .NET Core w tym czasie. Polecenia dodają oprogramowania SQLite, Entity Framework Core i CodeGeneration. Design do projektu:
+Otwórz Terminal dla projektu RazorPagesMovie.  Kliknij prawym przyciskiem myszy nazwę projektu na pasku projektowania/układu i przejdź do pozycji **narzędzia > Otwórz** w terminalu. Uruchom następujące polecenia interfejs wiersza polecenia platformy .NET Core w tym czasie:
 
 ```console
+dotnet tool install --global dotnet-ef --version 3.0.0-*
 dotnet add package Microsoft.EntityFrameworkCore.SQLite --version 3.0.0-*
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 3.0.0-*
 dotnet add package Microsoft.EntityFrameworkCore.Design --version 3.0.0-*
 dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 3.0.0-*
 ```
 
-`Microsoft.VisualStudio.Web.CodeGeneration.Design` Pakiet jest wymagany do tworzenia szkieletów.
+Powyższe polecenia umożliwiają dodanie Entity Framework Core narzędzi dla interfejsu wiersza polecenia platformy .NET i kilku pakietów do projektu. `Microsoft.VisualStudio.Web.CodeGeneration.Design` Pakiet jest wymagany do tworzenia szkieletów.
 
 <a name="reg"></a>
 

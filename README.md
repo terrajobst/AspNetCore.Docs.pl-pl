@@ -1,12 +1,12 @@
-# <a name="aspnet-core-docs"></a>ASP.NET Core Docs
+# <a name="aspnet-core-docs"></a>Dokumentacja ASP.NET Core
 
-To repozytorium zawiera koncepcyjny dokumentacji platformy ASP.NET Core obsługiwana w [docs.microsoft.com/aspnet](https://docs.microsoft.com/aspnet). Zobacz [współtworzenia przewodnik](CONTRIBUTING.md) i [listę problemów](https://github.com/aspnet/Docs/issues) Jeśli chcesz pomóc w.
+To repozytorium zawiera dokumentację ASP.NET Core koncepcyjnych hostowaną w [docs.Microsoft.com/ASPNET/Core](https://docs.microsoft.com/aspnet/core). Aby uzyskać pomoc, zobacz [Przewodnik dotyczący](CONTRIBUTING.md) współtworzenia i [Lista problemów](https://github.com/aspnet/Docs/issues) .
 
-Należy wprowadzić zmiany dokumentacji interfejsu API w [repozytorium ApiDocs](https://github.com/aspnet/ApiDocs) względem Potrójna kreska ułamkowa `///` komentarzy.
+Zmiany dokumentacji interfejsu API należy wprowadzać w [repozytorium ApiDocs](https://github.com/aspnet/ApiDocs) na komentarze z potrójnym `///` ukośnikiem.
 
-Zmiany w programie ASP.NET 4.x dokumentacji należy wprowadzać w [repozytorium aspnet/AspNetDocs](https://github.com/aspnet/AspNetDocs).
+Zmiany dokumentacji programu ASP.NET 4. x należy wprowadzać w [repozytorium ASPNET/AspNetDocs](https://github.com/aspnet/AspNetDocs).
 
-## <a name="microsoft-open-source-code-of-conduct"></a>Microsoft Open źródła Kodeks postępowania
+## <a name="microsoft-open-source-code-of-conduct"></a>Kod postępowania firmy Microsoft typu open source
 
-Ten projekt przyjęła [Otwórz źródło Kodeks postępowania firmy Microsoft](https://opensource.microsoft.com/codeofconduct/).
-Aby uzyskać więcej informacji, zobacz [kodu postępowania FAQ](https://opensource.microsoft.com/codeofconduct/faq/) lub skontaktuj się z [ opencode@microsoft.com ](mailto:opencode@microsoft.com) z jakichkolwiek dodatkowych pytań lub komentarzy.
+W tym projekcie przyjęto [Kodeks postępowania firmy Microsoft typu open source](https://opensource.microsoft.com/codeofconduct/).
+Aby uzyskać więcej informacji, zobacz [Kodeks postępowania — często zadawane pytania](https://opensource.microsoft.com/codeofconduct/faq/) lub skontaktuj się [opencode@microsoft.com](mailto:opencode@microsoft.com) z wszelkimi dodatkowymi pytaniami lub komentarzami.

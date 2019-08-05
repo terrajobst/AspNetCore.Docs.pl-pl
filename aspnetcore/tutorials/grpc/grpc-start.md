@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 06/12/2019
 uid: tutorials/grpc/grpc-start
-ms.openlocfilehash: 3e90e3b17186757fe157fb6641888786bb7a0df2
-ms.sourcegitcommit: f30b18442ed12831c7e86b0db249183ccd749f59
+ms.openlocfilehash: 6a3a7446a488ef54d99d6c7605980c18890b9ad0
+ms.sourcegitcommit: 4fe3ae892f54dc540859bff78741a28c2daa9a38
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68412523"
+ms.lasthandoff: 08/04/2019
+ms.locfileid: "68776641"
 ---
 # <a name="tutorial-create-a-grpc-client-and-server-in-aspnet-core"></a>Samouczek: Utwórz klienta i serwer gRPC w ASP.NET Core
 
@@ -71,8 +71,8 @@ W tym samouczku przedstawiono następujące instrukcje:
   code -r GrpcGreeter
   ```
 
-  * Polecenie tworzy nową usługę gRPC w folderze GrpcGreeter.  `dotnet new`
-  * Polecenie otwiera folder GrpcGreeter w nowym wystąpieniu Visual Studio Code.  `code`
+  * Polecenie tworzy nową usługę gRPC w folderze GrpcGreeter. `dotnet new`
+  * Polecenie otwiera folder GrpcGreeter w nowym wystąpieniu Visual Studio Code. `code`
 
   Zostanie wyświetlone okno dialogowe z **wymaganymi zasobami do kompilowania i debugowania brakuje w "GrpcGreeter". Dodać je?**
 * Wybierz opcję **tak**
@@ -192,8 +192,8 @@ Install-Package Grpc.Tools
 
 * Kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań** > **Zarządzanie pakietami NuGet**
 * Wybierz kartę **przeglądanie** .
-* W polu wyszukiwania wprowadź **GRPC. Core** .
-* Wybierz pakiet **GRPC. Core** z karty **Przeglądaj** i wybierz pozycję **Zainstaluj**.
+* W polu wyszukiwania wprowadź **GRPC .NET. Client** .
+* Wybierz pakiet **GRPC .NET. Client** z karty **Przeglądaj** i wybierz pozycję **Zainstaluj**.
 * Powtórz dla `Google.Protobuf` i `Grpc.Tools`.
 
 ### <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
@@ -269,7 +269,7 @@ Klient Greeter wywołuje metodę asynchroniczną `SayHello` . Zostanie wyświetl
 ### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * W usłudze Greeter naciśnij klawisz `Ctrl+F5` , aby uruchomić serwer bez debugera.
-* W projekcie naciśnij klawisz `Ctrl+F5` , aby uruchomić serwer bez debugera. `GrpcGreeterClient`
+* W projekcie naciśnij klawisz `Ctrl+F5` , aby uruchomić klienta bez debugera. `GrpcGreeterClient`
 
 ### <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
 

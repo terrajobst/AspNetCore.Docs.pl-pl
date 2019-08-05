@@ -6,12 +6,12 @@ ms.author: riande
 ms.date: 12/18/2018
 ms.custom: mvc, seodec18
 uid: security/authorization/secure-data
-ms.openlocfilehash: 222ae1d6212b838e5c70f831960fa23a9924a0ae
-ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
+ms.openlocfilehash: 4b94cc53777308deb26521a079d8a1c2742744db
+ms.sourcegitcommit: 4fe3ae892f54dc540859bff78741a28c2daa9a38
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67856139"
+ms.lasthandoff: 08/04/2019
+ms.locfileid: "68776743"
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Tworzenie aplikacji platformy ASP.NET Core przy użyciu danych użytkownika chronionych przez autoryzację
 
@@ -37,13 +37,13 @@ W tym samouczku pokazano, jak utworzyć aplikację sieci web platformy ASP.NET C
 * **Menedżerowie** można zatwierdzić lub odrzucić dane kontaktowe. Tylko zatwierdzone kontakty będą widoczne dla użytkowników.
 * **Administratorzy** można zatwierdzić/Odrzuć i edytowanie/usuwanie żadnych danych.
 
-Obrazy w tym dokumencie nie pasować najnowsze szablony.
+Obrazy w tym dokumencie dokładnie nie pasują do najnowszych szablonów.
 
 Na poniższej ilustracji użytkownik Rick (`rick@example.com`) jest zalogowany. Rick mogą jedynie wyświetlać kontakty zatwierdzone i **Edytuj**/**Usuń**/**Utwórz nowy** linki do swoich kontaktów. Tylko ostatni rekord, utworzone przez Rick, wyświetla **Edytuj** i **Usuń** łącza. Inni użytkownicy nie zobaczą ostatni rekord, aż Menedżer lub administrator zmienia stan na "Zatwierdzone".
 
 ![Zrzut ekranu przedstawiający Rick zalogowany](secure-data/_static/rick.png)
 
-Na poniższej ilustracji `manager@contoso.com` jest zarejestrowany i w roli programu manager:
+Na poniższej ilustracji `manager@contoso.com` jest zalogowany i w roli menedżera:
 
 ![Zrzut ekranu przedstawiający manager@contoso.com zalogowany](secure-data/_static/manager1.png)
 
@@ -53,7 +53,7 @@ Na poniższej ilustracji przedstawiono menedżerów widoku szczegółów kontakt
 
 **Zatwierdź** i **Odrzuć** przyciski są wyświetlane tylko dla menedżerów i administratorów.
 
-Na poniższej ilustracji `admin@contoso.com` jest zarejestrowany i w roli administratora:
+Na poniższej ilustracji `admin@contoso.com` jest zalogowany i w roli administratora:
 
 ![Zrzut ekranu przedstawiający admin@contoso.com zalogowany](secure-data/_static/admin.png)
 
@@ -65,9 +65,9 @@ Aplikacja została utworzona przez [tworzenia szkieletów](xref:tutorials/first-
 
 Przykład zawiera poniższe obsługi autoryzacji:
 
-* `ContactIsOwnerAuthorizationHandler`: Zapewnia, że użytkownika można edytować tylko swoje dane.
-* `ContactManagerAuthorizationHandler`: Umożliwia menedżerom zatwierdzić lub odrzucić kontaktów.
-* `ContactAdministratorsAuthorizationHandler`: Umożliwia administratorom, aby zatwierdzić lub odrzucić kontakty i edytowanie/usuwanie kontaktów.
+* `ContactIsOwnerAuthorizationHandler`: Zapewnia, że użytkownik może edytować tylko swoje dane.
+* `ContactManagerAuthorizationHandler`: Umożliwia menedżerom zatwierdzanie lub odrzucanie kontaktów.
+* `ContactAdministratorsAuthorizationHandler`: Umożliwia administratorom zatwierdzanie lub odrzucanie kontaktów oraz Edytowanie/usuwanie kontaktów.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -122,7 +122,7 @@ Ustaw domyślne zasady uwierzytelniania, aby wymagać od użytkowników uwierzyt
 
  Użytkownik może zrezygnować z uwierzytelniania na poziomie metody strony Razor, kontrolera lub akcji z `[AllowAnonymous]` atrybutu. Ustawienie domyślne zasady uwierzytelniania, aby wymagać od użytkowników uwierzytelniania chroni nowo dodanych stronami Razor i kontrolerów. Posiadanie uwierzytelniania domyślnie wymagane jest bezpieczniejszy niż opierając się na nowych kontrolerów i stron Razor do uwzględnienia `[Authorize]` atrybutu.
 
-Dodaj [AllowAnonymous](/dotnet/api/microsoft.aspnetcore.authorization.allowanonymousattribute) do strony indeksu i ochrony prywatności, użytkowników anonimowych można uzyskać informacji o lokacji, przed ich zarejestrowania.
+Dodaj [AllowAnonymous](/dotnet/api/microsoft.aspnetcore.authorization.allowanonymousattribute) do stron indeksu i prywatności, aby użytkownicy anonimowi mogli uzyskać informacje o witrynie przed ich zarejestrowaniem.
 
 [!code-csharp[](secure-data/samples/final3/Pages/Index.cshtml.cs?highlight=1,7)]
 
@@ -159,7 +159,7 @@ Tworzenie `ContactIsOwnerAuthorizationHandler` klasy w *autoryzacji* folderu. `C
 `ContactIsOwnerAuthorizationHandler` Wywołania [kontekstu. Powodzenie](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandlercontext.succeed#Microsoft_AspNetCore_Authorization_AuthorizationHandlerContext_Succeed_Microsoft_AspNetCore_Authorization_IAuthorizationRequirement_) aktualnego użytkownika uwierzytelnionego jest skontaktuj się z właścicielem. Programy obsługi autoryzacji zazwyczaj:
 
 * Zwróć `context.Succeed` gdy spełniono wymagania.
-* Zwróć `Task.CompletedTask` gdy nie są spełnione wymagania. `Task.CompletedTask` nie jest powodzenie lub niepowodzenie&mdash;umożliwia innych programów obsługi autoryzacji uruchomić.
+* Zwróć `Task.CompletedTask` gdy nie są spełnione wymagania. `Task.CompletedTask`nie powiodło się lub&mdash;niepowodzenie — zezwala na uruchamianie innych programów obsługi autoryzacji.
 
 Jeśli potrzebujesz jawnie nie powiedzie się, zwraca [kontekstu. Niepowodzenie](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandlercontext.fail).
 
@@ -242,7 +242,7 @@ Aktualizowanie modelu strony delete na potrzeby obsługi autoryzacji upewnij si�
 
 Obecnie pokazuje interfejsu użytkownika edytowania i usuwania łącza kontaktów, do których użytkownik nie może modyfikować.
 
-Wstrzykiwanie usługi autoryzacji w *Pages/_ViewImports.cshtml* pliku, dzięki czemu są one dostępne dla wszystkich widoków:
+Wsuń usługę autoryzacji w pliku *Pages/_ViewImports. cshtml* , aby była dostępna dla wszystkich widoków:
 
 [!code-cshtml[](secure-data/samples/final3/Pages/_ViewImports.cshtml?highlight=6-99)]
 
@@ -269,14 +269,14 @@ Aktualizowanie modelu strony szczegółów:
 
 Zobacz [ten problem](https://github.com/aspnet/AspNetCore.Docs/issues/8502) uzyskać informacji na temat:
 
-* Usuwanie uprawnień z użytkownikiem. Na przykład wyciszanie użytkownika w aplikacji do rozmów.
+* Usuwanie uprawnień z użytkownikiem. Na przykład wyciszenie użytkownika w aplikacji czatu.
 * Dodawanie uprawnień dla użytkownika.
 
 ## <a name="test-the-completed-app"></a>Testowanie aplikacji ukończone
 
 Jeśli nie został jeszcze ustawiony hasła dla kont użytkowników wypełnionych, użyj [narzędzie Menedżer klucz tajny](xref:security/app-secrets#secret-manager) ustawić hasło:
 
-* Wybierz silne hasło: Użyj ośmiu lub więcej znaków i co najmniej jeden znak wielkie litery, numer i symboli. Na przykład `Passw0rd!` spełnia wymagania silne hasło.
+* Wybierz silne hasło: Użyj ośmiu lub więcej znaków i co najmniej jednego znaku wielkie litery, cyfry i symbolu. Na przykład `Passw0rd!` spełnia wymagania silne hasło.
 * Wykonaj następujące polecenie z folderu projektu, gdzie `<PW>` jest hasłem:
 
   ```console
@@ -314,7 +314,7 @@ Utwórz kontakt w przeglądarce administratora. Skopiuj adres URL do usunięcia,
   dotnet new webapp -o ContactManager -au Individual -uld
   ```
 
-* Dodaj *Models/Contact.cs*:
+* Dodaj *modele/Contact. cs*:
 
   [!code-csharp[](secure-data/samples/starter2.1/Models/Contact.cs?name=snippet1)]
 
@@ -330,9 +330,9 @@ dotnet ef migrations add initial
 dotnet ef database update
   ```
 
-Jeśli wystąpią usterki, przy użyciu `dotnet aspnet-codegenerator razorpage` polecenia, zobacz [problem w usłudze GitHub](https://github.com/aspnet/Scaffolding/issues/984).
+Jeśli wystąpi usterka z `dotnet aspnet-codegenerator razorpage` poleceniem, zobacz [ten problem](https://github.com/aspnet/Scaffolding/issues/984)w usłudze GitHub.
 
-* Aktualizacja **ContactManager** zakotwiczenia w *Pages/Shared/_Layout.cshtml* pliku:
+* Zaktualizuj kotwicę **ContactManager** w pliku *Pages/Shared/_Layout. cshtml* :
 
  ```cshtml
 <a class="navbar-brand" asp-area="" asp-page="/Contacts/Index">ContactManager</a>
@@ -342,7 +342,7 @@ Jeśli wystąpią usterki, przy użyciu `dotnet aspnet-codegenerator razorpage` 
 
 ### <a name="seed-the-database"></a>Inicjowanie bazy danych
 
-Dodaj [SeedData](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter3/Data/SeedData.cs) klasy *danych* folderu:
+Dodaj klasę [SeedData](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter3/Data/SeedData.cs) do folderu *danych* :
 
 [!code-csharp[](secure-data/samples/starter3/Data/SeedData.cs)]
 
@@ -366,7 +366,7 @@ Na poniższej ilustracji użytkownik Rick (`rick@example.com`) jest zalogowany. 
 
 ![Zrzut ekranu przedstawiający Rick zalogowany](secure-data/_static/rick.png)
 
-Na poniższej ilustracji `manager@contoso.com` jest zarejestrowany i w roli programu manager:
+Na poniższej ilustracji `manager@contoso.com` jest zalogowany i w roli menedżera:
 
 ![Zrzut ekranu przedstawiający manager@contoso.com zalogowany](secure-data/_static/manager1.png)
 
@@ -376,7 +376,7 @@ Na poniższej ilustracji przedstawiono menedżerów widoku szczegółów kontakt
 
 **Zatwierdź** i **Odrzuć** przyciski są wyświetlane tylko dla menedżerów i administratorów.
 
-Na poniższej ilustracji `admin@contoso.com` jest zarejestrowany i w roli administratora:
+Na poniższej ilustracji `admin@contoso.com` jest zalogowany i w roli administratora:
 
 ![Zrzut ekranu przedstawiający admin@contoso.com zalogowany](secure-data/_static/admin.png)
 
@@ -388,9 +388,9 @@ Aplikacja została utworzona przez [tworzenia szkieletów](xref:tutorials/first-
 
 Przykład zawiera poniższe obsługi autoryzacji:
 
-* `ContactIsOwnerAuthorizationHandler`: Zapewnia, że użytkownika można edytować tylko swoje dane.
-* `ContactManagerAuthorizationHandler`: Umożliwia menedżerom zatwierdzić lub odrzucić kontaktów.
-* `ContactAdministratorsAuthorizationHandler`: Umożliwia administratorom, aby zatwierdzić lub odrzucić kontakty i edytowanie/usuwanie kontaktów.
+* `ContactIsOwnerAuthorizationHandler`: Zapewnia, że użytkownik może edytować tylko swoje dane.
+* `ContactManagerAuthorizationHandler`: Umożliwia menedżerom zatwierdzanie lub odrzucanie kontaktów.
+* `ContactAdministratorsAuthorizationHandler`: Umożliwia administratorom zatwierdzanie lub odrzucanie kontaktów oraz Edytowanie/usuwanie kontaktów.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -482,7 +482,7 @@ Tworzenie `ContactIsOwnerAuthorizationHandler` klasy w *autoryzacji* folderu. `C
 `ContactIsOwnerAuthorizationHandler` Wywołania [kontekstu. Powodzenie](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandlercontext.succeed#Microsoft_AspNetCore_Authorization_AuthorizationHandlerContext_Succeed_Microsoft_AspNetCore_Authorization_IAuthorizationRequirement_) aktualnego użytkownika uwierzytelnionego jest skontaktuj się z właścicielem. Programy obsługi autoryzacji zazwyczaj:
 
 * Zwróć `context.Succeed` gdy spełniono wymagania.
-* Zwróć `Task.CompletedTask` gdy nie są spełnione wymagania. `Task.CompletedTask` nie jest powodzenie lub niepowodzenie&mdash;umożliwia innych programów obsługi autoryzacji uruchomić.
+* Zwróć `Task.CompletedTask` gdy nie są spełnione wymagania. `Task.CompletedTask`nie powiodło się lub&mdash;niepowodzenie — zezwala na uruchamianie innych programów obsługi autoryzacji.
 
 Jeśli potrzebujesz jawnie nie powiedzie się, zwraca [kontekstu. Niepowodzenie](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandlercontext.fail).
 
@@ -592,25 +592,26 @@ Aktualizowanie modelu strony szczegółów:
 
 Zobacz [ten problem](https://github.com/aspnet/AspNetCore.Docs/issues/8502) uzyskać informacji na temat:
 
-* Usuwanie uprawnień z użytkownikiem. Na przykład wyciszanie użytkownika w aplikacji do rozmów.
+* Usuwanie uprawnień z użytkownikiem. Na przykład wyciszenie użytkownika w aplikacji czatu.
 * Dodawanie uprawnień dla użytkownika.
 
 ## <a name="test-the-completed-app"></a>Testowanie aplikacji ukończone
 
 Jeśli nie został jeszcze ustawiony hasła dla kont użytkowników wypełnionych, użyj [narzędzie Menedżer klucz tajny](xref:security/app-secrets#secret-manager) ustawić hasło:
 
-* Wybierz silne hasło: Użyj ośmiu lub więcej znaków i co najmniej jeden znak wielkie litery, numer i symboli. Na przykład `Passw0rd!` spełnia wymagania silne hasło.
+* Wybierz silne hasło: Użyj ośmiu lub więcej znaków i co najmniej jednego znaku wielkie litery, cyfry i symbolu. Na przykład `Passw0rd!` spełnia wymagania silne hasło.
 * Wykonaj następujące polecenie z folderu projektu, gdzie `<PW>` jest hasłem:
 
   ```console
   dotnet user-secrets set SeedUserPW <PW>
   ```
 
-* Porzuć i aktualizują bazę danych
+* Porzuć i zaktualizuj bazę danych
+
     ```console
      dotnet ef database drop -f
      dotnet ef database update  
-```
+     ```
 
 * Ponowne uruchomienie aplikacji w celu umieszczenia bazy danych.
 
@@ -640,7 +641,7 @@ Utwórz kontakt w przeglądarce administratora. Skopiuj adres URL do usunięcia,
   dotnet new webapp -o ContactManager -au Individual -uld
   ```
 
-* Dodaj *Models/Contact.cs*:
+* Dodaj *modele/Contact. cs*:
 
   [!code-csharp[](secure-data/samples/starter2.1/Models/Contact.cs?name=snippet1)]
 

@@ -5,12 +5,12 @@ description: Dowiedz się, jak można dodać klas związanych z zarządzaniem fi
 ms.author: riande
 ms.date: 07/22/2019
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: b7f77cfa51f8d86504939e31eade0dfda8a6b1c9
-ms.sourcegitcommit: 849af69ee3c94cdb9fd8fa1f1bb8f5a5dda7b9eb
+ms.openlocfilehash: 1c944a10ced7219aa9b0635b822f27081c92995f
+ms.sourcegitcommit: 4fe3ae892f54dc540859bff78741a28c2daa9a38
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371917"
+ms.lasthandoff: 08/04/2019
+ms.locfileid: "68776732"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Dodawanie modelu strony Razor aplikacji w programie ASP.NET Core
 
@@ -99,7 +99,7 @@ Wykonaj **dodać strony Razor za pomocą programu Entity Framework (CRUD)** okno
 * Zainstaluj narzędzia do tworzenia szkieletów:
 
   ```console
-   dotnet tool install --global dotnet-aspnet-codegenerator
+   dotnet tool install --global dotnet-aspnet-codegenerator --version 3.0.0-*
    ```
 
 * **Dla systemu Windows**: Uruchom następujące polecenie:
@@ -122,7 +122,7 @@ Wykonaj **dodać strony Razor za pomocą programu Entity Framework (CRUD)** okno
 * Zainstaluj narzędzia do tworzenia szkieletów:
 
   ```console
-   dotnet tool install --global dotnet-aspnet-codegenerator
+   dotnet tool install --global dotnet-aspnet-codegenerator --version 3.0.0-*
    ```
 
 * Uruchom następujące polecenie:
