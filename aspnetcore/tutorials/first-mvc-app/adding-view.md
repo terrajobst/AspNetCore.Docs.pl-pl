@@ -3,14 +3,14 @@ title: Dodawanie widoku do aplikacji ASP.NET Core MVC
 author: rick-anderson
 description: Dodawanie widoku do prostej aplikacji ASP.NET Core MVC
 ms.author: riande
-ms.date: 03/04/2017
+ms.date: 8/04/2019
 uid: tutorials/first-mvc-app/adding-view
-ms.openlocfilehash: b6a3b1e673b8b67530b82c7d850e810a6c11e555
-ms.sourcegitcommit: 3204bc89ae6354b61ee0a9b2770ebe5214b7790c
+ms.openlocfilehash: 757e2bd0679c837fff2d9f813395ef24388cc8f5
+ms.sourcegitcommit: b5e63714afc26e94be49a92619586df5189ed93a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707861"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68739594"
 ---
 # <a name="add-a-view-to-an-aspnet-core-mvc-app"></a>Dodawanie widoku do aplikacji ASP.NET Core MVC
 
@@ -66,7 +66,7 @@ Poprzedni kod wywołuje <xref:Microsoft.AspNetCore.Mvc.Controller.View*> metodę
   * Wpisz *index. cshtml* w polu **Nazwa** .
   * Wybierz pozycję **Nowy**.
 
-![Okno dialogowe Dodawanie nowego elementu](adding-view/_static/add_view.png)
+![Okno dialogowe Dodawanie nowego elementu](adding-view/_static/add_view_mac.png)
 
 ---
 
@@ -82,7 +82,7 @@ Przejdź do adresu `https://localhost:xxxx/HelloWorld`. Metoda w niewykonanym st
 
 Wybierz linki menu (**MvcMovie**, **Home**i **privacy**). Każda Strona wyświetla ten sam układ menu. Układ menu jest implementowany w pliku *views/Shared/_Layout. cshtml* . Otwórz plik *views/Shared/_Layout. cshtml* .
 
-Szablony [układów](xref:mvc/views/layout) umożliwiają określenie układu kontenera HTML witryny w jednym miejscu, a następnie zastosowanie go na wielu stronach w witrynie. `@RenderBody()` Znajdź wiersz. `RenderBody`jest symbolem zastępczym *, w* którym wszystkie utworzone strony specyficzne dla widoku są widoczne na stronie układ. Na przykład po wybraniu linku **prywatności** widok **widoki/główna/prywatność. cshtml** jest `RenderBody` renderowany wewnątrz metody.
+Szablony [układów](xref:mvc/views/layout) umożliwiają określenie układu kontenera HTML witryny w jednym miejscu, a następnie zastosowanie go na wielu stronach w witrynie. `@RenderBody()` Znajdź wiersz. `RenderBody`jest symbolem zastępczym, w którym wszystkie utworzone strony specyficzne dla widoku są widoczne na stronie układ. Na przykład po wybraniu linku **prywatności** widok **widoki/główna/prywatność. cshtml** jest `RenderBody` renderowany wewnątrz metody.
 
 ## <a name="change-the-title-footer-and-menu-link-in-the-layout-file"></a>Zmień tytuł, stopkę i łącze menu w pliku układu
 
@@ -239,7 +239,7 @@ Przejdź do adresu `https://localhost:xxxx/HelloWorld`. Metoda w niewykonanym st
 
 Wybierz linki menu (**MvcMovie**, **Home**i **privacy**). Każda Strona wyświetla ten sam układ menu. Układ menu jest implementowany w pliku *views/Shared/_Layout. cshtml* . Otwórz plik *views/Shared/_Layout. cshtml* .
 
-Szablony [układów](xref:mvc/views/layout) umożliwiają określenie układu kontenera HTML witryny w jednym miejscu, a następnie zastosowanie go na wielu stronach w witrynie. `@RenderBody()` Znajdź wiersz. `RenderBody`jest symbolem zastępczym *, w* którym wszystkie utworzone strony specyficzne dla widoku są widoczne na stronie układ. Na przykład po wybraniu linku **prywatności** widok **widoki/główna/prywatność. cshtml** jest `RenderBody` renderowany wewnątrz metody.
+Szablony [układów](xref:mvc/views/layout) umożliwiają określenie układu kontenera HTML witryny w jednym miejscu, a następnie zastosowanie go na wielu stronach w witrynie. `@RenderBody()` Znajdź wiersz. `RenderBody`jest symbolem zastępczym, w którym wszystkie utworzone strony specyficzne dla widoku są widoczne na stronie układ. Na przykład po wybraniu linku **prywatności** widok **widoki/główna/prywatność. cshtml** jest `RenderBody` renderowany wewnątrz metody.
 
 ## <a name="change-the-title-footer-and-menu-link-in-the-layout-file"></a>Zmień tytuł, stopkę i łącze menu w pliku układu
 

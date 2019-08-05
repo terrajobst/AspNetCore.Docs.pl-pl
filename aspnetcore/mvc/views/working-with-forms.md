@@ -1,45 +1,45 @@
 ---
-title: Pomocnicy tagów w formularzach w programie ASP.NET Core
+title: Pomocnicy tagów w formularzach w ASP.NET Core
 author: rick-anderson
-description: W tym artykule opisano wbudowane pomocników tagów używane w formularzach.
+description: Opisuje wbudowane pomocnicy tagów używane z formularzami.
 ms.author: riande
 ms.custom: mvc
 ms.date: 04/06/2019
 uid: mvc/views/working-with-forms
-ms.openlocfilehash: a07bb4f539c8bd38b08402c598924e14c748921d
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: 43a1c408ff1a03468989e5bb0839ca2cd245082b
+ms.sourcegitcommit: b5e63714afc26e94be49a92619586df5189ed93a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67815234"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68739494"
 ---
-# <a name="tag-helpers-in-forms-in-aspnet-core"></a>Pomocnicy tagów w formularzach w programie ASP.NET Core
+# <a name="tag-helpers-in-forms-in-aspnet-core"></a>Pomocnicy tagów w formularzach w ASP.NET Core
 
-Przez [Rick Anderson](https://twitter.com/RickAndMSFT), [MULLENA N. Taylora](https://github.com/NTaylorMullen), [Dave Paquette](https://twitter.com/Dave_Paquette), i [Jerrie Pelser](https://github.com/jerriep)
+Autor [Rick Anderson](https://twitter.com/RickAndMSFT), [N. Taylor Mullen](https://github.com/NTaylorMullen), [Dave Paquette](https://twitter.com/Dave_Paquette)i [Jerrie Pelser](https://github.com/jerriep)
 
-W tym dokumencie przedstawiono pracy z formularzami i często używane w formularzu elementów HTML. Kod HTML [formularza](https://www.w3.org/TR/html401/interact/forms.html) element udostępnia użycia aplikacji sieci web podstawowego mechanizmu publikować dane do serwera. Większość w tym dokumencie opisano [pomocników tagów](tag-helpers/intro.md) i jak mogą one pomóc produktywną tworzyć niezawodne formularzy HTML. Zalecamy przeczytanie [wprowadzenie do pomocników tagów](tag-helpers/intro.md) przed przeczytaniem tego dokumentu.
+Ten dokument przedstawia pracę z formularzami i elementami HTML często używanymi w formularzu. Element HTML [form](https://www.w3.org/TR/html401/interact/forms.html) zawiera podstawowe mechanizmy aplikacje sieci Web używane do publikowania danych na serwerze. W większości tego dokumentu opisano [pomocników tagów](tag-helpers/intro.md) i sposób, w jaki mogą one pomóc w produktywnym tworzeniu niezawodnych formularzy HTML. Zalecamy zapoznanie [się z wprowadzeniem do pomocników tagów](tag-helpers/intro.md) przed przeczytaniem tego dokumentu.
 
-W wielu przypadkach pomocników HTML zapewnić alternatywne podejście do określonych Pomocnik tagu, ale ważne jest, aby rozpoznać, czy pomocników tagów nie zastąpić pomocników HTML i nie jest pomocnika tagów dla każdego pomocnika kodu HTML. Jeśli istnieje alternatywna pomocnika kodu HTML, jest wymienione.
+W wielu przypadkach pomocników HTML udostępniają alternatywne podejście do osoby pomagającej z określonym znacznikiem, ale ważne jest, aby rozpoznać, że pomocnicy tagów nie zastępują pomocników HTML i nie ma pomocy dla tagów dla każdego pomocnika HTML. Gdy istnieje alternatywa dla pomocnika HTML, jest ona wspomniana.
 
 <a name="my-asp-route-param-ref-label"></a>
 
-## <a name="the-form-tag-helper"></a>Pomocnik tagu formularza
+## <a name="the-form-tag-helper"></a>Pomocnik tagów formularza
 
-[Formularza](https://www.w3.org/TR/html401/interact/forms.html) pomocnika tagów:
+Pomocnik tagu [formularza](https://www.w3.org/TR/html401/interact/forms.html) :
 
-* Generuje kod HTML [ \<formularza >](https://www.w3.org/TR/html401/interact/forms.html) `action` wartość atrybutu dla akcji kontrolera MVC lub nazwanej trasy
+* Generuje formularz HTML [ \<>](https://www.w3.org/TR/html401/interact/forms.html) `action` wartość atrybutu dla akcji kontrolera MVC lub nazwanej trasy
 
-* Generuje ukryty [tokenu weryfikacji żądania](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) celu zapobiegania fałszowaniu żądania między witrynami (gdy jest używane z `[ValidateAntiForgeryToken]` atrybutu w metodzie akcji Post protokołu HTTP)
+* Generuje [token weryfikacji ukrytego żądania](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) , aby zapobiec fałszerstwu żądania między lokacjami (gdy jest `[ValidateAntiForgeryToken]` używany z atrybutem w metodzie akcji post protokołu HTTP).
 
-* Udostępnia `asp-route-<Parameter Name>` atrybutu, gdzie `<Parameter Name>` jest dodawany do wartości trasy. `routeValues` Parametry `Html.BeginForm` i `Html.BeginRouteForm` zapewniają podobne funkcje.
+* Udostępnia atrybut, gdzie `<Parameter Name>` jest dodawany do wartości trasy. `asp-route-<Parameter Name>` Parametry do `Html.BeginForm` i`Html.BeginRouteForm` zapewniają podobną funkcjonalność. `routeValues`
 
-* Ma alternatywa pomocnika kodu HTML `Html.BeginForm` i `Html.BeginRouteForm`
+* Ma alternatywę `Html.BeginForm` pomocnika HTML i`Html.BeginRouteForm`
 
-Przykład:
+Northwind
 
 [!code-HTML[](working-with-forms/sample/final/Views/Demo/RegisterFormOnly.cshtml)]
 
-Pomocnik tagu formularza powyżej generuje poniższy kod HTML:
+Pomocnik tagu formularza powyżej generuje następujący kod HTML:
 
 ```HTML
 <form method="post" action="/Demo/Register">
@@ -48,15 +48,15 @@ Pomocnik tagu formularza powyżej generuje poniższy kod HTML:
 </form>
 ```
 
-Środowisko wykonawcze MVC zgłasza `action` wartość atrybutu z atrybutów Pomocnik tagu formularza `asp-controller` i `asp-action`. Pomocnik tagu formularza również generuje ukryty [tokenu weryfikacji żądania](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) celu zapobiegania fałszowaniu żądania między witrynami (gdy jest używane z `[ValidateAntiForgeryToken]` atrybutu w metodzie akcji Post protokołu HTTP). Ochrona przed fałszerstwem żądań między witrynami czysty formularz HTML jest trudne, Pomocnik tagu formularza udostępnia tę usługę dla Ciebie.
+Środowisko uruchomieniowe MVC generuje `action` wartość atrybutu na podstawie atrybutów `asp-controller` pomocnika tagów i `asp-action`. Pomocnik tagu formularza generuje również [token weryfikacji ukrytego żądania](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) , aby zapobiec fałszerstwu żądania między lokacjami (gdy jest `[ValidateAntiForgeryToken]` używany z atrybutem w metodzie akcji post protokołu HTTP). Ochrona czystej formy HTML z poziomu fałszerstwa żądań między lokacjami jest trudna, ponieważ pomocnik tagów formularza udostępnia tę usługę.
 
-### <a name="using-a-named-route"></a>Korzystanie z nazwanej trasy
+### <a name="using-a-named-route"></a>Używanie nazwanej trasy
 
-`asp-route` Atrybut pomocnika tagów można również wygenerować kod znaczników dla kodu HTML `action` atrybutu. Aplikację przy użyciu [trasy](../../fundamentals/routing.md) o nazwie `register` można użyć następujących znaczników dla strony rejestracji:
+Atrybut pomocnika `action`tagówmoże również generować znaczniki dla atrybutu HTML. `asp-route` Aplikacja o trasie [](../../fundamentals/routing.md) o nazwie `register` może korzystać z następującego znacznika na stronie rejestracji:
 
 [!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterRoute.cshtml)]
 
-Wiele widoków w *widoków/konto* folder (generowane podczas tworzenia nowej aplikacji sieci web za pomocą *indywidualne konta użytkowników*) zawierają [asp trasy returnurl](xref:mvc/views/working-with-forms) atrybutu:
+Wiele widoków w folderze *widoki/konto* (generowane podczas tworzenia nowej aplikacji sieci Web przy użyciu *poszczególnych kont użytkowników*) zawiera atrybut [ASP-Route-ReturnUrl](xref:mvc/views/working-with-forms) :
 
 ```cshtml
 <form asp-controller="Account" asp-action="Login"
@@ -65,29 +65,29 @@ Wiele widoków w *widoków/konto* folder (generowane podczas tworzenia nowej apl
 ```
 
 >[!NOTE]
->Za pomocą wbudowanych szablonów `returnUrl` tylko jest wypełniane automatycznie podczas spróbuj uzyskać dostęp do autoryzowanych zasobów, ale nie uwierzytelniony i autoryzowany. Podczas próby nieautoryzowanego dostępu do oprogramowania pośredniczącego zabezpieczeń przekieruje Cię do strony logowania za pomocą `returnUrl` zestawu.
+>Przy użyciu wbudowanych szablonów `returnUrl` jest wypełniany automatycznie tylko wtedy, gdy użytkownik próbuje uzyskać dostęp do autoryzowanego zasobu, ale nie jest uwierzytelniany ani autoryzowany. W przypadku próby uzyskania nieautoryzowanego dostępu oprogramowanie pośredniczące zabezpieczeń przekierowuje użytkownika do strony logowania z `returnUrl` zestawem.
 
-## <a name="the-form-action-tag-helper"></a>Pomocnik tagu akcji formularza
+## <a name="the-form-action-tag-helper"></a>Pomocnik tagów akcji formularza
 
-Pomocnik tagu akcji formularza generuje `formaction` atrybutu w wygenerowanym `<button ...>` lub `<input type="image" ...>` tagu. `formaction` Atrybut kontroluje, gdzie formularza przesłaniu jego danych. Powiąże [ \<wejściowych >](https://www.w3.org/wiki/HTML/Elements/input) elementów typu `image` i [ \<przycisk >](https://www.w3.org/wiki/HTML/Elements/button) elementów. Pomocnik tagu akcji formularza umożliwia użycie kilku [AnchorTagHelper](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) `asp-` atrybuty można kontrolować, co `formaction` łącze jest generowany dla odpowiedniego elementu.
+Pomocnik tagów akcji formularza generuje `formaction` atrybut dla wygenerowanego `<button ...>` tagu or `<input type="image" ...>` . Atrybut `formaction` określa, w którym formularzu są przesyłane dane. Tworzy powiązanie z [ \<danymi wejściowymi >](https://www.w3.org/wiki/HTML/Elements/input) elementów typu `image` i [ \<Button >](https://www.w3.org/wiki/HTML/Elements/button) . Pomocnik tagów akcji formularza umożliwia użycie kilku atrybutów [AnchorTagHelper](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) `asp-` do kontrolowania tego, jakie `formaction` łącze jest generowane dla odpowiedniego elementu.
 
-Obsługiwane [AnchorTagHelper](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) atrybuty kontrolować wartość `formaction`:
+Obsługiwane atrybuty [AnchorTagHelper](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) do sterowania wartością `formaction`:
 
 |Atrybut|Opis|
 |---|---|
 |[asp-controller](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-controller)|Nazwa kontrolera.|
 |[asp-action](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-action)|Nazwa metody akcji.|
 |[asp-area](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-area)|Nazwa obszaru.|
-|[asp-page](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-page)|Nazwa strony Razor.|
-|[asp-page-handler](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-page-handler)|Nazwa procedury obsługi stron Razor.|
+|[ASP — Strona](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-page)|Nazwa strony Razor.|
+|[asp-page-handler](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-page-handler)|Nazwa programu obsługi stron Razor.|
 |[asp-route](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-route)|Nazwa trasy.|
-|[asp-route-{value}](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-route-value)|Adres URL trasy wartość typu single. Na przykład `asp-route-id="1234"`.|
+|[asp-route-{value}](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-route-value)|Wartość trasy pojedynczego adresu URL. Na przykład `asp-route-id="1234"`.|
 |[asp-all-route-data](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-all-route-data)|Wszystkie wartości trasy.|
-|[asp-fragment](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-fragment)|Fragmentu adresu URL.|
+|[asp-fragment](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-fragment)|Fragment adresu URL.|
 
-### <a name="submit-to-controller-example"></a>Przedstawia przykład kontrolera
+### <a name="submit-to-controller-example"></a>Przykład przesłania do kontrolera
 
-Następujące znaczniki przesyła formularz, aby `Index` akcji `HomeController` po wybraniu danych wejściowych lub przycisk:
+Następujące znaczniki przesłaniają formularz do `Index` `HomeController` akcji, gdy wybrane jest wejście lub przycisk:
 
 ```cshtml
 <form method="post">
@@ -97,7 +97,7 @@ Następujące znaczniki przesyła formularz, aby `Index` akcji `HomeController` 
 </form>
 ```
 
-Poprzednie znaczników generuje następujące HTML:
+Poprzednia Adiustacja generuje następujący kod HTML:
 
 ```html
 <form method="post">
@@ -106,9 +106,9 @@ Poprzednie znaczników generuje następujące HTML:
 </form>
 ```
 
-### <a name="submit-to-page-example"></a>Przedstawia przykład strony
+### <a name="submit-to-page-example"></a>Prześlij do przykładowej strony
 
-Następujące znaczniki przesyła formularz, aby `About` strona Razor:
+Następujący znak przesłania formularz do `About` strony Razor:
 
 ```cshtml
 <form method="post">
@@ -117,7 +117,7 @@ Następujące znaczniki przesyła formularz, aby `About` strona Razor:
 </form>
 ```
 
-Poprzednie znaczników generuje następujące HTML:
+Poprzednia Adiustacja generuje następujący kod HTML:
 
 ```html
 <form method="post">
@@ -126,9 +126,9 @@ Poprzednie znaczników generuje następujące HTML:
 </form>
 ```
 
-### <a name="submit-to-route-example"></a>Przedstawia przykład tras
+### <a name="submit-to-route-example"></a>Prześlij do przykładu trasy
 
-Należy wziąć pod uwagę `/Home/Test` punktu końcowego:
+Rozważ użycie `/Home/Test` punktu końcowego:
 
 ```csharp
 public class HomeController : Controller
@@ -141,7 +141,7 @@ public class HomeController : Controller
 }
 ```
 
-Następujące znaczniki przesyła formularz, aby `/Home/Test` punktu końcowego.
+Poniższe znaczniki przesłaniają formularz do `/Home/Test` punktu końcowego.
 
 ```cshtml
 <form method="post">
@@ -150,7 +150,7 @@ Następujące znaczniki przesyła formularz, aby `/Home/Test` punktu końcowego.
 </form>
 ```
 
-Poprzednie znaczników generuje następujące HTML:
+Poprzednia Adiustacja generuje następujący kod HTML:
 
 ```html
 <form method="post">
@@ -161,7 +161,7 @@ Poprzednie znaczników generuje następujące HTML:
 
 ## <a name="the-input-tag-helper"></a>Pomocnik tagu wejściowego
 
-Wejściowy Pomocnik tagu wiąże HTML [ \<wejściowych >](https://www.w3.org/wiki/HTML/Elements/input) element wyrażenia modelu, w tym widoku razor.
+Pomocnik tagu wejściowego tworzy powiązanie elementu [ \<> danych wejściowych](https://www.w3.org/wiki/HTML/Elements/input) HTML z wyrażeniem modelu w widoku Razor.
 
 Składnia:
 
@@ -171,17 +171,17 @@ Składnia:
 
 Pomocnik tagu wejściowego:
 
-* Generuje `id` i `name` atrybuty kodu HTML nazwa wyrażenia określone w `asp-for` atrybutu. `asp-for="Property1.Property2"` jest odpowiednikiem `m => m.Property1.Property2`. Nazwa wyrażenia jest, do czego służy `asp-for` wartość atrybutu. Zobacz [nazwy wyrażeń](#expression-names) sekcji, aby uzyskać dodatkowe informacje.
+* Generuje atrybuty HTML dla nazwy `asp-for` wyrażenia określonego w atrybucie. `name` `id` `asp-for="Property1.Property2"`jest odpowiednikiem `m => m.Property1.Property2`. Nazwa wyrażenia jest używana jako `asp-for` wartość atrybutu. Aby uzyskać dodatkowe informacje, zobacz sekcję [nazwy wyrażeń](#expression-names) .
 
-* Ustawia kod HTML `type` atrybutu wartości na podstawie typu modelu i [adnotacji danych](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) atrybuty stosowane do właściwości modelu
+* Ustawia wartość atrybutu `type` HTML na podstawie atrybutów typu modelu i [adnotacji danych](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) zastosowanych do właściwości model
 
-* Nie zastępować HTML `type` wartość atrybutu, gdy został określony
+* Nie zastępuje wartości atrybutu `type` HTML, gdy jest określony
 
-* Generuje [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) sprawdzania poprawności atrybutów z [adnotacji danych](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) atrybuty stosowane do właściwości modelu
+* Generuje atrybuty walidacji [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) z atrybutów [adnotacji danych](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) zastosowanych do właściwości modelu
 
-* Ma funkcję pomocnika kodu HTML, nakładają się na `Html.TextBoxFor` i `Html.EditorFor`. Zobacz **alternatywy pomocnika kodu HTML dla danych wejściowych Pomocnik tagu** sekcji, aby uzyskać szczegółowe informacje.
+* Ma funkcję pomocnika HTML, która `Html.TextBoxFor` pokrywa `Html.EditorFor`się z i. Szczegóły można znaleźć w sekcji pomocnik HTML — alternatywy dla **tagów wejściowych** .
 
-* Zapewnia silne wpisywanie. Jeśli nazwa zmiany właściwości, a nie Aktualizuj Pomocnik tagu otrzymasz błąd podobny do następującego:
+* Zapewnia silne wpisywanie. Jeśli nazwa właściwości ulegnie zmianie i nie zostanie zaktualizowany pomocnika tagów, zostanie wyświetlony komunikat o błędzie podobny do następującego:
 
 ```HTML
 An error occurred during the compilation of a resource required to process
@@ -194,36 +194,36 @@ Type expected
  could be found (are you missing a using directive or an assembly reference?)
 ```
 
-`Input` Pomocnik tagu ustawia HTML `type` atrybut oparty na typie .NET. W poniższej tabeli wymieniono niektóre typowe typy .NET i wygenerowany typ HTML (wymienione nie każdy typ .NET).
+Pomocnik tagów ustawia atrybut HTML `type` w oparciu o typ .NET. `Input` W poniższej tabeli wymieniono niektóre typowe typy .NET i wygenerowany typ HTML (nie każdy typ .NET jest wyświetlany).
 
-|Typ architektury .NET|Typ danych wejściowych|
+|Typ .NET|Typ danych wejściowych|
 |---|---|
 |Bool|type="checkbox"|
-|String|type="text"|
-|DataGodzina|type=["datetime-local"](https://developer.mozilla.org/docs/Web/HTML/Element/input/datetime-local)|
+|String|Type = "text"|
+|DataGodzina|Type =["DateTime-local"](https://developer.mozilla.org/docs/Web/HTML/Element/input/datetime-local)|
 |Byte|type="number"|
 |int|type="number"|
-|Pojedynczy Double|type="number"|
+|Pojedyncza, Podwójna|type="number"|
 
-W poniższej tabeli przedstawiono niektóre typowe [adnotacje danych](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) atrybutów, które Pomocnik tagu wejściowego będzie zmapowana do określonych typów wejściowych (nie każdy atrybut weryfikacji znajduje się):
+W poniższej tabeli przedstawiono niektóre typowe atrybuty [adnotacji danych](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) , które pomocnik tagów wejściowych będzie mapowany do określonych typów danych wejściowych (nie każdy atrybut walidacji jest wymieniony):
 
 |Atrybut|Typ danych wejściowych|
 |---|---|
-|[EmailAddress]|type="email"|
+|[EmailAddress]|Type = "e-mail"|
 |[Url]|type="url"|
 |[HiddenInput]|type="hidden"|
-|[Phone]|type="tel"|
+|Połączenia|type="tel"|
 |[DataType(DataType.Password)]|type="password"|
 |[DataType(DataType.Date)]|type="date"|
 |[DataType(DataType.Time)]|type="time"|
 
-Przykład:
+Northwind
 
 [!code-csharp[](working-with-forms/sample/final/ViewModels/RegisterViewModel.cs)]
 
 [!code-HTML[](working-with-forms/sample/final/Views/Demo/RegisterInput.cshtml)]
 
-Powyższy kod generuje poniższy kod HTML:
+Kod powyżej generuje następujący HTML:
 
 ```HTML
   <form method="post" action="/Demo/RegisterInput">
@@ -241,24 +241,24 @@ Powyższy kod generuje poniższy kod HTML:
    </form>
 ```
 
-Adnotacje danych dotyczą `Email` i `Password` właściwości Generowanie metadanych na podstawie modelu. Pomocnik tagu dane wejściowe zużywa metadanych modelu i tworzy [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) `data-val-*` atrybutów (zobacz [sprawdzania poprawności modelu](../models/validation.md)). Te atrybuty opisać moduły weryfikacji, aby dołączyć do pól wejściowych. Dzięki temu dyskretnego kodu HTML5 i [jQuery](https://jquery.com/) sprawdzania poprawności. Atrybuty dyskretnego kodu mają format `data-val-rule="Error Message"`, gdzie reguła jest nazwa reguły sprawdzania poprawności (takie jak `data-val-required`, `data-val-email`, `data-val-maxlength`itp.) Jeśli komunikat o błędzie zostanie podany w atrybucie, jest on wyświetlany jako wartość pozycji `data-val-rule` atrybutu. Dostępne są także atrybutów w formie `data-val-ruleName-argumentName="argumentValue"` zapewniające dodatkowe szczegóły dotyczące reguły, na przykład `data-val-maxlength-max="1024"` .
+Adnotacje danych zastosowane do `Email` właściwości i `Password` generują metadane w modelu. Pomocnik tagu wejściowego korzysta z metadanych modelu i tworzy atrybuty [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) `data-val-*` (zobacz [Walidacja modelu](../models/validation.md)). Te atrybuty opisują moduły walidacji do dołączenia do pól wejściowych. Zapewnia to niezauważalne sprawdzanie poprawności HTML5 i [jQuery](https://jquery.com/) . Atrybuty `data-val-rule="Error Message"`niezauważalne mają format, gdzie rule jest nazwą Reguły walidacji ( `data-val-required`np `data-val-email` `data-val-maxlength`., itp.) Jeśli w atrybucie jest podany komunikat o błędzie, jest on wyświetlany jako wartość `data-val-rule` atrybutu. Istnieją także atrybuty formularza `data-val-ruleName-argumentName="argumentValue"` , które zawierają dodatkowe szczegóły dotyczące reguły, na `data-val-maxlength-max="1024"` przykład.
 
-### <a name="html-helper-alternatives-to-input-tag-helper"></a>Pomocnik tagu dane wejściowe alternatywy dla pomocnika kodu HTML
+### <a name="html-helper-alternatives-to-input-tag-helper"></a>Alternatywa pomocnika HTML dla pomocnika tagów wejściowych
 
-`Html.TextBox`, `Html.TextBoxFor`, `Html.Editor` i `Html.EditorFor` nakładających się funkcji pomocnika Tag danych wejściowych. Pomocnik tagu dane wejściowe automatycznie ustawi `type` atrybutu; `Html.TextBox` i `Html.TextBoxFor` nie będzie. `Html.Editor` i `Html.EditorFor` obsługi kolekcji, złożonych obiektów i szablony nie Pomocnik tagu danych wejściowych. Pomocnik tagu danych wejściowych, `Html.EditorFor` i `Html.TextBoxFor` są silnie typizowane (ich użycie wyrażeń lambda); `Html.TextBox` i `Html.Editor` nie (używają nazwy wyrażeń).
+`Html.TextBox`, `Html.TextBoxFor`i mają`Html.EditorFor` nakładające się funkcje pomocnika tagów wejściowych `Html.Editor` . Pomocnik tagu wejściowego ustawi automatycznie `type` atrybut; `Html.TextBox` i`Html.TextBoxFor` nie. `Html.Editor`i `Html.EditorFor` obsługa kolekcji, złożonych obiektów i szablonów; pomocnik tagów wejściowych nie. Pomocnik `Html.EditorFor` tagu wejściowego i `Html.TextBoxFor` jest silnie wpisana (używa wyrażeń lambda); `Html.TextBox` i`Html.Editor` nie są (używają nazw wyrażeń).
 
 ### <a name="htmlattributes"></a>HtmlAttributes
 
-`@Html.Editor()` i `@Html.EditorFor()` użyć specjalnej `ViewDataDictionary` wpis o nazwie `htmlAttributes` podczas wykonywania ich domyślnych szablonów. To zachowanie jest opcjonalnie rozszerzone przy użyciu `additionalViewData` parametrów. Klucz "htmlAttributes" jest rozróżniana wielkość liter. Klucz "htmlAttributes" odbywa się podobnie jak `htmlAttributes` przekazano obiekt jako danych wejściowych pomocników, takich jak `@Html.TextBox()`.
+`@Html.Editor()`i `@Html.EditorFor()` Użyj wpisu specjalnego `ViewDataDictionary` o nazwie `htmlAttributes` przy wykonywaniu ich domyślnych szablonów. To zachowanie jest opcjonalnie rozszerzane za `additionalViewData` pomocą parametrów. W kluczu "htmlAttributes" nie jest rozróżniana wielkość liter. Klucz "htmlAttributes" jest obsługiwany w podobny sposób, `htmlAttributes` jak obiekt przesłany do pomocników `@Html.TextBox()`wejściowych, takich jak.
 
 ```HTML
 @Html.EditorFor(model => model.YourProperty, 
   new { htmlAttributes = new { @class="myCssClass", style="Width:100px" } })
 ```
 
-### <a name="expression-names"></a>Wyrażenie nazwy
+### <a name="expression-names"></a>Nazwy wyrażeń
 
-`asp-for` Wartość atrybutu jest `ModelExpression` i po prawej stronie wyrażenia lambda. W związku z tym `asp-for="Property1"` staje się `m => m.Property1` w wygenerowanym kodzie, co jest Dlaczego nie trzeba prefiks z `Model`. Można użyć "\@" znaku, aby uruchomić wyrażenia wbudowane i przenieść przed `m.`:
+Wartość `asp-for` atrybutu `ModelExpression` jest i prawej strony wyrażenia lambda. W związku `asp-for="Property1"` z `m => m.Property1` tym, zostanie w wygenerowanym kodzie, dlatego `Model`nie musisz poprzedzać prefiksem. Można użyć znaku "\@", aby rozpocząć wyrażenie śródwierszowe i przejść `m.`przed:
 
 ```HTML
 @{
@@ -267,44 +267,44 @@ Adnotacje danych dotyczą `Email` i `Password` właściwości Generowanie metada
    <input asp-for="@joe">
 ```
 
-Generuje następujące czynności:
+Generuje następujące elementy:
 
 ```HTML
 <input type="text" id="joe" name="joe" value="Joe">
 ```
 
-Z właściwościami kolekcji `asp-for="CollectionProperty[23].Member"` generuje taką samą nazwę jak `asp-for="CollectionProperty[i].Member"` podczas `i` ma wartość `23`.
+Właściwości `asp-for="CollectionProperty[23].Member"` kolekcji generują taką samą nazwę jak `asp-for="CollectionProperty[i].Member"` gdy `i` ma wartość `23`.
 
-Gdy program ASP.NET Core MVC oblicza wartość `ModelExpression`, sprawdza ono kilka źródeł, w tym `ModelState`. Należy wziąć pod uwagę `<input type="text" asp-for="@Name">`. Obliczony `value` atrybut jest pierwsza wartość inną niż null z:
+Gdy ASP.NET Core MVC oblicza wartość `ModelExpression`, sprawdza kilka źródeł, w tym. `ModelState` Weź `<input type="text" asp-for="@Name">`pod uwagę. Atrybut obliczeniowy `value` jest pierwszą wartością o wartości innej niż null z:
 
-* `ModelState` wpis z kluczem "Name".
+* `ModelState`wpis z kluczem "name".
 * Wynik wyrażenia `Model.Name`.
 
-### <a name="navigating-child-properties"></a>Nawigacja właściwości podrzędnej
+### <a name="navigating-child-properties"></a>Nawigowanie po właściwościach podrzędnych
 
-Możesz także przejść do właściwości podrzędnej przy użyciu ścieżki właściwości modelu widoku. Należy wziąć pod uwagę bardziej złożonych klasy modelu, który zawiera element podrzędny `Address` właściwości.
+Możesz również przejść do właściwości podrzędnych przy użyciu ścieżki właściwości modelu widoku. Rozważmy bardziej złożoną klasę modelu, która zawiera `Address` Właściwość podrzędną.
 
 [!code-csharp[](../../mvc/views/working-with-forms/sample/final/ViewModels/AddressViewModel.cs?highlight=1,2,3,4&range=5-8)]
 
 [!code-csharp[](../../mvc/views/working-with-forms/sample/final/ViewModels/RegisterAddressViewModel.cs?highlight=8&range=5-13)]
 
-W widoku, możemy powiązać `Address.AddressLine1`:
+W widoku są powiązane `Address.AddressLine1`:
 
 [!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterAddress.cshtml?highlight=6)]
 
-Poniższy kod HTML jest generowany dla `Address.AddressLine1`:
+Następujący kod HTML jest generowany dla `Address.AddressLine1`:
 
 ```HTML
 <input type="text" id="Address_AddressLine1" name="Address.AddressLine1" value="">
 ```
 
-### <a name="expression-names-and-collections"></a>Wyrażenie nazwy i kolekcji
+### <a name="expression-names-and-collections"></a>Nazwy wyrażeń i kolekcje
 
 Przykładowy model zawierający tablicę `Colors`:
 
 [!code-csharp[](../../mvc/views/working-with-forms/sample/final/ViewModels/Person.cs?highlight=3&range=5-10)]
 
-Metody akcji:
+Metoda akcji:
 
 ```csharp
 public IActionResult Edit(int id, int colorIndex)
@@ -314,50 +314,50 @@ public IActionResult Edit(int id, int colorIndex)
    }
 ```
 
-Następujące Razor pokazano, jak uzyskiwać dostęp do określonego `Color` elementu:
+Poniższy Razor pokazuje, jak uzyskać dostęp do określonego `Color` elementu:
 
 [!code-HTML[](working-with-forms/sample/final/Views/Demo/EditColor.cshtml)]
 
-*Views/Shared/EditorTemplates/String.cshtml* szablonu:
+Szablon *widoki/Shared/EditorTemplates/String. cshtml* :
 
 [!code-HTML[](working-with-forms/sample/final/Views/Shared/EditorTemplates/String.cshtml)]
 
-Przykładowy przy użyciu `List<T>`:
+Przykład przy `List<T>`użyciu:
 
 [!code-csharp[](working-with-forms/sample/final/ViewModels/ToDoItem.cs?range=3-8)]
 
-Następujące Razor pokazuje, jak iteracji po kolekcji:
+Poniższy Razor pokazuje, jak wykonać iterację kolekcji:
 
 [!code-HTML[](working-with-forms/sample/final/Views/Demo/Edit.cshtml)]
 
-*Views/Shared/EditorTemplates/ToDoItem.cshtml* szablonu:
+Szablon *widoki/Shared/EditorTemplates/ToDoItem. cshtml* :
 
 [!code-HTML[](working-with-forms/sample/final/Views/Shared/EditorTemplates/ToDoItem.cshtml)]
 
-`foreach` powinny być używane, jeśli jest to możliwe, gdy wartość ma być używany w `asp-for` lub `Html.DisplayFor` równoważne kontekstu. Ogólnie rzecz biorąc `for` jest lepsze niż `foreach` (jeśli scenariusz umożliwia), ponieważ nie trzeba ją przydzielić moduł wyliczający; jednak ocena indeksatora w wyrażeniu LINQ może być kosztowne i należy zminimalizować.
+`foreach`należy użyć, jeśli jest to możliwe, gdy wartość ma być używana w `asp-for` lub `Html.DisplayFor` równoważnym kontekście. Ogólnie rzecz biorąc `for` , jest lepiej `foreach` niż (jeśli jest to możliwe), ponieważ nie musi alokować modułu wyliczającego, ale Ocena indeksatora w wyrażeniu LINQ może być kosztowna i powinna być zminimalizowana.
 
 &nbsp;
 
 >[!NOTE]
->Powyższy kod przykładowy komentarzem pokazuje, jak należy zamienić wyrażenia lambda z `@` operator, aby uzyskać dostęp każdy `ToDoItem` na liście.
+>Powyższy przykładowy kod z komentarzem pokazuje, jak zastąpić wyrażenie `@` lambda operatorem, aby uzyskać dostęp do każdego z nich `ToDoItem` na liście.
 
-## <a name="the-textarea-tag-helper"></a>Pomocnik tagu Textarea
+## <a name="the-textarea-tag-helper"></a>Pomocnik tagów TextArea
 
-`Textarea Tag Helper` Pomocnik tagu jest podobny do Pomocnik tagu danych wejściowych.
+Pomocnik `Textarea Tag Helper` tagów jest podobny do pomocnika tagu wejściowego.
 
-* Generuje `id` i `name` atrybuty i atrybutów sprawdzania poprawności danych z modelu dla [ \<textarea >](https://www.w3.org/wiki/HTML/Elements/textarea) elementu.
+* Generuje atrybuty `name`ii atrybuty walidacji danych [ \<](https://www.w3.org/wiki/HTML/Elements/textarea) z modelu dla elementu TEXTAREA >. `id`
 
 * Zapewnia silne wpisywanie.
 
-* Alternatywa pomocnika kodu HTML: `Html.TextAreaFor`
+* Alternatywa dla pomocnika HTML:`Html.TextAreaFor`
 
-Przykład:
+Northwind
 
 [!code-csharp[](working-with-forms/sample/final/ViewModels/DescriptionViewModel.cs)]
 
 [!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterTextArea.cshtml?highlight=4)]
 
-Poniższy kod HTML jest generowany:
+Następujący kod HTML jest generowany:
 
 ```HTML
 <form method="post" action="/Demo/RegisterTextArea">
@@ -373,53 +373,53 @@ Poniższy kod HTML jest generowany:
 </form>
 ```
 
-## <a name="the-label-tag-helper"></a>Pomocnik tagu etykiet
+## <a name="the-label-tag-helper"></a>Pomocnik tagów etykiety
 
-* Generuje podpis etykiety i `for` atrybutu na [ \<Etykieta >](https://www.w3.org/wiki/HTML/Elements/label) element to nazwa wyrażenia
+* Generuje podpis etykiety i `for` atrybut [ \<w > elementu etykiety](https://www.w3.org/wiki/HTML/Elements/label) dla nazwy wyrażenia
 
-* Alternatywa pomocnika kodu HTML: `Html.LabelFor`.
+* Alternatywa dla pomocnika HTML: `Html.LabelFor`.
 
-`Label Tag Helper` Zapewnia następujące korzyści za pośrednictwem czystego element label kodu HTML:
+`Label Tag Helper` Zapewnia następujące korzyści w stosunku do czystego elementu etykiety HTML:
 
-* Automatycznie pobrana wartość opisową etykietę `Display` atrybutu. Nazwę wyświetlaną zamierzony mogą ulec zmianie czasu i kombinacja `Display` zastosuje atrybut i Pomocnik tagu etykiet `Display` wszędzie, gdzie jest używany.
+* Wartość etykiety opisowej jest automatycznie pobierana z `Display` atrybutu. Zamierzona nazwa wyświetlana może ulec zmianie z upływem czasu, a `Display` kombinacja pomocnika tagów atrybutów i etykiet będzie `Display` stosowała wszędzie tam, gdzie jest używana.
 
-* Mniej znacznika w kodzie źródłowym
+* Mniej znaczników w kodzie źródłowym
 
-* Silne wpisywanie z właściwością modelu.
+* Silne pisanie przy użyciu właściwości model.
 
-Przykład:
+Northwind
 
 [!code-csharp[](working-with-forms/sample/final/ViewModels/SimpleViewModel.cs)]
 
 [!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterLabel.cshtml?highlight=4)]
 
-Poniższy kod HTML jest generowany dla `<label>` elementu:
+Następujący kod HTML jest generowany dla `<label>` elementu:
 
 ```HTML
 <label for="Email">Email Address</label>
 ```
 
-Pomocnik tagu etykiet, które są generowane `for` wartość atrybutu "Email", czyli identyfikator skojarzony z `<input>` elementu. Pomocnicy tagów Generowanie spójne `id` i `for` elementów, tak aby były prawidłowo skojarzone. Podpis w tym przykładzie pochodzi z `Display` atrybutu. Jeśli model nie zawiera `Display` atrybutu, podpis będzie nazwa właściwości wyrażenia.
+Pomocnik tagu etykiety wygenerował `for` wartość atrybutu "e-mail", który jest identyfikatorem skojarzonym `<input>` z elementem. Pomocnicy tagów generują spójne `id` i `for` elementy, aby mogły być prawidłowo skojarzone. Podpis w tym przykładzie pochodzi z `Display` atrybutu. Jeśli model nie zawiera `Display` atrybutu, podpis będzie nazwą właściwości wyrażenia.
 
-## <a name="the-validation-tag-helpers"></a>Sprawdzanie poprawności pomocnicy tagów
+## <a name="the-validation-tag-helpers"></a>Pomocnicy tagów walidacji
 
-Istnieją dwa pomocników tagów sprawdzania poprawności. `Validation Message Tag Helper` (Która wyświetla komunikat sprawdzania poprawności dla jednej właściwości modelu), a `Validation Summary Tag Helper` (które jest wyświetlane podsumowanie błędów sprawdzania poprawności). `Input Tag Helper` Dodaje atrybuty weryfikacji po stronie klienta HTML5 do wprowadzania elementów na podstawie danych atrybuty adnotacji w klasach modeli. Sprawdzanie poprawności, również odbywa się na serwerze. Pomocnik tagu weryfikacji wyświetla te komunikaty o błędach, gdy wystąpi błąd sprawdzania poprawności.
+Istnieją dwa pomocnicy tagów sprawdzania poprawności. (Który wyświetla komunikat weryfikacyjny dla pojedynczej właściwości w modelu) `Validation Summary Tag Helper` i (która wyświetla podsumowanie błędów walidacji). `Validation Message Tag Helper` `Input Tag Helper` Dodaje atrybuty walidacji po stronie klienta HTML5 do elementów wejściowych na podstawie atrybutów adnotacji danych klas modelu. Sprawdzanie poprawności jest również wykonywane na serwerze. Pomocnik tagów walidacji wyświetla te komunikaty o błędach w przypadku wystąpienia błędu walidacji.
 
-### <a name="the-validation-message-tag-helper"></a>Pomocnik tagu komunikat sprawdzania poprawności
+### <a name="the-validation-message-tag-helper"></a>Pomocnik tagu komunikatu weryfikacji
 
-* Dodaje [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) `data-valmsg-for="property"` atrybutu [span](https://developer.mozilla.org/docs/Web/HTML/Element/span) element, który dołącza komunikatów o błędach weryfikacji na pole wejściowe właściwości określonego modelu. Gdy wystąpi błąd weryfikacji po stronie klienta, [jQuery](https://jquery.com/) wyświetla komunikat o błędzie w `<span>` elementu.
+* Dodaje atrybut [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) `data-valmsg-for="property"` do elementu [span](https://developer.mozilla.org/docs/Web/HTML/Element/span) , który dołącza komunikaty o błędach walidacji w polu wejściowym określonej właściwości modelu. Gdy wystąpi błąd walidacji po stronie klienta [](https://jquery.com/) , w `<span>` elemencie jQuery zostanie wyświetlony komunikat o błędzie.
 
-* Sprawdzanie poprawności również odbywa się na serwerze. Klienci mogą mieć Obsługa skryptów JavaScript wyłączona i niektóre sprawdzania poprawności jest możliwe tylko po stronie serwera.
+* Sprawdzanie poprawności odbywa się również na serwerze. Klienci mogą mieć wyłączone skrypty JavaScript, a niektóre sprawdzanie poprawności można wykonać tylko po stronie serwera.
 
-* Alternatywa pomocnika kodu HTML: `Html.ValidationMessageFor`
+* Alternatywa dla pomocnika HTML:`Html.ValidationMessageFor`
 
-`Validation Message Tag Helper` Jest używana z `asp-validation-for` atrybutu HTML [span](https://developer.mozilla.org/docs/Web/HTML/Element/span) elementu.
+Jest używany z atrybutem elementu zakresu html. [](https://developer.mozilla.org/docs/Web/HTML/Element/span) `asp-validation-for` `Validation Message Tag Helper`
 
 ```HTML
 <span asp-validation-for="Email"></span>
 ```
 
-Pomocnik tagu komunikat sprawdzania poprawności generuje poniższy kod HTML:
+Pomocnik tagu komunikatu weryfikacji wygeneruje następujący kod HTML:
 
 ```HTML
 <span class="field-validation-valid"
@@ -427,12 +427,12 @@ Pomocnik tagu komunikat sprawdzania poprawności generuje poniższy kod HTML:
   data-valmsg-replace="true"></span>
 ```
 
-Na ogół służy `Validation Message Tag Helper` po `Input` Pomocnik tagu dla tej samej właściwości. Ten sposób wyświetla komunikaty o błędach weryfikacji w danych wejściowych, które spowodowały błąd.
+Zwykle używasz `Validation Message Tag Helper` `Input` pomocnika tagu dla tej samej właściwości. Spowoduje to wyświetlenie wszystkich komunikatów o błędach weryfikacji obok danych wejściowych, które spowodowały błąd.
 
 > [!NOTE]
-> Konieczne jest posiadanie widoku z poprawną JavaScript i [jQuery](https://jquery.com/) skryptu odwołania w miejscu na potrzeby weryfikacji po stronie klienta. Zobacz [sprawdzania poprawności modelu](../models/validation.md) Aby uzyskać więcej informacji.
+> Musisz mieć widok z prawidłowymi odwołaniami do skryptów JavaScript i [jQuery](https://jquery.com/) na potrzeby weryfikacji po stronie klienta. Aby uzyskać więcej informacji, zobacz [Walidacja modelu](../models/validation.md) .
 
-Gdy pojawia się błąd weryfikacji po stronie serwera, (na przykład gdy masz weryfikacji po stronie niestandardowego serwera lub Weryfikacja po stronie klienta jest wyłączona), MVC umieszcza komunikat o błędzie jako treść metody `<span>` elementu.
+Gdy wystąpi błąd walidacji po stronie serwera (na przykład gdy istnieje niestandardowa Walidacja po stronie serwera lub weryfikacja po stronie klienta jest wyłączona), MVC umieszcza ten komunikat o błędzie `<span>` jako treść elementu.
 
 ```HTML
 <span class="field-validation-error" data-valmsg-for="Email"
@@ -441,29 +441,29 @@ Gdy pojawia się błąd weryfikacji po stronie serwera, (na przykład gdy masz w
 </span>
 ```
 
-### <a name="the-validation-summary-tag-helper"></a>Pomocnik tagu podsumowania sprawdzania poprawności
+### <a name="the-validation-summary-tag-helper"></a>Pomocnik tagów podsumowania walidacji
 
-* Obiekty docelowe `<div>` elementów za pomocą `asp-validation-summary` atrybutu
+* Elementy `<div>` docelowe`asp-validation-summary` z atrybutem
 
-* Alternatywa pomocnika kodu HTML: `@Html.ValidationSummary`
+* Alternatywa dla pomocnika HTML:`@Html.ValidationSummary`
 
-`Validation Summary Tag Helper` Służy do wyświetlania podsumowania komunikatów dotyczących sprawdzania poprawności. `asp-validation-summary` Wartość atrybutu może być dowolną z następujących czynności:
+`Validation Summary Tag Helper` Służy do wyświetlania podsumowania komunikatów weryfikacji. Wartość `asp-validation-summary` atrybutu może być dowolną z następujących:
 
-|asp-validation-summary|Wyświetlane komunikatów dotyczących sprawdzania poprawności|
+|ASP-Walidacja — podsumowanie|Wyświetlane komunikaty weryfikacji|
 |--- |--- |
-|ValidationSummary.All|Poziom właściwości i model|
+|ValidationSummary.All|Poziom właściwości i modelu|
 |ValidationSummary.ModelOnly|Model|
-|ValidationSummary.None|Brak|
+|Podsumowania walidacji. None|Brak|
 
 ### <a name="sample"></a>Przykład
 
-W poniższym przykładzie zostanie nadany modelu danych `DataAnnotation` atrybuty, które generuje komunikaty o błędach weryfikacji na `<input>` elementu.  Gdy wystąpi błąd sprawdzania poprawności, Pomocnik tagu weryfikacji wyświetla komunikat o błędzie:
+W poniższym przykładzie model danych jest dekoracyjny z `DataAnnotation` atrybutami, które generują komunikaty o błędach walidacji `<input>` w elemencie.  Gdy wystąpi błąd walidacji, pomocnik tagów walidacji wyświetli komunikat o błędzie:
 
 [!code-csharp[](working-with-forms/sample/final/ViewModels/RegisterViewModel.cs)]
 
 [!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterValidation.cshtml?highlight=4,6,8&range=1-10)]
 
-Wygenerowany kod HTML, (gdy model jest prawidłowy):
+Wygenerowany kod HTML (gdy model jest prawidłowy):
 
 ```HTML
 <form action="/DemoReg/Register" method="post">
@@ -484,33 +484,33 @@ Wygenerowany kod HTML, (gdy model jest prawidłowy):
 </form>
 ```
 
-## <a name="the-select-tag-helper"></a>Pomocnik tagu Select
+## <a name="the-select-tag-helper"></a>Pomocnik wybierania tagu
 
-* Generuje [wybierz](https://www.w3.org/wiki/HTML/Elements/select) i skojarzone [opcji](https://www.w3.org/wiki/HTML/Elements/option) elementy dla właściwości modelu.
+* Generuje [](https://www.w3.org/wiki/HTML/Elements/select) elementy [opcji](https://www.w3.org/wiki/HTML/Elements/option) zaznaczania i skojarzone dla właściwości modelu.
 
-* Ma alternatywa pomocnika kodu HTML `Html.DropDownListFor` i `Html.ListBoxFor`
+* Ma alternatywę `Html.DropDownListFor` pomocnika HTML i`Html.ListBoxFor`
 
-`Select Tag Helper` `asp-for` Określa nazwę właściwości modelu [wybierz](https://www.w3.org/wiki/HTML/Elements/select) elementu i `asp-items` Określa [opcji](https://www.w3.org/wiki/HTML/Elements/option) elementów.  Na przykład:
+[](https://www.w3.org/wiki/HTML/Elements/option) [](https://www.w3.org/wiki/HTML/Elements/select) `asp-items` Określa nazwę właściwości modelu dla elementu Select i określa elementy opcji. `Select Tag Helper` `asp-for`  Przykład:
 
 [!code-HTML[](working-with-forms/sample/final/Views/Home/Index.cshtml?range=4)]
 
-Przykład:
+Northwind
 
 [!code-csharp[](working-with-forms/sample/final/ViewModels/CountryViewModel.cs)]
 
-`Index` Inicjuje metodę `CountryViewModel`, ustawia wybranym kraju i przekazuje go do `Index` widoku.
+Metoda inicjuje, ustawia wybrany kraj `Index` i przekazuje go do widoku. `CountryViewModel` `Index`
 
 [!code-csharp[](working-with-forms/sample/final/Controllers/HomeController.cs?range=8-13)]
 
-HTTP POST `Index` metoda Wyświetla zaznaczenie:
+Metoda post `Index` protokołu HTTP wyświetla zaznaczenie:
 
 [!code-csharp[](working-with-forms/sample/final/Controllers/HomeController.cs?range=15-27)]
 
-`Index` Widoku:
+`Index` Widok:
 
 [!code-cshtml[](working-with-forms/sample/final/Views/Home/Index.cshtml?highlight=4)]
 
-Która generuje poniższy kod HTML (się od liter "CA" wybrane):
+Który generuje następujący kod HTML (z wybranym "CA"):
 
 ```html
 <form method="post" action="/">
@@ -525,31 +525,31 @@ Która generuje poniższy kod HTML (się od liter "CA" wybrane):
 ```
 
 > [!NOTE]
-> Nie zalecamy używania `ViewBag` lub `ViewData` przy użyciu Pomocnika tagów wybierz. Model widoku jest bardziej niezawodna w zapewnieniu metadanych platformy MVC i zazwyczaj mniej problematyczne.
+> Nie zalecamy używania `ViewBag` ani `ViewData` z pomocnikiem SELECT tag. Model widoku jest bardziej niezawodny przy udostępnianiu metadanych MVC i ogólnie mniej problematycznych.
 
-`asp-for` Wartość atrybutu jest przypadkiem szczególnym i nie wymaga `Model` prefiksu, inne są atrybuty Pomocnik tagu (takie jak `asp-items`)
+Wartość atrybutu jest szczególnym przypadkiem i nie `Model` wymaga prefiksu, inne atrybuty pomocnika tagów to (na przykład `asp-items`). `asp-for`
 
 [!code-HTML[](working-with-forms/sample/final/Views/Home/Index.cshtml?range=4)]
 
-### <a name="enum-binding"></a>Powiązanie typu wyliczeniowego
+### <a name="enum-binding"></a>Stałe powiązania
 
-Często jest to łatwe w użyciu `<select>` z `enum` właściwości i wygenerować `SelectListItem` elementy z `enum` wartości.
+Jest to często wygodne do użycia `<select>` `enum` z właściwością i `enum` generują `SelectListItem` elementy z wartości.
 
-Przykład:
+Northwind
 
 [!code-csharp[](working-with-forms/sample/final/ViewModels/CountryEnumViewModel.cs?range=3-7)]
 
 [!code-csharp[](working-with-forms/sample/final/ViewModels/CountryEnum.cs)]
 
-`GetEnumSelectList` Metoda generuje `SelectList` obiektu dla typu wyliczeniowego.
+`GetEnumSelectList` Metoda`SelectList` generuje obiekt dla wyliczenia.
 
 [!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Home/IndexEnum.cshtml?highlight=5)]
 
-Można dekoracji moduł wyliczający listę o `Display` atrybutu, aby uzyskać bardziej rozbudowane interfejs użytkownika:
+Można dekorować listę moduł wyliczający z atrybutem, `Display` Aby uzyskać bogatszy interfejs użytkownika:
 
 [!code-csharp[](working-with-forms/sample/final/ViewModels/CountryEnum.cs?highlight=5,7)]
 
-Poniższy kod HTML jest generowany:
+Następujący kod HTML jest generowany:
 
 ```HTML
   <form method="post" action="/Home/IndexEnum">
@@ -567,11 +567,11 @@ Poniższy kod HTML jest generowany:
     </form>
 ```
 
-### <a name="option-group"></a>Opcja grupy
+### <a name="option-group"></a>Grupa opcji
 
-Kod HTML [ \<optgroup >](https://www.w3.org/wiki/HTML/Elements/optgroup) element jest generowany, gdy model widoku zawiera jeden lub więcej `SelectListGroup` obiektów.
+Element [ \<> HTML optgroup](https://www.w3.org/wiki/HTML/Elements/optgroup) jest generowany, gdy model widoku zawiera jeden lub więcej `SelectListGroup` obiektów.
 
-`CountryViewModelGroup` Grup `SelectListItem` elementów do grupy "Ameryka Północna" i "Europa":
+`CountryViewModelGroup` Grupujeelementydogrup"AmerykaPółnocna"`SelectListItem` i "Europa":
 
 [!code-csharp[](../../mvc/views/working-with-forms/sample/final/ViewModels/CountryViewModelGroup.cs?highlight=5,6,14,20,26,32,38,44&range=6-56)]
 
@@ -602,15 +602,15 @@ Wygenerowany kod HTML:
 
 ### <a name="multiple-select"></a>Wybór wielokrotny
 
-Pomocnik tagu wybierz automatycznie wygeneruje [wielu = "wielu"](https://w3c.github.io/html-reference/select.html) atrybutu, jeśli właściwość określona w `asp-for` atrybut jest `IEnumerable`. Na przykład biorąc pod uwagę następujący wzór:
+Pomocnik Wybierz tag automatycznie generuje atrybut wielokrotne [= "Multiple"](https://w3c.github.io/html-reference/select.html) , jeśli właściwość określona w `asp-for` atrybucie jest `IEnumerable`. Na przykład, uwzględniając następujący model:
 
 [!code-csharp[](../../mvc/views/working-with-forms/sample/final/ViewModels/CountryViewModelIEnumerable.cs?highlight=6)]
 
-Za pomocą następującego widoku:
+Z następującym widokiem:
 
 [!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Home/IndexMultiSelect.cshtml?highlight=4)]
 
-Generuje poniższy kod HTML:
+Generuje następujący kod HTML:
 
 ```HTML
 <form method="post" action="/Home/IndexMultiSelect">
@@ -630,21 +630,23 @@ Generuje poniższy kod HTML:
 
 ### <a name="no-selection"></a>Brak zaznaczenia
 
-Jeśli okaże się, przy użyciu opcji "nie został określony" na wielu stronach, można utworzyć szablon, aby wyeliminować powtarzające się kodu HTML:
+Jeśli znajdziesz samodzielnie opcję "nie określono" na wielu stronach, możesz utworzyć szablon, aby wyeliminować powtarzanie kodu HTML:
 
 [!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Home/IndexEmptyTemplate.cshtml?highlight=5)]
 
-*Views/Shared/EditorTemplates/CountryViewModel.cshtml* szablonu:
+Szablon *widoki/Shared/EditorTemplates/CountryViewModel. cshtml* :
 
 [!code-HTML[](working-with-forms/sample/final/Views/Shared/EditorTemplates/CountryViewModel.cshtml)]
 
-Dodawanie HTML [ \<opcja >](https://www.w3.org/wiki/HTML/Elements/option) elementów nie jest ograniczona do *Brak zaznaczenia* przypadek. Na przykład następującej metody akcji i widoku spowoduje wygenerowanie podobny do powyższego kodu HTML:
+Dodawanie [ \<opcji HTML >](https://www.w3.org/wiki/HTML/Elements/option) elementów nie jest ograniczone do *żadnego przypadku zaznaczenia* . Na przykład następująca metoda widok i akcja spowoduje wygenerowanie kodu HTML podobnego do powyższego kodu:
 
-[!code-csharp[](working-with-forms/sample/final/Controllers/HomeController.cs?range=114-119)]
+[!code-csharp[](working-with-forms/sample/final/Controllers/HomeController.cs?name=snippetNone)]
 
 [!code-HTML[](working-with-forms/sample/final/Views/Home/IndexOption.cshtml)]
 
-Poprawny `<option>` element zostanie wybrana (zawierają `selected="selected"` atrybutów) w zależności od bieżącego `Country` wartość.
+Zostanie wybrany `<option>` prawidłowy element ( `selected="selected"` zawierający atrybut) w zależności od bieżącej `Country` wartości.
+
+[!code-csharp[](working-with-forms/sample/final/Controllers/HomeController.cs?range=114-119)]
 
 ```HTML
  <form method="post" action="/Home/IndexEmpty">
@@ -663,8 +665,8 @@ Poprawny `<option>` element zostanie wybrana (zawierają `selected="selected"` a
 
 * <xref:mvc/views/tag-helpers/intro>
 * [Element formularza HTML](https://www.w3.org/TR/html401/interact/forms.html)
-* [Żądanie weryfikacji tokenu](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages)
+* [Token weryfikacji żądania](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages)
 * <xref:mvc/models/model-binding>
 * <xref:mvc/models/validation>
-* [Interfejs IAttributeAdapter](/dotnet/api/Microsoft.AspNetCore.Mvc.DataAnnotations.IAttributeAdapter)
+* [IAttributeAdapter, interfejs](/dotnet/api/Microsoft.AspNetCore.Mvc.DataAnnotations.IAttributeAdapter)
 * [Fragmenty kodu dla tego dokumentu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/working-with-forms/sample/final)
