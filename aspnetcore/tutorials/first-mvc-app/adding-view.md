@@ -5,12 +5,12 @@ description: Dodawanie widoku do prostej aplikacji ASP.NET Core MVC
 ms.author: riande
 ms.date: 8/04/2019
 uid: tutorials/first-mvc-app/adding-view
-ms.openlocfilehash: 757e2bd0679c837fff2d9f813395ef24388cc8f5
-ms.sourcegitcommit: b5e63714afc26e94be49a92619586df5189ed93a
+ms.openlocfilehash: 1c29b59f9306774316ff37eeb57cc441fe5c7370
+ms.sourcegitcommit: 2eb605f4f20ac4dd9de6c3b3e3453e108a357a21
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68739594"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68820080"
 ---
 # <a name="add-a-view-to-an-aspnet-core-mvc-app"></a>Dodawanie widoku do aplikacji ASP.NET Core MVC
 
@@ -74,7 +74,7 @@ Zastąp zawartość pliku widoku Razor *widoków/HelloWorld/index. cshtml* nast�
 
 [!code-HTML[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Views/HelloWorld/Index1.cshtml?highlight=7)]
 
-Przejdź do adresu `https://localhost:xxxx/HelloWorld`. Metoda w niewykonanym stopniu; uruchomiła instrukcję `return View();`, która określa, że metoda powinna używać pliku szablonu widoku, aby renderować odpowiedź do przeglądarki. `HelloWorldController` `Index` Ponieważ nazwa pliku szablonu widoku nie została określona, MVC domyślnie używa domyślnego pliku widoku. Domyślny plik widoku ma taką samą nazwę jak Metoda (`Index`), więc w */views/HelloWorld/index.cshtml* jest używana. Na poniższej ilustracji przedstawiono ciąg "Hello z naszego szablonu widoku!" zakodowane w widoku.
+Przejdź do adresu `https://localhost:{PORT}/HelloWorld`. Metoda w niewykonanym stopniu; uruchomiła instrukcję `return View();`, która określa, że metoda powinna używać pliku szablonu widoku, aby renderować odpowiedź do przeglądarki. `HelloWorldController` `Index` Ponieważ nazwa pliku szablonu widoku nie została określona, MVC domyślnie używa domyślnego pliku widoku. Domyślny plik widoku ma taką samą nazwę jak Metoda (`Index`), więc w */views/HelloWorld/index.cshtml* jest używana. Na poniższej ilustracji przedstawiono ciąg "Hello z naszego szablonu widoku!" zakodowane w widoku.
 
 ![Okno przeglądarki](~/tutorials/first-mvc-app/adding-view/_static/hell_template.png)
 
@@ -127,7 +127,7 @@ Tytuł i `<h2>` element są nieco inne, więc można zobaczyć, który bit kodu 
 <title>@ViewData["Title"] - Movie App</title>
    ```
 
-Zapisz zmiany i przejdź do `https://localhost:xxxx/HelloWorld`. Zwróć uwagę, że tytuł przeglądarki, nagłówek podstawowy i pomocnicze nagłówki zostały zmienione. (Jeśli w przeglądarce nie są widoczne zmiany, może być wyświetlana zawartość z pamięci podręcznej. Naciśnij kombinację klawiszy CTRL + F5 w przeglądarce, aby wymusić załadowanie odpowiedzi z serwera. Zostanie utworzony tytuł przeglądarki z `ViewData["Title"]` ustawioną w szablonie *index. cshtml* , a dodatkowa "-Movie App" dodana w pliku układu.
+Zapisz zmiany i przejdź do `https://localhost:{PORT}/HelloWorld`. Zwróć uwagę, że tytuł przeglądarki, nagłówek podstawowy i pomocnicze nagłówki zostały zmienione. (Jeśli w przeglądarce nie są widoczne zmiany, może być wyświetlana zawartość z pamięci podręcznej. Naciśnij kombinację klawiszy CTRL + F5 w przeglądarce, aby wymusić załadowanie odpowiedzi z serwera. Zostanie utworzony tytuł przeglądarki z `ViewData["Title"]` ustawioną w szablonie *index. cshtml* , a dodatkowa "-Movie App" dodana w pliku układu.
 
 Zawartość szablonu widoku *index. cshtml* jest scalana z szablonem widoku *widoki/Shared/_Layout. cshtml* . Pojedyncza odpowiedź HTML jest wysyłana do przeglądarki. Szablony układów ułatwiają wprowadzanie zmian, które są stosowane na wszystkich stronach w aplikacji. Aby dowiedzieć się więcej, zobacz [Układ](xref:mvc/views/layout).
 
@@ -157,7 +157,7 @@ Utworzysz pętlę w szablonie widoku *Welcome. cshtml* , który wyświetla "Hell
 
 Zapisz zmiany i przejdź do następującego adresu URL:
 
-`https://localhost:xxxx/HelloWorld/Welcome?name=Rick&numtimes=4`
+`https://localhost:{PORT}/HelloWorld/Welcome?name=Rick&numtimes=4`
 
 Dane są pobierane z adresu URL i przesyłane do kontrolera przy użyciu [spinacza modelu MVC](xref:mvc/models/model-binding) . Kontroler umieszcza dane w `ViewData` słowniku i przekazuje ten obiekt do widoku. Widok następnie renderuje dane jako HTML do przeglądarki.
 
@@ -231,7 +231,7 @@ Zastąp zawartość pliku widoku Razor *widoków/HelloWorld/index. cshtml* nast�
 
 [!code-HTML[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Views/HelloWorld/Index1.cshtml?highlight=7)]
 
-Przejdź do adresu `https://localhost:xxxx/HelloWorld`. Metoda w niewykonanym stopniu; uruchomiła instrukcję `return View();`, która określa, że metoda powinna używać pliku szablonu widoku, aby renderować odpowiedź do przeglądarki. `HelloWorldController` `Index` Ponieważ nazwa pliku szablonu widoku nie została określona, MVC domyślnie używa domyślnego pliku widoku. Domyślny plik widoku ma taką samą nazwę jak Metoda (`Index`), więc w */views/HelloWorld/index.cshtml* jest używana. Na poniższej ilustracji przedstawiono ciąg "Hello z naszego szablonu widoku!" zakodowane w widoku.
+Przejdź do adresu `https://localhost:{PORT}/HelloWorld`. Metoda w niewykonanym stopniu; uruchomiła instrukcję `return View();`, która określa, że metoda powinna używać pliku szablonu widoku, aby renderować odpowiedź do przeglądarki. `HelloWorldController` `Index` Ponieważ nazwa pliku szablonu widoku nie została określona, MVC domyślnie używa domyślnego pliku widoku. Domyślny plik widoku ma taką samą nazwę jak Metoda (`Index`), więc w */views/HelloWorld/index.cshtml* jest używana. Na poniższej ilustracji przedstawiono ciąg "Hello z naszego szablonu widoku!" zakodowane w widoku.
 
 ![Okno przeglądarki](~/tutorials/first-mvc-app/adding-view/_static/hell_template.png)
 
@@ -287,7 +287,7 @@ Tytuł i `<h2>` element są nieco inne, więc można zobaczyć, który bit kodu 
 <title>@ViewData["Title"] - Movie App</title>
    ```
 
-Zapisz zmiany i przejdź do `https://localhost:xxxx/HelloWorld`. Zwróć uwagę, że tytuł przeglądarki, nagłówek podstawowy i pomocnicze nagłówki zostały zmienione. (Jeśli w przeglądarce nie są widoczne zmiany, może być wyświetlana zawartość z pamięci podręcznej. Naciśnij kombinację klawiszy CTRL + F5 w przeglądarce, aby wymusić załadowanie odpowiedzi z serwera. Zostanie utworzony tytuł przeglądarki z `ViewData["Title"]` ustawioną w szablonie *index. cshtml* , a dodatkowa "-Movie App" dodana w pliku układu.
+Zapisz zmiany i przejdź do `https://localhost:{PORT}/HelloWorld`. Zwróć uwagę, że tytuł przeglądarki, nagłówek podstawowy i pomocnicze nagłówki zostały zmienione. (Jeśli w przeglądarce nie są widoczne zmiany, może być wyświetlana zawartość z pamięci podręcznej. Naciśnij kombinację klawiszy CTRL + F5 w przeglądarce, aby wymusić załadowanie odpowiedzi z serwera. Zostanie utworzony tytuł przeglądarki z `ViewData["Title"]` ustawioną w szablonie *index. cshtml* , a dodatkowa "-Movie App" dodana w pliku układu.
 
 Zwróć uwagę na to, jak zawartość w szablonie widoku *index. cshtml* została scalona z szablonem *widoków/Shared/_Layout. cshtml.* do przeglądarki została WYSŁANA pojedyncza odpowiedź html. Szablony układów ułatwiają wprowadzanie zmian, które są stosowane do wszystkich stron w aplikacji. Aby dowiedzieć się więcej, zobacz [Układ](xref:mvc/views/layout).
 
@@ -317,7 +317,7 @@ Utworzysz pętlę w szablonie widoku *Welcome. cshtml* , który wyświetla "Hell
 
 Zapisz zmiany i przejdź do następującego adresu URL:
 
-`https://localhost:xxxx/HelloWorld/Welcome?name=Rick&numtimes=4`
+`https://localhost:{PORT}/HelloWorld/Welcome?name=Rick&numtimes=4`
 
 Dane są pobierane z adresu URL i przesyłane do kontrolera przy użyciu [spinacza modelu MVC](xref:mvc/models/model-binding) . Kontroler umieszcza dane w `ViewData` słowniku i przekazuje ten obiekt do widoku. Widok następnie renderuje dane jako HTML do przeglądarki.
 

@@ -3,14 +3,14 @@ title: Dodawanie kontrolera do aplikacji ASP.NET Core MVC
 author: rick-anderson
 description: Dowiedz się, jak dodać kontroler do prostej aplikacji ASP.NET Core MVC.
 ms.author: riande
-ms.date: 02/28/2017
+ms.date: 08/05/2017
 uid: tutorials/first-mvc-app/adding-controller
-ms.openlocfilehash: ab97b875956ec262623ed9862ace6a930331d80d
-ms.sourcegitcommit: 979dbfc5e9ce09b9470789989cddfcfb57079d94
+ms.openlocfilehash: 1c54959130f3a9959d4d4fdb8dcaa0d37ee2f046
+ms.sourcegitcommit: 2eb605f4f20ac4dd9de6c3b3e3453e108a357a21
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68682326"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68820051"
 ---
 # <a name="add-a-controller-to-an-aspnet-core-mvc-app"></a>Dodawanie kontrolera do aplikacji ASP.NET Core MVC
 
@@ -86,9 +86,9 @@ Format routingu jest ustawiany w `Configure` metodzie w pliku *Startup.cs* .
 
 Gdy przejdziesz do aplikacji i nie podasz żadnych segmentów adresu URL, domyślnym kontrolerem "Home" i metodą "index" określoną w wierszu szablonu wyróżnionym powyżej.
 
-Pierwszy segment adresu URL określa klasę kontrolera do uruchomienia. Dlatego `localhost:xxxx/HelloWorld` mapuje do klasy kontrolera **HelloWorld**. Druga część segmentu adresu URL określa metodę akcji klasy. Mogłoby to spowodować uruchomienie `HelloWorldController`metodyklasy. `Index` `localhost:xxxx/HelloWorld/Index` Zwróć uwagę, że trzeba tylko przeglądać do `localhost:xxxx/HelloWorld` `Index` i metoda została wywołana domyślnie. Dzieje się tak `Index` dlatego, że jest to metoda domyślna, która będzie wywoływana na kontrolerze, jeśli nazwa metody nie jest jawnie określona. Trzecia część segmentu URL ( `id`) jest dla danych trasy. Dane trasy są wyjaśnione w dalszej części samouczka.
+Pierwszy segment adresu URL określa klasę kontrolera do uruchomienia. Dlatego `localhost:{PORT}/HelloWorld` mapuje do klasy kontrolera **HelloWorld**. Druga część segmentu adresu URL określa metodę akcji klasy. Mogłoby to spowodować uruchomienie `HelloWorldController`metodyklasy. `Index` `localhost:{PORT}/HelloWorld/Index` Zwróć uwagę, że trzeba tylko przeglądać do `localhost:{PORT}/HelloWorld` `Index` i metoda została wywołana domyślnie. Dzieje się tak `Index` dlatego, że jest to metoda domyślna, która będzie wywoływana na kontrolerze, jeśli nazwa metody nie jest jawnie określona. Trzecia część segmentu URL ( `id`) jest dla danych trasy. Dane trasy są wyjaśnione w dalszej części samouczka.
 
-Przejdź do `https://localhost:xxxx/HelloWorld/Welcome`. Metoda jest uruchamiana i zwraca ciąg `This is the Welcome action method...`. `Welcome` Dla tego adresu URL kontroler jest `HelloWorld` i `Welcome` jest metodą akcji. Nie użyto `[Parameters]` jeszcze części adresu URL.
+Przejdź do `https://localhost:{PORT}/HelloWorld/Welcome`. Metoda jest uruchamiana i zwraca ciąg `This is the Welcome action method...`. `Welcome` Dla tego adresu URL kontroler jest `HelloWorld` i `Welcome` jest metodą akcji. Nie użyto `[Parameters]` jeszcze części adresu URL.
 
 ![Okno przeglądarki pokazujące odpowiedź aplikacji jest to metoda akcji powitalnej](~/tutorials/first-mvc-app/adding-controller/_static/welcome.png)
 
@@ -104,9 +104,9 @@ Powyższy kod:
 
 Uruchom aplikację i przejdź do:
 
-   `https://localhost:xxxx/HelloWorld/Welcome?name=Rick&numtimes=4`
+   `https://localhost:{PORT}/HelloWorld/Welcome?name=Rick&numtimes=4`
 
-(Zastąp xxxx numerem portu). Możesz wypróbować różne wartości `name` dla `numtimes` i w adresie URL. System [powiązania modelu](xref:mvc/models/model-binding) MVC automatycznie mapuje nazwane parametry z ciągu zapytania na pasku adresu na parametry w metodzie. Aby uzyskać więcej informacji, zobacz [powiązanie modelu](xref:mvc/models/model-binding) .
+(Zamień `{PORT}` na numer portu). Możesz wypróbować różne wartości `name` dla `numtimes` i w adresie URL. System [powiązania modelu](xref:mvc/models/model-binding) MVC automatycznie mapuje nazwane parametry z ciągu zapytania na pasku adresu na parametry w metodzie. Aby uzyskać więcej informacji, zobacz [powiązanie modelu](xref:mvc/models/model-binding) .
 
 ![Okno przeglądarki pokazujące odpowiedź aplikacji Hello Rick, NumTimes to: 4](~/tutorials/first-mvc-app/adding-controller/_static/rick4.png)
 
@@ -116,7 +116,7 @@ Zastąp `Welcome` metodę następującym kodem:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_3)]
 
-Uruchom aplikację i wprowadź następujący adres URL:`https://localhost:xxx/HelloWorld/Welcome/3?name=Rick`
+Uruchom aplikację i wprowadź następujący adres URL:`https://localhost:{PORT}/HelloWorld/Welcome/3?name=Rick`
 
 Tym razem trzeci segment adresu URL pasuje do parametru `id`Route. Metoda zawiera parametr `id` , który `MapControllerRoute` jest zgodny z szablonem adresu URL w metodzie. `Welcome` Końcowe `?` (w `id?`) wskazuje, że `id` parametr jest opcjonalny.
 
@@ -125,8 +125,8 @@ Tym razem trzeci segment adresu URL pasuje do parametru `id`Route. Metoda zawier
 W tych przykładach kontroler wykonywał część "VC" MVC, czyli każ **V**i **C**ontroller Work. Kontroler zwraca bezpośrednio kod HTML. Zazwyczaj nie ma potrzeby, aby kontrolery zwracające kod HTML bezpośrednio, ponieważ staną się bardzo nieskomplikowane w kodzie i obsłudze. Zamiast tego zwykle używasz oddzielnego pliku szablonu widoku Razor do wygenerowania odpowiedzi HTML. Należy to zrobić w następnym samouczku.
 
 > [!div class="step-by-step"]
-> [Poprzedni](start-mvc.md)
-> [Następny](adding-view.md)
+> [Poprzedni](start-mvc.md)Następny
+> [](adding-view.md)
 
 ::: moniker-end
 
@@ -205,9 +205,9 @@ Remove link for simplified tutorial.
 
 Gdy przejdziesz do aplikacji i nie podasz żadnych segmentów adresu URL, domyślnym kontrolerem "Home" i metodą "index" określoną w wierszu szablonu wyróżnionym powyżej.
 
-Pierwszy segment adresu URL określa klasę kontrolera do uruchomienia. Dlatego `localhost:xxxx/HelloWorld` mapuje `HelloWorldController` do klasy. Druga część segmentu adresu URL określa metodę akcji klasy. Mogłoby to spowodować uruchomienie `HelloWorldController`metodyklasy. `Index` `localhost:xxxx/HelloWorld/Index` Zwróć uwagę, że trzeba tylko przeglądać do `localhost:xxxx/HelloWorld` `Index` i metoda została wywołana domyślnie. Jest tak dlatego `Index` , że jest to metoda domyślna, która będzie wywoływana na kontrolerze, jeśli nazwa metody nie jest jawnie określona. Trzecia część segmentu URL ( `id`) jest dla danych trasy. Dane trasy są wyjaśnione w dalszej części samouczka.
+Pierwszy segment adresu URL określa klasę kontrolera do uruchomienia. Dlatego `localhost:{PORT}/HelloWorld` mapuje `HelloWorldController` do klasy. Druga część segmentu adresu URL określa metodę akcji klasy. Mogłoby to spowodować uruchomienie `HelloWorldController`metodyklasy. `Index` `localhost:{PORT}/HelloWorld/Index` Zwróć uwagę, że trzeba tylko przeglądać do `localhost:{PORT}/HelloWorld` `Index` i metoda została wywołana domyślnie. Jest tak dlatego `Index` , że jest to metoda domyślna, która będzie wywoływana na kontrolerze, jeśli nazwa metody nie jest jawnie określona. Trzecia część segmentu URL ( `id`) jest dla danych trasy. Dane trasy są wyjaśnione w dalszej części samouczka.
 
-Przejdź do `https://localhost:xxxx/HelloWorld/Welcome`. Metoda jest uruchamiana i zwraca ciąg `This is the Welcome action method...`. `Welcome` Dla tego adresu URL kontroler jest `HelloWorld` i `Welcome` jest metodą akcji. Nie użyto `[Parameters]` jeszcze części adresu URL.
+Przejdź do `https://localhost:{PORT}/HelloWorld/Welcome`. Metoda jest uruchamiana i zwraca ciąg `This is the Welcome action method...`. `Welcome` Dla tego adresu URL kontroler jest `HelloWorld` i `Welcome` jest metodą akcji. Nie użyto `[Parameters]` jeszcze części adresu URL.
 
 ![Okno przeglądarki pokazujące odpowiedź aplikacji jest to metoda akcji powitalnej](~/tutorials/first-mvc-app/adding-controller/_static/welcome.png)
 
@@ -223,9 +223,9 @@ Powyższy kod:
 
 Uruchom aplikację i przejdź do:
 
-   `https://localhost:xxxx/HelloWorld/Welcome?name=Rick&numtimes=4`
+   `https://localhost:{PORT}/HelloWorld/Welcome?name=Rick&numtimes=4`
 
-(Zastąp xxxx numerem portu). Możesz wypróbować różne wartości `name` dla `numtimes` i w adresie URL. System [powiązania modelu](xref:mvc/models/model-binding) MVC automatycznie mapuje nazwane parametry z ciągu zapytania na pasku adresu na parametry w metodzie. Aby uzyskać więcej informacji, zobacz [powiązanie modelu](xref:mvc/models/model-binding) .
+(Zamień `{PORT}` na numer portu). Możesz wypróbować różne wartości `name` dla `numtimes` i w adresie URL. System [powiązania modelu](xref:mvc/models/model-binding) MVC automatycznie mapuje nazwane parametry z ciągu zapytania na pasku adresu na parametry w metodzie. Aby uzyskać więcej informacji, zobacz [powiązanie modelu](xref:mvc/models/model-binding) .
 
 ![Okno przeglądarki pokazujące odpowiedź aplikacji Hello Rick, NumTimes to: 4](~/tutorials/first-mvc-app/adding-controller/_static/rick4.png)
 
@@ -235,7 +235,7 @@ Zastąp `Welcome` metodę następującym kodem:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_3)]
 
-Uruchom aplikację i wprowadź następujący adres URL:`https://localhost:xxx/HelloWorld/Welcome/3?name=Rick`
+Uruchom aplikację i wprowadź następujący adres URL:`https://localhost:{PORT}/HelloWorld/Welcome/3?name=Rick`
 
 Tym razem trzeci segment adresu URL pasuje do parametru `id`Route. Metoda zawiera parametr `id` , który `MapRoute` jest zgodny z szablonem adresu URL w metodzie. `Welcome` Końcowe `?` (w `id?`) wskazuje, że `id` parametr jest opcjonalny.
 
@@ -244,7 +244,7 @@ Tym razem trzeci segment adresu URL pasuje do parametru `id`Route. Metoda zawier
 W tych przykładach kontroler wykonywał część "VC" składnika MVC, czyli działania widoku i kontrolera. Kontroler zwraca bezpośrednio kod HTML. Zazwyczaj nie ma potrzeby, aby kontrolery zwracające kod HTML bezpośrednio, ponieważ staną się bardzo nieskomplikowane w kodzie i obsłudze. Zamiast tego zwykle używany jest oddzielny plik szablonu widoku Razor, aby ułatwić generowanie odpowiedzi HTML. Należy to zrobić w następnym samouczku.
 
 > [!div class="step-by-step"]
-> [Poprzedni](start-mvc.md)
-> [Następny](adding-view.md)
+> [Poprzedni](start-mvc.md)Następny
+> [](adding-view.md)
 
 ::: moniker-end

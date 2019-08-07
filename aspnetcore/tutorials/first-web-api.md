@@ -4,14 +4,14 @@ author: rick-anderson
 description: Dowiedz się, jak utworzyć internetowy interfejs API za pomocą ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/11/2019
+ms.date: 08/05/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 60235af56077127093ac1d77338bc228a6edf073
-ms.sourcegitcommit: 0efb9e219fef481dee35f7b763165e488aa6cf9c
+ms.openlocfilehash: 855d05fa2b9c1a7572212c40adbe61bb396f4bac
+ms.sourcegitcommit: 2eb605f4f20ac4dd9de6c3b3e3453e108a357a21
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68602535"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68819835"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Samouczek: Tworzenie internetowego interfejsu API za pomocą ASP.NET Core
 
@@ -102,7 +102,7 @@ Na poniższym diagramie przedstawiono projekt aplikacji.
 
   ![Nowe rozwiązanie w systemie macOS](first-web-api-mac/_static/sln.png)
 
-* Wybierz pozycję **interfejs API** > > aplikacji> .NET Core.
+* Wybierzpozycję **interfejs API** > > aplikacji.NET> Core.
 
   ![okno dialogowe z systemem macOS nowego projektu](first-web-api-mac/_static/1.png)
   
@@ -358,7 +358,7 @@ Te metody zaimplementować dwa GET punkty końcowe:
 * `GET /api/TodoItems`
 * `GET /api/TodoItems/{id}`
 
-Przetestuj aplikację, wywołując dwa punkty końcowe z przeglądarki lub wpisu. Przykład:
+Przetestuj aplikację, wywołując dwa punkty końcowe z przeglądarki lub wpisu. Na przykład:
 
 * [https://localhost:5001/api/TodoItems](https://localhost:5001/api/TodoItems)
 * [https://localhost:5001/api/TodoItems/1](https://localhost:5001/api/TodoItems/1)
@@ -538,7 +538,7 @@ Na poniższym diagramie przedstawiono projekt aplikacji.
 
   ![Nowe rozwiązanie w systemie macOS](first-web-api-mac/_static/sln.png)
 
-* Wybierz pozycję **interfejs API** > > aplikacji> .NET Core.
+* Wybierzpozycję **interfejs API** > > aplikacji.NET> Core.
 
   ![okno dialogowe z systemem macOS nowego projektu](first-web-api-mac/_static/1.png)
   
@@ -728,6 +728,7 @@ Zwracany typ `GetTodoItems` i `GetTodoItem` metody jest [ActionResult\<T > typu]
 * Jeśli żaden element jest zgodny z żądanym Identyfikatorem, metoda zwraca odpowiedź 404 [NotFound](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.notfound) kod błędu.
 * W przeciwnym razie metoda zwraca 200 treści odpowiedzi JSON. Zwracanie `item` skutkuje odpowiedź HTTP 200.
 
+
 ## <a name="test-the-gettodoitems-method"></a>Metoda GetTodoItems testu
 
 Ten samouczek używa narzędzia Postman do testowania internetowego interfejsu API.
@@ -736,10 +737,19 @@ Ten samouczek używa narzędzia Postman do testowania internetowego interfejsu A
 * Uruchamiają aplikację sieci web.
 * Uruchom narzędzie Postman.
 * Wyłącz **weryfikacji certyfikatu SSL**
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+* W obszarze **Ustawienia** **pliku** > (karta**Ogólne** ) Wyłącz **weryfikację certyfikatu SSL**.
+
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
+
+* Z > poziomu**preferencji** programu Poster (karta**Ogólne** ) Wyłącz **weryfikację certyfikatu SSL**. Alternatywnie wybierz klucz i wybierz pozycję **Ustawienia**, a następnie wyłącz weryfikację certyfikatu SSL.
+
+---
   
-  * Z **Plik > Ustawienia** (**ogólne* karty), wyłącz **weryfikacji certyfikatu SSL**.
-    > [!WARNING]
-    > Ponownie Włącz weryfikację certyfikatu SSL po przetestowaniu kontrolera.
+> [!WARNING]
+> Ponownie Włącz weryfikację certyfikatu SSL po przetestowaniu kontrolera.
 
 * Utwórz nowe żądanie.
   * Ustawia metodę HTTP **UZYSKAĆ**.
@@ -751,7 +761,7 @@ Ten samouczek używa narzędzia Postman do testowania internetowego interfejsu A
 
 ## <a name="add-a-create-method"></a>Dodawanie metody Create
 
-Dodaj następujący kod `PostTodoItem` metody:
+Dodaj następującą `PostTodoItem` metodę w obszarze *controllers/TodoController. cs*: 
 
 [!code-csharp[](first-web-api/samples/2.2/TodoApi/Controllers/TodoController.cs?name=snippet_Create)]
 

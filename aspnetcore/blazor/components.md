@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/02/2019
 uid: blazor/components
-ms.openlocfilehash: 6285eb26bae283fe0c1a5bc000c2a4fe6b9ec738
-ms.sourcegitcommit: 4fe3ae892f54dc540859bff78741a28c2daa9a38
+ms.openlocfilehash: c5525542516d7b1318c26d12a5f59b0ded8dc659
+ms.sourcegitcommit: 2eb605f4f20ac4dd9de6c3b3e3453e108a357a21
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2019
-ms.locfileid: "68776580"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68819776"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Tworzenie i używanie składników ASP.NET Core Razor
 
@@ -37,9 +37,9 @@ Interfejs użytkownika dla składnika jest definiowany przy użyciu języka HTML
 Elementy członkowskie klasy składnika są zdefiniowane w `@code` bloku. `@code` W bloku stan składnika (właściwości, pola) jest określany przy użyciu metod obsługi zdarzeń lub definiowania innej logiki składnika. Dozwolony jest więcej `@code` niż jeden blok.
 
 > [!NOTE]
-> W poprzednich wersjach ASP.NET Core `@functions` bloki zostały użyte do tego samego celu co `@code` bloki. `@functions`bloki nadal działają, ale zalecamy użycie `@code` dyrektywy.
+> W poprzednich wersjach ASP.NET Core 3,0 `@functions` bloki zostały użyte do tego samego celu co `@code` bloki w składnikach Razor. `@functions`bloki kontynuują działanie w składnikach Razor, ale zalecamy używanie `@code` bloku w ASP.NET Core 3,0 wersja zapoznawcza 6 lub nowsza.
 
-Elementy członkowskie składnika mogą być następnie używane jako część logiki renderowania składnika przy użyciu C# wyrażeń, które zaczynają `@`się od. Na przykład C# pole jest renderowane przez utworzenie prefiksu `@` do nazwy pola. Poniższy przykład szacuje i renderuje:
+Składowe składnika mogą być używane jako część logiki renderowania składnika przy użyciu C# wyrażeń, które zaczynają `@`się od. Na przykład C# pole jest renderowane przez utworzenie prefiksu `@` do nazwy pola. Poniższy przykład szacuje i renderuje:
 
 * `_headingFontStyle`na wartość właściwości CSS dla elementu `font-style`.
 * `_headingText`do zawartości `<h1>` elementu.
@@ -124,7 +124,7 @@ Poniższe elementy `ParentComponent` mogą zapewnić zawartość do `ChildCompon
 
 ## <a name="attribute-splatting-and-arbitrary-parameters"></a>Korzystając atrybutów i dowolne parametry
 
-Składniki mogą przechwytywać i renderować dodatkowe atrybuty oprócz zadeklarowanych parametrów składnika. Dodatkowe atrybuty mogą być przechwytywane w słowniku, a następnie *splatted* do elementu, gdy składnik jest renderowany przy `@attributes` użyciu dyrektywy Razor. Ten scenariusz jest przydatny podczas definiowania składnika, który generuje element znaczników, który obsługuje różne dostosowania. Na przykład może być żmudnym do definiowania atrybutów oddzielnie dla `<input>` , który obsługuje wiele parametrów.
+Składniki mogą przechwytywać i renderować dodatkowe atrybuty oprócz zadeklarowanych parametrów składnika. Dodatkowe atrybuty mogą być przechwytywane w słowniku, a następnie *splatted* do elementu, gdy składnik jest renderowany przy [@attributes](xref:mvc/views/razor#attributes) użyciu dyrektywy Razor. Ten scenariusz jest przydatny podczas definiowania składnika, który generuje element znaczników, który obsługuje różne dostosowania. Na przykład może być żmudnym do definiowania atrybutów oddzielnie dla `<input>` , który obsługuje wiele parametrów.
 
 W `<input>` poniższym przykładzie pierwszy element (`id="useIndividualParams"`) używa pojedynczych parametrów składnika, podczas gdy drugi `<input>` element (`id="useAttributesDict"`) używa atrybutu korzystając:
 
@@ -155,9 +155,9 @@ W `<input>` poniższym przykładzie pierwszy element (`id="useIndividualParams"`
     private Dictionary<string, object> InputAttributes { get; set; } =
         new Dictionary<string, object>()
         {
-            { "maxlength", "10" }, 
-            { "placeholder", "Input placeholder text" }, 
-            { "required", "true" }, 
+            { "maxlength", "10" },
+            { "placeholder", "Input placeholder text" },
+            { "required", "true" },
             { "size", "50" }
         };
 }
@@ -194,7 +194,7 @@ Aby zaakceptować dowolne atrybuty, zdefiniuj parametr składnika przy użyciu `
 
 ## <a name="data-binding"></a>Powiązanie danych
 
-Powiązanie danych zarówno ze składnikami, jak i elementami modelu dom jest `@bind` realizowane przy użyciu atrybutu. Poniższy przykład wiąże `_italicsCheck` pole z zaznaczonym stanem pola wyboru:
+Powiązanie danych zarówno ze składnikami, jak i elementami modelu dom jest [@bind](xref:mvc/views/razor#bind) realizowane przy użyciu atrybutu. Poniższy przykład wiąże `_italicsCheck` pole z zaznaczonym stanem pola wyboru:
 
 ```cshtml
 <input type="checkbox" class="form-check-input" id="italicsCheck" 
@@ -208,13 +208,13 @@ To pole wyboru jest aktualizowane w interfejsie użytkownika tylko wtedy, gdy sk
 Używanie `@bind` `<input @bind="CurrentValue" />`z właściwością () jest zasadniczo równoważne z następującymi: `CurrentValue`
 
 ```cshtml
-<input value="@CurrentValue" 
+<input value="@CurrentValue"
     @onchange="@((UIChangeEventArgs __e) => CurrentValue = __e.Value)" />
 ```
 
 Gdy składnik jest renderowany, `value` element wejściowy pochodzi `CurrentValue` z właściwości. Gdy użytkownik wpisze w polu tekstowym, `onchange` zdarzenie jest wyzwalane, `CurrentValue` a właściwość jest ustawiona na wartość zmieniona. W rzeczywistości generowanie kodu jest nieco bardziej skomplikowane, ponieważ `@bind` obsługuje kilka przypadków, w których są wykonywane konwersje typów. W zasadzie `@bind` kojarzy bieżącą wartość wyrażenia `value` z atrybutem i obsługuje zmiany przy użyciu zarejestrowanej procedury obsługi.
 
-Oprócz obsługi `onchange` zdarzeń ze `@bind` składnią właściwość lub pole można powiązać przy użyciu `@bind-value` innych zdarzeń, `event` określając atrybut z parametrem. Poniższy przykład wiąże się z `CurrentValue` właściwością `oninput` zdarzenia:
+`onchange` Oprócz obsługi[@bind-value:event](xref:mvc/views/razor#bind)zdarzeń ze `@bind` składnią właściwość lub pole można powiązać przy użyciu [@bind-value](xref:mvc/views/razor#bind) innych zdarzeń, `event` określając atrybut z parametrem (). Poniższy przykład wiąże się z `CurrentValue` właściwością `oninput` zdarzenia:
 
 ```cshtml
 <input @bind-value="CurrentValue" @bind-value:event="oninput" />
@@ -224,7 +224,7 @@ W przeciwieństwie do `onchange`, które jest wyzwalane, gdy `oninput` element u
 
 **Ciągi formatujące**
 
-Powiązanie danych działa z <xref:System.DateTime> ciągami formatu. W tej chwili nie są dostępne inne wyrażenia formatu, takie jak formaty walutowe lub liczbowe.
+Powiązanie danych działa z <xref:System.DateTime> ciągami formatu [@bind:format](xref:mvc/views/razor#bind)przy użyciu. W tej chwili nie są dostępne inne wyrażenia formatu, takie jak formaty walutowe lub liczbowe.
 
 ```cshtml
 <input @bind="StartDate" @bind:format="yyyy-MM-dd" />
@@ -239,7 +239,7 @@ Ten `@bind:format` atrybut określa format daty, który ma zostać zastosowany `
 
 **Parametry składnika**
 
-Powiązanie rozpoznaje również parametry składnika, gdzie `@bind-{property}` można powiązać wartość właściwości między składnikami.
+Powiązanie rozpoznaje parametry składnika, gdzie `@bind-{property}` można powiązać wartość właściwości między składnikami.
 
 Następujący składnik podrzędny (`ChildComponent`) `Year` ma parametr składnika i `YearChanged` wywołanie zwrotne:
 
@@ -325,7 +325,7 @@ Ogólnie rzecz biorąc, właściwość może być powiązana z odpowiednią obs�
 
 ## <a name="event-handling"></a>Obsługa zdarzeń
 
-Składniki Razor zapewniają funkcje obsługi zdarzeń. Dla atrybutu elementu HTML o nazwie `on<event>` (na `onclick` przykład i `onsubmit`) z wartością typu delegata składniki Razor traktują wartość atrybutu jako procedurę obsługi zdarzeń. Nazwa atrybutu zawsze zaczyna się od `@on`.
+Składniki Razor zapewniają funkcje obsługi zdarzeń. Dla atrybutu elementu HTML o nazwie `on{event}` (na `onclick` przykład i `onsubmit`) z wartością typu delegata składniki Razor traktują wartość atrybutu jako procedurę obsługi zdarzeń. Nazwa atrybutu jest zawsze sformatowana [ @on{Event}](xref:mvc/views/razor#onevent).
 
 Poniższy kod wywołuje metodę, `UpdateHeading` gdy przycisk zostanie wybrany w interfejsie użytkownika:
 
@@ -372,7 +372,9 @@ W poniższym przykładzie `UpdateHeading` jest wywoływana asynchronicznie po wy
 }
 ```
 
-W przypadku niektórych zdarzeń dozwolone są typy argumentów zdarzeń specyficznych dla zdarzeń. Jeśli dostęp do jednego z tych typów zdarzeń nie jest konieczny, nie jest to wymagane w wywołaniu metody.
+### <a name="event-argument-types"></a>Typy argumentów zdarzeń
+
+W przypadku niektórych zdarzeń dozwolone są typy argumentów zdarzeń. Jeśli dostęp do jednego z tych typów zdarzeń nie jest konieczny, nie jest to wymagane w wywołaniu metody.
 
 Obsługiwane [UIEventArgs](https://github.com/aspnet/AspNetCore/blob/release/3.0-preview8/src/Components/Components/src/UIEventArgs.cs) są przedstawione w poniższej tabeli.
 
@@ -391,7 +393,9 @@ Obsługiwane [UIEventArgs](https://github.com/aspnet/AspNetCore/blob/release/3.0
 | Dotyk | `UITouchEventArgs`&ndash; reprezentujepojedynczypunktkontaktunaurządzeniuz`UITouchPoint` wrażliwym dotknięciem. |
 
 Aby uzyskać informacje o zachowaniu właściwości i obsłudze zdarzeń zdarzeń w powyższej tabeli, zobacz [klasy EventArgs w źródle odwołania](https://github.com/aspnet/AspNetCore/tree/release/3.0-preview8/src/Components/Web/src).
-  
+
+### <a name="lambda-expressions"></a>Wyrażenia lambda
+
 Wyrażenia lambda mogą być również używane:
 
 ```cshtml
@@ -471,7 +475,7 @@ Preferuj silnie wpisaną `EventCallback<T>` `EventCallback`wartość. `EventCall
 
 ## <a name="capture-references-to-components"></a>Przechwyć odwołania do składników
 
-Odwołania do składników zapewniają sposób odwoływania się do wystąpienia składnika, dzięki czemu można wydać polecenia do tego wystąpienia, takie `Show` jak `Reset`lub. Aby przechwycić odwołanie do składnika, Dodaj `@ref` atrybut do składnika podrzędnego, a następnie Zdefiniuj pole o tej samej nazwie i tym samym typie co składnik podrzędny.
+Odwołania do składników zapewniają sposób odwoływania się do wystąpienia składnika, dzięki czemu można wydać polecenia do tego wystąpienia, takie `Show` jak `Reset`lub. Aby przechwycić odwołanie do składnika, Dodaj [@ref](xref:mvc/views/razor#ref) atrybut do składnika podrzędnego, a następnie Zdefiniuj pole o tej samej nazwie i tym samym typie co składnik podrzędny.
 
 ```cshtml
 <MyLoginDialog @ref="loginDialog" ... />
@@ -496,7 +500,7 @@ Podczas przechwytywania odwołań do składników użycie podobnej składni do [
 > [!NOTE]
 > **Nie** należy używać odwołań do składników do mutacji stanu składników podrzędnych. Zamiast tego należy używać zwykłych parametrów deklaratywnych do przekazywania danych do składników podrzędnych. Użycie normalnych parametrów deklaratywnych powoduje, że składniki podrzędne, które automatycznie uruchamiają się w prawidłowym czasie.
 
-## <a name="use-key-to-control-the-preservation-of-elements-and-components"></a>Służy @key do kontrolowania zachowywania elementów i składników
+## <a name="use-key-to-control-the-preservation-of-elements-and-components"></a>Użyj \@klawisza, aby kontrolować zachowywanie elementów i składników
 
 Podczas renderowania listy elementów lub składników oraz elementów lub składników, które następnie zmieniają się, algorytm diff Blazor musi zdecydować, które z poprzednich elementów lub składników mogą być zachowywane i jak obiekty modelu powinny być mapowane na nie. Zwykle ten proces jest automatyczny i można go zignorować, ale istnieją przypadki, w których może być konieczne sterowanie procesem.
 
@@ -541,7 +545,7 @@ W niektórych scenariuszach użycie programu `@key` minimalizuje złożoność o
 > [!IMPORTANT]
 > Klucze są lokalne dla każdego elementu kontenera lub składnika. Klucze nie są porównywane globalnie w całym dokumencie.
 
-### <a name="when-to-use-key"></a>Kiedy używać@key
+### <a name="when-to-use-key"></a>Kiedy używać \@klucza
 
 Zazwyczaj warto używać `@key` zawsze, gdy lista jest renderowana (na przykład `@foreach` w bloku) i odpowiednia `@key`wartość istnieje do zdefiniowania.
 
@@ -555,13 +559,13 @@ Można również użyć `@key` , aby uniemożliwić Blazor z zachowaniem poddrze
 
 Jeśli `@currentPerson` zmiany `<div>` , dyrektywa Blazor wymusza odrzucanie całości i jego obiektów podrzędnych oraz ponowne skompilowanie poddrzewa w interfejsie użytkownika za pomocą nowych elementów i składników. `@key` Może to być przydatne, jeśli zachodzi konieczność zagwarantowania, że stan `@currentPerson` interfejsu użytkownika nie jest zachowywany w przypadku zmiany.
 
-### <a name="when-not-to-use-key"></a>Kiedy nie używać@key
+### <a name="when-not-to-use-key"></a>Kiedy nie używać \@klucza
 
 W przypadku różnicowania w programie `@key`występuje koszt wydajności. Koszt wydajności nie jest duży, ale określa `@key` tylko, czy kontrolowanie reguł utrwalania elementu lub składnika przynosi korzyści dla aplikacji.
 
 Nawet jeśli `@key` nie jest używany, Blazor zachowuje elementy podrzędne i wystąpienia składników tak dużo, jak to możliwe. Jedyną zaletą korzystania z `@key` programu jest kontrola nad sposobem, w *jaki* wystąpienia modelu są mapowane na zachowane wystąpienia składników, zamiast algorytmu różnicowego, wybierając mapowanie.
 
-### <a name="what-values-to-use-for-key"></a>Jakie wartości mają być używane przez@key
+### <a name="what-values-to-use-for-key"></a>Wartości, które mają być \@używane dla klucza
 
 Ogólnie rzecz biorąc, warto podać jeden z następujących rodzajów wartości dla `@key`:
 
@@ -748,26 +752,7 @@ This is the Index page.
 >
 > Częściowo kwalifikowane nazwy nie są obsługiwane. Na przykład dodawanie `@using ComponentsSample` i odwoływanie `NavMenu.razor` się `<Shared.NavMenu></Shared.NavMenu>` za pomocą nie jest obsługiwane.
 
-## <a name="razor-support"></a>Obsługa Razor
-
-**Dyrektywy Razor**
-
-Dyrektywy Razor przedstawiono w poniższej tabeli.
-
-| — Dyrektywa | Opis |
-| --------- | ----------- |
-| [\@kodu](xref:mvc/views/razor#section-5) | Dodaje blok C# kodu do składnika. `@code`jest aliasem `@functions`. `@code`jest zalecane w `@functions`przypadku. Dozwolony jest więcej `@code` niż jeden blok. |
-| [\@obowiązki](xref:mvc/views/razor#section-5) | Dodaje blok C# kodu do składnika. Wybierz `@code` opcję `@functions` powyżej C# dla bloków kodu. |
-| `@implements` | Implementuje interfejs dla wygenerowanej klasy składnika. |
-| [\@inherit](xref:mvc/views/razor#section-3) | Zapewnia pełną kontrolę nad klasą, którą dziedziczy składnik. |
-| [\@dodanie](xref:mvc/views/razor#section-4) | Włącza iniekcję usługi z [kontenera usługi](xref:fundamentals/dependency-injection). Aby uzyskać więcej informacji, zobacz [wstrzykiwanie zależności do widoków](xref:mvc/views/dependency-injection). |
-| `@layout` | Określa składnik układu. Składniki układu są używane do uniknięcia duplikowania kodu i niespójności. |
-| [\@stronic](xref:razor-pages/index#razor-pages) | Określa, że składnik powinien obsługiwać żądania bezpośrednio. `@page` Dyrektywa może być określona z trasą i opcjonalnymi parametrami. W przeciwieństwie do Razor Pages `@page` dyrektywa nie musi być pierwszą dyrektywą w górnej części pliku. Aby uzyskać więcej informacji, zobacz [Routing](xref:blazor/routing). |
-| [\@użyciu](xref:mvc/views/razor#using) | C# Dodajedyrektywędoklasywygenerowanegoskładnika.`using` Obejmuje to również wszystkie składniki zdefiniowane w tej przestrzeni nazw do zakresu. |
-| [\@obszaru](xref:mvc/views/razor#section-6) | Ustawia przestrzeń nazw wygenerowanej klasy składnika. |
-| [\@przypisane](xref:mvc/views/razor#section-7) | Dodaje atrybut do klasy wygenerowanego składnika. |
-
-**Warunkowe atrybuty elementu HTML**
+## <a name="conditional-html-element-attributes"></a>Warunkowe atrybuty elementu HTML
 
 Atrybuty elementu HTML są warunkowo renderowane na podstawie wartości .NET. Jeśli wartość jest `false` lub `null`, atrybut nie jest renderowany. Jeśli wartość to `true`, atrybut jest renderowany jako zminimalizowany.
 
@@ -794,9 +779,7 @@ Jeśli `IsCompleted` jest`false`, pole wyboru jest renderowane jako:
 <input type="checkbox" />
 ```
 
-**Dodatkowe informacje na temat Razor**
-
-Aby uzyskać więcej informacji na temat Razor, zobacz [informacje dotyczące składnia Razor](xref:mvc/views/razor).
+Aby uzyskać więcej informacji, zobacz <xref:mvc/views/razor>.
 
 ## <a name="raw-html"></a>Nieprzetworzony kod HTML
 

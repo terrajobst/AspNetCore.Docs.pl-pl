@@ -1,7 +1,7 @@
 ---
-title: Dla platformy ASP.NET Core, bezpiecznej liście adresów IP klienta
+title: Safelist IP klienta dla ASP.NET Core
 author: damienbod
-description: Dowiedz się, jak pisać oprogramowanie pośredniczące lub akcji filtry, aby sprawdzić poprawność zdalnych adresów IP na liście zatwierdzonych adresów IP.
+description: Dowiedz się, jak napisać oprogramowanie pośredniczące lub filtry akcji, aby zweryfikować zdalne adresy IP w odniesieniu do listy zatwierdzonych adresów IP.
 ms.author: tdykstra
 ms.custom: mvc
 ms.date: 08/31/2018
@@ -13,64 +13,64 @@ ms.contentlocale: pl-PL
 ms.lasthandoff: 07/15/2019
 ms.locfileid: "68223935"
 ---
-# <a name="client-ip-safelist-for-aspnet-core"></a>Dla platformy ASP.NET Core, bezpiecznej liście adresów IP klienta
+# <a name="client-ip-safelist-for-aspnet-core"></a>Safelist IP klienta dla ASP.NET Core
 
-Przez [linkach Damien](https://twitter.com/damien_bod) i [Tom Dykstra](https://github.com/tdykstra)
+Autorzy [Damien Bowden](https://twitter.com/damien_bod) i [Tomasz Dykstra](https://github.com/tdykstra)
  
-W tym artykule przedstawiono trzy sposoby, aby zaimplementować bezpiecznej liście adresów IP (Lista dozwolonych) w aplikacji ASP.NET Core. Możesz użyć:
+W tym artykule przedstawiono trzy sposoby implementacji Safelist IP (znanego również jako dozwolonych) w aplikacji ASP.NET Core. Możesz użyć:
 
-* Oprogramowanie pośredniczące do sprawdzenia zdalny adres IP każdego żądania.
-* Filtry akcji, aby sprawdzić adres IP zdalnego żądań dotyczących określonego kontrolery lub metody akcji.
-* Filtry stron razor do sprawdzenia zdalny adres IP żądań dla stron Razor.
+* Oprogramowanie pośredniczące do sprawdzenia zdalnego adresu IP każdego żądania.
+* Filtry akcji do sprawdzania zdalnego adresu IP żądań dla określonych kontrolerów lub metod akcji.
+* Razor Pages filtrów, aby sprawdzić zdalny adres IP żądań dla stron Razor.
 
-W każdym przypadku ciąg zawierający adresy IP zatwierdzone klienta są przechowywane w ustawieniu aplikacji. Oprogramowanie pośredniczące lub filtr analizuje ciąg w postaci listy i sprawdza, czy zdalny adres IP na liście. W przeciwnym razie zostanie zwrócony kod stanu HTTP 403 — Dostęp zabroniony.
+W każdym przypadku ciąg zawierający zatwierdzone adresy IP klienta jest przechowywany w ustawieniu aplikacji. Oprogramowanie pośredniczące lub Filtr analizuje ciąg w postaci listy i sprawdza, czy zdalny adres IP znajduje się na liście. W przeciwnym razie zwracany jest kod stanu zabroniony protokołu HTTP 403.
 
 [Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/ip-safelist/samples/2.x/ClientIpAspNetCore) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
-## <a name="the-safelist"></a>Bezpiecznej liście
+## <a name="the-safelist"></a>Safelist
 
-Lista jest skonfigurowana w *appsettings.json* pliku. Jest rozdzielaną średnikami listę i może zawierać adresów IPv4 i IPv6.
+Lista jest konfigurowana w pliku *appSettings. JSON* . Jest to rozdzielana średnikami lista i może zawierać adresy IPv4 i IPv6.
 
 [!code-json[](ip-safelist/samples/2.x/ClientIpAspNetCore/appsettings.json?highlight=2)]
 
 ## <a name="middleware"></a>Oprogramowanie pośredniczące
 
-`Configure` Metoda dodaje oprogramowanie pośredniczące i przekazuje do niego ciąg bezpiecznej liście parametr konstruktora.
+`Configure` Metoda dodaje oprogramowanie pośredniczące i przekazuje do niego ciąg Safelist w parametrze konstruktora.
 
 [!code-csharp[](ip-safelist/samples/2.x/ClientIpAspNetCore/Startup.cs?name=snippet_Configure&highlight=10)]
 
-Oprogramowanie pośredniczące analizuje ciąg do tablicy, a także szuka zdalny adres IP w tablicy. Jeśli zdalny adres IP nie zostanie znaleziony, oprogramowanie pośredniczące zwraca HTTP 401 — Dostęp zabroniony. Ten proces sprawdzania poprawności jest pomijana dla żądań HTTP Get.
+Oprogramowanie pośredniczące analizuje ciąg w tablicę i wyszukuje zdalny adres IP w tablicy. Jeśli zdalny adres IP nie zostanie znaleziony, oprogramowanie pośredniczące zwróci niedozwolony protokół HTTP 401. Ten proces sprawdzania poprawności jest pomijany dla żądań HTTP GET.
 
 [!code-csharp[](ip-safelist/samples/2.x/ClientIpAspNetCore/AdminSafeListMiddleware.cs?name=snippet_ClassOnly)]
 
 ## <a name="action-filter"></a>Filtr akcji
 
-Chcąc bezpiecznej liście tylko dla określonych kontrolery lub metody akcji, użyj filtru akcji. Oto przykład: 
+Jeśli chcesz, aby Safelist tylko dla określonych kontrolerów lub metod akcji, Użyj filtru akcji. Oto przykład: 
 
 [!code-csharp[](ip-safelist/samples/2.x/ClientIpAspNetCore/Filters/ClientIdCheckFilter.cs)]
 
-Filtr akcji zostanie dodany do kontenera usług.
+Filtr akcji zostanie dodany do kontenera usługi.
 
 [!code-csharp[](ip-safelist/samples/2.x/ClientIpAspNetCore/Startup.cs?name=snippet_ConfigureServices&highlight=3)]
 
-Następnie można filtr dla metody kontrolera lub akcji.
+Filtr może być następnie używany na kontrolerze lub metodzie akcji.
 
 [!code-csharp[](ip-safelist/samples/2.x/ClientIpAspNetCore/Controllers/ValuesController.cs?name=snippet_Filter&highlight=1)]
 
-Przykładowa aplikacja, jest stosowany filtr do `Get` metody. Tak, podczas testowania aplikacji, wysyłając `Get` żądania interfejsu API, ten atrybut jest sprawdzanie poprawności adresu IP klienta. Podczas testowania, wywołując interfejs API przy użyciu dowolnej metody HTTP, oprogramowanie pośredniczące jest sprawdzanie poprawności adresu IP klienta.
+W przykładowej aplikacji filtr jest stosowany do `Get` metody. Dlatego podczas testowania aplikacji przez wysłanie `Get` żądania interfejsu API ten atrybut sprawdza poprawność adresu IP klienta. Podczas testowania przez wywołanie interfejsu API z dowolną inną metodą HTTP, oprogramowanie pośredniczące sprawdza poprawność adresu IP klienta.
 
-## <a name="razor-pages-filter"></a>Filtrowanie stron razor 
+## <a name="razor-pages-filter"></a>Filtr Razor Pages 
 
-Chcąc bezpiecznej liście stron Razor aplikacji, użyj filtru stron Razor. Oto przykład: 
+Jeśli chcesz Safelist dla aplikacji Razor Pages, Użyj filtru Razor Pages. Oto przykład: 
 
 [!code-csharp[](ip-safelist/samples/2.x/ClientIpAspNetCore/Filters/ClientIdCheckPageFilter.cs)]
 
-Ten filtr jest włączona, dodając ją do kolekcji filtrów platformy MVC.
+Ten filtr jest włączony przez dodanie go do kolekcji filtrów MVC.
 
 [!code-csharp[](ip-safelist/samples/2.x/ClientIpAspNetCore/Startup.cs?name=snippet_ConfigureServices&highlight=7-9)]
 
-Po uruchomieniu aplikacji i żądania strony Razor, filtru strony Razor jest sprawdzanie poprawności adresu IP klienta.
+Po uruchomieniu aplikacji i zażądaniu strony Razor filtr Razor Pages sprawdza poprawność adresu IP klienta.
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Dowiedz się więcej na temat platformy ASP.NET Core w oprogramowaniu pośredniczącym](xref:fundamentals/middleware/index).
+[Dowiedz się więcej na temat ASP.NET Core oprogramowania pośredniczącego](xref:fundamentals/middleware/index).
