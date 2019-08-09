@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 07/25/2019
 uid: web-api/http-repl
-ms.openlocfilehash: e719d599545810d723840b0800cd6a2b4f96b123
-ms.sourcegitcommit: fbc66827e319d28bebed678ea5fd42f582fe3c34
+ms.openlocfilehash: 0e80fcd76a4d3efcd35140c52e0f6f0ae0f27932
+ms.sourcegitcommit: 2719c70cd15a430479ab4007ff3e197fbf5dfee0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68493569"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68862967"
 ---
 # <a name="test-web-apis-with-the-http-repl"></a>Testowanie interfejsów API sieci Web przy użyciu protokołu HTTP REPL
 
@@ -143,7 +143,7 @@ Alternatywnie Uruchom następujące polecenie w dowolnym momencie podczas dział
 set base <BASE URI>
 ```
 
-Przykład:
+Na przykład:
 
 ```console
 (Disconnected)~ set base https://localhost:5001
@@ -532,12 +532,12 @@ Aby wydać żądanie HTTP POST:
 
 1. Zmodyfikuj szablon JSON, aby spełniał wymagania dotyczące weryfikacji modelu:
 
-  ```json
-  {
-    "id": 0,
-    "name": "Scott Addie"
-  }
-  ```
+    ```json
+    {
+      "id": 0,
+      "name": "Scott Addie"
+    }
+    ```
 
 1. Zapisz plik *. tmp* i Zamknij Edytor tekstu. Następujące dane wyjściowe są wyświetlane w powłoce poleceń:
 
@@ -613,7 +613,7 @@ Aby wydać żądanie HTTP PUT:
     https://localhost:5001/fruits~ put 2 -h Content-Type=application/json
     ```
 
-    W poprzednim poleceniu nagłówek żądania `Content-Type` http jest ustawiany w taki sposób, aby wskazywał typ nośnika treści żądania JSON. Domyślny edytor tekstu otwiera plik *. tmp* z szablonem JSON reprezentującym treść żądania HTTP. Przykład:
+    W poprzednim poleceniu nagłówek żądania `Content-Type` http jest ustawiany w taki sposób, aby wskazywał typ nośnika treści żądania JSON. Domyślny edytor tekstu otwiera plik *. tmp* z szablonem JSON reprezentującym treść żądania HTTP. Na przykład:
 
     ```json
     {
@@ -826,13 +826,13 @@ Aby ustawić nagłówek żądania HTTP, należy użyć jednej z następujących 
 
   W przypadku wcześniejszego podejścia każdy unikatowy nagłówek żądania HTTP wymaga własnej `-h` opcji.
 
-1. Ustaw przed wysłaniem żądania HTTP. Na przykład:
+1. Ustaw przed wysłaniem żądania HTTP. Przykład:
 
   ```console
   https://localhost:5001/people~ set header Content-Type application/json
   ```
 
-  Podczas ustawiania nagłówka przed wysłaniem żądania nagłówek pozostaje ustawiony na czas trwania sesji powłoki poleceń. Aby wyczyścić nagłówek, podaj wartość pustą. Przykład:
+  Podczas ustawiania nagłówka przed wysłaniem żądania nagłówek pozostaje ustawiony na czas trwania sesji powłoki poleceń. Aby wyczyścić nagłówek, podaj wartość pustą. Na przykład:
 
   ```console
   https://localhost:5001/people~ set header Content-Type
@@ -851,7 +851,7 @@ https://localhost:5001/people~ echo on
 Request echoing is on
 ```
 
-Kolejne żądania HTTP w bieżącej sesji wyświetlają nagłówki żądań. Przykład:
+Kolejne żądania HTTP w bieżącej sesji wyświetlają nagłówki żądań. Na przykład:
 
 ```console
 https://localhost:5001/people~ post
@@ -910,7 +910,7 @@ Jeśli często wykonujesz ten sam zestaw poleceń HTTP REPL, Rozważ przechowywa
     get 1
     ```
 
-1. `run` Wykonaj polecenie, przekazując w ścieżce pliku tekstowego. Na przykład:
+1. `run` Wykonaj polecenie, przekazując w ścieżce pliku tekstowego. Przykład:
 
     ```console
     https://localhost:5001/~ run C:\http-repl-scripts\people-script.txt

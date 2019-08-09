@@ -5,12 +5,12 @@ description: Dowiedz się, jak można dodać klas związanych z zarządzaniem fi
 ms.author: riande
 ms.date: 07/22/2019
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 6132f7b907014b4f57bb9ae0300e00b6ecb23f1a
-ms.sourcegitcommit: 2eb605f4f20ac4dd9de6c3b3e3453e108a357a21
+ms.openlocfilehash: 39e2a38e0b91b7dbecf05c084ca0be5e312dcb0d
+ms.sourcegitcommit: 2719c70cd15a430479ab4007ff3e197fbf5dfee0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68820069"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68862870"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Dodawanie modelu strony Razor aplikacji w programie ASP.NET Core
 
@@ -135,18 +135,30 @@ Wykonaj **dodać strony Razor za pomocą programu Entity Framework (CRUD)** okno
 
 ---
 
-Proces szkieletu tworzy i aktualizuje następujące pliki:
-
 ### <a name="files-created"></a>Utworzone pliki
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+Proces szkieletu tworzy i aktualizuje następujące pliki:
 
 * *Strony/filmy*: Tworzenie, usuwanie, szczegóły, edytowanie i indeksowanie.
 * *Data/RazorPagesMovieContext.cs*
 
-### <a name="file-updated"></a>Zaktualizowano plik
+### <a name="updated"></a>Aktualny
 
 * *Startup.cs*
 
 Pliki utworzone i zaktualizowane zostały wyjaśnione w kolejnej sekcji.
+
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
+
+Proces tworzenia szkieletu tworzy następujące pliki:
+
+* *Strony/filmy*: Tworzenie, usuwanie, szczegóły, edytowanie i indeksowanie.
+
+Utworzone pliki zostały wyjaśnione w następnej sekcji.
+
+---
 
 <a name="pmc"></a>
 

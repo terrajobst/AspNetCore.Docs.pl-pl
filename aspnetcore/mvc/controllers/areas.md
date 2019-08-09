@@ -1,40 +1,40 @@
 ---
-title: Obszary w programie ASP.NET Core
+title: Obszary w ASP.NET Core
 author: rick-anderson
-description: Dowiedz się, jak obszary są funkcją programu ASP.NET MVC, używane do organizowania powiązanych funkcji do grupy jako osobne przestrzeni nazw (w przypadku routingu) i struktury ich folderów (w przypadku widoków).
+description: Dowiedz się, jak obszary są funkcją ASP.NET MVC służącą do organizowania powiązanych funkcji w grupie jako oddzielnej przestrzeni nazw (dla routingu) i struktury folderów (dla widoków).
 ms.author: riande
-ms.date: 05/10/2019
+ms.date: 08/07/2019
 uid: mvc/controllers/areas
-ms.openlocfilehash: f3a75bc307a206e43241b421f448b09011868d08
-ms.sourcegitcommit: ffe3ed7921ec6c7c70abaac1d10703ec9a43374c
+ms.openlocfilehash: e44c726c47caa3dd0c8c92e3a2502a590bee82d1
+ms.sourcegitcommit: 2719c70cd15a430479ab4007ff3e197fbf5dfee0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65535969"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68862796"
 ---
-# <a name="areas-in-aspnet-core"></a>Obszary w programie ASP.NET Core
+# <a name="areas-in-aspnet-core"></a>Obszary w ASP.NET Core
 
-Przez [Kumara Dhananjay](https://twitter.com/debug_mode) i [Rick Anderson](https://twitter.com/RickAndMSFT)
+Autorzy [Dhananjay Kumara](https://twitter.com/debug_mode) i [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Obszary są funkcją programu ASP.NET, używane do organizowania powiązanych funkcji do grupy jako osobne przestrzeni nazw (w przypadku routingu) i struktury ich folderów (w przypadku widoków). Za pomocą obszarów tworzą hierarchię na potrzeby routingu, dodając innego parametru trasy, `area`, `controller` i `action` lub strony Razor `page`.
+Obszary są funkcją ASP.NET używaną do organizowania powiązanych funkcji w grupie jako oddzielnej przestrzeni nazw (dla routingu) i struktury folderów (dla widoków). Za pomocą obszarów tworzy hierarchię na potrzeby routingu przez dodanie innego parametru `area`trasy, do `controller` i `action` lub do strony `page`Razor.
 
-Obszary umożliwiają partycji aplikacji sieci Web platformy ASP.NET Core na mniejsze grupy funkcjonalnej, każdy z swój własny zestaw stron Razor, kontrolerów, widoki i modele. Obszar skutecznie to struktura wewnątrz aplikacji. W projekcie sieci web platformy ASP.NET Core składników logicznych, takich jak strony, modelu, kontroler i Widok są przechowywane w różnych folderach. Środowisko uruchomieniowe programu ASP.NET Core używa konwencji nazewnictwa do utworzenia relacji między tymi składnikami. W przypadku dużych aplikacji może być korzystne podzielić ją na oddzielnych wysokiego poziomu obszary funkcji. Na przykład aplikacja handlu elektronicznego z wielu jednostek biznesowych, takich jak wyewidencjonowania, rozliczeń i wyszukiwania. Każda z tych jednostek ma swoje własne obszar zawiera widoki, kontrolery, stronami Razor i modeli.
+Obszary umożliwiają dzielenie aplikacji sieci Web na ASP.NET Core na mniejsze grupy funkcjonalne, z których każdy ma swój własny zestaw Razor Pages, kontrolerów, widoków i modeli. Obszar jest efektywnie strukturą wewnątrz aplikacji. W projekcie sieci Web ASP.NET Core składniki logiczne, takie jak Pages, model, Controller i View, są przechowywane w różnych folderach. Środowisko uruchomieniowe ASP.NET Core używa konwencji nazewnictwa, aby utworzyć relację między tymi składnikami. W przypadku dużej aplikacji warto podzielić aplikację na oddzielne obszary wysokiego poziomu funkcji. Na przykład aplikacja handlu elektronicznego z wieloma jednostkami biznesowymi, takimi jak wyewidencjonowywanie, rozliczenia i wyszukiwanie. Każda z tych jednostek ma własny obszar, który zawiera widoki, kontrolery, Razor Pages i modele.
 
-Należy rozważyć użycie obszarów w projekcie po:
+Rozważ użycie obszarów w projekcie, gdy:
 
-* Aplikacja składa się z wielu wysokiego poziomu funkcjonalności składników, które mogą zostać logicznie oddzielone.
-* Chcesz podzielić na partycje aplikację tak, aby każdy obszar funkcjonalny może się opracowaniem niezależnie.
+* Aplikacja składa się z wielu składników funkcjonalnych wysokiego poziomu, które można logicznie oddzielić.
+* Chcesz podzielić aplikację na partycje, tak aby każdy obszar funkcjonalny mógł działać niezależnie.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/areas/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample)). Przykład pobierania zawiera podstawową aplikację do testowania obszarów.
+[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/areas/samples) ([jak pobrać](xref:index#how-to-download-a-sample)). Przykład pobierania zawiera podstawową aplikację do testowania obszarów.
 
-Jeśli używasz stron Razor, zobacz [obszarów ze stronami Razor](#areas-with-razor-pages) w tym dokumencie.
+Jeśli używasz Razor Pages, zobacz [obszary z Razor Pages](#areas-with-razor-pages) w tym dokumencie.
 
 ## <a name="areas-for-controllers-with-views"></a>Obszary dla kontrolerów z widokami
 
-Typowa aplikacja internetowa ASP.NET Core przy użyciu obszarów, widoków i kontrolerów zawiera następujące informacje:
+Typowy ASP.NET Core aplikacja internetowa korzystająca z obszarów, kontrolerów i widoków zawiera następujące elementy:
 
-* [Strukturę folderów obszaru](#area-folder-structure).
-* Kontrolery ozdobione [ &lbrack;obszaru&rbrack; ](#attribute) atrybutu, aby skojarzyć kontroler z obszaru:
+* [Struktura folderów obszaru](#area-folder-structure).
+* Kontrolery uzupełnione o [ &lbrack;atrybut&rbrack; obszaru](#attribute) , aby skojarzyć kontroler z obszarem:
 
   [!code-csharp[](areas/samples/MVCareas/Areas/Products/Controllers/ManageController.cs?name=snippet2)]
 
@@ -44,7 +44,7 @@ Typowa aplikacja internetowa ASP.NET Core przy użyciu obszarów, widoków i kon
 
 ### <a name="area-folder-structure"></a>Struktura folderów obszaru
 
-Należy wziąć pod uwagę aplikację, która ma dwa grup logicznych *produktów* i *usług*. Za pomocą obszarów, strukturę folderów będzie podobny do następującego:
+Weź pod uwagę aplikację, która ma dwie grupy logiczne, *produkty* i *usługi*. Przy użyciu obszarów struktura folderów będzie wyglądać podobnie do następujących:
 
 * Project name (Nazwa projektu)
   * Obszary
@@ -57,7 +57,7 @@ Należy wziąć pod uwagę aplikację, która ma dwa grup logicznych *produktów
           * Index.cshtml
         * Zarządzanie
           * Index.cshtml
-          * About.cshtml
+          * About. cshtml
     * Usługi
       * Kontrolery
         * HomeController.cs
@@ -65,7 +65,7 @@ Należy wziąć pod uwagę aplikację, która ma dwa grup logicznych *produktów
         * Home
           * Index.cshtml
 
-Podczas poprzedniego układ jest typowe w przypadku, gdy przy użyciu obszarów, Wyświetl pliki, należy użyć tej struktury folderów. Widok odnajdywania wyszukuje pasującego pliku widoku obszaru w następującej kolejności:
+Chociaż poprzedni układ jest typowy w przypadku korzystania z obszarów, do korzystania z tej struktury folderów są wymagane tylko pliki widoku. Wyświetl wyszukiwania odnajdywania dla zgodnego pliku widoku obszaru w następującej kolejności:
 
 ```text
 /Areas/<Area-Name>/Views/<Controller-Name>/<Action-Name>.cshtml
@@ -74,65 +74,69 @@ Podczas poprzedniego układ jest typowe w przypadku, gdy przy użyciu obszarów,
 /Pages/Shared/<Action-Name>.cshtml
    ```
 
-Lokalizacji-view, folderów, takie jak *kontrolerów* i *modeli* jest **nie** znaczenia. Na przykład *kontrolerów* i *modeli* folderu nie są wymagane. Zawartość *kontrolerów* i *modeli* jest kod, który zostanie skompilowany w dll. Zawartość *widoków* nie jest kompilowana, dopóki nie wykonano żądania do tego widoku.
+Lokalizacja folderów niewyświetlanych, takich jak *Kontrolery* i *modele* , nie ma znaczenia. Na przykład folder *Kontrolery* i *modele* nie jest wymagany. Zawartość *kontrolerów* i *modeli* to kod, który jest kompilowany do pliku dll. Zawartość *widoków* nie zostanie skompilowana, dopóki nie zostanie wysłane żądanie do tego widoku.
 
 <a name="attribute"></a>
 
-### <a name="associate-the-controller-with-an-area"></a>Skojarzyć kontroler z obszaru
+### <a name="associate-the-controller-with-an-area"></a>Skojarz kontroler z obszarem
 
-Obszar kontrolerów zostały oznaczone za pomocą [ &lbrack;obszaru&rbrack; ](xref:Microsoft.AspNetCore.Mvc.AreaAttribute) atrybutu:
+Kontrolery obszaru są oznaczone [ &lbrack;atrybutem obszaru&rbrack; ](xref:Microsoft.AspNetCore.Mvc.AreaAttribute) :
 
 [!code-csharp[](areas/samples/MVCareas/Areas/Products/Controllers/ManageController.cs?highlight=5&name=snippet)]
 
 ### <a name="add-area-route"></a>Dodaj trasę obszaru
 
-Obszar trasy używa się zazwyczaj do routingu konwencjonalna zamiast trasowanie atrybutów. Tradycyjnie routing jest zależna od kolejności. Ogólnie rzecz biorąc trasy z obszarami należy umieścić we wcześniejszej części tabeli tras, ponieważ są one bardziej szczegółowe niż trasy bez obszaru.
+Trasy obszaru zwykle używają konwencjonalnego routingu, a nie routingu atrybutu. Routowanie konwencjonalne jest zależne od kolejności. Ogólnie rzecz biorąc, trasy z obszarami należy umieścić wcześniej w tabeli tras, ponieważ są one bardziej specyficzne niż trasy bez obszaru.
 
-`{area:...}` może służyć jako token w szablonach tras Jeśli przestrzeń adresów url jest jednolita we wszystkich obszarach:
+`{area:...}`może służyć jako token w szablonach tras, jeśli przestrzeń adresów URL jest jednolita dla wszystkich obszarów:
 
 [!code-csharp[](areas/samples/MVCareas/Startup.cs?name=snippet&highlight=18-21)]
 
-W poprzednim kodzie `exists` zastosuje ograniczenie, że trasy musi odpowiadać obszar. Za pomocą `{area:...}` jest najmniej skomplikowane mechanizm do dodawania routingu do obszarów.
+W poprzednim kodzie, `exists` stosuje ograniczenie, które musi być zgodne z obszarem. Korzystanie `{area:...}` z programu to najmniej skomplikowany mechanizm dodawania routingu do obszarów.
 
-Poniższy kod używa <xref:Microsoft.AspNetCore.Builder.MvcAreaRouteBuilderExtensions.MapAreaRoute*> utworzyć dwa o nazwie obszaru trasy:
+Poniższy kod używa <xref:Microsoft.AspNetCore.Builder.MvcAreaRouteBuilderExtensions.MapAreaRoute*> do tworzenia dwóch nazwanych tras obszaru:
 
 [!code-csharp[](areas/samples/MVCareas/StartupMapAreaRoute.cs?name=snippet&highlight=18-27)]
 
-Korzystając z `MapAreaRoute` za pomocą platformy ASP.NET Core 2.2, zobacz [problem w usłudze GitHub](https://github.com/aspnet/AspNetCore/issues/7772).
+W przypadku `MapAreaRoute` korzystania z programu z ASP.NET Core 2,2, zobacz [ten problem](https://github.com/aspnet/AspNetCore/issues/7772)w usłudze GitHub.
 
-Aby uzyskać więcej informacji, zobacz [routingu obszaru](xref:mvc/controllers/routing#areas).
+Aby uzyskać więcej informacji, zobacz [Routing obszaru](xref:mvc/controllers/routing#areas).
 
-### <a name="link-generation-with-mvc-areas"></a>Generowanie konsolidacji z obszarami MVC
+### <a name="link-generation-with-mvc-areas"></a>Generowanie linków z obszarami MVC
 
-Poniższy kod z [pobrania próbki](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/areas/samples) pokazuje połączenie generacji z użyciem obszaru określony:
+Poniższy kod z pobranego [przykładu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/areas/samples) pokazuje generowanie linków z określonym obszarem:
 
 [!code-cshtml[](areas/samples/MVCareas/Views/Shared/_testLinksPartial.cshtml?name=snippet)]
 
-Linki wygenerowane z poprzedniego kodu są prawidłowe w dowolnym miejscu aplikacji.
+Linki generowane za pomocą powyższego kodu są prawidłowe w dowolnym miejscu aplikacji.
 
-Przykładowe do pobrania obejmują programy [widoku częściowego](xref:mvc/views/partial) zawiera poprzednie linki i uruchamia łącze tak samo bez określenia obszaru. Odwołuje się widok częściowy [plik układu](xref:mvc/views/layout), więc co w aplikacji stronę Wyświetla łącza wygenerowany. Linki wygenerowany bez określenia obszaru są prawidłowe tylko gdy występuje do ze strony, w tym samym regionie i kontrolera.
+Pobieranie próbek obejmuje [Widok częściowy](xref:mvc/views/partial) zawierający poprzednie linki i te same linki bez określania obszaru. Widok częściowy jest przywoływany w [pliku układu](xref:mvc/views/layout), więc każda Strona w aplikacji wyświetla wygenerowane linki. Linki wygenerowane bez określenia obszaru są prawidłowe tylko wtedy, gdy jest przywoływany ze strony w tym samym obszarze i kontrolerze.
 
-Jeśli nie określono obszaru lub kontrolera, routing zależy od *otoczenia* wartości. Bieżące wartości trasy, bieżącego żądania są traktowane jako wartości otoczenia dotyczącymi generowania łączy. W wielu przypadkach dla przykładowej aplikacji przy użyciu wartości otoczenia generuje nieprawidłowe linki.
+Gdy nie określono obszaru lub kontrolera, routing zależy od wartości *otoczenia* . Bieżące wartości trasy bieżącego żądania są uznawane za wartości otoczenia dla generacji łącza. W wielu przypadkach dla przykładowej aplikacji korzystanie z wartości otoczenia powoduje wygenerowanie nieprawidłowych linków.
 
-Aby uzyskać więcej informacji, zobacz [Routing do akcji kontrolera](xref:mvc/controllers/routing).
+Aby uzyskać więcej informacji, zobacz [routing do kontrolera akcji](xref:mvc/controllers/routing).
 
-### <a name="shared-layout-for-areas-using-the-viewstartcshtml-file"></a>Udostępnione układu dla obszarów przy użyciu pliku _ViewStart.cshtml
+### <a name="shared-layout-for-areas-using-the-_viewstartcshtml-file"></a>Układ współużytkowany dla obszarów korzystających z pliku _ViewStart. cshtml
 
-Aby udostępnić typowych układu dla całej aplikacji, należy przenieść *_ViewStart.cshtml* do folderu głównego aplikacji.
+Aby udostępnić wspólny układ całej aplikacji, Przenieś *_ViewStart. cshtml* do folderu głównego aplikacji.
+
+### <a name="_viewimportscshtml"></a>_ViewImports. cshtml
+
+W swojej standardowej lokalizacji */views/_ViewImports.cshtml* nie ma zastosowania do obszarów. Aby użyć wspólnych [pomocników tagów](xref:mvc/views/tag-helpers/intro), `@using`lub `@inject` w Twoim regionie, upewnij się, że odpowiedni plik *_ViewImports. cshtml* [ma zastosowanie do widoków obszaru](xref:mvc/views/layout#importing-shared-directives). Jeśli chcesz mieć takie samo zachowanie we wszystkich widokach, Przenieś */views/_ViewImports.cshtml* do katalogu głównego aplikacji.
 
 <a name="rename"></a>
 
-### <a name="change-default-area-folder-where-views-are-stored"></a>Zmień domyślny folder obszaru przechowywania widoków
+### <a name="change-default-area-folder-where-views-are-stored"></a>Zmień domyślny folder obszaru, w którym są przechowywane widoki
 
-Poniższy kod zmienia domyślny folder obszaru z `"Areas"` do `"MyAreas"`:
+Poniższy kod zmienia domyślny folder obszaru z `"Areas"` na: `"MyAreas"`
 
 [!code-csharp[](areas/samples/MVCareas/Startup2.cs?name=snippet)]
 
 <a name="arp"></a>
 
-## <a name="areas-with-razor-pages"></a>Obszary ze stron Razor
+## <a name="areas-with-razor-pages"></a>Obszary z Razor Pages
 
-Wymagaj obszarów ze stronami Razor i *obszarów /&lt;nazwy obszaru&gt;/strony* folder w katalogu głównym aplikacji. Następującą strukturę folderów jest używana z [pobrania próbki](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/areas/samples)
+Obszary z folderem Razor Pages Wymagaj i *obszary&lt;/&gt;obszar nazw/Pages* w katalogu głównym aplikacji. Następująca struktura folderów jest używana z przykładowym [pobieraniem](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/areas/samples)
 
 * Project name (Nazwa projektu)
   * Obszary
@@ -147,55 +151,55 @@ Wymagaj obszarów ze stronami Razor i *obszarów /&lt;nazwy obszaru&gt;/strony* 
           * Informacje
           * Indeks
 
-### <a name="link-generation-with-razor-pages-and-areas"></a>Generowanie konsolidacji ze stronami Razor i obszary
+### <a name="link-generation-with-razor-pages-and-areas"></a>Generowanie linków przy użyciu Razor Pages i obszarów
 
-Poniższy kod z [pobrania próbki](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/areas/samples/RPareas) pokazuje połączenie generacji z użyciem obszaru określony (na przykład `asp-area="Products"`):
+Poniższy kod z pobranego [przykładu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/areas/samples/RPareas) pokazuje Generowanie łącza z określonym obszarem (na przykład `asp-area="Products"`):
 
 [!code-cshtml[](areas/samples/RPareas/Pages/Shared/_testLinksPartial.cshtml?name=snippet)]
 
-Linki wygenerowane z poprzedniego kodu są prawidłowe w dowolnym miejscu aplikacji.
+Linki generowane za pomocą powyższego kodu są prawidłowe w dowolnym miejscu aplikacji.
 
-Przykładowe do pobrania obejmują programy [widoku częściowego](xref:mvc/views/partial) zawiera poprzednie linki i uruchamia łącze tak samo bez określenia obszaru. Odwołuje się widok częściowy [plik układu](xref:mvc/views/layout), więc co w aplikacji stronę Wyświetla łącza wygenerowany. Linki wygenerowany bez określenia obszaru są prawidłowe tylko gdy występuje do ze strony, w tym samym regionie.
+Pobieranie próbek obejmuje [Widok częściowy](xref:mvc/views/partial) zawierający poprzednie linki i te same linki bez określania obszaru. Widok częściowy jest przywoływany w [pliku układu](xref:mvc/views/layout), więc każda Strona w aplikacji wyświetla wygenerowane linki. Linki wygenerowane bez określenia obszaru są prawidłowe tylko wtedy, gdy są przywoływane ze strony w tym samym obszarze.
 
-Jeśli nie określono obszaru, routing jest zależna od *otoczenia* wartości. Bieżące wartości trasy, bieżącego żądania są traktowane jako wartości otoczenia dotyczącymi generowania łączy. W wielu przypadkach dla przykładowej aplikacji przy użyciu wartości otoczenia generuje nieprawidłowe linki. Na przykład należy wziąć pod uwagę łącza wygenerowany na podstawie następującego kodu:
+Gdy obszar nie zostanie określony, routing zależy od wartości *otoczenia* . Bieżące wartości trasy bieżącego żądania są uznawane za wartości otoczenia dla generacji łącza. W wielu przypadkach dla przykładowej aplikacji korzystanie z wartości otoczenia powoduje wygenerowanie nieprawidłowych linków. Rozważmy na przykład linki wygenerowane na podstawie następującego kodu:
 
 [!code-cshtml[](areas/samples/RPareas/Pages/Shared/_testLinksPartial.cshtml?name=snippet2)]
 
 Dla poprzedniego kodu:
 
-* Link wygenerowany na podstawie `<a asp-page="/Manage/About">` jest prawidłowy tylko podczas ostatniego żądania został dla strony w `Services` obszaru. Na przykład `/Services/Manage/`, `/Services/Manage/Index`, lub `/Services/Manage/About`.
-* Link wygenerowany na podstawie `<a asp-page="/About">` jest prawidłowy tylko podczas ostatniego żądania został dla strony w `/Home`.
-* Kod pochodzi z [pobrania próbki](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/areas/samples/RPareas).
+* Link wygenerowany z `<a asp-page="/Manage/About">` jest prawidłowy tylko wtedy, gdy ostatnie żądanie dotyczyło strony w `Services` obszarze. Na przykład `/Services/Manage/` `/Services/Manage/Index`,, lub `/Services/Manage/About`.
+* Link wygenerowany z `<a asp-page="/About">` jest prawidłowy tylko wtedy, gdy ostatnie żądanie dotyczyło strony w `/Home`.
+* Kod pochodzi z pobranego [przykładu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/areas/samples/RPareas).
 
-### <a name="import-namespace-and-tag-helpers-with-viewimports-file"></a>Importowanie przy użyciu pliku _ViewImports przestrzeni nazw i pomocnicy tagów
+### <a name="import-namespace-and-tag-helpers-with-_viewimports-file"></a>Importowanie przestrzeni nazw i pomocników tagów przy użyciu pliku _ViewImports
 
-A *_ViewImports.cshtml* plik może zostać dodany do każdego obszaru *stron* folderu importowania przestrzeni nazw i pomocnicy tagów do każdej strony Razor, w tym folderze.
+Plik *_ViewImports. cshtml* można dodać do każdego folderu *stron* obszaru, aby zaimportować przestrzeń nazw i Tagi pomocników do każdej strony Razor w folderze.
 
-Należy wziąć pod uwagę *usług* obszaru przykładowy kod, który nie zawiera *_ViewImports.cshtml* pliku. Ilustruje poniższy kod znaczników */Services/Manage/About* strona Razor:
+Weź pod uwagę obszar *usług* przykładowego kodu, który nie zawiera pliku *_ViewImports. cshtml* . Następujące znaczniki przedstawiają stronę */Services/Manage/about* Razor:
 
 [!code-cshtml[](areas/samples/RPareas/Areas/Services/Pages/Manage/About.cshtml)]
 
-W poprzednim znaczników:
+W powyższym znaczniku:
 
-* W pełni kwalifikowana nazwa domeny może służyć do określania modelu (`@model RPareas.Areas.Services.Pages.Manage.AboutModel`).
-* [Pomocników tagów](xref:mvc/views/tag-helpers/intro) są włączane przez `@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers`
+* W pełni kwalifikowana nazwa domeny musi zostać użyta do określenia modelu (`@model RPareas.Areas.Services.Pages.Manage.AboutModel`).
+* [Pomocnicy tagów](xref:mvc/views/tag-helpers/intro) są włączani przez`@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers`
 
-Do pobrania próbki, w obszarze produktów zawiera następujące *_ViewImports.cshtml* pliku:
+W przykładowym pobieranym obszarze produkty znajduje się następujący plik *_ViewImports. cshtml* :
 
 [!code-cshtml[](areas/samples/RPareas/Areas/Products/Pages/_ViewImports.cshtml)]
 
-Ilustruje poniższy kod znaczników */produkty/o* strona Razor:
+Następujące znaczniki przedstawiają stronę */Products/about* Razor:
 
 [!code-cshtml[](areas/samples/RPareas/Areas/Products/Pages/About.cshtml)]
 
-W poprzednim pliku przestrzeni nazw i `@addTagHelper` dyrektywy są importowane w pliku przez *Areas/Products/Pages/_ViewImports.cshtml* pliku.
+W poprzednim pliku przestrzeń nazw i `@addTagHelper` dyrektywa są importowane do pliku przez *obszar/produkty/strony/_ViewImports. cshtml* .
 
-Aby uzyskać więcej informacji, zobacz [Zarządzanie Pomocnik tagu zakresu](xref:mvc/views/tag-helpers/intro?view=aspnetcore-2.2#managing-tag-helper-scope) i [importowania dyrektywy udostępnione](xref:mvc/views/layout#importing-shared-directives).
+Aby uzyskać więcej informacji, zobacz [Zarządzanie zakresem pomocnika tagów](xref:mvc/views/tag-helpers/intro?view=aspnetcore-2.2#managing-tag-helper-scope) i [Importowanie wspólnych dyrektyw](xref:mvc/views/layout#importing-shared-directives).
 
-### <a name="shared-layout-for-razor-pages-areas"></a>Układ udostępnionych obszarów stron Razor
+### <a name="shared-layout-for-razor-pages-areas"></a>Układ współużytkowany dla obszarów Razor Pages
 
-Aby udostępnić typowych układu dla całej aplikacji, należy przenieść *_ViewStart.cshtml* do folderu głównego aplikacji.
+Aby udostępnić wspólny układ całej aplikacji, Przenieś *_ViewStart. cshtml* do folderu głównego aplikacji.
 
-### <a name="publishing-areas"></a>Obszary publikowania
+### <a name="publishing-areas"></a>Publikowanie obszarów
 
-*.Cshtml wszystkie pliki i pliki w obrębie *wwwroot* katalogu są publikowane dane wyjściowe, gdy `<Project Sdk="Microsoft.NET.Sdk.Web">` znajdują się w pliku *.csproj.
+Wszystkie pliki *. cshtml i pliki znajdujące się w katalogu *wwwroot* są publikowane w `<Project Sdk="Microsoft.NET.Sdk.Web">` danych wyjściowych, gdy są zawarte w pliku *. csproj.
