@@ -1,179 +1,140 @@
 ---
-title: Strony razor z programem EF Core w programie ASP.NET Core — Model danych — 5 8
+title: Razor Pages EF Core w ASP.NET Core — model danych-5 z 8
 author: rick-anderson
-description: W tym samouczku należy dodać większą liczbę jednostek i relacji i Dostosuj model danych, określając formatowania i sprawdzania poprawności i reguł mapowania.
+description: W tym samouczku Dodaj więcej jednostek i relacje i Dostosuj model danych, określając formatowanie, walidację i reguły mapowania.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 07/22/2019
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: f995f3f74da4910de518af875eb89349a8457573
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: 96e4acf0d6c9c079ebee32fc2f9951fdd668931b
+ms.sourcegitcommit: 776367717e990bdd600cb3c9148ffb905d56862d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67813709"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68914959"
 ---
-# <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a><span data-ttu-id="c7ed2-103">Strony razor z programem EF Core w programie ASP.NET Core — Model danych — 5 8</span><span class="sxs-lookup"><span data-stu-id="c7ed2-103">Razor Pages with EF Core in ASP.NET Core - Data Model - 5 of 8</span></span>
+# <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a><span data-ttu-id="fbaa2-103">Razor Pages EF Core w ASP.NET Core — model danych-5 z 8</span><span class="sxs-lookup"><span data-stu-id="fbaa2-103">Razor Pages with EF Core in ASP.NET Core - Data Model - 5 of 8</span></span>
 
-<span data-ttu-id="c7ed2-104">Przez [Tom Dykstra](https://github.com/tdykstra) i [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="c7ed2-104">By [Tom Dykstra](https://github.com/tdykstra) and [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
+<span data-ttu-id="fbaa2-104">Przez [Tom Dykstra](https://github.com/tdykstra) i [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="fbaa2-104">By [Tom Dykstra](https://github.com/tdykstra) and [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
 
 [!INCLUDE [about the series](~/includes/RP-EF/intro.md)]
 
-<span data-ttu-id="c7ed2-105">Poprzednich samouczków pracy z modelem danych podstawowych, który został składające się z trzech jednostek.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-105">The previous tutorials worked with a basic data model that was composed of three entities.</span></span> <span data-ttu-id="c7ed2-106">W tym samouczku:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-106">In this tutorial:</span></span>
+::: moniker range=">= aspnetcore-3.0"
 
-* <span data-ttu-id="c7ed2-107">Więcej jednostek i relacji są dodawane.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-107">More entities and relationships are added.</span></span>
-* <span data-ttu-id="c7ed2-108">Model danych jest dostosowane, określając formatowania i sprawdzania poprawności i reguł mapowania bazy danych.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-108">The data model is customized by specifying formatting, validation, and database mapping rules.</span></span>
+<span data-ttu-id="fbaa2-105">Poprzednie samouczki pracowały z podstawowym modelem danych, który składa się z trzech jednostek.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-105">The previous tutorials worked with a basic data model that was composed of three entities.</span></span> <span data-ttu-id="fbaa2-106">W tym samouczku:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-106">In this tutorial:</span></span>
 
-<span data-ttu-id="c7ed2-109">Na poniższej ilustracji pokazano klas jednostek dla modelu danych zakończone:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-109">The entity classes for the completed data model is shown in the following illustration:</span></span>
+* <span data-ttu-id="fbaa2-107">Dodano więcej jednostek i relacji.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-107">More entities and relationships are added.</span></span>
+* <span data-ttu-id="fbaa2-108">Model danych jest dostosowywany przez określenie formatowania, walidacji i reguł mapowania bazy danych.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-108">The data model is customized by specifying formatting, validation, and database mapping rules.</span></span>
+
+<span data-ttu-id="fbaa2-109">Ukończony model danych przedstawiono na poniższej ilustracji:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-109">The completed data model is shown in the following illustration:</span></span>
 
 ![Diagram jednostek](complex-data-model/_static/diagram.png)
 
-<span data-ttu-id="c7ed2-111">Jeśli napotkasz problemy, nie można rozwiązać, Pobierz [ukończonej aplikacji](
-https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples).</span><span class="sxs-lookup"><span data-stu-id="c7ed2-111">If you run into problems you can't solve, download the [completed app](
-https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples).</span></span>
+## <a name="the-student-entity"></a><span data-ttu-id="fbaa2-111">Jednostki dla uczniów</span><span class="sxs-lookup"><span data-stu-id="fbaa2-111">The Student entity</span></span>
 
-## <a name="customize-the-data-model-with-attributes"></a><span data-ttu-id="c7ed2-112">Dostosuj model danych za pomocą atrybutów</span><span class="sxs-lookup"><span data-stu-id="c7ed2-112">Customize the data model with attributes</span></span>
+![Jednostka ucznia](complex-data-model/_static/student-entity.png)
 
-<span data-ttu-id="c7ed2-113">W tej sekcji model danych został dostosowany, za pomocą atrybutów.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-113">In this section, the data model is customized using attributes.</span></span>
+<span data-ttu-id="fbaa2-113">Zastąp kod w *modelach/student. cs* następującym kodem:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-113">Replace the code in *Models/Student.cs* with the following code:</span></span>
 
-### <a name="the-datatype-attribute"></a><span data-ttu-id="c7ed2-114">Atrybut typu danych</span><span class="sxs-lookup"><span data-stu-id="c7ed2-114">The DataType attribute</span></span>
+[!code-csharp[](intro/samples/cu30/Models/Student.cs)]
 
-<span data-ttu-id="c7ed2-115">Na stronach dla uczniów obecnie Wyświetla czas Data rejestracji.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-115">The student pages currently displays the time of the enrollment date.</span></span> <span data-ttu-id="c7ed2-116">Zazwyczaj Data polach wskaźnika myszy wyświetlane tylko datę, a nie czasu.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-116">Typically, date fields show only the date and not the time.</span></span>
+<span data-ttu-id="fbaa2-114">Poprzedni kod dodaje `FullName` Właściwość i dodaje następujące atrybuty do istniejących właściwości:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-114">The preceding code adds a `FullName` property and adds the following attributes to existing properties:</span></span>
 
-<span data-ttu-id="c7ed2-117">Aktualizacja *Models/Student.cs* przy użyciu następujących wyróżniony kod:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-117">Update *Models/Student.cs* with the following highlighted code:</span></span>
+* `[DataType]`
+* `[DisplayFormat]`
+* `[StringLength]`
+* `[Column]`
+* `[Required]`
+* `[Display]`
 
-[!code-csharp[](intro/samples/cu21/Models/Student.cs?name=snippet_DataType&highlight=3,12-13)]
+### <a name="the-fullname-calculated-property"></a><span data-ttu-id="fbaa2-115">Właściwość obliczeniowa FullName</span><span class="sxs-lookup"><span data-stu-id="fbaa2-115">The FullName calculated property</span></span>
 
-<span data-ttu-id="c7ed2-118">[DataType](/dotnet/api/system.componentmodel.dataannotations.datatypeattribute?view=netframework-4.7.1) atrybut określa typ danych, który jest bardziej szczegółowe niż typ wewnętrznej bazy danych.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-118">The [DataType](/dotnet/api/system.componentmodel.dataannotations.datatypeattribute?view=netframework-4.7.1) attribute specifies a data type that's more specific than the database intrinsic type.</span></span> <span data-ttu-id="c7ed2-119">W tym przypadku tylko data powinna być wyświetlana, nie daty i godziny.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-119">In this case only the date should be displayed, not the date and time.</span></span> <span data-ttu-id="c7ed2-120">[Wyliczenie typu danych](/dotnet/api/system.componentmodel.dataannotations.datatype?view=netframework-4.7.1) udostępnia wiele typów danych, takich jak daty, godziny, numer telefonu, waluty, EmailAddress itp. `DataType` Atrybut można również włączyć automatyczne udostępnianie funkcji specyficznych dla typu aplikacji.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-120">The [DataType Enumeration](/dotnet/api/system.componentmodel.dataannotations.datatype?view=netframework-4.7.1) provides for many data types, such as Date, Time, PhoneNumber, Currency, EmailAddress, etc. The `DataType` attribute can also enable the app to automatically provide type-specific features.</span></span> <span data-ttu-id="c7ed2-121">Przykład:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-121">For example:</span></span>
+<span data-ttu-id="fbaa2-116">`FullName`jest właściwością obliczaną, która zwraca wartość utworzoną przez połączenie dwóch innych właściwości.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-116">`FullName` is a calculated property that returns a value that's created by concatenating two other properties.</span></span> <span data-ttu-id="fbaa2-117">`FullName`nie można ustawić, dlatego ma tylko metodę dostępu get.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-117">`FullName` can't be set, so it has only a get accessor.</span></span> <span data-ttu-id="fbaa2-118">Nie `FullName` utworzono żadnej kolumny w bazie danych.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-118">No `FullName` column is created in the database.</span></span>
 
-* <span data-ttu-id="c7ed2-122">`mailto:` Łącze jest tworzona automatycznie dla `DataType.EmailAddress`.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-122">The `mailto:` link is automatically created for `DataType.EmailAddress`.</span></span>
-* <span data-ttu-id="c7ed2-123">Selektor daty towarzyszy `DataType.Date` w większości przeglądarek.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-123">The date selector is provided for `DataType.Date` in most browsers.</span></span>
+### <a name="the-datatype-attribute"></a><span data-ttu-id="fbaa2-119">Atrybut DataType</span><span class="sxs-lookup"><span data-stu-id="fbaa2-119">The DataType attribute</span></span>
 
-<span data-ttu-id="c7ed2-124">`DataType` Atrybut emituje HTML 5 `data-` atrybutów (Wymowa: dane dash), korzystających z przeglądarki HTML 5.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-124">The `DataType` attribute emits HTML 5 `data-` (pronounced data dash) attributes that HTML 5 browsers consume.</span></span> <span data-ttu-id="c7ed2-125">`DataType` Atrybutów nie zapewniają weryfikacji.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-125">The `DataType` attributes don't provide validation.</span></span>
+```csharp
+[DataType(DataType.Date)]
+```
 
-<span data-ttu-id="c7ed2-126">`DataType.Date` nie określa format daty, która jest wyświetlana.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-126">`DataType.Date` doesn't specify the format of the date that's displayed.</span></span> <span data-ttu-id="c7ed2-127">Domyślnie pole daty są wyświetlane domyślne formaty oparte na tym serwerze [CultureInfo](xref:fundamentals/localization#provide-localized-resources-for-the-languages-and-cultures-you-support).</span><span class="sxs-lookup"><span data-stu-id="c7ed2-127">By default, the date field is displayed according to the default formats based on the server's [CultureInfo](xref:fundamentals/localization#provide-localized-resources-for-the-languages-and-cultures-you-support).</span></span>
+<span data-ttu-id="fbaa2-120">W przypadku dat rejestracji uczniów wszystkie strony wyświetlają teraz godzinę i datę, chociaż tylko data jest ważna.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-120">For student enrollment dates, all of the pages currently display the time of day along with the date, although only the date is relevant.</span></span> <span data-ttu-id="fbaa2-121">Używając atrybutów adnotacji danych, można wprowadzić jedną zmianę kodu, która naprawi format wyświetlania na każdej stronie, która wyświetla dane.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-121">By using data annotation attributes, you can make one code change that will fix the display format in every page that shows the data.</span></span> 
 
-<span data-ttu-id="c7ed2-128">`DisplayFormat` Atrybut jest używany jawnie określić format daty:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-128">The `DisplayFormat` attribute is used to explicitly specify the date format:</span></span>
+<span data-ttu-id="fbaa2-122">Atrybut [DataType](/dotnet/api/system.componentmodel.dataannotations.datatypeattribute?view=netframework-4.7.1) określa typ danych, który jest bardziej szczegółowy niż typ wewnętrzny bazy danych.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-122">The [DataType](/dotnet/api/system.componentmodel.dataannotations.datatypeattribute?view=netframework-4.7.1) attribute specifies a data type that's more specific than the database intrinsic type.</span></span> <span data-ttu-id="fbaa2-123">W tym przypadku należy wyświetlić tylko datę, a nie datę i godzinę.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-123">In this case only the date should be displayed, not the date and time.</span></span> <span data-ttu-id="fbaa2-124">[Wyliczenie DataType](/dotnet/api/system.componentmodel.dataannotations.datatype?view=netframework-4.7.1) zawiera wiele typów danych, takich jak data, godzina, numer telefonu, waluta, EmailAddress itp. Ten `DataType` atrybut może również umożliwić aplikacji automatyczne udostępnianie funkcji specyficznych dla typu.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-124">The [DataType Enumeration](/dotnet/api/system.componentmodel.dataannotations.datatype?view=netframework-4.7.1) provides for many data types, such as Date, Time, PhoneNumber, Currency, EmailAddress, etc. The `DataType` attribute can also enable the app to automatically provide type-specific features.</span></span> <span data-ttu-id="fbaa2-125">Przykład:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-125">For example:</span></span>
+
+* <span data-ttu-id="fbaa2-126">Łącze jest tworzone automatycznie dla `DataType.EmailAddress`. `mailto:`</span><span class="sxs-lookup"><span data-stu-id="fbaa2-126">The `mailto:` link is automatically created for `DataType.EmailAddress`.</span></span>
+* <span data-ttu-id="fbaa2-127">Selektor daty jest dostępny `DataType.Date` w większości przeglądarek.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-127">The date selector is provided for `DataType.Date` in most browsers.</span></span>
+
+<span data-ttu-id="fbaa2-128">Ten `DataType` atrybut emituje atrybuty HTML `data-` 5 (wymawiane kreski danych).</span><span class="sxs-lookup"><span data-stu-id="fbaa2-128">The `DataType` attribute emits HTML 5 `data-` (pronounced data dash) attributes.</span></span> <span data-ttu-id="fbaa2-129">`DataType` Atrybuty nie zapewniają walidacji.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-129">The `DataType` attributes don't provide validation.</span></span>
+
+### <a name="the-displayformat-attribute"></a><span data-ttu-id="fbaa2-130">Atrybut DisplayFormat</span><span class="sxs-lookup"><span data-stu-id="fbaa2-130">The DisplayFormat attribute</span></span>
 
 ```csharp
 [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
 ```
 
-<span data-ttu-id="c7ed2-129">`ApplyFormatInEditMode` Ustawienie określa, że formatowanie powinien również będą stosowane do edycji interfejsu użytkownika.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-129">The `ApplyFormatInEditMode` setting specifies that the formatting should also be applied to the edit UI.</span></span> <span data-ttu-id="c7ed2-130">Niektóre pola nie używaj `ApplyFormatInEditMode`.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-130">Some fields shouldn't use `ApplyFormatInEditMode`.</span></span> <span data-ttu-id="c7ed2-131">Na przykład symbol waluty ogólnie nie powinien być wyświetlany w polu edycji tekstu.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-131">For example, the currency symbol should generally not be displayed in an edit text box.</span></span>
+<span data-ttu-id="fbaa2-131">`DataType.Date`nie określa formatu wyświetlanej daty.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-131">`DataType.Date` doesn't specify the format of the date that's displayed.</span></span> <span data-ttu-id="fbaa2-132">Domyślnie pole Date jest wyświetlane zgodnie z domyślnymi formatami opartymi na [CultureInfo](xref:fundamentals/localization#provide-localized-resources-for-the-languages-and-cultures-you-support)serwera.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-132">By default, the date field is displayed according to the default formats based on the server's [CultureInfo](xref:fundamentals/localization#provide-localized-resources-for-the-languages-and-cultures-you-support).</span></span>
 
-<span data-ttu-id="c7ed2-132">`DisplayFormat` Atrybut może być używany przez siebie.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-132">The `DisplayFormat` attribute can be used by itself.</span></span> <span data-ttu-id="c7ed2-133">Zazwyczaj jest to dobry pomysł, aby użyć `DataType` atrybutem `DisplayFormat` atrybutu.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-133">It's generally a good idea to use the `DataType` attribute with the `DisplayFormat` attribute.</span></span> <span data-ttu-id="c7ed2-134">`DataType` Atrybutu powoduje semantykę dane, a nie jak renderować ją na ekranie.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-134">The `DataType` attribute conveys the semantics of the data as opposed to how to render it on a screen.</span></span> <span data-ttu-id="c7ed2-135">`DataType` Atrybut zapewnia następujące korzyści, które nie są dostępne w `DisplayFormat`:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-135">The `DataType` attribute provides the following benefits that are not available in `DisplayFormat`:</span></span>
+<span data-ttu-id="fbaa2-133">Ten `DisplayFormat` atrybut służy do jawnego określenia formatu daty.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-133">The `DisplayFormat` attribute is used to explicitly specify the date format.</span></span> <span data-ttu-id="fbaa2-134">`ApplyFormatInEditMode` Ustawienie określa, że formatowanie ma być również stosowane do interfejsu użytkownika edytowania.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-134">The `ApplyFormatInEditMode` setting specifies that the formatting should also be applied to the edit UI.</span></span> <span data-ttu-id="fbaa2-135">Niektóre pola nie powinny `ApplyFormatInEditMode`być używane.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-135">Some fields shouldn't use `ApplyFormatInEditMode`.</span></span> <span data-ttu-id="fbaa2-136">Na przykład symbol waluty zazwyczaj nie powinien być wyświetlany w polu tekstowym Edycja.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-136">For example, the currency symbol should generally not be displayed in an edit text box.</span></span>
 
-* <span data-ttu-id="c7ed2-136">Przeglądarka można włączyć funkcje HTML5.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-136">The browser can enable HTML5 features.</span></span> <span data-ttu-id="c7ed2-137">Na przykład pokazać kontrolki kalendarza, symbol waluty odpowiednich ustawień regionalnych, przesyłanie pocztą e-mail łączy, sprawdzania poprawności danych wejściowych po stronie klienta, itp.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-137">For example, show a calendar control, the locale-appropriate currency symbol, email links, client-side input validation, etc.</span></span>
-* <span data-ttu-id="c7ed2-138">Domyślnie przeglądarka Renderowanie danych przy użyciu poprawny format, w oparciu o ustawienia regionalne.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-138">By default, the browser renders data using the correct format based on the locale.</span></span>
+<span data-ttu-id="fbaa2-137">Ten `DisplayFormat` atrybut może być używany przez siebie.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-137">The `DisplayFormat` attribute can be used by itself.</span></span> <span data-ttu-id="fbaa2-138">Zwykle dobrym pomysłem jest użycie `DataType` atrybutu `DisplayFormat` z atrybutem.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-138">It's generally a good idea to use the `DataType` attribute with the `DisplayFormat` attribute.</span></span> <span data-ttu-id="fbaa2-139">Ten `DataType` atrybut przekazuje semantykę danych w przeciwieństwie do sposobu renderowania na ekranie.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-139">The `DataType` attribute conveys the semantics of the data as opposed to how to render it on a screen.</span></span> <span data-ttu-id="fbaa2-140">Ten `DataType` atrybut zapewnia następujące korzyści, które nie są dostępne w `DisplayFormat`programie:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-140">The `DataType` attribute provides the following benefits that are not available in `DisplayFormat`:</span></span>
 
-<span data-ttu-id="c7ed2-139">Aby uzyskać więcej informacji, zobacz [ \<wejściowych > dokumentacja Pomocnik tagu](xref:mvc/views/working-with-forms#the-input-tag-helper).</span><span class="sxs-lookup"><span data-stu-id="c7ed2-139">For more information, see the [\<input> Tag Helper documentation](xref:mvc/views/working-with-forms#the-input-tag-helper).</span></span>
+* <span data-ttu-id="fbaa2-141">Przeglądarka może włączyć funkcje HTML5.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-141">The browser can enable HTML5 features.</span></span> <span data-ttu-id="fbaa2-142">Na przykład Pokaż kontrolkę kalendarz, odpowiedni dla ustawień regionalnych symbol waluty, linki poczty e-mail i sprawdzanie poprawności danych po stronie klienta.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-142">For example, show a calendar control, the locale-appropriate currency symbol, email links, and client-side input validation.</span></span>
+* <span data-ttu-id="fbaa2-143">Domyślnie przeglądarka renderuje dane przy użyciu poprawnego formatu na podstawie ustawień regionalnych.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-143">By default, the browser renders data using the correct format based on the locale.</span></span>
 
-<span data-ttu-id="c7ed2-140">Uruchom aplikację.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-140">Run the app.</span></span> <span data-ttu-id="c7ed2-141">Przejdź do strony indeksu studentów.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-141">Navigate to the Students Index page.</span></span> <span data-ttu-id="c7ed2-142">Nie są wyświetlane godziny.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-142">Times are no longer displayed.</span></span> <span data-ttu-id="c7ed2-143">Każdy widok, który używa `Student` modelu umożliwia wyświetlenie daty bez godziny.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-143">Every view that uses the `Student` model displays the date without time.</span></span>
+<span data-ttu-id="fbaa2-144">Aby uzyskać więcej informacji, zobacz [ \<dokumentację pomocnika tagów > danych wejściowych](xref:mvc/views/working-with-forms#the-input-tag-helper).</span><span class="sxs-lookup"><span data-stu-id="fbaa2-144">For more information, see the [\<input> Tag Helper documentation](xref:mvc/views/working-with-forms#the-input-tag-helper).</span></span>
 
-![Wyświetlanie daty bez godziny strony indeksu uczniów](complex-data-model/_static/dates-no-times.png)
+### <a name="the-stringlength-attribute"></a><span data-ttu-id="fbaa2-145">Atrybut StringLength</span><span class="sxs-lookup"><span data-stu-id="fbaa2-145">The StringLength attribute</span></span>
 
-### <a name="the-stringlength-attribute"></a><span data-ttu-id="c7ed2-145">Atrybut StringLength</span><span class="sxs-lookup"><span data-stu-id="c7ed2-145">The StringLength attribute</span></span>
+```csharp
+[StringLength(50, ErrorMessage = "First name cannot be longer than 50 characters.")]
+```
 
-<span data-ttu-id="c7ed2-146">Reguły sprawdzania poprawności danych i komunikatów o błędach weryfikacji można określić za pomocą atrybutów.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-146">Data validation rules and validation error messages can be specified with attributes.</span></span> <span data-ttu-id="c7ed2-147">[StringLength](/dotnet/api/system.componentmodel.dataannotations.stringlengthattribute?view=netframework-4.7.1) atrybut określa minimalną i maksymalną długość znaków, które są dozwolone w polu danych.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-147">The [StringLength](/dotnet/api/system.componentmodel.dataannotations.stringlengthattribute?view=netframework-4.7.1) attribute specifies the minimum and maximum length of characters that are allowed in a data field.</span></span> <span data-ttu-id="c7ed2-148">`StringLength` Atrybut udostępnia również weryfikacji po stronie klienta i po stronie serwera.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-148">The `StringLength` attribute also provides client-side and server-side validation.</span></span> <span data-ttu-id="c7ed2-149">Wartość minimalna nie ma wpływu na schemat bazy danych.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-149">The minimum value has no impact on the database schema.</span></span>
+<span data-ttu-id="fbaa2-146">Można określić reguły walidacji danych i komunikaty o błędach walidacji z atrybutami.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-146">Data validation rules and validation error messages can be specified with attributes.</span></span> <span data-ttu-id="fbaa2-147">Atrybut [StringLength](/dotnet/api/system.componentmodel.dataannotations.stringlengthattribute?view=netframework-4.7.1) określa minimalną i maksymalną długość znaków, które są dozwolone w polu danych.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-147">The [StringLength](/dotnet/api/system.componentmodel.dataannotations.stringlengthattribute?view=netframework-4.7.1) attribute specifies the minimum and maximum length of characters that are allowed in a data field.</span></span> <span data-ttu-id="fbaa2-148">Kod pokazuje limity nazw do nie więcej niż 50 znaków.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-148">The code shown limits names to no more than 50 characters.</span></span> <span data-ttu-id="fbaa2-149">Przykład określający, że minimalna długość ciągu jest pokazywana w [dalszej](#the-required-attribute)części.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-149">An example that sets the minimum string length is shown [later](#the-required-attribute).</span></span>
 
-<span data-ttu-id="c7ed2-150">Aktualizacja `Student` modelu z następującym kodem:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-150">Update the `Student` model with the following code:</span></span>
+<span data-ttu-id="fbaa2-150">Ten `StringLength` atrybut zapewnia również weryfikację po stronie klienta i serwera.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-150">The `StringLength` attribute also provides client-side and server-side validation.</span></span> <span data-ttu-id="fbaa2-151">Wartość minimalna nie ma wpływu na schemat bazy danych.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-151">The minimum value has no impact on the database schema.</span></span>
 
-[!code-csharp[](intro/samples/cu21/Models/Student.cs?name=snippet_StringLength&highlight=10,12)]
-
-<span data-ttu-id="c7ed2-151">Powyższy kod ogranicza nazwy do nie więcej niż 50 znaków.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-151">The preceding code limits names to no more than 50 characters.</span></span> <span data-ttu-id="c7ed2-152">`StringLength` Atrybutu nie uniemożliwia użytkownikowi wprowadzanie białe miejsca dla nazwy.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-152">The `StringLength` attribute doesn't prevent a user from entering white space for a name.</span></span> <span data-ttu-id="c7ed2-153">[Wyrażenia regularnego](/dotnet/api/system.componentmodel.dataannotations.regularexpressionattribute?view=netframework-4.7.1) atrybut jest używany, aby zastosować ograniczenia danych wejściowych.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-153">The [RegularExpression](/dotnet/api/system.componentmodel.dataannotations.regularexpressionattribute?view=netframework-4.7.1) attribute is used to apply restrictions to the input.</span></span> <span data-ttu-id="c7ed2-154">Na przykład poniższy kod wymaga pierwszy znak na wielkie litery, a pozostałe znaki, aby być znakiem alfabetycznym:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-154">For example, the following code requires the first character to be upper case and the remaining characters to be alphabetical:</span></span>
+<span data-ttu-id="fbaa2-152">Ten `StringLength` atrybut nie uniemożliwia użytkownikowi wprowadzania białych znaków w nazwie.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-152">The `StringLength` attribute doesn't prevent a user from entering white space for a name.</span></span> <span data-ttu-id="fbaa2-153">Atrybut [RegularExpression](/dotnet/api/system.componentmodel.dataannotations.regularexpressionattribute?view=netframework-4.7.1) może służyć do stosowania ograniczeń do danych wejściowych.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-153">The [RegularExpression](/dotnet/api/system.componentmodel.dataannotations.regularexpressionattribute?view=netframework-4.7.1) attribute can be used to apply restrictions to the input.</span></span> <span data-ttu-id="fbaa2-154">Na przykład poniższy kod wymaga, aby pierwszy znak był wielką literą, a pozostałe znaki są alfabetyczne:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-154">For example, the following code requires the first character to be upper case and the remaining characters to be alphabetical:</span></span>
 
 ```csharp
 [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
 ```
 
-<span data-ttu-id="c7ed2-155">Uruchom aplikację:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-155">Run the app:</span></span>
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="fbaa2-155">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="fbaa2-155">Visual Studio</span></span>](#tab/visual-studio)
 
-* <span data-ttu-id="c7ed2-156">Przejdź do strony studentów.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-156">Navigate to the Students page.</span></span>
-* <span data-ttu-id="c7ed2-157">Wybierz **Utwórz nowy**, a następnie wprowadź nazwę więcej niż 50 znaków.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-157">Select **Create New**, and enter a name longer than 50 characters.</span></span>
-* <span data-ttu-id="c7ed2-158">Wybierz **Utwórz**, weryfikacji po stronie klienta zawiera komunikat o błędzie.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-158">Select **Create**, client-side validation shows an error message.</span></span>
+<span data-ttu-id="fbaa2-156">W **Eksplorator obiektów SQL Server** (SSOX) Otwórz projektanta tabeli uczniów, klikając dwukrotnie tabelę **uczniów** .</span><span class="sxs-lookup"><span data-stu-id="fbaa2-156">In **SQL Server Object Explorer** (SSOX), open the Student table designer by double-clicking the **Student** table.</span></span>
 
-![Studenci indeksu strona wyświetlająca błędy długość ciągu](complex-data-model/_static/string-length-errors.png)
+![Tabela studentów w SSOX przed migracją](complex-data-model/_static/ssox-before-migration.png)
 
-<span data-ttu-id="c7ed2-160">W **Eksplorator obiektów SQL Server** (SSOX), otwórz projektanta tabel dla uczniów, klikając dwukrotnie **uczniów** tabeli.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-160">In **SQL Server Object Explorer** (SSOX), open the Student table designer by double-clicking the **Student** table.</span></span>
+<span data-ttu-id="fbaa2-158">Na powyższym obrazie przedstawiono schemat `Student` tabeli.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-158">The preceding image shows the schema for the `Student` table.</span></span> <span data-ttu-id="fbaa2-159">Pola nazw mają typ `nvarchar(MAX)`.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-159">The name fields have type `nvarchar(MAX)`.</span></span> <span data-ttu-id="fbaa2-160">Gdy migracja zostanie utworzona i zastosowana w dalszej części tego samouczka, nazwy `nvarchar(50)` pól staną się wynikiem atrybutów długości ciągu.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-160">When a migration is created and applied later in this tutorial, the name fields become `nvarchar(50)` as a result of the string length attributes.</span></span>
 
-![Tabela studentów w SSOX przed migracji](complex-data-model/_static/ssox-before-migration.png)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="fbaa2-161">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="fbaa2-161">Visual Studio Code</span></span>](#tab/visual-studio-code)
 
-<span data-ttu-id="c7ed2-162">Na powyższej ilustracji pokazano schematu dla `Student` tabeli.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-162">The preceding image shows the schema for the `Student` table.</span></span> <span data-ttu-id="c7ed2-163">Nazwa pola, które mają typ `nvarchar(MAX)` ponieważ migracji nie został uruchomiony dla bazy danych.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-163">The name fields have type `nvarchar(MAX)` because migrations has not been run on the DB.</span></span> <span data-ttu-id="c7ed2-164">Podczas migracji są uruchamiane w dalszej części tego samouczka, nazwy pola stają się `nvarchar(50)`.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-164">When migrations are run later in this tutorial, the name fields become `nvarchar(50)`.</span></span>
-
-### <a name="the-column-attribute"></a><span data-ttu-id="c7ed2-165">Atrybut kolumny</span><span class="sxs-lookup"><span data-stu-id="c7ed2-165">The Column attribute</span></span>
-
-<span data-ttu-id="c7ed2-166">Atrybuty można kontrolować, jak klasy i właściwości są mapowane do bazy danych.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-166">Attributes can control how classes and properties are mapped to the database.</span></span> <span data-ttu-id="c7ed2-167">W tej sekcji `Column` atrybut jest używany do mapowania nazwy `FirstMidName` właściwość na "FirstName" w bazie danych.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-167">In this section, the `Column` attribute is used to map the name of the `FirstMidName` property to "FirstName" in the DB.</span></span>
-
-<span data-ttu-id="c7ed2-168">Po utworzeniu bazy danych, nazwy właściwości w modelu są używane dla nazw kolumn (z wyjątkiem kiedy `Column` atrybut jest używany).</span><span class="sxs-lookup"><span data-stu-id="c7ed2-168">When the DB is created, property names on the model are used for column names (except when the `Column` attribute is used).</span></span>
-
-<span data-ttu-id="c7ed2-169">`Student` Model używa `FirstMidName` nazwę pierwszego pola, ponieważ pole może także zawierać imienia.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-169">The `Student` model uses `FirstMidName` for the first-name field because the field might also contain a middle name.</span></span>
-
-<span data-ttu-id="c7ed2-170">Aktualizacja *Student.cs* pliku następujący wyróżniony kod:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-170">Update the *Student.cs* file with the following highlighted code:</span></span>
-
-[!code-csharp[](intro/samples/cu21/Models/Student.cs?name=snippet_Column&highlight=4,14)]
-
-<span data-ttu-id="c7ed2-171">Z powyższej zmiany `Student.FirstMidName` w aplikacji mapuje `FirstName` kolumny `Student` tabeli.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-171">With the preceding change, `Student.FirstMidName` in the app maps to the `FirstName` column of the `Student` table.</span></span>
-
-<span data-ttu-id="c7ed2-172">Dodanie `Column` atrybut zmieni się zapasowy modelu `SchoolContext`.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-172">The addition of the `Column` attribute changes the model backing the `SchoolContext`.</span></span> <span data-ttu-id="c7ed2-173">Zapasowy modelu `SchoolContext` nie jest już zgodny z bazy danych.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-173">The model backing the `SchoolContext` no longer matches the database.</span></span> <span data-ttu-id="c7ed2-174">Jeśli aplikacja jest uruchamiana przed zastosowaniem migracje, generowany jest następujący wyjątek:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-174">If the app is run before applying migrations, the following exception is generated:</span></span>
-
-```SQL
-SqlException: Invalid column name 'FirstName'.
-```
-
-<span data-ttu-id="c7ed2-175">Aby zaktualizować bazy danych:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-175">To update the DB:</span></span>
-
-* <span data-ttu-id="c7ed2-176">Skompiluj projekt.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-176">Build the project.</span></span>
-* <span data-ttu-id="c7ed2-177">Otwórz okno polecenia w folderze projektu.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-177">Open a command window in the project folder.</span></span> <span data-ttu-id="c7ed2-178">Wprowadź następujące polecenia, aby utworzyć nową migrację i aktualizowanie bazy danych:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-178">Enter the following commands to create a new migration and update the DB:</span></span>
-
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="c7ed2-179">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="c7ed2-179">Visual Studio</span></span>](#tab/visual-studio)
-
-```PMC
-Add-Migration ColumnFirstName
-Update-Database
-```
-
-# <a name="net-core-clitabnetcore-cli"></a>[<span data-ttu-id="c7ed2-180">.NET Core CLI</span><span class="sxs-lookup"><span data-stu-id="c7ed2-180">.NET Core CLI</span></span>](#tab/netcore-cli)
-
-```console
-dotnet ef migrations add ColumnFirstName
-dotnet ef database update
-```
+<span data-ttu-id="fbaa2-162">W narzędziu SQLite Sprawdź definicje `Student` kolumn w tabeli.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-162">In your SQLite tool, examine the column definitions for the `Student` table.</span></span> <span data-ttu-id="fbaa2-163">Pola nazw mają typ `Text`.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-163">The name fields have type `Text`.</span></span> <span data-ttu-id="fbaa2-164">Zwróć uwagę, że jest wywoływana `FirstMidName`nazwa pola imię.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-164">Notice that the first name field is called `FirstMidName`.</span></span> <span data-ttu-id="fbaa2-165">W następnej sekcji zmienisz nazwę tej kolumny na `FirstName`.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-165">In the next section, you change the name of that column to `FirstName`.</span></span>
 
 ---
 
-<span data-ttu-id="c7ed2-181">`migrations add ColumnFirstName` Polecenie generuje następujący komunikat ostrzegawczy:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-181">The `migrations add ColumnFirstName` command generates the following warning message:</span></span>
+### <a name="the-column-attribute"></a><span data-ttu-id="fbaa2-166">Atrybut Column</span><span class="sxs-lookup"><span data-stu-id="fbaa2-166">The Column attribute</span></span>
 
-```text
-An operation was scaffolded that may result in the loss of data.
-Please review the migration for accuracy.
+```csharp
+[Column("FirstName")]
+public string FirstMidName { get; set; }
 ```
 
-<span data-ttu-id="c7ed2-182">Ostrzeżenia jest generowany, ponieważ nazwa pola, które są obecnie ograniczone do 50 znaków.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-182">The warning is generated because the name fields are now limited to 50 characters.</span></span> <span data-ttu-id="c7ed2-183">Jeśli nazwa bazy danych — w więcej niż 50 znaków, 51 do ostatniego znaku zostałyby utracone.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-183">If a name in the DB had more than 50 characters, the 51 to last character would be lost.</span></span>
+<span data-ttu-id="fbaa2-167">Atrybuty mogą kontrolować sposób mapowania klas i właściwości do bazy danych.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-167">Attributes can control how classes and properties are mapped to the database.</span></span> <span data-ttu-id="fbaa2-168">`Student` W modelu `Column` atrybut jest używany do `FirstMidName` mapowania nazwy właściwości na "FirstName" w bazie danych.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-168">In the `Student` model, the `Column` attribute is used to map the name of the `FirstMidName` property to "FirstName" in the database.</span></span>
 
-* <span data-ttu-id="c7ed2-184">Testowanie aplikacji.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-184">Test the app.</span></span>
+<span data-ttu-id="fbaa2-169">Po utworzeniu bazy danych nazwy właściwości w modelu są używane dla nazw kolumn (z wyjątkiem sytuacji, `Column` gdy atrybut jest używany).</span><span class="sxs-lookup"><span data-stu-id="fbaa2-169">When the database is created, property names on the model are used for column names (except when the `Column` attribute is used).</span></span> <span data-ttu-id="fbaa2-170">`Student` Model używa`FirstMidName` dla pola pierwszej nazwy, ponieważ pole może zawierać również nazwę środkową.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-170">The `Student` model uses `FirstMidName` for the first-name field because the field might also contain a middle name.</span></span>
 
-<span data-ttu-id="c7ed2-185">Otwórz Tabela Student SSOX:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-185">Open the Student table in SSOX:</span></span>
+<span data-ttu-id="fbaa2-171">Atrybut w modelu danych jest mapowany`Student` do kolumnytabeli.`FirstName` `Student.FirstMidName` `[Column]`</span><span class="sxs-lookup"><span data-stu-id="fbaa2-171">With the `[Column]` attribute, `Student.FirstMidName` in the data model maps to the `FirstName` column of the `Student` table.</span></span> <span data-ttu-id="fbaa2-172">Dodanie `Column` atrybutu zmienia model z `SchoolContext`kopii zapasowej.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-172">The addition of the `Column` attribute changes the model backing the `SchoolContext`.</span></span> <span data-ttu-id="fbaa2-173">Model, który wykonuje `SchoolContext` kopię zapasową, nie jest już zgodny z bazą danych.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-173">The model backing the `SchoolContext` no longer matches the database.</span></span> <span data-ttu-id="fbaa2-174">Niezgodność zostanie rozwiązany przez dodanie migracji w dalszej części tego samouczka.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-174">That discrepancy will be resolved by adding a migration later in this tutorial.</span></span>
 
-![Tabela studentów w SSOX po migracji](complex-data-model/_static/ssox-after-migration.png)
+### <a name="the-required-attribute"></a><span data-ttu-id="fbaa2-175">Wymagany atrybut</span><span class="sxs-lookup"><span data-stu-id="fbaa2-175">The Required attribute</span></span>
 
-<span data-ttu-id="c7ed2-187">Przed zastosowaniem migracji, nazwa kolumny były typu [nvarchar(MAX)](/sql/t-sql/data-types/nchar-and-nvarchar-transact-sql).</span><span class="sxs-lookup"><span data-stu-id="c7ed2-187">Before migration was applied, the name columns were of type [nvarchar(MAX)](/sql/t-sql/data-types/nchar-and-nvarchar-transact-sql).</span></span> <span data-ttu-id="c7ed2-188">Nazwa kolumny są teraz `nvarchar(50)`.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-188">The name columns are now `nvarchar(50)`.</span></span> <span data-ttu-id="c7ed2-189">Nazwa kolumny został zmieniony z `FirstMidName` do `FirstName`.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-189">The column name has changed from `FirstMidName` to `FirstName`.</span></span>
+```csharp
+[Required]
+```
 
-> [!Note]
-> <span data-ttu-id="c7ed2-190">W poniższej sekcji Kompilowanie aplikacji na niektórych etapach generuje błędy kompilatora.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-190">In the following section, building the app at some stages generates compiler errors.</span></span> <span data-ttu-id="c7ed2-191">Instrukcje Określ, kiedy do skompilowania aplikacji.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-191">The instructions specify when to build the app.</span></span>
+<span data-ttu-id="fbaa2-176">`Required` Atrybut powoduje, że właściwości nazwy są wymagane.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-176">The `Required` attribute makes the name properties required fields.</span></span> <span data-ttu-id="fbaa2-177">Ten `Required` atrybut nie jest wymagany dla typów niedopuszczających wartości null, takich jak typy wartości `DateTime`( `int`na przykład `double`,, i).</span><span class="sxs-lookup"><span data-stu-id="fbaa2-177">The `Required` attribute isn't needed for non-nullable types such as value types (for example, `DateTime`, `int`, and `double`).</span></span> <span data-ttu-id="fbaa2-178">Typy, które nie mogą mieć wartości null, są automatycznie traktowane jako pola wymagane.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-178">Types that can't be null are automatically treated as required fields.</span></span>
 
-## <a name="student-entity-update"></a><span data-ttu-id="c7ed2-192">Aktualizacja jednostki dla uczniów</span><span class="sxs-lookup"><span data-stu-id="c7ed2-192">Student entity update</span></span>
-
-![Jednostki dla uczniów](complex-data-model/_static/student-entity.png)
-
-<span data-ttu-id="c7ed2-194">Aktualizacja *Models/Student.cs* następującym kodem:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-194">Update *Models/Student.cs* with the following code:</span></span>
-
-[!code-csharp[](intro/samples/cu21/Models/Student.cs?name=snippet_BeforeInheritance&highlight=11,13,15,18,22,24-31)]
-
-### <a name="the-required-attribute"></a><span data-ttu-id="c7ed2-195">Wymagany atrybut</span><span class="sxs-lookup"><span data-stu-id="c7ed2-195">The Required attribute</span></span>
-
-<span data-ttu-id="c7ed2-196">`Required` Atrybutu sprawia, że nazwa właściwości wymagane pola.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-196">The `Required` attribute makes the name properties required fields.</span></span> <span data-ttu-id="c7ed2-197">`Required` Atrybut nie jest wymagane dla typów innych niż null, takich jak typy wartości (`DateTime`, `int`, `double`itp.).</span><span class="sxs-lookup"><span data-stu-id="c7ed2-197">The `Required` attribute isn't needed for non-nullable types such as value types (`DateTime`, `int`, `double`, etc.).</span></span> <span data-ttu-id="c7ed2-198">Typy, które nie może mieć wartości null są automatycznie traktowane jako wymagane pola.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-198">Types that can't be null are automatically treated as required fields.</span></span>
-
-<span data-ttu-id="c7ed2-199">`Required` Atrybut może zostać zastąpione minimalną długość parametru w `StringLength` atrybutu:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-199">The `Required` attribute could be replaced with a minimum length parameter in the `StringLength` attribute:</span></span>
+<span data-ttu-id="fbaa2-179">Ten `Required` atrybut może być zastąpiony parametrem o minimalnej długości `StringLength` w atrybucie:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-179">The `Required` attribute could be replaced with a minimum length parameter in the `StringLength` attribute:</span></span>
 
 ```csharp
 [Display(Name = "Last Name")]
@@ -181,128 +142,172 @@ Please review the migration for accuracy.
 public string LastName { get; set; }
 ```
 
-### <a name="the-display-attribute"></a><span data-ttu-id="c7ed2-200">Atrybut wyświetlania</span><span class="sxs-lookup"><span data-stu-id="c7ed2-200">The Display attribute</span></span>
+### <a name="the-display-attribute"></a><span data-ttu-id="fbaa2-180">Atrybut wyświetlania</span><span class="sxs-lookup"><span data-stu-id="fbaa2-180">The Display attribute</span></span>
 
-<span data-ttu-id="c7ed2-201">`Display` Atrybut określa, że podpis dla pól tekstowych powinien być "Imię", "Last Name", "Pełna nazwa" i "Data rejestracji".</span><span class="sxs-lookup"><span data-stu-id="c7ed2-201">The `Display` attribute specifies that the caption for the text boxes should be "First Name", "Last Name", "Full Name", and "Enrollment Date."</span></span> <span data-ttu-id="c7ed2-202">Podpisy domyślna ma już miejsca dzielenia wyrazów, na przykład "Lastname".</span><span class="sxs-lookup"><span data-stu-id="c7ed2-202">The default captions had no space dividing the words, for example "Lastname."</span></span>
+```csharp
+[Display(Name = "Last Name")]
+```
 
-### <a name="the-fullname-calculated-property"></a><span data-ttu-id="c7ed2-203">Właściwości obliczane imię i nazwisko</span><span class="sxs-lookup"><span data-stu-id="c7ed2-203">The FullName calculated property</span></span>
+<span data-ttu-id="fbaa2-181">Ten `Display` atrybut określa, że podpis pól tekstowych powinien mieć wartość "imię i nazwisko", "nazwisko", "imię i nazwisko" oraz "Data rejestracji".</span><span class="sxs-lookup"><span data-stu-id="fbaa2-181">The `Display` attribute specifies that the caption for the text boxes should be "First Name", "Last Name", "Full Name", and "Enrollment Date."</span></span> <span data-ttu-id="fbaa2-182">Domyślne podpisy nie zawierają spacji dzielących wyrazy, na przykład "LastName".</span><span class="sxs-lookup"><span data-stu-id="fbaa2-182">The default captions had no space dividing the words, for example "Lastname."</span></span>
 
-<span data-ttu-id="c7ed2-204">`FullName` jest właściwością obliczeniową, która zwraca wartość, która jest tworzona przez dołączenie dwóch innych właściwości.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-204">`FullName` is a calculated property that returns a value that's created by concatenating two other properties.</span></span> <span data-ttu-id="c7ed2-205">`FullName` Nie można ustawić, ma tylko akcesor pobierania.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-205">`FullName` cannot be set, it has only a get accessor.</span></span> <span data-ttu-id="c7ed2-206">Nie `FullName` kolumna jest tworzona w bazie danych.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-206">No `FullName` column is created in the database.</span></span>
+### <a name="create-a-migration"></a><span data-ttu-id="fbaa2-183">Tworzenie migracji</span><span class="sxs-lookup"><span data-stu-id="fbaa2-183">Create a migration</span></span>
 
-## <a name="create-the-instructor-entity"></a><span data-ttu-id="c7ed2-207">Tworzenie jednostki przez instruktorów</span><span class="sxs-lookup"><span data-stu-id="c7ed2-207">Create the Instructor Entity</span></span>
+<span data-ttu-id="fbaa2-184">Uruchom aplikację i przejdź do strony uczniów.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-184">Run the app and go to the Students page.</span></span> <span data-ttu-id="fbaa2-185">Zgłaszany jest wyjątek.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-185">An exception is thrown.</span></span> <span data-ttu-id="fbaa2-186">Ten `[Column]` atrybut powoduje, że Dr powinien znaleźć kolumnę o nazwie `FirstName`, ale nazwa kolumny w bazie danych jest nadal `FirstMidName`.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-186">The `[Column]` attribute causes EF to expect to find a column named `FirstName`, but the column name in the database is still `FirstMidName`.</span></span>
 
-![Jednostki przez instruktorów](complex-data-model/_static/instructor-entity.png)
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="fbaa2-187">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="fbaa2-187">Visual Studio</span></span>](#tab/visual-studio)
 
-<span data-ttu-id="c7ed2-209">Tworzenie *Models/Instructor.cs* następującym kodem:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-209">Create *Models/Instructor.cs* with the following code:</span></span>
+<span data-ttu-id="fbaa2-188">Komunikat o błędzie jest podobny do poniższego przykładu:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-188">The error message is similar to the following example:</span></span>
 
-[!code-csharp[](intro/samples/cu21/Models/Instructor.cs)]
+```
+SqlException: Invalid column name 'FirstName'.
+```
 
-<span data-ttu-id="c7ed2-210">Wiele atrybutów może być w jednym wierszu.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-210">Multiple attributes can be on one line.</span></span> <span data-ttu-id="c7ed2-211">`HireDate` Atrybuty, które mogłyby być zapisywane w następujący sposób:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-211">The `HireDate` attributes could be written as follows:</span></span>
+* <span data-ttu-id="fbaa2-189">W obszarze PMC wprowadź następujące polecenia, aby utworzyć nową migrację i zaktualizować bazę danych:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-189">In the PMC, enter the following commands to create a new migration and update the database:</span></span>
+
+  ```powershell
+  Add-Migration ColumnFirstName
+  Update-Database
+  ```
+
+  <span data-ttu-id="fbaa2-190">Pierwsze z tych poleceń generuje następujący komunikat ostrzegawczy:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-190">The first of these commands generates the following warning message:</span></span>
+
+  ```text
+  An operation was scaffolded that may result in the loss of data.
+  Please review the migration for accuracy.
+  ```
+
+  <span data-ttu-id="fbaa2-191">Ostrzeżenie jest generowane, ponieważ pola nazw są teraz ograniczone do 50 znaków.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-191">The warning is generated because the name fields are now limited to 50 characters.</span></span> <span data-ttu-id="fbaa2-192">Jeśli nazwa w bazie danych ma więcej niż 50 znaków, zostanie utracony od 51 do ostatniego znaku.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-192">If a name in the database had more than 50 characters, the 51 to last character would be lost.</span></span>
+
+* <span data-ttu-id="fbaa2-193">Otwórz tabelę uczniów w SSOX:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-193">Open the Student table in SSOX:</span></span>
+
+  ![Tabela studentów w SSOX po migracji](complex-data-model/_static/ssox-after-migration.png)
+
+  <span data-ttu-id="fbaa2-195">Przed zainstalowaniem migracji kolumny nazw były typu [nvarchar (max)](/sql/t-sql/data-types/nchar-and-nvarchar-transact-sql).</span><span class="sxs-lookup"><span data-stu-id="fbaa2-195">Before the migration was applied, the name columns were of type [nvarchar(MAX)](/sql/t-sql/data-types/nchar-and-nvarchar-transact-sql).</span></span> <span data-ttu-id="fbaa2-196">Kolumny nazw są teraz `nvarchar(50)`.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-196">The name columns are now `nvarchar(50)`.</span></span> <span data-ttu-id="fbaa2-197">Nazwa kolumny została zmieniona z `FirstMidName` na. `FirstName`</span><span class="sxs-lookup"><span data-stu-id="fbaa2-197">The column name has changed from `FirstMidName` to `FirstName`.</span></span>
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="fbaa2-198">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="fbaa2-198">Visual Studio Code</span></span>](#tab/visual-studio-code)
+
+<span data-ttu-id="fbaa2-199">Komunikat o błędzie jest podobny do poniższego przykładu:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-199">The error message is similar to the following example:</span></span>
+
+```
+SqliteException: SQLite Error 1: 'no such column: s.FirstName'.
+```
+
+* <span data-ttu-id="fbaa2-200">Otwórz okno polecenia w folderze projektu.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-200">Open a command window in the project folder.</span></span> <span data-ttu-id="fbaa2-201">Wprowadź następujące polecenia, aby utworzyć nową migrację i zaktualizować bazę danych:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-201">Enter the following commands to create a new migration and update the database:</span></span>
+
+  ```console
+  dotnet ef migrations add ColumnFirstName
+  dotnet ef database update
+  ```
+
+  <span data-ttu-id="fbaa2-202">Polecenie aktualizacji bazy danych wyświetla błąd podobny do następującego przykładu:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-202">The database update command displays an error like the following example:</span></span>
+
+  ```text
+  SQLite does not support this migration operation ('AlterColumnOperation'). For more information, see http://go.microsoft.com/fwlink/?LinkId=723262.
+  ```
+
+<span data-ttu-id="fbaa2-203">W tym samouczku sposób, w jaki można to zrobić, jest usunięcie i ponowne utworzenie początkowej migracji.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-203">For this tutorial, the way to get past this error is to delete and re-create the initial migration.</span></span> <span data-ttu-id="fbaa2-204">Aby uzyskać więcej informacji, zobacz uwagi dotyczące ostrzeżeń oprogramowania SQLite w górnej części [samouczka migracji](xref:data/ef-rp/migrations).</span><span class="sxs-lookup"><span data-stu-id="fbaa2-204">For more information, see the SQLite warning note at the top of the [migrations tutorial](xref:data/ef-rp/migrations).</span></span>
+
+* <span data-ttu-id="fbaa2-205">Usuń folder *migracji* .</span><span class="sxs-lookup"><span data-stu-id="fbaa2-205">Delete the *Migrations* folder.</span></span>
+* <span data-ttu-id="fbaa2-206">Uruchom następujące polecenia, aby usunąć bazę danych, utworzyć nową migrację początkową i zastosować migrację:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-206">Run the following commands to drop the database, create a new initial migration, and apply the migration:</span></span>
+
+  ```console
+  dotnet ef database drop --force
+  dotnet ef migrations add InitialCreate
+  dotnet ef database update
+  ```
+
+* <span data-ttu-id="fbaa2-207">Sprawdź tabelę uczniów w narzędziu SQLite.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-207">Examine the Student table in your SQLite tool.</span></span> <span data-ttu-id="fbaa2-208">Kolumna, która była FirstMidName, jest teraz FirstName.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-208">The column that was FirstMidName is now FirstName.</span></span>
+
+---
+
+* <span data-ttu-id="fbaa2-209">Uruchom aplikację i przejdź do strony uczniów.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-209">Run the app and go to the Students page.</span></span>
+* <span data-ttu-id="fbaa2-210">Należy zauważyć, że czasy nie są wprowadzane ani wyświetlane wraz z datami.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-210">Notice that times are not input or displayed along with dates.</span></span>
+* <span data-ttu-id="fbaa2-211">Wybierz pozycję **Utwórz nową**, a następnie spróbuj wprowadzić nazwę dłuższą niż 50 znaków.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-211">Select **Create New**, and try to enter a name longer than 50 characters.</span></span>
+
+> [!Note]
+> <span data-ttu-id="fbaa2-212">W poniższych sekcjach Kompilowanie aplikacji na niektórych etapach powoduje wygenerowanie błędów kompilatora.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-212">In the following sections, building the app at some stages generates compiler errors.</span></span> <span data-ttu-id="fbaa2-213">Instrukcje określają, kiedy należy skompilować aplikację.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-213">The instructions specify when to build the app.</span></span>
+
+## <a name="the-instructor-entity"></a><span data-ttu-id="fbaa2-214">Jednostka instruktora</span><span class="sxs-lookup"><span data-stu-id="fbaa2-214">The Instructor Entity</span></span>
+
+![Jednostka instruktora](complex-data-model/_static/instructor-entity.png)
+
+<span data-ttu-id="fbaa2-216">Utwórz *modele/instruktor. cs* przy użyciu następującego kodu:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-216">Create *Models/Instructor.cs* with the following code:</span></span>
+
+[!code-csharp[](intro/samples/cu30/Models/Instructor.cs)]
+
+<span data-ttu-id="fbaa2-217">Wiele atrybutów może znajdować się w jednym wierszu.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-217">Multiple attributes can be on one line.</span></span> <span data-ttu-id="fbaa2-218">`HireDate` Atrybuty mogą być zapisywane w następujący sposób:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-218">The `HireDate` attributes could be written as follows:</span></span>
 
 ```csharp
 [DataType(DataType.Date),Display(Name = "Hire Date"),DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
 ```
 
-### <a name="the-courseassignments-and-officeassignment-navigation-properties"></a><span data-ttu-id="c7ed2-212">Właściwości nawigacji CourseAssignments i OfficeAssignment</span><span class="sxs-lookup"><span data-stu-id="c7ed2-212">The CourseAssignments and OfficeAssignment navigation properties</span></span>
+### <a name="navigation-properties"></a><span data-ttu-id="fbaa2-219">Właściwości nawigacji</span><span class="sxs-lookup"><span data-stu-id="fbaa2-219">Navigation properties</span></span>
 
-<span data-ttu-id="c7ed2-213">`CourseAssignments` i `OfficeAssignment` właściwości są właściwości nawigacji.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-213">The `CourseAssignments` and `OfficeAssignment` properties are navigation properties.</span></span>
+<span data-ttu-id="fbaa2-220">Właściwości `CourseAssignments` i`OfficeAssignment` są właściwościami nawigacji.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-220">The `CourseAssignments` and `OfficeAssignment` properties are navigation properties.</span></span>
 
-<span data-ttu-id="c7ed2-214">Pod kierunkiem instruktora nauczyć dowolnej liczby kursów, więc `CourseAssignments` jest zdefiniowany jako kolekcja.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-214">An instructor can teach any number of courses, so `CourseAssignments` is defined as a collection.</span></span>
+<span data-ttu-id="fbaa2-221">Instruktor może nauczyć dowolną liczbę kursów, więc `CourseAssignments` jest zdefiniowany jako kolekcja.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-221">An instructor can teach any number of courses, so `CourseAssignments` is defined as a collection.</span></span>
 
 ```csharp
 public ICollection<CourseAssignment> CourseAssignments { get; set; }
 ```
 
-<span data-ttu-id="c7ed2-215">Jeśli właściwość nawigacji posiada wiele jednostek:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-215">If a navigation property holds multiple entities:</span></span>
-
-* <span data-ttu-id="c7ed2-216">Musi być typu listy, gdzie wpisy mogą być dodawane, usuwane lub zaktualizować.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-216">It must be a list type where the entries can be added, deleted, and updated.</span></span>
-
-<span data-ttu-id="c7ed2-217">Typy właściwości nawigacji:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-217">Navigation property types include:</span></span>
-
-* `ICollection<T>`
-* `List<T>`
-* `HashSet<T>`
-
-<span data-ttu-id="c7ed2-218">Jeśli `ICollection<T>` jest określona, tworzy programu EF Core `HashSet<T>` kolekcji domyślnie.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-218">If `ICollection<T>` is specified, EF Core creates a `HashSet<T>` collection by default.</span></span>
-
-<span data-ttu-id="c7ed2-219">`CourseAssignment` Jednostki zostało wyjaśnione w sekcji w relacji wiele do wielu.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-219">The `CourseAssignment` entity is explained in the section on many-to-many relationships.</span></span>
-
-<span data-ttu-id="c7ed2-220">Firmy Contoso University reguł stanu, że pod kierunkiem instruktora może mieć co najwyżej jednego pakietu office.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-220">Contoso University business rules state that an instructor can have at most one office.</span></span> <span data-ttu-id="c7ed2-221">`OfficeAssignment` Właściwość przechowuje pojedynczej `OfficeAssignment` jednostki.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-221">The `OfficeAssignment` property holds a single `OfficeAssignment` entity.</span></span> <span data-ttu-id="c7ed2-222">`OfficeAssignment` ma wartość null, jeśli nie przypisano żadnych pakietu office.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-222">`OfficeAssignment` is null if no office is assigned.</span></span>
+<span data-ttu-id="fbaa2-222">Instruktor może mieć co najwyżej jednego biura, więc `OfficeAssignment` Właściwość zawiera jedną `OfficeAssignment` jednostkę.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-222">An instructor can have at most one office, so the `OfficeAssignment` property holds a single `OfficeAssignment` entity.</span></span> <span data-ttu-id="fbaa2-223">`OfficeAssignment`ma wartość null, jeśli nie przypisano pakietu Office.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-223">`OfficeAssignment` is null if no office is assigned.</span></span>
 
 ```csharp
 public OfficeAssignment OfficeAssignment { get; set; }
 ```
 
-## <a name="create-the-officeassignment-entity"></a><span data-ttu-id="c7ed2-223">Tworzenie jednostki OfficeAssignment</span><span class="sxs-lookup"><span data-stu-id="c7ed2-223">Create the OfficeAssignment entity</span></span>
+## <a name="the-officeassignment-entity"></a><span data-ttu-id="fbaa2-224">Jednostka OfficeAssignment</span><span class="sxs-lookup"><span data-stu-id="fbaa2-224">The OfficeAssignment entity</span></span>
 
-![OfficeAssignment jednostki](complex-data-model/_static/officeassignment-entity.png)
+![Jednostka OfficeAssignment](complex-data-model/_static/officeassignment-entity.png)
 
-<span data-ttu-id="c7ed2-225">Tworzenie *Models/OfficeAssignment.cs* następującym kodem:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-225">Create *Models/OfficeAssignment.cs* with the following code:</span></span>
+<span data-ttu-id="fbaa2-226">Utwórz *modele/OfficeAssignment. cs* przy użyciu następującego kodu:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-226">Create *Models/OfficeAssignment.cs* with the following code:</span></span>
 
-[!code-csharp[](intro/samples/cu21/Models/OfficeAssignment.cs)]
+[!code-csharp[](intro/samples/cu30/Models/OfficeAssignment.cs)]
 
-### <a name="the-key-attribute"></a><span data-ttu-id="c7ed2-226">Atrybut klucza</span><span class="sxs-lookup"><span data-stu-id="c7ed2-226">The Key attribute</span></span>
+### <a name="the-key-attribute"></a><span data-ttu-id="fbaa2-227">Atrybut klucza</span><span class="sxs-lookup"><span data-stu-id="fbaa2-227">The Key attribute</span></span>
 
-<span data-ttu-id="c7ed2-227">`[Key]` Atrybutu służy do identyfikowania właściwość jako kluczowi podstawowemu (PK) gdy nazwa właściwości jest coś innego niż classnameID lub identyfikatora organizacji.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-227">The `[Key]` attribute is used to identify a property as the primary key (PK) when the property name is something other than classnameID or ID.</span></span>
+<span data-ttu-id="fbaa2-228">Ten `[Key]` atrybut służy do identyfikowania właściwości jako klucza podstawowego (PK), gdy nazwa właściwości ma wartość inną niż classnameID lub ID.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-228">The `[Key]` attribute is used to identify a property as the primary key (PK) when the property name is something other than classnameID or ID.</span></span>
 
-<span data-ttu-id="c7ed2-228">Brak relacji jeden do zero lub jeden między `Instructor` i `OfficeAssignment` jednostek.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-228">There's a one-to-zero-or-one relationship between the `Instructor` and `OfficeAssignment` entities.</span></span> <span data-ttu-id="c7ed2-229">Biuro istnieje tylko w odniesieniu do przez instruktorów, do którego jest przypisany.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-229">An office assignment only exists in relation to the instructor it's assigned to.</span></span> <span data-ttu-id="c7ed2-230">`OfficeAssignment` Klucz podstawowy jest również jej klucz obcy (klucz OBCY) `Instructor` jednostki.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-230">The `OfficeAssignment` PK is also its foreign key (FK) to the `Instructor` entity.</span></span> <span data-ttu-id="c7ed2-231">EF Core automatycznie nie może rozpoznać `InstructorID` jako klucz podstawowy z `OfficeAssignment` ponieważ:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-231">EF Core can't automatically recognize `InstructorID` as the PK of `OfficeAssignment` because:</span></span>
+<span data-ttu-id="fbaa2-229">Istnieje relacja jeden do zera między `Instructor` jednostkami i. `OfficeAssignment`</span><span class="sxs-lookup"><span data-stu-id="fbaa2-229">There's a one-to-zero-or-one relationship between the `Instructor` and `OfficeAssignment` entities.</span></span> <span data-ttu-id="fbaa2-230">Przypisanie pakietu Office istnieje tylko w odniesieniu do instruktora, do którego jest przypisane.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-230">An office assignment only exists in relation to the instructor it's assigned to.</span></span> <span data-ttu-id="fbaa2-231">Klucz podstawowy jest również jego kluczem obcym (obcy) `Instructor` do jednostki. `OfficeAssignment`</span><span class="sxs-lookup"><span data-stu-id="fbaa2-231">The `OfficeAssignment` PK is also its foreign key (FK) to the `Instructor` entity.</span></span>
 
-* <span data-ttu-id="c7ed2-232">`InstructorID` nie należy wykonać identyfikator lub classnameID konwencji nazewnictwa.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-232">`InstructorID` doesn't follow the ID or classnameID naming convention.</span></span>
-
-<span data-ttu-id="c7ed2-233">W związku z tym `Key` atrybut jest używany do identyfikowania `InstructorID` jako klucz podstawowy:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-233">Therefore, the `Key` attribute is used to identify `InstructorID` as the PK:</span></span>
+<span data-ttu-id="fbaa2-232">EF Core nie może automatycznie `InstructorID` rozpoznać jako `OfficeAssignment` klucza podstawowego, `InstructorID` ponieważ nie jest zgodna z konwencją nazewnictwa ID lub classnameID.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-232">EF Core can't automatically recognize `InstructorID` as the PK of `OfficeAssignment` because `InstructorID` doesn't follow the ID or classnameID naming convention.</span></span> <span data-ttu-id="fbaa2-233">W związku z tym `InstructorID` atrybutjestużywanydoidentyfikacjijakokluczpodstawowy:`Key`</span><span class="sxs-lookup"><span data-stu-id="fbaa2-233">Therefore, the `Key` attribute is used to identify `InstructorID` as the PK:</span></span>
 
 ```csharp
 [Key]
 public int InstructorID { get; set; }
 ```
 
-<span data-ttu-id="c7ed2-234">Domyślnie EF Core traktuje klucza jako inne niż wygenerowane bazy danych, ponieważ kolumna jest przeznaczona dla relacji identyfikującej.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-234">By default, EF Core treats the key as non-database-generated because the column is for an identifying relationship.</span></span>
+<span data-ttu-id="fbaa2-234">Domyślnie EF Core traktuje klucz jako wygenerowane poza bazą danych, ponieważ kolumna służy do identyfikowania relacji.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-234">By default, EF Core treats the key as non-database-generated because the column is for an identifying relationship.</span></span>
 
-### <a name="the-instructor-navigation-property"></a><span data-ttu-id="c7ed2-235">Właściwość nawigacji przez instruktorów</span><span class="sxs-lookup"><span data-stu-id="c7ed2-235">The Instructor navigation property</span></span>
+### <a name="the-instructor-navigation-property"></a><span data-ttu-id="fbaa2-235">Właściwość nawigacji instruktora</span><span class="sxs-lookup"><span data-stu-id="fbaa2-235">The Instructor navigation property</span></span>
 
-<span data-ttu-id="c7ed2-236">`OfficeAssignment` Właściwości nawigacji dla `Instructor` jednostki ma wartość null ponieważ:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-236">The `OfficeAssignment` navigation property for the `Instructor` entity is nullable because:</span></span>
+<span data-ttu-id="fbaa2-236">Właściwość `Instructor.OfficeAssignment` nawigacji może mieć wartość null, ponieważ nie może `OfficeAssignment` istnieć wiersz danego instruktora.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-236">The `Instructor.OfficeAssignment` navigation property can be null because there might not be an `OfficeAssignment` row for a given instructor.</span></span> <span data-ttu-id="fbaa2-237">Instruktor może nie mieć przypisania pakietu Office.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-237">An instructor might not have an office assignment.</span></span>
 
-* <span data-ttu-id="c7ed2-237">Typów referencyjnych (takie jak klasy dopuszczają wartości null).</span><span class="sxs-lookup"><span data-stu-id="c7ed2-237">Reference types (such as classes are nullable).</span></span>
-* <span data-ttu-id="c7ed2-238">Pod kierunkiem instruktora, może nie mieć biuro.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-238">An instructor might not have an office assignment.</span></span>
+<span data-ttu-id="fbaa2-238">Właściwość nawigacji zawsze będzie mieć jednostkę instruktora, ponieważ typ klucza `InstructorID` obcego to `int`, typ wartości niedopuszczający wartości null. `OfficeAssignment.Instructor`</span><span class="sxs-lookup"><span data-stu-id="fbaa2-238">The `OfficeAssignment.Instructor` navigation property will always have an instructor entity because the foreign key `InstructorID` type is `int`, a non-nullable value type.</span></span> <span data-ttu-id="fbaa2-239">Przypisanie pakietu Office nie może istnieć bez instruktora.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-239">An office assignment can't exist without an instructor.</span></span>
 
-<span data-ttu-id="c7ed2-239">`OfficeAssignment` Jednostka ma wartość null `Instructor` właściwość nawigacji ponieważ:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-239">The `OfficeAssignment` entity has a non-nullable `Instructor` navigation property because:</span></span>
+<span data-ttu-id="fbaa2-240">Gdy jednostka ma powiązaną `OfficeAssignment` jednostkę, każda jednostka ma odwołanie do drugiej z nich we właściwości nawigacji. `Instructor`</span><span class="sxs-lookup"><span data-stu-id="fbaa2-240">When an `Instructor` entity has a related `OfficeAssignment` entity, each entity has a reference to the other one in its navigation property.</span></span>
 
-* <span data-ttu-id="c7ed2-240">`InstructorID` nie dopuszcza wartości.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-240">`InstructorID` is non-nullable.</span></span>
-* <span data-ttu-id="c7ed2-241">Przypisanie pakietu office nie może istnieć bez pod kierunkiem instruktora.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-241">An office assignment can't exist without an instructor.</span></span>
+## <a name="the-course-entity"></a><span data-ttu-id="fbaa2-241">Jednostka kursu</span><span class="sxs-lookup"><span data-stu-id="fbaa2-241">The Course Entity</span></span>
 
-<span data-ttu-id="c7ed2-242">Gdy `Instructor` jednostka ma powiązane `OfficeAssignment` jednostki, każdy obiekt odwołuje się do innych niż w jego właściwości nawigacji.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-242">When an `Instructor` entity has a related `OfficeAssignment` entity, each entity has a reference to the other one in its navigation property.</span></span>
+![Jednostka kursu](complex-data-model/_static/course-entity.png)
 
-<span data-ttu-id="c7ed2-243">`[Required]` Można zastosować atrybutu do `Instructor` właściwość nawigacji:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-243">The `[Required]` attribute could be applied to the `Instructor` navigation property:</span></span>
+<span data-ttu-id="fbaa2-243">Aktualizuj *modele/kurs. cs* przy użyciu następującego kodu:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-243">Update *Models/Course.cs* with the following code:</span></span>
 
-```csharp
-[Required]
-public Instructor Instructor { get; set; }
-```
+[!code-csharp[](intro/samples/cu30/Models/Course.cs?highlight=2,10,13,16,19,21,23)]
 
-<span data-ttu-id="c7ed2-244">Powyższy kod określa, że musi być powiązany instruktora.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-244">The preceding code specifies that there must be a related instructor.</span></span> <span data-ttu-id="c7ed2-245">Powyższy kod nie jest konieczne ponieważ `InstructorID` nie dopuszczają wartości klucza obcego (jest to również PK).</span><span class="sxs-lookup"><span data-stu-id="c7ed2-245">The preceding code is unnecessary because the `InstructorID` foreign key (which is also the PK) is non-nullable.</span></span>
+<span data-ttu-id="fbaa2-244">Jednostka ma właściwość `DepartmentID`klucza obcego (obcy). `Course`</span><span class="sxs-lookup"><span data-stu-id="fbaa2-244">The `Course` entity has a foreign key (FK) property `DepartmentID`.</span></span> <span data-ttu-id="fbaa2-245">`DepartmentID`wskazuje powiązaną `Department` jednostkę.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-245">`DepartmentID` points to the related `Department` entity.</span></span> <span data-ttu-id="fbaa2-246">`Course` Jednostka ma właściwość nawigacji. `Department`</span><span class="sxs-lookup"><span data-stu-id="fbaa2-246">The `Course` entity has a `Department` navigation property.</span></span>
 
-## <a name="modify-the-course-entity"></a><span data-ttu-id="c7ed2-246">Modyfikowanie jednostek kursu</span><span class="sxs-lookup"><span data-stu-id="c7ed2-246">Modify the Course Entity</span></span>
+<span data-ttu-id="fbaa2-247">EF Core nie wymaga właściwości klucza obcego dla modelu danych, gdy model ma właściwość nawigacji dla powiązanej jednostki.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-247">EF Core doesn't require a foreign key property for a data model when the model has a navigation property for a related entity.</span></span> <span data-ttu-id="fbaa2-248">EF Core automatycznie tworzy FKs w bazie danych wszędzie tam, gdzie są one zbędne.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-248">EF Core automatically creates FKs in the database wherever they're needed.</span></span> <span data-ttu-id="fbaa2-249">EF Core tworzy [Właściwości cienia](/ef/core/modeling/shadow-properties) dla automatycznie utworzonych FKs.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-249">EF Core creates [shadow properties](/ef/core/modeling/shadow-properties) for automatically created FKs.</span></span> <span data-ttu-id="fbaa2-250">Jednak jawne dołączenie klucza obcego w modelu danych może spowodować uproszczenie i wydajniejsze aktualizacje.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-250">However, explicitly including the FK in the data model can make updates simpler and more efficient.</span></span> <span data-ttu-id="fbaa2-251">Rozważmy na przykład model, w którym Właściwość `DepartmentID` FK *nie* jest uwzględniona.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-251">For example, consider a model where the FK property `DepartmentID` is *not* included.</span></span> <span data-ttu-id="fbaa2-252">Gdy jednostka kursu jest pobierana do edycji:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-252">When a course entity is fetched to edit:</span></span>
 
-![Kurs jednostki](complex-data-model/_static/course-entity.png)
+* <span data-ttu-id="fbaa2-253">Właściwość `Department` ma wartość null, jeśli nie jest jawnie załadowana.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-253">The `Department` property is null if it's not explicitly loaded.</span></span>
+* <span data-ttu-id="fbaa2-254">Aby zaktualizować jednostkę kursu, `Department` należy najpierw pobrać jednostkę.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-254">To update the course entity, the `Department` entity must first be fetched.</span></span>
 
-<span data-ttu-id="c7ed2-248">Aktualizacja *Models/Course.cs* następującym kodem:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-248">Update *Models/Course.cs* with the following code:</span></span>
+<span data-ttu-id="fbaa2-255">Gdy właściwość `DepartmentID` FK jest uwzględniona w modelu danych, nie trzeba `Department` pobierać jednostki przed aktualizacją.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-255">When the FK property `DepartmentID` is included in the data model, there's no need to fetch the `Department` entity before an update.</span></span>
 
-[!code-csharp[](intro/samples/cu21/Models/Course.cs?name=snippet_Final&highlight=2,10,13,16,19,21,23)]
+### <a name="the-databasegenerated-attribute"></a><span data-ttu-id="fbaa2-256">Atrybut DatabaseGenerated</span><span class="sxs-lookup"><span data-stu-id="fbaa2-256">The DatabaseGenerated attribute</span></span>
 
-<span data-ttu-id="c7ed2-249">`Course` Jednostka ma właściwość klucza obcego (klucz OBCY) `DepartmentID`.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-249">The `Course` entity has a foreign key (FK) property `DepartmentID`.</span></span> <span data-ttu-id="c7ed2-250">`DepartmentID` Wskazuje powiązane `Department` jednostki.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-250">`DepartmentID` points to the related `Department` entity.</span></span> <span data-ttu-id="c7ed2-251">`Course` Jednostka ma `Department` właściwości nawigacji.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-251">The `Course` entity has a `Department` navigation property.</span></span>
-
-<span data-ttu-id="c7ed2-252">EF Core nie wymaga właściwości klucza Obcego dla modelu danych, gdy model nie ma właściwości nawigacji dla powiązanej jednostki.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-252">EF Core doesn't require a FK property for a data model when the model has a navigation property for a related entity.</span></span>
-
-<span data-ttu-id="c7ed2-253">EF Core automatycznie tworzy FKs w bazie danych wszędzie tam, gdzie będą one potrzebne.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-253">EF Core automatically creates FKs in the database wherever they're needed.</span></span> <span data-ttu-id="c7ed2-254">Tworzy programu EF Core [w tle właściwości](/ef/core/modeling/shadow-properties) dla FKs utworzone automatycznie.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-254">EF Core creates [shadow properties](/ef/core/modeling/shadow-properties) for automatically created FKs.</span></span> <span data-ttu-id="c7ed2-255">Posiadanie klucza Obcego w modelu danych, że aktualizacje są prostszy i efektywniejszy.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-255">Having the FK in the data model can make updates simpler and more efficient.</span></span> <span data-ttu-id="c7ed2-256">Na przykład, należy wziąć pod uwagę modelu gdzie właściwości klucza Obcego `DepartmentID` jest *nie* uwzględnione.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-256">For example, consider a model where the FK property `DepartmentID` is *not* included.</span></span> <span data-ttu-id="c7ed2-257">Gdy jednostka kurs jest pobierana do edycji:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-257">When a course entity is fetched to edit:</span></span>
-
-* <span data-ttu-id="c7ed2-258">`Department` Jednostki ma wartość null, jeśli nie zostały jawnie jest ładowany.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-258">The `Department` entity is null if it's not explicitly loaded.</span></span>
-* <span data-ttu-id="c7ed2-259">Do zaktualizowania jednostki kurs `Department` należy najpierw pobrać jednostki.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-259">To update the course entity, the `Department` entity must first be fetched.</span></span>
-
-<span data-ttu-id="c7ed2-260">Gdy właściwość klucza Obcego `DepartmentID` znajduje się w modelu danych nie ma potrzeby można pobrać `Department` jednostki przed aktualizacją.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-260">When the FK property `DepartmentID` is included in the data model, there's no need to fetch the `Department` entity before an update.</span></span>
-
-### <a name="the-databasegenerated-attribute"></a><span data-ttu-id="c7ed2-261">Atrybut DatabaseGenerated</span><span class="sxs-lookup"><span data-stu-id="c7ed2-261">The DatabaseGenerated attribute</span></span>
-
-<span data-ttu-id="c7ed2-262">`[DatabaseGenerated(DatabaseGeneratedOption.None)]` Atrybut określa, że klucz podstawowy jest udostępniany przez aplikację, a nie generowane przez bazę danych.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-262">The `[DatabaseGenerated(DatabaseGeneratedOption.None)]` attribute specifies that the PK is provided by the application rather than generated by the database.</span></span>
+<span data-ttu-id="fbaa2-257">Ten `[DatabaseGenerated(DatabaseGeneratedOption.None)]` atrybut określa, że klucz podstawowy jest dostarczany przez aplikację, a nie generowany przez bazę danych.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-257">The `[DatabaseGenerated(DatabaseGeneratedOption.None)]` attribute specifies that the PK is provided by the application rather than generated by the database.</span></span>
 
 ```csharp
 [DatabaseGenerated(DatabaseGeneratedOption.None)]
@@ -310,184 +315,173 @@ public Instructor Instructor { get; set; }
 public int CourseID { get; set; }
 ```
 
-<span data-ttu-id="c7ed2-263">Domyślnie EF Core przyjęto założenie, że wartości klucza produktu są generowane przez bazy danych.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-263">By default, EF Core assumes that PK values are generated by the DB.</span></span> <span data-ttu-id="c7ed2-264">DB wygenerowany klucz podstawowy wartościami ogólnie jest najlepszym rozwiązaniem.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-264">DB generated PK values is generally the best approach.</span></span> <span data-ttu-id="c7ed2-265">Aby uzyskać `Course` jednostek, użytkownik określa PK.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-265">For `Course` entities, the user specifies the PK.</span></span> <span data-ttu-id="c7ed2-266">Na przykład liczba kurs takich jak seria 1000 dla działu matematycznych, serię 2000 dla angielskiego działu.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-266">For example, a course number such as a 1000 series for the math department, a 2000 series for the English department.</span></span>
+<span data-ttu-id="fbaa2-258">Domyślnie EF Core zakłada, że wartości klucza PK są generowane przez bazę danych.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-258">By default, EF Core assumes that PK values are generated by the database.</span></span> <span data-ttu-id="fbaa2-259">Wygenerowana baza danych jest ogólnie najlepszym rozwiązaniem.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-259">Database-generated is generally the best approach.</span></span> <span data-ttu-id="fbaa2-260">W `Course` przypadku jednostek użytkownik określa klucz podstawowy.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-260">For `Course` entities, the user specifies the PK.</span></span> <span data-ttu-id="fbaa2-261">Na przykład numer kursu, taki jak seria 1000 dla działu Math, serii 2000 dla działu angielskiego.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-261">For example, a course number such as a 1000 series for the math department, a 2000 series for the English department.</span></span>
 
-<span data-ttu-id="c7ed2-267">`DatabaseGenerated` Atrybut może służyć także do generowania wartości domyślne.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-267">The `DatabaseGenerated` attribute can also be used to generate default values.</span></span> <span data-ttu-id="c7ed2-268">Na przykład baza danych może automatycznie generować pole daty, aby zarejestrować Data wiersz został utworzony lub zaktualizowany.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-268">For example, the DB can automatically generate a date field to record the date a row was created or updated.</span></span> <span data-ttu-id="c7ed2-269">Aby uzyskać więcej informacji, zobacz [wygenerowanych właściwości](/ef/core/modeling/generated-properties).</span><span class="sxs-lookup"><span data-stu-id="c7ed2-269">For more information, see [Generated Properties](/ef/core/modeling/generated-properties).</span></span>
+<span data-ttu-id="fbaa2-262">Ten `DatabaseGenerated` atrybut może być również używany do generowania wartości domyślnych.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-262">The `DatabaseGenerated` attribute can also be used to generate default values.</span></span> <span data-ttu-id="fbaa2-263">Na przykład baza danych może automatycznie wygenerować pole daty, aby zarejestrować datę utworzenia lub zaktualizowania wiersza.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-263">For example, the database can automatically generate a date field to record the date a row was created or updated.</span></span> <span data-ttu-id="fbaa2-264">Aby uzyskać więcej informacji, zobacz [wygenerowane właściwości](/ef/core/modeling/generated-properties).</span><span class="sxs-lookup"><span data-stu-id="fbaa2-264">For more information, see [Generated Properties](/ef/core/modeling/generated-properties).</span></span>
 
-### <a name="foreign-key-and-navigation-properties"></a><span data-ttu-id="c7ed2-270">Obcy właściwości klucza i nawigacja</span><span class="sxs-lookup"><span data-stu-id="c7ed2-270">Foreign key and navigation properties</span></span>
+### <a name="foreign-key-and-navigation-properties"></a><span data-ttu-id="fbaa2-265">Właściwości klucza obcego i nawigacji</span><span class="sxs-lookup"><span data-stu-id="fbaa2-265">Foreign key and navigation properties</span></span>
 
-<span data-ttu-id="c7ed2-271">Właściwości klucza obcego (klucz OBCY) i właściwości nawigacji w `Course` jednostki odzwierciedlają się następująco:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-271">The foreign key (FK) properties and navigation properties in the `Course` entity reflect the following relationships:</span></span>
+<span data-ttu-id="fbaa2-266">Właściwości klucza obcego (FK) i właściwości nawigacji w `Course` jednostce odzwierciedlają następujące relacje:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-266">The foreign key (FK) properties and navigation properties in the `Course` entity reflect the following relationships:</span></span>
 
-<span data-ttu-id="c7ed2-272">Kurs jest przypisany do jednego działu, więc ma `DepartmentID` klucza Obcego i `Department` właściwości nawigacji.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-272">A course is assigned to one department, so there's a `DepartmentID` FK and a `Department` navigation property.</span></span>
+<span data-ttu-id="fbaa2-267">Kurs jest przypisywany do jednego działu, więc istnieje `DepartmentID` obcy `Department` i właściwość nawigacji.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-267">A course is assigned to one department, so there's a `DepartmentID` FK and a `Department` navigation property.</span></span>
 
 ```csharp
 public int DepartmentID { get; set; }
 public Department Department { get; set; }
 ```
 
-<span data-ttu-id="c7ed2-273">Kurs może mieć dowolną liczbę uczniów zarejestrowane, więc `Enrollments` właściwość nawigacji jest kolekcją:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-273">A course can have any number of students enrolled in it, so the `Enrollments` navigation property is a collection:</span></span>
+<span data-ttu-id="fbaa2-268">Kurs może zawierać dowolną liczbę studentów, więc `Enrollments` właściwość nawigacji jest kolekcją:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-268">A course can have any number of students enrolled in it, so the `Enrollments` navigation property is a collection:</span></span>
 
 ```csharp
 public ICollection<Enrollment> Enrollments { get; set; }
 ```
 
-<span data-ttu-id="c7ed2-274">Kurs może być prowadzone przez instruktorów wielu, więc `CourseAssignments` właściwość nawigacji jest kolekcją:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-274">A course may be taught by multiple instructors, so the `CourseAssignments` navigation property is a collection:</span></span>
+<span data-ttu-id="fbaa2-269">Kurs może być nauczany przez wiele instruktorów, więc `CourseAssignments` właściwość nawigacji jest kolekcją:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-269">A course may be taught by multiple instructors, so the `CourseAssignments` navigation property is a collection:</span></span>
 
 ```csharp
 public ICollection<CourseAssignment> CourseAssignments { get; set; }
 ```
 
-<span data-ttu-id="c7ed2-275">`CourseAssignment` objaśniono [później](#many-to-many-relationships).</span><span class="sxs-lookup"><span data-stu-id="c7ed2-275">`CourseAssignment` is explained [later](#many-to-many-relationships).</span></span>
+<span data-ttu-id="fbaa2-270">`CourseAssignment`wyjaśniono [później](#many-to-many-relationships).</span><span class="sxs-lookup"><span data-stu-id="fbaa2-270">`CourseAssignment` is explained [later](#many-to-many-relationships).</span></span>
 
-## <a name="create-the-department-entity"></a><span data-ttu-id="c7ed2-276">Tworzenie jednostki działu</span><span class="sxs-lookup"><span data-stu-id="c7ed2-276">Create the Department entity</span></span>
+## <a name="the-department-entity"></a><span data-ttu-id="fbaa2-271">Jednostka działu</span><span class="sxs-lookup"><span data-stu-id="fbaa2-271">The Department entity</span></span>
 
-![Dział jednostki](complex-data-model/_static/department-entity.png)
+![Jednostka działu](complex-data-model/_static/department-entity.png)
 
-<span data-ttu-id="c7ed2-278">Tworzenie *Models/Department.cs* następującym kodem:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-278">Create *Models/Department.cs* with the following code:</span></span>
+<span data-ttu-id="fbaa2-273">Utwórz *modele/dział. cs* przy użyciu następującego kodu:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-273">Create *Models/Department.cs* with the following code:</span></span>
 
-[!code-csharp[](intro/samples/cu21/Models/Department.cs?name=snippet_Begin)]
+[!code-csharp[](intro/samples/cu30snapshots/5-complex/Models/Department1.cs)]
 
-### <a name="the-column-attribute"></a><span data-ttu-id="c7ed2-279">Atrybut kolumny</span><span class="sxs-lookup"><span data-stu-id="c7ed2-279">The Column attribute</span></span>
+### <a name="the-column-attribute"></a><span data-ttu-id="fbaa2-274">Atrybut Column</span><span class="sxs-lookup"><span data-stu-id="fbaa2-274">The Column attribute</span></span>
 
-<span data-ttu-id="c7ed2-280">Wcześniej `Column` użyto atrybutu można zmienić mapowania nazwy kolumny.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-280">Previously the `Column` attribute was used to change column name mapping.</span></span> <span data-ttu-id="c7ed2-281">W kodzie dla `Department` jednostki `Column` atrybut jest używany, aby zmienić mapowanie typu danych SQL.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-281">In the code for the `Department` entity, the `Column` attribute is used to change SQL data type mapping.</span></span> <span data-ttu-id="c7ed2-282">`Budget` Kolumna jest definiowana za pomocą typu pieniądze programu SQL Server w bazie danych:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-282">The `Budget` column is defined using the SQL Server money type in the DB:</span></span>
+<span data-ttu-id="fbaa2-275">`Column` Wcześniej atrybut został użyty do zmiany mapowania nazw kolumn.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-275">Previously the `Column` attribute was used to change column name mapping.</span></span> <span data-ttu-id="fbaa2-276">W kodzie dla `Department` jednostki `Column` atrybut jest używany do zmiany mapowania typu danych SQL.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-276">In the code for the `Department` entity, the `Column` attribute is used to change SQL data type mapping.</span></span> <span data-ttu-id="fbaa2-277">`Budget` Kolumna jest definiowana przy użyciu SQL Server typie pieniędzy w bazie danych:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-277">The `Budget` column is defined using the SQL Server money type in the database:</span></span>
 
 ```csharp
 [Column(TypeName="money")]
 public decimal Budget { get; set; }
 ```
 
-<span data-ttu-id="c7ed2-283">Mapowanie kolumn zazwyczaj nie jest wymagana.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-283">Column mapping is generally not required.</span></span> <span data-ttu-id="c7ed2-284">EF Core zazwyczaj wybiera się odpowiedni typ danych programu SQL Server, na podstawie typu CLR dla właściwości.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-284">EF Core generally chooses the appropriate SQL Server data type based on the CLR type for the property.</span></span> <span data-ttu-id="c7ed2-285">Środowisko CLR `decimal` typu map do programu SQL Server `decimal` typu.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-285">The CLR `decimal` type maps to a SQL Server `decimal` type.</span></span> <span data-ttu-id="c7ed2-286">`Budget` dotyczy waluty, a typ danych pieniądze są bardziej odpowiednie dla waluty.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-286">`Budget` is for currency, and the money data type is more appropriate for currency.</span></span>
+<span data-ttu-id="fbaa2-278">Mapowanie kolumn zazwyczaj nie jest wymagane.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-278">Column mapping is generally not required.</span></span> <span data-ttu-id="fbaa2-279">EF Core wybiera odpowiedni SQL Server typ danych na podstawie typu CLR dla właściwości.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-279">EF Core chooses the appropriate SQL Server data type based on the CLR type for the property.</span></span> <span data-ttu-id="fbaa2-280">Typ CLR `decimal` jest mapowany na typ SQL Server `decimal` .</span><span class="sxs-lookup"><span data-stu-id="fbaa2-280">The CLR `decimal` type maps to a SQL Server `decimal` type.</span></span> <span data-ttu-id="fbaa2-281">`Budget`jest dla waluty, a typ danych walutowych jest bardziej odpowiedni dla waluty.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-281">`Budget` is for currency, and the money data type is more appropriate for currency.</span></span>
 
-### <a name="foreign-key-and-navigation-properties"></a><span data-ttu-id="c7ed2-287">Obcy właściwości klucza i nawigacja</span><span class="sxs-lookup"><span data-stu-id="c7ed2-287">Foreign key and navigation properties</span></span>
+### <a name="foreign-key-and-navigation-properties"></a><span data-ttu-id="fbaa2-282">Właściwości klucza obcego i nawigacji</span><span class="sxs-lookup"><span data-stu-id="fbaa2-282">Foreign key and navigation properties</span></span>
 
-<span data-ttu-id="c7ed2-288">Właściwości klucza Obcego i nawigacyjny odzwierciedla następujące relacje:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-288">The FK and navigation properties reflect the following relationships:</span></span>
+<span data-ttu-id="fbaa2-283">Właściwości FK i nawigacji odzwierciedlają następujące relacje:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-283">The FK and navigation properties reflect the following relationships:</span></span>
 
-* <span data-ttu-id="c7ed2-289">Dział mogą być lub może nie mieć uprawnienia administratora.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-289">A department may or may not have an administrator.</span></span>
-* <span data-ttu-id="c7ed2-290">Administrator jest zawsze pod kierunkiem instruktora.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-290">An administrator is always an instructor.</span></span> <span data-ttu-id="c7ed2-291">W związku z tym `InstructorID` właściwość jest uwzględniona jako klucza Obcego do `Instructor` jednostki.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-291">Therefore the `InstructorID` property is included as the FK to the `Instructor` entity.</span></span>
+* <span data-ttu-id="fbaa2-284">Dział może lub nie ma uprawnienia administratora.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-284">A department may or may not have an administrator.</span></span>
+* <span data-ttu-id="fbaa2-285">Administrator jest zawsze instruktorem.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-285">An administrator is always an instructor.</span></span> <span data-ttu-id="fbaa2-286">W związku z tym `Instructor` Właściwośćjestdołączanajakoobcydojednostki.`InstructorID`</span><span class="sxs-lookup"><span data-stu-id="fbaa2-286">Therefore the `InstructorID` property is included as the FK to the `Instructor` entity.</span></span>
 
-<span data-ttu-id="c7ed2-292">Właściwość nawigacji jest o nazwie `Administrator` , ale przechowuje `Instructor` jednostki:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-292">The navigation property is named `Administrator` but holds an `Instructor` entity:</span></span>
+<span data-ttu-id="fbaa2-287">Właściwość nawigacji ma nazwę `Administrator` , ale `Instructor` zawiera jednostkę:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-287">The navigation property is named `Administrator` but holds an `Instructor` entity:</span></span>
 
 ```csharp
 public int? InstructorID { get; set; }
 public Instructor Administrator { get; set; }
 ```
 
-<span data-ttu-id="c7ed2-293">Znak zapytania (?) w poprzednim kodzie Określa, że właściwość ma wartość null.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-293">The question mark (?) in the preceding code specifies the property is nullable.</span></span>
+<span data-ttu-id="fbaa2-288">Znak zapytania (?) w powyższym kodzie określa właściwość dopuszcza wartość null.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-288">The question mark (?) in the preceding code specifies the property is nullable.</span></span>
 
-<span data-ttu-id="c7ed2-294">Dział może mieć wielu kursów, więc ma właściwości nawigacji kursy:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-294">A department may have many courses, so there's a Courses navigation property:</span></span>
+<span data-ttu-id="fbaa2-289">Dział może mieć wiele kursów, więc istnieje właściwość nawigacji kursów:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-289">A department may have many courses, so there's a Courses navigation property:</span></span>
 
 ```csharp
 public ICollection<Course> Courses { get; set; }
 ```
 
-<span data-ttu-id="c7ed2-295">Uwaga: Zgodnie z Konwencją programu EF Core umożliwia usuwanie kaskadowe dopuszcza FKs oraz relacji wiele do wielu.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-295">Note: By convention, EF Core enables cascade delete for non-nullable FKs and for many-to-many relationships.</span></span> <span data-ttu-id="c7ed2-296">Usuwanie kaskadowe może spowodować cykliczne cascade delete reguły.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-296">Cascading delete can result in circular cascade delete rules.</span></span> <span data-ttu-id="c7ed2-297">Cykliczne usuwanie kaskadowe reguły powoduje, że wyjątek po dodaniu migracji.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-297">Circular cascade delete rules causes an exception when a migration is added.</span></span>
+<span data-ttu-id="fbaa2-290">Zgodnie z Konwencją EF Core włącza kaskadowe usuwanie dla FKs niedopuszczających wartości null i dla relacji wiele-do-wielu.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-290">By convention, EF Core enables cascade delete for non-nullable FKs and for many-to-many relationships.</span></span> <span data-ttu-id="fbaa2-291">To domyślne zachowanie może spowodować cykliczne reguły usuwania kaskadowego.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-291">This default behavior can result in circular cascade delete rules.</span></span> <span data-ttu-id="fbaa2-292">Cykliczne reguły usuwania kaskadowego powodują wyjątek podczas dodawania migracji.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-292">Circular cascade delete rules cause an exception when a migration is added.</span></span>
 
-<span data-ttu-id="c7ed2-298">Na przykład jeśli `Department.InstructorID` właściwość została zdefiniowana jako nieprzyjmujące:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-298">For example, if the `Department.InstructorID` property was defined as non-nullable:</span></span>
+<span data-ttu-id="fbaa2-293">Na przykład jeśli `Department.InstructorID` właściwość została zdefiniowana jako niedopuszczający wartości null, EF Core skonfigurować regułę usuwania kaskadowego.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-293">For example, if the `Department.InstructorID` property was defined as non-nullable, EF Core would configure a cascade delete rule.</span></span> <span data-ttu-id="fbaa2-294">W takim przypadku dział zostanie usunięty po usunięciu instruktora przypisanego jako administrator.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-294">In that case, the department would be deleted when the instructor assigned as its administrator is deleted.</span></span> <span data-ttu-id="fbaa2-295">W tym scenariuszu reguła ograniczania byłaby bardziej zrozumiała.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-295">In this scenario, a restrict rule would make more sense.</span></span> <span data-ttu-id="fbaa2-296">Poniższy interfejs API Fluent ustawi regułę ograniczenia i wyłącza usuwanie kaskadowe.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-296">The following fluent API would set a restrict rule and disable cascade delete.</span></span>
 
-* <span data-ttu-id="c7ed2-299">EF Core konfiguruje regułę cascade delete do usunięcia z działu w przypadku usunięcia instruktora.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-299">EF Core configures a cascade delete rule to delete the department when the instructor is deleted.</span></span>
-* <span data-ttu-id="c7ed2-300">Usuwanie z działu, po usunięciu instruktora nie jest to oczekiwane zachowanie.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-300">Deleting the department when the instructor is deleted isn't the intended behavior.</span></span>
-* <span data-ttu-id="c7ed2-301">Następujący interfejs API fluent ustawiał zasadę ograniczania zamiast cascade.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-301">The following fluent API would set a restrict rule instead of cascade.</span></span>
-
-   ```csharp
-   modelBuilder.Entity<Department>()
-      .HasOne(d => d.Administrator)
-      .WithMany()
-      .OnDelete(DeleteBehavior.Restrict)
+  ```csharp
+  modelBuilder.Entity<Department>()
+     .HasOne(d => d.Administrator)
+     .WithMany()
+     .OnDelete(DeleteBehavior.Restrict)
   ```
 
-<span data-ttu-id="c7ed2-302">Powyższy kod wyłącza usuwanie kaskadowe relacji przez instruktorów działu.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-302">The preceding code disables cascade delete on the department-instructor relationship.</span></span>
+## <a name="the-enrollment-entity"></a><span data-ttu-id="fbaa2-297">Jednostki rejestracji</span><span class="sxs-lookup"><span data-stu-id="fbaa2-297">The Enrollment entity</span></span>
 
-## <a name="update-the-enrollment-entity"></a><span data-ttu-id="c7ed2-303">Aktualizacja jednostki rejestracji</span><span class="sxs-lookup"><span data-stu-id="c7ed2-303">Update the Enrollment entity</span></span>
+<span data-ttu-id="fbaa2-298">Rekord rejestracji jest wykonywany przez jednego ucznia.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-298">An enrollment record is for one course taken by one student.</span></span>
 
-<span data-ttu-id="c7ed2-304">Rekord rejestracji dotyczy jednego kursu podjęte przez jeden dla uczniów.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-304">An enrollment record is for one course taken by one student.</span></span>
+![Jednostka rejestracji](complex-data-model/_static/enrollment-entity.png)
 
-![Jednostki rejestracji](complex-data-model/_static/enrollment-entity.png)
+<span data-ttu-id="fbaa2-300">Aktualizuj *modele/rejestrację. cs* przy użyciu następującego kodu:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-300">Update *Models/Enrollment.cs* with the following code:</span></span>
 
-<span data-ttu-id="c7ed2-306">Aktualizacja *Models/Enrollment.cs* następującym kodem:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-306">Update *Models/Enrollment.cs* with the following code:</span></span>
+[!code-csharp[](intro/samples/cu30/Models/Enrollment.cs?highlight=1-2,16)]
 
-[!code-csharp[](intro/samples/cu21/Models/Enrollment.cs?name=snippet_Final&highlight=1-2,16)]
+### <a name="foreign-key-and-navigation-properties"></a><span data-ttu-id="fbaa2-301">Właściwości klucza obcego i nawigacji</span><span class="sxs-lookup"><span data-stu-id="fbaa2-301">Foreign key and navigation properties</span></span>
 
-### <a name="foreign-key-and-navigation-properties"></a><span data-ttu-id="c7ed2-307">Obcy właściwości klucza i nawigacja</span><span class="sxs-lookup"><span data-stu-id="c7ed2-307">Foreign key and navigation properties</span></span>
+<span data-ttu-id="fbaa2-302">Właściwości klucza obcego i właściwości nawigacji odzwierciedlają następujące relacje:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-302">The FK properties and navigation properties reflect the following relationships:</span></span>
 
-<span data-ttu-id="c7ed2-308">Właściwości klucza Obcego i właściwości nawigacji odzwierciedla się następująco:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-308">The FK properties and navigation properties reflect the following relationships:</span></span>
-
-<span data-ttu-id="c7ed2-309">Rekord rejestracji dotyczy jednego kursu, więc ma `CourseID` właściwości klucza Obcego i `Course` właściwość nawigacji:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-309">An enrollment record is for one course, so there's a `CourseID` FK property and a `Course` navigation property:</span></span>
+<span data-ttu-id="fbaa2-303">Rekord rejestracji jest przeznaczony dla jednego kursu, dlatego istnieje `CourseID` Właściwość FK `Course` i właściwość nawigacji:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-303">An enrollment record is for one course, so there's a `CourseID` FK property and a `Course` navigation property:</span></span>
 
 ```csharp
 public int CourseID { get; set; }
 public Course Course { get; set; }
 ```
 
-<span data-ttu-id="c7ed2-310">Rekord rejestracji jest dla jednego uczniów lub studentów, więc ma `StudentID` właściwości klucza Obcego i `Student` właściwość nawigacji:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-310">An enrollment record is for one student, so there's a `StudentID` FK property and a `Student` navigation property:</span></span>
+<span data-ttu-id="fbaa2-304">Rekord rejestracji jest przeznaczony dla jednego ucznia, dlatego istnieje `StudentID` właściwość klucza obcego `Student` i właściwość nawigacji:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-304">An enrollment record is for one student, so there's a `StudentID` FK property and a `Student` navigation property:</span></span>
 
 ```csharp
 public int StudentID { get; set; }
 public Student Student { get; set; }
 ```
 
-## <a name="many-to-many-relationships"></a><span data-ttu-id="c7ed2-311">Relacje wiele do wielu</span><span class="sxs-lookup"><span data-stu-id="c7ed2-311">Many-to-Many Relationships</span></span>
+## <a name="many-to-many-relationships"></a><span data-ttu-id="fbaa2-305">Relacje wiele do wielu</span><span class="sxs-lookup"><span data-stu-id="fbaa2-305">Many-to-Many Relationships</span></span>
 
-<span data-ttu-id="c7ed2-312">Istnieje relacja wiele do wielu między `Student` i `Course` jednostek.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-312">There's a many-to-many relationship between the `Student` and `Course` entities.</span></span> <span data-ttu-id="c7ed2-313">`Enrollment` Jednostki działa jako tabelę sprzężenia wiele do wielu *z ładunkiem* w bazie danych.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-313">The `Enrollment` entity functions as a many-to-many join table *with payload* in the database.</span></span> <span data-ttu-id="c7ed2-314">"Z ładunkiem" oznacza, że `Enrollment` tabela zawiera dane dodatkowe, oprócz FKs dla połączonych tabel (w tym przypadku PK i `Grade`).</span><span class="sxs-lookup"><span data-stu-id="c7ed2-314">"With payload" means that the `Enrollment` table contains additional data besides FKs for the joined tables (in this case, the PK and `Grade`).</span></span>
+<span data-ttu-id="fbaa2-306">Istnieje relacja wiele-do-wielu między `Student` obiektami i. `Course`</span><span class="sxs-lookup"><span data-stu-id="fbaa2-306">There's a many-to-many relationship between the `Student` and `Course` entities.</span></span> <span data-ttu-id="fbaa2-307">Jednostka działa jako tabela sprzężenia wiele-do-wielu *z ładunkiem* w bazie danych. `Enrollment`</span><span class="sxs-lookup"><span data-stu-id="fbaa2-307">The `Enrollment` entity functions as a many-to-many join table *with payload* in the database.</span></span> <span data-ttu-id="fbaa2-308">"Z ładunkiem" oznacza, że `Enrollment` tabela zawiera dodatkowe dane oprócz FKs dla sprzężonych tabel (w tym przypadku klucz podstawowy i `Grade`).</span><span class="sxs-lookup"><span data-stu-id="fbaa2-308">"With payload" means that the `Enrollment` table contains additional data besides FKs for the joined tables (in this case, the PK and `Grade`).</span></span>
 
-<span data-ttu-id="c7ed2-315">Poniższa ilustracja przedstawia, jak wyglądają te relacje w diagramie jednostki.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-315">The following illustration shows what these relationships look like in an entity diagram.</span></span> <span data-ttu-id="c7ed2-316">(Ten diagram został wygenerowany za pomocą [EF Power Tools](https://marketplace.visualstudio.com/items?itemName=ErikEJ.EntityFramework6PowerToolsCommunityEdition) na platformie EF 6.x.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-316">(This diagram was generated using [EF Power Tools](https://marketplace.visualstudio.com/items?itemName=ErikEJ.EntityFramework6PowerToolsCommunityEdition) for EF 6.x.</span></span> <span data-ttu-id="c7ed2-317">Tworzenie diagramów nie jest część samouczka).</span><span class="sxs-lookup"><span data-stu-id="c7ed2-317">Creating the diagram isn't part of the tutorial.)</span></span>
+<span data-ttu-id="fbaa2-309">Na poniższej ilustracji pokazano, jak wyglądają te relacje w diagramie jednostek.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-309">The following illustration shows what these relationships look like in an entity diagram.</span></span> <span data-ttu-id="fbaa2-310">(Ten diagram został wygenerowany przy użyciu [narzędzi EF PowerShell](https://marketplace.visualstudio.com/items?itemName=ErikEJ.EntityFramework6PowerToolsCommunityEdition) dla programu EF 6. x.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-310">(This diagram was generated using [EF Power Tools](https://marketplace.visualstudio.com/items?itemName=ErikEJ.EntityFramework6PowerToolsCommunityEdition) for EF 6.x.</span></span> <span data-ttu-id="fbaa2-311">Tworzenie diagramu nie jest częścią samouczka.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-311">Creating the diagram isn't part of the tutorial.)</span></span>
 
-![Kurs dla uczniów wiele do wielu relacji](complex-data-model/_static/student-course.png)
+![Student-kurs wiele do wielu relacji](complex-data-model/_static/student-course.png)
 
-<span data-ttu-id="c7ed2-319">Każdy wiersz relacji ma 1 na jednym końcu i znak gwiazdki (\*) na drugim, wskazując relacji jeden do wielu.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-319">Each relationship line has a 1 at one end and an asterisk (\*) at the other, indicating a one-to-many relationship.</span></span>
+<span data-ttu-id="fbaa2-313">Każda linia relacji ma 1 na jednym końcu i gwiazdkę (\*) na drugim, wskazując relację jeden do wielu.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-313">Each relationship line has a 1 at one end and an asterisk (\*) at the other, indicating a one-to-many relationship.</span></span>
 
-<span data-ttu-id="c7ed2-320">Jeśli `Enrollment` tabeli nie włączono informacji klasy korporacyjnej, czy tylko musi on zawierać dwa FKs (`CourseID` i `StudentID`).</span><span class="sxs-lookup"><span data-stu-id="c7ed2-320">If the `Enrollment` table didn't include grade information, it would only need to contain the two FKs (`CourseID` and `StudentID`).</span></span> <span data-ttu-id="c7ed2-321">Tabelę sprzężenia wiele do wielu, bez ładunku jest czasami nazywane tabelę sprzężenia czystego (PJT).</span><span class="sxs-lookup"><span data-stu-id="c7ed2-321">A many-to-many join table without payload is sometimes called a pure join table (PJT).</span></span>
+<span data-ttu-id="fbaa2-314">Jeśli tabela nie zawiera informacji o klasie, musi zawierać tylko dwa FKs (`CourseID` i `StudentID`). `Enrollment`</span><span class="sxs-lookup"><span data-stu-id="fbaa2-314">If the `Enrollment` table didn't include grade information, it would only need to contain the two FKs (`CourseID` and `StudentID`).</span></span> <span data-ttu-id="fbaa2-315">Tabela sprzężenia wiele-do-wielu bez ładunku jest czasami nazywana tabelą sprzężenia czystego (PJT).</span><span class="sxs-lookup"><span data-stu-id="fbaa2-315">A many-to-many join table without payload is sometimes called a pure join table (PJT).</span></span>
 
-<span data-ttu-id="c7ed2-322">`Instructor` i `Course` jednostki mają relacji wiele do wielu, przy użyciu czystego sprzężenie tabeli.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-322">The `Instructor` and `Course` entities have a many-to-many relationship using a pure join table.</span></span>
+<span data-ttu-id="fbaa2-316">Jednostki `Instructor` i`Course` mają relację wiele-do-wielu przy użyciu czystej tabeli sprzężenia.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-316">The `Instructor` and `Course` entities have a many-to-many relationship using a pure join table.</span></span>
 
-<span data-ttu-id="c7ed2-323">Uwaga: Niejawne sprzężenie tabel dla relacji wiele do wielu, ale programu EF Core nie obsługuje 6.x EF.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-323">Note: EF 6.x supports implicit join tables for many-to-many relationships, but EF Core doesn't.</span></span> <span data-ttu-id="c7ed2-324">Aby uzyskać więcej informacji, zobacz [wiele do wielu relacji w programie EF Core 2.0](https://blog.oneunicorn.com/2017/09/25/many-to-many-relationships-in-ef-core-2-0-part-1-the-basics/).</span><span class="sxs-lookup"><span data-stu-id="c7ed2-324">For more information, see [Many-to-many relationships in EF Core 2.0](https://blog.oneunicorn.com/2017/09/25/many-to-many-relationships-in-ef-core-2-0-part-1-the-basics/).</span></span>
+<span data-ttu-id="fbaa2-317">Uwaga: Dr 6. x obsługuje niejawne tabele sprzężeń dla relacji wiele-do-wielu, ale EF Core nie.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-317">Note: EF 6.x supports implicit join tables for many-to-many relationships, but EF Core doesn't.</span></span> <span data-ttu-id="fbaa2-318">Aby uzyskać więcej informacji, zobacz [relacje wiele-do-wielu w EF Core 2,0](https://blog.oneunicorn.com/2017/09/25/many-to-many-relationships-in-ef-core-2-0-part-1-the-basics/).</span><span class="sxs-lookup"><span data-stu-id="fbaa2-318">For more information, see [Many-to-many relationships in EF Core 2.0](https://blog.oneunicorn.com/2017/09/25/many-to-many-relationships-in-ef-core-2-0-part-1-the-basics/).</span></span>
 
-## <a name="the-courseassignment-entity"></a><span data-ttu-id="c7ed2-325">Jednostka CourseAssignment</span><span class="sxs-lookup"><span data-stu-id="c7ed2-325">The CourseAssignment entity</span></span>
+## <a name="the-courseassignment-entity"></a><span data-ttu-id="fbaa2-319">Jednostka CourseAssignment</span><span class="sxs-lookup"><span data-stu-id="fbaa2-319">The CourseAssignment entity</span></span>
 
-![CourseAssignment jednostki](complex-data-model/_static/courseassignment-entity.png)
+![Jednostka CourseAssignment](complex-data-model/_static/courseassignment-entity.png)
 
-<span data-ttu-id="c7ed2-327">Tworzenie *Models/CourseAssignment.cs* następującym kodem:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-327">Create *Models/CourseAssignment.cs* with the following code:</span></span>
+<span data-ttu-id="fbaa2-321">Utwórz *modele/CourseAssignment. cs* przy użyciu następującego kodu:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-321">Create *Models/CourseAssignment.cs* with the following code:</span></span>
 
-[!code-csharp[](intro/samples/cu21/Models/CourseAssignment.cs)]
+[!code-csharp[](intro/samples/cu30/Models/CourseAssignment.cs)]
 
-### <a name="instructor-to-courses"></a><span data-ttu-id="c7ed2-328">Przez instruktorów do kursów</span><span class="sxs-lookup"><span data-stu-id="c7ed2-328">Instructor-to-Courses</span></span>
+<span data-ttu-id="fbaa2-322">Relacja "instruktora" do wielu kursów wymaga tabeli sprzężenia, a jednostka dla tej tabeli sprzężenia jest CourseAssignment.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-322">The Instructor-to-Courses many-to-many relationship requires a join table, and the entity for that join table is CourseAssignment.</span></span>
 
-![M:M przez instruktorów do kursów](complex-data-model/_static/courseassignment.png)
+![M:M instruktora do kursu](complex-data-model/_static/courseassignment.png)
 
-<span data-ttu-id="c7ed2-330">Relacja wiele do wielu przez instruktorów na kursy:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-330">The Instructor-to-Courses many-to-many relationship:</span></span>
+<span data-ttu-id="fbaa2-324">Nazwa jednostki `EntityName1EntityName2`sprzężenia jest wspólna.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-324">It's common to name a join entity `EntityName1EntityName2`.</span></span> <span data-ttu-id="fbaa2-325">Na przykład tabela sprzężenia "instruktora do kursu" używa tego wzorca `CourseInstructor`.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-325">For example, the Instructor-to-Courses join table using this pattern would be `CourseInstructor`.</span></span> <span data-ttu-id="fbaa2-326">Zalecamy jednak użycie nazwy opisującej relację.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-326">However, we recommend using a name that describes the relationship.</span></span>
 
-* <span data-ttu-id="c7ed2-331">Wymaga tabelę sprzężenia, która musi być reprezentowana przez zestaw jednostek.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-331">Requires a join table that must be represented by an entity set.</span></span>
-* <span data-ttu-id="c7ed2-332">Jest czysty sprzężenie tabeli (tabeli bez ładunku).</span><span class="sxs-lookup"><span data-stu-id="c7ed2-332">Is a pure join table (table without payload).</span></span>
+<span data-ttu-id="fbaa2-327">Modele danych rozpoczynają się od siebie i rosną.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-327">Data models start out simple and grow.</span></span> <span data-ttu-id="fbaa2-328">Tabele sprzężenia bez ładunku (PJTs) często są rozwijane w celu uwzględnienia ładunku.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-328">Join tables without payload (PJTs) frequently evolve to include payload.</span></span> <span data-ttu-id="fbaa2-329">Rozpoczynając od nazwy obiektu opisowego, nie trzeba zmieniać nazwy po zmianie tabeli sprzężeń.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-329">By starting with a descriptive entity name, the name doesn't need to change when the join table changes.</span></span> <span data-ttu-id="fbaa2-330">Najlepiej, aby jednostka sprzężenia miała własną nazwę naturalną (prawdopodobnie jednowyrazową) w domenie biznesowej.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-330">Ideally, the join entity would have its own natural (possibly single word) name in the business domain.</span></span> <span data-ttu-id="fbaa2-331">Na przykład książki i klienci mogą być połączone z jednostką sprzężenia o nazwie ratings.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-331">For example, Books and Customers could be linked with a join entity called Ratings.</span></span> <span data-ttu-id="fbaa2-332">Dla instruktora "wiele do wielu", `CourseAssignment` `CourseInstructor`preferowana jest wartość.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-332">For the Instructor-to-Courses many-to-many relationship, `CourseAssignment` is preferred over `CourseInstructor`.</span></span>
 
-<span data-ttu-id="c7ed2-333">Często jest nazwa jednostki sprzężenia `EntityName1EntityName2`.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-333">It's common to name a join entity `EntityName1EntityName2`.</span></span> <span data-ttu-id="c7ed2-334">Na przykład tabela sprzężenia instruktora do kursów, za pomocą tego wzorca jest `CourseInstructor`.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-334">For example, the Instructor-to-Courses join table using this pattern is `CourseInstructor`.</span></span> <span data-ttu-id="c7ed2-335">Firma Microsoft zaleca jednak przy użyciu nazwy, która opisuje relację.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-335">However, we recommend using a name that describes the relationship.</span></span>
+### <a name="composite-key"></a><span data-ttu-id="fbaa2-333">Klucz złożony</span><span class="sxs-lookup"><span data-stu-id="fbaa2-333">Composite key</span></span>
 
-<span data-ttu-id="c7ed2-336">Modele danych zaczynają prosty i rozwój.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-336">Data models start out simple and grow.</span></span> <span data-ttu-id="c7ed2-337">Ładunek nie sprzężenia (PJTs) często ewolucji obejmujący ładunku.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-337">No-payload joins (PJTs) frequently evolve to include payload.</span></span> <span data-ttu-id="c7ed2-338">Począwszy od jednostki opisową nazwę, nazwę nie trzeba zmienić w przypadku zmiany tabeli sprzężenia.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-338">By starting with a descriptive entity name, the name doesn't need to change when the join table changes.</span></span> <span data-ttu-id="c7ed2-339">W idealnym przypadku jednostki sprzężenia będzie mieć własną fizyczną nazwę (prawdopodobnie jednowyrazowego) w domenie firmy.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-339">Ideally, the join entity would have its own natural (possibly single word) name in the business domain.</span></span> <span data-ttu-id="c7ed2-340">Na przykład książek i klientów można połączyć z jednostką sprzężenia o nazwie klasyfikacji.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-340">For example, Books and Customers could be linked with a join entity called Ratings.</span></span> <span data-ttu-id="c7ed2-341">Dla relacji wiele do wielu instruktora do kursów `CourseAssignment` jest preferowana nad `CourseInstructor`.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-341">For the Instructor-to-Courses many-to-many relationship, `CourseAssignment` is preferred over `CourseInstructor`.</span></span>
+<span data-ttu-id="fbaa2-334">Dwa FKs w `CourseAssignment` (`InstructorID` `CourseID` i`CourseAssignment` ) jednoznacznie identyfikują każdy wiersz tabeli.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-334">The two FKs in `CourseAssignment` (`InstructorID` and `CourseID`) together uniquely identify each row of the `CourseAssignment` table.</span></span> <span data-ttu-id="fbaa2-335">`CourseAssignment`nie wymaga dedykowanego klucza podstawowego.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-335">`CourseAssignment` doesn't require a dedicated PK.</span></span> <span data-ttu-id="fbaa2-336">Właściwości `InstructorID` i`CourseID` działają jako złożony klucz podstawowy.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-336">The `InstructorID` and `CourseID` properties function as a composite PK.</span></span> <span data-ttu-id="fbaa2-337">Jedynym sposobem określenia złożonego PKs do EF Core jest *interfejs API Fluent*.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-337">The only way to specify composite PKs to EF Core is with the *fluent API*.</span></span> <span data-ttu-id="fbaa2-338">W następnej sekcji przedstawiono sposób konfigurowania złożonego klucza podstawowego.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-338">The next section shows how to configure the composite PK.</span></span>
 
-### <a name="composite-key"></a><span data-ttu-id="c7ed2-342">Klucz złożony</span><span class="sxs-lookup"><span data-stu-id="c7ed2-342">Composite key</span></span>
+<span data-ttu-id="fbaa2-339">Klucz złożony gwarantuje, że:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-339">The composite key ensures that:</span></span>
 
-<span data-ttu-id="c7ed2-343">Nie dopuszczają FKs.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-343">FKs are not nullable.</span></span> <span data-ttu-id="c7ed2-344">Dwa FKs w `CourseAssignment` (`InstructorID` i `CourseID`) razem jednoznacznie identyfikują poszczególne wiersze z `CourseAssignment` tabeli.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-344">The two FKs in `CourseAssignment` (`InstructorID` and `CourseID`) together uniquely identify each row of the `CourseAssignment` table.</span></span> <span data-ttu-id="c7ed2-345">`CourseAssignment` nie wymaga dedykowanego PK.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-345">`CourseAssignment` doesn't require a dedicated PK.</span></span> <span data-ttu-id="c7ed2-346">`InstructorID` i `CourseID` właściwości pełnią PK. złożone</span><span class="sxs-lookup"><span data-stu-id="c7ed2-346">The `InstructorID` and `CourseID` properties function as a composite PK.</span></span> <span data-ttu-id="c7ed2-347">Jedynym sposobem, aby określić złożonego PKs do programu EF Core jest *interfejsu API fluent*.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-347">The only way to specify composite PKs to EF Core is with the *fluent API*.</span></span> <span data-ttu-id="c7ed2-348">W następnej sekcji pokazano, jak skonfigurować PK. złożonego</span><span class="sxs-lookup"><span data-stu-id="c7ed2-348">The next section shows how to configure the composite PK.</span></span>
+* <span data-ttu-id="fbaa2-340">W jednym kursie są dozwolone wiele wierszy.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-340">Multiple rows are allowed for one course.</span></span>
+* <span data-ttu-id="fbaa2-341">Dla jednego instruktora są dozwolone wiele wierszy.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-341">Multiple rows are allowed for one instructor.</span></span>
+* <span data-ttu-id="fbaa2-342">Wiele wierszy nie jest dozwolonych dla tego samego instruktora i kursu.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-342">Multiple rows aren't allowed for the same instructor and course.</span></span>
 
-<span data-ttu-id="c7ed2-349">Klucz złożony zapewnia:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-349">The composite key ensures:</span></span>
+<span data-ttu-id="fbaa2-343">Jednostka `Enrollment` Join definiuje własny klucz podstawowy, więc możliwe jest duplikowanie tego sortowania.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-343">The `Enrollment` join entity defines its own PK, so duplicates of this sort are possible.</span></span> <span data-ttu-id="fbaa2-344">Aby uniknąć takich duplikatów:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-344">To prevent such duplicates:</span></span>
 
-* <span data-ttu-id="c7ed2-350">Wiele wierszy są dozwolone dla jednego kursu.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-350">Multiple rows are allowed for one course.</span></span>
-* <span data-ttu-id="c7ed2-351">Wiele wierszy są dozwolone dla jednego instruktora.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-351">Multiple rows are allowed for one instructor.</span></span>
-* <span data-ttu-id="c7ed2-352">Wiele wierszy dla tego samego przez instruktorów i kurs jest niedozwolona.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-352">Multiple rows for the same instructor and course isn't allowed.</span></span>
+* <span data-ttu-id="fbaa2-345">Dodaj unikatowy indeks do pól klucza obcego lub</span><span class="sxs-lookup"><span data-stu-id="fbaa2-345">Add a unique index on the FK fields, or</span></span>
+* <span data-ttu-id="fbaa2-346">Skonfiguruj `Enrollment` przy użyciu podstawowego klucza złożonego podobnego `CourseAssignment`do.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-346">Configure `Enrollment` with a primary composite key similar to `CourseAssignment`.</span></span> <span data-ttu-id="fbaa2-347">Aby uzyskać więcej informacji, zobacz [indeksy](/ef/core/modeling/indexes).</span><span class="sxs-lookup"><span data-stu-id="fbaa2-347">For more information, see [Indexes](/ef/core/modeling/indexes).</span></span>
 
-<span data-ttu-id="c7ed2-353">`Enrollment` Jednostki sprzężenia definiuje swój własny klucz podstawowy, więc możliwe są duplikatami tego rodzaju.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-353">The `Enrollment` join entity defines its own PK, so duplicates of this sort are possible.</span></span> <span data-ttu-id="c7ed2-354">Aby uniknąć takich duplikaty:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-354">To prevent such duplicates:</span></span>
+## <a name="update-the-database-context"></a><span data-ttu-id="fbaa2-348">Aktualizowanie kontekstu bazy danych</span><span class="sxs-lookup"><span data-stu-id="fbaa2-348">Update the database context</span></span>
 
-* <span data-ttu-id="c7ed2-355">Dodaj unikatowy indeks pól klucza Obcego lub</span><span class="sxs-lookup"><span data-stu-id="c7ed2-355">Add a unique index on the FK fields, or</span></span>
-* <span data-ttu-id="c7ed2-356">Konfigurowanie `Enrollment` przy użyciu podstawowego klucza złożonego podobne do `CourseAssignment`.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-356">Configure `Enrollment` with a primary composite key similar to `CourseAssignment`.</span></span> <span data-ttu-id="c7ed2-357">Aby uzyskać więcej informacji, zobacz [indeksów](/ef/core/modeling/indexes).</span><span class="sxs-lookup"><span data-stu-id="c7ed2-357">For more information, see [Indexes](/ef/core/modeling/indexes).</span></span>
+<span data-ttu-id="fbaa2-349">Zaktualizuj *dane/SchoolContext. cs* przy użyciu następującego kodu:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-349">Update *Data/SchoolContext.cs* with the following code:</span></span>
 
-## <a name="update-the-db-context"></a><span data-ttu-id="c7ed2-358">Aktualizuj kontekst bazy danych</span><span class="sxs-lookup"><span data-stu-id="c7ed2-358">Update the DB context</span></span>
+[!code-csharp[](intro/samples/cu30/Data/SchoolContext.cs?highlight=15-18,25-31)]
 
-<span data-ttu-id="c7ed2-359">Dodaj następujący wyróżniony kod do *Data/SchoolContext.cs*:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-359">Add the following highlighted code to *Data/SchoolContext.cs*:</span></span>
+<span data-ttu-id="fbaa2-350">Poprzedni kod dodaje nowe jednostki i konfiguruje `CourseAssignment` złożonego klucza podstawowego jednostki.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-350">The preceding code adds the new entities and configures the `CourseAssignment` entity's composite PK.</span></span>
 
-[!code-csharp[](intro/samples/cu21/Data/SchoolContext.cs?name=snippet_BeforeInheritance&highlight=15-18,25-31)]
+## <a name="fluent-api-alternative-to-attributes"></a><span data-ttu-id="fbaa2-351">Alternatywny interfejs API Fluent dla atrybutów</span><span class="sxs-lookup"><span data-stu-id="fbaa2-351">Fluent API alternative to attributes</span></span>
 
-<span data-ttu-id="c7ed2-360">Poprzedzający kod dodaje nowe jednostki i konfiguruje `CourseAssignment` PK. złożonego jednostki</span><span class="sxs-lookup"><span data-stu-id="c7ed2-360">The preceding code adds the new entities and configures the `CourseAssignment` entity's composite PK.</span></span>
-
-## <a name="fluent-api-alternative-to-attributes"></a><span data-ttu-id="c7ed2-361">Zamiast interfejsu API Fluent atrybutów</span><span class="sxs-lookup"><span data-stu-id="c7ed2-361">Fluent API alternative to attributes</span></span>
-
-<span data-ttu-id="c7ed2-362">`OnModelCreating` Metody w poprzednim kodzie używa *interfejsu API fluent* do konfigurowania zachowania programu EF Core.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-362">The `OnModelCreating` method in the preceding code uses the *fluent API* to configure EF Core behavior.</span></span> <span data-ttu-id="c7ed2-363">Interfejs API jest nazywany "fluent", ponieważ jest ona często używana przez centrali szereg wywołań metod w pojedynczej instrukcji.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-363">The API is called "fluent" because it's often used by stringing a series of method calls together into a single statement.</span></span> <span data-ttu-id="c7ed2-364">[Następujący kod](/ef/core/modeling/#use-fluent-api-to-configure-a-model) jest przykładem wygodnego interfejsu API:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-364">The [following code](/ef/core/modeling/#use-fluent-api-to-configure-a-model) is an example of the fluent API:</span></span>
+<span data-ttu-id="fbaa2-352">Metoda w poprzednim kodzie używa *interfejsu API Fluent* , aby skonfigurować zachowanie EF Core. `OnModelCreating`</span><span class="sxs-lookup"><span data-stu-id="fbaa2-352">The `OnModelCreating` method in the preceding code uses the *fluent API* to configure EF Core behavior.</span></span> <span data-ttu-id="fbaa2-353">Interfejs API jest nazywany "Fluent", ponieważ jest często używany przez ciąg serii wywołań metod w jednej instrukcji.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-353">The API is called "fluent" because it's often used by stringing a series of method calls together into a single statement.</span></span> <span data-ttu-id="fbaa2-354">[Poniższy kod](/ef/core/modeling/#use-fluent-api-to-configure-a-model) jest przykładem interfejsu API Fluent:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-354">The [following code](/ef/core/modeling/#use-fluent-api-to-configure-a-model) is an example of the fluent API:</span></span>
 
 ```csharp
 protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -498,54 +492,764 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 }
 ```
 
-<span data-ttu-id="c7ed2-365">W tym samouczku interfejs fluent API jest używany tylko w przypadku mapowania bazy danych, który nie może odbywać się za pomocą atrybutów.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-365">In this tutorial, the fluent API is used only for DB mapping that can't be done with attributes.</span></span> <span data-ttu-id="c7ed2-366">Jednak interfejs fluent API można określić większość formatowania, sprawdzanie poprawności i reguł mapowania, które mogą realizować za pomocą atrybutów.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-366">However, the fluent API can specify most of the formatting, validation, and mapping rules that can be done with attributes.</span></span>
+<span data-ttu-id="fbaa2-355">W tym samouczku interfejs API Fluent jest używany tylko na potrzeby mapowania bazy danych, której nie można wykonać przy użyciu atrybutów.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-355">In this tutorial, the fluent API is used only for database mapping that can't be done with attributes.</span></span> <span data-ttu-id="fbaa2-356">Jednak interfejs API Fluent może określić większość reguł formatowania, walidacji i mapowania, które mogą być wykonywane przy użyciu atrybutów.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-356">However, the fluent API can specify most of the formatting, validation, and mapping rules that can be done with attributes.</span></span>
 
-<span data-ttu-id="c7ed2-367">Niektóre atrybuty, takie jak `MinimumLength` nie można zastosować za pomocą interfejsu API fluent.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-367">Some attributes such as `MinimumLength` can't be applied with the fluent API.</span></span> <span data-ttu-id="c7ed2-368">`MinimumLength` nie powoduje zmiany schematu, ma zastosowanie tylko minimalną długość reguły weryfikacji.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-368">`MinimumLength` doesn't change the schema, it only applies a minimum length validation rule.</span></span>
+<span data-ttu-id="fbaa2-357">Niektórych atrybutów, takich `MinimumLength` jak nie można zastosować w interfejsie API Fluent.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-357">Some attributes such as `MinimumLength` can't be applied with the fluent API.</span></span> <span data-ttu-id="fbaa2-358">`MinimumLength`nie zmienia schematu, stosuje tylko regułę walidacji o minimalnej długości.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-358">`MinimumLength` doesn't change the schema, it only applies a minimum length validation rule.</span></span>
 
-<span data-ttu-id="c7ed2-369">Niektórzy deweloperzy wolą używać interfejsu API fluent, wyłącznie tak, aby ich zachowania ich klasami jednostki "Wyczyść".</span><span class="sxs-lookup"><span data-stu-id="c7ed2-369">Some developers prefer to use the fluent API exclusively so that they can keep their entity classes "clean."</span></span> <span data-ttu-id="c7ed2-370">Atrybuty i wygodnego interfejsu API mogą być mieszane.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-370">Attributes and the fluent API can be mixed.</span></span> <span data-ttu-id="c7ed2-371">Istnieją pewne konfiguracje, które mogą być przeprowadzone wyłącznie z interfejsu API fluent (określenia złożony klucz podstawowy).</span><span class="sxs-lookup"><span data-stu-id="c7ed2-371">There are some configurations that can only be done with the fluent API (specifying a composite PK).</span></span> <span data-ttu-id="c7ed2-372">Istnieją pewne konfiguracje, które może być przeprowadzone wyłącznie z atrybutami (`MinimumLength`).</span><span class="sxs-lookup"><span data-stu-id="c7ed2-372">There are some configurations that can only be done with attributes (`MinimumLength`).</span></span> <span data-ttu-id="c7ed2-373">Zalecana praktyka używania fluent API lub atrybutów:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-373">The recommended practice for using fluent API or attributes:</span></span>
+<span data-ttu-id="fbaa2-359">Niektórzy deweloperzy wolą korzystać z interfejsu API Fluent wyłącznie w taki sposób, aby mogli utrzymać czyste klasy jednostek.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-359">Some developers prefer to use the fluent API exclusively so that they can keep their entity classes "clean."</span></span> <span data-ttu-id="fbaa2-360">Atrybuty i interfejs API Fluent mogą być mieszane.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-360">Attributes and the fluent API can be mixed.</span></span> <span data-ttu-id="fbaa2-361">Istnieją pewne konfiguracje, które można wykonać tylko przy użyciu interfejsu API Fluent (określenie złożonego klucza podstawowego).</span><span class="sxs-lookup"><span data-stu-id="fbaa2-361">There are some configurations that can only be done with the fluent API (specifying a composite PK).</span></span> <span data-ttu-id="fbaa2-362">Istnieją pewne konfiguracje, które można wykonać tylko z atrybutami (`MinimumLength`).</span><span class="sxs-lookup"><span data-stu-id="fbaa2-362">There are some configurations that can only be done with attributes (`MinimumLength`).</span></span> <span data-ttu-id="fbaa2-363">Zalecane rozwiązanie dotyczące korzystania z interfejsu API Fluent lub atrybutów:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-363">The recommended practice for using fluent API or attributes:</span></span>
 
-* <span data-ttu-id="c7ed2-374">Wybierz jedną z tych dwóch metod.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-374">Choose one of these two approaches.</span></span>
-* <span data-ttu-id="c7ed2-375">Użyć wybranej metody spójnie możliwie.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-375">Use the chosen approach consistently as much as possible.</span></span>
+* <span data-ttu-id="fbaa2-364">Wybierz jedną z tych dwóch metod.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-364">Choose one of these two approaches.</span></span>
+* <span data-ttu-id="fbaa2-365">W miarę możliwości należy stosować wybrane podejście.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-365">Use the chosen approach consistently as much as possible.</span></span>
 
-<span data-ttu-id="c7ed2-376">Niektóre atrybuty używane w tym samouczku są używane do:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-376">Some of the attributes used in the this tutorial are used for:</span></span>
+<span data-ttu-id="fbaa2-366">Niektóre atrybuty użyte w tym samouczku są używane w programie:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-366">Some of the attributes used in this tutorial are used for:</span></span>
 
-* <span data-ttu-id="c7ed2-377">Sprawdzanie poprawności tylko (na przykład `MinimumLength`).</span><span class="sxs-lookup"><span data-stu-id="c7ed2-377">Validation only (for example, `MinimumLength`).</span></span>
-* <span data-ttu-id="c7ed2-378">EF Core tylko konfiguracji (na przykład `HasKey`).</span><span class="sxs-lookup"><span data-stu-id="c7ed2-378">EF Core configuration only (for example, `HasKey`).</span></span>
-* <span data-ttu-id="c7ed2-379">Sprawdzanie poprawności i programem EF Core konfiguracji (na przykład `[StringLength(50)]`).</span><span class="sxs-lookup"><span data-stu-id="c7ed2-379">Validation and EF Core configuration (for example, `[StringLength(50)]`).</span></span>
+* <span data-ttu-id="fbaa2-367">Tylko Walidacja (na przykład `MinimumLength`).</span><span class="sxs-lookup"><span data-stu-id="fbaa2-367">Validation only (for example, `MinimumLength`).</span></span>
+* <span data-ttu-id="fbaa2-368">Tylko konfiguracja EF Core (na przykład `HasKey`).</span><span class="sxs-lookup"><span data-stu-id="fbaa2-368">EF Core configuration only (for example, `HasKey`).</span></span>
+* <span data-ttu-id="fbaa2-369">Sprawdzanie poprawności i konfiguracja EF Core (na przykład `[StringLength(50)]`).</span><span class="sxs-lookup"><span data-stu-id="fbaa2-369">Validation and EF Core configuration (for example, `[StringLength(50)]`).</span></span>
 
-<span data-ttu-id="c7ed2-380">Aby uzyskać więcej informacji na temat atrybutów, a interfejs fluent API zobacz [metod konfiguracji](/ef/core/modeling/).</span><span class="sxs-lookup"><span data-stu-id="c7ed2-380">For more information about attributes vs. fluent API, see [Methods of configuration](/ef/core/modeling/).</span></span>
+<span data-ttu-id="fbaa2-370">Aby uzyskać więcej informacji na temat atrybutów a interfejs API Fluent, zobacz [metody konfiguracji](/ef/core/modeling/).</span><span class="sxs-lookup"><span data-stu-id="fbaa2-370">For more information about attributes vs. fluent API, see [Methods of configuration](/ef/core/modeling/).</span></span>
 
-## <a name="entity-diagram-showing-relationships"></a><span data-ttu-id="c7ed2-381">Jednostki Diagram przedstawiający relacje</span><span class="sxs-lookup"><span data-stu-id="c7ed2-381">Entity Diagram Showing Relationships</span></span>
+## <a name="entity-diagram"></a><span data-ttu-id="fbaa2-371">Diagram jednostek</span><span class="sxs-lookup"><span data-stu-id="fbaa2-371">Entity diagram</span></span>
 
-<span data-ttu-id="c7ed2-382">Poniższa ilustracja przedstawia diagram, który EF Power Tools Tworzenie modelu ukończone szkoły.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-382">The following illustration shows the diagram that EF Power Tools create for the completed School model.</span></span>
+<span data-ttu-id="fbaa2-372">Na poniższej ilustracji przedstawiono diagram, który jest tworzony przez narzędzia Dr PowerShell dla gotowego modelu szkoły.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-372">The following illustration shows the diagram that EF Power Tools create for the completed School model.</span></span>
 
 ![Diagram jednostek](complex-data-model/_static/diagram.png)
 
-<span data-ttu-id="c7ed2-384">Na powyższym diagramie przedstawiono:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-384">The preceding diagram shows:</span></span>
+<span data-ttu-id="fbaa2-374">Na powyższym diagramie przedstawiono:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-374">The preceding diagram shows:</span></span>
 
-* <span data-ttu-id="c7ed2-385">Kilka wierszy relacji jeden do wielu (1, aby \*).</span><span class="sxs-lookup"><span data-stu-id="c7ed2-385">Several one-to-many relationship lines (1 to \*).</span></span>
-* <span data-ttu-id="c7ed2-386">Wiersz relacji jeden do zero lub jeden (1 się od 0 do 1) między `Instructor` i `OfficeAssignment` jednostek.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-386">The one-to-zero-or-one relationship line (1 to 0..1) between the `Instructor` and `OfficeAssignment` entities.</span></span>
-* <span data-ttu-id="c7ed2-387">Wiersz relacji zero lub jeden do wielu (od 0 do 1 do \*) między `Instructor` i `Department` jednostek.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-387">The zero-or-one-to-many relationship line (0..1 to \*) between the `Instructor` and `Department` entities.</span></span>
+* <span data-ttu-id="fbaa2-375">Kilka linii relacji jeden-do-wielu (od 1 \*do).</span><span class="sxs-lookup"><span data-stu-id="fbaa2-375">Several one-to-many relationship lines (1 to \*).</span></span>
+* <span data-ttu-id="fbaa2-376">Linia relacji "jeden do zera" (od 1 do 0.. 1) między `Instructor` jednostkami i. `OfficeAssignment`</span><span class="sxs-lookup"><span data-stu-id="fbaa2-376">The one-to-zero-or-one relationship line (1 to 0..1) between the `Instructor` and `OfficeAssignment` entities.</span></span>
+* <span data-ttu-id="fbaa2-377">Linia relacji zero-lub-jeden-do-wielu (0.. 1 do \*) między `Instructor` obiektami i. `Department`</span><span class="sxs-lookup"><span data-stu-id="fbaa2-377">The zero-or-one-to-many relationship line (0..1 to \*) between the `Instructor` and `Department` entities.</span></span>
 
-## <a name="seed-the-db-with-test-data"></a><span data-ttu-id="c7ed2-388">Inicjator bazy danych przy użyciu danych testowych</span><span class="sxs-lookup"><span data-stu-id="c7ed2-388">Seed the DB with Test Data</span></span>
+## <a name="seed-the-database"></a><span data-ttu-id="fbaa2-378">Inicjowanie bazy danych</span><span class="sxs-lookup"><span data-stu-id="fbaa2-378">Seed the database</span></span>
 
-<span data-ttu-id="c7ed2-389">Aktualizowanie kodu w *Data/DbInitializer.cs*:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-389">Update the code in *Data/DbInitializer.cs*:</span></span>
+<span data-ttu-id="fbaa2-379">Zaktualizuj kod w *danych/Dbinitializeer. cs*:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-379">Update the code in *Data/DbInitializer.cs*:</span></span>
+
+[!code-csharp[](intro/samples/cu30/Data/DbInitializer.cs)]
+
+<span data-ttu-id="fbaa2-380">Poprzedni kod zawiera dane inicjatora dla nowych jednostek.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-380">The preceding code provides seed data for the new entities.</span></span> <span data-ttu-id="fbaa2-381">Większość tego kodu tworzy nowe obiekty Entity i ładuje przykładowe dane.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-381">Most of this code creates new entity objects and loads sample data.</span></span> <span data-ttu-id="fbaa2-382">Przykładowe dane służą do testowania.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-382">The sample data is used for testing.</span></span> <span data-ttu-id="fbaa2-383">Zobacz `Enrollments` i `CourseAssignments` , aby zapoznać się z przykładami tabel sprzężenia wiele-do-wielu.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-383">See `Enrollments` and `CourseAssignments` for examples of how many-to-many join tables can be seeded.</span></span>
+
+## <a name="add-a-migration"></a><span data-ttu-id="fbaa2-384">Dodawanie migracji</span><span class="sxs-lookup"><span data-stu-id="fbaa2-384">Add a migration</span></span>
+
+<span data-ttu-id="fbaa2-385">Skompiluj projekt.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-385">Build the project.</span></span>
+
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="fbaa2-386">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="fbaa2-386">Visual Studio</span></span>](#tab/visual-studio)
+
+<span data-ttu-id="fbaa2-387">W obszarze PMC Uruchom następujące polecenie.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-387">In PMC, run the following command.</span></span>
+
+```powershell
+Add-Migration ComplexDataModel
+```
+
+<span data-ttu-id="fbaa2-388">Poprzednie polecenie wyświetla ostrzeżenie o możliwej utracie danych.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-388">The preceding command displays a warning about possible data loss.</span></span>
+
+```text
+An operation was scaffolded that may result in the loss of data.
+Please review the migration for accuracy.
+To undo this action, use 'ef migrations remove'
+```
+
+<span data-ttu-id="fbaa2-389">`database update` Jeśli polecenie zostanie uruchomione, zostanie utworzony następujący błąd:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-389">If the `database update` command is run, the following error is produced:</span></span>
+
+```text
+The ALTER TABLE statement conflicted with the FOREIGN KEY constraint "FK_dbo.Course_dbo.Department_DepartmentID". The conflict occurred in
+database "ContosoUniversity", table "dbo.Department", column 'DepartmentID'.
+```
+
+<span data-ttu-id="fbaa2-390">W następnej sekcji opisano, co należy zrobić, aby uzyskać informacje o tym błędzie.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-390">In the next section, you see what to do about this error.</span></span>
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="fbaa2-391">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="fbaa2-391">Visual Studio Code</span></span>](#tab/visual-studio-code)
+
+<span data-ttu-id="fbaa2-392">W przypadku dodania migracji i uruchomienia `database update` polecenia zostanie utworzony następujący błąd:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-392">If you add a migration and run the `database update` command, the following error would be produced:</span></span>
+
+```text
+SQLite does not support this migration operation ('DropForeignKeyOperation').
+For more information, see http://go.microsoft.com/fwlink/?LinkId=723262.
+```
+
+<span data-ttu-id="fbaa2-393">W następnej sekcji zobaczysz, jak uniknąć tego błędu.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-393">In the next section, you see how to avoid this error.</span></span>
+
+---
+
+## <a name="apply-the-migration-or-drop-and-re-create"></a><span data-ttu-id="fbaa2-394">Zastosuj migrację lub Porzuć i Utwórz ponownie</span><span class="sxs-lookup"><span data-stu-id="fbaa2-394">Apply the migration or drop and re-create</span></span>
+
+<span data-ttu-id="fbaa2-395">Teraz, gdy masz już istniejącą bazę danych, musisz się zastanowić, jak zastosować do niej zmiany.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-395">Now that you have an existing database, you need to think about how to apply changes to it.</span></span> <span data-ttu-id="fbaa2-396">Ten samouczek przedstawia dwie alternatywy:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-396">This tutorial shows two alternatives:</span></span>
+
+* <span data-ttu-id="fbaa2-397">[Porzuć i ponownie utwórz bazę danych](#drop).</span><span class="sxs-lookup"><span data-stu-id="fbaa2-397">[Drop and re-create the database](#drop).</span></span> <span data-ttu-id="fbaa2-398">Wybierz tę sekcję, jeśli używasz oprogramowania SQLite.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-398">Choose this section if you're using SQLite.</span></span>
+* <span data-ttu-id="fbaa2-399">[Zastosuj migrację do istniejącej bazy danych](#applyexisting).</span><span class="sxs-lookup"><span data-stu-id="fbaa2-399">[Apply the migration to the existing database](#applyexisting).</span></span> <span data-ttu-id="fbaa2-400">Instrukcje w tej sekcji działają tylko w przypadku SQL Server, a **nie dla oprogramowania SQLite**.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-400">The instructions in this section work for SQL Server only, **not for SQLite**.</span></span> 
+
+<span data-ttu-id="fbaa2-401">Dowolny wybór działa dla SQL Server.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-401">Either choice works for SQL Server.</span></span> <span data-ttu-id="fbaa2-402">Chociaż metoda Apply-Migration jest bardziej złożona i czasochłonna, jest to preferowane podejście do rzeczywistych środowisk produkcyjnych.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-402">While the apply-migration method is more complex and time-consuming, it's the preferred approach for real-world, production environments.</span></span> 
+
+<a name="drop"></a>
+
+## <a name="drop-and-re-create-the-database"></a><span data-ttu-id="fbaa2-403">Porzuć i ponownie utwórz bazę danych</span><span class="sxs-lookup"><span data-stu-id="fbaa2-403">Drop and re-create the database</span></span>
+
+<span data-ttu-id="fbaa2-404">[Pomiń tę sekcję](#apply-the-migration) , jeśli używasz SQL Server i chcesz wykonać podejście Apply-Migration w poniższej sekcji.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-404">[Skip this section](#apply-the-migration) if you're using SQL Server and want to do the apply-migration approach in the following section.</span></span>
+
+<span data-ttu-id="fbaa2-405">Aby wymusić EF Core tworzenia nowej bazy danych, Porzuć i zaktualizuj bazę danych:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-405">To force EF Core to create a new database, drop and update the database:</span></span>
+
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="fbaa2-406">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="fbaa2-406">Visual Studio</span></span>](#tab/visual-studio)
+
+* <span data-ttu-id="fbaa2-407">W **konsoli Menedżera pakietów** (PMC) Uruchom następujące polecenie:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-407">In the **Package Manager Console** (PMC), run the following command:</span></span>
+
+  ```powershell
+  Drop-Database
+  ```
+
+* <span data-ttu-id="fbaa2-408">Usuń folder *migrations* , a następnie uruchom następujące polecenie:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-408">Delete the *Migrations* folder, then run the following command:</span></span>
+
+  ```powershell
+  Add-Migration InitialCreate
+  Update-Database
+  ```
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="fbaa2-409">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="fbaa2-409">Visual Studio Code</span></span>](#tab/visual-studio-code)
+
+* <span data-ttu-id="fbaa2-410">Otwórz okno polecenia i przejdź do folderu projektu.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-410">Open a command window and navigate to the project folder.</span></span> <span data-ttu-id="fbaa2-411">Folder projektu zawiera plik *ContosoUniversity. csproj* .</span><span class="sxs-lookup"><span data-stu-id="fbaa2-411">The project folder contains the *ContosoUniversity.csproj* file.</span></span>
+
+* <span data-ttu-id="fbaa2-412">Uruchom następujące polecenie:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-412">Run the following command:</span></span>
+
+  ```console
+  dotnet ef database drop --force
+  ```
+
+* <span data-ttu-id="fbaa2-413">Usuń folder *migrations* , a następnie uruchom następujące polecenie:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-413">Delete the *Migrations* folder, then run the following command:</span></span>
+
+  ```console
+  dotnet ef migrations add InitialCreate
+  dotnet ef database update
+  ```
+
+---
+
+<span data-ttu-id="fbaa2-414">Uruchom aplikację.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-414">Run the app.</span></span> <span data-ttu-id="fbaa2-415">Uruchomienie aplikacji uruchamia `DbInitializer.Initialize` metodę.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-415">Running the app runs the `DbInitializer.Initialize` method.</span></span> <span data-ttu-id="fbaa2-416">`DbInitializer.Initialize` Wypełnia nową bazę danych.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-416">The `DbInitializer.Initialize` populates the new database.</span></span>
+
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="fbaa2-417">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="fbaa2-417">Visual Studio</span></span>](#tab/visual-studio)
+
+<span data-ttu-id="fbaa2-418">Otwórz bazę danych w programie SSOX:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-418">Open the database in SSOX:</span></span>
+
+* <span data-ttu-id="fbaa2-419">Jeśli SSOX został wcześniej otwarty, kliknij przycisk **Odśwież** .</span><span class="sxs-lookup"><span data-stu-id="fbaa2-419">If SSOX was opened previously, click the **Refresh** button.</span></span>
+* <span data-ttu-id="fbaa2-420">Rozwiń **tabel** węzła.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-420">Expand the **Tables** node.</span></span> <span data-ttu-id="fbaa2-421">Zostaną wyświetlone utworzone tabele.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-421">The created tables are displayed.</span></span>
+
+  ![Tabele w SSOX](complex-data-model/_static/ssox-tables.png)
+
+* <span data-ttu-id="fbaa2-423">Zapoznaj się z tabelą **CourseAssignment** :</span><span class="sxs-lookup"><span data-stu-id="fbaa2-423">Examine the **CourseAssignment** table:</span></span>
+
+  * <span data-ttu-id="fbaa2-424">Kliknij prawym przyciskiem myszy tabelę **CourseAssignment** , a następnie wybierz polecenie **Wyświetl dane**.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-424">Right-click the **CourseAssignment** table and select **View Data**.</span></span>
+  * <span data-ttu-id="fbaa2-425">Sprawdź, czy tabela **CourseAssignment** zawiera dane.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-425">Verify the **CourseAssignment** table contains data.</span></span>
+
+  ![CourseAssignment dane w SSOX](complex-data-model/_static/ssox-ci-data.png)
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="fbaa2-427">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="fbaa2-427">Visual Studio Code</span></span>](#tab/visual-studio-code)
+
+<span data-ttu-id="fbaa2-428">Sprawdź bazę danych za pomocą narzędzia SQLite:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-428">Use your SQLite tool to examine the database:</span></span>
+
+* <span data-ttu-id="fbaa2-429">Nowe tabele i kolumny.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-429">New tables and columns.</span></span>
+* <span data-ttu-id="fbaa2-430">Dane są umieszczane w tabelach, na przykład w tabeli **CourseAssignment** .</span><span class="sxs-lookup"><span data-stu-id="fbaa2-430">Seeded data in tables, for example the **CourseAssignment** table.</span></span>
+
+---
+
+<a name="applyexisting"></a>
+
+## <a name="apply-the-migration"></a><span data-ttu-id="fbaa2-431">Zastosuj migrację</span><span class="sxs-lookup"><span data-stu-id="fbaa2-431">Apply the migration</span></span>
+
+<span data-ttu-id="fbaa2-432">Ta sekcja jest opcjonalna.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-432">This section is optional.</span></span> <span data-ttu-id="fbaa2-433">Te kroki działają tylko dla SQL Server LocalDB i tylko wtedy, gdy pominięto poprzednią [i ponownie utworzysz sekcję Database](#drop) .</span><span class="sxs-lookup"><span data-stu-id="fbaa2-433">These steps work only for SQL Server LocalDB and only if you skipped the preceding [Drop and re-create the database](#drop) section.</span></span>
+
+<span data-ttu-id="fbaa2-434">Po uruchomieniu migracji z istniejącymi danymi mogą istnieć ograniczenia klucza obcego, które nie są spełnione w przypadku istniejących danych.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-434">When migrations are run with existing data, there may be FK constraints that are not satisfied with the existing data.</span></span> <span data-ttu-id="fbaa2-435">W przypadku danych produkcyjnych należy wykonać kroki, aby przeprowadzić migrację istniejących danych.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-435">With production data, steps must be taken to migrate the existing data.</span></span> <span data-ttu-id="fbaa2-436">Ta sekcja zawiera przykład rozwiązywania naruszeń ograniczenia klucza obcego.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-436">This section provides an example of fixing FK constraint violations.</span></span> <span data-ttu-id="fbaa2-437">Nie należy wprowadzać tych zmian w kodzie bez tworzenia kopii zapasowej.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-437">Don't make these code changes without a backup.</span></span> <span data-ttu-id="fbaa2-438">Nie wprowadzaj tych zmian w kodzie, jeśli wykonano poprzednie [upuszczenie i ponownie utworzysz sekcję bazy danych](#drop) .</span><span class="sxs-lookup"><span data-stu-id="fbaa2-438">Don't make these code changes if you completed the preceding [Drop and re-create the database](#drop) section.</span></span>
+
+<span data-ttu-id="fbaa2-439">Plik *{timestamp} _ComplexDataModel. cs* zawiera następujący kod:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-439">The *{timestamp}_ComplexDataModel.cs* file contains the following code:</span></span>
+
+[!code-csharp[](intro/samples/cu30snapshots/5-complex/Migrations/ComplexDataModel.cs?name=snippet_DepartmentID)]
+
+<span data-ttu-id="fbaa2-440">Poprzedzający kod dodaje `DepartmentID` `Course` do tabeli obcy niedopuszczający wartości null.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-440">The preceding code adds a non-nullable `DepartmentID` FK to the `Course` table.</span></span> <span data-ttu-id="fbaa2-441">Baza danych z poprzedniego samouczka zawiera wiersze w `Course`, dlatego nie można zaktualizować tabeli za pomocą migracji.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-441">The database from the previous tutorial contains rows in `Course`, so that table cannot be updated by migrations.</span></span>
+
+<span data-ttu-id="fbaa2-442">Aby `ComplexDataModel` migracja była współdziałać z istniejącymi danymi:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-442">To make the `ComplexDataModel` migration work with existing data:</span></span>
+
+* <span data-ttu-id="fbaa2-443">Zmień kod, aby nadać nowej kolumnie (`DepartmentID`) wartość domyślną.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-443">Change the code to give the new column (`DepartmentID`) a default value.</span></span>
+* <span data-ttu-id="fbaa2-444">Utwórz fałszywy Departament o nazwie "Temp", który ma pełnić rolę działu domyślnego.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-444">Create a fake department named "Temp" to act as the default department.</span></span>
+
+#### <a name="fix-the-foreign-key-constraints"></a><span data-ttu-id="fbaa2-445">Popraw ograniczenia klucza obcego</span><span class="sxs-lookup"><span data-stu-id="fbaa2-445">Fix the foreign key constraints</span></span>
+
+<span data-ttu-id="fbaa2-446">W klasie `Up` migracji należy zaktualizować metodę: `ComplexDataModel`</span><span class="sxs-lookup"><span data-stu-id="fbaa2-446">In the `ComplexDataModel` migration class, update the `Up` method:</span></span>
+
+* <span data-ttu-id="fbaa2-447">Otwórz plik *{timestamp} _ComplexDataModel. cs* .</span><span class="sxs-lookup"><span data-stu-id="fbaa2-447">Open the *{timestamp}_ComplexDataModel.cs* file.</span></span>
+* <span data-ttu-id="fbaa2-448">Dodaj komentarz `DepartmentID` `Course` do wiersza kodu, który dodaje kolumnę do tabeli.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-448">Comment out the line of code that adds the `DepartmentID` column to the `Course` table.</span></span>
+
+[!code-csharp[](intro/samples/cu30snapshots/5-complex/Migrations/ComplexDataModel.cs?name=snippet_CommentOut&highlight=9-13)]
+
+<span data-ttu-id="fbaa2-449">Dodaj następujący wyróżniony kod.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-449">Add the following highlighted code.</span></span> <span data-ttu-id="fbaa2-450">Nowy kod przechodzi po `.CreateTable( name: "Department"` bloku:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-450">The new code goes after the `.CreateTable( name: "Department"` block:</span></span>
+
+<span data-ttu-id="fbaa2-451">[! code-CSharp [] (wprowadzenie/przykłady/cu30snapshots/5 — złożone/migracje/ComplexDataModel. cs? Name = snippet_CreateDefaultValue & Podświetl = 23-31)]</span><span class="sxs-lookup"><span data-stu-id="fbaa2-451">[!code-csharp[](intro/samples/cu30snapshots/5-complex/Migrations/ ComplexDataModel.cs?name=snippet_CreateDefaultValue&highlight=23-31)]</span></span>
+
+<span data-ttu-id="fbaa2-452">Po wykonaniu powyższych zmian istniejące `Course` wiersze będą powiązane z działem "Temp" po uruchomieniu metody.`ComplexDataModel.Up`</span><span class="sxs-lookup"><span data-stu-id="fbaa2-452">With the preceding changes, existing `Course` rows will be related to the "Temp" department after the `ComplexDataModel.Up` method runs.</span></span>
+
+<span data-ttu-id="fbaa2-453">Sposób obsługi pokazanej tutaj sytuacji jest uproszczony dla tego samouczka.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-453">The way of handling the situation shown here is simplified for this tutorial.</span></span> <span data-ttu-id="fbaa2-454">Aplikacja produkcyjna:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-454">A production app would:</span></span>
+
+* <span data-ttu-id="fbaa2-455">Dołącz kod lub skrypty, aby `Department` dodać wiersze i `Course` powiązane wiersze do nowych `Department` wierszy.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-455">Include code or scripts to add `Department` rows and related `Course` rows to the new `Department` rows.</span></span>
+* <span data-ttu-id="fbaa2-456">Nie używaj działu "Temp" ani wartości domyślnej dla `Course.DepartmentID`.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-456">Not use the "Temp" department or the default value for `Course.DepartmentID`.</span></span>
+
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="fbaa2-457">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="fbaa2-457">Visual Studio</span></span>](#tab/visual-studio)
+
+* <span data-ttu-id="fbaa2-458">W **konsoli Menedżera pakietów** (PMC) Uruchom następujące polecenie:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-458">In the **Package Manager Console** (PMC), run the following command:</span></span>
+
+  ```powershell
+  Update-Database
+  ```
+
+<span data-ttu-id="fbaa2-459">`DbInitializer.Initialize` Ponieważ metoda została zaprojektowana tak, aby działała tylko z pustą bazą danych, użyj SSOX, aby usunąć wszystkie wiersze z tabel uczniów i kursów.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-459">Because the `DbInitializer.Initialize` method is designed to work only with an empty database, use SSOX to delete all the rows in the Student and Course tables.</span></span> <span data-ttu-id="fbaa2-460">(Usuwanie kaskadowe zajmie tabelę rejestracji).</span><span class="sxs-lookup"><span data-stu-id="fbaa2-460">(Cascade delete will take care of the Enrollment table.)</span></span>
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="fbaa2-461">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="fbaa2-461">Visual Studio Code</span></span>](#tab/visual-studio-code)
+
+* <span data-ttu-id="fbaa2-462">Jeśli używasz SQL Server LocalDB z Visual Studio Code, uruchom następujące polecenie:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-462">If you're using SQL Server LocalDB with Visual Studio Code, run the following command:</span></span>
+
+  ```console
+  dotnet ef database update
+  ```
+
+---
+
+<span data-ttu-id="fbaa2-463">Uruchom aplikację.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-463">Run the app.</span></span> <span data-ttu-id="fbaa2-464">Uruchomienie aplikacji uruchamia `DbInitializer.Initialize` metodę.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-464">Running the app runs the `DbInitializer.Initialize` method.</span></span> <span data-ttu-id="fbaa2-465">`DbInitializer.Initialize` Wypełnia nową bazę danych.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-465">The `DbInitializer.Initialize` populates the new database.</span></span>
+
+## <a name="next-steps"></a><span data-ttu-id="fbaa2-466">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="fbaa2-466">Next steps</span></span>
+
+<span data-ttu-id="fbaa2-467">W następnych dwóch samouczkach pokazano, jak odczytywać i aktualizować powiązane dane.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-467">The next two tutorials show how to read and update related data.</span></span>
+
+> [!div class="step-by-step"]
+> <span data-ttu-id="fbaa2-468">[Poprzedni](xref:data/ef-rp/migrations)
+> samouczek w[następnym](xref:data/ef-rp/read-related-data) samouczku</span><span class="sxs-lookup"><span data-stu-id="fbaa2-468">[Previous tutorial](xref:data/ef-rp/migrations)
+[Next tutorial](xref:data/ef-rp/read-related-data)</span></span>
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+<span data-ttu-id="fbaa2-469">Poprzednie samouczki pracowały z podstawowym modelem danych, który składa się z trzech jednostek.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-469">The previous tutorials worked with a basic data model that was composed of three entities.</span></span> <span data-ttu-id="fbaa2-470">W tym samouczku:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-470">In this tutorial:</span></span>
+
+* <span data-ttu-id="fbaa2-471">Dodano więcej jednostek i relacji.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-471">More entities and relationships are added.</span></span>
+* <span data-ttu-id="fbaa2-472">Model danych jest dostosowywany przez określenie formatowania, walidacji i reguł mapowania bazy danych.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-472">The data model is customized by specifying formatting, validation, and database mapping rules.</span></span>
+
+<span data-ttu-id="fbaa2-473">Klasy jednostek dla kompletnego modelu danych przedstawiono na poniższej ilustracji:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-473">The entity classes for the completed data model are shown in the following illustration:</span></span>
+
+![Diagram jednostek](complex-data-model/_static/diagram.png)
+
+<span data-ttu-id="fbaa2-475">Jeśli wystąpią problemy, których nie można rozwiązać, Pobierz [ukończoną](
+https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples)aplikację.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-475">If you run into problems you can't solve, download the [completed app](
+https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples).</span></span>
+
+## <a name="customize-the-data-model-with-attributes"></a><span data-ttu-id="fbaa2-476">Dostosowywanie modelu danych przy użyciu atrybutów</span><span class="sxs-lookup"><span data-stu-id="fbaa2-476">Customize the data model with attributes</span></span>
+
+<span data-ttu-id="fbaa2-477">W tej sekcji model danych jest dostosowany przy użyciu atrybutów.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-477">In this section, the data model is customized using attributes.</span></span>
+
+### <a name="the-datatype-attribute"></a><span data-ttu-id="fbaa2-478">Atrybut DataType</span><span class="sxs-lookup"><span data-stu-id="fbaa2-478">The DataType attribute</span></span>
+
+<span data-ttu-id="fbaa2-479">Na stronach ucznia jest obecnie wyświetlana godzina daty rejestracji.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-479">The student pages currently displays the time of the enrollment date.</span></span> <span data-ttu-id="fbaa2-480">Zwykle pola Date zawierają tylko datę, a nie czas.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-480">Typically, date fields show only the date and not the time.</span></span>
+
+<span data-ttu-id="fbaa2-481">Aktualizuj *modele/uczniów. cs* przy użyciu następującego wyróżnionego kodu:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-481">Update *Models/Student.cs* with the following highlighted code:</span></span>
+
+[!code-csharp[](intro/samples/cu21/Models/Student.cs?name=snippet_DataType&highlight=3,12-13)]
+
+<span data-ttu-id="fbaa2-482">Atrybut [DataType](/dotnet/api/system.componentmodel.dataannotations.datatypeattribute?view=netframework-4.7.1) określa typ danych, który jest bardziej szczegółowy niż typ wewnętrzny bazy danych.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-482">The [DataType](/dotnet/api/system.componentmodel.dataannotations.datatypeattribute?view=netframework-4.7.1) attribute specifies a data type that's more specific than the database intrinsic type.</span></span> <span data-ttu-id="fbaa2-483">W tym przypadku należy wyświetlić tylko datę, a nie datę i godzinę.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-483">In this case only the date should be displayed, not the date and time.</span></span> <span data-ttu-id="fbaa2-484">[Wyliczenie DataType](/dotnet/api/system.componentmodel.dataannotations.datatype?view=netframework-4.7.1) zawiera wiele typów danych, takich jak data, godzina, numer telefonu, waluta, EmailAddress itp. Ten `DataType` atrybut może również umożliwić aplikacji automatyczne udostępnianie funkcji specyficznych dla typu.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-484">The [DataType Enumeration](/dotnet/api/system.componentmodel.dataannotations.datatype?view=netframework-4.7.1) provides for many data types, such as Date, Time, PhoneNumber, Currency, EmailAddress, etc. The `DataType` attribute can also enable the app to automatically provide type-specific features.</span></span> <span data-ttu-id="fbaa2-485">Na przykład:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-485">For example:</span></span>
+
+* <span data-ttu-id="fbaa2-486">Łącze jest tworzone automatycznie dla `DataType.EmailAddress`. `mailto:`</span><span class="sxs-lookup"><span data-stu-id="fbaa2-486">The `mailto:` link is automatically created for `DataType.EmailAddress`.</span></span>
+* <span data-ttu-id="fbaa2-487">Selektor daty jest dostępny `DataType.Date` w większości przeglądarek.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-487">The date selector is provided for `DataType.Date` in most browsers.</span></span>
+
+<span data-ttu-id="fbaa2-488">Ten `DataType` atrybut emituje kod HTML `data-` 5 (wymawiane kreski danych), które wykorzystują przeglądarki HTML 5.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-488">The `DataType` attribute emits HTML 5 `data-` (pronounced data dash) attributes that HTML 5 browsers consume.</span></span> <span data-ttu-id="fbaa2-489">`DataType` Atrybuty nie zapewniają walidacji.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-489">The `DataType` attributes don't provide validation.</span></span>
+
+<span data-ttu-id="fbaa2-490">`DataType.Date`nie określa formatu wyświetlanej daty.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-490">`DataType.Date` doesn't specify the format of the date that's displayed.</span></span> <span data-ttu-id="fbaa2-491">Domyślnie pole Date jest wyświetlane zgodnie z domyślnymi formatami opartymi na [CultureInfo](xref:fundamentals/localization#provide-localized-resources-for-the-languages-and-cultures-you-support)serwera.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-491">By default, the date field is displayed according to the default formats based on the server's [CultureInfo](xref:fundamentals/localization#provide-localized-resources-for-the-languages-and-cultures-you-support).</span></span>
+
+<span data-ttu-id="fbaa2-492">Ten `DisplayFormat` atrybut służy do jawnego określenia formatu daty:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-492">The `DisplayFormat` attribute is used to explicitly specify the date format:</span></span>
+
+```csharp
+[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+```
+
+<span data-ttu-id="fbaa2-493">`ApplyFormatInEditMode` Ustawienie określa, że formatowanie ma być również stosowane do interfejsu użytkownika edytowania.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-493">The `ApplyFormatInEditMode` setting specifies that the formatting should also be applied to the edit UI.</span></span> <span data-ttu-id="fbaa2-494">Niektóre pola nie powinny `ApplyFormatInEditMode`być używane.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-494">Some fields shouldn't use `ApplyFormatInEditMode`.</span></span> <span data-ttu-id="fbaa2-495">Na przykład symbol waluty zazwyczaj nie powinien być wyświetlany w polu tekstowym Edycja.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-495">For example, the currency symbol should generally not be displayed in an edit text box.</span></span>
+
+<span data-ttu-id="fbaa2-496">Ten `DisplayFormat` atrybut może być używany przez siebie.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-496">The `DisplayFormat` attribute can be used by itself.</span></span> <span data-ttu-id="fbaa2-497">Zwykle dobrym pomysłem jest użycie `DataType` atrybutu `DisplayFormat` z atrybutem.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-497">It's generally a good idea to use the `DataType` attribute with the `DisplayFormat` attribute.</span></span> <span data-ttu-id="fbaa2-498">Ten `DataType` atrybut przekazuje semantykę danych w przeciwieństwie do sposobu renderowania na ekranie.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-498">The `DataType` attribute conveys the semantics of the data as opposed to how to render it on a screen.</span></span> <span data-ttu-id="fbaa2-499">Ten `DataType` atrybut zapewnia następujące korzyści, które nie są dostępne w `DisplayFormat`programie:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-499">The `DataType` attribute provides the following benefits that are not available in `DisplayFormat`:</span></span>
+
+* <span data-ttu-id="fbaa2-500">Przeglądarka może włączyć funkcje HTML5.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-500">The browser can enable HTML5 features.</span></span> <span data-ttu-id="fbaa2-501">Na przykład Pokaż kontrolkę kalendarz, odpowiedni dla ustawień regionalnych symbol waluty, linki poczty e-mail, sprawdzanie poprawności danych po stronie klienta itd.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-501">For example, show a calendar control, the locale-appropriate currency symbol, email links, client-side input validation, etc.</span></span>
+* <span data-ttu-id="fbaa2-502">Domyślnie przeglądarka renderuje dane przy użyciu poprawnego formatu na podstawie ustawień regionalnych.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-502">By default, the browser renders data using the correct format based on the locale.</span></span>
+
+<span data-ttu-id="fbaa2-503">Aby uzyskać więcej informacji, zobacz [ \<dokumentację pomocnika tagów > danych wejściowych](xref:mvc/views/working-with-forms#the-input-tag-helper).</span><span class="sxs-lookup"><span data-stu-id="fbaa2-503">For more information, see the [\<input> Tag Helper documentation](xref:mvc/views/working-with-forms#the-input-tag-helper).</span></span>
+
+<span data-ttu-id="fbaa2-504">Uruchom aplikację.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-504">Run the app.</span></span> <span data-ttu-id="fbaa2-505">Przejdź do strony indeksu uczniów.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-505">Navigate to the Students Index page.</span></span> <span data-ttu-id="fbaa2-506">Czasy nie są już wyświetlane.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-506">Times are no longer displayed.</span></span> <span data-ttu-id="fbaa2-507">Każdy widok korzystający z `Student` modelu wyświetla datę bez czasu.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-507">Every view that uses the `Student` model displays the date without time.</span></span>
+
+![Strona indeksu uczniów pokazująca daty bez czasu](complex-data-model/_static/dates-no-times.png)
+
+### <a name="the-stringlength-attribute"></a><span data-ttu-id="fbaa2-509">Atrybut StringLength</span><span class="sxs-lookup"><span data-stu-id="fbaa2-509">The StringLength attribute</span></span>
+
+<span data-ttu-id="fbaa2-510">Można określić reguły walidacji danych i komunikaty o błędach walidacji z atrybutami.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-510">Data validation rules and validation error messages can be specified with attributes.</span></span> <span data-ttu-id="fbaa2-511">Atrybut [StringLength](/dotnet/api/system.componentmodel.dataannotations.stringlengthattribute?view=netframework-4.7.1) określa minimalną i maksymalną długość znaków, które są dozwolone w polu danych.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-511">The [StringLength](/dotnet/api/system.componentmodel.dataannotations.stringlengthattribute?view=netframework-4.7.1) attribute specifies the minimum and maximum length of characters that are allowed in a data field.</span></span> <span data-ttu-id="fbaa2-512">Ten `StringLength` atrybut zapewnia również weryfikację po stronie klienta i serwera.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-512">The `StringLength` attribute also provides client-side and server-side validation.</span></span> <span data-ttu-id="fbaa2-513">Wartość minimalna nie ma wpływu na schemat bazy danych.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-513">The minimum value has no impact on the database schema.</span></span>
+
+<span data-ttu-id="fbaa2-514">`Student` Zaktualizuj model przy użyciu następującego kodu:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-514">Update the `Student` model with the following code:</span></span>
+
+[!code-csharp[](intro/samples/cu21/Models/Student.cs?name=snippet_StringLength&highlight=10,12)]
+
+<span data-ttu-id="fbaa2-515">Poprzedni kod ogranicza nazwy do nie więcej niż 50 znaków.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-515">The preceding code limits names to no more than 50 characters.</span></span> <span data-ttu-id="fbaa2-516">Ten `StringLength` atrybut nie uniemożliwia użytkownikowi wprowadzania białych znaków w nazwie.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-516">The `StringLength` attribute doesn't prevent a user from entering white space for a name.</span></span> <span data-ttu-id="fbaa2-517">Atrybut [RegularExpression](/dotnet/api/system.componentmodel.dataannotations.regularexpressionattribute?view=netframework-4.7.1) służy do stosowania ograniczeń do danych wejściowych.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-517">The [RegularExpression](/dotnet/api/system.componentmodel.dataannotations.regularexpressionattribute?view=netframework-4.7.1) attribute is used to apply restrictions to the input.</span></span> <span data-ttu-id="fbaa2-518">Na przykład poniższy kod wymaga, aby pierwszy znak był wielką literą, a pozostałe znaki są alfabetyczne:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-518">For example, the following code requires the first character to be upper case and the remaining characters to be alphabetical:</span></span>
+
+```csharp
+[RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
+```
+
+<span data-ttu-id="fbaa2-519">Uruchom aplikację:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-519">Run the app:</span></span>
+
+* <span data-ttu-id="fbaa2-520">Przejdź do strony uczniów.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-520">Navigate to the Students page.</span></span>
+* <span data-ttu-id="fbaa2-521">Wybierz pozycję **Utwórz nową**, a następnie wprowadź nazwę o długości większej niż 50 znaków.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-521">Select **Create New**, and enter a name longer than 50 characters.</span></span>
+* <span data-ttu-id="fbaa2-522">Wybierz pozycję **Utwórz**, a po stronie klienta zostanie wyświetlony komunikat o błędzie.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-522">Select **Create**, client-side validation shows an error message.</span></span>
+
+![Strona indeksu studentów przedstawiająca błędy długości ciągu](complex-data-model/_static/string-length-errors.png)
+
+<span data-ttu-id="fbaa2-524">W **Eksplorator obiektów SQL Server** (SSOX) Otwórz projektanta tabeli uczniów, klikając dwukrotnie tabelę **uczniów** .</span><span class="sxs-lookup"><span data-stu-id="fbaa2-524">In **SQL Server Object Explorer** (SSOX), open the Student table designer by double-clicking the **Student** table.</span></span>
+
+![Tabela studentów w SSOX przed migracją](complex-data-model/_static/ssox-before-migration.png)
+
+<span data-ttu-id="fbaa2-526">Na powyższym obrazie przedstawiono schemat `Student` tabeli.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-526">The preceding image shows the schema for the `Student` table.</span></span> <span data-ttu-id="fbaa2-527">Pola nazw mają typ `nvarchar(MAX)` , ponieważ migracja nie została uruchomiona w bazie danych.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-527">The name fields have type `nvarchar(MAX)` because migrations has not been run on the DB.</span></span> <span data-ttu-id="fbaa2-528">Gdy migracja zostanie uruchomiona w dalszej części tego samouczka, pola nazwy `nvarchar(50)`stają się.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-528">When migrations are run later in this tutorial, the name fields become `nvarchar(50)`.</span></span>
+
+### <a name="the-column-attribute"></a><span data-ttu-id="fbaa2-529">Atrybut Column</span><span class="sxs-lookup"><span data-stu-id="fbaa2-529">The Column attribute</span></span>
+
+<span data-ttu-id="fbaa2-530">Atrybuty mogą kontrolować sposób mapowania klas i właściwości do bazy danych.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-530">Attributes can control how classes and properties are mapped to the database.</span></span> <span data-ttu-id="fbaa2-531">W tej sekcji `Column` atrybut jest używany do mapowania nazwy `FirstMidName` właściwości na "FirstName" w bazie danych.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-531">In this section, the `Column` attribute is used to map the name of the `FirstMidName` property to "FirstName" in the DB.</span></span>
+
+<span data-ttu-id="fbaa2-532">Po utworzeniu bazy danych nazwy właściwości w modelu są używane dla nazw kolumn (z wyjątkiem sytuacji, `Column` gdy atrybut jest używany).</span><span class="sxs-lookup"><span data-stu-id="fbaa2-532">When the DB is created, property names on the model are used for column names (except when the `Column` attribute is used).</span></span>
+
+<span data-ttu-id="fbaa2-533">`Student` Model używa`FirstMidName` dla pola pierwszej nazwy, ponieważ pole może zawierać również nazwę środkową.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-533">The `Student` model uses `FirstMidName` for the first-name field because the field might also contain a middle name.</span></span>
+
+<span data-ttu-id="fbaa2-534">Zaktualizuj plik *student.cs* za pomocą następującego wyróżnionego kodu:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-534">Update the *Student.cs* file with the following highlighted code:</span></span>
+
+[!code-csharp[](intro/samples/cu21/Models/Student.cs?name=snippet_Column&highlight=4,14)]
+
+<span data-ttu-id="fbaa2-535">Z poprzednią zmianą `Student.FirstMidName` w aplikacji jest mapowany `FirstName` do kolumny `Student` tabeli.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-535">With the preceding change, `Student.FirstMidName` in the app maps to the `FirstName` column of the `Student` table.</span></span>
+
+<span data-ttu-id="fbaa2-536">Dodanie `Column` atrybutu zmienia model z `SchoolContext`kopii zapasowej.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-536">The addition of the `Column` attribute changes the model backing the `SchoolContext`.</span></span> <span data-ttu-id="fbaa2-537">Model, który wykonuje `SchoolContext` kopię zapasową, nie jest już zgodny z bazą danych.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-537">The model backing the `SchoolContext` no longer matches the database.</span></span> <span data-ttu-id="fbaa2-538">Jeśli aplikacja jest uruchamiana przed zastosowaniem migracji, generowany jest następujący wyjątek:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-538">If the app is run before applying migrations, the following exception is generated:</span></span>
+
+```SQL
+SqlException: Invalid column name 'FirstName'.
+```
+
+<span data-ttu-id="fbaa2-539">Aby zaktualizować bazę danych:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-539">To update the DB:</span></span>
+
+* <span data-ttu-id="fbaa2-540">Skompiluj projekt.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-540">Build the project.</span></span>
+* <span data-ttu-id="fbaa2-541">Otwórz okno polecenia w folderze projektu.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-541">Open a command window in the project folder.</span></span> <span data-ttu-id="fbaa2-542">Wprowadź następujące polecenia, aby utworzyć nową migrację i zaktualizować bazę danych:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-542">Enter the following commands to create a new migration and update the DB:</span></span>
+
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="fbaa2-543">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="fbaa2-543">Visual Studio</span></span>](#tab/visual-studio)
+
+```PMC
+Add-Migration ColumnFirstName
+Update-Database
+```
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="fbaa2-544">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="fbaa2-544">Visual Studio Code</span></span>](#tab/visual-studio-code)
+
+```console
+dotnet ef migrations add ColumnFirstName
+dotnet ef database update
+```
+
+---
+
+<span data-ttu-id="fbaa2-545">`migrations add ColumnFirstName` Polecenie generuje następujący komunikat ostrzegawczy:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-545">The `migrations add ColumnFirstName` command generates the following warning message:</span></span>
+
+```text
+An operation was scaffolded that may result in the loss of data.
+Please review the migration for accuracy.
+```
+
+<span data-ttu-id="fbaa2-546">Ostrzeżenie jest generowane, ponieważ pola nazw są teraz ograniczone do 50 znaków.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-546">The warning is generated because the name fields are now limited to 50 characters.</span></span> <span data-ttu-id="fbaa2-547">Jeśli nazwa w bazie danych ma więcej niż 50 znaków, zostanie utracony od 51 do ostatniego znaku.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-547">If a name in the DB had more than 50 characters, the 51 to last character would be lost.</span></span>
+
+* <span data-ttu-id="fbaa2-548">Przetestuj aplikację.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-548">Test the app.</span></span>
+
+<span data-ttu-id="fbaa2-549">Otwórz tabelę uczniów w SSOX:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-549">Open the Student table in SSOX:</span></span>
+
+![Tabela studentów w SSOX po migracji](complex-data-model/_static/ssox-after-migration.png)
+
+<span data-ttu-id="fbaa2-551">Przed zainstalowaniem migracji kolumny nazw były typu [nvarchar (max)](/sql/t-sql/data-types/nchar-and-nvarchar-transact-sql).</span><span class="sxs-lookup"><span data-stu-id="fbaa2-551">Before migration was applied, the name columns were of type [nvarchar(MAX)](/sql/t-sql/data-types/nchar-and-nvarchar-transact-sql).</span></span> <span data-ttu-id="fbaa2-552">Kolumny nazw są teraz `nvarchar(50)`.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-552">The name columns are now `nvarchar(50)`.</span></span> <span data-ttu-id="fbaa2-553">Nazwa kolumny została zmieniona z `FirstMidName` na. `FirstName`</span><span class="sxs-lookup"><span data-stu-id="fbaa2-553">The column name has changed from `FirstMidName` to `FirstName`.</span></span>
+
+> [!Note]
+> <span data-ttu-id="fbaa2-554">W poniższej sekcji Kompilowanie aplikacji na niektórych etapach powoduje wygenerowanie błędów kompilatora.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-554">In the following section, building the app at some stages generates compiler errors.</span></span> <span data-ttu-id="fbaa2-555">Instrukcje określają, kiedy należy skompilować aplikację.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-555">The instructions specify when to build the app.</span></span>
+
+## <a name="student-entity-update"></a><span data-ttu-id="fbaa2-556">Aktualizacja jednostki ucznia</span><span class="sxs-lookup"><span data-stu-id="fbaa2-556">Student entity update</span></span>
+
+![Jednostka ucznia](complex-data-model/_static/student-entity.png)
+
+<span data-ttu-id="fbaa2-558">Aktualizuj *modele/uczniów. cs* przy użyciu następującego kodu:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-558">Update *Models/Student.cs* with the following code:</span></span>
+
+[!code-csharp[](intro/samples/cu21/Models/Student.cs?name=snippet_BeforeInheritance&highlight=11,13,15,18,22,24-31)]
+
+### <a name="the-required-attribute"></a><span data-ttu-id="fbaa2-559">Wymagany atrybut</span><span class="sxs-lookup"><span data-stu-id="fbaa2-559">The Required attribute</span></span>
+
+<span data-ttu-id="fbaa2-560">`Required` Atrybut powoduje, że właściwości nazwy są wymagane.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-560">The `Required` attribute makes the name properties required fields.</span></span> <span data-ttu-id="fbaa2-561">Ten `Required` atrybut nie jest wymagany dla typów niedopuszczających wartości null, takich jak `int`typy `double`wartości (`DateTime`,, itp.).</span><span class="sxs-lookup"><span data-stu-id="fbaa2-561">The `Required` attribute isn't needed for non-nullable types such as value types (`DateTime`, `int`, `double`, etc.).</span></span> <span data-ttu-id="fbaa2-562">Typy, które nie mogą mieć wartości null, są automatycznie traktowane jako pola wymagane.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-562">Types that can't be null are automatically treated as required fields.</span></span>
+
+<span data-ttu-id="fbaa2-563">Ten `Required` atrybut może być zastąpiony parametrem o minimalnej długości `StringLength` w atrybucie:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-563">The `Required` attribute could be replaced with a minimum length parameter in the `StringLength` attribute:</span></span>
+
+```csharp
+[Display(Name = "Last Name")]
+[StringLength(50, MinimumLength=1)]
+public string LastName { get; set; }
+```
+
+### <a name="the-display-attribute"></a><span data-ttu-id="fbaa2-564">Atrybut wyświetlania</span><span class="sxs-lookup"><span data-stu-id="fbaa2-564">The Display attribute</span></span>
+
+<span data-ttu-id="fbaa2-565">Ten `Display` atrybut określa, że podpis pól tekstowych powinien mieć wartość "imię i nazwisko", "nazwisko", "imię i nazwisko" oraz "Data rejestracji".</span><span class="sxs-lookup"><span data-stu-id="fbaa2-565">The `Display` attribute specifies that the caption for the text boxes should be "First Name", "Last Name", "Full Name", and "Enrollment Date."</span></span> <span data-ttu-id="fbaa2-566">Domyślne podpisy nie zawierają spacji dzielących wyrazy, na przykład "LastName".</span><span class="sxs-lookup"><span data-stu-id="fbaa2-566">The default captions had no space dividing the words, for example "Lastname."</span></span>
+
+### <a name="the-fullname-calculated-property"></a><span data-ttu-id="fbaa2-567">Właściwość obliczeniowa FullName</span><span class="sxs-lookup"><span data-stu-id="fbaa2-567">The FullName calculated property</span></span>
+
+<span data-ttu-id="fbaa2-568">`FullName`jest właściwością obliczaną, która zwraca wartość utworzoną przez połączenie dwóch innych właściwości.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-568">`FullName` is a calculated property that returns a value that's created by concatenating two other properties.</span></span> <span data-ttu-id="fbaa2-569">`FullName`nie można ustawić, ma tylko metodę dostępu get.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-569">`FullName` cannot be set, it has only a get accessor.</span></span> <span data-ttu-id="fbaa2-570">Nie `FullName` utworzono żadnej kolumny w bazie danych.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-570">No `FullName` column is created in the database.</span></span>
+
+## <a name="create-the-instructor-entity"></a><span data-ttu-id="fbaa2-571">Tworzenie jednostki instruktora</span><span class="sxs-lookup"><span data-stu-id="fbaa2-571">Create the Instructor Entity</span></span>
+
+![Jednostka instruktora](complex-data-model/_static/instructor-entity.png)
+
+<span data-ttu-id="fbaa2-573">Utwórz *modele/instruktor. cs* przy użyciu następującego kodu:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-573">Create *Models/Instructor.cs* with the following code:</span></span>
+
+[!code-csharp[](intro/samples/cu21/Models/Instructor.cs)]
+
+<span data-ttu-id="fbaa2-574">Wiele atrybutów może znajdować się w jednym wierszu.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-574">Multiple attributes can be on one line.</span></span> <span data-ttu-id="fbaa2-575">`HireDate` Atrybuty mogą być zapisywane w następujący sposób:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-575">The `HireDate` attributes could be written as follows:</span></span>
+
+```csharp
+[DataType(DataType.Date),Display(Name = "Hire Date"),DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+```
+
+### <a name="the-courseassignments-and-officeassignment-navigation-properties"></a><span data-ttu-id="fbaa2-576">Właściwości nawigacji CourseAssignments i OfficeAssignment</span><span class="sxs-lookup"><span data-stu-id="fbaa2-576">The CourseAssignments and OfficeAssignment navigation properties</span></span>
+
+<span data-ttu-id="fbaa2-577">Właściwości `CourseAssignments` i`OfficeAssignment` są właściwościami nawigacji.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-577">The `CourseAssignments` and `OfficeAssignment` properties are navigation properties.</span></span>
+
+<span data-ttu-id="fbaa2-578">Instruktor może nauczyć dowolną liczbę kursów, więc `CourseAssignments` jest zdefiniowany jako kolekcja.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-578">An instructor can teach any number of courses, so `CourseAssignments` is defined as a collection.</span></span>
+
+```csharp
+public ICollection<CourseAssignment> CourseAssignments { get; set; }
+```
+
+<span data-ttu-id="fbaa2-579">Jeśli właściwość nawigacji zawiera wiele jednostek:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-579">If a navigation property holds multiple entities:</span></span>
+
+* <span data-ttu-id="fbaa2-580">Musi to być typ listy, w którym można dodawać, usuwać i aktualizować wpisy.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-580">It must be a list type where the entries can be added, deleted, and updated.</span></span>
+
+<span data-ttu-id="fbaa2-581">Typy właściwości nawigacji obejmują:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-581">Navigation property types include:</span></span>
+
+* `ICollection<T>`
+* `List<T>`
+* `HashSet<T>`
+
+<span data-ttu-id="fbaa2-582">Jeśli `ICollection<T>` jest określony, EF Core domyślnie `HashSet<T>` tworzy kolekcję.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-582">If `ICollection<T>` is specified, EF Core creates a `HashSet<T>` collection by default.</span></span>
+
+<span data-ttu-id="fbaa2-583">`CourseAssignment` Jednostka została omówiona w sekcji dotyczącej relacji wiele-do-wielu.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-583">The `CourseAssignment` entity is explained in the section on many-to-many relationships.</span></span>
+
+<span data-ttu-id="fbaa2-584">Firma Contoso University Rules States, że instruktor może mieć co najwyżej jednego biura.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-584">Contoso University business rules state that an instructor can have at most one office.</span></span> <span data-ttu-id="fbaa2-585">Właściwość zawiera jedną `OfficeAssignment`jednostkę. `OfficeAssignment`</span><span class="sxs-lookup"><span data-stu-id="fbaa2-585">The `OfficeAssignment` property holds a single `OfficeAssignment` entity.</span></span> <span data-ttu-id="fbaa2-586">`OfficeAssignment`ma wartość null, jeśli nie przypisano pakietu Office.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-586">`OfficeAssignment` is null if no office is assigned.</span></span>
+
+```csharp
+public OfficeAssignment OfficeAssignment { get; set; }
+```
+
+## <a name="create-the-officeassignment-entity"></a><span data-ttu-id="fbaa2-587">Tworzenie jednostki OfficeAssignment</span><span class="sxs-lookup"><span data-stu-id="fbaa2-587">Create the OfficeAssignment entity</span></span>
+
+![Jednostka OfficeAssignment](complex-data-model/_static/officeassignment-entity.png)
+
+<span data-ttu-id="fbaa2-589">Utwórz *modele/OfficeAssignment. cs* przy użyciu następującego kodu:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-589">Create *Models/OfficeAssignment.cs* with the following code:</span></span>
+
+[!code-csharp[](intro/samples/cu21/Models/OfficeAssignment.cs)]
+
+### <a name="the-key-attribute"></a><span data-ttu-id="fbaa2-590">Atrybut klucza</span><span class="sxs-lookup"><span data-stu-id="fbaa2-590">The Key attribute</span></span>
+
+<span data-ttu-id="fbaa2-591">Ten `[Key]` atrybut służy do identyfikowania właściwości jako klucza podstawowego (PK), gdy nazwa właściwości ma wartość inną niż classnameID lub ID.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-591">The `[Key]` attribute is used to identify a property as the primary key (PK) when the property name is something other than classnameID or ID.</span></span>
+
+<span data-ttu-id="fbaa2-592">Istnieje relacja jeden do zera między `Instructor` jednostkami i. `OfficeAssignment`</span><span class="sxs-lookup"><span data-stu-id="fbaa2-592">There's a one-to-zero-or-one relationship between the `Instructor` and `OfficeAssignment` entities.</span></span> <span data-ttu-id="fbaa2-593">Przypisanie pakietu Office istnieje tylko w odniesieniu do instruktora, do którego jest przypisane.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-593">An office assignment only exists in relation to the instructor it's assigned to.</span></span> <span data-ttu-id="fbaa2-594">Klucz podstawowy jest również jego kluczem obcym (obcy) `Instructor` do jednostki. `OfficeAssignment`</span><span class="sxs-lookup"><span data-stu-id="fbaa2-594">The `OfficeAssignment` PK is also its foreign key (FK) to the `Instructor` entity.</span></span> <span data-ttu-id="fbaa2-595">EF Core nie może automatycznie `InstructorID` rozpoznać jako klucz podstawowy `OfficeAssignment` dla:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-595">EF Core can't automatically recognize `InstructorID` as the PK of `OfficeAssignment` because:</span></span>
+
+* <span data-ttu-id="fbaa2-596">`InstructorID`nie jest zgodna z konwencją nazewnictwa ID lub classnameID.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-596">`InstructorID` doesn't follow the ID or classnameID naming convention.</span></span>
+
+<span data-ttu-id="fbaa2-597">W związku z tym `InstructorID` atrybutjestużywanydoidentyfikacjijakokluczpodstawowy:`Key`</span><span class="sxs-lookup"><span data-stu-id="fbaa2-597">Therefore, the `Key` attribute is used to identify `InstructorID` as the PK:</span></span>
+
+```csharp
+[Key]
+public int InstructorID { get; set; }
+```
+
+<span data-ttu-id="fbaa2-598">Domyślnie EF Core traktuje klucz jako wygenerowane poza bazą danych, ponieważ kolumna służy do identyfikowania relacji.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-598">By default, EF Core treats the key as non-database-generated because the column is for an identifying relationship.</span></span>
+
+### <a name="the-instructor-navigation-property"></a><span data-ttu-id="fbaa2-599">Właściwość nawigacji instruktora</span><span class="sxs-lookup"><span data-stu-id="fbaa2-599">The Instructor navigation property</span></span>
+
+<span data-ttu-id="fbaa2-600">Właściwość `OfficeAssignment` nawigacji `Instructor` dla jednostki nie dopuszcza wartości null, ponieważ:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-600">The `OfficeAssignment` navigation property for the `Instructor` entity is nullable because:</span></span>
+
+* <span data-ttu-id="fbaa2-601">Typy odwołań (takie jak klasy są dopuszczające wartość null).</span><span class="sxs-lookup"><span data-stu-id="fbaa2-601">Reference types (such as classes are nullable).</span></span>
+* <span data-ttu-id="fbaa2-602">Instruktor może nie mieć przypisania pakietu Office.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-602">An instructor might not have an office assignment.</span></span>
+
+<span data-ttu-id="fbaa2-603">Jednostka ma właściwość nawigacji, która nie `Instructor` dopuszcza wartości null, ponieważ: `OfficeAssignment`</span><span class="sxs-lookup"><span data-stu-id="fbaa2-603">The `OfficeAssignment` entity has a non-nullable `Instructor` navigation property because:</span></span>
+
+* <span data-ttu-id="fbaa2-604">`InstructorID`nie dopuszcza wartości null.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-604">`InstructorID` is non-nullable.</span></span>
+* <span data-ttu-id="fbaa2-605">Przypisanie pakietu Office nie może istnieć bez instruktora.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-605">An office assignment can't exist without an instructor.</span></span>
+
+<span data-ttu-id="fbaa2-606">Gdy jednostka ma powiązaną `OfficeAssignment` jednostkę, każda jednostka ma odwołanie do drugiej z nich we właściwości nawigacji. `Instructor`</span><span class="sxs-lookup"><span data-stu-id="fbaa2-606">When an `Instructor` entity has a related `OfficeAssignment` entity, each entity has a reference to the other one in its navigation property.</span></span>
+
+<span data-ttu-id="fbaa2-607">Ten `[Required]` atrybut może zostać zastosowany `Instructor` do właściwości nawigacji:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-607">The `[Required]` attribute could be applied to the `Instructor` navigation property:</span></span>
+
+```csharp
+[Required]
+public Instructor Instructor { get; set; }
+```
+
+<span data-ttu-id="fbaa2-608">Poprzedni kod określa, że musi być pokrewnym instruktorem.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-608">The preceding code specifies that there must be a related instructor.</span></span> <span data-ttu-id="fbaa2-609">Poprzedni kod jest niezbędny, `InstructorID` ponieważ klucz obcy (który jest również kluczem PK) nie dopuszcza wartości null.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-609">The preceding code is unnecessary because the `InstructorID` foreign key (which is also the PK) is non-nullable.</span></span>
+
+## <a name="modify-the-course-entity"></a><span data-ttu-id="fbaa2-610">Modyfikowanie jednostki kursu</span><span class="sxs-lookup"><span data-stu-id="fbaa2-610">Modify the Course Entity</span></span>
+
+![Jednostka kursu](complex-data-model/_static/course-entity.png)
+
+<span data-ttu-id="fbaa2-612">Aktualizuj *modele/kurs. cs* przy użyciu następującego kodu:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-612">Update *Models/Course.cs* with the following code:</span></span>
+
+[!code-csharp[](intro/samples/cu21/Models/Course.cs?name=snippet_Final&highlight=2,10,13,16,19,21,23)]
+
+<span data-ttu-id="fbaa2-613">Jednostka ma właściwość `DepartmentID`klucza obcego (obcy). `Course`</span><span class="sxs-lookup"><span data-stu-id="fbaa2-613">The `Course` entity has a foreign key (FK) property `DepartmentID`.</span></span> <span data-ttu-id="fbaa2-614">`DepartmentID`wskazuje powiązaną `Department` jednostkę.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-614">`DepartmentID` points to the related `Department` entity.</span></span> <span data-ttu-id="fbaa2-615">`Course` Jednostka ma właściwość nawigacji. `Department`</span><span class="sxs-lookup"><span data-stu-id="fbaa2-615">The `Course` entity has a `Department` navigation property.</span></span>
+
+<span data-ttu-id="fbaa2-616">EF Core nie wymaga właściwości FK dla modelu danych, gdy model ma właściwość nawigacji dla powiązanej jednostki.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-616">EF Core doesn't require a FK property for a data model when the model has a navigation property for a related entity.</span></span>
+
+<span data-ttu-id="fbaa2-617">EF Core automatycznie tworzy FKs w bazie danych wszędzie tam, gdzie są one zbędne.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-617">EF Core automatically creates FKs in the database wherever they're needed.</span></span> <span data-ttu-id="fbaa2-618">EF Core tworzy [Właściwości cienia](/ef/core/modeling/shadow-properties) dla automatycznie utworzonych FKs.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-618">EF Core creates [shadow properties](/ef/core/modeling/shadow-properties) for automatically created FKs.</span></span> <span data-ttu-id="fbaa2-619">Posiadanie klucza obcego w modelu danych może sprawiać, że aktualizacje są prostsze i wydajniejsze.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-619">Having the FK in the data model can make updates simpler and more efficient.</span></span> <span data-ttu-id="fbaa2-620">Rozważmy na przykład model, w którym Właściwość `DepartmentID` FK *nie* jest uwzględniona.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-620">For example, consider a model where the FK property `DepartmentID` is *not* included.</span></span> <span data-ttu-id="fbaa2-621">Gdy jednostka kursu jest pobierana do edycji:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-621">When a course entity is fetched to edit:</span></span>
+
+* <span data-ttu-id="fbaa2-622">Jednostka `Department` ma wartość null, jeśli nie jest jawnie załadowana.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-622">The `Department` entity is null if it's not explicitly loaded.</span></span>
+* <span data-ttu-id="fbaa2-623">Aby zaktualizować jednostkę kursu, `Department` należy najpierw pobrać jednostkę.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-623">To update the course entity, the `Department` entity must first be fetched.</span></span>
+
+<span data-ttu-id="fbaa2-624">Gdy właściwość `DepartmentID` FK jest uwzględniona w modelu danych, nie trzeba `Department` pobierać jednostki przed aktualizacją.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-624">When the FK property `DepartmentID` is included in the data model, there's no need to fetch the `Department` entity before an update.</span></span>
+
+### <a name="the-databasegenerated-attribute"></a><span data-ttu-id="fbaa2-625">Atrybut DatabaseGenerated</span><span class="sxs-lookup"><span data-stu-id="fbaa2-625">The DatabaseGenerated attribute</span></span>
+
+<span data-ttu-id="fbaa2-626">Ten `[DatabaseGenerated(DatabaseGeneratedOption.None)]` atrybut określa, że klucz podstawowy jest dostarczany przez aplikację, a nie generowany przez bazę danych.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-626">The `[DatabaseGenerated(DatabaseGeneratedOption.None)]` attribute specifies that the PK is provided by the application rather than generated by the database.</span></span>
+
+```csharp
+[DatabaseGenerated(DatabaseGeneratedOption.None)]
+[Display(Name = "Number")]
+public int CourseID { get; set; }
+```
+
+<span data-ttu-id="fbaa2-627">Domyślnie EF Core zakłada, że wartości klucza PK są generowane przez bazę danych.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-627">By default, EF Core assumes that PK values are generated by the DB.</span></span> <span data-ttu-id="fbaa2-628">Wartość klucza podstawowego wygenerowanego przez bazę danych jest ogólnie najlepszym rozwiązaniem.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-628">DB generated PK values is generally the best approach.</span></span> <span data-ttu-id="fbaa2-629">W `Course` przypadku jednostek użytkownik określa klucz podstawowy.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-629">For `Course` entities, the user specifies the PK.</span></span> <span data-ttu-id="fbaa2-630">Na przykład numer kursu, taki jak seria 1000 dla działu Math, serii 2000 dla działu angielskiego.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-630">For example, a course number such as a 1000 series for the math department, a 2000 series for the English department.</span></span>
+
+<span data-ttu-id="fbaa2-631">Ten `DatabaseGenerated` atrybut może być również używany do generowania wartości domyślnych.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-631">The `DatabaseGenerated` attribute can also be used to generate default values.</span></span> <span data-ttu-id="fbaa2-632">Na przykład baza danych może automatycznie wygenerować pole daty, aby zarejestrować datę utworzenia lub zaktualizowania wiersza.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-632">For example, the DB can automatically generate a date field to record the date a row was created or updated.</span></span> <span data-ttu-id="fbaa2-633">Aby uzyskać więcej informacji, zobacz [wygenerowane właściwości](/ef/core/modeling/generated-properties).</span><span class="sxs-lookup"><span data-stu-id="fbaa2-633">For more information, see [Generated Properties](/ef/core/modeling/generated-properties).</span></span>
+
+### <a name="foreign-key-and-navigation-properties"></a><span data-ttu-id="fbaa2-634">Właściwości klucza obcego i nawigacji</span><span class="sxs-lookup"><span data-stu-id="fbaa2-634">Foreign key and navigation properties</span></span>
+
+<span data-ttu-id="fbaa2-635">Właściwości klucza obcego (FK) i właściwości nawigacji w `Course` jednostce odzwierciedlają następujące relacje:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-635">The foreign key (FK) properties and navigation properties in the `Course` entity reflect the following relationships:</span></span>
+
+<span data-ttu-id="fbaa2-636">Kurs jest przypisywany do jednego działu, więc istnieje `DepartmentID` obcy `Department` i właściwość nawigacji.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-636">A course is assigned to one department, so there's a `DepartmentID` FK and a `Department` navigation property.</span></span>
+
+```csharp
+public int DepartmentID { get; set; }
+public Department Department { get; set; }
+```
+
+<span data-ttu-id="fbaa2-637">Kurs może zawierać dowolną liczbę studentów, więc `Enrollments` właściwość nawigacji jest kolekcją:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-637">A course can have any number of students enrolled in it, so the `Enrollments` navigation property is a collection:</span></span>
+
+```csharp
+public ICollection<Enrollment> Enrollments { get; set; }
+```
+
+<span data-ttu-id="fbaa2-638">Kurs może być nauczany przez wiele instruktorów, więc `CourseAssignments` właściwość nawigacji jest kolekcją:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-638">A course may be taught by multiple instructors, so the `CourseAssignments` navigation property is a collection:</span></span>
+
+```csharp
+public ICollection<CourseAssignment> CourseAssignments { get; set; }
+```
+
+<span data-ttu-id="fbaa2-639">`CourseAssignment`wyjaśniono [później](#many-to-many-relationships).</span><span class="sxs-lookup"><span data-stu-id="fbaa2-639">`CourseAssignment` is explained [later](#many-to-many-relationships).</span></span>
+
+## <a name="create-the-department-entity"></a><span data-ttu-id="fbaa2-640">Tworzenie jednostki działu</span><span class="sxs-lookup"><span data-stu-id="fbaa2-640">Create the Department entity</span></span>
+
+![Jednostka działu](complex-data-model/_static/department-entity.png)
+
+<span data-ttu-id="fbaa2-642">Utwórz *modele/dział. cs* przy użyciu następującego kodu:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-642">Create *Models/Department.cs* with the following code:</span></span>
+
+[!code-csharp[](intro/samples/cu21/Models/Department.cs?name=snippet_Begin)]
+
+### <a name="the-column-attribute"></a><span data-ttu-id="fbaa2-643">Atrybut Column</span><span class="sxs-lookup"><span data-stu-id="fbaa2-643">The Column attribute</span></span>
+
+<span data-ttu-id="fbaa2-644">`Column` Wcześniej atrybut został użyty do zmiany mapowania nazw kolumn.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-644">Previously the `Column` attribute was used to change column name mapping.</span></span> <span data-ttu-id="fbaa2-645">W kodzie dla `Department` jednostki `Column` atrybut jest używany do zmiany mapowania typu danych SQL.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-645">In the code for the `Department` entity, the `Column` attribute is used to change SQL data type mapping.</span></span> <span data-ttu-id="fbaa2-646">`Budget` Kolumna jest definiowana przy użyciu SQL Server typie pieniędzy w bazie danych:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-646">The `Budget` column is defined using the SQL Server money type in the DB:</span></span>
+
+```csharp
+[Column(TypeName="money")]
+public decimal Budget { get; set; }
+```
+
+<span data-ttu-id="fbaa2-647">Mapowanie kolumn zazwyczaj nie jest wymagane.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-647">Column mapping is generally not required.</span></span> <span data-ttu-id="fbaa2-648">EF Core zwykle wybiera odpowiedni SQL Server typ danych oparty na typie CLR właściwości.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-648">EF Core generally chooses the appropriate SQL Server data type based on the CLR type for the property.</span></span> <span data-ttu-id="fbaa2-649">Typ CLR `decimal` jest mapowany na typ SQL Server `decimal` .</span><span class="sxs-lookup"><span data-stu-id="fbaa2-649">The CLR `decimal` type maps to a SQL Server `decimal` type.</span></span> <span data-ttu-id="fbaa2-650">`Budget`jest dla waluty, a typ danych walutowych jest bardziej odpowiedni dla waluty.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-650">`Budget` is for currency, and the money data type is more appropriate for currency.</span></span>
+
+### <a name="foreign-key-and-navigation-properties"></a><span data-ttu-id="fbaa2-651">Właściwości klucza obcego i nawigacji</span><span class="sxs-lookup"><span data-stu-id="fbaa2-651">Foreign key and navigation properties</span></span>
+
+<span data-ttu-id="fbaa2-652">Właściwości FK i nawigacji odzwierciedlają następujące relacje:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-652">The FK and navigation properties reflect the following relationships:</span></span>
+
+* <span data-ttu-id="fbaa2-653">Dział może lub nie ma uprawnienia administratora.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-653">A department may or may not have an administrator.</span></span>
+* <span data-ttu-id="fbaa2-654">Administrator jest zawsze instruktorem.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-654">An administrator is always an instructor.</span></span> <span data-ttu-id="fbaa2-655">W związku z tym `Instructor` Właściwośćjestdołączanajakoobcydojednostki.`InstructorID`</span><span class="sxs-lookup"><span data-stu-id="fbaa2-655">Therefore the `InstructorID` property is included as the FK to the `Instructor` entity.</span></span>
+
+<span data-ttu-id="fbaa2-656">Właściwość nawigacji ma nazwę `Administrator` , ale `Instructor` zawiera jednostkę:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-656">The navigation property is named `Administrator` but holds an `Instructor` entity:</span></span>
+
+```csharp
+public int? InstructorID { get; set; }
+public Instructor Administrator { get; set; }
+```
+
+<span data-ttu-id="fbaa2-657">Znak zapytania (?) w powyższym kodzie określa właściwość dopuszcza wartość null.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-657">The question mark (?) in the preceding code specifies the property is nullable.</span></span>
+
+<span data-ttu-id="fbaa2-658">Dział może mieć wiele kursów, więc istnieje właściwość nawigacji kursów:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-658">A department may have many courses, so there's a Courses navigation property:</span></span>
+
+```csharp
+public ICollection<Course> Courses { get; set; }
+```
+
+<span data-ttu-id="fbaa2-659">Uwaga: Zgodnie z Konwencją EF Core włącza kaskadowe usuwanie dla FKs niedopuszczających wartości null i dla relacji wiele-do-wielu.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-659">Note: By convention, EF Core enables cascade delete for non-nullable FKs and for many-to-many relationships.</span></span> <span data-ttu-id="fbaa2-660">Kaskadowe usuwanie może spowodować cykliczne reguły usuwania kaskadowego.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-660">Cascading delete can result in circular cascade delete rules.</span></span> <span data-ttu-id="fbaa2-661">Cykliczne reguły usuwania kaskadowego powodują wyjątek podczas dodawania migracji.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-661">Circular cascade delete rules causes an exception when a migration is added.</span></span>
+
+<span data-ttu-id="fbaa2-662">Na przykład, jeśli `Department.InstructorID` właściwość została zdefiniowana jako niedopuszczający wartości null:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-662">For example, if the `Department.InstructorID` property was defined as non-nullable:</span></span>
+
+* <span data-ttu-id="fbaa2-663">EF Core konfiguruje regułę usuwania kaskadowego w celu usunięcia działu po usunięciu instruktora.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-663">EF Core configures a cascade delete rule to delete the department when the instructor is deleted.</span></span>
+* <span data-ttu-id="fbaa2-664">Usunięcie działu po usunięciu instruktora nie jest zamierzonym zachowaniem.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-664">Deleting the department when the instructor is deleted isn't the intended behavior.</span></span>
+* <span data-ttu-id="fbaa2-665">Poniższy interfejs API Fluent ustawi regułę ograniczenia zamiast kaskadowo.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-665">The following fluent API would set a restrict rule instead of cascade.</span></span>
+
+   ```csharp
+   modelBuilder.Entity<Department>()
+      .HasOne(d => d.Administrator)
+      .WithMany()
+      .OnDelete(DeleteBehavior.Restrict)
+  ```
+
+<span data-ttu-id="fbaa2-666">Poprzedni kod wyłącza usuwanie kaskadowe dla relacji instruktora działu.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-666">The preceding code disables cascade delete on the department-instructor relationship.</span></span>
+
+## <a name="update-the-enrollment-entity"></a><span data-ttu-id="fbaa2-667">Aktualizowanie jednostki rejestracji</span><span class="sxs-lookup"><span data-stu-id="fbaa2-667">Update the Enrollment entity</span></span>
+
+<span data-ttu-id="fbaa2-668">Rekord rejestracji jest wykonywany przez jednego ucznia.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-668">An enrollment record is for one course taken by one student.</span></span>
+
+![Jednostka rejestracji](complex-data-model/_static/enrollment-entity.png)
+
+<span data-ttu-id="fbaa2-670">Aktualizuj *modele/rejestrację. cs* przy użyciu następującego kodu:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-670">Update *Models/Enrollment.cs* with the following code:</span></span>
+
+[!code-csharp[](intro/samples/cu21/Models/Enrollment.cs?name=snippet_Final&highlight=1-2,16)]
+
+### <a name="foreign-key-and-navigation-properties"></a><span data-ttu-id="fbaa2-671">Właściwości klucza obcego i nawigacji</span><span class="sxs-lookup"><span data-stu-id="fbaa2-671">Foreign key and navigation properties</span></span>
+
+<span data-ttu-id="fbaa2-672">Właściwości klucza obcego i właściwości nawigacji odzwierciedlają następujące relacje:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-672">The FK properties and navigation properties reflect the following relationships:</span></span>
+
+<span data-ttu-id="fbaa2-673">Rekord rejestracji jest przeznaczony dla jednego kursu, dlatego istnieje `CourseID` Właściwość FK `Course` i właściwość nawigacji:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-673">An enrollment record is for one course, so there's a `CourseID` FK property and a `Course` navigation property:</span></span>
+
+```csharp
+public int CourseID { get; set; }
+public Course Course { get; set; }
+```
+
+<span data-ttu-id="fbaa2-674">Rekord rejestracji jest przeznaczony dla jednego ucznia, dlatego istnieje `StudentID` właściwość klucza obcego `Student` i właściwość nawigacji:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-674">An enrollment record is for one student, so there's a `StudentID` FK property and a `Student` navigation property:</span></span>
+
+```csharp
+public int StudentID { get; set; }
+public Student Student { get; set; }
+```
+
+## <a name="many-to-many-relationships"></a><span data-ttu-id="fbaa2-675">Relacje wiele do wielu</span><span class="sxs-lookup"><span data-stu-id="fbaa2-675">Many-to-Many Relationships</span></span>
+
+<span data-ttu-id="fbaa2-676">Istnieje relacja wiele-do-wielu między `Student` obiektami i. `Course`</span><span class="sxs-lookup"><span data-stu-id="fbaa2-676">There's a many-to-many relationship between the `Student` and `Course` entities.</span></span> <span data-ttu-id="fbaa2-677">Jednostka działa jako tabela sprzężenia wiele-do-wielu *z ładunkiem* w bazie danych. `Enrollment`</span><span class="sxs-lookup"><span data-stu-id="fbaa2-677">The `Enrollment` entity functions as a many-to-many join table *with payload* in the database.</span></span> <span data-ttu-id="fbaa2-678">"Z ładunkiem" oznacza, że `Enrollment` tabela zawiera dodatkowe dane oprócz FKs dla sprzężonych tabel (w tym przypadku klucz podstawowy i `Grade`).</span><span class="sxs-lookup"><span data-stu-id="fbaa2-678">"With payload" means that the `Enrollment` table contains additional data besides FKs for the joined tables (in this case, the PK and `Grade`).</span></span>
+
+<span data-ttu-id="fbaa2-679">Na poniższej ilustracji pokazano, jak wyglądają te relacje w diagramie jednostek.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-679">The following illustration shows what these relationships look like in an entity diagram.</span></span> <span data-ttu-id="fbaa2-680">(Ten diagram został wygenerowany przy użyciu [narzędzi EF PowerShell](https://marketplace.visualstudio.com/items?itemName=ErikEJ.EntityFramework6PowerToolsCommunityEdition) dla programu EF 6. x.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-680">(This diagram was generated using [EF Power Tools](https://marketplace.visualstudio.com/items?itemName=ErikEJ.EntityFramework6PowerToolsCommunityEdition) for EF 6.x.</span></span> <span data-ttu-id="fbaa2-681">Tworzenie diagramu nie jest częścią samouczka.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-681">Creating the diagram isn't part of the tutorial.)</span></span>
+
+![Student-kurs wiele do wielu relacji](complex-data-model/_static/student-course.png)
+
+<span data-ttu-id="fbaa2-683">Każda linia relacji ma 1 na jednym końcu i gwiazdkę (\*) na drugim, wskazując relację jeden do wielu.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-683">Each relationship line has a 1 at one end and an asterisk (\*) at the other, indicating a one-to-many relationship.</span></span>
+
+<span data-ttu-id="fbaa2-684">Jeśli tabela nie zawiera informacji o klasie, musi zawierać tylko dwa FKs (`CourseID` i `StudentID`). `Enrollment`</span><span class="sxs-lookup"><span data-stu-id="fbaa2-684">If the `Enrollment` table didn't include grade information, it would only need to contain the two FKs (`CourseID` and `StudentID`).</span></span> <span data-ttu-id="fbaa2-685">Tabela sprzężenia wiele-do-wielu bez ładunku jest czasami nazywana tabelą sprzężenia czystego (PJT).</span><span class="sxs-lookup"><span data-stu-id="fbaa2-685">A many-to-many join table without payload is sometimes called a pure join table (PJT).</span></span>
+
+<span data-ttu-id="fbaa2-686">Jednostki `Instructor` i`Course` mają relację wiele-do-wielu przy użyciu czystej tabeli sprzężenia.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-686">The `Instructor` and `Course` entities have a many-to-many relationship using a pure join table.</span></span>
+
+<span data-ttu-id="fbaa2-687">Uwaga: Dr 6. x obsługuje niejawne tabele sprzężeń dla relacji wiele-do-wielu, ale EF Core nie.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-687">Note: EF 6.x supports implicit join tables for many-to-many relationships, but EF Core doesn't.</span></span> <span data-ttu-id="fbaa2-688">Aby uzyskać więcej informacji, zobacz [relacje wiele-do-wielu w EF Core 2,0](https://blog.oneunicorn.com/2017/09/25/many-to-many-relationships-in-ef-core-2-0-part-1-the-basics/).</span><span class="sxs-lookup"><span data-stu-id="fbaa2-688">For more information, see [Many-to-many relationships in EF Core 2.0](https://blog.oneunicorn.com/2017/09/25/many-to-many-relationships-in-ef-core-2-0-part-1-the-basics/).</span></span>
+
+## <a name="the-courseassignment-entity"></a><span data-ttu-id="fbaa2-689">Jednostka CourseAssignment</span><span class="sxs-lookup"><span data-stu-id="fbaa2-689">The CourseAssignment entity</span></span>
+
+![Jednostka CourseAssignment](complex-data-model/_static/courseassignment-entity.png)
+
+<span data-ttu-id="fbaa2-691">Utwórz *modele/CourseAssignment. cs* przy użyciu następującego kodu:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-691">Create *Models/CourseAssignment.cs* with the following code:</span></span>
+
+[!code-csharp[](intro/samples/cu21/Models/CourseAssignment.cs)]
+
+### <a name="instructor-to-courses"></a><span data-ttu-id="fbaa2-692">Instruktorzy do kursów</span><span class="sxs-lookup"><span data-stu-id="fbaa2-692">Instructor-to-Courses</span></span>
+
+![M:M instruktora do kursu](complex-data-model/_static/courseassignment.png)
+
+<span data-ttu-id="fbaa2-694">"Instruktora" — relacja wiele do wielu:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-694">The Instructor-to-Courses many-to-many relationship:</span></span>
+
+* <span data-ttu-id="fbaa2-695">Wymaga tabeli sprzężenia, która musi być reprezentowana przez zestaw jednostek.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-695">Requires a join table that must be represented by an entity set.</span></span>
+* <span data-ttu-id="fbaa2-696">Jest czystym tabelą sprzężenia (tabela bez ładunku).</span><span class="sxs-lookup"><span data-stu-id="fbaa2-696">Is a pure join table (table without payload).</span></span>
+
+<span data-ttu-id="fbaa2-697">Nazwa jednostki `EntityName1EntityName2`sprzężenia jest wspólna.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-697">It's common to name a join entity `EntityName1EntityName2`.</span></span> <span data-ttu-id="fbaa2-698">Na przykład tabela sprzężenia "instruktor-kurs" używa tego wzorca jest `CourseInstructor`.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-698">For example, the Instructor-to-Courses join table using this pattern is `CourseInstructor`.</span></span> <span data-ttu-id="fbaa2-699">Zalecamy jednak użycie nazwy opisującej relację.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-699">However, we recommend using a name that describes the relationship.</span></span>
+
+<span data-ttu-id="fbaa2-700">Modele danych rozpoczynają się od siebie i rosną.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-700">Data models start out simple and grow.</span></span> <span data-ttu-id="fbaa2-701">Sprzężenia bez ładunku (PJTs) często są rozwijane w celu uwzględnienia ładunku.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-701">No-payload joins (PJTs) frequently evolve to include payload.</span></span> <span data-ttu-id="fbaa2-702">Rozpoczynając od nazwy obiektu opisowego, nie trzeba zmieniać nazwy po zmianie tabeli sprzężeń.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-702">By starting with a descriptive entity name, the name doesn't need to change when the join table changes.</span></span> <span data-ttu-id="fbaa2-703">Najlepiej, aby jednostka sprzężenia miała własną nazwę naturalną (prawdopodobnie jednowyrazową) w domenie biznesowej.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-703">Ideally, the join entity would have its own natural (possibly single word) name in the business domain.</span></span> <span data-ttu-id="fbaa2-704">Na przykład książki i klienci mogą być połączone z jednostką sprzężenia o nazwie ratings.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-704">For example, Books and Customers could be linked with a join entity called Ratings.</span></span> <span data-ttu-id="fbaa2-705">Dla instruktora "wiele do wielu", `CourseAssignment` `CourseInstructor`preferowana jest wartość.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-705">For the Instructor-to-Courses many-to-many relationship, `CourseAssignment` is preferred over `CourseInstructor`.</span></span>
+
+### <a name="composite-key"></a><span data-ttu-id="fbaa2-706">Klucz złożony</span><span class="sxs-lookup"><span data-stu-id="fbaa2-706">Composite key</span></span>
+
+<span data-ttu-id="fbaa2-707">FKs nie dopuszcza wartości null.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-707">FKs are not nullable.</span></span> <span data-ttu-id="fbaa2-708">Dwa FKs w `CourseAssignment` (`InstructorID` `CourseID` i`CourseAssignment` ) jednoznacznie identyfikują każdy wiersz tabeli.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-708">The two FKs in `CourseAssignment` (`InstructorID` and `CourseID`) together uniquely identify each row of the `CourseAssignment` table.</span></span> <span data-ttu-id="fbaa2-709">`CourseAssignment`nie wymaga dedykowanego klucza podstawowego.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-709">`CourseAssignment` doesn't require a dedicated PK.</span></span> <span data-ttu-id="fbaa2-710">Właściwości `InstructorID` i`CourseID` działają jako złożony klucz podstawowy.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-710">The `InstructorID` and `CourseID` properties function as a composite PK.</span></span> <span data-ttu-id="fbaa2-711">Jedynym sposobem określenia złożonego PKs do EF Core jest *interfejs API Fluent*.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-711">The only way to specify composite PKs to EF Core is with the *fluent API*.</span></span> <span data-ttu-id="fbaa2-712">W następnej sekcji przedstawiono sposób konfigurowania złożonego klucza podstawowego.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-712">The next section shows how to configure the composite PK.</span></span>
+
+<span data-ttu-id="fbaa2-713">Klucz złożony gwarantuje:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-713">The composite key ensures:</span></span>
+
+* <span data-ttu-id="fbaa2-714">W jednym kursie są dozwolone wiele wierszy.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-714">Multiple rows are allowed for one course.</span></span>
+* <span data-ttu-id="fbaa2-715">Dla jednego instruktora są dozwolone wiele wierszy.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-715">Multiple rows are allowed for one instructor.</span></span>
+* <span data-ttu-id="fbaa2-716">Wiele wierszy dla tego samego instruktora i kursu jest niedozwolonych.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-716">Multiple rows for the same instructor and course isn't allowed.</span></span>
+
+<span data-ttu-id="fbaa2-717">Jednostka `Enrollment` Join definiuje własny klucz podstawowy, więc możliwe jest duplikowanie tego sortowania.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-717">The `Enrollment` join entity defines its own PK, so duplicates of this sort are possible.</span></span> <span data-ttu-id="fbaa2-718">Aby uniknąć takich duplikatów:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-718">To prevent such duplicates:</span></span>
+
+* <span data-ttu-id="fbaa2-719">Dodaj unikatowy indeks do pól klucza obcego lub</span><span class="sxs-lookup"><span data-stu-id="fbaa2-719">Add a unique index on the FK fields, or</span></span>
+* <span data-ttu-id="fbaa2-720">Skonfiguruj `Enrollment` przy użyciu podstawowego klucza złożonego podobnego `CourseAssignment`do.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-720">Configure `Enrollment` with a primary composite key similar to `CourseAssignment`.</span></span> <span data-ttu-id="fbaa2-721">Aby uzyskać więcej informacji, zobacz [indeksy](/ef/core/modeling/indexes).</span><span class="sxs-lookup"><span data-stu-id="fbaa2-721">For more information, see [Indexes](/ef/core/modeling/indexes).</span></span>
+
+## <a name="update-the-db-context"></a><span data-ttu-id="fbaa2-722">Aktualizowanie kontekstu bazy danych</span><span class="sxs-lookup"><span data-stu-id="fbaa2-722">Update the DB context</span></span>
+
+<span data-ttu-id="fbaa2-723">Dodaj następujący wyróżniony kod do *danych/SchoolContext. cs*:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-723">Add the following highlighted code to *Data/SchoolContext.cs*:</span></span>
+
+[!code-csharp[](intro/samples/cu21/Data/SchoolContext.cs?name=snippet_BeforeInheritance&highlight=15-18,25-31)]
+
+<span data-ttu-id="fbaa2-724">Poprzedni kod dodaje nowe jednostki i konfiguruje `CourseAssignment` złożonego klucza podstawowego jednostki.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-724">The preceding code adds the new entities and configures the `CourseAssignment` entity's composite PK.</span></span>
+
+## <a name="fluent-api-alternative-to-attributes"></a><span data-ttu-id="fbaa2-725">Alternatywny interfejs API Fluent dla atrybutów</span><span class="sxs-lookup"><span data-stu-id="fbaa2-725">Fluent API alternative to attributes</span></span>
+
+<span data-ttu-id="fbaa2-726">Metoda w poprzednim kodzie używa *interfejsu API Fluent* , aby skonfigurować zachowanie EF Core. `OnModelCreating`</span><span class="sxs-lookup"><span data-stu-id="fbaa2-726">The `OnModelCreating` method in the preceding code uses the *fluent API* to configure EF Core behavior.</span></span> <span data-ttu-id="fbaa2-727">Interfejs API jest nazywany "Fluent", ponieważ jest często używany przez ciąg serii wywołań metod w jednej instrukcji.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-727">The API is called "fluent" because it's often used by stringing a series of method calls together into a single statement.</span></span> <span data-ttu-id="fbaa2-728">[Poniższy kod](/ef/core/modeling/#use-fluent-api-to-configure-a-model) jest przykładem interfejsu API Fluent:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-728">The [following code](/ef/core/modeling/#use-fluent-api-to-configure-a-model) is an example of the fluent API:</span></span>
+
+```csharp
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+    modelBuilder.Entity<Blog>()
+        .Property(b => b.Url)
+        .IsRequired();
+}
+```
+
+<span data-ttu-id="fbaa2-729">W tym samouczku interfejs API Fluent jest używany tylko w przypadku mapowania bazy danych, której nie można wykonać przy użyciu atrybutów.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-729">In this tutorial, the fluent API is used only for DB mapping that can't be done with attributes.</span></span> <span data-ttu-id="fbaa2-730">Jednak interfejs API Fluent może określić większość reguł formatowania, walidacji i mapowania, które mogą być wykonywane przy użyciu atrybutów.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-730">However, the fluent API can specify most of the formatting, validation, and mapping rules that can be done with attributes.</span></span>
+
+<span data-ttu-id="fbaa2-731">Niektórych atrybutów, takich `MinimumLength` jak nie można zastosować w interfejsie API Fluent.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-731">Some attributes such as `MinimumLength` can't be applied with the fluent API.</span></span> <span data-ttu-id="fbaa2-732">`MinimumLength`nie zmienia schematu, stosuje tylko regułę walidacji o minimalnej długości.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-732">`MinimumLength` doesn't change the schema, it only applies a minimum length validation rule.</span></span>
+
+<span data-ttu-id="fbaa2-733">Niektórzy deweloperzy wolą korzystać z interfejsu API Fluent wyłącznie w taki sposób, aby mogli utrzymać czyste klasy jednostek.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-733">Some developers prefer to use the fluent API exclusively so that they can keep their entity classes "clean."</span></span> <span data-ttu-id="fbaa2-734">Atrybuty i interfejs API Fluent mogą być mieszane.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-734">Attributes and the fluent API can be mixed.</span></span> <span data-ttu-id="fbaa2-735">Istnieją pewne konfiguracje, które można wykonać tylko przy użyciu interfejsu API Fluent (określenie złożonego klucza podstawowego).</span><span class="sxs-lookup"><span data-stu-id="fbaa2-735">There are some configurations that can only be done with the fluent API (specifying a composite PK).</span></span> <span data-ttu-id="fbaa2-736">Istnieją pewne konfiguracje, które można wykonać tylko z atrybutami (`MinimumLength`).</span><span class="sxs-lookup"><span data-stu-id="fbaa2-736">There are some configurations that can only be done with attributes (`MinimumLength`).</span></span> <span data-ttu-id="fbaa2-737">Zalecane rozwiązanie dotyczące korzystania z interfejsu API Fluent lub atrybutów:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-737">The recommended practice for using fluent API or attributes:</span></span>
+
+* <span data-ttu-id="fbaa2-738">Wybierz jedną z tych dwóch metod.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-738">Choose one of these two approaches.</span></span>
+* <span data-ttu-id="fbaa2-739">W miarę możliwości należy stosować wybrane podejście.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-739">Use the chosen approach consistently as much as possible.</span></span>
+
+<span data-ttu-id="fbaa2-740">Niektóre z atrybutów używanych w tym samouczku są używane w programie:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-740">Some of the attributes used in the this tutorial are used for:</span></span>
+
+* <span data-ttu-id="fbaa2-741">Tylko Walidacja (na przykład `MinimumLength`).</span><span class="sxs-lookup"><span data-stu-id="fbaa2-741">Validation only (for example, `MinimumLength`).</span></span>
+* <span data-ttu-id="fbaa2-742">Tylko konfiguracja EF Core (na przykład `HasKey`).</span><span class="sxs-lookup"><span data-stu-id="fbaa2-742">EF Core configuration only (for example, `HasKey`).</span></span>
+* <span data-ttu-id="fbaa2-743">Sprawdzanie poprawności i konfiguracja EF Core (na przykład `[StringLength(50)]`).</span><span class="sxs-lookup"><span data-stu-id="fbaa2-743">Validation and EF Core configuration (for example, `[StringLength(50)]`).</span></span>
+
+<span data-ttu-id="fbaa2-744">Aby uzyskać więcej informacji na temat atrybutów a interfejs API Fluent, zobacz [metody konfiguracji](/ef/core/modeling/).</span><span class="sxs-lookup"><span data-stu-id="fbaa2-744">For more information about attributes vs. fluent API, see [Methods of configuration](/ef/core/modeling/).</span></span>
+
+## <a name="entity-diagram-showing-relationships"></a><span data-ttu-id="fbaa2-745">Diagram jednostek przedstawiający relacje</span><span class="sxs-lookup"><span data-stu-id="fbaa2-745">Entity Diagram Showing Relationships</span></span>
+
+<span data-ttu-id="fbaa2-746">Na poniższej ilustracji przedstawiono diagram, który jest tworzony przez narzędzia Dr PowerShell dla gotowego modelu szkoły.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-746">The following illustration shows the diagram that EF Power Tools create for the completed School model.</span></span>
+
+![Diagram jednostek](complex-data-model/_static/diagram.png)
+
+<span data-ttu-id="fbaa2-748">Na powyższym diagramie przedstawiono:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-748">The preceding diagram shows:</span></span>
+
+* <span data-ttu-id="fbaa2-749">Kilka linii relacji jeden-do-wielu (od 1 \*do).</span><span class="sxs-lookup"><span data-stu-id="fbaa2-749">Several one-to-many relationship lines (1 to \*).</span></span>
+* <span data-ttu-id="fbaa2-750">Linia relacji "jeden do zera" (od 1 do 0.. 1) między `Instructor` jednostkami i. `OfficeAssignment`</span><span class="sxs-lookup"><span data-stu-id="fbaa2-750">The one-to-zero-or-one relationship line (1 to 0..1) between the `Instructor` and `OfficeAssignment` entities.</span></span>
+* <span data-ttu-id="fbaa2-751">Linia relacji zero-lub-jeden-do-wielu (0.. 1 do \*) między `Instructor` obiektami i. `Department`</span><span class="sxs-lookup"><span data-stu-id="fbaa2-751">The zero-or-one-to-many relationship line (0..1 to \*) between the `Instructor` and `Department` entities.</span></span>
+
+## <a name="seed-the-db-with-test-data"></a><span data-ttu-id="fbaa2-752">Wypełnianie bazy danych danymi testowymi</span><span class="sxs-lookup"><span data-stu-id="fbaa2-752">Seed the DB with Test Data</span></span>
+
+<span data-ttu-id="fbaa2-753">Zaktualizuj kod w *danych/Dbinitializeer. cs*:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-753">Update the code in *Data/DbInitializer.cs*:</span></span>
 
 [!code-csharp[](intro/samples/cu21/Data/DbInitializer.cs?name=snippet_Final)]
 
-<span data-ttu-id="c7ed2-390">Powyższy kod udostępnia dane inicjatora dla nowych jednostek.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-390">The preceding code provides seed data for the new entities.</span></span> <span data-ttu-id="c7ed2-391">Większość ten kod tworzy nowe obiekty jednostki i ładowania przykładowych danych.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-391">Most of this code creates new entity objects and loads sample data.</span></span> <span data-ttu-id="c7ed2-392">Dane przykładowe są używane do testowania.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-392">The sample data is used for testing.</span></span> <span data-ttu-id="c7ed2-393">Zobacz `Enrollments` i `CourseAssignments` dla przykładów jak wiele do wielu Dołączanie tabel może zostać rozpoczęta.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-393">See `Enrollments` and `CourseAssignments` for examples of how many-to-many join tables can be seeded.</span></span>
+<span data-ttu-id="fbaa2-754">Poprzedni kod zawiera dane inicjatora dla nowych jednostek.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-754">The preceding code provides seed data for the new entities.</span></span> <span data-ttu-id="fbaa2-755">Większość tego kodu tworzy nowe obiekty Entity i ładuje przykładowe dane.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-755">Most of this code creates new entity objects and loads sample data.</span></span> <span data-ttu-id="fbaa2-756">Przykładowe dane służą do testowania.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-756">The sample data is used for testing.</span></span> <span data-ttu-id="fbaa2-757">Zobacz `Enrollments` i `CourseAssignments` , aby zapoznać się z przykładami tabel sprzężenia wiele-do-wielu.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-757">See `Enrollments` and `CourseAssignments` for examples of how many-to-many join tables can be seeded.</span></span>
 
-## <a name="add-a-migration"></a><span data-ttu-id="c7ed2-394">Dodaj migrację</span><span class="sxs-lookup"><span data-stu-id="c7ed2-394">Add a migration</span></span>
+## <a name="add-a-migration"></a><span data-ttu-id="fbaa2-758">Dodawanie migracji</span><span class="sxs-lookup"><span data-stu-id="fbaa2-758">Add a migration</span></span>
 
-<span data-ttu-id="c7ed2-395">Skompiluj projekt.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-395">Build the project.</span></span>
+<span data-ttu-id="fbaa2-759">Skompiluj projekt.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-759">Build the project.</span></span>
 
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="c7ed2-396">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="c7ed2-396">Visual Studio</span></span>](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="fbaa2-760">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="fbaa2-760">Visual Studio</span></span>](#tab/visual-studio)
 
 ```PMC
 Add-Migration ComplexDataModel
 ```
 
-# <a name="net-core-clitabnetcore-cli"></a>[<span data-ttu-id="c7ed2-397">.NET Core CLI</span><span class="sxs-lookup"><span data-stu-id="c7ed2-397">.NET Core CLI</span></span>](#tab/netcore-cli)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="fbaa2-761">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="fbaa2-761">Visual Studio Code</span></span>](#tab/visual-studio-code)
 
 ```console
 dotnet ef migrations add ComplexDataModel
@@ -553,7 +1257,7 @@ dotnet ef migrations add ComplexDataModel
 
 ---
 
-<span data-ttu-id="c7ed2-398">Poprzednie polecenie wyświetli ostrzeżenie o możliwej utracie danych.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-398">The preceding command displays a warning about possible data loss.</span></span>
+<span data-ttu-id="fbaa2-762">Poprzednie polecenie wyświetla ostrzeżenie o możliwej utracie danych.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-762">The preceding command displays a warning about possible data loss.</span></span>
 
 ```text
 An operation was scaffolded that may result in the loss of data.
@@ -561,42 +1265,42 @@ Please review the migration for accuracy.
 Done. To undo this action, use 'ef migrations remove'
 ```
 
-<span data-ttu-id="c7ed2-399">Jeśli `database update` polecenie jest wykonywane, generowany jest następujący błąd:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-399">If the `database update` command is run, the following error is produced:</span></span>
+<span data-ttu-id="fbaa2-763">`database update` Jeśli polecenie zostanie uruchomione, zostanie utworzony następujący błąd:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-763">If the `database update` command is run, the following error is produced:</span></span>
 
 ```text
 The ALTER TABLE statement conflicted with the FOREIGN KEY constraint "FK_dbo.Course_dbo.Department_DepartmentID". The conflict occurred in
 database "ContosoUniversity", table "dbo.Department", column 'DepartmentID'.
 ```
 
-## <a name="apply-the-migration"></a><span data-ttu-id="c7ed2-400">Zastosuj migracji</span><span class="sxs-lookup"><span data-stu-id="c7ed2-400">Apply the migration</span></span>
+## <a name="apply-the-migration"></a><span data-ttu-id="fbaa2-764">Zastosuj migrację</span><span class="sxs-lookup"><span data-stu-id="fbaa2-764">Apply the migration</span></span>
 
-<span data-ttu-id="c7ed2-401">Teraz, gdy masz istniejącą bazę danych, należy wziąć pod uwagę sposób stosowania przyszłe zmiany do niego.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-401">Now that you have an existing database, you need to think about how to apply future changes to it.</span></span> <span data-ttu-id="c7ed2-402">W tym samouczku przedstawiono dwie metody:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-402">This tutorial shows two approaches:</span></span>
+<span data-ttu-id="fbaa2-765">Teraz, gdy masz już istniejącą bazę danych, musisz się zastanowić, jak zastosować w niej przyszłe zmiany.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-765">Now that you have an existing database, you need to think about how to apply future changes to it.</span></span> <span data-ttu-id="fbaa2-766">Ten samouczek przedstawia dwa podejścia:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-766">This tutorial shows two approaches:</span></span>
 
-* [<span data-ttu-id="c7ed2-403">Porzuć i ponownie utworzyć bazę danych</span><span class="sxs-lookup"><span data-stu-id="c7ed2-403">Drop and re-create the database</span></span>](#drop)
-* <span data-ttu-id="c7ed2-404">[Dotyczą migracji z istniejącej bazy danych](#applyexisting).</span><span class="sxs-lookup"><span data-stu-id="c7ed2-404">[Apply the migration to the existing database](#applyexisting).</span></span> <span data-ttu-id="c7ed2-405">Ta metoda jest bardziej złożony i czasochłonny proces, jest preferowanym podejściem w środowiskach produkcyjnych w rzeczywistych warunkach.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-405">While this method is more complex and time-consuming, it's the preferred approach for real-world, production environments.</span></span> <span data-ttu-id="c7ed2-406">**Uwaga**: Jest to opcjonalne części samouczka.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-406">**Note**: This is an optional section of the tutorial.</span></span> <span data-ttu-id="c7ed2-407">Można zrobić listy i ponownie utwórz kroki i pominąć tę sekcję.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-407">You can do the drop and re-create steps and skip this section.</span></span> <span data-ttu-id="c7ed2-408">Jeśli chcesz wykonać kroki zawarte w tej sekcji, nie są listy i ponownie utwórz kroki.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-408">If you do want to follow the steps in this section, don't do the drop and re-create steps.</span></span> 
+* [<span data-ttu-id="fbaa2-767">Porzuć i ponownie utwórz bazę danych</span><span class="sxs-lookup"><span data-stu-id="fbaa2-767">Drop and re-create the database</span></span>](#drop)
+* <span data-ttu-id="fbaa2-768">[Zastosuj migrację do istniejącej bazy danych](#applyexisting).</span><span class="sxs-lookup"><span data-stu-id="fbaa2-768">[Apply the migration to the existing database](#applyexisting).</span></span> <span data-ttu-id="fbaa2-769">Chociaż ta metoda jest bardziej złożona i czasochłonna, jest preferowanym podejściem dla rzeczywistych środowisk produkcyjnych.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-769">While this method is more complex and time-consuming, it's the preferred approach for real-world, production environments.</span></span> <span data-ttu-id="fbaa2-770">**Uwaga**: Jest to opcjonalna sekcja samouczka.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-770">**Note**: This is an optional section of the tutorial.</span></span> <span data-ttu-id="fbaa2-771">Możesz wykonać kroki porzucenia i utworzyć ponownie i pominąć tę sekcję.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-771">You can do the drop and re-create steps and skip this section.</span></span> <span data-ttu-id="fbaa2-772">Jeśli chcesz wykonać kroki opisane w tej sekcji, nie wykonuj kroków usuwania i ponownego tworzenia.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-772">If you do want to follow the steps in this section, don't do the drop and re-create steps.</span></span> 
 
 <a name="drop"></a>
 
-### <a name="drop-and-re-create-the-database"></a><span data-ttu-id="c7ed2-409">Porzuć i ponownie utworzyć bazę danych</span><span class="sxs-lookup"><span data-stu-id="c7ed2-409">Drop and re-create the database</span></span>
+### <a name="drop-and-re-create-the-database"></a><span data-ttu-id="fbaa2-773">Porzuć i ponownie utwórz bazę danych</span><span class="sxs-lookup"><span data-stu-id="fbaa2-773">Drop and re-create the database</span></span>
 
-<span data-ttu-id="c7ed2-410">Kod w zaktualizowanej `DbInitializer` dodaje dane nowe jednostki.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-410">The code in the updated `DbInitializer` adds seed data for the new entities.</span></span> <span data-ttu-id="c7ed2-411">Aby wymusić programu EF Core do utworzenia nowej bazy danych, Porzuć i aktualizowanie bazy danych:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-411">To force EF Core to create a new  DB, drop and update the DB:</span></span>
+<span data-ttu-id="fbaa2-774">Kod w zaktualizowanych `DbInitializer` dodaje dane inicjatora dla nowych jednostek.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-774">The code in the updated `DbInitializer` adds seed data for the new entities.</span></span> <span data-ttu-id="fbaa2-775">Aby wymusić EF Core tworzenia nowej bazy danych, Porzuć i zaktualizuj bazę danych:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-775">To force EF Core to create a new  DB, drop and update the DB:</span></span>
 
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="c7ed2-412">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="c7ed2-412">Visual Studio</span></span>](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="fbaa2-776">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="fbaa2-776">Visual Studio</span></span>](#tab/visual-studio)
 
-<span data-ttu-id="c7ed2-413">W **Konsola Menedżera pakietów** (PMC), uruchom następujące polecenie:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-413">In the **Package Manager Console** (PMC), run the following command:</span></span>
+<span data-ttu-id="fbaa2-777">W **konsoli Menedżera pakietów** (PMC) Uruchom następujące polecenie:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-777">In the **Package Manager Console** (PMC), run the following command:</span></span>
 
 ```PMC
 Drop-Database
 Update-Database
 ```
 
-<span data-ttu-id="c7ed2-414">Uruchom `Get-Help about_EntityFrameworkCore` z konsoli zarządzania Pakietami, aby uzyskać informacje pomocy.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-414">Run `Get-Help about_EntityFrameworkCore` from the PMC to get help information.</span></span>
+<span data-ttu-id="fbaa2-778">Uruchom `Get-Help about_EntityFrameworkCore` z PMC, aby uzyskać informacje pomocy.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-778">Run `Get-Help about_EntityFrameworkCore` from the PMC to get help information.</span></span>
 
-# <a name="net-core-clitabnetcore-cli"></a>[<span data-ttu-id="c7ed2-415">.NET Core CLI</span><span class="sxs-lookup"><span data-stu-id="c7ed2-415">.NET Core CLI</span></span>](#tab/netcore-cli)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="fbaa2-779">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="fbaa2-779">Visual Studio Code</span></span>](#tab/visual-studio-code)
 
-<span data-ttu-id="c7ed2-416">Otwórz okno polecenia i przejdź do folderu projektu.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-416">Open a command window and navigate to the project folder.</span></span> <span data-ttu-id="c7ed2-417">Folder projektu zawiera *Startup.cs* pliku.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-417">The project folder contains the *Startup.cs* file.</span></span>
+<span data-ttu-id="fbaa2-780">Otwórz okno polecenia i przejdź do folderu projektu.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-780">Open a command window and navigate to the project folder.</span></span> <span data-ttu-id="fbaa2-781">Folder projektu zawiera plik *Startup.cs* .</span><span class="sxs-lookup"><span data-stu-id="fbaa2-781">The project folder contains the *Startup.cs* file.</span></span>
 
-<span data-ttu-id="c7ed2-418">W oknie wiersza polecenia, należy wprowadzić następujące czynności:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-418">Enter the following in the command window:</span></span>
+<span data-ttu-id="fbaa2-782">Wprowadź następujące polecenie w oknie polecenia:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-782">Enter the following in the command window:</span></span>
 
  ```console
  dotnet ef database drop
@@ -605,71 +1309,73 @@ dotnet ef database update
 
 ---
 
-<span data-ttu-id="c7ed2-419">Uruchom aplikację.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-419">Run the app.</span></span> <span data-ttu-id="c7ed2-420">Uruchamianie uruchomienia aplikacji `DbInitializer.Initialize` metody.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-420">Running the app runs the `DbInitializer.Initialize` method.</span></span> <span data-ttu-id="c7ed2-421">`DbInitializer.Initialize` Wypełnia nowej bazy danych.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-421">The `DbInitializer.Initialize` populates the new DB.</span></span>
+<span data-ttu-id="fbaa2-783">Uruchom aplikację.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-783">Run the app.</span></span> <span data-ttu-id="fbaa2-784">Uruchomienie aplikacji uruchamia `DbInitializer.Initialize` metodę.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-784">Running the app runs the `DbInitializer.Initialize` method.</span></span> <span data-ttu-id="fbaa2-785">`DbInitializer.Initialize` Wypełnia nową bazę danych.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-785">The `DbInitializer.Initialize` populates the new DB.</span></span>
 
-<span data-ttu-id="c7ed2-422">Otwórz SSOX bazy danych:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-422">Open the DB in SSOX:</span></span>
+<span data-ttu-id="fbaa2-786">Otwórz bazę danych w programie SSOX:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-786">Open the DB in SSOX:</span></span>
 
-* <span data-ttu-id="c7ed2-423">Jeśli SSOX był wcześniej otwarty, kliknij przycisk **Odśwież** przycisku.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-423">If SSOX was opened previously, click the **Refresh** button.</span></span>
-* <span data-ttu-id="c7ed2-424">Rozwiń **tabel** węzła.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-424">Expand the **Tables** node.</span></span> <span data-ttu-id="c7ed2-425">Utworzone tabele są wyświetlane.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-425">The created tables are displayed.</span></span>
+* <span data-ttu-id="fbaa2-787">Jeśli SSOX został wcześniej otwarty, kliknij przycisk **Odśwież** .</span><span class="sxs-lookup"><span data-stu-id="fbaa2-787">If SSOX was opened previously, click the **Refresh** button.</span></span>
+* <span data-ttu-id="fbaa2-788">Rozwiń **tabel** węzła.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-788">Expand the **Tables** node.</span></span> <span data-ttu-id="fbaa2-789">Zostaną wyświetlone utworzone tabele.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-789">The created tables are displayed.</span></span>
 
 ![Tabele w SSOX](complex-data-model/_static/ssox-tables.png)
 
-<span data-ttu-id="c7ed2-427">Sprawdź **CourseAssignment** tabeli:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-427">Examine the **CourseAssignment** table:</span></span>
+<span data-ttu-id="fbaa2-791">Zapoznaj się z tabelą **CourseAssignment** :</span><span class="sxs-lookup"><span data-stu-id="fbaa2-791">Examine the **CourseAssignment** table:</span></span>
 
-* <span data-ttu-id="c7ed2-428">Kliknij prawym przyciskiem myszy **CourseAssignment** tabeli, a następnie wybierz pozycję **dane widoku**.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-428">Right-click the **CourseAssignment** table and select **View Data**.</span></span>
-* <span data-ttu-id="c7ed2-429">Sprawdź **CourseAssignment** tabela zawiera dane.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-429">Verify the **CourseAssignment** table contains data.</span></span>
+* <span data-ttu-id="fbaa2-792">Kliknij prawym przyciskiem myszy tabelę **CourseAssignment** , a następnie wybierz polecenie **Wyświetl dane**.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-792">Right-click the **CourseAssignment** table and select **View Data**.</span></span>
+* <span data-ttu-id="fbaa2-793">Sprawdź, czy tabela **CourseAssignment** zawiera dane.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-793">Verify the **CourseAssignment** table contains data.</span></span>
 
-![Dane CourseAssignment SSOX](complex-data-model/_static/ssox-ci-data.png)
+![CourseAssignment dane w SSOX](complex-data-model/_static/ssox-ci-data.png)
 
 <a name="applyexisting"></a>
 
-### <a name="apply-the-migration-to-the-existing-database"></a><span data-ttu-id="c7ed2-431">Dotyczą migracji z istniejącej bazy danych</span><span class="sxs-lookup"><span data-stu-id="c7ed2-431">Apply the migration to the existing database</span></span>
+### <a name="apply-the-migration-to-the-existing-database"></a><span data-ttu-id="fbaa2-795">Zastosowanie migracji do istniejącej bazy danych</span><span class="sxs-lookup"><span data-stu-id="fbaa2-795">Apply the migration to the existing database</span></span>
 
-<span data-ttu-id="c7ed2-432">Ta sekcja jest opcjonalna.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-432">This section is optional.</span></span> <span data-ttu-id="c7ed2-433">Następujące kroki działają tylko wtedy, gdy pominięto poprzednie [Usuń i ponownie utworzyć bazę danych](#drop) sekcji.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-433">These steps work only if you skipped the preceding [Drop and re-create the database](#drop) section.</span></span>
+<span data-ttu-id="fbaa2-796">Ta sekcja jest opcjonalna.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-796">This section is optional.</span></span> <span data-ttu-id="fbaa2-797">Kroki te działają tylko wtedy, gdy pominięto poprzednią [listę i ponownie utworzysz sekcję bazy danych](#drop) .</span><span class="sxs-lookup"><span data-stu-id="fbaa2-797">These steps work only if you skipped the preceding [Drop and re-create the database](#drop) section.</span></span>
 
-<span data-ttu-id="c7ed2-434">Podczas migracji są uruchamiane z istniejącymi danymi, mogą istnieć ograniczenia klucza Obcego, które nie są spełnione z istniejącymi danymi.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-434">When migrations are run with existing data, there may be FK constraints that are not satisfied with the existing data.</span></span> <span data-ttu-id="c7ed2-435">Z danymi produkcyjnymi należy przedsięwziąć do migrowania istniejących danych.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-435">With production data, steps must be taken to migrate the existing data.</span></span> <span data-ttu-id="c7ed2-436">Ta sekcja zawiera przykład poprawiania naruszenia ograniczeń klucza Obcego.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-436">This section provides an example of fixing FK constraint violations.</span></span> <span data-ttu-id="c7ed2-437">Nie wprowadzaj tych zmian kodu, bez kopii zapasowej.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-437">Don't make these code changes without a backup.</span></span> <span data-ttu-id="c7ed2-438">Nie należy wprowadzić te zmiany kodu, jeśli wykonano poprzedniej sekcji, a aktualizacji bazy danych.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-438">Don't make these code changes if you completed the previous section and updated the database.</span></span>
+<span data-ttu-id="fbaa2-798">Po uruchomieniu migracji z istniejącymi danymi mogą istnieć ograniczenia klucza obcego, które nie są spełnione w przypadku istniejących danych.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-798">When migrations are run with existing data, there may be FK constraints that are not satisfied with the existing data.</span></span> <span data-ttu-id="fbaa2-799">W przypadku danych produkcyjnych należy wykonać kroki, aby przeprowadzić migrację istniejących danych.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-799">With production data, steps must be taken to migrate the existing data.</span></span> <span data-ttu-id="fbaa2-800">Ta sekcja zawiera przykład rozwiązywania naruszeń ograniczenia klucza obcego.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-800">This section provides an example of fixing FK constraint violations.</span></span> <span data-ttu-id="fbaa2-801">Nie należy wprowadzać tych zmian w kodzie bez tworzenia kopii zapasowej.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-801">Don't make these code changes without a backup.</span></span> <span data-ttu-id="fbaa2-802">Nie wprowadzaj tych zmian w kodzie, jeśli wykonano poprzednią sekcję i Zaktualizowano bazę danych.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-802">Don't make these code changes if you completed the previous section and updated the database.</span></span>
 
-<span data-ttu-id="c7ed2-439">*{Timestamp}_ComplexDataModel.cs* plik zawiera następujący kod:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-439">The *{timestamp}_ComplexDataModel.cs* file contains the following code:</span></span>
+<span data-ttu-id="fbaa2-803">Plik *{timestamp} _ComplexDataModel. cs* zawiera następujący kod:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-803">The *{timestamp}_ComplexDataModel.cs* file contains the following code:</span></span>
 
 [!code-csharp[](intro/samples/cu/Migrations/20171027005808_ComplexDataModel.cs?name=snippet_DepartmentID)]
 
-<span data-ttu-id="c7ed2-440">Poprzedzający kod dodaje dopuszcza `DepartmentID` klucza Obcego do `Course` tabeli.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-440">The preceding code adds a non-nullable `DepartmentID` FK to the `Course` table.</span></span> <span data-ttu-id="c7ed2-441">Bazy danych z poprzedniego samouczka zawiera wiersze w `Course`, więc ta tabela nie może zaktualizować migracji.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-441">The DB from the previous tutorial contains rows in `Course`, so that table cannot be updated by migrations.</span></span>
+<span data-ttu-id="fbaa2-804">Poprzedzający kod dodaje `DepartmentID` `Course` do tabeli obcy niedopuszczający wartości null.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-804">The preceding code adds a non-nullable `DepartmentID` FK to the `Course` table.</span></span> <span data-ttu-id="fbaa2-805">Baza danych z poprzedniego samouczka zawiera wiersze w `Course`, dlatego nie można zaktualizować tabeli za pomocą migracji.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-805">The DB from the previous tutorial contains rows in `Course`, so that table cannot be updated by migrations.</span></span>
 
-<span data-ttu-id="c7ed2-442">Zapewnienie `ComplexDataModel` pracy migracji z istniejącymi danymi:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-442">To make the `ComplexDataModel` migration work with existing data:</span></span>
+<span data-ttu-id="fbaa2-806">Aby `ComplexDataModel` migracja była współdziałać z istniejącymi danymi:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-806">To make the `ComplexDataModel` migration work with existing data:</span></span>
 
-* <span data-ttu-id="c7ed2-443">Zmień kod, aby nadać nową kolumnę (`DepartmentID`) wartość domyślną.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-443">Change the code to give the new column (`DepartmentID`) a default value.</span></span>
-* <span data-ttu-id="c7ed2-444">Tworzyć fałszywej dział o nazwie "Temp" jako domyślnego działu.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-444">Create a fake department named "Temp" to act as the default department.</span></span>
+* <span data-ttu-id="fbaa2-807">Zmień kod, aby nadać nowej kolumnie (`DepartmentID`) wartość domyślną.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-807">Change the code to give the new column (`DepartmentID`) a default value.</span></span>
+* <span data-ttu-id="fbaa2-808">Utwórz fałszywy Departament o nazwie "Temp", który ma pełnić rolę działu domyślnego.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-808">Create a fake department named "Temp" to act as the default department.</span></span>
 
-#### <a name="fix-the-foreign-key-constraints"></a><span data-ttu-id="c7ed2-445">Rozwiązywanie ograniczeń klucza obcego</span><span class="sxs-lookup"><span data-stu-id="c7ed2-445">Fix the foreign key constraints</span></span>
+#### <a name="fix-the-foreign-key-constraints"></a><span data-ttu-id="fbaa2-809">Popraw ograniczenia klucza obcego</span><span class="sxs-lookup"><span data-stu-id="fbaa2-809">Fix the foreign key constraints</span></span>
 
-<span data-ttu-id="c7ed2-446">Aktualizacja `ComplexDataModel` klasy `Up` metody:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-446">Update the `ComplexDataModel` classes `Up` method:</span></span>
+<span data-ttu-id="fbaa2-810">Zaktualizuj metodę `Up`klasy: `ComplexDataModel`</span><span class="sxs-lookup"><span data-stu-id="fbaa2-810">Update the `ComplexDataModel` classes `Up` method:</span></span>
 
-* <span data-ttu-id="c7ed2-447">Otwórz *{timestamp}_ComplexDataModel.cs* pliku.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-447">Open the *{timestamp}_ComplexDataModel.cs* file.</span></span>
-* <span data-ttu-id="c7ed2-448">Komentarz wiersza kodu, który dodaje `DepartmentID` kolumny `Course` tabeli.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-448">Comment out the line of code that adds the `DepartmentID` column to the `Course` table.</span></span>
+* <span data-ttu-id="fbaa2-811">Otwórz plik *{timestamp} _ComplexDataModel. cs* .</span><span class="sxs-lookup"><span data-stu-id="fbaa2-811">Open the *{timestamp}_ComplexDataModel.cs* file.</span></span>
+* <span data-ttu-id="fbaa2-812">Dodaj komentarz `DepartmentID` `Course` do wiersza kodu, który dodaje kolumnę do tabeli.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-812">Comment out the line of code that adds the `DepartmentID` column to the `Course` table.</span></span>
 
 [!code-csharp[](intro/samples/cu/Migrations/20171027005808_ComplexDataModel.cs?name=snippet_CommentOut&highlight=9-13)]
 
-<span data-ttu-id="c7ed2-449">Dodaj następujący wyróżniony kod.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-449">Add the following highlighted code.</span></span> <span data-ttu-id="c7ed2-450">Nowy kod przechodzi po `.CreateTable( name: "Department"` bloku:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-450">The new code goes after the `.CreateTable( name: "Department"` block:</span></span>
+<span data-ttu-id="fbaa2-813">Dodaj następujący wyróżniony kod.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-813">Add the following highlighted code.</span></span> <span data-ttu-id="fbaa2-814">Nowy kod przechodzi po `.CreateTable( name: "Department"` bloku:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-814">The new code goes after the `.CreateTable( name: "Department"` block:</span></span>
 
  [!code-csharp[](intro/samples/cu/Migrations/20171027005808_ComplexDataModel.cs?name=snippet_CreateDefaultValue&highlight=22-32)]
 
-<span data-ttu-id="c7ed2-451">Za pomocą zmian poprzednim, istniejące `Course` wiersze zostaną powiązane do działu "Temperatura", po `ComplexDataModel` `Up` metoda przebiegów.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-451">With the preceding changes, existing `Course` rows will be related to the "Temp" department after the `ComplexDataModel` `Up` method runs.</span></span>
+<span data-ttu-id="fbaa2-815">Po wykonaniu powyższych zmian istniejące `Course` wiersze będą powiązane z działem "Temp" po uruchomieniumetody.`Up` `ComplexDataModel`</span><span class="sxs-lookup"><span data-stu-id="fbaa2-815">With the preceding changes, existing `Course` rows will be related to the "Temp" department after the `ComplexDataModel` `Up` method runs.</span></span>
 
-<span data-ttu-id="c7ed2-452">Aplikacji produkcyjnej może:</span><span class="sxs-lookup"><span data-stu-id="c7ed2-452">A production app would:</span></span>
+<span data-ttu-id="fbaa2-816">Aplikacja produkcyjna:</span><span class="sxs-lookup"><span data-stu-id="fbaa2-816">A production app would:</span></span>
 
-* <span data-ttu-id="c7ed2-453">Uwzględnić w kodzie albo skryptach, aby dodać `Department` wiersze i powiązane `Course` wierszy do nowego `Department` wierszy.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-453">Include code or scripts to add `Department` rows and related `Course` rows to the new `Department` rows.</span></span>
-* <span data-ttu-id="c7ed2-454">Używaj działu "Temp" lub wartość domyślną dla `Course.DepartmentID`.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-454">Not use the "Temp" department or the default value for `Course.DepartmentID`.</span></span>
+* <span data-ttu-id="fbaa2-817">Dołącz kod lub skrypty, aby `Department` dodać wiersze i `Course` powiązane wiersze do nowych `Department` wierszy.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-817">Include code or scripts to add `Department` rows and related `Course` rows to the new `Department` rows.</span></span>
+* <span data-ttu-id="fbaa2-818">Nie używaj działu "Temp" ani wartości domyślnej dla `Course.DepartmentID`.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-818">Not use the "Temp" department or the default value for `Course.DepartmentID`.</span></span>
 
-<span data-ttu-id="c7ed2-455">Następny samouczek obejmuje powiązane dane.</span><span class="sxs-lookup"><span data-stu-id="c7ed2-455">The next tutorial covers related data.</span></span>
+<span data-ttu-id="fbaa2-819">Następny samouczek obejmuje powiązane dane.</span><span class="sxs-lookup"><span data-stu-id="fbaa2-819">The next tutorial covers related data.</span></span>
 
-## <a name="additional-resources"></a><span data-ttu-id="c7ed2-456">Dodatkowe zasoby</span><span class="sxs-lookup"><span data-stu-id="c7ed2-456">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="fbaa2-820">Dodatkowe zasoby</span><span class="sxs-lookup"><span data-stu-id="fbaa2-820">Additional resources</span></span>
 
-* [<span data-ttu-id="c7ed2-457">Wersja usługi YouTube w tym samouczku (część 1)</span><span class="sxs-lookup"><span data-stu-id="c7ed2-457">YouTube version of this tutorial(Part 1)</span></span>](https://www.youtube.com/watch?v=0n2f0ObgCoA)
-* [<span data-ttu-id="c7ed2-458">Wersja usługi YouTube w tym samouczku (część 2)</span><span class="sxs-lookup"><span data-stu-id="c7ed2-458">YouTube version of this tutorial(Part 2)</span></span>](https://www.youtube.com/watch?v=Je0Z5K1TNmY)
+* [<span data-ttu-id="fbaa2-821">Wersja usługi YouTube w tym samouczku (część 1)</span><span class="sxs-lookup"><span data-stu-id="fbaa2-821">YouTube version of this tutorial(Part 1)</span></span>](https://www.youtube.com/watch?v=0n2f0ObgCoA)
+* [<span data-ttu-id="fbaa2-822">Wersja usługi YouTube w tym samouczku (część 2)</span><span class="sxs-lookup"><span data-stu-id="fbaa2-822">YouTube version of this tutorial(Part 2)</span></span>](https://www.youtube.com/watch?v=Je0Z5K1TNmY)
 
 
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="c7ed2-459">[Poprzednie](xref:data/ef-rp/migrations)
-> [dalej](xref:data/ef-rp/read-related-data)</span><span class="sxs-lookup"><span data-stu-id="c7ed2-459">[Previous](xref:data/ef-rp/migrations)
+> <span data-ttu-id="fbaa2-823">[Poprzedni](xref:data/ef-rp/migrations)Następny
+> [](xref:data/ef-rp/read-related-data)</span><span class="sxs-lookup"><span data-stu-id="fbaa2-823">[Previous](xref:data/ef-rp/migrations)
 [Next](xref:data/ef-rp/read-related-data)</span></span>
+
+::: moniker-end
