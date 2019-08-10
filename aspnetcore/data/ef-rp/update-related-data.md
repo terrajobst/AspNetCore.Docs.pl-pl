@@ -1,217 +1,434 @@
 ---
-title: Strony razor z programem EF Core w programie ASP.NET Core — aktualizowanie powiązanych danych - 7, 8
+title: Razor Pages z EF Core w ASP.NET Core-Update — powiązane dane — 7 z 8
 author: rick-anderson
-description: W tym samouczku będziesz aktualizowanie powiązanych danych, aktualizując pola kluczy obcych i właściwości nawigacji.
+description: W tym samouczku należy zaktualizować powiązane dane przez zaktualizowanie pól klucza obcego i właściwości nawigacji.
 ms.author: riande
-ms.date: 11/15/2017
+ms.date: 07/22/2019
 uid: data/ef-rp/update-related-data
-ms.openlocfilehash: b996e7f9c8e422060f6378a6004a53906e2af7c7
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 72fb9165010f6852e2ad577b36efbeee55c76def
+ms.sourcegitcommit: 776367717e990bdd600cb3c9148ffb905d56862d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087098"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68914169"
 ---
-# <a name="razor-pages-with-ef-core-in-aspnet-core---update-related-data---7-of-8"></a>Strony razor z programem EF Core w programie ASP.NET Core — aktualizowanie powiązanych danych - 7, 8
+# <a name="razor-pages-with-ef-core-in-aspnet-core---update-related-data---7-of-8"></a>Razor Pages z EF Core w ASP.NET Core-Update — powiązane dane — 7 z 8
 
-Przez [Tom Dykstra](https://github.com/tdykstra), i [Rick Anderson](https://twitter.com/RickAndMSFT)
+Przez [Tomasz Dykstra](https://github.com/tdykstra)i [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [!INCLUDE [about the series](../../includes/RP-EF/intro.md)]
 
-Ten samouczek pokazuje, aktualizowanie powiązanych danych. Jeśli napotkasz problemy, nie można rozwiązać, [pobrania lub wyświetlenia ukończonej aplikacji.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples) [Instrukcje pobierania](xref:index#how-to-download-a-sample).
+::: moniker range=">= aspnetcore-3.0"
 
-Poniższa ilustracja przedstawia niektóre strony ukończone.
+W tym samouczku pokazano, jak zaktualizować powiązane dane. Na poniższych ilustracjach przedstawiono niektóre z ukończonych stron.
 
-![Strona edytowania kurs](update-related-data/_static/course-edit.png)
-![przez instruktorów edytowanie strony](update-related-data/_static/instructor-edit-courses.png)
+![](update-related-data/_static/course-edit30.png)
+Stronaedycji![kursów — Edytuj stronę](update-related-data/_static/instructor-edit-courses30.png)
 
-Sprawdź, aby ją przetestować, tworzyć i edytować kursu. Tworzenie nowego kursu. Dział jest wybierany za pomocą klucza podstawowego (liczba całkowita), nie jego nazwę. Edytowanie nowego kursu. Po zakończeniu testowania Usuń nowego kursu.
+## <a name="update-the-course-create-and-edit-pages"></a>Aktualizowanie stron tworzenie i edytowanie kursu
+
+Kod szkieletowy dla stron tworzenie i edytowanie danych zawiera listę rozwijaną dział, która zawiera identyfikator działu (liczba całkowita). Lista rozwijana powinna zawierać nazwę działu, więc obie te strony muszą mieć listę nazw działów. Aby zapewnić tę listę, użyj klasy bazowej dla stron tworzenia i edytowania.
+
+### <a name="create-a-base-class-for-course-create-and-edit"></a>Tworzenie klasy bazowej do tworzenia i edytowania kursu
+
+Utwórz plik *Pages/kurss/DepartmentNamePageModel. cs* przy użyciu następującego kodu:
+
+[!code-csharp[](intro/samples/cu30/Pages/Courses/DepartmentNamePageModel.cs)]
+
+Poprzedni kod tworzy [SelectList](/dotnet/api/microsoft.aspnetcore.mvc.rendering.selectlist?view=aspnetcore-2.0) , aby zawierał listę nazw działów. Jeśli `selectedDepartment` jest określony, ten dział jest wybierany `SelectList`w.
+
+Klasy Utwórz i edytuj model strony będą pochodzić od `DepartmentNamePageModel`.
+
+### <a name="update-the-course-create-page-model"></a>Aktualizuj model tworzenia strony kursu
+
+Kurs jest przypisywany do działu. Klasa bazowa dla stron tworzenia i edytowania umożliwia `SelectList` wybranie działu. Lista rozwijana korzystająca z `SelectList` właściwości `Course.DepartmentID` ustawia klucz obcy (FK). EF Core używa `Course.DepartmentID` klucza obcego do `Department` załadowania właściwości nawigacji.
+
+![Utwórz kurs](update-related-data/_static/ddl30.png)
+
+Zaktualizuj *strony/kursy/Utwórz. cshtml. cs* przy użyciu następującego kodu:
+
+[!code-csharp[](intro/samples/cu30/Pages/Courses/Create.cshtml.cs?highlight=7,18,27-41)]
+
+Powyższy kod:
+
+* Pochodzi od `DepartmentNamePageModel`.
+* Używa `TryUpdateModelAsync` do zapobiegania [](xref:data/ef-rp/crud#overposting)przepisywaniu.
+* Usuwa `ViewData["DepartmentID"]`. `DepartmentNameSL`z klasy podstawowej jest silnie wpisaną model i będzie używany przez stronę Razor. Modele silnie wpisane są preferowane za pośrednictwem słabo wpisanych. Aby uzyskać więcej informacji, zobacz [słabo wpisane dane (ViewData i ViewBag)](xref:mvc/views/overview#VD_VB).
+
+### <a name="update-the-course-create-razor-page"></a>Aktualizowanie strony Tworzenie Razor dla kursu
+
+Zaktualizuj *strony/kursy/Utwórz. cshtml* przy użyciu następującego kodu:
+
+[!code-cshtml[](intro/samples/cu30/Pages/Courses/Create.cshtml?highlight=29-34)]
+
+Poprzedni kod wprowadza następujące zmiany:
+
+* Zmienia podpis z **DepartmentID** na **dział**.
+* Zamienia `"ViewBag.DepartmentID"` wartość `DepartmentNameSL` na (z klasy bazowej).
+* Dodaje opcję "Wybierz dział". Ta zmiana renderuje "Select Department" na liście rozwijanej, gdy nie wybrano jeszcze żadnego działu, a nie pierwszego działu.
+* Dodaje komunikat weryfikacyjny, gdy nie wybrano działu.
+
+Strona Razor używa pomocnika [wybierania tagu](xref:mvc/views/working-with-forms#the-select-tag-helper):
+
+[!code-cshtml[](intro/samples/cu/Pages/Courses/Create.cshtml?range=28-35&highlight=3-6)]
+
+Przetestuj stronę tworzenie. Na stronie Tworzenie zostanie wyświetlona nazwa działu, a nie identyfikator działu.
+
+### <a name="update-the-course-edit-page-model"></a>Aktualizowanie modelu strony edytowania kursu
+
+Zaktualizuj *strony/kursy/Edytuj. cshtml. cs* przy użyciu następującego kodu:
+
+[!code-csharp[](intro/samples/cu30/Pages/Courses/Edit.cshtml.cs?highlight=8,28,35,36,40-66)]
+
+Zmiany są podobne do tych, które zostały wprowadzone w modelu tworzenia strony. W poprzednim kodzie program `PopulateDepartmentsDropDownList` przekazuje identyfikator działu, który wybiera ten dział z listy rozwijanej.
+
+### <a name="update-the-course-edit-razor-page"></a>Aktualizowanie strony edytowanie kursu Razor
+
+Aktualizowanie *stron/kursów/Edit. cshtml* przy użyciu następującego kodu:
+
+[!code-cshtml[](intro/samples/cu30/Pages/Courses/Edit.cshtml?highlight=17-20,32-35)]
+
+Poprzedni kod wprowadza następujące zmiany:
+
+* Wyświetla identyfikator kursu. Zazwyczaj klucz podstawowy (PK) jednostki nie jest wyświetlany. PKs są zwykle oznaczane przez użytkowników. W tym przypadku klucz podstawowy jest numerem kursu.
+* Zmienia podpis dla listy rozwijanej działu od **DepartmentID** do **działu**.
+* Zamienia `"ViewBag.DepartmentID"` wartość `DepartmentNameSL` na (z klasy bazowej).
+
+Ta strona zawiera ukryte pole (`<input type="hidden">`) dla numeru kursu. Dodanie pomocnika `asp-for="Course.CourseID"` tagów z nie eliminuje potrzeby pola ukrytego. `<label>` `<input type="hidden">`jest wymagana do uwzględnienia numeru kursu w opublikowanych danych, gdy użytkownik kliknie przycisk **Zapisz**.
+
+## <a name="update-the-course-details-and-delete-pages"></a>Aktualizowanie szczegółów kursu i stron usuwania
+
+[AsNoTracking](/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.asnotracking?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_AsNoTracking__1_System_Linq_IQueryable___0__) może zwiększyć wydajność, gdy śledzenie nie jest wymagane.
+
+### <a name="update-the-course-page-models"></a>Aktualizowanie modeli stron kursu
+
+Zaktualizuj *strony/kursy/Delete. cshtml. cs* przy użyciu następującego kodu do dodania `AsNoTracking`:
+
+[!code-csharp[](intro/samples/cu30/Pages/Courses/Delete.cshtml.cs?highlight=29)]
+
+Wprowadź tę samą zmianę w pliku *Pages/kurss/details. cshtml. cs* :
+
+[!code-csharp[](intro/samples/cu30/Pages/Courses/Details.cshtml.cs?highlight=28)]
+
+### <a name="update-the-course-razor-pages"></a>Aktualizowanie stron Razor dla kursu
+
+Zaktualizuj *strony/kursy/Delete. cshtml* przy użyciu następującego kodu:
+
+[!code-cshtml[](intro/samples/cu30/Pages/Courses/Delete.cshtml?highlight=15-20,37)]
+
+Wprowadź te same zmiany na stronie Szczegóły.
+
+[!code-cshtml[](intro/samples/cu30/Pages/Courses/Details.cshtml?highlight=14-19,36)]
+
+## <a name="test-the-course-pages"></a>Testowanie stron kursów
+
+Przetestuj strony tworzenie, edytowanie, szczegóły i usuwanie.
+
+## <a name="update-the-instructor-create-and-edit-pages"></a>Aktualizowanie strony instruktora tworzenie i edytowanie stron
+
+Instruktorzy mogą uczyć się dowolnej liczby kursów. Na poniższej ilustracji przedstawiono stronę Edytowanie instruktora z tablicą pól wyboru kursu.
+
+![Instruktor strony edytowania za pomocą kursów](update-related-data/_static/instructor-edit-courses30.png)
+
+Pola wyboru umożliwiają zmianę kursów, do których zostanie przypisany instruktor. Pole wyboru jest wyświetlane dla każdego kursu w bazie danych. Wybrane są kursy, do których przypisano instruktora. Użytkownik może zaznaczyć lub wyczyścić pola wyboru, aby zmienić przypisania kursu. Jeśli liczba kursów była znacznie większa, może to poprawić inny interfejs użytkownika. Jednak metoda zarządzania relacją wiele-do-wielu pokazana tutaj nie zmieniła się. Aby utworzyć lub usunąć relacje, można manipulować jednostką sprzężenia.
+
+### <a name="create-a-class-for-assigned-courses-data"></a>Utwórz klasę dla danych przypisanych kursów
+
+Utwórz *SchoolViewModels/AssignedCourseData. cs* przy użyciu następującego kodu:
+
+[!code-csharp[](intro/samples/cu30/Models/SchoolViewModels/AssignedCourseData.cs)]
+
+`AssignedCourseData` Klasa zawiera dane, aby utworzyć pola wyboru dla kursów przypisanych do instruktora.
+
+### <a name="create-an-instructor-page-model-base-class"></a>Utwórz klasę bazową modelu strony instruktora
+
+Utwórz klasę bazową *stron/instruktorów/InstructorCoursesPageModel. cs* :
+
+[!code-csharp[](intro/samples/cu30/Pages/Instructors/InstructorCoursesPageModel.cs?name=snippet_All)]
+
+`InstructorCoursesPageModel` Jest klasą bazową, która będzie używana dla modeli stron Edycja i tworzenie. `PopulateAssignedCourseData`odczytuje wszystkie `Course` jednostki do wypełnienia `AssignedCourseDataList`. Dla każdego kursu kod ustawia `CourseID`, tytuł i określa, czy instruktor jest przypisany do kursu. [HashSet —](/dotnet/api/system.collections.generic.hashset-1) jest używany do wydajnego wyszukiwania.
+
+Ze względu na to, że strona Razor nie zawiera kolekcji jednostek kursu, obiekt tworzący model `CourseAssignments` nie może automatycznie zaktualizować właściwości nawigacji. Zamiast używać spinacza modelu do aktualizowania `CourseAssignments` właściwości nawigacji, należy to zrobić w nowej `UpdateInstructorCourses` metodzie. W związku z tym należy wykluczyć `CourseAssignments` właściwość z powiązania modelu. Nie wymaga żadnych zmian w kodzie, który wywołuje `TryUpdateModel` się, ponieważ jest używane Przeciążenie listy dozwolonych i `CourseAssignments` nie znajduje się na liście dołączania.
+
+Jeśli nie wybrano żadnych pól wyboru, kod w `UpdateInstructorCourses` `CourseAssignments` inicjuje właściwość nawigacji z pustą kolekcją i zwraca:
+
+[!code-csharp[](intro/samples/cu30/Pages/Instructors/InstructorCoursesPageModel.cs?name=snippet_IfNull)]
+
+Kod następnie przechodzi między wszystkimi kursami w bazie danych i sprawdza każdy kurs w odniesieniu do tych, które są aktualnie przypisane do instruktora, a także do tych, które zostały wybrane na stronie. Aby ułatwić efektywne wyszukiwanie, te dwie kolekcje są przechowywane w `HashSet` obiektach.
+
+Jeśli pole wyboru dla kursu zostało zaznaczone, ale kurs nie jest we `Instructor.CourseAssignments` właściwości nawigacji, kurs zostanie dodany do kolekcji we właściwości nawigacji.
+
+[!code-csharp[](intro/samples/cu30/Pages/Instructors/InstructorCoursesPageModel.cs?name=snippet_UpdateCourses)]
+
+Jeśli nie wybrano pola wyboru dla kursu, ale kurs jest we `Instructor.CourseAssignments` właściwości nawigacji, kurs jest usuwany z właściwości nawigacji.
+
+[!code-csharp[](intro/samples/cu30/Pages/Instructors/InstructorCoursesPageModel.cs?name=snippet_UpdateCoursesElse)]
+
+### <a name="handle-office-location"></a>Obsługa lokalizacji biura
+
+Inna relacja, którą Strona Edytuj musi obsłużyć, jest relacją "jeden do zera" lub "jeden", którą jednostka instruktora ma z `OfficeAssignment` jednostką. Program instruktora edytuje kod musi obsługiwać następujące scenariusze: 
+
+* Jeśli użytkownik wyczyści przypisanie pakietu Office, Usuń `OfficeAssignment` jednostkę.
+* Jeśli użytkownik wprowadzi przypisanie do pakietu Office i jest puste, należy utworzyć nową `OfficeAssignment` jednostkę.
+* Jeśli użytkownik zmieni przypisanie pakietu Office, zaktualizuj `OfficeAssignment` jednostkę.
+
+### <a name="update-the-instructor-edit-page-model"></a>Aktualizowanie modelu strony przez instruktora
+
+Aktualizowanie *stron/instruktorów/Edit. cshtml. cs* przy użyciu następującego kodu:
+
+[!code-csharp[](intro/samples/cu30/Pages/Instructors/Edit.cshtml.cs?name=snippet_All&highlight=9,28-32,38,42-77)]
+
+Powyższy kod:
+
+* Pobiera bieżącą `Instructor` jednostkę z bazy danych przy użyciu eager ładowania `OfficeAssignment`dla właściwości nawigacji `CourseAssignment`, i `CourseAssignment.Course` .
+* Aktualizuje pobraną `Instructor` jednostkę z wartościami ze spinacza modelu. `TryUpdateModel`zapobiega [](xref:data/ef-rp/crud#overposting)zastępowaniu.
+* Jeśli lokalizacja biura jest pusta, ustawia `Instructor.OfficeAssignment` wartość na null. Gdy `Instructor.OfficeAssignment` ma wartość null, powiązany wiersz `OfficeAssignment` w tabeli jest usuwany.
+* Wywołuje `PopulateAssignedCourseData` `AssignedCourseData` w `OnGetAsync` celu podania informacji dla pól wyboru przy użyciu klasy model widoku.
+* Wywołuje `UpdateInstructorCourses`program,aby zastosować informacje z pól wyboru do edytowanej jednostki instruktora. `OnPostAsync`
+* Wywołania `PopulateAssignedCourseData` i `UpdateInstructorCourses` w `OnPostAsync` przypadku niepowodzenia.`TryUpdateModel` Te wywołania metody powodują przywrócenie przypisanych danych kursu wprowadzonych na stronie, gdy jest on ponownie wyświetlany z komunikatem o błędzie.
+
+### <a name="update-the-instructor-edit-razor-page"></a>Aktualizuj stronę "Edytuj Razor" instruktora
+
+Aktualizowanie *stron/instruktorów/Edit. cshtml* przy użyciu następującego kodu:
+
+[!code-cshtml[](intro/samples/cu30/Pages/Instructors/Edit.cshtml?highlight=29-59)]
+
+Poprzedni kod tworzy tabelę HTML, która ma trzy kolumny. Każda kolumna ma pole wyboru i podpis zawierający numer i tytuł kursu. Wszystkie pola wyboru mają taką samą nazwę ("selectedCourses"). Użycie tej samej nazwy informuje spinacz modelu, aby traktować go jako grupę. Atrybut value każdego pola wyboru jest ustawiony na `CourseID`. Po opublikowaniu strony spinacz modelu przekaże tablicę, która składa się z `CourseID` wartości tylko wybranych pól wyboru.
+
+Gdy pola wyboru są początkowo renderowane, wybierane są kursy przypisane do instruktora.
+
+Uwaga: Podejście podjęte tutaj do edytowania danych kursu instruktora działa dobrze, gdy istnieje ograniczona liczba kursów. W przypadku kolekcji, które są znacznie większe, inny interfejs użytkownika i inna metoda aktualizacji byłyby bardziej użyteczny i wydajny.
+
+Uruchom aplikację i przetestuj zaktualizowaną stronę edycji instruktorów. Zmień niektóre przypisania kursu. Zmiany zostaną odzwierciedlone na stronie indeksu.
+
+### <a name="update-the-instructor-create-page"></a>Aktualizowanie strony tworzenia instruktora
+
+Zaktualizuj program instruktora Tworzenie modelu strony i strony Razor przy użyciu kodu podobnego do strony edytowania:
+
+[!code-csharp[](intro/samples/cu30/Pages/Instructors/Create.cshtml.cs)]
+
+[!code-cshtml[](intro/samples/cu30/Pages/Instructors/Create.cshtml)]
+
+Przetestuj stronę tworzenie instruktora.
+
+## <a name="update-the-instructor-delete-page"></a>Aktualizuj stronę usuwania instruktora
+
+Zaktualizuj *strony/instruktorów/Delete. cshtml. cs* przy użyciu następującego kodu:
+
+[!code-csharp[](intro/samples/cu30/Pages/Instructors/Delete.cshtml.cs?highlight=45-61)]
+
+Poprzedni kod wprowadza następujące zmiany:
+
+* Używa ładowania eager dla `CourseAssignments` właściwości nawigacji. `CourseAssignments`musi być dołączony lub nie jest usuwany po usunięciu instruktora. Aby uniknąć konieczności ich odczytywania, skonfiguruj kaskadowe usuwanie w bazie danych.
+
+* Jeśli instruktor zostanie usunięty, zostanie przypisany jako administrator jakichkolwiek działów, program usunie przypisanie instruktora z tych urzędów.
+
+Uruchom aplikację i Przetestuj stronę usuwania.
+
+## <a name="next-steps"></a>Następne kroki
+
+> [!div class="step-by-step"]
+> [Poprzedni](xref:data/ef-rp/read-related-data)
+> samouczek w[następnym](xref:data/ef-rp/concurrency) samouczku
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+W tym samouczku pokazano, jak aktualizować powiązane dane. Jeśli napotkasz problemy, nie można rozwiązać, [pobrania lub wyświetlenia ukończonej aplikacji.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples) [Instrukcje pobierania](xref:index#how-to-download-a-sample).
+
+Na poniższych ilustracjach przedstawiono niektóre z ukończonych stron.
+
+![](update-related-data/_static/course-edit.png)
+Stronaedycji![kursów — Edytuj stronę](update-related-data/_static/instructor-edit-courses.png)
+
+Sprawdź i przetestuj strony Tworzenie i edytowanie kursu. Utwórz nowy kurs. Dział jest wybierany przez jego klucz podstawowy (liczba całkowita), a nie jego nazwę. Edytuj nowy kurs. Po zakończeniu testowania Usuń nowy kurs.
 
 ## <a name="create-a-base-class-to-share-common-code"></a>Utwórz klasę bazową, aby udostępnić wspólny kod
 
-Kursy/tworzenia kursy/edytowanie strony i każdy muszą listę nazw działów. Utwórz *Pages/Courses/DepartmentNamePageModel.cshtml.cs* klasa podstawowa dla stron tworzyć i edytować:
+Wszystkie strony kursy/tworzenie i kursy/Edycja muszą mieć listę nazw działów. Utwórz klasę bazową *stron/kursów/DepartmentNamePageModel. cshtml. cs* dla stron tworzenia i edytowania:
 
 [!code-csharp[](intro/samples/cu/Pages/Courses/DepartmentNamePageModel.cshtml.cs?highlight=9,11,20-21)]
 
-Powyższy kod tworzy [SelectList](/dotnet/api/microsoft.aspnetcore.mvc.rendering.selectlist?view=aspnetcore-2.0) zawierać listę nazw działów. Jeśli `selectedDepartment` określono wybrano działu `SelectList`.
+Poprzedni kod tworzy [SelectList](/dotnet/api/microsoft.aspnetcore.mvc.rendering.selectlist?view=aspnetcore-2.0) , aby zawierał listę nazw działów. Jeśli `selectedDepartment` jest określony, ten dział jest wybierany `SelectList`w.
 
-Tworzenie i edytowanie klas modelu strony będzie dziedziczyć `DepartmentNamePageModel`.
+Klasy Utwórz i edytuj model strony będą pochodzić od `DepartmentNamePageModel`.
 
 ## <a name="customize-the-courses-pages"></a>Dostosowywanie stron kursów
 
-Po utworzeniu nowej jednostki kurs, musi on mieć relacji do istniejących działu. Dział podczas tworzenia kurs, klasa bazowa dla tworzyć i edytować zawiera listy rozwijanej, służąca do wybierania działu. Z listy rozwijanej zestawów `Course.DepartmentID` właściwości klucza obcego (klucz OBCY). Używa programu EF Core `Course.DepartmentID` klucza Obcego załadować `Department` właściwości nawigacji.
+Po utworzeniu nowej jednostki kursu musi ona mieć relację z istniejącym działem. Aby dodać dział podczas tworzenia kursu, Klasa bazowa do tworzenia i edycji zawiera listę rozwijaną umożliwiającą wybranie działu. Lista rozwijana ustawia `Course.DepartmentID` Właściwość klucz obcy (FK). EF Core używa `Course.DepartmentID` klucza obcego do `Department` załadowania właściwości nawigacji.
 
 ![Utwórz kurs](update-related-data/_static/ddl.png)
 
-Aktualizowanie modelu strony Utwórz następującym kodem:
+Zaktualizuj model tworzenia strony przy użyciu następującego kodu:
 
 [!code-csharp[](intro/samples/cu/Pages/Courses/Create.cshtml.cs?highlight=7,18,32-999)]
 
 Powyższy kod:
 
-* Pochodzi od klasy `DepartmentNamePageModel`.
-* Używa `TryUpdateModelAsync` zapobiegające [polegającymi](xref:data/ef-rp/crud#overposting).
-* Zastępuje `ViewData["DepartmentID"]` z `DepartmentNameSL` (z klasy bazowej).
+* Pochodzi od `DepartmentNamePageModel`.
+* Używa `TryUpdateModelAsync` do zapobiegania [](xref:data/ef-rp/crud#overposting)przepisywaniu.
+* Zamienia `ViewData["DepartmentID"]` wartość `DepartmentNameSL` na (z klasy bazowej).
 
-`ViewData["DepartmentID"]` zastępuje z silnie typizowaną `DepartmentNameSL`. Silnie typizowane modeli są preferowane przez słabo wpisane. Aby uzyskać więcej informacji, zobacz [słabo wpisanych danych (z podejścia ViewData i obiekt ViewBag)](xref:mvc/views/overview#VD_VB).
+`ViewData["DepartmentID"]`jest zastępowany silną typem `DepartmentNameSL`. Modele silnie wpisane są preferowane za pośrednictwem słabo wpisanych. Aby uzyskać więcej informacji, zobacz [słabo wpisane dane (ViewData i ViewBag)](xref:mvc/views/overview#VD_VB).
 
-### <a name="update-the-courses-create-page"></a>Aktualizacja kursy — Tworzenie strony
+### <a name="update-the-courses-create-page"></a>Aktualizowanie strony Tworzenie kursów
 
-Aktualizacja *Pages/Courses/Create.cshtml* następującym kodem:
+Zaktualizuj *strony/kursy/Utwórz. cshtml* przy użyciu następującego kodu:
 
 [!code-cshtml[](intro/samples/cu/Pages/Courses/Create.cshtml?highlight=29-34)]
 
 Poprzedni kod znaczników wprowadza następujące zmiany:
 
-* Zmienia podpis z **DepartmentID** do **działu**.
-* Zastępuje `"ViewBag.DepartmentID"` z `DepartmentNameSL` (z klasy bazowej).
-* Dodaje opcję "Wybierz dział". Ta zmiana powoduje wyświetlenie "Wybierz dział" zamiast pierwszy działu.
-* Dodaje komunikat dotyczący sprawdzania poprawności, gdy dział nie jest wybrany.
+* Zmienia podpis z **DepartmentID** na **dział**.
+* Zamienia `"ViewBag.DepartmentID"` wartość `DepartmentNameSL` na (z klasy bazowej).
+* Dodaje opcję "Wybierz dział". Ta zmiana renderuje "Select Department" zamiast pierwszego działu.
+* Dodaje komunikat weryfikacyjny, gdy nie wybrano działu.
 
-Strona Razor używa [wybierz Pomocnik tagu](xref:mvc/views/working-with-forms#the-select-tag-helper):
+Strona Razor używa pomocnika [wybierania tagu](xref:mvc/views/working-with-forms#the-select-tag-helper):
 
 [!code-cshtml[](intro/samples/cu/Pages/Courses/Create.cshtml?range=28-35&highlight=3-6)]
 
-Przetestuj strona tworzenia. Strona tworzenia Wyświetla nazwę działu, a nie identyfikatora działu.
+Przetestuj stronę tworzenie. Na stronie Tworzenie zostanie wyświetlona nazwa działu, a nie identyfikator działu.
 
-### <a name="update-the-courses-edit-page"></a>Zaktualizuj strony Edytuj kursów.
+### <a name="update-the-courses-edit-page"></a>Zaktualizuj stronę Edytowanie kursów.
 
-Aktualizowanie modelu strony edycji z następującym kodem:
+Zastąp kod w obszarze *Pages/kursys/Edit. cshtml. cs* następującym kodem:
 
 [!code-csharp[](intro/samples/cu/Pages/Courses/Edit.cshtml.cs?highlight=8,28,35,36,40,47-999)]
 
-Zmiany są podobne do wprowadzonych w modelu strony Utwórz. W poprzednim kodzie `PopulateDepartmentsDropDownList` przebiegów w identyfikatorze działu, które dział określonych na liście rozwijanej.
+Zmiany są podobne do tych, które zostały wprowadzone w modelu tworzenia strony. W poprzednim kodzie program `PopulateDepartmentsDropDownList` przekazuje identyfikator działu, który wybierze dział określony na liście rozwijanej.
 
-Aktualizacja *Pages/Courses/Edit.cshtml* następującym kodem:
+Aktualizowanie *stron/kursów/Edit. cshtml* przy użyciu następującego znacznika:
 
 [!code-cshtml[](intro/samples/cu/Pages/Courses/Edit.cshtml?highlight=17-20,32-35)]
 
 Poprzedni kod znaczników wprowadza następujące zmiany:
 
-* Wyświetla identyfikator kursu. Ogólnie nie jest wyświetlany podstawowego klucza (PK) z jednostki. PKs są zazwyczaj znaczenia dla użytkowników. W tym przypadku PK jest to liczba kursu.
-* Zmienia podpis z **DepartmentID** do **działu**.
-* Zastępuje `"ViewBag.DepartmentID"` z `DepartmentNameSL` (z klasy bazowej).
+* Wyświetla identyfikator kursu. Zazwyczaj klucz podstawowy (PK) jednostki nie jest wyświetlany. PKs są zwykle oznaczane przez użytkowników. W tym przypadku klucz podstawowy jest numerem kursu.
+* Zmienia podpis z **DepartmentID** na **dział**.
+* Zamienia `"ViewBag.DepartmentID"` wartość `DepartmentNameSL` na (z klasy bazowej).
 
-Ta strona zawiera pole ukryte (`<input type="hidden">`) dla liczby kursów. Dodawanie `<label>` tag Pomocnik ze `asp-for="Course.CourseID"` nie eliminuje potrzebę stosowania ukryte pole. `<input type="hidden">` jest wymagany dla numeru kurs, które mają zostać uwzględnione w przesłane dane, gdy użytkownik kliknie **Zapisz**.
+Ta strona zawiera ukryte pole (`<input type="hidden">`) dla numeru kursu. Dodanie pomocnika `asp-for="Course.CourseID"` tagów z nie eliminuje potrzeby pola ukrytego. `<label>` `<input type="hidden">`jest wymagana do uwzględnienia numeru kursu w opublikowanych danych, gdy użytkownik kliknie przycisk **Zapisz**.
 
 Przetestuj zaktualizowany kod. Tworzenie, edytowanie i usuwanie kursu.
 
-## <a name="add-asnotracking-to-the-details-and-delete-page-models"></a>Dodaj AsNoTracking do szczegółów i usuwania modeli strony
+## <a name="add-asnotracking-to-the-details-and-delete-page-models"></a>Dodawanie AsNoTracking do modeli szczegółów i stron usuwania
 
-[AsNoTracking](/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.asnotracking?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_AsNoTracking__1_System_Linq_IQueryable___0__) może poprawić wydajność, gdy śledzenie nie jest wymagane. Dodaj `AsNoTracking` z modelem strony Delete i szczegółowe informacje. Poniższy kod pokazuje aktualizowanego modelu strony usuwania:
+[AsNoTracking](/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.asnotracking?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_AsNoTracking__1_System_Linq_IQueryable___0__) może zwiększyć wydajność, gdy śledzenie nie jest wymagane. Dodaj `AsNoTracking` do modelu strony usuwanie i szczegóły. Poniższy kod przedstawia zaktualizowany model strony usuwania:
 
 [!code-csharp[](intro/samples/cu/Pages/Courses/Delete.cshtml.cs?name=snippet&highlight=21,23,40,41)]
 
-Aktualizacja `OnGetAsync` method in Class metoda *Pages/Courses/Details.cshtml.cs* pliku:
+Zaktualizuj metodę w pliku *Pages/kursów/details. cshtml. cs:* `OnGetAsync`
 
 [!code-csharp[](intro/samples/cu/Pages/Courses/Details.cshtml.cs?name=snippet)]
 
-### <a name="modify-the-delete-and-details-pages"></a>Modyfikowanie stron Delete i szczegóły
+### <a name="modify-the-delete-and-details-pages"></a>Modyfikowanie stron usuwania i szczegółów
 
-Zaktualizuj strony Razor Usuń następującym kodem:
+Zaktualizuj stronę usuwania Razor za pomocą następującego znacznika:
 
 [!code-cshtml[](intro/samples/cu/Pages/Courses/Delete.cshtml?highlight=15-20)]
 
-Wprowadzenie identycznych zmian do strony szczegółów.
+Wprowadź te same zmiany na stronie Szczegóły.
 
-### <a name="test-the-course-pages"></a>Testowanie stron kursu
+### <a name="test-the-course-pages"></a>Testowanie stron kursów
 
-Test tworzenia, edytowania szczegółów i usuwania.
+Testowanie tworzenia, edytowania, szczegółów i usuwania.
 
-## <a name="update-the-instructor-pages"></a>Aktualizowanie stron przez instruktorów
+## <a name="update-the-instructor-pages"></a>Aktualizowanie stron instruktora
 
-Poniższe sekcje aktualizacji stron instruktora.
+W poniższych sekcjach zostały zaktualizowane strony instruktora.
 
-### <a name="add-office-location"></a>Dodaj lokalizację pakietu office
+### <a name="add-office-location"></a>Dodaj lokalizację biura
 
-Podczas edytowania rekordu przez instruktorów, można zaktualizować przez instruktorów biuro. `Instructor` Jednostka ma relacji jeden do zero lub jeden z `OfficeAssignment` jednostki. Kod przez instruktorów musi obsługiwać:
+Podczas edytowania rekordu instruktora warto zaktualizować przypisanie biura instruktora. Jednostka ma relację jeden do zera lub jeden `OfficeAssignment` z jednostką. `Instructor` Kod instruktora musi obsłużyć:
 
-* Jeśli użytkownik usunie zaznaczenie przypisania pakietu office, Usuń `OfficeAssignment` jednostki.
-* Jeśli użytkownik wprowadzi biuro i był on pusty, Utwórz nowe `OfficeAssignment` jednostki.
-* Jeśli użytkownik zmieni przypisania pakietu office, należy zaktualizować `OfficeAssignment` jednostki.
+* Jeśli użytkownik wyczyści przypisanie pakietu Office, Usuń `OfficeAssignment` jednostkę.
+* Jeśli użytkownik wprowadzi przypisanie do pakietu Office i jest puste, należy utworzyć nową `OfficeAssignment` jednostkę.
+* Jeśli użytkownik zmieni przypisanie pakietu Office, zaktualizuj `OfficeAssignment` jednostkę.
 
-Aktualizowanie modelu strony edytowania Instruktorzy z następującym kodem:
+Zaktualizuj program instruktors Edytuj model strony przy użyciu następującego kodu:
 
 [!code-csharp[](intro/samples/cu/Pages/Instructors/Edit1.cshtml.cs?name=snippet&highlight=20-23,32,39-999)]
 
 Powyższy kod:
 
-* Pobiera bieżący `Instructor` jednostki z bazy danych przy użyciu wczesne ładowanie dla `OfficeAssignment` właściwości nawigacji.
-* Aktualizuje pobrany `Instructor` jednostki z wartościami z integratora modelu. `TryUpdateModel` Zapobiega [polegającymi](xref:data/ef-rp/crud#overposting).
-* Jeśli lokalizacja pakietu office jest pusta, ustawia `Instructor.OfficeAssignment` na wartość null. Gdy `Instructor.OfficeAssignment` jest null, powiązane wiersza w `OfficeAssignment` tabeli zostanie usunięty.
+* Pobiera bieżącą `Instructor` jednostkę z bazy danych przy użyciu eager ładowania `OfficeAssignment` dla właściwości nawigacji.
+* Aktualizuje pobraną `Instructor` jednostkę z wartościami ze spinacza modelu. `TryUpdateModel`zapobiega [](xref:data/ef-rp/crud#overposting)zastępowaniu.
+* Jeśli lokalizacja biura jest pusta, ustawia `Instructor.OfficeAssignment` wartość na null. Gdy `Instructor.OfficeAssignment` ma wartość null, powiązany wiersz `OfficeAssignment` w tabeli jest usuwany.
 
-### <a name="update-the-instructor-edit-page"></a>Zaktualizuj strony edytowania przez instruktorów
+### <a name="update-the-instructor-edit-page"></a>Aktualizowanie strony edytowania instruktora
 
-Aktualizacja *Pages/Instructors/Edit.cshtml* z lokalizacji biura:
+Aktualizowanie *stron/instruktorów/Edit. cshtml* w lokalizacji biura:
 
 [!code-cshtml[](intro/samples/cu/Pages/Instructors/Edit1.cshtml?highlight=29-33)]
 
-Sprawdź, czy można zmienić lokalizacji biura instruktorów.
+Sprawdź, czy można zmienić lokalizację biura instruktorów.
 
-## <a name="add-course-assignments-to-the-instructor-edit-page"></a>Dodaj kurs przypisania do strony edytowania przez instruktorów
+## <a name="add-course-assignments-to-the-instructor-edit-page"></a>Dodawanie przypisań kursu do strony edytowania instruktora
 
-Instruktorzy może nauczyć dowolnej liczby kursów. W tej sekcji dodasz możliwość zmiany przypisania kursu. Na poniższej ilustracji przedstawiono zaktualizowane przez instruktorów strony edytowania:
+Instruktorzy mogą uczyć się dowolnej liczby kursów. W tej sekcji dodasz możliwość zmiany przypisań kursu. Na poniższej ilustracji przedstawiono zaktualizowaną stronę edycji instruktora:
 
-![Strona edytowania przez instruktorów dzięki kursom](update-related-data/_static/instructor-edit-courses.png)
+![Instruktor strony edytowania za pomocą kursów](update-related-data/_static/instructor-edit-courses.png)
 
-`Course` i `Instructor` jest w relacji wiele do wielu. Aby dodawać i usuwać relacje, w przypadku dodawania i usuwania jednostek z `CourseAssignments` Dołącz do zestawu jednostek.
+`Course`i `Instructor` ma relację wiele-do-wielu. Aby dodać i usunąć relacje, należy dodać i usunąć jednostki z `CourseAssignments` zestawu jednostek sprzężenia.
 
-Pola wyboru Włącz zmiany do kursów, przypisanego pod kierunkiem instruktora. Pole wyboru jest wyświetlane dla każdego kursu w bazie danych. Kursy, przypisanych do instruktora są sprawdzane. Użytkownik może zaznacz lub wyczyść pola wyboru, aby zmienić przypisania kursu. Gdyby znacznie większą liczbę kursy:
+Pola wyboru umożliwiają zmianę kursów, do których zostanie przypisany instruktor. Pole wyboru jest wyświetlane dla każdego kursu w bazie danych. Kursy, do których jest przypisany instruktor, są sprawdzane. Użytkownik może zaznaczyć lub wyczyścić pola wyboru, aby zmienić przypisania kursu. Jeśli liczba kursów była znacznie większa:
 
-* Interfejs inny użytkownik będzie prawdopodobnie umożliwia wyświetlenie kursy.
-* W takich sytuacjach przydałaby zmienić metodę manipulowanie jednostki sprzężenia, można utworzyć ani usunąć relacji.
+* Prawdopodobnie używasz innego interfejsu użytkownika do wyświetlania kursów.
+* Metoda manipulowania jednostką sprzężenia w celu tworzenia lub usuwania relacji nie ulegnie zmianie.
 
-### <a name="add-classes-to-support-create-and-edit-instructor-pages"></a>Dodawanie klasy do obsługi tworzenia i edycji stron przez instruktorów
+### <a name="add-classes-to-support-create-and-edit-instructor-pages"></a>Dodaj klasy do obsługi tworzenia i edytowania stron instruktorów
 
-Tworzenie *SchoolViewModels/AssignedCourseData.cs* następującym kodem:
+Utwórz *SchoolViewModels/AssignedCourseData. cs* przy użyciu następującego kodu:
 
 [!code-csharp[](intro/samples/cu/Models/SchoolViewModels/AssignedCourseData.cs)]
 
-`AssignedCourseData` Klasa zawiera danych, aby utworzyć pól wyboru dla przypisanych kursy przez instruktora.
+`AssignedCourseData` Klasa zawiera dane, aby utworzyć pola wyboru dla przypisanych kursów przez instruktora.
 
-Tworzenie *Pages/Instructors/InstructorCoursesPageModel.cshtml.cs* klasa bazowa:
+Utwórz klasę bazową *stron/instruktorów/InstructorCoursesPageModel. cshtml. cs* :
 
 [!code-csharp[](intro/samples/cu/Pages/Instructors/InstructorCoursesPageModel.cshtml.cs)]
 
-`InstructorCoursesPageModel` Jest klasą bazową, będzie używane do edycji i tworzyć modele strony. `PopulateAssignedCourseData` odczytuje wszystkie `Course` jednostek, aby wypełnić `AssignedCourseDataList`. Dla każdego kursu kod ustawia `CourseID`, tytuł i czy nie jest przypisany do kursu instruktora. A [hashset —](/dotnet/api/system.collections.generic.hashset-1) służy do tworzenia wyszukiwań wydajne.
+`InstructorCoursesPageModel` Jest klasą bazową, która będzie używana dla modeli stron Edycja i tworzenie. `PopulateAssignedCourseData`odczytuje wszystkie `Course` jednostki do wypełnienia `AssignedCourseDataList`. Dla każdego kursu kod ustawia `CourseID`, tytuł i określa, czy instruktor jest przypisany do kursu. [HashSet —](/dotnet/api/system.collections.generic.hashset-1) jest używany do tworzenia wydajnych wyszukiwań.
 
-### <a name="instructors-edit-page-model"></a>Instruktorzy edycji strony modelu
+### <a name="instructors-edit-page-model"></a>Instruktorzy edytują model strony
 
-Aktualizowanie modelu strony edycji przez instruktorów, z następującym kodem:
+Zaktualizuj model strony instruktora do edycji przy użyciu następującego kodu:
 
 [!code-csharp[](intro/samples/cu/Pages/Instructors/Edit.cshtml.cs?name=snippet&highlight=1,20-24,30,34,41-999)]
 
-Powyższy kod obsługuje zmiany przypisania pakietu office.
+Poprzedni kod obsługuje zmiany przypisania pakietu Office.
 
-Aktualizacja instruktora widoku Razor:
+Aktualizowanie widoku Razor dla instruktora:
 
 [!code-cshtml[](intro/samples/cu/Pages/Instructors/Edit.cshtml?highlight=34-59)]
 
 <a id="notepad"></a>
 > [!NOTE]
-> Po wklejeniu kodu w programie Visual Studio podziały wierszy zostały zmienione w taki sposób, że przerwanie wykonywania kodu. Naciśnij klawisze Ctrl + Z jeden raz, aby cofnąć, automatycznego formatowania. CTRL + Z rozwiązuje podziałów wiersza, aby wyglądają jak tutaj zobaczyć. Wcięcie nie musi być idealna, ale `@</tr><tr>`, `@:<td>`, `@:</td>`, i `@:</tr>` linie muszą być w jednym wierszu jak pokazano. Za pomocą bloku wybrano nowego kodu naciśnij klawisz Tab, trzy razy na wiersz w górę nowego kodu przy użyciu istniejącego kodu. Sprawdź stan tej usterki lub Głosuj na [za pomocą tego łącza](https://developercommunity.visualstudio.com/content/problem/147795/razor-editor-malforms-pasted-markup-and-creates-in.html).
+> Gdy wkleisz kod w programie Visual Studio, podziały wierszy są zmieniane w sposób, który przerywa kod. Naciśnij klawisze Ctrl + Z po raz, aby cofnąć automatyczne formatowanie. Kombinacja klawiszy Ctrl + Z naprawia podziały wierszy, aby wyglądały tak, jak widać w tym miejscu. Wcięcie nie musi być doskonałe `@</tr><tr>`, ale linie `@:</td>`, `@:<td>`, i `@:</tr>` muszą znajdować się w jednym wierszu, jak pokazano. Po wybraniu bloku nowego kodu naciśnij klawisz Tab trzy razy, aby wyrównać nowy kod z istniejącym kodem. Zagłosuj lub Sprawdź stan tej usterki [za pomocą tego linku](https://developercommunity.visualstudio.com/content/problem/147795/razor-editor-malforms-pasted-markup-and-creates-in.html).
 
-Powyższy kod tworzy tabelę HTML, który ma trzy kolumny. Każda kolumna ma postać pola wyboru i podpis zawierający kurs numer i tytuł. Wszystkie pola wyboru mają taką samą nazwę ("selectedCourses"). Przy użyciu tej samej nazwie informuje integratora modelu je traktować jako grupa. Ma ustawioną wartość atrybutu wartości każdego pola wyboru `CourseID`. Po opublikowaniu strony, integratora modelu przekazuje tablicę, która składa się z `CourseID` wartości dla pola wyboru, które są wybrane.
+Poprzedni kod tworzy tabelę HTML, która ma trzy kolumny. Każda kolumna ma pole wyboru i podpis zawierający numer i tytuł kursu. Wszystkie pola wyboru mają tę samą nazwę ("selectedCourses"). Użycie tej samej nazwy informuje spinacz modelu, aby traktować go jako grupę. Atrybut value każdego pola wyboru jest ustawiony na `CourseID`. Po opublikowaniu strony spinacz modelu przekaże tablicę, która składa się z `CourseID` wartości tylko wybranych pól wyboru.
 
-Gdy pole wyboru początkowo są renderowane, kursy przypisane do instruktora sprawdzeniu atrybutów.
+Gdy pola wyboru są początkowo renderowane, kursy przypisane do instruktora mają zaznaczone atrybuty.
 
-Uruchamianie aplikacji i przetestuj strony edytowania Instruktorzy zaktualizowane. Zmienić niektóre przypisania kursu. Zmiany zostaną odzwierciedlone na stronę indeksu.
+Uruchom aplikację i przetestuj zaktualizowaną stronę edycji instruktorów. Zmień niektóre przypisania kursu. Zmiany zostaną odzwierciedlone na stronie indeksu.
 
-Uwaga: Tutaj podejście do edycji przez instruktorów kurs danych działa dobrze w przypadku, gdy istnieje ograniczona liczba kursów. Kolekcje, które są znacznie większe innego interfejsu użytkownika i inną metodę aktualizacji będzie bardziej użyteczny i efektywny.
+Uwaga: Podejście podjęte tutaj do edytowania danych kursu instruktora działa dobrze, gdy istnieje ograniczona liczba kursów. W przypadku kolekcji, które są znacznie większe, inny interfejs użytkownika i inna metoda aktualizacji byłyby bardziej użyteczny i wydajny.
 
-### <a name="update-the-instructors-create-page"></a>Strona tworzenia Instruktorzy aktualizacji
+### <a name="update-the-instructors-create-page"></a>Aktualizuj stronę tworzenia instruktorów
 
-Aktualizowanie modelu strony Utwórz przez instruktorów, z następującym kodem:
+Zaktualizuj program instruktora Tworzenie modelu strony przy użyciu następującego kodu:
 
 [!code-csharp[](intro/samples/cu/Pages/Instructors/Create.cshtml.cs)]
 
-Powyższy kod jest podobny do *Pages/Instructors/Edit.cshtml.cs* kodu.
+Poprzedni kod jest podobny do kodu *stron/instruktorów/Edit. cshtml. cs* .
 
-Zaktualizuj strony Razor tworzenia przez instruktorów następującym kodem:
+Zaktualizuj program instruktora Utwórz stronę Razor z następującą adiustacją:
 
 [!code-cshtml[](intro/samples/cu/Pages/Instructors/Create.cshtml?highlight=32-62)]
 
-Przetestuj strona tworzenia instruktora.
+Przetestuj stronę tworzenie instruktora.
 
 ## <a name="update-the-delete-page"></a>Aktualizuj stronę Delete
 
@@ -219,11 +436,11 @@ Aktualizowanie modelu strony Usuń z następującym kodem:
 
 [!code-csharp[](intro/samples/cu/Pages/Instructors/Delete.cshtml.cs?highlight=5,40-999)]
 
-Poprzedzający kod wprowadza następujące zmiany:
+Poprzedni kod wprowadza następujące zmiany:
 
-* Używa wczesne ładowanie dla `CourseAssignments` właściwości nawigacji. `CourseAssignments` muszą być włączone lub nie zostały usunięte po usunięciu instruktora. Aby uniknąć konieczności je odczytać, należy skonfigurować usuwanie kaskadowe w bazie danych.
+* Używa ładowania eager dla `CourseAssignments` właściwości nawigacji. `CourseAssignments`musi być dołączony lub nie jest usuwany po usunięciu instruktora. Aby uniknąć konieczności ich odczytywania, skonfiguruj kaskadowe usuwanie w bazie danych.
 
-* Jeśli przez instruktorów do usunięcia jest przypisany jako administrator działy, usuwa przypisanie instruktora z tych działów.
+* Jeśli instruktor zostanie usunięty, zostanie przypisany jako administrator jakichkolwiek działów, program usunie przypisanie instruktora z tych urzędów.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
@@ -231,5 +448,7 @@ Poprzedzający kod wprowadza następujące zmiany:
 * [Wersja usługi YouTube w tym samouczku (część 2)](https://www.youtube.com/watch?v=mOAankB_Zgc)
 
 > [!div class="step-by-step"]
-> [Poprzednie](xref:data/ef-rp/read-related-data)
-> [dalej](xref:data/ef-rp/concurrency)
+> [Poprzedni](xref:data/ef-rp/read-related-data)Następny
+> [](xref:data/ef-rp/concurrency)
+
+::: moniker-end

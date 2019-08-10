@@ -1,40 +1,40 @@
 ---
-title: Razor konwencje tras i aplikacji stron w programie ASP.NET Core
+title: Razor Pages Konwencji tras i aplikacji w ASP.NET Core
 author: guardrex
-description: Dowiedz się, jak konwencje tras i aplikacji dostawcy modelu pomóc routingu strony kontroli, odnajdywania i przetwarzania.
+description: Dowiedz się, w jaki sposób Konwencja i konwencje dostawcy modelu aplikacji ułatwiają kontrolowanie routingu, odnajdywania i przetwarzania stron.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/07/2019
+ms.date: 08/08/2019
 uid: razor-pages/razor-pages-conventions
-ms.openlocfilehash: 59c8af648b50deb51f3762c14348d08acd48886e
-ms.sourcegitcommit: bee530454ae2b3c25dc7ffebf93536f479a14460
+ms.openlocfilehash: c93f169c422d260f738faba4812861521f383e51
+ms.sourcegitcommit: 776367717e990bdd600cb3c9148ffb905d56862d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67724445"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68914974"
 ---
-# <a name="razor-pages-route-and-app-conventions-in-aspnet-core"></a>Razor konwencje tras i aplikacji stron w programie ASP.NET Core
+# <a name="razor-pages-route-and-app-conventions-in-aspnet-core"></a>Razor Pages Konwencji tras i aplikacji w ASP.NET Core
 
 Przez [Luke Latham](https://github.com/guardrex)
 
-Dowiedz się, jak użyć strony [tras i aplikacji modelu Konwencji dostawcy](xref:mvc/controllers/application-model#conventions) do kontrolowania strony routingu, odnajdywania i przetwarzania w aplikacjach stron Razor.
+Dowiedz się, w jaki sposób używać [konwencji dotyczących trasy strony i dostawcy modelu aplikacji](xref:mvc/controllers/application-model#conventions) do kontrolowania routingu, odnajdywania i przetwarzania stron w aplikacjach Razor Pages.
 
-Gdy trzeba skonfigurować trasy niestandardowej strony do poszczególnych stron, należy skonfigurować routing do stron z [Konwencji AddPageRoute](#configure-a-page-route) opisane w dalszej części tego tematu.
+Jeśli trzeba skonfigurować niestandardowe trasy stron dla poszczególnych stron, skonfiguruj Routing do stron z [Konwencją AddPageRoute](#configure-a-page-route) opisanej w dalszej części tego tematu.
 
-Aby określić trasę strony, Dodaj trasę segmentów lub dodać parametry do trasy, przejść do strony `@page` dyrektywy. Aby uzyskać więcej informacji, zobacz [trasy niestandardowe](xref:razor-pages/index#custom-routes).
+Aby określić trasę strony, dodać segmenty tras lub dodać parametry do trasy, użyj `@page` dyrektywy strony. Aby uzyskać więcej informacji, zobacz [niestandardowe trasy](xref:razor-pages/index#custom-routes).
 
-Brak słów zastrzeżonych, których nie można użyć jako trasy segmentów lub nazw parametrów. Aby uzyskać więcej informacji, zobacz [routingu: Zastrzeżone nazwy routingu](xref:fundamentals/routing#reserved-routing-names).
+Istnieją słowa zastrzeżone, których nie można używać jako segmentów tras ani nazw parametrów. Aby uzyskać więcej informacji, [zobacz Routing: Zastrzeżone nazwy](xref:fundamentals/routing#reserved-routing-names)routingu.
 
 [Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
-| Scenariusz | W przykładzie pokazano... |
+| Scenariusz | Przykład ilustruje... |
 | -------- | --------------------------- |
-| [Konwencje modelu](#model-conventions)<br><br>Conventions.Add<ul><li>IPageRouteModelConvention</li><li>IPageApplicationModelConvention</li><li>IPageHandlerModelConvention</li></ul> | Dodaj szablon trasy i nagłówek do strony aplikacji. |
-| [Konwencje akcji trasy strony](#page-route-action-conventions)<ul><li>AddFolderRouteModelConvention</li><li>AddPageRouteModelConvention</li><li>AddPageRoute</li></ul> | Dodaj szablon trasy do stron w folderze i jednej strony. |
-| [Konwencje akcji modelu strony](#page-model-action-conventions)<ul><li>AddFolderApplicationModelConvention</li><li>AddPageApplicationModelConvention</li><li>ConfigureFilter (Filtr klasy, wyrażenie lambda lub filtra)</li></ul> | Dodanie nagłówka do stron w folderze, dodanie nagłówka do jednej strony, a następnie skonfiguruj [filtra](xref:mvc/controllers/filters#ifilterfactory) na dodanie nagłówka do strony aplikacji. |
+| [Konwencje modelu](#model-conventions)<br><br>Konwencje. Add<ul><li>IPageRouteModelConvention</li><li>IPageApplicationModelConvention</li><li>IPageHandlerModelConvention</li></ul> | Dodaj szablon trasy i nagłówek do stron aplikacji. |
+| [Konwencje akcji trasy strony](#page-route-action-conventions)<ul><li>AddFolderRouteModelConvention</li><li>AddPageRouteModelConvention</li><li>AddPageRoute</li></ul> | Dodaj szablon trasy do stron w folderze i do pojedynczej strony. |
+| [Konwencje akcji modelu strony](#page-model-action-conventions)<ul><li>AddFolderApplicationModelConvention</li><li>AddPageApplicationModelConvention</li><li>ConfigureFilter (Klasa filtru, wyrażenie lambda lub fabryka filtrów)</li></ul> | Dodaj nagłówek do stron w folderze, Dodaj nagłówek do jednej strony i skonfiguruj [fabrykę filtrów](xref:mvc/controllers/filters#ifilterfactory) , aby dodać nagłówek do stron aplikacji. |
 
-Konwencje stron razor są dodawane i skonfigurować za pomocą <xref:Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcBuilderExtensions.AddRazorPagesOptions*> metodę rozszerzenia, aby <xref:Microsoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions.AddMvc*> w kolekcji usługi w `Startup` klasy. W poniższych przykładach Konwencji są wyjaśnione w dalszej części tego tematu:
+Konwencje Razor Pages są dodawane i konfigurowane przy <xref:Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcBuilderExtensions.AddRazorPagesOptions*> użyciu metody rozszerzenia <xref:Microsoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions.AddMvc*> do kolekcji usług w `Startup` klasie. Poniższe przykłady Konwencji zostały omówione w dalszej części tego tematu:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -43,140 +43,225 @@ public void ConfigureServices(IServiceCollection services)
         .AddRazorPagesOptions(options =>
             {
                 options.Conventions.Add( ... );
-                options.Conventions.AddFolderRouteModelConvention("/OtherPages", model => { ... });
-                options.Conventions.AddPageRouteModelConvention("/About", model => { ... });
-                options.Conventions.AddPageRoute("/Contact", "TheContactPage/{text?}");
-                options.Conventions.AddFolderApplicationModelConvention("/OtherPages", model => { ... });
-                options.Conventions.AddPageApplicationModelConvention("/About", model => { ... });
+                options.Conventions.AddFolderRouteModelConvention(
+                    "/OtherPages", model => { ... });
+                options.Conventions.AddPageRouteModelConvention(
+                    "/About", model => { ... });
+                options.Conventions.AddPageRoute(
+                    "/Contact", "TheContactPage/{text?}");
+                options.Conventions.AddFolderApplicationModelConvention(
+                    "/OtherPages", model => { ... });
+                options.Conventions.AddPageApplicationModelConvention(
+                    "/About", model => { ... });
                 options.Conventions.ConfigureFilter(model => { ... });
                 options.Conventions.ConfigureFilter( ... );
             });
 }
 ```
 
-## <a name="route-order"></a>Kolejność trasy
+## <a name="route-order"></a>Kolejność tras
 
-Określanie tras <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> przetwarzania (dopasowanie trasy).
+Trasy określają <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> do przetwarzania (dopasowanie trasy).
 
 | Zamówienie            | Zachowanie |
 | :--------------: | -------- |
-| -1               | Trasy są przetwarzane przed inne trasy są przetwarzane. |
-| 0                | Nie określono kolejności (wartość domyślna). Przypisanie nie `Order` (`Order = null`) domyślne trasy `Order` na 0 (zero) do przetworzenia. |
+| -1               | Trasa jest przetwarzana przed przetworzeniem innych tras. |
+| 0                | Nie określono kolejności (wartość domyślna). Przypisanie `Order` `Order` (`Order = null`) domyślnie trasy do 0 (zero) do przetworzenia. |
 | 1, 2, &hellip; n | Określa kolejność przetwarzania trasy. |
 
-Zgodnie z Konwencją tworzy się przetwarzanie trasy:
+Przetwarzanie trasy zostało ustanowione według Konwencji:
 
-* Trasy są przetwarzane w kolejności sekwencyjnej (-1, 0, 1, 2, &hellip; n).
-* Kiedy trasy mają taką samą `Order`, maksymalnie określoną trasę jest dopasowywany najpierw następuje mniej określonej trasy.
-* Gdy trasy z takimi samymi `Order` i taką samą liczbę parametrów dopasowania w adresie URL żądania, trasy są przetwarzane w kolejności, które są dodawane do <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection>.
+* Trasy są przetwarzane w kolejności sekwencyjnej (-1, 0, 1, 2 &hellip; , n).
+* Gdy trasy są takie same `Order`, najpierw pasuje do najbardziej określonej trasy, a następnie mniej konkretnych tras.
+* Gdy trasy o tej samej `Order` i tej samej liczbie parametrów pasują do adresu URL żądania, trasy są przetwarzane w kolejności, w jakiej są dodawane <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection>do.
 
-Jeśli to możliwe Unikaj w zależności od ustalonych trasy kolejność przetwarzania. Ogólnie rzecz biorąc routingu wybiera poprawny trasę z pasującymi adresu URL. Jeśli musisz ustawić trasy `Order` właściwości w celu kierowania żądań poprawnie, schemat routingu aplikacji jest prawdopodobnie mylące dla klientów powolnymi i słabymi do zachowania. Wyszukiwanie uprościć routingu schemat aplikacji. Przykładowa aplikacja wymaga jawnego trasę w protokole przetwarzania zamówienia, aby zademonstrować kilku scenariuszy routingu za pomocą pojedynczej aplikacji. Jednakże, należy podjąć w celu uniknięcia rozwiązaniem jest ustawienie trasy `Order` w aplikacjach produkcyjnych.
+Jeśli to możliwe, unikaj w zależności od ustalonej kolejności przetwarzania trasy. Ogólnie rzecz biorąc, routing wybiera prawidłową trasę z dopasowywaniem adresów URL. Jeśli musisz ustawić właściwości trasy `Order` , aby poprawnie kierować żądania, schemat routingu aplikacji jest prawdopodobnie mylący dla klientów i jest nierozsądny do utrzymania. Postaraj się, aby uprościć schemat routingu aplikacji. Przykładowa aplikacja wymaga jawnej kolejności przetwarzania trasy, aby przedstawić kilka scenariuszy routingu przy użyciu jednej aplikacji. Należy jednak podjąć próbę uniknięcia praktycznego ustawienia trasy `Order` w aplikacjach produkcyjnych.
 
-Strony razor routingu i MVC kontroler routingu udziału wdrożenia. Informacje o kolejność trasy w tematach MVC znajduje się w temacie [Routing do akcji kontrolera: Kolejność trasy w atrybucie](xref:mvc/controllers/routing#ordering-attribute-routes).
+Razor Pages Routing i kontroler MVC współdzielą implementację. Informacje o zamówieniu trasy w tematach MVC są [dostępne w obszarze Routing do akcji kontrolera: Porządkowanie tras](xref:mvc/controllers/routing#ordering-attribute-routes)atrybutów.
 
 ## <a name="model-conventions"></a>Konwencje modelu
 
-Dodawanie delegatów dla <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageConvention> dodać [modelu Konwencji](xref:mvc/controllers/application-model#conventions) które są stosowane do stron Razor.
+Dodaj delegata <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageConvention> , aby dodać [konwencje modelu](xref:mvc/controllers/application-model#conventions) , które mają zastosowanie do Razor Pages.
 
-### <a name="add-a-route-model-convention-to-all-pages"></a>Dodawanie modelu Konwencji tras do wszystkich stron
+### <a name="add-a-route-model-convention-to-all-pages"></a>Dodawanie Konwencji modelu trasy do wszystkich stron
 
-Użyj <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions> tworzyć i dodawać <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageRouteModelConvention> do kolekcji <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageConvention> wystąpień, które są stosowane podczas trasy strony modelu konstrukcji.
+Użyj <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions> , aby utworzyć i <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageRouteModelConvention> dodać do kolekcji <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageConvention> wystąpień, które są stosowane podczas konstruowania modelu trasy strony.
 
 Przykładowa aplikacja dodaje `{globalTemplate?}` szablon trasy do wszystkich stron w aplikacji:
 
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](razor-pages-conventions/samples/3.x/SampleApp/Conventions/GlobalTemplatePageRouteModelConvention.cs?name=snippet1)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
 [!code-csharp[](razor-pages-conventions/samples/2.x/SampleApp/Conventions/GlobalTemplatePageRouteModelConvention.cs?name=snippet1)]
 
-<xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> Właściwość <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel> ustawiono `1`. Dzięki temu Następująca trasa pasujące do zachowania w przykładowej aplikacji:
+::: moniker-end
 
-* Szablon trasy dla `TheContactPage/{text?}` zostanie dodany w dalszej części tematu. Trasa strony kontaktu ma domyślną kolejność `null` (`Order = 0`), tak, aby odpowiadała przed `{globalTemplate?}` szablon trasy.
-* `{aboutTemplate?}` Szablon trasy zostanie dodany w dalszej części tematu. `{aboutTemplate?}` Znajduje się szablon `Order` z `2`. Po żądaniu strony informacje o `/About/RouteDataValue`, "RouteDataValue" jest ładowany do `RouteData.Values["globalTemplate"]` (`Order = 1`) i nie `RouteData.Values["aboutTemplate"]` (`Order = 2`) ze względu na ustawienie `Order` właściwości.
-* `{otherPagesTemplate?}` Szablon trasy zostanie dodany w dalszej części tematu. `{otherPagesTemplate?}` Znajduje się szablon `Order` z `2`. Po dowolnej stronie *stron/OtherPages* folderu jest żądanego przy użyciu parametru trasy (na przykład `/OtherPages/Page1/RouteDataValue`), "RouteDataValue" jest ładowany do `RouteData.Values["globalTemplate"]` (`Order = 1`) i nie `RouteData.Values["otherPagesTemplate"]` (`Order = 2`) ze względu na ustawienie `Order` właściwości.
+Właściwość dla elementu jestustawiona`1`na. <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel> <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> Zapewnia to zachowanie dopasowania trasy w przykładowej aplikacji:
 
-Wszędzie tam, gdzie to możliwe, nie należy ustawiać `Order`, które powoduje `Order = 0`. Polegaj na routingu, aby wybrać poprawny trasy.
+* Szablon trasy dla programu `TheContactPage/{text?}` został dodany w dalszej części tematu. Trasa strony kontaktowej ma domyślną kolejność `null` (`Order = 0`), `{globalTemplate?}` więc pasuje przed szablonem trasy.
+* Szablon `{aboutTemplate?}` trasy zostanie dodany w dalszej części tematu. `{aboutTemplate?}` Szablon ma`Order` . `2` Gdy strona informacje jest wymagana w lokalizacji `/About/RouteDataValue`, "RouteDataValue" jest ładowany do `RouteData.Values["globalTemplate"]` (`Order = 1`) `Order` , a `RouteData.Values["aboutTemplate"]` nie`Order = 2`() z powodu ustawienia właściwości.
+* Szablon `{otherPagesTemplate?}` trasy zostanie dodany w dalszej części tematu. `{otherPagesTemplate?}` Szablon ma`Order` . `2` Gdy zażądano dowolnej strony w folderze *Pages/OtherPages* z parametrem trasy (na przykład `/OtherPages/Page1/RouteDataValue`), "RouteDataValue" jest ładowany do `RouteData.Values["globalTemplate"]` (`Order = 1`), a `RouteData.Values["otherPagesTemplate"]` nie`Order = 2`() z powodu ustawienia `Order` właściwość.
 
-Opcje strony razor, takich jak dodawanie <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions>, są dodawane, gdy MVC zostanie dodany do kolekcji usługi w `Startup.ConfigureServices`. Aby uzyskać przykład, zobacz [przykładową aplikację](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/).
+Wszędzie tam, gdzie to możliwe `Order`, nie ustawiaj `Order = 0`, która powoduje. Należy polegać na routingu w celu wybrania odpowiedniej trasy.
+
+Opcje Razor Pages, takie jak dodawanie <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions>, są dodawane po dodaniu MVC do kolekcji usług w programie `Startup.ConfigureServices`. Aby zapoznać się z przykładem, zobacz przykładową [aplikację](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/).
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](razor-pages-conventions/samples/3.x/SampleApp/Startup.cs?name=snippet1)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 [!code-csharp[](razor-pages-conventions/samples/2.x/SampleApp/Startup.cs?name=snippet1)]
 
-Żądanie próbki o stronę w `localhost:5000/About/GlobalRouteValue` i sprawdź wynik:
+::: moniker-end
 
-![Za pomocą tras segment GlobalRouteValue żądaniu strony informacje. Renderowanej stronie pokazuje, że wartości danych trasy są przechwytywane w metodzie OnGet strony.](razor-pages-conventions/_static/about-page-global-template.png)
+Zażądaj przykładowej strony o `localhost:5000/About/GlobalRouteValue` podanej godzinie i sprawdź wynik:
 
-### <a name="add-an-app-model-convention-to-all-pages"></a>Dodawanie aplikacji modelu Konwencji do wszystkich stron
+![Strona informacje jest wymagana z segmentem trasy GlobalRouteValue. Wyrenderowana strona pokazuje, że wartość danych trasy jest przechwytywana w metodzie OnGet strony.](razor-pages-conventions/_static/about-page-global-template.png)
 
-Użyj <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions> tworzyć i dodawać <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageApplicationModelConvention> do kolekcji <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageConvention> wystąpień, które są stosowane podczas stronie konstruowania modelu aplikacji.
+### <a name="add-an-app-model-convention-to-all-pages"></a>Dodawanie Konwencji modelu aplikacji do wszystkich stron
 
-Aby zademonstrować to i inne konwencje w dalszej części tematu, zawiera przykładową aplikację `AddHeaderAttribute` klasy. Konstruktor klasy akceptuje `name` ciągu i `values` tablicy ciągów. Te wartości są używane w jego `OnResultExecuting` metodę, aby ustawić nagłówek odpowiedzi. Pełne klasy jest wyświetlany w [strony modelu działania Konwencji](#page-model-action-conventions) w dalszej części tematu.
+Użyj <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions> , aby utworzyć i <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageApplicationModelConvention> dodać do kolekcji <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageConvention> wystąpień, które są stosowane podczas konstruowania modelu aplikacji na stronie.
 
-Ta aplikacja używa przykładowych `AddHeaderAttribute` klasy, aby dodać nagłówek `GlobalHeader`, do wszystkich stron w aplikacji:
+Aby przedstawić te i inne konwencje w dalszej części tematu, przykładowa aplikacja `AddHeaderAttribute` zawiera klasę. Konstruktor klasy akceptuje `name` ciąg `values` i tablicę ciągów. Te wartości są używane w `OnResultExecuting` metodzie do ustawiania nagłówka odpowiedzi. Pełna Klasa jest wyświetlana w sekcji [konwencje akcji modelu strony](#page-model-action-conventions) w dalszej części tematu.
+
+Przykładowa aplikacja używa `AddHeaderAttribute` klasy do dodawania nagłówka, `GlobalHeader`do wszystkich stron w aplikacji:
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](razor-pages-conventions/samples/3.x/SampleApp/Conventions/GlobalHeaderPageApplicationModelConvention.cs?name=snippet1)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 [!code-csharp[](razor-pages-conventions/samples/2.x/SampleApp/Conventions/GlobalHeaderPageApplicationModelConvention.cs?name=snippet1)]
 
+::: moniker-end
+
 *Startup.cs*:
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](razor-pages-conventions/samples/3.x/SampleApp/Startup.cs?name=snippet2)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 [!code-csharp[](razor-pages-conventions/samples/2.x/SampleApp/Startup.cs?name=snippet2)]
 
-Żądanie próbki o stronę w `localhost:5000/About` i sprawdzić te nagłówki, aby wyświetlić wynik:
+::: moniker-end
 
-![Nagłówki odpowiedzi strony informacje pokazują, że dodano GlobalHeader.](razor-pages-conventions/_static/about-page-global-header.png)
+Zażądaj strony `localhost:5000/About` o podanej próbce i sprawdź nagłówki, aby wyświetlić wyniki:
 
-### <a name="add-a-handler-model-convention-to-all-pages"></a>Dodaj Konwencji modelu obsługi do wszystkich stron
+![Nagłówki odpowiedzi na stronie informacje pokazują, że GlobalHeader został dodany.](razor-pages-conventions/_static/about-page-global-header.png)
 
-Użyj <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions> tworzyć i dodawać <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageHandlerModelConvention> do kolekcji <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageConvention> wystąpień, które są stosowane podczas stronie konstruowania modelu obsługi.
+### <a name="add-a-handler-model-convention-to-all-pages"></a>Dodawanie Konwencji modelu programu obsługi do wszystkich stron
+
+Użyj <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions> , aby utworzyć i <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageHandlerModelConvention> dodać do kolekcji <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageConvention> wystąpień, które są stosowane podczas konstruowania modelu obsługi stron.
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](razor-pages-conventions/samples/3.x/SampleApp/Conventions/GlobalPageHandlerModelConvention.cs?name=snippet1)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 [!code-csharp[](razor-pages-conventions/samples/2.x/SampleApp/Conventions/GlobalPageHandlerModelConvention.cs?name=snippet1)]
 
+::: moniker-end
+
 *Startup.cs*:
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](razor-pages-conventions/samples/3.x/SampleApp/Startup.cs?name=snippet10)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 [!code-csharp[](razor-pages-conventions/samples/2.x/SampleApp/Startup.cs?name=snippet10)]
 
+::: moniker-end
+
 ## <a name="page-route-action-conventions"></a>Konwencje akcji trasy strony
 
-Domyślnego dostawcę modelu trasy, która pochodzi od klasy <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageRouteModelProvider> wywołuje konwencje, które są przeznaczone do zapewnienia punkty rozszerzeń do konfigurowania tras strony.
+Domyślny dostawca modelu trasy, który pochodzi od <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageRouteModelProvider> Konwencji Invoke, zaprojektowanych w celu zapewnienia punktów rozszerzalności do konfigurowania tras strony.
 
-### <a name="folder-route-model-convention"></a>Folder trasy modelu Konwencji
+### <a name="folder-route-model-convention"></a>Konwencja modelu trasy folderu
 
-Użyj <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection.AddFolderRouteModelConvention*> tworzyć i dodawać <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageRouteModelConvention> , wywołuje akcję na <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageRouteModel> dla wszystkich stron w określonym folderze.
+Służy <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection.AddFolderRouteModelConvention*> do tworzenia i <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageRouteModelConvention> dodawania, który <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageRouteModel> wywołuje akcję na wszystkich stronach w określonym folderze.
 
-Ta aplikacja używa przykładowych <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection.AddFolderRouteModelConvention*> dodać `{otherPagesTemplate?}` szablon trasy do stron w *OtherPages* folderu:
+Aplikacja Przykładowa używa <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection.AddFolderRouteModelConvention*> do `{otherPagesTemplate?}` dodawania szablonu trasy do stron w folderze *OtherPages* :
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](razor-pages-conventions/samples/3.x/SampleApp/Startup.cs?name=snippet3)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 [!code-csharp[](razor-pages-conventions/samples/2.x/SampleApp/Startup.cs?name=snippet3)]
 
-<xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> Właściwość <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel> ustawiono `2`. Gwarantuje to, że szablon `{globalTemplate?}` (wcześniej w temacie, aby `1`) otrzymuje priorytet dla pierwszego dane trasy wartość pozycji, gdy została podana wartość jedną trasę. Jeśli na stronie w programie *stron/OtherPages* zażądano folderu z wartością parametru trasy (na przykład `/OtherPages/Page1/RouteDataValue`), "RouteDataValue" jest ładowany do `RouteData.Values["globalTemplate"]` (`Order = 1`) i nie `RouteData.Values["otherPagesTemplate"]` (`Order = 2`) ze względu na ustawienie `Order` właściwości.
+::: moniker-end
 
-Wszędzie tam, gdzie to możliwe, nie należy ustawiać `Order`, które powoduje `Order = 0`. Polegaj na routingu, aby wybrać poprawny trasy.
+Właściwość dla elementu jestustawiona`2`na. <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel> <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> Dzięki temu szablon dla `{globalTemplate?}` (ustawione wcześniej w temacie do `1`) ma priorytet dla pierwszej pozycji wartości danych trasy, gdy podano wartość pojedynczej trasy. Jeśli zażądano strony w folderze *Pages/OtherPages* z wartością parametru trasy (na `/OtherPages/Page1/RouteDataValue`przykład), "RouteDataValue" jest załadowana do `RouteData.Values["globalTemplate"]` (`Order = 1`), a nie `RouteData.Values["otherPagesTemplate"]` (`Order = 2`) z powodu ustawienia `Order` właściwość.
 
-Żądanie strony Strona 1 przykładu w `localhost:5000/OtherPages/Page1/GlobalRouteValue/OtherPagesRouteValue` i sprawdź wynik:
+Wszędzie tam, gdzie to możliwe `Order`, nie ustawiaj `Order = 0`, która powoduje. Należy polegać na routingu w celu wybrania odpowiedniej trasy.
 
-![Strona 1 w folderze OtherPages żądanie z segmentem trasy GlobalRouteValue i OtherPagesRouteValue. Renderowanej stronie pokazuje, że wartości danych trasy są przechwytywane w metodzie OnGet strony.](razor-pages-conventions/_static/otherpages-page1-global-and-otherpages-templates.png)
+Zażądaj strony z przykładową `localhost:5000/OtherPages/Page1/GlobalRouteValue/OtherPagesRouteValue` stroną i sprawdź wynik:
 
-### <a name="page-route-model-convention"></a>Strona trasy modelu Konwencji
+![Żądanie Strona1 w folderze OtherPages z segmentem trasy GlobalRouteValue i OtherPagesRouteValue. Wyrenderowana strona pokazuje, że wartości danych trasy są przechwytywane w metodzie OnGet strony.](razor-pages-conventions/_static/otherpages-page1-global-and-otherpages-templates.png)
 
-Użyj <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection.AddPageRouteModelConvention*> tworzyć i dodawać <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageRouteModelConvention> , wywołuje akcję na <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageRouteModel> dla strony o określonej nazwie.
+### <a name="page-route-model-convention"></a>Konwencja modelu trasy strony
 
-Ta aplikacja używa przykładowych `AddPageRouteModelConvention` dodać `{aboutTemplate?}` szablon trasy do strony informacje:
+Służy <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection.AddPageRouteModelConvention*> do tworzenia i <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageRouteModelConvention> dodawania, który <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageRouteModel> wywołuje akcję na stronie dla strony o określonej nazwie.
+
+Aplikacja Przykładowa używa `AddPageRouteModelConvention` do `{aboutTemplate?}` dodawania szablonu trasy do strony informacje:
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](razor-pages-conventions/samples/3.x/SampleApp/Startup.cs?name=snippet4)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 [!code-csharp[](razor-pages-conventions/samples/2.x/SampleApp/Startup.cs?name=snippet4)]
 
-<xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> Właściwość <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel> ustawiono `2`. Gwarantuje to, że szablon `{globalTemplate?}` (wcześniej w temacie, aby `1`) otrzymuje priorytet dla pierwszego dane trasy wartość pozycji, gdy została podana wartość jedną trasę. Jeśli wartością parametru trasy w żądaniu strony informacje `/About/RouteDataValue`, "RouteDataValue" jest ładowany do `RouteData.Values["globalTemplate"]` (`Order = 1`) i nie `RouteData.Values["aboutTemplate"]` (`Order = 2`) ze względu na ustawienie `Order` właściwości.
+::: moniker-end
 
-Wszędzie tam, gdzie to możliwe, nie należy ustawiać `Order`, które powoduje `Order = 0`. Polegaj na routingu, aby wybrać poprawny trasy.
+Właściwość dla elementu jestustawiona`2`na. <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel> <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> Dzięki temu szablon dla `{globalTemplate?}` (ustawione wcześniej w temacie do `1`) ma priorytet dla pierwszej pozycji wartości danych trasy, gdy podano wartość pojedynczej trasy. Jeśli zażądano strony o wartości parametru trasy w lokalizacji `/About/RouteDataValue`, "RouteDataValue" jest ładowany do `RouteData.Values["globalTemplate"]` (`Order = 1`) `Order` , a nie `RouteData.Values["aboutTemplate"]` (`Order = 2`) z powodu ustawienia właściwości.
 
-Żądanie próbki o stronę w `localhost:5000/About/GlobalRouteValue/AboutRouteValue` i sprawdź wynik:
+Wszędzie tam, gdzie to możliwe `Order`, nie ustawiaj `Order = 0`, która powoduje. Należy polegać na routingu w celu wybrania odpowiedniej trasy.
 
-![Informacje o stronie żądania segmentów trasy GlobalRouteValue i AboutRouteValue. Renderowanej stronie pokazuje, że wartości danych trasy są przechwytywane w metodzie OnGet strony.](razor-pages-conventions/_static/about-page-global-and-about-templates.png)
+Zażądaj przykładowej strony o `localhost:5000/About/GlobalRouteValue/AboutRouteValue` podanej godzinie i sprawdź wynik:
+
+![Żądanie strony about z segmentami trasy dla GlobalRouteValue i AboutRouteValue. Wyrenderowana strona pokazuje, że wartości danych trasy są przechwytywane w metodzie OnGet strony.](razor-pages-conventions/_static/about-page-global-and-about-templates.png)
 
 ::: moniker range=">= aspnetcore-2.2"
 
-## <a name="use-a-parameter-transformer-to-customize-page-routes"></a>Użyj transformatora parametru, aby dostosować stronę trasy
+## <a name="use-a-parameter-transformer-to-customize-page-routes"></a>Dostosowywanie tras stron przy użyciu transformatora parametrów
 
-Używanie transformatora parametru można dostosować trasy strony, wygenerowane przez platformy ASP.NET Core. Transformer parametr implementuje `IOutboundParameterTransformer` i przekształca wartości parametrów. Na przykład niestandardowy `SlugifyParameterTransformer` zmiany transformatora parametrów `SubscriptionManagement` trasy wartość `subscription-management`.
+Trasy stron generowane przez ASP.NET Core mogą być dostosowywane przy użyciu transformatora parametrów. Transformator parametrów implementuje `IOutboundParameterTransformer` i przekształca wartość parametrów. Na przykład niestandardowy `SlugifyParameterTransformer` transformator parametrów `SubscriptionManagement` zmienia wartość trasy na `subscription-management`.
 
-`PageRouteTransformerConvention` Strony trasy modelu Konwencją transformatora parametr do segmentów nazwę folderu i pliku tras automatycznie wygenerowanych stron w aplikacji. Na przykład pliku stron Razor */Pages/SubscriptionManagement/ViewAll.cshtml* miałby trasę przepisany z `/SubscriptionManagement/ViewAll` do `/subscription-management/view-all`.
+Konwencja model trasy strony stosuje transformator parametrów do segmentów nazw folderów i plików w przypadku automatycznie generowanych tras stron w aplikacji. `PageRouteTransformerConvention` Na przykład plik Razor Pages w */Pages/SubscriptionManagement/ViewAll.cshtml* będzie miał swoją trasę ponownie zapisaną z `/SubscriptionManagement/ViewAll` do. `/subscription-management/view-all`
 
-`PageRouteTransformerConvention` tylko przy użyciu automatycznie generowanego segmenty trasy strony ze stron Razor folder i nazwę pliku. Go nie przekształci segmentów trasa dodana z `@page` dyrektywy. Konwencja również nie przekształci trasy dodane przez <xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.AddPageRoute*>.
+`PageRouteTransformerConvention`przekształca automatycznie generowane segmenty trasy strony, która pochodzi z folderu Razor Pages i nazwy pliku. Nie przekształca segmentów tras dodanych `@page` do dyrektywy. Konwencja nie przetwarza również tras dodanych przez <xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.AddPageRoute*>.
 
-`PageRouteTransformerConvention` Jest zarejestrowany jako opcja w `Startup.ConfigureServices`:
+Zarejestrowano jako opcję w `Startup.ConfigureServices`: `PageRouteTransformerConvention`
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -204,99 +289,179 @@ public class SlugifyParameterTransformer : IOutboundParameterTransformer
 
 ::: moniker-end
 
-## <a name="configure-a-page-route"></a>Skonfiguruj trasy strony
+## <a name="configure-a-page-route"></a>Konfigurowanie trasy strony
 
-Użyj <xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.AddPageRoute*> do konfigurowania tras do strony w ścieżce określonej strony. Wygenerowany łącza do strony Użyj określonej trasy. `AddPageRoute` używa `AddPageRouteModelConvention` nawiązać trasy.
+Służy <xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.AddPageRoute*> do konfigurowania trasy do strony pod określoną ścieżką strony. Wygenerowane linki do strony używają określonej trasy. `AddPageRoute`używa `AddPageRouteModelConvention` do ustanowienia trasy.
 
-Przykładowa aplikacja tworzy trasę do `/TheContactPage` dla *Contact.cshtml*:
+Przykładowa aplikacja tworzy trasę do `/TheContactPage` *Contact. cshtml*:
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](razor-pages-conventions/samples/3.x/SampleApp/Startup.cs?name=snippet5)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 [!code-csharp[](razor-pages-conventions/samples/2.x/SampleApp/Startup.cs?name=snippet5)]
 
-Na stronie kontakt osiągalna na `/Contact` za pomocą tej trasy domyślnej.
+::: moniker-end
 
-Przykładowej aplikacji niestandardowe trasy do strony kontaktu umożliwia opcjonalny `text` trasy segmentu (`{text?}`). Strona zawiera także ten segment opcjonalny w jego `@page` dyrektywy, w przypadku, gdy użytkownik uzyskuje dostęp do strony od jego `/Contact` trasy:
+Na stronie kontakt można również uzyskać dostęp do `/Contact` tej strony przy użyciu trasy domyślnej.
+
+Niestandardowa trasa aplikacji przykładowej do strony kontaktowej umożliwia określenie opcjonalnego `text` segmentu trasy (`{text?}`). Strona zawiera również ten opcjonalny segment w swojej `@page` dyrektywie w przypadku, gdy osoba odwiedzająca uzyskuje dostęp do strony w swojej `/Contact` trasie:
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-cshtml[](razor-pages-conventions/samples/3.x/SampleApp/Pages/Contact.cshtml?highlight=1)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 [!code-cshtml[](razor-pages-conventions/samples/2.x/SampleApp/Pages/Contact.cshtml?highlight=1)]
 
-Należy zauważyć, że adres URL jest generowane dla **skontaktuj się z pomocą** łącze na renderowanej stronie odzwierciedla zaktualizowany trasy:
+::: moniker-end
 
-![Przykładowy link skontaktuj się z aplikacji na pasku nawigacyjnym](razor-pages-conventions/_static/contact-link.png)
+Należy pamiętać, że adres URL wygenerowany dla linku kontaktowego na renderowanej stronie odzwierciedla zaktualizowaną trasę:
 
-![Inspekcja łącze kontaktu w postaci HTML wskazuje, że odwołanie hipertekstowe jest ustawiona na "/ TheContactPage"](razor-pages-conventions/_static/contact-link-source.png)
+![Link do kontaktu z przykładową aplikacją na pasku nawigacyjnym](razor-pages-conventions/_static/contact-link.png)
 
-Odwiedź stronę skontaktuj się z pomocą pod jedną trasę zwykłych `/Contact`, lub tras niestandardowych `/TheContactPage`. Jeśli podasz dodatkowego `text` segmentu trasy, na stronie znajdują się segment kodowany w formacie HTML, aby podać:
+![Sprawdzanie linku kontaktu w renderowanym kodzie HTML wskazuje, że odwołanie href jest ustawione na wartość "/TheContactPage"](razor-pages-conventions/_static/contact-link-source.png)
 
-![Przykład przeglądarki Microsoft Edge podawania opcjonalne 'text' segment trasy "Wartość tekstowa" w adresie URL. Renderowanej strony wyświetla wartość segmentu 'text'.](razor-pages-conventions/_static/route-segment-with-custom-route.png)
+Odwiedź stronę kontaktową na swojej zwykłej trasie `/Contact`lub w niestandardowej `/TheContactPage`trasie. W przypadku podania dodatkowego `text` segmentu trasy na stronie jest wyświetlany segment zakodowany w formacie HTML, który jest dostarczany:
+
+![Przykład przeglądarki Microsoft Edge podawania opcjonalne 'text' segment trasy "Wartość tekstowa" w adresie URL. Na renderowanej stronie zostanie wyświetlona wartość segmentu "text".](razor-pages-conventions/_static/route-segment-with-custom-route.png)
 
 ## <a name="page-model-action-conventions"></a>Konwencje akcji modelu strony
 
-Domyślny dostawca modelu strony, który implementuje <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageApplicationModelProvider> wywołuje konwencje, które są przeznaczone do Podaj punkty rozszerzeń do skonfigurowania modeli strony. Konwencje te są przydatne podczas tworzenia i modyfikowania strony odnajdowania i scenariusze przetwarzania.
+Domyślny dostawca modelu strony, który implementuje <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageApplicationModelProvider> konwencje wywołujące, zaprojektowane w celu zapewnienia punktów rozszerzalności do konfigurowania modeli stron. Konwencje te są przydatne podczas kompilowania i modyfikowania scenariuszy przetwarzania i odnajdywania stron.
 
-W przykładach w tej sekcji Przykładowa aplikacja używa `AddHeaderAttribute` klasy, która jest <xref:Microsoft.AspNetCore.Mvc.Filters.ResultFilterAttribute>, która odnosi się nagłówek odpowiedzi:
+W przykładach w tej sekcji Przykładowa aplikacja używa `AddHeaderAttribute` klasy, która <xref:Microsoft.AspNetCore.Mvc.Filters.ResultFilterAttribute>jest, która ma zastosowanie do nagłówka odpowiedzi:
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](razor-pages-conventions/samples/3.x/SampleApp/Filters/AddHeader.cs?name=snippet1)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 [!code-csharp[](razor-pages-conventions/samples/2.x/SampleApp/Filters/AddHeader.cs?name=snippet1)]
 
-Za pomocą Konwencji, przykład pokazuje, jak zastosować atrybut do wszystkich stron w folderze i jednej strony.
+::: moniker-end
 
-**Folder aplikacji modelu Konwencji**
+Przy użyciu konwencji, przykład pokazuje, jak zastosować atrybut do wszystkich stron w folderze i do pojedynczej strony.
 
-Użyj <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection.AddFolderApplicationModelConvention*> tworzyć i dodawać <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageApplicationModelConvention> , wywołuje akcję na <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageApplicationModel> wystąpienia dla wszystkich stron w określonym folderze.
+**Konwencja modelu aplikacji folderu**
 
-W przykładzie pokazano użycie `AddFolderApplicationModelConvention` przez dodanie nagłówka `OtherPagesHeader`, do stron wewnątrz *OtherPages* folder aplikacji:
+Służy <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection.AddFolderApplicationModelConvention*> do tworzenia i <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageApplicationModelConvention> dodawania, który wywołuje akcję w <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageApplicationModel> wystąpieniach dla wszystkich stron w określonym folderze.
+
+Przykład ilustruje użycie `AddFolderApplicationModelConvention` przez dodanie nagłówka, `OtherPagesHeader`do stron w folderze *OtherPages* aplikacji:
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](razor-pages-conventions/samples/3.x/SampleApp/Startup.cs?name=snippet6)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 [!code-csharp[](razor-pages-conventions/samples/2.x/SampleApp/Startup.cs?name=snippet6)]
 
-Żądanie strony Strona 1 przykładu w `localhost:5000/OtherPages/Page1` i sprawdzić te nagłówki, aby wyświetlić wynik:
+::: moniker-end
 
-![Nagłówki odpowiedzi dla strony strona OtherPages/1 pokazują, że dodano OtherPagesHeader.](razor-pages-conventions/_static/page1-otherpages-header.png)
+Zażądaj przykładowej strony `localhost:5000/OtherPages/Page1` i zbadaj nagłówki, aby wyświetlić wyniki:
 
-**Strona aplikacji modelu Konwencji**
+![Nagłówki odpowiedzi strony OtherPages/Strona1 pokazują, że OtherPagesHeader został dodany.](razor-pages-conventions/_static/page1-otherpages-header.png)
 
-Użyj <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection.AddPageApplicationModelConvention*> tworzyć i dodawać <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageApplicationModelConvention> , wywołuje akcję na <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageApplicationModel> dla strony o określonej nazwie.
+**Konwencja modelu aplikacji strony**
 
-W przykładzie pokazano użycie `AddPageApplicationModelConvention` przez dodanie nagłówka `AboutHeader`, do strony informacje:
+Służy <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection.AddPageApplicationModelConvention*> do tworzenia i <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageApplicationModelConvention> dodawania, który <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageApplicationModel> wywołuje akcję na stronie dla strony o określonej nazwie.
+
+Przykład ilustruje użycie `AddPageApplicationModelConvention` przez dodanie nagłówka, `AboutHeader`do strony informacje:
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](razor-pages-conventions/samples/3.x/SampleApp/Startup.cs?name=snippet7)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 [!code-csharp[](razor-pages-conventions/samples/2.x/SampleApp/Startup.cs?name=snippet7)]
 
-Żądanie próbki o stronę w `localhost:5000/About` i sprawdzić te nagłówki, aby wyświetlić wynik:
+::: moniker-end
 
-![Nagłówki odpowiedzi strony informacje pokazują, że dodano AboutHeader.](razor-pages-conventions/_static/about-page-about-header.png)
+Zażądaj strony `localhost:5000/About` o podanej próbce i sprawdź nagłówki, aby wyświetlić wyniki:
 
-**Skonfigurować filtr**
+![Nagłówki odpowiedzi na stronie informacje pokazują, że AboutHeader został dodany.](razor-pages-conventions/_static/about-page-about-header.png)
 
-<xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.ConfigureFilter*> Konfiguruje określony filtr do zastosowania. Można zaimplementować Filtr klasy, ale Przykładowa aplikacja pokazuje, jak zaimplementować filtr w wyrażeniu lambda, która jest zaimplementowana w tle, ponieważ fabryka, która zwraca filtru:
+**Konfigurowanie filtru**
+
+<xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.ConfigureFilter*>konfiguruje określony filtr, który ma zostać zastosowany. Można zaimplementować klasę filtru, ale Przykładowa aplikacja pokazuje, jak zaimplementować filtr w wyrażeniu lambda, które jest zaimplementowane w tle jako fabryka, która zwraca filtr:
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](razor-pages-conventions/samples/3.x/SampleApp/Startup.cs?name=snippet8)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 [!code-csharp[](razor-pages-conventions/samples/2.x/SampleApp/Startup.cs?name=snippet8)]
 
-Model aplikacji strony służy do sprawdzania ścieżkę względną do segmentów, które mogą prowadzić do strony Strona2 *OtherPages* folderu. Jeśli warunek zostanie spełniony, zostanie dodany nagłówek. Jeśli nie, `EmptyFilter` jest stosowany.
+::: moniker-end
 
-`EmptyFilter` jest [filtr akcji](xref:mvc/controllers/filters#action-filters). Ponieważ filtry akcji są ignorowane przez stron Razor `EmptyFilter` nie ma wpływu zgodnie z oczekiwaniami, jeśli ścieżka nie zawiera `OtherPages/Page2`.
+Model aplikacji strony służy do sprawdzania ścieżki względnej dla segmentów, które prowadzą do strony PAGE2 w folderze *OtherPages* . Jeśli warunek zostanie spełniony, zostanie dodany nagłówek. Jeśli nie, `EmptyFilter` jest stosowane.
 
-Żądanie strony Strona2 przykładu w `localhost:5000/OtherPages/Page2` i sprawdzić te nagłówki, aby wyświetlić wynik:
+`EmptyFilter`jest [filtrem akcji](xref:mvc/controllers/filters#action-filters). Ponieważ filtry akcji są ignorowane przez Razor Pages, nie `EmptyFilter` ma wpływu na zamierzone, jeśli ścieżka nie zawiera `OtherPages/Page2`.
 
-![OtherPagesPage2Header jest dodawany do odpowiedzi Strona2.](razor-pages-conventions/_static/page2-filter-header.png)
+Zażądaj strony PAGE2 próbki na `localhost:5000/OtherPages/Page2` i sprawdź nagłówki, aby wyświetlić wyniki:
 
-**Konfigurowanie fabryki filtru**
+![OtherPagesPage2Header jest dodawany do odpowiedzi dla PAGE2.](razor-pages-conventions/_static/page2-filter-header.png)
 
-<xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.ConfigureFilter*> Umożliwia skonfigurowanie określonej fabryki, aby zastosować [filtry](xref:mvc/controllers/filters) do wszystkich stron Razor.
+**Konfigurowanie fabryki filtrów**
 
-Przykładowa aplikacja zawiera przykład za pomocą [filtra](xref:mvc/controllers/filters#ifilterfactory) przez dodanie nagłówka `FilterFactoryHeader`, za pomocą dwóch wartości do stron aplikacji:
+<xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.ConfigureFilter*>konfiguruje określoną fabrykę do zastosowania [filtrów](xref:mvc/controllers/filters) do wszystkich Razor Pages.
+
+Przykładowa aplikacja zawiera przykładowe użycie [fabryki filtrów](xref:mvc/controllers/filters#ifilterfactory) przez dodanie nagłówka, `FilterFactoryHeader`z dwoma wartościami do stron aplikacji:
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](razor-pages-conventions/samples/3.x/SampleApp/Startup.cs?name=snippet9)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 [!code-csharp[](razor-pages-conventions/samples/2.x/SampleApp/Startup.cs?name=snippet9)]
 
+::: moniker-end
+
 *AddHeaderWithFactory.cs*:
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](razor-pages-conventions/samples/3.x/SampleApp/Factories/AddHeaderWithFactory.cs?name=snippet1)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 [!code-csharp[](razor-pages-conventions/samples/2.x/SampleApp/Factories/AddHeaderWithFactory.cs?name=snippet1)]
 
-Żądanie próbki o stronę w `localhost:5000/About` i sprawdzić te nagłówki, aby wyświetlić wynik:
+::: moniker-end
 
-![Nagłówki odpowiedzi strony informacje pokazują, czy dwa nagłówki FilterFactoryHeader został dodany.](razor-pages-conventions/_static/about-page-filter-factory-header.png)
+Zażądaj strony `localhost:5000/About` o podanej próbce i sprawdź nagłówki, aby wyświetlić wyniki:
+
+![Nagłówki odpowiedzi na stronie informacje pokazują, że dodano dwa nagłówki FilterFactoryHeader.](razor-pages-conventions/_static/about-page-filter-factory-header.png)
 
 ## <a name="mvc-filters-and-the-page-filter-ipagefilter"></a>Filtry MVC i filtr strony (IPageFilter)
 
-MVC [filtry akcji](xref:mvc/controllers/filters#action-filters) są ignorowane przez stron Razor, ponieważ stron Razor korzystać z metody obsługi. Inne typy filtrów platformy MVC są dostępne do użycia: [Autoryzacja](xref:mvc/controllers/filters#authorization-filters), [wyjątek](xref:mvc/controllers/filters#exception-filters), [zasobów](xref:mvc/controllers/filters#resource-filters), i [wynik](xref:mvc/controllers/filters#result-filters). Aby uzyskać więcej informacji, zobacz [filtry](xref:mvc/controllers/filters) tematu.
+[Filtry akcji](xref:mvc/controllers/filters#action-filters) MVC są ignorowane przez Razor Pages, ponieważ Razor Pages używają metod obsługi. Dostępne są inne typy filtrów MVC, których można użyć: [Autoryzacja](xref:mvc/controllers/filters#authorization-filters), [wyjątek](xref:mvc/controllers/filters#exception-filters), [zasób](xref:mvc/controllers/filters#resource-filters)i [wynik](xref:mvc/controllers/filters#result-filters). Aby uzyskać więcej informacji, zobacz temat [filtry](xref:mvc/controllers/filters) .
 
-Filtr strony (<xref:Microsoft.AspNetCore.Mvc.Filters.IPageFilter>) jest filtr, który ma zastosowanie do stron Razor. Aby uzyskać więcej informacji, zobacz [metody filtrowania dla stron Razor](xref:razor-pages/filter).
+Filtr strony (<xref:Microsoft.AspNetCore.Mvc.Filters.IPageFilter>) to filtr, który ma zastosowanie do Razor Pages. Aby uzyskać więcej informacji, zobacz [metody filtrowania dla Razor Pages](xref:razor-pages/filter).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

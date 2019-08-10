@@ -1,1 +1,3 @@
-Aplikacja sieci web firmy Contoso University przedstawia sposób tworzenia stron Razor aplikacji sieci web przy użyciu programu EF Core i Visual Studio. Aby uzyskać informacji na temat tej serii samouczka, zobacz [pierwszego samouczka dotyczącego](xref:data/ef-rp/intro).
+Aplikacja sieci Web firmy Contoso University demonstruje sposób tworzenia Razor Pages aplikacji sieci Web przy użyciu EF Core i programu Visual Studio. Aby uzyskać informacje na temat serii samouczków, zobacz [pierwszy samouczek](xref:data/ef-rp/intro).
+
+Jeśli wystąpią problemy, których nie można rozwiązać, Pobierz [ukończoną aplikację](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples) i Porównaj ten kod z treścią utworzoną przez wykonanie samouczka.

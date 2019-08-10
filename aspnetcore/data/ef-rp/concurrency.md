@@ -4,20 +4,377 @@ author: rick-anderson
 description: W tym samouczku przedstawiono sposób obsługi konfliktów, gdy wielu użytkowników aktualizacji tej samej jednostki w tym samym czasie.
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/31/2019
+ms.date: 07/22/2019
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: 8430f8e720870a7b541655ea8bcfe2f67c942bb3
-ms.sourcegitcommit: c5339594101d30b189f61761275b7d310e80d18a
+ms.openlocfilehash: 4d1e8ef2f55910fa5456171e45311feacff16919
+ms.sourcegitcommit: 776367717e990bdd600cb3c9148ffb905d56862d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2019
-ms.locfileid: "66458430"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68914876"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---concurrency---8-of-8"></a>Strony razor z programem EF Core w programie ASP.NET Core — współbieżności — 8 8
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT), [Tom Dykstra](https://github.com/tdykstra), i [Jan Kowalski P](https://twitter.com/thereformedprog)
 
 [!INCLUDE [about the series](../../includes/RP-EF/intro.md)]
+
+::: moniker range=">= aspnetcore-3.0"
+
+W tym samouczku przedstawiono sposób obsługi konfliktów, gdy wielu użytkowników zaktualizowania jednostki jednocześnie (w tym samym czasie).
+
+## <a name="concurrency-conflicts"></a>Konfliktów współbieżności
+
+Występuje konflikt współbieżności, gdy:
+
+* Użytkownik przejdzie do strony edytowania dla jednostki.
+* Inny użytkownik aktualizuje tę samą jednostkę przed zapisaniem zmiany pierwszego użytkownika w bazie danych.
+
+Jeśli wykrywanie współbieżności nie jest włączone, osoba, która aktualizuje bazę danych, ostatnio zastępuje zmiany wprowadzone przez innych użytkowników. Jeśli to ryzyko jest akceptowalne, koszt programowania dla współbieżności może być korzystny.
+
+### <a name="pessimistic-concurrency-locking"></a>Współbieżność pesymistyczna (blokowanie)
+
+Jednym ze sposobów zapobiegania konfliktom współbieżności jest użycie blokad bazy danych. Jest to nazywane pesymistyczną współbieżnością. Zanim aplikacja odczyta wiersz bazy danych, który zamierza zaktualizować, żąda blokady. Gdy wiersz jest zablokowany na potrzeby dostępu do aktualizacji, żaden inny użytkownik nie może zablokować wiersza do momentu zwolnienia pierwszej blokady.
+
+Zarządzanie blokadami ma wady. Może być skomplikowany dla programu i może spowodować problemy z wydajnością w miarę zwiększania się liczby użytkowników. Entity Framework Core nie zapewnia wbudowanej pomocy technicznej i ten samouczek nie pokazuje, jak wdrożyć go.
+
+### <a name="optimistic-concurrency"></a>Optymistyczna współbieżność
+
+Optymistyczna współbieżność umożliwia konfliktów współbieżności do wykonania, a następnie reaguje odpowiednio po ich wykonaj. Na przykład Magdalena odwiedzin strony edytowania działu i zmienia budżetu działu angielskiego z $350,000.00 na 0,00 USD.
+
+![Zmiana budżetu na 0](concurrency/_static/change-budget30.png)
+
+Zanim kliknie Magdalena **Zapisz**, Jan odwiedzi tę samą stronę i zmiany pola Data rozpoczęcia z 2007-9-1 do 9/1/2013.
+
+![Zmiana daty rozpoczęcia do 2013](concurrency/_static/change-date30.png)
+
+Janina klika pozycję **Zapisz** pierwszy i widzimy, że zmiany zaczęły obowiązywać, ponieważ przeglądarka wyświetla stronę indeksu z zerem jako kwotą budżetu.
+
+John kliknie **Zapisz** na stronie edycji, który nadal pokazuje budżetu 350,000.00 $. Co się stanie dalej, zależy od sposobu obsługi konfliktów współbieżności:
+
+* Można śledzić, która właściwość została zmodyfikowana przez użytkownika i zaktualizować tylko odpowiednie kolumny w bazie danych.
+
+  W tym scenariuszu zostałyby utracone żadne dane. Inne właściwości zostały zaktualizowane przez dwóch użytkowników. Przy następnym ktoś przegląda angielskiej działu, zobaczy Joanny i John's zmiany. Ta metoda aktualizacji może zmniejszyć liczbę konfliktów, które może spowodować utratę danych. Takie podejście ma pewne wady:
+ 
+  * Nie można uniknąć utraty danych, jeśli konkurencyjnych zmiany zostaną wprowadzone do tej samej właściwości.
+  * Zwykle nie jest praktyczne w aplikacji sieci web. Wymaga to zachowanie stanu znaczne w celu śledzenia wszystkich pobrano oraz nowych wartości. Obsługa dużych ilości stan może mieć wpływ na wydajność aplikacji.
+  * Może zwiększyć złożoność aplikacji w porównaniu do wykrywania współbieżności w jednostce.
+
+* Można pozwolić, aby zmiana John's zastąpienie Joanny zmian.
+
+  Przy następnym ktoś przegląda angielskiej działu, zobaczy 9/1/2013 i pobrano wartość $350,000.00. To podejście jest nazywane *Wins klienta* lub *ostatnie w usłudze Wins* scenariusza. (Wszystkie wartości z klienta pierwszeństwo co znajduje się w magazynie danych.) Jeśli nie możesz tworzyć jakiegokolwiek kodu do obsługi współbieżności, Wins klienta odbywa się automatycznie.
+
+* Można zapobiec aktualizacji firmy Jan ze zmian w bazie danych. Zazwyczaj aplikacja będzie:
+
+  * Wyświetl komunikat o błędzie.
+  * Umożliwia wyświetlenie bieżącego stanu danych.
+  * Zezwalaj użytkownikowi ponownie zastosować zmiany.
+
+  Jest to nazywane *Store Wins* scenariusza. (Wartości magazynu danych pierwszeństwo wartości przesłany przez klienta.) W tym samouczku jest zaimplementowania scenariusza Store Wins. Ta metoda zapewnia, że żadne zmiany nie zostaną zastąpione bez użytkownika, w tym celu.
+
+## <a name="conflict-detection-in-ef-core"></a>Wykrywanie konfliktów w EF Core
+
+EF Core zgłasza `DbConcurrencyException` wyjątki w przypadku wykrycia konfliktów. Model danych musi być skonfigurowany, aby umożliwić wykrywanie konfliktów. Opcje włączania wykrywania konfliktów obejmują następujące elementy:
+
+* Skonfiguruj EF Core, aby uwzględnić oryginalne wartości kolumn skonfigurowanych jako [tokeny współbieżności](/ef/core/modeling/concurrency) w klauzuli WHERE poleceń Update i DELETE.
+
+  Gdy `SaveChanges` jest wywoływana, klauzula WHERE szuka oryginalnych wartości wszelkich właściwości, które mają adnotację z atrybutem [ConcurrencyCheck](/dotnet/api/system.componentmodel.dataannotations.concurrencycheckattribute) . Instrukcja Update nie znajdzie wiersza do zaktualizowania, jeśli którykolwiek z właściwości tokenu współbieżności został zmieniony od momentu pierwszego odczytu wiersza. EF Core interpretuje ten sposób jako konflikt współbieżności. W przypadku tabel bazy danych z wieloma kolumnami takie podejście może skutkować bardzo dużymi klauzulami WHERE i może wymagać dużej ilości danych. W związku z tym takie podejście zwykle nie jest zalecane i nie jest to metoda używana w tym samouczku.
+
+* W tabeli bazy danych Dołącz kolumnę śledzenia, której można użyć do określenia, kiedy wiersz został zmieniony.
+
+  W SQL Server bazie danych jest `rowversion`typem danych kolumny śledzenie. `rowversion` Wartość jest kolejnym numerem, który jest zwiększany za każdym razem, gdy wiersz zostanie zaktualizowany. W przypadku polecenia Update lub DELETE klauzula WHERE zawiera oryginalną wartość kolumny śledzenia (numer wersji pierwszego wiersza). Jeśli aktualizowany wiersz został zmieniony przez innego użytkownika, wartość w `rowversion` kolumnie jest różna od oryginalnej wartości. W takim przypadku instrukcja UPDATE lub DELETE nie może znaleźć wiersza do zaktualizowania z powodu klauzuli WHERE. EF Core zgłasza wyjątek współbieżności, gdy polecenie Update lub DELETE nie ma na nich żadnych wierszy.
+
+## <a name="add-a-tracking-property"></a>Dodaj właściwość śledzenia
+
+W *Models/Department.cs*, dodawanie właściwości śledzenia o nazwie RowVersion:
+
+[!code-csharp[](intro/samples/cu30/Models/Department.cs?highlight=26,27)]
+
+Atrybut [timestamp](/dotnet/api/system.componentmodel.dataannotations.timestampattribute) wskazuje, co identyfikuje kolumnę jako kolumnę śledzenia współbieżności. Interfejs API Fluent jest alternatywnym sposobem określenia właściwości śledzenia:
+
+```csharp
+modelBuilder.Entity<Department>()
+  .Property<byte[]>("RowVersion")
+  .IsRowVersion();
+```
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+W przypadku bazy danych `[Timestamp]` SQL Server atrybut klasy Entity został zdefiniowany jako tablica bajtowa:
+
+* Powoduje, że kolumna powinna zostać uwzględniona w klauzulach DELETE i UPDATE WHERE.
+* Ustawia typ kolumny w bazie danych na [rowversion](/sql/t-sql/data-types/rowversion-transact-sql).
+
+Baza danych generuje sekwencyjny numer wersji wiersza, który jest zwiększany za każdym razem, gdy wiersz zostanie zaktualizowany. W poleceniu `Delete` `Where` lub, klauzula zawiera wartość pobranego wiersza. `Update` Jeśli aktualizowany wiersz został zmieniony od czasu pobrania:
+
+* Wartość bieżącej wersji wiersza nie jest zgodna z pobraną wartością.
+* Polecenia lub nie szukająwiersza,`Delete` ponieważ klauzulaszukawartościwersjiwierszapobrania.`Where` `Update`
+* A `DbUpdateConcurrencyException` zgłaszany.
+
+Poniższy kod ilustruje część języka T-SQL, generowane przez platformę EF Core po zaktualizowaniu nazwy działu:
+
+[!code-sql[](intro/samples/cu30snapshots/8-concurrency/sql.txt?highlight=2-3)]
+
+Poprzednie wyróżnione przedstawia kod `WHERE` zawierających klauzulę `RowVersion`. Jeśli baza danych `RowVersion` nie jest `RowVersion` równa parametrowi (`@p2`), żadne wiersze nie są aktualizowane.
+
+Następujący wyróżniony kod przedstawia języka T-SQL sprawdza, czy dokładnie jeden wiersz został zaktualizowany:
+
+[!code-sql[](intro/samples/cu30snapshots/8-concurrency/sql.txt?highlight=4-6)]
+
+[@@ROWCOUNT ](/sql/t-sql/functions/rowcount-transact-sql) zwraca liczbę wierszy na ostatniej instrukcji. Jeśli żadne wiersze nie są aktualizowane, EF Core zgłasza `DbUpdateConcurrencyException`.
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+
+W przypadku bazy danych `[Timestamp]` programu SQLite atrybut właściwości Entity został zdefiniowany jako tablica bajtowa:
+
+* Powoduje, że kolumna powinna zostać uwzględniona w klauzulach DELETE i UPDATE WHERE.
+* Mapuje do typu kolumny obiektu BLOB.
+
+Wyzwalacze bazy danych aktualizują kolumnę RowVersion za pomocą nowej losowej tablicy bajtów za każdym razem, gdy wiersz zostanie zaktualizowany. W poleceniu `Delete` `Where` lub, klauzula zawiera pobraną wartość kolumny rowversion. `Update` Jeśli aktualizowany wiersz został zmieniony od czasu pobrania:
+
+* Wartość bieżącej wersji wiersza nie jest zgodna z pobraną wartością.
+* Polecenie `Update` lub `Delete` nie`Where` znajduje wiersza, ponieważ klauzula szuka pierwotnej wartości wersji wiersza.
+* A `DbUpdateConcurrencyException` zgłaszany.
+
+---
+
+### <a name="update-the-database"></a>Aktualizowanie bazy danych
+
+`RowVersion` Dodanie właściwości zmienia model danych, który wymaga migracji.
+
+Skompiluj projekt. 
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+* Uruchom następujące polecenie w obszarze PMC:
+
+  ```powershell
+  Add-Migration RowVersion
+  ```
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+
+* Uruchom następujące polecenie w terminalu:
+
+  ```console
+  dotnet ef migrations add RowVersion
+  ```
+
+---
+
+To polecenie:
+
+* Tworzy plik migracji *_RowVersion. cs migracji/{Time Datownik}* .
+* Aktualizacje *Migrations/SchoolContextModelSnapshot.cs* pliku. Aktualizacja dodaje następujący wyróżniony kod do `BuildModel` metody:
+
+  [!code-csharp[](intro/samples/cu30/Migrations/SchoolContextModelSnapshot.cs?name=snippet_Department&highlight=15-17)]
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+* Uruchom następujące polecenie w obszarze PMC:
+
+  ```powershell
+  Update-Database
+  ```
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+
+* `Migrations/<timestamp>_RowVersion.cs` Otwórz plik i Dodaj wyróżniony kod:
+
+  [!code-csharp[](intro/samples/cu30/MigrationsSQLite/20190722151951_RowVersion.cs?highlight=16-42)]
+
+  Powyższy kod:
+
+  * Aktualizuje istniejące wiersze z losowymi wartościami obiektów BLOB.
+  * Dodaje wyzwalacze bazy danych, które ustawiają kolumnę RowVersion na losową wartość obiektu BLOB za każdym razem, gdy wiersz zostanie zaktualizowany.
+
+* Uruchom następujące polecenie w terminalu:
+
+  ```console
+  dotnet ef database update
+  ```
+
+---
+
+<a name="scaffold"></a>
+
+## <a name="scaffold-department-pages"></a>Strony działu szkieletu
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+* Postępuj zgodnie z instrukcjami na [stronach uczniów](xref:data/ef-rp/intro#scaffold-student-pages) tworzenia szkieletów z następującymi wyjątkami:
+
+* Utwórz folder *strony/działy* .  
+* Użyj `Department` dla klasy model.
+  * Użyj istniejącej klasy kontekstu zamiast tworzenia nowej.
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+
+* Utwórz folder *strony/działy* .
+
+* Uruchom następujące polecenie, aby uzyskać szkielet na stronach działu.
+
+  **Na Windows:**
+
+  ```console
+  dotnet aspnet-codegenerator razorpage -m Department -dc SchoolContext -udl -outDir Pages\Departments --referenceScriptLibraries
+  ```
+
+  **W systemie Linux lub macOS:**
+
+  ```console
+  dotnet aspnet-codegenerator razorpage -m Department -dc SchoolContext -udl -outDir Pages/Departments --referenceScriptLibraries
+  ```
+
+---
+
+Skompiluj projekt.
+
+## <a name="update-the-index-page"></a>Aktualizowanie strony indeksu
+
+Narzędzie tworzenia szkieletów utworzyło `RowVersion` kolumnę dla strony indeks, ale to pole nie będzie wyświetlane w aplikacji produkcyjnej. W tym samouczku `RowVersion` zostanie wyświetlony ostatni bajt, aby zobaczyć, jak działa obsługa współbieżności. Ostatni bajt nie gwarantuje, że jest unikatowy.
+
+Zaktualizuj strony indeksu:
+
+* Zastąp indeksu działów.
+* Zmień kod zawierający `RowVersion` , aby wyświetlić tylko ostatni bajt tablicy bajtów.
+* Zastąp FirstMidName imię i nazwisko.
+
+Poniższy kod przedstawia zaktualizowaną stronę:
+
+[!code-html[](intro/samples/cu30/Pages/Departments/Index.cshtml?highlight=5,8,29,48,51)]
+
+## <a name="update-the-edit-page-model"></a>Aktualizowanie modelu strony edycji
+
+Zaktualizuj *Pages\Departments\Edit.cshtml.cs* przy użyciu następującego kodu:
+
+[!code-csharp[](intro/samples/cu30/Pages/Departments/Edit.cshtml.cs?name=snippet_All)]
+
+[OriginalValue](/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyentry.originalvalue?view=efcore-2.0#Microsoft_EntityFrameworkCore_ChangeTracking_PropertyEntry_OriginalValue) jest aktualizowany przy użyciu `rowVersion` wartości z jednostki, gdy została ona `OnGet` pobrana w metodzie. EF Core generuje polecenia aktualizacji programu SQL z klauzulą WHERE zawiera oryginał `RowVersion` wartość. Jeśli żadne wiersze nie dotyczy polecenia UPDATE (nie wiersze mają oryginalny `RowVersion` wartość), `DbUpdateConcurrencyException` jest zgłaszany wyjątek.
+
+[!code-csharp[](intro/samples/cu30/Pages/Departments/Edit.cshtml.cs?name=snippet_RowVersion&highlight=17-18)]
+
+W poprzednim wyróżnionym kodzie:
+
+* Wartość w `Department.RowVersion` to co było w jednostce, gdy została pierwotnie pobrana w żądaniu pobrania dla strony edycji. Wartość jest dostarczana do `OnPost` metody przez ukryte pole na stronie Razor, która wyświetla jednostkę do edycji. Wartość pola ukrytego jest kopiowana do `Department.RowVersion` przez spinacz modelu.
+* `OriginalValue`Czy EF Core będą używane w klauzuli WHERE. Przed wykonaniem wyróżnionego wiersza kodu program `OriginalValue` ma wartość znajdującą się w bazie danych, `FirstOrDefaultAsync` gdy została wywołana w tej metodzie, która może się różnić od tego, co zostało wyświetlone na stronie Edycja.
+* Wyróżniony kod sprawdza, czy EF Core używa oryginalnej `RowVersion` wartości z wyświetlonej `Department` jednostki w klauzuli WHERE instrukcji SQL Update.
+
+Gdy wystąpi błąd współbieżności, poniższy wyróżniony kod pobiera wartości klienta (wartości ogłoszone w tej metodzie) oraz wartości bazy danych.
+
+[!code-csharp[](intro/samples/cu30/Pages/Departments/Edit.cshtml.cs?name=snippet_TryUpdateModel&highlight=14,23)]
+
+Poniższy kod dodaje niestandardowy komunikat o błędzie dla każdej kolumny, która ma wartości bazy danych różne od tego, co `OnPostAsync`zostało ogłoszone:
+
+[!code-csharp[](intro/samples/cu30/Pages/Departments/Edit.cshtml.cs?name=snippet_Error)]
+
+Poniższy wyróżniony kod ustawia `RowVersion` wartość nowej wartości pobranej z bazy danych. Przy następnym kliknięciu **Zapisz**, tylko błędy współbieżności, które odbywa się od czasu ostatniego wyświetlania strony edytowania zostanie przechwycony.
+
+[!code-csharp[](intro/samples/cu30/Pages/Departments/Edit.cshtml.cs?name=snippet_TryUpdateModel&highlight=28)]
+
+`ModelState.Remove` Instrukcji jest wymagana, ponieważ `ModelState` ma stary `RowVersion` wartość. Strony Razor `ModelState` wartość dla pola ma pierwszeństwo przed wartości właściwości modelu, jeśli obie są podane.
+
+### <a name="update-the-razor-page"></a>Aktualizowanie strony Razor
+
+Zaktualizuj *strony/działy/Edit. cshtml* przy użyciu następującego kodu:
+
+[!code-html[](intro/samples/cu30/Pages/Departments/Edit.cshtml?highlight=1,14,16-17,37-39)]
+
+Powyższy kod:
+
+* Aktualizacje `page` dyrektywy z `@page` do `@page "{id:int}"`.
+* Dodaje wersji ukrytego wiersza. `RowVersion` musi zostać dodany, więc ponownie wpis wiąże wartość.
+* Wyświetla ostatni bajt `RowVersion` na potrzeby debugowania.
+* Zastępuje `ViewData` z silnie typizowanych `InstructorNameSL`.
+
+### <a name="test-concurrency-conflicts-with-the-edit-page"></a>Badanie konfliktów współbieżności przy użyciu strony edytowania
+
+Otwórz dwa wystąpienia przeglądarki edycji na angielski działu:
+
+* Uruchom aplikację i wybierz działów.
+* Kliknij prawym przyciskiem myszy **Edytuj** hiperlink do działu w języku angielskim, a następnie wybierz pozycję **Otwórz na nowej karcie**.
+* Na pierwszej karcie kliknij **Edytuj** hiperłącze dla angielskiego działu.
+
+Na kartach przeglądarki dwa są wyświetlane te same informacje.
+
+Zmień nazwę w pierwszej karty przeglądarki, a następnie kliknij przycisk **Zapisz**.
+
+![Edytuj działu po zmianie — strona 1](concurrency/_static/edit-after-change-130.png)
+
+Przeglądarka wyświetla stronę indeksu zmieniona wartość i zaktualizowano rowVersion wskaźnika. Zaktualizowano rowVersion wskaźnik, należy pamiętać, jest wyświetlany na drugi odświeżenie strony na innej karcie.
+
+Zmień inne pole w drugiej karcie przeglądarki.
+
+![Edytuj działu po zmianie — strona 2](concurrency/_static/edit-after-change-230.png)
+
+Kliknij polecenie **Zapisz**. Komunikaty o błędach są wyświetlane dla wszystkich pól, które nie pasują do wartości bazy danych:
+
+![Komunikat o błędzie działu edycji strony](concurrency/_static/edit-error30.png)
+
+To okno przeglądarki przypadkowo zmienić pole Nazwa. Skopiuj i Wklej bieżącą wartość (języki) w polu Nazwa. Karta. Weryfikacja po stronie klienta usuwa komunikat o błędzie.
+
+Kliknij przycisk **Zapisz** ponownie. Wartość, która została wprowadzona w drugiej karcie przeglądarki jest zapisywany. Zobaczysz zapisane wartości na stronie indeksu.
+
+## <a name="update-the-delete-page"></a>Aktualizuj stronę Delete
+
+Zaktualizuj *strony/działy/Delete. cshtml. cs* przy użyciu następującego kodu:
+
+[!code-csharp[](intro/samples/cu30/Pages/Departments/Delete.cshtml.cs)]
+
+Strony usuwania wykrywa konfliktów współbieżności, jeśli jednostka została zmieniona po jego pobrania. `Department.RowVersion` jest to wersja wiersza, jeśli jednostka została pobrana. EF Core tworzy polecenie SQL DELETE, zawiera klauzulę WHERE z `RowVersion`. Jeśli wpłynąć na wyniki polecenia SQL DELETE, zerowego wierszy:
+
+* Polecenie w instrukcji SQL Delete nie jest zgodne `RowVersion` z bazą danych. `RowVersion`
+* DbUpdateConcurrencyException wyjątku.
+* `OnGetAsync` jest wywoływana z `concurrencyError`.
+
+### <a name="update-the-delete-razor-page"></a>Aktualizowanie strony usuwania Razor
+
+Aktualizacja *Pages/Departments/Delete.cshtml* następującym kodem:
+
+[!code-html[](intro/samples/cu30/Pages/Departments/Delete.cshtml?highlight=1,10,39,51)]
+
+Poprzedni kod wprowadza następujące zmiany:
+
+* Aktualizacje `page` dyrektywy z `@page` do `@page "{id:int}"`.
+* Dodaje komunikat o błędzie.
+* Zamienia FirstMidName imię i nazwisko w **administratora** pola.
+* Zmiany `RowVersion` do wyświetlenia ostatniego bajtu.
+* Dodaje wersji ukrytego wiersza. `RowVersion`należy dodać, aby postgit dodać ponownie wiąże wartość.
+
+### <a name="test-concurrency-conflicts"></a>Testuj konflikty współbieżności
+
+Utwórz działu testu.
+
+Otwórz dwa wystąpienia przeglądarki Delete w dziale badań:
+
+* Uruchom aplikację i wybierz działów.
+* Kliknij prawym przyciskiem myszy **Usuń** hiperlink do działu test i wybierz pozycję **Otwórz na nowej karcie**.
+* Kliknij przycisk **Edytuj** hiperłącze dla działu testu.
+
+Na kartach przeglądarki dwa są wyświetlane te same informacje.
+
+Zmień budżetu w pierwszej karty przeglądarki, a następnie kliknij przycisk **Zapisz**.
+
+Przeglądarka wyświetla stronę indeksu zmieniona wartość i zaktualizowano rowVersion wskaźnika. Zaktualizowano rowVersion wskaźnik, należy pamiętać, jest wyświetlany na drugi odświeżenie strony na innej karcie.
+
+Usuń z działu testu z drugiej karcie. Błąd współbieżności jest wyświetlany z bieżącymi wartościami z bazy danych. Klikając **Usuń** usuwa jednostki, chyba że `RowVersion` został updated.department został usunięty.
+
+## <a name="additional-resources"></a>Dodatkowe zasoby
+
+* [Tokeny współbieżności w programie EF Core](/ef/core/modeling/concurrency)
+* [Obsługa współbieżności w programie EF Core](/ef/core/saving/concurrency)
+* [Debugowanie ASP.NET Core 2. x](https://github.com/aspnet/AspNetCore.Docs/issues/4155)
+
+## <a name="next-steps"></a>Następne kroki
+
+Jest to ostatni samouczek z serii. Dodatkowe tematy zostały omówione w [wersji MVC tej serii samouczków](xref:data/ef-mvc/index).
+
+> [!div class="step-by-step"]
+> [Poprzedni samouczek](xref:data/ef-rp/update-related-data)
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 W tym samouczku przedstawiono sposób obsługi konfliktów, gdy wielu użytkowników zaktualizowania jednostki jednocześnie (w tym samym czasie). Jeśli napotkasz problemy, nie można rozwiązać, [pobrania lub wyświetlenia ukończonej aplikacji.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples) [Instrukcje pobierania](xref:index#how-to-download-a-sample).
 
@@ -119,13 +476,13 @@ modelBuilder.Entity<Department>()
 
 Poniższy kod ilustruje część języka T-SQL, generowane przez platformę EF Core po zaktualizowaniu nazwy działu:
 
-[!code-sql[](intro/samples/sql.txt?highlight=2-3)]
+[!code-sql[](intro/samples/cu21snapshots/sql.txt?highlight=2-3)]
 
 Poprzednie wyróżnione przedstawia kod `WHERE` zawierających klauzulę `RowVersion`. Jeśli bazy danych `RowVersion` nie równa się `RowVersion` parametru (`@p2`), wiersze nie zostały zaktualizowane.
 
 Następujący wyróżniony kod przedstawia języka T-SQL sprawdza, czy dokładnie jeden wiersz został zaktualizowany:
 
-[!code-sql[](intro/samples/sql.txt?highlight=4-6)]
+[!code-sql[](intro/samples/cu21snapshots/sql.txt?highlight=4-6)]
 
 [@@ROWCOUNT ](/sql/t-sql/functions/rowcount-transact-sql) zwraca liczbę wierszy na ostatniej instrukcji. W żadnym wiersze są aktualizowane, zgłasza programu EF Core `DbUpdateConcurrencyException`.
 
@@ -147,7 +504,7 @@ Poprzedniego polecenia:
 * Dodaje *migracje / {stamp}_RowVersion.cs czasu* pliku migracji.
 * Aktualizacje *Migrations/SchoolContextModelSnapshot.cs* pliku. Aktualizacja dodaje następujący wyróżniony kod do `BuildModel` metody:
 
-  [!code-csharp[](intro/samples/cu/Migrations/SchoolContextModelSnapshot2.cs?name=snippet&highlight=14-16)]
+  [!code-csharp[](intro/samples/cu/Migrations/SchoolContextModelSnapshot.cs?name=snippet_Department&highlight=14-16)]
 
 * Uruchamia migracji można zaktualizować bazy danych.
 
@@ -157,9 +514,9 @@ Poprzedniego polecenia:
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
 
-Postępuj zgodnie z instrukcjami w [tworzenia szkieletu modelu uczniów](xref:data/ef-rp/intro#scaffold-the-student-model) i użyj `Department` dla klasy modelu.
+Postępuj zgodnie z instrukcjami w [tworzenia szkieletu modelu uczniów](xref:data/ef-rp/intro#scaffold-student-pages) i użyj `Department` dla klasy modelu.
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
  Uruchom następujące polecenie:
 
@@ -189,7 +546,7 @@ Następujący kod przedstawia zaktualizowaną stronę:
 
 ### <a name="update-the-edit-page-model"></a>Aktualizowanie modelu strony edycji
 
-Aktualizacja *Pages\Departments\Edit.cshtml.cs* następującym kodem:
+Zaktualizuj *Pages\Departments\Edit.cshtml.cs* przy użyciu następującego kodu:
 
 [!code-csharp[](intro/samples/cu/Pages/Departments/Edit.cshtml.cs?name=snippet)]
 
@@ -203,7 +560,7 @@ Poniższy kod umożliwia pobranie ustawienia klienta (wartości do tej metody) o
 
 [!code-csharp[](intro/samples/cu/Pages/Departments/Edit.cshtml.cs?name=snippet_try&highlight=9,18)]
 
-Poniższy kod dodaje niestandardowy komunikat o błędzie dla każdej kolumny, która ma bazy danych wartości inne niż co opublikowano `OnPostAsync`:
+Poniższy kod dodaje niestandardowy komunikat o błędzie dla każdej kolumny, która ma wartości bazy danych różne od tego, co `OnPostAsync`zostało opublikowane:
 
 [!code-csharp[](intro/samples/cu/Pages/Departments/Edit.cshtml.cs?name=snippet_err)]
 
@@ -274,7 +631,7 @@ Aktualizacja *Pages/Departments/Delete.cshtml* następującym kodem:
 
 [!code-html[](intro/samples/cu/Pages/Departments/Delete.cshtml?highlight=1,10,39,51)]
 
-Poprzedni kod znaczników wprowadza następujące zmiany:
+Poprzedni kod wprowadza następujące zmiany:
 
 * Aktualizacje `page` dyrektywy z `@page` do `@page "{id:int}"`.
 * Dodaje komunikat o błędzie.
@@ -306,9 +663,12 @@ Zobacz [dziedziczenia](xref:data/ef-mvc/inheritance) na temat sposobu dziedzicz�
 
 * [Tokeny współbieżności w programie EF Core](/ef/core/modeling/concurrency)
 * [Obsługa współbieżności w programie EF Core](/ef/core/saving/concurrency)
-* [Wersja usługi YouTube w tym samouczku (Obsługa konfliktów współbieżności)](https://youtu.be/EosxHTFgYps)
+* [Wersja tego samouczka usługi YouTube (obsługa konfliktów współbieżności)](https://youtu.be/EosxHTFgYps)
 * [Wersja usługi YouTube w tym samouczku (część 2)](https://www.youtube.com/watch?v=kcxERLnaGO0)
 * [Wersja usługi YouTube w tym samouczku (część 3)](https://www.youtube.com/watch?v=d4RbpfvELRs)
 
 > [!div class="step-by-step"]
 > [Poprzednie](xref:data/ef-rp/update-related-data)
+
+::: moniker-end
+

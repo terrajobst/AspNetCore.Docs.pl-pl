@@ -1,65 +1,95 @@
 ---
-title: Oprogramowanie pośredniczące w programie ASP.NET Core buforowania odpowiedzi
+title: Buforowanie oprogramowania pośredniczącego w ASP.NET Core
 author: guardrex
-description: Informacje o sposobie konfigurowania i używania oprogramowanie pośredniczące buforowania odpowiedzi w programie ASP.NET Core.
+description: Dowiedz się, jak skonfigurować i używać oprogramowania pośredniczącego buforowania odpowiedzi w ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/05/2019
+ms.date: 08/08/2019
 uid: performance/caching/middleware
-ms.openlocfilehash: d6756ce16396133da643cc08ca0f48369479ad3a
-ms.sourcegitcommit: b9e914ef274b5ec359582f299724af6234dce135
+ms.openlocfilehash: 6371f42b100f70c6042064a6372c7b9e41fd5c73
+ms.sourcegitcommit: 776367717e990bdd600cb3c9148ffb905d56862d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67596151"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68914995"
 ---
-# <a name="response-caching-middleware-in-aspnet-core"></a>Oprogramowanie pośredniczące w programie ASP.NET Core buforowania odpowiedzi
+# <a name="response-caching-middleware-in-aspnet-core"></a>Buforowanie oprogramowania pośredniczącego w ASP.NET Core
 
-Przez [Luke Latham](https://github.com/guardrex) i [Luo Jan](https://github.com/JunTaoLuo)
+Autorzy [Luke Latham](https://github.com/guardrex) i [Jan Luo](https://github.com/JunTaoLuo)
 
 [Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/caching/middleware/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
-W tym artykule wyjaśniono, jak skonfigurować oprogramowanie pośredniczące buforowania odpowiedzi w aplikacji ASP.NET Core. Oprogramowanie pośredniczące Określa, kiedy podlega buforowaniu, na są odpowiedzi, magazyny odpowiedzi i służy odpowiedzi z pamięci podręcznej. Wprowadzenie do buforowania HTTP i [[ResponseCache]](xref:Microsoft.AspNetCore.Mvc.ResponseCacheAttribute) atrybutów, zobacz [buforowanie odpowiedzi](xref:performance/caching/response).
+W tym artykule opisano sposób konfigurowania oprogramowania pośredniczącego buforowania odpowiedzi w aplikacji ASP.NET Core. Oprogramowanie pośredniczące określa, kiedy odpowiedzi są buforowane, przechowuje odpowiedzi i obsługuje odpowiedzi z pamięci podręcznej. Aby zapoznać się z wprowadzeniem do buforowania HTTP i atrybutem [[ResponseCache]](xref:Microsoft.AspNetCore.Mvc.ResponseCacheAttribute) , zobacz [buforowanie odpowiedzi](xref:performance/caching/response).
 
 ## <a name="configuration"></a>Konfiguracja
 
-Użyj [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) lub Dodaj odwołanie do pakietu [Microsoft.AspNetCore.ResponseCaching](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCaching/) pakietu.
+Użyj pakietu [Microsoft. AspNetCore. app](xref:fundamentals/metapackage-app) lub Dodaj odwołanie do pakietu do pakietu [Microsoft. AspNetCore. ResponseCaching](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCaching/) .
 
-W `Startup.ConfigureServices`, dodać do kolekcji usługi, oprogramowanie pośredniczące buforowania odpowiedzi:
+W `Startup.ConfigureServices`programie Dodaj oprogramowanie pośredniczące buforowania odpowiedzi do kolekcji usług:
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](middleware/samples/3.x/ResponseCachingMiddleware/Startup.cs?name=snippet1&highlight=3)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 [!code-csharp[](middleware/samples/2.x/ResponseCachingMiddleware/Startup.cs?name=snippet1&highlight=3)]
 
-Konfiguruje aplikację do korzystania z oprogramowania pośredniczącego z <xref:Microsoft.AspNetCore.Builder.ResponseCachingExtensions.UseResponseCaching*> metodę rozszerzenia, która dodaje oprogramowanie pośredniczące do potoku przetwarzania żądań w `Startup.Configure`:
+::: moniker-end
+
+Skonfiguruj aplikację do korzystania z oprogramowania pośredniczącego z <xref:Microsoft.AspNetCore.Builder.ResponseCachingExtensions.UseResponseCaching*> metodą rozszerzenia, która dodaje oprogramowanie pośredniczące do potoku przetwarzania żądań w: `Startup.Configure`
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](middleware/samples/3.x/ResponseCachingMiddleware/Startup.cs?name=snippet2&highlight=16)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 [!code-csharp[](middleware/samples/2.x/ResponseCachingMiddleware/Startup.cs?name=snippet2&highlight=14)]
 
-Przykładowa aplikacja dodaje nagłówki, aby kontrolować, buforowanie na kolejne żądania:
+::: moniker-end
 
-* [Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2) &ndash; buforuje podlega buforowaniu, odpowiedzi na maksymalnie 10 sekund.
-* [Różnią się](https://tools.ietf.org/html/rfc7231#section-7.1.4) &ndash; Konfiguruje oprogramowanie pośredniczące do obsługi odpowiedzi z pamięci podręcznej tylko wtedy, gdy [ `Accept-Encoding` ](https://tools.ietf.org/html/rfc7231#section-5.3.4) nagłówka kolejne żądania jest zgodna z wersją z oryginalnego żądania.
+Przykładowa aplikacja dodaje nagłówki, aby kontrolować buforowanie w kolejnych żądaniach:
+
+* [Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2) &ndash; Buforuje odpowiedzi w pamięci podręcznej przez maksymalnie 10 sekund.
+* [Różni](https://tools.ietf.org/html/rfc7231#section-7.1.4) się Konfiguruje oprogramowanie pośredniczące do obsługiwania buforowanej odpowiedzi tylko [`Accept-Encoding`](https://tools.ietf.org/html/rfc7231#section-5.3.4) wtedy, gdy nagłówek kolejnych żądań jest zgodny z oryginalnym żądaniem. &ndash;
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](middleware/samples_snippets/3.x/AddHeaders.cs)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 [!code-csharp[](middleware/samples_snippets/2.x/AddHeaders.cs)]
 
-Oprogramowanie pośredniczące buforowania odpowiedzi buforuje tylko odpowiedzi serwera, których wynikiem kod stanu 200 (OK). Inne odpowiedzi, w tym [stron błędów, które](xref:fundamentals/error-handling), są ignorowane przez oprogramowanie pośredniczące.
+::: moniker-end
+
+Buforowanie odpowiedzi w pamięci podręcznej tylko buforuje odpowiedzi serwera, które powodują, że jest to kod stanu 200 (OK). Wszystkie inne odpowiedzi, w tym [strony błędów](xref:fundamentals/error-handling), są ignorowane przez oprogramowanie pośredniczące.
 
 > [!WARNING]
-> Odpowiedziami zawierającymi zawartości dla klientów uwierzytelnionego musi być oznaczona jako nie podlega buforowaniu, aby zapobiec oprogramowania pośredniczącego z przechowywania i obsługujących te odpowiedzi. Zobacz [warunków do buforowania](#conditions-for-caching) szczegółowe informacje na temat sposobu oprogramowania pośredniczącego Określa, czy odpowiedź jest podlega buforowaniu.
+> Odpowiedzi zawierające zawartość uwierzytelnionych klientów muszą być oznaczone jako nieobsługujące pamięci podręcznej, aby uniemożliwić przechowywanie i obsługę tych odpowiedzi przez oprogramowanie pośredniczące. Zobacz [warunki buforowania](#conditions-for-caching) , aby uzyskać szczegółowe informacje na temat sposobu, w jaki oprogramowanie pośredniczące określa, czy odpowiedź jest buforowana.
 
 ## <a name="options"></a>Opcje
 
-W poniższej tabeli przedstawiono opcje buforowania odpowiedzi.
+Opcje buforowania odpowiedzi przedstawiono w poniższej tabeli.
 
 | Opcja | Opis |
 | ------ | ----------- |
-| <xref:Microsoft.AspNetCore.ResponseCaching.ResponseCachingOptions.MaximumBodySize> | Największy rozmiar podlega buforowaniu, na treść odpowiedzi w bajtach. Wartość domyślna to `64 * 1024 * 1024` (64 MB). |
-| <xref:Microsoft.AspNetCore.ResponseCaching.ResponseCachingOptions.SizeLimit> | Limit rozmiaru pamięci podręcznej odpowiedzi oprogramowania pośredniczącego w bajtach. Wartość domyślna to `100 * 1024 * 1024` (100 MB). |
-| <xref:Microsoft.AspNetCore.ResponseCaching.ResponseCachingOptions.UseCaseSensitivePaths> | Określa, jeśli odpowiedzi są buforowane w ścieżkach uwzględniana wielkość liter. Wartość domyślna to `false`. |
+| <xref:Microsoft.AspNetCore.ResponseCaching.ResponseCachingOptions.MaximumBodySize> | Największy rozmiar pamięci podręcznej dla treści odpowiedzi (w bajtach). Wartość domyślna to `64 * 1024 * 1024` (64 MB). |
+| <xref:Microsoft.AspNetCore.ResponseCaching.ResponseCachingOptions.SizeLimit> | Limit rozmiaru dla oprogramowania pośredniczącego pamięci podręcznej odpowiedzi w bajtach. Wartość domyślna to `100 * 1024 * 1024` (100 MB). |
+| <xref:Microsoft.AspNetCore.ResponseCaching.ResponseCachingOptions.UseCaseSensitivePaths> | Określa, czy odpowiedzi są buforowane w przypadku ścieżek z uwzględnieniem wielkości liter. Wartość domyślna to `false`. |
 
-Poniższy przykład umożliwia skonfigurowanie oprogramowaniu pośredniczącym, aby:
+Poniższy przykład konfiguruje oprogramowanie pośredniczące w następujący sposób:
 
-* Buforowanie odpowiedzi o rozmiarze treści mniejsze niż lub równa 1024 bajty.
-* Store odpowiedzi przez ścieżki uwzględniana wielkość liter. Na przykład `/page1` i `/Page1` są przechowywane w innej lokalizacji.
+* Buforuj odpowiedzi o rozmiarze treści mniejszym lub równym 1 024 bajtów.
+* Przechowaj odpowiedzi w ścieżce z uwzględnieniem wielkości liter. Na przykład `/page1` i `/Page1` są przechowywane osobno.
 
 ```csharp
 services.AddResponseCaching(options =>
@@ -71,9 +101,9 @@ services.AddResponseCaching(options =>
 
 ## <a name="varybyquerykeys"></a>VaryByQueryKeys
 
-Korzystając z MVC / sieci web interfejsu API kontrolerach ani w modelach strony stron Razor, [[ResponseCache]](xref:Microsoft.AspNetCore.Mvc.ResponseCacheAttribute) atrybut określa parametry, które są niezbędne do ustawiania odpowiednie nagłówki do buforowania odpowiedzi. Tylko parametr `[ResponseCache]` atrybut, który ściśle wymaga oprogramowania pośredniczącego jest <xref:Microsoft.AspNetCore.Mvc.ResponseCacheAttribute.VaryByQueryKeys>, nie odpowiadać rzeczywistej nagłówka HTTP. Aby uzyskać więcej informacji, zobacz <xref:performance/caching/response#responsecache-attribute>.
+W przypadku używania kontrolerów MVC/Web API lub Razor Pages modele stron atrybut [[ResponseCache]](xref:Microsoft.AspNetCore.Mvc.ResponseCacheAttribute) określa parametry niezbędne do ustawiania odpowiednich nagłówków dla buforowania odpowiedzi. Jedyny parametr `[ResponseCache]` atrybutu, który ściśle wymaga oprogramowania pośredniczącego, to <xref:Microsoft.AspNetCore.Mvc.ResponseCacheAttribute.VaryByQueryKeys>, który nie odpowiada rzeczywistemu nagłówkowi http. Aby uzyskać więcej informacji, zobacz <xref:performance/caching/response#responsecache-attribute>.
 
-Bez korzystania z `[ResponseCache]` atrybutu, buforowanie odpowiedzi może być zróżnicowane z `VaryByQueryKeys`. Użyj <xref:Microsoft.AspNetCore.ResponseCaching.ResponseCachingFeature> bezpośrednio z [HttpContext.Features](xref:Microsoft.AspNetCore.Http.HttpContext.Features):
+Gdy nie korzystasz `[ResponseCache]` z atrybutu, buforowanie odpowiedzi może być zróżnicowane z. `VaryByQueryKeys` Użyj bezpośrednio z [funkcji HttpContext. Features:](xref:Microsoft.AspNetCore.Http.HttpContext.Features) <xref:Microsoft.AspNetCore.ResponseCaching.ResponseCachingFeature>
 
 ```csharp
 var responseCachingFeature = context.HttpContext.Features.Get<IResponseCachingFeature>();
@@ -84,31 +114,31 @@ if (responseCachingFeature != null)
 }
 ```
 
-Za pomocą pojedynczej wartości równej `*` w `VaryByQueryKeys` różni się w pamięci podręcznej przez wszystkie parametry zapytania żądania.
+Użycie pojedynczej wartości równej `*` w `VaryByQueryKeys` w programie zmienia pamięć podręczną przez wszystkie parametry zapytania żądania.
 
-## <a name="http-headers-used-by-response-caching-middleware"></a>Nagłówki HTTP używana przez oprogramowanie pośredniczące buforowania odpowiedzi
+## <a name="http-headers-used-by-response-caching-middleware"></a>Nagłówki HTTP używane przez oprogramowanie pośredniczące buforowania odpowiedzi
 
 Poniższa tabela zawiera informacje dotyczące nagłówków HTTP, które mają wpływ na buforowanie odpowiedzi.
 
 | nagłówek | Szczegóły |
 | ------ | ------- |
-| `Authorization` | Jeśli istnieje nagłówek odpowiedzi nie są buforowane. |
-| `Cache-Control` | Tylko uwzględnia oprogramowanie pośredniczące buforowania odpowiedzi oznaczone `public` dyrektywy pamięci podręcznej. Kontrolowanie buforowania z następującymi parametrami:<ul><li>max-age</li><li>max-stale&#8224;</li><li>świeży min</li><li>must-revalidate</li><li>no-cache</li><li>nie-store</li><li>tylko jeśli-zapisanych w pamięci podręcznej</li><li>private</li><li>public</li><li>s maxage</li><li>proxy-revalidate&#8225;</li></ul>&#8224;Jeśli określono bez ograniczeń `max-stale`, oprogramowanie pośredniczące nie podejmuje żadnych działań.<br>&#8225;`proxy-revalidate`ma taki sam skutek jak `must-revalidate`.<br><br>Aby uzyskać więcej informacji, zobacz [RFC 7231: Żądanie dyrektyw sterujących pamięcią podręczną](https://tools.ietf.org/html/rfc7234#section-5.2.1). |
-| `Pragma` | A `Pragma: no-cache` nagłówka w żądaniu daje taki sam skutek jak `Cache-Control: no-cache`. Ten nagłówek zostanie zastąpiona przez odpowiednie dyrektywy w `Cache-Control` nagłówka, jeśli jest obecny. Traktowane jako zgodności z poprzednimi wersjami przy użyciu protokołu HTTP/1.0. |
-| `Set-Cookie` | Jeśli istnieje nagłówek odpowiedzi nie są buforowane. Wszelkie oprogramowanie pośredniczące w potoku przetwarzania żądań, który ustawia pliki cookie z co najmniej jeden zapobiega buforowanie odpowiedzi przez oprogramowanie pośredniczące buforowania odpowiedzi (na przykład [na podstawie plików cookie dostawcy TempData](xref:fundamentals/app-state#tempdata)).  |
-| `Vary` | `Vary` Nagłówka służy różnicującej buforowane odpowiedzi innym nagłówkiem. Na przykład, buforują odpowiedzi przez kodowanie umieszczając `Vary: Accept-Encoding` nagłówka, który buforuje odpowiedzi dla żądań z nagłówkami `Accept-Encoding: gzip` i `Accept-Encoding: text/plain` oddzielnie. Odpowiedź o wartości nagłówka `*` nigdy nie jest przechowywany. |
-| `Expires` | Uznane za przestarzałe przez ten nagłówek odpowiedzi nie jest przechowywany lub pobrać, jeśli zastąpiona przez inne `Cache-Control` nagłówków. |
-| `If-None-Match` | Pełna odpowiedź jest obsługiwany z pamięci podręcznej, jeśli wartość nie jest `*` i `ETag` odpowiedzi nie pasuje do żadnej z podanych wartości. W przeciwnym razie odpowiedź 304 (nie zmodyfikowano) jest obsługiwany. |
-| `If-Modified-Since` | Jeśli `If-None-Match` nagłówka nie jest obecny, pełnej odpowiedzi są dostarczane z pamięci podręcznej, jeśli data odpowiedzi z pamięci podręcznej jest nowsza niż podana wartość. W przeciwnym razie *304 - niezmodyfikowane* odpowiedzi jest obsługiwany. |
-| `Date` | Przy wysyłaniu z pamięci podręcznej, `Date` nagłówek jest ustawiana przez oprogramowanie pośredniczące, jeśli nie podano w oryginalnej odpowiedzi. |
-| `Content-Length` | Przy wysyłaniu z pamięci podręcznej, `Content-Length` nagłówek jest ustawiana przez oprogramowanie pośredniczące, jeśli nie podano w oryginalnej odpowiedzi. |
-| `Age` | `Age` Wysyłane w oryginalnej odpowiedzi nagłówka zostanie zignorowany. Oprogramowanie pośredniczące oblicza nową wartość przy wysyłaniu odpowiedzi z pamięci podręcznej. |
+| `Authorization` | Odpowiedź nie jest buforowana, jeśli nagłówek istnieje. |
+| `Cache-Control` | Oprogramowanie pośredniczące traktuje tylko odpowiedzi w pamięci `public` podręcznej oznaczone za pomocą dyrektywy Cache. Sterowanie buforowaniem przy użyciu następujących parametrów:<ul><li>maks. wiek</li><li>max-stale&#8224;</li><li>min — nowy</li><li>must-revalidate</li><li>no-cache</li><li>bez sklepu</li><li>tylko-w pamięci podręcznej</li><li>private</li><li>public</li><li>s-maxage</li><li>proxy-revalidate&#8225;</li></ul>&#8224;Jeśli żaden limit nie zostanie określony `max-stale`do, oprogramowanie pośredniczące nie podejmuje żadnych działań.<br>&#8225;`proxy-revalidate`ma ten sam skutek co `must-revalidate`.<br><br>Aby uzyskać więcej informacji, [zobacz RFC 7231: Żądaj dyrektyw](https://tools.ietf.org/html/rfc7234#section-5.2.1)kontroli pamięci podręcznej. |
+| `Pragma` | Nagłówek w żądaniu daje ten sam skutek co `Cache-Control: no-cache`. `Pragma: no-cache` Ten nagłówek jest zastępowany przez odpowiednie dyrektywy w `Cache-Control` nagłówku, jeśli jest obecny. Uwzględnianie zgodności z poprzednimi wersjami przy użyciu protokołu HTTP/1.0. |
+| `Set-Cookie` | Odpowiedź nie jest buforowana, jeśli nagłówek istnieje. Wszystkie oprogramowanie pośredniczące w potoku przetwarzania żądań, które ustawia jeden lub więcej plików cookie, uniemożliwia buforowanie odpowiedzi z buforowania odpowiedzi (na przykład [dostawcy TempData opartego na plikach cookie](xref:fundamentals/app-state#tempdata)).  |
+| `Vary` | `Vary` Nagłówek jest używany do różnicowania buforowanej odpowiedzi przez inny nagłówek. Na przykład w pamięci podręcznej odpowiedzi są kodowane `Vary: Accept-Encoding` przez dołączenie nagłówka, w którym są buforowane `Accept-Encoding: gzip` odpowiedzi `Accept-Encoding: text/plain` na żądania z nagłówkami i oddzielnie. Odpowiedź z wartością `*` nagłówka nigdy nie jest przechowywana. |
+| `Expires` | Odpowiedź uznana za nieodświeżoną przez ten nagłówek nie jest zapisywana ani pobierana, chyba że zostanie zastąpiona przez inne `Cache-Control` nagłówki. |
+| `If-None-Match` | Pełna odpowiedź jest obsługiwana z pamięci podręcznej, jeśli `*` wartość nie `ETag` jest, a odpowiedź nie jest zgodna z żadną z podanych wartości. W przeciwnym razie jest obsługiwana odpowiedź 304 (nie modyfikowane). |
+| `If-Modified-Since` | `If-None-Match` Jeśli nagłówek nie istnieje, jest obsługiwana Pełna odpowiedź z pamięci podręcznej, jeśli data odpowiedzi w pamięci podręcznej jest nowsza niż podana wartość. W przeciwnym razie jest obsługiwana odpowiedź *304 — nie zmodyfikowano* . |
+| `Date` | W przypadku obsługi z pamięci podręcznej `Date` nagłówek jest ustawiany przez oprogramowanie pośredniczące, jeśli nie został podany w oryginalnej odpowiedzi. |
+| `Content-Length` | W przypadku obsługi z pamięci podręcznej `Content-Length` nagłówek jest ustawiany przez oprogramowanie pośredniczące, jeśli nie został podany w oryginalnej odpowiedzi. |
+| `Age` | `Age` Nagłówek wysłany w oryginalnej odpowiedzi jest ignorowany. Oprogramowanie pośredniczące oblicza nową wartość w przypadku obsługi odpowiedzi w pamięci podręcznej. |
 
-## <a name="caching-respects-request-cache-control-directives"></a>Buforowanie szanuje dyrektywy żądania Cache-Control
+## <a name="caching-respects-request-cache-control-directives"></a>Buforowanie — dyrektywy dotyczące kontroli pamięci podręcznej żądań
 
-Oprogramowanie pośredniczące przestrzega zasad [specyfikacji protokołu HTTP 1.1 buforowania](https://tools.ietf.org/html/rfc7234#section-5.2). Zasady wymagają pamięci podręcznej respektować prawidłową `Cache-Control` nagłówka wysłane przez klienta. W ramach specyfikacji, klient może utworzyć żądania z `no-cache` wartość nagłówka i Wymuś serwera, aby wygenerować nową odpowiedź dla każdego żądania. Obecnie nie ma żadnych deweloperowi kontroli nad tym zachowanie buforowania po za pomocą oprogramowania pośredniczącego, ponieważ oprogramowanie pośredniczące działa zgodnie z oficjalnego specyfikacji buforowania.
+Oprogramowanie pośredniczące uwzględnia reguły [buforowania HTTP 1,1](https://tools.ietf.org/html/rfc7234#section-5.2). Reguły wymagają pamięci podręcznej, aby honorować prawidłowy `Cache-Control` nagłówek Wysłany przez klienta. W obszarze specyfikacji klient może wykonywać żądania z `no-cache` wartością nagłówka i wymusić, aby serwer generował nową odpowiedź dla każdego żądania. Obecnie nie ma kontroli nad tym zachowaniem buforowania podczas korzystania z oprogramowania pośredniczącego, ponieważ oprogramowanie pośredniczące jest zgodne z oficjalną specyfikacją buforowania.
 
-Aby uzyskać większą kontrolę nad zachowanie buforowania zapoznaj się z innych funkcji buforowania platformy ASP.NET Core. Zobacz następujące tematy:
+Aby uzyskać większą kontrolę nad zachowaniem buforowania, zapoznaj się z innymi funkcjami buforowania ASP.NET Core. Zobacz następujące tematy:
 
 * <xref:performance/caching/memory>
 * <xref:performance/caching/distributed>
@@ -117,31 +147,31 @@ Aby uzyskać większą kontrolę nad zachowanie buforowania zapoznaj się z inny
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-Jeśli zachowanie buforowania jest zgodnie z oczekiwaniami, upewnij się, że odpowiedzi są podlega buforowaniu i nadaje się do obsługiwanych z pamięci podręcznej. Przeanalizuj żądania przychodzące nagłówki i nagłówki wychodzące odpowiedzi. Włącz [rejestrowania](xref:fundamentals/logging/index) aby pomóc w debugowaniu.
+Jeśli zachowanie buforowania nie jest zgodne z oczekiwaniami, upewnij się, że odpowiedzi są buforowane i mogą być obsługiwane z pamięci podręcznej. Sprawdź przychodzące nagłówki żądania i wychodzące nagłówki odpowiedzi. Włącz [Rejestrowanie](xref:fundamentals/logging/index) , aby pomóc w debugowaniu.
 
-Podczas testowania i rozwiązywania problemów z zachowaniem buforowania, przeglądarki mogą być ustawione nagłówki żądania, które mają wpływ na buforowanie w sposób niepożądane. Na przykład może ustawić przeglądarkę `Cache-Control` nagłówka do `no-cache` lub `max-age=0` podczas odświeżania strony. Następujące narzędzia można jawnie ustawić nagłówki żądania i są preferowane dla testowania w pamięci podręcznej:
+Podczas testowania i rozwiązywania problemów z pamięcią podręczną przeglądarka może ustawić nagłówki żądań, które mają wpływ na buforowanie na różne sposoby. Na przykład przeglądarka może ustawić `Cache-Control` nagłówek na `no-cache` lub `max-age=0` podczas odświeżania strony. Poniższe narzędzia mogą jawnie ustawić nagłówki żądań i są preferowane w celu przeprowadzenia testu w pamięci podręcznej:
 
 * [Fiddler](https://www.telerik.com/fiddler)
 * [Postman](https://www.getpostman.com/)
 
-### <a name="conditions-for-caching"></a>Warunki dotyczące buforowania
+### <a name="conditions-for-caching"></a>Warunki buforowania
 
-* Żądanie musi spowodować odpowiedź z serwera z kodem stanu 200 (OK).
-* Metoda żądania musi być GET lub HEAD.
-* W `Startup.Configure`, oprogramowanie pośredniczące buforowania odpowiedzi musi być umieszczony przed oprogramowania pośredniczącego, które wymagają buforowania. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/middleware/index>.
-* `Authorization` Nagłówka nie może być obecny.
-* `Cache-Control` Parametry nagłówka musi być prawidłowy, a odpowiedzi muszą być oznaczone jako `public` , nie jest oznaczona `private`.
-* `Pragma: no-cache` Nagłówka nie może być obecny Jeśli `Cache-Control` nagłówka nie jest obecny, jako `Cache-Control` zastępuje nagłówek `Pragma` nagłówka, jeśli jest obecny.
-* `Set-Cookie` Nagłówka nie może być obecny.
-* `Vary` Parametry nagłówka musi być prawidłowe i nie jest równa `*`.
-* `Content-Length` Wartość nagłówka (jeśli ustawić) musi być zgodny z rozmiarem treść odpowiedzi.
+* Żądanie musi spowodować odpowiedź serwera z kodem stanu 200 (OK).
+* Metoda żądania musi mieć wartość GET lub $.
+* W `Startup.Configure`programie oprogramowanie pośredniczące buforowania odpowiedzi należy umieścić przed oprogramowanie pośredniczące wymagające buforowania. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/middleware/index>.
+* `Authorization` Nagłówek nie może być obecny.
+* `Cache-Control`parametry nagłówka muszą być prawidłowe, a odpowiedź musi być oznaczona jako `public` nieoznaczona `private`.
+* Nagłówek nie może być obecny, `Cache-Control` Jeśli nagłówek nie istnieje, `Pragma` jako że `Cache-Control` nagłówek zastępuje nagłówek, gdy jest obecny. `Pragma: no-cache`
+* `Set-Cookie` Nagłówek nie może być obecny.
+* `Vary`parametry nagłówka muszą być prawidłowe i nie mogą `*`być równe.
+* Wartość `Content-Length` nagłówka (jeśli jest ustawiona) musi być zgodna z rozmiarem treści odpowiedzi.
 * <xref:Microsoft.AspNetCore.Http.Features.IHttpSendFileFeature> Nie jest używany.
-* Odpowiedź nie mogą być nieaktualne określony przez `Expires` nagłówka i `max-age` i `s-maxage` dyrektywy w pamięci podręcznej.
-* Buforowanie odpowiedzi musi zakończyć się powodzeniem. Rozmiar odpowiedzi musi być mniejszy niż skonfigurowany lub domyślne <xref:Microsoft.AspNetCore.ResponseCaching.ResponseCachingOptions.SizeLimit>. Rozmiar treści odpowiedzi musi być mniejszy niż skonfigurowany lub domyślne <xref:Microsoft.AspNetCore.ResponseCaching.ResponseCachingOptions.MaximumBodySize>.
-* Odpowiedzi muszą być podlega buforowaniu, na podstawie położenia [RFC 7234](https://tools.ietf.org/html/rfc7234) specyfikacji. Na przykład `no-store` dyrektywy nie może istnieć w pola nagłówka żądania lub odpowiedzi. Zobacz *sekcja 3: Zapisywanie odpowiedzi w pamięci podręcznych* z [RFC 7234](https://tools.ietf.org/html/rfc7234) Aby uzyskać szczegółowe informacje.
+* Odpowiedź nie może być nieodświeżona zgodnie z `Expires` definicją nagłówka `max-age` i `s-maxage` dyrektywy pamięci podręcznej.
+* Buforowanie odpowiedzi musi się powieść. Rozmiar odpowiedzi musi być mniejszy niż skonfigurowany lub domyślny <xref:Microsoft.AspNetCore.ResponseCaching.ResponseCachingOptions.SizeLimit>. Rozmiar treści odpowiedzi musi być mniejszy niż skonfigurowany lub domyślny <xref:Microsoft.AspNetCore.ResponseCaching.ResponseCachingOptions.MaximumBodySize>.
+* Odpowiedź musi być buforowana zgodnie ze specyfikacją [RFC 7234](https://tools.ietf.org/html/rfc7234) . Na przykład `no-store` dyrektywa nie może istnieć w polach żądania ani nagłówka odpowiedzi. Zobacz *sekcję 3: Przechowywanie odpowiedzi w pamięci podręcznej* [RFC 7234](https://tools.ietf.org/html/rfc7234) w celu uzyskania szczegółów.
 
 > [!NOTE]
-> Antiforgery systemu pod kątem generowania tokenów bezpieczne, aby zapobiec fałszerstwo żądania Międzywitrynowego Międzywitrynowych ataki zestawy `Cache-Control` i `Pragma` nagłówki, aby `no-cache` tak, aby odpowiedzi nie są buforowane. Aby uzyskać informacji na temat sposobu wyłączania antiforgery tokenów dla elementów formularza HTML, zobacz <xref:security/anti-request-forgery#aspnet-core-antiforgery-configuration>.
+> System antysfałszowany służący do generowania zabezpieczonych tokenów, aby zapobiec atakom `Cache-Control` przez wiele witryn (CSRF), w `no-cache` związku z czym `Pragma` odpowiedzi nie są buforowane. Aby uzyskać informacje na temat sposobu wyłączania tokenów antysfałszowanych dla elementów <xref:security/anti-request-forgery#aspnet-core-antiforgery-configuration>formularza HTML, zobacz.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

@@ -5,18 +5,20 @@ description: Dowiedz się, jak hostować aplikacje platformy ASP.NET Core na sys
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/28/2019
+ms.date: 07/31/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 7677173493e68f5a5656c18533e0ae13a7c5bece
-ms.sourcegitcommit: 0efb9e219fef481dee35f7b763165e488aa6cf9c
+ms.openlocfilehash: df4d74a2800ef586091347289561a03b31e33f44
+ms.sourcegitcommit: 776367717e990bdd600cb3c9148ffb905d56862d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68602473"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68913942"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host platformy ASP.NET Core na Windows za pomocą programu IIS
 
 Przez [Luke Latham](https://github.com/guardrex)
+
+Aby zapoznać się z samouczkiem dotyczącym publikowania aplikacji ASP.NET Core na serwerze usług IIS <xref:tutorials/publish-to-iis>, zobacz.
 
 [Zainstaluj program .NET Core hostingu pakietu](#install-the-net-core-hosting-bundle)
 
@@ -647,7 +649,7 @@ W przypadku aplikacji ASP.NET Core, która jest przeznaczona dla .NET Framework,
 
 Hostowane w usługach IIS przez moduł ASP.NET Core w wersji 2:
 
-* [Moduł inicjalizacji aplikacji](#application-initialization-module) Hostowane [w procesie proces](#in-process-hosting-model) roboczy lub pozaprocesowe [aplikacji można skonfigurować](#out-of-process-hosting-model) do automatycznego uruchamiania na potrzeby ponownego uruchomienia procesu roboczego lub ponownego uruchomienia serwera. &ndash;
+* [Moduł inicjalizacji aplikacji](#application-initialization-module) Hostowane [w procesie proces](#in-process-hosting-model) roboczy lub pozaprocesowe aplikacji można skonfigurować do automatycznego uruchamiania na potrzeby ponownego uruchomienia procesu roboczego lub ponownego uruchomienia serwera. [](#out-of-process-hosting-model) &ndash;
 * [Limit czasu bezczynności](#idle-timeout) W trakcie okresów braku aktywności można skonfigurować hostowaną [w procesie aplikację w trybie](#in-process-hosting-model) nie przekroczenia limitu czasu. &ndash;
 
 ### <a name="application-initialization-module"></a>Moduł inicjalizacji aplikacji
@@ -705,7 +707,7 @@ Aby zapobiec przekroczeniu przez aplikację, należy ustawić limit czasu bezczy
 1. Domyślny **limit czasu bezczynności (w minutach)** wynosi **20** minut. Ustaw **limit czasu bezczynności (w minutach)** na **0** (zero). Kliknij przycisk **OK**.
 1. Odtwórz proces roboczy.
 
-Aby zapobiec przekroczeniu limitu [czasu hostowanych](#out-of-process-hosting-model) przez aplikacje aplikacji, użyj jednej z następujących metod:
+Aby zapobiec przekroczeniu limitu czasu hostowanych przez aplikacje aplikacji, użyj jednej z następujących metod: [](#out-of-process-hosting-model)
 
 * Wyślij polecenie ping do aplikacji z zewnętrznej usługi, aby było ono uruchomione.
 * Jeśli aplikacja obsługuje tylko usługi w tle, należy unikać hostingu usług IIS i używać [usługi systemu Windows do hostowania aplikacji ASP.NET Core](xref:host-and-deploy/windows-service).

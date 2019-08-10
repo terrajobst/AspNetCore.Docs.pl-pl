@@ -7,12 +7,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 08/05/2019
 uid: signalr/configuration
-ms.openlocfilehash: 4706a1e2774fa9f6fb40085da944e8a82476ef05
-ms.sourcegitcommit: 2eb605f4f20ac4dd9de6c3b3e3453e108a357a21
+ms.openlocfilehash: 475d9664c588c06bfcd816959be8a425ee01c023
+ms.sourcegitcommit: 776367717e990bdd600cb3c9148ffb905d56862d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68820046"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68915083"
 ---
 # <a name="aspnet-core-signalr-configuration"></a>Konfiguracja sygnałów ASP.NET Core
 
@@ -71,6 +71,7 @@ W poniższej tabeli opisano opcje konfigurowania centrów sygnałów:
 | `SupportedProtocols` | Wszystkie zainstalowane protokoły | Protokoły obsługiwane przez to centrum. Domyślnie wszystkie protokoły zarejestrowane na serwerze są dozwolone, ale protokoły można usunąć z tej listy, aby wyłączyć określone protokoły dla poszczególnych centrów. |
 | `EnableDetailedErrors` | `false` | Jeśli `true`szczegółowe komunikaty o wyjątkach są zwracane do klientów, gdy wyjątek jest zgłaszany w metodzie centrum. Wartość domyślna to `false`, ponieważ te komunikaty o wyjątkach mogą zawierać informacje poufne. |
 | `StreamBufferCapacity` | `10` | Maksymalna liczba elementów, które mogą być buforowane dla strumieni przekazywania klientów. Po osiągnięciu tego limitu przetwarzanie wywołań jest blokowane, dopóki serwer nie przetwarza elementów strumienia.|
+| `MaximumReceiveMessageSize` | 32 KB | Maksymalny rozmiar pojedynczego przychodzącego komunikatu centrum. |
 
 ::: moniker-end
 
@@ -142,14 +143,31 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 
 W poniższej tabeli opisano opcje konfigurowania zaawansowanych opcji protokołu HTTP w programie ASP.NET Core Signal:
 
+::: moniker range=">= aspnetcore-3.0"
+
+| Opcja | Wartość domyślna | Opis |
+| ------ | ------------- | ----------- |
+| `ApplicationMaxBufferSize` | 32 KB | Maksymalna liczba bajtów odebranych od klienta, które buforują serwer przed zastosowaniem nadużycia. Zwiększenie tej wartości umożliwia serwerowi otrzymywanie większych komunikatów szybciej bez naciskania, ale może zwiększyć zużycie pamięci. |
+| `AuthorizationData` | Dane zbierane automatycznie z `Authorize` atrybutów zastosowanych do klasy centrum. | Lista obiektów [IAuthorizeData](/dotnet/api/microsoft.aspnetcore.authorization.iauthorizedata) służąca do określenia, czy klient jest autoryzowany do łączenia się z centrum. |
+| `TransportMaxBufferSize` | 32 KB | Maksymalna liczba bajtów wysłanych przez aplikację, które buforuje serwer przed zaobserwowaniem presji. Zwiększenie tej wartości umożliwia serwerowi przebuforowanie większych komunikatów szybciej bez czekania na obciążenie, ale może zwiększyć zużycie pamięci. |
+| `Transports` | Wszystkie transporty są włączone. | Wyliczenie flag bitowych `HttpTransportType` wartości, które mogą ograniczyć transporty, których klient może użyć do nawiązania połączenia. |
+| `LongPolling` | Zobacz poniżej. | Dodatkowe opcje specyficzne dla długiego transportu sondowania. |
+| `WebSockets` | Zobacz poniżej. | Dodatkowe opcje specyficzne dla transportu obiektów WebSockets. |
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
 | Opcja | Wartość domyślna | Opis |
 | ------ | ------------- | ----------- |
 | `ApplicationMaxBufferSize` | 32 KB | Maksymalna liczba bajtów odebranych od klienta, które buforuje serwer. Zwiększenie tej wartości umożliwia serwerowi otrzymywanie większych komunikatów, ale może mieć negatywny wpływ na użycie pamięci. |
 | `AuthorizationData` | Dane zbierane automatycznie z `Authorize` atrybutów zastosowanych do klasy centrum. | Lista obiektów [IAuthorizeData](/dotnet/api/microsoft.aspnetcore.authorization.iauthorizedata) służąca do określenia, czy klient jest autoryzowany do łączenia się z centrum. |
 | `TransportMaxBufferSize` | 32 KB | Maksymalna liczba bajtów wysłanych przez aplikację, które buforują serwer. Zwiększenie tej wartości umożliwia serwerowi wysyłanie większych komunikatów, ale może mieć negatywny wpływ na użycie pamięci. |
-| `Transports` | Wszystkie transporty są włączone. | Maska bitów `HttpTransportType` wartości, która może ograniczyć transporty, z których może korzystać klient do nawiązywania połączeń. |
+| `Transports` | Wszystkie transporty są włączone. | Wyliczenie flag bitowych `HttpTransportType` wartości, które mogą ograniczyć transporty, których klient może użyć do nawiązania połączenia. |
 | `LongPolling` | Zobacz poniżej. | Dodatkowe opcje specyficzne dla długiego transportu sondowania. |
 | `WebSockets` | Zobacz poniżej. | Dodatkowe opcje specyficzne dla transportu obiektów WebSockets. |
+
+::: moniker-end
 
 W przypadku długiego transportu sondowania dostępne są dodatkowe opcje, które można `LongPolling` skonfigurować przy użyciu właściwości:
 

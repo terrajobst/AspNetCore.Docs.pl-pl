@@ -5,7 +5,7 @@ Dostęp do terminalu poleceń na komputerze Mac po raz pierwszy wymaga konfigura
 * Przejdź do **preferencji systemowych > skróty > klawiatury > usługi**.
 * W obszarze **pliki i foldery**Sprawdź, czy wybrano opcję **Nowy terminal w folderze** .
 
-Powyższe instrukcje umożliwiają dostęp do terminalu poleceń na dwa sposoby: od wewnątrz **Visual Studios** lub z **wyszukiwania**. 
+Powyższe instrukcje umożliwiają dostęp do terminalu poleceń na dwa sposoby: z poziomu **programu Visual Studio** lub z **wyszukiwania**. 
 
 #### <a name="to-access-a-command-terminal-from-visual-studio-for-mac"></a>Aby uzyskać dostęp do terminalu poleceń z Visual Studio dla komputerów Mac:
 

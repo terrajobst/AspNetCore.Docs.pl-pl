@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/06/2019
 uid: blazor/handle-errors
-ms.openlocfilehash: d247b6b6df4cfd1b099e4da0343b9c3751ae6cc8
-ms.sourcegitcommit: 2eb605f4f20ac4dd9de6c3b3e3453e108a357a21
+ms.openlocfilehash: 52f55af99881b09c84d9cf88f5845efcb1ea76a1
+ms.sourcegitcommit: 776367717e990bdd600cb3c9148ffb905d56862d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68820104"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68913862"
 ---
 # <a name="handle-errors-in-aspnet-core-blazor-apps"></a>Obsługa błędów w aplikacjach ASP.NET Core Blazor
 
@@ -75,7 +75,7 @@ Poprzednie Nieobsłużone wyjątki zostały opisane w poniższych sekcjach tego 
 Gdy Blazor tworzy wystąpienie składnika:
 
 * Konstruktor składnika jest wywoływany.
-* Konstruktory dla dowolnych usług di dostarczonych do konstruktora składnika za pomocą [@inject](xref:blazor/dependency-injection#request-a-service-in-a-component) dyrektywy lub atrybutu [[wstrzyknięcie]](xref:blazor/dependency-injection#request-a-service-in-a-component) są wywoływane. 
+* Są wywoływane konstruktory wszelkich niepojedynczych usług di dostarczonych do konstruktora składnika za pośrednictwem [@inject](xref:blazor/dependency-injection#request-a-service-in-a-component) dyrektywy lub atrybutu [[wstrzyknięcie]](xref:blazor/dependency-injection#request-a-service-in-a-component) . 
 
 Obwód kończy się niepowodzeniem, gdy dowolny wykonany Konstruktor lub setter `[Inject]` dla każdej właściwości zgłasza nieobsługiwany wyjątek. Wyjątek jest krytyczny, ponieważ struktura nie może utworzyć wystąpienia składnika. Jeśli logika konstruktora może generować wyjątki, aplikacja powinna zalewkować wyjątki przy użyciu instrukcji [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) z obsługą błędów i rejestrowaniem.
 
@@ -109,7 +109,7 @@ Aby zapobiec wystąpieniu wyjątku odwołania o wartości null w logice renderow
 
 [!code-cshtml[](handle-errors/samples_snapshot/3.x/person-example.razor?highlight=1)]
 
-W powyższym przykładzie kodu `@person` założono `null`, że **może** to być. Często Struktura kodu gwarantuje, że obiekt istnieje w momencie renderowania składnika. W takich przypadkach nie jest konieczne sprawdzanie `null` logiki renderowania. W poprzednim przykładzie można zagwarantować `person` , że istnieje, ponieważ `person` jest tworzony podczas tworzenia wystąpienia składnika.
+Poprzedni kod założono, `person` że `null`nie jest. Często Struktura kodu gwarantuje, że obiekt istnieje w momencie renderowania składnika. W takich przypadkach nie jest konieczne sprawdzanie `null` logiki renderowania. W poprzednim przykładzie można zagwarantować `person` , że istnieje, ponieważ `person` jest tworzony podczas tworzenia wystąpienia składnika.
 
 ### <a name="event-handlers"></a>Programy obsługi zdarzeń
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/05/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 855d05fa2b9c1a7572212c40adbe61bb396f4bac
-ms.sourcegitcommit: 2eb605f4f20ac4dd9de6c3b3e3453e108a357a21
+ms.openlocfilehash: 5190fa30373c75e6358d9643cfe0042c7fc53557
+ms.sourcegitcommit: 776367717e990bdd600cb3c9148ffb905d56862d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68819835"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68915115"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Samouczek: Tworzenie internetowego interfejsu API za pomocą ASP.NET Core
 
@@ -111,6 +111,15 @@ Na poniższym diagramie przedstawiono projekt aplikacji.
 * Wprowadź *TodoApi* dla **Nazwa projektu** , a następnie wybierz **Utwórz**.
 
   ![okno dialogowe konfiguracji](first-web-api-mac/_static/2.png)
+
+[!INCLUDE[](~/includes/mac-terminal-access.md)]
+
+Otwórz Terminal poleceń w folderze projektu i uruchom następujące polecenia:
+
+   ```console
+   dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 3.0.0-*
+   dotnet add package Microsoft.EntityFrameworkCore.InMemory --version 3.0.0-*
+   ```
 
 ---
 

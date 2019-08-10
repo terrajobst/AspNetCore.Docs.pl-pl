@@ -1,21 +1,21 @@
 ---
-title: Rozpoczynanie pracy z usługą NSwag i ASP.NET Core
+title: Wprowadzenie do NSwag i ASP.NET Core
 author: zuckerthoben
-description: Dowiedz się, jak za pomocą NSwag generować dokumentację i Pomóż strony dla internetowego interfejsu API platformy ASP.NET Core.
+description: Dowiedz się, jak używać NSwag do generowania dokumentacji i stron pomocy dla ASP.NET Core internetowego interfejsu API.
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 06/21/2019
 uid: tutorials/get-started-with-nswag
-ms.openlocfilehash: c5b2dc47328d6d3c271a87579fa8c300109bd734
-ms.sourcegitcommit: 06a455d63ff7d6b571ca832e8117f4ac9d646baf
+ms.openlocfilehash: af8e2a266e54364857f0b49cc78a54683dff9de4
+ms.sourcegitcommit: 776367717e990bdd600cb3c9148ffb905d56862d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67316553"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68915093"
 ---
-# <a name="get-started-with-nswag-and-aspnet-core"></a>Rozpoczynanie pracy z usługą NSwag i ASP.NET Core
+# <a name="get-started-with-nswag-and-aspnet-core"></a>Wprowadzenie do NSwag i ASP.NET Core
 
-Przez [Christoph Nienaber](https://twitter.com/zuckerthoben), [Rico Suter](https://rsuter.com), i [firmy Dave Brock](https://twitter.com/daveabrock)
+[Christoph Nienaber](https://twitter.com/zuckerthoben), [Suter](https://rsuter.com)i [Dave Brock](https://twitter.com/daveabrock)
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -31,53 +31,45 @@ Przez [Christoph Nienaber](https://twitter.com/zuckerthoben), [Rico Suter](https
 
 NSwag oferuje następujące możliwości:
 
-* Umożliwia korzystanie z programu Swagger interfejsu użytkownika i programu Swagger generator.
-* Możliwości generowania kodu elastyczne.
+* Możliwość korzystania z interfejsu użytkownika programu Swagger i generatora Swagger.
+* Elastyczne możliwości generowania kodu.
 
-Nswag, nie ma potrzeby istniejącego interfejsu API&mdash;możesz użyć interfejsów API innych firm, które włączają struktury Swagger i wygenerować implementacji klienta. NSwag pozwala przyspieszyć cykl tworzenia oprogramowania i łatwo przystosować do zmiany interfejsu API.
+W przypadku korzystania z usługi NSwag nie jest potrzebny&mdash;istniejący interfejs API, który zawiera interfejsy API innych firm, które zawierają strukturę Swagger i generują implementację klienta. NSwag umożliwia przyspieszenie cyklu programowania i łatwe dostosowanie do zmian interfejsu API.
 
-## <a name="register-the-nswag-middleware"></a>Zarejestruj oprogramowanie pośredniczące NSwag
+## <a name="register-the-nswag-middleware"></a>Rejestrowanie oprogramowania pośredniczącego NSwag
 
-Zarejestruj NSwag oprogramowaniu pośredniczącym, aby:
+Zarejestruj oprogramowanie pośredniczące NSwag w programie:
 
-* Generowanie specyfikacją struktury Swagger dla interfejsu API wdrożony w sieci web.
-* Obsługiwać interfejs użytkownika struktury Swagger do przeglądania i testowanie interfejsu API sieci web.
+* Generuj specyfikację Swagger dla zaimplementowanego interfejsu API sieci Web.
+* Zaoferują interfejs użytkownika struktury Swagger, aby przeglądać i testować internetowy interfejs API.
 
-Aby użyć [NSwag](https://github.com/RicoSuter/NSwag) oprogramowanie pośredniczące platformy ASP.NET Core, zainstaluj [NSwag.AspNetCore](https://www.nuget.org/packages/NSwag.AspNetCore/) pakietu NuGet. Ten pakiet zawiera oprogramowaniu pośredniczącym, aby wygenerować i obsługiwać specyfikacją struktury Swagger interfejs użytkownika struktury Swagger (v2 i v3), a [ReDoc UI](https://github.com/Rebilly/ReDoc).
+Aby użyć oprogramowania [NSwag](https://github.com/RicoSuter/NSwag) ASP.NET Core pośredniczącego, zainstaluj pakiet NuGet [NSwag. AspNetCore](https://www.nuget.org/packages/NSwag.AspNetCore/) . Ten pakiet zawiera oprogramowanie pośredniczące do generowania i obsługiwania specyfikacji struktury Swagger, interfejsu użytkownika struktury Swagger (v2 i V3) oraz [interfejsu użytkownika ReDoc](https://github.com/Rebilly/ReDoc).
 
-Aby zainstalować pakiet NSwag NuGet, użyj jednej z następujących metod:
+Aby zainstalować pakiet NuGet NSwag, należy użyć jednej z następujących metod:
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Z **Konsola Menedżera pakietów** okna:
-  * Przejdź do **widoku** > **innych Windows** > **Konsola Menedżera pakietów**
-  * Przejdź do katalogu, w którym *TodoApi.csproj* plik istnieje
+* W oknie **konsola Menedżera pakietów** :
+  * Przejdź do **wyświetlania** > innych**konsoli Menedżera pakietów** **systemu Windows** > 
+  * Przejdź do katalogu, w którym znajduje się plik *TodoApi. csproj*
   * Wykonaj następujące polecenie:
 
     ```powershell
     Install-Package NSwag.AspNetCore
     ```
 
-* Z **Zarządzaj pakietami NuGet** okno dialogowe:
-  * Kliknij prawym przyciskiem myszy projekt w **Eksploratora rozwiązań** > **Zarządzaj pakietami NuGet**
-  * Ustaw **źródła pakietu** na stronie "nuget.org"
-  * W polu wyszukiwania wprowadź "NSwag.AspNetCore"
-  * Wybierz pakiet "NSwag.AspNetCore" z **Przeglądaj** kartę, a następnie kliknij przycisk **instalacji**
+* W oknie dialogowym **Zarządzanie pakietami NuGet** :
+  * Kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań** > **Zarządzanie pakietami NuGet**
+  * Ustaw **Źródło pakietu** na "NuGet.org"
+  * Wprowadź ciąg "NSwag. AspNetCore" w polu wyszukiwania
+  * Wybierz pakiet "NSwag. AspNetCore" z karty **Przeglądaj** , a następnie kliknij przycisk **Instaluj** .
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
-* Kliknij prawym przyciskiem myszy *pakietów* folderu w **konsoli rozwiązania** > **Dodawanie pakietów...**
-* Ustaw **Dodawanie pakietów** okna **źródła** menu rozwijane "nuget.org"
-* W polu wyszukiwania wprowadź "NSwag.AspNetCore"
-* Wybierz pakiet "NSwag.AspNetCore" w okienku wyników, a następnie kliknij przycisk **Dodaj pakiet**
-
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
-
-Uruchom następujące polecenie z **zintegrowany Terminal**:
-
-```console
-dotnet add TodoApi.csproj package NSwag.AspNetCore
-```
+* Kliknij prawym przyciskiem myszy folder *pakiety* w **okienko rozwiązania** > **Dodaj pakiety...**
+* Ustaw listę rozwijaną **źródła** okna **Dodaj pakiety** na "NuGet.org"
+* Wprowadź ciąg "NSwag. AspNetCore" w polu wyszukiwania
+* Wybierz pakiet "NSwag. AspNetCore" z okienka wyników, a następnie kliknij pozycję **Dodaj pakiet** .
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
@@ -89,42 +81,42 @@ dotnet add TodoApi.csproj package NSwag.AspNetCore
 
 ---
 
-## <a name="add-and-configure-swagger-middleware"></a>Dodawanie i konfigurowanie oprogramowania pośredniczącego struktury Swagger
+## <a name="add-and-configure-swagger-middleware"></a>Dodawanie i Konfigurowanie oprogramowania pośredniczącego programu Swagger
 
-Dodawanie i konfigurowanie programu Swagger w aplikacji platformy ASP.NET Core, wykonując następujące czynności:
+Dodaj i skonfiguruj strukturę Swagger w aplikacji ASP.NET Core, wykonując następujące czynności:
 
-* W `Startup.ConfigureServices` metodę rejestrowania wymagane usługi struktury Swagger:
+* `Startup.ConfigureServices` W metodzie Zarejestruj wymagane usługi Swagger:
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.NSwag/Startup.cs?name=snippet_ConfigureServices&highlight=8)]
 
-* W `Startup.Configure` metody włącza oprogramowanie pośredniczące dla obsługująca wygenerowane Specyfikacja Swagger i interfejs użytkownika struktury Swagger:
+* `Startup.Configure` W metodzie Włącz oprogramowanie pośredniczące do obsługi wygenerowanej specyfikacji struktury Swagger i interfejsu użytkownika programu Swagger:
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.NSwag/Startup.cs?name=snippet_Configure&highlight=6-7)]
 
 * Uruchom aplikację. Przejdź do:
-  * `http://localhost:<port>/swagger` Aby wyświetlić interfejs użytkownika struktury Swagger.
-  * `http://localhost:<port>/swagger/v1/swagger.json` Aby zapoznać się ze specyfikacją struktury Swagger.
+  * `http://localhost:<port>/swagger`Aby wyświetlić interfejs użytkownika struktury Swagger.
+  * `http://localhost:<port>/swagger/v1/swagger.json`Aby wyświetlić specyfikację struktury Swagger.
 
 ## <a name="code-generation"></a>Generowanie kodu
 
-Korzystać z zalet możliwości generowania kodu NSwag firmy, wybierając jedną z następujących opcji:
+Aby skorzystać z możliwości generowania kodu w programie NSwag, należy wybrać jedną z następujących opcji:
 
-* [NSwagStudio](https://github.com/RicoSuter/NSwag/wiki/NSwagStudio) &ndash; podczas generowania kodu klienta interfejsu API w aplikacji pulpitu Windows C# lub TypeScript.
-* [NSwag.CodeGeneration.CSharp](https://www.nuget.org/packages/NSwag.CodeGeneration.CSharp/) lub [NSwag.CodeGeneration.TypeScript](https://www.nuget.org/packages/NSwag.CodeGeneration.TypeScript/) pakietów NuGet dla generowania kodu wewnątrz projektu.
+* [NSwagStudio](https://github.com/RicoSuter/NSwag/wiki/NSwagStudio) Aplikacja klasyczna systemu Windows do generowania kodu klienta interfejsu C# API w języku lub TypeScript. &ndash;
+* Pakiety NuGet [NSwag. CodeGeneration. CSharp](https://www.nuget.org/packages/NSwag.CodeGeneration.CSharp/) lub [NSwag. CodeGeneration. TypeScript](https://www.nuget.org/packages/NSwag.CodeGeneration.TypeScript/) na potrzeby generowania kodu w ramach projektu.
 * NSwag z [wiersza polecenia](https://github.com/RicoSuter/NSwag/wiki/CommandLine).
-* [NSwag.MSBuild](https://github.com/RicoSuter/NSwag/wiki/MSBuild) pakietu NuGet.
-* [Unchase OpenAPI (Swagger) podłączonej usługi](https://marketplace.visualstudio.com/items?itemName=Unchase.unchaseopenapiconnectedservice) &ndash; Visual Studio Connected Service for generowanie kodu klienta interfejsu API w C# lub TypeScript. Generuje również C# kontrolerów, usług interfejsu OpenAPI nswag.
+* Pakiet NuGet [NSwag. MSBuild](https://github.com/RicoSuter/NSwag/wiki/MSBuild) .
+* &ndash; [Połączona usługa openapi (Swagger)](https://marketplace.visualstudio.com/items?itemName=Unchase.unchaseopenapiconnectedservice) jest połączoną usługą programu Visual Studio do generowania kodu klienta interfejsu API C# w języku lub TypeScript. Program generuje C# również kontrolery dla usług openapi Services z NSwag.
 
-### <a name="generate-code-with-nswagstudio"></a>Generowanie kodu za pomocą NSwagStudio
+### <a name="generate-code-with-nswagstudio"></a>Generuj kod przy użyciu NSwagStudio
 
-* Zainstaluj NSwagStudio, postępując zgodnie z instrukcjami w artykule [repozytorium NSwagStudio GitHub](https://github.com/RicoSuter/NSwag/wiki/NSwagStudio).
-* Uruchom NSwagStudio, a następnie wprowadź *swagger.json* adresu URL w pliku **Swagger URL specyfikacji** pola tekstowego. Na przykład *http://localhost:44354/swagger/v1/swagger.json* .
-* Kliknij przycisk **utworzyć lokalną kopię** przycisk, aby wygenerować reprezentacja JSON usługi specyfikacją struktury Swagger.
+* Zainstaluj program NSwagStudio, postępując zgodnie z instrukcjami w [repozytorium GitHub NSwagStudio](https://github.com/RicoSuter/NSwag/wiki/NSwagStudio).
+* Uruchom NSwagStudio i wprowadź adres URL pliku *Swagger. JSON* w polu tekstowym **adres URL specyfikacji struktury Swagger** . Na przykład *http://localhost:44354/swagger/v1/swagger.json* .
+* Kliknij przycisk **Utwórz kopię lokalną** , aby wygenerować reprezentację JSON specyfikacji struktury Swagger.
 
-  ![Utwórz lokalną kopię specyfikacją struktury Swagger](web-api-help-pages-using-swagger/_static/CreateLocalCopy-NSwagStudio.PNG)
+  ![Utwórz lokalną kopię specyfikacji struktury Swagger](web-api-help-pages-using-swagger/_static/CreateLocalCopy-NSwagStudio.PNG)
 
-* W **dane wyjściowe** obszaru, kliknij przycisk **klienta CSharp** pole wyboru. W zależności od projektu, można także **klienta TypeScript** lub **Kontroler interfejsu API sieci Web języka CSharp**. Jeśli wybierzesz **Kontroler interfejsu API sieci Web języka CSharp**, Specyfikacja usługi odtwarza usługi, która służy jako zwrotny generacji.
-* Kliknij przycisk **Generowanie danych wyjściowych** do produkcji kompletna C# implementacji klienta *TodoApi.NSwag* projektu. Aby wyświetlić kod wygenerowanego klienta, kliknij przycisk **klienta CSharp** karty:
+* W obszarze dane **wyjściowe** kliknij pole wyboru **Klient CSharp** . W zależności od projektu można również wybrać **klienta TypeScript** lub **kontroler internetowego interfejsu API CSharp**. W przypadku wybrania opcji **kontroler internetowego interfejsu API CSharp**Specyfikacja usługi ponownie kompiluje usługę, służącą jako generacja odwrotna.
+* Kliknij pozycję **Generuj dane wyjściowe** , aby C# utworzyć kompletną implementację projektu *TodoApi. NSwag* . Aby wyświetlić wygenerowany kod klienta, kliknij kartę **Klient CSharp** :
 
 ```csharp
 //----------------------
@@ -165,10 +157,10 @@ namespace MyNamespace
 ```
 
 > [!TIP]
-> C# Kod klienta jest generowany na podstawie wyborów w **ustawienia** kartę. Zmodyfikuj ustawienia, aby wykonywać zadania takie jak zmiana nazwy przestrzeni nazw domyślne i generowanie metody synchronicznej.
+> Kod C# klienta jest generowany na podstawie opcji wybranych na karcie **Ustawienia** . Zmodyfikuj ustawienia, aby wykonać zadania, takie jak domyślna zmiana nazw obszaru nazw i generowanie metody synchronicznej.
 
-* Skopiuj wygenerowany C# kod do pliku w projekcie klienta, które będą korzystać z interfejsu API.
-* Rozpocznij korzystanie z interfejsu API sieci web:
+* Skopiuj wygenerowany C# kod do pliku w projekcie klienta, który będzie korzystał z interfejsu API.
+* Rozpocznij korzystanie z internetowego interfejsu API:
 
 ```csharp
  var todoClient = new TodoClient();
@@ -183,30 +175,30 @@ var createdTodo = await todoClient.CreateAsync(new TodoItem());
 var foundTodo = await todoClient.GetByIdAsync(1);
 ```
 
-## <a name="customize-api-documentation"></a>Dostosowywanie dokumentacji interfejsu API
+## <a name="customize-api-documentation"></a>Dostosuj dokumentację interfejsu API
 
-Struktury swagger zawiera opcje dokumentowanie modelu obiektów do jej obsługi ułatwiają realizację użycia interfejsu API sieci web.
+Struktura Swagger zawiera opcje dokumentujące model obiektów, co ułatwia użycie internetowego interfejsu API.
 
 ### <a name="api-info-and-description"></a>Informacje o interfejsie API i opis
 
-W `Startup.ConfigureServices` metody akcji konfiguracji przekazywane do `AddSwaggerDocument` metoda dodaje informacje, takie jak tworzenie, licencji i opis:
+W metodzie akcja konfiguracji przeniesiona `AddSwaggerDocument` do metody powoduje dodanie informacji, takich jak autor, licencja i opis: `Startup.ConfigureServices`
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.NSwag/Startup2.cs?name=snippet_AddSwaggerDocument)]
 
-Interfejs użytkownika struktury Swagger Wyświetla informacje o wersji:
+Interfejs użytkownika struktury Swagger wyświetla informacje o wersji:
 
-![Interfejs użytkownika struktury swagger z informacjami o wersji](web-api-help-pages-using-swagger/_static/custom-info-nswag.png)
+![Interfejs użytkownika struktury Swagger z informacjami o wersji](web-api-help-pages-using-swagger/_static/custom-info-nswag.png)
 
 ### <a name="xml-comments"></a>komentarze XML
 
-Aby włączyć komentarze XML, wykonaj następujące czynności:
+Aby włączyć Komentarze XML, wykonaj następujące czynności:
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 ::: moniker range=">= aspnetcore-2.0"
 
-* Kliknij prawym przyciskiem myszy projekt w **Eksploratora rozwiązań** i wybierz **edytowanie pliku .csproj < project_name >** .
-* Ręcznie Dodaj wyróżnione wiersze w celu *.csproj* pliku:
+* Kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań** a następnie wybierz polecenie **edytuj < Project_Name >. csproj**.
+* Ręcznie Dodaj wyróżnione wiersze do pliku *csproj* :
 
 [!code-xml[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.NSwag/TodoApi.csproj?name=snippet_DocumentationFileElement&highlight=1-2,4)]
 
@@ -214,8 +206,8 @@ Aby włączyć komentarze XML, wykonaj następujące czynności:
 
 ::: moniker range="<= aspnetcore-1.1"
 
-* Kliknij prawym przyciskiem myszy projekt w **Eksploratora rozwiązań** i wybierz **właściwości**
-* Sprawdź **pliku dokumentacji XML** pole w obszarze **dane wyjściowe** części **kompilacji** kartę
+* Kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań** i wybierz polecenie **Właściwości**
+* Sprawdź pole **plik dokumentacji XML** w sekcji **dane wyjściowe** na karcie **kompilacja**
 
 ::: moniker-end
 
@@ -223,8 +215,8 @@ Aby włączyć komentarze XML, wykonaj następujące czynności:
 
 ::: moniker range=">= aspnetcore-2.0"
 
-* Z *konsoli rozwiązania*, naciśnij klawisz **kontroli** i kliknij nazwę projektu. Przejdź do **narzędzia** > **Edytuj plik**.
-* Ręcznie Dodaj wyróżnione wiersze w celu *.csproj* pliku:
+* W *okienko rozwiązania*naciśnij klawisz **Control** i kliknij nazwę projektu. Przejdź do **menu Narzędzia** > **Edytuj plik**.
+* Ręcznie Dodaj wyróżnione wiersze do pliku *csproj* :
 
 [!code-xml[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.NSwag/TodoApi.csproj?name=snippet_DocumentationFileElement&highlight=1-2,4)]
 
@@ -232,14 +224,14 @@ Aby włączyć komentarze XML, wykonaj następujące czynności:
 
 ::: moniker range="<= aspnetcore-1.1"
 
-* Otwórz **opcje projektu** okna dialogowego > **kompilacji** > **kompilatora**
-* Sprawdź **Generuj dokumentację xml** pole w obszarze **ogólne opcje** sekcji
+* Otwórz okno dialogowe **Opcje projektu** > **kompilator** **kompilacji** >
+* Zaznacz pole **Generuj dokumentację XML** w sekcji **Opcje ogólne** .
 
 ::: moniker-end
 
-# <a name="visual-studio-code--net-core-clitabvisual-studio-codenetcore-cli"></a>[Program Visual Studio Code / .NET Core interfejsu wiersza polecenia](#tab/visual-studio-code+netcore-cli)
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
-Ręcznie Dodaj wyróżnione wiersze w celu *.csproj* pliku:
+Ręcznie Dodaj wyróżnione wiersze do pliku *csproj* :
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -259,13 +251,13 @@ Ręcznie Dodaj wyróżnione wiersze w celu *.csproj* pliku:
 
 ::: moniker range="<= aspnetcore-2.0"
 
-Ponieważ używa NSwag [odbicia](/dotnet/csharp/programming-guide/concepts/reflection), i zalecanym typ zwracany dla akcji internetowego interfejsu API jest [IActionResult](xref:Microsoft.AspNetCore.Mvc.IActionResult), nie można wywnioskować, co robi Twoja Akcja i ją zwraca.
+Ponieważ NSwag używa [odbicia](/dotnet/csharp/programming-guide/concepts/reflection), a zalecanym typem zwracanym dla akcji interfejsu API sieci Web jest [IActionResult](xref:Microsoft.AspNetCore.Mvc.IActionResult), nie może wnioskować o to, co działa i co zwraca.
 
 Rozważmy następujący przykład:
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.NSwag/Controllers/TodoController.cs?name=snippet_CreateAction)]
 
-Poprzedni zwraca akcji `IActionResult`, ale wewnątrz akcji go zwraca albo [CreatedAtRoute](xref:System.Web.Http.ApiController.CreatedAtRoute*) lub [element BadRequest](xref:System.Web.Http.ApiController.BadRequest*). Adnotacje danych umożliwia Poinformuj klientów, który kodów stanu HTTP, ta akcja jest znany do zwrócenia. Dekoracji działanie z następującymi atrybutami:
+Poprzednia Akcja `IActionResult`zwróci wartość, ale wewnątrz akcji, która zwraca albo [CreatedAtRoute](xref:System.Web.Http.ApiController.CreatedAtRoute*) lub [nieprawidłowego żądania](xref:System.Web.Http.ApiController.BadRequest*). Użyj adnotacji danych, aby poinformować klientów, których kodów stanu HTTP Ta akcja jest zwracana. Dekorować akcję z następującymi atrybutami:
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.NSwag/Controllers/TodoController.cs?name=snippet_CreateActionAttributes)]
 
@@ -273,20 +265,20 @@ Poprzedni zwraca akcji `IActionResult`, ale wewnątrz akcji go zwraca albo [Crea
 
 ::: moniker range=">= aspnetcore-2.1"
 
- Ponieważ NSwag używa [odbicia](/dotnet/csharp/programming-guide/concepts/reflection), a zalecany typ zwracany dla akcji internetowego interfejsu API jest [ActionResult\<T >](xref:Microsoft.AspNetCore.Mvc.ActionResult%601), tylko można go wywnioskować zwracany typ zdefiniowany przez `T`. Nie można automatycznie wywnioskować inne możliwe zwracane typy.
+ Ponieważ NSwag używa [odbicia](/dotnet/csharp/programming-guide/concepts/reflection), a zalecanym typem zwracanym dla akcji interfejsu API sieci Web jest [\<ActionResult T >](xref:Microsoft.AspNetCore.Mvc.ActionResult%601), można tylko wnioskować o typie `T`zwracanym zdefiniowanym przez. Nie można automatycznie wywnioskować innych możliwych typów zwracanych.
 
 Rozważmy następujący przykład:
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.NSwag/Controllers/TodoController.cs?name=snippet_CreateAction)]
 
-Poprzedni zwraca akcji `ActionResult<T>`. W akcji, zwraca [CreatedAtRoute](xref:System.Web.Http.ApiController.CreatedAtRoute*). Ponieważ kontrolerowi zostanie nadany [[klasy ApiController]](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) atrybutu [element BadRequest](xref:System.Web.Http.ApiController.BadRequest*) odpowiedzi jest to możliwe, zbyt. Aby uzyskać więcej informacji, zobacz [odpowiedzi automatyczne HTTP 400](xref:web-api/index#automatic-http-400-responses). Adnotacje danych umożliwia Poinformuj klientów, który kodów stanu HTTP, ta akcja jest znany do zwrócenia. Dekoracji działanie z następującymi atrybutami:
+Poprzednia Akcja `ActionResult<T>`zwraca wartość. Wewnątrz akcji zwraca [CreatedAtRoute](xref:System.Web.Http.ApiController.CreatedAtRoute*). Ponieważ kontroler ma atrybut [[ApiController]](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) , istnieje również odpowiedź [nieprawidłowego żądania](xref:System.Web.Http.ApiController.BadRequest*) . Aby uzyskać więcej informacji, zobacz [Automatyczne HTTP 400 odpowiedzi](xref:web-api/index#automatic-http-400-responses). Użyj adnotacji danych, aby poinformować klientów, których kodów stanu HTTP Ta akcja jest zwracana. Dekorować akcję z następującymi atrybutami:
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.NSwag/Controllers/TodoController.cs?name=snippet_CreateActionAttributes)]
 
-W programie ASP.NET Core 2.2 lub nowszej, można użyć konwencji zamiast jawnie urządzanie poszczególne akcje za pomocą `[ProducesResponseType]`. Aby uzyskać więcej informacji, zobacz <xref:web-api/advanced/conventions>.
+W ASP.NET Core 2,2 lub nowszych można używać konwencji zamiast jawnie dekorowania nazwy poszczególne akcje z `[ProducesResponseType]`. Aby uzyskać więcej informacji, zobacz <xref:web-api/advanced/conventions>.
 
 ::: moniker-end
 
-Generatora struktury Swagger teraz można dokładnie opisują tej akcji i wygenerowanego klienci wiedzieli, czego otrzymują podczas wywoływania punktu końcowego. Jako zalecenie dekoracji wszystkie akcje za pomocą tych atrybutów.
+Generator Swagger może teraz prawidłowo opisać tę akcję, a wygenerowane klienci wiedzą, co otrzymują podczas wywoływania punktu końcowego. Zgodnie z zaleceniem dekorować wszystkie akcje z tymi atrybutami.
 
-Aby uzyskać wskazówki, jakie odpowiedzi HTTP, powinien zwrócić swoje działania interfejsu API, zobacz [specyfikacji RFC 7231](https://tools.ietf.org/html/rfc7231#section-4.3).
+Aby uzyskać wskazówki dotyczące odpowiedzi HTTP, które powinny być zwracane przez działania interfejsu API, zobacz [specyfikację RFC 7231](https://tools.ietf.org/html/rfc7231#section-4.3).

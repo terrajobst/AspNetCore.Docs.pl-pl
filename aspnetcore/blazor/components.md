@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/02/2019
 uid: blazor/components
-ms.openlocfilehash: c5525542516d7b1318c26d12a5f59b0ded8dc659
-ms.sourcegitcommit: 2eb605f4f20ac4dd9de6c3b3e3453e108a357a21
+ms.openlocfilehash: 43457bffd748ebba68cc86d33fdeb98dc419704b
+ms.sourcegitcommit: 776367717e990bdd600cb3c9148ffb905d56862d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68819776"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68913890"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Tworzenie i używanie składników ASP.NET Core Razor
 
@@ -26,10 +26,12 @@ Aplikacje Blazor są kompilowane przy użyciu *składników*programu. Składnik 
 
 Składniki są zaimplementowane w plikach składników [Razor](xref:mvc/views/razor) ( *. Razor*) przy użyciu kombinacji C# i znaczników HTML. Składnik w Blazor jest formalnie określany jako *składnik Razor*.
 
-Składniki można tworzyć przy użyciu rozszerzenia pliku *. cshtml* , o ile pliki są identyfikowane jako pliki składników Razor przy użyciu `_RazorComponentInclude` właściwości MSBuild. Na przykład aplikacja, która określa, że wszystkie pliki *. cshtml* w folderze *Pages* powinny być traktowane jako pliki składników Razor:
+Składniki można tworzyć przy użyciu rozszerzenia pliku *. cshtml* . Użyj właściwości programu MSBuildwplikuprojektu,abyzidentyfikowaćplikiComponent.`_RazorComponentInclude` cshtml. Na przykład aplikacja, która określa, że wszystkie pliki *. cshtml* w folderze *Pages* powinny być traktowane jako pliki składników Razor:
 
 ```xml
-<_RazorComponentInclude>Pages\**\*.cshtml</_RazorComponentInclude>
+<PropertyGroup>
+  <_RazorComponentInclude>Pages\**\*.cshtml</_RazorComponentInclude>
+</PropertyGroup>
 ```
 
 Interfejs użytkownika dla składnika jest definiowany przy użyciu języka HTML. Logika renderowania dynamicznego (na przykład pętle, warunkowe, wyrażenia) jest dodawana przy C# użyciu osadzonej składni o nazwie [Razor](xref:mvc/views/razor). Po skompilowaniu aplikacji logika znaczników HTML i C# renderowania jest konwertowana na klasę składnika. Nazwa wygenerowanej klasy jest zgodna z nazwą pliku.
