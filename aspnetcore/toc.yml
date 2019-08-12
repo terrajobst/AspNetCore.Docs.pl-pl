@@ -104,8 +104,6 @@
         - name: Program EF Core z produktem Razor Pages
           displayName: tutorial
           items:
-            - name: Omówienie
-              uid: data/ef-rp/index
             - name: Wprowadzenie
               uid: data/ef-rp/intro
             - name: 'Tworzenie, odczytywanie, aktualizowanie i usuwanie'
@@ -581,8 +579,6 @@
       items:
         - name: Program EF Core z produktem Razor Pages
           items:
-            - name: Omówienie
-              uid: data/ef-rp/index
             - name: Wprowadzenie
               uid: data/ef-rp/intro
             - name: 'Tworzenie, odczytywanie, aktualizowanie i usuwanie'
@@ -701,6 +697,8 @@
         - name: Omówienie
           displayName: 'deploy, publish'
           uid: host-and-deploy/iis/index
+        - name: Samouczek dotyczący publikowania w usługach IIS
+          uid: tutorials/publish-to-iis
         - name: Moduł ASP.NET Core
           displayName: 'deploy, publish'
           uid: host-and-deploy/aspnet-core-module
