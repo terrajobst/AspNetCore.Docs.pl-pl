@@ -1,8 +1,10 @@
-* Zaufanie certyfikatu deweloperskiego HTTPS, uruchamiając następujące polecenie:
+* Aby ufać certyfikatowi programistycznemu HTTPS, należy uruchomić następujące polecenie:
 
   ```console
   dotnet dev-certs https --trust
   ```
+  
+  Poprzednie polecenie nie działa w systemie Linux. Zapoznaj się z dokumentacją dystrybucji systemu Linux w celu zaufać certyfikatowi.
 
   Poprzednie polecenie wyświetla następujące okno dialogowe:
 
@@ -10,5 +12,5 @@
 
 * Wybierz **Tak**, jeśli zgadzasz się ufać certyfikatowi programistycznemu.
 
-  Zobacz [ufać certyfikatowi rozwoju platformy ASP.NET Core HTTPS](xref:security/enforcing-ssl#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos) Aby uzyskać więcej informacji.
+  Aby uzyskać więcej informacji, zobacz artykuł [Ufaj certyfikatowi deweloperskim protokołu HTTPS ASP.NET Core](xref:security/enforcing-ssl#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos) .
   
