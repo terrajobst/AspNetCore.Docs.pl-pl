@@ -1,38 +1,38 @@
 ---
-title: 'Samouczek: Tworzenie aplikacji internetowej strony Razor za pomocą programu ASP.NET Core'
+title: 'Samouczek: Tworzenie aplikacji sieci Web Razor Pages za pomocą ASP.NET Core'
 author: rick-anderson
-description: Utwórz aplikacja internetowa ze stronami Razor na Windows za pomocą programu Visual Studio, platformy ASP.NET Core i programem EF Core.
+description: Utwórz Razor Pages aplikację sieci Web w systemie Windows przy użyciu programu Visual Studio, ASP.NET Core i EF Core.
 ms.author: riande
-ms.date: 09/08/2017
+ms.date: 08/09/2019
 uid: tutorials/razor-pages/index
-ms.openlocfilehash: c3dcc18844f2a12a2a116b11cb007cb833203dc3
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 7c722a0992b9cf30731a11b31c839f183d40b9a0
+ms.sourcegitcommit: 89fcc6cb3e12790dca2b8b62f86609bed6335be9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64901054"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68994303"
 ---
-# <a name="tutorial-create-a-razor-pages-web-app-with-aspnet-core"></a>Samouczek: Tworzenie aplikacji internetowej strony Razor za pomocą programu ASP.NET Core
+# <a name="tutorial-create-a-razor-pages-web-app-with-aspnet-core"></a>Samouczek: Tworzenie aplikacji sieci Web Razor Pages za pomocą ASP.NET Core
 
-W tej serii samouczków opisano podstawy tworzenia aplikacji sieci web stron Razor. 
+W tej serii samouczków objaśniono podstawowe informacje na temat tworzenia aplikacji sieci Web Razor Pages. 
 
 [!INCLUDE[](~/includes/advancedRP.md)]
 
-Ta seria zawiera następujące samouczki:
+Ta seria obejmuje następujące samouczki:
 
 1. [Tworzenie aplikacji internetowych ze stronami Razor](xref:tutorials/razor-pages/razor-pages-start)
-1. [Dodawanie modelu do aplikacji stron Razor](xref:tutorials/razor-pages/model)
-1. [Tworzenie szkieletu (Generuj) stron Razor](xref:tutorials/razor-pages/page)
-1. [Praca z bazą danych](xref:tutorials/razor-pages/sql)
+1. [Dodawanie modelu do aplikacji Razor Pages](xref:tutorials/razor-pages/model)
+1. [Szkielet (generowanie) stron Razor](xref:tutorials/razor-pages/page)
+1. [Współpraca z bazą danych](xref:tutorials/razor-pages/sql)
 1. [Aktualizowanie stron Razor](xref:tutorials/razor-pages/da1)
 1. [Dodawanie wyszukiwania](xref:tutorials/razor-pages/search)
 1. [Dodawanie nowego pola](xref:tutorials/razor-pages/new-field)
 1. [Dodawanie walidacji](xref:tutorials/razor-pages/validation)
 
-Po zakończeniu będziesz mieć aplikację, która może wyświetlać i zarządzać bazy danych filmów.
+Na końcu będziesz mieć aplikację, która będzie mogła wyświetlać bazę danych filmów i zarządzać nią.
 
 ![Przykładowa strona przykładowej aplikacji](index/_static/sample-page.png)
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Wersja usługi youtube w tym samouczku](https://www.youtube.com/watch?v=F0SP7Ry4flQ&feature=youtu.be)
+* [Wersja tego samouczka usługi YouTube](https://www.youtube.com/watch?v=F0SP7Ry4flQ&feature=youtu.be)

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/10/2019
 uid: host-and-deploy/blazor/client-side
-ms.openlocfilehash: be6b6c245440cb085a1a6b115f4f087306f7cc83
-ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
+ms.openlocfilehash: e9a42bd4e8511d426761746047fed2d4f7dfc6dd
+ms.sourcegitcommit: 89fcc6cb3e12790dca2b8b62f86609bed6335be9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308087"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68994091"
 ---
 # <a name="host-and-deploy-aspnet-core-blazor-client-side"></a>Hostowanie i wdrażanie ASP.NET Core Blazor po stronie klienta
 
@@ -148,7 +148,7 @@ Aplikacja reaguje lokalnie o `http://localhost:port/CoolApp`.
 
 Aby uzyskać więcej informacji, zapoznaj się z sekcją w sekcji [Konfiguracja podstawowego hosta ścieżki](#path-base).
 
-Jeśli aplikacja korzysta z [modelu hostingu po stronie klienta](xref:blazor/hosting-models#client-side) (na podstawie `blazor` szablonu projektu **Blazor (po stronie klienta)** , szablonu w przypadku użycia polecenia [dotnet New](/dotnet/core/tools/dotnet-new) ) i jest hostowana jako podaplikacja IIS w aplikacji ASP.NET Core, ważne jest, aby Wyłącz procedurę obsługi modułu dziedziczonego ASP.NET Core lub upewnij się, że `<handlers>` sekcja główna (nadrzędna) aplikacji w pliku *Web. config* nie jest dziedziczona przez aplikację podrzędną.
+Jeśli aplikacja korzysta z [modelu hostingu po stronie klienta](xref:blazor/hosting-models#client-side) (w oparciu o `blazorwasm` szablon projektu **aplikacji Blazor webassembly** , szablon używany przez polecenie [dotnet New](/dotnet/core/tools/dotnet-new) ) i jest hostowany jako podaplikacja usług IIS w aplikacji ASP.NET Core, ważne jest, aby Wyłącz procedurę obsługi modułu dziedziczonego ASP.NET Core lub upewnij się, że `<handlers>` sekcja główna (nadrzędna) aplikacji w pliku *Web. config* nie jest dziedziczona przez aplikację podrzędną.
 
 Usuń program obsługi w opublikowanym pliku *Web. config* aplikacji, dodając `<handlers>` sekcję do pliku:
 
@@ -180,7 +180,7 @@ Usuwanie procedury obsługi lub wyłączanie dziedziczenia jest wykonywane poza 
 
 *Wdrożenie hostowane* umożliwia Blazor aplikacji po stronie klienta w przeglądarkach z [aplikacji ASP.NET Core](xref:index) działającej na serwerze sieci Web.
 
-Aplikacja Blazor jest dołączana do aplikacji ASP.NET Core w publikowanym danych wyjściowych, dzięki czemu dwie aplikacje są wdrażane razem. Wymagany jest serwer sieci Web, który umożliwia hostowanie aplikacji ASP.NET Core. W przypadku wdrożenia hostowanego program Visual Studio zawiera szablon projektu **Blazor (ASP.NET Core Hosted)** (`blazorhosted` szablon w przypadku używania polecenia [dotnet New](/dotnet/core/tools/dotnet-new) ).
+Aplikacja Blazor jest dołączana do aplikacji ASP.NET Core w publikowanym danych wyjściowych, dzięki czemu dwie aplikacje są wdrażane razem. Wymagany jest serwer sieci Web, który umożliwia hostowanie aplikacji ASP.NET Core. W przypadku wdrożenia hostowanego program Visual Studio zawiera szablon projektu **aplikacji webassembly Blazor** (`blazorwasm` szablon używany przez polecenie [dotnet New](/dotnet/core/tools/dotnet-new) ) z wybraną opcją hostowaną.
 
 Aby uzyskać więcej informacji na temat ASP.NET Core hostingu i wdrażania aplikacji <xref:host-and-deploy/index>, zobacz.
 
@@ -280,6 +280,6 @@ COPY nginx.conf /etc/nginx/nginx.conf
 
 ### <a name="github-pages"></a>Strony serwisu GitHub
 
-Aby obsłużyć ponowne zapisywanie adresów URL, Dodaj plik *404. html* ze skryptem, który obsługuje przekierowywanie żądania do strony *index. html* . Aby zapoznać się z przykładową implementacją dostarczoną przez społeczność, zobacz [aplikacje jednostronicowe dla stron usługi GitHub](https://spa-github-pages.rafrex.com/) ([rafrex/Spa-GitHub-Pages w witrynie GitHub](https://github.com/rafrex/spa-github-pages#readme)). Przykład użycia podejścia społecznościowego można znaleźć w witrynie GitHub[(](https://blazor-demo.github.io/) [blazor — Demonstracja/blazor-Demonstracja](https://github.com/blazor-demo/blazor-demo.github.io) ).
+Aby obsłużyć ponowne zapisywanie adresów URL, Dodaj plik *404. html* ze skryptem, który obsługuje przekierowywanie żądania do strony *index. html* . Aby zapoznać się z przykładową implementacją dostarczoną przez społeczność, zobacz [aplikacje jednostronicowe dla stron usługi GitHub](https://spa-github-pages.rafrex.com/) ([rafrex/Spa-GitHub-Pages w witrynie GitHub](https://github.com/rafrex/spa-github-pages#readme)). Przykład użycia podejścia społecznościowego można znaleźć w witrynie [GitHub (blazor — Demonstracja/blazor-Demonstracja](https://github.com/blazor-demo/blazor-demo.github.io) ).[](https://blazor-demo.github.io/)
 
 W przypadku korzystania z witryny projektu zamiast witryny organizacji Dodaj lub zaktualizuj `<base>` tag w *pliku index. html*. Ustaw wartość `my-repository/`atrybutu na nazwę repozytorium GitHub z końcowym ukośnikiem (na przykład. `href`

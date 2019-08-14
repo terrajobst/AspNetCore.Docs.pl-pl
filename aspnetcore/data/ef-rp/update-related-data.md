@@ -5,12 +5,12 @@ description: W tym samouczku należy zaktualizować powiązane dane przez zaktua
 ms.author: riande
 ms.date: 07/22/2019
 uid: data/ef-rp/update-related-data
-ms.openlocfilehash: 72fb9165010f6852e2ad577b36efbeee55c76def
-ms.sourcegitcommit: 776367717e990bdd600cb3c9148ffb905d56862d
+ms.openlocfilehash: 4f41ad5fa17cd6ee56f14cd87fb62a47f3a4a9df
+ms.sourcegitcommit: 89fcc6cb3e12790dca2b8b62f86609bed6335be9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68914169"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68993367"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---update-related-data---7-of-8"></a>Razor Pages z EF Core w ASP.NET Core-Update — powiązane dane — 7 z 8
 
@@ -406,7 +406,7 @@ Aktualizowanie widoku Razor dla instruktora:
 
 <a id="notepad"></a>
 > [!NOTE]
-> Gdy wkleisz kod w programie Visual Studio, podziały wierszy są zmieniane w sposób, który przerywa kod. Naciśnij klawisze Ctrl + Z po raz, aby cofnąć automatyczne formatowanie. Kombinacja klawiszy Ctrl + Z naprawia podziały wierszy, aby wyglądały tak, jak widać w tym miejscu. Wcięcie nie musi być doskonałe `@</tr><tr>`, ale linie `@:</td>`, `@:<td>`, i `@:</tr>` muszą znajdować się w jednym wierszu, jak pokazano. Po wybraniu bloku nowego kodu naciśnij klawisz Tab trzy razy, aby wyrównać nowy kod z istniejącym kodem. Zagłosuj lub Sprawdź stan tej usterki [za pomocą tego linku](https://developercommunity.visualstudio.com/content/problem/147795/razor-editor-malforms-pasted-markup-and-creates-in.html).
+> Gdy wkleisz kod w programie Visual Studio, podziały wierszy są zmieniane w sposób, który przerywa kod. Naciśnij klawisze Ctrl + Z po raz, aby cofnąć automatyczne formatowanie. Kombinacja klawiszy Ctrl + Z naprawia podziały wierszy, aby wyglądały tak, jak widać w tym miejscu. Wcięcie nie musi być doskonałe `@:</tr><tr>`, ale linie `@:</td>`, `@:<td>`, i `@:</tr>` muszą znajdować się w jednym wierszu, jak pokazano. Po wybraniu bloku nowego kodu naciśnij klawisz Tab trzy razy, aby wyrównać nowy kod z istniejącym kodem. Zagłosuj lub Sprawdź stan tej usterki [za pomocą tego linku](https://developercommunity.visualstudio.com/content/problem/147795/razor-editor-malforms-pasted-markup-and-creates-in.html).
 
 Poprzedni kod tworzy tabelę HTML, która ma trzy kolumny. Każda kolumna ma pole wyboru i podpis zawierający numer i tytuł kursu. Wszystkie pola wyboru mają tę samą nazwę ("selectedCourses"). Użycie tej samej nazwy informuje spinacz modelu, aby traktować go jako grupę. Atrybut value każdego pola wyboru jest ustawiony na `CourseID`. Po opublikowaniu strony spinacz modelu przekaże tablicę, która składa się z `CourseID` wartości tylko wybranych pól wyboru.
 

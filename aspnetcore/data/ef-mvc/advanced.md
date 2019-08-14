@@ -1,69 +1,69 @@
 ---
-title: 'Samouczek: Dowiedz się więcej o zaawansowanych scenariuszy — ASP.NET MVC z programem EF Core'
-description: W tym samouczku przedstawiono przydatnych tematów dla wykraczających poza podstawowe informacje dotyczące tworzenia aplikacji sieci web platformy ASP.NET Core, korzystających z platformy Entity Framework Core.
+title: 'Samouczek: Więcej informacji na temat scenariuszy zaawansowanych — ASP.NET MVC z EF Core'
+description: W tym samouczku przedstawiono przydatne tematy umożliwiające przechodzenie poza podstawowe informacje na temat tworzenia ASP.NET Core aplikacji sieci Web korzystających z Entity Framework Core.
 author: rick-anderson
 ms.author: tdykstra
 ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: caa821d36c192a06891a7b3d47c47436aea25a30
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 7b25ccad560d00801c1f6cb93d86163a8212bc12
+ms.sourcegitcommit: 89fcc6cb3e12790dca2b8b62f86609bed6335be9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64900175"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68993442"
 ---
-# <a name="tutorial-learn-about-advanced-scenarios---aspnet-mvc-with-ef-core"></a>Samouczek: Dowiedz się więcej o zaawansowanych scenariuszy — ASP.NET MVC z programem EF Core
+# <a name="tutorial-learn-about-advanced-scenarios---aspnet-mvc-with-ef-core"></a>Samouczek: Więcej informacji na temat scenariuszy zaawansowanych — ASP.NET MVC z EF Core
 
-W poprzednim samouczku wdrożono Tabela wg hierarchii dziedziczenia. W tym samouczku przedstawiono kilka tematów, które są przydatne pod uwagę podczas czegoś podstawy tworzenia aplikacji sieci web platformy ASP.NET Core, które używają platformy Entity Framework Core.
+W poprzednim samouczku zaimplementowano dziedziczenie w hierarchii na poziomie tabeli. W tym samouczku przedstawiono kilka tematów, które są przydatne, gdy wykraczasz poza podstawowe informacje na temat tworzenia ASP.NET Core aplikacji sieci Web korzystających z Entity Framework Core.
 
-W ramach tego samouczka możesz:
+W tym samouczku przedstawiono następujące instrukcje:
 
 > [!div class="checklist"]
-> * Wykonaj pierwotne zapytania SQL
-> * Wywołania zapytania, aby powrócić do jednostki
-> * Wywołania zapytania do innych typów zwracanych
-> * Wywołaj zapytanie aktualizujące
-> * Sprawdź zapytania SQL
-> * Utwórz warstwę abstrakcji
-> * Więcej informacji na temat wykrywania automatyczna zmiana
-> * Dowiedz się więcej o planach kodu i rozwoju źródła programu EF Core
-> * Dowiedz się, jak uprościć kod za pomocą dynamicznego LINQ
+> * Wykonywanie nieprzetworzonych zapytań SQL
+> * Wywoływanie zapytania w celu zwrócenia jednostek
+> * Wywoływanie zapytania w celu zwrócenia innych typów
+> * Wywoływanie zapytania Update
+> * Badanie zapytań SQL
+> * Tworzenie warstwy abstrakcji
+> * Informacje o automatycznym wykrywaniu zmian
+> * Dowiedz się więcej na temat EF Core kodu źródłowego i planów programistycznych
+> * Dowiedz się, jak używać dynamicznego LINQ do uproszczenia kodu
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * [Implementowanie dziedziczenia](inheritance.md)
 
-## <a name="perform-raw-sql-queries"></a>Wykonaj pierwotne zapytania SQL
+## <a name="perform-raw-sql-queries"></a>Wykonywanie nieprzetworzonych zapytań SQL
 
-Jedną z zalet używający narzędzia Entity Framework jest, że takie rozwiązanie pomaga uniknąć wiązanie kodu zbyt ściśle do określonej metody przechowywania danych. Dzieje się tak, generując zapytań SQL i poleceń, która uwalnia użytkownika od konieczności pisania samodzielnie. Ale istnieją scenariusze wyjątkowe, gdy trzeba uruchomić określonego zapytania SQL, które zostały utworzone ręcznie. Dla tych scenariuszy interfejsu API z pierwszym kodu Entity Framework zawiera metody, które umożliwiają przekazywanie poleceń SQL bezpośrednio w bazie danych. W programu EF Core 1.0 są dostępne następujące opcje:
+Jedną z zalet korzystania z Entity Framework jest to, że pozwala to uniknąć zbyt ścisłego powiązana kodu z konkretną metodą przechowywania danych. Robi to przez generowanie zapytań i poleceń SQL, które również uwalniają użytkownika od konieczności pisania. Ale istnieją wyjątkowe scenariusze, które należy wykonać w celu uruchomienia określonych zapytań SQL, które zostały utworzone ręcznie. W tych scenariuszach Entity Framework interfejs API Code First zawiera metody umożliwiające przekazywanie poleceń SQL bezpośrednio do bazy danych. Dostępne są następujące opcje w EF Core 1,0:
 
-* Użyj `DbSet.FromSql` metodę dla zapytań zwracających typów jednostek. Zwracanych obiektów musi być typ oczekiwany przez `DbSet` obiektu, dlatego automatycznie są śledzone przez kontekst bazy danych o ile nie zostanie [wyłączyć śledzenie](crud.md#no-tracking-queries).
+* `DbSet.FromSql` Użyj metody dla zapytań, które zwracają typy jednostek. Zwracane obiekty muszą być typu oczekiwanego przez `DbSet` obiekt i są automatycznie śledzone przez kontekst bazy danych, chyba że zostanie [wyłączone śledzenie](crud.md#no-tracking-queries).
 
-* Użyj `Database.ExecuteSqlCommand` poleceń niebędącą zapytaniem.
+* Użyj polecenia `Database.ExecuteSqlCommand` dla poleceń niezwiązanych z kwerendą.
 
-Jeśli potrzebujesz uruchomić zapytanie, które zwraca typy, które nie są jednostki, można użyć ADO.NET z dostarczonych przez EF połączenie z bazą danych. Zwrócone dane nie są śledzone przez kontekst bazy danych, nawet w przypadku używania tej metody można pobrać typów jednostek.
+Jeśli musisz uruchomić zapytanie, które zwraca typy, które nie są jednostkami, możesz użyć ADO.NET z połączeniem bazy danych udostępnionym przez EF. Zwrócone dane nie są śledzone przez kontekst bazy danych, nawet jeśli ta metoda jest używana do pobierania typów jednostek.
 
-Jak jest zawsze wartość true, gdy wykonywanie poleceń SQL w aplikacji sieci web, należy podjąć środki ostrożności, aby chronić witrynę przed atakami polegającymi na iniekcji SQL. Jednym sposobem wykonania tego zadania jest użyć sparametryzowanych zapytań, aby upewnić się, że ciągi przesłane przez stronę sieci web nie może być interpretowany jako polecenia SQL. W tym samouczku użyjesz zapytaniach parametrycznych podczas integrowania danych wejściowych użytkownika na kwerendę.
+Gdy jest zawsze prawdziwe w przypadku wykonywania poleceń SQL w aplikacji sieci Web, należy podjąć środki ostrożności, aby chronić witrynę przed atakami polegającymi na iniekcji SQL. Jednym ze sposobów jest użycie zapytań parametrycznych w celu upewnienia się, że ciągi przesłane przez stronę sieci Web nie mogą być interpretowane jako polecenia SQL. W tym samouczku użyjesz zapytań parametrycznych podczas integrowania danych wejściowych użytkownika z zapytaniem.
 
-## <a name="call-a-query-to-return-entities"></a>Wywołania zapytania, aby powrócić do jednostki
+## <a name="call-a-query-to-return-entities"></a>Wywoływanie zapytania w celu zwrócenia jednostek
 
-`DbSet<TEntity>` Klasa dostarcza metody, która służy do wykonywania zapytania, które zwraca jednostki typu `TEntity`. Aby zobaczyć, jak to działa możesz poznasz, jak zmienić kod w `Details` metody kontrolera działu.
+Klasa zawiera metodę, której można użyć do wykonania zapytania zwracającego jednostkę typu `TEntity`. `DbSet<TEntity>` Aby zobaczyć, jak to działa, Zmień kod w `Details` metodzie kontrolera działu.
 
-W *DepartmentsController.cs*w `Details` metody, Zastąp kod, który pobiera działowi `FromSql` wywołania metody, jak pokazano na następujący wyróżniony kod:
+W *DepartmentsController.cs*, w `Details` metodzie, Zastąp kod pobierający dział z `FromSql` wywołaniem metody, jak pokazano w następującym wyróżnionym kodzie:
 
 [!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_RawSQL&highlight=8,9,10)]
 
-Aby sprawdzić, czy nowy kod działa poprawnie, należy wybrać **działów** kartę i następnie **szczegóły** dla jednego z działów.
+Aby sprawdzić, czy nowy kod działa prawidłowo, wybierz kartę **działy** , a następnie **szczegóły** dla jednego z działów.
 
 ![Szczegóły działu](advanced/_static/department-details.png)
 
-## <a name="call-a-query-to-return-other-types"></a>Wywołania zapytania do innych typów zwracanych
+## <a name="call-a-query-to-return-other-types"></a>Wywoływanie zapytania w celu zwrócenia innych typów
 
-Wcześniej utworzono uczniów siatki statystyki dla strony informacje, które wykazało, że liczba studentów każdej daty rejestracji. Masz dane z zestawu jednostek uczniów (`_context.Students`) i używać programu LINQ do projektu wyniki w postaci listy `EnrollmentDateGroup` wyświetlić obiekty w modelu. Załóżmy, że chcesz napisać SQL sam, a nie za pomocą LINQ. Aby zrobić, należy uruchomić zapytanie SQL zwracającego coś innego niż obiekty jednostki. W programie EF Core 1.0 jednym ze sposobów, aby to zrobić jest pisanie kodu ADO.NET i uzyskać połączenia z bazą danych z programów EF.
+Wcześniej utworzono siatkę statystyk uczniów dla strony informacje, która wykazała liczbę studentów dla każdej daty rejestracji. Uzyskano dane z zestawu jednostek studentów (`_context.Students`) i używane LINQ do projekcji wyników do `EnrollmentDateGroup` listy obiektów modelu widoku. Załóżmy, że chcesz napisać sam kod SQL, zamiast używać LINQ. W tym celu należy uruchomić zapytanie SQL zwracające coś innego niż obiekty Entity. W EF Core 1,0 jednym ze sposobów jest zapisanie kodu ADO.NET i nawiązanie połączenia z bazą danych EF.
 
-W *HomeController.cs*, Zastąp `About` metoda następującym kodem:
+W *HomeController.cs*Zastąp `About` metodę następującym kodem:
 
 [!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_UseRawSQL&highlight=3-32)]
 
@@ -71,57 +71,57 @@ Dodaj instrukcję using instrukcji:
 
 [!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_Usings2)]
 
-Uruchom aplikację, a następnie przejdź do strony informacje. Wyświetla te same dane, które wcześniej.
+Uruchom aplikację i przejdź do strony informacje. Wyświetla te same dane, które wcześniej zaistniały.
 
 ![Informacje o stronie](advanced/_static/about.png)
 
-## <a name="call-an-update-query"></a>Wywołaj zapytanie aktualizujące
+## <a name="call-an-update-query"></a>Wywoływanie zapytania Update
 
-Załóżmy, że administratorzy Contoso University chce wykonywać globalnych zmian w bazie danych, takich jak zmienianie liczby środki na korzystanie z każdego kursu. Jeśli uniwersytecie ma dużą liczbę kursów, będzie nieefektywne pobierać je wszystkie jako jednostki, a następnie zmianę ich osobno. W tej sekcji możesz wdrożyć strony sieci web, która umożliwia użytkownikowi określenie współczynnik za pomocą którego można zmienić ilość środków, aby uzyskać wszystkie kursy i wprowadzisz zmiany przez wykonanie instrukcji SQL UPDATE. Strony sieci web będzie wyglądał jak na poniższej ilustracji:
+Załóżmy, że administratorzy uniwersytetów firmy Contoso chcą wykonywać globalne zmiany w bazie danych, na przykład zmieniając liczbę kredytów dla każdego kursu. Jeśli University ma dużą liczbę kursów, może być nieefektywny do pobrania ich wszystkie jako jednostki i indywidualnie zmienić. W tej sekcji zostanie zaimplementowana Strona sieci Web, która umożliwia użytkownikowi określenie współczynnika, przez który należy zmienić liczbę kredytów dla wszystkich kursów, i wprowadzić zmiany przez wykonanie instrukcji SQL UPDATE. Strona sieci Web będzie wyglądać jak na poniższej ilustracji:
 
-![Strona kurs środki na korzystanie z aktualizacji](advanced/_static/update-credits.png)
+![Strona aktualizacji kredytów kursu](advanced/_static/update-credits.png)
 
-W *CoursesController.cs*, Dodaj metody UpdateCourseCredits HttpGet i HttpPost:
+W *CoursesController.cs*Dodaj metody UpdateCourseCredits dla narzędzia HttpGet i HTTPPOST:
 
 [!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_UpdateGet)]
 
 [!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_UpdatePost)]
 
-Gdy kontroler przetworzy żądanie HttpGet, nic nie zostanie zwrócone w `ViewData["RowsAffected"]`, i wyświetla widok puste pole tekstowe i przycisk przesyłania, jak pokazano na poprzedniej ilustracji.
+Gdy kontroler przetwarza żądanie narzędzia HttpGet, nic nie jest zwracane w `ViewData["RowsAffected"]`, a widok wyświetla puste pole tekstowe i przycisk Prześlij, jak pokazano na poprzedniej ilustracji.
 
-Gdy **aktualizacji** przycisku, wywoływana jest metoda HttpPost i mnożnik został wprowadzony w polu tekstowym. Kod wykonuje następnie SQL Server, który aktualizuje kursów i zwraca liczbę wierszy dotyczy do widoku `ViewData`. Jeśli widok pobiera `RowsAffected` wartości, wyświetla liczba zaktualizowanych wierszy.
+Po kliknięciu przycisku **Aktualizuj** Metoda HTTPPOST jest wywoływana, a mnożnik ma wartość wprowadzoną w polu tekstowym. Następnie kod wykonuje instrukcję SQL, która aktualizuje kursy i zwraca liczbę odnośnych wierszy do widoku w `ViewData`. Gdy widok pobiera `RowsAffected` wartość, wyświetlana jest liczba zaktualizowanych wierszy.
 
-W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *widoków/kursy* folder, a następnie kliknij **Dodaj > Nowy element**.
+W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy folder *widoki/kursy* , a następnie kliknij polecenie **Dodaj > nowy element**.
 
-W **Dodaj nowy element** okno dialogowe, kliknij przycisk **platformy ASP.NET Core** w obszarze **zainstalowane** w okienku po lewej stronie kliknij **widoku Razor**i Nazwij nowy widok  *UpdateCourseCredits.cshtml*.
+W oknie dialogowym **Dodaj nowy element** kliknij **ASP.NET Core** w obszarze **zainstalowane** w okienku po lewej stronie, kliknij pozycję **Widok Razor**i nazwij nowy widok *UpdateCourseCredits. cshtml*.
 
-W *Views/Courses/UpdateCourseCredits.cshtml*, Zastąp kod szablonu poniższym kodem:
+W obszarze *widoki/kursy/UpdateCourseCredits. cshtml*Zastąp kod szablonu następującym kodem:
 
 [!code-html[](intro/samples/cu/Views/Courses/UpdateCourseCredits.cshtml)]
 
-Uruchom `UpdateCourseCredits` metody, wybierając **kursów** kartę, następnie dodając "/ UpdateCourseCredits" na końcu adresu URL w pasku adresu przeglądarki (na przykład: `http://localhost:5813/Courses/UpdateCourseCredits`). Wprowadź liczbę w polu tekstowym:
+Uruchom metodę, wybierając kartę **kursy** , a następnie dodając wartość "/UpdateCourseCredits" na końcu adresu URL na pasku adresu przeglądarki (na przykład: `http://localhost:5813/Courses/UpdateCourseCredits`). `UpdateCourseCredits` Wprowadź liczbę w polu tekstowym:
 
-![Strona kurs środki na korzystanie z aktualizacji](advanced/_static/update-credits.png)
+![Strona aktualizacji kredytów kursu](advanced/_static/update-credits.png)
 
-Kliknij przycisk **Aktualizuj**. Zobaczysz liczbę uwzględnionych wierszy:
+Kliknij przycisk **Aktualizuj**. Zostanie wyświetlona liczba zaatakowanych wierszy:
 
-![Zaktualizowano wierszy strony kurs środki na korzystanie z aktualizacji](advanced/_static/update-credits-rows-affected.png)
+![Aktualizuj środki na stronie kredytów kursu](advanced/_static/update-credits-rows-affected.png)
 
-Kliknij przycisk **powrót do listy** Aby wyświetlić listę kursy z poprawione ilość środków.
+Kliknij przycisk **Wstecz, aby** wyświetlić listę kursów o zmienionej liczbie kredytów.
 
-Należy pamiętać, że kodu produkcyjnego będą upewnij się, że zawsze aktualizuje wynik na liście prawidłowych danych. Uproszczony kod przedstawiony tutaj pomnożyć liczbę środki na korzystanie z wystarczająco spowodować liczby większe niż 5. ( `Credits` Właściwość ma `[Range(0, 5)]` atrybutu.) Zapytanie update będzie działać, ale nieprawidłowych danych może spowodować nieoczekiwane wyniki w innych części systemu, które zakładają, że ilość środków jest 5 lub mniej.
+Należy pamiętać, że kod produkcyjny zapewni, że aktualizacje będą zawsze powodować prawidłowe dane. Kod uproszczony przedstawiony w tym miejscu może pomnożyć liczbę kredytów wystarczającą do wyniku liczby większe niż 5. `Credits` ( Właściwość`[Range(0, 5)]` ma atrybut.) Kwerenda Update będzie działała, ale nieprawidłowe dane mogą spowodować nieoczekiwane wyniki w innych częściach systemu, które zakładają, że liczba kredytów wynosi 5 lub mniej.
 
-Aby uzyskać więcej informacji na temat pierwotne zapytania SQL, zobacz [pierwotne zapytania SQL](/ef/core/querying/raw-sql).
+Aby uzyskać więcej informacji na temat nieprzetworzonych zapytań SQL, zobacz [RAW zapytania SQL](/ef/core/querying/raw-sql).
 
-## <a name="examine-sql-queries"></a>Sprawdź zapytania SQL
+## <a name="examine-sql-queries"></a>Badanie zapytań SQL
 
-Czasami warto będą mogli zobaczyć rzeczywiste zapytania SQL, które są wysyłane do bazy danych. Funkcje wbudowane funkcje rejestrowania dla platformy ASP.NET Core jest automatycznie używany przez programu EF Core na zapisywanie dzienników, które zawierają SQL dla zapytań i aktualizacji. W tej sekcji zobaczysz niektóre przykłady rejestrowania SQL.
+Czasami warto zobaczyć rzeczywiste zapytania SQL, które są wysyłane do bazy danych. Wbudowane funkcje rejestrowania dla ASP.NET Core są automatycznie używane przez EF Core do zapisywania dzienników zawierających dane SQL na potrzeby zapytań i aktualizacji. W tej sekcji zobaczysz przykłady rejestrowania w programie SQL Server.
 
-Otwórz *StudentsController.cs* i `Details` Metoda Ustaw punkt przerwania na `if (student == null)` instrukcji.
+Otwórz *StudentsController.cs* i w `Details` metodzie Ustaw punkt przerwania w `if (student == null)` instrukcji.
 
-Uruchom aplikację w trybie debugowania, a następnie przejdź do strony szczegółów dla uczniów lub studentów.
+Uruchom aplikację w trybie debugowania i przejdź do strony szczegółów dla ucznia.
 
-Przejdź do **dane wyjściowe** wyświetlana debugowania w oknie danych wyjściowych, a zobaczysz zapytanie:
+Przejdź do okna **dane wyjściowe** zawierające dane wyjściowe debugowania, a następnie Wyświetl zapytanie:
 
 ```
 Microsoft.EntityFrameworkCore.Database.Command:Information: Executed DbCommand (56ms) [Parameters=[@__id_0='?'], CommandType='Text', CommandTimeout='30']
@@ -142,141 +142,141 @@ INNER JOIN (
 ORDER BY [t].[ID]
 ```
 
-W tym miejscu coś, co mogą Cię zaskoczyć, zauważysz: SQL wybiera wiersze do 2 (`TOP(2)`) z tabeli osoby. `SingleOrDefaultAsync` Metoda nie jest rozpoznawane jako 1 wiersz na serwerze. Oto Dlaczego:
+Zobaczysz coś tutaj, co może się zdarzyć: kod SQL wybiera do 2 wierszy (`TOP(2)`) z tabeli Person. `SingleOrDefaultAsync` Metoda nie ma wpływu na 1 wiersz na serwerze. Oto dlaczego:
 
 * Jeśli zapytanie zwróci wiele wierszy, metoda zwraca wartość null.
-* Aby ustalić, czy zapytanie zwróci wiele wierszy, EF ma pod, jeśli funkcja zwraca wartość co najmniej 2.
+* Aby określić, czy zapytanie zwróci wiele wierszy, EF musi sprawdzić, czy zwraca co najmniej 2.
 
-Należy pamiętać, że nie trzeba użyć trybu debugowania i zatrzymywanie w punkcie przerwania, aby uzyskać wyniki rejestracji w **dane wyjściowe** okna. Jest po prostu wygodny sposób zatrzymywanie rejestrowania w momencie, który chcesz Przyjrzyj się dane wyjściowe. Jeśli nie zrobisz, kontynuuje rejestrowanie i masz wróć do części, które interesują Cię znaleźć.
+Należy pamiętać, że nie jest konieczne używanie trybu debugowania i zatrzymywanie w punkcie przerwania w celu uzyskania danych wyjściowych rejestrowania w oknie **danych wyjściowych** . Jest to wygodny sposób na zatrzymanie rejestrowania w punkcie, w którym chcesz zobaczyć dane wyjściowe. Jeśli tego nie zrobisz, rejestrowanie jest kontynuowane, a użytkownik musi przewijać się ponownie, aby znaleźć interesujące Cię składniki.
 
-## <a name="create-an-abstraction-layer"></a>Utwórz warstwę abstrakcji
+## <a name="create-an-abstraction-layer"></a>Tworzenie warstwy abstrakcji
 
-Wielu programistów napisać kod, aby zaimplementować repozytorium i jednostki pracy jako otoka wokół kodu, który współdziała z platformą Entity Framework. Te wzorce są przeznaczone do tworzenia warstwę abstrakcji od warstwy dostępu do danych i warstwy logiki biznesowej aplikacji. Implementacji tych wzorców może pomóc ochronić aplikację przed zmianami w magazynie danych i może ułatwić automatyczne testy jednostkowe i Programowanie oparte na testach (TDD). Jednak tworzenia dodatkowego kodu, aby zaimplementować te wzorce nie zawsze jest najlepszym wyborem dla aplikacji, które używają programu EF, z kilku powodów:
+Wielu deweloperów pisze kod, aby zaimplementować wzorce repozytorium i jednostki pracy jako otokę otaczającą kod, który działa z Entity Framework. Wzorce te mają na celu utworzenie warstwy abstrakcji między warstwą dostępu do danych i warstwą logiki biznesowej aplikacji. Wdrożenie tych wzorców może pomóc w izolowaniu aplikacji od zmian w magazynie danych oraz w celu ułatwienia zautomatyzowanych testów jednostkowych lub projektowania opartego na testach (TDD). Jednak zapisanie dodatkowego kodu w celu zaimplementowania tych wzorców nie zawsze jest najlepszym wyborem dla aplikacji korzystających z EF z kilku powodów:
 
-* Samej klasy kontekstu EF powoduje, że kod w kodzie dotyczące magazynu danych.
+* Sama klasa kontekstu EF izolowana od kodu z kodu specyficznego dla magazynu danych.
 
-* Klasy kontekstu EF może działać jako klasę jednostki pracy dla bazy danych aktualizacje, czy przy użyciu programu EF.
+* Klasa kontekstu EF może działać jako Klasa jednostki pracy dla aktualizacji bazy danych korzystających z EF.
 
-* EF zawiera funkcje implementowania TDD bez konieczności pisania kodu w repozytorium.
+* EF zawiera funkcje do implementowania usługi TDD bez pisania kodu repozytorium.
 
-Aby uzyskać informacje o sposobie implementacji repozytorium i jednostki pracy, zobacz [Entity Framework 5 wersję tej serii samouczków](/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application).
+Informacje o sposobach implementacji wzorców repozytorium i jednostki pracy można znaleźć [w wersji Entity Framework 5 tej serii samouczków](/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application).
 
-Entity Framework Core implementuje dostawcy bazy danych w pamięci, który może służyć do testowania. Aby uzyskać więcej informacji, zobacz [testu za pomocą InMemory](/ef/core/miscellaneous/testing/in-memory).
+Entity Framework Core implementuje dostawcę bazy danych w pamięci, który może być używany do testowania. Aby uzyskać więcej informacji, zobacz [test with inMemory](/ef/core/miscellaneous/testing/in-memory).
 
-## <a name="automatic-change-detection"></a>Automatyczna zmiana wykrywania
+## <a name="automatic-change-detection"></a>Automatyczne wykrywanie zmian
 
-Entity Framework Określa, jak jednostki został zmieniony (i w związku z tym aktualizacje, które muszą być wysyłane do bazy danych) przez porównanie bieżącej wartości jednostki przy użyciu oryginalnych wartości. Oryginalne wartości są przechowywane, gdy jednostka jest badane lub dołączone. Niektóre metody, które powodują wykrywania automatycznego zmian są następujące:
+Entity Framework określa, w jaki sposób jednostka została zmieniona (i w związku z tym, które aktualizacje muszą być wysyłane do bazy danych), porównując bieżące wartości jednostki z oryginalnymi wartościami. Oryginalne wartości są przechowywane, gdy obiekt jest wysyłany lub dołączany. Niektóre metody, które powodują automatyczne wykrywanie zmian, są następujące:
 
 * DbContext.SaveChanges
 
-* DbContext.Entry
+* DbContext. entry
 
-* ChangeTracker.Entries
+* ChangeTracker. wpisy
 
-Jeśli prześledzić dużą liczbę jednostek można wywołać jedną z następujących metod wiele razy w pętli, może uzyskać znaczne ulepszenia wydajności, tymczasowo wyłączając przy użyciu wykrywania automatyczna zmiana `ChangeTracker.AutoDetectChangesEnabled` właściwości. Na przykład:
+Jeśli śledzisz dużą liczbę jednostek i wywołujesz jedną z tych metod wiele razy w pętli, możesz uzyskać znaczące ulepszenia wydajności, tymczasowo wyłączając automatyczne wykrywanie zmian przy użyciu `ChangeTracker.AutoDetectChangesEnabled` właściwości. Przykład:
 
 ```csharp
 _context.ChangeTracker.AutoDetectChangesEnabled = false;
 ```
 
-## <a name="ef-core-source-code-and-development-plans"></a>EF Core źródła kodu i tworzenia planów
+## <a name="ef-core-source-code-and-development-plans"></a>EF Core kod źródłowy i plany programistyczne
 
-Źródło platformy Entity Framework Core jest w [ https://github.com/aspnet/EntityFrameworkCore ](https://github.com/aspnet/EntityFrameworkCore). Repozytorium programu EF Core zawiera nocne kompilacje, śledzenia problemu, specyfikacji funkcji. zadaniem, notatek ze spotkań, projektowania i [plan do przyszłego rozwoju](https://github.com/aspnet/EntityFrameworkCore/wiki/Roadmap). Możesz plików lub znajdowania usterek i współtworzyć.
+Źródło Entity Framework Core ma [https://github.com/aspnet/EntityFrameworkCore](https://github.com/aspnet/EntityFrameworkCore)wartość. Repozytorium EF Core zawiera nocne kompilacje, Śledzenie problemów, specyfikacje funkcji, projektowanie notatek na spotkaniu i [plan do przyszłego rozwoju](https://github.com/aspnet/EntityFrameworkCore/wiki/Roadmap). Można tworzyć i znajdować usterki oraz współtworzyć.
 
-Mimo że kod źródłowy jest otwarty, platformy Entity Framework Core jest w pełni obsługiwany jest produktem firmy Microsoft. Zespół Microsoft Entity Framework zachowuje kontroli nad tym, którzy są akceptowane wkładu i testy wszystkich zmian w kodzie w celu zapewnienia jakości każdej wersji.
+Chociaż kod źródłowy jest otwarty, Entity Framework Core jest w pełni obsługiwany jako produkt firmy Microsoft. Zespół Entity Framework firmy Microsoft zachowuje kontrolę nad tym, jakie wkłady są akceptowane i sprawdza wszystkie zmiany kodu w celu zapewnienia jakości każdej wersji.
 
 ## <a name="reverse-engineer-from-existing-database"></a>Odtwarzanie z istniejącej bazy danych
 
-Aby odtworzyć modelu danych, w tym klas jednostek z istniejącej bazy danych, należy użyć [dbcontext szkieletu](/ef/core/miscellaneous/cli/powershell#scaffold-dbcontext) polecenia. Zobacz [samouczek ułatwiający rozpoczęcie](/ef/core/get-started/aspnetcore/existing-db).
+Aby odtworzyć model danych, w tym klasy jednostek z istniejącej bazy danych, użyj polecenia [szkielet-DbContext](/ef/core/miscellaneous/cli/powershell#scaffold-dbcontext) . Zobacz [samouczek](/ef/core/get-started/aspnetcore/existing-db)z wprowadzeniem.
 
 <a id="dynamic-linq"></a>
 
-## <a name="use-dynamic-linq-to-simplify-code"></a>Korzystanie z LINQ dynamiczne w celu uproszczenia kodu
+## <a name="use-dynamic-linq-to-simplify-code"></a>Używanie dynamicznego LINQ do uproszczenia kodu
 
-[Trzeci samouczek z tej serii](sort-filter-page.md) pokazuje, jak napisać kod LINQ, kodować nazwy kolumn w `switch` instrukcji. Dwie kolumny do wyboru to działa prawidłowo, ale jeśli masz wiele kolumn, kod można pobrać pełny. Aby rozwiązać ten problem, można użyć `EF.Property` metodę, aby określić nazwę właściwości jako ciąg. Aby wypróbować to podejście, Zastąp `Index` method in Class metoda `StudentsController` następującym kodem.
+[Trzeci samouczek z tej serii](sort-filter-page.md) pokazuje, jak pisać kod LINQ przez znakowanie `switch` nazw kolumn w instrukcji. Z dwiema kolumnami do wyboru, to działa prawidłowo, ale jeśli masz wiele kolumn, kod może uzyskać pełne informacje. Aby rozwiązać ten problem, można użyć `EF.Property` metody, aby określić nazwę właściwości jako ciąg. Aby wypróbować to podejście, Zastąp `Index` metodę `StudentsController` w poniższym kodzie.
 
 [!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DynamicLinq)]
 
-## <a name="acknowledgments"></a>Potwierdzenia
+## <a name="acknowledgments"></a>Potwierdzeń
 
-Tom Dykstra i Rick Anderson (twitter @RickAndMSFT) napisany w tym samouczku. Rowan Miller, Diego Vega i inni członkowie zespołu programu Entity Framework korzystającej z przeglądy kodu i pomogła debugowanie problemów, które powstały podczas, gdy firma Microsoft była pisanie kodu dla samouczków. John Parente i Paul Goldman pracuje aktualizowanie samouczek dla platformy ASP.NET Core 2.2.
+Tomasz Dykstra i Rick Anderson (Twitter @RickAndMSFT) zapisały ten samouczek. Rowan Miller, Diego Vega i inni członkowie zespołu Entity Framework mogą uzyskać przeglądy kodu i pomóc w debugowaniu problemów, które powstały podczas pisania kodu dla samouczków. Jan Goldman i Paul pracował nad aktualizacją samouczka dla ASP.NET Core 2,2.
 
 <a id="common-errors"></a>
 
-## <a name="troubleshoot-common-errors"></a>Rozwiązywanie typowych problemów
+## <a name="troubleshoot-common-errors"></a>Rozwiązywanie typowych błędów
 
-### <a name="contosouniversitydll-used-by-another-process"></a>ContosoUniversity.dll używany przez inny proces
+### <a name="contosouniversitydll-used-by-another-process"></a>ContosoUniversity. dll używany przez inny proces
 
 Komunikat o błędzie:
 
-> Nie można otworzyć "... bin\Debug\netcoreapp1.0\ContosoUniversity.dll" do zapisu — "proces nie może uzyskać dostępu do pliku"... \bin\Debug\netcoreapp1.0\ContosoUniversity.dll ", ponieważ jest on używany przez inny proces.
+> Nie można otworzyć "... bin\Debug\netcoreapp1.0\ContosoUniversity.dll "do zapisu —" proces nie może uzyskać dostępu do pliku ". ..\bin\Debug\netcoreapp1.0\ContosoUniversity.dll", ponieważ jest on używany przez inny proces.
 
-Rozwiązanie:
+Narzędzie
 
-Zatrzymaj witrynę w usługach IIS Express. Przejdź na pasku zadań systemu Windows, Znajdź usług IIS Express i kliknij prawym przyciskiem myszy jego ikonę, wybierz lokację University firmy Contoso, a następnie kliknij przycisk **zatrzymać witrynę**.
+Zatrzymaj lokację w IIS Express. Przejdź do paska zadań systemu Windows, Znajdź IIS Express i kliknij prawym przyciskiem myszy jego ikonę, wybierz witrynę firmy Contoso University, a następnie kliknij pozycję **Zatrzymaj lokację**.
 
-### <a name="migration-scaffolded-with-no-code-in-up-and-down-methods"></a>Działanie bez kodu w górę i w dół metod migracji
+### <a name="migration-scaffolded-with-no-code-in-up-and-down-methods"></a>Migracja szkieletowa bez kodu w metodach up i Down
 
 Możliwa przyczyna:
 
-Polecenia interfejsu wiersza polecenia platformy EF nie automatycznie Zamknij i Zapisz pliki kodu. Jeśli istnieją niezapisane zmiany, po uruchomieniu `migrations add` polecenia EF nie odnajdzie zmiany.
+Polecenia EF CLI nie są automatycznie zamykane i zapisują pliki kodu. Jeśli masz niezapisane zmiany po uruchomieniu `migrations add` polecenia, EF nie znajdzie zmian.
 
-Rozwiązanie:
+Narzędzie
 
-Uruchom `migrations remove` polecenia, Zapisz zmiany kodu i ponownego przeprowadzania `migrations add` polecenia.
+Uruchom polecenie, Zapisz zmiany kodu i `migrations add` ponownie uruchom polecenie. `migrations remove`
 
-### <a name="errors-while-running-database-update"></a>Błędy podczas aktualizacji bazy danych uruchomione
+### <a name="errors-while-running-database-update"></a>Błędy podczas uruchamiania aktualizacji bazy danych
 
-Istnieje możliwość uzyskać inne błędy, podczas wprowadzania zmian schematu w bazie danych, która ma istniejące dane. Jeśli występują błędy migracji, których nie można rozwiązać, możesz zmienić nazwę bazy danych w parametrach połączenia lub usunąć bazy danych. Za pomocą nowej bazy danych nie ma żadnych danych do migracji, a polecenie update-database jest znacznie bardziej prawdopodobne zakończyć bez błędów.
+Podczas wprowadzania zmian schematu w bazie danych, która ma istniejące dane, można uzyskać inne błędy. Jeśli wystąpią błędy migracji, nie można rozwiązać tego problemu, możesz zmienić nazwę bazy danych w parametrach połączenia lub usunąć bazę danych. W przypadku nowej bazy danych nie ma żadnych danych do migracji, a polecenie Update-Database jest znacznie bardziej gotowe do wykonania bez błędów.
 
-Najprostszą metodą jest zmiana nazwy bazy danych w *appsettings.json*. Przy następnym uruchomieniu `database update`, będzie można utworzyć nową bazę danych.
+Najprostszym podejściem jest zmiana nazwy bazy danych w pliku *appSettings. JSON*. Przy następnym uruchomieniu `database update`zostanie utworzona nowa baza danych.
 
-Aby usunąć bazę danych w SSOX, kliknij prawym przyciskiem myszy bazę danych, kliknij przycisk **Usuń**, a następnie w polu **Usuń bazę danych** wybierz okno dialogowe **Zamknij istniejące połączenia** i kliknij przycisk  **OK**.
+Aby usunąć bazę danych w programie SSOX, kliknij prawym przyciskiem myszy bazę danych, kliknij polecenie **Usuń**, a następnie w oknie dialogowym **Usuwanie bazy danych** wybierz pozycję **Zamknij istniejące połączenia** i kliknij przycisk **OK**.
 
-Aby usunąć bazę danych przy użyciu interfejsu wiersza polecenia, uruchom `database drop` interfejsu wiersza polecenia:
+Aby usunąć bazę danych przy użyciu interfejsu wiersza polecenia, uruchom `database drop` polecenie CLI:
 
 ```console
 dotnet ef database drop
 ```
 
-### <a name="error-locating-sql-server-instance"></a>Błąd podczas lokalizowania wystąpienia programu SQL Server
+### <a name="error-locating-sql-server-instance"></a>Błąd lokalizowania wystąpienia SQL Server
 
 Komunikat o błędzie:
 
-> Wystąpił błąd związany z siecią lub wystąpieniem podczas nawiązywania połączenia z programem SQL Server. Serwer nie został znaleziony lub jest on niedostępny. Sprawdź, czy nazwa wystąpienia jest prawidłowa i że program SQL Server jest skonfigurowany do zezwalania na połączenia zdalne. (Dostawca: Interfejsy sieciowe programu SQL, błąd: 26 — błąd podczas znajdowania/podanego wystąpienia)
+> Wystąpił błąd związany z siecią lub wystąpieniem podczas ustanawiania połączenia z SQL Server. Serwer nie został odnaleziony lub był niedostępny. Sprawdź, czy nazwa wystąpienia jest poprawna i czy SQL Server jest skonfigurowany do zezwalania na połączenia zdalne. dostawcy Interfejsy sieciowe SQL, błąd: 26-błąd podczas lokalizowania określonego serwera/wystąpienia)
 
-Rozwiązanie:
+Narzędzie
 
-Sprawdź parametry połączenia. Jeśli został ręcznie usunięty plik bazy danych, Zmień nazwę bazy danych w ciągu konstrukcji, aby zacząć od nowa z nową bazę danych.
+Sprawdź parametry połączenia. Jeśli plik bazy danych został ręcznie usunięty, Zmień nazwę bazy danych w ciągu konstrukcyjnym, aby zacząć od nowa baza danych.
 
 ## <a name="get-the-code"></a>Pobierz kod
 
-[Pobieranie i wyświetlanie ukończonej aplikacji.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
+[Pobierz lub Wyświetl ukończoną aplikację.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-Aby uzyskać więcej informacji na temat programu EF Core, zobacz [dokumentację programu Entity Framework Core](/ef/core). Książki jest również dostępna: [Entity Framework Core in Action](https://www.manning.com/books/entity-framework-core-in-action).
+Aby uzyskać więcej informacji na temat EF Core, zobacz [dokumentację Entity Framework Core](/ef/core). Dostępna jest również książka: [Entity Framework Core w działaniu](https://www.manning.com/books/entity-framework-core-in-action).
 
-Aby uzyskać informacje na temat wdrażania aplikacji sieci web, zobacz <xref:host-and-deploy/index>.
+Aby uzyskać informacje na temat sposobu wdrażania aplikacji sieci Web, <xref:host-and-deploy/index>Zobacz.
 
-Aby uzyskać informacje o innych tematów dotyczących platformy ASP.NET Core MVC, takie jak uwierzytelnianie i autoryzacja, zobacz <xref:index>.
+Aby uzyskać informacje dotyczące innych tematów odnoszących się do ASP.NET Core MVC, takich jak uwierzytelnianie <xref:index>i autoryzacja, zobacz.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W ramach tego samouczka możesz:
+W tym samouczku przedstawiono następujące instrukcje:
 
 > [!div class="checklist"]
-> * Wykonano pierwotne zapytania SQL
-> * Wywołuje zapytanie do zwrotu jednostek
-> * Wywołuje zapytanie do innych typów zwracanych
-> * Wywołuje zapytanie aktualizujące
-> * Zbadane zapytania SQL
-> * Utworzyć warstwę abstrakcji
-> * Przedstawia informacje na temat wykrywania automatyczna zmiana
-> * Przedstawia informacje na temat planów kodu i rozwoju źródła programu EF Core
-> * Pokazaliśmy, jak uprościć kod za pomocą dynamicznego LINQ
+> * Wykonywanie nieprzetworzonych zapytań SQL
+> * Wywołuje zapytanie w celu zwrócenia jednostek
+> * Wywoływana kwerenda zwracająca inne typy
+> * Nazywane kwerendą Update
+> * Zbadaj zapytania SQL
+> * Utworzono warstwę abstrakcji
+> * Informacje o automatycznym wykrywaniu zmian
+> * Informacje o EF Core kodzie źródłowym i planach programistycznych
+> * Dowiesz się, jak używać dynamicznego LINQ do uproszczenia kodu
 
-Na tym kończy się w tej serii samouczków na temat korzystania z programu Entity Framework Core w aplikacji ASP.NET Core MVC. Ta seria artykułów z nową bazę danych; Alternatywą jest odtwarzać modelu z istniejącej bazy danych.
+Ta seria samouczków została zakończona przy użyciu Entity Framework Core w aplikacji ASP.NET Core MVC. Ta seria pracowała z nową bazą danych; Alternatywą jest odtwarzanie modelu z istniejącej bazy danych.
 
 > [!div class="nextstepaction"]
-> [Samouczek: EF Core przy użyciu wzorca MVC, istniejąca baza danych](/ef/core/get-started/aspnetcore/new-db?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json)
+> [Samouczek: EF Core z MVC, istniejąca baza danych](/ef/core/get-started/aspnetcore/existing-db?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json)

@@ -1,1 +1,1 @@
-Podczas pracy z kluczami hierarchiczne w zmiennych środowiskowych, separator dwukropek (`:`) może nie działać na wszystkich platformach (na przykład Bash). Podwójnym podkreśleniem (`__`) jest obsługiwana przez wszystkie platformy i zastępuje dwukropka.
+Podczas pracy z kluczami hierarchicznymi w zmiennych środowiskowych separator dwukropek (`:`) może nie działać na wszystkich platformach (na przykład bash). Podwójne podkreślenie (`__`) jest obsługiwane przez wszystkie platformy i automatycznie zastępowane przez dwukropek.

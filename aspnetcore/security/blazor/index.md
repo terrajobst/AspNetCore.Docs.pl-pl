@@ -1,77 +1,77 @@
 ---
-title: ASP.NET Core Blazor uwierzytelnianie i autoryzacja
+title: ASP.NET Core uwierzytelnianie i autoryzacja Blazor
 author: guardrex
-description: Więcej informacji na temat Blazor scenariuszy uwierzytelniania i autoryzacji.
+description: Dowiedz się więcej na temat scenariuszy uwierzytelniania Blazor i autoryzacji.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
 ms.date: 06/26/2019
 uid: security/blazor/index
-ms.openlocfilehash: 097a747f68729109922af5c68dfd918024ee6146
-ms.sourcegitcommit: 040aedca220ed24ee1726e6886daf6906f95a028
+ms.openlocfilehash: 87d61a7ccda209243a62bc54467b8f02dad92c24
+ms.sourcegitcommit: 89fcc6cb3e12790dca2b8b62f86609bed6335be9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67893614"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68994185"
 ---
-# <a name="aspnet-core-blazor-authentication-and-authorization"></a>ASP.NET Core Blazor uwierzytelnianie i autoryzacja
+# <a name="aspnet-core-blazor-authentication-and-authorization"></a>ASP.NET Core uwierzytelnianie i autoryzacja Blazor
 
-Przez [Steve sanderson o](https://github.com/SteveSandersonMS)
+[Steve Sanderson](https://github.com/SteveSandersonMS)
 
-Platforma ASP.NET Core obsługuje konfigurację i zarządzanie zabezpieczeniami w aplikacjach Blazor.
+ASP.NET Core obsługuje konfigurację i zarządzanie zabezpieczeniami w aplikacjach Blazor.
 
-Scenariusze zabezpieczeń różnią się między aplikacjami Blazor po stronie serwera i klienta. Ponieważ Blazor aplikacji po stronie serwera, uruchom na serwerze, są w stanie określić sprawdzeń autoryzacji:
+Scenariusze zabezpieczeń różnią się w zależności od Blazor po stronie serwera i aplikacji po stronie klienta. Ponieważ Blazor aplikacje po stronie serwera są uruchamiane na serwerze, sprawdzenia autoryzacji mogą określić:
 
-* Opcji interfejsu użytkownika dostępnych dla użytkownika (na przykład, w której elementy menu są dostępne dla użytkownika).
-* Reguły dostępu dla obszarów aplikacji i składników.
+* Opcje interfejsu użytkownika wyświetlane użytkownikowi (na przykład, które pozycje menu są dostępne dla użytkownika).
+* Reguły dostępu do obszarów aplikacji i składników.
 
-Aplikacje klienta Blazor są uruchamiane na komputerze klienckim. Autoryzacja jest *tylko* umożliwia określenie opcji interfejsu użytkownika, aby pokazać. Ponieważ testy po stronie klienta może modyfikować lub pomijany przez użytkownika, aplikacja klienta Blazor nie może wymuszać reguły dostępu do autoryzacji.
+Blazor aplikacje po stronie klienta są uruchamiane na kliencie. Autoryzacja jest używana *tylko* do określenia opcji interfejsu użytkownika, które mają być wyświetlane. Ponieważ sprawdzenia po stronie klienta mogą być modyfikowane lub pomijane przez użytkownika, aplikacja po stronie klienta Blazor nie może wymusić reguł dostępu autoryzacji.
 
 ## <a name="authentication"></a>Uwierzytelnianie
 
-Blazor używa istniejących mechanizmów uwierzytelniania platformy ASP.NET Core w celu ustalenia tożsamości użytkownika. Dokładny mechanizm zależy od tego, jak aplikacja Blazor jest hostowana po stronie serwera lub klienta.
+Blazor używa istniejących mechanizmów uwierzytelniania ASP.NET Core do ustanowienia tożsamości użytkownika. Dokładny mechanizm zależy od tego, jak aplikacja Blazor jest hostowana, po stronie serwera lub po stronie klienta.
 
-### <a name="blazor-server-side-authentication"></a>Blazor po stronie serwera uwierzytelniania
+### <a name="blazor-server-side-authentication"></a>Blazor uwierzytelnianie po stronie serwera
 
-Aplikacje serwerowe Blazor działa za pośrednictwem połączenia w czasie rzeczywistym, który jest tworzony przy użyciu SignalR. [Uwierzytelnianie w aplikacjach opartych na SignalR](xref:signalr/authn-and-authz) jest obsługiwane, gdy połączenie zostanie nawiązane. Uwierzytelnianie może bazować na pliku cookie lub innych tokenu elementu nośnego.
+Blazor aplikacje po stronie serwera działają za pośrednictwem połączenia w czasie rzeczywistym, które zostało utworzone za pomocą usługi Sygnalizującer. [Uwierzytelnianie w aplikacjach opartych na sygnalizacji](xref:signalr/authn-and-authz) jest obsługiwane po nawiązaniu połączenia. Uwierzytelnianie może opierać się na pliku cookie lub innym tokenie okaziciela.
 
-Szablon projektu po stronie serwera Blazor uwierzytelnianie można skonfigurować dla Ciebie podczas tworzenia projektu.
+Szablon projektu po stronie serwera Blazor może skonfigurować uwierzytelnianie dla Ciebie podczas tworzenia projektu.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-Zgodnie z wytycznymi programu Visual Studio w <xref:blazor/get-started> artykuł, aby utworzyć nowy projekt po stronie serwera Blazor przy użyciu mechanizmu uwierzytelniania.
+Postępuj zgodnie ze wskazówkami programu <xref:blazor/get-started> Visual Studio w artykule, aby utworzyć nowy projekt po stronie serwera Blazor z mechanizmem uwierzytelniania.
 
-Po wybraniu **aplikacja serwera Blazor** szablonu w **Tworzenie nowej aplikacji sieci Web platformy ASP.NET Core** okno dialogowe, wybierz opcję **zmiany** w obszarze **uwierzytelniania** .
+Po wybraniu szablonu **aplikacji Blazor Server** w oknie dialogowym **Tworzenie nowej ASP.NET Core aplikacji sieci Web** wybierz pozycję **Zmień** w obszarze **uwierzytelnianie**.
 
-Otwiera okno dialogowe do zaoferowania ten sam zestaw mechanizmy uwierzytelniania dostępne dla innych platformy ASP.NET Core projektów:
+Zostanie otwarte okno dialogowe z zaoferowaniem tego samego zestawu mechanizmów uwierzytelniania dostępnych dla innych projektów ASP.NET Core:
 
 * **Bez uwierzytelniania**
-* **Indywidualne konta użytkowników** &ndash; konta użytkowników mogą być przechowywane:
-  * W aplikacji przy użyciu platformy ASP.NET Core [tożsamości](xref:security/authentication/identity) systemu.
-  * Za pomocą [usługi Azure AD B2C](xref:security/authentication/azure-ad-b2c).
+* **Indywidualne konta użytkowników** &ndash; Konta użytkowników mogą być przechowywane:
+  * W aplikacji korzystającej z systemu [tożsamości](xref:security/authentication/identity) ASP.NET Core.
+  * Z [Azure AD B2C](xref:security/authentication/azure-ad-b2c).
 * **Konta służbowe**
-* **Uwierzytelnianie Windows**
+* **Uwierzytelnianie systemu Windows**
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-Zgodnie z wytycznymi programu Visual Studio Code w <xref:blazor/get-started> artykuł, aby utworzyć nowy projekt po stronie serwera Blazor przy użyciu mechanizmu uwierzytelniania:
+Postępuj zgodnie ze wskazówkami <xref:blazor/get-started> Visual Studio Code w artykule, aby utworzyć nowy projekt po stronie serwera Blazor z mechanizmem uwierzytelniania:
 
 ```console
-dotnet new blazorserverside -o {APP NAME} -au {AUTHENTICATION}
+dotnet new blazorserver -o {APP NAME} -au {AUTHENTICATION}
 ```
 
-Uwierzytelniania dopuszczalnej wartości (`{AUTHENTICATION}`) są wyświetlane w poniższej tabeli.
+W poniższej tabeli przedstawiono`{AUTHENTICATION}`dozwolone wartości uwierzytelniania ().
 
-| Mechanizm uwierzytelniania                                                                 | `{AUTHENTICATION}` Wartość |
+| Mechanizm uwierzytelniania                                                                 | `{AUTHENTICATION}`wartościami |
 | ---------------------------------------------------------------------------------------- | :----------------------: |
 | Bez uwierzytelniania                                                                        | `None`                   |
-| Osoby<br>Użytkownicy przechowywani w aplikacji za pomocą tożsamości platformy ASP.NET Core.                        | `Individual`             |
-| Osoby<br>Użytkownicy są przechowywane w [usługi Azure AD B2C](xref:security/authentication/azure-ad-b2c). | `IndividualB2C`          |
-| Konta służbowe<br>Uwierzytelnianie organizacyjne dla jednej dzierżawy.            | `SingleOrg`              |
-| Konta służbowe<br>Uwierzytelnianie organizacyjne dla wielu dzierżaw.           | `MultiOrg`               |
+| Szczegółowe<br>Użytkownicy przechowywani w aplikacji z tożsamością ASP.NET Core.                        | `Individual`             |
+| Szczegółowe<br>Użytkownicy przechowywani w [Azure AD B2C](xref:security/authentication/azure-ad-b2c). | `IndividualB2C`          |
+| Konta służbowe<br>Uwierzytelnianie organizacyjne dla pojedynczej dzierżawy.            | `SingleOrg`              |
+| Konta służbowe<br>Uwierzytelnianie organizacyjne dla wielu dzierżawców.           | `MultiOrg`               |
 | Uwierzytelnianie systemu Windows                                                                   | `Windows`                |
 
-Polecenie tworzy folder o nazwie z wartością parametru `{APP NAME}` symboli zastępczych i używa nazwy folderu, jak nazwa aplikacji. Aby uzyskać więcej informacji, zobacz [dotnet nowe](/dotnet/core/tools/dotnet-new) polecenia w przewodnik platformy .NET Core.
+Polecenie tworzy folder o nazwie przy użyciu wartości podanej dla `{APP NAME}` symbolu zastępczego i używa nazwy folderu jako nazwy aplikacji. Aby uzyskać więcej informacji, zobacz polecenie [dotnet New](/dotnet/core/tools/dotnet-new) w przewodniku .NET Core.
 
 <!--
 
@@ -91,7 +91,7 @@ Polecenie tworzy folder o nazwie z wartością parametru `{APP NAME}` symboli za
 Follow the .NET Core CLI guidance in the <xref:blazor/get-started> article to create a new Blazor server-side project with an authentication mechanism:
 
 ```console
-dotnet new blazorserverside -o {APP NAME} -au {AUTHENTICATION}
+dotnet new blazorserver -o {APP NAME} -au {AUTHENTICATION}
 ```
 
 Permissible authentication values (`{AUTHENTICATION}`) are shown in the following table.
@@ -111,21 +111,21 @@ The command creates a folder named with the value provided for the `{APP NAME}` 
 
 ---
 
-### <a name="blazor-client-side-authentication"></a>Uwierzytelnianie klienta Blazor
+### <a name="blazor-client-side-authentication"></a>Blazor uwierzytelnianie po stronie klienta
 
-W aplikacjach klienta Blazor kontroli uwierzytelniania można pominąć, ponieważ cały kod po stronie klienta może być modyfikowane przez użytkowników. Dotyczy to także wszystkie technologie aplikacji po stronie klienta, w tym struktur JavaScript SPA lub natywne aplikacje dla dowolnego systemu operacyjnego.
+W aplikacjach po stronie klienta Blazor sprawdzanie uwierzytelniania można obejść, ponieważ każdy kod po stronie klienta może być modyfikowany przez użytkowników. Jest to samo prawdziwe dla wszystkich technologii aplikacji po stronie klienta, w tym dla struktur SPA skryptów JavaScript lub natywnych aplikacji dla dowolnego systemu operacyjnego.
 
-Implementacji niestandardowego `AuthenticationStateProvider` usługa dla aplikacji po stronie klienta Blazor zostało omówione w poniższych sekcjach.
+Implementacja niestandardowej `AuthenticationStateProvider` usługi dla aplikacji po stronie klienta Blazor została omówiona w poniższych sekcjach.
 
 ## <a name="authenticationstateprovider-service"></a>Usługa AuthenticationStateProvider
 
-Aplikacje serwerowe Blazor obejmują wbudowaną `AuthenticationStateProvider` usługa, która uzyskuje dane o stanie uwierzytelniania z platformy ASP.NET Core `HttpContext.User`. Jest to, jak stan uwierzytelniania integruje się z istniejących mechanizmów uwierzytelniania po stronie serwera platformy ASP.NET Core.
+Blazor aplikacje po stronie serwera obejmują wbudowaną `AuthenticationStateProvider` usługę, która pobiera dane stanu uwierzytelniania z `HttpContext.User`ASP.NET Core. Jest to sposób integracji stanu uwierzytelniania z istniejącymi mechanizmami uwierzytelniania po stronie serwera ASP.NET Core.
 
-`AuthenticationStateProvider` podstawowy usługa jest używana przez `AuthorizeView` składnika i `CascadingAuthenticationState` składnika można pobrać stanu uwierzytelniania.
+`AuthenticationStateProvider`to podstawowa usługa używana przez `AuthorizeView` składnik i `CascadingAuthenticationState` składnik do uzyskiwania stanu uwierzytelniania.
 
-Nie są zwykle używane `AuthenticationStateProvider` bezpośrednio. Użyj [składnika AuthorizeView](#authorizeview-component) lub [zadań<AuthenticationState> ](#expose-the-authentication-state-as-a-cascading-parameter) podejść opisanych w dalszej części tego artykułu. Główną wadą za pomocą `AuthenticationStateProvider` bezpośrednio jest, że składnik nie jest automatycznie powiadomienia, gdy zmianie danych stanu uwierzytelniania podstawowego.
+Zwykle nie są używane `AuthenticationStateProvider` bezpośrednio. Użyj [składnika AuthorizeView](#authorizeview-component) lub podejścia [do<AuthenticationState> zadań](#expose-the-authentication-state-as-a-cascading-parameter) opisanych w dalszej części tego artykułu. Główną wadą zwrotu z używania `AuthenticationStateProvider` bezpośrednio jest to, że składnik nie jest automatycznie powiadamiany o zmianach danych stanu uwierzytelniania.
 
-`AuthenticationStateProvider` Usługi może zapewnić bieżący użytkownik <xref:System.Security.Claims.ClaimsPrincipal> danych, jak pokazano w poniższym przykładzie:
+Usługa może udostępniać <xref:System.Security.Claims.ClaimsPrincipal> dane bieżącego użytkownika, jak pokazano w następującym przykładzie: `AuthenticationStateProvider`
 
 ```cshtml
 @page "/"
@@ -151,13 +151,13 @@ Nie są zwykle używane `AuthenticationStateProvider` bezpośrednio. Użyj [skł
 }
 ```
 
-Jeśli `user.Identity.IsAuthenticated` jest `true` , a użytkownik jest <xref:System.Security.Claims.ClaimsPrincipal>, mogą być wyliczane oświadczeń i oceny członkostwa w roli.
+Jeśli `user.Identity.IsAuthenticated` jest `true` i<xref:System.Security.Claims.ClaimsPrincipal>ponieważ użytkownik jest, można wyliczyć oświadczenia i członkostwo w rolach.
 
-Aby uzyskać więcej informacji na temat wstrzykiwanie zależności (DI) i usług, zobacz <xref:blazor/dependency-injection> i <xref:fundamentals/dependency-injection>.
+Aby uzyskać więcej informacji na temat iniekcji zależności (di) i <xref:blazor/dependency-injection> usług <xref:fundamentals/dependency-injection>, zobacz i.
 
 ## <a name="implement-a-custom-authenticationstateprovider"></a>Implementowanie niestandardowego AuthenticationStateProvider
 
-Jeśli tworzysz aplikację po stronie klienta Blazor lub jeśli Specyfikacja aplikacji wymaga absolutnie niestandardowego dostawcy implementowanie dostawcy i zastąpić `GetAuthenticationStateAsync`:
+Jeśli tworzysz aplikację po stronie klienta Blazor lub jeśli Specyfikacja aplikacji absolutnie wymaga dostawcy niestandardowego, zaimplementuj dostawcę i Przesłoń `GetAuthenticationStateAsync`:
 
 ```csharp
 class CustomAuthStateProvider : AuthenticationStateProvider
@@ -176,7 +176,7 @@ class CustomAuthStateProvider : AuthenticationStateProvider
 }
 ```
 
-`CustomAuthStateProvider` Usługa jest zarejestrowana w `Startup.ConfigureServices`:
+Usługa jest zarejestrowana w `Startup.ConfigureServices`: `CustomAuthStateProvider`
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -185,11 +185,11 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Za pomocą `CustomAuthStateProvider`, wszyscy użytkownicy są uwierzytelniani za pomocą nazwy użytkownika `mrfibuli`.
+Korzystając z `CustomAuthStateProvider`programu, wszyscy użytkownicy są uwierzytelniani przy `mrfibuli`użyciu nazwy użytkownika.
 
-## <a name="expose-the-authentication-state-as-a-cascading-parameter"></a>Udostępnianie stanu uwierzytelniania jako parametr kaskadowe
+## <a name="expose-the-authentication-state-as-a-cascading-parameter"></a>Uwidacznianie stanu uwierzytelniania jako parametru kaskadowego
 
-Jeśli dane o stanie uwierzytelniania jest wymagany dla logiki proceduralne, takie jak kiedy wykonuje akcję wyzwalany przez użytkownika, należy uzyskać dane stanu uwierzytelniania, definiując kaskadowych parametr typu `Task<AuthenticationState>`:
+Jeśli dane stanu uwierzytelniania są wymagane dla logiki proceduralnej, na przykład podczas wykonywania akcji wyzwalanej przez użytkownika, uzyskaj dane stanu uwierzytelniania przez zdefiniowanie parametru kaskadowego typu `Task<AuthenticationState>`:
 
 ```cshtml
 @page "/"
@@ -217,9 +217,9 @@ Jeśli dane o stanie uwierzytelniania jest wymagany dla logiki proceduralne, tak
 }
 ```
 
-Jeśli `user.Identity.IsAuthenticated` jest `true`, mogą być wyliczane oświadczeń i oceny członkostwa w roli.
+Jeśli `user.Identity.IsAuthenticated` jest`true`, oświadczenia mogą być wyliczane i członkostwo w rolach oceniane.
 
-Konfigurowanie `Task<AuthenticationState>` cascading przy użyciu parametru `CascadingAuthenticationState` składników:
+Skonfiguruj parametr `CascadingAuthenticationState` kaskadowy przy użyciu składnika: `Task<AuthenticationState>`
 
 ```cshtml
 <CascadingAuthenticationState>
@@ -234,22 +234,22 @@ Konfigurowanie `Task<AuthenticationState>` cascading przy użyciu parametru `Cas
 
 ## <a name="authorization"></a>Autoryzacja
 
-Po uwierzytelnieniu użytkownika *autoryzacji* reguły są stosowane do kontrolowania czynności użytkownika.
+Po uwierzytelnieniu użytkownika są stosowane reguły *autoryzacji* umożliwiające kontrolę działania użytkownika.
 
-Zazwyczaj udzielić lub odmówić dostępu na podstawie:
+Dostęp jest zazwyczaj udzielany lub odrzucany w zależności od tego, czy:
 
 * Użytkownik jest uwierzytelniany (zalogowany).
-* Użytkownik znajduje się w *roli*.
-* Użytkownik ma *oświadczenia*.
-* A *zasad* jest spełniony.
+* Użytkownik należy do *roli*.
+* Użytkownik ma wierzytelność.
+* *Zasady* są spełnione.
 
-Każdy z tych pojęć jest taki sam jak w aplikacji ASP.NET Core MVC lub stron Razor. Aby uzyskać więcej informacji na temat zabezpieczeń platformy ASP.NET Core, zobacz artykuły w obszarze [platformy ASP.NET Core zabezpieczenia i tożsamość](xref:security/index).
+Każda z tych koncepcji jest taka sama jak w aplikacji ASP.NET Core MVC lub Razor Pages. Aby uzyskać więcej informacji na temat zabezpieczeń ASP.NET Core, zapoznaj się z artykułami w obszarze [ASP.NET Core zabezpieczenia i tożsamość](xref:security/index).
 
 ## <a name="authorizeview-component"></a>Składnik AuthorizeView
 
-`AuthorizeView` Składnika selektywnie pojawi się interfejs użytkownika w zależności od tego, czy użytkownik jest uprawniony do wyświetlenia go. Takie podejście jest przydatne, gdy trzeba tylko *wyświetlić* danych użytkownika i nie trzeba używać tożsamości użytkownika w procedurach logiki.
+`AuthorizeView` Składnik selektywnie wyświetla interfejs użytkownika w zależności od tego, czy użytkownik jest uprawniony do jego wyświetlania. Takie podejście jest przydatne, gdy wystarczy *wyświetlić* dane dla użytkownika i nie trzeba używać tożsamości użytkownika w logice proceduralnej.
 
-Przedstawia składnik `context` zmiennej typu `AuthenticationState`, który umożliwia dostęp do informacji dotyczących zalogowanego użytkownika:
+Składnik uwidacznia `context` zmienną typu `AuthenticationState`, za pomocą której można uzyskać dostęp do informacji o zalogowanym użytkowniku:
 
 ```cshtml
 <AuthorizeView>
@@ -258,7 +258,7 @@ Przedstawia składnik `context` zmiennej typu `AuthenticationState`, który umo�
 </AuthorizeView>
 ```
 
-Jeśli użytkownik nie jest uwierzytelniony, może też podawać różną zawartość w przypadku wyświetlania:
+Jeśli użytkownik nie jest uwierzytelniony, można również podać inną zawartość do wyświetlenia:
 
 ```cshtml
 <AuthorizeView>
@@ -273,20 +273,20 @@ Jeśli użytkownik nie jest uwierzytelniony, może też podawać różną zawart
 </AuthorizeView>
 ```
 
-Zawartość `<Authorized>` i `<NotAuthorized>` może zawierać dowolne elementy, takie jak inne składniki interaktywne.
+Zawartość `<Authorized>` i`<NotAuthorized>` może zawierać dowolne elementy, takie jak inne składniki interaktywne.
 
-Warunki autoryzacji, takich jak role lub zasady, które kontrolują dostęp, lub opcji interfejsu użytkownika są objęte [autoryzacji](#authorization) sekcji.
+Warunki autoryzacji, takie jak role lub zasady kontrolujące opcje interfejsu użytkownika lub dostęp, są omówione w [](#authorization) sekcji autoryzacja.
 
-Jeśli warunki autoryzacji nie są określone, `AuthorizeView` używa domyślnych zasad i traktuje:
+Jeśli warunki autoryzacji nie są określone `AuthorizeView` , program używa domyślnych zasad i traktuje je:
 
-* Uwierzytelnieni użytkownicy (zalogowany) jako autoryzowane.
-* Brak autoryzacji nieuwierzytelnionych użytkowników (podpisane w poziomie).
+* Uwierzytelniony (zalogowany) Użytkownicy jako autoryzowany.
+* Nieuwierzytelnionych (wylogowanych) użytkowników jako nieautoryzowanych.
 
-### <a name="role-based-and-policy-based-authorization"></a>Autoryzacja oparta na rolach i oparte na zasadach
+### <a name="role-based-and-policy-based-authorization"></a>Autoryzacja oparta na rolach i zasadach
 
-`AuthorizeView` Składnik obsługuje *opartej na rolach* lub *oparte na zasadach* autoryzacji.
+Składnik obsługuje autoryzację opartą *na rolach* lub *zasadach.* `AuthorizeView`
 
-Do autoryzacji opartej na rolach, należy użyć `Roles` parametru:
+W przypadku autoryzacji opartej na rolach Użyj `Roles` parametru:
 
 ```cshtml
 <AuthorizeView Roles="admin, superuser">
@@ -296,7 +296,7 @@ Do autoryzacji opartej na rolach, należy użyć `Roles` parametru:
 
 Aby uzyskać więcej informacji, zobacz <xref:security/authorization/roles>.
 
-Autoryzacja oparta na zasadach, można użyć `Policy` parametru:
+W przypadku autoryzacji opartej na zasadach należy `Policy` użyć parametru:
 
 ```cshtml
 <AuthorizeView Policy="content-editor">
@@ -304,17 +304,17 @@ Autoryzacja oparta na zasadach, można użyć `Policy` parametru:
 </AuthorizeView>
 ```
 
-Autoryzacja oparta na oświadczeniach jest przypadkiem szczególnym autoryzacji opartej na zasadach. Na przykład można zdefiniować zasady, które użytkownicy muszą mieć określone oświadczenie. Aby uzyskać więcej informacji, zobacz <xref:security/authorization/policies>.
+Autoryzacja oparta na oświadczeniach jest specjalnym przypadkiem autoryzacji opartej na zasadach. Na przykład można zdefiniować zasady, które wymagają, aby użytkownicy mieli pewne wnioski. Aby uzyskać więcej informacji, zobacz <xref:security/authorization/policies>.
 
-Te interfejsy API może służyć w Blazor po stronie serwera lub aplikacji po stronie klienta Blazor.
+Te interfejsy API mogą być używane w aplikacjach Blazor po stronie serwera lub klienta Blazor.
 
-Jeśli żadna `Roles` ani `Policy` jest określony, `AuthorizeView` używa domyślnej zasady.
+Jeśli ani nie `AuthorizeView` zostanie określony, program używa domyślnych zasad. `Policy` `Roles`
 
-### <a name="content-displayed-during-asynchronous-authentication"></a>Zawartość wyświetlana podczas uwierzytelniania asynchroniczne
+### <a name="content-displayed-during-asynchronous-authentication"></a>Zawartość wyświetlana podczas uwierzytelniania asynchronicznego
 
-Umożliwia Blazor stan uwierzytelniania określone *asynchronicznie*. Podstawowy scenariusz, w tym podejściu jest Blazor aplikacji po stronie klienta, które wysłać żądanie do zewnętrznego punktu końcowego na potrzeby uwierzytelniania.
+Blazor umożliwia określenie stanu uwierzytelniania w sposób *asynchroniczny*. Głównym scenariuszem tego podejścia jest Blazor aplikacji po stronie klienta, które składają żądanie do zewnętrznego punktu końcowego w celu uwierzytelnienia.
 
-Gdy uwierzytelnianie jest w toku, `AuthorizeView` domyślnie wyświetla żadnej zawartości. Aby wyświetlić zawartość, a uwierzytelnianie odbywa się, należy użyć `<Authorizing>` elementu:
+Gdy trwa uwierzytelnianie, `AuthorizeView` domyślnie nie jest wyświetlana żadna zawartość. Aby wyświetlić zawartość podczas uwierzytelniania, należy użyć `<Authorizing>` elementu:
 
 ```cshtml
 <AuthorizeView>
@@ -329,11 +329,11 @@ Gdy uwierzytelnianie jest w toku, `AuthorizeView` domyślnie wyświetla żadnej 
 </AuthorizeView>
 ```
 
-Ta metoda nie jest zazwyczaj dotyczy Blazor po stronie serwera aplikacji. Aplikacje serwerowe Blazor znać stan uwierzytelniania zaraz po jego stan zostanie nawiązane. `Authorizing` zawartość może znajdować się w aplikacji po stronie serwera Blazor `AuthorizeView` składnik, ale zawartość nigdy nie jest wyświetlane.
+Takie podejście nie ma zwykle zastosowania do Blazor aplikacji po stronie serwera. Blazor aplikacje po stronie serwera informują o stanie uwierzytelniania zaraz po ustanowieniu stanu. `Authorizing`zawartość można podać w `AuthorizeView` składniku aplikacji po stronie serwera Blazor, ale zawartość nigdy nie jest wyświetlana.
 
-## <a name="authorize-attribute"></a>Atrybut [autoryzować]
+## <a name="authorize-attribute"></a>[Autoryzuj] — atrybut
 
-Tak samo, jak aplikacja może używać `[Authorize]` przy użyciu kontrolera MVC lub strona Razor `[Authorize]` można również ze składnikami Razor:
+Podobnie jak aplikacja może `[Authorize]` być używana z kontrolerem MVC lub stroną Razor, `[Authorize]` może być również używana z składnikami Razor:
 
 ```cshtml
 @page "/"
@@ -343,11 +343,11 @@ You can only see this if you're signed in.
 ```
 
 > [!IMPORTANT]
-> Używaj tylko `[Authorize]` na `@page` składniki skontaktować za pośrednictwem routera Blazor. Autoryzacja jest realizowane wyłącznie jako aspekt, routingu i *nie* składników podrzędnych renderowane na stronie. Aby autoryzować wyświetlanie określonych części strony, należy użyć `AuthorizeView` zamiast tego.
+> Używać `[Authorize]` tylko dla `@page` składników uzyskanych za pośrednictwem routera Blazor. Autoryzacja jest wykonywana tylko jako aspekt routingu, a *nie* dla składników podrzędnych renderowanych na stronie. Aby autoryzować wyświetlanie określonych części na stronie, użyj `AuthorizeView` zamiast tego.
 
-Może być konieczne dodanie `@using Microsoft.AspNetCore.Authorization` do składnika lub do *_Imports.razor* pliku w kolejności, w celu kompilowania składnika.
+Może być konieczne dodanie `@using Microsoft.AspNetCore.Authorization` elementu do składnika lub do pliku *_Imports. Razor* w celu skompilowania składnika.
 
-`[Authorize]` Atrybutu obsługuje również autoryzacji opartej na rolach lub oparta na zasadach. Do autoryzacji opartej na rolach, należy użyć `Roles` parametru:
+Ten `[Authorize]` atrybut obsługuje również autoryzację opartą na rolach lub zasadach. W przypadku autoryzacji opartej na rolach Użyj `Roles` parametru:
 
 ```cshtml
 @page "/"
@@ -356,7 +356,7 @@ Może być konieczne dodanie `@using Microsoft.AspNetCore.Authorization` do skł
 <p>You can only see this if you're in the 'admin' or 'superuser' role.</p>
 ```
 
-Autoryzacja oparta na zasadach, można użyć `Policy` parametru:
+W przypadku autoryzacji opartej na zasadach należy `Policy` użyć parametru:
 
 ```cshtml
 @page "/"
@@ -365,20 +365,20 @@ Autoryzacja oparta na zasadach, można użyć `Policy` parametru:
 <p>You can only see this if you satisfy the 'content-editor' policy.</p>
 ```
 
-Jeśli żadna `Roles` ani `Policy` jest określony, `[Authorize]` używa domyślnej zasady, która domyślnie jest:
+Jeśli ani nie `[Authorize]` zostanie określony, program używa domyślnych zasad, które domyślnie są traktowane: `Policy` `Roles`
 
-* Uwierzytelnieni użytkownicy (zalogowany) jako autoryzowane.
-* Brak autoryzacji nieuwierzytelnionych użytkowników (podpisane w poziomie).
+* Uwierzytelniony (zalogowany) Użytkownicy jako autoryzowany.
+* Nieuwierzytelnionych (wylogowanych) użytkowników jako nieautoryzowanych.
 
-## <a name="customize-unauthorized-content-with-the-router-component"></a>Dostosowywanie zawartości nieautoryzowanym ze składnikiem routera
+## <a name="customize-unauthorized-content-with-the-router-component"></a>Dostosowywanie nieautoryzowanej zawartości za pomocą składnika routera
 
-`Router` Składnik umożliwia aplikacji określenie niestandardowej zawartości, jeśli:
+`Router` Składnik umożliwia aplikacji określenie zawartości niestandardowej, jeśli:
 
-* Zawartość nie zostanie znaleziona.
-* Użytkownik nie `[Authorize]` warunek zastosowane do składnika. `[Authorize]` Atrybut został omówiony w [atrybutu [Authorize]](#authorize-attribute) sekcji.
-* Asynchroniczne uwierzytelniania jest w toku.
+* Nie znaleziono zawartości.
+* Użytkownik nie może `[Authorize]` wykonać warunku zastosowanego do składnika. Ten `[Authorize]` atrybut jest pokryty w sekcji [atrybutu [autoryzuje]](#authorize-attribute) .
+* Uwierzytelnianie asynchroniczne jest w toku.
 
-W domyślnym szablonie projektu po stronie serwera Blazor *App.razor* plik pokazuje, jak ustawić niestandardową zawartość:
+W domyślnym szablonie projektu po stronie serwera Blazor plik *App. Razor* ilustruje sposób ustawiania zawartości niestandardowej:
 
 ```cshtml
 <CascadingAuthenticationState>
@@ -400,9 +400,9 @@ W domyślnym szablonie projektu po stronie serwera Blazor *App.razor* plik pokaz
 </CascadingAuthenticationState>
 ```
 
-Zawartość `<NotFoundContent>`, `<NotAuthorizedContent>`, i `<AuthorizingContent>` może zawierać dowolne elementy, takie jak inne składniki interaktywne.
+Zawartość `<NotFoundContent>`, `<NotAuthorizedContent>`i możezawieraćdowolneelementy,takiejakinneskładnikiinteraktywne.`<AuthorizingContent>`
 
-Jeśli `<NotAuthorizedContent>` nie jest określona, router używa rezerwowej następujący komunikat:
+Jeśli `<NotAuthorizedContent>` nie jest określony, router używa następującego komunikatu powrotu:
 
 ```html
 Not authorized.
@@ -410,11 +410,11 @@ Not authorized.
 
 ## <a name="notification-about-authentication-state-changes"></a>Powiadomienie o zmianach stanu uwierzytelniania
 
-Jeśli aplikacja okaże się, że danych bazowych stanu uwierzytelniania został zmieniony (na przykład, ponieważ zmiany ich ról użytkownika wylogowany lub innego użytkownika), niestandardowe `AuthenticationStateProvider` Opcjonalnie można wywołać metody `NotifyAuthenticationStateChanged` na `AuthenticationStateProvider` podstawowy Klasa. To powiadamia klientów uwierzytelniania danych o stanie (na przykład `AuthorizeView`) do rerender przy użyciu nowych danych.
+Jeśli aplikacja określi, że dane stanu uwierzytelniania zostały zmienione (na przykład ponieważ użytkownik wylogowany lub inny użytkownik zmienił swoje role), niestandardowe `AuthenticationStateProvider` może opcjonalnie wywołać metodę `NotifyAuthenticationStateChanged` na `AuthenticationStateProvider` podstawie określonej. Spowoduje to powiadomienie klientów o danych stanu uwierzytelniania (na przykład `AuthorizeView`) w celu ponownego renderowania przy użyciu nowych danych.
 
-## <a name="procedural-logic"></a>Proceduralne logiki
+## <a name="procedural-logic"></a>Logika proceduralna
 
-Jeśli aplikacja jest wymagany do sprawdzenia reguł autoryzacji jako część logiki proceduralne, użyj parametru kaskadowy typu `Task<AuthenticationState>` uzyskać użytkownika <xref:System.Security.Claims.ClaimsPrincipal>. `Task<AuthenticationState>` można łączyć z innymi usługami, takie jak `IAuthorizationService`, aby oceniać zasady.
+Jeśli aplikacja jest wymagana do sprawdzenia reguł autoryzacji jako części logiki proceduralnej, należy użyć kaskadowego parametru typu `Task<AuthenticationState>` , aby uzyskać <xref:System.Security.Claims.ClaimsPrincipal>użytkownika. `Task<AuthenticationState>`można łączyć z innymi usługami, takimi jak `IAuthorizationService`, do analizowania zasad.
 
 ```cshtml
 @inject IAuthorizationService AuthorizationService
@@ -449,21 +449,21 @@ Jeśli aplikacja jest wymagany do sprawdzenia reguł autoryzacji jako część l
 }
 ```
 
-## <a name="authorization-in-blazor-client-side-apps"></a>Autoryzacja w aplikacji po stronie klienta Blazor
+## <a name="authorization-in-blazor-client-side-apps"></a>Autoryzacja w aplikacjach po stronie klienta Blazor
 
-Blazor aplikacji po stronie klienta można pominąć sprawdzanie autoryzacji, ponieważ cały kod po stronie klienta może być modyfikowane przez użytkowników. Dotyczy to także wszystkie technologie aplikacji po stronie klienta, w tym struktur JavaScript SPA lub natywne aplikacje dla dowolnego systemu operacyjnego.
+W aplikacjach po stronie klienta Blazor sprawdzanie autoryzacji może być pomijane, ponieważ każdy kod po stronie klienta może być modyfikowany przez użytkowników. Jest to samo prawdziwe dla wszystkich technologii aplikacji po stronie klienta, w tym dla struktur SPA skryptów JavaScript lub natywnych aplikacji dla dowolnego systemu operacyjnego.
 
-**Zawsze wykonują sprawdzanie autoryzacji na serwerze w ramach żadnych punktów końcowych interfejsu API dostępne dla aplikacji po stronie klienta.**
+**Zawsze sprawdzaj autoryzację na serwerze w ramach dowolnych punktów końcowych interfejsu API, do których uzyskuje dostęp aplikacja po stronie klienta.**
 
 ## <a name="troubleshoot-errors"></a>Rozwiązywanie problemów z błędami
 
 Typowe błędy:
 
-* **Wymaga kaskadowych parametr typu zadania\<AuthenticationState >. Należy rozważyć użycie CascadingAuthenticationState je podać.**
+* **Autoryzacja wymaga parametru kaskadowego typu Task\<AuthenticationState >. Rozważ użycie CascadingAuthenticationState, aby to zrobić.**
 
-* **`null` wartość jest odbierane dla `authenticationStateTask`**
+* **`null`Odebrano wartość dla`authenticationStateTask`**
 
-Istnieje prawdopodobieństwo, że projekt nie został utworzony przy użyciu szablonu po stronie serwera Blazor z włączone uwierzytelnianie. OPAKOWYWANIE `<CascadingAuthenticationState>` wokół część drzewo interfejsu użytkownika, na przykład w *App.razor* w następujący sposób:
+Prawdopodobnie projekt nie został utworzony przy użyciu szablonu po stronie serwera Blazor z włączonym uwierzytelnianiem. Zawiń wokół pewnej części drzewa interfejsu użytkownika, na przykład w *App. Razor* w następujący sposób: `<CascadingAuthenticationState>`
 
 ```cshtml
 <CascadingAuthenticationState>
@@ -473,7 +473,7 @@ Istnieje prawdopodobieństwo, że projekt nie został utworzony przy użyciu sza
 </CascadingAuthenticationState>
 ```
 
-`CascadingAuthenticationState` Dostarcza `Task<AuthenticationState>` kaskadowych parametr, który z kolei otrzymuje z bazowego `AuthenticationStateProvider` DI usługi.
+Dostarcza parametr kaskadowy, który z kolei otrzymuje od podstawowej `AuthenticationStateProvider` usługi di. `Task<AuthenticationState>` `CascadingAuthenticationState`
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
