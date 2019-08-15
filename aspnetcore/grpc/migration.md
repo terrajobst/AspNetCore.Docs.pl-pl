@@ -1,39 +1,39 @@
 ---
-title: Migrowanie usług gRPC podstawowe języka C do platformy ASP.NET Core
+title: Migrowanie usług gRPC z dysku C-Core do ASP.NET Core
 author: juntaoluo
-description: Dowiedz się, jak przenieść istniejącą aplikację na podstawie gRPC podstawowe języka C do uruchamiania na szczycie stosu platformy ASP.NET Core.
+description: Dowiedz się, jak przenieść istniejącą aplikację gRPC opartą na procesorze C do uruchamiania na stosie ASP.NET Core.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 03/31/2019
 uid: grpc/migration
-ms.openlocfilehash: 47d74edd821124f0c8390d704ca7931b7eb6c4cd
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 39aa711a1a47cf11ec5b08903b4130c7caa1501c
+ms.sourcegitcommit: 476ea5ad86a680b7b017c6f32098acd3414c0f6c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64901675"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69022302"
 ---
-# <a name="migrating-grpc-services-from-c-core-to-aspnet-core"></a>Migrowanie usług gRPC podstawowe języka C do platformy ASP.NET Core
+# <a name="migrating-grpc-services-from-c-core-to-aspnet-core"></a>Migrowanie usług gRPC z dysku C-Core do ASP.NET Core
 
-Przez [Luo Jan](https://github.com/juntaoluo)
+Przez [Jan Luo](https://github.com/juntaoluo)
 
-Ze względu na implementację podstawowego stosu, nie wszystkie funkcje działają tak samo jak między [oparte na C-core gRPC](https://grpc.io/blog/grpc-stacks) aplikacje i aplikacje korzystające z platformy ASP.NET Core. W tym dokumencie podświetla podstawowe różnice dotyczące migracji między dwoma stosami.
+Ze względu na implementację bazowego stosu nie wszystkie funkcje działają w taki sam sposób między aplikacjami [gRPC opartymi na](https://grpc.io/blog/grpc-stacks) procesorze C i aplikacjami opartymi na ASP.NET Core. W tym dokumencie przedstawiono najważniejsze różnice dotyczące migracji między dwoma stosami.
 
 ## <a name="grpc-service-implementation-lifetime"></a>okres istnienia implementacji usługi gRPC
 
-W stosie platformy ASP.NET Core gRPC services domyślnie są tworzone przy użyciu [o określonym zakresie okres istnienia](xref:fundamentals/dependency-injection#service-lifetimes). Z kolei gRPC C-core domyślnie wiąże się z usługą za pomocą [okres istnienia pojedyncze](xref:fundamentals/dependency-injection#service-lifetimes).
+W stosie ASP.NET Core usługi gRPC są domyślnie tworzone z okresem istnienia w [zakresie](xref:fundamentals/dependency-injection#service-lifetimes). Z kolei gRPC C-Core domyślnie wiąże się z usługą z [pojedynczym okresem istnienia](xref:fundamentals/dependency-injection#service-lifetimes).
 
-O określonym zakresie okres istnienia umożliwia implementacji usługi do rozpoznania innych usług z zakresu okresy istnienia. Na przykład, można również rozwiązać o określonym zakresie okres istnienia `DBContext` z kontenera DI przy użyciu iniekcji konstruktora. Korzystanie z zakresami okres istnienia:
+Okres istnienia w zakresie pozwala implementacji usługi rozwiązywać inne usługi z okresami istnienia w zakresie. Na przykład okres istnienia objęty zakresem można `DbContext` również rozwiązać z kontenera di przez iniekcję konstruktora. Korzystanie z okresu istnienia w zakresie:
 
-* Nowe wystąpienie implementacji usługi jest tworzona dla każdego żądania.
-* Nie jest możliwe udostępnianie stanu między żądaniami, za pośrednictwem składowych wystąpień dla typu wdrożenia.
-* Oczekuje się, aby przechowywać udostępnionych stanów usługi singleton w kontenerze DI. Przechowywane udostępnionych stanów są rozwiązywane w Konstruktorze gRPC implementacji usługi.
+* Nowe wystąpienie implementacji usługi jest konstruowane dla każdego żądania.
+* Nie jest możliwe udostępnianie stanu między żądaniami za pośrednictwem elementów członkowskich wystąpienia w typie implementacji.
+* Oczekuje się, że wszystkie Stany udostępnione są przechowywane w usłudze pojedynczej w kontenerze DI. Przechowywane udostępnione Stany są rozwiązywane w konstruktorze implementacji usługi gRPC.
 
-Aby uzyskać więcej informacji na temat usługi okresy istnienia, zobacz <xref:fundamentals/dependency-injection#service-lifetimes>.
+Aby uzyskać więcej informacji na temat okresów istnienia usługi, zobacz <xref:fundamentals/dependency-injection#service-lifetimes>.
 
-### <a name="add-a-singleton-service"></a>Dodawanie usługi singleton
+### <a name="add-a-singleton-service"></a>Dodawanie pojedynczej usługi
 
-Aby ułatwić przejście od implementacji C-core gRPC do platformy ASP.NET Core, jest można zmienić okres istnienia usługi implementacji usługi z ograniczone do pojedynczego wystąpienia. Obejmuje to dodać do kontenera DI wystąpienie implementacji usługi:
+Aby ułatwić przejście z implementacji gRPC C-Core do ASP.NET Core, można zmienić okres istnienia usługi dla implementacji usługi z zakresu na pojedynczą. Obejmuje to dodanie wystąpienia implementacji usługi do kontenera DI:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -43,13 +43,13 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Jednak z implementacją usługi o okresie istnienia pojedynczego wystąpienia nie jest już możliwość rozpoznania o określonym zakresie usług za pomocą iniekcji konstruktora.
+Jednak implementacja usługi z pojedynczym okresem istnienia nie jest już w stanie rozpoznać usług objętych zakresem przez iniekcję konstruktora.
 
-## <a name="configure-grpc-services-options"></a>Skonfiguruj opcje usługi gRPC
+## <a name="configure-grpc-services-options"></a>Skonfiguruj opcje usług gRPC Services
 
-W aplikacjach na podstawie podstawowej C, ustawienia, takie jak `grpc.max_receive_message_length` i `grpc.max_send_message_length` są skonfigurowane przy użyciu `ChannelOption` podczas [konstruowanie wystąpienie serwera](https://grpc.io/grpc/csharp/api/Grpc.Core.Server.html#Grpc_Core_Server__ctor_System_Collections_Generic_IEnumerable_Grpc_Core_ChannelOption__).
+W przypadku aplikacji opartych na rdzeniu C ustawienia takie `grpc.max_receive_message_length` jak `grpc.max_send_message_length` i są konfigurowane `ChannelOption` przy użyciu programu podczas [konstruowania wystąpienia serwera](https://grpc.io/grpc/csharp/api/Grpc.Core.Server.html#Grpc_Core_Server__ctor_System_Collections_Generic_IEnumerable_Grpc_Core_ChannelOption__).
 
-W programie ASP.NET Core gRPC udostępnia konfigurację za pomocą `GrpcServiceOptions` typu. Na przykład gRPC usługi maksymalny rozmiar wiadomości przychodzącej mogą być konfigurowane przez `AddGrpc`:
+W ASP.NET Core gRPC zapewnia konfigurację przy użyciu `GrpcServiceOptions` typu. Na przykład maksymalny rozmiar komunikatu przychodzącego usługi gRPC można skonfigurować za pomocą `AddGrpc`następujących funkcji:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -61,11 +61,11 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Aby uzyskać więcej informacji na temat konfigurowania, zobacz <xref:grpc/configuration>.
+Aby uzyskać więcej informacji na temat konfiguracji <xref:grpc/configuration>, zobacz.
 
 ## <a name="logging"></a>Rejestrowanie
 
-Aplikacje oparte na podstawowej C polegają na `GrpcEnvironment` do [skonfigurować rejestratora](https://grpc.io/grpc/csharp/api/Grpc.Core.GrpcEnvironment.html?q=size#Grpc_Core_GrpcEnvironment_SetLogger_Grpc_Core_Logging_ILogger_) na potrzeby debugowania. Stos programu ASP.NET Core oferuje tę funkcję za pośrednictwem [rejestrowanie interfejsu API](xref:fundamentals/logging/index). Na przykład Rejestrator mogą być dodawane do usługi gRPC przy użyciu iniekcji konstruktora:
+Aplikacje oparte na rdzeniu C są zależne `GrpcEnvironment` od programu w celu [skonfigurowania rejestratora](https://grpc.io/grpc/csharp/api/Grpc.Core.GrpcEnvironment.html?q=size#Grpc_Core_GrpcEnvironment_SetLogger_Grpc_Core_Logging_ILogger_) do celów debugowania. Stos ASP.NET Core udostępnia tę funkcję za pomocą [interfejsu API rejestrowania](xref:fundamentals/logging/index). Na przykład można dodać Rejestrator do usługi gRPC za pośrednictwem iniekcji konstruktora:
 
 ```csharp
 public class GreeterService : Greeter.GreeterBase
@@ -78,11 +78,11 @@ public class GreeterService : Greeter.GreeterBase
 
 ## <a name="https"></a>HTTPS
 
-Aplikacje oparte na podstawowej C Konfigurowanie protokołu HTTPS za pośrednictwem [właściwość Server.Ports](https://grpc.io/grpc/csharp/api/Grpc.Core.Server.html#Grpc_Core_Server_Ports). Koncepcja podobne służy do konfigurowania serwerów w programie ASP.NET Core. Na przykład używa Kestrel [konfiguracji punktu końcowego](xref:fundamentals/servers/kestrel#endpoint-configuration) dla tej funkcji.
+Aplikacje oparte na rdzeniu C konfigurują protokół HTTPS za pomocą [właściwości Server. Ports](https://grpc.io/grpc/csharp/api/Grpc.Core.Server.html#Grpc_Core_Server_Ports). Podobne pojęcie służy do konfigurowania serwerów w ASP.NET Core. Na przykład Kestrel używa [konfiguracji punktu końcowego](xref:fundamentals/servers/kestrel#endpoint-configuration) dla tej funkcji.
 
 ## <a name="interceptors-and-middleware"></a>Interceptory i oprogramowanie pośredniczące
 
-Platforma ASP.NET Core [oprogramowania pośredniczącego](xref:fundamentals/middleware/index) oferuje podobne funkcje w porównaniu do interceptory w aplikacjach gRPC oparte na C-core. Oprogramowanie pośredniczące i interceptory są koncepcyjnie takie same jak oba są używane do budowy potoku, który obsługuje żądania gRPC. Umożliwiają one zarówno pracy do wykonania przed lub po następny składnik w potoku. Jednak oprogramowanie pośredniczące platformy ASP.NET Core działa w podstawowej komunikaty w protokole HTTP/2, podczas interceptory działają na gRPC warstwa abstrakcji za pomocą [ServerCallContext](https://grpc.io/grpc/csharp/api/Grpc.Core.ServerCallContext.html).
+ASP.NET Core [oprogramowanie pośredniczące](xref:fundamentals/middleware/index) oferuje podobne funkcje w porównaniu do przechwyceń w aplikacjach gRPC opartych na rdzeniach języka C. Oprogramowanie pośredniczące i Interceptory są koncepcyjnie takie same, jak w obu przypadkach są używane do konstruowania potoku, który obsługuje żądanie gRPC. Umożliwiają one wykonywanie zadań przed lub po następnym składniku w potoku. Jednak ASP.NET Core oprogramowanie pośredniczące działa na podstawowych komunikatach HTTP/2, podczas gdy Interceptory działają na warstwie abstrakcji gRPC przy użyciu [ServerCallContext](https://grpc.io/grpc/csharp/api/Grpc.Core.ServerCallContext.html).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

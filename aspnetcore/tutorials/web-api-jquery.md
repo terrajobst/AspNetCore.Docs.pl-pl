@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/20/2019
 uid: tutorials/web-api-jquery
-ms.openlocfilehash: eb8b2453fd037170a49f531fea4c3ef1c056292d
-ms.sourcegitcommit: 0efb9e219fef481dee35f7b763165e488aa6cf9c
+ms.openlocfilehash: a319e4b4ce09e9b09afeaff065d5740276deb115
+ms.sourcegitcommit: 476ea5ad86a680b7b017c6f32098acd3414c0f6c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68602586"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69022561"
 ---
 # <a name="tutorial-call-an-aspnet-core-web-api-with-jquery"></a>Samouczek: Wywoływanie ASP.NET Core internetowego interfejsu API za pomocą platformy jQuery
 
@@ -29,7 +29,8 @@ Aby uzyskać ASP.NET Core 2,2, zobacz wersja 2,2 [wywołania interfejsu API siec
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Pełny [samouczek: Tworzenie internetowego interfejsu API](xref:tutorials/first-web-api)
+* Pełny [samouczek: Tworzenie internetowego interfejsu API](xref:tutorials/first-web-api)
+* Znajomość stylów CSS, HTML, JavaScript i jQuery
 
 ## <a name="call-the-api-with-jquery"></a>Wywoływanie interfejsu API przy użyciu jQuery
 

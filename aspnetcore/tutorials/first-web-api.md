@@ -4,14 +4,14 @@ author: rick-anderson
 description: Dowiedz się, jak utworzyć internetowy interfejs API za pomocą ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/05/2019
+ms.date: 08/14/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 5190fa30373c75e6358d9643cfe0042c7fc53557
-ms.sourcegitcommit: 776367717e990bdd600cb3c9148ffb905d56862d
+ms.openlocfilehash: 99985e9fb1134c2ba808434f8d24c4a768773268
+ms.sourcegitcommit: 476ea5ad86a680b7b017c6f32098acd3414c0f6c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68915115"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69022592"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Samouczek: Tworzenie internetowego interfejsu API za pomocą ASP.NET Core
 
@@ -924,7 +924,7 @@ Aby uzyskać więcej informacji, zobacz następujące zasoby:
 
 * <xref:web-api/index>
 * <xref:tutorials/web-api-help-pages-using-swagger>
-* <xref:data/ef-rp/index>
+* <xref:data/ef-rp/intro>
 * <xref:mvc/controllers/routing>
 * <xref:web-api/action-return-types>
 * <xref:host-and-deploy/azure-apps/index>

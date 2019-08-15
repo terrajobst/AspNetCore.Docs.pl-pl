@@ -1,16 +1,18 @@
-W poniższej tabeli przedstawiono parametry generator kodu ASP.NET Core:
+W poniższej tabeli przedstawiono szczegóły ASP.NET Core parametrów generatora kodu:
 
 | Parametr               | Opis|
 | ----------------- | ------------ |
 | -m  | Nazwa modelu. |
-| -dc  | Kontekst danych. |
-| -udl | Użyj domyślnego układu. |
-| --relativeFolderPath | Ścieżka folderu wyjściowego względne do tworzenia widoków. |
-| --useDefaultLayout | Układ domyślny, należy używać widoków. |
-| --referenceScriptLibraries | Dodaje `_ValidationScriptsPartial` to edytowanie i tworzenie stron |
+| -DC  | Kontekst danych. |
+| -UDL | Użyj układu domyślnego. |
+| --relativeFolderPath | Ścieżka względna folderu wyjściowego do tworzenia widoków. |
+| --useDefaultLayout | Dla widoków należy używać układu domyślnego. |
+| --referenceScriptLibraries | Dodaje `_ValidationScriptsPartial` do edycji i tworzenia stron |
 
-Użyj `h` przełącznika, aby uzyskać pomoc dotyczącą `aspnet-codegenerator controller` polecenia:
+Użyj przełącznika `h` , aby uzyskać pomoc `aspnet-codegenerator controller` dotyczącą polecenia:
 
 ```console
 dotnet aspnet-codegenerator controller -h
 ```
+
+Aby uzyskać więcej informacji, zobacz [dotnet ASPNET-CodeGenerator](xref:fundamentals/tools/dotnet-aspnet-codegenerator)
