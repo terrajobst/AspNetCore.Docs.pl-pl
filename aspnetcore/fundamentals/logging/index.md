@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.date: 07/11/2019
 uid: fundamentals/logging/index
 ms.openlocfilehash: 4e2aa1e18c3e3119e22452d5ca9b838581efbfd8
-ms.sourcegitcommit: 89fcc6cb3e12790dca2b8b62f86609bed6335be9
+ms.sourcegitcommit: f5f0ff65d4e2a961939762fb00e654491a2c772a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 08/15/2019
 ms.locfileid: "68994099"
 ---
 # <a name="logging-in-net-core-and-aspnet-core"></a>Rejestrowanie w programie .NET Core i ASP.NET Core
@@ -392,7 +392,7 @@ ASP.NET Core definiuje następujące poziomy dziennika uporządkowane w tym miej
 
   Dla niepowodzeń, które wymagają natychmiastowej uwagi. Przykłady: scenariusze utraty danych, brak miejsca na dysku.
 
-Poziom dziennika służy do kontrolowania, ile danych wyjściowych dziennika jest zapisywana w określonym nośniku lub oknie wyświetlania. Przykład:
+Poziom dziennika służy do kontrolowania, ile danych wyjściowych dziennika jest zapisywana w określonym nośniku lub oknie wyświetlania. Na przykład:
 
 * W obszarze produkcja, `Trace` Wyślij `Information` przez poziom do magazynu danych woluminu. Wyślij `Warning`domagazynudanych wartości.`Critical`
 * `Warning` Podczas tworzenia, wysyłaj `Critical` do `Trace` konsoli i dodawaj podczas rozwiązywania problemów. `Information`
@@ -679,7 +679,7 @@ Jeśli poziom minimalny nie został jawnie ustawiony, wartość domyślna to `In
 
 ### <a name="filter-functions"></a>Funkcje filtrowania
 
-Funkcja filtru jest wywoływana dla wszystkich dostawców i kategorii, które nie mają przypisanych do nich reguł przez konfigurację lub kod. Kod w funkcji ma dostęp do typu dostawcy, kategorii i poziomu dziennika. Przykład:
+Funkcja filtru jest wywoływana dla wszystkich dostawców i kategorii, które nie mają przypisanych do nich reguł przez konfigurację lub kod. Kod w funkcji ma dostęp do typu dostawcy, kategorii i poziomu dziennika. Na przykład:
 
 ::: moniker range=">= aspnetcore-3.0"
 

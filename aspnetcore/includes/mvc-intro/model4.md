@@ -5,7 +5,7 @@ W poniższej tabeli przedstawiono szczegóły ASP.NET Core parametrów generator
 | -m  | Nazwa modelu. |
 | -DC  | Kontekst danych. |
 | -UDL | Użyj układu domyślnego. |
-| --relativeFolderPath | Ścieżka względna folderu wyjściowego do tworzenia widoków. |
+| --relativeFolderPath | Ścieżka względna folderu wyjściowego do tworzenia plików. |
 | --useDefaultLayout | Dla widoków należy używać układu domyślnego. |
 | --referenceScriptLibraries | Dodaje `_ValidationScriptsPartial` do edycji i tworzenia stron |
 
