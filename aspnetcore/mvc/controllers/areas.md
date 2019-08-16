@@ -3,14 +3,14 @@ title: Obszary w ASP.NET Core
 author: rick-anderson
 description: Dowiedz się, jak obszary są funkcją ASP.NET MVC służącą do organizowania powiązanych funkcji w grupie jako oddzielnej przestrzeni nazw (dla routingu) i struktury folderów (dla widoków).
 ms.author: riande
-ms.date: 08/07/2019
+ms.date: 08/16/2019
 uid: mvc/controllers/areas
-ms.openlocfilehash: e44c726c47caa3dd0c8c92e3a2502a590bee82d1
-ms.sourcegitcommit: 2719c70cd15a430479ab4007ff3e197fbf5dfee0
+ms.openlocfilehash: d0af3092776ee09469c879fffd3047c50b1a59b4
+ms.sourcegitcommit: 4cb0c7e74355f2e87c60e2a196f842b937247a99
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68862796"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69545806"
 ---
 # <a name="areas-in-aspnet-core"></a>Obszary w ASP.NET Core
 
@@ -136,7 +136,7 @@ Poniższy kod zmienia domyślny folder obszaru z `"Areas"` na: `"MyAreas"`
 
 ## <a name="areas-with-razor-pages"></a>Obszary z Razor Pages
 
-Obszary z folderem Razor Pages Wymagaj i *obszary&lt;/&gt;obszar nazw/Pages* w katalogu głównym aplikacji. Następująca struktura folderów jest używana z przykładowym [pobieraniem](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/areas/samples)
+Obszary z Razor Pages wymagają folderu *Areas<area name>//Pages* w katalogu głównym aplikacji. Następująca struktura folderów jest używana z przykładową [aplikacją](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/areas/samples):
 
 * Project name (Nazwa projektu)
   * Obszary

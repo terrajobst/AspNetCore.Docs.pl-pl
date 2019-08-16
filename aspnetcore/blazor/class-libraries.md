@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/13/2019
 uid: blazor/class-libraries
-ms.openlocfilehash: 6e93d48bbc684845952c3db8935ccc8b190044b7
-ms.sourcegitcommit: f5f0ff65d4e2a961939762fb00e654491a2c772a
+ms.openlocfilehash: b5857f2cf22bde801deeeaf227817fdf99862f4a
+ms.sourcegitcommit: 4cb0c7e74355f2e87c60e2a196f842b937247a99
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69030342"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69545773"
 ---
 # <a name="aspnet-core-razor-components-class-libraries"></a>ASP.NET Core biblioteki klas składników Razor
 
@@ -60,16 +60,6 @@ Postępuj zgodnie ze wskazówkami zawartymi w <xref:blazor/get-started> artykule
 
 ---
 
-## <a name="rcls-not-supported-for-client-side-apps"></a>RCLs nie są obsługiwane w przypadku aplikacji po stronie klienta
-
-W bieżącej wersji zapoznawczej ASP.NET Core 3,0 biblioteki klas Razor nie są zgodne z Blazor aplikacjami po stronie klienta. W przypadku aplikacji po stronie klienta Blazor należy użyć biblioteki składników Blazor utworzonej przez `blazorlib` szablon w powłoce poleceń:
-
-```console
-dotnet new blazorlib -o MyComponentLib1
-```
-
-Biblioteki składników korzystające `blazorlib` z szablonu mogą zawierać pliki statyczne, takie jak obrazy, JavaScript i arkusze stylów. W czasie kompilacji pliki statyczne są osadzane w skompilowanym pliku zestawu ( *. dll*), co pozwala na użycie składników bez konieczności zajmowania się sposobem uwzględniania zasobów. Wszystkie pliki znajdujące się `content` w katalogu są oznaczone jako zasób osadzony.
-
 ## <a name="consume-a-library-component"></a>Korzystanie ze składnika biblioteki
 
 Aby można było korzystać ze składników zdefiniowanych w bibliotece w innym projekcie, należy użyć jednej z następujących metod:
@@ -116,8 +106,6 @@ Przekaż pakiet do narzędzia NuGet przy użyciu polecenia [publikowania NuGet p
 ```console
 dotnet nuget publish
 ```
-
-W przypadku korzystania `blazorlib` z szablonu zasoby statyczne są zawarte w pakiecie NuGet. Klienci biblioteki automatycznie odbierają skrypty i arkusze stylów, dlatego klienci nie muszą ręcznie instalować zasobów.
 
 ## <a name="create-a-razor-components-class-library-with-static-assets"></a>Tworzenie biblioteki klas składników Razor ze statycznymi zasobami
 
