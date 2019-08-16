@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/13/2019
 uid: blazor/components
-ms.openlocfilehash: 8cb2dc4c3cd22fe71fe15c22762948f9dcd3c08f
-ms.sourcegitcommit: f5f0ff65d4e2a961939762fb00e654491a2c772a
+ms.openlocfilehash: 752f49f020acf26efcb304ed5e28e27c478dac83
+ms.sourcegitcommit: 7a46973998623aead757ad386fe33602b1658793
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/15/2019
-ms.locfileid: "69030364"
+ms.locfileid: "69487592"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Tworzenie i używanie składników ASP.NET Core Razor
 
@@ -523,9 +523,10 @@ Odwołania do składników zapewniają sposób odwoływania się do wystąpienia
 
 * [@ref](xref:mvc/views/razor#ref) Dodaj atrybut do składnika podrzędnego.
 * Zdefiniuj pole z tym samym typem co składnik podrzędny.
+* `@ref:suppressField` Podaj parametr, który pomija generowanie pól zapasowych. Aby uzyskać więcej informacji, zobacz [usuwanie automatycznej obsługi pola do @ref tworzenia kopii zapasowych w programie 3.0.0-preview9](https://github.com/aspnet/Announcements/issues/381).
 
 ```cshtml
-<MyLoginDialog @ref="loginDialog" ... />
+<MyLoginDialog @ref="loginDialog" @ref:suppressField ... />
 
 @code {
     private MyLoginDialog loginDialog;

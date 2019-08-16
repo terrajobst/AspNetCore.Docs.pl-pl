@@ -5,12 +5,12 @@ description: W tej serii samouczków pokazano, jak używać Razor Pages w ASP.NE
 ms.author: riande
 ms.date: 07/25/2019
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: 57a10895c718c539ece280afcb27cb4033c7fb45
-ms.sourcegitcommit: 979dbfc5e9ce09b9470789989cddfcfb57079d94
+ms.openlocfilehash: 67a5fcee0a37861fd39a018443edbc0b9e513213
+ms.sourcegitcommit: 7a46973998623aead757ad386fe33602b1658793
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68682792"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69487665"
 ---
 # <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Samouczek: Wprowadzenie do Razor Pages w ASP.NET Core
 
@@ -92,15 +92,22 @@ Na końcu tego samouczka będziesz mieć działającą Razor Pagesową aplikacj�
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
-W terminalu uruchom następujące polecenie:
+* Wybierz pozycję **plik** > **nowe rozwiązanie**.
 
-<!-- TODO: update these instruction once mac support 2.2 projects -->
+![Nowe rozwiązanie w systemie macOS](../first-mvc-app/start-mvc/_static/new_project_vsmac.png)
 
-```console
-dotnet new webapp -o RazorPagesMovie
-```
+* Wybierz pozycję **aplikacja** > > internetowaaplikacji.NET> Core.
 
-Poprzednie polecenia używają [interfejs wiersza polecenia platformy .NET Core](/dotnet/core/tools/dotnet) do tworzenia projektu Razor Pages.
+  ![okno dialogowe z systemem macOS nowego projektu](razor-pages-start/_static/webapp.png)
+
+* W oknie dialogowym **Konfigurowanie nowego interfejsu API sieci Web ASP.NET Core** Ustaw platformę docelową na **.NET Core 3,0**.
+
+  ![wybór macOS .NET Core 3,0](razor-pages-start/_static/targetframework3.png)
+
+* Nazwij projekt **RazorPagesMovie**, a następnie wybierz pozycję **Utwórz**.
+
+  ![nameproj](razor-pages-start/_static/RazorPagesMovie.png)
+
 
 ## <a name="open-the-project"></a>Otwórz projekt
 

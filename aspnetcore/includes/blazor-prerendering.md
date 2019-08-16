@@ -1,15 +1,15 @@
-Podczas aplikacji po stronie serwera Blazor jest prerendering, nie są określone akcje, takie jak wywołanie JavaScript, z możliwe, ponieważ nie został utworzony połączenia za pośrednictwem przeglądarki. Składniki może być konieczne renderowania inaczej, gdy prerendered.
+Gdy aplikacja po stronie serwera Blazor jest wstępnie renderowana, niektóre akcje, takie jak wywoływanie kodu JavaScript, nie są możliwe, ponieważ połączenie z przeglądarką nie zostało nawiązane. Składniki mogą być konieczne w różny sposób, gdy są wstępnie renderowane.
 
-Opóźnienie JavaScript interop wywołuje aż po nawiązaniu połączenia za pośrednictwem przeglądarki, możesz użyć `OnAfterRenderAsync` zdarzenia cyklu życia składników. To zdarzenie jest wywoływane tylko, po aplikacji jest w pełni renderowany i nawiązaniu połączenia klienta.
+Aby opóźnić wywołania międzyoperacyjne języka JavaScript do momentu ustanowienia połączenia z przeglądarką, można `OnAfterRenderAsync` użyć zdarzenia cyklu życia składnika. To zdarzenie jest wywoływane tylko wtedy, gdy aplikacja jest w pełni renderowana, a połączenie z klientem zostanie nawiązane.
 
 ```cshtml
 @using Microsoft.JSInterop
 @inject IJSRuntime JSRuntime
 
-<input @ref="myInput" value="Value set during render" />
+<input @ref="myInput" @ref:suppressField value="Value set during render" />
 
 @code {
-    private ElementRef myInput;
+    private ElementReference myInput;
 
     protected override void OnAfterRender()
     {
@@ -19,11 +19,11 @@ Opóźnienie JavaScript interop wywołuje aż po nawiązaniu połączenia za po�
 }
 ```
 
-Następujące części przedstawiono sposób użycia międzyoperacyjnego JavaScript jako część logiki inicjowania składnika w sposób, który jest zgodny z prerendering. Składnik wskazuje, że jest możliwe do wyzwalania aktualizacji renderowanie z wewnątrz `OnAfterRenderAsync`. Deweloper musi należy unikać tworzenia wejścia w nieskończoną pętlę w tym scenariuszu.
+Poniższy składnik pokazuje, jak używać międzyoperacyjności JavaScript jako części logiki inicjalizacji składnika w sposób, który jest zgodny z renderowaniem. Składnik pokazuje, że można wyzwolić aktualizację renderowania z wewnątrz `OnAfterRenderAsync`. Deweloper musi unikać tworzenia pętli nieskończonej w tym scenariuszu.
 
-Gdzie `JSRuntime.InvokeAsync` jest wywoływana, `ElementRef` jest używana tylko w `OnAfterRenderAsync` a nie w dowolnej wcześniejszej metody cyklu życia, ponieważ nie ma żadnego elementu języka JavaScript, aż po składnika renderowania.
+Gdzie `JSRuntime.InvokeAsync` jest wywoływana, `ElementRef` jest używana tylko w `OnAfterRenderAsync` , a nie w żadnej wcześniejszej metodzie cyklu życia, ponieważ nie istnieje element JavaScript do momentu renderowania składnika.
 
-`StateHasChanged` jest wywoływana, aby rerender składnika za pomocą nowego Państwa uzyskany z wywołania międzyoperacyjnego JavaScript. Kod nie tworzy wejścia w nieskończoną pętlę, ponieważ `StateHasChanged` tylko jest wywoływana, gdy `infoFromJs` jest `null`.
+`StateHasChanged`jest wywoływana, aby przetworzyć składnik z nowym stanem uzyskanym z wywołania międzyoperacyjnego języka JavaScript. Kod nie tworzy pętli nieskończonej, ponieważ `StateHasChanged` jest wywoływana tylko wtedy `infoFromJs` , `null`gdy jest.
 
 ```cshtml
 @page "/prerendered-interop"
@@ -39,12 +39,12 @@ Gdzie `JSRuntime.InvokeAsync` jest wywoływana, `ElementRef` jest używana tylko
 
 <p>
     Set value via JS interop call:
-    <input id="val-set-by-interop" @ref="myElem" />
+    <input id="val-set-by-interop" @ref="myElem" @ref:suppressField />
 </p>
 
 @code {
     private string infoFromJs;
-    private ElementRef myElem;
+    private ElementReference myElem;
 
     protected override async Task OnAfterRenderAsync()
     {
@@ -68,7 +68,7 @@ Gdzie `JSRuntime.InvokeAsync` jest wywoływana, `ElementRef` jest używana tylko
 }
 ```
 
-Aby warunkowo renderować różną zawartość w oparciu o tego, czy aplikacja jest obecnie prerendering zawartości, należy użyć `IsConnected` właściwość `IComponentContext` usługi. Podczas uruchamiania po stronie serwera, `IsConnected` zwraca tylko `true` w przypadku aktywnego połączenia do klienta. Zawsze zwraca `true` podczas uruchamiania po stronie klienta.
+Aby warunkowo renderować inną zawartość w zależności od tego, czy aplikacja aktualnie renderuje zawartość, użyj `IsConnected` właściwości `IComponentContext` usługi. Po uruchomieniu po stronie serwera program `IsConnected` zwraca `true` tylko wtedy, gdy istnieje aktywne połączenie z klientem. Zawsze jest on `true` zwracany podczas uruchamiania po stronie klienta.
 
 ```cshtml
 @page "/isconnected-example"
