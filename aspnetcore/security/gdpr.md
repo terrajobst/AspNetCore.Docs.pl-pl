@@ -1,71 +1,72 @@
 ---
-title: Dane ogólne rozporządzenie o ochronie danych (GDPR) obsługi w programie ASP.NET Core
+title: Obsługa Ogólne rozporządzenie o ochronie danych (Rodo) w ASP.NET Core
 author: rick-anderson
-description: Dowiedz się, jak uzyskać dostęp do punktów rozszerzenia RODO w aplikacji sieci web platformy ASP.NET Core.
+description: Dowiedz się, jak uzyskać dostęp do punktów rozszerzenia Rodo w aplikacji sieci Web ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
 ms.date: 07/11/2019
 uid: security/gdpr
-ms.openlocfilehash: 01d2f8943c0995c1400122b89c4ca7c459a85279
-ms.sourcegitcommit: bee530454ae2b3c25dc7ffebf93536f479a14460
+ms.openlocfilehash: 1086c22c2f3c27373d8cb779f4b1d8eb6792ec2e
+ms.sourcegitcommit: 2fa0ffe82a47c7317efc9ea908365881cbcb8ed7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67724567"
+ms.lasthandoff: 08/17/2019
+ms.locfileid: "69572871"
 ---
-# <a name="eu-general-data-protection-regulation-gdpr-support-in-aspnet-core"></a>Obsługa Unii Europejskiej ogólnego danych (GDPR Protection Regulation) w programie ASP.NET Core
+# <a name="eu-general-data-protection-regulation-gdpr-support-in-aspnet-core"></a>Obsługa Ogólne rozporządzenie o ochronie danych UE (Rodo) w ASP.NET Core
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Platformy ASP.NET Core udostępnia interfejsów API i szablony, które ułatwiają korzystanie z niektórych [Unii Europejskiej ogólnego danych (GDPR Protection Regulation)](https://www.eugdpr.org/) wymagania:
+ASP.NET Core udostępnia interfejsy API i szablony, które pomagają spełnić niektóre wymagania dotyczące [ogólne rozporządzenie o ochronie danych UE (Rodo)](https://www.eugdpr.org/) :
 
 ::: moniker range=">= aspnetcore-3.0"
 
-* Szablony projektów obejmują punktów rozszerzeń i przekształcone na wycinki kod znaczników, który można zastąpić prywatności i plików cookie zasady.
-* *Pages/Privacy.cshtml* strony lub *Views/Home/Privacy.cshtml* widok zawiera stronę, aby szczegółowo opisują zasady zachowania poufności informacji witryny.
+* Szablony projektu obejmują punkty rozszerzenia i użyto metod zastępczych znaczników, które można zastąpić zasadami zachowania poufności i plików cookie.
+* Widok Pages */privacy. cshtml* lub *widoki/Home/privacy. cshtml* zawiera stronę zawierającą szczegółowe informacje o zasadach zachowania poufności informacji.
 
-Aby włączyć funkcję zgody plik cookie domyślne Krewny, który znalezione w szablony ASP.NET Core 2.2 w aplikacji ASP.NET Core 3.0 wygenerowanego szablonu:
+Aby włączyć domyślną funkcję wyrażania zgody na pliki cookie, która została znaleziona w szablonach ASP.NET Core 2,2 w aplikacji ASP.NET Core 3,0, wygenerowana przez szablon:
 
-* Dodaj [CookiePolicyOptions](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions) zbyt `Startup.ConfigureServices` i [UseCookiePolicy](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyappbuilderextensions.usecookiepolicy) do `Startup.Configure`:
+* Dodaj `using Microsoft.AspNetCore.Http` do listy dyrektyw using.
+* Dodaj [CookiePolicyOptions](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions) do `Startup.ConfigureServices` i [UseCookiePolicy](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyappbuilderextensions.usecookiepolicy) do `Startup.Configure`:
 
   [!code-csharp[Main](gdpr/sample/RP3.0/Startup.cs?name=snippet1&highlight=12-19,38)]
 
-* Dodaj częściowego zgody pliku cookie do *_Layout.cshtml* pliku:
+* Dodaj częściowo zgodę na plik cookie do pliku *_Layout. cshtml* :
 
   [!code-cshtml[Main](gdpr/sample/RP3.0/Pages/Shared/_Layout.cshtml?name=snippet&highlight=4)]
 
-* Dodaj  *\_CookieConsentPartial.cshtml* pliku do projektu:
+* Dodaj plik CookieConsentPartial. cshtml do projektu:  *\_*
 
   [!code-cshtml[Main](gdpr/sample/RP3.0/Pages/Shared/_CookieConsentPartial.cshtml)]
 
-* Wybierz wersję platformy ASP.NET Core 2.2 w tym artykule na temat funkcji wyrażania zgody pliku cookie.
+* Wybierz ASP.NET Core wersję 2,2 tego artykułu, aby przeczytać o funkcji wyrażania zgody na pliki cookie.
 
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.2"
 
-* Szablony projektów obejmują punktów rozszerzeń i przekształcone na wycinki kod znaczników, który można zastąpić prywatności i plików cookie zasady.
-* Funkcja zgody plik cookie umożliwia poprosić o (i śledzenia) zgody od użytkowników do przechowywania informacji osobistych. Jeśli użytkownik nie wyraził zgodę na zbieranie danych, a aplikacja ma [CheckConsentNeeded](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions.checkconsentneeded) równa `true`, inne niż niezbędne pliki cookie nie są wysyłane do przeglądarki.
-* Pliki cookie mogą być oznaczane jako podstawowe. Podstawowe pliki cookie są wysyłane do przeglądarki, nawet wtedy, gdy użytkownik nie wyraził zgodę i śledzenie jest wyłączone.
-* [Pliki cookie sesji i TempData](#tempdata) nie są funkcjonalności, gdy śledzenie jest wyłączone.
-* [Zarządzanie tożsamościami](#pd) strona zawiera również link do pobierające i usuwające dane użytkownika.
+* Szablony projektu obejmują punkty rozszerzenia i użyto metod zastępczych znaczników, które można zastąpić zasadami zachowania poufności i plików cookie.
+* Funkcja wyrażania zgody na pliki cookie umożliwia poproszenie użytkowników o zgodę na przechowywanie informacji osobistych (i śledzenie ich). Jeśli użytkownik nie wyraził zgody na zbieranie danych, a aplikacja ma [CheckConsentNeeded](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions.checkconsentneeded) ustawiony na `true`, nieważne pliki cookie nie są wysyłane do przeglądarki.
+* Pliki cookie mogą być oznaczane jako niezbędne. Ważne pliki cookie są wysyłane do przeglądarki nawet wtedy, gdy użytkownik nie wyraził zgody i śledzenie jest wyłączone.
+* [TempData i pliki cookie sesji](#tempdata) nie działają, gdy śledzenie jest wyłączone.
+* Strona [Zarządzanie tożsamościami](#pd) zawiera link umożliwiający pobranie i usunięcie danych użytkownika.
 
-[Przykładową aplikację](https://github.com/aspnet/AspNetCore.Docs/tree/live/aspnetcore/security/gdpr/sample) umożliwia testowanie większość punktów rozszerzenia RODO i interfejsów API dodano szablony platformy ASP.NET Core 2.1. Zobacz [ReadMe](https://github.com/aspnet/AspNetCore.Docs/tree/live/aspnetcore/security/gdpr/sample) testowania instrukcje w pliku.
+[Przykładowa aplikacja](https://github.com/aspnet/AspNetCore.Docs/tree/live/aspnetcore/security/gdpr/sample) umożliwia przetestowanie większości punktów rozszerzenia Rodo i interfejsów API dodanych do szablonów ASP.NET Core 2,1. Instrukcje dotyczące testowania można znaleźć w pliku [README](https://github.com/aspnet/AspNetCore.Docs/tree/live/aspnetcore/security/gdpr/sample) .
 
 [Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/live/aspnetcore/security/gdpr/sample) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
-## <a name="aspnet-core-gdpr-support-in-template-generated-code"></a>ASP.NET Core RODO obsługi w kodzie wygenerowany szablon
+## <a name="aspnet-core-gdpr-support-in-template-generated-code"></a>ASP.NET Core obsługa Rodo w kodzie wygenerowanym przez szablon
 
-Strony razor i MVC projekty utworzone za pomocą szablonów projektu obejmują obsługę RODO:
+Projekty Razor Pages i MVC utworzone przy użyciu szablonów projektu obejmują następujące wsparcie Rodo:
 
-* [CookiePolicyOptions](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions) i [UseCookiePolicy](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyappbuilderextensions.usecookiepolicy) są ustawiane w `Startup` klasy.
-* *\_CookieConsentPartial.cshtml* [widoku częściowego](xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper). **Akceptuj** przycisk znajduje się w tym pliku. Kiedy użytkownik kliknie **Akceptuj** przycisk, wyrażanie zgody do przechowywania plików cookie znajduje się.
-* *Pages/Privacy.cshtml* strony lub *Views/Home/Privacy.cshtml* widok zawiera stronę, aby szczegółowo opisują zasady zachowania poufności informacji witryny. *\_CookieConsentPartial.cshtml* plik generuje łącze do strony ochrony prywatności.
-* W przypadku aplikacji utworzonych za pomocą indywidualnych kont użytkowników, na stronie Zarządzanie zawiera łącza do pobierające i usuwające [dane osobiste użytkownika](#pd).
+* [CookiePolicyOptions](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions) i [UseCookiePolicy](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyappbuilderextensions.usecookiepolicy) są `Startup` ustawiane w klasie.
+* [Widok częściowy](xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper)  *CookieConsentPartial.\_cshtml* . W tym pliku znajduje się przycisk **Akceptuj** . Gdy użytkownik kliknie przycisk **Akceptuj** , zostanie poświadczona zgodę na przechowywanie plików cookie.
+* Widok Pages */privacy. cshtml* lub *widoki/Home/privacy. cshtml* zawiera stronę zawierającą szczegółowe informacje o zasadach zachowania poufności informacji. Plik  *CookieConsentPartial.cshtmlgenerujelinkdostronyprywatność.\_*
+* W przypadku aplikacji utworzonych przy użyciu poszczególnych kont użytkowników Strona Zarządzanie zawiera linki umożliwiające pobranie i usunięcie [osobistych danych użytkownika](#pd).
 
 ### <a name="cookiepolicyoptions-and-usecookiepolicy"></a>CookiePolicyOptions i UseCookiePolicy
 
-[CookiePolicyOptions](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions) są inicjowane w `Startup.ConfigureServices`:
+[CookiePolicyOptions](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions) są inicjowane `Startup.ConfigureServices`w:
 
 [!code-csharp[Main](gdpr/sample/Startup.cs?name=snippet1&highlight=14-20)]
 
@@ -73,33 +74,33 @@ Strony razor i MVC projekty utworzone za pomocą szablonów projektu obejmują o
 
 [!code-csharp[](gdpr/sample/Startup.cs?name=snippet1&highlight=51)]
 
-### <a name="cookieconsentpartialcshtml-partial-view"></a>\_CookieConsentPartial.cshtml partial view
+### <a name="_cookieconsentpartialcshtml-partial-view"></a>\_CookieConsentPartial.cshtml partial view
 
-*\_CookieConsentPartial.cshtml* widoku częściowego:
+Widok częściowy  *CookieConsentPartial.cshtml:\_*
 
 [!code-html[](gdpr/sample/RP2.2/Pages/Shared/_CookieConsentPartial.cshtml)]
 
-Tej części:
+Ta część częściowa:
 
-* Pobiera stan śledzenia dla użytkownika. Jeśli aplikacja jest skonfigurowana do wymagają zgody, użytkownik musi wyrazić zgodę przed pliki cookie mogą być śledzone. Jeśli wymagana jest zgoda, panel zgody plik cookie jest ustalony na górnej części paska nawigacyjnego, utworzone przez  *\_Layout.cshtml* pliku.
-* Udostępnia kodu HTML `<p>` element, aby podsumować, prywatności i plików cookie przy użyciu zasad.
-* Zawiera również link do strony prywatności lub widok, gdzie możesz szczegółowo opisują zasady zachowania poufności informacji witryny.
+* Uzyskuje stan śledzenia dla użytkownika. Jeśli aplikacja jest skonfigurowana do wymagania zgody, użytkownik musi wyrazić zgodę, aby umożliwić śledzenie plików cookie. Jeśli jest wymagana zgoda, panel zgody na pliki cookie jest ustalany na początku paska nawigacyjnego utworzonego przez  *\_plik Layout. cshtml* .
+* Zawiera element HTML `<p>` służący do podsumowywania zasad zachowania poufności i plików cookie.
+* Zawiera link do strony lub widoku prywatności, w którym można szczegółowo zapoznać się z zasadami zachowania poufności informacji w witrynie.
 
 ## <a name="essential-cookies"></a>Podstawowe pliki cookie
 
-Jeśli zgody do przechowywania plików cookie udzielona, tylko pliki cookie oznaczone niezbędne są wysyłane do przeglądarki. Poniższy kod sprawia, że plik cookie jest podstawowe:
+Jeśli nie podano zgody na przechowywanie plików cookie, do przeglądarki są wysyłane tylko pliki cookie oznaczone jako ważne. Poniższy kod sprawia, że plik cookie jest istotny:
 
 [!code-csharp[Main](gdpr/sample/RP2.2/Pages/Cookie.cshtml.cs?name=snippet1&highlight=5)]
 
 <a name="tempdata"></a>
 
-### <a name="tempdata-provider-and-session-state-cookies-arent-essential"></a>TempData dostawcy sesji stanu plików cookie i nie są istotne
+### <a name="tempdata-provider-and-session-state-cookies-arent-essential"></a>Pliki cookie dostawcy TempData i stanu sesji nie są niezbędne
 
-[Dostawcy TempData](xref:fundamentals/app-state#tempdata) pliku cookie nie jest niezbędne. Jeśli śledzenie jest wyłączone, dostawca TempData nie jest funkcjonalności. Aby umożliwić dostawcy TempData, gdy śledzenie jest wyłączone, Oznacz plik cookie TempData za istotne w `Startup.ConfigureServices`:
+Plik cookie [dostawcy TempData](xref:fundamentals/app-state#tempdata) nie jest istotny. Jeśli śledzenie jest wyłączone, dostawca TempData nie działa. Aby włączyć dostawcę TempData, gdy śledzenie jest wyłączone, Oznacz plik cookie TempData jako zasadniczy w `Startup.ConfigureServices`:
 
 [!code-csharp[Main](gdpr/sample/RP2.2/Startup.cs?name=snippet1)]
 
-[Stan sesji](xref:fundamentals/app-state) pliki cookie nie są istotne. Stan sesji nie jest funkcjonalnych, jeśli śledzenie jest wyłączone. Poniższy kod sprawia, że pliki cookie z sesji podstawowe:
+Pliki cookie [stanu sesji](xref:fundamentals/app-state) nie są niezbędne. Stan sesji nie działa, gdy śledzenie jest wyłączone. Poniższy kod sprawia, że pliki cookie sesji są niezbędne:
 
 [!code-csharp[](gdpr/sample/RP2.2/Startup.cs?name=snippet2)]
 
@@ -107,43 +108,44 @@ Jeśli zgody do przechowywania plików cookie udzielona, tylko pliki cookie ozna
 
 ## <a name="personal-data"></a>Dane osobowe
 
-Aplikacje platformy ASP.NET Core utworzonych za pomocą indywidualnych kont użytkowników, to kod, aby pobrać i usunięcie danych osobowych.
+ASP.NET Core aplikacje utworzone przy użyciu poszczególnych kont użytkowników zawierają kod umożliwiający pobranie i usunięcie danych osobowych.
 
-Wybierz nazwę użytkownika, a następnie wybierz pozycję **danych osobowych**:
+Wybierz nazwę użytkownika, a następnie wybierz pozycję **dane osobowe**:
 
-![Zarządzanie stroną danych osobowych](gdpr/_static/pd.png)
+![Strona Zarządzanie danymi osobistymi](gdpr/_static/pd.png)
 
 Uwagi:
 
-* Aby wygenerować `Account/Manage` kod, zobacz [tożsamości szkieletu](xref:security/authentication/scaffold-identity).
-* **Usuń** i **Pobierz** łącza działać tylko w przypadku domyślnych danych tożsamości. Aplikacje tworzone danych niestandardowych użytkownika musi zostać rozszerzony do usuwania/pobierania danych niestandardowych użytkownika. Aby uzyskać więcej informacji, zobacz [Dodawanie, pobieranie i usuwanie danych niestandardowych użytkownika tożsamości](xref:security/authentication/add-user-data).
-* Zapisano tokeny dla danego użytkownika, które są przechowywane w tabeli bazy danych tożsamości `AspNetUserTokens` są usuwane po usunięciu użytkownika za pomocą kaskadowych zachowanie dotyczące usuwania ze względu na [klucz obcy](https://github.com/aspnet/Identity/blob/release/2.1/src/EF/IdentityUserContext.cs#L152).
-* [Uwierzytelnianie zewnętrznego dostawcy](xref:security/authentication/social/index), takie jak Facebook i Google, nie jest dostępna przed zaakceptowaniu zasad pliku cookie.
+* Aby wygenerować `Account/Manage` kod, zobacz temat [tożsamość szkieletowa](xref:security/authentication/scaffold-identity).
+* Linki **usuwania** i **pobierania** działają tylko na domyślnych danych tożsamości. Aplikacje, które tworzą niestandardowe dane użytkownika, muszą zostać rozszerzone w celu usunięcia/pobrania niestandardowych danych użytkownika. Aby uzyskać więcej informacji, zobacz [Dodawanie, pobieranie i usuwanie niestandardowych danych użytkownika do tożsamości](xref:security/authentication/add-user-data).
+* Zapisane tokeny dla użytkownika, które są przechowywane w tabeli `AspNetUserTokens` bazy danych tożsamości, są usuwane, gdy użytkownik zostanie usunięty przez kaskadowe zachowanie podczas usuwania ze względu na [klucz obcy](https://github.com/aspnet/Identity/blob/release/2.1/src/EF/IdentityUserContext.cs#L152).
+* [Uwierzytelnianie dostawcy zewnętrznego](xref:security/authentication/social/index), takie jak Facebook i Google, nie jest dostępne przed zaakceptowaniem zasad dotyczących plików cookie.
 
 ::: moniker-end
 
 ## <a name="encryption-at-rest"></a>Szyfrowanie w spoczynku
 
-Niektóre bazy danych i mechanizmy magazynu umożliwia szyfrowanie danych magazynowanych. Szyfrowanie danych magazynowanych:
+Niektóre bazy danych i mechanizmy magazynu umożliwiają szyfrowanie w spoczynku. Szyfrowanie w spoczynku:
 
-* Automatycznie szyfruje dane przechowywane.
-* Szyfruje bez konfiguracji, programowania lub innych zadań dotyczących oprogramowania, który uzyskuje dostęp do danych.
-* Jest to najprostszy i najbezpieczniejszy opcja.
-* Umożliwia zarządzanie kluczami i szyfrowania w bazie danych.
+* Szyfruje przechowywane dane automatycznie.
+* Szyfruje bez konfiguracji, programowania lub innej pracy dla oprogramowania, które uzyskuje dostęp do danych.
+* Jest najłatwiejszym i najbezpieczniejszą opcją.
+* Umożliwia bazie danych zarządzanie kluczami i szyfrowaniem.
 
 Na przykład:
 
-* Program Microsoft SQL i Azure SQL udostępniają [funkcji Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption) (TDE).
-* [Bazy danych w SQL Azure są szyfrowane domyślnie](https://azure.microsoft.com/updates/newly-created-azure-sql-databases-encrypted-by-default/)
-* [Azure obiektów blob, plików, tabela i Queue Storage są domyślnie szyfrowane](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
+* Program Microsoft SQL i usługa Azure SQL zapewniają [transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption) (TDE).
+* [Usługa SQL Azure domyślnie szyfruje bazę danych](https://azure.microsoft.com/updates/newly-created-azure-sql-databases-encrypted-by-default/)
+* [Obiekty blob, pliki, tabele i queue storage platformy Azure domyślnie są szyfrowane](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
 
-W przypadku baz danych, które nie udostępniają wbudowane szyfrowanie danych magazynowanych można udostępnić taką samą ochronę za pomocą szyfrowania dysków. Na przykład:
+W przypadku baz danych, które nie zapewniają wbudowanego szyfrowania w spoczynku, może być możliwe użycie szyfrowania dysków w celu zapewnienia tej samej ochrony. Na przykład:
 
 * [Funkcja BitLocker dla systemu Windows Server](/windows/security/information-protection/bitlocker/bitlocker-how-to-deploy-on-windows-server)
 * W systemie Linux:
   * [eCryptfs](https://launchpad.net/ecryptfs)
-  * [EncFS](https://github.com/vgough/encfs).
+  * [EncFs](https://github.com/vgough/encfs).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Microsoft.com/GDPR](https://www.microsoft.com/trustcenter/Privacy/GDPR)
+* [Rodo — Dodawanie przycisku odwołaj zgodę w ASP.NET Core](https://www.joeaudette.com/blog/2018/08/28/gdpr---adding-a-revoke-consent-button-in-aspnet-core)

@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 8/7/2019
 uid: fundamentals/startup
-ms.openlocfilehash: 0ee1a972bf2b94119767e79c2f4ea18d3265e356
-ms.sourcegitcommit: 776367717e990bdd600cb3c9148ffb905d56862d
+ms.openlocfilehash: 2ce4f2093c11066370160c62949888837065f129
+ms.sourcegitcommit: 2fa0ffe82a47c7317efc9ea908365881cbcb8ed7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68913994"
+ms.lasthandoff: 08/17/2019
+ms.locfileid: "69572837"
 ---
 # <a name="app-startup-in-aspnet-core"></a>Uruchamianie aplikacji w ASP.NET Core
 
@@ -108,7 +108,7 @@ W przypadku funkcji wymagających znaczącej konfiguracji `Add{Service}` istniej
 
 ::: moniker range=">= aspnetcore-3.0"
 
-[! code-CSharp [] (Startup/3.0 _samples/StartupFilterSample/StartupIdentity. cs? Name = fragment)]
+[!code-csharp[](startup/3.0_samples/StartupFilterSample/StartupIdentity.cs?name=snippet)]
 
 ::: moniker-end
 
