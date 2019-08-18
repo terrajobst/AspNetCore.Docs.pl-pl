@@ -1,14 +1,14 @@
-# <a name="scaffolded-razor-pages-in-aspnet-core"></a>Strony razor ze szkieletami w programie ASP.NET Core
+# <a name="scaffolded-razor-pages-in-aspnet-core"></a>Razor Pages szkieletowe w ASP.NET Core
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-W tym samouczku sprawdza, czy strony Razor, powstałe w wyniku tworzenia szkieletów w poprzednim samouczku.
+Ten samouczek służy do badania Razor Pages utworzonych przez tworzenie szkieletów w poprzednim samouczku.
 
 [Wyświetlanie lub pobieranie](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie21) próbki.
 
-## <a name="the-create-delete-details-and-edit-pages"></a>Tworzenie, usuwanie, szczegóły i edycji stron.
+## <a name="the-create-delete-details-and-edit-pages"></a>Strony tworzenie, usuwanie, szczegóły i edycja.
 
-Sprawdź *Pages/Movies/Index.cshtml.cs* modelu strony:
+Zapoznaj się z modelem stron */filmów/index. cshtml. cs* :
 
 ::: moniker range="= aspnetcore-2.0"
 
@@ -22,37 +22,37 @@ Sprawdź *Pages/Movies/Index.cshtml.cs* modelu strony:
 
 ::: moniker-end
 
-Strony razor są uzyskiwane z `PageModel`. Zgodnie z Konwencją `PageModel`-klasy pochodnej jest wywoływana `<PageName>Model`. Używa konstruktora [wstrzykiwanie zależności](xref:fundamentals/dependency-injection) dodać `MovieContext` ze stroną. Wszystkie strony szkieletu korzystać z tego wzoru. Zobacz [kodu asynchronicznego](xref:data/ef-rp/intro#asynchronous-code) więcej informacji na temat asynchronicznej programistyczne z programem Entity Framework.
+Razor Pages pochodzą od `PageModel`. Zgodnie z `PageModel`Konwencją Klasa pochodna jest wywoływana `<PageName>Model`. Konstruktor używa [iniekcji zależności](xref:fundamentals/dependency-injection) , aby dodać `MovieContext` do strony. Wszystkie strony szkieletowe są zgodne z tym wzorcem. Zobacz [kod asynchroniczny](xref:data/ef-rp/intro#asynchronous-code) , aby uzyskać więcej informacji na temat programowania asynchronicznego przy użyciu Entity Framework.
 
-Po wysłaniu żądania dla tej strony, `OnGetAsync` metoda zwraca listę filmów do strony Razor. `OnGetAsync` lub `OnGet` jest wywoływana w stronę Razor do zainicjowania stanu dla strony. W tym przypadku `OnGetAsync` pobiera listę filmów, a następnie wyświetli je.
+Gdy żądanie jest wykonywane dla strony, `OnGetAsync` Metoda zwraca listę filmów do strony Razor. `OnGetAsync`lub `OnGet` jest wywoływana na stronie Razor, aby zainicjować stan dla strony. W takim przypadku `OnGetAsync` pobiera listę filmów i wyświetla je.
 
-Gdy `OnGet` zwraca `void` lub `OnGetAsync` zwraca`Task`, brak zwracany metody jest używana. Gdy typ zwrotny jest `IActionResult` lub `Task<IActionResult>`, musi być podana instrukcji return. Na przykład *Pages/Movies/Create.cshtml.cs* `OnPostAsync` metody:
+Gdy `OnGet` zwraca `void` lub `OnGetAsync` zwraca,niejestużywanażadnametodaReturn.`Task` Gdy typem zwracanym jest `IActionResult` lub `Task<IActionResult>`, należy podać instrukcję return. Na przykład: *Pages/Films/Create. cshtml. cs.* `OnPostAsync`
 
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie21/Pages/Movies/Create.cshtml.cs?name=snippet)]
 
-<a name="index"></a> Sprawdź *Pages/Movies/Index.cshtml* strona Razor:
+<a name="index"></a>Przejrzyj stronę */filmy/index. cshtml* Razor:
 
 [!code-cshtml[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml)]
 
-Razor można przejść z kodu HTML w języku C# lub w znaczników specyficzne dla aparatu Razor. Gdy `@` następuje symbol [Razor zastrzeżone słowa kluczowego](xref:mvc/views/razor#razor-reserved-keywords), przechodzi do znaczników specyficzne dla aparatu Razor, w przeciwnym razie przejścia w języku C#.
+Razor można przenieść z HTML do C# lub do znacznika specyficznego dla Razor. Gdy po C#symbolu następuje [słowo kluczowe zarezerwowane Razor](xref:mvc/views/razor#razor-reserved-keywords), przechodzi do znacznika specyficznego dla Razor, w przeciwnym razie przechodzi do. `@`
 
-`@page` Dyrektywy Razor sprawia, że plik na akcję MVC &mdash; co oznacza, że może obsługiwać żądań. `@page` musi być pierwszym dyrektywy Razor na stronie. `@page` jest przykładem przechodzi do znaczników specyficzne dla aparatu Razor. Zobacz [składni Razor](xref:mvc/views/razor#razor-syntax) Aby uzyskać więcej informacji.
+Dyrektywa Razor powoduje, że plik jest akcją &mdash; MVC, co oznacza, że może obsługiwać żądania. `@page` `@page`musi być pierwszą dyrektywą Razor na stronie. `@page`jest przykładem przejścia do znacznika specyficznego dla Razor. Aby uzyskać więcej informacji, zobacz [składnia Razor](xref:mvc/views/razor#razor-syntax) .
 
-Sprawdź wyrażenie lambda, używane w następujących pomocnika kodu HTML:
+Bada wyrażenie lambda użyte w następującym Pomocniku HTML:
 
 ```cshtml
 @Html.DisplayNameFor(model => model.Movie[0].Title))
 ```
 
-`DisplayNameFor` Sprawdza pomocnika kodu HTML `Title` właściwość, do którego odwołuje się wyrażenie lambda, aby ustalić nazwę wyświetlaną. Wyrażenie lambda jest kontrolowane zamiast ocenione. Oznacza, że ma nie naruszenie zasad dostępu podczas `model`, `model.Movie`, lub `model.Movie[0]` są `null` lub jest pusty. Kiedy jest obliczane wyrażenie lambda (na przykład za pomocą `@Html.DisplayFor(modelItem => item.Title)`), są oceniane wartości właściwości modelu.
+Pomocnik html sprawdza `Title` właściwość, do której istnieje odwołanie w wyrażeniu lambda, aby określić nazwę wyświetlaną. `DisplayNameFor` Wyrażenie lambda jest sprawdzane, a nie oceniane. Oznacza to, że nie ma żadnych naruszeń `model`dostępu `model.Movie`, gdy `model.Movie[0]` , `null` , lub są puste. Gdy wyrażenie lambda jest oceniane (na przykład z `@Html.DisplayFor(modelItem => item.Title)`), wartości właściwości modelu są oceniane.
 
 <a name="md"></a>
 
-### <a name="the-model-directive"></a>@model — Dyrektywa
+### <a name="the-model-directive"></a>@model Dyrektywa
 
 [!code-cshtml[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?range=1-2&highlight=2)]
 
-`@model` Dyrektywa określa typ modelu przekazywane do stron Razor. W powyższym przykładzie `@model` wiersz sprawia, że `PageModel`— dostępny na stronie Razor klasy pochodnej. Model jest używany w `@Html.DisplayNameFor` i `@Html.DisplayFor` [pomocników HTML](/aspnet/mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs#understanding-html-helpers) na stronie.
+`@model` Dyrektywa określa typ modelu przekazaną do strony Razor. W poprzednim przykładzie `@model` wiersz `PageModel`powoduje, że Klasa pochodna jest dostępna dla strony Razor. Model jest używany w `@Html.DisplayNameFor` [pomocnikach HTML](/aspnet/mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs#understanding-html-helpers) i `@Html.DisplayFor` na stronie.
 
 <!-- why don't xref links work?
 [HTML Helpers 2](xref:aspnet/mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs)
@@ -60,68 +60,68 @@ Sprawdź wyrażenie lambda, używane w następujących pomocnika kodu HTML:
 
 <a name="vd"></a>
 
-### <a name="viewdata-and-layout"></a>ViewData i układu
+### <a name="viewdata-and-layout"></a>ViewData i układ
 
-Rozważmy poniższy kod:
+Rozważmy następujący kod:
 
 [!code-cshtml[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?range=1-6&highlight=4-999)]
 
-Poprzedni wyróżniony kod jest przykładem Razor przechodzi do języka C#. `{` i `}` znaków należy umieścić blok kodu C#.
+Poprzedni wyróżniony kod jest przykładem przejścia Razor do C#. Znaki `{` i `}` należy ująć w blok C# kodu.
 
-`PageModel` Ma klasę bazową `ViewData` słownika właściwości, który może służyć do dodania danych, które mają być przekazywane do widoku. Dodawanie obiektów do `ViewData` słownika przy użyciu wzorca klucz/wartość. W poprzednim przykładzie, właściwość "Title" zostanie dodany do `ViewData` słownika.
+Klasa `PageModel` bazowa `ViewData` ma właściwość dictionary, która może służyć do dodawania danych, które mają zostać przekazane do widoku. Obiekty można dodawać do `ViewData` słownika przy użyciu wzorca klucz/wartość. W poprzednim przykładzie właściwość "title" została dodana do `ViewData` słownika.
 
 ::: moniker range="= aspnetcore-2.0"
 
-Właściwość "Title" jest używana w *Pages/Shared/_Layout.cshtml* pliku. Następujący kod przedstawia pierwszych kilka wierszy tego *Pages/Shared/_Layout.cshtml* pliku.
+Właściwość "title" jest używana w pliku *Pages/Shared/_Layout. cshtml* . Poniższe znaczniki pokazują kilka pierwszych wierszy *stron/Shared/_Layout. cshtml* .
 
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
 
-Właściwość "Title" jest używana w *Pages/Shared/_Layout.cshtml* pliku. Następujący kod przedstawia pierwszych kilka wierszy tego *_Layout.cshtml* pliku.
+Właściwość "title" jest używana w pliku *Pages/Shared/_Layout. cshtml* . Poniższy znacznik pokazuje pierwsze kilka wierszy pliku *_Layout. cshtml* .
 
 ::: moniker-end
 
 [!code-cshtml[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/NU/_Layout1.cshtml?highlight=6-999)]
 
-Wiersz `@*Markup removed for brevity.*@` komentarza Razor. W przeciwieństwie do komentarzy HTML (`<!-- -->`), komentarze Razor nie są wysyłane do klienta.
+Wiersz `@*Markup removed for brevity.*@` jest komentarzem Razor. W przeciwieństwie do komentarzy`<!-- -->`HTML (), komentarze Razor nie są wysyłane do klienta.
 
-Uruchom aplikację i przetestować linki w projekcie (**Home**, **o**, **skontaktuj się z pomocą**, **Utwórz**, **Edytuj**, i **Usuń**). Każda strona Ustawia tytuł, który można wyświetlić na karcie przeglądarki. Gdy zakładki na stronie tytuł jest używana do zakładki. *Pages/Index.cshtml* i *Pages/Movies/Index.cshtml* obecnie o takiej samej nazwie, ale możesz modyfikować je mogą mieć różne wartości.
+Uruchom aplikację i przetestuj linki w projekcie (**Strona główna**, **informacje**, **kontakt**, **Utwórz**, **Edytuj**i **Usuń**). Każda Strona ustawia tytuł, który można zobaczyć na karcie przeglądarki. Po utworzeniu zakładki na stronie tytuł jest używany dla zakładki. *Pages/index. cshtml* i *Pages/Films/index. cshtml* mają teraz ten sam tytuł, ale można je zmodyfikować tak, aby zawierały różne wartości.
 
 > [!NOTE]
-> Nie można wprowadzić dziesiętna przecinkami w `Price` pola. Aby obsługiwać [dotyczącą weryfikacji jQuery](https://jqueryvalidation.org/) dla ustawień regionalnych innych niż angielski, które należy użyć przecinka (",") dla punktu dziesiętnego i formaty daty inne niż angielski, należy wykonać kroki, aby sprzedawać aplikację. To [problem w usłudze GitHub 4076](https://github.com/aspnet/AspNetCore.Docs/issues/4076#issuecomment-326590420) instrukcje dotyczące dodawania przecinek dziesiętny.
+> Nie można wprowadzić dziesiętna przecinkami w `Price` pola. Aby zapewnić obsługę [walidacji jQuery](https://jqueryvalidation.org/) dla ustawień regionalnych innych niż angielskie, które używają przecinka (",") dla przecinka dziesiętnego i formatów dat innych niż angielski, należy wykonać kroki w celu globalizacji aplikacji. Ten [problem w usłudze GitHub 4076](https://github.com/aspnet/AspNetCore.Docs/issues/4076#issuecomment-326590420) zawiera instrukcje dotyczące dodawania przecinków dziesiętnych.
 
-`Layout` Właściwość jest ustawiona *Pages/_ViewStart.cshtml* pliku:
+Właściwość jest ustawiana w pliku *Pages/_ViewStart. cshtml:* `Layout`
 
 [!code-cshtml[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Pages/_ViewStart.cshtml)]
 
-Poprzedni kod znaczników ustawia plik układu *Pages/Shared/_Layout.cshtml* dla wszystkich plików Razor, w obszarze *stron* folderu. Zobacz [układ](xref:razor-pages/index#layout) Aby uzyskać więcej informacji.
+Powyższe oznakowanie ustawia plik układu na *Pages/Shared/_Layout. cshtml* dla wszystkich plików Razor w folderze *Pages* . Aby uzyskać więcej informacji, zobacz [Układ](xref:razor-pages/index#layout) .
 
 ### <a name="update-the-layout"></a>Aktualizowanie układu
 
-Zmiana `<title>` element *Pages/Shared/_Layout.cshtml* pliku, aby użyć krótszego ciągu.
+Zmień element w pliku *Pages/Shared/_Layout. cshtml* , aby użyć krótszego ciągu. `<title>`
 
 [!code-cshtml[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Pages/_Layout.cshtml?range=1-6&highlight=6)]
 
-Znajdź następujący element zakotwiczenia w *Pages/Shared/_Layout.cshtml* pliku.
+Znajdź następujący element zakotwiczony w pliku *Pages/Shared/_Layout. cshtml* .
 
 ```cshtml
 <a asp-page="/Index" class="navbar-brand">RazorPagesMovie</a>
 ```
 
-Zastąp poprzedzający element następującym kodem.
+Zastąp poprzedni element następującym znacznikiem.
 
 ```cshtml
 <a asp-page="/Movies/Index" class="navbar-brand">RpMovie</a>
 ```
 
-Poprzedni element zakotwiczenia jest [Pomocnik tagu](xref:mvc/views/tag-helpers/intro). W tym przypadku ma [Pomocnik tagu kotwicy](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper). `asp-page="/Movies/Index"` Atrybut pomocnika tagów i wartość tworzy łącze do `/Movies/Index` strona Razor.
+Poprzedni element zakotwiczenia jest [pomocnikiem tagów](xref:mvc/views/tag-helpers/intro). W tym przypadku jest to [pomocnik tagu kotwicy](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper). Atrybut pomocnika `/Movies/Index`tagówi wartość tworzy łącze do strony Razor. `asp-page="/Movies/Index"`
 
-Zapisz zmiany i przetestować aplikację, klikając **RpMovie** łącza. Zobacz [_Layout.cshtml](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Pages/Shared/_Layout.cshtml) pliku w usłudze GitHub.
+Zapisz zmiany i przetestuj aplikację, klikając łącze **RpMovie** . Zobacz plik [_Layout. cshtml](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Pages/Shared/_Layout.cshtml) w serwisie GitHub.
 
-### <a name="the-create-page-model"></a>Tworzenie modelu strony
+### <a name="the-create-page-model"></a>Model tworzenia strony
 
-Sprawdź *Pages/Movies/Create.cshtml.cs* modelu strony:
+Obejrzyj model stron */filmów/Utwórz. cshtml. cs* :
 
 ::: moniker range="= aspnetcore-2.0"
 
@@ -135,21 +135,21 @@ Sprawdź *Pages/Movies/Create.cshtml.cs* modelu strony:
 
 ::: moniker-end
 
-`OnGet` Metoda inicjuje każdy stan potrzebne dla strony. Strona tworzenia nie ma każdy stan, aby zainicjować, więc `Page` jest zwracana. W dalszej części tego samouczka zostanie wyświetlony `OnGet` metoda inicjowania stanu. `Page` Metoda tworzy `PageResult` obiektu, który renderuje *Create.cshtml* strony.
+`OnGet` Metoda inicjuje wszystkie Stany potrzebne dla strony. Strona tworzenia nie ma żadnego stanu do zainicjowania, więc `Page` jest zwracana. W dalszej części tego samouczka zobaczysz `OnGet` stan zainicjowania metody. Metoda tworzy obiekt, który renderuje stronę *Create. cshtml.* `Page` `PageResult`
 
-`Movie` Używa właściwości `[BindProperty]` atrybutu, aby wyrazić zgodę na [wiązanie modelu](xref:mvc/models/model-binding). Gdy formularz Utwórz publikuje wartości formularza, środowisko uruchomieniowe programu ASP.NET Core wiąże przesłanych wartości w celu `Movie` modelu.
+Właściwość używa atrybutu, `[BindProperty]` aby wybrać [powiązanie modelu.](xref:mvc/models/model-binding) `Movie` Gdy formularz tworzenia zapisuje wartości formularza, środowisko uruchomieniowe ASP.NET Core tworzy powiązanie opublikowanych wartości z `Movie` modelem.
 
-`OnPostAsync` Metoda jest uruchomiona, gdy Strona publikuje dane formularza:
+`OnPostAsync` Metoda jest uruchamiana, gdy strona zapisuje dane formularza:
 
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml.cs?name=snippetPost)]
 
-Jeśli występują błędy modelu, formularza zostanie wyświetlony ponownie, oraz wszelkie dane formularza opublikowane. Większość błędów modelu mogą być przechwytywane po stronie klienta, zanim opublikowania formularza. Przykładem błąd modelu publikuje wartość pola daty, którego nie można przekonwertować na wartość typu date. Omówimy więcej informacji na temat weryfikacji po stronie klienta i weryfikacja modelu w dalszej części tego samouczka.
+Jeśli występują jakieś błędy modelu, formularz jest ponownie wyświetlany wraz z wszelkimi opublikowanymi danymi formularza. Większość błędów modelu można przechwycić po stronie klienta przed opublikowaniem formularza. Przykładem błędu modelu jest opublikowanie wartości pola daty, którego nie można przekonwertować na datę. Będziemy dowiedzieć się więcej o sprawdzaniu poprawności i weryfikacji modelu po stronie klienta w dalszej części tego samouczka.
 
-Jeśli nie ma żadnych błędów modelu, dane są zapisywane, a przeglądarka jest przekierowywana na strony indeksu.
+Jeśli nie ma żadnych błędów modelu, dane zostaną zapisane i przeglądarka zostanie przekierowana na stronę indeksu.
 
-### <a name="the-create-razor-page"></a>Tworzenie strony Razor
+### <a name="the-create-razor-page"></a>Strona tworzenie Razor
 
-Sprawdź *Pages/Movies/Create.cshtml* wartość pola plik strony Razor:
+Przejrzyj strony */filmy/Utwórz* plik stronicowania Razor. cshtml:
 
 [!code-cshtml[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml)]
 

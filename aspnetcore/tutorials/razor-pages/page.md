@@ -3,14 +3,14 @@ title: Razor Pages szkieletowe w ASP.NET Core
 author: rick-anderson
 description: Wyjaśnia Razor Pages wygenerowane przez szkielety.
 ms.author: riande
-ms.date: 07/22/2019
+ms.date: 08/17/2019
 uid: tutorials/razor-pages/page
-ms.openlocfilehash: 741ee4291cacbb1de0f8341673c8fd6ef0c9a462
-ms.sourcegitcommit: 849af69ee3c94cdb9fd8fa1f1bb8f5a5dda7b9eb
+ms.openlocfilehash: 00a8458b9bee4d30c5774a980ff5c23fb8872737
+ms.sourcegitcommit: 38cac2552029fc19428722bb204ff9e16eb94225
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371864"
+ms.lasthandoff: 08/18/2019
+ms.locfileid: "69573145"
 ---
 # <a name="scaffolded-razor-pages-in-aspnet-core"></a>Razor Pages szkieletowe w ASP.NET Core
 
@@ -28,7 +28,7 @@ Zapoznaj się z modelem stron */filmów/index. cshtml. cs* :
 
 [!code-csharp[](razor-pages-start/snapshot_sample3/RazorPagesMovie30/Pages/Movies/Index.cshtml.cs)]
 
-Razor Pages pochodzą od `PageModel`. Zgodnie z `PageModel`Konwencją Klasa pochodna jest wywoływana `<PageName>Model`. Konstruktor używa [iniekcji zależności](xref:fundamentals/dependency-injection) , aby dodać `RazorPagesMovieContext` do strony. Wszystkie strony szkieletowe są zgodne z tym wzorcem. Zobacz [kod asynchroniczny](xref:data/ef-rp/intro#asynchronous-code) , aby uzyskać więcej informacji na temat asynchronicznej programów przy użyciu Entity Framework.
+Razor Pages pochodzą od `PageModel`. Zgodnie z `PageModel`Konwencją Klasa pochodna jest wywoływana `<PageName>Model`. Konstruktor używa [iniekcji zależności](xref:fundamentals/dependency-injection) , aby dodać `RazorPagesMovieContext` do strony. Wszystkie strony szkieletowe są zgodne z tym wzorcem. Zobacz [kod asynchroniczny](xref:data/ef-rp/intro#asynchronous-code) , aby uzyskać więcej informacji na temat programowania asynchronicznego przy użyciu Entity Framework.
 
 Gdy żądanie jest wykonywane dla strony, `OnGetAsync` Metoda zwraca listę filmów do strony Razor. `OnGetAsync`lub `OnGet` jest wywoływana na stronie Razor, aby zainicjować stan dla strony. W takim przypadku `OnGetAsync` pobiera listę filmów i wyświetla je.
 
@@ -69,7 +69,7 @@ Szablony [układów](xref:mvc/views/layout) umożliwiają układ kontenera HTML:
 * Określone w jednym miejscu.
 * Stosowane na wielu stronach w witrynie.
 
-`@RenderBody()` Znajdź wiersz. `RenderBody`jest symbolem zastępczym, w którym wszystkie widoki specyficzne dla strony  są wyświetlane, opakowane na stronie układ. Na przykład wybierz łącze **prywatność** i widok *strony/prywatność. cshtml* jest `RenderBody` renderowany wewnątrz metody.
+`@RenderBody()` Znajdź wiersz. `RenderBody`jest symbolem zastępczym, w którym wszystkie widoki specyficzne dla strony są wyświetlane, opakowane na stronie układ. Na przykład wybierz łącze **prywatność** i widok *strony/prywatność. cshtml* jest `RenderBody` renderowany wewnątrz metody.
 
 <a name="vd"></a>
 
@@ -219,7 +219,7 @@ Zapoznaj się z modelem stron */filmów/index. cshtml. cs* :
 
 [!code-csharp[](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs)]
 
-Razor Pages pochodzą od `PageModel`. Zgodnie z `PageModel`Konwencją Klasa pochodna jest wywoływana `<PageName>Model`. Konstruktor używa [iniekcji zależności](xref:fundamentals/dependency-injection) , aby dodać `RazorPagesMovieContext` do strony. Wszystkie strony szkieletowe są zgodne z tym wzorcem. Zobacz [kod asynchroniczny](xref:data/ef-rp/intro#asynchronous-code) , aby uzyskać więcej informacji na temat asynchronicznej programów przy użyciu Entity Framework.
+Razor Pages pochodzą od `PageModel`. Zgodnie z `PageModel`Konwencją Klasa pochodna jest wywoływana `<PageName>Model`. Konstruktor używa [iniekcji zależności](xref:fundamentals/dependency-injection) , aby dodać `RazorPagesMovieContext` do strony. Wszystkie strony szkieletowe są zgodne z tym wzorcem. Zobacz [kod asynchroniczny](xref:data/ef-rp/intro#asynchronous-code) , aby uzyskać więcej informacji na temat programowania asynchronicznego przy użyciu Entity Framework.
 
 Gdy żądanie jest wykonywane dla strony, `OnGetAsync` Metoda zwraca listę filmów do strony Razor. `OnGetAsync`lub `OnGet` jest wywoływana na stronie Razor, aby zainicjować stan dla strony. W takim przypadku `OnGetAsync` pobiera listę filmów i wyświetla je.
 
@@ -255,7 +255,7 @@ Pomocnik html sprawdza `Title` właściwość, do której istnieje odwołanie w 
 
 Wybierz linki menu (**RazorPagesMovie**, **Home**i **privacy**). Każda Strona wyświetla ten sam układ menu. Układ menu jest implementowany w pliku *Pages/Shared/_Layout. cshtml* . Otwórz plik *Pages/Shared/_Layout. cshtml* .
 
-Szablony [układów](xref:mvc/views/layout) umożliwiają określenie układu kontenera HTML witryny w jednym miejscu, a następnie zastosowanie go na wielu stronach w witrynie. `@RenderBody()` Znajdź wiersz. `RenderBody`jest symbolem zastępczym, w którym wszystkie utworzone widoki związane ze stroną są  wyświetlane, opakowane na stronie układ. Na przykład w przypadku wybrania linku **prywatność** widok **strony/prywatność. cshtml** jest `RenderBody` renderowany wewnątrz metody.
+Szablony [układów](xref:mvc/views/layout) umożliwiają określenie układu kontenera HTML witryny w jednym miejscu, a następnie zastosowanie go na wielu stronach w witrynie. `@RenderBody()` Znajdź wiersz. `RenderBody`jest symbolem zastępczym, w którym wszystkie utworzone widoki związane ze stroną są wyświetlane, opakowane na stronie układ. Na przykład w przypadku wybrania linku **prywatność** widok **strony/prywatność. cshtml** jest `RenderBody` renderowany wewnątrz metody.
 
 <a name="vd"></a>
 
