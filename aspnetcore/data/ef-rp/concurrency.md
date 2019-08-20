@@ -1,17 +1,17 @@
 ---
 title: Strony razor z programem EF Core w programie ASP.NET Core — współbieżności — 8 8
-author: rick-anderson
+author: tdykstra
 description: W tym samouczku przedstawiono sposób obsługi konfliktów, gdy wielu użytkowników aktualizacji tej samej jednostki w tym samym czasie.
 ms.author: riande
 ms.custom: mvc
 ms.date: 07/22/2019
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: 4d1e8ef2f55910fa5456171e45311feacff16919
-ms.sourcegitcommit: 776367717e990bdd600cb3c9148ffb905d56862d
+ms.openlocfilehash: df3cc9eb3d0c1748ca9cd194ee58e4614bba24d5
+ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68914876"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69583408"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---concurrency---8-of-8"></a>Strony razor z programem EF Core w programie ASP.NET Core — współbieżności — 8 8
 

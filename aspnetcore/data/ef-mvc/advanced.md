@@ -1,18 +1,18 @@
 ---
 title: 'Samouczek: Więcej informacji na temat scenariuszy zaawansowanych — ASP.NET MVC z EF Core'
 description: W tym samouczku przedstawiono przydatne tematy umożliwiające przechodzenie poza podstawowe informacje na temat tworzenia ASP.NET Core aplikacji sieci Web korzystających z Entity Framework Core.
-author: rick-anderson
+author: tdykstra
 ms.author: tdykstra
 ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: 7b25ccad560d00801c1f6cb93d86163a8212bc12
-ms.sourcegitcommit: 89fcc6cb3e12790dca2b8b62f86609bed6335be9
+ms.openlocfilehash: 0cb9b00cafde6e003311940ff4c70086e18bac10
+ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68993442"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69583260"
 ---
 # <a name="tutorial-learn-about-advanced-scenarios---aspnet-mvc-with-ef-core"></a>Samouczek: Więcej informacji na temat scenariuszy zaawansowanych — ASP.NET MVC z EF Core
 
@@ -173,7 +173,7 @@ Entity Framework określa, w jaki sposób jednostka została zmieniona (i w zwi�
 
 * ChangeTracker. wpisy
 
-Jeśli śledzisz dużą liczbę jednostek i wywołujesz jedną z tych metod wiele razy w pętli, możesz uzyskać znaczące ulepszenia wydajności, tymczasowo wyłączając automatyczne wykrywanie zmian przy użyciu `ChangeTracker.AutoDetectChangesEnabled` właściwości. Przykład:
+Jeśli śledzisz dużą liczbę jednostek i wywołujesz jedną z tych metod wiele razy w pętli, możesz uzyskać znaczące ulepszenia wydajności, tymczasowo wyłączając automatyczne wykrywanie zmian przy użyciu `ChangeTracker.AutoDetectChangesEnabled` właściwości. Na przykład:
 
 ```csharp
 _context.ChangeTracker.AutoDetectChangesEnabled = false;

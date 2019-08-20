@@ -1,18 +1,18 @@
 ---
-title: Platforma ASP.NET Core MVC z programem EF Core — seria samouczków
-author: rick-anderson
+title: ASP.NET Core MVC z serią EF Core-samouczków
+author: tdykstra
 description: ''
 ms.author: tdykstra
 ms.date: 03/27/2017
 uid: data/ef-mvc/index
-ms.openlocfilehash: 4a7b79faccdc76f090192e80d0450ca01ed8b58a
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 53d75b56257af0ad1146ca829b652f93413b5469
+ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64899947"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69583158"
 ---
-# <a name="aspnet-core-mvc-with-ef-core---tutorial-series"></a>Platforma ASP.NET Core MVC z programem EF Core — seria samouczków
+# <a name="aspnet-core-mvc-with-ef-core---tutorial-series"></a>ASP.NET Core MVC z serią EF Core-samouczków
 
 [!INCLUDE [RP better than MVC](../../includes/RP-EF/rp-over-mvc.md)]
 

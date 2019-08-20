@@ -1,132 +1,132 @@
 ---
-title: 'Samouczek: Implementowanie funkcji CRUD - platformy ASP.NET MVC z programem EF Core'
-description: W tym samouczku będziesz przejrzenie i dostosowanie CRUD (Tworzenie, odczytywanie, aktualizowanie, usuwanie) kod, który MVC scaffolding automatycznie utworzy dla Ciebie w widoków i kontrolerów.
-author: rick-anderson
+title: 'Samouczek: Implementowanie funkcji CRUD — ASP.NET MVC z EF Core'
+description: W tym samouczku opisano, jak przeglądać i dostosowywać kod CRUD (tworzenie, odczytywanie, aktualizowanie, usuwanie), który automatycznie tworzy szkielet MVC dla Ciebie w kontrolerach i widokach.
+author: tdykstra
 ms.author: tdykstra
 ms.custom: mvc
 ms.date: 02/04/2019
 ms.topic: tutorial
 uid: data/ef-mvc/crud
-ms.openlocfilehash: 442570cdc79fe7c496392ffbcbc527cf841aefa9
-ms.sourcegitcommit: e7e04a45195d4e0527af6f7cf1807defb56dc3c3
+ms.openlocfilehash: fd83542984e95978ef52195fb0de10d6d8a6c1c3
+ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66750079"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69583215"
 ---
-# <a name="tutorial-implement-crud-functionality---aspnet-mvc-with-ef-core"></a>Samouczek: Implementowanie funkcji CRUD - platformy ASP.NET MVC z programem EF Core
+# <a name="tutorial-implement-crud-functionality---aspnet-mvc-with-ef-core"></a>Samouczek: Implementowanie funkcji CRUD — ASP.NET MVC z EF Core
 
-W poprzednim samouczku utworzono aplikację MVC, która przechowuje i wyświetla dane przy użyciu platformy Entity Framework i programu SQL Server LocalDB. W tym samouczku będziesz przejrzenie i dostosowanie CRUD (Tworzenie, odczytywanie, aktualizowanie, usuwanie) kod, który MVC scaffolding automatycznie utworzy dla Ciebie w widoków i kontrolerów.
+W poprzednim samouczku utworzono aplikację MVC, która przechowuje i wyświetla dane przy użyciu Entity Framework i SQL Server LocalDB. W tym samouczku opisano, jak przeglądać i dostosowywać kod CRUD (tworzenie, odczytywanie, aktualizowanie, usuwanie), który automatycznie tworzy szkielet MVC dla Ciebie w kontrolerach i widokach.
 
 > [!NOTE]
-> Jest to powszechną praktyką w celu zaimplementowania wzorca repozytorium, aby można było utworzyć warstwę abstrakcji między kontrolerem i warstwy dostępu do danych. Aby zachować te samouczki, prosty i skupiają się na nauczania, jak używać programu Entity Framework sam, nie używają repozytoriów. Informacje dla repozytoriów ze EF, zobacz [ostatni samouczek z tej serii](advanced.md).
+> Jest to typowa Metoda implementacji wzorca repozytorium w celu utworzenia warstwy abstrakcji między kontrolerem i warstwą dostępu do danych. Aby zachować te samouczki jako proste i skoncentrowane na tym, jak korzystać z Entity Framework, nie korzystają z repozytoriów. Aby uzyskać informacje o repozytoriach z EF, zobacz [ostatni samouczek w tej serii](advanced.md).
 
-W ramach tego samouczka możesz:
+W tym samouczku przedstawiono następujące instrukcje:
 
 > [!div class="checklist"]
-> * Dostosowywanie strony szczegółów
-> * Utwórz stronę aktualizacji
+> * Dostosuj stronę szczegółów
+> * Aktualizowanie strony tworzenia
 > * Zaktualizuj strony edytowania
 > * Aktualizuj stronę Delete
-> * Połączenia bazy danych zamknij
+> * Zamknij połączenia bazy danych
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Rozpoczynanie pracy z programem EF Core i ASP.NET Core MVC](intro.md)
+* [Wprowadzenie do EF Core i ASP.NET Core MVC](intro.md)
 
-## <a name="customize-the-details-page"></a>Dostosowywanie strony szczegółów
+## <a name="customize-the-details-page"></a>Dostosuj stronę szczegółów
 
-Utworzony szkielet kodu strony indeksu studentów pozostawiono `Enrollments` właściwość, ponieważ ta właściwość zawiera kolekcję. W **szczegóły** stronie zawartość kolekcji będą wyświetlane w tabeli HTML.
+Kod szkieletu na stronie indeksu uczniów pozostawia `Enrollments` właściwość, ponieważ ta właściwość zawiera kolekcję. Na stronie **szczegółów** zostanie wyświetlona zawartość kolekcji w tabeli HTML.
 
-W *Controllers/StudentsController.cs*, metody akcji, aby uzyskać szczegółowe informacje, Wyświetl używa `SingleOrDefaultAsync` metodę, aby pobrać jeden `Student` jednostki. Dodaj kod, który wywołuje `Include`. `ThenInclude`, a `AsNoTracking` metody, jak pokazano w poniższym kodzie wyróżnione.
+W obszarze *controllers/StudentsController. cs*Metoda akcji dla widoku szczegółów używa `SingleOrDefaultAsync` metody do pobrania pojedynczej `Student` jednostki. Dodaj kod, który `Include`wywołuje. `ThenInclude`i `AsNoTracking` metody, jak pokazano w poniższym wyróżnionym kodzie.
 
 [!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Details&highlight=8-12)]
 
-`Include` i `ThenInclude` metody powodują kontekst można załadować `Student.Enrollments` właściwość nawigacji i w ramach każdej rejestracji `Enrollment.Course` właściwości nawigacji.  Dowiesz się więcej na temat tych metod w [odczytywanie powiązanych danych](read-related-data.md) samouczka.
+Metody `Include` `Enrollment.Course` i `ThenInclude` powodują`Student.Enrollments` , że kontekst ładuje właściwość nawigacji i w ramach każdej rejestracji właściwości nawigacji.  Dowiesz się więcej na temat tych metod w samouczku [odczytywanie powiązanych danych](read-related-data.md) .
 
-`AsNoTracking` Metody zwiększa wydajność w scenariuszach, gdzie zwróconych nie zostanie zaktualizowana w okresie istnienia w bieżącym kontekście. Dowiesz się więcej na temat `AsNoTracking` na końcu tego samouczka.
+`AsNoTracking` Metoda poprawia wydajność w scenariuszach, w których zwrócone jednostki nie zostaną zaktualizowane w okresie istnienia bieżącego kontekstu. Dowiesz się więcej `AsNoTracking` na końcu tego samouczka.
 
 ### <a name="route-data"></a>Dane trasy
 
-Wartość klucza, który jest przekazywany do `Details` metody pochodzi z *kierować dane*. Przekierowywanie danych to dane, które integratora modelu znaleziono w segmencie adresu URL. Na przykład trasy domyślnej określa kontroler, akcję i identyfikator segmenty:
+Wartość klucza, która jest przenoszona do `Details` metody, pochodzi z *danych trasy*. Dane trasy to dane, które spinacz modelu znalazł w segmencie adresu URL. Na przykład trasa domyślna określa segmenty kontrolera, akcji i identyfikatora:
 
 [!code-csharp[](intro/samples/cu/Startup.cs?name=snippet_Route&highlight=5)]
 
-Następujący adres URL trasy domyślnej mapuje przez instruktorów jako kontroler, indeks jako akcję i 1 jako identyfikatora; są to wartości danych trasy.
+W poniższym adresie URL, domyślna trasa mapuje instruktora jako rolę kontrolera, indeks jako akcję i 1 jako identyfikator; są to wartości danych tras.
 
 ```
 http://localhost:1230/Instructor/Index/1?courseID=2021
 ```
 
-Ostatnia część adresu URL ("? courseID = 2021") to wartość ciągu zapytania. Integrator modelu będzie również przekazać wartość Identyfikatora `Details` metoda `id` parametru, jeśli przekazujesz ją jako wartość ciągu zapytania:
+Ostatnią częścią adresu URL ("? courseID = 2021") jest wartość ciągu zapytania. Segregator modelu przekaże także wartość identyfikatora do `Details` parametru metody `id` , Jeśli przekażesz go jako wartość ciągu zapytania:
 
 ```
 http://localhost:1230/Instructor/Index?id=1&CourseID=2021
 ```
 
-Na stronie indeksu adresy URL hiperłącza są tworzone przez instrukcje elementu pomocniczego znacznika w widoku Razor. W poniższym kodzie Razor `id` parametr odpowiada trasa domyślna, więc `id` jest dodawany do kierowania danych.
+Na stronie indeks adresy URL hiperłączy są tworzone przez instrukcje pomocnika tagów w widoku Razor. W poniższym kodzie `id` Razor parametr jest zgodny z domyślną trasą, więc `id` jest dodawany do danych trasy.
 
 ```html
 <a asp-action="Edit" asp-route-id="@item.ID">Edit</a>
 ```
 
-Spowoduje to wygenerowanie poniższy kod HTML po `item.ID` wynosi 6:
+Spowoduje to wygenerowanie następującego kodu `item.ID` HTML, gdy jest 6:
 
 ```html
 <a href="/Students/Edit/6">Edit</a>
 ```
 
-W poniższym kodzie Razor `studentID` nie jest zgodny z parametrem dla trasy domyślne, więc zostanie dodany jako ciąg zapytania.
+W poniższym kodzie `studentID` Razor nie jest zgodny z parametrem w domyślnej trasie, więc jest dodawany jako ciąg zapytania.
 
 ```html
 <a asp-action="Edit" asp-route-studentID="@item.ID">Edit</a>
 ```
 
-Spowoduje to wygenerowanie poniższy kod HTML po `item.ID` wynosi 6:
+Spowoduje to wygenerowanie następującego kodu `item.ID` HTML, gdy jest 6:
 
 ```html
 <a href="/Students/Edit?studentID=6">Edit</a>
 ```
 
-Aby uzyskać więcej informacji na temat pomocnicy tagów, zobacz <xref:mvc/views/tag-helpers/intro>.
+Aby uzyskać więcej informacji na temat pomocników tagów <xref:mvc/views/tag-helpers/intro>, zobacz.
 
 ### <a name="add-enrollments-to-the-details-view"></a>Dodawanie rejestracji do widoku szczegółów
 
-Otwórz *Views/Students/Details.cshtml*. Każde pole jest wyświetlana przy użyciu `DisplayNameFor` i `DisplayFor` pomocników, jak pokazano w poniższym przykładzie:
+Otwórz *Widok/studenci/szczegóły. cshtml*. Każde pole jest wyświetlane przy `DisplayNameFor` użyciu `DisplayFor` i pomocników, jak pokazano w następującym przykładzie:
 
 [!code-html[](intro/samples/cu/Views/Students/Details.cshtml?range=13-18&highlight=2,5)]
 
-Po ostatnim polu, a także bezpośrednio przed tagiem zamykającym `</dl>` tag, Dodaj następujący kod, aby wyświetlić listę rejestracji:
+Po ostatnim polu i bezpośrednio przed tagiem zamykającym `</dl>` Dodaj następujący kod, aby wyświetlić listę rejestracji:
 
 [!code-html[](intro/samples/cu/Views/Students/Details.cshtml?range=31-52)]
 
-W przypadku wcięcia kodu o szerokość problem po wklejeniu kodu, naciśnij kombinację klawiszy CTRL-K-D go poprawić.
+Jeśli Wcięcie kodu jest nieprawidłowe po wklejeniu kodu, naciśnij klawisze CTRL-K-D, aby je poprawić.
 
-Ten kod w pętli jednostek w `Enrollments` właściwości nawigacji. Do każdej rejestracji Wyświetla tytuł kursu i klasy korporacyjnej. Tytuł kursu jest pobierana z kursu jednostki, która jest przechowywana w `Course` właściwości nawigacji jednostki rejestracji.
+Ten kod pętle za pomocą jednostek we `Enrollments` właściwości nawigacji. Dla każdej rejestracji jest wyświetlany tytuł kursu i Klasa. Tytuł kursu jest pobierany z jednostki kursu przechowywanej we `Course` właściwości nawigacji jednostki rejestracji.
 
-Uruchom aplikację, wybierz **studentów** kartę, a następnie kliknij przycisk **szczegóły** link dla uczniów lub studentów. Zostanie wyświetlona lista kursów i ocen dla wybranych uczniów lub studentów:
+Uruchom aplikację, wybierz kartę **studenci** i kliknij link **szczegóły** dla ucznia. Zostanie wyświetlona lista kursów i ocen dla wybranego ucznia:
 
-![Strona szczegółów dla uczniów](crud/_static/student-details.png)
+![Strona szczegółów ucznia](crud/_static/student-details.png)
 
-## <a name="update-the-create-page"></a>Utwórz stronę aktualizacji
+## <a name="update-the-create-page"></a>Aktualizowanie strony tworzenia
 
-W *StudentsController.cs*, zmodyfikuj HttpPost `Create` metoda przez dodanie bloku try / catch i usunięcie Identyfikatora z `Bind` atrybutu.
+W *StudentsController.cs*Zmień metodę HTTPPOST `Create` , dodając blok try-catch i `Bind` usuwając identyfikator z atrybutu.
 
 [!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Create&highlight=4,6-7,14-21)]
 
-Ten kod dodaje jednostki dla uczniów, utworzone przez integrator modelu programu ASP.NET Core MVC do jednostki studentów Ustaw, a następnie zapisuje zmiany w bazie danych. (Integratora modelu, który odwołuje się do funkcji programu ASP.NET Core MVC ułatwia pracę z danych przesyłanych przez formularz; integratora modelu konwertuje wartości przesłanego formularza na typy CLR i przekazuje je do metody akcji w parametrach. W tym przypadku integratora modelu tworzy wystąpienie jednostki dla uczniów przy użyciu wartości właściwości z kolekcji formularza.)
+Ten kod dodaje jednostkę ucznia utworzoną przez spinacz modelu ASP.NET Core MVC do zestawu jednostek uczniów, a następnie zapisuje zmiany w bazie danych. (Model spinacza odnosi się do funkcji ASP.NET Core MVC, które ułatwiają pracę z danymi przesyłanymi przez formularz; segregator modelu konwertuje wartości zaksięgowanych formularzy na typy CLR i przekazuje je do metody akcji w parametrach. W takim przypadku spinacz modelu tworzy wystąpienie jednostki ucznia przy użyciu wartości właściwości z kolekcji formularzy.)
 
-Możesz usunąć `ID` z `Bind` atrybutu, ponieważ identyfikator ma wartość klucza podstawowego, który program SQL Server ustawi automatycznie, gdy zostanie wstawiona. Dane wejściowe od użytkownika nie należy ustawić wartość Identyfikatora.
+Usunięto `ID` z atrybutu `Bind` , ponieważ identyfikator jest wartością klucza podstawowego, która SQL Server zostanie ustawiona automatycznie podczas wstawiania wiersza. Dane wejściowe użytkownika nie ustawiają wartości identyfikatora.
 
-Inne niż `Bind` , bloku try / catch jest tylko zmiany wprowadzone do utworzony szkielet kodu. Jeśli wyjątek, który pochodzi od klasy `DbUpdateException` jest przechwycony podczas zmiany są zapisywane, jest wyświetlany ogólny komunikat o błędzie. `DbUpdateException` wyjątki są czasami spowodowane coś zewnętrznego do aplikacji, a nie błąd programowania, dzięki czemu użytkownik jest zalecane, aby spróbować ponownie. Chociaż nie jest zaimplementowana w tym przykładzie, aplikacji jakości produkcyjnej rejestruje wyjątek. Aby uzyskać więcej informacji, zobacz **dziennik, aby uzyskać szczegółowe informacje o** sekcji [monitorowanie i Telemetria (tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure)](/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).
+`Bind` Poza atrybutem blok try-catch jest jedyną zmianą dokonaną w kodzie szkieletowym. Jeśli wyjątek pochodzący z `DbUpdateException` jest przechwytywany podczas zapisywania zmian, zostanie wyświetlony ogólny komunikat o błędzie. `DbUpdateException`wyjątki są czasami spowodowane przez coś zewnętrznego dla aplikacji, a nie z błędem programistycznym, więc użytkownik jest zalecany ponownie. Chociaż nie jest zaimplementowany w tym przykładzie, aplikacja do jakości produkcyjnej mógłby rejestrować wyjątek. Aby uzyskać więcej informacji, zobacz sekcję **log for Insight** w temacie [monitorowanie i telemetrię (Tworzenie aplikacji w chmurze w rzeczywistości na platformie Azure)](/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).
 
-`ValidateAntiForgeryToken` Atrybut zapobiega fałszerstwo żądania międzywitrynowego (CSRF) ataków. Token są automatycznie wstrzykiwane do widoku przez [FormTagHelper](xref:mvc/views/working-with-forms#the-form-tag-helper) i jest dostępne po przesłaniu formularza przez użytkownika. Token jest sprawdzana `ValidateAntiForgeryToken` atrybutu. Aby uzyskać więcej informacji na temat CSRF zobacz [ochrona przed fałszerstwem żądań](../../security/anti-request-forgery.md).
+Ten `ValidateAntiForgeryToken` atrybut pomaga zapobiegać atakom z wykorzystaniem fałszerstwa żądań między witrynami (CSRF). Token jest automatycznie wprowadzany do widoku przez [FormTagHelper](xref:mvc/views/working-with-forms#the-form-tag-helper) i jest dołączany, gdy formularz zostanie przesłany przez użytkownika. Token jest weryfikowany przez `ValidateAntiForgeryToken` atrybut. Aby uzyskać więcej informacji na temat CSRF, zobacz [zapobieganie żądaniu fałszerstwa](../../security/anti-request-forgery.md).
 
 <a id="overpost"></a>
 
-### <a name="security-note-about-overposting"></a>Uwaga dotycząca zabezpieczeń dotyczące overposting
+### <a name="security-note-about-overposting"></a>Uwaga dotycząca zabezpieczeń dotyczącej przefinalizowania
 
-`Bind` Atrybut, który zawiera utworzony szkielet kodu, na `Create` metodą jest jednym ze sposobów, aby zapewnić ochronę przed overposting w tworzenie scenariuszy. Załóżmy, że zawiera jednostki dla uczniów `Secret` właściwości, które nie mają tej strony sieci web, aby ustawić.
+Atrybut, który zawiera kod szkieletowy `Create` w metodzie, jest jednym ze sposobów ochrony przed nadużyciami w ramach tworzenia scenariuszy. `Bind` Załóżmy na przykład, że jednostka ucznia zawiera `Secret` właściwość, która nie powinna być ustawiona przez tę stronę sieci Web.
 
 ```csharp
 public class Student
@@ -139,174 +139,174 @@ public class Student
 }
 ```
 
-Nawet jeśli nie masz `Secret` pola na stronie sieci web haker może za pomocą narzędzia takiego jak Fiddler lub zapisać fragmentów kodu JavaScript do opublikowania `Secret` stanowią wartość. Bez `Bind` atrybut ograniczanie pól używanych przez integrator modelu podczas tworzenia wystąpienia dla uczniów, integratora modelu czy wczytać, `Secret` formę wartość i użyć go do utworzenia wystąpienia jednostki dla uczniów. Następnie niezależnie od wartości haker, określony dla `Secret` pola formularza zostałaby zaktualizowana w bazie danych. Na poniższej ilustracji przedstawiono dodawanie narzędzie Fiddler `Secret` pola (z wartością "OverPost") do wartości przesłanego formularza.
+Nawet jeśli nie masz `Secret` pola na stronie sieci Web, haker może użyć narzędzia takiego jak programu Fiddler lub napisać kod JavaScript w celu `Secret` opublikowania wartości formularza. Bez atrybutu ograniczającego pola, które są używane przez spinacz modelu podczas tworzenia wystąpienia ucznia, spinacz modelu wybiera tę `Secret` wartość formularza i używa jej do utworzenia wystąpienia jednostki ucznia. `Bind` Następnie, niezależnie od wartości, haker określony dla `Secret` pola formularza zostanie zaktualizowany w bazie danych. Na poniższej ilustracji przedstawiono Narzędzie programu Fiddler, które dodaje `Secret` pole (z wartością "naddawaj") do wartości zaksięgowanych formularzy.
 
-![Dodawanie pola wpisu tajnego programu fiddler](crud/_static/fiddler.png)
+![Programu Fiddler Dodawanie pola tajnego](crud/_static/fiddler.png)
 
-Wartość "OverPost" następnie zostaną pomyślnie dodane do `Secret` właściwość wstawionego wiersza, ale nigdy nie ma strony sieci web i można ustawić tę właściwość.
+Wartość "nadzbiór" zostanie następnie pomyślnie dodana do `Secret` właściwości wstawionego wiersza, mimo że nie ma możliwości ustawienia tej właściwości na stronie sieci Web.
 
-Można zapobiec overposting w scenariuszach edycji przez najpierw odczytu jednostki z bazy danych, a następnie wywołując `TryUpdateModel`, przekazując jako jawne dozwolonych właściwości listy tych praktyk. To metodę używaną w tych samouczkach.
+Można zapobiec nadpisywaniu w scenariuszach edycji przez odczytywanie jednostki z bazy danych, a następnie wywoływanie `TryUpdateModel`, przekazywanie na jawnej liście właściwości dozwolonych. Jest to metoda używana w tych samouczkach.
 
-Alternatywny sposób, aby zapobiec overposting, który jest wybierany przez wielu deweloperów jest wyświetlanie modeli, a nie klas jednostek za pomocą wiązania modelu. Zawierają właściwości, które chcesz zaktualizować w modelu widoku. Po zakończeniu integratora modelu MVC skopiuj właściwości modelu widoku wystąpienia jednostki, opcjonalnie za pomocą narzędzia takiego jak AutoMapper. Użyj `_context.Entry` na wystąpienia jednostki, aby ustawić jej stan `Unchanged`, a następnie ustaw `Property("PropertyName").IsModified` na wartość true dla każdej właściwości jednostki, który znajduje się w modelu widoku. Ta metoda działa, w obu edytowanie i tworzenie scenariuszy.
+Alternatywny sposób zapobiegania przechodzeniu, który jest preferowany przez wielu deweloperów, polega na użyciu modeli widoku zamiast klas jednostek z powiązaniem modelu. Uwzględnij tylko właściwości, które chcesz zaktualizować w modelu widoku. Po zakończeniu tworzenia spinacza modelu MVC Skopiuj właściwości modelu widoku do wystąpienia jednostki, opcjonalnie używając narzędzia takiego jak automapowanie. Użyj `_context.Entry` w wystąpieniu jednostki, aby ustawić jego stan na `Unchanged`, a następnie ustaw `Property("PropertyName").IsModified` wartość true dla każdej właściwości jednostki, która jest uwzględniona w modelu widoku. Ta metoda działa zarówno w scenariuszach edycji, jak i tworzenia.
 
-### <a name="test-the-create-page"></a>Strona tworzenia testów
+### <a name="test-the-create-page"></a>Testowanie strony tworzenia
 
-Kod w *Views/Students/Create.cshtml* używa `label`, `input`, i `span` (w przypadku komunikatów dotyczących sprawdzania poprawności) pomocników dla każdego pola tagów.
+Kod w *widokach/Students/Create. cshtml* używa `label`dla każdego `span` pola pomocników tagów, `input`i (dla komunikatów sprawdzania poprawności).
 
-Uruchom aplikację, wybierz **studentów** kartę, a następnie kliknij przycisk **Utwórz nowy**.
+Uruchom aplikację, wybierz kartę **uczniowie** i kliknij pozycję **Utwórz nową**.
 
-Wprowadź nazwy i daty. Spróbuj wprowadzić nieprawidłową datę, jeśli umożliwia przeglądarce, możesz to zrobić. (Niektóre przeglądarki wymusza użycie selektora daty.) Następnie kliknij przycisk **Utwórz** aby zobaczyć komunikat o błędzie.
+Wprowadź nazwy i datę. Spróbuj wprowadzić nieprawidłową datę, jeśli jest to możliwe. (Niektóre przeglądarki wymuszają użycie selektora dat). Następnie kliknij przycisk **Utwórz** , aby wyświetlić komunikat o błędzie.
 
-![Błąd sprawdzania poprawności daty](crud/_static/date-error.png)
+![Błąd weryfikacji daty](crud/_static/date-error.png)
 
-Jest to sprawdzanie poprawności po stronie serwera, które można pobrać domyślnej; później w samouczku pokazano, jak dodać atrybuty, które również spowoduje to wygenerowanie kodu do weryfikacji po stronie klienta. Następujący wyróżniony kod pokazuje sprawdzenie poprawności modelu w `Create` metody.
+Jest to weryfikacja po stronie serwera, która jest domyślnie pobierana; w późniejszym samouczku zobaczysz, jak dodać atrybuty, które generują kod dla weryfikacji po stronie klienta. Poniższy wyróżniony kod pokazuje sprawdzanie poprawności modelu w `Create` metodzie.
 
 [!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Create&highlight=8)]
 
-Zmień datę na prawidłową wartość, a następnie kliknij przycisk **Utwórz** do nowego studenta pojawiają się w temacie **indeksu** strony.
+Zmień datę na prawidłową wartość, a następnie kliknij pozycję **Utwórz** , aby zobaczyć, że nowy student zostanie wyświetlony na stronie **indeks** .
 
 ## <a name="update-the-edit-page"></a>Zaktualizuj strony edytowania
 
-W *StudentController.cs*, HttpGet `Edit` — metoda (jeden bez `HttpPost` atrybutu) używa `SingleOrDefaultAsync` metody do pobierania wybranej jednostki dla uczniów, jak przedstawiono w `Details` metody. Nie trzeba zmienić tę metodę.
+W *StudentController.cs*Metoda narzędzia HttpGet `Edit` (taka bez `HttpPost` atrybutu) używa `SingleOrDefaultAsync` metody do pobrania wybranej jednostki ucznia, jak pokazano w `Details` metodzie. Nie musisz zmieniać tej metody.
 
-### <a name="recommended-httppost-edit-code-read-and-update"></a>Zalecane HttpPost edycji kodu: Odczyt i aktualizacji
+### <a name="recommended-httppost-edit-code-read-and-update"></a>Zalecane HttpPost edycji kodu: Odczytaj i zaktualizuj
 
-Zastąp metodę akcji edycji HttpPost następującym kodem.
+Zastąp metodę Edytuj akcję HttpPost następującym kodem.
 
 [!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_ReadFirst)]
 
-Te zmiany zaimplementować najlepszym rozwiązaniem w zakresie zabezpieczeń zapobiec overposting. Generator szkieletu generowane `Bind` atrybutu i dodać jednostki utworzone przez integratora modelu do zestawu przy użyciu jednostek `Modified` flagi. Czy kod nie jest zalecane dla wielu scenariuszy, ponieważ `Bind` atrybutu powoduje danych zapisanych w polach, które nie są wymienione w `Include` parametru.
+Te zmiany implementują najlepsze rozwiązanie w zakresie zabezpieczeń, aby zapobiec przepisywaniu. Szkielet wygenerował `Bind` atrybut i dodał jednostkę utworzoną przez spinacz modelu do zestawu jednostek `Modified` z flagą. Ten kod nie jest zalecany w wielu scenariuszach, `Bind` ponieważ ten atrybut czyści wszystkie istniejące wcześniej dane w polach, które `Include` nie znajdują się na liście parametrów.
 
-Nowy kod odczytuje istniejącej jednostki i wywołania `TryUpdateModel` można zaktualizować pola w pobraną jednostkę [oparte na danych wejściowych użytkownika w danych przesłanego formularza](xref:mvc/models/model-binding). Entity Framework automatyczne śledzenie zestawy zmian `Modified` flagi w polach, które zostaną zmienione przez dane wejściowe formularza. Gdy `SaveChanges` metoda jest wywoływana, platformy Entity Framework tworzy instrukcji SQL, aby zaktualizować wiersz bazy danych. Konflikty współbieżności są ignorowane, a kolumny tabeli, które zostały zaktualizowane przez użytkownika są aktualizowane w bazie danych. (Dalszych samouczków pokazano, jak obsługa konfliktów współbieżności).
+Nowy kod odczytuje istniejącą jednostkę i wywołuje `TryUpdateModel` w celu zaktualizowania pól w pobranej jednostce [na podstawie danych wprowadzonych przez użytkownika w opublikowanych formularzach](xref:mvc/models/model-binding). Automatyczne śledzenie zmian Entity Framework ustawia `Modified` flagę dla pól, które są zmieniane przez dane wejściowe formularza. `SaveChanges` Gdy metoda jest wywoływana, Entity Framework tworzy instrukcje SQL, aby zaktualizować wiersz bazy danych. Konflikty współbieżności są ignorowane, a tylko kolumny tabeli, które zostały zaktualizowane przez użytkownika, są aktualizowane w bazie danych. (W dalszej części samouczka pokazano, jak obsłużyć konflikty współbieżności).
 
-Najlepszym rozwiązaniem, aby zapobiec polegającymi pola, które mają być można aktualizować za **Edytuj** strony są na liście dozwolonych w `TryUpdateModel` parametrów. (Jest pusty ciąg poprzedzający listę pól na liście parametrów dla prefiksu nazwy pola formularza za pomocą.) Aktualnie nie istnieją żadne dodatkowe pola, które chronisz, ale lista pól, które chcesz integratora modelu do powiązania gwarantuje, że po dodaniu pola do modelu danych w przyszłości, są automatycznie chroniona, dopóki nie dodasz je tutaj.
+Najlepszym rozwiązaniem, aby zapobiec przepełnieniu, pola, które mają być aktualizowane przez stronę **edycji** , są listy dozwolonych w `TryUpdateModel` parametrach. (Pusty ciąg poprzedzający listę pól na liście parametrów jest przeznaczony dla prefiksu do użycia z nazwami pól formularza). Obecnie nie ma żadnych dodatkowych pól, które są chronione, ale lista pól, które mają być powiązane przez spinacz modelu, zapewnia, że jeśli dodasz pola do modelu danych w przyszłości, są one automatycznie chronione, dopóki nie zostaną jawnie dodane do nich w tym miejscu.
 
-W wyniku tych zmian, podpis metody HttpPost `Edit` metody jest taka sama jak HttpGet `Edit` metody; w związku z tym po zmianie nazwy metody `EditPost`.
+W wyniku tych zmian sygnatura metody HTTPPOST `Edit` jest taka sama jak Metoda narzędzia HttpGet `Edit` ; w związku z tym zmieniono nazwę metody `EditPost`.
 
-### <a name="alternative-httppost-edit-code-create-and-attach"></a>Alternatywne HttpPost edycji kodu: Tworzenie i dołączanie
+### <a name="alternative-httppost-edit-code-create-and-attach"></a>Alternatywny kod edycji HttpPost: Utwórz i Dołącz
 
-Zalecane kodu Edytuj HttpPost gwarantuje, że tylko zmienione kolumny zostaje zaktualizowana i zachowuje dane we właściwościach, które nie mają włączone do wiązania modelu. Podejście pierwszy odczytu wymaga jednak dodatkowe bazy danych odczytu i może doprowadzić do bardziej skomplikowanym kodzie konfliktów współbieżności. Alternatywą jest dołączyć jednostkę utworzone przez integratora modelu dla kontekstu EF i oznaczyć go jako zmodyfikowane. (Nie zaktualizujesz projekt przy użyciu tego kodu tylko wykazał aby zilustrować podejście opcjonalne.)
+Zalecany kod edycji HttpPost gwarantuje, że tylko zmienione kolumny zostaną zaktualizowane i zachowuje dane we właściwościach, które nie powinny być dołączone do powiązania modelu. Niemniej jednak w przypadku pierwszej procedury odczytu wymagane jest odczytanie dodatkowej bazy danych i może wystąpić bardziej złożony kod służący do obsługi konfliktów współbieżności. Alternatywą jest dołączenie jednostki utworzonej przez spinacz modelu do kontekstu EF i oznaczenie jej jako zmienionej. (Nie Aktualizuj projektu przy użyciu tego kodu, jest on pokazywany tylko w celu zilustrowania opcjonalnego podejścia).
 
 [!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_CreateAndAttach)]
 
-Tej metody można użyć po interfejsie użytkownika strony sieci web zawiera wszystkie pola w jednostce i można ich zaktualizować.
+Tego podejścia można użyć, gdy interfejs użytkownika strony sieci Web zawiera wszystkie pola w jednostce i może je zaktualizować.
 
-Korzysta z metody create i — dołączanie utworzony szkielet kodu, ale tylko przechwytuje `DbUpdateConcurrencyException` wyjątków i zwraca 404 kody błędów.  Przykład pokazany przechwytuje wszystkie wyjątki aktualizacji bazy danych i wyświetla komunikat o błędzie.
+Kod szkieletu używa podejścia Create-and-Attach, ale tylko wychwytuje `DbUpdateConcurrencyException` wyjątki i zwraca kody błędów 404.  Pokazany przykład przechwytuje dowolny wyjątek aktualizacji bazy danych i wyświetli komunikat o błędzie.
 
-### <a name="entity-states"></a>Stany jednostki
+### <a name="entity-states"></a>Stany jednostek
 
-Przechowuje informacje o kontekst bazy danych, czy jednostki w pamięci są zsynchronizowane z ich odpowiednie wiersze w bazie danych, a te informacje określa, co się stanie, gdy wywołujesz `SaveChanges` metody. Na przykład podczas przekazywania do nowej jednostki `Add` metody, która stan obiektu jest ustawiony na `Added`. Następnie, gdy zostanie wywołana `SaveChanges` metody kontekst bazy danych wydaje polecenie SQL INSERT.
+Kontekst bazy danych śledzi, czy jednostki w pamięci są zsynchronizowane z odpowiadającymi im wierszami w bazie danych, a te informacje określają, co się dzieje po `SaveChanges` wywołaniu metody. Na przykład po przejściu nowej jednostki do `Add` metody stan tej jednostki jest ustawiony na. `Added` Po wywołaniu `SaveChanges` metody, kontekst bazy danych wystawia polecenie SQL INSERT.
 
-Jednostki mogą być w jednym z następujących stanów:
+Jednostka może być w jednym z następujących stanów:
 
-* `Added`. Jednostka jeszcze nie istnieje w bazie danych. `SaveChanges` Metoda generuje instrukcji INSERT.
+* `Added`. Jednostka jeszcze nie istnieje w bazie danych. `SaveChanges` Metoda wystawia instrukcję INSERT.
 
-* `Unchanged`. Niczego nie trzeba wykonać za pomocą tej jednostki przy `SaveChanges` metody. Podczas odczytywania jednostki z bazy danych, jednostka rozpoczyna się w tym stanie.
+* `Unchanged`. Nie trzeba niczego robić z tą jednostką przez `SaveChanges` metodę. Po odczytaniu jednostki z bazy danych jednostka zaczyna się od tego stanu.
 
-* `Modified`. Niektóre lub wszystkie wartości właściwości jednostki zostały zmodyfikowane. `SaveChanges` Metoda generuje instrukcji UPDATE.
+* `Modified`. Niektóre lub wszystkie wartości właściwości jednostki zostały zmodyfikowane. `SaveChanges` Metoda wystawia instrukcję Update.
 
-* `Deleted`. Jednostka została oznaczona do usunięcia. `SaveChanges` Metoda generuje instrukcję DELETE.
+* `Deleted`. Jednostka została oznaczona do usunięcia. `SaveChanges` Metoda wystawia instrukcję delete.
 
-* `Detached`. Jednostka nie jest śledzony przez kontekst bazy danych.
+* `Detached`. Jednostka nie jest śledzona przez kontekst bazy danych.
 
-W przypadku aplikacji komputerowych zmiany stanu są zazwyczaj ustawiane automatycznie. Przeczytaj jednostki i wprowadzić zmiany do niektórych wartości właściwości. Powoduje to, że jego stan jednostki automatycznie był zmieniany na `Modified`. Następnie, gdy zostanie wywołana `SaveChanges`, platformy Entity Framework generuje instrukcji SQL UPDATE, która aktualizuje tylko rzeczywiste właściwości, które zostały zmienione.
+W aplikacji klasycznej zmiany stanu są zazwyczaj ustawiane automatycznie. Odczytywanie jednostki i wprowadzanie zmian w niektórych wartościach właściwości. Powoduje to, że stan jednostki jest automatycznie zmieniany `Modified`na. Po wywołaniu `SaveChanges`, Entity Framework generuje instrukcję SQL Update, która aktualizuje tylko rzeczywiste właściwości, które zostały zmienione.
 
-W aplikacji sieci web `DbContext` który początkowo odczytuje jednostki i wyświetla jego danych do edycji zostanie usunięty po wyrenderowaniu strony. Gdy HttpPost `Edit` metody akcji jest wywoływana, nowe żądania sieci web i masz nowe wystąpienie klasy `DbContext`. Jeśli ponownie odczytywana jednostki, w tym kontekście nowych, można symulować przetwarzania pulpitu.
+W aplikacji sieci Web, `DbContext` która początkowo odczytuje jednostkę i wyświetla dane do edycji, jest usuwana po wyrenderowaniu strony. Gdy wywoływana jest `Edit` Metoda akcji HTTPPOST, zostanie wykonane nowe żądanie sieci Web i masz nowe wystąpienie. `DbContext` Jeśli odczytasz jednostkę w tym nowym kontekście, zasymulujesz przetwarzanie na pulpicie.
 
-Ale jeśli chcesz zrobić operacja odczytu nadmiarowe, należy użyć obiektu jednostki, utworzone przez integratora modelu.  Jest najprostszym sposobem, w tym celu można ustawić stanu jednostki zmodyfikowane, co jest wykonywane na w alternatywnej HttpPost edycji kodu pokazanego wcześniej. Następnie, gdy zostanie wywołana `SaveChanges`, platformy Entity Framework aktualizacji wszystkie kolumny wiersza bazy danych, ponieważ kontekst nie ma możliwości wiedzieć, właściwości, które można zmienić.
+Ale jeśli nie chcesz wykonywać dodatkowej operacji odczytu, musisz użyć obiektu Entity utworzonego przez spinacz modelu.  Najprostszym sposobem, aby to zrobić, jest ustawienie stanu jednostki na zmodyfikowany jako wykonany w alternatywnym kodzie edycji HttpPost. Po wywołaniu `SaveChanges`, Entity Framework aktualizuje wszystkie kolumny wiersza bazy danych, ponieważ kontekst nie ma informacji o właściwościach, które zostały zmienione.
 
-Jeśli chcesz uniknąć podejścia odczytu pierwszego, ale ma również instrukcji SQL UPDATE można zaktualizować tylko pola, które użytkownik faktycznie zmienił, kod jest bardziej złożone. Musisz zapisać oryginalne wartości w jakiś sposób (takie jak za pomocą ukrytych pól), dzięki czemu są one dostępne po HttpPost `Edit` metoda jest wywoływana. Możesz utworzyć jednostki dla uczniów, przy użyciu oryginalnych wartości, wywołanie `Attach` metody z tej wersji oryginalnego obiektu, zaktualizuj wartości jednostki z nowymi wartościami miar, a następnie wywołaj `SaveChanges`.
+Jeśli chcesz uniknąć pierwszego podejścia do odczytu, ale chcesz również, aby instrukcja SQL UPDATE zaktualizował tylko pola, które użytkownik rzeczywiście zmienił, kod jest bardziej skomplikowany. Musisz zapisać oryginalne wartości w jakiś sposób (na przykład przy użyciu ukrytych pól), aby były dostępne po wywołaniu metody HTTPPOST `Edit` . Następnie można utworzyć jednostkę ucznia przy użyciu oryginalnych wartości, wywołać `Attach` metodę z tą oryginalną wersją jednostki, zaktualizować wartości jednostki do nowych wartości, a następnie wywołać `SaveChanges`polecenie.
 
-### <a name="test-the-edit-page"></a>Testowanie strony edytowania
+### <a name="test-the-edit-page"></a>Testowanie strony edycji
 
-Uruchom aplikację, wybierz **studentów** , a następnie kliknij **Edytuj** hiperłącze.
+Uruchom aplikację, wybierz kartę **uczniowie** , a następnie kliknij hiperlink **Edit** .
 
-![Strona edytowania uczniów](crud/_static/student-edit.png)
+![Strona edycji uczniów](crud/_static/student-edit.png)
 
-Niektóre dane i kliknij przycisk Zmień **Zapisz**. **Indeksu** zostanie otwarta strona i zobaczyć zmienione dane.
+Zmień niektóre dane i kliknij przycisk **Zapisz**. Zostanie otwarta strona **indeks** i zobaczysz zmienione dane.
 
 ## <a name="update-the-delete-page"></a>Aktualizuj stronę Delete
 
-W *StudentController.cs*, kod szablonu HttpGet `Delete` metoda używa `SingleOrDefaultAsync` metoda pobierania wybranej jednostki dla uczniów, jak przedstawiono w szczegółowe informacje i Edytuj metody. Jednak aby zaimplementować niestandardowy komunikat o błędzie podczas wywołania `SaveChanges` zakończy się niepowodzeniem, pewne funkcje należy dodać do tej metody i jego odpowiedniego widoku.
+W *StudentController.cs*kod szablonu metody narzędzia HttpGet `Delete` używa `SingleOrDefaultAsync` metody do pobrania wybranej jednostki ucznia, jak pokazano w metodach szczegóły i edycja. Jednak w celu zaimplementowania niestandardowego komunikatu o błędzie, gdy `SaveChanges` wywołanie zakończy się niepowodzeniem, należy dodać do tej metody pewne funkcje i odpowiedni widok.
 
-Widoczny dla aktualizacji i operacje tworzenia, operacje usuwania wymagają dwóch metod akcji. Metoda, która jest wywoływana w odpowiedzi na żądanie GET Wyświetla widok, który zapewnia możliwość zatwierdzania lub anulować operację usuwania. Jeśli użytkownik zatwierdza, tworzona jest żądaniem POST. Gdy tak się stanie, HttpPost `Delete` metoda jest wywoływana, a następnie ta metoda faktycznie wykonuje operację usuwania.
+Podczas operacji aktualizowania i tworzenia należy wykonać operacje usuwania, które wymagają dwóch metod akcji. Metoda wywoływana w odpowiedzi na żądanie GET wyświetla widok, który daje użytkownikowi możliwość zatwierdzenia lub anulowania operacji usuwania. Jeśli użytkownik zatwierdzi ten element, zostanie utworzone żądanie POST. Gdy tak się stanie, Metoda `Delete` HTTPPOST jest wywoływana, a następnie ta metoda faktycznie wykonuje operację usuwania.
 
-Dodasz bloku try / catch do HttpPost `Delete` metody, aby obsłużyć wszystkie błędy, które mogą wystąpić po zaktualizowaniu bazy danych. Jeśli wystąpi błąd, metoda HttpPost usuwania wywołuje metodę HttpGet Delete, podając mu parametr, który wskazuje, że wystąpił błąd. Metody HttpGet Delete zostanie następnie ponownie strona potwierdzenia oraz komunikat o błędzie, dając użytkownikowi możliwość anulowania lub spróbuj ponownie.
+Dodasz blok try-catch do metody HTTPPOST `Delete` , aby obsłużyć wszelkie błędy, które mogą wystąpić podczas aktualizacji bazy danych. Jeśli wystąpi błąd, Metoda Delete HttpPost wywołuje metodę Delete narzędzia HttpGet, przekazując jej parametr wskazujący, że wystąpił błąd. Metoda Delete narzędzia HttpGet następnie ponownie wyświetla stronę potwierdzenia wraz z komunikatem o błędzie, dając użytkownikowi możliwość anulowania lub spróbuj ponownie.
 
-Zastąp HttpGet `Delete` metodę akcji za pomocą następujący kod, który zarządza raportowanie błędów.
+Zastąp metodę `Delete` akcji narzędzia HttpGet następującym kodem, który zarządza raportowaniem błędów.
 
 [!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DeleteGet&highlight=1,9,16-21)]
 
-Ten kod przyjmuje opcjonalny parametr, który wskazuje, czy metoda została wywołana po awarii, aby zapisać zmiany. Ten parametr ma wartość false, gdy HttpGet `Delete` metoda jest wywoływana bez poprzednim błędzie. Gdy jest wywoływana przez HttpPost `Delete` metody w odpowiedzi na błąd aktualizacji bazy danych, parametr ma wartość true, a komunikat o błędzie jest przekazywana do widoku.
+Ten kod akceptuje opcjonalny parametr, który wskazuje, czy metoda została wywołana po niepowodzeniu zapisania zmian. Ten parametr ma wartość false, gdy `Delete` Metoda narzędzia HttpGet jest wywoływana bez wcześniejszego błędu. Gdy jest wywoływana przez metodę HTTPPOST `Delete` w odpowiedzi na błąd aktualizacji bazy danych, parametr ma wartość true, a komunikat o błędzie jest przesyłany do widoku.
 
-### <a name="the-read-first-approach-to-httppost-delete"></a>Pierwszy odczytu sposobem usuwania HttpPost
+### <a name="the-read-first-approach-to-httppost-delete"></a>Podejście po raz pierwszy do HttpPost usuwania
 
-Zastąp HttpPost `Delete` metody akcji (o nazwie `DeleteConfirmed`) z następującym kodem, wykonuje operację usuwania rzeczywiste i przechwytującą wszystkie błędy aktualizacji bazy danych.
+Zamień metodę akcji `Delete` HTTPPOST (o nazwie `DeleteConfirmed`) na następujący kod, który wykonuje rzeczywistą operację usuwania i przechwytuje wszystkie błędy aktualizacji bazy danych.
 
 [!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DeleteWithReadFirst&highlight=6-9,11-12,16-21)]
 
-Ten kod pobiera wybranej jednostki, następnie wywołuje `Remove` metodę, aby ustawić stan jednostki `Deleted`. Gdy `SaveChanges` nosi SQL DELETE polecenia jest generowany.
+Ten kod pobiera wybraną jednostkę, a następnie wywołuje `Remove` metodę w celu ustawienia stanu jednostki na. `Deleted` Gdy `SaveChanges` jest wywoływana, generowane jest polecenie SQL Delete.
 
-### <a name="the-create-and-attach-approach-to-httppost-delete"></a>Utwórz i — dołączanie podejście do usunięcia HttpPost
+### <a name="the-create-and-attach-approach-to-httppost-delete"></a>Podejście Create-and-Attach do HttpPost Delete
 
-Jeśli poprawę wydajności w aplikacji mocno obciążające ma najwyższy priorytet, można uniknąć niepotrzebnych kwerend SQL przez utworzenie wystąpienia jednostki dla uczniów, przy użyciu tylko podstawowy klucz wartość, a następnie ustawienie stanu jednostki `Deleted`. To wszystko, który potrzebuje platformy Entity Framework, aby usunąć jednostkę. (Nie należy umieszczać ten kod w projekcie; tutaj jest tylko w celu zilustrowania alternatywę).
+Jeśli zwiększenie wydajności aplikacji o wysokim poziomie głośności jest priorytetem, można uniknąć niepotrzebnego zapytania SQL przez utworzenie wystąpienia jednostki studenta przy użyciu tylko wartości klucza podstawowego, a następnie ustawienie stanu jednostki na `Deleted`. To wszystko, co Entity Framework potrzebuje, aby usunąć jednostkę. (Nie umieszczaj tego kodu w projekcie; jest to tutaj tylko ilustrujące alternatywę).
 
 [!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DeleteWithoutReadFirst&highlight=7-8)]
 
-Jeśli jednostka ma powiązanych danych, które również zostaną usunięte, upewnij się, że usuwanie kaskadowe jest skonfigurowany w bazie danych. W przypadku tej metody do usuwania jednostki EF może nie należy pamiętać, że nie ma powiązanej jednostki do usunięcia.
+Jeśli jednostka ma powiązane dane, które również należy usunąć, upewnij się, że w bazie danych jest skonfigurowane usuwanie kaskadowe. W ramach tego podejścia do usuwania jednostek EF może nie być możliwe, że istnieją powiązane jednostki, które mają zostać usunięte.
 
-### <a name="update-the-delete-view"></a>Aktualizacja widoku Delete
+### <a name="update-the-delete-view"></a>Aktualizowanie widoku usuwania
 
-W *Views/Student/Delete.cshtml*, Dodaj komunikat o błędzie między nagłówka H2 spowoduje i nagłówek h3, jak pokazano w poniższym przykładzie:
+W obszarze *widoki/student/Delete. cshtml*Dodaj komunikat o błędzie między nagłówkiem H2 i nagłówkiem H3, jak pokazano w następującym przykładzie:
 
 [!code-html[](intro/samples/cu/Views/Students/Delete.cshtml?range=7-9&highlight=2)]
 
-Uruchom aplikację, wybierz **studentów** kartę, a następnie kliknij przycisk **Usuń** hiperłącze:
+Uruchom aplikację, wybierz kartę **uczniowie** i kliknij hiperłącze **Usuń** :
 
 ![Usuń stronę potwierdzenia](crud/_static/student-delete.png)
 
-Kliknij przycisk **Usuń**. Nie usunięto uczniów zostanie wyświetlona strona indeksu. (Będziesz Zobacz przykład kodu w akcji, w tym samouczku współbieżności obsługi błędów).
+Kliknij przycisk **Usuń**. Strona indeks zostanie wyświetlona bez usuniętego ucznia. (W samouczku współbieżności zostanie wyświetlony przykładowy kod obsługi błędu).
 
-## <a name="close-database-connections"></a>Połączenia bazy danych zamknij
+## <a name="close-database-connections"></a>Zamknij połączenia bazy danych
 
-Aby zwolnić zasoby, które zawiera połączenia z bazą danych, wystąpienie kontekstu musi zostać usunięty możliwie najszybciej po zakończeniu z nim. Wbudowane platformy ASP.NET Core [wstrzykiwanie zależności](../../fundamentals/dependency-injection.md) zajmie to zadanie dla Ciebie.
+Aby zwolnić zasoby, które są przechowywane przez połączenie z bazą danych, wystąpienie kontekstu musi zostać usunięte najszybciej, jak to możliwe, gdy wszystko będzie gotowe. ASP.NET Core wbudowane [iniekcja zależności](../../fundamentals/dependency-injection.md) zajmuje się tym zadaniem.
 
-W *Startup.cs*, należy wywołać [— metoda rozszerzenia AddDbContext](https://github.com/aspnet/EntityFrameworkCore/blob/03bcb5122e3f577a84498545fcf130ba79a3d987/src/Microsoft.EntityFrameworkCore/EntityFrameworkServiceCollectionExtensions.cs) aprowizację `DbContext` klasy w kontenerze platformy ASP.NET Core DI. Czy metoda Ustawia okres istnienia usługi `Scoped` domyślnie. `Scoped` oznacza, że okres istnienia obiektu kontekstu pokrywa się z czasem życia żądania sieci web, a `Dispose` metoda zostanie wywołana automatycznie na końcu żądania sieci web.
+W *Startup.cs*należy wywołać [metodę rozszerzenia AddDbContext](https://github.com/aspnet/EntityFrameworkCore/blob/03bcb5122e3f577a84498545fcf130ba79a3d987/src/Microsoft.EntityFrameworkCore/EntityFrameworkServiceCollectionExtensions.cs) , `DbContext` aby zainicjować obsługę klasy w ASP.NET Core di kontenera. Ta metoda ustawia domyślnie okres istnienia `Scoped` usługi. `Scoped`oznacza, że okres istnienia obiektu kontekstu pokrywa się z czasem trwania żądania sieci Web `Dispose` , a metoda zostanie wywołana automatycznie na końcu żądania sieci Web.
 
 ## <a name="handle-transactions"></a>Obsługa transakcji
 
-Domyślnie platforma Entity Framework niejawnie implementuje transakcji. W scenariuszach, w którym zmiany do wielu wierszy lub tabeli, a następnie wywołać `SaveChanges`, platformy Entity Framework automatycznie tworzy się, że wszystkie zmiany powiedzie się lub nie ich wszystkich. Jeśli niektóre zmiany są najpierw wykonywane, a następnie błąd występuje, te zmiany są automatycznie przywracane. Zobacz scenariusze, w którym możesz muszą większa kontrola — na przykład, jeśli chcesz dołączyć operacje wykonywane poza programem Entity Framework w ramach transakcji — [transakcji](/ef/core/saving/transactions).
+Domyślnie Entity Framework niejawnie implementują transakcje. W scenariuszach, w których wprowadzane są zmiany w wielu wierszach lub tabelach `SaveChanges`, a następnie Wywołaj, Entity Framework automatycznie upewnia się, że wszystkie zmiany zostały wykonane pomyślnie lub wszystkie z nich kończą się niepowodzeniem. Jeśli najpierw zostaną wykonane pewne zmiany, a następnie wystąpi błąd, te zmiany są automatycznie wycofywane. W przypadku scenariuszy, w których potrzebna jest większa kontrola — na przykład jeśli chcesz uwzględnić operacje wykonywane poza Entity Framework w transakcji — zobacz [transakcje](/ef/core/saving/transactions).
 
-## <a name="no-tracking-queries"></a>Bez śledzenia zapytań
+## <a name="no-tracking-queries"></a>Zapytania bez śledzenia
 
-Jeśli kontekst bazy danych pobiera wiersze z tabeli, tworzy obiekty jednostki, reprezentujących ich domyślnie go przechowuje informacje o czy jednostki w pamięci są zsynchronizowane z tym, co w bazie danych. Dane w pamięci działa jak pamięć podręczna i jest używany podczas aktualizowania jednostki. Często jest wykorzystywana w aplikacji sieci web tej buforowanie, ponieważ kontekst wystąpienia są zwykle krótkotrwałe (nowy jeden jest tworzony i usuwane dla każdego żądania) i obiekt context, odczytuje jednostki zazwyczaj jest usuwane, zanim ponownie używane jest tej jednostki.
+Gdy kontekst bazy danych pobiera wiersze tabeli i tworzy obiekty jednostek, które reprezentują je, domyślnie śledzi, czy jednostki w pamięci są zsynchronizowane z danymi znajdującymi się w bazie danych. Dane w pamięci pełnią rolę pamięci podręcznej i są używane podczas aktualizowania jednostki. Ta pamięć podręczna jest często niepotrzebna w aplikacji sieci Web, ponieważ wystąpienia kontekstu są zwykle krótkotrwałe (nowy element jest tworzony i usuwany dla każdego żądania), a kontekst, który odczytuje jednostkę, jest zazwyczaj likwidowany przed ponownym użyciem tej jednostki.
 
-Możesz wyłączyć śledzenie obiekty obiektów w pamięci przez wywołanie metody `AsNoTracking` metody. Następujące typowe scenariusze, w których warto to zrobić:
+Można wyłączyć śledzenie obiektów jednostki w pamięci, wywołując `AsNoTracking` metodę. Typowe scenariusze, w których warto wykonać następujące czynności:
 
-* W okresie istnienia w kontekście nie trzeba zaktualizować wszelkie jednostek, które nie potrzebują EF do [automatycznie obciążenia właściwości nawigacji z jednostkami pobierane przez oddzielne zapytania](read-related-data.md). Często te warunki są spełnione w metody akcji HttpGet kontrolera.
+* W okresie istnienia kontekstu nie trzeba aktualizować żadnych jednostek, a program EF nie musi [automatycznie ładować właściwości nawigacji z jednostkami pobranymi przez osobne zapytania](read-related-data.md). Często te warunki są spełnione w metodach działania narzędzia HttpGet kontrolera.
 
-* Używasz kwerendę, która pobiera dużej ilości danych, a zostanie zaktualizowana tylko niewielki fragment wartości zwracanych danych. Może być bardziej efektywne, aby wyłączyć śledzenie dla dużych zapytania i uruchomić zapytanie później uzyskać kilka jednostek, które muszą zostać zaktualizowane.
+* Używasz zapytania pobierającego dużą ilość danych, a tylko niewielka część zwróconych danych zostanie zaktualizowana. Może być bardziej wydajne, aby wyłączyć śledzenie dla dużego zapytania i uruchomić zapytanie później dla kilku jednostek, które wymagają aktualizacji.
 
-* Aby dołączyć jednostkę, aby można było zaktualizować go, ale wcześniej pobrane z tej samej jednostki do różnych celów. Ponieważ jednostka jest już śledzony przez kontekst bazy danych, nie można dołączyć jednostki, która ma zostać zmieniony. Jednym ze sposobów, aby obsłużyć taką sytuację jest wywołanie `AsNoTracking` na wcześniejsze zapytanie względem.
+* Chcesz dołączyć jednostkę, aby ją zaktualizować, ale wcześniej pobrano tę samą jednostkę do innego celu. Ponieważ jednostka jest już śledzona przez kontekst bazy danych, nie można dołączyć jednostki, która ma zostać zmieniona. Jednym ze sposobów obsługi tej sytuacji jest wywołanie `AsNoTracking` we wcześniejszej kwerendzie.
 
-Aby uzyskać więcej informacji, zobacz [śledzenia programu vs. Bez śledzenia](/ef/core/querying/tracking).
+Aby uzyskać więcej informacji, [zobacz Śledzenie a Brak śledzenia](/ef/core/querying/tracking).
 
 ## <a name="get-the-code"></a>Pobierz kod
 
-[Pobieranie i wyświetlanie ukończonej aplikacji.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
+[Pobierz lub Wyświetl ukończoną aplikację.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
 ## <a name="next-steps"></a>Następne kroki
 
-W ramach tego samouczka możesz:
+W tym samouczku przedstawiono następujące instrukcje:
 
 > [!div class="checklist"]
-> * Dostosowanej strony szczegółów
-> * Zaktualizowana strona tworzenia
-> * Zaktualizowane strony edytowania
-> * Zaktualizowane strony usuwania
-> * Połączenia zamknięte bazy danych
+> * Dostosowana Strona szczegółów
+> * Zaktualizowano stronę tworzenia
+> * Zaktualizowano stronę edycji
+> * Zaktualizowano stronę usuwania
+> * Zamknięte połączenia bazy danych
 
-Przejdź do następnego samouczka, aby dowiedzieć się, jak rozszerzyć funkcjonalność **indeksu** stronie przez dodanie sortowanie, filtrowanie i stronicowanie.
+Przejdź do następnego samouczka, aby dowiedzieć się, jak rozszerzyć funkcjonalność strony **indeksu** , dodając sortowanie, filtrowanie i stronicowanie.
 
 > [!div class="nextstepaction"]
-> [Dalej: Sortowanie, filtrowanie i stronicowanie](sort-filter-page.md)
+> [Ponown Sortowanie, filtrowanie i stronicowanie](sort-filter-page.md)

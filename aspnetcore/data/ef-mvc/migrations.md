@@ -1,81 +1,81 @@
 ---
-title: 'Samouczek: Za pomocą funkcji migracje — ASP.NET MVC z programem EF Core'
-description: W ramach tego samouczka możesz rozpocząć korzystanie z funkcji migracje EF Core dla zarządzania zmianami modelu danych w aplikacji ASP.NET Core MVC.
-author: rick-anderson
+title: 'Samouczek: Korzystanie z funkcji migracji ASP.NET MVC z EF Core'
+description: W tym samouczku rozpocznie się korzystanie z funkcji migracji EF Core na potrzeby zarządzania zmianami modelu danych w aplikacji ASP.NET Core MVC.
+author: tdykstra
 ms.author: tdykstra
 ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/migrations
-ms.openlocfilehash: 35569a4d75abf1c18a3750d9785c3cf55a35ea69
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: 7ee383ff5fcd9dd79503321aaa188fd85ef18d7a
+ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67813768"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69583451"
 ---
-# <a name="tutorial-using-the-migrations-feature---aspnet-mvc-with-ef-core"></a>Samouczek: Za pomocą funkcji migracje — ASP.NET MVC z programem EF Core
+# <a name="tutorial-using-the-migrations-feature---aspnet-mvc-with-ef-core"></a>Samouczek: Korzystanie z funkcji migracji ASP.NET MVC z EF Core
 
-W ramach tego samouczka możesz rozpocząć korzystanie z funkcji migracje EF Core dla zarządzania zmianami modelu danych. W kolejnych samouczkach należy dodać więcej migracji w przypadku zmiany modelu danych.
+W tym samouczku Zacznij korzystać z funkcji migracji EF Core, aby zarządzać zmianami modelu danych. W kolejnych samouczkach dodasz więcej migracji w miarę zmieniania modelu danych.
 
-W ramach tego samouczka możesz:
+W tym samouczku przedstawiono następujące instrukcje:
 
 > [!div class="checklist"]
-> * Dowiedz się więcej o migracji
+> * Więcej informacji na temat migracji
 > * Zmień parametry połączenia
 > * Tworzenie początkowej migracji
-> * Sprawdź metod w górę i w dół
-> * Dowiedz się więcej o migawki modelu danych
-> * Zastosuj migracji
+> * Sprawdzanie metod w górę i w dół
+> * Informacje o migawce modelu danych
+> * Zastosuj migrację
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * [Sortowanie, filtrowanie i stronicowanie](sort-filter-page.md)
 
-## <a name="about-migrations"></a>Dotyczące migracji
+## <a name="about-migrations"></a>Informacje o migracjach
 
-Podczas tworzenia nowej aplikacji swój model danych zmienia często i za każdym razem zmiany modelu, otrzymuje zsynchronizowana z bazą danych. Te samouczki są uruchomione przez konfigurowanie platformy Entity Framework do tworzenia bazy danych, jeśli nie istnieje. Następnie zawsze możesz zmienić model danych — dodać, usunąć, lub zmienić klas jednostek lub zmienić klasy DbContext — można usunąć bazy danych i EF utworzony zostaje nowy indeks, który odpowiada modelu i inicjowania inicjuje ją z danymi.
+Podczas tworzenia nowej aplikacji model danych jest często zmieniany, a przy każdym zmianie modelu jest on synchronizowany z bazą danych. Te samouczki zostały rozpoczęte przez skonfigurowanie Entity Framework w celu utworzenia bazy danych, jeśli nie istnieje. Następnie za każdym razem, gdy zmieniasz model danych — Dodaj, Usuń lub Zmień klasy jednostek lub Zmień klasę DbContext — możesz usunąć bazę danych i EF tworzy nową, która jest zgodna z modelem, i wydawaj ją z danymi testowymi.
 
-Ta metoda synchronizacja bazy danych z modelem danych działa poprawnie, dopóki nie możesz wdrożyć aplikację do środowiska produkcyjnego. Gdy aplikacja jest uruchomiona w środowisku produkcyjnym zazwyczaj zapisuje dane, które mają być przechowywane i nie chcesz utracić wszystko, czego zawsze upewnij się zmiany, takie jak dodawanie nowej kolumny. Funkcja migracji programu EF Core rozwiązuje ten problem, włączając EF do zaktualizowania schematu bazy danych zamiast tworzenia nowej bazy danych.
+Ta metoda zachowania synchronizacji bazy danych z modelem danych działa prawidłowo, dopóki aplikacja nie zostanie wdrożona w środowisku produkcyjnym. Gdy aplikacja jest uruchomiona w środowisku produkcyjnym, zazwyczaj przechowuje dane, które mają być zachowane, i nie ma potrzeby utraty wszystkiego przy każdym wprowadzeniu zmiany, takiej jak dodanie nowej kolumny. Funkcja migracji EF Core rozwiązuje ten problem przez włączenie programu EF w celu zaktualizowania schematu bazy danych zamiast tworzenia nowej bazy danych.
 
-Aby pracować z migracji, można użyć **Konsola Menedżera pakietów** (PMC) lub interfejsu wiersza polecenia (CLI).  Tych samouczkach przedstawiono sposób użycia interfejsu wiersza polecenia. Informacje o konsoli zarządzania Pakietami wynosi [po ukończeniu tego samouczka](#pmc).
+Aby móc korzystać z migracji, można użyć **konsoli Menedżera pakietów** (PMC) lub interfejsu wiersza polecenia (CLI).  W tych samouczkach pokazano, jak używać poleceń interfejsu wiersza polecenia. Informacje na temat obiektu PMC są na [końcu tego samouczka](#pmc).
 
 ## <a name="change-the-connection-string"></a>Zmień parametry połączenia
 
-W *appsettings.json* pliku, Zmień nazwę bazy danych w parametrach połączenia ContosoUniversity2 lub innej nazwy, które nie były używane na komputerze używasz.
+W pliku *appSettings. JSON* Zmień nazwę bazy danych w parametrach połączenia na ContosoUniversity2 lub inną nazwę, która nie została użyta na komputerze, którego używasz.
 
 [!code-json[](intro/samples/cu/appsettings2.json?range=1-4)]
 
-Ta zmiana konfiguruje projekt tak, aby pierwszej migracji utworzy nową bazę danych. Nie jest to wymagane, aby rozpocząć pracę z migracji, ale zostanie wyświetlony później dlaczego jest dobrym pomysłem.
+Ta zmiana konfiguruje projekt w taki sposób, aby podczas pierwszej migracji utworzyć nową bazę danych. Nie jest to wymagane, aby rozpocząć migrację, ale zobaczysz później, dlaczego jest to dobry pomysł.
 
 > [!NOTE]
-> Alternatywnie można zmienić nazwy bazy danych można usunąć bazy danych. Użyj **Eksplorator obiektów SQL Server** (SSOX) lub `database drop` interfejsu wiersza polecenia:
+> Alternatywą dla zmiany nazwy bazy danych jest usunięcie bazy danych. Użyj **Eksplorator obiektów SQL Server** (SSOX) lub `database drop` interfejsu wiersza polecenia:
 >
 > ```console
 > dotnet ef database drop
 > ```
 >
-> Poniższej sekcji opisano sposób uruchamiania poleceń interfejsu wiersza polecenia platformy.
+> W poniższej sekcji opisano sposób uruchamiania poleceń interfejsu wiersza polecenia.
 
 ## <a name="create-an-initial-migration"></a>Tworzenie początkowej migracji
 
-Zapisz zmiany i skompiluj projekt. Następnie otwórz okno polecenia i przejdź do folderu projektu. Poniżej przedstawiono szybki sposób, aby to zrobić:
+Zapisz zmiany i skompiluj projekt. Następnie otwórz okno polecenia i przejdź do folderu projektu. Oto szybka metoda:
 
-* W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Otwórz Folder w Eksploratorze plików** z menu kontekstowego.
+* W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt, a następnie wybierz polecenie **Otwórz folder w Eksploratorze plików** z menu kontekstowego.
 
   ![Otwórz w elemencie menu Eksploratora plików](migrations/_static/open-in-file-explorer.png)
 
-* Wprowadź "cmd" na pasku adresu i naciśnij klawisz Enter.
+* Wprowadź ciąg "cmd" na pasku adresu i naciśnij klawisz ENTER.
 
   ![Otwórz okno polecenia](migrations/_static/open-command-window.png)
 
-Wprowadź następujące polecenie w oknie wiersza polecenia:
+Wprowadź następujące polecenie w oknie polecenia:
 
 ```console
 dotnet ef migrations add InitialCreate
 ```
 
-Zostaną wyświetlone dane wyjściowe podobne do następujących w oknie wiersza polecenia:
+W oknie polecenia są wyświetlane dane wyjściowe podobne do następujących:
 
 ```console
 info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
@@ -84,39 +84,39 @@ Done. To undo this action, use 'ef migrations remove'
 ```
 
 > [!NOTE]
-> Jeśli zostanie wyświetlony komunikat o błędzie *nie plik wykonywalny znaleziono pasującego polecenia "dotnet-ef"* , zobacz [ten wpis w blogu](https://thedatafarm.com/data-access/no-executable-found-matching-command-dotnet-ef/) do rozwiązywania problemów w Pomocy.
+> Jeśli zostanie wyświetlony komunikat o błędzie *nie znaleziono pliku wykonywalnego zgodnego z poleceniem "dotnet-EF"* , zobacz [ten wpis w blogu](https://thedatafarm.com/data-access/no-executable-found-matching-command-dotnet-ef/) , aby uzyskać pomoc w rozwiązywaniu problemów.
 
-Jeśli zostanie wyświetlony komunikat o błędzie "*uzyskać dostępu do pliku... ContosoUniversity.dll, ponieważ jest on używany przez inny proces.* ", Znajdź ikonę usług IIS Express w zasobniku systemu Windows i kliknij go prawym przyciskiem myszy, a następnie kliknij przycisk **ContosoUniversity > Zatrzymaj witrynę**.
+Jeśli zostanie wyświetlony komunikat o błędzie "*nie można uzyskać dostępu do pliku... ContosoUniversity. dll, ponieważ jest używany przez inny proces. "Znajdź ikonę IIS Express na pasku zadań systemu Windows, a następnie kliknij ją prawym przyciskiem myszy, a następnie kliknij pozycję **ContosoUniversity > Zatrzymaj witrynę.***
 
-## <a name="examine-up-and-down-methods"></a>Sprawdź metod w górę i w dół
+## <a name="examine-up-and-down-methods"></a>Sprawdzanie metod w górę i w dół
 
-Kiedy wykonać `migrations add` polecenia EF wygenerowany kod, który spowoduje utworzenie bazy danych od podstaw. Ten kod znajduje się w *migracje* folderu, w pliku o nazwie  *\<sygnatura czasowa > _InitialCreate.cs*. `Up` Metody `InitialCreate` klasy tworzy tabele bazy danych, które odpowiadają zestawy jednostek modelu danych i `Down` metoda spowoduje usunięcie ich, jak pokazano w poniższym przykładzie.
+Po wykonaniu `migrations add` polecenia EF wygenerowało kod, który spowoduje utworzenie bazy danych od podstaw. Ten kod znajduje się w folderze migrations, w pliku o nazwie  *\<timestamp > _InitialCreate. cs*. Metoda klasy tworzy tabele bazy danych, które odpowiadają zestawom `Down` jednostek modelu danych, a metoda usuwa je, jak pokazano w poniższym przykładzie. `InitialCreate` `Up`
 
 [!code-csharp[](intro/samples/cu/Migrations/20170215220724_InitialCreate.cs?range=92-118)]
 
-Migracje wywołania `Up` metodę, aby wdrożyć model danych zmienia się do migracji. Po wprowadzeniu polecenia można wycofać aktualizację, wywołania migracje `Down` metody.
+Migracja wywołuje `Up` metodę w celu zaimplementowania zmian modelu danych dla migracji. Po wprowadzeniu polecenia w celu wycofania aktualizacji migracja wywołuje `Down` metodę.
 
-Ten kod jest początkowej migracji, który został utworzony po wprowadzeniu `migrations add InitialCreate` polecenia. Parametr name migracji ("InitialCreate" w przykładzie) jest używany dla nazwy pliku i może być dowolnie. Najlepiej wybrać wyrazu lub frazy, który podsumowuje, co to jest wykonywana w procesie migracji. Na przykład można nazwać późniejszej migracji "AddDepartmentTable".
+Ten kod jest przeznaczony dla początkowej migracji, która została utworzona po wprowadzeniu `migrations add InitialCreate` polecenia. Parametr name migracji ("InitialCreate" w przykładzie) jest używany jako nazwa pliku i może być dowolnie wybrany. Najlepiej wybrać słowo lub frazę, która podsumowuje zawartość wykonywaną podczas migracji. Można na przykład nazwać migrację do nowszej wersji "adddepartments".
 
-Jeśli utworzono początkowej migracji bazy danych już istnieje, kod tworzenia bazy danych jest generowany, ale nie ma działać, ponieważ baza danych już jest zgodny z modelem danych. Podczas wdrażania aplikacji do innego środowiska, w którym baza danych nie istnieje jeszcze uruchamiane ten kod, aby utworzyć bazę danych, więc to dobry pomysł, aby przetestować go najpierw. Dlatego właśnie zmieniono nazwę bazy danych w parametrach połączenia wcześniej — tak aby migracji można utworzyć nową od podstaw.
+W przypadku utworzenia początkowej migracji, gdy baza danych już istnieje, kod tworzenia bazy danych jest generowany, ale nie musi działać, ponieważ baza danych jest już zgodna z modelem danych. Po wdrożeniu aplikacji w innym środowisku, w którym baza danych jeszcze nie istnieje, ten kod zostanie uruchomiony w celu utworzenia bazy danych, więc dobrym pomysłem jest przetestowanie go w pierwszej kolejności. Z tego powodu zmieniono nazwę bazy danych w parametrach połączenia wcześniej — tak, aby migracje mogły utworzyć nową od podstaw.
 
 ## <a name="the-data-model-snapshot"></a>Migawka modelu danych
 
-Tworzy migracje *migawki* bieżącego schematu bazy danych w *Migrations/SchoolContextModelSnapshot.cs*. Podczas dodawania migracji EF Określa, co zmieniło się przez porównanie modelu danych do pliku migawki.
+Migracja tworzy migawkę bieżącego schematu bazy danych w *migracji/SchoolContextModelSnapshot. cs*. Po dodaniu migracji, EF określa, co zmieniło się, porównując model danych z plikiem migawki.
 
-Podczas usuwania migracji, należy użyć [Usuń migracji ef dotnet](/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove) polecenia. `dotnet ef migrations remove` Usuwa migracji i gwarantuje, że migawka poprawnie zostanie zresetowana.
+Podczas usuwania migracji należy użyć polecenia "migracje z programu [dotnet Dr](/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove) ". `dotnet ef migrations remove`usuwa migrację i gwarantuje, że migawka zostanie prawidłowo zresetowana.
 
-Zobacz [EF Core migracji w środowiskach zespołu](/ef/core/managing-schemas/migrations/teams) Aby uzyskać więcej informacji o sposobie korzystania z pliku migawki.
+Aby uzyskać więcej informacji na temat sposobu użycia pliku migawek, zobacz [EF Core migracji w środowiskach zespołu](/ef/core/managing-schemas/migrations/teams) .
 
-## <a name="apply-the-migration"></a>Zastosuj migracji
+## <a name="apply-the-migration"></a>Zastosuj migrację
 
-W oknie wiersza polecenia wprowadź następujące polecenie, aby utworzyć bazę danych i tabele w nim.
+W oknie wiersza polecenia wprowadź następujące polecenie, aby utworzyć bazę danych i tabele.
 
 ```console
 dotnet ef database update
 ```
 
-Dane wyjściowe polecenia są podobne do `migrations add` poleceń, z tą różnicą, że Zobacz dzienniki dla polecenia SQL, który konfigurowania bazy danych. Większość dzienników zostały pominięte w następujących przykładowych danych wyjściowych. Jeśli wolisz nie wyświetlić ten poziom szczegółów komunikatów dziennika można zmienić poziom dziennika w *appsettings. Development.JSON* pliku. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/logging/index>.
+Dane wyjściowe polecenia są podobne do `migrations add` polecenia, z tą różnicą, że są wyświetlane dzienniki poleceń SQL, które konfigurują bazę danych. Większość dzienników zostanie pominiętych w następujących przykładowych danych wyjściowych. Jeśli wolisz, aby nie wyświetlać tego poziomu szczegółów w komunikatach dziennika, możesz zmienić poziom dziennika w *appSettings. Plik Development. JSON* . Aby uzyskać więcej informacji, zobacz <xref:fundamentals/logging/index>.
 
 ```text
 info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
@@ -147,44 +147,44 @@ info: Microsoft.EntityFrameworkCore.Database.Command[20101]
 Done.
 ```
 
-Użyj **Eksplorator obiektów SQL Server** do inspekcji bazy danych, tak jak w pierwszym samouczku.  Można zauważyć dodanie \_ \_EFMigrationsHistory tabeli, która przechowuje informacje o migracji, które zostały zastosowane do bazy danych. Wyświetlanie danych w tej tabeli, a następnie zostanie wyświetlony jeden wiersz dla pierwszej migracji. (Ostatni dziennik w powyższym przykładzie danych wyjściowych interfejsu wiersza polecenia wyświetla instrukcji INSERT, która tworzy ten wiersz).
+Użyj **Eksplorator obiektów SQL Server** , aby sprawdzić bazę danych zgodnie z pierwszym samouczkiem.  Zauważysz dodanie \_ \_tabeli EFMigrationsHistory, która śledzi, które migracje zostały zastosowane do bazy danych. Wyświetl dane w tej tabeli i po pierwszej migracji zobaczysz jeden wiersz. (Ostatni dziennik w poprzednim przykładzie danych wyjściowych interfejsu wiersza polecenia przedstawia instrukcję INSERT, która tworzy ten wiersz).
 
-Uruchom aplikację, aby zweryfikować, że wszystko nadal działa tak jak wcześniej.
+Uruchom aplikację, aby upewnić się, że wszystko nadal działa tak samo jak wcześniej.
 
 ![Strona indeksu uczniów](migrations/_static/students-index.png)
 
 <a id="pmc"></a>
 
-## <a name="compare-cli-and-pmc"></a>Porównanie interfejsu wiersza polecenia i konsolę zarządzania Pakietami
+## <a name="compare-cli-and-pmc"></a>Porównanie interfejsu wiersza polecenia i kryteriów PMC
 
-EF narzędzi do zarządzania migracji jest niedostępna, z poleceń interfejsu wiersza polecenia platformy .NET Core lub poleceń cmdlet programu PowerShell w programie Visual Studio **Konsola Menedżera pakietów** okna (PMC). W tym samouczku pokazano, jak używać interfejsu wiersza polecenia, ale można użyć konsoli zarządzania Pakietami, jeśli użytkownik sobie tego życzy.
+Narzędzia EF do zarządzania migracjami są dostępne z poleceń interfejs wiersza polecenia platformy .NET Core lub z poleceń cmdlet programu PowerShell w oknie **konsola Menedżera pakietów** programu Visual Studio (PMC). W tym samouczku pokazano, jak używać interfejsu wiersza polecenia, ale możesz użyć kryterium PMC, jeśli wolisz.
 
-Polecenia EF poleceń PMC znajdują się w [Microsoft.EntityFrameworkCore.Tools](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools) pakietu. Ten pakiet jest objęta [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app), więc nie musisz dodać odwołanie do pakietu, jeśli aplikacja ma odwołania do pakietu dla `Microsoft.AspNetCore.App`.
+Polecenia EF dla poleceń PMC znajdują się w pakiecie [Microsoft. EntityFrameworkCore. Tools](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools) . Ten pakiet jest zawarty w [pakiecie Microsoft. AspNetCore. app](xref:fundamentals/metapackage-app), dlatego nie trzeba dodawać odwołania do pakietu, jeśli aplikacja zawiera odwołanie do `Microsoft.AspNetCore.App`pakietu.
 
-**Ważne:** Nie jest to ten sam pakiet, instalowanie interfejsu wiersza polecenia, edytując *.csproj* pliku. Nazwa tego z nich kończy się na `Tools`, w odróżnieniu od nazwy pakiet interfejsu wiersza polecenia, którego nazwa kończy się na `Tools.DotNet`.
+**Ważne:** To nie jest ten sam pakiet, który jest instalowany dla interfejsu wiersza polecenia, edytując plik *csproj* . Nazwa tego elementu zostanie zakończona, w `Tools`przeciwieństwie do nazwy pakietu interfejsu wiersza polecenia kończącego `Tools.DotNet`się na.
 
-Aby uzyskać więcej informacji na temat poleceń interfejsu wiersza polecenia, zobacz [interfejsu wiersza polecenia platformy .NET Core](/ef/core/miscellaneous/cli/dotnet).
+Aby uzyskać więcej informacji na temat poleceń interfejsu wiersza polecenia, zobacz [interfejs wiersza polecenia platformy .NET Core](/ef/core/miscellaneous/cli/dotnet).
 
-Aby uzyskać więcej informacji na temat poleceń konsoli zarządzania Pakietami, zobacz [Konsola Menedżera pakietów (Visual Studio)](/ef/core/miscellaneous/cli/powershell).
+Aby uzyskać więcej informacji na temat poleceń PMC, zobacz [konsola Menedżera pakietów (Visual Studio)](/ef/core/miscellaneous/cli/powershell).
 
 ## <a name="get-the-code"></a>Pobierz kod
 
-[Pobieranie i wyświetlanie ukończonej aplikacji.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
+[Pobierz lub Wyświetl ukończoną aplikację.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
 ## <a name="next-step"></a>Następny krok
 
-W ramach tego samouczka możesz:
+W tym samouczku przedstawiono następujące instrukcje:
 
 > [!div class="checklist"]
-> * Uzyskaliśmy informacje dotyczące migracji
-> * Przedstawia informacje na temat pakietów migracji NuGet
-> * Zmienić parametry połączenia
-> * Utworzone początkowej migracji
-> * Zbadanie metod w górę i w dół
-> * Przedstawia informacje na temat migawek modelu danych
-> * Stosowane migracji
+> * Zapoznaj się z migracjami
+> * Zapoznaj się z pakietami migracji NuGet
+> * Zmieniono parametry połączenia
+> * Tworzenie początkowej migracji
+> * Badanie metod w górę i w dół
+> * Informacje o migawce modelu danych
+> * Zastosowano migrację
 
-Przejdź do następnego samouczka, aby rozpocząć spojrzenie na bardziej zaawansowanych tematów dotyczących Rozszerzanie modelu danych. Po drodze możesz utworzyć i zastosować potrzeby dodatkowych migracji.
+Przejdź do następnego samouczka, aby rozpocząć bardziej zaawansowane tematy dotyczące rozszerzania modelu danych. W sposób tworzenia i stosowania dodatkowych migracji.
 
 > [!div class="nextstepaction"]
-> [Tworzenie i stosowanie potrzeby dodatkowych migracji](complex-data-model.md)
+> [Tworzenie i stosowanie dodatkowych migracji](complex-data-model.md)

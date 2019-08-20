@@ -1,7 +1,12 @@
-W tym samouczku pokazano platformy ASP.NET Core MVC i platformy Entity Framework Core przy użyciu widoków i kontrolerów. Strony razor jest alternatywą nowe w programie ASP.NET Core 2.0, opartej na stronach model programowania, który sprawia, że tworzenie interfejsu użytkownika sieci web łatwiejsze i bardziej wydajne. Firma Microsoft zaleca [stron Razor](xref:data/ef-rp/intro) samouczek wersji platformy MVC. Samouczek stron Razor:
+Ten samouczek uczy się ASP.NET Core MVC i Entity Framework Core z kontrolerami i widokami. [Razor Pages](xref:razor-pages/index) jest alternatywnym modelem programistycznym, który został wprowadzony w ASP.NET Core 2,0. W przypadku nowych rozwiązań zalecamy Razor Pages za pośrednictwem platformy MVC z kontrolerami i widokami. Istnieje [Razor Pages](xref:data/ef-rp/intro) wersja tego samouczka. W każdym samouczku omówiono pewne materiały:
 
-* Łatwiej jest je wykonać.
-* Zapewnia więcej najlepszych rozwiązań programu EF Core.
-* Używa wydajniejszych zapytań.
-* Jest bardziej aktualny przy użyciu najnowszych interfejsu API.
-* Obejmuje więcej funkcji.
+W tym samouczku MVC zamieszczono informacje o samouczku Razor Pages:
+
+* Implementowanie dziedziczenia w modelu danych
+* Wykonywanie nieprzetworzonych zapytań SQL
+* Używanie dynamicznego LINQ do uproszczenia kodu
+ 
+Oto kilka rzeczy, w których samouczek Razor Pages ma następujący:
+
+* Użyj metody Select do załadowania powiązanych danych
+* Wersja dostępna dla ASP.NET Core 3,0

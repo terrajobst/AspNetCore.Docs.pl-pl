@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 08/05/2019
 uid: security/authentication/identity/spa
-ms.openlocfilehash: 6b8818cc89a87e66ecec445ff8071348aacde64a
-ms.sourcegitcommit: 2eb605f4f20ac4dd9de6c3b3e3453e108a357a21
+ms.openlocfilehash: cb51df0267a5eabd4a2694727e9c896d0554265e
+ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68819932"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69583595"
 ---
 # <a name="authentication-and-authorization-for-spas"></a>Uwierzytelnianie i autoryzacja dla aplikacji jednostronicowych
 
@@ -93,9 +93,9 @@ Ta metoda pomocnika umożliwia skonfigurowanie IdentityServer do korzystania z n
 
 Ta metoda pomocnika konfiguruje schemat zasad dla aplikacji jako domyślną procedurę obsługi uwierzytelniania. Zasady są skonfigurowane tak, aby umożliwić obsługę tożsamości wszystkie żądania kierowane do dowolnej ścieżki podrzędnej w adresie URL tożsamości "/Identity". `JwtBearerHandler` Obsługuje wszystkie inne żądania. Ponadto ta metoda rejestruje `<<ApplicationName>>API` zasób interfejsu API z IdentityServer z domyślnym `<<ApplicationName>>API` zakresem i konfiguruje oprogramowanie pośredniczące tokenu okaziciela JWT do weryfikowania tokenów wystawionych przez IdentityServer dla aplikacji.
 
-### <a name="sampledatacontroller"></a>SampleDataController
+### <a name="weatherforecastcontroller"></a>WeatherForecastController
 
-W pliku *Controllers\SampleDataController.cs* Zwróć uwagę `[Authorize]` na atrybut zastosowany do klasy, który wskazuje, że użytkownik musi być autoryzowany na podstawie domyślnych zasad dostępu do zasobu. Domyślne zasady autoryzacji mają być skonfigurowane tak, aby korzystały z domyślnego schematu uwierzytelniania, który jest skonfigurowany przez `AddIdentityServerJwt` program do schematu zasad, który został wymieniony powyżej, i `JwtBearerHandler` skonfigurować przez tę metodę pomocnika domyślną procedurę obsługi dla żądania do aplikacji.
+W pliku *Controllers\WeatherForecastController.cs* Zwróć uwagę `[Authorize]` na atrybut zastosowany do klasy, który wskazuje, że użytkownik musi być autoryzowany na podstawie domyślnych zasad dostępu do zasobu. Domyślne zasady autoryzacji mają być skonfigurowane tak, aby korzystały z domyślnego schematu uwierzytelniania, który jest skonfigurowany przez `AddIdentityServerJwt` program do schematu zasad, który został wymieniony powyżej, i `JwtBearerHandler` skonfigurować przez tę metodę pomocnika domyślną procedurę obsługi dla żądania do aplikacji.
 
 ### <a name="applicationdbcontext"></a>ApplicationDbContext
 
