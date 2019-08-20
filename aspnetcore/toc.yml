@@ -966,6 +966,8 @@
           uid: security/key-vault-configuration
     - name: Wymuszanie protokołu HTTPS
       uid: security/enforcing-ssl
+    - name: Hostowanie platformy Docker przy użyciu protokołu HTTPS
+      uid: security/docker-https
     - name: Obsługa Ogólnego rozporządzenia o ochronie danych (RODO) w UE
       uid: security/gdpr
     - name: Ochrona przed fałszerstwem żądań
