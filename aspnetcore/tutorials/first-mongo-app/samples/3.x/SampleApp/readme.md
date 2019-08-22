@@ -1,6 +1,5 @@
 ---
 page_type: sample
-title: Tworzenie internetowego interfejsu API za pomocą platformy ASP.NET Core i usługi MongoDB
 description: W tym samouczku przedstawiono sposób tworzenia ASP.NET Core internetowego interfejsu API przy użyciu bazy danych NoSQL MongoDB.
 languages:
 - csharp
@@ -9,12 +8,12 @@ products:
 - aspnet-core
 - vs
 urlFragment: aspnetcore-webapi-mongodb
-ms.openlocfilehash: 051fc62e5e323657c08026bbca9d71dbc6aa2978
-ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
+ms.openlocfilehash: 402b25f3f7c1644a52832b5c8566269773932e95
+ms.sourcegitcommit: 41f2c1a6b316e6e368a4fd27a8b18d157cef91e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69619718"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69886295"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-mongodb"></a>Tworzenie internetowego interfejsu API za pomocą platformy ASP.NET Core i usługi MongoDB
 
@@ -133,24 +132,6 @@ Baza danych jest gotowy. Możesz rozpocząć tworzenie interfejsu API sieci web 
 
     ```powershell
     Install-Package MongoDB.Driver -Version {VERSION}
-    ```
-
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
-
-1. Uruchom następujące polecenia w powłoce poleceń:
-
-    ```console
-    dotnet new webapi -o BooksApi
-    code BooksApi
-    ```
-
-    Nowy projekt interfejsu API sieci web platformy ASP.NET Core, na przeznaczonych dla platformy .NET Core jest wygenerowany i otworzyć w programie Visual Studio Code.
-
-1. Gdy ikona płomienia OmniSharp na pasku stanu zmieni kolor na zielony, w **oknie dialogowym zostanie wyświetlony monit o podanie wymaganych zasobów do skompilowania i debugowania z elementu "BooksApi". Dodać je?** . Wybierz pozycję **tak**.
-1. Odwiedź galerię [NuGet: MongoDB. Driver](https://www.nuget.org/packages/MongoDB.Driver/) , aby określić najnowszą stabilną wersję sterownika .NET dla usługi MongoDB. Otwórz **zintegrowany Terminal** i przejdź do katalogu głównego projektu. Uruchom następujące polecenie, aby zainstalować sterownik platformy .NET dla bazy danych MongoDB:
-
-    ```console
-    dotnet add BooksApi.csproj package MongoDB.Driver -v {VERSION}
     ```
 
 ## <a name="add-an-entity-model"></a>Dodaj model jednostki
@@ -527,3 +508,10 @@ Aby spełnić powyższe wymagania, należy wprowadzić następujące zmiany:
     ```
 
 1. Powtórz kroki zdefiniowane w sekcji [testowanie interfejsu API sieci Web](#test-the-web-api) . Zwróć uwagę na różnice w nazwach właściwości JSON.
+
+## <a name="next-steps"></a>Następne kroki
+
+Aby uzyskać więcej informacji dotyczących tworzenia interfejsów API sieci web platformy ASP.NET Core zobacz następujące zasoby:
+
+* [Wersja tego artykułu usługi YouTube](https://www.youtube.com/watch?v=7uJt_sOenyo&feature=youtu.be)
+* [Tworzenie internetowych interfejsów API za pomocą ASP.NET Core](https://docs.microsoft.com/aspnet/core/web-api/index?view=aspnetcore-3.0)

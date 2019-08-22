@@ -5,14 +5,14 @@ description: Rozwiązywanie problemów dotyczących błędów podczas korzystani
 monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
 ms.custom: mvc
-ms.date: 08/12/2019
+ms.date: 08/17/2019
 uid: grpc/troubleshoot
-ms.openlocfilehash: ad74bfa57d2dde316734d55d86075f463e78ee56
-ms.sourcegitcommit: 476ea5ad86a680b7b017c6f32098acd3414c0f6c
+ms.openlocfilehash: 7621266dfe26b7126d1607e195dd5dcaab4efa55
+ms.sourcegitcommit: 41f2c1a6b316e6e368a4fd27a8b18d157cef91e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69029079"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69886490"
 ---
 # <a name="troubleshoot-grpc-on-net-core"></a>Rozwiązywanie problemów z gRPC na platformie .NET Core
 
@@ -84,6 +84,8 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
             webBuilder.UseStartup<Startup>();
         });
 ```
+
+Gdy punkt końcowy protokołu HTTP/2 jest skonfigurowany bez protokołu TLS, [ListenOptions. protokoły](xref:fundamentals/servers/kestrel#listenoptionsprotocols) punktu końcowego muszą mieć ustawioną wartość `HttpProtocols.Http2`. `HttpProtocols.Http1AndHttp2`nie można użyć, ponieważ protokół TLS jest wymagany do negocjowania protokołu HTTP/2. Bez protokołu TLS wszystkie połączenia z punktem końcowym domyślne do protokołu HTTP/1.1 i wywołania gRPC kończą się niepowodzeniem.
 
 Klienta gRPC należy również skonfigurować tak, aby nie korzystał z protokołu TLS. Aby uzyskać więcej informacji, zobacz Wywoływanie niezabezpieczonych [usług gRPC przy użyciu programu .NET Core Client](#call-insecure-grpc-services-with-net-core-client).
 

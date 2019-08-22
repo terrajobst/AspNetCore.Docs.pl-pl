@@ -4,15 +4,15 @@ author: Rick-Anderson
 description: Wyjaśnia, jak tworzyć wielokrotnego użytku Razor interfejsu użytkownika przy użyciu widoków częściowych w bibliotece klas, w programie ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
-ms.date: 06/28/2019
+ms.date: 08/20/2019
 ms.custom: mvc, seodec18
 uid: razor-pages/ui-class
-ms.openlocfilehash: 77c7d4a318610fcd424da0485abd41d11e3fad6a
-ms.sourcegitcommit: fbc66827e319d28bebed678ea5fd42f582fe3c34
+ms.openlocfilehash: 468d961c291810ca4dfbe615acd972cfd6e7572a
+ms.sourcegitcommit: 41f2c1a6b316e6e368a4fd27a8b18d157cef91e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68493565"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69886397"
 ---
 # <a name="create-reusable-ui-using-the-razor-class-library-project-in-aspnet-core"></a>Utwórz interfejs użytkownika wielokrotnego użytku przy użyciu projektu biblioteki klas Razor w ASP.NET Core
 
@@ -236,13 +236,49 @@ RCL może wymagać pomocnika zasobów statycznych, do których może odwoływać
 
 Aby dołączyć zasoby towarzyszące jako część RCL, Utwórz folder *wwwroot* w bibliotece klas i Dołącz wszystkie wymagane pliki w tym folderze.
 
-Podczas pakowania RCL wszystkie zasoby towarzyszące w folderze *wwwroot* są automatycznie dołączane do pakietu i udostępniane aplikacjom odwołującym się do pakietu.
+Podczas pakowania RCL wszystkie zasoby towarzyszące w folderze *wwwroot* zostaną automatycznie dołączone do pakietu.
 
 ### <a name="consume-content-from-a-referenced-rcl"></a>Korzystanie z zawartości z RCL, do którego istnieje odwołanie
 
 Pliki znajdujące się w folderze *WWWROOT* RCL są uwidocznione dla aplikacji zużywanej pod prefiksem `_content/{LIBRARY NAME}/`. Na przykład biblioteka o nazwie *Razor. Class. lib* skutkuje ścieżką do zawartości statycznej pod adresem `_content/Razor.Class.Lib/`.
 
-Aplikacja, która zużywa odwołania `<script>` `<img>`, odwołuje się do statycznych zasobów udostępnianych przez bibliotekę z, `<style>`, i innymi tagami HTML. Aplikacja zużywana musi mieć włączoną [obsługę pliku statycznego](xref:fundamentals/static-files) .
+Aplikacja, która zużywa odwołania `<script>` `<img>`, odwołuje się do statycznych zasobów udostępnianych przez bibliotekę z, `<style>`, i innymi tagami HTML. Aplikacja zużywana musi mieć włączoną [obsługę pliku statycznego](xref:fundamentals/static-files) w `Startup.Configure`programie:
+
+```csharp
+public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+{
+    ...
+
+    app.UseStaticFiles();
+
+    ...
+}
+```
+
+W przypadku uruchamiania aplikacji zużywającej dane wyjściowe kompilacji (`dotnet run`) statyczne zasoby sieci Web są domyślnie włączone w środowisku programistycznym. Aby zapewnić obsługę zasobów w innych środowiskach podczas uruchamiania z danych wyjściowych `UseStaticWebAssets` kompilacji, należy wywołać konstruktora hosta w *program.cs*:
+
+```csharp
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        CreateHostBuilder(args).Build().Run();
+    }
+
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
+            {
+                webBuilder.UseStaticWebAssets();
+                webBuilder.UseStartup<Startup>();
+            });
+}
+```
+
+Wywołanie `UseStaticWebAssets` nie jest wymagane w przypadku uruchamiania aplikacji z opublikowanych danych`dotnet publish`wyjściowych ().
 
 ### <a name="multi-project-development-flow"></a>Przepływ programistyczny dla wieloprojektowych
 
