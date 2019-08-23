@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc, seodec18
 ms.date: 06/18/2019
 uid: razor-pages/sdk
-ms.openlocfilehash: fa69e4840377e0c1c8291c7ba9305a27bd3e6b82
-ms.sourcegitcommit: 516f166c5f7cec54edf3d9c71e6e2ba53fb3b0e5
+ms.openlocfilehash: 1dc001c7c5fe320629835e06fe6db7fadabff94d
+ms.sourcegitcommit: 6189b0ced9c115248c6ede02efcd0b29d31f2115
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67196360"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69985396"
 ---
 # <a name="aspnet-core-razor-sdk"></a>Platforma ASP.NET Core Razor SDK
 
@@ -22,18 +22,26 @@ Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [!INCLUDE[](~/includes/2.1-SDK.md)] Obejmuje `Microsoft.NET.Sdk.Razor` MSBuild SDK (Razor SDK). Zestaw Razor SDK:
 
+::: moniker range=">= aspnetcore-2.1 <= aspnetcore-2.2"
 * Standaryzuje środowisko wokół tworzenia, pakowania i publikowania projektów zawierających [Razor](xref:mvc/views/razor) plików dla projektów ASP.NET Core MVC.
 * Zawiera zestaw wstępnie zdefiniowanych obiektów docelowych, właściwości i elementy, które umożliwiają dostosowanie kompilacji w plikach Razor.
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.0"
+* jest wymagana do kompilowania, pakowania i publikowania projektów zawierających pliki [Razor](xref:mvc/views/razor) dla ASP.NET Core projektów opartych na MVC lub projektów [Blazor](xref:blazor/index)
+* Zawiera zestaw wstępnie zdefiniowanych obiektów docelowych, właściwości i elementów, które umożliwiają dostosowanie kompilacji plików Razor (. cshtml lub. Razor).
+::: moniker-end
+
 
 ::: moniker range=">= aspnetcore-2.1 <= aspnetcore-2.2"
 
-Zestaw Razor SDK zawiera `<Content>` element z `Include` ustawioną wartość atrybutu `**\*.cshtml` wzoru symboli wieloznacznych. Odpowiednie pliki są publikowane.
+Zestaw SDK Razor zawiera `<Content>` element `Include` z atrybutem ustawionym na `**\*.cshtml` wzorzec obsługi symboli wieloznacznych. Zgodne pliki są publikowane.
 
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Zestaw Razor SDK zawiera `<Content>` elementów za pomocą `Include` Ustaw atrybuty `**\*.cshtml` i `**\*.razor` wzorców obsługi symboli wieloznacznych. Odpowiednie pliki są publikowane.
+Zestaw SDK Razor zawiera `<Content>` elementy z `Include` atrybutami ustawionymi `**\*.cshtml` na `**\*.razor` wzorce i obsługi symboli wieloznacznych. Zgodne pliki są publikowane.
 
 ::: moniker-end
 
@@ -41,10 +49,11 @@ Zestaw Razor SDK zawiera `<Content>` elementów za pomocą `Include` Ustaw atryb
 
 [!INCLUDE[](~/includes/2.1-SDK.md)]
 
-## <a name="use-the-razor-sdk"></a>Użyj elementu Razor SDK
+## <a name="use-the-razor-sdk"></a>Korzystanie z zestawu SDK Razor
 
 Większość aplikacji sieci web nie są wymagane, aby jawnie odwołać się do zestawu SDK Razor.
 
+::: moniker range=">= aspnetcore-2.1 <= aspnetcore-2.2"
 Aby użyć zestaw Razor SDK do tworzenia biblioteki klas zawierający widokami Razor lub stron Razor:
 
 * Użyj `Microsoft.NET.Sdk.Razor` zamiast `Microsoft.NET.Sdk`:
@@ -66,6 +75,13 @@ Aby użyć zestaw Razor SDK do tworzenia biblioteki klas zawierający widokami R
   Poprzedni pakiety znajdują się w `Microsoft.AspNetCore.Mvc`. Następujący kod przedstawia plik projektu, który używa zestaw Razor SDK do tworzenia plików Razor aplikacji ASP.NET Core Razor strony:
     
   [!code-xml[](sdk/sample/RazorSDK.csproj)]
+  
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.0"
+Aby użyć zestawu Razor SDK do kompilowania bibliotek klas zawierających widoki Razor lub Razor Pages zalecamy rozpoczęcie od szablonu projektu biblioteki klas Razor. Biblioteka klas Razor, która jest używana do kompilowania plików Blazor (. Razor), będzie wymagała co najmniej odwołania `Microsoft.AspNetCore.Components` do pakietu. Biblioteka klas Razor, która jest używana do kompilowania widoków i stron Razor (pliki. cshtml), będzie wymagała określania wartości docelowej `netcoreapp3.0` lub nowszej oraz może `FrameworkReference` zawierać do `Microsoft.AspNetCore.App`.
+
+::: moniker-end
 
 ::: moniker range="= aspnetcore-2.1"
 
@@ -83,10 +99,17 @@ Następujące właściwości kontrolować zachowanie zestawu SDK Razor jako czę
 
 Właściwości i elementy w poniższej tabeli są używane do konfigurowania danych wejściowych i wyjściowych zestawu SDK Razor.
 
+::: moniker range=">= aspnetcore-3.0"
+> [!WARNING]
+Począwszy od ASP.NET Core 3,0, widoki MVC lub Razor Pages nie będą obsługiwane domyślnie, jeśli `RazorCompileOnBuild` lub `RazorCompileOnPublish` jest wyłączone. Aplikacje muszą dodać jawne odwołanie do `Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation` pakietu, aby dodać obsługę kompilacji w czasie wykonywania, jeśli są one zależne od kompilacji środowiska uruchomieniowego w celu przetworzenia plików cshtml.
+::: moniker-end
+
+
 | Elementy | Opis |
 | ----- | ----------- |
-| `RazorGenerate` | Element elementów ( *.cshtml* plików), które są dane wejściowe do celów generowania kodu. |
-| `RazorCompile` | Element elementów ( *.cs* plików), które są dane wejściowe do celów kompilacji Razor. Użyj tego `ItemGroup` Aby określić dodatkowe pliki do skompilowany w zestawie Razor. |
+| `RazorGenerate` | Elementy elementu (pliki *. cshtml* ), które są danymi wejściowymi do generowania kodu. |
+| `RazorComponent` | Elementy elementu (pliki*Razor* ), które są danymi wejściowymi generowania kodu składnika.
+| `RazorCompile` | Elementy elementów (pliki*CS* ), które są danymi wejściowymi do elementów docelowych kompilacji Razor. Użyj tego `ItemGroup` , aby określić dodatkowe pliki do skompilowania do zestawu Razor. |
 | `RazorTargetAssemblyAttribute` | Element służącego do kodu generowania atrybuty dla zestawu Razor. Na przykład:  <br>`RazorAssemblyAttribute`<br>`Include="System.Reflection.AssemblyMetadataAttribute"`<br>`_Parameter1="BuildSource" _Parameter2="https://docs.microsoft.com/">` |
 | `RazorEmbeddedResource` | Elementy dodane do wygenerowanego zestawu Razor jako zasoby osadzone. |
 
@@ -95,7 +118,7 @@ Właściwości i elementy w poniższej tabeli są używane do konfigurowania dan
 | `RazorTargetName` | Nazwa pliku (bez rozszerzenia) zestaw utworzony przez Razor. | 
 | `RazorOutputPath` | Katalog wyjściowy Razor. |
 | `RazorCompileToolset` | Używany do określenia zestawu narzędzi, używany do tworzenia zestawu Razor. Prawidłowe wartości to `Implicit`, `RazorSDK`, i `PrecompilationTool`. |
-| [EnableDefaultContentItems](https://github.com/aspnet/websdk/blob/rel-2.0.0/src/ProjectSystem/Microsoft.NET.Sdk.Web.ProjectSystem.Targets/netstandard1.0/Microsoft.NET.Sdk.Web.ProjectSystem.targets#L21) | Wartość domyślna to `true`. Gdy `true`, obejmuje *web.config*, *.json*, i *.cshtml* pliki zawartości w projekcie. Gdy przywoływana za pomocą `Microsoft.NET.Sdk.Web`, plików w obszarze *wwwroot* i dołączane są także pliki konfiguracji. |
+| [EnableDefaultContentItems](https://github.com/aspnet/websdk/blob/rel-2.0.0/src/ProjectSystem/Microsoft.NET.Sdk.Web.ProjectSystem.Targets/netstandard1.0/Microsoft.NET.Sdk.Web.ProjectSystem.targets#L21) | Wartość domyślna to `true`. Gdy `true`, zawiera pliki *Web. config*, *. JSON*i *. cshtml* jako zawartość projektu. Gdy przywoływana za pomocą `Microsoft.NET.Sdk.Web`, plików w obszarze *wwwroot* i dołączane są także pliki konfiguracji. |
 | `EnableDefaultRazorGenerateItems` | Gdy `true`, obejmuje *.cshtml* plików ze `Content` elementy w `RazorGenerate` elementów. |
 | `GenerateRazorTargetAssemblyInfo` | Gdy `true`, generuje *.cs* plik zawierający atrybuty określone przez `RazorAssemblyAttribute` włącznie z plikiem w danych wyjściowych kompilacji. |
 | `EnableDefaultRazorTargetAssemblyInfoAttributes` | Gdy `true`, dodaje domyślny zestaw atrybutów zestawu do `RazorAssemblyAttribute`. |
@@ -104,8 +127,9 @@ Właściwości i elementy w poniższej tabeli są używane do konfigurowania dan
 | `IncludeRazorContentInPack` | Gdy `true`, wszystkie elementy zawartości Razor ( *.cshtml* pliki) są oznaczone do włączenia do wygenerowanego pakietu NuGet. Wartość domyślna to `false`. |
 | `EmbedRazorGenerateSources` | Gdy `true`, dodaje RazorGenerate ( *.cshtml*) elementów jako osadzone pliki do wygenerowanego zestawu Razor. Wartość domyślna to `false`. |
 | `UseRazorBuildServer` | Gdy `true`, używa procesu serwera kompilacji trwałego odciążania roboczego generowania kodu. Wartością domyślną jest wartość `UseSharedCompilation`. |
+| `GenerateMvcApplicationPartsAssemblyAttributes` | Gdy `true`zestaw SDK generuje dodatkowe atrybuty używane przez MVC w czasie wykonywania w celu przeprowadzenia odnajdywania części aplikacji. |
 
-Aby uzyskać więcej informacji na temat właściwości, zobacz [właściwości programu MSBuild](/visualstudio/msbuild/msbuild-properties).
+Aby uzyskać więcej informacji na temat właściwości, zobacz [Właściwości programu MSBuild](/visualstudio/msbuild/msbuild-properties).
 
 ### <a name="targets"></a>Obiekty docelowe
 
@@ -113,6 +137,7 @@ Zestaw Razor SDK definiuje dwa podstawowe cele:
 
 * `RazorGenerate` &ndash; Generuje kod *.cs* plików ze `RazorGenerate` elementu elementów. Użyj `RazorGenerateDependsOn` właściwości w celu określenia dodatkowych jest przeznaczony dla, uruchomić przed lub po ten element docelowy.
 * `RazorCompile` &ndash; Kompiluje generowane *.cs* pliki do zestawu Razor. Użyj `RazorCompileDependsOn` Aby określić dodatkowe obiekty docelowe, które można uruchomić przed lub po ten element docelowy.
+* `RazorComponentGenerate`Kod generuje pliki *CS* dla `RazorComponent` elementów Item. &ndash; Użyj `RazorComponentGenerateDependsOn` właściwości w celu określenia dodatkowych jest przeznaczony dla, uruchomić przed lub po ten element docelowy.
 
 ### <a name="runtime-compilation-of-razor-views"></a>Kompilacja środowiska uruchomieniowego z widokami Razor
 
@@ -120,9 +145,9 @@ Zestaw Razor SDK definiuje dwa podstawowe cele:
 
 * Dla aplikacji sieci web, upewnij się, jest przeznaczona aplikacja `Microsoft.NET.Sdk.Web` zestawu SDK.
 
-## <a name="razor-language-version"></a>Wersja języka razor
+## <a name="razor-language-version"></a>Wersja języka Razor
 
-Podczas określania wartości `Microsoft.NET.Sdk.Web` zestawu SDK w wersji językowej Razor wynika z wersji platformy docelowej aplikacji. Dla projektów przeznaczonych dla `Microsoft.NET.Sdk.Razor` zestawu SDK lub w rzadkich przypadkach, że aplikacja wymaga innej wersji języka Razor niż wartość wywnioskowane wersji mogą być konfigurowane przez ustawienie `<RazorLangVersion>` właściwość w pliku projektu aplikacji:
+W przypadku określania `Microsoft.NET.Sdk.Web` zestawu SDK wersja języka Razor jest wywnioskowana z wersji platformy docelowej aplikacji. W przypadku projektów `Microsoft.NET.Sdk.Razor` przeznaczonych dla zestawu SDK lub w rzadkich przypadkach, gdy aplikacja wymaga innej wersji języka Razor niż wartość wywnioskowana, można skonfigurować wersję, `<RazorLangVersion>` ustawiając właściwość w pliku projektu aplikacji:
 
 ```xml
 <PropertyGroup>
@@ -130,7 +155,9 @@ Podczas określania wartości `Microsoft.NET.Sdk.Web` zestawu SDK w wersji języ
 </PropertyGroup>
 ```
 
+Wersja języka Razor jest ściśle zintegrowana z wersją środowiska uruchomieniowego, dla którego została skompilowana. Określanie wersji językowej, która nie jest przeznaczona dla środowiska uruchomieniowego, nie jest obsługiwane i prawdopodobnie spowoduje błędy kompilacji.
+
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Dodatki do formatu csproj dla platformy .NET Core](/dotnet/core/tools/csproj)
-* [Wspólne elementy projektów MSBuild](/visualstudio/msbuild/common-msbuild-project-items)
+* [Wspólne elementy projektu MSBuild](/visualstudio/msbuild/common-msbuild-project-items)

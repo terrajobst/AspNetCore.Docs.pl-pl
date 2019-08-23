@@ -2,16 +2,16 @@
 title: 'Samouczek: Odczytaj powiązane dane — ASP.NET MVC z EF Core'
 description: W tym samouczku zostaną odczytane i wyświetlone powiązane dane, czyli dane, które Entity Framework ładowane do właściwości nawigacji.
 author: tdykstra
-ms.author: tdykstra
+ms.author: riande
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: 43d05d0a5f938e60cdb54a0025d8bc277059c2e3
-ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
+ms.openlocfilehash: 5e2db1aca18ce86eef2c9823b752f994c301da5f
+ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69583429"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69975126"
 ---
 # <a name="tutorial-read-related-data---aspnet-mvc-with-ef-core"></a>Samouczek: Odczytaj powiązane dane — ASP.NET MVC z EF Core
 
@@ -47,7 +47,7 @@ Istnieje kilka sposobów, które oprogramowanie mapowanie relacyjne (ORM), takie
 
   ![Przykład oddzielnych zapytań](read-related-data/_static/separate-queries.png)
 
-* Jawne ładowanie. Gdy obiekt jest najpierw odczytywany, powiązane dane nie są pobierane. Napiszesz kod, który pobiera powiązane dane, jeśli jest to potrzebne. Tak jak w przypadku eager ładowania z oddzielnymi zapytaniami, jawne ładowanie powoduje wysłanie wielu zapytań do bazy danych. Różnica polega na tym, że z jawnym ładowaniem kod określa właściwości nawigacji do załadowania. W Entity Framework Core 1,1 można użyć `Load` metody do wykonania jawnego ładowania. Na przykład:
+* Jawne ładowanie. Gdy obiekt jest najpierw odczytywany, powiązane dane nie są pobierane. Napiszesz kod, który pobiera powiązane dane, jeśli jest to potrzebne. Tak jak w przypadku eager ładowania z oddzielnymi zapytaniami, jawne ładowanie powoduje wysłanie wielu zapytań do bazy danych. Różnica polega na tym, że z jawnym ładowaniem kod określa właściwości nawigacji do załadowania. W Entity Framework Core 1,1 można użyć `Load` metody do wykonania jawnego ładowania. Przykład:
 
   ![Przykład jawnego ładowania](read-related-data/_static/explicit-loading.png)
 

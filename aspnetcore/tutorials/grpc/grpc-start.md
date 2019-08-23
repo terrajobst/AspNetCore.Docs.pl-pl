@@ -4,14 +4,14 @@ author: juntaoluo
 description: W tym samouczku pokazano, jak utworzyć usługę gRPC i klienta gRPC na ASP.NET Core. Dowiedz się, jak utworzyć projekt usługi gRPC, edytować plik PROTO i dodać wywołanie przesyłania strumieniowego dupleksu.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
-ms.date: 08/07/2019
+ms.date: 8/22/2019
 uid: tutorials/grpc/grpc-start
-ms.openlocfilehash: 496f659bd51e2404a936bea8aad77e674e1a285d
-ms.sourcegitcommit: 476ea5ad86a680b7b017c6f32098acd3414c0f6c
+ms.openlocfilehash: 064ee54ce5b919bf5b2e035a9bf86c9d50ce0d4e
+ms.sourcegitcommit: 6189b0ced9c115248c6ede02efcd0b29d31f2115
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69022491"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69985418"
 ---
 # <a name="tutorial-create-a-grpc-client-and-server-in-aspnet-core"></a>Samouczek: Utwórz klienta i serwer gRPC w ASP.NET Core
 
@@ -50,14 +50,13 @@ W tym samouczku przedstawiono następujące instrukcje:
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* W programie Visual Studio **pliku** menu, wybierz opcję **New** > **projektu**.
-* W oknie dialogowym **Tworzenie nowego projektu** wybierz pozycję **ASP.NET Core aplikacji sieci Web**.
-* Wybierz pozycję **dalej**
+* Uruchom program Visual Studio i wybierz pozycję **Utwórz nowy projekt**. Alternatywnie z menu **plik** programu Visual Studio wybierz pozycję **Nowy** > **projekt**.
+* W oknie dialogowym **Tworzenie nowego projektu** wybierz pozycję **Usługa gPRC** i wybierz pozycję **dalej**.
+  ![* * Utwórz nowy projekt * * okno dialogowe](~/tutorials/grpc/grpc-start/static/cnp.png)
 * Nazwij projekt **GrpcGreeter**. Ważne jest, aby nazwa projektu *GrpcGreeter* , tak aby przestrzenie nazw były zgodne podczas kopiowania i wklejania kodu.
 * Wybierz pozycję **Utwórz**
-* W oknie dialogowym **Tworzenie nowej ASP.NET Core aplikacji sieci Web** :
-  * W menu rozwijanym wybierz pozycję **.NET Core** i **ASP.NET Core 3,0** . 
-  * Wybierz szablon **usługi gRPC** .
+* W oknie dialogowym **Tworzenie nowej usługi gRPC** :
+  * Wybrano szablon **usługi gRPC** .
   * Wybierz pozycję **Utwórz**
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
@@ -142,12 +141,9 @@ info: Microsoft.Hosting.Lifetime[0]
 
 ## <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Otwórz drugie wystąpienie programu Visual Studio.
-* Na pasku menu wybierz pozycję **plik** > **Nowy** > **projekt** .
-* W oknie dialogowym **Tworzenie nowego projektu** wybierz pozycję **Aplikacja konsolowa (.NET Core)** .
-* Wybierz pozycję **dalej**
-* W polu tekstowym **Nazwa** wprowadź wartość "GrpcGreeterClient".
-* Wybierz pozycję **Utwórz**.
+* Otwórz drugie wystąpienie programu Visual Studio i wybierz pozycję **Utwórz nowy projekt**.
+* W oknie dialogowym **Tworzenie nowego projektu** wybierz pozycję **aplikacja konsoli (.NET Core)** , a następnie wybierz pozycję **dalej**.
+* W polu tekstowym **Nazwa** wprowadź **GrpcGreeterClient** , a następnie wybierz pozycję **Utwórz**.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -183,13 +179,13 @@ Zainstaluj pakiety przy użyciu konsoli Menedżera pakietów (PMC) lub Zarządza
 #### <a name="pmc-option-to-install-packages"></a>Opcja PMC, aby zainstalować pakiety
 
 * W programie Visual Studio wybierz kolejno pozycje **Narzędzia** > Menedżer**pakietów** > NuGet**konsola Menedżera pakietów**
-* W oknie **konsola Menedżera pakietów** przejdź do katalogu, w którym znajduje się plik *GrpcGreeterClient. csproj* .
+* W oknie **konsola Menedżera pakietów** Uruchom `cd GrpcGreeterClient` polecenie, aby zmienić katalogi na folder zawierający pliki *GrpcGreeterClient. csproj* .
 * Uruchom następujące polecenia:
 
  ```powershell
-Install-Package Grpc.Net.Client
-Install-Package Google.Protobuf
-Install-Package Grpc.Tools
+Install-Package Grpc.Net.Client -prerelease
+Install-Package Google.Protobuf -prerelease
+Install-Package Grpc.Tools -prerelease
 ```
 
 #### <a name="manage-nuget-packages-option-to-install-packages"></a>Opcja zarządzania pakietami NuGet w celu zainstalowania pakietów
@@ -221,19 +217,19 @@ dotnet add GrpcGreeterClient.csproj package Grpc.Tools
 
 ### <a name="add-greetproto"></a>Dodaj Greeting. proto
 
-* Utwórz folder **Protos** w projekcie klienta gRPC.
-* Skopiuj plik **Protos\greet.proto** z usługi gRPC Greeter do projektu klienta gRPC.
+* Utwórz folder *Protos* w projekcie klienta gRPC.
+* Skopiuj plik *Protos\greet.proto* z usługi gRPC Greeter do projektu klienta gRPC.
 * Edytuj plik projektu *GrpcGreeterClient. csproj* :
 
-  # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
+  # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
   Kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Edytuj plik projektu**.
 
-  # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code) 
+  # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
   Wybierz plik *GrpcGreeterClient. csproj* .
 
-  # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+  # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac] (#tab/Visual-Studio-Mac
 
   Kliknij prawym przyciskiem myszy projekt, a następnie wybierz polecenie **narzędzia > Edytuj plik**.
 

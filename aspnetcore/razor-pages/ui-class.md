@@ -4,15 +4,15 @@ author: Rick-Anderson
 description: Wyjaśnia, jak tworzyć wielokrotnego użytku Razor interfejsu użytkownika przy użyciu widoków częściowych w bibliotece klas, w programie ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
-ms.date: 08/20/2019
+ms.date: 08/22/2019
 ms.custom: mvc, seodec18
 uid: razor-pages/ui-class
-ms.openlocfilehash: 468d961c291810ca4dfbe615acd972cfd6e7572a
-ms.sourcegitcommit: 41f2c1a6b316e6e368a4fd27a8b18d157cef91e1
+ms.openlocfilehash: 5b83cb44302a5900ec7b2ccc049790b4c1ca57e5
+ms.sourcegitcommit: 6189b0ced9c115248c6ede02efcd0b29d31f2115
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69886397"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69985384"
 ---
 # <a name="create-reusable-ui-using-the-razor-class-library-project-in-aspnet-core"></a>Utwórz interfejs użytkownika wielokrotnego użytku przy użyciu projektu biblioteki klas Razor w ASP.NET Core
 
@@ -237,6 +237,39 @@ RCL może wymagać pomocnika zasobów statycznych, do których może odwoływać
 Aby dołączyć zasoby towarzyszące jako część RCL, Utwórz folder *wwwroot* w bibliotece klas i Dołącz wszystkie wymagane pliki w tym folderze.
 
 Podczas pakowania RCL wszystkie zasoby towarzyszące w folderze *wwwroot* zostaną automatycznie dołączone do pakietu.
+
+### <a name="exclude-static-assets"></a>Wyklucz zasoby statyczne
+
+Aby wykluczyć statyczne elementy zawartości, Dodaj żądaną ścieżkę wykluczenia do `$(DefaultItemExcludes)` grupy właściwości w pliku projektu. Oddzielaj wpisy średnikami (`;`).
+
+W poniższym przykładzie arkusz stylów *lib. css* w folderze *wwwroot* nie jest traktowany jako statyczny zasób i nie jest uwzględniony w opublikowanym RCL:
+
+```xml
+<PropertyGroup>
+  <DefaultItemExcludes>$(DefaultItemExcludes);wwwroot\lib.css</DefaultItemExcludes>
+</PropertyGroup>
+```
+
+### <a name="typescript-integration"></a>Integracja języka TypeScript
+
+Aby dołączyć pliki TypeScript do RCL:
+
+1. Umieść pliki TypeScript ( *. TS*) poza folderem *wwwroot* . Na przykład Umieść pliki w folderze *Client* .
+
+1. Skonfiguruj dane wyjściowe kompilacji TypeScript dla folderu *wwwroot* . Ustaw właściwość wewnątrz elementu `PropertyGroup` w pliku projektu: `TypescriptOutDir`
+
+   ```xml
+   <TypescriptOutDir>wwwroot</TypescriptOutDir>
+   ```
+
+1. Dołącz obiekt docelowy TypeScript jako zależność `ResolveCurrentProjectStaticWebAssets` obiektu docelowego, dodając następujący element docelowy wewnątrz `PropertyGroup` pliku projektu:
+
+   ```xml
+   <ResolveCurrentProjectStaticWebAssetsInputsDependsOn>
+     TypeScriptCompile;
+     $(ResolveCurrentProjectStaticWebAssetsInputs)
+   </ResolveCurrentProjectStaticWebAssetsInputsDependsOn>
+   ```
 
 ### <a name="consume-content-from-a-referenced-rcl"></a>Korzystanie z zawartości z RCL, do którego istnieje odwołanie
 

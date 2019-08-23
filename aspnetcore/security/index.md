@@ -1,39 +1,39 @@
 ---
-title: Przegląd zabezpieczeń platformy ASP.NET Core
-author: tdykstra
-description: Poznaj podstawowe informacje dotyczące uwierzytelniania, autoryzacji i zabezpieczeń w programie ASP.NET Core.
-ms.author: tdykstra
+title: Przegląd zabezpieczeń ASP.NET Core
+author: rick-anderson
+description: Informacje na temat uwierzytelniania, autoryzacji i podstaw zabezpieczeń w programie ASP.NET Core.
+ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: security/index
-ms.openlocfilehash: 933501411169d89c4b24edda743c47591aa7a87a
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 0f8e96fb7d5246e746b95f8907745f849de60e24
+ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64898333"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69975664"
 ---
-# <a name="overview-of-aspnet-core-security"></a>Przegląd zabezpieczeń platformy ASP.NET Core
+# <a name="overview-of-aspnet-core-security"></a>Przegląd zabezpieczeń ASP.NET Core
 
-Platforma ASP.NET Core umożliwia deweloperom łatwe konfigurowanie i zarządzanie zabezpieczeniami dla swoich aplikacji. Platforma ASP.NET Core zawiera funkcje zarządzania uwierzytelniania, autoryzacji, ochrony danych, Wymuszanie protokołu HTTPS, wpisy tajne aplikacji, ochrona przed fałszerstwem żądań ochrony i zarządzanie mechanizmu CORS. Te funkcje zabezpieczeń pozwalają na tworzenie niezawodnych, ale zabezpieczanie aplikacji platformy ASP.NET Core.
+ASP.NET Core pozwala deweloperom łatwo konfigurować zabezpieczenia dla swoich aplikacji i zarządzać nimi. ASP.NET Core zawiera funkcje zarządzania uwierzytelnianiem, autoryzacją, ochroną danych, wymuszeniem protokołu HTTPS, wpisami tajnymi aplikacji, ochroną przed fałszowaniem żądań i zarządzaniem CORS. Te funkcje zabezpieczeń umożliwiają tworzenie niezawodnych, jeszcze bezpiecznych aplikacji ASP.NET Core.
 
-## <a name="aspnet-core-security-features"></a>Funkcje zabezpieczeń platformy ASP.NET Core
+## <a name="aspnet-core-security-features"></a>ASP.NET Core funkcje zabezpieczeń
 
-Platforma ASP.NET Core udostępnia wiele narzędzi i bibliotek, aby zabezpieczyć swoje aplikacje, w tym Wbudowani dostawcy tożsamości, ale można użyć 3rd usług tożsamości innych firm, takich jak Facebook, Twitter i LinkedIn. Platforma ASP.NET Core umożliwia łatwe zarządzanie wpisy tajne aplikacji, które służą do przechowywania i korzystania z poufnych informacji bez ujawniania ich w kodzie.
+ASP.NET Core udostępnia wiele narzędzi i bibliotek do zabezpieczania aplikacji, w tym wbudowanych dostawców tożsamości, ale można korzystać z usług tożsamości innych firm, takich jak Facebook, Twitter i LinkedIn. Za pomocą ASP.NET Core można łatwo zarządzać wpisami tajnymi aplikacji, które są sposobem przechowywania i używania poufnych informacji bez konieczności ujawniania ich w kodzie.
 
-## <a name="authentication-vs-authorization"></a>Uwierzytelnianie programu vs. Autoryzacja
+## <a name="authentication-vs-authorization"></a>Uwierzytelnianie a Autoryzacja
 
-Uwierzytelnianie jest procesem, w którym użytkownik podaje poświadczenia, które następnie są porównywane te, przechowywane w systemie operacyjnym, bazy danych, aplikacji lub zasobów. Jeśli są zgodne, użytkownikom pomyślnie uwierzytelnione i można wykonać akcje, które otrzymali oni autoryzację pozwalającą, podczas procesu autoryzacji. Autoryzacja odnosi się do procesu, który określa, jakie użytkownik może wykonywać.
+Uwierzytelnianie to proces, w którym użytkownik dostarcza poświadczenia, które są porównywane z tymi przechowywanymi w systemie operacyjnym, bazie danych, aplikacji lub zasobie. Jeśli są one zgodne, użytkownicy są uwierzytelniani pomyślnie i mogą wykonywać akcje, dla których są autoryzowane, podczas procesu autoryzacji. Autoryzacja odnosi się do procesu, który określa, co użytkownik może zrobić.
 
-Innym sposobem, aby traktować uwierzytelniania jest należy wziąć pod uwagę jako sposób wprowadź spację, np. serwera, bazy danych, aplikacji lub zasobów, podczas gdy autoryzacja to akcje, które może wykonywać użytkownik, do których obiektów wewnątrz tego miejsca (serwer, baza danych lub aplikacji).
+Innym sposobem na wystawienie uwierzytelniania jest rozważenie go w celu wprowadzenia miejsca, takiego jak serwer, baza danych, aplikacja lub zasób, podczas gdy autoryzacja to akcje, które użytkownik może wykonywać, do których obiektów w tym miejscu (serwer, baza danych lub aplikacja).
 
-## <a name="common-vulnerabilities-in-software"></a>Typowe luk w zabezpieczeniach oprogramowania
+## <a name="common-vulnerabilities-in-software"></a>Typowe luki w zabezpieczeniach oprogramowania
 
-Platforma ASP.NET Core i programem EF zawiera funkcje, które ułatwiają zabezpieczanie aplikacji i zapobieganie naruszeniom bezpieczeństwa. Poniższa lista łącza spowoduje przejście do dokumentacji techniki takimi szczegółami, jak uniknąć typowych luk w zabezpieczeniach w usłudze web apps:
+ASP.NET Core i EF zawierają funkcje, które ułatwiają Zabezpieczanie aplikacji i zapobieganie naruszeniom zabezpieczeń. Poniższa lista linków zawiera szczegółowe informacje o technikach mających na celu uniknięcie najczęstszych luk w zabezpieczeniach w usłudze Web Apps:
 
-* [Ataki z użyciem skryptów między witrynami](xref:security/cross-site-scripting)
-* [Ataki polegające na iniekcji SQL](/ef/core/querying/raw-sql)
-* [Cross-Site Request Forgery (CSRF)](xref:security/anti-request-forgery)
-* [Atakom na otwarte przekierowywanie](xref:security/preventing-open-redirects)
+* [Ataki skryptów między lokacjami](xref:security/cross-site-scripting)
+* [Ataki iniekcji SQL](/ef/core/querying/raw-sql)
+* [Fałszerstwo żądania między lokacjami (CSRF)](xref:security/anti-request-forgery)
+* [Otwarte ataki przekierowania](xref:security/preventing-open-redirects)
 
-Ma więcej luk w zabezpieczeniach, które należy wiedzieć. Aby uzyskać więcej informacji, zobacz artykuły w **zabezpieczenia i tożsamość** części spisu treści.
+Istnieje więcej luk w zabezpieczeniach. Aby uzyskać więcej informacji, zapoznaj się z innymi artykułami w sekcji **zabezpieczenia i tożsamość** spisu treści.

@@ -5,14 +5,14 @@ description: Dowiedz się, jak debugować aplikacje Blazor.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/31/2019
+ms.date: 08/22/2019
 uid: blazor/debug
-ms.openlocfilehash: 37c6009727a4f62b61793adca0d83cdd53be4b9a
-ms.sourcegitcommit: 3204bc89ae6354b61ee0a9b2770ebe5214b7790c
+ms.openlocfilehash: c3188a1fe1b699b787f7a95630f3918d295d0f68
+ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707808"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69974910"
 ---
 # <a name="debug-aspnet-core-blazor"></a>Debuguj ASP.NET Core Blazor
 
@@ -51,6 +51,10 @@ Debugowanie wymaga jednej z następujących przeglądarek:
 1. Uzyskaj dostęp do aplikacji w przeglądarce.
 1. Umieść fokus klawiatury w aplikacji, a nie na panelu Narzędzia deweloperskie. Po zainicjowaniu debugowania można zamknąć panel Narzędzia deweloperskie.
 1. Wybierz następujący skrót klawiaturowy dotyczący Blazor:
+   * `Shift+Alt+D`w systemie Windows/Linux
+   * `Shift+Cmd+D`na macOS
+1. Postępuj zgodnie z instrukcjami wyświetlanymi na ekranie, aby ponownie uruchomić przeglądarkę z włączonym debugowaniem zdalnym.
+1. Ponownie wybierz następujący skrót klawiaturowy dotyczący Blazor, aby rozpocząć sesję debugowania:
    * `Shift+Alt+D`w systemie Windows/Linux
    * `Shift+Cmd+D`na macOS
 

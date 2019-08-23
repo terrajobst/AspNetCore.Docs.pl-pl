@@ -3,16 +3,16 @@ title: Rejestrowanie w programie .NET Core i ASP.NET Core
 author: tdykstra
 description: Dowiedz się, jak używać struktury rejestrowania dostarczonej przez pakiet NuGet Microsoft. Extensions. Logging.
 monikerRange: '>= aspnetcore-2.1'
-ms.author: tdykstra
+ms.author: riande
 ms.custom: mvc
 ms.date: 07/11/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: 4e2aa1e18c3e3119e22452d5ca9b838581efbfd8
-ms.sourcegitcommit: f5f0ff65d4e2a961939762fb00e654491a2c772a
+ms.openlocfilehash: 21e7ee144bdf0355cac8bd8a7706f100c15342da
+ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "68994099"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69975507"
 ---
 # <a name="logging-in-net-core-and-aspnet-core"></a>Rejestrowanie w programie .NET Core i ASP.NET Core
 
@@ -392,7 +392,7 @@ ASP.NET Core definiuje następujące poziomy dziennika uporządkowane w tym miej
 
   Dla niepowodzeń, które wymagają natychmiastowej uwagi. Przykłady: scenariusze utraty danych, brak miejsca na dysku.
 
-Poziom dziennika służy do kontrolowania, ile danych wyjściowych dziennika jest zapisywana w określonym nośniku lub oknie wyświetlania. Na przykład:
+Poziom dziennika służy do kontrolowania, ile danych wyjściowych dziennika jest zapisywana w określonym nośniku lub oknie wyświetlania. Przykład:
 
 * W obszarze produkcja, `Trace` Wyślij `Information` przez poziom do magazynu danych woluminu. Wyślij `Warning`domagazynudanych wartości.`Critical`
 * `Warning` Podczas tworzenia, wysyłaj `Critical` do `Trace` konsoli i dodawaj podczas rozwiązywania problemów. `Information`

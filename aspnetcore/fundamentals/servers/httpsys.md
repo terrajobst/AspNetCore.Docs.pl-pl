@@ -1,65 +1,65 @@
 ---
-title: Implementacja serwera sieci web HTTP.sys, w programie ASP.NET Core
+title: Implementacja serwera sieci Web HTTP. sys w ASP.NET Core
 author: guardrex
-description: Więcej informacji na temat HTTP.sys, serwer sieci web platformy ASP.NET Core na Windows. Oparta na sterownik trybu jądra HTTP.sys, sterownik HTTP.sys stanowi alternatywę Kestrel, który może służyć do bezpośredniego połączenia z Internetu bez usług IIS.
+description: Informacje o pliku HTTP. sys, serwerze sieci Web dla ASP.NET Core w systemie Windows. W oparciu o sterownik trybu jądra HTTP. sys, HTTP. sys jest alternatywą dla Kestrel, która może być używana do bezpośredniego połączenia z Internetem bez usług IIS.
 monikerRange: '>= aspnetcore-2.1'
-ms.author: tdykstra
+ms.author: riande
 ms.custom: mvc
 ms.date: 06/20/2019
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: 3f48cda8f89d3f3dcce220cad4e405472b510df4
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: 5ee866c862f16c2c22539bf880b5a93415504fb1
+ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67814877"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69975516"
 ---
-# <a name="httpsys-web-server-implementation-in-aspnet-core"></a>Implementacja serwera sieci web HTTP.sys, w programie ASP.NET Core
+# <a name="httpsys-web-server-implementation-in-aspnet-core"></a>Implementacja serwera sieci Web HTTP. sys w ASP.NET Core
 
-Przez [Tom Dykstra](https://github.com/tdykstra), [Chris Ross](https://github.com/Tratcher), i [Luke Latham](https://github.com/guardrex)
+Autorzy [Dykstra](https://github.com/tdykstra), [Krzysztof Ross](https://github.com/Tratcher)i [Luke Latham](https://github.com/guardrex)
 
-[Sterownik HTTP.sys](/iis/get-started/introduction-to-iis/introduction-to-iis-architecture#hypertext-transfer-protocol-stack-httpsys) jest [serwera sieci web dla platformy ASP.NET Core](xref:fundamentals/servers/index) uruchomioną w Windows. Sterownik HTTP.sys stanowi alternatywę [Kestrel](xref:fundamentals/servers/kestrel) serwera i ofert, niektóre funkcje, że nie zapewnia Kestrel.
+[Http. sys](/iis/get-started/introduction-to-iis/introduction-to-iis-architecture#hypertext-transfer-protocol-stack-httpsys) to [serwer sieci Web dla ASP.NET Core](xref:fundamentals/servers/index) , który działa tylko w systemie Windows. HTTP. sys jest alternatywą dla [Kestrel](xref:fundamentals/servers/kestrel) Server i oferuje pewne funkcje, które nie są Kestrel.
 
 > [!IMPORTANT]
-> Sterownik HTTP.sys nie jest zgodny z [modułu ASP.NET Core](xref:host-and-deploy/aspnet-core-module) i nie można używać z usług IIS lub IIS Express.
+> Protokół HTTP. sys nie jest zgodny z [modułem ASP.NET Core](xref:host-and-deploy/aspnet-core-module) i nie można go używać z usługami IIS ani IIS Express.
 
-Sterownik HTTP.sys obsługuje następujące funkcje:
+W przypadku protokołu HTTP. sys obsługiwane są następujące funkcje:
 
-* [Uwierzytelnianie Windows](xref:security/authentication/windowsauth)
-* Współużytkowanie portów
-* Protokołu HTTPS z SNI
-* Protokołu HTTP/2 za pośrednictwem protokołu TLS (system Windows 10 lub nowsza wersja)
-* Przekazywanie pliku bezpośrednie
+* [Uwierzytelnianie systemu Windows](xref:security/authentication/windowsauth)
+* Udostępnianie portów
+* HTTPS z SNI
+* HTTP/2 za pośrednictwem protokołu TLS (system Windows 10 lub nowszy)
+* Bezpośrednia transmisja plików
 * Buforowanie odpowiedzi
-* Gniazda Websocket (system Windows 8 lub nowszy)
+* Obiekty WebSockets (system Windows 8 lub nowszy)
 
-Obsługiwane wersje Windows:
+Obsługiwane wersje systemu Windows:
 
 * Windows 7 lub nowszy
 * Windows Server 2008 R2 lub nowszy
 
 [Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/httpsys/sample) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
-## <a name="when-to-use-httpsys"></a>Kiedy należy używać HTTP.sys
+## <a name="when-to-use-httpsys"></a>Kiedy używać protokołu HTTP. sys
 
-Sterownik HTTP.sys jest przydatne w przypadku wdrożeń gdzie:
+Metoda HTTP. sys jest przydatna w przypadku wdrożeń, w których:
 
-* Istnieje potrzeba, aby uwidocznić server bezpośrednio do Internetu bez korzystania z usług IIS.
+* Istnieje potrzeba bezpośredniego udostępnienia serwera w Internecie bez korzystania z usług IIS.
 
-  ![Sterownik HTTP.sys komunikuje się bezpośrednio z Internetu](httpsys/_static/httpsys-to-internet.png)
+  ![Protokół HTTP. sys komunikuje się bezpośrednio z Internetem](httpsys/_static/httpsys-to-internet.png)
 
-* Wewnętrznego wdrażania wymaga funkcji nie jest dostępna w Kestrel, takich jak [uwierzytelniania Windows](xref:security/authentication/windowsauth).
+* Wdrożenie wewnętrzne wymaga, aby funkcja była niedostępna w Kestrel, taka jak [uwierzytelnianie systemu Windows](xref:security/authentication/windowsauth).
 
-  ![Sterownik HTTP.sys komunikuje się bezpośrednio z siecią wewnętrzną](httpsys/_static/httpsys-to-internal.png)
+  ![Protokół HTTP. sys komunikuje się bezpośrednio z siecią wewnętrzną](httpsys/_static/httpsys-to-internal.png)
 
-Sterownik HTTP.sys to dojrzała technologia, która chroni przed wiele rodzajów ataków i udostępnia niezawodności, bezpieczeństwa i skalowalności serwera sieci web w pełni funkcjonalne. SAM działa jako odbiornik HTTP w pliku HTTP.sys.
+HTTP. sys jest doskonałym technologią chroniącą przed wieloma typami ataków i zapewnia niezawodność, bezpieczeństwo i skalowalność w pełni funkcjonalny serwer sieci Web. Usługi IIS działają jako odbiornik HTTP na serwerze HTTP. sys.
 
 ## <a name="http2-support"></a>Obsługa protokołu HTTP/2
 
-[Protokołu HTTP/2](https://httpwg.org/specs/rfc7540.html) jest włączone dla aplikacji platformy ASP.NET Core, jeśli następujące podstawowa wymagania zostały spełnione:
+[Protokół HTTP/2](https://httpwg.org/specs/rfc7540.html) jest włączony dla aplikacji ASP.NET Core, jeśli spełnione są następujące wymagania podstawowe:
 
-* Windows Server 2016 i Windows 10 lub nowszym
-* [Negocjowania protokołu warstwy aplikacji (ALPN)](https://tools.ietf.org/html/rfc7301#section-3) połączenia
+* Windows Server 2016/Windows 10 lub nowszy
+* Połączenie [negocjowania protokołu warstwy aplikacji (ClientHello alpn)](https://tools.ietf.org/html/rfc7301#section-3)
 * Protokół TLS 1.2 lub nowszej połączenia
 
 ::: moniker range=">= aspnetcore-2.2"
@@ -74,19 +74,19 @@ Jeśli zostanie nawiązane połączenie HTTP/2, [HttpRequest.Protocol](xref:Micr
 
 ::: moniker-end
 
-Protokołu HTTP/2 jest domyślnie włączona. Jeśli nie jest nawiązane połączenie HTTP/2, połączenie jest powraca do protokołu HTTP/1.1. W przyszłej wersji systemu Windows flagi konfiguracji protokołu HTTP/2 będą dostępne, w tym możliwość wyłączenia protokołu HTTP/2 w pliku HTTP.sys.
+Protokołu HTTP/2 jest domyślnie włączona. Jeśli połączenie HTTP/2 nie zostało ustanowione, połączenie powraca do protokołu HTTP/1.1. W przyszłych wydaniach systemu Windows są dostępne flagi konfiguracji protokołu HTTP/2, w tym możliwość wyłączenia protokołu HTTP/2 przy użyciu protokołu HTTP. sys.
 
-## <a name="kernel-mode-authentication-with-kerberos"></a>Uwierzytelnianie trybu jądra przy użyciu protokołu Kerberos
+## <a name="kernel-mode-authentication-with-kerberos"></a>Uwierzytelnianie w trybie jądra przy użyciu protokołu Kerberos
 
 Sterownik HTTP.sys delegatów, aby uwierzytelnianie trybu jądra za pomocą protokołu uwierzytelniania Kerberos. Uwierzytelnianie w trybie użytkownika nie jest obsługiwana przy użyciu protokołu Kerberos i sterownik HTTP.sys. Konto komputera należy używany do odszyfrowywania tokenu/biletu Kerberos uzyskany z usługi Active Directory i przesyłany dalej przez klienta do serwera w celu uwierzytelnienia użytkownika. Rejestrowanie głównej nazwy usługi (SPN) dla hosta, a nie użytkownika aplikacji.
 
-## <a name="how-to-use-httpsys"></a>Jak używać HTTP.sys
+## <a name="how-to-use-httpsys"></a>Jak używać protokołu HTTP. sys
 
-### <a name="configure-the-aspnet-core-app-to-use-httpsys"></a>Konfigurowanie aplikacji platformy ASP.NET Core do użycia w pliku HTTP.sys
+### <a name="configure-the-aspnet-core-app-to-use-httpsys"></a>Skonfiguruj aplikację ASP.NET Core do korzystania z protokołu HTTP. sys
 
-1. Odwołania do pakietu w pliku projektu nie jest wymagana, gdy za pomocą [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) ([nuget.org](https://www.nuget.org/packages/Microsoft.AspNetCore.App/)) (platformy ASP.NET Core 2.1 lub nowszej). Bez korzystania z `Microsoft.AspNetCore.App` meta Microsoft.aspnetcore.all, Dodaj odwołanie do pakietu [Microsoft.AspNetCore.Server.HttpSys](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.HttpSys/).
+1. Odwołanie do pakietu w pliku projektu nie jest wymagane, gdy jest używany [pakiet Microsoft. AspNetCore. appbinding](xref:fundamentals/metapackage-app) ([nuget.org](https://www.nuget.org/packages/Microsoft.AspNetCore.App/)) (ASP.NET Core 2,1 lub nowszy). Gdy nie korzystasz `Microsoft.AspNetCore.App` z pakietu, Dodaj odwołanie do pakietu do [Microsoft. AspNetCore. Server. HttpSys](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.HttpSys/).
 
-2. Wywołaj <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderHttpSysExtensions.UseHttpSys*> — metoda rozszerzenia podczas tworzenia hosta, określając wymagane <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions>. W poniższym przykładzie ustawiono opcje do wartości domyślnych:
+2. Wywołaj metodę <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions> rozszerzającąpodczaskompilowaniahosta,<xref:Microsoft.AspNetCore.Hosting.WebHostBuilderHttpSysExtensions.UseHttpSys*> określając wszystkie wymagane. Poniższy przykład ustawia wartości domyślne dla opcji:
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -113,25 +113,25 @@ Sterownik HTTP.sys delegatów, aby uwierzytelnianie trybu jądra za pomocą prot
 
 ::: moniker-end
 
-   Dodatkowa konfiguracja HTTP.sys odbywa się za pośrednictwem [ustawień rejestru](https://support.microsoft.com/help/820129/http-sys-registry-settings-for-windows).
+   Dodatkowa konfiguracja protokołu HTTP. sys jest obsługiwana za pośrednictwem [ustawień rejestru](https://support.microsoft.com/help/820129/http-sys-registry-settings-for-windows).
 
-   **Opcje HTTP.sys**
+   **Opcje HTTP. sys**
 
 ::: moniker range=">= aspnetcore-3.0"
 
    | Właściwość | Opis | Domyślny |
    | -------- | ----------- | :-----: |
-   | [AllowSynchronousIO](xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.AllowSynchronousIO) | Kontrolowanie, czy synchroniczna wejścia/wyjścia jest dozwolone dla `HttpContext.Request.Body` i `HttpContext.Response.Body`. | `false` |
-   | [Authentication.AllowAnonymous](xref:Microsoft.AspNetCore.Server.HttpSys.AuthenticationManager.AllowAnonymous) | Zezwalaj na anonimowe żądania. | `true` |
-   | [Authentication.Schemes](xref:Microsoft.AspNetCore.Server.HttpSys.AuthenticationManager.Schemes) | Umożliwia określenie schematów uwierzytelniania dozwolone. Może być modyfikowany w dowolnym momencie przed disposing odbiornika. Wartości są dostarczane przez [wyliczenia AuthenticationSchemes](xref:Microsoft.AspNetCore.Server.HttpSys.AuthenticationSchemes): `Basic`, `Kerberos`, `Negotiate`, `None`, i `NTLM`. | `None` |
-   | [EnableResponseCaching](xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.EnableResponseCaching) | Próba [trybu jądra](/windows-hardware/drivers/gettingstarted/user-mode-and-kernel-mode) buforowanie odpowiedzi z kwalifikujących się nagłówków. Odpowiedź nie może zawierać `Set-Cookie`, `Vary`, lub `Pragma` nagłówków. Musi on zawierać `Cache-Control` nagłówka to `public` i `shared-max-age` lub `max-age` wartość lub `Expires` nagłówka. | `true` |
-   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.MaxAccepts> | Maksymalna liczba współbieżnych akceptuje. | 5 &times; [środowiska.<br> ProcessorCount](xref:System.Environment.ProcessorCount) |
-   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.MaxConnections> | Maksymalna liczba jednoczesnych połączeń, aby zaakceptować. Użyj `-1` = nieskończoność. Użyj `null` używać ustawienia komputera. | `null`<br>(unlimited) |
-   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.MaxRequestBodySize> | Zobacz <a href="#maxrequestbodysize">MaxRequestBodySize</a> sekcji. | Bajty 30000000<br>(~28.6 MB) |
+   | [AllowSynchronousIO](xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.AllowSynchronousIO) | Określ, `HttpContext.Request.Body` czy synchroniczne dane wejściowe/wyjściowe są dozwolone dla `HttpContext.Response.Body`i. | `false` |
+   | [Authentication.AllowAnonymous](xref:Microsoft.AspNetCore.Server.HttpSys.AuthenticationManager.AllowAnonymous) | Zezwalaj na żądania anonimowe. | `true` |
+   | [Uwierzytelnianie. schematy](xref:Microsoft.AspNetCore.Server.HttpSys.AuthenticationManager.Schemes) | Określ dozwolone schematy uwierzytelniania. Można je zmodyfikować w dowolnym momencie przed wyjęciem odbiornika. Wartości są dostarczane przez [Wyliczenie AuthenticationSchemes](xref:Microsoft.AspNetCore.Server.HttpSys.AuthenticationSchemes): `Basic` `Kerberos`,, `Negotiate` `None`, i `NTLM`. | `None` |
+   | [EnableResponseCaching](xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.EnableResponseCaching) | Próba buforowania [trybu jądra](/windows-hardware/drivers/gettingstarted/user-mode-and-kernel-mode) dla odpowiedzi z uprawnionymi nagłówkami. Odpowiedź nie może zawierać `Set-Cookie`nagłówków, `Vary`, ani. `Pragma` Musi `Cache-Control` zawierać nagłówek, który jest `public` , a `shared-max-age` lub `max-age` `Expires` albo lub. | `true` |
+   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.MaxAccepts> | Maksymalna liczba współbieżnych akceptacji. | 5 &times; [środowisko.<br> ProcessorCount](xref:System.Environment.ProcessorCount) |
+   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.MaxConnections> | Maksymalna liczba jednoczesnych połączeń do zaakceptowania. Użyj `-1` do nieskończoności. Użyj `null` , aby użyć ustawienia dla całego komputera w rejestrze. | `null`<br>(unlimited) |
+   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.MaxRequestBodySize> | Zobacz sekcję <a href="#maxrequestbodysize">MaxRequestBodySize</a> . | 30000000 bajtów<br>(~ 28,6 MB) |
    | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.RequestQueueLimit> | Maksymalna liczba żądań, które można umieścić w kolejce. | 1000 |
-   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.ThrowWriteExceptions> | Wskazuje, jeśli operacji zapisu treści odpowiedzi, które rozłączy się niepowodzeniem z powodu klienta należy zgłaszać wyjątki lub zakończone normalnie. | `false`<br>(zazwyczaj zakończenie) |
-   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.Timeouts> | Udostępnianie HTTP.sys <xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager> konfiguracji, która może być również konfigurowane w rejestrze. Skorzystaj z linków interfejsu API, aby dowiedzieć się więcej na temat każdego ustawienia, w tym wartości domyślne:<ul><li>[TimeoutManager.DrainEntityBody](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.DrainEntityBody) &ndash; czasu dozwolony dla interfejsu API serwera HTTP opróżnić treści jednostki połączenia Keep-Alive.</li><li>[TimeoutManager.EntityBody](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.EntityBody) &ndash; czasu dozwolony dla treści jednostki żądania dostarczenie.</li><li>[TimeoutManager.HeaderWait](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.HeaderWait) &ndash; czasu dozwolony dla interfejsu API serwera HTTP, można przeanalizować żądanego nagłówka.</li><li>[TimeoutManager.IdleConnection](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.IdleConnection) &ndash; czasu dozwolony dla bezczynnego połączenia.</li><li>[TimeoutManager.MinSendBytesPerSecond](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.MinSendBytesPerSecond) &ndash; minimum Wyślij szybkości odpowiedzi na.</li><li>[TimeoutManager.RequestQueue](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.RequestQueue) &ndash; czas przeznaczony na żądanie pozostawać w kolejce żądań, zanim go przejmuje przez aplikację.</li></ul> |  |
-   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.UrlPrefixes> | Określ <xref:Microsoft.AspNetCore.Server.HttpSys.UrlPrefixCollection> do rejestrowania w pliku HTTP.sys. Najbardziej przydatna jest [UrlPrefixCollection.Add](xref:Microsoft.AspNetCore.Server.HttpSys.UrlPrefixCollection.Add*), która umożliwia Dodaj prefiks do kolekcji. Te mogą zostać zmienione w dowolnym momencie przed disposing odbiornika. |  |
+   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.ThrowWriteExceptions> | Wskaż, czy zapisy treści odpowiedzi nie powiodą się, ponieważ rozłączenia klienta nie powiedzie się, jeśli wyjątki lub są normalnie kompletne. | `false`<br>(normalne zakończenie) |
+   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.Timeouts> | Uwidocznić konfigurację http. <xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager> sys, która może być również skonfigurowana w rejestrze. Postępuj zgodnie z linkami interfejsu API, aby dowiedzieć się więcej na temat każdego ustawienia, w tym wartości domyślnych:<ul><li>Czas wygaśnięcia elementumanager [. DrainEntityBody](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.DrainEntityBody) &ndash; dla interfejsu API serwera HTTP do opróżniania treści jednostki przy użyciu połączenia Keep-Alive.</li><li>[Limit czasu elementumanager. EntityBody](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.EntityBody) &ndash; dozwolony dla treści jednostki żądania.</li><li>[Limit czasumanager. HeaderWait](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.HeaderWait) &ndash; dozwolony dla interfejsu API serwera http, aby przeanalizować nagłówek żądania.</li><li>[Limit czasu IdleConnection](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.IdleConnection) &ndash; . czas dozwolony dla połączenia bezczynnego.</li><li>[Limit czasumanager. MinSendBytesPerSecond](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.MinSendBytesPerSecond) &ndash; minimalną szybkość wysyłania odpowiedzi.</li><li>[Upłynął czas oczekiwania elementumanager. RequestQueue](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.RequestQueue) &ndash; , aby żądanie pozostało w kolejce żądań przed jego usunięciem.</li></ul> |  |
+   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.UrlPrefixes> | Określ, <xref:Microsoft.AspNetCore.Server.HttpSys.UrlPrefixCollection> aby zarejestrować się w pliku http. sys. Najbardziej przydatne jest [UrlPrefixCollection. Add](xref:Microsoft.AspNetCore.Server.HttpSys.UrlPrefixCollection.Add*), który służy do dodawania prefiksu do kolekcji. Można je zmodyfikować w dowolnym momencie przed wyjęciem odbiornika. |  |
 
 ::: moniker-end
 
@@ -139,17 +139,17 @@ Sterownik HTTP.sys delegatów, aby uwierzytelnianie trybu jądra za pomocą prot
 
    | Właściwość | Opis | Domyślny |
    | -------- | ----------- | :-----: |
-   | [AllowSynchronousIO](xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.AllowSynchronousIO) | Kontrolowanie, czy synchroniczna wejścia/wyjścia jest dozwolone dla `HttpContext.Request.Body` i `HttpContext.Response.Body`. | `true` |
-   | [Authentication.AllowAnonymous](xref:Microsoft.AspNetCore.Server.HttpSys.AuthenticationManager.AllowAnonymous) | Zezwalaj na anonimowe żądania. | `true` |
-   | [Authentication.Schemes](xref:Microsoft.AspNetCore.Server.HttpSys.AuthenticationManager.Schemes) | Umożliwia określenie schematów uwierzytelniania dozwolone. Może być modyfikowany w dowolnym momencie przed disposing odbiornika. Wartości są dostarczane przez [wyliczenia AuthenticationSchemes](xref:Microsoft.AspNetCore.Server.HttpSys.AuthenticationSchemes): `Basic`, `Kerberos`, `Negotiate`, `None`, i `NTLM`. | `None` |
-   | [EnableResponseCaching](xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.EnableResponseCaching) | Próba [trybu jądra](/windows-hardware/drivers/gettingstarted/user-mode-and-kernel-mode) buforowanie odpowiedzi z kwalifikujących się nagłówków. Odpowiedź nie może zawierać `Set-Cookie`, `Vary`, lub `Pragma` nagłówków. Musi on zawierać `Cache-Control` nagłówka to `public` i `shared-max-age` lub `max-age` wartość lub `Expires` nagłówka. | `true` |
-   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.MaxAccepts> | Maksymalna liczba współbieżnych akceptuje. | 5 &times; [środowiska.<br> ProcessorCount](xref:System.Environment.ProcessorCount) |
-   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.MaxConnections> | Maksymalna liczba jednoczesnych połączeń, aby zaakceptować. Użyj `-1` = nieskończoność. Użyj `null` używać ustawienia komputera. | `null`<br>(unlimited) |
-   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.MaxRequestBodySize> | Zobacz <a href="#maxrequestbodysize">MaxRequestBodySize</a> sekcji. | Bajty 30000000<br>(~28.6 MB) |
+   | [AllowSynchronousIO](xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.AllowSynchronousIO) | Określ, `HttpContext.Request.Body` czy synchroniczne dane wejściowe/wyjściowe są dozwolone dla `HttpContext.Response.Body`i. | `true` |
+   | [Authentication.AllowAnonymous](xref:Microsoft.AspNetCore.Server.HttpSys.AuthenticationManager.AllowAnonymous) | Zezwalaj na żądania anonimowe. | `true` |
+   | [Uwierzytelnianie. schematy](xref:Microsoft.AspNetCore.Server.HttpSys.AuthenticationManager.Schemes) | Określ dozwolone schematy uwierzytelniania. Można je zmodyfikować w dowolnym momencie przed wyjęciem odbiornika. Wartości są dostarczane przez [Wyliczenie AuthenticationSchemes](xref:Microsoft.AspNetCore.Server.HttpSys.AuthenticationSchemes): `Basic` `Kerberos`,, `Negotiate` `None`, i `NTLM`. | `None` |
+   | [EnableResponseCaching](xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.EnableResponseCaching) | Próba buforowania [trybu jądra](/windows-hardware/drivers/gettingstarted/user-mode-and-kernel-mode) dla odpowiedzi z uprawnionymi nagłówkami. Odpowiedź nie może zawierać `Set-Cookie`nagłówków, `Vary`, ani. `Pragma` Musi `Cache-Control` zawierać nagłówek, który jest `public` , a `shared-max-age` lub `max-age` `Expires` albo lub. | `true` |
+   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.MaxAccepts> | Maksymalna liczba współbieżnych akceptacji. | 5 &times; [środowisko.<br> ProcessorCount](xref:System.Environment.ProcessorCount) |
+   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.MaxConnections> | Maksymalna liczba jednoczesnych połączeń do zaakceptowania. Użyj `-1` do nieskończoności. Użyj `null` , aby użyć ustawienia dla całego komputera w rejestrze. | `null`<br>(unlimited) |
+   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.MaxRequestBodySize> | Zobacz sekcję <a href="#maxrequestbodysize">MaxRequestBodySize</a> . | 30000000 bajtów<br>(~ 28,6 MB) |
    | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.RequestQueueLimit> | Maksymalna liczba żądań, które można umieścić w kolejce. | 1000 |
-   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.ThrowWriteExceptions> | Wskazuje, jeśli operacji zapisu treści odpowiedzi, które rozłączy się niepowodzeniem z powodu klienta należy zgłaszać wyjątki lub zakończone normalnie. | `false`<br>(zazwyczaj zakończenie) |
-   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.Timeouts> | Udostępnianie HTTP.sys <xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager> konfiguracji, która może być również konfigurowane w rejestrze. Skorzystaj z linków interfejsu API, aby dowiedzieć się więcej na temat każdego ustawienia, w tym wartości domyślne:<ul><li>[TimeoutManager.DrainEntityBody](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.DrainEntityBody) &ndash; czasu dozwolony dla interfejsu API serwera HTTP opróżnić treści jednostki połączenia Keep-Alive.</li><li>[TimeoutManager.EntityBody](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.EntityBody) &ndash; czasu dozwolony dla treści jednostki żądania dostarczenie.</li><li>[TimeoutManager.HeaderWait](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.HeaderWait) &ndash; czasu dozwolony dla interfejsu API serwera HTTP, można przeanalizować żądanego nagłówka.</li><li>[TimeoutManager.IdleConnection](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.IdleConnection) &ndash; czasu dozwolony dla bezczynnego połączenia.</li><li>[TimeoutManager.MinSendBytesPerSecond](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.MinSendBytesPerSecond) &ndash; minimum Wyślij szybkości odpowiedzi na.</li><li>[TimeoutManager.RequestQueue](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.RequestQueue) &ndash; czas przeznaczony na żądanie pozostawać w kolejce żądań, zanim go przejmuje przez aplikację.</li></ul> |  |
-   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.UrlPrefixes> | Określ <xref:Microsoft.AspNetCore.Server.HttpSys.UrlPrefixCollection> do rejestrowania w pliku HTTP.sys. Najbardziej przydatna jest [UrlPrefixCollection.Add](xref:Microsoft.AspNetCore.Server.HttpSys.UrlPrefixCollection.Add*), która umożliwia Dodaj prefiks do kolekcji. Te mogą zostać zmienione w dowolnym momencie przed disposing odbiornika. |  |
+   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.ThrowWriteExceptions> | Wskaż, czy zapisy treści odpowiedzi nie powiodą się, ponieważ rozłączenia klienta nie powiedzie się, jeśli wyjątki lub są normalnie kompletne. | `false`<br>(normalne zakończenie) |
+   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.Timeouts> | Uwidocznić konfigurację http. <xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager> sys, która może być również skonfigurowana w rejestrze. Postępuj zgodnie z linkami interfejsu API, aby dowiedzieć się więcej na temat każdego ustawienia, w tym wartości domyślnych:<ul><li>Czas wygaśnięcia elementumanager [. DrainEntityBody](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.DrainEntityBody) &ndash; dla interfejsu API serwera HTTP do opróżniania treści jednostki przy użyciu połączenia Keep-Alive.</li><li>[Limit czasu elementumanager. EntityBody](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.EntityBody) &ndash; dozwolony dla treści jednostki żądania.</li><li>[Limit czasumanager. HeaderWait](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.HeaderWait) &ndash; dozwolony dla interfejsu API serwera http, aby przeanalizować nagłówek żądania.</li><li>[Limit czasu IdleConnection](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.IdleConnection) &ndash; . czas dozwolony dla połączenia bezczynnego.</li><li>[Limit czasumanager. MinSendBytesPerSecond](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.MinSendBytesPerSecond) &ndash; minimalną szybkość wysyłania odpowiedzi.</li><li>[Upłynął czas oczekiwania elementumanager. RequestQueue](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.RequestQueue) &ndash; , aby żądanie pozostało w kolejce żądań przed jego usunięciem.</li></ul> |  |
+   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.UrlPrefixes> | Określ, <xref:Microsoft.AspNetCore.Server.HttpSys.UrlPrefixCollection> aby zarejestrować się w pliku http. sys. Najbardziej przydatne jest [UrlPrefixCollection. Add](xref:Microsoft.AspNetCore.Server.HttpSys.UrlPrefixCollection.Add*), który służy do dodawania prefiksu do kolekcji. Można je zmodyfikować w dowolnym momencie przed wyjęciem odbiornika. |  |
 
 ::: moniker-end
 
@@ -157,117 +157,117 @@ Sterownik HTTP.sys delegatów, aby uwierzytelnianie trybu jądra za pomocą prot
 
    **MaxRequestBodySize**
 
-   Maksymalny dozwolony rozmiar wszelkie treści żądania, w bajtach. Po ustawieniu `null`, żądanie maksymalny rozmiar treści jest nieograniczona. To ograniczenie nie ma wpływu na uaktualnionym połączeń, które zawsze są nieograniczone.
+   Maksymalny dozwolony rozmiar dowolnej treści żądania w bajtach. W przypadku ustawienia `null`wartości Maksymalna wielkość treści żądania jest nieograniczona. Ten limit nie ma wpływu na uaktualnione połączenia, które są zawsze nieograniczone.
 
-   Zalecaną metodą do zastąpienia limitu w aplikacji ASP.NET Core MVC dla pojedynczego `IActionResult` jest użycie <xref:Microsoft.AspNetCore.Mvc.RequestSizeLimitAttribute> atrybutu metody akcji:
+   Zalecaną metodą przesłonięcia limitu w aplikacji ASP.NET Core MVC dla pojedynczej `IActionResult` jest <xref:Microsoft.AspNetCore.Mvc.RequestSizeLimitAttribute> użycie atrybutu dla metody akcji:
 
    ```csharp
    [RequestSizeLimit(100000000)]
    public IActionResult MyActionMethod()
    ```
 
-   Wyjątek jest generowany, jeśli aplikacja próbuje skonfigurować limit na żądanie, po uruchomieniu aplikacji odczytu żądania. `IsReadOnly` Właściwość może służyć do wskazania, jeśli `MaxRequestBodySize` właściwość jest w stanie tylko do odczytu, co oznacza, jest za późno, aby skonfigurować limit.
+   Wyjątek jest zgłaszany, jeśli aplikacja próbuje skonfigurować limit żądania po rozpoczęciu odczytywania żądania przez aplikację. Właściwość może służyć do wskazywania, `MaxRequestBodySize` czy właściwość jest w stanie tylko do odczytu, co oznacza, że jest zbyt późno, aby skonfigurować limit. `IsReadOnly`
 
-   Jeśli aplikacja powinien przesłonić <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.MaxRequestBodySize> żądań, należy użyć <xref:Microsoft.AspNetCore.Http.Features.IHttpMaxRequestBodySizeFeature>:
+   Jeśli aplikacja powinna przesłonić <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.MaxRequestBodySize> żądanie, <xref:Microsoft.AspNetCore.Http.Features.IHttpMaxRequestBodySizeFeature>Użyj:
 
    [!code-csharp[](httpsys/sample/Startup.cs?name=snippet1&highlight=6-7)]
 
-3. Jeśli używasz programu Visual Studio, upewnij się, że aplikacja nie jest skonfigurowana do uruchamiania usług IIS lub IIS Express.
+3. Jeśli używasz programu Visual Studio, upewnij się, że aplikacja nie jest skonfigurowana do uruchamiania usług IIS ani IIS Express.
 
-   W programie Visual Studio domyślnym profilem uruchamiania jest dla usług IIS Express. Aby uruchomić projekt jako aplikację konsolową, ręcznie zmienić wybranego profilu, jak pokazano na poniższym zrzucie ekranu:
+   W programie Visual Studio domyślny profil uruchamiania jest przeznaczony dla IIS Express. Aby uruchomić projekt jako aplikację konsolową, należy ręcznie zmienić wybrany profil, jak pokazano na poniższym zrzucie ekranu:
 
    ![Wybierz profil aplikacji konsoli](httpsys/_static/vs-choose-profile.png)
 
 ### <a name="configure-windows-server"></a>Konfigurowanie systemu Windows Server
 
-1. Określenia portów, aby otworzyć aplikację i używania [zapory Windows](/windows/security/threat-protection/windows-firewall/create-an-inbound-port-rule) lub [New-NetFirewallRule](/powershell/module/netsecurity/new-netfirewallrule) polecenia cmdlet programu PowerShell, aby otworzyć porty zapory muszą zezwalać na ruch do osiągnięcia HTTP.sys. W poniższych poleceń i konfiguracji aplikacji używany jest port 443.
+1. Określ porty do otwarcia dla aplikacji i Użyj [zapory systemu Windows](/windows/security/threat-protection/windows-firewall/create-an-inbound-port-rule) lub polecenia cmdlet [New-NetFirewallRule](/powershell/module/netsecurity/new-netfirewallrule) programu PowerShell, aby otworzyć porty zapory w celu zezwolenia na ruch do pliku http. sys. W poniższych poleceniach i konfiguracji aplikacji jest używany port 443.
 
-1. Podczas wdrażania aplikacji na Maszynie wirtualnej platformy Azure, należy otworzyć ruch na portach [sieciowej grupy zabezpieczeń](/azure/virtual-machines/windows/nsg-quickstart-portal). W poniższych poleceń i konfiguracji aplikacji używany jest port 443.
+1. Podczas wdrażania na maszynie wirtualnej platformy Azure Otwórz porty w [sieciowej grupie zabezpieczeń](/azure/virtual-machines/windows/nsg-quickstart-portal). W poniższych poleceniach i konfiguracji aplikacji jest używany port 443.
 
-1. Uzyskaj i zainstaluj certyfikaty X.509, jeśli jest to wymagane.
+1. Uzyskaj i zainstaluj certyfikaty X. 509, jeśli jest to wymagane.
 
-   W Windows, tworzenie certyfikatów z podpisem własnym za pomocą [polecenia cmdlet programu PowerShell New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate). Na przykład nieobsługiwany zobacz [UpdateIISExpressSSLForChrome.ps1](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/includes/make-x509-cert/UpdateIISExpressSSLForChrome.ps1).
+   W systemie Windows utwórz certyfikaty z podpisem własnym za pomocą [polecenia cmdlet New-SelfSignedCertificate programu PowerShell](/powershell/module/pkiclient/new-selfsignedcertificate). Aby zapoznać się z nieobsługiwanym przykładem, zobacz [UpdateIISExpressSSLForChrome. ps1](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/includes/make-x509-cert/UpdateIISExpressSSLForChrome.ps1).
 
-   Instalowanie certyfikatów z podpisem własnym albo podpisanych przez urząd certyfikacji na serwerze **komputera lokalnego** > **osobistych** przechowywania.
+   Zainstaluj certyfikaty z podpisem własnym lub certyfikat podpisany przez urząd certyfikacji w magazynie > **osobistym** **komputera lokalnego**na serwerze.
 
-1. Jeśli aplikacja jest [wdrożenia zależny od struktury](/dotnet/core/deploying/#framework-dependent-deployments-fdd), zainstalowania platformy .NET Core i .NET Framework (Jeśli aplikacja jest aplikacją platformy .NET Core przeznaczonych dla platformy .NET Framework).
+1. Jeśli aplikacja jest wdrożeniem [zależnym od platformy](/dotnet/core/deploying/#framework-dependent-deployments-fdd), zainstaluj platformę .net core, .NET Framework lub obie (Jeśli aplikacja jest aplikacją platformy .NET Core przeznaczoną dla .NET Framework).
 
-   * **.NET core** &ndash; Jeśli aplikacja wymaga platformy .NET Core, uzyskanie i uruchomienie **środowisko uruchomieniowe programu .NET Core** Instalator [pobierania programu .NET Core](https://dotnet.microsoft.com/download). Nie należy instalować pełnego zestawu SDK na serwerze.
-   * **.NET framework** &ndash; Jeśli aplikacja wymaga programu .NET Framework, zobacz [Przewodnik instalacji .NET Framework](/dotnet/framework/install/). Zainstaluj wymagane .NET Framework. Instalator dla najnowszej wersji .NET Framework jest dostępna z [pobierania programu .NET Core](https://dotnet.microsoft.com/download) strony.
+   * **.NET Core** Jeśli aplikacja wymaga platformy .NET Core, uzyskaj i uruchom Instalatora **środowiska uruchomieniowego platformy .NET Core** z [programu .NET Core downloads.](https://dotnet.microsoft.com/download) &ndash; Nie instaluj pełnego zestawu SDK na serwerze.
+   * **.NET Framework** Jeśli aplikacja wymaga .NET Framework, zobacz [.NET Framework Przewodnik instalacji.](/dotnet/framework/install/) &ndash; Zainstaluj wymagane .NET Framework. Instalator dla najnowszej .NET Framework jest dostępny na stronie [plików do pobrania w programie .NET Core](https://dotnet.microsoft.com/download) .
 
-   Jeśli aplikacja jest [niezależna wdrożenia](/dotnet/core/deploying/#self-contained-deployments-scd), aplikacja zawiera środowisko uruchomieniowe w jej wdrożenia. Instalacja framework nie jest wymagane na serwerze.
+   Jeśli aplikacja jest wdrożeniem [](/dotnet/core/deploying/#self-contained-deployments-scd)niezależnym, aplikacja zawiera środowisko uruchomieniowe w ramach wdrożenia. Na serwerze nie jest wymagana instalacja platformy.
 
-1. Konfigurowanie adresów URL i portów w aplikacji.
+1. Skonfiguruj adresy URL i porty w aplikacji.
 
-   Domyślnie platforma ASP.NET Core wiąże `http://localhost:5000`. Aby skonfigurować przedrostki adresów URL i portów, dostępne są następujące opcje:
+   Domyślnie ASP.NET Core wiąże się z `http://localhost:5000`. Aby skonfigurować prefiksy i porty adresów URL, dostępne są następujące opcje:
 
    * <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseUrls*>
-   * `urls` argument wiersza polecenia
-   * `ASPNETCORE_URLS` Zmienna środowiskowa
+   * `urls`argument wiersza polecenia
+   * `ASPNETCORE_URLS`Zmienna środowiskowa
    * <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.UrlPrefixes>
 
-   Poniższy przykład kodu pokazuje sposób użycia <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.UrlPrefixes> z serwera lokalnego adresu IP `10.0.0.4` na porcie 443:
+   Poniższy przykład kodu pokazuje, jak używać <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.UrlPrefixes> z lokalnym adresem `10.0.0.4` IP serwera na porcie 443:
 
    [!code-csharp[](httpsys/sample_snapshot/Program.cs?name=snippet1&highlight=6)]
 
-   Zaletą `UrlPrefixes` jest natychmiast wygenerowany komunikat o błędzie w przypadku prefiksów niewłaściwie sformatowany.
+   Zaletą `UrlPrefixes` jest to, że komunikat o błędzie jest generowany natychmiast dla nieprawidłowo sformatowanych prefiksów.
 
-   Ustawienia w `UrlPrefixes` zastąpienia `UseUrls` / `urls` / `ASPNETCORE_URLS` ustawienia. W związku z tym, zaletą `UseUrls`, `urls`i `ASPNETCORE_URLS` zmienna środowiskowa jest łatwiejsze przełączanie między Kestrel i sterownik HTTP.sys.
+   `UrlPrefixes` Ustawienia w ustawieniach zastąpień. `UseUrls` / `urls` / `ASPNETCORE_URLS` Z `UseUrls`tego względu zaletą `urls`,, i `ASPNETCORE_URLS` zmiennej środowiskowej jest łatwiejsze przełączanie między Kestrel i http. sys.
 
-   Używa HTTP.sys [UrlPrefix interfejsu API serwera HTTP, formaty ciągu](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx).
+   HTTP. sys używa [formatów ciągu UrlPrefix interfejsu API serwera http](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx).
 
    > [!WARNING]
-   > Powiązania najwyższego poziomu symbolu wieloznacznego (`http://*:80/` i `http://+:80`) powinien **nie** można użyć. Symbol wieloznaczny najwyższego poziomu powiązania Utwórz aplikację luk w zabezpieczeniach. Dotyczy to silnych i słabych symboli wieloznacznych. Użyj hosta jawne nazwy lub adresy IP, a nie symboli wieloznacznych. Powiązanie symbol wieloznaczny domeny podrzędnej (na przykład `*.mysub.com`) nie jest to zagrożenie bezpieczeństwa, jeśli możesz kontrolować domenę nadrzędną całego (w przeciwieństwie do `*.com`, który jest narażony). Aby uzyskać więcej informacji, zobacz [RFC 7230: Ppkt 5.4: Host](https://tools.ietf.org/html/rfc7230#section-5.4).
+   > Powiązania najwyższego poziomu symbolu wieloznacznego (`http://*:80/` i `http://+:80`) powinien **nie** można użyć. Powiązania z symbolami wieloznacznymi najwyższego poziomu tworzy luki w zabezpieczeniach aplikacji. Dotyczy to silnych i słabych symboli wieloznacznych. Używaj jawnych nazw hostów lub adresów IP, a nie symboli wieloznacznych. Powiązanie symboli wieloznacznych w poddomenie (np `*.mysub.com`.) nie jest zagrożeniem bezpieczeństwa, jeśli kontrolujesz całą domenę nadrzędną (w przeciwieństwie do `*.com`, która jest narażona). Aby uzyskać więcej informacji, [zobacz RFC 7230: Sekcja 5,4: Host](https://tools.ietf.org/html/rfc7230#section-5.4).
 
-1. Preregister przedrostki adresów URL na serwerze.
+1. Przedrejestruj prefiksy adresów URL na serwerze.
 
-   Wbudowane narzędzie do konfigurowania HTTP.sys *netsh.exe*. *netsh.exe* służy do zarezerwowania przedrostki adresów URL i przypisywać certyfikaty X.509. Narzędzie wymaga uprawnień administratora.
+   Wbudowane narzędzie do konfigurowania protokołu HTTP. sys to *netsh. exe*. *netsh. exe* służy do zastrzegania PREFIKSÓW adresów URL i przypisywania certyfikatów X. 509. Narzędzie wymaga uprawnień administratora.
 
-   Użyj *netsh.exe* narzędzie, aby zarejestrować adresy URL aplikacji:
+   Użyj narzędzia *netsh. exe* , aby zarejestrować adresy URL dla aplikacji:
 
    ```console
    netsh http add urlacl url=<URL> user=<USER>
    ```
 
-   * `<URL>` &ndash; W pełni kwalifikowaną URL Uniform Resource Locator (). Nie używaj wiązania symboli wieloznacznych. Za pomocą prawidłową nazwę hosta lokalnego adresu IP. *Adres URL musi zawierać końcowego ukośnika.*
-   * `<USER>` &ndash; Określa nazwę użytkownika lub grupy użytkowników.
+   * `<URL>`&ndash; W pełni kwalifikowany adres URL (Uniform Resource Locator). Nie używaj powiązania z symbolami wieloznacznymi. Użyj prawidłowej nazwy hosta lub lokalnego adresu IP. *Adres URL musi zawierać końcowy ukośnik.*
+   * `<USER>`&ndash; Określa nazwę użytkownika lub grupy użytkowników.
 
-   W poniższym przykładzie jest lokalny adres IP serwera `10.0.0.4`:
+   W poniższym przykładzie lokalny adres IP serwera `10.0.0.4`:
 
    ```console
    netsh http add urlacl url=https://10.0.0.4:443/ user=Users
    ```
 
-   Po zarejestrowaniu się adres URL, narzędzie odpowiada za pomocą `URL reservation successfully added`.
+   Po zarejestrowaniu adresu URL narzędzie reaguje `URL reservation successfully added`na.
 
-   Aby usunąć zarejestrowanego adresu URL, użyj `delete urlacl` polecenia:
+   Aby usunąć zarejestrowany adres URL, użyj `delete urlacl` polecenia:
 
    ```console
    netsh http delete urlacl url=<URL>
    ```
 
-1. Zarejestruj certyfikaty X.509 na serwerze.
+1. Zarejestruj certyfikaty X. 509 na serwerze.
 
-   Użyj *netsh.exe* narzędzia, aby zarejestrować certyfikat dla aplikacji:
+   Użyj narzędzia *netsh. exe* do rejestrowania certyfikatów dla aplikacji:
 
    ```console
    netsh http add sslcert ipport=<IP>:<PORT> certhash=<THUMBPRINT> appid="{<GUID>}"
    ```
 
-   * `<IP>` &ndash; Określa lokalny adres IP dla wiązania. Nie używaj wiązania symboli wieloznacznych. Użyj prawidłowego adresu IP.
-   * `<PORT>` &ndash; Określa port dla wiązania.
-   * `<THUMBPRINT>` &ndash; Odcisk palca certyfikatu X.509.
-   * `<GUID>` &ndash; Wygenerowany przez projektanta identyfikator GUID do reprezentowania aplikacji do celów informacyjnych.
+   * `<IP>`&ndash; Określa lokalny adres IP dla powiązania. Nie używaj powiązania z symbolami wieloznacznymi. Użyj prawidłowego adresu IP.
+   * `<PORT>`&ndash; Określa port dla powiązania.
+   * `<THUMBPRINT>`&ndash; Odcisk palca certyfikatu X. 509.
+   * `<GUID>`&ndash; Identyfikator GUID generowany przez dewelopera do reprezentowania aplikacji do celów informacyjnych.
 
-   Do celów referencyjnych zapisywania identyfikatora GUID w aplikacji jako tag pakietu:
+   W celach referencyjnych Zapisz identyfikator GUID w aplikacji jako tag pakietu:
 
    * W programie Visual Studio:
-     * Otwórz właściwości projektu aplikacji klikając prawym przyciskiem myszy w aplikacji w **Eksploratora rozwiązań** i wybierając polecenie **właściwości**.
-     * Wybierz **pakietu** kartę.
-     * Wprowadź identyfikator GUID, który został utworzony w **tagi** pola.
-   * Bez korzystania z programu Visual Studio:
+     * Otwórz właściwości projektu aplikacji, klikając prawym przyciskiem myszy aplikację w **Eksplorator rozwiązań** i wybierając pozycję **Właściwości**.
+     * Wybierz kartę **pakiet** .
+     * Wprowadź identyfikator GUID, który został utworzony w polu **Tagi** .
+   * Gdy nie korzystasz z programu Visual Studio:
      * Otwórz plik projektu aplikacji.
-     * Dodaj `<PackageTags>` właściwości na nową lub istniejącą `<PropertyGroup>` z identyfikatorem GUID, który został utworzony:
+     * Dodaj właściwość do nowej lub istniejącej `<PropertyGroup>` przy użyciu identyfikatora GUID, który został utworzony: `<PackageTags>`
 
        ```xml
        <PropertyGroup>
@@ -277,8 +277,8 @@ Sterownik HTTP.sys delegatów, aby uwierzytelnianie trybu jądra za pomocą prot
 
    W poniższym przykładzie:
 
-   * Lokalny adres IP serwera jest `10.0.0.4`.
-   * Zapewnia online losowe generator GUID `appid` wartość.
+   * Lokalny adres IP serwera to `10.0.0.4`.
+   * W `appid` trybie Online Generator losowy identyfikator GUID zawiera wartość.
 
    ```console
    netsh http add sslcert 
@@ -287,37 +287,37 @@ Sterownik HTTP.sys delegatów, aby uwierzytelnianie trybu jądra za pomocą prot
        appid="{9412ee86-c21b-4eb8-bd89-f650fbf44931}"
    ```
 
-   Po zarejestrowaniu certyfikatu, narzędzie odpowiada za pomocą `SSL Certificate successfully added`.
+   Po zarejestrowaniu certyfikatu narzędzie reaguje `SSL Certificate successfully added`na.
 
-   Aby usunąć rejestracji certyfikatu, użyj `delete sslcert` polecenia:
+   Aby usunąć rejestrację certyfikatu, użyj `delete sslcert` polecenia:
 
    ```console
    netsh http delete sslcert ipport=<IP>:<PORT>
    ```
 
-   Dokumentacji dla *netsh.exe*:
+   Dokumentacja referencyjna dla programu *netsh. exe*:
 
-   * [Polecenia Netsh dla Hypertext Transfer Protocol (HTTP)](https://technet.microsoft.com/library/cc725882.aspx)
-   * [Ciągi UrlPrefix](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx)
+   * [Polecenia netsh dla protokołu HTTP (Hypertext Transfer Protocol)](https://technet.microsoft.com/library/cc725882.aspx)
+   * [UrlPrefix ciągi](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx)
 
 1. Uruchom aplikację.
 
-   Uprawnienia administratora nie są wymagane do uruchomienia aplikacji, podczas tworzenia wiązania do hosta lokalnego przy użyciu protokołu HTTP (a nie HTTPS), numer portu jest większa niż 1024. W przypadku innych konfiguracji (na przykład przy użyciu lokalnego adresu IP lub powiązania z portem 443) należy uruchomić tę aplikację z uprawnieniami administratora.
+   Uprawnienia administratora nie są wymagane do uruchomienia aplikacji w przypadku powiązania z hostem localhost przy użyciu protokołu HTTP (nie HTTPS) z numerem portu większym niż 1024. W przypadku innych konfiguracji (na przykład przy użyciu lokalnego adresu IP lub powiązania z portem 443) Uruchom aplikację z uprawnieniami administratora.
 
-   Aplikacja reaguje na publiczny adres IP serwera. W tym przykładzie jest połączyć się z serwerem z sieci Internet, publiczny adres IP `104.214.79.47`.
+   Aplikacja odpowiada na publiczny adres IP serwera. W tym przykładzie serwer jest osiągalny z Internetu przy użyciu publicznego adresu `104.214.79.47`IP.
 
-   Certyfikatu deweloperskiego jest używany w tym przykładzie. Strona ładuje się bezpiecznie po pomijanie ostrzeżeń niezaufanego certyfikatu w przeglądarce.
+   W tym przykładzie jest używany certyfikat programistyczny. Strona ładuje się bezpiecznie po pominięciu ostrzeżenia niezaufanego certyfikatu w przeglądarce.
 
-   ![Załadowano indeksu aplikacji wyświetlana w oknie przeglądarki](httpsys/_static/browser.png)
+   ![Okno przeglądarki pokazujące załadowana stronę indeksu aplikacji](httpsys/_static/browser.png)
 
 ## <a name="proxy-server-and-load-balancer-scenarios"></a>Serwer proxy i scenariuszy usługi równoważenia obciążenia
 
-Dla aplikacji hostowanych przez rozszerzenie HTTP.sys, które współdziałają z żądaniami z Internetu lub sieci firmowej dodatkowa konfiguracja może być wymagane w przypadku hostowania za serwery proxy i moduły równoważenia obciążenia. Aby uzyskać więcej informacji, zobacz [Konfigurowanie platformy ASP.NET Core pracować z serwerów proxy i moduły równoważenia obciążenia](xref:host-and-deploy/proxy-load-balancer).
+W przypadku aplikacji hostowanych przez protokół HTTP. sys, które współdziałają z żądaniami z Internetu lub sieci firmowej, może być wymagana dodatkowa konfiguracja w przypadku hostowania za serwerami proxy i modułami równoważenia obciążenia. Aby uzyskać więcej informacji, zobacz [Konfigurowanie platformy ASP.NET Core pracować z serwerów proxy i moduły równoważenia obciążenia](xref:host-and-deploy/proxy-load-balancer).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Włącz uwierzytelnianie Windows w pliku HTTP.sys](xref:security/authentication/windowsauth#httpsys)
-* [Serwer HTTP interfejsu API](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx)
-* [repozytorium GitHub ASPNET/HttpSysServer (kodu źródłowego)](https://github.com/aspnet/HttpSysServer/)
+* [Włącz uwierzytelnianie systemu Windows przy użyciu protokołu HTTP. sys](xref:security/authentication/windowsauth#httpsys)
+* [Interfejs API serwera HTTP](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx)
+* [HttpSysServer lub repozytorium GitHub (kod źródłowy)](https://github.com/aspnet/HttpSysServer/)
 * [Host](xref:fundamentals/index#host)
 * <xref:test/troubleshoot>

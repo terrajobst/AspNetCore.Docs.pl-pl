@@ -3,16 +3,16 @@ title: Implementacja serwera sieci Web Kestrel w ASP.NET Core
 author: guardrex
 description: Dowiedz się więcej na temat Kestrel, międzyplatformowego serwera sieci Web dla ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
-ms.author: tdykstra
+ms.author: riande
 ms.custom: mvc
 ms.date: 06/24/2019
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: 1266813524bb5f33c50ff4e0a0961570f21689f1
-ms.sourcegitcommit: 16502797ea749e2690feaa5e652a65b89c007c89
+ms.openlocfilehash: 763f65ea26367e56c2ff1392eea51e62fc663ee6
+ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68483224"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69975526"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>Implementacja serwera sieci Web Kestrel w ASP.NET Core
 
@@ -329,7 +329,7 @@ Limity szybkości minimalnej dla żądania można zastąpić w oprogramowaniu po
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Odwołania <xref:Microsoft.AspNetCore.Server.Kestrel.Core.Features.IHttpMinResponseDataRateFeature> w poprzednim przykładzie nie występują w `HttpContext.Features` żądaniach HTTP/2, ponieważ Modyfikowanie limitów szybkości dla poszczególnych żądań jest ogólnie nieobsługiwane w przypadku protokołu HTTP/2 z powodu obsługi żądania multipleksowania żądań. `HttpContext.Features` `null`  Jednak nadal występuje dla żądań HTTP/2, ponieważ limit liczby odczytów nadal można wyłączyć całkowicie dla każdego żądania przez ustawienie `IHttpMinRequestBodyDataRateFeature.MinDataRate` nawet dla żądania HTTP/2. <xref:Microsoft.AspNetCore.Server.Kestrel.Core.Features.IHttpMinRequestBodyDataRateFeature> Próba odczytania `IHttpMinRequestBodyDataRateFeature.MinDataRate` lub próby ustawienia jej na wartość inną niż `null` spowoduje `NotSupportedException` zgłoszenie żądania HTTP/2.
+Odwołania <xref:Microsoft.AspNetCore.Server.Kestrel.Core.Features.IHttpMinResponseDataRateFeature> w poprzednim przykładzie nie występują w `HttpContext.Features` żądaniach HTTP/2, ponieważ Modyfikowanie limitów szybkości dla poszczególnych żądań jest ogólnie nieobsługiwane w przypadku protokołu HTTP/2 z powodu obsługi żądania multipleksowania żądań. `HttpContext.Features` `null` Jednak nadal występuje dla żądań HTTP/2, ponieważ limit liczby odczytów nadal można wyłączyć całkowicie dla każdego żądania przez ustawienie `IHttpMinRequestBodyDataRateFeature.MinDataRate` nawet dla żądania HTTP/2. <xref:Microsoft.AspNetCore.Server.Kestrel.Core.Features.IHttpMinRequestBodyDataRateFeature> Próba odczytania `IHttpMinRequestBodyDataRateFeature.MinDataRate` lub próby ustawienia jej na wartość inną niż `null` spowoduje `NotSupportedException` zgłoszenie żądania HTTP/2.
 
 Limity szybkości dla całego serwera skonfigurowane za `KestrelServerOptions.Limits` pośrednictwem nadal mają zastosowanie do połączeń HTTP/1. x i http/2.
 
@@ -733,7 +733,7 @@ W poniższym przykładzie pliku *appSettings. JSON* :
 }
 ```
 
-Alternatywą dla korzystania z **ścieżki** i **hasła** dla dowolnego węzła certyfikatu jest określenie certyfikatu przy użyciu pól magazynu certyfikatów. Certyfikat**domyślny** można na  > przykład określić jako:
+Alternatywą dla korzystania z **ścieżki** i **hasła** dla dowolnego węzła certyfikatu jest określenie certyfikatu przy użyciu pól magazynu certyfikatów. Certyfikat**domyślny** można na > przykład określić jako:
 
 ```json
 "Default": {
@@ -750,7 +750,7 @@ Uwagi dotyczące schematu:
 * `Url` Parametr jest wymagany dla każdego punktu końcowego. Format tego parametru jest taki sam jak parametr konfiguracji najwyższego poziomu `Urls` , z tą różnicą, że jest ograniczony do pojedynczej wartości.
 * Te punkty końcowe zastępują te zdefiniowane w konfiguracji najwyższego poziomu `Urls` zamiast dodawać je do nich. Punkty końcowe zdefiniowane w kodzie `Listen` za pośrednictwem łączą się z punktami końcowymi zdefiniowanymi w sekcji konfiguracji.
 * `Certificate` Sekcja jest opcjonalna. `Certificate` Jeśli sekcja nie jest określona, używane są wartości domyślne zdefiniowane we wcześniejszych scenariuszach. Jeśli żadne wartości domyślne nie są dostępne, serwer zgłasza wyjątek i nie może się uruchomić.
-* &ndash; &ndash;  Sekcja obsługuje zarówno hasło ścieżki, jak i certyfikaty magazynu podmiotu. `Certificate`
+* &ndash;&ndash; Sekcja obsługuje zarówno hasło ścieżki, jak i certyfikaty magazynu podmiotu. `Certificate`
 * W ten sposób można zdefiniować dowolną liczbę punktów końcowych, dopóki nie spowoduje to konfliktów portów.
 * `options.Configure(context.Configuration.GetSection("Kestrel"))``KestrelConfigurationLoader` zwracametodę,któramożesłużyćdouzupełnianiaskonfigurowanych`.Endpoint(string name, options => { })` ustawień punktu końcowego:
 

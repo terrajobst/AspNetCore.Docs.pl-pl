@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc, seodec18
 ms.date: 07/22/2019
 uid: data/ef-rp/intro
-ms.openlocfilehash: 5e81b58ebec2d9a50784facd5425f0e7c3524e10
-ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
+ms.openlocfilehash: c5347049151aed90f453f0ead2fc06649d9cf949
+ms.sourcegitcommit: bdaee0e8c657fe7546fd6b7990db9c03c2af04df
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69583443"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69908399"
 ---
 # <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>Strony razor za pomocą platformy Entity Framework Core w programie ASP.NET Core — samouczek 1 8
 
@@ -378,7 +378,11 @@ Utwórz *dane/Dbinitializeer. cs* przy użyciu następującego kodu:
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Uruchom aplikację, Usuń wszystkie utworzone wcześniej rekordy uczniów i Zatrzymaj aplikację.
+Zatrzymaj aplikację, jeśli jest uruchomiona, a następnie uruchom następujące polecenie w **konsoli Menedżera pakietów** (PMC):
+
+```powershell
+Drop-Database
+```
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -700,7 +704,19 @@ W *Program.cs*, zmodyfikuj `Main` metodę do wywołania `Initialize`:
 
 [!code-csharp[](intro/samples/cu21/Program.cs?name=snippet2&highlight=14-15)]
 
-Usuń wszystkie rekordy dla uczniów i uruchom ponownie aplikację. Jeśli baza danych nie został zainicjowany, należy ustawić punkt przerwania w `Initialize` Aby zdiagnozować problem.
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+Zatrzymaj aplikację, jeśli jest uruchomiona, a następnie uruchom następujące polecenie w **konsoli Menedżera pakietów** (PMC):
+
+```powershell
+Drop-Database
+```
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+
+* Zatrzymaj aplikację, jeśli jest uruchomiona, a następnie usuń plik *cu. DB* .
+
+---
 
 ## <a name="view-the-db"></a>Widok bazy danych
 

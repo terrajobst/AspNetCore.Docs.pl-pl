@@ -1,18 +1,18 @@
 ---
 title: Walidacja modelu w ASP.NET Core MVC
-author: tdykstra
+author: rick-anderson
 description: Dowiedz się więcej o walidacji modelu w ASP.NET Core MVC i Razor Pages.
 ms.author: riande
 ms.custom: mvc
 ms.date: 04/06/2019
 monikerRange: '>= aspnetcore-2.1'
 uid: mvc/models/validation
-ms.openlocfilehash: 43b69e9b7588ad575f203200c5bc59a4272d0066
-ms.sourcegitcommit: 849af69ee3c94cdb9fd8fa1f1bb8f5a5dda7b9eb
+ms.openlocfilehash: eb18d3a701a4d1937ac6eb9f61916f348b95882a
+ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "67814113"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69975258"
 ---
 # <a name="model-validation-in-aspnet-core-mvc-and-razor-pages"></a>Walidacja modelu w ASP.NET Core MVC i Razor Pages
 
@@ -157,9 +157,9 @@ Jeśli potrzebujesz weryfikacji niedostarczonej przez wbudowane atrybuty, możes
 
 W przypadku scenariuszy, w których wbudowane atrybuty walidacji nie obsługują, można utworzyć niestandardowe atrybuty walidacji. Utwórz klasę, która dziedziczy z <xref:System.ComponentModel.DataAnnotations.ValidationAttribute>, i <xref:System.ComponentModel.DataAnnotations.ValidationAttribute.IsValid*> Zastąp metodę.
 
-Metoda akceptuje obiekt o nazwie Value, czyli dane wejściowe do zweryfikowania.  `IsValid` Przeciążenie akceptuje `ValidationContext` również obiekt, który zawiera dodatkowe informacje, takie jak wystąpienie modelu utworzone przez powiązanie modelu.
+Metoda akceptuje obiekt o nazwie Value, czyli dane wejściowe do zweryfikowania. `IsValid` Przeciążenie akceptuje `ValidationContext` również obiekt, który zawiera dodatkowe informacje, takie jak wystąpienie modelu utworzone przez powiązanie modelu.
 
-Poniższy przykład sprawdza, czy Data wydania filmu w klasycznym gatunku nie jest  późniejsza niż określony rok. Ten `[ClassicMovie2]` atrybut najpierw sprawdza gatunek i kontynuuje działanie tylko wtedy, gdy jest on *klasyczny*. W przypadku filmów identyfikowanych jako Classics sprawdza datę wydania, aby upewnić się, że nie jest ona późniejsza niż limit przesłany do konstruktora atrybutu.
+Poniższy przykład sprawdza, czy Data wydania filmu w klasycznym gatunku nie jest późniejsza niż określony rok. Ten `[ClassicMovie2]` atrybut najpierw sprawdza gatunek i kontynuuje działanie tylko wtedy, gdy jest on *klasyczny*. W przypadku filmów identyfikowanych jako Classics sprawdza datę wydania, aby upewnić się, że nie jest ona późniejsza niż limit przesłany do konstruktora atrybutu.
 
 [!code-csharp[](validation/sample/Attributes/ClassicMovieAttribute.cs?name=snippet_ClassicMovieAttribute)]
 
