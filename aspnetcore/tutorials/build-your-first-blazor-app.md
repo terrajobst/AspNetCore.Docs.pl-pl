@@ -5,14 +5,14 @@ description: Tworzenie aplikacji Blazor krok po kroku.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/26/2019
+ms.date: 08/23/2019
 uid: tutorials/first-blazor-app
-ms.openlocfilehash: 88999350b9c7631e15ba9d0242da5880c8ae71ff
-ms.sourcegitcommit: 89fcc6cb3e12790dca2b8b62f86609bed6335be9
+ms.openlocfilehash: 2f0410eb75a6ef3f3d361c75bce7e79ae6d42a61
+ms.sourcegitcommit: 983b31449fe398e6e922eb13e9eb6f4287ec91e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68994214"
+ms.lasthandoff: 08/24/2019
+ms.locfileid: "70017500"
 ---
 # <a name="build-your-first-blazor-app"></a>Tworzenie pierwszej aplikacji Blazor
 
@@ -178,7 +178,7 @@ Dodaj do aplikacji nowy składnik implementujący prostą listę zadań do wykon
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo7.razor?highlight=2)]
 
    ```cshtml
-   <input placeholder="Something todo" @bind="@newTodo" />
+   <input placeholder="Something todo" @bind="newTodo" />
    ```
 
 1. Zaktualizuj metodę, aby dodać z określonym tytułem do listy. `TodoItem` `AddTodo` Wyczyść wartość pola wprowadzanie tekstu przez ustawienie `newTodo` do pustego ciągu:

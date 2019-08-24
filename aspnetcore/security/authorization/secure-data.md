@@ -6,12 +6,12 @@ ms.author: riande
 ms.date: 12/18/2018
 ms.custom: mvc, seodec18
 uid: security/authorization/secure-data
-ms.openlocfilehash: 4b94cc53777308deb26521a079d8a1c2742744db
-ms.sourcegitcommit: 4fe3ae892f54dc540859bff78741a28c2daa9a38
+ms.openlocfilehash: 225d0e3aa51745253d03e614b1c8568b3a6ba731
+ms.sourcegitcommit: 983b31449fe398e6e922eb13e9eb6f4287ec91e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2019
-ms.locfileid: "68776743"
+ms.lasthandoff: 08/24/2019
+ms.locfileid: "70017484"
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Tworzenie aplikacji platformy ASP.NET Core przy użyciu danych użytkownika chronionych przez autoryzację
 
@@ -37,7 +37,7 @@ W tym samouczku pokazano, jak utworzyć aplikację sieci web platformy ASP.NET C
 * **Menedżerowie** można zatwierdzić lub odrzucić dane kontaktowe. Tylko zatwierdzone kontakty będą widoczne dla użytkowników.
 * **Administratorzy** można zatwierdzić/Odrzuć i edytowanie/usuwanie żadnych danych.
 
-Obrazy w tym dokumencie dokładnie nie pasują do najnowszych szablonów.
+Obrazy w tym dokumencie nie są dokładnie zgodne z najnowszymi szablonami.
 
 Na poniższej ilustracji użytkownik Rick (`rick@example.com`) jest zalogowany. Rick mogą jedynie wyświetlać kontakty zatwierdzone i **Edytuj**/**Usuń**/**Utwórz nowy** linki do swoich kontaktów. Tylko ostatni rekord, utworzone przez Rick, wyświetla **Edytuj** i **Usuń** łącza. Inni użytkownicy nie zobaczą ostatni rekord, aż Menedżer lub administrator zmienia stan na "Zatwierdzone".
 
