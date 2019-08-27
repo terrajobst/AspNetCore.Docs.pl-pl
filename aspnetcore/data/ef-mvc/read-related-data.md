@@ -6,12 +6,12 @@ ms.author: riande
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: 5e2db1aca18ce86eef2c9823b752f994c301da5f
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
+ms.openlocfilehash: 2bf556dae5d30819c54ecc3f0dadfbd3316db1cc
+ms.sourcegitcommit: 0774a61a3a6c1412a7da0e7d932dc60c506441fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69975126"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70059113"
 ---
 # <a name="tutorial-read-related-data---aspnet-mvc-with-ef-core"></a>Samouczek: Odczytaj powiązane dane — ASP.NET MVC z EF Core
 
@@ -47,7 +47,7 @@ Istnieje kilka sposobów, które oprogramowanie mapowanie relacyjne (ORM), takie
 
   ![Przykład oddzielnych zapytań](read-related-data/_static/separate-queries.png)
 
-* Jawne ładowanie. Gdy obiekt jest najpierw odczytywany, powiązane dane nie są pobierane. Napiszesz kod, który pobiera powiązane dane, jeśli jest to potrzebne. Tak jak w przypadku eager ładowania z oddzielnymi zapytaniami, jawne ładowanie powoduje wysłanie wielu zapytań do bazy danych. Różnica polega na tym, że z jawnym ładowaniem kod określa właściwości nawigacji do załadowania. W Entity Framework Core 1,1 można użyć `Load` metody do wykonania jawnego ładowania. Przykład:
+* Jawne ładowanie. Gdy obiekt jest najpierw odczytywany, powiązane dane nie są pobierane. Napiszesz kod, który pobiera powiązane dane, jeśli jest to potrzebne. Tak jak w przypadku eager ładowania z oddzielnymi zapytaniami, jawne ładowanie powoduje wysłanie wielu zapytań do bazy danych. Różnica polega na tym, że z jawnym ładowaniem kod określa właściwości nawigacji do załadowania. W Entity Framework Core 1,1 można użyć `Load` metody do wykonania jawnego ładowania. Na przykład:
 
   ![Przykład jawnego ładowania](read-related-data/_static/explicit-loading.png)
 
@@ -239,7 +239,7 @@ Załóżmy, że oczekujesz, że użytkownicy rzadko chcą widzieć rejestracje w
 
 [!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ExplicitLoading&highlight=23-29)]
 
-Nowy kod odrzuca metodę *ThenInclude* wywołań danych rejestracji z kodu, który pobiera jednostki instruktora. Jeśli wybrano instruktora i kurs, wyróżniony kod pobiera jednostki rejestracji dla wybranego kursu i jednostek uczniów dla każdej rejestracji.
+Nowy kod odrzuca metodę *ThenInclude* wywołań danych rejestracji z kodu, który pobiera jednostki instruktora. Spowoduje to również `AsNoTracking`porzucanie.  Jeśli wybrano instruktora i kurs, wyróżniony kod pobiera jednostki rejestracji dla wybranego kursu i jednostek uczniów dla każdej rejestracji.
 
 Uruchom aplikację, przejdź do strony indeks instruktorów, aby zobaczyć, co jest wyświetlane na stronie, chociaż zmieniono sposób pobierania danych.
 

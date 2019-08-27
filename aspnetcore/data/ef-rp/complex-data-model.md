@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/22/2019
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 5b810073abc8152773631235b5c21611d1a498b5
-ms.sourcegitcommit: 776598f71da0d1e4c9e923b3b395d3c3b5825796
+ms.openlocfilehash: 34b977f70f3e7e58e4ab6fcf3d8f69800896a65d
+ms.sourcegitcommit: 0774a61a3a6c1412a7da0e7d932dc60c506441fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70024764"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70059121"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>Razor Pages EF Core w ASP.NET Core — model danych-5 z 8
 
@@ -1356,7 +1356,7 @@ Zaktualizuj metodę `Up`klasy: `ComplexDataModel`
 
 Dodaj następujący wyróżniony kod. Nowy kod przechodzi po `.CreateTable( name: "Department"` bloku:
 
- [!code-csharp[](intro/samples/cu/Migrations/20171027005808_ComplexDataModel.cs?name=snippet_CreateDefaultValue&highlight=22-32)]
+[!code-csharp[](intro/samples/cu/Migrations/20171027005808_ComplexDataModel.cs?name=snippet_CreateDefaultValue&highlight=22-32)]
 
 Po wykonaniu powyższych zmian istniejące `Course` wiersze będą powiązane z działem "Temp" po uruchomieniumetody.`Up` `ComplexDataModel`
 
@@ -1371,8 +1371,6 @@ Następny samouczek obejmuje powiązane dane.
 
 * [Wersja usługi YouTube w tym samouczku (część 1)](https://www.youtube.com/watch?v=0n2f0ObgCoA)
 * [Wersja usługi YouTube w tym samouczku (część 2)](https://www.youtube.com/watch?v=Je0Z5K1TNmY)
-
-
 
 > [!div class="step-by-step"]
 > [Poprzedni](xref:data/ef-rp/migrations)Następny
