@@ -5,12 +5,12 @@ description: Dowiedz się, jak obszary są funkcją ASP.NET MVC służącą do o
 ms.author: riande
 ms.date: 08/16/2019
 uid: mvc/controllers/areas
-ms.openlocfilehash: d0af3092776ee09469c879fffd3047c50b1a59b4
-ms.sourcegitcommit: 4cb0c7e74355f2e87c60e2a196f842b937247a99
+ms.openlocfilehash: 9065aa23a537add5a9376472e4f4478e9d4149bd
+ms.sourcegitcommit: 776598f71da0d1e4c9e923b3b395d3c3b5825796
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69545806"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70024742"
 ---
 # <a name="areas-in-aspnet-core"></a>Obszary w ASP.NET Core
 
@@ -72,9 +72,7 @@ Chociaż poprzedni układ jest typowy w przypadku korzystania z obszarów, do ko
 /Areas/<Area-Name>/Views/Shared/<Action-Name>.cshtml
 /Views/Shared/<Action-Name>.cshtml
 /Pages/Shared/<Action-Name>.cshtml
-   ```
-
-Lokalizacja folderów niewyświetlanych, takich jak *Kontrolery* i *modele* , nie ma znaczenia. Na przykład folder *Kontrolery* i *modele* nie jest wymagany. Zawartość *kontrolerów* i *modeli* to kod, który jest kompilowany do pliku dll. Zawartość *widoków* nie zostanie skompilowana, dopóki nie zostanie wysłane żądanie do tego widoku.
+```
 
 <a name="attribute"></a>
 

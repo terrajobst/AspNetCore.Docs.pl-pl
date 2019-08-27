@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 07/25/2019
 uid: web-api/http-repl
-ms.openlocfilehash: 0e80fcd76a4d3efcd35140c52e0f6f0ae0f27932
-ms.sourcegitcommit: 2719c70cd15a430479ab4007ff3e197fbf5dfee0
+ms.openlocfilehash: d2c5f774595e7a2223e84cc76eecdb9baa04adfe
+ms.sourcegitcommit: 776598f71da0d1e4c9e923b3b395d3c3b5825796
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68862967"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70024806"
 ---
 # <a name="test-web-apis-with-the-http-repl"></a>Testowanie interfejsów API sieci Web przy użyciu protokołu HTTP REPL
 
@@ -82,6 +82,12 @@ Options:
 
 Once the REPL starts, these commands are valid:
 
+Setup Commands:
+Use these commands to configure the tool for your API server
+
+connect        Configures the directory structure and base address of the api server
+set header     Sets or clears a header for all requests. e.g. `set header content-type application/json`
+
 HTTP Commands:
 Use these commands to execute requests against your application.
 
@@ -93,13 +99,10 @@ PATCH          patch - Issues a PATCH request
 HEAD           head - Issues a HEAD request
 OPTIONS        options - Issues a OPTIONS request
 
-set header     Sets or clears a header for all requests. e.g. `set header content-type application/json`
-
 Navigation Commands:
 The REPL allows you to navigate your URL space and focus on specific APIs that you are working on.
 
 set base       Set the base URI. e.g. `set base http://locahost:5000`
-set swagger    Sets the swagger document to use for information about the current server
 ls             Show all endpoints for the current path
 cd             Append the given directory to the currently selected path, or move up a path when using `cd ..`
 
@@ -128,10 +131,10 @@ REPL HTTP oferuje polecenie uzupełniania. Naciśnięcie klawisza <kbd>Tab</kbd>
 Połącz się z interfejsem API sieci Web, uruchamiając następujące polecenie:
 
 ```console
-dotnet httprepl <BASE URI>
+dotnet httprepl <ROOT URI>
 ```
 
-`<BASE URI>`jest podstawowym identyfikatorem URI dla internetowego interfejsu API. Na przykład:
+`<ROOT URI>`jest podstawowym identyfikatorem URI dla internetowego interfejsu API. Przykład:
 
 ```console
 dotnet httprepl https://localhost:5001
@@ -140,27 +143,27 @@ dotnet httprepl https://localhost:5001
 Alternatywnie Uruchom następujące polecenie w dowolnym momencie podczas działania REPL HTTP:
 
 ```console
-set base <BASE URI>
+connect <ROOT URI>
 ```
 
 Na przykład:
 
 ```console
-(Disconnected)~ set base https://localhost:5001
+(Disconnected)~ connect https://localhost:5001
 ```
 
-## <a name="point-to-the-swagger-document-for-the-web-api"></a>Wskaż dokument struktury Swagger dla internetowego interfejsu API
+## <a name="manually-point-to-the-swagger-document-for-the-web-api"></a>Ręcznie wskaż dokument struktury Swagger dla internetowego interfejsu API
 
-Aby poprawnie sprawdzić internetowy interfejs API, ustaw względny identyfikator URI na dokument struktury Swagger dla internetowego interfejsu API. Uruchom następujące polecenie:
+Powyższe polecenie Connect podejmie próbę automatycznego znalezienia dokumentu struktury Swagger. Jeśli z jakiegoś powodu nie można tego zrobić, możesz określić identyfikator URI dokumentu struktury Swagger dla internetowego interfejsu API przy użyciu `--swagger` opcji:
 
 ```console
-set swagger <RELATIVE URI>
+connect <ROOT URI> --swagger <SWAGGER URI>
 ```
 
 Na przykład:
 
 ```console
-https://localhost:5001/~ set swagger /swagger/v1/swagger.json
+(Disconnected)~ connect https://localhost:5001 --swagger /swagger/v1/swagger.json
 ```
 
 ## <a name="navigate-the-web-api"></a>Nawigowanie po interfejsie API sieci Web
@@ -196,7 +199,7 @@ https://localhost:5001/fruits~ ls
 https://localhost:5001/fruits~
 ```
 
-Alternatywnie można uruchomić `ui` polecenie, aby otworzyć stronę interfejsu użytkownika programu Swagger interfejsu API sieci Web w przeglądarce. Na przykład:
+Alternatywnie można uruchomić `ui` polecenie, aby otworzyć stronę interfejsu użytkownika programu Swagger interfejsu API sieci Web w przeglądarce. Przykład:
 
 ```console
 https://localhost:5001/~ ui
@@ -240,7 +243,7 @@ Plik *. httpreplprefs* jest ładowany podczas uruchamiania i nie jest monitorowa
 
 ### <a name="view-the-settings"></a>Wyświetlanie ustawień
 
-Aby wyświetlić dostępne ustawienia, uruchom `pref get` polecenie. Na przykład:
+Aby wyświetlić dostępne ustawienia, uruchom `pref get` polecenie. Przykład:
 
 ```console
 https://localhost:5001/~ pref get
@@ -278,7 +281,7 @@ Jeśli określone klucze kolorów nie są ustawione, brane są więcej kluczy og
 
 ### <a name="set-indentation-size"></a>Ustaw rozmiar wcięcia
 
-Dostosowanie rozmiaru wcięcia odpowiedzi jest obecnie obsługiwane tylko w przypadku formatu JSON. Domyślny rozmiar to dwie spacje. Na przykład:
+Dostosowanie rozmiaru wcięcia odpowiedzi jest obecnie obsługiwane tylko w przypadku formatu JSON. Domyślny rozmiar to dwie spacje. Przykład:
 
 ```json
 [
@@ -324,7 +327,7 @@ Kolejne odpowiedzi przestrzegają ustawień czterech spacji:
 
 ### <a name="set-indentation-size"></a>Ustaw rozmiar wcięcia
 
-Dostosowanie rozmiaru wcięcia odpowiedzi jest obecnie obsługiwane tylko w przypadku formatu JSON. Domyślny rozmiar to dwie spacje. Przykład:
+Dostosowanie rozmiaru wcięcia odpowiedzi jest obecnie obsługiwane tylko w przypadku formatu JSON. Domyślny rozmiar to dwie spacje. Na przykład:
 
 ```json
 [
@@ -402,6 +405,21 @@ Aby uruchomić domyślny edytor tekstu z określonymi argumentami interfejsu wie
 
 ```console
 pref set editor.command.default.arguments "--disable-extensions --new-window"
+```
+
+### <a name="set-the-swagger-search-paths"></a>Ustawianie ścieżek wyszukiwania struktury Swagger
+
+Domyślnie REPL http ma zestaw ścieżek względnych, których używa do znajdowania dokumentu struktury Swagger podczas wykonywania `connect` polecenia `--swagger` bez opcji. Ścieżki względne są łączone z ścieżkami głównymi i podstawowymi określonymi `connect` w poleceniu. Domyślne ścieżki względne to:
+
+- *plik Swagger. JSON*
+- *Swagger/V1/Swagger. JSON*
+- */swagger.json*
+- */swagger/v1/swagger.json*
+
+Aby użyć innego zestawu ścieżek wyszukiwania w środowisku, ustaw `swagger.searchPaths` preferencję. Wartość musi być rozdzielaną potokami listą ścieżek względnych. Na przykład:
+
+```console
+pref set swagger.searchPaths "swagger/v2/swagger.json|swagger/v3/swagger.json
 ```
 
 ## <a name="test-http-get-requests"></a>Testuj żądania HTTP GET
@@ -518,7 +536,7 @@ Aby wydać żądanie HTTP POST:
     https://localhost:5001/people~ post -h Content-Type=application/json
     ```
 
-    W poprzednim poleceniu nagłówek żądania `Content-Type` http jest ustawiany w taki sposób, aby wskazywał typ nośnika treści żądania JSON. Domyślny edytor tekstu otwiera plik *. tmp* z szablonem JSON reprezentującym treść żądania HTTP. Na przykład:
+    W poprzednim poleceniu nagłówek żądania `Content-Type` http jest ustawiany w taki sposób, aby wskazywał typ nośnika treści żądania JSON. Domyślny edytor tekstu otwiera plik *. tmp* z szablonem JSON reprezentującym treść żądania HTTP. Przykład:
 
     ```json
     {
@@ -818,7 +836,7 @@ Parametr trasy, jeśli istnieje, oczekiwany przez skojarzoną metodę akcji kont
 
 Aby ustawić nagłówek żądania HTTP, należy użyć jednej z następujących metod:
 
-1. Ustaw wartość inline z żądaniem HTTP. Przykład:
+1. Ustaw wartość inline z żądaniem HTTP. Na przykład:
 
   ```console
   https://localhost:5001/people~ post -h Content-Type=application/json
@@ -826,7 +844,7 @@ Aby ustawić nagłówek żądania HTTP, należy użyć jednej z następujących 
 
   W przypadku wcześniejszego podejścia każdy unikatowy nagłówek żądania HTTP wymaga własnej `-h` opcji.
 
-1. Ustaw przed wysłaniem żądania HTTP. Przykład:
+1. Ustaw przed wysłaniem żądania HTTP. Na przykład:
 
   ```console
   https://localhost:5001/people~ set header Content-Type application/json
@@ -844,14 +862,14 @@ Domyślnie wyświetlanie wysyłanego żądania HTTP jest pomijane. Istnieje moż
 
 ### <a name="enable-request-display"></a>Włącz wyświetlanie żądań
 
-Wyświetl wysyłane żądanie HTTP, uruchamiając `echo on` polecenie. Przykład:
+Wyświetl wysyłane żądanie HTTP, uruchamiając `echo on` polecenie. Na przykład:
 
 ```console
 https://localhost:5001/people~ echo on
 Request echoing is on
 ```
 
-Kolejne żądania HTTP w bieżącej sesji wyświetlają nagłówki żądań. Na przykład:
+Kolejne żądania HTTP w bieżącej sesji wyświetlają nagłówki żądań. Przykład:
 
 ```console
 https://localhost:5001/people~ post
@@ -889,7 +907,7 @@ https://localhost:5001/people~
 
 ### <a name="disable-request-display"></a>Wyłącz wyświetlanie żądań
 
-Pomijaj wyświetlanie wysyłanego żądania HTTP przez uruchomienie `echo off` polecenia. Przykład:
+Pomijaj wyświetlanie wysyłanego żądania HTTP przez uruchomienie `echo off` polecenia. Na przykład:
 
 ```console
 https://localhost:5001/people~ echo off
@@ -910,7 +928,7 @@ Jeśli często wykonujesz ten sam zestaw poleceń HTTP REPL, Rozważ przechowywa
     get 1
     ```
 
-1. `run` Wykonaj polecenie, przekazując w ścieżce pliku tekstowego. Przykład:
+1. `run` Wykonaj polecenie, przekazując w ścieżce pliku tekstowego. Na przykład:
 
     ```console
     https://localhost:5001/~ run C:\http-repl-scripts\people-script.txt

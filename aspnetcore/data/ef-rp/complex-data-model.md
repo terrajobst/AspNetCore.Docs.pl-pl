@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/22/2019
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 8a1c0759453b02f4ce1c45471a8f93da626f8261
-ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
+ms.openlocfilehash: 5b810073abc8152773631235b5c21611d1a498b5
+ms.sourcegitcommit: 776598f71da0d1e4c9e923b3b395d3c3b5825796
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69583289"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70024764"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>Razor Pages EF Core w ASP.NET Core — model danych-5 z 8
 
@@ -59,7 +59,7 @@ Poprzedni kod dodaje `FullName` Właściwość i dodaje następujące atrybuty d
 
 W przypadku dat rejestracji uczniów wszystkie strony wyświetlają teraz godzinę i datę, chociaż tylko data jest ważna. Używając atrybutów adnotacji danych, można wprowadzić jedną zmianę kodu, która naprawi format wyświetlania na każdej stronie, która wyświetla dane. 
 
-Atrybut [DataType](/dotnet/api/system.componentmodel.dataannotations.datatypeattribute?view=netframework-4.7.1) określa typ danych, który jest bardziej szczegółowy niż typ wewnętrzny bazy danych. W tym przypadku należy wyświetlić tylko datę, a nie datę i godzinę. [Wyliczenie DataType](/dotnet/api/system.componentmodel.dataannotations.datatype?view=netframework-4.7.1) zawiera wiele typów danych, takich jak data, godzina, numer telefonu, waluta, EmailAddress itp. Ten `DataType` atrybut może również umożliwić aplikacji automatyczne udostępnianie funkcji specyficznych dla typu. Przykład:
+Atrybut [DataType](/dotnet/api/system.componentmodel.dataannotations.datatypeattribute?view=netframework-4.7.1) określa typ danych, który jest bardziej szczegółowy niż typ wewnętrzny bazy danych. W tym przypadku należy wyświetlić tylko datę, a nie datę i godzinę. [Wyliczenie DataType](/dotnet/api/system.componentmodel.dataannotations.datatype?view=netframework-4.7.1) zawiera wiele typów danych, takich jak data, godzina, numer telefonu, waluta, EmailAddress itp. Ten `DataType` atrybut może również umożliwić aplikacji automatyczne udostępnianie funkcji specyficznych dla typu. Na przykład:
 
 * Łącze jest tworzone automatycznie dla `DataType.EmailAddress`. `mailto:`
 * Selektor daty jest dostępny `DataType.Date` w większości przeglądarek.
@@ -134,13 +134,16 @@ Atrybut w modelu danych jest mapowany`Student` do kolumnytabeli.`FirstName` `Stu
 
 `Required` Atrybut powoduje, że właściwości nazwy są wymagane. Ten `Required` atrybut nie jest wymagany dla typów niedopuszczających wartości null, takich jak typy wartości `DateTime`( `int`na przykład `double`,, i). Typy, które nie mogą mieć wartości null, są automatycznie traktowane jako pola wymagane.
 
-Ten `Required` atrybut może być zastąpiony parametrem o minimalnej długości `StringLength` w atrybucie:
+Atrybut musi być używany z `MinimumLength` , `MinimumLength` aby można było wymusić. `Required`
 
 ```csharp
 [Display(Name = "Last Name")]
-[StringLength(50, MinimumLength=1)]
+[Required]
+[StringLength(50, MinimumLength=2)]
 public string LastName { get; set; }
 ```
+
+`MinimumLength`i `Required` Zezwalaj na odstępy, aby spełnić kryteria weryfikacji. `RegularExpression` Użyj atrybutu w celu zapewnienia pełnej kontroli nad ciągiem.
 
 ### <a name="the-display-attribute"></a>Atrybut wyświetlania
 
@@ -746,7 +749,7 @@ Aktualizuj *modele/uczniów. cs* przy użyciu następującego wyróżnionego kod
 
 [!code-csharp[](intro/samples/cu21/Models/Student.cs?name=snippet_DataType&highlight=3,12-13)]
 
-Atrybut [DataType](/dotnet/api/system.componentmodel.dataannotations.datatypeattribute?view=netframework-4.7.1) określa typ danych, który jest bardziej szczegółowy niż typ wewnętrzny bazy danych. W tym przypadku należy wyświetlić tylko datę, a nie datę i godzinę. [Wyliczenie DataType](/dotnet/api/system.componentmodel.dataannotations.datatype?view=netframework-4.7.1) zawiera wiele typów danych, takich jak data, godzina, numer telefonu, waluta, EmailAddress itp. Ten `DataType` atrybut może również umożliwić aplikacji automatyczne udostępnianie funkcji specyficznych dla typu. Przykład:
+Atrybut [DataType](/dotnet/api/system.componentmodel.dataannotations.datatypeattribute?view=netframework-4.7.1) określa typ danych, który jest bardziej szczegółowy niż typ wewnętrzny bazy danych. W tym przypadku należy wyświetlić tylko datę, a nie datę i godzinę. [Wyliczenie DataType](/dotnet/api/system.componentmodel.dataannotations.datatype?view=netframework-4.7.1) zawiera wiele typów danych, takich jak data, godzina, numer telefonu, waluta, EmailAddress itp. Ten `DataType` atrybut może również umożliwić aplikacji automatyczne udostępnianie funkcji specyficznych dla typu. Na przykład:
 
 * Łącze jest tworzone automatycznie dla `DataType.EmailAddress`. `mailto:`
 * Selektor daty jest dostępny `DataType.Date` w większości przeglądarek.

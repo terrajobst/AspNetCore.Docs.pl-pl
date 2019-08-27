@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 8/22/2019
 uid: performance/caching/memory
-ms.openlocfilehash: 3005adec9ffe41859d05a3f61c7c45b8e7bfeefc
-ms.sourcegitcommit: bdaee0e8c657fe7546fd6b7990db9c03c2af04df
+ms.openlocfilehash: 1519abbca6430063f037372a4927f5818f160457
+ms.sourcegitcommit: 776598f71da0d1e4c9e923b3b395d3c3b5825796
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69908374"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70024783"
 ---
 # <a name="cache-in-memory-in-aspnet-core"></a>Buforowanie w pamięci w ASP.NET Core
 
@@ -85,15 +85,15 @@ Poniższy kod pobiera lub tworzy buforowany element z bezwzględnym wygaśnięci
 
 [!code-csharp[](memory/3.0sample/WebCacheSample/Controllers/HomeController.cs?name=snippet99)]
 
-Buforowany element zestawu elementów z przewijanym okresem ważności jest narażony na nieodświeżony, ponieważ nie ma żadnego powiązania z jego wygaśnięciem. Użyj bezwzględnego wygaśnięcia z ruchomym wygaśnięciem w celu zagwarantowania, że buforowany element nie stanie się bardziej nieodświeżony niż bezwzględne wygaśnięcie. Gdy bezwzględne wygaśnięcie jest połączone z przesuwaniem, bezwzględne wygaśnięcie Ustawia górną granicę, jak długo element może być buforowany. W przeciwieństwie do bezwzględnego czasu wygaśnięcia, jeśli element nie jest żądany z pamięci podręcznej w ramach interwału wygaśnięcia, element zostanie wykluczony z pamięci podręcznej. Po określeniu wygaśnięcia bezwzględnego i przesuwania, wygaśnięcia są logicznie logicznie.
+W pamięci podręcznej zestaw elementów z przewijanym okresem ważności jest zagrożony przestarzałą. Jeśli dostęp do niego jest możliwy częściej niż przedział czasu wygaśnięcia, element nigdy nie wygaśnie. Połącz okresowe wygaśnięcie i bezwzględne wygaśnięcie w celu zagwarantowania, że element wygaśnie po upływie bezwzględnego czasu wygaśnięcia. Bezwzględne wygaśnięcie Ustawia górną granicę, jak długo element może być buforowany, przy jednoczesnym dopuszczeniu do wcześniejszego wygaśnięcia elementu, jeśli nie zostanie on żądany w przedziale czasu wygaśnięcia. Gdy są określone okresy ważności bezwzględne i przesuwania, wygasające są logiczne logicznie. Jeśli przedział czasu wygaśnięcia *lub* bezwzględny czas wygaśnięcia, element zostanie wykluczony z pamięci podręcznej.
 
-Poniższy kod pobiera lub tworzy buforowany element z przesuwaniem i bezwzględnym okresem ważności:
+Poniższy kod pobiera lub tworzy buforowany element z przewinięciem *i* bezwzględnym okresem ważności:
 
 [!code-csharp[](memory/3.0sample/WebCacheSample/Controllers/HomeController.cs?name=snippet9)]
 
 Poprzedni kod gwarantuje, że dane nie będą przechowywane w pamięci podręcznej dłużej niż czas bezwzględny.
 
-<xref:Microsoft.Extensions.Caching.Memory.CacheExtensions.GetOrCreate*>, <xref:Microsoft.Extensions.Caching.Memory.CacheExtensions.GetOrCreateAsync*>, i <xref:Microsoft.Extensions.Caching.Memory.CacheExtensions.Get*> są metodami <xref:Microsoft.Extensions.Caching.Memory.CacheExtensions> rozszerzenia części klasy, która rozszerza możliwości programu <xref:Microsoft.Extensions.Caching.Memory.IMemoryCache>. Zobacz [metody IMemoryCache](/dotnet/api/microsoft.extensions.caching.memory.imemorycache) i [CacheExtensions metody](/dotnet/api/microsoft.extensions.caching.memory.cacheextensions) opisujące inne metody pamięci podręcznej.
+<xref:Microsoft.Extensions.Caching.Memory.CacheExtensions.GetOrCreate*>, <xref:Microsoft.Extensions.Caching.Memory.CacheExtensions.GetOrCreateAsync*>, i <xref:Microsoft.Extensions.Caching.Memory.CacheExtensions.Get*> sąmetodamirozszerzającymiwklasie.<xref:Microsoft.Extensions.Caching.Memory.CacheExtensions> Te metody zwiększają możliwości programu <xref:Microsoft.Extensions.Caching.Memory.IMemoryCache>.
 
 ## <a name="memorycacheentryoptions"></a>MemoryCacheEntryOptions
 

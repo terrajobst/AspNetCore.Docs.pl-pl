@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/22/2019
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: c9da404b1bbd072d3e033f18a7366169082dac06
-ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
+ms.openlocfilehash: 62224312aa9b7f3e0164b5300e491f59b0832acd
+ms.sourcegitcommit: 776598f71da0d1e4c9e923b3b395d3c3b5825796
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69583550"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70024721"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>Razor Pages z EF Core w ASP.NET Core odczytu danych powiązanych — 6 z 8
 
@@ -48,7 +48,7 @@ Istnieje kilka sposobów, EF Core mogą ładować powiązane dane do właściwo�
 
   Uwaga: EF Core automatycznie naprawia właściwości nawigacji do wszystkich innych jednostek, które zostały wcześniej załadowane do wystąpienia kontekstu. Nawet jeśli dane dla właściwości nawigacji *nie* są jawnie uwzględniane, właściwość można nadal wypełnić, jeśli niektóre lub wszystkie powiązane jednostki zostały wcześniej załadowane.
 
-* [Jawne ładowanie](/ef/core/querying/related-data#explicit-loading). Gdy obiekt jest najpierw odczytywany, powiązane dane nie są pobierane. Kod musi być zapisany, aby można było pobrać powiązane dane, gdy jest to konieczne. Jawne ładowanie z oddzielnymi zapytania powoduje wysłanie wielu zapytań do bazy danych. W przypadku jawnego ładowania kod określa właściwości nawigacji do załadowania. Użyj metody `Load` , aby przeprowadzić jawne ładowanie. Na przykład:
+* [Jawne ładowanie](/ef/core/querying/related-data#explicit-loading). Gdy obiekt jest najpierw odczytywany, powiązane dane nie są pobierane. Kod musi być zapisany, aby można było pobrać powiązane dane, gdy jest to konieczne. Jawne ładowanie z oddzielnymi zapytania powoduje wysłanie wielu zapytań do bazy danych. W przypadku jawnego ładowania kod określa właściwości nawigacji do załadowania. Użyj metody `Load` , aby przeprowadzić jawne ładowanie. Przykład:
 
   ![Przykład jawnego ładowania](read-related-data/_static/explicit-loading.png)
 
@@ -359,7 +359,7 @@ Istnieje kilka sposobów, EF Core mogą ładować powiązane dane do właściwo�
 
   Uwaga: EF Core automatycznie naprawia właściwości nawigacji do wszystkich innych jednostek, które zostały wcześniej załadowane do wystąpienia kontekstu. Nawet jeśli dane dla właściwości nawigacji *nie* są jawnie uwzględniane, właściwość można nadal wypełnić, jeśli niektóre lub wszystkie powiązane jednostki zostały wcześniej załadowane.
 
-* [Jawne ładowanie](/ef/core/querying/related-data#explicit-loading). Gdy obiekt jest najpierw odczytywany, powiązane dane nie są pobierane. Kod musi być zapisany, aby można było pobrać powiązane dane, gdy jest to konieczne. Jawne ładowanie z oddzielnymi zapytaniami powoduje wysłanie wielu zapytań do bazy danych. W przypadku jawnego ładowania kod określa właściwości nawigacji do załadowania. Użyj metody `Load` , aby przeprowadzić jawne ładowanie. Przykład:
+* [Jawne ładowanie](/ef/core/querying/related-data#explicit-loading). Gdy obiekt jest najpierw odczytywany, powiązane dane nie są pobierane. Kod musi być zapisany, aby można było pobrać powiązane dane, gdy jest to konieczne. Jawne ładowanie z oddzielnymi zapytaniami powoduje wysłanie wielu zapytań do bazy danych. W przypadku jawnego ładowania kod określa właściwości nawigacji do załadowania. Użyj metody `Load` , aby przeprowadzić jawne ładowanie. Na przykład:
 
   ![Przykład jawnego ładowania](read-related-data/_static/explicit-loading.png)
 
@@ -384,7 +384,7 @@ Aby wyświetlić nazwę przypisanego działu na liście kursów:
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
 
-Postępuj zgodnie z instrukcjami w [tworzenia szkieletu modelu uczniów](xref:data/ef-rp/intro#scaffold-student-pages) i użyj `Course` dla klasy modelu.
+Postępuj zgodnie z instrukcjami w [tworzenia szkieletu modelu uczniów](xref:data/ef-rp/intro#scaffold-the-student-model) i użyj `Course` dla klasy modelu.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -471,7 +471,7 @@ W folderze *SchoolViewModels* Utwórz *InstructorIndexData.cs* przy użyciu nast
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
 
-Postępuj zgodnie z instrukcjami w [tworzenia szkieletu modelu uczniów](xref:data/ef-rp/intro#scaffold-student-pages) i użyj `Instructor` dla klasy modelu.
+Postępuj zgodnie z instrukcjami w [tworzenia szkieletu modelu uczniów](xref:data/ef-rp/intro#scaffold-the-student-model) i użyj `Instructor` dla klasy modelu.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
