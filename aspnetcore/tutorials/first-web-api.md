@@ -4,14 +4,14 @@ author: rick-anderson
 description: Dowiedz się, jak utworzyć internetowy interfejs API za pomocą ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/14/2019
+ms.date: 08/27/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 99985e9fb1134c2ba808434f8d24c4a768773268
-ms.sourcegitcommit: 476ea5ad86a680b7b017c6f32098acd3414c0f6c
+ms.openlocfilehash: 25bfccb136d875b454034bd011828c9f3b6cd3d8
+ms.sourcegitcommit: de17150e5ec7507d7114dde0e5dbc2e45a66ef53
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69022592"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70113286"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Samouczek: Tworzenie internetowego interfejsu API za pomocą ASP.NET Core
 
@@ -367,7 +367,7 @@ Te metody zaimplementować dwa GET punkty końcowe:
 * `GET /api/TodoItems`
 * `GET /api/TodoItems/{id}`
 
-Przetestuj aplikację, wywołując dwa punkty końcowe z przeglądarki lub wpisu. Na przykład:
+Przetestuj aplikację, wywołując dwa punkty końcowe z przeglądarki lub wpisu. Przykład:
 
 * [https://localhost:5001/api/TodoItems](https://localhost:5001/api/TodoItems)
 * [https://localhost:5001/api/TodoItems/1](https://localhost:5001/api/TodoItems/1)
@@ -462,9 +462,9 @@ Użyj narzędzia Postman, aby usunąć zadanie do wykonania:
 * Ustaw identyfikator URI obiektu, aby usunąć, na przykład `https://localhost:5001/api/TodoItems/1`
 * Wybierz **wysyłania**
 
-## <a name="call-the-api-from-jquery"></a>Wywoływanie interfejsu API z platformy jQuery
+## <a name="call-the-web-api-with-javascript"></a>Wywoływanie interfejsu API sieci Web przy użyciu języka JavaScript
 
-Zobacz [samouczek: Wywołaj ASP.NET Core Web API z jQuery](xref:tutorials/web-api-jquery).
+Zobacz [samouczek: Wywołaj ASP.NET Core interfejs API sieci Web](xref:tutorials/web-api-javascript)przy użyciu języka JavaScript.
 
 ::: moniker-end
 
@@ -480,9 +480,10 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Konfigurowanie routingu i ścieżki adresu URL.
 > * Określ wartości zwracane.
 > * Wywoływanie internetowego interfejsu API za pomocą narzędzia Postman.
-> * Wywołaj interfejs API sieci Web za pomocą platformy jQuery.
+> * Wywołaj interfejs API sieci Web za pomocą języka JavaScript.
 
 Na koniec masz internetowego interfejsu API, która może zarządzać "wykonania", przechowywane w relacyjnej bazie danych.
+
 ## <a name="overview"></a>Omówienie
 
 Ten samouczek tworzy następujący interfejs API:
@@ -737,7 +738,6 @@ Zwracany typ `GetTodoItems` i `GetTodoItem` metody jest [ActionResult\<T > typu]
 * Jeśli żaden element jest zgodny z żądanym Identyfikatorem, metoda zwraca odpowiedź 404 [NotFound](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.notfound) kod błędu.
 * W przeciwnym razie metoda zwraca 200 treści odpowiedzi JSON. Zwracanie `item` skutkuje odpowiedź HTTP 200.
 
-
 ## <a name="test-the-gettodoitems-method"></a>Metoda GetTodoItems testu
 
 Ten samouczek używa narzędzia Postman do testowania internetowego interfejsu API.
@@ -863,9 +863,9 @@ Użyj narzędzia Postman, aby usunąć zadanie do wykonania:
 
 Przykładowa aplikacja umożliwia usunięcie wszystkich elementów. Jednak po usunięciu ostatniego elementu jest on tworzony przez konstruktora klasy modelu przy następnym wywołaniu interfejsu API.
 
-## <a name="call-the-api-with-jquery"></a>Wywoływanie interfejsu API przy użyciu jQuery
+## <a name="call-the-web-api-with-javascript"></a>Wywoływanie interfejsu API sieci Web przy użyciu języka JavaScript
 
-W tej sekcji strony HTML jest dodawany, który używa technologii jQuery do wywołania sieci web interfejsu api. jQuery inicjuje żądanie i aktualizowanie strony ze szczegółami z odpowiedzi interfejsu API.
+W tej sekcji zostanie dodana strona HTML, która używa języka JavaScript do wywoływania internetowego interfejsu API. Interfejs API pobierania inicjuje żądanie. Język JavaScript aktualizuje stronę ze szczegółowymi informacjami z odpowiedzi internetowego interfejsu API.
 
 Skonfiguruj aplikację do [obsługi plików statycznych](/dotnet/api/microsoft.aspnetcore.builder.staticfileextensions.usestaticfiles#Microsoft_AspNetCore_Builder_StaticFileExtensions_UseStaticFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) i [Włącz domyślne mapowanie plików](/dotnet/api/microsoft.aspnetcore.builder.defaultfilesextensions.usedefaultfiles#Microsoft_AspNetCore_Builder_DefaultFilesExtensions_UseDefaultFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) , aktualizując *Startup.cs* z następującym wyróżnionym kodem:
 
@@ -886,19 +886,17 @@ Zmiana ustawień uruchamiania projektów ASP.NET Core może być konieczne test 
 * Otwórz *Properties\launchSettings.json*.
 * Usuń `launchUrl` właściwości, aby wymusić na aplikacji, aby otworzyć w *index.html*&mdash;pliku domyślnego projektu.
 
-Istnieje kilka sposobów uzyskania biblioteki jQuery. W poprzednim fragmencie kodu biblioteki jest ładowany z usługi CDN.
-
-Ten przykład wywołuje wszystkie metody CRUD interfejsu API. Poniżej przedstawiono objaśnienia dotyczące wywołań interfejsu API.
+Ten przykład wywołuje wszystkie metody CRUD internetowego interfejsu API. Poniżej przedstawiono objaśnienia dotyczące wywołań interfejsu API.
 
 ### <a name="get-a-list-of-to-do-items"></a>Pobierz listę elementów do wykonania
 
-JQuery [ajax](https://api.jquery.com/jquery.ajax/) funkcji wysyła `GET` żądanie do interfejsu API, która zwraca wartość JSON reprezentująca tablicę elementów do wykonania. `success` Wywołaniu funkcji wywołania zwrotnego, jeśli żądanie zakończy się powodzeniem. Podczas wywołania zwrotnego model DOM jest aktualizowana informacjami zadań do wykonania.
+Polecenie pobrania wysyła żądanie HTTP GET do internetowego interfejsu API, który zwraca kod JSON reprezentujący tablicę elementów do wykonania. `success` Wywołaniu funkcji wywołania zwrotnego, jeśli żądanie zakończy się powodzeniem. Podczas wywołania zwrotnego model DOM jest aktualizowana informacjami zadań do wykonania.
 
 [!code-javascript[](first-web-api/samples/2.2/TodoApi/wwwroot/site.js?name=snippet_GetData)]
 
 ### <a name="add-a-to-do-item"></a>Dodaj element do wykonania
 
-[Ajax](https://api.jquery.com/jquery.ajax/) funkcji wysyła `POST` żądania z elementem zadań do wykonania w treści żądania. `accepts` i `contentType` opcje są ustawione na `application/json` Aby określić typ nośnika odbieranych i wysyłanych. Element do wykonania jest konwertowana na format JSON za pomocą [JSON.stringify](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify). Gdy interfejs API zwraca kod stanu powodzenia `getData` wywołaniu funkcji można zaktualizować tabeli HTML.
+Polecenie pobrania wysyła żądanie HTTP POST z elementem do wykonania w treści żądania. `accepts` i `contentType` opcje są ustawione na `application/json` Aby określić typ nośnika odbieranych i wysyłanych. Element do wykonania jest konwertowana na format JSON za pomocą [JSON.stringify](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify). Gdy interfejs API zwraca kod stanu powodzenia `getData` wywołaniu funkcji można zaktualizować tabeli HTML.
 
 [!code-javascript[](first-web-api/samples/2.2/TodoApi/wwwroot/site.js?name=snippet_AddItem)]
 
