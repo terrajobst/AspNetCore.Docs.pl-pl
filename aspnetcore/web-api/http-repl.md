@@ -5,14 +5,14 @@ description: Dowiedz się, jak przeglądać i testować ASP.NET Core internetowy
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 07/25/2019
+ms.date: 08/29/2019
 uid: web-api/http-repl
-ms.openlocfilehash: d2c5f774595e7a2223e84cc76eecdb9baa04adfe
-ms.sourcegitcommit: 776598f71da0d1e4c9e923b3b395d3c3b5825796
+ms.openlocfilehash: e97b127b869b847997f9c48e4031306daecef2f9
+ms.sourcegitcommit: 4b00e77f9984ce76356e829cfe7f75f0f61a7a8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70024806"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70145782"
 ---
 # <a name="test-web-apis-with-the-http-repl"></a>Testowanie interfejsów API sieci Web przy użyciu protokołu HTTP REPL
 
@@ -146,7 +146,7 @@ Alternatywnie Uruchom następujące polecenie w dowolnym momencie podczas dział
 connect <ROOT URI>
 ```
 
-Na przykład:
+Przykład:
 
 ```console
 (Disconnected)~ connect https://localhost:5001
@@ -199,7 +199,7 @@ https://localhost:5001/fruits~ ls
 https://localhost:5001/fruits~
 ```
 
-Alternatywnie można uruchomić `ui` polecenie, aby otworzyć stronę interfejsu użytkownika programu Swagger interfejsu API sieci Web w przeglądarce. Przykład:
+Alternatywnie można uruchomić `ui` polecenie, aby otworzyć stronę interfejsu użytkownika programu Swagger interfejsu API sieci Web w przeglądarce. Na przykład:
 
 ```console
 https://localhost:5001/~ ui
@@ -278,52 +278,6 @@ Jeśli określone klucze kolorów nie są ustawione, brane są więcej kluczy og
 * Jeśli `colors.json.string` nie ma wartości, `colors.json.literal` jest używana.
 * Jeśli `colors.json.literal` nie ma wartości, `colors.json` jest używana. 
 * Jeśli `colors.json` nie ma wartości, używany jest domyślny kolor tekstu powłoki poleceń (`AllowedColors.None`).
-
-### <a name="set-indentation-size"></a>Ustaw rozmiar wcięcia
-
-Dostosowanie rozmiaru wcięcia odpowiedzi jest obecnie obsługiwane tylko w przypadku formatu JSON. Domyślny rozmiar to dwie spacje. Przykład:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Apple"
-  },
-  {
-    "id": 2,
-    "name": "Orange"
-  },
-  {
-    "id": 3,
-    "name": "Strawberry"
-  }
-]
-```
-
-Aby zmienić rozmiar domyślny, ustaw `formatting.json.indentSize` klucz. Na przykład, aby zawsze używać czterech spacji:
-
-```console
-pref set formatting.json.indentSize 4
-```
-
-Kolejne odpowiedzi przestrzegają ustawień czterech spacji:
-
-```json
-[
-    {
-        "id": 1,
-        "name": "Apple"
-    },
-    {
-        "id": 2,
-        "name": "Orange"
-    },
-    {
-        "id": 3,
-        "name": "Strawberry"
-    }
-]
-```
 
 ### <a name="set-indentation-size"></a>Ustaw rozmiar wcięcia
 
@@ -844,7 +798,7 @@ Aby ustawić nagłówek żądania HTTP, należy użyć jednej z następujących 
 
   W przypadku wcześniejszego podejścia każdy unikatowy nagłówek żądania HTTP wymaga własnej `-h` opcji.
 
-1. Ustaw przed wysłaniem żądania HTTP. Na przykład:
+1. Ustaw przed wysłaniem żądania HTTP. Przykład:
 
   ```console
   https://localhost:5001/people~ set header Content-Type application/json
@@ -862,14 +816,14 @@ Domyślnie wyświetlanie wysyłanego żądania HTTP jest pomijane. Istnieje moż
 
 ### <a name="enable-request-display"></a>Włącz wyświetlanie żądań
 
-Wyświetl wysyłane żądanie HTTP, uruchamiając `echo on` polecenie. Na przykład:
+Wyświetl wysyłane żądanie HTTP, uruchamiając `echo on` polecenie. Przykład:
 
 ```console
 https://localhost:5001/people~ echo on
 Request echoing is on
 ```
 
-Kolejne żądania HTTP w bieżącej sesji wyświetlają nagłówki żądań. Przykład:
+Kolejne żądania HTTP w bieżącej sesji wyświetlają nagłówki żądań. Na przykład:
 
 ```console
 https://localhost:5001/people~ post

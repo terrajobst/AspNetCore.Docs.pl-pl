@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/13/2019
 uid: blazor/components
-ms.openlocfilehash: e1afae730d61463d31c8a1698fc31904a3fc8f0e
-ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
+ms.openlocfilehash: 07e9153ccfdc78d1da57b815d33220f7fa597cc7
+ms.sourcegitcommit: 4b00e77f9984ce76356e829cfe7f75f0f61a7a8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69583092"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70145729"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Tworzenie i używanie składników ASP.NET Core Razor
 
@@ -422,21 +422,21 @@ W przypadku niektórych zdarzeń dozwolone są typy argumentów zdarzeń. Jeśli
 
 Obsługiwane [UIEventArgs](https://github.com/aspnet/AspNetCore/blob/release/3.0-preview8/src/Components/Components/src/UIEventArgs.cs) są przedstawione w poniższej tabeli.
 
-| Zdarzenie | Class |
+| Wydarzenie | Klasa |
 | ----- | ----- |
 | Schowek | `UIClipboardEventArgs` |
 | Przeciągnij  | `UIDragEventArgs`służy do przechowywania przeciąganych danych podczas operacji przeciągania i upuszczania oraz może zawierać jeden lub więcej `UIDataTransferItem`. &ndash; `DataTransfer` `UIDataTransferItem`reprezentuje jeden element danych przeciągania. |
 | Błąd | `UIErrorEventArgs` |
 | Fokus | `UIFocusEventArgs`Nie obejmuje obsługi dla `relatedTarget`. &ndash; |
 | `<input>`stąp | `UIChangeEventArgs` |
-| Klawiatura | `UIKeyboardEventArgs` |
+| Klawiatury | `UIKeyboardEventArgs` |
 | Wskaźnik | `UIMouseEventArgs` |
 | Wskaźnik myszy | `UIPointerEventArgs` |
 | Kółko myszy | `UIWheelEventArgs` |
 | Postęp | `UIProgressEventArgs` |
 | Dotyk | `UITouchEventArgs`&ndash; reprezentujepojedynczypunktkontaktunaurządzeniuz`UITouchPoint` wrażliwym dotknięciem. |
 
-Aby uzyskać informacje o zachowaniu właściwości i obsłudze zdarzeń zdarzeń w powyższej tabeli, zobacz [klasy EventArgs w źródle odwołania](https://github.com/aspnet/AspNetCore/tree/release/3.0-preview8/src/Components/Web/src).
+Aby uzyskać informacje o zachowaniu właściwości i obsłudze zdarzeń zdarzeń w powyższej tabeli, zobacz [EventArgs Classes in source Reference (ASPNET/AspNetCore Release/3.0-preview9)](https://github.com/aspnet/AspNetCore/tree/release/3.0-preview9/src/Components/Web/src).
 
 ### <a name="lambda-expressions"></a>Wyrażenia lambda
 
@@ -1202,14 +1202,14 @@ builder.AddContent(1, "Second");
 
 Gdy kod jest wykonywany po raz pierwszy, jeśli `someFlag` jest `true`, Konstruktor odbiera:
 
-| Sequence | Typ      | Dane   |
+| Sekwencja | Type      | Data   |
 | :------: | --------- | :----: |
 | 0        | Węzeł tekstu | Pierwszego  |
 | 1        | Węzeł tekstu | Sekunda |
 
 Wyobraź sobie `someFlag` , `false`że zostanie ona przerenderowana, a znaczniki są renderowane ponownie. Tym razem Konstruktor odbiera:
 
-| Sequence | Typ       | Dane   |
+| Sekwencja | Type       | Data   |
 | :------: | ---------- | :----: |
 | 1        | Węzeł tekstu  | Sekunda |
 
@@ -1234,14 +1234,14 @@ builder.AddContent(seq++, "Second");
 
 Teraz pierwsze dane wyjściowe to:
 
-| Sequence | Typ      | Dane   |
+| Sekwencja | Type      | Data   |
 | :------: | --------- | :----: |
 | 0        | Węzeł tekstu | Pierwszego  |
 | 1        | Węzeł tekstu | Sekunda |
 
 Ten wynik jest identyczny z poprzednim przypadkiem, dlatego nie istnieją żadne negatywne problemy. `someFlag`znajduje `false` się na drugim renderingu, a dane wyjściowe:
 
-| Sequence | Typ      | Dane   |
+| Sekwencja | Type      | Data   |
 | :------: | --------- | ------ |
 | 0        | Węzeł tekstu | Sekunda |
 

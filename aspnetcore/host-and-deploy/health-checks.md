@@ -1,74 +1,74 @@
 ---
-title: Kontroli kondycji w programie ASP.NET Core
+title: Kontrole kondycji w ASP.NET Core
 author: guardrex
-description: Dowiedz się, jak skonfigurować kontrole kondycji infrastruktury platformy ASP.NET Core, takich jak aplikacje i bazy danych.
+description: Dowiedz się, jak skonfigurować Sprawdzanie kondycji infrastruktury ASP.NET Core, na przykład aplikacje i bazy danych.
 monikerRange: '>= aspnetcore-2.2'
 ms.author: riande
 ms.custom: mvc
 ms.date: 07/11/2019
 uid: host-and-deploy/health-checks
-ms.openlocfilehash: 43b6c3b55170eaf3a989d0f2779edac5290df823
-ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
+ms.openlocfilehash: cc2ee50cd887a14fba2141bee13d65e777c16232
+ms.sourcegitcommit: 4b00e77f9984ce76356e829cfe7f75f0f61a7a8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67855912"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70145759"
 ---
-# <a name="health-checks-in-aspnet-core"></a>Kontroli kondycji w programie ASP.NET Core
+# <a name="health-checks-in-aspnet-core"></a>Kontrole kondycji w ASP.NET Core
 
-Przez [Luke Latham](https://github.com/guardrex) i [Glenn Condron](https://github.com/glennc)
+Autorzy [Luke Latham](https://github.com/guardrex) i [Glenn Condron](https://github.com/glennc)
 
-Platforma ASP.NET Core oferuje kondycji Sprawdź oprogramowanie pośredniczące i biblioteki do raportowania kondycji składników infrastruktury aplikacji.
+ASP.NET Core oferuje oprogramowanie do sprawdzania kondycji i biblioteki do raportowania kondycji składników infrastruktury aplikacji.
 
-Kontrole kondycji są udostępniane przez aplikację jako punktów końcowych HTTP. Punkty końcowe sprawdzania kondycji można skonfigurować dla różnych scenariuszy monitorowania w czasie rzeczywistym:
+Kontrole kondycji są udostępniane przez aplikację jako punkty końcowe HTTP. Punkty końcowe sprawdzania kondycji można skonfigurować dla różnych scenariuszy monitorowania w czasie rzeczywistym:
 
-* Sondy kondycji mogą być używane przez koordynatorów kontenerów i obciążenia równoważenia w celu sprawdzenia stanu aplikacji. Na przykład orkiestrator kontenerów mogą odpowiadać na kondycji niepowodzenie sprawdzenia przez zatrzymywanie stopniowego wdrażania lub ponownego uruchamiania kontenera. Moduł równoważenia obciążenia może reagować na złej kondycji aplikacji, kierując ruch od wystąpienia przechodzenia do wystąpienia dobrej kondycji.
-* Można monitorować użycie pamięci, dysku i inne zasoby serwera fizycznego do stanu dobrej kondycji.
-* Kontrole kondycji można przetestować zależności aplikacji, takich jak bazy danych i punktów końcowych usługi zewnętrznej, aby upewnić się, dostępność i normalnego funkcjonowania.
+* Sondy kondycji mogą być używane przez koordynatorów kontenerów i moduły równoważenia obciążenia w celu sprawdzenia stanu aplikacji. Na przykład koordynator kontenera może odpowiedzieć na niepowodzenie sprawdzania kondycji przez zatrzymanie wdrożenia stopniowego lub ponowne uruchomienie kontenera. Moduł równoważenia obciążenia może reagować na aplikację w złej kondycji przez kierowanie ruchu z nieprawidłowego wystąpienia do prawidłowego wystąpienia.
+* Użycie pamięci, dysku i innych zasobów serwera fizycznego może być monitorowane w celu zapewnienia prawidłowego stanu.
+* Kontrole kondycji umożliwiają testowanie zależności aplikacji, takich jak bazy danych i punkty końcowe usług zewnętrznych, w celu potwierdzenia dostępności i normalnego działania.
 
 [Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/health-checks/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
-Przykładowa aplikacja zawiera przykładowe scenariusze opisane w tym temacie. Aby uruchomić przykładową aplikację w danej sytuacji, należy użyć [dotnet, uruchom](/dotnet/core/tools/dotnet-run) polecenia z folderu projektu w powłoce poleceń. Zobacz przykładową aplikację *README.md* plików i opisy scenariuszy, w tym temacie, aby uzyskać szczegółowe informacje na temat korzystania z przykładowej aplikacji.
+Przykładowa aplikacja zawiera przykłady scenariuszy opisanych w tym temacie. Aby uruchomić przykładową aplikację dla danego scenariusza, użyj polecenia [dotnet Run](/dotnet/core/tools/dotnet-run) z folderu projektu w powłoce poleceń. Zobacz plik *README.MD* aplikacji przykładowej i opisy scenariuszy w tym temacie, aby uzyskać szczegółowe informacje na temat korzystania z przykładowej aplikacji.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Kontrole kondycji są zwykle używane z zewnętrznego monitorowania usługi lub kontener programu orchestrator do sprawdzenia stanu aplikacji. Przed dodaniem kontrole kondycji do aplikacji, zdecyduj, na które monitorowania systemowi operacyjnemu używanie. System monitorowania decyduje o jakie kontrole kondycji do tworzenia i konfigurowania ich punkty końcowe.
+Kontrole kondycji są zwykle używane z zewnętrzną usługą monitorowania lub koordynatorem kontenera w celu sprawdzenia stanu aplikacji. Przed dodaniem kontroli kondycji do aplikacji należy określić system monitorowania, który ma być używany. System monitorujący określa, jakie typy testów kondycji należy utworzyć i jak skonfigurować ich punkty końcowe.
 
-Odwołanie [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) lub Dodaj odwołanie do pakietu [Microsoft.AspNetCore.Diagnostics.HealthChecks](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics.HealthChecks) pakietu.
+Odwołującego się do pakietu [Microsoft. AspNetCore. app](xref:fundamentals/metapackage-app) lub Dodaj odwołanie do pakietu w pakiecie [Microsoft. AspNetCore. Diagnostics. HealthChecks](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics.HealthChecks) .
 
-Przykładowa aplikacja zawiera kod uruchamiający wykazanie, że kontrole kondycji dla kilku scenariuszy. [Sondowanie bazy danych](#database-probe) scenariusz sprawdza kondycję połączenia bazy danych przy użyciu [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks). [Sondy DbContext](#entity-framework-core-dbcontext-probe) scenariusz sprawdza bazę danych przy użyciu programu EF Core `DbContext`. Aby zapoznać się w scenariuszach bazy danych dla przykładowej aplikacji:
+Przykładowa aplikacja zawiera kod uruchamiania, aby zademonstrować Sprawdzanie kondycji kilku scenariuszy. Scenariusz [sondowania bazy danych](#database-probe) sprawdza kondycję połączenia z bazą danych przy użyciu [AspNetCore. Diagnostics. HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks). Scenariusz [sondowania DbContext](#entity-framework-core-dbcontext-probe) sprawdza bazę danych przy użyciu EF Core `DbContext`. Aby poznać scenariusze baz danych, przykładową aplikację:
 
-* Tworzy bazę danych i zapewnia jego parametry połączenia w *appsettings.json* pliku.
-* Ma następujące odwołania do pakietu w pliku projektu:
+* Tworzy bazę danych i udostępnia jej parametry połączenia w pliku *appSettings. JSON* .
+* W pliku projektu znajdują się następujące odwołania do pakietów:
   * [AspNetCore.HealthChecks.SqlServer](https://www.nuget.org/packages/AspNetCore.HealthChecks.SqlServer/)
   * [Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore](https://www.nuget.org/packages/Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore/)
 
 > [!NOTE]
-> [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) jest port [BeatPulse](https://github.com/xabaril/beatpulse) i nie jest obsługiwany lub obsługiwane przez firmę Microsoft.
+> [AspNetCore. Diagnostics. HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) to port [BeatPulse](https://github.com/xabaril/beatpulse) i nie jest obsługiwany ani wspierany przez firmę Microsoft.
 
-Inny scenariusz sprawdzania kondycji pokazuje sposób filtrowania kontrole kondycji do portu zarządzania. Przykładowa aplikacja wymaga utworzenia *Properties/launchSettings.json* pliku, który zawiera adres URL zarządzania i port zarządzania. Aby uzyskać więcej informacji, zobacz [filtru według portów](#filter-by-port) sekcji.
+W innym scenariuszu sprawdzania kondycji przedstawiono sposób filtrowania kontroli kondycji do portu zarządzania. Przykładowa aplikacja wymaga utworzenia pliku *Properties/profilu launchsettings. JSON* , który zawiera adres URL zarządzania i port zarządzania. Aby uzyskać więcej informacji, zobacz sekcję [filtrowanie według portów](#filter-by-port) .
 
-## <a name="basic-health-probe"></a>Sonda kondycji podstawowe
+## <a name="basic-health-probe"></a>Podstawowa sonda kondycji
 
-W przypadku wielu aplikacji konfiguracji sondy kondycji podstawowe raporty dostępności aplikacji do przetwarzania żądań (*żywotności*) jest wystarczająca dowiedzieć się, stan aplikacji.
+W przypadku wielu aplikacji Podstawowa konfiguracja sondy kondycji, która zgłasza dostępność aplikacji do żądań przetwarzania,jest wystarczająca do odnajdywania stanu aplikacji.
 
-Podstawową konfigurację rejestruje usługi sprawdzania kondycji i wywołuje kondycji Sprawdź oprogramowania pośredniczącego, aby odpowiedzieć na punkt końcowy adres URL odpowiedzi kondycji. Domyślnie żadne testy kondycji konkretnego są rejestrowane do testowania dowolnej określonej zależności lub podsystemu. Aplikacja jest traktowany jako w dobrej kondycji, jeśli jest w stanie odpowiadać na adres URL punktu końcowego kondycji. Moduł zapisujący odpowiedzi domyślnej zapisuje stan (<xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus>) jako zwykły tekst odpowiedź z powrotem do klienta, wskazując [HealthStatus.Healthy](xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus), [HealthStatus.Degraded](xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus) lub [ HealthStatus.Unhealthy](xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus) stanu.
+Konfiguracja podstawowa rejestruje usługi sprawdzania kondycji i wywołuje oprogramowanie do sprawdzania kondycji, aby odpowiedzieć na punkt końcowy adresu URL z odpowiedzią na kondycję. Domyślnie żadne określone kontrole kondycji nie są rejestrowane do testowania żadnej konkretnej zależności lub podsystemu. Aplikacja jest uważana za działającą w dobrej kondycji, jeśli jest w stanie reagować na adres URL punktu końcowego kondycji. Domyślny moduł zapisujący odpowiedzi zapisuje stan (<xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus>) jako odpowiedź w postaci zwykłego tekstu z powrotem do klienta, co oznacza, że [HealthStatus. zdrowy](xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus), [HealthStatus. obniżone](xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus) lub [HealthStatus stan złej kondycji](xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus) .
 
-Rejestrowanie usługi sprawdzania kondycji z <xref:Microsoft.Extensions.DependencyInjection.HealthCheckServiceCollectionExtensions.AddHealthChecks*> w `Startup.ConfigureServices`. Dodaj oprogramowanie pośredniczące sprawdzanie kondycji za pomocą <xref:Microsoft.AspNetCore.Builder.HealthCheckApplicationBuilderExtensions.UseHealthChecks*> w potoku przetwarzania żądań `Startup.Configure`.
+Zarejestruj usługi <xref:Microsoft.Extensions.DependencyInjection.HealthCheckServiceCollectionExtensions.AddHealthChecks*> sprawdzania kondycji w `Startup.ConfigureServices`programie w programie. Dodaj oprogramowanie do sprawdzania kondycji <xref:Microsoft.AspNetCore.Builder.HealthCheckApplicationBuilderExtensions.UseHealthChecks*> z programu w `Startup.Configure`potoku przetwarzania żądania.
 
-W przykładowej aplikacji, punkt końcowy kontroli kondycji jest tworzony w `/health` (*BasicStartup.cs*):
+W przykładowej aplikacji jest tworzony `/health` punkt końcowy sprawdzania kondycji (*BasicStartup.cs*):
 
 [!code-csharp[](health-checks/samples/2.x/HealthChecksSample/BasicStartup.cs?name=snippet1&highlight=5,10)]
 
-Aby uruchomić scenariusz konfiguracji podstawowej, przy użyciu przykładowej aplikacji, wykonaj następujące polecenie z folderu projektu w powłoce poleceń:
+Aby uruchomić podstawowy scenariusz konfiguracji przy użyciu przykładowej aplikacji, wykonaj następujące polecenie w folderze projektu w powłoce poleceń:
 
 ```console
 dotnet run --scenario basic
 ```
 
-### <a name="docker-example"></a>Przykład platformy docker
+### <a name="docker-example"></a>Przykład platformy Docker
 
-[Docker](xref:host-and-deploy/docker/index) oferuje wbudowaną `HEALTHCHECK` dyrektywę, który może służyć do sprawdzania stanu aplikacji, która używa konfiguracji kontroli kondycji podstawowych:
+[](xref:host-and-deploy/docker/index) Platforma Docker oferuje wbudowaną `HEALTHCHECK` dyrektywę, której można użyć do sprawdzenia stanu aplikacji korzystającej z podstawowej konfiguracji sprawdzania kondycji:
 
 ```
 HEALTHCHECK CMD curl --fail http://localhost:5000/health || exit
@@ -76,11 +76,11 @@ HEALTHCHECK CMD curl --fail http://localhost:5000/health || exit
 
 ## <a name="create-health-checks"></a>Utwórz kontrole kondycji
 
-Kontrole kondycji, są tworzone przez zaimplementowanie <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheck> interfejsu. <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheck.CheckHealthAsync*> Metoda zwraca `Task<` <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckResult> `>` oznacza kondycji jako `Healthy`, `Degraded`, lub `Unhealthy`. Wynik jest napisany w postaci zwykłego tekstu odpowiedzi z kodem stanu można konfigurować (Konfiguracja jest opisana w [opcje sprawdzania kondycji](#health-check-options) sekcji). <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckResult> może również zwracać opcjonalne pary klucz wartość.
+Kontrole kondycji są tworzone przez implementację <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheck> interfejsu. <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheck.CheckHealthAsync*> Metoda `Task<` zwracawartośćwskazującą`Healthy`kondycję jako ,`Degraded`lub `Unhealthy`. <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckResult> `>` Wynik jest zapisywana jako odpowiedź w postaci zwykłego tekstu ze konfigurowalnym kodem stanu (Konfiguracja jest opisana w sekcji [Opcje sprawdzania kondycji](#health-check-options) ). <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckResult>może również zwracać opcjonalne pary klucz-wartość.
 
-### <a name="example-health-check"></a>Przykład kontrola kondycji
+### <a name="example-health-check"></a>Przykładowe Sprawdzenie kondycji
 
-Następujące `ExampleHealthCheck` klasy pokazuje układ sprawdzenie kondycji:
+W poniższej `ExampleHealthCheck` klasie przedstawiono układ kontroli kondycji:
 
 ```csharp
 public class ExampleHealthCheck : IHealthCheck
@@ -111,9 +111,9 @@ public class ExampleHealthCheck : IHealthCheck
 }
 ```
 
-### <a name="register-health-check-services"></a>Rejestrowanie usługi sprawdzania kondycji
+### <a name="register-health-check-services"></a>Rejestrowanie usług sprawdzania kondycji
 
-`ExampleHealthCheck` Typu jest dodawany do usług sprawdzanie kondycji za pomocą <xref:Microsoft.Extensions.DependencyInjection.HealthChecksBuilderAddCheckExtensions.AddCheck*>:
+Typ zostanie dodany do usług sprawdzania kondycji przy <xref:Microsoft.Extensions.DependencyInjection.HealthChecksBuilderAddCheckExtensions.AddCheck*>użyciu: `ExampleHealthCheck`
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -123,9 +123,9 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-<xref:Microsoft.Extensions.DependencyInjection.HealthChecksBuilderAddCheckExtensions.AddCheck*> Przeciążenia pokazano w poniższym przykładzie ustawia stan błędu (<xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus>) do raportu, gdy kontrola kondycji zgłosi błąd. Jeśli ustawiono stan niepowodzenia `null` (ustawienie domyślne), [HealthStatus.Unhealthy](xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus) są zgłaszane. To przeciążenie jest użytecznego scenariusza autorów biblioteki, gdzie stan Niepowodzenie, wskazywanym przez bibliotekę jest wymuszana przez aplikację po wystąpieniu błędu sprawdzenia kondycji, jeśli implementacja sprawdzania kondycji honoruje ustawienie.
+Przeciążenie pokazane w poniższym przykładzie ustawia stan błędu (<xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus>) w celu raportowania, kiedy Sprawdzanie kondycji zgłasza błąd. <xref:Microsoft.Extensions.DependencyInjection.HealthChecksBuilderAddCheckExtensions.AddCheck*> Jeśli stan niepowodzenia jest ustawiony na `null` wartość (domyślnie), zostanie zgłoszony [HealthStatus. złej kondycji](xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus) . To przeciążenie jest przydatnym scenariuszem dla autorów biblioteki, w którym stan niepowodzenia wskazywany przez bibliotekę jest wymuszany przez aplikację w przypadku niepowodzenia sprawdzania kondycji, jeśli implementacja sprawdzania kondycji przestrzega tego ustawienia.
 
-*Tagi* może służyć do filtrowania kontrole kondycji (dokładniejszym opisem zawartym w [filtrowania kontrole kondycji](#filter-health-checks) sekcji).
+*Tagi* mogą służyć do filtrowania kontroli kondycji (opisanych w sekcji [Sprawdzanie kondycji filtru](#filter-health-checks) ).
 
 ```csharp
 services.AddHealthChecks()
@@ -135,7 +135,7 @@ services.AddHealthChecks()
         tags: new[] { "example" });
 ```
 
-<xref:Microsoft.Extensions.DependencyInjection.HealthChecksBuilderAddCheckExtensions.AddCheck*> można również wykonywać funkcję lambda. W poniższym przykładzie nazwa sprawdzenia kondycji jest określony jako `Example` i wyboru zawsze zwraca dobrej kondycji:
+<xref:Microsoft.Extensions.DependencyInjection.HealthChecksBuilderAddCheckExtensions.AddCheck*>można również wykonać funkcję lambda. W poniższym przykładzie nazwa sprawdzania kondycji jest określona jako `Example` , a sprawdzanie zawsze zwraca prawidłowy stan:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -146,9 +146,9 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-### <a name="use-health-checks-middleware"></a>Użyj oprogramowania pośredniczącego kontrole kondycji
+### <a name="use-health-checks-middleware"></a>Używanie oprogramowania do sprawdzania kondycji
 
-W `Startup.Configure`, wywołaj <xref:Microsoft.AspNetCore.Builder.HealthCheckApplicationBuilderExtensions.UseHealthChecks*> w potoku przetwarzania przy użyciu adresu URL punktu końcowego lub ścieżką względną:
+W `Startup.Configure`programie Wywołaj <xref:Microsoft.AspNetCore.Builder.HealthCheckApplicationBuilderExtensions.UseHealthChecks*> w potoku przetwarzania z adresem URL punktu końcowego lub ścieżką względną:
 
 ```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -157,26 +157,26 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
-Jeśli kontrole kondycji powinna nasłuchiwać na określonym porcie, użyj przeciążenia <xref:Microsoft.AspNetCore.Builder.HealthCheckApplicationBuilderExtensions.UseHealthChecks*> można ustawić port (dokładniejszym opisem zawartym w [filtru według portów](#filter-by-port) sekcji):
+Jeśli kontrole kondycji powinny nasłuchiwać określonego portu, Użyj przeciążenia <xref:Microsoft.AspNetCore.Builder.HealthCheckApplicationBuilderExtensions.UseHealthChecks*> , aby ustawić port (dokładniej opisane w sekcji [Filtruj według portu](#filter-by-port) ):
 
 ```csharp
 app.UseHealthChecks("/health", port: 8000);
 ```
 
-Oprogramowanie pośredniczące sprawdza, czy w kondycji jest *terminalu oprogramowania pośredniczącego* w potoku przetwarzania żądań aplikacji. Pierwszy kondycji Sprawdź punkt końcowy napotkano dokładnie dopasowany do adresu URL żądania wykonuje i short-circuits pozostałego potoku oprogramowania pośredniczącego. Po wystąpieniu zwarcie wykonuje nie oprogramowanie pośredniczące po kontroli kondycji dopasowany.
+Oprogramowanie do sprawdzania kondycji jest *terminalem pośredniczącym* w potoku przetwarzania żądań aplikacji. Pierwszy punkt końcowy sprawdzania kondycji napotkał dokładne dopasowanie do adresu URL żądania i krótkiego obwodu pozostałej części potoku oprogramowania pośredniczącego. Podczas krótkiego obwodu nie jest wykonywane żadne oprogramowanie pośredniczące po dopasowanym sprawdzaniu kondycji.
 
 ## <a name="health-check-options"></a>Opcje sprawdzania kondycji
 
-<xref:Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions> zapewniają możliwość dostosowywania zachowania wyboru kondycji:
+<xref:Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions>możliwość dostosowania zachowania kontroli kondycji:
 
-* [Filtruj kontrole kondycji](#filter-health-checks)
-* [Dostosowywanie kod stanu HTTP](#customize-the-http-status-code)
-* [Pomiń nagłówki cache](#suppress-cache-headers)
-* [Dostosowywanie danych wyjściowych](#customize-output)
+* [Filtrowanie kontroli kondycji](#filter-health-checks)
+* [Dostosowywanie kodu stanu HTTP](#customize-the-http-status-code)
+* [Pomiń nagłówki pamięci podręcznej](#suppress-cache-headers)
+* [Dostosuj dane wyjściowe](#customize-output)
 
-### <a name="filter-health-checks"></a>Filtruj kontrole kondycji
+### <a name="filter-health-checks"></a>Filtrowanie kontroli kondycji
 
-Domyślnie Sprawdź kondycję w oprogramowaniu pośredniczącym uruchamia wszystkie kontrole kondycji zarejestrowanego. Aby uruchomić podzbiór kontroli kondycji, zapewnia funkcja, która zwraca wartość typu boolean do <xref:Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions.Predicate> opcji. W poniższym przykładzie `Bar` sprawdzenie kondycji jest odfiltrowana po jego znaczniku (`bar_tag`) w funkcji instrukcji warunkowej, gdzie `true` jest zwracany tylko wtedy, jeśli sprawdzenie kondycji <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckRegistration.Tags> dopasowania właściwości `foo_tag` lub `baz_tag`:
+Domyślnie oprogramowanie do sprawdzania kondycji uruchamia wszystkie zarejestrowane testy kondycji. Aby uruchomić podzestaw kontroli kondycji, podaj funkcję, która zwraca wartość logiczną dla <xref:Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions.Predicate> opcji. W `Bar` poniższym przykładzie Sprawdzanie kondycji jest odfiltrowane przez tag ( `true` `bar_tag`) w instrukcji warunkowej funkcji, gdzie <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckRegistration.Tags> jest zwracane tylko wtedy, gdy właściwość sprawdzania kondycji jest zgodna `foo_tag` lub `baz_tag`:
 
 ```csharp
 using System.Threading.Tasks;
@@ -205,9 +205,9 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
-### <a name="customize-the-http-status-code"></a>Dostosowywanie kod stanu HTTP
+### <a name="customize-the-http-status-code"></a>Dostosowywanie kodu stanu HTTP
 
-Użyj <xref:Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions.ResultStatusCodes> dostosować mapowanie stanu kondycji, aby kody stanu HTTP. Następujące <xref:Microsoft.AspNetCore.Http.StatusCodes> przypisania są wartości domyślne używane przez oprogramowanie pośredniczące. Zmień wartości Kod stanu, zgodnie z wymaganiami.
+Użyj <xref:Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions.ResultStatusCodes> , aby dostosować mapowanie stanu kondycji do kodów stanu HTTP. Następujące <xref:Microsoft.AspNetCore.Http.StatusCodes> przypisania są wartościami domyślnymi używanymi przez oprogramowanie pośredniczące. Zmień wartości kodów stanu, aby spełniały Twoje wymagania.
 
 ```csharp
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
@@ -229,9 +229,9 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
-### <a name="suppress-cache-headers"></a>Pomiń nagłówki cache
+### <a name="suppress-cache-headers"></a>Pomiń nagłówki pamięci podręcznej
 
-<xref:Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions.AllowCachingResponses> Określa, czy oprogramowanie pośredniczące sprawdzanie kondycji dodaje nagłówki HTTP do odpowiedzi sondowania, aby zapobiec buforowanie odpowiedzi. Jeśli wartość jest `false` (ustawienie domyślne), oprogramowanie pośredniczące Ustawia lub zastępuje `Cache-Control`, `Expires`, i `Pragma` nagłówki, aby zapobiec buforowanie odpowiedzi. Jeśli wartość jest `true`, oprogramowanie pośredniczące nie modyfikuje nagłówki cache odpowiedzi.
+<xref:Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions.AllowCachingResponses>Określa, czy oprogramowanie do sprawdzania kondycji dodaje nagłówki HTTP do odpowiedzi sondy, aby zapobiec buforowaniu odpowiedzi. Jeśli wartość jest `false` (domyślnie), oprogramowanie pośredniczące ustawia lub `Cache-Control`zastępuje nagłówki, `Expires`i `Pragma` , aby zapobiec buforowaniu odpowiedzi. Jeśli wartość to `true`, oprogramowanie pośredniczące nie modyfikuje nagłówków pamięci podręcznej odpowiedzi.
 
 ```csharp
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
@@ -247,9 +247,9 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
-### <a name="customize-output"></a>Dostosowywanie danych wyjściowych
+### <a name="customize-output"></a>Dostosuj dane wyjściowe
 
-<xref:Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions.ResponseWriter> Opcja pobiera lub ustawia delegata używany do zapisywania odpowiedzi. Delegat domyślne zapisuje odpowiedź minimalnej w postaci zwykłego tekstu z wartością ciągu [HealthReport.Status](xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthReport.Status).
+<xref:Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions.ResponseWriter> Opcja Pobiera lub ustawia delegata używany do zapisywania odpowiedzi. Domyślnym delegatem jest zapisanie minimalnej odpowiedzi w postaci zwykłego tekstu z wartością ciągu [HealthReport. status](xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthReport.Status).
 
 ```csharp
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
@@ -282,65 +282,65 @@ private static Task WriteResponse(HttpContext httpContext,
 }
 ```
 
-## <a name="database-probe"></a>Sondowanie bazy danych
+## <a name="database-probe"></a>Sonda bazy danych
 
-Sprawdzenie kondycji, można określić zapytanie bazy danych, aby był uruchamiany jako testu logicznego, aby wskazać, czy baza danych odpowiada normalnie.
+Kontrola kondycji może określić zapytanie bazy danych, które ma zostać uruchomione jako test logiczny, aby wskazać, czy baza danych ma zwykle odpowiadać.
 
-Ta aplikacja używa przykładowych [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks), biblioteka sprawdzania kondycji dla aplikacji platformy ASP.NET Core, można sprawdzić kondycji bazy danych programu SQL Server. `AspNetCore.Diagnostics.HealthChecks` wykonuje `SELECT 1` zapytania względem bazy danych, aby upewnić się, połączenie z bazą danych jest w dobrej kondycji.
+Przykładowa aplikacja używa [AspNetCore. Diagnostics. HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks), biblioteki sprawdzania kondycji dla aplikacji ASP.NET Core, aby przeprowadzić kontrolę kondycji SQL Server bazie danych. `AspNetCore.Diagnostics.HealthChecks``SELECT 1` wykonuje zapytanie względem bazy danych w celu potwierdzenia, że połączenie z bazą danych jest w dobrej kondycji.
 
 > [!WARNING]
-> Podczas sprawdzania połączenia z bazą danych przy użyciu zapytania, wybierz zapytanie zwracające szybko. Podejście zapytania jest zagrożona przeciążenia bazy danych i zmniejszenie jego wydajności. W większości przypadków Uruchamianie zapytania testu nie jest konieczne. Wystarczy jedynie wprowadzania udane połączenie z bazą danych. Jeśli możesz znaleźć niezbędne do uruchamiania kwerendy, wybierz prostego zapytania typu SELECT, taki jak `SELECT 1`.
+> Podczas sprawdzania połączenia z bazą danych za pomocą zapytania wybierz zapytanie, które zwraca szybko. Podejście zapytania uruchamia ryzyko przeciążenia bazy danych i spadek jej wydajności. W większości przypadków uruchomienie zapytania testowego nie jest konieczne. Wystarczy, że połączenie z bazą danych zostało zakończone pomyślnie. Jeśli okaże się, że konieczne jest uruchomienie zapytania, wybierz proste zapytanie SELECT, takie jak `SELECT 1`.
 
-Odwołanie do pakietu [AspNetCore.HealthChecks.SqlServer](https://www.nuget.org/packages/AspNetCore.HealthChecks.SqlServer/).
+Dołącz odwołanie do pakietu do [AspNetCore. HealthChecks. SqlServer](https://www.nuget.org/packages/AspNetCore.HealthChecks.SqlServer/).
 
-Podaj prawidłową bazą danych parametry połączenia w *appsettings.json* pliku przykładowej aplikacji. Aplikacja korzysta z bazy danych programu SQL Server o nazwie `HealthCheckSample`:
+Podaj prawidłowe parametry połączenia z bazą danych w pliku *appSettings. JSON* przykładowej aplikacji. Aplikacja używa SQL Server bazy danych o nazwie `HealthCheckSample`:
 
 [!code-json[](health-checks/samples/2.x/HealthChecksSample/appsettings.json?highlight=3)]
 
-Rejestrowanie usługi sprawdzania kondycji z <xref:Microsoft.Extensions.DependencyInjection.HealthCheckServiceCollectionExtensions.AddHealthChecks*> w `Startup.ConfigureServices`. Wywołania aplikacji przykładowej `AddSqlServer` metody przy użyciu parametrów połączenia bazy danych (*DbHealthStartup.cs*):
+Zarejestruj usługi <xref:Microsoft.Extensions.DependencyInjection.HealthCheckServiceCollectionExtensions.AddHealthChecks*> sprawdzania kondycji w `Startup.ConfigureServices`programie w programie. Przykładowa aplikacja wywołuje `AddSqlServer` metodę z parametrami połączenia bazy danych (*DbHealthStartup.cs*):
 
 [!code-csharp[](health-checks/samples/2.x/HealthChecksSample/DbHealthStartup.cs?name=snippet_ConfigureServices)]
 
-Wywoła kondycji Sprawdź oprogramowanie pośredniczące w potoku przetwarzania aplikacji w `Startup.Configure`:
+Wywołaj oprogramowanie pośredniczące sprawdzania kondycji w potoku `Startup.Configure`przetwarzania aplikacji w:
 
 [!code-csharp[](health-checks/samples/2.x/HealthChecksSample/DbHealthStartup.cs?name=snippet_Configure)]
 
-Aby uruchomić scenariusza sondowanie bazy danych za pomocą przykładowej aplikacji, wykonaj następujące polecenie z folderu projektu w powłoce poleceń:
+Aby uruchomić scenariusz sondowania bazy danych za pomocą przykładowej aplikacji, wykonaj następujące polecenie w folderze projektu w powłoce poleceń:
 
 ```console
 dotnet run --scenario db
 ```
 
 > [!NOTE]
-> [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) jest port [BeatPulse](https://github.com/xabaril/beatpulse) i nie jest obsługiwany lub obsługiwane przez firmę Microsoft.
+> [AspNetCore. Diagnostics. HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) to port [BeatPulse](https://github.com/xabaril/beatpulse) i nie jest obsługiwany ani wspierany przez firmę Microsoft.
 
-## <a name="entity-framework-core-dbcontext-probe"></a>Entity Framework Core DbContext sondy
+## <a name="entity-framework-core-dbcontext-probe"></a>Badanie Entity Framework Core DbContext
 
-`DbContext` Wyboru potwierdza, że aplikacja może komunikować się z bazą danych skonfigurowane dla platformy EF Core `DbContext`. `DbContext` Wyboru jest obsługiwane w aplikacjach który:
+Sprawdzanie potwierdza, że aplikacja może komunikować się z bazą danych skonfigurowaną dla EF Core `DbContext`. `DbContext` `DbContext` Sprawdzanie jest obsługiwane w aplikacjach, które:
 
-* Użyj [platformy Entity Framework (EF) Core](/ef/core/).
-* Odwołanie do pakietu [Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore](https://www.nuget.org/packages/Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore/).
+* Użyj [Entity Framework (EF) Core](/ef/core/).
+* Dołącz odwołanie do pakietu do [Microsoft. Extensions. Diagnostics. HealthChecks. EntityFrameworkCore](https://www.nuget.org/packages/Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore/).
 
-`AddDbContextCheck<TContext>` rejestruje sprawdzenia kondycji `DbContext`. `DbContext` Jest dostarczany jako `TContext` do metody. Przeciążenie jest dostępna do konfigurowania stanu awarii, tagi i zapytań niestandardowych testu.
+`AddDbContextCheck<TContext>`rejestruje kontrolę kondycji dla elementu `DbContext`. `DbContext` Jest dostarczany`TContext` jako do metody. Jest dostępne Przeciążenie umożliwiające skonfigurowanie stanu niepowodzenia, tagów i niestandardowego zapytania testowego.
 
 Domyślnie:
 
-* `DbContextHealthCheck` Wywołuje programu EF Core `CanConnectAsync` metody. Można dostosować, jakie działanie jest uruchamiane podczas sprawdzania kondycji za pomocą `AddDbContextCheck` przeciążenia metody.
-* Nazwa kontroli kondycji jest nazwą `TContext` typu.
+* `CanConnectAsync` Metoda `DbContextHealthCheck` wywołań EF Core. Można dostosować, jaka operacja jest uruchamiana podczas sprawdzania kondycji przy użyciu `AddDbContextCheck` przeciążenia metod.
+* Nazwa sprawdzania kondycji jest nazwą `TContext` typu.
 
-W przykładowej aplikacji `AppDbContext` jest dostarczany w celu `AddDbContextCheck` i zarejestrowany jako usługa w `Startup.ConfigureServices`.
+W przykładowej aplikacji `AppDbContext` jest `AddDbContextCheck` dostępna i zarejestrowana jako usługa w programie `Startup.ConfigureServices`.
 
 *DbContextHealthStartup.cs*:
 
 [!code-csharp[](health-checks/samples/2.x/HealthChecksSample/DbContextHealthStartup.cs?name=snippet_ConfigureServices)]
 
-W przykładowej aplikacji `UseHealthChecks` dodaje pośredniczącym sprawdzanie kondycji w `Startup.Configure`.
+W przykładowej aplikacji program `UseHealthChecks` dodaje oprogramowanie do sprawdzania kondycji w `Startup.Configure`programie.
 
 *DbContextHealthStartup.cs*:
 
 [!code-csharp[](health-checks/samples/2.x/HealthChecksSample/DbContextHealthStartup.cs?name=snippet_Configure)]
 
-Aby uruchomić `DbContext` sondowania scenariusz przy użyciu przykładowej aplikacji, upewnij się, że baza danych określona przez ciąg połączenia nie istnieje w wystąpieniu programu SQL Server. Jeśli baza danych istnieje, należy go usunąć.
+Aby uruchomić `DbContext` scenariusz sondowania za pomocą przykładowej aplikacji, upewnij się, że baza danych określona przez parametry połączenia nie istnieje w wystąpieniu SQL Server. Jeśli baza danych istnieje, usuń ją.
 
 Wykonaj następujące polecenie z folderu projektu w powłoce poleceń:
 
@@ -348,13 +348,13 @@ Wykonaj następujące polecenie z folderu projektu w powłoce poleceń:
 dotnet run --scenario dbcontext
 ```
 
-Po uruchomieniu aplikacji Sprawdź stan kondycji, kieruje żądanie do `/health` punktu końcowego w przeglądarce. Bazy danych i `AppDbContext` nie istnieje, więc aplikacja zapewnia następującą odpowiedź:
+Po uruchomieniu aplikacji Sprawdź stan kondycji, wysyłając żądanie do `/health` punktu końcowego w przeglądarce. Baza danych programu `AppDbContext` i nie istnieje, więc aplikacja udostępnia następujące odpowiedzi:
 
 ```
 Unhealthy
 ```
 
-Wyzwalanie przykładową aplikację w celu utworzenia bazy danych. Zgłosić wniosek o `/createdatabase`. Odpowiedź aplikacji:
+Wyzwól przykładową aplikację, aby utworzyć bazę danych. Wprowadź żądanie do `/createdatabase`. Aplikacja odpowiada:
 
 ```
 Creating the database...
@@ -362,13 +362,13 @@ Done!
 Navigate to /health to see the health status.
 ```
 
-Zgłosić wniosek o `/health` punktu końcowego. Bazy danych i kontekstu istnieje, więc aplikacja reaguje:
+Utwórz żądanie do `/health` punktu końcowego. Istnieje baza danych i kontekst, aby aplikacja odpowiadała:
 
 ```
 Healthy
 ```
 
-Wyzwalanie przykładową aplikację w celu usunięcia bazy danych. Zgłosić wniosek o `/deletedatabase`. Odpowiedź aplikacji:
+Wyzwól przykładową aplikację, aby usunąć bazę danych. Wprowadź żądanie do `/deletedatabase`. Aplikacja odpowiada:
 
 ```
 Deleting the database...
@@ -376,52 +376,52 @@ Done!
 Navigate to /health to see the health status.
 ```
 
-Zgłosić wniosek o `/health` punktu końcowego. Aplikacja zawiera odpowiedź złej kondycji:
+Utwórz żądanie do `/health` punktu końcowego. Aplikacja zawiera odpowiedź w złej kondycji:
 
 ```
 Unhealthy
 ```
 
-## <a name="separate-readiness-and-liveness-probes"></a>Oddzielne gotowości i sondy żywotności
+## <a name="separate-readiness-and-liveness-probes"></a>Oddzielne sondy gotowości i na żywo
 
-W niektórych scenariuszach hostingu parę kontroli kondycji są używane, rozróżnienie dwóch stanów aplikacji:
+W niektórych scenariuszach hostingu jest używana para kontroli kondycji, która odróżnia dwa stany aplikacji:
 
-* Aplikacja jest działa, ale nie jest jeszcze gotowy do odbierania żądań. Ten stan jest to aplikacja *gotowości*.
-* Działa i odpowiada na żądania aplikacji. Ten stan jest to aplikacja *żywotności*.
+* Aplikacja działa, ale jeszcze nie jest gotowa do odbierania żądań. Jest to stan gotowości aplikacji.
+* Aplikacja działa i odpowiada na żądania. Ten stan jest *aktywny*.
 
-Sprawdzanie gotowości zwykle wykonuje bardziej rozbudowanym i czasochłonne zestawu testów, aby sprawdzić, czy wszystkie podsystemy aplikacji i zasoby są dostępne. Sprawdzanie żywotności jedynie wykonuje szybkie sprawdzenie w celu określenia, czy aplikacja jest dostępna do przetwarzania żądań. Po jej przekazuje jej sprawdzanie gotowości, nie ma potrzeby do obciążać aplikacji dalsze kosztowne zestaw gotowości&mdash;dalsze procesy kontroli wymagają tylko sprawdzanie żywotności.
+Sprawdzanie gotowości zwykle wykonuje bardziej obszerny i czasochłonny zestaw kontroli w celu ustalenia, czy wszystkie podsystemy i zasoby aplikacji są dostępne. Sprawdzenie na żywo powoduje jedynie szybkie sprawdzenie, czy aplikacja jest dostępna do przetwarzania żądań. Gdy aplikacja przejdzie kontrolę gotowości, nie ma potrzeby dalszej obciążania aplikacji przy użyciu kosztownego zestawu kontroli&mdash;gotowości sprawdza tylko, czy sprawdzanie dostępności jest wymagane.
 
-Przykładowa aplikacja zawiera sprawdzenie kondycji, aby zgłosić ukończenie długotrwałego zadania uruchamiania w [usługi hostowanej](xref:fundamentals/host/hosted-services). `StartupHostedServiceHealthCheck` Ujawnia właściwość `StartupTaskCompleted`, które można ustawić usługi hostowanej `true` po zakończeniu jego długotrwałe zadanie (*StartupHostedServiceHealthCheck.cs*):
+Przykładowa aplikacja zawiera kontrolę kondycji, aby zgłosić ukończenie długotrwałego zadania uruchamiania w [hostowanej usłudze](xref:fundamentals/host/hosted-services). Uwidacznia właściwość, `StartupTaskCompleted`która może zostać `true` ustawiona przez usługę hostowaną po zakończeniu długotrwałego zadania (StartupHostedServiceHealthCheck.cs): `StartupHostedServiceHealthCheck`
 
 [!code-csharp[](health-checks/samples/2.x/HealthChecksSample/StartupHostedServiceHealthCheck.cs?name=snippet1&highlight=7-11)]
 
-Długotrwałe zadanie w tle jest uruchamiana przez [usługi hostowanej](xref:fundamentals/host/hosted-services) (*usług/StartupHostedService*). Po zakończeniu zadania `StartupHostedServiceHealthCheck.StartupTaskCompleted` ustawiono `true`:
+Długotrwałe zadanie w tle jest uruchamiane przez hostowaną [usługę](xref:fundamentals/host/hosted-services) (*usługi/StartupHostedService*). Po zakończeniu zadania `StartupHostedServiceHealthCheck.StartupTaskCompleted` jest ustawiony na `true`:
 
 [!code-csharp[](health-checks/samples/2.x/HealthChecksSample/Services/StartupHostedService.cs?name=snippet1&highlight=18-20)]
 
-Sprawdzenie kondycji jest zarejestrowane w usłudze <xref:Microsoft.Extensions.DependencyInjection.HealthChecksBuilderAddCheckExtensions.AddCheck*> w `Startup.ConfigureServices` wraz z hostowanej usługi. Ponieważ usługa hostowana należy ustawić właściwość na sprawdzenie kondycji, sprawdzenie kondycji również jest zarejestrowany w kontenerze usługi (*LivenessProbeStartup.cs*):
+Kontrola kondycji jest zarejestrowana <xref:Microsoft.Extensions.DependencyInjection.HealthChecksBuilderAddCheckExtensions.AddCheck*> w `Startup.ConfigureServices` programie w programie wraz z usługą hostowaną. Ponieważ usługa hostowana musi ustawić właściwość na sprawdzaniu kondycji, sprawdzanie kondycji jest również rejestrowane w kontenerze usługi (*LivenessProbeStartup.cs*):
 
 [!code-csharp[](health-checks/samples/2.x/HealthChecksSample/LivenessProbeStartup.cs?name=snippet_ConfigureServices)]
 
-Wywoła kondycji Sprawdź oprogramowanie pośredniczące w potoku przetwarzania aplikacji w `Startup.Configure`. W przykładowej aplikacji z punktami końcowymi kontroli kondycji są tworzone na `/health/ready` sprawdzenia gotowości i `/health/live` sprawdzania żywotności. Filtry sprawdzania gotowości kondycji sprawdza kondycję skontaktuj się z `ready` tagu. Odfiltrowuje wyboru żywotności `StartupHostedServiceHealthCheck` , zwracając `false` w [HealthCheckOptions.Predicate](xref:Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions.Predicate) (Aby uzyskać więcej informacji, zobacz [filtrowania kontrole kondycji](#filter-health-checks)):
+Wywołaj test kondycji oprogramowania pośredniczącego w potoku `Startup.Configure`przetwarzania aplikacji w. W przykładowej aplikacji punkty końcowe sprawdzania kondycji są tworzone na `/health/ready` potrzeby kontroli gotowości i `/health/live` kontroli stanu na żywo. Sprawdzanie gotowości filtruje kontrolę kondycji w celu sprawdzenia kondycji `ready` za pomocą znacznika. Sprawdzenie stanu na żywo odfiltruje `StartupHostedServiceHealthCheck` przez zwrócenie `false` elementu [HealthCheckOptions. predykatu](xref:Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions.Predicate) (Aby uzyskać więcej informacji, zobacz [Sprawdzanie kondycji filtru](#filter-health-checks)):
 
 [!code-csharp[](health-checks/samples/2.x/HealthChecksSample/LivenessProbeStartup.cs?name=snippet_Configure)]
 
-Aby uruchomić gotowości/żywotności scenariusz konfiguracji, za pomocą przykładowej aplikacji, wykonaj następujące polecenie z folderu projektu w powłoce poleceń:
+Aby uruchomić scenariusz konfiguracji gotowości/na żywo za pomocą przykładowej aplikacji, wykonaj następujące polecenie w folderze projektu w powłoce poleceń:
 
 ```console
 dotnet run --scenario liveness
 ```
 
-W przeglądarce, odwiedź stronę `/health/ready` kilka razy, aż przeszły 15 sekund. Sprawdzanie kondycji raporty *zła* przez pierwsze 15 sekund. Po 15 sekundach raporty punktu końcowego *dobra kondycja*, co odzwierciedla ukończenie długotrwałego zadania w usłudze hostowanej.
+W przeglądarce odwiedź `/health/ready` kilka razy do 15 sekund. Sprawdzanie kondycji raportuje w *złej kondycji* przez pierwsze 15 sekund. Po upływie 15 sekund punkt końcowy zgłasza w *dobrej kondycji*, co odzwierciedla ukończenie długotrwałego zadania wykonywanego przez usługę hostowaną.
 
-W tym przykładzie tworzy również usługi kondycji Sprawdź wydawcy (<xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheckPublisher> implementacji), które jest uruchamiane pierwszego sprawdzania gotowości za pomocą dwóch półsekundowym opóźnieniu. Aby uzyskać więcej informacji, zobacz [wydawcy sprawdzanie kondycji](#health-check-publisher) sekcji.
+W tym przykładzie tworzony jest również Wydawca sprawdzania kondycji (<xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheckPublisher> implementacja), który uruchamia pierwsze sprawdzenie gotowości z dwoma drugim opóźnieniem. Aby uzyskać więcej informacji, zapoznaj się z sekcją [Sprawdzanie kondycji wydawcy](#health-check-publisher) .
 
-### <a name="kubernetes-example"></a>Przykład rozwiązania Kubernetes
+### <a name="kubernetes-example"></a>Przykład Kubernetes
 
-Przy użyciu oddzielnych kontroli gotowości i żywotności przydaje się w środowisku, takie jak [Kubernetes](https://kubernetes.io/). W usłudze Kubernetes aplikacja może być wymagane do wykonywania pracy czasochłonne uruchamiania przed zaakceptowaniem żądania, takie jak testu dostępności podstawowej bazy danych. Przy użyciu oddzielnych kontroli umożliwia programu orchestrator w celu odróżnienia, czy aplikacja działa, ale nie jest jeszcze gotowy, lub jeśli aplikacja nie powiodło się. Aby uzyskać więcej informacji o gotowości i sondy żywotności w usłudze Kubernetes, zobacz [skonfigurować żywotności i sondy gotowości](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/) w dokumentacji platformy Kubernetes.
+Korzystanie z odrębnych gotowości i kontroli na żywo jest przydatne w środowisku, takim jak [Kubernetes](https://kubernetes.io/). W programie Kubernetes aplikacja może być wymagana do wykonywania czasochłonnych zadań uruchamiania przed zaakceptowaniem żądań, takich jak Test dostępności źródłowej bazy danych. Przy użyciu osobnych kontroli program Orchestrator może rozróżnić, czy aplikacja działa, ale nie jest jeszcze gotowa lub Jeśli uruchomienie aplikacji nie powiodło się. Aby uzyskać więcej informacji na temat gotowości i sondy na żywo w programie Kubernetes, zobacz [Konfigurowanie sondy na żywo i gotowości](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/) w dokumentacji Kubernetes.
 
-W poniższym przykładzie pokazano konfigurację sondowania gotowości Kubernetes:
+Poniższy przykład demonstruje konfigurację sondowania gotowości Kubernetes:
 
 ```
 spec:
@@ -440,48 +440,48 @@ spec:
       - containerPort: 80
 ```
 
-## <a name="metric-based-probe-with-a-custom-response-writer"></a>Opartą na metryce sondowania przy użyciu składnika zapisywania niestandardowych
+## <a name="metric-based-probe-with-a-custom-response-writer"></a>Sondowanie oparte na metrykach z niestandardowym modułem zapisywania odpowiedzi
 
-Przykładowa aplikacja pokazuje sprawdzenie kondycji pamięci za pomocą składnika zapisywania niestandardowych.
+Przykładowa aplikacja demonstruje kontrolę kondycji pamięci za pomocą modułu zapisywania odpowiedzi niestandardowych.
 
-`MemoryHealthCheck` Raporty Stan obniżonej wydajności, jeśli aplikacja korzysta z więcej niż wartość progową pamięci (1 GB w przykładowej aplikacji). <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckResult> Zawiera informacje moduł wyrzucania elementów bezużytecznych (GC) dla aplikacji (*MemoryHealthCheck.cs*):
+`MemoryHealthCheck`zgłasza stan złej kondycji, jeśli aplikacja używa więcej niż danego progu pamięci (1 GB w przykładowej aplikacji). Zawiera informacje dotyczące modułu wyrzucania elementów bezużytecznych (GC) dla aplikacji (MemoryHealthCheck.cs): <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckResult>
 
 [!code-csharp[](health-checks/samples/2.x/HealthChecksSample/MemoryHealthCheck.cs?name=snippet1)]
 
-Rejestrowanie usługi sprawdzania kondycji z <xref:Microsoft.Extensions.DependencyInjection.HealthCheckServiceCollectionExtensions.AddHealthChecks*> w `Startup.ConfigureServices`. Zamiast włączania kondycji Sprawdź przez przekazanie jej do <xref:Microsoft.Extensions.DependencyInjection.HealthChecksBuilderAddCheckExtensions.AddCheck*>, `MemoryHealthCheck` jest zarejestrowany jako usługa. Wszystkie <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheck> zarejestrowane usługi są dostępne dla usługi sprawdzania kondycji i oprogramowania pośredniczącego. Firma Microsoft zaleca rejestrowanie usługi sprawdzania kondycji jako pojedynczego wystąpienia usługi.
+Zarejestruj usługi <xref:Microsoft.Extensions.DependencyInjection.HealthCheckServiceCollectionExtensions.AddHealthChecks*> sprawdzania kondycji w `Startup.ConfigureServices`programie w programie. Zamiast włączać kontrolę kondycji przez przekazanie jej <xref:Microsoft.Extensions.DependencyInjection.HealthChecksBuilderAddCheckExtensions.AddCheck*>do `MemoryHealthCheck` programu jest zarejestrowany jako usługa. Wszystkie <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheck> zarejestrowane usługi są dostępne dla usług sprawdzania kondycji i oprogramowania pośredniczącego. Zalecamy rejestrację usług sprawdzania kondycji jako usług pojedynczych.
 
 *CustomWriterStartup.cs*:
 
 [!code-csharp[](health-checks/samples/2.x/HealthChecksSample/CustomWriterStartup.cs?name=snippet_ConfigureServices&highlight=4)]
 
-Wywoła kondycji Sprawdź oprogramowanie pośredniczące w potoku przetwarzania aplikacji w `Startup.Configure`. A `WriteResponse` delegata jest dostarczany w celu `ResponseWriter` właściwość niestandardową odpowiedź w formacie JSON dane wyjściowe, gdy wykonuje sprawdzenie kondycji:
+Wywołaj test kondycji oprogramowania pośredniczącego w potoku `Startup.Configure`przetwarzania aplikacji w. Obiekt delegowany jest dostarczany `ResponseWriter` do właściwości w celu wygenerowania niestandardowej odpowiedzi JSON po zakończeniu sprawdzania kondycji: `WriteResponse`
 
 [!code-csharp[](health-checks/samples/2.x/HealthChecksSample/CustomWriterStartup.cs?name=snippet_Configure&highlight=6)]
 
-`WriteResponse` Formaty metoda `CompositeHealthCheckResult` do postaci JSON obiektu i zwraca dane wyjściowe JSON dla odpowiedzi z kontroli kondycji:
+`WriteResponse` Metoda formatujedoobiektuJSONizwracadanewyjścioweJSONdla`CompositeHealthCheckResult` odpowiedzi kontroli kondycji:
 
 [!code-csharp[](health-checks/samples/2.x/HealthChecksSample/CustomWriterStartup.cs?name=snippet_WriteResponse)]
 
-Aby uruchomić funkcję badania opartą na metryce z danymi wyjściowymi modułu zapisującego niestandardowe odpowiedzi za pomocą przykładowej aplikacji, wykonaj następujące polecenie z folderu projektu w powłoce poleceń:
+Aby uruchomić sondę opartą na metrykach z niestandardowymi danymi wyjściowymi modułu zapisywania odpowiedzi przy użyciu przykładowej aplikacji, wykonaj następujące polecenie w folderze projektu w powłoce poleceń:
 
 ```console
 dotnet run --scenario writer
 ```
 
 > [!NOTE]
-> [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) obejmuje opartą na metryce kondycji sprawdzenie scenariuszy, w tym dysku magazynu i maksymalną wartość żywotności kontroli.
+> [AspNetCore. Diagnostics. HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) obejmuje scenariusze sprawdzania kondycji oparte na metrykach, w tym magazyn dyskowy i maksymalną liczbę sprawdzeń na żywo.
 >
-> [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) jest port [BeatPulse](https://github.com/xabaril/beatpulse) i nie jest obsługiwany lub obsługiwane przez firmę Microsoft.
+> [AspNetCore. Diagnostics. HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) to port [BeatPulse](https://github.com/xabaril/beatpulse) i nie jest obsługiwany ani wspierany przez firmę Microsoft.
 
-## <a name="filter-by-port"></a>Filtruj według portów
+## <a name="filter-by-port"></a>Filtruj według portu
 
-Wywoływanie <xref:Microsoft.AspNetCore.Builder.HealthCheckApplicationBuilderExtensions.UseHealthChecks*> z portem ogranicza żądania sprawdzenia kondycji do określonego portu. Zazwyczaj służy w środowisku kontenera do udostępniania portów do monitorowania usługi.
+Wywołanie <xref:Microsoft.AspNetCore.Builder.HealthCheckApplicationBuilderExtensions.UseHealthChecks*> z portem ogranicza liczbę żądań sprawdzania kondycji do określonego portu. Jest to zwykle używane w środowisku kontenera w celu udostępnienia portu usług monitorowania.
 
-Przykładowa aplikacja umożliwia skonfigurowanie portu przy użyciu [zmiennej dostawcę konfiguracji środowiska](xref:fundamentals/configuration/index#environment-variables-configuration-provider). Numer portu jest ustawiana w *launchSettings.json* pliku i przekazywane do dostawcy konfiguracji za pośrednictwem zmiennej środowiskowej. Należy również skonfigurować serwer do nasłuchiwania żądań na porcie zarządzania.
+Przykładowa aplikacja konfiguruje port przy użyciu [zmiennej środowiskowej dostawcy konfiguracji](xref:fundamentals/configuration/index#environment-variables-configuration-provider). Port jest ustawiany w pliku *profilu launchsettings. JSON* i przekazywać do dostawcy konfiguracji za pośrednictwem zmiennej środowiskowej. Należy również skonfigurować serwer do nasłuchiwania żądań na porcie zarządzania.
 
-Przykładowa aplikacja jest używana do zademonstrowania konfiguracji portów zarządzania, należy utworzyć *launchSettings.json* w pliku *właściwości* folderu.
+Aby użyć przykładowej aplikacji do zademonstrowania konfiguracji portów zarządzania, Utwórz plik *profilu launchsettings. JSON* w folderze *Właściwości* .
 
-Następujące *launchSettings.json* plików nie jest zawarty w plikach projektu przykładowej aplikacji i należy utworzyć je ręcznie.
+Następujący plik *profilu launchsettings. JSON* nie jest zawarty w plikach projektu przykładowej aplikacji i musi być utworzony ręcznie.
 
 *Properties/launchSettings.json*:
 
@@ -503,12 +503,12 @@ Następujące *launchSettings.json* plików nie jest zawarty w plikach projektu 
 }
 ```
 
-Rejestrowanie usługi sprawdzania kondycji z <xref:Microsoft.Extensions.DependencyInjection.HealthCheckServiceCollectionExtensions.AddHealthChecks*> w `Startup.ConfigureServices`. Wywołanie <xref:Microsoft.AspNetCore.Builder.HealthCheckApplicationBuilderExtensions.UseHealthChecks*> Określa port usługi zarządzania (*ManagementPortStartup.cs*):
+Zarejestruj usługi <xref:Microsoft.Extensions.DependencyInjection.HealthCheckServiceCollectionExtensions.AddHealthChecks*> sprawdzania kondycji w `Startup.ConfigureServices`programie w programie. Wywołanie <xref:Microsoft.AspNetCore.Builder.HealthCheckApplicationBuilderExtensions.UseHealthChecks*> określające port zarządzania (*ManagementPortStartup.cs*):
 
 [!code-csharp[](health-checks/samples/2.x/HealthChecksSample/ManagementPortStartup.cs?name=snippet1&highlight=12,18)]
 
 > [!NOTE]
-> Możesz uniknąć tworzenia *launchSettings.json* pliku w przykładowej aplikacji przez ustawianie adresów URL i port zarządzania jawnie w kodzie. W *Program.cs* gdzie <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> jest utworzony, dodaj wywołanie <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseUrls*> i podaj punktu końcowego normalne odpowiedzi aplikacji oraz port punktu końcowego zarządzania. W *ManagementPortStartup.cs* gdzie <xref:Microsoft.AspNetCore.Builder.HealthCheckApplicationBuilderExtensions.UseHealthChecks*> jest wywoływana, jawnie określ port zarządzania.
+> Możesz uniknąć tworzenia pliku *profilu launchsettings. JSON* w przykładowej aplikacji, ustawiając adresy URL i port zarządzania jawnie w kodzie. W *program.cs* , w <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> którym został utworzony, Dodaj wywołanie do <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseUrls*> i podaj normalny punkt końcowy odpowiedzi aplikacji oraz punkt końcowy portu zarządzania. W *ManagementPortStartup.cs* , <xref:Microsoft.AspNetCore.Builder.HealthCheckApplicationBuilderExtensions.UseHealthChecks*> gdzie jest wywoływana, określ port zarządzania jawnie.
 >
 > *Program.cs*:
 >
@@ -533,17 +533,17 @@ Rejestrowanie usługi sprawdzania kondycji z <xref:Microsoft.Extensions.Dependen
 > app.UseHealthChecks("/health", port: 5001);
 > ```
 
-Aby uruchomić scenariusz konfiguracji portów zarządzania za pomocą przykładowej aplikacji, wykonaj następujące polecenie z folderu projektu w powłoce poleceń:
+Aby uruchomić scenariusz konfiguracji portu zarządzania przy użyciu przykładowej aplikacji, wykonaj następujące polecenie w folderze projektu w powłoce poleceń:
 
 ```console
 dotnet run --scenario port
 ```
 
-## <a name="distribute-a-health-check-library"></a>Dystrybucja Biblioteka sprawdzania kondycji
+## <a name="distribute-a-health-check-library"></a>Dystrybucja biblioteki kontroli kondycji
 
-Aby rozesłać sprawdzenie kondycji jako biblioteki:
+Aby rozpowszechnić kontrolę kondycji jako bibliotekę:
 
-1. Sprawdzenie kondycji, który implementuje zapisu <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheck> interfejs jako autonomiczną klasę. Klasa może polegać na [wstrzykiwanie zależności (DI)](xref:fundamentals/dependency-injection), typ aktywacji i [o nazwie opcje](xref:fundamentals/configuration/options) do dostępu do danych konfiguracji.
+1. Napisz kontrolę kondycji, która implementuje <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheck> interfejs jako autonomiczną klasę. Klasa może polegać na [iniekcji zależności (di)](xref:fundamentals/dependency-injection), aktywacji typu i [nazwanych opcjach](xref:fundamentals/configuration/options) w celu uzyskania dostępu do danych konfiguracyjnych.
 
    ```csharp
    using System;
@@ -592,19 +592,19 @@ Aby rozesłać sprawdzenie kondycji jako biblioteki:
    }
    ```
 
-1. Zapisywanie metody rozszerzenia z parametrami, które aplikacja odbierająca komunikaty wywołania w jego `Startup.Configure` metody. W poniższym przykładzie przyjęto założenie, następujący podpis metody sprawdzania kondycji:
+1. Napisz metodę rozszerzenia z parametrami, które są używane przez zużywaną aplikację `Startup.Configure` w jej metodzie. W poniższym przykładzie przyjęto założenie, że następująca sygnatura metody kontroli kondycji:
 
    ```csharp
    ExampleHealthCheck(string, string, int )
    ```
 
-   Poprzedni podpisu wskazuje, że `ExampleHealthCheck` wymaga dodatkowe dane do procesu kondycji Sprawdź logikę sondowania. Dane są udostępniane do delegata, użyty do utworzenia wystąpienia sprawdzenie kondycji po zarejestrowaniu sprawdzenie kondycji za pomocą metody rozszerzenia. W poniższym przykładzie obiekt wywołujący określa opcjonalne:
+   Poprzednia sygnatura wskazuje `ExampleHealthCheck` , że wymaga dodatkowych danych do przetworzenia logiki sondowania sprawdzania kondycji. Dane są przekazywane delegatom używanym do tworzenia wystąpienia kontroli kondycji, gdy Sprawdzanie kondycji jest zarejestrowane za pomocą metody rozszerzenia. W poniższym przykładzie obiekt wywołujący określa opcjonalne:
 
-   * Nazwa sprawdzenia kondycji (`name`). Jeśli `null`, `example_health_check` jest używany.
-   * Ciąg punktu danych dla kontroli kondycji (`data1`).
-   * punkt danych liczby całkowitej dla kontroli kondycji (`data2`). Jeśli `null`, `1` jest używany.
-   * Stan błędu (<xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus>). Wartość domyślna to `null`. Jeśli `null`, [HealthStatus.Unhealthy](xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus) jest zgłaszany stan Niepowodzenie.
-   * tagi (`IEnumerable<string>`).
+   * Nazwa sprawdzania kondycji`name`(). Jeśli `null`jestużywany. `example_health_check`
+   * punkt danych ciągu dla kontroli kondycji (`data1`).
+   * punkt danych liczb całkowitych dla kontroli kondycji (`data2`). Jeśli `null`jestużywany. `1`
+   * stan niepowodzenia<xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus>(). Wartość domyślna to `null`. Jeśli `null`dla stanu błędu zostanie zgłoszona wartość [HealthStatus. w złej kondycji](xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus) .
+   * Tagi (`IEnumerable<string>`).
 
    ```csharp
    using System.Collections.Generic;
@@ -631,42 +631,42 @@ Aby rozesłać sprawdzenie kondycji jako biblioteki:
    }
    ```
 
-## <a name="health-check-publisher"></a>Wydawca sprawdzania kondycji
+## <a name="health-check-publisher"></a>Wydawca kontroli kondycji
 
-Gdy <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheckPublisher> zostanie dodany do kontenera usługi systemu sprawdzanie kondycji wykonuje okresowo z kontroli kondycji i wywołania `PublishAsync` z wynikiem. Jest to przydatne w scenariuszu systemu, który oczekuje, że każdy proces, aby wywołać system monitorowania okresowo w celu określenia kondycji monitorowania kondycji na podstawie wypychania.
+Po dodaniu do kontenera usługi system kontroli kondycji okresowo wykonuje sprawdzanie kondycji i wywołuje `PublishAsync` wynik. <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheckPublisher> Jest to przydatne w scenariuszu systemu monitorowania kondycji opartej na wypychaniu, który oczekuje, że każdy proces będzie okresowo wywoływał system monitorowania w celu określenia kondycji.
 
-<xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheckPublisher> Interfejs zawiera jedną metodę:
+<xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheckPublisher> Interfejs ma jedną metodę:
 
 ```csharp
 Task PublishAsync(HealthReport report, CancellationToken cancellationToken);
 ```
 
-<xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherOptions> pozwala na ustawienie:
+<xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherOptions>Zezwól na ustawienie:
 
-* <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherOptions.Delay> &ndash; Opóźnienie początkowej zastosowane po aplikacji, który rozpoczyna się przed wykonaniem <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheckPublisher> wystąpień. Opóźnienie jest stosowana raz przy uruchamianiu i nie ma zastosowania do kolejnych iteracjach. Wartość domyślna to 5 sekund.
-* <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherOptions.Period> &ndash; Okres <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheckPublisher> wykonywania. Wartość domyślna to 30 sekund.
-* <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherOptions.Predicate> &ndash; Jeśli <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherOptions.Predicate> jest `null` (ustawienie domyślne), wszystkie kontrole kondycji zarejestrowanego działa usługa wydawcy sprawdzania kondycji. Aby uruchomić podzbiór kontroli kondycji, należy podać funkcji filtrującej zestawu testów. Predykat obliczone każdego okresu.
-* <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherOptions.Timeout> &ndash; Limit czasu wykonywania kondycji sprawdza wszystkie <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheckPublisher> wystąpień. Użyj <xref:System.Threading.Timeout.InfiniteTimeSpan> można wykonać bez limitu czasu. Wartość domyślna to 30 sekund.
+* <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherOptions.Delay>Początkowe opóźnienie stosowane po uruchomieniu aplikacji przed wykonaniem <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheckPublisher> wystąpień. &ndash; Opóźnienie jest stosowane raz podczas uruchamiania i nie ma zastosowania do kolejnych iteracji. Wartość domyślna to pięć sekund.
+* <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherOptions.Period>&ndash; Okres wykonania.<xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheckPublisher> Wartość domyślna to 30 sekund.
+* <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherOptions.Predicate>&ndash; Jeśli jest(`null` domyślnie), usługa wydawcy sprawdzania kondycji uruchamia wszystkie zarejestrowane testy kondycji. <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherOptions.Predicate> Aby uruchomić podzestaw kontroli kondycji, należy określić funkcję, która filtruje zestaw kontroli. Predykat jest oceniany w każdym okresie.
+* <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherOptions.Timeout>Limit czasu wykonywania kontroli kondycji dla wszystkich <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheckPublisher> wystąpień. &ndash; Użyj <xref:System.Threading.Timeout.InfiniteTimeSpan> , aby wykonać bez limitu czasu. Wartość domyślna to 30 sekund.
 
 ::: moniker range="= aspnetcore-2.2"
 
 > [!WARNING]
-> W wersji platformy ASP.NET Core 2.2 ustawienie <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherOptions.Period> nie są uznawane przez <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheckPublisher> wdrożenia; ustawia wartość <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherOptions.Delay>. Ten problem zostanie rozwiązany w programie ASP.NET Core 3.0. Aby uzyskać więcej informacji, zobacz [HealthCheckPublisherOptions.Period ustawia wartość. Opóźnienie](https://github.com/aspnet/Extensions/issues/1041).
+> W wersji 2,2 ASP.NET Core ustawienie <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherOptions.Period> nie jest honorowane <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheckPublisher> przez implementację; ustawia wartość <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherOptions.Delay>. Ten problem zostanie rozwiązany w ASP.NET Core 3,0. Aby uzyskać więcej informacji, zobacz [HealthCheckPublisherOptions. period ustawia wartość. Opóźnienie](https://github.com/aspnet/Extensions/issues/1041).
 
 ::: moniker-end
 
-W przykładowej aplikacji `ReadinessPublisher` jest <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheckPublisher> implementacji. Sprawdź stan kondycji jest rejestrowana w `Entries` i rejestrowane przy każdym sprawdzaniu:
+W przykładowej aplikacji `ReadinessPublisher` <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheckPublisher> jest implementacją. Stan sprawdzania kondycji jest rejestrowany w `Entries` i rejestrowany dla każdej kontroli:
 
 [!code-csharp[](health-checks/samples/2.x/HealthChecksSample/ReadinessPublisher.cs?name=snippet_ReadinessPublisher&highlight=20,22-23)]
 
-Przykładowa aplikacja `LivenessProbeStartup` przykład `StartupHostedService` sprawdzanie gotowości dwóch półsekundowym opóźnieniu uruchamiania i uruchamia kontrolę co 30 sekund. Aby aktywować <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheckPublisher> rejestruje przykład implementacji `ReadinessPublisher` jako pojedyncza usługa w [wstrzykiwanie zależności (DI)](xref:fundamentals/dependency-injection) kontenera:
+W `LivenessProbeStartup` przykładzie przykładowej `StartupHostedService` aplikacji sprawdzanie gotowości ma dwa drugie opóźnienie uruchamiania i sprawdza, co 30 sekund. Aby uaktywnić <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheckPublisher> implementację, przykład rejestruje `ReadinessPublisher` się jako usługa pojedyncza w kontenerze [iniekcji zależności (di)](xref:fundamentals/dependency-injection) :
 
 [!code-csharp[](health-checks/samples/2.x/HealthChecksSample/LivenessProbeStartup.cs?name=snippet_ConfigureServices&highlight=12-17,28)]
 
 ::: moniker range="= aspnetcore-2.2"
 
 > [!NOTE]
-> Poniższe obejście pozwala na dodawanie <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheckPublisher> wystąpienie kontenera usługi, gdy jeden lub więcej innych usług hostowanych zostały już dodane do aplikacji. To rozwiązanie nie będzie wymagane wraz z wydaniem programu ASP.NET Core 3.0. Aby uzyskać więcej informacji, zobacz: https://github.com/aspnet/Extensions/issues/639.
+> Następujące obejście umożliwia dodanie <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheckPublisher> wystąpienia do kontenera usługi, gdy co najmniej jedna inna usługa hostowana została już dodana do aplikacji. To obejście nie będzie wymagane w przypadku wersji ASP.NET Core 3,0. Aby uzyskać więcej informacji, zobacz https://github.com/aspnet/Extensions/issues/639:.
 >
 > ```csharp
 > private const string HealthCheckServiceAssembly =
@@ -681,15 +681,15 @@ Przykładowa aplikacja `LivenessProbeStartup` przykład `StartupHostedService` s
 ::: moniker-end
 
 > [!NOTE]
-> [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) obejmuje wydawcy dla kilku systemów, w tym [usługi Application Insights](/azure/application-insights/app-insights-overview).
+> [AspNetCore. Diagnostics. HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) obejmuje wydawców dla kilku systemów, w tym [Application Insights](/azure/application-insights/app-insights-overview).
 >
-> [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) jest port [BeatPulse](https://github.com/xabaril/beatpulse) i nie jest obsługiwany lub obsługiwane przez firmę Microsoft.
+> [AspNetCore. Diagnostics. HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) to port [BeatPulse](https://github.com/xabaril/beatpulse) i nie jest obsługiwany ani wspierany przez firmę Microsoft.
 
-## <a name="restrict-health-checks-with-mapwhen"></a>Ograniczenia kontroli kondycji za pomocą MapWhen
+## <a name="restrict-health-checks-with-mapwhen"></a>Ogranicz kontrolę kondycji za pomocą MapWhen
 
-Użyj <xref:Microsoft.AspNetCore.Builder.MapWhenExtensions.MapWhen*> aby warunkowo gałęzi Potok żądań programu health zapoznaj się z punktami końcowymi.
+Użyj <xref:Microsoft.AspNetCore.Builder.MapWhenExtensions.MapWhen*> , aby warunkowo rozgałęziać potok żądania dla punktów końcowych sprawdzania kondycji.
 
-W poniższym przykładzie `MapWhen` gałęzie Potok żądań, aby aktywować kondycji Sprawdź w oprogramowaniu pośredniczącym, jeśli odbierze żądanie GET dla `api/HealthCheck` punktu końcowego:
+W poniższym przykładzie rozgałęzimy potok żądania, `MapWhen` aby aktywować oprogramowanie do sprawdzania kondycji w przypadku otrzymania żądania get `api/HealthCheck` dla punktu końcowego:
 
 ```csharp
 app.MapWhen(
