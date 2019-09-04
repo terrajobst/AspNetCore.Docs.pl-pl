@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/22/2019
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 34b977f70f3e7e58e4ab6fcf3d8f69800896a65d
-ms.sourcegitcommit: 0774a61a3a6c1412a7da0e7d932dc60c506441fc
+ms.openlocfilehash: ab29cf687c80551d275cae69f28b7576016bfff6
+ms.sourcegitcommit: e6bd2bbe5683e9a7dbbc2f2eab644986e6dc8a87
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70059121"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70238126"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>Razor Pages EF Core w ASP.NET Core — model danych-5 z 8
 
@@ -59,7 +59,7 @@ Poprzedni kod dodaje `FullName` Właściwość i dodaje następujące atrybuty d
 
 W przypadku dat rejestracji uczniów wszystkie strony wyświetlają teraz godzinę i datę, chociaż tylko data jest ważna. Używając atrybutów adnotacji danych, można wprowadzić jedną zmianę kodu, która naprawi format wyświetlania na każdej stronie, która wyświetla dane. 
 
-Atrybut [DataType](/dotnet/api/system.componentmodel.dataannotations.datatypeattribute?view=netframework-4.7.1) określa typ danych, który jest bardziej szczegółowy niż typ wewnętrzny bazy danych. W tym przypadku należy wyświetlić tylko datę, a nie datę i godzinę. [Wyliczenie DataType](/dotnet/api/system.componentmodel.dataannotations.datatype?view=netframework-4.7.1) zawiera wiele typów danych, takich jak data, godzina, numer telefonu, waluta, EmailAddress itp. Ten `DataType` atrybut może również umożliwić aplikacji automatyczne udostępnianie funkcji specyficznych dla typu. Na przykład:
+Atrybut [DataType](/dotnet/api/system.componentmodel.dataannotations.datatypeattribute?view=netframework-4.7.1) określa typ danych, który jest bardziej szczegółowy niż typ wewnętrzny bazy danych. W tym przypadku należy wyświetlić tylko datę, a nie datę i godzinę. [Wyliczenie DataType](/dotnet/api/system.componentmodel.dataannotations.datatype?view=netframework-4.7.1) zawiera wiele typów danych, takich jak data, godzina, numer telefonu, waluta, EmailAddress itp. Ten `DataType` atrybut może również umożliwić aplikacji automatyczne udostępnianie funkcji specyficznych dla typu. Przykład:
 
 * Łącze jest tworzone automatycznie dla `DataType.EmailAddress`. `mailto:`
 * Selektor daty jest dostępny `DataType.Date` w większości przeglądarek.
@@ -390,7 +390,7 @@ public ICollection<Course> Courses { get; set; }
 
 Zgodnie z Konwencją EF Core włącza kaskadowe usuwanie dla FKs niedopuszczających wartości null i dla relacji wiele-do-wielu. To domyślne zachowanie może spowodować cykliczne reguły usuwania kaskadowego. Cykliczne reguły usuwania kaskadowego powodują wyjątek podczas dodawania migracji.
 
-Na przykład jeśli `Department.InstructorID` właściwość została zdefiniowana jako niedopuszczający wartości null, EF Core skonfigurować regułę usuwania kaskadowego. W takim przypadku dział zostanie usunięty po usunięciu instruktora przypisanego jako administrator. W tym scenariuszu reguła ograniczania byłaby bardziej zrozumiała. Poniższy interfejs API Fluent ustawi regułę ograniczenia i wyłącza usuwanie kaskadowe.
+Na przykład jeśli `Department.InstructorID` właściwość została zdefiniowana jako niedopuszczający wartości null, EF Core skonfigurować regułę usuwania kaskadowego. W takim przypadku dział zostanie usunięty po usunięciu instruktora przypisanego jako administrator. W tym scenariuszu reguła ograniczania byłaby bardziej zrozumiała. Poniższy [interfejs API Fluent](#fluent-api-alternative-to-attributes) ustawi regułę ograniczenia i wyłącza usuwanie kaskadowe.
 
   ```csharp
   modelBuilder.Entity<Department>()
@@ -1091,7 +1091,7 @@ Na przykład, jeśli `Department.InstructorID` właściwość została zdefiniow
 
 * EF Core konfiguruje regułę usuwania kaskadowego w celu usunięcia działu po usunięciu instruktora.
 * Usunięcie działu po usunięciu instruktora nie jest zamierzonym zachowaniem.
-* Poniższy interfejs API Fluent ustawi regułę ograniczenia zamiast kaskadowo.
+* Poniższy [interfejs API Fluent](#fluent-api-alternative-to-attributes) ustawi regułę ograniczenia zamiast kaskadowo.
 
    ```csharp
    modelBuilder.Entity<Department>()

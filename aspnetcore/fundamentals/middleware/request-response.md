@@ -1,84 +1,84 @@
 ---
-title: Operacje żądań i odpowiedzi w programie ASP.NET Core
+title: Operacje żądań i odpowiedzi w ASP.NET Core
 author: jkotalik
-description: Dowiedz się, jak treści żądania odczytu i zapisu treści odpowiedzi w programie ASP.NET Core.
+description: Dowiedz się, jak odczytać treść żądania i napisać treść odpowiedzi w ASP.NET Core.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: jukotali
 ms.custom: mvc
-ms.date: 02/26/2019
+ms.date: 08/29/2019
 uid: fundamentals/middleware/request-response
-ms.openlocfilehash: c9f6509738ef6290666a58268fbb0584913db9d6
-ms.sourcegitcommit: 357a7120632b20465801c093e4e5bd4a315496a8
+ms.openlocfilehash: e992401da2d194b178afbe51a293d103def0f940
+ms.sourcegitcommit: e6bd2bbe5683e9a7dbbc2f2eab644986e6dc8a87
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67649227"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70238155"
 ---
-# <a name="request-and-response-operations-in-aspnet-core"></a>Operacje żądań i odpowiedzi w programie ASP.NET Core
+# <a name="request-and-response-operations-in-aspnet-core"></a>Operacje żądań i odpowiedzi w ASP.NET Core
 
-Przez [Justin Kotalik](https://github.com/jkotalik)
+Autor [Justin Kotalik](https://github.com/jkotalik)
 
-W tym artykule wyjaśniono, jak czytać z treści żądania i zapisywać w treści odpowiedzi. Może być konieczne pisanie kodu dla tych operacji, podczas pisania miej oprogramowania pośredniczącego. W przeciwnym razie zwykle nie trzeba napisać ten kod, ponieważ operacje są obsługiwane przez MVC i stron Razor.
+W tym artykule wyjaśniono sposób odczytywania treści żądania i zapisywania jej w treści odpowiedzi. Kod dla tych operacji może być wymagany podczas pisania oprogramowania pośredniczącego. Poza pisaniem oprogramowania pośredniczącego kod niestandardowy nie jest zazwyczaj wymagany, ponieważ operacje są obsługiwane przez MVC i Razor Pages.
 
-W programie ASP.NET Core 3.0 są dwa elementy abstrakcji do treści żądania i odpowiedzi: <xref:System.IO.Stream> i <xref:System.IO.Pipelines.Pipe>. Żądanie czytelności [HttpRequest.Body](xref:Microsoft.AspNetCore.Http.HttpRequest.Body) jest <xref:System.IO.Stream>, i `HttpRequest.BodyPipe` jest <xref:System.IO.Pipelines.PipeReader>. Do zapisu odpowiedzi [HttpResponse.Body](xref:Microsoft.AspNetCore.Http.HttpResponse.Body) jest `HttpResponse.BodyPipe` jest <xref:System.IO.Pipelines.PipeWriter>.
+Istnieją dwa abstrakcje treści żądania i odpowiedzi: <xref:System.IO.Stream> i. <xref:System.IO.Pipelines.Pipe> W przypadku odczytu żądania żądanie [HttpRequest. Body](xref:Microsoft.AspNetCore.Http.HttpRequest.Body) ma <xref:System.IO.Stream>wartość <xref:System.IO.Pipelines.PipeReader>, `HttpRequest.BodyReader` a jest. Na potrzeby pisania odpowiedzi [HttpResponse. Body](xref:Microsoft.AspNetCore.Http.HttpResponse.Body) to `HttpResponse.BodyWriter` <xref:System.IO.Pipelines.PipeWriter>a.
 
-Firma Microsoft zaleca potoki za pośrednictwem strumieni. Strumienie może być łatwiejszy w obsłudze dla niektórych prostych operacji, ale potoki mają korzystać wydajność i są łatwiejsze w obsłudze w większości scenariuszy. 3\.0 ASP.NET Core zaczyna używać potoków zamiast strumieni wewnętrznie. Przykłady obejmują:
+Potoki są zalecane za pośrednictwem strumieni. Strumienie mogą być łatwiejsze w przypadku niektórych prostych operacji, ale potoki mają zalety wydajności i są łatwiejsze w większości scenariuszy. ASP.NET Core zaczyna używać potoków zamiast strumieni wewnętrznie. Przykłady obejmują:
 
-- `FormReader`
-- `TextReader`
-- `TextWriter`
-- `HttpResponse.WriteAsync`
+* `FormReader`
+* `TextReader`
+* `TextWriter`
+* `HttpResponse.WriteAsync`
 
-Strumienie nie będą natychmiast. Mogą być nadal używane w całej platformy .NET i wiele typów strumienia nie ma odpowiedników potoku, takie jak `FileStreams` i `ResponseCompression`.
+Strumienie nie są usuwane z struktury. Strumienie są nadal używane w środowisku .NET, a wiele typów strumieni nie ma odpowiedników potoku, `FileStreams` takich `ResponseCompression`jak i.
 
-## <a name="stream-examples"></a>Przykłady Stream
+## <a name="stream-examples"></a>Przykłady przesyłania strumieniowego
 
-Załóżmy, że chcesz utworzyć oprogramowania pośredniczącego, które odczytuje całej treści żądania jako listę ciągów, dzielenie w nowych wierszach. Wykonania prostego strumień może wyglądać następująco:
+Załóżmy, że celem jest utworzenie oprogramowania pośredniczącego, które odczytuje całą treść żądania jako listę ciągów, dzieląc je na nowe wiersze. Prosta implementacja strumienia może wyglądać podobnie do poniższego przykładu:
 
 [!code-csharp[](request-response/samples/3.x/RequestResponseSample/Startup.cs?name=GetListOfStringsFromStream)]
 
-Ten kod działa, ale występują pewne problemy:
+Ten kod działa, ale wystąpiły pewne problemy:
 
-- Przed dołączeniem do `StringBuilder`, w przykładzie jest tworzony inny ciąg (`encodedString`), jest wyrzucać natychmiast. Ten proces odbywa się dla wszystkich bajtów w strumieniu, więc dodatkową pamięć przydział rozmiaru całej treści żądania.
-- Przykład odczytuje cały ciąg przed podziałem w nowych wierszach. Byłoby bardziej wydajne, aby sprawdzić, czy są dostępne nowe wiersze w tablicy bajtów.
+* Przed dołączeniem do `StringBuilder`, przykład tworzy kolejny ciąg (`encodedString`), który jest wyrzucany natychmiast. Ten proces występuje dla wszystkich bajtów w strumieniu, więc wynikiem jest dodatkowa alokacja pamięci o rozmiarze całej treści żądania.
+* Przykład odczytuje cały ciąg przed podziałem w nowych wierszach. Aby sprawdzić, czy nowe wiersze w tablicy bajtów są bardziej wydajne.
 
-Oto przykład, w którym niektóre z tych problemów poprawki:
+Oto przykład, który rozwiązuje niektóre z powyższych problemów:
 
 [!code-csharp[](request-response/samples/3.x/RequestResponseSample/Startup.cs?name=GetListOfStringsFromStreamMoreEfficient)]
 
-W tym przykładzie:
+Ten poprzedni przykład:
 
-- Nie buforuje całej treści żądania w `StringBuilder` chyba, że nie ma żadnych znaków nowego wiersza.
-- Nie wywołuje `Split` na ciąg.
+* Nie buforuje całej treści żądania w a `StringBuilder` , chyba że nie występują żadne znaki nowego wiersza.
+* Nie wywołuje `Split` ciągu.
 
-Istnieją jednak są nadal kilka kwestii:
+Jednak nadal występują pewne problemy:
 
-- W przypadku rozrzedzone znakami znaczną część treści żądania są buforowane w ciągu.
-- Nadal tworzy ciągów (`remainingString`) i dodaje je do buforu ciągu, co skutkuje dodatkowy przydział.
+* Jeśli znaki nowego wiersza są rozrzedzone, większość treści żądania jest buforowana w ciągu.
+* Kod nadal tworzy ciągi (`remainingString`) i dodaje je do buforu ciągów, co skutkuje dodatkową alokacją.
 
-Te problemy to naprawić, ale kod jest staje się coraz bardziej skomplikowane niewielkie ulepszenia. Potoki zapewniają sposób, aby rozwiązać te problemy za pomocą minimalnej ilości kodu, złożoności.
+Te problemy są fixable, ale kod staje się coraz bardziej skomplikowany przy niewielkim ulepszaniu. Potoki umożliwiają rozwiązanie tych problemów przy minimalnej złożoności kodu.
 
 ## <a name="pipelines"></a>Potoki
 
-W poniższym przykładzie pokazano, jak ten sam scenariusz może być obsługiwane za pomocą `PipeReader`:
+Poniższy przykład pokazuje, jak można obsłużyć ten sam scenariusz przy `PipeReader`użyciu:
 
 [!code-csharp[](request-response/samples/3.x/RequestResponseSample/Startup.cs?name=GetListOfStringFromPipe)]
 
-W tym przykładzie rozwiązuje wiele problemów, które miały implementacje strumieni:
+Ten przykład naprawia wiele problemów, które zostały wdrożone przez implementacje strumieni:
 
-- Nie jest konieczne dla buforu ciągu, ponieważ `PipeReader` obsługuje bajtów, które nie były używane.
-- Parametry zakodowanej bezpośrednio są dodawane do listy ciągów zwrócone.
-- Tworzenie ciągu jest bezpłatne alokacji oprócz pamięci używanej przez ciąg (z wyjątkiem `ToArray()` wywołania).
+* Nie ma potrzeby używania bufora ciągów, ponieważ `PipeReader` obsługuje on bajty, które nie były używane.
+* Zakodowane ciągi są bezpośrednio dodawane do listy zwracanych ciągów.
+* Tworzenie ciągów jest wolne od alokacji poza pamięcią używaną przez ciąg (z wyjątkiem `ToArray()` wywołania).
 
-## <a name="adapters"></a>Karty
+## <a name="adapters"></a>Zainstalowanych
 
-Skoro zarówno `Body` i `BodyPipe` właściwości są dostępne dla `HttpRequest` i `HttpResponse`, co się stanie po ustawieniu `Body` do różnych strumienia? 3\.0 nowy zbiór kart automatycznie Adaptowane każdego typu na drugi. Na przykład jeśli ustawisz `HttpRequest.Body` na nowy strumień `HttpRequest.BodyPipe` automatycznie zostaje ustawiony nowy `PipeReader` to opakowuje `HttpRequest.Body`. Takie samo zachowanie dotyczy ustawienie `BodyPipe` właściwości. Jeśli `HttpResponse.BodyPipe` ustawiono nową `PipeWriter`, `HttpResponse.Body` automatycznie zostaje ustawiony nowy strumień, który otacza `HttpResponse.BodyPipe`.
+Obie `Body` właściwości `BodyReader/BodyWriter` i są dostępne dla `HttpRequest` i `HttpResponse`. Po ustawieniu `Body` innego strumienia nowy zestaw kart automatycznie dostosowuje każdy typ do drugiego. Jeśli ustawisz `HttpRequest.Body` nowy strumień, `HttpRequest.BodyReader` zostanie automatycznie ustawiony na nowe `PipeReader` Zawijanie `HttpRequest.Body`.
 
 ## <a name="startasync"></a>StartAsync
 
-`HttpResponse.StartAsync` jest nowa w 3.0. Służy do wskazania, że nagłówki są niemodyfikowalnych i uruchamiania `OnStarting` wywołań zwrotnych. W 3.0 preview3, należy wywołać `StartAsync` przed użyciem `HttpRequest.BodyPipe`, i w przyszłych wersjach będą zalecenia. Korzystając z Kestrel jako serwera, wywoływanie StartAsync przed rozpoczęciem korzystania z `PipeReader` gwarantuje, że pamięć zwrócony przez `GetMemory` będą należeć do firmy Kestrel wewnętrzny <xref:System.IO.Pipelines.Pipe> zamiast zewnętrznych buforu.
+`HttpResponse.StartAsync`służy do wskazywania, że nagłówki są niemodyfikowalne i `OnStarting` aby można było uruchamiać wywołania zwrotne. Podczas używania Kestrel jako serwera, `StartAsync` wywołując przed `PipeReader` użyciem gwarancji, że pamięć zwrócona przez `GetMemory` należy do wewnętrznego <xref:System.IO.Pipelines.Pipe> , a nie do buforu zewnętrznego.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-- [Introducing System.IO.Pipelines](https://devblogs.microsoft.com/dotnet/system-io-pipelines-high-performance-io-in-net/)
-- <xref:fundamentals/middleware/write>
+* [Introducing System.IO.Pipelines](https://devblogs.microsoft.com/dotnet/system-io-pipelines-high-performance-io-in-net/)
+* <xref:fundamentals/middleware/write>

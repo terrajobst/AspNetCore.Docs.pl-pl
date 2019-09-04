@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 08/29/2019
 uid: web-api/http-repl
-ms.openlocfilehash: e97b127b869b847997f9c48e4031306daecef2f9
-ms.sourcegitcommit: 4b00e77f9984ce76356e829cfe7f75f0f61a7a8f
+ms.openlocfilehash: 7121670856da4b123b1c3e780a7952da0fb696a1
+ms.sourcegitcommit: e6bd2bbe5683e9a7dbbc2f2eab644986e6dc8a87
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70145782"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70238047"
 ---
 # <a name="test-web-apis-with-the-http-repl"></a>Testowanie interfejsów API sieci Web przy użyciu protokołu HTTP REPL
 
@@ -134,7 +134,7 @@ Połącz się z interfejsem API sieci Web, uruchamiając następujące polecenie
 dotnet httprepl <ROOT URI>
 ```
 
-`<ROOT URI>`jest podstawowym identyfikatorem URI dla internetowego interfejsu API. Przykład:
+`<ROOT URI>`jest podstawowym identyfikatorem URI dla internetowego interfejsu API. Na przykład:
 
 ```console
 dotnet httprepl https://localhost:5001
@@ -146,7 +146,7 @@ Alternatywnie Uruchom następujące polecenie w dowolnym momencie podczas dział
 connect <ROOT URI>
 ```
 
-Przykład:
+Na przykład:
 
 ```console
 (Disconnected)~ connect https://localhost:5001
@@ -243,7 +243,7 @@ Plik *. httpreplprefs* jest ładowany podczas uruchamiania i nie jest monitorowa
 
 ### <a name="view-the-settings"></a>Wyświetlanie ustawień
 
-Aby wyświetlić dostępne ustawienia, uruchom `pref get` polecenie. Przykład:
+Aby wyświetlić dostępne ustawienia, uruchom `pref get` polecenie. Na przykład:
 
 ```console
 https://localhost:5001/~ pref get
@@ -373,7 +373,7 @@ Domyślnie REPL http ma zestaw ścieżek względnych, których używa do znajdow
 Aby użyć innego zestawu ścieżek wyszukiwania w środowisku, ustaw `swagger.searchPaths` preferencję. Wartość musi być rozdzielaną potokami listą ścieżek względnych. Na przykład:
 
 ```console
-pref set swagger.searchPaths "swagger/v2/swagger.json|swagger/v3/swagger.json
+pref set swagger.searchPaths "swagger/v2/swagger.json|swagger/v3/swagger.json"
 ```
 
 ## <a name="test-http-get-requests"></a>Testuj żądania HTTP GET
@@ -490,7 +490,7 @@ Aby wydać żądanie HTTP POST:
     https://localhost:5001/people~ post -h Content-Type=application/json
     ```
 
-    W poprzednim poleceniu nagłówek żądania `Content-Type` http jest ustawiany w taki sposób, aby wskazywał typ nośnika treści żądania JSON. Domyślny edytor tekstu otwiera plik *. tmp* z szablonem JSON reprezentującym treść żądania HTTP. Przykład:
+    W poprzednim poleceniu nagłówek żądania `Content-Type` http jest ustawiany w taki sposób, aby wskazywał typ nośnika treści żądania JSON. Domyślny edytor tekstu otwiera plik *. tmp* z szablonem JSON reprezentującym treść żądania HTTP. Na przykład:
 
     ```json
     {
@@ -798,13 +798,13 @@ Aby ustawić nagłówek żądania HTTP, należy użyć jednej z następujących 
 
   W przypadku wcześniejszego podejścia każdy unikatowy nagłówek żądania HTTP wymaga własnej `-h` opcji.
 
-1. Ustaw przed wysłaniem żądania HTTP. Przykład:
+1. Ustaw przed wysłaniem żądania HTTP. Na przykład:
 
   ```console
   https://localhost:5001/people~ set header Content-Type application/json
   ```
 
-  Podczas ustawiania nagłówka przed wysłaniem żądania nagłówek pozostaje ustawiony na czas trwania sesji powłoki poleceń. Aby wyczyścić nagłówek, podaj wartość pustą. Na przykład:
+  Podczas ustawiania nagłówka przed wysłaniem żądania nagłówek pozostaje ustawiony na czas trwania sesji powłoki poleceń. Aby wyczyścić nagłówek, podaj wartość pustą. Przykład:
 
   ```console
   https://localhost:5001/people~ set header Content-Type
@@ -816,7 +816,7 @@ Domyślnie wyświetlanie wysyłanego żądania HTTP jest pomijane. Istnieje moż
 
 ### <a name="enable-request-display"></a>Włącz wyświetlanie żądań
 
-Wyświetl wysyłane żądanie HTTP, uruchamiając `echo on` polecenie. Przykład:
+Wyświetl wysyłane żądanie HTTP, uruchamiając `echo on` polecenie. Na przykład:
 
 ```console
 https://localhost:5001/people~ echo on

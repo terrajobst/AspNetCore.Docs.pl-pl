@@ -5,12 +5,12 @@ description: Dowiedz się, jak używać typowych układów, udostępniać dyrekt
 ms.author: riande
 ms.date: 07/30/2019
 uid: mvc/views/layout
-ms.openlocfilehash: 6bd9dfc65c026ee524277aaaa21333d299c8981e
-ms.sourcegitcommit: 7001657c00358b082734ba4273693b9b3ed35d2a
+ms.openlocfilehash: 9a7b8003b24329f6e9cbd349ee47f6844b7c5f6d
+ms.sourcegitcommit: e6bd2bbe5683e9a7dbbc2f2eab644986e6dc8a87
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68670008"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70238033"
 ---
 # <a name="layout-in-aspnet-core"></a>Układ w ASP.NET Core
 
@@ -24,7 +24,7 @@ Strony i widoki często udostępniają wizualizacje i programistyczne elementy. 
 
 W tym dokumencie omówiono układy dla dwóch różnych metod ASP.NET Core MVC: Razor Pages i kontrolery z widokami. W tym temacie różnice są minimalne:
 
-* Razor Pages znajdują się w folderze Pages.
+* Razor Pages znajdują się w folderze *Pages* .
 * Kontrolery z widokami używają folderu *widoki* dla widoków.
 
 ## <a name="what-is-a-layout"></a>Co to jest układ
@@ -62,7 +62,7 @@ Określony układ może używać pełnej ścieżki (na przykład */Pages/Shared/
 Domyślnie każdy układ musi wywoływać `RenderBody`. W każdym miejscu, `RenderBody` w którym jest umieszczane wywołanie, zawartość widoku będzie renderowana.
 
 <a name="layout-sections-label"></a>
-
+<!-- https://stackoverflow.com/questions/23327578 -->
 ### <a name="sections"></a>Sekcje
 
 Układ może opcjonalnie odwoływać się do co najmniej jednej *sekcji*, `RenderSection`wywołując. Sekcje umożliwiają organizowanie miejsca, w którym należy umieścić pewne elementy strony. Każde wywołanie programu `RenderSection` może określać, czy ta sekcja jest wymagana czy opcjonalna:

@@ -1,1 +1,1 @@
-Wprowadzenie bardziej zaawansowanych, zmierzające do doświadczonych deweloperów — zobacz [wprowadzenie do stron Razor](xref:razor-pages/index).
+Aby uzyskać bardziej zaawansowane wprowadzenie do deweloperów, którzy znają kontrolery i widoki, zobacz [wprowadzenie do Razor Pages](xref:razor-pages/index).

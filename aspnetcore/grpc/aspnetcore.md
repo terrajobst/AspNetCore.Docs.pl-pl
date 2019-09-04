@@ -4,14 +4,14 @@ author: juntaoluo
 description: Zapoznaj się z podstawowymi pojęciami dotyczącymi pisania usług gRPC Services przy użyciu ASP.NET Core.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
-ms.date: 08/28/2019
+ms.date: 09/03/2019
 uid: grpc/aspnetcore
-ms.openlocfilehash: 128f5b36eac9112460c33693db5537134a077476
-ms.sourcegitcommit: 23f79bd71d49c4efddb56377c1f553cc993d781b
+ms.openlocfilehash: 28e6b8589bbe0b6a3723b64736c723c883302571
+ms.sourcegitcommit: e6bd2bbe5683e9a7dbbc2f2eab644986e6dc8a87
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70130702"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70238164"
 ---
 # <a name="grpc-services-with-aspnet-core"></a>Usługi gRPC na platformie ASP.NET Core
 
@@ -71,10 +71,9 @@ Punkty końcowe Kestrel gRPC:
 
 #### <a name="http2"></a>HTTP/2
 
-Kestrel [obsługuje protokół HTTP/2](xref:fundamentals/servers/kestrel#http2-support) w większości nowoczesnych systemów operacyjnych. Punkty końcowe Kestrel są domyślnie skonfigurowane do obsługi połączeń HTTP/1.1 i HTTP/2.
+gRPC wymaga protokołu HTTP/2. gRPC dla ASP.NET Core sprawdza poprawność elementu [HttpRequest. Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) `HTTP/2`.
 
-> [!NOTE]
-> macOS nie obsługuje ASP.NET Core gRPC z [Transport Layer Security (TLS)](https://tools.ietf.org/html/rfc5246). Aby pomyślnie uruchomić usługi gRPC Services w usłudze macOS, wymagana jest dodatkowa konfiguracja. Aby uzyskać więcej informacji, zobacz [nie można uruchomić aplikacji ASP.NET Core gRPC w witrynie macOS](xref:grpc/troubleshoot#unable-to-start-aspnet-core-grpc-app-on-macos).
+Kestrel [obsługuje protokół HTTP/2](xref:fundamentals/servers/kestrel#http2-support) w większości nowoczesnych systemów operacyjnych. Punkty końcowe Kestrel są domyślnie skonfigurowane do obsługi połączeń HTTP/1.1 i HTTP/2.
 
 #### <a name="https"></a>HTTPS
 
@@ -101,7 +100,7 @@ W środowisku produkcyjnym należy jawnie skonfigurować protokół HTTPS. W pon
 }
 ```
 
-Alternatywnie Kestrel endspoints można skonfigurować w *program.cs*:
+Alternatywnie można skonfigurować punkty końcowe Kestrel w *program.cs*:
 
 ```csharp
 public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -122,7 +121,12 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
         });
 ```
 
+Gdy punkt końcowy protokołu HTTP/2 jest skonfigurowany bez protokołu HTTPS, [ListenOptions. protokoły](xref:fundamentals/servers/kestrel#listenoptionsprotocols) punktu końcowego muszą mieć ustawioną wartość `HttpProtocols.Http2`. `HttpProtocols.Http1AndHttp2`nie można użyć, ponieważ HTTPS jest wymagany do negocjowania protokołu HTTP/2. Bez protokołu HTTPS wszystkie połączenia z punktem końcowym domyślne do protokołu HTTP/1.1 i wywołania gRPC kończą się niepowodzeniem.
+
 Aby uzyskać więcej informacji na temat włączania protokołów HTTP/2 i HTTPS za pomocą Kestrel, zobacz [Konfiguracja punktu końcowego Kestrel](xref:fundamentals/servers/kestrel#endpoint-configuration).
+
+> [!NOTE]
+> macOS nie obsługuje ASP.NET Core gRPC z [Transport Layer Security (TLS)](https://tools.ietf.org/html/rfc5246). Aby pomyślnie uruchomić usługi gRPC Services w usłudze macOS, wymagana jest dodatkowa konfiguracja. Aby uzyskać więcej informacji, zobacz [nie można uruchomić aplikacji ASP.NET Core gRPC w witrynie macOS](xref:grpc/troubleshoot#unable-to-start-aspnet-core-grpc-app-on-macos).
 
 ## <a name="integration-with-aspnet-core-apis"></a>Integracja z interfejsami API ASP.NET Core
 
